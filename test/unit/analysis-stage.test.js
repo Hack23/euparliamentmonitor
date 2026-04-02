@@ -510,6 +510,8 @@ describe('runAnalysisStage', () => {
       });
       const m1 = readManifest(tmpDir, testDate);
 
+      // Second run on the same date gets a suffixed directory (e.g. {date}-2)
+      // because the first run already created a manifest.json at the base path.
       await runAnalysisStage(buildTestFetchedData(), {
         articleTypes: ['week-ahead'],
         date: testDate,
@@ -517,7 +519,9 @@ describe('runAnalysisStage', () => {
         enabledMethods: ['stakeholder-analysis'],
         skipCompleted: false,
       });
-      const m2 = readManifest(tmpDir, testDate);
+      const suffixedManifestPath = path.join(tmpDir, `${testDate}-2`, 'manifest.json');
+      expect(fs.existsSync(suffixedManifestPath)).toBe(true);
+      const m2 = JSON.parse(fs.readFileSync(suffixedManifestPath, 'utf-8'));
 
       expect(m1.runId).not.toBe(m2.runId);
     });
@@ -1429,9 +1433,12 @@ describe('runAnalysisStage', () => {
       });
       expect(ctx1.results.get('deep-analysis').status).toBe('completed');
 
-      // Make the existing/ subdirectory read-only so the next write fails
-      const existingDir = path.join(tmpDir, testDate, 'existing');
-      fs.chmodSync(existingDir, 0o444);
+      // Second run goes to a suffixed directory (e.g. {date}-2) since first run
+      // wrote a manifest.json. Make that suffixed existing/ dir read-only so the
+      // write fails.
+      const suffixedDateDir = path.join(tmpDir, `${testDate}-2`);
+      fs.mkdirSync(path.join(suffixedDateDir, 'existing'), { recursive: true });
+      fs.chmodSync(path.join(suffixedDateDir, 'existing'), 0o444);
 
       const ctx2 = await runAnalysisStage(buildTestFetchedData(), {
         articleTypes: ['week-ahead'],
@@ -1442,7 +1449,7 @@ describe('runAnalysisStage', () => {
       });
 
       // Restore permissions for cleanup
-      fs.chmodSync(existingDir, 0o755);
+      fs.chmodSync(path.join(suffixedDateDir, 'existing'), 0o755);
 
       // The method should have failed because atomicWrite cannot write to read-only dir
       const result = ctx2.results.get('deep-analysis');

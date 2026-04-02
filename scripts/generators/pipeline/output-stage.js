@@ -9,7 +9,7 @@
  */
 import fs from 'fs';
 import path from 'path';
-import { formatDateForSlug, atomicWrite } from '../../utils/file-utils.js';
+import { formatDateForSlug, atomicWrite, resolveUniqueFilePath } from '../../utils/file-utils.js';
 // ─── File-write helpers ───────────────────────────────────────────────────────
 /** Log prefix for write operations */
 const DRY_RUN_PREFIX = '  [DRY RUN]';
@@ -39,8 +39,17 @@ export function writeArticleFile(html, filename, options) {
         console.log(`${DRY_RUN_PREFIX} Would write: ${filename}`);
         return false;
     }
-    atomicWrite(filepath, html);
-    console.log(`  ✅ Wrote: ${filename}`);
+    // When not in skip mode: resolve a unique path to avoid overwriting
+    // existing articles from prior workflow runs on the same date.
+    const uniquePath = resolveUniqueFilePath(filepath);
+    atomicWrite(uniquePath, html);
+    const writtenName = path.basename(uniquePath);
+    if (writtenName !== filename) {
+        console.log(`  ✅ Wrote: ${writtenName} (unique — original ${filename} already existed)`);
+    }
+    else {
+        console.log(`  ✅ Wrote: ${filename}`);
+    }
     return true;
 }
 /**

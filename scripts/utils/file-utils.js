@@ -124,6 +124,66 @@ export function ensureDirectoryExists(dirPath) {
     }
 }
 /**
+ * Resolve a unique directory path by appending a numeric suffix (-1, -2, …)
+ * when the base directory already contains a completed analysis run
+ * (indicated by the presence of a `manifest.json` file).
+ *
+ * This prevents repeated workflow runs (e.g. breaking news every 6 hours)
+ * from overwriting previously committed analysis.
+ *
+ * @param baseDir - The preferred directory path (e.g. `analysis/2026-04-02/breaking`)
+ * @returns The original `baseDir` when no completed run exists there, or a
+ *          suffixed variant (e.g. `analysis/2026-04-02/breaking-2`) otherwise.
+ */
+export function resolveUniqueAnalysisDir(baseDir) {
+    // If the directory doesn't exist yet or has no manifest, use it as-is
+    if (!fs.existsSync(path.join(baseDir, 'manifest.json'))) {
+        return baseDir;
+    }
+    // Directory already has a completed run — find the next available suffix
+    let suffix = 2;
+    // Safety cap to prevent runaway loops
+    const MAX_SUFFIX = 100;
+    while (suffix <= MAX_SUFFIX) {
+        const candidate = `${baseDir}-${suffix}`;
+        if (!fs.existsSync(path.join(candidate, 'manifest.json'))) {
+            return candidate;
+        }
+        suffix++;
+    }
+    // Fallback: use UUID-suffixed directory to guarantee uniqueness
+    return `${baseDir}-${Date.now()}`;
+}
+/**
+ * Resolve a unique filename by appending a numeric suffix (-1, -2, …) before
+ * the file extension when the file already exists.
+ *
+ * This prevents repeated workflow runs from overwriting previously committed
+ * news articles.
+ *
+ * @param filepath - The preferred file path (e.g. `news/2026-04-02-breaking-en.html`)
+ * @returns The original path when the file doesn't exist, or a suffixed
+ *          variant (e.g. `news/2026-04-02-breaking-en-2.html`) otherwise.
+ */
+export function resolveUniqueFilePath(filepath) {
+    if (!fs.existsSync(filepath)) {
+        return filepath;
+    }
+    const dir = path.dirname(filepath);
+    const ext = path.extname(filepath);
+    const base = path.basename(filepath, ext);
+    let suffix = 2;
+    const MAX_SUFFIX = 100;
+    while (suffix <= MAX_SUFFIX) {
+        const candidate = path.join(dir, `${base}-${suffix}${ext}`);
+        if (!fs.existsSync(candidate)) {
+            return candidate;
+        }
+        suffix++;
+    }
+    return path.join(dir, `${base}-${Date.now()}${ext}`);
+}
+/**
  * Write content to a file with UTF-8 encoding
  *
  * @param filepath - Output file path

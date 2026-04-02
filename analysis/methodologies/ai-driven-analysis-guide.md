@@ -40,11 +40,29 @@ Each agentic workflow writes ONLY to its own isolated folder:
 analysis/{YYYY-MM-DD}/{article-type-slug}/
 ```
 
+**Automatic suffix deduplication (v3.0):** When a workflow runs and a prior completed analysis already exists at the target path (indicated by an existing `manifest.json`), the system automatically appends a numeric suffix to create a new directory:
+
+```
+analysis/2026-04-02/breaking/       ← first run
+analysis/2026-04-02/breaking-2/     ← second run (same day)
+analysis/2026-04-02/breaking-3/     ← third run (same day)
+```
+
+Similarly, news article files receive a suffix before the extension:
+
+```
+news/2026-04-02-breaking-en.html       ← first run
+news/2026-04-02-breaking-en-2.html     ← second run
+```
+
+This ensures that repeated or scheduled workflow runs (e.g. breaking news every 6 hours) NEVER overwrite previously committed analysis or articles. Each run produces its own unique output.
+
 **Enforcement checklist:**
-- [ ] My workflow writes ONLY to `analysis/${ARTICLE_DATE}/${ARTICLE_TYPE_SLUG}/`
-- [ ] My `git add` is scoped: `git add "analysis/${ARTICLE_DATE}/${ARTICLE_TYPE_SLUG}/"`
+- [ ] My workflow writes ONLY to `analysis/${ARTICLE_DATE}/${ARTICLE_TYPE_SLUG}/` (or its suffixed variant)
+- [ ] My `git add` is scoped: `git add "analysis/${ARTICLE_DATE}/${ARTICLE_TYPE_SLUG}*/"` (includes suffixed dirs)
 - [ ] I do NOT touch files in any other workflow's folder
-- [ ] Breaking workflows use the `breaking/` slug
+- [ ] Breaking workflows use the `breaking/` slug (automatic suffixing handles repeats)
+- [ ] I do NOT manually delete or overwrite any existing analysis or article files
 
 ### Rule 2: AI Performs ALL Analysis — Scripts ONLY Download Data
 

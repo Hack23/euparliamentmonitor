@@ -52,7 +52,7 @@ import { detectVotingTrends, computeCrossSessionCoalitionStability, } from '../.
 import { assessPoliticalSignificance, buildImpactMatrix, classifyPoliticalActors, analyzePoliticalForces, } from '../../utils/political-classification.js';
 import { assessPoliticalThreats, buildActorThreatProfiles, buildConsequenceTree, analyzeLegislativeDisruption, generateThreatAssessmentMarkdown, } from '../../utils/political-threat-assessment.js';
 import { assessLegislativeVelocityRisk, runAgentRiskAssessment, generateRiskAssessmentMarkdown, calculatePoliticalRiskScore, buildQuantitativeSWOT, createScoredSWOTItem, createScoredOpportunityOrThreat, createRiskDriver, } from '../../utils/political-risk-assessment.js';
-import { ensureDirectoryExists, atomicWrite } from '../../utils/file-utils.js';
+import { ensureDirectoryExists, atomicWrite, resolveUniqueAnalysisDir } from '../../utils/file-utils.js';
 // ─── Markdown constants ───────────────────────────────────────────────────────
 /** Empty table row placeholder for 6-column tables */
 const EMPTY_TABLE_ROW_6 = '| — | — | — | — | — | — |';
@@ -2044,9 +2044,13 @@ export async function runAnalysisStage(fetchedData, options) {
     const runId = randomUUID();
     // When articleTypeSlug is provided, scope output to a per-article-type
     // subdirectory so concurrent workflows on the same date never collide.
-    const dateOutputDir = articleTypeSlug
+    // resolveUniqueAnalysisDir appends a numeric suffix (-2, -3, …) when
+    // a prior completed run (with manifest.json) already occupies the path,
+    // preventing repeated workflow runs from overwriting previous analysis.
+    const preferredDir = articleTypeSlug
         ? path.resolve(outputDir, date, articleTypeSlug)
         : path.resolve(outputDir, date);
+    const dateOutputDir = resolveUniqueAnalysisDir(preferredDir);
     if (verbose) {
         console.log(`🔬 [analysis] Starting analysis stage (runId: ${runId})`);
         console.log(`   Date: ${date}`);

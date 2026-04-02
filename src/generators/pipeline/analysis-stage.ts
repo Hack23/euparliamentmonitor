@@ -83,7 +83,7 @@ import {
   createScoredOpportunityOrThreat,
   createRiskDriver,
 } from '../../utils/political-risk-assessment.js';
-import { ensureDirectoryExists, atomicWrite } from '../../utils/file-utils.js';
+import { ensureDirectoryExists, atomicWrite, resolveUniqueAnalysisDir } from '../../utils/file-utils.js';
 
 // ─── Markdown constants ───────────────────────────────────────────────────────
 
@@ -2716,9 +2716,13 @@ export async function runAnalysisStage(
 
   // When articleTypeSlug is provided, scope output to a per-article-type
   // subdirectory so concurrent workflows on the same date never collide.
-  const dateOutputDir = articleTypeSlug
+  // resolveUniqueAnalysisDir appends a numeric suffix (-2, -3, …) when
+  // a prior completed run (with manifest.json) already occupies the path,
+  // preventing repeated workflow runs from overwriting previous analysis.
+  const preferredDir = articleTypeSlug
     ? path.resolve(outputDir, date, articleTypeSlug)
     : path.resolve(outputDir, date);
+  const dateOutputDir = resolveUniqueAnalysisDir(preferredDir);
 
   if (verbose) {
     console.log(`🔬 [analysis] Starting analysis stage (runId: ${runId})`);

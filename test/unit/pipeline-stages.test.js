@@ -334,13 +334,18 @@ describe('writeArticleFile', () => {
     expect(fs.readFileSync(path.join(tmpDir, filename), 'utf-8')).toBe('old content');
   });
 
-  it('overwrites an existing file when skipExisting is false', () => {
+  it('creates a uniquely-named file when an existing file is present and skipExisting is false', () => {
     const filename = 'overwrite.html';
     fs.writeFileSync(path.join(tmpDir, filename), 'old', 'utf-8');
     const opts = { dryRun: false, skipExisting: false, newsDir: tmpDir };
     const written = writeArticleFile('<new/>', filename, opts);
     expect(written).toBe(true);
-    expect(fs.readFileSync(path.join(tmpDir, filename), 'utf-8')).toBe('<new/>');
+    // Original file should be preserved (not overwritten)
+    expect(fs.readFileSync(path.join(tmpDir, filename), 'utf-8')).toBe('old');
+    // New content should be at a suffixed filename
+    const suffixedPath = path.join(tmpDir, 'overwrite-2.html');
+    expect(fs.existsSync(suffixedPath)).toBe(true);
+    expect(fs.readFileSync(suffixedPath, 'utf-8')).toBe('<new/>');
   });
 });
 
