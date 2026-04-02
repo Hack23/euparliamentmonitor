@@ -665,7 +665,48 @@ if [ "$MISSING_SWITCHER" -gt 0 ] || [ "$MISSING_TOPNAV" -gt 0 ] || [ "$MISSING_H
 fi
 ```
 
-### Step 5: Create PR
+### Step 5: Quality Gates & Create PR
+
+## ✅ ANALYSIS QUALITY GATES (ENHANCED)
+
+> **⚠️ MANDATORY**: Per `ai-driven-analysis-guide.md` Rules 6–8, all quality gates below must pass before PR creation. Article type: `${ARTICLE_TYPE_SLUG}` (varies per run).
+
+### Content Quality (existing gates — maintained)
+- ✅ Min 500 words analytical content per article
+- ✅ No synthetic IDs or placeholder data (VOTE-2024-001, DOC-2024-001 are FORBIDDEN)
+- ✅ Current dates with specific EP references
+- ✅ Feed-first content with dated event references
+
+### Article Type Identification (Rule 6 — required)
+- ✅ **manifest.json** includes `"articleType": "<slug>"` matching the article type being generated
+- ✅ **Analysis markdown** files include `articleType: <slug>` in YAML frontmatter
+- ✅ **Article HTML** includes `<meta name="article-type" content="<slug>">`
+- ✅ **Analysis directory** is scoped to `analysis/${TODAY}/${ARTICLE_TYPE_SLUG}/`
+
+### Minimum AI Analysis Time (Rule 7 — required)
+- ✅ **≥15 minutes per article type** spent on AI-driven political intelligence analysis
+- ✅ **4-pass refinement cycle** completed for all analytical content sections
+- ✅ **All 6 methodology documents** read before any analysis
+
+### Script/AI Separation (Rule 8 — required)
+- ✅ **No `[AI_ANALYSIS_REQUIRED]` placeholders** remain in final HTML
+- ✅ **No empty SWOT entries** (every quadrant has ≥2 substantive entries with evidence)
+- ✅ **No `data-connections="0"` mindmaps** — real policy connections mapped
+- ✅ **Every stakeholder outcome** has AI-written rationale (not just Winner/Loser labels)
+- ✅ **Confidence levels** stated on all non-factual analytical claims
+
+### Analysis Depth (gates — required)
+- ✅ **Stakeholder coverage**: Min 3 perspectives analyzed per key development
+- ✅ **SWOT dimensions**: Must include both political AND economic/regulatory dimensions
+- ✅ **Evidence chains**: Deep analysis must cite specific document IDs, vote counts, or MCP data
+- ✅ **Outlook scenarios**: Must provide at least 2 named scenarios with probability labels
+- ✅ **Sources section**: Must cite ≥3 specific EP data sources (document IDs, MCP tools, procedure references)
+
+### Political Intelligence (gates — required)
+- ✅ **Coalition dynamics**: Identify voting alliances for key items
+- ✅ **Group positions explained**: State WHY each group holds its position
+- ✅ **Winner/loser analysis**: Identify who gains/loses from each outcome WITH evidence
+- ✅ **Multi-framework analysis**: At least 2 analytical frameworks applied
 
 > **⚠️ Do NOT commit generated files**: `sitemap.xml`, `sitemap*.html`, `rss.xml`, `index.html`, `index-*.html`, `news/articles-metadata.json`, and `news/metadata/generation-*.json` are generated at deploy time or by other processes. Only commit article HTML files: `news/{YYYY-MM-DD}-{type}-{lang}.html`
 

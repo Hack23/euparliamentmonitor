@@ -562,25 +562,47 @@ fi
 
 ## ✅ ANALYSIS QUALITY GATES (ENHANCED)
 
+> **⚠️ MANDATORY**: Per `ai-driven-analysis-guide.md` Rules 6–8, all quality gates below must pass before PR creation. Article type: `breaking`.
+
 ### Content Quality (existing gates — maintained)
 - ✅ Min 500 words analytical content
 - ✅ No synthetic IDs or placeholder data (VOTE-2024-001, DOC-2024-001 are FORBIDDEN)
 - ✅ Current dates with specific EP references
 - ✅ Feed-first content with dated event references
 
-### Analysis Depth (NEW gates — required)
+### Article Type Identification (Rule 6 — required)
+- ✅ **manifest.json** includes `"articleType": "breaking"`
+- ✅ **Analysis markdown** files include `articleType: breaking` in YAML frontmatter
+- ✅ **Article HTML** includes `<meta name="article-type" content="breaking">`
+- ✅ **Analysis directory** is scoped to `analysis/${TODAY}/breaking/`
+
+### Minimum AI Analysis Time (Rule 7 — required)
+- ✅ **≥15 minutes** spent on AI-driven political intelligence analysis (reading methodologies, querying MCP, writing original analytical prose)
+- ✅ **4-pass refinement cycle** completed for all analytical content sections
+- ✅ **All 6 methodology documents** read before any analysis (political-swot-framework.md, political-risk-methodology.md, political-threat-framework.md, political-classification-guide.md, political-style-guide.md, ai-driven-analysis-guide.md)
+
+### Script/AI Separation (Rule 8 — required)
+- ✅ **No `[AI_ANALYSIS_REQUIRED]` placeholders** remain in final HTML
+- ✅ **No empty SWOT entries** (every quadrant has ≥2 substantive entries with evidence)
+- ✅ **No `data-connections="0"` mindmaps** — real policy connections mapped
+- ✅ **Every stakeholder outcome** has AI-written rationale (not just Winner/Loser labels)
+- ✅ **Confidence levels** stated on all non-factual analytical claims
+
+### Analysis Depth (gates — required)
 - ✅ **Stakeholder coverage**: Min 3 perspectives analyzed per key development
 - ✅ **SWOT dimensions**: Must include both political AND economic/regulatory dimensions
 - ✅ **Dashboard trends**: Must include trend indicators (↑↓→) not just current values
 - ✅ **Mindmap connections**: Must show cross-domain policy links (e.g., environment ↔ trade ↔ social)
 - ✅ **Evidence chains**: Deep analysis must cite specific document IDs, vote counts, or MCP data
 - ✅ **Outlook scenarios**: Must provide at least 2 named scenarios with probability labels
+- ✅ **Sources section**: Must cite ≥3 specific EP data sources (document IDs, MCP tools, procedure references)
 
-### Political Intelligence (NEW gates — required)
+### Political Intelligence (gates — required)
 - ✅ **Coalition dynamics**: Identify voting alliances for key items (not just "EPP and S&D voted together")
 - ✅ **Group positions explained**: State WHY each group holds its position (incentives, ideology, constituency)
 - ✅ **Winner/loser analysis**: Identify who gains/loses from each outcome WITH evidence
 - ✅ **Historical context**: Reference comparable past EP actions where relevant
+- ✅ **Multi-framework analysis**: At least 2 analytical frameworks applied (e.g., SWOT + Risk, or Attack Tree + Kill Chain)
 
 ### File Count Validation
 

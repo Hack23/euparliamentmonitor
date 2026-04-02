@@ -50,7 +50,7 @@ export { buildMetadataDatabase, writeMetadataDatabase, readMetadataDatabase, upd
 // ─── Metadata Utilities ──────────────────────────────────────────────────────
 export { pl, pl as pluralizeCount } from './utils/metadata-utils.js';
 // ─── Political Threat Assessment ─────────────────────────────────────────────
-export { assessPoliticalThreats, buildActorThreatProfiles, buildConsequenceTree, analyzeLegislativeDisruption, generateThreatAssessmentMarkdown, ALL_THREAT_LANDSCAPE_DIMENSIONS, ALL_POLITICAL_STRIDE_CATEGORIES, } from './utils/political-threat-assessment.js';
+export { assessPoliticalThreats, buildActorThreatProfiles, buildConsequenceTree, analyzeLegislativeDisruption, generateThreatAssessmentMarkdown, ALL_THREAT_LANDSCAPE_DIMENSIONS, } from './utils/political-threat-assessment.js';
 // ─── HTML Utilities ──────────────────────────────────────────────────────────
 export { stripScriptBlocks } from './utils/html-sanitize.js';
 export { parseArticleFilename, formatSlug, calculateReadTime, escapeHTML, isSafeURL, validateArticleHTML, } from './utils/file-utils.js';

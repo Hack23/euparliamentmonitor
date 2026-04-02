@@ -30,6 +30,22 @@ import {
   FOOTER_QUICK_LINKS_LABELS,
   FOOTER_BUILT_BY_LABELS,
   FOOTER_LANGUAGES_LABELS,
+  ANALYSIS_TRANSPARENCY_LABELS,
+  ANALYSIS_SUMMARY_LABELS,
+  METHODOLOGY_LABELS,
+  TRANSPARENCY_DISCLOSURE_LABELS,
+  CLASSIFICATION_ANALYSIS_LABELS,
+  THREAT_ASSESSMENT_LABELS,
+  RISK_SCORING_LABELS,
+  DEEP_ANALYSIS_LABELS,
+  VIEW_SOURCE_LABELS,
+  OPEN_SOURCE_NOTE_LABELS,
+  AI_ANALYSIS_GUIDE_LABELS,
+  SWOT_FRAMEWORK_LABELS,
+  RISK_METHODOLOGY_LABELS,
+  THREAT_FRAMEWORK_LABELS,
+  CLASSIFICATION_GUIDE_LABELS,
+  STYLE_GUIDE_LABELS,
   getLocalizedString,
   getTextDirection,
 } from '../constants/languages.js';
@@ -280,6 +296,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
   <meta property="article:modified_time" content="${date}">
   <meta property="article:author" content="EU Parliament Monitor">
   <meta property="article:section" content="${safeCategoryLabel}">
+  <meta name="article-type" content="${escapeHTML(category)}">
   ${keywords
     .slice(0, 10)
     .map((k) => `<meta property="article:tag" content="${escapeHTML(k)}">`)
@@ -364,6 +381,8 @@ export function generateArticleHTML(options: ArticleOptions): string {
     ${content}
     
     ${renderSourcesSection(sources, lang)}
+    
+    ${renderAnalysisTransparencySection(date, slug, lang)}
     
     <nav class="article-nav" aria-label="${escapeHTML(articleNavLabel)}">
       <a href="${indexHref}" class="back-to-news">${backLabel}</a>
@@ -472,5 +491,67 @@ function renderSourcesSection(sources: ArticleSource[], lang: LanguageCode): str
         </ul>
       </section>
     </footer>
+    `;
+}
+
+/**
+ * Render the analysis transparency section with links to analysis artifacts and methodology
+ *
+ * @param date - Article date (YYYY-MM-DD)
+ * @param slug - Article type slug (e.g., 'committee-reports', 'breaking')
+ * @param lang - Language code
+ * @returns HTML string for analysis transparency section
+ */
+function renderAnalysisTransparencySection(date: string, slug: string, lang: LanguageCode): string {
+  const safeDate = escapeHTML(date);
+  const safeSlug = escapeHTML(slug);
+  const heading = escapeHTML(getLocalizedString(ANALYSIS_TRANSPARENCY_LABELS, lang));
+  const analysisSummaryLabel = escapeHTML(getLocalizedString(ANALYSIS_SUMMARY_LABELS, lang));
+  const methodologyLabel = escapeHTML(getLocalizedString(METHODOLOGY_LABELS, lang));
+  const disclosure = escapeHTML(getLocalizedString(TRANSPARENCY_DISCLOSURE_LABELS, lang));
+  const classificationLabel = escapeHTML(getLocalizedString(CLASSIFICATION_ANALYSIS_LABELS, lang));
+  const threatLabel = escapeHTML(getLocalizedString(THREAT_ASSESSMENT_LABELS, lang));
+  const riskLabel = escapeHTML(getLocalizedString(RISK_SCORING_LABELS, lang));
+  const deepLabel = escapeHTML(getLocalizedString(DEEP_ANALYSIS_LABELS, lang));
+  const viewSourceLabel = escapeHTML(getLocalizedString(VIEW_SOURCE_LABELS, lang));
+  const openSourceNote = escapeHTML(getLocalizedString(OPEN_SOURCE_NOTE_LABELS, lang));
+  const aiGuideLabel = escapeHTML(getLocalizedString(AI_ANALYSIS_GUIDE_LABELS, lang));
+  const swotLabel = escapeHTML(getLocalizedString(SWOT_FRAMEWORK_LABELS, lang));
+  const riskMethodLabel = escapeHTML(getLocalizedString(RISK_METHODOLOGY_LABELS, lang));
+  const threatFrameworkLabel = escapeHTML(getLocalizedString(THREAT_FRAMEWORK_LABELS, lang));
+  const classGuideLabel = escapeHTML(getLocalizedString(CLASSIFICATION_GUIDE_LABELS, lang));
+  const styleGuideLabel = escapeHTML(getLocalizedString(STYLE_GUIDE_LABELS, lang));
+
+  const repoBase = 'https://github.com/Hack23/euparliamentmonitor/blob/main';
+  const treeDirBase = 'https://github.com/Hack23/euparliamentmonitor/tree/main';
+  const analysisDir = `${treeDirBase}/analysis/${safeDate}/${safeSlug}`;
+  const methodologyDir = `${repoBase}/analysis/methodologies`;
+
+  return `
+    <section class="analysis-transparency" aria-label="${heading}">
+      <h2 id="analysis-transparency-heading">${heading}</h2>
+      <p>${disclosure}</p>
+      <nav class="analysis-links" aria-labelledby="analysis-transparency-heading">
+        <ul>
+          <li><a href="${analysisDir}" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">📊</span> ${analysisSummaryLabel}</a></li>
+          <li><a href="${analysisDir}/classification" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">🏷️</span> ${classificationLabel}</a></li>
+          <li><a href="${analysisDir}/threat-assessment" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">🛡️</span> ${threatLabel}</a></li>
+          <li><a href="${analysisDir}/risk-scoring" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">⚖️</span> ${riskLabel}</a></li>
+          <li><a href="${analysisDir}/existing" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">🔍</span> ${deepLabel}</a></li>
+        </ul>
+      </nav>
+      <nav class="methodology-links" aria-label="${methodologyLabel}">
+        <h3>${methodologyLabel}</h3>
+        <ul>
+          <li><a href="${methodologyDir}/ai-driven-analysis-guide.md" target="_blank" rel="noopener noreferrer">${aiGuideLabel}</a></li>
+          <li><a href="${methodologyDir}/political-swot-framework.md" target="_blank" rel="noopener noreferrer">${swotLabel}</a></li>
+          <li><a href="${methodologyDir}/political-risk-methodology.md" target="_blank" rel="noopener noreferrer">${riskMethodLabel}</a></li>
+          <li><a href="${methodologyDir}/political-threat-framework.md" target="_blank" rel="noopener noreferrer">${threatFrameworkLabel}</a></li>
+          <li><a href="${methodologyDir}/political-classification-guide.md" target="_blank" rel="noopener noreferrer">${classGuideLabel}</a></li>
+          <li><a href="${methodologyDir}/political-style-guide.md" target="_blank" rel="noopener noreferrer">${styleGuideLabel}</a></li>
+        </ul>
+      </nav>
+      <p class="transparency-note"><a href="https://github.com/Hack23/euparliamentmonitor" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">🔓</span> ${viewSourceLabel}</a> — ${openSourceNote}</p>
+    </section>
     `;
 }

@@ -180,12 +180,8 @@ Beyond listing upcoming events, provide strategic intelligence:
 - **Minutes 0–3**: Date validation, MCP warm-up with `get_plenary_sessions`
 - **Minutes 3–8**: 🔬 Political intelligence analysis stage (significance classification, political threat landscape assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `analysis/${TODAY}/week-ahead/`)
 - **Minutes 8–18**: Query plenary sessions, committee meetings, and legislative pipeline for next 7 days
-- **Minutes 18–45**: Generate English article with deep political intelligence analysis
+- **Minutes 18–45**: Generate English article with deep political intelligence analysis — **⚠️ Per Rule 7, spend ≥15 minutes on AI-driven analysis** (reading methodologies, querying MCP for cross-references, writing original analytical prose with evidence citations, completing 4-pass refinement cycle)
 - **Minutes 45–52**: Validate generated HTML
-- **Minutes 52–60**: Create PR with `safeoutputs___create_pull_request`
-
-> **🔑 ENGLISH-ONLY FOCUS**: This workflow generates English content only. Use the extra time (vs. translating to 13 languages) to produce deeper political analysis, richer context, and more comprehensive intelligence. Translations to other languages are handled by the separate `news-translate` workflow.
-
 **If you reach minute 52 and the PR has not yet been created**: Stop generating more content. Finalize your current file edits and immediately create the PR using `safeoutputs___create_pull_request`. Partial content in a PR is better than a timeout with no PR.
 
 
@@ -755,25 +751,47 @@ fi
 
 ## ✅ ANALYSIS QUALITY GATES (ENHANCED)
 
+> **⚠️ MANDATORY**: Per `ai-driven-analysis-guide.md` Rules 6–8, all quality gates below must pass before PR creation. Article type: `week-ahead`.
+
 ### Content Quality (existing gates — maintained)
 - ✅ Min 500 words analytical content
 - ✅ No synthetic IDs or placeholder data (VOTE-2024-001, DOC-2024-001 are FORBIDDEN)
 - ✅ Current dates with specific EP references
 - ✅ Feed-first content with dated event references
 
-### Analysis Depth (NEW gates — required)
+### Article Type Identification (Rule 6 — required)
+- ✅ **manifest.json** includes `"articleType": "week-ahead"`
+- ✅ **Analysis markdown** files include `articleType: week-ahead` in YAML frontmatter
+- ✅ **Article HTML** includes `<meta name="article-type" content="week-ahead">`
+- ✅ **Analysis directory** is scoped to `analysis/${TODAY}/week-ahead/`
+
+### Minimum AI Analysis Time (Rule 7 — required)
+- ✅ **≥15 minutes** spent on AI-driven political intelligence analysis (reading methodologies, querying MCP, writing original analytical prose)
+- ✅ **4-pass refinement cycle** completed for all analytical content sections
+- ✅ **All 6 methodology documents** read before any analysis
+
+### Script/AI Separation (Rule 8 — required)
+- ✅ **No `[AI_ANALYSIS_REQUIRED]` placeholders** remain in final HTML
+- ✅ **No empty SWOT entries** (every quadrant has ≥2 substantive entries with evidence)
+- ✅ **No `data-connections="0"` mindmaps** — real policy connections mapped
+- ✅ **Every stakeholder outcome** has AI-written rationale (not just Winner/Loser labels)
+- ✅ **Confidence levels** stated on all non-factual analytical claims
+
+### Analysis Depth (gates — required)
 - ✅ **Stakeholder coverage**: Min 3 perspectives analyzed per key development
 - ✅ **SWOT dimensions**: Must include both political AND economic/regulatory dimensions
 - ✅ **Dashboard trends**: Must include trend indicators (↑↓→) not just current values
 - ✅ **Mindmap connections**: Must show cross-domain policy links (e.g., environment ↔ trade ↔ social)
 - ✅ **Evidence chains**: Deep analysis must cite specific document IDs, vote counts, or MCP data
 - ✅ **Outlook scenarios**: Must provide at least 2 named scenarios with probability labels
+- ✅ **Sources section**: Must cite ≥3 specific EP data sources (document IDs, MCP tools, procedure references)
 
-### Political Intelligence (NEW gates — required)
+### Political Intelligence (gates — required)
 - ✅ **Coalition dynamics**: Identify voting alliances for key items (not just "EPP and S&D voted together")
 - ✅ **Group positions explained**: State WHY each group holds its position (incentives, ideology, constituency)
 - ✅ **Winner/loser analysis**: Identify who gains/loses from each outcome WITH evidence
 - ✅ **Historical context**: Reference comparable past EP actions where relevant
+- ✅ **Multi-framework analysis**: At least 2 analytical frameworks applied (e.g., SWOT + Risk, or Attack Tree + Kill Chain)
 
 ### Step 6: Create Pull Request (ONE call — ALL files at once)
 

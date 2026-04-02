@@ -178,8 +178,8 @@ For each committee report, analyze:
 - **Minutes 0–3**: Date check, MCP warm-up with EP MCP tools
 - **Minutes 3–8**: 🔬 Political intelligence analysis stage (significance classification, political threat landscape assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `analysis/${TODAY}/committee-reports/`)
 - **Minutes 8–18**: Query EP MCP tools for committee reports data
-- **Minutes 18–45**: Generate English article with deep political intelligence analysis
-- **Minutes 45–52**: Validate and finalize changes
+- **Minutes 18–45**: Generate English article with deep political intelligence analysis — **⚠️ Per Rule 7, spend ≥15 minutes on AI-driven analysis** (reading methodologies, querying MCP for cross-references, writing original analytical prose with evidence citations, completing 4-pass refinement cycle)
+- **Minutes 45–52**: Validate and finalize output — run HTML and WCAG checks (using project validation tools), verify metadata (titles, slugs, dates, language), sanity-check file paths and links, and prepare the pull request description summarizing key political intelligence findings.
 - **Minutes 52–60**: Create PR with `safeoutputs___create_pull_request`
 
 > **🔑 ENGLISH-ONLY FOCUS**: This workflow generates English content only. Use the extra time (vs. translating to 13 languages) to produce deeper political analysis, richer context, and more comprehensive intelligence. Translations to other languages are handled by the separate `news-translate` workflow.
@@ -730,27 +730,47 @@ fi
 
 ## ✅ ANALYSIS QUALITY GATES (ENHANCED)
 
+> **⚠️ MANDATORY**: Per `ai-driven-analysis-guide.md` Rules 6–8, all quality gates below must pass before PR creation. Article type: `committee-reports`.
+
 ### Content Quality (existing gates — maintained)
 - ✅ Min 500 words analytical content
 - ✅ No synthetic IDs or placeholder data (VOTE-2024-001, DOC-2024-001 are FORBIDDEN)
 - ✅ Current dates with specific EP references
 - ✅ Feed-first content with dated event references
 
-### Analysis Depth (NEW gates — required)
+### Article Type Identification (Rule 6 — required)
+- ✅ **manifest.json** includes `"articleType": "committee-reports"`
+- ✅ **Analysis markdown** files include `articleType: committee-reports` in YAML frontmatter
+- ✅ **Article HTML** includes `<meta name="article-type" content="committee-reports">`
+- ✅ **Analysis directory** is scoped to `analysis/${TODAY}/committee-reports/`
+
+### Minimum AI Analysis Time (Rule 7 — required)
+- ✅ **≥15 minutes** spent on AI-driven political intelligence analysis (reading methodologies, querying MCP, writing original analytical prose)
+- ✅ **4-pass refinement cycle** completed for all analytical content sections
+- ✅ **All 6 methodology documents** read before any analysis
+
+### Script/AI Separation (Rule 8 — required)
+- ✅ **No `[AI_ANALYSIS_REQUIRED]` placeholders** remain in final HTML
+- ✅ **No empty SWOT entries** (every quadrant has ≥2 substantive entries with evidence)
+- ✅ **No `data-connections="0"` mindmaps** — real policy connections mapped
+- ✅ **Every stakeholder outcome** has AI-written rationale (not just Winner/Loser labels)
+- ✅ **Confidence levels** stated on all non-factual analytical claims
+
+### Analysis Depth (gates — required)
 - ✅ **Stakeholder coverage**: Min 3 perspectives analyzed per key development
 - ✅ **SWOT dimensions**: Must include both political AND economic/regulatory dimensions
 - ✅ **Dashboard trends**: Must include trend indicators (↑↓→) not just current values
 - ✅ **Mindmap connections**: Must show cross-domain policy links (e.g., environment ↔ trade ↔ social)
 - ✅ **Evidence chains**: Deep analysis must cite specific document IDs, vote counts, or MCP data
 - ✅ **Outlook scenarios**: Must provide at least 2 named scenarios with probability labels
+- ✅ **Sources section**: Must cite ≥3 specific EP data sources (document IDs, MCP tools, procedure references)
 
-### Political Intelligence (NEW gates — required)
+### Political Intelligence (gates — required)
 - ✅ **Coalition dynamics**: Identify voting alliances for key items (not just "EPP and S&D voted together")
 - ✅ **Group positions explained**: State WHY each group holds its position (incentives, ideology, constituency)
 - ✅ **Winner/loser analysis**: Identify who gains/loses from each outcome WITH evidence
 - ✅ **Historical context**: Reference comparable past EP actions where relevant
-
-### Step 5: Validate & Create PR
+- ✅ **Multi-framework analysis**: At least 2 analytical frameworks applied (e.g., SWOT + Risk, or Attack Tree + Kill Chain)
 
 **Note**: News index files (`index*.html`), metadata (`news/articles-metadata.json`, `news/metadata/generation-*.json`), and `sitemap.xml` are **NOT committed to git** via this workflow. They are generated automatically at build time or by other processes. Do NOT run `generate-news-indexes`, `news-metadata`, or `generate-sitemap` manually — and do NOT commit their output files. Only commit the actual article HTML files: `news/{YYYY-MM-DD}-committee-reports-{lang}.html`
 

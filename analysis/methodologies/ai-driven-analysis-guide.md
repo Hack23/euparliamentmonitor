@@ -102,6 +102,90 @@ Every agentic workflow run MUST produce and commit analysis artifacts to the `an
 - ❌ Ignoring existing analysis files — always read, evaluate, and improve them
 - ❌ Skipping analysis because "there's no news" — analysis of quiet periods reveals patterns too
 
+### Rule 6: Article Type Identification — Analysis Must Include Article Type Context
+
+Every analysis artifact and news article MUST clearly identify which article type (category) it belongs to. This prevents cross-contamination when multiple workflows produce analysis for the same date.
+
+**Mandatory identification in analysis artifacts:**
+- [ ] Every `manifest.json` includes `"articleType": "<slug>"` (e.g., `"articleType": "breaking"`)
+- [ ] Every `.analysis.md` file includes YAML frontmatter with `articleType: <slug>`
+- [ ] Analysis file paths always include the article type slug: `analysis/{date}/{article-type-slug}/`
+- [ ] The article HTML includes the article type in its metadata: `<meta name="article-type" content="<slug>">`
+
+**Valid article type slugs** (from `ArticleCategory` enum in `src/types/common.ts`):
+
+| Article Type | Slug | Perspective |
+|-------------|------|-------------|
+| Breaking News | `breaking` | Real-time |
+| Committee Reports | `committee-reports` | Domain-specific |
+| Motions | `motions` | Domain-specific |
+| Propositions | `propositions` | Domain-specific |
+| Week Ahead | `week-ahead` | Prospective |
+| Month Ahead | `month-ahead` | Prospective |
+| Week in Review | `week-in-review` | Retrospective |
+| Month in Review | `month-in-review` | Retrospective |
+| Year Ahead | `year-ahead` | Prospective |
+| Year in Review | `year-in-review` | Retrospective |
+| Deep Analysis | `deep-analysis` | Analytical |
+
+**Anti-patterns (REJECTED):**
+- ❌ Analysis artifacts without article type identification — makes it impossible to trace analysis provenance
+- ❌ One article type's workflow writing analysis to another type's directory
+- ❌ Generic analysis that could belong to any article type — every analysis must be contextualised for its specific article perspective
+
+### Rule 7: Minimum 15-Minute AI Analysis Time — Deep Political Intelligence Required
+
+Every workflow MUST allocate a **minimum of 15 minutes** to AI-driven political intelligence analysis. This is the analysis time where the AI agent reads methodology documents, queries MCP tools, and produces original analytical content. This does NOT include data download time or HTML formatting time.
+
+**Minimum analysis time budgets (updated):**
+
+| Workflow | Minimum AI Analysis Time | What the AI Must Produce |
+|----------|:------------------------:|--------------------------|
+| Breaking news | 15 minutes | Per-event significance scoring, coalition impact, threat assessment |
+| Committee reports | 15 minutes | Committee power analysis, rapporteur dynamics, amendment landscape |
+| Propositions | 15 minutes | Legislative pipeline risk, passage probability, institutional tension |
+| Motions | 15 minutes | Voting coalition analysis, group cohesion, cross-party patterns |
+| Week ahead | 15 minutes | Strategic outlook, scenario planning, risk forecasting |
+| Month ahead | 15 minutes | Political landscape analysis, coalition evolution, policy momentum |
+| Week in review | 20 minutes | Comprehensive weekly intelligence synthesis, trend detection |
+| Month in review | 25 minutes | Deep monthly analytical assessment, pattern identification |
+
+**What counts as AI analysis time:**
+- ✅ Reading and applying methodology documents
+- ✅ Querying EP MCP tools for cross-referencing data
+- ✅ Writing original analytical prose with evidence citations
+- ✅ Producing Mermaid diagrams with real data
+- ✅ Conducting multi-framework analysis (SWOT + Risk + Threat)
+- ✅ Iterating through the 4-pass refinement cycle
+
+**What does NOT count:**
+- ❌ Running `npx tsx` scripts (data preparation, not analysis)
+- ❌ Waiting for MCP feed responses
+- ❌ HTML template formatting and rendering
+- ❌ Git operations (commit, PR creation)
+
+### Rule 8: Scripts Format, AI Analyses — Clear Separation of Concerns
+
+The separation between script-generated structure and AI-generated analysis MUST be strictly maintained:
+
+| Layer | Responsibility | Examples |
+|-------|---------------|----------|
+| **Scripts** (TypeScript) | Data fetching, HTML rendering, template structure, chart/mindmap/SWOT HTML scaffolding, metadata generation | `analysis-builders.ts`, `swot-content.ts`, `mindmap-content.ts`, `deep-analysis-content.ts` |
+| **AI Agent** (Workflow LLM) | Political narrative, analytical conclusions, evidence-backed claims, confidence assessments, stakeholder reasoning, risk justifications, scenario planning | All `AI_MARKER` fields, analysis markdown prose, SWOT entry justifications |
+
+**Scripts produce consistent formatting** — charts, mindmaps, SWOT grids, dashboards, Sankey diagrams, stakeholder matrices. These are HTML rendering components that ensure visual consistency across all articles.
+
+**AI produces the intelligence content** — the actual political analysis that fills those visual containers. Every SWOT entry must have AI-written justification. Every stakeholder outcome must have AI-written reasoning. Every risk score must have AI-written explanation.
+
+**Test:** Remove all AI-written content from an article. If the remaining shell still looks like a complete article, the AI did too little work. The article should be visually rich but intellectually empty without AI analysis.
+
+**Anti-patterns (REJECTED):**
+- ❌ Scripts generating `[AI_ANALYSIS_REQUIRED]` placeholders that survive to the final article — all placeholders must be filled by the AI agent
+- ❌ SWOT quadrants with `—` (em-dash) entries instead of real analysis — every quadrant needs ≥2 substantive entries
+- ❌ Stakeholder outcome matrices with "Winner/Loser/Neutral" labels but no supporting rationale
+- ❌ Mindmap visualizations with template-only nodes and `data-connections="0"` — real policy connections required
+- ❌ Scripts producing political narrative text — this is the AI agent's exclusive domain
+
 ---
 
 ## 🏗️ Architecture: Per-File vs. Per-Day Analysis
@@ -246,16 +330,18 @@ When the workflow time budget is limited:
 
 ### Maximum Files Per Workflow Run
 
-| Workflow | Typical Download | Analysis Target | Time Budget |
-|----------|:----------------:|:---------------:|:-----------:|
-| Breaking news | 1–5 files | All files (full depth) | 5 minutes |
-| Committee reports | 5–20 files | All files (single type) | 8 minutes |
-| Propositions | 5–15 files | All files (full depth) | 8 minutes |
-| Motions | 10–30 files | Top 10 full + rest quick-classified | 10 minutes |
-| Week in review | 50–200 files | Top 20 full + rest aggregated | 15 minutes |
-| Month in review | 200–500 files | Top 30 full + rest aggregated | 20 minutes |
-| Week ahead | 10–30 files | All files (forward-looking) | 10 minutes |
-| Month ahead | 20–50 files | All files (strategic) | 12 minutes |
+| Workflow | Typical Download | Analysis Target | Minimum AI Analysis Time |
+|----------|:----------------:|:---------------:|:------------------------:|
+| Breaking news | 1–5 files | All files (full depth) | 15 minutes |
+| Committee reports | 5–20 files | All files (single type) | 15 minutes |
+| Propositions | 5–15 files | All files (full depth) | 15 minutes |
+| Motions | 10–30 files | Top 10 full + rest quick-classified | 15 minutes |
+| Week in review | 50–200 files | Top 20 full + rest aggregated | 20 minutes |
+| Month in review | 200–500 files | Top 30 full + rest aggregated | 25 minutes |
+| Week ahead | 10–30 files | All files (forward-looking) | 15 minutes |
+| Month ahead | 20–50 files | All files (strategic) | 15 minutes |
+
+> **⚠️ MINIMUM 15 MINUTES**: Per Rule 7, every workflow must spend at least 15 minutes on AI-driven political intelligence analysis. This is the time spent reading methodologies, querying MCP tools, and writing original analytical prose — not data download or HTML formatting time.
 
 ---
 
@@ -359,6 +445,45 @@ A workflow running on Tuesday overwrites Monday's analysis file in the same loca
 ### ✅ Correct Approach
 
 Each workflow writes to its own directory: `analysis/{date}/{article-type-slug}/`. Monday's `news-breaking` writes to `analysis/2026-03-30/breaking/`, Tuesday's `news-committee-reports` writes to `analysis/2026-03-31/committee-reports/`. Never overwrite.
+
+---
+
+## 🔍 Known Article Quality Issues — Workflow Anti-Patterns to Prevent
+
+The following quality issues have been observed in generated news articles and MUST be prevented by all agentic workflows. Each issue traces to insufficient AI analysis time or depth.
+
+### Top 10 Quality Issues (Ranked by Severity)
+
+| Rank | Issue | Severity | Root Cause | Prevention |
+|:----:|-------|:--------:|-----------|-----------|
+| 1 | **`[AI_ANALYSIS_REQUIRED]` placeholders remain in final HTML** | 🔴 CRITICAL | AI analysis stage incomplete; script templates not filled | Rule 8: AI must fill ALL placeholders before HTML generation. Quality gate MUST reject articles with any `[AI_ANALYSIS_REQUIRED]` text |
+| 2 | **SWOT quadrants contain empty `—` entries** | 🔴 HIGH | AI did not produce SWOT analysis; script fallback used | Rule 7: Minimum 15 min analysis. Every SWOT quadrant needs ≥2 substantive entries with evidence |
+| 3 | **Mindmap visualizations show `data-connections="0"`** | 🔴 HIGH | No real policy connections mapped; template-only structure | AI must identify ≥3 cross-domain policy connections per mindmap |
+| 4 | **Missing statistical depth in political analysis** | 🔴 HIGH | No rapporteur/voting data integration; surface-level facts only | Rule 4: Multi-framework depth. Must include vote counts, margins, coalition breakdowns |
+| 5 | **Stakeholder outcome matrices lack justification** | 🔴 HIGH | Winner/Loser labels assigned without reasoning | Rule 8: Every stakeholder outcome MUST have AI-written rationale |
+| 6 | **No confidence levels stated on analytical claims** | 🟠 MEDIUM | AI agent did not apply methodology style guide | Rule 3: Read political-style-guide.md. Every non-factual claim needs confidence labels |
+| 7 | **Formulaic writing without Economist-style narrative** | 🟠 MEDIUM | AI used list format instead of analytical prose | Rule 3: Read political-style-guide.md depth levels. Lead with lede + analysis, not bullet lists |
+| 8 | **Missing multi-framework analysis** | 🟠 MEDIUM | Only one analytical framework applied (usually basic SWOT) | Rule 4: At least 2 frameworks required (SWOT + Risk, or Attack Tree + Kill Chain) |
+| 9 | **Incomplete semantic HTML with missing section hierarchy** | 🟠 MEDIUM | Scripts generating structure without proper nesting | Article template must enforce `article > header > article-content > sections` hierarchy |
+| 10 | **Minimal or missing sources section** | 🟡 LOW | No MCP API citations, generic "European Parliament" link only | Every article must cite ≥3 specific EP data sources (document IDs, MCP tool names, procedure references) |
+
+### Workflow Enforcement Points
+
+Each workflow MUST verify these quality gates **before** creating the PR:
+
+```bash
+# Quality gate: No AI_ANALYSIS_REQUIRED placeholders in final HTML
+if grep -r "AI_ANALYSIS_REQUIRED" news/${TODAY}-${ARTICLE_TYPE}-*.html 2>/dev/null; then
+  echo "❌ QUALITY GATE FAILED: Unfilled AI analysis placeholders found"
+  echo "The AI agent must fill ALL analysis sections before article generation."
+  exit 1
+fi
+
+# Quality gate: No empty SWOT entries (em-dash only)
+if grep -c 'swot-empty' news/${TODAY}-${ARTICLE_TYPE}-en.html 2>/dev/null | grep -v '^0$'; then
+  echo "⚠️ WARNING: Empty SWOT entries detected — AI must provide substantive analysis"
+fi
+```
 
 ---
 

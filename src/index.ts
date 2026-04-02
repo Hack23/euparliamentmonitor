@@ -132,7 +132,6 @@ export {
   analyzeLegislativeDisruption,
   generateThreatAssessmentMarkdown,
   ALL_THREAT_LANDSCAPE_DIMENSIONS,
-  ALL_POLITICAL_STRIDE_CATEGORIES,
 } from './utils/political-threat-assessment.js';
 
 // ─── HTML Utilities ──────────────────────────────────────────────────────────
