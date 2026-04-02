@@ -25,6 +25,11 @@
           <img src="https://img.shields.io/github/v/release/Hack23/euparliamentmonitor" alt="Release">
         </a>
       </div>
+      <div>
+        <a href="https://www.npmjs.com/package/euparliamentmonitor">
+          <img src="https://img.shields.io/npm/v/euparliamentmonitor.svg" alt="npm version">
+        </a>
+      </div>      
     </td>
     <td>
       <p><strong>European Parliament Intelligence Platform</strong> — an automated multi-language news platform that monitors EU Parliament activities with 14-language support, covering plenary sessions, committee reports, propositions, and breaking news.</p>
