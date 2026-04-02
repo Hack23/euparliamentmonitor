@@ -58,28 +58,31 @@ Tools are configured in the workflow frontmatter and determine what the agent ca
 
 ```markdown
 ---
+mcp-servers:
+  # Custom MCP servers (separate from tools)
+  european-parliament:
+    command: npx
+    args:
+      - -y
+      - european-parliament-mcp-server@1.1.22
+
 tools:
   # GitHub tools with specific toolsets
   github:
     toolsets: [issues, repos, pull_requests]
-  
-  # Web fetching for external data
-  web-fetch: {}
-  
-  # File system access (workspace only)
-  filesystem: {}
-  
-  # Custom MCP servers
-  european-parliament: {}
+  # Bash must be explicitly enabled
+  bash: true
 ---
 ```
 
-### Built-in Tools (Always Available)
-| Tool | Purpose |
-|------|---------|
-| `bash` | Shell command execution within sandbox |
-| `edit` | File editing within workspace |
-| `read` | File reading |
+### Built-in Tools
+| Tool | Purpose | Enabled By |
+|------|---------|------------|
+| `bash` | Shell command execution within sandbox | `tools: { bash: true }` in frontmatter |
+| `edit` | File editing within workspace | Always available |
+| `read` | File reading | Always available |
+
+> **Note**: In this repo's workflows, `bash` is explicitly enabled via `tools: { bash: true }` in frontmatter — it is not available by default.
 
 ### GitHub Tool Subsets
 | Toolset | Access |
