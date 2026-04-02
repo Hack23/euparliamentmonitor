@@ -18,7 +18,7 @@ Every gh-aw workflow runs inside an **isolated container** within GitHub Actions
 - **Writable workspace**: Agent can read/write files in the ephemeral workspace for patch generation
 - **No credentials**: Write tokens and API keys are never exposed to the agent
 - **Network filtered**: All outbound traffic routed through AWF (Agent Workflow Firewall)
-- **Resource limited**: CPU, memory, and time constraints via `timeout-minutes`
+- **Resource limited**: Wall-clock time limited via GitHub Actions `timeout-minutes`; CPU and memory constrained by the GitHub Actions runner/sandbox defaults
 
 ### What the Agent CAN Do
 - Read repository files (code, docs, configs)

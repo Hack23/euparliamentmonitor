@@ -80,8 +80,7 @@ Natural language instructions for the AI agent...
 | `tools` | MCP servers and tool access (github, web-fetch, filesystem) |
 | `safe-outputs` | Gated write operations with constraints |
 | `timeout-minutes` | Maximum execution time |
-| `engine` | AI engine: `copilot` (default), `claude`, `codex`, or custom |
-| `min-integrity` | Integrity filtering for public repos (default: `approved`) |
+| `engine` | AI engine configuration. In this repo, Claude is selected via `engine: { id: copilot, model: claude-opus-4.6 }` (that is, `id` is `copilot` and the `model` field chooses the Claude variant). |
 
 ## Safe Output Types
 

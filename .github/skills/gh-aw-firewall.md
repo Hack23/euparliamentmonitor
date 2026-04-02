@@ -108,7 +108,7 @@ gh aw audit <run-id>
 
 ### Common Issues
 
-**Agent can't reach required API**: Add domain to the tools allowlist in frontmatter
+**Agent can't reach required API**: Add the domain to `network.allowed` in the workflow frontmatter
 
 **Unexpected blocks**: Check AWF logs in the workflow run — blocked domains are logged with the request details
 

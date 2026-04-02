@@ -212,6 +212,8 @@ const status = get_copilot_job_status({
 | `claude` | Anthropic | Complex analysis, long context |
 | `codex` | OpenAI | Code-focused tasks |
 
+> Note: In this repository's gh-aw workflows, `engine.id` is always set to `copilot`. To run Claude, use a Claude model via the `model` field (for example, `model: claude-opus-4.6`) rather than configuring `engine.id: claude`.
+
 ### Agent Selection Guide
 
 | Task | Recommended Agent |
