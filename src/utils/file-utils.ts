@@ -147,7 +147,7 @@ export function ensureDirectoryExists(dirPath: string): void {
 }
 
 /**
- * Resolve a unique directory path by appending a numeric suffix (-1, -2, …)
+ * Resolve a unique directory path by appending a numeric suffix (-2, -3, …)
  * when the base directory already contains a completed analysis run
  * (indicated by the presence of a `manifest.json` file).
  *
@@ -175,12 +175,12 @@ export function resolveUniqueAnalysisDir(baseDir: string): string {
     }
     suffix++;
   }
-  // Fallback: use UUID-suffixed directory to guarantee uniqueness
+  // Fallback: use timestamp-suffixed directory to guarantee uniqueness
   return `${baseDir}-${Date.now()}`;
 }
 
 /**
- * Resolve a unique filename by appending a numeric suffix (-1, -2, …) before
+ * Resolve a unique filename by appending a numeric suffix (-2, -3, …) before
  * the file extension when the file already exists.
  *
  * This prevents repeated workflow runs from overwriting previously committed
