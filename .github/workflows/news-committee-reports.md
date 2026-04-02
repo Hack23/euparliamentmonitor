@@ -179,6 +179,7 @@ For each committee report, analyze:
 - **Minutes 3–8**: 🔬 Political intelligence analysis stage (significance classification, political threat landscape assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `analysis/${TODAY}/committee-reports/`)
 - **Minutes 8–18**: Query EP MCP tools for committee reports data
 - **Minutes 18–45**: Generate English article with deep political intelligence analysis — **⚠️ Per Rule 7, spend ≥15 minutes on AI-driven analysis** (reading methodologies, querying MCP for cross-references, writing original analytical prose with evidence citations, completing 4-pass refinement cycle)
+- **Minutes 45–52**: Validate and finalize output — run HTML and WCAG checks (using project validation tools), verify metadata (titles, slugs, dates, language), sanity-check file paths and links, and prepare the pull request description summarizing key political intelligence findings.
 - **Minutes 52–60**: Create PR with `safeoutputs___create_pull_request`
 
 > **🔑 ENGLISH-ONLY FOCUS**: This workflow generates English content only. Use the extra time (vs. translating to 13 languages) to produce deeper political analysis, richer context, and more comprehensive intelligence. Translations to other languages are handled by the separate `news-translate` workflow.
