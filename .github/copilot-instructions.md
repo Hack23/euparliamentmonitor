@@ -7,7 +7,7 @@
 1. **`.github/workflows/copilot-setup-steps.yml`** - Workflow configuration and permissions
 2. **`.github/copilot-mcp.json`** - MCP server configuration and available tools
 3. **`README.md`** - Project overview, features, and documentation links
-4. **`.github/skills/`** - Skills library (35 skills: security, architecture, compliance, testing, gh-aw)
+4. **`.github/skills/`** - Skills library (security, architecture, compliance, testing, gh-aw)
 5. **`.github/agents/`** - Specialized agents for delegation
 
 ## 🎯 Project Overview
@@ -18,7 +18,7 @@
 - **License**: Apache-2.0 | **Deployment**: GitHub Pages + S3 CDN
 - **Data**: European Parliament MCP Server (`european-parliament-mcp-server@1.1.22`)
 - **Languages**: EN, SV, DA, NO, FI, DE, FR, ES, NL, AR, HE, JA, KO, ZH
-- **Agentic Workflows**: 11 gh-aw markdown workflows for automated news generation
+- **Agentic Workflows**: 10 gh-aw markdown workflows for automated news generation
 - **Security**: ISO 27001, NIST CSF 2.0, CIS Controls v8.1, GDPR, NIS2, EU CRA
 
 ## 🤖 Available Agents
@@ -39,19 +39,20 @@
 ## 🏗️ Build & Test Commands
 
 ```bash
-npm run lint          # ESLint + HTMLHint validation
+npm run lint          # ESLint (lint TypeScript in src/)
+npm run htmlhint      # HTMLHint validation (HTML files)
 npm run test          # Run unit tests (Vitest)
 npm run test:coverage # Tests with coverage reporting
 npm run test:e2e      # Playwright E2E tests
 npm run generate-news # Generate multi-language news articles
-npm run docs:generate # Generate JSDoc API docs
+npm run docs:generate # Generate TypeDoc API docs
 npm run format        # Prettier formatting
 npm run build         # TypeScript compilation
 ```
 
 ## 🔄 GitHub Agentic Workflows (gh-aw)
 
-This project uses **11 gh-aw markdown workflows** in `.github/workflows/*.md` for automated news generation. These are compiled to `.lock.yml` files and run AI agents (Copilot/Claude/Codex) in sandboxed GitHub Actions with safe outputs.
+This project uses **10 gh-aw markdown workflows** in `.github/workflows/*.md` for automated news generation. These are compiled to `.lock.yml` files and run AI agents (Copilot/Claude/Codex) in sandboxed GitHub Actions with safe outputs.
 
 **Workflow files**: `news-breaking.md`, `news-weekly-review.md`, `news-monthly-review.md`, `news-week-ahead.md`, `news-month-ahead.md`, `news-committee-reports.md`, `news-motions.md`, `news-propositions.md`, `news-article-generator.md`, `news-translate.md`
 

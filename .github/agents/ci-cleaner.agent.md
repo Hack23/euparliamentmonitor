@@ -13,7 +13,7 @@ Read the ENTIRE content of this file carefully before proceeding.
 
 **IMPORTANT**: Before doing any work, check if CI is currently failing or passing.
 
-If CI is **passing**: Call the `noop` tool with a message like "CI is passing — no cleanup needed" and exit.
+If CI is **passing**: Call the `safeoutputs___noop` tool with a `message` parameter like "CI is passing — no cleanup needed" and exit.
 
 If CI is **failing**, proceed with the cleanup tasks below.
 
@@ -31,10 +31,19 @@ npm run format
 npm run lint
 ```
 
-If linting fails:
-- Review ESLint error messages and fix issues
-- For HTMLHint errors, fix HTML files in `news/` and root
+If ESLint fails:
+- Review ESLint error messages and fix TypeScript issues in `src/`
 - Re-run `npm run lint` to verify
+
+Then run HTMLHint separately:
+
+```bash
+npm run htmlhint
+```
+
+If HTMLHint fails:
+- Fix HTML validation errors in `news/` and root HTML files
+- Re-run `npm run htmlhint` to verify
 
 ### 3. Run TypeScript Build
 

@@ -140,22 +140,56 @@ Configured via `tools.github.toolsets`:
 
 ## EU Parliament Monitor Integration
 
-This project uses gh-aw for automated news generation workflows:
+This project uses gh-aw for automated news generation workflows. The actual frontmatter format used in this repo:
 
 ```markdown
 ---
 on:
-  schedule: daily
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch: {}
 permissions:
   contents: read
+  issues: read
+  pull-requests: read
+  actions: read
+timeout-minutes: 60
+
+network:
+  allowed:
+    - node
+    - github.com
+    - api.github.com
+    - data.europarl.europa.eu
+    - "*.europa.eu"
+    - default
+
+mcp-servers:
+  european-parliament:
+    command: npx
+    args:
+      - -y
+      - european-parliament-mcp-server@1.1.22
+    env:
+      EP_REQUEST_TIMEOUT_MS: "120000"
+
 tools:
   github:
-    toolsets: [repos, issues]
-  european-parliament: {}
+    toolsets:
+      - all
+  bash: true
+
 safe-outputs:
-  create-pull-request:
-    title-prefix: "[news] "
-    labels: [automated, news]
+  allowed-domains:
+    - data.europarl.europa.eu
+    - www.europarl.europa.eu
+    - github.com
+  create-pull-request: {}
+  add-comment: {}
+
+engine:
+  id: copilot
+  model: claude-opus-4.6
 ---
 # EU Parliament News Generator
 Fetch latest EP activity and generate multi-language articles...

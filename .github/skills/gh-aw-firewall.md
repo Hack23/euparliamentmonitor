@@ -26,34 +26,31 @@ Agent Container
 
 ## Domain Allowlist Configuration
 
-In workflow frontmatter, network access is configured through the `tools` section. Each tool implicitly allows the domains it needs:
+In this repo's workflow frontmatter, network access is configured through the `network.allowed` section:
 
 ```markdown
 ---
-tools:
-  github:
-    toolsets: [issues, repos]   # Allows api.github.com, *.githubusercontent.com
-  web-fetch: {}                  # Allows fetching from specified URLs
-  web-search: {}                 # Allows search API access
+network:
+  allowed:
+    - node
+    - github.com
+    - api.github.com
+    - data.europarl.europa.eu
+    - "*.europa.eu"
+    - default
 ---
 ```
 
-### Default Allowed Domains
-- `api.github.com` — GitHub API (always allowed for GitHub tools)
-- `*.githubusercontent.com` — GitHub raw content
-- Engine-specific API endpoints (Copilot, Anthropic, OpenAI)
-
-### Custom Domain Access
-For workflows needing additional external access, domains can be added to the allowlist:
+Additionally, `safe-outputs.allowed-domains` restricts which domains the agent can reference in output:
 
 ```markdown
 ---
-tools:
-  web-fetch:
-    allowed-domains:
-      - "data.europa.eu"
-      - "op.europa.eu"
-      - "europarl.europa.eu"
+safe-outputs:
+  allowed-domains:
+    - data.europarl.europa.eu
+    - www.europarl.europa.eu
+    - github.com
+  create-pull-request: {}
 ---
 ```
 
@@ -79,7 +76,8 @@ AWF is Layer 3 of the 5-layer security model:
 ## EU Parliament Monitor Relevance
 
 For this project's gh-aw workflows, the AWF ensures:
-- Agents can only access `data.europa.eu` and `op.europa.eu` for EP data
+- Agents can only access `data.europarl.europa.eu` and `www.europarl.europa.eu` for EP data
+- Wildcard `*.europa.eu` is allowed for additional EU institutional domains
 - GitHub API access is limited to read operations
 - No unauthorized external API calls during news generation
 - All MCP server communication stays within the sandbox

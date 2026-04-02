@@ -29,40 +29,65 @@ Enable effective use of GitHub Agentic Workflows (gh-aw) for automated developme
 
 ### Workflow Structure
 
+This repo's gh-aw workflows use the following frontmatter format (see `.github/workflows/news-breaking.md`):
+
 ```markdown
 ---
-timeout-minutes: 10
+timeout-minutes: 60
 on:
-  schedule: daily          # or: issue, issue_comment, pull_request, push, workflow_dispatch
-  issue_comment:
-    commands: ["/analyze"]
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+    inputs:
+      force_generation:
+        description: Force generation
+        type: boolean
+        default: true
 permissions:
   contents: read
   issues: read
-engine: copilot             # copilot (default), claude, codex
+  pull-requests: read
+  actions: read
+
+network:
+  allowed:
+    - node
+    - github.com
+    - api.github.com
+    - data.europarl.europa.eu
+    - "*.europa.eu"
+    - default
+
+mcp-servers:
+  european-parliament:
+    command: npx
+    args:
+      - -y
+      - european-parliament-mcp-server@1.1.22
+    env:
+      EP_REQUEST_TIMEOUT_MS: "120000"
+
 tools:
   github:
-    toolsets: [issues, repos, pull_requests]
-  web-fetch: {}
-  european-parliament: {}   # Custom MCP servers
+    toolsets:
+      - all
+  bash: true
+
 safe-outputs:
-  create-issue:
-    title-prefix: "[report] "
-    labels: [automated]
-    close-older-issues: true
-  create-pull-request:
-    title-prefix: "[news] "
-    labels: [automated, news]
-    max-changed-files: 50
-  add-labels:
-    allowed: [bug, enhancement, triaged]
-  add-comment:
-    max: 1
+  allowed-domains:
+    - data.europarl.europa.eu
+    - www.europarl.europa.eu
+    - github.com
+  create-pull-request: {}
+  add-comment: {}
+
+engine:
+  id: copilot
+  model: claude-opus-4.6
 ---
 # Workflow Title
 
 Natural language instructions for the AI agent.
-The agent reads the repository, uses configured tools, and produces safe output artifacts.
 ```
 
 ### Safe Output Types
@@ -193,7 +218,6 @@ const status = get_copilot_job_status({
 | MCP data pipeline | `data-pipeline-specialist` |
 | HTML/CSS/accessibility | `frontend-specialist` |
 | Testing/validation | `quality-engineer` |
-| Security/compliance | `security-architect` |
 | Architecture docs | `documentation-architect` |
 | CI/CD workflows | `devops-engineer` |
 | Issue management | `product-task-agent` |
@@ -214,7 +238,7 @@ steps:
 
 ## EU Parliament Monitor Workflows
 
-This project uses gh-aw for 11 automated news workflows in `.github/workflows/*.md`:
+This project uses gh-aw for 10 automated news workflows in `.github/workflows/*.md`:
 - `news-breaking.md` — Breaking EP news
 - `news-weekly-review.md` — Weekly parliament review
 - `news-monthly-review.md` — Monthly parliament review

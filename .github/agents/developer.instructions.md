@@ -58,13 +58,14 @@ All exported functions require JSDoc with `@param` and `@returns`.
 ```bash
 npm run build          # TypeScript compilation
 npm run build:check    # Type checking without emit
-npm run lint           # ESLint + HTMLHint validation
+npm run lint           # ESLint (lint TypeScript in src/)
+npm run htmlhint       # HTMLHint validation (HTML files)
 npm run format         # Prettier formatting
 npm run test           # Vitest unit tests
 npm run test:coverage  # Tests with coverage
 npm run test:e2e       # Playwright E2E tests
 npm run generate-news  # Generate news articles
-npm run docs:generate  # JSDoc API docs
+npm run docs:generate  # Generate TypeDoc API docs
 ```
 
 ## gh-aw Workflow Development
@@ -80,21 +81,54 @@ gh aw audit <run-id>        # Audit a run
 
 ### Workflow Frontmatter
 
+This repo's gh-aw workflows use the following format (see `news-breaking.md`):
+
 ```markdown
 ---
-timeout-minutes: 10
+timeout-minutes: 60
 on:
-  schedule: daily
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch: {}
 permissions:
   contents: read
+  issues: read
+
+network:
+  allowed:
+    - node
+    - github.com
+    - api.github.com
+    - data.europarl.europa.eu
+    - "*.europa.eu"
+    - default
+
+mcp-servers:
+  european-parliament:
+    command: npx
+    args:
+      - -y
+      - european-parliament-mcp-server@1.1.22
+    env:
+      EP_REQUEST_TIMEOUT_MS: "120000"
+
 tools:
   github:
-    toolsets: [issues, repos]
-  european-parliament: {}
+    toolsets:
+      - all
+  bash: true
+
 safe-outputs:
-  create-pull-request:
-    title-prefix: "[news] "
-    labels: [automated, news]
+  allowed-domains:
+    - data.europarl.europa.eu
+    - www.europarl.europa.eu
+    - github.com
+  create-pull-request: {}
+  add-comment: {}
+
+engine:
+  id: copilot
+  model: claude-opus-4.6
 ---
 ```
 
