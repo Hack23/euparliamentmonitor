@@ -649,7 +649,7 @@ describe('runAnalysisStage', () => {
         'utf-8'
       );
       expect(content).toContain('# Cross-Session Coalition Intelligence');
-      expect(content).toContain('Stability Report');
+      expect(content).toContain('Computed Stability Metrics');
     });
   });
 

@@ -413,18 +413,46 @@ function renderAnalysisTransparencySection(date, slug, lang) {
     const repoBase = 'https://github.com/Hack23/euparliamentmonitor/blob/main';
     const treeDirBase = 'https://github.com/Hack23/euparliamentmonitor/tree/main';
     const analysisDir = `${treeDirBase}/analysis/${safeDate}/${safeSlug}`;
+    const analysisFileBase = `${repoBase}/analysis/${safeDate}/${safeSlug}`;
     const methodologyDir = `${repoBase}/analysis/methodologies`;
     return `
     <section class="analysis-transparency" aria-label="${heading}">
       <h2 id="analysis-transparency-heading">${heading}</h2>
       <p>${disclosure}</p>
       <nav class="analysis-links" aria-labelledby="analysis-transparency-heading">
+        <h3><span aria-hidden="true">📊</span> ${analysisSummaryLabel}</h3>
         <ul>
-          <li><a href="${analysisDir}" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">📊</span> ${analysisSummaryLabel}</a></li>
-          <li><a href="${analysisDir}/classification" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">🏷️</span> ${classificationLabel}</a></li>
-          <li><a href="${analysisDir}/threat-assessment" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">🛡️</span> ${threatLabel}</a></li>
-          <li><a href="${analysisDir}/risk-scoring" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">⚖️</span> ${riskLabel}</a></li>
-          <li><a href="${analysisDir}/existing" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">🔍</span> ${deepLabel}</a></li>
+          <li><a href="${analysisDir}" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">📁</span> ${analysisSummaryLabel}</a></li>
+        </ul>
+        <h3><span aria-hidden="true">🏷️</span> ${classificationLabel}</h3>
+        <ul>
+          <li><a href="${analysisFileBase}/classification/significance-assessment.md" target="_blank" rel="noopener noreferrer">Significance Assessment</a></li>
+          <li><a href="${analysisFileBase}/classification/actor-mapping.md" target="_blank" rel="noopener noreferrer">Actor Mapping</a></li>
+          <li><a href="${analysisFileBase}/classification/forces-analysis.md" target="_blank" rel="noopener noreferrer">Forces Analysis</a></li>
+          <li><a href="${analysisFileBase}/classification/impact-matrix.md" target="_blank" rel="noopener noreferrer">Impact Matrix</a></li>
+        </ul>
+        <h3><span aria-hidden="true">🛡️</span> ${threatLabel}</h3>
+        <ul>
+          <li><a href="${analysisFileBase}/threat-assessment/political-threat-landscape.md" target="_blank" rel="noopener noreferrer">Political Threat Landscape</a></li>
+          <li><a href="${analysisFileBase}/threat-assessment/actor-threat-profiles.md" target="_blank" rel="noopener noreferrer">Actor Threat Profiles</a></li>
+          <li><a href="${analysisFileBase}/threat-assessment/consequence-trees.md" target="_blank" rel="noopener noreferrer">Consequence Trees</a></li>
+          <li><a href="${analysisFileBase}/threat-assessment/legislative-disruption.md" target="_blank" rel="noopener noreferrer">Legislative Disruption</a></li>
+        </ul>
+        <h3><span aria-hidden="true">⚖️</span> ${riskLabel}</h3>
+        <ul>
+          <li><a href="${analysisFileBase}/risk-scoring/risk-matrix.md" target="_blank" rel="noopener noreferrer">Risk Matrix</a></li>
+          <li><a href="${analysisFileBase}/risk-scoring/quantitative-swot.md" target="_blank" rel="noopener noreferrer">Quantitative SWOT</a></li>
+          <li><a href="${analysisFileBase}/risk-scoring/political-capital-risk.md" target="_blank" rel="noopener noreferrer">Political Capital Risk</a></li>
+          <li><a href="${analysisFileBase}/risk-scoring/legislative-velocity-risk.md" target="_blank" rel="noopener noreferrer">Legislative Velocity Risk</a></li>
+          <li><a href="${analysisFileBase}/risk-scoring/agent-risk-workflow.md" target="_blank" rel="noopener noreferrer">Agent Risk Workflow</a></li>
+        </ul>
+        <h3><span aria-hidden="true">🔍</span> ${deepLabel}</h3>
+        <ul>
+          <li><a href="${analysisFileBase}/existing/deep-analysis.md" target="_blank" rel="noopener noreferrer">Deep Analysis</a></li>
+          <li><a href="${analysisFileBase}/existing/stakeholder-analysis.md" target="_blank" rel="noopener noreferrer">Stakeholder Analysis</a></li>
+          <li><a href="${analysisFileBase}/existing/coalition-analysis.md" target="_blank" rel="noopener noreferrer">Coalition Analysis</a></li>
+          <li><a href="${analysisFileBase}/existing/voting-patterns.md" target="_blank" rel="noopener noreferrer">Voting Patterns</a></li>
+          <li><a href="${analysisFileBase}/existing/cross-session-intelligence.md" target="_blank" rel="noopener noreferrer">Cross-Session Intelligence</a></li>
         </ul>
       </nav>
       <nav class="methodology-links" aria-label="${methodologyLabel}">
