@@ -45,15 +45,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v4.3.1
 
-      # Cache APT packages for faster installs
-      - name: Cache APT packages
-        uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5.0.4
-        with:
-          path: /var/cache/apt/archives
-          key: ${{ runner.os }}-apt-${{ hashFiles('.github/workflows/copilot-setup-steps.yml') }}
-          restore-keys: |
-            ${{ runner.os }}-apt-
-
       # Setup environment
       - name: Setup Environment
         run: |
@@ -69,27 +60,6 @@ jobs:
         uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6.3.0
         with:
           node-version: "25"
-  
-      - name: Cache dependencies
-        uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5.0.4
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-      # Cache global npm packages for MCP servers (restore before install for speed)
-      - name: Cache global npm packages
-        uses: actions/cache@668228422ae6a00e4ad889ee87cd7109ec5666a7 # v5.0.4
-        with:
-          path: |
-            ~/.npm
-            /usr/local/lib/node_modules
-            /usr/local/bin/mcp-server-*
-            /usr/local/bin/european-parliament-mcp-server
-          key: ${{ runner.os }}-mcp-servers-v4-${{ hashFiles('.github/copilot-mcp.json') }}
-          restore-keys: |
-            ${{ runner.os }}-mcp-servers-v4-
 
       - name: Install dependencies
         run: npm ci
