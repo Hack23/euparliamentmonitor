@@ -106,6 +106,7 @@ function getIsoDatePart(date: Date): string {
  * @param outputOptions - Output configuration
  * @param stats - Mutable generation stats
  * @param availableLanguages - Languages for which the article exists; used to restrict language switcher links
+ * @param analysisDir - Optional resolved analysis directory name (e.g. 'breaking-2') for provenance links
  * @returns true if a file was written
  */
 function generateSingleLanguageArticle(
@@ -116,7 +117,8 @@ function generateSingleLanguageArticle(
   slug: string,
   outputOptions: OutputOptions,
   stats: GenerationStats,
-  availableLanguages?: ReadonlyArray<LanguageCode>
+  availableLanguages?: ReadonlyArray<LanguageCode>,
+  analysisDir?: string
 ): boolean {
   console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
 
@@ -152,6 +154,7 @@ function generateSingleLanguageArticle(
     keywords: [...metadata.keywords],
     sources: metadata.sources ? [...metadata.sources] : [],
     availableLanguages,
+    analysisDir,
   });
 
   // Validate generated HTML has all required structural elements
@@ -219,6 +222,7 @@ function generateSingleLanguageArticle(
  * @param languages - Target language codes
  * @param outputOptions - Dry-run, skip-existing and directory flags
  * @param stats - Mutable stats object to increment counters on
+ * @param analysisDir - Optional resolved analysis directory name (e.g. 'breaking-2') for provenance links
  * @returns Generation result with success flag, file count and slug
  */
 export async function generateArticleForStrategy(
@@ -226,7 +230,8 @@ export async function generateArticleForStrategy(
   client: EuropeanParliamentMCPClient | null,
   languages: ReadonlyArray<LanguageCode>,
   outputOptions: OutputOptions,
-  stats: GenerationStats
+  stats: GenerationStats,
+  analysisDir?: string
 ): Promise<GenerationResult> {
   const emoji = ARTICLE_EMOJIS[strategy.type] ?? '📄';
   console.log(`${emoji} Generating ${strategy.type} article...`);
@@ -258,7 +263,8 @@ export async function generateArticleForStrategy(
           slug,
           outputOptions,
           stats,
-          languages
+          languages,
+          analysisDir
         )
       ) {
         writtenCount++;

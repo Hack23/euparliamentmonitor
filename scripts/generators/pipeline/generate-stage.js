@@ -74,9 +74,10 @@ function getIsoDatePart(date) {
  * @param outputOptions - Output configuration
  * @param stats - Mutable generation stats
  * @param availableLanguages - Languages for which the article exists; used to restrict language switcher links
+ * @param analysisDir - Optional resolved analysis directory name (e.g. 'breaking-2') for provenance links
  * @returns true if a file was written
  */
-function generateSingleLanguageArticle(strategy, data, lang, dateStr, slug, outputOptions, stats, availableLanguages) {
+function generateSingleLanguageArticle(strategy, data, lang, dateStr, slug, outputOptions, stats, availableLanguages, analysisDir) {
     console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
     const content = strategy.buildContent(data, lang);
     const baseMetadata = strategy.getMetadata(data, lang);
@@ -107,6 +108,7 @@ function generateSingleLanguageArticle(strategy, data, lang, dateStr, slug, outp
         keywords: [...metadata.keywords],
         sources: metadata.sources ? [...metadata.sources] : [],
         availableLanguages,
+        analysisDir,
     });
     // Validate generated HTML has all required structural elements
     const validation = validateArticleHTML(html);
@@ -159,9 +161,10 @@ function generateSingleLanguageArticle(strategy, data, lang, dateStr, slug, outp
  * @param languages - Target language codes
  * @param outputOptions - Dry-run, skip-existing and directory flags
  * @param stats - Mutable stats object to increment counters on
+ * @param analysisDir - Optional resolved analysis directory name (e.g. 'breaking-2') for provenance links
  * @returns Generation result with success flag, file count and slug
  */
-export async function generateArticleForStrategy(strategy, client, languages, outputOptions, stats) {
+export async function generateArticleForStrategy(strategy, client, languages, outputOptions, stats, analysisDir) {
     const emoji = ARTICLE_EMOJIS[strategy.type] ?? '📄';
     console.log(`${emoji} Generating ${strategy.type} article...`);
     try {
@@ -177,7 +180,7 @@ export async function generateArticleForStrategy(strategy, client, languages, ou
         }
         let writtenCount = 0;
         for (const lang of languages) {
-            if (generateSingleLanguageArticle(strategy, data, lang, dateStr, slug, outputOptions, stats, languages)) {
+            if (generateSingleLanguageArticle(strategy, data, lang, dateStr, slug, outputOptions, stats, languages, analysisDir)) {
                 writtenCount++;
             }
         }

@@ -1335,12 +1335,14 @@ export const RISK_MATRIX_LABELS = {
     ko: '위험 매트릭스',
     zh: '风险矩阵',
 };
+/** Common Scandinavian translation for "Quantitative SWOT" (sv, da, no) */
+const KVANTITATIV_SWOT = 'Kvantitativ SWOT';
 /** Localized "Quantitative SWOT" labels */
 export const QUANTITATIVE_SWOT_LABELS = {
     en: 'Quantitative SWOT',
-    sv: 'Kvantitativ SWOT',
-    da: 'Kvantitativ SWOT',
-    no: 'Kvantitativ SWOT',
+    sv: KVANTITATIV_SWOT,
+    da: KVANTITATIV_SWOT,
+    no: KVANTITATIV_SWOT,
     fi: 'Kvantitatiivinen SWOT',
     de: 'Quantitative SWOT',
     fr: 'SWOT quantitative',

@@ -503,7 +503,12 @@ async function main(): Promise<void> {
 
   try {
     // Run analysis stage with pipeline enforcement guards
-    await runAnalysisWithGuard(todayDate, client);
+    const analysisCtx = await runAnalysisWithGuard(todayDate, client);
+
+    // Extract the resolved analysis directory basename (e.g. 'breaking-2')
+    // so article transparency links point to the correct suffixed analysis
+    // directory when suffix deduplication is active.
+    const analysisDir = analysisCtx ? path.basename(analysisCtx.outputDir) : undefined;
 
     // If --analysis-only, skip article generation
     if (analysisOnlyArg) {
@@ -534,7 +539,14 @@ async function main(): Promise<void> {
       }
 
       results.push(
-        await generateArticleForStrategy(strategy, client, languages, outputOptions, stats)
+        await generateArticleForStrategy(
+          strategy,
+          client,
+          languages,
+          outputOptions,
+          stats,
+          analysisDir
+        )
       );
     }
 

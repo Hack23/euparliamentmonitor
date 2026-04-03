@@ -354,7 +354,11 @@ async function main() {
     const todayDate = isoToday.slice(0, 10);
     try {
         // Run analysis stage with pipeline enforcement guards
-        await runAnalysisWithGuard(todayDate, client);
+        const analysisCtx = await runAnalysisWithGuard(todayDate, client);
+        // Extract the resolved analysis directory basename (e.g. 'breaking-2')
+        // so article transparency links point to the correct suffixed analysis
+        // directory when suffix deduplication is active.
+        const analysisDir = analysisCtx ? path.basename(analysisCtx.outputDir) : undefined;
         // If --analysis-only, skip article generation
         if (analysisOnlyArg) {
             console.log('ℹ️  --analysis-only specified. Skipping article generation.');
@@ -377,7 +381,7 @@ async function main() {
                 console.log(`⏭️ Article type "${articleType}" not yet implemented`);
                 continue;
             }
-            results.push(await generateArticleForStrategy(strategy, client, languages, outputOptions, stats));
+            results.push(await generateArticleForStrategy(strategy, client, languages, outputOptions, stats, analysisDir));
         }
         console.log('');
         console.log('📊 Generation Summary:');
