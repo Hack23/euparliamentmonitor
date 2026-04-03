@@ -1,0 +1,37 @@
+{
+  "date": "2026-04-03",
+  "articleType": "breaking",
+  "articleTypeSlug": "breaking",
+  "generatedAt": "2026-04-03T00:27:00Z",
+  "workflow": "news-breaking",
+  "analysisOnly": true,
+  "reason": "No breaking news — Friday non-plenary day. Full analysis pipeline completed.",
+  "dataCollected": {
+    "adoptedTexts": 100,
+    "meps": 737,
+    "procedures": 20,
+    "analyticalTools": ["voting_anomalies", "political_landscape", "early_warning"]
+  },
+  "analysisFiles": [
+    "intelligence-brief.md",
+    "political-landscape-assessment.md",
+    "risk-assessment.md",
+    "recent-legislation-review.md"
+  ],
+  "feedEndpointsQueried": [
+    "get_adopted_texts_feed (today → error, one-week → success: 100 items)",
+    "get_events_feed (today → 404, one-week → timeout)",
+    "get_procedures_feed (today → 404, one-week → 404, year fallback → 20 items)",
+    "get_meps_feed (today → success: 737 items)",
+    "get_documents_feed (one-week → timeout)",
+    "get_plenary_documents_feed (one-week → timeout)",
+    "get_committee_documents_feed (one-week → timeout)",
+    "get_parliamentary_questions_feed (one-week → timeout)"
+  ],
+  "analyticalToolsQueried": [
+    "detect_voting_anomalies → success (0 anomalies, LOW risk)",
+    "analyze_coalition_dynamics → timeout",
+    "generate_political_landscape → success (8 groups, HIGH fragmentation)",
+    "early_warning_system → success (3 warnings, MEDIUM risk, 84 stability)"
+  ]
+}
