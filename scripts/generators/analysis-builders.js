@@ -17,11 +17,11 @@ export { AI_MARKER };
 /**
  * Derive stakeholder outcomes from voting records.
  * Groups that win votes are "winners"; groups on the losing side are "losers".
- * Reasoning text is deferred to the AI agent.
+ * Generates data-driven reasoning from cohesion and participation metrics.
  *
  * @param records - Voting records
  * @param patterns - Voting pattern data
- * @returns Stakeholder outcome assessments
+ * @returns Stakeholder outcome assessments with concrete reason strings
  */
 function deriveStakeholderOutcomesFromVoting(records, patterns) {
     const outcomes = [];
@@ -67,7 +67,13 @@ function deriveConsequencesFromVoting(records, anomalies) {
         if (record.result === PLACEHOLDER_MARKER)
             continue;
         const margin = record.votes.for - record.votes.against;
-        const marginDesc = margin > 100 ? 'strong majority' : margin > 30 ? 'moderate majority' : 'narrow margin';
+        const absMargin = Math.abs(margin);
+        const direction = margin >= 0 ? 'majority in favour' : 'majority against';
+        const marginDesc = absMargin > 100
+            ? `strong ${direction}`
+            : absMargin > 30
+                ? `moderate ${direction}`
+                : 'narrow margin';
         consequences.push({
             action: `Vote on "${record.title}"`,
             consequence: `${record.result} by ${marginDesc} (${record.votes.for} for, ${record.votes.against} against, ${record.votes.abstain} abstentions). This outcome shapes the legislative trajectory of this policy area.`,
@@ -241,7 +247,11 @@ function buildVotingWhyText(patterns, polarization) {
         return 'Detailed voting pattern data is not yet available for this period. Parliamentary activity during this period reflects the standard legislative agenda.';
     }
     const avgCohesion = patterns.reduce((sum, p) => sum + p.cohesion, 0) / patterns.length;
-    const cohesionDesc = avgCohesion > 0.75 ? 'high cohesion' : avgCohesion > 0.5 ? 'moderate cohesion' : 'fragmented positions';
+    const cohesionDesc = avgCohesion > 0.75
+        ? 'high cohesion'
+        : avgCohesion > 0.5
+            ? 'moderate cohesion'
+            : 'fragmented positions';
     const polDesc = polarization?.assessment ?? 'not assessed';
     return `Voting patterns across ${patterns.length} political groups show ${cohesionDesc} (average ${(avgCohesion * 100).toFixed(0)}%). Polarization assessment: ${polDesc}. These dynamics reflect ongoing legislative priorities and inter-group negotiations on the current parliamentary agenda.`;
 }

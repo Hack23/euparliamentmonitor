@@ -110,7 +110,7 @@ function buildWhySection(why, heading, contentLang) {
         return `
             <div class="analysis-why ${AI_PENDING_CLASS}">
               <h3>${escapeHTML(heading)}</h3>
-              <p${langAttr} class="${AI_PENDING_CLASS}">${aiPendingNotice('AI political analysis pending — this section will be completed by the editorial intelligence workflow.')}</p>
+              <p${langAttr}>${aiPendingNotice('AI political analysis pending — this section will be completed by the editorial intelligence workflow.')}</p>
             </div>`;
     }
     return `
@@ -213,7 +213,7 @@ function buildImpactSection(impact, heading, labels, contentLang) {
         if (isAiMarker(p.text)) {
             return (`<div class="impact-card ${p.css} ${AI_PENDING_CLASS}">` +
                 `<h4>${escapeHTML(p.label)}</h4>` +
-                `<p${langAttr} class="${AI_PENDING_CLASS}">${aiPendingNotice('AI impact analysis pending.')}</p>` +
+                `<p${langAttr}>${aiPendingNotice('AI impact analysis pending.')}</p>` +
                 `</div>`);
         }
         return (`<div class="impact-card ${p.css}">` +
@@ -354,7 +354,7 @@ function buildOutlookSection(outlook, heading, contentLang) {
         return `
             <div class="analysis-outlook ${AI_PENDING_CLASS}">
               <h3>${escapeHTML(heading)}</h3>
-              <p${langAttr} class="${AI_PENDING_CLASS}">${aiPendingNotice('AI strategic outlook pending — this section will be completed by the editorial intelligence workflow.')}</p>
+              <p${langAttr}>${aiPendingNotice('AI strategic outlook pending — this section will be completed by the editorial intelligence workflow.')}</p>
             </div>`;
     }
     return `
