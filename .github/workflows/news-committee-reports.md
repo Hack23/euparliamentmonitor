@@ -174,6 +174,49 @@ For each committee report, analyze:
 - **Trilogue implications**: If this goes to trilogue, what are the Council's likely positions?
 - **Lobbying footprint**: Which industry or civil society actors have engaged most heavily?
 
+## 📰 AI-DRIVEN HEADLINE AND DESCRIPTION GENERATION (MANDATORY)
+
+> **⚠️ CRITICAL**: Article titles and meta descriptions MUST be AI-generated from political content analysis, NEVER from raw data metrics.
+
+**REJECTED title patterns:**
+- ❌ `EU Parliament Committee Activity Report: ENVI, ECON, AFET, LIBE, AGRI — 19 Adopted Texts` (data dump, not news)
+- ❌ `Committee Reports: 2026-04-02 — Data Analysis` (date-centric, not newsworthy)
+- ❌ `Legislative Pipeline: Pipeline Health 0%` (technical metric, meaningless to readers)
+
+**REQUIRED title approach — AI must generate headlines by:**
+1. Reading the analysis artifacts in `analysis/${TODAY}/committee-reports/`
+2. Identifying the single most politically significant committee action
+3. Writing a headline that leads with the political story: who did what, what does it mean
+4. Keeping the headline under 70 characters for SEO
+5. Using active verbs: "advances", "rejects", "divides", "reshapes", "signals"
+
+**Example AI-generated titles:**
+- ✅ `ENVI Committee Advances Landmark Anti-Corruption Directive After Heated Debate`
+- ✅ `Five EP Committees Reshape Banking and Climate Policy in Sprint to Summer Recess`
+- ✅ `Parliament's ECON Committee Splits on Banking Resolution as ECR Signals Opposition`
+
+**Meta description requirements:**
+- 150-160 characters summarizing the political significance
+- Must reference specific legislation or committee actions
+- Must include at least one stakeholder impact statement
+- ❌ NEVER: `"European Parliament committee activity and legislative effectiveness analysis."` (generic boilerplate)
+- ✅ INSTEAD: `"ENVI committee approves corruption directive while ECON splits on banking reform — five committees advance 19 texts before April recess."`
+
+**AI prompt for title/description generation:**
+> Based on the EP MCP feed data and analysis artifacts, generate:
+> 1. A newsworthy headline (50-70 chars) that leads with the most politically significant committee action, names the specific legislation or committee, uses active voice
+> 2. A meta description (150-160 chars) that summarizes political significance with at least one stakeholder impact statement
+> Do NOT include raw data counts, pipeline health scores, or date-centric titles.
+
+## 🔗 ANALYSIS FILE REFERENCES (MANDATORY)
+
+Every generated article MUST include the Analysis & Transparency section that links to ALL individual analysis files in the GitHub repository. The template already generates these links, but the AI agent MUST verify:
+- [ ] Links to `analysis/${TODAY}/committee-reports/classification/*.md` files are present
+- [ ] Links to `analysis/${TODAY}/committee-reports/threat-assessment/*.md` files are present
+- [ ] Links to `analysis/${TODAY}/committee-reports/risk-scoring/*.md` files are present
+- [ ] Links to `analysis/${TODAY}/committee-reports/existing/*.md` files are present
+- [ ] Links to `analysis/methodologies/*.md` methodology documents are present
+
 ## ⏱️ Time Budget (60 minutes)
 - **Minutes 0–3**: Date check, MCP warm-up with EP MCP tools
 - **Minutes 3–8**: 🔬 Political intelligence analysis stage (significance classification, political threat landscape assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `analysis/${TODAY}/committee-reports/`)

@@ -184,6 +184,29 @@ For each breaking development, immediately assess:
 - **Market/policy signals**: What signal does today's development send to markets, regulators, and civil society?
 - **Next 24-48 hours**: What follow-on actions, reactions, or votes should be tracked?
 
+## 📰 AI-DRIVEN HEADLINE AND DESCRIPTION GENERATION (MANDATORY)
+
+> **⚠️ CRITICAL**: Breaking news titles MUST be AI-generated from political content analysis. They must convey urgency and significance.
+
+**REQUIRED title approach — AI must generate headlines by:**
+1. Reading the analysis artifacts in `analysis/${TODAY}/breaking/`
+2. Identifying the single most impactful development from TODAY's feed data
+3. Writing a headline that conveys immediacy, names actors, and states the impact
+4. Keeping under 70 characters; using urgent active verbs: "breaks", "triggers", "blocks", "challenges"
+
+**Example AI-generated titles:**
+- ✅ `EPP-ECR Split on Trade Tariffs Signals Major Coalition Realignment`
+- ✅ `Parliament Adopts Anti-Corruption Directive in Decisive Cross-Party Vote`
+- ✅ `Recess Intelligence: Quiet Session Masks Shifting Power Dynamics Ahead of April Plenary`
+
+**For analysis-only (no breaking news) articles:**
+- ✅ `Between Sessions: Coalition Patterns and Legislative Pipeline Analysis — 2 April 2026`
+- ❌ `Breaking News Intelligence Brief — 2026-04-02` (generic, not informative)
+
+## 🔗 ANALYSIS FILE REFERENCES (MANDATORY)
+
+Every generated article (or analysis-only PR) MUST link to ALL individual analysis files. The Analysis & Transparency section must include links to each specific `.md` file in `analysis/${TODAY}/breaking/`.
+
 ## ⏱️ Time Budget (60 minutes)
 - **Minutes 0–3**: Date check, MCP warm-up with EP MCP tools
 - **Minutes 3–20**: Query ALL EP feed endpoints — download ALL documents, adopted texts, events, procedures, MEP updates. Use `timeframe: "today"` first, then retry with `timeframe: "one-week"` for any empty/failed endpoint. Also fetch advisory feeds (documents, plenary docs, committee docs, questions) with `timeframe: "one-week"`. **⚠️ EP API can be slow (30-90s per call) — be patient, do NOT abort on slow responses. Allow up to 120s per call.**

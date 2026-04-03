@@ -95,6 +95,26 @@ function getIsoDatePart(date: Date): string {
   return parts[0];
 }
 
+// ─── Dedup helper ─────────────────────────────────────────────────────────────
+
+/**
+ * Compute the per-strategy article slug by appending any dedup suffix.
+ *
+ * When a dedup suffix is provided (e.g. `"-2"` or `"-a1b2c3d4"`), it is
+ * appended to the strategy type to produce a unique slug:
+ *   `"breaking"` + `"-2"` → `"breaking-2"`
+ *   `"week-ahead"` + `"-2"` → `"week-ahead-2"`
+ *
+ * When no suffix applies, the strategy type is returned unchanged.
+ *
+ * @param strategyType - Base article type (e.g. `"breaking"`)
+ * @param dedupSuffix - Dedup suffix including leading hyphen (e.g. `"-2"`, `"-a1b2c3d4"`) or empty string
+ * @returns The type slug with any dedup suffix appended
+ */
+export function deriveTypeSlug(strategyType: string, dedupSuffix: string): string {
+  return dedupSuffix ? `${strategyType}${dedupSuffix}` : strategyType;
+}
+
 /**
  * Generate, validate and write a single language version of an article.
  *
@@ -106,6 +126,7 @@ function getIsoDatePart(date: Date): string {
  * @param outputOptions - Output configuration
  * @param stats - Mutable generation stats
  * @param availableLanguages - Languages for which the article exists; used to restrict language switcher links
+ * @param analysisDir - Optional resolved analysis directory name (e.g. 'breaking-2') for provenance links
  * @returns true if a file was written
  */
 function generateSingleLanguageArticle(
@@ -116,7 +137,8 @@ function generateSingleLanguageArticle(
   slug: string,
   outputOptions: OutputOptions,
   stats: GenerationStats,
-  availableLanguages?: ReadonlyArray<LanguageCode>
+  availableLanguages?: ReadonlyArray<LanguageCode>,
+  analysisDir?: string
 ): boolean {
   console.log(`  🌐 Generating ${lang.toUpperCase()} version...`);
 
@@ -141,7 +163,10 @@ function generateSingleLanguageArticle(
         };
 
   const html = generateArticleHTML({
-    slug: strategy.type,
+    // Extract the type-slug portion from the file slug (which is
+    // "{date}-{typeSlug}") so canonical URLs, og:url, and language-
+    // switcher links include any dedup suffix (e.g. "breaking-2").
+    slug: slug.replace(/^\d{4}-\d{2}-\d{2}-/, ''),
     title: metadata.title,
     subtitle: metadata.subtitle,
     date: dateStr,
@@ -152,6 +177,7 @@ function generateSingleLanguageArticle(
     keywords: [...metadata.keywords],
     sources: metadata.sources ? [...metadata.sources] : [],
     availableLanguages,
+    analysisDir,
   });
 
   // Validate generated HTML has all required structural elements
@@ -214,11 +240,17 @@ function generateSingleLanguageArticle(
  * generates the full HTML wrapper and writes each file through the output
  * stage.  Catches all errors so the caller can continue with other types.
  *
+ * Deduplication operates at the slug level: `dedupSuffix` (e.g. `"-2"`)
+ * is appended to `strategy.type` to produce unique filenames and URLs,
+ * while `analysisDir` is passed through to the template for transparency links.
+ *
  * @param strategy - Concrete strategy for the target article category
  * @param client - Connected MCP client or null
  * @param languages - Target language codes
  * @param outputOptions - Dry-run, skip-existing and directory flags
  * @param stats - Mutable stats object to increment counters on
+ * @param dedupSuffix - Dedup suffix including leading hyphen (e.g. `"-2"`) or empty string; applied per-strategy to slugs
+ * @param analysisDir - Optional resolved analysis directory basename (e.g. `"breaking-2"`) for transparency links
  * @returns Generation result with success flag, file count and slug
  */
 export async function generateArticleForStrategy(
@@ -226,7 +258,9 @@ export async function generateArticleForStrategy(
   client: EuropeanParliamentMCPClient | null,
   languages: ReadonlyArray<LanguageCode>,
   outputOptions: OutputOptions,
-  stats: GenerationStats
+  stats: GenerationStats,
+  dedupSuffix: string = '',
+  analysisDir?: string
 ): Promise<GenerationResult> {
   const emoji = ARTICLE_EMOJIS[strategy.type] ?? '📄';
   console.log(`${emoji} Generating ${strategy.type} article...`);
@@ -234,7 +268,8 @@ export async function generateArticleForStrategy(
   try {
     const today = new Date();
     const dateStr = getIsoDatePart(today);
-    const slug = `${formatDateForSlug(today)}-${strategy.type}`;
+    const typeSlug = deriveTypeSlug(strategy.type, dedupSuffix);
+    const slug = `${formatDateForSlug(today)}-${typeSlug}`;
 
     const data = await strategy.fetchData(client, dateStr);
 
@@ -258,7 +293,8 @@ export async function generateArticleForStrategy(
           slug,
           outputOptions,
           stats,
-          languages
+          languages,
+          analysisDir
         )
       ) {
         writtenCount++;
