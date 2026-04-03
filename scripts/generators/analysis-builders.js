@@ -63,13 +63,16 @@ function deriveStakeholderOutcomesFromVoting(records, patterns) {
  */
 function describeVoteMargin(votesFor, votesAgainst) {
     const margin = votesFor - votesAgainst;
+    if (margin === 0) {
+        return 'tied vote with no clear majority';
+    }
     const absMargin = Math.abs(margin);
-    const direction = margin >= 0 ? 'majority in favour' : 'majority against';
+    const direction = margin > 0 ? 'majority in favour' : 'majority against';
     if (absMargin > 100)
         return `strong ${direction}`;
     if (absMargin > 30)
         return `moderate ${direction}`;
-    return 'narrow margin';
+    return `narrow ${direction}`;
 }
 /**
  * Derive action→consequence chains from voting records and anomalies.

@@ -5154,6 +5154,12 @@ em.ai-analysis-pending {
     border-left-color: var(--accent-warning-dark, #e08c00);
   }
 
+  [dir='rtl'] div.ai-analysis-pending,
+  [dir='rtl'] section.ai-analysis-pending {
+    border-left-color: initial;
+    border-right-color: var(--accent-warning-dark, #e08c00);
+  }
+
   .ai-analysis-pending em,
   em.ai-analysis-pending {
     color: var(--text-muted-dark, #8b949e);
@@ -5162,6 +5168,21 @@ em.ai-analysis-pending {
   .impact-card.ai-analysis-pending {
     background: var(--surface-muted-dark, #161b22);
   }
+}
+
+/* RTL overrides for AI pending indicators */
+[dir='rtl'] div.ai-analysis-pending,
+[dir='rtl'] section.ai-analysis-pending {
+  border-left: none;
+  border-right: 3px solid var(--accent-warning, #fd7e14);
+  padding-left: 0;
+  padding-right: 0.75rem;
+}
+
+[dir='rtl'] div.ai-analysis-pending::before,
+[dir='rtl'] section.ai-analysis-pending::before {
+  left: auto;
+  right: -1.5rem;
 }
 
 /* ─── D3/Chart.js Enhanced Visualization Styles ──────────────────────────── */
