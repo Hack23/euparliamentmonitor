@@ -584,6 +584,7 @@ function renderAnalysisTransparencySection(
         <h3><span aria-hidden="true">📊</span> ${analysisSummaryLabel}</h3>
         <ul>
           <li><a href="${analysisDirUrl}" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">📁</span> ${analysisSummaryLabel}</a></li>
+          <li><a href="${analysisFileBase}/manifest.json" target="_blank" rel="noopener noreferrer">manifest.json</a></li>
         </ul>
         <h3><span aria-hidden="true">🏷️</span> ${classificationLabel}</h3>
         <ul>

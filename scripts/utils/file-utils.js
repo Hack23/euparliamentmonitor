@@ -140,19 +140,32 @@ export function resolveUniqueAnalysisDir(baseDir) {
     if (!fs.existsSync(path.join(baseDir, 'manifest.json'))) {
         return baseDir;
     }
-    // Directory already has a completed run — find the next available suffix
+    // Directory already has a completed run — find the next available suffix.
+    // Use atomic mkdirSync to prevent TOCTOU races when parallel workflow
+    // runs attempt to claim the same suffix concurrently.
     let suffix = 2;
     // Safety cap to prevent runaway loops
     const MAX_SUFFIX = 100;
     while (suffix <= MAX_SUFFIX) {
         const candidate = `${baseDir}-${suffix}`;
-        if (!fs.existsSync(path.join(candidate, 'manifest.json'))) {
+        try {
+            fs.mkdirSync(candidate, { recursive: false });
+            // Successfully created — this run owns the directory
             return candidate;
         }
-        suffix++;
+        catch {
+            // Directory already exists — another run may have claimed it.
+            // Only skip if it already has a completed manifest.
+            if (fs.existsSync(path.join(candidate, 'manifest.json'))) {
+                suffix++;
+                continue;
+            }
+            // Directory exists but has no manifest — reuse it
+            return candidate;
+        }
     }
-    // Fallback: use timestamp-suffixed directory to guarantee uniqueness
-    return `${baseDir}-${Date.now()}`;
+    // Fallback: use UUID-suffixed directory to guarantee uniqueness
+    return `${baseDir}-${randomUUID().slice(0, 8)}`;
 }
 /**
  * Resolve a unique filename by appending a numeric suffix (-2, -3, …) before
@@ -181,7 +194,7 @@ export function resolveUniqueFilePath(filepath) {
         }
         suffix++;
     }
-    return path.join(dir, `${base}-${Date.now()}${ext}`);
+    return path.join(dir, `${base}-${randomUUID().slice(0, 8)}${ext}`);
 }
 /**
  * Write content to a file with UTF-8 encoding

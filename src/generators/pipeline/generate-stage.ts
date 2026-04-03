@@ -239,7 +239,11 @@ export async function generateArticleForStrategy(
   try {
     const today = new Date();
     const dateStr = getIsoDatePart(today);
-    const slug = `${formatDateForSlug(today)}-${strategy.type}`;
+    // If the analysis directory was deduplicated (e.g. "breaking-2"), derive
+    // the suffix and bake it into the article slug so filenames, canonical
+    // URLs, og:url, and language-switcher links all stay consistent.
+    const typeSlug = analysisDir ?? strategy.type;
+    const slug = `${formatDateForSlug(today)}-${typeSlug}`;
 
     const data = await strategy.fetchData(client, dateStr);
 
