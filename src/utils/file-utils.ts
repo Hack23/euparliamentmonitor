@@ -176,7 +176,12 @@ export function resolveUniqueAnalysisDir(baseDir: string): string {
       fs.mkdirSync(candidate, { recursive: false });
       // Successfully created — this run owns the directory
       return candidate;
-    } catch {
+    } catch (err: unknown) {
+      // Only handle EEXIST (directory already claimed by another run).
+      // Re-throw unexpected errors (permissions, I/O, etc.).
+      if ((err as NodeJS.ErrnoException).code !== 'EEXIST') {
+        throw err;
+      }
       // Directory already exists — another run may have claimed it.
       // Only skip if it already has a completed manifest.
       if (fs.existsSync(path.join(candidate, 'manifest.json'))) {

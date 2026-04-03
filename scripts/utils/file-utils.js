@@ -153,7 +153,12 @@ export function resolveUniqueAnalysisDir(baseDir) {
             // Successfully created — this run owns the directory
             return candidate;
         }
-        catch {
+        catch (err) {
+            // Only handle EEXIST (directory already claimed by another run).
+            // Re-throw unexpected errors (permissions, I/O, etc.).
+            if (err.code !== 'EEXIST') {
+                throw err;
+            }
             // Directory already exists — another run may have claimed it.
             // Only skip if it already has a completed manifest.
             if (fs.existsSync(path.join(candidate, 'manifest.json'))) {
