@@ -63,6 +63,27 @@ function getIsoDatePart(date) {
         throw new Error('Failed to extract date part from ISO string');
     return parts[0];
 }
+// ─── Dedup helper ─────────────────────────────────────────────────────────────
+/**
+ * Extract the deduplication suffix from a resolved analysis directory name
+ * and apply it to the given strategy type.
+ *
+ * If `analysisDir` is `"breaking-2"` and `strategyType` is `"breaking"`,
+ * returns `"breaking-2"`.  For UUID-based fallbacks like `"breaking-a1b2c3d4"`,
+ * returns `"breaking-a1b2c3d4"`.  When no suffix applies, returns the
+ * `strategyType` unchanged.
+ *
+ * @param strategyType - Base article type (e.g. `"breaking"`)
+ * @param analysisDir - Resolved analysis directory basename, if any
+ * @returns The type slug with any dedup suffix appended
+ */
+function deriveTypeSlug(strategyType, analysisDir) {
+    const prefix = `${strategyType}-`;
+    if (analysisDir !== undefined && analysisDir.startsWith(prefix)) {
+        return analysisDir;
+    }
+    return strategyType;
+}
 /**
  * Generate, validate and write a single language version of an article.
  *
@@ -173,16 +194,7 @@ export async function generateArticleForStrategy(strategy, client, languages, ou
     try {
         const today = new Date();
         const dateStr = getIsoDatePart(today);
-        // If the analysis directory was deduplicated (e.g. "breaking-2" or a
-        // UUID-based fallback such as "breaking-a1b2c3d4"), propagate the full
-        // suffix for the current strategy type into the slug.
-        // This keeps per-strategy slugs distinct and aligned with the resolved
-        // analysis directory regardless of suffix format.
-        const dedupPrefix = `${strategy.type}-`;
-        const dedupSuffix = analysisDir !== undefined && analysisDir.startsWith(dedupPrefix)
-            ? analysisDir.slice(strategy.type.length)
-            : '';
-        const typeSlug = `${strategy.type}${dedupSuffix}`;
+        const typeSlug = deriveTypeSlug(strategy.type, analysisDir);
         const slug = `${formatDateForSlug(today)}-${typeSlug}`;
         const data = await strategy.fetchData(client, dateStr);
         // Check if the strategy wants to skip generation (e.g. all data is placeholder)
