@@ -1,0 +1,164 @@
+{
+  "runId": "9be5bca6-de96-4303-80ff-33cb5f24b51b",
+  "date": "2026-04-03",
+  "articleTypeSlug": "propositions",
+  "startTime": "2026-04-03T05:56:21.143Z",
+  "endTime": "2026-04-03T05:56:21.261Z",
+  "articleTypes": [
+    "propositions"
+  ],
+  "methods": [
+    {
+      "method": "significance-classification",
+      "status": "completed",
+      "outputFile": "classification/significance-assessment.md",
+      "confidence": "medium",
+      "duration": 1,
+      "summary": "significance-classification analysis completed successfully"
+    },
+    {
+      "method": "impact-matrix",
+      "status": "completed",
+      "outputFile": "classification/impact-matrix.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "impact-matrix analysis completed successfully"
+    },
+    {
+      "method": "actor-mapping",
+      "status": "completed",
+      "outputFile": "classification/actor-mapping.md",
+      "confidence": "medium",
+      "duration": 1,
+      "summary": "actor-mapping analysis completed successfully"
+    },
+    {
+      "method": "forces-analysis",
+      "status": "completed",
+      "outputFile": "classification/forces-analysis.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "forces-analysis analysis completed successfully"
+    },
+    {
+      "method": "political-threat-landscape",
+      "status": "completed",
+      "outputFile": "threat-assessment/political-threat-landscape.md",
+      "confidence": "medium",
+      "duration": 3,
+      "summary": "political-threat-landscape analysis completed successfully"
+    },
+    {
+      "method": "actor-threat-profiling",
+      "status": "completed",
+      "outputFile": "threat-assessment/actor-threat-profiles.md",
+      "confidence": "low",
+      "duration": 0,
+      "summary": "actor-threat-profiling analysis completed successfully"
+    },
+    {
+      "method": "consequence-trees",
+      "status": "completed",
+      "outputFile": "threat-assessment/consequence-trees.md",
+      "confidence": "medium",
+      "duration": 1,
+      "summary": "consequence-trees analysis completed successfully"
+    },
+    {
+      "method": "legislative-disruption",
+      "status": "completed",
+      "outputFile": "threat-assessment/legislative-disruption.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "legislative-disruption analysis completed successfully"
+    },
+    {
+      "method": "risk-matrix",
+      "status": "completed",
+      "outputFile": "risk-scoring/risk-matrix.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "risk-matrix analysis completed successfully"
+    },
+    {
+      "method": "political-capital-risk",
+      "status": "completed",
+      "outputFile": "risk-scoring/political-capital-risk.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "political-capital-risk analysis completed successfully"
+    },
+    {
+      "method": "quantitative-swot",
+      "status": "completed",
+      "outputFile": "risk-scoring/quantitative-swot.md",
+      "confidence": "medium",
+      "duration": 1,
+      "summary": "quantitative-swot analysis completed successfully"
+    },
+    {
+      "method": "legislative-velocity-risk",
+      "status": "completed",
+      "outputFile": "risk-scoring/legislative-velocity-risk.md",
+      "confidence": "medium",
+      "duration": 1,
+      "summary": "legislative-velocity-risk analysis completed successfully"
+    },
+    {
+      "method": "agent-risk-workflow",
+      "status": "completed",
+      "outputFile": "risk-scoring/agent-risk-workflow.md",
+      "confidence": "medium",
+      "duration": 1,
+      "summary": "agent-risk-workflow analysis completed successfully"
+    },
+    {
+      "method": "deep-analysis",
+      "status": "completed",
+      "outputFile": "existing/deep-analysis.md",
+      "confidence": "high",
+      "duration": 0,
+      "summary": "deep-analysis analysis completed successfully"
+    },
+    {
+      "method": "stakeholder-analysis",
+      "status": "completed",
+      "outputFile": "existing/stakeholder-analysis.md",
+      "confidence": "high",
+      "duration": 0,
+      "summary": "stakeholder-analysis analysis completed successfully"
+    },
+    {
+      "method": "coalition-analysis",
+      "status": "completed",
+      "outputFile": "existing/coalition-analysis.md",
+      "confidence": "high",
+      "duration": 1,
+      "summary": "coalition-analysis analysis completed successfully"
+    },
+    {
+      "method": "voting-patterns",
+      "status": "completed",
+      "outputFile": "existing/voting-patterns.md",
+      "confidence": "high",
+      "duration": 0,
+      "summary": "voting-patterns analysis completed successfully"
+    },
+    {
+      "method": "cross-session-intelligence",
+      "status": "completed",
+      "outputFile": "existing/cross-session-intelligence.md",
+      "confidence": "high",
+      "duration": 0,
+      "summary": "cross-session-intelligence analysis completed successfully"
+    }
+  ],
+  "overallConfidence": "medium",
+  "dataSourcesUsed": [
+    "adoptedTexts",
+    "mepUpdates",
+    "declarations"
+  ],
+  "documentsAnalyzed": 0,
+  "analyzedDocumentIds": []
+}
