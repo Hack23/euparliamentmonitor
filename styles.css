@@ -5103,3 +5103,95 @@ details[open] > .mindmap-stakeholder-toggle::before {
     padding: 0.4rem 0.5rem;
   }
 }
+
+/* ─── AI Analysis Pending Indicators ─────────────────────────────────────── */
+
+.ai-analysis-pending {
+  position: relative;
+  opacity: 0.7;
+  border-left: 3px solid var(--accent-warning, #fd7e14);
+  padding-left: 0.75rem;
+}
+
+.ai-analysis-pending em {
+  color: var(--text-muted, #6c757d);
+  font-style: italic;
+  font-size: 0.9em;
+}
+
+.ai-analysis-pending::before {
+  content: '⏳';
+  position: absolute;
+  left: -1.5rem;
+  top: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.impact-card.ai-analysis-pending {
+  background: var(--surface-muted, #f8f9fa);
+  border-style: dashed;
+}
+
+.stakeholder-perspective-card .ai-analysis-pending {
+  font-size: 0.85em;
+}
+
+/* Dark mode overrides */
+@media (prefers-color-scheme: dark) {
+  .ai-analysis-pending {
+    border-left-color: var(--accent-warning-dark, #e08c00);
+  }
+
+  .ai-analysis-pending em {
+    color: var(--text-muted-dark, #8b949e);
+  }
+
+  .impact-card.ai-analysis-pending {
+    background: var(--surface-muted-dark, #161b22);
+  }
+}
+
+/* ─── D3/Chart.js Enhanced Visualization Styles ──────────────────────────── */
+
+.d3-treemap-wrapper,
+.d3-network-wrapper,
+.d3-swot-chart-wrapper {
+  margin-top: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.d3-treemap-wrapper svg,
+.d3-network-wrapper svg,
+.d3-swot-chart-wrapper svg {
+  display: block;
+  border-radius: 8px;
+  background: var(--surface-muted, #f8f9fa);
+}
+
+@media (prefers-color-scheme: dark) {
+  .d3-treemap-wrapper svg,
+  .d3-network-wrapper svg,
+  .d3-swot-chart-wrapper svg {
+    background: var(--surface-muted-dark, #161b22);
+  }
+
+  .d3-swot-chart-wrapper text,
+  .d3-network-wrapper text {
+    fill: #c9d1d9 !important;
+  }
+}
+
+/* Dashboard chart containers */
+.dashboard-chart {
+  border-radius: 8px;
+  max-width: 100%;
+}
+
+.dashboard-panel {
+  transition: box-shadow 0.2s ease;
+}
+
+.dashboard-panel:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
