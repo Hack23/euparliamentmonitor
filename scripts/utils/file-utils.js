@@ -124,6 +124,97 @@ export function ensureDirectoryExists(dirPath) {
     }
 }
 /**
+ * Attempt to atomically claim a directory by creating it non-recursively.
+ *
+ * @param dirPath - Directory path to claim
+ * @returns `true` when the directory was created by this call, otherwise `false`
+ */
+function claimDir(dirPath) {
+    // Ensure parent exists (recursive: true never throws EEXIST)
+    fs.mkdirSync(path.dirname(dirPath), { recursive: true });
+    try {
+        // Non-recursive create: EEXIST means another run already claimed it
+        fs.mkdirSync(dirPath, { recursive: false });
+        return true;
+    }
+    catch (err) {
+        if (err.code === 'EEXIST') {
+            return false;
+        }
+        throw err;
+    }
+}
+/**
+ * Resolve a unique directory path by appending a numeric suffix (-2, -3, …)
+ * when the preferred directory has already been claimed by a completed run.
+ *
+ * The base directory is treated as occupied when it contains `manifest.json`
+ * (written at the end of a successful analysis run).  A directory without
+ * `manifest.json` is considered available — this allows the `skipCompleted`
+ * feature to resume an incomplete run in the same directory.
+ *
+ * Suffixed candidates (-2, -3, …) are claimed atomically via non-recursive
+ * `mkdirSync`, preventing TOCTOU races when concurrent workflow runs
+ * attempt to claim the same candidate.
+ *
+ * @param baseDir - The preferred directory path (e.g. `analysis/2026-04-02/breaking`)
+ * @returns The original `baseDir` when no completed run exists there, or a
+ *          suffixed variant (e.g. `analysis/2026-04-02/breaking-2`) otherwise.
+ */
+export function resolveUniqueAnalysisDir(baseDir) {
+    // If the directory doesn't exist yet or has no manifest from a prior
+    // completed run, use it as-is.  This supports the skipCompleted feature
+    // which resumes an incomplete run in the same directory.
+    if (!fs.existsSync(path.join(baseDir, 'manifest.json'))) {
+        return baseDir;
+    }
+    // Directory already has a completed run — find the next available suffix.
+    // Use atomic mkdirSync to prevent TOCTOU races when parallel workflow
+    // runs attempt to claim the same suffixed candidate concurrently.
+    let suffix = 2;
+    const MAX_SUFFIX = 100;
+    while (suffix <= MAX_SUFFIX) {
+        const candidate = `${baseDir}-${suffix}`;
+        if (claimDir(candidate)) {
+            return candidate;
+        }
+        suffix++;
+    }
+    // Fallback: use UUID-suffixed directory to guarantee uniqueness
+    const candidate = `${baseDir}-${randomUUID().slice(0, 8)}`;
+    fs.mkdirSync(candidate, { recursive: true });
+    return candidate;
+}
+/**
+ * Resolve a unique filename by appending a numeric suffix (-2, -3, …) before
+ * the file extension when the file already exists.
+ *
+ * This prevents repeated workflow runs from overwriting previously committed
+ * news articles.
+ *
+ * @param filepath - The preferred file path (e.g. `news/2026-04-02-breaking-en.html`)
+ * @returns The original path when the file doesn't exist, or a suffixed
+ *          variant (e.g. `news/2026-04-02-breaking-en-2.html`) otherwise.
+ */
+export function resolveUniqueFilePath(filepath) {
+    if (!fs.existsSync(filepath)) {
+        return filepath;
+    }
+    const dir = path.dirname(filepath);
+    const ext = path.extname(filepath);
+    const base = path.basename(filepath, ext);
+    let suffix = 2;
+    const MAX_SUFFIX = 100;
+    while (suffix <= MAX_SUFFIX) {
+        const candidate = path.join(dir, `${base}-${suffix}${ext}`);
+        if (!fs.existsSync(candidate)) {
+            return candidate;
+        }
+        suffix++;
+    }
+    return path.join(dir, `${base}-${randomUUID().slice(0, 8)}${ext}`);
+}
+/**
  * Write content to a file with UTF-8 encoding
  *
  * @param filepath - Output file path

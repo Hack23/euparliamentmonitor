@@ -174,6 +174,37 @@ For each motion or resolution vote, analyze:
 - **Margin analysis**: Was the vote close (within 50 votes)? Close votes signal contested legitimacy.
 - **Historical comparison**: Has this group voted differently on similar motions before?
 
+## 📰 AI-DRIVEN HEADLINE AND DESCRIPTION GENERATION (MANDATORY)
+
+> **⚠️ CRITICAL**: Article titles and meta descriptions MUST be AI-generated from political content analysis, NEVER from raw data metrics.
+
+**REJECTED title patterns:**
+- ❌ `Plenary Votes & Resolutions: 2026-04-02 — 2 Votes, 1 Anomaly` (data metrics, not a news story)
+- ❌ `Motions Analysis: European Parliament Monitor` (generic, no news value)
+
+**REQUIRED title approach — AI must generate headlines by:**
+1. Reading the analysis artifacts in `analysis/${TODAY}/motions/`
+2. Identifying the most politically significant vote or resolution
+3. Writing a headline that conveys the political impact: coalition splits, landmark decisions, controversial outcomes
+4. Keeping under 70 characters for SEO; using active verbs
+
+**Example AI-generated titles:**
+- ✅ `ECR Breaks Ranks on Tariff Response as Grand Coalition Holds on Banking Reform`
+- ✅ `Parliament Adopts Anti-Corruption Directive Despite PfE Opposition — Key Votes Analysed`
+- ✅ `Close Vote on Trade Measures Exposes Deep Divisions Within EPP and Renew`
+
+**Meta description AI prompt:**
+> Based on the voting records and adopted texts from EP MCP data, generate a meta description (150-160 chars) that: (1) names the most significant vote/resolution, (2) states the outcome, (3) identifies the coalition dynamics. Never use generic descriptions.
+
+## 🔗 ANALYSIS FILE REFERENCES (MANDATORY)
+
+Every generated article MUST link to ALL individual analysis files. Verify the Analysis & Transparency section includes:
+- [ ] Links to `analysis/${TODAY}/motions/classification/*.md` files
+- [ ] Links to `analysis/${TODAY}/motions/threat-assessment/*.md` files
+- [ ] Links to `analysis/${TODAY}/motions/risk-scoring/*.md` files
+- [ ] Links to `analysis/${TODAY}/motions/existing/*.md` files
+- [ ] Links to `analysis/methodologies/*.md` methodology documents
+
 ## ⏱️ Time Budget (60 minutes)
 - **Minutes 0–3**: Date validation, MCP warm-up
 - **Minutes 3–8**: 🔬 Political intelligence analysis stage (significance classification, political threat landscape assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `analysis/${TODAY}/motions/`)

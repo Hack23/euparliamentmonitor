@@ -354,7 +354,25 @@ async function main() {
     const todayDate = isoToday.slice(0, 10);
     try {
         // Run analysis stage with pipeline enforcement guards
-        await runAnalysisWithGuard(todayDate, client);
+        const analysisCtx = await runAnalysisWithGuard(todayDate, client);
+        // Extract the resolved analysis directory basename (e.g. 'breaking-2')
+        // so article transparency links point to the correct suffixed analysis
+        // directory when suffix deduplication is active.
+        const analysisDir = analysisCtx ? path.basename(analysisCtx.outputDir) : undefined;
+        // Extract the dedup suffix by comparing the resolved analysis dir
+        // basename with the original slug.  For example:
+        //   slug = 'breaking'  →  analysisDir = 'breaking-2'  →  dedupSuffix = '-2'
+        //   slug = 'breaking'  →  analysisDir = 'breaking'     →  dedupSuffix = ''
+        // This suffix is applied per-strategy to article slugs, so multi-type
+        // runs produce distinct slugs (e.g. 'breaking-2' and 'week-ahead-2').
+        const baseSlug = deriveArticleTypeSlug(articleTypes
+            .filter((t) => VALID_ARTICLE_CATEGORIES.includes(t)));
+        // Only extract the suffix if it matches the expected dedup pattern:
+        // numeric (-2, -3, …) or UUID-based (-a1b2c3d4).
+        const rawSuffix = analysisDir !== undefined && analysisDir.startsWith(baseSlug)
+            ? analysisDir.slice(baseSlug.length)
+            : '';
+        const dedupSuffix = /^-[\da-f]+$/i.test(rawSuffix) ? rawSuffix : '';
         // If --analysis-only, skip article generation
         if (analysisOnlyArg) {
             console.log('ℹ️  --analysis-only specified. Skipping article generation.');
@@ -377,7 +395,7 @@ async function main() {
                 console.log(`⏭️ Article type "${articleType}" not yet implemented`);
                 continue;
             }
-            results.push(await generateArticleForStrategy(strategy, client, languages, outputOptions, stats));
+            results.push(await generateArticleForStrategy(strategy, client, languages, outputOptions, stats, dedupSuffix, analysisDir));
         }
         console.log('');
         console.log('📊 Generation Summary:');

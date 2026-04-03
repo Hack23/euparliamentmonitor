@@ -16,13 +16,19 @@ const DRY_RUN_PREFIX = '  [DRY RUN]';
 /**
  * Write a single HTML file to the news directory.
  *
- * Respects `dryRun` and `skipExisting` flags: returns `false` without writing
+ * Respects `dryRun` and `skipExisting` flags: returns `null` without writing
  * in either case.
+ *
+ * File-level deduplication is intentionally NOT applied here.  Instead, the
+ * pipeline computes a run-level suffix from the deduplicated analysis
+ * directory (e.g. `"breaking-2"`) and bakes it into the article slug
+ * *before* HTML generation, keeping filenames, canonical URLs, og:url,
+ * and language-switcher links all consistent.
  *
  * @param html - Full HTML content to write
  * @param filename - Target filename (relative to `options.newsDir`)
  * @param options - Output flags and directory path
- * @returns `true` when the file was actually written
+ * @returns The basename of the actually-written file, or `null` when nothing was written
  */
 export function writeArticleFile(html, filename, options) {
     const filepath = path.join(options.newsDir, filename);
@@ -33,15 +39,20 @@ export function writeArticleFile(html, filename, options) {
         else {
             console.log(`  ⏭️  Skipped (already exists): ${filename}`);
         }
-        return false;
+        return null;
     }
     if (options.dryRun) {
         console.log(`${DRY_RUN_PREFIX} Would write: ${filename}`);
-        return false;
+        return null;
     }
+    // File-level dedup is intentionally NOT applied here.  Instead, the
+    // pipeline computes a run-level suffix from the deduplicated analysis
+    // directory (e.g. "breaking-2") and bakes it into the article slug
+    // *before* HTML generation.  This keeps filenames, canonical URLs,
+    // og:url, and language-switcher links all consistent.
     atomicWrite(filepath, html);
     console.log(`  ✅ Wrote: ${filename}`);
-    return true;
+    return filename;
 }
 /**
  * Write a language-specific article file and update the generation stats.
@@ -55,10 +66,10 @@ export function writeArticleFile(html, filename, options) {
  */
 export function writeSingleArticle(html, slug, lang, options, stats) {
     const filename = `${slug}-${lang}.html`;
-    const written = writeArticleFile(html, filename, options);
-    if (written) {
+    const writtenName = writeArticleFile(html, filename, options);
+    if (writtenName !== null) {
         stats.generated += 1;
-        stats.articles.push(filename);
+        stats.articles.push(writtenName);
     }
     else if (options.skipExisting && fs.existsSync(path.join(options.newsDir, filename))) {
         stats.skipped += 1;
@@ -66,7 +77,7 @@ export function writeSingleArticle(html, slug, lang, options, stats) {
     else if (options.dryRun) {
         stats.dryRun += 1;
     }
-    return written;
+    return writtenName !== null;
 }
 /**
  * Persist a generation metadata JSON file to the metadata directory.
