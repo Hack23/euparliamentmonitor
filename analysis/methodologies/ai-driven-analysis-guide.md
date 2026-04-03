@@ -632,7 +632,7 @@ if grep -r "AI_ANALYSIS_REQUIRED" news/${TODAY}-${ARTICLE_TYPE}-*.html 2>/dev/nu
 fi
 
 # Quality gate: No placeholder keywords in meta tags
-if grep -i "placeholder\|data.unavailable\|example motion\|example amendment" news/${TODAY}-${ARTICLE_TYPE}-en.html 2>/dev/null; then
+if grep -i "placeholder\|data[._-]unavailable\|example motion\|example amendment" news/${TODAY}-${ARTICLE_TYPE}-en.html 2>/dev/null; then
   echo "❌ QUALITY GATE FAILED: Placeholder text in article metadata"
   echo "The AI agent must provide real keywords — never 'Example motion (placeholder)'"
   exit 1

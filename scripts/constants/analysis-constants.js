@@ -52,7 +52,7 @@ export const AI_PENDING_CLASS = 'ai-analysis-pending';
  *
  * Matches known placeholder patterns including:
  * - "placeholder" (case-insensitive)
- * - "data unavailable" / "data.unavailable"
+ * - "data unavailable" / "data_unavailable" / "data-unavailable"
  * - "Example motion", "Example amendment", "Example group"
  *
  * Keep this regex in sync with the shell quality-gate patterns in the
@@ -62,6 +62,6 @@ export const AI_PENDING_CLASS = 'ai-analysis-pending';
  * @returns `true` when the text matches known placeholder patterns
  */
 export function isPlaceholderText(text) {
-    return /placeholder|data.unavailable|example\s+(motion|amendment|group)/i.test(text);
+    return /placeholder|data[\s._-]unavailable|example\s+(motion|amendment|group)/i.test(text);
 }
 //# sourceMappingURL=analysis-constants.js.map
