@@ -98,24 +98,21 @@ function getIsoDatePart(date: Date): string {
 // ─── Dedup helper ─────────────────────────────────────────────────────────────
 
 /**
- * Extract the deduplication suffix from a resolved analysis directory name
- * and apply it to the given strategy type.
+ * Compute the per-strategy article slug by appending any dedup suffix.
  *
- * If `analysisDir` is `"breaking-2"` and `strategyType` is `"breaking"`,
- * returns `"breaking-2"`.  For UUID-based fallbacks like `"breaking-a1b2c3d4"`,
- * returns `"breaking-a1b2c3d4"`.  When no suffix applies, returns the
- * `strategyType` unchanged.
+ * When a dedup suffix is provided (e.g. `"-2"` or `"-a1b2c3d4"`), it is
+ * appended to the strategy type to produce a unique slug:
+ *   `"breaking"` + `"-2"` → `"breaking-2"`
+ *   `"week-ahead"` + `"-2"` → `"week-ahead-2"`
+ *
+ * When no suffix applies, the strategy type is returned unchanged.
  *
  * @param strategyType - Base article type (e.g. `"breaking"`)
- * @param analysisDir - Resolved analysis directory basename, if any
+ * @param dedupSuffix - Dedup suffix including leading hyphen (e.g. `"-2"`, `"-a1b2c3d4"`) or empty string
  * @returns The type slug with any dedup suffix appended
  */
-function deriveTypeSlug(strategyType: string, analysisDir?: string): string {
-  const prefix = `${strategyType}-`;
-  if (analysisDir !== undefined && analysisDir.startsWith(prefix)) {
-    return analysisDir;
-  }
-  return strategyType;
+export function deriveTypeSlug(strategyType: string, dedupSuffix: string): string {
+  return dedupSuffix ? `${strategyType}${dedupSuffix}` : strategyType;
 }
 
 /**
@@ -243,12 +240,17 @@ function generateSingleLanguageArticle(
  * generates the full HTML wrapper and writes each file through the output
  * stage.  Catches all errors so the caller can continue with other types.
  *
+ * Deduplication operates at the slug level: `dedupSuffix` (e.g. `"-2"`)
+ * is appended to `strategy.type` to produce unique filenames and URLs,
+ * while `analysisDir` is passed through to the template for transparency links.
+ *
  * @param strategy - Concrete strategy for the target article category
  * @param client - Connected MCP client or null
  * @param languages - Target language codes
  * @param outputOptions - Dry-run, skip-existing and directory flags
  * @param stats - Mutable stats object to increment counters on
- * @param analysisDir - Optional resolved analysis directory name (e.g. 'breaking-2') for provenance links
+ * @param dedupSuffix - Dedup suffix including leading hyphen (e.g. `"-2"`) or empty string; applied per-strategy to slugs
+ * @param analysisDir - Optional resolved analysis directory basename (e.g. `"breaking-2"`) for transparency links
  * @returns Generation result with success flag, file count and slug
  */
 export async function generateArticleForStrategy(
@@ -257,6 +259,7 @@ export async function generateArticleForStrategy(
   languages: ReadonlyArray<LanguageCode>,
   outputOptions: OutputOptions,
   stats: GenerationStats,
+  dedupSuffix: string = '',
   analysisDir?: string
 ): Promise<GenerationResult> {
   const emoji = ARTICLE_EMOJIS[strategy.type] ?? '📄';
@@ -265,7 +268,7 @@ export async function generateArticleForStrategy(
   try {
     const today = new Date();
     const dateStr = getIsoDatePart(today);
-    const typeSlug = deriveTypeSlug(strategy.type, analysisDir);
+    const typeSlug = deriveTypeSlug(strategy.type, dedupSuffix);
     const slug = `${formatDateForSlug(today)}-${typeSlug}`;
 
     const data = await strategy.fetchData(client, dateStr);

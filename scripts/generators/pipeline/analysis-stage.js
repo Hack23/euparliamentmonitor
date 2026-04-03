@@ -2045,12 +2045,26 @@ export async function runAnalysisStage(fetchedData, options) {
     // Deduplicate enabledMethods (preserving order) so programmatic callers
     // that accidentally pass duplicates don't run the same method twice.
     const deduplicatedMethods = [...new Set(enabledMethods)];
+    // When requireData is set (agentic workflows), abort immediately when no
+    // substantive EP data was fetched — running analysis on empty data produces
+    // hollow output that should never feed into article generation.
+    // This check runs BEFORE directory claiming so aborted runs don't leave
+    // behind orphan directories that would force subsequent runs to suffix.
+    if (!hasSubstantiveData(fetchedData)) {
+        if (requireData) {
+            throw new Error('Analysis aborted: no substantive EP data available. ' +
+                'MCP data fetch must succeed before analysis can run. ' +
+                'Check MCP connection and feed data source.');
+        }
+        console.warn('⚠️  [analysis] No substantive EP data in fetchedData — analysis output will be data-sparse. ' +
+            'Ensure MCP connection succeeded and feed data was fetched before running analysis.');
+    }
     const startTime = new Date().toISOString();
     const runId = randomUUID();
     // When articleTypeSlug is provided, scope output to a per-article-type
     // subdirectory so concurrent workflows on the same date never collide.
-    // resolveUniqueAnalysisDir appends a numeric suffix (-2, -3, …) when
-    // a prior completed run (with manifest.json) already occupies the path,
+    // resolveUniqueAnalysisDir atomically claims a directory, appending a
+    // numeric suffix (-2, -3, …) when the preferred path is already taken,
     // preventing repeated workflow runs from overwriting previous analysis.
     const preferredDir = articleTypeSlug
         ? path.resolve(outputDir, date, articleTypeSlug)
@@ -2063,18 +2077,6 @@ export async function runAnalysisStage(fetchedData, options) {
             console.log(`   Article type: ${articleTypeSlug}`);
         console.log(`   Methods: ${deduplicatedMethods.length}`);
         console.log(`   Output: ${dateOutputDir}`);
-    }
-    // When requireData is set (agentic workflows), abort immediately when no
-    // substantive EP data was fetched — running analysis on empty data produces
-    // hollow output that should never feed into article generation.
-    if (!hasSubstantiveData(fetchedData)) {
-        if (requireData) {
-            throw new Error('Analysis aborted: no substantive EP data available. ' +
-                'MCP data fetch must succeed before analysis can run. ' +
-                'Check MCP connection and feed data source.');
-        }
-        console.warn('⚠️  [analysis] No substantive EP data in fetchedData — analysis output will be data-sparse. ' +
-            'Ensure MCP connection succeeded and feed data was fetched before running analysis.');
     }
     ensureDirectoryExists(dateOutputDir);
     // Persist raw MCP data to structured data/ subdirectories for verification,

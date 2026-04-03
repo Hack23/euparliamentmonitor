@@ -510,6 +510,20 @@ async function main(): Promise<void> {
     // directory when suffix deduplication is active.
     const analysisDir = analysisCtx ? path.basename(analysisCtx.outputDir) : undefined;
 
+    // Extract the dedup suffix by comparing the resolved analysis dir
+    // basename with the original slug.  For example:
+    //   slug = 'breaking'  →  analysisDir = 'breaking-2'  →  dedupSuffix = '-2'
+    //   slug = 'breaking'  →  analysisDir = 'breaking'     →  dedupSuffix = ''
+    // This suffix is applied per-strategy to article slugs, so multi-type
+    // runs produce distinct slugs (e.g. 'breaking-2' and 'week-ahead-2').
+    const baseSlug = deriveArticleTypeSlug(
+      articleTypes
+        .filter((t): t is ArticleCategory => VALID_ARTICLE_CATEGORIES.includes(t as ArticleCategory))
+    );
+    const dedupSuffix = analysisDir !== undefined && analysisDir.startsWith(baseSlug)
+      ? analysisDir.slice(baseSlug.length)
+      : '';
+
     // If --analysis-only, skip article generation
     if (analysisOnlyArg) {
       console.log('ℹ️  --analysis-only specified. Skipping article generation.');
@@ -545,6 +559,7 @@ async function main(): Promise<void> {
           languages,
           outputOptions,
           stats,
+          dedupSuffix,
           analysisDir
         )
       );

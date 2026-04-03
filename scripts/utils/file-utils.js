@@ -124,12 +124,36 @@ export function ensureDirectoryExists(dirPath) {
     }
 }
 /**
- * Resolve a unique directory path by appending a numeric suffix (-2, -3, …)
- * when the base directory already contains a completed analysis run
- * (indicated by the presence of a `manifest.json` file).
+ * Attempt to atomically claim a directory by creating it non-recursively.
  *
- * This prevents repeated workflow runs (e.g. breaking news every 6 hours)
- * from overwriting previously committed analysis.
+ * @param dirPath - Directory path to claim
+ * @returns `true` when the directory was created by this call, otherwise `false`
+ */
+function claimDir(dirPath) {
+    fs.mkdirSync(path.dirname(dirPath), { recursive: true });
+    try {
+        fs.mkdirSync(dirPath, { recursive: false });
+        return true;
+    }
+    catch (err) {
+        if (err.code === 'EEXIST') {
+            return false;
+        }
+        throw err;
+    }
+}
+/**
+ * Resolve a unique directory path by appending a numeric suffix (-2, -3, …)
+ * when the preferred directory has already been claimed by a completed run.
+ *
+ * The base directory is treated as occupied when it contains `manifest.json`
+ * (written at the end of a successful analysis run).  A directory without
+ * `manifest.json` is considered available — this allows the `skipCompleted`
+ * feature to resume an incomplete run in the same directory.
+ *
+ * Suffixed candidates (-2, -3, …) are claimed atomically via non-recursive
+ * `mkdirSync`, preventing TOCTOU races when concurrent workflow runs
+ * attempt to claim the same candidate.
  *
  * @param baseDir - The preferred directory path (e.g. `analysis/2026-04-02/breaking`)
  * @returns The original `baseDir` when no completed run exists there, or a
@@ -137,8 +161,8 @@ export function ensureDirectoryExists(dirPath) {
  */
 export function resolveUniqueAnalysisDir(baseDir) {
     // If the directory doesn't exist yet or has no manifest from a prior
-    // completed run, use it as-is.  A directory without manifest.json is
-    // considered available (not yet finished by any run).
+    // completed run, use it as-is.  This supports the skipCompleted feature
+    // which resumes an incomplete run in the same directory.
     if (!fs.existsSync(path.join(baseDir, 'manifest.json'))) {
         return baseDir;
     }
@@ -146,26 +170,13 @@ export function resolveUniqueAnalysisDir(baseDir) {
     // Use atomic mkdirSync to prevent TOCTOU races when parallel workflow
     // runs attempt to claim the same suffixed candidate concurrently.
     let suffix = 2;
-    // Safety cap to prevent runaway loops
     const MAX_SUFFIX = 100;
     while (suffix <= MAX_SUFFIX) {
         const candidate = `${baseDir}-${suffix}`;
-        try {
-            // Atomic claim: create the directory exclusively (non-recursive).
-            // Ensure the parent exists first.
-            fs.mkdirSync(path.dirname(candidate), { recursive: true });
-            fs.mkdirSync(candidate, { recursive: false });
-            // Successfully created — this run owns the directory
+        if (claimDir(candidate)) {
             return candidate;
         }
-        catch (err) {
-            // Only handle EEXIST (directory already claimed by another run).
-            // Re-throw unexpected errors (permissions, I/O, etc.).
-            if (err.code !== 'EEXIST') {
-                throw err;
-            }
-            suffix++;
-        }
+        suffix++;
     }
     // Fallback: use UUID-suffixed directory to guarantee uniqueness
     const candidate = `${baseDir}-${randomUUID().slice(0, 8)}`;

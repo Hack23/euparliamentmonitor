@@ -2781,3 +2781,173 @@ describe('transform-stage validation helpers', () => {
     expect(isValidLanguageCode('')).toBe(false);
   });
 });
+
+// ─── deriveTypeSlug tests ─────────────────────────────────────────────────────
+
+describe('deriveTypeSlug', () => {
+  it('returns strategyType unchanged when dedupSuffix is empty', async () => {
+    const { deriveTypeSlug } = await import(
+      '../../scripts/generators/pipeline/generate-stage.js'
+    );
+    expect(deriveTypeSlug('breaking', '')).toBe('breaking');
+    expect(deriveTypeSlug('week-ahead', '')).toBe('week-ahead');
+  });
+
+  it('appends numeric dedup suffix to strategy type', async () => {
+    const { deriveTypeSlug } = await import(
+      '../../scripts/generators/pipeline/generate-stage.js'
+    );
+    expect(deriveTypeSlug('breaking', '-2')).toBe('breaking-2');
+    expect(deriveTypeSlug('week-ahead', '-3')).toBe('week-ahead-3');
+    expect(deriveTypeSlug('motions', '-100')).toBe('motions-100');
+  });
+
+  it('appends UUID-based dedup suffix to strategy type', async () => {
+    const { deriveTypeSlug } = await import(
+      '../../scripts/generators/pipeline/generate-stage.js'
+    );
+    expect(deriveTypeSlug('breaking', '-a1b2c3d4')).toBe('breaking-a1b2c3d4');
+    expect(deriveTypeSlug('week-ahead', '-550e8400')).toBe('week-ahead-550e8400');
+  });
+
+  it('produces distinct per-strategy slugs from the same suffix', async () => {
+    const { deriveTypeSlug } = await import(
+      '../../scripts/generators/pipeline/generate-stage.js'
+    );
+    const suffix = '-2';
+    expect(deriveTypeSlug('breaking', suffix)).toBe('breaking-2');
+    expect(deriveTypeSlug('week-ahead', suffix)).toBe('week-ahead-2');
+    expect(deriveTypeSlug('motions', suffix)).toBe('motions-2');
+    // All slugs are distinct
+    const slugs = ['breaking', 'week-ahead', 'motions'].map(t => deriveTypeSlug(t, suffix));
+    expect(new Set(slugs).size).toBe(3);
+  });
+});
+
+// ─── generateArticleForStrategy dedup suffix integration ──────────────────────
+
+describe('generateArticleForStrategy with dedup suffix', () => {
+  it('uses suffixed slug when dedupSuffix is provided', async () => {
+    const { generateArticleForStrategy } = await import(
+      '../../scripts/generators/pipeline/generate-stage.js'
+    );
+    const strategy = {
+      type: 'breaking',
+      fetchData: async () => ({ title: 'Test', content: '<p>Breaking news content</p>' }),
+      buildContent: () => '<section><h2>Test</h2><p>Breaking news article content paragraph.</p></section>',
+      getMetadata: () => ({
+        title: 'Test Breaking News',
+        subtitle: 'Subtitle text',
+        category: 'breaking',
+        keywords: ['test'],
+        sources: [],
+      }),
+    };
+    const opts = { dryRun: true, skipExisting: false, newsDir: '/tmp/test-news' };
+    const stats = { generated: 0, skipped: 0, errors: 0, articles: [], dryRun: 0 };
+    const result = await generateArticleForStrategy(strategy, null, ['en'], opts, stats, '-2', 'breaking-2');
+    expect(result.slug).toMatch(/-breaking-2$/);
+  });
+
+  it('uses unsuffixed slug when dedupSuffix is empty', async () => {
+    const { generateArticleForStrategy } = await import(
+      '../../scripts/generators/pipeline/generate-stage.js'
+    );
+    const strategy = {
+      type: 'week-ahead',
+      fetchData: async () => ({ title: 'Test', content: '<p>Week ahead content</p>' }),
+      buildContent: () => '<section><h2>Test</h2><p>Week ahead article content paragraph.</p></section>',
+      getMetadata: () => ({
+        title: 'Test Week Ahead',
+        subtitle: 'Subtitle text',
+        category: 'week-ahead',
+        keywords: ['test'],
+        sources: [],
+      }),
+    };
+    const opts = { dryRun: true, skipExisting: false, newsDir: '/tmp/test-news' };
+    const stats = { generated: 0, skipped: 0, errors: 0, articles: [], dryRun: 0 };
+    const result = await generateArticleForStrategy(strategy, null, ['en'], opts, stats, '', undefined);
+    expect(result.slug).toMatch(/-week-ahead$/);
+    expect(result.slug).not.toMatch(/-\d+$/);
+  });
+});
+
+// ─── resolveUniqueAnalysisDir tests ───────────────────────────────────────────
+
+describe('resolveUniqueAnalysisDir', () => {
+  let tempDir;
+
+  beforeEach(() => {
+    tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'dedup-test-'));
+  });
+
+  afterEach(() => {
+    fs.rmSync(tempDir, { recursive: true, force: true });
+  });
+
+  it('returns base dir when it does not exist', async () => {
+    const { resolveUniqueAnalysisDir } = await import(
+      '../../scripts/utils/file-utils.js'
+    );
+    const baseDir = path.join(tempDir, 'analysis', '2026-04-02', 'breaking');
+    const result = resolveUniqueAnalysisDir(baseDir);
+    expect(result).toBe(baseDir);
+    // Base dir is not created by resolveUniqueAnalysisDir when no manifest
+    // exists — ensureDirectoryExists handles creation downstream
+  });
+
+  it('appends -2 suffix when base dir has completed run (manifest.json)', async () => {
+    const { resolveUniqueAnalysisDir } = await import(
+      '../../scripts/utils/file-utils.js'
+    );
+    const baseDir = path.join(tempDir, 'analysis', '2026-04-02', 'breaking');
+    // Simulate a completed first run
+    fs.mkdirSync(baseDir, { recursive: true });
+    fs.writeFileSync(path.join(baseDir, 'manifest.json'), '{}', 'utf-8');
+    // Second call must get -2
+    const second = resolveUniqueAnalysisDir(baseDir);
+    expect(second).toBe(`${baseDir}-2`);
+    expect(fs.existsSync(second)).toBe(true);
+  });
+
+  it('appends -3 suffix when base and -2 both occupied', async () => {
+    const { resolveUniqueAnalysisDir } = await import(
+      '../../scripts/utils/file-utils.js'
+    );
+    const baseDir = path.join(tempDir, 'analysis', '2026-04-02', 'breaking');
+    // Simulate completed first run
+    fs.mkdirSync(baseDir, { recursive: true });
+    fs.writeFileSync(path.join(baseDir, 'manifest.json'), '{}', 'utf-8');
+    // Claim -2 (atomically)
+    resolveUniqueAnalysisDir(baseDir);
+    // Third call must get -3
+    const third = resolveUniqueAnalysisDir(baseDir);
+    expect(third).toBe(`${baseDir}-3`);
+  });
+
+  it('treats existing directory with manifest.json as occupied', async () => {
+    const { resolveUniqueAnalysisDir } = await import(
+      '../../scripts/utils/file-utils.js'
+    );
+    const baseDir = path.join(tempDir, 'analysis', '2026-04-02', 'breaking');
+    // Create the dir with manifest.json (completed run)
+    fs.mkdirSync(baseDir, { recursive: true });
+    fs.writeFileSync(path.join(baseDir, 'manifest.json'), '{}', 'utf-8');
+    // Should get -2
+    const result = resolveUniqueAnalysisDir(baseDir);
+    expect(result).toBe(`${baseDir}-2`);
+  });
+
+  it('reuses existing directory without manifest.json (supports skipCompleted)', async () => {
+    const { resolveUniqueAnalysisDir } = await import(
+      '../../scripts/utils/file-utils.js'
+    );
+    const baseDir = path.join(tempDir, 'analysis', '2026-04-02', 'breaking');
+    // Create the dir manually (no manifest.json — incomplete run)
+    fs.mkdirSync(baseDir, { recursive: true });
+    // Should reuse it (for skipCompleted support)
+    const result = resolveUniqueAnalysisDir(baseDir);
+    expect(result).toBe(baseDir);
+  });
+});

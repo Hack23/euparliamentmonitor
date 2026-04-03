@@ -2721,30 +2721,11 @@ export async function runAnalysisStage(
   // that accidentally pass duplicates don't run the same method twice.
   const deduplicatedMethods = [...new Set(enabledMethods)];
 
-  const startTime = new Date().toISOString();
-  const runId = randomUUID();
-
-  // When articleTypeSlug is provided, scope output to a per-article-type
-  // subdirectory so concurrent workflows on the same date never collide.
-  // resolveUniqueAnalysisDir appends a numeric suffix (-2, -3, …) when
-  // a prior completed run (with manifest.json) already occupies the path,
-  // preventing repeated workflow runs from overwriting previous analysis.
-  const preferredDir = articleTypeSlug
-    ? path.resolve(outputDir, date, articleTypeSlug)
-    : path.resolve(outputDir, date);
-  const dateOutputDir = resolveUniqueAnalysisDir(preferredDir);
-
-  if (verbose) {
-    console.log(`🔬 [analysis] Starting analysis stage (runId: ${runId})`);
-    console.log(`   Date: ${date}`);
-    if (articleTypeSlug) console.log(`   Article type: ${articleTypeSlug}`);
-    console.log(`   Methods: ${deduplicatedMethods.length}`);
-    console.log(`   Output: ${dateOutputDir}`);
-  }
-
   // When requireData is set (agentic workflows), abort immediately when no
   // substantive EP data was fetched — running analysis on empty data produces
   // hollow output that should never feed into article generation.
+  // This check runs BEFORE directory claiming so aborted runs don't leave
+  // behind orphan directories that would force subsequent runs to suffix.
   if (!hasSubstantiveData(fetchedData)) {
     if (requireData) {
       throw new Error(
@@ -2757,6 +2738,27 @@ export async function runAnalysisStage(
       '⚠️  [analysis] No substantive EP data in fetchedData — analysis output will be data-sparse. ' +
         'Ensure MCP connection succeeded and feed data was fetched before running analysis.'
     );
+  }
+
+  const startTime = new Date().toISOString();
+  const runId = randomUUID();
+
+  // When articleTypeSlug is provided, scope output to a per-article-type
+  // subdirectory so concurrent workflows on the same date never collide.
+  // resolveUniqueAnalysisDir atomically claims a directory, appending a
+  // numeric suffix (-2, -3, …) when the preferred path is already taken,
+  // preventing repeated workflow runs from overwriting previous analysis.
+  const preferredDir = articleTypeSlug
+    ? path.resolve(outputDir, date, articleTypeSlug)
+    : path.resolve(outputDir, date);
+  const dateOutputDir = resolveUniqueAnalysisDir(preferredDir);
+
+  if (verbose) {
+    console.log(`🔬 [analysis] Starting analysis stage (runId: ${runId})`);
+    console.log(`   Date: ${date}`);
+    if (articleTypeSlug) console.log(`   Article type: ${articleTypeSlug}`);
+    console.log(`   Methods: ${deduplicatedMethods.length}`);
+    console.log(`   Output: ${dateOutputDir}`);
   }
 
   ensureDirectoryExists(dateOutputDir);
