@@ -48,11 +48,11 @@ analysis/2026-04-02/breaking-2/     ← second run (same day)
 analysis/2026-04-02/breaking-3/     ← third run (same day)
 ```
 
-Similarly, news article files receive a suffix before the extension:
+Similarly, news article files include the suffix as part of the slug:
 
 ```
 news/2026-04-02-breaking-en.html       ← first run
-news/2026-04-02-breaking-en-2.html     ← second run
+news/2026-04-02-breaking-2-en.html     ← second run (suffix in slug, before lang code)
 ```
 
 This ensures that repeated or scheduled workflow runs (e.g. breaking news every 6 hours) NEVER overwrite previously committed analysis or articles. Each run produces its own unique output.

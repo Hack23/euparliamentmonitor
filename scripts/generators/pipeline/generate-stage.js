@@ -97,7 +97,10 @@ function generateSingleLanguageArticle(strategy, data, lang, dateStr, slug, outp
             sources: enrichedMetadata.sources ?? baseMetadata.sources,
         };
     const html = generateArticleHTML({
-        slug: strategy.type,
+        // Extract the type-slug portion from the file slug (which is
+        // "{date}-{typeSlug}") so canonical URLs, og:url, and language-
+        // switcher links include any dedup suffix (e.g. "breaking-2").
+        slug: slug.replace(/^\d{4}-\d{2}-\d{2}-/, ''),
         title: metadata.title,
         subtitle: metadata.subtitle,
         date: dateStr,
@@ -170,10 +173,13 @@ export async function generateArticleForStrategy(strategy, client, languages, ou
     try {
         const today = new Date();
         const dateStr = getIsoDatePart(today);
-        // If the analysis directory was deduplicated (e.g. "breaking-2"), derive
-        // the suffix and bake it into the article slug so filenames, canonical
-        // URLs, og:url, and language-switcher links all stay consistent.
-        const typeSlug = analysisDir ?? strategy.type;
+        // If the analysis directory was deduplicated (e.g. "breaking-2"), extract
+        // just the numeric suffix and apply it to the current strategy's type.
+        // This keeps per-strategy slugs distinct when multiple article types are
+        // generated in a single run (e.g. "breaking-2" and "week-ahead-2").
+        const suffixMatch = analysisDir?.match(/-(\d+)$/);
+        const dedupSuffix = suffixMatch ? `-${suffixMatch[1]}` : '';
+        const typeSlug = `${strategy.type}${dedupSuffix}`;
         const slug = `${formatDateForSlug(today)}-${typeSlug}`;
         const data = await strategy.fetchData(client, dateStr);
         // Check if the strategy wants to skip generation (e.g. all data is placeholder)

@@ -37,10 +37,11 @@ const DRY_RUN_PREFIX = '  [DRY RUN]';
  * Respects `dryRun` and `skipExisting` flags: returns `null` without writing
  * in either case.
  *
- * When suffix-based deduplication activates (file already exists and
- * `skipExisting` is false), the returned filename reflects the actual
- * written path (e.g. `"slug-en-2.html"`) so callers can record the
- * correct filename in stats/metadata.
+ * File-level deduplication is intentionally NOT applied here.  Instead, the
+ * pipeline computes a run-level suffix from the deduplicated analysis
+ * directory (e.g. `"breaking-2"`) and bakes it into the article slug
+ * *before* HTML generation, keeping filenames, canonical URLs, og:url,
+ * and language-switcher links all consistent.
  *
  * @param html - Full HTML content to write
  * @param filename - Target filename (relative to `options.newsDir`)
