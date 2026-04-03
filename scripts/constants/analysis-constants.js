@@ -20,4 +20,25 @@
  * the AI agent (Opus 4.6) in the agentic workflow, not by code.
  */
 export const AI_MARKER = '[AI_ANALYSIS_REQUIRED]';
+/**
+ * Check whether a text value is the AI analysis placeholder marker.
+ *
+ * Used by rendering functions to detect unfilled AI analysis fields and
+ * display a user-friendly "analysis pending" notice rather than the raw
+ * marker string. Also catches the legacy `[REQUIRED]` format.
+ *
+ * @param text - Text to test
+ * @returns `true` when the text is the AI placeholder marker
+ */
+export function isAiMarker(text) {
+    if (!text)
+        return false;
+    const trimmed = text.trim();
+    return trimmed === AI_MARKER || trimmed === '[REQUIRED]' || trimmed === '[?]';
+}
+/**
+ * CSS class applied to sections rendered with pending AI analysis content.
+ * Used to visually indicate that the section awaits AI completion.
+ */
+export const AI_PENDING_CLASS = 'ai-analysis-pending';
 //# sourceMappingURL=analysis-constants.js.map

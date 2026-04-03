@@ -18,6 +18,15 @@ const MONTHLY_REVIEW_BASE_KEYWORDS = [
     'coalition dynamics',
 ];
 /**
+ * Test whether a text string is placeholder/fallback content.
+ *
+ * @param text - Candidate text to test
+ * @returns `true` when the text matches known placeholder patterns
+ */
+function isPlaceholderText(text) {
+    return /placeholder|data.unavailable|example\s+(motion|amendment|group)/i.test(text);
+}
+/**
  * Extract content-aware keywords from monthly review data.
  *
  * @param data - Monthly review article data payload
@@ -26,15 +35,15 @@ const MONTHLY_REVIEW_BASE_KEYWORDS = [
 function buildMonthlyReviewKeywords(data) {
     const keywords = [...MONTHLY_REVIEW_BASE_KEYWORDS];
     for (const r of data.votingRecords.slice(0, 5)) {
-        if (r.title)
+        if (r.title && !isPlaceholderText(r.title))
             keywords.push(r.title.slice(0, 60));
     }
     for (const a of data.anomalies.slice(0, 3)) {
-        if (a.type)
+        if (a.type && !isPlaceholderText(a.type))
             keywords.push(a.type);
     }
     for (const q of data.questions.slice(0, 3)) {
-        if (q.topic)
+        if (q.topic && !isPlaceholderText(q.topic))
             keywords.push(q.topic);
     }
     return [...new Set(keywords)];

@@ -49,10 +49,22 @@ const MOTIONS_BASE_KEYWORDS = [
 ] as const;
 
 /**
+ * Test whether a text string is placeholder/fallback content that should be
+ * excluded from keywords and other user-visible metadata.
+ *
+ * @param text - Candidate text to test
+ * @returns `true` when the text matches known placeholder patterns
+ */
+function isPlaceholderText(text: string): boolean {
+  return /placeholder|data.unavailable|example\s+(motion|amendment|group)/i.test(text);
+}
+
+/**
  * Extract content-aware keywords from motions data.
  *
  * Adds voting record titles, anomaly descriptions, question topics,
  * and adopted text titles to the base keyword set.
+ * Placeholder / fallback entries (e.g. "Example motion") are excluded.
  *
  * @param data - Motions article data payload
  * @returns Deduplicated keyword array
@@ -60,19 +72,26 @@ const MOTIONS_BASE_KEYWORDS = [
 function buildMotionsKeywords(data: MotionsArticleData): string[] {
   const keywords: string[] = [...MOTIONS_BASE_KEYWORDS];
 
-  for (const r of data.votingRecords.slice(0, 5)) {
-    if (r.title) keywords.push(r.title.slice(0, 60));
-  }
-  for (const a of data.anomalies.slice(0, 3)) {
-    if (a.type) keywords.push(a.type);
-  }
-  for (const q of data.questions.slice(0, 3)) {
-    if (q.topic) keywords.push(q.topic);
-  }
+  const realRecords = data.votingRecords
+    .slice(0, 5)
+    .filter((r) => r.title && !isPlaceholderText(r.title));
+  for (const r of realRecords) keywords.push(r.title.slice(0, 60));
+
+  const realAnomalies = data.anomalies
+    .slice(0, 3)
+    .filter((a) => a.type && !isPlaceholderText(a.type));
+  for (const a of realAnomalies) keywords.push(a.type);
+
+  const realQuestions = data.questions
+    .slice(0, 3)
+    .filter((q) => q.topic && !isPlaceholderText(q.topic));
+  for (const q of realQuestions) keywords.push(q.topic);
+
   if (data.feedData?.adoptedTexts) {
-    for (const text of data.feedData.adoptedTexts.slice(0, 3)) {
-      if (text.title) keywords.push(text.title.slice(0, 60));
-    }
+    const realTexts = data.feedData.adoptedTexts
+      .slice(0, 3)
+      .filter((t) => t.title && !isPlaceholderText(t.title));
+    for (const text of realTexts) keywords.push(text.title.slice(0, 60));
   }
 
   return [...new Set(keywords)];

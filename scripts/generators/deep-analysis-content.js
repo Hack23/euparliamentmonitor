@@ -19,7 +19,20 @@
  */
 import { escapeHTML, isSafeURL } from '../utils/file-utils.js';
 import { getLocalizedString, DEEP_ANALYSIS_STRINGS } from '../constants/languages.js';
+import { isAiMarker, AI_PENDING_CLASS } from '../constants/analysis-constants.js';
 import { ALL_STAKEHOLDER_TYPES } from '../types/index.js';
+// ─── AI pending notice helper ────────────────────────────────────────────────
+/** HTML fragment for rendering an "analysis pending" notice in unfilled AI fields. */
+const AI_PENDING_OPEN = `<em class="${AI_PENDING_CLASS}">`;
+/**
+ * Return an inline HTML notice for an AI-pending field.
+ *
+ * @param message - Short notice text (no HTML)
+ * @returns Safe HTML string
+ */
+function aiPendingNotice(message) {
+    return `${AI_PENDING_OPEN}${escapeHTML(message)}</em>`;
+}
 // ─── Sub-section builders ────────────────────────────────────────────────────
 /**
  * Build the "What" sub-section
@@ -95,6 +108,13 @@ function buildWhySection(why, heading, contentLang) {
     if (!why)
         return '';
     const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
+    if (isAiMarker(why)) {
+        return `
+            <div class="analysis-why ${AI_PENDING_CLASS}">
+              <h3>${escapeHTML(heading)}</h3>
+              <p${langAttr} class="${AI_PENDING_CLASS}">${aiPendingNotice('AI political analysis pending — this section will be completed by the editorial intelligence workflow.')}</p>
+            </div>`;
+    }
     return `
             <div class="analysis-why">
               <h3>${escapeHTML(heading)}</h3>
@@ -147,10 +167,15 @@ function buildStakeholderSection(outcomes, heading, strings, contentLang) {
         return '';
     const contentLangAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
     const items = outcomes
-        .map((s) => `<li class="stakeholder-item ${outcomeClass(s.outcome)}">` +
-        `<span class="stakeholder-badge">${escapeHTML(outcomeLabel(s.outcome, strings))}</span> ` +
-        `<span${contentLangAttr}><strong>${escapeHTML(s.actor)}</strong>: ${escapeHTML(s.reason)}</span>` +
-        `</li>`)
+        .map((s) => {
+        const reasonText = isAiMarker(s.reason)
+            ? aiPendingNotice('AI stakeholder analysis pending.')
+            : escapeHTML(s.reason);
+        return (`<li class="stakeholder-item ${outcomeClass(s.outcome)}">` +
+            `<span class="stakeholder-badge">${escapeHTML(outcomeLabel(s.outcome, strings))}</span> ` +
+            `<span${contentLangAttr}><strong>${escapeHTML(s.actor)}</strong>: ${reasonText}</span>` +
+            `</li>`);
+    })
         .join('\n                ');
     return `
             <div class="analysis-stakeholders">
@@ -186,10 +211,18 @@ function buildImpactSection(impact, heading, labels, contentLang) {
     if (perspectives.length === 0)
         return '';
     const items = perspectives
-        .map((p) => `<div class="impact-card ${p.css}">` +
-        `<h4>${escapeHTML(p.label)}</h4>` +
-        `<p${langAttr}>${escapeHTML(p.text)}</p>` +
-        `</div>`)
+        .map((p) => {
+        if (isAiMarker(p.text)) {
+            return (`<div class="impact-card ${p.css} ${AI_PENDING_CLASS}">` +
+                `<h4>${escapeHTML(p.label)}</h4>` +
+                `<p${langAttr} class="${AI_PENDING_CLASS}">${aiPendingNotice('AI impact analysis pending.')}</p>` +
+                `</div>`);
+        }
+        return (`<div class="impact-card ${p.css}">` +
+            `<h4>${escapeHTML(p.label)}</h4>` +
+            `<p${langAttr}>${escapeHTML(p.text)}</p>` +
+            `</div>`);
+    })
         .join('\n              ');
     return `
             <div class="analysis-impact">
@@ -246,12 +279,17 @@ function buildConsequencesSection(items, heading, labels, strings, contentLang) 
         return '';
     const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
     const rows = items
-        .map((item) => `<tr class="consequence-row severity-${escapeHTML(item.severity)}">` +
-        `<td class="action-cell"${langAttr}>${escapeHTML(item.action)}</td>` +
-        `<td class="arrow-cell">→</td>` +
-        `<td class="consequence-cell"${langAttr}>${escapeHTML(item.consequence)}</td>` +
-        `<td class="severity-cell"><span class="severity-badge severity-${escapeHTML(item.severity)}">${escapeHTML(severityLabel(item.severity, strings))}</span></td>` +
-        `</tr>`)
+        .map((item) => {
+        const consequenceText = isAiMarker(item.consequence)
+            ? aiPendingNotice('AI consequence analysis pending.')
+            : escapeHTML(item.consequence);
+        return (`<tr class="consequence-row severity-${escapeHTML(item.severity)}">` +
+            `<td class="action-cell"${langAttr}>${escapeHTML(item.action)}</td>` +
+            `<td class="arrow-cell">→</td>` +
+            `<td class="consequence-cell"${langAttr}>${consequenceText}</td>` +
+            `<td class="severity-cell"><span class="severity-badge severity-${escapeHTML(item.severity)}">${escapeHTML(severityLabel(item.severity, strings))}</span></td>` +
+            `</tr>`);
+    })
         .join('\n                ');
     return `
             <div class="analysis-consequences">
@@ -285,11 +323,16 @@ function buildMistakesSection(mistakes, heading, alternativeLabel, contentLang) 
         return '';
     const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
     const items = mistakes
-        .map((m) => `<div class="mistake-card">` +
-        `<p class="mistake-actor"><strong>${escapeHTML(m.actor)}</strong></p>` +
-        `<p class="mistake-description"${langAttr}>${escapeHTML(m.description)}</p>` +
-        `<p class="mistake-alternative"><em>${escapeHTML(alternativeLabel)}:</em> <span${langAttr}>${escapeHTML(m.alternative)}</span></p>` +
-        `</div>`)
+        .map((m) => {
+        const altText = isAiMarker(m.alternative)
+            ? aiPendingNotice('AI alternative analysis pending.')
+            : escapeHTML(m.alternative);
+        return (`<div class="mistake-card">` +
+            `<p class="mistake-actor"><strong>${escapeHTML(m.actor)}</strong></p>` +
+            `<p class="mistake-description"${langAttr}>${escapeHTML(m.description)}</p>` +
+            `<p class="mistake-alternative"><em>${escapeHTML(alternativeLabel)}:</em> <span${langAttr}>${altText}</span></p>` +
+            `</div>`);
+    })
         .join('\n              ');
     return `
             <div class="analysis-mistakes">
@@ -309,6 +352,13 @@ function buildOutlookSection(outlook, heading, contentLang) {
     if (!outlook)
         return '';
     const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
+    if (isAiMarker(outlook)) {
+        return `
+            <div class="analysis-outlook ${AI_PENDING_CLASS}">
+              <h3>${escapeHTML(heading)}</h3>
+              <p${langAttr} class="${AI_PENDING_CLASS}">${aiPendingNotice('AI strategic outlook pending — this section will be completed by the editorial intelligence workflow.')}</p>
+            </div>`;
+    }
     return `
             <div class="analysis-outlook">
               <h3>${escapeHTML(heading)}</h3>
@@ -686,7 +736,7 @@ function buildStakeholderPerspectivesSection(perspectives, heading, strings, con
             `<span class="perspective-impact-badge perspective-impact-${escapeHTML(p.impact)}">${escapeHTML(localizedImpactLabel(p.impact, strings))}</span>` +
             `<span class="perspective-severity-badge severity-${escapeHTML(p.severity)}">${escapeHTML(localizedSeverityLabel(p.severity, strings))}</span>` +
             `</div>` +
-            `<p class="perspective-reasoning"${langAttr}>${escapeHTML(p.reasoning)}</p>` +
+            `<p class="perspective-reasoning"${langAttr}>${isAiMarker(p.reasoning) ? aiPendingNotice('AI stakeholder perspective analysis pending.') : escapeHTML(p.reasoning)}</p>` +
             evidenceHtml +
             `</div>`);
     })
