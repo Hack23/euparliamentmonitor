@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">97.05% </span>
+                <span class="strong">97.18% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>66/68</span>
+                <span class='fraction'>69/71</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">78.94% </span>
+                <span class="strong">86.84% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>30/38</span>
+                <span class='fraction'>33/38</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>8/8</span>
+                <span class='fraction'>11/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">96.82% </span>
+                <span class="strong">96.96% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>61/63</span>
+                <span class='fraction'>64/66</span>
             </div>
         
             
@@ -370,7 +370,14 @@
 <a name='L305'></a><a href='#L305'>305</a>
 <a name='L306'></a><a href='#L306'>306</a>
 <a name='L307'></a><a href='#L307'>307</a>
-<a name='L308'></a><a href='#L308'>308</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L308'></a><a href='#L308'>308</a>
+<a name='L309'></a><a href='#L309'>309</a>
+<a name='L310'></a><a href='#L310'>310</a>
+<a name='L311'></a><a href='#L311'>311</a>
+<a name='L312'></a><a href='#L312'>312</a>
+<a name='L313'></a><a href='#L313'>313</a>
+<a name='L314'></a><a href='#L314'>314</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -457,11 +464,16 @@
 <span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">14x</span>
-<span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -720,6 +732,7 @@ import { buildDashboardSection } from '../dashboard-content.js';
 import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 import { pl } from '../../utils/metadata-utils.js';
+import { isPlaceholderText } from '../../constants/analysis-constants.js';
 &nbsp;
 // ─── Data payload ─────────────────────────────────────────────────────────────
 &nbsp;
@@ -760,15 +773,20 @@ const MONTHLY_REVIEW_BASE_KEYWORDS = [
 function buildMonthlyReviewKeywords(data: MonthlyReviewArticleData): string[] {
   const keywords: string[] = [...MONTHLY_REVIEW_BASE_KEYWORDS];
 &nbsp;
-  for (const r of data.votingRecords.slice(0, 5)) {
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (r.title) keywords.push(r.title.slice(0, 60));
-  }
-  for (const a of data.anomalies.slice(0, 3)) {
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (a.type) keywords.push(a.type);
-  }
-  for (const q of data.questions.slice(0, 3)) {
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (q.topic) keywords.push(q.topic);
-  }
+  const realRecords = data.votingRecords
+    .filter((r) =&gt; r.title &amp;&amp; !isPlaceholderText(r.title))
+    .slice(0, 5);
+  for (const r of realRecords) keywords.push(r.title.slice(0, 60));
+&nbsp;
+  const realAnomalies = data.anomalies
+    .filter((a) =&gt; a.type &amp;&amp; !isPlaceholderText(a.type))
+    .slice(0, 3);
+  for (const a of realAnomalies) keywords.push(a.type);
+&nbsp;
+  const realQuestions = data.questions
+    .filter((q) =&gt; q.topic &amp;&amp; !isPlaceholderText(q.topic))
+    .slice(0, 3);
+  for (const q of realQuestions) keywords.push(q.topic);
 &nbsp;
   return [...new Set(keywords)];
 }
@@ -991,7 +1009,7 @@ export const monthlyReviewStrategy = new MonthlyReviewStrategy();
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-03T13:56:38.357Z
+                at 2026-04-03T21:45:37.227Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
