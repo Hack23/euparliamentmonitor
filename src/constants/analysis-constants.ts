@@ -22,3 +22,49 @@
  * the AI agent (Opus 4.6) in the agentic workflow, not by code.
  */
 export const AI_MARKER = '[AI_ANALYSIS_REQUIRED]';
+
+/**
+ * Check whether a text value is the AI analysis placeholder marker.
+ *
+ * Used by rendering functions to detect unfilled AI analysis fields and
+ * display a user-friendly "analysis pending" notice rather than the raw
+ * marker string.
+ *
+ * Recognises three marker formats:
+ * - `[AI_ANALYSIS_REQUIRED]` — the current standard marker (v3.0+)
+ * - `[REQUIRED]` — legacy marker used in template stubs before v3.0
+ * - `[?]` — shorthand used in some early methodology templates
+ *
+ * @param text - Text to test
+ * @returns `true` when the text is the AI placeholder marker
+ */
+export function isAiMarker(text: string | null | undefined): boolean {
+  if (!text) return false;
+  const trimmed = text.trim();
+  return trimmed === AI_MARKER || trimmed === '[REQUIRED]' || trimmed === '[?]';
+}
+
+/**
+ * CSS class applied to sections rendered with pending AI analysis content.
+ * Used to visually indicate that the section awaits AI completion.
+ */
+export const AI_PENDING_CLASS = 'ai-analysis-pending';
+
+/**
+ * Test whether a text string is placeholder/fallback content that should be
+ * excluded from user-visible metadata (e.g. SEO keywords, descriptions).
+ *
+ * Matches known placeholder patterns including:
+ * - "placeholder" (case-insensitive)
+ * - "data unavailable" / "data_unavailable" / "data-unavailable"
+ * - "Example motion", "Example amendment", "Example group"
+ *
+ * Keep this regex in sync with the shell quality-gate patterns in the
+ * gh-aw workflow files (`.github/workflows/news-*.md`).
+ *
+ * @param text - Candidate text to test
+ * @returns `true` when the text matches known placeholder patterns
+ */
+export function isPlaceholderText(text: string): boolean {
+  return /placeholder|data[\s._-]unavailable|example\s+(motion|amendment|group)/i.test(text);
+}

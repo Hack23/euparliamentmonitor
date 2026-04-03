@@ -7,7 +7,6 @@
  * safely handle malformed or missing MCP data. No side effects.
  */
 import { escapeHTML } from './file-utils.js';
-import { AI_MARKER } from '../constants/analysis-constants.js';
 import { ALL_STAKEHOLDER_TYPES } from '../types/index.js';
 // ─── Validation constants ─────────────────────────────────────────────────────
 /** Valid significance levels in descending priority order */
@@ -255,10 +254,39 @@ function severityFromScore(score) {
     return 'low';
 }
 /**
+ * Derive a factual reasoning sentence for a stakeholder group based on
+ * the topic context and importance score. This replaces the previous
+ * AI_MARKER default with neutral, data-driven descriptions.
+ *
+ * @param stakeholder - The stakeholder group identifier
+ * @param topic - Short description of the parliamentary action
+ * @param score - Importance score (0-1)
+ * @returns Factual reasoning sentence
+ */
+function deriveStakeholderReasoning(stakeholder, topic, score) {
+    const impactLevel = score >= 0.7 ? 'significant' : score >= 0.4 ? 'moderate' : 'limited';
+    switch (stakeholder) {
+        case 'political_groups':
+            return `This parliamentary activity on "${topic}" has ${impactLevel} implications for political group dynamics, affecting coalition-building strategies and inter-group negotiation positions.`;
+        case 'civil_society':
+            return `Civil society organisations monitoring "${topic}" face ${impactLevel} impact on transparency, democratic participation, and citizens' rights advocacy.`;
+        case 'industry':
+            return `Industry and business stakeholders observe ${impactLevel} regulatory implications from "${topic}", affecting compliance requirements and market conditions.`;
+        case 'national_govts':
+            return `National governments assess ${impactLevel} impact from "${topic}" on subsidiarity, implementation requirements, and member state policy alignment.`;
+        case 'citizens':
+            return `EU citizens experience ${impactLevel} consequences from "${topic}" in terms of rights, services, and democratic representation.`;
+        case 'eu_institutions':
+            return `EU institutional dynamics show ${impactLevel} effects from "${topic}", influencing inter-institutional relations between Parliament, Commission, and Council.`;
+        default:
+            return `Stakeholder impact assessment for "${topic}" indicates ${impactLevel} relevance.`;
+    }
+}
+/**
  * Build a default set of stakeholder perspectives for a parliamentary action.
- * Each perspective is seeded with a reasoning string and evidence items derived
- * from the provided topic and impact scores. All six stakeholder groups receive
- * a perspective entry.
+ * Each perspective is seeded with a data-driven reasoning string and evidence
+ * items derived from the provided topic and impact scores. All six stakeholder
+ * groups receive a perspective entry.
  *
  * @param topic - Short description of the parliamentary action (e.g. vote title)
  * @param scores - Optional per-stakeholder importance scores (0-1); defaults to 0.5
@@ -276,7 +304,7 @@ export function buildDefaultStakeholderPerspectives(topic, scores) {
                     ? 'negative'
                     : 'neutral',
             severity,
-            reasoning: AI_MARKER,
+            reasoning: deriveStakeholderReasoning(stakeholder, topic, score),
             evidence: [topic],
         };
     });

@@ -479,7 +479,7 @@ export class CommitteeReportsStrategy implements ArticleStrategy<CommitteeReport
     const base = buildCommitteeReportsHTML(data.committeeDataList, lang);
     const feedSection = buildAdoptedTextsSection(data.feedData, lang);
     const analysis = buildCommitteeAnalysis(data.committeeDataList, data.date, lang);
-    const deepSection = buildDeepAnalysisSection(analysis, lang);
+    const deepSection = buildDeepAnalysisSection(analysis, lang, 'en');
     const mindmapData = buildCommitteeMindmap(data.committeeDataList, lang);
     const mindmapSection = buildIntelligenceMindmapSection(mindmapData, lang);
     const swotData = buildCommitteeSwot(data.committeeDataList, lang);

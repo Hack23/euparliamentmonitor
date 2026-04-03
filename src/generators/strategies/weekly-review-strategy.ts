@@ -40,6 +40,7 @@ import { buildDashboardSection } from '../dashboard-content.js';
 import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 import { pl } from '../../utils/metadata-utils.js';
+import { isPlaceholderText } from '../../constants/analysis-constants.js';
 
 // ─── Data payload ─────────────────────────────────────────────────────────────
 
@@ -78,19 +79,26 @@ const WEEKLY_REVIEW_BASE_KEYWORDS = [
 function buildWeeklyReviewKeywords(data: WeeklyReviewArticleData): string[] {
   const keywords: string[] = [...WEEKLY_REVIEW_BASE_KEYWORDS];
 
-  for (const r of data.votingRecords.slice(0, 5)) {
-    if (r.title) keywords.push(r.title.slice(0, 60));
-  }
-  for (const a of data.anomalies.slice(0, 3)) {
-    if (a.type) keywords.push(a.type);
-  }
-  for (const q of data.questions.slice(0, 3)) {
-    if (q.topic) keywords.push(q.topic);
-  }
+  const realRecords = data.votingRecords
+    .filter((r) => r.title && !isPlaceholderText(r.title))
+    .slice(0, 5);
+  for (const r of realRecords) keywords.push(r.title.slice(0, 60));
+
+  const realAnomalies = data.anomalies
+    .filter((a) => a.type && !isPlaceholderText(a.type))
+    .slice(0, 3);
+  for (const a of realAnomalies) keywords.push(a.type);
+
+  const realQuestions = data.questions
+    .filter((q) => q.topic && !isPlaceholderText(q.topic))
+    .slice(0, 3);
+  for (const q of realQuestions) keywords.push(q.topic);
+
   if (data.feedData?.adoptedTexts) {
-    for (const text of data.feedData.adoptedTexts.slice(0, 3)) {
-      if (text.title) keywords.push(text.title.slice(0, 60));
-    }
+    const realTexts = data.feedData.adoptedTexts
+      .filter((t) => t.title && !isPlaceholderText(t.title))
+      .slice(0, 3);
+    for (const text of realTexts) keywords.push(text.title.slice(0, 60));
   }
 
   return [...new Set(keywords)];

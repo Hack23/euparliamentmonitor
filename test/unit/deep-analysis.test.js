@@ -813,23 +813,25 @@ describe('analysis-builders', () => {
       expect(result.what).toContain('Polarization index:');
     });
 
-    it('should use AI marker for "why" field — analysis produced by AI agent', () => {
+    it('should generate data-driven "why" text from voting patterns', () => {
       const result = buildVotingAnalysis(
         '2026-02-01', '2026-02-28',
         VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES, MOTIONS_QUESTIONS
       );
-      expect(result.why).toBe(AI_MARKER);
+      expect(result.why).toContain('Voting patterns across');
+      expect(result.why).toContain('political groups');
     });
 
-    it('should use AI marker for political impact — analysis produced by AI agent', () => {
+    it('should generate data-driven political impact from voting data', () => {
       const result = buildVotingAnalysis(
         '2026-02-01', '2026-02-28',
         VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES, MOTIONS_QUESTIONS
       );
-      expect(result.impactAssessment.political).toBe(AI_MARKER);
+      expect(result.impactAssessment.political).toContain('Political group dynamics');
+      expect(result.impactAssessment.political).not.toBe(AI_MARKER);
     });
 
-    it('should use AI marker for outlook — analysis produced by AI agent', () => {
+    it('should generate data-driven outlook with scenario analysis', () => {
       const fragmentedPatterns = [
         { group: 'Weak Party', cohesion: 0.3, participation: 0.5 },
         { group: 'Strong Party', cohesion: 0.95, participation: 0.9 },
@@ -841,7 +843,8 @@ describe('analysis-builders', () => {
         '2026-02-01', '2026-02-28',
         VOTING_RECORDS, fragmentedPatterns, highAnomalies, MOTIONS_QUESTIONS
       );
-      expect(result.outlook).toBe(AI_MARKER);
+      expect(result.outlook).toContain('scenario');
+      expect(result.outlook).not.toBe(AI_MARKER);
     });
   });
 
@@ -858,13 +861,14 @@ describe('analysis-builders', () => {
       expect(result.when.length).toBeGreaterThan(0);
     });
 
-    it('should detect bottleneck procedures', () => {
+    it('should generate data-driven "why" for prospective analysis', () => {
       const result = buildProspectiveAnalysis(
         WEEK_AHEAD_DATA,
         { start: '2026-03-01', end: '2026-03-07' },
         'week'
       );
-      expect(result.why).toBe(AI_MARKER);
+      expect(result.why).toContain('week');
+      expect(result.why).not.toBe(AI_MARKER);
       expect(result.mistakes.length).toBeGreaterThan(0);
       expect(result.mistakes[0].description).toContain('Migration Pact');
     });
@@ -908,9 +912,10 @@ describe('analysis-builders', () => {
       expect(result.who).toContain('Adopted: DMA Regulation (2026-02-24)');
     });
 
-    it('should use AI marker for why — analysis produced by AI agent', () => {
+    it('should generate data-driven why for breaking news', () => {
       const result = buildBreakingAnalysis('2026-02-24', undefined, 'anomaly detected', '');
-      expect(result.why).toBe(AI_MARKER);
+      expect(result.why).toContain('Parliamentary activity update');
+      expect(result.why).not.toBe(AI_MARKER);
     });
 
     it('should handle undefined feedData', () => {
@@ -959,10 +964,11 @@ describe('analysis-builders', () => {
       expect(result.what).toContain('Active proposals');
     });
 
-    it('should use AI marker for why — analysis produced by AI agent', () => {
+    it('should generate data-driven why for propositions', () => {
       const pipeline = { healthScore: 0.3, throughput: 2, procRowsHtml: '' };
       const result = buildPropositionsAnalysis('', pipeline, '2026-02-24');
-      expect(result.why).toBe(AI_MARKER);
+      expect(result.why).toContain('pipeline');
+      expect(result.why).not.toBe(AI_MARKER);
       expect(result.mistakes.length).toBeGreaterThan(0);
     });
 
@@ -972,10 +978,11 @@ describe('analysis-builders', () => {
       expect(result.stakeholderOutcomes[0].outcome).toBe('winner');
     });
 
-    it('should use AI marker for outlook — analysis produced by AI agent', () => {
+    it('should generate data-driven outlook for propositions', () => {
       const result = buildPropositionsAnalysis('', null, '2026-02-24');
       expect(result.what).toContain('0%');
-      expect(result.outlook).toBe(AI_MARKER);
+      expect(result.outlook).toContain('Pipeline health');
+      expect(result.outlook).not.toBe(AI_MARKER);
     });
 
     it('should detect proposals from adoptedTextsHtml when proposalsHtml is empty', () => {
@@ -1004,22 +1011,25 @@ describe('analysis-builders', () => {
       expect(econOutcome?.outcome).toBe('winner');
     });
 
-    it('should flag inactive committees in mistakes', () => {
+    it('should generate data-driven descriptions for inactive committee mistakes', () => {
       const result = buildCommitteeAnalysis(COMMITTEE_DATA, '2026-02-24');
       expect(result.mistakes.length).toBeGreaterThan(0);
-      expect(result.mistakes[0].description).toBe(AI_MARKER);
+      expect(result.mistakes[0].description).toContain('LIBE');
+      expect(result.mistakes[0].description).not.toBe(AI_MARKER);
     });
 
-    it('should use AI marker for why — analysis produced by AI agent', () => {
+    it('should generate data-driven why for committee analysis', () => {
       const allInactive = COMMITTEE_DATA.map((c) => ({ ...c, documents: [] }));
       const result = buildCommitteeAnalysis(allInactive, '2026-02-24');
-      expect(result.why).toBe(AI_MARKER);
+      expect(result.why).toContain('committee');
+      expect(result.why).not.toBe(AI_MARKER);
     });
 
-    it('should use AI marker for impact assessment — analysis produced by AI agent', () => {
+    it('should generate data-driven impact for committee analysis', () => {
       const allInactive = COMMITTEE_DATA.map((c) => ({ ...c, documents: [] }));
       const result = buildCommitteeAnalysis(allInactive, '2026-02-24');
-      expect(result.impactAssessment.political).toBe(AI_MARKER);
+      expect(result.impactAssessment.political).toContain('committees');
+      expect(result.impactAssessment.political).not.toBe(AI_MARKER);
     });
 
     it('should handle empty committee list', () => {

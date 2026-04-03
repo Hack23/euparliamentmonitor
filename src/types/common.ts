@@ -590,6 +590,8 @@ export interface DeepAnalysisStrings {
   readonly iterationSynthesis: string;
   /** Label for overall confidence in methodology stats */
   readonly overallConfidenceLabel: string;
+  /** Generic AI-pending notice shown when analysis is not yet available */
+  readonly pendingNotice: string;
 }
 
 /** Localized content strings for the committee analysis deep analysis body text */

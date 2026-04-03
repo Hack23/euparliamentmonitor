@@ -47,7 +47,7 @@ function buildSwotItem(item) {
 function buildSwotQuadrant(quadrantKey, items, label, description) {
     const itemsHtml = items.length > 0
         ? items.map((item) => buildSwotItem(item)).join('\n                ')
-        : '<li class="swot-item swot-empty">—</li>';
+        : '<li class="swot-item swot-empty" aria-label="No items available"><em>…</em></li>';
     return `<div class="swot-quadrant swot-${escapeHTML(quadrantKey)}" role="region" aria-label="${escapeHTML(label)}">
               <h4 class="swot-quadrant-heading">${escapeHTML(label)}</h4>
               <p class="swot-quadrant-desc">${escapeHTML(description)}</p>
