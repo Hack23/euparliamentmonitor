@@ -520,9 +520,12 @@ async function main(): Promise<void> {
       articleTypes
         .filter((t): t is ArticleCategory => VALID_ARTICLE_CATEGORIES.includes(t as ArticleCategory))
     );
-    const dedupSuffix = analysisDir !== undefined && analysisDir.startsWith(baseSlug)
+    // Only extract the suffix if it matches the expected dedup pattern:
+    // numeric (-2, -3, …) or UUID-based (-a1b2c3d4).
+    const rawSuffix = analysisDir !== undefined && analysisDir.startsWith(baseSlug)
       ? analysisDir.slice(baseSlug.length)
       : '';
+    const dedupSuffix = /^-[\da-f]+$/i.test(rawSuffix) ? rawSuffix : '';
 
     // If --analysis-only, skip article generation
     if (analysisOnlyArg) {

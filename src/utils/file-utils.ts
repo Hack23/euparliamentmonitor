@@ -153,8 +153,10 @@ export function ensureDirectoryExists(dirPath: string): void {
  * @returns `true` when the directory was created by this call, otherwise `false`
  */
 function claimDir(dirPath: string): boolean {
+  // Ensure parent exists (recursive: true never throws EEXIST)
   fs.mkdirSync(path.dirname(dirPath), { recursive: true });
   try {
+    // Non-recursive create: EEXIST means another run already claimed it
     fs.mkdirSync(dirPath, { recursive: false });
     return true;
   } catch (err: unknown) {
