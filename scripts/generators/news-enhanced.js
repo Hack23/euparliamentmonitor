@@ -365,8 +365,7 @@ async function main() {
         //   slug = 'breaking'  →  analysisDir = 'breaking'     →  dedupSuffix = ''
         // This suffix is applied per-strategy to article slugs, so multi-type
         // runs produce distinct slugs (e.g. 'breaking-2' and 'week-ahead-2').
-        const baseSlug = deriveArticleTypeSlug(articleTypes
-            .filter((t) => VALID_ARTICLE_CATEGORIES.includes(t)));
+        const baseSlug = deriveArticleTypeSlug(articleTypes.filter((t) => VALID_ARTICLE_CATEGORIES.includes(t)));
         // Only extract the suffix if it matches the expected dedup pattern:
         // numeric (-2, -3, …) or UUID-based (-a1b2c3d4).
         const rawSuffix = analysisDir !== undefined && analysisDir.startsWith(baseSlug)
