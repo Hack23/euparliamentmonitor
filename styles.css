@@ -5220,6 +5220,28 @@ em.ai-analysis-pending {
   }
 }
 
+/* Explicit dark theme overrides for AI pending indicators */
+html[data-theme='dark'] div.ai-analysis-pending,
+html[data-theme='dark'] section.ai-analysis-pending {
+  border-left-color: var(--accent-warning-dark, #e08c00);
+}
+
+html[data-theme='dark'] .ai-analysis-pending em,
+html[data-theme='dark'] em.ai-analysis-pending {
+  color: var(--text-muted-dark, #8b949e);
+}
+
+html[data-theme='dark'] .impact-card.ai-analysis-pending {
+  background: var(--surface-muted-dark, #161b22);
+}
+
+/* Explicit dark theme + RTL overrides for AI pending indicators */
+html[data-theme='dark'] [dir='rtl'] div.ai-analysis-pending,
+html[data-theme='dark'] [dir='rtl'] section.ai-analysis-pending {
+  border-left-color: initial;
+  border-right-color: var(--accent-warning-dark, #e08c00);
+}
+
 /* ─── D3/Chart.js Enhanced Visualization Styles ──────────────────────────── */
 
 .d3-treemap-wrapper,
@@ -5249,6 +5271,18 @@ em.ai-analysis-pending {
   .d3-network-wrapper text {
     fill: #c9d1d9 !important;
   }
+}
+
+/* Explicit dark theme overrides for D3 visualizations */
+html[data-theme='dark'] .d3-treemap-wrapper svg,
+html[data-theme='dark'] .d3-network-wrapper svg,
+html[data-theme='dark'] .d3-swot-chart-wrapper svg {
+  background: var(--surface-muted-dark, #161b22);
+}
+
+html[data-theme='dark'] .d3-swot-chart-wrapper text,
+html[data-theme='dark'] .d3-network-wrapper text {
+  fill: #c9d1d9 !important;
 }
 
 /* Dashboard chart containers */
