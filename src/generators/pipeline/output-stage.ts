@@ -34,15 +34,24 @@ const DRY_RUN_PREFIX = '  [DRY RUN]';
 /**
  * Write a single HTML file to the news directory.
  *
- * Respects `dryRun` and `skipExisting` flags: returns `false` without writing
+ * Respects `dryRun` and `skipExisting` flags: returns `null` without writing
  * in either case.
+ *
+ * When suffix-based deduplication activates (file already exists and
+ * `skipExisting` is false), the returned filename reflects the actual
+ * written path (e.g. `"slug-en-2.html"`) so callers can record the
+ * correct filename in stats/metadata.
  *
  * @param html - Full HTML content to write
  * @param filename - Target filename (relative to `options.newsDir`)
  * @param options - Output flags and directory path
- * @returns `true` when the file was actually written
+ * @returns The basename of the actually-written file, or `null` when nothing was written
  */
-export function writeArticleFile(html: string, filename: string, options: OutputOptions): boolean {
+export function writeArticleFile(
+  html: string,
+  filename: string,
+  options: OutputOptions
+): string | null {
   const filepath = path.join(options.newsDir, filename);
 
   if (options.skipExisting && fs.existsSync(filepath)) {
@@ -51,12 +60,12 @@ export function writeArticleFile(html: string, filename: string, options: Output
     } else {
       console.log(`  ⏭️  Skipped (already exists): ${filename}`);
     }
-    return false;
+    return null;
   }
 
   if (options.dryRun) {
     console.log(`${DRY_RUN_PREFIX} Would write: ${filename}`);
-    return false;
+    return null;
   }
 
   // When not in skip mode: resolve a unique path to avoid overwriting
@@ -69,7 +78,7 @@ export function writeArticleFile(html: string, filename: string, options: Output
   } else {
     console.log(`  ✅ Wrote: ${filename}`);
   }
-  return true;
+  return writtenName;
 }
 
 /**
@@ -90,18 +99,18 @@ export function writeSingleArticle(
   stats: GenerationStats
 ): boolean {
   const filename = `${slug}-${lang}.html`;
-  const written = writeArticleFile(html, filename, options);
+  const writtenName = writeArticleFile(html, filename, options);
 
-  if (written) {
+  if (writtenName !== null) {
     stats.generated += 1;
-    stats.articles.push(filename);
+    stats.articles.push(writtenName);
   } else if (options.skipExisting && fs.existsSync(path.join(options.newsDir, filename))) {
     stats.skipped += 1;
   } else if (options.dryRun) {
     stats.dryRun += 1;
   }
 
-  return written;
+  return writtenName !== null;
 }
 
 /**

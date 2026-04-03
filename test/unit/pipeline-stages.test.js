@@ -313,14 +313,14 @@ describe('writeArticleFile', () => {
   it('writes the file when neither dryRun nor skipExisting', () => {
     const opts = { dryRun: false, skipExisting: false, newsDir: tmpDir };
     const written = writeArticleFile('<html/>', 'test.html', opts);
-    expect(written).toBe(true);
+    expect(written).toBe('test.html');
     expect(fs.existsSync(path.join(tmpDir, 'test.html'))).toBe(true);
   });
 
-  it('does not write in dryRun mode and returns false', () => {
+  it('does not write in dryRun mode and returns null', () => {
     const opts = { dryRun: true, skipExisting: false, newsDir: tmpDir };
     const written = writeArticleFile('<html/>', 'dry.html', opts);
-    expect(written).toBe(false);
+    expect(written).toBeNull();
     expect(fs.existsSync(path.join(tmpDir, 'dry.html'))).toBe(false);
   });
 
@@ -329,7 +329,7 @@ describe('writeArticleFile', () => {
     fs.writeFileSync(path.join(tmpDir, filename), 'old content', 'utf-8');
     const opts = { dryRun: false, skipExisting: true, newsDir: tmpDir };
     const written = writeArticleFile('<new/>', filename, opts);
-    expect(written).toBe(false);
+    expect(written).toBeNull();
     // Original content should be unchanged
     expect(fs.readFileSync(path.join(tmpDir, filename), 'utf-8')).toBe('old content');
   });
@@ -339,7 +339,7 @@ describe('writeArticleFile', () => {
     fs.writeFileSync(path.join(tmpDir, filename), 'old', 'utf-8');
     const opts = { dryRun: false, skipExisting: false, newsDir: tmpDir };
     const written = writeArticleFile('<new/>', filename, opts);
-    expect(written).toBe(true);
+    expect(written).toBe('overwrite-2.html');
     // Original file should be preserved (not overwritten)
     expect(fs.readFileSync(path.join(tmpDir, filename), 'utf-8')).toBe('old');
     // New content should be at a suffixed filename
@@ -2481,14 +2481,14 @@ describe('writeArticleFile dryRun + skipExisting combined', () => {
     fs.rmSync(tmpDir, { recursive: true, force: true });
   });
 
-  it('returns false when file exists and both dryRun and skipExisting are true', () => {
+  it('returns null when file exists and both dryRun and skipExisting are true', () => {
     const filename = 'existing-article.html';
     const filepath = path.join(tmpDir, filename);
     fs.writeFileSync(filepath, '<html/>');
 
     const opts = { dryRun: true, skipExisting: true, newsDir: tmpDir };
     const written = writeArticleFile('<new/>', filename, opts);
-    expect(written).toBe(false);
+    expect(written).toBeNull();
   });
 });
 

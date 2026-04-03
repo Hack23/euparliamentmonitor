@@ -52,7 +52,7 @@ import { detectVotingTrends, computeCrossSessionCoalitionStability, } from '../.
 import { assessPoliticalSignificance, buildImpactMatrix, classifyPoliticalActors, analyzePoliticalForces, } from '../../utils/political-classification.js';
 import { assessPoliticalThreats, buildActorThreatProfiles, buildConsequenceTree, analyzeLegislativeDisruption, generateThreatAssessmentMarkdown, } from '../../utils/political-threat-assessment.js';
 import { assessLegislativeVelocityRisk, runAgentRiskAssessment, generateRiskAssessmentMarkdown, calculatePoliticalRiskScore, buildQuantitativeSWOT, createScoredSWOTItem, createScoredOpportunityOrThreat, createRiskDriver, } from '../../utils/political-risk-assessment.js';
-import { ensureDirectoryExists, atomicWrite, resolveUniqueAnalysisDir } from '../../utils/file-utils.js';
+import { ensureDirectoryExists, atomicWrite, resolveUniqueAnalysisDir, } from '../../utils/file-utils.js';
 // ─── Markdown constants ───────────────────────────────────────────────────────
 /** Empty table row placeholder for 6-column tables */
 const EMPTY_TABLE_ROW_6 = '| — | — | — | — | — | — |';
@@ -1139,7 +1139,12 @@ function buildDeepAnalysisMarkdown(fetchedData, date) {
     const adoptedTexts = safeArr(fetchedData, 'adoptedTexts');
     const questions = safeArr(fetchedData, 'questions');
     const mepUpdates = safeArr(fetchedData, 'mepUpdates');
-    const total = events.length + procedures.length + documents.length + adoptedTexts.length + questions.length + mepUpdates.length;
+    const total = events.length +
+        procedures.length +
+        documents.length +
+        adoptedTexts.length +
+        questions.length +
+        mepUpdates.length;
     return (header +
         `# Deep Multi-Perspective Analysis
 

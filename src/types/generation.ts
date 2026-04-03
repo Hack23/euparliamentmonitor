@@ -40,6 +40,8 @@ export interface ArticleOptions {
   stylesHash?: string | undefined;
   /** Languages for which this article has been generated. When provided, the language switcher only shows links for these languages. Defaults to all supported languages. */
   availableLanguages?: ReadonlyArray<LanguageCode> | undefined;
+  /** Override analysis directory name for transparency links (e.g. `"breaking-2"` when suffix deduplication applied). When omitted, falls back to `slug`. */
+  analysisDir?: string | undefined;
 }
 
 /** Sitemap URL entry */

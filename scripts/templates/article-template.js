@@ -5,7 +5,7 @@
  * @description Generates HTML templates for news articles with proper structure and metadata
  */
 import { createHash } from 'crypto';
-import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, ARTICLE_TYPE_LABELS, READ_TIME_LABELS, BACK_TO_NEWS_LABELS, ARTICLE_NAV_LABELS, SKIP_LINK_TEXTS, SOURCES_HEADING_LABELS, HEADER_SUBTITLE_LABELS, THEME_TOGGLE_LABELS, FOOTER_ABOUT_HEADING_LABELS, FOOTER_ABOUT_TEXT_LABELS, FOOTER_QUICK_LINKS_LABELS, FOOTER_BUILT_BY_LABELS, FOOTER_LANGUAGES_LABELS, ANALYSIS_TRANSPARENCY_LABELS, ANALYSIS_SUMMARY_LABELS, METHODOLOGY_LABELS, TRANSPARENCY_DISCLOSURE_LABELS, CLASSIFICATION_ANALYSIS_LABELS, THREAT_ASSESSMENT_LABELS, RISK_SCORING_LABELS, DEEP_ANALYSIS_LABELS, VIEW_SOURCE_LABELS, OPEN_SOURCE_NOTE_LABELS, AI_ANALYSIS_GUIDE_LABELS, SWOT_FRAMEWORK_LABELS, RISK_METHODOLOGY_LABELS, THREAT_FRAMEWORK_LABELS, CLASSIFICATION_GUIDE_LABELS, STYLE_GUIDE_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
+import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, ARTICLE_TYPE_LABELS, READ_TIME_LABELS, BACK_TO_NEWS_LABELS, ARTICLE_NAV_LABELS, SKIP_LINK_TEXTS, SOURCES_HEADING_LABELS, HEADER_SUBTITLE_LABELS, THEME_TOGGLE_LABELS, FOOTER_ABOUT_HEADING_LABELS, FOOTER_ABOUT_TEXT_LABELS, FOOTER_QUICK_LINKS_LABELS, FOOTER_BUILT_BY_LABELS, FOOTER_LANGUAGES_LABELS, ANALYSIS_TRANSPARENCY_LABELS, ANALYSIS_SUMMARY_LABELS, METHODOLOGY_LABELS, TRANSPARENCY_DISCLOSURE_LABELS, CLASSIFICATION_ANALYSIS_LABELS, THREAT_ASSESSMENT_LABELS, RISK_SCORING_LABELS, DEEP_ANALYSIS_LABELS, VIEW_SOURCE_LABELS, OPEN_SOURCE_NOTE_LABELS, AI_ANALYSIS_GUIDE_LABELS, SWOT_FRAMEWORK_LABELS, RISK_METHODOLOGY_LABELS, THREAT_FRAMEWORK_LABELS, CLASSIFICATION_GUIDE_LABELS, STYLE_GUIDE_LABELS, SIGNIFICANCE_ASSESSMENT_LABELS, ACTOR_MAPPING_LABELS, FORCES_ANALYSIS_LABELS, IMPACT_MATRIX_LABELS, POLITICAL_THREAT_LANDSCAPE_LABELS, ACTOR_THREAT_PROFILES_LABELS, CONSEQUENCE_TREES_LABELS, LEGISLATIVE_DISRUPTION_LABELS, RISK_MATRIX_LABELS, QUANTITATIVE_SWOT_LABELS, POLITICAL_CAPITAL_RISK_LABELS, LEGISLATIVE_VELOCITY_RISK_LABELS, AGENT_RISK_WORKFLOW_LABELS, STAKEHOLDER_ANALYSIS_LABELS, COALITION_ANALYSIS_LABELS, VOTING_PATTERNS_LABELS, CROSS_SESSION_INTELLIGENCE_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
 import { escapeHTML, isSafeURL } from '../utils/file-utils.js';
 import { APP_VERSION, createThemeToggleButton, THEME_TOGGLE_SCRIPT, THEME_TOGGLE_SCRIPT_CONTENT, } from '../constants/config.js';
 /** Pattern for valid article dates (YYYY-MM-DD) */
@@ -102,7 +102,7 @@ function buildArticleFooterLanguageGrid(currentLang) {
  * @returns Complete HTML document string
  */
 export function generateArticleHTML(options) {
-    const { slug, title, subtitle, date, category, readTime, lang, content, keywords = [], sources = [], stylesHash, availableLanguages, } = options;
+    const { slug, title, subtitle, date, category, readTime, lang, content, keywords = [], sources = [], stylesHash, availableLanguages, analysisDir, } = options;
     const dir = getTextDirection(lang);
     const year = new Date().getFullYear();
     // Format date for display
@@ -287,7 +287,7 @@ export function generateArticleHTML(options) {
     
     ${renderSourcesSection(sources, lang)}
     
-    ${renderAnalysisTransparencySection(date, slug, lang)}
+    ${renderAnalysisTransparencySection(date, slug, lang, analysisDir)}
     
     <nav class="article-nav" aria-label="${escapeHTML(articleNavLabel)}">
       <a href="${indexHref}" class="back-to-news">${backLabel}</a>
@@ -389,11 +389,14 @@ function renderSourcesSection(sources, lang) {
  * @param date - Article date (YYYY-MM-DD)
  * @param slug - Article type slug (e.g., 'committee-reports', 'breaking')
  * @param lang - Language code
+ * @param analysisDir - Optional override for analysis directory name (e.g. 'breaking-2' after deduplication)
  * @returns HTML string for analysis transparency section
  */
-function renderAnalysisTransparencySection(date, slug, lang) {
+function renderAnalysisTransparencySection(date, slug, lang, analysisDir) {
     const safeDate = escapeHTML(date);
-    const safeSlug = escapeHTML(slug);
+    // Use the resolved analysis directory name when provided (suffix deduplication),
+    // otherwise fall back to the original slug.
+    const safeAnalysisDirName = escapeHTML(analysisDir ?? slug);
     const heading = escapeHTML(getLocalizedString(ANALYSIS_TRANSPARENCY_LABELS, lang));
     const analysisSummaryLabel = escapeHTML(getLocalizedString(ANALYSIS_SUMMARY_LABELS, lang));
     const methodologyLabel = escapeHTML(getLocalizedString(METHODOLOGY_LABELS, lang));
@@ -412,9 +415,28 @@ function renderAnalysisTransparencySection(date, slug, lang) {
     const styleGuideLabel = escapeHTML(getLocalizedString(STYLE_GUIDE_LABELS, lang));
     const repoBase = 'https://github.com/Hack23/euparliamentmonitor/blob/main';
     const treeDirBase = 'https://github.com/Hack23/euparliamentmonitor/tree/main';
-    const analysisDir = `${treeDirBase}/analysis/${safeDate}/${safeSlug}`;
-    const analysisFileBase = `${repoBase}/analysis/${safeDate}/${safeSlug}`;
+    const analysisDirUrl = `${treeDirBase}/analysis/${safeDate}/${safeAnalysisDirName}`;
+    const analysisFileBase = `${repoBase}/analysis/${safeDate}/${safeAnalysisDirName}`;
     const methodologyDir = `${repoBase}/analysis/methodologies`;
+    // Per-file localized link labels
+    const significanceLabel = escapeHTML(getLocalizedString(SIGNIFICANCE_ASSESSMENT_LABELS, lang));
+    const actorMappingLabel = escapeHTML(getLocalizedString(ACTOR_MAPPING_LABELS, lang));
+    const forcesLabel = escapeHTML(getLocalizedString(FORCES_ANALYSIS_LABELS, lang));
+    const impactMatrixLabel = escapeHTML(getLocalizedString(IMPACT_MATRIX_LABELS, lang));
+    const threatLandscapeLabel = escapeHTML(getLocalizedString(POLITICAL_THREAT_LANDSCAPE_LABELS, lang));
+    const threatProfilesLabel = escapeHTML(getLocalizedString(ACTOR_THREAT_PROFILES_LABELS, lang));
+    const consequenceLabel = escapeHTML(getLocalizedString(CONSEQUENCE_TREES_LABELS, lang));
+    const disruptionLabel = escapeHTML(getLocalizedString(LEGISLATIVE_DISRUPTION_LABELS, lang));
+    const riskMatrixLabel = escapeHTML(getLocalizedString(RISK_MATRIX_LABELS, lang));
+    const quantSwotLabel = escapeHTML(getLocalizedString(QUANTITATIVE_SWOT_LABELS, lang));
+    const politicalCapitalLabel = escapeHTML(getLocalizedString(POLITICAL_CAPITAL_RISK_LABELS, lang));
+    const legVelocityLabel = escapeHTML(getLocalizedString(LEGISLATIVE_VELOCITY_RISK_LABELS, lang));
+    const agentRiskLabel = escapeHTML(getLocalizedString(AGENT_RISK_WORKFLOW_LABELS, lang));
+    const deepAnalysisFileLabel = escapeHTML(getLocalizedString(DEEP_ANALYSIS_LABELS, lang));
+    const stakeholderLabel = escapeHTML(getLocalizedString(STAKEHOLDER_ANALYSIS_LABELS, lang));
+    const coalitionLabel = escapeHTML(getLocalizedString(COALITION_ANALYSIS_LABELS, lang));
+    const votingPatternsLabel = escapeHTML(getLocalizedString(VOTING_PATTERNS_LABELS, lang));
+    const crossSessionLabel = escapeHTML(getLocalizedString(CROSS_SESSION_INTELLIGENCE_LABELS, lang));
     return `
     <section class="analysis-transparency" aria-label="${heading}">
       <h2 id="analysis-transparency-heading">${heading}</h2>
@@ -422,37 +444,37 @@ function renderAnalysisTransparencySection(date, slug, lang) {
       <nav class="analysis-links" aria-labelledby="analysis-transparency-heading">
         <h3><span aria-hidden="true">📊</span> ${analysisSummaryLabel}</h3>
         <ul>
-          <li><a href="${analysisDir}" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">📁</span> ${analysisSummaryLabel}</a></li>
+          <li><a href="${analysisDirUrl}" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">📁</span> ${analysisSummaryLabel}</a></li>
         </ul>
         <h3><span aria-hidden="true">🏷️</span> ${classificationLabel}</h3>
         <ul>
-          <li><a href="${analysisFileBase}/classification/significance-assessment.md" target="_blank" rel="noopener noreferrer">Significance Assessment</a></li>
-          <li><a href="${analysisFileBase}/classification/actor-mapping.md" target="_blank" rel="noopener noreferrer">Actor Mapping</a></li>
-          <li><a href="${analysisFileBase}/classification/forces-analysis.md" target="_blank" rel="noopener noreferrer">Forces Analysis</a></li>
-          <li><a href="${analysisFileBase}/classification/impact-matrix.md" target="_blank" rel="noopener noreferrer">Impact Matrix</a></li>
+          <li><a href="${analysisFileBase}/classification/significance-assessment.md" target="_blank" rel="noopener noreferrer">${significanceLabel}</a></li>
+          <li><a href="${analysisFileBase}/classification/actor-mapping.md" target="_blank" rel="noopener noreferrer">${actorMappingLabel}</a></li>
+          <li><a href="${analysisFileBase}/classification/forces-analysis.md" target="_blank" rel="noopener noreferrer">${forcesLabel}</a></li>
+          <li><a href="${analysisFileBase}/classification/impact-matrix.md" target="_blank" rel="noopener noreferrer">${impactMatrixLabel}</a></li>
         </ul>
         <h3><span aria-hidden="true">🛡️</span> ${threatLabel}</h3>
         <ul>
-          <li><a href="${analysisFileBase}/threat-assessment/political-threat-landscape.md" target="_blank" rel="noopener noreferrer">Political Threat Landscape</a></li>
-          <li><a href="${analysisFileBase}/threat-assessment/actor-threat-profiles.md" target="_blank" rel="noopener noreferrer">Actor Threat Profiles</a></li>
-          <li><a href="${analysisFileBase}/threat-assessment/consequence-trees.md" target="_blank" rel="noopener noreferrer">Consequence Trees</a></li>
-          <li><a href="${analysisFileBase}/threat-assessment/legislative-disruption.md" target="_blank" rel="noopener noreferrer">Legislative Disruption</a></li>
+          <li><a href="${analysisFileBase}/threat-assessment/political-threat-landscape.md" target="_blank" rel="noopener noreferrer">${threatLandscapeLabel}</a></li>
+          <li><a href="${analysisFileBase}/threat-assessment/actor-threat-profiles.md" target="_blank" rel="noopener noreferrer">${threatProfilesLabel}</a></li>
+          <li><a href="${analysisFileBase}/threat-assessment/consequence-trees.md" target="_blank" rel="noopener noreferrer">${consequenceLabel}</a></li>
+          <li><a href="${analysisFileBase}/threat-assessment/legislative-disruption.md" target="_blank" rel="noopener noreferrer">${disruptionLabel}</a></li>
         </ul>
         <h3><span aria-hidden="true">⚖️</span> ${riskLabel}</h3>
         <ul>
-          <li><a href="${analysisFileBase}/risk-scoring/risk-matrix.md" target="_blank" rel="noopener noreferrer">Risk Matrix</a></li>
-          <li><a href="${analysisFileBase}/risk-scoring/quantitative-swot.md" target="_blank" rel="noopener noreferrer">Quantitative SWOT</a></li>
-          <li><a href="${analysisFileBase}/risk-scoring/political-capital-risk.md" target="_blank" rel="noopener noreferrer">Political Capital Risk</a></li>
-          <li><a href="${analysisFileBase}/risk-scoring/legislative-velocity-risk.md" target="_blank" rel="noopener noreferrer">Legislative Velocity Risk</a></li>
-          <li><a href="${analysisFileBase}/risk-scoring/agent-risk-workflow.md" target="_blank" rel="noopener noreferrer">Agent Risk Workflow</a></li>
+          <li><a href="${analysisFileBase}/risk-scoring/risk-matrix.md" target="_blank" rel="noopener noreferrer">${riskMatrixLabel}</a></li>
+          <li><a href="${analysisFileBase}/risk-scoring/quantitative-swot.md" target="_blank" rel="noopener noreferrer">${quantSwotLabel}</a></li>
+          <li><a href="${analysisFileBase}/risk-scoring/political-capital-risk.md" target="_blank" rel="noopener noreferrer">${politicalCapitalLabel}</a></li>
+          <li><a href="${analysisFileBase}/risk-scoring/legislative-velocity-risk.md" target="_blank" rel="noopener noreferrer">${legVelocityLabel}</a></li>
+          <li><a href="${analysisFileBase}/risk-scoring/agent-risk-workflow.md" target="_blank" rel="noopener noreferrer">${agentRiskLabel}</a></li>
         </ul>
         <h3><span aria-hidden="true">🔍</span> ${deepLabel}</h3>
         <ul>
-          <li><a href="${analysisFileBase}/existing/deep-analysis.md" target="_blank" rel="noopener noreferrer">Deep Analysis</a></li>
-          <li><a href="${analysisFileBase}/existing/stakeholder-analysis.md" target="_blank" rel="noopener noreferrer">Stakeholder Analysis</a></li>
-          <li><a href="${analysisFileBase}/existing/coalition-analysis.md" target="_blank" rel="noopener noreferrer">Coalition Analysis</a></li>
-          <li><a href="${analysisFileBase}/existing/voting-patterns.md" target="_blank" rel="noopener noreferrer">Voting Patterns</a></li>
-          <li><a href="${analysisFileBase}/existing/cross-session-intelligence.md" target="_blank" rel="noopener noreferrer">Cross-Session Intelligence</a></li>
+          <li><a href="${analysisFileBase}/existing/deep-analysis.md" target="_blank" rel="noopener noreferrer">${deepAnalysisFileLabel}</a></li>
+          <li><a href="${analysisFileBase}/existing/stakeholder-analysis.md" target="_blank" rel="noopener noreferrer">${stakeholderLabel}</a></li>
+          <li><a href="${analysisFileBase}/existing/coalition-analysis.md" target="_blank" rel="noopener noreferrer">${coalitionLabel}</a></li>
+          <li><a href="${analysisFileBase}/existing/voting-patterns.md" target="_blank" rel="noopener noreferrer">${votingPatternsLabel}</a></li>
+          <li><a href="${analysisFileBase}/existing/cross-session-intelligence.md" target="_blank" rel="noopener noreferrer">${crossSessionLabel}</a></li>
         </ul>
       </nav>
       <nav class="methodology-links" aria-label="${methodologyLabel}">
