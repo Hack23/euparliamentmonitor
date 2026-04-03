@@ -198,7 +198,7 @@ Based on legislative pipeline momentum from March:
 ## Sources
 
 1. European Parliament Open Data Portal — data.europarl.europa.eu
-2. EP MCP Server v1.1.22 — political landscape analysis tool
+2. EP MCP Server v1.1.23 — political landscape analysis tool
 3. Early Warning System — 3 active warnings (HIGH, MEDIUM, LOW)
 4. Political Landscape Analysis template — docs/analysis-methodology/political-landscape-analysis.md
 5. Adopted texts data — 70+ texts from 2026 (January to March)
