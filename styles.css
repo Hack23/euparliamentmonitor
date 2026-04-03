@@ -5212,6 +5212,14 @@ em.ai-analysis-pending {
   right: -1.5rem;
 }
 
+/* Dark mode + RTL override (must follow RTL rules to win the cascade) */
+@media (prefers-color-scheme: dark) {
+  [dir='rtl'] div.ai-analysis-pending,
+  [dir='rtl'] section.ai-analysis-pending {
+    border-right-color: var(--accent-warning-dark, #e08c00);
+  }
+}
+
 /* ─── D3/Chart.js Enhanced Visualization Styles ──────────────────────────── */
 
 .d3-treemap-wrapper,
