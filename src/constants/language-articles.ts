@@ -1589,6 +1589,8 @@ export const DEEP_ANALYSIS_STRINGS: LanguageMap<DeepAnalysisStrings> = {
     iterationEvidenceValidation: 'Evidence Validation',
     iterationSynthesis: 'Synthesis',
     overallConfidenceLabel: 'Overall Confidence',
+    pendingNotice:
+      'Analysis pending — this section will be completed by the editorial intelligence workflow.',
     perspectivesHeading: 'Multi-Stakeholder Perspectives',
     outcomeMatrixHeading: 'Stakeholder Outcome Matrix',
     confidenceLabel: 'Confidence',
@@ -1659,6 +1661,8 @@ export const DEEP_ANALYSIS_STRINGS: LanguageMap<DeepAnalysisStrings> = {
     iterationEvidenceValidation: 'Bevisvalidering',
     iterationSynthesis: 'Syntes',
     overallConfidenceLabel: 'Övergripande Tillförlitlighet',
+    pendingNotice:
+      'Analys väntar — denna sektion kommer att slutföras av det redaktionella analysarbetsflödet.',
     perspectivesHeading: 'Intressentperspektiv',
     outcomeMatrixHeading: 'Intressentutfallsmatris',
     confidenceLabel: 'Konfidens',
@@ -1729,6 +1733,8 @@ export const DEEP_ANALYSIS_STRINGS: LanguageMap<DeepAnalysisStrings> = {
     iterationEvidenceValidation: 'Bevisvalidering',
     iterationSynthesis: 'Syntese',
     overallConfidenceLabel: 'Samlet Tillid',
+    pendingNotice:
+      'Analyse afventer — denne sektion vil blive udfyldt af det redaktionelle analyse-workflow.',
     perspectivesHeading: 'Interessentperspektiver',
     outcomeMatrixHeading: 'Interessentresultatmatrix',
     confidenceLabel: 'Konfidens',
@@ -1799,6 +1805,8 @@ export const DEEP_ANALYSIS_STRINGS: LanguageMap<DeepAnalysisStrings> = {
     iterationEvidenceValidation: 'Bevisvalidering',
     iterationSynthesis: 'Syntese',
     overallConfidenceLabel: 'Samlet Tillit',
+    pendingNotice:
+      'Analyse avventer — denne seksjonen vil bli fullført av den redaksjonelle analyse-arbeidsflyten.',
     perspectivesHeading: 'Interessentperspektiver',
     outcomeMatrixHeading: 'Interessentutfallsmatrise',
     confidenceLabel: 'Konfidens',
@@ -1869,6 +1877,8 @@ export const DEEP_ANALYSIS_STRINGS: LanguageMap<DeepAnalysisStrings> = {
     iterationEvidenceValidation: 'Todisteiden Validointi',
     iterationSynthesis: 'Synteesi',
     overallConfidenceLabel: 'Kokonaisluotettavuus',
+    pendingNotice:
+      'Analyysi odottaa — tämä osio täydennetään toimituksellisen analyysin työnkulussa.',
     perspectivesHeading: 'Sidosryhmänäkökulmat',
     outcomeMatrixHeading: 'Sidosryhmätulosmatriisi',
     confidenceLabel: 'Luotettavuus',
@@ -1939,6 +1949,8 @@ export const DEEP_ANALYSIS_STRINGS: LanguageMap<DeepAnalysisStrings> = {
     iterationEvidenceValidation: 'Beweisvalidierung',
     iterationSynthesis: 'Synthese',
     overallConfidenceLabel: 'Gesamtkonfidenz',
+    pendingNotice:
+      'Analyse ausstehend — dieser Abschnitt wird durch den redaktionellen Analyse-Workflow vervollständigt.',
     perspectivesHeading: 'Stakeholder-Perspektiven',
     outcomeMatrixHeading: 'Stakeholder-Ergebnismatrix',
     confidenceLabel: 'Konfidenz',
@@ -2009,6 +2021,8 @@ export const DEEP_ANALYSIS_STRINGS: LanguageMap<DeepAnalysisStrings> = {
     iterationEvidenceValidation: 'Validation des Preuves',
     iterationSynthesis: 'Synthèse',
     overallConfidenceLabel: 'Confiance Globale',
+    pendingNotice:
+      "Analyse en attente — cette section sera complétée par le flux de travail d'analyse éditoriale.",
     perspectivesHeading: 'Perspectives des Parties Prenantes',
     outcomeMatrixHeading: 'Matrice des Résultats des Parties Prenantes',
     confidenceLabel: 'Confiance',
@@ -2079,6 +2093,8 @@ export const DEEP_ANALYSIS_STRINGS: LanguageMap<DeepAnalysisStrings> = {
     iterationEvidenceValidation: 'Validación de Evidencia',
     iterationSynthesis: 'Síntesis',
     overallConfidenceLabel: 'Confianza Global',
+    pendingNotice:
+      'Análisis pendiente — esta sección será completada por el flujo de trabajo de análisis editorial.',
     perspectivesHeading: 'Perspectivas de las Partes Interesadas',
     outcomeMatrixHeading: 'Matriz de Resultados de Partes Interesadas',
     confidenceLabel: 'Confianza',
@@ -2149,6 +2165,8 @@ export const DEEP_ANALYSIS_STRINGS: LanguageMap<DeepAnalysisStrings> = {
     iterationEvidenceValidation: 'Bewijsvalidatie',
     iterationSynthesis: 'Synthese',
     overallConfidenceLabel: 'Algeheel Vertrouwen',
+    pendingNotice:
+      'Analyse in afwachting — deze sectie wordt aangevuld door de redactionele analyse-workflow.',
     perspectivesHeading: 'Stakeholdersperspectieven',
     outcomeMatrixHeading: 'Stakeholdersresultaatmatrix',
     confidenceLabel: 'Vertrouwen',
@@ -2219,6 +2237,7 @@ export const DEEP_ANALYSIS_STRINGS: LanguageMap<DeepAnalysisStrings> = {
     iterationEvidenceValidation: 'التحقق من الأدلة',
     iterationSynthesis: 'التوليف',
     overallConfidenceLabel: 'الثقة الإجمالية',
+    pendingNotice: 'التحليل معلق — سيتم استكمال هذا القسم بواسطة سير العمل التحريري التحليلي.',
     perspectivesHeading: 'وجهات نظر أصحاب المصلحة',
     outcomeMatrixHeading: 'مصفوفة نتائج أصحاب المصلحة',
     confidenceLabel: 'الثقة',
@@ -2289,6 +2308,7 @@ export const DEEP_ANALYSIS_STRINGS: LanguageMap<DeepAnalysisStrings> = {
     iterationEvidenceValidation: 'אימות ראיות',
     iterationSynthesis: 'סינתזה',
     overallConfidenceLabel: 'ביטחון כולל',
+    pendingNotice: 'ניתוח ממתין — חלק זה יושלם על ידי תהליך העבודה של הניתוח העורכי.',
     perspectivesHeading: 'נקודות מבט של בעלי עניין',
     outcomeMatrixHeading: 'מטריצת תוצאות בעלי עניין',
     confidenceLabel: 'ביטחון',
@@ -2359,6 +2379,7 @@ export const DEEP_ANALYSIS_STRINGS: LanguageMap<DeepAnalysisStrings> = {
     iterationEvidenceValidation: '証拠の検証',
     iterationSynthesis: '総合',
     overallConfidenceLabel: '総合信頼度',
+    pendingNotice: '分析保留中 — このセクションは編集分析ワークフローによって完了されます。',
     perspectivesHeading: 'ステークホルダーの視点',
     outcomeMatrixHeading: 'ステークホルダー結果マトリックス',
     confidenceLabel: '信頼度',
@@ -2429,6 +2450,7 @@ export const DEEP_ANALYSIS_STRINGS: LanguageMap<DeepAnalysisStrings> = {
     iterationEvidenceValidation: '증거 검증',
     iterationSynthesis: '종합',
     overallConfidenceLabel: '종합 신뢰도',
+    pendingNotice: '분석 대기 중 — 이 섹션은 편집 분석 워크플로에 의해 완성됩니다.',
     perspectivesHeading: '이해관계자 관점',
     outcomeMatrixHeading: '이해관계자 결과 매트릭스',
     confidenceLabel: '신뢰도',
@@ -2499,6 +2521,7 @@ export const DEEP_ANALYSIS_STRINGS: LanguageMap<DeepAnalysisStrings> = {
     iterationEvidenceValidation: '证据验证',
     iterationSynthesis: '综合',
     overallConfidenceLabel: '整体置信度',
+    pendingNotice: '分析待定 — 本节将由编辑分析工作流完成。',
     /* eslint-enable sonarjs/no-duplicate-string */
     perspectivesHeading: '利益相关方视角',
     outcomeMatrixHeading: '利益相关方结果矩阵',
