@@ -9,6 +9,7 @@
   "improvementNote": "Second run extends prior analysis with coalition dynamics data (previously timed out). Added coalition-dynamics-assessment.md. Updated intelligence brief with coalition pair findings.",
   "dataCollected": {
     "adoptedTexts": 100,
+    "adoptedTextsDetailed": 60,
     "meps": 737,
     "procedures": 20,
     "analyticalTools": ["voting_anomalies", "coalition_dynamics", "political_landscape", "early_warning"]
