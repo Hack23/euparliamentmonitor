@@ -242,12 +242,16 @@ export async function generateArticleForStrategy(
   try {
     const today = new Date();
     const dateStr = getIsoDatePart(today);
-    // If the analysis directory was deduplicated (e.g. "breaking-2"), extract
-    // just the numeric suffix and apply it to the current strategy's type.
-    // This keeps per-strategy slugs distinct when multiple article types are
-    // generated in a single run (e.g. "breaking-2" and "week-ahead-2").
-    const suffixMatch = analysisDir?.match(/-(\d+)$/);
-    const dedupSuffix = suffixMatch ? `-${suffixMatch[1]}` : '';
+    // If the analysis directory was deduplicated (e.g. "breaking-2" or a
+    // UUID-based fallback such as "breaking-a1b2c3d4"), propagate the full
+    // suffix for the current strategy type into the slug.
+    // This keeps per-strategy slugs distinct and aligned with the resolved
+    // analysis directory regardless of suffix format.
+    const dedupPrefix = `${strategy.type}-`;
+    const dedupSuffix =
+      analysisDir !== undefined && analysisDir.startsWith(dedupPrefix)
+        ? analysisDir.slice(strategy.type.length)
+        : '';
     const typeSlug = `${strategy.type}${dedupSuffix}`;
     const slug = `${formatDateForSlug(today)}-${typeSlug}`;
 
