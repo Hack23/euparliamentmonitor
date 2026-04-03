@@ -55,6 +55,23 @@ function deriveStakeholderOutcomesFromVoting(records, patterns) {
     return outcomes;
 }
 /**
+ * Describe the margin of a vote result as a human-readable string.
+ *
+ * @param votesFor - Number of votes in favour
+ * @param votesAgainst - Number of votes against
+ * @returns A descriptive margin string (e.g. "strong majority in favour")
+ */
+function describeVoteMargin(votesFor, votesAgainst) {
+    const margin = votesFor - votesAgainst;
+    const absMargin = Math.abs(margin);
+    const direction = margin >= 0 ? 'majority in favour' : 'majority against';
+    if (absMargin > 100)
+        return `strong ${direction}`;
+    if (absMargin > 30)
+        return `moderate ${direction}`;
+    return 'narrow margin';
+}
+/**
  * Derive action→consequence chains from voting records and anomalies.
  *
  * @param records - Voting records
@@ -66,14 +83,7 @@ function deriveConsequencesFromVoting(records, anomalies) {
     for (const record of records.slice(0, 3)) {
         if (record.result === PLACEHOLDER_MARKER)
             continue;
-        const margin = record.votes.for - record.votes.against;
-        const absMargin = Math.abs(margin);
-        const direction = margin >= 0 ? 'majority in favour' : 'majority against';
-        const marginDesc = absMargin > 100
-            ? `strong ${direction}`
-            : absMargin > 30
-                ? `moderate ${direction}`
-                : 'narrow margin';
+        const marginDesc = describeVoteMargin(record.votes.for, record.votes.against);
         consequences.push({
             action: `Vote on "${record.title}"`,
             consequence: `${record.result} by ${marginDesc} (${record.votes.for} for, ${record.votes.against} against, ${record.votes.abstain} abstentions). This outcome shapes the legislative trajectory of this policy area.`,
