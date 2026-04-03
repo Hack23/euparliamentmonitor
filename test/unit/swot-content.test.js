@@ -272,8 +272,8 @@ describe('swot-content', () => {
       };
       const html = buildSwotSection(swot);
       expect(html).toContain('swot-empty');
-      // Verify placeholder dash character in all three empty quadrants
-      expect(html).toContain('—');
+      // Verify placeholder ellipsis character in all three empty quadrants
+      expect(html).toContain('…');
       // Count swot-empty occurrences (weaknesses, opportunities, threats = 3)
       const emptyCount = (html.match(/swot-empty/g) || []).length;
       expect(emptyCount).toBe(3);

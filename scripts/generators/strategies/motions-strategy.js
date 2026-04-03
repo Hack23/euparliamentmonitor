@@ -32,24 +32,24 @@ const MOTIONS_BASE_KEYWORDS = [
 function buildMotionsKeywords(data) {
     const keywords = [...MOTIONS_BASE_KEYWORDS];
     const realRecords = data.votingRecords
-        .slice(0, 5)
-        .filter((r) => r.title && !isPlaceholderText(r.title));
+        .filter((r) => r.title && !isPlaceholderText(r.title))
+        .slice(0, 5);
     for (const r of realRecords)
         keywords.push(r.title.slice(0, 60));
     const realAnomalies = data.anomalies
-        .slice(0, 3)
-        .filter((a) => a.type && !isPlaceholderText(a.type));
+        .filter((a) => a.type && !isPlaceholderText(a.type))
+        .slice(0, 3);
     for (const a of realAnomalies)
         keywords.push(a.type);
     const realQuestions = data.questions
-        .slice(0, 3)
-        .filter((q) => q.topic && !isPlaceholderText(q.topic));
+        .filter((q) => q.topic && !isPlaceholderText(q.topic))
+        .slice(0, 3);
     for (const q of realQuestions)
         keywords.push(q.topic);
     if (data.feedData?.adoptedTexts) {
         const realTexts = data.feedData.adoptedTexts
-            .slice(0, 3)
-            .filter((t) => t.title && !isPlaceholderText(t.title));
+            .filter((t) => t.title && !isPlaceholderText(t.title))
+            .slice(0, 3);
         for (const text of realTexts)
             keywords.push(text.title.slice(0, 60));
     }

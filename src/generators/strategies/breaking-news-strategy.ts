@@ -275,7 +275,7 @@ export class BreakingNewsStrategy implements ArticleStrategy<BreakingNewsArticle
       data.coalitionRaw,
       lang
     );
-    const deepSection = buildDeepAnalysisSection(analysis, lang);
+    const deepSection = buildDeepAnalysisSection(analysis, lang, 'en');
     const mindmapData = buildBreakingMindmap(data.feedData, lang);
     const mindmapSection = buildIntelligenceMindmapSection(mindmapData, lang);
     const swotData = buildBreakingSwot(data.feedData, data.anomalyRaw, data.coalitionRaw, lang);

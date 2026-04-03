@@ -193,7 +193,7 @@ export class BreakingNewsStrategy {
     buildContent(data, lang) {
         const base = buildBreakingNewsContent(data.date, data.anomalyRaw, data.coalitionRaw, data.reportRaw, '', lang, [], [], [], data.feedData);
         const analysis = buildBreakingAnalysis(data.date, data.feedData, data.anomalyRaw, data.coalitionRaw, lang);
-        const deepSection = buildDeepAnalysisSection(analysis, lang);
+        const deepSection = buildDeepAnalysisSection(analysis, lang, 'en');
         const mindmapData = buildBreakingMindmap(data.feedData, lang);
         const mindmapSection = buildIntelligenceMindmapSection(mindmapData, lang);
         const swotData = buildBreakingSwot(data.feedData, data.anomalyRaw, data.coalitionRaw, lang);
