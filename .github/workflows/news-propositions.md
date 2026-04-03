@@ -785,6 +785,8 @@ fi
 - ✅ No synthetic IDs or placeholder data (VOTE-2024-001, DOC-2024-001 are FORBIDDEN)
 - ✅ Current dates with specific EP references
 - ✅ Feed-first content with dated event references
+- ✅ **No placeholder text in meta keywords** — "Example motion (placeholder)", "data unavailable" are FORBIDDEN in `<meta name="keywords">`
+- ✅ **No silent zero metrics** — if pipeline/dashboard shows 0%, explain why (e.g., "Easter recess: no votes scheduled")
 
 ### Article Type Identification (Rule 6 — required)
 - ✅ **manifest.json** includes `"articleType": "propositions"`
@@ -803,6 +805,15 @@ fi
 - ✅ **No `data-connections="0"` mindmaps** — real policy connections mapped
 - ✅ **Every stakeholder outcome** has AI-written rationale (not just Winner/Loser labels)
 - ✅ **Confidence levels** stated on all non-factual analytical claims
+- ✅ **Every impact card** (Political, Economic, Social, Legal, Geopolitical) has ≥40 words of AI analysis
+- ✅ **Every stakeholder perspective panel** has ≥2 sentences of analytical text (not empty)
+
+### Visualization Completeness (v4.0 — required)
+- ✅ **SWOT**: All 4 quadrants populated with ≥2 items each, severity badges on every item
+- ✅ **Dashboard charts**: Canvas elements have real data in `data-chart-config` (not `[0,0,0]`)
+- ✅ **Mindmap**: Central node + ≥3 branches with sub-nodes containing named policies/procedures
+- ✅ **Stakeholder panels**: Each panel has analytical text explaining the stakeholder's position
+- ✅ **Analysis transparency links**: All linked `.md` files in the analysis directory contain substantive content (≥200 words)
 
 ### Analysis Depth (gates — required)
 - ✅ **Stakeholder coverage**: Min 3 perspectives analyzed per key development

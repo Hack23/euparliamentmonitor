@@ -11,12 +11,12 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-3.0-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--02-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-4.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--03-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 3.0 | **📅 Last Updated:** 2026-04-02 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 4.0 | **📅 Last Updated:** 2026-04-03 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-02
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
@@ -599,20 +599,25 @@ Each workflow writes to its own directory: `analysis/{date}/{article-type-slug}/
 
 The following quality issues have been observed in generated news articles and MUST be prevented by all agentic workflows. Each issue traces to insufficient AI analysis time or depth.
 
-### Top 10 Quality Issues (Ranked by Severity)
+### Top 15 Quality Issues (Ranked by Severity)
 
 | Rank | Issue | Severity | Root Cause | Prevention |
 |:----:|-------|:--------:|-----------|-----------|
 | 1 | **`[AI_ANALYSIS_REQUIRED]` placeholders remain in final HTML** | 🔴 CRITICAL | AI analysis stage incomplete; script templates not filled | Rule 8: AI must fill ALL placeholders before HTML generation. Quality gate MUST reject articles with any `[AI_ANALYSIS_REQUIRED]` text |
-| 2 | **SWOT quadrants contain empty `—` entries** | 🔴 HIGH | AI did not produce SWOT analysis; script fallback used | Rule 7: Minimum 15 min analysis. Every SWOT quadrant needs ≥2 substantive entries with evidence |
-| 3 | **Mindmap visualizations show `data-connections="0"`** | 🔴 HIGH | No real policy connections mapped; template-only structure | AI must identify ≥3 cross-domain policy connections per mindmap |
-| 4 | **Missing statistical depth in political analysis** | 🔴 HIGH | No rapporteur/voting data integration; surface-level facts only | Rule 4: Multi-framework depth. Must include vote counts, margins, coalition breakdowns |
-| 5 | **Stakeholder outcome matrices lack justification** | 🔴 HIGH | Winner/Loser labels assigned without reasoning | Rule 8: Every stakeholder outcome MUST have AI-written rationale |
-| 6 | **No confidence levels stated on analytical claims** | 🟠 MEDIUM | AI agent did not apply methodology style guide | Rule 3: Read political-style-guide.md. Every non-factual claim needs confidence labels |
-| 7 | **Formulaic writing without Economist-style narrative** | 🟠 MEDIUM | AI used list format instead of analytical prose | Rule 3: Read political-style-guide.md depth levels. Lead with lede + analysis, not bullet lists |
-| 8 | **Missing multi-framework analysis** | 🟠 MEDIUM | Only one analytical framework applied (usually basic SWOT) | Rule 4: At least 2 frameworks required (SWOT + Risk, or Attack Tree + Kill Chain) |
-| 9 | **Incomplete semantic HTML with missing section hierarchy** | 🟠 MEDIUM | Scripts generating structure without proper nesting | Article template must enforce `article > header > article-content > sections` hierarchy |
-| 10 | **Minimal or missing sources section** | 🟡 LOW | No MCP API citations, generic "European Parliament" link only | Every article must cite ≥3 specific EP data sources (document IDs, MCP tool names, procedure references) |
+| 2 | **Placeholder text in meta keywords** (e.g. "Example motion (placeholder)") | 🔴 CRITICAL | Fallback data titles leak into SEO keywords | AI MUST review all `<meta name="keywords">` content — no "placeholder", "example", "data unavailable" in any keyword |
+| 3 | **SWOT quadrants contain empty `—` entries** | 🔴 HIGH | AI did not produce SWOT analysis; script fallback used | Rule 7: Minimum 15 min analysis. Every SWOT quadrant needs ≥2 substantive entries with evidence |
+| 4 | **Mindmap visualizations show `data-connections="0"`** | 🔴 HIGH | No real policy connections mapped; template-only structure | AI must identify ≥3 cross-domain policy connections per mindmap |
+| 5 | **Missing statistical depth in political analysis** | 🔴 HIGH | No rapporteur/voting data integration; surface-level facts only | Rule 4: Multi-framework depth. Must include vote counts, margins, coalition breakdowns |
+| 6 | **Stakeholder outcome matrices lack justification** | 🔴 HIGH | Winner/Loser labels assigned without reasoning | Rule 8: Every stakeholder outcome MUST have AI-written rationale (not `[AI_ANALYSIS_REQUIRED]`) |
+| 7 | **Dashboard charts display 0% / zero metrics** | 🔴 HIGH | MCP data unavailable but template renders zeros | AI must provide contextual explanation when data is unavailable — never render silent zeros |
+| 8 | **No confidence levels stated on analytical claims** | 🟠 MEDIUM | AI agent did not apply methodology style guide | Rule 3: Read political-style-guide.md. Every non-factual claim needs confidence labels |
+| 9 | **Formulaic writing without Economist-style narrative** | 🟠 MEDIUM | AI used list format instead of analytical prose | Rule 3: Read political-style-guide.md depth levels. Lead with lede + analysis, not bullet lists |
+| 10 | **Missing multi-framework analysis** | 🟠 MEDIUM | Only one analytical framework applied (usually basic SWOT) | Rule 4: At least 2 frameworks required (SWOT + Risk, or Attack Tree + Kill Chain) |
+| 11 | **Chart.js dashboards with no real data** | 🟠 MEDIUM | Script generates canvas elements but AI doesn't populate chart data | AI must provide specific numeric data for chart datasets from MCP analysis |
+| 12 | **Analysis transparency links point to empty files** | 🟠 MEDIUM | Analysis workflow skipped or produced placeholder files | AI must verify linked analysis files contain substantive content (≥200 words) |
+| 13 | **Incomplete semantic HTML with missing section hierarchy** | 🟠 MEDIUM | Scripts generating structure without proper nesting | Article template must enforce `article > header > article-content > sections` hierarchy |
+| 14 | **Generic "European Parliament" source with no specifics** | 🟡 LOW | No MCP API citations, generic link only | Every article must cite ≥3 specific EP data sources (document IDs, MCP tool names, procedure references) |
+| 15 | **Mindmap stakeholder panels contain no analytical text** | 🟡 LOW | Structure rendered but perspectives not filled by AI | AI must write ≥2 sentences per stakeholder perspective panel |
 
 ### Workflow Enforcement Points
 
@@ -626,11 +631,130 @@ if grep -r "AI_ANALYSIS_REQUIRED" news/${TODAY}-${ARTICLE_TYPE}-*.html 2>/dev/nu
   exit 1
 fi
 
+# Quality gate: No placeholder keywords in meta tags
+if grep -i "placeholder\|data.unavailable\|example motion\|example amendment" news/${TODAY}-${ARTICLE_TYPE}-en.html 2>/dev/null; then
+  echo "❌ QUALITY GATE FAILED: Placeholder text in article metadata"
+  echo "The AI agent must provide real keywords — never 'Example motion (placeholder)'"
+  exit 1
+fi
+
 # Quality gate: No empty SWOT entries (em-dash only)
 if grep -c 'swot-empty' news/${TODAY}-${ARTICLE_TYPE}-en.html 2>/dev/null | grep -v '^0$'; then
   echo "⚠️ WARNING: Empty SWOT entries detected — AI must provide substantive analysis"
 fi
+
+# Quality gate: All analysis files referenced in transparency section exist
+for file in $(grep -oP 'href="[^"]*analysis/[^"]*\.md"' news/${TODAY}-${ARTICLE_TYPE}-en.html | sed 's/href="//;s/"$//'); do
+  if [ ! -f "$file" ]; then
+    echo "⚠️ WARNING: Referenced analysis file missing: $file"
+  fi
+done
 ```
+
+---
+
+## 📊 Visualization Data Generation Rules
+
+### Rule 13: AI Must Generate Rich Chart Data (Not Zero Metrics)
+
+When the article template includes Chart.js dashboards or D3 visualizations, the AI agent MUST:
+
+1. **Provide specific numeric data** from EP MCP analysis — never leave charts at 0/0%
+2. **Generate Chart.js config objects** with real datasets when building dashboard panels
+3. **Populate all SWOT quadrants** with ≥2 evidence-backed entries each (no empty `—` quadrants)
+4. **Fill mindmap stakeholder panels** with ≥2 sentences of analytical perspective per stakeholder
+5. **Supply Mermaid diagram data** with real committee names, procedure IDs, and coalition labels
+
+### Chart.js Data Requirements for Dashboard Sections
+
+When generating dashboard content, the AI agent must provide these data structures:
+
+```json
+{
+  "type": "bar",
+  "title": "Committee Legislative Output (March 2026)",
+  "data": {
+    "labels": ["ENVI", "ECON", "AFET", "LIBE", "AGRI"],
+    "datasets": [{
+      "label": "Reports Adopted",
+      "data": [8, 5, 3, 6, 2],
+      "backgroundColor": ["#28a745", "#0d6efd", "#dc3545", "#6f42c1", "#fd7e14"]
+    }]
+  }
+}
+```
+
+**Forbidden patterns:**
+- ❌ `"data": [0, 0, 0, 0, 0]` — Never render all-zero datasets
+- ❌ `"labels": []` — Never render empty label arrays
+- ❌ `"healthScore": 0` without explanation — Always explain why metric is zero
+
+### D3 Visualization Requirements
+
+For mindmaps and SWOT matrices enhanced by D3:
+- **Mindmap nodes** must have `data-connections > 0` — AI must identify real policy connections
+- **Influence percentages** must reflect actual parliamentary power dynamics (not arbitrary 0%/100%)
+- **Actor network edges** must connect named political groups with evidence-based relationship labels
+
+### SWOT Completeness Enforcement
+
+Every SWOT analysis section MUST contain:
+
+| Quadrant | Minimum Items | Evidence Required |
+|----------|:------------:|:-----------------:|
+| Strengths | ≥ 2 | Each must cite specific EP data (committee name, vote count, document ID) |
+| Weaknesses | ≥ 2 | Each must explain specific institutional or political limitation |
+| Opportunities | ≥ 2 | Each must propose specific actionable path with probability indicator |
+| Threats | ≥ 2 | Each must identify specific risk with likelihood assessment |
+
+**Severity badges** are required on every SWOT item:
+- `high` — Immediate parliamentary impact within current session
+- `medium` — Impact within next 2–3 sessions
+- `low` — Long-term structural impact
+
+---
+
+## 🔗 AI-Driven Article Content Generation Protocol
+
+### The AI-First Content Rule (Rule 12 Extended)
+
+The article generation pipeline follows a strict separation:
+
+| Layer | Responsibility | Examples |
+|-------|---------------|----------|
+| **Scripts** | HTML structure, templates, CSS, navigation, language switching | `generateArticleHTML()`, `buildSwotSection()`, `buildDashboardSection()` |
+| **AI Agent** | ALL analytical text, interpretive content, political intelligence | Why analysis, impact assessments, stakeholder reasoning, outlook, SWOT entries, chart data |
+
+### Field-by-Field AI Content Requirements
+
+The following fields are marked with `[AI_ANALYSIS_REQUIRED]` by the script layer. The AI agent **MUST** replace every single marker with original analytical content:
+
+| Field | Minimum Length | Content Requirements |
+|-------|:-------------:|---------------------|
+| **Why (Root Causes)** | 80 words | Explain political motivations, institutional dynamics, historical context |
+| **Impact: Political** | 40 words | Assess effect on political group dynamics, coalition stability |
+| **Impact: Economic** | 40 words | Assess effect on EU economic policy, market implications |
+| **Impact: Social** | 40 words | Assess effect on EU citizens, civil society, public opinion |
+| **Impact: Legal** | 40 words | Assess treaty implications, legal basis, precedent effects |
+| **Impact: Geopolitical** | 40 words | Assess EU global positioning, foreign policy implications |
+| **Action → Consequence** | 30 words | Describe specific causal chain from parliamentary action to outcome |
+| **Stakeholder Reasoning** | 25 words | Explain why each stakeholder wins/loses from this action |
+| **Mistake Alternative** | 30 words | Describe what the political actor should have done differently |
+| **Strategic Outlook** | 60 words | Forward-looking analysis with probability indicators (likely/possible/unlikely) |
+| **Stakeholder Perspectives** | 40 words each | Analytical perspective for each of 6 stakeholder groups |
+
+### Article-Analysis Cross-Reference Requirements
+
+Every news article MUST link to its analysis artifacts in the Analysis Transparency section. The AI agent must:
+
+1. **Verify each linked analysis file exists** and contains substantive content (≥200 words)
+2. **If an analysis file is empty or placeholder**, the AI must either:
+   - Fill the analysis file with real content during the analysis stage, OR
+   - Remove the broken link from the article transparency section
+3. **Analysis files MUST use the GitHub repository URL format**:
+   ```
+   https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/{date}/{type}/{category}/{file}.md
+   ```
 
 ---
 
