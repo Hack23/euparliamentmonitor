@@ -1,0 +1,71 @@
+{
+  "date": "2026-04-03",
+  "articleType": "breaking",
+  "articleTypeSlug": "breaking",
+  "generatedAt": "2026-04-03T22:00:00Z",
+  "workflow": "news-breaking",
+  "analysisOnly": true,
+  "runNumber": 3,
+  "reason": "No breaking news — Friday Easter recess (inter-session). Full data collection and analysis pipeline completed. Thematic deep-dives extending prior runs.",
+  "improvementNote": "Third run adds trade policy deep-dive (multi-front EU strategy), anti-corruption reform intelligence (post-Qatargate package), and strategic recess assessment (pre-April plenary preview). Applies 6 new analytical frameworks: PESTLE, Attack Tree, Diamond Model, Calendar Context, Forward-Looking Intelligence, Risk Interconnection.",
+  "priorRuns": [
+    {
+      "run": 1,
+      "directory": "analysis/2026-04-03/breaking/",
+      "files": 8,
+      "focus": "Baseline intelligence brief, coalition dynamics, SWOT, risk, stakeholder impact, legislation review, political landscape"
+    },
+    {
+      "run": 2,
+      "directory": "analysis/2026-04-03/breaking-2/",
+      "files": 4,
+      "focus": "API reliability assessment, cross-session intelligence, early warning deep-dive"
+    }
+  ],
+  "dataCollected": {
+    "adoptedTexts": 80,
+    "adoptedTextsDetailed": 60,
+    "meps": 737,
+    "procedures": "404 (unavailable)",
+    "events": "404 (unavailable)",
+    "analyticalTools": ["voting_anomalies", "coalition_dynamics", "political_landscape", "early_warning"]
+  },
+  "analysisFiles": [
+    "intelligence-brief.md",
+    "trade-policy-deep-dive.md",
+    "strategic-recess-assessment.md",
+    "anti-corruption-reform-intelligence.md"
+  ],
+  "feedEndpointsQueried": [
+    "get_adopted_texts_feed (today → JSON error, one-week → ~80 items)",
+    "get_events_feed (today → 404, one-week → 404)",
+    "get_procedures_feed (today → 404, one-week → 404)",
+    "get_meps_feed (today → 737 items)",
+    "get_documents_feed (one-week → timeout)",
+    "get_plenary_documents_feed (one-week → timeout)",
+    "get_committee_documents_feed (one-week → timeout)",
+    "get_parliamentary_questions_feed (one-week → timeout)"
+  ],
+  "analyticalToolsQueried": [
+    "detect_voting_anomalies → success (0 anomalies, LOW risk)",
+    "analyze_coalition_dynamics → success (28 pairs, Renew-ECR 0.95)",
+    "generate_political_landscape → success (8 groups, PPE 38%)",
+    "early_warning_system → success (3 warnings, stability 84/100)"
+  ],
+  "analyticalFrameworksApplied": [
+    "PESTLE Analysis (US counter-tariff assessment)",
+    "Attack Tree (trade escalation scenarios)",
+    "Diamond Model (corruption threat analysis)",
+    "Calendar Context Analysis (recess intelligence patterns)",
+    "Forward-Looking Intelligence (April plenary preview)",
+    "Risk Interconnection Mapping (cross-front compound risk)",
+    "Political Classification Guide (significance scoring)",
+    "EP Document Analysis Framework (5-dimension analysis)"
+  ],
+  "cumulativeStats": {
+    "totalFiles": 16,
+    "totalLines": 4370,
+    "totalFrameworks": 14,
+    "totalRuns": 3
+  }
+}
