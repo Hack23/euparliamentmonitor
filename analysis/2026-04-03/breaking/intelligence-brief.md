@@ -10,7 +10,7 @@ dataSources:
   - "EP Open Data Portal — adopted texts feed (100 items, one-week window)"
   - "EP Open Data Portal — MEPs feed (737 active MEPs)"
   - "EP Open Data Portal — procedures listing (20 items, 2026)"
-  - "EP analytical tools — voting anomalies, political landscape, early warning"
+  - "EP analytical tools — voting anomalies, coalition dynamics, political landscape, early warning"
 ---
 
 # Breaking News Intelligence Brief — 3 April 2026
@@ -21,7 +21,7 @@ dataSources:
 | **Assessment Period** | 27 March – 3 April 2026 |
 | **Overall Alert Status** | GREEN — No breaking developments |
 | **Parliamentary Status** | Non-session day (inter-session period) |
-| **Data Confidence** | MEDIUM — Multiple feed timeouts limited data completeness |
+| **Data Confidence** | MEDIUM — Coalition dynamics now available; multiple feed endpoints still degraded |
 | **Next Plenary** | Estimated: Week of 20–23 April 2026 (Strasbourg) |
 
 ---
@@ -36,7 +36,7 @@ The current inter-session period provides an opportunity for strategic assessmen
 2. **PPE dominance risk flagged** — PPE holds 38% of seats (sampled), 19x the smallest group (The Left)
 3. **Grand coalition remains viable** — PPE + S&D combined hold approximately 60% of seats, sufficient for qualified majority
 4. **Voting anomaly risk is LOW** — No intra-group defections detected in recent analysis window
-5. **EP API availability was degraded** — 5 of 8 feed endpoints timed out, suggesting infrastructure maintenance or high load
+5. **EP API availability was degraded** — 6 of 8 feed endpoints returned errors; all 4 analytical tools now returning data (improvement over prior run)
 
 ---
 
@@ -131,6 +131,27 @@ The last plenary session on 26 March 2026 produced significant legislative outpu
 | **EU Institutions** | Commission gains trade defence mandate strengthening; Council retains implementation discretion | Positive | Medium | EP vote signals legislative backing for Commission trade stance |
 
 **Geopolitical Significance:** This text represents the EU's most concrete legislative response to transatlantic trade friction. Unlike rhetorical statements, adopted tariff legislation creates binding market effects. The timing — concurrent with WTO MC14 preparations (TA-10-2026-0086 on Yaounde negotiations) — signals coordinated EU trade strategy. **Confidence: MEDIUM**
+
+---
+
+## Coalition Dynamics (Updated — Previously Unavailable)
+
+> **⚡ NEW DATA:** Coalition dynamics analysis now available. Prior run timed out on this tool.
+
+### Alliance Signal Summary
+
+| Pair | Cohesion | Signal | Trend | Significance |
+|------|:--------:|:------:|:-----:|-------------|
+| **Renew – ECR** | 0.95 | ✅ Alliance | STRENGTHENING | Highest pair cohesion; potential new centre-right–liberal axis |
+| **The Left – NI** | 0.65 | ✅ Alliance | STRENGTHENING | Anti-establishment convergence; marginal weight |
+| **S&D – ECR** | 0.60 | ✅ Alliance | STABLE | Cross-ideological pragmatic alignment |
+| **Renew – The Left** | 0.60 | ✅ Alliance | STABLE | Rights-based agenda convergence |
+| **S&D – Renew** | 0.57 | ✅ Alliance | STABLE | Traditional progressive-liberal partnership |
+| **ECR – The Left** | 0.57 | ✅ Alliance | STABLE | Anti-establishment overlap |
+
+**Key strategic finding:** The Renew–ECR cohesion signal (0.95, strengthening) is the most consequential coalition dynamic in the current data. If this translates to voting alignment, it could reshape PPE's coalition calculus by offering a liberal-conservative bridge partner. Combined with PPE's dominant position, this creates a potential Centre-Right–Liberal formation (PPE + ECR + PfE + Renew = 62%) with strong internal cohesion between supporting partners. **Confidence: MEDIUM** — Cohesion scores based on size ratios; roll-call data needed for confirmation.
+
+**Progressive deficit confirmed:** The S&D–The Left weakening cohesion (0.34) and progressive bloc non-viability (39% vs 51% threshold) mean the EP's legislative centre of gravity will continue to shift rightward unless Renew re-aligns with S&D. See detailed analysis in `coalition-dynamics-assessment.md`.
 
 ---
 
@@ -319,26 +340,28 @@ External geopolitical event (Georgia/Moldova deterioration, Iran nuclear escalat
 
 | Dimension | Rating | Notes |
 |-----------|:------:|-------|
-| Feed coverage | PARTIAL | 3 of 8 feeds returned data; 5 timed out |
+| Feed coverage | PARTIAL | 2 of 8 feeds returned data; 6 returned errors or timeouts |
 | Data freshness | GOOD | Adopted texts and MEP data current to April 3 |
-| Analytical tool coverage | PARTIAL | 3 of 4 analytical tools returned data; coalition dynamics timed out |
+| Analytical tool coverage | GOOD | 4 of 4 analytical tools returned data (coalition dynamics now available) |
 | Classification confidence | GOOD | Adopted texts have clear titles and dates |
 | Temporal relevance | GOOD | Most recent data from March 26 plenary; today is inter-session |
+| Coalition dynamics | NEW | Renew–ECR pair cohesion 0.95 (strengthening); 6 alliance signals detected |
 
-**Overall Data Confidence: MEDIUM** — Sufficient for inter-session analysis; feed timeout issues reduced advisory data completeness but core adopted texts data is reliable.
+**Overall Data Confidence: MEDIUM** — Improved from prior run. All 4 analytical tools now returning data. Core adopted texts and coalition dynamics data are reliable. Feed API availability remains degraded.
 
 ---
 
 ## Sources
 
 1. **European Parliament Open Data Portal** — data.europarl.europa.eu — Adopted texts, MEPs, procedures
-2. **EP MCP Server v1.1.23** — Analytical tools: voting anomalies, political landscape, early warning
+2. **EP MCP Server v1.1.23** — Analytical tools: voting anomalies, coalition dynamics, political landscape, early warning
 3. **EP Adopted Texts Feed** — 100 items (one-week timeframe, April 2026)
 4. **EP MEPs Feed** — 737 active MEPs (today timeframe)
 5. **EP Procedures Listing** — 20 procedures (2026 year filter)
-6. **Political SWOT Framework** — analysis/methodologies/political-swot-framework.md v2.0
-7. **Political Risk Methodology** — analysis/methodologies/political-risk-methodology.md v2.0
-8. **Political Threat Framework** — analysis/methodologies/political-threat-framework.md v3.0
+6. **EP Coalition Dynamics** — 28 coalition pairs analyzed; 6 alliance signals; Renew–ECR top at 0.95
+7. **Political SWOT Framework** — analysis/methodologies/political-swot-framework.md v2.0
+8. **Political Risk Methodology** — analysis/methodologies/political-risk-methodology.md v2.0
+9. **Political Threat Framework** — analysis/methodologies/political-threat-framework.md v3.0
 
 ---
 
