@@ -41,9 +41,6 @@ import { ALL_STAKEHOLDER_TYPES } from '../types/index.js';
 
 // ─── AI pending notice helper ────────────────────────────────────────────────
 
-/** HTML fragment for rendering an "analysis pending" notice in unfilled AI fields. */
-const AI_PENDING_OPEN = `<em class="${AI_PENDING_CLASS}">`;
-
 /**
  * Return an inline HTML notice for an AI-pending field.
  *
@@ -51,7 +48,7 @@ const AI_PENDING_OPEN = `<em class="${AI_PENDING_CLASS}">`;
  * @returns Safe HTML string
  */
 function aiPendingNotice(message: string): string {
-  return `${AI_PENDING_OPEN}${escapeHTML(message)}</em>`;
+  return `<em class="${AI_PENDING_CLASS}">${escapeHTML(message)}</em>`;
 }
 
 // ─── Sub-section builders ────────────────────────────────────────────────────

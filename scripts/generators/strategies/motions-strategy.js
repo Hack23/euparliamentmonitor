@@ -10,6 +10,7 @@ import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import { pl } from '../../utils/metadata-utils.js';
+import { isPlaceholderText } from '../../constants/analysis-constants.js';
 /** Base keywords shared by all Motions articles */
 const MOTIONS_BASE_KEYWORDS = [
     'European Parliament',
@@ -18,16 +19,6 @@ const MOTIONS_BASE_KEYWORDS = [
     'party cohesion',
     'parliamentary questions',
 ];
-/**
- * Test whether a text string is placeholder/fallback content that should be
- * excluded from keywords and other user-visible metadata.
- *
- * @param text - Candidate text to test
- * @returns `true` when the text matches known placeholder patterns
- */
-function isPlaceholderText(text) {
-    return /placeholder|data.unavailable|example\s+(motion|amendment|group)/i.test(text);
-}
 /**
  * Extract content-aware keywords from motions data.
  *

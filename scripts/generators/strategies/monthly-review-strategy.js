@@ -10,6 +10,7 @@ import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import { pl } from '../../utils/metadata-utils.js';
+import { isPlaceholderText } from '../../constants/analysis-constants.js';
 /** Base keywords shared by all Monthly Review articles */
 const MONTHLY_REVIEW_BASE_KEYWORDS = [
     'European Parliament',
@@ -17,15 +18,6 @@ const MONTHLY_REVIEW_BASE_KEYWORDS = [
     'legislative output',
     'coalition dynamics',
 ];
-/**
- * Test whether a text string is placeholder/fallback content.
- *
- * @param text - Candidate text to test
- * @returns `true` when the text matches known placeholder patterns
- */
-function isPlaceholderText(text) {
-    return /placeholder|data.unavailable|example\s+(motion|amendment|group)/i.test(text);
-}
 /**
  * Extract content-aware keywords from monthly review data.
  *

@@ -41,6 +41,7 @@ import { buildDashboardSection } from '../dashboard-content.js';
 import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 import { pl } from '../../utils/metadata-utils.js';
+import { isPlaceholderText } from '../../constants/analysis-constants.js';
 
 // ─── Data payload ─────────────────────────────────────────────────────────────
 
@@ -71,16 +72,6 @@ const MONTHLY_REVIEW_BASE_KEYWORDS = [
   'legislative output',
   'coalition dynamics',
 ] as const;
-
-/**
- * Test whether a text string is placeholder/fallback content.
- *
- * @param text - Candidate text to test
- * @returns `true` when the text matches known placeholder patterns
- */
-function isPlaceholderText(text: string): boolean {
-  return /placeholder|data.unavailable|example\s+(motion|amendment|group)/i.test(text);
-}
 
 /**
  * Extract content-aware keywords from monthly review data.
