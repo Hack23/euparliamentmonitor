@@ -332,7 +332,7 @@ External geopolitical event (Georgia/Moldova deterioration, Iran nuclear escalat
 ## Sources
 
 1. **European Parliament Open Data Portal** — data.europarl.europa.eu — Adopted texts, MEPs, procedures
-2. **EP MCP Server v1.1.22** — Analytical tools: voting anomalies, political landscape, early warning
+2. **EP MCP Server v1.1.23** — Analytical tools: voting anomalies, political landscape, early warning
 3. **EP Adopted Texts Feed** — 100 items (one-week timeframe, April 2026)
 4. **EP MEPs Feed** — 737 active MEPs (today timeframe)
 5. **EP Procedures Listing** — 20 procedures (2026 year filter)
