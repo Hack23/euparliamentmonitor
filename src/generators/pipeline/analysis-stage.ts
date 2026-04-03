@@ -83,7 +83,11 @@ import {
   createScoredOpportunityOrThreat,
   createRiskDriver,
 } from '../../utils/political-risk-assessment.js';
-import { ensureDirectoryExists, atomicWrite, resolveUniqueAnalysisDir } from '../../utils/file-utils.js';
+import {
+  ensureDirectoryExists,
+  atomicWrite,
+  resolveUniqueAnalysisDir,
+} from '../../utils/file-utils.js';
 
 // ─── Markdown constants ───────────────────────────────────────────────────────
 
@@ -1611,7 +1615,13 @@ function buildDeepAnalysisMarkdown(fetchedData: Record<string, unknown>, date: s
   const adoptedTexts = safeArr(fetchedData, 'adoptedTexts');
   const questions = safeArr(fetchedData, 'questions');
   const mepUpdates = safeArr(fetchedData, 'mepUpdates');
-  const total = events.length + procedures.length + documents.length + adoptedTexts.length + questions.length + mepUpdates.length;
+  const total =
+    events.length +
+    procedures.length +
+    documents.length +
+    adoptedTexts.length +
+    questions.length +
+    mepUpdates.length;
   return (
     header +
     `# Deep Multi-Perspective Analysis
