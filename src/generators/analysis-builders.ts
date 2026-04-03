@@ -162,7 +162,11 @@ function deriveConsequencesFromVoting(
     consequences.push({
       action: `Vote on "${record.title}"`,
       consequence: `${record.result} by ${marginDesc} (${record.votes.for} for, ${record.votes.against} against, ${record.votes.abstain} abstentions). This outcome shapes the legislative trajectory of this policy area.`,
-      severity: record.votes.for > record.votes.against * 2 ? 'high' : 'medium',
+      severity:
+        Math.abs(record.votes.for - record.votes.against) >
+        (record.votes.for + record.votes.against) / 2
+          ? 'high'
+          : 'medium',
     });
   }
   for (const anomaly of anomalies.slice(0, 2)) {

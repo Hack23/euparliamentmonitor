@@ -5248,11 +5248,3 @@ em.ai-analysis-pending {
   border-radius: 8px;
   max-width: 100%;
 }
-
-.dashboard-panel {
-  transition: box-shadow 0.2s ease;
-}
-
-.dashboard-panel:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
