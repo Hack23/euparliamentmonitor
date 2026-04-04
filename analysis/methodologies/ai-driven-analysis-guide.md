@@ -880,8 +880,9 @@ Articles may link to related content from the Hack23 parliamentary monitoring ec
 |------|--------|---------|
 | **Hack23** | `hack23.com` / `www.hack23.com` | Organization hub, project portfolio, ISMS documentation |
 | **Riksdagsmonitor** | `riksdagsmonitor.com` / `www.riksdagsmonitor.com` | Swedish Parliament monitoring — comparable methodology |
+| **EU Parliament Monitor** | `euparliamentmonitor.com` / `www.euparliamentmonitor.com` | EU Parliament news, analysis, and intelligence in 14 languages |
 | **CIA Platform** | `github.com/Hack23/cia` | Swedish Parliament intelligence — Java/Spring backend |
-| **EU Parliament Monitor** | `github.com/Hack23/euparliamentmonitor` | This project's source code and documentation |
+| **EU Parliament Monitor (source)** | `github.com/Hack23/euparliamentmonitor` | This project's source code and documentation |
 
 When cross-referencing:
 - Link to specific methodology comparisons (e.g., "This SWOT framework is adapted from [Riksdagsmonitor risk methodology](https://github.com/Hack23/riksdagsmonitor/blob/main/analysis/methodologies/political-risk-methodology.md)")

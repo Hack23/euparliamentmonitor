@@ -79,7 +79,7 @@ For this project's gh-aw workflows, the AWF ensures:
 - Agents can access only explicitly allowlisted domains; for EP data this includes `data.europarl.europa.eu` and `www.europarl.europa.eu`
 - Wildcard `*.europa.eu` is allowed for additional EU institutional domains as configured per workflow
 - GitHub API access (e.g., `github.com`, `api.github.com`) is limited to read operations as defined in the allowlist
-- **Hack23 ecosystem sites** (`hack23.com`, `www.hack23.com`, `riksdagsmonitor.com`, `www.riksdagsmonitor.com`) are allowlisted for cross-referencing related parliamentary monitoring content and branding assets
+- **Hack23 ecosystem sites** (`hack23.com`, `www.hack23.com`, `riksdagsmonitor.com`, `www.riksdagsmonitor.com`, `euparliamentmonitor.com`, `www.euparliamentmonitor.com`) are allowlisted for cross-referencing related parliamentary monitoring content and branding assets
 - Workflows using the World Bank MCP server additionally allowlist `api.worldbank.org`
 - No unauthorized external API calls during news generation beyond the configured `network.allowed` domains
 - All MCP server communication stays within the sandboxed, allowlisted network environment

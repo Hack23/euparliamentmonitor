@@ -65,6 +65,8 @@ network:
     - www.hack23.com
     - riksdagsmonitor.com
     - www.riksdagsmonitor.com
+    - euparliamentmonitor.com
+    - www.euparliamentmonitor.com
     - default
 
 mcp-servers:
@@ -109,6 +111,8 @@ safe-outputs:
     - www.hack23.com
     - riksdagsmonitor.com
     - www.riksdagsmonitor.com
+    - euparliamentmonitor.com
+    - www.euparliamentmonitor.com
   create-pull-request:
     title-prefix: "[news] "
   add-comment:
@@ -159,6 +163,8 @@ network:
     - www.hack23.com              # Hack23 website
     - riksdagsmonitor.com         # Swedish Parliament monitor
     - www.riksdagsmonitor.com     # Swedish Parliament monitor
+    - euparliamentmonitor.com     # EU Parliament monitor
+    - www.euparliamentmonitor.com # EU Parliament monitor
     - default                     # Basic infrastructure
 ```
 
@@ -176,6 +182,8 @@ network:
     - www.hack23.com
     - riksdagsmonitor.com
     - www.riksdagsmonitor.com
+    - euparliamentmonitor.com
+    - www.euparliamentmonitor.com
     - default
 ```
 
