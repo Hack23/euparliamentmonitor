@@ -49,6 +49,14 @@ mcp-servers:
       EP_REQUEST_TIMEOUT_MS: "120000"
 
 tools:
+  repo-memory:
+    branch-name: memory/news-generation
+    description: "Cross-run editorial memory for EU Parliament news generation"
+    file-glob: ["memory/news-generation/*.md", "memory/news-generation/*.json"]
+    max-file-size: 51200
+    max-file-count: 50
+    max-patch-size: 51200
+    allowed-extensions: [".md", ".json"]
   github:
     toolsets:
       - all
@@ -97,6 +105,28 @@ You are the **News Journalist Agent** for EU Parliament Monitor generating **com
 - ❌ `package.json` / `package-lock.json` — NEVER modify dependency files
 
 **If you encounter build errors or source code bugs**: Log the error and continue — do NOT attempt to fix them.
+
+## 🧠 Repo Memory — Cross-Run Editorial Context
+
+This workflow has access to **persistent repo memory** at `/tmp/gh-aw/repo-memory-default/`. Use it to maintain editorial context across runs.
+
+**At workflow START** — read prior context:
+```bash
+cat /tmp/gh-aw/repo-memory-default/memory/news-generation/article-log.json 2>/dev/null || echo '[]'
+cat /tmp/gh-aw/repo-memory-default/memory/news-generation/editorial-context.md 2>/dev/null || echo 'No prior context'
+```
+
+**At workflow END** — update memory (keep concise, max 50KB total):
+1. **`article-log.json`** — Append today's generated article metadata (date, type, slug, headline, key topics). Keep last 30 entries.
+2. **`editorial-context.md`** — Brief summary of today's key findings, ongoing stories to track, and topics already covered this week.
+
+**Use memory to**:
+- Avoid generating duplicate articles on the same topic
+- Reference prior coverage for continuity ("as reported in our Tuesday analysis...")
+- Track ongoing legislative stories across runs
+- Skip EP documents already covered in recent articles
+
+> ⚠️ Memory is best-effort. If files are empty or missing, proceed normally without prior context.
 
 ## 🔧 Workflow Dispatch Parameters
 

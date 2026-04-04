@@ -68,6 +68,14 @@ mcp-servers:
       EP_REQUEST_TIMEOUT_MS: "120000"
 
 tools:
+  repo-memory:
+    branch-name: memory/news-generation
+    description: "Cross-run editorial memory for EU Parliament news generation"
+    file-glob: ["memory/news-generation/*.md", "memory/news-generation/*.json"]
+    max-file-size: 51200
+    max-file-count: 50
+    max-patch-size: 51200
+    allowed-extensions: [".md", ".json"]
   github:
     toolsets:
       - all
@@ -125,6 +133,25 @@ You are the **Translation Agent** for EU Parliament Monitor. Your job is to take
 - ❌ DO NOT attempt to fix them — that is outside this workflow's scope
 - ✅ Log the error and continue with translation
 - ✅ The translation generator handles all code logic; your job is to RUN it, not FIX it
+
+## 🧠 Repo Memory — Cross-Run Editorial Context
+
+This workflow has access to **persistent repo memory** at `/tmp/gh-aw/repo-memory-default/`. Use it to track translation progress across runs.
+
+**At workflow START** — read prior context:
+```bash
+cat /tmp/gh-aw/repo-memory-default/memory/news-generation/translation-log.json 2>/dev/null || echo '[]'
+```
+
+**At workflow END** — update memory (keep concise, max 50KB total):
+1. **`translation-log.json`** — Append today's translation metadata (date, source article, target languages, status). Keep last 30 entries.
+
+**Use memory to**:
+- Skip articles that were already translated in a prior run
+- Track which language translations are pending vs completed
+- Prioritize untranslated articles
+
+> ⚠️ Memory is best-effort. If files are empty or missing, proceed normally without prior context.
 
 ## 🔧 Workflow Dispatch Parameters
 
