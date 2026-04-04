@@ -1,0 +1,123 @@
+{
+  "date": "2026-04-04",
+  "articleType": "breaking",
+  "generatedAt": "2026-04-04T18:15:00Z",
+  "analyst": "EU Parliament Monitor AI (Claude Opus 4.6)",
+  "workflowRunId": "23984568070",
+  "newsworthy": false,
+  "reason": "Saturday Easter recess (Day 9 of 18). No EP plenary, committee, or delegation activity. No adopted texts, events, or procedures published today. Evening assessment confirms morning findings — parliamentary information environment static throughout 4 April 2026.",
+  "priorAnalysis": {
+    "directory": "analysis/2026-04-04/breaking/",
+    "runId": "23966990267",
+    "timestamp": "2026-04-04T00:20:00Z",
+    "concordant": true
+  },
+  "dataSources": {
+    "adoptedTextsFeed": {
+      "status": "success",
+      "timeframe": "one-week",
+      "items": 85,
+      "breakdown": {
+        "ep10_2026": 70,
+        "ep10_2025": 8,
+        "ep9_2024": 7
+      }
+    },
+    "eventsFeed": {
+      "status": "error_404",
+      "timeframe": "one-week",
+      "items": 0,
+      "note": "Expected during Easter recess"
+    },
+    "proceduresFeed": {
+      "status": "error_404",
+      "timeframe": "one-week",
+      "items": 0,
+      "note": "Expected during Easter recess"
+    },
+    "mepsFeed": {
+      "status": "success",
+      "timeframe": "today",
+      "items": 737
+    },
+    "documentsFeed": {
+      "status": "error_404",
+      "timeframe": "one-week",
+      "items": 0
+    },
+    "plenaryDocumentsFeed": {
+      "status": "error_404",
+      "timeframe": "one-week",
+      "items": 0
+    },
+    "committeeDocumentsFeed": {
+      "status": "error_404",
+      "timeframe": "one-week",
+      "items": 0
+    },
+    "parliamentaryQuestionsFeed": {
+      "status": "error_404",
+      "timeframe": "one-week",
+      "items": 0
+    },
+    "votingAnomalies": {
+      "status": "success",
+      "anomalies": 0,
+      "riskLevel": "LOW",
+      "groupStability": 100
+    },
+    "coalitionDynamics": {
+      "status": "success",
+      "dominantCoalition": "Renew-ECR (0.95 cohesion — size-ratio based)",
+      "pairs": 28,
+      "strengthening": 2,
+      "stable": 4,
+      "weakening": 22
+    },
+    "politicalLandscape": {
+      "status": "success",
+      "totalMEPs": 720,
+      "sampledMEPs": 100,
+      "groups": 8,
+      "largestGroup": "EPP (25.7% actual / 38% sample)",
+      "fragmentationIndex": 6.59
+    },
+    "earlyWarning": {
+      "status": "success",
+      "warnings": 3,
+      "stabilityScore": 84,
+      "riskLevel": "MEDIUM",
+      "highWarnings": 1,
+      "keyRisk": "DOMINANT_GROUP_RISK"
+    },
+    "precomputedStats": {
+      "status": "success",
+      "coveragePeriod": "2004-2026",
+      "years": 23
+    }
+  },
+  "analysisArtifacts": [
+    "intelligence-brief.md",
+    "adopted-texts-analysis.md",
+    "recess-pattern-analysis.md",
+    "forward-outlook.md"
+  ],
+  "qualityGates": {
+    "allFeedEndpointsQueried": true,
+    "analyticalToolsRun": true,
+    "fourPassRefinement": true,
+    "multiFrameworkAnalysis": true,
+    "confidenceLevelsAssigned": true,
+    "mermaidDiagramsIncluded": true,
+    "sourceAttributionComplete": true,
+    "priorAnalysisReviewed": true
+  },
+  "keyFindings": [
+    "Grand coalition (EPP + S&D = 320) insufficient for majority (361) — structural EP10 feature",
+    "Right-of-centre bloc (EPP + ECR + PfE + ESN = 376, 52.3%) has theoretical majority",
+    "Legislative productivity surge: 114 acts projected for 2026 vs 78 in 2025 (+46%)",
+    "EP API degradation (6/8 feeds 404) consistent with Easter recess pattern",
+    "Stability score 84/100 with 3 warnings; PPE dominance risk rated HIGH",
+    "Post-Easter plenary (20-23 April) projected as high-output session (12-18 adopted texts)"
+  ]
+}
