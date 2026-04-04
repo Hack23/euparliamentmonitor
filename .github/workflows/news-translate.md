@@ -53,9 +53,12 @@ network:
     - api.github.com
     - data.europarl.europa.eu
     - "*.europa.eu"
-    - "*.com"
-    - "*.org"
-    - "*.io"
+    - hack23.com
+    - www.hack23.com
+    - riksdagsmonitor.com
+    - www.riksdagsmonitor.com
+    - euparliamentmonitor.com
+    - www.euparliamentmonitor.com
     - default
 
 mcp-servers:
@@ -66,8 +69,26 @@ mcp-servers:
       - european-parliament-mcp-server@1.1.24
     env:
       EP_REQUEST_TIMEOUT_MS: "120000"
+  memory:
+    command: npx
+    args:
+      - -y
+      - "@modelcontextprotocol/server-memory"
+  sequential-thinking:
+    command: npx
+    args:
+      - -y
+      - "@modelcontextprotocol/server-sequential-thinking"
 
 tools:
+  repo-memory:
+    branch-name: memory/news-generation
+    description: "Cross-run editorial memory for EU Parliament news generation"
+    file-glob: ["memory/news-generation/*.md", "memory/news-generation/*.json"]
+    max-file-size: 51200
+    max-file-count: 50
+    max-patch-size: 51200
+    allowed-extensions: [".md", ".json"]
   github:
     toolsets:
       - all
@@ -78,8 +99,16 @@ safe-outputs:
     - data.europarl.europa.eu
     - www.europarl.europa.eu
     - github.com
-  create-pull-request: {}
-  add-comment: {}
+    - hack23.com
+    - www.hack23.com
+    - riksdagsmonitor.com
+    - www.riksdagsmonitor.com
+    - euparliamentmonitor.com
+    - www.euparliamentmonitor.com
+  create-pull-request:
+    title-prefix: "[news] "
+  add-comment:
+    max: 1
 
 steps:
   - name: Setup Node.js
@@ -126,6 +155,55 @@ You are the **Translation Agent** for EU Parliament Monitor. Your job is to take
 - ✅ Log the error and continue with translation
 - ✅ The translation generator handles all code logic; your job is to RUN it, not FIX it
 
+## 🧠 Memory & Reasoning Tools
+
+### Repo Memory — Cross-Run Translation Tracking (persistent across runs)
+
+This workflow has access to **persistent repo memory** at `/tmp/gh-aw/repo-memory/default/`. Use it to track translation progress across runs.
+
+**At workflow START** — read prior context:
+```bash
+cat /tmp/gh-aw/repo-memory/default/memory/news-generation/translation-log.json 2>/dev/null || echo '[]'
+```
+
+**At workflow END** — update memory (keep concise, max 50KB per file):
+
+> **Scope clarification**: The `news/`-only file creation rule applies to the **main repository workspace**. Writing to the repo-memory workspace under `/tmp/gh-aw/repo-memory/default/memory/news-generation/` is **explicitly allowed** and does not violate the workspace scope restriction.
+1. **`translation-log.json`** — Append today's translation metadata (date, source article, target languages, status). Keep last 30 entries.
+
+**Use repo memory to**:
+- Skip articles that were already translated in a prior run
+- Track which language translations are pending vs completed
+- Prioritize untranslated articles
+
+> ⚠️ Repo memory is best-effort. If files are empty or missing, proceed normally without prior context.
+
+### Memory MCP — In-Run Knowledge Graph (within current run)
+
+The `memory` MCP server provides a **session-scoped knowledge graph** for tracking entities and relations discovered during this run. Use it when translating **multiple articles in batch** to maintain consistency.
+
+**When to use**:
+- Track terminology decisions across multiple article translations in the same run
+- Maintain consistent proper noun translations (MEP names, committee names, legislative references)
+- Build a running glossary of domain-specific terms per target language
+
+**How to use**:
+1. `create_entities` — Store translation decisions (term → translated term per language)
+2. `create_relations` — Link source articles to their translations
+3. `search_nodes` — Look up prior translation choices for consistency
+
+### Sequential Thinking — Structured Reasoning Chains
+
+The `sequential-thinking` MCP server enables **step-by-step analytical reasoning** for complex translation decisions.
+
+**When to use**:
+- Resolving ambiguous political terminology that has different connotations across languages
+- Deciding how to adapt culturally-specific references for different audiences
+- Planning batch translation order to maximize terminology consistency
+
+**How to use**:
+Call `sequentialthinking` with structured thought chains — each step builds on the previous, allowing revision and branching when translation reveals unexpected complexities.
+
 ## 🔧 Workflow Dispatch Parameters
 
 - **article_types** = `${{ github.event.inputs.article_types }}`
@@ -165,6 +243,34 @@ When translating articles, preserve ALL analytical nuance:
 - **Technical terms**: Use EP official terminology in each target language (not ad-hoc translations)
 - **Coalition dynamics**: Preserve all references to political group interactions and voting patterns
 - **Cultural adaptation**: Adapt *existing* examples, idioms, or references from the source article for local context where helpful, but do not introduce new facts, examples, or analysis not present in the English source
+
+### 📚 Per-Language EP Terminology Standards
+
+Use official EU/EP institutional terminology for each target language. Key terms:
+
+| English Term | sv | de | fr | es | ja | ar |
+|---|---|---|---|---|---|---|
+| European Parliament | Europaparlamentet | Europäisches Parlament | Parlement européen | Parlamento Europeo | 欧州議会 | البرلمان الأوروبي |
+| plenary session | plenarsammanträde | Plenarsitzung | séance plénière | sesión plenaria | 本会議 | الجلسة العامة |
+| committee | utskott | Ausschuss | commission | comisión | 委員会 | اللجنة |
+| rapporteur | föredragande | Berichterstatter | rapporteur | ponente | 報告者 | المقرر |
+| legislative procedure | lagstiftningsförfarande | Gesetzgebungsverfahren | procédure législative | procedimiento legislativo | 立法手続き | الإجراء التشريعي |
+| adopted text | antagen text | angenommener Text | texte adopté | texto aprobado | 採択文 | النص المعتمد |
+| amendment | ändringsförslag | Änderungsantrag | amendement | enmienda | 修正案 | التعديل |
+| trilogue | trilog | Trilog | trilogue | trílogo | 三者協議 | الحوار الثلاثي |
+| roll-call vote | omröstning med namnupprop | namentliche Abstimmung | vote par appel nominal | votación nominal | 記名投票 | تصويت بنداء الأسماء |
+
+> For full terminology, consult [EP Multilingual Termbase](https://www.europarl.europa.eu/portal/en) and [IATE](https://iate.europa.eu/).
+
+### 🎯 Translation Quality Dimensions
+
+Each translated article must score well on these 5 dimensions:
+
+1. **Accuracy** (40%): Factual fidelity to the English source — zero additions, zero omissions of substantive claims
+2. **Fluency** (20%): Reads naturally in the target language — not "translationese"
+3. **Terminology** (20%): Uses official EP/EU institutional vocabulary — not informal or ad-hoc translations
+4. **Completeness** (10%): Every section, SWOT entry, stakeholder perspective, and confidence marker is present
+5. **Formatting** (10%): RTL/CJK layout correct, locale-appropriate number formatting, emoji markers preserved
 
 ## ⏱️ Time Budget (90 minutes)
 
@@ -679,11 +785,26 @@ safeoutputs___create_pull_request({
 
 ### Language-Specific Requirements
 
-- **Japanese (ja)**: Use formal Japanese (です/ます form), CJK punctuation (。、), no spaces between words
-- **Korean (ko)**: Use formal Korean (합니다 form), CJK punctuation, proper spacing between words
-- **Chinese (zh)**: Use Simplified Chinese, CJK punctuation (。、), no spaces between characters
-- **Arabic (ar)**: RTL layout, use `→` arrow in navigation
-- **Hebrew (he)**: RTL layout, use `→` arrow in navigation
+#### Nordic Languages (sv, da, no, fi)
+- **Swedish (sv)**: Use formal register; EP is "Europaparlamentet"; committees use official riksdag-style naming
+- **Danish (da)**: Use formal register; EP is "Europa-Parlamentet"; follow Dansk Sprognævn conventions
+- **Norwegian (no)**: Use Bokmål; EP is "Europaparlamentet"; follow Språkrådet conventions
+- **Finnish (fi)**: Use formal register; EP is "Euroopan parlamentti"; follow Kotimaisten kielten keskus conventions
+
+#### EU Core Languages (de, fr, es, nl)
+- **German (de)**: Use formal register; compound nouns are standard (e.g., "Gesetzgebungsverfahren"); capitalize all nouns
+- **French (fr)**: Use formal register; EP is "Parlement européen" (lowercase 'e'); accents are mandatory (é, è, ê, ë, à, ù, ç)
+- **Spanish (es)**: Use formal register; EP is "Parlamento Europeo"; use Latin American-neutral Spanish for broader reach
+- **Dutch (nl)**: Use formal register; EP is "Europees Parlement"; follow Taalunie conventions
+
+#### RTL Languages (ar, he)
+- **Arabic (ar)**: Use Modern Standard Arabic (MSA); RTL layout; use `→` arrow in navigation; numbers remain LTR within RTL text; use proper Arabic punctuation (، ؛ .)
+- **Hebrew (he)**: Use formal Hebrew; RTL layout; use `→` arrow in navigation; transliterate MEP names consistently
+
+#### CJK Languages (ja, ko, zh)
+- **Japanese (ja)**: Use formal Japanese (です/ます form); CJK punctuation (。、「」); no spaces between words; use katakana for foreign names
+- **Korean (ko)**: Use formal Korean (합니다 form); CJK punctuation; proper spacing between words (Korean uses spaces unlike Japanese); use official Korean EP terminology
+- **Chinese (zh)**: Use Simplified Chinese; CJK punctuation (。、《》); no spaces between characters; use official Chinese EP terminology from eu.europa.eu/zh
 
 ### Quality Gate
 - ZERO TOLERANCE for language mixing within a single article

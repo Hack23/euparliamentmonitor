@@ -834,6 +834,63 @@ When multiple agentic workflows run simultaneously:
 
 ---
 
+## 🌍 Multi-Language Content Quality Standards
+
+### Translation Quality Dimensions (14 Languages)
+
+EU Parliament Monitor publishes in 14 languages: **en** (source), **sv**, **da**, **no**, **fi**, **de**, **fr**, **es**, **nl**, **ar** (RTL), **he** (RTL), **ja** (CJK), **ko** (CJK), **zh** (CJK).
+
+Every translated article must score well on these 5 dimensions:
+
+| Dimension | Weight | Requirement |
+|-----------|:------:|-------------|
+| **Accuracy** | 40% | Zero additions, zero omissions of substantive claims vs. English source |
+| **Fluency** | 20% | Reads naturally in the target language — not "translationese" |
+| **Terminology** | 20% | Uses official EP/EU institutional vocabulary from [IATE](https://iate.europa.eu/) |
+| **Completeness** | 10% | Every section, SWOT entry, stakeholder perspective, and confidence marker present |
+| **Formatting** | 10% | RTL/CJK layout correct, locale-appropriate number formatting, emoji markers preserved |
+
+### Translation Fidelity Rules
+
+1. **NEVER translate**: EP document IDs, political group abbreviations (EPP, S&D, Renew, Greens/EFA, ECR, PfE, ESN), committee codes (ENVI, AGRI, ECON), MEP names, procedure codes (COD, CNS, APP), session location names
+2. **ALWAYS translate**: Narrative text, event descriptions, policy impact, stakeholder positions, editorial content, confidence label text (High→Hoch/Haute/Alto etc.)
+3. **ALWAYS preserve**: Emoji confidence markers (🟢/🟡/🔴), vote counts (numerically identical, locale-formatted), probability categories (map to target language equivalents — do not upgrade/downgrade certainty)
+4. **Cultural adaptation**: Adapt existing examples for local context but NEVER introduce new facts, examples, or analysis not in the English source
+
+### Language-Specific EP Terminology Standards
+
+Use official terminology from the EP Multilingual Termbase and IATE for each target language. Core terms:
+
+| English | sv | de | fr | es | ja | ar |
+|---|---|---|---|---|---|---|
+| European Parliament | Europaparlamentet | Europäisches Parlament | Parlement européen | Parlamento Europeo | 欧州議会 | البرلمان الأوروبي |
+| plenary session | plenarsammanträde | Plenarsitzung | séance plénière | sesión plenaria | 本会議 | الجلسة العامة |
+| rapporteur | föredragande | Berichterstatter | rapporteur | ponente | 報告者 | المقرر |
+| adopted text | antagen text | angenommener Text | texte adopté | texto aprobado | 採択文 | النص المعتمد |
+| trilogue | trilog | Trilog | trilogue | trílogo | 三者協議 | الحوار الثلاثي |
+| roll-call vote | omröstning med namnupprop | namentliche Abstimmung | vote par appel nominal | votación nominal | 記名投票 | تصويت بنداء الأسماء |
+
+---
+
+## 🔗 Hack23 Ecosystem Cross-References
+
+Articles may link to related content from the Hack23 parliamentary monitoring ecosystem:
+
+| Site | Domain | Content |
+|------|--------|---------|
+| **Hack23** | `hack23.com` / `www.hack23.com` | Organization hub, project portfolio, ISMS documentation |
+| **Riksdagsmonitor** | `riksdagsmonitor.com` / `www.riksdagsmonitor.com` | Swedish Parliament monitoring — comparable methodology |
+| **EU Parliament Monitor** | `euparliamentmonitor.com` / `www.euparliamentmonitor.com` | EU Parliament news, analysis, and intelligence in 14 languages |
+| **CIA Platform** | `github.com/Hack23/cia` | Swedish Parliament intelligence — Java/Spring backend |
+| **EU Parliament Monitor (source)** | `github.com/Hack23/euparliamentmonitor` | This project's source code and documentation |
+
+When cross-referencing:
+- Link to specific methodology comparisons (e.g., "This SWOT framework is adapted from [Riksdagsmonitor risk methodology](https://github.com/Hack23/riksdagsmonitor/blob/main/analysis/methodologies/political-risk-methodology.md)")
+- Reference shared ISMS policies where relevant (e.g., [Hack23 ISMS-PUBLIC](https://github.com/Hack23/ISMS-PUBLIC))
+- Maintain consistent branding (Hack23 AB logo, badge styling)
+
+---
+
 ## 📚 Methodology Documents (AI Must Read Before Analysing)
 
 | Priority | Document | Key Content |

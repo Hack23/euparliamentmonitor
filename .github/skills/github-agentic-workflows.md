@@ -33,6 +33,9 @@ This repo's gh-aw workflows use the following frontmatter format (see `.github/w
 
 ```markdown
 ---
+name: "News: EU Parliament Breaking News"
+description: Generates EU Parliament breaking news English articles
+strict: false
 timeout-minutes: 60
 on:
   schedule:
@@ -48,6 +51,8 @@ permissions:
   issues: read
   pull-requests: read
   actions: read
+  discussions: read
+  security-events: read
 
 network:
   allowed:
@@ -56,6 +61,12 @@ network:
     - api.github.com
     - data.europarl.europa.eu
     - "*.europa.eu"
+    - hack23.com
+    - www.hack23.com
+    - riksdagsmonitor.com
+    - www.riksdagsmonitor.com
+    - euparliamentmonitor.com
+    - www.euparliamentmonitor.com
     - default
 
 mcp-servers:
@@ -66,8 +77,26 @@ mcp-servers:
       - european-parliament-mcp-server@1.1.24
     env:
       EP_REQUEST_TIMEOUT_MS: "120000"
+  memory:
+    command: npx
+    args:
+      - -y
+      - "@modelcontextprotocol/server-memory"
+  sequential-thinking:
+    command: npx
+    args:
+      - -y
+      - "@modelcontextprotocol/server-sequential-thinking"
 
 tools:
+  repo-memory:
+    branch-name: memory/news-generation
+    description: "Cross-run editorial memory for EU Parliament news generation"
+    file-glob: ["memory/news-generation/*.md", "memory/news-generation/*.json"]
+    max-file-size: 51200
+    max-file-count: 50
+    max-patch-size: 51200
+    allowed-extensions: [".md", ".json"]
   github:
     toolsets:
       - all
@@ -78,8 +107,16 @@ safe-outputs:
     - data.europarl.europa.eu
     - www.europarl.europa.eu
     - github.com
-  create-pull-request: {}
-  add-comment: {}
+    - hack23.com
+    - www.hack23.com
+    - riksdagsmonitor.com
+    - www.riksdagsmonitor.com
+    - euparliamentmonitor.com
+    - www.euparliamentmonitor.com
+  create-pull-request:
+    title-prefix: "[news] "
+  add-comment:
+    max: 1
 
 engine:
   id: copilot
@@ -92,16 +129,63 @@ Natural language instructions for the AI agent.
 
 ### Safe Output Types
 
-The following are upstream gh-aw safe output types with their **optional** constraint fields. This repo's news workflows currently configure `create-pull-request: {}` and `add-comment: {}` — enforcement of limits like `max_patch_size` and `protected_files` is handled by the compiled `.lock.yml` safe outputs handler config.
+The following are upstream gh-aw safe output types with their **optional** constraint fields. This repo's news workflows configure `create-pull-request` with `title-prefix: "[news] "` and `add-comment` with `max: 1` — enforcement of limits like `max_patch_size` and `protected_files` is handled by the compiled `.lock.yml` safe outputs handler config.
 
 | Type | Optional Constraint Fields (upstream gh-aw) |
 |------|----------------|
-| `create-issue` | `title-prefix`, `labels`, `max`, `close-older-issues` |
-| `create-pull-request` | `title-prefix`, `labels`, `max-changed-files` |
-| `add-labels` | `allowed` label list |
-| `add-comment` | `max` count |
+| `create-issue` | `title-prefix`, `labels`, `max`, `close-older-issues`, `expires`, `group` |
+| `create-pull-request` | `title-prefix`, `labels`, `max-changed-files`, `max` |
+| `add-labels` | `allowed` label list, `blocked` glob patterns |
+| `add-comment` | `max` count, `hide-older-comments` |
 | `create-discussion` | `category`, `title-prefix` |
-| `close-issue` | `max` count |
+| `close-issue` | `max` count, `target`, `state-reason` |
+
+### Network Security Best Practices
+
+The AWF (Agent Workflow Firewall) enforces domain allowlists. Follow these rules:
+
+1. **Use ecosystem identifiers** — `node` covers npm registry domains; don't add `npmjs.org` separately
+2. **Avoid broad wildcards** — `*.com`, `*.org`, `*.io` effectively disable the firewall. Use explicit domains instead
+3. **Only allow what's needed** — Each workflow should only list domains it actually accesses
+4. **Use `*.europa.eu`** sparingly — This repo allows it for EU institutional subdomains, but explicit domains are preferred when possible
+5. **Add `default`** — This enables basic infrastructure (DNS, etc.)
+
+**Example — EP-only workflow:**
+```yaml
+network:
+  allowed:
+    - node                        # npm ecosystem
+    - github.com                  # Repository access
+    - api.github.com              # GitHub API
+    - data.europarl.europa.eu     # EP Open Data Portal
+    - "*.europa.eu"               # EU institutional subdomains
+    - hack23.com                  # Hack23 ecosystem content
+    - www.hack23.com              # Hack23 website
+    - riksdagsmonitor.com         # Swedish Parliament monitor
+    - www.riksdagsmonitor.com     # Swedish Parliament monitor
+    - euparliamentmonitor.com     # EU Parliament monitor
+    - www.euparliamentmonitor.com # EU Parliament monitor
+    - default                     # Basic infrastructure
+```
+
+**Example — EP + World Bank workflow:**
+```yaml
+network:
+  allowed:
+    - node
+    - github.com
+    - api.github.com
+    - data.europarl.europa.eu
+    - api.worldbank.org           # World Bank API
+    - "*.europa.eu"
+    - hack23.com
+    - www.hack23.com
+    - riksdagsmonitor.com
+    - www.riksdagsmonitor.com
+    - euparliamentmonitor.com
+    - www.euparliamentmonitor.com
+    - default
+```
 
 ### 5 Security Layers
 

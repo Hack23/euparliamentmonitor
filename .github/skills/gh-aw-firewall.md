@@ -79,6 +79,8 @@ For this project's gh-aw workflows, the AWF ensures:
 - Agents can access only explicitly allowlisted domains; for EP data this includes `data.europarl.europa.eu` and `www.europarl.europa.eu`
 - Wildcard `*.europa.eu` is allowed for additional EU institutional domains as configured per workflow
 - GitHub API access (e.g., `github.com`, `api.github.com`) is limited to read operations as defined in the allowlist
+- **Hack23 ecosystem sites** (`hack23.com`, `www.hack23.com`, `riksdagsmonitor.com`, `www.riksdagsmonitor.com`, `euparliamentmonitor.com`, `www.euparliamentmonitor.com`) are allowlisted for cross-referencing related parliamentary monitoring content and branding assets
+- Workflows using the World Bank MCP server additionally allowlist `api.worldbank.org`
 - No unauthorized external API calls during news generation beyond the configured `network.allowed` domains
 - All MCP server communication stays within the sandboxed, allowlisted network environment
 
@@ -117,10 +119,11 @@ gh aw audit <run-id>
 ## Best Practices
 
 1. **Minimal allowlist** — Only allow domains the workflow actually needs
-2. **Use built-in tools** — `github`, `web-fetch`, `web-search` handle their own domain needs
-3. **Avoid wildcards** — Prefer explicit domain names over `*.example.com`
-4. **Audit regularly** — Review AWF logs for unexpected access patterns
-5. **Test in monitor mode** — Validate allowlists before enforcing
+2. **Use ecosystem identifiers** — `node` covers npm/registry domains; don't list `npmjs.org` separately
+3. **Avoid broad wildcards** — Never use `*.com`, `*.org`, `*.io` — they effectively disable the firewall. Use explicit domains instead
+4. **Use `*.europa.eu` cautiously** — Acceptable for EU institutional subdomains but explicit domains are preferred
+5. **Audit regularly** — Review AWF logs for unexpected access patterns
+6. **Test with strict mode** — Use `strict: true` or `gh aw compile --strict` to validate allowlists (strict mode rejects `*` wildcards)
 
 ## Resources
 
