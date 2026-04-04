@@ -1,0 +1,19 @@
+[
+  {
+    "date": "2026-04-04",
+    "type": "breaking",
+    "slug": "breaking-4",
+    "headline": "Analysis-only: Easter Recess Intelligence \u2014 Evening Update",
+    "newsworthy": false,
+    "topics": [
+      "easter-recess",
+      "legislative-productivity",
+      "coalition-dynamics",
+      "ep10-year-2"
+    ],
+    "analysisDir": "analysis/2026-04-04/breaking-4/",
+    "artifacts": 4,
+    "totalLines": 1103,
+    "runId": "23984568070"
+  }
+]
