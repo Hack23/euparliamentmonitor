@@ -884,8 +884,8 @@ Articles may link to related content from the Hack23 parliamentary monitoring ec
 | **EU Parliament Monitor** | `github.com/Hack23/euparliamentmonitor` | This project's source code and documentation |
 
 When cross-referencing:
-- Link to specific methodology comparisons (e.g., "This SWOT framework is adapted from [Riksdagsmonitor risk methodology](https://github.com/Hack23/riksdagsmonitor/)")
-- Reference shared ISMS policies where relevant
+- Link to specific methodology comparisons (e.g., "This SWOT framework is adapted from [Riksdagsmonitor risk methodology](https://github.com/Hack23/riksdagsmonitor/blob/main/analysis/methodologies/political-risk-methodology.md)")
+- Reference shared ISMS policies where relevant (e.g., [Hack23 ISMS-PUBLIC](https://github.com/Hack23/ISMS-PUBLIC))
 - Maintain consistent branding (Hack23 AB logo, badge styling)
 
 ---
