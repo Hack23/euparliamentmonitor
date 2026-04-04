@@ -66,6 +66,16 @@ mcp-servers:
       - european-parliament-mcp-server@1.1.24
     env:
       EP_REQUEST_TIMEOUT_MS: "120000"
+  memory:
+    command: npx
+    args:
+      - -y
+      - "@modelcontextprotocol/server-memory"
+  sequential-thinking:
+    command: npx
+    args:
+      - -y
+      - "@modelcontextprotocol/server-sequential-thinking"
 
 tools:
   repo-memory:
@@ -134,7 +144,9 @@ You are the **Translation Agent** for EU Parliament Monitor. Your job is to take
 - ✅ Log the error and continue with translation
 - ✅ The translation generator handles all code logic; your job is to RUN it, not FIX it
 
-## 🧠 Repo Memory — Cross-Run Editorial Context
+## 🧠 Memory & Reasoning Tools
+
+### Repo Memory — Cross-Run Translation Tracking (persistent across runs)
 
 This workflow has access to **persistent repo memory** at `/tmp/gh-aw/repo-memory-default/`. Use it to track translation progress across runs.
 
@@ -146,12 +158,38 @@ cat /tmp/gh-aw/repo-memory-default/memory/news-generation/translation-log.json 2
 **At workflow END** — update memory (keep concise, max 50KB total):
 1. **`translation-log.json`** — Append today's translation metadata (date, source article, target languages, status). Keep last 30 entries.
 
-**Use memory to**:
+**Use repo memory to**:
 - Skip articles that were already translated in a prior run
 - Track which language translations are pending vs completed
 - Prioritize untranslated articles
 
-> ⚠️ Memory is best-effort. If files are empty or missing, proceed normally without prior context.
+> ⚠️ Repo memory is best-effort. If files are empty or missing, proceed normally without prior context.
+
+### Memory MCP — In-Run Knowledge Graph (within current run)
+
+The `memory` MCP server provides a **session-scoped knowledge graph** for tracking entities and relations discovered during this run. Use it when translating **multiple articles in batch** to maintain consistency.
+
+**When to use**:
+- Track terminology decisions across multiple article translations in the same run
+- Maintain consistent proper noun translations (MEP names, committee names, legislative references)
+- Build a running glossary of domain-specific terms per target language
+
+**How to use**:
+1. `create_entities` — Store translation decisions (term → translated term per language)
+2. `create_relations` — Link source articles to their translations
+3. `search_nodes` — Look up prior translation choices for consistency
+
+### Sequential Thinking — Structured Reasoning Chains
+
+The `sequential-thinking` MCP server enables **step-by-step analytical reasoning** for complex translation decisions.
+
+**When to use**:
+- Resolving ambiguous political terminology that has different connotations across languages
+- Deciding how to adapt culturally-specific references for different audiences
+- Planning batch translation order to maximize terminology consistency
+
+**How to use**:
+Call `sequentialthinking` with structured thought chains — each step builds on the previous, allowing revision and branching when translation reveals unexpected complexities.
 
 ## 🔧 Workflow Dispatch Parameters
 

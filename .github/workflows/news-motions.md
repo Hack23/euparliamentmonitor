@@ -47,6 +47,16 @@ mcp-servers:
       - european-parliament-mcp-server@1.1.24
     env:
       EP_REQUEST_TIMEOUT_MS: "120000"
+  memory:
+    command: npx
+    args:
+      - -y
+      - "@modelcontextprotocol/server-memory"
+  sequential-thinking:
+    command: npx
+    args:
+      - -y
+      - "@modelcontextprotocol/server-sequential-thinking"
 
 tools:
   repo-memory:
@@ -106,7 +116,9 @@ You are the **News Journalist Agent** for EU Parliament Monitor generating **EU 
 
 **If you encounter build errors or source code bugs**: Log the error and continue — do NOT attempt to fix them.
 
-## 🧠 Repo Memory — Cross-Run Editorial Context
+## 🧠 Memory & Reasoning Tools
+
+### Repo Memory — Cross-Run Editorial Context (persistent across runs)
 
 This workflow has access to **persistent repo memory** at `/tmp/gh-aw/repo-memory-default/`. Use it to maintain editorial context across runs.
 
@@ -120,13 +132,42 @@ cat /tmp/gh-aw/repo-memory-default/memory/news-generation/editorial-context.md 2
 1. **`article-log.json`** — Append today's generated article metadata (date, type, slug, headline, key topics). Keep last 30 entries.
 2. **`editorial-context.md`** — Brief summary of today's key findings, ongoing stories to track, and topics already covered this week.
 
-**Use memory to**:
+**Use repo memory to**:
 - Avoid generating duplicate articles on the same topic
 - Reference prior coverage for continuity ("as reported in our Tuesday analysis...")
 - Track ongoing legislative stories across runs
 - Skip EP documents already covered in recent articles
 
-> ⚠️ Memory is best-effort. If files are empty or missing, proceed normally without prior context.
+> ⚠️ Repo memory is best-effort. If files are empty or missing, proceed normally without prior context.
+
+### Memory MCP — In-Run Knowledge Graph (within current run)
+
+The `memory` MCP server provides a **session-scoped knowledge graph** for tracking entities and relations discovered during this run. Use it when processing **multiple documents in batch** to build cross-document intelligence.
+
+**When to use**:
+- Link motions to the propositions they oppose/support
+- Track MEP voting patterns across multiple roll-call votes in the same session
+- Build entity maps connecting committees → rapporteurs → legislative files
+- Maintain a running tally of topics and themes across multiple EP feed items
+
+**How to use**:
+1. `create_entities` — Store discovered entities (MEPs, committees, legislative files, political groups)
+2. `create_relations` — Link entities (e.g., "MEP-123 rapporteur-of PROC-2026/0042")
+3. `search_nodes` / `open_nodes` — Query the graph to find connections before writing analysis
+
+### Sequential Thinking — Structured Reasoning Chains
+
+The `sequential-thinking` MCP server enables **step-by-step analytical reasoning** for complex political analysis tasks.
+
+**When to use**:
+- SWOT analysis of legislative impact
+- Multi-factor risk assessment (political, economic, social dimensions)
+- Coalition dynamics analysis (who wins, who loses, what alliances shift)
+- Weighing contradictory evidence from different political groups
+- Evaluating breaking news significance against historical context
+
+**How to use**:
+Call `sequentialthinking` with structured thought chains — each step builds on the previous, allowing revision and branching when analysis reveals unexpected patterns.
 
 ## 🔧 Workflow Dispatch Parameters
 
