@@ -117,10 +117,11 @@ gh aw audit <run-id>
 ## Best Practices
 
 1. **Minimal allowlist** — Only allow domains the workflow actually needs
-2. **Use built-in tools** — `github`, `web-fetch`, `web-search` handle their own domain needs
-3. **Avoid wildcards** — Prefer explicit domain names over `*.example.com`
-4. **Audit regularly** — Review AWF logs for unexpected access patterns
-5. **Test in monitor mode** — Validate allowlists before enforcing
+2. **Use ecosystem identifiers** — `node` covers npm/registry domains; don't list `npmjs.org` separately
+3. **Avoid broad wildcards** — Never use `*.com`, `*.org`, `*.io` — they effectively disable the firewall. Use explicit domains instead
+4. **Use `*.europa.eu` cautiously** — Acceptable for EU institutional subdomains but explicit domains are preferred
+5. **Audit regularly** — Review AWF logs for unexpected access patterns
+6. **Test with strict mode** — Use `strict: true` or `gh aw compile --strict` to validate allowlists (strict mode rejects `*` wildcards)
 
 ## Resources
 

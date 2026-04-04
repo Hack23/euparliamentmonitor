@@ -37,9 +37,6 @@ network:
     - data.europarl.europa.eu
     - api.worldbank.org
     - "*.europa.eu"
-    - "*.com"
-    - "*.org"
-    - "*.io"
     - default
 
 mcp-servers:
@@ -85,8 +82,10 @@ safe-outputs:
     - data.europarl.europa.eu
     - www.europarl.europa.eu
     - github.com
-  create-pull-request: {}
-  add-comment: {}
+  create-pull-request:
+    title-prefix: "[news] "
+  add-comment:
+    max: 1
 
 steps:
   - name: Setup Node.js
