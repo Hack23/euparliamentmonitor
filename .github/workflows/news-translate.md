@@ -167,6 +167,8 @@ cat /tmp/gh-aw/repo-memory/default/memory/news-generation/translation-log.json 2
 ```
 
 **At workflow END** — update memory (keep concise, max 50KB per file):
+
+> **Scope clarification**: The `news/`-only file creation rule applies to the **main repository workspace**. Writing to the repo-memory workspace under `/tmp/gh-aw/repo-memory/default/memory/news-generation/` is **explicitly allowed** and does not violate the workspace scope restriction.
 1. **`translation-log.json`** — Append today's translation metadata (date, source article, target languages, status). Keep last 30 entries.
 
 **Use repo memory to**:

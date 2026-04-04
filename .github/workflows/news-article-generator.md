@@ -148,6 +148,8 @@ cat /tmp/gh-aw/repo-memory/default/memory/news-generation/editorial-context.md 2
 ```
 
 **At workflow END** — update memory (keep concise, max 50KB per file):
+
+> **Scope clarification**: The `news/`-only file creation rule applies to the **main repository workspace**. Writing to the repo-memory workspace under `/tmp/gh-aw/repo-memory/default/memory/news-generation/` is **explicitly allowed** and does not violate the workspace scope restriction.
 1. **`article-log.json`** — Append today's generated article metadata (date, type, slug, headline, key topics). Keep last 30 entries.
 2. **`editorial-context.md`** — Brief summary of today's key findings, ongoing stories to track, and topics already covered this week.
 

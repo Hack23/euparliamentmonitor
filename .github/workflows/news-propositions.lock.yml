@@ -49,7 +49,6 @@ permissions: {}
 
 concurrency:
   group: "news-article-generation"
-  cancel-in-progress: false
 
 run-name: "News: EU Parliament Legislative Procedures"
 
