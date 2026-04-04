@@ -166,7 +166,7 @@ This workflow has access to **persistent repo memory** at `/tmp/gh-aw/repo-memor
 cat /tmp/gh-aw/repo-memory-default/memory/news-generation/translation-log.json 2>/dev/null || echo '[]'
 ```
 
-**At workflow END** — update memory (keep concise, max 50KB total):
+**At workflow END** — update memory (keep concise, max 50KB per file):
 1. **`translation-log.json`** — Append today's translation metadata (date, source article, target languages, status). Keep last 30 entries.
 
 **Use repo memory to**:

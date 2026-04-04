@@ -145,7 +145,7 @@ cat /tmp/gh-aw/repo-memory-default/memory/news-generation/article-log.json 2>/de
 cat /tmp/gh-aw/repo-memory-default/memory/news-generation/editorial-context.md 2>/dev/null || echo 'No prior context'
 ```
 
-**At workflow END** — update memory (keep concise, max 50KB total):
+**At workflow END** — update memory (keep concise, max 50KB per file):
 1. **`article-log.json`** — Append today's generated article metadata (date, type, slug, headline, key topics). Keep last 30 entries.
 2. **`editorial-context.md`** — Brief summary of today's key findings, ongoing stories to track, and topics already covered this month.
 
