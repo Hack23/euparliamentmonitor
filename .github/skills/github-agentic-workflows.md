@@ -74,7 +74,7 @@ mcp-servers:
     command: npx
     args:
       - -y
-      - european-parliament-mcp-server@1.1.24
+      - european-parliament-mcp-server@1.1.25
     env:
       EP_REQUEST_TIMEOUT_MS: "120000"
   memory:
