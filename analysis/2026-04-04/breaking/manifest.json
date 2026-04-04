@@ -1,0 +1,93 @@
+{
+  "date": "2026-04-04",
+  "articleType": "breaking",
+  "generatedAt": "2026-04-04T00:20:00Z",
+  "analyst": "EU Parliament Monitor AI (Claude Opus 4.6)",
+  "workflowRunId": "23966990267",
+  "newsworthy": false,
+  "reason": "Saturday — Easter recess. No EP plenary, committee, or delegation activity. No adopted texts, events, or procedures published today.",
+  "dataSources": {
+    "adoptedTextsFeed": {
+      "status": "success",
+      "timeframe": "one-week",
+      "items": 85
+    },
+    "eventsFeed": {
+      "status": "error_404",
+      "timeframe": "one-week",
+      "items": 0
+    },
+    "proceduresFeed": {
+      "status": "error_404",
+      "timeframe": "one-week",
+      "items": 0
+    },
+    "mepsFeed": {
+      "status": "success",
+      "timeframe": "today",
+      "items": 737
+    },
+    "documentsFeed": {
+      "status": "error_404",
+      "timeframe": "one-week",
+      "items": 0
+    },
+    "plenaryDocumentsFeed": {
+      "status": "error_404",
+      "timeframe": "one-week",
+      "items": 0
+    },
+    "committeeDocumentsFeed": {
+      "status": "error_404",
+      "timeframe": "one-week",
+      "items": 0
+    },
+    "parliamentaryQuestionsFeed": {
+      "status": "error_404",
+      "timeframe": "one-week",
+      "items": 0
+    },
+    "votingAnomalies": {
+      "status": "success",
+      "anomalies": 0,
+      "riskLevel": "LOW"
+    },
+    "coalitionDynamics": {
+      "status": "success",
+      "dominantCoalition": "Renew-ECR (0.95 cohesion)"
+    },
+    "politicalLandscape": {
+      "status": "success",
+      "totalMEPs": 100,
+      "groups": 8,
+      "largestGroup": "PPE (38%)"
+    },
+    "earlyWarning": {
+      "status": "success",
+      "warnings": 3,
+      "stabilityScore": 84,
+      "riskLevel": "MEDIUM"
+    },
+    "precomputedStats": {
+      "status": "success",
+      "coveragePeriod": "2004-2026"
+    }
+  },
+  "analysisArtifacts": [
+    "intelligence-brief.md",
+    "political-landscape-assessment.md",
+    "coalition-dynamics-assessment.md",
+    "risk-assessment.md",
+    "swot-analysis.md",
+    "stakeholder-impact-assessment.md",
+    "recent-legislation-review.md",
+    "legislative-productivity-analysis.md"
+  ],
+  "qualityGates": {
+    "allFeedEndpointsQueried": true,
+    "analyticalToolsRun": true,
+    "fourPassRefinement": true,
+    "multiFrameworkAnalysis": true,
+    "confidenceLevelsAssigned": true
+  }
+}
