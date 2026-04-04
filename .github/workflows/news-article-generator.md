@@ -37,6 +37,10 @@ network:
     - data.europarl.europa.eu
     - api.worldbank.org
     - "*.europa.eu"
+    - hack23.com
+    - www.hack23.com
+    - riksdagsmonitor.com
+    - www.riksdagsmonitor.com
     - default
 
 mcp-servers:
@@ -82,6 +86,10 @@ safe-outputs:
     - data.europarl.europa.eu
     - www.europarl.europa.eu
     - github.com
+    - hack23.com
+    - www.hack23.com
+    - riksdagsmonitor.com
+    - www.riksdagsmonitor.com
   create-pull-request:
     title-prefix: "[news] "
   add-comment:

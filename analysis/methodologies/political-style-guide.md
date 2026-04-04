@@ -289,7 +289,9 @@ and policy challenges. The overall risk level is medium.
 
 ## 🌍 Multi-Language Standards
 
-All analysis produced in English serves as the source for 13 additional languages. Writing conventions that support accurate translation:
+All analysis produced in English serves as the source for 13 additional languages (sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh). Writing conventions that support accurate translation:
+
+### Translation-Friendly Writing Rules
 
 1. **Avoid idioms** — "The bill sailed through committee" → "The committee approved the bill by a large margin"
 2. **Use full titles on first reference** — "European People's Party (EPP)" not just "EPP"
@@ -297,6 +299,22 @@ All analysis produced in English serves as the source for 13 additional language
 4. **Consistent terminology** — Always use the same English term for the same concept (never alternate between "political group" and "party group")
 5. **Active voice** — "The Parliament voted to approve" not "Approval was voted on"
 6. **EP-specific terms** — Use official EP terminology: "rapporteur" (not "lead legislator"), "trilogue" (not "three-way negotiation"), "plenary" (not "full session")
+7. **Short sentences** — Prefer sentences under 25 words; compound sentences with 3+ clauses translate poorly
+8. **Explicit subjects** — Avoid pronoun-heavy paragraphs where "it" or "they" could be ambiguous in gendered languages (de, fr, es)
+9. **Cultural neutrality** — Avoid culture-specific metaphors ("political football", "Rubicon") that lack equivalents in CJK/RTL languages
+
+### Translation Quality Checklist (per article, all 13 target languages)
+
+- [ ] All narrative text translated — no leftover English passages
+- [ ] EP document IDs preserved verbatim (not translated)
+- [ ] Political group abbreviations (EPP, S&D, Renew, etc.) preserved
+- [ ] MEP names preserved
+- [ ] Emoji confidence markers (🟢/🟡/🔴) preserved unchanged
+- [ ] Vote counts numerically identical, locale-formatted
+- [ ] Probability labels translated (likely→wahrscheinlich/probable/probable etc.) — not upgraded/downgraded
+- [ ] RTL layout correct for Arabic (ar) and Hebrew (he)
+- [ ] CJK punctuation used for Japanese (ja), Korean (ko), Chinese (zh)
+- [ ] Formal register used in all languages
 
 ---
 

@@ -61,6 +61,10 @@ network:
     - api.github.com
     - data.europarl.europa.eu
     - "*.europa.eu"
+    - hack23.com
+    - www.hack23.com
+    - riksdagsmonitor.com
+    - www.riksdagsmonitor.com
     - default
 
 mcp-servers:
@@ -101,6 +105,10 @@ safe-outputs:
     - data.europarl.europa.eu
     - www.europarl.europa.eu
     - github.com
+    - hack23.com
+    - www.hack23.com
+    - riksdagsmonitor.com
+    - www.riksdagsmonitor.com
   create-pull-request:
     title-prefix: "[news] "
   add-comment:
@@ -147,6 +155,10 @@ network:
     - api.github.com              # GitHub API
     - data.europarl.europa.eu     # EP Open Data Portal
     - "*.europa.eu"               # EU institutional subdomains
+    - hack23.com                  # Hack23 ecosystem content
+    - www.hack23.com              # Hack23 website
+    - riksdagsmonitor.com         # Swedish Parliament monitor
+    - www.riksdagsmonitor.com     # Swedish Parliament monitor
     - default                     # Basic infrastructure
 ```
 
@@ -160,6 +172,10 @@ network:
     - data.europarl.europa.eu
     - api.worldbank.org           # World Bank API
     - "*.europa.eu"
+    - hack23.com
+    - www.hack23.com
+    - riksdagsmonitor.com
+    - www.riksdagsmonitor.com
     - default
 ```
 
