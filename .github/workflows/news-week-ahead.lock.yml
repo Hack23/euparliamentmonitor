@@ -48,7 +48,7 @@ name: "News: EU Parliament Week Ahead"
 permissions: {}
 
 concurrency:
-  group: "news-article-generation"
+  group: "gh-aw-${{ github.workflow }}"
 
 run-name: "News: EU Parliament Week Ahead"
 
