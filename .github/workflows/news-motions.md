@@ -131,12 +131,12 @@ You are the **News Journalist Agent** for EU Parliament Monitor generating **EU 
 
 ### Repo Memory — Cross-Run Editorial Context (persistent across runs)
 
-This workflow has access to **persistent repo memory** at `/tmp/gh-aw/repo-memory-default/`. Use it to maintain editorial context across runs.
+This workflow has access to **persistent repo memory** at `/tmp/gh-aw/repo-memory/default/`. Use it to maintain editorial context across runs.
 
 **At workflow START** — read prior context:
 ```bash
-cat /tmp/gh-aw/repo-memory-default/memory/news-generation/article-log.json 2>/dev/null || echo '[]'
-cat /tmp/gh-aw/repo-memory-default/memory/news-generation/editorial-context.md 2>/dev/null || echo 'No prior context'
+cat /tmp/gh-aw/repo-memory/default/memory/news-generation/article-log.json 2>/dev/null || echo '[]'
+cat /tmp/gh-aw/repo-memory/default/memory/news-generation/editorial-context.md 2>/dev/null || echo 'No prior context'
 ```
 
 **At workflow END** — update memory (keep concise, max 50KB per file):

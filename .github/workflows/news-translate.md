@@ -159,11 +159,11 @@ You are the **Translation Agent** for EU Parliament Monitor. Your job is to take
 
 ### Repo Memory — Cross-Run Translation Tracking (persistent across runs)
 
-This workflow has access to **persistent repo memory** at `/tmp/gh-aw/repo-memory-default/`. Use it to track translation progress across runs.
+This workflow has access to **persistent repo memory** at `/tmp/gh-aw/repo-memory/default/`. Use it to track translation progress across runs.
 
 **At workflow START** — read prior context:
 ```bash
-cat /tmp/gh-aw/repo-memory-default/memory/news-generation/translation-log.json 2>/dev/null || echo '[]'
+cat /tmp/gh-aw/repo-memory/default/memory/news-generation/translation-log.json 2>/dev/null || echo '[]'
 ```
 
 **At workflow END** — update memory (keep concise, max 50KB per file):
