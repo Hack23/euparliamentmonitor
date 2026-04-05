@@ -169,7 +169,7 @@
     "node": ">=25"
   },
   "dependencies": {
-    "european-parliament-mcp-server": "1.1.25"
+    "european-parliament-mcp-server": "1.1.26"
   },
   "optionalDependencies": {
     "worldbank-mcp": "1.0.1"
