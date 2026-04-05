@@ -53,7 +53,7 @@ import { assessPoliticalSignificance, buildImpactMatrix, classifyPoliticalActors
 import { assessPoliticalThreats, buildActorThreatProfiles, buildConsequenceTree, analyzeLegislativeDisruption, generateThreatAssessmentMarkdown, } from '../../utils/political-threat-assessment.js';
 import { assessLegislativeVelocityRisk, runAgentRiskAssessment, generateRiskAssessmentMarkdown, calculatePoliticalRiskScore, buildQuantitativeSWOT, createScoredSWOTItem, createScoredOpportunityOrThreat, createRiskDriver, } from '../../utils/political-risk-assessment.js';
 import { ensureDirectoryExists, atomicWrite, resolveUniqueAnalysisDir, } from '../../utils/file-utils.js';
-import { scoreBatch, formatBatchMarkdown, } from '../../utils/significance-scoring.js';
+import { scoreSignificance, scoreBatch, formatBatchMarkdown, } from '../../utils/significance-scoring.js';
 import { buildSynthesisSummary, formatSynthesisMarkdown, } from '../synthesis-summary.js';
 // ─── Markdown constants ───────────────────────────────────────────────────────
 /** Empty table row placeholder for 6-column tables */
@@ -1824,7 +1824,10 @@ function buildSignificanceScoringMarkdown(fetchedData, date) {
         return `${header}# 📈 Significance Scoring — ${date}\n\nNo events or adopted texts available for scoring.\n`;
     }
     const batch = scoreBatch(inputs);
-    const batchTable = formatBatchMarkdown(inputs, batch.scores);
+    // formatBatchMarkdown expects scores in same order as inputs, so use
+    // input-aligned scores (one per input) rather than the ranked batch.scores.
+    const alignedScores = inputs.map((input) => scoreSignificance(input));
+    const batchTable = formatBatchMarkdown(inputs, alignedScores);
     return `${header}# 📈 Significance Scoring — ${date}
 
 ## Summary

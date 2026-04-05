@@ -132,7 +132,7 @@ export interface RiskOverview {
 
 /** Complete synthesis summary aggregating all per-file analyses */
 export interface SynthesisSummary {
-  /** Unique synthesis identifier (SYN-YYYY-MM-DD-NNN) */
+  /** Unique synthesis identifier (SYN-YYYY-MM-DD-{8-char-UUID}) */
   readonly synthesisId: string;
   /** ISO date of the analysis */
   readonly date: string;
@@ -140,7 +140,7 @@ export interface SynthesisSummary {
   readonly documentsAnalyzed: number;
   /** Aggregated confidence across all sources */
   readonly overallConfidence: ConfidenceLevel;
-  /** Top findings ranked by significance */
+  /** Top findings ranked by confidence (high → medium → low) */
   readonly topFindings: readonly SynthesisFinding[];
   /** Aggregated SWOT summary */
   readonly swot: AggregatedSWOT;

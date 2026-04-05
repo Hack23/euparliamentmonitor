@@ -274,6 +274,28 @@ describe('findMarkdownFiles', () => {
     expect(files.some((f) => f.endsWith('root.md'))).toBe(true);
     expect(files.some((f) => f.endsWith('nested.md'))).toBe(true);
   });
+
+  it('excludes synthesis-summary.md to prevent self-contamination', () => {
+    fs.writeFileSync(path.join(tempDir, 'deep-analysis.md'), '# Analysis');
+    fs.writeFileSync(path.join(tempDir, 'synthesis-summary.md'), '# Synthesis');
+
+    const files = findMarkdownFiles(tempDir);
+    expect(files).toHaveLength(1);
+    expect(files.some((f) => f.endsWith('deep-analysis.md'))).toBe(true);
+    expect(files.some((f) => f.endsWith('synthesis-summary.md'))).toBe(false);
+  });
+
+  it('excludes documents/ subdirectory to prevent bloat', () => {
+    const docsDir = path.join(tempDir, 'documents');
+    fs.mkdirSync(docsDir);
+    fs.writeFileSync(path.join(tempDir, 'analysis.md'), '# Analysis');
+    fs.writeFileSync(path.join(docsDir, 'doc-001.md'), '# Per-doc');
+
+    const files = findMarkdownFiles(tempDir);
+    expect(files).toHaveLength(1);
+    expect(files.some((f) => f.endsWith('analysis.md'))).toBe(true);
+    expect(files.some((f) => f.endsWith('doc-001.md'))).toBe(false);
+  });
 });
 
 // ─── generateEditorialRecommendations ────────────────────────────────────────
@@ -424,5 +446,46 @@ describe('formatSynthesisMarkdown', () => {
     const md = formatSynthesisMarkdown(summary);
     expect(md).toContain('method: synthesis-summary');
     expect(md).toContain('confidence: low');
+  });
+
+  it('uses "Top Findings by Confidence" heading (not Significance)', () => {
+    const summary = {
+      synthesisId: 'SYN-2026-03-30-XYZ',
+      date: '2026-03-30',
+      documentsAnalyzed: 1,
+      overallConfidence: 'medium',
+      topFindings: [
+        { method: 'test', file: 'test.md', confidence: 'high', summary: 'Finding' },
+      ],
+      swot: { strengths: 0, weaknesses: 0, opportunities: 0, threats: 0 },
+      riskOverview: { critical: 0, high: 0, medium: 0, low: 0 },
+      editorialRecommendations: [],
+    };
+
+    const md = formatSynthesisMarkdown(summary);
+    expect(md).toContain('Top Findings by Confidence');
+    expect(md).not.toContain('Top Findings by Significance');
+  });
+
+  it('sanitizes pipe characters and HTML in findings table', () => {
+    const summary = {
+      synthesisId: 'SYN-2026-03-30-XYZ',
+      date: '2026-03-30',
+      documentsAnalyzed: 1,
+      overallConfidence: 'medium',
+      topFindings: [
+        { method: 'test|method', file: 'test|file.md', confidence: 'high', summary: 'A <script>bad</script> finding | with pipes' },
+      ],
+      swot: { strengths: 0, weaknesses: 0, opportunities: 0, threats: 0 },
+      riskOverview: { critical: 0, high: 0, medium: 0, low: 0 },
+      editorialRecommendations: [],
+    };
+
+    const md = formatSynthesisMarkdown(summary);
+    // Pipes must be escaped
+    expect(md).toContain('test\\|method');
+    expect(md).toContain('test\\|file.md');
+    // HTML must be escaped
+    expect(md).toContain('&lt;script&gt;');
   });
 });

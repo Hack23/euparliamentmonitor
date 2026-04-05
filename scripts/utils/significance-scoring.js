@@ -1,5 +1,38 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
+// ─── Markdown sanitization ────────────────────────────────────────────────────
+/**
+ * Sanitize untrusted text for safe use in a Markdown table cell.
+ *
+ * Escapes pipe characters, backslashes, and HTML entities, then normalizes
+ * whitespace to prevent table layout corruption from external EP data.
+ *
+ * @param input - Untrusted cell text
+ * @returns Sanitized text safe for Markdown table cells
+ */
+function sanitizeMdCell(input) {
+    return input
+        .replace(/\\/gu, '\\\\')
+        .replace(/\|/gu, '\\|')
+        .replace(/&/gu, '&amp;')
+        .replace(/</gu, '&lt;')
+        .replace(/>/gu, '&gt;')
+        .replace(/[\r\n]+/gu, ' ')
+        .trim();
+}
+/**
+ * Normalize a reference string: treat empty / whitespace-only values as
+ * missing so that the table cell shows a placeholder instead of blank.
+ *
+ * @param ref - Optional reference string
+ * @returns The trimmed reference, or undefined if empty/missing
+ */
+function normalizeRef(ref) {
+    if (!ref)
+        return undefined;
+    const trimmed = ref.trim();
+    return trimmed.length > 0 ? trimmed : undefined;
+}
 // ─── Scoring constants ────────────────────────────────────────────────────────
 /** Weight applied to Parliamentary Significance dimension */
 export const WEIGHT_PARLIAMENTARY = 0.25;
@@ -73,7 +106,7 @@ export function scoreSignificance(input) {
         temporalUrgency,
         institutionalRelevance,
         composite: roundedComposite,
-        decision: deriveDecision(roundedComposite),
+        decision: deriveDecision(composite),
     };
 }
 /**
@@ -106,14 +139,16 @@ export function scoreBatch(inputs) {
  * @returns Markdown string
  */
 export function formatScoreMarkdown(score, title, reference) {
-    const refLine = reference ? `| **EP Reference** | \`${reference}\` |\n` : '';
+    const safeTitle = sanitizeMdCell(title);
+    const safeRef = normalizeRef(reference);
+    const refLine = safeRef ? `| **EP Reference** | \`${sanitizeMdCell(safeRef)}\` |\n` : '';
     const decisionEmoji = score.decision === 'publish' ? '📰' : score.decision === 'hold' ? '📋' : '🗄️';
     const decisionLabel = score.decision === 'publish' ? 'Publish' : score.decision === 'hold' ? 'Hold' : 'Skip';
-    return `### ${title}
+    return `### ${safeTitle}
 
 | Field | Value |
 |-------|-------|
-| **Event** | ${title} |
+| **Event** | ${safeTitle} |
 ${refLine}
 | Dimension | Raw Score | Weight | Weighted Score |
 |-----------|:---------:|:------:|:--------------:|
@@ -131,6 +166,7 @@ ${refLine}
  * Generate a batch scoring markdown table.
  *
  * Produces the Section 2 batch table from the template format.
+ * Scores must be in the same order as inputs (one score per input).
  *
  * @param inputs - Scoring inputs with titles and references
  * @param scores - Pre-computed significance scores (same order as inputs)
@@ -150,7 +186,9 @@ export function formatBatchMarkdown(inputs, scores) {
             decision: 'skip',
         };
         const decisionLabel = s.decision === 'publish' ? 'Publish' : s.decision === 'hold' ? 'Hold' : 'Skip';
-        return `| ${input.title} | ${input.reference ?? '—'} | ${s.parliamentarySignificance.toFixed(1)} | ${s.policyImpact.toFixed(1)} | ${s.publicInterest.toFixed(1)} | ${s.temporalUrgency.toFixed(1)} | ${s.institutionalRelevance.toFixed(1)} | **${s.composite.toFixed(2)}** | ${decisionLabel} |`;
+        const safeTitle = sanitizeMdCell(input.title);
+        const safeRef = normalizeRef(input.reference);
+        return `| ${safeTitle} | ${safeRef ? sanitizeMdCell(safeRef) : '—'} | ${s.parliamentarySignificance.toFixed(1)} | ${s.policyImpact.toFixed(1)} | ${s.publicInterest.toFixed(1)} | ${s.temporalUrgency.toFixed(1)} | ${s.institutionalRelevance.toFixed(1)} | **${s.composite.toFixed(2)}** | ${decisionLabel} |`;
     });
     return [header, separator, ...rows].join('\n');
 }

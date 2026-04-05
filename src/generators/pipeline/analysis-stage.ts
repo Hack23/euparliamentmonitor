@@ -89,6 +89,7 @@ import {
   resolveUniqueAnalysisDir,
 } from '../../utils/file-utils.js';
 import {
+  scoreSignificance,
   scoreBatch,
   formatBatchMarkdown,
 } from '../../utils/significance-scoring.js';
@@ -2499,7 +2500,10 @@ function buildSignificanceScoringMarkdown(
   }
 
   const batch = scoreBatch(inputs);
-  const batchTable = formatBatchMarkdown(inputs, batch.scores);
+  // formatBatchMarkdown expects scores in same order as inputs, so use
+  // input-aligned scores (one per input) rather than the ranked batch.scores.
+  const alignedScores = inputs.map((input) => scoreSignificance(input));
+  const batchTable = formatBatchMarkdown(inputs, alignedScores);
 
   return `${header}# 📈 Significance Scoring — ${date}
 

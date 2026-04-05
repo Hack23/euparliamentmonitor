@@ -330,6 +330,33 @@ describe('formatScoreMarkdown', () => {
     });
     expect(formatScoreMarkdown(skipScore, 'S')).toContain('Skip');
   });
+
+  it('sanitizes pipe and HTML characters in title and reference', () => {
+    const score = scoreSignificance({
+      title: 'Event | with <b>HTML</b>',
+      parliamentarySignificance: 5,
+      policyImpact: 5,
+      publicInterest: 5,
+      temporalUrgency: 5,
+      institutionalRelevance: 5,
+    });
+    const md = formatScoreMarkdown(score, 'Event | with <b>HTML</b>', 'REF|001');
+    expect(md).toContain('Event \\| with &lt;b&gt;HTML&lt;/b&gt;');
+    expect(md).toContain('REF\\|001');
+  });
+
+  it('omits EP Reference row for empty-string reference', () => {
+    const score = scoreSignificance({
+      title: 'Test',
+      parliamentarySignificance: 5,
+      policyImpact: 5,
+      publicInterest: 5,
+      temporalUrgency: 5,
+      institutionalRelevance: 5,
+    });
+    const md = formatScoreMarkdown(score, 'Test', '');
+    expect(md).not.toContain('EP Reference');
+  });
 });
 
 // ─── formatBatchMarkdown ─────────────────────────────────────────────────────
@@ -368,5 +395,73 @@ describe('formatBatchMarkdown', () => {
     const scores = inputs.map((i) => scoreSignificance(i));
     const md = formatBatchMarkdown(inputs, scores);
     expect(md).toContain('—');
+  });
+
+  it('uses dash for empty-string references', () => {
+    const inputs = [
+      {
+        title: 'Empty Ref',
+        reference: '',
+        parliamentarySignificance: 3,
+        policyImpact: 3,
+        publicInterest: 3,
+        temporalUrgency: 3,
+        institutionalRelevance: 3,
+      },
+    ];
+    const scores = inputs.map((i) => scoreSignificance(i));
+    const md = formatBatchMarkdown(inputs, scores);
+    expect(md).toContain('—');
+  });
+
+  it('uses dash for whitespace-only references', () => {
+    const inputs = [
+      {
+        title: 'Whitespace Ref',
+        reference: '   ',
+        parliamentarySignificance: 3,
+        policyImpact: 3,
+        publicInterest: 3,
+        temporalUrgency: 3,
+        institutionalRelevance: 3,
+      },
+    ];
+    const scores = inputs.map((i) => scoreSignificance(i));
+    const md = formatBatchMarkdown(inputs, scores);
+    expect(md).toContain('—');
+  });
+
+  it('escapes pipe characters in titles and references', () => {
+    const inputs = [
+      {
+        title: 'Event | with pipe',
+        reference: 'REF|001',
+        parliamentarySignificance: 5,
+        policyImpact: 5,
+        publicInterest: 5,
+        temporalUrgency: 5,
+        institutionalRelevance: 5,
+      },
+    ];
+    const scores = inputs.map((i) => scoreSignificance(i));
+    const md = formatBatchMarkdown(inputs, scores);
+    expect(md).toContain('Event \\| with pipe');
+    expect(md).toContain('REF\\|001');
+  });
+
+  it('escapes HTML entities in titles', () => {
+    const inputs = [
+      {
+        title: 'Event <script>alert("xss")</script>',
+        parliamentarySignificance: 5,
+        policyImpact: 5,
+        publicInterest: 5,
+        temporalUrgency: 5,
+        institutionalRelevance: 5,
+      },
+    ];
+    const scores = inputs.map((i) => scoreSignificance(i));
+    const md = formatBatchMarkdown(inputs, scores);
+    expect(md).toContain('&lt;script&gt;');
   });
 });

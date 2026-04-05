@@ -39,6 +39,30 @@ const CONFIDENCE_RANK = {
     medium: 2,
     low: 1,
 };
+/** Filename of the synthesis output itself — excluded from scanning to prevent self-contamination */
+const SYNTHESIS_OUTPUT_FILENAME = 'synthesis-summary.md';
+/** Subdirectory containing per-document analysis — excluded to prevent I/O bloat and skewed aggregation */
+const DOCUMENTS_SUBDIR = 'documents';
+// ─── Markdown sanitization ────────────────────────────────────────────────────
+/**
+ * Sanitize untrusted text for safe use in a Markdown table cell.
+ *
+ * Escapes pipe characters, backslashes, and HTML entities, then normalizes
+ * whitespace to prevent table layout corruption.
+ *
+ * @param input - Untrusted cell text
+ * @returns Sanitized text safe for Markdown table cells
+ */
+function sanitizeMdCell(input) {
+    return input
+        .replace(/\\/gu, '\\\\')
+        .replace(/\|/gu, '\\|')
+        .replace(/&/gu, '&amp;')
+        .replace(/</gu, '&lt;')
+        .replace(/>/gu, '&gt;')
+        .replace(/[\r\n]+/gu, ' ')
+        .trim();
+}
 /**
  * Parse YAML frontmatter from a markdown file's content.
  *
@@ -153,7 +177,11 @@ export function aggregateConfidence(findings) {
 }
 // ─── Directory scanning ──────────────────────────────────────────────────────
 /**
- * Recursively find all `.md` files under a directory.
+ * Recursively find all `.md` analysis files under a directory.
+ *
+ * Excludes:
+ * - The synthesis output file itself (prevents self-contamination on re-runs)
+ * - The `documents/` subdirectory (per-document analysis can bloat I/O and skew aggregation)
  *
  * @param dir - Absolute directory path
  * @returns Array of absolute file paths
@@ -166,9 +194,15 @@ export function findMarkdownFiles(dir) {
     for (const entry of entries) {
         const fullPath = path.join(dir, entry.name);
         if (entry.isDirectory()) {
+            // Skip the documents/ subdirectory to avoid per-document analysis bloat
+            if (entry.name === DOCUMENTS_SUBDIR)
+                continue;
             results.push(...findMarkdownFiles(fullPath));
         }
         else if (entry.isFile() && entry.name.endsWith('.md')) {
+            // Skip the synthesis output itself to prevent self-contamination
+            if (entry.name === SYNTHESIS_OUTPUT_FILENAME)
+                continue;
             results.push(fullPath);
         }
     }
@@ -242,7 +276,8 @@ export function buildSynthesisSummary(dateOutputDir, date) {
             summary: extractSummaryLine(content),
         });
     }
-    // Sort findings: high confidence first, then medium, then low
+    // Sort findings: high confidence first, then medium, then low.
+    // The heading in the output says "Top Findings by Confidence" to match.
     findings.sort((a, b) => (CONFIDENCE_RANK[b.confidence] ?? 0) - (CONFIDENCE_RANK[a.confidence] ?? 0));
     const swot = aggregateSWOT(combinedText);
     const riskOverview = aggregateRisks(combinedText);
@@ -269,7 +304,7 @@ export function buildSynthesisSummary(dateOutputDir, date) {
  */
 export function formatSynthesisMarkdown(summary) {
     const findingsRows = summary.topFindings
-        .map((f, i) => `| ${i + 1} | ${f.file} | ${f.method} | ${f.confidence} | ${f.summary.slice(0, 80)} |`)
+        .map((f, i) => `| ${i + 1} | ${sanitizeMdCell(f.file)} | ${sanitizeMdCell(f.method)} | ${f.confidence} | ${sanitizeMdCell(f.summary.slice(0, 80))} |`)
         .join('\n');
     return `---
 method: synthesis-summary
@@ -291,7 +326,7 @@ generated: ${new Date().toISOString()}
 
 ---
 
-## 🏆 Top Findings by Significance
+## 🏆 Top Findings by Confidence
 
 | Rank | File | Method | Confidence | Summary |
 |:----:|------|--------|:----------:|---------|
