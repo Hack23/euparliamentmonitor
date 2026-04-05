@@ -178,7 +178,7 @@ describe('ANALYSIS_METHOD_SUBDIRS', () => {
       'existing',
       'documents',
     ]);
-    expect(validSubdirs).toEqual(expectedSubdirs);
+    expect([...validSubdirs].sort()).toEqual([...expectedSubdirs].sort());
   });
 
   it('classification methods map to classification/', () => {

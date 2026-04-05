@@ -280,7 +280,7 @@ For high-level analysis artifacts produced by agentic workflows (AI-generated, n
 
 1. **No `ai-` prefix** — Older runs used `ai-deep-analysis.md`, `ai-coalition-dynamics.md` etc. This is **deprecated**. Use the canonical names above.
 2. **Kebab-case only** — All filenames are lowercase, hyphen-separated with `.md` extension.
-3. **Align with templates** — Where a matching template exists in `analysis/templates/`, the canonical filename matches the template name.
+3. **Align with the output concept** — Where a matching template exists in `analysis/templates/`, use the template name only when the generated content is intended to match that same template concept. Otherwise, use the canonical filename for the analysis method/output concept.
 4. **Method name ≠ filename** — The `AnalysisMethod` identifier (e.g. `stakeholder-analysis`) may differ from its canonical filename (e.g. `stakeholder-impact.md`). Always use the `ANALYSIS_METHOD_FILENAMES` constant.
 
 ---
