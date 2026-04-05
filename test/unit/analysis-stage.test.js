@@ -233,8 +233,14 @@ describe('deriveArticleTypeSlug', () => {
 
   it('handles all known article types without error', () => {
     const types = [
-      'week-ahead', 'month-ahead', 'breaking', 'committee-reports',
-      'propositions', 'motions', 'week-in-review', 'month-in-review',
+      'week-ahead',
+      'month-ahead',
+      'breaking',
+      'committee-reports',
+      'propositions',
+      'motions',
+      'week-in-review',
+      'month-in-review',
     ];
     for (const t of types) {
       expect(deriveArticleTypeSlug([t])).toBe(t);
@@ -376,8 +382,12 @@ describe('runAnalysisStage', () => {
       enabledMethods: ['significance-classification', 'impact-matrix'],
     });
 
-    expect(fs.existsSync(path.join(tmpDir, testDate, 'classification', 'significance-classification.md'))).toBe(true);
-    expect(fs.existsSync(path.join(tmpDir, testDate, 'classification', 'impact-matrix.md'))).toBe(true);
+    expect(
+      fs.existsSync(path.join(tmpDir, testDate, 'classification', 'significance-classification.md'))
+    ).toBe(true);
+    expect(fs.existsSync(path.join(tmpDir, testDate, 'classification', 'impact-matrix.md'))).toBe(
+      true
+    );
   });
 
   it('writes threat assessment methods to threat-assessment/ subdirectory', async () => {
@@ -388,7 +398,11 @@ describe('runAnalysisStage', () => {
       enabledMethods: ['political-threat-landscape'],
     });
 
-    expect(fs.existsSync(path.join(tmpDir, testDate, 'threat-assessment', 'political-threat-landscape.md'))).toBe(true);
+    expect(
+      fs.existsSync(
+        path.join(tmpDir, testDate, 'threat-assessment', 'political-threat-landscape.md')
+      )
+    ).toBe(true);
   });
 
   it('writes risk scoring methods to risk-scoring/ subdirectory', async () => {
@@ -550,6 +564,50 @@ describe('runAnalysisStage', () => {
       // Legacy file should not be overwritten or deleted
       expect(fs.readFileSync(legacyPath, 'utf-8')).toBe('# legacy stakeholder output');
     });
+
+    // Table-driven tests for all legacy filename variants
+    const legacyCases = [
+      {
+        method: 'significance-classification',
+        subdir: 'classification',
+        legacyFile: 'significance-assessment.md',
+      },
+      {
+        method: 'significance-classification',
+        subdir: 'classification',
+        legacyFile: 'significance-scoring.md',
+      },
+      {
+        method: 'coalition-analysis',
+        subdir: 'existing',
+        legacyFile: 'coalition-analysis.md',
+      },
+      {
+        method: 'actor-threat-profiling',
+        subdir: 'threat-assessment',
+        legacyFile: 'actor-threat-profiles.md',
+      },
+    ];
+
+    for (const { method, subdir, legacyFile } of legacyCases) {
+      it(`recognises legacy filename "${legacyFile}" for ${method}`, async () => {
+        const legacyPath = path.join(tmpDir, testDate, subdir, legacyFile);
+        fs.mkdirSync(path.dirname(legacyPath), { recursive: true });
+        fs.writeFileSync(legacyPath, `# legacy ${method} output`, 'utf-8');
+
+        const ctx = await runAnalysisStage(buildTestFetchedData(), {
+          articleTypes: ['week-ahead'],
+          date: testDate,
+          outputDir: tmpDir,
+          enabledMethods: [method],
+          skipCompleted: true,
+        });
+
+        const result = ctx.results.get(method);
+        expect(result?.status).toBe('skipped');
+        expect(fs.readFileSync(legacyPath, 'utf-8')).toBe(`# legacy ${method} output`);
+      });
+    }
   });
 
   // ─── Error isolation tests ────────────────────────────────────────────────────
@@ -765,29 +823,36 @@ describe('runAnalysisStage', () => {
   describe('builder output with populated data', () => {
     /** Minimal vote record that lets classification functions score > 0 */
     const sampleVotingRecords = [
-      { title: 'Resolution on AI Act', date: '2026-03-20', result: 'adopted', votes: { for: 350, against: 200, abstain: 30 } },
-      { title: 'Directive on Green Deal', date: '2026-03-21', result: 'adopted', votes: { for: 400, against: 100, abstain: 20 } },
+      {
+        title: 'Resolution on AI Act',
+        date: '2026-03-20',
+        result: 'adopted',
+        votes: { for: 350, against: 200, abstain: 30 },
+      },
+      {
+        title: 'Directive on Green Deal',
+        date: '2026-03-21',
+        result: 'adopted',
+        votes: { for: 400, against: 100, abstain: 20 },
+      },
     ];
     const sampleProcedures = [
-      { procedureId: 'PROC-001', title: 'Digital Markets Act', stage: 'committee', daysInCurrentStage: 90 },
+      {
+        procedureId: 'PROC-001',
+        title: 'Digital Markets Act',
+        stage: 'committee',
+        daysInCurrentStage: 90,
+      },
       { procedureId: 'PROC-002', title: 'Climate Law', stage: 'plenary', daysInCurrentStage: 30 },
     ];
-    const sampleCoalitions = [
-      { groups: ['EPP', 'S&D'], cohesionScore: 0.55, riskLevel: 'high' },
-    ];
-    const sampleAnomalies = [
-      { severity: 'high', description: 'Unexpected voting pattern shift' },
-    ];
+    const sampleCoalitions = [{ groups: ['EPP', 'S&D'], cohesionScore: 0.55, riskLevel: 'high' }];
+    const sampleAnomalies = [{ severity: 'high', description: 'Unexpected voting pattern shift' }];
     const sampleEvents = [
       { title: 'Plenary session', date: '2026-03-26' },
       { title: 'Committee hearing', date: '2026-03-27' },
     ];
-    const sampleDocuments = [
-      { title: 'Legislative report', type: 'report' },
-    ];
-    const samplePatterns = [
-      { group: 'EPP', cohesion: 0.85, participation: 0.92 },
-    ];
+    const sampleDocuments = [{ title: 'Legislative report', type: 'report' }];
+    const samplePatterns = [{ group: 'EPP', cohesion: 0.85, participation: 0.92 }];
 
     function buildPopulatedFetchedData() {
       return {
@@ -1123,9 +1188,7 @@ describe('runAnalysisStage', () => {
           { docId: 'DOC-001', title: 'Test Report A', type: 'report' },
           { docId: 'DOC-002', title: 'Test Report B', type: 'resolution' },
         ],
-        procedures: [
-          { procedureId: 'PROC-001', title: 'Digital Markets Act', stage: 'committee' },
-        ],
+        procedures: [{ procedureId: 'PROC-001', title: 'Digital Markets Act', stage: 'committee' }],
       };
 
       await runAnalysisStage(data, {
@@ -1139,16 +1202,16 @@ describe('runAnalysisStage', () => {
       expect(fs.existsSync(docsDir)).toBe(true);
 
       // Should have unique files for each document
-      const files = fs.readdirSync(docsDir).filter((f) => f.endsWith('-analysis.md') && f !== 'document-analysis-index.md');
+      const files = fs
+        .readdirSync(docsDir)
+        .filter((f) => f.endsWith('-analysis.md') && f !== 'document-analysis-index.md');
       expect(files.length).toBeGreaterThanOrEqual(3); // 2 documents + 1 procedure
     });
 
     it('generates unique filenames derived from document IDs', async () => {
       const data = {
         ...buildTestFetchedData(),
-        adoptedTexts: [
-          { docId: 'TA-10-2026-0094', title: 'Anti-Corruption Directive' },
-        ],
+        adoptedTexts: [{ docId: 'TA-10-2026-0094', title: 'Anti-Corruption Directive' }],
       };
 
       await runAnalysisStage(data, {
@@ -1189,9 +1252,7 @@ describe('runAnalysisStage', () => {
     it('per-document files contain SWOT and threat assessment', async () => {
       const data = {
         ...buildTestFetchedData(),
-        adoptedTexts: [
-          { docId: 'TA-TEST-001', title: 'Test Adopted Text' },
-        ],
+        adoptedTexts: [{ docId: 'TA-TEST-001', title: 'Test Adopted Text' }],
       };
 
       await runAnalysisStage(data, {
@@ -1216,7 +1277,12 @@ describe('runAnalysisStage', () => {
       const data = {
         ...buildTestFetchedData(),
         adoptedTexts: [
-          { docId: 'RAW-DOC-001', title: 'Raw Test Document', type: 'resolution', status: 'adopted' },
+          {
+            docId: 'RAW-DOC-001',
+            title: 'Raw Test Document',
+            type: 'resolution',
+            status: 'adopted',
+          },
         ],
       };
 
@@ -1250,9 +1316,7 @@ describe('runAnalysisStage', () => {
           { eventId: 'EVT-001', title: 'Plenary Session' },
           { eventId: 'EVT-002', title: 'Committee Hearing' },
         ],
-        procedures: [
-          { procedureId: 'PROC-001', title: 'Test Procedure' },
-        ],
+        procedures: [{ procedureId: 'PROC-001', title: 'Test Procedure' }],
       };
 
       await runAnalysisStage(data, {
@@ -1407,7 +1471,12 @@ describe('runAnalysisStage', () => {
         articleTypes: ['week-ahead'],
         date: testDate,
         outputDir: tmpDir,
-        enabledMethods: ['significance-classification', 'political-threat-landscape', 'risk-matrix', 'deep-analysis'],
+        enabledMethods: [
+          'significance-classification',
+          'political-threat-landscape',
+          'risk-matrix',
+          'deep-analysis',
+        ],
       });
 
       const manifest = readManifest(tmpDir, testDate);
@@ -1667,7 +1736,9 @@ describe('runAnalysisStage', () => {
     });
 
     it('does not throw when requireData=true and substantive data is present', async () => {
-      const dataWithEvents = buildTestFetchedData({ events: [{ id: 'ev-1', title: 'Test event' }] });
+      const dataWithEvents = buildTestFetchedData({
+        events: [{ id: 'ev-1', title: 'Test event' }],
+      });
       const ctx = await runAnalysisStage(dataWithEvents, {
         articleTypes: ['week-ahead'],
         date: testDate,
@@ -1871,8 +1942,8 @@ describe('runAnalysisStage', () => {
     it('persists MCP tool responses to data/mcp-responses/ subdirectory', async () => {
       const fetchedData = buildTestFetchedData({
         mcpResponses: {
-          'get_current_meps': { meps: [{ name: 'Test MEP' }] },
-          'get_plenary_sessions': { sessions: [] },
+          get_current_meps: { meps: [{ name: 'Test MEP' }] },
+          get_plenary_sessions: { sessions: [] },
         },
       });
       await runAnalysisStage(fetchedData, {

@@ -806,7 +806,8 @@ export function serializeFrontmatter(fm) {
  *
  * @example
  * ```ts
- * writeAnalysisFile('./analysis/2026-03-26/plenary-session/classification/significance-classification.md', fm, body);
+ * // {article-type-slug} varies by workflow (e.g. 'plenary-session', 'week-ahead')
+ * writeAnalysisFile('./analysis/2026-03-26/{article-type-slug}/classification/significance-classification.md', fm, body);
  * ```
  */
 export function writeAnalysisFile(filePath, frontmatter, content) {
