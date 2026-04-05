@@ -44,7 +44,8 @@
     }
   },
   "files": [
-    "scripts/",
+    "scripts/**/*.js",
+    "scripts/**/*.d.ts",
     "README.md",
     "LICENSE",
     "SECURITY.md"
@@ -97,19 +98,35 @@
     "type": "git",
     "url": "git+https://github.com/Hack23/euparliamentmonitor.git"
   },
+  "sideEffects": false,
   "keywords": [
     "european-parliament",
+    "european-union",
     "parliament",
-    "europe",
+    "eu",
+    "mep",
     "politics",
+    "democracy",
+    "civic-tech",
     "osint",
     "transparency",
     "intelligence",
+    "political-analysis",
+    "legislative",
+    "voting",
+    "monitoring",
+    "news-generation",
+    "multilingual",
+    "i18n",
     "mcp",
     "model-context-protocol",
     "open-data",
     "typescript"
   ],
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/Hack23"
+  },
   "author": "Hack23 AB",
   "license": "Apache-2.0",
   "bugs": {

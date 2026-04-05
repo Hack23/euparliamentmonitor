@@ -65,7 +65,29 @@
 [![ISMS](https://img.shields.io/badge/Hack23-ISMS-blue)](https://github.com/Hack23/ISMS-PUBLIC)
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/Hack23/euparliamentmonitor)
 
+## 📦 Quick Start
 
+```bash
+npm install euparliamentmonitor
+```
+
+```typescript
+import {
+  EuropeanParliamentMCPClient,
+  generateArticleHTML,
+  scoreArticleQuality,
+  ALL_LANGUAGES,
+} from 'euparliamentmonitor';
+```
+
+**Key capabilities:**
+- 🏛️ **EU Parliament MCP Client** — Connect to European Parliament open data via Model Context Protocol
+- 📰 **News Generation** — Generate multi-language articles (14 languages) from parliamentary data
+- 🔍 **Political Intelligence** — Voting anomaly detection, coalition analysis, threat assessment
+- 📊 **Article Quality** — Score and validate generated content with comprehensive quality metrics
+- 🌍 **Multilingual** — Full i18n support: EN, SV, DA, NO, FI, DE, FR, ES, NL, AR, HE, JA, KO, ZH
+
+> Published with [npm provenance](https://docs.npmjs.com/generating-provenance-statements) for supply chain security. [SLSA Level 3](https://github.com/Hack23/euparliamentmonitor/attestations) build attestations included.
 
 ## 🎯 Status Badges
 
@@ -380,6 +402,41 @@ npm --version   # Should be 10.x.x or higher
 ```
 
 ## Installation
+
+### As an npm Package
+
+```bash
+npm install euparliamentmonitor
+```
+
+### TypeScript / ES Module Usage
+
+```typescript
+import {
+  // MCP Client for EU Parliament data
+  EuropeanParliamentMCPClient,
+  getEPMCPClient,
+  // Intelligence analysis
+  scoreVotingAnomaly,
+  analyzeCoalitionCohesion,
+  assessPoliticalThreats,
+  // Article generation
+  generateArticleHTML,
+  scoreArticleQuality,
+  // Multi-language support (14 languages)
+  ALL_LANGUAGES,
+  LANGUAGE_NAMES,
+  // Content validation
+  validateArticleContent,
+  validateTranslationCompleteness,
+} from 'euparliamentmonitor';
+
+// Or import specific modules for tree-shaking
+import { EuropeanParliamentMCPClient } from 'euparliamentmonitor/mcp/ep-mcp-client';
+import type { ArticleCategory, LanguageCode } from 'euparliamentmonitor/types';
+```
+
+### From Source (Development)
 
 ```bash
 # Clone the repository
