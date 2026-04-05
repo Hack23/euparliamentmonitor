@@ -1,0 +1,80 @@
+{
+  "articleType": "breaking",
+  "date": "2026-04-05",
+  "slug": "breaking-3",
+  "generatedAt": "2026-04-05T12:09:00Z",
+  "newsworthy": false,
+  "reason": "Easter recess Day 10 of 18 — no parliamentary activity on Sunday 5 April 2026. Third analysis run adds mid-recess strategic assessment, 12-hour longitudinal validation (3 data points), risk trajectory analysis, and post-Easter operational readiness framework. Parliament resumes 14 April (committee week), Strasbourg plenary 20-23 April.",
+  "priorAnalysis": [
+    {
+      "path": "analysis/2026-04-05/breaking/",
+      "generatedAt": "2026-04-05T00:20:00Z",
+      "runId": "23990553586",
+      "artifacts": 4,
+      "totalLines": 748
+    },
+    {
+      "path": "analysis/2026-04-05/breaking-2/",
+      "generatedAt": "2026-04-05T06:30:00Z",
+      "runId": "23995891006",
+      "artifacts": 4,
+      "totalLines": 817
+    }
+  ],
+  "dataCollected": {
+    "adoptedTexts": 85,
+    "events": 0,
+    "procedures": 0,
+    "meps": 737,
+    "documents": 0,
+    "plenaryDocuments": 0,
+    "committeeDocuments": 0,
+    "questions": 0
+  },
+  "feedStatus": {
+    "adopted_texts_today": "error_json_parse",
+    "adopted_texts_week": "ok_85_items",
+    "events_today": "404",
+    "events_week": "404",
+    "procedures_today": "404",
+    "procedures_week": "404",
+    "meps_today": "ok_737_items",
+    "documents_week": "404",
+    "plenary_documents_week": "404",
+    "committee_documents_week": "404",
+    "questions_week": "404"
+  },
+  "analyticalContext": {
+    "voting_anomalies": "0_detected_low_confidence",
+    "coalition_dynamics": "size_ratio_only_low_confidence",
+    "political_landscape": "8_groups_PPE_dominant_38pct_sample",
+    "early_warning": "stability_84_PPE_dominance_HIGH",
+    "precomputed_stats": "2004-2026_all_categories_with_predictions"
+  },
+  "crossSessionIntelligence": {
+    "run1_time": "2026-04-05T00:20:00Z",
+    "run2_time": "2026-04-05T06:30:00Z",
+    "run3_time": "2026-04-05T12:09:00Z",
+    "total_monitoring_hours": 12,
+    "data_consistency": "IDENTICAL — zero changes across 3 independent runs over 12 hours",
+    "api_degradation_pattern": "CONFIRMED — systematic recess degradation since 28 March (Day 9+)",
+    "confidence_upgrade": "Data stasis upgraded to HIGH (3 independent observations)"
+  },
+  "frameworksApplied": [
+    "SWOT + TOWS Strategic Matrix",
+    "Political Risk Methodology v2.0 (Likelihood x Impact)",
+    "Political Threat Landscape (6-Dimension Model)",
+    "Risk Trajectory Analysis (7-run longitudinal)",
+    "12-Hour Longitudinal Validation",
+    "Mid-Recess Strategic Assessment",
+    "Post-Easter Operational Readiness Framework",
+    "Methodology Performance Review"
+  ],
+  "analysisArtifacts": [
+    "intelligence-brief.md",
+    "political-landscape-analysis.md",
+    "risk-assessment.md",
+    "swot-analysis.md"
+  ],
+  "methodology": "ai-driven-analysis-guide.md v4.0 — 4-pass refinement, 6 methodology docs consulted, 12-hour longitudinal validation, mid-recess synthesis"
+}
