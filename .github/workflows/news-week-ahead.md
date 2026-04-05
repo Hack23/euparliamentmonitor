@@ -47,7 +47,7 @@ mcp-servers:
     command: npx
     args:
       - -y
-      - european-parliament-mcp-server@1.1.25
+      - european-parliament-mcp-server@1.1.26
     env:
       EP_REQUEST_TIMEOUT_MS: "120000"
   memory:
@@ -656,7 +656,7 @@ if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
     echo "✅ EP MCP server binary found for stdio mode"
   else
     echo "⚠️ EP MCP server binary not found, attempting reinstall..."
-    npm install --no-save european-parliament-mcp-server@1.1.25
+    npm install --no-save european-parliament-mcp-server@1.1.26
   fi
 fi
 
