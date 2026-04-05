@@ -234,7 +234,11 @@ cross-session intelligence correlation is reliable.
 
 ### Pipeline Method → Canonical Filename Mapping
 
-| Analysis Method | Subdirectory | Canonical Filename | Template Source |
+> The **Matching Template** column indicates when a pipeline method's canonical filename
+> matches a corresponding template file in `analysis/templates/`.  A dash (`—`) means the
+> method has no direct template counterpart.
+
+| Analysis Method | Subdirectory | Canonical Filename | Matching Template |
 |---|---|---|---|
 | `significance-classification` | `classification/` | `significance-scoring.md` | `significance-scoring.md` |
 | `impact-matrix` | `classification/` | `impact-matrix.md` | — |
