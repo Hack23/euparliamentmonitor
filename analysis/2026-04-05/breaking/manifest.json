@@ -1,0 +1,43 @@
+{
+  "articleType": "breaking",
+  "date": "2026-04-05",
+  "generatedAt": "2026-04-05T00:20:00Z",
+  "newsworthy": false,
+  "reason": "Easter recess — no parliamentary activity on Sunday 5 April 2026. Parliament resumes 14 April (committee week). Analysis-only run per ai-driven-analysis-guide.md Rule 5.",
+  "dataCollected": {
+    "adoptedTexts": 85,
+    "events": 0,
+    "procedures": 0,
+    "meps": 737,
+    "documents": 0,
+    "plenaryDocuments": 0,
+    "committeeDocuments": 0,
+    "questions": 0
+  },
+  "feedStatus": {
+    "adopted_texts_today": "error",
+    "adopted_texts_week": "ok_85_items",
+    "events_today": "404",
+    "events_week": "404",
+    "procedures_today": "404",
+    "procedures_week": "404",
+    "meps_today": "ok_737_items",
+    "documents_week": "404",
+    "plenary_documents_week": "404",
+    "committee_documents_week": "404",
+    "questions_week": "404"
+  },
+  "analyticalContext": {
+    "voting_anomalies": "0_detected_low_confidence",
+    "coalition_dynamics": "size_ratio_only_low_confidence",
+    "political_landscape": "8_groups_PPE_dominant_38pct",
+    "early_warning": "stability_84_PPE_dominance_HIGH"
+  },
+  "analysisArtifacts": [
+    "intelligence-brief.md",
+    "political-landscape-analysis.md",
+    "risk-assessment.md",
+    "swot-analysis.md"
+  ],
+  "methodology": "ai-driven-analysis-guide.md v4.0 — 4-pass refinement, 6 methodology docs consulted"
+}
