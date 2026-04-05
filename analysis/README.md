@@ -283,6 +283,12 @@ For high-level analysis artifacts produced by agentic workflows (AI-generated, n
 3. **Align with the output concept** — Where a matching template exists in `analysis/templates/`, use the template name only when the generated content is intended to match that same template concept. Otherwise, use the canonical filename for the analysis method/output concept.
 4. **Method name ≠ filename** — The `AnalysisMethod` identifier (e.g. `stakeholder-analysis`) may differ from its canonical filename (e.g. `stakeholder-impact.md`). Always use the `ANALYSIS_METHOD_FILENAMES` constant.
 
+### Legacy runs
+
+Historical analysis directories in older commits may retain previous filenames and structures. For example, some legacy runs use names such as `significance-assessment.md` or older `ai-*` prefixes instead of the canonical filenames listed above.
+
+Treat the canonical naming rules in this section as the standard for runs generated on or after the effective date of this document (`2026-03-31`), unless a later generator/version note states otherwise. When reviewing older date-based directories, check for legacy equivalents before concluding that an expected output is missing.
+
 ---
 
 ## 🚨 Critical Rules for Agentic Workflows

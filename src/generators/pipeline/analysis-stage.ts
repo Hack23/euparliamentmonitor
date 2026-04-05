@@ -527,6 +527,33 @@ function methodOutputExists(filePath: string): boolean {
   }
 }
 
+/**
+ * Check whether a legacy-named output exists for a method.
+ *
+ * Returns the first matching legacy filename, or `undefined` when no legacy
+ * output is found. Used by {@link runSingleMethod} so that `skipCompleted`
+ * recognises outputs generated before the canonical rename.
+ *
+ * @param method - The analysis method to check
+ * @param dateOutputDir - Absolute path to the date-scoped output directory
+ * @param subdir - The method's subdirectory
+ * @returns The legacy filename that matched, or `undefined`
+ */
+function findLegacyOutput(
+  method: AnalysisMethod,
+  dateOutputDir: string,
+  subdir: string
+): string | undefined {
+  const legacyNames = LEGACY_FILENAMES[method];
+  if (!legacyNames) return undefined;
+  for (const legacy of legacyNames) {
+    if (methodOutputExists(path.join(dateOutputDir, subdir, legacy))) {
+      return legacy;
+    }
+  }
+  return undefined;
+}
+
 // ─── Mermaid chart helpers ────────────────────────────────────────────────────
 
 /**
@@ -2583,6 +2610,24 @@ export const ANALYSIS_METHOD_FILENAMES: Readonly<Record<AnalysisMethod, string>>
 // Local alias for internal usage.
 const METHOD_FILENAMES = ANALYSIS_METHOD_FILENAMES;
 
+/**
+ * Legacy filenames that were renamed during the canonical normalization.
+ *
+ * Used by {@link runSingleMethod} so that `skipCompleted` recognises
+ * previously-generated outputs that still exist under their old names,
+ * preventing unnecessary re-generation and duplicate files.
+ */
+const LEGACY_FILENAMES: Readonly<Partial<Record<AnalysisMethod, readonly string[]>>> =
+  Object.freeze({
+    'significance-classification': Object.freeze([
+      'significance-assessment.md',
+      'significance-scoring.md',
+    ]),
+    'stakeholder-analysis': Object.freeze(['stakeholder-analysis.md']),
+    'coalition-analysis': Object.freeze(['coalition-analysis.md']),
+    'actor-threat-profiling': Object.freeze(['actor-threat-profiles.md']),
+  });
+
 // ─── Core runner ──────────────────────────────────────────────────────────────
 
 /**
@@ -2624,6 +2669,24 @@ function runSingleMethod(
       duration: 0,
       summary: `Skipped — output already exists at ${relativeOutputFile}`,
     };
+  }
+
+  // Check for legacy filenames so incremental runs recognise outputs
+  // generated before the canonical rename.
+  if (skipCompleted) {
+    const legacyHit = findLegacyOutput(method, dateOutputDir, subdir);
+    if (legacyHit) {
+      if (verbose)
+        console.log(`  ⏭️  [analysis] Skipping ${method} — legacy output found: ${legacyHit}`);
+      return {
+        method,
+        status: 'skipped',
+        outputFile: path.posix.join(subdir, legacyHit),
+        confidence,
+        duration: 0,
+        summary: `Skipped — legacy output ${legacyHit} already exists`,
+      };
+    }
   }
 
   const start = Date.now();

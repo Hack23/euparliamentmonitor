@@ -530,6 +530,26 @@ describe('runAnalysisStage', () => {
       // Skipped methods are still counted as "completed" (done previously)
       expect(ctx.completedMethods).toContain('deep-analysis');
     });
+
+    it('recognises legacy filenames and skips re-generation', async () => {
+      // Write a legacy-named output (pre-rename) for stakeholder-analysis
+      const legacyPath = path.join(tmpDir, testDate, 'existing', 'stakeholder-analysis.md');
+      fs.mkdirSync(path.dirname(legacyPath), { recursive: true });
+      fs.writeFileSync(legacyPath, '# legacy stakeholder output', 'utf-8');
+
+      const ctx = await runAnalysisStage(buildTestFetchedData(), {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        enabledMethods: ['stakeholder-analysis'],
+        skipCompleted: true,
+      });
+
+      const result = ctx.results.get('stakeholder-analysis');
+      expect(result?.status).toBe('skipped');
+      // Legacy file should not be overwritten or deleted
+      expect(fs.readFileSync(legacyPath, 'utf-8')).toBe('# legacy stakeholder output');
+    });
   });
 
   // ─── Error isolation tests ────────────────────────────────────────────────────
