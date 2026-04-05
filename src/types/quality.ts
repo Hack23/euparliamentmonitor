@@ -83,13 +83,16 @@ export interface VisualizationQuality {
 /**
  * Letter grade assigned to an article based on its overall quality score.
  *
+ * Grade boundaries are calibrated so that the quality gate (Grade C floor)
+ * aligns with the methodology minimum of 7.0/10 (≡ 70/100).
+ *
  * | Grade | Score range |
  * |-------|-------------|
- * | A     | ≥ 80        |
- * | B     | ≥ 65        |
- * | C     | ≥ 40        |
- * | D     | ≥ 25        |
- * | F     | < 25        |
+ * | A     | ≥ 90        |
+ * | B     | ≥ 80        |
+ * | C     | ≥ 70        |
+ * | D     | ≥ 50        |
+ * | F     | < 50        |
  */
 export type ArticleGrade = 'A' | 'B' | 'C' | 'D' | 'F';
 
@@ -124,6 +127,6 @@ export interface ArticleQualityReport {
   readonly grade: ArticleGrade;
   /** Actionable improvement recommendations */
   readonly recommendations: readonly string[];
-  /** true when overallScore ≥ 40 (Grade C or better) */
+  /** true when overallScore ≥ 70 (Grade C or better, per methodology minimum 7.0/10) */
   readonly passesQualityGate: boolean;
 }

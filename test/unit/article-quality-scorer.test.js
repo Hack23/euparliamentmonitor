@@ -595,7 +595,7 @@ describe('scoreArticleQuality', () => {
     const report = scoreArticleQuality('', 'empty', 'en', 'week-ahead');
     expect(report.grade).toBe('F');
     expect(report.passesQualityGate).toBe(false);
-    expect(report.overallScore).toBeLessThan(25);
+    expect(report.overallScore).toBeLessThan(50);
   });
 
   it('produces recommendations for empty HTML', () => {
@@ -644,7 +644,7 @@ describe('scoreArticleQuality', () => {
     `);
     const report = scoreArticleQuality(html, 'rich', 'en', 'week-ahead');
     expect(['A', 'B', 'C']).toContain(report.grade);
-    expect(report.overallScore).toBeGreaterThanOrEqual(40);
+    expect(report.overallScore).toBeGreaterThanOrEqual(70);
     expect(report.passesQualityGate).toBe(true);
   });
 
@@ -703,11 +703,12 @@ describe('grade boundaries via scoreArticleQuality', () => {
    * Uses a specific combination of signals to push the score to the target range.
    */
   function buildHtmlForScore(targetScore) {
-    // A score depends on: depth(25%), stakeholder(20%), viz(25%), wordCount(15%), evidence(15%)
+    // A score depends on: depth(25%), evidence(25%), viz(20%), wordCount(15%), stakeholder(15%)
+    // (aligned with ai-driven-analysis-guide.md methodology weights)
     // We control these dimensions to approximate target
-    const needsHighScore = targetScore >= 80;
-    const needsMedScore = targetScore >= 65;
-    const needsLowMedScore = targetScore >= 40;
+    const needsHighScore = targetScore >= 90;
+    const needsMedScore = targetScore >= 80;
+    const needsLowMedScore = targetScore >= 70;
 
     if (needsHighScore) {
       return buildHtml(`
@@ -754,27 +755,27 @@ describe('grade boundaries via scoreArticleQuality', () => {
   }
 
   it('rich content produces a high score (B or A)', () => {
-    const html = buildHtmlForScore(85);
+    const html = buildHtmlForScore(95);
     const report = scoreArticleQuality(html, 'a-test', 'en', 'week-ahead');
     expect(['A', 'B']).toContain(report.grade);
-    expect(report.overallScore).toBeGreaterThanOrEqual(40);
+    expect(report.overallScore).toBeGreaterThanOrEqual(70);
   });
 
   it('grade F is assigned for very low quality content', () => {
     const report = scoreArticleQuality('', 'f-test', 'en', 'week-ahead');
     expect(report.grade).toBe('F');
-    expect(report.overallScore).toBeLessThan(25);
+    expect(report.overallScore).toBeLessThan(50);
   });
 
-  it('passesQualityGate is false when overallScore < 40', () => {
+  it('passesQualityGate is false when overallScore < 70', () => {
     const report = scoreArticleQuality('<p>short</p>', 'f-test', 'en', 'week-ahead');
-    expect(report.passesQualityGate).toBe(report.overallScore >= 40);
+    expect(report.passesQualityGate).toBe(report.overallScore >= 70);
   });
 
   it('passesQualityGate is true for rich content', () => {
-    const html = buildHtmlForScore(85);
+    const html = buildHtmlForScore(95);
     const report = scoreArticleQuality(html, 'rich-test', 'en', 'week-ahead');
-    if (report.overallScore >= 40) {
+    if (report.overallScore >= 70) {
       expect(report.passesQualityGate).toBe(true);
     }
   });

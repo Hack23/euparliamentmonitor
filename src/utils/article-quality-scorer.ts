@@ -5,14 +5,16 @@
  * @module Utils/ArticleQualityScorer
  * @description Comprehensive quality assessment engine for generated EU Parliament Monitor articles.
  *
- * Analyses HTML article content across four dimensions:
- * - **Analysis depth** — political context, coalition dynamics, historical evidence, scenarios
- * - **Stakeholder coverage** — breadth of perspectives from MEPs, Commission, civil society, etc.
- * - **Visualization quality** — SWOT, dashboard metrics, mindmap branches, deep-analysis evidence
- * - **Content integrity** — word count, evidence references, section structure
+ * Analyses HTML article content across five weighted dimensions aligned with
+ * {@link analysis/methodologies/ai-driven-analysis-guide.md}:
+ * - **Analysis depth** (25%) — political context, coalition dynamics, historical evidence, scenarios
+ * - **Evidence density** (25%) — document references, citations, data-backed claims
+ * - **Structural compliance** (20%) — SWOT, dashboard metrics, mindmap branches, deep-analysis
+ * - **Actionable intelligence** (15%) — word count, forward-looking content, substantive analysis
+ * - **Stakeholder balance** (15%) — breadth of perspectives from MEPs, Commission, civil society, etc.
  *
  * Produces an {@link ArticleQualityReport} with a 0–100 overall score, letter grade (A–F),
- * pass/fail quality gate, and actionable recommendations.
+ * pass/fail quality gate (≥ 70, per methodology minimum 7.0/10), and actionable recommendations.
  */
 
 import type {
@@ -26,17 +28,25 @@ import type {
 import { stripScriptBlocks } from './html-sanitize.js';
 
 // ─── Scoring constants ────────────────────────────────────────────────────────
+//
+// Weights aligned with analysis/methodologies/ai-driven-analysis-guide.md §Score
+// the Analysis:
+//   Evidence density      → WEIGHT_EVIDENCE        = 0.25
+//   Analytical depth      → WEIGHT_ANALYSIS_DEPTH   = 0.25
+//   Structural compliance → WEIGHT_VISUALIZATION    = 0.20
+//   Actionable intel      → WEIGHT_WORD_COUNT       = 0.15
+//   Political neutrality  → WEIGHT_STAKEHOLDER      = 0.15
 
-/** Weight applied to analysis depth score in overall calculation */
+/** Weight applied to analysis depth score in overall calculation (methodology: Analytical depth 25%) */
 const WEIGHT_ANALYSIS_DEPTH = 0.25;
-/** Weight applied to stakeholder balance score in overall calculation */
-const WEIGHT_STAKEHOLDER = 0.2;
-/** Weight applied to visualization quality score in overall calculation */
-const WEIGHT_VISUALIZATION = 0.25;
-/** Weight applied to word-count score in overall calculation */
+/** Weight applied to stakeholder balance score in overall calculation (methodology: Political neutrality 15%) */
+const WEIGHT_STAKEHOLDER = 0.15;
+/** Weight applied to visualization quality score in overall calculation (methodology: Structural compliance 20%) */
+const WEIGHT_VISUALIZATION = 0.2;
+/** Weight applied to word-count score in overall calculation (methodology: Actionable intelligence 15%) */
 const WEIGHT_WORD_COUNT = 0.15;
-/** Weight applied to evidence-reference score in overall calculation */
-const WEIGHT_EVIDENCE = 0.15;
+/** Weight applied to evidence-reference score in overall calculation (methodology: Evidence density 25%) */
+const WEIGHT_EVIDENCE = 0.25;
 
 /** Minimum word count to score 0 on the word-count dimension */
 const WORD_COUNT_MIN = 0;
@@ -46,17 +56,22 @@ const WORD_COUNT_MAX = 1500;
 /** Evidence-reference count that earns the maximum evidence dimension score */
 const EVIDENCE_MAX = 10;
 
-/** Overall score threshold for passing the quality gate (Grade C floor) */
-const QUALITY_GATE_THRESHOLD = 40;
+/**
+ * Overall score threshold for passing the quality gate.
+ *
+ * Aligned with analysis/methodologies/ai-driven-analysis-guide.md which
+ * mandates a minimum 7.0/10 (≡ 70/100) quality score.
+ */
+const QUALITY_GATE_THRESHOLD = 70;
 
 /** Grade boundary — score >= this earns an A */
-const GRADE_A_MIN = 80;
+const GRADE_A_MIN = 90;
 /** Grade boundary — score >= this earns a B */
-const GRADE_B_MIN = 65;
-/** Grade boundary — score >= this earns a C */
-const GRADE_C_MIN = 40;
+const GRADE_B_MIN = 80;
+/** Grade boundary — score >= this earns a C (matches quality gate threshold) */
+const GRADE_C_MIN = 70;
 /** Grade boundary — score >= this earns a D */
-const GRADE_D_MIN = 25;
+const GRADE_D_MIN = 50;
 
 // ─── Analysis-depth keyword sets ─────────────────────────────────────────────
 
