@@ -34,5 +34,17 @@
     "artifacts": 4,
     "totalLines": 817,
     "runId": "23995891006"
+  },
+  {
+    "date": "2026-04-05",
+    "type": "breaking",
+    "slug": "breaking-3",
+    "headline": "Analysis-only: Mid-Recess Strategic Assessment — 12-Hour Longitudinal Synthesis",
+    "newsworthy": false,
+    "topics": ["easter-recess", "mid-recess-assessment", "longitudinal-validation", "risk-trajectory", "post-easter-readiness", "methodology-review"],
+    "analysisDir": "analysis/2026-04-05/breaking-3/",
+    "artifacts": 4,
+    "totalLines": 811,
+    "runId": "24001185960"
   }
 ]
