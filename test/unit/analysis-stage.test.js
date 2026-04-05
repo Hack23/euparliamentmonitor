@@ -59,8 +59,8 @@ function readScopedManifest(outputDir, date, slug) {
 // ─── ALL_ANALYSIS_METHODS tests ───────────────────────────────────────────────
 
 describe('ALL_ANALYSIS_METHODS', () => {
-  it('contains exactly 18 default analysis methods', () => {
-    expect(ALL_ANALYSIS_METHODS).toHaveLength(18);
+  it('contains exactly 20 default analysis methods', () => {
+    expect(ALL_ANALYSIS_METHODS).toHaveLength(20);
   });
 
   it('includes all classification methods', () => {
@@ -460,15 +460,15 @@ describe('runAnalysisStage', () => {
     expect(ctx.completedMethods).toContain('coalition-analysis');
   });
 
-  it('runs all 18 default methods when no enabledMethods is specified', async () => {
+  it('runs all 20 default methods when no enabledMethods is specified', async () => {
     const ctx = await runAnalysisStage(buildTestFetchedData(), {
       articleTypes: ['week-ahead'],
       date: testDate,
       outputDir: tmpDir,
     });
 
-    expect(ctx.results.size).toBe(18);
-    expect(ctx.manifest.methods).toHaveLength(18);
+    expect(ctx.results.size).toBe(20);
+    expect(ctx.manifest.methods).toHaveLength(20);
   });
 
   it('stores results in the AnalysisContext results map', async () => {
@@ -579,11 +579,6 @@ describe('runAnalysisStage', () => {
         method: 'significance-classification',
         subdir: 'classification',
         legacyFile: 'significance-assessment.md',
-      },
-      {
-        method: 'significance-classification',
-        subdir: 'classification',
-        legacyFile: 'significance-scoring.md',
       },
       {
         method: 'coalition-analysis',

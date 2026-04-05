@@ -88,6 +88,14 @@ import {
   atomicWrite,
   resolveUniqueAnalysisDir,
 } from '../../utils/file-utils.js';
+import {
+  scoreBatch,
+  formatBatchMarkdown,
+} from '../../utils/significance-scoring.js';
+import {
+  buildSynthesisSummary,
+  formatSynthesisMarkdown,
+} from '../synthesis-summary.js';
 
 // ─── Markdown constants ───────────────────────────────────────────────────────
 
@@ -321,6 +329,9 @@ export type AnalysisMethod =
   | 'coalition-analysis'
   | 'voting-patterns'
   | 'cross-session-intelligence'
+  // Publication scoring & synthesis
+  | 'significance-scoring'
+  | 'synthesis-summary'
   // Per-document intelligence analysis
   | 'document-analysis';
 
@@ -348,6 +359,9 @@ export const ALL_ANALYSIS_METHODS: readonly AnalysisMethod[] = [
   'coalition-analysis',
   'voting-patterns',
   'cross-session-intelligence',
+  // Publication scoring & synthesis
+  'significance-scoring',
+  'synthesis-summary',
   // NOTE: 'document-analysis' is intentionally excluded from the default set.
   // It writes one markdown + one JSON file per feed item and can significantly
   // increase runtime and repository output size.  Callers must opt-in by
@@ -2379,6 +2393,101 @@ ${sanitizeCell(docDescription)}
 `;
 }
 
+// ─── Significance scoring & synthesis summary builders ────────────────────────
+
+/** Analysis method identifier for synthesis summary (used to avoid literal duplication) */
+const METHOD_SYNTHESIS_SUMMARY_ID = 'synthesis-summary' as const;
+
+/**
+ * Build markdown for the significance-scoring method.
+ * Uses the 5-dimension scoring engine to score all EP events.
+ *
+ * @param fetchedData - Raw fetched EP data
+ * @param date - Analysis date
+ * @returns Markdown content string
+ */
+function buildSignificanceScoringMarkdown(
+  fetchedData: Record<string, unknown>,
+  date: string
+): string {
+  const events = safeArr(fetchedData, 'events');
+  const adoptedTexts = safeArr(fetchedData, 'adoptedTexts');
+  const procedures = safeArr(fetchedData, 'procedures');
+
+  const header = buildMarkdownHeader('significance-scoring', date, 'medium');
+
+  // Build scoring inputs from EP data items
+  const inputs = [
+    ...events.map((e) => {
+      const ev = e as Record<string, unknown>;
+      return {
+        title: String(ev['title'] ?? ev['label'] ?? 'Unknown Event'),
+        reference: String(ev['id'] ?? ''),
+        parliamentarySignificance: Math.min(10, events.length > 5 ? 6 : 4),
+        policyImpact: Math.min(10, procedures.length > 3 ? 6 : 3),
+        publicInterest: Math.min(10, adoptedTexts.length > 2 ? 5 : 3),
+        temporalUrgency: 5,
+        institutionalRelevance: Math.min(10, events.length > 10 ? 7 : 4),
+      };
+    }),
+    ...adoptedTexts.map((t) => {
+      const at = t as Record<string, unknown>;
+      return {
+        title: String(at['title'] ?? at['label'] ?? 'Adopted Text'),
+        reference: String(at['id'] ?? ''),
+        parliamentarySignificance: 7,
+        policyImpact: 6,
+        publicInterest: 5,
+        temporalUrgency: 4,
+        institutionalRelevance: 6,
+      };
+    }),
+  ];
+
+  if (inputs.length === 0) {
+    return `${header}# 📈 Significance Scoring — ${date}\n\nNo events or adopted texts available for scoring.\n`;
+  }
+
+  const batch = scoreBatch(inputs);
+  const batchTable = formatBatchMarkdown(inputs, batch.scores);
+
+  return `${header}# 📈 Significance Scoring — ${date}
+
+## Summary
+
+| Decision | Count |
+|----------|:-----:|
+| 📰 Publish | ${batch.summary.publish} |
+| 📋 Hold | ${batch.summary.hold} |
+| 🗄️ Skip | ${batch.summary.skip} |
+
+## Batch Scoring
+
+${batchTable}
+`;
+}
+
+/**
+ * Build markdown for the synthesis-summary method.
+ * Aggregates all per-file analyses into a synthesis summary.
+ *
+ * @param fetchedData - Raw fetched EP data (includes _dateOutputDir)
+ * @param date - Analysis date
+ * @returns Markdown content string
+ */
+function buildSynthesisSummaryMarkdown(
+  fetchedData: Record<string, unknown>,
+  date: string
+): string {
+  const dateOutputDir = String(fetchedData['_dateOutputDir'] ?? '');
+  if (!dateOutputDir) {
+    const header = buildMarkdownHeader(METHOD_SYNTHESIS_SUMMARY_ID, date, 'low');
+    return `${header}# 🧩 Synthesis Summary — ${date}\n\nNo output directory available for synthesis.\n`;
+  }
+  const summary = buildSynthesisSummary(dateOutputDir, date);
+  return formatSynthesisMarkdown(summary);
+}
+
 type MarkdownBuilder = (fetchedData: Record<string, unknown>, date: string) => string;
 
 /** Map from AnalysisMethod to its markdown builder function */
@@ -2401,6 +2510,8 @@ const METHOD_BUILDERS: Readonly<Record<AnalysisMethod, MarkdownBuilder>> = {
   'coalition-analysis': buildCoalitionAnalysisMarkdown,
   'voting-patterns': buildVotingPatternsMarkdown,
   'cross-session-intelligence': buildCrossSessionIntelligenceMarkdown,
+  'significance-scoring': buildSignificanceScoringMarkdown,
+  [METHOD_SYNTHESIS_SUMMARY_ID]: buildSynthesisSummaryMarkdown,
   'document-analysis': buildDocumentAnalysisMarkdown,
 };
 
@@ -2442,6 +2553,8 @@ export const ANALYSIS_METHOD_SUBDIRS: Readonly<Record<AnalysisMethod, string>> =
   'coalition-analysis': SUBDIR_EXISTING,
   'voting-patterns': SUBDIR_EXISTING,
   'cross-session-intelligence': SUBDIR_EXISTING,
+  'significance-scoring': SUBDIR_CLASSIFICATION,
+  [METHOD_SYNTHESIS_SUMMARY_ID]: SUBDIR_EXISTING,
   'document-analysis': SUBDIR_DOCUMENTS,
 });
 
@@ -2663,6 +2776,8 @@ const METHOD_DEFAULT_CONFIDENCE: Readonly<Record<AnalysisMethod, ConfidenceLevel
   'coalition-analysis': 'high',
   'voting-patterns': 'high',
   'cross-session-intelligence': 'high',
+  'significance-scoring': 'medium',
+  [METHOD_SYNTHESIS_SUMMARY_ID]: 'medium',
   'document-analysis': 'medium',
 };
 
@@ -2701,6 +2816,8 @@ export const ANALYSIS_METHOD_FILENAMES: Readonly<Record<AnalysisMethod, string>>
   'coalition-analysis': 'coalition-dynamics.md',
   'voting-patterns': 'voting-patterns.md',
   'cross-session-intelligence': 'cross-session-intelligence.md',
+  'significance-scoring': 'significance-scoring.md',
+  [METHOD_SYNTHESIS_SUMMARY_ID]: 'synthesis-summary.md',
   'document-analysis': 'document-analysis-index.md',
 });
 
@@ -2718,7 +2835,6 @@ const LEGACY_FILENAMES: Readonly<Partial<Record<AnalysisMethod, readonly string[
   Object.freeze({
     'significance-classification': Object.freeze([
       'significance-assessment.md',
-      'significance-scoring.md',
     ]),
     'stakeholder-analysis': Object.freeze(['stakeholder-analysis.md']),
     'coalition-analysis': Object.freeze(['coalition-analysis.md']),
@@ -2774,7 +2890,8 @@ function runSingleMethod(
   try {
     const builder = METHOD_BUILDERS[method];
     // Inject dateOutputDir for the document-analysis builder to write per-document files
-    if (method === METHOD_DOCUMENT_ANALYSIS) {
+    // and for the synthesis-summary builder to read existing analysis outputs
+    if (method === METHOD_DOCUMENT_ANALYSIS || method === METHOD_SYNTHESIS_SUMMARY_ID) {
       (fetchedData as Record<string, unknown>)['_dateOutputDir'] = dateOutputDir;
     }
     const markdown = builder(fetchedData, date);

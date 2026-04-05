@@ -41,6 +41,10 @@ export { scoreVotingAnomaly, analyzeCoalitionCohesion, scoreMEPInfluence, calcul
 export { createEmptyIndex, addArticleToIndex, buildIndexFromEntries, findRelatedArticles, generateCrossReferences, detectTrends, findOrCreateSeries, buildRelatedArticlesHTML, } from './utils/intelligence-index.js';
 // ─── Article Quality ─────────────────────────────────────────────────────────
 export { assessAnalysisDepth, assessStakeholderCoverage, assessVisualizationQuality, calculateOverallScore, generateRecommendations, scoreArticleQuality, } from './utils/article-quality-scorer.js';
+// ─── Significance Scoring ────────────────────────────────────────────────────
+export { scoreSignificance, scoreBatch, clampScore, deriveDecision, formatScoreMarkdown, formatBatchMarkdown, WEIGHT_PARLIAMENTARY, WEIGHT_POLICY, WEIGHT_PUBLIC_INTEREST, WEIGHT_URGENCY, WEIGHT_INSTITUTIONAL, THRESHOLD_PUBLISH, THRESHOLD_HOLD, } from './utils/significance-scoring.js';
+// ─── Synthesis Summary ───────────────────────────────────────────────────────
+export { parseFrontmatter, aggregateSWOT, aggregateRisks, extractSummaryLine, aggregateConfidence, findMarkdownFiles, generateEditorialRecommendations, buildSynthesisSummary, formatSynthesisMarkdown, } from './generators/synthesis-summary.js';
 // ─── Content Validation ──────────────────────────────────────────────────────
 export { validateArticleContent, validateTranslationCompleteness, } from './utils/content-validator.js';
 // ─── Content Metadata ────────────────────────────────────────────────────────

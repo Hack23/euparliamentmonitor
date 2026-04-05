@@ -1,0 +1,329 @@
+// SPDX-FileCopyrightText: 2024-2026 Hack23 AB
+// SPDX-License-Identifier: Apache-2.0
+/**
+ * @module Generators/SynthesisSummary
+ * @description Aggregation engine that reads per-file analysis outputs and
+ * produces a synthesis summary — a single intelligence briefing consumed by
+ * article generators to determine narrative direction, headline selection,
+ * and publication priority.
+ *
+ * The synthesiser:
+ * 1. Scans the analysis date directory for markdown files
+ * 2. Extracts YAML frontmatter (method, confidence) from each
+ * 3. Counts SWOT mentions and risk-level keywords
+ * 4. Ranks findings by confidence and produces editorial recommendations
+ *
+ * @see analysis/templates/synthesis-summary.md
+ */
+import fs from 'fs';
+import path from 'path';
+import { randomUUID } from 'crypto';
+// ─── Constants ────────────────────────────────────────────────────────────────
+/** Case-insensitive patterns for detecting SWOT mentions in analysis text */
+const SWOT_PATTERNS = {
+    strengths: /\bstrength/giu,
+    weaknesses: /\bweakness/giu,
+    opportunities: /\bopportunit/giu,
+    threats: /\bthreat/giu,
+};
+/** Case-insensitive patterns for detecting risk-level mentions */
+const RISK_PATTERNS = {
+    critical: /\bcritical\b/giu,
+    high: /\bhigh[- ]risk\b/giu,
+    medium: /\bmedium[- ]risk\b/giu,
+    low: /\blow[- ]risk\b/giu,
+};
+/** Confidence value ordering (higher = better) */
+const CONFIDENCE_RANK = {
+    high: 3,
+    medium: 2,
+    low: 1,
+};
+/**
+ * Parse YAML frontmatter from a markdown file's content.
+ *
+ * Extracts `method`, `confidence`, and `date` fields from the `---` delimited
+ * YAML block at the start of the file.  Returns null when no valid frontmatter
+ * is found.
+ *
+ * @param content - Raw markdown content
+ * @returns Parsed frontmatter or null
+ */
+export function parseFrontmatter(content) {
+    const match = /^---\r?\n([\s\S]*?)\r?\n---/u.exec(content);
+    if (!match)
+        return null;
+    const yaml = match[1] ?? '';
+    const methodMatch = /^method:\s*(.+)$/mu.exec(yaml);
+    const confidenceMatch = /^confidence:\s*(.+)$/mu.exec(yaml);
+    const dateMatch = /^date:\s*(.+)$/mu.exec(yaml);
+    const method = methodMatch?.[1]?.trim() ?? 'unknown';
+    const rawConf = confidenceMatch?.[1]?.trim().toLowerCase() ?? 'low';
+    const confidence = rawConf === 'high' || rawConf === 'medium' ? rawConf : 'low';
+    const date = dateMatch?.[1]?.trim() ?? '';
+    return { method, confidence, date };
+}
+// ─── Text analysis ────────────────────────────────────────────────────────────
+/**
+ * Count regex pattern matches in a body of text.
+ *
+ * @param text - Source text to scan
+ * @param pattern - RegExp with global flag
+ * @returns Number of matches
+ */
+function countMatches(text, pattern) {
+    // Reset lastIndex for global regexps to avoid stale state
+    pattern.lastIndex = 0;
+    const matches = text.match(pattern);
+    return matches ? matches.length : 0;
+}
+/**
+ * Aggregate SWOT mention counts from a body of text.
+ *
+ * @param text - Combined analysis text
+ * @returns SWOT counts
+ */
+export function aggregateSWOT(text) {
+    return {
+        strengths: countMatches(text, SWOT_PATTERNS.strengths),
+        weaknesses: countMatches(text, SWOT_PATTERNS.weaknesses),
+        opportunities: countMatches(text, SWOT_PATTERNS.opportunities),
+        threats: countMatches(text, SWOT_PATTERNS.threats),
+    };
+}
+/**
+ * Aggregate risk-level mention counts from a body of text.
+ *
+ * @param text - Combined analysis text
+ * @returns Risk level counts
+ */
+export function aggregateRisks(text) {
+    return {
+        critical: countMatches(text, RISK_PATTERNS.critical),
+        high: countMatches(text, RISK_PATTERNS.high),
+        medium: countMatches(text, RISK_PATTERNS.medium),
+        low: countMatches(text, RISK_PATTERNS.low),
+    };
+}
+/**
+ * Extract the first non-empty non-frontmatter heading or paragraph as a
+ * one-line summary from a markdown file.
+ *
+ * @param content - Raw markdown content
+ * @returns One-line summary string
+ */
+export function extractSummaryLine(content) {
+    // Strip frontmatter
+    const body = content.replace(/^---[\s\S]*?---\s*/u, '');
+    // Try first heading
+    const headingMatch = /^#+\s+(.+)$/mu.exec(body);
+    if (headingMatch?.[1])
+        return headingMatch[1].trim();
+    // Fall back to first non-empty line
+    const lines = body.split('\n');
+    for (const line of lines) {
+        const trimmed = line.trim();
+        if (trimmed.length > 0 && !trimmed.startsWith('|') && !trimmed.startsWith('```')) {
+            return trimmed.slice(0, 200);
+        }
+    }
+    return 'No summary available';
+}
+// ─── Confidence aggregation ──────────────────────────────────────────────────
+/**
+ * Determine the overall confidence level from a set of findings.
+ *
+ * Uses majority vote: whichever confidence level appears most often wins.
+ *
+ * @param findings - Findings with individual confidence levels
+ * @returns Aggregated confidence level
+ */
+export function aggregateConfidence(findings) {
+    if (findings.length === 0)
+        return 'low';
+    const counts = { high: 0, medium: 0, low: 0 };
+    for (const f of findings) {
+        counts[f.confidence]++;
+    }
+    if (counts.high >= counts.medium && counts.high >= counts.low)
+        return 'high';
+    if (counts.medium >= counts.low)
+        return 'medium';
+    return 'low';
+}
+// ─── Directory scanning ──────────────────────────────────────────────────────
+/**
+ * Recursively find all `.md` files under a directory.
+ *
+ * @param dir - Absolute directory path
+ * @returns Array of absolute file paths
+ */
+export function findMarkdownFiles(dir) {
+    const results = [];
+    if (!fs.existsSync(dir))
+        return results;
+    const entries = fs.readdirSync(dir, { withFileTypes: true });
+    for (const entry of entries) {
+        const fullPath = path.join(dir, entry.name);
+        if (entry.isDirectory()) {
+            results.push(...findMarkdownFiles(fullPath));
+        }
+        else if (entry.isFile() && entry.name.endsWith('.md')) {
+            results.push(fullPath);
+        }
+    }
+    return results;
+}
+// ─── Editorial recommendations ───────────────────────────────────────────────
+/**
+ * Generate editorial recommendations based on aggregated analysis data.
+ *
+ * @param findings - Ranked findings
+ * @param swot - Aggregated SWOT counts
+ * @param risks - Risk level distribution
+ * @returns Array of recommendation strings
+ */
+export function generateEditorialRecommendations(findings, swot, risks) {
+    const recommendations = [];
+    if (findings.length === 0) {
+        recommendations.push('No analysis files found — verify pipeline execution.');
+        return recommendations;
+    }
+    // High-confidence findings drive lead stories
+    const highConfCount = findings.filter((f) => f.confidence === 'high').length;
+    if (highConfCount > 0) {
+        recommendations.push(`${highConfCount} high-confidence finding(s) available for lead story selection.`);
+    }
+    // Risk-driven recommendations
+    if (risks.critical > 0) {
+        recommendations.push(`${risks.critical} critical-risk mention(s) detected — consider priority coverage.`);
+    }
+    // SWOT balance indicator
+    const totalSwot = swot.strengths + swot.weaknesses + swot.opportunities + swot.threats;
+    if (totalSwot > 0) {
+        const threatRatio = swot.threats / totalSwot;
+        if (threatRatio > 0.4) {
+            recommendations.push('Threat-heavy SWOT balance — narrative may benefit from opportunity framing.');
+        }
+    }
+    // Volume recommendation
+    if (findings.length >= 10) {
+        recommendations.push(`${findings.length} analysis files processed — consider multi-article output.`);
+    }
+    else if (findings.length <= 2) {
+        recommendations.push('Limited analysis coverage — consider consolidating into a single digest article.');
+    }
+    return recommendations;
+}
+// ─── Main synthesis ──────────────────────────────────────────────────────────
+/**
+ * Build a synthesis summary from all analysis files in a date directory.
+ *
+ * Scans the directory recursively for `.md` analysis files, parses their
+ * frontmatter, extracts findings, aggregates SWOT and risk mentions, and
+ * produces a {@link SynthesisSummary} object.
+ *
+ * @param dateOutputDir - Absolute path to the date-scoped analysis directory
+ * @param date - ISO date string (YYYY-MM-DD)
+ * @returns Synthesis summary object
+ */
+export function buildSynthesisSummary(dateOutputDir, date) {
+    const files = findMarkdownFiles(dateOutputDir);
+    const findings = [];
+    let combinedText = '';
+    for (const filePath of files) {
+        const content = fs.readFileSync(filePath, 'utf-8');
+        const frontmatter = parseFrontmatter(content);
+        combinedText += content + '\n';
+        findings.push({
+            method: frontmatter?.method ?? 'unknown',
+            file: path.basename(filePath),
+            confidence: frontmatter?.confidence ?? 'low',
+            summary: extractSummaryLine(content),
+        });
+    }
+    // Sort findings: high confidence first, then medium, then low
+    findings.sort((a, b) => (CONFIDENCE_RANK[b.confidence] ?? 0) - (CONFIDENCE_RANK[a.confidence] ?? 0));
+    const swot = aggregateSWOT(combinedText);
+    const riskOverview = aggregateRisks(combinedText);
+    const overallConfidence = aggregateConfidence(findings);
+    const editorialRecommendations = generateEditorialRecommendations(findings, swot, riskOverview);
+    return {
+        synthesisId: `SYN-${date}-${randomUUID().slice(0, 3).toUpperCase()}`,
+        date,
+        documentsAnalyzed: files.length,
+        overallConfidence,
+        topFindings: findings.slice(0, 5),
+        swot,
+        riskOverview,
+        editorialRecommendations,
+    };
+}
+/**
+ * Generate a markdown report from a synthesis summary.
+ *
+ * Follows the template format defined in `analysis/templates/synthesis-summary.md`.
+ *
+ * @param summary - Computed synthesis summary
+ * @returns Markdown string
+ */
+export function formatSynthesisMarkdown(summary) {
+    const findingsRows = summary.topFindings
+        .map((f, i) => `| ${i + 1} | ${f.file} | ${f.method} | ${f.confidence} | ${f.summary.slice(0, 80)} |`)
+        .join('\n');
+    return `---
+method: synthesis-summary
+date: ${summary.date}
+confidence: ${summary.overallConfidence}
+generated: ${new Date().toISOString()}
+---
+
+# 🧩 Synthesis Summary — ${summary.date}
+
+## 📋 Synthesis Context
+
+| Field | Value |
+|-------|-------|
+| **Synthesis ID** | \`${summary.synthesisId}\` |
+| **Analysis Date** | \`${summary.date}\` |
+| **Documents Analyzed** | ${summary.documentsAnalyzed} |
+| **Overall Confidence** | ${summary.overallConfidence.toUpperCase()} |
+
+---
+
+## 🏆 Top Findings by Significance
+
+| Rank | File | Method | Confidence | Summary |
+|:----:|------|--------|:----------:|---------|
+${findingsRows || '| — | — | — | — | — |'}
+
+---
+
+## 💪 Aggregated SWOT Summary
+
+| Dimension | Count |
+|-----------|:-----:|
+| ✅ Strengths | ${summary.swot.strengths} |
+| ⚠️ Weaknesses | ${summary.swot.weaknesses} |
+| 🚀 Opportunities | ${summary.swot.opportunities} |
+| 🔴 Threats | ${summary.swot.threats} |
+
+---
+
+## ⚖️ Risk Landscape Summary
+
+| Level | Mentions |
+|-------|:--------:|
+| 🔴 Critical | ${summary.riskOverview.critical} |
+| 🟠 High | ${summary.riskOverview.high} |
+| 🟡 Medium | ${summary.riskOverview.medium} |
+| 🟢 Low | ${summary.riskOverview.low} |
+
+---
+
+## 🎯 Editorial Recommendations
+
+${summary.editorialRecommendations.map((r) => `- ${r}`).join('\n')}
+`;
+}
+//# sourceMappingURL=synthesis-summary.js.map
