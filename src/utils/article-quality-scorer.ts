@@ -10,7 +10,7 @@
  * - **Analysis depth** (25%) — political context, coalition dynamics, historical evidence, scenarios
  * - **Evidence density** (25%) — document references, citations, data-backed claims
  * - **Structural compliance** (20%) — SWOT, dashboard metrics, mindmap branches, deep-analysis
- * - **Actionable intelligence** (15%) — word count, forward-looking content, substantive analysis
+ * - **Actionable intelligence** (15%) — article length via word count
  * - **Stakeholder balance** (15%) — breadth of perspectives from MEPs, Commission, civil society, etc.
  *
  * Produces an {@link ArticleQualityReport} with a 0–100 overall score, letter grade (A–F),

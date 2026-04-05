@@ -775,9 +775,8 @@ describe('grade boundaries via scoreArticleQuality', () => {
   it('passesQualityGate is true for rich content', () => {
     const html = buildHtmlForScore(95);
     const report = scoreArticleQuality(html, 'rich-test', 'en', 'week-ahead');
-    if (report.overallScore >= 70) {
-      expect(report.passesQualityGate).toBe(true);
-    }
+    expect(report.overallScore).toBeGreaterThanOrEqual(70);
+    expect(report.passesQualityGate).toBe(true);
   });
 });
 
