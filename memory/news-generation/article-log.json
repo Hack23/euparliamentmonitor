@@ -3,14 +3,9 @@
     "date": "2026-04-04",
     "type": "breaking",
     "slug": "breaking-4",
-    "headline": "Analysis-only: Easter Recess Intelligence \u2014 Evening Update",
+    "headline": "Analysis-only: Easter Recess Intelligence — Evening Update",
     "newsworthy": false,
-    "topics": [
-      "easter-recess",
-      "legislative-productivity",
-      "coalition-dynamics",
-      "ep10-year-2"
-    ],
+    "topics": ["easter-recess", "legislative-productivity", "coalition-dynamics", "ep10-year-2"],
     "analysisDir": "analysis/2026-04-04/breaking-4/",
     "artifacts": 4,
     "totalLines": 1103,
@@ -22,16 +17,22 @@
     "slug": "breaking",
     "headline": "Analysis-only: Easter Recess Midpoint Intelligence - Sunday Update",
     "newsworthy": false,
-    "topics": [
-      "easter-recess",
-      "api-degradation",
-      "legislative-output",
-      "coalition-dynamics",
-      "ppe-dominance"
-    ],
+    "topics": ["easter-recess", "api-degradation", "legislative-output", "coalition-dynamics", "ppe-dominance"],
     "analysisDir": "analysis/2026-04-05/breaking/",
     "artifacts": 4,
     "totalLines": 748,
     "runId": "23990553586"
+  },
+  {
+    "date": "2026-04-05",
+    "type": "breaking",
+    "slug": "breaking-2",
+    "headline": "Analysis-only: Easter Recess Cross-Session Intelligence — Evening Update",
+    "newsworthy": false,
+    "topics": ["easter-recess", "cross-session-correlation", "bayesian-updating", "pestle-analysis", "diamond-model", "coalition-scenarios"],
+    "analysisDir": "analysis/2026-04-05/breaking-2/",
+    "artifacts": 4,
+    "totalLines": 817,
+    "runId": "23995891006"
   }
 ]
