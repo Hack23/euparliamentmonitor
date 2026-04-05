@@ -2,32 +2,45 @@
 // SPDX-License-Identifier: Apache-2.0
 import { stripScriptBlocks } from './html-sanitize.js';
 // ─── Scoring constants ────────────────────────────────────────────────────────
-/** Weight applied to analysis depth score in overall calculation */
+//
+// Weights aligned with analysis/methodologies/ai-driven-analysis-guide.md §Score
+// the Analysis:
+//   Evidence density      → WEIGHT_EVIDENCE        = 0.25
+//   Analytical depth      → WEIGHT_ANALYSIS_DEPTH   = 0.25
+//   Structural compliance → WEIGHT_VISUALIZATION    = 0.20
+//   Actionable intel      → WEIGHT_WORD_COUNT       = 0.15
+//   Political neutrality  → WEIGHT_STAKEHOLDER      = 0.15
+/** Weight applied to analysis depth score in overall calculation (methodology: Analytical depth 25%) */
 const WEIGHT_ANALYSIS_DEPTH = 0.25;
-/** Weight applied to stakeholder balance score in overall calculation */
-const WEIGHT_STAKEHOLDER = 0.2;
-/** Weight applied to visualization quality score in overall calculation */
-const WEIGHT_VISUALIZATION = 0.25;
-/** Weight applied to word-count score in overall calculation */
+/** Weight applied to stakeholder balance score in overall calculation (methodology: Political neutrality 15%) */
+const WEIGHT_STAKEHOLDER = 0.15;
+/** Weight applied to visualization quality score in overall calculation (methodology: Structural compliance 20%) */
+const WEIGHT_VISUALIZATION = 0.2;
+/** Weight applied to word-count score in overall calculation (methodology: Actionable intelligence 15%) */
 const WEIGHT_WORD_COUNT = 0.15;
-/** Weight applied to evidence-reference score in overall calculation */
-const WEIGHT_EVIDENCE = 0.15;
+/** Weight applied to evidence-reference score in overall calculation (methodology: Evidence density 25%) */
+const WEIGHT_EVIDENCE = 0.25;
 /** Minimum word count to score 0 on the word-count dimension */
 const WORD_COUNT_MIN = 0;
 /** Word count that earns the maximum word-count dimension score */
 const WORD_COUNT_MAX = 1500;
 /** Evidence-reference count that earns the maximum evidence dimension score */
 const EVIDENCE_MAX = 10;
-/** Overall score threshold for passing the quality gate (Grade C floor) */
-const QUALITY_GATE_THRESHOLD = 40;
+/**
+ * Overall score threshold for passing the quality gate.
+ *
+ * Aligned with analysis/methodologies/ai-driven-analysis-guide.md which
+ * mandates a minimum 7.0/10 (≡ 70/100) quality score.
+ */
+const QUALITY_GATE_THRESHOLD = 70;
 /** Grade boundary — score >= this earns an A */
-const GRADE_A_MIN = 80;
+const GRADE_A_MIN = 90;
 /** Grade boundary — score >= this earns a B */
-const GRADE_B_MIN = 65;
-/** Grade boundary — score >= this earns a C */
-const GRADE_C_MIN = 40;
+const GRADE_B_MIN = 80;
+/** Grade boundary — score >= this earns a C (matches quality gate threshold) */
+const GRADE_C_MIN = 70;
 /** Grade boundary — score >= this earns a D */
-const GRADE_D_MIN = 25;
+const GRADE_D_MIN = 50;
 // ─── Analysis-depth keyword sets ─────────────────────────────────────────────
 /** Keywords indicating political context discussion */
 const POLITICAL_CONTEXT_KEYWORDS = [
@@ -784,12 +797,12 @@ function computeVisualizationScore(v) {
 /**
  * Compute the weighted overall quality score (0–100) from component scores.
  *
- * Weights:
+ * Weights (aligned with ai-driven-analysis-guide.md):
  * - Analysis depth: 25 %
- * - Stakeholder balance: 20 %
- * - Visualization: 25 %
- * - Word count: 15 %
- * - Evidence references: 15 %
+ * - Evidence references: 25 %
+ * - Visualization / structural compliance: 20 %
+ * - Word count / actionable intelligence: 15 %
+ * - Stakeholder balance / political neutrality: 15 %
  *
  * @param depth - Analysis depth score object
  * @param coverage - Stakeholder coverage score object
@@ -898,10 +911,10 @@ export function generateRecommendations(report) {
  */
 function addWordCountRecommendations(report, recs) {
     if (report.wordCount < 500) {
-        recs.push('Expand article length to at least 500 words for Grade C quality');
+        recs.push('Expand article length to at least 500 words to improve word-count score');
     }
     else if (report.wordCount < WORD_COUNT_MAX) {
-        recs.push(`Increase article depth to ${WORD_COUNT_MAX} words for Grade A quality (currently ${report.wordCount})`);
+        recs.push(`Increase article depth to ${WORD_COUNT_MAX} words for maximum word-count score (currently ${report.wordCount})`);
     }
 }
 /**
@@ -987,7 +1000,7 @@ function addEvidenceRecommendations(report, recs) {
         recs.push('Add at least 3 evidence references or EP document citations');
     }
     else if (report.evidenceReferences < 10) {
-        recs.push(`Increase evidence references to 10 for Grade A quality (currently ${report.evidenceReferences})`);
+        recs.push(`Increase evidence references to 10 for maximum evidence score (currently ${report.evidenceReferences})`);
     }
 }
 // ─── Public API ───────────────────────────────────────────────────────────────
