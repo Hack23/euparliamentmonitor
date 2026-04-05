@@ -797,12 +797,12 @@ function computeVisualizationScore(v) {
 /**
  * Compute the weighted overall quality score (0–100) from component scores.
  *
- * Weights:
+ * Weights (aligned with ai-driven-analysis-guide.md):
  * - Analysis depth: 25 %
- * - Stakeholder balance: 20 %
- * - Visualization: 25 %
- * - Word count: 15 %
- * - Evidence references: 15 %
+ * - Evidence references: 25 %
+ * - Visualization / structural compliance: 20 %
+ * - Word count / actionable intelligence: 15 %
+ * - Stakeholder balance / political neutrality: 15 %
  *
  * @param depth - Analysis depth score object
  * @param coverage - Stakeholder coverage score object
@@ -911,10 +911,10 @@ export function generateRecommendations(report) {
  */
 function addWordCountRecommendations(report, recs) {
     if (report.wordCount < 500) {
-        recs.push('Expand article length to at least 500 words for Grade C quality');
+        recs.push('Expand article length to at least 500 words to improve word-count score');
     }
     else if (report.wordCount < WORD_COUNT_MAX) {
-        recs.push(`Increase article depth to ${WORD_COUNT_MAX} words for Grade A quality (currently ${report.wordCount})`);
+        recs.push(`Increase article depth to ${WORD_COUNT_MAX} words for maximum word-count score (currently ${report.wordCount})`);
     }
 }
 /**
@@ -1000,7 +1000,7 @@ function addEvidenceRecommendations(report, recs) {
         recs.push('Add at least 3 evidence references or EP document citations');
     }
     else if (report.evidenceReferences < 10) {
-        recs.push(`Increase evidence references to 10 for Grade A quality (currently ${report.evidenceReferences})`);
+        recs.push(`Increase evidence references to 10 for maximum evidence score (currently ${report.evidenceReferences})`);
     }
 }
 // ─── Public API ───────────────────────────────────────────────────────────────
