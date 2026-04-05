@@ -315,3 +315,15 @@ export type {
 } from './political-classification.js';
 
 export { SIGNIFICANCE_ORDER, IMPACT_ORDER } from './political-classification.js';
+
+export type {
+  PublicationDecision,
+  SignificanceDimension,
+  SignificanceScore,
+  SignificanceScoringInput,
+  SignificanceBatchResult,
+  SynthesisFinding,
+  AggregatedSWOT,
+  RiskOverview,
+  SynthesisSummary,
+} from './significance.js';

@@ -53,6 +53,8 @@ import { assessPoliticalSignificance, buildImpactMatrix, classifyPoliticalActors
 import { assessPoliticalThreats, buildActorThreatProfiles, buildConsequenceTree, analyzeLegislativeDisruption, generateThreatAssessmentMarkdown, } from '../../utils/political-threat-assessment.js';
 import { assessLegislativeVelocityRisk, runAgentRiskAssessment, generateRiskAssessmentMarkdown, calculatePoliticalRiskScore, buildQuantitativeSWOT, createScoredSWOTItem, createScoredOpportunityOrThreat, createRiskDriver, } from '../../utils/political-risk-assessment.js';
 import { ensureDirectoryExists, atomicWrite, resolveUniqueAnalysisDir, } from '../../utils/file-utils.js';
+import { scoreSignificance, scoreBatch, formatBatchMarkdown, } from '../../utils/significance-scoring.js';
+import { buildSynthesisSummary, formatSynthesisMarkdown } from '../synthesis-summary.js';
 // ─── Markdown constants ───────────────────────────────────────────────────────
 /** Empty table row placeholder for 6-column tables */
 const EMPTY_TABLE_ROW_6 = '| — | — | — | — | — | — |';
@@ -265,6 +267,9 @@ export const ALL_ANALYSIS_METHODS = [
     'coalition-analysis',
     'voting-patterns',
     'cross-session-intelligence',
+    // Publication scoring & synthesis
+    'significance-scoring',
+    'synthesis-summary',
     // NOTE: 'document-analysis' is intentionally excluded from the default set.
     // It writes one markdown + one JSON file per feed item and can significantly
     // increase runtime and repository output size.  Callers must opt-in by
@@ -1738,6 +1743,123 @@ ${sanitizeCell(docDescription)}
 ## Analysis Date: ${date}
 `;
 }
+// ─── Significance scoring & synthesis summary builders ────────────────────────
+/** Analysis method identifier for synthesis summary (used to avoid literal duplication) */
+const METHOD_SYNTHESIS_SUMMARY_ID = 'synthesis-summary';
+/** Analysis method identifier for significance scoring (used to avoid literal duplication) */
+const METHOD_SIGNIFICANCE_SCORING_ID = 'significance-scoring';
+// ─── Heuristic scoring thresholds for EP event data ───────────────────────────
+/** Event-count threshold above which parliamentary significance is elevated */
+const EVENT_VOLUME_HIGH_THRESHOLD = 5;
+/** Event-count threshold above which institutional relevance is elevated */
+const EVENT_VOLUME_VERY_HIGH_THRESHOLD = 10;
+/** Procedure-count threshold above which policy impact is elevated */
+const PROCEDURE_VOLUME_THRESHOLD = 3;
+/** Adopted-text-count threshold above which public interest is elevated */
+const ADOPTED_TEXT_VOLUME_THRESHOLD = 2;
+/** Base scores for EP event dimensions when data volume is high / low */
+const EVENT_PARLIAMENTARY_HIGH = 6;
+const EVENT_PARLIAMENTARY_LOW = 4;
+const EVENT_POLICY_HIGH = 6;
+const EVENT_POLICY_LOW = 3;
+const EVENT_PUBLIC_HIGH = 5;
+const EVENT_PUBLIC_LOW = 3;
+/** Default temporal urgency for events (mid-range, adjusted at AI scoring) */
+const EVENT_DEFAULT_URGENCY = 5;
+const EVENT_INSTITUTIONAL_HIGH = 7;
+const EVENT_INSTITUTIONAL_LOW = 4;
+/** Default dimension scores for adopted texts (plenary-approved) */
+const ADOPTED_PARLIAMENTARY = 7;
+const ADOPTED_POLICY = 6;
+const ADOPTED_PUBLIC = 5;
+const ADOPTED_URGENCY = 4;
+const ADOPTED_INSTITUTIONAL = 6;
+/**
+ * Build markdown for the significance-scoring method.
+ * Uses the 5-dimension scoring engine to score all EP events.
+ *
+ * @param fetchedData - Raw fetched EP data
+ * @param date - Analysis date
+ * @returns Markdown content string
+ */
+function buildSignificanceScoringMarkdown(fetchedData, date) {
+    const events = safeArr(fetchedData, 'events');
+    const adoptedTexts = safeArr(fetchedData, 'adoptedTexts');
+    const procedures = safeArr(fetchedData, 'procedures');
+    const header = buildMarkdownHeader(METHOD_SIGNIFICANCE_SCORING_ID, date, 'medium');
+    // Build scoring inputs from EP data items using volume-based heuristics.
+    // Events: dimension scores scale with data volume to approximate significance.
+    // Adopted texts: scored higher by default since plenary adoption implies significance.
+    const inputs = [
+        ...events.map((e) => {
+            const ev = e;
+            return {
+                title: String(ev['title'] ?? ev['label'] ?? 'Unknown Event'),
+                reference: String(ev['id'] ?? ''),
+                parliamentarySignificance: Math.min(10, events.length > EVENT_VOLUME_HIGH_THRESHOLD
+                    ? EVENT_PARLIAMENTARY_HIGH
+                    : EVENT_PARLIAMENTARY_LOW),
+                policyImpact: Math.min(10, procedures.length > PROCEDURE_VOLUME_THRESHOLD ? EVENT_POLICY_HIGH : EVENT_POLICY_LOW),
+                publicInterest: Math.min(10, adoptedTexts.length > ADOPTED_TEXT_VOLUME_THRESHOLD ? EVENT_PUBLIC_HIGH : EVENT_PUBLIC_LOW),
+                temporalUrgency: EVENT_DEFAULT_URGENCY,
+                institutionalRelevance: Math.min(10, events.length > EVENT_VOLUME_VERY_HIGH_THRESHOLD
+                    ? EVENT_INSTITUTIONAL_HIGH
+                    : EVENT_INSTITUTIONAL_LOW),
+            };
+        }),
+        ...adoptedTexts.map((t) => {
+            const at = t;
+            return {
+                title: String(at['title'] ?? at['label'] ?? 'Adopted Text'),
+                reference: String(at['id'] ?? ''),
+                parliamentarySignificance: ADOPTED_PARLIAMENTARY,
+                policyImpact: ADOPTED_POLICY,
+                publicInterest: ADOPTED_PUBLIC,
+                temporalUrgency: ADOPTED_URGENCY,
+                institutionalRelevance: ADOPTED_INSTITUTIONAL,
+            };
+        }),
+    ];
+    if (inputs.length === 0) {
+        return `${header}# 📈 Significance Scoring — ${date}\n\nNo events or adopted texts available for scoring.\n`;
+    }
+    const batch = scoreBatch(inputs);
+    // formatBatchMarkdown expects scores in same order as inputs, so use
+    // input-aligned scores (one per input) rather than the ranked batch.scores.
+    const alignedScores = inputs.map((input) => scoreSignificance(input));
+    const batchTable = formatBatchMarkdown(inputs, alignedScores);
+    return `${header}# 📈 Significance Scoring — ${date}
+
+## Summary
+
+| Decision | Count |
+|----------|:-----:|
+| 📰 Publish | ${batch.summary.publish} |
+| 📋 Hold | ${batch.summary.hold} |
+| 🗄️ Skip | ${batch.summary.skip} |
+
+## Batch Scoring
+
+${batchTable}
+`;
+}
+/**
+ * Build markdown for the synthesis-summary method.
+ * Aggregates all per-file analyses into a synthesis summary.
+ *
+ * @param fetchedData - Raw fetched EP data (includes _dateOutputDir)
+ * @param date - Analysis date
+ * @returns Markdown content string
+ */
+function buildSynthesisSummaryMarkdown(fetchedData, date) {
+    const dateOutputDir = String(fetchedData['_dateOutputDir'] ?? '');
+    if (!dateOutputDir) {
+        const header = buildMarkdownHeader(METHOD_SYNTHESIS_SUMMARY_ID, date, 'low');
+        return `${header}# 🧩 Synthesis Summary — ${date}\n\nNo output directory available for synthesis.\n`;
+    }
+    const summary = buildSynthesisSummary(dateOutputDir, date);
+    return formatSynthesisMarkdown(summary);
+}
 /** Map from AnalysisMethod to its markdown builder function */
 const METHOD_BUILDERS = {
     'significance-classification': buildSignificanceClassificationMarkdown,
@@ -1758,6 +1880,8 @@ const METHOD_BUILDERS = {
     'coalition-analysis': buildCoalitionAnalysisMarkdown,
     'voting-patterns': buildVotingPatternsMarkdown,
     'cross-session-intelligence': buildCrossSessionIntelligenceMarkdown,
+    [METHOD_SIGNIFICANCE_SCORING_ID]: buildSignificanceScoringMarkdown,
+    [METHOD_SYNTHESIS_SUMMARY_ID]: buildSynthesisSummaryMarkdown,
     'document-analysis': buildDocumentAnalysisMarkdown,
 };
 // ─── Method subdir constants ──────────────────────────────────────────────────
@@ -1796,6 +1920,8 @@ export const ANALYSIS_METHOD_SUBDIRS = Object.freeze({
     'coalition-analysis': SUBDIR_EXISTING,
     'voting-patterns': SUBDIR_EXISTING,
     'cross-session-intelligence': SUBDIR_EXISTING,
+    [METHOD_SIGNIFICANCE_SCORING_ID]: SUBDIR_CLASSIFICATION,
+    [METHOD_SYNTHESIS_SUMMARY_ID]: SUBDIR_EXISTING,
     'document-analysis': SUBDIR_DOCUMENTS,
 });
 // ─── MCP data persistence subdirectories ──────────────────────────────────────
@@ -1996,6 +2122,8 @@ const METHOD_DEFAULT_CONFIDENCE = {
     'coalition-analysis': 'high',
     'voting-patterns': 'high',
     'cross-session-intelligence': 'high',
+    [METHOD_SIGNIFICANCE_SCORING_ID]: 'medium',
+    [METHOD_SYNTHESIS_SUMMARY_ID]: 'medium',
     'document-analysis': 'medium',
 };
 /**
@@ -2033,6 +2161,8 @@ export const ANALYSIS_METHOD_FILENAMES = Object.freeze({
     'coalition-analysis': 'coalition-dynamics.md',
     'voting-patterns': 'voting-patterns.md',
     'cross-session-intelligence': 'cross-session-intelligence.md',
+    [METHOD_SIGNIFICANCE_SCORING_ID]: 'significance-scoring.md',
+    [METHOD_SYNTHESIS_SUMMARY_ID]: 'synthesis-summary.md',
     'document-analysis': 'document-analysis-index.md',
 });
 // Local alias for internal usage.
@@ -2045,10 +2175,7 @@ const METHOD_FILENAMES = ANALYSIS_METHOD_FILENAMES;
  * preventing unnecessary re-generation and duplicate files.
  */
 const LEGACY_FILENAMES = Object.freeze({
-    'significance-classification': Object.freeze([
-        'significance-assessment.md',
-        'significance-scoring.md',
-    ]),
+    'significance-classification': Object.freeze(['significance-assessment.md']),
     'stakeholder-analysis': Object.freeze(['stakeholder-analysis.md']),
     'coalition-analysis': Object.freeze(['coalition-analysis.md']),
     'actor-threat-profiling': Object.freeze(['actor-threat-profiles.md']),
@@ -2084,7 +2211,8 @@ function runSingleMethod(method, fetchedData, date, dateOutputDir, skipCompleted
     try {
         const builder = METHOD_BUILDERS[method];
         // Inject dateOutputDir for the document-analysis builder to write per-document files
-        if (method === METHOD_DOCUMENT_ANALYSIS) {
+        // and for the synthesis-summary builder to read existing analysis outputs
+        if (method === METHOD_DOCUMENT_ANALYSIS || method === METHOD_SYNTHESIS_SUMMARY_ID) {
             fetchedData['_dateOutputDir'] = dateOutputDir;
         }
         const markdown = builder(fetchedData, date);
