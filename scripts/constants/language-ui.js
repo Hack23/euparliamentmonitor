@@ -1267,7 +1267,6 @@ export const POLITICAL_THREAT_LANDSCAPE_LABELS = {
     ko: '정치적 위협 환경',
     zh: '政治威胁态势',
 };
-/** Localized "Actor Threat Profiles" labels */
 /** Localized "Actor Threat Profiling" labels */
 export const ACTOR_THREAT_PROFILING_LABELS = {
     en: 'Actor Threat Profiling',
@@ -1406,7 +1405,6 @@ export const AGENT_RISK_WORKFLOW_LABELS = {
     ko: '에이전트 위험 워크플로',
     zh: '代理风险工作流',
 };
-/** Localized "Stakeholder Analysis" labels */
 /** Localized "Stakeholder Impact" labels */
 export const STAKEHOLDER_IMPACT_LABELS = {
     en: 'Stakeholder Impact',

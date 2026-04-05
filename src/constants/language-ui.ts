@@ -1435,7 +1435,6 @@ export const POLITICAL_THREAT_LANDSCAPE_LABELS: LanguageMap = {
   zh: '政治威胁态势',
 };
 
-/** Localized "Actor Threat Profiles" labels */
 /** Localized "Actor Threat Profiling" labels */
 export const ACTOR_THREAT_PROFILING_LABELS: LanguageMap = {
   en: 'Actor Threat Profiling',
@@ -1583,7 +1582,6 @@ export const AGENT_RISK_WORKFLOW_LABELS: LanguageMap = {
   zh: '代理风险工作流',
 };
 
-/** Localized "Stakeholder Analysis" labels */
 /** Localized "Stakeholder Impact" labels */
 export const STAKEHOLDER_IMPACT_LABELS: LanguageMap = {
   en: 'Stakeholder Impact',
