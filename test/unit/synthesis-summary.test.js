@@ -344,7 +344,7 @@ describe('buildSynthesisSummary', () => {
     expect(summary.documentsAnalyzed).toBe(0);
     expect(summary.topFindings).toHaveLength(0);
     expect(summary.overallConfidence).toBe('low');
-    expect(summary.synthesisId).toMatch(/^SYN-2026-03-30-/);
+    expect(summary.synthesisId).toMatch(/^SYN-2026-03-30-[A-Z0-9]{8}$/);
   });
 
   it('processes analysis files and produces summary', () => {

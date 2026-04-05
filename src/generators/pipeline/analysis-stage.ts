@@ -2398,6 +2398,36 @@ ${sanitizeCell(docDescription)}
 /** Analysis method identifier for synthesis summary (used to avoid literal duplication) */
 const METHOD_SYNTHESIS_SUMMARY_ID = 'synthesis-summary' as const;
 
+// ─── Heuristic scoring thresholds for EP event data ───────────────────────────
+
+/** Event-count threshold above which parliamentary significance is elevated */
+const EVENT_VOLUME_HIGH_THRESHOLD = 5;
+/** Event-count threshold above which institutional relevance is elevated */
+const EVENT_VOLUME_VERY_HIGH_THRESHOLD = 10;
+/** Procedure-count threshold above which policy impact is elevated */
+const PROCEDURE_VOLUME_THRESHOLD = 3;
+/** Adopted-text-count threshold above which public interest is elevated */
+const ADOPTED_TEXT_VOLUME_THRESHOLD = 2;
+
+/** Base scores for EP event dimensions when data volume is high / low */
+const EVENT_PARLIAMENTARY_HIGH = 6;
+const EVENT_PARLIAMENTARY_LOW = 4;
+const EVENT_POLICY_HIGH = 6;
+const EVENT_POLICY_LOW = 3;
+const EVENT_PUBLIC_HIGH = 5;
+const EVENT_PUBLIC_LOW = 3;
+/** Default temporal urgency for events (mid-range, adjusted at AI scoring) */
+const EVENT_DEFAULT_URGENCY = 5;
+const EVENT_INSTITUTIONAL_HIGH = 7;
+const EVENT_INSTITUTIONAL_LOW = 4;
+
+/** Default dimension scores for adopted texts (plenary-approved) */
+const ADOPTED_PARLIAMENTARY = 7;
+const ADOPTED_POLICY = 6;
+const ADOPTED_PUBLIC = 5;
+const ADOPTED_URGENCY = 4;
+const ADOPTED_INSTITUTIONAL = 6;
+
 /**
  * Build markdown for the significance-scoring method.
  * Uses the 5-dimension scoring engine to score all EP events.
@@ -2416,18 +2446,38 @@ function buildSignificanceScoringMarkdown(
 
   const header = buildMarkdownHeader('significance-scoring', date, 'medium');
 
-  // Build scoring inputs from EP data items
+  // Build scoring inputs from EP data items using volume-based heuristics.
+  // Events: dimension scores scale with data volume to approximate significance.
+  // Adopted texts: scored higher by default since plenary adoption implies significance.
   const inputs = [
     ...events.map((e) => {
       const ev = e as Record<string, unknown>;
       return {
         title: String(ev['title'] ?? ev['label'] ?? 'Unknown Event'),
         reference: String(ev['id'] ?? ''),
-        parliamentarySignificance: Math.min(10, events.length > 5 ? 6 : 4),
-        policyImpact: Math.min(10, procedures.length > 3 ? 6 : 3),
-        publicInterest: Math.min(10, adoptedTexts.length > 2 ? 5 : 3),
-        temporalUrgency: 5,
-        institutionalRelevance: Math.min(10, events.length > 10 ? 7 : 4),
+        parliamentarySignificance: Math.min(
+          10,
+          events.length > EVENT_VOLUME_HIGH_THRESHOLD
+            ? EVENT_PARLIAMENTARY_HIGH
+            : EVENT_PARLIAMENTARY_LOW
+        ),
+        policyImpact: Math.min(
+          10,
+          procedures.length > PROCEDURE_VOLUME_THRESHOLD ? EVENT_POLICY_HIGH : EVENT_POLICY_LOW
+        ),
+        publicInterest: Math.min(
+          10,
+          adoptedTexts.length > ADOPTED_TEXT_VOLUME_THRESHOLD
+            ? EVENT_PUBLIC_HIGH
+            : EVENT_PUBLIC_LOW
+        ),
+        temporalUrgency: EVENT_DEFAULT_URGENCY,
+        institutionalRelevance: Math.min(
+          10,
+          events.length > EVENT_VOLUME_VERY_HIGH_THRESHOLD
+            ? EVENT_INSTITUTIONAL_HIGH
+            : EVENT_INSTITUTIONAL_LOW
+        ),
       };
     }),
     ...adoptedTexts.map((t) => {
@@ -2435,11 +2485,11 @@ function buildSignificanceScoringMarkdown(
       return {
         title: String(at['title'] ?? at['label'] ?? 'Adopted Text'),
         reference: String(at['id'] ?? ''),
-        parliamentarySignificance: 7,
-        policyImpact: 6,
-        publicInterest: 5,
-        temporalUrgency: 4,
-        institutionalRelevance: 6,
+        parliamentarySignificance: ADOPTED_PARLIAMENTARY,
+        policyImpact: ADOPTED_POLICY,
+        publicInterest: ADOPTED_PUBLIC,
+        temporalUrgency: ADOPTED_URGENCY,
+        institutionalRelevance: ADOPTED_INSTITUTIONAL,
       };
     }),
   ];

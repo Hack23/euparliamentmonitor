@@ -54,9 +54,9 @@ export function parseFrontmatter(content) {
     if (!match)
         return null;
     const yaml = match[1] ?? '';
-    const methodMatch = /^method:\s*(.+)$/mu.exec(yaml);
-    const confidenceMatch = /^confidence:\s*(.+)$/mu.exec(yaml);
-    const dateMatch = /^date:\s*(.+)$/mu.exec(yaml);
+    const methodMatch = /^method:\s+(\S.*)$/mu.exec(yaml);
+    const confidenceMatch = /^confidence:\s+(\S.*)$/mu.exec(yaml);
+    const dateMatch = /^date:\s+(\S.*)$/mu.exec(yaml);
     const method = methodMatch?.[1]?.trim() ?? 'unknown';
     const rawConf = confidenceMatch?.[1]?.trim().toLowerCase() ?? 'low';
     const confidence = rawConf === 'high' || rawConf === 'medium' ? rawConf : 'low';
@@ -115,8 +115,8 @@ export function aggregateRisks(text) {
 export function extractSummaryLine(content) {
     // Strip frontmatter
     const body = content.replace(/^---[\s\S]*?---\s*/u, '');
-    // Try first heading
-    const headingMatch = /^#+\s+(.+)$/mu.exec(body);
+    // Try first heading (# followed by at least one space and then non-space content)
+    const headingMatch = /^#+\s(\S.*)$/mu.exec(body);
     if (headingMatch?.[1])
         return headingMatch[1].trim();
     // Fall back to first non-empty line
@@ -249,7 +249,7 @@ export function buildSynthesisSummary(dateOutputDir, date) {
     const overallConfidence = aggregateConfidence(findings);
     const editorialRecommendations = generateEditorialRecommendations(findings, swot, riskOverview);
     return {
-        synthesisId: `SYN-${date}-${randomUUID().slice(0, 3).toUpperCase()}`,
+        synthesisId: `SYN-${date}-${randomUUID().slice(0, 8).toUpperCase()}`,
         date,
         documentsAnalyzed: files.length,
         overallConfidence,
