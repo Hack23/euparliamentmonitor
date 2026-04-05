@@ -243,12 +243,12 @@ News articles MUST link to ALL individual analysis files, not just directory-lev
 **Article HTML template MUST include:**
 ```html
 <!-- Individual analysis file links -->
-<li><a href="{analysisDir}/classification/significance-assessment.md">Significance Assessment</a></li>
+<li><a href="{analysisDir}/classification/significance-scoring.md">Significance Scoring</a></li>
 <li><a href="{analysisDir}/classification/actor-mapping.md">Actor Mapping</a></li>
 <li><a href="{analysisDir}/classification/forces-analysis.md">Forces Analysis</a></li>
 <li><a href="{analysisDir}/classification/impact-matrix.md">Impact Matrix</a></li>
 <li><a href="{analysisDir}/threat-assessment/political-threat-landscape.md">Political Threat Landscape</a></li>
-<li><a href="{analysisDir}/threat-assessment/actor-threat-profiles.md">Actor Threat Profiles</a></li>
+<li><a href="{analysisDir}/threat-assessment/actor-threat-profiling.md">Actor Threat Profiling</a></li>
 <li><a href="{analysisDir}/threat-assessment/consequence-trees.md">Consequence Trees</a></li>
 <li><a href="{analysisDir}/threat-assessment/legislative-disruption.md">Legislative Disruption</a></li>
 <li><a href="{analysisDir}/risk-scoring/risk-matrix.md">Risk Matrix</a></li>
@@ -257,8 +257,8 @@ News articles MUST link to ALL individual analysis files, not just directory-lev
 <li><a href="{analysisDir}/risk-scoring/legislative-velocity-risk.md">Legislative Velocity Risk</a></li>
 <li><a href="{analysisDir}/risk-scoring/agent-risk-workflow.md">Agent Risk Workflow</a></li>
 <li><a href="{analysisDir}/existing/deep-analysis.md">Deep Analysis</a></li>
-<li><a href="{analysisDir}/existing/stakeholder-analysis.md">Stakeholder Analysis</a></li>
-<li><a href="{analysisDir}/existing/coalition-analysis.md">Coalition Analysis</a></li>
+<li><a href="{analysisDir}/existing/stakeholder-impact.md">Stakeholder Impact</a></li>
+<li><a href="{analysisDir}/existing/coalition-dynamics.md">Coalition Dynamics</a></li>
 <li><a href="{analysisDir}/existing/voting-patterns.md">Voting Patterns</a></li>
 <li><a href="{analysisDir}/existing/cross-session-intelligence.md">Cross-Session Intelligence</a></li>
 ```

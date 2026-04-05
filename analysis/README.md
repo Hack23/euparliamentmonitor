@@ -212,14 +212,76 @@ analysis/
 ├── monthly/                           ← Per-month strategic briefs
 │   └── README.md                      ← Monthly directory conventions
 └── YYYY-MM-DD/                        ← Date-stamped output directory
-    ├── ai-*.md                        ← AI cross-article synthesis (date root)
     └── {article-type-slug}/           ← Per-workflow subdirectory
         ├── manifest.json              ← Run metadata
         ├── classification/            ← Political classification results
         ├── threat-assessment/         ← Political Threat Landscape results
         ├── risk-scoring/              ← Risk assessment results
+        ├── existing/                  ← Core analysis results
+        ├── documents/                 ← Per-document intelligence analysis
         └── data/                      ← MCP data for this workflow
 ```
+
+---
+
+## 📛 Canonical Artifact Naming Convention
+
+All analysis pipeline methods produce files with **canonical filenames** defined in
+`ANALYSIS_METHOD_FILENAMES` (exported from `src/generators/pipeline/analysis-stage.ts`).
+Agentic workflows and TypeScript pipeline **MUST** use these exact names to ensure
+cross-session intelligence correlation is reliable.
+
+### Pipeline Method → Canonical Filename Mapping
+
+> The **Source Template** column identifies the corresponding template file in
+> `analysis/templates/` when a pipeline method has a direct template counterpart.
+> A dash (`—`) means the method has no direct template counterpart.
+
+| Analysis Method | Subdirectory | Canonical Filename | Source Template |
+|---|---|---|---|
+| `significance-classification` | `classification/` | `significance-scoring.md` | `significance-scoring.md` |
+| `impact-matrix` | `classification/` | `impact-matrix.md` | — |
+| `actor-mapping` | `classification/` | `actor-mapping.md` | — |
+| `forces-analysis` | `classification/` | `forces-analysis.md` | — |
+| `political-threat-landscape` | `threat-assessment/` | `political-threat-landscape.md` | `threat-analysis.md` |
+| `actor-threat-profiling` | `threat-assessment/` | `actor-threat-profiling.md` | — |
+| `consequence-trees` | `threat-assessment/` | `consequence-trees.md` | — |
+| `legislative-disruption` | `threat-assessment/` | `legislative-disruption.md` | — |
+| `risk-matrix` | `risk-scoring/` | `risk-matrix.md` | `risk-assessment.md` |
+| `political-capital-risk` | `risk-scoring/` | `political-capital-risk.md` | — |
+| `quantitative-swot` | `risk-scoring/` | `quantitative-swot.md` | `swot-analysis.md` |
+| `legislative-velocity-risk` | `risk-scoring/` | `legislative-velocity-risk.md` | — |
+| `agent-risk-workflow` | `risk-scoring/` | `agent-risk-workflow.md` | — |
+| `deep-analysis` | `existing/` | `deep-analysis.md` | — |
+| `stakeholder-analysis` | `existing/` | `stakeholder-impact.md` | `stakeholder-impact.md` |
+| `coalition-analysis` | `existing/` | `coalition-dynamics.md` | — |
+| `voting-patterns` | `existing/` | `voting-patterns.md` | — |
+| `cross-session-intelligence` | `existing/` | `cross-session-intelligence.md` | — |
+| `document-analysis` *(opt-in)* | `documents/` | `document-analysis-index.md` | `per-file-political-intelligence.md` |
+
+### Agentic Workflow Canonical Names
+
+For high-level analysis artifacts produced by agentic workflows (AI-generated, not pipeline methods):
+
+| Analysis Type | Canonical Filename |
+|---|---|
+| Intelligence Brief | `intelligence-brief.md` |
+| Political Landscape | `political-landscape.md` |
+| Risk Assessment | `risk-assessment.md` |
+| SWOT Analysis | `swot-analysis.md` |
+| Threat Assessment | `threat-assessment.md` |
+| Coalition Dynamics | `coalition-dynamics.md` |
+| Stakeholder Impact | `stakeholder-impact.md` |
+| Significance Scoring | `significance-scoring.md` |
+| Synthesis Summary | `synthesis-summary.md` |
+| Political Classification | `political-classification.md` |
+
+### Naming Rules
+
+1. **No `ai-` prefix** — Older runs used `ai-deep-analysis.md`, `ai-coalition-dynamics.md` etc. This is **deprecated**. Use the canonical names above.
+2. **Kebab-case only** — All filenames are lowercase, hyphen-separated with `.md` extension.
+3. **Align with templates** — Where a matching template exists in `analysis/templates/`, the canonical filename matches the template name.
+4. **Method name ≠ filename** — The `AnalysisMethod` identifier (e.g. `stakeholder-analysis`) may differ from its canonical filename (e.g. `stakeholder-impact.md`). Always use the `ANALYSIS_METHOD_FILENAMES` constant.
 
 ---
 
