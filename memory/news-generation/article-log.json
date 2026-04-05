@@ -15,5 +15,23 @@
     "artifacts": 4,
     "totalLines": 1103,
     "runId": "23984568070"
+  },
+  {
+    "date": "2026-04-05",
+    "type": "breaking",
+    "slug": "breaking",
+    "headline": "Analysis-only: Easter Recess Midpoint Intelligence - Sunday Update",
+    "newsworthy": false,
+    "topics": [
+      "easter-recess",
+      "api-degradation",
+      "legislative-output",
+      "coalition-dynamics",
+      "ppe-dominance"
+    ],
+    "analysisDir": "analysis/2026-04-05/breaking/",
+    "artifacts": 4,
+    "totalLines": 748,
+    "runId": "23990553586"
   }
 ]
