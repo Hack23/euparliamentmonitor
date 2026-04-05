@@ -93,10 +93,7 @@ import {
   scoreBatch,
   formatBatchMarkdown,
 } from '../../utils/significance-scoring.js';
-import {
-  buildSynthesisSummary,
-  formatSynthesisMarkdown,
-} from '../synthesis-summary.js';
+import { buildSynthesisSummary, formatSynthesisMarkdown } from '../synthesis-summary.js';
 
 // ─── Markdown constants ───────────────────────────────────────────────────────
 
@@ -2468,9 +2465,7 @@ function buildSignificanceScoringMarkdown(
         ),
         publicInterest: Math.min(
           10,
-          adoptedTexts.length > ADOPTED_TEXT_VOLUME_THRESHOLD
-            ? EVENT_PUBLIC_HIGH
-            : EVENT_PUBLIC_LOW
+          adoptedTexts.length > ADOPTED_TEXT_VOLUME_THRESHOLD ? EVENT_PUBLIC_HIGH : EVENT_PUBLIC_LOW
         ),
         temporalUrgency: EVENT_DEFAULT_URGENCY,
         institutionalRelevance: Math.min(
@@ -2529,10 +2524,7 @@ ${batchTable}
  * @param date - Analysis date
  * @returns Markdown content string
  */
-function buildSynthesisSummaryMarkdown(
-  fetchedData: Record<string, unknown>,
-  date: string
-): string {
+function buildSynthesisSummaryMarkdown(fetchedData: Record<string, unknown>, date: string): string {
   const dateOutputDir = String(fetchedData['_dateOutputDir'] ?? '');
   if (!dateOutputDir) {
     const header = buildMarkdownHeader(METHOD_SYNTHESIS_SUMMARY_ID, date, 'low');
@@ -2887,9 +2879,7 @@ const METHOD_FILENAMES = ANALYSIS_METHOD_FILENAMES;
  */
 const LEGACY_FILENAMES: Readonly<Partial<Record<AnalysisMethod, readonly string[]>>> =
   Object.freeze({
-    'significance-classification': Object.freeze([
-      'significance-assessment.md',
-    ]),
+    'significance-classification': Object.freeze(['significance-assessment.md']),
     'stakeholder-analysis': Object.freeze(['stakeholder-analysis.md']),
     'coalition-analysis': Object.freeze(['coalition-analysis.md']),
     'actor-threat-profiling': Object.freeze(['actor-threat-profiles.md']),

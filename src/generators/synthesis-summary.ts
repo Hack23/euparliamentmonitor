@@ -111,8 +111,7 @@ export function parseFrontmatter(content: string): ParsedFrontmatter | null {
 
   const method = methodMatch?.[1]?.trim() ?? 'unknown';
   const rawConf = confidenceMatch?.[1]?.trim().toLowerCase() ?? 'low';
-  const confidence: ConfidenceLevel =
-    rawConf === 'high' || rawConf === 'medium' ? rawConf : 'low';
+  const confidence: ConfidenceLevel = rawConf === 'high' || rawConf === 'medium' ? rawConf : 'low';
   const date = dateMatch?.[1]?.trim() ?? '';
 
   return { method, confidence, date };
@@ -322,10 +321,7 @@ export function generateEditorialRecommendations(
  * @param date - ISO date string (YYYY-MM-DD)
  * @returns Synthesis summary object
  */
-export function buildSynthesisSummary(
-  dateOutputDir: string,
-  date: string
-): SynthesisSummary {
+export function buildSynthesisSummary(dateOutputDir: string, date: string): SynthesisSummary {
   const files = findMarkdownFiles(dateOutputDir);
 
   const findings: SynthesisFinding[] = [];
@@ -353,11 +349,7 @@ export function buildSynthesisSummary(
   const swot = aggregateSWOT(combinedText);
   const riskOverview = aggregateRisks(combinedText);
   const overallConfidence = aggregateConfidence(findings);
-  const editorialRecommendations = generateEditorialRecommendations(
-    findings,
-    swot,
-    riskOverview
-  );
+  const editorialRecommendations = generateEditorialRecommendations(findings, swot, riskOverview);
 
   return {
     synthesisId: `SYN-${date}-${randomUUID().slice(0, 8).toUpperCase()}`,

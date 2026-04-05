@@ -54,7 +54,7 @@ import { assessPoliticalThreats, buildActorThreatProfiles, buildConsequenceTree,
 import { assessLegislativeVelocityRisk, runAgentRiskAssessment, generateRiskAssessmentMarkdown, calculatePoliticalRiskScore, buildQuantitativeSWOT, createScoredSWOTItem, createScoredOpportunityOrThreat, createRiskDriver, } from '../../utils/political-risk-assessment.js';
 import { ensureDirectoryExists, atomicWrite, resolveUniqueAnalysisDir, } from '../../utils/file-utils.js';
 import { scoreSignificance, scoreBatch, formatBatchMarkdown, } from '../../utils/significance-scoring.js';
-import { buildSynthesisSummary, formatSynthesisMarkdown, } from '../synthesis-summary.js';
+import { buildSynthesisSummary, formatSynthesisMarkdown } from '../synthesis-summary.js';
 // ─── Markdown constants ───────────────────────────────────────────────────────
 /** Empty table row placeholder for 6-column tables */
 const EMPTY_TABLE_ROW_6 = '| — | — | — | — | — | — |';
@@ -1798,9 +1798,7 @@ function buildSignificanceScoringMarkdown(fetchedData, date) {
                     ? EVENT_PARLIAMENTARY_HIGH
                     : EVENT_PARLIAMENTARY_LOW),
                 policyImpact: Math.min(10, procedures.length > PROCEDURE_VOLUME_THRESHOLD ? EVENT_POLICY_HIGH : EVENT_POLICY_LOW),
-                publicInterest: Math.min(10, adoptedTexts.length > ADOPTED_TEXT_VOLUME_THRESHOLD
-                    ? EVENT_PUBLIC_HIGH
-                    : EVENT_PUBLIC_LOW),
+                publicInterest: Math.min(10, adoptedTexts.length > ADOPTED_TEXT_VOLUME_THRESHOLD ? EVENT_PUBLIC_HIGH : EVENT_PUBLIC_LOW),
                 temporalUrgency: EVENT_DEFAULT_URGENCY,
                 institutionalRelevance: Math.min(10, events.length > EVENT_VOLUME_VERY_HIGH_THRESHOLD
                     ? EVENT_INSTITUTIONAL_HIGH
@@ -2175,9 +2173,7 @@ const METHOD_FILENAMES = ANALYSIS_METHOD_FILENAMES;
  * preventing unnecessary re-generation and duplicate files.
  */
 const LEGACY_FILENAMES = Object.freeze({
-    'significance-classification': Object.freeze([
-        'significance-assessment.md',
-    ]),
+    'significance-classification': Object.freeze(['significance-assessment.md']),
     'stakeholder-analysis': Object.freeze(['stakeholder-analysis.md']),
     'coalition-analysis': Object.freeze(['coalition-analysis.md']),
     'actor-threat-profiling': Object.freeze(['actor-threat-profiles.md']),
