@@ -172,6 +172,22 @@ describe('scoreSignificance', () => {
     expect(result.composite).toBe(2.1);
     expect(result.decision).toBe('skip');
   });
+
+  it('decision is derived from rounded composite so it matches displayed value', () => {
+    // The decision should always match what the user sees in composite.
+    // If composite rounds to 6.00, decision should be 'publish' (threshold = 6.0).
+    const result = scoreSignificance({
+      title: 'Boundary event',
+      parliamentarySignificance: 6,
+      policyImpact: 6,
+      publicInterest: 6,
+      temporalUrgency: 6,
+      institutionalRelevance: 6,
+    });
+    // composite = 6*0.25 + 6*0.25 + 6*0.20 + 6*0.15 + 6*0.15 = 6.00
+    expect(result.composite).toBe(6);
+    expect(result.decision).toBe('publish');
+  });
 });
 
 // ─── scoreBatch ──────────────────────────────────────────────────────────────
@@ -463,5 +479,30 @@ describe('formatBatchMarkdown', () => {
     const scores = inputs.map((i) => scoreSignificance(i));
     const md = formatBatchMarkdown(inputs, scores);
     expect(md).toContain('&lt;script&gt;');
+  });
+
+  it('throws when inputs and scores arrays have different lengths', () => {
+    const inputs = [
+      {
+        title: 'Event A',
+        parliamentarySignificance: 5,
+        policyImpact: 5,
+        publicInterest: 5,
+        temporalUrgency: 5,
+        institutionalRelevance: 5,
+      },
+      {
+        title: 'Event B',
+        parliamentarySignificance: 3,
+        policyImpact: 3,
+        publicInterest: 3,
+        temporalUrgency: 3,
+        institutionalRelevance: 3,
+      },
+    ];
+    const scores = [scoreSignificance(inputs[0])];
+    expect(() => formatBatchMarkdown(inputs, scores)).toThrow(
+      'inputs.length (2) !== scores.length (1)'
+    );
   });
 });

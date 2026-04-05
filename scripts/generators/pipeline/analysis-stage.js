@@ -1746,6 +1746,8 @@ ${sanitizeCell(docDescription)}
 // ─── Significance scoring & synthesis summary builders ────────────────────────
 /** Analysis method identifier for synthesis summary (used to avoid literal duplication) */
 const METHOD_SYNTHESIS_SUMMARY_ID = 'synthesis-summary';
+/** Analysis method identifier for significance scoring (used to avoid literal duplication) */
+const METHOD_SIGNIFICANCE_SCORING_ID = 'significance-scoring';
 // ─── Heuristic scoring thresholds for EP event data ───────────────────────────
 /** Event-count threshold above which parliamentary significance is elevated */
 const EVENT_VOLUME_HIGH_THRESHOLD = 5;
@@ -1784,7 +1786,7 @@ function buildSignificanceScoringMarkdown(fetchedData, date) {
     const events = safeArr(fetchedData, 'events');
     const adoptedTexts = safeArr(fetchedData, 'adoptedTexts');
     const procedures = safeArr(fetchedData, 'procedures');
-    const header = buildMarkdownHeader('significance-scoring', date, 'medium');
+    const header = buildMarkdownHeader(METHOD_SIGNIFICANCE_SCORING_ID, date, 'medium');
     // Build scoring inputs from EP data items using volume-based heuristics.
     // Events: dimension scores scale with data volume to approximate significance.
     // Adopted texts: scored higher by default since plenary adoption implies significance.
@@ -1878,7 +1880,7 @@ const METHOD_BUILDERS = {
     'coalition-analysis': buildCoalitionAnalysisMarkdown,
     'voting-patterns': buildVotingPatternsMarkdown,
     'cross-session-intelligence': buildCrossSessionIntelligenceMarkdown,
-    'significance-scoring': buildSignificanceScoringMarkdown,
+    [METHOD_SIGNIFICANCE_SCORING_ID]: buildSignificanceScoringMarkdown,
     [METHOD_SYNTHESIS_SUMMARY_ID]: buildSynthesisSummaryMarkdown,
     'document-analysis': buildDocumentAnalysisMarkdown,
 };
@@ -1918,7 +1920,7 @@ export const ANALYSIS_METHOD_SUBDIRS = Object.freeze({
     'coalition-analysis': SUBDIR_EXISTING,
     'voting-patterns': SUBDIR_EXISTING,
     'cross-session-intelligence': SUBDIR_EXISTING,
-    'significance-scoring': SUBDIR_CLASSIFICATION,
+    [METHOD_SIGNIFICANCE_SCORING_ID]: SUBDIR_CLASSIFICATION,
     [METHOD_SYNTHESIS_SUMMARY_ID]: SUBDIR_EXISTING,
     'document-analysis': SUBDIR_DOCUMENTS,
 });
@@ -2120,7 +2122,7 @@ const METHOD_DEFAULT_CONFIDENCE = {
     'coalition-analysis': 'high',
     'voting-patterns': 'high',
     'cross-session-intelligence': 'high',
-    'significance-scoring': 'medium',
+    [METHOD_SIGNIFICANCE_SCORING_ID]: 'medium',
     [METHOD_SYNTHESIS_SUMMARY_ID]: 'medium',
     'document-analysis': 'medium',
 };
@@ -2159,7 +2161,7 @@ export const ANALYSIS_METHOD_FILENAMES = Object.freeze({
     'coalition-analysis': 'coalition-dynamics.md',
     'voting-patterns': 'voting-patterns.md',
     'cross-session-intelligence': 'cross-session-intelligence.md',
-    'significance-scoring': 'significance-scoring.md',
+    [METHOD_SIGNIFICANCE_SCORING_ID]: 'significance-scoring.md',
     [METHOD_SYNTHESIS_SUMMARY_ID]: 'synthesis-summary.md',
     'document-analysis': 'document-analysis-index.md',
 });

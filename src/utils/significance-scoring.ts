@@ -151,7 +151,7 @@ export function scoreSignificance(input: SignificanceScoringInput): Significance
     temporalUrgency,
     institutionalRelevance,
     composite: roundedComposite,
-    decision: deriveDecision(composite),
+    decision: deriveDecision(roundedComposite),
   };
 }
 
@@ -239,16 +239,14 @@ export function formatBatchMarkdown(
   const separator =
     '|-------|-------------|:-----:|:------:|:------:|:-------:|:-------:|:-------------:|----------|';
 
+  if (inputs.length !== scores.length) {
+    throw new Error(
+      `formatBatchMarkdown: inputs.length (${inputs.length}) !== scores.length (${scores.length}). Arrays must be aligned.`
+    );
+  }
+
   const rows = inputs.map((input, i) => {
-    const s = scores[i] ?? {
-      parliamentarySignificance: 0,
-      policyImpact: 0,
-      publicInterest: 0,
-      temporalUrgency: 0,
-      institutionalRelevance: 0,
-      composite: 0,
-      decision: 'skip' as const,
-    };
+    const s = scores[i] as SignificanceScore;
     const decisionLabel =
       s.decision === 'publish' ? 'Publish' : s.decision === 'hold' ? 'Hold' : 'Skip';
     const safeTitle = sanitizeMdCell(input.title);
