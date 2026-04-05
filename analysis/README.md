@@ -212,7 +212,6 @@ analysis/
 ├── monthly/                           ← Per-month strategic briefs
 │   └── README.md                      ← Monthly directory conventions
 └── YYYY-MM-DD/                        ← Date-stamped output directory
-    ├── ai-*.md                        ← AI cross-article synthesis (date root)
     └── {article-type-slug}/           ← Per-workflow subdirectory
         ├── manifest.json              ← Run metadata
         ├── classification/            ← Political classification results
@@ -234,11 +233,11 @@ cross-session intelligence correlation is reliable.
 
 ### Pipeline Method → Canonical Filename Mapping
 
-> The **Matching Template** column indicates when a pipeline method's canonical filename
-> matches a corresponding template file in `analysis/templates/`.  A dash (`—`) means the
-> method has no direct template counterpart.
+> The **Source Template** column identifies the corresponding template file in
+> `analysis/templates/` when a pipeline method has a direct template counterpart.
+> A dash (`—`) means the method has no direct template counterpart.
 
-| Analysis Method | Subdirectory | Canonical Filename | Matching Template |
+| Analysis Method | Subdirectory | Canonical Filename | Source Template |
 |---|---|---|---|
 | `significance-classification` | `classification/` | `significance-scoring.md` | `significance-scoring.md` |
 | `impact-matrix` | `classification/` | `impact-matrix.md` | — |

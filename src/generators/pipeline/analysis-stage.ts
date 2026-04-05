@@ -2299,27 +2299,28 @@ const SUBDIR_DOCUMENTS = 'documents';
  * Exported so that agentic workflows and downstream consumers can
  * construct paths that are guaranteed to match the pipeline output.
  */
-export const ANALYSIS_METHOD_SUBDIRS: Readonly<Record<AnalysisMethod, string>> = {
-  'significance-classification': SUBDIR_CLASSIFICATION,
-  'impact-matrix': SUBDIR_CLASSIFICATION,
-  'actor-mapping': SUBDIR_CLASSIFICATION,
-  'forces-analysis': SUBDIR_CLASSIFICATION,
-  'political-threat-landscape': SUBDIR_THREAT_ASSESSMENT,
-  'actor-threat-profiling': SUBDIR_THREAT_ASSESSMENT,
-  'consequence-trees': SUBDIR_THREAT_ASSESSMENT,
-  'legislative-disruption': SUBDIR_THREAT_ASSESSMENT,
-  'risk-matrix': SUBDIR_RISK_SCORING,
-  'political-capital-risk': SUBDIR_RISK_SCORING,
-  'quantitative-swot': SUBDIR_RISK_SCORING,
-  'legislative-velocity-risk': SUBDIR_RISK_SCORING,
-  'agent-risk-workflow': SUBDIR_RISK_SCORING,
-  'deep-analysis': SUBDIR_EXISTING,
-  'stakeholder-analysis': SUBDIR_EXISTING,
-  'coalition-analysis': SUBDIR_EXISTING,
-  'voting-patterns': SUBDIR_EXISTING,
-  'cross-session-intelligence': SUBDIR_EXISTING,
-  'document-analysis': SUBDIR_DOCUMENTS,
-};
+export const ANALYSIS_METHOD_SUBDIRS: Readonly<Record<AnalysisMethod, string>> =
+  Object.freeze({
+    'significance-classification': SUBDIR_CLASSIFICATION,
+    'impact-matrix': SUBDIR_CLASSIFICATION,
+    'actor-mapping': SUBDIR_CLASSIFICATION,
+    'forces-analysis': SUBDIR_CLASSIFICATION,
+    'political-threat-landscape': SUBDIR_THREAT_ASSESSMENT,
+    'actor-threat-profiling': SUBDIR_THREAT_ASSESSMENT,
+    'consequence-trees': SUBDIR_THREAT_ASSESSMENT,
+    'legislative-disruption': SUBDIR_THREAT_ASSESSMENT,
+    'risk-matrix': SUBDIR_RISK_SCORING,
+    'political-capital-risk': SUBDIR_RISK_SCORING,
+    'quantitative-swot': SUBDIR_RISK_SCORING,
+    'legislative-velocity-risk': SUBDIR_RISK_SCORING,
+    'agent-risk-workflow': SUBDIR_RISK_SCORING,
+    'deep-analysis': SUBDIR_EXISTING,
+    'stakeholder-analysis': SUBDIR_EXISTING,
+    'coalition-analysis': SUBDIR_EXISTING,
+    'voting-patterns': SUBDIR_EXISTING,
+    'cross-session-intelligence': SUBDIR_EXISTING,
+    'document-analysis': SUBDIR_DOCUMENTS,
+  });
 
 // ─── MCP data persistence subdirectories ──────────────────────────────────────
 
@@ -2558,27 +2559,28 @@ const METHOD_DEFAULT_CONFIDENCE: Readonly<Record<AnalysisMethod, ConfidenceLevel
  * - The `document-analysis` method produces an index file
  *   (`document-analysis-index.md`) plus per-document files.
  */
-export const ANALYSIS_METHOD_FILENAMES: Readonly<Record<AnalysisMethod, string>> = {
-  'significance-classification': 'significance-scoring.md',
-  'impact-matrix': 'impact-matrix.md',
-  'actor-mapping': 'actor-mapping.md',
-  'forces-analysis': 'forces-analysis.md',
-  'political-threat-landscape': 'political-threat-landscape.md',
-  'actor-threat-profiling': 'actor-threat-profiling.md',
-  'consequence-trees': 'consequence-trees.md',
-  'legislative-disruption': 'legislative-disruption.md',
-  'risk-matrix': 'risk-matrix.md',
-  'political-capital-risk': 'political-capital-risk.md',
-  'quantitative-swot': 'quantitative-swot.md',
-  'legislative-velocity-risk': 'legislative-velocity-risk.md',
-  'agent-risk-workflow': 'agent-risk-workflow.md',
-  'deep-analysis': 'deep-analysis.md',
-  'stakeholder-analysis': 'stakeholder-impact.md',
-  'coalition-analysis': 'coalition-dynamics.md',
-  'voting-patterns': 'voting-patterns.md',
-  'cross-session-intelligence': 'cross-session-intelligence.md',
-  'document-analysis': 'document-analysis-index.md',
-};
+export const ANALYSIS_METHOD_FILENAMES: Readonly<Record<AnalysisMethod, string>> =
+  Object.freeze({
+    'significance-classification': 'significance-scoring.md',
+    'impact-matrix': 'impact-matrix.md',
+    'actor-mapping': 'actor-mapping.md',
+    'forces-analysis': 'forces-analysis.md',
+    'political-threat-landscape': 'political-threat-landscape.md',
+    'actor-threat-profiling': 'actor-threat-profiling.md',
+    'consequence-trees': 'consequence-trees.md',
+    'legislative-disruption': 'legislative-disruption.md',
+    'risk-matrix': 'risk-matrix.md',
+    'political-capital-risk': 'political-capital-risk.md',
+    'quantitative-swot': 'quantitative-swot.md',
+    'legislative-velocity-risk': 'legislative-velocity-risk.md',
+    'agent-risk-workflow': 'agent-risk-workflow.md',
+    'deep-analysis': 'deep-analysis.md',
+    'stakeholder-analysis': 'stakeholder-impact.md',
+    'coalition-analysis': 'coalition-dynamics.md',
+    'voting-patterns': 'voting-patterns.md',
+    'cross-session-intelligence': 'cross-session-intelligence.md',
+    'document-analysis': 'document-analysis-index.md',
+  });
 
 // Local alias for internal usage.
 const METHOD_FILENAMES = ANALYSIS_METHOD_FILENAMES;

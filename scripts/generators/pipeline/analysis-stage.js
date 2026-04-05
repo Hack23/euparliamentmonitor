@@ -1670,7 +1670,7 @@ const SUBDIR_DOCUMENTS = 'documents';
  * Exported so that agentic workflows and downstream consumers can
  * construct paths that are guaranteed to match the pipeline output.
  */
-export const ANALYSIS_METHOD_SUBDIRS = {
+export const ANALYSIS_METHOD_SUBDIRS = Object.freeze({
     'significance-classification': SUBDIR_CLASSIFICATION,
     'impact-matrix': SUBDIR_CLASSIFICATION,
     'actor-mapping': SUBDIR_CLASSIFICATION,
@@ -1690,7 +1690,7 @@ export const ANALYSIS_METHOD_SUBDIRS = {
     'voting-patterns': SUBDIR_EXISTING,
     'cross-session-intelligence': SUBDIR_EXISTING,
     'document-analysis': SUBDIR_DOCUMENTS,
-};
+});
 // ─── MCP data persistence subdirectories ──────────────────────────────────────
 /** Subdirectory name for raw MCP data storage */
 const SUBDIR_DATA = 'data';
@@ -1907,7 +1907,7 @@ const METHOD_DEFAULT_CONFIDENCE = {
  * - The `document-analysis` method produces an index file
  *   (`document-analysis-index.md`) plus per-document files.
  */
-export const ANALYSIS_METHOD_FILENAMES = {
+export const ANALYSIS_METHOD_FILENAMES = Object.freeze({
     'significance-classification': 'significance-scoring.md',
     'impact-matrix': 'impact-matrix.md',
     'actor-mapping': 'actor-mapping.md',
@@ -1927,7 +1927,7 @@ export const ANALYSIS_METHOD_FILENAMES = {
     'voting-patterns': 'voting-patterns.md',
     'cross-session-intelligence': 'cross-session-intelligence.md',
     'document-analysis': 'document-analysis-index.md',
-};
+});
 // Local alias for internal usage.
 const METHOD_FILENAMES = ANALYSIS_METHOD_FILENAMES;
 // ─── Core runner ──────────────────────────────────────────────────────────────

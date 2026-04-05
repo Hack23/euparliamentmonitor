@@ -46,12 +46,12 @@ import {
   THREAT_FRAMEWORK_LABELS,
   CLASSIFICATION_GUIDE_LABELS,
   STYLE_GUIDE_LABELS,
-  SIGNIFICANCE_ASSESSMENT_LABELS,
+  SIGNIFICANCE_SCORING_LABELS,
   ACTOR_MAPPING_LABELS,
   FORCES_ANALYSIS_LABELS,
   IMPACT_MATRIX_LABELS,
   POLITICAL_THREAT_LANDSCAPE_LABELS,
-  ACTOR_THREAT_PROFILES_LABELS,
+  ACTOR_THREAT_PROFILING_LABELS,
   CONSEQUENCE_TREES_LABELS,
   LEGISLATIVE_DISRUPTION_LABELS,
   RISK_MATRIX_LABELS,
@@ -59,8 +59,8 @@ import {
   POLITICAL_CAPITAL_RISK_LABELS,
   LEGISLATIVE_VELOCITY_RISK_LABELS,
   AGENT_RISK_WORKFLOW_LABELS,
-  STAKEHOLDER_ANALYSIS_LABELS,
-  COALITION_ANALYSIS_LABELS,
+  STAKEHOLDER_IMPACT_LABELS,
+  COALITION_DYNAMICS_LABELS,
   VOTING_PATTERNS_LABELS,
   CROSS_SESSION_INTELLIGENCE_LABELS,
   getLocalizedString,
@@ -555,14 +555,14 @@ function renderAnalysisTransparencySection(
   const methodologyDir = `${repoBase}/analysis/methodologies`;
 
   // Per-file localized link labels
-  const significanceLabel = escapeHTML(getLocalizedString(SIGNIFICANCE_ASSESSMENT_LABELS, lang));
+  const significanceLabel = escapeHTML(getLocalizedString(SIGNIFICANCE_SCORING_LABELS, lang));
   const actorMappingLabel = escapeHTML(getLocalizedString(ACTOR_MAPPING_LABELS, lang));
   const forcesLabel = escapeHTML(getLocalizedString(FORCES_ANALYSIS_LABELS, lang));
   const impactMatrixLabel = escapeHTML(getLocalizedString(IMPACT_MATRIX_LABELS, lang));
   const threatLandscapeLabel = escapeHTML(
     getLocalizedString(POLITICAL_THREAT_LANDSCAPE_LABELS, lang)
   );
-  const threatProfilesLabel = escapeHTML(getLocalizedString(ACTOR_THREAT_PROFILES_LABELS, lang));
+  const threatProfilesLabel = escapeHTML(getLocalizedString(ACTOR_THREAT_PROFILING_LABELS, lang));
   const consequenceLabel = escapeHTML(getLocalizedString(CONSEQUENCE_TREES_LABELS, lang));
   const disruptionLabel = escapeHTML(getLocalizedString(LEGISLATIVE_DISRUPTION_LABELS, lang));
   const riskMatrixLabel = escapeHTML(getLocalizedString(RISK_MATRIX_LABELS, lang));
@@ -571,8 +571,8 @@ function renderAnalysisTransparencySection(
   const legVelocityLabel = escapeHTML(getLocalizedString(LEGISLATIVE_VELOCITY_RISK_LABELS, lang));
   const agentRiskLabel = escapeHTML(getLocalizedString(AGENT_RISK_WORKFLOW_LABELS, lang));
   const deepAnalysisFileLabel = escapeHTML(getLocalizedString(DEEP_ANALYSIS_LABELS, lang));
-  const stakeholderLabel = escapeHTML(getLocalizedString(STAKEHOLDER_ANALYSIS_LABELS, lang));
-  const coalitionLabel = escapeHTML(getLocalizedString(COALITION_ANALYSIS_LABELS, lang));
+  const stakeholderLabel = escapeHTML(getLocalizedString(STAKEHOLDER_IMPACT_LABELS, lang));
+  const coalitionLabel = escapeHTML(getLocalizedString(COALITION_DYNAMICS_LABELS, lang));
   const votingPatternsLabel = escapeHTML(getLocalizedString(VOTING_PATTERNS_LABELS, lang));
   const crossSessionLabel = escapeHTML(getLocalizedString(CROSS_SESSION_INTELLIGENCE_LABELS, lang));
 

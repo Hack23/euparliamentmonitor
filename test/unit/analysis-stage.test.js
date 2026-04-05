@@ -169,12 +169,14 @@ describe('ANALYSIS_METHOD_SUBDIRS', () => {
 
   it('uses only the known subdirectory values', () => {
     const validSubdirs = new Set(Object.values(ANALYSIS_METHOD_SUBDIRS));
-    // Verify the expected set of subdirectories
-    expect(validSubdirs).toContain('classification');
-    expect(validSubdirs).toContain('threat-assessment');
-    expect(validSubdirs).toContain('risk-scoring');
-    expect(validSubdirs).toContain('existing');
-    expect(validSubdirs).toContain('documents');
+    const expectedSubdirs = new Set([
+      'classification',
+      'threat-assessment',
+      'risk-scoring',
+      'existing',
+      'documents',
+    ]);
+    expect(validSubdirs).toEqual(expectedSubdirs);
   });
 
   it('classification methods map to classification/', () => {
