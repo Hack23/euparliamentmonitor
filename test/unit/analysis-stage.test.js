@@ -24,6 +24,8 @@ import {
   runAnalysisStage,
   ALL_ANALYSIS_METHODS,
   VALID_ANALYSIS_METHODS,
+  ANALYSIS_METHOD_FILENAMES,
+  ANALYSIS_METHOD_SUBDIRS,
   hasSubstantiveData,
   deriveArticleTypeSlug,
 } from '../../scripts/generators/pipeline/analysis-stage.js';
@@ -122,6 +124,80 @@ describe('VALID_ANALYSIS_METHODS', () => {
   it('has no duplicate entries', () => {
     const unique = new Set(VALID_ANALYSIS_METHODS);
     expect(unique.size).toBe(VALID_ANALYSIS_METHODS.length);
+  });
+});
+
+// ─── ANALYSIS_METHOD_FILENAMES tests ──────────────────────────────────────────
+
+describe('ANALYSIS_METHOD_FILENAMES', () => {
+  it('has an entry for every valid analysis method', () => {
+    for (const method of VALID_ANALYSIS_METHODS) {
+      expect(ANALYSIS_METHOD_FILENAMES[method]).toBeDefined();
+      expect(ANALYSIS_METHOD_FILENAMES[method]).toMatch(/\.md$/);
+    }
+  });
+
+  it('uses canonical names aligned with analysis/templates/', () => {
+    expect(ANALYSIS_METHOD_FILENAMES['significance-classification']).toBe('significance-scoring.md');
+    expect(ANALYSIS_METHOD_FILENAMES['stakeholder-analysis']).toBe('stakeholder-impact.md');
+    expect(ANALYSIS_METHOD_FILENAMES['coalition-analysis']).toBe('coalition-dynamics.md');
+    expect(ANALYSIS_METHOD_FILENAMES['actor-threat-profiling']).toBe('actor-threat-profiling.md');
+  });
+
+  it('does not contain ai- prefix in any filename', () => {
+    for (const filename of Object.values(ANALYSIS_METHOD_FILENAMES)) {
+      expect(filename).not.toMatch(/^ai-/);
+    }
+  });
+
+  it('all filenames are lowercase kebab-case with .md extension', () => {
+    for (const filename of Object.values(ANALYSIS_METHOD_FILENAMES)) {
+      expect(filename).toMatch(/^[a-z][a-z0-9-]*\.md$/);
+    }
+  });
+});
+
+// ─── ANALYSIS_METHOD_SUBDIRS tests ────────────────────────────────────────────
+
+describe('ANALYSIS_METHOD_SUBDIRS', () => {
+  it('has an entry for every valid analysis method', () => {
+    for (const method of VALID_ANALYSIS_METHODS) {
+      expect(ANALYSIS_METHOD_SUBDIRS[method]).toBeDefined();
+      expect(typeof ANALYSIS_METHOD_SUBDIRS[method]).toBe('string');
+    }
+  });
+
+  it('uses only the known subdirectory values', () => {
+    const validSubdirs = new Set(['classification', 'threat-assessment', 'risk-scoring', 'existing', 'documents']);
+    for (const subdir of Object.values(ANALYSIS_METHOD_SUBDIRS)) {
+      expect(validSubdirs.has(subdir)).toBe(true);
+    }
+  });
+
+  it('classification methods map to classification/', () => {
+    expect(ANALYSIS_METHOD_SUBDIRS['significance-classification']).toBe('classification');
+    expect(ANALYSIS_METHOD_SUBDIRS['impact-matrix']).toBe('classification');
+    expect(ANALYSIS_METHOD_SUBDIRS['actor-mapping']).toBe('classification');
+    expect(ANALYSIS_METHOD_SUBDIRS['forces-analysis']).toBe('classification');
+  });
+
+  it('threat methods map to threat-assessment/', () => {
+    expect(ANALYSIS_METHOD_SUBDIRS['political-threat-landscape']).toBe('threat-assessment');
+    expect(ANALYSIS_METHOD_SUBDIRS['actor-threat-profiling']).toBe('threat-assessment');
+    expect(ANALYSIS_METHOD_SUBDIRS['consequence-trees']).toBe('threat-assessment');
+    expect(ANALYSIS_METHOD_SUBDIRS['legislative-disruption']).toBe('threat-assessment');
+  });
+
+  it('risk methods map to risk-scoring/', () => {
+    expect(ANALYSIS_METHOD_SUBDIRS['risk-matrix']).toBe('risk-scoring');
+    expect(ANALYSIS_METHOD_SUBDIRS['political-capital-risk']).toBe('risk-scoring');
+    expect(ANALYSIS_METHOD_SUBDIRS['quantitative-swot']).toBe('risk-scoring');
+    expect(ANALYSIS_METHOD_SUBDIRS['legislative-velocity-risk']).toBe('risk-scoring');
+    expect(ANALYSIS_METHOD_SUBDIRS['agent-risk-workflow']).toBe('risk-scoring');
+  });
+
+  it('document-analysis maps to documents/', () => {
+    expect(ANALYSIS_METHOD_SUBDIRS['document-analysis']).toBe('documents');
   });
 });
 
@@ -293,7 +369,7 @@ describe('runAnalysisStage', () => {
       enabledMethods: ['significance-classification', 'impact-matrix'],
     });
 
-    expect(fs.existsSync(path.join(tmpDir, testDate, 'classification', 'significance-assessment.md'))).toBe(true);
+    expect(fs.existsSync(path.join(tmpDir, testDate, 'classification', 'significance-scoring.md'))).toBe(true);
     expect(fs.existsSync(path.join(tmpDir, testDate, 'classification', 'impact-matrix.md'))).toBe(true);
   });
 
@@ -567,7 +643,7 @@ describe('runAnalysisStage', () => {
       });
 
       const content = fs.readFileSync(
-        path.join(tmpDir, testDate, 'classification', 'significance-assessment.md'),
+        path.join(tmpDir, testDate, 'classification', 'significance-scoring.md'),
         'utf-8'
       );
       expect(content).toMatch(/^---\n/);
@@ -601,7 +677,7 @@ describe('runAnalysisStage', () => {
       });
 
       const content = fs.readFileSync(
-        path.join(tmpDir, testDate, 'existing', 'stakeholder-analysis.md'),
+        path.join(tmpDir, testDate, 'existing', 'stakeholder-impact.md'),
         'utf-8'
       );
       expect(content).toContain('# Stakeholder Impact Analysis');
@@ -617,7 +693,7 @@ describe('runAnalysisStage', () => {
       });
 
       const content = fs.readFileSync(
-        path.join(tmpDir, testDate, 'existing', 'coalition-analysis.md'),
+        path.join(tmpDir, testDate, 'existing', 'coalition-dynamics.md'),
         'utf-8'
       );
       expect(content).toContain('# Coalition Cohesion Analysis');
@@ -709,7 +785,7 @@ describe('runAnalysisStage', () => {
         enabledMethods: ['significance-classification'],
       });
       const content = fs.readFileSync(
-        path.join(tmpDir, testDate, 'classification', 'significance-assessment.md'),
+        path.join(tmpDir, testDate, 'classification', 'significance-scoring.md'),
         'utf-8'
       );
       expect(content).toContain('Political Significance Classification');
@@ -803,7 +879,7 @@ describe('runAnalysisStage', () => {
         enabledMethods: ['actor-threat-profiling'],
       });
       const content = fs.readFileSync(
-        path.join(tmpDir, testDate, 'threat-assessment', 'actor-threat-profiles.md'),
+        path.join(tmpDir, testDate, 'threat-assessment', 'actor-threat-profiling.md'),
         'utf-8'
       );
       expect(content).toContain('Actor Threat Profiles');
@@ -1340,10 +1416,12 @@ describe('runAnalysisStage', () => {
     });
 
     it('includes skipped method confidence in aggregation', async () => {
-      // Pre-create output files for all methods
+      // Pre-create output files using canonical filenames
       const methods = ['deep-analysis', 'stakeholder-analysis'];
       for (const m of methods) {
-        const outputPath = path.join(tmpDir, testDate, 'existing', `${m}.md`);
+        const filename = ANALYSIS_METHOD_FILENAMES[m];
+        const subdir = ANALYSIS_METHOD_SUBDIRS[m];
+        const outputPath = path.join(tmpDir, testDate, subdir, filename);
         fs.mkdirSync(path.dirname(outputPath), { recursive: true });
         fs.writeFileSync(outputPath, '# existing', 'utf-8');
       }

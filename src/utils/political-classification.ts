@@ -1002,7 +1002,7 @@ export function serializeFrontmatter(fm: AnalysisFrontmatter): string {
  *
  * @example
  * ```ts
- * writeAnalysisFile('./analysis/2026-03-26/classification/significance-assessment.md', fm, body);
+ * writeAnalysisFile('./analysis/2026-03-26/classification/significance-scoring.md', fm, body);
  * ```
  */
 export function writeAnalysisFile(

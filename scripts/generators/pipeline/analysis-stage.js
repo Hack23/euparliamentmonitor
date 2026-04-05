@@ -1664,6 +1664,33 @@ const SUBDIR_RISK_SCORING = 'risk-scoring';
 const SUBDIR_EXISTING = 'existing';
 /** Subdirectory name for per-document analysis methods */
 const SUBDIR_DOCUMENTS = 'documents';
+/**
+ * Canonical subdirectory for each analysis method group.
+ *
+ * Exported so that agentic workflows and downstream consumers can
+ * construct paths that are guaranteed to match the pipeline output.
+ */
+export const ANALYSIS_METHOD_SUBDIRS = {
+    'significance-classification': SUBDIR_CLASSIFICATION,
+    'impact-matrix': SUBDIR_CLASSIFICATION,
+    'actor-mapping': SUBDIR_CLASSIFICATION,
+    'forces-analysis': SUBDIR_CLASSIFICATION,
+    'political-threat-landscape': SUBDIR_THREAT_ASSESSMENT,
+    'actor-threat-profiling': SUBDIR_THREAT_ASSESSMENT,
+    'consequence-trees': SUBDIR_THREAT_ASSESSMENT,
+    'legislative-disruption': SUBDIR_THREAT_ASSESSMENT,
+    'risk-matrix': SUBDIR_RISK_SCORING,
+    'political-capital-risk': SUBDIR_RISK_SCORING,
+    'quantitative-swot': SUBDIR_RISK_SCORING,
+    'legislative-velocity-risk': SUBDIR_RISK_SCORING,
+    'agent-risk-workflow': SUBDIR_RISK_SCORING,
+    'deep-analysis': SUBDIR_EXISTING,
+    'stakeholder-analysis': SUBDIR_EXISTING,
+    'coalition-analysis': SUBDIR_EXISTING,
+    'voting-patterns': SUBDIR_EXISTING,
+    'cross-session-intelligence': SUBDIR_EXISTING,
+    'document-analysis': SUBDIR_DOCUMENTS,
+};
 // ─── MCP data persistence subdirectories ──────────────────────────────────────
 /** Subdirectory name for raw MCP data storage */
 const SUBDIR_DATA = 'data';
@@ -1839,28 +1866,9 @@ function persistMCPData(fetchedData, dateOutputDir, verbose) {
 }
 /** Analysis method identifier for per-document intelligence analysis */
 const METHOD_DOCUMENT_ANALYSIS = 'document-analysis';
-/** Subdirectory for each analysis method group */
-const METHOD_SUBDIRS = {
-    'significance-classification': SUBDIR_CLASSIFICATION,
-    'impact-matrix': SUBDIR_CLASSIFICATION,
-    'actor-mapping': SUBDIR_CLASSIFICATION,
-    'forces-analysis': SUBDIR_CLASSIFICATION,
-    'political-threat-landscape': SUBDIR_THREAT_ASSESSMENT,
-    'actor-threat-profiling': SUBDIR_THREAT_ASSESSMENT,
-    'consequence-trees': SUBDIR_THREAT_ASSESSMENT,
-    'legislative-disruption': SUBDIR_THREAT_ASSESSMENT,
-    'risk-matrix': SUBDIR_RISK_SCORING,
-    'political-capital-risk': SUBDIR_RISK_SCORING,
-    'quantitative-swot': SUBDIR_RISK_SCORING,
-    'legislative-velocity-risk': SUBDIR_RISK_SCORING,
-    'agent-risk-workflow': SUBDIR_RISK_SCORING,
-    'deep-analysis': SUBDIR_EXISTING,
-    'stakeholder-analysis': SUBDIR_EXISTING,
-    'coalition-analysis': SUBDIR_EXISTING,
-    'voting-patterns': SUBDIR_EXISTING,
-    'cross-session-intelligence': SUBDIR_EXISTING,
-    'document-analysis': SUBDIR_DOCUMENTS,
-};
+// METHOD_SUBDIRS is now the exported ANALYSIS_METHOD_SUBDIRS (above).
+// Local alias for backward-compatible internal usage.
+const METHOD_SUBDIRS = ANALYSIS_METHOD_SUBDIRS;
 /** Default confidence level for each analysis method group */
 const METHOD_DEFAULT_CONFIDENCE = {
     'significance-classification': 'medium',
@@ -1883,14 +1891,29 @@ const METHOD_DEFAULT_CONFIDENCE = {
     'cross-session-intelligence': 'high',
     'document-analysis': 'medium',
 };
-/** Filename for each analysis method */
-const METHOD_FILENAMES = {
-    'significance-classification': 'significance-assessment.md',
+/**
+ * Canonical filename for each analysis method.
+ *
+ * Exported so that agentic workflows and downstream consumers can
+ * reference the exact file names the pipeline produces, ensuring
+ * cross-session intelligence correlation is reliable.
+ *
+ * Naming conventions:
+ * - Filenames align with template names in `analysis/templates/` where a
+ *   matching template exists (e.g. `significance-scoring.md`,
+ *   `stakeholder-impact.md`).
+ * - Method-specific files use the method name directly (e.g.
+ *   `actor-mapping.md`, `forces-analysis.md`).
+ * - The `document-analysis` method produces an index file
+ *   (`document-analysis-index.md`) plus per-document files.
+ */
+export const ANALYSIS_METHOD_FILENAMES = {
+    'significance-classification': 'significance-scoring.md',
     'impact-matrix': 'impact-matrix.md',
     'actor-mapping': 'actor-mapping.md',
     'forces-analysis': 'forces-analysis.md',
     'political-threat-landscape': 'political-threat-landscape.md',
-    'actor-threat-profiling': 'actor-threat-profiles.md',
+    'actor-threat-profiling': 'actor-threat-profiling.md',
     'consequence-trees': 'consequence-trees.md',
     'legislative-disruption': 'legislative-disruption.md',
     'risk-matrix': 'risk-matrix.md',
@@ -1899,12 +1922,14 @@ const METHOD_FILENAMES = {
     'legislative-velocity-risk': 'legislative-velocity-risk.md',
     'agent-risk-workflow': 'agent-risk-workflow.md',
     'deep-analysis': 'deep-analysis.md',
-    'stakeholder-analysis': 'stakeholder-analysis.md',
-    'coalition-analysis': 'coalition-analysis.md',
+    'stakeholder-analysis': 'stakeholder-impact.md',
+    'coalition-analysis': 'coalition-dynamics.md',
     'voting-patterns': 'voting-patterns.md',
     'cross-session-intelligence': 'cross-session-intelligence.md',
     'document-analysis': 'document-analysis-index.md',
 };
+// Local alias for internal usage.
+const METHOD_FILENAMES = ANALYSIS_METHOD_FILENAMES;
 // ─── Core runner ──────────────────────────────────────────────────────────────
 /**
  * Run a single analysis method and return its status record.

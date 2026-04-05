@@ -449,7 +449,7 @@ function renderAnalysisTransparencySection(date, slug, lang, analysisDir) {
         </ul>
         <h3><span aria-hidden="true">🏷️</span> ${classificationLabel}</h3>
         <ul>
-          <li><a href="${analysisFileBase}/classification/significance-assessment.md" target="_blank" rel="noopener noreferrer">${significanceLabel}</a></li>
+          <li><a href="${analysisFileBase}/classification/significance-scoring.md" target="_blank" rel="noopener noreferrer">${significanceLabel}</a></li>
           <li><a href="${analysisFileBase}/classification/actor-mapping.md" target="_blank" rel="noopener noreferrer">${actorMappingLabel}</a></li>
           <li><a href="${analysisFileBase}/classification/forces-analysis.md" target="_blank" rel="noopener noreferrer">${forcesLabel}</a></li>
           <li><a href="${analysisFileBase}/classification/impact-matrix.md" target="_blank" rel="noopener noreferrer">${impactMatrixLabel}</a></li>
@@ -457,7 +457,7 @@ function renderAnalysisTransparencySection(date, slug, lang, analysisDir) {
         <h3><span aria-hidden="true">🛡️</span> ${threatLabel}</h3>
         <ul>
           <li><a href="${analysisFileBase}/threat-assessment/political-threat-landscape.md" target="_blank" rel="noopener noreferrer">${threatLandscapeLabel}</a></li>
-          <li><a href="${analysisFileBase}/threat-assessment/actor-threat-profiles.md" target="_blank" rel="noopener noreferrer">${threatProfilesLabel}</a></li>
+          <li><a href="${analysisFileBase}/threat-assessment/actor-threat-profiling.md" target="_blank" rel="noopener noreferrer">${threatProfilesLabel}</a></li>
           <li><a href="${analysisFileBase}/threat-assessment/consequence-trees.md" target="_blank" rel="noopener noreferrer">${consequenceLabel}</a></li>
           <li><a href="${analysisFileBase}/threat-assessment/legislative-disruption.md" target="_blank" rel="noopener noreferrer">${disruptionLabel}</a></li>
         </ul>
@@ -472,8 +472,8 @@ function renderAnalysisTransparencySection(date, slug, lang, analysisDir) {
         <h3><span aria-hidden="true">🔍</span> ${deepLabel}</h3>
         <ul>
           <li><a href="${analysisFileBase}/existing/deep-analysis.md" target="_blank" rel="noopener noreferrer">${deepAnalysisFileLabel}</a></li>
-          <li><a href="${analysisFileBase}/existing/stakeholder-analysis.md" target="_blank" rel="noopener noreferrer">${stakeholderLabel}</a></li>
-          <li><a href="${analysisFileBase}/existing/coalition-analysis.md" target="_blank" rel="noopener noreferrer">${coalitionLabel}</a></li>
+          <li><a href="${analysisFileBase}/existing/stakeholder-impact.md" target="_blank" rel="noopener noreferrer">${stakeholderLabel}</a></li>
+          <li><a href="${analysisFileBase}/existing/coalition-dynamics.md" target="_blank" rel="noopener noreferrer">${coalitionLabel}</a></li>
           <li><a href="${analysisFileBase}/existing/voting-patterns.md" target="_blank" rel="noopener noreferrer">${votingPatternsLabel}</a></li>
           <li><a href="${analysisFileBase}/existing/cross-session-intelligence.md" target="_blank" rel="noopener noreferrer">${crossSessionLabel}</a></li>
         </ul>
