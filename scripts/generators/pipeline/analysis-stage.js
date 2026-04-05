@@ -444,17 +444,12 @@ function checkSkipCompleted(method, dateOutputDir, subdir, filename, absolutePat
                 : `Skipped — output already exists at ${relativeOutputFile}`,
         };
     }
-    // Migration failed but legacy file still exists — skip with legacy path
-    if (verbose)
-        console.log(`  ⏭️  [analysis] Skipping ${method} — legacy output found: ${legacyHit}`);
-    return {
-        method,
-        status: 'skipped',
-        outputFile: path.posix.join(subdir, legacyHit),
-        confidence,
-        duration: 0,
-        summary: `Skipped — legacy output ${legacyHit} already exists`,
-    };
+    // Migration failed and the canonical file is still missing — do not skip.
+    // Allow the analysis method to execute so it can write the canonical output.
+    if (verbose) {
+        console.log(`  ↻ [analysis] Legacy output found for ${method} but migration failed: ${legacyHit}. Regenerating canonical output ${relativeOutputFile}`);
+    }
+    return undefined;
 }
 // ─── Mermaid chart helpers ────────────────────────────────────────────────────
 /**
