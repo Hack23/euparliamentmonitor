@@ -24,6 +24,8 @@ import {
   runAnalysisStage,
   ALL_ANALYSIS_METHODS,
   VALID_ANALYSIS_METHODS,
+  ANALYSIS_METHOD_FILENAMES,
+  ANALYSIS_METHOD_SUBDIRS,
   hasSubstantiveData,
   deriveArticleTypeSlug,
 } from '../../scripts/generators/pipeline/analysis-stage.js';
@@ -125,6 +127,87 @@ describe('VALID_ANALYSIS_METHODS', () => {
   });
 });
 
+// ─── ANALYSIS_METHOD_FILENAMES tests ──────────────────────────────────────────
+
+describe('ANALYSIS_METHOD_FILENAMES', () => {
+  it('has an entry for every valid analysis method', () => {
+    for (const method of VALID_ANALYSIS_METHODS) {
+      expect(ANALYSIS_METHOD_FILENAMES[method]).toBeDefined();
+      expect(ANALYSIS_METHOD_FILENAMES[method]).toMatch(/\.md$/);
+    }
+  });
+
+  it('uses canonical normalized filenames for renamed methods', () => {
+    expect(ANALYSIS_METHOD_FILENAMES['significance-classification']).toBe(
+      'significance-classification.md'
+    );
+    expect(ANALYSIS_METHOD_FILENAMES['stakeholder-analysis']).toBe('stakeholder-impact.md');
+    expect(ANALYSIS_METHOD_FILENAMES['coalition-analysis']).toBe('coalition-dynamics.md');
+    expect(ANALYSIS_METHOD_FILENAMES['actor-threat-profiling']).toBe('actor-threat-profiling.md');
+  });
+
+  it('does not contain ai- prefix in any filename', () => {
+    for (const filename of Object.values(ANALYSIS_METHOD_FILENAMES)) {
+      expect(filename).not.toMatch(/^ai-/);
+    }
+  });
+
+  it('all filenames are lowercase kebab-case with .md extension', () => {
+    for (const filename of Object.values(ANALYSIS_METHOD_FILENAMES)) {
+      expect(filename).toMatch(/^[a-z][a-z0-9-]*\.md$/);
+    }
+  });
+});
+
+// ─── ANALYSIS_METHOD_SUBDIRS tests ────────────────────────────────────────────
+
+describe('ANALYSIS_METHOD_SUBDIRS', () => {
+  it('has an entry for every valid analysis method', () => {
+    for (const method of VALID_ANALYSIS_METHODS) {
+      expect(ANALYSIS_METHOD_SUBDIRS[method]).toBeDefined();
+      expect(typeof ANALYSIS_METHOD_SUBDIRS[method]).toBe('string');
+    }
+  });
+
+  it('uses only the known subdirectory values', () => {
+    const validSubdirs = new Set(Object.values(ANALYSIS_METHOD_SUBDIRS));
+    const expectedSubdirs = new Set([
+      'classification',
+      'threat-assessment',
+      'risk-scoring',
+      'existing',
+      'documents',
+    ]);
+    expect([...validSubdirs].sort()).toEqual([...expectedSubdirs].sort());
+  });
+
+  it('classification methods map to classification/', () => {
+    expect(ANALYSIS_METHOD_SUBDIRS['significance-classification']).toBe('classification');
+    expect(ANALYSIS_METHOD_SUBDIRS['impact-matrix']).toBe('classification');
+    expect(ANALYSIS_METHOD_SUBDIRS['actor-mapping']).toBe('classification');
+    expect(ANALYSIS_METHOD_SUBDIRS['forces-analysis']).toBe('classification');
+  });
+
+  it('threat methods map to threat-assessment/', () => {
+    expect(ANALYSIS_METHOD_SUBDIRS['political-threat-landscape']).toBe('threat-assessment');
+    expect(ANALYSIS_METHOD_SUBDIRS['actor-threat-profiling']).toBe('threat-assessment');
+    expect(ANALYSIS_METHOD_SUBDIRS['consequence-trees']).toBe('threat-assessment');
+    expect(ANALYSIS_METHOD_SUBDIRS['legislative-disruption']).toBe('threat-assessment');
+  });
+
+  it('risk methods map to risk-scoring/', () => {
+    expect(ANALYSIS_METHOD_SUBDIRS['risk-matrix']).toBe('risk-scoring');
+    expect(ANALYSIS_METHOD_SUBDIRS['political-capital-risk']).toBe('risk-scoring');
+    expect(ANALYSIS_METHOD_SUBDIRS['quantitative-swot']).toBe('risk-scoring');
+    expect(ANALYSIS_METHOD_SUBDIRS['legislative-velocity-risk']).toBe('risk-scoring');
+    expect(ANALYSIS_METHOD_SUBDIRS['agent-risk-workflow']).toBe('risk-scoring');
+  });
+
+  it('document-analysis maps to documents/', () => {
+    expect(ANALYSIS_METHOD_SUBDIRS['document-analysis']).toBe('documents');
+  });
+});
+
 // ─── deriveArticleTypeSlug tests ──────────────────────────────────────────────
 
 describe('deriveArticleTypeSlug', () => {
@@ -150,8 +233,14 @@ describe('deriveArticleTypeSlug', () => {
 
   it('handles all known article types without error', () => {
     const types = [
-      'week-ahead', 'month-ahead', 'breaking', 'committee-reports',
-      'propositions', 'motions', 'week-in-review', 'month-in-review',
+      'week-ahead',
+      'month-ahead',
+      'breaking',
+      'committee-reports',
+      'propositions',
+      'motions',
+      'week-in-review',
+      'month-in-review',
     ];
     for (const t of types) {
       expect(deriveArticleTypeSlug([t])).toBe(t);
@@ -293,8 +382,12 @@ describe('runAnalysisStage', () => {
       enabledMethods: ['significance-classification', 'impact-matrix'],
     });
 
-    expect(fs.existsSync(path.join(tmpDir, testDate, 'classification', 'significance-assessment.md'))).toBe(true);
-    expect(fs.existsSync(path.join(tmpDir, testDate, 'classification', 'impact-matrix.md'))).toBe(true);
+    expect(
+      fs.existsSync(path.join(tmpDir, testDate, 'classification', 'significance-classification.md'))
+    ).toBe(true);
+    expect(fs.existsSync(path.join(tmpDir, testDate, 'classification', 'impact-matrix.md'))).toBe(
+      true
+    );
   });
 
   it('writes threat assessment methods to threat-assessment/ subdirectory', async () => {
@@ -305,7 +398,11 @@ describe('runAnalysisStage', () => {
       enabledMethods: ['political-threat-landscape'],
     });
 
-    expect(fs.existsSync(path.join(tmpDir, testDate, 'threat-assessment', 'political-threat-landscape.md'))).toBe(true);
+    expect(
+      fs.existsSync(
+        path.join(tmpDir, testDate, 'threat-assessment', 'political-threat-landscape.md')
+      )
+    ).toBe(true);
   });
 
   it('writes risk scoring methods to risk-scoring/ subdirectory', async () => {
@@ -447,6 +544,87 @@ describe('runAnalysisStage', () => {
       // Skipped methods are still counted as "completed" (done previously)
       expect(ctx.completedMethods).toContain('deep-analysis');
     });
+
+    it('recognises legacy filenames, migrates to canonical, and skips re-generation', async () => {
+      // Write a legacy-named output (pre-rename) for stakeholder-analysis
+      const legacyPath = path.join(tmpDir, testDate, 'existing', 'stakeholder-analysis.md');
+      fs.mkdirSync(path.dirname(legacyPath), { recursive: true });
+      fs.writeFileSync(legacyPath, '# legacy stakeholder output', 'utf-8');
+
+      const canonicalFilename = ANALYSIS_METHOD_FILENAMES['stakeholder-analysis'];
+      const canonicalPath = path.join(tmpDir, testDate, 'existing', canonicalFilename);
+
+      const ctx = await runAnalysisStage(buildTestFetchedData(), {
+        articleTypes: ['week-ahead'],
+        date: testDate,
+        outputDir: tmpDir,
+        enabledMethods: ['stakeholder-analysis'],
+        skipCompleted: true,
+      });
+
+      const result = ctx.results.get('stakeholder-analysis');
+      expect(result?.status).toBe('skipped');
+      // Legacy file should have been migrated to canonical path
+      expect(fs.existsSync(canonicalPath)).toBe(true);
+      expect(fs.readFileSync(canonicalPath, 'utf-8')).toBe('# legacy stakeholder output');
+      // Legacy file should no longer exist (migrated, not duplicated)
+      expect(fs.existsSync(legacyPath)).toBe(false);
+      // Manifest entry should reference canonical filename
+      expect(result?.outputFile).toBe(`existing/${canonicalFilename}`);
+    });
+
+    // Table-driven tests for all legacy filename variants
+    const legacyCases = [
+      {
+        method: 'significance-classification',
+        subdir: 'classification',
+        legacyFile: 'significance-assessment.md',
+      },
+      {
+        method: 'significance-classification',
+        subdir: 'classification',
+        legacyFile: 'significance-scoring.md',
+      },
+      {
+        method: 'coalition-analysis',
+        subdir: 'existing',
+        legacyFile: 'coalition-analysis.md',
+      },
+      {
+        method: 'actor-threat-profiling',
+        subdir: 'threat-assessment',
+        legacyFile: 'actor-threat-profiles.md',
+      },
+    ];
+
+    for (const { method, subdir, legacyFile } of legacyCases) {
+      it(`migrates legacy filename "${legacyFile}" to canonical for ${method}`, async () => {
+        const legacyPath = path.join(tmpDir, testDate, subdir, legacyFile);
+        fs.mkdirSync(path.dirname(legacyPath), { recursive: true });
+        fs.writeFileSync(legacyPath, `# legacy ${method} output`, 'utf-8');
+
+        const canonicalFilename = ANALYSIS_METHOD_FILENAMES[method];
+        const canonicalPath = path.join(tmpDir, testDate, subdir, canonicalFilename);
+
+        const ctx = await runAnalysisStage(buildTestFetchedData(), {
+          articleTypes: ['week-ahead'],
+          date: testDate,
+          outputDir: tmpDir,
+          enabledMethods: [method],
+          skipCompleted: true,
+        });
+
+        const result = ctx.results.get(method);
+        expect(result?.status).toBe('skipped');
+        // Legacy file should have been migrated to canonical path
+        expect(fs.existsSync(canonicalPath)).toBe(true);
+        expect(fs.readFileSync(canonicalPath, 'utf-8')).toBe(`# legacy ${method} output`);
+        // Legacy file should no longer exist (migrated, not duplicated)
+        expect(fs.existsSync(legacyPath)).toBe(false);
+        // Manifest entry should reference canonical filename
+        expect(result?.outputFile).toBe(`${subdir}/${canonicalFilename}`);
+      });
+    }
   });
 
   // ─── Error isolation tests ────────────────────────────────────────────────────
@@ -567,7 +745,7 @@ describe('runAnalysisStage', () => {
       });
 
       const content = fs.readFileSync(
-        path.join(tmpDir, testDate, 'classification', 'significance-assessment.md'),
+        path.join(tmpDir, testDate, 'classification', 'significance-classification.md'),
         'utf-8'
       );
       expect(content).toMatch(/^---\n/);
@@ -601,7 +779,7 @@ describe('runAnalysisStage', () => {
       });
 
       const content = fs.readFileSync(
-        path.join(tmpDir, testDate, 'existing', 'stakeholder-analysis.md'),
+        path.join(tmpDir, testDate, 'existing', 'stakeholder-impact.md'),
         'utf-8'
       );
       expect(content).toContain('# Stakeholder Impact Analysis');
@@ -617,7 +795,7 @@ describe('runAnalysisStage', () => {
       });
 
       const content = fs.readFileSync(
-        path.join(tmpDir, testDate, 'existing', 'coalition-analysis.md'),
+        path.join(tmpDir, testDate, 'existing', 'coalition-dynamics.md'),
         'utf-8'
       );
       expect(content).toContain('# Coalition Cohesion Analysis');
@@ -662,29 +840,36 @@ describe('runAnalysisStage', () => {
   describe('builder output with populated data', () => {
     /** Minimal vote record that lets classification functions score > 0 */
     const sampleVotingRecords = [
-      { title: 'Resolution on AI Act', date: '2026-03-20', result: 'adopted', votes: { for: 350, against: 200, abstain: 30 } },
-      { title: 'Directive on Green Deal', date: '2026-03-21', result: 'adopted', votes: { for: 400, against: 100, abstain: 20 } },
+      {
+        title: 'Resolution on AI Act',
+        date: '2026-03-20',
+        result: 'adopted',
+        votes: { for: 350, against: 200, abstain: 30 },
+      },
+      {
+        title: 'Directive on Green Deal',
+        date: '2026-03-21',
+        result: 'adopted',
+        votes: { for: 400, against: 100, abstain: 20 },
+      },
     ];
     const sampleProcedures = [
-      { procedureId: 'PROC-001', title: 'Digital Markets Act', stage: 'committee', daysInCurrentStage: 90 },
+      {
+        procedureId: 'PROC-001',
+        title: 'Digital Markets Act',
+        stage: 'committee',
+        daysInCurrentStage: 90,
+      },
       { procedureId: 'PROC-002', title: 'Climate Law', stage: 'plenary', daysInCurrentStage: 30 },
     ];
-    const sampleCoalitions = [
-      { groups: ['EPP', 'S&D'], cohesionScore: 0.55, riskLevel: 'high' },
-    ];
-    const sampleAnomalies = [
-      { severity: 'high', description: 'Unexpected voting pattern shift' },
-    ];
+    const sampleCoalitions = [{ groups: ['EPP', 'S&D'], cohesionScore: 0.55, riskLevel: 'high' }];
+    const sampleAnomalies = [{ severity: 'high', description: 'Unexpected voting pattern shift' }];
     const sampleEvents = [
       { title: 'Plenary session', date: '2026-03-26' },
       { title: 'Committee hearing', date: '2026-03-27' },
     ];
-    const sampleDocuments = [
-      { title: 'Legislative report', type: 'report' },
-    ];
-    const samplePatterns = [
-      { group: 'EPP', cohesion: 0.85, participation: 0.92 },
-    ];
+    const sampleDocuments = [{ title: 'Legislative report', type: 'report' }];
+    const samplePatterns = [{ group: 'EPP', cohesion: 0.85, participation: 0.92 }];
 
     function buildPopulatedFetchedData() {
       return {
@@ -709,7 +894,7 @@ describe('runAnalysisStage', () => {
         enabledMethods: ['significance-classification'],
       });
       const content = fs.readFileSync(
-        path.join(tmpDir, testDate, 'classification', 'significance-assessment.md'),
+        path.join(tmpDir, testDate, 'classification', 'significance-classification.md'),
         'utf-8'
       );
       expect(content).toContain('Political Significance Classification');
@@ -803,7 +988,7 @@ describe('runAnalysisStage', () => {
         enabledMethods: ['actor-threat-profiling'],
       });
       const content = fs.readFileSync(
-        path.join(tmpDir, testDate, 'threat-assessment', 'actor-threat-profiles.md'),
+        path.join(tmpDir, testDate, 'threat-assessment', 'actor-threat-profiling.md'),
         'utf-8'
       );
       expect(content).toContain('Actor Threat Profiles');
@@ -1020,9 +1205,7 @@ describe('runAnalysisStage', () => {
           { docId: 'DOC-001', title: 'Test Report A', type: 'report' },
           { docId: 'DOC-002', title: 'Test Report B', type: 'resolution' },
         ],
-        procedures: [
-          { procedureId: 'PROC-001', title: 'Digital Markets Act', stage: 'committee' },
-        ],
+        procedures: [{ procedureId: 'PROC-001', title: 'Digital Markets Act', stage: 'committee' }],
       };
 
       await runAnalysisStage(data, {
@@ -1036,16 +1219,16 @@ describe('runAnalysisStage', () => {
       expect(fs.existsSync(docsDir)).toBe(true);
 
       // Should have unique files for each document
-      const files = fs.readdirSync(docsDir).filter((f) => f.endsWith('-analysis.md') && f !== 'document-analysis-index.md');
+      const files = fs
+        .readdirSync(docsDir)
+        .filter((f) => f.endsWith('-analysis.md') && f !== 'document-analysis-index.md');
       expect(files.length).toBeGreaterThanOrEqual(3); // 2 documents + 1 procedure
     });
 
     it('generates unique filenames derived from document IDs', async () => {
       const data = {
         ...buildTestFetchedData(),
-        adoptedTexts: [
-          { docId: 'TA-10-2026-0094', title: 'Anti-Corruption Directive' },
-        ],
+        adoptedTexts: [{ docId: 'TA-10-2026-0094', title: 'Anti-Corruption Directive' }],
       };
 
       await runAnalysisStage(data, {
@@ -1086,9 +1269,7 @@ describe('runAnalysisStage', () => {
     it('per-document files contain SWOT and threat assessment', async () => {
       const data = {
         ...buildTestFetchedData(),
-        adoptedTexts: [
-          { docId: 'TA-TEST-001', title: 'Test Adopted Text' },
-        ],
+        adoptedTexts: [{ docId: 'TA-TEST-001', title: 'Test Adopted Text' }],
       };
 
       await runAnalysisStage(data, {
@@ -1113,7 +1294,12 @@ describe('runAnalysisStage', () => {
       const data = {
         ...buildTestFetchedData(),
         adoptedTexts: [
-          { docId: 'RAW-DOC-001', title: 'Raw Test Document', type: 'resolution', status: 'adopted' },
+          {
+            docId: 'RAW-DOC-001',
+            title: 'Raw Test Document',
+            type: 'resolution',
+            status: 'adopted',
+          },
         ],
       };
 
@@ -1147,9 +1333,7 @@ describe('runAnalysisStage', () => {
           { eventId: 'EVT-001', title: 'Plenary Session' },
           { eventId: 'EVT-002', title: 'Committee Hearing' },
         ],
-        procedures: [
-          { procedureId: 'PROC-001', title: 'Test Procedure' },
-        ],
+        procedures: [{ procedureId: 'PROC-001', title: 'Test Procedure' }],
       };
 
       await runAnalysisStage(data, {
@@ -1304,7 +1488,12 @@ describe('runAnalysisStage', () => {
         articleTypes: ['week-ahead'],
         date: testDate,
         outputDir: tmpDir,
-        enabledMethods: ['significance-classification', 'political-threat-landscape', 'risk-matrix', 'deep-analysis'],
+        enabledMethods: [
+          'significance-classification',
+          'political-threat-landscape',
+          'risk-matrix',
+          'deep-analysis',
+        ],
       });
 
       const manifest = readManifest(tmpDir, testDate);
@@ -1340,10 +1529,12 @@ describe('runAnalysisStage', () => {
     });
 
     it('includes skipped method confidence in aggregation', async () => {
-      // Pre-create output files for all methods
+      // Pre-create output files using canonical filenames
       const methods = ['deep-analysis', 'stakeholder-analysis'];
       for (const m of methods) {
-        const outputPath = path.join(tmpDir, testDate, 'existing', `${m}.md`);
+        const filename = ANALYSIS_METHOD_FILENAMES[m];
+        const subdir = ANALYSIS_METHOD_SUBDIRS[m];
+        const outputPath = path.join(tmpDir, testDate, subdir, filename);
         fs.mkdirSync(path.dirname(outputPath), { recursive: true });
         fs.writeFileSync(outputPath, '# existing', 'utf-8');
       }
@@ -1562,7 +1753,9 @@ describe('runAnalysisStage', () => {
     });
 
     it('does not throw when requireData=true and substantive data is present', async () => {
-      const dataWithEvents = buildTestFetchedData({ events: [{ id: 'ev-1', title: 'Test event' }] });
+      const dataWithEvents = buildTestFetchedData({
+        events: [{ id: 'ev-1', title: 'Test event' }],
+      });
       const ctx = await runAnalysisStage(dataWithEvents, {
         articleTypes: ['week-ahead'],
         date: testDate,
@@ -1766,8 +1959,8 @@ describe('runAnalysisStage', () => {
     it('persists MCP tool responses to data/mcp-responses/ subdirectory', async () => {
       const fetchedData = buildTestFetchedData({
         mcpResponses: {
-          'get_current_meps': { meps: [{ name: 'Test MEP' }] },
-          'get_plenary_sessions': { sessions: [] },
+          get_current_meps: { meps: [{ name: 'Test MEP' }] },
+          get_plenary_sessions: { sessions: [] },
         },
       });
       await runAnalysisStage(fetchedData, {

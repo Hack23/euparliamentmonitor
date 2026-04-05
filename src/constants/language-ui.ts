@@ -1345,22 +1345,22 @@ export const STYLE_GUIDE_LABELS: LanguageMap = {
 
 // ─── Per-file analysis link labels ────────────────────────────────────────────
 
-/** Localized "Significance Assessment" labels */
-export const SIGNIFICANCE_ASSESSMENT_LABELS: LanguageMap = {
-  en: 'Significance Assessment',
-  sv: 'Betydelsebedömning',
-  da: 'Betydningsvurdering',
-  no: 'Betydningsvurdering',
-  fi: 'Merkittävyysarviointi',
-  de: 'Bedeutsamkeitsbewertung',
-  fr: 'Évaluation de la signification',
-  es: 'Evaluación de significancia',
-  nl: 'Significantiebeoordeling',
-  ar: 'تقييم الأهمية',
-  he: 'הערכת חשיבות',
-  ja: '重要性評価',
-  ko: '중요도 평가',
-  zh: '重要性评估',
+/** Localized "Significance Classification" labels */
+export const SIGNIFICANCE_CLASSIFICATION_LABELS: LanguageMap = {
+  en: 'Significance Classification',
+  sv: 'Betydelseklassificering',
+  da: 'Betydningsklassificering',
+  no: 'Betydningsklassifisering',
+  fi: 'Merkittävyysluokittelu',
+  de: 'Bedeutsamkeitsklassifizierung',
+  fr: 'Classification de la signification',
+  es: 'Clasificación de significancia',
+  nl: 'Significantieclassificatie',
+  ar: 'تصنيف الأهمية',
+  he: 'סיווג חשיבות',
+  ja: '重要性分類',
+  ko: '중요도 분류',
+  zh: '重要性分类',
 };
 
 /** Localized "Actor Mapping" labels */
@@ -1435,22 +1435,22 @@ export const POLITICAL_THREAT_LANDSCAPE_LABELS: LanguageMap = {
   zh: '政治威胁态势',
 };
 
-/** Localized "Actor Threat Profiles" labels */
-export const ACTOR_THREAT_PROFILES_LABELS: LanguageMap = {
-  en: 'Actor Threat Profiles',
-  sv: 'Aktörshotprofiler',
-  da: 'Aktørtrusselsprofiler',
-  no: 'Aktørtrusselsprofiler',
-  fi: 'Toimijoiden uhkaprofiilit',
-  de: 'Akteurs-Bedrohungsprofile',
-  fr: 'Profils de menaces des acteurs',
-  es: 'Perfiles de amenazas de actores',
-  nl: 'Dreigingsprofielen van actoren',
-  ar: 'ملفات تهديد الفاعلين',
-  he: 'פרופילי איום שחקנים',
-  ja: 'アクター脅威プロファイル',
-  ko: '행위자 위협 프로필',
-  zh: '行动者威胁概况',
+/** Localized "Actor Threat Profiling" labels */
+export const ACTOR_THREAT_PROFILING_LABELS: LanguageMap = {
+  en: 'Actor Threat Profiling',
+  sv: 'Aktörshotprofilering',
+  da: 'Aktørtrusselprofilering',
+  no: 'Aktørtrusselprofilering',
+  fi: 'Toimijoiden uhkaprofilointi',
+  de: 'Akteurs-Bedrohungsprofilierung',
+  fr: 'Profilage des menaces des acteurs',
+  es: 'Perfilado de amenazas de actores',
+  nl: 'Dreigingsprofilering van actoren',
+  ar: 'تنميط تهديد الفاعلين',
+  he: 'פרופיילינג איום שחקנים',
+  ja: 'アクター脅威プロファイリング',
+  ko: '행위자 위협 프로파일링',
+  zh: '行动者威胁分析',
 };
 
 /** Localized "Consequence Trees" labels */
@@ -1582,40 +1582,40 @@ export const AGENT_RISK_WORKFLOW_LABELS: LanguageMap = {
   zh: '代理风险工作流',
 };
 
-/** Localized "Stakeholder Analysis" labels */
-export const STAKEHOLDER_ANALYSIS_LABELS: LanguageMap = {
-  en: 'Stakeholder Analysis',
-  sv: 'Intressentanalys',
-  da: 'Interessentanalyse',
-  no: 'Interessentanalyse',
-  fi: 'Sidosryhmäanalyysi',
-  de: 'Stakeholder-Analyse',
-  fr: 'Analyse des parties prenantes',
-  es: 'Análisis de partes interesadas',
-  nl: 'Stakeholderanalyse',
-  ar: 'تحليل أصحاب المصلحة',
-  he: 'ניתוח בעלי עניין',
-  ja: 'ステークホルダー分析',
-  ko: '이해관계자 분석',
-  zh: '利益相关者分析',
+/** Localized "Stakeholder Impact" labels */
+export const STAKEHOLDER_IMPACT_LABELS: LanguageMap = {
+  en: 'Stakeholder Impact',
+  sv: 'Intressentpåverkan',
+  da: 'Interessentpåvirkning',
+  no: 'Interessentpåvirkning',
+  fi: 'Sidosryhmävaikutus',
+  de: 'Stakeholder-Auswirkung',
+  fr: 'Impact sur les parties prenantes',
+  es: 'Impacto de partes interesadas',
+  nl: 'Stakeholderimpact',
+  ar: 'تأثير أصحاب المصلحة',
+  he: 'השפעה על בעלי עניין',
+  ja: 'ステークホルダー影響',
+  ko: '이해관계자 영향',
+  zh: '利益相关者影响',
 };
 
-/** Localized "Coalition Analysis" labels */
-export const COALITION_ANALYSIS_LABELS: LanguageMap = {
-  en: 'Coalition Analysis',
-  sv: 'Koalitionsanalys',
-  da: 'Koalitionsanalyse',
-  no: 'Koalisjonsanalyse',
-  fi: 'Koalitioanalyysi',
-  de: 'Koalitionsanalyse',
-  fr: 'Analyse des coalitions',
-  es: 'Análisis de coaliciones',
-  nl: 'Coalitieanalyse',
-  ar: 'تحليل الائتلافات',
-  he: 'ניתוח קואליציות',
-  ja: '連立分析',
-  ko: '연합 분석',
-  zh: '联盟分析',
+/** Localized "Coalition Dynamics" labels */
+export const COALITION_DYNAMICS_LABELS: LanguageMap = {
+  en: 'Coalition Dynamics',
+  sv: 'Koalitionsdynamik',
+  da: 'Koalitionsdynamik',
+  no: 'Koalisjonsdynamikk',
+  fi: 'Koalitiodynamiikka',
+  de: 'Koalitionsdynamik',
+  fr: 'Dynamique des coalitions',
+  es: 'Dinámica de coaliciones',
+  nl: 'Coalitiedynamiek',
+  ar: 'ديناميكيات الائتلافات',
+  he: 'דינמיקה קואליציונית',
+  ja: '連立ダイナミクス',
+  ko: '연합 역학',
+  zh: '联盟动态',
 };
 
 /** Localized "Voting Patterns" labels */

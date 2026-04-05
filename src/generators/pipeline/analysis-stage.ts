@@ -527,6 +527,130 @@ function methodOutputExists(filePath: string): boolean {
   }
 }
 
+/**
+ * Check whether a legacy-named output exists for a method.
+ *
+ * Returns the first matching legacy filename, or `undefined` when no legacy
+ * output is found. Used by {@link runSingleMethod} so that `skipCompleted`
+ * recognises outputs generated before the canonical rename.
+ *
+ * @param method - The analysis method to check
+ * @param dateOutputDir - Absolute path to the date-scoped output directory
+ * @param subdir - The method's subdirectory
+ * @returns The legacy filename that matched, or `undefined`
+ */
+function findLegacyOutput(
+  method: AnalysisMethod,
+  dateOutputDir: string,
+  subdir: string
+): string | undefined {
+  const legacyNames = LEGACY_FILENAMES[method];
+  if (!legacyNames) return undefined;
+  for (const legacy of legacyNames) {
+    if (methodOutputExists(path.join(dateOutputDir, subdir, legacy))) {
+      return legacy;
+    }
+  }
+  return undefined;
+}
+
+/**
+ * Attempt to migrate a legacy-named output file to its canonical path.
+ *
+ * Uses rename first; falls back to copy+delete for cross-device moves.
+ *
+ * @param legacyAbsolutePath - Absolute path to the existing legacy file
+ * @param canonicalAbsolutePath - Absolute path to the target canonical file
+ * @returns `true` if migration succeeded, `false` otherwise
+ */
+function migrateLegacyFile(legacyAbsolutePath: string, canonicalAbsolutePath: string): boolean {
+  try {
+    fs.renameSync(legacyAbsolutePath, canonicalAbsolutePath);
+    return true;
+  } catch {
+    // Fall back to copy+delete if rename fails (e.g. cross-device)
+    try {
+      fs.copyFileSync(legacyAbsolutePath, canonicalAbsolutePath);
+      fs.unlinkSync(legacyAbsolutePath);
+      return true;
+    } catch {
+      return false;
+    }
+  }
+}
+
+/**
+ * Check whether a method's output already exists (canonical or legacy) and
+ * return a skip status if so.  When a legacy file is found, attempt to migrate
+ * it to the canonical path so article transparency links stay valid.
+ *
+ * @param method - The analysis method to check
+ * @param dateOutputDir - Absolute path to the date-scoped output directory
+ * @param subdir - The method's subdirectory
+ * @param filename - The canonical output filename
+ * @param absolutePath - Absolute path to the canonical output file
+ * @param relativeOutputFile - Portable relative output path for manifests
+ * @param confidence - Default confidence level for the method
+ * @param verbose - Whether to print verbose progress
+ * @returns A skip status record, or `undefined` to proceed with execution.
+ */
+function checkSkipCompleted(
+  method: AnalysisMethod,
+  dateOutputDir: string,
+  subdir: string,
+  filename: string,
+  absolutePath: string,
+  relativeOutputFile: string,
+  confidence: ConfidenceLevel,
+  verbose: boolean
+): AnalysisMethodStatus | undefined {
+  // Canonical file already exists — skip immediately
+  if (methodOutputExists(absolutePath)) {
+    if (verbose) console.log(`  ⏭️  [analysis] Skipping already-completed method: ${method}`);
+    return {
+      method,
+      status: 'skipped',
+      outputFile: relativeOutputFile,
+      confidence,
+      duration: 0,
+      summary: `Skipped — output already exists at ${relativeOutputFile}`,
+    };
+  }
+
+  // Try legacy filenames and migrate to canonical when found
+  const legacyHit = findLegacyOutput(method, dateOutputDir, subdir);
+  if (!legacyHit) return undefined;
+
+  const legacyAbsolutePath = path.join(dateOutputDir, subdir, legacyHit);
+  const migrated = migrateLegacyFile(legacyAbsolutePath, absolutePath);
+
+  if (migrated || methodOutputExists(absolutePath)) {
+    if (verbose) {
+      const action = migrated ? 'Migrated legacy output and skipped' : 'Skipping';
+      console.log(`  ⏭️  [analysis] ${action} ${method} — output at ${relativeOutputFile}`);
+    }
+    return {
+      method,
+      status: 'skipped',
+      outputFile: relativeOutputFile,
+      confidence,
+      duration: 0,
+      summary: migrated
+        ? `Skipped — migrated legacy ${legacyHit} → ${filename}`
+        : `Skipped — output already exists at ${relativeOutputFile}`,
+    };
+  }
+
+  // Migration failed and the canonical file is still missing — do not skip.
+  // Allow the analysis method to execute so it can write the canonical output.
+  if (verbose) {
+    console.log(
+      `  ↻ [analysis] Legacy output found for ${method} but migration failed: ${legacyHit}. Regenerating canonical output ${relativeOutputFile}`
+    );
+  }
+  return undefined;
+}
+
 // ─── Mermaid chart helpers ────────────────────────────────────────────────────
 
 /**
@@ -2293,6 +2417,34 @@ const SUBDIR_EXISTING = 'existing';
 /** Subdirectory name for per-document analysis methods */
 const SUBDIR_DOCUMENTS = 'documents';
 
+/**
+ * Canonical subdirectory for each analysis method group.
+ *
+ * Exported so that agentic workflows and downstream consumers can
+ * construct paths that are guaranteed to match the pipeline output.
+ */
+export const ANALYSIS_METHOD_SUBDIRS: Readonly<Record<AnalysisMethod, string>> = Object.freeze({
+  'significance-classification': SUBDIR_CLASSIFICATION,
+  'impact-matrix': SUBDIR_CLASSIFICATION,
+  'actor-mapping': SUBDIR_CLASSIFICATION,
+  'forces-analysis': SUBDIR_CLASSIFICATION,
+  'political-threat-landscape': SUBDIR_THREAT_ASSESSMENT,
+  'actor-threat-profiling': SUBDIR_THREAT_ASSESSMENT,
+  'consequence-trees': SUBDIR_THREAT_ASSESSMENT,
+  'legislative-disruption': SUBDIR_THREAT_ASSESSMENT,
+  'risk-matrix': SUBDIR_RISK_SCORING,
+  'political-capital-risk': SUBDIR_RISK_SCORING,
+  'quantitative-swot': SUBDIR_RISK_SCORING,
+  'legislative-velocity-risk': SUBDIR_RISK_SCORING,
+  'agent-risk-workflow': SUBDIR_RISK_SCORING,
+  'deep-analysis': SUBDIR_EXISTING,
+  'stakeholder-analysis': SUBDIR_EXISTING,
+  'coalition-analysis': SUBDIR_EXISTING,
+  'voting-patterns': SUBDIR_EXISTING,
+  'cross-session-intelligence': SUBDIR_EXISTING,
+  'document-analysis': SUBDIR_DOCUMENTS,
+});
+
 // ─── MCP data persistence subdirectories ──────────────────────────────────────
 
 /** Subdirectory name for raw MCP data storage */
@@ -2487,28 +2639,9 @@ function persistMCPData(
 /** Analysis method identifier for per-document intelligence analysis */
 const METHOD_DOCUMENT_ANALYSIS = 'document-analysis' as const;
 
-/** Subdirectory for each analysis method group */
-const METHOD_SUBDIRS: Readonly<Record<AnalysisMethod, string>> = {
-  'significance-classification': SUBDIR_CLASSIFICATION,
-  'impact-matrix': SUBDIR_CLASSIFICATION,
-  'actor-mapping': SUBDIR_CLASSIFICATION,
-  'forces-analysis': SUBDIR_CLASSIFICATION,
-  'political-threat-landscape': SUBDIR_THREAT_ASSESSMENT,
-  'actor-threat-profiling': SUBDIR_THREAT_ASSESSMENT,
-  'consequence-trees': SUBDIR_THREAT_ASSESSMENT,
-  'legislative-disruption': SUBDIR_THREAT_ASSESSMENT,
-  'risk-matrix': SUBDIR_RISK_SCORING,
-  'political-capital-risk': SUBDIR_RISK_SCORING,
-  'quantitative-swot': SUBDIR_RISK_SCORING,
-  'legislative-velocity-risk': SUBDIR_RISK_SCORING,
-  'agent-risk-workflow': SUBDIR_RISK_SCORING,
-  'deep-analysis': SUBDIR_EXISTING,
-  'stakeholder-analysis': SUBDIR_EXISTING,
-  'coalition-analysis': SUBDIR_EXISTING,
-  'voting-patterns': SUBDIR_EXISTING,
-  'cross-session-intelligence': SUBDIR_EXISTING,
-  'document-analysis': SUBDIR_DOCUMENTS,
-};
+// METHOD_SUBDIRS is now the exported ANALYSIS_METHOD_SUBDIRS (above).
+// Local alias for backward-compatible internal usage.
+const METHOD_SUBDIRS = ANALYSIS_METHOD_SUBDIRS;
 
 /** Default confidence level for each analysis method group */
 const METHOD_DEFAULT_CONFIDENCE: Readonly<Record<AnalysisMethod, ConfidenceLevel>> = {
@@ -2533,14 +2666,29 @@ const METHOD_DEFAULT_CONFIDENCE: Readonly<Record<AnalysisMethod, ConfidenceLevel
   'document-analysis': 'medium',
 };
 
-/** Filename for each analysis method */
-const METHOD_FILENAMES: Readonly<Record<AnalysisMethod, string>> = {
-  'significance-classification': 'significance-assessment.md',
+/**
+ * Canonical filename for each analysis method.
+ *
+ * Exported so that agentic workflows and downstream consumers can
+ * reference the exact file names the pipeline produces, ensuring
+ * cross-session intelligence correlation is reliable.
+ *
+ * Naming conventions:
+ * - Where a method's generated content matches a template concept, the
+ *   filename follows the template (e.g. `stakeholder-impact.md`).
+ * - Otherwise, filenames use the method name directly (e.g.
+ *   `significance-classification.md`, `actor-mapping.md`,
+ *   `forces-analysis.md`).
+ * - The `document-analysis` method produces an index file
+ *   (`document-analysis-index.md`) plus per-document files.
+ */
+export const ANALYSIS_METHOD_FILENAMES: Readonly<Record<AnalysisMethod, string>> = Object.freeze({
+  'significance-classification': 'significance-classification.md',
   'impact-matrix': 'impact-matrix.md',
   'actor-mapping': 'actor-mapping.md',
   'forces-analysis': 'forces-analysis.md',
   'political-threat-landscape': 'political-threat-landscape.md',
-  'actor-threat-profiling': 'actor-threat-profiles.md',
+  'actor-threat-profiling': 'actor-threat-profiling.md',
   'consequence-trees': 'consequence-trees.md',
   'legislative-disruption': 'legislative-disruption.md',
   'risk-matrix': 'risk-matrix.md',
@@ -2549,12 +2697,33 @@ const METHOD_FILENAMES: Readonly<Record<AnalysisMethod, string>> = {
   'legislative-velocity-risk': 'legislative-velocity-risk.md',
   'agent-risk-workflow': 'agent-risk-workflow.md',
   'deep-analysis': 'deep-analysis.md',
-  'stakeholder-analysis': 'stakeholder-analysis.md',
-  'coalition-analysis': 'coalition-analysis.md',
+  'stakeholder-analysis': 'stakeholder-impact.md',
+  'coalition-analysis': 'coalition-dynamics.md',
   'voting-patterns': 'voting-patterns.md',
   'cross-session-intelligence': 'cross-session-intelligence.md',
   'document-analysis': 'document-analysis-index.md',
-};
+});
+
+// Local alias for internal usage.
+const METHOD_FILENAMES = ANALYSIS_METHOD_FILENAMES;
+
+/**
+ * Legacy filenames that were renamed during the canonical normalization.
+ *
+ * Used by {@link runSingleMethod} so that `skipCompleted` recognises
+ * previously-generated outputs that still exist under their old names,
+ * preventing unnecessary re-generation and duplicate files.
+ */
+const LEGACY_FILENAMES: Readonly<Partial<Record<AnalysisMethod, readonly string[]>>> =
+  Object.freeze({
+    'significance-classification': Object.freeze([
+      'significance-assessment.md',
+      'significance-scoring.md',
+    ]),
+    'stakeholder-analysis': Object.freeze(['stakeholder-analysis.md']),
+    'coalition-analysis': Object.freeze(['coalition-analysis.md']),
+    'actor-threat-profiling': Object.freeze(['actor-threat-profiles.md']),
+  });
 
 // ─── Core runner ──────────────────────────────────────────────────────────────
 
@@ -2587,16 +2756,18 @@ function runSingleMethod(
   const relativeOutputFile = path.posix.join(subdir, filename);
   const confidence = METHOD_DEFAULT_CONFIDENCE[method];
 
-  if (skipCompleted && methodOutputExists(absolutePath)) {
-    if (verbose) console.log(`  ⏭️  [analysis] Skipping already-completed method: ${method}`);
-    return {
+  if (skipCompleted) {
+    const skipResult = checkSkipCompleted(
       method,
-      status: 'skipped',
-      outputFile: relativeOutputFile,
+      dateOutputDir,
+      subdir,
+      filename,
+      absolutePath,
+      relativeOutputFile,
       confidence,
-      duration: 0,
-      summary: `Skipped — output already exists at ${relativeOutputFile}`,
-    };
+      verbose
+    );
+    if (skipResult) return skipResult;
   }
 
   const start = Date.now();
