@@ -645,7 +645,7 @@ function checkSkipCompleted(
   // Allow the analysis method to execute so it can write the canonical output.
   if (verbose) {
     console.log(
-      `  ↻ [analysis] Legacy output found for ${method} but migration failed: ${legacyHit}. Regenerating canonical output ${relativeOutputFile}`,
+      `  ↻ [analysis] Legacy output found for ${method} but migration failed: ${legacyHit}. Regenerating canonical output ${relativeOutputFile}`
     );
   }
   return undefined;
