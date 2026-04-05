@@ -567,6 +567,8 @@ describe('runAnalysisStage', () => {
       // Legacy file should have been migrated to canonical path
       expect(fs.existsSync(canonicalPath)).toBe(true);
       expect(fs.readFileSync(canonicalPath, 'utf-8')).toBe('# legacy stakeholder output');
+      // Legacy file should no longer exist (migrated, not duplicated)
+      expect(fs.existsSync(legacyPath)).toBe(false);
       // Manifest entry should reference canonical filename
       expect(result?.outputFile).toBe(`existing/${canonicalFilename}`);
     });
@@ -617,6 +619,8 @@ describe('runAnalysisStage', () => {
         // Legacy file should have been migrated to canonical path
         expect(fs.existsSync(canonicalPath)).toBe(true);
         expect(fs.readFileSync(canonicalPath, 'utf-8')).toBe(`# legacy ${method} output`);
+        // Legacy file should no longer exist (migrated, not duplicated)
+        expect(fs.existsSync(legacyPath)).toBe(false);
         // Manifest entry should reference canonical filename
         expect(result?.outputFile).toBe(`${subdir}/${canonicalFilename}`);
       });

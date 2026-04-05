@@ -17,7 +17,7 @@
 </p>
 
 **📋 Document Owner:** CEO | **📄 Version:** 3.0 | **📅 Last Updated:**
-2026-03-31 (UTC) **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
+2026-03-31 (UTC) | **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
 ---
