@@ -424,7 +424,7 @@ function renderAnalysisTransparencySection(date, slug, lang, analysisDir) {
     const forcesLabel = escapeHTML(getLocalizedString(FORCES_ANALYSIS_LABELS, lang));
     const impactMatrixLabel = escapeHTML(getLocalizedString(IMPACT_MATRIX_LABELS, lang));
     const threatLandscapeLabel = escapeHTML(getLocalizedString(POLITICAL_THREAT_LANDSCAPE_LABELS, lang));
-    const threatProfilesLabel = escapeHTML(getLocalizedString(ACTOR_THREAT_PROFILING_LABELS, lang));
+    const actorThreatProfilingLabel = escapeHTML(getLocalizedString(ACTOR_THREAT_PROFILING_LABELS, lang));
     const consequenceLabel = escapeHTML(getLocalizedString(CONSEQUENCE_TREES_LABELS, lang));
     const disruptionLabel = escapeHTML(getLocalizedString(LEGISLATIVE_DISRUPTION_LABELS, lang));
     const riskMatrixLabel = escapeHTML(getLocalizedString(RISK_MATRIX_LABELS, lang));
@@ -457,7 +457,7 @@ function renderAnalysisTransparencySection(date, slug, lang, analysisDir) {
         <h3><span aria-hidden="true">🛡️</span> ${threatLabel}</h3>
         <ul>
           <li><a href="${analysisFileBase}/threat-assessment/political-threat-landscape.md" target="_blank" rel="noopener noreferrer">${threatLandscapeLabel}</a></li>
-          <li><a href="${analysisFileBase}/threat-assessment/actor-threat-profiling.md" target="_blank" rel="noopener noreferrer">${threatProfilesLabel}</a></li>
+          <li><a href="${analysisFileBase}/threat-assessment/actor-threat-profiling.md" target="_blank" rel="noopener noreferrer">${actorThreatProfilingLabel}</a></li>
           <li><a href="${analysisFileBase}/threat-assessment/consequence-trees.md" target="_blank" rel="noopener noreferrer">${consequenceLabel}</a></li>
           <li><a href="${analysisFileBase}/threat-assessment/legislative-disruption.md" target="_blank" rel="noopener noreferrer">${disruptionLabel}</a></li>
         </ul>

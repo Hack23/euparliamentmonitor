@@ -554,6 +554,106 @@ function findLegacyOutput(
   return undefined;
 }
 
+/**
+ * Attempt to migrate a legacy-named output file to its canonical path.
+ *
+ * Uses rename first; falls back to copy+delete for cross-device moves.
+ *
+ * @param legacyAbsolutePath - Absolute path to the existing legacy file
+ * @param canonicalAbsolutePath - Absolute path to the target canonical file
+ * @returns `true` if migration succeeded, `false` otherwise
+ */
+function migrateLegacyFile(legacyAbsolutePath: string, canonicalAbsolutePath: string): boolean {
+  try {
+    fs.renameSync(legacyAbsolutePath, canonicalAbsolutePath);
+    return true;
+  } catch {
+    // Fall back to copy+delete if rename fails (e.g. cross-device)
+    try {
+      fs.copyFileSync(legacyAbsolutePath, canonicalAbsolutePath);
+      fs.unlinkSync(legacyAbsolutePath);
+      return true;
+    } catch {
+      return false;
+    }
+  }
+}
+
+/**
+ * Check whether a method's output already exists (canonical or legacy) and
+ * return a skip status if so.  When a legacy file is found, attempt to migrate
+ * it to the canonical path so article transparency links stay valid.
+ *
+ * @param method - The analysis method to check
+ * @param dateOutputDir - Absolute path to the date-scoped output directory
+ * @param subdir - The method's subdirectory
+ * @param filename - The canonical output filename
+ * @param absolutePath - Absolute path to the canonical output file
+ * @param relativeOutputFile - Portable relative output path for manifests
+ * @param confidence - Default confidence level for the method
+ * @param verbose - Whether to print verbose progress
+ * @returns A skip status record, or `undefined` to proceed with execution.
+ */
+function checkSkipCompleted(
+  method: AnalysisMethod,
+  dateOutputDir: string,
+  subdir: string,
+  filename: string,
+  absolutePath: string,
+  relativeOutputFile: string,
+  confidence: ConfidenceLevel,
+  verbose: boolean
+): AnalysisMethodStatus | undefined {
+  // Canonical file already exists — skip immediately
+  if (methodOutputExists(absolutePath)) {
+    if (verbose) console.log(`  ⏭️  [analysis] Skipping already-completed method: ${method}`);
+    return {
+      method,
+      status: 'skipped',
+      outputFile: relativeOutputFile,
+      confidence,
+      duration: 0,
+      summary: `Skipped — output already exists at ${relativeOutputFile}`,
+    };
+  }
+
+  // Try legacy filenames and migrate to canonical when found
+  const legacyHit = findLegacyOutput(method, dateOutputDir, subdir);
+  if (!legacyHit) return undefined;
+
+  const legacyAbsolutePath = path.join(dateOutputDir, subdir, legacyHit);
+  const migrated = migrateLegacyFile(legacyAbsolutePath, absolutePath);
+
+  if (migrated || methodOutputExists(absolutePath)) {
+    if (verbose) {
+      const action = migrated ? 'Migrated legacy output and skipped' : 'Skipping';
+      console.log(`  ⏭️  [analysis] ${action} ${method} — output at ${relativeOutputFile}`);
+    }
+    return {
+      method,
+      status: 'skipped',
+      outputFile: relativeOutputFile,
+      confidence,
+      duration: 0,
+      summary: migrated
+        ? `Skipped — migrated legacy ${legacyHit} → ${filename}`
+        : `Skipped — output already exists at ${relativeOutputFile}`,
+    };
+  }
+
+  // Migration failed but legacy file still exists — skip with legacy path
+  if (verbose)
+    console.log(`  ⏭️  [analysis] Skipping ${method} — legacy output found: ${legacyHit}`);
+  return {
+    method,
+    status: 'skipped',
+    outputFile: path.posix.join(subdir, legacyHit),
+    confidence,
+    duration: 0,
+    summary: `Skipped — legacy output ${legacyHit} already exists`,
+  };
+}
+
 // ─── Mermaid chart helpers ────────────────────────────────────────────────────
 
 /**
@@ -2659,34 +2759,18 @@ function runSingleMethod(
   const relativeOutputFile = path.posix.join(subdir, filename);
   const confidence = METHOD_DEFAULT_CONFIDENCE[method];
 
-  if (skipCompleted && methodOutputExists(absolutePath)) {
-    if (verbose) console.log(`  ⏭️  [analysis] Skipping already-completed method: ${method}`);
-    return {
-      method,
-      status: 'skipped',
-      outputFile: relativeOutputFile,
-      confidence,
-      duration: 0,
-      summary: `Skipped — output already exists at ${relativeOutputFile}`,
-    };
-  }
-
-  // Check for legacy filenames so incremental runs recognise outputs
-  // generated before the canonical rename.
   if (skipCompleted) {
-    const legacyHit = findLegacyOutput(method, dateOutputDir, subdir);
-    if (legacyHit) {
-      if (verbose)
-        console.log(`  ⏭️  [analysis] Skipping ${method} — legacy output found: ${legacyHit}`);
-      return {
-        method,
-        status: 'skipped',
-        outputFile: path.posix.join(subdir, legacyHit),
-        confidence,
-        duration: 0,
-        summary: `Skipped — legacy output ${legacyHit} already exists`,
-      };
-    }
+    const skipResult = checkSkipCompleted(
+      method,
+      dateOutputDir,
+      subdir,
+      filename,
+      absolutePath,
+      relativeOutputFile,
+      confidence,
+      verbose
+    );
+    if (skipResult) return skipResult;
   }
 
   const start = Date.now();

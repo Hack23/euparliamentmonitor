@@ -655,21 +655,21 @@ Every per-file analysis must score **≥ 7.0/10** across 5 weighted dimensions:
 flowchart TD
     D["📅 Daily per-workflow analysis\nanalysis/YYYY-MM-DD/slug/"] --> W["📅 Weekly aggregation\nanalysis/weekly/YYYY-WNN/"]
     W --> M["📅 Monthly strategic brief\nanalysis/monthly/YYYY-MM/"]
-    D --> AI["🤖 AI cross-article synthesis\nanalysis/YYYY-MM-DD/ai-*.md"]
-    AI --> W
+    D --> SYN["🤖 Cross-article synthesis\nanalysis/YYYY-MM-DD/*.md"]
+    SYN --> W
 
     style D fill:#198754,stroke:#146c43,color:#fff
     style W fill:#0d6efd,stroke:#0a58ca,color:#fff
     style M fill:#6f42c1,stroke:#59359a,color:#fff
-    style AI fill:#fd7e14,stroke:#ca6510,color:#fff
+    style SYN fill:#fd7e14,stroke:#ca6510,color:#fff
 ```
 
-| Scope         | Format       | Example                 | Cadence                           |
-| ------------- | ------------ | ----------------------- | --------------------------------- |
-| Daily         | `YYYY-MM-DD` | `2026-03-31/`           | Every workflow run                |
-| Weekly        | `YYYY-WNN`   | `2026-W14/`             | `news-weekly-review` aggregation  |
-| Monthly       | `YYYY-MM`    | `2026-03/`              | `news-monthly-review` aggregation |
-| Cross-article | `ai-*.md`    | `ai-daily-synthesis.md` | Date root synthesis               |
+| Scope         | Format       | Example              | Cadence                           |
+| ------------- | ------------ | -------------------- | --------------------------------- |
+| Daily         | `YYYY-MM-DD` | `2026-03-31/`        | Every workflow run                |
+| Weekly        | `YYYY-WNN`   | `2026-W14/`          | `news-weekly-review` aggregation  |
+| Monthly       | `YYYY-MM`    | `2026-03/`           | `news-monthly-review` aggregation |
+| Cross-article | `*.md`       | `daily-synthesis.md` | Date root synthesis               |
 
 ---
 

@@ -545,11 +545,14 @@ describe('runAnalysisStage', () => {
       expect(ctx.completedMethods).toContain('deep-analysis');
     });
 
-    it('recognises legacy filenames and skips re-generation', async () => {
+    it('recognises legacy filenames, migrates to canonical, and skips re-generation', async () => {
       // Write a legacy-named output (pre-rename) for stakeholder-analysis
       const legacyPath = path.join(tmpDir, testDate, 'existing', 'stakeholder-analysis.md');
       fs.mkdirSync(path.dirname(legacyPath), { recursive: true });
       fs.writeFileSync(legacyPath, '# legacy stakeholder output', 'utf-8');
+
+      const canonicalFilename = ANALYSIS_METHOD_FILENAMES['stakeholder-analysis'];
+      const canonicalPath = path.join(tmpDir, testDate, 'existing', canonicalFilename);
 
       const ctx = await runAnalysisStage(buildTestFetchedData(), {
         articleTypes: ['week-ahead'],
@@ -561,8 +564,11 @@ describe('runAnalysisStage', () => {
 
       const result = ctx.results.get('stakeholder-analysis');
       expect(result?.status).toBe('skipped');
-      // Legacy file should not be overwritten or deleted
-      expect(fs.readFileSync(legacyPath, 'utf-8')).toBe('# legacy stakeholder output');
+      // Legacy file should have been migrated to canonical path
+      expect(fs.existsSync(canonicalPath)).toBe(true);
+      expect(fs.readFileSync(canonicalPath, 'utf-8')).toBe('# legacy stakeholder output');
+      // Manifest entry should reference canonical filename
+      expect(result?.outputFile).toBe(`existing/${canonicalFilename}`);
     });
 
     // Table-driven tests for all legacy filename variants
@@ -590,10 +596,13 @@ describe('runAnalysisStage', () => {
     ];
 
     for (const { method, subdir, legacyFile } of legacyCases) {
-      it(`recognises legacy filename "${legacyFile}" for ${method}`, async () => {
+      it(`migrates legacy filename "${legacyFile}" to canonical for ${method}`, async () => {
         const legacyPath = path.join(tmpDir, testDate, subdir, legacyFile);
         fs.mkdirSync(path.dirname(legacyPath), { recursive: true });
         fs.writeFileSync(legacyPath, `# legacy ${method} output`, 'utf-8');
+
+        const canonicalFilename = ANALYSIS_METHOD_FILENAMES[method];
+        const canonicalPath = path.join(tmpDir, testDate, subdir, canonicalFilename);
 
         const ctx = await runAnalysisStage(buildTestFetchedData(), {
           articleTypes: ['week-ahead'],
@@ -605,7 +614,11 @@ describe('runAnalysisStage', () => {
 
         const result = ctx.results.get(method);
         expect(result?.status).toBe('skipped');
-        expect(fs.readFileSync(legacyPath, 'utf-8')).toBe(`# legacy ${method} output`);
+        // Legacy file should have been migrated to canonical path
+        expect(fs.existsSync(canonicalPath)).toBe(true);
+        expect(fs.readFileSync(canonicalPath, 'utf-8')).toBe(`# legacy ${method} output`);
+        // Manifest entry should reference canonical filename
+        expect(result?.outputFile).toBe(`${subdir}/${canonicalFilename}`);
       });
     }
   });
