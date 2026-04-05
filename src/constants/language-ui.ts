@@ -1345,23 +1345,22 @@ export const STYLE_GUIDE_LABELS: LanguageMap = {
 
 // ─── Per-file analysis link labels ────────────────────────────────────────────
 
-/** Localized "Significance Assessment" labels */
-/** Localized "Significance Scoring" labels */
-export const SIGNIFICANCE_SCORING_LABELS: LanguageMap = {
-  en: 'Significance Scoring',
-  sv: 'Betydelsepoängsättning',
-  da: 'Betydningsscoring',
-  no: 'Betydningsscoring',
-  fi: 'Merkittävyyspisteytys',
-  de: 'Bedeutsamkeitsbewertung',
-  fr: 'Notation de la signification',
-  es: 'Puntuación de significancia',
-  nl: 'Significantiescore',
-  ar: 'تسجيل الأهمية',
-  he: 'ניקוד חשיבות',
-  ja: '重要性スコアリング',
-  ko: '중요도 점수',
-  zh: '重要性评分',
+/** Localized "Significance Classification" labels */
+export const SIGNIFICANCE_CLASSIFICATION_LABELS: LanguageMap = {
+  en: 'Significance Classification',
+  sv: 'Betydelseklassificering',
+  da: 'Betydningsklassificering',
+  no: 'Betydningsklassifisering',
+  fi: 'Merkittävyysluokittelu',
+  de: 'Bedeutsamkeitsklassifizierung',
+  fr: 'Classification de la signification',
+  es: 'Clasificación de significancia',
+  nl: 'Significantieclassificatie',
+  ar: 'تصنيف الأهمية',
+  he: 'סיווג חשיבות',
+  ja: '重要性分類',
+  ko: '중요도 분류',
+  zh: '重要性分类',
 };
 
 /** Localized "Actor Mapping" labels */

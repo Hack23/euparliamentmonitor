@@ -46,7 +46,7 @@ import {
   THREAT_FRAMEWORK_LABELS,
   CLASSIFICATION_GUIDE_LABELS,
   STYLE_GUIDE_LABELS,
-  SIGNIFICANCE_SCORING_LABELS,
+  SIGNIFICANCE_CLASSIFICATION_LABELS,
   ACTOR_MAPPING_LABELS,
   FORCES_ANALYSIS_LABELS,
   IMPACT_MATRIX_LABELS,
@@ -555,7 +555,9 @@ function renderAnalysisTransparencySection(
   const methodologyDir = `${repoBase}/analysis/methodologies`;
 
   // Per-file localized link labels
-  const significanceLabel = escapeHTML(getLocalizedString(SIGNIFICANCE_SCORING_LABELS, lang));
+  const significanceLabel = escapeHTML(
+    getLocalizedString(SIGNIFICANCE_CLASSIFICATION_LABELS, lang)
+  );
   const actorMappingLabel = escapeHTML(getLocalizedString(ACTOR_MAPPING_LABELS, lang));
   const forcesLabel = escapeHTML(getLocalizedString(FORCES_ANALYSIS_LABELS, lang));
   const impactMatrixLabel = escapeHTML(getLocalizedString(IMPACT_MATRIX_LABELS, lang));
@@ -588,7 +590,7 @@ function renderAnalysisTransparencySection(
         </ul>
         <h3><span aria-hidden="true">🏷️</span> ${classificationLabel}</h3>
         <ul>
-          <li><a href="${analysisFileBase}/classification/significance-scoring.md" target="_blank" rel="noopener noreferrer">${significanceLabel}</a></li>
+          <li><a href="${analysisFileBase}/classification/significance-classification.md" target="_blank" rel="noopener noreferrer">${significanceLabel}</a></li>
           <li><a href="${analysisFileBase}/classification/actor-mapping.md" target="_blank" rel="noopener noreferrer">${actorMappingLabel}</a></li>
           <li><a href="${analysisFileBase}/classification/forces-analysis.md" target="_blank" rel="noopener noreferrer">${forcesLabel}</a></li>
           <li><a href="${analysisFileBase}/classification/impact-matrix.md" target="_blank" rel="noopener noreferrer">${impactMatrixLabel}</a></li>

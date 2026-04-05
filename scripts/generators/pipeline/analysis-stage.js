@@ -1899,16 +1899,16 @@ const METHOD_DEFAULT_CONFIDENCE = {
  * cross-session intelligence correlation is reliable.
  *
  * Naming conventions:
- * - Filenames align with template names in `analysis/templates/` where a
- *   matching template exists (e.g. `significance-scoring.md`,
- *   `stakeholder-impact.md`).
- * - Method-specific files use the method name directly (e.g.
- *   `actor-mapping.md`, `forces-analysis.md`).
+ * - Where a method's generated content matches a template concept, the
+ *   filename follows the template (e.g. `stakeholder-impact.md`).
+ * - Otherwise, filenames use the method name directly (e.g.
+ *   `significance-classification.md`, `actor-mapping.md`,
+ *   `forces-analysis.md`).
  * - The `document-analysis` method produces an index file
  *   (`document-analysis-index.md`) plus per-document files.
  */
 export const ANALYSIS_METHOD_FILENAMES = Object.freeze({
-    'significance-classification': 'significance-scoring.md',
+    'significance-classification': 'significance-classification.md',
     'impact-matrix': 'impact-matrix.md',
     'actor-mapping': 'actor-mapping.md',
     'forces-analysis': 'forces-analysis.md',

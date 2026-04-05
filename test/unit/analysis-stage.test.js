@@ -137,8 +137,10 @@ describe('ANALYSIS_METHOD_FILENAMES', () => {
     }
   });
 
-  it('uses canonical names aligned with analysis/templates/', () => {
-    expect(ANALYSIS_METHOD_FILENAMES['significance-classification']).toBe('significance-scoring.md');
+  it('uses canonical normalized filenames for renamed methods', () => {
+    expect(ANALYSIS_METHOD_FILENAMES['significance-classification']).toBe(
+      'significance-classification.md'
+    );
     expect(ANALYSIS_METHOD_FILENAMES['stakeholder-analysis']).toBe('stakeholder-impact.md');
     expect(ANALYSIS_METHOD_FILENAMES['coalition-analysis']).toBe('coalition-dynamics.md');
     expect(ANALYSIS_METHOD_FILENAMES['actor-threat-profiling']).toBe('actor-threat-profiling.md');
@@ -374,7 +376,7 @@ describe('runAnalysisStage', () => {
       enabledMethods: ['significance-classification', 'impact-matrix'],
     });
 
-    expect(fs.existsSync(path.join(tmpDir, testDate, 'classification', 'significance-scoring.md'))).toBe(true);
+    expect(fs.existsSync(path.join(tmpDir, testDate, 'classification', 'significance-classification.md'))).toBe(true);
     expect(fs.existsSync(path.join(tmpDir, testDate, 'classification', 'impact-matrix.md'))).toBe(true);
   });
 
@@ -648,7 +650,7 @@ describe('runAnalysisStage', () => {
       });
 
       const content = fs.readFileSync(
-        path.join(tmpDir, testDate, 'classification', 'significance-scoring.md'),
+        path.join(tmpDir, testDate, 'classification', 'significance-classification.md'),
         'utf-8'
       );
       expect(content).toMatch(/^---\n/);
@@ -790,7 +792,7 @@ describe('runAnalysisStage', () => {
         enabledMethods: ['significance-classification'],
       });
       const content = fs.readFileSync(
-        path.join(tmpDir, testDate, 'classification', 'significance-scoring.md'),
+        path.join(tmpDir, testDate, 'classification', 'significance-classification.md'),
         'utf-8'
       );
       expect(content).toContain('Political Significance Classification');

@@ -239,7 +239,7 @@ cross-session intelligence correlation is reliable.
 
 | Analysis Method | Subdirectory | Canonical Filename | Source Template |
 |---|---|---|---|
-| `significance-classification` | `classification/` | `significance-scoring.md` | `significance-scoring.md` |
+| `significance-classification` | `classification/` | `significance-classification.md` | `significance-scoring.md` |
 | `impact-matrix` | `classification/` | `impact-matrix.md` | — |
 | `actor-mapping` | `classification/` | `actor-mapping.md` | — |
 | `forces-analysis` | `classification/` | `forces-analysis.md` | — |

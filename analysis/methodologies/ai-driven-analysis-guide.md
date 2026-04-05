@@ -243,7 +243,7 @@ News articles MUST link to ALL individual analysis files, not just directory-lev
 **Article HTML template MUST include:**
 ```html
 <!-- Individual analysis file links -->
-<li><a href="{analysisDir}/classification/significance-scoring.md">Significance Scoring</a></li>
+<li><a href="{analysisDir}/classification/significance-classification.md">Significance Classification</a></li>
 <li><a href="{analysisDir}/classification/actor-mapping.md">Actor Mapping</a></li>
 <li><a href="{analysisDir}/classification/forces-analysis.md">Forces Analysis</a></li>
 <li><a href="{analysisDir}/classification/impact-matrix.md">Impact Matrix</a></li>
