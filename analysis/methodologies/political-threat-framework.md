@@ -9,7 +9,7 @@
   <em>🎯 Threat Landscape · Attack Trees · PESTLE · Diamond Model · Scenario Planning · Kill Chain</em>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 3.0 | **📅 Last Updated:** 2026-03-30 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 3.1 | **📅 Last Updated:** 2026-04-06 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
@@ -379,6 +379,59 @@ graph TD
 ```
 
 > **🚨 Anti-Pattern Warning:** Never generate threat analysis from scripts or templates alone. The AI agent must READ actual EP MCP data, IDENTIFY specific threats from the evidence, and PRODUCE original analysis with citations. Generic statements like "Coalition stability appears maintained" or "No significant signals detected" indicate the agent has not analysed the data — this is REJECTED.
+
+---
+
+## ⏳ Temporal Decay Model for Threat Assessments (New in v3.1)
+
+Threat assessments have a **finite shelf life**. A threat identified 6 months ago may no longer be relevant — or may have escalated beyond the original assessment. This temporal decay model mirrors the confidence decay rules in [political-swot-framework.md](political-swot-framework.md) §Confidence Decay Rule and extends them to threat severity ratings.
+
+> **Terminology note:** This framework uses the severity scale SEVERE/HIGH/MODERATE/LOW/MINIMAL (defined in §Threat Severity Assessment above). Other documents or external references may use "Critical" or "Medium" as informal synonyms — when applying this decay model, always use the canonical labels from this framework.
+
+### Threat Assessment Temporal Decay Table
+
+| Original Severity | After 30 days | After 90 days | After 180 days | After >180 days |
+|------------------|:------------:|:-------------:|:--------------:|:--------------:|
+| **SEVERE** | SEVERE | HIGH | MODERATE | EXPIRED |
+| **HIGH** | HIGH | MODERATE | LOW | EXPIRED |
+| **MODERATE** | MODERATE | LOW | EXPIRED | EXPIRED |
+| **LOW** | LOW | EXPIRED | EXPIRED | EXPIRED |
+
+### Threat Confidence Decay (aligned with SWOT)
+
+| Original Confidence | After 30 days | After 90 days | After 180 days |
+|--------------------|:------------:|:-------------:|:--------------:|
+| HIGH | HIGH | MEDIUM | LOW |
+| MEDIUM | MEDIUM | LOW | EXPIRED |
+| LOW | LOW | EXPIRED | EXPIRED |
+
+### Decay Rules
+
+1. **EXPIRED threats must be re-verified** before inclusion in new threat analyses. An expired threat is not necessarily resolved — it simply lacks current evidence to sustain the assessment.
+2. **Re-verification resets the decay clock** — if new EP MCP evidence confirms the threat still exists, reset the assessment date and re-evaluate severity.
+3. **Escalation overrides decay** — if a threat that was decaying receives new confirming evidence (e.g., a new vote, adopted text, or parliamentary question), the severity may increase rather than decay.
+4. **Active threats do not decay** — threats with ongoing EP MCP evidence within the past 30 days remain at their assessed severity. Only stale assessments decay.
+5. **Document the decay chain** — when a threat assessment is carried forward, note: "Original assessment: [date], Severity: [X] → Current (decayed): [Y], Last evidence: [date]"
+
+### Temporal Decay Mermaid Diagram
+
+```mermaid
+flowchart LR
+    A["🔴 SEVERE<br/>Day 0"] -->|"30 days"| B["🔴 SEVERE<br/>Day 30"]
+    B -->|"60 days"| C["🟠 HIGH<br/>Day 90"]
+    C -->|"90 days"| D["🟡 MODERATE<br/>Day 180"]
+    D -->|"No new evidence"| E["⚪ EXPIRED<br/>Day 180+"]
+
+    F["New EP MCP<br/>evidence"] -->|"Re-verify"| G["🔄 Reset clock<br/>Re-assess severity"]
+
+    style A fill:#dc3545,color:#fff
+    style B fill:#dc3545,color:#fff
+    style C fill:#fd7e14,color:#fff
+    style D fill:#ffc107,color:#000
+    style E fill:#6c757d,color:#fff
+    style F fill:#0d6efd,color:#fff
+    style G fill:#28a745,color:#fff
+```
 
 ---
 
