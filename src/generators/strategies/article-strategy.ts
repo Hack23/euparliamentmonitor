@@ -125,10 +125,7 @@ export function loadAnalysisContext(
  * @returns Resolved directory path or null
  */
 function findAnalysisDirectory(dateDir: string, slug: string): string | null {
-  const exact = path.join(dateDir, slug);
-  if (fs.existsSync(exact) && fs.statSync(exact).isDirectory()) return exact;
-
-  // Scan for suffixed variants (e.g. breaking-2, breaking-3)
+  // Always scan for all matching directories (exact + suffixed) to find the latest
   try {
     const entries = fs.readdirSync(dateDir, { withFileTypes: true });
     const suffixPattern = new RegExp(`^${escapeRegExp(slug)}(?:-(\\d+))?$`);
