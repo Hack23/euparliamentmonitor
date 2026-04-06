@@ -293,6 +293,47 @@ The analysis artifacts provide structured political intelligence that enriches t
 
 > **⚠️ IMPROVE EXISTING ANALYSIS**: Per `ai-driven-analysis-guide.md` Rule 5, before producing new analysis, check for existing analysis in `analysis/${TODAY}/week-ahead/`. If previous analysis exists, READ it first and **improve, extend, correct, or complete** it — never discard prior work. No workflow run should be wasted.
 
+### Structured Analysis Templates (analysis/templates/)
+
+Read **all** structured templates in `analysis/templates/`. For **every downloaded MCP data file** in `analysis/${TODAY}/week-ahead/data/`, start with the required per-file template, then apply the relevant dimension templates below, and finally produce a synthesis summary for the full analysis set:
+
+| Template | File | When to Apply |
+|----------|------|--------------|
+| **Per-File Political Intelligence** | `analysis/templates/per-file-political-intelligence.md` | Every downloaded MCP data file — required baseline analysis artifact |
+| **Political Classification** | `analysis/templates/political-classification.md` | Every new EP event or document — FIRST STEP classification lens |
+| **Risk Assessment** | `analysis/templates/risk-assessment.md` | Coalition/policy/institutional risk indicators |
+| **Threat Analysis** | `analysis/templates/threat-analysis.md` | Threat Landscape-format democratic threat review |
+| **SWOT Analysis** | `analysis/templates/swot-analysis.md` | Strategic political landscape assessment |
+| **Stakeholder Impact** | `analysis/templates/stakeholder-impact.md` | Policy decisions or legislative actions |
+| **Significance Scoring** | `analysis/templates/significance-scoring.md` | Publication priority decisions |
+| **Synthesis Summary** | `analysis/templates/synthesis-summary.md` | After completing per-file analyses — consolidate findings into a run-level summary |
+
+### Analysis Methodology Guides (analysis/methodologies/)
+
+Read these BEFORE creating analysis artifacts — they define the scoring frameworks:
+
+| Methodology | File | Framework |
+|------------|------|-----------|
+| **AI Analysis Guide** | `analysis/methodologies/ai-driven-analysis-guide.md` | Master AI analysis protocol |
+| **Classification Guide** | `analysis/methodologies/political-classification-guide.md` | 7-dimension classification |
+| **Risk Methodology** | `analysis/methodologies/political-risk-methodology.md` | Likelihood × Impact 5×5 matrix |
+| **Threat Framework** | `analysis/methodologies/political-threat-framework.md` | Multi-framework analysis adapted for EU democracy |
+| **SWOT Framework** | `analysis/methodologies/political-swot-framework.md` | Evidence-based SWOT |
+| **Style Guide** | `analysis/methodologies/political-style-guide.md` | Writing standards and tone |
+
+### Higher-Level Analysis Templates (docs/analysis-methodology/)
+
+Use `docs/analysis-methodology/weekly-intelligence-brief.md` as the **required primary template** for generating analysis artifacts in `analysis/${TODAY}/week-ahead/`. Consult the other templates below as **supporting references** when their focus area is relevant to the week's agenda, risks, actors, or institutional dynamics:
+
+| Template | File | Role in This Workflow | When to Apply |
+|----------|------|-----------------------|---------------|
+| **Political Landscape** | `docs/analysis-methodology/political-landscape-analysis.md` | **KEY SUPPORTING** | Group dynamics context, coalition viability |
+| **Coalition Dynamics** | `docs/analysis-methodology/coalition-dynamics-analysis.md` | **KEY SUPPORTING** | Voting alignment patterns, stress points |
+| **Legislative Risk** | `docs/analysis-methodology/legislative-risk-assessment.md` | **SUPPORTING (AS NEEDED)** | Pipeline analysis, passage probability |
+| **MEP Scorecard** | `docs/analysis-methodology/mep-influence-scorecard.md` | **SUPPORTING (AS NEEDED)** | MEP profiling, delegation analysis |
+| **Weekly Brief** | `docs/analysis-methodology/weekly-intelligence-brief.md` | **PRIMARY (REQUIRED)** | Week-ahead analysis, forward-looking scenarios |
+| **Committee Power** | `docs/analysis-methodology/committee-power-analysis.md` | **SUPPORTING (AS NEEDED)** | Committee reports, institutional analysis |
+
 ### Primary Template: Weekly Intelligence Brief
 
 Read and follow `docs/analysis-methodology/weekly-intelligence-brief.md` for producing the week-ahead analysis. This template defines:
@@ -314,13 +355,21 @@ Read and follow `docs/analysis-methodology/weekly-intelligence-brief.md` for pro
 Each analysis markdown MUST include:
 
 1. **Professional header** — Title, date, confidence badges
-2. **Executive summary table** — Color-coded key findings (shield.io badges)
+2. **Executive summary table** — Color-coded key findings using shields.io badges
 3. **Minimum 3 Mermaid diagrams** — With political group color coding (EPP=#003399, S&D=#cc0000, Renew=#FFD700, etc.)
 4. **Structured tables** — Multi-dimensional assessment with trend indicators (↑↗→↘↓)
 5. **Confidence levels** — 🟢 High / 🟡 Medium / 🔴 Low on every judgment
 6. **Source attribution** — Every claim linked to EP MCP data with dates
 7. **Scenarios** — At least 2 forward-looking scenarios with probability badges
 8. **Minimum 400 lines** per analysis document (target: 800+)
+
+### Anti-Patterns (MUST AVOID)
+
+- ❌ "0 procedures tracked" → ✅ Explain data gaps and their implications
+- ❌ Empty tables with only headers → ✅ Narrative analysis of why data is sparse
+- ❌ All risks scored "Low" without explanation → ✅ Context-specific threat assessment
+- ❌ Hardcoded synthetic IDs → ✅ Real EP document references with dates
+- ❌ Thin scaffolding with raw counts → ✅ Interpretive analysis with political intelligence
 
 ## Required Skills
 

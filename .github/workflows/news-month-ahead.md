@@ -298,6 +298,50 @@ The analysis artifacts provide structured political intelligence that enriches t
 
 > **⚠️ IMPROVE EXISTING ANALYSIS**: Per `ai-driven-analysis-guide.md` Rule 5, before producing new analysis, check for existing analysis in `analysis/${TODAY}/month-ahead/`. If previous analysis exists, READ it first and **improve, extend, correct, or complete** it — never discard prior work. No workflow run should be wasted.
 
+### Structured Analysis Templates (analysis/templates/)
+
+Read and apply the relevant templates in `analysis/templates/` for analysis in `analysis/${TODAY}/month-ahead/`. This includes:
+- the required **per-file** template for **every downloaded MCP data file** in `analysis/${TODAY}/month-ahead/data/`
+- the six **analysis-dimension** templates as applicable to each file
+- the required **synthesis** template after reviewing the full set of downloaded files
+
+| Template | File | When to Apply |
+|----------|------|--------------|
+| **Per-File Political Intelligence** | `analysis/templates/per-file-political-intelligence.md` | **Every downloaded MCP data file** — create or improve the per-file intelligence artifact first |
+| **Political Classification** | `analysis/templates/political-classification.md` | Every new EP event or document — classification step for each relevant file |
+| **Risk Assessment** | `analysis/templates/risk-assessment.md` | Coalition/policy/institutional risk indicators |
+| **Threat Analysis** | `analysis/templates/threat-analysis.md` | Threat Landscape-format democratic threat review |
+| **SWOT Analysis** | `analysis/templates/swot-analysis.md` | Strategic political landscape assessment |
+| **Stakeholder Impact** | `analysis/templates/stakeholder-impact.md` | Policy decisions or legislative actions |
+| **Significance Scoring** | `analysis/templates/significance-scoring.md` | Publication priority decisions |
+| **Synthesis Summary** | `analysis/templates/synthesis-summary.md` | After completing per-file analysis across the full dataset — synthesize findings into the month-ahead narrative |
+
+### Analysis Methodology Guides (analysis/methodologies/)
+
+Read these BEFORE creating analysis artifacts — they define the scoring frameworks:
+
+| Methodology | File | Framework |
+|------------|------|-----------|
+| **AI Analysis Guide** | `analysis/methodologies/ai-driven-analysis-guide.md` | Master AI analysis protocol |
+| **Classification Guide** | `analysis/methodologies/political-classification-guide.md` | 7-dimension classification |
+| **Risk Methodology** | `analysis/methodologies/political-risk-methodology.md` | Likelihood × Impact 5×5 matrix |
+| **Threat Framework** | `analysis/methodologies/political-threat-framework.md` | Multi-framework analysis adapted for EU democracy |
+| **SWOT Framework** | `analysis/methodologies/political-swot-framework.md` | Evidence-based SWOT |
+| **Style Guide** | `analysis/methodologies/political-style-guide.md` | Writing standards and tone |
+
+### Higher-Level Analysis Templates (docs/analysis-methodology/)
+
+When generating analysis artifacts in `analysis/${TODAY}/month-ahead/`, **read and apply only the templates marked `PRIMARY` or `KEY`, plus any explicitly referenced supporting templates**. Treat the remaining templates in this catalog as **optional/reference-only** and use them only when they materially improve the month-ahead analysis.
+
+| Template | File | When to Apply |
+|----------|------|--------------|
+| **Political Landscape** | `docs/analysis-methodology/political-landscape-analysis.md` | **PRIMARY** — Required; seat distribution and fragmentation analysis |
+| **Coalition Dynamics** | `docs/analysis-methodology/coalition-dynamics-analysis.md` | Optional/reference-only — Use for coalition possibility matrix or alliance patterns if helpful |
+| **Legislative Risk** | `docs/analysis-methodology/legislative-risk-assessment.md` | **KEY** — Required supporting template; pipeline health, PESTLE analysis, passage probability |
+| **MEP Scorecard** | `docs/analysis-methodology/mep-influence-scorecard.md` | Optional/reference-only — Use for MEP profiling or delegation analysis if helpful |
+| **Weekly Brief** | `docs/analysis-methodology/weekly-intelligence-brief.md` | Optional/reference-only — Use for early warning indicators or trend analysis if helpful |
+| **Committee Power** | `docs/analysis-methodology/committee-power-analysis.md` | **KEY** — Required supporting template; committee workload forecast, upcoming reports |
+
 ### Primary Template: Political Landscape Analysis
 
 Read and follow `docs/analysis-methodology/political-landscape-analysis.md` for the month-ahead outlook. This template defines:
@@ -314,9 +358,26 @@ Read and follow `docs/analysis-methodology/political-landscape-analysis.md` for 
 | **Legislative Risk** | `docs/analysis-methodology/legislative-risk-assessment.md` | Pipeline health, PESTLE analysis, passage probability |
 | **Committee Power** | `docs/analysis-methodology/committee-power-analysis.md` | Committee workload forecast, upcoming reports |
 
-### Quality Standards
+### Quality Standards for Analysis Output
 
-Each analysis markdown MUST include: professional header with date/confidence badges, executive summary table, minimum 3 color-coded Mermaid diagrams (political group colors: EPP=#003399, S&D=#cc0000, Renew=#FFD700, ECR=#FF6600, Greens=#009933), structured tables with trend indicators (↑↗→↘↓), confidence levels (🟢/🟡/🔴) on every judgment, source attribution with dates, forward-looking scenarios with probability badges, and minimum 400 lines per document.
+Each analysis markdown file MUST include (matching the quality of `SWOT.md` and `THREAT_MODEL.md`):
+
+1. **Professional header** — Title with emoji, analysis date, confidence level badges
+2. **Executive summary table** — Color-coded key findings using shields.io badges
+3. **Minimum 3 Mermaid diagrams** — Pie charts, flowcharts, quadrant charts, or mindmaps with color coding (EPP=#003399, S&D=#cc0000, Renew=#FFD700, ECR=#FF6600, Greens=#009933)
+4. **Structured assessment tables** — Multi-dimensional scoring with trend indicators (↑↗→↘↓)
+5. **Confidence levels on every judgment** — 🟢 High / 🟡 Medium / 🔴 Low with justification
+6. **Source attribution** — Every claim linked to specific EP MCP data with dates
+7. **Forward-looking scenarios** — At least 2 scenarios with probability badges
+8. **Minimum 400 lines** per analysis document (target: 800+)
+
+### Anti-Patterns (MUST AVOID)
+
+- ❌ "0 procedures tracked" → ✅ Explain data gaps and their implications
+- ❌ Empty tables with only headers → ✅ Narrative analysis of why data is sparse
+- ❌ All risks scored "Low" without explanation → ✅ Context-specific threat assessment
+- ❌ Hardcoded synthetic IDs → ✅ Real EP document references with dates
+- ❌ Thin scaffolding with raw counts → ✅ Interpretive analysis with political intelligence
 
 ## Required Skills
 
