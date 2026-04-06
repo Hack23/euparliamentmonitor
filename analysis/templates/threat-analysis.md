@@ -244,10 +244,47 @@ graph TD
 
 ---
 
+## 🔄 Cross-Session Bayesian Update
+
+> **AI Instructions:** When running threat analysis for the same topic across multiple sessions (e.g., breaking-1 and breaking-2 on the same day, or daily follow-ups), apply Bayesian updating to refine threat severity. Use the prior assessment from the previous session and update with new evidence.
+
+### Bayesian Prior (Previous Session)
+
+| Field | Value |
+|-------|-------|
+| **Previous Analysis ID** | `[If applicable: e.g. "THR-2026-04-05-001 (breaking-1)"]` |
+| **Previous Session Timestamp** | `[If applicable: YYYY-MM-DD HH:MM UTC]` |
+| **Time Elapsed** | `[If applicable: e.g. "6 hours"]` |
+
+### Bayesian Update Table
+
+| Threat Dimension | Prior Severity | New Evidence | Evidence Direction | Posterior Severity | Δ |
+|:----------------:|:--------------:|-------------|:------------------:|:-----------------:|:-:|
+| 🔄 Coalition Shifts | `[prev or —]` | `[New MCP data, e.g. "3 new defection votes detected"]` | `[↑ Increases / → Unchanged / ↓ Decreases]` | `[updated 1–5]` | `[+N/0/−N]` |
+| 🔍 Transparency Deficit | `[prev or —]` | `[New evidence]` | `[↑/→/↓]` | `[updated]` | `[Δ]` |
+| ↩️ Policy Reversal | `[prev or —]` | `[New evidence]` | `[↑/→/↓]` | `[updated]` | `[Δ]` |
+| 🏛️ Institutional Pressure | `[prev or —]` | `[New evidence]` | `[↑/→/↓]` | `[updated]` | `[Δ]` |
+| ⏳ Legislative Obstruction | `[prev or —]` | `[New evidence]` | `[↑/→/↓]` | `[updated]` | `[Δ]` |
+| 📉 Democratic Erosion | `[prev or —]` | `[New evidence]` | `[↑/→/↓]` | `[updated]` | `[Δ]` |
+
+### Bayesian Update Rules
+
+| Scenario | Update Action |
+|----------|--------------|
+| **New corroborating evidence** for existing threat | Increase severity by +1 (max 5) |
+| **Contradicting evidence** found | Decrease severity by −1 (min 1) |
+| **No new evidence** but time elapsed > 48h | Maintain prior; flag as "stale — needs fresh MCP data" |
+| **New threat dimension activated** | Start at prior=1 (minimal); update with first evidence |
+| **Threat resolved** (e.g., vote passed, crisis averted) | Set to 1 (minimal) with note "resolved" |
+
+**Overall Threat Level Update:** `[REQUIRED: Did the Bayesian update change the overall threat level? E.g., "Prior: MODERATE (avg severity 3.0) → Posterior: HIGH (avg severity 4.2, driven by new coalition defection evidence)"]`
+
+---
+
 **Document Control:**
 - **Template Path:** `/analysis/templates/threat-analysis.md`
-- **Version:** 2.0
-- **Advanced Features:** Attack Tree (AND/OR gates), Kill Chain (5-stage), Diamond Model + ICO Profile, Escalation Decision
+- **Version:** 2.1
+- **Advanced Features:** Attack Tree (AND/OR gates), Kill Chain (5-stage), Diamond Model + ICO Profile, Escalation Decision, Cross-Session Bayesian Update
 - **Framework Reference:** [methodologies/political-threat-framework.md](../methodologies/political-threat-framework.md)
 - **Classification:** Public
 - **Next Review:** 2026-06-30

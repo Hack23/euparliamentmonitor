@@ -213,10 +213,46 @@ graph TD
 
 ---
 
+## 🔄 Risk Register Continuity
+
+> **AI Instructions:** When producing risk assessments across multiple runs (daily, weekly, or within the same day), maintain risk register continuity. Each risk ID persists across sessions — do not reassign IDs. Track how risks evolve over time.
+
+### Risk Register Carry-Forward
+
+| Risk ID | First Identified | Previous Score | Current Score | Δ | Sessions Active | Status |
+|---------|:----------------:|:--------------:|:------------:|:-:|:--------------:|--------|
+| `RSK-001` | `[YYYY-MM-DD]` | `[prev L×I or —]` | `[current L×I]` | `[+N/0/−N]` | `[N]` | `[ACTIVE / ESCALATED / MITIGATED / CLOSED]` |
+| `RSK-002` | `[YYYY-MM-DD]` | `[prev]` | `[current]` | `[Δ]` | `[N]` | `[status]` |
+| `RSK-003` | `[YYYY-MM-DD]` | `[prev]` | `[current]` | `[Δ]` | `[N]` | `[status]` |
+| `[NEW]` | `[today]` | `—` | `[L×I]` | `NEW` | `1` | `ACTIVE` |
+
+### Risk Register Rules
+
+| Rule | Description |
+|------|-------------|
+| **ID Persistence** | Once assigned, a Risk ID (e.g., RSK-001) persists across all sessions until the risk is CLOSED |
+| **Score Update** | Re-evaluate L×I each session using latest MCP data; record delta |
+| **Escalation** | If a risk crosses from ≤14 to ≥15 (into CRITICAL), mark as ESCALATED and trigger breaking assessment |
+| **Mitigation** | If a risk drops by ≥5 points and falls below MEDIUM (≤4), mark as MITIGATED |
+| **Closure** | Close risks when: (a) the triggering event and all downstream consequence windows have passed (e.g., both plenary vote and transposition deadline), (b) the risk score has been LOW for ≥3 consecutive sessions, or (c) the legislative file has been adopted/rejected with no further procedural stage |
+| **New Risks** | Assign the next available RSK-NNN ID; mark status as ACTIVE; record first-identified date |
+| **Stale Risks** | If a risk has not been re-evaluated for >7 days (MEDIUM) or >24h (CRITICAL), flag as "STALE — requires re-assessment" |
+
+### Risk Trajectory Visualization
+
+> **AI Instructions:** For risks active ≥3 sessions, show the score trajectory.
+
+| Risk ID | Session 1 | Session 2 | Session 3 | Session 4 | Trend | Forecast |
+|---------|:---------:|:---------:|:---------:|:---------:|:-----:|----------|
+| `[RSK-001]` | `[score]` | `[score]` | `[score]` | `[score or —]` | `[↑/→/↓]` | `[likely next score]` |
+| `[RSK-002]` | `[score]` | `[score]` | `[score]` | `[score or —]` | `[↑/→/↓]` | `[forecast]` |
+
+---
+
 **Document Control:**
 - **Template Path:** `/analysis/templates/risk-assessment.md`
-- **Version:** 2.0
-- **Advanced Features:** Cascading Risk Chain, Risk Interconnection Map, Freshness tiers, Escalation criteria
+- **Version:** 2.1
+- **Advanced Features:** Cascading Risk Chain, Risk Interconnection Map, Freshness tiers, Escalation criteria, Risk Register Continuity
 - **Framework Reference:** [methodologies/political-risk-methodology.md](../methodologies/political-risk-methodology.md)
 - **Classification:** Public
 - **Next Review:** 2026-06-30

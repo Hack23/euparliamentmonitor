@@ -11,12 +11,12 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.0-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--30-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.1-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--06-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.0 | **📅 Last Updated:** 2026-03-30 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Last Updated:** 2026-04-06 (UTC)
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
 > **📌 Template Instructions:** This template is for **per-file** analysis. For each data file downloaded via EP MCP (e.g., an adopted text, vote record, committee document), the AI agent produces one analysis markdown file stored alongside the data file.
@@ -40,6 +40,25 @@
 | **Source MCP Tool** | `[REQUIRED: e.g. get_adopted_texts, get_voting_records, search_documents]` |
 | **Analysis Timestamp** | `[REQUIRED: YYYY-MM-DD HH:MM UTC]` |
 | **Analyst** | `[REQUIRED: workflow name, e.g. news-committee-reports]` |
+
+---
+
+## 🔧 EP MCP Tool Mapping
+
+> **AI Instructions:** Use the following mapping to select the correct EP MCP tools for each section. These tools are from the `european-parliament-mcp-server` package. Call the listed tools and cite their output as evidence.
+
+| Template Section | Primary EP MCP Tool(s) | Fallback Tool | Output Used |
+|-----------------|----------------------|---------------|------------|
+| 📋 Document Identity | `get_adopted_texts`, `get_procedures`, `get_committee_documents` | `search_documents` | Document metadata, reference IDs |
+| 🎯 Executive Summary | `get_plenary_sessions`, `get_voting_records` | `generate_report` | Session context, vote outcomes |
+| 📊 Political Classification | `analyze_voting_patterns`, `get_meps` | `get_committee_info` | Voting splits, group positions |
+| 💪 SWOT Impact Assessment | `analyze_voting_patterns`, `compare_political_groups` | `analyze_coalition_dynamics` | Group cohesion, alliance patterns |
+| ⚖️ Risk Assessment | `detect_voting_anomalies`, `analyze_coalition_dynamics` | `monitor_legislative_pipeline` | Anomalies, coalition stress |
+| 🎭 Threat Analysis | `detect_voting_anomalies`, `early_warning_system` | `analyze_country_delegation` | Defection signals, instability |
+| 👥 Stakeholder Impact | `get_meps`, `get_committee_info`, `get_parliamentary_questions` | `analyze_legislative_effectiveness` | Committee composition, MEP activity |
+| 🔮 Forward Indicators | `get_events`, `get_plenary_sessions` | `monitor_legislative_pipeline` | Upcoming sessions, pipeline status |
+| 🔗 Cross-References | `get_procedures`, `search_documents` | `get_procedure_events` | Related procedures, document links |
+| 📊 Data Quality | All tools used above | — | Completeness assessment |
 
 ---
 
@@ -248,6 +267,31 @@ graph TD
 
 ---
 
+## 🔄 Cross-Session Delta Tracking
+
+> **AI Instructions:** When multiple analysis runs occur on the same day (e.g., breaking-1 and breaking-2), complete this section to track how assessments have changed between sessions. If this is the first session of the day, mark "Baseline" and skip the delta columns.
+
+| Field | Value |
+|-------|-------|
+| **Session Number** | `[REQUIRED: e.g. "Session 2 of 2" or "Baseline (Session 1)"]` |
+| **Previous Session ID** | `[If applicable: e.g. "breaking-1 (2026-04-05T08:00Z)"]` |
+| **Time Since Last Session** | `[If applicable: e.g. "6 hours"]` |
+| **New Data Since Last Session** | `[If applicable: list new MCP data files not in previous session]` |
+
+### Assessment Deltas
+
+| Assessment | Previous Value | Current Value | Delta | Reason for Change |
+|-----------|:-------------:|:------------:|:-----:|-------------------|
+| Significance Score | `[prev or —]` | `[current]` | `[↑/↓/→]` | `[REQUIRED if changed: cite new evidence]` |
+| Risk Level | `[prev or —]` | `[current]` | `[↑/↓/→]` | `[cite new evidence]` |
+| Threat Level | `[prev or —]` | `[current]` | `[↑/↓/→]` | `[cite new evidence]` |
+| SWOT Balance | `[prev or —]` | `[current]` | `[shift]` | `[cite new evidence]` |
+| Stakeholder Impact | `[prev or —]` | `[current]` | `[↑/↓/→]` | `[cite new evidence]` |
+
+**Cross-Session Confidence:** `[REQUIRED: Has confidence improved, degraded, or remained stable with additional data?]`
+
+---
+
 ## 📂 MCP Data Files Used
 
 `[REQUIRED: List all EP MCP data file paths consulted for this analysis]`
@@ -257,6 +301,8 @@ graph TD
 **Document Control:**
 - **Template Path:** `/analysis/templates/per-file-political-intelligence.md`
 - **Output Path:** Same directory as the JSON source file, named `{id}.analysis.md`
+- **Version:** 1.1
+- **What's New in 1.1:** EP MCP Tool Mapping per section, Cross-Session Delta Tracking
 - **Framework References:** [SWOT.md](../../SWOT.md), [THREAT_MODEL.md](../../THREAT_MODEL.md)
 - **Methodology:** [ai-driven-analysis-guide.md](../methodologies/ai-driven-analysis-guide.md)
 - **Classification:** Public

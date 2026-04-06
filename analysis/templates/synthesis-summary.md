@@ -11,12 +11,12 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.0-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--30-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.1-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--06-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.0 | **📅 Last Updated:** 2026-03-30 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Last Updated:** 2026-04-06 (UTC)
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
 > **📌 Template Instructions:** This template synthesizes the outputs of all other analysis templates into a single intelligence summary. Copy to `analysis/{date}/{article-type-slug}/` and save as `synthesis-summary.md`. This file is consumed by the news article generators to determine narrative direction.
@@ -224,6 +224,76 @@ graph LR
 
 ---
 
+## 🔄 Temporal Aggregation — Rollup Guidance
+
+> **AI Instructions:** Synthesis summaries accumulate over time. Use the following rules to aggregate daily analyses into weekly and monthly intelligence products. When producing a weekly or monthly synthesis, reference the underlying daily syntheses rather than re-analysing raw MCP data. Daily synthesis IDs use the generator-issued format `SYN-YYYY-MM-DD-UUID8` (8-character uppercase hex suffix). Weekly and monthly rollups are distinct aggregation artifacts with their own ID scheme.
+
+### Aggregation Hierarchy
+
+```mermaid
+flowchart LR
+    D1["📄 Daily Synthesis<br/>SYN-YYYY-MM-DD-UUID8"] --> W["📋 Weekly Rollup<br/>ROLLUP-WEEKLY-YYYY-WNN"]
+    D2["📄 Daily Synthesis"] --> W
+    D3["📄 Daily Synthesis"] --> W
+    D4["📄 Daily Synthesis"] --> W
+    D5["📄 Daily Synthesis"] --> W
+    W --> M["📊 Monthly Rollup<br/>ROLLUP-MONTHLY-YYYY-MM"]
+    W2["📋 Weekly Rollup"] --> M
+    W3["📋 Weekly Rollup"] --> M
+    W4["📋 Weekly Rollup"] --> M
+
+    style D1 fill:#28a745,color:#fff
+    style D2 fill:#28a745,color:#fff
+    style D3 fill:#28a745,color:#fff
+    style D4 fill:#28a745,color:#fff
+    style D5 fill:#28a745,color:#fff
+    style W fill:#0d6efd,color:#fff
+    style W2 fill:#0d6efd,color:#fff
+    style W3 fill:#0d6efd,color:#fff
+    style W4 fill:#0d6efd,color:#fff
+    style M fill:#6f42c1,color:#fff
+```
+
+### Daily Synthesis (Default — this template)
+
+| Parameter | Rule |
+|-----------|------|
+| **Scope** | All MCP data files downloaded in a single workflow run |
+| **ID Format** | `SYN-YYYY-MM-DD-UUID8` (e.g., `SYN-2026-04-06-A1B2C3D4`) |
+| **Content** | Full template as defined above |
+| **Retention** | Permanent — stored in `analysis/YYYY-MM-DD/{slug}/` |
+
+### Weekly Rollup
+
+| Parameter | Rule |
+|-----------|------|
+| **Scope** | Aggregates all daily syntheses from Monday–Sunday of one EP week |
+| **ID Format** | `ROLLUP-WEEKLY-YYYY-WNN` (e.g., `ROLLUP-WEEKLY-2026-W14`) |
+| **Trigger** | Produced by `news-weekly-review` workflow |
+| **Content** | Top 5 findings ranked by peak daily significance score; risk trend across the week (↑/→/↓); SWOT balance shift; narrative arc (how the week's story evolved); cumulative stakeholder impact showing net effect per group (positive/negative/neutral) with the most-affected group highlighted |
+| **Aggregation Rules** | Use highest daily significance per event (not average); report risk trend direction; count total documents analysed across all daily runs |
+
+### Monthly Rollup
+
+| Parameter | Rule |
+|-----------|------|
+| **Scope** | Aggregates all weekly rollups from a calendar month |
+| **ID Format** | `ROLLUP-MONTHLY-YYYY-MM` (e.g., `ROLLUP-MONTHLY-2026-04`) |
+| **Trigger** | Produced by `news-monthly-review` workflow |
+| **Content** | Top 10 findings of the month; risk trajectory (4-week trend line); SWOT evolution (which quadrant grew/shrank); strategic themes (recurring patterns); legislative pipeline throughput; stakeholder impact distribution |
+| **Aggregation Rules** | Use weekly peak scores; identify events that persisted across multiple weeks (sustained significance); flag risks that escalated from MEDIUM→HIGH or higher during the month |
+
+### Cross-Session Intra-Day Aggregation
+
+| Parameter | Rule |
+|-----------|------|
+| **Scope** | Multiple runs on the same day (e.g., breaking-1, breaking-2, breaking-3) |
+| **ID Format** | `SYN-YYYY-MM-DD-UUID8` (increment session; each run gets a unique generator-issued ID) |
+| **Content** | Delta section comparing to previous same-day session |
+| **Aggregation Rules** | Later sessions supersede earlier sessions for the same event; new events are appended; significance scores update (show delta); risk levels update with Bayesian prior from earlier session |
+
+---
+
 ## 📂 MCP Data Files Used
 
 `[REQUIRED: List all EP MCP data file paths consulted for this synthesis]`
@@ -232,6 +302,8 @@ graph LR
 
 **Document Control:**
 - **Template Path:** `/analysis/templates/synthesis-summary.md`
+- **Version:** 1.1
+- **What's New in 1.1:** Temporal Aggregation Rollup Guidance (daily→weekly→monthly), Cross-Session Intra-Day Aggregation
 - **Consumed By:** All news article generator workflows
 - **Classification:** Public
 - **Next Review:** 2026-06-30
