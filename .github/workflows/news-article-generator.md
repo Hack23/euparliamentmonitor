@@ -257,10 +257,12 @@ Read these BEFORE creating analysis artifacts — they define the scoring framew
 
 | Methodology | File | Framework |
 |------------|------|-----------|
+| **AI Analysis Guide** | `analysis/methodologies/ai-driven-analysis-guide.md` | Master AI analysis protocol |
 | **Classification Guide** | `analysis/methodologies/political-classification-guide.md` | 7-dimension classification |
 | **Risk Methodology** | `analysis/methodologies/political-risk-methodology.md` | Likelihood × Impact 5×5 matrix |
 | **Threat Framework** | `analysis/methodologies/political-threat-framework.md` | Multi-framework analysis adapted for EU democracy |
 | **SWOT Framework** | `analysis/methodologies/political-swot-framework.md` | Evidence-based SWOT |
+| **Style Guide** | `analysis/methodologies/political-style-guide.md` | Writing standards and tone |
 
 ### Higher-Level Analysis Templates (docs/analysis-methodology/)
 
