@@ -42,7 +42,7 @@ export function buildActorThreatProfilingMarkdown(fetchedData, date) {
     const header = buildMarkdownHeader('actor-threat-profiling', date, profiles.length > 0 ? 'medium' : 'low');
     const profileRows = profiles.length > 0
         ? profiles
-            .map((p) => `| ${p.actor} | ${p.actorType} | ${p.capability} | ${p.motivation} | ${p.opportunity} | ${p.overallThreatLevel} |`)
+            .map((p) => `| ${sanitizeCell(p.actor)} | ${sanitizeCell(p.actorType)} | ${sanitizeCell(p.capability)} | ${sanitizeCell(p.motivation)} | ${sanitizeCell(p.opportunity)} | ${sanitizeCell(p.overallThreatLevel)} |`)
             .join('\n')
         : EMPTY_TABLE_ROW_6;
     return (header +
@@ -73,16 +73,17 @@ export function buildConsequenceTreesMarkdown(fetchedData, date) {
     const trees = [];
     for (const raw of procedures.slice(0, 5)) {
         const proc = raw && typeof raw === 'object' ? raw : null;
-        const title = proc ? String(proc['title'] ?? '') : '';
-        if (!title)
+        const rawTitle = proc ? String(proc['title'] ?? '') : '';
+        if (!rawTitle)
             continue;
-        const tree = buildConsequenceTree(title, input);
+        const title = sanitizeCell(rawTitle);
+        const tree = buildConsequenceTree(rawTitle, input);
         trees.push(`### ${title}\n` +
-            `- **Immediate**: ${tree.immediateConsequences.map((c) => c.description).join('; ') || 'No immediate consequences identified'}\n` +
-            `- **Secondary**: ${tree.secondaryEffects.map((c) => c.description).join('; ') || 'No secondary effects identified'}\n` +
-            `- **Long-term**: ${tree.longTermImplications.map((c) => c.description).join('; ') || 'No long-term implications identified'}\n` +
-            `- **Mitigating factors**: ${tree.mitigatingFactors.join(', ') || '—'}\n` +
-            `- **Amplifying factors**: ${tree.amplifyingFactors.join(', ') || '—'}`);
+            `- **Immediate**: ${tree.immediateConsequences.map((c) => sanitizeCell(c.description)).join('; ') || 'No immediate consequences identified'}\n` +
+            `- **Secondary**: ${tree.secondaryEffects.map((c) => sanitizeCell(c.description)).join('; ') || 'No secondary effects identified'}\n` +
+            `- **Long-term**: ${tree.longTermImplications.map((c) => sanitizeCell(c.description)).join('; ') || 'No long-term implications identified'}\n` +
+            `- **Mitigating factors**: ${tree.mitigatingFactors.map((f) => sanitizeCell(f)).join(', ') || '—'}\n` +
+            `- **Amplifying factors**: ${tree.amplifyingFactors.map((f) => sanitizeCell(f)).join(', ') || '—'}`);
     }
     return (header +
         `# Consequence Tree Analysis

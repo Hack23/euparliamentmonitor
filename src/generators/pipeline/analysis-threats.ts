@@ -27,6 +27,7 @@ import {
   EMPTY_TABLE_ROW_6,
 } from './analysis-helpers.js';
 import type { MarkdownBuilder } from './analysis-helpers.js';
+import type { AnalysisMethod } from './analysis-stage.js';
 
 // ─── Per-method markdown builders ────────────────────────────────────────────
 
@@ -74,7 +75,7 @@ export function buildActorThreatProfilingMarkdown(
       ? profiles
           .map(
             (p) =>
-              `| ${p.actor} | ${p.actorType} | ${p.capability} | ${p.motivation} | ${p.opportunity} | ${p.overallThreatLevel} |`
+              `| ${sanitizeCell(p.actor)} | ${sanitizeCell(p.actorType)} | ${sanitizeCell(p.capability)} | ${sanitizeCell(p.motivation)} | ${sanitizeCell(p.opportunity)} | ${sanitizeCell(p.overallThreatLevel)} |`
           )
           .join('\n')
       : EMPTY_TABLE_ROW_6;
@@ -114,16 +115,17 @@ export function buildConsequenceTreesMarkdown(
   const trees: string[] = [];
   for (const raw of procedures.slice(0, 5)) {
     const proc = raw && typeof raw === 'object' ? (raw as Record<string, unknown>) : null;
-    const title = proc ? String(proc['title'] ?? '') : '';
-    if (!title) continue;
-    const tree = buildConsequenceTree(title, input);
+    const rawTitle = proc ? String(proc['title'] ?? '') : '';
+    if (!rawTitle) continue;
+    const title = sanitizeCell(rawTitle);
+    const tree = buildConsequenceTree(rawTitle, input);
     trees.push(
       `### ${title}\n` +
-        `- **Immediate**: ${tree.immediateConsequences.map((c) => c.description).join('; ') || 'No immediate consequences identified'}\n` +
-        `- **Secondary**: ${tree.secondaryEffects.map((c) => c.description).join('; ') || 'No secondary effects identified'}\n` +
-        `- **Long-term**: ${tree.longTermImplications.map((c) => c.description).join('; ') || 'No long-term implications identified'}\n` +
-        `- **Mitigating factors**: ${tree.mitigatingFactors.join(', ') || '—'}\n` +
-        `- **Amplifying factors**: ${tree.amplifyingFactors.join(', ') || '—'}`
+        `- **Immediate**: ${tree.immediateConsequences.map((c) => sanitizeCell(c.description)).join('; ') || 'No immediate consequences identified'}\n` +
+        `- **Secondary**: ${tree.secondaryEffects.map((c) => sanitizeCell(c.description)).join('; ') || 'No secondary effects identified'}\n` +
+        `- **Long-term**: ${tree.longTermImplications.map((c) => sanitizeCell(c.description)).join('; ') || 'No long-term implications identified'}\n` +
+        `- **Mitigating factors**: ${tree.mitigatingFactors.map((f) => sanitizeCell(f)).join(', ') || '—'}\n` +
+        `- **Amplifying factors**: ${tree.amplifyingFactors.map((f) => sanitizeCell(f)).join(', ') || '—'}`
     );
   }
 
@@ -187,7 +189,7 @@ ${disruptions.length > 0 ? disruptions.join('\n') : '| — | — | — | — | �
 }
 
 /** All threat assessment method builders keyed by their AnalysisMethod identifier */
-export const THREAT_BUILDERS: Readonly<Record<string, MarkdownBuilder>> = {
+export const THREAT_BUILDERS: Readonly<Partial<Record<AnalysisMethod, MarkdownBuilder>>> = {
   'political-threat-landscape': buildThreatLandscapeMarkdown,
   'actor-threat-profiling': buildActorThreatProfilingMarkdown,
   'consequence-trees': buildConsequenceTreesMarkdown,

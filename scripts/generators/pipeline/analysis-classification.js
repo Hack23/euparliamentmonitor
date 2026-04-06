@@ -219,7 +219,7 @@ export function buildForcesAnalysisMarkdown(fetchedData, date) {
     const input = toClassificationInput(fetchedData);
     const forces = analyzePoliticalForces(input);
     const header = buildMarkdownHeader('forces-analysis', date, 'medium');
-    const forceRow = (name, f) => `| ${name} | ${f.trend} | ${(f.strength * 100).toFixed(0)}% | ${f.keyActors.length > 0 ? f.keyActors.join(', ') : '—'} | ${f.confidence} |`;
+    const forceRow = (name, f) => `| ${sanitizeCell(name)} | ${sanitizeCell(f.trend)} | ${(f.strength * 100).toFixed(0)}% | ${f.keyActors.length > 0 ? sanitizeCell(f.keyActors.join(', ')) : '—'} | ${sanitizeCell(f.confidence)} |`;
     const cp = Math.max(1, Math.min(99, Math.round(forces.coalitionPower.strength * 100)));
     const op = Math.max(1, Math.min(99, Math.round(forces.oppositionPower.strength * 100)));
     const ib = Math.max(1, Math.min(99, Math.round(forces.institutionalBarriers.strength * 100)));

@@ -14,7 +14,7 @@
  */
 
 import { ArticleCategory } from '../../types/index.js';
-import type { ScoredSWOTItem } from '../../types/political-risk.js';
+import type { ScoredSWOTItem, PoliticalRiskScore } from '../../types/political-risk.js';
 import {
   assessLegislativeVelocityRisk,
   runAgentRiskAssessment,
@@ -32,6 +32,7 @@ import {
   EMPTY_TABLE_ROW_6,
 } from './analysis-helpers.js';
 import type { MarkdownBuilder } from './analysis-helpers.js';
+import type { AnalysisMethod } from './analysis-stage.js';
 
 // ─── SWOT item builder ──────────────────────────────────────────────────────
 
@@ -580,7 +581,7 @@ export function buildAgentRiskWorkflowMarkdown(
   const procedures = safeArr(fetchedData, 'procedures');
   const coalitions = safeArr(fetchedData, 'coalitions');
 
-  const identifiedRisks = [];
+  const identifiedRisks: PoliticalRiskScore[] = [];
   if (procedures.length > 0) {
     identifiedRisks.push(
       calculatePoliticalRiskScore(
@@ -644,7 +645,7 @@ export function buildAgentRiskWorkflowMarkdown(
 }
 
 /** All risk scoring method builders keyed by their AnalysisMethod identifier */
-export const RISK_BUILDERS: Readonly<Record<string, MarkdownBuilder>> = {
+export const RISK_BUILDERS: Readonly<Partial<Record<AnalysisMethod, MarkdownBuilder>>> = {
   'risk-matrix': buildRiskMatrixMarkdown,
   'political-capital-risk': buildPoliticalCapitalRiskMarkdown,
   'quantitative-swot': buildQuantitativeSwotMarkdown,

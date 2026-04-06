@@ -456,7 +456,7 @@ function processDocumentItem(raw, feedKey, date, analyzedIds, docDir, rawDataDir
  * @returns Markdown index content string
  */
 export function buildDocumentAnalysisMarkdown(fetchedData, date) {
-    const header = buildMarkdownHeader(METHOD_DOCUMENT_ANALYSIS, date, 'high');
+    const header = buildMarkdownHeader(METHOD_DOCUMENT_ANALYSIS, date, 'medium');
     const dateOutputDir = fetchedData['_dateOutputDir'];
     const outputBase = typeof dateOutputDir === 'string' ? dateOutputDir : '';
     const docDir = outputBase ? path.join(outputBase, 'documents') : '';

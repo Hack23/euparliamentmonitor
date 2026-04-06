@@ -45,6 +45,7 @@ import {
   writeTextFile,
 } from './analysis-helpers.js';
 import type { MarkdownBuilder } from './analysis-helpers.js';
+import type { AnalysisMethod } from './analysis-stage.js';
 
 /** Analysis method identifier for synthesis summary */
 export const METHOD_SYNTHESIS_SUMMARY_ID = 'synthesis-summary' as const;
@@ -604,7 +605,7 @@ export function buildDocumentAnalysisMarkdown(
   fetchedData: Record<string, unknown>,
   date: string
 ): string {
-  const header = buildMarkdownHeader(METHOD_DOCUMENT_ANALYSIS, date, 'high');
+  const header = buildMarkdownHeader(METHOD_DOCUMENT_ANALYSIS, date, 'medium');
   const dateOutputDir = (fetchedData as Record<string, unknown>)['_dateOutputDir'];
   const outputBase = typeof dateOutputDir === 'string' ? dateOutputDir : '';
 
@@ -707,7 +708,7 @@ All ${documentEntries.length} documents have been stored in their entirety:
 }
 
 /** All existing analysis method builders keyed by their AnalysisMethod identifier */
-export const EXISTING_BUILDERS: Readonly<Record<string, MarkdownBuilder>> = {
+export const EXISTING_BUILDERS: Readonly<Partial<Record<AnalysisMethod, MarkdownBuilder>>> = {
   'deep-analysis': buildDeepAnalysisMarkdown,
   'stakeholder-analysis': buildStakeholderAnalysisMarkdown,
   'coalition-analysis': buildCoalitionAnalysisMarkdown,

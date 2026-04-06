@@ -34,6 +34,7 @@ import {
   highestImpactDimension,
 } from './analysis-helpers.js';
 import type { MarkdownBuilder } from './analysis-helpers.js';
+import type { AnalysisMethod } from './analysis-stage.js';
 
 // ─── Heuristic scoring thresholds for EP event data ───────────────────────────
 
@@ -288,7 +289,7 @@ export function buildForcesAnalysisMarkdown(
     name: string,
     f: { strength: number; trend: string; keyActors: readonly string[]; confidence: string }
   ) =>
-    `| ${name} | ${f.trend} | ${(f.strength * 100).toFixed(0)}% | ${f.keyActors.length > 0 ? f.keyActors.join(', ') : '—'} | ${f.confidence} |`;
+    `| ${sanitizeCell(name)} | ${sanitizeCell(f.trend)} | ${(f.strength * 100).toFixed(0)}% | ${f.keyActors.length > 0 ? sanitizeCell(f.keyActors.join(', ')) : '—'} | ${sanitizeCell(f.confidence)} |`;
 
   const cp = Math.max(1, Math.min(99, Math.round(forces.coalitionPower.strength * 100)));
   const op = Math.max(1, Math.min(99, Math.round(forces.oppositionPower.strength * 100)));
@@ -418,7 +419,7 @@ ${batchTable}
 }
 
 /** All classification method builders keyed by their AnalysisMethod identifier */
-export const CLASSIFICATION_BUILDERS: Readonly<Record<string, MarkdownBuilder>> = {
+export const CLASSIFICATION_BUILDERS: Readonly<Partial<Record<AnalysisMethod, MarkdownBuilder>>> = {
   'significance-classification': buildSignificanceClassificationMarkdown,
   'impact-matrix': buildImpactMatrixMarkdown,
   'actor-mapping': buildActorMappingMarkdown,
