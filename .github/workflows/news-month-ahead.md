@@ -331,16 +331,16 @@ Read these BEFORE creating analysis artifacts — they define the scoring framew
 
 ### Higher-Level Analysis Templates (docs/analysis-methodology/)
 
-Read and apply these templates when generating analysis artifacts in `analysis/${TODAY}/month-ahead/`:
+When generating analysis artifacts in `analysis/${TODAY}/month-ahead/`, **read and apply only the templates marked `PRIMARY` or `KEY`, plus any explicitly referenced supporting templates**. Treat the remaining templates in this catalog as **optional/reference-only** and use them only when they materially improve the month-ahead analysis.
 
 | Template | File | When to Apply |
 |----------|------|--------------|
-| **Political Landscape** | `docs/analysis-methodology/political-landscape-analysis.md` | **PRIMARY** — Seat distribution, fragmentation analysis |
-| **Coalition Dynamics** | `docs/analysis-methodology/coalition-dynamics-analysis.md` | Coalition possibility matrix, alliance patterns |
-| **Legislative Risk** | `docs/analysis-methodology/legislative-risk-assessment.md` | **KEY** — Pipeline health, PESTLE analysis, passage probability |
-| **MEP Scorecard** | `docs/analysis-methodology/mep-influence-scorecard.md` | MEP profiling, delegation analysis |
-| **Weekly Brief** | `docs/analysis-methodology/weekly-intelligence-brief.md` | Early warning indicators, trend analysis |
-| **Committee Power** | `docs/analysis-methodology/committee-power-analysis.md` | **KEY** — Committee workload forecast, upcoming reports |
+| **Political Landscape** | `docs/analysis-methodology/political-landscape-analysis.md` | **PRIMARY** — Required; seat distribution and fragmentation analysis |
+| **Coalition Dynamics** | `docs/analysis-methodology/coalition-dynamics-analysis.md` | Optional/reference-only — Use for coalition possibility matrix or alliance patterns if helpful |
+| **Legislative Risk** | `docs/analysis-methodology/legislative-risk-assessment.md` | **KEY** — Required supporting template; pipeline health, PESTLE analysis, passage probability |
+| **MEP Scorecard** | `docs/analysis-methodology/mep-influence-scorecard.md` | Optional/reference-only — Use for MEP profiling or delegation analysis if helpful |
+| **Weekly Brief** | `docs/analysis-methodology/weekly-intelligence-brief.md` | Optional/reference-only — Use for early warning indicators or trend analysis if helpful |
+| **Committee Power** | `docs/analysis-methodology/committee-power-analysis.md` | **KEY** — Required supporting template; committee workload forecast, upcoming reports |
 
 ### Primary Template: Political Landscape Analysis
 

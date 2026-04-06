@@ -366,16 +366,19 @@ Read these BEFORE creating analysis artifacts — they define the scoring framew
 
 ### Higher-Level Analysis Templates (docs/analysis-methodology/)
 
-Read and apply these templates when generating analysis artifacts in `analysis/${TODAY}/propositions/`:
+Use this catalog selectively when generating analysis artifacts in `analysis/${TODAY}/propositions/`:
+- **PRIMARY** = required template for proposition analysis
+- **KEY** = required supporting template when political group positions or coalition alignment are material
+- **OPTIONAL / REFERENCE ONLY** = consult only when the specific analysis need arises; do not apply by default
 
-| Template | File | When to Apply |
-|----------|------|--------------|
-| **Political Landscape** | `docs/analysis-methodology/political-landscape-analysis.md` | Group dynamics context, strategic overview |
-| **Coalition Dynamics** | `docs/analysis-methodology/coalition-dynamics-analysis.md` | **KEY** — Political group positions on key dossiers |
-| **Legislative Risk** | `docs/analysis-methodology/legislative-risk-assessment.md` | **PRIMARY** — Pipeline health, PESTLE analysis, dossier deep-dives |
-| **MEP Scorecard** | `docs/analysis-methodology/mep-influence-scorecard.md` | Rapporteur influence, delegation analysis |
-| **Weekly Brief** | `docs/analysis-methodology/weekly-intelligence-brief.md` | Early warning indicators, trend analysis |
-| **Committee Power** | `docs/analysis-methodology/committee-power-analysis.md` | Committee reports, institutional analysis |
+| Template | File | Usage Priority |
+|----------|------|----------------|
+| **Political Landscape** | `docs/analysis-methodology/political-landscape-analysis.md` | **OPTIONAL / REFERENCE ONLY** — Use for broader group dynamics context or strategic overview |
+| **Coalition Dynamics** | `docs/analysis-methodology/coalition-dynamics-analysis.md` | **KEY** — Use when analysing political group positions on key dossiers |
+| **Legislative Risk** | `docs/analysis-methodology/legislative-risk-assessment.md` | **PRIMARY** — Required for pipeline health, PESTLE analysis, and dossier deep-dives |
+| **MEP Scorecard** | `docs/analysis-methodology/mep-influence-scorecard.md` | **OPTIONAL / REFERENCE ONLY** — Use for rapporteur influence or delegation analysis |
+| **Weekly Brief** | `docs/analysis-methodology/weekly-intelligence-brief.md` | **OPTIONAL / REFERENCE ONLY** — Use for early warning indicators or trend analysis |
+| **Committee Power** | `docs/analysis-methodology/committee-power-analysis.md` | **OPTIONAL / REFERENCE ONLY** — Use for committee reports or institutional analysis |
 
 ### Primary Template: Legislative Risk Assessment
 

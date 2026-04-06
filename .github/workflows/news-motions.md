@@ -356,16 +356,16 @@ Read these BEFORE creating analysis artifacts — they define the scoring framew
 
 ### Higher-Level Analysis Templates (docs/analysis-methodology/)
 
-Read and apply these templates when generating analysis artifacts in `analysis/${TODAY}/motions/`:
+Use templates marked **PRIMARY** or **KEY** when generating analysis artifacts in `analysis/${TODAY}/motions/`. All other templates in this table are reference-only and optional; apply them only when relevant to the specific motion or supporting analysis.
 
 | Template | File | When to Apply |
 |----------|------|--------------|
-| **Political Landscape** | `docs/analysis-methodology/political-landscape-analysis.md` | Group dynamics context, strategic overview |
+| **Political Landscape** | `docs/analysis-methodology/political-landscape-analysis.md` | Optional reference — Group dynamics context, strategic overview |
 | **Coalition Dynamics** | `docs/analysis-methodology/coalition-dynamics-analysis.md` | **PRIMARY** — Coalition network, voting alignment, defection analysis |
-| **Legislative Risk** | `docs/analysis-methodology/legislative-risk-assessment.md` | Pipeline analysis, passage probability |
+| **Legislative Risk** | `docs/analysis-methodology/legislative-risk-assessment.md` | Optional reference — Pipeline analysis, passage probability |
 | **MEP Scorecard** | `docs/analysis-methodology/mep-influence-scorecard.md` | **KEY** — Key actor voting behavior, influence scoring |
-| **Weekly Brief** | `docs/analysis-methodology/weekly-intelligence-brief.md` | Early warning indicators, trend analysis |
-| **Committee Power** | `docs/analysis-methodology/committee-power-analysis.md` | Committee reports, institutional analysis |
+| **Weekly Brief** | `docs/analysis-methodology/weekly-intelligence-brief.md` | Optional reference — Early warning indicators, trend analysis |
+| **Committee Power** | `docs/analysis-methodology/committee-power-analysis.md` | Optional reference — Committee reports, institutional analysis |
 
 ### Primary Template: Coalition Dynamics Analysis
 

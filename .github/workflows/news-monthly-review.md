@@ -329,16 +329,16 @@ Read these BEFORE creating analysis artifacts — they define the scoring framew
 
 ### Higher-Level Analysis Templates (docs/analysis-methodology/)
 
-Read and apply ALL templates — the monthly review is the most comprehensive analysis product:
+The monthly review is the **most comprehensive analysis product** — all templates below are **required**. Apply **PRIMARY** first, then all **KEY** supporting templates:
 
 | Template | File | When to Apply |
 |----------|------|--------------|
-| **Political Landscape** | `docs/analysis-methodology/political-landscape-analysis.md` | **PRIMARY** — Seat distribution, fragmentation analysis |
-| **Coalition Dynamics** | `docs/analysis-methodology/coalition-dynamics-analysis.md` | **KEY** — Voting alliance analysis, ACH framework, defection tracking |
-| **Legislative Risk** | `docs/analysis-methodology/legislative-risk-assessment.md` | **KEY** — Pipeline health, PESTLE analysis, dossier deep-dives |
-| **MEP Scorecard** | `docs/analysis-methodology/mep-influence-scorecard.md` | **KEY** — Notable MEP activity highlights |
-| **Weekly Brief** | `docs/analysis-methodology/weekly-intelligence-brief.md` | **KEY** — Early warning indicators, trend analysis |
-| **Committee Power** | `docs/analysis-methodology/committee-power-analysis.md` | **KEY** — Committee workload ranking, bottleneck analysis |
+| **Political Landscape** | `docs/analysis-methodology/political-landscape-analysis.md` | **PRIMARY (REQUIRED)** — Seat distribution, fragmentation analysis |
+| **Coalition Dynamics** | `docs/analysis-methodology/coalition-dynamics-analysis.md` | **KEY (REQUIRED)** — Voting alliance analysis, ACH framework, defection tracking |
+| **Legislative Risk** | `docs/analysis-methodology/legislative-risk-assessment.md` | **KEY (REQUIRED)** — Pipeline health, PESTLE analysis, dossier deep-dives |
+| **MEP Scorecard** | `docs/analysis-methodology/mep-influence-scorecard.md` | **KEY (REQUIRED)** — Notable MEP activity highlights |
+| **Weekly Brief** | `docs/analysis-methodology/weekly-intelligence-brief.md` | **KEY (REQUIRED)** — Early warning indicators, trend analysis |
+| **Committee Power** | `docs/analysis-methodology/committee-power-analysis.md` | **KEY (REQUIRED)** — Committee workload ranking, bottleneck analysis |
 
 ### Primary Template: Political Landscape Analysis
 

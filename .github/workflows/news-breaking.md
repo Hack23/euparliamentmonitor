@@ -365,16 +365,16 @@ Read these BEFORE creating analysis artifacts — they define the scoring framew
 
 ### Higher-Level Analysis Templates (docs/analysis-methodology/)
 
-Read and apply these templates when generating analysis artifacts in `analysis/${TODAY}/breaking/`:
+Read these templates for reference when generating analysis artifacts in `analysis/${TODAY}/breaking/`. Apply `docs/analysis-methodology/weekly-intelligence-brief.md` as the **PRIMARY** template, and use the supporting templates below only when their "When to Apply" guidance is relevant to the breaking item:
 
 | Template | File | When to Apply |
 |----------|------|--------------|
-| **Political Landscape** | `docs/analysis-methodology/political-landscape-analysis.md` | Group dynamics context for breaking items |
-| **Coalition Dynamics** | `docs/analysis-methodology/coalition-dynamics-analysis.md` | Voting analysis, alliance patterns |
-| **Legislative Risk** | `docs/analysis-methodology/legislative-risk-assessment.md` | Pipeline analysis, passage probability |
-| **MEP Scorecard** | `docs/analysis-methodology/mep-influence-scorecard.md` | MEP profiling, delegation analysis |
-| **Weekly Brief** | `docs/analysis-methodology/weekly-intelligence-brief.md` | **PRIMARY** — Breaking news analysis, situation overview |
-| **Committee Power** | `docs/analysis-methodology/committee-power-analysis.md` | Committee reports, institutional analysis |
+| **Political Landscape** | `docs/analysis-methodology/political-landscape-analysis.md` | Supporting template — use for group dynamics context on breaking items |
+| **Coalition Dynamics** | `docs/analysis-methodology/coalition-dynamics-analysis.md` | Supporting template — use for voting analysis and alliance patterns |
+| **Legislative Risk** | `docs/analysis-methodology/legislative-risk-assessment.md` | Supporting template — use for pipeline analysis and passage probability |
+| **MEP Scorecard** | `docs/analysis-methodology/mep-influence-scorecard.md` | Supporting template — use for MEP profiling and delegation analysis |
+| **Weekly Brief** | `docs/analysis-methodology/weekly-intelligence-brief.md` | **PRIMARY** — Required for breaking news analysis and situation overview |
+| **Committee Power** | `docs/analysis-methodology/committee-power-analysis.md` | Supporting template — use for committee reports and institutional analysis |
 
 ### Primary Template: Weekly Intelligence Brief
 

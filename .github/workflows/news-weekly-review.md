@@ -323,16 +323,16 @@ Read these BEFORE creating analysis artifacts — they define the scoring framew
 
 ### Higher-Level Analysis Templates (docs/analysis-methodology/)
 
-Read and apply these templates when generating analysis artifacts in `analysis/${TODAY}/week-in-review/`:
+Use `docs/analysis-methodology/weekly-intelligence-brief.md` as the **required primary template** for generating analysis artifacts in `analysis/${TODAY}/week-in-review/`. Consult the other templates below as **supporting references** when their focus area is relevant to the week's events:
 
 | Template | File | When to Apply |
 |----------|------|--------------|
-| **Political Landscape** | `docs/analysis-methodology/political-landscape-analysis.md` | Group dynamics context, strategic overview |
+| **Political Landscape** | `docs/analysis-methodology/political-landscape-analysis.md` | Supporting template — use for group dynamics context or strategic overview |
 | **Coalition Dynamics** | `docs/analysis-methodology/coalition-dynamics-analysis.md` | **KEY** — Voting alliance patterns, defection analysis |
-| **Legislative Risk** | `docs/analysis-methodology/legislative-risk-assessment.md` | Pipeline analysis, passage probability |
+| **Legislative Risk** | `docs/analysis-methodology/legislative-risk-assessment.md` | Supporting template — use for pipeline analysis or passage probability |
 | **MEP Scorecard** | `docs/analysis-methodology/mep-influence-scorecard.md` | **KEY** — MEP activity highlights, performance context |
-| **Weekly Brief** | `docs/analysis-methodology/weekly-intelligence-brief.md` | **PRIMARY** — Retrospective review, situation dashboard |
-| **Committee Power** | `docs/analysis-methodology/committee-power-analysis.md` | Committee reports, institutional analysis |
+| **Weekly Brief** | `docs/analysis-methodology/weekly-intelligence-brief.md` | **PRIMARY (REQUIRED)** — Retrospective review, situation dashboard |
+| **Committee Power** | `docs/analysis-methodology/committee-power-analysis.md` | Supporting template — use for committee reports or institutional analysis |
 
 ### Primary Template: Weekly Intelligence Brief
 

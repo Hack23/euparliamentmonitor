@@ -323,16 +323,16 @@ Read these BEFORE creating analysis artifacts — they define the scoring framew
 
 ### Higher-Level Analysis Templates (docs/analysis-methodology/)
 
-Read and apply these templates when generating analysis artifacts in `analysis/${TODAY}/week-ahead/`:
+Use `docs/analysis-methodology/weekly-intelligence-brief.md` as the **required primary template** for generating analysis artifacts in `analysis/${TODAY}/week-ahead/`. Consult the other templates below as **supporting references** when their focus area is relevant to the week's agenda, risks, actors, or institutional dynamics:
 
-| Template | File | When to Apply |
-|----------|------|--------------|
-| **Political Landscape** | `docs/analysis-methodology/political-landscape-analysis.md` | **KEY** — Group dynamics context, coalition viability |
-| **Coalition Dynamics** | `docs/analysis-methodology/coalition-dynamics-analysis.md` | **KEY** — Voting alignment patterns, stress points |
-| **Legislative Risk** | `docs/analysis-methodology/legislative-risk-assessment.md` | Pipeline analysis, passage probability |
-| **MEP Scorecard** | `docs/analysis-methodology/mep-influence-scorecard.md` | MEP profiling, delegation analysis |
-| **Weekly Brief** | `docs/analysis-methodology/weekly-intelligence-brief.md` | **PRIMARY** — Week-ahead analysis, forward-looking scenarios |
-| **Committee Power** | `docs/analysis-methodology/committee-power-analysis.md` | Committee reports, institutional analysis |
+| Template | File | Role in This Workflow | When to Apply |
+|----------|------|-----------------------|---------------|
+| **Political Landscape** | `docs/analysis-methodology/political-landscape-analysis.md` | **KEY SUPPORTING** | Group dynamics context, coalition viability |
+| **Coalition Dynamics** | `docs/analysis-methodology/coalition-dynamics-analysis.md` | **KEY SUPPORTING** | Voting alignment patterns, stress points |
+| **Legislative Risk** | `docs/analysis-methodology/legislative-risk-assessment.md` | **SUPPORTING (AS NEEDED)** | Pipeline analysis, passage probability |
+| **MEP Scorecard** | `docs/analysis-methodology/mep-influence-scorecard.md` | **SUPPORTING (AS NEEDED)** | MEP profiling, delegation analysis |
+| **Weekly Brief** | `docs/analysis-methodology/weekly-intelligence-brief.md` | **PRIMARY (REQUIRED)** | Week-ahead analysis, forward-looking scenarios |
+| **Committee Power** | `docs/analysis-methodology/committee-power-analysis.md` | **SUPPORTING (AS NEEDED)** | Committee reports, institutional analysis |
 
 ### Primary Template: Weekly Intelligence Brief
 
