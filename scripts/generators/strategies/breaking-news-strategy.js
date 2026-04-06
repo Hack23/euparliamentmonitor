@@ -128,6 +128,8 @@ export class BreakingNewsStrategy {
      * @returns Populated breaking news data payload
      */
     async fetchData(client, date) {
+        // Load analysis context once for all return paths (graceful: null if absent)
+        const analysisContext = loadAnalysisContext(date, 'breaking');
         // Step 0: Check for pre-fetched feed data file (set by --feed-data CLI arg).
         // This allows agentic workflows to pass MCP data fetched via framework tools
         // into the generator without requiring a direct MCP connection.
@@ -156,7 +158,7 @@ export class BreakingNewsStrategy {
                     anomalyRaw,
                     coalitionRaw,
                     reportRaw: '',
-                    analysisContext: loadAnalysisContext(date, 'breaking'),
+                    analysisContext,
                 };
             }
             console.log('  ⚠️ Pre-fetched feed data failed to load — falling through to MCP fetch');
@@ -175,7 +177,7 @@ export class BreakingNewsStrategy {
                 anomalyRaw: '',
                 coalitionRaw: '',
                 reportRaw: '',
-                analysisContext: loadAnalysisContext(date, 'breaking'),
+                analysisContext,
             };
         }
         const totalFeedItems = feedData.adoptedTexts.length +
@@ -195,7 +197,7 @@ export class BreakingNewsStrategy {
                 anomalyRaw: '',
                 coalitionRaw: '',
                 reportRaw: '',
-                analysisContext: loadAnalysisContext(date, 'breaking'),
+                analysisContext,
             };
         }
         // Step 2: Fetch analytical context only when at least one feed item is available
@@ -209,7 +211,7 @@ export class BreakingNewsStrategy {
             anomalyRaw,
             coalitionRaw,
             reportRaw: '',
-            analysisContext: loadAnalysisContext(date, 'breaking'),
+            analysisContext,
         };
     }
     /**

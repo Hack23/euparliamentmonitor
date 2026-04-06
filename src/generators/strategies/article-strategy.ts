@@ -20,6 +20,7 @@ import type { LanguageCode } from '../../types/index.js';
 import type { ArticleSource } from '../../types/index.js';
 import type { EuropeanParliamentMCPClient } from '../../mcp/ep-mcp-client.js';
 import { escapeHTML } from '../../utils/file-utils.js';
+import { ANALYSIS_INSIGHTS_HEADING, getLocalizedString } from '../../constants/languages.js';
 
 // ─── Analysis context types ──────────────────────────────────────────────────
 
@@ -187,9 +188,8 @@ function loadAnalysisFiles(analysisDir: string): Map<string, AnalysisFileContent
 
   for (const subdir of ANALYSIS_SUBDIRS) {
     const subdirPath = path.join(analysisDir, subdir);
-    if (!fs.existsSync(subdirPath) || !fs.statSync(subdirPath).isDirectory()) continue;
-
     try {
+      if (!fs.existsSync(subdirPath) || !fs.statSync(subdirPath).isDirectory()) continue;
       const entries = fs.readdirSync(subdirPath);
       for (const entry of entries) {
         if (!entry.endsWith('.md')) continue;
@@ -258,13 +258,13 @@ export function extractAnalysisSummary(content: string, maxLength: number = 500)
  *
  * @param ctx - Loaded analysis context (null-safe: returns empty string)
  * @param relevantMethods - Method names this strategy wants to display
- * @param _lang - Target language code (reserved for future i18n of section heading)
+ * @param lang - Target language code (used for localized section heading)
  * @returns HTML string (empty when no context or no relevant files)
  */
 export function buildAnalysisInsightsSection(
   ctx: LoadedAnalysisContext | null | undefined,
   relevantMethods: readonly string[],
-  _lang: LanguageCode
+  lang: LanguageCode
 ): string {
   if (!ctx) return '';
 
@@ -285,14 +285,14 @@ export function buildAnalysisInsightsSection(
 
   if (items.length === 0) return '';
 
-  const heading = 'Analysis Pipeline Insights';
+  const heading = getLocalizedString(ANALYSIS_INSIGHTS_HEADING, lang);
   const confidence = ctx.overallConfidence
     ? ` <span class="confidence-badge">${escapeHTML(ctx.overallConfidence)}</span>`
     : '';
 
   return (
-    `<section class="analysis-pipeline-insights">\n` +
-    `<h3>${escapeHTML(heading)}${confidence}</h3>\n` +
+    `<section class="analysis-pipeline-insights" role="region" aria-label="${escapeHTML(heading)}">\n` +
+    `<h2>${escapeHTML(heading)}${confidence}</h2>\n` +
     items.join('\n') +
     `\n</section>\n`
   );

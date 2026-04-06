@@ -314,6 +314,10 @@ describe('buildAnalysisInsightsSection', () => {
     expect(html).toContain('Risk Matrix');
     expect(html).toContain('risk is moderate');
     expect(html).toContain('data-method="risk-matrix"');
+    // Accessibility: role, aria-label, h2 heading level
+    expect(html).toContain('role="region"');
+    expect(html).toContain('aria-label="Analysis Pipeline Insights"');
+    expect(html).toContain('<h2>');
   });
 
   it('only includes methods that have loaded files', () => {
@@ -362,6 +366,31 @@ describe('buildAnalysisInsightsSection', () => {
 
     const html = buildAnalysisInsightsSection(ctx, ['deep-analysis'], 'en');
     expect(html).not.toContain('confidence-badge');
+  });
+
+  it('uses localized heading for non-English languages', () => {
+    const files = new Map();
+    files.set('deep-analysis', {
+      method: 'deep-analysis',
+      subdir: 'existing',
+      content: '# Deep Analysis\n\nFindings.',
+      filePath: '/tmp/test/existing/deep-analysis.md',
+    });
+
+    const ctx = {
+      date: '2026-04-06',
+      analysisDir: '/tmp/test',
+      manifest: null,
+      overallConfidence: null,
+      files,
+    };
+
+    const htmlDe = buildAnalysisInsightsSection(ctx, ['deep-analysis'], 'de');
+    expect(htmlDe).toContain('Erkenntnisse der Analysepipeline');
+    expect(htmlDe).not.toContain('Analysis Pipeline Insights');
+
+    const htmlFr = buildAnalysisInsightsSection(ctx, ['deep-analysis'], 'fr');
+    expect(htmlFr).toContain('pipeline d\u2019analyse');
   });
 });
 

@@ -14,6 +14,7 @@
 import fs from 'fs';
 import path from 'path';
 import { escapeHTML } from '../../utils/file-utils.js';
+import { ANALYSIS_INSIGHTS_HEADING, getLocalizedString } from '../../constants/languages.js';
 // ─── Analysis loading defaults ───────────────────────────────────────────────
 /** Default base directory for analysis output */
 const DEFAULT_ANALYSIS_BASE_DIR = 'analysis';
@@ -130,9 +131,9 @@ function loadAnalysisFiles(analysisDir) {
     const files = new Map();
     for (const subdir of ANALYSIS_SUBDIRS) {
         const subdirPath = path.join(analysisDir, subdir);
-        if (!fs.existsSync(subdirPath) || !fs.statSync(subdirPath).isDirectory())
-            continue;
         try {
+            if (!fs.existsSync(subdirPath) || !fs.statSync(subdirPath).isDirectory())
+                continue;
             const entries = fs.readdirSync(subdirPath);
             for (const entry of entries) {
                 if (!entry.endsWith('.md'))
@@ -200,10 +201,10 @@ export function extractAnalysisSummary(content, maxLength = 500) {
  *
  * @param ctx - Loaded analysis context (null-safe: returns empty string)
  * @param relevantMethods - Method names this strategy wants to display
- * @param _lang - Target language code (reserved for future i18n of section heading)
+ * @param lang - Target language code (used for localized section heading)
  * @returns HTML string (empty when no context or no relevant files)
  */
-export function buildAnalysisInsightsSection(ctx, relevantMethods, _lang) {
+export function buildAnalysisInsightsSection(ctx, relevantMethods, lang) {
     if (!ctx)
         return '';
     const items = [];
@@ -222,12 +223,12 @@ export function buildAnalysisInsightsSection(ctx, relevantMethods, _lang) {
     }
     if (items.length === 0)
         return '';
-    const heading = 'Analysis Pipeline Insights';
+    const heading = getLocalizedString(ANALYSIS_INSIGHTS_HEADING, lang);
     const confidence = ctx.overallConfidence
         ? ` <span class="confidence-badge">${escapeHTML(ctx.overallConfidence)}</span>`
         : '';
-    return (`<section class="analysis-pipeline-insights">\n` +
-        `<h3>${escapeHTML(heading)}${confidence}</h3>\n` +
+    return (`<section class="analysis-pipeline-insights" role="region" aria-label="${escapeHTML(heading)}">\n` +
+        `<h2>${escapeHTML(heading)}${confidence}</h2>\n` +
         items.join('\n') +
         `\n</section>\n`);
 }

@@ -6804,4 +6804,24 @@ export const ANALYSIS_QUALITY_LABELS = {
         low: '低',
     },
 };
+// ─── Analysis Insights heading ───────────────────────────────────────────────
+/**
+ * Localized heading for the analysis pipeline insights section.
+ */
+export const ANALYSIS_INSIGHTS_HEADING = {
+    en: 'Analysis Pipeline Insights',
+    sv: 'Insikter från analyspipeline',
+    da: 'Indsigter fra analysepipeline',
+    no: 'Innsikter fra analysepipeline',
+    fi: 'Analyysiputken tulokset',
+    de: 'Erkenntnisse der Analysepipeline',
+    fr: 'Résultats du pipeline d\u2019analyse',
+    es: 'Resultados del pipeline de análisis',
+    nl: 'Inzichten uit de analysepipeline',
+    ar: '\u062A\u062D\u0644\u064A\u0644\u0627\u062A \u062E\u0637 \u0627\u0644\u062A\u062D\u0644\u064A\u0644',
+    he: '\u05EA\u05D5\u05D1\u05E0\u05D5\u05EA \u0645\u0646 \u05E6\u05D9\u05E0\u05D5\u05E8 \u05D4\u05E0\u05D9\u05EA\u05D5\u05D7',
+    ja: '\u5206\u6790\u30D1\u30A4\u30D7\u30E9\u30A4\u30F3\u306E\u6D1E\u5BDF',
+    ko: '\uBD84\uC11D \uD30C\uC774\uD504\uB77C\uC778 \uC778\uC0AC\uC774\uD2B8',
+    zh: '\u5206\u6790\u7BA1\u9053\u6D1E\u5BDF',
+};
 //# sourceMappingURL=language-articles.js.map

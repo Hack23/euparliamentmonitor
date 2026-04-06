@@ -188,6 +188,9 @@ export class BreakingNewsStrategy implements ArticleStrategy<BreakingNewsArticle
     client: EuropeanParliamentMCPClient | null,
     date: string
   ): Promise<BreakingNewsArticleData> {
+    // Load analysis context once for all return paths (graceful: null if absent)
+    const analysisContext = loadAnalysisContext(date, 'breaking');
+
     // Step 0: Check for pre-fetched feed data file (set by --feed-data CLI arg).
     // This allows agentic workflows to pass MCP data fetched via framework tools
     // into the generator without requiring a direct MCP connection.
@@ -218,7 +221,7 @@ export class BreakingNewsStrategy implements ArticleStrategy<BreakingNewsArticle
           anomalyRaw,
           coalitionRaw,
           reportRaw: '',
-          analysisContext: loadAnalysisContext(date, 'breaking'),
+          analysisContext,
         };
       }
       console.log('  ⚠️ Pre-fetched feed data failed to load — falling through to MCP fetch');
@@ -240,7 +243,7 @@ export class BreakingNewsStrategy implements ArticleStrategy<BreakingNewsArticle
         anomalyRaw: '',
         coalitionRaw: '',
         reportRaw: '',
-        analysisContext: loadAnalysisContext(date, 'breaking'),
+        analysisContext,
       };
     }
 
@@ -264,7 +267,7 @@ export class BreakingNewsStrategy implements ArticleStrategy<BreakingNewsArticle
         anomalyRaw: '',
         coalitionRaw: '',
         reportRaw: '',
-        analysisContext: loadAnalysisContext(date, 'breaking'),
+        analysisContext,
       };
     }
 
@@ -280,7 +283,7 @@ export class BreakingNewsStrategy implements ArticleStrategy<BreakingNewsArticle
       anomalyRaw,
       coalitionRaw,
       reportRaw: '',
-      analysisContext: loadAnalysisContext(date, 'breaking'),
+      analysisContext,
     };
   }
 
