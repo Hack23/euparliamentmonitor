@@ -3,7 +3,7 @@
 
 /**
  * @module Generators/Pipeline/AnalysisStage
- * @description Analysis-first pre-generation pipeline stage.
+ * @description Analysis-first pre-generation pipeline stage — **orchestrator**.
  *
  * Executes between the Fetch and Generate stages, consuming already-fetched
  * European Parliament data and running the full suite of political intelligence
@@ -15,25 +15,15 @@
  * `manifest.json` to disk under `analysis/{date}/{article-type}/`.  When
  * `articleTypeSlug` is provided (recommended for agentic workflows), each
  * article type writes to its own subdirectory, preventing merge conflicts
- * when multiple workflows run concurrently on the same date.  The returned
- * {@link AnalysisContext} is informational and currently not consumed by the
- * generate stage; strategies read the analysis output from disk instead.
- * Analysis artifacts are committed to the repository for review and
- * political intelligence improvement.
+ * when multiple workflows run concurrently on the same date.
  *
- * All MCP data — EP feeds, World Bank economic indicators, and OSINT
- * analytical outputs (political landscape, voting anomalies, coalition
- * dynamics) — is persisted under `data/` subdirectories for verification
- * and later reuse.
+ * Analysis methods are grouped into four categories (each in its own module):
+ * - **Classification** (`analysis-classification.ts`): significance, impact-matrix, actor-mapping, forces
+ * - **Threat Assessment** (`analysis-threats.ts`): political-threat-landscape, actor-threat, consequence-trees, disruption
+ * - **Risk Scoring** (`analysis-risk.ts`): risk-matrix, capital-risk, quantitative-swot, velocity-risk, agent-workflow
+ * - **Existing** (`analysis-existing.ts`): deep-analysis, stakeholder-analysis, coalition-analysis, voting-patterns, cross-session-intelligence
  *
- * Analysis methods are grouped into four categories:
- * - **Classification** (Issues #804): significance, impact-matrix, actor-mapping, forces
- * - **Threat Assessment** (Issues #805): political-threat-landscape, actor-threat, consequence-trees, disruption
- * - **Risk Scoring** (Issues #806): risk-matrix, capital-risk, quantitative-swot, velocity-risk, agent-workflow
- * - **Existing** (current codebase): deep-analysis, stakeholder-analysis, coalition-analysis, voting-patterns, cross-session-intelligence
- *
- * Each method writes a markdown file; failures are isolated so other methods
- * can continue.  A {@link AnalysisManifest} JSON file is written at the end.
+ * Shared utilities live in `analysis-helpers.ts`.
  *
  * @example
  * ```ts
@@ -49,249 +39,22 @@
 import fs from 'fs';
 import path from 'path';
 import { randomUUID } from 'crypto';
-import { ArticleCategory } from '../../types/index.js';
+import type { ArticleCategory } from '../../types/index.js';
 import type { ConfidenceLevel } from '../../types/index.js';
-import type { ClassificationInput } from '../../types/political-classification.js';
-import type { PoliticalSignificance } from '../../types/political-classification.js';
-import type { ThreatAssessmentInput } from '../../types/political-threats.js';
-import type { PoliticalThreatAssessment } from '../../types/political-threats.js';
-import {
-  detectVotingTrends,
-  computeCrossSessionCoalitionStability,
-} from '../../utils/intelligence-analysis.js';
-import {
-  assessPoliticalSignificance,
-  buildImpactMatrix,
-  classifyPoliticalActors,
-  analyzePoliticalForces,
-} from '../../utils/political-classification.js';
-import {
-  assessPoliticalThreats,
-  buildActorThreatProfiles,
-  buildConsequenceTree,
-  analyzeLegislativeDisruption,
-  generateThreatAssessmentMarkdown,
-} from '../../utils/political-threat-assessment.js';
-import type { ScoredSWOTItem } from '../../types/political-risk.js';
-import {
-  assessLegislativeVelocityRisk,
-  runAgentRiskAssessment,
-  generateRiskAssessmentMarkdown,
-  calculatePoliticalRiskScore,
-  buildQuantitativeSWOT,
-  createScoredSWOTItem,
-  createScoredOpportunityOrThreat,
-  createRiskDriver,
-} from '../../utils/political-risk-assessment.js';
-import {
-  ensureDirectoryExists,
-  atomicWrite,
-  resolveUniqueAnalysisDir,
-} from '../../utils/file-utils.js';
-import {
-  scoreSignificance,
-  scoreBatch,
-  formatBatchMarkdown,
-} from '../../utils/significance-scoring.js';
-import { buildSynthesisSummary, formatSynthesisMarkdown } from '../synthesis-summary.js';
+import { ensureDirectoryExists, resolveUniqueAnalysisDir } from '../../utils/file-utils.js';
 
-// ─── Markdown constants ───────────────────────────────────────────────────────
+// ─── Re-export shared helpers used by downstream consumers ────────────────────
 
-/** Empty table row placeholder for 6-column tables */
-const EMPTY_TABLE_ROW_6 = '| — | — | — | — | — | — |';
+import { hasSubstantiveData, sanitizeDocumentId, writeTextFile } from './analysis-helpers.js';
+export { hasSubstantiveData } from './analysis-helpers.js';
+import type { MarkdownBuilder } from './analysis-helpers.js';
 
-// ─── Sanitization helpers ─────────────────────────────────────────────────────
+// ─── Import category-specific builders ────────────────────────────────────────
 
-/**
- * Sanitize untrusted text for safe use in a Markdown table cell.
- *
- * Escapes pipe characters, backslashes, and HTML entities, then normalizes
- * whitespace to prevent table layout corruption from external MCP data.
- *
- * @param input - Untrusted cell text
- * @returns Sanitized text safe for Markdown table cells
- */
-function sanitizeCell(input: string): string {
-  return input
-    .replace(/\\/g, '\\\\')
-    .replace(/\|/g, '\\|')
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/[\r\n]+/g, ' ')
-    .trim();
-}
-
-// ─── Data coercion helpers ────────────────────────────────────────────────────
-
-/**
- * Sanitize a document identifier for safe use as a filesystem filename.
- *
- * Replaces characters unsafe for filenames with hyphens, collapses runs of
- * hyphens, trims, and lowercases.  When the result exceeds 80 characters,
- * a deterministic hash suffix is appended to avoid collisions between IDs
- * that share the same first 80 characters.  Falls back to a deterministic
- * hash of the input when the sanitized result is empty.
- *
- * @param id - Raw document identifier (e.g. "TA-10-2026-0094", procedure reference)
- * @returns Filesystem-safe identifier string (max 80 chars)
- */
-function sanitizeDocumentId(id: string): string {
-  const full = id
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-/, '')
-    .replace(/-$/, '');
-  if (!full) {
-    // Deterministic fallback: simple hash from input string for reproducibility
-    let hash = 0;
-    for (let i = 0; i < id.length; i++) {
-      hash = ((hash << 5) - hash + id.charCodeAt(i)) | 0;
-    }
-    return `anon-${Math.abs(hash).toString(36).slice(0, 12)}`;
-  }
-  // When truncation occurs, append a short hash to avoid collisions
-  if (full.length > 80) {
-    let hash = 0;
-    for (let i = 0; i < id.length; i++) {
-      hash = ((hash << 5) - hash + id.charCodeAt(i)) | 0;
-    }
-    return `${full.slice(0, 72)}-${Math.abs(hash).toString(36).slice(0, 7)}`;
-  }
-  return full;
-}
-
-/** All feed array keys that contain individually-analysable documents */
-const DOCUMENT_FEED_KEYS = [
-  'adoptedTexts',
-  'procedures',
-  'documents',
-  'plenaryDocuments',
-  'committeeDocuments',
-  'plenarySessionDocuments',
-  'externalDocuments',
-  'events',
-] as const;
-
-/**
- * Extract a human-readable identifier from a raw feed item.
- *
- * Tries common EP data shapes (`docId`, `procedureId`, `id`, `eventId`,
- * `title`) and falls back to a deterministic hash of the item's JSON
- * representation for truly anonymous items, ensuring reproducibility.
- *
- * @param item - Raw feed item object
- * @returns Best-effort identifier string
- */
-function extractDocumentId(item: Record<string, unknown>): string {
-  for (const key of ['docId', 'procedureId', 'id', 'eventId']) {
-    const val = item[key]; // eslint-disable-line security/detect-object-injection -- keys are string literals
-    if (typeof val === 'string' && val.length > 0) return val;
-  }
-  const title = item['title'];
-  if (typeof title === 'string' && title.length > 0) {
-    // Append a short hash to title-based IDs to avoid collisions when
-    // multiple items share identical title prefixes
-    const repr = JSON.stringify(item);
-    let hash = 0;
-    for (let i = 0; i < repr.length; i++) {
-      hash = ((hash << 5) - hash + repr.charCodeAt(i)) | 0;
-    }
-    return `${title.slice(0, 50)}-${Math.abs(hash).toString(36).slice(0, 8)}`;
-  }
-  // Deterministic fallback: hash of stringified item for reproducible dedup
-  const repr = JSON.stringify(item);
-  let hash = 0;
-  for (let i = 0; i < repr.length; i++) {
-    hash = ((hash << 5) - hash + repr.charCodeAt(i)) | 0;
-  }
-  return `anonymous-${Math.abs(hash).toString(36)}`;
-}
-
-/**
- * Extract a human-readable title from a raw feed item.
- *
- * @param item - Raw feed item object
- * @returns Title string or fallback
- */
-function extractDocumentTitle(item: Record<string, unknown>): string {
-  const title = item['title'];
-  if (typeof title === 'string' && title.length > 0) return title;
-  const label = item['label'] ?? item['name'] ?? item['description'];
-  if (typeof label === 'string' && label.length > 0) return label;
-  return 'Untitled document';
-}
-
-/**
- * Safely extract an array from fetchedData by key.
- * @param data - Raw fetched data record
- * @param key - Key to extract
- * @returns Array or empty array if missing/invalid
- */
-function safeArr(data: Record<string, unknown>, key: string): readonly unknown[] {
-  const val = data[key]; // eslint-disable-line security/detect-object-injection -- key is a literal string from caller
-  return Array.isArray(val) ? val : [];
-}
-
-/**
- * Cast fetchedData to ClassificationInput for the classification functions.
- * @param data - Raw fetched data record
- * @returns ClassificationInput-compatible object
- */
-function toClassificationInput(data: Record<string, unknown>): ClassificationInput {
-  return data as ClassificationInput;
-}
-
-/**
- * Cast fetchedData to ThreatAssessmentInput for the threat assessment functions.
- * @param data - Raw fetched data record
- * @returns ThreatAssessmentInput-compatible object
- */
-function toThreatInput(data: Record<string, unknown>): ThreatAssessmentInput {
-  return {
-    votingRecords: safeArr(data, 'votingRecords'),
-    coalitionData: safeArr(data, 'coalitions'),
-    mepInfluence: safeArr(data, 'mepUpdates'),
-    procedures: safeArr(data, 'procedures'),
-    anomalies: safeArr(data, 'anomalies'),
-    questions: safeArr(data, 'questions'),
-  };
-}
-
-/** Keys in fetchedData that count as substantive EP data */
-const SUBSTANTIVE_DATA_KEYS = [
-  'events',
-  'procedures',
-  'adoptedTexts',
-  'documents',
-  'votingRecords',
-  'coalitions',
-  'questions',
-  'mepUpdates',
-  'plenaryDocuments',
-  'committeeDocuments',
-  'plenarySessionDocuments',
-  'externalDocuments',
-  'declarations',
-  'corporateBodies',
-] as const;
-
-/**
- * Check whether the fetched data contains any substantive EP data.
- *
- * Returns `true` when at least one data category has non-empty arrays.
- * Used to gate analysis execution — analysis should not run on empty data.
- *
- * @param data - Raw fetched data record
- * @returns true if any substantive data is present
- */
-export function hasSubstantiveData(data: Record<string, unknown>): boolean {
-  for (const key of SUBSTANTIVE_DATA_KEYS) {
-    const arr = safeArr(data, key);
-    if (arr.length > 0) return true;
-  }
-  return false;
-}
+import { CLASSIFICATION_BUILDERS, METHOD_SIGNIFICANCE_SCORING_ID } from './analysis-classification.js';
+import { THREAT_BUILDERS } from './analysis-threats.js';
+import { RISK_BUILDERS } from './analysis-risk.js';
+import { EXISTING_BUILDERS, METHOD_SYNTHESIS_SUMMARY_ID, METHOD_DOCUMENT_ANALYSIS } from './analysis-existing.js';
 
 // ─── Analysis Method type ─────────────────────────────────────────────────────
 
@@ -491,41 +254,6 @@ function aggregateConfidence(results: AnalysisMethodStatus[]): ConfidenceLevel {
 }
 
 /**
- * Build a YAML-frontmatter header block for analysis markdown files.
- *
- * @param method - Analysis method identifier
- * @param date - ISO date of the analysis
- * @param confidence - Confidence level for this result
- * @returns Markdown frontmatter string
- */
-function buildMarkdownHeader(
-  method: AnalysisMethod,
-  date: string,
-  confidence: ConfidenceLevel
-): string {
-  return `---
-method: ${method}
-date: ${date}
-confidence: ${confidence}
-generated: ${new Date().toISOString()}
----
-
-`;
-}
-
-/**
- * Write a text file to disk.
- *
- * Used for both analysis markdown files and the analysis `manifest.json`.
- *
- * @param filePath - Absolute file path
- * @param content - File content as a UTF-8 string
- */
-function writeTextFile(filePath: string, content: string): void {
-  atomicWrite(filePath, content);
-}
-
-/**
  * Check whether a method's output file already exists (for incremental runs).
  *
  * @param filePath - Absolute file path
@@ -541,10 +269,6 @@ function methodOutputExists(filePath: string): boolean {
 
 /**
  * Check whether a legacy-named output exists for a method.
- *
- * Returns the first matching legacy filename, or `undefined` when no legacy
- * output is found. Used by {@link runSingleMethod} so that `skipCompleted`
- * recognises outputs generated before the canonical rename.
  *
  * @param method - The analysis method to check
  * @param dateOutputDir - Absolute path to the date-scoped output directory
@@ -569,8 +293,6 @@ function findLegacyOutput(
 /**
  * Attempt to migrate a legacy-named output file to its canonical path.
  *
- * Uses rename first; falls back to copy+delete for cross-device moves.
- *
  * @param legacyAbsolutePath - Absolute path to the existing legacy file
  * @param canonicalAbsolutePath - Absolute path to the target canonical file
  * @returns `true` if migration succeeded, `false` otherwise
@@ -580,7 +302,6 @@ function migrateLegacyFile(legacyAbsolutePath: string, canonicalAbsolutePath: st
     fs.renameSync(legacyAbsolutePath, canonicalAbsolutePath);
     return true;
   } catch {
-    // Fall back to copy+delete if rename fails (e.g. cross-device)
     try {
       fs.copyFileSync(legacyAbsolutePath, canonicalAbsolutePath);
       fs.unlinkSync(legacyAbsolutePath);
@@ -593,8 +314,7 @@ function migrateLegacyFile(legacyAbsolutePath: string, canonicalAbsolutePath: st
 
 /**
  * Check whether a method's output already exists (canonical or legacy) and
- * return a skip status if so.  When a legacy file is found, attempt to migrate
- * it to the canonical path so article transparency links stay valid.
+ * return a skip status if so.
  *
  * @param method - The analysis method to check
  * @param dateOutputDir - Absolute path to the date-scoped output directory
@@ -616,7 +336,6 @@ function checkSkipCompleted(
   confidence: ConfidenceLevel,
   verbose: boolean
 ): AnalysisMethodStatus | undefined {
-  // Canonical file already exists — skip immediately
   if (methodOutputExists(absolutePath)) {
     if (verbose) console.log(`  ⏭️  [analysis] Skipping already-completed method: ${method}`);
     return {
@@ -629,7 +348,6 @@ function checkSkipCompleted(
     };
   }
 
-  // Try legacy filenames and migrate to canonical when found
   const legacyHit = findLegacyOutput(method, dateOutputDir, subdir);
   if (!legacyHit) return undefined;
 
@@ -653,8 +371,6 @@ function checkSkipCompleted(
     };
   }
 
-  // Migration failed and the canonical file is still missing — do not skip.
-  // Allow the analysis method to execute so it can write the canonical output.
   if (verbose) {
     console.log(
       `  ↻ [analysis] Legacy output found for ${method} but migration failed: ${legacyHit}. Regenerating canonical output ${relativeOutputFile}`
@@ -662,1907 +378,6 @@ function checkSkipCompleted(
   }
   return undefined;
 }
-
-// ─── Mermaid chart helpers ────────────────────────────────────────────────────
-
-/**
- * Map an impact level to a numeric value for Mermaid pie charts.
- *
- * @param level - Impact level string (e.g. 'none', 'low', 'moderate', 'high', 'critical')
- * @returns Numeric value for chart rendering
- */
-function impactToNum(level: string): number {
-  const map: Record<string, number> = {
-    none: 5,
-    low: 20,
-    moderate: 45,
-    high: 70,
-    critical: 90,
-  };
-  return map[level.toLowerCase()] ?? 30;
-}
-
-/**
- * Map an impact level string to a coloured indicator emoji.
- *
- * @param level - Impact level string
- * @returns Emoji indicator
- */
-function impactIndicator(level: string): string {
-  const lower = level.toLowerCase();
-  return lower === 'high' || lower === 'critical' ? '🔴' : lower === 'moderate' ? '🟡' : '🟢';
-}
-
-/**
- * Return the name of the highest-impact dimension from an impact matrix.
- *
- * @param matrix - Impact matrix with five dimension levels
- * @param matrix.legislativeImpact - Legislative impact level
- * @param matrix.coalitionImpact - Coalition impact level
- * @param matrix.publicOpinionImpact - Public opinion impact level
- * @param matrix.institutionalImpact - Institutional impact level
- * @param matrix.economicImpact - Economic impact level
- * @returns Name of the dimension with the highest impact score
- */
-function highestImpactDimension(matrix: {
-  legislativeImpact: string;
-  coalitionImpact: string;
-  publicOpinionImpact: string;
-  institutionalImpact: string;
-  economicImpact: string;
-}): string {
-  return (
-    [
-      { name: 'Legislative', level: matrix.legislativeImpact },
-      { name: 'Coalition', level: matrix.coalitionImpact },
-      { name: 'Public Opinion', level: matrix.publicOpinionImpact },
-      { name: 'Institutional', level: matrix.institutionalImpact },
-      { name: 'Economic', level: matrix.economicImpact },
-    ].sort((a, b) => impactToNum(b.level) - impactToNum(a.level))[0]?.name ?? 'N/A'
-  );
-}
-
-// ─── Per-method markdown builders ────────────────────────────────────────────
-
-/**
- * Build markdown for the significance classification method.
- * Scores and ranks legislative items by political significance.
- *
- * @param fetchedData - Raw fetched EP data
- * @param date - Analysis date
- * @returns Markdown content string
- */
-function buildSignificanceClassificationMarkdown(
-  fetchedData: Record<string, unknown>,
-  date: string
-): string {
-  const input = toClassificationInput(fetchedData);
-  const significance = assessPoliticalSignificance(input);
-  const events = safeArr(fetchedData, 'events');
-  const docs = safeArr(fetchedData, 'documents');
-  const procedures = safeArr(fetchedData, 'procedures');
-  const adoptedTexts = safeArr(fetchedData, 'adoptedTexts');
-  const header = buildMarkdownHeader(
-    'significance-classification',
-    date,
-    significance === 'routine' ? 'medium' : 'high'
-  );
-
-  const sigMap: Record<string, number> = {
-    historic: 0.95,
-    critical: 0.8,
-    significant: 0.65,
-    notable: 0.45,
-    routine: 0.25,
-  };
-  const sigScore = sigMap[significance] ?? 0.25;
-
-  return (
-    header +
-    `# Political Significance Classification
-
-## Overall Significance: **${significance.toUpperCase()}**
-
-\`\`\`mermaid
-quadrantChart
-    title Political Significance Assessment — ${date}
-    x-axis Low Volume --> High Volume
-    y-axis Low Impact --> High Impact
-    quadrant-1 Critical Watch
-    quadrant-2 Strategic Priority
-    quadrant-3 Monitor
-    quadrant-4 Routine Track
-    Current Assessment: [${sigScore.toFixed(2)}, ${sigScore.toFixed(2)}]
-    Events Signal: [${Math.min(events.length / 20, 0.95).toFixed(2)}, 0.60]
-    Documents Signal: [${Math.min(docs.length / 20, 0.95).toFixed(2)}, 0.55]
-    Procedures Signal: [${Math.min(procedures.length / 10, 0.95).toFixed(2)}, 0.75]
-    Adopted Texts: [${Math.min(adoptedTexts.length / 10, 0.95).toFixed(2)}, 0.85]
-\`\`\`
-
-## 5-Signal Model Scores
-
-| Signal | Raw Data | Score |
-|--------|----------|-------|
-| Volume | ${events.length} events, ${docs.length} documents | ${Math.min((events.length + docs.length) / 10, 5).toFixed(1)}/5 |
-| Pipeline | ${procedures.length} procedures | ${Math.min(procedures.length / 5, 5).toFixed(1)}/5 |
-| Output | ${adoptedTexts.length} adopted texts | ${Math.min(adoptedTexts.length / 5, 5).toFixed(1)}/5 |
-| Anomalies | Pattern deviation detection | — |
-| Coalition | Group alignment analysis | — |
-
-## Data Summary
-
-| Metric | Value |
-|--------|-------|
-| Computed significance | ${significance.toUpperCase()} |
-| Total data points | ${events.length + docs.length + procedures.length + adoptedTexts.length} |
-| Events | ${events.length} |
-| Documents | ${docs.length} |
-| Procedures | ${procedures.length} |
-| Adopted texts | ${adoptedTexts.length} |
-| Date | ${date} |
-
-## Date: ${date}
-`
-  );
-}
-
-/**
- * Build markdown for the impact matrix method.
- *
- * @param fetchedData - Raw fetched EP data
- * @param date - Analysis date
- * @returns Markdown content string
- */
-function buildImpactMatrixMarkdown(fetchedData: Record<string, unknown>, date: string): string {
-  const input = toClassificationInput(fetchedData);
-  const matrix = buildImpactMatrix(input);
-  const header = buildMarkdownHeader('impact-matrix', date, 'medium');
-
-  return (
-    header +
-    `# Political Impact Matrix
-
-## Overall Significance: **${matrix.overallSignificance.toUpperCase()}**
-
-\`\`\`mermaid
-pie title Impact Distribution by Dimension — ${date}
-    "Legislative" : ${impactToNum(matrix.legislativeImpact)}
-    "Coalition" : ${impactToNum(matrix.coalitionImpact)}
-    "Public Opinion" : ${impactToNum(matrix.publicOpinionImpact)}
-    "Institutional" : ${impactToNum(matrix.institutionalImpact)}
-    "Economic" : ${impactToNum(matrix.economicImpact)}
-\`\`\`
-
-## Impact Dimensions
-
-| Dimension | Level | Indicator | Numeric |
-|-----------|-------|-----------|---------|
-| Legislative | ${matrix.legislativeImpact} | ${impactIndicator(matrix.legislativeImpact)} | ${impactToNum(matrix.legislativeImpact)} |
-| Coalition | ${matrix.coalitionImpact} | ${impactIndicator(matrix.coalitionImpact)} | ${impactToNum(matrix.coalitionImpact)} |
-| Public Opinion | ${matrix.publicOpinionImpact} | ${impactIndicator(matrix.publicOpinionImpact)} | ${impactToNum(matrix.publicOpinionImpact)} |
-| Institutional | ${matrix.institutionalImpact} | ${impactIndicator(matrix.institutionalImpact)} | ${impactToNum(matrix.institutionalImpact)} |
-| Economic | ${matrix.economicImpact} | ${impactIndicator(matrix.economicImpact)} | ${impactToNum(matrix.economicImpact)} |
-
-## Summary
-
-| Metric | Value |
-|--------|-------|
-| Overall significance | ${matrix.overallSignificance.toUpperCase()} |
-| Highest impact | ${highestImpactDimension(matrix)} |
-| Date | ${date} |
-
-## Date: ${date}
-`
-  );
-}
-
-/**
- * Build markdown for the actor mapping method.
- *
- * @param fetchedData - Raw fetched EP data
- * @param date - Analysis date
- * @returns Markdown content string
- */
-function buildActorMappingMarkdown(fetchedData: Record<string, unknown>, date: string): string {
-  const input = toClassificationInput(fetchedData);
-  const actors = classifyPoliticalActors(input);
-  const header = buildMarkdownHeader('actor-mapping', date, actors.length > 0 ? 'medium' : 'low');
-
-  const actorRows =
-    actors.length > 0
-      ? actors
-          .map(
-            (a) =>
-              `| ${sanitizeCell(a.name)} | ${sanitizeCell(a.actorType)} | ${sanitizeCell(String(a.influence))} | ${sanitizeCell(a.position)} | ${sanitizeCell(a.role)} |`
-          )
-          .join('\n')
-      : '| — | — | — | — | — |';
-
-  // Build actor type distribution for Mermaid
-  const actorTypes = actors.length > 0 ? [...new Set(actors.map((a) => a.actorType))] : [];
-  const typeCounts = actorTypes.map((t) => ({
-    type: t,
-    count: actors.filter((a) => a.actorType === t).length,
-  }));
-
-  const mermaidPie =
-    typeCounts.length > 0
-      ? typeCounts.map((tc) => `    "${tc.type}" : ${tc.count}`).join('\n')
-      : '    "No actors classified" : 1';
-
-  return (
-    header +
-    `# Political Actor Mapping
-
-## Actors Identified: ${actors.length}
-
-\`\`\`mermaid
-pie title Actor Type Distribution — ${date}
-${mermaidPie}
-\`\`\`
-
-## Actor Classification
-
-| Actor | Type | Influence | Position | Role |
-|-------|------|-----------|----------|------|
-${actorRows}
-
-## Type Counts
-
-| Type | Count |
-|------|-------|
-${typeCounts.length > 0 ? typeCounts.map((tc) => `| ${tc.type} | ${tc.count} |`).join('\n') : '| — | 0 |'}
-
-## Date: ${date}
-`
-  );
-}
-
-/**
- * Build markdown for the political forces analysis method.
- *
- * @param fetchedData - Raw fetched EP data
- * @param date - Analysis date
- * @returns Markdown content string
- */
-function buildForcesAnalysisMarkdown(fetchedData: Record<string, unknown>, date: string): string {
-  const input = toClassificationInput(fetchedData);
-  const forces = analyzePoliticalForces(input);
-  const header = buildMarkdownHeader('forces-analysis', date, 'medium');
-
-  const forceRow = (
-    name: string,
-    f: { strength: number; trend: string; keyActors: readonly string[]; confidence: string }
-  ) =>
-    `| ${name} | ${f.trend} | ${(f.strength * 100).toFixed(0)}% | ${f.keyActors.length > 0 ? f.keyActors.join(', ') : '—'} | ${f.confidence} |`;
-
-  const cp = Math.max(1, Math.min(99, Math.round(forces.coalitionPower.strength * 100)));
-  const op = Math.max(1, Math.min(99, Math.round(forces.oppositionPower.strength * 100)));
-  const ib = Math.max(1, Math.min(99, Math.round(forces.institutionalBarriers.strength * 100)));
-  const pp = Math.max(1, Math.min(99, Math.round(forces.publicPressure.strength * 100)));
-  const ei = Math.max(1, Math.min(99, Math.round(forces.externalInfluences.strength * 100)));
-
-  return (
-    header +
-    `# Political Forces Analysis
-
-\`\`\`mermaid
-pie title Political Force Distribution — ${date}
-    "Coalition Power" : ${cp}
-    "Opposition Power" : ${op}
-    "Institutional Barriers" : ${ib}
-    "Public Pressure" : ${pp}
-    "External Influences" : ${ei}
-\`\`\`
-
-## Forces Data
-
-| Force | Trend | Strength | Key Actors | Confidence |
-|-------|-------|----------|------------|------------|
-${forceRow('Coalition Power', forces.coalitionPower)}
-${forceRow('Opposition Power', forces.oppositionPower)}
-${forceRow('Institutional Barriers', forces.institutionalBarriers)}
-${forceRow('Public Pressure', forces.publicPressure)}
-${forceRow('External Influences', forces.externalInfluences)}
-
-## Balance
-
-| Metric | Value |
-|--------|-------|
-| Coalition vs Opposition | ${cp}% vs ${op}% |
-| Dominant force | ${cp > op ? 'Coalition' : op > cp ? 'Opposition' : 'Balanced'} |
-| Date | ${date} |
-
-## Date: ${date}
-`
-  );
-}
-
-/**
- * Build markdown for the political threat landscape assessment.
- *
- * Uses the pipeline `date` parameter to ensure the assessment date in the
- * generated markdown matches the `analysis/{date}/` folder, overriding
- * the `new Date()` timestamp that `assessPoliticalThreats()` stamps internally.
- *
- * @param fetchedData - Raw fetched EP data
- * @param date - Analysis date (used to override assessment date for consistency)
- * @returns Markdown content string
- */
-function buildThreatLandscapeMarkdown(fetchedData: Record<string, unknown>, date: string): string {
-  const input = toThreatInput(fetchedData);
-  const assessment = assessPoliticalThreats(input);
-  return generateThreatAssessmentMarkdown({ ...assessment, date });
-}
-
-/**
- * Build markdown for actor threat profiling.
- *
- * @param fetchedData - Raw fetched EP data
- * @param date - Analysis date
- * @returns Markdown content string
- */
-function buildActorThreatProfilingMarkdown(
-  fetchedData: Record<string, unknown>,
-  date: string
-): string {
-  const input = toThreatInput(fetchedData);
-  const profiles = buildActorThreatProfiles(input);
-  const header = buildMarkdownHeader(
-    'actor-threat-profiling',
-    date,
-    profiles.length > 0 ? 'medium' : 'low'
-  );
-
-  const profileRows =
-    profiles.length > 0
-      ? profiles
-          .map(
-            (p) =>
-              `| ${p.actor} | ${p.actorType} | ${p.capability} | ${p.motivation} | ${p.opportunity} | ${p.overallThreatLevel} |`
-          )
-          .join('\n')
-      : EMPTY_TABLE_ROW_6;
-
-  return (
-    header +
-    `# Actor Threat Profiles
-
-## Overview
-Individual threat profiles for ${profiles.length} political actors.
-
-## Actor Threat Matrix
-| Actor | Type | Capability | Motivation | Opportunity | Threat Level |
-|-------|------|------------|------------|-------------|--------------|
-${profileRows}
-
-## Date: ${date}
-`
-  );
-}
-
-/**
- * Build markdown for consequence tree analysis.
- *
- * @param fetchedData - Raw fetched EP data
- * @param date - Analysis date
- * @returns Markdown content string
- */
-function buildConsequenceTreesMarkdown(fetchedData: Record<string, unknown>, date: string): string {
-  const input = toThreatInput(fetchedData);
-  const procedures = safeArr(fetchedData, 'procedures');
-  const header = buildMarkdownHeader('consequence-trees', date, 'medium');
-
-  const trees: string[] = [];
-  for (const raw of procedures.slice(0, 5)) {
-    const proc = raw && typeof raw === 'object' ? (raw as Record<string, unknown>) : null;
-    const title = proc ? String(proc['title'] ?? '') : '';
-    if (!title) continue;
-    const tree = buildConsequenceTree(title, input);
-    trees.push(
-      `### ${title}\n` +
-        `- **Immediate**: ${tree.immediateConsequences.map((c) => c.description).join('; ') || 'No immediate consequences identified'}\n` +
-        `- **Secondary**: ${tree.secondaryEffects.map((c) => c.description).join('; ') || 'No secondary effects identified'}\n` +
-        `- **Long-term**: ${tree.longTermImplications.map((c) => c.description).join('; ') || 'No long-term implications identified'}\n` +
-        `- **Mitigating factors**: ${tree.mitigatingFactors.join(', ') || '—'}\n` +
-        `- **Amplifying factors**: ${tree.amplifyingFactors.join(', ') || '—'}`
-    );
-  }
-
-  return (
-    header +
-    `# Consequence Tree Analysis
-
-## Overview
-Structured analysis of action-consequence chains for ${Math.min(procedures.length, 5)} legislative procedures.
-
-${trees.length > 0 ? trees.join('\n\n') : '## No procedures available for consequence analysis'}
-
-## Date: ${date}
-`
-  );
-}
-
-/**
- * Build markdown for legislative disruption analysis.
- *
- * @param fetchedData - Raw fetched EP data
- * @param date - Analysis date
- * @returns Markdown content string
- */
-function buildLegislativeDisruptionMarkdown(
-  fetchedData: Record<string, unknown>,
-  date: string
-): string {
-  const input = toThreatInput(fetchedData);
-  const procedures = safeArr(fetchedData, 'procedures');
-  const header = buildMarkdownHeader('legislative-disruption', date, 'medium');
-
-  const disruptions: string[] = [];
-  for (const raw of procedures.slice(0, 5)) {
-    const proc = raw && typeof raw === 'object' ? (raw as Record<string, unknown>) : null;
-    const id = proc ? String(proc['procedureId'] ?? proc['id'] ?? '') : '';
-    const title = proc ? String(proc['title'] ?? '') : '';
-    if (!id || !title) continue;
-    const analysis = analyzeLegislativeDisruption(id, input);
-    const disruptionCount = analysis.disruptionPoints.length;
-    disruptions.push(
-      `| ${sanitizeCell(id)} | ${sanitizeCell(title.slice(0, 50))} | ${sanitizeCell(analysis.currentStage)} | ${sanitizeCell(analysis.resilience)} | ${disruptionCount} |`
-    );
-  }
-
-  return (
-    header +
-    `# Legislative Disruption Analysis
-
-## Overview
-Identification of factors disrupting the normal legislative process.
-
-## Disruption Assessment
-| Procedure ID | Title | Stage | Resilience | Disruption Points |
-|-------------|-------|-------|-----------|-------------------|
-${disruptions.length > 0 ? disruptions.join('\n') : '| — | — | — | — | — |'}
-
-## Date: ${date}
-`
-  );
-}
-
-/**
- * Build markdown for the risk scoring matrix.
- *
- * @param fetchedData - Raw fetched EP data
- * @param date - Analysis date
- * @returns Markdown content string
- */
-function buildRiskMatrixMarkdown(fetchedData: Record<string, unknown>, date: string): string {
-  const procedures = safeArr(fetchedData, 'procedures');
-  const risks: Array<{
-    riskId: string;
-    description: string;
-    riskScore: number;
-    riskLevel: string;
-    likelihood: string;
-    impact: string;
-  }> = [];
-
-  // Generate risk scores for identifiable political risks from data
-  if (procedures.length > 0) {
-    risks.push(
-      calculatePoliticalRiskScore(
-        'possible',
-        'moderate',
-        'RISK-001',
-        'Legislative blockage risk from procedure backlog',
-        [`${procedures.length} procedures in pipeline`],
-        ['Established committee procedures'],
-        'medium'
-      )
-    );
-  }
-  const coalitions = safeArr(fetchedData, 'coalitions');
-  if (coalitions.length > 0) {
-    risks.push(
-      calculatePoliticalRiskScore(
-        'unlikely',
-        'major',
-        'RISK-002',
-        'Coalition instability risk',
-        [`${coalitions.length} coalition data points`],
-        ['Established political group structures'],
-        'medium'
-      )
-    );
-  }
-  const anomalies = safeArr(fetchedData, 'anomalies');
-  if (anomalies.length > 0) {
-    risks.push(
-      calculatePoliticalRiskScore(
-        'possible',
-        'moderate',
-        'RISK-003',
-        'Voting pattern anomaly risk',
-        [`${anomalies.length} anomalies detected`],
-        [],
-        'medium'
-      )
-    );
-  }
-
-  const header = buildMarkdownHeader('risk-matrix', date, risks.length > 0 ? 'medium' : 'low');
-
-  const riskRows =
-    risks.length > 0
-      ? risks
-          .map(
-            (r) =>
-              `| ${r.riskId} | ${r.description} | ${r.likelihood} | ${r.impact} | ${r.riskScore} | ${r.riskLevel} |`
-          )
-          .join('\n')
-      : EMPTY_TABLE_ROW_6;
-
-  return (
-    header +
-    `# Political Risk Scoring Matrix
-
-## Overview
-
-Quantitative risk scoring across ${risks.length} identified political dimensions.
-This matrix uses a standardized likelihood × impact framework to quantify and
-prioritize political risks affecting the European Parliament legislative process.
-
-## Risk Heat Map
-
-\`\`\`mermaid
-quadrantChart
-    title Political Risk Heat Map — ${date}
-    x-axis Low Likelihood --> High Likelihood
-    y-axis Low Impact --> High Impact
-    quadrant-1 Critical Risk Zone
-    quadrant-2 High Impact / Low Likelihood
-    quadrant-3 Acceptable Risk Zone
-    quadrant-4 High Likelihood / Low Impact
-${risks
-  .map((r) => {
-    const likelihoodMap: Record<string, number> = {
-      rare: 0.15,
-      unlikely: 0.3,
-      possible: 0.5,
-      likely: 0.7,
-      'almost certain': 0.9,
-    };
-    const impactMap: Record<string, number> = {
-      minor: 0.2,
-      moderate: 0.45,
-      major: 0.7,
-      critical: 0.9,
-    };
-    const lx = likelihoodMap[r.likelihood] ?? 0.5;
-    const ly = impactMap[r.impact] ?? 0.45;
-    return `    ${sanitizeCell(r.riskId)}: [${lx.toFixed(2)}, ${ly.toFixed(2)}]`;
-  })
-  .join('\n')}
-\`\`\`
-
-## Risk Matrix
-
-| Risk ID | Description | Likelihood | Impact | Score | Level |
-|---------|-------------|------------|--------|-------|-------|
-${riskRows}
-
-> **Risk Score** = Likelihood × Impact. **Levels**: 🟢 LOW (≤1.0), 🟡 MEDIUM (≤2.0), 🟠 HIGH (≤3.5), 🔴 CRITICAL (>3.5)
-
-## Risk Assessment Details
-
-${
-  risks.length > 0
-    ? risks
-        .map(
-          (r) => `### ${r.riskId}: ${r.description}
-
-| Metric | Value |
-|--------|-------|
-| Risk Score | ${r.riskScore.toFixed(2)} |
-| Risk Level | ${r.riskLevel.toUpperCase()} |
-| Likelihood | ${r.likelihood} |
-| Impact | ${r.impact} |
-`
-        )
-        .join('\n')
-    : '| — | — | — | — | — | — |'
-}
-
-## Risk Mitigation Framework
-
-| Risk Level | Count | Tolerance | Action Required |
-|------------|-------|-----------|-----------------|
-| 🔴 CRITICAL | ${risks.filter((r) => r.riskLevel === 'critical').length} | Zero tolerance | Immediate escalation |
-| 🟠 HIGH | ${risks.filter((r) => r.riskLevel === 'high').length} | Low tolerance | Active mitigation |
-| 🟡 MEDIUM | ${risks.filter((r) => r.riskLevel === 'medium').length} | Moderate | Enhanced monitoring |
-| 🟢 LOW | ${risks.filter((r) => r.riskLevel === 'low').length} | Acceptable | Routine tracking |
-
-## Date: ${date}
-`
-  );
-}
-
-/**
- * Build markdown for political capital at risk analysis.
- * Outputs data-derived group metrics for AI agent to perform actual analysis.
- *
- * @param fetchedData - Raw fetched EP data
- * @param date - Analysis date
- * @returns Markdown content string
- */
-function buildPoliticalCapitalRiskMarkdown(
-  fetchedData: Record<string, unknown>,
-  date: string
-): string {
-  const header = buildMarkdownHeader('political-capital-risk', date, 'medium');
-  const coalitions = safeArr(fetchedData, 'coalitions');
-  const votingRecords = safeArr(fetchedData, 'votingRecords');
-  const patterns = safeArr(fetchedData, 'patterns');
-  const procedures = safeArr(fetchedData, 'procedures');
-
-  return (
-    header +
-    `# Political Capital at Risk
-
-## Data Inventory for Capital Risk Assessment
-| Data Source | Count | Relevance |
-|-------------|-------|-----------|
-| Coalition data points | ${coalitions.length} | Group cohesion indicators |
-| Voting records | ${votingRecords.length} | Voting alignment metrics |
-| Voting patterns | ${patterns.length} | Trend and anomaly data |
-| Active procedures | ${procedures.length} | Legislative engagement |
-
-## Date: ${date}
-`
-  );
-}
-
-/**
- * Build the data-driven SWOT items for the political SWOT analysis.
- *
- * Descriptions are derived purely from data metrics — no pre-written
- * political conclusions. AI enrichment markers indicate where the agentic
- * workflow should inject real political intelligence analysis.
- *
- * Extracted from `buildQuantitativeSwotMarkdown` to reduce cognitive complexity.
- *
- * @param counts - Count of items per data category
- * @param counts.procedures - Number of active legislative procedures
- * @param counts.adoptedTexts - Number of adopted texts
- * @param counts.documents - Number of published documents
- * @param counts.votingRecords - Number of roll-call voting records
- * @param counts.questions - Number of parliamentary questions
- * @param counts.mepUpdates - Number of MEP activity updates
- * @param counts.events - Number of scheduled events
- * @param counts.coalitions - Number of coalition data points
- * @returns Object with strengths, weaknesses, opportunities, and threats arrays
- */
-function buildPoliticalSwotItems(counts: {
-  procedures: number;
-  adoptedTexts: number;
-  documents: number;
-  votingRecords: number;
-  questions: number;
-  mepUpdates: number;
-  events: number;
-  coalitions: number;
-}): {
-  strengths: ScoredSWOTItem[];
-  weaknesses: ScoredSWOTItem[];
-  opportunities: ScoredSWOTItem[];
-  threats: ScoredSWOTItem[];
-} {
-  const strengths = [
-    createScoredSWOTItem(
-      `${counts.procedures} procedures in active legislative pipeline`,
-      Math.min(counts.procedures / 5, 5),
-      [
-        `${counts.procedures} procedures tracked in current period`,
-        `${counts.adoptedTexts} texts adopted`,
-        `${counts.documents} documents published`,
-      ],
-      counts.procedures > 0 ? 'medium' : 'low',
-      counts.procedures > 5 ? 'improving' : 'stable'
-    ),
-    createScoredSWOTItem(
-      `${counts.votingRecords} roll-call votes recorded with ${counts.questions} questions`,
-      Math.min(counts.votingRecords / 3, 5),
-      [
-        `${counts.votingRecords} voting records available`,
-        `${counts.questions} parliamentary questions filed`,
-        `${counts.mepUpdates} MEP activity updates`,
-      ],
-      counts.votingRecords > 0 ? 'medium' : 'low',
-      'stable'
-    ),
-  ];
-
-  const weaknesses = [
-    createScoredSWOTItem(
-      `${counts.mepUpdates} MEP updates — data coverage gap assessment`,
-      Math.max(2, 5 - counts.mepUpdates / 10),
-      [
-        `${counts.mepUpdates} MEP updates in current period`,
-        `${counts.documents} documents vs ${counts.procedures} procedures ratio`,
-        `Data freshness depends on EP feed update frequency`,
-      ],
-      'medium',
-      'stable'
-    ),
-  ];
-
-  const opportunities = [
-    createScoredOpportunityOrThreat(
-      `${counts.events} parliamentary events scheduled`,
-      counts.events > 3 ? 'likely' : 'possible',
-      counts.events > 5 ? 'major' : 'moderate',
-      [
-        `${counts.events} events in analysis period`,
-        `${counts.adoptedTexts} texts adopted indicates legislative throughput`,
-        `${counts.procedures} procedures in various stages`,
-      ],
-      'medium',
-      counts.events > 3 ? 'improving' : 'stable'
-    ),
-  ];
-
-  const threats = [
-    createScoredOpportunityOrThreat(
-      `${counts.coalitions} coalition data points — cohesion monitoring`,
-      counts.coalitions > 0 ? 'possible' : 'unlikely',
-      'moderate',
-      [
-        `${counts.coalitions} coalition observations recorded`,
-        `Cross-reference with ${counts.votingRecords} voting records`,
-        `${counts.procedures} procedures may be affected by coalition shifts`,
-      ],
-      counts.coalitions > 0 ? 'medium' : 'low',
-      'stable'
-    ),
-  ];
-
-  return { strengths, weaknesses, opportunities, threats };
-}
-
-/**
- * Build markdown for the quantitative SWOT analysis.
- *
- * Produces a full narrative SWOT analysis modelled after the repository's
- * SWOT.md — each quadrant item has a description, strategic value, evidence
- * bullets, and a scored impact rating derived from actual fetched EP data.
- *
- * @param fetchedData - Raw fetched EP data
- * @param date - Analysis date
- * @returns Markdown content string
- */
-function buildQuantitativeSwotMarkdown(fetchedData: Record<string, unknown>, date: string): string {
-  const header = buildMarkdownHeader('quantitative-swot', date, 'medium');
-  const events = safeArr(fetchedData, 'events');
-  const procedures = safeArr(fetchedData, 'procedures');
-  const adoptedTexts = safeArr(fetchedData, 'adoptedTexts');
-  const documents = safeArr(fetchedData, 'documents');
-  const votingRecords = safeArr(fetchedData, 'votingRecords');
-  const coalitions = safeArr(fetchedData, 'coalitions');
-  const questions = safeArr(fetchedData, 'questions');
-  const mepUpdates = safeArr(fetchedData, 'mepUpdates');
-
-  const counts = {
-    procedures: procedures.length,
-    adoptedTexts: adoptedTexts.length,
-    documents: documents.length,
-    votingRecords: votingRecords.length,
-    questions: questions.length,
-    mepUpdates: mepUpdates.length,
-    events: events.length,
-    coalitions: coalitions.length,
-  };
-
-  // Build data-driven SWOT items with narrative descriptions
-  const { strengths, weaknesses, opportunities, threats } = buildPoliticalSwotItems(counts);
-
-  const swot = buildQuantitativeSWOT(
-    `Political SWOT Assessment ${date}`,
-    strengths,
-    weaknesses,
-    opportunities,
-    threats
-  );
-
-  // Build narrative sections for each quadrant
-  const strengthsNarrative = swot.strengths
-    .map(
-      (s, i) =>
-        `### S${i + 1}: ${s.description}\n` +
-        `- **Score**: ${s.score.toFixed(1)}/5\n` +
-        `- **Confidence**: ${s.confidence}\n` +
-        `- **Trend**: ${s.trend}\n` +
-        `- **Evidence**:\n${s.evidence.map((e) => `  - ${e}`).join('\n')}`
-    )
-    .join('\n\n');
-
-  const weaknessesNarrative = swot.weaknesses
-    .map(
-      (w, i) =>
-        `### W${i + 1}: ${w.description}\n` +
-        `- **Score**: ${w.score.toFixed(1)}/5\n` +
-        `- **Confidence**: ${w.confidence}\n` +
-        `- **Trend**: ${w.trend}\n` +
-        `- **Evidence**:\n${w.evidence.map((e) => `  - ${e}`).join('\n')}`
-    )
-    .join('\n\n');
-
-  const opportunitiesNarrative = swot.opportunities
-    .map(
-      (o, i) =>
-        `### O${i + 1}: ${o.description}\n` +
-        `- **Score**: ${o.score.toFixed(1)}/5\n` +
-        `- **Confidence**: ${o.confidence}\n` +
-        `- **Trend**: ${o.trend}\n` +
-        `- **Evidence**:\n${o.evidence.map((e) => `  - ${e}`).join('\n')}`
-    )
-    .join('\n\n');
-
-  const threatsNarrative = swot.threats
-    .map(
-      (t, i) =>
-        `### T${i + 1}: ${t.description}\n` +
-        `- **Score**: ${t.score.toFixed(1)}/5\n` +
-        `- **Confidence**: ${t.confidence}\n` +
-        `- **Trend**: ${t.trend}\n` +
-        `- **Evidence**:\n${t.evidence.map((e) => `  - ${e}`).join('\n')}`
-    )
-    .join('\n\n');
-
-  return (
-    header +
-    `# Full Political SWOT Analysis
-
-## Executive Summary
-
-**Strategic Position Score**: ${swot.strategicPositionScore.toFixed(1)}/10
-**Overall Assessment**: ${swot.overallAssessment}
-**Analysis Date**: ${date}
-
-> This SWOT analysis is derived from ${procedures.length} procedures, ${events.length} events, ${adoptedTexts.length} adopted texts, ${documents.length} documents, ${votingRecords.length} voting records, and ${coalitions.length} coalition data points fetched from the European Parliament.
-
-## SWOT Quadrant Chart
-
-\`\`\`mermaid
-quadrantChart
-    title Political SWOT — Strategic Position (${date})
-    x-axis Low Impact --> High Impact
-    y-axis Low Priority --> High Priority
-    quadrant-1 Opportunities
-    quadrant-2 Strengths
-    quadrant-3 Weaknesses
-    quadrant-4 Threats
-${swot.strengths.map((s, i) => `    S${i + 1} ${sanitizeCell(s.description).slice(0, 25)}: [${Math.max(0.55, Math.min(0.95, 0.5 + s.score / 10)).toFixed(2)}, ${Math.max(0.55, Math.min(0.95, 0.5 + s.score / 10)).toFixed(2)}]`).join('\n')}
-${swot.weaknesses.map((w, i) => `    W${i + 1} ${sanitizeCell(w.description).slice(0, 25)}: [${Math.max(0.05, Math.min(0.45, 0.5 - w.score / 10)).toFixed(2)}, ${Math.max(0.05, Math.min(0.45, 0.5 - w.score / 10)).toFixed(2)}]`).join('\n')}
-${swot.opportunities.map((o, i) => `    O${i + 1} ${sanitizeCell(o.description).slice(0, 25)}: [${Math.max(0.55, Math.min(0.95, 0.5 + o.score / 10)).toFixed(2)}, ${Math.max(0.55, Math.min(0.95, 0.5 + o.score / 10)).toFixed(2)}]`).join('\n')}
-${swot.threats.map((t, i) => `    T${i + 1} ${sanitizeCell(t.description).slice(0, 25)}: [${Math.max(0.55, Math.min(0.95, 0.5 + t.score / 10)).toFixed(2)}, ${Math.max(0.05, Math.min(0.45, 0.5 - t.score / 10)).toFixed(2)}]`).join('\n')}
-\`\`\`
-
-## SWOT Overview
-
-| Category | Items | Avg Score | Trend |
-|----------|-------|-----------|-------|
-| 🟢 Strengths | ${swot.strengths.length} | ${swot.strengths.length > 0 ? (swot.strengths.reduce((s, i) => s + i.score, 0) / swot.strengths.length).toFixed(1) : '—'} | ${swot.strengths[0]?.trend ?? '—'} |
-| 🔴 Weaknesses | ${swot.weaknesses.length} | ${swot.weaknesses.length > 0 ? (swot.weaknesses.reduce((s, i) => s + i.score, 0) / swot.weaknesses.length).toFixed(1) : '—'} | ${swot.weaknesses[0]?.trend ?? '—'} |
-| 🔵 Opportunities | ${swot.opportunities.length} | ${swot.opportunities.length > 0 ? (swot.opportunities.reduce((s, i) => s + i.score, 0) / swot.opportunities.length).toFixed(1) : '—'} | ${swot.opportunities[0]?.trend ?? '—'} |
-| 🟠 Threats | ${swot.threats.length} | ${swot.threats.length > 0 ? (swot.threats.reduce((s, i) => s + i.score, 0) / swot.threats.length).toFixed(1) : '—'} | ${swot.threats[0]?.trend ?? '—'} |
-
-## 🟢 Strengths
-
-${strengthsNarrative || '_No strengths identified from available data._'}
-
-## 🔴 Weaknesses
-
-${weaknessesNarrative || '_No weaknesses identified from available data._'}
-
-## 🔵 Opportunities
-
-${opportunitiesNarrative || '_No opportunities identified from available data._'}
-
-## 🟠 Threats
-
-${threatsNarrative || '_No threats identified from available data._'}
-
-## Cross-Impact Matrix
-
-${
-  swot.crossImpactMatrix.length > 0
-    ? '| Interaction | Net Effect | Rationale |\n|-------------|-----------|----------|\n' +
-      swot.crossImpactMatrix
-        .slice(0, 10)
-        .map(
-          (e) =>
-            `| ${e.swotType} #${e.swotIndex + 1} × threat #${e.threatIndex + 1} | ${e.netEffect.toFixed(2)} | ${sanitizeCell(e.rationale)} |`
-        )
-        .join('\n')
-    : '- No cross-impacts identified from available data'
-}
-
-## Strategic Priorities Matrix
-
-## Data Summary
-
-| Data Source | Count |
-|-------------|-------|
-| Procedures | ${procedures.length} |
-| Events | ${events.length} |
-| Documents | ${documents.length} |
-| Voting Records | ${votingRecords.length} |
-| Adopted Texts | ${adoptedTexts.length} |
-| Coalitions | ${coalitions.length} |
-| Questions | ${questions.length} |
-| MEP Updates | ${mepUpdates.length} |
-| **Total Data Points** | **${procedures.length + events.length + documents.length + votingRecords.length + adoptedTexts.length}** |
-
-## Date: ${date}
-`
-  );
-}
-
-/**
- * Build markdown for legislative velocity risk analysis.
- *
- * @param fetchedData - Raw fetched EP data
- * @param date - Analysis date
- * @returns Markdown content string
- */
-function buildLegislativeVelocityRiskMarkdown(
-  fetchedData: Record<string, unknown>,
-  date: string
-): string {
-  const procedures = safeArr(fetchedData, 'procedures');
-  const velocityRisks = assessLegislativeVelocityRisk(procedures);
-  const header = buildMarkdownHeader(
-    'legislative-velocity-risk',
-    date,
-    velocityRisks.length > 0 ? 'medium' : 'low'
-  );
-
-  const riskRows =
-    velocityRisks.length > 0
-      ? velocityRisks
-          .slice(0, 10)
-          .map(
-            (r) =>
-              `| ${sanitizeCell(r.procedureId)} | ${sanitizeCell(r.title.slice(0, 40))} | ${sanitizeCell(r.currentStage)} | ${r.daysInCurrentStage}d / ${r.expectedDaysForStage}d | ${r.velocityRisk.riskScore.toFixed(2)} | ${sanitizeCell(r.velocityRisk.riskLevel)} |`
-          )
-          .join('\n')
-      : EMPTY_TABLE_ROW_6;
-
-  return (
-    header +
-    `# Legislative Velocity Risk
-
-## Overview
-Risk assessment based on legislative processing speed for ${procedures.length} procedures.
-
-## Top Velocity Risks
-| Procedure | Title | Stage | Days (actual/expected) | Risk Score | Level |
-|-----------|-------|-------|----------------------|------------|-------|
-${riskRows}
-
-## Summary
-- **Procedures analysed**: ${procedures.length}
-- **High/Critical risks**: ${velocityRisks.filter((r) => r.velocityRisk.riskLevel === 'high' || r.velocityRisk.riskLevel === 'critical').length}
-- **Date**: ${date}
-`
-  );
-}
-
-/**
- * Build markdown for the agent risk assessment workflow.
- *
- * @param fetchedData - Raw fetched EP data
- * @param date - Analysis date
- * @returns Markdown content string
- */
-function buildAgentRiskWorkflowMarkdown(
-  fetchedData: Record<string, unknown>,
-  date: string
-): string {
-  const procedures = safeArr(fetchedData, 'procedures');
-  const coalitions = safeArr(fetchedData, 'coalitions');
-
-  // Build identified risks
-  const identifiedRisks = [];
-  if (procedures.length > 0) {
-    identifiedRisks.push(
-      calculatePoliticalRiskScore(
-        'possible',
-        'moderate',
-        'RISK-W01',
-        'Legislative backlog risk',
-        [`${procedures.length} active procedures`],
-        ['Committee oversight'],
-        'medium'
-      )
-    );
-  }
-  if (coalitions.length > 0) {
-    identifiedRisks.push(
-      calculatePoliticalRiskScore(
-        'unlikely',
-        'moderate',
-        'RISK-W02',
-        'Coalition cohesion risk',
-        [`${coalitions.length} coalitions monitored`],
-        ['Group discipline mechanisms'],
-        'medium'
-      )
-    );
-  }
-  if (identifiedRisks.length === 0) {
-    identifiedRisks.push(
-      calculatePoliticalRiskScore(
-        'rare',
-        'minor',
-        'RISK-W00',
-        'Baseline political risk',
-        ['Routine parliamentary activity'],
-        ['Stable institutional framework'],
-        'low'
-      )
-    );
-  }
-
-  const riskDrivers = [
-    createRiskDriver(
-      'Legislative pipeline complexity',
-      'legislative_delay',
-      Math.min(procedures.length * 2, 30),
-      'stable'
-    ),
-    createRiskDriver('Coalition dynamics', 'coalition_fracture', 15, 'stable'),
-  ];
-
-  const workflow = runAgentRiskAssessment(
-    `ASSESS-${date}`,
-    date,
-    ArticleCategory.WEEK_AHEAD,
-    identifiedRisks,
-    riskDrivers,
-    ['Monitor legislative velocity indicators', 'Track coalition voting patterns']
-  );
-
-  return generateRiskAssessmentMarkdown(workflow);
-}
-
-/**
- * Build markdown for the deep multi-perspective analysis.
- * Outputs raw data metrics per stakeholder group for AI agent enrichment.
- *
- * @param fetchedData - Raw fetched EP data
- * @param date - Analysis date
- * @returns Markdown content string
- */
-function buildDeepAnalysisMarkdown(fetchedData: Record<string, unknown>, date: string): string {
-  const header = buildMarkdownHeader('deep-analysis', date, 'high');
-  const events = safeArr(fetchedData, 'events');
-  const procedures = safeArr(fetchedData, 'procedures');
-  const documents = safeArr(fetchedData, 'documents');
-  const adoptedTexts = safeArr(fetchedData, 'adoptedTexts');
-  const questions = safeArr(fetchedData, 'questions');
-  const mepUpdates = safeArr(fetchedData, 'mepUpdates');
-  const total =
-    events.length +
-    procedures.length +
-    documents.length +
-    adoptedTexts.length +
-    questions.length +
-    mepUpdates.length;
-  return (
-    header +
-    `# Deep Multi-Perspective Analysis
-
-## Raw Data Inventory (Script-Generated Context for AI)
-| Data Source | Count |
-|-------------|-------|
-| Events | ${events.length} |
-| Procedures | ${procedures.length} |
-| Documents | ${documents.length} |
-| Adopted Texts | ${adoptedTexts.length} |
-| Questions | ${questions.length} |
-| MEP Updates | ${mepUpdates.length} |
-| **Total** | **${total}** |
-
-## Stakeholder Groups — Data Points Available
-| Stakeholder Group | Data Points Available |
-|-------------------|---------------------|
-| Political Groups | ${procedures.length + adoptedTexts.length} (procedures + adopted texts) |
-| Civil Society | ${documents.length + questions.length} (documents + questions) |
-| Industry | ${procedures.length} (procedures) |
-| National Governments | ${adoptedTexts.length} (adopted texts) |
-| Citizens | ${questions.length + mepUpdates.length} (questions + MEP updates) |
-| EU Institutions | ${events.length + procedures.length} (events + procedures) |
-
-## AI Analysis Prompt
-
-> **Instructions for AI Agent (Opus 4.6):** Using the data inventory above and the raw EP MCP data files, produce a deep multi-perspective analysis following the political-style-guide.md depth Level 3 format. Your analysis MUST:
->
-> 1. **Identify the 3-5 most politically significant items** from the available data, citing specific document IDs
-> 2. **Analyse each from ≥3 stakeholder perspectives** (Political Groups, Civil Society, Industry, National Governments, Citizens, EU Institutions)
-> 3. **Apply the SWOT framework** to the overall parliamentary activity pattern for this date
-> 4. **Assess coalition dynamics** — which groups are aligning/diverging based on the adopted texts?
-> 5. **Rate confidence** for each analytical claim: 🟢 High / 🟡 Medium / 🔴 Low
-> 6. **Provide forward-looking indicators** — what should be monitored in the next 7-14 days?
-> 7. **Include a Mermaid diagram** showing key actor relationships or policy connection mapping
->
-> Evidence requirement: ≥3 citations per section from EP MCP data (document IDs, vote references, procedure numbers).
-
-## AI-Produced Analysis
-
-[TO BE FILLED BY AI AGENT — This section must contain substantive political intelligence analysis, not data summaries. Quality gate: minimum 500 words of original analytical prose with evidence citations.]
-
-## Date: ${date}
-`
-  );
-}
-
-/**
- * Build markdown for the stakeholder impact analysis.
- * Outputs data inventory per stakeholder group with AI analysis prompts.
- *
- * @param fetchedData - Raw fetched EP data
- * @param date - Analysis date
- * @returns Markdown content string
- */
-function buildStakeholderAnalysisMarkdown(
-  fetchedData: Record<string, unknown>,
-  date: string
-): string {
-  const header = buildMarkdownHeader('stakeholder-analysis', date, 'high');
-  const procedures = safeArr(fetchedData, 'procedures');
-  const adoptedTexts = safeArr(fetchedData, 'adoptedTexts');
-  const documents = safeArr(fetchedData, 'documents');
-  const events = safeArr(fetchedData, 'events');
-  const questions = safeArr(fetchedData, 'questions');
-  const mepUpdates = safeArr(fetchedData, 'mepUpdates');
-  const votingRecords = safeArr(fetchedData, 'votingRecords');
-  const coalitions = safeArr(fetchedData, 'coalitions');
-  return (
-    header +
-    `# Stakeholder Impact Analysis
-
-## Data Available for Stakeholder Assessment (Script-Generated Context)
-| Stakeholder Group | Primary Data Sources | Data Points |
-|-------------------|---------------------|-------------|
-| Political Groups | Procedures, Adopted Texts, Voting Records, Coalitions | ${procedures.length + adoptedTexts.length + votingRecords.length + coalitions.length} |
-| Civil Society | Documents, Questions, Events | ${documents.length + questions.length + events.length} |
-| Industry | Procedures, Adopted Texts | ${procedures.length + adoptedTexts.length} |
-| National Governments | Adopted Texts, Procedures, Coalitions | ${adoptedTexts.length + procedures.length + coalitions.length} |
-| Citizens | Questions, MEP Updates, Events | ${questions.length + mepUpdates.length + events.length} |
-| EU Institutions | Events, Procedures, Adopted Texts, Voting Records | ${events.length + procedures.length + adoptedTexts.length + votingRecords.length} |
-
-## Data Source Summary
-| Source | Count |
-|--------|-------|
-${Object.keys(fetchedData)
-  .filter((k) => Array.isArray(fetchedData[k]))
-  .map((k) => `| ${k} | ${(fetchedData[k] as unknown[]).length} |`)
-  .join('\n')}
-
-## AI Analysis Prompt
-
-> **Instructions for AI Agent (Opus 4.6):** Using the stakeholder-impact.md template and the data inventory above, produce a stakeholder impact analysis for each of the 6 stakeholder groups. For each group:
->
-> 1. **Impact direction**: positive / negative / neutral / mixed
-> 2. **Impact severity**: high / medium / low
-> 3. **Specific evidence**: Cite ≥2 specific EP documents, votes, or procedures that affect this stakeholder
-> 4. **Reasoning**: 2-3 sentences explaining WHY this stakeholder is affected and HOW
-> 5. **Action items**: What should this stakeholder watch or do in response?
-> 6. **Confidence level**: 🟢 High / 🟡 Medium / 🔴 Low
->
-> Focus on the MOST RECENT adopted texts and procedures. Do not produce generic stakeholder descriptions — every assessment must be grounded in specific EP data from this date period.
-
-## AI-Produced Stakeholder Assessment
-
-[TO BE FILLED BY AI AGENT — Each stakeholder group must have impact direction, severity, evidence citations, and reasoning. Quality gate: minimum 300 words of original analytical prose.]
-
-## Date: ${date}
-`
-  );
-}
-
-/**
- * Build markdown for coalition cohesion analysis.
- * Uses `computeCrossSessionCoalitionStability` to aggregate VotingPattern cohesion
- * and provides AI analysis prompts for deeper intelligence.
- *
- * @param fetchedData - Raw fetched EP data
- * @param date - Analysis date
- * @returns Markdown content string
- */
-function buildCoalitionAnalysisMarkdown(
-  fetchedData: Record<string, unknown>,
-  date: string
-): string {
-  const header = buildMarkdownHeader('coalition-analysis', date, 'high');
-  const rawPatterns = Array.isArray(fetchedData['patterns']) ? fetchedData['patterns'] : [];
-  // VotingPattern[] data doesn't contain the `coalitionId`/`id` fields required
-  // by analyzeCoalitionCohesion().  Use computeCrossSessionCoalitionStability()
-  // instead — it is designed to aggregate cohesion across VotingPattern arrays.
-  const stabilityReport = computeCrossSessionCoalitionStability(
-    rawPatterns as Parameters<typeof computeCrossSessionCoalitionStability>[0]
-  );
-  return (
-    header +
-    `# Coalition Cohesion Analysis
-
-## Computed Metrics (Script-Generated Context)
-- **Overall Stability**: ${(stabilityReport.overallStability * 100).toFixed(1)}%
-- **Forecast**: ${stabilityReport.forecast}
-- **Patterns Analysed**: ${stabilityReport.patternCount}
-- **Stable Groups**: ${stabilityReport.stableGroups.length > 0 ? stabilityReport.stableGroups.join(', ') : 'No stable groups identified from voting data'}
-- **Declining Groups**: ${stabilityReport.decliningGroups.length > 0 ? stabilityReport.decliningGroups.join(', ') : 'No declining groups identified from voting data'}
-- **Raw Patterns Evaluated**: ${rawPatterns.length}
-
-## AI Analysis Prompt
-
-> **Instructions for AI Agent (Opus 4.6):** Using the political-risk-methodology.md coalition risk framework and the computed metrics above, produce a coalition intelligence analysis. Your analysis MUST:
->
-> 1. **Assess the Grand Coalition** (EPP + S&D + Renew): Is it holding? What are the stress points?
-> 2. **Identify emerging alliances**: Are ECR, PfE, or Greens/EFA forming tactical voting blocs?
-> 3. **Analyse abstention patterns**: High abstention rates signal internal group conflicts — identify which groups and why
-> 4. **Cross-party voting**: Identify any cases where MEPs voted against their group line on recent adopted texts
-> 5. **Predict coalition evolution**: Based on current patterns, which coalitions will strengthen/weaken in the next month?
-> 6. **Include a Mermaid diagram** showing group-to-group voting alignment strength
-> 7. **Confidence levels**: Rate each coalition assessment as 🟢 High / 🟡 Medium / 🔴 Low
->
-> If voting data is limited (patterns analysed = 0), use adopted texts and political landscape data to infer coalition dynamics from the policy positions embedded in recent legislation.
-
-## AI-Produced Coalition Intelligence
-
-[TO BE FILLED BY AI AGENT — Substantive coalition dynamics analysis with evidence citations, confidence levels, and forward-looking predictions. Quality gate: minimum 400 words.]
-
-## Date: ${date}
-`
-  );
-}
-
-/**
- * Build markdown for voting pattern analysis.
- * Uses `detectVotingTrends` and provides AI analysis prompts.
- *
- * @param fetchedData - Raw fetched EP data
- * @param date - Analysis date
- * @returns Markdown content string
- */
-function buildVotingPatternsMarkdown(fetchedData: Record<string, unknown>, date: string): string {
-  const header = buildMarkdownHeader('voting-patterns', date, 'high');
-  // detectVotingTrends accepts readonly VotingRecord[] — pass raw records directly
-  const rawRecords = Array.isArray(fetchedData['votingRecords'])
-    ? fetchedData['votingRecords']
-    : [];
-  const trends = detectVotingTrends(rawRecords as Parameters<typeof detectVotingTrends>[0]);
-  const trendsText = trends
-    .map(
-      (t) =>
-        `| ${t.trendId} | ${t.direction} | ${(t.confidence * 100).toFixed(0)}% | ${t.recordCount} records |`
-    )
-    .join('\n');
-  return (
-    header +
-    `# Voting Pattern Analysis
-
-## Detected Trends (Script-Generated Context)
-| Trend ID | Direction | Confidence | Data Points |
-|----------|-----------|------------|-------------|
-${trendsText || '| No trend data available from voting records | — | — | — |'}
-
-## Computed Summary
-- **Trends identified**: ${trends.length}
-- **Records analysed**: ${rawRecords.length}
-
-## AI Analysis Prompt
-
-> **Instructions for AI Agent (Opus 4.6):** Using the voting pattern data above and the adopted texts from EP MCP feeds, produce a voting pattern intelligence analysis. Your analysis MUST:
->
-> 1. **Identify voting blocs**: Which groups consistently vote together on recent adopted texts?
-> 2. **Detect anomalies**: Any unexpected votes, close margins (<50 vote difference), or high abstention rates?
-> 3. **Analyse by policy domain**: Do voting patterns differ between economic, environmental, and social legislation?
-> 4. **Group discipline assessment**: Rate each major group's internal cohesion (high/medium/low) with evidence
-> 5. **Trend detection**: Compare recent voting patterns to historical trends — is the Parliament becoming more/less fragmented?
-> 6. **Forward-looking**: Which upcoming votes are likely to be contested based on current alignment patterns?
->
-> If voting records are limited, analyse the adopted texts' policy positions to infer likely voting alignments and coalition patterns.
-
-## AI-Produced Voting Intelligence
-
-[TO BE FILLED BY AI AGENT — Substantive voting pattern analysis with specific vote references, group cohesion ratings, and anomaly detection. Quality gate: minimum 300 words.]
-
-## Date: ${date}
-`
-  );
-}
-
-/**
- * Build markdown for cross-session intelligence analysis.
- * Uses `computeCrossSessionCoalitionStability`.
- *
- * @param fetchedData - Raw fetched EP data
- * @param date - Analysis date
- * @returns Markdown content string
- */
-function buildCrossSessionIntelligenceMarkdown(
-  fetchedData: Record<string, unknown>,
-  date: string
-): string {
-  const header = buildMarkdownHeader('cross-session-intelligence', date, 'high');
-  const rawPatterns = Array.isArray(fetchedData['patterns']) ? fetchedData['patterns'] : [];
-  // computeCrossSessionCoalitionStability accepts readonly VotingPattern[]
-  const stabilityReport = computeCrossSessionCoalitionStability(
-    rawPatterns as Parameters<typeof computeCrossSessionCoalitionStability>[0]
-  );
-  return (
-    header +
-    `# Cross-Session Coalition Intelligence
-
-## Computed Stability Metrics (Script-Generated Context)
-- **Overall Stability**: ${(stabilityReport.overallStability * 100).toFixed(1)}%
-- **Forecast**: ${stabilityReport.forecast}
-- **Patterns Analysed**: ${stabilityReport.patternCount}
-- **Stable Groups**: ${stabilityReport.stableGroups.length > 0 ? stabilityReport.stableGroups.join(', ') : 'None identified from voting data'}
-- **Declining Groups**: ${stabilityReport.decliningGroups.length > 0 ? stabilityReport.decliningGroups.join(', ') : 'None identified from voting data'}
-
-## AI Analysis Prompt
-
-> **Instructions for AI Agent (Opus 4.6):** Using the cross-session stability metrics above and the adopted texts/voting records from recent plenary sessions, produce a cross-session intelligence synthesis. Your analysis MUST:
->
-> 1. **Compare coalition patterns** across the last 3-5 plenary sessions — are alliances strengthening or fragmenting?
-> 2. **Identify session-over-session trends**: Which policy areas show increasing/decreasing consensus?
-> 3. **Detect coalition realignment signals**: Are new voting blocs forming? Is the Grand Coalition showing stress?
-> 4. **Institutional dynamics**: How are EP-Council-Commission dynamics evolving based on recent legislative outcomes?
-> 5. **Predictive assessment**: Based on cross-session patterns, forecast likely coalition behavior for upcoming votes
-> 6. **Confidence levels**: Rate each finding as 🟢 High / 🟡 Medium / 🔴 Low
->
-> Cross-reference with adopted texts from the most recent plenary session to ground the analysis in specific legislative outcomes.
-
-## AI-Produced Cross-Session Intelligence
-
-[TO BE FILLED BY AI AGENT — Cross-session trend analysis with specific plenary session references, coalition evolution assessment, and predictive indicators. Quality gate: minimum 400 words.]
-
-## Date: ${date}
-`
-  );
-}
-
-// ─── Per-document analysis builder ────────────────────────────────────────────
-
-/**
- * Build per-document intelligence analysis files.
- *
- * Iterates over every individual document from all feed categories in the
- * fetched data.  For each document, produces a unique analysis file in the
- * `documents/` subdirectory with a filename derived from the sanitized
- * document identifier.  A deduplication set prevents the same document from
- * being analyzed twice across feed categories.
- *
- * The main output file (`document-analysis-index.md`) is a summary index of
- * all individually-analyzed documents.  Individual per-document files contain
- * full significance, threat, and SWOT assessment.
- *
- * @param fetchedData - Raw fetched EP data
- * @param date - Analysis date
- * @returns Markdown index content string (per-document files are written as side effects)
- */
-/** Entry for a single analyzed document within the document-analysis index */
-interface DocumentEntry {
-  readonly category: string;
-  readonly id: string;
-  readonly title: string;
-  readonly filename: string;
-}
-
-/**
- * Process a single feed item: deduplicate, write per-document files, and
- * collect the index entry.  Returns `undefined` if the item is invalid or
- * already analyzed.
- *
- * @param raw - Raw feed item (may be null, non-object, or a valid record)
- * @param feedKey - Feed category key (e.g. 'adoptedTexts', 'procedures')
- * @param date - Analysis date string
- * @param analyzedIds - Set of already-processed document IDs for deduplication
- * @param docDir - Output directory for per-document markdown (empty string to skip writing)
- * @param rawDataDir - Output directory for raw JSON data
- * @param significance - Precomputed global political significance
- * @param threats - Precomputed global threat assessment
- * @returns Document entry for the index, or undefined if skipped
- */
-function processDocumentItem(
-  raw: unknown,
-  feedKey: string,
-  date: string,
-  analyzedIds: Set<string>,
-  docDir: string,
-  rawDataDir: string,
-  significance: PoliticalSignificance,
-  threats: PoliticalThreatAssessment
-): DocumentEntry | undefined {
-  if (!raw || typeof raw !== 'object') return undefined;
-  const item = raw as Record<string, unknown>;
-  const docId = extractDocumentId(item);
-  const dedupeKey = docId.toLowerCase().trim();
-
-  if (analyzedIds.has(dedupeKey)) return undefined;
-  analyzedIds.add(dedupeKey);
-
-  const title = extractDocumentTitle(item);
-  const safeId = sanitizeDocumentId(docId);
-  const filename = `${sanitizeDocumentId(feedKey)}-${safeId}-analysis.md`;
-
-  if (docDir) {
-    const docContent = buildSingleDocumentAnalysis(
-      item,
-      docId,
-      title,
-      feedKey,
-      date,
-      significance,
-      threats
-    );
-    writeTextFile(path.join(docDir, filename), docContent);
-
-    const rawJsonFilename = `${sanitizeDocumentId(feedKey)}-${safeId}-raw.json`;
-    writeTextFile(path.join(rawDataDir, rawJsonFilename), JSON.stringify(item, null, 2));
-  }
-
-  return { category: feedKey, id: docId, title, filename };
-}
-
-function buildDocumentAnalysisMarkdown(fetchedData: Record<string, unknown>, date: string): string {
-  const header = buildMarkdownHeader(METHOD_DOCUMENT_ANALYSIS, date, 'high');
-  const dateOutputDir = (fetchedData as Record<string, unknown>)['_dateOutputDir'];
-  const outputBase = typeof dateOutputDir === 'string' ? dateOutputDir : '';
-
-  // Create output directories once, before iterating over items
-  const docDir = outputBase ? path.join(outputBase, 'documents') : '';
-  const rawDataDir = outputBase ? path.join(outputBase, 'documents', 'raw-data') : '';
-  if (docDir) ensureDirectoryExists(docDir);
-  if (rawDataDir) ensureDirectoryExists(rawDataDir);
-
-  // Pre-compute global significance and threat assessments once per run
-  // (both are based on the entire fetchedData, not individual documents)
-  const globalInput = toClassificationInput(fetchedData);
-  const globalSignificance = assessPoliticalSignificance(globalInput);
-  const globalThreatInput = toThreatInput(fetchedData);
-  const globalThreats = assessPoliticalThreats(globalThreatInput);
-
-  // Collect all documents across feed categories with deduplication
-  const analyzedIds = new Set<string>();
-  const documentEntries: DocumentEntry[] = [];
-
-  for (const feedKey of DOCUMENT_FEED_KEYS) {
-    const items = safeArr(fetchedData, feedKey);
-    for (const raw of items) {
-      const entry = processDocumentItem(
-        raw,
-        feedKey,
-        date,
-        analyzedIds,
-        docDir,
-        rawDataDir,
-        globalSignificance,
-        globalThreats
-      );
-      if (entry) documentEntries.push(entry);
-    }
-  }
-
-  // Store analyzed IDs for manifest consumption as a non-enumerable property
-  // to prevent leaking into dataSourcesUsed which iterates enumerable keys
-  Object.defineProperty(fetchedData, '_analyzedDocumentIds', {
-    value: [...analyzedIds],
-    writable: false,
-    configurable: true,
-    enumerable: false,
-  });
-
-  // Build index table
-  const tableRows =
-    documentEntries.length > 0
-      ? documentEntries
-          .map(
-            (d) =>
-              `| ${sanitizeCell(d.id)} | ${sanitizeCell(d.title.slice(0, 60))} | ${sanitizeCell(d.category)} | [${d.filename}](${d.filename}) |`
-          )
-          .join('\n')
-      : '| — | No documents available | — | — |';
-
-  return (
-    header +
-    `# Per-Document Intelligence Analysis Index
-
-## Executive Summary
-
-Full per-document political intelligence analysis for ${documentEntries.length} unique documents
-across ${DOCUMENT_FEED_KEYS.length} feed categories.  Each document has been individually
-analyzed from fetched European Parliament data with comprehensive significance assessment,
-SWOT analysis, and threat profiling.
-
-- **Total Documents Analyzed**: ${documentEntries.length}
-- **Feed Categories Scanned**: ${DOCUMENT_FEED_KEYS.length}
-- **Duplicates Deduplicated**: ${[...DOCUMENT_FEED_KEYS].reduce((s, k) => s + safeArr(fetchedData, k).length, 0) - documentEntries.length}
-- **Date**: ${date}
-
-## Document Analysis Index
-
-| Document ID | Title | Category | Analysis File |
-|-------------|-------|----------|---------------|
-${tableRows}
-
-## Category Breakdown
-
-${DOCUMENT_FEED_KEYS.map(
-  (k) =>
-    `- **${k}**: ${safeArr(fetchedData, k).length} items (${documentEntries.filter((d) => d.category === k).length} unique analyzed)`
-).join('\n')}
-
-## Methodology
-
-Each document receives:
-1. **Raw Data Storage** — Full document JSON stored in \`documents/raw-data/\` for complete data preservation
-2. **Significance Classification** — Political importance on 5-level scale
-3. **SWOT Assessment** — Strengths, weaknesses, opportunities, threats specific to the document
-4. **Threat Profiling** — Political threat landscape analysis for disruption potential
-5. **Stakeholder Impact** — Projected effects on key stakeholder groups
-6. **Intelligence Summary** — Key findings and actionable insights
-
-## Document Storage
-
-All ${documentEntries.length} documents have been stored in their entirety:
-- **Analysis files**: \`documents/{category}-{id}-analysis.md\`
-- **Raw JSON data**: \`documents/raw-data/{category}-{id}-raw.json\`
-- **Deduplication**: Documents appearing in multiple feed categories are stored once with primary category reference
-
-## Date: ${date}
-`
-  );
-}
-
-/**
- * Build comprehensive analysis markdown for a single document.
- *
- * Produces a standalone analysis file containing significance assessment,
- * full narrative SWOT, threat profiling, and stakeholder impact for one
- * individual EP document.
- *
- * @param item - Raw document item from feed data
- * @param docId - Document identifier
- * @param title - Document title
- * @param category - Feed category the document came from
- * @param date - Analysis date
- * @param significance - Precomputed global political significance
- * @param threats - Precomputed global threat assessment
- * @returns Markdown content for single document analysis
- */
-function buildSingleDocumentAnalysis(
-  item: Record<string, unknown>,
-  docId: string,
-  title: string,
-  category: string,
-  date: string,
-  significance: PoliticalSignificance,
-  threats: PoliticalThreatAssessment
-): string {
-  // Extract available metadata from the document
-  const docType = typeof item['type'] === 'string' ? item['type'] : category;
-  const docDate = typeof item['date'] === 'string' ? item['date'] : date;
-  const docStatus = typeof item['status'] === 'string' ? item['status'] : 'unknown';
-  const docStage = typeof item['stage'] === 'string' ? item['stage'] : 'N/A';
-  const docDescription =
-    typeof item['description'] === 'string'
-      ? item['description']
-      : typeof item['summary'] === 'string'
-        ? (item['summary'] as string)
-        : 'No description available';
-
-  // Build document-specific SWOT items — data-derived only, no pre-written conclusions
-  const docStrengths = [
-    createScoredSWOTItem(
-      `Document ${sanitizeDocumentId(docId)} available in ${category} feed`,
-      3,
-      [`Document ID: ${docId}`, `Category: ${category}`, `Status: ${docStatus}`],
-      'medium',
-      'stable'
-    ),
-  ];
-  const docWeaknesses = [
-    createScoredSWOTItem(
-      `Document stage: ${docStage}, status: ${docStatus}`,
-      2,
-      [`Current stage: ${docStage}`, `Type: ${docType}`, `Date: ${docDate}`],
-      'medium',
-      'stable'
-    ),
-  ];
-  const docOpportunities = [
-    createScoredOpportunityOrThreat(
-      `${category} document with ID ${sanitizeDocumentId(docId)}`,
-      'possible',
-      'moderate',
-      [`Category: ${category}`, `Date: ${docDate}`],
-      'medium',
-      'stable'
-    ),
-  ];
-  const docThreats = [
-    createScoredOpportunityOrThreat(
-      `Document ${sanitizeDocumentId(docId)} — pipeline risk assessment`,
-      'possible',
-      'moderate',
-      [`Stage: ${docStage}`, `Status: ${docStatus}`],
-      'medium',
-      'stable'
-    ),
-  ];
-
-  const docSwot = buildQuantitativeSWOT(
-    `SWOT: ${title}`,
-    docStrengths,
-    docWeaknesses,
-    docOpportunities,
-    docThreats
-  );
-
-  return `---
-method: ${METHOD_DOCUMENT_ANALYSIS}
-documentId: ${JSON.stringify(docId)}
-category: ${JSON.stringify(category)}
-date: ${JSON.stringify(date)}
-confidence: medium
-generated: ${JSON.stringify(new Date().toISOString())}
----
-
-# Document Analysis: ${sanitizeCell(title)}
-
-## Document Metadata
-
-| Field | Value |
-|-------|-------|
-| **Document ID** | ${sanitizeCell(docId)} |
-| **Title** | ${sanitizeCell(title)} |
-| **Type** | ${sanitizeCell(docType)} |
-| **Category** | ${sanitizeCell(category)} |
-| **Date** | ${sanitizeCell(docDate)} |
-| **Status** | ${sanitizeCell(docStatus)} |
-| **Stage** | ${sanitizeCell(docStage)} |
-
-## Description
-
-${sanitizeCell(docDescription)}
-
-## Political Significance Assessment
-
-- **Overall Significance**: ${significance.toUpperCase()}
-- **Context**: Document ${sanitizeCell(docId)} within ${category} feed
-
-## Document-Specific SWOT Analysis
-
-### Strategic Position Score: ${docSwot.strategicPositionScore.toFixed(1)}/10
-
-| Category | Score | Assessment |
-|----------|-------|------------|
-| Strengths | ${docSwot.strengths.reduce((s, i) => s + i.score, 0).toFixed(1)} | ${docSwot.strengths.map((s) => s.description).join('; ')} |
-| Weaknesses | ${docSwot.weaknesses.reduce((s, i) => s + i.score, 0).toFixed(1)} | ${docSwot.weaknesses.map((w) => w.description).join('; ')} |
-| Opportunities | ${docSwot.opportunities.reduce((s, i) => s + i.score, 0).toFixed(1)} | ${docSwot.opportunities.map((o) => o.description).join('; ')} |
-| Threats | ${docSwot.threats.reduce((s, i) => s + i.score, 0).toFixed(1)} | ${docSwot.threats.map((t) => t.description).join('; ')} |
-
-## Threat Assessment
-
-- **Threat Dimensions Evaluated**: ${threats.threatDimensions.length}
-- **Overall Threat Level**: ${threats.overallThreatLevel}
-- **Assessment Date**: ${threats.date}
-
-## Stakeholder Impact
-
-| Stakeholder Group | Impact Level |
-|-------------------|-------------|
-| Political Groups | ${significance === 'routine' ? 'Low' : 'Medium'} |
-| Civil Society | ${significance === 'routine' ? 'Low' : 'Medium'} |
-| Industry | ${String(docType).toLowerCase() === 'resolution' || String(docType).toLowerCase() === 'directive' ? 'Medium' : 'Low'} |
-| National Governments | ${String(docStage).toLowerCase() === 'trilogue' ? 'High' : 'Low'} |
-| Citizens | Low |
-| EU Institutions | ${significance === 'critical' || significance === 'historic' ? 'High' : 'Low'} |
-
-## Intelligence Summary
-
-| Metric | Value |
-|--------|-------|
-| Document | ${sanitizeCell(docId)} |
-| Category | ${sanitizeCell(category)} |
-| Type | ${sanitizeCell(docType)} |
-| Stage | ${sanitizeCell(docStage)} |
-| Status | ${sanitizeCell(docStatus)} |
-| Significance | ${significance} |
-| SWOT Score | ${docSwot.strategicPositionScore.toFixed(1)}/10 |
-| Overall Assessment | ${docSwot.overallAssessment} |
-| Threat Dimensions | ${threats.threatDimensions.length} |
-| Overall Threat Level | ${threats.overallThreatLevel} |
-
-## Analysis Date: ${date}
-`;
-}
-
-// ─── Significance scoring & synthesis summary builders ────────────────────────
-
-/** Analysis method identifier for synthesis summary (used to avoid literal duplication) */
-const METHOD_SYNTHESIS_SUMMARY_ID = 'synthesis-summary' as const;
-
-/** Analysis method identifier for significance scoring (used to avoid literal duplication) */
-const METHOD_SIGNIFICANCE_SCORING_ID = 'significance-scoring' as const;
-
-// ─── Heuristic scoring thresholds for EP event data ───────────────────────────
-
-/** Event-count threshold above which parliamentary significance is elevated */
-const EVENT_VOLUME_HIGH_THRESHOLD = 5;
-/** Event-count threshold above which institutional relevance is elevated */
-const EVENT_VOLUME_VERY_HIGH_THRESHOLD = 10;
-/** Procedure-count threshold above which policy impact is elevated */
-const PROCEDURE_VOLUME_THRESHOLD = 3;
-/** Adopted-text-count threshold above which public interest is elevated */
-const ADOPTED_TEXT_VOLUME_THRESHOLD = 2;
-
-/** Base scores for EP event dimensions when data volume is high / low */
-const EVENT_PARLIAMENTARY_HIGH = 6;
-const EVENT_PARLIAMENTARY_LOW = 4;
-const EVENT_POLICY_HIGH = 6;
-const EVENT_POLICY_LOW = 3;
-const EVENT_PUBLIC_HIGH = 5;
-const EVENT_PUBLIC_LOW = 3;
-/** Default temporal urgency for events (mid-range, adjusted at AI scoring) */
-const EVENT_DEFAULT_URGENCY = 5;
-const EVENT_INSTITUTIONAL_HIGH = 7;
-const EVENT_INSTITUTIONAL_LOW = 4;
-
-/** Default dimension scores for adopted texts (plenary-approved) */
-const ADOPTED_PARLIAMENTARY = 7;
-const ADOPTED_POLICY = 6;
-const ADOPTED_PUBLIC = 5;
-const ADOPTED_URGENCY = 4;
-const ADOPTED_INSTITUTIONAL = 6;
-
-/**
- * Build markdown for the significance-scoring method.
- * Uses the 5-dimension scoring engine to score all EP events.
- *
- * @param fetchedData - Raw fetched EP data
- * @param date - Analysis date
- * @returns Markdown content string
- */
-function buildSignificanceScoringMarkdown(
-  fetchedData: Record<string, unknown>,
-  date: string
-): string {
-  const events = safeArr(fetchedData, 'events');
-  const adoptedTexts = safeArr(fetchedData, 'adoptedTexts');
-  const procedures = safeArr(fetchedData, 'procedures');
-
-  const header = buildMarkdownHeader(METHOD_SIGNIFICANCE_SCORING_ID, date, 'medium');
-
-  // Build scoring inputs from EP data items using volume-based heuristics.
-  // Events: dimension scores scale with data volume to approximate significance.
-  // Adopted texts: scored higher by default since plenary adoption implies significance.
-  const inputs = [
-    ...events.map((e) => {
-      const ev = e as Record<string, unknown>;
-      return {
-        title: String(ev['title'] ?? ev['label'] ?? 'Unknown Event'),
-        reference: String(ev['id'] ?? ''),
-        parliamentarySignificance: Math.min(
-          10,
-          events.length > EVENT_VOLUME_HIGH_THRESHOLD
-            ? EVENT_PARLIAMENTARY_HIGH
-            : EVENT_PARLIAMENTARY_LOW
-        ),
-        policyImpact: Math.min(
-          10,
-          procedures.length > PROCEDURE_VOLUME_THRESHOLD ? EVENT_POLICY_HIGH : EVENT_POLICY_LOW
-        ),
-        publicInterest: Math.min(
-          10,
-          adoptedTexts.length > ADOPTED_TEXT_VOLUME_THRESHOLD ? EVENT_PUBLIC_HIGH : EVENT_PUBLIC_LOW
-        ),
-        temporalUrgency: EVENT_DEFAULT_URGENCY,
-        institutionalRelevance: Math.min(
-          10,
-          events.length > EVENT_VOLUME_VERY_HIGH_THRESHOLD
-            ? EVENT_INSTITUTIONAL_HIGH
-            : EVENT_INSTITUTIONAL_LOW
-        ),
-      };
-    }),
-    ...adoptedTexts.map((t) => {
-      const at = t as Record<string, unknown>;
-      return {
-        title: String(at['title'] ?? at['label'] ?? 'Adopted Text'),
-        reference: String(at['id'] ?? ''),
-        parliamentarySignificance: ADOPTED_PARLIAMENTARY,
-        policyImpact: ADOPTED_POLICY,
-        publicInterest: ADOPTED_PUBLIC,
-        temporalUrgency: ADOPTED_URGENCY,
-        institutionalRelevance: ADOPTED_INSTITUTIONAL,
-      };
-    }),
-  ];
-
-  if (inputs.length === 0) {
-    return `${header}# 📈 Significance Scoring — ${date}\n\nNo events or adopted texts available for scoring.\n`;
-  }
-
-  const batch = scoreBatch(inputs);
-  // formatBatchMarkdown expects scores in same order as inputs, so use
-  // input-aligned scores (one per input) rather than the ranked batch.scores.
-  const alignedScores = inputs.map((input) => scoreSignificance(input));
-  const batchTable = formatBatchMarkdown(inputs, alignedScores);
-
-  return `${header}# 📈 Significance Scoring — ${date}
-
-## Summary
-
-| Decision | Count |
-|----------|:-----:|
-| 📰 Publish | ${batch.summary.publish} |
-| 📋 Hold | ${batch.summary.hold} |
-| 🗄️ Skip | ${batch.summary.skip} |
-
-## Batch Scoring
-
-${batchTable}
-`;
-}
-
-/**
- * Build markdown for the synthesis-summary method.
- * Aggregates all per-file analyses into a synthesis summary.
- *
- * @param fetchedData - Raw fetched EP data (includes _dateOutputDir)
- * @param date - Analysis date
- * @returns Markdown content string
- */
-function buildSynthesisSummaryMarkdown(fetchedData: Record<string, unknown>, date: string): string {
-  const dateOutputDir = String(fetchedData['_dateOutputDir'] ?? '');
-  if (!dateOutputDir) {
-    const header = buildMarkdownHeader(METHOD_SYNTHESIS_SUMMARY_ID, date, 'low');
-    return `${header}# 🧩 Synthesis Summary — ${date}\n\nNo output directory available for synthesis.\n`;
-  }
-  const summary = buildSynthesisSummary(dateOutputDir, date);
-  return formatSynthesisMarkdown(summary);
-}
-
-type MarkdownBuilder = (fetchedData: Record<string, unknown>, date: string) => string;
-
-/** Map from AnalysisMethod to its markdown builder function */
-const METHOD_BUILDERS: Readonly<Record<AnalysisMethod, MarkdownBuilder>> = {
-  'significance-classification': buildSignificanceClassificationMarkdown,
-  'impact-matrix': buildImpactMatrixMarkdown,
-  'actor-mapping': buildActorMappingMarkdown,
-  'forces-analysis': buildForcesAnalysisMarkdown,
-  'political-threat-landscape': buildThreatLandscapeMarkdown,
-  'actor-threat-profiling': buildActorThreatProfilingMarkdown,
-  'consequence-trees': buildConsequenceTreesMarkdown,
-  'legislative-disruption': buildLegislativeDisruptionMarkdown,
-  'risk-matrix': buildRiskMatrixMarkdown,
-  'political-capital-risk': buildPoliticalCapitalRiskMarkdown,
-  'quantitative-swot': buildQuantitativeSwotMarkdown,
-  'legislative-velocity-risk': buildLegislativeVelocityRiskMarkdown,
-  'agent-risk-workflow': buildAgentRiskWorkflowMarkdown,
-  'deep-analysis': buildDeepAnalysisMarkdown,
-  'stakeholder-analysis': buildStakeholderAnalysisMarkdown,
-  'coalition-analysis': buildCoalitionAnalysisMarkdown,
-  'voting-patterns': buildVotingPatternsMarkdown,
-  'cross-session-intelligence': buildCrossSessionIntelligenceMarkdown,
-  [METHOD_SIGNIFICANCE_SCORING_ID]: buildSignificanceScoringMarkdown,
-  [METHOD_SYNTHESIS_SUMMARY_ID]: buildSynthesisSummaryMarkdown,
-  'document-analysis': buildDocumentAnalysisMarkdown,
-};
 
 // ─── Method subdir constants ──────────────────────────────────────────────────
 
@@ -2607,21 +422,93 @@ export const ANALYSIS_METHOD_SUBDIRS: Readonly<Record<AnalysisMethod, string>> =
   'document-analysis': SUBDIR_DOCUMENTS,
 });
 
-// ─── MCP data persistence subdirectories ──────────────────────────────────────
+/**
+ * Canonical filename for each analysis method.
+ *
+ * Exported so that agentic workflows and downstream consumers can
+ * reference the exact file names the pipeline produces.
+ */
+export const ANALYSIS_METHOD_FILENAMES: Readonly<Record<AnalysisMethod, string>> = Object.freeze({
+  'significance-classification': 'significance-classification.md',
+  'impact-matrix': 'impact-matrix.md',
+  'actor-mapping': 'actor-mapping.md',
+  'forces-analysis': 'forces-analysis.md',
+  'political-threat-landscape': 'political-threat-landscape.md',
+  'actor-threat-profiling': 'actor-threat-profiling.md',
+  'consequence-trees': 'consequence-trees.md',
+  'legislative-disruption': 'legislative-disruption.md',
+  'risk-matrix': 'risk-matrix.md',
+  'political-capital-risk': 'political-capital-risk.md',
+  'quantitative-swot': 'quantitative-swot.md',
+  'legislative-velocity-risk': 'legislative-velocity-risk.md',
+  'agent-risk-workflow': 'agent-risk-workflow.md',
+  'deep-analysis': 'deep-analysis.md',
+  'stakeholder-analysis': 'stakeholder-impact.md',
+  'coalition-analysis': 'coalition-dynamics.md',
+  'voting-patterns': 'voting-patterns.md',
+  'cross-session-intelligence': 'cross-session-intelligence.md',
+  [METHOD_SIGNIFICANCE_SCORING_ID]: 'significance-scoring.md',
+  [METHOD_SYNTHESIS_SUMMARY_ID]: 'synthesis-summary.md',
+  'document-analysis': 'document-analysis-index.md',
+});
+
+/**
+ * Legacy filenames that were renamed during the canonical normalization.
+ *
+ * Used by {@link runSingleMethod} so that `skipCompleted` recognises
+ * previously-generated outputs that still exist under their old names.
+ */
+const LEGACY_FILENAMES: Readonly<Partial<Record<AnalysisMethod, readonly string[]>>> =
+  Object.freeze({
+    'significance-classification': Object.freeze(['significance-assessment.md']),
+    'stakeholder-analysis': Object.freeze(['stakeholder-analysis.md']),
+    'coalition-analysis': Object.freeze(['coalition-analysis.md']),
+    'actor-threat-profiling': Object.freeze(['actor-threat-profiles.md']),
+  });
+
+// ─── Assembled method builders ────────────────────────────────────────────────
+
+/** Map from AnalysisMethod to its markdown builder function */
+// eslint-disable-next-line @typescript-eslint/consistent-type-assertions -- assembled from sub-module builders indexed by string
+const METHOD_BUILDERS = {
+  ...CLASSIFICATION_BUILDERS,
+  ...THREAT_BUILDERS,
+  ...RISK_BUILDERS,
+  ...EXISTING_BUILDERS,
+} as Readonly<Record<AnalysisMethod, MarkdownBuilder>>;
+
+/** Default confidence level for each analysis method group */
+const METHOD_DEFAULT_CONFIDENCE: Readonly<Record<AnalysisMethod, ConfidenceLevel>> = {
+  'significance-classification': 'medium',
+  'impact-matrix': 'medium',
+  'actor-mapping': 'medium',
+  'forces-analysis': 'medium',
+  'political-threat-landscape': 'medium',
+  'actor-threat-profiling': 'low',
+  'consequence-trees': 'medium',
+  'legislative-disruption': 'medium',
+  'risk-matrix': 'medium',
+  'political-capital-risk': 'medium',
+  'quantitative-swot': 'medium',
+  'legislative-velocity-risk': 'medium',
+  'agent-risk-workflow': 'medium',
+  'deep-analysis': 'high',
+  'stakeholder-analysis': 'high',
+  'coalition-analysis': 'high',
+  'voting-patterns': 'high',
+  'cross-session-intelligence': 'high',
+  [METHOD_SIGNIFICANCE_SCORING_ID]: 'medium',
+  [METHOD_SYNTHESIS_SUMMARY_ID]: 'medium',
+  'document-analysis': 'medium',
+};
+
+// ─── MCP data persistence ─────────────────────────────────────────────────────
 
 /** Subdirectory name for raw MCP data storage */
 const SUBDIR_DATA = 'data';
 
 /**
  * MCP data category → filesystem subdirectory mapping.
- *
- * Each EP data category fetched via MCP is stored in a dedicated subdirectory
- * under `{dateOutputDir}/data/`.  Filenames use EP entity IDs for consistency
- * and traceability (e.g. `data/events/EVT-001.json`).
- *
- * Includes World Bank economic indicators (`world-bank/`), OSINT analytical
- * outputs (`osint/`), and MCP tool responses (`mcp-responses/`) so that ALL
- * MCP-sourced data is committed for verification and later reuse.
  */
 const DATA_CATEGORY_DIRS: Readonly<Record<string, string>> = {
   events: 'events',
@@ -2638,25 +525,19 @@ const DATA_CATEGORY_DIRS: Readonly<Record<string, string>> = {
   corporateBodies: 'corporate-bodies',
   votingRecords: 'votes',
   speeches: 'speeches',
-  // World Bank economic data (CSV parsed to JSON)
   worldBankIndicators: 'world-bank',
-  // OSINT analytical tool outputs
   politicalLandscape: 'osint',
   votingAnomalies: 'osint',
   coalitionDynamics: 'osint',
   countryDelegations: 'osint',
   mepInfluence: 'osint',
-  // Raw MCP tool call responses
   mcpResponses: 'mcp-responses',
 };
 
 /**
  * Extract a stable identifier from an MCP data item for consistent filenames.
  *
- * Inspects common EP identifier fields (eventId, procedureId, docId, etc.)
- * and falls back to an index-based name when no recognised ID is found.
- *
- * @param item - Single EP data item (object with potential ID fields)
+ * @param item - Single EP data item
  * @param index - Fallback index when no ID field is found
  * @returns Filesystem-safe identifier string
  */
@@ -2686,12 +567,12 @@ function extractItemId(item: unknown, index: number): string {
 }
 
 /**
- * Persist a singleton OSINT data category (non-array object) to a file.
+ * Persist a singleton OSINT data category to a file.
  *
  * @param data - The singleton data object to persist
- * @param category - The fetchedData key name (camelCase)
+ * @param category - The fetchedData key name
  * @param dataBaseDir - Base directory for data persistence
- * @param subdir - Target subdirectory under dataBaseDir
+ * @param subdir - Target subdirectory
  * @returns 1 if written, 0 if skipped
  */
 function persistSingletonData(
@@ -2709,11 +590,11 @@ function persistSingletonData(
 }
 
 /**
- * Persist MCP tool responses (object keyed by tool name) to individual files.
+ * Persist MCP tool responses to individual files.
  *
  * @param data - Object keyed by MCP tool name
  * @param dataBaseDir - Base directory for data persistence
- * @param subdir - Target subdirectory under dataBaseDir
+ * @param subdir - Target subdirectory
  * @returns Number of items written
  */
 function persistMCPResponses(data: unknown, dataBaseDir: string, subdir: string): number {
@@ -2732,16 +613,7 @@ function persistMCPResponses(data: unknown, dataBaseDir: string, subdir: string)
 }
 
 /**
- * Persist raw MCP-fetched data to structured subdirectories for verification
- * and later reuse.
- *
- * Creates `{dateOutputDir}/data/{category}/` directories and writes each item
- * as an individual JSON file named by its EP identifier.  Existing files are
- * overwritten to support update workflows.
- *
- * For OSINT categories that share the `osint/` subdirectory (politicalLandscape,
- * votingAnomalies, coalitionDynamics, etc.), files are prefixed with the category
- * name to avoid collisions (e.g. `osint/political-landscape.json`).
+ * Persist raw MCP-fetched data to structured subdirectories.
  *
  * @param fetchedData - Raw EP data keyed by data category
  * @param dateOutputDir - Absolute path to the date-scoped output directory
@@ -2755,7 +627,6 @@ function persistMCPData(
   const dataBaseDir = path.join(dateOutputDir, SUBDIR_DATA);
   let totalItems = 0;
 
-  /** Categories that share the osint/ subdir — use category name as filename prefix */
   const OSINT_SINGLETON_CATEGORIES = new Set([
     'politicalLandscape',
     'votingAnomalies',
@@ -2767,13 +638,11 @@ function persistMCPData(
   for (const [category, subdir] of Object.entries(DATA_CATEGORY_DIRS)) {
     const items = fetchedData[category];
 
-    // Handle singleton objects (e.g. politicalLandscape is one big response, not an array)
     if (OSINT_SINGLETON_CATEGORIES.has(category)) {
       totalItems += persistSingletonData(items, category, dataBaseDir, subdir);
       continue;
     }
 
-    // Handle mcpResponses: single object, not an array
     if (category === 'mcpResponses') {
       totalItems += persistMCPResponses(items, dataBaseDir, subdir);
       continue;
@@ -2798,102 +667,10 @@ function persistMCPData(
   }
 }
 
-/** Analysis method identifier for per-document intelligence analysis */
-const METHOD_DOCUMENT_ANALYSIS = 'document-analysis' as const;
-
-// METHOD_SUBDIRS is now the exported ANALYSIS_METHOD_SUBDIRS (above).
-// Local alias for backward-compatible internal usage.
-const METHOD_SUBDIRS = ANALYSIS_METHOD_SUBDIRS;
-
-/** Default confidence level for each analysis method group */
-const METHOD_DEFAULT_CONFIDENCE: Readonly<Record<AnalysisMethod, ConfidenceLevel>> = {
-  'significance-classification': 'medium',
-  'impact-matrix': 'medium',
-  'actor-mapping': 'medium',
-  'forces-analysis': 'medium',
-  'political-threat-landscape': 'medium',
-  'actor-threat-profiling': 'low',
-  'consequence-trees': 'medium',
-  'legislative-disruption': 'medium',
-  'risk-matrix': 'medium',
-  'political-capital-risk': 'medium',
-  'quantitative-swot': 'medium',
-  'legislative-velocity-risk': 'medium',
-  'agent-risk-workflow': 'medium',
-  'deep-analysis': 'high',
-  'stakeholder-analysis': 'high',
-  'coalition-analysis': 'high',
-  'voting-patterns': 'high',
-  'cross-session-intelligence': 'high',
-  [METHOD_SIGNIFICANCE_SCORING_ID]: 'medium',
-  [METHOD_SYNTHESIS_SUMMARY_ID]: 'medium',
-  'document-analysis': 'medium',
-};
-
-/**
- * Canonical filename for each analysis method.
- *
- * Exported so that agentic workflows and downstream consumers can
- * reference the exact file names the pipeline produces, ensuring
- * cross-session intelligence correlation is reliable.
- *
- * Naming conventions:
- * - Where a method's generated content matches a template concept, the
- *   filename follows the template (e.g. `stakeholder-impact.md`).
- * - Otherwise, filenames use the method name directly (e.g.
- *   `significance-classification.md`, `actor-mapping.md`,
- *   `forces-analysis.md`).
- * - The `document-analysis` method produces an index file
- *   (`document-analysis-index.md`) plus per-document files.
- */
-export const ANALYSIS_METHOD_FILENAMES: Readonly<Record<AnalysisMethod, string>> = Object.freeze({
-  'significance-classification': 'significance-classification.md',
-  'impact-matrix': 'impact-matrix.md',
-  'actor-mapping': 'actor-mapping.md',
-  'forces-analysis': 'forces-analysis.md',
-  'political-threat-landscape': 'political-threat-landscape.md',
-  'actor-threat-profiling': 'actor-threat-profiling.md',
-  'consequence-trees': 'consequence-trees.md',
-  'legislative-disruption': 'legislative-disruption.md',
-  'risk-matrix': 'risk-matrix.md',
-  'political-capital-risk': 'political-capital-risk.md',
-  'quantitative-swot': 'quantitative-swot.md',
-  'legislative-velocity-risk': 'legislative-velocity-risk.md',
-  'agent-risk-workflow': 'agent-risk-workflow.md',
-  'deep-analysis': 'deep-analysis.md',
-  'stakeholder-analysis': 'stakeholder-impact.md',
-  'coalition-analysis': 'coalition-dynamics.md',
-  'voting-patterns': 'voting-patterns.md',
-  'cross-session-intelligence': 'cross-session-intelligence.md',
-  [METHOD_SIGNIFICANCE_SCORING_ID]: 'significance-scoring.md',
-  [METHOD_SYNTHESIS_SUMMARY_ID]: 'synthesis-summary.md',
-  'document-analysis': 'document-analysis-index.md',
-});
-
-// Local alias for internal usage.
-const METHOD_FILENAMES = ANALYSIS_METHOD_FILENAMES;
-
-/**
- * Legacy filenames that were renamed during the canonical normalization.
- *
- * Used by {@link runSingleMethod} so that `skipCompleted` recognises
- * previously-generated outputs that still exist under their old names,
- * preventing unnecessary re-generation and duplicate files.
- */
-const LEGACY_FILENAMES: Readonly<Partial<Record<AnalysisMethod, readonly string[]>>> =
-  Object.freeze({
-    'significance-classification': Object.freeze(['significance-assessment.md']),
-    'stakeholder-analysis': Object.freeze(['stakeholder-analysis.md']),
-    'coalition-analysis': Object.freeze(['coalition-analysis.md']),
-    'actor-threat-profiling': Object.freeze(['actor-threat-profiles.md']),
-  });
-
 // ─── Core runner ──────────────────────────────────────────────────────────────
 
 /**
  * Run a single analysis method and return its status record.
- *
- * Wraps the builder call in a try/catch so failures are isolated.
  *
  * @param method - The analysis method to run
  * @param fetchedData - Raw fetched EP data
@@ -2911,11 +688,9 @@ function runSingleMethod(
   skipCompleted: boolean,
   verbose: boolean
 ): AnalysisMethodStatus {
-  const subdir = METHOD_SUBDIRS[method];
-  const filename = METHOD_FILENAMES[method];
+  const subdir = ANALYSIS_METHOD_SUBDIRS[method];
+  const filename = ANALYSIS_METHOD_FILENAMES[method];
   const absolutePath = path.join(dateOutputDir, subdir, filename);
-  // Store a portable relative path (relative to the date-scoped output dir)
-  // in the manifest to avoid exposing runner/local filesystem layout.
   const relativeOutputFile = path.posix.join(subdir, filename);
   const confidence = METHOD_DEFAULT_CONFIDENCE[method];
 
@@ -2974,15 +749,6 @@ function runSingleMethod(
 /**
  * Derive a filesystem-safe slug from a list of article types.
  *
- * Each agentic workflow runs a single article type (e.g. `week-ahead`).
- * The slug is used to scope analysis output to
- * `{outputDir}/{date}/{slug}/` so that concurrent workflows for different
- * article types never collide on the same files.
- *
- * When multiple types are present the slug is the sorted, hyphen-joined list.
- * The result is sanitised to contain only lowercase alphanumeric characters
- * and hyphens, preventing path traversal or filesystem issues.
- *
  * @param articleTypes - One or more article category identifiers
  * @returns Filesystem-safe slug (lowercase, alphanumeric + hyphens only)
  *
@@ -2999,8 +765,6 @@ export function deriveArticleTypeSlug(articleTypes: readonly (ArticleCategory | 
     .map((t) => t.trim().toLowerCase())
     .sort()
     .join('-');
-  // Sanitise: strip anything that isn't lowercase alphanumeric or hyphen,
-  // collapse multiple hyphens, and trim leading/trailing hyphens.
   const sanitised = raw.replace(/[^a-z0-9-]+/gu, '-').replace(/-{2,}/gu, '-');
   const trimmed = sanitised.replace(/^-/u, '').replace(/-$/u, '');
   return trimmed.length > 0 ? trimmed : 'default';
@@ -3010,27 +774,11 @@ export function deriveArticleTypeSlug(articleTypes: readonly (ArticleCategory | 
  * Run the full analysis pipeline stage.
  *
  * Executes all enabled analysis methods sequentially, writing markdown files
- * and a `manifest.json` summary.  When {@link AnalysisStageOptions.articleTypeSlug}
- * is provided the output is scoped to `outputDir/{date}/{slug}/` — this prevents
- * merge conflicts when multiple agentic workflows run on the same date.
+ * and a `manifest.json` summary.
  *
- * Individual method failures are isolated — other methods continue regardless.
- *
- * @param fetchedData - Raw EP data fetched by the fetch stage (keyed by data type)
+ * @param fetchedData - Raw EP data fetched by the fetch stage
  * @param options - Analysis stage configuration
  * @returns Analysis context object for consumption by the generate stage
- *
- * @example
- * ```ts
- * const ctx = await runAnalysisStage(fetchedData, {
- *   articleTypes: [ArticleCategory.WEEK_AHEAD],
- *   date: '2026-03-26',
- *   outputDir: 'analysis',
- *   articleTypeSlug: 'week-ahead',
- *   skipCompleted: true,
- *   verbose: true,
- * });
- * ```
  */
 export async function runAnalysisStage(
   fetchedData: Record<string, unknown>,
@@ -3047,20 +795,12 @@ export async function runAnalysisStage(
     requireData = false,
   } = options;
 
-  // Validate date to prevent path traversal (e.g. "../../.." escaping outputDir)
   if (!/^\d{4}-\d{2}-\d{2}$/u.test(date)) {
     throw new Error(`Invalid analysis date "${date}": must match YYYY-MM-DD format`);
   }
 
-  // Deduplicate enabledMethods (preserving order) so programmatic callers
-  // that accidentally pass duplicates don't run the same method twice.
   const deduplicatedMethods = [...new Set(enabledMethods)];
 
-  // When requireData is set (agentic workflows), abort immediately when no
-  // substantive EP data was fetched — running analysis on empty data produces
-  // hollow output that should never feed into article generation.
-  // This check runs BEFORE directory claiming so aborted runs don't leave
-  // behind orphan directories that would force subsequent runs to suffix.
   if (!hasSubstantiveData(fetchedData)) {
     if (requireData) {
       throw new Error(
@@ -3078,11 +818,6 @@ export async function runAnalysisStage(
   const startTime = new Date().toISOString();
   const runId = randomUUID();
 
-  // When articleTypeSlug is provided, scope output to a per-article-type
-  // subdirectory so concurrent workflows on the same date never collide.
-  // resolveUniqueAnalysisDir atomically claims a directory, appending a
-  // numeric suffix (-2, -3, …) when the preferred path is already taken,
-  // preventing repeated workflow runs from overwriting previous analysis.
   const preferredDir = articleTypeSlug
     ? path.resolve(outputDir, date, articleTypeSlug)
     : path.resolve(outputDir, date);
@@ -3098,12 +833,8 @@ export async function runAnalysisStage(
 
   ensureDirectoryExists(dateOutputDir);
 
-  // Persist raw MCP data to structured data/ subdirectories for verification,
-  // traceability, and later reuse.  Each category gets its own directory and
-  // each item is named by its EP identifier for consistent, ID-based filenames.
   persistMCPData(fetchedData, dateOutputDir, verbose);
 
-  // Run all enabled methods sequentially; isolate failures
   const methodResults: AnalysisMethodStatus[] = [];
   for (const method of deduplicatedMethods) {
     const result = runSingleMethod(
@@ -3117,9 +848,6 @@ export async function runAnalysisStage(
     methodResults.push(result);
   }
 
-  // When requireData is set (agentic workflows), abort if ANY method failed.
-  // Incomplete analysis must never feed into article generation — the agentic
-  // workflow should fix issues rather than produce articles from partial data.
   const failedMethods = methodResults.filter((r) => r.status === 'failed');
   if (requireData && failedMethods.length > 0) {
     const failedNames = failedMethods.map((r) => r.method).join(', ');
@@ -3136,7 +864,6 @@ export async function runAnalysisStage(
     (k) => Array.isArray(fetchedData[k]) && (fetchedData[k] as unknown[]).length > 0
   );
 
-  // Collect per-document analysis tracking from the document-analysis builder
   const analyzedDocIds = Array.isArray(fetchedData['_analyzedDocumentIds'])
     ? (fetchedData['_analyzedDocumentIds'] as string[])
     : [];
@@ -3155,7 +882,6 @@ export async function runAnalysisStage(
     analyzedDocumentIds: analyzedDocIds,
   };
 
-  // Write manifest.json
   const manifestPath = path.join(dateOutputDir, 'manifest.json');
   writeTextFile(manifestPath, JSON.stringify(manifest, null, 2));
 
