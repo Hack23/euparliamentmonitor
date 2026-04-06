@@ -171,7 +171,7 @@ MCP Data Files:     [REQUIRED: paths to analysis/YYYY-MM-DD/{article-type-slug}/
 
 ## 🗓️ Recess-Period Classification Rules
 
-> **AI Instructions:** During EP recess periods (August, December–January, and constituency weeks), apply the following modified classification rules. Recess periods reduce urgency and shift publication timing, but do NOT reduce significance.
+> **AI Instructions:** During EP recess periods (August, December–January, and constituency weeks), apply the following modified classification rules. Recess periods adjust **publication timing and urgency handling** but do NOT change the **raw significance score or classification**. The raw score/classification remains as computed; only the recommended *action* (when/how to publish) is modified. This aligns with the significance-scoring template's distinction between raw scores and calendar-adjusted editorial decisions (see `significance-scoring.md` § EP Calendar Awareness).
 
 ### Recess Period Detection
 

@@ -197,8 +197,10 @@ flowchart TD
     COM["⚖️ European Commission<br/>(Legislative initiative, enforcement)"]
     EP["🏛️ European Parliament<br/>(Co-legislator, oversight, budget)"]
     COUNCIL["🤝 Council of the EU<br/>(Co-legislator, member state voice)"]
-    CJEU["⚖️ Court of Justice EU<br/>(Legal interpretation)"]
-    ECB["🏦 ECB / ECA / Agencies<br/>(Monetary policy, audit, regulation)"]
+    CJEU["⚖️ Court of Justice of the EU<br/>(CJEU — legal interpretation)"]
+    ECB["🏦 European Central Bank<br/>(Monetary policy)"]
+    ECA["📊 European Court of Auditors<br/>(Financial audit, accountability)"]
+    AGENCIES["🏢 EU Agencies<br/>(Decentralised regulation)"]
     MS["🇪🇺 Member States<br/>(Transposition, implementation)"]
     CIT["🏘️ EU Citizens<br/>(Rights holders, voters)"]
 
@@ -207,6 +209,8 @@ flowchart TD
     EP & COUNCIL --> MS
     CJEU --> MS
     ECB --> MS
+    ECA --> MS
+    AGENCIES --> MS
     MS --> CIT
 
     style EC fill:#003399,color:#fff
@@ -215,6 +219,8 @@ flowchart TD
     style COUNCIL fill:#198754,color:#fff
     style CJEU fill:#dc3545,color:#fff
     style ECB fill:#fd7e14,color:#fff
+    style ECA fill:#e83e8c,color:#fff
+    style AGENCIES fill:#6610f2,color:#fff
     style MS fill:#ffc107,color:#000
     style CIT fill:#28a745,color:#fff
 ```

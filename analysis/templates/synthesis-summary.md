@@ -226,18 +226,18 @@ graph LR
 
 ## 🔄 Temporal Aggregation — Rollup Guidance
 
-> **AI Instructions:** Synthesis summaries accumulate over time. Use the following rules to aggregate daily analyses into weekly and monthly intelligence products. When producing a weekly or monthly synthesis, reference the underlying daily syntheses rather than re-analysing raw MCP data.
+> **AI Instructions:** Synthesis summaries accumulate over time. Use the following rules to aggregate daily analyses into weekly and monthly intelligence products. When producing a weekly or monthly synthesis, reference the underlying daily syntheses rather than re-analysing raw MCP data. Daily synthesis IDs use the generator-issued format `SYN-YYYY-MM-DD-UUID8` (8-character uppercase hex suffix). Weekly and monthly rollups are distinct aggregation artifacts with their own ID scheme.
 
 ### Aggregation Hierarchy
 
 ```mermaid
 flowchart LR
-    D1["📄 Daily Synthesis<br/>SYN-YYYY-MM-DD-NNN"] --> W["📋 Weekly Rollup<br/>SYN-YYYY-WNN-WEEK"]
+    D1["📄 Daily Synthesis<br/>SYN-YYYY-MM-DD-UUID8"] --> W["📋 Weekly Rollup<br/>ROLLUP-WEEKLY-YYYY-WNN"]
     D2["📄 Daily Synthesis"] --> W
     D3["📄 Daily Synthesis"] --> W
     D4["📄 Daily Synthesis"] --> W
     D5["📄 Daily Synthesis"] --> W
-    W --> M["📊 Monthly Rollup<br/>SYN-YYYY-MM-MONTH"]
+    W --> M["📊 Monthly Rollup<br/>ROLLUP-MONTHLY-YYYY-MM"]
     W2["📋 Weekly Rollup"] --> M
     W3["📋 Weekly Rollup"] --> M
     W4["📋 Weekly Rollup"] --> M
@@ -259,7 +259,7 @@ flowchart LR
 | Parameter | Rule |
 |-----------|------|
 | **Scope** | All MCP data files downloaded in a single workflow run |
-| **ID Format** | `SYN-YYYY-MM-DD-NNN` |
+| **ID Format** | `SYN-YYYY-MM-DD-UUID8` (e.g., `SYN-2026-04-06-A1B2C3D4`) |
 | **Content** | Full template as defined above |
 | **Retention** | Permanent — stored in `analysis/YYYY-MM-DD/{slug}/` |
 
@@ -268,7 +268,7 @@ flowchart LR
 | Parameter | Rule |
 |-----------|------|
 | **Scope** | Aggregates all daily syntheses from Monday–Sunday of one EP week |
-| **ID Format** | `SYN-YYYY-WNN-WEEK` (e.g., `SYN-2026-W14-WEEK`) |
+| **ID Format** | `ROLLUP-WEEKLY-YYYY-WNN` (e.g., `ROLLUP-WEEKLY-2026-W14`) |
 | **Trigger** | Produced by `news-weekly-review` workflow |
 | **Content** | Top 5 findings ranked by peak daily significance score; risk trend across the week (↑/→/↓); SWOT balance shift; narrative arc (how the week's story evolved); cumulative stakeholder impact showing net effect per group (positive/negative/neutral) with the most-affected group highlighted |
 | **Aggregation Rules** | Use highest daily significance per event (not average); report risk trend direction; count total documents analysed across all daily runs |
@@ -278,7 +278,7 @@ flowchart LR
 | Parameter | Rule |
 |-----------|------|
 | **Scope** | Aggregates all weekly rollups from a calendar month |
-| **ID Format** | `SYN-YYYY-MM-MONTH` (e.g., `SYN-2026-04-MONTH`) |
+| **ID Format** | `ROLLUP-MONTHLY-YYYY-MM` (e.g., `ROLLUP-MONTHLY-2026-04`) |
 | **Trigger** | Produced by `news-monthly-review` workflow |
 | **Content** | Top 10 findings of the month; risk trajectory (4-week trend line); SWOT evolution (which quadrant grew/shrank); strategic themes (recurring patterns); legislative pipeline throughput; stakeholder impact distribution |
 | **Aggregation Rules** | Use weekly peak scores; identify events that persisted across multiple weeks (sustained significance); flag risks that escalated from MEDIUM→HIGH or higher during the month |
@@ -288,7 +288,7 @@ flowchart LR
 | Parameter | Rule |
 |-----------|------|
 | **Scope** | Multiple runs on the same day (e.g., breaking-1, breaking-2, breaking-3) |
-| **ID Format** | `SYN-YYYY-MM-DD-NNN` (increment NNN) |
+| **ID Format** | `SYN-YYYY-MM-DD-UUID8` (increment session; each run gets a unique generator-issued ID) |
 | **Content** | Delta section comparing to previous same-day session |
 | **Aggregation Rules** | Later sessions supersede earlier sessions for the same event; new events are appended; significance scores update (show delta); risk levels update with Bayesian prior from earlier session |
 
