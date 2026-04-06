@@ -111,7 +111,7 @@ describe('loadAnalysisContext', () => {
 
   // ── EP_ANALYSIS_DIR / EP_ANALYSIS_SLUG env var resolution ─────────────────
 
-  it('uses EP_ANALYSIS_DIR env var for base dir when no explicit baseDir is given', () => {
+  it('uses EP_ANALYSIS_DIR env var for base dir when default baseDir is used', () => {
     // Create analysis in a custom directory
     const customBase = path.join(tmpDir, 'custom-analysis');
     createAnalysisDir(customBase, '2026-04-06', 'breaking', {
@@ -119,13 +119,11 @@ describe('loadAnalysisContext', () => {
     });
     process.env['EP_ANALYSIS_DIR'] = customBase;
 
-    // Call without explicit baseDir (uses default 'analysis') — env var should override
-    const ctx = loadAnalysisContext('2026-04-06', 'breaking');
-    // May be null if 'analysis' default doesn't exist but custom dir does
-    // Use explicit default to test properly:
-    const ctx2 = loadAnalysisContext('2026-04-06', 'breaking', 'analysis');
-    // The important check: passing 'analysis' (default) should resolve to custom dir
-    expect(loadAnalysisContext('2026-04-06', 'breaking', customBase)).not.toBeNull();
+    // Passing 'analysis' (the default value) should resolve to the env var dir
+    const ctx = loadAnalysisContext('2026-04-06', 'breaking', 'analysis');
+    expect(ctx).not.toBeNull();
+    expect(ctx.manifest).not.toBeNull();
+    expect(ctx.overallConfidence).toBe('high');
   });
 
   it('uses EP_ANALYSIS_SLUG env var to override per-strategy slug', () => {
