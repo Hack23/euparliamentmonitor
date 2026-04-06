@@ -65,6 +65,20 @@ export interface LoadedAnalysisContext {
 /** Default base directory for analysis output */
 const DEFAULT_ANALYSIS_BASE_DIR = 'analysis';
 
+/**
+ * Environment variable name for overriding the analysis base directory.
+ * Set by the orchestration layer when `--analysis-dir` is provided.
+ */
+const ENV_ANALYSIS_DIR = 'EP_ANALYSIS_DIR';
+
+/**
+ * Environment variable name for overriding the analysis slug.
+ * Set by the orchestration layer with the resolved slug from
+ * `deriveArticleTypeSlug()`, so multi-type runs and custom analysis
+ * directories are correctly resolved without hard-coding per-strategy slugs.
+ */
+const ENV_ANALYSIS_SLUG = 'EP_ANALYSIS_SLUG';
+
 /** Analysis subdirectories to scan for markdown files */
 const ANALYSIS_SUBDIRS = [
   'classification',
@@ -84,6 +98,15 @@ const ANALYSIS_SUBDIRS = [
  * Handles suffixed directories (e.g. `breaking-2`, `breaking-3`) by
  * scanning for the latest match.
  *
+ * Resolution order for base directory:
+ * 1. Explicit `baseDir` parameter (when non-default)
+ * 2. `EP_ANALYSIS_DIR` environment variable (set by orchestration)
+ * 3. Default `'analysis'`
+ *
+ * Resolution order for slug:
+ * 1. `EP_ANALYSIS_SLUG` environment variable (set by orchestration)
+ * 2. The `articleTypeSlug` parameter passed by each strategy
+ *
  * @param date - ISO 8601 date (YYYY-MM-DD) of the analysis run
  * @param articleTypeSlug - Article type slug (e.g. 'breaking', 'week-ahead')
  * @param baseDir - Base analysis directory (defaults to 'analysis')
@@ -96,14 +119,24 @@ export function loadAnalysisContext(
 ): LoadedAnalysisContext | null {
   // Validate date format (YYYY-MM-DD) and reject path traversal
   if (!/^\d{4}-\d{2}-\d{2}$/u.test(date)) return null;
-  // Validate slug: alphanumeric, hyphens only — no path separators
-  if (!/^[\da-z][\da-z-]*$/u.test(articleTypeSlug)) return null;
 
-  const dateDir = path.resolve(baseDir, date);
+  // Resolve base dir: prefer explicit non-default param, then env var, then default
+  const resolvedBaseDir =
+    baseDir !== DEFAULT_ANALYSIS_BASE_DIR
+      ? baseDir
+      : process.env[ENV_ANALYSIS_DIR]?.trim() || DEFAULT_ANALYSIS_BASE_DIR;
+
+  // Resolve slug: prefer env var override, then per-strategy slug
+  const resolvedSlug = process.env[ENV_ANALYSIS_SLUG]?.trim() || articleTypeSlug;
+
+  // Validate slug: alphanumeric, hyphens only — no path separators
+  if (!/^[\da-z][\da-z-]*$/u.test(resolvedSlug)) return null;
+
+  const dateDir = path.resolve(resolvedBaseDir, date);
   if (!fs.existsSync(dateDir)) return null;
 
   // Find the best matching analysis directory (exact or latest suffixed)
-  const analysisDir = findAnalysisDirectory(dateDir, articleTypeSlug);
+  const analysisDir = findAnalysisDirectory(dateDir, resolvedSlug);
   if (!analysisDir) return null;
 
   // Load manifest.json
