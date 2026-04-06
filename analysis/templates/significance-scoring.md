@@ -108,34 +108,36 @@ Composite = (Parliamentary × 0.25) + (Policy × 0.25) + (Public Interest × 0.2
 
 | Score Range | Decision | Action |
 |-------------|----------|--------|
-| **0.0 – 3.9** | 🗄️ **Archive** | Log for trend analysis; do not publish |
+| **0.0 – 1.9** | ⏭️ **Skip** | No editorial value; discard |
+| **2.0 – 3.9** | 🗄️ **Archive** | Log for trend analysis; do not publish |
 | **4.0 – 5.9** | 📋 **Monitor** | Track for follow-up; consider weekly digest |
-| **6.0 – 7.4** | 📰 **Publish** | Include in next standard news cycle |
+| **6.0 – 7.4** | 📰 **Publish** / ⏸️ **Hold** | Publish in standard news cycle; Hold if EP in recess |
 | **7.5 – 8.9** | 📰 **Priority** | Priority in daily news; prominent placement |
 | **9.0 – 10.0** | ⚡ **Breaking** | Publish immediately; all-language deployment |
 
-**This Event's Decision:** `[REQUIRED: Archive / Monitor / Publish / Priority / Breaking]`
+**This Event's Decision:** `[REQUIRED: Skip / Archive / Monitor / Publish / Hold / Priority / Breaking]`
 **Decision Rationale:** `[REQUIRED: 1–2 sentences]`
 
 ### 🌳 Publication Decision Tree
 
-> **AI Instructions:** Walk through this decision tree for every scored event. Follow the path from top to bottom. The first matching terminal node is the decision.
+> **AI Instructions:** Walk through this decision tree for every scored event. Follow the path from top to bottom. The first matching terminal node is the decision. **Use the raw composite score for the ≥9.0 check (step 1), then apply calendar adjustments for all subsequent checks.**
 
 ```mermaid
 flowchart TD
-    START["📊 Composite Score Calculated"] --> Q1{"Score ≥ 9.0?"}
+    START["📊 Raw Composite Score Calculated"] --> Q1{"Raw score ≥ 9.0?"}
     Q1 -->|"YES"| BRK["⚡ BREAKING<br/>Publish immediately<br/>All 14 languages"]
-    Q1 -->|"NO"| Q2{"Score ≥ 7.5?"}
+    Q1 -->|"NO"| ADJ["🗓️ Apply EP Calendar Adjustment<br/>(→ adjusted score)"]
+    ADJ --> Q2{"Adjusted score ≥ 7.5?"}
     Q2 -->|"YES"| Q2A{"Urgency dimension ≥ 8?"}
     Q2A -->|"YES"| BRK
     Q2A -->|"NO"| PRI["📰 PRIORITY<br/>Daily news, prominent placement"]
-    Q2 -->|"NO"| Q3{"Score ≥ 6.0?"}
+    Q2 -->|"NO"| Q3{"Adjusted score ≥ 6.0?"}
     Q3 -->|"YES"| Q3A{"EP in recess?"}
     Q3A -->|"YES"| HOLD["⏸️ HOLD<br/>Queue for next session week"]
     Q3A -->|"NO"| PUB["📰 PUBLISH<br/>Standard news cycle"]
-    Q3 -->|"NO"| Q4{"Score ≥ 4.0?"}
+    Q3 -->|"NO"| Q4{"Adjusted score ≥ 4.0?"}
     Q4 -->|"YES"| MON["📋 MONITOR<br/>Track; consider weekly digest"]
-    Q4 -->|"NO"| Q5{"Score < 2.0?"}
+    Q4 -->|"NO"| Q5{"Adjusted score < 2.0?"}
     Q5 -->|"YES"| SKIP["⏭️ SKIP<br/>No editorial value; discard"]
     Q5 -->|"NO"| ARC["🗄️ ARCHIVE<br/>Log for trend analysis"]
 
@@ -231,6 +233,12 @@ flowchart TD
 ## 🗓️ EP Calendar Awareness
 
 > **AI Instructions:** Before finalizing the publication decision, check the current EP calendar context. Recess periods, upcoming plenary weeks, and election cycles significantly affect scoring thresholds.
+>
+> **⚠️ Evaluation Order:**
+> 1. Compute the **raw composite score** using the 5-dimension formula above.
+> 2. If raw score **≥ 9.0** → decision is **⚡ BREAKING** regardless of calendar context (skip step 3).
+> 3. Apply calendar adjustments from the table below to produce the **adjusted composite score**.
+> 4. Use the **adjusted score** in the decision tree / thresholds table for the final publication decision.
 
 ### EP Session Calendar Reference
 
@@ -239,7 +247,7 @@ flowchart TD
 | **Plenary Session Week** | No adjustment | Normal editorial cycle; full audience attention |
 | **Committee Week** | −0.5 on Urgency | Lower time pressure; committee outputs mature over weeks |
 | **Constituency Week** | −1.0 on Public Interest | Reduced EP activity; audiences less engaged with EP news |
-| **Recess Period** (Aug, Dec–Jan) | Composite capped at max 7.4 (i.e., adjusted = min(raw, 7.4)) | No plenary votes; HOLD events for return week unless raw score ≥ 9.0 |
+| **Recess Period** (Aug, Dec–Jan) | Adjusted = min(raw, 7.4); bypassed if raw ≥ 9.0 | No plenary votes; HOLD events for return week. Raw ≥ 9.0 overrides cap (→ BREAKING) |
 | **Pre-Election Period** (6 months before EP elections) | +1.0 on Cross-Group Relevance | Heightened political positioning; coalition moves are electorally significant |
 | **Post-Election Transition** (first 3 months of new term) | +0.5 on Parliamentary Significance | New committee formations, group negotiations, leadership elections |
 

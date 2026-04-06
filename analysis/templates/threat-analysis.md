@@ -258,8 +258,8 @@ graph TD
 
 ### Bayesian Update Table
 
-| Threat Dimension | Prior Severity | New Evidence | Likelihood Ratio | Posterior Severity | Δ |
-|:----------------:|:--------------:|-------------|:----------------:|:-----------------:|:-:|
+| Threat Dimension | Prior Severity | New Evidence | Evidence Direction | Posterior Severity | Δ |
+|:----------------:|:--------------:|-------------|:------------------:|:-----------------:|:-:|
 | 🔄 Coalition Shifts | `[prev or —]` | `[New MCP data, e.g. "3 new defection votes detected"]` | `[↑ Increases / → Unchanged / ↓ Decreases]` | `[updated 1–5]` | `[+N/0/−N]` |
 | 🔍 Transparency Deficit | `[prev or —]` | `[New evidence]` | `[↑/→/↓]` | `[updated]` | `[Δ]` |
 | ↩️ Policy Reversal | `[prev or —]` | `[New evidence]` | `[↑/→/↓]` | `[updated]` | `[Δ]` |

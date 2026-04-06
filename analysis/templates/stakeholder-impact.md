@@ -230,7 +230,7 @@ flowchart TD
 
 ## 🔗 Cross-Committee Stakeholder Mapping
 
-> **AI Instructions:** When the policy event involves multiple EP committees (lead + opinion committees), map how stakeholders are affected differently by each committee's perspective. Use `get_committee_info` to identify lead and associated committees.
+> **AI Instructions:** When the policy event involves multiple EP committees (lead + opinion committees), map how stakeholders are affected differently by each committee's perspective. First identify lead and opinion committees from the legislative procedure metadata using `get_procedures` or `track_legislation`, then use `get_committee_info` to retrieve committee details.
 
 | Committee | Role | Primary Stakeholder Affected | Impact Direction | Key Concern |
 |-----------|------|:---------------------------:|:----------------:|-------------|
