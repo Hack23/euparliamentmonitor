@@ -386,6 +386,8 @@ graph TD
 
 Threat assessments have a **finite shelf life**. A threat identified 6 months ago may no longer be relevant — or may have escalated beyond the original assessment. This temporal decay model mirrors the confidence decay rules in [political-swot-framework.md](political-swot-framework.md) §Confidence Decay Rule and extends them to threat severity ratings.
 
+> **Terminology note:** This framework uses the severity scale SEVERE/HIGH/MODERATE/LOW/MINIMAL (defined in §Threat Severity Assessment above). Other documents or external references may use "Critical" or "Medium" as informal synonyms — when applying this decay model, always use the canonical labels from this framework.
+
 ### Threat Assessment Temporal Decay Table
 
 | Original Severity | After 30 days | After 90 days | After 180 days | After >180 days |

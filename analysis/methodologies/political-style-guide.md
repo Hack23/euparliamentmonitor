@@ -143,9 +143,10 @@ During recess, EP MCP API feeds experience degraded availability. Expect the fol
 
 | Data Availability | Recommended Depth Level | Rationale |
 |------------------|:----------------------:|-----------|
-| **Normal** (≥6 of 8 feeds active) | Level 2 or Level 3 | Full evidence base available |
+| **Full** (≥6 of 8 feeds active) | Level 2 or Level 3 | Full evidence base available |
 | **Degraded** (3–5 feeds active) | Level 1 or Level 2 | Reduced evidence; focus on available data |
-| **Sparse** (≤2 feeds active, typical recess) | Level 1 (Surface) | Insufficient new evidence for strategic analysis |
+| **Sparse** (1–2 feeds active, typical recess) | Level 1 (Surface) | Limited new evidence available; constrain analysis to what can be substantiated |
+| **Unavailable** (0 feeds active) | Level 1 (Surface) | No current-feed evidence available; avoid strategic conclusions based on absent live data |
 
 ### Focus Areas During Recess Periods
 

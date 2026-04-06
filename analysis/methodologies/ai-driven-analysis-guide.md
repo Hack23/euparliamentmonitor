@@ -868,7 +868,7 @@ When a later run (e.g., `breaking-2`) has access to a prior run's analysis (`bre
 | 1 | **Identify prior assessment** — read the prior run's risk scores, SWOT entries, and confidence levels | Prior run assessed "Grand Coalition stability risk: L=2, I=4, Score=8 [MEDIUM confidence]" |
 | 2 | **Identify new evidence** — what EP MCP data files are new or changed since the prior run? | New adopted text AT-2026-0156 shows ECR supported EPP amendment |
 | 3 | **Assess evidence direction** — does new evidence support, contradict, or neutral to prior assessment? | Supports stability → likelihood decreases |
-| 4 | **Update score** — adjust likelihood/impact per [political-risk-methodology.md](political-risk-methodology.md) Bayesian table | "Grand Coalition stability risk: L=1, I=4, Score=4 (posterior)" |
+| 4 | **Update score** — adjust likelihood/impact per [political-risk-methodology.md](political-risk-methodology.md) Advanced Technique 2 Bayesian update protocol and evidence strength table | "Grand Coalition stability risk: L=1, I=4, Score=4 (posterior)" |
 | 5 | **Update confidence** — cross-session consistency changes confidence level | Two consecutive runs agree → upgrade MEDIUM to HIGH |
 | 6 | **Document the update chain** | "Run 1 prior: Score=8 [MEDIUM] → Run 2 evidence: ECR support → Posterior: Score=4 [HIGH]" |
 
