@@ -17,7 +17,7 @@
 </p>
 
 **📋 Document Owner:** CEO | **📄 Version:** 4.1 | **📅 Last Updated:** 2026-04-06 (UTC)
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-05
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
 ---
@@ -813,7 +813,7 @@ The five methodology dimensions map to the TypeScript `article-quality-scorer.ts
 
 | Methodology Dimension | Weight | TypeScript Constant | TypeScript Measurement | Notes |
 |----------------------|:------:|---------------------|------------------------|-------|
-| Evidence density (citations per 100 words) | 0.25 | `WEIGHT_EVIDENCE` | Count of EP document references (`P9_TA`, `COM`, `RCV`, procedure codes) up to `EVIDENCE_MAX` (10) | Direct alignment |
+| Evidence density | 0.25 | `WEIGHT_EVIDENCE` | Absolute count of evidence references: evidence list items (`class="evidence-refs"`), evidence markers (`class="evidence"`), `data-reference` attributes, and unique EP document codes (`P9_TA`, `COM`, `RCV`, procedure codes), capped at `EVIDENCE_MAX` (10). Not normalized per word count. | Direct alignment |
 | Analytical depth (beyond surface observation) | 0.25 | `WEIGHT_ANALYSIS_DEPTH` | Boolean keyword detection across 6 sub-dimensions: political context, coalition dynamics, historical context, evidence-based conclusions, scenario planning, confidence levels | Keyword heuristic approximation |
 | Structural compliance (tables, Mermaid, template adherence) | 0.20 | `WEIGHT_VISUALIZATION` | Presence and depth of SWOT sections, dashboard metrics, mindmap branches, deep-analysis sections | Structural element detection |
 | Actionable intelligence (forward indicators, probability assessments) | 0.15 | `WEIGHT_WORD_COUNT` | Article word count scaled linearly from `WORD_COUNT_MIN` (0) to `WORD_COUNT_MAX` (1500) | Proxy: longer articles typically contain more actionable content |
@@ -891,7 +891,7 @@ When a subsequent run detects **zero delta** (no new EP MCP data files, no chang
 | **Carry forward prior analysis** | Reference prior run's assessments as still-current baseline |
 | **Shift focus to structural analysis** | Use the time for deeper analysis of existing data: historical trending, cross-document correlation, scenario modelling |
 | **Do NOT fabricate novelty** | Never claim new developments when data has not changed. This is an absolute rule. |
-| **Update temporal context** | Note that assessments are now N hours older; apply confidence decay if approaching 24-hour threshold |
+| **Update temporal context** | Note that assessments are now N hours older; if the carried-forward assessment is 18–23 hours old, downgrade confidence by one level (HIGH→MEDIUM, MEDIUM→LOW, LOW→LOW). If it is 24 hours or older, downgrade by one additional level, never below LOW. This decay applies only to carried-forward confidence during confirmed data stasis. |
 
 ---
 

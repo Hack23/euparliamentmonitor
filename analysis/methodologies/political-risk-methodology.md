@@ -345,16 +345,18 @@ Data availability is itself a risk dimension. When EP MCP API feeds return degra
 
 ### Core EP MCP Feeds for Risk Assessment
 
+> **Note:** The 8 core feeds are MCP `get_*` data sources only. Analysis helpers such as `analyze_voting_patterns` are used to interpret feed data, but they are not counted as feeds in availability or degradation assessments.
+
 | Feed | Risk Categories Served | Degradation Impact |
 |------|----------------------|-------------------|
 | `get_voting_records` | Grand coalition stability, policy implementation | **Critical** — voting data is the primary evidence for coalition risk |
-| `analyze_voting_patterns` | Grand coalition stability, institutional integrity | **Critical** — cohesion scores drive stability assessments |
 | `get_adopted_texts` | Policy implementation, economic governance | **High** — adopted texts confirm legislative outcomes |
 | `get_procedures` | Policy implementation | **High** — procedure status tracks legislative pipeline |
 | `get_parliamentary_questions` | Institutional integrity, social cohesion | **Medium** — oversight activity pattern indicator |
 | `get_speeches` | Social cohesion, geopolitical standing | **Medium** — debate content signals political direction |
 | `get_plenary_sessions` | All categories | **High** — session context for all other data |
 | `get_committee_documents` | Policy implementation, institutional integrity | **Medium** — committee output indicates legislative progress |
+| `get_events` | Institutional integrity, geopolitical standing | **Medium** — event schedules and diplomatic activity provide forward-looking context |
 
 ### Recess-Period Risk Scoring Guidance
 

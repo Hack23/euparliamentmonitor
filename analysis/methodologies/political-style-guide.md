@@ -162,9 +162,9 @@ When new EP data is unavailable, shift analytical focus to:
 | Period | Quality Gate | Evidence Minimum | Rationale |
 |--------|:-----------:|:----------------:|-----------|
 | Normal session | 7.0/10 | Per standard table | Full data available |
-| Recess period | 7.0/10 (**unchanged**) | Reduced by 50% (per-file: 1 citation, 1 EP doc ref) | Quality standard remains; evidence thresholds adjust to data availability |
+| Recess period | 7.0/10 (**unchanged**) | Reduced from the standard threshold with rounding up (per-file: 2 citations, 1 EP doc ref) | Quality standard remains; evidence thresholds adjust to data availability |
 
-> **⚠️ Critical Rule:** The quality gate score (7.0/10) does NOT decrease during recess. What changes is the **minimum evidence count** — because less data is available, fewer citations are required to meet the evidence density dimension. The analytical depth, structural compliance, and neutrality dimensions remain fully enforced.
+> **⚠️ Critical Rule:** The quality gate score (7.0/10) does NOT decrease during recess. What changes is the **minimum evidence count** — because less data is available, fewer citations are required to meet the evidence density dimension. During recess, reduced thresholds are calculated from the standard requirement and rounded up to the next whole item where needed (for example, a 3-citation baseline becomes 2 citations). The analytical depth, structural compliance, and neutrality dimensions remain fully enforced.
 
 ### Anti-Patterns During Recess
 

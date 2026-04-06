@@ -388,12 +388,12 @@ Threat assessments have a **finite shelf life**. A threat identified 6 months ag
 
 ### Threat Assessment Temporal Decay Table
 
-| Original Severity | After 30 days | After 90 days | After 180 days |
-|------------------|:------------:|:-------------:|:--------------:|
-| **CRITICAL** | CRITICAL | HIGH | MEDIUM |
-| **HIGH** | HIGH | MEDIUM | LOW |
-| **MODERATE** | MODERATE | LOW | EXPIRED |
-| **LOW** | LOW | EXPIRED | EXPIRED |
+| Original Severity | After 30 days | After 90 days | After 180 days | After >180 days |
+|------------------|:------------:|:-------------:|:--------------:|:--------------:|
+| **CRITICAL** | CRITICAL | HIGH | MEDIUM | EXPIRED |
+| **HIGH** | HIGH | MEDIUM | LOW | EXPIRED |
+| **MODERATE** | MODERATE | LOW | EXPIRED | EXPIRED |
+| **LOW** | LOW | EXPIRED | EXPIRED | EXPIRED |
 
 ### Threat Confidence Decay (aligned with SWOT)
 
