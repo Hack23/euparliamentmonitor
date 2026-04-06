@@ -84,6 +84,7 @@ export { mcpCircuitBreaker, computeRollingDateRange, initializeMCPClient, loadFe
 export { validateMCPResponse, normalizeISO8601Date, sanitizeText, isValidCountryCode, isValidLanguageCode, } from './generators/pipeline/transform-stage.js';
 export { createStrategyRegistry, generateArticleForStrategy, } from './generators/pipeline/generate-stage.js';
 export { writeArticleFile, writeSingleArticle, writeGenerationMetadata, } from './generators/pipeline/output-stage.js';
+export { loadAnalysisContext, extractAnalysisSummary, buildAnalysisInsightsSection, } from './generators/strategies/article-strategy.js';
 export { BreakingNewsStrategy, breakingNewsStrategy, } from './generators/strategies/breaking-news-strategy.js';
 export { AFET_KEYWORDS, LIBE_KEYWORDS, AGRI_KEYWORDS, ENVI_KEYWORDS, ECON_KEYWORDS, categorizeAdoptedText, CommitteeReportsStrategy, committeeReportsStrategy, } from './generators/strategies/committee-reports-strategy.js';
 export { MonthAheadStrategy, monthAheadStrategy, } from './generators/strategies/month-ahead-strategy.js';

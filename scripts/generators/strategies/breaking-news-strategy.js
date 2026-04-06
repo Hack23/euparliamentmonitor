@@ -9,6 +9,7 @@ import { buildBreakingAnalysis, buildBreakingSwot, buildBreakingDashboard, build
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
+import { loadAnalysisContext, buildAnalysisInsightsSection } from './article-strategy.js';
 import { pl } from '../../utils/metadata-utils.js';
 /** Base keywords shared by all Breaking News articles */
 const BREAKING_NEWS_BASE_KEYWORDS = [
@@ -149,7 +150,14 @@ export class BreakingNewsStrategy {
                         fetchCoalitionDynamics(client),
                     ]);
                 }
-                return { date, feedData: fileFeedData, anomalyRaw, coalitionRaw, reportRaw: '' };
+                return {
+                    date,
+                    feedData: fileFeedData,
+                    anomalyRaw,
+                    coalitionRaw,
+                    reportRaw: '',
+                    analysisContext: loadAnalysisContext(date, 'breaking'),
+                };
             }
             console.log('  ⚠️ Pre-fetched feed data failed to load — falling through to MCP fetch');
         }
@@ -161,7 +169,14 @@ export class BreakingNewsStrategy {
         // When client is null, feedData is undefined — MCP unavailable
         if (!feedData) {
             console.log('  ⚠️ MCP unavailable — no feed data or analytical context');
-            return { date, feedData, anomalyRaw: '', coalitionRaw: '', reportRaw: '' };
+            return {
+                date,
+                feedData,
+                anomalyRaw: '',
+                coalitionRaw: '',
+                reportRaw: '',
+                analysisContext: loadAnalysisContext(date, 'breaking'),
+            };
         }
         const totalFeedItems = feedData.adoptedTexts.length +
             feedData.events.length +
@@ -174,14 +189,28 @@ export class BreakingNewsStrategy {
         }
         else {
             console.log('  ⚠️ No feed data available — skipping analytical context fetch');
-            return { date, feedData, anomalyRaw: '', coalitionRaw: '', reportRaw: '' };
+            return {
+                date,
+                feedData,
+                anomalyRaw: '',
+                coalitionRaw: '',
+                reportRaw: '',
+                analysisContext: loadAnalysisContext(date, 'breaking'),
+            };
         }
         // Step 2: Fetch analytical context only when at least one feed item is available
         const [anomalyRaw, coalitionRaw] = await Promise.all([
             fetchVotingAnomalies(client),
             fetchCoalitionDynamics(client),
         ]);
-        return { date, feedData, anomalyRaw, coalitionRaw, reportRaw: '' };
+        return {
+            date,
+            feedData,
+            anomalyRaw,
+            coalitionRaw,
+            reportRaw: '',
+            analysisContext: loadAnalysisContext(date, 'breaking'),
+        };
     }
     /**
      * Build the breaking news HTML body for the specified language.
@@ -200,7 +229,14 @@ export class BreakingNewsStrategy {
         const swotSection = buildSwotSection(swotData, lang);
         const dashboardData = buildBreakingDashboard(data.feedData, lang);
         const dashboardSection = buildDashboardSection(dashboardData, lang);
-        const injection = deepSection + mindmapSection + swotSection + dashboardSection;
+        const analysisInsights = buildAnalysisInsightsSection(data.analysisContext, [
+            'risk-matrix',
+            'quantitative-swot',
+            'significance-classification',
+            'political-threat-landscape',
+            'coalition-analysis',
+        ], lang);
+        const injection = deepSection + mindmapSection + swotSection + dashboardSection + analysisInsights;
         // Inject before the closing </div> of .article-content
         if (injection) {
             const closingTag = '</div>';

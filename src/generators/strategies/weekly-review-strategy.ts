@@ -38,7 +38,13 @@ import {
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
-import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
+import type {
+  ArticleStrategy,
+  ArticleData,
+  ArticleMetadata,
+  LoadedAnalysisContext,
+} from './article-strategy.js';
+import { loadAnalysisContext, buildAnalysisInsightsSection } from './article-strategy.js';
 import { pl } from '../../utils/metadata-utils.js';
 import { isPlaceholderText } from '../../constants/analysis-constants.js';
 
@@ -60,6 +66,8 @@ export interface WeeklyReviewArticleData extends ArticleData {
   readonly dateFromStr: string;
   /** EP feed data for enrichment (when available) */
   readonly feedData?: EPFeedData | undefined;
+  /** Analysis pipeline context loaded from disk (when available) */
+  readonly analysisContext?: LoadedAnalysisContext | null | undefined;
 }
 
 /** Base keywords shared by all Weekly Review articles */
@@ -235,6 +243,7 @@ export class WeeklyReviewStrategy implements ArticleStrategy<WeeklyReviewArticle
       anomalies,
       questions,
       feedData,
+      analysisContext: loadAnalysisContext(date, 'week-in-review'),
     };
   }
 
@@ -287,9 +296,25 @@ export class WeeklyReviewStrategy implements ArticleStrategy<WeeklyReviewArticle
       lang
     );
     const dashboardSection = buildDashboardSection(dashboardData, lang);
+    const analysisInsights = buildAnalysisInsightsSection(
+      data.analysisContext,
+      [
+        'synthesis-summary',
+        'voting-patterns',
+        'coalition-analysis',
+        'deep-analysis',
+        'significance-classification',
+      ],
+      lang
+    );
     return base.replace(
       '<!-- /article-content -->',
-      adoptedTextsHtml + deepSection + mindmapSection + swotSection + dashboardSection
+      adoptedTextsHtml +
+        deepSection +
+        mindmapSection +
+        swotSection +
+        dashboardSection +
+        analysisInsights
     );
   }
 

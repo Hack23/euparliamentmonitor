@@ -36,7 +36,13 @@ import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import type { PipelineData } from '../propositions-content.js';
-import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
+import type {
+  ArticleStrategy,
+  ArticleData,
+  ArticleMetadata,
+  LoadedAnalysisContext,
+} from './article-strategy.js';
+import { loadAnalysisContext, buildAnalysisInsightsSection } from './article-strategy.js';
 import { pl } from '../../utils/metadata-utils.js';
 
 /** Base keywords shared by all Propositions articles */
@@ -187,6 +193,8 @@ export interface PropositionsArticleData extends ArticleData {
   readonly procedureHtml: string;
   /** EP feed data for enrichment (when available) */
   readonly feedData?: EPFeedData | undefined;
+  /** Analysis pipeline context loaded from disk (when available) */
+  readonly analysisContext?: LoadedAnalysisContext | null | undefined;
 }
 
 // ─── Strategy implementation ──────────────────────────────────────────────────
@@ -268,6 +276,7 @@ export class PropositionsStrategy implements ArticleStrategy<PropositionsArticle
       pipelineData,
       procedureHtml,
       feedData: feedResult,
+      analysisContext: loadAnalysisContext(date, 'propositions'),
     };
   }
 
@@ -302,7 +311,19 @@ export class PropositionsStrategy implements ArticleStrategy<PropositionsArticle
     const swotSection = buildSwotSection(swotData, lang);
     const dashboardData = buildPropositionsDashboard(data.pipelineData, lang);
     const dashboardSection = buildDashboardSection(dashboardData, lang);
-    const injection = deepSection + mindmapSection + swotSection + dashboardSection;
+    const analysisInsights = buildAnalysisInsightsSection(
+      data.analysisContext,
+      [
+        'risk-matrix',
+        'significance-classification',
+        'legislative-velocity-risk',
+        'significance-scoring',
+        'forces-analysis',
+      ],
+      lang
+    );
+    const injection =
+      deepSection + mindmapSection + swotSection + dashboardSection + analysisInsights;
     // Inject before the closing </div> of .article-content
     if (injection) {
       const closingTag = '</div>';

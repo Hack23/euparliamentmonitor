@@ -10,6 +10,7 @@ import { buildCommitteeAnalysis, buildCommitteeSwot, buildCommitteeDashboard, bu
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
+import { loadAnalysisContext, buildAnalysisInsightsSection } from './article-strategy.js';
 import { pl } from '../../utils/metadata-utils.js';
 /** European Parliament home-page URL used as source reference */
 const EP_SOURCE_URL = 'https://www.europarl.europa.eu';
@@ -356,7 +357,12 @@ export class CommitteeReportsStrategy {
             fetchEPFeedData(client, 'one-month', feedDateRange),
         ]);
         const committeeDataList = committeeDataRaw.filter((committee) => committee !== null);
-        return { date, committeeDataList, feedData };
+        return {
+            date,
+            committeeDataList,
+            feedData,
+            analysisContext: loadAnalysisContext(date, 'committee-reports'),
+        };
     }
     /**
      * Build the committee reports HTML body.
@@ -376,7 +382,19 @@ export class CommitteeReportsStrategy {
         const swotSection = buildSwotSection(swotData, lang);
         const dashboardData = buildCommitteeDashboard(data.committeeDataList, lang);
         const dashboardSection = buildDashboardSection(dashboardData, lang);
-        const injection = feedSection + deepSection + mindmapSection + swotSection + dashboardSection;
+        const analysisInsights = buildAnalysisInsightsSection(data.analysisContext, [
+            'stakeholder-impact',
+            'significance-classification',
+            'impact-matrix',
+            'deep-analysis',
+            'actor-mapping',
+        ], lang);
+        const injection = feedSection +
+            deepSection +
+            mindmapSection +
+            swotSection +
+            dashboardSection +
+            analysisInsights;
         // Inject before the closing </div> of .article-content
         if (injection) {
             const closingTag = '</div>';

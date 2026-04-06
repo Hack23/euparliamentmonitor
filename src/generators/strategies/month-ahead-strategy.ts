@@ -25,7 +25,13 @@ import {
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
-import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
+import type {
+  ArticleStrategy,
+  ArticleData,
+  ArticleMetadata,
+  LoadedAnalysisContext,
+} from './article-strategy.js';
+import { loadAnalysisContext, buildAnalysisInsightsSection } from './article-strategy.js';
 import { pl } from '../../utils/metadata-utils.js';
 
 // ─── Data payload ─────────────────────────────────────────────────────────────
@@ -42,6 +48,8 @@ export interface MonthAheadArticleData extends ArticleData {
   readonly monthLabel: string;
   /** EP feed data for enrichment (when available) */
   readonly feedData?: EPFeedData | undefined;
+  /** Analysis pipeline context loaded from disk (when available) */
+  readonly analysisContext?: LoadedAnalysisContext | null | undefined;
 }
 
 /** Keywords shared by all Month Ahead articles */
@@ -178,7 +186,15 @@ export class MonthAheadStrategy implements ArticleStrategy<MonthAheadArticleData
     const keywords = [...MONTH_AHEAD_KEYWORDS, ...buildKeywords(monthData)];
     const monthLabel = formatMonthLabel(dateRange.start);
 
-    return { date, dateRange, monthData, keywords, monthLabel, feedData };
+    return {
+      date,
+      dateRange,
+      monthData,
+      keywords,
+      monthLabel,
+      feedData,
+      analysisContext: loadAnalysisContext(date, 'month-ahead'),
+    };
   }
 
   /**
@@ -198,9 +214,20 @@ export class MonthAheadStrategy implements ArticleStrategy<MonthAheadArticleData
     const swotSection = buildSwotSection(swotData, lang);
     const dashboardData = buildProspectiveDashboard(data.monthData, 'month', lang);
     const dashboardSection = buildDashboardSection(dashboardData, lang);
+    const analysisInsights = buildAnalysisInsightsSection(
+      data.analysisContext,
+      [
+        'significance-classification',
+        'political-threat-landscape',
+        'risk-matrix',
+        'forces-analysis',
+        'legislative-velocity-risk',
+      ],
+      lang
+    );
     return base.replace(
       '<!-- /article-content -->',
-      analysisSection + mindmapSection + swotSection + dashboardSection
+      analysisSection + mindmapSection + swotSection + dashboardSection + analysisInsights
     );
   }
 
