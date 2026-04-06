@@ -169,10 +169,45 @@ MCP Data Files:     [REQUIRED: paths to analysis/YYYY-MM-DD/{article-type-slug}/
 
 ---
 
+## 🗓️ Recess-Period Classification Rules
+
+> **AI Instructions:** During EP recess periods (August, December–January, and constituency weeks), apply the following modified classification rules. Recess periods reduce urgency and shift publication timing, but do NOT reduce significance.
+
+### Recess Period Detection
+
+| Period | Typical Dates | EP Activity Level | Classification Impact |
+|--------|--------------|:-----------------:|----------------------|
+| **Summer Recess** | Late July – August | ⚪ Minimal | Urgency capped at ROUTINE unless institutional crisis |
+| **Winter Recess** | Late December – mid-January | ⚪ Minimal | Urgency capped at ROUTINE unless institutional crisis |
+| **Constituency Week** | Varies (check EP calendar) | 🔵 Low | Urgency downgraded by one level (URGENT→ELEVATED) |
+| **Pre-Plenary Week** | Monday before plenary | 🟡 Moderate | Standard rules apply; committee work concluding |
+| **Plenary Session Week** | Per EP calendar (Strasbourg/Brussels) | 🟠 High | Standard rules apply; full urgency scale |
+
+### Recess Classification Overrides
+
+| Condition | Standard Classification | Recess Override | Rationale |
+|-----------|:----------------------:|:--------------:|-----------|
+| Routine committee output during recess | ROUTINE | **ARCHIVE** | No audience; queue for session return |
+| ELEVATED event during constituency week | ELEVATED | **ROUTINE** (monitor) | Reduced EP engagement; track for plenary week |
+| URGENT event during summer recess | URGENT | **ELEVATED** (monitor + pre-position) | Prepare analysis; publish when EP reconvenes |
+| CRITICAL event during any recess | CRITICAL | **CRITICAL** (no override) | Institutional crises override recess rules |
+| Motion of censure filed during recess | CRITICAL | **CRITICAL** (immediate breaking) | Constitutional significance overrides calendar |
+
+### Current Calendar Context
+
+| Field | Value |
+|-------|-------|
+| **Current EP Status** | `[REQUIRED: e.g. "In Session (Plenary)" / "Constituency Week" / "Summer Recess"]` |
+| **Recess Override Applied?** | `[REQUIRED: YES (specify override) / NO]` |
+| **Original Urgency** | `[If overridden: original urgency level]` |
+| **Adjusted Urgency** | `[If overridden: adjusted urgency level]` |
+
+---
+
 **Document Control:**
 - **Template Path:** `/analysis/templates/political-classification.md`
-- **Version:** 2.0
-- **Advanced Dimensions:** Political Temperature Index, Strategic Significance, Coalition Impact Vector
+- **Version:** 2.1
+- **Advanced Dimensions:** Political Temperature Index, Strategic Significance, Coalition Impact Vector, Recess-Period Classification Rules
 - **Framework Reference:** [methodologies/political-classification-guide.md](../methodologies/political-classification-guide.md)
 - **Classification:** Public
 - **Next Review:** 2026-06-30

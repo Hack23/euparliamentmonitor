@@ -153,16 +153,45 @@
 
 ---
 
-## 📊 TOWS Strategic Options
+## 📊 TOWS Strategic Matrix
 
-> *Convert SWOT findings into strategic options — answering "So what?"*
+> **AI Instructions:** Convert SWOT findings into actionable strategic options using the TOWS framework. Each cell crosses one internal factor (Strength/Weakness) with one external factor (Opportunity/Threat). Reference specific SWOT entry IDs (e.g., S1, W2, O1, T3) and include EP procedure IDs where applicable.
 
-| TOWS Cell | Strategy | Specific Action | Evidence |
-|:---------:|---------|-----------------|---------|
-| **SO** (Strength × Opportunity) | `[REQUIRED: How to use a strength to exploit an opportunity]` | `[Specific action with timeline]` | `[EP procedure ID]` |
-| **WO** (Weakness × Opportunity) | `[REQUIRED: How to use an opportunity to address a weakness]` | `[Specific action]` | `[EP procedure ID]` |
-| **ST** (Strength × Threat) | `[OPTIONAL: How to use a strength to counter a threat]` | `[Specific action]` | `[EP procedure ID]` |
-| **WT** (Weakness × Threat) | `[OPTIONAL: How to minimise vulnerability]` | `[Specific action]` | `[EP procedure ID]` |
+### TOWS Matrix Diagram
+
+```mermaid
+quadrantChart
+    title TOWS Strategic Matrix
+    x-axis "Internal Strengths" --> "Internal Weaknesses"
+    y-axis "External Threats" --> "External Opportunities"
+    quadrant-1 "WO: Overcome<br/>(Fix weakness via opportunity)"
+    quadrant-2 "SO: Exploit<br/>(Use strength on opportunity)"
+    quadrant-3 "ST: Confront<br/>(Use strength vs threat)"
+    quadrant-4 "WT: Avoid<br/>(Minimize weakness + threat)"
+
+    "[REQUIRED: SO strategy]": [0.3, 0.7]
+    "[REQUIRED: WO strategy]": [0.7, 0.7]
+    "[REQUIRED: ST strategy]": [0.3, 0.3]
+    "[REQUIRED: WT strategy]": [0.7, 0.3]
+```
+
+### TOWS Strategic Options (Detailed)
+
+| TOWS Cell | SWOT Entries | Strategy | Specific Action | EP Reference | Timeline | Feasibility |
+|:---------:|:-----------:|---------|-----------------|:------------:|----------|:-----------:|
+| **SO** (Strength × Opportunity) | `[e.g. S1 × O1]` | `[REQUIRED: How to use a strength to exploit an opportunity]` | `[Specific action with timeline]` | `[EP procedure ID]` | `[days/weeks/months]` | `[H/M/L]` |
+| **SO** | `[e.g. S2 × O2]` | `[OPTIONAL: second SO strategy]` | `[action]` | `[ref]` | `[timeline]` | `[H/M/L]` |
+| **WO** (Weakness × Opportunity) | `[e.g. W1 × O1]` | `[REQUIRED: How to use an opportunity to address a weakness]` | `[Specific action]` | `[EP procedure ID]` | `[timeline]` | `[H/M/L]` |
+| **ST** (Strength × Threat) | `[e.g. S1 × T1]` | `[REQUIRED: How to use a strength to counter a threat]` | `[Specific action]` | `[EP procedure ID]` | `[timeline]` | `[H/M/L]` |
+| **WT** (Weakness × Threat) | `[e.g. W1 × T1]` | `[REQUIRED: How to minimise vulnerability]` | `[Specific action]` | `[EP procedure ID]` | `[timeline]` | `[H/M/L]` |
+
+### Strategic Priority Ranking
+
+| Rank | TOWS Cell | Strategy Summary | Impact | Urgency | Overall Priority |
+|:----:|:---------:|-----------------|:------:|:-------:|:----------------:|
+| 1 | `[SO/WO/ST/WT]` | `[1-sentence summary]` | `[H/M/L]` | `[H/M/L]` | `🔴/🟠/🟡/🟢` |
+| 2 | `[cell]` | `[summary]` | `[H/M/L]` | `[H/M/L]` | `🔴/🟠/🟡/🟢` |
+| 3 | `[cell]` | `[summary]` | `[H/M/L]` | `[H/M/L]` | `🔴/🟠/🟡/🟢` |
 
 ---
 
@@ -180,8 +209,8 @@
 
 **Document Control:**
 - **Template Path:** `/analysis/templates/swot-analysis.md`
-- **Version:** 2.0
-- **Advanced Features:** Cross-SWOT Interference, TOWS Strategic Options, 90-day Scenario Outlook
+- **Version:** 2.1
+- **Advanced Features:** Cross-SWOT Interference, TOWS Strategic Matrix (expanded with diagram + priority ranking), 90-day Scenario Outlook
 - **Framework Reference:** [methodologies/political-swot-framework.md](../methodologies/political-swot-framework.md)
 - **Classification:** Public
 - **Next Review:** 2026-06-30

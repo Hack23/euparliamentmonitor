@@ -117,6 +117,47 @@ Composite = (Parliamentary × 0.25) + (Policy × 0.25) + (Public Interest × 0.2
 **This Event's Decision:** `[REQUIRED: Archive / Monitor / Publish / Priority / Breaking]`
 **Decision Rationale:** `[REQUIRED: 1–2 sentences]`
 
+### 🌳 Publication Decision Tree
+
+> **AI Instructions:** Walk through this decision tree for every scored event. Follow the path from top to bottom. The first matching terminal node is the decision.
+
+```mermaid
+flowchart TD
+    START["📊 Composite Score Calculated"] --> Q1{"Score ≥ 9.0?"}
+    Q1 -->|"YES"| BRK["⚡ BREAKING<br/>Publish immediately<br/>All 14 languages"]
+    Q1 -->|"NO"| Q2{"Score ≥ 7.5?"}
+    Q2 -->|"YES"| Q2A{"Urgency dimension ≥ 8?"}
+    Q2A -->|"YES"| BRK
+    Q2A -->|"NO"| PRI["📰 PRIORITY<br/>Daily news, prominent placement"]
+    Q2 -->|"NO"| Q3{"Score ≥ 6.0?"}
+    Q3 -->|"YES"| Q3A{"EP in recess?"}
+    Q3A -->|"YES"| HOLD["⏸️ HOLD<br/>Queue for next session week"]
+    Q3A -->|"NO"| PUB["📰 PUBLISH<br/>Standard news cycle"]
+    Q3 -->|"NO"| Q4{"Score ≥ 4.0?"}
+    Q4 -->|"YES"| MON["📋 MONITOR<br/>Track; consider weekly digest"]
+    Q4 -->|"NO"| Q5{"Score < 2.0?"}
+    Q5 -->|"YES"| SKIP["⏭️ SKIP<br/>No editorial value; discard"]
+    Q5 -->|"NO"| ARC["🗄️ ARCHIVE<br/>Log for trend analysis"]
+
+    style BRK fill:#dc3545,color:#fff
+    style PRI fill:#fd7e14,color:#fff
+    style PUB fill:#28a745,color:#fff
+    style HOLD fill:#0d6efd,color:#fff
+    style MON fill:#ffc107,color:#000
+    style ARC fill:#6c757d,color:#fff
+    style SKIP fill:#343a40,color:#fff
+```
+
+| Decision | Score Range | Additional Condition | Action |
+|----------|:-----------:|---------------------|--------|
+| ⚡ BREAKING | ≥ 9.0 OR (≥ 7.5 + Urgency ≥ 8) | — | Publish immediately; all-language deployment |
+| 📰 PRIORITY | 7.5 – 8.9 | Urgency < 8 | Daily news; prominent placement |
+| 📰 PUBLISH | 6.0 – 7.4 | EP in session | Standard news cycle |
+| ⏸️ HOLD | 6.0 – 7.4 | EP in recess | Queue for next plenary week |
+| 📋 MONITOR | 4.0 – 5.9 | — | Track for follow-up; weekly digest |
+| 🗄️ ARCHIVE | 2.0 – 3.9 | — | Log for trend analysis only |
+| ⏭️ SKIP | 0.0 – 1.9 | — | No editorial value; discard |
+
 ---
 
 ## 📊 Section 2: Batch Scoring Table
@@ -187,6 +228,33 @@ Composite = (Parliamentary × 0.25) + (Policy × 0.25) + (Public Interest × 0.2
 
 ---
 
+## 🗓️ EP Calendar Awareness
+
+> **AI Instructions:** Before finalizing the publication decision, check the current EP calendar context. Recess periods, upcoming plenary weeks, and election cycles significantly affect scoring thresholds.
+
+### EP Session Calendar Reference
+
+| Period Type | Scoring Adjustment | Rationale |
+|-------------|:------------------:|-----------|
+| **Plenary Session Week** | No adjustment | Normal editorial cycle; full audience attention |
+| **Committee Week** | −0.5 on Urgency | Lower time pressure; committee outputs mature over weeks |
+| **Constituency Week** | −1.0 on Public Interest | Reduced EP activity; audiences less engaged with EP news |
+| **Recess Period** (Aug, Dec–Jan) | −1.5 composite cap at 7.4 | No plenary votes; HOLD events for return week unless score ≥ 9.0 |
+| **Pre-Election Period** (6 months before EP elections) | +1.0 on Cross-Group Relevance | Heightened political positioning; coalition moves are electorally significant |
+| **Post-Election Transition** (first 3 months of new term) | +0.5 on Parliamentary Significance | New committee formations, group negotiations, leadership elections |
+
+### Current EP Calendar Context
+
+| Field | Value |
+|-------|-------|
+| **Current EP Period** | `[REQUIRED: e.g. "Plenary Session Week" / "Committee Week" / "Recess"]` |
+| **Next Plenary Session** | `[REQUIRED: YYYY-MM-DD]` |
+| **Days Until Next Plenary** | `[REQUIRED: N days]` |
+| **Scoring Adjustment Applied** | `[REQUIRED: e.g. "None" or "−1.5 recess cap applied"]` |
+| **Adjusted Composite Score** | `[REQUIRED: original score ± adjustment]` |
+
+---
+
 ### MCP Data Files Used
 
 ```
@@ -197,8 +265,8 @@ Composite = (Parliamentary × 0.25) + (Policy × 0.25) + (Public Interest × 0.2
 
 **Document Control:**
 - **Template Path:** `/analysis/templates/significance-scoring.md`
-- **Version:** 2.0
-- **Advanced Features:** Composite Score Calculation, Publication Decision Thresholds, Significance Trend Tracking
+- **Version:** 2.1
+- **Advanced Features:** Composite Score Calculation, Publication Decision Thresholds, Publication Decision Tree (Mermaid), EP Calendar Awareness, Significance Trend Tracking
 - **Framework Reference:** [methodologies/ai-driven-analysis-guide.md](../methodologies/ai-driven-analysis-guide.md)
 - **Classification:** Public
 - **Next Review:** 2026-06-30

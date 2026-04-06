@@ -185,6 +185,61 @@ graph LR
 
 **Publish Recommendation:** `[REQUIRED: YES — HIGH interest / YES — MEDIUM interest / MONITOR — low standalone value]`
 
+---
+
+## 🏛️ EU Institutional Hierarchy Awareness
+
+> **AI Instructions:** When assessing stakeholder impact, apply awareness of the EU institutional hierarchy. Impact at higher tiers cascades downward. Use this hierarchy to identify second-order effects.
+
+```mermaid
+flowchart TD
+    EC["🇪🇺 European Council<br/>(Heads of State — strategic direction)"]
+    COM["⚖️ European Commission<br/>(Legislative initiative, enforcement)"]
+    EP["🏛️ European Parliament<br/>(Co-legislator, oversight, budget)"]
+    COUNCIL["🤝 Council of the EU<br/>(Co-legislator, member state voice)"]
+    CJEU["⚖️ Court of Justice EU<br/>(Legal interpretation)"]
+    ECB["🏦 ECB / ECA / Agencies<br/>(Monetary policy, audit, regulation)"]
+    MS["🇪🇺 Member States<br/>(Transposition, implementation)"]
+    CIT["🏘️ EU Citizens<br/>(Rights holders, voters)"]
+
+    EC --> COM
+    COM --> EP & COUNCIL
+    EP & COUNCIL --> MS
+    CJEU --> MS
+    ECB --> MS
+    MS --> CIT
+
+    style EC fill:#003399,color:#fff
+    style COM fill:#0d6efd,color:#fff
+    style EP fill:#6f42c1,color:#fff
+    style COUNCIL fill:#198754,color:#fff
+    style CJEU fill:#dc3545,color:#fff
+    style ECB fill:#fd7e14,color:#fff
+    style MS fill:#ffc107,color:#000
+    style CIT fill:#28a745,color:#fff
+```
+
+### Institutional Impact Cascade Assessment
+
+| Impact Origin | Direct Impact | Cascade To | Second-Order Effect | Confidence |
+|:------------:|:------------:|:----------:|--------------------:|:----------:|
+| `[REQUIRED: e.g. "EP plenary vote"]` | `[e.g. "Commission must draft delegated acts"]` | `[e.g. "Member States → transposition"]` | `[e.g. "Citizens — new compliance obligations by 2028"]` | `[H/M/L]` |
+| `[OPTIONAL]` | `[direct]` | `[cascade]` | `[second-order]` | `[H/M/L]` |
+
+---
+
+## 🔗 Cross-Committee Stakeholder Mapping
+
+> **AI Instructions:** When the policy event involves multiple EP committees (lead + opinion committees), map how stakeholders are affected differently by each committee's perspective. Use `get_committee_info` to identify lead and associated committees.
+
+| Committee | Role | Primary Stakeholder Affected | Impact Direction | Key Concern |
+|-----------|------|:---------------------------:|:----------------:|-------------|
+| `[REQUIRED: e.g. ENVI]` | Lead | `[e.g. Business & Industry]` | `[positive/negative/neutral]` | `[e.g. "Emissions compliance costs"]` |
+| `[REQUIRED: e.g. ITRE]` | Opinion | `[e.g. Business & Industry]` | `[positive/negative/neutral]` | `[e.g. "Innovation incentives for green tech"]` |
+| `[OPTIONAL: e.g. ECON]` | Opinion | `[e.g. Member States]` | `[positive/negative/neutral]` | `[e.g. "MFF allocation for transition funds"]` |
+
+**Cross-Committee Tension:** `[REQUIRED: 1–2 sentences on whether committees align or diverge on stakeholder impact. E.g., "ENVI prioritizes environmental protection (negative for Business) while ITRE emphasizes competitiveness (positive for Business), creating legislative tension in trilogue."]`
+
 ### MCP Data Files Used
 
 ```
@@ -195,8 +250,8 @@ graph LR
 
 **Document Control:**
 - **Template Path:** `/analysis/templates/stakeholder-impact.md`
-- **Version:** 2.0
-- **Advanced Features:** Conflicting Impact Resolution matrix, Stakeholder Impact Mermaid diagram
+- **Version:** 2.1
+- **Advanced Features:** Conflicting Impact Resolution matrix, Stakeholder Impact Mermaid diagram, EU Institutional Hierarchy Awareness, Cross-Committee Stakeholder Mapping
 - **Framework Reference:** [methodologies/political-style-guide.md](../methodologies/political-style-guide.md)
 - **Classification:** Public
 - **Next Review:** 2026-06-30
