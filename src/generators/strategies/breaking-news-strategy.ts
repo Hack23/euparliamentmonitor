@@ -41,7 +41,6 @@ import type {
   ArticleStrategy,
   ArticleData,
   ArticleMetadata,
-  LoadedAnalysisContext,
 } from './article-strategy.js';
 import { loadAnalysisContext, buildAnalysisInsightsSection } from './article-strategy.js';
 import { pl } from '../../utils/metadata-utils.js';
@@ -151,8 +150,6 @@ export interface BreakingNewsArticleData extends ArticleData {
   readonly coalitionRaw: string;
   /** Raw voting statistics report text from MCP (KEPT FOR BACKWARD COMPAT) */
   readonly reportRaw: string;
-  /** Analysis pipeline context loaded from disk (when available) */
-  readonly analysisContext?: LoadedAnalysisContext | null | undefined;
 }
 
 // ─── Strategy implementation ──────────────────────────────────────────────────

@@ -42,7 +42,6 @@ import type {
   ArticleStrategy,
   ArticleData,
   ArticleMetadata,
-  LoadedAnalysisContext,
 } from './article-strategy.js';
 import { loadAnalysisContext, buildAnalysisInsightsSection } from './article-strategy.js';
 import type { ArticleSource } from '../../types/index.js';
@@ -166,8 +165,6 @@ export interface CommitteeReportsArticleData extends ArticleData {
   readonly committeeDataList: readonly CommitteeData[];
   /** EP feed data for enrichment (when available) */
   readonly feedData?: EPFeedData | undefined;
-  /** Analysis pipeline context loaded from disk (when available) */
-  readonly analysisContext?: LoadedAnalysisContext | null | undefined;
 }
 
 // ─── Adopted-texts categorization ─────────────────────────────────────────────

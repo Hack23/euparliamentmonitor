@@ -40,7 +40,6 @@ import type {
   ArticleStrategy,
   ArticleData,
   ArticleMetadata,
-  LoadedAnalysisContext,
 } from './article-strategy.js';
 import { loadAnalysisContext, buildAnalysisInsightsSection } from './article-strategy.js';
 import { pl } from '../../utils/metadata-utils.js';
@@ -165,8 +164,6 @@ export interface MotionsArticleData extends ArticleData {
   readonly questions: readonly MotionsQuestion[];
   /** EP feed data for enrichment (when available) */
   readonly feedData?: EPFeedData | undefined;
-  /** Analysis pipeline context loaded from disk (when available) */
-  readonly analysisContext?: LoadedAnalysisContext | null | undefined;
 }
 
 // ─── Strategy implementation ──────────────────────────────────────────────────
