@@ -258,13 +258,13 @@ export function extractAnalysisSummary(content: string, maxLength: number = 500)
  *
  * @param ctx - Loaded analysis context (null-safe: returns empty string)
  * @param relevantMethods - Method names this strategy wants to display
- * @param lang - Target language code (used for section heading)
+ * @param _lang - Target language code (reserved for future i18n of section heading)
  * @returns HTML string (empty when no context or no relevant files)
  */
 export function buildAnalysisInsightsSection(
   ctx: LoadedAnalysisContext | null | undefined,
   relevantMethods: readonly string[],
-  lang: LanguageCode
+  _lang: LanguageCode
 ): string {
   if (!ctx) return '';
 
@@ -285,7 +285,7 @@ export function buildAnalysisInsightsSection(
 
   if (items.length === 0) return '';
 
-  const heading = lang === 'en' ? 'Analysis Pipeline Insights' : 'Analysis Pipeline Insights';
+  const heading = 'Analysis Pipeline Insights';
   const confidence = ctx.overallConfidence
     ? ` <span class="confidence-badge">${escapeHTML(ctx.overallConfidence)}</span>`
     : '';
