@@ -185,12 +185,12 @@ MCP Data Files:     [REQUIRED: paths to analysis/YYYY-MM-DD/{article-type-slug}/
 
 ### Recess Classification Overrides
 
-| Condition | Standard Classification | Recess Override | Rationale |
-|-----------|:----------------------:|:--------------:|-----------|
-| Routine committee output during recess | ROUTINE | **ARCHIVE** | No audience; queue for session return |
-| ELEVATED event during constituency week | ELEVATED | **ROUTINE** (monitor) | Reduced EP engagement; track for plenary week |
-| URGENT event during summer recess | URGENT | **ELEVATED** (monitor + pre-position) | Prepare analysis; publish when EP reconvenes |
-| CRITICAL event during any recess (e.g., motion of censure) | CRITICAL | **CRITICAL** (no override) | Constitutional/institutional crises override recess rules |
+| Condition | Standard Urgency | Adjusted Urgency | Recommended Action | Rationale |
+|-----------|:----------------:|:----------------:|--------------------|-----------|
+| Routine committee output during recess | ROUTINE | ROUTINE | **ARCHIVE** | No audience; queue for session return |
+| ELEVATED event during constituency week | ELEVATED | **ROUTINE** | **MONITOR** | Reduced EP engagement; track for plenary week |
+| URGENT event during summer recess | URGENT | **ELEVATED** | **MONITOR + PRE-POSITION** | Prepare analysis; publish when EP reconvenes |
+| CRITICAL event during any recess (e.g., motion of censure) | CRITICAL | **CRITICAL** | **NO OVERRIDE / PUBLISH** | Constitutional/institutional crises override recess rules |
 
 ### Current Calendar Context
 

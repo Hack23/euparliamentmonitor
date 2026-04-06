@@ -112,7 +112,8 @@ Composite = (Parliamentary × 0.25) + (Policy × 0.25) + (Public Interest × 0.2
 |-------------|:--------------:|-----------------|--------|
 | **0.0 – 3.9** | `skip` | 🗄️ **Archive** | Log for trend analysis; do not publish |
 | **4.0 – 5.9** | `hold` | 📋 **Monitor** | Track for follow-up; consider weekly digest |
-| **6.0 – 7.4** | `publish` | 📰 **Publish** / ⏸️ **Hold** | Publish in standard news cycle; Hold if EP in recess |
+| **6.0 – 7.4** | `publish` | 📰 **Publish** | Publish in standard news cycle (EP in session) |
+| **6.0 – 7.4** | `hold` | ⏸️ **Hold** | Queue for next session (EP in recess) |
 | **7.5 – 8.9** | `publish` | 📰 **Priority** | Priority in daily news; prominent placement |
 | **9.0 – 10.0** | `publish` | ⚡ **Breaking** | Publish immediately; all-language deployment |
 
@@ -135,7 +136,7 @@ flowchart TD
     Q2A -->|"NO"| PRI["📰 PRIORITY<br/>Engine: publish<br/>Prominent placement"]
     Q2 -->|"NO"| Q3{"Adjusted score ≥ 6.0?"}
     Q3 -->|"YES"| Q3A{"EP in recess?"}
-    Q3A -->|"YES"| HOLD["⏸️ HOLD<br/>Engine: publish<br/>Queue for next session"]
+    Q3A -->|"YES"| HOLD["⏸️ HOLD<br/>Engine: hold<br/>Queue for next session"]
     Q3A -->|"NO"| PUB["📰 PUBLISH<br/>Engine: publish<br/>Standard news cycle"]
     Q3 -->|"NO"| Q4{"Adjusted score ≥ 4.0?"}
     Q4 -->|"YES"| MON["📋 MONITOR<br/>Engine: hold<br/>Track; weekly digest"]
@@ -154,7 +155,7 @@ flowchart TD
 | ⚡ BREAKING | `publish` | ≥ 9.0 OR (≥ 7.5 + Urgency ≥ 8) | — | Publish immediately; all-language deployment |
 | 📰 PRIORITY | `publish` | 7.5 – 8.9 | Urgency < 8 | Daily news; prominent placement |
 | 📰 PUBLISH | `publish` | 6.0 – 7.4 | EP in session | Standard news cycle |
-| ⏸️ HOLD | `publish` | 6.0 – 7.4 | EP in recess | Queue for next plenary week |
+| ⏸️ HOLD | `hold` | 6.0 – 7.4 | EP in recess | Queue for next plenary week |
 | 📋 MONITOR | `hold` | 4.0 – 5.9 | — | Track for follow-up; weekly digest |
 | 🗄️ ARCHIVE | `skip` | 0.0 – 3.9 | — | Log for trend analysis only |
 
@@ -240,14 +241,16 @@ flowchart TD
 
 ### EP Session Calendar Reference
 
-| Period Type | Scoring Adjustment | Rationale |
+> **Adjustment method:** All adjustments below apply **directly to the composite score** (not to individual dimensions). This is a post-hoc editorial adjustment — the raw dimension scores remain unchanged for trend analysis.
+
+| Period Type | Composite Adjustment | Rationale |
 |-------------|:------------------:|-----------|
 | **Plenary Session Week** | No adjustment | Normal editorial cycle; full audience attention |
-| **Committee Week** | −0.5 on Urgency | Lower time pressure; committee outputs mature over weeks |
-| **Constituency Week** | −1.0 on Public Interest | Reduced EP activity; audiences less engaged with EP news |
-| **Recess Period** (Aug, Dec–Jan) | Adjusted = min(raw, 7.4); bypassed if raw ≥ 9.0 | No plenary votes; HOLD events for return week. Raw ≥ 9.0 overrides cap (→ BREAKING) |
-| **Pre-Election Period** (6 months before EP elections) | +1.0 on Cross-Group Relevance | Heightened political positioning; coalition moves are electorally significant |
-| **Post-Election Transition** (first 3 months of new term) | +0.5 on Parliamentary Significance | New committee formations, group negotiations, leadership elections |
+| **Committee Week** | −0.5 | Lower time pressure; committee outputs mature over weeks |
+| **Constituency Week** | −1.0 | Reduced EP activity; audiences less engaged with EP news |
+| **Recess Period** (Aug, Dec–Jan) | Cap at min(raw, 7.4); bypassed if raw ≥ 9.0 | No plenary votes; HOLD events for return week. Raw ≥ 9.0 overrides cap (→ BREAKING) |
+| **Pre-Election Period** (6 months before EP elections) | +1.0 | Heightened political positioning; coalition moves are electorally significant |
+| **Post-Election Transition** (first 3 months of new term) | +0.5 | New committee formations, group negotiations, leadership elections |
 
 ### Current EP Calendar Context
 
