@@ -15,6 +15,7 @@ import os from 'os';
 import {
   loadAnalysisContext,
   extractAnalysisSummary,
+  extractFrontmatterMethod,
   buildAnalysisInsightsSection,
 } from '../../scripts/generators/strategies/article-strategy.js';
 
@@ -227,6 +228,98 @@ describe('loadAnalysisContext', () => {
     expect(ctx).not.toBeNull();
     expect(ctx.manifest).toBeNull();
     expect(ctx.files.size).toBe(1);
+  });
+
+  it('keys files by frontmatter method when filename differs (coalition-dynamics.md → coalition-analysis)', () => {
+    createAnalysisDir(tmpDir, '2026-04-06', 'breaking', {
+      manifest: { date: '2026-04-06', overallConfidence: 'medium' },
+      files: {
+        existing: {
+          'coalition-dynamics.md':
+            '---\nmethod: coalition-analysis\ndate: 2026-04-06\nconfidence: medium\n---\n\n# Coalition Dynamics\n\nCoalition alignment analysis reveals shifting alliances.',
+        },
+      },
+    });
+
+    const ctx = loadAnalysisContext('2026-04-06', 'breaking', tmpDir);
+    expect(ctx).not.toBeNull();
+    // Primary key is the frontmatter method, not the filename
+    expect(ctx.files.has('coalition-analysis')).toBe(true);
+    // Filename-derived alias is also registered for backward compatibility
+    expect(ctx.files.has('coalition-dynamics')).toBe(true);
+    // Both entries point to the same content
+    const fromMethod = ctx.files.get('coalition-analysis');
+    const fromFilename = ctx.files.get('coalition-dynamics');
+    expect(fromMethod.method).toBe('coalition-analysis');
+    expect(fromFilename.method).toBe('coalition-analysis');
+    expect(fromMethod.content).toContain('Coalition Dynamics');
+  });
+
+  it('keys files by frontmatter method for stakeholder-impact.md → stakeholder-analysis', () => {
+    createAnalysisDir(tmpDir, '2026-04-06', 'committee-reports', {
+      manifest: { date: '2026-04-06', overallConfidence: 'high' },
+      files: {
+        existing: {
+          'stakeholder-impact.md':
+            '---\nmethod: stakeholder-analysis\ndate: 2026-04-06\nconfidence: high\n---\n\n# Stakeholder Impact\n\nKey stakeholders include national delegations.',
+        },
+      },
+    });
+
+    const ctx = loadAnalysisContext('2026-04-06', 'committee-reports', tmpDir);
+    expect(ctx).not.toBeNull();
+    // Lookup by frontmatter method ID
+    expect(ctx.files.has('stakeholder-analysis')).toBe(true);
+    // Lookup by filename alias
+    expect(ctx.files.has('stakeholder-impact')).toBe(true);
+    expect(ctx.files.get('stakeholder-analysis').method).toBe('stakeholder-analysis');
+  });
+
+  it('falls back to filename key when frontmatter has no method field', () => {
+    createAnalysisDir(tmpDir, '2026-04-06', 'breaking', {
+      files: {
+        existing: {
+          'deep-analysis.md': '# Deep Analysis\n\nAnalysis without frontmatter.',
+        },
+      },
+    });
+
+    const ctx = loadAnalysisContext('2026-04-06', 'breaking', tmpDir);
+    expect(ctx).not.toBeNull();
+    expect(ctx.files.has('deep-analysis')).toBe(true);
+    expect(ctx.files.get('deep-analysis').method).toBe('deep-analysis');
+  });
+});
+
+// ─── extractFrontmatterMethod tests ──────────────────────────────────────────
+
+describe('extractFrontmatterMethod', () => {
+  it('extracts method from valid frontmatter', () => {
+    const content = '---\nmethod: coalition-analysis\ndate: 2026-04-06\n---\n\n# Heading';
+    expect(extractFrontmatterMethod(content)).toBe('coalition-analysis');
+  });
+
+  it('returns null when no frontmatter present', () => {
+    expect(extractFrontmatterMethod('# Just a heading\n\nBody text.')).toBeNull();
+  });
+
+  it('returns null when frontmatter has no method field', () => {
+    const content = '---\ndate: 2026-04-06\nconfidence: high\n---\n\n# Heading';
+    expect(extractFrontmatterMethod(content)).toBeNull();
+  });
+
+  it('returns null for empty content', () => {
+    expect(extractFrontmatterMethod('')).toBeNull();
+  });
+
+  it('handles method with extra whitespace', () => {
+    const content = '---\nmethod:   stakeholder-analysis  \ndate: 2026-04-06\n---\n\n# Heading';
+    expect(extractFrontmatterMethod(content)).toBe('stakeholder-analysis');
+  });
+
+  it('returns null for unclosed frontmatter', () => {
+    const content = '---\nmethod: risk-matrix\ndate: 2026-04-06\n# No closing delimiter';
+    expect(extractFrontmatterMethod(content)).toBeNull();
   });
 });
 

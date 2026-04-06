@@ -122,11 +122,66 @@ function loadManifest(analysisDir) {
     }
 }
 /**
+ * Extract the `method:` value from YAML frontmatter in a markdown string.
+ *
+ * Analysis files produced by the pipeline embed the canonical method ID in
+ * their frontmatter (e.g. `method: coalition-analysis`).  When this differs
+ * from the filename (e.g. `coalition-dynamics.md`), the frontmatter value is
+ * the authoritative key for strategy lookups.
+ *
+ * @param content - Raw markdown content
+ * @returns The frontmatter `method` value, or `null` if absent/unparseable
+ */
+export function extractFrontmatterMethod(content) {
+    if (!content.startsWith('---'))
+        return null;
+    const endIdx = content.indexOf('---', 3);
+    if (endIdx === -1)
+        return null;
+    const frontmatter = content.slice(3, endIdx);
+    const match = /^method:\s*(.+)$/mu.exec(frontmatter);
+    return match?.[1]?.trim() ?? null;
+}
+/**
  * Load analysis markdown files from known subdirectories.
+ *
+ * Keys the returned map by the `method:` value extracted from the file's
+ * YAML frontmatter (canonical method ID).  When the filename differs from
+ * the frontmatter method (e.g. `coalition-dynamics.md` with frontmatter
+ * `method: coalition-analysis`), both the frontmatter key and the
+ * filename-derived key are registered so that callers can look up files
+ * by either identifier.
  *
  * @param analysisDir - Analysis output directory
  * @returns Map of method name → file content
  */
+/**
+ * Load a single analysis markdown file, register it in the map by both its
+ * frontmatter-derived method key and filename-derived alias.
+ *
+ * @param files - Map to register the file content into
+ * @param filePath - Absolute path to the .md file
+ * @param entry - Filename (e.g. `coalition-dynamics.md`)
+ * @param subdir - Parent subdirectory name (e.g. `existing`)
+ */
+function loadSingleAnalysisFile(files, filePath, entry, subdir) {
+    try {
+        const content = fs.readFileSync(filePath, 'utf-8');
+        const filenameKey = entry.replace(/\.md$/u, '');
+        const frontmatterMethod = extractFrontmatterMethod(content);
+        // Primary key: frontmatter method (canonical ID), fallback to filename
+        const method = frontmatterMethod ?? filenameKey;
+        const fileContent = { method, subdir, content, filePath };
+        files.set(method, fileContent);
+        // Register filename alias when it differs from the frontmatter method
+        if (frontmatterMethod && frontmatterMethod !== filenameKey) {
+            files.set(filenameKey, fileContent);
+        }
+    }
+    catch {
+        // Skip unreadable files
+    }
+}
 function loadAnalysisFiles(analysisDir) {
     const files = new Map();
     for (const subdir of ANALYSIS_SUBDIRS) {
@@ -138,16 +193,7 @@ function loadAnalysisFiles(analysisDir) {
             for (const entry of entries) {
                 if (!entry.endsWith('.md'))
                     continue;
-                const filePath = path.join(subdirPath, entry);
-                try {
-                    const content = fs.readFileSync(filePath, 'utf-8');
-                    // Derive method name from filename (strip .md extension)
-                    const method = entry.replace(/\.md$/u, '');
-                    files.set(method, { method, subdir, content, filePath });
-                }
-                catch {
-                    // Skip unreadable files
-                }
+                loadSingleAnalysisFile(files, path.join(subdirPath, entry), entry, subdir);
             }
         }
         catch {
