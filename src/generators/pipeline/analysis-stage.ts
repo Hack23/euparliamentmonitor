@@ -51,10 +51,17 @@ import type { MarkdownBuilder } from './analysis-helpers.js';
 
 // ─── Import category-specific builders ────────────────────────────────────────
 
-import { CLASSIFICATION_BUILDERS, METHOD_SIGNIFICANCE_SCORING_ID } from './analysis-classification.js';
+import {
+  CLASSIFICATION_BUILDERS,
+  METHOD_SIGNIFICANCE_SCORING_ID,
+} from './analysis-classification.js';
 import { THREAT_BUILDERS } from './analysis-threats.js';
 import { RISK_BUILDERS } from './analysis-risk.js';
-import { EXISTING_BUILDERS, METHOD_SYNTHESIS_SUMMARY_ID, METHOD_DOCUMENT_ANALYSIS } from './analysis-existing.js';
+import {
+  EXISTING_BUILDERS,
+  METHOD_SYNTHESIS_SUMMARY_ID,
+  METHOD_DOCUMENT_ANALYSIS,
+} from './analysis-existing.js';
 
 // ─── Analysis Method type ─────────────────────────────────────────────────────
 
