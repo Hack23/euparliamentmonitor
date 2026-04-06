@@ -277,7 +277,7 @@ graph TD
 | **New threat dimension activated** | Start at prior=1 (minimal); update with first evidence |
 | **Threat resolved** (e.g., vote passed, crisis averted) | Set to 1 (minimal) with note "resolved" |
 
-**Overall Threat Level Update:** `[REQUIRED: Did the Bayesian update change the overall threat level? E.g., "Prior: MODERATE → Posterior: HIGH (new coalition defection evidence)"]`
+**Overall Threat Level Update:** `[REQUIRED: Did the Bayesian update change the overall threat level? E.g., "Prior: MODERATE (avg severity 3.0) → Posterior: HIGH (avg severity 4.2, driven by new coalition defection evidence)"]`
 
 ---
 

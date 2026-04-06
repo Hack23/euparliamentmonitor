@@ -190,8 +190,7 @@ MCP Data Files:     [REQUIRED: paths to analysis/YYYY-MM-DD/{article-type-slug}/
 | Routine committee output during recess | ROUTINE | **ARCHIVE** | No audience; queue for session return |
 | ELEVATED event during constituency week | ELEVATED | **ROUTINE** (monitor) | Reduced EP engagement; track for plenary week |
 | URGENT event during summer recess | URGENT | **ELEVATED** (monitor + pre-position) | Prepare analysis; publish when EP reconvenes |
-| CRITICAL event during any recess | CRITICAL | **CRITICAL** (no override) | Institutional crises override recess rules |
-| Motion of censure filed during recess | CRITICAL | **CRITICAL** (immediate breaking) | Constitutional significance overrides calendar |
+| CRITICAL event during any recess (e.g., motion of censure) | CRITICAL | **CRITICAL** (no override) | Constitutional/institutional crises override recess rules |
 
 ### Current Calendar Context
 

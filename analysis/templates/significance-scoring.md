@@ -239,7 +239,7 @@ flowchart TD
 | **Plenary Session Week** | No adjustment | Normal editorial cycle; full audience attention |
 | **Committee Week** | −0.5 on Urgency | Lower time pressure; committee outputs mature over weeks |
 | **Constituency Week** | −1.0 on Public Interest | Reduced EP activity; audiences less engaged with EP news |
-| **Recess Period** (Aug, Dec–Jan) | −1.5 composite cap at 7.4 | No plenary votes; HOLD events for return week unless score ≥ 9.0 |
+| **Recess Period** (Aug, Dec–Jan) | Composite capped at max 7.4 (i.e., adjusted = min(raw, 7.4)) | No plenary votes; HOLD events for return week unless raw score ≥ 9.0 |
 | **Pre-Election Period** (6 months before EP elections) | +1.0 on Cross-Group Relevance | Heightened political positioning; coalition moves are electorally significant |
 | **Post-Election Transition** (first 3 months of new term) | +0.5 on Parliamentary Significance | New committee formations, group negotiations, leadership elections |
 

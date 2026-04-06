@@ -45,7 +45,7 @@
 
 ## 🔧 EP MCP Tool Mapping
 
-> **AI Instructions:** Use the following mapping to select the correct EP MCP tools for each section. Call the listed tools and cite their output as evidence.
+> **AI Instructions:** Use the following mapping to select the correct EP MCP tools for each section. These tools are from the `european-parliament-mcp-server` package. Call the listed tools and cite their output as evidence.
 
 | Template Section | Primary EP MCP Tool(s) | Fallback Tool | Output Used |
 |-----------------|----------------------|---------------|------------|

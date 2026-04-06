@@ -270,7 +270,7 @@ flowchart LR
 | **Scope** | Aggregates all daily syntheses from Monday–Sunday of one EP week |
 | **ID Format** | `SYN-YYYY-WNN-WEEK` (e.g., `SYN-2026-W14-WEEK`) |
 | **Trigger** | Produced by `news-weekly-review` workflow |
-| **Content** | Top 5 findings ranked by peak daily significance score; risk trend across the week (↑/→/↓); SWOT balance shift; narrative arc (how the week's story evolved); cumulative stakeholder impact |
+| **Content** | Top 5 findings ranked by peak daily significance score; risk trend across the week (↑/→/↓); SWOT balance shift; narrative arc (how the week's story evolved); cumulative stakeholder impact showing net effect per group (positive/negative/neutral) with the most-affected group highlighted |
 | **Aggregation Rules** | Use highest daily significance per event (not average); report risk trend direction; count total documents analysed across all daily runs |
 
 ### Monthly Rollup

@@ -234,7 +234,7 @@ graph TD
 | **Score Update** | Re-evaluate L×I each session using latest MCP data; record delta |
 | **Escalation** | If a risk crosses from ≤14 to ≥15 (into CRITICAL), mark as ESCALATED and trigger breaking assessment |
 | **Mitigation** | If a risk drops by ≥5 points and falls below MEDIUM (≤4), mark as MITIGATED |
-| **Closure** | Close risks when: (a) the triggering event has passed, (b) the risk score has been LOW for ≥3 consecutive sessions, or (c) the legislative file has been adopted/rejected |
+| **Closure** | Close risks when: (a) the triggering event and all downstream consequence windows have passed (e.g., both plenary vote and transposition deadline), (b) the risk score has been LOW for ≥3 consecutive sessions, or (c) the legislative file has been adopted/rejected with no further procedural stage |
 | **New Risks** | Assign the next available RSK-NNN ID; mark status as ACTIVE; record first-identified date |
 | **Stale Risks** | If a risk has not been re-evaluated for >7 days (MEDIUM) or >24h (CRITICAL), flag as "STALE — requires re-assessment" |
 

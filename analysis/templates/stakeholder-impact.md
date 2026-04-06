@@ -238,7 +238,7 @@ flowchart TD
 | `[REQUIRED: e.g. ITRE]` | Opinion | `[e.g. Business & Industry]` | `[positive/negative/neutral]` | `[e.g. "Innovation incentives for green tech"]` |
 | `[OPTIONAL: e.g. ECON]` | Opinion | `[e.g. Member States]` | `[positive/negative/neutral]` | `[e.g. "MFF allocation for transition funds"]` |
 
-**Cross-Committee Tension:** `[REQUIRED: 1–2 sentences on whether committees align or diverge on stakeholder impact. E.g., "ENVI prioritizes environmental protection (negative for Business) while ITRE emphasizes competitiveness (positive for Business), creating legislative tension in trilogue."]`
+**Cross-Committee Tension:** `[REQUIRED: 1–2 sentences on whether committees align or diverge on stakeholder impact. E.g., "ENVI prioritizes environmental protection (negative for Business) while ITRE emphasizes competitiveness (positive for Business), creating legislative tension during inter-committee compromise amendments and subsequent trilogue with Council/Commission."]`
 
 ### MCP Data Files Used
 
