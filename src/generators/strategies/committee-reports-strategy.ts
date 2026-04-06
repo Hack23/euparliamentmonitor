@@ -502,7 +502,7 @@ export class CommitteeReportsStrategy implements ArticleStrategy<CommitteeReport
     const analysisInsights = buildAnalysisInsightsSection(
       data.analysisContext,
       [
-        'stakeholder-impact',
+        'stakeholder-analysis',
         'significance-classification',
         'impact-matrix',
         'deep-analysis',

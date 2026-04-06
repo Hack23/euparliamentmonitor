@@ -551,8 +551,8 @@ describe('Strategy analysis context integration', () => {
 
   it('CommitteeReportsStrategy: buildContent includes insights when context is present', () => {
     const files = new Map();
-    files.set('stakeholder-impact', {
-      method: 'stakeholder-impact',
+    files.set('stakeholder-analysis', {
+      method: 'stakeholder-analysis',
       subdir: 'existing',
       content: '# Stakeholder Impact\n\nKey stakeholders affected by committee decisions.',
       filePath: '/tmp/test/existing/stakeholder-impact.md',
@@ -572,7 +572,7 @@ describe('Strategy analysis context integration', () => {
     const strategy = new CommitteeReportsStrategy();
     const content = strategy.buildContent(dataWithContext, 'en');
     expect(content).toContain('analysis-pipeline-insights');
-    expect(content).toContain('Stakeholder Impact');
+    expect(content).toContain('Stakeholder Analysis');
   });
 
   it('MotionsStrategy: buildContent includes insights when context is present', () => {

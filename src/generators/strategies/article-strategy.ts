@@ -198,19 +198,6 @@ export function extractFrontmatterMethod(content: string): string | null {
 }
 
 /**
- * Load analysis markdown files from known subdirectories.
- *
- * Keys the returned map by the `method:` value extracted from the file's
- * YAML frontmatter (canonical method ID).  When the filename differs from
- * the frontmatter method (e.g. `coalition-dynamics.md` with frontmatter
- * `method: coalition-analysis`), both the frontmatter key and the
- * filename-derived key are registered so that callers can look up files
- * by either identifier.
- *
- * @param analysisDir - Analysis output directory
- * @returns Map of method name → file content
- */
-/**
  * Load a single analysis markdown file, register it in the map by both its
  * frontmatter-derived method key and filename-derived alias.
  *
@@ -242,6 +229,19 @@ function loadSingleAnalysisFile(
   }
 }
 
+/**
+ * Load analysis markdown files from known subdirectories.
+ *
+ * Keys the returned map by the `method:` value extracted from the file's
+ * YAML frontmatter (canonical method ID).  When the filename differs from
+ * the frontmatter method (e.g. `coalition-dynamics.md` with frontmatter
+ * `method: coalition-analysis`), both the frontmatter key and the
+ * filename-derived key are registered so that callers can look up files
+ * by either identifier.
+ *
+ * @param analysisDir - Analysis output directory
+ * @returns Map of method name → file content
+ */
 function loadAnalysisFiles(analysisDir: string): Map<string, AnalysisFileContent> {
   const files = new Map<string, AnalysisFileContent>();
 
