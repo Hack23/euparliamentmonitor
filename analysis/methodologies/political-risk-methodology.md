@@ -336,11 +336,13 @@ Data availability is itself a risk dimension. When EP MCP API feeds return degra
 
 ### Data Availability Risk Matrix
 
+> **Alignment note:** These availability bands follow the canonical project thresholds defined in `political-style-guide.md` to ensure consistent workflow decisions across analysis and publishing.
+
 | Data Availability Level | EP MCP Feeds Active | Risk Assessment Impact | Analytical Action |
 |------------------------|:-------------------:|----------------------|-------------------|
-| **Full** | ≥7 of 8 core feeds | Normal analysis | Standard risk scoring protocol |
-| **Degraded** | 4–6 feeds active | Likelihood estimates less precise (±1 uncertainty) | Widen confidence intervals; note data gaps |
-| **Sparse** | 1–3 feeds active (typical recess) | Likelihood and impact estimates unreliable | Carry forward prior assessments with temporal decay; do not generate new risk scores from insufficient data |
+| **Full** | ≥6 of 8 core feeds | Normal analysis | Standard risk scoring protocol |
+| **Degraded** | 3–5 feeds active | Likelihood estimates less precise (±1 uncertainty) | Widen confidence intervals; note data gaps |
+| **Sparse** | 1–2 feeds active (typical recess) | Likelihood and impact estimates unreliable | Carry forward prior assessments with temporal decay; do not generate new risk scores from insufficient data |
 | **Unavailable** | 0 feeds active (major outage) | Risk assessment impossible | State: "Risk assessment suspended — no EP MCP data available" |
 
 ### Core EP MCP Feeds for Risk Assessment

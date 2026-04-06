@@ -797,7 +797,7 @@ Before finalising any analysis artifact, the AI agent must verify:
 
 | Dimension | Weight | Score |
 |-----------|:------:|:-----:|
-| Evidence density (citations per 100 words) | 0.25 | `[1-10]` |
+| Evidence density (absolute count of evidence references) | 0.25 | `[1-10]` |
 | Analytical depth (beyond surface observation) | 0.25 | `[1-10]` |
 | Structural compliance (tables, Mermaid, template adherence) | 0.20 | `[1-10]` |
 | Actionable intelligence (forward indicators, probability assessments) | 0.15 | `[1-10]` |
@@ -813,7 +813,7 @@ The five methodology dimensions map to the TypeScript `article-quality-scorer.ts
 
 | Methodology Dimension | Weight | TypeScript Constant | TypeScript Measurement | Notes |
 |----------------------|:------:|---------------------|------------------------|-------|
-| Evidence density | 0.25 | `WEIGHT_EVIDENCE` | Absolute count of evidence references: evidence list items (`class="evidence-refs"`), evidence markers (`class="evidence"`), `data-reference` attributes, and unique EP document codes (`P9_TA`, `COM`, `RCV`, procedure codes), capped at `EVIDENCE_MAX` (10). Not normalized per word count. | Direct alignment |
+| Evidence density | 0.25 | `WEIGHT_EVIDENCE` | Absolute count of evidence references: `<li>` items inside `<ul class="perspective-evidence">` containers, `<li>` items inside `<ul class="evidence-refs">` containers, `class="swot-ref-evidence"` SWOT cross-reference markers, `class="evidence"` generic/legacy markers, `data-reference` attributes, and unique EP document codes matching patterns `TA-…` (e.g., `TA-10-2026-0123`), `PE-…` (e.g., `PE-123.456`), `A9/B9/C9-…` (e.g., `A9-0123`), and `P9_TA(YYYY)…` (e.g., `P9_TA(2024)0001`). Capped at `EVIDENCE_MAX` (10). Not normalized per word count. | Direct alignment |
 | Analytical depth (beyond surface observation) | 0.25 | `WEIGHT_ANALYSIS_DEPTH` | Boolean keyword detection across 6 sub-dimensions: political context, coalition dynamics, historical context, evidence-based conclusions, scenario planning, confidence levels | Keyword heuristic approximation |
 | Structural compliance (tables, Mermaid, template adherence) | 0.20 | `WEIGHT_VISUALIZATION` | Presence and depth of SWOT sections, dashboard metrics, mindmap branches, deep-analysis sections | Structural element detection |
 | Actionable intelligence (forward indicators, probability assessments) | 0.15 | `WEIGHT_WORD_COUNT` | Article word count scaled linearly from `WORD_COUNT_MIN` (0) to `WORD_COUNT_MAX` (1500) | Proxy: longer articles typically contain more actionable content |

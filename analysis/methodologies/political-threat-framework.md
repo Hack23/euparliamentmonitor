@@ -390,8 +390,8 @@ Threat assessments have a **finite shelf life**. A threat identified 6 months ag
 
 | Original Severity | After 30 days | After 90 days | After 180 days | After >180 days |
 |------------------|:------------:|:-------------:|:--------------:|:--------------:|
-| **CRITICAL** | CRITICAL | HIGH | MEDIUM | EXPIRED |
-| **HIGH** | HIGH | MEDIUM | LOW | EXPIRED |
+| **SEVERE** | SEVERE | HIGH | MODERATE | EXPIRED |
+| **HIGH** | HIGH | MODERATE | LOW | EXPIRED |
 | **MODERATE** | MODERATE | LOW | EXPIRED | EXPIRED |
 | **LOW** | LOW | EXPIRED | EXPIRED | EXPIRED |
 
@@ -415,9 +415,9 @@ Threat assessments have a **finite shelf life**. A threat identified 6 months ag
 
 ```mermaid
 flowchart LR
-    A["🔴 CRITICAL<br/>Day 0"] -->|"30 days"| B["🔴 CRITICAL<br/>Day 30"]
+    A["🔴 SEVERE<br/>Day 0"] -->|"30 days"| B["🔴 SEVERE<br/>Day 30"]
     B -->|"60 days"| C["🟠 HIGH<br/>Day 90"]
-    C -->|"90 days"| D["🟡 MEDIUM<br/>Day 180"]
+    C -->|"90 days"| D["🟡 MODERATE<br/>Day 180"]
     D -->|"No new evidence"| E["⚪ EXPIRED<br/>Day 180+"]
 
     F["New EP MCP<br/>evidence"] -->|"Re-verify"| G["🔄 Reset clock<br/>Re-assess severity"]
