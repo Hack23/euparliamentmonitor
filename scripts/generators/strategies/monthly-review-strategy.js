@@ -9,6 +9,7 @@ import { buildVotingAnalysis, buildVotingSwot, buildVotingDashboard, buildVoting
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
+import { loadAnalysisContext, buildAnalysisInsightsSection } from './article-strategy.js';
 import { pl } from '../../utils/metadata-utils.js';
 import { isPlaceholderText } from '../../constants/analysis-constants.js';
 /** Base keywords shared by all Monthly Review articles */
@@ -159,6 +160,7 @@ export class MonthlyReviewStrategy {
             questions,
             monthLabel,
             feedData,
+            analysisContext: loadAnalysisContext(date, 'month-in-review'),
         };
     }
     /**
@@ -178,7 +180,14 @@ export class MonthlyReviewStrategy {
         const swotSection = buildSwotSection(swotData, lang);
         const dashboardData = buildVotingDashboard(data.votingRecords, data.votingPatterns, data.anomalies, lang);
         const dashboardSection = buildDashboardSection(dashboardData, lang);
-        return base.replace('<!-- /article-content -->', deepSection + mindmapSection + swotSection + dashboardSection);
+        const analysisInsights = buildAnalysisInsightsSection(data.analysisContext, [
+            'synthesis-summary',
+            'voting-patterns',
+            'coalition-analysis',
+            'significance-classification',
+            'legislative-velocity-risk',
+        ], lang);
+        return base.replace('<!-- /article-content -->', deepSection + mindmapSection + swotSection + dashboardSection + analysisInsights);
     }
     /**
      * Return language-specific metadata for the monthly review article.

@@ -359,6 +359,16 @@ async function main() {
         // so article transparency links point to the correct suffixed analysis
         // directory when suffix deduplication is active.
         const analysisDir = analysisCtx ? path.basename(analysisCtx.outputDir) : undefined;
+        // Expose analysis dir/slug via env vars so strategies can locate analysis
+        // artifacts without hard-coding paths.  Follows the EP_FEED_DATA_FILE pattern.
+        if (analysisCtx) {
+            // Base dir: parent of date-scoped dir (e.g. 'analysis' from 'analysis/2026-04-06/breaking')
+            const analysisOutputParent = path.dirname(analysisCtx.outputDir);
+            const analysisBaseDir = path.dirname(analysisOutputParent);
+            process.env['EP_ANALYSIS_DIR'] = analysisBaseDir;
+            // Slug: the resolved directory basename (may include dedup suffix like 'breaking-2')
+            process.env['EP_ANALYSIS_SLUG'] = analysisDir;
+        }
         // Extract the dedup suffix by comparing the resolved analysis dir
         // basename with the original slug.  For example:
         //   slug = 'breaking'  →  analysisDir = 'breaking-2'  →  dedupSuffix = '-2'

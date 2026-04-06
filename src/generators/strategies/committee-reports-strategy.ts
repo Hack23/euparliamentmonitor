@@ -39,6 +39,7 @@ import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
+import { loadAnalysisContext, buildAnalysisInsightsSection } from './article-strategy.js';
 import type { ArticleSource } from '../../types/index.js';
 import { pl } from '../../utils/metadata-utils.js';
 
@@ -465,7 +466,12 @@ export class CommitteeReportsStrategy implements ArticleStrategy<CommitteeReport
       (committee): committee is CommitteeData => committee !== null
     );
 
-    return { date, committeeDataList, feedData };
+    return {
+      date,
+      committeeDataList,
+      feedData,
+      analysisContext: loadAnalysisContext(date, 'committee-reports'),
+    };
   }
 
   /**
@@ -486,7 +492,24 @@ export class CommitteeReportsStrategy implements ArticleStrategy<CommitteeReport
     const swotSection = buildSwotSection(swotData, lang);
     const dashboardData = buildCommitteeDashboard(data.committeeDataList, lang);
     const dashboardSection = buildDashboardSection(dashboardData, lang);
-    const injection = feedSection + deepSection + mindmapSection + swotSection + dashboardSection;
+    const analysisInsights = buildAnalysisInsightsSection(
+      data.analysisContext,
+      [
+        'stakeholder-analysis',
+        'significance-classification',
+        'impact-matrix',
+        'deep-analysis',
+        'actor-mapping',
+      ],
+      lang
+    );
+    const injection =
+      feedSection +
+      deepSection +
+      mindmapSection +
+      swotSection +
+      dashboardSection +
+      analysisInsights;
     // Inject before the closing </div> of .article-content
     if (injection) {
       const closingTag = '</div>';

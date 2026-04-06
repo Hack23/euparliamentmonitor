@@ -40,6 +40,7 @@ import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
+import { loadAnalysisContext, buildAnalysisInsightsSection } from './article-strategy.js';
 import { pl } from '../../utils/metadata-utils.js';
 import { isPlaceholderText } from '../../constants/analysis-constants.js';
 
@@ -234,6 +235,7 @@ export class MonthlyReviewStrategy implements ArticleStrategy<MonthlyReviewArtic
       questions,
       monthLabel,
       feedData,
+      analysisContext: loadAnalysisContext(date, 'month-in-review'),
     };
   }
 
@@ -279,9 +281,20 @@ export class MonthlyReviewStrategy implements ArticleStrategy<MonthlyReviewArtic
       lang
     );
     const dashboardSection = buildDashboardSection(dashboardData, lang);
+    const analysisInsights = buildAnalysisInsightsSection(
+      data.analysisContext,
+      [
+        'synthesis-summary',
+        'voting-patterns',
+        'coalition-analysis',
+        'significance-classification',
+        'legislative-velocity-risk',
+      ],
+      lang
+    );
     return base.replace(
       '<!-- /article-content -->',
-      deepSection + mindmapSection + swotSection + dashboardSection
+      deepSection + mindmapSection + swotSection + dashboardSection + analysisInsights
     );
   }
 

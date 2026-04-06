@@ -37,6 +37,7 @@ import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
+import { loadAnalysisContext, buildAnalysisInsightsSection } from './article-strategy.js';
 import { pl } from '../../utils/metadata-utils.js';
 import { isPlaceholderText } from '../../constants/analysis-constants.js';
 
@@ -216,6 +217,7 @@ export class MotionsStrategy implements ArticleStrategy<MotionsArticleData> {
       anomalies,
       questions,
       feedData,
+      analysisContext: loadAnalysisContext(date, 'motions'),
     };
   }
 
@@ -263,6 +265,17 @@ export class MotionsStrategy implements ArticleStrategy<MotionsArticleData> {
       ? buildVotingDashboard(data.votingRecords, data.votingPatterns, data.anomalies, lang)
       : null;
     const dashboardSection = buildDashboardSection(dashboardData, lang);
+    const analysisInsights = buildAnalysisInsightsSection(
+      data.analysisContext,
+      [
+        'political-threat-landscape',
+        'coalition-analysis',
+        'voting-patterns',
+        'risk-matrix',
+        'actor-mapping',
+      ],
+      lang
+    );
     // Inject at the explicit <!-- /article-content --> marker so the section
     // stays inside the .article-content styling scope. The marker is always
     // emitted by generateMotionsContent as the last child of that wrapper and
@@ -273,7 +286,8 @@ export class MotionsStrategy implements ArticleStrategy<MotionsArticleData> {
       deepSection +
       mindmapSection +
       swotSection +
-      dashboardSection;
+      dashboardSection +
+      analysisInsights;
     if (injection) {
       return base.replace('<!-- /article-content -->', `${injection}\n`);
     }

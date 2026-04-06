@@ -408,6 +408,14 @@ export type {
   ArticleMetadata,
   ArticleStrategyBase,
   ArticleStrategy,
+  LoadedAnalysisContext,
+  AnalysisFileContent,
+} from './generators/strategies/article-strategy.js';
+
+export {
+  loadAnalysisContext,
+  extractAnalysisSummary,
+  buildAnalysisInsightsSection,
 } from './generators/strategies/article-strategy.js';
 
 export {

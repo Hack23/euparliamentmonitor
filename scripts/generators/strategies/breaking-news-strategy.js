@@ -9,6 +9,7 @@ import { buildBreakingAnalysis, buildBreakingSwot, buildBreakingDashboard, build
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
+import { loadAnalysisContext, buildAnalysisInsightsSection } from './article-strategy.js';
 import { pl } from '../../utils/metadata-utils.js';
 /** Base keywords shared by all Breaking News articles */
 const BREAKING_NEWS_BASE_KEYWORDS = [
@@ -127,6 +128,8 @@ export class BreakingNewsStrategy {
      * @returns Populated breaking news data payload
      */
     async fetchData(client, date) {
+        // Load analysis context once for all return paths (graceful: null if absent)
+        const analysisContext = loadAnalysisContext(date, 'breaking');
         // Step 0: Check for pre-fetched feed data file (set by --feed-data CLI arg).
         // This allows agentic workflows to pass MCP data fetched via framework tools
         // into the generator without requiring a direct MCP connection.
@@ -149,7 +152,14 @@ export class BreakingNewsStrategy {
                         fetchCoalitionDynamics(client),
                     ]);
                 }
-                return { date, feedData: fileFeedData, anomalyRaw, coalitionRaw, reportRaw: '' };
+                return {
+                    date,
+                    feedData: fileFeedData,
+                    anomalyRaw,
+                    coalitionRaw,
+                    reportRaw: '',
+                    analysisContext,
+                };
             }
             console.log('  ⚠️ Pre-fetched feed data failed to load — falling through to MCP fetch');
         }
@@ -161,7 +171,14 @@ export class BreakingNewsStrategy {
         // When client is null, feedData is undefined — MCP unavailable
         if (!feedData) {
             console.log('  ⚠️ MCP unavailable — no feed data or analytical context');
-            return { date, feedData, anomalyRaw: '', coalitionRaw: '', reportRaw: '' };
+            return {
+                date,
+                feedData,
+                anomalyRaw: '',
+                coalitionRaw: '',
+                reportRaw: '',
+                analysisContext,
+            };
         }
         const totalFeedItems = feedData.adoptedTexts.length +
             feedData.events.length +
@@ -174,14 +191,28 @@ export class BreakingNewsStrategy {
         }
         else {
             console.log('  ⚠️ No feed data available — skipping analytical context fetch');
-            return { date, feedData, anomalyRaw: '', coalitionRaw: '', reportRaw: '' };
+            return {
+                date,
+                feedData,
+                anomalyRaw: '',
+                coalitionRaw: '',
+                reportRaw: '',
+                analysisContext,
+            };
         }
         // Step 2: Fetch analytical context only when at least one feed item is available
         const [anomalyRaw, coalitionRaw] = await Promise.all([
             fetchVotingAnomalies(client),
             fetchCoalitionDynamics(client),
         ]);
-        return { date, feedData, anomalyRaw, coalitionRaw, reportRaw: '' };
+        return {
+            date,
+            feedData,
+            anomalyRaw,
+            coalitionRaw,
+            reportRaw: '',
+            analysisContext,
+        };
     }
     /**
      * Build the breaking news HTML body for the specified language.
@@ -200,7 +231,14 @@ export class BreakingNewsStrategy {
         const swotSection = buildSwotSection(swotData, lang);
         const dashboardData = buildBreakingDashboard(data.feedData, lang);
         const dashboardSection = buildDashboardSection(dashboardData, lang);
-        const injection = deepSection + mindmapSection + swotSection + dashboardSection;
+        const analysisInsights = buildAnalysisInsightsSection(data.analysisContext, [
+            'risk-matrix',
+            'quantitative-swot',
+            'significance-classification',
+            'political-threat-landscape',
+            'coalition-analysis',
+        ], lang);
+        const injection = deepSection + mindmapSection + swotSection + dashboardSection + analysisInsights;
         // Inject before the closing </div> of .article-content
         if (injection) {
             const closingTag = '</div>';

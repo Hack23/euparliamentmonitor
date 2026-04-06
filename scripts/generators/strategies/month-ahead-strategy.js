@@ -9,6 +9,7 @@ import { buildProspectiveAnalysis, buildProspectiveSwot, buildProspectiveDashboa
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
+import { loadAnalysisContext, buildAnalysisInsightsSection } from './article-strategy.js';
 import { pl } from '../../utils/metadata-utils.js';
 /** Keywords shared by all Month Ahead articles */
 const MONTH_AHEAD_KEYWORDS = [
@@ -125,7 +126,15 @@ export class MonthAheadStrategy {
         ]);
         const keywords = [...MONTH_AHEAD_KEYWORDS, ...buildKeywords(monthData)];
         const monthLabel = formatMonthLabel(dateRange.start);
-        return { date, dateRange, monthData, keywords, monthLabel, feedData };
+        return {
+            date,
+            dateRange,
+            monthData,
+            keywords,
+            monthLabel,
+            feedData,
+            analysisContext: loadAnalysisContext(date, 'month-ahead'),
+        };
     }
     /**
      * Build the month-ahead HTML body for the specified language.
@@ -144,7 +153,14 @@ export class MonthAheadStrategy {
         const swotSection = buildSwotSection(swotData, lang);
         const dashboardData = buildProspectiveDashboard(data.monthData, 'month', lang);
         const dashboardSection = buildDashboardSection(dashboardData, lang);
-        return base.replace('<!-- /article-content -->', analysisSection + mindmapSection + swotSection + dashboardSection);
+        const analysisInsights = buildAnalysisInsightsSection(data.analysisContext, [
+            'significance-classification',
+            'political-threat-landscape',
+            'risk-matrix',
+            'forces-analysis',
+            'legislative-velocity-risk',
+        ], lang);
+        return base.replace('<!-- /article-content -->', analysisSection + mindmapSection + swotSection + dashboardSection + analysisInsights);
     }
     /**
      * Return language-specific metadata for the month-ahead article.
