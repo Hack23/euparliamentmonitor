@@ -338,16 +338,18 @@ The analysis artifacts provide structured political intelligence that enriches t
 
 ### Structured Analysis Templates (analysis/templates/)
 
-Read and apply these templates for **every downloaded MCP data file** in `analysis/${TODAY}/propositions/data/`:
+Read all templates in `analysis/templates/` before starting analysis. The table below includes the **six core analytical dimension templates** plus the required **per-file** and **synthesis** templates used by this workflow for `analysis/${TODAY}/propositions/data/`:
 
 | Template | File | When to Apply |
 |----------|------|--------------|
-| **Political Classification** | `analysis/templates/political-classification.md` | Every new EP event or document — FIRST STEP |
-| **Risk Assessment** | `analysis/templates/risk-assessment.md` | **EMPHASIS** — Coalition/policy/institutional risk indicators |
-| **Threat Analysis** | `analysis/templates/threat-analysis.md` | Threat Landscape-format democratic threat review |
-| **SWOT Analysis** | `analysis/templates/swot-analysis.md` | Strategic political landscape assessment |
-| **Stakeholder Impact** | `analysis/templates/stakeholder-impact.md` | **EMPHASIS** — Policy decisions and legislative impact |
-| **Significance Scoring** | `analysis/templates/significance-scoring.md` | **EMPHASIS** — Publication priority and passage probability |
+| **Per-File Political Intelligence** | `analysis/templates/per-file-political-intelligence.md` | **REQUIRED for every downloaded MCP data file** — use this as the per-file analysis wrapper/checklist |
+| **Political Classification** | `analysis/templates/political-classification.md` | For every downloaded MCP data file — FIRST analytical dimension |
+| **Risk Assessment** | `analysis/templates/risk-assessment.md` | For every downloaded MCP data file — **EMPHASIS** on coalition/policy/institutional risk indicators |
+| **Threat Analysis** | `analysis/templates/threat-analysis.md` | For every downloaded MCP data file — Threat Landscape-format democratic threat review |
+| **SWOT Analysis** | `analysis/templates/swot-analysis.md` | For every downloaded MCP data file — strategic political landscape assessment |
+| **Stakeholder Impact** | `analysis/templates/stakeholder-impact.md` | For every downloaded MCP data file — **EMPHASIS** on policy decisions and legislative impact |
+| **Significance Scoring** | `analysis/templates/significance-scoring.md` | For every downloaded MCP data file — **EMPHASIS** on publication priority and passage probability |
+| **Synthesis Summary** | `analysis/templates/synthesis-summary.md` | After completing all per-file analyses — produce the cross-file synthesis that feeds article generation |
 
 ### Analysis Methodology Guides (analysis/methodologies/)
 
@@ -395,7 +397,7 @@ Read and follow `docs/analysis-methodology/legislative-risk-assessment.md` for p
 Each analysis markdown file MUST include (matching the quality of `SWOT.md` and `THREAT_MODEL.md`):
 
 1. **Professional header** — Title with emoji, analysis date, confidence level badges
-2. **Executive summary table** — Color-coded key findings using shield.io badges
+2. **Executive summary table** — Color-coded key findings using shields.io badges
 3. **Minimum 3 Mermaid diagrams** — Pie charts, flowcharts, quadrant charts, or mindmaps with color coding (EPP=#003399, S&D=#cc0000, Renew=#FFD700, ECR=#FF6600, Greens=#009933)
 4. **Structured assessment tables** — Multi-dimensional scoring with trend indicators (↑↗→↘↓)
 5. **Confidence levels on every judgment** — 🟢 High / 🟡 Medium / 🔴 Low with justification

@@ -295,16 +295,18 @@ The analysis artifacts provide structured political intelligence that enriches t
 
 ### Structured Analysis Templates (analysis/templates/)
 
-Read and apply these templates for **every downloaded MCP data file** in `analysis/${TODAY}/week-in-review/data/`:
+Read and apply **all structured templates** used by this workflow. This includes per-file analysis for **every downloaded MCP data file** in `analysis/${TODAY}/week-in-review/data/` and a final cross-file synthesis step:
 
 | Template | File | When to Apply |
 |----------|------|--------------|
+| **Per-File Political Intelligence** | `analysis/templates/per-file-political-intelligence.md` | **Every downloaded MCP data file** — mandatory per-file intelligence summary |
 | **Political Classification** | `analysis/templates/political-classification.md` | Every new EP event or document — FIRST STEP |
 | **Risk Assessment** | `analysis/templates/risk-assessment.md` | Coalition/policy/institutional risk indicators |
 | **Threat Analysis** | `analysis/templates/threat-analysis.md` | Threat Landscape-format democratic threat review |
 | **SWOT Analysis** | `analysis/templates/swot-analysis.md` | Strategic political landscape assessment |
 | **Stakeholder Impact** | `analysis/templates/stakeholder-impact.md` | Policy decisions or legislative actions |
 | **Significance Scoring** | `analysis/templates/significance-scoring.md` | Publication priority decisions |
+| **Synthesis Summary** | `analysis/templates/synthesis-summary.md` | After all per-file analyses — mandatory weekly review synthesis across the full dataset |
 
 ### Analysis Methodology Guides (analysis/methodologies/)
 
@@ -352,7 +354,7 @@ Read and follow `docs/analysis-methodology/weekly-intelligence-brief.md` for the
 Each analysis markdown file MUST include (matching the quality of `SWOT.md` and `THREAT_MODEL.md`):
 
 1. **Professional header** — Title with emoji, analysis date, confidence level badges
-2. **Executive summary table** — Color-coded key findings using shield.io badges
+2. **Executive summary table** — Color-coded key findings using shields.io badges
 3. **Minimum 3 Mermaid diagrams** — Pie charts, flowcharts, quadrant charts, or mindmaps with color coding (EPP=#003399, S&D=#cc0000, Renew=#FFD700, ECR=#FF6600, Greens=#009933)
 4. **Structured assessment tables** — Multi-dimensional scoring with trend indicators (↑↗→↘↓)
 5. **Confidence levels on every judgment** — 🟢 High / 🟡 Medium / 🔴 Low with justification

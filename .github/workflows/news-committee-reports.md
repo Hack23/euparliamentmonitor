@@ -340,16 +340,18 @@ The analysis artifacts provide structured political intelligence that enriches t
 
 ### Structured Analysis Templates (analysis/templates/)
 
-Read and apply these templates for **every downloaded MCP data file** in `analysis/${TODAY}/committee-reports/data/`:
+Read and apply the complete template set below when analyzing `analysis/${TODAY}/committee-reports/data/`:
 
 | Template | File | When to Apply |
 |----------|------|--------------|
-| **Political Classification** | `analysis/templates/political-classification.md` | Every new EP event or document — FIRST STEP |
-| **Risk Assessment** | `analysis/templates/risk-assessment.md` | Coalition/policy/institutional risk indicators |
-| **Threat Analysis** | `analysis/templates/threat-analysis.md` | Threat Landscape-format democratic threat review |
-| **SWOT Analysis** | `analysis/templates/swot-analysis.md` | Strategic political landscape assessment |
-| **Stakeholder Impact** | `analysis/templates/stakeholder-impact.md` | **EMPHASIS** — Policy decisions and legislative impact assessment |
-| **Significance Scoring** | `analysis/templates/significance-scoring.md` | **EMPHASIS** — Publication priority and committee report ranking |
+| **Per-File Political Intelligence** | `analysis/templates/per-file-political-intelligence.md` | **EVERY downloaded MCP data file** — use as the required per-file analysis structure/output |
+| **Political Classification** | `analysis/templates/political-classification.md` | Every new EP event or document — FIRST STEP within each per-file analysis |
+| **Risk Assessment** | `analysis/templates/risk-assessment.md` | Within each per-file analysis for coalition/policy/institutional risk indicators |
+| **Threat Analysis** | `analysis/templates/threat-analysis.md` | Within each per-file analysis for Threat Landscape-format democratic threat review |
+| **SWOT Analysis** | `analysis/templates/swot-analysis.md` | Within each per-file analysis for strategic political landscape assessment |
+| **Stakeholder Impact** | `analysis/templates/stakeholder-impact.md` | Within each per-file analysis — **EMPHASIS** on policy decisions and legislative impact assessment |
+| **Significance Scoring** | `analysis/templates/significance-scoring.md` | Within each per-file analysis — **EMPHASIS** on publication priority and committee report ranking |
+| **Synthesis Summary** | `analysis/templates/synthesis-summary.md` | After all per-file analyses are complete — produce the run-level synthesis summary |
 
 ### Analysis Methodology Guides (analysis/methodologies/)
 
@@ -397,7 +399,7 @@ Read and follow `docs/analysis-methodology/committee-power-analysis.md` for comm
 Each analysis markdown file MUST include (matching the quality of `SWOT.md` and `THREAT_MODEL.md`):
 
 1. **Professional header** — Title with emoji, analysis date, confidence level badges
-2. **Executive summary table** — Color-coded key findings using shield.io badges
+2. **Executive summary table** — Color-coded key findings using shields.io badges
 3. **Minimum 3 Mermaid diagrams** — Pie charts, flowcharts, quadrant charts, or mindmaps with color coding (EPP=#003399, S&D=#cc0000, Renew=#FFD700, ECR=#FF6600, Greens=#009933)
 4. **Structured assessment tables** — Multi-dimensional scoring with trend indicators (↑↗→↘↓)
 5. **Confidence levels on every judgment** — 🟢 High / 🟡 Medium / 🔴 Low with justification
