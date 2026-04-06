@@ -11,12 +11,12 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-2.0-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--31-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-2.1-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--06-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.0 | **📅 Last Updated:** 2026-03-31 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 2.1 | **📅 Last Updated:** 2026-04-06 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
@@ -108,6 +108,72 @@ All political analysis is written at one of three depth levels. The target depth
 
 **Example:**
 > **Coalition Fragmentation Probability (90-day window):** We assess a 25–35% probability [MEDIUM confidence] that the Renew Europe group will experience a formal split before the June 2026 plenary, based on three converging indicators: (1) French delegation voting against group line on 4 of 7 key votes in Q1 2026 (EP MCP voting records), (2) public statements by 3 Renew MEPs calling for group reform (EP speeches database), and (3) declining group cohesion from 78% to 61% over 6 months (EP MCP `analyze_voting_patterns`). Alternative hypothesis: the group leadership manages internal tensions through committee chair redistribution [LOW confidence, would require EPP cooperation].
+
+---
+
+## 🏖️ Recess and Data-Sparse Period Guidance (New in v2.1)
+
+The European Parliament has scheduled recess periods (Easter, summer, year-end) during which plenary sessions, committee meetings, and voting do not occur. During recess, EP MCP API feeds return reduced or empty datasets. This section defines how analysis depth and focus should adapt.
+
+### EP Parliamentary Recess Calendar (Typical)
+
+| Recess Period | Approximate Dates | Duration |
+|--------------|------------------|----------|
+| Easter recess | Late March – mid April | ~2–3 weeks |
+| Summer recess | Late July – August | ~5–6 weeks |
+| Year-end recess | Late December – mid January | ~3 weeks |
+| Constituency weeks | Scattered (see EP calendar) | 1 week each |
+
+### EP API Feed Availability During Recess
+
+During recess, EP MCP API feeds experience degraded availability. Expect the following pattern:
+
+| EP MCP Feed | Recess Behaviour | Expected Response |
+|-------------|-----------------|-------------------|
+| `get_plenary_sessions` | No new sessions | Empty results or 404 |
+| `get_voting_records` | No new votes | Empty results or 404 |
+| `get_speeches` | No new speeches | Empty results or 404 |
+| `get_adopted_texts` | No new adoptions | Empty results or 404 |
+| `get_committee_documents` | Reduced output | Some documents may still be published |
+| `get_procedures` | Procedures continue in background | Limited updates; trilogue continues |
+| `get_parliamentary_questions` | Written questions still filed | Reduced volume but available |
+| `get_events` | No plenary events | Hearings/conferences may still occur |
+
+### Depth Level Selection During Data-Sparse Periods
+
+| Data Availability | Recommended Depth Level | Rationale |
+|------------------|:----------------------:|-----------|
+| **Normal** (≥6 of 8 feeds active) | Level 2 or Level 3 | Full evidence base available |
+| **Degraded** (3–5 feeds active) | Level 1 or Level 2 | Reduced evidence; focus on available data |
+| **Sparse** (≤2 feeds active, typical recess) | Level 1 (Surface) | Insufficient new evidence for strategic analysis |
+
+### Focus Areas During Recess Periods
+
+When new EP data is unavailable, shift analytical focus to:
+
+1. **Historical trend analysis** — Use existing datasets to identify multi-week or multi-month patterns (e.g., political group cohesion trends over Q1)
+2. **Structural analysis** — Analyse committee compositions, rapporteur assignments, and political group positioning that does not change during recess
+3. **Forward-looking scenarios** — Use the data-quiet period for scenario planning (per [political-threat-framework.md](political-threat-framework.md) Scenario Planning framework)
+4. **Cross-document correlation** — Re-examine previously analysed documents for connections missed in real-time analysis
+5. **Retrospective quality improvement** — Review and improve prior analysis quality scores
+
+### Quality Gate Adjustment During Recess
+
+| Period | Quality Gate | Evidence Minimum | Rationale |
+|--------|:-----------:|:----------------:|-----------|
+| Normal session | 7.0/10 | Per standard table | Full data available |
+| Recess period | 7.0/10 (**unchanged**) | Reduced by 50% (per-file: 1 citation, 1 EP doc ref) | Quality standard remains; evidence thresholds adjust to data availability |
+
+> **⚠️ Critical Rule:** The quality gate score (7.0/10) does NOT decrease during recess. What changes is the **minimum evidence count** — because less data is available, fewer citations are required to meet the evidence density dimension. The analytical depth, structural compliance, and neutrality dimensions remain fully enforced.
+
+### Anti-Patterns During Recess
+
+| Anti-Pattern | Why Prohibited | Correct Alternative |
+|-------------|---------------|-------------------|
+| Fabricating activity ("The Parliament is expected to...") | No basis in evidence when EP is in recess | State: "Parliament is in recess; no new legislative activity" |
+| Recycling old data as new | Misleads readers; violates evidence currency | Clearly label: "Based on pre-recess data from [date]" |
+| Skipping analysis entirely | Misses structural and trend-based insights | Produce Level 1 analysis focused on trends and scenarios |
+| Claiming urgency during recess | No plenary votes or committee actions to be urgent about | Use ROUTINE urgency; reserve ELEVATED+ for genuine post-recess events |
 
 ---
 

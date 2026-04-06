@@ -9,7 +9,7 @@
   <em>🎯 Coalition · Policy · Budget · Institutional · Geopolitical Risk Quantification</em>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.0 | **📅 Last Updated:** 2026-03-31 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 2.1 | **📅 Last Updated:** 2026-04-06 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
@@ -327,6 +327,47 @@ flowchart TD
 | Stress → Compromise | 15% (30%×50%) | Short-term disruption resolved | Public negotiation succeeds | Trilogue progress reports |
 | Crisis → New coalition | 6% (10%×60%) | Coalition reconfigured, EU governance adapts | Grand Coalition collapse triggers realignment | No-confidence motion result |
 | Crisis → Minority | 4% (10%×40%) | Ad-hoc legislative majorities | No stable coalition possible | EP vote fragmentation patterns |
+
+---
+
+## 📡 Advanced Technique 5: EP API Data Availability as a Risk Factor (New in v2.1)
+
+Data availability is itself a risk dimension. When EP MCP API feeds return degraded results (empty datasets, 404 responses, stale data), analytical confidence decreases and risk assessments become less reliable. This section formalises data availability as a risk input.
+
+### Data Availability Risk Matrix
+
+| Data Availability Level | EP MCP Feeds Active | Risk Assessment Impact | Analytical Action |
+|------------------------|:-------------------:|----------------------|-------------------|
+| **Full** | ≥7 of 8 core feeds | Normal analysis | Standard risk scoring protocol |
+| **Degraded** | 4–6 feeds active | Likelihood estimates less precise (±1 uncertainty) | Widen confidence intervals; note data gaps |
+| **Sparse** | 1–3 feeds active (typical recess) | Likelihood and impact estimates unreliable | Carry forward prior assessments with temporal decay; do not generate new risk scores from insufficient data |
+| **Unavailable** | 0 feeds active (major outage) | Risk assessment impossible | State: "Risk assessment suspended — no EP MCP data available" |
+
+### Core EP MCP Feeds for Risk Assessment
+
+| Feed | Risk Categories Served | Degradation Impact |
+|------|----------------------|-------------------|
+| `get_voting_records` | Grand coalition stability, policy implementation | **Critical** — voting data is the primary evidence for coalition risk |
+| `analyze_voting_patterns` | Grand coalition stability, institutional integrity | **Critical** — cohesion scores drive stability assessments |
+| `get_adopted_texts` | Policy implementation, economic governance | **High** — adopted texts confirm legislative outcomes |
+| `get_procedures` | Policy implementation | **High** — procedure status tracks legislative pipeline |
+| `get_parliamentary_questions` | Institutional integrity, social cohesion | **Medium** — oversight activity pattern indicator |
+| `get_speeches` | Social cohesion, geopolitical standing | **Medium** — debate content signals political direction |
+| `get_plenary_sessions` | All categories | **High** — session context for all other data |
+| `get_committee_documents` | Policy implementation, institutional integrity | **Medium** — committee output indicates legislative progress |
+
+### Recess-Period Risk Scoring Guidance
+
+During EP recess periods (Easter, summer, year-end), risk scores from the most recent active session remain valid but decay over time per the confidence decay rules in [political-swot-framework.md](political-swot-framework.md):
+
+| Time Since Last Active Session | Risk Score Handling |
+|-------------------------------|-------------------|
+| 0–30 days | Carry forward at current score; note: "Based on pre-recess data from [date]" |
+| 31–90 days | Apply ±1 uncertainty to likelihood; downgrade confidence by one level |
+| 91–180 days | Risk score marked as STALE; re-verification required when session resumes |
+| >180 days | Risk score EXPIRED; must be recalculated from fresh data |
+
+> **⚠️ Anti-Pattern Warning:** Never present a risk score based on stale data as if it were current. Always timestamp risk assessments and note the data currency: "Risk score as of [date]; EP in recess since [date]; next session [date]."
 
 ---
 

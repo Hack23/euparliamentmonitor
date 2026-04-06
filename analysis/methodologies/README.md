@@ -11,14 +11,14 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-3.0-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--31-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-3.1-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--06-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 3.0 | **📅 Last Updated:** 2026-03-31 (UTC)
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
+**📋 Document Owner:** CEO | **📄 Version:** 3.1 | **📅 Last Updated:** 2026-04-06 (UTC)
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-05
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
 ---
@@ -198,8 +198,8 @@ graph LR
 |-----------|-------|
 | **Purpose** | Master protocol governing all AI-driven political intelligence analysis |
 | **Scope** | All agentic workflows, all analysis types, all output artifacts |
-| **Key Rules** | Folder isolation · AI-only content · Multi-framework depth · Quality gates |
-| **Version** | 2.0 |
+| **Key Rules** | Folder isolation · AI-only content · Multi-framework depth · Quality gates · Cross-session intelligence |
+| **Version** | 4.1 |
 
 **Core Principles:**
 - **Folder Isolation**: Every workflow writes ONLY to its own `analysis/YYYY-MM-DD/{articleType}/` subfolder
@@ -213,7 +213,7 @@ graph LR
 | **Purpose** | Multi-dimensional taxonomy for political document and event classification |
 | **Dimensions** | 7: Public Interest · Democratic Integrity · Policy Urgency · Economic Impact · Governance · Political Capital · Legislative Impact |
 | **Confidence Levels** | HIGH (≥80%) · MEDIUM (60–79%) · LOW (<60%) |
-| **Version** | 2.0 |
+| **Version** | 2.1 |
 
 ### ⚠️ Political Risk Assessment Methodology — `political-risk-methodology.md`
 
@@ -222,8 +222,8 @@ graph LR
 | **Purpose** | Systematic risk identification, scoring, and cascading impact analysis |
 | **Risk Categories** | 6: Coalition Stability · Policy Implementation · Institutional Integrity · Economic Governance · Social Cohesion · Geopolitical Standing |
 | **Scoring Model** | Likelihood (1–5) × Impact (1–5) = Risk Score (1–25) |
-| **Advanced Features** | Cascading risk chains · Grand Coalition stability risk · Risk velocity tracking |
-| **Version** | 2.0 |
+| **Advanced Features** | Cascading risk chains · Grand Coalition stability risk · Risk velocity tracking · Data availability risk |
+| **Version** | 2.1 |
 
 ### 💼 Political SWOT Analysis Framework — `political-swot-framework.md`
 
@@ -241,7 +241,7 @@ graph LR
 | **Purpose** | Multi-framework threat modeling for democratic process threats |
 | **Frameworks** | 6: Political Threat Landscape (6D) + Diamond Model + Attack Trees + PESTLE + Scenario Planning + Kill Chain |
 | **Threat Taxonomy** | 6 Dimensions: Coalition Shifts · Transparency Deficit · Policy Reversal · Institutional Pressure · Legislative Obstruction · Democratic Erosion |
-| **Version** | 3.0 |
+| **Version** | 3.1 |
 
 > ⚠️ **STRIDE is NOT used.** The Political Threat Landscape replaces STRIDE with politically-native dimensions designed for democratic function analysis.
 
@@ -251,8 +251,8 @@ graph LR
 |-----------|-------|
 | **Purpose** | Establishes writing standards for all political intelligence output |
 | **Scope** | Article tone, evidence citation standards, Mermaid diagram requirements, confidence labelling |
-| **Key Standards** | Evidence tables (not prose) · EP procedure citations · Colour-coded diagrams · Multi-language terminology |
-| **Version** | 2.0 |
+| **Key Standards** | Evidence tables (not prose) · EP procedure citations · Colour-coded diagrams · Multi-language terminology · Recess-period guidance |
+| **Version** | 2.1 |
 
 ---
 
@@ -872,6 +872,27 @@ flowchart TD
 
 ---
 
+## 📝 Changelog
+
+### v3.1 (2026-04-06)
+
+| Document | Change | Rationale |
+|----------|--------|-----------|
+| `ai-driven-analysis-guide.md` (v4.0→v4.1) | Added **Cross-Session Intelligence Methodology** section: Bayesian updating protocol, cross-session correlation, data stasis detection, confidence level changes | Formalises the cross-session correlation demonstrated in 2026-04-05/breaking-2 analysis run |
+| `ai-driven-analysis-guide.md` (v4.0→v4.1) | Added **Quality Dimension Mapping** table: methodology ↔ TypeScript `article-quality-scorer.ts` alignment | Documents the mapping between 5 methodology dimensions and 5 TypeScript scorer constants |
+| `political-style-guide.md` (v2.0→v2.1) | Added **Recess and Data-Sparse Period Guidance** section: depth level selection, EP API feed availability, evidence threshold adjustments, anti-patterns | Easter recess (27 March–13 April) exposed need for data-sparse period analytical guidance |
+| `political-threat-framework.md` (v3.0→v3.1) | Added **Temporal Decay Model** for threat assessments: severity decay table, confidence decay, re-verification rules, Mermaid diagram | Mirrors SWOT framework's 180-day confidence decay; threat assessments lacked equivalent temporal relevance modelling |
+| `political-risk-methodology.md` (v2.0→v2.1) | Added **EP API Data Availability as Risk Factor**: data availability risk matrix, core feed degradation impact, recess-period risk scoring guidance | EP API degradation during recess was not modelled as a risk dimension |
+| `political-classification-guide.md` (v2.0→v2.1) | Added **Recess-Period Event Classification Rules**: urgency adjustment table, recess-active event types, anti-patterns | Classification urgency matrix did not account for recess periods |
+| `README.md` (v3.0→v3.1) | Version bump, changelog added | Tracks methodology evolution |
+
+### v3.0 (2026-03-31)
+
+- Initial comprehensive methodology suite: 6 documents covering Classification, Risk, Threat, SWOT, Style, and AI-Driven Analysis
+- Adapted from Hack23 ISMS framework and Riksdagsmonitor methodologies
+
+---
+
 ## 🔗 Related Documentation
 
 - **[Architecture](../../ARCHITECTURE.md)** — C4 system architecture and deployment model
@@ -890,8 +911,8 @@ flowchart TD
 <div class="architecture-footer">
 
 **Document Status:** Living Document
-**Last Updated:** 2026-03-31
-**Next Review:** 2026-06-30
+**Last Updated:** 2026-04-06
+**Next Review:** 2026-07-05
 **Owner:** CEO
 
 This methodology documentation complies with

@@ -9,7 +9,7 @@
   <em>🎯 Sensitivity · Domain Taxonomy · Urgency Matrix · Impact Assessment</em>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.0 | **📅 Last Updated:** 2026-03-31 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 2.1 | **📅 Last Updated:** 2026-04-06 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
@@ -250,6 +250,42 @@ For every classified event, assess its impact on EP coalition dynamics using a *
 | **↕ Neutral** | No significant impact on coalition dynamics | Routine committee report on fisheries regulation |
 | **↗ Opportunity** | Creates an opening for coalition to strengthen position | Popular digital rights initiative with cross-group support |
 | **↘ Vulnerability** | Exposes coalition weakness that opposition may exploit | Budget dispute between EPP and S&D reveals structural disagreements |
+
+---
+
+## 🏖️ Recess-Period Event Classification Rules (New in v2.1)
+
+During EP recess periods, the volume and nature of classifiable events changes significantly. These rules ensure consistent classification when normal parliamentary activity is paused.
+
+### Recess-Period Urgency Adjustment
+
+During confirmed recess periods, the urgency matrix is adjusted:
+
+| Normal Urgency | Recess Adjustment | Rationale |
+|:--------------:|:-----------------:|-----------|
+| ⚪ ROUTINE | ⚪ ROUTINE (unchanged) | Routine events remain routine |
+| 🔵 ELEVATED | ⚪ ROUTINE (downgrade) | No upcoming committee votes or plenary sessions to elevate urgency |
+| 🟠 URGENT | 🔵 ELEVATED (downgrade) | Plenary is not in session; urgency reduced but flagged for post-recess action |
+| 🔴 CRITICAL | 🔴 CRITICAL (unchanged) | Genuine crises (Article 7, institutional emergency) remain critical regardless of recess |
+
+### Events That Still Occur During Recess
+
+| Event Type | Classification Baseline | Recess-Specific Notes |
+|-----------|:---------------------:|----------------------|
+| Written parliamentary questions | ROUTINE | Filed but answers delayed; classify normally |
+| Commission proposals published | Varies (use standard 7 dimensions) | Classify as normal; note "Parliament response expected post-recess" |
+| Trilogue informal contacts | SENSITIVE | May continue during recess informally; classify if reported |
+| External geopolitical events affecting EU | Varies | Classify using standard dimensions; note EP cannot respond until session resumes |
+| MEP public statements | ROUTINE (unless coalition-relevant) | Individual statements have reduced impact during recess |
+| Court of Justice rulings | Varies | Classify normally; legal effects are not paused by recess |
+
+### Classification Anti-Patterns During Recess
+
+| Anti-Pattern | Why Prohibited | Correct Alternative |
+|-------------|---------------|-------------------|
+| Classifying non-events as HIGH/CRITICAL | Inflates significance during quiet period | Apply standard 7-dimension scoring; recess events rarely score ≥ 50 |
+| Ignoring events because "Parliament is in recess" | Events still have political significance even without immediate EP response | Classify normally; note temporal context |
+| Using pre-recess urgency for post-recess planning | Urgency may change when Parliament reconvenes | Re-classify when session schedule is confirmed |
 
 ---
 

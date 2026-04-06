@@ -11,13 +11,13 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-4.0-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--03-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-4.1-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--06-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 4.0 | **📅 Last Updated:** 2026-04-03 (UTC)
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-02
+**📋 Document Owner:** CEO | **📄 Version:** 4.1 | **📅 Last Updated:** 2026-04-06 (UTC)
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-05
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
 ---
@@ -806,6 +806,92 @@ Before finalising any analysis artifact, the AI agent must verify:
 **Weighted Score Formula:** `Final = (Evidence × 0.25) + (Depth × 0.25) + (Structural × 0.20) + (Actionable × 0.15) + (Neutrality × 0.15)`
 
 **Minimum passing score: 7.0/10.** Analysis scoring below 7.0 must be revised before consumption by downstream workflows.
+
+### Quality Dimension Mapping: Methodology ↔ TypeScript Scorer
+
+The five methodology dimensions map to the TypeScript `article-quality-scorer.ts` implementation as follows:
+
+| Methodology Dimension | Weight | TypeScript Constant | TypeScript Measurement | Notes |
+|----------------------|:------:|---------------------|------------------------|-------|
+| Evidence density (citations per 100 words) | 0.25 | `WEIGHT_EVIDENCE` | Count of EP document references (`P9_TA`, `COM`, `RCV`, procedure codes) up to `EVIDENCE_MAX` (10) | Direct alignment |
+| Analytical depth (beyond surface observation) | 0.25 | `WEIGHT_ANALYSIS_DEPTH` | Boolean keyword detection across 6 sub-dimensions: political context, coalition dynamics, historical context, evidence-based conclusions, scenario planning, confidence levels | Keyword heuristic approximation |
+| Structural compliance (tables, Mermaid, template adherence) | 0.20 | `WEIGHT_VISUALIZATION` | Presence and depth of SWOT sections, dashboard metrics, mindmap branches, deep-analysis sections | Structural element detection |
+| Actionable intelligence (forward indicators, probability assessments) | 0.15 | `WEIGHT_WORD_COUNT` | Article word count scaled linearly from `WORD_COUNT_MIN` (0) to `WORD_COUNT_MAX` (1500) | Proxy: longer articles typically contain more actionable content |
+| Political neutrality (no partisan conclusions) | 0.15 | `WEIGHT_STAKEHOLDER` | Stakeholder perspective breadth (MEPs, Commission, Council, member states, civil society, industry, citizens, media) and balance score | Perspective diversity as neutrality proxy |
+
+**Key alignment notes:**
+
+- **Quality gate threshold:** Methodology mandates 7.0/10 → TypeScript enforces `QUALITY_GATE_THRESHOLD = 70` (0–100 scale)
+- **Grade boundaries:** A ≥ 90, B ≥ 80, C ≥ 70 (quality gate), D ≥ 50, F < 50
+- **Types:** `ArticleQualityReport` (src/types/quality.ts) captures all five dimensions with sub-scores
+- **Actionable intelligence → Word count:** The methodology dimension "Actionable intelligence" is approximated by word count in the scorer because longer, substantive articles demonstrate forward indicators and probability assessments more reliably than short summaries. This is a deliberate proxy, not a bug.
+
+---
+
+## 🔄 Cross-Session Intelligence Methodology (New in v4.1)
+
+When multiple agentic workflow runs execute on the **same day** (e.g., breaking news every 6 hours, or manual re-runs), the later run has access to earlier run outputs via the suffix deduplication system (`breaking/`, `breaking-2/`, `breaking-3/`). Cross-session intelligence formalises how to exploit this temporal advantage.
+
+### When to Apply Cross-Session Intelligence
+
+| Condition | Action |
+|-----------|--------|
+| Same-day sequential run (suffix ≥ 2) | **MANDATORY** — Compare datasets with prior run, apply Bayesian updating |
+| Multi-workflow same-day (e.g., breaking + weekly-review) | **RECOMMENDED** — Cross-reference shared EP MCP data files |
+| Single run, no prior analysis exists | **NOT APPLICABLE** — Use standard single-run analysis protocol |
+
+### Cross-Session Correlation Protocol
+
+```mermaid
+flowchart TD
+    START["🔄 New Workflow Run<br/>(suffix ≥ 2)"] --> READ["📂 Read prior run output<br/>analysis/{date}/{type}/"]
+    READ --> DELTA["📊 Compute Data Delta<br/>New files vs. prior files"]
+    DELTA --> ZERO{Delta = 0?<br/>No new data?}
+    ZERO -->|Yes| STASIS["⏸️ Data Stasis Protocol<br/>(see below)"]
+    ZERO -->|No| COMPARE["🔍 Compare datasets:<br/>• New MCP files added<br/>• Voting record changes<br/>• Status updates"]
+    COMPARE --> BAYES["📐 Bayesian Update<br/>Prior → Evidence → Posterior"]
+    BAYES --> CONF["🎯 Update Confidence Levels<br/>based on cross-session consistency"]
+    CONF --> OUTPUT["📝 Produce cross-session<br/>intelligence analysis"]
+
+    style START fill:#0d6efd,color:#fff
+    style STASIS fill:#ffc107,color:#000
+    style BAYES fill:#6f42c1,color:#fff
+    style OUTPUT fill:#28a745,color:#fff
+```
+
+### Bayesian Updating Protocol for Cross-Session Runs
+
+When a later run (e.g., `breaking-2`) has access to a prior run's analysis (`breaking/`), apply Bayesian updating to key assessments:
+
+| Step | Action | Example |
+|:----:|--------|---------|
+| 1 | **Identify prior assessment** — read the prior run's risk scores, SWOT entries, and confidence levels | Prior run assessed "Grand Coalition stability risk: L=2, I=4, Score=8 [MEDIUM confidence]" |
+| 2 | **Identify new evidence** — what EP MCP data files are new or changed since the prior run? | New adopted text AT-2026-0156 shows ECR supported EPP amendment |
+| 3 | **Assess evidence direction** — does new evidence support, contradict, or neutral to prior assessment? | Supports stability → likelihood decreases |
+| 4 | **Update score** — adjust likelihood/impact per [political-risk-methodology.md](political-risk-methodology.md) Bayesian table | "Grand Coalition stability risk: L=1, I=4, Score=4 (posterior)" |
+| 5 | **Update confidence** — cross-session consistency changes confidence level | Two consecutive runs agree → upgrade MEDIUM to HIGH |
+| 6 | **Document the update chain** | "Run 1 prior: Score=8 [MEDIUM] → Run 2 evidence: ECR support → Posterior: Score=4 [HIGH]" |
+
+### Confidence Level Changes from Cross-Session Consistency
+
+| Cross-Session Pattern | Confidence Adjustment | Rationale |
+|----------------------|:---------------------:|-----------|
+| Two consecutive runs reach same assessment | Upgrade by one level (e.g., LOW→MEDIUM) | Independent analysis convergence increases reliability |
+| Three consecutive runs reach same assessment | Upgrade to HIGH (maximum) | Strong analytical convergence |
+| New run contradicts prior run | Downgrade by one level; flag for review | Contradictory evidence requires reassessment |
+| New run finds no relevant new data | Maintain prior confidence; do not upgrade | Absence of new evidence is not confirming evidence |
+
+### Data Stasis Detection Protocol
+
+When a subsequent run detects **zero delta** (no new EP MCP data files, no changed voting records, no new documents):
+
+| Data Stasis Response | Action |
+|---------------------|--------|
+| **Acknowledge stasis** | Explicitly state: "No new EP MCP data since prior run at [timestamp]" |
+| **Carry forward prior analysis** | Reference prior run's assessments as still-current baseline |
+| **Shift focus to structural analysis** | Use the time for deeper analysis of existing data: historical trending, cross-document correlation, scenario modelling |
+| **Do NOT fabricate novelty** | Never claim new developments when data has not changed. This is an absolute rule. |
+| **Update temporal context** | Note that assessments are now N hours older; apply confidence decay if approaching 24-hour threshold |
 
 ---
 
