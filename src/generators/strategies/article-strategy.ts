@@ -94,6 +94,11 @@ export function loadAnalysisContext(
   articleTypeSlug: string,
   baseDir: string = DEFAULT_ANALYSIS_BASE_DIR
 ): LoadedAnalysisContext | null {
+  // Validate date format (YYYY-MM-DD) and reject path traversal
+  if (!/^\d{4}-\d{2}-\d{2}$/u.test(date)) return null;
+  // Validate slug: alphanumeric, hyphens only — no path separators
+  if (!/^[\da-z][\da-z-]*$/u.test(articleTypeSlug)) return null;
+
   const dateDir = path.resolve(baseDir, date);
   if (!fs.existsSync(dateDir)) return null;
 

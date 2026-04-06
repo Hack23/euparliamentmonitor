@@ -93,6 +93,19 @@ describe('loadAnalysisContext', () => {
     expect(ctx).toBeNull();
   });
 
+  it('returns null for path-traversal date values', () => {
+    expect(loadAnalysisContext('../../etc', 'breaking', tmpDir)).toBeNull();
+    expect(loadAnalysisContext('../..', 'breaking', tmpDir)).toBeNull();
+    expect(loadAnalysisContext('2026-04-06/../../etc', 'breaking', tmpDir)).toBeNull();
+    expect(loadAnalysisContext('not-a-date', 'breaking', tmpDir)).toBeNull();
+  });
+
+  it('returns null for invalid slug values', () => {
+    expect(loadAnalysisContext('2026-04-06', '../etc', tmpDir)).toBeNull();
+    expect(loadAnalysisContext('2026-04-06', 'slug/../../etc', tmpDir)).toBeNull();
+    expect(loadAnalysisContext('2026-04-06', '', tmpDir)).toBeNull();
+  });
+
   it('returns null when the slug directory does not exist', () => {
     fs.mkdirSync(path.join(tmpDir, '2026-04-06'), { recursive: true });
     const ctx = loadAnalysisContext('2026-04-06', 'breaking', tmpDir);

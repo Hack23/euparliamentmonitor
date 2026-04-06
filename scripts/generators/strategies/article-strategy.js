@@ -42,6 +42,12 @@ const ANALYSIS_SUBDIRS = [
  * @returns Loaded analysis context or null when unavailable
  */
 export function loadAnalysisContext(date, articleTypeSlug, baseDir = DEFAULT_ANALYSIS_BASE_DIR) {
+    // Validate date format (YYYY-MM-DD) and reject path traversal
+    if (!/^\d{4}-\d{2}-\d{2}$/u.test(date))
+        return null;
+    // Validate slug: alphanumeric, hyphens only — no path separators
+    if (!/^[\da-z][\da-z-]*$/u.test(articleTypeSlug))
+        return null;
     const dateDir = path.resolve(baseDir, date);
     if (!fs.existsSync(dateDir))
         return null;
