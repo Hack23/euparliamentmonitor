@@ -2011,8 +2011,9 @@ describe('ep-mcp-client', () => {
 
     it('should return a defensive copy that cannot mutate internal state', () => {
       const copy = client.getFailedTools();
+      expect(copy).toBeInstanceOf(Map);
       // Mutating the returned copy should not affect the client's internal map
-      copy.constructor === Map && /** @type {Map<string,string>} */(copy).set('fake_tool', 'FAKE');
+      /** @type {Map<string,string>} */(copy).set('fake_tool', 'FAKE');
       expect(client.getFailedTools().has('fake_tool')).toBe(false);
     });
 
@@ -2044,8 +2045,9 @@ describe('ep-mcp-client', () => {
       vi.spyOn(client, 'callToolWithRetry').mockRejectedValueOnce(new Error('Gateway error 504: Gateway Timeout'));
       await client.getDocumentsFeed();
       const failed = client.getFailedTools();
-      expect(failed.get('get_documents_feed')).toContain('SERVER_ERROR');
-      expect(failed.get('get_documents_feed')).not.toContain('TIMEOUT:');
+      const entry = failed.get('get_documents_feed');
+      expect(entry).toMatch(/^SERVER_ERROR:/);
+      expect(entry).not.toMatch(/^TIMEOUT:/);
     });
 
     it('should clear a tool from failed map when a subsequent call succeeds', async () => {
