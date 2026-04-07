@@ -310,10 +310,10 @@ function loadAnalysisFiles(analysisDir: string): Map<string, AnalysisFileContent
 function isNonProseContent(trimmed: string): boolean {
   // Fenced code block delimiters
   if (trimmed.startsWith('```')) return true;
-  // Markdown table rows (contain | separators)
-  if (trimmed.startsWith('|') && trimmed.endsWith('|')) return true;
-  // Table separator rows
-  if (/^\|[\s:|-]+\|$/u.test(trimmed)) return true;
+  // Markdown table rows — lines starting with | or containing multiple | separators
+  if (trimmed.startsWith('|') && trimmed.includes('|', 1)) return true;
+  // Table separator rows (e.g. |---|---|)
+  if (/^[\s|:|-]+$/u.test(trimmed) && trimmed.includes('|')) return true;
   // Blockquote instructions for AI agents
   if (trimmed.startsWith('>') && /instructions for ai/iu.test(trimmed)) return true;
   // HTML-like content
@@ -468,7 +468,17 @@ export function extractAnalysisParagraphs(
   let totalLength = 0;
   for (const p of meaningful) {
     if (result.length >= maxParagraphs) break;
-    if (totalLength + p.length > maxTotalLength) break;
+    const remaining = maxTotalLength - totalLength;
+    if (remaining <= 0) break;
+
+    if (p.length > remaining) {
+      // Truncate overlong paragraph when result is still empty so we
+      // never return [] for content that has substantive prose.
+      if (result.length === 0) {
+        result.push(p.slice(0, remaining).trimEnd());
+      }
+      break;
+    }
     result.push(p);
     totalLength += p.length;
   }
@@ -529,13 +539,12 @@ export function buildAnalysisInsightsSection(
     const paragraphs = extractAnalysisParagraphs(file.content, 2, 800);
     if (paragraphs.length === 0) continue;
     const label = formatMethodLabel(method);
-    const paragraphHtml = paragraphs
-      .map((p) => `<p>${escapeHTML(p)}</p>`)
-      .join('\n');
+    const paragraphHtml = paragraphs.map((p) => `<p>${escapeHTML(p)}</p>`).join('\n');
     items.push(
       `<div class="analysis-insight-item" data-method="${escapeHTML(method)}">\n` +
         `<h4>${escapeHTML(label)}</h4>\n` +
-        paragraphHtml + '\n' +
+        paragraphHtml +
+        '\n' +
         `</div>`
     );
   }

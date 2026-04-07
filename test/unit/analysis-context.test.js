@@ -445,6 +445,13 @@ describe('extractAnalysisSummary', () => {
     expect(summary).toContain('Substantive analytical findings');
   });
 
+  it('skips table rows without trailing pipe', () => {
+    const content = '# Analysis\n\n| Header | Value\n|--------|-------\n| A | B\n\nSubstantive analytical findings from the assessment.';
+    const summary = extractAnalysisSummary(content);
+    expect(summary).not.toContain('Header');
+    expect(summary).toContain('Substantive analytical findings');
+  });
+
   it('returns empty for scaffold content with TO BE FILLED markers', () => {
     const content = '# Analysis\n\n[TO BE FILLED BY AI AGENT — analysis pending]\n\nSome content.';
     expect(extractAnalysisSummary(content)).toBe('');
@@ -537,6 +544,14 @@ describe('extractAnalysisParagraphs', () => {
     const paragraphs = extractAnalysisParagraphs(content);
     expect(paragraphs.length).toBe(1);
     expect(paragraphs[0]).toContain('Substantive analysis');
+  });
+
+  it('truncates overlong first paragraph instead of returning empty', () => {
+    const longParagraph = 'A'.repeat(200) + ' substantive political analysis content here.';
+    const content = '# Analysis\n\n' + longParagraph;
+    const paragraphs = extractAnalysisParagraphs(content, 3, 100);
+    expect(paragraphs.length).toBe(1);
+    expect(paragraphs[0].length).toBeLessThanOrEqual(100);
   });
 });
 

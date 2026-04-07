@@ -37,7 +37,12 @@ import {
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
-import type { ArticleStrategy, ArticleData, ArticleMetadata, LoadedAnalysisContext } from './article-strategy.js';
+import type {
+  ArticleStrategy,
+  ArticleData,
+  ArticleMetadata,
+  LoadedAnalysisContext,
+} from './article-strategy.js';
 import {
   loadAnalysisContext,
   buildAnalysisInsightsSection,
