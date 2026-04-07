@@ -27,6 +27,8 @@ const STATS_FALLBACK = '{"stats": null}';
  * Extends {@link MCPConnection} with EP-specific tool wrapper methods.
  */
 export class EuropeanParliamentMCPClient extends MCPConnection {
+    /** Tracks tools that returned fallback data in the current session */
+    _failedTools = new Map();
     /**
      * Generic error-safe wrapper around {@link callToolWithRetry}.
      * Retries transient failures (timeouts, connection drops) with a bounded
@@ -47,13 +49,70 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
     async safeCallTool(toolName, args, fallbackText) {
         try {
             const resolvedArgs = typeof args === 'function' ? args() : args;
-            return await this.callToolWithRetry(toolName, resolvedArgs);
+            const result = await this.callToolWithRetry(toolName, resolvedArgs);
+            // Clear from failed tools on success
+            this._failedTools.delete(toolName);
+            return result;
         }
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);
-            console.warn(`${toolName} not available:`, message);
+            // Classify the error for better diagnostics
+            const errorType = message.includes('timeout')
+                ? 'TIMEOUT'
+                : message.includes('404')
+                    ? 'NOT_FOUND'
+                    : message.includes('50')
+                        ? 'SERVER_ERROR'
+                        : 'UNKNOWN';
+            this._failedTools.set(toolName, `${errorType}: ${message}`);
+            console.warn(`⚠️ ${toolName} failed [${errorType}]:`, message);
             return { content: [{ type: 'text', text: fallbackText }] };
         }
+    }
+    /**
+     * Get a summary of tools that returned fallback data in the current session.
+     * Useful for diagnosing feed availability and data quality issues.
+     *
+     * @returns Map of tool name to error description
+     */
+    getFailedTools() {
+        return this._failedTools;
+    }
+    /**
+     * Get a human-readable feed health summary for diagnostics.
+     *
+     * @returns Formatted summary of feed availability
+     */
+    getFeedHealthSummary() {
+        const feedTools = [
+            'get_meps_feed',
+            'get_events_feed',
+            'get_procedures_feed',
+            'get_adopted_texts_feed',
+            'get_mep_declarations_feed',
+            'get_documents_feed',
+            'get_plenary_documents_feed',
+            'get_committee_documents_feed',
+            'get_plenary_session_documents_feed',
+            'get_external_documents_feed',
+            'get_parliamentary_questions_feed',
+            'get_corporate_bodies_feed',
+            'get_controlled_vocabularies_feed',
+        ];
+        const lines = ['EP MCP Feed Health:'];
+        let operational = 0;
+        for (const tool of feedTools) {
+            const error = this._failedTools.get(tool);
+            if (error) {
+                lines.push(`  ❌ ${tool}: ${error}`);
+            }
+            else {
+                lines.push(`  ✅ ${tool}`);
+                operational++;
+            }
+        }
+        lines.push(`  Summary: ${operational}/${feedTools.length} feeds operational`);
+        return lines.join('\n');
     }
     /**
      * Get Members of European Parliament

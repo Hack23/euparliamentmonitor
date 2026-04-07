@@ -1989,4 +1989,48 @@ describe('ep-mcp-client', () => {
     });
   });
 
+  describe('getFailedTools', () => {
+    /** @type {EPMCPClient} */
+    let client;
+    /** @type {MockConsoleResult} */
+    let consoleOutput;
+
+    beforeEach(() => {
+      consoleOutput = mockConsole();
+      client = new EuropeanParliamentMCPClient();
+    });
+
+    afterEach(() => {
+      consoleOutput.restore();
+    });
+
+    it('should return an empty map when no tools have failed', () => {
+      const failed = client.getFailedTools();
+      expect(failed.size).toBe(0);
+    });
+  });
+
+  describe('getFeedHealthSummary', () => {
+    /** @type {EPMCPClient} */
+    let client;
+    /** @type {MockConsoleResult} */
+    let consoleOutput;
+
+    beforeEach(() => {
+      consoleOutput = mockConsole();
+      client = new EuropeanParliamentMCPClient();
+    });
+
+    afterEach(() => {
+      consoleOutput.restore();
+    });
+
+    it('should return a summary showing all feeds as operational when no failures', () => {
+      const summary = client.getFeedHealthSummary();
+      expect(summary).toContain('EP MCP Feed Health:');
+      expect(summary).toContain('13/13 feeds operational');
+      expect(summary).not.toContain('❌');
+    });
+  });
+
 });

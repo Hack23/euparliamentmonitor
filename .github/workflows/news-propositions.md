@@ -50,7 +50,7 @@ mcp-servers:
       - -y
       - european-parliament-mcp-server@1.1.27
     env:
-      EP_REQUEST_TIMEOUT_MS: "120000"
+      EP_REQUEST_TIMEOUT_MS: "180000"
   world-bank:
     command: npx
     args:
