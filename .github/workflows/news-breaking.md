@@ -49,7 +49,7 @@ mcp-servers:
       - -y
       - european-parliament-mcp-server@1.1.28
     env:
-      EP_REQUEST_TIMEOUT_MS: "180000"
+      EP_REQUEST_TIMEOUT_MS: "90000"
   memory:
     command: npx
     args:
@@ -550,7 +550,7 @@ european_parliament___get_events_feed({ timeframe: "one-week", limit: 50 })     
 
 > **📅 IMPORTANT**: When using `one-week` fallback, items are still tagged with their actual dates. Only items from TODAY qualify as breaking news for article generation, but ALL downloaded data is persisted for analysis.
 
-> **⚠️ TIMEOUT HANDLING**: The EP API can be slow (30-90+ seconds per request). The `EP_REQUEST_TIMEOUT_MS` is set to 120 seconds. If a feed still times out, log the error and continue with other feeds — do NOT abort the entire data collection phase. A partial dataset is better than no data.
+> **⚠️ TIMEOUT HANDLING**: The EP API can be slow (30-90+ seconds per request). The `EP_REQUEST_TIMEOUT_MS` is set to 90 seconds. If a feed still times out, log the error and continue with other feeds — do NOT abort the entire data collection phase. A partial dataset is better than no data.
 
 **MANDATORY: Advisory feeds (ALWAYS download — for analysis and context):**
 

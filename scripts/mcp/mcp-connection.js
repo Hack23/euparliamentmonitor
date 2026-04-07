@@ -20,7 +20,7 @@ const BINARY_FILE = process.platform === 'win32' ? `${BINARY_NAME}.cmd` : BINARY
 /** Default binary resolved from node_modules/.bin relative to this file's compiled location */
 const DEFAULT_SERVER_BINARY = resolve(dirname(fileURLToPath(import.meta.url)), `../../node_modules/.bin/${BINARY_FILE}`);
 /** Default request timeout in milliseconds — EU Parliament API responses commonly take 30-90+ seconds for large datasets */
-const DEFAULT_REQUEST_TIMEOUT_MS = 180_000;
+const DEFAULT_REQUEST_TIMEOUT_MS = 90_000;
 /**
  * Effective request timeout, configurable via `EP_REQUEST_TIMEOUT_MS` env var.
  * This keeps the client-side timeout aligned with the MCP server timeout set
@@ -482,8 +482,16 @@ export class MCPConnection {
             const isJavaScriptFile = this.serverPath.toLowerCase().endsWith('.js');
             const command = isJavaScriptFile ? process.execPath : this.serverPath;
             const args = isJavaScriptFile ? [this.serverPath] : [];
+            // Ensure EP_REQUEST_TIMEOUT_MS is propagated to the MCP server subprocess.
+            // The EP MCP server defaults to only 10 seconds; we need 90+ seconds for
+            // slow EP API feed endpoints (events, procedures, documents, etc.).
+            const childEnv = { ...process.env };
+            if (!childEnv['EP_REQUEST_TIMEOUT_MS']) {
+                childEnv['EP_REQUEST_TIMEOUT_MS'] = String(REQUEST_TIMEOUT_MS);
+            }
             this.process = spawn(command, args, {
                 stdio: ['pipe', 'pipe', 'pipe'],
+                env: childEnv,
             });
             let buffer = '';
             let startupError = null;
