@@ -2079,11 +2079,23 @@ describe('ep-mcp-client', () => {
       consoleOutput.restore();
     });
 
-    it('should return a summary showing all feeds as operational when no failures', () => {
+    it('should show all feeds as unchecked when no calls have been made', () => {
       const summary = client.getFeedHealthSummary();
       expect(summary).toContain('EP MCP Feed Health:');
-      expect(summary).toContain('13/13 feeds operational');
+      expect(summary).toContain('0/0 checked feeds operational, 13 unchecked');
       expect(summary).not.toContain('❌');
+      expect(summary).not.toContain('✅');
+      expect(summary).toContain('⚪');
+    });
+
+    it('should show operational feeds as ✅ after successful calls', async () => {
+      const spy = vi.spyOn(client, 'callToolWithRetry');
+      spy.mockResolvedValueOnce({ content: [{ type: 'text', text: '{"meps": []}' }] });
+      await client.getMEPsFeed();
+
+      const summary = client.getFeedHealthSummary();
+      expect(summary).toContain('✅ get_meps_feed');
+      expect(summary).toContain('1/1 checked feeds operational, 12 unchecked');
     });
 
     it('should show failed feeds with ❌ markers and reduce operational count', async () => {
@@ -2093,13 +2105,16 @@ describe('ep-mcp-client', () => {
       await client.getEventsFeed();
       spy.mockRejectedValueOnce(new Error('Request timeout'));
       await client.getProceduresFeed();
+      // Succeed one feed tool
+      spy.mockResolvedValueOnce({ content: [{ type: 'text', text: '{"meps": []}' }] });
+      await client.getMEPsFeed();
 
       const summary = client.getFeedHealthSummary();
-      expect(summary).toContain('11/13 feeds operational');
+      expect(summary).toContain('1/3 checked feeds operational, 10 unchecked');
       expect(summary).toContain('❌ get_events_feed: NOT_FOUND');
       expect(summary).toContain('❌ get_procedures_feed: TIMEOUT');
       expect(summary).toContain('✅ get_meps_feed');
-      expect(summary).toContain('✅ get_adopted_texts_feed');
+      expect(summary).toContain('⚪ get_adopted_texts_feed (not checked)');
     });
   });
 

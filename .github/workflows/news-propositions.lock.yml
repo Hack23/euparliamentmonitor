@@ -651,7 +651,7 @@ jobs:
                   "*"
                 ],
                 "env": {
-                  "EP_REQUEST_TIMEOUT_MS": "120000"
+                  "EP_REQUEST_TIMEOUT_MS": "180000"
                 },
                 "guard-policies": {
                   "write-sink": {

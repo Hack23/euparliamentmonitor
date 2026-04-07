@@ -102,6 +102,8 @@ const STATS_FALLBACK = '{"stats": null}';
 export class EuropeanParliamentMCPClient extends MCPConnection {
   /** Tracks tools that returned fallback data in the current session */
   private readonly _failedTools = new Map<string, string>();
+  /** Tracks tools that have been called (attempted) in the current session */
+  private readonly _calledTools = new Set<string>();
 
   /**
    * Generic error-safe wrapper around {@link callToolWithRetry}.
@@ -125,6 +127,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
     args: object | (() => object),
     fallbackText: string
   ): Promise<MCPToolResult> {
+    this._calledTools.add(toolName);
     try {
       const resolvedArgs = typeof args === 'function' ? args() : args;
       const result = await this.callToolWithRetry(toolName, resolvedArgs);
@@ -190,16 +193,21 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
 
     const lines: string[] = ['EP MCP Feed Health:'];
     let operational = 0;
+    let unchecked = 0;
     for (const tool of feedTools) {
       const error = this._failedTools.get(tool);
       if (error) {
         lines.push(`  ❌ ${tool}: ${error}`);
-      } else {
+      } else if (this._calledTools.has(tool)) {
         lines.push(`  ✅ ${tool}`);
         operational++;
+      } else {
+        lines.push(`  ⚪ ${tool} (not checked)`);
+        unchecked++;
       }
     }
-    lines.push(`  Summary: ${operational}/${feedTools.length} feeds operational`);
+    const checked = feedTools.length - unchecked;
+    lines.push(`  Summary: ${operational}/${checked} checked feeds operational${unchecked > 0 ? `, ${unchecked} unchecked` : ''}`);
     return lines.join('\n');
   }
 
