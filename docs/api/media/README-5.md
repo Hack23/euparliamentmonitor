@@ -14,12 +14,12 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-3.0-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--31-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-3.1-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--06-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 3.0 | **📅 Last Updated:** 2026-03-31 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 3.1 | **📅 Last Updated:** 2026-04-06 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
@@ -876,14 +876,34 @@ Each article type should produce unique analytical sections in its synthesis tha
 | **Document ID** | `TMPL-README-001` |
 | **Title** | Analysis Templates — Directory Documentation |
 | **Owner** | CEO |
-| **Version** | 3.0 |
+| **Version** | 3.1 |
 | **Classification** | Public |
 | **Created** | 2026-03-30 |
-| **Last Updated** | 2026-03-31 |
+| **Last Updated** | 2026-04-06 |
 | **Review Cycle** | Quarterly |
 | **Next Review** | 2026-06-30 |
 | **Organisation** | Hack23 AB (Org.nr 5595347807) |
 | **Approved By** | CEO |
+
+### Changelog
+
+| Version | Date | Changes |
+|:-------:|------|---------|
+| **3.1** | 2026-04-06 | Cross-session intelligence & quality gate enhancements across all 8 templates — see details below |
+| **3.0** | 2026-03-31 | Initial master README consolidating all 8 templates with ISMS alignment |
+
+#### v3.1 Changelog Details
+
+| Template | Version | Enhancement |
+|----------|:-------:|-------------|
+| `per-file-political-intelligence.md` | 1.0→1.1 | Added EP MCP Tool Mapping per section; added Cross-Session Delta Tracking section |
+| `significance-scoring.md` | 2.0→2.1 | Added Publication Decision Tree (Mermaid flowchart with HOLD/SKIP); added EP Calendar Awareness with recess scoring adjustments |
+| `synthesis-summary.md` | 1.0→1.1 | Added Temporal Aggregation Rollup Guidance (daily→weekly→monthly hierarchy); added Cross-Session Intra-Day Aggregation rules |
+| `stakeholder-impact.md` | 2.0→2.1 | Added EU Institutional Hierarchy Awareness (Mermaid cascade diagram); added Cross-Committee Stakeholder Mapping |
+| `threat-analysis.md` | 2.0→2.1 | Added Cross-Session Bayesian Update section (prior/posterior severity tracking per dimension) |
+| `risk-assessment.md` | 2.0→2.1 | Added Risk Register Continuity section (carry-forward, trajectory visualization, lifecycle rules) |
+| `swot-analysis.md` | 2.0→2.1 | Expanded TOWS Strategic Matrix with Mermaid diagram, detailed options table, and Strategic Priority Ranking |
+| `political-classification.md` | 2.0→2.1 | Added Recess-Period Classification Rules (recess detection, urgency overrides, calendar context) |
 
 ---
 

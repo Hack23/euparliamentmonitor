@@ -697,7 +697,11 @@
 <a name='L632'></a><a href='#L632'>632</a>
 <a name='L633'></a><a href='#L633'>633</a>
 <a name='L634'></a><a href='#L634'>634</a>
-<a name='L635'></a><a href='#L635'>635</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L635'></a><a href='#L635'>635</a>
+<a name='L636'></a><a href='#L636'>636</a>
+<a name='L637'></a><a href='#L637'>637</a>
+<a name='L638'></a><a href='#L638'>638</a>
+<a name='L639'></a><a href='#L639'>639</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1255,6 +1259,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">412x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">412x</span>
 <span class="cline-any cline-yes">412x</span>
 <span class="cline-any cline-yes">412x</span>
@@ -1262,6 +1268,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">412x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">412x</span>
 <span class="cline-any cline-yes">412x</span>
 <span class="cline-any cline-yes">412x</span>
@@ -1379,12 +1387,12 @@ import {
   THREAT_FRAMEWORK_LABELS,
   CLASSIFICATION_GUIDE_LABELS,
   STYLE_GUIDE_LABELS,
-  SIGNIFICANCE_ASSESSMENT_LABELS,
+  SIGNIFICANCE_CLASSIFICATION_LABELS,
   ACTOR_MAPPING_LABELS,
   FORCES_ANALYSIS_LABELS,
   IMPACT_MATRIX_LABELS,
   POLITICAL_THREAT_LANDSCAPE_LABELS,
-  ACTOR_THREAT_PROFILES_LABELS,
+  ACTOR_THREAT_PROFILING_LABELS,
   CONSEQUENCE_TREES_LABELS,
   LEGISLATIVE_DISRUPTION_LABELS,
   RISK_MATRIX_LABELS,
@@ -1392,8 +1400,8 @@ import {
   POLITICAL_CAPITAL_RISK_LABELS,
   LEGISLATIVE_VELOCITY_RISK_LABELS,
   AGENT_RISK_WORKFLOW_LABELS,
-  STAKEHOLDER_ANALYSIS_LABELS,
-  COALITION_ANALYSIS_LABELS,
+  STAKEHOLDER_IMPACT_LABELS,
+  COALITION_DYNAMICS_LABELS,
   VOTING_PATTERNS_LABELS,
   CROSS_SESSION_INTELLIGENCE_LABELS,
   getLocalizedString,
@@ -1888,14 +1896,18 @@ function renderAnalysisTransparencySection(
   const methodologyDir = `${repoBase}/analysis/methodologies`;
 &nbsp;
   // Per-file localized link labels
-  const significanceLabel = escapeHTML(getLocalizedString(SIGNIFICANCE_ASSESSMENT_LABELS, lang));
+  const significanceLabel = escapeHTML(
+    getLocalizedString(SIGNIFICANCE_CLASSIFICATION_LABELS, lang)
+  );
   const actorMappingLabel = escapeHTML(getLocalizedString(ACTOR_MAPPING_LABELS, lang));
   const forcesLabel = escapeHTML(getLocalizedString(FORCES_ANALYSIS_LABELS, lang));
   const impactMatrixLabel = escapeHTML(getLocalizedString(IMPACT_MATRIX_LABELS, lang));
   const threatLandscapeLabel = escapeHTML(
     getLocalizedString(POLITICAL_THREAT_LANDSCAPE_LABELS, lang)
   );
-  const threatProfilesLabel = escapeHTML(getLocalizedString(ACTOR_THREAT_PROFILES_LABELS, lang));
+  const actorThreatProfilingLabel = escapeHTML(
+    getLocalizedString(ACTOR_THREAT_PROFILING_LABELS, lang)
+  );
   const consequenceLabel = escapeHTML(getLocalizedString(CONSEQUENCE_TREES_LABELS, lang));
   const disruptionLabel = escapeHTML(getLocalizedString(LEGISLATIVE_DISRUPTION_LABELS, lang));
   const riskMatrixLabel = escapeHTML(getLocalizedString(RISK_MATRIX_LABELS, lang));
@@ -1904,8 +1916,8 @@ function renderAnalysisTransparencySection(
   const legVelocityLabel = escapeHTML(getLocalizedString(LEGISLATIVE_VELOCITY_RISK_LABELS, lang));
   const agentRiskLabel = escapeHTML(getLocalizedString(AGENT_RISK_WORKFLOW_LABELS, lang));
   const deepAnalysisFileLabel = escapeHTML(getLocalizedString(DEEP_ANALYSIS_LABELS, lang));
-  const stakeholderLabel = escapeHTML(getLocalizedString(STAKEHOLDER_ANALYSIS_LABELS, lang));
-  const coalitionLabel = escapeHTML(getLocalizedString(COALITION_ANALYSIS_LABELS, lang));
+  const stakeholderLabel = escapeHTML(getLocalizedString(STAKEHOLDER_IMPACT_LABELS, lang));
+  const coalitionLabel = escapeHTML(getLocalizedString(COALITION_DYNAMICS_LABELS, lang));
   const votingPatternsLabel = escapeHTML(getLocalizedString(VOTING_PATTERNS_LABELS, lang));
   const crossSessionLabel = escapeHTML(getLocalizedString(CROSS_SESSION_INTELLIGENCE_LABELS, lang));
 &nbsp;
@@ -1921,7 +1933,7 @@ function renderAnalysisTransparencySection(
         &lt;/ul&gt;
         &lt;h3&gt;&lt;span aria-hidden="true"&gt;🏷️&lt;/span&gt; ${classificationLabel}&lt;/h3&gt;
         &lt;ul&gt;
-          &lt;li&gt;&lt;a href="${analysisFileBase}/classification/significance-assessment.md" target="_blank" rel="noopener noreferrer"&gt;${significanceLabel}&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="${analysisFileBase}/classification/significance-classification.md" target="_blank" rel="noopener noreferrer"&gt;${significanceLabel}&lt;/a&gt;&lt;/li&gt;
           &lt;li&gt;&lt;a href="${analysisFileBase}/classification/actor-mapping.md" target="_blank" rel="noopener noreferrer"&gt;${actorMappingLabel}&lt;/a&gt;&lt;/li&gt;
           &lt;li&gt;&lt;a href="${analysisFileBase}/classification/forces-analysis.md" target="_blank" rel="noopener noreferrer"&gt;${forcesLabel}&lt;/a&gt;&lt;/li&gt;
           &lt;li&gt;&lt;a href="${analysisFileBase}/classification/impact-matrix.md" target="_blank" rel="noopener noreferrer"&gt;${impactMatrixLabel}&lt;/a&gt;&lt;/li&gt;
@@ -1929,7 +1941,7 @@ function renderAnalysisTransparencySection(
         &lt;h3&gt;&lt;span aria-hidden="true"&gt;🛡️&lt;/span&gt; ${threatLabel}&lt;/h3&gt;
         &lt;ul&gt;
           &lt;li&gt;&lt;a href="${analysisFileBase}/threat-assessment/political-threat-landscape.md" target="_blank" rel="noopener noreferrer"&gt;${threatLandscapeLabel}&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href="${analysisFileBase}/threat-assessment/actor-threat-profiles.md" target="_blank" rel="noopener noreferrer"&gt;${threatProfilesLabel}&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="${analysisFileBase}/threat-assessment/actor-threat-profiling.md" target="_blank" rel="noopener noreferrer"&gt;${actorThreatProfilingLabel}&lt;/a&gt;&lt;/li&gt;
           &lt;li&gt;&lt;a href="${analysisFileBase}/threat-assessment/consequence-trees.md" target="_blank" rel="noopener noreferrer"&gt;${consequenceLabel}&lt;/a&gt;&lt;/li&gt;
           &lt;li&gt;&lt;a href="${analysisFileBase}/threat-assessment/legislative-disruption.md" target="_blank" rel="noopener noreferrer"&gt;${disruptionLabel}&lt;/a&gt;&lt;/li&gt;
         &lt;/ul&gt;
@@ -1944,8 +1956,8 @@ function renderAnalysisTransparencySection(
         &lt;h3&gt;&lt;span aria-hidden="true"&gt;🔍&lt;/span&gt; ${deepLabel}&lt;/h3&gt;
         &lt;ul&gt;
           &lt;li&gt;&lt;a href="${analysisFileBase}/existing/deep-analysis.md" target="_blank" rel="noopener noreferrer"&gt;${deepAnalysisFileLabel}&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href="${analysisFileBase}/existing/stakeholder-analysis.md" target="_blank" rel="noopener noreferrer"&gt;${stakeholderLabel}&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href="${analysisFileBase}/existing/coalition-analysis.md" target="_blank" rel="noopener noreferrer"&gt;${coalitionLabel}&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="${analysisFileBase}/existing/stakeholder-impact.md" target="_blank" rel="noopener noreferrer"&gt;${stakeholderLabel}&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="${analysisFileBase}/existing/coalition-dynamics.md" target="_blank" rel="noopener noreferrer"&gt;${coalitionLabel}&lt;/a&gt;&lt;/li&gt;
           &lt;li&gt;&lt;a href="${analysisFileBase}/existing/voting-patterns.md" target="_blank" rel="noopener noreferrer"&gt;${votingPatternsLabel}&lt;/a&gt;&lt;/li&gt;
           &lt;li&gt;&lt;a href="${analysisFileBase}/existing/cross-session-intelligence.md" target="_blank" rel="noopener noreferrer"&gt;${crossSessionLabel}&lt;/a&gt;&lt;/li&gt;
         &lt;/ul&gt;
@@ -1972,7 +1984,7 @@ function renderAnalysisTransparencySection(
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-05T01:16:15.511Z
+                at 2026-04-07T15:40:25.768Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
