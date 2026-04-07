@@ -133,12 +133,16 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
       return result;
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
+      const lowerMsg = message.toLowerCase();
       // Classify the error for better diagnostics
-      const errorType = message.includes('timeout')
+      const errorType = lowerMsg.includes('timeout')
         ? 'TIMEOUT'
-        : message.includes('404')
+        : lowerMsg.includes('404')
           ? 'NOT_FOUND'
-          : message.includes('50')
+          : lowerMsg.includes('gateway error 500') ||
+              lowerMsg.includes('gateway error 502') ||
+              lowerMsg.includes('gateway error 503') ||
+              lowerMsg.includes('gateway error 504')
             ? 'SERVER_ERROR'
             : 'UNKNOWN';
       this._failedTools.set(toolName, `${errorType}: ${message}`);
