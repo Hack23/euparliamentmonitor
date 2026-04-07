@@ -17,6 +17,9 @@ import {
   extractAnalysisSummary,
   extractFrontmatterMethod,
   buildAnalysisInsightsSection,
+  isScaffoldContent,
+  hasSubstantiveAIContent,
+  extractAnalysisParagraphs,
 } from '../../scripts/generators/strategies/article-strategy.js';
 
 import { BreakingNewsStrategy } from '../../scripts/generators/strategies/breaking-news-strategy.js';
@@ -426,6 +429,130 @@ describe('extractAnalysisSummary', () => {
       'Some immediate content without frontmatter.'
     );
   });
+
+  it('skips mermaid code blocks', () => {
+    const content = '# Analysis\n\n```mermaid\npie title Test\n"A" : 50\n```\n\nActual prose analysis of political dynamics and coalition behavior patterns.';
+    const summary = extractAnalysisSummary(content);
+    expect(summary).not.toContain('mermaid');
+    expect(summary).not.toContain('pie title');
+    expect(summary).toContain('Actual prose analysis');
+  });
+
+  it('skips table rows', () => {
+    const content = '# Analysis\n\n| Header | Value |\n|--------|-------|\n| A | B |\n\nSubstantive analytical findings from the assessment.';
+    const summary = extractAnalysisSummary(content);
+    expect(summary).not.toContain('Header');
+    expect(summary).toContain('Substantive analytical findings');
+  });
+
+  it('skips table rows without trailing pipe', () => {
+    const content = '# Analysis\n\n| Header | Value\n|--------|-------\n| A | B\n\nSubstantive analytical findings from the assessment.';
+    const summary = extractAnalysisSummary(content);
+    expect(summary).not.toContain('Header');
+    expect(summary).toContain('Substantive analytical findings');
+  });
+
+  it('returns empty for scaffold content with TO BE FILLED markers', () => {
+    const content = '# Analysis\n\n[TO BE FILLED BY AI AGENT — analysis pending]\n\nSome content.';
+    expect(extractAnalysisSummary(content)).toBe('');
+  });
+
+  it('strips bold markdown formatting', () => {
+    const content = '# Analysis\n\nThe **overall risk** is moderate across member states.';
+    const summary = extractAnalysisSummary(content);
+    expect(summary).toContain('overall risk');
+    expect(summary).not.toContain('**');
+  });
+});
+
+// ─── isScaffoldContent tests ─────────────────────────────────────────────────
+
+describe('isScaffoldContent', () => {
+  it('detects TO BE FILLED BY AI AGENT marker', () => {
+    expect(isScaffoldContent('[TO BE FILLED BY AI AGENT — placeholder]')).toBe(true);
+  });
+
+  it('detects AI_ANALYSIS_REQUIRED marker', () => {
+    expect(isScaffoldContent('Some text [AI_ANALYSIS_REQUIRED] more text')).toBe(true);
+  });
+
+  it('detects REQUIRED marker', () => {
+    expect(isScaffoldContent('Content with [REQUIRED] fields')).toBe(true);
+  });
+
+  it('detects Instructions for AI Agent prompt', () => {
+    expect(isScaffoldContent('Instructions for AI Agent (Opus 4.6): do analysis')).toBe(true);
+  });
+
+  it('detects quality gate markers', () => {
+    expect(isScaffoldContent('Quality gate: minimum 500 words of analytical prose')).toBe(true);
+  });
+
+  it('returns false for substantive content', () => {
+    expect(isScaffoldContent('The European Parliament adopted 18 texts on banking reform.')).toBe(false);
+  });
+
+  it('returns false for empty content', () => {
+    expect(isScaffoldContent('')).toBe(false);
+  });
+});
+
+// ─── hasSubstantiveAIContent tests ───────────────────────────────────────────
+
+describe('hasSubstantiveAIContent', () => {
+  it('returns true for content with substantive prose', () => {
+    expect(hasSubstantiveAIContent('# Analysis\n\nThe parliament adopted significant banking reform legislation that affects member states.')).toBe(true);
+  });
+
+  it('returns false for scaffold content', () => {
+    expect(hasSubstantiveAIContent('[TO BE FILLED BY AI AGENT — pending analysis]')).toBe(false);
+  });
+
+  it('returns false for content with only headings and tables', () => {
+    expect(hasSubstantiveAIContent('# Title\n\n| A | B |\n|---|---|\n| 1 | 2 |')).toBe(false);
+  });
+
+  it('counts words excluding headings, tables, and blockquotes', () => {
+    const content = '# Title\n\n> Blockquote instruction\n\nReal prose content here about the analysis results.';
+    expect(hasSubstantiveAIContent(content)).toBe(true);
+  });
+});
+
+// ─── extractAnalysisParagraphs tests ─────────────────────────────────────────
+
+describe('extractAnalysisParagraphs', () => {
+  it('extracts multiple paragraphs from analysis content', () => {
+    const content = '# Analysis\n\nFirst paragraph with detailed analysis of parliamentary developments and coalition dynamics.\n\nSecond paragraph with additional findings about legislative procedures and policy outcomes across the EU.';
+    const paragraphs = extractAnalysisParagraphs(content);
+    expect(paragraphs.length).toBe(2);
+    expect(paragraphs[0]).toContain('First paragraph');
+    expect(paragraphs[1]).toContain('Second paragraph');
+  });
+
+  it('returns empty array for scaffold content', () => {
+    expect(extractAnalysisParagraphs('[TO BE FILLED BY AI AGENT — pending]')).toEqual([]);
+  });
+
+  it('respects maxParagraphs limit', () => {
+    const content = '# A\n\nParagraph one with sufficient length content for testing purposes here.\n\nParagraph two with sufficient length content for testing purposes here.\n\nParagraph three with sufficient length content for testing purposes here.';
+    const paragraphs = extractAnalysisParagraphs(content, 2);
+    expect(paragraphs.length).toBeLessThanOrEqual(2);
+  });
+
+  it('skips mermaid blocks and tables', () => {
+    const content = '# Analysis\n\n```mermaid\npie\n```\n\n| A | B |\n|---|---|\n\nSubstantive analysis paragraph with real political intelligence about coalition dynamics.';
+    const paragraphs = extractAnalysisParagraphs(content);
+    expect(paragraphs.length).toBe(1);
+    expect(paragraphs[0]).toContain('Substantive analysis');
+  });
+
+  it('truncates overlong first paragraph instead of returning empty', () => {
+    const longParagraph = 'A'.repeat(200) + ' substantive political analysis content here.';
+    const content = '# Analysis\n\n' + longParagraph;
+    const paragraphs = extractAnalysisParagraphs(content, 3, 100);
+    expect(paragraphs.length).toBe(1);
+    expect(paragraphs[0].length).toBeLessThanOrEqual(100);
+  });
 });
 
 // ─── buildAnalysisInsightsSection tests ──────────────────────────────────────
@@ -455,7 +582,7 @@ describe('buildAnalysisInsightsSection', () => {
     files.set('risk-matrix', {
       method: 'risk-matrix',
       subdir: 'risk-scoring',
-      content: '---\nmethod: risk-matrix\n---\n\n# Risk Matrix\n\nOverall risk is moderate.',
+      content: '---\nmethod: risk-matrix\n---\n\n# Risk Matrix\n\nOverall risk is moderate based on the assessment of current parliamentary activity, including adopted texts and ongoing legislative procedures affecting EU member states.',
       filePath: '/tmp/test/risk-scoring/risk-matrix.md',
     });
 
@@ -486,7 +613,7 @@ describe('buildAnalysisInsightsSection', () => {
     files.set('deep-analysis', {
       method: 'deep-analysis',
       subdir: 'existing',
-      content: '# Deep Analysis\n\nKey findings from deep analysis.',
+      content: '# Deep Analysis\n\nKey findings from deep analysis indicate significant political shifts in the European Parliament coalition dynamics affecting legislative outcomes across member states.',
       filePath: '/tmp/test/existing/deep-analysis.md',
     });
 
@@ -508,12 +635,33 @@ describe('buildAnalysisInsightsSection', () => {
     expect(html).not.toContain('voting-patterns');
   });
 
+  it('filters out scaffold/placeholder content from insights', () => {
+    const files = new Map();
+    files.set('deep-analysis', {
+      method: 'deep-analysis',
+      subdir: 'existing',
+      content: '# Deep Analysis\n\n[TO BE FILLED BY AI AGENT — minimum 500 words of original analytical prose with evidence citations.]',
+      filePath: '/tmp/test/existing/deep-analysis.md',
+    });
+
+    const ctx = {
+      date: '2026-04-06',
+      analysisDir: '/tmp/test',
+      manifest: null,
+      overallConfidence: null,
+      files,
+    };
+
+    const html = buildAnalysisInsightsSection(ctx, ['deep-analysis'], 'en');
+    expect(html).toBe('');
+  });
+
   it('omits confidence badge when overallConfidence is null', () => {
     const files = new Map();
     files.set('deep-analysis', {
       method: 'deep-analysis',
       subdir: 'existing',
-      content: '# Deep Analysis\n\nFindings.',
+      content: '# Deep Analysis\n\nDetailed findings from deep political analysis of European Parliament activity and legislative developments.',
       filePath: '/tmp/test/existing/deep-analysis.md',
     });
 
@@ -534,7 +682,7 @@ describe('buildAnalysisInsightsSection', () => {
     files.set('deep-analysis', {
       method: 'deep-analysis',
       subdir: 'existing',
-      content: '# Deep Analysis\n\nFindings.',
+      content: '# Deep Analysis\n\nDetailed findings from deep political analysis of European Parliament activity and legislative developments.',
       filePath: '/tmp/test/existing/deep-analysis.md',
     });
 
@@ -563,7 +711,7 @@ describe('Strategy analysis context integration', () => {
     files.set('risk-matrix', {
       method: 'risk-matrix',
       subdir: 'risk-scoring',
-      content: '# Risk Matrix\n\nBreaking news risk assessment reveals moderate overall risk.',
+      content: '# Risk Matrix\n\nBreaking news risk assessment reveals moderate overall risk based on analysis of parliamentary activity, including adopted texts and ongoing legislative procedures.',
       filePath: '/tmp/test/risk-scoring/risk-matrix.md',
     });
 
@@ -592,12 +740,91 @@ describe('Strategy analysis context integration', () => {
     expect(content).not.toContain('analysis-pipeline-insights');
   });
 
+  it('BreakingNewsStrategy: enriches deep-analysis section with AI content from analysisContext', () => {
+    const files = new Map();
+    files.set('deep-analysis', {
+      method: 'deep-analysis',
+      subdir: 'intelligence',
+      content:
+        '# Deep Analysis\n\nThe European Parliament plenary session revealed significant cross-party coalition shifts driven by disagreements over the Green Deal legislative package and its economic implications for member states.',
+      filePath: '/tmp/test/intelligence/deep-analysis.md',
+    });
+    files.set('synthesis-summary', {
+      method: 'synthesis-summary',
+      subdir: 'intelligence',
+      content:
+        '# Synthesis Summary\n\nOverall parliamentary dynamics indicate growing fragmentation as the EPP and S&D struggle to maintain their traditional grand coalition on key environmental and digital policy votes.',
+      filePath: '/tmp/test/intelligence/synthesis-summary.md',
+    });
+    files.set('coalition-analysis', {
+      method: 'coalition-analysis',
+      subdir: 'intelligence',
+      content:
+        '# Coalition Analysis\n\nRenew Europe has emerged as the decisive swing group with increasing leverage in trilogue negotiations, particularly on digital markets regulation and AI governance frameworks.',
+      filePath: '/tmp/test/intelligence/coalition-analysis.md',
+    });
+
+    const dataWithContext = {
+      ...breakingNewsData,
+      analysisContext: {
+        date: '2026-04-06',
+        analysisDir: '/tmp/test',
+        manifest: null,
+        overallConfidence: 'high',
+        files,
+      },
+    };
+
+    const strategy = new BreakingNewsStrategy();
+    const content = strategy.buildContent(dataWithContext, 'en');
+
+    // Deep analysis section should contain AI-produced content
+    expect(content).toContain('deep-analysis');
+    expect(content).toContain('cross-party coalition shifts');
+    // Outlook should use coalition-analysis AI content
+    expect(content).toContain('Renew Europe');
+  });
+
+  it('BreakingNewsStrategy: scaffold analysis files do not override deep-analysis fields', () => {
+    const files = new Map();
+    files.set('deep-analysis', {
+      method: 'deep-analysis',
+      subdir: 'intelligence',
+      content: '# Deep Analysis\n\n[TO BE FILLED BY AI AGENT]\n\n[AI_ANALYSIS_REQUIRED]',
+      filePath: '/tmp/test/intelligence/deep-analysis.md',
+    });
+    files.set('synthesis-summary', {
+      method: 'synthesis-summary',
+      subdir: 'intelligence',
+      content: '# Synthesis\n\n[REQUIRED]: Analysis pending.',
+      filePath: '/tmp/test/intelligence/synthesis-summary.md',
+    });
+
+    const dataWithContext = {
+      ...breakingNewsData,
+      analysisContext: {
+        date: '2026-04-06',
+        analysisDir: '/tmp/test',
+        manifest: null,
+        overallConfidence: 'high',
+        files,
+      },
+    };
+
+    const strategy = new BreakingNewsStrategy();
+    const content = strategy.buildContent(dataWithContext, 'en');
+
+    // Scaffold placeholders should NOT appear in the rendered HTML
+    expect(content).not.toContain('TO BE FILLED BY AI AGENT');
+    expect(content).not.toContain('AI_ANALYSIS_REQUIRED');
+  });
+
   it('WeekAheadStrategy: buildContent includes insights when context is present', () => {
     const files = new Map();
     files.set('significance-classification', {
       method: 'significance-classification',
       subdir: 'classification',
-      content: '# Significance\n\nUpcoming week shows high significance events.',
+      content: '# Significance\n\nUpcoming week shows high significance events based on scheduled plenary sessions and committee meetings affecting EU legislative priorities.',
       filePath: '/tmp/test/classification/significance-classification.md',
     });
 
@@ -622,7 +849,7 @@ describe('Strategy analysis context integration', () => {
     files.set('stakeholder-analysis', {
       method: 'stakeholder-analysis',
       subdir: 'existing',
-      content: '# Stakeholder Impact\n\nKey stakeholders affected by committee decisions.',
+      content: '# Stakeholder Impact\n\nKey stakeholders affected by committee decisions include political groups, civil society organizations, and national governments across EU member states.',
       filePath: '/tmp/test/existing/stakeholder-impact.md',
     });
 
@@ -648,7 +875,7 @@ describe('Strategy analysis context integration', () => {
     files.set('political-threat-landscape', {
       method: 'political-threat-landscape',
       subdir: 'threat-assessment',
-      content: '# Political Threat Landscape\n\nThreat assessment for motions period.',
+      content: '# Political Threat Landscape\n\nThreat assessment for motions period reveals evolving political dynamics with coalition stress points and shifting group alignments across policy domains.',
       filePath: '/tmp/test/threat-assessment/political-threat-landscape.md',
     });
 
@@ -673,7 +900,7 @@ describe('Strategy analysis context integration', () => {
     files.set('legislative-velocity-risk', {
       method: 'legislative-velocity-risk',
       subdir: 'risk-scoring',
-      content: '# Legislative Velocity Risk\n\nPipeline velocity analysis shows moderate risk.',
+      content: '# Legislative Velocity Risk\n\nPipeline velocity analysis shows moderate risk with significant legislative backlog affecting committee schedules and plenary timelines.',
       filePath: '/tmp/test/risk-scoring/legislative-velocity-risk.md',
     });
 
@@ -698,7 +925,7 @@ describe('Strategy analysis context integration', () => {
     files.set('synthesis-summary', {
       method: 'synthesis-summary',
       subdir: 'existing',
-      content: '# Synthesis Summary\n\nWeekly synthesis of parliamentary activities.',
+      content: '# Synthesis Summary\n\nWeekly synthesis of parliamentary activities reveals continued legislative momentum across key policy domains with notable coalition dynamics.',
       filePath: '/tmp/test/existing/synthesis-summary.md',
     });
 
@@ -723,7 +950,7 @@ describe('Strategy analysis context integration', () => {
     files.set('synthesis-summary', {
       method: 'synthesis-summary',
       subdir: 'existing',
-      content: '# Synthesis Summary\n\nMonthly synthesis of parliamentary activities.',
+      content: '# Synthesis Summary\n\nMonthly synthesis of parliamentary activities shows overall legislative progress with significant policy developments across economic and social domains.',
       filePath: '/tmp/test/existing/synthesis-summary.md',
     });
 
@@ -748,7 +975,7 @@ describe('Strategy analysis context integration', () => {
     files.set('significance-classification', {
       method: 'significance-classification',
       subdir: 'classification',
-      content: '# Significance\n\nMonth ahead significance assessment.',
+      content: '# Significance\n\nMonth ahead significance assessment indicates multiple high-priority legislative procedures and committee deliberations that will shape EU policy direction.',
       filePath: '/tmp/test/classification/significance-classification.md',
     });
 

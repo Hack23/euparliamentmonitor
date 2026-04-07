@@ -189,10 +189,12 @@ export class WeeklyReviewStrategy {
         const dashboardData = buildVotingDashboard(data.votingRecords, data.votingPatterns, data.anomalies, lang);
         const dashboardSection = buildDashboardSection(dashboardData, lang);
         const analysisInsights = buildAnalysisInsightsSection(data.analysisContext, [
-            'synthesis-summary',
-            'voting-patterns',
-            'coalition-analysis',
             'deep-analysis',
+            'synthesis-summary',
+            'stakeholder-analysis',
+            'coalition-analysis',
+            'cross-session-intelligence',
+            'voting-patterns',
             'significance-classification',
         ], lang);
         return base.replace('<!-- /article-content -->', adoptedTextsHtml +

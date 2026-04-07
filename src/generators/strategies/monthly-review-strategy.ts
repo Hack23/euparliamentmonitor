@@ -284,9 +284,12 @@ export class MonthlyReviewStrategy implements ArticleStrategy<MonthlyReviewArtic
     const analysisInsights = buildAnalysisInsightsSection(
       data.analysisContext,
       [
+        'deep-analysis',
         'synthesis-summary',
-        'voting-patterns',
+        'stakeholder-analysis',
         'coalition-analysis',
+        'cross-session-intelligence',
+        'voting-patterns',
         'significance-classification',
         'legislative-velocity-risk',
       ],

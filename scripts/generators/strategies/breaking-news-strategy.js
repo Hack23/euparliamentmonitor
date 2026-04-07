@@ -9,7 +9,7 @@ import { buildBreakingAnalysis, buildBreakingSwot, buildBreakingDashboard, build
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
-import { loadAnalysisContext, buildAnalysisInsightsSection } from './article-strategy.js';
+import { loadAnalysisContext, buildAnalysisInsightsSection, extractAnalysisSummary, } from './article-strategy.js';
 import { pl } from '../../utils/metadata-utils.js';
 /** Base keywords shared by all Breaking News articles */
 const BREAKING_NEWS_BASE_KEYWORDS = [
@@ -100,6 +100,50 @@ function buildBreakingTitleSuffix(feedData) {
     if (feedData.procedures.length > 0)
         parts.push(pl(feedData.procedures.length, 'Procedure', 'Procedures'));
     return parts.join(', ');
+}
+/**
+ * Extract a substantive summary from an analysis file if available.
+ *
+ * @param ctx - Analysis context
+ * @param method - Analysis method to look up
+ * @param maxLength - Maximum summary length
+ * @returns Extracted summary or empty string
+ */
+function extractAISummaryFromMethod(ctx, method, maxLength) {
+    const file = ctx.files.get(method);
+    if (!file)
+        return '';
+    // `extractAnalysisSummary()` already runs `prepareAnalysisBody()` which
+    // returns empty for scaffold content and strips non-prose blocks, so no
+    // separate `hasSubstantiveAIContent()` pre-check is needed.
+    const summary = extractAnalysisSummary(file.content, maxLength);
+    return summary.length > 50 ? summary : '';
+}
+/**
+ * Enrich script-generated DeepAnalysis fields with substantive AI analysis
+ * content when available.  AI-produced analysis files (deep-analysis,
+ * synthesis-summary) contain real political intelligence that should
+ * replace generic boilerplate text in the "what", "why", and "outlook" fields.
+ *
+ * @param analysis - Script-generated DeepAnalysis object
+ * @param ctx - Loaded analysis context (may be null)
+ * @returns Enriched DeepAnalysis with AI content replacing boilerplate where available
+ */
+function enrichAnalysisWithAIContent(analysis, ctx) {
+    if (!ctx)
+        return analysis;
+    const aiDeep = extractAISummaryFromMethod(ctx, 'deep-analysis', 800);
+    const aiSynth = extractAISummaryFromMethod(ctx, 'synthesis-summary', 600);
+    const aiCoalition = extractAISummaryFromMethod(ctx, 'coalition-analysis', 400);
+    // Distribute AI content across the deep analysis fields
+    const aiWhat = aiDeep || aiSynth;
+    const aiWhy = aiDeep && aiSynth ? aiSynth : '';
+    return {
+        ...analysis,
+        what: aiWhat || analysis.what,
+        why: aiWhy || analysis.why,
+        outlook: aiCoalition || analysis.outlook,
+    };
 }
 // ─── Strategy implementation ──────────────────────────────────────────────────
 /**
@@ -225,7 +269,9 @@ export class BreakingNewsStrategy {
     buildContent(data, lang) {
         const base = buildBreakingNewsContent(data.date, data.anomalyRaw, data.coalitionRaw, data.reportRaw, '', lang, [], [], [], data.feedData);
         const analysis = buildBreakingAnalysis(data.date, data.feedData, data.anomalyRaw, data.coalitionRaw, lang);
-        const deepSection = buildDeepAnalysisSection(analysis, lang, 'en');
+        // Enrich script-generated analysis with AI-produced content when available
+        const enriched = enrichAnalysisWithAIContent(analysis, data.analysisContext);
+        const deepSection = buildDeepAnalysisSection(enriched, lang, 'en');
         const mindmapData = buildBreakingMindmap(data.feedData, lang);
         const mindmapSection = buildIntelligenceMindmapSection(mindmapData, lang);
         const swotData = buildBreakingSwot(data.feedData, data.anomalyRaw, data.coalitionRaw, lang);
@@ -233,11 +279,16 @@ export class BreakingNewsStrategy {
         const dashboardData = buildBreakingDashboard(data.feedData, lang);
         const dashboardSection = buildDashboardSection(dashboardData, lang);
         const analysisInsights = buildAnalysisInsightsSection(data.analysisContext, [
+            'deep-analysis',
+            'synthesis-summary',
+            'stakeholder-analysis',
+            'coalition-analysis',
+            'cross-session-intelligence',
+            'voting-patterns',
             'risk-matrix',
             'quantitative-swot',
             'significance-classification',
             'political-threat-landscape',
-            'coalition-analysis',
         ], lang);
         const injection = deepSection + mindmapSection + swotSection + dashboardSection + analysisInsights;
         // Inject before the closing </div> of .article-content

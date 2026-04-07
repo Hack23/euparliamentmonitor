@@ -203,11 +203,15 @@ export class WeekAheadStrategy implements ArticleStrategy<WeekAheadArticleData> 
     const analysisInsights = buildAnalysisInsightsSection(
       data.analysisContext,
       [
+        'deep-analysis',
+        'synthesis-summary',
+        'stakeholder-analysis',
+        'coalition-analysis',
+        'cross-session-intelligence',
         'significance-classification',
         'political-threat-landscape',
         'risk-matrix',
         'forces-analysis',
-        'deep-analysis',
       ],
       lang
     );

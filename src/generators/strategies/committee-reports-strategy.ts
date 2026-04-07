@@ -495,10 +495,13 @@ export class CommitteeReportsStrategy implements ArticleStrategy<CommitteeReport
     const analysisInsights = buildAnalysisInsightsSection(
       data.analysisContext,
       [
+        'deep-analysis',
+        'synthesis-summary',
         'stakeholder-analysis',
+        'coalition-analysis',
+        'cross-session-intelligence',
         'significance-classification',
         'impact-matrix',
-        'deep-analysis',
         'actor-mapping',
       ],
       lang

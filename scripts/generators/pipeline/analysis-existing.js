@@ -52,7 +52,10 @@ export function buildDeepAnalysisMarkdown(fetchedData, date) {
     return (header +
         `# Deep Multi-Perspective Analysis
 
-## Raw Data Inventory (Script-Generated Context for AI)
+## Pipeline Data Context
+
+> **Note:** This section contains script-generated data inventory for reference. The AI agent must replace everything starting from the "AI Agent Instructions" heading below with substantive political intelligence analysis.
+
 | Data Source | Count |
 |-------------|-------|
 | Events | ${events.length} |
@@ -63,7 +66,6 @@ export function buildDeepAnalysisMarkdown(fetchedData, date) {
 | MEP Updates | ${mepUpdates.length} |
 | **Total** | **${total}** |
 
-## Stakeholder Groups — Data Points Available
 | Stakeholder Group | Data Points Available |
 |-------------------|---------------------|
 | Political Groups | ${procedures.length + adoptedTexts.length} (procedures + adopted texts) |
@@ -73,21 +75,23 @@ export function buildDeepAnalysisMarkdown(fetchedData, date) {
 | Citizens | ${questions.length + mepUpdates.length} (questions + MEP updates) |
 | EU Institutions | ${events.length + procedures.length} (events + procedures) |
 
-## AI Analysis Prompt
+---
 
-> **Instructions for AI Agent (Opus 4.6):** Using the data inventory above and the raw EP MCP data files, produce a deep multi-perspective analysis following the political-style-guide.md depth Level 3 format. Your analysis MUST:
+## AI Agent Instructions
+
+> **Instructions for AI Agent (Opus 4.6):** Read ALL methodology documents in analysis/methodologies/ before writing. Using the data inventory above and the raw EP MCP data files, produce a deep multi-perspective analysis following the political-style-guide.md depth Level 3 format. Your analysis MUST:
 >
 > 1. **Identify the 3-5 most politically significant items** from the available data, citing specific document IDs
 > 2. **Analyse each from ≥3 stakeholder perspectives** (Political Groups, Civil Society, Industry, National Governments, Citizens, EU Institutions)
 > 3. **Apply the SWOT framework** to the overall parliamentary activity pattern for this date
 > 4. **Assess coalition dynamics** — which groups are aligning/diverging based on the adopted texts?
-> 5. **Rate confidence** for each analytical claim: 🟢 High / 🟡 Medium / 🔴 Low
+> 5. **Rate confidence** for each analytical claim: HIGH / MEDIUM / LOW
 > 6. **Provide forward-looking indicators** — what should be monitored in the next 7-14 days?
-> 7. **Include a Mermaid diagram** showing key actor relationships or policy connection mapping
+> 7. **Never leave scaffold markers** — replace this entire section with real analysis
 >
 > Evidence requirement: ≥3 citations per section from EP MCP data (document IDs, vote references, procedure numbers).
-
-## AI-Produced Analysis
+> Quality gate: minimum 500 words of original analytical prose with evidence citations.
+> When done, REMOVE this instructions section entirely and write analysis prose directly.
 
 [TO BE FILLED BY AI AGENT — This section must contain substantive political intelligence analysis, not data summaries. Quality gate: minimum 500 words of original analytical prose with evidence citations.]
 
@@ -132,20 +136,19 @@ ${Object.keys(fetchedData)
             .map((k) => `| ${k} | ${fetchedData[k].length} |`)
             .join('\n')}
 
-## AI Analysis Prompt
+## AI Agent Instructions
 
-> **Instructions for AI Agent (Opus 4.6):** Using the stakeholder-impact.md template and the data inventory above, produce a stakeholder impact analysis for each of the 6 stakeholder groups. For each group:
+> **Instructions for AI Agent (Opus 4.6):** Read ALL methodology documents in analysis/methodologies/. Using the stakeholder-impact.md template and the data inventory above, produce a stakeholder impact analysis for each of the 6 stakeholder groups. For each group:
 >
 > 1. **Impact direction**: positive / negative / neutral / mixed
 > 2. **Impact severity**: high / medium / low
 > 3. **Specific evidence**: Cite ≥2 specific EP documents, votes, or procedures that affect this stakeholder
 > 4. **Reasoning**: 2-3 sentences explaining WHY this stakeholder is affected and HOW
 > 5. **Action items**: What should this stakeholder watch or do in response?
-> 6. **Confidence level**: 🟢 High / 🟡 Medium / 🔴 Low
+> 6. **Confidence level**: HIGH / MEDIUM / LOW
 >
 > Focus on the MOST RECENT adopted texts and procedures. Do not produce generic stakeholder descriptions — every assessment must be grounded in specific EP data from this date period.
-
-## AI-Produced Stakeholder Assessment
+> When done, REMOVE this instructions section entirely and write analysis prose directly.
 
 [TO BE FILLED BY AI AGENT — Each stakeholder group must have impact direction, severity, evidence citations, and reasoning. Quality gate: minimum 300 words of original analytical prose.]
 
@@ -174,21 +177,19 @@ export function buildCoalitionAnalysisMarkdown(fetchedData, date) {
 - **Declining Groups**: ${stabilityReport.decliningGroups.length > 0 ? stabilityReport.decliningGroups.join(', ') : 'No declining groups identified from voting data'}
 - **Raw Patterns Evaluated**: ${rawPatterns.length}
 
-## AI Analysis Prompt
+## AI Agent Instructions
 
-> **Instructions for AI Agent (Opus 4.6):** Using the political-risk-methodology.md coalition risk framework and the computed metrics above, produce a coalition intelligence analysis. Your analysis MUST:
+> **Instructions for AI Agent (Opus 4.6):** Read ALL methodology documents in analysis/methodologies/. Using the political-risk-methodology.md coalition risk framework and the computed metrics above, produce a coalition intelligence analysis. Your analysis MUST:
 >
 > 1. **Assess the Grand Coalition** (EPP + S&D + Renew): Is it holding? What are the stress points?
 > 2. **Identify emerging alliances**: Are ECR, PfE, or Greens/EFA forming tactical voting blocs?
 > 3. **Analyse abstention patterns**: High abstention rates signal internal group conflicts — identify which groups and why
 > 4. **Cross-party voting**: Identify any cases where MEPs voted against their group line on recent adopted texts
 > 5. **Predict coalition evolution**: Based on current patterns, which coalitions will strengthen/weaken in the next month?
-> 6. **Include a Mermaid diagram** showing group-to-group voting alignment strength
-> 7. **Confidence levels**: Rate each coalition assessment as 🟢 High / 🟡 Medium / 🔴 Low
+> 6. **Confidence levels**: Rate each coalition assessment as HIGH / MEDIUM / LOW
 >
 > If voting data is limited (patterns analysed = 0), use adopted texts and political landscape data to infer coalition dynamics from the policy positions embedded in recent legislation.
-
-## AI-Produced Coalition Intelligence
+> When done, REMOVE this instructions section entirely and write analysis prose directly.
 
 [TO BE FILLED BY AI AGENT — Substantive coalition dynamics analysis with evidence citations, confidence levels, and forward-looking predictions. Quality gate: minimum 400 words.]
 
@@ -223,9 +224,9 @@ ${trendsText || '| No trend data available from voting records | — | — | —
 - **Trends identified**: ${trends.length}
 - **Records analysed**: ${rawRecords.length}
 
-## AI Analysis Prompt
+## AI Agent Instructions
 
-> **Instructions for AI Agent (Opus 4.6):** Using the voting pattern data above and the adopted texts from EP MCP feeds, produce a voting pattern intelligence analysis. Your analysis MUST:
+> **Instructions for AI Agent (Opus 4.6):** Read ALL methodology documents in analysis/methodologies/. Using the voting pattern data above and the adopted texts from EP MCP feeds, produce a voting pattern intelligence analysis. Your analysis MUST:
 >
 > 1. **Identify voting blocs**: Which groups consistently vote together on recent adopted texts?
 > 2. **Detect anomalies**: Any unexpected votes, close margins (<50 vote difference), or high abstention rates?
@@ -235,8 +236,7 @@ ${trendsText || '| No trend data available from voting records | — | — | —
 > 6. **Forward-looking**: Which upcoming votes are likely to be contested based on current alignment patterns?
 >
 > If voting records are limited, analyse the adopted texts' policy positions to infer likely voting alignments and coalition patterns.
-
-## AI-Produced Voting Intelligence
+> When done, REMOVE this instructions section entirely and write analysis prose directly.
 
 [TO BE FILLED BY AI AGENT — Substantive voting pattern analysis with specific vote references, group cohesion ratings, and anomaly detection. Quality gate: minimum 300 words.]
 
@@ -264,20 +264,19 @@ export function buildCrossSessionIntelligenceMarkdown(fetchedData, date) {
 - **Stable Groups**: ${stabilityReport.stableGroups.length > 0 ? stabilityReport.stableGroups.join(', ') : 'None identified from voting data'}
 - **Declining Groups**: ${stabilityReport.decliningGroups.length > 0 ? stabilityReport.decliningGroups.join(', ') : 'None identified from voting data'}
 
-## AI Analysis Prompt
+## AI Agent Instructions
 
-> **Instructions for AI Agent (Opus 4.6):** Using the cross-session stability metrics above and the adopted texts/voting records from recent plenary sessions, produce a cross-session intelligence synthesis. Your analysis MUST:
+> **Instructions for AI Agent (Opus 4.6):** Read ALL methodology documents in analysis/methodologies/. Using the cross-session stability metrics above and the adopted texts/voting records from recent plenary sessions, produce a cross-session intelligence synthesis. Your analysis MUST:
 >
 > 1. **Compare coalition patterns** across the last 3-5 plenary sessions — are alliances strengthening or fragmenting?
 > 2. **Identify session-over-session trends**: Which policy areas show increasing/decreasing consensus?
 > 3. **Detect coalition realignment signals**: Are new voting blocs forming? Is the Grand Coalition showing stress?
 > 4. **Institutional dynamics**: How are EP-Council-Commission dynamics evolving based on recent legislative outcomes?
 > 5. **Predictive assessment**: Based on cross-session patterns, forecast likely coalition behavior for upcoming votes
-> 6. **Confidence levels**: Rate each finding as 🟢 High / 🟡 Medium / 🔴 Low
+> 6. **Confidence levels**: Rate each finding as HIGH / MEDIUM / LOW
 >
 > Cross-reference with adopted texts from the most recent plenary session to ground the analysis in specific legislative outcomes.
-
-## AI-Produced Cross-Session Intelligence
+> When done, REMOVE this instructions section entirely and write analysis prose directly.
 
 [TO BE FILLED BY AI AGENT — Cross-session trend analysis with specific plenary session references, coalition evolution assessment, and predictive indicators. Quality gate: minimum 400 words.]
 
