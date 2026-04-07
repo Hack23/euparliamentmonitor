@@ -100,6 +100,11 @@ const STATS_FALLBACK = '{"stats": null}';
  * Extends {@link MCPConnection} with EP-specific tool wrapper methods.
  */
 export class EuropeanParliamentMCPClient extends MCPConnection {
+  /** Tracks tools that returned fallback data in the current session */
+  private readonly _failedTools = new Map<string, string>();
+  /** Tracks tools that have been called (attempted) in the current session */
+  private readonly _calledTools = new Set<string>();
+
   /**
    * Generic error-safe wrapper around {@link callToolWithRetry}.
    * Retries transient failures (timeouts, connection drops) with a bounded
@@ -122,14 +127,90 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
     args: object | (() => object),
     fallbackText: string
   ): Promise<MCPToolResult> {
+    this._calledTools.add(toolName);
     try {
       const resolvedArgs = typeof args === 'function' ? args() : args;
-      return await this.callToolWithRetry(toolName, resolvedArgs);
+      const result = await this.callToolWithRetry(toolName, resolvedArgs);
+      // Clear from failed tools on success
+      this._failedTools.delete(toolName);
+      return result;
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
-      console.warn(`${toolName} not available:`, message);
+      const lowerMsg = message.toLowerCase();
+      // Classify the error for better diagnostics.
+      // Check gateway 5xx first — a "504 Gateway Timeout" should be SERVER_ERROR,
+      // not TIMEOUT (which is reserved for client-side request timeouts).
+      const isGatewayServerError =
+        lowerMsg.includes('gateway timeout') ||
+        lowerMsg.includes('gateway error 500') ||
+        lowerMsg.includes('gateway error 502') ||
+        lowerMsg.includes('gateway error 503') ||
+        lowerMsg.includes('gateway error 504');
+      const errorType = isGatewayServerError
+        ? 'SERVER_ERROR'
+        : lowerMsg.includes('404')
+          ? 'NOT_FOUND'
+          : lowerMsg.includes('timeout')
+            ? 'TIMEOUT'
+            : 'UNKNOWN';
+      this._failedTools.set(toolName, `${errorType}: ${message}`);
+      console.warn(`⚠️ ${toolName} failed [${errorType}]:`, message);
       return { content: [{ type: 'text', text: fallbackText }] };
     }
+  }
+
+  /**
+   * Get a summary of tools that returned fallback data in the current session.
+   * Useful for diagnosing feed availability and data quality issues.
+   *
+   * @returns Map of tool name to error description
+   */
+  getFailedTools(): ReadonlyMap<string, string> {
+    return new Map(this._failedTools);
+  }
+
+  /**
+   * Get a human-readable feed health summary for diagnostics.
+   *
+   * @returns Formatted summary of feed availability
+   */
+  getFeedHealthSummary(): string {
+    const feedTools = [
+      'get_meps_feed',
+      'get_events_feed',
+      'get_procedures_feed',
+      'get_adopted_texts_feed',
+      'get_mep_declarations_feed',
+      'get_documents_feed',
+      'get_plenary_documents_feed',
+      'get_committee_documents_feed',
+      'get_plenary_session_documents_feed',
+      'get_external_documents_feed',
+      'get_parliamentary_questions_feed',
+      'get_corporate_bodies_feed',
+      'get_controlled_vocabularies_feed',
+    ];
+
+    const lines: string[] = ['EP MCP Feed Health:'];
+    let operational = 0;
+    let unchecked = 0;
+    for (const tool of feedTools) {
+      const error = this._failedTools.get(tool);
+      if (error) {
+        lines.push(`  ❌ ${tool}: ${error}`);
+      } else if (this._calledTools.has(tool)) {
+        lines.push(`  ✅ ${tool}`);
+        operational++;
+      } else {
+        lines.push(`  ⚪ ${tool} (not checked)`);
+        unchecked++;
+      }
+    }
+    const checked = feedTools.length - unchecked;
+    lines.push(
+      `  Summary: ${operational}/${checked} checked feeds operational${unchecked > 0 ? `, ${unchecked} unchecked` : ''}`
+    );
+    return lines.join('\n');
   }
 
   /**

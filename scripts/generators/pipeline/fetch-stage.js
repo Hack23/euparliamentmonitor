@@ -1136,10 +1136,10 @@ function mapFeedItemBase(item) {
  * Fetch adopted texts feed from MCP.
  *
  * @param client - MCP client or null
- * @param timeframe - How far back to look (default: 'one-day')
+ * @param timeframe - How far back to look (default: 'one-week')
  * @returns Array of adopted text feed items
  */
-export async function fetchAdoptedTextsFeed(client, timeframe = 'one-day') {
+export async function fetchAdoptedTextsFeed(client, timeframe = 'one-week') {
     if (!client)
         return [];
     try {
@@ -1157,10 +1157,10 @@ export async function fetchAdoptedTextsFeed(client, timeframe = 'one-day') {
  * Fetch events feed from MCP.
  *
  * @param client - MCP client or null
- * @param timeframe - How far back to look (default: 'one-day')
+ * @param timeframe - How far back to look (default: 'one-week')
  * @returns Array of event feed items
  */
-export async function fetchEventsFeed(client, timeframe = 'one-day') {
+export async function fetchEventsFeed(client, timeframe = 'one-week') {
     if (!client)
         return [];
     try {
@@ -1181,10 +1181,10 @@ export async function fetchEventsFeed(client, timeframe = 'one-day') {
  * Fetch procedures feed from MCP.
  *
  * @param client - MCP client or null
- * @param timeframe - How far back to look (default: 'one-day')
+ * @param timeframe - How far back to look (default: 'one-week')
  * @returns Array of procedure feed items
  */
-export async function fetchProceduresFeed(client, timeframe = 'one-day') {
+export async function fetchProceduresFeed(client, timeframe = 'one-week') {
     if (!client)
         return [];
     try {
@@ -1205,10 +1205,10 @@ export async function fetchProceduresFeed(client, timeframe = 'one-day') {
  * Fetch MEPs feed from MCP.
  *
  * @param client - MCP client or null
- * @param timeframe - How far back to look (default: 'one-day')
+ * @param timeframe - How far back to look (default: 'one-week')
  * @returns Array of MEP feed items
  */
-export async function fetchMEPsFeed(client, timeframe = 'one-day') {
+export async function fetchMEPsFeed(client, timeframe = 'one-week') {
     return (await fetchMEPsFeedWithTotal(client, timeframe)).items;
 }
 /**
@@ -1222,10 +1222,10 @@ export async function fetchMEPsFeed(client, timeframe = 'one-day') {
  * updates, the `total` field in the API response carries the true count.
  *
  * @param client - MCP client or null
- * @param timeframe - How far back to look (default: 'one-day')
+ * @param timeframe - How far back to look (default: 'one-week')
  * @returns Object with `items` array and `total` count from the API
  */
-export async function fetchMEPsFeedWithTotal(client, timeframe = 'one-day') {
+export async function fetchMEPsFeedWithTotal(client, timeframe = 'one-week') {
     if (!client)
         return { items: [], total: 0 };
     try {
@@ -1254,10 +1254,10 @@ export async function fetchMEPsFeedWithTotal(client, timeframe = 'one-day') {
  * Fetch documents feed from MCP.
  *
  * @param client - MCP client or null
- * @param timeframe - How far back to look (default: 'one-day')
+ * @param timeframe - How far back to look (default: 'one-week')
  * @returns Array of document feed items
  */
-export async function fetchDocumentsFeed(client, timeframe = 'one-day') {
+export async function fetchDocumentsFeed(client, timeframe = 'one-week') {
     if (!client)
         return [];
     try {
@@ -1275,10 +1275,10 @@ export async function fetchDocumentsFeed(client, timeframe = 'one-day') {
  * Fetch plenary documents feed from MCP.
  *
  * @param client - MCP client or null
- * @param timeframe - How far back to look (default: 'one-day')
+ * @param timeframe - How far back to look (default: 'one-week')
  * @returns Array of document feed items
  */
-export async function fetchPlenaryDocumentsFeed(client, timeframe = 'one-day') {
+export async function fetchPlenaryDocumentsFeed(client, timeframe = 'one-week') {
     if (!client)
         return [];
     try {
@@ -1296,10 +1296,10 @@ export async function fetchPlenaryDocumentsFeed(client, timeframe = 'one-day') {
  * Fetch committee documents feed from MCP.
  *
  * @param client - MCP client or null
- * @param timeframe - How far back to look (default: 'one-day')
+ * @param timeframe - How far back to look (default: 'one-week')
  * @returns Array of document feed items
  */
-export async function fetchCommitteeDocumentsFeed(client, timeframe = 'one-day') {
+export async function fetchCommitteeDocumentsFeed(client, timeframe = 'one-week') {
     if (!client)
         return [];
     try {
@@ -1317,10 +1317,10 @@ export async function fetchCommitteeDocumentsFeed(client, timeframe = 'one-day')
  * Fetch plenary session documents feed from MCP.
  *
  * @param client - MCP client or null
- * @param timeframe - How far back to look (default: 'one-day')
+ * @param timeframe - How far back to look (default: 'one-week')
  * @returns Array of document feed items
  */
-export async function fetchPlenarySessionDocumentsFeed(client, timeframe = 'one-day') {
+export async function fetchPlenarySessionDocumentsFeed(client, timeframe = 'one-week') {
     if (!client)
         return [];
     try {
@@ -1338,10 +1338,10 @@ export async function fetchPlenarySessionDocumentsFeed(client, timeframe = 'one-
  * Fetch external documents feed from MCP.
  *
  * @param client - MCP client or null
- * @param timeframe - How far back to look (default: 'one-day')
+ * @param timeframe - How far back to look (default: 'one-week')
  * @returns Array of document feed items
  */
-export async function fetchExternalDocumentsFeed(client, timeframe = 'one-day') {
+export async function fetchExternalDocumentsFeed(client, timeframe = 'one-week') {
     if (!client)
         return [];
     try {
@@ -1359,10 +1359,10 @@ export async function fetchExternalDocumentsFeed(client, timeframe = 'one-day') 
  * Fetch parliamentary questions feed from MCP.
  *
  * @param client - MCP client or null
- * @param timeframe - How far back to look (default: 'one-day')
+ * @param timeframe - How far back to look (default: 'one-week')
  * @returns Array of question feed items
  */
-export async function fetchQuestionsFeed(client, timeframe = 'one-day') {
+export async function fetchQuestionsFeed(client, timeframe = 'one-week') {
     if (!client)
         return [];
     try {
@@ -1380,10 +1380,10 @@ export async function fetchQuestionsFeed(client, timeframe = 'one-day') {
  * Fetch MEP declarations feed from MCP.
  *
  * @param client - MCP client or null
- * @param timeframe - How far back to look (default: 'one-day')
+ * @param timeframe - How far back to look (default: 'one-week')
  * @returns Array of declaration feed items
  */
-export async function fetchDeclarationsFeed(client, timeframe = 'one-day') {
+export async function fetchDeclarationsFeed(client, timeframe = 'one-week') {
     if (!client)
         return [];
     try {
@@ -1401,10 +1401,10 @@ export async function fetchDeclarationsFeed(client, timeframe = 'one-day') {
  * Fetch corporate bodies feed from MCP.
  *
  * @param client - MCP client or null
- * @param timeframe - How far back to look (default: 'one-day')
+ * @param timeframe - How far back to look (default: 'one-week')
  * @returns Array of corporate body feed items
  */
-export async function fetchCorporateBodiesFeed(client, timeframe = 'one-day') {
+export async function fetchCorporateBodiesFeed(client, timeframe = 'one-week') {
     if (!client)
         return [];
     try {
@@ -1424,10 +1424,10 @@ export async function fetchCorporateBodiesFeed(client, timeframe = 'one-day') {
  * Returns `undefined` when client is null (MCP unavailable).
  *
  * @param client - MCP client or null
- * @param timeframe - How far back to look (default: 'one-day')
+ * @param timeframe - How far back to look (default: 'one-week')
  * @returns Aggregated feed data for breaking news, or undefined when client is null
  */
-export async function fetchBreakingNewsFeedData(client, timeframe = 'one-day') {
+export async function fetchBreakingNewsFeedData(client, timeframe = 'one-week') {
     if (!client)
         return undefined;
     if (!mcpCircuitBreaker.canRequest()) {
@@ -1454,11 +1454,11 @@ export async function fetchBreakingNewsFeedData(client, timeframe = 'one-day') {
  * This is the primary data source for all article strategies.
  *
  * @param client - MCP client or null
- * @param timeframe - How far back to look (default: 'one-day')
+ * @param timeframe - How far back to look (default: 'one-week')
  * @param dateRange - Optional inclusive UTC window for filtering feed items
  * @returns Full EPFeedData or undefined when client is null
  */
-export async function fetchEPFeedData(client, timeframe = 'one-day', dateRange) {
+export async function fetchEPFeedData(client, timeframe = 'one-week', dateRange) {
     // Check for pre-fetched feed data file (set by --feed-data CLI arg).
     // This allows agentic workflows to pass MCP data fetched via framework tools
     // into the generator without requiring a direct MCP connection.
