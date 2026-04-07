@@ -238,6 +238,9 @@ function loadAnalysisFiles(analysisDir) {
 /**
  * Check whether a line is part of a fenced code block delimiter or table row.
  * Used to filter out non-prose content from analysis summaries.
+ *
+ * @param trimmed - Trimmed line of text to check
+ * @returns `true` when the line is non-prose content (code, table, blockquote instruction, HTML)
  */
 function isNonProseContent(trimmed) {
     // Fenced code block delimiters
@@ -277,29 +280,55 @@ export function isScaffoldContent(content) {
     return SCAFFOLD_PATTERNS.some((pattern) => pattern.test(content));
 }
 /**
- * Extract the first meaningful paragraph from an analysis markdown file.
- * Strips YAML frontmatter, headings, fenced code blocks, tables,
- * scaffold markers, and markdown formatting. Returns plain prose content.
+ * Check whether a line should be included as prose content.
+ *
+ * @param trimmed - Trimmed line text
+ * @returns `true` when the line is valid prose (not heading, separator, or non-prose)
+ */
+function isProseContent(trimmed) {
+    if (trimmed === '')
+        return false;
+    if (trimmed.startsWith('#'))
+        return false;
+    if (trimmed.startsWith('---'))
+        return false;
+    if (isNonProseContent(trimmed))
+        return false;
+    return true;
+}
+/**
+ * Strip markdown formatting (bold, italic) from a text string.
+ *
+ * @param text - Raw markdown text
+ * @returns Plain text with bold/italic markers removed
+ */
+function stripMarkdownFormatting(text) {
+    return text.replace(/\*\*([^*]+)\*\*/g, '$1').replace(/\*([^*]+)\*/g, '$1');
+}
+/**
+ * Prepare analysis content body by stripping frontmatter and code blocks.
  *
  * @param content - Raw markdown content
- * @param maxLength - Maximum character length to return (default 500)
- * @returns Extracted summary text or empty string
+ * @returns Body text ready for paragraph extraction, or empty string for scaffold content
  */
-export function extractAnalysisSummary(content, maxLength = 500) {
-    // Reject scaffold/placeholder files entirely
+function prepareAnalysisBody(content) {
     if (isScaffoldContent(content))
         return '';
-    // Strip YAML frontmatter
     let body = content;
     if (body.startsWith('---')) {
         const endIdx = body.indexOf('---', 3);
-        if (endIdx !== -1) {
+        if (endIdx !== -1)
             body = body.slice(endIdx + 3);
-        }
     }
-    // Remove fenced code blocks entirely (including ```mermaid ... ```)
-    body = body.replace(/```[\s\S]*?```/g, '');
-    // Find meaningful prose paragraphs
+    return body.replace(/```[\s\S]*?```/g, '');
+}
+/**
+ * Collect prose paragraphs from prepared analysis body text.
+ *
+ * @param body - Analysis body with frontmatter/code blocks removed
+ * @returns Array of prose paragraphs
+ */
+function collectParagraphs(body) {
     const lines = body.split('\n');
     const paragraphs = [];
     let current = '';
@@ -309,17 +338,28 @@ export function extractAnalysisSummary(content, maxLength = 500) {
             paragraphs.push(current.trim());
             current = '';
         }
-        else if (!trimmed.startsWith('#') &&
-            !trimmed.startsWith('---') &&
-            !isNonProseContent(trimmed) &&
-            trimmed !== '') {
-            // Strip bold/italic markdown formatting for cleaner prose
-            const cleaned = trimmed.replace(/\*\*([^*]+)\*\*/g, '$1').replace(/\*([^*]+)\*/g, '$1');
-            current += (current ? ' ' : '') + cleaned;
+        else if (isProseContent(trimmed)) {
+            current += (current ? ' ' : '') + stripMarkdownFormatting(trimmed);
         }
     }
     if (current)
         paragraphs.push(current.trim());
+    return paragraphs;
+}
+/**
+ * Extract the first meaningful paragraph from an analysis markdown file.
+ * Strips YAML frontmatter, headings, fenced code blocks, tables,
+ * scaffold markers, and markdown formatting. Returns plain prose content.
+ *
+ * @param content - Raw markdown content
+ * @param maxLength - Maximum character length to return (default 500)
+ * @returns Extracted summary text or empty string
+ */
+export function extractAnalysisSummary(content, maxLength = 500) {
+    const body = prepareAnalysisBody(content);
+    if (!body)
+        return '';
+    const paragraphs = collectParagraphs(body);
     // Filter out short fragments and data-only paragraphs
     const meaningful = paragraphs.filter((p) => p.length > 20 && !/^[\d\s|—–-]+$/u.test(p) && !/^\s*—\s*$/u.test(p));
     const summary = meaningful[0] ?? '';
@@ -335,36 +375,10 @@ export function extractAnalysisSummary(content, maxLength = 500) {
  * @returns Array of extracted prose paragraphs
  */
 export function extractAnalysisParagraphs(content, maxParagraphs = 3, maxTotalLength = 1500) {
-    if (isScaffoldContent(content))
+    const body = prepareAnalysisBody(content);
+    if (!body)
         return [];
-    let body = content;
-    if (body.startsWith('---')) {
-        const endIdx = body.indexOf('---', 3);
-        if (endIdx !== -1) {
-            body = body.slice(endIdx + 3);
-        }
-    }
-    // Remove fenced code blocks
-    body = body.replace(/```[\s\S]*?```/g, '');
-    const lines = body.split('\n');
-    const paragraphs = [];
-    let current = '';
-    for (const line of lines) {
-        const trimmed = line.trim();
-        if (trimmed === '' && current) {
-            paragraphs.push(current.trim());
-            current = '';
-        }
-        else if (!trimmed.startsWith('#') &&
-            !trimmed.startsWith('---') &&
-            !isNonProseContent(trimmed) &&
-            trimmed !== '') {
-            const cleaned = trimmed.replace(/\*\*([^*]+)\*\*/g, '$1').replace(/\*([^*]+)\*/g, '$1');
-            current += (current ? ' ' : '') + cleaned;
-        }
-    }
-    if (current)
-        paragraphs.push(current.trim());
+    const paragraphs = collectParagraphs(body);
     // Filter out short fragments and data-only paragraphs
     const meaningful = paragraphs.filter((p) => p.length > 50 && !/^[\d\s|—–-]+$/u.test(p) && !/^\s*—\s*$/u.test(p));
     const result = [];
@@ -387,24 +401,14 @@ export function extractAnalysisParagraphs(content, maxParagraphs = 3, maxTotalLe
  * @returns `true` when the file contains real analytical prose
  */
 export function hasSubstantiveAIContent(content) {
-    if (isScaffoldContent(content))
+    const body = prepareAnalysisBody(content);
+    if (!body)
         return false;
-    // Strip frontmatter and code blocks
-    let body = content;
-    if (body.startsWith('---')) {
-        const endIdx = body.indexOf('---', 3);
-        if (endIdx !== -1)
-            body = body.slice(endIdx + 3);
-    }
-    body = body.replace(/```[\s\S]*?```/g, '');
     // Count words in prose lines (not tables, not headings, not blockquotes)
     let wordCount = 0;
     for (const line of body.split('\n')) {
         const trimmed = line.trim();
-        if (trimmed !== '' &&
-            !trimmed.startsWith('#') &&
-            !trimmed.startsWith('|') &&
-            !trimmed.startsWith('>')) {
+        if (isProseContent(trimmed) && !trimmed.startsWith('>')) {
             wordCount += trimmed.split(/\s+/u).length;
         }
     }

@@ -17,6 +17,9 @@ import {
   extractAnalysisSummary,
   extractFrontmatterMethod,
   buildAnalysisInsightsSection,
+  isScaffoldContent,
+  hasSubstantiveAIContent,
+  extractAnalysisParagraphs,
 } from '../../scripts/generators/strategies/article-strategy.js';
 
 import { BreakingNewsStrategy } from '../../scripts/generators/strategies/breaking-news-strategy.js';
@@ -426,6 +429,115 @@ describe('extractAnalysisSummary', () => {
       'Some immediate content without frontmatter.'
     );
   });
+
+  it('skips mermaid code blocks', () => {
+    const content = '# Analysis\n\n```mermaid\npie title Test\n"A" : 50\n```\n\nActual prose analysis of political dynamics and coalition behavior patterns.';
+    const summary = extractAnalysisSummary(content);
+    expect(summary).not.toContain('mermaid');
+    expect(summary).not.toContain('pie title');
+    expect(summary).toContain('Actual prose analysis');
+  });
+
+  it('skips table rows', () => {
+    const content = '# Analysis\n\n| Header | Value |\n|--------|-------|\n| A | B |\n\nSubstantive analytical findings from the assessment.';
+    const summary = extractAnalysisSummary(content);
+    expect(summary).not.toContain('Header');
+    expect(summary).toContain('Substantive analytical findings');
+  });
+
+  it('returns empty for scaffold content with TO BE FILLED markers', () => {
+    const content = '# Analysis\n\n[TO BE FILLED BY AI AGENT — analysis pending]\n\nSome content.';
+    expect(extractAnalysisSummary(content)).toBe('');
+  });
+
+  it('strips bold markdown formatting', () => {
+    const content = '# Analysis\n\nThe **overall risk** is moderate across member states.';
+    const summary = extractAnalysisSummary(content);
+    expect(summary).toContain('overall risk');
+    expect(summary).not.toContain('**');
+  });
+});
+
+// ─── isScaffoldContent tests ─────────────────────────────────────────────────
+
+describe('isScaffoldContent', () => {
+  it('detects TO BE FILLED BY AI AGENT marker', () => {
+    expect(isScaffoldContent('[TO BE FILLED BY AI AGENT — placeholder]')).toBe(true);
+  });
+
+  it('detects AI_ANALYSIS_REQUIRED marker', () => {
+    expect(isScaffoldContent('Some text [AI_ANALYSIS_REQUIRED] more text')).toBe(true);
+  });
+
+  it('detects REQUIRED marker', () => {
+    expect(isScaffoldContent('Content with [REQUIRED] fields')).toBe(true);
+  });
+
+  it('detects Instructions for AI Agent prompt', () => {
+    expect(isScaffoldContent('Instructions for AI Agent (Opus 4.6): do analysis')).toBe(true);
+  });
+
+  it('detects quality gate markers', () => {
+    expect(isScaffoldContent('Quality gate: minimum 500 words of analytical prose')).toBe(true);
+  });
+
+  it('returns false for substantive content', () => {
+    expect(isScaffoldContent('The European Parliament adopted 18 texts on banking reform.')).toBe(false);
+  });
+
+  it('returns false for empty content', () => {
+    expect(isScaffoldContent('')).toBe(false);
+  });
+});
+
+// ─── hasSubstantiveAIContent tests ───────────────────────────────────────────
+
+describe('hasSubstantiveAIContent', () => {
+  it('returns true for content with substantive prose', () => {
+    expect(hasSubstantiveAIContent('# Analysis\n\nThe parliament adopted significant banking reform legislation that affects member states.')).toBe(true);
+  });
+
+  it('returns false for scaffold content', () => {
+    expect(hasSubstantiveAIContent('[TO BE FILLED BY AI AGENT — pending analysis]')).toBe(false);
+  });
+
+  it('returns false for content with only headings and tables', () => {
+    expect(hasSubstantiveAIContent('# Title\n\n| A | B |\n|---|---|\n| 1 | 2 |')).toBe(false);
+  });
+
+  it('counts words excluding headings, tables, and blockquotes', () => {
+    const content = '# Title\n\n> Blockquote instruction\n\nReal prose content here about the analysis results.';
+    expect(hasSubstantiveAIContent(content)).toBe(true);
+  });
+});
+
+// ─── extractAnalysisParagraphs tests ─────────────────────────────────────────
+
+describe('extractAnalysisParagraphs', () => {
+  it('extracts multiple paragraphs from analysis content', () => {
+    const content = '# Analysis\n\nFirst paragraph with detailed analysis of parliamentary developments and coalition dynamics.\n\nSecond paragraph with additional findings about legislative procedures and policy outcomes across the EU.';
+    const paragraphs = extractAnalysisParagraphs(content);
+    expect(paragraphs.length).toBe(2);
+    expect(paragraphs[0]).toContain('First paragraph');
+    expect(paragraphs[1]).toContain('Second paragraph');
+  });
+
+  it('returns empty array for scaffold content', () => {
+    expect(extractAnalysisParagraphs('[TO BE FILLED BY AI AGENT — pending]')).toEqual([]);
+  });
+
+  it('respects maxParagraphs limit', () => {
+    const content = '# A\n\nParagraph one with sufficient length content for testing purposes here.\n\nParagraph two with sufficient length content for testing purposes here.\n\nParagraph three with sufficient length content for testing purposes here.';
+    const paragraphs = extractAnalysisParagraphs(content, 2);
+    expect(paragraphs.length).toBeLessThanOrEqual(2);
+  });
+
+  it('skips mermaid blocks and tables', () => {
+    const content = '# Analysis\n\n```mermaid\npie\n```\n\n| A | B |\n|---|---|\n\nSubstantive analysis paragraph with real political intelligence about coalition dynamics.';
+    const paragraphs = extractAnalysisParagraphs(content);
+    expect(paragraphs.length).toBe(1);
+    expect(paragraphs[0]).toContain('Substantive analysis');
+  });
 });
 
 // ─── buildAnalysisInsightsSection tests ──────────────────────────────────────
@@ -506,6 +618,27 @@ describe('buildAnalysisInsightsSection', () => {
     expect(html).toContain('deep-analysis');
     expect(html).not.toContain('risk-matrix');
     expect(html).not.toContain('voting-patterns');
+  });
+
+  it('filters out scaffold/placeholder content from insights', () => {
+    const files = new Map();
+    files.set('deep-analysis', {
+      method: 'deep-analysis',
+      subdir: 'existing',
+      content: '# Deep Analysis\n\n[TO BE FILLED BY AI AGENT — minimum 500 words of original analytical prose with evidence citations.]',
+      filePath: '/tmp/test/existing/deep-analysis.md',
+    });
+
+    const ctx = {
+      date: '2026-04-06',
+      analysisDir: '/tmp/test',
+      manifest: null,
+      overallConfidence: null,
+      files,
+    };
+
+    const html = buildAnalysisInsightsSection(ctx, ['deep-analysis'], 'en');
+    expect(html).toBe('');
   });
 
   it('omits confidence badge when overallConfidence is null', () => {
