@@ -35,8 +35,22 @@ const DEFAULT_SERVER_BINARY = resolve(
   `../../node_modules/.bin/${BINARY_FILE}`
 );
 
-/** Request timeout in milliseconds — EU Parliament API responses commonly take 30-90+ seconds for large datasets */
-const REQUEST_TIMEOUT_MS = 180000;
+/** Default request timeout in milliseconds — EU Parliament API responses commonly take 30-90+ seconds for large datasets */
+const DEFAULT_REQUEST_TIMEOUT_MS = 180_000;
+
+/**
+ * Effective request timeout, configurable via `EP_REQUEST_TIMEOUT_MS` env var.
+ * This keeps the client-side timeout aligned with the MCP server timeout set
+ * in workflow configs and copilot-mcp.json.
+ */
+const REQUEST_TIMEOUT_MS: number = (() => {
+  const envVal = process.env['EP_REQUEST_TIMEOUT_MS'];
+  if (envVal) {
+    const parsed = Number(envVal);
+    if (!Number.isNaN(parsed) && parsed > 0) return parsed;
+  }
+  return DEFAULT_REQUEST_TIMEOUT_MS;
+})();
 
 /** Connection startup delay in milliseconds */
 const CONNECTION_STARTUP_DELAY_MS = 500;
@@ -97,7 +111,8 @@ function parseRetryAfterMs(retryAfter: string): number {
 
 /**
  * Returns true only for transient, retriable failures: request timeouts,
- * network-level connection-closed/reset errors, and "not connected" states.
+ * network-level connection-closed/reset errors, "not connected" states,
+ * and transient HTTP gateway errors (502, 503, 504).
  *
  * Uses an allow-list of known transient error patterns so that unknown or
  * server-level errors (e.g., tool runtime failures) are NOT retried:
@@ -105,6 +120,7 @@ function parseRetryAfterMs(retryAfter: string): number {
  * - connection closed / reset / refused — network-level transport failures
  * - not connected — local "not yet connected" guard error
  * - socket hang up — Node.js HTTP socket-level disconnection
+ * - gateway error 502/503/504 — transient upstream server errors
  *
  * Everything else (MCPSessionExpiredError, TypeError, rate-limit errors,
  * unknown errors) returns false so `callToolWithRetry` surfaces them immediately.
@@ -131,7 +147,11 @@ export function isRetriableError(error: Error): boolean {
     msg.includes('not connected') ||
     msg.includes('econnreset') ||
     msg.includes('econnrefused') ||
-    msg.includes('socket hang up')
+    msg.includes('socket hang up') ||
+    // Transient upstream gateway errors — safe to retry with backoff
+    msg.includes('gateway error 502') ||
+    msg.includes('gateway error 503') ||
+    msg.includes('gateway error 504')
   );
 }
 
@@ -652,6 +672,9 @@ export class MCPConnection {
         `${RATE_LIMIT_MSG} (status ${response.status} ${statusText}; ${RETRY_AFTER_HEADER}/Retry-After header missing)`
       );
     }
+    // Include the status code in the error message for classification by isRetriableError()
+    // and safeCallTool(). Diagnostic logging is intentionally omitted here because
+    // callToolWithRetry may retry 502/503/504 errors, and per-retry warnings would be noisy.
     throw new Error(`Gateway error ${response.status}: ${response.statusText}`);
   }
 

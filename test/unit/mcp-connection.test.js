@@ -193,6 +193,30 @@ describe('mcp-connection', () => {
     it('should return false for a TypeError even when message contains a retriable keyword', () => {
       expect(isRetriableError(new TypeError('timeout reading args'))).toBe(false);
     });
+
+    it('should return true for a 502 Bad Gateway error', () => {
+      expect(isRetriableError(new Error('Gateway error 502: Bad Gateway'))).toBe(true);
+    });
+
+    it('should return true for a 503 Service Unavailable error', () => {
+      expect(isRetriableError(new Error('Gateway error 503: Service Unavailable'))).toBe(true);
+    });
+
+    it('should return true for a 504 Gateway Timeout error', () => {
+      expect(isRetriableError(new Error('Gateway error 504: Gateway Timeout'))).toBe(true);
+    });
+
+    it('should return false for a 404 Not Found error (not transient)', () => {
+      expect(isRetriableError(new Error('Gateway error 404: Not Found'))).toBe(false);
+    });
+
+    it('should return true for ECONNREFUSED error', () => {
+      expect(isRetriableError(new Error('connect ECONNREFUSED 127.0.0.1:3000'))).toBe(true);
+    });
+
+    it('should return true for socket hang up error', () => {
+      expect(isRetriableError(new Error('socket hang up'))).toBe(true);
+    });
   });
 
   describe('MCPConnection', () => {
