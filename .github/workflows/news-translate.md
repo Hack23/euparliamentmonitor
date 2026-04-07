@@ -598,7 +598,9 @@ fi
 ## Step 4: Validate Translated Articles
 
 ```bash
-ARTICLE_DATE="${ARTICLE_DATE:-$(date -u +%Y-%m-%d)}"
+if [ -z "$ARTICLE_DATE" ]; then
+  ARTICLE_DATE=$(date -u +%Y-%m-%d)
+fi
 CURRENT_YEAR=$(date -u +%Y)
 
 for TYPE in $(echo "$TRANSLATED_TYPES" | tr ',' ' '); do
@@ -742,7 +744,9 @@ rm -f news/articles-metadata.json
 # Remove only raw data downloads to control PR size. Analysis markdown MUST be committed.
 rm -rf analysis-output/
 # Scope cleanup to THIS workflow's analysis directory only — never touch other workflows' data
-ARTICLE_DATE="${ARTICLE_DATE:-$(date -u +%Y-%m-%d)}"
+if [ -z "$ARTICLE_DATE" ]; then
+  ARTICLE_DATE=$(date -u +%Y-%m-%d)
+fi
 TRANSLATE_ANALYSIS_DIR="analysis/${ARTICLE_DATE}/translate"
 if [ -d "${TRANSLATE_ANALYSIS_DIR}" ]; then
   find "${TRANSLATE_ANALYSIS_DIR}" -type f -path "*/data/*" ! -name "*.analysis.md" ! -name "*.md" -delete 2>/dev/null || true
@@ -750,8 +754,10 @@ if [ -d "${TRANSLATE_ANALYSIS_DIR}" ]; then
 fi
 echo "🧹 Cleaned raw data payloads for ${ARTICLE_DATE}/translate; translation analysis markdown artifacts PRESERVED for commit"
 
-ARTICLE_DATE="${ARTICLE_DATE:-$(date -u +%Y-%m-%d)}"
-TRANSLATED_COUNT=$(ls news/${ARTICLE_DATE}-*-{sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh}.html 2>/dev/null | wc -l || echo 0)
+if [ -z "$ARTICLE_DATE" ]; then
+  ARTICLE_DATE=$(date -u +%Y-%m-%d)
+fi
+TRANSLATED_COUNT=$(find news/ -name "${ARTICLE_DATE}-*-*.html" ! -name "*-en.html" 2>/dev/null | wc -l || echo 0)
 echo "📊 Total translated files: $TRANSLATED_COUNT"
 BRANCH_NAME="news/translate-${ARTICLE_DATE}"
 echo "Branch: $BRANCH_NAME"
