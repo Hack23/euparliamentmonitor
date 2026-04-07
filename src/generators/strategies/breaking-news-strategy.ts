@@ -154,16 +154,6 @@ export interface BreakingNewsArticleData extends ArticleData {
 }
 
 /**
- * Enrich script-generated DeepAnalysis fields with substantive AI analysis
- * content when available.  AI-produced analysis files (deep-analysis,
- * synthesis-summary) contain real political intelligence that should
- * replace generic boilerplate text in the "what", "why", and "outlook" fields.
- *
- * @param analysis - Script-generated DeepAnalysis object
- * @param ctx - Loaded analysis context (may be null)
- * @returns Enriched DeepAnalysis with AI content replacing boilerplate where available
- */
-/**
  * Extract a substantive summary from an analysis file if available.
  *
  * @param ctx - Analysis context
@@ -182,6 +172,16 @@ function extractAISummaryFromMethod(
   return summary.length > 50 ? summary : '';
 }
 
+/**
+ * Enrich script-generated DeepAnalysis fields with substantive AI analysis
+ * content when available.  AI-produced analysis files (deep-analysis,
+ * synthesis-summary) contain real political intelligence that should
+ * replace generic boilerplate text in the "what", "why", and "outlook" fields.
+ *
+ * @param analysis - Script-generated DeepAnalysis object
+ * @param ctx - Loaded analysis context (may be null)
+ * @returns Enriched DeepAnalysis with AI content replacing boilerplate where available
+ */
 function enrichAnalysisWithAIContent(
   analysis: DeepAnalysis,
   ctx: LoadedAnalysisContext | null | undefined

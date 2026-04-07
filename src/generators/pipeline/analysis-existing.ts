@@ -87,7 +87,7 @@ export function buildDeepAnalysisMarkdown(
 
 ## Pipeline Data Context
 
-> **Note:** This section contains script-generated data inventory. The AI agent must replace the entire content below the "---" separator with substantive political intelligence analysis.
+> **Note:** This section contains script-generated data inventory for reference. The AI agent must replace everything starting from the "AI Agent Instructions" heading below with substantive political intelligence analysis.
 
 | Data Source | Count |
 |-------------|-------|

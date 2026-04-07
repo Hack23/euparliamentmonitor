@@ -421,14 +421,27 @@ export function extractAnalysisSummary(content: string, maxLength: number = 500)
   if (!body) return '';
 
   const paragraphs = collectParagraphs(body);
-
-  // Filter out short fragments and data-only paragraphs
-  const meaningful = paragraphs.filter(
-    (p) => p.length > 20 && !/^[\d\s|—–-]+$/u.test(p) && !/^\s*—\s*$/u.test(p)
-  );
+  const meaningful = filterMeaningfulParagraphs(paragraphs, 20);
 
   const summary = meaningful[0] ?? '';
   return summary.length > maxLength ? summary.slice(0, maxLength - 3) + '...' : summary;
+}
+
+/**
+ * Filter paragraphs to only include meaningful prose content.
+ * Removes short fragments and data-only paragraphs (e.g. "— | — | —").
+ *
+ * @param paragraphs - Array of paragraph strings to filter
+ * @param minLength - Minimum character length for a paragraph to be considered meaningful
+ * @returns Filtered array of meaningful paragraphs
+ */
+function filterMeaningfulParagraphs(
+  paragraphs: readonly string[],
+  minLength: number
+): readonly string[] {
+  return paragraphs.filter(
+    (p) => p.length > minLength && !/^[\d\s|—–-]+$/u.test(p) && !/^\s*—\s*$/u.test(p)
+  );
 }
 
 /**
@@ -449,11 +462,7 @@ export function extractAnalysisParagraphs(
   if (!body) return [];
 
   const paragraphs = collectParagraphs(body);
-
-  // Filter out short fragments and data-only paragraphs
-  const meaningful = paragraphs.filter(
-    (p) => p.length > 50 && !/^[\d\s|—–-]+$/u.test(p) && !/^\s*—\s*$/u.test(p)
-  );
+  const meaningful = filterMeaningfulParagraphs(paragraphs, 50);
 
   const result: string[] = [];
   let totalLength = 0;
