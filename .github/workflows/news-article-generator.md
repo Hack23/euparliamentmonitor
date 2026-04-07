@@ -50,7 +50,7 @@ mcp-servers:
     command: npx
     args:
       - -y
-      - european-parliament-mcp-server@1.1.26
+      - european-parliament-mcp-server@1.1.27
     env:
       EP_REQUEST_TIMEOUT_MS: "120000"
   world-bank:
@@ -683,7 +683,7 @@ if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
   if [ -f "node_modules/.bin/european-parliament-mcp-server" ]; then
     echo "✅ EP MCP server binary found for stdio mode"
   else
-    npm install --no-save european-parliament-mcp-server@1.1.26
+    npm install --no-save european-parliament-mcp-server@1.1.27
   fi
 fi
 
