@@ -672,14 +672,9 @@ export class MCPConnection {
         `${RATE_LIMIT_MSG} (status ${response.status} ${statusText}; ${RETRY_AFTER_HEADER}/Retry-After header missing)`
       );
     }
-    // Log specific HTTP error categories for better diagnostics
-    if (response.status === 404) {
-      console.warn(`🔍 Gateway 404 Not Found — upstream EP API endpoint may be unavailable`);
-    } else if (response.status >= 500) {
-      console.warn(
-        `🔥 Gateway ${response.status} server error — upstream EP API may be experiencing issues`
-      );
-    }
+    // Include the status code in the error message for classification by isRetriableError()
+    // and safeCallTool(). Diagnostic logging is intentionally omitted here because
+    // callToolWithRetry may retry 502/503/504 errors, and per-retry warnings would be noisy.
     throw new Error(`Gateway error ${response.status}: ${response.statusText}`);
   }
 

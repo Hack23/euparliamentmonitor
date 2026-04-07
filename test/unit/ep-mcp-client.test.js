@@ -2008,6 +2008,58 @@ describe('ep-mcp-client', () => {
       const failed = client.getFailedTools();
       expect(failed.size).toBe(0);
     });
+
+    it('should return a defensive copy that cannot mutate internal state', () => {
+      const copy = client.getFailedTools();
+      // Mutating the returned copy should not affect the client's internal map
+      copy.constructor === Map && /** @type {Map<string,string>} */(copy).set('fake_tool', 'FAKE');
+      expect(client.getFailedTools().has('fake_tool')).toBe(false);
+    });
+
+    it('should record a timeout failure after safeCallTool catches a timeout error', async () => {
+      // Mock callToolWithRetry to throw a timeout error
+      vi.spyOn(client, 'callToolWithRetry').mockRejectedValueOnce(new Error('Request timeout after 180000ms'));
+      await client.getMEPs();
+      const failed = client.getFailedTools();
+      expect(failed.size).toBe(1);
+      expect(failed.get('get_meps')).toContain('TIMEOUT');
+    });
+
+    it('should record a NOT_FOUND failure for 404 errors', async () => {
+      vi.spyOn(client, 'callToolWithRetry').mockRejectedValueOnce(new Error('Gateway error 404: Not Found'));
+      await client.getEventsFeed();
+      const failed = client.getFailedTools();
+      expect(failed.size).toBe(1);
+      expect(failed.get('get_events_feed')).toContain('NOT_FOUND');
+    });
+
+    it('should record a SERVER_ERROR failure for 502 errors', async () => {
+      vi.spyOn(client, 'callToolWithRetry').mockRejectedValueOnce(new Error('Gateway error 502: Bad Gateway'));
+      await client.getProceduresFeed();
+      const failed = client.getFailedTools();
+      expect(failed.get('get_procedures_feed')).toContain('SERVER_ERROR');
+    });
+
+    it('should classify "Gateway Timeout" (504) as SERVER_ERROR not TIMEOUT', async () => {
+      vi.spyOn(client, 'callToolWithRetry').mockRejectedValueOnce(new Error('Gateway error 504: Gateway Timeout'));
+      await client.getDocumentsFeed();
+      const failed = client.getFailedTools();
+      expect(failed.get('get_documents_feed')).toContain('SERVER_ERROR');
+      expect(failed.get('get_documents_feed')).not.toContain('TIMEOUT:');
+    });
+
+    it('should clear a tool from failed map when a subsequent call succeeds', async () => {
+      const spy = vi.spyOn(client, 'callToolWithRetry');
+      // First call fails
+      spy.mockRejectedValueOnce(new Error('Gateway error 404: Not Found'));
+      await client.getMEPs();
+      expect(client.getFailedTools().has('get_meps')).toBe(true);
+
+      // Second call succeeds
+      spy.mockResolvedValueOnce({ content: [{ type: 'text', text: '{"meps": []}' }] });
+      await client.getMEPs();
+      expect(client.getFailedTools().has('get_meps')).toBe(false);
+    });
   });
 
   describe('getFeedHealthSummary', () => {
@@ -2030,6 +2082,22 @@ describe('ep-mcp-client', () => {
       expect(summary).toContain('EP MCP Feed Health:');
       expect(summary).toContain('13/13 feeds operational');
       expect(summary).not.toContain('❌');
+    });
+
+    it('should show failed feeds with ❌ markers and reduce operational count', async () => {
+      const spy = vi.spyOn(client, 'callToolWithRetry');
+      // Fail two feed tools
+      spy.mockRejectedValueOnce(new Error('Gateway error 404: Not Found'));
+      await client.getEventsFeed();
+      spy.mockRejectedValueOnce(new Error('Request timeout'));
+      await client.getProceduresFeed();
+
+      const summary = client.getFeedHealthSummary();
+      expect(summary).toContain('11/13 feeds operational');
+      expect(summary).toContain('❌ get_events_feed: NOT_FOUND');
+      expect(summary).toContain('❌ get_procedures_feed: TIMEOUT');
+      expect(summary).toContain('✅ get_meps_feed');
+      expect(summary).toContain('✅ get_adopted_texts_feed');
     });
   });
 

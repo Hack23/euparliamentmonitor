@@ -57,16 +57,20 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);
             const lowerMsg = message.toLowerCase();
-            // Classify the error for better diagnostics
-            const errorType = lowerMsg.includes('timeout')
-                ? 'TIMEOUT'
+            // Classify the error for better diagnostics.
+            // Check gateway 5xx first — a "504 Gateway Timeout" should be SERVER_ERROR,
+            // not TIMEOUT (which is reserved for client-side request timeouts).
+            const isGatewayServerError = lowerMsg.includes('gateway timeout') ||
+                lowerMsg.includes('gateway error 500') ||
+                lowerMsg.includes('gateway error 502') ||
+                lowerMsg.includes('gateway error 503') ||
+                lowerMsg.includes('gateway error 504');
+            const errorType = isGatewayServerError
+                ? 'SERVER_ERROR'
                 : lowerMsg.includes('404')
                     ? 'NOT_FOUND'
-                    : lowerMsg.includes('gateway error 500') ||
-                        lowerMsg.includes('gateway error 502') ||
-                        lowerMsg.includes('gateway error 503') ||
-                        lowerMsg.includes('gateway error 504')
-                        ? 'SERVER_ERROR'
+                    : lowerMsg.includes('timeout')
+                        ? 'TIMEOUT'
                         : 'UNKNOWN';
             this._failedTools.set(toolName, `${errorType}: ${message}`);
             console.warn(`⚠️ ${toolName} failed [${errorType}]:`, message);
@@ -80,7 +84,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * @returns Map of tool name to error description
      */
     getFailedTools() {
-        return this._failedTools;
+        return new Map(this._failedTools);
     }
     /**
      * Get a human-readable feed health summary for diagnostics.
