@@ -268,9 +268,13 @@ export class MotionsStrategy implements ArticleStrategy<MotionsArticleData> {
     const analysisInsights = buildAnalysisInsightsSection(
       data.analysisContext,
       [
-        'political-threat-landscape',
+        'deep-analysis',
+        'synthesis-summary',
+        'stakeholder-analysis',
         'coalition-analysis',
+        'cross-session-intelligence',
         'voting-patterns',
+        'political-threat-landscape',
         'risk-matrix',
         'actor-mapping',
       ],

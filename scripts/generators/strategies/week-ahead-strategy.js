@@ -143,11 +143,15 @@ export class WeekAheadStrategy {
         const dashboardData = buildProspectiveDashboard(data.weekData, 'week', lang);
         const dashboardSection = buildDashboardSection(dashboardData, lang);
         const analysisInsights = buildAnalysisInsightsSection(data.analysisContext, [
+            'deep-analysis',
+            'synthesis-summary',
+            'stakeholder-analysis',
+            'coalition-analysis',
+            'cross-session-intelligence',
             'significance-classification',
             'political-threat-landscape',
             'risk-matrix',
             'forces-analysis',
-            'deep-analysis',
         ], lang);
         // Inject at the explicit <!-- /article-content --> marker position so the
         // section stays inside the .article-content styling scope. The marker is

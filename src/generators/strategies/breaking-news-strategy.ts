@@ -317,11 +317,16 @@ export class BreakingNewsStrategy implements ArticleStrategy<BreakingNewsArticle
     const analysisInsights = buildAnalysisInsightsSection(
       data.analysisContext,
       [
+        'deep-analysis',
+        'synthesis-summary',
+        'stakeholder-analysis',
+        'coalition-analysis',
+        'cross-session-intelligence',
+        'voting-patterns',
         'risk-matrix',
         'quantitative-swot',
         'significance-classification',
         'political-threat-landscape',
-        'coalition-analysis',
       ],
       lang
     );

@@ -181,9 +181,12 @@ export class MonthlyReviewStrategy {
         const dashboardData = buildVotingDashboard(data.votingRecords, data.votingPatterns, data.anomalies, lang);
         const dashboardSection = buildDashboardSection(dashboardData, lang);
         const analysisInsights = buildAnalysisInsightsSection(data.analysisContext, [
+            'deep-analysis',
             'synthesis-summary',
-            'voting-patterns',
+            'stakeholder-analysis',
             'coalition-analysis',
+            'cross-session-intelligence',
+            'voting-patterns',
             'significance-classification',
             'legislative-velocity-risk',
         ], lang);

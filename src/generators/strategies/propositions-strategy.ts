@@ -307,6 +307,11 @@ export class PropositionsStrategy implements ArticleStrategy<PropositionsArticle
     const analysisInsights = buildAnalysisInsightsSection(
       data.analysisContext,
       [
+        'deep-analysis',
+        'synthesis-summary',
+        'stakeholder-analysis',
+        'coalition-analysis',
+        'cross-session-intelligence',
         'risk-matrix',
         'significance-classification',
         'legislative-velocity-risk',

@@ -383,10 +383,13 @@ export class CommitteeReportsStrategy {
         const dashboardData = buildCommitteeDashboard(data.committeeDataList, lang);
         const dashboardSection = buildDashboardSection(dashboardData, lang);
         const analysisInsights = buildAnalysisInsightsSection(data.analysisContext, [
+            'deep-analysis',
+            'synthesis-summary',
             'stakeholder-analysis',
+            'coalition-analysis',
+            'cross-session-intelligence',
             'significance-classification',
             'impact-matrix',
-            'deep-analysis',
             'actor-mapping',
         ], lang);
         const injection = feedSection +

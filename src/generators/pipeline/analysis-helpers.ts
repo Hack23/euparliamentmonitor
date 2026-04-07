@@ -196,6 +196,7 @@ method: ${method}
 date: ${date}
 confidence: ${confidence}
 generated: ${new Date().toISOString()}
+source: pipeline
 ---
 
 `;

@@ -236,14 +236,59 @@ function loadAnalysisFiles(analysisDir) {
     return files;
 }
 /**
+ * Check whether a line is part of a fenced code block delimiter or table row.
+ * Used to filter out non-prose content from analysis summaries.
+ */
+function isNonProseContent(trimmed) {
+    // Fenced code block delimiters
+    if (trimmed.startsWith('```'))
+        return true;
+    // Markdown table rows (contain | separators)
+    if (trimmed.startsWith('|') && trimmed.endsWith('|'))
+        return true;
+    // Table separator rows
+    if (/^\|[\s:|-]+\|$/u.test(trimmed))
+        return true;
+    // Blockquote instructions for AI agents
+    if (trimmed.startsWith('>') && /instructions for ai/iu.test(trimmed))
+        return true;
+    // HTML-like content
+    if (trimmed.startsWith('<') && trimmed.endsWith('>'))
+        return true;
+    return false;
+}
+/** Patterns that indicate scaffold/placeholder content — not real analysis */
+const SCAFFOLD_PATTERNS = [
+    /\[TO BE FILLED BY AI AGENT/i,
+    /\[AI_ANALYSIS_REQUIRED\]/i,
+    /\[REQUIRED\]/i,
+    /\[\?\]/,
+    /Quality gate: minimum \d+ words/i,
+    /Instructions for AI Agent/i,
+];
+/**
+ * Check whether an analysis file contains only scaffold/template content
+ * (i.e. the AI agent did not fill in the analysis).
+ *
+ * @param content - Raw markdown file content
+ * @returns `true` when the file is an unfilled scaffold
+ */
+export function isScaffoldContent(content) {
+    return SCAFFOLD_PATTERNS.some((pattern) => pattern.test(content));
+}
+/**
  * Extract the first meaningful paragraph from an analysis markdown file.
- * Strips YAML frontmatter and headings, returning plain prose content.
+ * Strips YAML frontmatter, headings, fenced code blocks, tables,
+ * scaffold markers, and markdown formatting. Returns plain prose content.
  *
  * @param content - Raw markdown content
  * @param maxLength - Maximum character length to return (default 500)
  * @returns Extracted summary text or empty string
  */
 export function extractAnalysisSummary(content, maxLength = 500) {
+    // Reject scaffold/placeholder files entirely
+    if (isScaffoldContent(content))
+        return '';
     // Strip YAML frontmatter
     let body = content;
     if (body.startsWith('---')) {
@@ -252,7 +297,9 @@ export function extractAnalysisSummary(content, maxLength = 500) {
             body = body.slice(endIdx + 3);
         }
     }
-    // Find first non-heading, non-empty paragraph
+    // Remove fenced code blocks entirely (including ```mermaid ... ```)
+    body = body.replace(/```[\s\S]*?```/g, '');
+    // Find meaningful prose paragraphs
     const lines = body.split('\n');
     const paragraphs = [];
     let current = '';
@@ -262,14 +309,107 @@ export function extractAnalysisSummary(content, maxLength = 500) {
             paragraphs.push(current.trim());
             current = '';
         }
-        else if (!trimmed.startsWith('#') && !trimmed.startsWith('---') && trimmed !== '') {
-            current += (current ? ' ' : '') + trimmed;
+        else if (!trimmed.startsWith('#') &&
+            !trimmed.startsWith('---') &&
+            !isNonProseContent(trimmed) &&
+            trimmed !== '') {
+            // Strip bold/italic markdown formatting for cleaner prose
+            const cleaned = trimmed.replace(/\*\*([^*]+)\*\*/g, '$1').replace(/\*([^*]+)\*/g, '$1');
+            current += (current ? ' ' : '') + cleaned;
         }
     }
     if (current)
         paragraphs.push(current.trim());
-    const summary = paragraphs[0] ?? '';
+    // Filter out short fragments and data-only paragraphs
+    const meaningful = paragraphs.filter((p) => p.length > 20 && !/^[\d\s|—–-]+$/u.test(p) && !/^\s*—\s*$/u.test(p));
+    const summary = meaningful[0] ?? '';
     return summary.length > maxLength ? summary.slice(0, maxLength - 3) + '...' : summary;
+}
+/**
+ * Extract multiple meaningful paragraphs from an analysis markdown file.
+ * Provides richer content than the single-paragraph extractAnalysisSummary.
+ *
+ * @param content - Raw markdown file content
+ * @param maxParagraphs - Maximum number of paragraphs to return (default 3)
+ * @param maxTotalLength - Maximum total character length (default 1500)
+ * @returns Array of extracted prose paragraphs
+ */
+export function extractAnalysisParagraphs(content, maxParagraphs = 3, maxTotalLength = 1500) {
+    if (isScaffoldContent(content))
+        return [];
+    let body = content;
+    if (body.startsWith('---')) {
+        const endIdx = body.indexOf('---', 3);
+        if (endIdx !== -1) {
+            body = body.slice(endIdx + 3);
+        }
+    }
+    // Remove fenced code blocks
+    body = body.replace(/```[\s\S]*?```/g, '');
+    const lines = body.split('\n');
+    const paragraphs = [];
+    let current = '';
+    for (const line of lines) {
+        const trimmed = line.trim();
+        if (trimmed === '' && current) {
+            paragraphs.push(current.trim());
+            current = '';
+        }
+        else if (!trimmed.startsWith('#') &&
+            !trimmed.startsWith('---') &&
+            !isNonProseContent(trimmed) &&
+            trimmed !== '') {
+            const cleaned = trimmed.replace(/\*\*([^*]+)\*\*/g, '$1').replace(/\*([^*]+)\*/g, '$1');
+            current += (current ? ' ' : '') + cleaned;
+        }
+    }
+    if (current)
+        paragraphs.push(current.trim());
+    // Filter out short fragments and data-only paragraphs
+    const meaningful = paragraphs.filter((p) => p.length > 50 && !/^[\d\s|—–-]+$/u.test(p) && !/^\s*—\s*$/u.test(p));
+    const result = [];
+    let totalLength = 0;
+    for (const p of meaningful) {
+        if (result.length >= maxParagraphs)
+            break;
+        if (totalLength + p.length > maxTotalLength)
+            break;
+        result.push(p);
+        totalLength += p.length;
+    }
+    return result;
+}
+/**
+ * Check whether an analysis file contains substantive AI-produced content
+ * (as opposed to pipeline scaffolding or empty templates).
+ *
+ * @param content - Raw markdown file content
+ * @returns `true` when the file contains real analytical prose
+ */
+export function hasSubstantiveAIContent(content) {
+    if (isScaffoldContent(content))
+        return false;
+    // Strip frontmatter and code blocks
+    let body = content;
+    if (body.startsWith('---')) {
+        const endIdx = body.indexOf('---', 3);
+        if (endIdx !== -1)
+            body = body.slice(endIdx + 3);
+    }
+    body = body.replace(/```[\s\S]*?```/g, '');
+    // Count words in prose lines (not tables, not headings, not blockquotes)
+    let wordCount = 0;
+    for (const line of body.split('\n')) {
+        const trimmed = line.trim();
+        if (trimmed !== '' &&
+            !trimmed.startsWith('#') &&
+            !trimmed.startsWith('|') &&
+            !trimmed.startsWith('>')) {
+            wordCount += trimmed.split(/\s+/u).length;
+        }
+    }
+    // Minimum 5 words of prose — primarily relies on scaffold detection above
+    return wordCount >= 5;
 }
 /**
  * Build an HTML section summarising analysis pipeline insights.
@@ -277,6 +417,9 @@ export function extractAnalysisSummary(content, maxLength = 500) {
  * Creates a structured `<section class="analysis-pipeline-insights">` element
  * containing key findings from loaded analysis files.  Each strategy passes
  * the methods it considers relevant; only those with loaded content are rendered.
+ *
+ * Filters out scaffold/template files and files with no substantive AI content.
+ * Uses extended paragraph extraction for richer insight content.
  *
  * @param ctx - Loaded analysis context (null-safe: returns empty string)
  * @param relevantMethods - Method names this strategy wants to display
@@ -291,13 +434,21 @@ export function buildAnalysisInsightsSection(ctx, relevantMethods, lang) {
         const file = ctx.files.get(method);
         if (!file)
             continue;
-        const summary = extractAnalysisSummary(file.content);
-        if (!summary)
+        // Skip scaffold/placeholder files and files without substantive content
+        if (isScaffoldContent(file.content))
+            continue;
+        if (!hasSubstantiveAIContent(file.content))
+            continue;
+        const paragraphs = extractAnalysisParagraphs(file.content, 2, 800);
+        if (paragraphs.length === 0)
             continue;
         const label = formatMethodLabel(method);
+        const paragraphHtml = paragraphs
+            .map((p) => `<p>${escapeHTML(p)}</p>`)
+            .join('\n');
         items.push(`<div class="analysis-insight-item" data-method="${escapeHTML(method)}">\n` +
             `<h4>${escapeHTML(label)}</h4>\n` +
-            `<p>${escapeHTML(summary)}</p>\n` +
+            paragraphHtml + '\n' +
             `</div>`);
     }
     if (items.length === 0)

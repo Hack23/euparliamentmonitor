@@ -455,7 +455,7 @@ describe('buildAnalysisInsightsSection', () => {
     files.set('risk-matrix', {
       method: 'risk-matrix',
       subdir: 'risk-scoring',
-      content: '---\nmethod: risk-matrix\n---\n\n# Risk Matrix\n\nOverall risk is moderate.',
+      content: '---\nmethod: risk-matrix\n---\n\n# Risk Matrix\n\nOverall risk is moderate based on the assessment of current parliamentary activity, including adopted texts and ongoing legislative procedures affecting EU member states.',
       filePath: '/tmp/test/risk-scoring/risk-matrix.md',
     });
 
@@ -486,7 +486,7 @@ describe('buildAnalysisInsightsSection', () => {
     files.set('deep-analysis', {
       method: 'deep-analysis',
       subdir: 'existing',
-      content: '# Deep Analysis\n\nKey findings from deep analysis.',
+      content: '# Deep Analysis\n\nKey findings from deep analysis indicate significant political shifts in the European Parliament coalition dynamics affecting legislative outcomes across member states.',
       filePath: '/tmp/test/existing/deep-analysis.md',
     });
 
@@ -513,7 +513,7 @@ describe('buildAnalysisInsightsSection', () => {
     files.set('deep-analysis', {
       method: 'deep-analysis',
       subdir: 'existing',
-      content: '# Deep Analysis\n\nFindings.',
+      content: '# Deep Analysis\n\nDetailed findings from deep political analysis of European Parliament activity and legislative developments.',
       filePath: '/tmp/test/existing/deep-analysis.md',
     });
 
@@ -534,7 +534,7 @@ describe('buildAnalysisInsightsSection', () => {
     files.set('deep-analysis', {
       method: 'deep-analysis',
       subdir: 'existing',
-      content: '# Deep Analysis\n\nFindings.',
+      content: '# Deep Analysis\n\nDetailed findings from deep political analysis of European Parliament activity and legislative developments.',
       filePath: '/tmp/test/existing/deep-analysis.md',
     });
 
@@ -563,7 +563,7 @@ describe('Strategy analysis context integration', () => {
     files.set('risk-matrix', {
       method: 'risk-matrix',
       subdir: 'risk-scoring',
-      content: '# Risk Matrix\n\nBreaking news risk assessment reveals moderate overall risk.',
+      content: '# Risk Matrix\n\nBreaking news risk assessment reveals moderate overall risk based on analysis of parliamentary activity, including adopted texts and ongoing legislative procedures.',
       filePath: '/tmp/test/risk-scoring/risk-matrix.md',
     });
 
@@ -597,7 +597,7 @@ describe('Strategy analysis context integration', () => {
     files.set('significance-classification', {
       method: 'significance-classification',
       subdir: 'classification',
-      content: '# Significance\n\nUpcoming week shows high significance events.',
+      content: '# Significance\n\nUpcoming week shows high significance events based on scheduled plenary sessions and committee meetings affecting EU legislative priorities.',
       filePath: '/tmp/test/classification/significance-classification.md',
     });
 
@@ -622,7 +622,7 @@ describe('Strategy analysis context integration', () => {
     files.set('stakeholder-analysis', {
       method: 'stakeholder-analysis',
       subdir: 'existing',
-      content: '# Stakeholder Impact\n\nKey stakeholders affected by committee decisions.',
+      content: '# Stakeholder Impact\n\nKey stakeholders affected by committee decisions include political groups, civil society organizations, and national governments across EU member states.',
       filePath: '/tmp/test/existing/stakeholder-impact.md',
     });
 
@@ -648,7 +648,7 @@ describe('Strategy analysis context integration', () => {
     files.set('political-threat-landscape', {
       method: 'political-threat-landscape',
       subdir: 'threat-assessment',
-      content: '# Political Threat Landscape\n\nThreat assessment for motions period.',
+      content: '# Political Threat Landscape\n\nThreat assessment for motions period reveals evolving political dynamics with coalition stress points and shifting group alignments across policy domains.',
       filePath: '/tmp/test/threat-assessment/political-threat-landscape.md',
     });
 
@@ -673,7 +673,7 @@ describe('Strategy analysis context integration', () => {
     files.set('legislative-velocity-risk', {
       method: 'legislative-velocity-risk',
       subdir: 'risk-scoring',
-      content: '# Legislative Velocity Risk\n\nPipeline velocity analysis shows moderate risk.',
+      content: '# Legislative Velocity Risk\n\nPipeline velocity analysis shows moderate risk with significant legislative backlog affecting committee schedules and plenary timelines.',
       filePath: '/tmp/test/risk-scoring/legislative-velocity-risk.md',
     });
 
@@ -698,7 +698,7 @@ describe('Strategy analysis context integration', () => {
     files.set('synthesis-summary', {
       method: 'synthesis-summary',
       subdir: 'existing',
-      content: '# Synthesis Summary\n\nWeekly synthesis of parliamentary activities.',
+      content: '# Synthesis Summary\n\nWeekly synthesis of parliamentary activities reveals continued legislative momentum across key policy domains with notable coalition dynamics.',
       filePath: '/tmp/test/existing/synthesis-summary.md',
     });
 
@@ -723,7 +723,7 @@ describe('Strategy analysis context integration', () => {
     files.set('synthesis-summary', {
       method: 'synthesis-summary',
       subdir: 'existing',
-      content: '# Synthesis Summary\n\nMonthly synthesis of parliamentary activities.',
+      content: '# Synthesis Summary\n\nMonthly synthesis of parliamentary activities shows overall legislative progress with significant policy developments across economic and social domains.',
       filePath: '/tmp/test/existing/synthesis-summary.md',
     });
 
@@ -748,7 +748,7 @@ describe('Strategy analysis context integration', () => {
     files.set('significance-classification', {
       method: 'significance-classification',
       subdir: 'classification',
-      content: '# Significance\n\nMonth ahead significance assessment.',
+      content: '# Significance\n\nMonth ahead significance assessment indicates multiple high-priority legislative procedures and committee deliberations that will shape EU policy direction.',
       filePath: '/tmp/test/classification/significance-classification.md',
     });
 
