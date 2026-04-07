@@ -524,10 +524,8 @@ export function buildAnalysisInsightsSection(
   for (const method of relevantMethods) {
     const file = ctx.files.get(method);
     if (!file) continue;
-    // Skip scaffold/placeholder files and files without substantive content
-    if (isScaffoldContent(file.content)) continue;
-    if (!hasSubstantiveAIContent(file.content)) continue;
-
+    // `extractAnalysisParagraphs()` already filters scaffold, empty, and
+    // non-substantive analysis bodies, so use it as the single gate here.
     const paragraphs = extractAnalysisParagraphs(file.content, 2, 800);
     if (paragraphs.length === 0) continue;
     const label = formatMethodLabel(method);

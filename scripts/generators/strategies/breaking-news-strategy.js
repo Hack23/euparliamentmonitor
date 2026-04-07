@@ -9,7 +9,7 @@ import { buildBreakingAnalysis, buildBreakingSwot, buildBreakingDashboard, build
 import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
-import { loadAnalysisContext, buildAnalysisInsightsSection, extractAnalysisSummary, hasSubstantiveAIContent, } from './article-strategy.js';
+import { loadAnalysisContext, buildAnalysisInsightsSection, extractAnalysisSummary, } from './article-strategy.js';
 import { pl } from '../../utils/metadata-utils.js';
 /** Base keywords shared by all Breaking News articles */
 const BREAKING_NEWS_BASE_KEYWORDS = [
@@ -111,8 +111,11 @@ function buildBreakingTitleSuffix(feedData) {
  */
 function extractAISummaryFromMethod(ctx, method, maxLength) {
     const file = ctx.files.get(method);
-    if (!file || !hasSubstantiveAIContent(file.content))
+    if (!file)
         return '';
+    // `extractAnalysisSummary()` already runs `prepareAnalysisBody()` which
+    // returns empty for scaffold content and strips non-prose blocks, so no
+    // separate `hasSubstantiveAIContent()` pre-check is needed.
     const summary = extractAnalysisSummary(file.content, maxLength);
     return summary.length > 50 ? summary : '';
 }

@@ -42,7 +42,6 @@ import {
   loadAnalysisContext,
   buildAnalysisInsightsSection,
   extractAnalysisSummary,
-  hasSubstantiveAIContent,
 } from './article-strategy.js';
 import { pl } from '../../utils/metadata-utils.js';
 
@@ -167,7 +166,10 @@ function extractAISummaryFromMethod(
   maxLength: number
 ): string {
   const file = ctx.files.get(method);
-  if (!file || !hasSubstantiveAIContent(file.content)) return '';
+  if (!file) return '';
+  // `extractAnalysisSummary()` already runs `prepareAnalysisBody()` which
+  // returns empty for scaffold content and strips non-prose blocks, so no
+  // separate `hasSubstantiveAIContent()` pre-check is needed.
   const summary = extractAnalysisSummary(file.content, maxLength);
   return summary.length > 50 ? summary : '';
 }
