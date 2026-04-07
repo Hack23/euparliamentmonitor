@@ -1579,10 +1579,11 @@ export async function fetchAdoptedTextsFeed(
   if (!client) return [];
   let currentTimeframe: FeedTimeframe | undefined = timeframe;
   while (currentTimeframe) {
+    const tf: FeedTimeframe = currentTimeframe;
     try {
       console.log(`${MCP_FETCH_PREFIX} Fetching adopted texts feed (${currentTimeframe})...`);
       const result = await callMCP(
-        () => client.getAdoptedTextsFeed({ timeframe: currentTimeframe!, limit: 20 }),
+        () => client.getAdoptedTextsFeed({ timeframe: tf, limit: 20 }),
         undefined,
         'get_adopted_texts_feed'
       );
@@ -1594,7 +1595,7 @@ export async function fetchAdoptedTextsFeed(
       currentTimeframe = getWiderTimeframe(currentTimeframe);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
-      const wider = getWiderTimeframe(currentTimeframe!);
+      const wider = getWiderTimeframe(tf);
       if (wider && (message.includes('404') || message.includes('timed out'))) {
         console.warn(
           `${WARN_PREFIX} get_adopted_texts_feed failed (${currentTimeframe}): ${message} — retrying with ${wider}`
@@ -1625,10 +1626,11 @@ export async function fetchEventsFeed(
   if (!client) return [];
   let currentTimeframe: FeedTimeframe | undefined = timeframe;
   while (currentTimeframe) {
+    const tf: FeedTimeframe = currentTimeframe;
     try {
       console.log(`${MCP_FETCH_PREFIX} Fetching events feed (${currentTimeframe})...`);
       const result = await callMCP(
-        () => client.getEventsFeed({ timeframe: currentTimeframe!, limit: 20 }),
+        () => client.getEventsFeed({ timeframe: tf, limit: 20 }),
         undefined,
         'get_events_feed'
       );
@@ -1641,7 +1643,7 @@ export async function fetchEventsFeed(
       currentTimeframe = getWiderTimeframe(currentTimeframe);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
-      const wider = getWiderTimeframe(currentTimeframe!);
+      const wider = getWiderTimeframe(tf);
       if (wider && (message.includes('404') || message.includes('timed out'))) {
         console.warn(
           `${WARN_PREFIX} get_events_feed failed (${currentTimeframe}): ${message} — retrying with ${wider}`
@@ -1671,10 +1673,11 @@ export async function fetchProceduresFeed(
   if (!client) return [];
   let currentTimeframe: FeedTimeframe | undefined = timeframe;
   while (currentTimeframe) {
+    const tf: FeedTimeframe = currentTimeframe;
     try {
       console.log(`${MCP_FETCH_PREFIX} Fetching procedures feed (${currentTimeframe})...`);
       const result = await callMCP(
-        () => client.getProceduresFeed({ timeframe: currentTimeframe!, limit: 20 }),
+        () => client.getProceduresFeed({ timeframe: tf, limit: 20 }),
         undefined,
         'get_procedures_feed'
       );
@@ -1689,7 +1692,7 @@ export async function fetchProceduresFeed(
       currentTimeframe = getWiderTimeframe(currentTimeframe);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
-      const wider = getWiderTimeframe(currentTimeframe!);
+      const wider = getWiderTimeframe(tf);
       if (wider && (message.includes('404') || message.includes('timed out'))) {
         console.warn(
           `${WARN_PREFIX} get_procedures_feed failed (${currentTimeframe}): ${message} — retrying with ${wider}`
@@ -1778,10 +1781,11 @@ export async function fetchDocumentsFeed(
   if (!client) return [];
   let currentTimeframe: FeedTimeframe | undefined = timeframe;
   while (currentTimeframe) {
+    const tf: FeedTimeframe = currentTimeframe;
     try {
       console.log(`${MCP_FETCH_PREFIX} Fetching documents feed (${currentTimeframe})...`);
       const result = await callMCP(
-        () => client.getDocumentsFeed({ timeframe: currentTimeframe!, limit: 20 }),
+        () => client.getDocumentsFeed({ timeframe: tf, limit: 20 }),
         undefined,
         'get_documents_feed'
       );
@@ -1793,7 +1797,7 @@ export async function fetchDocumentsFeed(
       currentTimeframe = getWiderTimeframe(currentTimeframe);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
-      const wider = getWiderTimeframe(currentTimeframe!);
+      const wider = getWiderTimeframe(tf);
       if (wider && (message.includes('404') || message.includes('timed out'))) {
         console.warn(
           `${WARN_PREFIX} get_documents_feed failed (${currentTimeframe}): ${message} — retrying with ${wider}`
@@ -1823,12 +1827,13 @@ export async function fetchPlenaryDocumentsFeed(
   if (!client) return [];
   let currentTimeframe: FeedTimeframe | undefined = timeframe;
   while (currentTimeframe) {
+    const tf: FeedTimeframe = currentTimeframe;
     try {
       console.log(
         `${MCP_FETCH_PREFIX} Fetching plenary documents feed (${currentTimeframe})...`
       );
       const result = await callMCP(
-        () => client.getPlenaryDocumentsFeed({ timeframe: currentTimeframe!, limit: 20 }),
+        () => client.getPlenaryDocumentsFeed({ timeframe: tf, limit: 20 }),
         undefined,
         'get_plenary_documents_feed'
       );
@@ -1840,7 +1845,7 @@ export async function fetchPlenaryDocumentsFeed(
       currentTimeframe = getWiderTimeframe(currentTimeframe);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
-      const wider = getWiderTimeframe(currentTimeframe!);
+      const wider = getWiderTimeframe(tf);
       if (wider && (message.includes('404') || message.includes('timed out'))) {
         console.warn(
           `${WARN_PREFIX} get_plenary_documents_feed failed (${currentTimeframe}): ${message} — retrying with ${wider}`
@@ -1870,12 +1875,13 @@ export async function fetchCommitteeDocumentsFeed(
   if (!client) return [];
   let currentTimeframe: FeedTimeframe | undefined = timeframe;
   while (currentTimeframe) {
+    const tf: FeedTimeframe = currentTimeframe;
     try {
       console.log(
         `${MCP_FETCH_PREFIX} Fetching committee documents feed (${currentTimeframe})...`
       );
       const result = await callMCP(
-        () => client.getCommitteeDocumentsFeed({ timeframe: currentTimeframe!, limit: 20 }),
+        () => client.getCommitteeDocumentsFeed({ timeframe: tf, limit: 20 }),
         undefined,
         'get_committee_documents_feed'
       );
@@ -1887,7 +1893,7 @@ export async function fetchCommitteeDocumentsFeed(
       currentTimeframe = getWiderTimeframe(currentTimeframe);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
-      const wider = getWiderTimeframe(currentTimeframe!);
+      const wider = getWiderTimeframe(tf);
       if (wider && (message.includes('404') || message.includes('timed out'))) {
         console.warn(
           `${WARN_PREFIX} get_committee_documents_feed failed (${currentTimeframe}): ${message} — retrying with ${wider}`
@@ -1917,13 +1923,14 @@ export async function fetchPlenarySessionDocumentsFeed(
   if (!client) return [];
   let currentTimeframe: FeedTimeframe | undefined = timeframe;
   while (currentTimeframe) {
+    const tf: FeedTimeframe = currentTimeframe;
     try {
       console.log(
         `${MCP_FETCH_PREFIX} Fetching plenary session documents feed (${currentTimeframe})...`
       );
       const result = await callMCP(
         () =>
-          client.getPlenarySessionDocumentsFeed({ timeframe: currentTimeframe!, limit: 20 }),
+          client.getPlenarySessionDocumentsFeed({ timeframe: tf, limit: 20 }),
         undefined,
         'get_plenary_session_documents_feed'
       );
@@ -1935,7 +1942,7 @@ export async function fetchPlenarySessionDocumentsFeed(
       currentTimeframe = getWiderTimeframe(currentTimeframe);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
-      const wider = getWiderTimeframe(currentTimeframe!);
+      const wider = getWiderTimeframe(tf);
       if (wider && (message.includes('404') || message.includes('timed out'))) {
         console.warn(
           `${WARN_PREFIX} get_plenary_session_documents_feed failed (${currentTimeframe}): ${message} — retrying with ${wider}`
@@ -1965,12 +1972,13 @@ export async function fetchExternalDocumentsFeed(
   if (!client) return [];
   let currentTimeframe: FeedTimeframe | undefined = timeframe;
   while (currentTimeframe) {
+    const tf: FeedTimeframe = currentTimeframe;
     try {
       console.log(
         `${MCP_FETCH_PREFIX} Fetching external documents feed (${currentTimeframe})...`
       );
       const result = await callMCP(
-        () => client.getExternalDocumentsFeed({ timeframe: currentTimeframe!, limit: 20 }),
+        () => client.getExternalDocumentsFeed({ timeframe: tf, limit: 20 }),
         undefined,
         'get_external_documents_feed'
       );
@@ -1982,7 +1990,7 @@ export async function fetchExternalDocumentsFeed(
       currentTimeframe = getWiderTimeframe(currentTimeframe);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
-      const wider = getWiderTimeframe(currentTimeframe!);
+      const wider = getWiderTimeframe(tf);
       if (wider && (message.includes('404') || message.includes('timed out'))) {
         console.warn(
           `${WARN_PREFIX} get_external_documents_feed failed (${currentTimeframe}): ${message} — retrying with ${wider}`
@@ -2012,13 +2020,14 @@ export async function fetchQuestionsFeed(
   if (!client) return [];
   let currentTimeframe: FeedTimeframe | undefined = timeframe;
   while (currentTimeframe) {
+    const tf: FeedTimeframe = currentTimeframe;
     try {
       console.log(
         `${MCP_FETCH_PREFIX} Fetching parliamentary questions feed (${currentTimeframe})...`
       );
       const result = await callMCP(
         () =>
-          client.getParliamentaryQuestionsFeed({ timeframe: currentTimeframe!, limit: 20 }),
+          client.getParliamentaryQuestionsFeed({ timeframe: tf, limit: 20 }),
         undefined,
         'get_parliamentary_questions_feed'
       );
@@ -2030,7 +2039,7 @@ export async function fetchQuestionsFeed(
       currentTimeframe = getWiderTimeframe(currentTimeframe);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
-      const wider = getWiderTimeframe(currentTimeframe!);
+      const wider = getWiderTimeframe(tf);
       if (wider && (message.includes('404') || message.includes('timed out'))) {
         console.warn(
           `${WARN_PREFIX} get_parliamentary_questions_feed failed (${currentTimeframe}): ${message} — retrying with ${wider}`
