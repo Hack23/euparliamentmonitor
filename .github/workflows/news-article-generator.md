@@ -420,6 +420,16 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 
 ## EP MCP Tools
 
+### 🏥 RECOMMENDED: Server Health Check
+
+**Call `get_server_health` before data gathering** to check which EP API feeds are currently operational. This avoids wasting API calls on degraded feeds.
+
+```javascript
+european_parliament___get_server_health({})
+```
+
+> **📊 ADAPTIVE STRATEGY**: If health check shows feeds as `error` or availability is `Degraded`/`Sparse`/`Unavailable`, widen initial timeframe to `"one-month"` for ALL feeds to maximize data recovery. Focus on `get_all_generated_stats` for precomputed context.
+
 ### 🚨 MANDATORY: EP Feed Endpoints (PRIMARY News Source for ALL Article Types)
 
 > **⚠️ FUNDAMENTAL RULE**: ALL article types MUST use EP feed endpoints as the PRIMARY data source. Feed data provides what actually happened recently — specific documents, adopted texts, procedures, events with concrete titles, dates, and IDs. Precomputed statistics are background context ONLY.
@@ -443,7 +453,7 @@ european_parliament___get_all_generated_stats({ category: "all", includePredicti
 ### ⚡ MCP Call Budget
 
 - **No hard limit on MCP calls**, but expect each call to take 30+ seconds. Plan time budget accordingly.
-- **Health-gate connectivity check**: attempt `european_parliament___get_plenary_sessions({ limit: 1 })` **up to 3 times** at startup to verify MCP health
+- **Health-gate connectivity check**: call `european_parliament___get_server_health({})` at startup to verify MCP health — this uses cached status and does NOT make upstream API calls
 - **Feed endpoints (MANDATORY)**: call all relevant feed endpoints for each article type FIRST
 - **Precomputed stats**: call `european_parliament___get_all_generated_stats` once AFTER feeds — reuse across all article types
 - **Across all types in a multi-type run**: each tool may be called once globally — reuse results

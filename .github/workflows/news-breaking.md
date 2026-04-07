@@ -518,6 +518,16 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 
 ## EP MCP Tools for Breaking News
 
+### 🏥 RECOMMENDED: Server Health Check
+
+**Call `get_server_health` before data gathering** to check which EP API feeds are currently operational. This avoids wasting API calls on degraded feeds and helps adapt the data collection strategy.
+
+```javascript
+european_parliament___get_server_health({})
+```
+
+> **📊 ADAPTIVE STRATEGY**: If health check shows feeds as `error` or availability is `Degraded`/`Sparse`/`Unavailable`, widen initial timeframe from `"today"` to `"one-week"` for ALL feeds, and skip analytical tools that depend on upstream API calls (voting anomalies, coalition dynamics, etc.). Focus on `get_all_generated_stats` for precomputed context.
+
 ### ⚡ MANDATORY: Precomputed Statistics for Context
 
 **ALWAYS call `get_all_generated_stats` as the first data-gathering step with `category: "all"`.** This provides historical background context ONLY.

@@ -507,3 +507,11 @@ export interface GetCorporateBodiesFeedOptions extends FeedBaseOptions {}
 
 /** Options for getControlledVocabulariesFeed */
 export interface GetControlledVocabulariesFeedOptions extends FeedBaseOptions {}
+
+/** Options for getProcedureEventById */
+export interface GetProcedureEventByIdOptions {
+  /** Procedure process ID (required) */
+  processId: string;
+  /** Event identifier (required) */
+  eventId: string;
+}

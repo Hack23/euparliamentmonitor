@@ -165,6 +165,7 @@ export {
   type GetParliamentaryQuestionsFeedOptions,
   type GetCorporateBodiesFeedOptions,
   type GetControlledVocabulariesFeedOptions,
+  type GetProcedureEventByIdOptions,
 } from './mcp.js';
 
 export type {

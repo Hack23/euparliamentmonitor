@@ -783,6 +783,34 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
     async getControlledVocabulariesFeed(options = {}) {
         return this.safeCallTool('get_controlled_vocabularies_feed', options, EuropeanParliamentMCPClient.FEED_FALLBACK);
     }
+    /**
+     * Get a specific event linked to a legislative procedure.
+     * Returns a single event for the specified procedure and event identifiers.
+     *
+     * @param options - Options including required processId and eventId
+     * @returns Procedure event data
+     */
+    async getProcedureEventById(options) {
+        if (typeof options.processId !== 'string' || options.processId.trim().length === 0) {
+            console.warn('get_procedure_event_by_id called without valid processId (non-empty string required)');
+            return { content: [{ type: 'text', text: EVENTS_FALLBACK }] };
+        }
+        if (typeof options.eventId !== 'string' || options.eventId.trim().length === 0) {
+            console.warn('get_procedure_event_by_id called without valid eventId (non-empty string required)');
+            return { content: [{ type: 'text', text: EVENTS_FALLBACK }] };
+        }
+        return this.safeCallTool('get_procedure_event_by_id', { processId: options.processId.trim(), eventId: options.eventId.trim() }, EVENTS_FALLBACK);
+    }
+    /**
+     * Check server health and feed availability status.
+     * Returns server version, uptime, per-feed health status, and overall availability.
+     * Does not make upstream API calls — reports cached status from recent tool invocations.
+     *
+     * @returns Server health and feed availability data
+     */
+    async getServerHealth() {
+        return this.safeCallTool('get_server_health', {}, STATS_FALLBACK);
+    }
 }
 let clientInstance = null;
 /**
