@@ -207,7 +207,9 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
       }
     }
     const checked = feedTools.length - unchecked;
-    lines.push(`  Summary: ${operational}/${checked} checked feeds operational${unchecked > 0 ? `, ${unchecked} unchecked` : ''}`);
+    lines.push(
+      `  Summary: ${operational}/${checked} checked feeds operational${unchecked > 0 ? `, ${unchecked} unchecked` : ''}`
+    );
     return lines.join('\n');
   }
 
