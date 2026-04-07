@@ -305,7 +305,7 @@ function loadAnalysisFiles(analysisDir: string): Map<string, AnalysisFileContent
  * Used to filter out non-prose content from analysis summaries.
  *
  * @param trimmed - Trimmed line of text to check
- * @returns `true` when the line is non-prose content (code, table, blockquote instruction, HTML)
+ * @returns `true` when the line is non-prose content (code, table, HTML)
  */
 function isNonProseContent(trimmed: string): boolean {
   // Fenced code block delimiters
@@ -314,8 +314,6 @@ function isNonProseContent(trimmed: string): boolean {
   if (trimmed.startsWith('|') && trimmed.includes('|', 1)) return true;
   // Table separator rows (e.g. |---|---|)
   if (/^[\s|:|-]+$/u.test(trimmed) && trimmed.includes('|')) return true;
-  // Blockquote instructions for AI agents
-  if (trimmed.startsWith('>') && /instructions for ai/iu.test(trimmed)) return true;
   // HTML-like content
   if (trimmed.startsWith('<') && trimmed.endsWith('>')) return true;
   return false;
