@@ -346,12 +346,13 @@ export function isScaffoldContent(content: string): boolean {
  * Check whether a line should be included as prose content.
  *
  * @param trimmed - Trimmed line text
- * @returns `true` when the line is valid prose (not heading, separator, or non-prose)
+ * @returns `true` when the line is valid prose (not heading, separator, blockquote, or non-prose)
  */
 function isProseContent(trimmed: string): boolean {
   if (trimmed === '') return false;
   if (trimmed.startsWith('#')) return false;
   if (trimmed.startsWith('---')) return false;
+  if (trimmed.startsWith('>')) return false;
   if (isNonProseContent(trimmed)) return false;
   return true;
 }

@@ -740,6 +740,85 @@ describe('Strategy analysis context integration', () => {
     expect(content).not.toContain('analysis-pipeline-insights');
   });
 
+  it('BreakingNewsStrategy: enriches deep-analysis section with AI content from analysisContext', () => {
+    const files = new Map();
+    files.set('deep-analysis', {
+      method: 'deep-analysis',
+      subdir: 'intelligence',
+      content:
+        '# Deep Analysis\n\nThe European Parliament plenary session revealed significant cross-party coalition shifts driven by disagreements over the Green Deal legislative package and its economic implications for member states.',
+      filePath: '/tmp/test/intelligence/deep-analysis.md',
+    });
+    files.set('synthesis-summary', {
+      method: 'synthesis-summary',
+      subdir: 'intelligence',
+      content:
+        '# Synthesis Summary\n\nOverall parliamentary dynamics indicate growing fragmentation as the EPP and S&D struggle to maintain their traditional grand coalition on key environmental and digital policy votes.',
+      filePath: '/tmp/test/intelligence/synthesis-summary.md',
+    });
+    files.set('coalition-analysis', {
+      method: 'coalition-analysis',
+      subdir: 'intelligence',
+      content:
+        '# Coalition Analysis\n\nRenew Europe has emerged as the decisive swing group with increasing leverage in trilogue negotiations, particularly on digital markets regulation and AI governance frameworks.',
+      filePath: '/tmp/test/intelligence/coalition-analysis.md',
+    });
+
+    const dataWithContext = {
+      ...breakingNewsData,
+      analysisContext: {
+        date: '2026-04-06',
+        analysisDir: '/tmp/test',
+        manifest: null,
+        overallConfidence: 'high',
+        files,
+      },
+    };
+
+    const strategy = new BreakingNewsStrategy();
+    const content = strategy.buildContent(dataWithContext, 'en');
+
+    // Deep analysis section should contain AI-produced content
+    expect(content).toContain('deep-analysis');
+    expect(content).toContain('cross-party coalition shifts');
+    // Outlook should use coalition-analysis AI content
+    expect(content).toContain('Renew Europe');
+  });
+
+  it('BreakingNewsStrategy: scaffold analysis files do not override deep-analysis fields', () => {
+    const files = new Map();
+    files.set('deep-analysis', {
+      method: 'deep-analysis',
+      subdir: 'intelligence',
+      content: '# Deep Analysis\n\n[TO BE FILLED BY AI AGENT]\n\n[AI_ANALYSIS_REQUIRED]',
+      filePath: '/tmp/test/intelligence/deep-analysis.md',
+    });
+    files.set('synthesis-summary', {
+      method: 'synthesis-summary',
+      subdir: 'intelligence',
+      content: '# Synthesis\n\n[REQUIRED]: Analysis pending.',
+      filePath: '/tmp/test/intelligence/synthesis-summary.md',
+    });
+
+    const dataWithContext = {
+      ...breakingNewsData,
+      analysisContext: {
+        date: '2026-04-06',
+        analysisDir: '/tmp/test',
+        manifest: null,
+        overallConfidence: 'high',
+        files,
+      },
+    };
+
+    const strategy = new BreakingNewsStrategy();
+    const content = strategy.buildContent(dataWithContext, 'en');
+
+    // Scaffold placeholders should NOT appear in the rendered HTML
+    expect(content).not.toContain('TO BE FILLED BY AI AGENT');
+    expect(content).not.toContain('AI_ANALYSIS_REQUIRED');
+  });
+
   it('WeekAheadStrategy: buildContent includes insights when context is present', () => {
     const files = new Map();
     files.set('significance-classification', {
