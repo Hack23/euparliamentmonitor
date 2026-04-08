@@ -273,7 +273,7 @@ correlation is reliable.
 | `coalition-analysis`           | `existing/`          | `coalition-dynamics.md`          | —                                    |
 | `voting-patterns`              | `existing/`          | `voting-patterns.md`             | —                                    |
 | `cross-session-intelligence`   | `existing/`          | `cross-session-intelligence.md`  | —                                    |
-| `document-analysis` _(opt-in)_ | `documents/`         | `document-analysis-index.md`     | `per-file-political-intelligence.md` |
+| `document-analysis` _(default)_ | `documents/`         | `document-analysis-index.md`     | `per-file-political-intelligence.md` |
 
 > ¹ Template filenames are legacy and may not match the canonical artifact name.
 > The pipeline always produces the canonical filename listed in the table.

@@ -149,7 +149,8 @@ flowchart TD
     D --> J["📈 Significance Scoring<br/>(significance-scoring.md)"]
     E & F & G & H & I & J --> K["🧩 Daily Synthesis<br/>(synthesis-summary.md)"]
     K --> L{"✅ Quality Gate<br/>≥ 7.0/10?"}
-    L -->|Pass| M["📰 Article Generation<br/>(14 languages)"]
+    L -->|Pass| META["📝 AI Generates<br/>Title & Description"]
+    META --> M["📰 Article Generation<br/>(--title, --description flags)"]
     L -->|Fail| N["🔄 Revise Analysis"]
     N --> D
     M --> O["🌐 Publish to<br/>GitHub Pages"]
