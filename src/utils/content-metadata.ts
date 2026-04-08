@@ -213,8 +213,30 @@ function extractContentKeywords(content: string, baseKeywords: readonly string[]
 }
 
 /**
- * Build a content-aware title by analysing the article body for key
- * highlights and appending the most significant finding as a suffix.
+ * Patterns that indicate a heading is a generic section label (not
+ * analytical content suitable for a title suffix).
+ */
+const GENERIC_HEADING_PATTERN =
+  /^(introduction|overview|analysis|conclusion|summary|background|context|key\s+findings|methodology|data\s+sources|voting\s+records|parliamentary\s+questions|about|feed\s+health|analysis\s+pipeline|analysis\s+&\s+transparency|stakeholder|dashboard|pipeline\s+snapshot|political\s+intelligence|further\s+reading|related|appendix|table\s+of\s+contents|deep\s+analysis)/iu;
+
+/**
+ * Patterns indicating a heading contains analytical/political content
+ * (e.g., specific legislation names, political dynamics, policy topics).
+ */
+const ANALYTICAL_HEADING_PATTERN =
+  /(?:directive|regulation|resolution|reform|crisis|alliance|coalition|division|bloc|breakthrough|deadlock|amendment|trilogue|committee|parliament|council|commission|veto|mandate|sovereignty|trade|climate|digital|security|defense|defence|budget|migration|energy|sanctions|treaty|accession|withdrawal|election|referendum|impeach|censure|confidence|no.confidence)/iu;
+
+/**
+ * Build a content-aware title by extracting the most politically
+ * significant heading or analytical finding from the article body.
+ *
+ * **Priority order** (per ai-driven-analysis-guide Rule 9):
+ * 1. Analytical headings containing political/legislative substance
+ * 2. Non-generic section headings with meaningful length
+ * 3. Data statistics as a last resort only
+ *
+ * This ensures titles reflect AI-analysed political intelligence
+ * rather than mechanical data counts like "5 Votes, 2 Anomalies".
  *
  * @param content - Article HTML body
  * @param baseTitle - Localized base title from the strategy
@@ -225,33 +247,47 @@ function buildContentTitle(content: string, baseTitle: string): string {
   if (baseTitle.includes('—')) return baseTitle;
 
   const headings = extractHeadings(content);
-  const stats = extractStatistics(content);
 
-  // Build a suffix from the first meaningful statistic
-  const topStat = stats[0];
-  // Build a suffix from the first heading that isn't a generic section label
-  const topHeading = headings.find(
+  // Priority 1: Find a heading with real political/legislative substance
+  const analyticalHeading = headings.find(
     (h) =>
-      h.length > 10 &&
-      !/^(introduction|overview|analysis|conclusion|summary|background|context)/iu.test(h)
+      h.length > 12 &&
+      h.length <= 80 &&
+      ANALYTICAL_HEADING_PATTERN.test(h) &&
+      !GENERIC_HEADING_PATTERN.test(h)
   );
 
-  if (topStat && topHeading) {
-    return `${baseTitle} — ${topStat}, ${topHeading}`;
+  if (analyticalHeading) {
+    return `${baseTitle} — ${analyticalHeading}`;
   }
-  if (topStat) {
-    return `${baseTitle} — ${topStat}`;
-  }
+
+  // Priority 2: Find any non-generic heading with meaningful length
+  const topHeading = headings.find(
+    (h) => h.length > 12 && h.length <= 80 && !GENERIC_HEADING_PATTERN.test(h)
+  );
+
   if (topHeading) {
     return `${baseTitle} — ${topHeading}`;
+  }
+
+  // Priority 3 (last resort): Use a key statistic — but only when no
+  // analytical heading is available
+  const stats = extractStatistics(content);
+  const topStat = stats[0];
+  if (topStat) {
+    return `${baseTitle} — ${topStat}`;
   }
 
   return baseTitle;
 }
 
 /**
- * Build a content-aware description by extracting the lede paragraph
- * from the article body.  Falls back to the strategy-provided subtitle.
+ * Build a content-aware description by extracting the AI-written lede
+ * paragraph from the article body.  The lede should contain the
+ * political significance of the article content — not data counts.
+ *
+ * Falls back to the strategy-provided subtitle only when no
+ * substantive lede paragraph is found.
  *
  * @param content - Article HTML body
  * @param baseSubtitle - Subtitle from the strategy as fallback
@@ -260,9 +296,16 @@ function buildContentTitle(content: string, baseTitle: string): string {
 function buildContentDescription(content: string, baseSubtitle: string): string {
   const lede = extractLede(content);
   if (lede.length > 30) {
-    return lede.length > MAX_DESCRIPTION_LENGTH
-      ? lede.slice(0, MAX_DESCRIPTION_LENGTH - 3) + '...'
-      : lede;
+    // Truncate at sentence boundary when possible for clean SEO descriptions
+    if (lede.length > MAX_DESCRIPTION_LENGTH) {
+      const truncated = lede.slice(0, MAX_DESCRIPTION_LENGTH - 3);
+      const lastSentence = truncated.lastIndexOf('. ');
+      if (lastSentence > MAX_DESCRIPTION_LENGTH / 2) {
+        return truncated.slice(0, lastSentence + 1);
+      }
+      return truncated + '...';
+    }
+    return lede;
   }
   return baseSubtitle;
 }
