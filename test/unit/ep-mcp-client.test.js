@@ -2050,6 +2050,14 @@ describe('ep-mcp-client', () => {
       expect(entry).not.toMatch(/^TIMEOUT:/);
     });
 
+    it('should classify rate limit (429) errors as RATE_LIMIT', async () => {
+      vi.spyOn(client, 'callToolWithRetry').mockRejectedValueOnce(new Error('429 Too Many Requests'));
+      await client.getDocumentsFeed();
+      const failed = client.getFailedTools();
+      const entry = failed.get('get_documents_feed');
+      expect(entry).toMatch(/^RATE_LIMIT:/);
+    });
+
     it('should clear a tool from failed map when a subsequent call succeeds', async () => {
       const spy = vi.spyOn(client, 'callToolWithRetry');
       // First call fails
@@ -2231,7 +2239,7 @@ describe('ep-mcp-client', () => {
         content: [
           {
             type: 'text',
-            text: '{"server":{"version":"1.1.28","status":"ok"},"availability":{"level":"Full"}}',
+            text: '{"server":{"version":"1.2.0","status":"ok"},"availability":{"level":"Full"}}',
           },
         ],
       });
