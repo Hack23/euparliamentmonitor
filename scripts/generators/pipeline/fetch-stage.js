@@ -1051,6 +1051,28 @@ export async function fetchProcedureStatusFromMCP(client, procedureId) {
 }
 // ─── EP Feed-based fetches (Breaking News) ──────────────────────────────────
 /**
+ * Ordered fallback chain for feed timeframes.
+ * When a narrow timeframe returns empty/404 (common during recess), we widen
+ * the window to retrieve at least *some* recent data for analysis.
+ */
+const TIMEFRAME_FALLBACK_CHAIN = new Map([
+    ['today', 'one-day'],
+    ['one-day', 'one-week'],
+    ['one-week', 'one-month'],
+    ['one-month', undefined],
+    ['three-months', undefined],
+    ['one-year', undefined],
+]);
+/**
+ * Get the next wider timeframe for fallback, or `undefined` if no fallback exists.
+ *
+ * @param current - Current timeframe
+ * @returns Next wider timeframe, or undefined when at widest
+ */
+function getWiderTimeframe(current) {
+    return TIMEFRAME_FALLBACK_CHAIN.get(current);
+}
+/**
  * Parse a feed result from MCP into a flat array of items.
  * EP API v2 feeds return items under the `data` key:
  * `{ data: [{ id, type, work_type, identifier, label }], "@context": [...] }`
@@ -1134,6 +1156,7 @@ function mapFeedItemBase(item) {
 }
 /**
  * Fetch adopted texts feed from MCP.
+ * Falls back to a wider timeframe when the initial timeframe returns no data.
  *
  * @param client - MCP client or null
  * @param timeframe - How far back to look (default: 'one-week')
@@ -1142,19 +1165,37 @@ function mapFeedItemBase(item) {
 export async function fetchAdoptedTextsFeed(client, timeframe = 'one-week') {
     if (!client)
         return [];
-    try {
-        console.log(`${MCP_FETCH_PREFIX} Fetching adopted texts feed (${timeframe})...`);
-        const result = await callMCP(() => client.getAdoptedTextsFeed({ timeframe, limit: 20 }), undefined, 'get_adopted_texts_feed');
-        return parseFeedResult(result).map((item) => mapFeedItemBase(item));
+    let currentTimeframe = timeframe;
+    while (currentTimeframe) {
+        const tf = currentTimeframe;
+        try {
+            console.log(`${MCP_FETCH_PREFIX} Fetching adopted texts feed (${currentTimeframe})...`);
+            const result = await callMCP(() => client.getAdoptedTextsFeed({ timeframe: tf, limit: 20 }), undefined, 'get_adopted_texts_feed');
+            const items = parseFeedResult(result).map((item) => mapFeedItemBase(item));
+            if (items.length > 0 || !getWiderTimeframe(currentTimeframe))
+                return items;
+            console.log(`${INFO_PREFIX} adopted texts feed empty for ${currentTimeframe}, widening timeframe...`);
+            currentTimeframe = getWiderTimeframe(currentTimeframe);
+        }
+        catch (error) {
+            const message = error instanceof Error ? error.message : String(error);
+            const wider = getWiderTimeframe(tf);
+            if (wider && (message.includes('404') || message.includes('timed out'))) {
+                console.warn(`${WARN_PREFIX} get_adopted_texts_feed failed (${currentTimeframe}): ${message} — retrying with ${wider}`);
+                currentTimeframe = wider;
+            }
+            else {
+                console.warn(`${WARN_PREFIX} get_adopted_texts_feed failed:`, message);
+                return [];
+            }
+        }
     }
-    catch (error) {
-        const message = error instanceof Error ? error.message : String(error);
-        console.warn(`${WARN_PREFIX} get_adopted_texts_feed failed:`, message);
-        return [];
-    }
+    return [];
 }
 /**
  * Fetch events feed from MCP.
+ * Falls back to a wider timeframe when the initial timeframe returns no data
+ * (common during parliamentary recess when the EP API returns 404 for narrow windows).
  *
  * @param client - MCP client or null
  * @param timeframe - How far back to look (default: 'one-week')
@@ -1163,22 +1204,39 @@ export async function fetchAdoptedTextsFeed(client, timeframe = 'one-week') {
 export async function fetchEventsFeed(client, timeframe = 'one-week') {
     if (!client)
         return [];
-    try {
-        console.log(`${MCP_FETCH_PREFIX} Fetching events feed (${timeframe})...`);
-        const result = await callMCP(() => client.getEventsFeed({ timeframe, limit: 20 }), undefined, 'get_events_feed');
-        return parseFeedResult(result).map((item) => ({
-            ...mapFeedItemBase(item),
-            location: item['location'] ? String(item['location']) : undefined,
-        }));
+    let currentTimeframe = timeframe;
+    while (currentTimeframe) {
+        const tf = currentTimeframe;
+        try {
+            console.log(`${MCP_FETCH_PREFIX} Fetching events feed (${currentTimeframe})...`);
+            const result = await callMCP(() => client.getEventsFeed({ timeframe: tf, limit: 20 }), undefined, 'get_events_feed');
+            const items = parseFeedResult(result).map((item) => ({
+                ...mapFeedItemBase(item),
+                location: item['location'] ? String(item['location']) : undefined,
+            }));
+            if (items.length > 0 || !getWiderTimeframe(currentTimeframe))
+                return items;
+            console.log(`${INFO_PREFIX} events feed empty for ${currentTimeframe}, widening timeframe...`);
+            currentTimeframe = getWiderTimeframe(currentTimeframe);
+        }
+        catch (error) {
+            const message = error instanceof Error ? error.message : String(error);
+            const wider = getWiderTimeframe(tf);
+            if (wider && (message.includes('404') || message.includes('timed out'))) {
+                console.warn(`${WARN_PREFIX} get_events_feed failed (${currentTimeframe}): ${message} — retrying with ${wider}`);
+                currentTimeframe = wider;
+            }
+            else {
+                console.warn(`${WARN_PREFIX} get_events_feed failed:`, message);
+                return [];
+            }
+        }
     }
-    catch (error) {
-        const message = error instanceof Error ? error.message : String(error);
-        console.warn(`${WARN_PREFIX} get_events_feed failed:`, message);
-        return [];
-    }
+    return [];
 }
 /**
  * Fetch procedures feed from MCP.
+ * Falls back to a wider timeframe when the initial timeframe returns no data.
  *
  * @param client - MCP client or null
  * @param timeframe - How far back to look (default: 'one-week')
@@ -1187,19 +1245,35 @@ export async function fetchEventsFeed(client, timeframe = 'one-week') {
 export async function fetchProceduresFeed(client, timeframe = 'one-week') {
     if (!client)
         return [];
-    try {
-        console.log(`${MCP_FETCH_PREFIX} Fetching procedures feed (${timeframe})...`);
-        const result = await callMCP(() => client.getProceduresFeed({ timeframe, limit: 20 }), undefined, 'get_procedures_feed');
-        return parseFeedResult(result).map((item) => ({
-            ...mapFeedItemBase(item),
-            stage: item['stage'] ? String(item['stage']) : undefined,
-        }));
+    let currentTimeframe = timeframe;
+    while (currentTimeframe) {
+        const tf = currentTimeframe;
+        try {
+            console.log(`${MCP_FETCH_PREFIX} Fetching procedures feed (${currentTimeframe})...`);
+            const result = await callMCP(() => client.getProceduresFeed({ timeframe: tf, limit: 20 }), undefined, 'get_procedures_feed');
+            const items = parseFeedResult(result).map((item) => ({
+                ...mapFeedItemBase(item),
+                stage: item['stage'] ? String(item['stage']) : undefined,
+            }));
+            if (items.length > 0 || !getWiderTimeframe(currentTimeframe))
+                return items;
+            console.log(`${INFO_PREFIX} procedures feed empty for ${currentTimeframe}, widening timeframe...`);
+            currentTimeframe = getWiderTimeframe(currentTimeframe);
+        }
+        catch (error) {
+            const message = error instanceof Error ? error.message : String(error);
+            const wider = getWiderTimeframe(tf);
+            if (wider && (message.includes('404') || message.includes('timed out'))) {
+                console.warn(`${WARN_PREFIX} get_procedures_feed failed (${currentTimeframe}): ${message} — retrying with ${wider}`);
+                currentTimeframe = wider;
+            }
+            else {
+                console.warn(`${WARN_PREFIX} get_procedures_feed failed:`, message);
+                return [];
+            }
+        }
     }
-    catch (error) {
-        const message = error instanceof Error ? error.message : String(error);
-        console.warn(`${WARN_PREFIX} get_procedures_feed failed:`, message);
-        return [];
-    }
+    return [];
 }
 /**
  * Fetch MEPs feed from MCP.
@@ -1252,6 +1326,7 @@ export async function fetchMEPsFeedWithTotal(client, timeframe = 'one-week') {
 }
 /**
  * Fetch documents feed from MCP.
+ * Falls back to a wider timeframe when the initial timeframe returns no data.
  *
  * @param client - MCP client or null
  * @param timeframe - How far back to look (default: 'one-week')
@@ -1260,19 +1335,36 @@ export async function fetchMEPsFeedWithTotal(client, timeframe = 'one-week') {
 export async function fetchDocumentsFeed(client, timeframe = 'one-week') {
     if (!client)
         return [];
-    try {
-        console.log(`${MCP_FETCH_PREFIX} Fetching documents feed (${timeframe})...`);
-        const result = await callMCP(() => client.getDocumentsFeed({ timeframe, limit: 20 }), undefined, 'get_documents_feed');
-        return parseFeedResult(result).map((item) => mapFeedItemBase(item));
+    let currentTimeframe = timeframe;
+    while (currentTimeframe) {
+        const tf = currentTimeframe;
+        try {
+            console.log(`${MCP_FETCH_PREFIX} Fetching documents feed (${currentTimeframe})...`);
+            const result = await callMCP(() => client.getDocumentsFeed({ timeframe: tf, limit: 20 }), undefined, 'get_documents_feed');
+            const items = parseFeedResult(result).map((item) => mapFeedItemBase(item));
+            if (items.length > 0 || !getWiderTimeframe(currentTimeframe))
+                return items;
+            console.log(`${INFO_PREFIX} documents feed empty for ${currentTimeframe}, widening timeframe...`);
+            currentTimeframe = getWiderTimeframe(currentTimeframe);
+        }
+        catch (error) {
+            const message = error instanceof Error ? error.message : String(error);
+            const wider = getWiderTimeframe(tf);
+            if (wider && (message.includes('404') || message.includes('timed out'))) {
+                console.warn(`${WARN_PREFIX} get_documents_feed failed (${currentTimeframe}): ${message} — retrying with ${wider}`);
+                currentTimeframe = wider;
+            }
+            else {
+                console.warn(`${WARN_PREFIX} get_documents_feed failed:`, message);
+                return [];
+            }
+        }
     }
-    catch (error) {
-        const message = error instanceof Error ? error.message : String(error);
-        console.warn(`${WARN_PREFIX} get_documents_feed failed:`, message);
-        return [];
-    }
+    return [];
 }
 /**
  * Fetch plenary documents feed from MCP.
+ * Falls back to a wider timeframe when the initial timeframe returns no data.
  *
  * @param client - MCP client or null
  * @param timeframe - How far back to look (default: 'one-week')
@@ -1281,19 +1373,36 @@ export async function fetchDocumentsFeed(client, timeframe = 'one-week') {
 export async function fetchPlenaryDocumentsFeed(client, timeframe = 'one-week') {
     if (!client)
         return [];
-    try {
-        console.log(`${MCP_FETCH_PREFIX} Fetching plenary documents feed (${timeframe})...`);
-        const result = await callMCP(() => client.getPlenaryDocumentsFeed({ timeframe, limit: 20 }), undefined, 'get_plenary_documents_feed');
-        return parseFeedResult(result).map((item) => mapFeedItemBase(item));
+    let currentTimeframe = timeframe;
+    while (currentTimeframe) {
+        const tf = currentTimeframe;
+        try {
+            console.log(`${MCP_FETCH_PREFIX} Fetching plenary documents feed (${currentTimeframe})...`);
+            const result = await callMCP(() => client.getPlenaryDocumentsFeed({ timeframe: tf, limit: 20 }), undefined, 'get_plenary_documents_feed');
+            const items = parseFeedResult(result).map((item) => mapFeedItemBase(item));
+            if (items.length > 0 || !getWiderTimeframe(currentTimeframe))
+                return items;
+            console.log(`${INFO_PREFIX} plenary documents feed empty for ${currentTimeframe}, widening timeframe...`);
+            currentTimeframe = getWiderTimeframe(currentTimeframe);
+        }
+        catch (error) {
+            const message = error instanceof Error ? error.message : String(error);
+            const wider = getWiderTimeframe(tf);
+            if (wider && (message.includes('404') || message.includes('timed out'))) {
+                console.warn(`${WARN_PREFIX} get_plenary_documents_feed failed (${currentTimeframe}): ${message} — retrying with ${wider}`);
+                currentTimeframe = wider;
+            }
+            else {
+                console.warn(`${WARN_PREFIX} get_plenary_documents_feed failed:`, message);
+                return [];
+            }
+        }
     }
-    catch (error) {
-        const message = error instanceof Error ? error.message : String(error);
-        console.warn(`${WARN_PREFIX} get_plenary_documents_feed failed:`, message);
-        return [];
-    }
+    return [];
 }
 /**
  * Fetch committee documents feed from MCP.
+ * Falls back to a wider timeframe when the initial timeframe returns no data.
  *
  * @param client - MCP client or null
  * @param timeframe - How far back to look (default: 'one-week')
@@ -1302,19 +1411,36 @@ export async function fetchPlenaryDocumentsFeed(client, timeframe = 'one-week') 
 export async function fetchCommitteeDocumentsFeed(client, timeframe = 'one-week') {
     if (!client)
         return [];
-    try {
-        console.log(`${MCP_FETCH_PREFIX} Fetching committee documents feed (${timeframe})...`);
-        const result = await callMCP(() => client.getCommitteeDocumentsFeed({ timeframe, limit: 20 }), undefined, 'get_committee_documents_feed');
-        return parseFeedResult(result).map((item) => mapFeedItemBase(item));
+    let currentTimeframe = timeframe;
+    while (currentTimeframe) {
+        const tf = currentTimeframe;
+        try {
+            console.log(`${MCP_FETCH_PREFIX} Fetching committee documents feed (${currentTimeframe})...`);
+            const result = await callMCP(() => client.getCommitteeDocumentsFeed({ timeframe: tf, limit: 20 }), undefined, 'get_committee_documents_feed');
+            const items = parseFeedResult(result).map((item) => mapFeedItemBase(item));
+            if (items.length > 0 || !getWiderTimeframe(currentTimeframe))
+                return items;
+            console.log(`${INFO_PREFIX} committee documents feed empty for ${currentTimeframe}, widening timeframe...`);
+            currentTimeframe = getWiderTimeframe(currentTimeframe);
+        }
+        catch (error) {
+            const message = error instanceof Error ? error.message : String(error);
+            const wider = getWiderTimeframe(tf);
+            if (wider && (message.includes('404') || message.includes('timed out'))) {
+                console.warn(`${WARN_PREFIX} get_committee_documents_feed failed (${currentTimeframe}): ${message} — retrying with ${wider}`);
+                currentTimeframe = wider;
+            }
+            else {
+                console.warn(`${WARN_PREFIX} get_committee_documents_feed failed:`, message);
+                return [];
+            }
+        }
     }
-    catch (error) {
-        const message = error instanceof Error ? error.message : String(error);
-        console.warn(`${WARN_PREFIX} get_committee_documents_feed failed:`, message);
-        return [];
-    }
+    return [];
 }
 /**
  * Fetch plenary session documents feed from MCP.
+ * Falls back to a wider timeframe when the initial timeframe returns no data.
  *
  * @param client - MCP client or null
  * @param timeframe - How far back to look (default: 'one-week')
@@ -1323,19 +1449,36 @@ export async function fetchCommitteeDocumentsFeed(client, timeframe = 'one-week'
 export async function fetchPlenarySessionDocumentsFeed(client, timeframe = 'one-week') {
     if (!client)
         return [];
-    try {
-        console.log(`${MCP_FETCH_PREFIX} Fetching plenary session documents feed (${timeframe})...`);
-        const result = await callMCP(() => client.getPlenarySessionDocumentsFeed({ timeframe, limit: 20 }), undefined, 'get_plenary_session_documents_feed');
-        return parseFeedResult(result).map((item) => mapFeedItemBase(item));
+    let currentTimeframe = timeframe;
+    while (currentTimeframe) {
+        const tf = currentTimeframe;
+        try {
+            console.log(`${MCP_FETCH_PREFIX} Fetching plenary session documents feed (${currentTimeframe})...`);
+            const result = await callMCP(() => client.getPlenarySessionDocumentsFeed({ timeframe: tf, limit: 20 }), undefined, 'get_plenary_session_documents_feed');
+            const items = parseFeedResult(result).map((item) => mapFeedItemBase(item));
+            if (items.length > 0 || !getWiderTimeframe(currentTimeframe))
+                return items;
+            console.log(`${INFO_PREFIX} plenary session docs feed empty for ${currentTimeframe}, widening timeframe...`);
+            currentTimeframe = getWiderTimeframe(currentTimeframe);
+        }
+        catch (error) {
+            const message = error instanceof Error ? error.message : String(error);
+            const wider = getWiderTimeframe(tf);
+            if (wider && (message.includes('404') || message.includes('timed out'))) {
+                console.warn(`${WARN_PREFIX} get_plenary_session_documents_feed failed (${currentTimeframe}): ${message} — retrying with ${wider}`);
+                currentTimeframe = wider;
+            }
+            else {
+                console.warn(`${WARN_PREFIX} get_plenary_session_documents_feed failed:`, message);
+                return [];
+            }
+        }
     }
-    catch (error) {
-        const message = error instanceof Error ? error.message : String(error);
-        console.warn(`${WARN_PREFIX} get_plenary_session_documents_feed failed:`, message);
-        return [];
-    }
+    return [];
 }
 /**
  * Fetch external documents feed from MCP.
+ * Falls back to a wider timeframe when the initial timeframe returns no data.
  *
  * @param client - MCP client or null
  * @param timeframe - How far back to look (default: 'one-week')
@@ -1344,19 +1487,36 @@ export async function fetchPlenarySessionDocumentsFeed(client, timeframe = 'one-
 export async function fetchExternalDocumentsFeed(client, timeframe = 'one-week') {
     if (!client)
         return [];
-    try {
-        console.log(`${MCP_FETCH_PREFIX} Fetching external documents feed (${timeframe})...`);
-        const result = await callMCP(() => client.getExternalDocumentsFeed({ timeframe, limit: 20 }), undefined, 'get_external_documents_feed');
-        return parseFeedResult(result).map((item) => mapFeedItemBase(item));
+    let currentTimeframe = timeframe;
+    while (currentTimeframe) {
+        const tf = currentTimeframe;
+        try {
+            console.log(`${MCP_FETCH_PREFIX} Fetching external documents feed (${currentTimeframe})...`);
+            const result = await callMCP(() => client.getExternalDocumentsFeed({ timeframe: tf, limit: 20 }), undefined, 'get_external_documents_feed');
+            const items = parseFeedResult(result).map((item) => mapFeedItemBase(item));
+            if (items.length > 0 || !getWiderTimeframe(currentTimeframe))
+                return items;
+            console.log(`${INFO_PREFIX} external documents feed empty for ${currentTimeframe}, widening timeframe...`);
+            currentTimeframe = getWiderTimeframe(currentTimeframe);
+        }
+        catch (error) {
+            const message = error instanceof Error ? error.message : String(error);
+            const wider = getWiderTimeframe(tf);
+            if (wider && (message.includes('404') || message.includes('timed out'))) {
+                console.warn(`${WARN_PREFIX} get_external_documents_feed failed (${currentTimeframe}): ${message} — retrying with ${wider}`);
+                currentTimeframe = wider;
+            }
+            else {
+                console.warn(`${WARN_PREFIX} get_external_documents_feed failed:`, message);
+                return [];
+            }
+        }
     }
-    catch (error) {
-        const message = error instanceof Error ? error.message : String(error);
-        console.warn(`${WARN_PREFIX} get_external_documents_feed failed:`, message);
-        return [];
-    }
+    return [];
 }
 /**
  * Fetch parliamentary questions feed from MCP.
+ * Falls back to a wider timeframe when the initial timeframe returns no data.
  *
  * @param client - MCP client or null
  * @param timeframe - How far back to look (default: 'one-week')
@@ -1365,16 +1525,32 @@ export async function fetchExternalDocumentsFeed(client, timeframe = 'one-week')
 export async function fetchQuestionsFeed(client, timeframe = 'one-week') {
     if (!client)
         return [];
-    try {
-        console.log(`${MCP_FETCH_PREFIX} Fetching parliamentary questions feed (${timeframe})...`);
-        const result = await callMCP(() => client.getParliamentaryQuestionsFeed({ timeframe, limit: 20 }), undefined, 'get_parliamentary_questions_feed');
-        return parseFeedResult(result).map((item) => mapFeedItemBase(item));
+    let currentTimeframe = timeframe;
+    while (currentTimeframe) {
+        const tf = currentTimeframe;
+        try {
+            console.log(`${MCP_FETCH_PREFIX} Fetching parliamentary questions feed (${currentTimeframe})...`);
+            const result = await callMCP(() => client.getParliamentaryQuestionsFeed({ timeframe: tf, limit: 20 }), undefined, 'get_parliamentary_questions_feed');
+            const items = parseFeedResult(result).map((item) => mapFeedItemBase(item));
+            if (items.length > 0 || !getWiderTimeframe(currentTimeframe))
+                return items;
+            console.log(`${INFO_PREFIX} questions feed empty for ${currentTimeframe}, widening timeframe...`);
+            currentTimeframe = getWiderTimeframe(currentTimeframe);
+        }
+        catch (error) {
+            const message = error instanceof Error ? error.message : String(error);
+            const wider = getWiderTimeframe(tf);
+            if (wider && (message.includes('404') || message.includes('timed out'))) {
+                console.warn(`${WARN_PREFIX} get_parliamentary_questions_feed failed (${currentTimeframe}): ${message} — retrying with ${wider}`);
+                currentTimeframe = wider;
+            }
+            else {
+                console.warn(`${WARN_PREFIX} get_parliamentary_questions_feed failed:`, message);
+                return [];
+            }
+        }
     }
-    catch (error) {
-        const message = error instanceof Error ? error.message : String(error);
-        console.warn(`${WARN_PREFIX} get_parliamentary_questions_feed failed:`, message);
-        return [];
-    }
+    return [];
 }
 /**
  * Fetch MEP declarations feed from MCP.
