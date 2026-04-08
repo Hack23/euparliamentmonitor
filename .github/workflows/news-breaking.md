@@ -49,7 +49,7 @@ mcp-servers:
       - -y
       - european-parliament-mcp-server@1.1.28
     env:
-      EP_REQUEST_TIMEOUT_MS: "180000"
+      EP_REQUEST_TIMEOUT_MS: "90000"
   memory:
     command: npx
     args:
@@ -518,6 +518,16 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 
 ## EP MCP Tools for Breaking News
 
+### 🏥 RECOMMENDED: Server Health Check
+
+**Call `get_server_health` before data gathering** to check which EP API feeds are currently operational. This avoids wasting API calls on degraded feeds and helps adapt the data collection strategy.
+
+```javascript
+european_parliament___get_server_health({})
+```
+
+> **📊 ADAPTIVE STRATEGY**: If health check shows feeds as `error` or availability is `Degraded`/`Sparse`/`Unavailable`, widen initial timeframe from `"today"` to `"one-week"` for ALL feeds, and skip analytical tools that depend on upstream API calls (voting anomalies, coalition dynamics, etc.). Focus on `get_all_generated_stats` for precomputed context.
+
 ### ⚡ MANDATORY: Precomputed Statistics for Context
 
 **ALWAYS call `get_all_generated_stats` as the first data-gathering step with `category: "all"`.** This provides historical background context ONLY.
@@ -550,7 +560,7 @@ european_parliament___get_events_feed({ timeframe: "one-week", limit: 50 })     
 
 > **📅 IMPORTANT**: When using `one-week` fallback, items are still tagged with their actual dates. Only items from TODAY qualify as breaking news for article generation, but ALL downloaded data is persisted for analysis.
 
-> **⚠️ TIMEOUT HANDLING**: The EP API can be slow (30-90+ seconds per request). The `EP_REQUEST_TIMEOUT_MS` is set to 120 seconds. If a feed still times out, log the error and continue with other feeds — do NOT abort the entire data collection phase. A partial dataset is better than no data.
+> **⚠️ TIMEOUT HANDLING**: The EP API can be slow (30-90+ seconds per request). The `EP_REQUEST_TIMEOUT_MS` is set to 90 seconds. If a feed still times out, log the error and continue with other feeds — do NOT abort the entire data collection phase. A partial dataset is better than no data.
 
 **MANDATORY: Advisory feeds (ALWAYS download — for analysis and context):**
 

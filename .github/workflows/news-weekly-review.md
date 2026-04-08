@@ -49,7 +49,7 @@ mcp-servers:
       - -y
       - european-parliament-mcp-server@1.1.28
     env:
-      EP_REQUEST_TIMEOUT_MS: "180000"
+      EP_REQUEST_TIMEOUT_MS: "90000"
   memory:
     command: npx
     args:
@@ -444,6 +444,16 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 **⚠️ NEVER use `git push` directly** — always use `safeoutputs___create_pull_request`
 
 ## EP MCP Tools for Weekly Review
+
+### 🏥 RECOMMENDED: Server Health Check
+
+**Call `get_server_health` before data gathering** to check which EP API feeds are currently operational.
+
+```javascript
+european_parliament___get_server_health({})
+```
+
+> **📊 ADAPTIVE STRATEGY**: If health shows `Degraded`/`Sparse`/`Unavailable`, widen initial timeframe for ALL feeds and focus on `get_all_generated_stats` for precomputed context.
 
 ### 🚨 MANDATORY: EP Feed Endpoints (PRIMARY News Source)
 

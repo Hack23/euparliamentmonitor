@@ -2118,4 +2118,138 @@ describe('ep-mcp-client', () => {
     });
   });
 
+  describe('getProcedureEventById', () => {
+    /** @type {EuropeanParliamentMCPClient} */
+    let client;
+    /** @type {MockConsoleResult} */
+    let consoleOutput;
+
+    beforeEach(() => {
+      consoleOutput = mockConsole();
+      client = new EuropeanParliamentMCPClient();
+      client.connected = true;
+      client.callTool = vi.fn();
+    });
+
+    afterEach(() => {
+      consoleOutput.restore();
+    });
+
+    it('should get a specific procedure event by id', async () => {
+      client.callTool.mockResolvedValue({
+        content: [{ type: 'text', text: '{"event": {}}' }],
+      });
+
+      const options = { processId: 'PROC-123', eventId: 'EVT-456' };
+      await client.getProcedureEventById(options);
+
+      expect(client.callTool).toHaveBeenCalledWith('get_procedure_event_by_id', {
+        processId: 'PROC-123',
+        eventId: 'EVT-456',
+      });
+    });
+
+    it('should handle missing get_procedure_event_by_id tool gracefully', async () => {
+      client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+      const result = await client.getProcedureEventById({
+        processId: 'PROC-123',
+        eventId: 'EVT-456',
+      });
+
+      expect(result).toEqual({
+        content: [{ type: 'text', text: '{"event": null}' }],
+      });
+    });
+
+    it('should return fallback for getProcedureEventById with empty processId', async () => {
+      const result = await client.getProcedureEventById({ processId: '', eventId: 'EVT-456' });
+
+      expect(client.callTool).not.toHaveBeenCalled();
+      expect(result).toEqual({
+        content: [{ type: 'text', text: '{"event": null}' }],
+      });
+    });
+
+    it('should return fallback for getProcedureEventById with empty eventId', async () => {
+      const result = await client.getProcedureEventById({ processId: 'PROC-123', eventId: '' });
+
+      expect(client.callTool).not.toHaveBeenCalled();
+      expect(result).toEqual({
+        content: [{ type: 'text', text: '{"event": null}' }],
+      });
+    });
+
+    it('should return fallback for getProcedureEventById with whitespace-only processId', async () => {
+      const result = await client.getProcedureEventById({
+        processId: '   ',
+        eventId: 'EVT-456',
+      });
+
+      expect(client.callTool).not.toHaveBeenCalled();
+      expect(result).toEqual({
+        content: [{ type: 'text', text: '{"event": null}' }],
+      });
+    });
+
+    it('should trim processId and eventId', async () => {
+      client.callTool.mockResolvedValue({
+        content: [{ type: 'text', text: '{"event": {}}' }],
+      });
+
+      await client.getProcedureEventById({
+        processId: '  PROC-123  ',
+        eventId: '  EVT-456  ',
+      });
+
+      expect(client.callTool).toHaveBeenCalledWith('get_procedure_event_by_id', {
+        processId: 'PROC-123',
+        eventId: 'EVT-456',
+      });
+    });
+  });
+
+  describe('getServerHealth', () => {
+    /** @type {EuropeanParliamentMCPClient} */
+    let client;
+    /** @type {MockConsoleResult} */
+    let consoleOutput;
+
+    beforeEach(() => {
+      consoleOutput = mockConsole();
+      client = new EuropeanParliamentMCPClient();
+      client.connected = true;
+      client.callTool = vi.fn();
+    });
+
+    afterEach(() => {
+      consoleOutput.restore();
+    });
+
+    it('should get server health with no arguments', async () => {
+      client.callTool.mockResolvedValue({
+        content: [
+          {
+            type: 'text',
+            text: '{"server":{"version":"1.1.28","status":"ok"},"availability":{"level":"Full"}}',
+          },
+        ],
+      });
+
+      const result = await client.getServerHealth();
+
+      expect(client.callTool).toHaveBeenCalledWith('get_server_health', {});
+      expect(result.content[0].text).toContain('"status":"ok"');
+    });
+
+    it('should handle missing get_server_health tool gracefully', async () => {
+      client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+      const result = await client.getServerHealth();
+
+      expect(result).toEqual({
+        content: [{ type: 'text', text: '{"server": null, "feeds": []}' }],
+      });
+    });
+  });
 });
