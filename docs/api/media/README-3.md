@@ -370,10 +370,10 @@ flowchart TD
 Every agentic workflow **MUST** write to its own separate directory:
 
 ```
-✅ news-breaking         → analysis/2026-03-31/breaking/
-✅ news-weekly-review     → analysis/2026-03-31/week-in-review/
-✅ news-committee-reports → analysis/2026-03-31/committee-reports/
-✅ news-motions           → analysis/2026-03-31/motions/
+✅ news-breaking         → analysis/daily/2026-03-31/breaking/
+✅ news-weekly-review     → analysis/daily/2026-03-31/week-in-review/
+✅ news-committee-reports → analysis/daily/2026-03-31/committee-reports/
+✅ news-motions           → analysis/daily/2026-03-31/motions/
 ❌ news-breaking overwrites news-weekly-review output → PROHIBITED
 ```
 

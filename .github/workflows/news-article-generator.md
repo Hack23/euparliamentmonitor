@@ -203,7 +203,7 @@ Call `sequentialthinking` with structured thought chains — each step builds on
 ## ⏱️ Time Budget (120 minutes)
 
 - **Minutes 0–3**: Date validation, MCP warm-up
-- **Minutes 3–10**: 🔬 Political intelligence analysis stage (significance classification, political threat landscape assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writing analysis artifacts to `analysis/${TODAY}/${ARTICLE_TYPE_SLUG}/` — a per-article-type directory for comprehensive analysis of all downloaded data for that article type)
+- **Minutes 3–10**: 🔬 Political intelligence analysis stage (significance classification, political threat landscape assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writing analysis artifacts to `analysis/daily/${TODAY}/${ARTICLE_TYPE_SLUG}/` — a per-article-type directory for comprehensive analysis of all downloaded data for that article type)
 - **Minutes 10–20**: Parse article types and verify MCP connectivity
 - **Minutes 20–100**: Generate English articles for each requested type with deep political intelligence
 - **Minutes 100–110**: Validate generated HTML
@@ -225,7 +225,7 @@ The `--analysis` flag activates the political intelligence analysis pipeline **b
    - **Risk Scoring** (5 methods): political risk matrix, capital-at-risk assessment, quantitative SWOT, legislative velocity risk, agent risk workflow
    - **Intelligence** (5 methods): deep analysis, stakeholder analysis, coalition dynamics, voting patterns, cross-session intelligence
    - _Optional_: **Per-Document Analysis** (opt-in via `--analysis-methods=document-analysis`) — per-document markdown + JSON intelligence files for every downloaded MCP file; not included in default set
-3. **Writes and commits analysis artifacts** to `analysis/${TODAY}/${ARTICLE_TYPE_SLUG}/` (markdown files + `manifest.json`) — each workflow writes to its own per-article-type subdirectory, preventing merge conflicts when multiple workflows run concurrently on the same date; MCP data is stored at `analysis/${TODAY}/${ARTICLE_TYPE_SLUG}/data/`
+3. **Writes and commits analysis artifacts** to `analysis/daily/${TODAY}/${ARTICLE_TYPE_SLUG}/` (markdown files + `manifest.json`) — each workflow writes to its own per-article-type subdirectory, preventing merge conflicts when multiple workflows run concurrently on the same date; MCP data is stored at `analysis/daily/${TODAY}/${ARTICLE_TYPE_SLUG}/data/`
 4. **Blocks article generation on failure in agentic mode** — when `--analysis` is enabled, analysis failures abort the run; disable `--analysis` if you want generation to proceed without analysis
 
 The analysis artifacts provide structured political intelligence that enriches the article generation phase with deeper context, evidence-based assessments, and systematic threat/risk analysis.
@@ -236,11 +236,11 @@ The analysis artifacts provide structured political intelligence that enriches t
 
 > **⚠️ FULL DATA ANALYSIS**: Analysis MUST be performed for **every file downloaded** from MCP sources — not per session, not per day summary, but for **every individual piece of content**. Read ALL templates and methodologies before starting.
 
-> **⚠️ IMPROVE EXISTING ANALYSIS**: Per `ai-driven-analysis-guide.md` Rule 5, before producing new analysis, check for existing analysis in `analysis/${TODAY}/${ARTICLE_TYPE_SLUG}/`. If previous analysis exists, READ it first and **improve, extend, correct, or complete** it — never discard prior work. No workflow run should be wasted.
+> **⚠️ IMPROVE EXISTING ANALYSIS**: Per `ai-driven-analysis-guide.md` Rule 5, before producing new analysis, check for existing analysis in `analysis/daily/${TODAY}/${ARTICLE_TYPE_SLUG}/`. If previous analysis exists, READ it first and **improve, extend, correct, or complete** it — never discard prior work. No workflow run should be wasted.
 
 ### Structured Analysis Templates (analysis/templates/)
 
-Read and apply **all** structured templates in `analysis/templates/`. For **every downloaded MCP data file** in `analysis/${TODAY}/${ARTICLE_TYPE_SLUG}/data/`, start with the per-file template, apply the dimension templates, then produce a synthesis summary:
+Read and apply **all** structured templates in `analysis/templates/`. For **every downloaded MCP data file** in `analysis/daily/${TODAY}/${ARTICLE_TYPE_SLUG}/data/`, start with the per-file template, apply the dimension templates, then produce a synthesis summary:
 
 | Template | File | When to Apply |
 |----------|------|--------------|
@@ -268,7 +268,7 @@ Read these BEFORE creating analysis artifacts — they define the scoring framew
 
 ### Higher-Level Analysis Templates (docs/analysis-methodology/)
 
-Read and apply these templates when generating analysis artifacts in `analysis/${TODAY}/`:
+Read and apply these templates when generating analysis artifacts in `analysis/daily/${TODAY}/`:
 
 | Template | File | When to Apply |
 |----------|------|--------------|
@@ -499,7 +499,7 @@ european_parliament___get_procedures_feed({ timeframe: "one-week", limit: 20 })
 
 **Breaking News (MANDATORY: Feed-First REALTIME — only TODAY's events):**
 
-> **🚨 NEWSWORTHINESS GATE**: Breaking news covers ONLY events published/updated TODAY. Use `timeframe: "today"` for initial feed calls, then retry with `timeframe: "one-week"` for any endpoint that returns empty/error/404/timeout. Always perform data download and analysis as part of the reasoning process — the gate only decides whether to generate a breaking-news article. If NO items from today are found, still analyze the collected data and **create an analysis-only PR** with `safeoutputs___create_pull_request` containing the analysis artifacts in `analysis/${TODAY}/breaking/`. Per `ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted — analysis of quiet periods reveals patterns and must always be committed. If existing analysis for this date/type already exists, improve and extend it.
+> **🚨 NEWSWORTHINESS GATE**: Breaking news covers ONLY events published/updated TODAY. Use `timeframe: "today"` for initial feed calls, then retry with `timeframe: "one-week"` for any endpoint that returns empty/error/404/timeout. Always perform data download and analysis as part of the reasoning process — the gate only decides whether to generate a breaking-news article. If NO items from today are found, still analyze the collected data and **create an analysis-only PR** with `safeoutputs___create_pull_request` containing the analysis artifacts in `analysis/daily/${TODAY}/breaking/`. Per `ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted — analysis of quiet periods reveals patterns and must always be committed. If existing analysis for this date/type already exists, improve and extend it.
 
 These 4 feeds map directly to the breaking news generator's data model (`adoptedTexts`, `events`, `procedures`, `mepUpdates`):
 
@@ -771,7 +771,7 @@ fi
 - ✅ **manifest.json** includes `"articleType": "<slug>"` matching the article type being generated
 - ✅ **Analysis markdown** files include `articleType: <slug>` in YAML frontmatter
 - ✅ **Article HTML** includes `<meta name="article-type" content="<slug>">`
-- ✅ **Analysis directory** is scoped to `analysis/${TODAY}/${ARTICLE_TYPE_SLUG}/`
+- ✅ **Analysis directory** is scoped to `analysis/daily/${TODAY}/${ARTICLE_TYPE_SLUG}/`
 
 ### Minimum AI Analysis Time (Rule 7 — required)
 - ✅ **≥15 minutes per article type** spent on AI-driven political intelligence analysis
@@ -822,7 +822,7 @@ rm -f news/metadata/generation-*.json
 # Remove only raw MCP data downloads to control PR size. Analysis markdown MUST be committed.
 # Scope cleanup to THIS run's analysis directory only — never touch historical data
 ARTICLE_TYPE_SLUG="${ARTICLE_TYPE_SLUG:-all}"
-RUN_ANALYSIS_DIR="analysis/${TODAY}/${ARTICLE_TYPE_SLUG}"
+RUN_ANALYSIS_DIR="analysis/daily/${TODAY}/${ARTICLE_TYPE_SLUG}"
 if [ -d "$RUN_ANALYSIS_DIR" ]; then
   find "$RUN_ANALYSIS_DIR" -type f -path "*/data/*" ! -name "*.analysis.md" ! -name "*.md" -delete 2>/dev/null || true
   find "$RUN_ANALYSIS_DIR" -type d -name "data" -empty -delete 2>/dev/null || true

@@ -157,9 +157,9 @@ function claimDir(dirPath) {
  * `mkdirSync`, preventing TOCTOU races when concurrent workflow runs
  * attempt to claim the same candidate.
  *
- * @param baseDir - The preferred directory path (e.g. `analysis/2026-04-02/breaking`)
+ * @param baseDir - The preferred directory path (e.g. `analysis/daily/2026-04-02/breaking`)
  * @returns The original `baseDir` when no completed run exists there, or a
- *          suffixed variant (e.g. `analysis/2026-04-02/breaking-2`) otherwise.
+ *          suffixed variant (e.g. `analysis/daily/2026-04-02/breaking-2`) otherwise.
  */
 export function resolveUniqueAnalysisDir(baseDir) {
     // If the directory doesn't exist yet or has no manifest from a prior

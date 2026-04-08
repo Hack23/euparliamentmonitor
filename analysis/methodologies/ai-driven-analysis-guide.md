@@ -43,9 +43,9 @@ analysis/{YYYY-MM-DD}/{article-type-slug}/
 **Automatic suffix deduplication (v3.0):** When a workflow runs and a prior completed analysis already exists at the target path (indicated by an existing `manifest.json`), the system automatically appends a numeric suffix to create a new directory:
 
 ```
-analysis/2026-04-02/breaking/       ← first run
-analysis/2026-04-02/breaking-2/     ← second run (same day)
-analysis/2026-04-02/breaking-3/     ← third run (same day)
+analysis/daily/2026-04-02/breaking/       ← first run
+analysis/daily/2026-04-02/breaking-2/     ← second run (same day)
+analysis/daily/2026-04-02/breaking-3/     ← third run (same day)
 ```
 
 Similarly, news article files include the suffix as part of the slug:
@@ -127,7 +127,7 @@ Every analysis artifact and news article MUST clearly identify which article typ
 **Mandatory identification in analysis artifacts:**
 - [ ] Every `manifest.json` includes `"articleType": "<slug>"` (e.g., `"articleType": "breaking"`)
 - [ ] Every `.analysis.md` file includes YAML frontmatter with `articleType: <slug>`
-- [ ] Analysis file paths always include the article type slug: `analysis/{date}/{article-type-slug}/`
+- [ ] Analysis file paths always include the article type slug: `analysis/daily/{date}/{article-type-slug}/`
 - [ ] The article HTML includes the article type in its metadata: `<meta name="article-type" content="<slug>">`
 
 **Valid article type slugs** (from `ArticleCategory` enum in `src/types/common.ts`):
@@ -324,7 +324,7 @@ No TypeScript code should generate political narrative text, analytical conclusi
 | Confidence assessments on claims | AI Agent (Workflow LLM) | "🟢 High confidence based on EP vote TA-10-2026-0091" |
 
 **AI prompt template for article narrative:**
-> You are writing a news article for EU Parliament Monitor. Based on the analysis artifacts in `analysis/{date}/{slug}/` and the EP MCP feed data, write the following sections:
+> You are writing a news article for EU Parliament Monitor. Based on the analysis artifacts in `analysis/daily/{date}/{slug}/` and the EP MCP feed data, write the following sections:
 > 1. **Headline**: Newsworthy, 50-70 characters, names specific legislation/actors
 > 2. **Meta description**: 150-160 characters, political significance summary
 > 3. **Lede paragraph**: 50-75 words, hook + context + significance
@@ -591,7 +591,7 @@ A workflow running on Tuesday overwrites Monday's analysis file in the same loca
 
 ### ✅ Correct Approach
 
-Each workflow writes to its own directory: `analysis/{date}/{article-type-slug}/`. Monday's `news-breaking` writes to `analysis/2026-03-30/breaking/`, Tuesday's `news-committee-reports` writes to `analysis/2026-03-31/committee-reports/`. Never overwrite.
+Each workflow writes to its own directory: `analysis/daily/{date}/{article-type-slug}/`. Monday's `news-breaking` writes to `analysis/daily/2026-03-30/breaking/`, Tuesday's `news-committee-reports` writes to `analysis/daily/2026-03-31/committee-reports/`. Never overwrite.
 
 ---
 
@@ -755,7 +755,7 @@ Every news article MUST link to its analysis artifacts in the Analysis Transpare
    - Remove the broken link from the article transparency section
 3. **Analysis files MUST use the GitHub repository URL format**:
    ```
-   https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/{date}/{type}/{category}/{file}.md
+   https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/{date}/{type}/{category}/{file}.md
    ```
 
 ---
@@ -844,7 +844,7 @@ When multiple agentic workflow runs execute on the **same day** (e.g., breaking 
 
 ```mermaid
 flowchart TD
-    START["🔄 New Workflow Run<br/>(suffix ≥ 2)"] --> READ["📂 Read prior run output<br/>analysis/{date}/{type}/"]
+    START["🔄 New Workflow Run<br/>(suffix ≥ 2)"] --> READ["📂 Read prior run output<br/>analysis/daily/{date}/{type}/"]
     READ --> DELTA["📊 Compute Data Delta<br/>New files vs. prior files"]
     DELTA --> ZERO{Delta = 0?<br/>No new data?}
     ZERO -->|Yes| STASIS["⏸️ Data Stasis Protocol<br/>(see below)"]
@@ -903,18 +903,18 @@ When multiple agentic workflows run simultaneously:
 
 | Artifact Type | Isolation Strategy | Location |
 |--------------|-------------------|----------|
-| Per-file analysis | Inherently conflict-free (one file per document) | `analysis/{date}/{article-type-slug}/data/{id}.analysis.md` |
-| Workflow-specific analysis | Per-workflow directory | `analysis/{date}/{article-type-slug}/` |
-| Daily synthesis | Last-write-wins (later workflows produce better synthesis) | `analysis/{date}/synthesis-summary.md` |
-| AI-driven cross-article analysis | Date root (shared across workflows) | `analysis/{date}/ai-*.md` |
+| Per-file analysis | Inherently conflict-free (one file per document) | `analysis/daily/{date}/{article-type-slug}/data/{id}.analysis.md` |
+| Workflow-specific analysis | Per-workflow directory | `analysis/daily/{date}/{article-type-slug}/` |
+| Daily synthesis | Last-write-wins (later workflows produce better synthesis) | `analysis/daily/{date}/synthesis-summary.md` |
+| AI-driven cross-article analysis | Date root (shared across workflows) | `analysis/daily/{date}/ai-*.md` |
 | Weekly aggregation | Composed from daily analyses, not workflow outputs | `analysis/weekly/YYYY-WNN/` |
 
 ### Critical Rule: Never Overwrite Another Workflow's Analysis
 
 ```
-✅ news-breaking   → analysis/2026-03-30/breaking/
-✅ news-weekly-review → analysis/2026-03-30/weekly-review/
-✅ news-committee-reports → analysis/2026-03-30/committee-reports/
+✅ news-breaking   → analysis/daily/2026-03-30/breaking/
+✅ news-weekly-review → analysis/daily/2026-03-30/weekly-review/
+✅ news-committee-reports → analysis/daily/2026-03-30/committee-reports/
 ❌ news-breaking overwrites news-weekly-review output → PROHIBITED
 ```
 

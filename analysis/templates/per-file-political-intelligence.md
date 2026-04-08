@@ -21,7 +21,7 @@
 
 > **📌 Template Instructions:** This template is for **per-file** analysis. For each data file downloaded via EP MCP (e.g., an adopted text, vote record, committee document), the AI agent produces one analysis markdown file stored alongside the data file.
 >
-> **Example path:** `analysis/2026-03-30/committee-reports/data/adopted-texts/P9_TA-2026-0089.json` → `analysis/2026-03-30/committee-reports/data/adopted-texts/P9_TA-2026-0089.analysis.md`
+> **Example path:** `analysis/daily/2026-03-30/committee-reports/data/adopted-texts/P9_TA-2026-0089.json` → `analysis/daily/2026-03-30/committee-reports/data/adopted-texts/P9_TA-2026-0089.analysis.md`
 
 > **🚨 Anti-Pattern Warning:** Plain prose without structured tables, Mermaid diagrams, or evidence citations is REJECTED. Every analysis file MUST follow this template exactly: metadata header, structured tables with evidence columns, ≥1 color-coded Mermaid diagram, confidence labels on all claims. See [ai-driven-analysis-guide.md](../methodologies/ai-driven-analysis-guide.md) for good vs. bad examples.
 

@@ -12,7 +12,7 @@
  * news articles in all 14 languages.
  *
  * This stage is **side-effect-only**: it writes analysis markdown and a
- * `manifest.json` to disk under `analysis/{date}/{article-type}/`.  When
+ * `manifest.json` to disk under `analysis/daily/{date}/{article-type}/`.  When
  * `articleTypeSlug` is provided (recommended for agentic workflows), each
  * article type writes to its own subdirectory, preventing merge conflicts
  * when multiple workflows run concurrently on the same date.
@@ -30,7 +30,7 @@
  * const ctx = await runAnalysisStage(fetchedData, {
  *   articleTypes: [ArticleCategory.WEEK_AHEAD],
  *   date: '2026-03-26',
- *   outputDir: 'analysis',
+ *   outputDir: 'analysis/daily',
  * });
  * console.log(ctx.completedMethods);
  * ```
@@ -154,7 +154,7 @@ export interface AnalysisStageOptions {
   readonly articleTypes: readonly ArticleCategory[];
   /** ISO date string (YYYY-MM-DD) for this analysis run */
   readonly date: string;
-  /** Base output directory (e.g. 'analysis') */
+  /** Base output directory (e.g. 'analysis/daily') */
   readonly outputDir: string;
   /**
    * Filesystem-safe slug identifying the article type for this run.

@@ -415,8 +415,8 @@ function renderAnalysisTransparencySection(date, slug, lang, analysisDir) {
     const styleGuideLabel = escapeHTML(getLocalizedString(STYLE_GUIDE_LABELS, lang));
     const repoBase = 'https://github.com/Hack23/euparliamentmonitor/blob/main';
     const treeDirBase = 'https://github.com/Hack23/euparliamentmonitor/tree/main';
-    const analysisDirUrl = `${treeDirBase}/analysis/${safeDate}/${safeAnalysisDirName}`;
-    const analysisFileBase = `${repoBase}/analysis/${safeDate}/${safeAnalysisDirName}`;
+    const analysisDirUrl = `${treeDirBase}/analysis/daily/${safeDate}/${safeAnalysisDirName}`;
+    const analysisFileBase = `${repoBase}/analysis/daily/${safeDate}/${safeAnalysisDirName}`;
     const methodologyDir = `${repoBase}/analysis/methodologies`;
     // Per-file localized link labels
     const significanceLabel = escapeHTML(getLocalizedString(SIGNIFICANCE_CLASSIFICATION_LABELS, lang));

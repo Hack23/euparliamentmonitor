@@ -35,7 +35,7 @@ import type { AnalysisMethod } from './analysis-stage.js';
  * Build markdown for the political threat landscape assessment.
  *
  * Uses the pipeline `date` parameter to ensure the assessment date in the
- * generated markdown matches the `analysis/{date}/` folder, overriding
+ * generated markdown matches the `analysis/daily/{date}/` folder, overriding
  * the `new Date()` timestamp that `assessPoliticalThreats()` stamps internally.
  *
  * @param fetchedData - Raw fetched EP data

@@ -875,7 +875,7 @@ export function analyzePoliticalForces(data: ClassificationInput): PoliticalForc
 // ─── Analysis directory & file utilities ─────────────────────────────────────
 
 /**
- * Initialize the `analysis/{date}/` directory structure.
+ * Initialize the `analysis/daily/{date}/` directory structure.
  *
  * Creates the following sub-directories if they do not already exist:
  * - `classification/`           — Political classification results
@@ -890,7 +890,7 @@ export function analyzePoliticalForces(data: ClassificationInput): PoliticalForc
  * - `data/mcp-responses/`       — Raw MCP tool call responses
  *
  * When article-type scoping is used (recommended for agentic workflows),
- * the caller should pass a scoped path such as `analysis/{date}/{slug}`.
+ * the caller should pass a scoped path such as `analysis/daily/{date}/{slug}`.
  *
  * @param baseDir - Base directory for analysis output (typically `analysis/`)
  * @param date - ISO date string used as the run folder name (YYYY-MM-DD).
