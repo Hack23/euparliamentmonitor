@@ -48,7 +48,6 @@ import {
   buildAnalysisInsightsSection,
   extractAnalysisSummary,
 } from './article-strategy.js';
-import { pl } from '../../utils/metadata-utils.js';
 
 /** Base keywords shared by all Breaking News articles */
 const BREAKING_NEWS_BASE_KEYWORDS = [
@@ -100,47 +99,65 @@ function buildBreakingDescription(
 ): string {
   if (!feedData) return `European Parliament breaking developments for ${date}.`;
 
-  const counts: string[] = [];
-  if (feedData.adoptedTexts.length > 0)
-    counts.push(pl(feedData.adoptedTexts.length, 'adopted text', 'adopted texts'));
-  if (feedData.events.length > 0) counts.push(pl(feedData.events.length, 'event', 'events'));
-  if (feedData.procedures.length > 0)
-    counts.push(pl(feedData.procedures.length, 'procedure', 'procedures'));
-  if (feedData.mepUpdates.length > 0)
-    counts.push(pl(feedData.mepUpdates.length, 'MEP update', 'MEP updates'));
-
-  if (counts.length === 0) return `European Parliament breaking developments for ${date}.`;
-
-  const highlight = feedData.adoptedTexts[0]?.title ?? feedData.events[0]?.title ?? '';
-  const base = `EP breaking: ${counts.join(', ')}`;
-  if (highlight) {
-    const full = `${base}. Highlights: ${highlight}`;
-    return full.length > 200 ? full.slice(0, 197) + '...' : full;
+  // Priority 1: Use the title of the most significant adopted text
+  const topAdopted = feedData.adoptedTexts.find((t) => t.title && t.title.length > 10);
+  if (topAdopted) {
+    const desc = `European Parliament adopts ${topAdopted.title}`;
+    return desc.length > 200 ? desc.slice(0, 197) + '...' : desc;
   }
-  return base.length > 200 ? base.slice(0, 197) + '...' : base;
+
+  // Priority 2: Use the most significant event title
+  const topEvent = feedData.events.find((e) => e.title && e.title.length > 10);
+  if (topEvent) {
+    const desc = `EP parliamentary event: ${topEvent.title}`;
+    return desc.length > 200 ? desc.slice(0, 197) + '...' : desc;
+  }
+
+  // Priority 3: Use the most significant procedure
+  const topProc = feedData.procedures.find((p) => p.title && p.title.length > 10);
+  if (topProc) {
+    const desc = `EP legislative procedure: ${topProc.title}`;
+    return desc.length > 200 ? desc.slice(0, 197) + '...' : desc;
+  }
+
+  return `European Parliament breaking developments for ${date}.`;
 }
 
 /**
- * Build a content-aware title suffix from feed data item counts.
+ * Build a content-aware title suffix from the most significant feed item.
+ * Uses actual legislation/event titles, not data counts.
  *
  * @param feedData - Breaking news feed data (may be undefined)
- * @returns Short suffix string for appending to the base title, or empty string
+ * @returns Short analytical suffix, or empty string
  */
 function buildBreakingTitleSuffix(feedData: BreakingNewsFeedData | undefined): string {
   if (!feedData) return '';
-  const total =
-    feedData.adoptedTexts.length +
-    feedData.events.length +
-    feedData.procedures.length +
-    feedData.mepUpdates.length;
-  if (total === 0) return '';
-  const parts: string[] = [];
-  if (feedData.adoptedTexts.length > 0)
-    parts.push(pl(feedData.adoptedTexts.length, 'Text', 'Texts'));
-  if (feedData.events.length > 0) parts.push(pl(feedData.events.length, 'Event', 'Events'));
-  if (feedData.procedures.length > 0)
-    parts.push(pl(feedData.procedures.length, 'Procedure', 'Procedures'));
-  return parts.join(', ');
+
+  // Priority 1: Name the most significant adopted text
+  const topAdopted = feedData.adoptedTexts.find((t) => t.title && t.title.length > 10);
+  if (topAdopted) {
+    return topAdopted.title.length > 60
+      ? topAdopted.title.slice(0, 57) + '...'
+      : topAdopted.title;
+  }
+
+  // Priority 2: Name the most significant event
+  const topEvent = feedData.events.find((e) => e.title && e.title.length > 10);
+  if (topEvent) {
+    return topEvent.title.length > 60
+      ? topEvent.title.slice(0, 57) + '...'
+      : topEvent.title;
+  }
+
+  // Priority 3: Name the most significant procedure
+  const topProc = feedData.procedures.find((p) => p.title && p.title.length > 10);
+  if (topProc) {
+    return topProc.title.length > 60
+      ? topProc.title.slice(0, 57) + '...'
+      : topProc.title;
+  }
+
+  return '';
 }
 
 // ─── Data payload ─────────────────────────────────────────────────────────────

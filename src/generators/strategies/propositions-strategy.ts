@@ -38,7 +38,6 @@ import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import type { PipelineData } from '../propositions-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 import { loadAnalysisContext, buildAnalysisInsightsSection } from './article-strategy.js';
-import { pl } from '../../utils/metadata-utils.js';
 
 /** Base keywords shared by all Propositions articles */
 const PROPOSITIONS_BASE_KEYWORDS = [
@@ -87,47 +86,56 @@ function buildPropositionsKeywords(data: PropositionsArticleData): string[] {
  * @returns SEO-friendly description (≤ 200 chars)
  */
 function buildPropositionsDescription(data: PropositionsArticleData): string {
-  const parts: string[] = [];
-
-  const procCount = data.feedData?.procedures?.length ?? 0;
-  const adoptedCount = data.feedData?.adoptedTexts?.length ?? 0;
-  // Count proposals by the number of proposal-card divs in the HTML
-  const proposalMatches = data.proposalsHtml.match(/proposal-card/gu);
-  const proposalCount = proposalMatches ? proposalMatches.length : 0;
-
-  if (proposalCount > 0) parts.push(`${proposalCount} active proposals`);
-  if (procCount > 0) parts.push(`${procCount} procedures tracked`);
-  if (adoptedCount > 0) parts.push(`${adoptedCount} recently adopted texts`);
-  if (data.pipelineData) {
-    const healthPct = Math.round(data.pipelineData.healthScore * 100);
-    parts.push(`pipeline health ${healthPct}%`);
+  // Priority 1: Use the title of the most significant adopted text
+  const topAdopted = data.feedData?.adoptedTexts?.find(
+    (t) => t.title && t.title.length > 10
+  );
+  if (topAdopted) {
+    const desc = `European Parliament legislative tracker: ${topAdopted.title}`;
+    return desc.length > 200 ? desc.slice(0, 197) + '...' : desc;
   }
 
-  if (parts.length === 0) {
-    return 'Recent legislative proposals, procedure tracking, and pipeline status in the European Parliament';
+  // Priority 2: Use the title of the most significant procedure
+  const topProc = data.feedData?.procedures?.find(
+    (p) => p.title && p.title.length > 10
+  );
+  if (topProc) {
+    const desc = `EP legislative procedure: ${topProc.title}`;
+    return desc.length > 200 ? desc.slice(0, 197) + '...' : desc;
   }
 
-  const desc = `EP legislative tracker: ${parts.join(', ')}.`;
-  return desc.length > 200 ? desc.slice(0, 197) + '...' : desc;
+  return 'Recent legislative proposals, procedure tracking, and pipeline status in the European Parliament';
 }
 
 /**
- * Build a content-aware title suffix from propositions data.
+ * Build a content-aware title suffix from the most significant
+ * propositions item.  Uses actual procedure/text titles, not counts.
  *
  * @param data - Propositions article data payload
- * @returns Short suffix for the title, or empty string
+ * @returns Short analytical suffix for the title, or empty string
  */
 function buildPropositionsTitleSuffix(data: PropositionsArticleData): string {
-  const parts: string[] = [];
-  const procCount = data.feedData?.procedures?.length ?? 0;
-  const adoptedCount = data.feedData?.adoptedTexts?.length ?? 0;
-  if (procCount > 0) parts.push(pl(procCount, 'Procedure', 'Procedures'));
-  if (adoptedCount > 0) parts.push(pl(adoptedCount, 'Adopted Text', 'Adopted Texts'));
-  if (data.pipelineData && parts.length === 0) {
-    const healthPct = Math.round(data.pipelineData.healthScore * 100);
-    parts.push(`Pipeline ${healthPct}%`);
+  // Priority 1: Name the most significant adopted text
+  const topAdopted = data.feedData?.adoptedTexts?.find(
+    (t) => t.title && t.title.length > 10
+  );
+  if (topAdopted) {
+    return topAdopted.title.length > 60
+      ? topAdopted.title.slice(0, 57) + '...'
+      : topAdopted.title;
   }
-  return parts.join(', ');
+
+  // Priority 2: Name the most significant procedure
+  const topProc = data.feedData?.procedures?.find(
+    (p) => p.title && p.title.length > 10
+  );
+  if (topProc) {
+    return topProc.title.length > 60
+      ? topProc.title.slice(0, 57) + '...'
+      : topProc.title;
+  }
+
+  return '';
 }
 
 /**

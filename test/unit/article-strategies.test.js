@@ -160,15 +160,15 @@ describe('BreakingNewsStrategy', () => {
 
   it('getMetadata title includes content-aware suffix from feed data', () => {
     const meta = strategy.getMetadata(breakingNewsData, 'en');
-    // breakingNewsData has 1 adopted text, 1 event, 1 procedure — title should include suffix
+    // Title should use the adopted text title, not data counts
     expect(meta.title).toContain('—');
-    expect(meta.title).toContain('1 Text');
+    expect(meta.title).toContain('Resolution on climate action');
   });
 
-  it('getMetadata subtitle includes feed data highlights', () => {
+  it('getMetadata subtitle uses most significant feed item', () => {
     const meta = strategy.getMetadata(breakingNewsData, 'en');
-    // subtitle should mention adopted text from feed data (singular since fixture has 1 item)
-    expect(meta.subtitle).toContain('adopted text');
+    // subtitle should reference the adopted text title
+    expect(meta.subtitle).toContain('Resolution on climate action');
   });
 
   it('getMetadata keywords include adopted text titles from feed data', () => {
@@ -572,17 +572,17 @@ describe('CommitteeReportsStrategy', () => {
     expect(meta.keywords).toContain('Environment Committee');
   });
 
-  it('getMetadata subtitle includes committee document counts', () => {
+  it('getMetadata subtitle uses analytical content', () => {
     const meta = strategy.getMetadata(committeeReportsData, 'en');
-    // committeeReportsData has 1 committee with 1 doc and a real chair
-    expect(meta.subtitle).toContain('1 committee reporting');
-    expect(meta.subtitle).toContain('1 recent document');
+    // committeeReportsData has 1 committee with abbreviation ENVI
+    expect(meta.subtitle).toContain('ENVI');
   });
 
   it('getMetadata title includes content-aware suffix', () => {
     const meta = strategy.getMetadata(committeeReportsData, 'en');
     expect(meta.title).toContain('—');
-    expect(meta.title).toContain('Document');
+    // Should use committee abbreviation as suffix (no adopted texts in fixture)
+    expect(meta.title).toContain('ENVI');
   });
 
   it('getMetadata includes EP source reference', () => {
@@ -640,10 +640,10 @@ describe('PropositionsStrategy', () => {
     expect(meta.keywords).toContain('legislation');
   });
 
-  it('getMetadata subtitle includes pipeline health when available', () => {
+  it('getMetadata subtitle uses analytical content', () => {
     const meta = strategy.getMetadata(propositionsData, 'en');
-    // propositionsData has pipelineData with healthScore: 0.85
-    expect(meta.subtitle).toContain('pipeline health 85%');
+    // propositionsData may not have feed data with titles; description should still be meaningful
+    expect(meta.subtitle.length).toBeGreaterThan(20);
   });
 
   it('getMetadata keywords include legislative pipeline when pipelineData present', () => {
@@ -652,10 +652,11 @@ describe('PropositionsStrategy', () => {
     expect(meta.keywords).toContain('healthy pipeline');
   });
 
-  it('getMetadata title includes content-aware suffix', () => {
+  it('getMetadata title may have suffix when feed data provides content', () => {
     const meta = strategy.getMetadata(propositionsData, 'en');
-    // propositionsData has 1 proposal card in HTML
-    expect(meta.title).toContain('—');
+    // propositionsData has no feedData, so no analytical suffix is available
+    // Title should still be present (base title from PROPOSITIONS_TITLES)
+    expect(meta.title.length).toBeGreaterThan(10);
   });
 });
 
@@ -1915,7 +1916,7 @@ describe('getMetadata with enriched data (all suffix branches)', () => {
     expect(meta.subtitle).toContain('parliamentary question');
   });
 
-  it('PropositionsStrategy: feedData procedures and adopted texts in suffix', () => {
+  it('PropositionsStrategy: feedData procedures and adopted texts used for analytical title', () => {
     const strategy = new PropositionsStrategy();
     const richData = {
       ...propositionsData,
@@ -1928,24 +1929,22 @@ describe('getMetadata with enriched data (all suffix branches)', () => {
     };
     const meta = strategy.getMetadata(richData, 'en');
     expect(meta.title).toContain('—');
-    expect(meta.title).toContain('Procedure');
-    expect(meta.title).toContain('Adopted Text');
+    // Should use adopted text title (priority 1) not count
+    expect(meta.title).toContain('Adopted Text A');
     // Keywords should include feed data titles
     expect(meta.keywords).toContain('Procedure A');
     expect(meta.keywords).toContain('Adopted Text A');
   });
 
-  it('PropositionsStrategy: pipelineData-only suffix when no feedData procedures', () => {
+  it('PropositionsStrategy: no feedData yields generic description', () => {
     const strategy = new PropositionsStrategy();
     const pipelineOnlyData = {
       ...propositionsData,
       feedData: undefined,
     };
     const meta = strategy.getMetadata(pipelineOnlyData, 'en');
-    // With pipelineData healthScore 0.85 and no feed procs, suffix shows Pipeline %
-    expect(meta.title).toContain('—');
-    expect(meta.title).toContain('Pipeline');
-    expect(meta.subtitle).toContain('pipeline health');
+    // Without feed data, fallback description should be used
+    expect(meta.subtitle.length).toBeGreaterThan(20);
   });
 
   it('WeeklyReviewStrategy: feedData adopted texts contribute to suffix', () => {
@@ -2010,7 +2009,7 @@ describe('getMetadata with enriched data (all suffix branches)', () => {
     expect(meta.subtitle).toContain('Resolution on AI');
   });
 
-  it('CommitteeReportsStrategy: feedData adoptedTexts in keywords and suffix', () => {
+  it('CommitteeReportsStrategy: feedData adoptedTexts used for analytical title and description', () => {
     const strategy = new CommitteeReportsStrategy();
     const richData = {
       ...committeeReportsData,
@@ -2027,13 +2026,13 @@ describe('getMetadata with enriched data (all suffix branches)', () => {
     const meta = strategy.getMetadata(richData, 'en');
     // Keywords should include categorized theme from adopted text
     expect(meta.keywords.length).toBeGreaterThan(0);
-    // Suffix should include adopted text count
-    expect(meta.title).toContain('Adopted Text');
-    // Description should include adopted text count
-    expect(meta.subtitle).toContain('adopted text');
+    // Suffix should use adopted text title
+    expect(meta.title).toContain('Climate Regulation');
+    // Description should reference adopted text
+    expect(meta.subtitle).toContain('Climate Regulation');
   });
 
-  it('CommitteeReportsStrategy: committee without docs yields Active Committee in suffix', () => {
+  it('CommitteeReportsStrategy: committee without docs yields abbreviation in suffix', () => {
     const strategy = new CommitteeReportsStrategy();
     const noDocs = {
       ...committeeReportsData,
@@ -2049,8 +2048,8 @@ describe('getMetadata with enriched data (all suffix branches)', () => {
       ],
     };
     const meta = strategy.getMetadata(noDocs, 'en');
-    // With 0 docs and 1 active committee, suffix should say "Active Committee"
-    expect(meta.title).toContain('Active Committee');
+    // With no adopted texts, suffix should use committee abbreviation
+    expect(meta.title).toContain('ENVI');
   });
 
   it('BreakingNewsStrategy: empty feedData array still produces base keywords', () => {
@@ -2067,7 +2066,7 @@ describe('getMetadata with enriched data (all suffix branches)', () => {
     expect(meta.subtitle).toContain('breaking developments');
   });
 
-  it('BreakingNewsStrategy: feedData with only mepUpdates in description', () => {
+  it('BreakingNewsStrategy: feedData with only mepUpdates falls back to generic description', () => {
     const strategy = new BreakingNewsStrategy();
     const mepOnlyFeed = {
       ...breakingNewsData,
@@ -2082,7 +2081,8 @@ describe('getMetadata with enriched data (all suffix branches)', () => {
       },
     };
     const meta = strategy.getMetadata(mepOnlyFeed, 'en');
-    expect(meta.subtitle).toContain('MEP update');
+    // With no adopted texts/events/procedures, falls back to generic description
+    expect(meta.subtitle).toContain('breaking developments');
   });
 
   it('MonthlyReviewStrategy: keywords include voting records but exclude feedData titles', () => {
