@@ -47,7 +47,7 @@ mcp-servers:
     command: npx
     args:
       - -y
-      - european-parliament-mcp-server@1.1.28
+      - european-parliament-mcp-server@1.2.0
     env:
       EP_REQUEST_TIMEOUT_MS: "90000"
   memory:
@@ -648,7 +648,7 @@ fi
 
 if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
   if [ ! -f "node_modules/.bin/european-parliament-mcp-server" ]; then
-    npm install --no-save european-parliament-mcp-server@1.1.28
+    npm install --no-save european-parliament-mcp-server@1.2.0
   fi
 fi
 

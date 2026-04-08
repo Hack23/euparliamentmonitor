@@ -2231,7 +2231,7 @@ describe('ep-mcp-client', () => {
         content: [
           {
             type: 'text',
-            text: '{"server":{"version":"1.1.28","status":"ok"},"availability":{"level":"Full"}}',
+            text: '{"server":{"version":"1.2.0","status":"ok"},"availability":{"level":"Full"}}',
           },
         ],
       });

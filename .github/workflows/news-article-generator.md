@@ -50,7 +50,7 @@ mcp-servers:
     command: npx
     args:
       - -y
-      - european-parliament-mcp-server@1.1.28
+      - european-parliament-mcp-server@1.2.0
     env:
       EP_REQUEST_TIMEOUT_MS: "90000"
   world-bank:
@@ -206,7 +206,7 @@ Call `sequentialthinking` with structured thought chains — each step builds on
 
 ## 🚨 CRITICAL: European Parliament MCP Server is the Sole Data Source
 
-**ALL article data MUST be fetched from the `european-parliament` MCP server.** The MCP server provides 61 tools covering MEPs, plenary sessions, committees, documents, voting records, legislative pipeline, OSINT intelligence analysis, and precomputed statistics.
+**ALL article data MUST be fetched from the `european-parliament` MCP server.** The MCP server provides 62 tools covering MEPs, plenary sessions, committees, documents, voting records, legislative pipeline, OSINT intelligence analysis, and precomputed statistics.
 
 ## 🔬 MANDATORY DEEP POLITICAL ANALYSIS PHASE (≥15 MINUTES PER ARTICLE TYPE)
 
@@ -719,7 +719,7 @@ if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
   if [ -f "node_modules/.bin/european-parliament-mcp-server" ]; then
     echo "✅ EP MCP server binary found for stdio mode"
   else
-    npm install --no-save european-parliament-mcp-server@1.1.28
+    npm install --no-save european-parliament-mcp-server@1.2.0
   fi
 fi
 
