@@ -59,8 +59,8 @@ function readScopedManifest(outputDir, date, slug) {
 // ─── ALL_ANALYSIS_METHODS tests ───────────────────────────────────────────────
 
 describe('ALL_ANALYSIS_METHODS', () => {
-  it('contains exactly 20 default analysis methods', () => {
-    expect(ALL_ANALYSIS_METHODS).toHaveLength(20);
+  it('contains exactly 21 default analysis methods (including document-analysis)', () => {
+    expect(ALL_ANALYSIS_METHODS).toHaveLength(21);
   });
 
   it('includes all classification methods', () => {
@@ -93,8 +93,8 @@ describe('ALL_ANALYSIS_METHODS', () => {
     expect(ALL_ANALYSIS_METHODS).toContain('cross-session-intelligence');
   });
 
-  it('excludes document-analysis from defaults (opt-in only)', () => {
-    expect(ALL_ANALYSIS_METHODS).not.toContain('document-analysis');
+  it('includes document-analysis in defaults for complete data storage', () => {
+    expect(ALL_ANALYSIS_METHODS).toContain('document-analysis');
   });
 
   it('has no duplicate entries', () => {
@@ -106,9 +106,9 @@ describe('ALL_ANALYSIS_METHODS', () => {
 // ─── VALID_ANALYSIS_METHODS tests ─────────────────────────────────────────────
 
 describe('VALID_ANALYSIS_METHODS', () => {
-  it('contains all default methods plus opt-in methods', () => {
-    // ALL_ANALYSIS_METHODS + document-analysis (opt-in)
-    expect(VALID_ANALYSIS_METHODS).toHaveLength(ALL_ANALYSIS_METHODS.length + 1);
+  it('contains all default methods (no extra opt-in methods)', () => {
+    // ALL_ANALYSIS_METHODS now includes document-analysis, VALID has same count
+    expect(VALID_ANALYSIS_METHODS).toHaveLength(ALL_ANALYSIS_METHODS.length);
   });
 
   it('includes all default analysis methods', () => {
@@ -460,15 +460,15 @@ describe('runAnalysisStage', () => {
     expect(ctx.completedMethods).toContain('coalition-analysis');
   });
 
-  it('runs all 20 default methods when no enabledMethods is specified', async () => {
+  it('runs all 21 default methods when no enabledMethods is specified', async () => {
     const ctx = await runAnalysisStage(buildTestFetchedData(), {
       articleTypes: ['week-ahead'],
       date: testDate,
       outputDir: tmpDir,
     });
 
-    expect(ctx.results.size).toBe(20);
-    expect(ctx.manifest.methods).toHaveLength(20);
+    expect(ctx.results.size).toBe(21);
+    expect(ctx.manifest.methods).toHaveLength(21);
   });
 
   it('stores results in the AnalysisContext results map', async () => {

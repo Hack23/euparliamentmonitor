@@ -73,10 +73,9 @@ export const ALL_ANALYSIS_METHODS = [
     // Publication scoring & synthesis
     'significance-scoring',
     'synthesis-summary',
-    // NOTE: 'document-analysis' is intentionally excluded from the default set.
-    // It writes one markdown + one JSON file per feed item and can significantly
-    // increase runtime and repository output size.  Callers must opt-in by
-    // explicitly listing it in `enabledMethods`.
+    // Per-document intelligence analysis — stores complete EP document data
+    // alongside per-document political intelligence analysis markdown files.
+    'document-analysis',
 ];
 /**
  * All valid analysis method names, including opt-in methods like

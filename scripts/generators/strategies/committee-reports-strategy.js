@@ -11,7 +11,7 @@ import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import { loadAnalysisContext, buildAnalysisInsightsSection } from './article-strategy.js';
-import { pl } from '../../utils/metadata-utils.js';
+import { truncateTitle, MIN_MEANINGFUL_TITLE_LENGTH } from '../../utils/metadata-utils.js';
 /** European Parliament home-page URL used as source reference */
 const EP_SOURCE_URL = 'https://www.europarl.europa.eu';
 /** European Parliament display name for source titles and article lede */
@@ -63,48 +63,50 @@ function buildCommitteeKeywords(committeeDataList, feedData) {
  * @returns SEO-friendly description (≤ 200 chars)
  */
 function buildCommitteeDescription(committeeDataList, feedData) {
-    const activeCount = committeeDataList.filter((c) => c.chair !== PLACEHOLDER_CHAIR).length;
-    const totalDocs = committeeDataList.reduce((sum, c) => sum + c.documents.length, 0);
-    const adoptedCount = feedData?.adoptedTexts?.length ?? 0;
-    const parts = [];
-    if (activeCount > 0)
-        parts.push(`${pl(activeCount, 'committee', 'committees')} reporting`);
-    if (totalDocs > 0)
-        parts.push(pl(totalDocs, 'recent document', 'recent documents'));
-    if (adoptedCount > 0)
-        parts.push(pl(adoptedCount, 'adopted text', 'adopted texts'));
+    // Priority 1: Use the title of the most significant adopted text
+    const topAdopted = feedData?.adoptedTexts?.find((t) => t.title && t.title.length > MIN_MEANINGFUL_TITLE_LENGTH);
+    if (topAdopted) {
+        const abbrs = committeeDataList
+            .filter((c) => c.chair !== PLACEHOLDER_CHAIR)
+            .map((c) => c.abbreviation)
+            .join(', ');
+        const desc = abbrs
+            ? `EP committees ${abbrs}: ${topAdopted.title}`
+            : `EP committee report: ${topAdopted.title}`;
+        return desc.length > 200 ? desc.slice(0, 197) + '...' : desc;
+    }
+    // Priority 2: Name the active committees
     const abbrs = committeeDataList
         .filter((c) => c.chair !== PLACEHOLDER_CHAIR)
         .map((c) => c.abbreviation)
         .join(', ');
-    if (abbrs)
-        parts.push(`covering ${abbrs}`);
-    if (parts.length === 0) {
-        return 'Analysis of recent legislative output, effectiveness metrics, and key committee activities';
+    if (abbrs) {
+        return `European Parliament committee activity report covering ${abbrs}`;
     }
-    const desc = `EP committee activity: ${parts.join('; ')}.`;
-    return desc.length > 200 ? desc.slice(0, 197) + '...' : desc;
+    return 'Analysis of recent legislative output, effectiveness metrics, and key committee activities';
 }
 /**
- * Build a content-aware title suffix from committee data counts.
+ * Build a content-aware title suffix from the most significant
+ * committee item.  Uses actual legislation titles, not data counts.
  *
  * @param committeeDataList - Fetched committee data
  * @param feedData - EP feed data (may be undefined)
- * @returns Short suffix for the title, or empty string
+ * @returns Short analytical suffix, or empty string
  */
 function buildCommitteeTitleSuffix(committeeDataList, feedData) {
-    const activeCount = committeeDataList.filter((c) => c.chair !== PLACEHOLDER_CHAIR).length;
-    const totalDocs = committeeDataList.reduce((sum, c) => sum + c.documents.length, 0);
-    const adoptedCount = feedData?.adoptedTexts?.length ?? 0;
-    const parts = [];
-    if (totalDocs > 0)
-        parts.push(pl(totalDocs, 'Document', 'Documents'));
-    if (adoptedCount > 0)
-        parts.push(pl(adoptedCount, 'Adopted Text', 'Adopted Texts'));
-    if (activeCount > 0 && parts.length === 0) {
-        parts.push(pl(activeCount, 'Active Committee', 'Active Committees'));
+    // Priority 1: Name the most significant adopted text
+    const topAdopted = feedData?.adoptedTexts?.find((t) => t.title && t.title.length > MIN_MEANINGFUL_TITLE_LENGTH);
+    if (topAdopted) {
+        return truncateTitle(topAdopted.title);
     }
-    return parts.join(', ');
+    // Priority 2: List active committee abbreviations
+    const activeAbbrs = committeeDataList
+        .filter((c) => c.chair !== PLACEHOLDER_CHAIR)
+        .map((c) => c.abbreviation);
+    if (activeAbbrs.length > 0) {
+        return activeAbbrs.slice(0, 5).join(', ');
+    }
+    return '';
 }
 // Keyword lists are pre-normalized to lowercase so that each call to
 // categorizeAdoptedText only needs to lowercase the title once.

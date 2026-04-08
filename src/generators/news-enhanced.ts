@@ -64,7 +64,11 @@ import type { ArticleCategory } from '../types/index.js';
 // ─── Pipeline-stage imports ───────────────────────────────────────────────────
 
 import { initializeMCPClient, fetchEPFeedData } from './pipeline/fetch-stage.js';
-import { createStrategyRegistry, generateArticleForStrategy } from './pipeline/generate-stage.js';
+import {
+  createStrategyRegistry,
+  generateArticleForStrategy,
+  setAIMetadata,
+} from './pipeline/generate-stage.js';
 import { writeGenerationMetadata } from './pipeline/output-stage.js';
 import type { OutputOptions } from './pipeline/output-stage.js';
 import {
@@ -158,6 +162,24 @@ const analysisOnlyArg = args.includes('--analysis-only');
 const analysisVerboseArg = args.includes('--analysis-verbose');
 const analysisDirArg = args.find((arg) => arg.startsWith('--analysis-dir='));
 const analysisMethodsArg = args.find((arg) => arg.startsWith('--analysis-methods='));
+const titleArg = args.find((arg) => arg.startsWith('--title='));
+const descriptionArg = args.find((arg) => arg.startsWith('--description='));
+
+/**
+ * AI-generated article title passed by the agentic workflow.
+ * When provided, this OVERRIDES any script-generated title.
+ * The AI agent (Opus 4.6) must analyse the content and produce this.
+ */
+export const aiTitle: string = titleArg ? titleArg.slice('--title='.length).trim() : '';
+
+/**
+ * AI-generated article description/subtitle passed by the agentic workflow.
+ * When provided, this OVERRIDES any script-generated description.
+ * The AI agent (Opus 4.6) must analyse the content and produce this.
+ */
+export const aiDescription: string = descriptionArg
+  ? descriptionArg.slice('--description='.length).trim()
+  : '';
 
 /** Path to a JSON file containing pre-fetched EP feed data (optional). */
 const feedDataPath = feedDataArg?.startsWith('--feed-data=')
@@ -478,6 +500,19 @@ async function runAnalysisWithGuard(
 }
 
 /**
+ * Wire AI-provided title/description from CLI `--title` and `--description` flags.
+ * The AI agent (Opus 4.6) passes these after analysing the content.
+ * They override ALL script-generated metadata for the English version.
+ */
+function wireAIMetadata(): void {
+  if (aiTitle || aiDescription) {
+    setAIMetadata(aiTitle, aiDescription);
+    if (aiTitle) console.log(`📝 AI-provided title: "${aiTitle}"`);
+    if (aiDescription) console.log(`📝 AI-provided description: "${aiDescription}"`);
+  }
+}
+
+/**
  * Main execution: initialise the MCP client, optionally run analysis stage,
  * iterate over requested article types, delegate to the appropriate strategy,
  * then persist metadata.
@@ -486,6 +521,9 @@ async function main(): Promise<void> {
   console.log('');
   console.log('🚀 Starting news generation...');
   console.log('');
+
+  // Wire AI-provided title/description from CLI flags.
+  wireAIMetadata();
 
   // When --feed-data is provided, expose the path via env so strategies can
   // load pre-fetched data without requiring a live MCP connection.

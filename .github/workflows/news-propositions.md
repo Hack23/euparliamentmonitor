@@ -131,6 +131,14 @@ You are the **News Journalist Agent** for EU Parliament Monitor generating **leg
 - ❌ `index*.html` — NEVER modify index pages
 - ❌ `package.json` / `package-lock.json` — NEVER modify dependency files
 
+**FORBIDDEN practices (waste time and produce low-quality output):**
+- ❌ **Writing custom Python/Ruby/Perl scripts** — Use ONLY the existing Node.js/TypeScript toolchain (`npm run build`, `node scripts/...`)
+- ❌ **Ad-hoc data processing scripts** — Use the existing `scripts/generate-news-enhanced.js` and pipeline tools
+- ❌ **Metadata-only analysis** — You MUST download and store COMPLETE EP documents (full titles, descriptions, procedure references, work types), not just IDs and counts
+- ❌ **Workarounds for existing tools** — If `npm run build` or existing scripts fail, log the error and continue; do NOT reimplement their functionality
+- ❌ **Rushing analysis in <5 minutes** — Spend the full allocated 15-20 minutes on deep political intelligence analysis
+- ❌ **Deciding article topic before analysis is complete** — Finish ALL analysis methods first, THEN decide what article to write based on significance scoring results
+
 **If you encounter build errors or source code bugs**: Log the error and continue — do NOT attempt to fix them.
 
 ## 🧠 Memory & Reasoning Tools
@@ -273,17 +281,25 @@ For each new legislative proposition, assess:
 
 ## 📰 AI-DRIVEN HEADLINE AND DESCRIPTION GENERATION (MANDATORY)
 
-> **⚠️ CRITICAL**: Article titles and meta descriptions MUST be AI-generated from political content analysis, NEVER from raw data metrics.
+> **⚠️ CRITICAL**: Article titles and meta descriptions MUST be AI-generated from political content analysis, NEVER from raw data metrics. **Titles, descriptions, and all SEO metadata MUST be decided AFTER all analysis is complete — not before.**
 
 **REJECTED title patterns:**
 - ❌ `Legislative Procedures: European Parliament Monitor — Pipeline 0%` (technical metric, meaningless to readers)
 - ❌ `Propositions: 2026-04-02 — Legislative Tracker` (date-centric, no news value)
+- ❌ Any title that could apply to any date — titles MUST reference specific political content
 
 **REQUIRED title approach — AI must generate headlines by:**
-1. Reading the analysis artifacts in `analysis/daily/${TODAY}/propositions/`
-2. Identifying the most significant legislative procedure or proposal
-3. Writing a headline that names the legislation and its political significance
-4. Keeping under 70 characters for SEO; using active verbs
+1. Completing ALL analysis methods first (significance scoring, deep analysis, coalition dynamics)
+2. Reading the completed significance-scoring results to identify the highest-scored items
+3. Identifying the most significant legislative procedure or proposal from scored results
+4. Writing a headline that names the legislation and its political significance
+5. Keeping under 70 characters for SEO; using active verbs
+
+**REQUIRED SEO metadata (all generated from analysis results):**
+- `<title>` — Specific political headline, max 60 chars, names key legislation/action
+- `<meta name="description">` — 150-160 chars, names the most significant item + outcome + coalition dynamics
+- `<meta name="keywords">` — Specific EP document IDs, committee names, political group names from the data — NEVER generic placeholder keywords
+- Structured data (`application/ld+json`) — Must include `headline`, `description`, `datePublished`, `author`, and `about` fields referencing specific EP content
 
 **Example AI-generated titles:**
 - ✅ `Banking Resolution Reforms and Corruption Directive Lead Parliament's Legislative Surge`
@@ -306,8 +322,8 @@ Every generated article MUST link to ALL individual analysis files. Verify the A
 
 - **Minutes 0–3**: Date validation, EP MCP server warm-up
 - **Minutes 3–8**: 🔬 Political intelligence analysis stage (significance classification, political threat landscape assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `analysis/daily/${TODAY}/propositions/`)
-- **Minutes 8–18**: Query EP MCP tools for legislative proposals and pipeline data
-- **Minutes 18–45**: Generate English article with deep political intelligence analysis — **⚠️ Per Rule 7, spend ≥15 minutes on AI-driven analysis** (reading methodologies, querying MCP for cross-references, writing original analytical prose with evidence citations, completing 4-pass refinement cycle)
+- **Minutes 8–20**: Query EP MCP tools for COMPLETE legislative proposals and pipeline data — **⚠️ Download FULL document content, not just metadata. Store complete adopted texts, procedure details, and document content in `analysis/daily/${TODAY}/propositions/data/`**
+- **Minutes 20–45**: Generate English article with deep political intelligence analysis — **⚠️ Per Rule 7, spend ≥15 minutes on AI-driven analysis** (reading methodologies, querying MCP for cross-references, writing original analytical prose with evidence citations, completing 4-pass refinement cycle). **Article topic and angle MUST be decided based on completed significance scoring results, not predetermined.**
 - **Minutes 45–52**: Validate HTML
 **If you reach minute 45 and the PR has not yet been created**: Stop generating more content. Finalize your current file edits and immediately trigger PR creation using `safeoutputs___create_pull_request`. Partial content in a PR is better than a timeout with no PR.
 
@@ -802,9 +818,21 @@ npx tsx src/generators/news-enhanced.ts \
   --types=propositions \
   --languages="$LANG_ARG" \
   --analysis \
+  --title="$AI_TITLE" \
+  --description="$AI_DESCRIPTION" \
   $FEED_DATA_FLAG \
   $SKIP_FLAG
 ```
+
+> **⚠️ MANDATORY**: Before running the generator, you MUST set `AI_TITLE` and `AI_DESCRIPTION` shell variables with AI-analysed values based on the completed analysis results. Titles and descriptions are NEVER generated by code — the AI agent (Opus 4.6) analyses the content and decides what the headline and description should be.
+>
+> ```bash
+> # Example — AI agent must write these AFTER completing all analysis:
+> AI_TITLE="Parliament Advances Anti-Corruption Directive as ECR Dissents on Trade Response"
+> AI_DESCRIPTION="European Parliament plenary session sees breakthrough on anti-corruption legislation while trade tariff divisions reveal shifting alliance dynamics"
+> ```
+
+
 
 **If the generator exits with a non-zero code, the workflow MUST FAIL. Do NOT attempt manual HTML generation or manual article enrichment as a fallback.**
 

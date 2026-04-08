@@ -10,7 +10,7 @@ import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import { loadAnalysisContext, buildAnalysisInsightsSection } from './article-strategy.js';
-import { pl } from '../../utils/metadata-utils.js';
+import { pl, truncateTitle, MIN_MEANINGFUL_TITLE_LENGTH } from '../../utils/metadata-utils.js';
 import { isPlaceholderText } from '../../constants/analysis-constants.js';
 /** Base keywords shared by all Motions articles */
 const MOTIONS_BASE_KEYWORDS = [
@@ -58,52 +58,52 @@ function buildMotionsKeywords(data) {
 }
 /**
  * Build a content-aware description from motions data.
- * Summarises voting record count, anomaly count, and key vote highlights.
+ * Prioritises the most significant adopted text or voting record title
+ * to produce a description that reflects political substance rather
+ * than mechanical data counts.
  *
  * @param data - Motions article data payload
  * @returns SEO-friendly description (≤ 200 chars)
  */
 function buildMotionsDescription(data) {
-    const parts = [];
-    if (data.votingRecords.length > 0)
-        parts.push(`${pl(data.votingRecords.length, 'vote', 'votes')} analysed`);
-    if (data.anomalies.length > 0)
-        parts.push(`${pl(data.anomalies.length, 'anomaly', 'anomalies')} detected`);
-    if (data.questions.length > 0)
-        parts.push(pl(data.questions.length, 'parliamentary question', 'parliamentary questions'));
-    const adoptedCount = data.feedData?.adoptedTexts?.length ?? 0;
-    if (adoptedCount > 0)
-        parts.push(pl(adoptedCount, 'adopted text', 'adopted texts'));
-    if (parts.length === 0) {
-        return `European Parliament plenary votes and resolutions from ${data.dateFromStr} to ${data.date}.`;
+    // Priority 1: Use the title of the most significant adopted text
+    const topAdopted = data.feedData?.adoptedTexts?.find((t) => t.title && !isPlaceholderText(t.title));
+    if (topAdopted) {
+        const desc = `European Parliament adopts ${topAdopted.title}`;
+        return desc.length > 200 ? desc.slice(0, 197) + '...' : desc;
     }
-    const highlight = data.votingRecords[0]?.title ?? '';
-    const base = `EP voting analysis: ${parts.join(', ')}`;
-    if (highlight) {
-        const full = `${base}. Key vote: ${highlight}`;
-        return full.length > 200 ? full.slice(0, 197) + '...' : full;
+    // Priority 2: Use the title of the key voting record
+    const topVote = data.votingRecords.find((v) => v.title);
+    if (topVote) {
+        const desc = `EP plenary vote: ${topVote.title}`;
+        return desc.length > 200 ? desc.slice(0, 197) + '...' : desc;
     }
-    return base.length > 200 ? base.slice(0, 197) + '...' : base;
+    return `European Parliament plenary votes and resolutions from ${data.dateFromStr} to ${data.date}.`;
 }
 /**
- * Build a content-aware title suffix from motions data counts.
+ * Build a content-aware title suffix from the most significant
+ * motions item.  Produces an analytical phrase describing the
+ * primary political content, not data counts.
  *
  * @param data - Motions article data payload
- * @returns Short suffix for the title, or empty string
+ * @returns Short analytical suffix for the title, or empty string
  */
 function buildMotionsTitleSuffix(data) {
-    const parts = [];
-    if (data.votingRecords.length > 0) {
-        parts.push(pl(data.votingRecords.length, 'Vote', 'Votes'));
+    // Priority 1: Name the most significant adopted text
+    const topAdopted = data.feedData?.adoptedTexts?.find((t) => t.title && !isPlaceholderText(t.title) && t.title.length > MIN_MEANINGFUL_TITLE_LENGTH);
+    if (topAdopted) {
+        return truncateTitle(topAdopted.title);
     }
+    // Priority 2: Name the key voting record
+    const topVote = data.votingRecords.find((v) => v.title && v.title.length > MIN_MEANINGFUL_TITLE_LENGTH);
+    if (topVote) {
+        return truncateTitle(topVote.title);
+    }
+    // Priority 3 (last resort): If we only have anomalies, mention those
     if (data.anomalies.length > 0) {
-        parts.push(pl(data.anomalies.length, 'Anomaly', 'Anomalies'));
+        return `${pl(data.anomalies.length, 'Voting Anomaly', 'Voting Anomalies')} Detected`;
     }
-    const adoptedCount = data.feedData?.adoptedTexts?.length ?? 0;
-    if (adoptedCount > 0) {
-        parts.push(pl(adoptedCount, 'Adopted Text', 'Adopted Texts'));
-    }
-    return parts.join(', ');
+    return '';
 }
 /** Number of days to look back when fetching motions data */
 const MOTIONS_LOOKBACK_DAYS = 30;

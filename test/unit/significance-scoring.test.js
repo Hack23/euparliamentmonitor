@@ -54,16 +54,17 @@ describe('clampScore', () => {
 describe('deriveDecision', () => {
   it('returns "skip" for scores below hold threshold', () => {
     expect(deriveDecision(0)).toBe('skip');
-    expect(deriveDecision(3.9)).toBe('skip');
+    expect(deriveDecision(3.4)).toBe('skip');
   });
 
   it('returns "hold" for scores in hold range', () => {
+    expect(deriveDecision(3.5)).toBe('hold');
     expect(deriveDecision(4.0)).toBe('hold');
-    expect(deriveDecision(5.5)).toBe('hold');
-    expect(deriveDecision(5.9)).toBe('hold');
+    expect(deriveDecision(5.4)).toBe('hold');
   });
 
   it('returns "publish" for scores at or above publish threshold', () => {
+    expect(deriveDecision(5.5)).toBe('publish');
     expect(deriveDecision(6.0)).toBe('publish');
     expect(deriveDecision(8.5)).toBe('publish');
     expect(deriveDecision(10)).toBe('publish');
@@ -175,7 +176,7 @@ describe('scoreSignificance', () => {
 
   it('decision is derived from rounded composite so it matches displayed value', () => {
     // The decision should always match what the user sees in composite.
-    // If composite rounds to 6.00, decision should be 'publish' (threshold = 6.0).
+    // If composite rounds to 6.00, decision should be 'publish' (threshold = 5.5).
     const result = scoreSignificance({
       title: 'Boundary event',
       parliamentarySignificance: 6,

@@ -265,6 +265,22 @@ export function generateArticleHTML(options: ArticleOptions): string {
         url: SITE_BASE_URL,
       },
       keywords: keywords.join(', '),
+      about: {
+        '@type': 'GovernmentOrganization',
+        name: 'European Parliament',
+        url: 'https://www.europarl.europa.eu',
+      },
+      isBasedOn:
+        sources.length > 0
+          ? sources
+              .filter((s) => typeof s.url === 'string' && /^https?:\/\//i.test(s.url))
+              .slice(0, 5)
+              .map((s) => ({
+                '@type': 'Dataset',
+                name: s.title,
+                url: s.url,
+              }))
+          : undefined,
       mainEntityOfPage: {
         '@type': 'WebPage',
         '@id': `${SITE_BASE_URL}/news/${date}-${slug}-${lang}.html`,

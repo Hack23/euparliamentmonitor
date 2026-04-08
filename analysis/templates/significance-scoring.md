@@ -110,10 +110,10 @@ Composite = (Parliamentary × 0.25) + (Policy × 0.25) + (Public Interest × 0.2
 
 | Score Range | Engine Decision | Editorial Label | Action |
 |-------------|:--------------:|-----------------|--------|
-| **0.0 – 3.9** | `skip` | 🗄️ **Archive** | Log for trend analysis; do not publish |
-| **4.0 – 5.9** | `hold` | 📋 **Monitor** | Track for follow-up; consider weekly digest |
-| **6.0 – 7.4** | `publish` | 📰 **Publish** | Publish in standard news cycle (EP in session) |
-| **6.0 – 7.4** | `hold` | ⏸️ **Hold** | Queue for next session (EP in recess) |
+| **0.0 – 3.4** | `skip` | 🗄️ **Archive** | Log for trend analysis; do not publish |
+| **3.5 – 5.4** | `hold` | 📋 **Monitor** | Track for follow-up; consider weekly digest |
+| **5.5 – 7.4** | `publish` | 📰 **Publish** | Publish in standard news cycle (EP in session) |
+| **5.5 – 7.4** | `hold` | ⏸️ **Hold** | Queue for next session (EP in recess) |
 | **7.5 – 8.9** | `publish` | 📰 **Priority** | Priority in daily news; prominent placement |
 | **9.0 – 10.0** | `publish` | ⚡ **Breaking** | Publish immediately; all-language deployment |
 
@@ -134,11 +134,11 @@ flowchart TD
     Q2 -->|"YES"| Q2A{"Urgency dimension ≥ 8?"}
     Q2A -->|"YES"| BRK
     Q2A -->|"NO"| PRI["📰 PRIORITY<br/>Engine: publish<br/>Prominent placement"]
-    Q2 -->|"NO"| Q3{"Adjusted score ≥ 6.0?"}
+    Q2 -->|"NO"| Q3{"Adjusted score ≥ 5.5?"}
     Q3 -->|"YES"| Q3A{"EP in recess?"}
     Q3A -->|"YES"| HOLD["⏸️ HOLD<br/>Engine: hold<br/>Queue for next session"]
     Q3A -->|"NO"| PUB["📰 PUBLISH<br/>Engine: publish<br/>Standard news cycle"]
-    Q3 -->|"NO"| Q4{"Adjusted score ≥ 4.0?"}
+    Q3 -->|"NO"| Q4{"Adjusted score ≥ 3.5?"}
     Q4 -->|"YES"| MON["📋 MONITOR<br/>Engine: hold<br/>Track; weekly digest"]
     Q4 -->|"NO"| ARC["🗄️ ARCHIVE<br/>Engine: skip<br/>Log for trend analysis"]
 
@@ -154,10 +154,10 @@ flowchart TD
 |-----------------|:--------------:|:-----------:|---------------------|--------|
 | ⚡ BREAKING | `publish` | ≥ 9.0 OR (≥ 7.5 + Urgency ≥ 8) | — | Publish immediately; all-language deployment |
 | 📰 PRIORITY | `publish` | 7.5 – 8.9 | Urgency < 8 | Daily news; prominent placement |
-| 📰 PUBLISH | `publish` | 6.0 – 7.4 | EP in session | Standard news cycle |
-| ⏸️ HOLD | `hold` | 6.0 – 7.4 | EP in recess | Queue for next plenary week |
-| 📋 MONITOR | `hold` | 4.0 – 5.9 | — | Track for follow-up; weekly digest |
-| 🗄️ ARCHIVE | `skip` | 0.0 – 3.9 | — | Log for trend analysis only |
+| 📰 PUBLISH | `publish` | 5.5 – 7.4 | EP in session | Standard news cycle |
+| ⏸️ HOLD | `hold` | 5.5 – 7.4 | EP in recess | Queue for next plenary week |
+| 📋 MONITOR | `hold` | 3.5 – 5.4 | — | Track for follow-up; weekly digest |
+| 🗄️ ARCHIVE | `skip` | 0.0 – 3.4 | — | Log for trend analysis only |
 
 ---
 

@@ -7,6 +7,8 @@
 
 > **🚨 Anti-Pattern Warning:** SWOT entries without specific evidence citations (EP document IDs, MCP tool outputs, or named sources) are REJECTED. "The EU faces challenges" is NOT a valid Weakness entry. Every entry MUST include: Statement + Evidence (EP doc ref) + Confidence + Impact. See [methodologies/ai-driven-analysis-guide.md](../methodologies/ai-driven-analysis-guide.md) for quality requirements. **Never use scripted boilerplate — AI must analyse the actual data.**
 
+> **🔴 AI ANALYSIS REQUIRED**: Every field in this template MUST be filled by the AI agent (Opus 4.6) through genuine analysis of the EP data. Never use scripted defaults, template placeholders in final output, or data-count summaries. Analyse what the data MEANS politically.
+
 ---
 
 ## 📋 SWOT Context
