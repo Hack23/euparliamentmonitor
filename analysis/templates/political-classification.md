@@ -7,6 +7,8 @@
 
 > **🚨 Anti-Pattern Warning:** Plain prose without structured tables, Mermaid diagrams, or evidence citations is REJECTED. Every classification file MUST follow this template exactly: metadata header, structured tables with evidence columns, colour-coded Mermaid diagram, confidence labels on all claims. See [methodologies/ai-driven-analysis-guide.md](../methodologies/ai-driven-analysis-guide.md) for good vs. bad examples. **Never use scripted boilerplate — AI must analyse the actual document.**
 
+> **🔴 AI ANALYSIS REQUIRED**: Every field in this template MUST be filled by the AI agent (Opus 4.6) through genuine analysis of the EP data. Never use scripted defaults, template placeholders in final output, or data-count summaries. Analyse what the data MEANS politically.
+
 ---
 
 ## 📋 Document Metadata

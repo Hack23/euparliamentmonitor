@@ -64,7 +64,9 @@
 
 ## 🎯 Executive Summary
 
-`[REQUIRED: 3–5 sentences capturing the political significance at intelligence level. Not just what happened, but what it means for EP power dynamics, political group cohesion, institutional balance, and democratic accountability. Include confidence label.]` **[HIGH/MEDIUM/LOW]**
+> **🔴 AI-ONLY SECTION**: This summary MUST be original political intelligence analysis written by the AI agent after reading the actual EP data. NEVER use template placeholders, scripted boilerplate, or data-count summaries like "X documents were processed". Analyse what the data MEANS politically.
+
+`[REQUIRED: 3–5 sentences capturing the political significance at intelligence level. Not just what happened, but what it means for EP power dynamics, political group cohesion, institutional balance, and democratic accountability. Name specific actors, legislation, and political implications. Include confidence label.]` **[HIGH/MEDIUM/LOW]**
 
 ---
 
