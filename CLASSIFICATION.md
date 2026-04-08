@@ -94,24 +94,24 @@ The following decision tree helps determine the appropriate classification level
   }
 }%%
 flowchart TD
-    START[📊 Data Received/Created] --> EP_CHECK{🏛️ European Parliament<br/>Open Data Source?}
+    START["📊 Data Received/Created"] --> EP_CHECK{"🏛️ European Parliament\nOpen Data Source?"}
     
-    EP_CHECK -->|✅ Yes| PII_CHECK{👤 Contains non-public or<br/>sensitive personal data?}
-    EP_CHECK -->|❌ No| REVIEW[🔍 Manual Review Required]
+    EP_CHECK -->|"✅ Yes"| PII_CHECK{"👤 Contains non-public or\nsensitive personal data?"}
+    EP_CHECK -->|"❌ No"| REVIEW["🔍 Manual Review Required"]
     
-    PII_CHECK -->|❌ No| ACCESS_CHECK{🔐 Requires Access<br/>Control?}
-    PII_CHECK -->|✅ Yes| HIGH_CONF[🔴 High Confidentiality<br/>(Non-public/sensitive PII)<br/>Not Applicable to EP Monitor]
+    PII_CHECK -->|"❌ No"| ACCESS_CHECK{"🔐 Requires Access\nControl?"}
+    PII_CHECK -->|"✅ Yes"| HIGH_CONF["🔴 High Confidentiality\nNon-public/sensitive PII\nNot Applicable to EP Monitor"]
     
-    ACCESS_CHECK -->|❌ No| ACCURACY_CHECK{✅ Accuracy<br/>Critical?}
-    ACCESS_CHECK -->|✅ Yes| INTERNAL[🟡 Internal Classification<br/>Not Applicable to EP Monitor]
+    ACCESS_CHECK -->|"❌ No"| ACCURACY_CHECK{"✅ Accuracy\nCritical?"}
+    ACCESS_CHECK -->|"✅ Yes"| INTERNAL["🟡 Internal Classification\nNot Applicable to EP Monitor"]
     
-    ACCURACY_CHECK -->|✅ Yes| PUBLIC_MED[🟢 PUBLIC Confidentiality<br/>🟡 MEDIUM Integrity<br/>✅ Current EP Monitor Status]
-    ACCURACY_CHECK -->|❌ No| PUBLIC_LOW[🟢 PUBLIC Confidentiality<br/>🟢 LOW Integrity<br/>Not Typical for EP Monitor]
+    ACCURACY_CHECK -->|"✅ Yes"| PUBLIC_MED["🟢 PUBLIC Confidentiality\n🟡 MEDIUM Integrity\n✅ Current EP Monitor Status"]
+    ACCURACY_CHECK -->|"❌ No"| PUBLIC_LOW["🟢 PUBLIC Confidentiality\n🟢 LOW Integrity\nNot Typical for EP Monitor"]
     
-    PUBLIC_MED --> AVAIL_CHECK{⏱️ 24-hour Outage<br/>Acceptable?}
+    PUBLIC_MED --> AVAIL_CHECK{"⏱️ 24-hour Outage\nAcceptable?"}
     
-    AVAIL_CHECK -->|✅ Yes| FINAL[✅ Final Classification:<br/>📊 Confidentiality: PUBLIC<br/>✅ Integrity: MEDIUM<br/>⏱️ Availability: MEDIUM<br/>🚨 RTO: 24 hours<br/>🔄 RPO: 1 day]
-    AVAIL_CHECK -->|❌ No| HIGH_AVAIL[⚡ High Availability Required<br/>Not Current EP Monitor Design]
+    AVAIL_CHECK -->|"✅ Yes"| FINAL["✅ Final Classification:\n📊 Confidentiality: PUBLIC\n✅ Integrity: MEDIUM\n⏱️ Availability: MEDIUM\n🚨 RTO: 24 hours\n🔄 RPO: 1 day"]
+    AVAIL_CHECK -->|"❌ No"| HIGH_AVAIL["⚡ High Availability Required\nNot Current EP Monitor Design"]
     
     classDef start fill:#2196F3,stroke:#1565C0,stroke-width:2px,color:#ffffff
     classDef decision fill:#FF9800,stroke:#F57C00,stroke-width:2px,color:#ffffff
@@ -265,10 +265,10 @@ The following diagram illustrates the four-level information classification hier
 }%%
 graph TB
     subgraph HIERARCHY["🏗️ Hack23 Information Classification Hierarchy"]
-        RESTRICTED[🔴 RESTRICTED<br/>Highest Protection<br/>Zero-trust architecture<br/>HSM, MFA, biometrics]
-        CONFIDENTIAL[🟠 CONFIDENTIAL<br/>Strong Protection<br/>Encryption, RBAC, monitoring]
-        INTERNAL[🟡 INTERNAL<br/>Standard Protection<br/>Access control, authentication]
-        PUBLIC[🟢 PUBLIC<br/>Minimal Protection<br/>TLS in transit only]
+        RESTRICTED["🔴 RESTRICTED\nHighest Protection\nZero-trust architecture\nHSM, MFA, biometrics"]
+        CONFIDENTIAL["🟠 CONFIDENTIAL\nStrong Protection\nEncryption, RBAC, monitoring"]
+        INTERNAL["🟡 INTERNAL\nStandard Protection\nAccess control, authentication"]
+        PUBLIC["🟢 PUBLIC\nMinimal Protection\nTLS in transit only"]
     end
     
     RESTRICTED -.->|Lower sensitivity| CONFIDENTIAL
@@ -276,8 +276,8 @@ graph TB
     INTERNAL -.->|Lower sensitivity| PUBLIC
     
     subgraph EP_MONITOR["🏛️ EU Parliament Monitor"]
-        EP_DATA[📊 European Parliament Data<br/>✅ Public open data APIs<br/>✅ Only public-identifiable data (MEP names/roles)<br/>✅ No non-public or special category data]
-        EP_NEWS[📰 Generated News Articles<br/>✅ 14 languages<br/>✅ Public AWS S3 + CloudFront<br/>✅ No access control]
+        EP_DATA["📊 European Parliament Data\n✅ Public open data APIs\n✅ Only public-identifiable data\n✅ No non-public or special category data"]
+        EP_NEWS["📰 Generated News Articles\n✅ 14 languages\n✅ Public AWS S3 + CloudFront\n✅ No access control"]
     end
     
     PUBLIC -.->|Applied to| EP_MONITOR

@@ -108,80 +108,78 @@ This document aligns with Hack23's Information Security Management System (ISMS)
 
 ```mermaid
 flowchart TD
-    Start[🚀 GitHub Actions Trigger<br/>Schedule: 06:00 UTC<br/>Manual: workflow_dispatch] --> CheckMCP{🔌 MCP Server<br/>Available?}
+    Start["🚀 GitHub Actions Trigger\nSchedule: 06:00 UTC\nManual: workflow_dispatch"] --> CheckMCP{"🔌 MCP Server\nAvailable?"}
 
-    CheckMCP -->|✅ Yes| ConnectMCP[🔗 Connect to EP MCP Server<br/>stdio/localhost]
-    CheckMCP -->|❌ No| Fallback[⚠️ Use Placeholder Content<br/>Log Error]
+    CheckMCP -->|"✅ Yes"| ConnectMCP["🔗 Connect to EP MCP Server\nstdio/localhost"]
+    CheckMCP -->|"❌ No"| Fallback["⚠️ Use Placeholder Content\nLog Error"]
 
-    ConnectMCP --> RetryCheck{🔄 Connection<br/>Successful?}
-    RetryCheck -->|❌ No| RetryCount{Retry < 3?}
-    RetryCount -->|✅ Yes| BackoffWait[⏳ Wait 30s<br/>Between Retries]
+    ConnectMCP --> RetryCheck{"🔄 Connection\nSuccessful?"}
+    RetryCheck -->|"❌ No"| RetryCount{"Retry less than 3?"}
+    RetryCount -->|"✅ Yes"| BackoffWait["⏳ Wait 30s\nBetween Retries"]
     BackoffWait --> ConnectMCP
-    RetryCount -->|❌ No| Fallback
+    RetryCount -->|"❌ No"| Fallback
 
-    RetryCheck -->|✅ Yes| FetchData[📥 Fetch Parliamentary Data<br/>Plenary Sessions<br/>Committee Meetings<br/>Documents, Voting Records]
+    RetryCheck -->|"✅ Yes"| FetchData["📥 Fetch Parliamentary Data\nPlenary Sessions\nCommittee Meetings\nDocuments, Voting Records"]
 
-    FetchData --> ValidateSchema{✅ Validate<br/>JSON Schema?}
-    ValidateSchema -->|❌ Invalid| LogError1[📝 Log Validation Error<br/>Error Type<br/>Field Name] --> Fallback
-    ValidateSchema -->|✅ Valid| ValidateType{✅ Type Check<br/>Data Types?}
+    FetchData --> ValidateSchema{"✅ Validate\nJSON Schema?"}
+    ValidateSchema -->|"❌ Invalid"| LogError1["📝 Log Validation Error\nError Type\nField Name"] --> Fallback
+    ValidateSchema -->|"✅ Valid"| ValidateType{"✅ Type Check\nData Types?"}
 
-    ValidateType -->|❌ Invalid| LogError2[📝 Log Type Error<br/>Expected vs Actual] --> Fallback
-    ValidateType -->|✅ Valid| ValidateRange{✅ Range Check<br/>Dates, Lengths?}
+    ValidateType -->|"❌ Invalid"| LogError2["📝 Log Type Error\nExpected vs Actual"] --> Fallback
+    ValidateType -->|"✅ Valid"| ValidateRange{"✅ Range Check\nDates, Lengths?"}
 
-    ValidateRange -->|❌ Invalid| LogError3[📝 Log Range Error<br/>Out of Bounds] --> Fallback
-    ValidateRange -->|✅ Valid| SanitizeHTML[🧹 Sanitize HTML<br/>Strip Script Tags<br/>Remove Event Handlers]
+    ValidateRange -->|"❌ Invalid"| LogError3["📝 Log Range Error\nOut of Bounds"] --> Fallback
+    ValidateRange -->|"✅ Valid"| SanitizeHTML["🧹 Sanitize HTML\nStrip Script Tags\nRemove Event Handlers"]
 
     Fallback --> AgentContext
-    SanitizeHTML --> EncodeHTML[🔒 HTML Entity Encoding<br/>Convert: &lt; &gt; &amp; &quot; &#39;]
+    SanitizeHTML --> EncodeHTML["🔒 HTML Entity Encoding\nConvert special characters"]
 
-    EncodeHTML --> AgentContext[🤖 Copilot/LLM Agent<br/>Receives Article Type Context<br/>5 Types: week-ahead, motions,<br/>propositions, committee-reports,<br/>breaking-news]
+    EncodeHTML --> AgentContext["🤖 Copilot/LLM Agent\nReceives Article Type Context\n5 Types: week-ahead, motions,\npropositions, committee-reports,\nbreaking-news"]
 
-    AgentContext --> GenerateEN[📝 Generate English Content<br/>Agent Calls MCP Tools<br/>Plenary, Committees,<br/>Documents, Voting Records]
+    AgentContext --> GenerateEN["📝 Generate English Content\nAgent Calls MCP Tools\nPlenary, Committees,\nDocuments, Voting Records"]
 
-    GenerateEN --> Translate[🌍 Translate Content<br/>English → 13 Languages<br/>14 Total Languages]
+    GenerateEN --> Translate["🌍 Translate Content\nEnglish to 13 Languages\n14 Total Languages"]
 
-    Translate --> GenHTML[📄 generateArticleHTML()<br/>Per Language<br/>SEO, JSON-LD, Open Graph]
+    Translate --> GenHTML["📄 Generate Article HTML\nPer Language\nSEO, JSON-LD, Open Graph"]
 
-    GenHTML --> HTMLValidate[✅ Validate HTML<br/>htmlhint Rules<br/>Standards Compliance]
+    GenHTML --> HTMLValidate{"✅ Validate HTML\nhtmlhint Rules\nStandards Compliance"}
 
-    HTMLValidate -->|❌ Fail| FixHTML[🔧 Fix HTML Issues<br/>Auto-correct<br/>Report Issues]
+    HTMLValidate -->|"❌ Fail"| FixHTML["🔧 Fix HTML Issues\nAuto-correct\nReport Issues"]
     FixHTML --> HTMLValidate
 
-    HTMLValidate -->|✅ Pass| GenerateIndex[📋 Generate Language Indexes<br/>index-{lang}.html<br/>Sort by Date]
+    HTMLValidate -->|"✅ Pass"| GenerateIndex["📋 Generate Language Indexes\nindex-lang.html\nSort by Date"]
 
-    GenerateIndex --> GenerateSitemap[🗺️ Generate Sitemap<br/>sitemap.xml<br/>SEO Optimization]
+    GenerateIndex --> GenerateSitemap["🗺️ Generate Sitemap\nsitemap.xml\nSEO Optimization"]
 
-    GenerateSitemap --> CreateBranch[🌿 Create Branch<br/>news/{type}-{date}]
+    GenerateSitemap --> CreateBranch["🌿 Create Branch\nnews/type-date"]
 
-    CreateBranch --> CommitPR[📦 Commit & Create PR<br/>Article HTML Files<br/>Updated Indexes & Sitemap]
+    CreateBranch --> CommitPR["📦 Commit and Create PR\nArticle HTML Files\nUpdated Indexes and Sitemap"]
 
-    CommitPR --> MergePR[🔀 Merge PR to Main]
+    CommitPR --> MergePR["🔀 Merge PR to Main"]
 
-    MergePR --> DeployPages[🚀 Deploy to GitHub Pages<br/>Updated Static Site]
+    MergePR --> DeployPages["🚀 Deploy to GitHub Pages\nUpdated Static Site"]
 
-    DeployPages --> Complete[✅ Generation Complete<br/>Articles Published<br/>Site Updated]
-    Complete --> End[🎉 Workflow Success]
+    DeployPages --> Complete["✅ Generation Complete\nArticles Published\nSite Updated"]
+    Complete --> End["🎉 Workflow Success"]
 
-    style Start fill:#e8f5e9
-    style CheckMCP fill:#fff4e1
-    style ConnectMCP fill:#e1f5ff
-    style Fallback fill:#ffe1e1
-    style ValidateSchema fill:#e1f5ff
-    style ValidateType fill:#e1f5ff
-    style ValidateRange fill:#e1f5ff
-    style SanitizeHTML fill:#e8f5e9
-    style EncodeHTML fill:#e8f5e9
-    style AgentContext fill:#e1f5ff
-    style GenerateEN fill:#e8f5e9
-    style Translate fill:#e8f5e9
-    style GenHTML fill:#e8f5e9
-    style HTMLValidate fill:#e1f5ff
-    style CreateBranch fill:#e1f5ff
-    style CommitPR fill:#e8f5e9
-    style MergePR fill:#e8f5e9
-    style DeployPages fill:#d4edda
-    style Complete fill:#d4edda
-    style End fill:#d4edda
+    classDef startNode fill:#4CAF50,stroke:#2E7D32,stroke-width:2px,color:#ffffff
+    classDef checkNode fill:#FFE082,stroke:#F57C00,stroke-width:2px,color:#000000
+    classDef connectNode fill:#90CAF9,stroke:#1565C0,stroke-width:2px,color:#000000
+    classDef errorNode fill:#EF9A9A,stroke:#D32F2F,stroke-width:2px,color:#000000
+    classDef validateNode fill:#90CAF9,stroke:#1565C0,stroke-width:2px,color:#000000
+    classDef sanitizeNode fill:#A5D6A7,stroke:#2E7D32,stroke-width:2px,color:#000000
+    classDef generateNode fill:#A5D6A7,stroke:#2E7D32,stroke-width:2px,color:#000000
+    classDef deployNode fill:#81C784,stroke:#2E7D32,stroke-width:2px,color:#000000
+
+    class Start startNode
+    class CheckMCP checkNode
+    class ConnectMCP,AgentContext connectNode
+    class Fallback errorNode
+    class ValidateSchema,ValidateType,ValidateRange,HTMLValidate validateNode
+    class SanitizeHTML,EncodeHTML sanitizeNode
+    class GenerateEN,Translate,GenHTML,CommitPR,MergePR generateNode
+    class CreateBranch connectNode
+    class DeployPages,Complete,End deployNode
 ```
 
 ---
@@ -190,54 +188,53 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    Input[📥 External Input<br/>European Parliament API<br/>Untrusted Data] --> Layer1{🛡️ Layer 1<br/>Schema Validation}
+    Input["📥 External Input\nEuropean Parliament API\nUntrusted Data"] --> Layer1{"🛡️ Layer 1\nSchema Validation"}
 
-    Layer1 -->|❌ Invalid Structure| Reject1[❌ Reject Input<br/>Log: Invalid JSON<br/>Use Fallback]
-    Layer1 -->|✅ Valid Structure| Layer2{🛡️ Layer 2<br/>Type Validation}
+    Layer1 -->|"❌ Invalid Structure"| Reject1["❌ Reject Input\nLog: Invalid JSON\nUse Fallback"]
+    Layer1 -->|"✅ Valid Structure"| Layer2{"🛡️ Layer 2\nType Validation"}
 
-    Layer2 -->|❌ Wrong Types| Reject2[❌ Reject Input<br/>Log: Type Mismatch<br/>Use Fallback]
-    Layer2 -->|✅ Correct Types| Layer3{🛡️ Layer 3<br/>Range Validation}
+    Layer2 -->|"❌ Wrong Types"| Reject2["❌ Reject Input\nLog: Type Mismatch\nUse Fallback"]
+    Layer2 -->|"✅ Correct Types"| Layer3{"🛡️ Layer 3\nRange Validation"}
 
-    Layer3 -->|❌ Out of Bounds| Reject3[❌ Reject Input<br/>Log: Range Error<br/>Use Fallback]
-    Layer3 -->|✅ Within Bounds| Layer4{🛡️ Layer 4<br/>Content Sanitization}
+    Layer3 -->|"❌ Out of Bounds"| Reject3["❌ Reject Input\nLog: Range Error\nUse Fallback"]
+    Layer3 -->|"✅ Within Bounds"| Layer4{"🛡️ Layer 4\nContent Sanitization"}
 
-    Layer4 --> StripScript[🧹 Strip Script Tags<br/>Remove: &lt;script&gt;<br/>Remove: &lt;iframe&gt;<br/>Remove: &lt;object&gt;]
-    StripScript --> RemoveEvents[🧹 Remove Event Handlers<br/>Remove: onclick<br/>Remove: onerror<br/>Remove: onload]
-    RemoveEvents --> ValidateURLs[🔍 Validate URLs<br/>Check Protocol<br/>Sanitize Path]
+    Layer4 --> StripScript["🧹 Strip Script Tags\nRemove script, iframe, object"]
+    StripScript --> RemoveEvents["🧹 Remove Event Handlers\nRemove onclick, onerror, onload"]
+    RemoveEvents --> ValidateURLs["🔍 Validate URLs\nCheck Protocol\nSanitize Path"]
 
-    ValidateURLs --> Layer5{🛡️ Layer 5<br/>HTML Encoding}
+    ValidateURLs --> Layer5{"🛡️ Layer 5\nHTML Encoding"}
 
-    Layer5 --> EncodeSpecial[🔒 Encode Special Chars<br/>&lt; → &amp;lt;<br/>&gt; → &amp;gt;<br/>&amp; → &amp;amp;<br/>&quot; → &amp;quot;<br/>&#39; → &amp;#39;]
+    Layer5 --> EncodeSpecial["🔒 Encode Special Characters\nHTML Entity Encoding"]
 
-    EncodeSpecial --> Layer6{🛡️ Layer 6<br/>CSP Compliance}
+    EncodeSpecial --> Layer6{"🛡️ Layer 6\nCSP Compliance"}
 
-    Layer6 --> CheckCSP[✅ Check CSP Headers<br/>No Inline Scripts<br/>No Eval()<br/>No External Scripts]
+    Layer6 --> CheckCSP["✅ Check CSP Headers\nNo Inline Scripts\nNo Eval\nNo External Scripts"]
 
-    CheckCSP -->|❌ Violation| Reject4[❌ Block Content<br/>Log: CSP Violation<br/>Return Error]
-    CheckCSP -->|✅ Compliant| SafeOutput[✅ Safe Output<br/>Validated<br/>Sanitized<br/>Encoded]
+    CheckCSP -->|"❌ Violation"| Reject4["❌ Block Content\nLog: CSP Violation\nReturn Error"]
+    CheckCSP -->|"✅ Compliant"| SafeOutput["✅ Safe Output\nValidated\nSanitized\nEncoded"]
 
-    Reject1 --> FallbackContent[⚠️ Fallback Content<br/>Placeholder Articles<br/>Safe Default]
+    Reject1 --> FallbackContent["⚠️ Fallback Content\nPlaceholder Articles\nSafe Default"]
     Reject2 --> FallbackContent
     Reject3 --> FallbackContent
     Reject4 --> FallbackContent
 
-    SafeOutput --> DeliverContent[📤 Deliver to Template<br/>Generate HTML<br/>Serve to Users]
+    SafeOutput --> DeliverContent["📤 Deliver to Template\nGenerate HTML\nServe to Users"]
     FallbackContent --> DeliverContent
 
-    style Input fill:#fff4e1
-    style Layer1 fill:#e1f5ff
-    style Layer2 fill:#e1f5ff
-    style Layer3 fill:#e1f5ff
-    style Layer4 fill:#e8f5e9
-    style Layer5 fill:#e8f5e9
-    style Layer6 fill:#e8f5e9
-    style Reject1 fill:#ffe1e1
-    style Reject2 fill:#ffe1e1
-    style Reject3 fill:#ffe1e1
-    style Reject4 fill:#ffe1e1
-    style SafeOutput fill:#d4edda
-    style FallbackContent fill:#fff3cd
-    style DeliverContent fill:#d4edda
+    classDef inputNode fill:#FFE082,stroke:#F57C00,stroke-width:2px,color:#000000
+    classDef layerNode fill:#90CAF9,stroke:#1565C0,stroke-width:2px,color:#000000
+    classDef sanitizeNode fill:#A5D6A7,stroke:#2E7D32,stroke-width:2px,color:#000000
+    classDef rejectNode fill:#EF9A9A,stroke:#D32F2F,stroke-width:2px,color:#000000
+    classDef successNode fill:#81C784,stroke:#2E7D32,stroke-width:2px,color:#000000
+    classDef fallbackNode fill:#FFF9C4,stroke:#FFA000,stroke-width:2px,color:#000000
+
+    class Input inputNode
+    class Layer1,Layer2,Layer3,Layer4,Layer5,Layer6 layerNode
+    class StripScript,RemoveEvents,ValidateURLs,EncodeSpecial,CheckCSP sanitizeNode
+    class Reject1,Reject2,Reject3,Reject4 rejectNode
+    class SafeOutput,DeliverContent successNode
+    class FallbackContent fallbackNode
 ```
 
 ---
@@ -625,61 +622,61 @@ This flow shows the end-to-end secure data pipeline from European Parliament API
 ```mermaid
 flowchart TD
     subgraph "European Parliament APIs"
-        EPAPI[🏛️ EP Official APIs<br/>MEPs, Sessions<br/>Documents, Votes]
+        EPAPI["🏛️ EP Official APIs\nMEPs, Sessions\nDocuments, Votes"]
     end
     
     subgraph "MCP Server Layer"
-        MCPServer[⚙️ EP MCP Server<br/>european-parliament-mcp-server (npm)<br/>Node.js 25]
-        MCPTransport[📡 JSON-RPC 2.0<br/>stdio Transport<br/>Protocol v1.0]
-        MCPCache[💾 LRU Cache<br/>TTL: 5 min<br/>Max: 500 entries]
+        MCPServer["⚙️ EP MCP Server\neuropean-parliament-mcp-server\nNode.js 25"]
+        MCPTransport["📡 JSON-RPC 2.0\nstdio Transport\nProtocol v1.0"]
+        MCPCache["💾 LRU Cache\nTTL: 5 min\nMax: 500 entries"]
     end
     
     subgraph "Client Layer"
-        MCPClient[🔌 MCP Client<br/>Custom JSON-RPC over stdio<br/>src/mcp/ep-mcp-client.ts<br/>Planned: @modelcontextprotocol/sdk]
-        SchemaVal[🧪 Planned: Schema Validation<br/>JSON Schema<br/>Type Checking]
-        TypeCheck[🔍 Planned: Type Validation<br/>TypeScript Interfaces<br/>Runtime Checks]
+        MCPClient["🔌 MCP Client\nCustom JSON-RPC over stdio\nsrc/mcp/ep-mcp-client.ts"]
+        SchemaVal["🧪 Planned: Schema Validation\nJSON Schema\nType Checking"]
+        TypeCheck["🔍 Planned: Type Validation\nTypeScript Interfaces\nRuntime Checks"]
     end
     
     subgraph "Sanitization Pipeline"
-        HTMLSan[🧹 Planned: HTML Sanitizer<br/>DOMPurify<br/>Strip Scripts]
-        XSSEncode[🔒 Planned: XSS Encoding<br/>HTML Entities<br/>&lt; &gt; &amp; &quot; &#39;]
-        URLVal[🔗 Planned: URL Validation<br/>HTTPS Only<br/>Domain Whitelist]
-        LengthCheck[📏 Planned: Length Validation<br/>Max Lengths<br/>Truncation]
+        HTMLSan["🧹 Planned: HTML Sanitizer\nDOMPurify\nStrip Scripts"]
+        XSSEncode["🔒 Planned: XSS Encoding\nHTML Entities"]
+        URLVal["🔗 Planned: URL Validation\nHTTPS Only\nDomain Whitelist"]
+        LengthCheck["📏 Planned: Length Validation\nMax Lengths\nTruncation"]
     end
     
     subgraph "Content Generation"
-        Template[📄 Template Engine<br/>14 Languages<br/>HTML5]
-        CSPCheck[🛡️ CSP Compliance<br/>JSON-LD Allowed<br/>No eval()]
-        HTMLVal[✅ HTML Validation<br/>htmlhint<br/>Standards Check]
+        Template["📄 Template Engine\n14 Languages\nHTML5"]
+        CSPCheck["🛡️ CSP Compliance\nJSON-LD Allowed\nNo eval"]
+        HTMLVal["✅ HTML Validation\nhtmlhint\nStandards Check"]
     end
     
     subgraph "Output Layer"
-        StaticFiles[📦 Static HTML<br/>index-{lang}.html<br/>CSS Inline]
-        Sitemap[🗺️ Sitemap.xml<br/>SEO Optimized<br/>14 Languages]
-        Deploy[🚀 GitHub Pages<br/>Static Site Hosting<br/>GitHub Actions Deploy]
+        StaticFiles["📦 Static HTML\nindex-lang.html\nCSS Inline"]
+        Sitemap["🗺️ Sitemap.xml\nSEO Optimized\n14 Languages"]
+        Deploy["🚀 GitHub Pages\nStatic Site Hosting\nGitHub Actions Deploy"]
     end
     
     subgraph "Error Handling"
-        FallbackData[⚠️ Fallback Content<br/>Placeholder Articles<br/>Safe Defaults]
-        ErrorLog[📝 Error Logging<br/>Structured Logs<br/>GitHub Actions]
+        FallbackData["⚠️ Fallback Content\nPlaceholder Articles\nSafe Defaults"]
+        ErrorLog["📝 Error Logging\nStructured Logs\nGitHub Actions"]
     end
     
     EPAPI -->|HTTPS Request| MCPServer
     MCPServer --> MCPTransport
     MCPTransport --> MCPCache
     
-    MCPCache -->|Cache Hit| ReturnCached[✅ Return Cached<br/>Skip API Call]
-    MCPCache -->|Cache Miss| FetchFresh[📥 Fetch Fresh<br/>Call EP API]
+    MCPCache -->|Cache Hit| ReturnCached["✅ Return Cached\nSkip API Call"]
+    MCPCache -->|Cache Miss| FetchFresh["📥 Fetch Fresh\nCall EP API"]
     
     ReturnCached --> MCPClient
     FetchFresh --> MCPClient
     
     MCPClient --> SchemaVal
-    SchemaVal -->|❌ Invalid| ErrorLog
-    SchemaVal -->|✅ Valid| TypeCheck
+    SchemaVal -->|"❌ Invalid"| ErrorLog
+    SchemaVal -->|"✅ Valid"| TypeCheck
     
-    TypeCheck -->|❌ Invalid| ErrorLog
-    TypeCheck -->|✅ Valid| HTMLSan
+    TypeCheck -->|"❌ Invalid"| ErrorLog
+    TypeCheck -->|"✅ Valid"| HTMLSan
     
     ErrorLog --> FallbackData
     FallbackData --> Template
@@ -691,29 +688,33 @@ flowchart TD
     LengthCheck --> Template
     
     Template --> CSPCheck
-    CSPCheck -->|❌ Violation| ErrorLog
-    CSPCheck -->|✅ Compliant| HTMLVal
+    CSPCheck -->|"❌ Violation"| ErrorLog
+    CSPCheck -->|"✅ Compliant"| HTMLVal
     
-    HTMLVal -->|❌ Invalid| FixHTML[🔧 Auto-Fix HTML<br/>Correct Issues]
+    HTMLVal -->|"❌ Invalid"| FixHTML["🔧 Auto-Fix HTML\nCorrect Issues"]
     FixHTML --> HTMLVal
-    HTMLVal -->|✅ Valid| StaticFiles
+    HTMLVal -->|"✅ Valid"| StaticFiles
     
     StaticFiles --> Sitemap
     Sitemap --> Deploy
     
-    Deploy --> CDN[🌐 GitHub CDN<br/>Edge Caching<br/>Global Distribution]
+    Deploy --> CDN["🌐 GitHub CDN\nEdge Caching\nGlobal Distribution"]
     
-    style EPAPI fill:#e3f2fd
-    style MCPServer fill:#f0f4c3
-    style MCPClient fill:#c8e6c9
-    style HTMLSan fill:#fff9c4
-    style XSSEncode fill:#ffe1e1
-    style Template fill:#e1f5ff
-    style StaticFiles fill:#e8f5e9
-    style Deploy fill:#c8e6c9
-    style FallbackData fill:#fff3cd
-    style ErrorLog fill:#ffcdd2
-    style CDN fill:#d4edda
+    classDef apiNode fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#000000
+    classDef mcpNode fill:#F0F4C3,stroke:#827717,stroke-width:2px,color:#000000
+    classDef clientNode fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#000000
+    classDef sanitizeNode fill:#FFF9C4,stroke:#FFA000,stroke-width:2px,color:#000000
+    classDef errorNode fill:#FFCDD2,stroke:#D32F2F,stroke-width:2px,color:#000000
+    classDef outputNode fill:#A5D6A7,stroke:#2E7D32,stroke-width:2px,color:#000000
+    classDef deployNode fill:#81C784,stroke:#2E7D32,stroke-width:2px,color:#000000
+
+    class EPAPI apiNode
+    class MCPServer,MCPTransport,MCPCache mcpNode
+    class MCPClient,SchemaVal,TypeCheck clientNode
+    class HTMLSan,XSSEncode,URLVal,LengthCheck sanitizeNode
+    class FallbackData,ErrorLog errorNode
+    class Template,CSPCheck,HTMLVal,StaticFiles,Sitemap outputNode
+    class Deploy,CDN deployNode
 ```
 
 ### Data Integration Security Controls
@@ -741,7 +742,7 @@ This workflow illustrates the full CI/CD content generation and validation pipel
 
 ```mermaid
 flowchart TD
-    Start[🚀 Content Generation<br/>CI/CD: PRs / Releases<br/>Daily 06:00 UTC (subset)] --> FetchData[📥 Fetch Source Data<br/>EP MCP Server<br/>Validated JSON]
+    Start["🚀 Content Generation\nCI/CD: PRs / Releases\nDaily 06:00 UTC"] --> FetchData["📥 Fetch Source Data\nEP MCP Server\nValidated JSON"]
     
     FetchData --> LangDetect{⚙️ Language Args &<br/>Preset Expansion}
     

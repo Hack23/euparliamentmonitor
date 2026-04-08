@@ -204,9 +204,9 @@ graph TB
     end
 
     subgraph "Technical Components"
-        B -.-> B1[AWS S3 + CloudFront Hosting (Primary)]
+        B -.-> B1["AWS S3 + CloudFront Hosting &#40;Primary&#41;"]
         B -.-> B2[14-Language HTML Generation]
-        B -.-> B3[GitHub Pages Hosting (Fallback)]
+        B -.-> B3["GitHub Pages Hosting &#40;Fallback&#41;"]
         C -.-> C1[EP MCP Server Integration]
         C -.-> C2[Data Processing Pipeline]
         D -.-> D1[Committee Document Fetching]
@@ -224,13 +224,13 @@ graph TB
         G1 -.-> CR6[High: Breaking coverage]
     end
 
-    classDef critical fill:#ff6666,stroke:#333,stroke-width:2px,color:white;
-    classDef high fill:#ffaa66,stroke:#333,stroke-width:2px;
-    classDef medium fill:#ffff66,stroke:#333,stroke-width:2px;
+    classDef critical fill:#D32F2F,stroke:#B71C1C,stroke-width:2px,color:#ffffff
+    classDef high fill:#FF9800,stroke:#F57C00,stroke-width:2px,color:#ffffff
+    classDef medium fill:#FFC107,stroke:#FFA000,stroke-width:2px,color:#000000
 
-    class B1,CR1 critical;
-    class B2,G1,CR2,CR6 high;
-    class C1,D1,E1,CR3,CR4,CR5 medium;
+    class B1,CR1 critical
+    class B2,G1,CR2,CR6 high
+    class C1,D1,E1,CR3,CR4,CR5 medium
 ```
 
 ---
