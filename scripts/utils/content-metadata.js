@@ -252,7 +252,8 @@ function buildContentDescription(content, baseSubtitle) {
         // Truncate at sentence boundary when possible for clean SEO descriptions
         if (lede.length > MAX_DESCRIPTION_LENGTH) {
             const truncated = lede.slice(0, MAX_DESCRIPTION_LENGTH - 3);
-            const lastSentence = truncated.lastIndexOf('. ');
+            // Find the last sentence boundary (period, exclamation, or question mark followed by space)
+            const lastSentence = Math.max(truncated.lastIndexOf('. '), truncated.lastIndexOf('! '), truncated.lastIndexOf('? '));
             if (lastSentence > MAX_DESCRIPTION_LENGTH * MIN_SENTENCE_TRUNCATION_RATIO) {
                 return truncated.slice(0, lastSentence + 1);
             }
