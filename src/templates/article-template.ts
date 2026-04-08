@@ -87,9 +87,6 @@ const SRI_HASH_PATTERN = /^sha(?:256|384|512)-[A-Za-z0-9+/]+={0,2}$/u;
 /** Words per minute for read-time calculation */
 const TEMPLATE_WORDS_PER_MINUTE = 250;
 
-/** Base URL for the deployed site — used in JSON-LD, Open Graph, and canonical links */
-const SITE_BASE_URL = 'https://hack23.github.io/euparliamentmonitor';
-
 /**
  * BCP47 / Open Graph locale mapping for og:locale meta tag.
  * Maps our 2-letter language codes to proper BCP47 locale strings.
@@ -220,10 +217,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
   const readTimeFormatter = getLocalizedString(READ_TIME_LABELS, lang);
 
   // Auto-compute read-time from content word count if not explicitly set
-  const contentWordCount = stripHtmlTags(content)
-    .replace(/\s+/gu, ' ')
-    .trim()
-    .split(' ').length;
+  const contentWordCount = stripHtmlTags(content).replace(/\s+/gu, ' ').trim().split(' ').length;
   const computedReadTime = Math.max(1, Math.ceil(contentWordCount / TEMPLATE_WORDS_PER_MINUTE));
   const effectiveReadTime = readTime > 0 ? readTime : computedReadTime;
   const readTimeLabel = readTimeFormatter(effectiveReadTime);
@@ -262,12 +256,12 @@ export function generateArticleHTML(options: ArticleOptions): string {
       publisher: {
         '@type': 'Organization',
         name: 'EU Parliament Monitor',
-        url: SITE_BASE_URL,
+        url: 'https://hack23.github.io/euparliamentmonitor',
       },
       keywords: keywords.join(', '),
       mainEntityOfPage: {
         '@type': 'WebPage',
-        '@id': `${SITE_BASE_URL}/news/${date}-${slug}-${lang}.html`,
+        '@id': `https://hack23.github.io/euparliamentmonitor/news/${date}-${slug}-${lang}.html`,
       },
     },
     null,
@@ -336,10 +330,10 @@ export function generateArticleHTML(options: ArticleOptions): string {
   <meta property="og:type" content="article">
   <meta property="og:title" content="${safeTitle}">
   <meta property="og:description" content="${safeSubtitle}">
-  <meta property="og:url" content="${SITE_BASE_URL}/news/${date}-${slug}-${lang}.html">
+  <meta property="og:url" content="https://hack23.github.io/euparliamentmonitor/news/${date}-${slug}-${lang}.html">
   <meta property="og:site_name" content="EU Parliament Monitor">
   <meta property="og:locale" content="${OG_LOCALE_MAP[lang] ?? lang}">
-  <meta property="og:image" content="${SITE_BASE_URL}/images/og-image.jpg">
+  <meta property="og:image" content="https://hack23.github.io/euparliamentmonitor/images/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="EU Parliament Monitor — AI-Disrupted Parliamentary Intelligence">
@@ -348,10 +342,10 @@ export function generateArticleHTML(options: ArticleOptions): string {
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${safeTitle}">
   <meta name="twitter:description" content="${safeSubtitle}">
-  <meta name="twitter:image" content="${SITE_BASE_URL}/images/og-image.jpg">
+  <meta name="twitter:image" content="https://hack23.github.io/euparliamentmonitor/images/og-image.jpg">
   <meta name="twitter:image:alt" content="EU Parliament Monitor — AI-Disrupted Parliamentary Intelligence">
   
-  <link rel="canonical" href="${SITE_BASE_URL}/news/${date}-${slug}-${lang}.html">
+  <link rel="canonical" href="https://hack23.github.io/euparliamentmonitor/news/${date}-${slug}-${lang}.html">
   <link rel="stylesheet" href="../styles.css"${safeSriAttrs}>
   
   <!-- Schema.org structured data -->
