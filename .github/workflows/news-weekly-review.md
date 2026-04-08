@@ -130,7 +130,7 @@ You are the **News Journalist Agent** for EU Parliament Monitor generating **wee
 - ❌ **Ad-hoc data processing scripts** — Use the existing `scripts/generate-news-enhanced.js` and pipeline tools
 - ❌ **Metadata-only analysis** — You MUST download and store COMPLETE EP documents (full titles, descriptions, procedure references, work types), not just IDs and counts
 - ❌ **Workarounds for existing tools** — If `npm run build` or existing scripts fail, log the error and continue; do NOT reimplement their functionality
-- ❌ **Rushing analysis in <5 minutes** — Spend the full allocated 15-20 minutes on deep political intelligence analysis
+- ❌ **Rushing analysis in <20 minutes** — Spend the full allocated ≥20 minutes on deep political intelligence analysis
 - ❌ **Deciding article topic before analysis is complete** — Finish ALL analysis methods first, THEN decide what article to write based on significance scoring results
 
 **If you encounter build errors or source code bugs**: Log the error and continue — do NOT attempt to fix them.
@@ -220,11 +220,11 @@ This is a **retrospective** article analyzing the past 7 days of parliamentary a
 > **Window rule**: Only items whose substantive parliamentary date falls within `$LAST_WEEK` through `$TODAY` UTC qualify for week-in-review coverage. Older February items or future events discovered this week do NOT qualify as the primary story.
 
 
-## 🔬 MANDATORY DEEP POLITICAL ANALYSIS PHASE (15-20 MINUTES)
+## 🔬 MANDATORY DEEP POLITICAL ANALYSIS PHASE (20+ MINUTES)
 
-> **⚠️ ABSOLUTE REQUIREMENT — NON-NEGOTIABLE**: You MUST spend a dedicated 15-20 minutes on deep political intelligence analysis BEFORE making ANY decisions about article content, angle, or topic. This is the single most important phase of the entire workflow.
+> **⚠️ ABSOLUTE REQUIREMENT — NON-NEGOTIABLE**: You MUST spend a dedicated minimum of 20 minutes on deep political intelligence analysis BEFORE making ANY decisions about article content, angle, or topic. This is the single most important phase of the entire workflow.
 
-**What "15-20 minutes of analysis" means:**
+**What "at least 20 minutes of analysis" means:**
 1. **Read ALL 6 methodology guides** in `analysis/methodologies/` — these define your analytical frameworks
 2. **Read ALL structured templates** in `analysis/templates/` — these define your output format
 3. **Apply every template to every downloaded MCP data file** — no shortcuts, no skipping files
@@ -235,7 +235,7 @@ This is a **retrospective** article analyzing the past 7 days of parliamentary a
 
 **CRITICAL SEQUENCING RULE**: The article topic, angle, headline, and narrative structure are ALL decided AFTER this analysis phase completes — NEVER before. The significance scoring results from the analysis determine what the article covers.
 
-> **🚫 VIOLATION**: Starting to write the article, choosing a headline, or deciding the narrative angle before spending 15-20 minutes on systematic analysis using the methodology guides and templates. If you find yourself writing article content before the analysis phase is complete, STOP and return to analysis.
+> **🚫 VIOLATION**: Starting to write the article, choosing a headline, or deciding the narrative angle before spending ≥20 minutes on systematic analysis using the methodology guides and templates. If you find yourself writing article content before the analysis phase is complete, STOP and return to analysis.
 
 ## 🎭 STAKEHOLDER PERSPECTIVE ANALYSIS (MANDATORY)
 
@@ -289,7 +289,7 @@ Synthesize the week's significance:
 - **Minutes 0–3**: Date validation, MCP Health Gate with `get_plenary_sessions({ limit: 1 })` (up to 3 attempts)
 - **Minutes 3–8**: 🔬 Automated political intelligence analysis stage (significance classification, political threat landscape assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `analysis/daily/${TODAY}/week-in-review/`)
 - **Minutes 8–15**: Query voting records, documents, and questions from past 7 days
-- **Minutes 15–35**: 🔬🔬🔬 **MANDATORY DEEP POLITICAL ANALYSIS PHASE (15-20 MINUTES)** — Read ALL methodology guides and templates, apply them to EVERY downloaded MCP data file, write substantive analysis markdown, use `sequentialthinking` for complex reasoning, cross-reference documents via knowledge graph, complete 4-pass refinement cycle. **⚠️ Per Rule 7, spend ≥20 minutes on AI-driven analysis.** Article topic and angle MUST be decided ONLY from completed significance scoring results. Weekly review requires deeper synthesis across the full week's events.
+- **Minutes 15–35**: 🔬🔬🔬 **MANDATORY DEEP POLITICAL ANALYSIS PHASE (20+ MINUTES)** — Read ALL methodology guides and templates, apply them to EVERY downloaded MCP data file, write substantive analysis markdown, use `sequentialthinking` for complex reasoning, cross-reference documents via knowledge graph, complete 4-pass refinement cycle. **⚠️ Per Rule 7, spend ≥20 minutes on AI-driven analysis.** Article topic and angle MUST be decided ONLY from completed significance scoring results. Weekly review requires deeper synthesis across the full week's events.
 - **Minutes 35–50**: Generate English article with deep political intelligence analysis informed by completed analysis artifacts
 - **Minutes 50–55**: Validate generated HTML
 - **Minutes 55–60**: Create PR with `safeoutputs___create_pull_request`
