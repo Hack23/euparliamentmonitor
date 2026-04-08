@@ -714,6 +714,63 @@ Every SWOT analysis section MUST contain:
 - `medium` — Impact within next 2–3 sessions
 - `low` — Long-term structural impact
 
+### Rule 14: Complete Data Download — No Metadata-Only Analysis
+
+**Metadata-only analysis is unacceptable.** The analysis pipeline MUST download and store COMPLETE EP document data, not just document IDs and counts.
+
+**Required data for each EP item:**
+| Data Type | Minimum Fields Required |
+|-----------|------------------------|
+| Adopted Texts | Full title, work type, procedure reference, adoption date, document ID, committee(s), related procedures |
+| Procedures | Full title, procedure type (COD/NLE/APP), current stage, committee(s), rapporteur, timeline events |
+| Events | Full title, date, location, type, participating committees, agenda items |
+| Documents | Full title, document type, committee, date, reference number, related procedures |
+| MEP Updates | Full name, political group, country, mandate changes, committee assignments |
+
+**The `document-analysis` method is now enabled by default** — it stores per-document analysis markdown AND complete raw JSON data in `documents/raw-data/`. This ensures that:
+1. Every EP document downloaded via MCP is preserved in full
+2. AI agents can read the complete document data during analysis
+3. Analysis quality is based on actual content, not just metadata summaries
+
+**Anti-patterns (REJECTED):**
+- ❌ `"Events: 42"` — must include full event titles and details
+- ❌ `"Adopted Texts: 19"` — must include each text's title, procedure type, and significance
+- ❌ `"0 procedures tracked"` without checking MCP data — must explain data gaps
+
+### Rule 15: Analysis-First Article Decisions — Topic Chosen After Scoring
+
+Article titles, topics, and angles MUST be decided **after** all analysis methods complete — never before.
+
+**Required workflow sequence:**
+1. **Fetch** complete EP data via MCP tools
+2. **Run** all 21 analysis methods (including document-analysis and significance scoring)
+3. **Read** the completed significance-scoring results to identify highest-scored items
+4. **Decide** the article topic based on the items scored as "publish" (≥5.5 composite)
+5. **Generate** the article with title, description, and SEO metadata derived from analysis
+
+**If no items score ≥5.5:** Still create an analysis-only PR with all analysis artifacts. Do not generate an article with a generic title.
+
+**Article title generation sequence:**
+```
+significance-scoring.md → identify top items → derive headline from top item's political significance → generate SEO metadata
+```
+
+### Rule 16: No Custom Scripts — Use Existing Toolchain
+
+AI agents MUST NOT write custom Python, Ruby, Perl, or ad-hoc scripts during workflow execution. All data processing MUST use the existing Node.js/TypeScript toolchain.
+
+**Allowed commands:**
+- ✅ `npm run build` — TypeScript compilation
+- ✅ `node scripts/generate-news-enhanced.js` — News generation pipeline
+- ✅ `npx tsx src/...` — Direct TypeScript execution
+- ✅ Standard shell commands for file operations (`cat`, `ls`, `wc`, `grep`)
+
+**Forbidden commands:**
+- ❌ `python3 -c "..."` or `python3 script.py` — No Python scripts
+- ❌ Writing temporary `.py`, `.rb`, `.pl` scripts — Use existing tools
+- ❌ `pip install` or `gem install` — No installing new runtimes
+- ❌ Reimplementing existing TypeScript functionality in another language
+
 ---
 
 ## 🔗 AI-Driven Article Content Generation Protocol
