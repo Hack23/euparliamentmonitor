@@ -49,12 +49,42 @@ export function buildDeepAnalysisMarkdown(fetchedData, date) {
         adoptedTexts.length +
         questions.length +
         mepUpdates.length;
+    // Build a concrete list of the top adopted texts for the AI agent to analyze
+    const topAdoptedTexts = adoptedTexts
+        .slice(0, 20)
+        .map((t) => {
+        const at = t;
+        const title = String(at['title'] ?? at['label'] ?? 'Untitled');
+        const id = String(at['id'] ?? '');
+        const workType = String(at['work_type'] ?? '');
+        const procRef = String(at['procedure_reference'] ?? '');
+        return `| ${sanitizeCell(id)} | ${sanitizeCell(title.slice(0, 100))} | ${sanitizeCell(workType)} | ${sanitizeCell(procRef)} |`;
+    })
+        .join('\n');
+    const topEvents = events
+        .slice(0, 10)
+        .map((e) => {
+        const ev = e;
+        const title = String(ev['title'] ?? ev['label'] ?? 'Untitled');
+        const id = String(ev['id'] ?? ev['eventId'] ?? '');
+        return `| ${sanitizeCell(id)} | ${sanitizeCell(title.slice(0, 120))} |`;
+    })
+        .join('\n');
+    const topProcedures = procedures
+        .slice(0, 10)
+        .map((p) => {
+        const pr = p;
+        const title = String(pr['title'] ?? pr['label'] ?? 'Untitled');
+        const id = String(pr['procedureId'] ?? pr['id'] ?? '');
+        return `| ${sanitizeCell(id)} | ${sanitizeCell(title.slice(0, 120))} |`;
+    })
+        .join('\n');
     return (header +
         `# Deep Multi-Perspective Analysis
 
 ## Pipeline Data Context
 
-> **Note:** This section contains script-generated data inventory for reference. The AI agent must replace everything starting from the "AI Agent Instructions" heading below with substantive political intelligence analysis.
+> **Note:** This section contains script-generated data inventory AND concrete document references for the AI agent to analyze. The AI agent must replace everything starting from the "AI Agent Instructions" heading below with substantive political intelligence analysis.
 
 | Data Source | Count |
 |-------------|-------|
@@ -75,13 +105,35 @@ export function buildDeepAnalysisMarkdown(fetchedData, date) {
 | Citizens | ${questions.length + mepUpdates.length} (questions + MEP updates) |
 | EU Institutions | ${events.length + procedures.length} (events + procedures) |
 
+${adoptedTexts.length > 0
+            ? `### Key Adopted Texts Available for Analysis
+
+| Reference | Title | Work Type | Procedure |
+|-----------|-------|-----------|-----------|
+${topAdoptedTexts}
+`
+            : ''}${events.length > 0
+            ? `### Key Events Available for Analysis
+
+| Reference | Title |
+|-----------|-------|
+${topEvents}
+`
+            : ''}${procedures.length > 0
+            ? `### Key Procedures Available for Analysis
+
+| Reference | Title |
+|-----------|-------|
+${topProcedures}
+`
+            : ''}
 ---
 
 ## AI Agent Instructions
 
-> **Instructions for AI Agent (Opus 4.6):** Read ALL methodology documents in analysis/methodologies/ before writing. Using the data inventory above and the raw EP MCP data files, produce a deep multi-perspective analysis following the political-style-guide.md depth Level 3 format. Your analysis MUST:
+> **Instructions for AI Agent:** Read ALL methodology documents in analysis/methodologies/ before writing. Using the concrete document references above and the raw EP MCP data, produce a deep multi-perspective analysis following the political-style-guide.md depth Level 3 format. Your analysis MUST:
 >
-> 1. **Identify the 3-5 most politically significant items** from the available data, citing specific document IDs
+> 1. **Identify the 3-5 most politically significant items** from the document tables above, citing specific document IDs (e.g. TA-10-2026-0092)
 > 2. **Analyse each from ≥3 stakeholder perspectives** (Political Groups, Civil Society, Industry, National Governments, Citizens, EU Institutions)
 > 3. **Apply the SWOT framework** to the overall parliamentary activity pattern for this date
 > 4. **Assess coalition dynamics** — which groups are aligning/diverging based on the adopted texts?

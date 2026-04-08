@@ -125,6 +125,14 @@ You are the **News Journalist Agent** for EU Parliament Monitor generating **bre
 - ❌ `index*.html` — NEVER modify index pages
 - ❌ `package.json` / `package-lock.json` — NEVER modify dependency files
 
+**FORBIDDEN practices (waste time and produce low-quality output):**
+- ❌ **Writing custom Python/Ruby/Perl scripts** — Use ONLY the existing Node.js/TypeScript toolchain (`npm run build`, `node scripts/...`)
+- ❌ **Ad-hoc data processing scripts** — Use the existing `scripts/generate-news-enhanced.js` and pipeline tools
+- ❌ **Metadata-only analysis** — You MUST download and store COMPLETE EP documents (full titles, descriptions, procedure references, work types), not just IDs and counts
+- ❌ **Workarounds for existing tools** — If `npm run build` or existing scripts fail, log the error and continue; do NOT reimplement their functionality
+- ❌ **Rushing analysis in <5 minutes** — Spend the full allocated 15-20 minutes on deep political intelligence analysis
+- ❌ **Deciding article topic before analysis is complete** — Finish ALL analysis methods first, THEN decide what article to write based on significance scoring results
+
 **If you encounter build errors or source code bugs**: Log the error and continue — do NOT attempt to fix them.
 
 ## 🧠 Memory & Reasoning Tools
@@ -298,7 +306,7 @@ Every generated article (or analysis-only PR) MUST link to ALL individual analys
 - **Minutes 0–3**: Date check, MCP warm-up with EP MCP tools
 - **Minutes 3–20**: Query ALL EP feed endpoints — download ALL documents, adopted texts, events, procedures, MEP updates. Use `timeframe: "today"` first, then retry with `timeframe: "one-week"` for any empty/failed endpoint. Also fetch advisory feeds (documents, plenary docs, committee docs, questions) with `timeframe: "one-week"`. **⚠️ EP API can be slow (30-90s per call) — be patient, do NOT abort on slow responses. Allow up to 120s per call.**
 - **Minutes 20–30**: 📊 Fetch analytical context (voting anomalies, coalition dynamics, political landscape, early warning) and run precomputed stats
-- **Minutes 30–40**: 🔬 Full political intelligence analysis stage — run all 18 default analysis methods (significance classification, political threat landscape assessment, risk scoring, actor mapping — writes analysis artifacts to `analysis/daily/${TODAY}/breaking/`; opt-in `document-analysis` via `--analysis-methods` for per-document markdown). Save ALL MCP data to `analysis/daily/${TODAY}/breaking/data/`
+- **Minutes 30–40**: 🔬 Full political intelligence analysis stage — run all 19 default analysis methods including per-document analysis (significance classification, political threat landscape assessment, risk scoring, actor mapping, document-analysis — writes analysis artifacts to `analysis/daily/${TODAY}/breaking/`). **⚠️ Download and store COMPLETE EP document data, not just metadata.** Save ALL MCP data to `analysis/daily/${TODAY}/breaking/data/`
 - **Minutes 40–45**: 📊 AI evaluates analysis artifacts to determine breaking news significance — ONLY proceed with article generation if analysis confirms newsworthy developments from TODAY
 - **Minutes 45–52**: Generate English article with deep political intelligence analysis informed by analysis artifacts (SKIP if no today-dated breaking news)
 - **Minutes 52–57**: Validate and finalize changes

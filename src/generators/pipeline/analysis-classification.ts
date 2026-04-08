@@ -59,12 +59,104 @@ const EVENT_DEFAULT_URGENCY = 5;
 const EVENT_INSTITUTIONAL_HIGH = 7;
 const EVENT_INSTITUTIONAL_LOW = 4;
 
-/** Default dimension scores for adopted texts (plenary-approved) */
-const ADOPTED_PARLIAMENTARY = 7;
-const ADOPTED_POLICY = 6;
-const ADOPTED_PUBLIC = 5;
-const ADOPTED_URGENCY = 4;
-const ADOPTED_INSTITUTIONAL = 6;
+/** Base dimension scores for adopted texts (plenary-approved) */
+const ADOPTED_PARLIAMENTARY_BASE = 6;
+const ADOPTED_POLICY_BASE = 5;
+const ADOPTED_PUBLIC_BASE = 4;
+const ADOPTED_URGENCY_BASE = 3;
+const ADOPTED_INSTITUTIONAL_BASE = 5;
+
+// ─── Content-aware scoring keywords for adopted text differentiation ──────────
+
+/** Title keywords indicating high-impact legislative texts (directives, regulations) */
+const HIGH_IMPACT_TITLE_KEYWORDS =
+  /\b(?:directive|regulation|regulation\s+\(eu\)|codecision|ordinary\s+legislative|COD|budget|defence|security|tariff|anti-corruption|banking|single\s+market)\b/i;
+
+/** Title keywords indicating moderate-impact texts */
+const MODERATE_IMPACT_TITLE_KEYWORDS =
+  /\b(?:resolution|decision|recommendation|amendment|framework|strategy|agreement|trade|environment|climate|digital|data\s+protection|consumer|health)\b/i;
+
+/** Procedure references indicating ordinary legislative procedure (highest significance) */
+const COD_PROCEDURE_PATTERN = /\bCOD\b|\b\d{4}\/\d{4}\(COD\)/i;
+
+/** Pattern for recent EP10 adopted texts (current term) */
+const EP10_ADOPTED_TEXT_PATTERN = /TA-10-202[5-9]/i;
+
+/**
+ * Score an adopted text based on its actual content metadata.
+ *
+ * Analyses the title, reference, and any procedure type information to
+ * produce differentiated scores rather than flat constants. High-impact
+ * legislative texts (directives, regulations, COD procedures) score higher
+ * than routine administrative texts.
+ *
+ * @param title - Adopted text title or label
+ * @param reference - EP reference identifier
+ * @param workType - Optional work type field from EP data
+ * @param procedureReference - Optional procedure reference
+ * @returns Per-dimension scoring input
+ */
+function scoreAdoptedText(
+  title: string,
+  reference: string,
+  workType?: string,
+  procedureReference?: string
+): {
+  parliamentarySignificance: number;
+  policyImpact: number;
+  publicInterest: number;
+  temporalUrgency: number;
+  institutionalRelevance: number;
+} {
+  let parliamentary = ADOPTED_PARLIAMENTARY_BASE;
+  let policy = ADOPTED_POLICY_BASE;
+  let publicInterest = ADOPTED_PUBLIC_BASE;
+  let urgency = ADOPTED_URGENCY_BASE;
+  let institutional = ADOPTED_INSTITUTIONAL_BASE;
+
+  const combined = `${title} ${reference} ${workType ?? ''} ${procedureReference ?? ''}`;
+
+  // Boost for high-impact legislative keywords
+  if (HIGH_IMPACT_TITLE_KEYWORDS.test(combined)) {
+    parliamentary += 2;
+    policy += 2;
+    publicInterest += 2;
+    institutional += 2;
+  } else if (MODERATE_IMPACT_TITLE_KEYWORDS.test(combined)) {
+    parliamentary += 1;
+    policy += 1;
+    publicInterest += 1;
+    institutional += 1;
+  }
+
+  // Boost for ordinary legislative procedure (COD) — highest parliamentary significance
+  if (COD_PROCEDURE_PATTERN.test(combined)) {
+    parliamentary += 1;
+    policy += 1;
+  }
+
+  // Boost urgency for current-term (EP10) adopted texts
+  if (EP10_ADOPTED_TEXT_PATTERN.test(reference)) {
+    urgency += 2;
+  }
+
+  // Boost for legislative resolution work types
+  if (
+    workType &&
+    /legislative.*resolution|position.*first.*reading/i.test(workType)
+  ) {
+    parliamentary += 1;
+    policy += 1;
+  }
+
+  return {
+    parliamentarySignificance: Math.min(10, parliamentary),
+    policyImpact: Math.min(10, policy),
+    publicInterest: Math.min(10, publicInterest),
+    temporalUrgency: Math.min(10, urgency),
+    institutionalRelevance: Math.min(10, institutional),
+  };
+}
 
 /** Analysis method identifier for significance scoring */
 export const METHOD_SIGNIFICANCE_SCORING_ID = 'significance-scoring' as const;
@@ -382,14 +474,16 @@ export function buildSignificanceScoringMarkdown(
     }),
     ...adoptedTexts.map((t) => {
       const at = t as Record<string, unknown>;
+      const title = String(at['title'] ?? at['label'] ?? 'Adopted Text');
+      const reference = String(at['id'] ?? '');
+      const workType = typeof at['work_type'] === 'string' ? at['work_type'] : undefined;
+      const procedureRef =
+        typeof at['procedure_reference'] === 'string' ? at['procedure_reference'] : undefined;
+      const scores = scoreAdoptedText(title, reference, workType, procedureRef);
       return {
-        title: String(at['title'] ?? at['label'] ?? 'Adopted Text'),
-        reference: String(at['id'] ?? ''),
-        parliamentarySignificance: ADOPTED_PARLIAMENTARY,
-        policyImpact: ADOPTED_POLICY,
-        publicInterest: ADOPTED_PUBLIC,
-        temporalUrgency: ADOPTED_URGENCY,
-        institutionalRelevance: ADOPTED_INSTITUTIONAL,
+        title,
+        reference,
+        ...scores,
       };
     }),
   ];

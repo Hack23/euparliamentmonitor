@@ -20,9 +20,9 @@
  *
  * | Composite | Decision |
  * |-----------|----------|
- * | 0.0 – 3.9 | skip     |
- * | 4.0 – 5.9 | hold     |
- * | ≥ 6.0     | publish  |
+ * | 0.0 – 3.4 | skip     |
+ * | 3.5 – 5.4 | hold     |
+ * | ≥ 5.5     | publish  |
  *
  * @see analysis/templates/significance-scoring.md
  */
@@ -88,9 +88,9 @@ const SCORE_MIN = 0;
 const SCORE_MAX = 10;
 
 /** Composite score at or above which the decision is "publish" */
-export const THRESHOLD_PUBLISH = 6.0;
+export const THRESHOLD_PUBLISH = 5.5;
 /** Composite score at or above which the decision is "hold" (below publish) */
-export const THRESHOLD_HOLD = 4.0;
+export const THRESHOLD_HOLD = 3.5;
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 

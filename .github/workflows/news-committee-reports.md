@@ -125,6 +125,14 @@ You are the **News Journalist Agent** for EU Parliament Monitor generating **com
 - ❌ `index*.html` — NEVER modify index pages
 - ❌ `package.json` / `package-lock.json` — NEVER modify dependency files
 
+**FORBIDDEN practices (waste time and produce low-quality output):**
+- ❌ **Writing custom Python/Ruby/Perl scripts** — Use ONLY the existing Node.js/TypeScript toolchain (`npm run build`, `node scripts/...`)
+- ❌ **Ad-hoc data processing scripts** — Use the existing `scripts/generate-news-enhanced.js` and pipeline tools
+- ❌ **Metadata-only analysis** — You MUST download and store COMPLETE EP documents (full titles, descriptions, procedure references, work types), not just IDs and counts
+- ❌ **Workarounds for existing tools** — If `npm run build` or existing scripts fail, log the error and continue; do NOT reimplement their functionality
+- ❌ **Rushing analysis in <5 minutes** — Spend the full allocated 15-20 minutes on deep political intelligence analysis
+- ❌ **Deciding article topic before analysis is complete** — Finish ALL analysis methods first, THEN decide what article to write based on significance scoring results
+
 **If you encounter build errors or source code bugs**: Log the error and continue — do NOT attempt to fix them.
 
 ## 🧠 Memory & Reasoning Tools
@@ -260,19 +268,27 @@ For each committee report, analyze:
 
 ## 📰 AI-DRIVEN HEADLINE AND DESCRIPTION GENERATION (MANDATORY)
 
-> **⚠️ CRITICAL**: Article titles and meta descriptions MUST be AI-generated from political content analysis, NEVER from raw data metrics.
+> **⚠️ CRITICAL**: Article titles and meta descriptions MUST be AI-generated from political content analysis, NEVER from raw data metrics. **Titles, descriptions, and all SEO metadata MUST be decided AFTER all analysis is complete — not before.**
 
 **REJECTED title patterns:**
 - ❌ `EU Parliament Committee Activity Report: ENVI, ECON, AFET, LIBE, AGRI — 19 Adopted Texts` (data dump, not news)
 - ❌ `Committee Reports: 2026-04-02 — Data Analysis` (date-centric, not newsworthy)
 - ❌ `Legislative Pipeline: Pipeline Health 0%` (technical metric, meaningless to readers)
+- ❌ Any title that could apply to any date — titles MUST reference specific political content
 
 **REQUIRED title approach — AI must generate headlines by:**
-1. Reading the analysis artifacts in `analysis/daily/${TODAY}/committee-reports/`
-2. Identifying the single most politically significant committee action
-3. Writing a headline that leads with the political story: who did what, what does it mean
-4. Keeping the headline under 70 characters for SEO
-5. Using active verbs: "advances", "rejects", "divides", "reshapes", "signals"
+1. Completing ALL analysis methods first (significance scoring, deep analysis, coalition dynamics)
+2. Reading the completed significance-scoring results to identify the highest-scored items
+3. Identifying the single most politically significant committee action from scored results
+4. Writing a headline that leads with the political story: who did what, what does it mean
+5. Keeping the headline under 70 characters for SEO
+6. Using active verbs: "advances", "rejects", "divides", "reshapes", "signals"
+
+**REQUIRED SEO metadata (all generated from analysis results):**
+- `<title>` — Specific political headline, max 60 chars, names key legislation/action
+- `<meta name="description">` — 150-160 chars, names the most significant item + outcome + coalition dynamics
+- `<meta name="keywords">` — Specific EP document IDs, committee names, political group names from the data — NEVER generic placeholder keywords
+- Structured data (`application/ld+json`) — Must include `headline`, `description`, `datePublished`, `author`, and `about` fields referencing specific EP content
 
 **Example AI-generated titles:**
 - ✅ `ENVI Committee Advances Landmark Anti-Corruption Directive After Heated Debate`
@@ -304,8 +320,8 @@ Every generated article MUST include the Analysis & Transparency section that li
 ## ⏱️ Time Budget (60 minutes)
 - **Minutes 0–3**: Date check, MCP warm-up with EP MCP tools
 - **Minutes 3–8**: 🔬 Political intelligence analysis stage (significance classification, political threat landscape assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `analysis/daily/${TODAY}/committee-reports/`)
-- **Minutes 8–18**: Query EP MCP tools for committee reports data
-- **Minutes 18–45**: Generate English article with deep political intelligence analysis — **⚠️ Per Rule 7, spend ≥15 minutes on AI-driven analysis** (reading methodologies, querying MCP for cross-references, writing original analytical prose with evidence citations, completing 4-pass refinement cycle)
+- **Minutes 8–20**: Query EP MCP tools for COMPLETE committee reports data — **⚠️ Download FULL document content, not just metadata. Store complete adopted texts, procedure details, and committee document content in `analysis/daily/${TODAY}/committee-reports/data/`**
+- **Minutes 20–45**: Generate English article with deep political intelligence analysis — **⚠️ Per Rule 7, spend ≥15 minutes on AI-driven analysis** (reading methodologies, querying MCP for cross-references, writing original analytical prose with evidence citations, completing 4-pass refinement cycle). **Article topic and angle MUST be decided based on completed significance scoring results, not predetermined.**
 - **Minutes 45–52**: Validate and finalize output — run HTML and WCAG checks (using project validation tools), verify metadata (titles, slugs, dates, language), sanity-check file paths and links, and prepare the pull request description summarizing key political intelligence findings.
 - **Minutes 52–60**: Create PR with `safeoutputs___create_pull_request`
 

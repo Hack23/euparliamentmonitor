@@ -49,9 +49,9 @@ const SCORE_MIN = 0;
 /** Maximum score ceiling (dimension and composite) */
 const SCORE_MAX = 10;
 /** Composite score at or above which the decision is "publish" */
-export const THRESHOLD_PUBLISH = 6.0;
+export const THRESHOLD_PUBLISH = 5.5;
 /** Composite score at or above which the decision is "hold" (below publish) */
-export const THRESHOLD_HOLD = 4.0;
+export const THRESHOLD_HOLD = 3.5;
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 /**
  * Clamp a numeric value to the 0–10 scoring range.
