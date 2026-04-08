@@ -270,16 +270,17 @@ export function generateArticleHTML(options: ArticleOptions): string {
         name: 'European Parliament',
         url: 'https://www.europarl.europa.eu',
       },
-      isBasedOn: sources.length > 0
-        ? sources
-            .filter((s) => typeof s.url === 'string' && /^https?:\/\//i.test(s.url))
-            .slice(0, 5)
-            .map((s) => ({
-              '@type': 'Dataset',
-              name: s.title,
-              url: s.url,
-            }))
-        : undefined,
+      isBasedOn:
+        sources.length > 0
+          ? sources
+              .filter((s) => typeof s.url === 'string' && /^https?:\/\//i.test(s.url))
+              .slice(0, 5)
+              .map((s) => ({
+                '@type': 'Dataset',
+                name: s.title,
+                url: s.url,
+              }))
+          : undefined,
       mainEntityOfPage: {
         '@type': 'WebPage',
         '@id': `${SITE_BASE_URL}/news/${date}-${slug}-${lang}.html`,

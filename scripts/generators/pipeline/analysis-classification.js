@@ -93,8 +93,7 @@ function scoreAdoptedText(title, reference, workType, procedureReference) {
         urgency += 2;
     }
     // Boost for legislative resolution work types
-    if (workType &&
-        /legislative.*resolution|position.*first.*reading/i.test(workType)) {
+    if (workType && /legislative.*resolution|position.*first.*reading/i.test(workType)) {
         parliamentary += 1;
         policy += 1;
     }

@@ -141,10 +141,7 @@ function scoreAdoptedText(
   }
 
   // Boost for legislative resolution work types
-  if (
-    workType &&
-    /legislative.*resolution|position.*first.*reading/i.test(workType)
-  ) {
+  if (workType && /legislative.*resolution|position.*first.*reading/i.test(workType)) {
     parliamentary += 1;
     policy += 1;
   }

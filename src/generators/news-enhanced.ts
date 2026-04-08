@@ -170,9 +170,7 @@ const descriptionArg = args.find((arg) => arg.startsWith('--description='));
  * When provided, this OVERRIDES any script-generated title.
  * The AI agent (Opus 4.6) must analyse the content and produce this.
  */
-export const aiTitle: string = titleArg
-  ? titleArg.slice('--title='.length).trim()
-  : '';
+export const aiTitle: string = titleArg ? titleArg.slice('--title='.length).trim() : '';
 
 /**
  * AI-generated article description/subtitle passed by the agentic workflow.

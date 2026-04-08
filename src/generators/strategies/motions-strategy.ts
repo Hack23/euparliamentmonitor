@@ -135,7 +135,9 @@ function buildMotionsTitleSuffix(data: MotionsArticleData): string {
   }
 
   // Priority 2: Name the key voting record
-  const topVote = data.votingRecords.find((v) => v.title && v.title.length > MIN_MEANINGFUL_TITLE_LENGTH);
+  const topVote = data.votingRecords.find(
+    (v) => v.title && v.title.length > MIN_MEANINGFUL_TITLE_LENGTH
+  );
   if (topVote) {
     return truncateTitle(topVote.title);
   }
