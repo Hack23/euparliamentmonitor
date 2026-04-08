@@ -53,11 +53,11 @@ export function buildDeepAnalysisMarkdown(fetchedData, date) {
     const topAdoptedTexts = adoptedTexts
         .slice(0, 20)
         .map((t) => {
-        const at = t;
-        const title = String(at['title'] ?? at['label'] ?? 'Untitled');
-        const id = String(at['id'] ?? '');
-        const workType = String(at['work_type'] ?? '');
-        const procRef = String(at['procedure_reference'] ?? '');
+        const adoptedText = t;
+        const title = String(adoptedText['title'] ?? adoptedText['label'] ?? 'Untitled');
+        const id = String(adoptedText['id'] ?? '');
+        const workType = String(adoptedText['work_type'] ?? '');
+        const procRef = String(adoptedText['procedure_reference'] ?? '');
         return `| ${sanitizeCell(id)} | ${sanitizeCell(title.slice(0, 100))} | ${sanitizeCell(workType)} | ${sanitizeCell(procRef)} |`;
     })
         .join('\n');

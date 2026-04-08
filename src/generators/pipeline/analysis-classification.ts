@@ -114,7 +114,7 @@ function scoreAdoptedText(
   let urgency = ADOPTED_URGENCY_BASE;
   let institutional = ADOPTED_INSTITUTIONAL_BASE;
 
-  const combined = `${title} ${reference} ${workType ?? ''} ${procedureReference ?? ''}`;
+  const combined = [title, reference, workType, procedureReference].filter(Boolean).join(' ');
 
   // Boost for high-impact legislative keywords
   if (HIGH_IMPACT_TITLE_KEYWORDS.test(combined)) {
