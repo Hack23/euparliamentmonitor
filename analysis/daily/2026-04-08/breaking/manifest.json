@@ -6,9 +6,31 @@
   "parliamentStatus": "Easter Recess (Day 13 of 18)",
   "nextActivity": "Committee week April 14-17, Strasbourg plenary April 20-23",
   "newsworthinessGate": "NO_BREAKING_NEWS",
-  "reason": "Easter recess — no today-dated parliamentary events, procedures, or documents. Analysis-only output per Rule 5.",
+  "reason": "Easter recess - no today-dated parliamentary events, procedures, or documents. Analysis-only output per Rule 5.",
+  "runs": [
+    {
+      "runId": 1,
+      "timestamp": "2026-04-08T06:33:00Z",
+      "files": [
+        "synthesis-summary.md",
+        "political-landscape-analysis.md",
+        "risk-assessment.md"
+      ]
+    },
+    {
+      "runId": 2,
+      "timestamp": "2026-04-08T18:30:00Z",
+      "workflowRunId": "24151534564",
+      "files": [
+        "threat-analysis.md",
+        "cross-session-intelligence.md"
+      ],
+      "improvements": "Added Political Threat Landscape (6-dimension + Attack Trees + PESTLE + Kill Chain), cross-session Q1 2026 intelligence with 30-text thematic clustering"
+    }
+  ],
   "dataCollected": {
-    "adoptedTexts": 57,
+    "adoptedTexts": 30,
+    "adoptedTextsFeedToday": 11,
     "events": 0,
     "procedures": 0,
     "mepUpdates": 737,
@@ -18,26 +40,45 @@
     "questions": 0
   },
   "feedStatus": {
-    "adoptedTextsFeed": "OK (one-week fallback)",
-    "eventsFeed": "404 (Easter recess)",
-    "proceduresFeed": "404 (Easter recess)",
-    "mepsFeed": "OK (today)",
-    "documentsFeed": "404 (Easter recess)",
-    "plenaryDocumentsFeed": "404 (Easter recess)",
-    "committeeDocumentsFeed": "404 (Easter recess)",
-    "questionsFeed": "404 (Easter recess)"
+    "adoptedTextsFeed": "OK (today: 11 items)",
+    "adoptedTexts": "OK (year 2026: 30 items with full details)",
+    "eventsFeed": "404 (Easter recess, both today and one-week)",
+    "proceduresFeed": "404 (Easter recess, both today and one-week)",
+    "mepsFeed": "OK (today: 737 records)",
+    "documentsFeed": "TIMEOUT (one-week)",
+    "plenaryDocumentsFeed": "TIMEOUT (one-week)",
+    "committeeDocumentsFeed": "TIMEOUT (one-week)",
+    "questionsFeed": "TIMEOUT (one-week)"
   },
   "analyticalContext": {
     "votingAnomalies": "None detected, stability 100, risk LOW",
-    "coalitionDynamics": "Renew-ECR strengthening (0.95 cohesion), EPP dominant",
-    "politicalLandscape": "8 groups, HIGH fragmentation, multi-coalition required",
-    "earlyWarning": "3 warnings: dominant group risk (HIGH), fragmentation (MEDIUM), quorum risk (LOW)"
+    "coalitionDynamics": "Renew-ECR strengthening (0.95 cohesion), EPP dominant, 28 pairs analysed",
+    "politicalLandscape": "8 groups, HIGH fragmentation, multi-coalition required, 100-MEP sample",
+    "earlyWarning": "3 warnings: dominant group risk (HIGH), fragmentation (MEDIUM), quorum risk (LOW), stability 84/100"
   },
   "analysisFiles": [
     "synthesis-summary.md",
     "political-landscape-analysis.md",
-    "risk-assessment.md"
+    "risk-assessment.md",
+    "threat-analysis.md",
+    "cross-session-intelligence.md"
+  ],
+  "analysisMethods": [
+    "political-threat-landscape",
+    "attack-trees",
+    "pestle",
+    "political-kill-chain",
+    "swot-analysis",
+    "risk-matrix",
+    "coalition-dynamics",
+    "significance-scoring",
+    "stakeholder-analysis",
+    "cross-session-intelligence",
+    "thematic-clustering",
+    "legislative-velocity",
+    "fragmentation-analysis",
+    "scenario-planning"
   ],
   "articleGenerated": false,
-  "generatedAt": "2026-04-08T06:33:00Z"
+  "generatedAt": "2026-04-08T18:30:00Z"
 }
