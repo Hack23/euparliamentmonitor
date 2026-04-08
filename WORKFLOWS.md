@@ -296,7 +296,7 @@ graph TD
 | **EP MCP Server** | `european-parliament-mcp-server` (globally installed) |
 | **Data sources** | European Parliament MCP Server (primary), World Bank MCP (optional) |
 | **Analysis stage** | `--analysis` flag enables 18-method political intelligence pipeline before article generation |
-| **Analysis output** | `analysis/daily/{date}/{article-type}/` — classification, threat-assessment, risk-scoring, data (EP feeds, World Bank, OSINT) artifacts committed to PR. Article-type scoping prevents merge conflicts between concurrent workflows. |
+| **Analysis output** | `analysis/daily/{date}/` for cross-article artifacts (for example shared synthesis outputs), plus `analysis/daily/{date}/{article-type}/` for article-type-scoped classification, threat-assessment, risk-scoring, and data (EP feeds, World Bank, OSINT) artifacts committed to PR. Article-type scoping prevents merge conflicts between concurrent workflows. |
 
 #### Compilation Process
 
@@ -1788,7 +1788,7 @@ flowchart LR
 
 ### Analysis Artifact Structure
 
-Each content workflow deposits analysis artifacts in an isolated directory:
+Each content workflow deposits analysis artifacts in an isolated directory. Cross-article artifacts (such as `ai-daily-synthesis.md`) live at the date root `analysis/daily/{date}/`, while per-workflow artifacts are scoped under `analysis/daily/{date}/{article-type}/`:
 
 ```
 analysis/daily/2026-03-31/
