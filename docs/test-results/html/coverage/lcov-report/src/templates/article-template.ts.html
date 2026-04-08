@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>112/112</span>
+                <span class='fraction'>113/113</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>111/111</span>
+                <span class='fraction'>112/112</span>
             </div>
         
             
@@ -701,7 +701,11 @@
 <a name='L636'></a><a href='#L636'>636</a>
 <a name='L637'></a><a href='#L637'>637</a>
 <a name='L638'></a><a href='#L638'>638</a>
-<a name='L639'></a><a href='#L639'>639</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L639'></a><a href='#L639'>639</a>
+<a name='L640'></a><a href='#L640'>640</a>
+<a name='L641'></a><a href='#L641'>641</a>
+<a name='L642'></a><a href='#L642'>642</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -785,6 +789,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">11x</span>
@@ -920,10 +930,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">420x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">420x</span>
 <span class="cline-any cline-yes">420x</span>
 <span class="cline-any cline-yes">420x</span>
@@ -1408,6 +1414,7 @@ import {
   getTextDirection,
 } from '../constants/languages.js';
 import { escapeHTML, isSafeURL } from '../utils/file-utils.js';
+import { stripHtmlTags } from '../utils/html-sanitize.js';
 import {
   APP_VERSION,
   createThemeToggleButton,
@@ -1426,6 +1433,12 @@ const SRI_HASH_PATTERN = /^sha(?:256|384|512)-[A-Za-z0-9+/]+={0,2}$/u;
 &nbsp;
 /** Words per minute for read-time calculation */
 const TEMPLATE_WORDS_PER_MINUTE = 250;
+&nbsp;
+/**
+ * Base URL for the deployed site, constructed via the URL API so that CodeQL
+ * recognises it as a validated URL rather than a potential regex pattern.
+ */
+const SITE_BASE_URL: string = new URL('/euparliamentmonitor', 'https://hack23.github.io').href;
 &nbsp;
 /**
  * BCP47 / Open Graph locale mapping for og:locale meta tag.
@@ -1557,11 +1570,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
   const readTimeFormatter = getLocalizedString(READ_TIME_LABELS, lang);
 &nbsp;
   // Auto-compute read-time from content word count if not explicitly set
-  const contentWordCount = content
-    .replace(/&lt;[^&gt;]+&gt;/gu, ' ')
-    .replace(/\s+/gu, ' ')
-    .trim()
-    .split(' ').length;
+  const contentWordCount = stripHtmlTags(content).replace(/\s+/gu, ' ').trim().split(' ').length;
   const computedReadTime = Math.max(1, Math.ceil(contentWordCount / TEMPLATE_WORDS_PER_MINUTE));
   const effectiveReadTime = readTime &gt; 0 ? readTime : <span class="branch-1 cbranch-no" title="branch not covered" >computedReadTime;</span>
   const readTimeLabel = readTimeFormatter(effectiveReadTime);
@@ -1600,12 +1609,12 @@ export function generateArticleHTML(options: ArticleOptions): string {
       publisher: {
         '@type': 'Organization',
         name: 'EU Parliament Monitor',
-        url: 'https://hack23.github.io/euparliamentmonitor',
+        url: SITE_BASE_URL,
       },
       keywords: keywords.join(', '),
       mainEntityOfPage: {
         '@type': 'WebPage',
-        '@id': `https://hack23.github.io/euparliamentmonitor/news/${date}-${slug}-${lang}.html`,
+        '@id': `${SITE_BASE_URL}/news/${date}-${slug}-${lang}.html`,
       },
     },
     null,
@@ -1674,10 +1683,10 @@ export function generateArticleHTML(options: ArticleOptions): string {
   &lt;meta property="og:type" content="article"&gt;
   &lt;meta property="og:title" content="${safeTitle}"&gt;
   &lt;meta property="og:description" content="${safeSubtitle}"&gt;
-  &lt;meta property="og:url" content="https://hack23.github.io/euparliamentmonitor/news/${date}-${slug}-${lang}.html"&gt;
+  &lt;meta property="og:url" content="${SITE_BASE_URL}/news/${date}-${slug}-${lang}.html"&gt;
   &lt;meta property="og:site_name" content="EU Parliament Monitor"&gt;
   &lt;meta property="og:locale" content="${OG_LOCALE_MAP[lang] ?? lang}"&gt;
-  &lt;meta property="og:image" content="https://hack23.github.io/euparliamentmonitor/images/og-image.jpg"&gt;
+  &lt;meta property="og:image" content="${SITE_BASE_URL}/images/og-image.jpg"&gt;
   &lt;meta property="og:image:width" content="1200"&gt;
   &lt;meta property="og:image:height" content="630"&gt;
   &lt;meta property="og:image:alt" content="EU Parliament Monitor — AI-Disrupted Parliamentary Intelligence"&gt;
@@ -1686,10 +1695,10 @@ export function generateArticleHTML(options: ArticleOptions): string {
   &lt;meta name="twitter:card" content="summary_large_image"&gt;
   &lt;meta name="twitter:title" content="${safeTitle}"&gt;
   &lt;meta name="twitter:description" content="${safeSubtitle}"&gt;
-  &lt;meta name="twitter:image" content="https://hack23.github.io/euparliamentmonitor/images/og-image.jpg"&gt;
+  &lt;meta name="twitter:image" content="${SITE_BASE_URL}/images/og-image.jpg"&gt;
   &lt;meta name="twitter:image:alt" content="EU Parliament Monitor — AI-Disrupted Parliamentary Intelligence"&gt;
   
-  &lt;link rel="canonical" href="https://hack23.github.io/euparliamentmonitor/news/${date}-${slug}-${lang}.html"&gt;
+  &lt;link rel="canonical" href="${SITE_BASE_URL}/news/${date}-${slug}-${lang}.html"&gt;
   &lt;link rel="stylesheet" href="../styles.css"${safeSriAttrs}&gt;
   
   &lt;!-- Schema.org structured data --&gt;
@@ -1891,8 +1900,8 @@ function renderAnalysisTransparencySection(
 &nbsp;
   const repoBase = 'https://github.com/Hack23/euparliamentmonitor/blob/main';
   const treeDirBase = 'https://github.com/Hack23/euparliamentmonitor/tree/main';
-  const analysisDirUrl = `${treeDirBase}/analysis/${safeDate}/${safeAnalysisDirName}`;
-  const analysisFileBase = `${repoBase}/analysis/${safeDate}/${safeAnalysisDirName}`;
+  const analysisDirUrl = `${treeDirBase}/analysis/daily/${safeDate}/${safeAnalysisDirName}`;
+  const analysisFileBase = `${repoBase}/analysis/daily/${safeDate}/${safeAnalysisDirName}`;
   const methodologyDir = `${repoBase}/analysis/methodologies`;
 &nbsp;
   // Per-file localized link labels
@@ -1984,7 +1993,7 @@ function renderAnalysisTransparencySection(
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-07T15:40:25.871Z
+                at 2026-04-08T11:31:19.779Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
