@@ -1,0 +1,43 @@
+{
+  "analysisDate": "2026-04-08",
+  "articleType": "breaking",
+  "producedBy": "news-breaking",
+  "overallConfidence": "MEDIUM",
+  "parliamentStatus": "Easter Recess (Day 13 of 18)",
+  "nextActivity": "Committee week April 14-17, Strasbourg plenary April 20-23",
+  "newsworthinessGate": "NO_BREAKING_NEWS",
+  "reason": "Easter recess — no today-dated parliamentary events, procedures, or documents. Analysis-only output per Rule 5.",
+  "dataCollected": {
+    "adoptedTexts": 57,
+    "events": 0,
+    "procedures": 0,
+    "mepUpdates": 737,
+    "documents": 0,
+    "plenaryDocuments": 0,
+    "committeeDocuments": 0,
+    "questions": 0
+  },
+  "feedStatus": {
+    "adoptedTextsFeed": "OK (one-week fallback)",
+    "eventsFeed": "404 (Easter recess)",
+    "proceduresFeed": "404 (Easter recess)",
+    "mepsFeed": "OK (today)",
+    "documentsFeed": "404 (Easter recess)",
+    "plenaryDocumentsFeed": "404 (Easter recess)",
+    "committeeDocumentsFeed": "404 (Easter recess)",
+    "questionsFeed": "404 (Easter recess)"
+  },
+  "analyticalContext": {
+    "votingAnomalies": "None detected, stability 100, risk LOW",
+    "coalitionDynamics": "Renew-ECR strengthening (0.95 cohesion), EPP dominant",
+    "politicalLandscape": "8 groups, HIGH fragmentation, multi-coalition required",
+    "earlyWarning": "3 warnings: dominant group risk (HIGH), fragmentation (MEDIUM), quorum risk (LOW)"
+  },
+  "analysisFiles": [
+    "synthesis-summary.md",
+    "political-landscape-analysis.md",
+    "risk-assessment.md"
+  ],
+  "articleGenerated": false,
+  "generatedAt": "2026-04-08T06:33:00Z"
+}
