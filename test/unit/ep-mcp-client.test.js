@@ -2158,7 +2158,7 @@ describe('ep-mcp-client', () => {
       });
 
       expect(result).toEqual({
-        content: [{ type: 'text', text: '{"events": []}' }],
+        content: [{ type: 'text', text: '{"event": null}' }],
       });
     });
 
@@ -2167,7 +2167,7 @@ describe('ep-mcp-client', () => {
 
       expect(client.callTool).not.toHaveBeenCalled();
       expect(result).toEqual({
-        content: [{ type: 'text', text: '{"events": []}' }],
+        content: [{ type: 'text', text: '{"event": null}' }],
       });
     });
 
@@ -2176,7 +2176,7 @@ describe('ep-mcp-client', () => {
 
       expect(client.callTool).not.toHaveBeenCalled();
       expect(result).toEqual({
-        content: [{ type: 'text', text: '{"events": []}' }],
+        content: [{ type: 'text', text: '{"event": null}' }],
       });
     });
 
@@ -2188,7 +2188,7 @@ describe('ep-mcp-client', () => {
 
       expect(client.callTool).not.toHaveBeenCalled();
       expect(result).toEqual({
-        content: [{ type: 'text', text: '{"events": []}' }],
+        content: [{ type: 'text', text: '{"event": null}' }],
       });
     });
 
@@ -2248,7 +2248,7 @@ describe('ep-mcp-client', () => {
       const result = await client.getServerHealth();
 
       expect(result).toEqual({
-        content: [{ type: 'text', text: '{"stats": null}' }],
+        content: [{ type: 'text', text: '{"server": null, "feeds": []}' }],
       });
     });
   });

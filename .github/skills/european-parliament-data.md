@@ -88,7 +88,7 @@ Ensure reliable integration with European Parliament open data via the MCP (Mode
 | `sentiment_tracker` | Political group institutional sentiment | `groupId`, `timeframe` |
 | `early_warning_system` | Emerging political shift detection | `sensitivity`, `focusArea` |
 | `comparative_intelligence` | Cross-reference MEP multi-dimensional profiling | `mepIds`, `dimensions` |
-| `correlate_intelligence` | Cross-tool OSINT intelligence correlation | `mepIds`, `sensitivityLevel` |
+| `correlate_intelligence` | Cross-tool OSINT intelligence correlation | `mepId`, `correlationScenarios` |
 
 #### Feed Endpoints (13) — Recently Updated Data
 | Tool | Purpose | Key Parameters |

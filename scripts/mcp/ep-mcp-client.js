@@ -22,6 +22,10 @@ const ITEMS_FALLBACK = '{"items": []}';
 const INTELLIGENCE_FALLBACK = '{"analysis": null}';
 /** Fallback payload for precomputed statistics */
 const STATS_FALLBACK = '{"stats": null}';
+/** Fallback payload for single procedure event lookup */
+const PROCEDURE_EVENT_FALLBACK = '{"event": null}';
+/** Fallback payload for server health status */
+const SERVER_HEALTH_FALLBACK = '{"server": null, "feeds": []}';
 /**
  * MCP Client for European Parliament data access.
  * Extends {@link MCPConnection} with EP-specific tool wrapper methods.
@@ -793,13 +797,13 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
     async getProcedureEventById(options) {
         if (typeof options.processId !== 'string' || options.processId.trim().length === 0) {
             console.warn('get_procedure_event_by_id called without valid processId (non-empty string required)');
-            return { content: [{ type: 'text', text: EVENTS_FALLBACK }] };
+            return { content: [{ type: 'text', text: PROCEDURE_EVENT_FALLBACK }] };
         }
         if (typeof options.eventId !== 'string' || options.eventId.trim().length === 0) {
             console.warn('get_procedure_event_by_id called without valid eventId (non-empty string required)');
-            return { content: [{ type: 'text', text: EVENTS_FALLBACK }] };
+            return { content: [{ type: 'text', text: PROCEDURE_EVENT_FALLBACK }] };
         }
-        return this.safeCallTool('get_procedure_event_by_id', { processId: options.processId.trim(), eventId: options.eventId.trim() }, EVENTS_FALLBACK);
+        return this.safeCallTool('get_procedure_event_by_id', { processId: options.processId.trim(), eventId: options.eventId.trim() }, PROCEDURE_EVENT_FALLBACK);
     }
     /**
      * Check server health and feed availability status.
@@ -809,7 +813,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * @returns Server health and feed availability data
      */
     async getServerHealth() {
-        return this.safeCallTool('get_server_health', {}, STATS_FALLBACK);
+        return this.safeCallTool('get_server_health', {}, SERVER_HEALTH_FALLBACK);
     }
 }
 let clientInstance = null;

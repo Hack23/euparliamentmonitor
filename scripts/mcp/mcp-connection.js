@@ -19,8 +19,8 @@ const BINARY_NAME = 'european-parliament-mcp-server';
 const BINARY_FILE = process.platform === 'win32' ? `${BINARY_NAME}.cmd` : BINARY_NAME;
 /** Default binary resolved from node_modules/.bin relative to this file's compiled location */
 const DEFAULT_SERVER_BINARY = resolve(dirname(fileURLToPath(import.meta.url)), `../../node_modules/.bin/${BINARY_FILE}`);
-/** Default request timeout in milliseconds — EU Parliament API responses commonly take 30-90+ seconds for large datasets */
-const DEFAULT_REQUEST_TIMEOUT_MS = 90_000;
+/** Default request timeout in milliseconds — EU Parliament API responses commonly take 30-120+ seconds for large datasets */
+const DEFAULT_REQUEST_TIMEOUT_MS = 180_000;
 /**
  * Effective request timeout, configurable via `EP_REQUEST_TIMEOUT_MS` env var.
  * This keeps the client-side timeout aligned with the MCP server timeout set

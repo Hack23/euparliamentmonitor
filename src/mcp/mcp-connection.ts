@@ -35,8 +35,8 @@ const DEFAULT_SERVER_BINARY = resolve(
   `../../node_modules/.bin/${BINARY_FILE}`
 );
 
-/** Default request timeout in milliseconds — EU Parliament API responses commonly take 30-90+ seconds for large datasets */
-const DEFAULT_REQUEST_TIMEOUT_MS = 90_000;
+/** Default request timeout in milliseconds — EU Parliament API responses commonly take 30-120+ seconds for large datasets */
+const DEFAULT_REQUEST_TIMEOUT_MS = 180_000;
 
 /**
  * Effective request timeout, configurable via `EP_REQUEST_TIMEOUT_MS` env var.
