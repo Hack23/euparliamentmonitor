@@ -1639,7 +1639,9 @@ export async function fetchEventsFeed(
         location: item['location'] ? String(item['location']) : undefined,
       }));
       if (items.length > 0 || !getWiderTimeframe(currentTimeframe)) return items;
-      console.log(`${INFO_PREFIX} events feed empty for ${currentTimeframe}, widening timeframe...`);
+      console.log(
+        `${INFO_PREFIX} events feed empty for ${currentTimeframe}, widening timeframe...`
+      );
       currentTimeframe = getWiderTimeframe(currentTimeframe);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
@@ -1829,9 +1831,7 @@ export async function fetchPlenaryDocumentsFeed(
   while (currentTimeframe) {
     const tf: FeedTimeframe = currentTimeframe;
     try {
-      console.log(
-        `${MCP_FETCH_PREFIX} Fetching plenary documents feed (${currentTimeframe})...`
-      );
+      console.log(`${MCP_FETCH_PREFIX} Fetching plenary documents feed (${currentTimeframe})...`);
       const result = await callMCP(
         () => client.getPlenaryDocumentsFeed({ timeframe: tf, limit: 20 }),
         undefined,
@@ -1877,9 +1877,7 @@ export async function fetchCommitteeDocumentsFeed(
   while (currentTimeframe) {
     const tf: FeedTimeframe = currentTimeframe;
     try {
-      console.log(
-        `${MCP_FETCH_PREFIX} Fetching committee documents feed (${currentTimeframe})...`
-      );
+      console.log(`${MCP_FETCH_PREFIX} Fetching committee documents feed (${currentTimeframe})...`);
       const result = await callMCP(
         () => client.getCommitteeDocumentsFeed({ timeframe: tf, limit: 20 }),
         undefined,
@@ -1929,8 +1927,7 @@ export async function fetchPlenarySessionDocumentsFeed(
         `${MCP_FETCH_PREFIX} Fetching plenary session documents feed (${currentTimeframe})...`
       );
       const result = await callMCP(
-        () =>
-          client.getPlenarySessionDocumentsFeed({ timeframe: tf, limit: 20 }),
+        () => client.getPlenarySessionDocumentsFeed({ timeframe: tf, limit: 20 }),
         undefined,
         'get_plenary_session_documents_feed'
       );
@@ -1974,9 +1971,7 @@ export async function fetchExternalDocumentsFeed(
   while (currentTimeframe) {
     const tf: FeedTimeframe = currentTimeframe;
     try {
-      console.log(
-        `${MCP_FETCH_PREFIX} Fetching external documents feed (${currentTimeframe})...`
-      );
+      console.log(`${MCP_FETCH_PREFIX} Fetching external documents feed (${currentTimeframe})...`);
       const result = await callMCP(
         () => client.getExternalDocumentsFeed({ timeframe: tf, limit: 20 }),
         undefined,
@@ -2026,8 +2021,7 @@ export async function fetchQuestionsFeed(
         `${MCP_FETCH_PREFIX} Fetching parliamentary questions feed (${currentTimeframe})...`
       );
       const result = await callMCP(
-        () =>
-          client.getParliamentaryQuestionsFeed({ timeframe: tf, limit: 20 }),
+        () => client.getParliamentaryQuestionsFeed({ timeframe: tf, limit: 20 }),
         undefined,
         'get_parliamentary_questions_feed'
       );
