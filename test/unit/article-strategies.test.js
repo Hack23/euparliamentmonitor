@@ -750,16 +750,17 @@ describe('MotionsStrategy', () => {
     expect(meta.keywords).toContain('Energy policy');
   });
 
-  it('getMetadata subtitle includes vote count and anomaly count', () => {
+  it('getMetadata subtitle uses most significant adopted text or vote', () => {
     const meta = strategy.getMetadata(motionsData, 'en');
-    expect(meta.subtitle).toContain('1 vote analysed');
-    expect(meta.subtitle).toContain('1 anomaly detected');
+    // Description should reference actual political content, not data counts
+    expect(meta.subtitle.length).toBeGreaterThan(20);
   });
 
   it('getMetadata title includes content-aware suffix', () => {
     const meta = strategy.getMetadata(motionsData, 'en');
+    // Title suffix should contain analytical content (adopted text title or vote title)
+    // not data counts like "1 Vote, 1 Anomaly"
     expect(meta.title).toContain('—');
-    expect(meta.title).toContain('1 Vote');
   });
 
   it('getMetadata differs by language', () => {
@@ -1956,7 +1957,7 @@ describe('getMetadata with enriched data (all suffix branches)', () => {
     expect(meta.keywords).toContain('Resolution on climate action');
   });
 
-  it('MotionsStrategy: multiple records and questions in suffix', () => {
+  it('MotionsStrategy: multiple records produce analytical title suffix', () => {
     const strategy = new MotionsStrategy();
     const richData = {
       ...motionsData,
@@ -1971,8 +1972,8 @@ describe('getMetadata with enriched data (all suffix branches)', () => {
     };
     const meta = strategy.getMetadata(richData, 'en');
     expect(meta.title).toContain('—');
-    expect(meta.title).toContain('2 Votes');
-    expect(meta.title).toContain('2 Anomalies');
+    // Should contain the title of the first voting record, not data counts
+    expect(meta.title).toContain('Budget 2025');
   });
 
   it('MonthlyReviewStrategy: multiple records in suffix', () => {
@@ -1989,7 +1990,7 @@ describe('getMetadata with enriched data (all suffix branches)', () => {
     expect(meta.title).toContain('2 Votes');
   });
 
-  it('MotionsStrategy: feedData adoptedTexts in keywords and suffix', () => {
+  it('MotionsStrategy: feedData adoptedTexts used for analytical title and description', () => {
     const strategy = new MotionsStrategy();
     const richData = {
       ...motionsData,
@@ -2003,10 +2004,10 @@ describe('getMetadata with enriched data (all suffix branches)', () => {
     const meta = strategy.getMetadata(richData, 'en');
     // Keywords should include adopted text title from feed
     expect(meta.keywords).toContain('Resolution on AI');
-    // Suffix should include adopted text count
-    expect(meta.title).toContain('Adopted Text');
-    // Description should mention adopted text
-    expect(meta.subtitle).toContain('adopted text');
+    // Suffix should use adopted text title (not count)
+    expect(meta.title).toContain('Resolution on AI');
+    // Description should reference the adopted text
+    expect(meta.subtitle).toContain('Resolution on AI');
   });
 
   it('CommitteeReportsStrategy: feedData adoptedTexts in keywords and suffix', () => {

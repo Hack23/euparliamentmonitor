@@ -131,19 +131,17 @@ function buildMotionsTitleSuffix(data: MotionsArticleData): string {
     (t) => t.title && !isPlaceholderText(t.title) && t.title.length > 10
   );
   if (topAdopted) {
-    const title = topAdopted.title.length > 60
+    return topAdopted.title.length > 60
       ? topAdopted.title.slice(0, 57) + '...'
       : topAdopted.title;
-    return title;
   }
 
   // Priority 2: Name the key voting record
   const topVote = data.votingRecords.find((v) => v.title && v.title.length > 10);
   if (topVote) {
-    const title = topVote.title.length > 60
+    return topVote.title.length > 60
       ? topVote.title.slice(0, 57) + '...'
       : topVote.title;
-    return title;
   }
 
   // Priority 3 (last resort): If we only have anomalies, mention those

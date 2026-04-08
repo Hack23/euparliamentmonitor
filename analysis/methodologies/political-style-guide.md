@@ -331,6 +331,8 @@ The following patterns are **REJECTED** in all analysis output:
 | Hardcoded Mermaid values in templates | Propagate to generated output as fake data | Use `{N}`, `{x}`, `{y}` placeholders |
 | Script-generated boilerplate | "Scripted crap content" — violates analytical mandate | AI must read methodology, analyse data, produce original analysis |
 | Overwriting previous analysis | Destroys audit trail; loses temporal context | Each workflow writes to `analysis/daily/{date}/{article-type-slug}/` |
+| **Code-generated titles/descriptions** | Produces generic data-count titles like "5 Votes, 2 Anomalies" that carry zero political intelligence | **AI agent MUST generate ALL titles and descriptions** by analysing the content and identifying the political significance. Pass via `--title` and `--description` CLI flags |
+| **Template-string titles** | `Plenary Votes & Resolutions: ${date}` is not a headline — it's a format string | AI agent writes the headline: "ECR Breaks Ranks on Digital Markets Act as Grand Coalition Splits" |
 
 ### Good vs. Bad Examples
 
