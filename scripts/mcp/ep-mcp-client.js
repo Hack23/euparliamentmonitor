@@ -64,7 +64,8 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);
             const lowerMsg = message.toLowerCase();
-            // Classify the error for better diagnostics.
+            // Classify the error for better diagnostics, aligned with EP MCP Server v1.2.0
+            // standardized error categories (SERVER_ERROR, TIMEOUT, RATE_LIMIT, etc.).
             // Check gateway 5xx first — a "504 Gateway Timeout" should be SERVER_ERROR,
             // not TIMEOUT (which is reserved for client-side request timeouts).
             const isGatewayServerError = lowerMsg.includes('gateway timeout') ||
@@ -72,13 +73,18 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
                 lowerMsg.includes('gateway error 502') ||
                 lowerMsg.includes('gateway error 503') ||
                 lowerMsg.includes('gateway error 504');
+            const isRateLimited = lowerMsg.includes('429') ||
+                lowerMsg.includes('rate limit') ||
+                lowerMsg.includes('too many requests');
             const errorType = isGatewayServerError
                 ? 'SERVER_ERROR'
-                : lowerMsg.includes('404')
-                    ? 'NOT_FOUND'
-                    : lowerMsg.includes('timeout')
-                        ? 'TIMEOUT'
-                        : 'UNKNOWN';
+                : isRateLimited
+                    ? 'RATE_LIMIT'
+                    : lowerMsg.includes('404')
+                        ? 'NOT_FOUND'
+                        : lowerMsg.includes('timeout')
+                            ? 'TIMEOUT'
+                            : 'UNKNOWN';
             this._failedTools.set(toolName, `${errorType}: ${message}`);
             console.warn(`⚠️ ${toolName} failed [${errorType}]:`, message);
             return { content: [{ type: 'text', text: fallbackText }] };
