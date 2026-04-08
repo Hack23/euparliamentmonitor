@@ -232,6 +232,23 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 - Do NOT skip data collection
 
 
+## 🔬 MANDATORY DEEP POLITICAL ANALYSIS PHASE (15-20 MINUTES)
+
+> **⚠️ ABSOLUTE REQUIREMENT — NON-NEGOTIABLE**: You MUST spend a dedicated 15-20 minutes on deep political intelligence analysis BEFORE making ANY decisions about article content, angle, or topic. This is the single most important phase of the entire workflow.
+
+**What "15-20 minutes of analysis" means:**
+1. **Read ALL 6 methodology guides** in `analysis/methodologies/` — these define your analytical frameworks
+2. **Read ALL structured templates** in `analysis/templates/` — these define your output format
+3. **Apply every template to every downloaded MCP data file** — no shortcuts, no skipping files
+4. **Use `sequentialthinking`** for multi-step analytical reasoning chains on complex political dynamics
+5. **Cross-reference documents** using the `memory` MCP knowledge graph to find connections
+6. **Write substantive analysis markdown** (≥400 lines per analysis file, target 800+) with evidence citations
+7. **Complete the full 4-pass refinement cycle** on all analytical content
+
+**CRITICAL SEQUENCING RULE**: The article topic, angle, headline, and narrative structure are ALL decided AFTER this analysis phase completes — NEVER before. The significance scoring results from the analysis determine what the article covers.
+
+> **🚫 VIOLATION**: Starting to write the article, choosing a headline, or deciding the narrative angle before spending 15-20 minutes on systematic analysis using the methodology guides and templates. If you find yourself writing article content before the analysis phase is complete, STOP and return to analysis.
+
 ## 🎭 STAKEHOLDER PERSPECTIVE ANALYSIS (MANDATORY)
 
 For EVERY major parliamentary action in the article, analyze from at least 3 of the following 6 perspectives:
@@ -305,8 +322,7 @@ Every generated article (or analysis-only PR) MUST link to ALL individual analys
 ## ⏱️ Time Budget (60 minutes)
 - **Minutes 0–3**: Date check, MCP warm-up with EP MCP tools
 - **Minutes 3–20**: Query ALL EP feed endpoints — download ALL documents, adopted texts, events, procedures, MEP updates. Use `timeframe: "today"` first, then retry with `timeframe: "one-week"` for any empty/failed endpoint. Also fetch advisory feeds (documents, plenary docs, committee docs, questions) with `timeframe: "one-week"`. **⚠️ EP API can be slow (30-90s per call) — be patient, do NOT abort on slow responses. Allow up to 120s per call.**
-- **Minutes 20–30**: 📊 Fetch analytical context (voting anomalies, coalition dynamics, political landscape, early warning) and run precomputed stats
-- **Minutes 30–40**: 🔬 Full political intelligence analysis stage — run all 19 default analysis methods including per-document analysis (significance classification, political threat landscape assessment, risk scoring, actor mapping, document-analysis — writes analysis artifacts to `analysis/daily/${TODAY}/breaking/`). **⚠️ Download and store COMPLETE EP document data, not just metadata.** Save ALL MCP data to `analysis/daily/${TODAY}/breaking/data/`
+- **Minutes 20–40**: 🔬🔬🔬 **MANDATORY DEEP POLITICAL ANALYSIS PHASE (15-20 MINUTES)** — Fetch analytical context (voting anomalies, coalition dynamics, political landscape, early warning), run all 19 default analysis methods including per-document analysis. Read ALL methodology guides and templates, apply them to EVERY downloaded MCP data file, write substantive analysis markdown, use `sequentialthinking` for complex reasoning, cross-reference documents via knowledge graph, complete 4-pass refinement cycle. **⚠️ Download and store COMPLETE EP document data, not just metadata.** Save ALL MCP data to `analysis/daily/${TODAY}/breaking/data/`
 - **Minutes 40–45**: 📊 AI evaluates analysis artifacts to determine breaking news significance — ONLY proceed with article generation if analysis confirms newsworthy developments from TODAY
 - **Minutes 45–52**: Generate English article with deep political intelligence analysis informed by analysis artifacts (SKIP if no today-dated breaking news)
 - **Minutes 52–57**: Validate and finalize changes
@@ -777,9 +793,11 @@ fi
 - ✅ **Analysis directory** is scoped to `analysis/daily/${TODAY}/breaking/`
 
 ### Minimum AI Analysis Time (Rule 7 — required)
-- ✅ **≥15 minutes** spent on AI-driven political intelligence analysis (reading methodologies, querying MCP, writing original analytical prose)
+- ✅ **≥15 minutes** spent on dedicated deep political intelligence analysis phase (reading ALL 6 methodology guides, querying MCP, applying templates to every data file, writing original analytical prose)
+- ✅ **Article topic/angle decided ONLY AFTER analysis phase completes** — significance scoring results determine coverage
 - ✅ **4-pass refinement cycle** completed for all analytical content sections
 - ✅ **All 6 methodology documents** read before any analysis (political-swot-framework.md, political-risk-methodology.md, political-threat-framework.md, political-classification-guide.md, political-style-guide.md, ai-driven-analysis-guide.md)
+- ✅ **No article content written before analysis phase** — analysis-first, article-second
 
 ### Script/AI Separation (Rule 8 — required)
 - ✅ **No `[AI_ANALYSIS_REQUIRED]` placeholders** remain in final HTML
