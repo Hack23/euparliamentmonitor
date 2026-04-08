@@ -48,6 +48,7 @@ import {
   buildAnalysisInsightsSection,
   extractAnalysisSummary,
 } from './article-strategy.js';
+import { truncateTitle, MIN_MEANINGFUL_TITLE_LENGTH } from '../../utils/metadata-utils.js';
 
 /** Base keywords shared by all Breaking News articles */
 const BREAKING_NEWS_BASE_KEYWORDS = [
@@ -100,21 +101,21 @@ function buildBreakingDescription(
   if (!feedData) return `European Parliament breaking developments for ${date}.`;
 
   // Priority 1: Use the title of the most significant adopted text
-  const topAdopted = feedData.adoptedTexts.find((t) => t.title && t.title.length > 10);
+  const topAdopted = feedData.adoptedTexts.find((t) => t.title && t.title.length > MIN_MEANINGFUL_TITLE_LENGTH);
   if (topAdopted) {
     const desc = `European Parliament adopts ${topAdopted.title}`;
     return desc.length > 200 ? desc.slice(0, 197) + '...' : desc;
   }
 
   // Priority 2: Use the most significant event title
-  const topEvent = feedData.events.find((e) => e.title && e.title.length > 10);
+  const topEvent = feedData.events.find((e) => e.title && e.title.length > MIN_MEANINGFUL_TITLE_LENGTH);
   if (topEvent) {
     const desc = `EP parliamentary event: ${topEvent.title}`;
     return desc.length > 200 ? desc.slice(0, 197) + '...' : desc;
   }
 
   // Priority 3: Use the most significant procedure
-  const topProc = feedData.procedures.find((p) => p.title && p.title.length > 10);
+  const topProc = feedData.procedures.find((p) => p.title && p.title.length > MIN_MEANINGFUL_TITLE_LENGTH);
   if (topProc) {
     const desc = `EP legislative procedure: ${topProc.title}`;
     return desc.length > 200 ? desc.slice(0, 197) + '...' : desc;
@@ -134,27 +135,21 @@ function buildBreakingTitleSuffix(feedData: BreakingNewsFeedData | undefined): s
   if (!feedData) return '';
 
   // Priority 1: Name the most significant adopted text
-  const topAdopted = feedData.adoptedTexts.find((t) => t.title && t.title.length > 10);
+  const topAdopted = feedData.adoptedTexts.find((t) => t.title && t.title.length > MIN_MEANINGFUL_TITLE_LENGTH);
   if (topAdopted) {
-    return topAdopted.title.length > 60
-      ? topAdopted.title.slice(0, 57) + '...'
-      : topAdopted.title;
+    return truncateTitle(topAdopted.title);
   }
 
   // Priority 2: Name the most significant event
-  const topEvent = feedData.events.find((e) => e.title && e.title.length > 10);
+  const topEvent = feedData.events.find((e) => e.title && e.title.length > MIN_MEANINGFUL_TITLE_LENGTH);
   if (topEvent) {
-    return topEvent.title.length > 60
-      ? topEvent.title.slice(0, 57) + '...'
-      : topEvent.title;
+    return truncateTitle(topEvent.title);
   }
 
   // Priority 3: Name the most significant procedure
-  const topProc = feedData.procedures.find((p) => p.title && p.title.length > 10);
+  const topProc = feedData.procedures.find((p) => p.title && p.title.length > MIN_MEANINGFUL_TITLE_LENGTH);
   if (topProc) {
-    return topProc.title.length > 60
-      ? topProc.title.slice(0, 57) + '...'
-      : topProc.title;
+    return truncateTitle(topProc.title);
   }
 
   return '';

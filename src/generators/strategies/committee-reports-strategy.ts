@@ -41,6 +41,7 @@ import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 import { loadAnalysisContext, buildAnalysisInsightsSection } from './article-strategy.js';
 import type { ArticleSource } from '../../types/index.js';
+import { truncateTitle, MIN_MEANINGFUL_TITLE_LENGTH } from '../../utils/metadata-utils.js';
 
 /** European Parliament home-page URL used as source reference */
 const EP_SOURCE_URL = 'https://www.europarl.europa.eu';
@@ -106,7 +107,7 @@ function buildCommitteeDescription(
 ): string {
   // Priority 1: Use the title of the most significant adopted text
   const topAdopted = feedData?.adoptedTexts?.find(
-    (t) => t.title && t.title.length > 10
+    (t) => t.title && t.title.length > MIN_MEANINGFUL_TITLE_LENGTH
   );
   if (topAdopted) {
     const abbrs = committeeDataList
@@ -145,12 +146,10 @@ function buildCommitteeTitleSuffix(
 ): string {
   // Priority 1: Name the most significant adopted text
   const topAdopted = feedData?.adoptedTexts?.find(
-    (t) => t.title && t.title.length > 10
+    (t) => t.title && t.title.length > MIN_MEANINGFUL_TITLE_LENGTH
   );
   if (topAdopted) {
-    return topAdopted.title.length > 60
-      ? topAdopted.title.slice(0, 57) + '...'
-      : topAdopted.title;
+    return truncateTitle(topAdopted.title);
   }
 
   // Priority 2: List active committee abbreviations

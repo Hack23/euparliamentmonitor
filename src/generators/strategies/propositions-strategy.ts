@@ -38,6 +38,7 @@ import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import type { PipelineData } from '../propositions-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 import { loadAnalysisContext, buildAnalysisInsightsSection } from './article-strategy.js';
+import { truncateTitle, MIN_MEANINGFUL_TITLE_LENGTH } from '../../utils/metadata-utils.js';
 
 /** Base keywords shared by all Propositions articles */
 const PROPOSITIONS_BASE_KEYWORDS = [
@@ -88,7 +89,7 @@ function buildPropositionsKeywords(data: PropositionsArticleData): string[] {
 function buildPropositionsDescription(data: PropositionsArticleData): string {
   // Priority 1: Use the title of the most significant adopted text
   const topAdopted = data.feedData?.adoptedTexts?.find(
-    (t) => t.title && t.title.length > 10
+    (t) => t.title && t.title.length > MIN_MEANINGFUL_TITLE_LENGTH
   );
   if (topAdopted) {
     const desc = `European Parliament legislative tracker: ${topAdopted.title}`;
@@ -97,7 +98,7 @@ function buildPropositionsDescription(data: PropositionsArticleData): string {
 
   // Priority 2: Use the title of the most significant procedure
   const topProc = data.feedData?.procedures?.find(
-    (p) => p.title && p.title.length > 10
+    (p) => p.title && p.title.length > MIN_MEANINGFUL_TITLE_LENGTH
   );
   if (topProc) {
     const desc = `EP legislative procedure: ${topProc.title}`;
@@ -117,22 +118,18 @@ function buildPropositionsDescription(data: PropositionsArticleData): string {
 function buildPropositionsTitleSuffix(data: PropositionsArticleData): string {
   // Priority 1: Name the most significant adopted text
   const topAdopted = data.feedData?.adoptedTexts?.find(
-    (t) => t.title && t.title.length > 10
+    (t) => t.title && t.title.length > MIN_MEANINGFUL_TITLE_LENGTH
   );
   if (topAdopted) {
-    return topAdopted.title.length > 60
-      ? topAdopted.title.slice(0, 57) + '...'
-      : topAdopted.title;
+    return truncateTitle(topAdopted.title);
   }
 
   // Priority 2: Name the most significant procedure
   const topProc = data.feedData?.procedures?.find(
-    (p) => p.title && p.title.length > 10
+    (p) => p.title && p.title.length > MIN_MEANINGFUL_TITLE_LENGTH
   );
   if (topProc) {
-    return topProc.title.length > 60
-      ? topProc.title.slice(0, 57) + '...'
-      : topProc.title;
+    return truncateTitle(topProc.title);
   }
 
   return '';

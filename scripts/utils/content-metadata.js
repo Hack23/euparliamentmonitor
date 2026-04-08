@@ -2,6 +2,14 @@
 // SPDX-License-Identifier: Apache-2.0
 /** Maximum length for the enriched description */
 const MAX_DESCRIPTION_LENGTH = 200;
+/**
+ * Minimum position (as fraction of MAX_DESCRIPTION_LENGTH) for a
+ * sentence-boundary truncation point.  If the last sentence break
+ * is before this threshold, we fall back to hard truncation with `...`.
+ * This ensures the truncated description retains at least half its
+ * intended content.
+ */
+const MIN_SENTENCE_TRUNCATION_RATIO = 0.5;
 /** Maximum number of keywords to emit */
 const MAX_KEYWORDS = 15;
 /** Minimum heading length to include as keyword */
@@ -245,7 +253,7 @@ function buildContentDescription(content, baseSubtitle) {
         if (lede.length > MAX_DESCRIPTION_LENGTH) {
             const truncated = lede.slice(0, MAX_DESCRIPTION_LENGTH - 3);
             const lastSentence = truncated.lastIndexOf('. ');
-            if (lastSentence > MAX_DESCRIPTION_LENGTH / 2) {
+            if (lastSentence > MAX_DESCRIPTION_LENGTH * MIN_SENTENCE_TRUNCATION_RATIO) {
                 return truncated.slice(0, lastSentence + 1);
             }
             return truncated + '...';

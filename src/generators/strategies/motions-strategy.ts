@@ -38,7 +38,7 @@ import { buildDashboardSection } from '../dashboard-content.js';
 import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 import { loadAnalysisContext, buildAnalysisInsightsSection } from './article-strategy.js';
-import { pl } from '../../utils/metadata-utils.js';
+import { pl, truncateTitle, MIN_MEANINGFUL_TITLE_LENGTH } from '../../utils/metadata-utils.js';
 import { isPlaceholderText } from '../../constants/analysis-constants.js';
 
 /** Base keywords shared by all Motions articles */
@@ -128,20 +128,16 @@ function buildMotionsDescription(data: MotionsArticleData): string {
 function buildMotionsTitleSuffix(data: MotionsArticleData): string {
   // Priority 1: Name the most significant adopted text
   const topAdopted = data.feedData?.adoptedTexts?.find(
-    (t) => t.title && !isPlaceholderText(t.title) && t.title.length > 10
+    (t) => t.title && !isPlaceholderText(t.title) && t.title.length > MIN_MEANINGFUL_TITLE_LENGTH
   );
   if (topAdopted) {
-    return topAdopted.title.length > 60
-      ? topAdopted.title.slice(0, 57) + '...'
-      : topAdopted.title;
+    return truncateTitle(topAdopted.title);
   }
 
   // Priority 2: Name the key voting record
-  const topVote = data.votingRecords.find((v) => v.title && v.title.length > 10);
+  const topVote = data.votingRecords.find((v) => v.title && v.title.length > MIN_MEANINGFUL_TITLE_LENGTH);
   if (topVote) {
-    return topVote.title.length > 60
-      ? topVote.title.slice(0, 57) + '...'
-      : topVote.title;
+    return truncateTitle(topVote.title);
   }
 
   // Priority 3 (last resort): If we only have anomalies, mention those
