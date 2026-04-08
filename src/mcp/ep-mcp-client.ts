@@ -103,6 +103,43 @@ const PROCEDURE_EVENT_FALLBACK = '{"event": null}';
 const SERVER_HEALTH_FALLBACK = '{"server": null, "feeds": []}';
 
 /**
+ * Classify an error message into a diagnostic error category, aligned with
+ * EP MCP Server v1.2.0 standardized error categories.
+ *
+ * Priority:
+ * 1. Gateway 5xx → SERVER_ERROR (not TIMEOUT, even for 504 "Gateway Timeout")
+ * 2. 429 / rate-limit → RATE_LIMIT
+ * 3. 404 → NOT_FOUND
+ * 4. Client-side timeout → TIMEOUT
+ * 5. Everything else → UNKNOWN
+ *
+ * @param message - Raw error message
+ * @returns Diagnostic error category string
+ */
+function classifyToolError(message: string): string {
+  const lowerMsg = message.toLowerCase();
+  if (
+    lowerMsg.includes('gateway timeout') ||
+    lowerMsg.includes('gateway error 500') ||
+    lowerMsg.includes('gateway error 502') ||
+    lowerMsg.includes('gateway error 503') ||
+    lowerMsg.includes('gateway error 504')
+  ) {
+    return 'SERVER_ERROR';
+  }
+  if (
+    lowerMsg.includes('429') ||
+    lowerMsg.includes('rate limit') ||
+    lowerMsg.includes('too many requests')
+  ) {
+    return 'RATE_LIMIT';
+  }
+  if (lowerMsg.includes('404')) return 'NOT_FOUND';
+  if (lowerMsg.includes('timeout')) return 'TIMEOUT';
+  return 'UNKNOWN';
+}
+
+/**
  * MCP Client for European Parliament data access.
  * Extends {@link MCPConnection} with EP-specific tool wrapper methods.
  */
@@ -143,30 +180,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
       return result;
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
-      const lowerMsg = message.toLowerCase();
-      // Classify the error for better diagnostics, aligned with EP MCP Server v1.2.0
-      // standardized error categories (SERVER_ERROR, TIMEOUT, RATE_LIMIT, etc.).
-      // Check gateway 5xx first — a "504 Gateway Timeout" should be SERVER_ERROR,
-      // not TIMEOUT (which is reserved for client-side request timeouts).
-      const isGatewayServerError =
-        lowerMsg.includes('gateway timeout') ||
-        lowerMsg.includes('gateway error 500') ||
-        lowerMsg.includes('gateway error 502') ||
-        lowerMsg.includes('gateway error 503') ||
-        lowerMsg.includes('gateway error 504');
-      const isRateLimited =
-        lowerMsg.includes('429') ||
-        lowerMsg.includes('rate limit') ||
-        lowerMsg.includes('too many requests');
-      const errorType = isGatewayServerError
-        ? 'SERVER_ERROR'
-        : isRateLimited
-          ? 'RATE_LIMIT'
-          : lowerMsg.includes('404')
-            ? 'NOT_FOUND'
-            : lowerMsg.includes('timeout')
-              ? 'TIMEOUT'
-              : 'UNKNOWN';
+      const errorType = classifyToolError(message);
       this._failedTools.set(toolName, `${errorType}: ${message}`);
       console.warn(`⚠️ ${toolName} failed [${errorType}]:`, message);
       return { content: [{ type: 'text', text: fallbackText }] };
