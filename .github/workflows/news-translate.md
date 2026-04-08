@@ -107,6 +107,7 @@ safe-outputs:
     - www.euparliamentmonitor.com
   create-pull-request:
     title-prefix: "[news] "
+    max-patch-size: 2048
   add-comment:
     max: 1
 
