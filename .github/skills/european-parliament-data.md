@@ -13,7 +13,7 @@ Ensure reliable integration with European Parliament open data via the MCP (Mode
 4. MUST sanitize data before rendering in HTML
 5. MUST handle rate limiting and retry with exponential backoff
 
-### European Parliament MCP Server Tools (46 tools)
+### European Parliament MCP Server Tools (62 tools)
 
 #### MEP Tools (7)
 | Tool | Purpose | Key Parameters |
@@ -56,12 +56,13 @@ Ensure reliable integration with European Parliament open data via the MCP (Mode
 | `get_external_documents` | Get non-EP documents (Council, Commission) | `docId`, `year`, `limit` |
 | `get_controlled_vocabularies` | Get standardized classification terms | `vocId`, `limit` |
 
-#### Legislative Tools (3)
+#### Legislative Tools (4)
 | Tool | Purpose | Key Parameters |
 |------|---------|----------------|
 | `get_procedures` | Get legislative procedures | `processId`, `year`, `limit` |
 | `get_adopted_texts` | Get adopted texts and resolutions | `docId`, `year`, `limit` |
 | `get_procedure_events` | Get events for a legislative procedure | `processId`, `limit` |
+| `get_procedure_event_by_id` | Get specific event for a procedure | `processId`, `eventId` |
 
 #### Advanced Analysis Tools (3)
 | Tool | Purpose | Key Parameters |
@@ -87,7 +88,30 @@ Ensure reliable integration with European Parliament open data via the MCP (Mode
 | `sentiment_tracker` | Political group institutional sentiment | `groupId`, `timeframe` |
 | `early_warning_system` | Emerging political shift detection | `sensitivity`, `focusArea` |
 | `comparative_intelligence` | Cross-reference MEP multi-dimensional profiling | `mepIds`, `dimensions` |
-| `correlate_intelligence` | Cross-tool OSINT intelligence correlation | `mepId`, `correlationScenarios` |
+| `correlate_intelligence` | Cross-tool OSINT intelligence correlation | `mepIds`, `sensitivityLevel` |
+
+#### Feed Endpoints (13) — Recently Updated Data
+| Tool | Purpose | Key Parameters |
+|------|---------|----------------|
+| `get_adopted_texts_feed` | Recently adopted legislative texts | `timeframe`, `startDate`, `limit` |
+| `get_meps_feed` | Recently updated MEP records | `timeframe`, `startDate`, `limit` |
+| `get_events_feed` | Recently added EP events | `timeframe`, `startDate`, `limit` |
+| `get_procedures_feed` | Recently updated legislative procedures | `timeframe`, `startDate`, `limit` |
+| `get_documents_feed` | Recently updated documents (all types) | `timeframe`, `startDate`, `limit` |
+| `get_plenary_documents_feed` | Recently updated plenary documents | `timeframe`, `startDate`, `limit` |
+| `get_committee_documents_feed` | Recently updated committee documents | `timeframe`, `startDate`, `limit` |
+| `get_plenary_session_documents_feed` | Recently updated plenary session documents | `timeframe`, `startDate`, `limit` |
+| `get_external_documents_feed` | Recently updated external documents | `timeframe`, `startDate`, `limit` |
+| `get_parliamentary_questions_feed` | Recently filed/answered questions | `timeframe`, `startDate`, `limit` |
+| `get_corporate_bodies_feed` | Recently updated corporate bodies | `timeframe`, `startDate`, `limit` |
+| `get_controlled_vocabularies_feed` | Recently updated controlled vocabularies | `timeframe`, `startDate`, `limit` |
+| `get_mep_declarations_feed` | Recently updated MEP declarations | `timeframe`, `startDate`, `limit` |
+
+#### Precomputed & Meta Tools (2)
+| Tool | Purpose | Key Parameters |
+|------|---------|----------------|
+| `get_all_generated_stats` | Precomputed EP statistics (2004-2026) with predictions | `category`, `yearFrom`, `yearTo`, `includeMonthlyBreakdown`, `includePredictions` |
+| `get_server_health` | Server health and feed availability status | _(none)_ |
 
 ### ⚠️ Temporal Data Source Selection
 
@@ -110,12 +134,34 @@ Ensure reliable integration with European Parliament open data via the MCP (Mode
 - `get_plenary_documents_feed` — recently updated plenary documents
 - `get_parliamentary_questions_feed` — recently filed/answered questions
 - `get_documents_feed` — recently updated documents (all types)
+- `get_plenary_session_documents_feed` — recently updated plenary session documents
+- `get_external_documents_feed` — recently updated external documents
+- `get_corporate_bodies_feed` — recently updated corporate bodies (committees, delegations)
+- `get_controlled_vocabularies_feed` — recently updated controlled vocabularies
+- `get_mep_declarations_feed` — recently updated MEP financial declarations
 
 **Anti-pattern** (causes stale articles):
 ```
 ❌ Call get_all_generated_stats first → write article from aggregates → mention feeds as afterthought
 ✅ Call feed endpoints first → identify specific new items → use stats only for historical comparison
 ```
+
+### 🏥 Server Health Check & Adaptive Strategy
+
+**ALWAYS call `get_server_health` before data gathering** to check which EP API feeds are currently operational:
+
+```javascript
+european_parliament___get_server_health({})
+```
+
+**Adaptive rules based on health status:**
+| Health Level | Strategy |
+|---|---|
+| `Full` | Use `timeframe: "today"` for breaking news, `"one-week"` otherwise |
+| `Degraded` | Widen all timeframes to `"one-week"` minimum |
+| `Sparse` / `Unavailable` | Skip feed endpoints, rely on `get_all_generated_stats` for context |
+
+**EP API recess gaps**: During parliamentary recesses (Easter, summer, Christmas), many feed endpoints return 404. This is expected behavior — the EP Open Data Portal has reduced availability during recess periods.
 
 ### MCP Client Pattern
 
