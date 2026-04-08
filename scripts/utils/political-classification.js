@@ -707,10 +707,10 @@ export function analyzePoliticalForces(data) {
  * @example
  * ```ts
  * const runDir = initializeAnalysisDirectory('./analysis', '2026-03-26');
- * // Creates: ./analysis/2026-03-26/classification/
- * //          ./analysis/2026-03-26/data/
- * //          ./analysis/2026-03-26/threat-assessment/
- * //          ./analysis/2026-03-26/risk-scoring/
+ * // Creates: ./analysis/daily/2026-03-26/classification/
+ * //          ./analysis/daily/2026-03-26/data/
+ * //          ./analysis/daily/2026-03-26/threat-assessment/
+ * //          ./analysis/daily/2026-03-26/risk-scoring/
  * ```
  */
 export function initializeAnalysisDirectory(baseDir, date) {
@@ -807,7 +807,7 @@ export function serializeFrontmatter(fm) {
  * @example
  * ```ts
  * // {article-type-slug} varies by workflow (e.g. 'plenary-session', 'week-ahead')
- * writeAnalysisFile('./analysis/2026-03-26/{article-type-slug}/classification/significance-classification.md', fm, body);
+ * writeAnalysisFile('./analysis/daily/2026-03-26/{article-type-slug}/classification/significance-classification.md', fm, body);
  * ```
  */
 export function writeAnalysisFile(filePath, frontmatter, content) {
