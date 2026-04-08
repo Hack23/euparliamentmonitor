@@ -268,7 +268,7 @@ Read these BEFORE creating analysis artifacts — they define the scoring framew
 
 ### Higher-Level Analysis Templates (docs/analysis-methodology/)
 
-Read and apply these templates when generating analysis artifacts in `analysis/daily/${TODAY}/`:
+Read and apply these templates when generating analysis artifacts in `analysis/daily/${TODAY}/${ARTICLE_TYPE_SLUG}/`:
 
 | Template | File | When to Apply |
 |----------|------|--------------|

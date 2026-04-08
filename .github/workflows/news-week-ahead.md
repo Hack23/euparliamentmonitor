@@ -996,7 +996,7 @@ rm -f news/metadata/generation-*.json
 # No workflow run should be wasted — analysis is ALWAYS persisted.
 # Remove only raw MCP data downloads to control PR size. Analysis markdown MUST be committed.
 # Scope cleanup to THIS run's analysis directory only — never touch historical data
-RUN_ANALYSIS_DIR="analysis/daily/$TODAY/week-ahead"
+RUN_ANALYSIS_DIR="analysis/daily/${TODAY}/week-ahead"
 if [ -d "$RUN_ANALYSIS_DIR" ]; then
   find "$RUN_ANALYSIS_DIR" -type f -path "*/data/*" ! -name "*.analysis.md" ! -name "*.md" -delete 2>/dev/null || true
   find "$RUN_ANALYSIS_DIR" -type d -name "data" -empty -delete 2>/dev/null || true

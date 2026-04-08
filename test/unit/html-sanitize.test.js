@@ -9,7 +9,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { stripScriptBlocks } from '../../scripts/utils/html-sanitize.js';
+import { stripScriptBlocks, stripHtmlTags } from '../../scripts/utils/html-sanitize.js';
 
 describe('html-sanitize', () => {
   describe('stripScriptBlocks', () => {
@@ -127,6 +127,50 @@ describe('html-sanitize', () => {
     it('should handle plain text without HTML', () => {
       const text = 'Just some plain text without any HTML tags';
       expect(stripScriptBlocks(text)).toBe(text);
+    });
+  });
+
+  describe('stripHtmlTags', () => {
+    it('should return empty string for empty input', () => {
+      expect(stripHtmlTags('')).toBe('');
+    });
+
+    it('should return the same string when no tags are present', () => {
+      expect(stripHtmlTags('Hello world')).toBe('Hello world');
+    });
+
+    it('should strip simple HTML tags', () => {
+      expect(stripHtmlTags('<p>Hello</p>')).toBe(' Hello ');
+    });
+
+    it('should strip tags with attributes', () => {
+      expect(stripHtmlTags('<div class="test">Content</div>')).toBe(' Content ');
+    });
+
+    it('should strip multiple tags', () => {
+      const result = stripHtmlTags('<h1>Title</h1><p>Body</p>');
+      expect(result).toContain('Title');
+      expect(result).toContain('Body');
+      expect(result).not.toContain('<');
+      expect(result).not.toContain('>');
+    });
+
+    it('should handle self-closing tags', () => {
+      expect(stripHtmlTags('Hello<br/>World')).toBe('Hello World');
+    });
+
+    it('should handle unclosed tag gracefully', () => {
+      const result = stripHtmlTags('Hello<div class="unclosed');
+      expect(result).toContain('Hello');
+      expect(result).toContain('<div class="unclosed');
+    });
+
+    it('should not cause ReDoS on many < characters', () => {
+      const malicious = '<'.repeat(10000);
+      const start = Date.now();
+      stripHtmlTags(malicious);
+      const elapsed = Date.now() - start;
+      expect(elapsed).toBeLessThan(100);
     });
   });
 });
