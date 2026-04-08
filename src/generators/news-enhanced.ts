@@ -13,7 +13,7 @@
  *
  * When the `--analysis` flag is supplied (all 9 agentic workflows do this),
  * the analysis stage runs **before** article generation, producing structured
- * political intelligence artifacts under `analysis/{date}/{article-type}/`.  These
+ * political intelligence artifacts under `analysis/daily/{date}/{article-type}/`.  These
  * artifacts are committed to the repository for review and improvement.
  *
  * Pipeline stages:
@@ -285,7 +285,7 @@ function parseAnalysisMethods(): readonly AnalysisMethod[] {
  * Run the optional analysis stage (Fetch → Analysis) before article generation.
  *
  * This function is **side-effect-only**: it writes analysis markdown and a
- * `manifest.json` to disk under `analysis/{date}/{article-type}/`.  The returned
+ * `manifest.json` to disk under `analysis/daily/{date}/{article-type}/`.  The returned
  * {@link AnalysisContext} is informational; strategies read analysis output
  * from disk rather than consuming the context object in-memory.  Analysis
  * artifacts are committed to the repository for review and political
@@ -315,7 +315,7 @@ async function maybeRunAnalysis(
   const analysisDirBase =
     trimmedAnalysisDirBase && trimmedAnalysisDirBase.length > 0
       ? trimmedAnalysisDirBase
-      : 'analysis';
+      : 'analysis/daily';
   const enabledMethods = parseAnalysisMethods();
 
   console.log('');
@@ -513,7 +513,7 @@ async function main(): Promise<void> {
     // Expose analysis dir/slug via env vars so strategies can locate analysis
     // artifacts without hard-coding paths.  Follows the EP_FEED_DATA_FILE pattern.
     if (analysisCtx) {
-      // Base dir: parent of date-scoped dir (e.g. 'analysis' from 'analysis/2026-04-06/breaking')
+      // Base dir: parent of date-scoped dir (e.g. 'analysis/daily' from 'analysis/daily/2026-04-06/breaking')
       const analysisOutputParent = path.dirname(analysisCtx.outputDir);
       const analysisBaseDir = path.dirname(analysisOutputParent);
       process.env['EP_ANALYSIS_DIR'] = analysisBaseDir;

@@ -63,7 +63,7 @@ export interface LoadedAnalysisContext {
 // ─── Analysis loading defaults ───────────────────────────────────────────────
 
 /** Default base directory for analysis output */
-const DEFAULT_ANALYSIS_BASE_DIR = 'analysis';
+const DEFAULT_ANALYSIS_BASE_DIR = 'analysis/daily';
 
 /**
  * Environment variable name for overriding the analysis base directory.
@@ -101,7 +101,7 @@ const ANALYSIS_SUBDIRS = [
  * Resolution order for base directory:
  * 1. Explicit `baseDir` parameter (when non-default)
  * 2. `EP_ANALYSIS_DIR` environment variable (set by orchestration)
- * 3. Default `'analysis'`
+ * 3. Default `'analysis/daily'`
  *
  * Resolution order for slug:
  * 1. `EP_ANALYSIS_SLUG` environment variable (set by orchestration)
@@ -109,7 +109,7 @@ const ANALYSIS_SUBDIRS = [
  *
  * @param date - ISO 8601 date (YYYY-MM-DD) of the analysis run
  * @param articleTypeSlug - Article type slug (e.g. 'breaking', 'week-ahead')
- * @param baseDir - Base analysis directory (defaults to 'analysis')
+ * @param baseDir - Base analysis directory (defaults to 'analysis/daily')
  * @returns Loaded analysis context or null when unavailable
  */
 export function loadAnalysisContext(

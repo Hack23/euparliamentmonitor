@@ -875,7 +875,7 @@ export function analyzePoliticalForces(data: ClassificationInput): PoliticalForc
 // ─── Analysis directory & file utilities ─────────────────────────────────────
 
 /**
- * Initialize the `analysis/{date}/` directory structure.
+ * Initialize the `analysis/daily/{date}/` directory structure.
  *
  * Creates the following sub-directories if they do not already exist:
  * - `classification/`           — Political classification results
@@ -890,7 +890,7 @@ export function analyzePoliticalForces(data: ClassificationInput): PoliticalForc
  * - `data/mcp-responses/`       — Raw MCP tool call responses
  *
  * When article-type scoping is used (recommended for agentic workflows),
- * the caller should pass a scoped path such as `analysis/{date}/{slug}`.
+ * the caller should pass a scoped path such as `analysis/daily/{date}/{slug}`.
  *
  * @param baseDir - Base directory for analysis output (typically `analysis/`)
  * @param date - ISO date string used as the run folder name (YYYY-MM-DD).
@@ -901,10 +901,10 @@ export function analyzePoliticalForces(data: ClassificationInput): PoliticalForc
  * @example
  * ```ts
  * const runDir = initializeAnalysisDirectory('./analysis', '2026-03-26');
- * // Creates: ./analysis/2026-03-26/classification/
- * //          ./analysis/2026-03-26/data/
- * //          ./analysis/2026-03-26/threat-assessment/
- * //          ./analysis/2026-03-26/risk-scoring/
+ * // Creates: ./analysis/daily/2026-03-26/classification/
+ * //          ./analysis/daily/2026-03-26/data/
+ * //          ./analysis/daily/2026-03-26/threat-assessment/
+ * //          ./analysis/daily/2026-03-26/risk-scoring/
  * ```
  */
 export function initializeAnalysisDirectory(baseDir: string, date: string): string {
@@ -1003,7 +1003,7 @@ export function serializeFrontmatter(fm: AnalysisFrontmatter): string {
  * @example
  * ```ts
  * // {article-type-slug} varies by workflow (e.g. 'plenary-session', 'week-ahead')
- * writeAnalysisFile('./analysis/2026-03-26/{article-type-slug}/classification/significance-classification.md', fm, body);
+ * writeAnalysisFile('./analysis/daily/2026-03-26/{article-type-slug}/classification/significance-classification.md', fm, body);
  * ```
  */
 export function writeAnalysisFile(

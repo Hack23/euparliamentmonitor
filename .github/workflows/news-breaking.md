@@ -197,14 +197,14 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 
 > **📅 DATE REQUIREMENT**: ALL document/event/procedure references in articles MUST include their publish or creation date (e.g., "Resolution on Digital Markets (adopted 4 March 2026)"). Documents without a recent date are NOT news.
 
-> **🔬 ANALYSIS-FIRST MANDATE**: The AI (Opus 4.6) MUST first download all documents from EP feed endpoints, run the full analysis pipeline (all 18 default methods, plus opt-in `document-analysis` when enabled), and create analysis strategy markdown content BEFORE evaluating whether the data constitutes breaking news. Only after all analysis artifacts are written to `analysis/${TODAY}/breaking/` should breaking news significance be determined.
+> **🔬 ANALYSIS-FIRST MANDATE**: The AI (Opus 4.6) MUST first download all documents from EP feed endpoints, run the full analysis pipeline (all 18 default methods, plus opt-in `document-analysis` when enabled), and create analysis strategy markdown content BEFORE evaluating whether the data constitutes breaking news. Only after all analysis artifacts are written to `analysis/daily/${TODAY}/breaking/` should breaking news significance be determined.
 
 **Pipeline order (MANDATORY — steps 1-2 ALWAYS execute, even on quiet days):**
 1. **DOWNLOAD** (ALWAYS): Fetch ALL EP feed data — first try `timeframe: "today"`, then fall back to `timeframe: "one-week"` for any endpoint that returns empty/error/404. Prepare all data for analysis
 2. **ANALYZE** (ALWAYS): Run full analysis pipeline with all 18 default methods — produce analysis artifacts as part of the reasoning process, even when no breaking news exists
 3. **EVALUATE**: Based on the analysis artifacts and AI assessment, determine whether the content constitutes breaking news
-4. **GENERATE**: If newsworthy, generate the article using the analysis intelligence AND commit analysis data in the same PR to `analysis/${TODAY}/breaking/`
-5. **ANALYSIS-ONLY PR**: If analysis determines no breaking news significance, **still create an analysis-only PR** with `safeoutputs___create_pull_request` containing analysis artifacts in `analysis/${TODAY}/breaking/`.
+4. **GENERATE**: If newsworthy, generate the article using the analysis intelligence AND commit analysis data in the same PR to `analysis/daily/${TODAY}/breaking/`
+5. **ANALYSIS-ONLY PR**: If analysis determines no breaking news significance, **still create an analysis-only PR** with `safeoutputs___create_pull_request` containing analysis artifacts in `analysis/daily/${TODAY}/breaking/`.
    - Per `ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted
    - If existing analysis for this date exists, improve/extend it
    - Use `safeoutputs___noop` ONLY when MCP server is completely unavailable and zero data was collected
@@ -218,7 +218,7 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 
 **NEWSWORTHINESS GATE**: If NO events published/updated TODAY are found in feeds, the agent MUST still complete data download (with `one-week` fallback) and full analysis pipeline.
 - Per `ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted
-- On quiet days, **create an analysis-only PR** with `safeoutputs___create_pull_request` containing analysis artifacts in `analysis/${TODAY}/breaking/`
+- On quiet days, **create an analysis-only PR** with `safeoutputs___create_pull_request` containing analysis artifacts in `analysis/daily/${TODAY}/breaking/`
 - Analysis of quiet periods reveals patterns and must always be committed
 - If existing analysis for this date already exists, read it first and improve/extend/correct it
 - Do NOT skip data collection
@@ -276,7 +276,7 @@ For each breaking development, immediately assess:
 > **⚠️ CRITICAL**: Breaking news titles MUST be AI-generated from political content analysis. They must convey urgency and significance.
 
 **REQUIRED title approach — AI must generate headlines by:**
-1. Reading the analysis artifacts in `analysis/${TODAY}/breaking/`
+1. Reading the analysis artifacts in `analysis/daily/${TODAY}/breaking/`
 2. Identifying the single most impactful development from TODAY's feed data
 3. Writing a headline that conveys immediacy, names actors, and states the impact
 4. Keeping under 70 characters; using urgent active verbs: "breaks", "triggers", "blocks", "challenges"
@@ -292,13 +292,13 @@ For each breaking development, immediately assess:
 
 ## 🔗 ANALYSIS FILE REFERENCES (MANDATORY)
 
-Every generated article (or analysis-only PR) MUST link to ALL individual analysis files. The Analysis & Transparency section must include links to each specific `.md` file in `analysis/${TODAY}/breaking/`.
+Every generated article (or analysis-only PR) MUST link to ALL individual analysis files. The Analysis & Transparency section must include links to each specific `.md` file in `analysis/daily/${TODAY}/breaking/`.
 
 ## ⏱️ Time Budget (60 minutes)
 - **Minutes 0–3**: Date check, MCP warm-up with EP MCP tools
 - **Minutes 3–20**: Query ALL EP feed endpoints — download ALL documents, adopted texts, events, procedures, MEP updates. Use `timeframe: "today"` first, then retry with `timeframe: "one-week"` for any empty/failed endpoint. Also fetch advisory feeds (documents, plenary docs, committee docs, questions) with `timeframe: "one-week"`. **⚠️ EP API can be slow (30-90s per call) — be patient, do NOT abort on slow responses. Allow up to 120s per call.**
 - **Minutes 20–30**: 📊 Fetch analytical context (voting anomalies, coalition dynamics, political landscape, early warning) and run precomputed stats
-- **Minutes 30–40**: 🔬 Full political intelligence analysis stage — run all 18 default analysis methods (significance classification, political threat landscape assessment, risk scoring, actor mapping — writes analysis artifacts to `analysis/${TODAY}/breaking/`; opt-in `document-analysis` via `--analysis-methods` for per-document markdown). Save ALL MCP data to `analysis/${TODAY}/breaking/data/`
+- **Minutes 30–40**: 🔬 Full political intelligence analysis stage — run all 18 default analysis methods (significance classification, political threat landscape assessment, risk scoring, actor mapping — writes analysis artifacts to `analysis/daily/${TODAY}/breaking/`; opt-in `document-analysis` via `--analysis-methods` for per-document markdown). Save ALL MCP data to `analysis/daily/${TODAY}/breaking/data/`
 - **Minutes 40–45**: 📊 AI evaluates analysis artifacts to determine breaking news significance — ONLY proceed with article generation if analysis confirms newsworthy developments from TODAY
 - **Minutes 45–52**: Generate English article with deep political intelligence analysis informed by analysis artifacts (SKIP if no today-dated breaking news)
 - **Minutes 52–57**: Validate and finalize changes
@@ -322,7 +322,7 @@ The `--analysis` flag with `--analysis-methods` activates the full political int
    - **Risk Scoring** (5 methods): political risk matrix, capital-at-risk assessment, quantitative SWOT, legislative velocity risk, agent risk workflow
    - **Intelligence** (5 methods): deep analysis, stakeholder analysis, coalition dynamics, voting patterns, cross-session intelligence
    - _Optional_: **Per-Document Analysis** (opt-in via `--analysis-methods=document-analysis`) — per-document markdown + JSON intelligence files for every downloaded MCP file; not included in default set
-3. **Writes and commits analysis artifacts** to `analysis/${TODAY}/breaking/` (markdown files + `manifest.json`) — each workflow writes to its own per-article-type subdirectory, preventing merge conflicts when multiple workflows run concurrently; MCP data is stored at `analysis/${TODAY}/breaking/data/`
+3. **Writes and commits analysis artifacts** to `analysis/daily/${TODAY}/breaking/` (markdown files + `manifest.json`) — each workflow writes to its own per-article-type subdirectory, preventing merge conflicts when multiple workflows run concurrently; MCP data is stored at `analysis/daily/${TODAY}/breaking/data/`
 4. **AI evaluates analysis artifacts** — after all methods complete, the AI reviews the structured analysis to determine breaking news significance before proceeding to article generation
 
 The analysis artifacts provide structured political intelligence that enriches the article generation phase with deeper context, evidence-based assessments, and systematic threat/risk analysis. The per-document analysis creates individual markdown files for each EP document, enabling comprehensive AI review before breaking news evaluation.
@@ -333,11 +333,11 @@ The analysis artifacts provide structured political intelligence that enriches t
 
 > **⚠️ FULL DATA ANALYSIS**: Read ALL structured templates in `analysis/templates/` and methodology guides in `analysis/methodologies/` BEFORE starting analysis. Apply them to **every downloaded MCP data file**. See `analysis/README.md` for the complete analysis directory documentation.
 
-> **⚠️ IMPROVE EXISTING ANALYSIS**: Per `ai-driven-analysis-guide.md` Rule 5, before producing new analysis, check for existing analysis in `analysis/${TODAY}/breaking/`. If previous analysis exists, READ it first and **improve, extend, correct, or complete** it — never discard prior work. No workflow run should be wasted.
+> **⚠️ IMPROVE EXISTING ANALYSIS**: Per `ai-driven-analysis-guide.md` Rule 5, before producing new analysis, check for existing analysis in `analysis/daily/${TODAY}/breaking/`. If previous analysis exists, READ it first and **improve, extend, correct, or complete** it — never discard prior work. No workflow run should be wasted.
 
 ### Structured Analysis Templates (analysis/templates/)
 
-Read and apply these templates during analysis of `analysis/${TODAY}/breaking/data/`: use the **per-file** template for **every downloaded MCP data file**, then create the **synthesis** template after all per-file analyses are complete.
+Read and apply these templates during analysis of `analysis/daily/${TODAY}/breaking/data/`: use the **per-file** template for **every downloaded MCP data file**, then create the **synthesis** template after all per-file analyses are complete.
 
 | Template | File | When to Apply |
 |----------|------|--------------|
@@ -365,7 +365,7 @@ Read these BEFORE creating analysis artifacts — they define the scoring framew
 
 ### Higher-Level Analysis Templates (docs/analysis-methodology/)
 
-Read these templates for reference when generating analysis artifacts in `analysis/${TODAY}/breaking/`. Apply `docs/analysis-methodology/weekly-intelligence-brief.md` as the **PRIMARY** template, and use the supporting templates below only when their "When to Apply" guidance is relevant to the breaking item:
+Read these templates for reference when generating analysis artifacts in `analysis/daily/${TODAY}/breaking/`. Apply `docs/analysis-methodology/weekly-intelligence-brief.md` as the **PRIMARY** template, and use the supporting templates below only when their "When to Apply" guidance is relevant to the breaking item:
 
 | Template | File | When to Apply |
 |----------|------|--------------|
@@ -503,7 +503,7 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 **If no newsworthy events found in feeds (but data was collected):**
 1. Verify all feed endpoints were queried (including one-week fallback)
 2. Run the FULL analysis pipeline on collected data
-3. Write analysis artifacts to `analysis/${TODAY}/breaking/`
+3. Write analysis artifacts to `analysis/daily/${TODAY}/breaking/`
 4. **Create an analysis-only PR** with `safeoutputs___create_pull_request` — per `ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted. If existing analysis for this date exists, improve/extend it
 
 **If article generation fails AFTER starting work:**
@@ -754,7 +754,7 @@ fi
 - ✅ **manifest.json** includes `"articleType": "breaking"`
 - ✅ **Analysis markdown** files include `articleType: breaking` in YAML frontmatter
 - ✅ **Article HTML** includes `<meta name="article-type" content="breaking">`
-- ✅ **Analysis directory** is scoped to `analysis/${TODAY}/breaking/`
+- ✅ **Analysis directory** is scoped to `analysis/daily/${TODAY}/breaking/`
 
 ### Minimum AI Analysis Time (Rule 7 — required)
 - ✅ **≥15 minutes** spent on AI-driven political intelligence analysis (reading methodologies, querying MCP, writing original analytical prose)
@@ -842,7 +842,7 @@ rm -f news/metadata/generation-*.json
 TODAY=$(date -u +%Y-%m-%d)
 
 # Scope cleanup to THIS run's analysis directory only — never touch historical data
-RUN_ANALYSIS_DIR="analysis/${TODAY}/breaking"
+RUN_ANALYSIS_DIR="analysis/daily/${TODAY}/breaking"
 if [ -d "$RUN_ANALYSIS_DIR" ]; then
   find "$RUN_ANALYSIS_DIR" -type f -path "*/data/*" ! -name "*.analysis.md" ! -name "*.md" -delete 2>/dev/null || true
   find "$RUN_ANALYSIS_DIR" -type d -name "data" -empty -delete 2>/dev/null || true

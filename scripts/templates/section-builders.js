@@ -7,7 +7,7 @@
  */
 import { escapeHTML } from '../utils/file-utils.js';
 import { getLocalizedString, TOC_ARIA_LABELS } from '../constants/languages.js';
-import { stripScriptBlocks } from '../utils/html-sanitize.js';
+import { stripScriptBlocks, stripHtmlTags } from '../utils/html-sanitize.js';
 /**
  * Count occurrences of a regex pattern in a string.
  *
@@ -52,10 +52,7 @@ export function computeArticleQualityScore(content) {
     // Uses iterative scanning instead of regex to avoid CodeQL js/bad-tag-filter.
     const noScripts = stripScriptBlocks(content);
     // Strip HTML tags to get plain text, then count words
-    const plainText = noScripts
-        .replace(/<[^>]*>/g, ' ')
-        .replace(/\s+/g, ' ')
-        .trim();
+    const plainText = stripHtmlTags(noScripts).replace(/\s+/g, ' ').trim();
     const wordCount = plainText.length > 0 ? plainText.split(' ').filter((w) => w.length > 0).length : 0;
     // All further counting uses script-stripped HTML to avoid false positives
     // from embedded JSON-LD or interactive script blocks.

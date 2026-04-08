@@ -268,7 +268,7 @@ For each committee report, analyze:
 - ❌ `Legislative Pipeline: Pipeline Health 0%` (technical metric, meaningless to readers)
 
 **REQUIRED title approach — AI must generate headlines by:**
-1. Reading the analysis artifacts in `analysis/${TODAY}/committee-reports/`
+1. Reading the analysis artifacts in `analysis/daily/${TODAY}/committee-reports/`
 2. Identifying the single most politically significant committee action
 3. Writing a headline that leads with the political story: who did what, what does it mean
 4. Keeping the headline under 70 characters for SEO
@@ -295,15 +295,15 @@ For each committee report, analyze:
 ## 🔗 ANALYSIS FILE REFERENCES (MANDATORY)
 
 Every generated article MUST include the Analysis & Transparency section that links to ALL individual analysis files in the GitHub repository. The template already generates these links, but the AI agent MUST verify:
-- [ ] Links to `analysis/${TODAY}/committee-reports/classification/*.md` files are present
-- [ ] Links to `analysis/${TODAY}/committee-reports/threat-assessment/*.md` files are present
-- [ ] Links to `analysis/${TODAY}/committee-reports/risk-scoring/*.md` files are present
-- [ ] Links to `analysis/${TODAY}/committee-reports/existing/*.md` files are present
+- [ ] Links to `analysis/daily/${TODAY}/committee-reports/classification/*.md` files are present
+- [ ] Links to `analysis/daily/${TODAY}/committee-reports/threat-assessment/*.md` files are present
+- [ ] Links to `analysis/daily/${TODAY}/committee-reports/risk-scoring/*.md` files are present
+- [ ] Links to `analysis/daily/${TODAY}/committee-reports/existing/*.md` files are present
 - [ ] Links to `analysis/methodologies/*.md` methodology documents are present
 
 ## ⏱️ Time Budget (60 minutes)
 - **Minutes 0–3**: Date check, MCP warm-up with EP MCP tools
-- **Minutes 3–8**: 🔬 Political intelligence analysis stage (significance classification, political threat landscape assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `analysis/${TODAY}/committee-reports/`)
+- **Minutes 3–8**: 🔬 Political intelligence analysis stage (significance classification, political threat landscape assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `analysis/daily/${TODAY}/committee-reports/`)
 - **Minutes 8–18**: Query EP MCP tools for committee reports data
 - **Minutes 18–45**: Generate English article with deep political intelligence analysis — **⚠️ Per Rule 7, spend ≥15 minutes on AI-driven analysis** (reading methodologies, querying MCP for cross-references, writing original analytical prose with evidence citations, completing 4-pass refinement cycle)
 - **Minutes 45–52**: Validate and finalize output — run HTML and WCAG checks (using project validation tools), verify metadata (titles, slugs, dates, language), sanity-check file paths and links, and prepare the pull request description summarizing key political intelligence findings.
@@ -325,7 +325,7 @@ The `--analysis` flag activates the political intelligence analysis pipeline **b
    - **Risk Scoring** (5 methods): political risk matrix, capital-at-risk assessment, quantitative SWOT, legislative velocity risk, agent risk workflow
    - **Intelligence** (5 methods): deep analysis, stakeholder analysis, coalition dynamics, voting patterns, cross-session intelligence
    - _Optional_: **Per-Document Analysis** (opt-in via `--analysis-methods=document-analysis`) — per-document markdown + JSON intelligence files for every downloaded MCP file; not included in default set
-3. **Writes and commits analysis artifacts** to `analysis/${TODAY}/committee-reports/` (markdown files + `manifest.json`) — each workflow writes to its own per-article-type subdirectory, preventing merge conflicts when multiple workflows run concurrently; MCP data is stored at `analysis/${TODAY}/committee-reports/data/`
+3. **Writes and commits analysis artifacts** to `analysis/daily/${TODAY}/committee-reports/` (markdown files + `manifest.json`) — each workflow writes to its own per-article-type subdirectory, preventing merge conflicts when multiple workflows run concurrently; MCP data is stored at `analysis/daily/${TODAY}/committee-reports/data/`
 4. **Blocks article generation on failure in agentic mode** — when `--analysis` is enabled, analysis failures abort the run; disable `--analysis` if you want generation to proceed without analysis
 
 The analysis artifacts provide structured political intelligence that enriches the article generation phase with deeper context, evidence-based assessments, and systematic threat/risk analysis.
@@ -336,11 +336,11 @@ The analysis artifacts provide structured political intelligence that enriches t
 
 > **⚠️ FULL DATA ANALYSIS**: Read ALL structured templates in `analysis/templates/` and methodology guides in `analysis/methodologies/` BEFORE starting analysis. Apply them to **every downloaded MCP data file**. See `analysis/README.md` for the complete analysis directory documentation.
 
-> **⚠️ IMPROVE EXISTING ANALYSIS**: Per `ai-driven-analysis-guide.md` Rule 5, before producing new analysis, check for existing analysis in `analysis/${TODAY}/committee-reports/`. If previous analysis exists, READ it first and **improve, extend, correct, or complete** it — never discard prior work. No workflow run should be wasted.
+> **⚠️ IMPROVE EXISTING ANALYSIS**: Per `ai-driven-analysis-guide.md` Rule 5, before producing new analysis, check for existing analysis in `analysis/daily/${TODAY}/committee-reports/`. If previous analysis exists, READ it first and **improve, extend, correct, or complete** it — never discard prior work. No workflow run should be wasted.
 
 ### Structured Analysis Templates (analysis/templates/)
 
-Read and apply the complete template set below when analyzing `analysis/${TODAY}/committee-reports/data/`:
+Read and apply the complete template set below when analyzing `analysis/daily/${TODAY}/committee-reports/data/`:
 
 | Template | File | When to Apply |
 |----------|------|--------------|
@@ -368,7 +368,7 @@ Read these BEFORE creating analysis artifacts — they define the scoring framew
 
 ### Higher-Level Analysis Templates (docs/analysis-methodology/)
 
-For committee reports, do **not** apply every template by default. Use the requirement levels below when generating analysis artifacts in `analysis/${TODAY}/committee-reports/`:
+For committee reports, do **not** apply every template by default. Use the requirement levels below when generating analysis artifacts in `analysis/daily/${TODAY}/committee-reports/`:
 - **PRIMARY (required):** Committee Power Analysis
 - **KEY (required supporting template):** Legislative Risk Assessment
 - **OPTIONAL (apply only when supported by available evidence and relevant to the committee activity):** Political Landscape, Coalition Dynamics, MEP Scorecard, Weekly Brief
@@ -504,7 +504,7 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 **If no significant data found (genuinely empty — only after ALL feeds queried for the configured timeframe):**
 1. Verify ALL feed endpoints were queried once, respecting the "each tool at most once" constraint
 2. Run full analysis pipeline on whatever data was collected
-3. **Create an analysis-only PR** with `safeoutputs___create_pull_request` — per `ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted. Commit analysis artifacts to `analysis/${TODAY}/committee-reports/`. If existing analysis exists, improve/extend it
+3. **Create an analysis-only PR** with `safeoutputs___create_pull_request` — per `ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted. Commit analysis artifacts to `analysis/daily/${TODAY}/committee-reports/`. If existing analysis exists, improve/extend it
 
 **If article generation fails AFTER starting work:**
 1. Log the specific failure
@@ -942,7 +942,7 @@ fi
 - ✅ **manifest.json** includes `"articleType": "committee-reports"`
 - ✅ **Analysis markdown** files include `articleType: committee-reports` in YAML frontmatter
 - ✅ **Article HTML** includes `<meta name="article-type" content="committee-reports">`
-- ✅ **Analysis directory** is scoped to `analysis/${TODAY}/committee-reports/`
+- ✅ **Analysis directory** is scoped to `analysis/daily/${TODAY}/committee-reports/`
 
 ### Minimum AI Analysis Time (Rule 7 — required)
 - ✅ **≥15 minutes** spent on AI-driven political intelligence analysis (reading methodologies, querying MCP, writing original analytical prose)
@@ -1036,7 +1036,7 @@ rm -f news/metadata/generation-*.json
 # No workflow run should be wasted — analysis is ALWAYS persisted.
 # Remove only raw MCP data downloads to control PR size. Analysis markdown MUST be committed.
 # Scope cleanup to THIS run's analysis directory only — never touch historical data
-RUN_ANALYSIS_DIR="analysis/${TODAY}/committee-reports"
+RUN_ANALYSIS_DIR="analysis/daily/${TODAY}/committee-reports"
 if [ -d "$RUN_ANALYSIS_DIR" ]; then
   find "$RUN_ANALYSIS_DIR" -type f -path "*/data/*" ! -name "*.analysis.md" ! -name "*.md" -delete 2>/dev/null || true
   find "$RUN_ANALYSIS_DIR" -type d -name "data" -empty -delete 2>/dev/null || true

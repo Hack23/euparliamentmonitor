@@ -56,7 +56,7 @@ export { pl, pl as pluralizeCount } from './utils/metadata-utils.js';
 // ─── Political Threat Assessment ─────────────────────────────────────────────
 export { assessPoliticalThreats, buildActorThreatProfiles, buildConsequenceTree, analyzeLegislativeDisruption, generateThreatAssessmentMarkdown, ALL_THREAT_LANDSCAPE_DIMENSIONS, } from './utils/political-threat-assessment.js';
 // ─── HTML Utilities ──────────────────────────────────────────────────────────
-export { stripScriptBlocks } from './utils/html-sanitize.js';
+export { stripHtmlTags, stripScriptBlocks } from './utils/html-sanitize.js';
 export { parseArticleFilename, formatSlug, calculateReadTime, escapeHTML, isSafeURL, validateArticleHTML, } from './utils/file-utils.js';
 // ─── Article Category Detection ──────────────────────────────────────────────
 export { detectCategory } from './utils/article-category.js';

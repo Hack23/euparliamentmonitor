@@ -267,7 +267,7 @@ For each motion or resolution vote, analyze:
 - ❌ `Motions Analysis: European Parliament Monitor` (generic, no news value)
 
 **REQUIRED title approach — AI must generate headlines by:**
-1. Reading the analysis artifacts in `analysis/${TODAY}/motions/`
+1. Reading the analysis artifacts in `analysis/daily/${TODAY}/motions/`
 2. Identifying the most politically significant vote or resolution
 3. Writing a headline that conveys the political impact: coalition splits, landmark decisions, controversial outcomes
 4. Keeping under 70 characters for SEO; using active verbs
@@ -283,15 +283,15 @@ For each motion or resolution vote, analyze:
 ## 🔗 ANALYSIS FILE REFERENCES (MANDATORY)
 
 Every generated article MUST link to ALL individual analysis files. Verify the Analysis & Transparency section includes:
-- [ ] Links to `analysis/${TODAY}/motions/classification/*.md` files
-- [ ] Links to `analysis/${TODAY}/motions/threat-assessment/*.md` files
-- [ ] Links to `analysis/${TODAY}/motions/risk-scoring/*.md` files
-- [ ] Links to `analysis/${TODAY}/motions/existing/*.md` files
+- [ ] Links to `analysis/daily/${TODAY}/motions/classification/*.md` files
+- [ ] Links to `analysis/daily/${TODAY}/motions/threat-assessment/*.md` files
+- [ ] Links to `analysis/daily/${TODAY}/motions/risk-scoring/*.md` files
+- [ ] Links to `analysis/daily/${TODAY}/motions/existing/*.md` files
 - [ ] Links to `analysis/methodologies/*.md` methodology documents
 
 ## ⏱️ Time Budget (60 minutes)
 - **Minutes 0–3**: Date validation, MCP warm-up
-- **Minutes 3–8**: 🔬 Political intelligence analysis stage (significance classification, political threat landscape assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `analysis/${TODAY}/motions/`)
+- **Minutes 3–8**: 🔬 Political intelligence analysis stage (significance classification, political threat landscape assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `analysis/daily/${TODAY}/motions/`)
 - **Minutes 8–18**: Query EP MCP tools for motions data (parallel where possible)
 - **Minutes 18–45**: Generate English article with deep political intelligence analysis — **⚠️ Per Rule 7, spend ≥15 minutes on AI-driven analysis** (reading methodologies, querying MCP for cross-references, writing original analytical prose with evidence citations, completing 4-pass refinement cycle)
 - **Minutes 45–52**: Validate HTML
@@ -313,7 +313,7 @@ The `--analysis` flag activates the political intelligence analysis pipeline **b
    - **Risk Scoring** (5 methods): political risk matrix, capital-at-risk assessment, quantitative SWOT, legislative velocity risk, agent risk workflow
    - **Intelligence** (5 methods): deep analysis, stakeholder analysis, coalition dynamics, voting patterns, cross-session intelligence
    - _Optional_: **Per-Document Analysis** (opt-in via `--analysis-methods=document-analysis`) — per-document markdown + JSON intelligence files for every downloaded MCP file; not included in default set
-3. **Writes and commits analysis artifacts** to `analysis/${TODAY}/motions/` (markdown files + `manifest.json`) — each workflow writes to its own per-article-type subdirectory, preventing merge conflicts when multiple workflows run concurrently; MCP data is stored at `analysis/${TODAY}/motions/data/`
+3. **Writes and commits analysis artifacts** to `analysis/daily/${TODAY}/motions/` (markdown files + `manifest.json`) — each workflow writes to its own per-article-type subdirectory, preventing merge conflicts when multiple workflows run concurrently; MCP data is stored at `analysis/daily/${TODAY}/motions/data/`
 4. **Blocks article generation on failure in agentic mode** — when `--analysis` is enabled, analysis failures abort the run; disable `--analysis` if you want generation to proceed without analysis
 
 The analysis artifacts provide structured political intelligence that enriches the article generation phase with deeper context, evidence-based assessments, and systematic threat/risk analysis.
@@ -324,11 +324,11 @@ The analysis artifacts provide structured political intelligence that enriches t
 
 > **⚠️ FULL DATA ANALYSIS**: Read ALL structured templates in `analysis/templates/` and methodology guides in `analysis/methodologies/` BEFORE starting analysis. Apply them to **every downloaded MCP data file**. See `analysis/README.md` for the complete analysis directory documentation.
 
-> **⚠️ IMPROVE EXISTING ANALYSIS**: Per `ai-driven-analysis-guide.md` Rule 5, before producing new analysis, check for existing analysis in `analysis/${TODAY}/motions/`. If previous analysis exists, READ it first and **improve, extend, correct, or complete** it — never discard prior work. No workflow run should be wasted.
+> **⚠️ IMPROVE EXISTING ANALYSIS**: Per `ai-driven-analysis-guide.md` Rule 5, before producing new analysis, check for existing analysis in `analysis/daily/${TODAY}/motions/`. If previous analysis exists, READ it first and **improve, extend, correct, or complete** it — never discard prior work. No workflow run should be wasted.
 
 ### Structured Analysis Templates (analysis/templates/)
 
-Read and apply the complete template set below when analyzing `analysis/${TODAY}/motions/data/`: use the **per-file** template for **every downloaded MCP data file**, then create the **synthesis** template after all per-file analyses are complete.
+Read and apply the complete template set below when analyzing `analysis/daily/${TODAY}/motions/data/`: use the **per-file** template for **every downloaded MCP data file**, then create the **synthesis** template after all per-file analyses are complete.
 
 | Template | File | When to Apply |
 |----------|------|--------------|
@@ -356,7 +356,7 @@ Read these BEFORE creating analysis artifacts — they define the scoring framew
 
 ### Higher-Level Analysis Templates (docs/analysis-methodology/)
 
-Use templates marked **PRIMARY** or **KEY** when generating analysis artifacts in `analysis/${TODAY}/motions/`. All other templates in this table are reference-only and optional; apply them only when relevant to the specific motion or supporting analysis.
+Use templates marked **PRIMARY** or **KEY** when generating analysis artifacts in `analysis/daily/${TODAY}/motions/`. All other templates in this table are reference-only and optional; apply them only when relevant to the specific motion or supporting analysis.
 
 | Template | File | When to Apply |
 |----------|------|--------------|
@@ -490,7 +490,7 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 **If no significant data found (genuinely empty — only after ALL feeds were queried in the standard collection pass):**
 1. Verify ALL feed endpoints were queried once according to the data-gathering rules
 2. Run full analysis pipeline on whatever data was collected
-3. **Create an analysis-only PR** with `safeoutputs___create_pull_request` — per `ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted. Commit analysis artifacts to `analysis/${TODAY}/motions/`. If existing analysis exists, improve/extend it
+3. **Create an analysis-only PR** with `safeoutputs___create_pull_request` — per `ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted. Commit analysis artifacts to `analysis/daily/${TODAY}/motions/`. If existing analysis exists, improve/extend it
 
 **If article generation fails AFTER starting work:**
 1. Log the specific failure
@@ -921,7 +921,7 @@ fi
 - ✅ **manifest.json** includes `"articleType": "motions"`
 - ✅ **Analysis markdown** files include `articleType: motions` in YAML frontmatter
 - ✅ **Article HTML** includes `<meta name="article-type" content="motions">`
-- ✅ **Analysis directory** is scoped to `analysis/${TODAY}/motions/`
+- ✅ **Analysis directory** is scoped to `analysis/daily/${TODAY}/motions/`
 
 ### Minimum AI Analysis Time (Rule 7 — required)
 - ✅ **≥15 minutes** spent on AI-driven political intelligence analysis (reading methodologies, querying MCP, writing original analytical prose)
@@ -1012,7 +1012,7 @@ rm -f news/metadata/generation-*.json
 # No workflow run should be wasted — analysis is ALWAYS persisted.
 # Remove only raw MCP data downloads to control PR size. Analysis markdown MUST be committed.
 # Scope cleanup to THIS run's analysis directory only — never touch historical data
-RUN_ANALYSIS_DIR="analysis/${TODAY}/motions"
+RUN_ANALYSIS_DIR="analysis/daily/${TODAY}/motions"
 if [ -d "$RUN_ANALYSIS_DIR" ]; then
   find "$RUN_ANALYSIS_DIR" -type f -path "*/data/*" ! -name "*.analysis.md" ! -name "*.md" -delete 2>/dev/null || true
   find "$RUN_ANALYSIS_DIR" -type d -name "data" -empty -delete 2>/dev/null || true

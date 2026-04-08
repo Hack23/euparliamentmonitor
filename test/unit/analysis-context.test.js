@@ -122,8 +122,8 @@ describe('loadAnalysisContext', () => {
     });
     process.env['EP_ANALYSIS_DIR'] = customBase;
 
-    // Passing 'analysis' (the default value) should resolve to the env var dir
-    const ctx = loadAnalysisContext('2026-04-06', 'breaking', 'analysis');
+    // Passing 'analysis/daily' (the default value) should resolve to the env var dir
+    const ctx = loadAnalysisContext('2026-04-06', 'breaking', 'analysis/daily');
     expect(ctx).not.toBeNull();
     expect(ctx.manifest).not.toBeNull();
     expect(ctx.overallConfidence).toBe('high');

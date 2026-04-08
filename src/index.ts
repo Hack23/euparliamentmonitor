@@ -165,7 +165,7 @@ export {
 } from './utils/political-threat-assessment.js';
 
 // ─── HTML Utilities ──────────────────────────────────────────────────────────
-export { stripScriptBlocks } from './utils/html-sanitize.js';
+export { stripHtmlTags, stripScriptBlocks } from './utils/html-sanitize.js';
 
 export {
   parseArticleFilename,

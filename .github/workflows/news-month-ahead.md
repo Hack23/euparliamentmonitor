@@ -268,7 +268,7 @@ Connect this month's agenda to longer parliamentary trajectories:
 ## ⏱️ Time Budget (60 minutes)
 
 - **Minutes 0–3**: Date validation, MCP warm-up with `get_plenary_sessions`
-- **Minutes 3–8**: 🔬 Political intelligence analysis stage (significance classification, political threat landscape assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `analysis/${TODAY}/month-ahead/`)
+- **Minutes 3–8**: 🔬 Political intelligence analysis stage (significance classification, political threat landscape assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `analysis/daily/${TODAY}/month-ahead/`)
 - **Minutes 8–18**: Query plenary sessions, committees, and legislative pipeline for next 30 days
 - **Minutes 18–45**: Generate English article with deep political intelligence analysis — **⚠️ Per Rule 7, spend ≥15 minutes on AI-driven analysis** (reading methodologies, querying MCP for cross-references, writing original analytical prose with evidence citations, completing 4-pass refinement cycle)
 - **Minutes 45–52**: Validate generated HTML
@@ -285,7 +285,7 @@ The `--analysis` flag activates the political intelligence analysis pipeline **b
    - **Risk Scoring** (5 methods): political risk matrix, capital-at-risk assessment, quantitative SWOT, legislative velocity risk, agent risk workflow
    - **Intelligence** (5 methods): deep analysis, stakeholder analysis, coalition dynamics, voting patterns, cross-session intelligence
    - _Optional_: **Per-Document Analysis** (opt-in via `--analysis-methods=document-analysis`) — per-document markdown + JSON intelligence files for every downloaded MCP file; not included in default set
-3. **Writes and commits analysis artifacts** to `analysis/${TODAY}/month-ahead/` (markdown files + `manifest.json`) — each workflow writes to its own per-article-type subdirectory, preventing merge conflicts when multiple workflows run concurrently; MCP data is stored at `analysis/${TODAY}/month-ahead/data/`
+3. **Writes and commits analysis artifacts** to `analysis/daily/${TODAY}/month-ahead/` (markdown files + `manifest.json`) — each workflow writes to its own per-article-type subdirectory, preventing merge conflicts when multiple workflows run concurrently; MCP data is stored at `analysis/daily/${TODAY}/month-ahead/data/`
 4. **Blocks article generation on failure in agentic mode** — when `--analysis` is enabled, analysis failures abort the run; disable `--analysis` if you want generation to proceed without analysis
 
 The analysis artifacts provide structured political intelligence that enriches the article generation phase with deeper context, evidence-based assessments, and systematic threat/risk analysis.
@@ -296,12 +296,12 @@ The analysis artifacts provide structured political intelligence that enriches t
 
 > **⚠️ FULL DATA ANALYSIS**: Read ALL structured templates in `analysis/templates/` and methodology guides in `analysis/methodologies/` BEFORE starting analysis. Apply them to **every downloaded MCP data file**. See `analysis/README.md` for the complete analysis directory documentation.
 
-> **⚠️ IMPROVE EXISTING ANALYSIS**: Per `ai-driven-analysis-guide.md` Rule 5, before producing new analysis, check for existing analysis in `analysis/${TODAY}/month-ahead/`. If previous analysis exists, READ it first and **improve, extend, correct, or complete** it — never discard prior work. No workflow run should be wasted.
+> **⚠️ IMPROVE EXISTING ANALYSIS**: Per `ai-driven-analysis-guide.md` Rule 5, before producing new analysis, check for existing analysis in `analysis/daily/${TODAY}/month-ahead/`. If previous analysis exists, READ it first and **improve, extend, correct, or complete** it — never discard prior work. No workflow run should be wasted.
 
 ### Structured Analysis Templates (analysis/templates/)
 
-Read and apply the relevant templates in `analysis/templates/` for analysis in `analysis/${TODAY}/month-ahead/`. This includes:
-- the required **per-file** template for **every downloaded MCP data file** in `analysis/${TODAY}/month-ahead/data/`
+Read and apply the relevant templates in `analysis/templates/` for analysis in `analysis/daily/${TODAY}/month-ahead/`. This includes:
+- the required **per-file** template for **every downloaded MCP data file** in `analysis/daily/${TODAY}/month-ahead/data/`
 - the six **analysis-dimension** templates as applicable to each file
 - the required **synthesis** template after reviewing the full set of downloaded files
 
@@ -331,7 +331,7 @@ Read these BEFORE creating analysis artifacts — they define the scoring framew
 
 ### Higher-Level Analysis Templates (docs/analysis-methodology/)
 
-When generating analysis artifacts in `analysis/${TODAY}/month-ahead/`, **read and apply only the templates marked `PRIMARY` or `KEY`, plus any explicitly referenced supporting templates**. Treat the remaining templates in this catalog as **optional/reference-only** and use them only when they materially improve the month-ahead analysis.
+When generating analysis artifacts in `analysis/daily/${TODAY}/month-ahead/`, **read and apply only the templates marked `PRIMARY` or `KEY`, plus any explicitly referenced supporting templates**. Treat the remaining templates in this catalog as **optional/reference-only** and use them only when they materially improve the month-ahead analysis.
 
 | Template | File | When to Apply |
 |----------|------|--------------|
@@ -742,7 +742,7 @@ fi
 - ✅ **manifest.json** includes `"articleType": "month-ahead"`
 - ✅ **Analysis markdown** files include `articleType: month-ahead` in YAML frontmatter
 - ✅ **Article HTML** includes `<meta name="article-type" content="month-ahead">`
-- ✅ **Analysis directory** is scoped to `analysis/${TODAY}/month-ahead/`
+- ✅ **Analysis directory** is scoped to `analysis/daily/${TODAY}/month-ahead/`
 
 ### Minimum AI Analysis Time (Rule 7 — required)
 - ✅ **≥15 minutes** spent on AI-driven political intelligence analysis (reading methodologies, querying MCP, writing original analytical prose)
@@ -836,7 +836,7 @@ rm -f news/metadata/generation-*.json
 # No workflow run should be wasted — analysis is ALWAYS persisted.
 # Remove only raw MCP data downloads to control PR size. Analysis markdown MUST be committed.
 # Scope cleanup to THIS run's analysis directory only — never touch historical data
-RUN_ANALYSIS_DIR="analysis/${TODAY}/month-ahead"
+RUN_ANALYSIS_DIR="analysis/daily/${TODAY}/month-ahead"
 if [ -d "$RUN_ANALYSIS_DIR" ]; then
   find "$RUN_ANALYSIS_DIR" -type f -path "*/data/*" ! -name "*.analysis.md" ! -name "*.md" -delete 2>/dev/null || true
   find "$RUN_ANALYSIS_DIR" -type d -name "data" -empty -delete 2>/dev/null || true

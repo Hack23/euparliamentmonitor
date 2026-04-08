@@ -16,6 +16,38 @@
  * @param html - HTML string to strip
  * @returns The HTML with script blocks replaced by spaces
  */
+/**
+ * Strip all HTML tags from a string, replacing each tag with a single space.
+ *
+ * Uses iterative index-based scanning instead of regex to avoid polynomial
+ * backtracking (CodeQL `js/polynomial-redos`).
+ *
+ * @param html - HTML string to strip
+ * @returns The text content with tags replaced by spaces
+ */
+export function stripHtmlTags(html) {
+    let result = '';
+    let pos = 0;
+    while (pos < html.length) {
+        const openIdx = html.indexOf('<', pos);
+        if (openIdx < 0) {
+            result += html.slice(pos);
+            break;
+        }
+        // Copy text before the tag
+        result += html.slice(pos, openIdx);
+        // Find the closing '>'
+        const closeIdx = html.indexOf('>', openIdx + 1);
+        if (closeIdx < 0) {
+            // Unclosed tag — keep the rest as-is
+            result += html.slice(openIdx);
+            break;
+        }
+        result += ' ';
+        pos = closeIdx + 1;
+    }
+    return result;
+}
 export function stripScriptBlocks(html) {
     const OPEN = '<script';
     const CLOSE = '</script';

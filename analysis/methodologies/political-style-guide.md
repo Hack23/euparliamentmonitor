@@ -330,7 +330,7 @@ The following patterns are **REJECTED** in all analysis output:
 | Software-centric threat models (e.g. STRIDE, DREAD) | Designed for software bugs, not political dynamics; forced mappings produce superficial analysis | Use Political Threat Landscape, Diamond Model, Attack Trees, PESTLE, Scenario Planning |
 | Hardcoded Mermaid values in templates | Propagate to generated output as fake data | Use `{N}`, `{x}`, `{y}` placeholders |
 | Script-generated boilerplate | "Scripted crap content" — violates analytical mandate | AI must read methodology, analyse data, produce original analysis |
-| Overwriting previous analysis | Destroys audit trail; loses temporal context | Each workflow writes to `analysis/{date}/{article-type-slug}/` |
+| Overwriting previous analysis | Destroys audit trail; loses temporal context | Each workflow writes to `analysis/daily/{date}/{article-type-slug}/` |
 
 ### Good vs. Bad Examples
 
