@@ -198,42 +198,45 @@ C4Context
 ```mermaid
 graph TB
     subgraph "Public Internet - Untrusted Zone"
-        Users[Web Users<br/>Citizens, Journalists, Researchers]
+        Users["Web Users\nCitizens, Journalists, Researchers"]
     end
     
     subgraph "GitHub Infrastructure - Trusted Zone"
         subgraph "Build Environment"
-            Actions[GitHub Actions Runner<br/>GitHub-hosted Ubuntu runner<br/>ubuntu-latest + Node.js 25]
-            EPServer[European Parliament<br/>MCP Server<br/>(local process, stdio JSON-RPC)]
+            Actions["GitHub Actions Runner\nGitHub-hosted Ubuntu runner\nubuntu-latest + Node.js 25"]
+            EPServer["European Parliament\nMCP Server\nLocal process, stdio JSON-RPC"]
         end
         
         subgraph "Source Control"
-            Repo[Git Repository<br/>Version Control]
+            Repo["Git Repository\nVersion Control"]
         end
     end
     
     subgraph "AWS Hosting - Cloud Infrastructure Zone"
-        Pages[AWS S3 + CloudFront CDN<br/>HTTPS via ACM]
+        Pages["AWS S3 + CloudFront CDN\nHTTPS via ACM"]
     end
     
     subgraph "External Services - Partially Trusted Zone"
-        EPAPI[European Parliament<br/>Official APIs]
-        LLM[LLM Service<br/>OpenAI/Anthropic]
+        EPAPI["European Parliament\nOfficial APIs"]
+        LLM["LLM Service\nOpenAI/Anthropic"]
     end
     
-    Users -->|HTTPS GET<br/>Read-Only| Pages
-    Actions -->|Spawns locally<br/>(stdio JSON-RPC)| EPServer
-    EPServer -->|HTTPS/JSON<br/>Data Queries| EPAPI
-    Actions -->|API Calls<br/>Content Gen| LLM
-    Actions -->|Git Push<br/>Authenticated| Repo
-    Actions -->|S3 Sync + CF Invalidation<br/>Authenticated (OIDC)| Pages
+    Users -->|"HTTPS GET\nRead-Only"| Pages
+    Actions -->|"Spawns locally\nstdio JSON-RPC"| EPServer
+    EPServer -->|"HTTPS/JSON\nData Queries"| EPAPI
+    Actions -->|"API Calls\nContent Gen"| LLM
+    Actions -->|"Git Push\nAuthenticated"| Repo
+    Actions -->|"S3 Sync + CF Invalidation\nAuthenticated via OIDC"| Pages
     
-    style Users fill:#f9f,stroke:#333,stroke-width:2px
-    style Pages fill:#9f9,stroke:#333,stroke-width:2px
-    style Actions fill:#99f,stroke:#333,stroke-width:2px
-    style EPServer fill:#ff9,stroke:#333,stroke-width:2px
-    style EPAPI fill:#ff9,stroke:#333,stroke-width:2px
-    style LLM fill:#ff9,stroke:#333,stroke-width:2px
+    classDef users fill:#CE93D8,stroke:#6A1B9A,stroke-width:2px,color:#000000
+    classDef hosting fill:#A5D6A7,stroke:#2E7D32,stroke-width:2px,color:#000000
+    classDef actions fill:#90CAF9,stroke:#1565C0,stroke-width:2px,color:#000000
+    classDef external fill:#FFE082,stroke:#F57C00,stroke-width:2px,color:#000000
+
+    class Users users
+    class Pages hosting
+    class Actions actions
+    class EPServer,EPAPI,LLM external
 ```
 
 **Trust Boundary Analysis:**
@@ -339,28 +342,28 @@ C4Container
 ```mermaid
 graph TB
     subgraph "Generation Layer - Build Time Security"
-        NewsGen[News Generator<br/>🛡️ Input Validation<br/>🛡️ Data Sanitization]
-        MCPClient[MCP Client<br/>🛡️ Local stdio JSON-RPC<br/>🛡️ Connection Retry<br/>🛡️ Request Timeout]
-        Template[Template Engine<br/>🛡️ XSS Prevention<br/>🛡️ CSP Generation<br/>🛡️ HTML Sanitization]
+        NewsGen["News Generator\nInput Validation\nData Sanitization"]
+        MCPClient["MCP Client\nLocal stdio JSON-RPC\nConnection Retry\nRequest Timeout"]
+        Template["Template Engine\nXSS Prevention\nCSP Generation\nHTML Sanitization"]
     end
     
     subgraph "Storage Layer - Version Control Security"
-        GitRepo[Git Repository<br/>🛡️ Branch Protection<br/>🛡️ Code Review<br/>🛡️ Audit Logs]
-        Secrets[GitHub Secrets<br/>🛡️ Encrypted Storage<br/>🛡️ Least Privilege]
+        GitRepo["Git Repository\nBranch Protection\nCode Review\nAudit Logs"]
+        Secrets["GitHub Secrets\nEncrypted Storage\nLeast Privilege"]
     end
     
     subgraph "Delivery Layer - Runtime Security"
-        Pages[Amazon CloudFront + S3<br/>🛡️ HTTPS-Only<br/>🛡️ HSTS Headers<br/>🛡️ DDoS Protection]
-        CDN[CloudFront Edge<br/>🛡️ TLS Termination<br/>🛡️ Edge Caching<br/>🛡️ Geographic Distribution]
+        Pages["Amazon CloudFront + S3\nHTTPS-Only\nHSTS Headers\nDDoS Protection"]
+        CDN["CloudFront Edge\nTLS Termination\nEdge Caching\nGeographic Distribution"]
     end
     
     subgraph "External Layer - Third-Party Security"
-        EPMCP[EP MCP Server<br/>🛡️ MCP Protocol<br/>🛡️ Data Validation]
-        LLM[LLM Service<br/>🛡️ API Key Auth<br/>🛡️ Prompt Injection Prevention]
+        EPMCP["EP MCP Server\nMCP Protocol\nData Validation"]
+        LLM["LLM Service\nAPI Key Auth\nPrompt Injection Prevention"]
     end
     
     NewsGen -->|Validated Data| Template
-    NewsGen -->|Spawns locally (stdio)| MCPClient
+    NewsGen -->|"Spawns locally via stdio"| MCPClient
     MCPClient -->|JSON-RPC| EPMCP
     NewsGen -->|Secured API Calls| LLM
     Template -->|Safe HTML| GitRepo
@@ -368,12 +371,15 @@ graph TB
     GitRepo -->|Deploy to S3| Pages
     Pages -->|Cached Content| CDN
     
-    style NewsGen fill:#9cf,stroke:#333,stroke-width:2px
-    style Template fill:#9cf,stroke:#333,stroke-width:2px
-    style MCPClient fill:#9cf,stroke:#333,stroke-width:2px
-    style GitRepo fill:#cf9,stroke:#333,stroke-width:2px
-    style Pages fill:#fc9,stroke:#333,stroke-width:2px
-    style CDN fill:#fc9,stroke:#333,stroke-width:2px
+    classDef generation fill:#90CAF9,stroke:#1565C0,stroke-width:2px,color:#000000
+    classDef storage fill:#A5D6A7,stroke:#2E7D32,stroke-width:2px,color:#000000
+    classDef delivery fill:#FFCC80,stroke:#F57C00,stroke-width:2px,color:#000000
+    classDef external fill:#CE93D8,stroke:#6A1B9A,stroke-width:2px,color:#000000
+
+    class NewsGen,Template,MCPClient generation
+    class GitRepo,Secrets storage
+    class Pages,CDN delivery
+    class EPMCP,LLM external
 ```
 
 ---
@@ -672,26 +678,26 @@ sequenceDiagram
     participant CLI as CLI Interface
     participant Gen as Article Generator
     participant MCP as MCP Client
-    participant EP as EP MCP Server (local)
+    participant EP as EP MCP Server
     participant TPL as Template Engine
     participant FS as File System
 
     GHA->>CLI: Trigger daily workflow
     CLI->>Gen: generate-news --types=week-ahead --languages=all
-    Gen->>MCP: getPlenarySessions()
-    Note over MCP,EP: MCP client spawns EP MCP Server as local process (stdio JSON-RPC)
-    MCP->>EP: JSON-RPC request (stdio)
-    EP-->>MCP: EP data (JSON-RPC response)
-    MCP-->>Gen: Parsed EP data (basic shape checks)
+    Gen->>MCP: getPlenarySessions
+    Note over MCP,EP: MCP client spawns EP MCP Server as local process via stdio JSON-RPC
+    MCP->>EP: JSON-RPC request via stdio
+    EP-->>MCP: EP data as JSON-RPC response
+    MCP-->>Gen: Parsed EP data with basic shape checks
 
-    loop For each language (sequential)
-        Gen->>TPL: Render HTML(EP data, language)
-        Note over Gen,TPL: Placeholder English body content; native per-language LLM generation planned (ADR-004)
+    loop For each language sequentially
+        Gen->>TPL: Render HTML with EP data and language
+        Note over Gen,TPL: Placeholder English body content - native per-language LLM generation planned
         TPL-->>Gen: HTML output
         Gen->>FS: Write article file
     end
 
-    Gen->>FS: Write metadata.json (writeFileSync — failure fails run)
+    Gen->>FS: Write metadata.json via writeFileSync
     GHA->>GHA: Commit and push changes
     GHA->>GHA: Deploy to S3 + invalidate CloudFront
 ```

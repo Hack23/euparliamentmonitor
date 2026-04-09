@@ -370,65 +370,60 @@ flowchart LR
 **Infrastructure Evolution**: From GitHub Pages to hybrid cloud architecture.
 
 ```mermaid
-C4Deployment
-    title Future EU Parliament Monitor - Deployment (2027)
+graph TB
+    subgraph CDN["☁️ CloudFlare CDN - Global Edge Network"]
+        cdn_cache["🌐 Edge Cache\nStatic Assets + API Cache"]
+        edge_workers["⚡ CloudFlare Workers\nEdge Computing"]
+    end
 
-    Deployment_Node(cloudflare, "CloudFlare CDN", "Global Edge Network") {
-        Container(cdn_cache, "Edge Cache", "Static Assets + API Cache")
-        Container(edge_workers, "CloudFlare Workers", "Edge computing for personalization")
-    }
+    subgraph AWS_PRIMARY["🏗️ AWS eu-west-1 Ireland - Primary Region"]
+        subgraph ECS["📦 ECS Fargate Cluster"]
+            api["🔌 API Services\nGraphQL, REST, WebSocket"]
+            services["⚙️ Business Services\nArticle, Aggregation, Notification"]
+        end
+        subgraph DATA["💾 Data Stores"]
+            postgres["🐘 TimescaleDB\nTime-series data"]
+            mongo["🍃 DocumentDB\nArticles, metadata"]
+            redis["⚡ Redis Cluster\nCache + pub/sub"]
+            search["🔍 OpenSearch\nFull-text search"]
+        end
+    end
 
-    Deployment_Node(aws, "AWS", "Multi-Region Cloud") {
-        Deployment_Node(region_primary, "eu-west-1 (Ireland)", "Primary Region") {
-            Deployment_Node(ecs_cluster, "ECS Fargate Cluster") {
-                Container(api_containers, "API Services", "GraphQL, REST, WebSocket")
-                Container(service_containers, "Business Services", "Article, Aggregation, Notification")
-            }
+    subgraph AWS_DR["🔄 AWS us-east-1 Virginia - DR Region"]
+        standby["💤 Standby Services\nPassive DR, daily backups"]
+    end
 
-            Deployment_Node(rds, "RDS") {
-                ContainerDb(postgres, "TimescaleDB", "Time-series data")
-            }
+    subgraph GITHUB["📄 GitHub Pages - Static Hosting"]
+        static["📑 Static HTML\nPre-rendered content"]
+    end
 
-            Deployment_Node(documentdb, "DocumentDB") {
-                ContainerDb(mongo, "Document Store", "Articles, metadata")
-            }
+    subgraph ML["🤖 ML Infrastructure - AWS SageMaker"]
+        ml_endpoints["🧠 ML Endpoints\nFact-check, quality, sentiment"]
+    end
 
-            Deployment_Node(elasticache, "ElastiCache") {
-                ContainerDb(redis_cluster, "Redis Cluster", "Cache + pub/sub")
-            }
+    cdn_cache -->|HTTPS| api
+    cdn_cache -->|HTTPS| static
+    edge_workers -->|HTTPS| api
+    api -->|gRPC| services
+    services --> postgres
+    services --> mongo
+    services --> redis
+    services --> search
+    services -->|HTTPS| ml_endpoints
+    AWS_PRIMARY -.->|Cross-region replication| AWS_DR
 
-            Deployment_Node(elasticsearch, "OpenSearch") {
-                ContainerDb(search_cluster, "Search Cluster", "Full-text search")
-            }
-        }
+    classDef cdnNode fill:#BBDEFB,stroke:#1565C0,stroke-width:2px,color:#000000
+    classDef awsNode fill:#C8E6C9,stroke:#2E7D32,stroke-width:2px,color:#000000
+    classDef dataNode fill:#FFF9C4,stroke:#FFA000,stroke-width:2px,color:#000000
+    classDef drNode fill:#FFCCBC,stroke:#E64A19,stroke-width:2px,color:#000000
+    classDef mlNode fill:#E1BEE7,stroke:#6A1B9A,stroke-width:2px,color:#000000
 
-        Deployment_Node(region_secondary, "us-east-1 (Virginia)", "DR Region") {
-            Container(standby, "Standby Services", "Passive DR, daily backups")
-        }
-    }
-
-    Deployment_Node(github_pages, "GitHub Pages", "Static Hosting") {
-        Container(static_files, "Static HTML", "Pre-rendered content")
-    }
-
-    Deployment_Node(ml_infra, "ML Infrastructure", "AWS SageMaker") {
-        Container(ml_endpoints, "ML Endpoints", "Fact-check, quality, sentiment models")
-    }
-
-    Rel(cdn_cache, api_containers, "Routes to", "HTTPS")
-    Rel(cdn_cache, static_files, "Serves", "HTTPS")
-    Rel(edge_workers, api_containers, "Calls API", "HTTPS")
-
-    Rel(api_containers, service_containers, "Invokes", "gRPC")
-    Rel(service_containers, postgres, "Queries", "PostgreSQL")
-    Rel(service_containers, mongo, "Reads/Writes", "MongoDB")
-    Rel(service_containers, redis_cluster, "Caches", "Redis")
-    Rel(service_containers, search_cluster, "Searches", "HTTPS")
-    Rel(service_containers, ml_endpoints, "Scores", "HTTPS")
-
-    Rel(region_primary, region_secondary, "Replicates", "Cross-region")
-
-    UpdateLayoutConfig($c4ShapeInRow="2", $c4BoundaryInRow="1")
+    class cdn_cache,edge_workers cdnNode
+    class api,services awsNode
+    class postgres,mongo,redis,search dataNode
+    class standby drNode
+    class static cdnNode
+    class ml_endpoints mlNode
 ```
 
 ### Infrastructure Comparison

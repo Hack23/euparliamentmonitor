@@ -160,7 +160,7 @@ flowchart TD
     EventValidate -->|❌ Invalid| LogError1[📝 Log Invalid Event<br/>Alert Monitoring<br/>Dead Letter Queue]
     EventValidate -->|✅ Valid| Prioritize[⚡ Priority Assignment<br/>Breaking: P0<br/>Important: P1<br/>Regular: P2]
 
-    Prioritize --> EnqueueJob[📥 Enqueue Job<br/>Bull Queue (Redis)<br/>Priority-based]
+    Prioritize --> EnqueueJob["📥 Enqueue Job\nBull Queue with Redis\nPriority-based"]
 
     EnqueueJob --> WorkerPick[👷 Worker Picks Job<br/>Parallel Workers: 5<br/>Auto-scaling]
 

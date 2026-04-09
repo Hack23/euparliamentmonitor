@@ -1072,7 +1072,7 @@ flowchart LR
     end
 
     subgraph "Output"
-        INDEX[index-{lang}.html]
+        INDEX["index-LANG.html"]
     end
 
     ARTICLES --> SCAN
