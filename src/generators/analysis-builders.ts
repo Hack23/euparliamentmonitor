@@ -349,11 +349,9 @@ function buildOutcomeMatrix(
  * @param anomalyCount - Anomaly count
  * @param patternCount - Pattern count
  * @param questionCount - Question count
- * @param intensity - Voting intensity metrics (may be null)
- * @param polarization - Polarization index (may be null)
- * @param _intensity
- * @param _polarization
- * @param lang
+ * @param _intensity - Voting intensity metrics (may be null, reserved for future use)
+ * @param _polarization - Polarization index (may be null, reserved for future use)
+ * @param lang - Language code for localized output
  * @returns Summary text
  */
 function buildVotingWhatText(
