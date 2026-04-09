@@ -88,6 +88,10 @@ safe-outputs:
     - www.euparliamentmonitor.com
   create-pull-request:
     title-prefix: "[news] "
+    excluded-files:
+      - "analysis/daily/**/data/**"
+      - "analysis/daily/**/documents/raw-data/**"
+      - "analysis/daily/**/documents/*-analysis.md"
   add-comment:
     max: 1
 
@@ -115,7 +119,9 @@ You are the **News Journalist Agent** for EU Parliament Monitor generating **EU 
 
 ## 🚫 MANDATORY Scope Restriction
 
-> **⚠️ CRITICAL**: This workflow ONLY creates article files in the `news/` directory. You MUST NOT modify any other files.
+> **⚠️ CRITICAL**: This workflow ONLY creates article files in the `news/` directory and analysis artifacts in `analysis/daily/${TODAY}/motions/`. You MUST NOT modify any other files.
+>
+> **⚠️ FILE COUNT LIMIT**: The PR safe output enforces a **maximum of 100 files** per pull request. You MUST keep the total number of new/modified files (articles + analysis artifacts) **under 90 files**. Consolidate analysis into combined files per category rather than creating individual per-document files. See the "Analysis File Consolidation" section below.
 
 **FORBIDDEN modifications (will cause patch conflicts and workflow failure):**
 - ❌ `src/` — NEVER modify TypeScript source files
@@ -316,11 +322,11 @@ For each motion or resolution vote, analyze:
 
 ## 🔗 ANALYSIS FILE REFERENCES (MANDATORY)
 
-Every generated article MUST link to ALL individual analysis files. Verify the Analysis & Transparency section includes:
-- [ ] Links to `analysis/daily/${TODAY}/motions/classification/*.md` files
-- [ ] Links to `analysis/daily/${TODAY}/motions/threat-assessment/*.md` files
-- [ ] Links to `analysis/daily/${TODAY}/motions/risk-scoring/*.md` files
-- [ ] Links to `analysis/daily/${TODAY}/motions/existing/*.md` files
+Every generated article MUST link to ALL analysis files. Verify the Analysis & Transparency section includes:
+- [ ] Links to canonical method-level files in `analysis/daily/${TODAY}/motions/classification/`
+- [ ] Links to canonical method-level files in `analysis/daily/${TODAY}/motions/threat-assessment/`
+- [ ] Links to canonical method-level files in `analysis/daily/${TODAY}/motions/risk-scoring/`
+- [ ] Links to canonical method-level files in `analysis/daily/${TODAY}/motions/existing/`
 - [ ] Links to `analysis/methodologies/*.md` methodology documents
 
 ## ⏱️ Time Budget (60 minutes)
@@ -337,6 +343,23 @@ Every generated article MUST link to ALL individual analysis files. Verify the A
 **If you reach minute 50 and the PR has not yet been created**: Stop generating more content. Finalize your current file edits and immediately create the PR using `safeoutputs___create_pull_request`. Partial content in a PR is better than a timeout with no PR.
 
 
+## 📂 Analysis File Consolidation (MANDATORY)
+
+> **⚠️ CRITICAL — 100-FILE PR LIMIT**: The `create_pull_request` safe output enforces a hard limit of 100 files per pull request. Exceeding this causes error **E003** and the workflow fails with no PR created.
+>
+> **Rule**: Keep total new/modified files **under 90** (articles + analysis artifacts combined). Preserve the repo's **canonical analysis artifact naming convention**: write the single canonical markdown file for each analysis method/category directory (as documented in `analysis/README.md`), and avoid creating individual per-document analysis files.
+
+**Canonical analysis file structure** (target: ≤20 analysis files total):
+- `analysis/daily/${TODAY}/motions/manifest.json` — 1 file
+- `analysis/daily/${TODAY}/motions/classification/<canonical-method-files>.md` — canonical method-level files (e.g., `significance-classification.md`, `impact-matrix.md`, `actor-mapping.md`, `forces-analysis.md`)
+- `analysis/daily/${TODAY}/motions/threat-assessment/<canonical-method-files>.md` — canonical method-level files (e.g., `political-threat-landscape.md`, `actor-threat-profiling.md`)
+- `analysis/daily/${TODAY}/motions/risk-scoring/<canonical-method-files>.md` — canonical method-level files (e.g., `risk-matrix.md`, `political-capital-risk.md`, `quantitative-swot.md`)
+- `analysis/daily/${TODAY}/motions/existing/<canonical-method-files>.md` — canonical method-level files (e.g., `deep-analysis.md`, `stakeholder-impact.md`, `coalition-dynamics.md`, `synthesis-summary.md`)
+- `analysis/daily/${TODAY}/motions/documents/document-analysis-index.md` — 1 file (documents index)
+- `news/${TODAY}-motions-en.html` — 1 article file (English)
+
+**DO NOT** create individual analysis files for each adopted text, voting record, or MCP data item. Instead, append item-level sections within the relevant canonical method-level file using `## Item: <document-title>` headers.
+
 ## 🔬 Political Intelligence Analysis Stage
 
 The `--analysis` flag activates the political intelligence analysis pipeline **before** article generation. This stage:
@@ -346,9 +369,9 @@ The `--analysis` flag activates the political intelligence analysis pipeline **b
    - **Classification** (4 methods): significance scoring, impact matrix, actor mapping, political forces analysis
    - **Threat Assessment** (4 methods): political threat landscape model, actor threat profiling, consequence trees, legislative disruption analysis
    - **Risk Scoring** (5 methods): political risk matrix, capital-at-risk assessment, quantitative SWOT, legislative velocity risk, agent risk workflow
-   - **Intelligence** (5 methods): deep analysis, stakeholder analysis, coalition dynamics, voting patterns, cross-session intelligence
-   - _Optional_: **Per-Document Analysis** (opt-in via `--analysis-methods=document-analysis`) — per-document markdown + JSON intelligence files for every downloaded MCP file; not included in default set
-3. **Writes and commits analysis artifacts** to `analysis/daily/${TODAY}/motions/` (markdown files + `manifest.json`) — each workflow writes to its own per-article-type subdirectory, preventing merge conflicts when multiple workflows run concurrently; MCP data is stored at `analysis/daily/${TODAY}/motions/data/`
+   - **Existing / Intelligence** (5 methods): deep analysis, stakeholder analysis, coalition dynamics, voting patterns, cross-session intelligence
+   - **Per-Document Analysis** (`document-analysis`): included in the default method set — generates per-document markdown + JSON files under `documents/`. These per-document outputs are a primary driver of file-count blowups; the `excluded-files` config strips `documents/raw-data/**` and `documents/*-analysis.md` from the PR patch, and the pre-PR consolidation script removes remaining excess files
+3. **Writes and commits analysis artifacts** to `analysis/daily/${TODAY}/motions/` using canonical filenames from `analysis/README.md` + `manifest.json` — each workflow writes to its own per-article-type subdirectory; MCP data files in `analysis/daily/${TODAY}/motions/data/` are excluded from the PR via `excluded-files` and also cleaned up before PR creation. Do not add additional per-document analysis files beyond what the pipeline generates; the pipeline's per-document outputs are excluded from the PR via `excluded-files` and removed by the pre-PR consolidation script. Write any human-driven analysis into the **canonical method-level files** to stay under the 100-file PR limit.
 4. **Blocks article generation on failure in agentic mode** — when `--analysis` is enabled, analysis failures abort the run; disable `--analysis` if you want generation to proceed without analysis
 
 The analysis artifacts provide structured political intelligence that enriches the article generation phase with deeper context, evidence-based assessments, and systematic threat/risk analysis.
@@ -357,20 +380,20 @@ The analysis artifacts provide structured political intelligence that enriches t
 
 > **⚠️ CRITICAL**: After MCP data is fetched, produce **extensive, publication-quality analysis markdown** following the methodology templates. The scripted analysis stage provides data preparation — YOU perform the actual analytical work.
 
-> **⚠️ FULL DATA ANALYSIS**: Read ALL structured templates in `analysis/templates/` and methodology guides in `analysis/methodologies/` BEFORE starting analysis. Apply them to **every downloaded MCP data file**. See `analysis/README.md` for the complete analysis directory documentation.
+> **⚠️ FULL DATA ANALYSIS**: Read ALL structured templates in `analysis/templates/` and methodology guides in `analysis/methodologies/` BEFORE starting analysis. Apply them to every downloaded MCP data file, writing results into the **canonical method-level files** (see `analysis/README.md` Canonical Artifact Naming Convention). Do NOT create individual per-document analysis files — append item-level sections within the canonical files to stay under the 100-file PR limit.
 
 > **⚠️ IMPROVE EXISTING ANALYSIS**: Per `ai-driven-analysis-guide.md` Rule 5, before producing new analysis, check for existing analysis in `analysis/daily/${TODAY}/motions/`. If previous analysis exists, READ it first and **improve, extend, correct, or complete** it — never discard prior work. No workflow run should be wasted.
 
 ### Structured Analysis Templates (analysis/templates/)
 
-Read and apply the complete template set below when analyzing `analysis/daily/${TODAY}/motions/data/`: use the **per-file** template for **every downloaded MCP data file**, then create the **synthesis** template after all per-file analyses are complete.
+Read and apply the complete template set below when analyzing `analysis/daily/${TODAY}/motions/data/`. **IMPORTANT: Write ONE canonical method-level file per analysis method** using the canonical filenames from `analysis/README.md` (e.g., `significance-classification.md`, `risk-matrix.md`, `political-threat-landscape.md`). Do NOT create separate files for each MCP data item — append item-level sections within the canonical file. This prevents exceeding the 100-file PR limit.
 
 | Template | File | When to Apply |
 |----------|------|--------------|
-| **Per-File Political Intelligence** | `analysis/templates/per-file-political-intelligence.md` | Every downloaded MCP data file — required base analysis wrapper for each file |
-| **Political Classification** | `analysis/templates/political-classification.md` | Every new EP event or document — FIRST STEP |
-| **Risk Assessment** | `analysis/templates/risk-assessment.md` | **EMPHASIS** — Coalition/policy/institutional risk indicators |
-| **Threat Analysis** | `analysis/templates/threat-analysis.md` | **EMPHASIS** — Threat Landscape-format democratic threat review |
+| **Per-File Political Intelligence** | `analysis/templates/per-file-political-intelligence.md` | Append per-item sections within `documents/document-analysis-index.md` (canonical name) |
+| **Political Classification** | `analysis/templates/political-classification.md` | Write to canonical `classification/significance-classification.md` |
+| **Risk Assessment** | `analysis/templates/risk-assessment.md` | **EMPHASIS** — Write to canonical `risk-scoring/risk-matrix.md` |
+| **Threat Analysis** | `analysis/templates/threat-analysis.md` | **EMPHASIS** — Write to canonical `threat-assessment/political-threat-landscape.md` |
 | **SWOT Analysis** | `analysis/templates/swot-analysis.md` | Strategic political landscape assessment |
 | **Stakeholder Impact** | `analysis/templates/stakeholder-impact.md` | Policy decisions or legislative actions |
 | **Significance Scoring** | `analysis/templates/significance-scoring.md` | Publication priority decisions |
@@ -1065,6 +1088,135 @@ if [ -d "$RUN_ANALYSIS_DIR" ]; then
   find "$RUN_ANALYSIS_DIR" -type d -name "data" -empty -delete 2>/dev/null || true
 fi
 echo "🧹 Cleaned raw MCP data payloads for ${TODAY}/motions; analysis markdown artifacts PRESERVED for commit"
+```
+
+#### MANDATORY File Count Cap (≤90 files)
+
+> **⚠️ CRITICAL**: The `create_pull_request` safe output enforces a hard limit of **100 files per PR**. Exceeding this limit causes error E003 and the workflow fails. The `excluded-files` config always strips per-document analysis files from the PR patch, so the script below **unconditionally** reconciles `document-analysis-index.md` to avoid broken links to excluded files. It then checks the total file count and applies additional consolidation if needed to stay under 90.
+
+```bash
+RUN_ANALYSIS_DIR="analysis/daily/${TODAY}/motions"
+
+# Always reconcile top-level document analysis outputs before counting files.
+# The PR patch excludes per-document analysis files regardless of total file count,
+# so document-analysis-index.md must be regenerated in all cases to avoid references
+# to files that will not be present in the PR.
+if [ -d "$RUN_ANALYSIS_DIR" ]; then
+  DOCUMENTS_DIR="$RUN_ANALYSIS_DIR/documents"
+  if [ -d "$DOCUMENTS_DIR" ]; then
+    # Remove raw-data JSON files (also excluded at framework level)
+    if [ -d "$DOCUMENTS_DIR/raw-data" ]; then
+      rm -rf "$DOCUMENTS_DIR/raw-data"
+      echo "  ✅ Removed documents/raw-data/ directory"
+    fi
+
+    # Consolidate per-document *-analysis.md files into document-analysis-index.md
+    DOC_FILE_COUNT=$(find "$DOCUMENTS_DIR" -maxdepth 1 -name "*-analysis.md" -type f | wc -l)
+    if [ "$DOC_FILE_COUNT" -gt 0 ]; then
+      CONSOLIDATED="$DOCUMENTS_DIR/document-analysis-index.md"
+      TEMP_CONSOLIDATED=$(mktemp "$DOCUMENTS_DIR/.tmp.XXXXXX")
+      {
+        echo "# Per-Document Analysis Index"
+        echo ""
+        echo "_Autogenerated summary for ${DOC_FILE_COUNT} per-document analysis files. Full per-document files are removed to stay within PR file limits._"
+        echo ""
+        echo "## Consolidated files"
+        echo ""
+
+        shopt -s nullglob
+        for F in "$DOCUMENTS_DIR"/*-analysis.md; do
+          if [ -f "$F" ] && [ "$F" != "$CONSOLIDATED" ]; then
+            BASENAME=$(basename "$F")
+            echo "- ${BASENAME}"
+          fi
+        done
+        shopt -u nullglob
+        echo ""
+        echo "> Note: Detailed per-document contents are intentionally not embedded here, and markdown links to removed per-document files are omitted."
+      } > "$TEMP_CONSOLIDATED"
+
+      mv "$TEMP_CONSOLIDATED" "$CONSOLIDATED"
+
+      shopt -s nullglob
+      for F in "$DOCUMENTS_DIR"/*-analysis.md; do
+        if [ -f "$F" ] && [ "$F" != "$CONSOLIDATED" ]; then
+          rm "$F"
+        fi
+      done
+      shopt -u nullglob
+
+      echo "  ✅ Removed $DOC_FILE_COUNT per-document files in documents/, updated document-analysis-index.md"
+    fi
+  fi
+
+  # Remove any per-document files that ended up under category subdirs
+  for SUBDIR in classification threat-assessment risk-scoring existing; do
+    ANALYSIS_SUBDIR="$RUN_ANALYSIS_DIR/$SUBDIR"
+    SUBDIR_DOCUMENTS="$ANALYSIS_SUBDIR/documents"
+    if [ -d "$SUBDIR_DOCUMENTS" ]; then
+      FILE_COUNT=$(find "$SUBDIR_DOCUMENTS" -maxdepth 1 -name "*.md" -type f | wc -l)
+      if [ "$FILE_COUNT" -gt 0 ]; then
+        # Append listing to top-level documents/document-analysis-index.md (canonical location)
+        DOCUMENTS_DIR="$RUN_ANALYSIS_DIR/documents"
+        mkdir -p "$DOCUMENTS_DIR"
+        CONSOLIDATED="$DOCUMENTS_DIR/document-analysis-index.md"
+
+        # Append to existing index or create new one
+        {
+          echo ""
+          echo "## Per-document files from ${SUBDIR}/"
+          echo ""
+          echo "_${FILE_COUNT} per-document files removed from ${SUBDIR}/documents/ to stay within PR file limits._"
+          echo ""
+
+          shopt -s nullglob
+          for F in "$SUBDIR_DOCUMENTS"/*.md; do
+            if [ -f "$F" ]; then
+              BASENAME=$(basename "$F")
+              echo "- ${BASENAME}"
+            fi
+          done
+          shopt -u nullglob
+        } >> "$CONSOLIDATED"
+
+        shopt -s nullglob
+        for F in "$SUBDIR_DOCUMENTS"/*.md; do
+          if [ -f "$F" ]; then
+            rm "$F"
+          fi
+        done
+        shopt -u nullglob
+
+        rmdir "$SUBDIR_DOCUMENTS" 2>/dev/null || true
+        echo "  ✅ Removed $FILE_COUNT per-document files in $SUBDIR/documents/, updated documents/document-analysis-index.md"
+      fi
+    fi
+  done
+
+  # Remove any remaining non-manifest JSON files as defense-in-depth
+  # (excluded-files config handles data/ directory, this catches stray JSON elsewhere)
+  find "$RUN_ANALYSIS_DIR" -type f \( -name "*.json" ! -name "manifest.json" \) -delete 2>/dev/null || true
+fi
+
+# Count total new/modified files that will be included in the PR patch
+TOTAL_FILES=$(git status --porcelain | wc -l)
+echo "📊 Total changed files: $TOTAL_FILES"
+
+if [ "$TOTAL_FILES" -gt 90 ]; then
+  echo "⚠️ WARNING: $TOTAL_FILES files exceeds the 90-file safety limit (hard cap: 100)"
+  echo "🔧 Removing additional data files to reduce count..."
+
+  if [ -d "$RUN_ANALYSIS_DIR/data" ]; then
+    rm -rf "$RUN_ANALYSIS_DIR/data"
+  fi
+  TOTAL_FILES=$(git status --porcelain | wc -l)
+  echo "📊 Total changed files after data removal: $TOTAL_FILES"
+
+  if [ "$TOTAL_FILES" -gt 95 ]; then
+    echo "⚠️ WARNING: Cannot reduce file count below 95 ($TOTAL_FILES files). PR creation may fail with E003." >&2
+    echo "The create_pull_request safe output has a hard 100-file limit." >&2
+  fi
+fi
 ```
 
 Set the deterministic branch name for the PR.
