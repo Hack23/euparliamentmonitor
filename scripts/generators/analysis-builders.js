@@ -614,7 +614,7 @@ export function buildPropositionsAnalysis(proposalsHtml, pipelineData, date, lan
     const pct = (healthScore * 100).toFixed(0);
     return {
         what: hasProposals
-            ? `Legislative pipeline assessment as of ${date}: ${hasProposals ? 'Active proposals under consideration.' : ''}`
+            ? `Legislative pipeline assessment as of ${date}: Active proposals under consideration.`
             : AI_MARKER,
         who: [
             'European Commission (proposal originator)',

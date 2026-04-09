@@ -479,7 +479,7 @@ describe('week-ahead editorial quality', () => {
     expect(html).toContain('1 committee meeting is scheduled');
   });
 
-  it('should use localized section strings for Swedish', () => {
+  it('should generate valid article structure for Swedish', () => {
     const html = buildWeekAheadContent(
       emptyWeekData(),
       { start: '2026-03-01', end: '2026-03-08' },

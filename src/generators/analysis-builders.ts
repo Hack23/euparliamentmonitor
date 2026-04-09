@@ -809,7 +809,7 @@ export function buildPropositionsAnalysis(
 
   return {
     what: hasProposals
-      ? `Legislative pipeline assessment as of ${date}: ${hasProposals ? 'Active proposals under consideration.' : ''}`
+      ? `Legislative pipeline assessment as of ${date}: Active proposals under consideration.`
       : AI_MARKER,
     who: [
       'European Commission (proposal originator)',

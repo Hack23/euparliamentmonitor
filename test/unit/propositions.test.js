@@ -200,8 +200,9 @@ describe('Propositions editorial quality', () => {
     expect(html).not.toContain('why-this-matters');
   });
 
-  it('should have whyThisMatters field that is non-empty', () => {
+  it('should retain whyThisMatters constant for backward compatibility', () => {
+    // whyThisMatters strings are retained in PROPOSITIONS_STRINGS for backward compatibility
+    // with existing translated content, even though they are no longer rendered in articles
     expect(PROPOSITIONS_STRINGS.en.whyThisMatters.length).toBeGreaterThan(0);
-    expect(PROPOSITIONS_STRINGS.en.whyThisMatters).toContain('EU citizens');
   });
 });
