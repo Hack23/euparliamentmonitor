@@ -39,6 +39,15 @@
         "coalition-sentiment-analysis.md"
       ],
       "improvements": "Added coalition sentiment analysis with institutional positioning model (Q1 sentiment tracker data), updated risk matrix with new S&D overreach risk, 4-perspective stakeholder impact assessment of coalition shifts, 3 forward-looking scenarios, and updated early warning indicators. Extended analysis from 7 to 8 files, from 24 to 30 methods."
+    },
+    {
+      "runId": 4,
+      "timestamp": "2026-04-09T18:30:00Z",
+      "workflowRunId": "24206254170",
+      "files": [
+        "post-recess-preparedness.md"
+      ],
+      "improvements": "Added post-recess preparedness assessment with countdown metrics, 4 forward-looking scenarios, legislative backlog risk (12/25 HIGH), stakeholder preparedness matrix, coalition readiness analysis, cross-session intelligence tracking across 4 runs, and updated composite risk (9.55 -> 10.10). TA-10-2026-0028 today feed recovery signal noted."
     }
   ],
   "dataCollected": {
@@ -52,10 +61,11 @@
     "committeeDocuments": 0,
     "questions": 0,
     "sentimentTracker": "Q1 2026 (8 groups)",
-    "politicalGroupComparison": "6 groups compared"
+    "politicalGroupComparison": "6 groups compared",
+    "adoptedTextsFeedToday": "TA-10-2026-0028"
   },
   "feedStatus": {
-    "adoptedTextsFeedToday": "INTERNAL_ERROR",
+    "adoptedTextsFeedToday": "OK (1 item: TA-10-2026-0028)",
     "adoptedTextsFeedOneWeek": "OK (12 items)",
     "adoptedTexts2026": "OK (30+ items with full details)",
     "eventsFeed": "404 (Easter recess, both today and one-week)",
@@ -111,10 +121,11 @@
     ]
   },
   "riskAssessment": {
-    "weightedComposite": 9.55,
+    "weightedComposite": 10.1,
     "tier": "MEDIUM",
     "highestIndividualRisk": "US Tariff Escalation (16/25 Critical)",
-    "systemicFragility": false
+    "systemicFragility": false,
+    "newRisk": "Post-Recess Legislative Backlog (12/25 HIGH)"
   },
   "analysisFiles": [
     "synthesis-summary.md",
@@ -124,7 +135,8 @@
     "risk-assessment.md",
     "threat-analysis.md",
     "political-classification.md",
-    "coalition-sentiment-analysis.md"
+    "coalition-sentiment-analysis.md",
+    "post-recess-preparedness.md"
   ],
   "analysisMethods": [
     "thematic-clustering",
@@ -156,8 +168,14 @@
     "sentiment-shift-analysis",
     "three-pole-dynamics-assessment",
     "coalition-scenario-planning",
-    "political-group-comparison"
+    "political-group-comparison",
+    "post-recess-preparedness",
+    "legislative-backlog-assessment",
+    "scenario-planning-extended",
+    "stakeholder-preparedness-matrix",
+    "cross-session-delta-tracking",
+    "feed-recovery-signal-analysis"
   ],
   "articleGenerated": false,
-  "generatedAt": "2026-04-09T12:35:00Z"
+  "generatedAt": "2026-04-09T18:30:00Z"
 }
