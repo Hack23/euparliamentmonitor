@@ -232,6 +232,157 @@ export interface StakeholderReasoningStrings {
   readonly impactLimited: string;
 }
 
+/**
+ * Localized content strings for voting/motions deep-analysis sections.
+ * Template placeholders: {dateFrom}, {dateTo}, {records}, {adopted}, {rejected},
+ * {anomalies}, {patterns}, {questions}, {pct}, {assessment}.
+ */
+export interface VotingAnalysisContentStrings {
+  /** "what" summary with voting data. {dateFrom}, {dateTo}, {records}, {adopted}, {rejected}, {anomalies}, {patterns}, {questions} */
+  readonly what: string;
+  /** "what" when no voting data available. {dateFrom}, {dateTo} */
+  readonly whatNoData: string;
+  /** "when" period label. {dateFrom}, {dateTo} */
+  readonly whenPeriod: string;
+  /** "when" vote entry. {date}, {title}, {result} */
+  readonly whenVote: string;
+  /** "why" with patterns. {patterns}, {cohesionDesc}, {pct}, {assessment} */
+  readonly whyPatterns: string;
+  /** "why" no data fallback */
+  readonly whyNoData: string;
+  /** Cohesion descriptors */
+  readonly cohesionHigh: string;
+  readonly cohesionModerate: string;
+  readonly cohesionFragmented: string;
+  /** Impact political with votes. {records}, {adopted}, {rejected}, {anomalies} */
+  readonly impactPolitical: string;
+  readonly impactPoliticalAnomaly: string;
+  readonly impactPoliticalStable: string;
+  readonly impactPoliticalNone: string;
+  /** Impact economic. {adopted} */
+  readonly impactEconomic: string;
+  readonly impactEconomicNone: string;
+  /** Impact social. {activity}, {questions} */
+  readonly impactSocial: string;
+  /** Impact legal. {adopted} */
+  readonly impactLegal: string;
+  readonly impactLegalNone: string;
+  /** Impact geopolitical. {activity} */
+  readonly impactGeopolitical: string;
+  /** Activity levels */
+  readonly activityHigh: string;
+  readonly activityModerate: string;
+  readonly activityLimited: string;
+  /** Outlook with data. {trend}, {dateFrom}, {dateTo}, {adopted}, {anomalies} */
+  readonly outlookProductive: string;
+  readonly outlookMeasured: string;
+  readonly outlookNoData: string;
+  readonly outlookAnomalyNote: string;
+  /** Trend descriptors */
+  readonly trendProductive: string;
+  readonly trendMeasured: string;
+  /** Stakeholder outcomes */
+  readonly stakeholderWinnerReason: string;
+  readonly stakeholderLoserReason: string;
+  readonly stakeholderMajorityActor: string;
+  readonly stakeholderGroupLeadership: string;
+  /** Consequence templates */
+  readonly consequenceAdopted: string;
+  readonly consequenceAnomaly: string;
+  /** Margin descriptors */
+  readonly marginStrong: string;
+  readonly marginModerate: string;
+  readonly marginNarrow: string;
+  readonly marginTied: string;
+  readonly marginFavour: string;
+  readonly marginAgainst: string;
+  /** Mistake templates */
+  readonly mistakeDescription: string;
+  readonly mistakeAlternative: string;
+}
+
+/**
+ * Localized content strings for prospective (week-ahead/month-ahead) deep-analysis sections.
+ * Template placeholders: {label}, {start}, {end}, {events}, {committees},
+ * {documents}, {pipeline}, {questions}, {bottlenecks}.
+ */
+export interface ProspectiveAnalysisContentStrings {
+  /** "what" summary. {label}, {start}, {end}, {events}, {committees}, {documents}, {pipeline}, {questions} */
+  readonly what: string;
+  /** "when" period. {start}, {end} */
+  readonly whenPeriod: string;
+  /** "why" with events. {label}, {events}, {committees}, {bottlenecks} */
+  readonly whyActive: string;
+  readonly whyBottleneck: string;
+  readonly whyNoBottleneck: string;
+  readonly whyReduced: string;
+  /** Impact political. {events}, {bottlenecks} */
+  readonly impactPolitical: string;
+  readonly impactPoliticalBottleneck: string;
+  readonly impactPoliticalStable: string;
+  /** Impact economic. {documents}, {pipeline}, {label} */
+  readonly impactEconomic: string;
+  /** Impact social. {questions} */
+  readonly impactSocial: string;
+  /** Impact legal. {pipeline} */
+  readonly impactLegal: string;
+  /** Impact geopolitical. {label} */
+  readonly impactGeopolitical: string;
+  /** Outlook. {label}, {start}, {end}, {events}, {pipeline}, {bottlenecks} */
+  readonly outlookActive: string;
+  readonly outlookBottleneckNote: string;
+  readonly outlookNoBottleneckNote: string;
+  readonly outlookReduced: string;
+  /** Stakeholder outcome reason for bottlenecked pipeline */
+  readonly stakeholderBottleneckReason: string;
+  /** Stakeholder outcome reason for active committees */
+  readonly stakeholderCommitteeReason: string;
+  /** Action consequence templates. {title}, {stage}, {type} */
+  readonly consequenceBottleneck: string;
+  readonly consequenceEvent: string;
+  /** Mistake template */
+  readonly mistakeActor: string;
+  readonly mistakeDescription: string;
+  readonly mistakeAlternative: string;
+}
+
+/**
+ * Localized content strings for breaking news deep-analysis sections.
+ * Template placeholders: {date}, {adopted}, {events}, {procedures}, {meps}.
+ */
+export interface BreakingAnalysisContentStrings {
+  /** "why" with adoptions. {date}, {adopted}, {events}, {procedures} */
+  readonly whyAdopted: string;
+  /** "why" routine activity. {date}, {events}, {procedures}, {meps} */
+  readonly whyRoutine: string;
+  /** Impact political. {date}, {adopted}, {events} */
+  readonly impactPolitical: string;
+  /** Impact economic. {adopted} */
+  readonly impactEconomicAdopted: string;
+  readonly impactEconomicNone: string;
+  /** Impact social. {date}, {events}, {meps} */
+  readonly impactSocial: string;
+  readonly impactSocialEvents: string;
+  readonly impactSocialRoutine: string;
+  /** Impact legal. {adopted} */
+  readonly impactLegalAdopted: string;
+  readonly impactLegalNone: string;
+  /** Impact geopolitical. {date} */
+  readonly impactGeopolitical: string;
+  /** Stakeholder outcome reasons. {adopted} */
+  readonly stakeholderWinnerReason: string;
+  readonly stakeholderNeutralReason: string;
+  /** Consequence templates. {title}, {date} */
+  readonly consequenceAdopted: string;
+  readonly consequenceProcedure: string;
+  /** Mistake template */
+  readonly mistakeDescription: string;
+  readonly mistakeAlternative: string;
+  /** Outlook. {date}, {adopted} */
+  readonly outlookAdopted: string;
+  readonly outlookRoutine: string;
+}
+
 /** Localized editorial strings shared across article types */
 export interface EditorialStrings {
   /** Heading for "Why This Matters" citizen-impact section */
