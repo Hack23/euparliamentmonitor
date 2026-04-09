@@ -20,6 +20,16 @@
         "risk-assessment.md"
       ],
       "improvements": "Extended 2026-04-08 analysis with Q1 thematic clustering (6 policy domains), significance scoring (5-dimension model), stakeholder impact assessment (6-group model), updated SWOT with TOWS strategies, and post-recess pipeline risk matrix with interconnection mapping"
+    },
+    {
+      "runId": 2,
+      "timestamp": "2026-04-09T06:40:00Z",
+      "workflowRunId": "24176024603",
+      "files": [
+        "threat-analysis.md",
+        "political-classification.md"
+      ],
+      "improvements": "Added 6-dimension Political Threat Landscape analysis (Attack Trees, PESTLE, Kill Chain frameworks), 7-dimension political classification of Q1 adopted texts across 6 thematic clusters. Extended analysis from 5 to 7 files, from 20 to 24 methods."
     }
   ],
   "dataCollected": {
@@ -100,7 +110,9 @@
     "significance-scoring.md",
     "stakeholder-impact.md",
     "swot-analysis.md",
-    "risk-assessment.md"
+    "risk-assessment.md",
+    "threat-analysis.md",
+    "political-classification.md"
   ],
   "analysisMethods": [
     "thematic-clustering",
@@ -122,8 +134,12 @@
     "evidence-cross-validation",
     "cross-session-continuity",
     "forward-indicator-tracking",
-    "data-quality-assessment"
+    "data-quality-assessment",
+    "political-threat-landscape",
+    "attack-tree-analysis",
+    "pestle-assessment",
+    "kill-chain-analysis"
   ],
   "articleGenerated": false,
-  "generatedAt": "2026-04-09T00:45:00Z"
+  "generatedAt": "2026-04-09T06:45:00Z"
 }
