@@ -29,10 +29,8 @@ describe('Propositions Generator', () => {
       );
       expect(html).toContain(EN_STRINGS.proposalsHeading);
       expect(html).toContain(EN_STRINGS.pipelineHeading);
-      expect(html).toContain(EN_STRINGS.analysisHeading);
-      // lede and analysis are HTML-escaped; check for stable substring without apostrophes
+      // lede is HTML-escaped; check for stable substring without apostrophes
       expect(html).toContain('European Parliament is actively processing');
-      expect(html).toContain('sustainable finance, digital governance');
     });
 
     it('should include localized pipeline metric labels', () => {
@@ -73,17 +71,14 @@ describe('Propositions Generator', () => {
         ...EN_STRINGS,
         lede: '<script>alert("xss")</script>',
         proposalsHeading: '<img onerror=alert(1)>',
-        analysis: '<b>bold</b>',
         pipelineHeading: 'Pipeline',
         procedureHeading: 'Procedure',
-        analysisHeading: 'Analysis',
         adoptedTextsHeading: '<img onerror=alert(2)>',
       };
       const html = buildPropositionsContent('', '<p>adopted</p>', null, '', maliciousStrings);
       expect(html).not.toContain('<script>');
       expect(html).not.toContain('<img');
       expect(html).toContain('&lt;script&gt;');
-      expect(html).toContain('&lt;b&gt;');
       expect(html).toContain('&lt;img');
     });
 
@@ -199,25 +194,14 @@ describe('Propositions Generator', () => {
 });
 
 describe('Propositions editorial quality', () => {
-  it('should include "Why This Matters" section', () => {
+  it('should not include "Why This Matters" section (replaced by AI-driven analysis)', () => {
     const strings = PROPOSITIONS_STRINGS.en;
     const html = buildPropositionsContent('<p>proposals</p>', '', null, '', strings);
-    expect(html).toContain('why-this-matters');
-    expect(html).toContain('Why This Matters');
+    expect(html).not.toContain('why-this-matters');
   });
 
   it('should have whyThisMatters field that is non-empty', () => {
     expect(PROPOSITIONS_STRINGS.en.whyThisMatters.length).toBeGreaterThan(0);
     expect(PROPOSITIONS_STRINGS.en.whyThisMatters).toContain('EU citizens');
-  });
-
-  it('should escape whyThisMatters content', () => {
-    const maliciousStrings = {
-      ...PROPOSITIONS_STRINGS.en,
-      whyThisMatters: '<script>alert(1)</script>',
-    };
-    const html = buildPropositionsContent('', '', null, '', maliciousStrings);
-    expect(html).not.toContain('<script>');
-    expect(html).toContain('&lt;script&gt;');
   });
 });

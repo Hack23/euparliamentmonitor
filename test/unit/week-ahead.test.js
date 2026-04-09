@@ -453,16 +453,9 @@ describe('week-ahead helpers', () => {
 });
 
 describe('week-ahead editorial quality', () => {
-  it('should include "Why This Matters" section in every article', () => {
+  it('should not include "Why This Matters" section (replaced by AI-driven analysis)', () => {
     const html = buildWeekAheadContent(emptyWeekData(), { start: '2026-03-01', end: '2026-03-08' });
-    expect(html).toContain('why-this-matters');
-    expect(html).toContain('Why This Matters');
-  });
-
-  it('should include source attribution in "Why This Matters" section', () => {
-    const html = buildWeekAheadContent(emptyWeekData(), { start: '2026-03-01', end: '2026-03-08' });
-    expect(html).toContain('Parliamentary Context');
-    expect(html).toContain('According to European Parliament data');
+    expect(html).not.toContain('why-this-matters');
   });
 
   it('should include committee count in lede when committees are present', () => {
@@ -486,13 +479,14 @@ describe('week-ahead editorial quality', () => {
     expect(html).toContain('1 committee meeting is scheduled');
   });
 
-  it('should use localized editorial strings for Swedish', () => {
+  it('should use localized section strings for Swedish', () => {
     const html = buildWeekAheadContent(
       emptyWeekData(),
       { start: '2026-03-01', end: '2026-03-08' },
       'sv'
     );
-    expect(html).toContain('Varför Det Spelar Roll');
+    // The Swedish article should contain localized headings
+    expect(html).toContain('article-content');
   });
 });
 

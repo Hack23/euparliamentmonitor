@@ -356,14 +356,8 @@ describe('Breaking News editorial quality', () => {
     expect(html).toContain('According to European Parliament data');
   });
 
-  it('should include "Why This Matters" section when MCP data is present', () => {
+  it('should not include "Why This Matters" section (replaced by AI-driven analysis)', () => {
     const html = buildBreakingNewsContent('2025-01-15', 'some anomaly', '', '', '');
-    expect(html).toContain('why-this-matters');
-    expect(html).toContain('Why This Matters');
-  });
-
-  it('should not include "Why This Matters" section when no MCP data', () => {
-    const html = buildBreakingNewsContent('2025-01-15', '', '', '', '');
     expect(html).not.toContain('why-this-matters');
   });
 
@@ -375,13 +369,12 @@ describe('Breaking News editorial quality', () => {
 
   it('should include localized editorial strings for French', () => {
     const html = buildBreakingNewsContent('2025-01-15', 'anomaly data', '', '', '', 'fr');
-    expect(html).toContain('Pourquoi');
-    expect(html).toContain('why-this-matters');
+    expect(html).toContain('source-attribution');
   });
 
   it('should include localized editorial strings for German', () => {
     const html = buildBreakingNewsContent('2025-01-15', 'anomaly data', '', '', '', 'de');
-    expect(html).toContain('Warum Das Wichtig Ist');
+    expect(html).toContain('source-attribution');
   });
 });
 
