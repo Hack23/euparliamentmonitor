@@ -225,10 +225,9 @@ describe('Motions editorial quality', () => {
   const mockAnomalies = [{ type: 'Defection', description: 'Cross-party vote', severity: 'LOW' }];
   const mockQuestions = [{ author: 'MEP Smith', topic: 'Climate policy', date: '2025-01-15', status: 'ANSWERED' }];
 
-  it('should include "Why This Matters" section', () => {
+  it('should not include "Why This Matters" section (replaced by AI-driven analysis)', () => {
     const html = generateMotionsContent('2024-12-16', '2025-01-15', mockRecords, mockPatterns, mockAnomalies, mockQuestions);
-    expect(html).toContain('why-this-matters');
-    expect(html).toContain('Why This Matters');
+    expect(html).not.toContain('why-this-matters');
   });
 
   it('should include source attribution in lede', () => {
@@ -248,13 +247,10 @@ describe('Motions editorial quality', () => {
 
   it('should use localized editorial strings for French', () => {
     const html = generateMotionsContent('2024-12-16', '2025-01-15', mockRecords, mockPatterns, mockAnomalies, mockQuestions, 'fr');
-    expect(html).toContain('Pourquoi');
-    expect(html).toContain('Constat Clé');
-  });
-
-  it('should include key takeaway in "Why This Matters" section', () => {
-    const html = generateMotionsContent('2024-12-16', '2025-01-15', mockRecords, mockPatterns, mockAnomalies, mockQuestions);
-    expect(html).toContain('Key Finding');
+    const frStrings = getLocalizedString(MOTIONS_STRINGS, 'fr');
+    expect(html).toContain('article-content');
+    expect(html).toContain(frStrings.votingRecordsHeading);
+    expect(html).toContain(frStrings.partyCohesionHeading);
   });
 });
 

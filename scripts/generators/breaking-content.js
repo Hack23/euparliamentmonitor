@@ -451,7 +451,6 @@ export function buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportR
         anomalies.length ||
         coalitions.length ||
         mepScores.length);
-    const hasData = hasFeedData || hasAnalyticalData;
     // MCP is truly unavailable only when feedData is undefined AND no analytical data
     const isMCPUnavailable = !feedData && !hasAnalyticalData;
     const timestamp = new Date().toISOString();
@@ -481,16 +480,6 @@ export function buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportR
           <h2>${escapeHTML(strings.keyMEPInfluence)}</h2>
           <p class="source-attribution">${escapeHTML(editorial.sourceAttribution)}:</p>
           <p class="data-narrative">${escapeHTML(influenceRaw.slice(0, MAX_DATA_CHARS))}</p>
-        </section>`
-        : '';
-    const context = escapeHTML(editorial.parliamentaryContext);
-    const finding = escapeHTML(editorial.keyTakeaway);
-    const attribution = escapeHTML(editorial.sourceAttribution);
-    const whyThisMattersSection = hasData
-        ? `
-        <section class="why-this-matters">
-          <h2>${escapeHTML(editorial.whyThisMatters)}</h2>
-          <p>${context}: ${finding} — ${attribution}.</p>
         </section>`
         : '';
     const intelligenceBriefing = buildIntelligenceBriefingSection(anomalies, coalitions, mepScores, lang);
@@ -523,7 +512,6 @@ export function buildBreakingNewsContent(date, anomalyRaw, coalitionRaw, reportR
           ${coalitionSection}
           ${reportSection}
           ${keyPlayersSection}
-          ${whyThisMattersSection}
         </div>
       `;
 }

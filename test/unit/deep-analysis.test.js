@@ -813,25 +813,32 @@ describe('analysis-builders', () => {
       expect(result.what).toContain('Polarization index:');
     });
 
-    it('should generate data-driven "why" text from voting patterns', () => {
+    it('should use AI_MARKER for "why" text (AI-driven analysis)', () => {
       const result = buildVotingAnalysis(
         '2026-02-01', '2026-02-28',
         VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES, MOTIONS_QUESTIONS
       );
-      expect(result.why).toContain('Voting patterns across');
-      expect(result.why).toContain('political groups');
+      expect(result.why).toBe(AI_MARKER);
     });
 
-    it('should generate data-driven political impact from voting data', () => {
+    it('should use AI_MARKER for stakeholder outcome reasons (AI-driven analysis)', () => {
       const result = buildVotingAnalysis(
         '2026-02-01', '2026-02-28',
         VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES, MOTIONS_QUESTIONS
       );
-      expect(result.impactAssessment.political).toContain('Political group dynamics');
-      expect(result.impactAssessment.political).not.toBe(AI_MARKER);
+      expect(result.stakeholderOutcomes.length).toBeGreaterThan(0);
+      expect(result.stakeholderOutcomes.every((outcome) => outcome.reason === AI_MARKER)).toBe(true);
     });
 
-    it('should generate data-driven outlook with scenario analysis', () => {
+    it('should use AI_MARKER for political impact (AI-driven analysis)', () => {
+      const result = buildVotingAnalysis(
+        '2026-02-01', '2026-02-28',
+        VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES, MOTIONS_QUESTIONS
+      );
+      expect(result.impactAssessment.political).toBe(AI_MARKER);
+    });
+
+    it('should use AI_MARKER for outlook (AI-driven analysis)', () => {
       const fragmentedPatterns = [
         { group: 'Weak Party', cohesion: 0.3, participation: 0.5 },
         { group: 'Strong Party', cohesion: 0.95, participation: 0.9 },
@@ -843,8 +850,7 @@ describe('analysis-builders', () => {
         '2026-02-01', '2026-02-28',
         VOTING_RECORDS, fragmentedPatterns, highAnomalies, MOTIONS_QUESTIONS
       );
-      expect(result.outlook).toContain('scenario');
-      expect(result.outlook).not.toBe(AI_MARKER);
+      expect(result.outlook).toBe(AI_MARKER);
     });
   });
 
@@ -861,14 +867,13 @@ describe('analysis-builders', () => {
       expect(result.when.length).toBeGreaterThan(0);
     });
 
-    it('should generate data-driven "why" for prospective analysis', () => {
+    it('should use AI_MARKER for "why" in prospective analysis', () => {
       const result = buildProspectiveAnalysis(
         WEEK_AHEAD_DATA,
         { start: '2026-03-01', end: '2026-03-07' },
         'week'
       );
-      expect(result.why).toContain('week');
-      expect(result.why).not.toBe(AI_MARKER);
+      expect(result.why).toBe(AI_MARKER);
       expect(result.mistakes.length).toBeGreaterThan(0);
       expect(result.mistakes[0].description).toContain('Migration Pact');
     });
@@ -912,10 +917,9 @@ describe('analysis-builders', () => {
       expect(result.who).toContain('Adopted: DMA Regulation (2026-02-24)');
     });
 
-    it('should generate data-driven why for breaking news', () => {
+    it('should use AI_MARKER for why in breaking news (AI-driven analysis)', () => {
       const result = buildBreakingAnalysis('2026-02-24', undefined, 'anomaly detected', '');
-      expect(result.why).toContain('Parliamentary activity update');
-      expect(result.why).not.toBe(AI_MARKER);
+      expect(result.why).toBe(AI_MARKER);
     });
 
     it('should handle undefined feedData', () => {
@@ -960,15 +964,13 @@ describe('analysis-builders', () => {
     it('should produce analysis from pipeline data', () => {
       const pipeline = { healthScore: 0.85, throughput: 12, procRowsHtml: '' };
       const result = buildPropositionsAnalysis('<p>proposals</p>', pipeline, '2026-02-24');
-      expect(result.what).toContain('85%');
       expect(result.what).toContain('Active proposals');
     });
 
-    it('should generate data-driven why for propositions', () => {
+    it('should use AI_MARKER for why in propositions', () => {
       const pipeline = { healthScore: 0.3, throughput: 2, procRowsHtml: '' };
       const result = buildPropositionsAnalysis('', pipeline, '2026-02-24');
-      expect(result.why).toContain('pipeline');
-      expect(result.why).not.toBe(AI_MARKER);
+      expect(result.why).toBe(AI_MARKER);
       expect(result.mistakes.length).toBeGreaterThan(0);
     });
 
@@ -978,11 +980,15 @@ describe('analysis-builders', () => {
       expect(result.stakeholderOutcomes[0].outcome).toBe('winner');
     });
 
-    it('should generate data-driven outlook for propositions', () => {
+    it('should use AI_MARKER for outlook in propositions', () => {
       const result = buildPropositionsAnalysis('', null, '2026-02-24');
-      expect(result.what).toContain('0%');
-      expect(result.outlook).toContain('Pipeline health');
-      expect(result.outlook).not.toBe(AI_MARKER);
+      expect(result.outlook).toBe(AI_MARKER);
+    });
+
+    it('should keep factual what when no proposals detected', () => {
+      const result = buildPropositionsAnalysis('', null, '2026-02-24');
+      expect(result.what).toContain('No new proposals detected');
+      expect(result.what).not.toBe(AI_MARKER);
     });
 
     it('should detect proposals from adoptedTextsHtml when proposalsHtml is empty', () => {
@@ -1018,18 +1024,16 @@ describe('analysis-builders', () => {
       expect(result.mistakes[0].description).not.toBe(AI_MARKER);
     });
 
-    it('should generate data-driven why for committee analysis', () => {
+    it('should use AI_MARKER for why in committee analysis', () => {
       const allInactive = COMMITTEE_DATA.map((c) => ({ ...c, documents: [] }));
       const result = buildCommitteeAnalysis(allInactive, '2026-02-24');
-      expect(result.why).toContain('committee');
-      expect(result.why).not.toBe(AI_MARKER);
+      expect(result.why).toBe(AI_MARKER);
     });
 
-    it('should generate data-driven impact for committee analysis', () => {
+    it('should use AI_MARKER for impact in committee analysis', () => {
       const allInactive = COMMITTEE_DATA.map((c) => ({ ...c, documents: [] }));
       const result = buildCommitteeAnalysis(allInactive, '2026-02-24');
-      expect(result.impactAssessment.political).toContain('committees');
-      expect(result.impactAssessment.political).not.toBe(AI_MARKER);
+      expect(result.impactAssessment.political).toBe(AI_MARKER);
     });
 
     it('should handle empty committee list', () => {
