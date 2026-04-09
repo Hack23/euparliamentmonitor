@@ -257,7 +257,7 @@ graph TD
     J1 --> J1a[📊 Classification: significance, impact-matrix, actors, forces]
     J1 --> J1b[🛡️ Threat Assessment: Political Threat Landscape,<br/>actor-threats, disruption]
     J1 --> J1c[📈 Risk Scoring: risk-matrix, SWOT, velocity, capital-at-risk]
-    J1a --> J1d[📁 analysis/daily/{date}/{article-type}/]
+    J1a --> J1d["📁 analysis/daily/date/article-type/"]
     J1b --> J1d
     J1c --> J1d
     J1d --> J[📰 Generate News Articles<br/>npx tsx src/generators/news-enhanced.ts --analysis]
@@ -1716,29 +1716,29 @@ The 10 agentic workflows follow a carefully orchestrated schedule to ensure cont
 
 ```mermaid
 gantt
-    title Weekly Agentic Workflow Cadence (UTC)
-    dateFormat HH:mm
-    axisFormat %H:%M
+    title Weekly Agentic Workflow Cadence UTC
+    dateFormat YYYY-MM-DD
+    axisFormat %a
 
-    section Daily (Mon-Fri)
-    Committee Reports (04:00)        :active, d1, 04:00, 1h
-    Propositions (05:00)             :active, d2, 05:00, 1h
-    Motions (06:00)                  :active, d3, 06:00, 1h
-    Breaking News (00/06/12/18)      :crit, d4, 00:00, 1h
+    section Daily Mon-Fri
+    Committee Reports 04h00 UTC    :active, d1, 2026-01-05, 1d
+    Propositions 05h00 UTC         :active, d2, 2026-01-05, 1d
+    Motions 06h00 UTC              :active, d3, 2026-01-05, 1d
+    Breaking News 4x daily         :crit, d4, 2026-01-05, 1d
 
     section Weekly
-    Week Ahead (Fri 07:00)           :d5, 07:00, 1h
+    Week Ahead Fri 07h00 UTC       :d5, 2026-01-09, 1d
 
     section Weekend
-    Weekly Review (Sat 09:00)        :d6, 09:00, 1h
+    Weekly Review Sat 09h00 UTC    :d6, 2026-01-10, 1d
 
     section Translation
-    Translate (09/12/15 Weekdays)    :d7, 09:00, 1h
-    Translate (Sat 15:00)            :d8, 15:00, 1h
+    Translate Weekdays 3x daily    :d7, 2026-01-05, 5d
+    Translate Sat 15h00 UTC        :d8, 2026-01-10, 1d
 
     section Monthly
-    Month Ahead (1st, 08:00)         :milestone, m1, 08:00, 0h
-    Monthly Review (28th, 10:00)     :milestone, m2, 10:00, 0h
+    Month Ahead 1st 08h00 UTC      :d9, 2026-01-01, 1d
+    Monthly Review 28th 10h00 UTC  :d10, 2026-01-28, 1d
 ```
 
 ### Data Flow — EP MCP Server to Published Article
