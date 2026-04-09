@@ -57,13 +57,13 @@
 The `analysis/` directory stores **intermediate political intelligence
 artifacts** produced and consumed by EU Parliament Monitor's 10 agentic
 workflows. These artifacts bridge raw European Parliament data (sourced via the
-**European Parliament MCP Server v1.2.0**) and the final published political
+**European Parliament MCP Server v1.2.1**) and the final published political
 intelligence articles across 14 languages.
 
 ```mermaid
 flowchart LR
     subgraph "📡 Data Collection"
-        EP["🏛️ EP MCP Server\nv1.2.0"]
+        EP["🏛️ EP MCP Server\nv1.2.1"]
     end
 
     subgraph "🔬 Analysis Pipeline"
@@ -115,7 +115,7 @@ graph TB
     end
 
     subgraph "📥 Data Ingestion Layer"
-        MCP["🔌 EP MCP Server\nv1.2.0"]
+        MCP["🔌 EP MCP Server\nv1.2.1"]
         PRE["📥 Agentic Workflow\nData Download Stage"]
     end
 
@@ -496,7 +496,7 @@ Each agentic workflow downloads **unique data** tailored to its article type:
 
 ```mermaid
 flowchart TD
-    subgraph "📡 EP MCP Server v1.2.0"
+    subgraph "📡 EP MCP Server v1.2.1"
         F1["get_adopted_texts_feed"]
         F2["get_events_feed"]
         F3["get_procedures_feed"]
