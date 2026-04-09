@@ -205,7 +205,7 @@ export class PropositionsStrategy {
         const strings = getLocalizedString(PROPOSITIONS_STRINGS, lang);
         const base = buildPropositionsContent(data.proposalsHtml, data.adoptedTextsHtml, data.pipelineData, data.procedureHtml, strings, lang);
         const analysis = buildPropositionsAnalysis(data.proposalsHtml, data.pipelineData, data.date, lang, data.adoptedTextsHtml);
-        const deepSection = buildDeepAnalysisSection(analysis, lang, 'en');
+        const deepSection = buildDeepAnalysisSection(analysis, lang);
         const mindmapData = buildPropositionsMindmap(data.pipelineData, lang);
         const mindmapSection = buildIntelligenceMindmapSection(mindmapData, lang);
         const swotData = buildPropositionsSwot(data.pipelineData, lang);

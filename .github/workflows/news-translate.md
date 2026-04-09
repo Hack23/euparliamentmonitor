@@ -281,7 +281,7 @@ Each translated article must score well on these 5 dimensions:
 - **Minutes 75–82**: Validate translated HTML files (Step 4)
 - **Minutes 82–90**: Create PR with `safeoutputs___create_pull_request`
 
-> **🔑 TRANSLATION FOCUS**: This workflow generates article structure via TypeScript, then YOU (the AI agent) translate ALL English content to the target language. The `lang="en"` marker may or may NOT be present — do NOT rely on it. **Read every paragraph in the file. If it is in English, translate it.** The majority of your time should be spent on Step 3b — reading each file cover-to-cover, translating every English sentence, and writing back fully translated articles. The goal is 100% translated content.
+> **🔑 TRANSLATION FOCUS**: This workflow generates article structure via TypeScript, then YOU (the AI agent) translate ALL English content to the target language. The generator produces English narrative with NO markers — **read every paragraph in the file. If it is in English, translate it.** The majority of your time should be spent on Step 3b — reading each file cover-to-cover, translating every English sentence, and writing back fully translated articles. The goal is 100% translated content.
 
 **If you reach minute 82 and the PR has not yet been created**: Stop translating. Finalize current file edits and immediately create the PR. Partial translations in a PR are better than a timeout with no PR.
 
@@ -513,9 +513,9 @@ export LANG_ARG
 
 **Use the TypeScript generator to produce article HTML files.** The generator produces articles with:
 - ✅ **Localized UI**: Headings, navigation, labels, date formatting — all in the target language
-- ⚠️ **English narrative content**: The narrative analysis (what, why, impact, outlook, stakeholders) is generated in **English**. Some content may have `lang="en"` attributes, but **most English content will NOT have any marker** — you must translate ALL of it regardless.
+- ⚠️ **English narrative content**: The narrative analysis (what, why, impact, outlook, stakeholders) is generated in **English** without any markers. You MUST translate ALL English content.
 
-> The generator handles structural localization. **Step 3b** (below) handles ALL narrative content translation — this is where YOU (the AI agent) **read the entire file, identify every English sentence, and translate it** to the target language. Do NOT rely on `lang="en"` markers — they may be absent.
+> The generator handles structural localization. **Step 3b** (below) handles ALL narrative content translation — this is where YOU (the AI agent) **read the entire file, identify every English sentence, and translate it** to the target language. There are NO `lang="en"` markers — read every paragraph and translate all English text.
 
 > ⚠️ **CRITICAL — MCP env vars and the generation script MUST run in the same bash block.**
 
@@ -602,15 +602,14 @@ fi
 
 ## Step 3b: MANDATORY AI Translation — Translate ALL English Content
 
-> **⚠️ CRITICAL — THIS IS THE CORE TRANSLATION STEP**: The TypeScript generator produces articles with **localized UI strings** (headings, labels, navigation) but **ALL narrative content** (analysis, descriptions, stakeholder perspectives, impact assessments, outlook, consequences, editorial text) **is generated in English**. The `lang="en"` HTML attribute MAY be present on some elements but is **NOT guaranteed** — English content often exists WITHOUT any marker. **YOU MUST read the ENTIRE file and translate EVERY English sentence** to the target language. This is NOT optional — it is the primary purpose of this workflow.
+> **⚠️ CRITICAL — THIS IS THE CORE TRANSLATION STEP**: The TypeScript generator produces articles with **localized UI strings** (headings, labels, navigation) but **ALL narrative content** (analysis, descriptions, stakeholder perspectives, impact assessments, outlook, consequences, editorial text) **is generated in English without any markers**. There are NO `lang="en"` attributes to guide you. **YOU MUST read the ENTIRE file and translate EVERY English sentence** to the target language. This is NOT optional — it is the primary purpose of this workflow.
 
 For each non-English article file generated in Step 3:
 
 1. **Read the ENTIRE file** from top to bottom
-2. **Identify ALL English text** — do NOT rely on `lang="en"` markers. Read every paragraph, every `<p>`, `<li>`, `<td>`, `<span>`, `<div>` text node. If it is in English, it must be translated.
+2. **Identify ALL English text** by reading every paragraph, every `<p>`, `<li>`, `<td>`, `<span>`, `<div>` text node. If it is in English, it must be translated.
 3. **Translate every English sentence** to the target language following the terminology standards and quality dimensions above
-4. **Remove any `lang="en"` attributes** if present (the content is now in the target language)
-5. **Write the fully translated file** back
+4. **Write the fully translated file** back
 
 ### What MUST be translated (100% — no exceptions)
 
@@ -640,17 +639,15 @@ For each non-English file news/${ARTICLE_DATE}-${TYPE}-${LANG}.html:
   2. Scan ALL text content (not HTML tags, not attributes except alt/title)
   3. For EVERY English sentence or phrase found:
      a. Translate to ${LANG} using EP terminology standards
-     b. If the element has lang="en", remove that attribute
-  4. Do NOT skip content just because it lacks lang="en" markers
-  5. The ONLY English that should remain: proper nouns (MEP names), 
+  4. The ONLY English that should remain: proper nouns (MEP names), 
      abbreviations (EPP, S&D), reference IDs (2024/0001(COD)), 
      location names (Strasbourg, Brussels)
-  6. Write the fully translated file
-  7. Self-verify: read the file again — is there ANY English sentence 
+  5. Write the fully translated file
+  6. Self-verify: read the file again — is there ANY English sentence 
      that a reader of ${LANG} would not understand? If yes, translate it.
 ```
 
-> **🔑 KEY PRINCIPLE**: The AI agent (you) translates ALL content. Do NOT depend on `lang="en"` markers — they are unreliable and may be absent. Read every paragraph. If it's English, translate it. The goal is **100% translated content** — a native speaker of the target language should be able to read the entire article without encountering a single untranslated English sentence.
+> **🔑 KEY PRINCIPLE**: The AI agent (you) translates ALL content. There are NO `lang="en"` markers in the generated HTML — the generator no longer produces them. Read every paragraph. If it's English, translate it. The goal is **100% translated content** — a native speaker of the target language should be able to read the entire article without encountering a single untranslated English sentence.
 
 ### Translation quality checklist per article
 
@@ -663,7 +660,6 @@ Before moving to the next file, verify:
 - [ ] Confidence markers (🟢/🟡/🔴) are preserved with translated labels
 - [ ] Vote counts and percentages are numerically identical to English source
 - [ ] The article reads naturally in the target language (not "translationese")
-- [ ] Zero `lang="en"` attributes remain (if any were present, they've been removed)
 
 ## Step 4: Validate Translated Articles
 
@@ -717,10 +713,10 @@ for TYPE in $(echo "$TRANSLATED_TYPES" | tr ',' ' '); do
       VALIDATION_FAILURES=$((VALIDATION_FAILURES + 1))
     fi
 
-    # Check lang="en" markers — these should be removed after translation
+    # Check lang="en" markers — the generator no longer produces these, but check as safety net
     EN_CONTENT_MARKERS=$(grep -c 'lang="en"' "$FILE" 2>/dev/null || echo 0)
     if [ "$EN_CONTENT_MARKERS" -gt 0 ]; then
-      echo "⚠️ $FILE: Found $EN_CONTENT_MARKERS content blocks still marked lang=\"en\" — AI translation incomplete"
+      echo "⚠️ $FILE: Found $EN_CONTENT_MARKERS unexpected lang=\"en\" markers"
       VALIDATION_FAILURES=$((VALIDATION_FAILURES + 1))
     fi
 
@@ -957,9 +953,8 @@ safeoutputs___create_pull_request({
 - Each translated article must have same analytical depth as the English source
 - Vote counts and percentages are locale-formatted but numerically identical
 - All UI strings are already localized by the TypeScript code — focus on **narrative content translation**
-- **Read the ENTIRE file** — translate ALL English content regardless of whether `lang="en"` markers exist. English content often appears WITHOUT markers.
+- **Read the ENTIRE file** — translate ALL English content. The generator produces English narrative with NO markers.
 - After translation, there should be ZERO English sentences remaining (except proper nouns, abbreviations, reference IDs)
-- Remove any `lang="en"` attributes if present — but their absence does NOT mean content is already translated
 - For CJK languages (ja, ko, zh): verify CJK character density is >50% of body text
 - For RTL languages (ar, he): verify `dir="rtl"` is present on the `<html>` element
 

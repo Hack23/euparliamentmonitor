@@ -658,10 +658,11 @@ describe('deep-analysis-content', () => {
       expect(html).not.toMatch(/<h5>Counter-arguments<\/h5>/);
     });
 
-    it('should apply lang attribute to evidence reference list items', () => {
-      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en', 'fr');
-      // Evidence items should get lang attribute when contentLang differs
-      expect(html).toMatch(/<li lang="fr">/);
+    it('should not add lang attribute to content elements (AI translates all content)', () => {
+      const html = buildDeepAnalysisSection(SAMPLE_ENHANCED_ANALYSIS, 'en');
+      // Content elements should NOT have lang="en" attributes - AI translates everything
+      expect(html).not.toMatch(/<li lang="en">/);
+      expect(html).not.toMatch(/<p lang="en">/);
     });
 
     it('should handle NaN probability gracefully', () => {

@@ -173,7 +173,7 @@ export class MonthlyReviewStrategy {
     buildContent(data, lang) {
         const base = generateMotionsContent(data.dateRange.start, data.dateRange.end, [...data.votingRecords], [...data.votingPatterns], [...data.anomalies], [...data.questions], lang);
         const analysis = buildVotingAnalysis(data.dateRange.start, data.dateRange.end, data.votingRecords, data.votingPatterns, data.anomalies, data.questions);
-        const deepSection = buildDeepAnalysisSection(analysis, lang, 'en');
+        const deepSection = buildDeepAnalysisSection(analysis, lang);
         const mindmapData = buildVotingMindmap(data.votingRecords, data.votingPatterns, data.anomalies, lang);
         const mindmapSection = buildIntelligenceMindmapSection(mindmapData, lang);
         const swotData = buildVotingSwot(data.votingRecords, data.votingPatterns, data.anomalies, lang);

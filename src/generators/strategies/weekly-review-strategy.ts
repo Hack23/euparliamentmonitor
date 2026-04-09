@@ -265,7 +265,7 @@ export class WeeklyReviewStrategy implements ArticleStrategy<WeeklyReviewArticle
       data.anomalies,
       data.questions
     );
-    const deepSection = buildDeepAnalysisSection(analysis, lang, 'en');
+    const deepSection = buildDeepAnalysisSection(analysis, lang);
 
     // Enrich with adopted texts from feed data when available
     const adoptedTextsHtml =

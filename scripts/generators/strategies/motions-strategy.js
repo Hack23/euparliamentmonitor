@@ -170,7 +170,7 @@ export class MotionsStrategy {
             : '';
         const alignmentSection = buildPoliticalAlignmentSection([...data.votingRecords], [], lang);
         const analysis = buildVotingAnalysis(data.dateFromStr, data.date, data.votingRecords, data.votingPatterns, data.anomalies, data.questions);
-        const deepSection = buildDeepAnalysisSection(analysis, lang, 'en');
+        const deepSection = buildDeepAnalysisSection(analysis, lang);
         const mindmapData = buildVotingMindmap(data.votingRecords, data.votingPatterns, data.anomalies, lang);
         const mindmapSection = buildIntelligenceMindmapSection(mindmapData, lang);
         const swotData = buildVotingSwot(data.votingRecords, data.votingPatterns, data.anomalies, lang);

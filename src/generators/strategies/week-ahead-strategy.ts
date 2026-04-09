@@ -193,7 +193,7 @@ export class WeekAheadStrategy implements ArticleStrategy<WeekAheadArticleData> 
     const base = buildWeekAheadContent(data.weekData, data.dateRange, lang);
     const watchSection = buildWhatToWatchSection(data.weekData.pipeline, [], lang);
     const analysis = buildProspectiveAnalysis(data.weekData, data.dateRange, 'week');
-    const analysisSection = buildDeepAnalysisSection(analysis, lang, 'en');
+    const analysisSection = buildDeepAnalysisSection(analysis, lang);
     const mindmapData = buildProspectiveMindmap(data.weekData, lang);
     const mindmapSection = buildIntelligenceMindmapSection(mindmapData, lang);
     const swotData = buildProspectiveSwot(data.weekData, 'week', lang);

@@ -146,7 +146,7 @@ export class MonthAheadStrategy {
     buildContent(data, lang) {
         const base = buildWeekAheadContent(data.monthData, data.dateRange, lang);
         const analysis = buildProspectiveAnalysis(data.monthData, data.dateRange, 'month');
-        const analysisSection = buildDeepAnalysisSection(analysis, lang, 'en');
+        const analysisSection = buildDeepAnalysisSection(analysis, lang);
         const mindmapData = buildProspectiveMindmap(data.monthData, lang);
         const mindmapSection = buildIntelligenceMindmapSection(mindmapData, lang);
         const swotData = buildProspectiveSwot(data.monthData, 'month', lang);

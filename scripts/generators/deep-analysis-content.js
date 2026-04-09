@@ -37,17 +37,15 @@ function aiPendingNotice(message) {
  *
  * @param what - Description of what happened
  * @param heading - Localized heading
- * @param contentLang - Language of the content text (omit when same as display language)
  * @returns HTML string
  */
-function buildWhatSection(what, heading, contentLang) {
+function buildWhatSection(what, heading) {
     if (!what)
         return '';
-    const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
     return `
             <div class="analysis-what">
               <h3>${escapeHTML(heading)}</h3>
-              <p${langAttr}>${escapeHTML(what)}</p>
+              <p>${escapeHTML(what)}</p>
             </div>`;
 }
 /**
@@ -55,18 +53,16 @@ function buildWhatSection(what, heading, contentLang) {
  *
  * @param who - Array of actor names/descriptions
  * @param heading - Localized heading
- * @param contentLang - Language of the content text (omit when same as display language)
  * @returns HTML string
  */
-function buildWhoSection(who, heading, contentLang) {
+function buildWhoSection(who, heading) {
     if (who.length === 0)
         return '';
-    const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
     const items = who.map((actor) => `<li>${escapeHTML(actor)}</li>`).join('\n                ');
     return `
             <div class="analysis-who">
               <h3>${escapeHTML(heading)}</h3>
-              <ul class="actor-list"${langAttr}>
+              <ul class="actor-list">
                 ${items}
               </ul>
             </div>`;
@@ -76,20 +72,18 @@ function buildWhoSection(who, heading, contentLang) {
  *
  * @param when - Array of date/milestone descriptions
  * @param heading - Localized heading
- * @param contentLang - Language of the content text (omit when same as display language)
  * @returns HTML string
  */
-function buildWhenSection(when, heading, contentLang) {
+function buildWhenSection(when, heading) {
     if (when.length === 0)
         return '';
-    const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
     const items = when
         .map((milestone) => `<li class="timeline-item">${escapeHTML(milestone)}</li>`)
         .join('\n                ');
     return `
             <div class="analysis-when">
               <h3>${escapeHTML(heading)}</h3>
-              <ol class="timeline-list"${langAttr}>
+              <ol class="timeline-list">
                 ${items}
               </ol>
             </div>`;
@@ -100,24 +94,22 @@ function buildWhenSection(when, heading, contentLang) {
  * @param why - Root cause analysis text
  * @param heading - Localized heading
  * @param pendingNotice - Localized pending notice text for AI markers
- * @param contentLang - Language of the content text (omit when same as display language)
  * @returns HTML string
  */
-function buildWhySection(why, heading, pendingNotice, contentLang) {
+function buildWhySection(why, heading, pendingNotice) {
     if (!why)
         return '';
-    const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
     if (isAiMarker(why)) {
         return `
             <div class="analysis-why ${AI_PENDING_CLASS}">
               <h3>${escapeHTML(heading)}</h3>
-              <p${langAttr}>${aiPendingNotice(pendingNotice)}</p>
+              <p>${aiPendingNotice(pendingNotice)}</p>
             </div>`;
     }
     return `
             <div class="analysis-why">
               <h3>${escapeHTML(heading)}</h3>
-              <p${langAttr}>${escapeHTML(why)}</p>
+              <p>${escapeHTML(why)}</p>
             </div>`;
 }
 /**
@@ -159,13 +151,11 @@ function outcomeLabel(outcome, strings) {
  * @param strings.loserLabel - Label for losing stakeholders
  * @param strings.neutralLabel - Label for neutral stakeholders
  * @param strings.pendingNotice - Localized pending notice text for AI markers
- * @param contentLang - Language of the actor/reason text (omit when same as display language)
  * @returns HTML string
  */
-function buildStakeholderSection(outcomes, heading, strings, contentLang) {
+function buildStakeholderSection(outcomes, heading, strings) {
     if (outcomes.length === 0)
         return '';
-    const contentLangAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
     const items = outcomes
         .map((s) => {
         const reasonText = isAiMarker(s.reason)
@@ -173,7 +163,7 @@ function buildStakeholderSection(outcomes, heading, strings, contentLang) {
             : escapeHTML(s.reason);
         return (`<li class="stakeholder-item ${outcomeClass(s.outcome)}">` +
             `<span class="stakeholder-badge">${escapeHTML(outcomeLabel(s.outcome, strings))}</span> ` +
-            `<span${contentLangAttr}><strong>${escapeHTML(s.actor)}</strong>: ${reasonText}</span>` +
+            `<span><strong>${escapeHTML(s.actor)}</strong>: ${reasonText}</span>` +
             `</li>`);
     })
         .join('\n                ');
@@ -197,11 +187,9 @@ function buildStakeholderSection(outcomes, heading, strings, contentLang) {
  * @param labels.legalLabel - Label for legal perspective
  * @param labels.geopoliticalLabel - Label for geopolitical perspective
  * @param labels.pendingNotice - Localized pending notice text for AI markers
- * @param contentLang - Language of the content text (omit when same as display language)
  * @returns HTML string
  */
-function buildImpactSection(impact, heading, labels, contentLang) {
-    const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
+function buildImpactSection(impact, heading, labels) {
     const perspectives = [
         { label: labels.politicalLabel, text: impact.political, css: 'impact-political' },
         { label: labels.economicLabel, text: impact.economic, css: 'impact-economic' },
@@ -216,12 +204,12 @@ function buildImpactSection(impact, heading, labels, contentLang) {
         if (isAiMarker(p.text)) {
             return (`<div class="impact-card ${p.css} ${AI_PENDING_CLASS}">` +
                 `<h4>${escapeHTML(p.label)}</h4>` +
-                `<p${langAttr}>${aiPendingNotice(labels.pendingNotice)}</p>` +
+                `<p>${aiPendingNotice(labels.pendingNotice)}</p>` +
                 `</div>`);
         }
         return (`<div class="impact-card ${p.css}">` +
             `<h4>${escapeHTML(p.label)}</h4>` +
-            `<p${langAttr}>${escapeHTML(p.text)}</p>` +
+            `<p>${escapeHTML(p.text)}</p>` +
             `</div>`);
     })
         .join('\n              ');
@@ -273,22 +261,20 @@ function severityLabel(severity, strings) {
  * @param strings.severityHigh - Label for high severity
  * @param strings.severityCritical - Label for critical severity
  * @param strings.pendingNotice - Localized pending notice text for AI markers
- * @param contentLang - Language of the content text (omit when same as display language)
  * @returns HTML string
  */
-function buildConsequencesSection(items, heading, labels, strings, contentLang) {
+function buildConsequencesSection(items, heading, labels, strings) {
     if (items.length === 0)
         return '';
-    const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
     const rows = items
         .map((item) => {
         const consequenceText = isAiMarker(item.consequence)
             ? aiPendingNotice(strings.pendingNotice)
             : escapeHTML(item.consequence);
         return (`<tr class="consequence-row severity-${escapeHTML(item.severity)}">` +
-            `<td class="action-cell"${langAttr}>${escapeHTML(item.action)}</td>` +
+            `<td class="action-cell">${escapeHTML(item.action)}</td>` +
             `<td class="arrow-cell">→</td>` +
-            `<td class="consequence-cell"${langAttr}>${consequenceText}</td>` +
+            `<td class="consequence-cell">${consequenceText}</td>` +
             `<td class="severity-cell"><span class="severity-badge severity-${escapeHTML(item.severity)}">${escapeHTML(severityLabel(item.severity, strings))}</span></td>` +
             `</tr>`);
     })
@@ -318,13 +304,11 @@ function buildConsequencesSection(items, heading, labels, strings, contentLang) 
  * @param heading - Localized heading
  * @param alternativeLabel - Localized "should have" label
  * @param pendingNotice - Localized pending notice text for AI markers
- * @param contentLang - Language of the description/alternative text (omit when same as display language)
  * @returns HTML string
  */
-function buildMistakesSection(mistakes, heading, alternativeLabel, pendingNotice, contentLang) {
+function buildMistakesSection(mistakes, heading, alternativeLabel, pendingNotice) {
     if (mistakes.length === 0)
         return '';
-    const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
     const items = mistakes
         .map((m) => {
         const altText = isAiMarker(m.alternative)
@@ -332,8 +316,8 @@ function buildMistakesSection(mistakes, heading, alternativeLabel, pendingNotice
             : escapeHTML(m.alternative);
         return (`<div class="mistake-card">` +
             `<p class="mistake-actor"><strong>${escapeHTML(m.actor)}</strong></p>` +
-            `<p class="mistake-description"${langAttr}>${escapeHTML(m.description)}</p>` +
-            `<p class="mistake-alternative"><em>${escapeHTML(alternativeLabel)}:</em> <span${langAttr}>${altText}</span></p>` +
+            `<p class="mistake-description">${escapeHTML(m.description)}</p>` +
+            `<p class="mistake-alternative"><em>${escapeHTML(alternativeLabel)}:</em> <span>${altText}</span></p>` +
             `</div>`);
     })
         .join('\n              ');
@@ -349,24 +333,22 @@ function buildMistakesSection(mistakes, heading, alternativeLabel, pendingNotice
  * @param outlook - Forward-looking analysis text
  * @param heading - Localized heading
  * @param pendingNotice - Localized pending notice text for AI markers
- * @param contentLang - Language of the content text (omit when same as display language)
  * @returns HTML string
  */
-function buildOutlookSection(outlook, heading, pendingNotice, contentLang) {
+function buildOutlookSection(outlook, heading, pendingNotice) {
     if (!outlook)
         return '';
-    const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
     if (isAiMarker(outlook)) {
         return `
             <div class="analysis-outlook ${AI_PENDING_CLASS}">
               <h3>${escapeHTML(heading)}</h3>
-              <p${langAttr}>${aiPendingNotice(pendingNotice)}</p>
+              <p>${aiPendingNotice(pendingNotice)}</p>
             </div>`;
     }
     return `
             <div class="analysis-outlook">
               <h3>${escapeHTML(heading)}</h3>
-              <p${langAttr}>${escapeHTML(outlook)}</p>
+              <p>${escapeHTML(outlook)}</p>
             </div>`;
 }
 // ─── Enhanced analysis section builders ──────────────────────────────────────
@@ -416,19 +398,17 @@ function buildConfidenceBadge(confidence, strings) {
  * @param confidence - Optional overall confidence level
  * @param heading - Localized heading
  * @param strings - Localized strings
- * @param contentLang - Language of the content text
  * @returns HTML string
  */
-function buildExecutiveSummarySection(summary, confidence, heading, strings, contentLang) {
+function buildExecutiveSummarySection(summary, confidence, heading, strings) {
     if (!summary)
         return '';
-    const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
     const badge = confidence ? buildConfidenceBadge(confidence, strings) : '';
     return `
             <div class="analysis-executive-summary">
               <h3>${escapeHTML(heading)}</h3>
               <div class="summary-header">
-                <p${langAttr}>${escapeHTML(summary)}</p>${badge}
+                <p>${escapeHTML(summary)}</p>${badge}
               </div>
             </div>`;
 }
@@ -438,22 +418,20 @@ function buildExecutiveSummarySection(summary, confidence, heading, strings, con
  * @param chains - Reasoning chain items
  * @param heading - Localized heading
  * @param strings - Localized strings
- * @param contentLang - Language of the content text
  * @returns HTML string
  */
-function buildReasoningChainSection(chains, heading, strings, contentLang) {
+function buildReasoningChainSection(chains, heading, strings) {
     if (chains.length === 0)
         return '';
-    const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
     const cards = chains
         .map((chain) => {
         const evidenceItems = chain.evidence
             .map((ref) => {
             const dateText = ref.date ? ` (${escapeHTML(ref.date)})` : '';
             if (ref.url && isSafeURL(ref.url)) {
-                return `<li${langAttr}><a href="${escapeHTML(ref.url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(ref.title)}${dateText}</a></li>`;
+                return `<li><a href="${escapeHTML(ref.url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(ref.title)}${dateText}</a></li>`;
             }
-            return `<li${langAttr}>${escapeHTML(ref.title)}${dateText}</li>`;
+            return `<li>${escapeHTML(ref.title)}${dateText}</li>`;
         })
             .join('\n                  ');
         const evidenceHtml = chain.evidence.length > 0
@@ -465,7 +443,7 @@ function buildReasoningChainSection(chains, heading, strings, contentLang) {
                 </div>`
             : '';
         const counterItems = chain.counterArguments
-            .map((ca) => `<li${langAttr}>${escapeHTML(ca)}</li>`)
+            .map((ca) => `<li>${escapeHTML(ca)}</li>`)
             .join('\n                  ');
         const counterHtml = chain.counterArguments.length > 0
             ? `<div class="counter-args-block">
@@ -476,12 +454,12 @@ function buildReasoningChainSection(chains, heading, strings, contentLang) {
                 </div>`
             : '';
         return `<div class="reasoning-chain-card">
-                <p><strong>${escapeHTML(strings.premiseLabel)}</strong> <span${langAttr}>${escapeHTML(chain.premise)}</span></p>
+                <p><strong>${escapeHTML(strings.premiseLabel)}</strong> <span>${escapeHTML(chain.premise)}</span></p>
                 ${evidenceHtml}
-                <p><strong>${escapeHTML(strings.inferenceLabel)}</strong> <span${langAttr}>${escapeHTML(chain.inference)}</span></p>
+                <p><strong>${escapeHTML(strings.inferenceLabel)}</strong> <span>${escapeHTML(chain.inference)}</span></p>
                 ${buildConfidenceBadge(chain.confidence, strings)}
                 ${counterHtml}
-                <p class="chain-conclusion"><strong>${escapeHTML(strings.conclusionLabel)}</strong> <span${langAttr}>${escapeHTML(chain.conclusion)}</span></p>
+                <p class="chain-conclusion"><strong>${escapeHTML(strings.conclusionLabel)}</strong> <span>${escapeHTML(chain.conclusion)}</span></p>
               </div>`;
     })
         .join('\n              ');
@@ -497,25 +475,23 @@ function buildReasoningChainSection(chains, heading, strings, contentLang) {
  * @param scenarios - Scenario planning data
  * @param heading - Localized heading
  * @param strings - Localized strings
- * @param contentLang - Language of the content text
  * @returns HTML string
  */
-function buildScenarioPlanningSection(scenarios, heading, strings, contentLang) {
-    const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
+function buildScenarioPlanningSection(scenarios, heading, strings) {
     function renderScenario(scenario, cssClass, label) {
         const rawPct = Number.isFinite(scenario.probability) ? scenario.probability * 100 : 0;
         const pct = Math.max(0, Math.min(100, Math.round(rawPct)));
         const triggerItems = scenario.triggers
-            .map((t) => `<li${langAttr}>${escapeHTML(t)}</li>`)
+            .map((t) => `<li>${escapeHTML(t)}</li>`)
             .join('\n                  ');
         const impactItems = scenario.implications
             .map((imp) => `<li class="scenario-impact scenario-severity-${escapeHTML(imp.severity)}">` +
-            `<strong>${escapeHTML(imp.stakeholder)}</strong>: <span${langAttr}>${escapeHTML(imp.impact)}</span>` +
+            `<strong>${escapeHTML(imp.stakeholder)}</strong>: <span>${escapeHTML(imp.impact)}</span>` +
             `</li>`)
             .join('\n                  ');
         return `<div class="scenario-card ${escapeHTML(cssClass)}">
                 <h4>${escapeHTML(label)}</h4>
-                <p${langAttr}>${escapeHTML(scenario.description)}</p>
+                <p>${escapeHTML(scenario.description)}</p>
                 <div class="scenario-probability">
                   <span>${escapeHTML(strings.probabilityLabel)}: ${pct}%</span>
                   <div class="probability-bar" style="width:${pct}%" role="progressbar" aria-valuenow="${pct}" aria-valuemin="0" aria-valuemax="100" aria-label="${escapeHTML(label)} ${pct}%"></div>
@@ -532,11 +508,11 @@ function buildScenarioPlanningSection(scenarios, heading, strings, contentLang) 
                   <ul class="scenario-impact-list">${impactItems}</ul>
                 </details>`
             : ''}
-                <p class="scenario-timeline"><strong>${escapeHTML(strings.timelineLabel)}:</strong> <span${langAttr}>${escapeHTML(scenario.timeline)}</span></p>
+                <p class="scenario-timeline"><strong>${escapeHTML(strings.timelineLabel)}:</strong> <span>${escapeHTML(scenario.timeline)}</span></p>
               </div>`;
     }
     const wildcardItems = scenarios.wildcards
-        .map((w) => `<li${langAttr}>${escapeHTML(w)}</li>`)
+        .map((w) => `<li>${escapeHTML(w)}</li>`)
         .join('\n              ');
     const wildcardHtml = scenarios.wildcards.length > 0
         ? `<div class="scenario-wildcards">
@@ -597,18 +573,16 @@ function evidenceStrengthLabel(strength, strings) {
  * @param metadata - Quality metadata
  * @param heading - Localized heading
  * @param strings - Localized strings
- * @param contentLang - Language of the content text
  * @returns HTML string
  */
-function buildAnalysisMethodologySection(metadata, heading, strings, contentLang) {
-    const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
+function buildAnalysisMethodologySection(metadata, heading, strings) {
     const iterationItems = metadata.iterations
         .map((iter) => {
         const findingItems = iter.findings
-            .map((f) => `<li${langAttr}>${escapeHTML(f)}</li>`)
+            .map((f) => `<li>${escapeHTML(f)}</li>`)
             .join('\n                  ');
         const refinementItems = iter.refinements
-            .map((r) => `<li${langAttr}>${escapeHTML(r)}</li>`)
+            .map((r) => `<li>${escapeHTML(r)}</li>`)
             .join('\n                  ');
         return `<div class="iteration-item">
                 <div class="iteration-header">
@@ -721,13 +695,11 @@ function localizedOutcomeLabel(outcome, strings) {
  * @param perspectives - Array of stakeholder perspectives
  * @param heading - Localized section heading
  * @param strings - Localized label strings for stakeholder names, impact, and severity
- * @param contentLang - Language of the reasoning/evidence text
  * @returns HTML string, or empty string if no perspectives provided
  */
-function buildStakeholderPerspectivesSection(perspectives, heading, strings, contentLang) {
+function buildStakeholderPerspectivesSection(perspectives, heading, strings) {
     if (!perspectives || perspectives.length === 0)
         return '';
-    const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
     const cards = perspectives
         .map((p) => {
         const evidenceItems = p.evidence.map((e) => `<li>${escapeHTML(e)}</li>`).join('');
@@ -740,7 +712,7 @@ function buildStakeholderPerspectivesSection(perspectives, heading, strings, con
             `<span class="perspective-impact-badge perspective-impact-${escapeHTML(p.impact)}">${escapeHTML(localizedImpactLabel(p.impact, strings))}</span>` +
             `<span class="perspective-severity-badge severity-${escapeHTML(p.severity)}">${escapeHTML(localizedSeverityLabel(p.severity, strings))}</span>` +
             `</div>` +
-            `<p class="perspective-reasoning"${langAttr}>${isAiMarker(p.reasoning) ? aiPendingNotice(strings.pendingNotice) : escapeHTML(p.reasoning)}</p>` +
+            `<p class="perspective-reasoning">${isAiMarker(p.reasoning) ? aiPendingNotice(strings.pendingNotice) : escapeHTML(p.reasoning)}</p>` +
             evidenceHtml +
             `</div>`);
     })
@@ -761,13 +733,11 @@ function buildStakeholderPerspectivesSection(perspectives, heading, strings, con
  * @param matrix - Array of stakeholder outcome matrix rows
  * @param heading - Localized section heading
  * @param strings - Localized label strings for columns and stakeholder groups
- * @param contentLang - Language of the action text
  * @returns HTML string, or empty string if no matrix rows provided
  */
-function buildStakeholderOutcomeMatrixSection(matrix, heading, strings, contentLang) {
+function buildStakeholderOutcomeMatrixSection(matrix, heading, strings) {
     if (!matrix || matrix.length === 0)
         return '';
-    const langAttr = contentLang ? ` lang="${escapeHTML(contentLang)}"` : '';
     const headerCells = ALL_STAKEHOLDER_TYPES.map((s) => `<th scope="col">${escapeHTML(localizedStakeholderLabel(s, strings))}</th>`).join('');
     const rows = matrix
         .map((row) => {
@@ -777,7 +747,7 @@ function buildStakeholderOutcomeMatrixSection(matrix, heading, strings, contentL
             return `<td class="matrix-cell outcome-${escapeHTML(outcome)}">${escapeHTML(localizedOutcomeLabel(outcome, strings))}</td>`;
         }).join('');
         return (`<tr>` +
-            `<th scope="row" class="matrix-action"${langAttr}>${escapeHTML(row.action)}</th>` +
+            `<th scope="row" class="matrix-action">${escapeHTML(row.action)}</th>` +
             `<td class="matrix-confidence confidence-${escapeHTML(row.confidence)}">${escapeHTML(localizedSeverityLabel(row.confidence, strings))}</td>` +
             cells +
             `</tr>`);
@@ -816,17 +786,15 @@ function buildStakeholderOutcomeMatrixSection(matrix, heading, strings, contentL
  * @param analysis - Deep analysis data (null/undefined returns empty string).
  *   Accepts both `DeepAnalysis` and `EnhancedDeepAnalysis`.
  * @param lang - BCP 47 language code for localized headings
- * @param contentLang - BCP 47 language code for the content text; when it
  *   differs from `lang`, each content element gets a `lang` attribute so
  *   screen readers and translation tools handle the language switch correctly.
  *   Defaults to `lang` (no extra attributes added).
  * @returns HTML section string or empty string
  */
-export function buildDeepAnalysisSection(analysis, lang, contentLang = lang) {
+export function buildDeepAnalysisSection(analysis, lang) {
     if (!analysis)
         return '';
     const strings = getLocalizedString(DEEP_ANALYSIS_STRINGS, lang);
-    const cl = contentLang !== lang ? contentLang : undefined;
     // ─── Enhanced sections (before/after base sections) ────────────────────
     let executiveSummaryHtml = '';
     let reasoningChainsHtml = '';
@@ -834,30 +802,30 @@ export function buildDeepAnalysisSection(analysis, lang, contentLang = lang) {
     let methodologyHtml = '';
     if (isEnhancedDeepAnalysis(analysis)) {
         if (analysis.executiveSummary) {
-            executiveSummaryHtml = buildExecutiveSummarySection(analysis.executiveSummary, analysis.qualityMetadata?.overallConfidence, strings.executiveSummaryHeading, strings, cl);
+            executiveSummaryHtml = buildExecutiveSummarySection(analysis.executiveSummary, analysis.qualityMetadata?.overallConfidence, strings.executiveSummaryHeading, strings);
         }
         if (analysis.reasoningChains && analysis.reasoningChains.length > 0) {
-            reasoningChainsHtml = buildReasoningChainSection(analysis.reasoningChains, strings.reasoningChainsHeading, strings, cl);
+            reasoningChainsHtml = buildReasoningChainSection(analysis.reasoningChains, strings.reasoningChainsHeading, strings);
         }
         if (analysis.scenarioPlanning) {
-            scenarioPlanningHtml = buildScenarioPlanningSection(analysis.scenarioPlanning, strings.scenarioPlanningHeading, strings, cl);
+            scenarioPlanningHtml = buildScenarioPlanningSection(analysis.scenarioPlanning, strings.scenarioPlanningHeading, strings);
         }
         if (analysis.qualityMetadata) {
-            methodologyHtml = buildAnalysisMethodologySection(analysis.qualityMetadata, strings.analysisMethodologyHeading, strings, cl);
+            methodologyHtml = buildAnalysisMethodologySection(analysis.qualityMetadata, strings.analysisMethodologyHeading, strings);
         }
     }
     // ─── Base "5W + Impact" sections ───────────────────────────────────────
-    const whatHtml = buildWhatSection(analysis.what, strings.whatHeading, cl);
-    const whoHtml = buildWhoSection(analysis.who, strings.whoHeading, cl);
-    const whenHtml = buildWhenSection(analysis.when, strings.whenHeading, cl);
-    const whyHtml = buildWhySection(analysis.why, strings.whyHeading, strings.pendingNotice, cl);
-    const stakeholderHtml = buildStakeholderSection(analysis.stakeholderOutcomes, strings.stakeholderHeading, strings, cl);
-    const impactHtml = buildImpactSection(analysis.impactAssessment, strings.impactHeading, strings, cl);
-    const consequencesHtml = buildConsequencesSection(analysis.actionConsequences, strings.consequencesHeading, strings, strings, cl);
-    const mistakesHtml = buildMistakesSection(analysis.mistakes, strings.mistakesHeading, strings.alternativeLabel, strings.pendingNotice, cl);
-    const outlookHtml = buildOutlookSection(analysis.outlook, strings.outlookHeading, strings.pendingNotice, cl);
-    const perspectivesHtml = buildStakeholderPerspectivesSection(analysis.stakeholderPerspectives, strings.perspectivesHeading, strings, cl);
-    const outcomeMatrixHtml = buildStakeholderOutcomeMatrixSection(analysis.stakeholderOutcomeMatrix, strings.outcomeMatrixHeading, strings, cl);
+    const whatHtml = buildWhatSection(analysis.what, strings.whatHeading);
+    const whoHtml = buildWhoSection(analysis.who, strings.whoHeading);
+    const whenHtml = buildWhenSection(analysis.when, strings.whenHeading);
+    const whyHtml = buildWhySection(analysis.why, strings.whyHeading, strings.pendingNotice);
+    const stakeholderHtml = buildStakeholderSection(analysis.stakeholderOutcomes, strings.stakeholderHeading, strings);
+    const impactHtml = buildImpactSection(analysis.impactAssessment, strings.impactHeading, strings);
+    const consequencesHtml = buildConsequencesSection(analysis.actionConsequences, strings.consequencesHeading, strings, strings);
+    const mistakesHtml = buildMistakesSection(analysis.mistakes, strings.mistakesHeading, strings.alternativeLabel, strings.pendingNotice);
+    const outlookHtml = buildOutlookSection(analysis.outlook, strings.outlookHeading, strings.pendingNotice);
+    const perspectivesHtml = buildStakeholderPerspectivesSection(analysis.stakeholderPerspectives, strings.perspectivesHeading, strings);
+    const outcomeMatrixHtml = buildStakeholderOutcomeMatrixSection(analysis.stakeholderOutcomeMatrix, strings.outcomeMatrixHeading, strings);
     const innerContent = executiveSummaryHtml +
         whatHtml +
         whoHtml +
