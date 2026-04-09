@@ -83,12 +83,12 @@ export { AI_MARKER };
 /**
  * Derive stakeholder outcomes from voting records.
  * Groups that win votes are "winners"; groups on the losing side are "losers".
- * Returns only `{actor, outcome}` with a placeholder reason — the caller
- * overwrites `reason` with `AI_MARKER` for AI enrichment.
+ * Returns `{actor, outcome, reason}` where `reason` is set to `AI_MARKER`
+ * so the AI enrichment step provides substantive political reasoning.
  *
  * @param records - Voting records
  * @param patterns - Voting pattern data
- * @returns Stakeholder outcome assessments (reason is a placeholder, overwritten by caller)
+ * @returns Stakeholder outcome assessments with `reason` set to `AI_MARKER`
  */
 function deriveStakeholderOutcomesFromVoting(
   records: readonly VotingRecord[],

@@ -754,7 +754,20 @@ npx tsx src/generators/news-enhanced.ts \
 
 ### MANDATORY AI Enrichment — Replace Analysis Placeholders
 
-> **⚠️ CRITICAL**: The TypeScript generator outputs `[AI_ANALYSIS_REQUIRED]` markers in the deep-analysis section. You MUST replace EVERY marker with substantive political analysis from EP MCP data. Write specific political intelligence — name political groups, cite specific developments, explain strategic significance. Never use generic phrases like "this advances through the parliamentary process" or "signals potential shifts in political group alignment." Every impact card needs ≥40 words of AI analysis. Verify zero markers remain: `grep -c 'AI_ANALYSIS_REQUIRED' news/${TODAY}-breaking-en.html`
+> **⚠️ CRITICAL**: The TypeScript generator outputs `[AI_ANALYSIS_REQUIRED]` markers in the deep-analysis section. You MUST replace EVERY marker with substantive political analysis from EP MCP data. Write specific political intelligence — name political groups, cite specific developments, explain strategic significance. Never use generic phrases like "this advances through the parliamentary process" or "signals potential shifts in political group alignment." Every impact card needs ≥40 words of AI analysis. Validate that zero markers remain:
+>
+> ```bash
+> TARGET_FILE="news/${TODAY}-breaking-en.html"
+> if [ ! -f "$TARGET_FILE" ]; then
+>   echo "ERROR: Expected article file missing: $TARGET_FILE" >&2
+>   exit 1
+> fi
+> MARKERS=$(grep -c 'AI_ANALYSIS_REQUIRED' "$TARGET_FILE" 2>/dev/null || echo 0)
+> if [ "$MARKERS" -gt 0 ]; then
+>   echo "ERROR: $MARKERS [AI_ANALYSIS_REQUIRED] markers still present — enrich before committing" >&2
+>   exit 1
+> fi
+> ```
 
 ### Quality Validation
 
