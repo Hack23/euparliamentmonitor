@@ -117,11 +117,7 @@ function buildWhenSection(when: readonly string[], heading: string): string {
  * @param pendingNotice - Localized pending notice text for AI markers
  * @returns HTML string
  */
-function buildWhySection(
-  why: string,
-  heading: string,
-  pendingNotice: string,
-): string {
+function buildWhySection(why: string, heading: string, pendingNotice: string): string {
   if (!why) return '';
   if (isAiMarker(why)) {
     return `
@@ -186,7 +182,7 @@ function outcomeLabel(
 function buildStakeholderSection(
   outcomes: readonly StakeholderOutcome[],
   heading: string,
-  strings: { winnerLabel: string; loserLabel: string; neutralLabel: string; pendingNotice: string },
+  strings: { winnerLabel: string; loserLabel: string; neutralLabel: string; pendingNotice: string }
 ): string {
   if (outcomes.length === 0) return '';
   const items = outcomes
@@ -235,7 +231,7 @@ function buildImpactSection(
     legalLabel: string;
     geopoliticalLabel: string;
     pendingNotice: string;
-  },
+  }
 ): string {
   const perspectives = [
     { label: labels.politicalLabel, text: impact.political, css: 'impact-political' },
@@ -335,7 +331,7 @@ function buildConsequencesSection(
     severityHigh: string;
     severityCritical: string;
     pendingNotice: string;
-  },
+  }
 ): string {
   if (items.length === 0) return '';
   const rows = items
@@ -385,7 +381,7 @@ function buildMistakesSection(
   mistakes: readonly PoliticalMistake[],
   heading: string,
   alternativeLabel: string,
-  pendingNotice: string,
+  pendingNotice: string
 ): string {
   if (mistakes.length === 0) return '';
   const items = mistakes
@@ -417,11 +413,7 @@ function buildMistakesSection(
  * @param pendingNotice - Localized pending notice text for AI markers
  * @returns HTML string
  */
-function buildOutlookSection(
-  outlook: string,
-  heading: string,
-  pendingNotice: string,
-): string {
+function buildOutlookSection(outlook: string, heading: string, pendingNotice: string): string {
   if (!outlook) return '';
   if (isAiMarker(outlook)) {
     return `
@@ -494,7 +486,7 @@ function buildExecutiveSummarySection(
   summary: string,
   confidence: ConfidenceLevel | undefined,
   heading: string,
-  strings: DeepAnalysisStrings,
+  strings: DeepAnalysisStrings
 ): string {
   if (!summary) return '';
   const badge = confidence ? buildConfidenceBadge(confidence, strings) : '';
@@ -518,7 +510,7 @@ function buildExecutiveSummarySection(
 function buildReasoningChainSection(
   chains: readonly ReasoningChain[],
   heading: string,
-  strings: DeepAnalysisStrings,
+  strings: DeepAnalysisStrings
 ): string {
   if (chains.length === 0) return '';
   const cards = chains
@@ -583,9 +575,8 @@ function buildReasoningChainSection(
 function buildScenarioPlanningSection(
   scenarios: ScenarioPlanning,
   heading: string,
-  strings: DeepAnalysisStrings,
+  strings: DeepAnalysisStrings
 ): string {
-
   function renderScenario(
     scenario: ScenarioPlanning['bestCase'],
     cssClass: string,
@@ -709,7 +700,7 @@ function evidenceStrengthLabel(
 function buildAnalysisMethodologySection(
   metadata: AnalysisQualityMetadata,
   heading: string,
-  strings: DeepAnalysisStrings,
+  strings: DeepAnalysisStrings
 ): string {
   const iterationItems = metadata.iterations
     .map((iter) => {
@@ -855,7 +846,7 @@ function localizedOutcomeLabel(outcome: string, strings: DeepAnalysisStrings): s
 function buildStakeholderPerspectivesSection(
   perspectives: readonly StakeholderPerspective[] | undefined,
   heading: string,
-  strings: DeepAnalysisStrings,
+  strings: DeepAnalysisStrings
 ): string {
   if (!perspectives || perspectives.length === 0) return '';
   const cards = perspectives
@@ -899,7 +890,7 @@ function buildStakeholderPerspectivesSection(
 function buildStakeholderOutcomeMatrixSection(
   matrix: readonly StakeholderOutcomeMatrix[] | undefined,
   heading: string,
-  strings: DeepAnalysisStrings,
+  strings: DeepAnalysisStrings
 ): string {
   if (!matrix || matrix.length === 0) return '';
 
@@ -965,7 +956,7 @@ function buildStakeholderOutcomeMatrixSection(
  */
 export function buildDeepAnalysisSection(
   analysis: DeepAnalysis | EnhancedDeepAnalysis | null | undefined,
-  lang: string,
+  lang: string
 ): string {
   if (!analysis) return '';
 
@@ -1019,11 +1010,7 @@ export function buildDeepAnalysisSection(
     strings.stakeholderHeading,
     strings
   );
-  const impactHtml = buildImpactSection(
-    analysis.impactAssessment,
-    strings.impactHeading,
-    strings
-  );
+  const impactHtml = buildImpactSection(analysis.impactAssessment, strings.impactHeading, strings);
   const consequencesHtml = buildConsequencesSection(
     analysis.actionConsequences,
     strings.consequencesHeading,
