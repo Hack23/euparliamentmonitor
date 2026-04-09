@@ -884,15 +884,22 @@ npx tsx src/generators/news-enhanced.ts \
 
 **Replacement method:**
 ```bash
-# Verify no markers remain after enrichment
-TARGET_FILE="news/${TODAY}-propositions-en.html"
-if [ ! -f "$TARGET_FILE" ]; then
-  echo "ERROR: Expected article file missing: $TARGET_FILE" >&2
-  exit 1
-fi
-MARKERS=$(grep -c 'AI_ANALYSIS_REQUIRED' "$TARGET_FILE" 2>/dev/null || echo 0)
-if [ "$MARKERS" -gt 0 ]; then
-  echo "ERROR: $MARKERS [AI_ANALYSIS_REQUIRED] markers still present — enrich before committing" >&2
+# Verify no markers remain after enrichment (all language variants)
+FOUND_FILES=0
+for TARGET_FILE in news/${TODAY}-propositions-*.html; do
+  if [ ! -f "$TARGET_FILE" ]; then
+    continue
+  fi
+  FOUND_FILES=1
+  MARKERS=$(grep -c 'AI_ANALYSIS_REQUIRED' "$TARGET_FILE" 2>/dev/null || true)
+  MARKERS=${MARKERS:-0}
+  if [ "$MARKERS" -gt 0 ]; then
+    echo "ERROR: $TARGET_FILE still contains $MARKERS [AI_ANALYSIS_REQUIRED] marker(s) — enrich before committing" >&2
+    exit 1
+  fi
+done
+if [ "$FOUND_FILES" -eq 0 ]; then
+  echo "ERROR: Expected article files missing: news/${TODAY}-propositions-*.html" >&2
   exit 1
 fi
 ```

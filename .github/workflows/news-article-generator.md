@@ -782,17 +782,21 @@ npx tsx src/generators/news-enhanced.ts \
 > **⚠️ CRITICAL**: The TypeScript generator outputs `[AI_ANALYSIS_REQUIRED]` markers in the deep-analysis section. You MUST replace EVERY marker with substantive political analysis from EP MCP data. Write specific political intelligence — name actors, cite data, explain consequences. Never use generic template phrases. Every impact card needs ≥40 words of AI analysis. Validate that zero markers remain:
 >
 > ```bash
-> for TARGET_FILE in news/${TODAY}-*-en.html; do
->   if [ ! -f "$TARGET_FILE" ]; then
->     echo "ERROR: Expected article file missing: $TARGET_FILE" >&2
->     exit 1
->   fi
->   MARKERS=$(grep -c 'AI_ANALYSIS_REQUIRED' "$TARGET_FILE" 2>/dev/null || echo 0)
+> FOUND_FILES=0
+> for TARGET_FILE in news/${TODAY}-*.html; do
+>   [ -f "$TARGET_FILE" ] || continue
+>   FOUND_FILES=1
+>   MARKERS=$(grep -c 'AI_ANALYSIS_REQUIRED' "$TARGET_FILE" 2>/dev/null || true)
+>   MARKERS=${MARKERS:-0}
 >   if [ "$MARKERS" -gt 0 ]; then
->     echo "ERROR: $MARKERS [AI_ANALYSIS_REQUIRED] markers still present in $TARGET_FILE — enrich before committing" >&2
+>     echo "ERROR: $TARGET_FILE still contains $MARKERS [AI_ANALYSIS_REQUIRED] marker(s) — enrich before committing" >&2
 >     exit 1
 >   fi
 > done
+> if [ "$FOUND_FILES" -eq 0 ]; then
+>   echo "ERROR: Expected article files missing: news/${TODAY}-*.html" >&2
+>   exit 1
+> fi
 > ```
 
 ### Step 4: Quality Validation
