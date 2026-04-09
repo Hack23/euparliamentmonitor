@@ -30,6 +30,15 @@
         "political-classification.md"
       ],
       "improvements": "Added 6-dimension Political Threat Landscape analysis (Attack Trees, PESTLE, Kill Chain frameworks), 7-dimension political classification of Q1 adopted texts across 6 thematic clusters. Extended analysis from 5 to 7 files, from 20 to 24 methods."
+    },
+    {
+      "runId": 3,
+      "timestamp": "2026-04-09T12:30:00Z",
+      "workflowRunId": "24189678087",
+      "files": [
+        "coalition-sentiment-analysis.md"
+      ],
+      "improvements": "Added coalition sentiment analysis with institutional positioning model (Q1 sentiment tracker data), updated risk matrix with new S&D overreach risk, 4-perspective stakeholder impact assessment of coalition shifts, 3 forward-looking scenarios, and updated early warning indicators. Extended analysis from 7 to 8 files, from 24 to 30 methods."
     }
   ],
   "dataCollected": {
@@ -41,7 +50,9 @@
     "documents": 0,
     "plenaryDocuments": 0,
     "committeeDocuments": 0,
-    "questions": 0
+    "questions": 0,
+    "sentimentTracker": "Q1 2026 (8 groups)",
+    "politicalGroupComparison": "6 groups compared"
   },
   "feedStatus": {
     "adoptedTextsFeedToday": "INTERNAL_ERROR",
@@ -112,7 +123,8 @@
     "swot-analysis.md",
     "risk-assessment.md",
     "threat-analysis.md",
-    "political-classification.md"
+    "political-classification.md",
+    "coalition-sentiment-analysis.md"
   ],
   "analysisMethods": [
     "thematic-clustering",
@@ -138,8 +150,14 @@
     "political-threat-landscape",
     "attack-tree-analysis",
     "pestle-assessment",
-    "kill-chain-analysis"
+    "kill-chain-analysis",
+    "institutional-positioning-model",
+    "coalition-pair-cohesion-matrix",
+    "sentiment-shift-analysis",
+    "three-pole-dynamics-assessment",
+    "coalition-scenario-planning",
+    "political-group-comparison"
   ],
   "articleGenerated": false,
-  "generatedAt": "2026-04-09T06:45:00Z"
+  "generatedAt": "2026-04-09T12:35:00Z"
 }
