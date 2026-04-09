@@ -67,7 +67,7 @@ function deriveConsequencesFromVoting(records, anomalies) {
         if (record.result === PLACEHOLDER_MARKER)
             continue;
         consequences.push({
-            action: `Vote on "${record.title}"`,
+            action: `Vote on "${record.title}" resulted in ${record.result} (${record.votes.for} for, ${record.votes.against} against, ${record.votes.abstain} abstain)`,
             consequence: AI_MARKER,
             severity: Math.abs(record.votes.for - record.votes.against) >
                 (record.votes.for + record.votes.against) / 2
@@ -78,8 +78,11 @@ function deriveConsequencesFromVoting(records, anomalies) {
     for (const anomaly of anomalies.slice(0, 2)) {
         if (/placeholder/i.test(anomaly.type))
             continue;
+        const anomalyDescription = anomaly.description?.trim() ?? '';
         consequences.push({
-            action: `${anomaly.type} detected`,
+            action: anomalyDescription.length > 0
+                ? `${anomaly.type} detected: ${anomalyDescription}`
+                : `${anomaly.type} detected`,
             consequence: AI_MARKER,
             severity: anomaly.severity?.toLowerCase() === 'high' ? 'high' : 'medium',
         });
@@ -296,7 +299,10 @@ export function buildVotingAnalysis(dateFrom, dateTo, records, patterns, anomali
             ...realRecords.slice(0, 3).map((r) => `${r.date}: Vote on "${r.title}" — ${r.result}`),
         ],
         why: buildVotingWhyText(),
-        stakeholderOutcomes: deriveStakeholderOutcomesFromVoting(realRecords, realPatterns),
+        stakeholderOutcomes: deriveStakeholderOutcomesFromVoting(realRecords, realPatterns).map((outcome) => ({
+            ...outcome,
+            reason: AI_MARKER,
+        })),
         impactAssessment: buildAiMarkerImpactAssessment(),
         actionConsequences: deriveConsequencesFromVoting(realRecords, realAnomalies),
         mistakes: deriveMistakesFromAnomalies(realAnomalies),

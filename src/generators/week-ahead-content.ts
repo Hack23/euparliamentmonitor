@@ -549,7 +549,7 @@ function buildLedeDetail(committeeCount: number, pipelineCount: number): string 
  *
  * @param weekData - Aggregated week-ahead data
  * @param dateRange - Date range for the article
- * @param lang - Language code for editorial strings (default: 'en')
+ * @param lang - Language code for localized content strings (default: 'en')
  * @returns HTML content string
  */
 export function buildWeekAheadContent(

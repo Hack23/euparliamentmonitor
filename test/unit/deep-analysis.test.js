@@ -821,6 +821,15 @@ describe('analysis-builders', () => {
       expect(result.why).toBe(AI_MARKER);
     });
 
+    it('should use AI_MARKER for stakeholder outcome reasons (AI-driven analysis)', () => {
+      const result = buildVotingAnalysis(
+        '2026-02-01', '2026-02-28',
+        VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES, MOTIONS_QUESTIONS
+      );
+      expect(result.stakeholderOutcomes.length).toBeGreaterThan(0);
+      expect(result.stakeholderOutcomes.every((outcome) => outcome.reason === AI_MARKER)).toBe(true);
+    });
+
     it('should use AI_MARKER for political impact (AI-driven analysis)', () => {
       const result = buildVotingAnalysis(
         '2026-02-01', '2026-02-28',
