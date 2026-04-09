@@ -401,3 +401,62 @@ quadrantChart
 
 *Synthesis updated by `news-breaking` workflow (Run 3) — 2026-04-09 12:35 UTC*
 *Cumulative: 8 analysis files, 30 methods, 3 runs across 12+ hours of analytical work*
+
+---
+
+## 📊 Run 4 Update — Post-Recess Preparedness (18:30 UTC)
+
+### New Data Point
+
+**TA-10-2026-0028 updated today** — For the first time in 4 runs, the adopted texts feed (today timeframe) returned data successfully. Runs 1-3 received INTERNAL_ERROR. This signals possible EP API reactivation as recess approaches its end (4 days remaining).
+
+### New Analysis File
+
+| File | Lines | Methods Added |
+|------|:-----:|:------------:|
+| `post-recess-preparedness.md` | 250+ | 6 new methods |
+
+**New methods:** post-recess-preparedness, legislative-backlog-assessment, scenario-planning-extended, stakeholder-preparedness-matrix, cross-session-delta-tracking, feed-recovery-signal-analysis
+
+### Key Findings (Run 4)
+
+1. **Legislative Backlog Risk — NEW** (12/25 HIGH): 30+ adopted texts + 13 COD procedures must be processed in a 4-day committee window (April 14-17). This is a new risk not identified in Runs 1-3.
+
+2. **Composite Risk Increased** — 9.55 → 10.10/25 (MEDIUM), driven by the new backlog risk. Still within MEDIUM tier but approaching the HIGH threshold of 10/25.
+
+3. **Four Post-Recess Scenarios Developed:**
+   - Scenario 1: Smooth Restart (LIKELY — 50%)
+   - Scenario 2: Tariff Crisis Override (POSSIBLE — 25%)
+   - Scenario 3: Coalition Restructuring (UNLIKELY — 15%)
+   - Scenario 4: Legislative Logjam (UNLIKELY — 10%)
+
+4. **Stakeholder Preparedness Assessed** (4 perspectives):
+   - Political Groups: Renew-ECR (0.95) and S&D (+0.2) best positioned; EPP (-0.1) must reassert
+   - EU Citizens: 14-day oversight gap on CRITICAL tariff dossier
+   - Industry: Trade-exposed sectors face highest uncertainty
+   - National Governments: Divergent anti-corruption transposition approaches
+
+5. **All Prior Findings Confirmed** — No contradictions with Run 1-3 analysis. Coalition dynamics stable, risk landscape unchanged except for backlog addition.
+
+### Run 4 Metrics
+
+| Metric | Value |
+|--------|-------|
+| New analysis files | 1 (post-recess-preparedness.md) |
+| New methods applied | 6 |
+| Total analysis methods (cumulative) | 36 |
+| Total analysis files (cumulative) | 9 |
+| New data: adopted texts feed (today) | 1 item (TA-10-2026-0028) |
+| Composite risk change | 9.55 → 10.10 |
+| Scenarios developed | 4 |
+
+### Editorial Decision (Run 4 — Confirmed)
+
+**NO BREAKING NEWS** — Easter recess Day 14 continues. TA-10-2026-0028 update is backend metadata maintenance, not new parliamentary action. No today-dated events, procedures, or documents. Analysis-only PR created per Rule 5.
+
+**Next scheduled activity:** Committee week April 14-17. Strasbourg plenary April 20-23.
+
+---
+
+*Synthesis updated by `news-breaking` workflow (Run 4) — 2026-04-09 18:30 UTC*
+*Cumulative: 9 analysis files, 36 methods, 4 runs across 18+ hours of analytical work*
