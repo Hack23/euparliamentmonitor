@@ -65,6 +65,20 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Install gh-aw CLI
+        run: |
+          echo "Installing gh-aw tool..."
+          # Try to install the GitHub CLI extension
+          # Note: This may require authentication
+          if gh auth status 2>/dev/null; then
+            gh extension install github/gh-aw || echo "Failed to install gh-aw extension"
+          else
+            echo "⚠️ GitHub CLI not authenticated"
+            echo "Skipping gh-aw installation"
+          fi
+        env:
+          GH_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
+
       # Pre-install MCP server packages globally
       - name: Install MCP server packages globally
         run: |
