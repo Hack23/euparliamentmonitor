@@ -1712,11 +1712,13 @@ mindmap
 
 ### Workflow Cadence — Weekly Intelligence Rhythm
 
-The 10 agentic workflows follow a carefully orchestrated schedule to ensure continuous intelligence coverage of the European Parliament:
+The 10 agentic workflows follow a carefully orchestrated schedule to ensure continuous intelligence coverage of the European Parliament.
+
+> **Note:** The Gantt chart below uses sample dates (week of 2026-01-05) to illustrate the recurring weekly cadence. Mermaid's gantt format requires concrete dates; the actual schedule repeats every week.
 
 ```mermaid
 gantt
-    title Weekly Agentic Workflow Cadence UTC
+    title Weekly Agentic Workflow Cadence UTC — Sample Week
     dateFormat YYYY-MM-DD
     axisFormat %a
 
