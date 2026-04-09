@@ -87,61 +87,61 @@ Based on [Hack23 AB Classification Framework](https://github.com/Hack23/ISMS-PUB
 
 ```mermaid
 mindmap
-  root((🇪🇺 EU Parliament Monitor Stack))
-    (🖥️ Runtime)
-      ☕ Node.js 25.x Current
-        📅 Current Release (Oct 2025)
-        ⏰ EOL: Late Apr 2026
-        🔄 Next LTS: Node.js 26 (Apr 2026)
-        🎯 Target (annual cadence): Node.js 27
-      🌐 Browser Runtime
-        📅 Evergreen Updates
-        ⏰ EOL: N/A
-        🔄 HTML5 Living Standard
-    (🏗️ Frontend)
-      📄 HTML5 Living Standard
-        📅 Evergreen
-        ⏰ EOL: N/A
-        🔄 No migration needed
-      🎨 CSS3 Living Standard
-        📅 Evergreen
-        ⏰ EOL: N/A
-        🔄 No migration needed
-      📱 Responsive Design
-        📅 Standards-based
-        ⏰ EOL: N/A
-        🔄 Progressive Enhancement
-    (🛠️ Build & Tooling)
-      📝 TypeScript 6.x
-        📅 Current: Latest
-        ⏰ EOL: ~12-month major cycles
-        🔄 Strict Mode Enabled
-      ⚡ ESLint 9.x
-        📅 Current: Latest
-        ⏰ EOL: Active
-        🔄 Flat Config System
-      📋 HTMLHint
-        📅 Current: Stable
-        ⏰ EOL: Active
-        🔄 HTML Validation
-    (🧪 Testing & Quality)
-      🧪 Vitest
-        📅 Current: Latest
-        ⏰ EOL: Active
-        🔄 Native ESM Support
-      🔧 Playwright
-        📅 Current: Latest
-        ⏰ EOL: Active
-        🔄 E2E Testing
-    (📡 Data & Integration)
-      🇪🇺 EP MCP Server
-        📅 Active Development
-        ⏰ EOL: Hack23-maintained
-        🔄 European Parliament API
-      📰 News Generation
-        📅 Custom Pipeline
-        ⏰ EOL: Internal
-        🔄 14-Language Output
+  root((EU Parliament Monitor Stack))
+    Runtime
+      Node.js 25.x Current
+        Current Release Oct 2025
+        EOL Late Apr 2026
+        Next LTS Node.js 26
+        Target Node.js 27
+      Browser Runtime
+        Evergreen Updates
+        No EOL
+        HTML5 Living Standard
+    Frontend
+      HTML5 Living Standard
+        Evergreen
+        No EOL
+        No migration needed
+      CSS3 Living Standard
+        Evergreen
+        No EOL
+        No migration needed
+      Responsive Design
+        Standards-based
+        No EOL
+        Progressive Enhancement
+    Build and Tooling
+      TypeScript 6.x
+        Current Latest
+        12-month major cycles
+        Strict Mode Enabled
+      ESLint 9.x
+        Current Latest
+        Active
+        Flat Config System
+      HTMLHint
+        Current Stable
+        Active
+        HTML Validation
+    Testing and Quality
+      Vitest
+        Current Latest
+        Active
+        Native ESM Support
+      Playwright
+        Current Latest
+        Active
+        E2E Testing
+    Data and Integration
+      EP MCP Server
+        Active Development
+        Hack23-maintained
+        European Parliament API
+      News Generation
+        Custom Pipeline
+        Internal
+        14-Language Output
 ```
 
 ### 📊 Technology Lifecycle Overview
