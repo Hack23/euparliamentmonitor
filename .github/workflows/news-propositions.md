@@ -887,9 +887,7 @@ npx tsx src/generators/news-enhanced.ts \
 # Verify no markers remain after enrichment (all language variants)
 FOUND_FILES=0
 for TARGET_FILE in news/${TODAY}-propositions-*.html; do
-  if [ ! -f "$TARGET_FILE" ]; then
-    continue
-  fi
+  [ -f "$TARGET_FILE" ] || continue
   FOUND_FILES=1
   MARKERS=$(grep -c 'AI_ANALYSIS_REQUIRED' "$TARGET_FILE" 2>/dev/null || true)
   MARKERS=${MARKERS:-0}
