@@ -276,13 +276,14 @@ Each translated article must score well on these 5 dimensions:
 
 - **Minutes 0–3**: Date validation, discover English articles that need translation
 - **Minutes 3–8**: Set up MCP gateway, validate environment
-- **Minutes 8–80**: Translate articles using the TypeScript generator
-- **Minutes 80–85**: Validate translated HTML files
-- **Minutes 85–90**: Create PR with `safeoutputs___create_pull_request`
+- **Minutes 8–20**: Generate article HTML files using the TypeScript generator (Step 3)
+- **Minutes 20–75**: **AI Translation** — read each non-English article, translate all English narrative content to the target language, write back fully translated files (Step 3b)
+- **Minutes 75–82**: Validate translated HTML files (Step 4)
+- **Minutes 82–90**: Create PR with `safeoutputs___create_pull_request`
 
-> **🔑 TRANSLATION-ONLY FOCUS**: This workflow does NOT generate new content. It reads existing English articles and produces faithful translations. Use the full time budget to ensure every translation is linguistically excellent.
+> **🔑 TRANSLATION FOCUS**: This workflow generates article structure via TypeScript, then YOU (the AI agent) translate ALL English narrative content to the target language. The majority of your time should be spent on Step 3b — reading each file, translating English analysis content, and writing back fully translated articles. Use the full time budget to ensure every translation is linguistically excellent.
 
-**If you reach minute 80 and the PR has not yet been created**: Stop translating. Finalize current file edits and immediately create the PR. Partial translations in a PR are better than a timeout with no PR.
+**If you reach minute 82 and the PR has not yet been created**: Stop translating. Finalize current file edits and immediately create the PR. Partial translations in a PR are better than a timeout with no PR.
 
 ## MANDATORY Date Context Establishment
 
@@ -508,9 +509,13 @@ echo "🌐 Target languages: $LANG_ARG"
 export LANG_ARG
 ```
 
-## Step 3: Generate Translations
+## Step 3: Generate Article Structure
 
-**Use the TypeScript generator to produce translations.** The generator uses MCP data for accurate EU Parliament terminology and the code handles UI string localization.
+**Use the TypeScript generator to produce article HTML files.** The generator produces articles with:
+- ✅ **Localized UI**: Headings, navigation, labels, date formatting — all in the target language
+- ⚠️ **English deep analysis content**: The narrative analysis (what, why, impact, outlook, stakeholders) is in English, marked with `lang="en"` attributes
+
+> The generator handles structural localization. **Step 3b** (below) handles narrative content translation — this is where YOU (the AI agent) translate the English analysis content.
 
 > ⚠️ **CRITICAL — MCP env vars and the generation script MUST run in the same bash block.**
 
@@ -595,6 +600,60 @@ if [ -z "$TRANSLATED_TYPES" ]; then
 fi
 ```
 
+## Step 3b: MANDATORY AI Translation of Deep Analysis Content
+
+> **⚠️ CRITICAL — THIS IS THE CORE TRANSLATION STEP**: The TypeScript generator produces articles with **localized UI strings** (headings, labels, navigation) but the **deep analysis narrative content** (what happened, why it matters, stakeholder perspectives, impact assessments, outlook, consequences, mistakes) is generated in **English** and marked with `lang="en"` HTML attributes. **YOU MUST translate ALL English content** in each non-English article file to the target language. This is NOT optional — it is the primary purpose of this workflow.
+
+For each non-English article file generated in Step 3:
+
+1. **Read the file** and identify ALL content marked with `lang="en"` or any remaining English narrative text
+2. **Translate every English section** to the target language following the terminology standards and quality dimensions above
+3. **Remove `lang="en"` attributes** from translated content (the content is now in the target language)
+4. **Write the fully translated file** back
+
+### What MUST be translated (100% — no exceptions)
+
+The following sections contain English content that the generator cannot localize — **you must translate all of them**:
+
+- **Deep Analysis "What Happened"**: The factual summary of votes, legislative pipeline assessments, events
+- **Deep Analysis "Why This Matters"**: Political significance explanations
+- **Deep Analysis "Impact Assessment"**: Political, economic, social, legal, and geopolitical impact cards
+- **Deep Analysis "Outlook"**: Forward-looking scenario analysis
+- **Stakeholder Perspectives**: All actor names, reasoning text, and evidence
+- **Action-Consequence Pairs**: Action descriptions and consequence explanations
+- **Mistakes & Missed Opportunities**: Description of errors and alternative approaches
+- **SWOT Analysis**: All strength, weakness, opportunity, and threat descriptions
+- **Mindmap Summaries**: All summary text in mindmap nodes
+- **Footer disclaimer text**: Legal/editorial disclaimers
+
+### Translation approach per file
+
+```
+For each non-English file news/${ARTICLE_DATE}-${TYPE}-${LANG}.html:
+  1. Read the complete HTML file
+  2. Find all elements with lang="en" attribute
+  3. For each element with lang="en":
+     a. Translate the text content to ${LANG} using EP terminology standards
+     b. Remove the lang="en" attribute (content is now in target language)
+  4. Find any remaining English narrative paragraphs NOT marked with lang="en"
+     (the generator may produce some English text without markers)
+  5. Translate those paragraphs too
+  6. Write the fully translated file
+  7. Verify: grep -c 'lang="en"' should return 0 for the translated file
+```
+
+> **🔑 KEY PRINCIPLE**: The AI agent (you) performs all content translation. The TypeScript code handles structural localization (UI, headings, navigation). You handle narrative intelligence content. This separation ensures the highest quality translations — AI-generated political analysis must be translated by an AI that understands the political context, not by simple string replacement.
+
+### Translation quality checklist per article
+
+Before moving to the next file, verify:
+- [ ] Zero `lang="en"` attributes remain in the file
+- [ ] All deep analysis narrative is in the target language
+- [ ] EP terminology follows the official vocabulary table above
+- [ ] Confidence markers (🟢/🟡/🔴) are preserved with translated labels
+- [ ] Vote counts and percentages are numerically identical to English source
+- [ ] The article reads naturally in the target language (not "translationese")
+
 ## Step 4: Validate Translated Articles
 
 ```bash
@@ -618,6 +677,14 @@ for TYPE in $(echo "$TRANSLATED_TYPES" | tr ',' ' '); do
     # Validate HTML structure
     MISSING_SWITCHER=$(grep -cL 'class="language-switcher"' "$FILE" 2>/dev/null || echo 0)
     MISSING_HEADER=$(grep -cL 'class="site-header"' "$FILE" 2>/dev/null || echo 0)
+    if [ "$MISSING_SWITCHER" -gt 0 ]; then
+      echo "⚠️ $FILE: Missing required language switcher"
+      VALIDATION_FAILURES=$((VALIDATION_FAILURES + 1))
+    fi
+    if [ "$MISSING_HEADER" -gt 0 ]; then
+      echo "⚠️ $FILE: Missing required site header"
+      VALIDATION_FAILURES=$((VALIDATION_FAILURES + 1))
+    fi
 
     # Check word count (skip for CJK languages where whitespace tokenization undercounts)
     if [ "$LANG" != "ja" ] && [ "$LANG" != "ko" ] && [ "$LANG" != "zh" ]; then
@@ -630,17 +697,19 @@ for TYPE in $(echo "$TRANSLATED_TYPES" | tr ',' ' '); do
 
     # ── Translation content-level quality checks ──
     # Check for untranslated English phrases in non-English articles
-    ENGLISH_PHRASES="legislative processing capacity|coalition-building strategies|political group dynamics|regulatory implications|democratic participation|inter-institutional relations|Likely scenario|Possible scenario|Earlier intervention|committee coordinators|Pipeline health|Throughput rate"
+    # After Step 3b AI translation, these should all be translated
+    ENGLISH_PHRASES="legislative processing capacity|coalition-building strategies|political group dynamics|regulatory implications|democratic participation|inter-institutional relations|Likely scenario|Possible scenario|Earlier intervention|committee coordinators|Pipeline health|Throughput rate|What Happened|Why This Matters|Impact Assessment|Stakeholder Perspectives|Missed Opportunities"
     UNTRANSLATED_COUNT=$(grep -Eic "$ENGLISH_PHRASES" "$FILE" 2>/dev/null || echo 0)
-    if [ "$UNTRANSLATED_COUNT" -gt 2 ]; then
-      echo "⚠️ $FILE: Found $UNTRANSLATED_COUNT instances of likely untranslated English phrases"
+    if [ "$UNTRANSLATED_COUNT" -gt 0 ]; then
+      echo "⚠️ $FILE: Found $UNTRANSLATED_COUNT instances of untranslated English phrases — translation incomplete"
       VALIDATION_FAILURES=$((VALIDATION_FAILURES + 1))
     fi
 
     # Check lang="en" markers (content flagged as English in translated articles)
+    # After Step 3b AI translation, there should be ZERO lang="en" markers remaining
     EN_CONTENT_MARKERS=$(grep -c 'lang="en"' "$FILE" 2>/dev/null || echo 0)
-    if [ "$EN_CONTENT_MARKERS" -gt 3 ]; then
-      echo "⚠️ $FILE: Found $EN_CONTENT_MARKERS content blocks marked lang=\"en\" — content may not be translated"
+    if [ "$EN_CONTENT_MARKERS" -gt 0 ]; then
+      echo "⚠️ $FILE: Found $EN_CONTENT_MARKERS content blocks still marked lang=\"en\" — AI translation incomplete"
       VALIDATION_FAILURES=$((VALIDATION_FAILURES + 1))
     fi
 
@@ -867,9 +936,9 @@ safeoutputs___create_pull_request({
 - ZERO TOLERANCE for language mixing within a single article — **100% of content must be in the target language**
 - Each translated article must have same analytical depth as the English source
 - Vote counts and percentages are locale-formatted but numerically identical
-- All UI strings are already localized by the TypeScript code — focus on content translation
-- The TypeScript generator now produces localized deep-analysis content (propositions, committee reports) — verify content is actually in target language
-- Check for `lang="en"` markers in the HTML — these indicate English content that should have been translated
+- All UI strings are already localized by the TypeScript code — focus on **narrative content translation**
+- The TypeScript generator produces deep-analysis content in English with `lang="en"` markers — **you MUST translate ALL of this content** and remove the `lang="en"` attributes
+- After translation, `grep -c 'lang="en"' translated-file.html` should return **0** — any remaining `lang="en"` markers indicate untranslated English content
 - For CJK languages (ja, ko, zh): verify CJK character density is >50% of body text
 - For RTL languages (ar, he): verify `dir="rtl"` is present on the `<html>` element
 
@@ -884,11 +953,12 @@ safeoutputs___create_pull_request({
 The gh-aw framework **automatically captures all file changes** you make in the working directory as a patch. You do NOT manage git operations yourself.
 
 **The mechanism:**
-1. The TypeScript generator writes translated article files to `news/`
-2. You call `safeoutputs___create_pull_request` with `title`, `body`, `base`, and `head`
-3. The framework diffs your working directory, creates a branch, applies the patch, and opens the PR
+1. The TypeScript generator writes article HTML files to `news/` with localized UI but English analysis content
+2. You (AI agent) read each non-English file and translate all English narrative content to the target language
+3. You call `safeoutputs___create_pull_request` with `title`, `body`, `base`, and `head`
+4. The framework diffs your working directory, creates a branch, applies the patch, and opens the PR
 
-**MUST do:** Generate translation files → Call `safeoutputs___create_pull_request` once.
+**MUST do:** Generate article files → Translate English content in each file → Call `safeoutputs___create_pull_request` once.
 
 **MUST NOT do:**
 - ❌ `git add`, `git commit`, `git push`
@@ -905,7 +975,7 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 
 **If MCP server unavailable:**
 1. The generator will fall back to stdio mode
-2. If that also fails, translations can still use pre-localized strings from code
+2. If that also fails, the generator will produce articles with placeholder data — the AI translation step (3b) should still translate any English content
 
 **If translation generation fails for some types:**
 1. Continue with remaining types
