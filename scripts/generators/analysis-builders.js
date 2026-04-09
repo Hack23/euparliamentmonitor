@@ -17,11 +17,12 @@ export { AI_MARKER };
 /**
  * Derive stakeholder outcomes from voting records.
  * Groups that win votes are "winners"; groups on the losing side are "losers".
- * Generates data-driven reasoning from cohesion and participation metrics.
+ * Returns only `{actor, outcome}` with a placeholder reason — the caller
+ * overwrites `reason` with `AI_MARKER` for AI enrichment.
  *
  * @param records - Voting records
  * @param patterns - Voting pattern data
- * @returns Stakeholder outcome assessments with concrete reason strings
+ * @returns Stakeholder outcome assessments (reason is a placeholder, overwritten by caller)
  */
 function deriveStakeholderOutcomesFromVoting(records, patterns) {
     const outcomes = [];
@@ -31,14 +32,14 @@ function deriveStakeholderOutcomesFromVoting(records, patterns) {
             outcomes.push({
                 actor: pattern.group,
                 outcome: 'winner',
-                reason: `${pattern.group} demonstrated strong internal cohesion (${(pattern.cohesion * 100).toFixed(0)}%) with high participation (${(pattern.participation * 100).toFixed(0)}%), enabling effective bloc voting.`,
+                reason: AI_MARKER,
             });
         }
         else if (pattern.cohesion < 0.5) {
             outcomes.push({
                 actor: pattern.group,
                 outcome: 'loser',
-                reason: `${pattern.group} showed internal division with low cohesion (${(pattern.cohesion * 100).toFixed(0)}%), weakening their collective bargaining position.`,
+                reason: AI_MARKER,
             });
         }
     }
@@ -48,7 +49,7 @@ function deriveStakeholderOutcomesFromVoting(records, patterns) {
             outcomes.push({
                 actor: 'Majority coalition',
                 outcome: 'winner',
-                reason: `Successfully adopted "${record.title}" with ${record.votes.for} votes in favour against ${record.votes.against} opposed.`,
+                reason: AI_MARKER,
             });
         }
     }
@@ -299,10 +300,7 @@ export function buildVotingAnalysis(dateFrom, dateTo, records, patterns, anomali
             ...realRecords.slice(0, 3).map((r) => `${r.date}: Vote on "${r.title}" — ${r.result}`),
         ],
         why: buildVotingWhyText(),
-        stakeholderOutcomes: deriveStakeholderOutcomesFromVoting(realRecords, realPatterns).map((outcome) => ({
-            ...outcome,
-            reason: AI_MARKER,
-        })),
+        stakeholderOutcomes: deriveStakeholderOutcomesFromVoting(realRecords, realPatterns),
         impactAssessment: buildAiMarkerImpactAssessment(),
         actionConsequences: deriveConsequencesFromVoting(realRecords, realAnomalies),
         mistakes: deriveMistakesFromAnomalies(realAnomalies),

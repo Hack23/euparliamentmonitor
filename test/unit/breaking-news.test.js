@@ -369,12 +369,16 @@ describe('Breaking News editorial quality', () => {
 
   it('should include localized editorial strings for French', () => {
     const html = buildBreakingNewsContent('2025-01-15', 'anomaly data', '', '', '', 'fr');
+    const frStrings = getLocalizedString(BREAKING_STRINGS, 'fr');
     expect(html).toContain('source-attribution');
+    expect(html).toContain(frStrings.breakingBanner);
   });
 
   it('should include localized editorial strings for German', () => {
     const html = buildBreakingNewsContent('2025-01-15', 'anomaly data', '', '', '', 'de');
+    const deStrings = getLocalizedString(BREAKING_STRINGS, 'de');
     expect(html).toContain('source-attribution');
+    expect(html).toContain(deStrings.breakingBanner);
   });
 });
 

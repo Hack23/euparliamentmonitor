@@ -487,6 +487,8 @@ describe('week-ahead editorial quality', () => {
     );
     // The Swedish article should contain localized headings
     expect(html).toContain('article-content');
+    const svStrings = getLocalizedString(WEEK_AHEAD_STRINGS, 'sv');
+    expect(html).toContain(svStrings.noPlenary);
   });
 });
 

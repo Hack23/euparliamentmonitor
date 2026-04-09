@@ -247,8 +247,10 @@ describe('Motions editorial quality', () => {
 
   it('should use localized editorial strings for French', () => {
     const html = generateMotionsContent('2024-12-16', '2025-01-15', mockRecords, mockPatterns, mockAnomalies, mockQuestions, 'fr');
-    // French article should contain localized headings (no "Why This Matters" section)
+    const frStrings = getLocalizedString(MOTIONS_STRINGS, 'fr');
     expect(html).toContain('article-content');
+    expect(html).toContain(frStrings.votingRecordsHeading);
+    expect(html).toContain(frStrings.partyCohesionHeading);
   });
 });
 
