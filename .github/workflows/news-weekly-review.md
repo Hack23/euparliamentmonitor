@@ -708,7 +708,7 @@ npx tsx src/generators/news-enhanced.ts \
 >
 > ```bash
 > FOUND_FILES=0
-> for TARGET_FILE in news/${TODAY}-weekly-review-*.html; do
+> for TARGET_FILE in news/${TODAY}-week-in-review-*.html; do
 >   [ -f "$TARGET_FILE" ] || continue
 >   FOUND_FILES=1
 >   MARKERS=$(grep -c 'AI_ANALYSIS_REQUIRED' "$TARGET_FILE" 2>/dev/null || true)
@@ -719,7 +719,7 @@ npx tsx src/generators/news-enhanced.ts \
 >   fi
 > done
 > if [ "$FOUND_FILES" -eq 0 ]; then
->   echo "ERROR: Expected article files missing: news/${TODAY}-weekly-review-*.html" >&2
+>   echo "ERROR: Expected article files missing: news/${TODAY}-week-in-review-*.html" >&2
 >   exit 1
 > fi
 > ```

@@ -68,7 +68,7 @@ function deriveConsequencesFromVoting(records, anomalies) {
         if (record.result === PLACEHOLDER_MARKER)
             continue;
         consequences.push({
-            action: `Vote on "${record.title}" resulted in ${record.result} (${record.votes.for} for, ${record.votes.against} against, ${record.votes.abstain} abstain)`,
+            action: `Vote on "${record.title}" (result: ${record.result}; ${record.votes.for} for, ${record.votes.against} against, ${record.votes.abstain} abstentions)`,
             consequence: AI_MARKER,
             severity: Math.abs(record.votes.for - record.votes.against) >
                 (record.votes.for + record.votes.against) / 2
