@@ -57,8 +57,6 @@ import {
   BREAKING_STRINGS,
   SWOT_BUILDER_STRINGS,
   DASHBOARD_BUILDER_STRINGS,
-  PROPOSITIONS_ANALYSIS_CONTENT_STRINGS,
-  VOTING_ANALYSIS_CONTENT_STRINGS,
 } from '../constants/languages.js';
 import { isPlaceholderCommitteeData } from './committee-helpers.js';
 import { PLACEHOLDER_MARKER } from './motions-content.js';
@@ -85,11 +83,12 @@ export { AI_MARKER };
 /**
  * Derive stakeholder outcomes from voting records.
  * Groups that win votes are "winners"; groups on the losing side are "losers".
- * Generates data-driven reasoning from cohesion and participation metrics.
+ * Returns `{actor, outcome, reason}` where `reason` is set to `AI_MARKER`
+ * so the AI enrichment step provides substantive political reasoning.
  *
  * @param records - Voting records
  * @param patterns - Voting pattern data
- * @returns Stakeholder outcome assessments with concrete reason strings
+ * @returns Stakeholder outcome assessments with `reason` set to `AI_MARKER`
  */
 function deriveStakeholderOutcomesFromVoting(
   records: readonly VotingRecord[],
@@ -102,13 +101,13 @@ function deriveStakeholderOutcomesFromVoting(
       outcomes.push({
         actor: pattern.group,
         outcome: 'winner',
-        reason: `${pattern.group} demonstrated strong internal cohesion (${(pattern.cohesion * 100).toFixed(0)}%) with high participation (${(pattern.participation * 100).toFixed(0)}%), enabling effective bloc voting.`,
+        reason: AI_MARKER,
       });
     } else if (pattern.cohesion < 0.5) {
       outcomes.push({
         actor: pattern.group,
         outcome: 'loser',
-        reason: `${pattern.group} showed internal division with low cohesion (${(pattern.cohesion * 100).toFixed(0)}%), weakening their collective bargaining position.`,
+        reason: AI_MARKER,
       });
     }
   }
@@ -118,32 +117,11 @@ function deriveStakeholderOutcomesFromVoting(
       outcomes.push({
         actor: 'Majority coalition',
         outcome: 'winner',
-        reason: `Successfully adopted "${record.title}" with ${record.votes.for} votes in favour against ${record.votes.against} opposed.`,
+        reason: AI_MARKER,
       });
     }
   }
   return outcomes;
-}
-
-/**
- * Describe the margin of a vote result as a human-readable string.
- *
- * @param votesFor - Number of votes in favour
- * @param votesAgainst - Number of votes against
- * @returns A descriptive margin string (e.g. "strong majority in favour")
- */
-function describeVoteMargin(votesFor: number, votesAgainst: number): string {
-  const margin = votesFor - votesAgainst;
-
-  if (margin === 0) {
-    return 'tied vote with no clear majority';
-  }
-
-  const absMargin = Math.abs(margin);
-  const direction = margin > 0 ? 'majority in favour' : 'majority against';
-  if (absMargin > 100) return `strong ${direction}`;
-  if (absMargin > 30) return `moderate ${direction}`;
-  return `narrow ${direction}`;
 }
 
 /**
@@ -160,10 +138,9 @@ function deriveConsequencesFromVoting(
   const consequences: ActionConsequence[] = [];
   for (const record of records.slice(0, 3)) {
     if (record.result === PLACEHOLDER_MARKER) continue;
-    const marginDesc = describeVoteMargin(record.votes.for, record.votes.against);
     consequences.push({
-      action: `Vote on "${record.title}"`,
-      consequence: `${record.result} by ${marginDesc} (${record.votes.for} for, ${record.votes.against} against, ${record.votes.abstain} abstentions). This outcome shapes the legislative trajectory of this policy area.`,
+      action: `Vote on "${record.title}" (result: ${record.result}; ${record.votes.for} for, ${record.votes.against} against, ${record.votes.abstain} abstentions)`,
+      consequence: AI_MARKER,
       severity:
         Math.abs(record.votes.for - record.votes.against) >
         (record.votes.for + record.votes.against) / 2
@@ -173,9 +150,13 @@ function deriveConsequencesFromVoting(
   }
   for (const anomaly of anomalies.slice(0, 2)) {
     if (/placeholder/i.test(anomaly.type)) continue;
+    const anomalyDescription: string = anomaly.description?.trim() ?? '';
     consequences.push({
-      action: `${anomaly.type} detected`,
-      consequence: `Voting anomaly "${anomaly.description}" signals potential shifts in political group alignment, requiring monitoring of subsequent coalition behaviour.`,
+      action:
+        anomalyDescription.length > 0
+          ? `${anomaly.type} detected: ${anomalyDescription}`
+          : `${anomaly.type} detected`,
+      consequence: AI_MARKER,
       severity: anomaly.severity?.toLowerCase() === 'high' ? 'high' : 'medium',
     });
   }
@@ -195,7 +176,7 @@ function deriveMistakesFromAnomalies(anomalies: readonly VotingAnomaly[]): Polit
     .map((a) => ({
       actor: 'Political group leadership',
       description: `${a.type}: ${a.description}`,
-      alternative: `Group leadership could have addressed internal dissent through pre-vote consultations and compromise amendments to prevent the ${a.type.toLowerCase()} and maintain cohesion.`,
+      alternative: AI_MARKER,
     }));
 }
 
@@ -276,26 +257,20 @@ function buildBreakingStakeholderPerspectives(
  *
  * @param healthScore - Pipeline health score (0-1)
  * @param topic - Primary topic string for context
- * @param lang - Target language code for localized content
  * @returns Array of stakeholder perspectives
  */
 function buildPropositionsStakeholderPerspectives(
   healthScore: number,
-  topic: string,
-  lang: LanguageCode = 'en'
+  topic: string
 ): StakeholderPerspective[] {
-  return buildDefaultStakeholderPerspectives(
-    topic,
-    {
-      political_groups: 0.7,
-      civil_society: healthScore < 0.5 ? 0.3 : 0.5,
-      industry: healthScore < 0.5 ? 0.3 : 0.6,
-      national_govts: healthScore < 0.5 ? 0.3 : 0.6,
-      citizens: healthScore < 0.5 ? 0.2 : 0.5,
-      eu_institutions: 0.8,
-    },
-    lang
-  );
+  return buildDefaultStakeholderPerspectives(topic, {
+    political_groups: 0.7,
+    civil_society: healthScore < 0.5 ? 0.3 : 0.5,
+    industry: healthScore < 0.5 ? 0.3 : 0.6,
+    national_govts: healthScore < 0.5 ? 0.3 : 0.6,
+    citizens: healthScore < 0.5 ? 0.2 : 0.5,
+    eu_institutions: 0.8,
+  });
 }
 
 /**
@@ -353,9 +328,8 @@ function buildOutcomeMatrix(
  * @param anomalyCount - Anomaly count
  * @param patternCount - Pattern count
  * @param questionCount - Question count
- * @param _intensity - Voting intensity metrics (may be null, reserved for future use)
- * @param _polarization - Polarization index (may be null, reserved for future use)
- * @param lang - Language code for localized output
+ * @param intensity - Voting intensity metrics (may be null)
+ * @param polarization - Polarization index (may be null)
  * @returns Summary text
  */
 function buildVotingWhatText(
@@ -367,130 +341,51 @@ function buildVotingWhatText(
   anomalyCount: number,
   patternCount: number,
   questionCount: number,
-  _intensity: VotingIntensity | null,
-  _polarization: PolarizationIndex | null,
-  lang: LanguageCode = 'en'
+  intensity: VotingIntensity | null,
+  polarization: PolarizationIndex | null
 ): string {
-  const s = getLocalizedString(VOTING_ANALYSIS_CONTENT_STRINGS, lang);
-  const r = (t: string): string =>
-    t
-      .replace(/\{dateFrom\}/g, dateFrom)
-      .replace(/\{dateTo\}/g, dateTo)
-      .replace(/\{records\}/g, String(recordCount))
-      .replace(/\{adopted\}/g, String(adoptedCount))
-      .replace(/\{rejected\}/g, String(rejectedCount))
-      .replace(/\{anomalies\}/g, String(anomalyCount))
-      .replace(/\{patterns\}/g, String(patternCount))
-      .replace(/\{questions\}/g, String(questionCount));
   if (recordCount === 0 && patternCount === 0 && questionCount === 0) {
-    return r(s.whatNoData);
+    return `Parliamentary activity from ${dateFrom} to ${dateTo}. Detailed roll-call data unavailable for this period.`;
   }
-  return r(s.what);
+  const base = `${recordCount} votes recorded between ${dateFrom} and ${dateTo}: ${adoptedCount} adopted, ${rejectedCount} rejected. ${anomalyCount} voting anomalies detected across ${patternCount} political groups. ${questionCount} parliamentary questions filed.`;
+  if (!intensity || recordCount === 0) return base;
+  return `${base} Voting intensity: ${intensity.closeVoteCount} close ${intensity.closeVoteCount === 1 ? 'vote' : 'votes'}, ${intensity.decisiveVoteCount} decisive ${intensity.decisiveVoteCount === 1 ? 'vote' : 'votes'}. Polarization index: ${polarization?.assessment ?? 'N/A'}.`;
 }
 
 /**
  * Build the "why" text for a voting analysis.
- * Generates factual context from voting patterns and polarization data.
+ * Returns AI_MARKER so the AI agent provides real political analysis.
  *
- * @param patterns - Real voting patterns
- * @param polarization - Polarization index
- * @param lang
- * @returns Factual analysis of voting drivers
+ * @returns AI_MARKER placeholder for AI-driven analysis
  */
-function buildVotingWhyText(
-  patterns: readonly VotingPattern[],
-  polarization: PolarizationIndex | null,
-  lang: LanguageCode = 'en'
-): string {
-  const s = getLocalizedString(VOTING_ANALYSIS_CONTENT_STRINGS, lang);
-  if (patterns.length === 0) {
-    return s.whyNoData;
-  }
-  const avgCohesion = patterns.reduce((sum, p) => sum + p.cohesion, 0) / patterns.length;
-  const cohesionDesc =
-    avgCohesion > 0.75
-      ? s.cohesionHigh
-      : avgCohesion > 0.5
-        ? s.cohesionModerate
-        : s.cohesionFragmented;
-  const polDesc = polarization?.assessment ?? s.notAvailable;
-  return s.whyPatterns
-    .replace(/\{patterns\}/g, String(patterns.length))
-    .replace(/\{cohesionDesc\}/g, cohesionDesc)
-    .replace(/\{pct\}/g, (avgCohesion * 100).toFixed(0))
-    .replace(/\{assessment\}/g, polDesc);
+function buildVotingWhyText(): string {
+  return AI_MARKER;
 }
 
 /**
- * Build data-driven impact assessment for voting analysis.
- * Generates factual descriptions from voting metrics instead of AI_MARKER.
+ * Build an AI_MARKER impact assessment placeholder.
+ * All five dimensions are marked for AI completion.
  *
- * @param recordCount - Total voting records
- * @param adoptedCount - Adopted text count
- * @param rejectedCount - Rejected text count
- * @param anomalyCount - Anomaly count
- * @param questionCount - Parliamentary question count
- * @param lang
- * @returns Impact assessment with descriptive text
+ * @returns Impact assessment with AI_MARKER placeholders
  */
-function buildVotingImpactAssessment(
-  recordCount: number,
-  adoptedCount: number,
-  rejectedCount: number,
-  anomalyCount: number,
-  questionCount: number,
-  lang: LanguageCode = 'en'
-): DeepAnalysis['impactAssessment'] {
-  const s = getLocalizedString(VOTING_ANALYSIS_CONTENT_STRINGS, lang);
-  const r = (t: string): string =>
-    t
-      .replace(/\{records\}/g, String(recordCount))
-      .replace(/\{adopted\}/g, String(adoptedCount))
-      .replace(/\{rejected\}/g, String(rejectedCount))
-      .replace(/\{anomalies\}/g, String(anomalyCount))
-      .replace(/\{questions\}/g, String(questionCount))
-      .replace(
-        /\{activity\}/g,
-        recordCount > 10 ? s.activityHigh : recordCount > 3 ? s.activityModerate : s.activityLimited
-      );
+function buildAiMarkerImpactAssessment(): DeepAnalysis['impactAssessment'] {
   return {
-    political:
-      recordCount > 0
-        ? `${r(s.impactPolitical)} ${anomalyCount > 0 ? r(s.impactPoliticalAnomaly) : s.impactPoliticalStable}`
-        : s.impactPoliticalNone,
-    economic: adoptedCount > 0 ? r(s.impactEconomic) : s.impactEconomicNone,
-    social: r(s.impactSocial),
-    legal: adoptedCount > 0 ? r(s.impactLegal) : s.impactLegalNone,
-    geopolitical: r(s.impactGeopolitical),
+    political: AI_MARKER,
+    economic: AI_MARKER,
+    social: AI_MARKER,
+    legal: AI_MARKER,
+    geopolitical: AI_MARKER,
   };
 }
 
 /**
- * Build data-driven outlook text for voting analysis.
+ * Build outlook text for voting analysis.
+ * Returns AI_MARKER — the AI agent provides real forward-looking analysis.
  *
- * @param recordCount - Total voting records
- * @param adoptedCount - Adopted text count
- * @param anomalyCount - Anomaly count
- * @param dateFrom - Period start
- * @param dateTo - Period end
- * @returns Forward-looking outlook text
+ * @returns AI_MARKER placeholder
  */
-function buildVotingOutlook(
-  recordCount: number,
-  adoptedCount: number,
-  anomalyCount: number,
-  dateFrom: string,
-  dateTo: string
-): string {
-  if (recordCount === 0) {
-    return `The period ${dateFrom}–${dateTo} showed limited parliamentary voting activity. Upcoming sessions are likely to address accumulated legislative items, potentially leading to concentrated voting periods.`;
-  }
-  const trend = adoptedCount > 3 ? 'productive' : 'measured';
-  const anomalyNote =
-    anomalyCount > 0
-      ? ` Detected voting anomalies (${anomalyCount}) warrant monitoring as they may signal evolving coalition dynamics.`
-      : '';
-  return `The ${trend} legislative period (${dateFrom}–${dateTo}) with ${adoptedCount} adopted texts sets the trajectory for upcoming parliamentary sessions.${anomalyNote} Likely scenario: continued legislative momentum on pending policy files. Possible scenario: coalition realignment if cross-party tensions persist.`;
+function buildVotingOutlook(): string {
+  return AI_MARKER;
 }
 
 // ─── Strategy-specific builders ──────────────────────────────────────────────
@@ -553,24 +448,12 @@ export function buildVotingAnalysis(
       `Period: ${dateFrom} to ${dateTo}`,
       ...realRecords.slice(0, 3).map((r) => `${r.date}: Vote on "${r.title}" — ${r.result}`),
     ],
-    why: buildVotingWhyText(realPatterns, polarization),
+    why: buildVotingWhyText(),
     stakeholderOutcomes: deriveStakeholderOutcomesFromVoting(realRecords, realPatterns),
-    impactAssessment: buildVotingImpactAssessment(
-      realRecords.length,
-      adoptedCount,
-      rejectedCount,
-      realAnomalies.length,
-      realQuestions.length
-    ),
+    impactAssessment: buildAiMarkerImpactAssessment(),
     actionConsequences: deriveConsequencesFromVoting(realRecords, realAnomalies),
     mistakes: deriveMistakesFromAnomalies(realAnomalies),
-    outlook: buildVotingOutlook(
-      realRecords.length,
-      adoptedCount,
-      realAnomalies.length,
-      dateFrom,
-      dateTo
-    ),
+    outlook: buildVotingOutlook(),
     stakeholderPerspectives: buildVotingStakeholderPerspectives(
       adoptedCount,
       realAnomalies,
@@ -625,17 +508,14 @@ export function buildProspectiveAnalysis(
       `Period: ${dateRange.start} to ${dateRange.end}`,
       ...weekData.events.slice(0, 4).map((e) => `${e.date}: ${e.title}`),
     ],
-    why:
-      eventCount > 0
-        ? `The upcoming ${label} features ${eventCount} parliamentary events including ${committeeCount} committee meetings, reflecting the current legislative programme. ${bottleneckProcedures.length > 0 ? `${bottleneckProcedures.length} procedures face bottleneck conditions requiring political coordination.` : 'No critical bottlenecks identified in the legislative pipeline.'}`
-        : `Reduced parliamentary activity for the coming ${label} — ${eventCount} events scheduled, suggesting a lighter agenda or recess period.`,
+    why: AI_MARKER,
     stakeholderOutcomes: [
       ...(bottleneckProcedures.length > 0
         ? [
             {
               actor: 'Legislative pipeline',
               outcome: 'loser' as const,
-              reason: `${bottleneckProcedures.length} procedure(s) in bottleneck status may delay legislative progress and require additional negotiation rounds.`,
+              reason: AI_MARKER,
             },
           ]
         : []),
@@ -644,39 +524,36 @@ export function buildProspectiveAnalysis(
             {
               actor: 'Committee system',
               outcome: 'neutral' as const,
-              reason: `${committeeCount} committees active this ${label}, maintaining standard workload distribution across parliamentary bodies.`,
+              reason: AI_MARKER,
             },
           ]
         : []),
     ],
     impactAssessment: {
-      political: `${eventCount} scheduled events will shape political group positioning. ${bottleneckProcedures.length > 0 ? `Key pressure points include ${bottleneckProcedures.length} bottlenecked procedure(s).` : 'Stable coalition dynamics expected.'}`,
-      economic: `${docCount} legislative documents and ${pipelineCount} pipeline procedures may impact economic regulation and market frameworks in the coming ${label}.`,
-      social: `Parliamentary agenda includes ${questionCount} filed questions reflecting citizen and NGO advocacy on social policy priorities.`,
-      legal: `${pipelineCount} active legislative procedures continue through the EU co-decision process, with potential implications for legal frameworks.`,
-      geopolitical: `European Parliament activity during this ${label} contributes to the EU's legislative capacity and international positioning on policy commitments.`,
+      political: AI_MARKER,
+      economic: AI_MARKER,
+      social: AI_MARKER,
+      legal: AI_MARKER,
+      geopolitical: AI_MARKER,
     },
     actionConsequences: [
       ...bottleneckProcedures.slice(0, 2).map((p) => ({
         action: `"${p.title}" in ${p.stage ?? 'committee'} stage`,
-        consequence: `Continued bottleneck at ${p.stage ?? 'committee'} stage risks delay in legislative completion, potentially requiring expedited procedures or inter-institutional negotiations.`,
+        consequence: AI_MARKER,
         severity: 'high' as const,
       })),
       ...weekData.events.slice(0, 2).map((e) => ({
         action: `${e.type} on "${e.title}"`,
-        consequence: `Scheduled ${e.type.toLowerCase()} on "${e.title}" will advance this policy area through the parliamentary process, influencing future voting and amendment cycles.`,
+        consequence: AI_MARKER,
         severity: 'medium' as const,
       })),
     ],
     mistakes: bottleneckProcedures.slice(0, 2).map((p) => ({
       actor: 'Legislative coordinators',
       description: `"${p.title}" has reached bottleneck status at ${p.stage ?? 'committee'} stage`,
-      alternative: `Earlier cross-party pre-negotiation and structured rapporteur consultations could have prevented bottleneck status on "${p.title}".`,
+      alternative: AI_MARKER,
     })),
-    outlook:
-      eventCount > 0
-        ? `The upcoming ${label} (${dateRange.start}–${dateRange.end}) features ${eventCount} events and ${pipelineCount} pipeline procedures. Likely scenario: productive committee work advancing key files. ${bottleneckProcedures.length > 0 ? `Possible scenario: breakthrough on ${bottleneckProcedures.length} bottlenecked procedure(s) through renewed negotiations.` : 'Possible scenario: introduction of new legislative proposals expanding the policy agenda.'}`
-        : `Light parliamentary schedule for ${dateRange.start}–${dateRange.end}. Likely scenario: focus shifts to inter-institutional negotiations and informal consultations.`,
+    outlook: AI_MARKER,
     stakeholderPerspectives: buildProspectiveStakeholderPerspectives(
       eventCount,
       bottleneckProcedures.length,
@@ -737,17 +614,14 @@ export function buildBreakingAnalysis(
       ...(feedData?.events.slice(0, 3).map((e) => `${e.title}${e.date ? ` (${e.date})` : ''}`) ??
         []),
     ],
-    why:
-      adoptedCount > 0
-        ? `Breaking parliamentary developments on ${date} driven by ${adoptedCount} newly adopted text(s), ${eventCount} events, and ${procCount} active procedures. These developments reflect accelerated legislative activity requiring stakeholder attention.`
-        : `Parliamentary activity update for ${date}: ${eventCount} events and ${procCount} procedures in progress. ${mepCount > 0 ? `${mepCount} MEP updates signal evolving political dynamics.` : 'Routine institutional proceedings continue.'}`,
+    why: AI_MARKER,
     stakeholderOutcomes: [
       ...(adoptedCount > 0
         ? [
             {
               actor: s.breakingWinnerActor,
               outcome: 'winner' as const,
-              reason: `Successfully advanced ${adoptedCount} legislative text(s) through the adoption process, demonstrating effective coalition coordination.`,
+              reason: AI_MARKER,
             },
           ]
         : []),
@@ -756,33 +630,27 @@ export function buildBreakingAnalysis(
             {
               actor: s.breakingNeutralActor,
               outcome: 'neutral' as const,
-              reason: `Coalition dynamics remain in flux with ongoing negotiations across political groups. Current positioning reflects strategic patience rather than decisive alignment.`,
+              reason: AI_MARKER,
             },
           ]
         : []),
     ],
     impactAssessment: {
-      political: `Breaking developments on ${date} with ${adoptedCount} adoptions and ${eventCount} events shape political group dynamics and coalition calculations for upcoming legislative sessions.`,
-      economic:
-        adoptedCount > 0
-          ? `${adoptedCount} adopted legislative text(s) introduce potential regulatory changes affecting economic operators and market conditions across EU member states.`
-          : `Current parliamentary activity has limited immediate economic impact, though ongoing procedures may affect future regulatory frameworks.`,
-      social: `Parliamentary activity on ${date} reflects institutional engagement with ${eventCount > 0 ? 'scheduled events addressing citizen concerns' : 'routine proceedings'}. ${mepCount > 0 ? `${mepCount} MEP updates indicate active constituency engagement.` : ''}`,
-      legal:
-        adoptedCount > 0
-          ? `${adoptedCount} adopted text(s) advance through the EU legislative process, with potential implications for legal frameworks and national transposition requirements.`
-          : `No new legal instruments adopted in this period; ongoing procedures continue through standard legislative stages.`,
-      geopolitical: `EU Parliament's legislative activity on ${date} contributes to the bloc's institutional credibility and capacity for international engagement.`,
+      political: AI_MARKER,
+      economic: AI_MARKER,
+      social: AI_MARKER,
+      legal: AI_MARKER,
+      geopolitical: AI_MARKER,
     },
     actionConsequences: [
       ...(feedData?.adoptedTexts.slice(0, 2).map((t) => ({
         action: `${s.breakingAdoptedPrefix} "${t.title}"${t.date ? ` (${t.date})` : ''}`,
-        consequence: `Adoption of "${t.title}" advances this policy area through the legislative process, establishing new regulatory parameters and political precedents.`,
+        consequence: AI_MARKER,
         severity: 'high' as const,
       })) ?? []),
       ...(feedData?.procedures.slice(0, 2).map((p) => ({
         action: `${p.title}${p.date ? ` (${p.date})` : ''}`,
-        consequence: `Progress on "${p.title}" moves this procedure toward adoption, requiring continued political coordination among involved groups.`,
+        consequence: AI_MARKER,
         severity: 'medium' as const,
       })) ?? []),
     ],
@@ -791,14 +659,11 @@ export function buildBreakingAnalysis(
           {
             actor: s.breakingMistakeActor,
             description: `Voting anomaly detected: ${anomalyRaw.slice(0, 200)}`,
-            alternative: `Pre-vote consultation and early warning mechanisms within political groups could have anticipated and addressed internal dissent before the floor vote.`,
+            alternative: AI_MARKER,
           },
         ]
       : [],
-    outlook:
-      adoptedCount > 0
-        ? `Breaking developments on ${date} set the stage for continued legislative activity. Likely scenario: adopted texts proceed to implementation phase. Possible scenario: political reactions trigger additional amendments or challenges in subsequent sessions.`
-        : `Parliamentary activity on ${date} continues at routine pace. Likely scenario: standard progression of pending procedures. Possible scenario: emerging developments may accelerate specific policy files.`,
+    outlook: AI_MARKER,
     stakeholderPerspectives: buildBreakingStakeholderPerspectives(
       adoptedCount,
       feedData?.adoptedTexts[0]?.title ?? `EP activity ${date}`
@@ -822,25 +687,13 @@ export function buildBreakingAnalysis(
 
 /**
  * Build the "why" explanation for propositions based on pipeline health.
- * Generates factual context from pipeline metrics.
+ * Returns AI_MARKER so the gh-aw AI agent produces real political analysis
+ * instead of template-generated prose.
  *
- * @param healthScore - 0-1 score
- * @param throughput - Throughput rate
- * @param lang - Target language code for localized content
- * @returns Factual analysis of pipeline drivers
+ * @returns AI_MARKER placeholder for AI-driven analysis
  */
-function buildPropositionsWhy(
-  healthScore: number,
-  throughput: number,
-  lang: LanguageCode = 'en'
-): string {
-  const s = getLocalizedString(PROPOSITIONS_ANALYSIS_CONTENT_STRINGS, lang);
-  const pct = (healthScore * 100).toFixed(0);
-  const r = (t: string): string =>
-    t.replace(/\{pct\}/g, pct).replace(/\{throughput\}/g, String(throughput));
-  if (healthScore >= 0.8) return r(s.whyStrong);
-  if (healthScore >= 0.5) return r(s.whyModerate);
-  return r(s.whyWeak);
+function buildPropositionsWhy(): string {
+  return AI_MARKER;
 }
 
 /**
@@ -880,105 +733,57 @@ function getConferenceOfPresidents(lang: string): string {
 
 /**
  * Build the action-consequence pairs for propositions analysis.
- * Generates factual consequence descriptions from pipeline metrics.
+ * Returns AI_MARKER for consequences so the AI agent writes real analysis.
  *
  * @param _pct - Pipeline health percentage as string
  * @param healthScore - Pipeline health score (0-1)
  * @param throughput - Throughput rate
- * @param lang - Target language code for localized content
- * @returns Action-consequence pairs
+ * @returns Action-consequence pairs with AI_MARKER for consequence text
  */
 function buildPropositionsConsequences(
   _pct: string,
   healthScore: number,
-  throughput: number,
-  lang: LanguageCode = 'en'
+  throughput: number
 ): ActionConsequence[] {
-  const s = getLocalizedString(PROPOSITIONS_ANALYSIS_CONTENT_STRINGS, lang);
-  const r = (t: string): string =>
-    t.replace(/\{pct\}/g, _pct).replace(/\{throughput\}/g, String(throughput));
   const healthSeverity: ActionConsequence['severity'] =
     healthScore < 0.3 ? 'critical' : healthScore < 0.5 ? 'high' : 'medium';
-  const consequenceText =
-    healthScore >= 0.8
-      ? r(s.consequenceStrong)
-      : healthScore >= 0.5
-        ? r(s.consequenceModerate)
-        : r(s.consequenceWeak);
-  const throughputText =
-    throughput >= 10
-      ? r(s.consequenceThroughputHigh)
-      : throughput >= 5
-        ? r(s.consequenceThroughputMedium)
-        : r(s.consequenceThroughputLow);
   return [
     {
-      action: r(s.actionHealth),
-      consequence: consequenceText,
+      action: `Pipeline health at ${_pct}%`,
+      consequence: AI_MARKER,
       severity: healthSeverity,
     },
     {
-      action: r(s.actionThroughput),
-      consequence: throughputText,
+      action: `Throughput rate at ${throughput}`,
+      consequence: AI_MARKER,
       severity: throughput < 5 ? 'high' : 'low',
     },
   ];
 }
 
 /**
- * Build the impact assessment for propositions analysis.
- * Generates data-driven impact summaries from pipeline metrics.
- *
- * @param healthScore - Pipeline health score (0-1)
- * @param throughput - Throughput rate
- * @param lang - Target language code for localized content
- * @returns Impact assessment with descriptive text
- */
-function buildPropositionsImpact(
-  healthScore: number,
-  throughput: number,
-  lang: LanguageCode = 'en'
-): DeepAnalysis['impactAssessment'] {
-  const s = getLocalizedString(PROPOSITIONS_ANALYSIS_CONTENT_STRINGS, lang);
-  const pct = (healthScore * 100).toFixed(0);
-  const r = (t: string): string =>
-    t.replace(/\{pct\}/g, pct).replace(/\{throughput\}/g, String(throughput));
-  return {
-    political: `${r(s.impactPolitical)} ${healthScore >= 0.7 ? r(s.impactPoliticalStrong) : r(s.impactPoliticalWeak)}`,
-    economic: `${r(s.impactEconomic)} ${healthScore >= 0.7 ? r(s.impactEconomicStrong) : r(s.impactEconomicWeak)}`,
-    social: r(s.impactSocial),
-    legal: r(s.impactLegal),
-    geopolitical: r(s.impactGeopolitical),
-  };
-}
-
-/**
  * Build the primary stakeholder outcome for propositions analysis.
- * Reasoning text is now localized via propositions analysis content strings.
+ * Reasoning text is deferred to the AI agent via AI_MARKER.
  *
  * @param _healthScore - Pipeline health score (used for outcome classification only)
- * @param _pct - Pipeline health percentage
- * @param lang - Target language code for localized content
- * @returns Single stakeholder outcome
+ * @param _pct - Pipeline health percentage (unused — AI generates reasoning)
+ * @returns Single stakeholder outcome with AI_MARKER reasoning
  */
 function buildPropositionsStakeholderOutcome(
   _healthScore: number,
-  _pct: string,
-  lang: LanguageCode = 'en'
+  _pct: string
 ): StakeholderOutcome {
-  const s = getLocalizedString(PROPOSITIONS_ANALYSIS_CONTENT_STRINGS, lang);
-  const r = (t: string): string => t.replace(/\{pct\}/g, _pct);
   if (_healthScore > 0.7) {
     return {
-      actor: s.stakeholderWinnerActor,
+      actor: 'Parliament presidency',
       outcome: 'winner',
-      reason: r(s.stakeholderWinnerReason),
+      reason: AI_MARKER,
     };
   }
   return {
-    actor: s.stakeholderLoserActor,
+    actor: 'Pending legislation sponsors',
     outcome: 'loser',
-    reason: r(s.stakeholderLoserReason),
+    reason: AI_MARKER,
   };
 }
 
@@ -996,47 +801,47 @@ export function buildPropositionsAnalysis(
   proposalsHtml: string,
   pipelineData: PipelineData | null,
   date: string,
-  lang: LanguageCode = 'en',
+  lang = 'en',
   adoptedTextsHtml = ''
 ): DeepAnalysis {
-  const s = getLocalizedString(PROPOSITIONS_ANALYSIS_CONTENT_STRINGS, lang);
   const hasProposals = proposalsHtml.length > 0 || adoptedTextsHtml.length > 0;
   const healthScore = pipelineData?.healthScore ?? 0;
   const throughput = pipelineData?.throughput ?? 0;
   const pct = (healthScore * 100).toFixed(0);
-  const r = (t: string): string =>
-    t
-      .replace(/\{date\}/g, date)
-      .replace(/\{pct\}/g, pct)
-      .replace(/\{throughput\}/g, String(throughput));
 
   return {
-    what: r(hasProposals ? s.what : s.whatNoProposals),
-    who: [s.whoCommission, s.whoRapporteurs, s.whoShadowRapporteurs, s.whoCouncil],
-    when: [r(s.whenAssessment), s.whenCumulative],
-    why: buildPropositionsWhy(healthScore, throughput, lang),
-    stakeholderOutcomes: [buildPropositionsStakeholderOutcome(healthScore, pct, lang)],
-    impactAssessment: buildPropositionsImpact(healthScore, throughput, lang),
-    actionConsequences: buildPropositionsConsequences(pct, healthScore, throughput, lang),
+    what: hasProposals
+      ? `Legislative pipeline assessment as of ${date}: Active proposals under consideration.`
+      : `Legislative pipeline assessment as of ${date}: No new proposals detected in this period.`,
+    who: [
+      'European Commission (proposal originator)',
+      'Rapporteurs (responsible for steering through committee)',
+      'Shadow rapporteurs (political group negotiators)',
+      'Council of the EU (co-legislator)',
+    ],
+    when: [`Assessment date: ${date}`, 'Pipeline health reflects cumulative legislative progress'],
+    why: buildPropositionsWhy(),
+    stakeholderOutcomes: [buildPropositionsStakeholderOutcome(healthScore, pct)],
+    impactAssessment: buildAiMarkerImpactAssessment(),
+    actionConsequences: buildPropositionsConsequences(pct, healthScore, throughput),
     mistakes:
       healthScore < 0.5
         ? [
             {
               actor: getConferenceOfPresidents(lang),
-              description: r(s.mistakeDescription),
-              alternative: s.mistakeAlternative,
+              description: `Pipeline health dropped to ${pct}%`,
+              alternative: AI_MARKER,
             },
           ]
         : [],
-    outlook: healthScore >= 0.7 ? r(s.outlookGood) : r(s.outlookConcern),
+    outlook: AI_MARKER,
     stakeholderPerspectives: buildPropositionsStakeholderPerspectives(
       healthScore,
-      r(s.stakeholderTopic),
-      lang
+      `legislative pipeline as of ${date}`
     ),
     stakeholderOutcomeMatrix: buildOutcomeMatrix([
       {
-        action: r(s.actionHealth) + ` (${r(s.actionThroughput)})`,
+        action: `Pipeline health at ${pct}% (throughput ${throughput})`,
         scores: {
           political_groups: 0.7,
           civil_society: healthScore < 0.5 ? 0.3 : 0.5,
@@ -1093,10 +898,7 @@ export function buildCommitteeAnalysis(
             .map((d) => `${c.abbreviation}: ${d.title}${d.date ? ` (${d.date})` : ''}`)
         ),
     ],
-    why:
-      totalDocs > 0
-        ? `Committee activity driven by ${totalDocs} documents across ${activeCommittees.length} active committees (${activePct.toFixed(0)}% active rate). Legislative workload distribution reflects current policy priorities and ongoing file processing.`
-        : `No committee documents produced in this period. This may reflect recess periods, inter-institutional negotiation phases, or pending committee schedule adjustments.`,
+    why: AI_MARKER,
     stakeholderOutcomes: committees.slice(0, 4).map((c) => ({
       actor: `${c.name} (${c.abbreviation})`,
       outcome: (c.documents.length > 2
@@ -1104,25 +906,20 @@ export function buildCommitteeAnalysis(
         : c.documents.length > 0
           ? 'neutral'
           : 'loser') as 'winner' | 'loser' | 'neutral',
-      reason:
-        c.documents.length > 2
-          ? `${c.name} demonstrates high productivity with ${c.documents.length} documents, positioning the committee as a leading legislative force.`
-          : c.documents.length > 0
-            ? `${c.name} maintains baseline activity with ${c.documents.length} document(s), consistent with standard committee workload.`
-            : `${c.name} produced no documents in this period, limiting the committee's legislative impact and visibility.`,
+      reason: AI_MARKER,
     })),
     impactAssessment: {
-      political: `${activeCommittees.length} of ${committees.length} committees active (${activePct.toFixed(0)}%). Committee productivity directly influences political group legislative priorities and rapporteur influence.`,
-      economic: `${totalDocs} committee documents under consideration carry potential regulatory implications for industry and economic operators across affected policy areas.`,
-      social: `Committee work on ${totalDocs} documents shapes social policy development, with implications for citizen rights, public services, and civil society engagement.`,
-      legal: `Active committees processing ${totalDocs} documents advance the EU legislative framework, with implications for legal harmonisation and national transposition requirements.`,
-      geopolitical: `Committee legislative output of ${totalDocs} documents contributes to the EU's institutional capacity for international policy commitments and regulatory leadership.`,
+      political: AI_MARKER,
+      economic: AI_MARKER,
+      social: AI_MARKER,
+      legal: AI_MARKER,
+      geopolitical: AI_MARKER,
     },
     actionConsequences: activeCommittees.slice(0, 3).map((c) => ({
       action: s.actionProcessed
         .replace('{abbr}', c.abbreviation)
         .replace('{n}', String(c.documents.length)),
-      consequence: `${c.abbreviation} processing ${c.documents.length} document(s) advances legislative files in the committee's policy domain, setting the stage for plenary consideration.`,
+      consequence: AI_MARKER,
       severity: (c.documents.length > 3 ? 'high' : 'medium') as 'high' | 'medium',
     })),
     mistakes: committees
@@ -1131,12 +928,9 @@ export function buildCommitteeAnalysis(
       .map((c) => ({
         actor: `${c.name} (${c.abbreviation})`,
         description: `${c.name} (${c.abbreviation}) produced no documents in this period despite having ${c.members} members.`,
-        alternative: `Better scheduling coordination and rapporteur assignment could improve ${c.abbreviation}'s document throughput and legislative contribution.`,
+        alternative: AI_MARKER,
       })),
-    outlook:
-      activeCommittees.length > committees.length / 2
-        ? `With ${activePct.toFixed(0)}% committee activity rate and ${totalDocs} documents in progress, the committee system maintains productive legislative momentum. Likely scenario: continued output as pending files move toward plenary votes. Possible scenario: workload shifts between committees as new legislative proposals are referred.`
-        : `Committee activity rate of ${activePct.toFixed(0)}% indicates reduced legislative processing. Likely scenario: activity increases as committees reconvene and process accumulated files. Possible scenario: political coordination challenges may continue to limit committee output.`,
+    outlook: AI_MARKER,
     stakeholderPerspectives: buildCommitteeStakeholderPerspectives(
       activePct,
       totalDocs,

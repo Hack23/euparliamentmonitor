@@ -813,6 +813,28 @@ Every generated article must include:
 
 If the generated article lacks analysis, enrich it with contextual commentary before committing.
 
+### MANDATORY AI Enrichment — Replace Analysis Placeholders
+
+> **⚠️ CRITICAL**: The TypeScript generator outputs `[AI_ANALYSIS_REQUIRED]` markers in the deep-analysis section. You MUST replace EVERY marker with substantive political analysis from EP MCP data. Write specific political intelligence — name political groups, cite upcoming agenda items, explain strategic significance. Never use generic phrases like "parliamentary schedules determine the legislative agenda" or "contributes to the EU's legislative capacity." Every impact card needs ≥40 words of AI analysis. Validate that zero markers remain:
+>
+> ```bash
+> FOUND_FILES=0
+> for TARGET_FILE in news/${TODAY}-week-ahead-*.html; do
+>   [ -f "$TARGET_FILE" ] || continue
+>   FOUND_FILES=1
+>   MARKERS=$(grep -c 'AI_ANALYSIS_REQUIRED' "$TARGET_FILE" 2>/dev/null || true)
+>   MARKERS=${MARKERS:-0}
+>   if [ "$MARKERS" -gt 0 ]; then
+>     echo "ERROR: $TARGET_FILE still contains $MARKERS [AI_ANALYSIS_REQUIRED] marker(s) — enrich before committing" >&2
+>     exit 1
+>   fi
+> done
+> if [ "$FOUND_FILES" -eq 0 ]; then
+>   echo "ERROR: Expected article files missing: news/${TODAY}-week-ahead-*.html" >&2
+>   exit 1
+> fi
+> ```
+
 ## MANDATORY Quality Validation
 
 After article generation, verify EACH article meets these minimum standards **before committing**.

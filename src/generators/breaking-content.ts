@@ -543,7 +543,6 @@ export function buildBreakingNewsContent(
     mepScores.length
   );
 
-  const hasData = hasFeedData || hasAnalyticalData;
   // MCP is truly unavailable only when feedData is undefined AND no analytical data
   const isMCPUnavailable = !feedData && !hasAnalyticalData;
   const timestamp = new Date().toISOString();
@@ -585,18 +584,6 @@ export function buildBreakingNewsContent(
         </section>`
     : '';
 
-  const context = escapeHTML(editorial.parliamentaryContext);
-  const finding = escapeHTML(editorial.keyTakeaway);
-  const attribution = escapeHTML(editorial.sourceAttribution);
-
-  const whyThisMattersSection = hasData
-    ? `
-        <section class="why-this-matters">
-          <h2>${escapeHTML(editorial.whyThisMatters)}</h2>
-          <p>${context}: ${finding} — ${attribution}.</p>
-        </section>`
-    : '';
-
   const intelligenceBriefing = buildIntelligenceBriefingSection(
     anomalies,
     coalitions,
@@ -634,7 +621,6 @@ export function buildBreakingNewsContent(
           ${coalitionSection}
           ${reportSection}
           ${keyPlayersSection}
-          ${whyThisMattersSection}
         </div>
       `;
 }

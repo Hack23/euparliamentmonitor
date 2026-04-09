@@ -203,6 +203,11 @@ The separation between script-generated structure and AI-generated analysis MUST
 - ❌ Stakeholder outcome matrices with "Winner/Loser/Neutral" labels but no supporting rationale
 - ❌ Mindmap visualizations with template-only nodes and `data-connections="0"` — real policy connections required
 - ❌ Scripts producing political narrative text — this is the AI agent's exclusive domain
+- ❌ Generic template text like "this shapes the legislative trajectory" or "carries potential regulatory implications" — these have been removed from the generators/templates going forward; older committed articles under `news/` may still contain legacy wording. If these phrases appear in newly generated content, treat them as invalid legacy patterns
+- ❌ Metric-as-prose text like "Pipeline health at X% with throughput of Y reflects moderate legislative processing capacity" — data metrics belong in dashboard visualizations, not in analytical prose
+
+**AI_MARKER fields the AI agent MUST fill (post-generation):**
+The TypeScript generators now output `[AI_ANALYSIS_REQUIRED]` for: `why` (political drivers), `impactAssessment` (5 dimensions × ≥40 words each), `stakeholderOutcomes[].reason`, `actionConsequences[].consequence`, `mistakes[].alternative`, and `outlook` (named scenarios with probabilities). The AI agent must replace every marker with substantive, specific, evidence-backed political intelligence.
 
 ### Rule 9: AI-Driven Headlines and Descriptions — NEVER Code-Generated
 

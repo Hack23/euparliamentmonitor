@@ -213,10 +213,6 @@ export function generateMotionsContent(dateFromStr, dateStr, votingRecords, voti
       </section>`
         : ''}
 
-      <section class="why-this-matters">
-        <h2>${escapeHTML(editorial.whyThisMatters)}</h2>
-        <p>${escapeHTML(editorial.keyTakeaway)}: ${escapeHTML(strings.keyTakeawayText)}</p>
-      </section>
       <!-- /article-content -->
     </div>
   `;

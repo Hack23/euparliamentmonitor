@@ -702,6 +702,28 @@ npx tsx src/generators/news-enhanced.ts \
 
 **If the generator exits with a non-zero code, the workflow MUST FAIL. Do NOT attempt manual HTML generation as a fallback.**
 
+### MANDATORY AI Enrichment — Replace Analysis Placeholders
+
+> **⚠️ CRITICAL**: The TypeScript generator outputs `[AI_ANALYSIS_REQUIRED]` markers in the deep-analysis section. You MUST replace EVERY marker with substantive political analysis from EP MCP data. Write specific political intelligence — cite vote counts, name political groups, explain coalition dynamics. Never use generic phrases like "voting patterns indicate stable coalition behaviour" or "positions the EU in ongoing international policy discussions." Every impact card needs ≥40 words of AI analysis. Validate that zero markers remain:
+>
+> ```bash
+> FOUND_FILES=0
+> for TARGET_FILE in news/${TODAY}-week-in-review-*.html; do
+>   [ -f "$TARGET_FILE" ] || continue
+>   FOUND_FILES=1
+>   MARKERS=$(grep -c 'AI_ANALYSIS_REQUIRED' "$TARGET_FILE" 2>/dev/null || true)
+>   MARKERS=${MARKERS:-0}
+>   if [ "$MARKERS" -gt 0 ]; then
+>     echo "ERROR: $TARGET_FILE still contains $MARKERS [AI_ANALYSIS_REQUIRED] marker(s) — enrich before committing" >&2
+>     exit 1
+>   fi
+> done
+> if [ "$FOUND_FILES" -eq 0 ]; then
+>   echo "ERROR: Expected article files missing: news/${TODAY}-week-in-review-*.html" >&2
+>   exit 1
+> fi
+> ```
+
 ### Step 3: Validate & Verify Analysis Quality
 
 **CRITICAL: Each article MUST contain real analysis, not just a list of vote titles.**

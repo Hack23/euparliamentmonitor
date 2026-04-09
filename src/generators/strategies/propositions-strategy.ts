@@ -302,7 +302,7 @@ export class PropositionsStrategy implements ArticleStrategy<PropositionsArticle
       lang,
       data.adoptedTextsHtml
     );
-    const deepSection = buildDeepAnalysisSection(analysis, lang);
+    const deepSection = buildDeepAnalysisSection(analysis, lang, 'en');
     const mindmapData = buildPropositionsMindmap(data.pipelineData, lang);
     const mindmapSection = buildIntelligenceMindmapSection(mindmapData, lang);
     const swotData = buildPropositionsSwot(data.pipelineData, lang);

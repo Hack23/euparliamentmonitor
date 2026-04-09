@@ -10,7 +10,6 @@
 import { escapeHTML } from '../utils/file-utils.js';
 import {
   getLocalizedString,
-  EDITORIAL_STRINGS,
   WEEK_AHEAD_STRINGS,
   WEEK_AHEAD_STAKEHOLDER_STRINGS,
 } from '../constants/languages.js';
@@ -550,7 +549,7 @@ function buildLedeDetail(committeeCount: number, pipelineCount: number): string 
  *
  * @param weekData - Aggregated week-ahead data
  * @param dateRange - Date range for the article
- * @param lang - Language code for editorial strings (default: 'en')
+ * @param lang - Language code for localized content strings (default: 'en')
  * @returns HTML content string
  */
 export function buildWeekAheadContent(
@@ -558,7 +557,6 @@ export function buildWeekAheadContent(
   dateRange: DateRange,
   lang = 'en'
 ): string {
-  const editorial = getLocalizedString(EDITORIAL_STRINGS, lang);
   const strings = getLocalizedString(WEEK_AHEAD_STRINGS, lang);
   const plenaryHtml =
     weekData.events.length > 0
@@ -599,12 +597,6 @@ export function buildWeekAheadContent(
 
   const ledeDetail = buildLedeDetail(weekData.committees.length, weekData.pipeline.length);
 
-  const whyThisMattersSection = `
-          <section class="why-this-matters">
-            <h2>${escapeHTML(editorial.whyThisMatters)}</h2>
-            <p>${escapeHTML(editorial.parliamentaryContext)}: ${escapeHTML(editorial.sourceAttribution)} — parliamentary schedules determine the legislative agenda affecting EU citizens directly.</p>
-          </section>`;
-
   // Stakeholder impact analysis
   const stakeholderData = buildStakeholderImpactMatrix(weekData.events, weekData.documents, lang);
   const temperature = computeWeekPoliticalTemperature(weekData.events, weekData.questions);
@@ -615,7 +607,6 @@ export function buildWeekAheadContent(
           <section class="lede">
             <p>${escapeHTML(strings.lede)} from ${escapeHTML(dateRange.start)} to ${escapeHTML(dateRange.end)}.${escapeHTML(ledeDetail)}</p>
           </section>
-          ${whyThisMattersSection}
           <section class="plenary-schedule">
             <h2>${escapeHTML(strings.plenarySessions)}</h2>
             ${plenaryHtml}
