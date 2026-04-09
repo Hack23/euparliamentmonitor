@@ -399,7 +399,7 @@ export class BreakingNewsStrategy implements ArticleStrategy<BreakingNewsArticle
     // Enrich script-generated analysis with AI-produced content when available
     const enriched = enrichAnalysisWithAIContent(analysis, data.analysisContext);
 
-    const deepSection = buildDeepAnalysisSection(enriched, lang, 'en');
+    const deepSection = buildDeepAnalysisSection(enriched, lang);
     const mindmapData = buildBreakingMindmap(data.feedData, lang);
     const mindmapSection = buildIntelligenceMindmapSection(mindmapData, lang);
     const swotData = buildBreakingSwot(data.feedData, data.anomalyRaw, data.coalitionRaw, lang);

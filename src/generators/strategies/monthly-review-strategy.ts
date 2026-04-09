@@ -264,7 +264,7 @@ export class MonthlyReviewStrategy implements ArticleStrategy<MonthlyReviewArtic
       data.anomalies,
       data.questions
     );
-    const deepSection = buildDeepAnalysisSection(analysis, lang, 'en');
+    const deepSection = buildDeepAnalysisSection(analysis, lang);
     const mindmapData = buildVotingMindmap(
       data.votingRecords,
       data.votingPatterns,

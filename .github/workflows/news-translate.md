@@ -276,13 +276,14 @@ Each translated article must score well on these 5 dimensions:
 
 - **Minutes 0–3**: Date validation, discover English articles that need translation
 - **Minutes 3–8**: Set up MCP gateway, validate environment
-- **Minutes 8–80**: Translate articles using the TypeScript generator
-- **Minutes 80–85**: Validate translated HTML files
-- **Minutes 85–90**: Create PR with `safeoutputs___create_pull_request`
+- **Minutes 8–20**: Generate article HTML files using the TypeScript generator (Step 3)
+- **Minutes 20–75**: **AI Translation** — read each non-English article, translate all English narrative content to the target language, write back fully translated files (Step 3b)
+- **Minutes 75–82**: Validate translated HTML files (Step 4)
+- **Minutes 82–90**: Create PR with `safeoutputs___create_pull_request`
 
-> **🔑 TRANSLATION-ONLY FOCUS**: This workflow does NOT generate new content. It reads existing English articles and produces faithful translations. Use the full time budget to ensure every translation is linguistically excellent.
+> **🔑 TRANSLATION FOCUS**: This workflow generates article structure via TypeScript, then YOU (the AI agent) translate ALL English content to the target language. The generator produces English narrative with NO markers — **read every paragraph in the file. If it is in English, translate it.** The majority of your time should be spent on Step 3b — reading each file cover-to-cover, translating every English sentence, and writing back fully translated articles. The goal is 100% translated content.
 
-**If you reach minute 80 and the PR has not yet been created**: Stop translating. Finalize current file edits and immediately create the PR. Partial translations in a PR are better than a timeout with no PR.
+**If you reach minute 82 and the PR has not yet been created**: Stop translating. Finalize current file edits and immediately create the PR. Partial translations in a PR are better than a timeout with no PR.
 
 ## MANDATORY Date Context Establishment
 
@@ -508,9 +509,13 @@ echo "🌐 Target languages: $LANG_ARG"
 export LANG_ARG
 ```
 
-## Step 3: Generate Translations
+## Step 3: Generate Article Structure
 
-**Use the TypeScript generator to produce translations.** The generator uses MCP data for accurate EU Parliament terminology and the code handles UI string localization.
+**Use the TypeScript generator to produce article HTML files.** The generator produces articles with:
+- ✅ **Localized UI**: Headings, navigation, labels, date formatting — all in the target language
+- ⚠️ **English narrative content**: The narrative analysis (what, why, impact, outlook, stakeholders) is generated in **English** without any markers. You MUST translate ALL English content.
+
+> The generator handles structural localization. **Step 3b** (below) handles ALL narrative content translation — this is where YOU (the AI agent) **read the entire file, identify every English sentence, and translate it** to the target language. There are NO `lang="en"` markers — read every paragraph and translate all English text.
 
 > ⚠️ **CRITICAL — MCP env vars and the generation script MUST run in the same bash block.**
 
@@ -595,6 +600,67 @@ if [ -z "$TRANSLATED_TYPES" ]; then
 fi
 ```
 
+## Step 3b: MANDATORY AI Translation — Translate ALL English Content
+
+> **⚠️ CRITICAL — THIS IS THE CORE TRANSLATION STEP**: The TypeScript generator produces articles with **localized UI strings** (headings, labels, navigation) but **ALL narrative content** (analysis, descriptions, stakeholder perspectives, impact assessments, outlook, consequences, editorial text) **is generated in English without any markers**. There are NO `lang="en"` attributes to guide you. **YOU MUST read the ENTIRE file and translate EVERY English sentence** to the target language. This is NOT optional — it is the primary purpose of this workflow.
+
+For each non-English article file generated in Step 3:
+
+1. **Read the ENTIRE file** from top to bottom
+2. **Identify ALL English text** by reading every paragraph, every `<p>`, `<li>`, `<td>`, `<span>`, `<div>` text node. If it is in English, it must be translated.
+3. **Translate every English sentence** to the target language following the terminology standards and quality dimensions above
+4. **Write the fully translated file** back
+
+### What MUST be translated (100% — no exceptions)
+
+Read the ENTIRE article and translate ALL English text. This includes but is not limited to:
+
+- **ALL paragraph text** (`<p>` elements) — every sentence in the article body
+- **ALL list items** (`<li>` elements) — bullet points, numbered lists
+- **ALL table cells** (`<td>`, `<th>` elements) — data descriptions, labels
+- **Deep Analysis "What Happened"**: Factual summaries, legislative pipeline assessments, event descriptions
+- **Deep Analysis "Why This Matters"**: Political significance explanations
+- **Deep Analysis "Impact Assessment"**: Political, economic, social, legal, and geopolitical impact cards
+- **Deep Analysis "Outlook"**: Forward-looking scenario analysis
+- **Stakeholder Perspectives**: All actor descriptions, reasoning text, and evidence
+- **Action-Consequence Pairs**: Action descriptions and consequence explanations
+- **Mistakes & Missed Opportunities**: Description of errors and alternative approaches
+- **SWOT Analysis**: All strength, weakness, opportunity, and threat descriptions
+- **Mindmap Summaries**: All summary text in mindmap nodes
+- **Footer disclaimer text**: Legal/editorial disclaimers
+- **Alt text on images/charts**: Accessibility text
+- **Any other English text** in the file that is not a proper noun, abbreviation, or reference ID
+
+### Translation approach per file
+
+```
+For each non-English file news/${ARTICLE_DATE}-${TYPE}-${LANG}.html:
+  1. Read the COMPLETE HTML file — every line
+  2. Scan ALL text content (not HTML tags, not attributes except alt/title)
+  3. For EVERY English sentence or phrase found:
+     a. Translate to ${LANG} using EP terminology standards
+  4. The ONLY English that should remain: proper nouns (MEP names), 
+     abbreviations (EPP, S&D), reference IDs (2024/0001(COD)), 
+     location names (Strasbourg, Brussels)
+  5. Write the fully translated file
+  6. Self-verify: read the file again — is there ANY English sentence 
+     that a reader of ${LANG} would not understand? If yes, translate it.
+```
+
+> **🔑 KEY PRINCIPLE**: The AI agent (you) translates ALL content. There are NO `lang="en"` markers in the generated HTML — the generator no longer produces them. Read every paragraph. If it's English, translate it. The goal is **100% translated content** — a native speaker of the target language should be able to read the entire article without encountering a single untranslated English sentence.
+
+### Translation quality checklist per article
+
+Before moving to the next file, verify:
+- [ ] **Read the entire file again** — is there ANY remaining English narrative text?
+- [ ] All deep analysis narrative is fully in the target language
+- [ ] All paragraph body text is in the target language
+- [ ] All list items and table cells with descriptions are translated
+- [ ] EP terminology follows the official vocabulary table above
+- [ ] Confidence markers (🟢/🟡/🔴) are preserved with translated labels
+- [ ] Vote counts and percentages are numerically identical to English source
+- [ ] The article reads naturally in the target language (not "translationese")
+
 ## Step 4: Validate Translated Articles
 
 ```bash
@@ -602,6 +668,7 @@ if [ -z "${ARTICLE_DATE:-}" ]; then
   ARTICLE_DATE=$(date -u +%Y-%m-%d)
 fi
 CURRENT_YEAR=$(date -u +%Y)
+VALIDATION_FAILURES=0
 
 for TYPE in $(echo "$TRANSLATED_TYPES" | tr ',' ' '); do
   echo "Validating translations for: $TYPE"
@@ -610,17 +677,74 @@ for TYPE in $(echo "$TRANSLATED_TYPES" | tr ',' ' '); do
     FILE="news/${ARTICLE_DATE}-${TYPE}-${LANG}.html"
     if [ ! -f "$FILE" ]; then
       echo "⚠️ Missing: $FILE"
+      VALIDATION_FAILURES=$((VALIDATION_FAILURES + 1))
       continue
     fi
 
     # Validate HTML structure
     MISSING_SWITCHER=$(grep -cL 'class="language-switcher"' "$FILE" 2>/dev/null || echo 0)
     MISSING_HEADER=$(grep -cL 'class="site-header"' "$FILE" 2>/dev/null || echo 0)
+    if [ "$MISSING_SWITCHER" -gt 0 ]; then
+      echo "⚠️ $FILE: Missing required language switcher"
+      VALIDATION_FAILURES=$((VALIDATION_FAILURES + 1))
+    fi
+    if [ "$MISSING_HEADER" -gt 0 ]; then
+      echo "⚠️ $FILE: Missing required site header"
+      VALIDATION_FAILURES=$((VALIDATION_FAILURES + 1))
+    fi
 
-    # Check word count (translated articles should be substantial)
-    WORD_COUNT=$(sed 's/<[^>]*>/ /g' "$FILE" | tr -s '[:space:]' '\n' | grep -c '[[:alnum:]]' 2>/dev/null || echo 0)
-    if [ "$WORD_COUNT" -lt 300 ]; then
-      echo "⚠️ $FILE: Low word count ($WORD_COUNT) — translation may be incomplete"
+    # Check word count (skip for CJK languages where whitespace tokenization undercounts)
+    if [ "$LANG" != "ja" ] && [ "$LANG" != "ko" ] && [ "$LANG" != "zh" ]; then
+      WORD_COUNT=$(sed 's/<[^>]*>/ /g' "$FILE" | tr -s '[:space:]' '\n' | grep -c '[[:alnum:]]' 2>/dev/null || echo 0)
+      if [ "$WORD_COUNT" -lt 300 ]; then
+        echo "⚠️ $FILE: Low word count ($WORD_COUNT) — translation may be incomplete"
+        VALIDATION_FAILURES=$((VALIDATION_FAILURES + 1))
+      fi
+    fi
+
+    # ── Translation content-level quality checks ──
+    # Check for untranslated English phrases in non-English articles
+    # After Step 3b AI translation, ALL English content should be translated
+    # This list covers common English phrases that indicate incomplete translation
+    ENGLISH_PHRASES="legislative processing capacity|coalition-building strategies|political group dynamics|regulatory implications|democratic participation|inter-institutional relations|Likely scenario|Possible scenario|Earlier intervention|committee coordinators|Pipeline health|Throughput rate|What Happened|Why This Matters|Impact Assessment|Stakeholder Perspectives|Missed Opportunities|The European Parliament|This vote demonstrates|This legislative|political implications|economic impact|stakeholder analysis|forward-looking|represents a significant|The Commission|Member States agreed|adopted by|rejected by|abstention rate"
+    UNTRANSLATED_COUNT=$(grep -Eic "$ENGLISH_PHRASES" "$FILE" 2>/dev/null || echo 0)
+    if [ "$UNTRANSLATED_COUNT" -gt 0 ]; then
+      echo "⚠️ $FILE: Found $UNTRANSLATED_COUNT instances of untranslated English phrases — translation incomplete"
+      VALIDATION_FAILURES=$((VALIDATION_FAILURES + 1))
+    fi
+
+    # Check lang="en" markers — the generator no longer produces these, but check as safety net
+    EN_CONTENT_MARKERS=$(grep -c 'lang="en"' "$FILE" 2>/dev/null || echo 0)
+    if [ "$EN_CONTENT_MARKERS" -gt 0 ]; then
+      echo "⚠️ $FILE: Found $EN_CONTENT_MARKERS unexpected lang=\"en\" markers"
+      VALIDATION_FAILURES=$((VALIDATION_FAILURES + 1))
+    fi
+
+    # Broad English sentence detection — check for common English patterns
+    # This catches English content that lacks lang="en" markers
+    ENGLISH_PATTERNS="\\bthe\\b.*\\bof\\b|\\bThis\\b.*\\bis\\b|\\bwill\\b.*\\bbe\\b|\\bhas\\b.*\\bbeen\\b|\\bshould\\b.*\\bbe\\b|\\bcould\\b.*\\blead\\b|\\bin terms of\\b|\\bwith respect to\\b|\\baccording to\\b"
+    BROAD_ENGLISH=$(sed 's/<[^>]*>//g' "$FILE" | grep -Eic "$ENGLISH_PATTERNS" 2>/dev/null || echo 0)
+    if [ "$BROAD_ENGLISH" -gt 5 ]; then
+      echo "⚠️ $FILE: Detected ~$BROAD_ENGLISH English sentence patterns — significant untranslated content remains"
+      VALIDATION_FAILURES=$((VALIDATION_FAILURES + 1))
+    fi
+
+    # CJK-specific checks: ensure CJK characters are present
+    if echo "$LANG" | grep -qE '^(ja|ko|zh)$'; then
+      CJK_CHARS=$(grep -oP '[\x{4E00}-\x{9FFF}\x{3040}-\x{309F}\x{30A0}-\x{30FF}\x{AC00}-\x{D7AF}\x{1100}-\x{11FF}]' "$FILE" 2>/dev/null | wc -l || echo 0)
+      if [ "$CJK_CHARS" -lt 50 ]; then
+        echo "⚠️ $FILE: Only $CJK_CHARS CJK characters found — content likely untranslated"
+        VALIDATION_FAILURES=$((VALIDATION_FAILURES + 1))
+      fi
+    fi
+
+    # RTL-specific checks: ensure dir="rtl" is present
+    if echo "$LANG" | grep -qE '^(ar|he)$'; then
+      HAS_RTL=$(grep -c 'dir="rtl"' "$FILE" 2>/dev/null || echo 0)
+      if [ "$HAS_RTL" -eq 0 ]; then
+        echo "⚠️ $FILE: Missing dir=\"rtl\" attribute for RTL language $LANG"
+        VALIDATION_FAILURES=$((VALIDATION_FAILURES + 1))
+      fi
     fi
 
     # Check for stale dates
@@ -635,7 +759,12 @@ for TYPE in $(echo "$TRANSLATED_TYPES" | tr ',' ' '); do
   done
 done
 
-echo "✅ Validation complete"
+if [ "$VALIDATION_FAILURES" -gt 0 ]; then
+  echo "❌ Translation validation failed with $VALIDATION_FAILURES issue(s)"
+  exit 1
+else
+  echo "✅ All translations pass validation"
+fi
 ```
 
 ## Step 4b: Scope Verification (Prevent Patch Conflicts)
@@ -782,12 +911,19 @@ safeoutputs___create_pull_request({
 - Session location names (Strasbourg, Brussels)
 - Procedure codes (COD, CNS, APP)
 
-### MUST Translate
+### MUST Translate (100% Coverage Required)
 - All narrative body paragraphs (analysis, context, commentary)
 - Event descriptions and agenda summaries
 - Any free-text editorial content
 - Policy impact descriptions and stakeholder positions
 - Calendar and scheduling descriptions
+- **Deep analysis sections**: what happened, who, when, why, outlook
+- **Stakeholder perspectives**: all reasoning and evidence text
+- **Impact assessments**: political, economic, social, legal, geopolitical descriptions
+- **Action-consequence pairs**: action labels and consequence descriptions
+- **Mistakes & missed opportunities**: description and alternative texts
+- **Mindmap summaries**: all summary text nodes
+- **Footer disclaimer text**
 
 ### Language-Specific Requirements
 
@@ -813,10 +949,14 @@ safeoutputs___create_pull_request({
 - **Chinese (zh)**: Use Simplified Chinese; CJK punctuation (。、《》); no spaces between characters; use official Chinese EP terminology from eu.europa.eu/zh
 
 ### Quality Gate
-- ZERO TOLERANCE for language mixing within a single article
+- ZERO TOLERANCE for language mixing within a single article — **100% of content must be in the target language**
 - Each translated article must have same analytical depth as the English source
 - Vote counts and percentages are locale-formatted but numerically identical
-- All UI strings are already localized by the TypeScript code — focus on content translation
+- All UI strings are already localized by the TypeScript code — focus on **narrative content translation**
+- **Read the ENTIRE file** — translate ALL English content. The generator produces English narrative with NO markers.
+- After translation, there should be ZERO English sentences remaining (except proper nouns, abbreviations, reference IDs)
+- For CJK languages (ja, ko, zh): verify CJK character density is >50% of body text
+- For RTL languages (ar, he): verify `dir="rtl"` is present on the `<html>` element
 
 ## MANDATORY PR Creation
 
@@ -829,11 +969,12 @@ safeoutputs___create_pull_request({
 The gh-aw framework **automatically captures all file changes** you make in the working directory as a patch. You do NOT manage git operations yourself.
 
 **The mechanism:**
-1. The TypeScript generator writes translated article files to `news/`
-2. You call `safeoutputs___create_pull_request` with `title`, `body`, `base`, and `head`
-3. The framework diffs your working directory, creates a branch, applies the patch, and opens the PR
+1. The TypeScript generator writes article HTML files to `news/` with localized UI but English analysis content
+2. You (AI agent) read each non-English file and translate all English narrative content to the target language
+3. You call `safeoutputs___create_pull_request` with `title`, `body`, `base`, and `head`
+4. The framework diffs your working directory, creates a branch, applies the patch, and opens the PR
 
-**MUST do:** Generate translation files → Call `safeoutputs___create_pull_request` once.
+**MUST do:** Generate article files → Translate English content in each file → Call `safeoutputs___create_pull_request` once.
 
 **MUST NOT do:**
 - ❌ `git add`, `git commit`, `git push`
@@ -850,7 +991,7 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 
 **If MCP server unavailable:**
 1. The generator will fall back to stdio mode
-2. If that also fails, translations can still use pre-localized strings from code
+2. If that also fails, the generator will produce articles with placeholder data — the AI translation step (3b) should still translate any English content
 
 **If translation generation fails for some types:**
 1. Continue with remaining types

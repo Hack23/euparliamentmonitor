@@ -177,7 +177,7 @@ export class WeeklyReviewStrategy {
     buildContent(data, lang) {
         const base = generateMotionsContent(data.dateRange.start, data.dateRange.end, [...data.votingRecords], [...data.votingPatterns], [...data.anomalies], [...data.questions], lang);
         const analysis = buildVotingAnalysis(data.dateRange.start, data.dateRange.end, data.votingRecords, data.votingPatterns, data.anomalies, data.questions);
-        const deepSection = buildDeepAnalysisSection(analysis, lang, 'en');
+        const deepSection = buildDeepAnalysisSection(analysis, lang);
         // Enrich with adopted texts from feed data when available
         const adoptedTextsHtml = data.feedData && data.feedData.adoptedTexts.length > 0
             ? buildAdoptedTextsSection(data.feedData.adoptedTexts, lang)
