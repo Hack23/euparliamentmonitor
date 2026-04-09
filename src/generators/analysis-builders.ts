@@ -284,14 +284,18 @@ function buildPropositionsStakeholderPerspectives(
   topic: string,
   lang: LanguageCode = 'en'
 ): StakeholderPerspective[] {
-  return buildDefaultStakeholderPerspectives(topic, {
-    political_groups: 0.7,
-    civil_society: healthScore < 0.5 ? 0.3 : 0.5,
-    industry: healthScore < 0.5 ? 0.3 : 0.6,
-    national_govts: healthScore < 0.5 ? 0.3 : 0.6,
-    citizens: healthScore < 0.5 ? 0.2 : 0.5,
-    eu_institutions: 0.8,
-  }, lang);
+  return buildDefaultStakeholderPerspectives(
+    topic,
+    {
+      political_groups: 0.7,
+      civil_society: healthScore < 0.5 ? 0.3 : 0.5,
+      industry: healthScore < 0.5 ? 0.3 : 0.6,
+      national_govts: healthScore < 0.5 ? 0.3 : 0.6,
+      citizens: healthScore < 0.5 ? 0.2 : 0.5,
+      eu_institutions: 0.8,
+    },
+    lang
+  );
 }
 
 /**
@@ -445,7 +449,10 @@ function buildVotingImpactAssessment(
       .replace(/\{rejected\}/g, String(rejectedCount))
       .replace(/\{anomalies\}/g, String(anomalyCount))
       .replace(/\{questions\}/g, String(questionCount))
-      .replace(/\{activity\}/g, recordCount > 10 ? s.activityHigh : recordCount > 3 ? s.activityModerate : s.activityLimited);
+      .replace(
+        /\{activity\}/g,
+        recordCount > 10 ? s.activityHigh : recordCount > 3 ? s.activityModerate : s.activityLimited
+      );
   return {
     political:
       recordCount > 0

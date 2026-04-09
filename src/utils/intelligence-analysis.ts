@@ -29,10 +29,7 @@ import type {
   LanguageCode,
 } from '../types/index.js';
 import { ALL_STAKEHOLDER_TYPES } from '../types/index.js';
-import {
-  getLocalizedString,
-  STAKEHOLDER_REASONING_STRINGS,
-} from '../constants/languages.js';
+import { getLocalizedString, STAKEHOLDER_REASONING_STRINGS } from '../constants/languages.js';
 
 // ─── Internal type aliases ────────────────────────────────────────────────────
 

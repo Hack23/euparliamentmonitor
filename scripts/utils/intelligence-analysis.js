@@ -8,7 +8,7 @@
  */
 import { escapeHTML } from './file-utils.js';
 import { ALL_STAKEHOLDER_TYPES } from '../types/index.js';
-import { getLocalizedString, STAKEHOLDER_REASONING_STRINGS, } from '../constants/languages.js';
+import { getLocalizedString, STAKEHOLDER_REASONING_STRINGS } from '../constants/languages.js';
 // ─── Validation constants ─────────────────────────────────────────────────────
 /** Valid significance levels in descending priority order */
 const SIGNIFICANCE_LEVELS = ['critical', 'high', 'medium', 'low'];
