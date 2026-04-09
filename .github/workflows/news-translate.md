@@ -607,14 +607,6 @@ VALIDATION_FAILURES=0
 for TYPE in $(echo "$TRANSLATED_TYPES" | tr ',' ' '); do
   echo "Validating translations for: $TYPE"
 
-  # Use the English source for comparative validation
-  EN_FILE="news/${ARTICLE_DATE}-${TYPE}-en.html"
-  EN_WORD_COUNT=0
-  if [ -f "$EN_FILE" ]; then
-    EN_WORD_COUNT=$(sed 's/<[^>]*>/ /g' "$EN_FILE" | tr -s '[:space:]' '\n' | grep -c '[[:alnum:]]' 2>/dev/null || echo 0)
-    echo "  📊 English source word count: $EN_WORD_COUNT"
-  fi
-
   for LANG in $(echo "$LANG_ARG" | tr ',' ' '); do
     FILE="news/${ARTICLE_DATE}-${TYPE}-${LANG}.html"
     if [ ! -f "$FILE" ]; then
@@ -627,11 +619,13 @@ for TYPE in $(echo "$TRANSLATED_TYPES" | tr ',' ' '); do
     MISSING_SWITCHER=$(grep -cL 'class="language-switcher"' "$FILE" 2>/dev/null || echo 0)
     MISSING_HEADER=$(grep -cL 'class="site-header"' "$FILE" 2>/dev/null || echo 0)
 
-    # Check word count (translated articles should be substantial)
-    WORD_COUNT=$(sed 's/<[^>]*>/ /g' "$FILE" | tr -s '[:space:]' '\n' | grep -c '[[:alnum:]]' 2>/dev/null || echo 0)
-    if [ "$WORD_COUNT" -lt 300 ]; then
-      echo "⚠️ $FILE: Low word count ($WORD_COUNT) — translation may be incomplete"
-      VALIDATION_FAILURES=$((VALIDATION_FAILURES + 1))
+    # Check word count (skip for CJK languages where whitespace tokenization undercounts)
+    if [ "$LANG" != "ja" ] && [ "$LANG" != "ko" ] && [ "$LANG" != "zh" ]; then
+      WORD_COUNT=$(sed 's/<[^>]*>/ /g' "$FILE" | tr -s '[:space:]' '\n' | grep -c '[[:alnum:]]' 2>/dev/null || echo 0)
+      if [ "$WORD_COUNT" -lt 300 ]; then
+        echo "⚠️ $FILE: Low word count ($WORD_COUNT) — translation may be incomplete"
+        VALIDATION_FAILURES=$((VALIDATION_FAILURES + 1))
+      fi
     fi
 
     # ── Translation content-level quality checks ──

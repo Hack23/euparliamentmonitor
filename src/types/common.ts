@@ -214,6 +214,8 @@ export interface PropositionsAnalysisContentStrings {
   readonly stakeholderWinnerReason: string;
   readonly stakeholderLoserActor: string;
   readonly stakeholderLoserReason: string;
+  /** Topic string for stakeholder perspectives. {date} placeholder */
+  readonly stakeholderTopic: string;
 }
 
 /**

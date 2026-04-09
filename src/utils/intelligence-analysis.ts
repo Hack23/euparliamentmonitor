@@ -324,7 +324,7 @@ function deriveStakeholderReasoning(
   const impactLevel =
     score >= 0.7 ? s.impactSignificant : score >= 0.4 ? s.impactModerate : s.impactLimited;
   const r = (t: string): string =>
-    t.replace(/\{topic\}/g, topic).replace(/\{impact\}/g, impactLevel);
+    t.replace(/\{topic\}/g, (): string => topic).replace(/\{impact\}/g, (): string => impactLevel);
   switch (stakeholder) {
     case 'political_groups':
       return r(s.politicalGroups);

@@ -267,7 +267,7 @@ function severityFromScore(score) {
 function deriveStakeholderReasoning(stakeholder, topic, score, lang = 'en') {
     const s = getLocalizedString(STAKEHOLDER_REASONING_STRINGS, lang);
     const impactLevel = score >= 0.7 ? s.impactSignificant : score >= 0.4 ? s.impactModerate : s.impactLimited;
-    const r = (t) => t.replace(/\{topic\}/g, topic).replace(/\{impact\}/g, impactLevel);
+    const r = (t) => t.replace(/\{topic\}/g, () => topic).replace(/\{impact\}/g, () => impactLevel);
     switch (stakeholder) {
         case 'political_groups':
             return r(s.politicalGroups);

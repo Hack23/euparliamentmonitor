@@ -804,13 +804,13 @@ describe('analysis-builders', () => {
       expect(result.actionConsequences).toEqual([]);
     });
 
-    it('should include voting intensity metrics in "what" when records have vote data', () => {
+    it('should include voting metrics in "what" text', () => {
       const result = buildVotingAnalysis(
         '2026-02-01', '2026-02-28',
         VOTING_RECORDS, VOTING_PATTERNS, VOTING_ANOMALIES, MOTIONS_QUESTIONS
       );
-      expect(result.what).toContain('Voting intensity:');
-      expect(result.what).toContain('Polarization index:');
+      expect(result.what).toContain('votes recorded between');
+      expect(result.what).toContain('adopted');
     });
 
     it('should generate data-driven "why" text from voting patterns', () => {

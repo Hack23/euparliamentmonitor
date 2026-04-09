@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
-import { getLocalizedString, COMMITTEE_ANALYSIS_CONTENT_STRINGS, BREAKING_STRINGS, SWOT_BUILDER_STRINGS, DASHBOARD_BUILDER_STRINGS, PROPOSITIONS_ANALYSIS_CONTENT_STRINGS, } from '../constants/languages.js';
+import { getLocalizedString, COMMITTEE_ANALYSIS_CONTENT_STRINGS, BREAKING_STRINGS, SWOT_BUILDER_STRINGS, DASHBOARD_BUILDER_STRINGS, PROPOSITIONS_ANALYSIS_CONTENT_STRINGS, VOTING_ANALYSIS_CONTENT_STRINGS, } from '../constants/languages.js';
 import { isPlaceholderCommitteeData } from './committee-helpers.js';
 import { PLACEHOLDER_MARKER } from './motions-content.js';
 import { buildDefaultStakeholderPerspectives, buildStakeholderOutcomeMatrix, computeVotingIntensity, computePolarizationIndex, } from '../utils/intelligence-analysis.js';
@@ -240,16 +240,26 @@ function buildOutcomeMatrix(actions) {
  * @param questionCount - Question count
  * @param intensity - Voting intensity metrics (may be null)
  * @param polarization - Polarization index (may be null)
+ * @param _intensity
+ * @param _polarization
+ * @param lang
  * @returns Summary text
  */
-function buildVotingWhatText(dateFrom, dateTo, recordCount, adoptedCount, rejectedCount, anomalyCount, patternCount, questionCount, intensity, polarization) {
+function buildVotingWhatText(dateFrom, dateTo, recordCount, adoptedCount, rejectedCount, anomalyCount, patternCount, questionCount, _intensity, _polarization, lang = 'en') {
+    const s = getLocalizedString(VOTING_ANALYSIS_CONTENT_STRINGS, lang);
+    const r = (t) => t
+        .replace(/\{dateFrom\}/g, dateFrom)
+        .replace(/\{dateTo\}/g, dateTo)
+        .replace(/\{records\}/g, String(recordCount))
+        .replace(/\{adopted\}/g, String(adoptedCount))
+        .replace(/\{rejected\}/g, String(rejectedCount))
+        .replace(/\{anomalies\}/g, String(anomalyCount))
+        .replace(/\{patterns\}/g, String(patternCount))
+        .replace(/\{questions\}/g, String(questionCount));
     if (recordCount === 0 && patternCount === 0 && questionCount === 0) {
-        return `Parliamentary activity from ${dateFrom} to ${dateTo}. Detailed roll-call data unavailable for this period.`;
+        return r(s.whatNoData);
     }
-    const base = `${recordCount} votes recorded between ${dateFrom} and ${dateTo}: ${adoptedCount} adopted, ${rejectedCount} rejected. ${anomalyCount} voting anomalies detected across ${patternCount} political groups. ${questionCount} parliamentary questions filed.`;
-    if (!intensity || recordCount === 0)
-        return base;
-    return `${base} Voting intensity: ${intensity.closeVoteCount} close ${intensity.closeVoteCount === 1 ? 'vote' : 'votes'}, ${intensity.decisiveVoteCount} decisive ${intensity.decisiveVoteCount === 1 ? 'vote' : 'votes'}. Polarization index: ${polarization?.assessment ?? 'N/A'}.`;
+    return r(s.what);
 }
 /**
  * Build the "why" text for a voting analysis.
@@ -257,20 +267,26 @@ function buildVotingWhatText(dateFrom, dateTo, recordCount, adoptedCount, reject
  *
  * @param patterns - Real voting patterns
  * @param polarization - Polarization index
+ * @param lang
  * @returns Factual analysis of voting drivers
  */
-function buildVotingWhyText(patterns, polarization) {
+function buildVotingWhyText(patterns, polarization, lang = 'en') {
+    const s = getLocalizedString(VOTING_ANALYSIS_CONTENT_STRINGS, lang);
     if (patterns.length === 0) {
-        return 'Detailed voting pattern data is not yet available for this period. Parliamentary activity during this period reflects the standard legislative agenda.';
+        return s.whyNoData;
     }
     const avgCohesion = patterns.reduce((sum, p) => sum + p.cohesion, 0) / patterns.length;
     const cohesionDesc = avgCohesion > 0.75
-        ? 'high cohesion'
+        ? s.cohesionHigh
         : avgCohesion > 0.5
-            ? 'moderate cohesion'
-            : 'fragmented positions';
-    const polDesc = polarization?.assessment ?? 'not assessed';
-    return `Voting patterns across ${patterns.length} political groups show ${cohesionDesc} (average ${(avgCohesion * 100).toFixed(0)}%). Polarization assessment: ${polDesc}. These dynamics reflect ongoing legislative priorities and inter-group negotiations on the current parliamentary agenda.`;
+            ? s.cohesionModerate
+            : s.cohesionFragmented;
+    const polDesc = polarization?.assessment ?? 'N/A';
+    return s.whyPatterns
+        .replace(/\{patterns\}/g, String(patterns.length))
+        .replace(/\{cohesionDesc\}/g, cohesionDesc)
+        .replace(/\{pct\}/g, (avgCohesion * 100).toFixed(0))
+        .replace(/\{assessment\}/g, polDesc);
 }
 /**
  * Build data-driven impact assessment for voting analysis.
@@ -281,22 +297,26 @@ function buildVotingWhyText(patterns, polarization) {
  * @param rejectedCount - Rejected text count
  * @param anomalyCount - Anomaly count
  * @param questionCount - Parliamentary question count
+ * @param lang
  * @returns Impact assessment with descriptive text
  */
-function buildVotingImpactAssessment(recordCount, adoptedCount, rejectedCount, anomalyCount, questionCount) {
-    const activityLevel = recordCount > 10 ? 'high' : recordCount > 3 ? 'moderate' : 'limited';
+function buildVotingImpactAssessment(recordCount, adoptedCount, rejectedCount, anomalyCount, questionCount, lang = 'en') {
+    const s = getLocalizedString(VOTING_ANALYSIS_CONTENT_STRINGS, lang);
+    const r = (t) => t
+        .replace(/\{records\}/g, String(recordCount))
+        .replace(/\{adopted\}/g, String(adoptedCount))
+        .replace(/\{rejected\}/g, String(rejectedCount))
+        .replace(/\{anomalies\}/g, String(anomalyCount))
+        .replace(/\{questions\}/g, String(questionCount))
+        .replace(/\{activity\}/g, recordCount > 10 ? s.activityHigh : recordCount > 3 ? s.activityModerate : s.activityLimited);
     return {
         political: recordCount > 0
-            ? `Political group dynamics shaped by ${recordCount} votes — ${adoptedCount} adopted, ${rejectedCount} rejected. ${anomalyCount > 0 ? `${anomalyCount} voting anomalies signal potential coalition shifts.` : 'Voting patterns indicate stable coalition behaviour.'}`
-            : 'Limited voting activity during this period constrains political impact assessment.',
-        economic: adoptedCount > 0
-            ? `${adoptedCount} adopted legislative measures may affect regulatory frameworks, market conditions, and business compliance requirements across EU member states.`
-            : 'No adopted texts in this period limits immediate economic impact from parliamentary activity.',
-        social: `Parliamentary engagement at ${activityLevel} level with ${questionCount} questions filed, reflecting legislative attention to citizen concerns and social policy priorities.`,
-        legal: adoptedCount > 0
-            ? `${adoptedCount} adopted texts advance through the legislative process, with potential implications for EU legal frameworks and member state transposition requirements.`
-            : 'Limited legislative output during this period reduces immediate legal framework impact.',
-        geopolitical: `European Parliament activity at ${activityLevel} level positions the EU in ongoing international policy discussions, particularly regarding trade, security, and environmental commitments.`,
+            ? `${r(s.impactPolitical)} ${anomalyCount > 0 ? r(s.impactPoliticalAnomaly) : s.impactPoliticalStable}`
+            : s.impactPoliticalNone,
+        economic: adoptedCount > 0 ? r(s.impactEconomic) : s.impactEconomicNone,
+        social: r(s.impactSocial),
+        legal: adoptedCount > 0 ? r(s.impactLegal) : s.impactLegalNone,
+        geopolitical: r(s.impactGeopolitical),
     };
 }
 /**
@@ -748,7 +768,7 @@ export function buildPropositionsAnalysis(proposalsHtml, pipelineData, date, lan
             ]
             : [],
         outlook: healthScore >= 0.7 ? r(s.outlookGood) : r(s.outlookConcern),
-        stakeholderPerspectives: buildPropositionsStakeholderPerspectives(healthScore, r(s.whenAssessment), lang),
+        stakeholderPerspectives: buildPropositionsStakeholderPerspectives(healthScore, r(s.stakeholderTopic), lang),
         stakeholderOutcomeMatrix: buildOutcomeMatrix([
             {
                 action: r(s.actionHealth) + ` (${r(s.actionThroughput)})`,

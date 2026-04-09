@@ -59,8 +59,6 @@ import {
   DASHBOARD_BUILDER_STRINGS,
   PROPOSITIONS_ANALYSIS_CONTENT_STRINGS,
   VOTING_ANALYSIS_CONTENT_STRINGS,
-  PROSPECTIVE_ANALYSIS_CONTENT_STRINGS,
-  BREAKING_ANALYSIS_CONTENT_STRINGS,
 } from '../constants/languages.js';
 import { isPlaceholderCommitteeData } from './committee-helpers.js';
 import { PLACEHOLDER_MARKER } from './motions-content.js';
@@ -353,6 +351,9 @@ function buildOutcomeMatrix(
  * @param questionCount - Question count
  * @param intensity - Voting intensity metrics (may be null)
  * @param polarization - Polarization index (may be null)
+ * @param _intensity
+ * @param _polarization
+ * @param lang
  * @returns Summary text
  */
 function buildVotingWhatText(
@@ -364,8 +365,8 @@ function buildVotingWhatText(
   anomalyCount: number,
   patternCount: number,
   questionCount: number,
-  intensity: VotingIntensity | null,
-  polarization: PolarizationIndex | null,
+  _intensity: VotingIntensity | null,
+  _polarization: PolarizationIndex | null,
   lang: LanguageCode = 'en'
 ): string {
   const s = getLocalizedString(VOTING_ANALYSIS_CONTENT_STRINGS, lang);
@@ -391,6 +392,7 @@ function buildVotingWhatText(
  *
  * @param patterns - Real voting patterns
  * @param polarization - Polarization index
+ * @param lang
  * @returns Factual analysis of voting drivers
  */
 function buildVotingWhyText(
@@ -426,6 +428,7 @@ function buildVotingWhyText(
  * @param rejectedCount - Rejected text count
  * @param anomalyCount - Anomaly count
  * @param questionCount - Parliamentary question count
+ * @param lang
  * @returns Impact assessment with descriptive text
  */
 function buildVotingImpactAssessment(
@@ -1023,7 +1026,7 @@ export function buildPropositionsAnalysis(
     outlook: healthScore >= 0.7 ? r(s.outlookGood) : r(s.outlookConcern),
     stakeholderPerspectives: buildPropositionsStakeholderPerspectives(
       healthScore,
-      r(s.whenAssessment),
+      r(s.stakeholderTopic),
       lang
     ),
     stakeholderOutcomeMatrix: buildOutcomeMatrix([
