@@ -439,16 +439,14 @@ export function buildBreakingAnalysis(date, feedData, anomalyRaw, coalitionRaw, 
             ...(feedData?.events.slice(0, 3).map((e) => `${e.title}${e.date ? ` (${e.date})` : ''}`) ??
                 []),
         ],
-        why: adoptedCount > 0
-            ? `Breaking parliamentary developments on ${date} driven by ${adoptedCount} newly adopted text(s), ${eventCount} events, and ${procCount} active procedures. These developments reflect accelerated legislative activity requiring stakeholder attention.`
-            : `Parliamentary activity update for ${date}: ${eventCount} events and ${procCount} procedures in progress. ${mepCount > 0 ? `${mepCount} MEP updates signal evolving political dynamics.` : 'Routine institutional proceedings continue.'}`,
+        why: AI_MARKER,
         stakeholderOutcomes: [
             ...(adoptedCount > 0
                 ? [
                     {
                         actor: s.breakingWinnerActor,
                         outcome: 'winner',
-                        reason: `Successfully advanced ${adoptedCount} legislative text(s) through the adoption process, demonstrating effective coalition coordination.`,
+                        reason: AI_MARKER,
                     },
                 ]
                 : []),
@@ -615,7 +613,7 @@ export function buildPropositionsAnalysis(proposalsHtml, pipelineData, date, lan
     return {
         what: hasProposals
             ? `Legislative pipeline assessment as of ${date}: Active proposals under consideration.`
-            : AI_MARKER,
+            : `Legislative pipeline assessment as of ${date}: No new proposals detected in this period.`,
         who: [
             'European Commission (proposal originator)',
             'Rapporteurs (responsible for steering through committee)',

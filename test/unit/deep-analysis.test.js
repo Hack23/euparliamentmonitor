@@ -908,10 +908,9 @@ describe('analysis-builders', () => {
       expect(result.who).toContain('Adopted: DMA Regulation (2026-02-24)');
     });
 
-    it('should generate data-driven why for breaking news', () => {
+    it('should use AI_MARKER for why in breaking news (AI-driven analysis)', () => {
       const result = buildBreakingAnalysis('2026-02-24', undefined, 'anomaly detected', '');
-      expect(result.why).toContain('Parliamentary activity update');
-      expect(result.why).not.toBe(AI_MARKER);
+      expect(result.why).toBe(AI_MARKER);
     });
 
     it('should handle undefined feedData', () => {
@@ -975,6 +974,12 @@ describe('analysis-builders', () => {
     it('should use AI_MARKER for outlook in propositions', () => {
       const result = buildPropositionsAnalysis('', null, '2026-02-24');
       expect(result.outlook).toBe(AI_MARKER);
+    });
+
+    it('should keep factual what when no proposals detected', () => {
+      const result = buildPropositionsAnalysis('', null, '2026-02-24');
+      expect(result.what).toContain('No new proposals detected');
+      expect(result.what).not.toBe(AI_MARKER);
     });
 
     it('should detect proposals from adoptedTextsHtml when proposalsHtml is empty', () => {
