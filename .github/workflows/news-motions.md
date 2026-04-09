@@ -321,10 +321,10 @@ For each motion or resolution vote, analyze:
 ## 🔗 ANALYSIS FILE REFERENCES (MANDATORY)
 
 Every generated article MUST link to ALL analysis files. Verify the Analysis & Transparency section includes:
-- [ ] Links to consolidated analysis files in `analysis/daily/${TODAY}/motions/classification/`
-- [ ] Links to consolidated analysis files in `analysis/daily/${TODAY}/motions/threat-assessment/`
-- [ ] Links to consolidated analysis files in `analysis/daily/${TODAY}/motions/risk-scoring/`
-- [ ] Links to `analysis/daily/${TODAY}/motions/existing/*.md` files
+- [ ] Links to canonical method-level files in `analysis/daily/${TODAY}/motions/classification/`
+- [ ] Links to canonical method-level files in `analysis/daily/${TODAY}/motions/threat-assessment/`
+- [ ] Links to canonical method-level files in `analysis/daily/${TODAY}/motions/risk-scoring/`
+- [ ] Links to canonical method-level files in `analysis/daily/${TODAY}/motions/existing/`
 - [ ] Links to `analysis/methodologies/*.md` methodology documents
 
 ## ⏱️ Time Budget (60 minutes)
@@ -345,18 +345,18 @@ Every generated article MUST link to ALL analysis files. Verify the Analysis & T
 
 > **⚠️ CRITICAL — 100-FILE PR LIMIT**: The `create_pull_request` safe output enforces a hard limit of 100 files per pull request. Exceeding this causes error **E003** and the workflow fails with no PR created.
 >
-> **Rule**: Keep total new/modified files **under 90** (articles + analysis artifacts combined). Write **ONE consolidated markdown file per analysis category** instead of individual per-document files.
+> **Rule**: Keep total new/modified files **under 90** (articles + analysis artifacts combined). Preserve the repo's **canonical analysis artifact naming convention**: write the single canonical markdown file for each analysis method/category directory (as documented in `analysis/README.md`), and avoid creating individual per-document analysis files.
 
-**Consolidated file structure** (target: ≤20 analysis files total):
+**Canonical analysis file structure** (target: ≤20 analysis files total):
 - `analysis/daily/${TODAY}/motions/manifest.json` — 1 file
-- `analysis/daily/${TODAY}/motions/classification/consolidated-classification.md` — 1 file (all classifications)
-- `analysis/daily/${TODAY}/motions/threat-assessment/consolidated-threat-assessment.md` — 1 file (all threat analyses)
-- `analysis/daily/${TODAY}/motions/risk-scoring/consolidated-risk-scoring.md` — 1 file (all risk scores)
-- `analysis/daily/${TODAY}/motions/intelligence/consolidated-intelligence.md` — 1 file (all intelligence analyses)
-- `analysis/daily/${TODAY}/motions/synthesis.md` — 1 file (cross-document synthesis)
+- `analysis/daily/${TODAY}/motions/classification/<canonical-method-files>.md` — canonical method-level files (e.g., `significance-classification.md`, `impact-matrix.md`, `actor-mapping.md`, `forces-analysis.md`)
+- `analysis/daily/${TODAY}/motions/threat-assessment/<canonical-method-files>.md` — canonical method-level files (e.g., `political-threat-landscape.md`, `actor-threat-profiling.md`)
+- `analysis/daily/${TODAY}/motions/risk-scoring/<canonical-method-files>.md` — canonical method-level files (e.g., `risk-matrix.md`, `political-capital-risk.md`, `quantitative-swot.md`)
+- `analysis/daily/${TODAY}/motions/existing/<canonical-method-files>.md` — canonical method-level files (e.g., `deep-analysis.md`, `stakeholder-impact.md`, `coalition-dynamics.md`)
+- `analysis/daily/${TODAY}/motions/synthesis-summary.md` — 1 file (cross-document synthesis)
 - `news/${TODAY}-motions-en.html` — 1 article file (English)
 
-**DO NOT** create individual analysis files for each adopted text, voting record, or MCP data item. Instead, add sections within the consolidated category file using `## Item: <document-title>` headers.
+**DO NOT** create individual analysis files for each adopted text, voting record, or MCP data item. Instead, append item-level sections within the relevant canonical method-level file using `## Item: <document-title>` headers.
 
 ## 🔬 Political Intelligence Analysis Stage
 
@@ -369,7 +369,7 @@ The `--analysis` flag activates the political intelligence analysis pipeline **b
    - **Risk Scoring** (5 methods): political risk matrix, capital-at-risk assessment, quantitative SWOT, legislative velocity risk, agent risk workflow
    - **Intelligence** (5 methods): deep analysis, stakeholder analysis, coalition dynamics, voting patterns, cross-session intelligence
    - _Optional_: **Per-Document Analysis** (opt-in via `--analysis-methods=document-analysis`) — per-document markdown + JSON intelligence files for every downloaded MCP file; not included in default set
-3. **Writes and commits analysis artifacts** to `analysis/daily/${TODAY}/motions/` (consolidated markdown files + `manifest.json`) — each workflow writes to its own per-article-type subdirectory; MCP data files in `analysis/daily/${TODAY}/motions/data/` are excluded from the PR via `excluded-files` and also cleaned up before PR creation. **All per-document analyses MUST be consolidated into ONE file per category** to stay under the 100-file PR limit.
+3. **Writes and commits analysis artifacts** to `analysis/daily/${TODAY}/motions/` using canonical filenames from `analysis/README.md` + `manifest.json` — each workflow writes to its own per-article-type subdirectory; MCP data files in `analysis/daily/${TODAY}/motions/data/` are excluded from the PR via `excluded-files` and also cleaned up before PR creation. **Do NOT create individual per-document analysis files** — append item-level content within the canonical method-level files to stay under the 100-file PR limit.
 4. **Blocks article generation on failure in agentic mode** — when `--analysis` is enabled, analysis failures abort the run; disable `--analysis` if you want generation to proceed without analysis
 
 The analysis artifacts provide structured political intelligence that enriches the article generation phase with deeper context, evidence-based assessments, and systematic threat/risk analysis.
@@ -378,20 +378,20 @@ The analysis artifacts provide structured political intelligence that enriches t
 
 > **⚠️ CRITICAL**: After MCP data is fetched, produce **extensive, publication-quality analysis markdown** following the methodology templates. The scripted analysis stage provides data preparation — YOU perform the actual analytical work.
 
-> **⚠️ FULL DATA ANALYSIS**: Read ALL structured templates in `analysis/templates/` and methodology guides in `analysis/methodologies/` BEFORE starting analysis. Apply them to every downloaded MCP data file, but **consolidate all per-file results into ONE combined markdown file per analysis category** (classification, threat-assessment, risk-scoring, intelligence). See `analysis/README.md` for the complete analysis directory documentation.
+> **⚠️ FULL DATA ANALYSIS**: Read ALL structured templates in `analysis/templates/` and methodology guides in `analysis/methodologies/` BEFORE starting analysis. Apply them to every downloaded MCP data file, writing results into the **canonical method-level files** (see `analysis/README.md` Canonical Artifact Naming Convention). Do NOT create individual per-document analysis files — append item-level sections within the canonical files to stay under the 100-file PR limit.
 
 > **⚠️ IMPROVE EXISTING ANALYSIS**: Per `ai-driven-analysis-guide.md` Rule 5, before producing new analysis, check for existing analysis in `analysis/daily/${TODAY}/motions/`. If previous analysis exists, READ it first and **improve, extend, correct, or complete** it — never discard prior work. No workflow run should be wasted.
 
 ### Structured Analysis Templates (analysis/templates/)
 
-Read and apply the complete template set below when analyzing `analysis/daily/${TODAY}/motions/data/`. **IMPORTANT: Consolidate per-file analyses into ONE combined markdown file per analysis category** (e.g., `classification.md`, `risk-assessment.md`, `threat-assessment.md`) instead of creating separate files for each MCP data item. This prevents exceeding the 100-file PR limit. Each combined file should contain sections for every analyzed item.
+Read and apply the complete template set below when analyzing `analysis/daily/${TODAY}/motions/data/`. **IMPORTANT: Write ONE canonical method-level file per analysis method** using the canonical filenames from `analysis/README.md` (e.g., `significance-classification.md`, `risk-matrix.md`, `political-threat-landscape.md`). Do NOT create separate files for each MCP data item — append item-level sections within the canonical file. This prevents exceeding the 100-file PR limit.
 
 | Template | File | When to Apply |
 |----------|------|--------------|
-| **Per-File Political Intelligence** | `analysis/templates/per-file-political-intelligence.md` | Consolidate into ONE combined `per-file-intelligence.md` with sections for each MCP data file |
-| **Political Classification** | `analysis/templates/political-classification.md` | Consolidate into ONE `classification.md` covering all events/documents |
-| **Risk Assessment** | `analysis/templates/risk-assessment.md` | **EMPHASIS** — ONE combined `risk-assessment.md` with all risk indicators |
-| **Threat Analysis** | `analysis/templates/threat-analysis.md` | **EMPHASIS** — ONE combined `threat-assessment.md` for all threats |
+| **Per-File Political Intelligence** | `analysis/templates/per-file-political-intelligence.md` | Append per-item sections within `documents/document-analysis-index.md` (canonical name) |
+| **Political Classification** | `analysis/templates/political-classification.md` | Write to canonical `classification/significance-classification.md` |
+| **Risk Assessment** | `analysis/templates/risk-assessment.md` | **EMPHASIS** — Write to canonical `risk-scoring/risk-matrix.md` |
+| **Threat Analysis** | `analysis/templates/threat-analysis.md` | **EMPHASIS** — Write to canonical `threat-assessment/political-threat-landscape.md` |
 | **SWOT Analysis** | `analysis/templates/swot-analysis.md` | Strategic political landscape assessment |
 | **Stakeholder Impact** | `analysis/templates/stakeholder-impact.md` | Policy decisions or legislative actions |
 | **Significance Scoring** | `analysis/templates/significance-scoring.md` | Publication priority decisions |
@@ -1103,30 +1103,53 @@ if [ "$TOTAL_FILES" -gt 90 ]; then
 
   RUN_ANALYSIS_DIR="analysis/daily/${TODAY}/motions"
 
-  # Step 1: Merge per-document analysis files into consolidated category files
+  # Step 1: Merge only non-canonical per-document analysis files into consolidated category files
   if [ -d "$RUN_ANALYSIS_DIR" ]; then
     for SUBDIR in classification threat-assessment risk-scoring existing intelligence; do
       ANALYSIS_SUBDIR="$RUN_ANALYSIS_DIR/$SUBDIR"
-      if [ -d "$ANALYSIS_SUBDIR" ]; then
-        FILE_COUNT=$(find "$ANALYSIS_SUBDIR" -maxdepth 1 -name "*.md" -type f | wc -l)
-        if [ "$FILE_COUNT" -gt 1 ]; then
+      DOCUMENTS_SUBDIR="$ANALYSIS_SUBDIR/documents"
+      if [ -d "$DOCUMENTS_SUBDIR" ]; then
+        FILE_COUNT=$(find "$DOCUMENTS_SUBDIR" -maxdepth 1 -name "*.md" -type f | wc -l)
+        if [ "$FILE_COUNT" -gt 0 ]; then
           CONSOLIDATED="$ANALYSIS_SUBDIR/consolidated-${SUBDIR}.md"
-          echo "# Consolidated ${SUBDIR} Analysis" > "$CONSOLIDATED"
-          echo "" >> "$CONSOLIDATED"
-          echo "_Consolidated from ${FILE_COUNT} individual analysis files to stay within PR file limits._" >> "$CONSOLIDATED"
-          echo "" >> "$CONSOLIDATED"
+          TEMP_CONSOLIDATED=$(mktemp)
+          {
+            echo "# Consolidated ${SUBDIR} Per-Document Analysis"
+            echo ""
+            echo "_Consolidated from ${FILE_COUNT} per-document analysis files to stay within PR file limits._"
+            echo ""
+
+            if [ -f "$CONSOLIDATED" ]; then
+              echo "## Previously consolidated content"
+              echo ""
+              cat "$CONSOLIDATED"
+              echo ""
+            fi
+
+            shopt -s nullglob
+            for F in "$DOCUMENTS_SUBDIR"/*.md; do
+              if [ -f "$F" ]; then
+                echo "---"
+                echo ""
+                cat "$F"
+                echo ""
+              fi
+            done
+            shopt -u nullglob
+          } > "$TEMP_CONSOLIDATED"
+
+          mv "$TEMP_CONSOLIDATED" "$CONSOLIDATED"
+
           shopt -s nullglob
-          for F in "$ANALYSIS_SUBDIR"/*.md; do
-            if [ -f "$F" ] && [ "$F" != "$CONSOLIDATED" ]; then
-              echo "---" >> "$CONSOLIDATED"
-              echo "" >> "$CONSOLIDATED"
-              cat "$F" >> "$CONSOLIDATED"
-              echo "" >> "$CONSOLIDATED"
+          for F in "$DOCUMENTS_SUBDIR"/*.md; do
+            if [ -f "$F" ]; then
               rm "$F"
             fi
           done
           shopt -u nullglob
-          echo "  ✅ Consolidated $FILE_COUNT files in $SUBDIR → consolidated-${SUBDIR}.md"
+
+          rmdir "$DOCUMENTS_SUBDIR" 2>/dev/null || true
+          echo "  ✅ Consolidated $FILE_COUNT per-document files in $SUBDIR/documents → consolidated-${SUBDIR}.md"
         fi
       fi
     done
