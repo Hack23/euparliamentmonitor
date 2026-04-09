@@ -777,6 +777,10 @@ npx tsx src/generators/news-enhanced.ts \
 
 
 
+### Step 3.5: MANDATORY AI Enrichment — Replace Analysis Placeholders
+
+> **⚠️ CRITICAL**: The TypeScript generator outputs `[AI_ANALYSIS_REQUIRED]` markers in the deep-analysis section. You MUST replace EVERY marker with substantive political analysis from EP MCP data. Write specific political intelligence — name actors, cite data, explain consequences. Never use generic template phrases. Every impact card needs ≥40 words of AI analysis. Verify zero markers remain: `grep -c 'AI_ANALYSIS_REQUIRED' news/${TODAY}-*-en.html`
+
 ### Step 4: Quality Validation
 
 ```bash

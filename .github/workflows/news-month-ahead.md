@@ -741,6 +741,10 @@ npx tsx src/generators/news-enhanced.ts \
 
 **If the generator exits with a non-zero code, the workflow MUST FAIL. Do NOT attempt manual HTML generation as a fallback.**
 
+### MANDATORY AI Enrichment — Replace Analysis Placeholders
+
+> **⚠️ CRITICAL**: The TypeScript generator outputs `[AI_ANALYSIS_REQUIRED]` markers in the deep-analysis section. You MUST replace EVERY marker with substantive political analysis from EP MCP data. Write specific political intelligence — name upcoming debates, cite key legislative files, explain strategic significance. Never use generic phrases like "the upcoming week features N parliamentary events" or "committee productivity directly influences political group legislative priorities." Every impact card needs ≥40 words of AI analysis. Verify zero markers remain: `grep -c 'AI_ANALYSIS_REQUIRED' news/${TODAY}-month-ahead-en.html`
+
 ### Step 3: Validate & Verify Analysis Quality
 
 **CRITICAL: Each article MUST contain real analysis, not just calendar event listings.**

@@ -813,6 +813,10 @@ Every generated article must include:
 
 If the generated article lacks analysis, enrich it with contextual commentary before committing.
 
+### MANDATORY AI Enrichment — Replace Analysis Placeholders
+
+> **⚠️ CRITICAL**: The TypeScript generator outputs `[AI_ANALYSIS_REQUIRED]` markers in the deep-analysis section. You MUST replace EVERY marker with substantive political analysis from EP MCP data. Write specific political intelligence — name political groups, cite upcoming agenda items, explain strategic significance. Never use generic phrases like "parliamentary schedules determine the legislative agenda" or "contributes to the EU's legislative capacity." Every impact card needs ≥40 words of AI analysis. Verify zero markers remain: `grep -c 'AI_ANALYSIS_REQUIRED' news/${TODAY}-week-ahead-en.html`
+
 ## MANDATORY Quality Validation
 
 After article generation, verify EACH article meets these minimum standards **before committing**.

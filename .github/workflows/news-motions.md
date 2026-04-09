@@ -854,6 +854,10 @@ npx tsx src/generators/news-enhanced.ts \
 
 **Note**: News index files (`index*.html`), metadata (`news/articles-metadata.json`, `news/metadata/generation-*.json`), and `sitemap.xml` are **NOT committed to git** via this workflow. They are generated automatically at build time or by other processes. Do NOT run `generate-news-indexes`, `news-metadata`, or `generate-sitemap` manually — and do NOT commit their output files. Only commit the actual article HTML files: `news/{YYYY-MM-DD}-motions-{lang}.html`
 
+### Step 4.5: MANDATORY AI Enrichment — Replace Analysis Placeholders
+
+> **⚠️ CRITICAL**: The TypeScript generator outputs `[AI_ANALYSIS_REQUIRED]` markers in the deep-analysis section. You MUST replace EVERY marker with substantive political analysis from EP MCP data. Write specific political intelligence — name political groups, cite vote counts, explain strategic calculations. Never use generic phrases like "this shapes the legislative trajectory" or "carries potential regulatory implications." Every impact card needs ≥40 words of AI analysis. Verify zero markers remain: `grep -c 'AI_ANALYSIS_REQUIRED' news/${TODAY}-motions-en.html`
+
 ## MANDATORY Quality Validation
 
 After article generation, verify EACH article meets these minimum standards **before committing**.

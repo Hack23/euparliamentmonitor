@@ -860,6 +860,37 @@ npx tsx src/generators/news-enhanced.ts \
 
 **Note**: News index files (`index*.html`), metadata (`news/articles-metadata.json`, `news/metadata/generation-*.json`), and `sitemap.xml` are **NOT committed to git** via this workflow. They are generated automatically at build time or by other processes. Do NOT run `generate-news-indexes`, `news-metadata`, or `generate-sitemap` manually — and do NOT commit their output files. Only commit the actual article HTML files: `news/{YYYY-MM-DD}-propositions-{lang}.html`
 
+### Step 4.5: MANDATORY AI Enrichment — Replace Analysis Placeholders
+
+> **⚠️ CRITICAL**: The TypeScript generator outputs `[AI_ANALYSIS_REQUIRED]` markers in the deep-analysis section for fields that require AI-written political intelligence. These markers appear in the "why", impact assessment cards (Political, Economic, Social, Legal, Geopolitical), stakeholder outcome reasoning, action-consequence analysis, outlook scenarios, and political mistake alternative assessments.
+
+**You MUST replace every `[AI_ANALYSIS_REQUIRED]` marker** in each generated article with substantive political analysis based on the EP MCP data you collected. This is what distinguishes real journalism from template filler.
+
+**For each marker, write:**
+- **Why section**: Explain the political drivers behind the legislative pipeline state — name specific political groups, their strategic calculations, and institutional constraints. Never write "the pipeline operates at X%" — explain *why* it operates that way.
+- **Impact cards** (≥40 words each): Describe concrete consequences with specific policy references. E.g., "The ENVI committee's adoption of the Industrial Emissions Directive recast will require 15,000+ installations to update permits by 2028, affecting competitiveness in steel, cement, and chemical sectors."
+- **Stakeholder outcome reasoning**: Explain *why* each actor wins/loses with evidence from votes, committee positions, or political dynamics — not generic assertions.
+- **Action-consequence analysis**: State the real-world consequence of each legislative action with specific policy implications — never "this advances the parliamentary process."
+- **Outlook**: Provide named scenarios (e.g., "Scenario A: EPP-S&D coalition holds on digital regulation, passage by Q3 2026. Scenario B: ECR bloc defection forces trilogue restart") with probability assessments.
+- **Mistake alternatives**: Describe specific missed opportunities with actionable counterfactuals — not generic process advice.
+
+**Anti-patterns to AVOID (these will fail quality validation):**
+- ❌ "This shapes the legislative trajectory of this policy area"
+- ❌ "This advances through the parliamentary process"
+- ❌ "Pipeline health at X% indicates Y processing capacity"
+- ❌ "This carries potential regulatory implications"
+- ❌ "Reflects the EU's institutional capacity"
+- ❌ Any sentence that could apply to any date, any vote, or any committee without modification
+
+**Replacement method:**
+```bash
+# Verify no markers remain after enrichment
+MARKERS=$(grep -c 'AI_ANALYSIS_REQUIRED' news/${TODAY}-propositions-en.html 2>/dev/null || echo 0)
+if [ "$MARKERS" -gt 0 ]; then
+  echo "ERROR: $MARKERS [AI_ANALYSIS_REQUIRED] markers still present — enrich before committing" >&2
+fi
+```
+
 ### Step 5: MANDATORY Quality Validation
 
 After article generation, verify EACH article meets these minimum standards **before committing**.
