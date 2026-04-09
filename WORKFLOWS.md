@@ -257,7 +257,7 @@ graph TD
     J1 --> J1a[📊 Classification: significance, impact-matrix, actors, forces]
     J1 --> J1b[🛡️ Threat Assessment: Political Threat Landscape,<br/>actor-threats, disruption]
     J1 --> J1c[📈 Risk Scoring: risk-matrix, SWOT, velocity, capital-at-risk]
-    J1a --> J1d["📁 analysis/daily/date/article-type/"]
+    J1a --> J1d["📁 analysis/daily/YYYY-MM-DD/article-type/"]
     J1b --> J1d
     J1c --> J1d
     J1d --> J[📰 Generate News Articles<br/>npx tsx src/generators/news-enhanced.ts --analysis]

@@ -147,11 +147,11 @@ flowchart TD
     HTMLValidate -->|"❌ Fail"| FixHTML["🔧 Fix HTML Issues\nAuto-correct\nReport Issues"]
     FixHTML --> HTMLValidate
 
-    HTMLValidate -->|"✅ Pass"| GenerateIndex["📋 Generate Language Indexes\nindex-lang.html\nSort by Date"]
+    HTMLValidate -->|"✅ Pass"| GenerateIndex["📋 Generate Language Indexes\nindex-LANG.html\nSort by Date"]
 
     GenerateIndex --> GenerateSitemap["🗺️ Generate Sitemap\nsitemap.xml\nSEO Optimization"]
 
-    GenerateSitemap --> CreateBranch["🌿 Create Branch\nnews/type-date"]
+    GenerateSitemap --> CreateBranch["🌿 Create Branch\nnews/TYPE-YYYY-MM-DD"]
 
     CreateBranch --> CommitPR["📦 Commit and Create PR\nArticle HTML Files\nUpdated Indexes and Sitemap"]
 
@@ -651,7 +651,7 @@ flowchart TD
     end
     
     subgraph "Output Layer"
-        StaticFiles["📦 Static HTML\nindex-lang.html\nCSS Inline"]
+        StaticFiles["📦 Static HTML\nindex-LANG.html\nCSS Inline"]
         Sitemap["🗺️ Sitemap.xml\nSEO Optimized\n14 Languages"]
         Deploy["🚀 GitHub Pages\nStatic Site Hosting\nGitHub Actions Deploy"]
     end

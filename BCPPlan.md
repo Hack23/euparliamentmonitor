@@ -204,9 +204,9 @@ graph TB
     end
 
     subgraph "Technical Components"
-        B -.-> B1["AWS S3 + CloudFront Hosting &#40;Primary&#41;"]
+        B -.-> B1["AWS S3 + CloudFront Hosting - Primary"]
         B -.-> B2[14-Language HTML Generation]
-        B -.-> B3["GitHub Pages Hosting &#40;Fallback&#41;"]
+        B -.-> B3["GitHub Pages Hosting - Fallback"]
         C -.-> C1[EP MCP Server Integration]
         C -.-> C2[Data Processing Pipeline]
         D -.-> D1[Committee Document Fetching]
