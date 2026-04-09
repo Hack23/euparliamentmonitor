@@ -413,7 +413,7 @@ function buildVotingWhyText(
       : avgCohesion > 0.5
         ? s.cohesionModerate
         : s.cohesionFragmented;
-  const polDesc = polarization?.assessment ?? 'N/A';
+  const polDesc = polarization?.assessment ?? s.notAvailable;
   return s.whyPatterns
     .replace(/\{patterns\}/g, String(patterns.length))
     .replace(/\{cohesionDesc\}/g, cohesionDesc)

@@ -2248,6 +2248,8 @@ export const STAKEHOLDER_REASONING_STRINGS: LanguageMap<StakeholderReasoningStri
     impactSignificant: 'significant',
     impactModerate: 'moderate',
     impactLimited: 'limited',
+    genericFallback:
+      'This parliamentary activity on "{topic}" has {impact} implications for stakeholders involved in EU legislative processes.',
   },
   sv: {
     politicalGroups:
@@ -2265,6 +2267,8 @@ export const STAKEHOLDER_REASONING_STRINGS: LanguageMap<StakeholderReasoningStri
     impactSignificant: 'betydande',
     impactModerate: 'måttliga',
     impactLimited: 'begränsade',
+    genericFallback:
+      'Denna parlamentariska aktivitet om "{topic}" har {impact} konsekvenser för intressenter involverade i EU:s lagstiftningsprocesser.',
   },
   da: {
     politicalGroups:
@@ -2281,6 +2285,8 @@ export const STAKEHOLDER_REASONING_STRINGS: LanguageMap<StakeholderReasoningStri
     impactSignificant: 'betydelige',
     impactModerate: 'moderate',
     impactLimited: 'begrænsede',
+    genericFallback:
+      'Denne parlamentariske aktivitet om "{topic}" har {impact} konsekvenser for interessenter involveret i EU\'s lovgivningsprocesser.',
   },
   no: {
     politicalGroups:
@@ -2297,6 +2303,8 @@ export const STAKEHOLDER_REASONING_STRINGS: LanguageMap<StakeholderReasoningStri
     impactSignificant: 'betydelige',
     impactModerate: 'moderate',
     impactLimited: 'begrensede',
+    genericFallback:
+      'Denne parlamentariske aktiviteten om "{topic}" har {impact} konsekvenser for interessenter involvert i EUs lovgivningsprosesser.',
   },
   fi: {
     politicalGroups:
@@ -2313,6 +2321,8 @@ export const STAKEHOLDER_REASONING_STRINGS: LanguageMap<StakeholderReasoningStri
     impactSignificant: 'merkittäviä',
     impactModerate: 'kohtalaisia',
     impactLimited: 'rajallisia',
+    genericFallback:
+      'Tämä parlamentaarinen toiminta aiheesta "{topic}" vaikuttaa {impact} EU:n lainsäädäntöprosesseihin osallistuviin sidosryhmiin.',
   },
   de: {
     politicalGroups:
@@ -2329,6 +2339,8 @@ export const STAKEHOLDER_REASONING_STRINGS: LanguageMap<StakeholderReasoningStri
     impactSignificant: 'erhebliche',
     impactModerate: 'moderate',
     impactLimited: 'begrenzte',
+    genericFallback:
+      'Diese parlamentarische Aktivität zu "{topic}" hat {impact} Auswirkungen auf die an EU-Gesetzgebungsprozessen beteiligten Interessengruppen.',
   },
   fr: {
     politicalGroups:
@@ -2346,6 +2358,8 @@ export const STAKEHOLDER_REASONING_STRINGS: LanguageMap<StakeholderReasoningStri
     impactSignificant: 'significatives',
     impactModerate: 'modérées',
     impactLimited: 'limitées',
+    genericFallback:
+      'Cette activité parlementaire sur "{topic}" a des implications {impact} pour les parties prenantes impliquées dans les processus législatifs de l\'UE.',
   },
   es: {
     politicalGroups:
@@ -2362,6 +2376,8 @@ export const STAKEHOLDER_REASONING_STRINGS: LanguageMap<StakeholderReasoningStri
     impactSignificant: 'significativas',
     impactModerate: 'moderadas',
     impactLimited: 'limitadas',
+    genericFallback:
+      'Esta actividad parlamentaria sobre "{topic}" tiene implicaciones {impact} para las partes interesadas involucradas en los procesos legislativos de la UE.',
   },
   nl: {
     politicalGroups:
@@ -2378,6 +2394,8 @@ export const STAKEHOLDER_REASONING_STRINGS: LanguageMap<StakeholderReasoningStri
     impactSignificant: 'aanzienlijke',
     impactModerate: 'gematigde',
     impactLimited: 'beperkte',
+    genericFallback:
+      'Deze parlementaire activiteit over "{topic}" heeft {impact} implicaties voor belanghebbenden betrokken bij EU-wetgevingsprocessen.',
   },
   ar: {
     politicalGroups:
@@ -2393,6 +2411,8 @@ export const STAKEHOLDER_REASONING_STRINGS: LanguageMap<StakeholderReasoningStri
     impactSignificant: 'كبيرة',
     impactModerate: 'معتدلة',
     impactLimited: 'محدودة',
+    genericFallback:
+      'هذا النشاط البرلماني حول "{topic}" له تداعيات {impact} على أصحاب المصلحة المشاركين في العمليات التشريعية للاتحاد الأوروبي.',
   },
   he: {
     politicalGroups:
@@ -2407,6 +2427,8 @@ export const STAKEHOLDER_REASONING_STRINGS: LanguageMap<StakeholderReasoningStri
     impactSignificant: 'משמעותיות',
     impactModerate: 'מתונות',
     impactLimited: 'מוגבלות',
+    genericFallback:
+      'פעילות פרלמנטרית זו בנושא "{topic}" יש לה השלכות {impact} על בעלי עניין המעורבים בתהליכי החקיקה של האיחוד האירופי.',
   },
   ja: {
     politicalGroups:
@@ -2422,6 +2444,8 @@ export const STAKEHOLDER_REASONING_STRINGS: LanguageMap<StakeholderReasoningStri
     impactSignificant: '重大な',
     impactModerate: '中程度の',
     impactLimited: '限定的な',
+    genericFallback:
+      '"{topic}"に関するこの議会活動は、EU立法プロセスに関与する利害関係者に{impact}影響を及ぼします。',
   },
   ko: {
     politicalGroups: '"{topic}"에 관한 이 의회 활동은 정치 그룹 역학에 {impact} 영향을 미칩니다.',
@@ -2435,6 +2459,8 @@ export const STAKEHOLDER_REASONING_STRINGS: LanguageMap<StakeholderReasoningStri
     impactSignificant: '상당한',
     impactModerate: '보통의',
     impactLimited: '제한적인',
+    genericFallback:
+      '"{topic}"에 관한 이 의회 활동은 EU 입법 과정에 관여하는 이해관계자에게 {impact} 영향을 미칩니다.',
   },
   zh: {
     politicalGroups: '关于"{topic}"的议会活动对政治团体动态产生了{impact}影响。',
@@ -2446,6 +2472,7 @@ export const STAKEHOLDER_REASONING_STRINGS: LanguageMap<StakeholderReasoningStri
     impactSignificant: '重大',
     impactModerate: '中等',
     impactLimited: '有限',
+    genericFallback: '关于"{topic}"的这项议会活动对参与欧盟立法过程的利益相关方具有{impact}影响。',
   },
 };
 
@@ -2461,6 +2488,7 @@ export const VOTING_ANALYSIS_CONTENT_STRINGS: LanguageMap<VotingAnalysisContentS
       'Voting patterns across {patterns} political groups show {cohesionDesc} (average {pct}%). Polarization assessment: {assessment}. These dynamics reflect ongoing legislative priorities and inter-group negotiations on the current parliamentary agenda.',
     whyNoData:
       'Detailed voting pattern data is not yet available for this period. Parliamentary activity during this period reflects the standard legislative agenda.',
+    notAvailable: 'N/A',
     cohesionHigh: 'high cohesion',
     cohesionModerate: 'moderate cohesion',
     cohesionFragmented: 'fragmented positions',
@@ -2525,6 +2553,7 @@ export const VOTING_ANALYSIS_CONTENT_STRINGS: LanguageMap<VotingAnalysisContentS
       'Röstmönster i {patterns} politiska grupper visar {cohesionDesc} (genomsnitt {pct}%). Polariseringsbedömning: {assessment}. Denna dynamik återspeglar pågående lagstiftningsprioriteringar och förhandlingar mellan grupper inom den nuvarande parlamentariska dagordningen.',
     whyNoData:
       'Detaljerade röstmönsterdata är ännu inte tillgängliga för denna period. Parlamentarisk verksamhet under denna period återspeglar den ordinarie lagstiftningsdagordningen.',
+    notAvailable: 'Ej tillgänglig',
     cohesionHigh: 'hög sammanhållning',
     cohesionModerate: 'måttlig sammanhållning',
     cohesionFragmented: 'fragmenterade ståndpunkter',
@@ -2590,6 +2619,7 @@ export const VOTING_ANALYSIS_CONTENT_STRINGS: LanguageMap<VotingAnalysisContentS
       'Afstemningsmønstre på tværs af {patterns} politiske grupper viser {cohesionDesc} (gennemsnit {pct}%). Polariseringsvurdering: {assessment}. Denne dynamik afspejler igangværende lovgivningsprioriteter og forhandlinger mellem grupper på den nuværende parlamentariske dagsorden.',
     whyNoData:
       'Detaljerede afstemningsdata er endnu ikke tilgængelige for denne periode. Parlamentarisk aktivitet i denne periode afspejler den ordinære lovgivningsdagsorden.',
+    notAvailable: 'Ikke tilgængelig',
     cohesionHigh: 'høj samhørighed',
     cohesionModerate: 'moderat samhørighed',
     cohesionFragmented: 'fragmenterede holdninger',
@@ -2655,6 +2685,7 @@ export const VOTING_ANALYSIS_CONTENT_STRINGS: LanguageMap<VotingAnalysisContentS
       'Avstemningsmønstre på tvers av {patterns} politiske grupper viser {cohesionDesc} (gjennomsnitt {pct}%). Polariseringsvurdering: {assessment}. Denne dynamikken gjenspeiler pågående lovgivningsprioriteringer og forhandlinger mellom grupper på den nåværende parlamentariske dagsordenen.',
     whyNoData:
       'Detaljerte avstemningsmønsterdata er ennå ikke tilgjengelige for denne perioden. Parlamentarisk aktivitet i denne perioden gjenspeiler den ordinære lovgivningsdagsordenen.',
+    notAvailable: 'Ikke tilgjengelig',
     cohesionHigh: 'høy samhold',
     cohesionModerate: 'moderat samhold',
     cohesionFragmented: 'fragmenterte posisjoner',
@@ -2720,6 +2751,7 @@ export const VOTING_ANALYSIS_CONTENT_STRINGS: LanguageMap<VotingAnalysisContentS
       'Äänestysmallit {patterns} poliittisessa ryhmässä osoittavat {cohesionDesc} (keskiarvo {pct}%). Polarisaatioarvio: {assessment}. Tämä dynamiikka heijastaa meneillään olevia lainsäädäntöprioriteetteja ja ryhmien välisiä neuvotteluja nykyisellä parlamentaarisella asialistalla.',
     whyNoData:
       'Yksityiskohtaiset äänestysmallit eivät ole vielä saatavilla tälle ajanjaksolle. Parlamentaarinen toiminta tänä aikana heijastaa tavanomaista lainsäädäntöohjelmaa.',
+    notAvailable: 'Ei saatavilla',
     cohesionHigh: 'korkea yhtenäisyys',
     cohesionModerate: 'kohtalainen yhtenäisyys',
     cohesionFragmented: 'hajanaiset kannat',
@@ -2785,6 +2817,7 @@ export const VOTING_ANALYSIS_CONTENT_STRINGS: LanguageMap<VotingAnalysisContentS
       'Abstimmungsmuster in {patterns} Fraktionen zeigen {cohesionDesc} (Durchschnitt {pct}%). Polarisierungsbewertung: {assessment}. Diese Dynamik spiegelt laufende Gesetzgebungsprioritäten und fraktionsübergreifende Verhandlungen auf der aktuellen parlamentarischen Tagesordnung wider.',
     whyNoData:
       'Detaillierte Abstimmungsmusterdaten sind für diesen Zeitraum noch nicht verfügbar. Die parlamentarische Tätigkeit in diesem Zeitraum spiegelt die reguläre Gesetzgebungsagenda wider.',
+    notAvailable: 'Nicht verfügbar',
     cohesionHigh: 'hoher Zusammenhalt',
     cohesionModerate: 'mäßiger Zusammenhalt',
     cohesionFragmented: 'fragmentierte Positionen',
@@ -2850,6 +2883,7 @@ export const VOTING_ANALYSIS_CONTENT_STRINGS: LanguageMap<VotingAnalysisContentS
       "Les schémas de vote dans {patterns} groupes politiques montrent {cohesionDesc} (moyenne {pct}%). Évaluation de la polarisation : {assessment}. Ces dynamiques reflètent les priorités législatives en cours et les négociations intergroupes sur l'ordre du jour parlementaire actuel.",
     whyNoData:
       "Les données détaillées des schémas de vote ne sont pas encore disponibles pour cette période. L'activité parlementaire durant cette période reflète l'agenda législatif ordinaire.",
+    notAvailable: 'Non disponible',
     cohesionHigh: 'forte cohésion',
     cohesionModerate: 'cohésion modérée',
     cohesionFragmented: 'positions fragmentées',
@@ -2915,6 +2949,7 @@ export const VOTING_ANALYSIS_CONTENT_STRINGS: LanguageMap<VotingAnalysisContentS
       'Los patrones de votación en {patterns} grupos políticos muestran {cohesionDesc} (promedio {pct}%). Evaluación de polarización: {assessment}. Estas dinámicas reflejan las prioridades legislativas en curso y las negociaciones intergrupales en la agenda parlamentaria actual.',
     whyNoData:
       'Los datos detallados de patrones de votación aún no están disponibles para este período. La actividad parlamentaria durante este período refleja la agenda legislativa ordinaria.',
+    notAvailable: 'No disponible',
     cohesionHigh: 'alta cohesión',
     cohesionModerate: 'cohesión moderada',
     cohesionFragmented: 'posiciones fragmentadas',
@@ -2981,6 +3016,7 @@ export const VOTING_ANALYSIS_CONTENT_STRINGS: LanguageMap<VotingAnalysisContentS
       'Stempatronen in {patterns} fracties tonen {cohesionDesc} (gemiddeld {pct}%). Polarisatiebeoordeling: {assessment}. Deze dynamiek weerspiegelt lopende wetgevingsprioriteiten en interfractieonderhandelingen op de huidige parlementaire agenda.',
     whyNoData:
       'Gedetailleerde stempatroongegevens zijn nog niet beschikbaar voor deze periode. Parlementaire activiteit gedurende deze periode weerspiegelt de reguliere wetgevingsagenda.',
+    notAvailable: 'Niet beschikbaar',
     cohesionHigh: 'hoge cohesie',
     cohesionModerate: 'gematigde cohesie',
     cohesionFragmented: 'gefragmenteerde standpunten',
@@ -3046,6 +3082,7 @@ export const VOTING_ANALYSIS_CONTENT_STRINGS: LanguageMap<VotingAnalysisContentS
       'أنماط التصويت عبر {patterns} مجموعة سياسية تُظهر {cohesionDesc} (متوسط {pct}%). تقييم الاستقطاب: {assessment}. تعكس هذه الديناميكيات أولويات التشريع الجارية والمفاوضات بين المجموعات في جدول الأعمال البرلماني الحالي.',
     whyNoData:
       'بيانات أنماط التصويت التفصيلية ليست متاحة بعد لهذه الفترة. يعكس النشاط البرلماني خلال هذه الفترة جدول الأعمال التشريعي المعتاد.',
+    notAvailable: 'غير متوفر',
     cohesionHigh: 'تماسك عالٍ',
     cohesionModerate: 'تماسك معتدل',
     cohesionFragmented: 'مواقف مجزأة',
@@ -3109,6 +3146,7 @@ export const VOTING_ANALYSIS_CONTENT_STRINGS: LanguageMap<VotingAnalysisContentS
       'דפוסי הצבעה ב-{patterns} סיעות פוליטיות מראים {cohesionDesc} (ממוצע {pct}%). הערכת קיטוב: {assessment}. דינמיקה זו משקפת עדיפויות חקיקה מתמשכות ומשא ומתן בין-סיעתי בסדר היום הפרלמנטרי הנוכחי.',
     whyNoData:
       'נתוני דפוסי הצבעה מפורטים אינם זמינים עדיין לתקופה זו. הפעילות הפרלמנטרית בתקופה זו משקפת את סדר היום החקיקתי הרגיל.',
+    notAvailable: 'לא זמין',
     cohesionHigh: 'לכידות גבוהה',
     cohesionModerate: 'לכידות מתונה',
     cohesionFragmented: 'עמדות מפוצלות',
@@ -3171,6 +3209,7 @@ export const VOTING_ANALYSIS_CONTENT_STRINGS: LanguageMap<VotingAnalysisContentS
       '{patterns}の政治グループにわたる投票パターンは{cohesionDesc}（平均{pct}%）を示しています。分極化評価：{assessment}。これらの動態は、現在の議会議題における進行中の立法優先事項とグループ間交渉を反映しています。',
     whyNoData:
       'この期間の詳細な投票パターンデータはまだ利用できません。この期間の議会活動は通常の立法議題を反映しています。',
+    notAvailable: '該当なし',
     cohesionHigh: '高い結束',
     cohesionModerate: '中程度の結束',
     cohesionFragmented: '断片化した立場',
@@ -3233,6 +3272,7 @@ export const VOTING_ANALYSIS_CONTENT_STRINGS: LanguageMap<VotingAnalysisContentS
       '{patterns}개 정치 그룹의 투표 패턴은 {cohesionDesc}(평균 {pct}%)를 보여줍니다. 양극화 평가: {assessment}. 이러한 역학은 현재 의회 의제에서 진행 중인 입법 우선순위와 그룹 간 협상을 반영합니다.',
     whyNoData:
       '이 기간의 상세한 투표 패턴 데이터는 아직 이용할 수 없습니다. 이 기간의 의회 활동은 표준 입법 의제를 반영합니다.',
+    notAvailable: '해당 없음',
     cohesionHigh: '높은 응집력',
     cohesionModerate: '중간 수준의 응집력',
     cohesionFragmented: '분열된 입장',
@@ -3294,6 +3334,7 @@ export const VOTING_ANALYSIS_CONTENT_STRINGS: LanguageMap<VotingAnalysisContentS
     whyPatterns:
       '{patterns}个政治团体的投票模式显示{cohesionDesc}（平均{pct}%）。极化评估：{assessment}。这些动态反映了当前议会议程中正在进行的立法优先事项和团体间谈判。',
     whyNoData: '该期间的详细投票模式数据尚不可用。该期间的议会活动反映了常规立法议程。',
+    notAvailable: '不适用',
     cohesionHigh: '高度凝聚',
     cohesionModerate: '中度凝聚',
     cohesionFragmented: '立场分裂',

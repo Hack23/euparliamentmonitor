@@ -232,6 +232,8 @@ export interface StakeholderReasoningStrings {
   readonly impactSignificant: string;
   readonly impactModerate: string;
   readonly impactLimited: string;
+  /** Generic fallback for unknown stakeholder types */
+  readonly genericFallback: string;
 }
 
 /**
@@ -252,6 +254,8 @@ export interface VotingAnalysisContentStrings {
   readonly whyPatterns: string;
   /** "why" no data fallback */
   readonly whyNoData: string;
+  /** Fallback for unavailable data (replaces hard-coded "N/A") */
+  readonly notAvailable: string;
   /** Cohesion descriptors */
   readonly cohesionHigh: string;
   readonly cohesionModerate: string;

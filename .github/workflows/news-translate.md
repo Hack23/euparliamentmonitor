@@ -675,7 +675,8 @@ for TYPE in $(echo "$TRANSLATED_TYPES" | tr ',' ' '); do
 done
 
 if [ "$VALIDATION_FAILURES" -gt 0 ]; then
-  echo "⚠️ Translation validation completed with $VALIDATION_FAILURES warnings"
+  echo "❌ Translation validation failed with $VALIDATION_FAILURES issue(s)"
+  exit 1
 else
   echo "✅ All translations pass validation"
 fi

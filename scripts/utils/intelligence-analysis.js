@@ -282,7 +282,7 @@ function deriveStakeholderReasoning(stakeholder, topic, score, lang = 'en') {
         case 'eu_institutions':
             return r(s.euInstitutions);
         default:
-            return r(s.politicalGroups);
+            return r(s.genericFallback);
     }
 }
 /**

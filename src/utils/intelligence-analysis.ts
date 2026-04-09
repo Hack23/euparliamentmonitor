@@ -336,7 +336,7 @@ function deriveStakeholderReasoning(
     case 'eu_institutions':
       return r(s.euInstitutions);
     default:
-      return r(s.politicalGroups);
+      return r(s.genericFallback);
   }
 }
 
