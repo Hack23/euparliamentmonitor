@@ -92,6 +92,19 @@ const ENGLISH_PLACEHOLDER_PHRASES = [
     'Click here',
     'Learn more',
     'Subscribe',
+    'Pipeline health',
+    'Throughput rate',
+    'legislative processing capacity',
+    'Bottlenecked procedures',
+    'coalition-building strategies',
+    'regulatory implications',
+    'democratic participation',
+    'inter-institutional relations',
+    'Likely scenario',
+    'Possible scenario',
+    'Earlier intervention',
+    'political group dynamics',
+    'committee coordinators',
 ];
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 // stripScriptBlocks is imported from html-sanitize.ts

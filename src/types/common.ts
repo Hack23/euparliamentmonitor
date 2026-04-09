@@ -163,6 +163,75 @@ export interface PropositionsStrings {
   whyThisMatters: string;
 }
 
+/**
+ * Localized content strings for propositions deep-analysis sections.
+ * Template placeholders: {date}, {pct}, {throughput}.
+ */
+export interface PropositionsAnalysisContentStrings {
+  /** "what" summary: pipeline assessment. {date}, {pct}, {throughput} placeholders */
+  readonly what: string;
+  /** "what" when no proposals detected. {date}, {pct}, {throughput} placeholders */
+  readonly whatNoProposals: string;
+  /** "who" actor labels */
+  readonly whoCommission: string;
+  readonly whoRapporteurs: string;
+  readonly whoShadowRapporteurs: string;
+  readonly whoCouncil: string;
+  /** "when" labels. {date} placeholder */
+  readonly whenAssessment: string;
+  readonly whenCumulative: string;
+  /** "why" variants. {pct}, {throughput} placeholders */
+  readonly whyStrong: string;
+  readonly whyModerate: string;
+  readonly whyWeak: string;
+  /** impact assessment texts. {pct}, {throughput} placeholders */
+  readonly impactPolitical: string;
+  readonly impactPoliticalStrong: string;
+  readonly impactPoliticalWeak: string;
+  readonly impactEconomic: string;
+  readonly impactEconomicStrong: string;
+  readonly impactEconomicWeak: string;
+  readonly impactSocial: string;
+  readonly impactLegal: string;
+  readonly impactGeopolitical: string;
+  /** outlook texts. {pct}, {throughput} placeholders */
+  readonly outlookGood: string;
+  readonly outlookConcern: string;
+  /** mistakes. {pct} placeholder */
+  readonly mistakeDescription: string;
+  readonly mistakeAlternative: string;
+  /** action-consequences. {pct}, {throughput} placeholders */
+  readonly actionHealth: string;
+  readonly actionThroughput: string;
+  readonly consequenceStrong: string;
+  readonly consequenceModerate: string;
+  readonly consequenceWeak: string;
+  readonly consequenceThroughputHigh: string;
+  readonly consequenceThroughputMedium: string;
+  readonly consequenceThroughputLow: string;
+  /** stakeholder outcome texts. {pct} placeholder */
+  readonly stakeholderWinnerActor: string;
+  readonly stakeholderWinnerReason: string;
+  readonly stakeholderLoserActor: string;
+  readonly stakeholderLoserReason: string;
+}
+
+/**
+ * Localized stakeholder reasoning templates for multi-stakeholder perspectives.
+ * {topic} and {impact} are placeholders.
+ */
+export interface StakeholderReasoningStrings {
+  readonly politicalGroups: string;
+  readonly civilSociety: string;
+  readonly industry: string;
+  readonly nationalGovts: string;
+  readonly citizens: string;
+  readonly euInstitutions: string;
+  readonly impactSignificant: string;
+  readonly impactModerate: string;
+  readonly impactLimited: string;
+}
+
 /** Localized editorial strings shared across article types */
 export interface EditorialStrings {
   /** Heading for "Why This Matters" citizen-impact section */

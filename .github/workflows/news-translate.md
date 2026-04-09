@@ -602,14 +602,24 @@ if [ -z "${ARTICLE_DATE:-}" ]; then
   ARTICLE_DATE=$(date -u +%Y-%m-%d)
 fi
 CURRENT_YEAR=$(date -u +%Y)
+VALIDATION_FAILURES=0
 
 for TYPE in $(echo "$TRANSLATED_TYPES" | tr ',' ' '); do
   echo "Validating translations for: $TYPE"
+
+  # Use the English source for comparative validation
+  EN_FILE="news/${ARTICLE_DATE}-${TYPE}-en.html"
+  EN_WORD_COUNT=0
+  if [ -f "$EN_FILE" ]; then
+    EN_WORD_COUNT=$(sed 's/<[^>]*>/ /g' "$EN_FILE" | tr -s '[:space:]' '\n' | grep -c '[[:alnum:]]' 2>/dev/null || echo 0)
+    echo "  📊 English source word count: $EN_WORD_COUNT"
+  fi
 
   for LANG in $(echo "$LANG_ARG" | tr ',' ' '); do
     FILE="news/${ARTICLE_DATE}-${TYPE}-${LANG}.html"
     if [ ! -f "$FILE" ]; then
       echo "⚠️ Missing: $FILE"
+      VALIDATION_FAILURES=$((VALIDATION_FAILURES + 1))
       continue
     fi
 
@@ -621,6 +631,41 @@ for TYPE in $(echo "$TRANSLATED_TYPES" | tr ',' ' '); do
     WORD_COUNT=$(sed 's/<[^>]*>/ /g' "$FILE" | tr -s '[:space:]' '\n' | grep -c '[[:alnum:]]' 2>/dev/null || echo 0)
     if [ "$WORD_COUNT" -lt 300 ]; then
       echo "⚠️ $FILE: Low word count ($WORD_COUNT) — translation may be incomplete"
+      VALIDATION_FAILURES=$((VALIDATION_FAILURES + 1))
+    fi
+
+    # ── Translation content-level quality checks ──
+    # Check for untranslated English phrases in non-English articles
+    ENGLISH_PHRASES="legislative processing capacity|coalition-building strategies|political group dynamics|regulatory implications|democratic participation|inter-institutional relations|Likely scenario|Possible scenario|Earlier intervention|committee coordinators|Pipeline health|Throughput rate"
+    UNTRANSLATED_COUNT=$(grep -Eic "$ENGLISH_PHRASES" "$FILE" 2>/dev/null || echo 0)
+    if [ "$UNTRANSLATED_COUNT" -gt 2 ]; then
+      echo "⚠️ $FILE: Found $UNTRANSLATED_COUNT instances of likely untranslated English phrases"
+      VALIDATION_FAILURES=$((VALIDATION_FAILURES + 1))
+    fi
+
+    # Check lang="en" markers (content flagged as English in translated articles)
+    EN_CONTENT_MARKERS=$(grep -c 'lang="en"' "$FILE" 2>/dev/null || echo 0)
+    if [ "$EN_CONTENT_MARKERS" -gt 3 ]; then
+      echo "⚠️ $FILE: Found $EN_CONTENT_MARKERS content blocks marked lang=\"en\" — content may not be translated"
+      VALIDATION_FAILURES=$((VALIDATION_FAILURES + 1))
+    fi
+
+    # CJK-specific checks: ensure CJK characters are present
+    if echo "$LANG" | grep -qE '^(ja|ko|zh)$'; then
+      CJK_CHARS=$(grep -oP '[\x{4E00}-\x{9FFF}\x{3040}-\x{309F}\x{30A0}-\x{30FF}\x{AC00}-\x{D7AF}\x{1100}-\x{11FF}]' "$FILE" 2>/dev/null | wc -l || echo 0)
+      if [ "$CJK_CHARS" -lt 50 ]; then
+        echo "⚠️ $FILE: Only $CJK_CHARS CJK characters found — content likely untranslated"
+        VALIDATION_FAILURES=$((VALIDATION_FAILURES + 1))
+      fi
+    fi
+
+    # RTL-specific checks: ensure dir="rtl" is present
+    if echo "$LANG" | grep -qE '^(ar|he)$'; then
+      HAS_RTL=$(grep -c 'dir="rtl"' "$FILE" 2>/dev/null || echo 0)
+      if [ "$HAS_RTL" -eq 0 ]; then
+        echo "⚠️ $FILE: Missing dir=\"rtl\" attribute for RTL language $LANG"
+        VALIDATION_FAILURES=$((VALIDATION_FAILURES + 1))
+      fi
     fi
 
     # Check for stale dates
@@ -635,7 +680,11 @@ for TYPE in $(echo "$TRANSLATED_TYPES" | tr ',' ' '); do
   done
 done
 
-echo "✅ Validation complete"
+if [ "$VALIDATION_FAILURES" -gt 0 ]; then
+  echo "⚠️ Translation validation completed with $VALIDATION_FAILURES warnings"
+else
+  echo "✅ All translations pass validation"
+fi
 ```
 
 ## Step 4b: Scope Verification (Prevent Patch Conflicts)
@@ -782,12 +831,19 @@ safeoutputs___create_pull_request({
 - Session location names (Strasbourg, Brussels)
 - Procedure codes (COD, CNS, APP)
 
-### MUST Translate
+### MUST Translate (100% Coverage Required)
 - All narrative body paragraphs (analysis, context, commentary)
 - Event descriptions and agenda summaries
 - Any free-text editorial content
 - Policy impact descriptions and stakeholder positions
 - Calendar and scheduling descriptions
+- **Deep analysis sections**: what happened, who, when, why, outlook
+- **Stakeholder perspectives**: all reasoning and evidence text
+- **Impact assessments**: political, economic, social, legal, geopolitical descriptions
+- **Action-consequence pairs**: action labels and consequence descriptions
+- **Mistakes & missed opportunities**: description and alternative texts
+- **Mindmap summaries**: all summary text nodes
+- **Footer disclaimer text**
 
 ### Language-Specific Requirements
 
@@ -813,10 +869,14 @@ safeoutputs___create_pull_request({
 - **Chinese (zh)**: Use Simplified Chinese; CJK punctuation (。、《》); no spaces between characters; use official Chinese EP terminology from eu.europa.eu/zh
 
 ### Quality Gate
-- ZERO TOLERANCE for language mixing within a single article
+- ZERO TOLERANCE for language mixing within a single article — **100% of content must be in the target language**
 - Each translated article must have same analytical depth as the English source
 - Vote counts and percentages are locale-formatted but numerically identical
 - All UI strings are already localized by the TypeScript code — focus on content translation
+- The TypeScript generator now produces localized deep-analysis content (propositions, committee reports) — verify content is actually in target language
+- Check for `lang="en"` markers in the HTML — these indicate English content that should have been translated
+- For CJK languages (ja, ko, zh): verify CJK character density is >50% of body text
+- For RTL languages (ar, he): verify `dir="rtl"` is present on the `<html>` element
 
 ## MANDATORY PR Creation
 

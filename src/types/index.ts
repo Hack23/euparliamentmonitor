@@ -28,6 +28,8 @@ export {
   type ArticleCategoryLabels,
   type LangTitleSubtitle,
   type PropositionsStrings,
+  type PropositionsAnalysisContentStrings,
+  type StakeholderReasoningStrings,
   type EditorialStrings,
   type MotionsStrings,
   type WeekAheadStrings,

@@ -26,8 +26,13 @@ import type {
   CoalitionStabilityReport,
   LegislativeVelocityReport,
   LegislativeDocument,
+  LanguageCode,
 } from '../types/index.js';
 import { ALL_STAKEHOLDER_TYPES } from '../types/index.js';
+import {
+  getLocalizedString,
+  STAKEHOLDER_REASONING_STRINGS,
+} from '../constants/languages.js';
 
 // ─── Internal type aliases ────────────────────────────────────────────────────
 
@@ -301,35 +306,40 @@ function severityFromScore(score: number): StakeholderPerspective['severity'] {
 
 /**
  * Derive a factual reasoning sentence for a stakeholder group based on
- * the topic context and importance score. This replaces the previous
- * AI_MARKER default with neutral, data-driven descriptions.
+ * the topic context and importance score. Uses localized templates.
  *
  * @param stakeholder - The stakeholder group identifier
  * @param topic - Short description of the parliamentary action
  * @param score - Importance score (0-1)
+ * @param lang - Target language code for localized reasoning
  * @returns Factual reasoning sentence
  */
 function deriveStakeholderReasoning(
   stakeholder: AnalysisStakeholderType,
   topic: string,
-  score: number
+  score: number,
+  lang: LanguageCode = 'en'
 ): string {
-  const impactLevel = score >= 0.7 ? 'significant' : score >= 0.4 ? 'moderate' : 'limited';
+  const s = getLocalizedString(STAKEHOLDER_REASONING_STRINGS, lang);
+  const impactLevel =
+    score >= 0.7 ? s.impactSignificant : score >= 0.4 ? s.impactModerate : s.impactLimited;
+  const r = (t: string): string =>
+    t.replace(/\{topic\}/g, topic).replace(/\{impact\}/g, impactLevel);
   switch (stakeholder) {
     case 'political_groups':
-      return `This parliamentary activity on "${topic}" has ${impactLevel} implications for political group dynamics, affecting coalition-building strategies and inter-group negotiation positions.`;
+      return r(s.politicalGroups);
     case 'civil_society':
-      return `Civil society organisations monitoring "${topic}" face ${impactLevel} impact on transparency, democratic participation, and citizens' rights advocacy.`;
+      return r(s.civilSociety);
     case 'industry':
-      return `Industry and business stakeholders observe ${impactLevel} regulatory implications from "${topic}", affecting compliance requirements and market conditions.`;
+      return r(s.industry);
     case 'national_govts':
-      return `National governments assess ${impactLevel} impact from "${topic}" on subsidiarity, implementation requirements, and member state policy alignment.`;
+      return r(s.nationalGovts);
     case 'citizens':
-      return `EU citizens experience ${impactLevel} consequences from "${topic}" in terms of rights, services, and democratic representation.`;
+      return r(s.citizens);
     case 'eu_institutions':
-      return `EU institutional dynamics show ${impactLevel} effects from "${topic}", influencing inter-institutional relations between Parliament, Commission, and Council.`;
+      return r(s.euInstitutions);
     default:
-      return `Stakeholder impact assessment for "${topic}" indicates ${impactLevel} relevance.`;
+      return r(s.politicalGroups);
   }
 }
 
@@ -341,11 +351,13 @@ function deriveStakeholderReasoning(
  *
  * @param topic - Short description of the parliamentary action (e.g. vote title)
  * @param scores - Optional per-stakeholder importance scores (0-1); defaults to 0.5
+ * @param lang - Target language code for localized reasoning
  * @returns Array of six StakeholderPerspective objects, one per stakeholder group
  */
 export function buildDefaultStakeholderPerspectives(
   topic: string,
-  scores?: Partial<Record<AnalysisStakeholderType, number>>
+  scores?: Partial<Record<AnalysisStakeholderType, number>>,
+  lang: LanguageCode = 'en'
 ): StakeholderPerspective[] {
   return ALL_STAKEHOLDER_TYPES.map((stakeholder) => {
     const score = scores?.[stakeholder] ?? 0.5;
@@ -359,7 +371,7 @@ export function buildDefaultStakeholderPerspectives(
             ? ('negative' as const)
             : ('neutral' as const),
       severity,
-      reasoning: deriveStakeholderReasoning(stakeholder, topic, score),
+      reasoning: deriveStakeholderReasoning(stakeholder, topic, score, lang),
       evidence: [topic],
     };
   });

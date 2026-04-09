@@ -57,6 +57,7 @@ import {
   BREAKING_STRINGS,
   SWOT_BUILDER_STRINGS,
   DASHBOARD_BUILDER_STRINGS,
+  PROPOSITIONS_ANALYSIS_CONTENT_STRINGS,
 } from '../constants/languages.js';
 import { isPlaceholderCommitteeData } from './committee-helpers.js';
 import { PLACEHOLDER_MARKER } from './motions-content.js';
@@ -274,11 +275,13 @@ function buildBreakingStakeholderPerspectives(
  *
  * @param healthScore - Pipeline health score (0-1)
  * @param topic - Primary topic string for context
+ * @param lang - Target language code for localized content
  * @returns Array of stakeholder perspectives
  */
 function buildPropositionsStakeholderPerspectives(
   healthScore: number,
-  topic: string
+  topic: string,
+  lang: LanguageCode = 'en'
 ): StakeholderPerspective[] {
   return buildDefaultStakeholderPerspectives(topic, {
     political_groups: 0.7,
@@ -287,7 +290,7 @@ function buildPropositionsStakeholderPerspectives(
     national_govts: healthScore < 0.5 ? 0.3 : 0.6,
     citizens: healthScore < 0.5 ? 0.2 : 0.5,
     eu_institutions: 0.8,
-  });
+  }, lang);
 }
 
 /**
@@ -793,17 +796,21 @@ export function buildBreakingAnalysis(
  *
  * @param healthScore - 0-1 score
  * @param throughput - Throughput rate
+ * @param lang - Target language code for localized content
  * @returns Factual analysis of pipeline drivers
  */
-function buildPropositionsWhy(healthScore: number, throughput: number): string {
-  const healthPct = (healthScore * 100).toFixed(0);
-  if (healthScore >= 0.8) {
-    return `The legislative pipeline operates at ${healthPct}% health with a throughput of ${throughput} procedures, indicating strong institutional capacity to process pending proposals. Political group coordination and committee efficiency drive this productive legislative tempo.`;
-  }
-  if (healthScore >= 0.5) {
-    return `Pipeline health at ${healthPct}% with throughput of ${throughput} reflects moderate legislative processing capacity. Some procedures face delays at committee or trilogue stages, requiring enhanced political coordination.`;
-  }
-  return `Legislative pipeline health at ${healthPct}% with throughput of ${throughput} signals significant processing challenges. Bottlenecked procedures and political disagreements are constraining legislative output.`;
+function buildPropositionsWhy(
+  healthScore: number,
+  throughput: number,
+  lang: LanguageCode = 'en'
+): string {
+  const s = getLocalizedString(PROPOSITIONS_ANALYSIS_CONTENT_STRINGS, lang);
+  const pct = (healthScore * 100).toFixed(0);
+  const r = (t: string): string =>
+    t.replace(/\{pct\}/g, pct).replace(/\{throughput\}/g, String(throughput));
+  if (healthScore >= 0.8) return r(s.whyStrong);
+  if (healthScore >= 0.5) return r(s.whyModerate);
+  return r(s.whyWeak);
 }
 
 /**
@@ -848,26 +855,41 @@ function getConferenceOfPresidents(lang: string): string {
  * @param _pct - Pipeline health percentage as string
  * @param healthScore - Pipeline health score (0-1)
  * @param throughput - Throughput rate
+ * @param lang - Target language code for localized content
  * @returns Action-consequence pairs
  */
 function buildPropositionsConsequences(
   _pct: string,
   healthScore: number,
-  throughput: number
+  throughput: number,
+  lang: LanguageCode = 'en'
 ): ActionConsequence[] {
+  const s = getLocalizedString(PROPOSITIONS_ANALYSIS_CONTENT_STRINGS, lang);
+  const r = (t: string): string =>
+    t.replace(/\{pct\}/g, _pct).replace(/\{throughput\}/g, String(throughput));
   const healthSeverity: ActionConsequence['severity'] =
     healthScore < 0.3 ? 'critical' : healthScore < 0.5 ? 'high' : 'medium';
-  const healthDesc = healthScore >= 0.8 ? 'strong' : healthScore >= 0.5 ? 'moderate' : 'weak';
-  const healthDescCap = healthDesc.charAt(0).toUpperCase() + healthDesc.slice(1);
+  const consequenceText =
+    healthScore >= 0.8
+      ? r(s.consequenceStrong)
+      : healthScore >= 0.5
+        ? r(s.consequenceModerate)
+        : r(s.consequenceWeak);
+  const throughputText =
+    throughput >= 10
+      ? r(s.consequenceThroughputHigh)
+      : throughput >= 5
+        ? r(s.consequenceThroughputMedium)
+        : r(s.consequenceThroughputLow);
   return [
     {
-      action: `Pipeline health at ${_pct}%`,
-      consequence: `${healthDescCap} pipeline health (${_pct}%) indicates ${healthScore >= 0.7 ? 'efficient' : 'constrained'} legislative processing capacity, affecting the pace of regulatory and policy adoption.`,
+      action: r(s.actionHealth),
+      consequence: consequenceText,
       severity: healthSeverity,
     },
     {
-      action: `Throughput rate at ${throughput}`,
-      consequence: `Throughput of ${throughput} procedures ${throughput >= 10 ? 'reflects productive legislative output' : throughput >= 5 ? 'indicates moderate processing capacity' : 'signals potential bottleneck conditions requiring attention from committee coordinators'}.`,
+      action: r(s.actionThroughput),
+      consequence: throughputText,
       severity: throughput < 5 ? 'high' : 'low',
     },
   ];
@@ -879,45 +901,54 @@ function buildPropositionsConsequences(
  *
  * @param healthScore - Pipeline health score (0-1)
  * @param throughput - Throughput rate
+ * @param lang - Target language code for localized content
  * @returns Impact assessment with descriptive text
  */
 function buildPropositionsImpact(
   healthScore: number,
-  throughput: number
+  throughput: number,
+  lang: LanguageCode = 'en'
 ): DeepAnalysis['impactAssessment'] {
+  const s = getLocalizedString(PROPOSITIONS_ANALYSIS_CONTENT_STRINGS, lang);
   const pct = (healthScore * 100).toFixed(0);
+  const r = (t: string): string =>
+    t.replace(/\{pct\}/g, pct).replace(/\{throughput\}/g, String(throughput));
   return {
-    political: `Legislative pipeline at ${pct}% health shapes political group bargaining dynamics. ${healthScore >= 0.7 ? 'Strong throughput enables coalition-building on priority files.' : 'Bottleneck pressure may force compromise negotiations.'}`,
-    economic: `${throughput} procedures in the pipeline carry potential economic regulatory implications. ${healthScore >= 0.7 ? 'Efficient processing supports predictable business planning horizons.' : 'Delayed procedures create regulatory uncertainty for affected sectors.'}`,
-    social: `Pipeline processing capacity directly affects the pace of social policy legislation reaching citizens. Current throughput of ${throughput} procedures shapes the timeline for rights-related legislation.`,
-    legal: `Legislative pipeline at ${pct}% health influences the volume and pace of new EU legal instruments entering the official journal, with implications for national transposition deadlines.`,
-    geopolitical: `EU legislative output capacity at ${pct}% health affects the Parliament's credibility and influence in international negotiations and trade discussions.`,
+    political: `${r(s.impactPolitical)} ${healthScore >= 0.7 ? r(s.impactPoliticalStrong) : r(s.impactPoliticalWeak)}`,
+    economic: `${r(s.impactEconomic)} ${healthScore >= 0.7 ? r(s.impactEconomicStrong) : r(s.impactEconomicWeak)}`,
+    social: r(s.impactSocial),
+    legal: r(s.impactLegal),
+    geopolitical: r(s.impactGeopolitical),
   };
 }
 
 /**
  * Build the primary stakeholder outcome for propositions analysis.
- * Reasoning text is produced by the AI agent.
+ * Reasoning text is now localized via propositions analysis content strings.
  *
  * @param _healthScore - Pipeline health score (used for outcome classification only)
- * @param _pct - Pipeline health percentage (unused — AI generates reasoning)
+ * @param _pct - Pipeline health percentage
+ * @param lang - Target language code for localized content
  * @returns Single stakeholder outcome
  */
 function buildPropositionsStakeholderOutcome(
   _healthScore: number,
-  _pct: string
+  _pct: string,
+  lang: LanguageCode = 'en'
 ): StakeholderOutcome {
+  const s = getLocalizedString(PROPOSITIONS_ANALYSIS_CONTENT_STRINGS, lang);
+  const r = (t: string): string => t.replace(/\{pct\}/g, _pct);
   if (_healthScore > 0.7) {
     return {
-      actor: 'Parliament presidency',
+      actor: s.stakeholderWinnerActor,
       outcome: 'winner',
-      reason: `Pipeline health at ${_pct}% demonstrates effective legislative coordination by the Parliament presidency, enabling timely processing of priority files.`,
+      reason: r(s.stakeholderWinnerReason),
     };
   }
   return {
-    actor: 'Pending legislation sponsors',
+    actor: s.stakeholderLoserActor,
     outcome: 'loser',
-    reason: `Pipeline health at ${_pct}% means pending legislation faces delays, disadvantaging sponsors whose proposals require timely adoption to address policy needs.`,
+    reason: r(s.stakeholderLoserReason),
   };
 }
 
@@ -935,48 +966,47 @@ export function buildPropositionsAnalysis(
   proposalsHtml: string,
   pipelineData: PipelineData | null,
   date: string,
-  lang = 'en',
+  lang: LanguageCode = 'en',
   adoptedTextsHtml = ''
 ): DeepAnalysis {
+  const s = getLocalizedString(PROPOSITIONS_ANALYSIS_CONTENT_STRINGS, lang);
   const hasProposals = proposalsHtml.length > 0 || adoptedTextsHtml.length > 0;
   const healthScore = pipelineData?.healthScore ?? 0;
   const throughput = pipelineData?.throughput ?? 0;
   const pct = (healthScore * 100).toFixed(0);
+  const r = (t: string): string =>
+    t
+      .replace(/\{date\}/g, date)
+      .replace(/\{pct\}/g, pct)
+      .replace(/\{throughput\}/g, String(throughput));
 
   return {
-    what: `Legislative pipeline assessment as of ${date}: Health score ${pct}%, throughput rate ${throughput}. ${hasProposals ? 'Active proposals under consideration.' : 'No new proposals detected in this period.'}`,
-    who: [
-      'European Commission (proposal originator)',
-      'Rapporteurs (responsible for steering through committee)',
-      'Shadow rapporteurs (political group negotiators)',
-      'Council of the EU (co-legislator)',
-    ],
-    when: [`Assessment date: ${date}`, 'Pipeline health reflects cumulative legislative progress'],
-    why: buildPropositionsWhy(healthScore, throughput),
-    stakeholderOutcomes: [buildPropositionsStakeholderOutcome(healthScore, pct)],
-    impactAssessment: buildPropositionsImpact(healthScore, throughput),
-    actionConsequences: buildPropositionsConsequences(pct, healthScore, throughput),
+    what: r(hasProposals ? s.what : s.whatNoProposals),
+    who: [s.whoCommission, s.whoRapporteurs, s.whoShadowRapporteurs, s.whoCouncil],
+    when: [r(s.whenAssessment), s.whenCumulative],
+    why: buildPropositionsWhy(healthScore, throughput, lang),
+    stakeholderOutcomes: [buildPropositionsStakeholderOutcome(healthScore, pct, lang)],
+    impactAssessment: buildPropositionsImpact(healthScore, throughput, lang),
+    actionConsequences: buildPropositionsConsequences(pct, healthScore, throughput, lang),
     mistakes:
       healthScore < 0.5
         ? [
             {
               actor: getConferenceOfPresidents(lang),
-              description: `Pipeline health dropped to ${pct}%`,
-              alternative: `Earlier intervention through prioritised scheduling and pre-negotiation sessions between political groups could have maintained pipeline health above 50%.`,
+              description: r(s.mistakeDescription),
+              alternative: s.mistakeAlternative,
             },
           ]
         : [],
-    outlook:
-      healthScore >= 0.7
-        ? `Legislative pipeline at ${pct}% health with throughput of ${throughput} positions the Parliament for continued productive output. Likely scenario: sustained legislative momentum with efficient committee-to-plenary progression. Possible scenario: new Commission proposals may strain processing capacity.`
-        : `Pipeline health at ${pct}% requires attention from legislative coordinators. Likely scenario: selective prioritisation of key files to improve throughput. Possible scenario: political impasse on contentious files may further reduce pipeline efficiency.`,
+    outlook: healthScore >= 0.7 ? r(s.outlookGood) : r(s.outlookConcern),
     stakeholderPerspectives: buildPropositionsStakeholderPerspectives(
       healthScore,
-      `legislative pipeline as of ${date}`
+      r(s.whenAssessment),
+      lang
     ),
     stakeholderOutcomeMatrix: buildOutcomeMatrix([
       {
-        action: `Pipeline health at ${pct}% (throughput ${throughput})`,
+        action: r(s.actionHealth) + ` (${r(s.actionThroughput)})`,
         scores: {
           political_groups: 0.7,
           civil_society: healthScore < 0.5 ? 0.3 : 0.5,
