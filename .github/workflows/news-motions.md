@@ -90,6 +90,8 @@ safe-outputs:
     title-prefix: "[news] "
     excluded-files:
       - "analysis/daily/**/data/**"
+      - "analysis/daily/**/documents/raw-data/**"
+      - "analysis/daily/**/documents/*-analysis.md"
   add-comment:
     max: 1
 
@@ -352,8 +354,8 @@ Every generated article MUST link to ALL analysis files. Verify the Analysis & T
 - `analysis/daily/${TODAY}/motions/classification/<canonical-method-files>.md` — canonical method-level files (e.g., `significance-classification.md`, `impact-matrix.md`, `actor-mapping.md`, `forces-analysis.md`)
 - `analysis/daily/${TODAY}/motions/threat-assessment/<canonical-method-files>.md` — canonical method-level files (e.g., `political-threat-landscape.md`, `actor-threat-profiling.md`)
 - `analysis/daily/${TODAY}/motions/risk-scoring/<canonical-method-files>.md` — canonical method-level files (e.g., `risk-matrix.md`, `political-capital-risk.md`, `quantitative-swot.md`)
-- `analysis/daily/${TODAY}/motions/existing/<canonical-method-files>.md` — canonical method-level files (e.g., `deep-analysis.md`, `stakeholder-impact.md`, `coalition-dynamics.md`)
-- `analysis/daily/${TODAY}/motions/synthesis-summary.md` — 1 file (cross-document synthesis)
+- `analysis/daily/${TODAY}/motions/existing/<canonical-method-files>.md` — canonical method-level files (e.g., `deep-analysis.md`, `stakeholder-impact.md`, `coalition-dynamics.md`, `synthesis-summary.md`)
+- `analysis/daily/${TODAY}/motions/documents/document-analysis-index.md` — 1 file (documents index)
 - `news/${TODAY}-motions-en.html` — 1 article file (English)
 
 **DO NOT** create individual analysis files for each adopted text, voting record, or MCP data item. Instead, append item-level sections within the relevant canonical method-level file using `## Item: <document-title>` headers.
@@ -367,8 +369,8 @@ The `--analysis` flag activates the political intelligence analysis pipeline **b
    - **Classification** (4 methods): significance scoring, impact matrix, actor mapping, political forces analysis
    - **Threat Assessment** (4 methods): political threat landscape model, actor threat profiling, consequence trees, legislative disruption analysis
    - **Risk Scoring** (5 methods): political risk matrix, capital-at-risk assessment, quantitative SWOT, legislative velocity risk, agent risk workflow
-   - **Intelligence** (5 methods): deep analysis, stakeholder analysis, coalition dynamics, voting patterns, cross-session intelligence
-   - _Optional_: **Per-Document Analysis** (opt-in via `--analysis-methods=document-analysis`) — per-document markdown + JSON intelligence files for every downloaded MCP file; not included in default set
+   - **Existing / Intelligence** (5 methods): deep analysis, stakeholder analysis, coalition dynamics, voting patterns, cross-session intelligence
+   - **Per-Document Analysis** (`document-analysis`): included in the default method set — generates per-document markdown + JSON files under `documents/`. These per-document outputs are a primary driver of file-count blowups; the `excluded-files` config strips `documents/raw-data/**` and `documents/*-analysis.md` from the PR patch, and the pre-PR consolidation script merges remaining excess files
 3. **Writes and commits analysis artifacts** to `analysis/daily/${TODAY}/motions/` using canonical filenames from `analysis/README.md` + `manifest.json` — each workflow writes to its own per-article-type subdirectory; MCP data files in `analysis/daily/${TODAY}/motions/data/` are excluded from the PR via `excluded-files` and also cleaned up before PR creation. **Do NOT create individual per-document analysis files** — append item-level content within the canonical method-level files to stay under the 100-file PR limit.
 4. **Blocks article generation on failure in agentic mode** — when `--analysis` is enabled, analysis failures abort the run; disable `--analysis` if you want generation to proceed without analysis
 
@@ -1103,16 +1105,69 @@ if [ "$TOTAL_FILES" -gt 90 ]; then
 
   RUN_ANALYSIS_DIR="analysis/daily/${TODAY}/motions"
 
-  # Step 1: Merge only non-canonical per-document analysis files into consolidated category files
+  # Step 1: Merge per-document analysis files from top-level documents/ directory
   if [ -d "$RUN_ANALYSIS_DIR" ]; then
-    for SUBDIR in classification threat-assessment risk-scoring existing intelligence; do
+    DOCUMENTS_DIR="$RUN_ANALYSIS_DIR/documents"
+    if [ -d "$DOCUMENTS_DIR" ]; then
+      # Remove raw-data JSON files (also excluded at framework level)
+      if [ -d "$DOCUMENTS_DIR/raw-data" ]; then
+        rm -rf "$DOCUMENTS_DIR/raw-data"
+        echo "  ✅ Removed documents/raw-data/ directory"
+      fi
+
+      # Consolidate per-document *-analysis.md files into document-analysis-index.md
+      DOC_FILE_COUNT=$(find "$DOCUMENTS_DIR" -maxdepth 1 -name "*-analysis.md" -type f | wc -l)
+      if [ "$DOC_FILE_COUNT" -gt 0 ]; then
+        CONSOLIDATED="$DOCUMENTS_DIR/document-analysis-index.md"
+        TEMP_CONSOLIDATED=$(mktemp "$DOCUMENTS_DIR/.tmp.XXXXXX")
+        {
+          echo "# Consolidated Per-Document Analysis"
+          echo ""
+          echo "_Consolidated from ${DOC_FILE_COUNT} per-document analysis files to stay within PR file limits._"
+          echo ""
+
+          if [ -f "$CONSOLIDATED" ]; then
+            echo "## Previously consolidated content"
+            echo ""
+            cat "$CONSOLIDATED"
+            echo ""
+          fi
+
+          shopt -s nullglob
+          for F in "$DOCUMENTS_DIR"/*-analysis.md; do
+            if [ -f "$F" ] && [ "$F" != "$CONSOLIDATED" ]; then
+              echo "---"
+              echo ""
+              cat "$F"
+              echo ""
+            fi
+          done
+          shopt -u nullglob
+        } > "$TEMP_CONSOLIDATED"
+
+        mv "$TEMP_CONSOLIDATED" "$CONSOLIDATED"
+
+        shopt -s nullglob
+        for F in "$DOCUMENTS_DIR"/*-analysis.md; do
+          if [ -f "$F" ] && [ "$F" != "$CONSOLIDATED" ]; then
+            rm "$F"
+          fi
+        done
+        shopt -u nullglob
+
+        echo "  ✅ Consolidated $DOC_FILE_COUNT per-document files in documents/ → document-analysis-index.md"
+      fi
+    fi
+
+    # Step 2: Consolidate any per-document files that ended up under category subdirs
+    for SUBDIR in classification threat-assessment risk-scoring existing; do
       ANALYSIS_SUBDIR="$RUN_ANALYSIS_DIR/$SUBDIR"
-      DOCUMENTS_SUBDIR="$ANALYSIS_SUBDIR/documents"
-      if [ -d "$DOCUMENTS_SUBDIR" ]; then
-        FILE_COUNT=$(find "$DOCUMENTS_SUBDIR" -maxdepth 1 -name "*.md" -type f | wc -l)
+      SUBDIR_DOCUMENTS="$ANALYSIS_SUBDIR/documents"
+      if [ -d "$SUBDIR_DOCUMENTS" ]; then
+        FILE_COUNT=$(find "$SUBDIR_DOCUMENTS" -maxdepth 1 -name "*.md" -type f | wc -l)
         if [ "$FILE_COUNT" -gt 0 ]; then
           CONSOLIDATED="$ANALYSIS_SUBDIR/consolidated-${SUBDIR}.md"
-          TEMP_CONSOLIDATED=$(mktemp)
+          TEMP_CONSOLIDATED=$(mktemp "$ANALYSIS_SUBDIR/.tmp.XXXXXX")
           {
             echo "# Consolidated ${SUBDIR} Per-Document Analysis"
             echo ""
@@ -1127,7 +1182,7 @@ if [ "$TOTAL_FILES" -gt 90 ]; then
             fi
 
             shopt -s nullglob
-            for F in "$DOCUMENTS_SUBDIR"/*.md; do
+            for F in "$SUBDIR_DOCUMENTS"/*.md; do
               if [ -f "$F" ]; then
                 echo "---"
                 echo ""
@@ -1141,20 +1196,20 @@ if [ "$TOTAL_FILES" -gt 90 ]; then
           mv "$TEMP_CONSOLIDATED" "$CONSOLIDATED"
 
           shopt -s nullglob
-          for F in "$DOCUMENTS_SUBDIR"/*.md; do
+          for F in "$SUBDIR_DOCUMENTS"/*.md; do
             if [ -f "$F" ]; then
               rm "$F"
             fi
           done
           shopt -u nullglob
 
-          rmdir "$DOCUMENTS_SUBDIR" 2>/dev/null || true
+          rmdir "$SUBDIR_DOCUMENTS" 2>/dev/null || true
           echo "  ✅ Consolidated $FILE_COUNT per-document files in $SUBDIR/documents → consolidated-${SUBDIR}.md"
         fi
       fi
     done
 
-    # Step 2: Remove any remaining non-manifest JSON files as defense-in-depth
+    # Step 3: Remove any remaining non-manifest JSON files as defense-in-depth
     # (excluded-files config handles data/ directory, this catches stray JSON elsewhere)
     find "$RUN_ANALYSIS_DIR" -type f \( -name "*.json" ! -name "manifest.json" \) -delete 2>/dev/null || true
   fi
