@@ -162,7 +162,7 @@ flowchart TD
     DeployPages --> Complete["✅ Generation Complete\nArticles Published\nSite Updated"]
     Complete --> End["🎉 Workflow Success"]
 
-    classDef startNode fill:#4CAF50,stroke:#2E7D32,stroke-width:2px,color:#ffffff
+    classDef startNode fill:#4CAF50,stroke:#2E7D32,stroke-width:2px,color:#000000
     classDef checkNode fill:#FFE082,stroke:#F57C00,stroke-width:2px,color:#000000
     classDef connectNode fill:#90CAF9,stroke:#1565C0,stroke-width:2px,color:#000000
     classDef errorNode fill:#EF9A9A,stroke:#D32F2F,stroke-width:2px,color:#000000

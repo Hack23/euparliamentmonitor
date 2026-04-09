@@ -225,7 +225,7 @@ graph TB
     end
 
     classDef critical fill:#D32F2F,stroke:#B71C1C,stroke-width:2px,color:#ffffff
-    classDef high fill:#FF9800,stroke:#F57C00,stroke-width:2px,color:#ffffff
+    classDef high fill:#FF9800,stroke:#F57C00,stroke-width:2px,color:#000000
     classDef medium fill:#FFC107,stroke:#FFA000,stroke-width:2px,color:#000000
 
     class B1,CR1 critical
