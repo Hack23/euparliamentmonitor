@@ -1,0 +1,129 @@
+{
+  "analysisDate": "2026-04-09",
+  "articleType": "breaking",
+  "producedBy": "news-breaking",
+  "overallConfidence": "MEDIUM",
+  "parliamentStatus": "Easter Recess (Day 14 of 18)",
+  "nextActivity": "Committee week April 14-17, Strasbourg plenary April 20-23",
+  "newsworthinessGate": "NO_BREAKING_NEWS",
+  "reason": "Easter recess Day 14 - no today-dated parliamentary events, procedures, or documents. Analysis-only output per Rule 5.",
+  "runs": [
+    {
+      "runId": 1,
+      "timestamp": "2026-04-09T00:15:00Z",
+      "workflowRunId": "24165459770",
+      "files": [
+        "synthesis-summary.md",
+        "significance-scoring.md",
+        "stakeholder-impact.md",
+        "swot-analysis.md",
+        "risk-assessment.md"
+      ],
+      "improvements": "Extended 2026-04-08 analysis with Q1 thematic clustering (6 policy domains), significance scoring (5-dimension model), stakeholder impact assessment (6-group model), updated SWOT with TOWS strategies, and post-recess pipeline risk matrix with interconnection mapping"
+    }
+  ],
+  "dataCollected": {
+    "adoptedTexts": 30,
+    "adoptedTextsFeedOneWeek": 12,
+    "events": 0,
+    "procedures": 0,
+    "mepUpdates": 737,
+    "documents": 0,
+    "plenaryDocuments": 0,
+    "committeeDocuments": 0,
+    "questions": 0
+  },
+  "feedStatus": {
+    "adoptedTextsFeedToday": "INTERNAL_ERROR",
+    "adoptedTextsFeedOneWeek": "OK (12 items)",
+    "adoptedTexts2026": "OK (30+ items with full details)",
+    "eventsFeed": "404 (Easter recess, both today and one-week)",
+    "proceduresFeed": "404 (Easter recess, both today and one-week)",
+    "mepsFeedToday": "OK (737 records)",
+    "documentsFeed": "404 (one-week)",
+    "plenaryDocumentsFeed": "TIMEOUT (one-week)",
+    "committeeDocumentsFeed": "TIMEOUT (one-week)",
+    "questionsFeed": "TIMEOUT (one-week)"
+  },
+  "analyticalContext": {
+    "votingAnomalies": "None detected, stability 100, risk LOW",
+    "coalitionDynamics": "Renew-ECR strengthening (0.95 cohesion), 28 pairs analysed",
+    "politicalLandscape": "8 groups, HIGH fragmentation, multi-coalition required",
+    "earlyWarning": "3 warnings: dominant group risk (HIGH), fragmentation (MEDIUM), quorum risk (LOW), stability 84/100"
+  },
+  "significanceScoring": {
+    "highestCluster": "Trade and Geopolitics",
+    "highestRawScore": 6.95,
+    "adjustedScore": 6.95,
+    "decision": "HOLD (recess cap at 7.4; below 9.0 BREAKING threshold)",
+    "allClusters": [
+      {
+        "name": "Trade and Geopolitics",
+        "score": 6.95,
+        "decision": "HOLD"
+      },
+      {
+        "name": "Rule of Law and Democracy",
+        "score": 6.45,
+        "decision": "HOLD"
+      },
+      {
+        "name": "Social and Labour Policy",
+        "score": 5.85,
+        "decision": "HOLD"
+      },
+      {
+        "name": "Financial Stability",
+        "score": 5.5,
+        "decision": "HOLD"
+      },
+      {
+        "name": "Foreign Affairs and Security",
+        "score": 5.35,
+        "decision": "MONITOR"
+      },
+      {
+        "name": "Technology and Regulation",
+        "score": 4.65,
+        "decision": "MONITOR"
+      }
+    ]
+  },
+  "riskAssessment": {
+    "weightedComposite": 9.55,
+    "tier": "MEDIUM",
+    "highestIndividualRisk": "US Tariff Escalation (16/25 Critical)",
+    "systemicFragility": false
+  },
+  "analysisFiles": [
+    "synthesis-summary.md",
+    "significance-scoring.md",
+    "stakeholder-impact.md",
+    "swot-analysis.md",
+    "risk-assessment.md"
+  ],
+  "analysisMethods": [
+    "thematic-clustering",
+    "significance-scoring",
+    "stakeholder-impact-assessment",
+    "swot-analysis",
+    "tows-strategic-options",
+    "risk-matrix",
+    "cascading-risk-analysis",
+    "risk-interconnection-mapping",
+    "bayesian-updating",
+    "coalition-dynamics",
+    "scenario-planning",
+    "pipeline-risk-assessment",
+    "cui-bono-analysis",
+    "second-order-effects",
+    "historical-parallel-analysis",
+    "political-classification",
+    "evidence-cross-validation",
+    "cross-session-continuity",
+    "forward-indicator-tracking",
+    "data-quality-assessment"
+  ],
+  "articleGenerated": false,
+  "generatedAt": "2026-04-09T00:45:00Z"
+}
