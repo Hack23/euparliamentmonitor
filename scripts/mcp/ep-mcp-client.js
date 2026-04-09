@@ -28,7 +28,7 @@ const PROCEDURE_EVENT_FALLBACK = '{"event": null}';
 const SERVER_HEALTH_FALLBACK = '{"server": null, "feeds": []}';
 /**
  * Classify an error message into a diagnostic error category, aligned with
- * EP MCP Server v1.2.0 standardized error categories.
+ * EP MCP Server v1.2.1 standardized error categories.
  *
  * Priority:
  * 1. Gateway 5xx → SERVER_ERROR (not TIMEOUT, even for 504 "Gateway Timeout")
