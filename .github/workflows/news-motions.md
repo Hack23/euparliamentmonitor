@@ -1115,8 +1115,9 @@ if [ "$TOTAL_FILES" -gt 90 ]; then
           echo "" >> "$CONSOLIDATED"
           echo "_Consolidated from ${FILE_COUNT} individual analysis files to stay within PR file limits._" >> "$CONSOLIDATED"
           echo "" >> "$CONSOLIDATED"
+          shopt -s nullglob
           for F in "$ANALYSIS_SUBDIR"/*.md; do
-            if [ "$F" != "$CONSOLIDATED" ]; then
+            if [ -f "$F" ] && [ "$F" != "$CONSOLIDATED" ]; then
               echo "---" >> "$CONSOLIDATED"
               echo "" >> "$CONSOLIDATED"
               cat "$F" >> "$CONSOLIDATED"
@@ -1124,12 +1125,14 @@ if [ "$TOTAL_FILES" -gt 90 ]; then
               rm "$F"
             fi
           done
+          shopt -u nullglob
           echo "  ✅ Consolidated $FILE_COUNT files in $SUBDIR → consolidated-${SUBDIR}.md"
         fi
       fi
     done
 
-    # Step 2: Remove any remaining raw data files (JSON, etc.) not caught by earlier cleanup
+    # Step 2: Remove any remaining non-manifest JSON files as defense-in-depth
+    # (excluded-files config handles data/ directory, this catches stray JSON elsewhere)
     find "$RUN_ANALYSIS_DIR" -type f \( -name "*.json" ! -name "manifest.json" \) -delete 2>/dev/null || true
   fi
 
@@ -1147,8 +1150,8 @@ if [ "$TOTAL_FILES" -gt 90 ]; then
   fi
 
   if [ "$TOTAL_FILES" -gt 95 ]; then
-    echo "❌ ERROR: Cannot reduce file count below 95 ($TOTAL_FILES files). PR creation will likely fail." >&2
-    echo "Consider reducing analysis depth or running with fewer MCP data items." >&2
+    echo "⚠️ WARNING: Cannot reduce file count below 95 ($TOTAL_FILES files). PR creation may fail with E003." >&2
+    echo "The create_pull_request safe output has a hard 100-file limit." >&2
   fi
 fi
 ```
