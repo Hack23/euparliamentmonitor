@@ -969,19 +969,14 @@ export function buildLegislativeVelocityReport(docs) {
  * to identify non-traditional coalition patterns.
  */
 const TRADITIONAL_LEFT_GROUPS = ['S&D', 'Greens/EFA', 'The Left'];
-const TRADITIONAL_RIGHT_GROUPS = [
-    'ECR',
-    'ID',
-    'PfE',
-    'Patriots',
-    'Patriots for Europe',
-];
-const TRADITIONAL_CENTRE_GROUPS = ['EPP', 'Renew', 'Renew Europe'];
+const TRADITIONAL_RIGHT_GROUPS = ['ECR', 'ID', 'PfE'];
+const TRADITIONAL_CENTRE_GROUPS = ['EPP', 'Renew'];
 /** Map known EP group label variants to a canonical short form. */
 const GROUP_LABEL_ALIASES = {
     Patriots: 'PfE',
     'Patriots for Europe': 'PfE',
     'Renew Europe': 'Renew',
+    'Identity and Democracy': 'ID',
 };
 /** Signal type constant for cross-party alignment detection */
 const CROSS_PARTY_ALIGNMENT = 'cross-party-alignment';
