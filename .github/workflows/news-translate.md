@@ -156,6 +156,27 @@ You are the **Translation Agent** for EU Parliament Monitor. Your job is to take
 - ✅ Log the error and continue with translation
 - ✅ The translation generator handles all code logic; your job is to RUN it, not FIX it
 
+## 🚨 CRITICAL — NEVER USE GIT COMMANDS (READ BEFORE ANYTHING ELSE)
+
+> **⛔ ABSOLUTE RULE — ZERO EXCEPTIONS**: You MUST NEVER run `git add`, `git commit`, `git push`, `git checkout -b`, or ANY git write command. The gh-aw framework handles ALL git operations automatically. If you commit files, the `create_pull_request` safe output WILL fail with "No changes to commit" because it expects uncommitted working directory changes.
+
+**The ONLY correct workflow:**
+1. Write/edit files using bash, `edit`, or `create` tools → files remain as **uncommitted working directory changes**
+2. Call `safeoutputs___create_pull_request` with `title`, `body`, `base`, `head` → the framework auto-commits, creates the branch, and opens the PR
+
+**FORBIDDEN git operations (these WILL break the workflow):**
+- ❌ `git add` — NEVER stage files manually
+- ❌ `git commit` — NEVER commit files manually
+- ❌ `git push` — NEVER push manually
+- ❌ `git checkout -b` — NEVER create branches manually
+- ❌ `git reset` / `git stash` — NEVER manipulate git state
+- ❌ ANY attempt to "fix" a failed `create_pull_request` call with git commands — retry **once**, then let the workflow fail
+
+**If `create_pull_request` fails:**
+1. Retry `safeoutputs___create_pull_request` exactly **once**
+2. If still fails: ❌ workflow MUST FAIL — do NOT try alternative git commands, branch tricks, or API calls
+3. Do NOT waste time on multiple retry approaches — this just wastes the run budget
+
 ## 🧠 Memory & Reasoning Tools
 
 ### Repo Memory (persistent across runs)
@@ -607,13 +628,15 @@ fi
 
 > **CORE STEP**: The generator produces articles with localized UI but **English narrative content**. You MUST translate all English text in each non-English file.
 
+> **⛔ REMINDER — NO GIT COMMANDS**: Use `edit` tool or bash file writes (e.g., `cat > file`, `sed -i`) to update translation files. NEVER run `git add`, `git commit`, or any git command. Files MUST remain as uncommitted working directory changes for the PR creation step to work.
+
 > **⏱️ TIME MANAGEMENT**: Check elapsed time after each article type. If 65+ minutes elapsed, SKIP remaining translations and proceed directly to Step 5 (PR creation). Partial translations are acceptable.
 
 For each non-English article file generated in Step 3:
 
 1. Read the file, identify English text in `<p>`, `<li>`, `<td>`, `<span>`, `<div>` elements
 2. Translate to the target language using EP terminology standards (see table above)
-3. Write the translated file back
+3. Write the translated file back using `edit` tool or bash file writes — do NOT use git commands
 4. Keep: proper nouns (MEP names), abbreviations (EPP, S&D), reference IDs, location names
 
 Translate ALL narrative content: analysis, stakeholder perspectives, impact assessments, SWOT entries, outlook, footer disclaimers, and alt text.
@@ -823,6 +846,53 @@ echo "📊 Extending analysis summary with translation results: ${SUMMARY_FILE}"
 
 ## Step 5: Create Pull Request
 
+#### MANDATORY Git State Safety Check (Prevent "No changes to commit" Error)
+
+> **⚠️ CRITICAL**: The `create_pull_request` safe output expects ALL file changes to be **uncommitted working directory modifications**. If any git commits were accidentally made (e.g., via `git add` + `git commit`), this safety check undoes them so the safe output can capture the changes.
+
+```bash
+# Safety check: undo any accidental git commits made during translation
+# The safe output mechanism expects uncommitted working directory changes.
+# If the agent accidentally committed, reset to the original checkout state
+# while keeping all file changes in the working directory.
+ORIGINAL_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+# Find the original checkout SHA — the commit that was HEAD when the workflow started
+# In a shallow clone, use the oldest commit available; in a full clone, use the first commit
+# on the current branch that matches what Actions checked out
+CHECKOUT_SHA=$(git rev-list --max-parents=0 HEAD 2>/dev/null | tail -1)
+if [ -z "$CHECKOUT_SHA" ]; then
+  CHECKOUT_SHA=$(git log --format='%H' --reverse 2>/dev/null | head -1)
+fi
+CURRENT_SHA=$(git rev-parse HEAD)
+COMMITS_SINCE_CHECKOUT=$(git rev-list --count "$CHECKOUT_SHA".."$CURRENT_SHA" 2>/dev/null || echo 0)
+
+echo "📋 Git state check:"
+echo "  Branch:               $ORIGINAL_BRANCH"
+echo "  Checkout SHA:         $CHECKOUT_SHA"
+echo "  Current SHA:          $CURRENT_SHA"
+echo "  Commits since checkout: $COMMITS_SINCE_CHECKOUT"
+
+if [ "$COMMITS_SINCE_CHECKOUT" -gt 0 ]; then
+  echo "⚠️ Git state safety: detected $COMMITS_SINCE_CHECKOUT commit(s) since checkout — resetting to keep files as uncommitted changes"
+  # Reset to the original checkout commit, keeping all file changes in working directory
+  git reset --mixed "$CHECKOUT_SHA" 2>/dev/null || true
+  echo "✅ Git state restored — all changes are now uncommitted working directory modifications"
+else
+  echo "✅ Git state clean — no accidental commits detected"
+fi
+
+# Ensure we're on the original branch (not a manually created branch)
+if [ "$ORIGINAL_BRANCH" != "main" ] && [ "$ORIGINAL_BRANCH" != "HEAD" ]; then
+  echo "⚠️ Git state safety: on branch '$ORIGINAL_BRANCH' instead of main — switching back"
+  git checkout main 2>/dev/null || true
+fi
+
+echo "📋 Working directory status (should show uncommitted changes):"
+git status --short | head -20
+CHANGE_COUNT=$(git status --short | wc -l)
+echo "📊 Total uncommitted changes: $CHANGE_COUNT"
+```
+
 #### MANDATORY Metadata Cleanup (Prevent Patch Conflicts)
 
 > **⚠️ CRITICAL**: The generator writes `news/metadata/generation-YYYY-MM-DD.json` during article creation. When multiple news workflows run on the same day, each creates the same date's metadata file. If another workflow's PR is merged before this workflow's patch is applied, the metadata file already exists on `main` and the patch fails with "Failed to apply patch". **Remove the metadata file from the working directory before creating the PR** so it is not included in the diff.
@@ -831,9 +901,9 @@ echo "📊 Extending analysis summary with translation results: ${SUMMARY_FILE}"
 # Remove metadata files to prevent patch conflicts with other same-day workflows
 rm -f news/metadata/generation-*.json
 rm -f news/articles-metadata.json
-# ⚠️ MANDATORY: Commit analysis artifacts per ai-driven-analysis-guide.md Rule 5
+# ⚠️ MANDATORY: Persist analysis artifacts per ai-driven-analysis-guide.md Rule 5
 # No workflow run should be wasted — translation analysis is ALWAYS persisted.
-# Remove only raw data downloads to control PR size. Analysis markdown MUST be committed.
+# Remove only raw data downloads to control PR size. Analysis markdown MUST be kept.
 rm -rf analysis-output/
 # Scope cleanup to THIS workflow's analysis directory only — never touch other workflows' data
 if [ -z "${ARTICLE_DATE:-}" ]; then
@@ -844,7 +914,7 @@ if [ -d "${TRANSLATE_ANALYSIS_DIR}" ]; then
   find "${TRANSLATE_ANALYSIS_DIR}" -type f -path "*/data/*" ! -name "*.analysis.md" ! -name "*.md" -delete 2>/dev/null || true
   find "${TRANSLATE_ANALYSIS_DIR}" -type d -name "data" -empty -delete 2>/dev/null || true
 fi
-echo "🧹 Cleaned raw data payloads for ${ARTICLE_DATE}/translate; translation analysis markdown artifacts PRESERVED for commit"
+echo "🧹 Cleaned raw data payloads for ${ARTICLE_DATE}/translate; translation analysis markdown artifacts PRESERVED for PR"
 
 if [ -z "${ARTICLE_DATE:-}" ]; then
   ARTICLE_DATE=$(date -u +%Y-%m-%d)
@@ -907,15 +977,28 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 - ❌ Passing a `files` parameter — it does not exist; all working directory changes are captured automatically
 - ❌ Trying multiple alternative approaches if PR creation fails — retry **once**, then let the workflow fail
 
+**⚠️ NEVER use `git push` directly** — always use `safeoutputs___create_pull_request`
+
 - ✅ `safeoutputs___create_pull_request` when ANY translations are generated
 - ✅ `safeoutputs___create_pull_request` with analysis-only if no articles found
 - ✅ `safeoutputs___noop` ONLY if no English articles exist AND no analysis-only PR created
-- ❌ NEVER use `git push` — always use `safeoutputs___create_pull_request`
 - ❌ NEVER exit without calling either `safeoutputs___create_pull_request` or `safeoutputs___noop`
 
 ## Error Handling
 
-- **No English articles**: Create analysis-only PR or call `safeoutputs___noop`
-- **MCP server unavailable**: Generator falls back to stdio mode
-- **Some types fail**: Continue with remaining, create PR with partial translations
-- **PR creation fails**: Retry once, then workflow MUST FAIL
+**If translation generator fails:**
+1. Log the specific failure
+2. Continue with remaining article types — partial translations are acceptable
+3. If ALL types fail, create analysis-only PR with failure summary
+
+**If PR creation fails AFTER generating translations:**
+1. Retry `safeoutputs___create_pull_request` exactly **once**
+2. If still fails: ❌ workflow MUST FAIL — do NOT try alternative git commands or API calls
+3. The translations exist but no PR = readers can't see them = FAILURE
+4. Do NOT attempt: branch creation, git reset, git checkout, reflog recovery, or any other git tricks
+
+**If no English articles found:**
+- Create analysis-only PR or call `safeoutputs___noop`
+
+**If MCP server unavailable:**
+- Generator falls back to stdio mode — continue normally
