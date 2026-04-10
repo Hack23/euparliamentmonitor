@@ -1087,11 +1087,35 @@ export function buildLegislativeVelocityReport(
  * to identify non-traditional coalition patterns.
  */
 const TRADITIONAL_LEFT_GROUPS: readonly string[] = ['S&D', 'Greens/EFA', 'The Left'];
-const TRADITIONAL_RIGHT_GROUPS: readonly string[] = ['ECR', 'ID', 'PfE', 'Patriots'];
-const TRADITIONAL_CENTRE_GROUPS: readonly string[] = ['EPP', 'Renew'];
+const TRADITIONAL_RIGHT_GROUPS: readonly string[] = [
+  'ECR',
+  'ID',
+  'PfE',
+  'Patriots',
+  'Patriots for Europe',
+];
+const TRADITIONAL_CENTRE_GROUPS: readonly string[] = ['EPP', 'Renew', 'Renew Europe'];
+
+/** Map known EP group label variants to a canonical short form. */
+const GROUP_LABEL_ALIASES: Readonly<Record<string, string>> = {
+  Patriots: 'PfE',
+  'Patriots for Europe': 'PfE',
+  'Renew Europe': 'Renew',
+};
 
 /** Signal type constant for cross-party alignment detection */
 const CROSS_PARTY_ALIGNMENT = 'cross-party-alignment' as const;
+
+/**
+ * Normalize known EP political group label variants to a canonical form.
+ *
+ * @param group - Political group name
+ * @returns Canonical political group label
+ */
+function normalizeGroupLabel(group: string): string {
+  const trimmed = group.trim();
+  return GROUP_LABEL_ALIASES[trimmed] ?? trimmed;
+}
 
 /**
  * Classify a group into its traditional EP bloc.
@@ -1100,9 +1124,10 @@ const CROSS_PARTY_ALIGNMENT = 'cross-party-alignment' as const;
  * @returns 'left' | 'right' | 'centre' | 'unknown'
  */
 function classifyBloc(group: string): 'left' | 'right' | 'centre' | 'unknown' {
-  if (TRADITIONAL_LEFT_GROUPS.includes(group)) return 'left';
-  if (TRADITIONAL_RIGHT_GROUPS.includes(group)) return 'right';
-  if (TRADITIONAL_CENTRE_GROUPS.includes(group)) return 'centre';
+  const normalized = normalizeGroupLabel(group);
+  if (TRADITIONAL_LEFT_GROUPS.includes(normalized)) return 'left';
+  if (TRADITIONAL_RIGHT_GROUPS.includes(normalized)) return 'right';
+  if (TRADITIONAL_CENTRE_GROUPS.includes(normalized)) return 'centre';
   return 'unknown';
 }
 

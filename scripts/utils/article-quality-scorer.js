@@ -1197,6 +1197,18 @@ export function scoreArticleQuality(html, articleId, lang, articleType) {
         passesQualityGate,
     };
     const recommendations = generateRecommendations(partial);
+    // Wire extended scoring dimensions into recommendations for English articles.
+    // These use keyword/regex detection that is only reliable for English text.
+    if (isEnglish) {
+        const temporal = scoreTemporalCoverage(plainText, true);
+        if (temporal.score < 67) {
+            recommendations.push('Improve temporal coverage: include past context, current state, and forward-looking outlook for comprehensive time-aware analysis');
+        }
+        const crossRef = scoreCrossReferenceDensity(html);
+        if (crossRef.totalReferences < 3) {
+            recommendations.push('Increase cross-reference density: cite EP document IDs, procedure references, or TA numbers to strengthen grounding');
+        }
+    }
     return { ...partial, recommendations };
 }
 //# sourceMappingURL=article-quality-scorer.js.map

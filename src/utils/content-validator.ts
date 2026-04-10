@@ -456,6 +456,9 @@ export function validateArticleContent(
     );
   }
 
+  // Extended validation: cross-reference density, stakeholder balance, temporal coverage
+  collectExtendedValidationWarnings(html, warnings);
+
   return {
     valid: errors.length === 0,
     warnings,
@@ -648,6 +651,25 @@ export function validateTranslationCompleteness(
 // ─── Extended validation rules ────────────────────────────────────────────────
 
 /**
+ * Collect warnings from extended validation rules (cross-reference density,
+ * stakeholder group balance, temporal coverage). Extracted to keep
+ * {@link validateArticleContent} within cognitive-complexity limits.
+ *
+ * @param html - Complete article HTML
+ * @param warnings - Mutable array to push warning strings into
+ */
+function collectExtendedValidationWarnings(html: string, warnings: string[]): void {
+  const crossRefWarning = validateCrossReferenceDensity(html);
+  if (crossRefWarning) warnings.push(crossRefWarning);
+
+  const balanceWarning = validateStakeholderGroupBalance(html);
+  if (balanceWarning) warnings.push(balanceWarning);
+
+  const temporalWarning = validateTemporalCoverage(html);
+  if (temporalWarning) warnings.push(temporalWarning);
+}
+
+/**
  * Patterns matching known EP document reference formats.
  * Uses separate patterns to avoid alternation complexity.
  * Covers: TA-10-2026-0123, PE-123, PE-123.456, A9-0123, B9-0123, C9-0123, P9_TA(2024)0001
@@ -665,21 +687,19 @@ const CV_PROCEDURE_REF_PATTERN = /\b\d{4}\/\d+\([A-Z]{2,4}\)/gu;
 
 /**
  * Known EP political groups for stakeholder balance validation.
- * Single-group dominance is detected when one group accounts for the majority
- * of group mentions across all known groups.
+ * Each entry must be a single canonical, non-overlapping group name so
+ * independent matching does not double-count aliases such as "Renew Europe"
+ * and "Renew".
  */
 const EP_POLITICAL_GROUPS: ReadonlyArray<string> = [
   'EPP',
   'S&D',
   'Renew Europe',
-  'Renew',
   'Greens/EFA',
   'ECR',
   'Identity and Democracy',
-  'ID',
   'The Left',
   'Patriots for Europe',
-  'PfE',
 ];
 
 /** Patterns indicating forward-looking content (temporal coverage validation) */
