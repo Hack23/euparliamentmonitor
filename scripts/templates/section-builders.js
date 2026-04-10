@@ -221,7 +221,7 @@ export function buildQualityScoreBadge(score) {
  * Build an HTML timeline section for legislative or procedural events.
  *
  * Renders an ordered list of dated events. Each item includes a date badge
- * and a label. An optional description is included for screen readers when
+ * and a label. An optional description is included as visible text when
  * provided. Empty items array returns an empty string.
  *
  * @param items - Ordered list of {@link TimelineItem} events to render.
@@ -258,11 +258,12 @@ export function buildTimelineSection(items, lang) {
  * Build an HTML before/after comparison table for legislative changes.
  *
  * Renders a two-column table comparing the state of something before and after
- * a legislative action. Both columns must have equal row counts. Returns an
- * empty string when either array is empty.
+ * a legislative action. When the input arrays have different lengths, the
+ * table uses the longer length and renders missing cells as empty strings.
+ * Returns an empty string when either array is empty.
  *
- * @param before - Array of "before" state descriptions (one per row).
- * @param after - Array of "after" state descriptions (one per row).
+ * @param before - Array of "before" state descriptions for the first column.
+ * @param after - Array of "after" state descriptions for the second column.
  * @param lang - Language code used for column headings.
  * @returns HTML string for the comparison `<table>`, or empty string when either array is empty.
  */
@@ -323,7 +324,7 @@ export function buildKeyFiguresBar(figures, lang) {
         const descriptionPart = fig.description
             ? `<span class="sr-only">${escapeHTML(fig.description)}</span>`
             : '';
-        return (`<div class="key-figure-card" role="figure" aria-label="${safeLabel}: ${safeValue}${safeUnit ? ' ' + safeUnit : ''}">` +
+        return (`<div class="key-figure-card" role="listitem" aria-label="${safeLabel}: ${safeValue}${safeUnit ? ' ' + safeUnit : ''}">` +
             `<span class="kf-value">${safeValue}${unitSpan}</span>` +
             `<span class="kf-label">${safeLabel}</span>` +
             descriptionPart +

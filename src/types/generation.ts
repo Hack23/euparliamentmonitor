@@ -34,7 +34,15 @@ export interface RelatedArticleLink {
   /** Article title */
   title: string;
   /** Article category */
-  category: string;
+  category: ArticleCategory;
+}
+
+/** Entry describing a single analysis file produced during a pipeline run */
+export interface AnalysisFileEntry {
+  /** Canonical analysis method name (e.g. 'significance-classification') */
+  readonly method: string;
+  /** Relative file path within the analysis directory (e.g. 'classification/significance-classification.md') */
+  readonly outputFile: string;
 }
 
 /** Options for generating article HTML */
@@ -58,6 +66,8 @@ export interface ArticleOptions {
   analysisDir?: string | undefined;
   /** Related articles for cross-article navigation at the bottom of the article. */
   relatedArticles?: ReadonlyArray<RelatedArticleLink> | undefined;
+  /** Analysis files produced by the pipeline run, from manifest.json. When provided, the transparency section dynamically links to ALL these files instead of using hardcoded defaults. */
+  analysisFiles?: ReadonlyArray<AnalysisFileEntry> | undefined;
 }
 
 /** Sitemap URL entry */

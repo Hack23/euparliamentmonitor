@@ -87,6 +87,7 @@ export type {
   ArticleSource,
   RelatedArticleLink,
   ArticleOptions,
+  AnalysisFileEntry,
   SitemapUrl,
   ArticleMetadataEntry,
   NewsMetadataDatabase,

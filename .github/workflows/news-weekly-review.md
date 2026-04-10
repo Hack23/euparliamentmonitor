@@ -115,7 +115,7 @@ You are the **News Journalist Agent** for EU Parliament Monitor generating **wee
 
 ## 🚫 MANDATORY Scope Restriction
 
-> **⚠️ CRITICAL**: This workflow ONLY creates article files in the `news/` directory. You MUST NOT modify any other files.
+> **⚠️ CRITICAL**: This workflow ONLY creates article files in the `news/` directory and analysis artifacts in the `analysis/daily/` directory. You MUST NOT modify any other files.
 
 **FORBIDDEN modifications (will cause patch conflicts and workflow failure):**
 - ❌ `src/` — NEVER modify TypeScript source files
@@ -287,7 +287,7 @@ Synthesize the week's significance:
 ## ⏱️ Time Budget (60 minutes)
 
 - **Minutes 0–3**: Date validation, MCP Health Gate with `get_plenary_sessions({ limit: 1 })` (up to 3 attempts)
-- **Minutes 3–8**: 🔬 Automated political intelligence analysis stage (significance classification, political threat landscape assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `analysis/daily/${TODAY}/week-in-review/`)
+- **Minutes 3–8**: 🔬 Automated political intelligence analysis stage (significance classification, political threat landscape assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `${ANALYSIS_DIR}/`)
 - **Minutes 8–15**: Query voting records, documents, and questions from past 7 days
 - **Minutes 15–35**: 🔬🔬🔬 **MANDATORY DEEP POLITICAL ANALYSIS PHASE (20+ MINUTES)** — Read ALL methodology guides and templates, apply them to EVERY downloaded MCP data file, write substantive analysis markdown, use `sequentialthinking` for complex reasoning, cross-reference documents via knowledge graph, complete 4-pass refinement cycle. **⚠️ Per Rule 7, spend ≥20 minutes on AI-driven analysis.** Article topic and angle MUST be decided ONLY from completed significance scoring results. Weekly review requires deeper synthesis across the full week's events.
 - **Minutes 35–50**: Generate English article with deep political intelligence analysis informed by completed analysis artifacts
@@ -308,7 +308,7 @@ The `--analysis` flag activates the political intelligence analysis pipeline **b
    - **Risk Scoring** (5 methods): political risk matrix, capital-at-risk assessment, quantitative SWOT, legislative velocity risk, agent risk workflow
    - **Intelligence** (5 methods): deep analysis, stakeholder analysis, coalition dynamics, voting patterns, cross-session intelligence
    - _Optional_: **Per-Document Analysis** (opt-in via `--analysis-methods=document-analysis`) — per-document markdown + JSON intelligence files for every downloaded MCP file; not included in default set
-3. **Writes and commits analysis artifacts** to `analysis/daily/${TODAY}/week-in-review/` (markdown files + `manifest.json`) — each workflow writes to its own per-article-type subdirectory, preventing merge conflicts when multiple workflows run concurrently; MCP data is stored at `analysis/daily/${TODAY}/week-in-review/data/`
+3. **Writes and commits analysis artifacts** to `${ANALYSIS_DIR}/` (markdown files + `manifest.json`) — each workflow writes to its own per-article-type subdirectory, preventing merge conflicts when multiple workflows run concurrently; MCP data is stored at `${ANALYSIS_DIR}/data/`
 4. **Blocks article generation on failure in agentic mode** — when `--analysis` is enabled, analysis failures abort the run; disable `--analysis` if you want generation to proceed without analysis
 
 The analysis artifacts provide structured political intelligence that enriches the article generation phase with deeper context, evidence-based assessments, and systematic threat/risk analysis.
@@ -319,11 +319,11 @@ The analysis artifacts provide structured political intelligence that enriches t
 
 > **⚠️ FULL DATA ANALYSIS**: Read ALL structured templates in `analysis/templates/` and methodology guides in `analysis/methodologies/` BEFORE starting analysis. Apply them to **every downloaded MCP data file**. See `analysis/README.md` for the complete analysis directory documentation.
 
-> **⚠️ IMPROVE EXISTING ANALYSIS**: Per `ai-driven-analysis-guide.md` Rule 5, before producing new analysis, check for existing analysis in `analysis/daily/${TODAY}/week-in-review/`. If previous analysis exists, READ it first and **improve, extend, correct, or complete** it — never discard prior work. No workflow run should be wasted.
+> **⚠️ UNIQUE RUN DIRECTORY**: Each workflow run writes analysis to a unique directory scoped by run number (`${ANALYSIS_DIR}/`). Do NOT read or modify analysis from other runs. This ensures every article links to the exact analysis that produced it and prevents merge conflicts between concurrent or repeated runs.
 
 ### Structured Analysis Templates (analysis/templates/)
 
-Read and apply **all structured templates** used by this workflow. This includes per-file analysis for **every downloaded MCP data file** in `analysis/daily/${TODAY}/week-in-review/data/` and a final cross-file synthesis step:
+Read and apply **all structured templates** used by this workflow. This includes per-file analysis for **every downloaded MCP data file** in `${ANALYSIS_DIR}/data/` and a final cross-file synthesis step:
 
 | Template | File | When to Apply |
 |----------|------|--------------|
@@ -351,7 +351,7 @@ Read these BEFORE creating analysis artifacts — they define the scoring framew
 
 ### Higher-Level Analysis Templates (docs/analysis-methodology/)
 
-Use `docs/analysis-methodology/weekly-intelligence-brief.md` as the **required primary template** for generating analysis artifacts in `analysis/daily/${TODAY}/week-in-review/`. Consult the other templates below as **supporting references** when their focus area is relevant to the week's events:
+Use `docs/analysis-methodology/weekly-intelligence-brief.md` as the **required primary template** for generating analysis artifacts in `${ANALYSIS_DIR}/`. Consult the other templates below as **supporting references** when their focus area is relevant to the week's events:
 
 | Template | File | When to Apply |
 |----------|------|--------------|
@@ -419,14 +419,18 @@ CURRENT_MONTH_NAME=$(date -u +%B)
 CURRENT_DAY=$(date -u +%d)
 DAY_OF_WEEK=$(date -u +%A)
 DAY_NUM=$(date -u +%u)
+RUN_ID="${GITHUB_RUN_NUMBER:-0}"
+ANALYSIS_DIR="analysis/daily/${TODAY}/week-in-review-run${RUN_ID}"
 LAST_WEEK=$(date -u -d "$TODAY - 7 days" +%Y-%m-%d)
 echo "Today:     $TODAY ($DAY_OF_WEEK)"
 echo "Month:     $CURRENT_MONTH_NAME $CURRENT_YEAR"
 echo "Year:      $CURRENT_YEAR"
 echo "Last week: $LAST_WEEK"
 echo "Article Type: week-in-review"
+echo "Run ID: $RUN_ID"
+echo "Analysis Dir: $ANALYSIS_DIR"
 echo "==================================="
-export TODAY CURRENT_YEAR CURRENT_MONTH CURRENT_MONTH_NAME CURRENT_DAY DAY_OF_WEEK DAY_NUM LAST_WEEK
+export TODAY CURRENT_YEAR CURRENT_MONTH CURRENT_MONTH_NAME CURRENT_DAY DAY_OF_WEEK DAY_NUM LAST_WEEK RUN_ID ANALYSIS_DIR
 ```
 
 **⚠️ DATE GUARD**: When passing `dateFrom`/`dateTo` to ANY MCP tool, ALWAYS derive dates from `$TODAY` and `$LAST_WEEK` (set above). NEVER hardcode a year (e.g. 2024, 2025). Use `date -u -d` for offsets.
@@ -684,6 +688,7 @@ npx tsx src/generators/news-enhanced.ts \
   --types=week-in-review \
   --languages="$LANG_ARG" \
   --analysis \
+  --run-id="$RUN_ID" \
   --title="$AI_TITLE" \
   --description="$AI_DESCRIPTION" \
   $FEED_DATA_FLAG \
@@ -767,7 +772,7 @@ fi
 - ✅ **manifest.json** includes `"articleType": "week-in-review"`
 - ✅ **Analysis markdown** files include `articleType: week-in-review` in YAML frontmatter
 - ✅ **Article HTML** includes `<meta name="article-type" content="week-in-review">`
-- ✅ **Analysis directory** is scoped to `analysis/daily/${TODAY}/week-in-review/`
+- ✅ **Analysis directory** is scoped to `${ANALYSIS_DIR}/`
 
 ### Minimum AI Analysis Time (Rule 7 — required)
 - ✅ **≥20 minutes** spent on dedicated deep political intelligence analysis phase (reading ALL 6 methodology guides, querying MCP, applying templates to every data file, writing original analytical prose) — weekly review requires more analysis time
@@ -865,7 +870,7 @@ rm -f news/metadata/generation-*.json
 # No workflow run should be wasted — analysis is ALWAYS persisted.
 # Remove only raw MCP data downloads to control PR size. Analysis markdown MUST be committed.
 # Scope cleanup to THIS run's analysis directory only — never touch historical data
-RUN_ANALYSIS_DIR="analysis/daily/${TODAY}/week-in-review"
+RUN_ANALYSIS_DIR="${ANALYSIS_DIR}"
 if [ -d "$RUN_ANALYSIS_DIR" ]; then
   find "$RUN_ANALYSIS_DIR" -type f -path "*/data/*" ! -name "*.analysis.md" ! -name "*.md" -delete 2>/dev/null || true
   find "$RUN_ANALYSIS_DIR" -type d -name "data" -empty -delete 2>/dev/null || true

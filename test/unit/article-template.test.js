@@ -785,11 +785,18 @@ describe('article-template', () => {
         expect(html).toContain('"@type": "NewsArticle"');
       });
 
-      it('should include hasPart in NewsArticle JSON-LD', () => {
+      it('should include hasPart in NewsArticle JSON-LD conditionally based on content', () => {
+        // Default content without deep-analysis class should NOT include deep-analysis hasPart
         const html = generateArticleHTML(defaultOptions);
         expect(html).toContain('"hasPart"');
         expect(html).toContain('"WebPageElement"');
-        expect(html).toContain('.deep-analysis');
+        expect(html).toContain('.article-sources');
+
+        // Content with deep-analysis class SHOULD include deep-analysis hasPart
+        const deepContent = '<section class="deep-analysis"><p>Analysis content</p></section>';
+        const htmlWithDeep = generateArticleHTML({ ...defaultOptions, content: deepContent });
+        expect(htmlWithDeep).toContain('.deep-analysis');
+        expect(htmlWithDeep).toContain('.article-sources');
       });
 
       it('should include BreadcrumbList JSON-LD', () => {
@@ -893,6 +900,225 @@ describe('article-template', () => {
         expect(html).toContain('Article One');
         expect(html).toContain('Article Two');
         expect(html).toContain('related-article-item');
+      });
+
+      it('should filter out articles with invalid date/slug/lang patterns', () => {
+        const html = generateArticleHTML({
+          ...defaultOptions,
+          relatedArticles: [
+            {
+              slug: 'committee-reports',
+              date: '2026-01-15',
+              lang: /** @type {'en'} */ ('en'),
+              title: 'Valid Article',
+              category: 'committee-reports',
+            },
+            {
+              slug: 'javascript:alert(1)',
+              date: '2026-01-15',
+              lang: /** @type {'en'} */ ('en'),
+              title: 'XSS via slug',
+              category: 'breaking',
+            },
+            {
+              slug: 'breaking',
+              date: 'not-a-date',
+              lang: /** @type {'en'} */ ('en'),
+              title: 'Bad date',
+              category: 'breaking',
+            },
+          ],
+        });
+        expect(html).toContain('Valid Article');
+        expect(html).not.toContain('XSS via slug');
+        expect(html).not.toContain('Bad date');
+      });
+
+      it('should use relative path prefix in href', () => {
+        const html = generateArticleHTML({
+          ...defaultOptions,
+          relatedArticles: [
+            {
+              slug: 'breaking',
+              date: '2026-01-15',
+              lang: /** @type {'en'} */ ('en'),
+              title: 'Test Article',
+              category: 'breaking',
+            },
+          ],
+        });
+        expect(html).toContain('href="./2026-01-15-breaking-en.html"');
+      });
+    });
+
+    describe('Analysis transparency - dynamic analysisFiles', () => {
+      it('should render dynamic links grouped by subdirectory when analysisFiles provided', () => {
+        /** @type {import('../../scripts/types/generation.js').AnalysisFileEntry[]} */
+        const analysisFiles = [
+          { method: 'significance-classification', outputFile: 'classification/significance-classification.md' },
+          { method: 'actor-mapping', outputFile: 'classification/actor-mapping.md' },
+          { method: 'risk-matrix', outputFile: 'risk-scoring/risk-matrix.md' },
+          { method: 'deep-analysis', outputFile: 'existing/deep-analysis.md' },
+        ];
+        const html = generateArticleHTML({
+          ...defaultOptions,
+          analysisDir: 'breaking-run5',
+          analysisFiles,
+        });
+
+        // Should contain links for all 4 analysis files
+        expect(html).toContain('classification/significance-classification.md');
+        expect(html).toContain('classification/actor-mapping.md');
+        expect(html).toContain('risk-scoring/risk-matrix.md');
+        expect(html).toContain('existing/deep-analysis.md');
+
+        // Should contain localized section headings (English)
+        expect(html).toContain('Classification Analysis');
+        expect(html).toContain('Risk Scoring');
+
+        // Should contain the analysis dir in the URL base
+        expect(html).toContain('breaking-run5');
+      });
+
+      it('should render fallback links when analysisFiles is undefined', () => {
+        const html = generateArticleHTML({
+          ...defaultOptions,
+          analysisDir: 'breaking-run5',
+          // No analysisFiles
+        });
+
+        // Should contain hardcoded fallback links
+        expect(html).toContain('classification/significance-classification.md');
+        expect(html).toContain('threat-assessment/political-threat-landscape.md');
+        expect(html).toContain('risk-scoring/risk-matrix.md');
+        expect(html).toContain('existing/deep-analysis.md');
+      });
+
+      it('should render fallback links when analysisFiles is empty', () => {
+        const html = generateArticleHTML({
+          ...defaultOptions,
+          analysisDir: 'breaking-run5',
+          analysisFiles: [],
+        });
+
+        // Should contain hardcoded fallback links
+        expect(html).toContain('classification/significance-classification.md');
+        expect(html).toContain('existing/deep-analysis.md');
+      });
+
+      it('should handle unknown methods with titleized fallback labels', () => {
+        /** @type {import('../../scripts/types/generation.js').AnalysisFileEntry[]} */
+        const analysisFiles = [
+          { method: 'custom-exotic-method', outputFile: 'custom/exotic-report.md' },
+        ];
+        const html = generateArticleHTML({
+          ...defaultOptions,
+          analysisFiles,
+        });
+
+        // Should titleize the unknown method name
+        expect(html).toContain('Custom Exotic Method');
+        // Should titleize the unknown subdirectory name
+        expect(html).toContain('Custom');
+        expect(html).toContain('custom/exotic-report.md');
+      });
+
+      it('should filter out analysis files with path traversal in outputFile', () => {
+        /** @type {import('../../scripts/types/generation.js').AnalysisFileEntry[]} */
+        const analysisFiles = [
+          { method: 'safe-method', outputFile: 'classification/safe-file.md' },
+          { method: 'bad-traversal', outputFile: '../../../etc/passwd' },
+          { method: 'bad-absolute', outputFile: '/etc/secret' },
+          { method: 'bad-backslash', outputFile: 'classification\\bad.md' },
+          { method: 'bad-mid-backslash', outputFile: 'valid/path\\injection.md' },
+          { method: 'bad-long', outputFile: 'a'.repeat(300) + '.md' },
+        ];
+        const html = generateArticleHTML({
+          ...defaultOptions,
+          analysisFiles,
+        });
+
+        // Safe file should be included
+        expect(html).toContain('classification/safe-file.md');
+        // Unsafe paths should NOT appear
+        expect(html).not.toContain('etc/passwd');
+        expect(html).not.toContain('/etc/secret');
+        expect(html).not.toContain('classification\\bad.md');
+        expect(html).not.toContain('path\\injection.md');
+        expect(html).not.toContain('a'.repeat(300));
+      });
+
+      it('should URL-encode path segments in analysis file links', () => {
+        /** @type {import('../../scripts/types/generation.js').AnalysisFileEntry[]} */
+        const analysisFiles = [
+          { method: 'significance-classification', outputFile: 'classification/significance-classification.md' },
+        ];
+        const html = generateArticleHTML({
+          ...defaultOptions,
+          analysisFiles,
+        });
+
+        // Should contain properly formed URL with the file path
+        expect(html).toContain('classification/significance-classification.md');
+        expect(html).toContain('target="_blank"');
+        expect(html).toContain('rel="noopener noreferrer"');
+      });
+
+      it('should include documents subdirectory in dynamic links', () => {
+        /** @type {import('../../scripts/types/generation.js').AnalysisFileEntry[]} */
+        const analysisFiles = [
+          { method: 'document-analysis', outputFile: 'documents/document-analysis-index.md' },
+          { method: 'synthesis-summary', outputFile: 'existing/synthesis-summary.md' },
+        ];
+        const html = generateArticleHTML({
+          ...defaultOptions,
+          analysisFiles,
+        });
+
+        // Should contain both document analysis and synthesis summary
+        expect(html).toContain('documents/document-analysis-index.md');
+        expect(html).toContain('existing/synthesis-summary.md');
+        // Should have the document analysis section label
+        expect(html).toContain('Document Analysis');
+      });
+
+      it('should always include manifest.json link regardless of analysisFiles', () => {
+        const htmlWithFiles = generateArticleHTML({
+          ...defaultOptions,
+          analysisFiles: [
+            { method: 'risk-matrix', outputFile: 'risk-scoring/risk-matrix.md' },
+          ],
+        });
+        const htmlWithout = generateArticleHTML({
+          ...defaultOptions,
+        });
+
+        expect(htmlWithFiles).toContain('manifest.json');
+        expect(htmlWithout).toContain('manifest.json');
+      });
+
+      it('should render analysis files in correct subdirectory order', () => {
+        /** @type {import('../../scripts/types/generation.js').AnalysisFileEntry[]} */
+        const analysisFiles = [
+          { method: 'deep-analysis', outputFile: 'existing/deep-analysis.md' },
+          { method: 'risk-matrix', outputFile: 'risk-scoring/risk-matrix.md' },
+          { method: 'significance-classification', outputFile: 'classification/significance-classification.md' },
+          { method: 'political-threat-landscape', outputFile: 'threat-assessment/political-threat-landscape.md' },
+        ];
+        const html = generateArticleHTML({
+          ...defaultOptions,
+          analysisFiles,
+        });
+
+        // Verify ordering: classification < threat-assessment < risk-scoring < existing
+        const classIdx = html.indexOf('classification/significance-classification.md');
+        const threatIdx = html.indexOf('threat-assessment/political-threat-landscape.md');
+        const riskIdx = html.indexOf('risk-scoring/risk-matrix.md');
+        const existIdx = html.indexOf('existing/deep-analysis.md');
+
+        expect(classIdx).toBeLessThan(threatIdx);
+        expect(threatIdx).toBeLessThan(riskIdx);
+        expect(riskIdx).toBeLessThan(existIdx);
       });
     });
   });
