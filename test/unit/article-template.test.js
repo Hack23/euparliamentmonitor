@@ -46,7 +46,7 @@ describe('article-template', () => {
 
       it('should include all required meta tags', () => {
         const html = generateArticleHTML(defaultOptions);
-        
+
         expect(html).toContain('<meta charset="UTF-8">');
         expect(html).toContain('<meta name="viewport"');
         expect(html).toContain('<meta name="description"');
@@ -57,7 +57,7 @@ describe('article-template', () => {
 
       it('should include article title in multiple places', () => {
         const html = generateArticleHTML(defaultOptions);
-        
+
         expect(html).toContain(`<title>${defaultOptions.title} | EU Parliament Monitor</title>`);
         expect(html).toContain(`<h1>${defaultOptions.title}</h1>`);
       });
@@ -116,8 +116,23 @@ describe('article-template', () => {
       });
 
       it('should set LTR direction for all EU languages', () => {
-        const euLangs = ['en', 'de', 'fr', 'es', 'it', 'nl', 'pl', 'pt', 'ro', 'sv', 'da', 'fi', 'el', 'hu'];
-        
+        const euLangs = [
+          'en',
+          'de',
+          'fr',
+          'es',
+          'it',
+          'nl',
+          'pl',
+          'pt',
+          'ro',
+          'sv',
+          'da',
+          'fi',
+          'el',
+          'hu',
+        ];
+
         euLangs.forEach((lang) => {
           const html = generateArticleHTML({ ...defaultOptions, lang });
           expect(html).toContain(`<html lang="${lang}" dir="ltr">`);
@@ -137,7 +152,11 @@ describe('article-template', () => {
       });
 
       it('should fall back to raw category string for unknown article categories', () => {
-        const html = generateArticleHTML({ ...defaultOptions, category: 'custom-unknown', lang: 'en' });
+        const html = generateArticleHTML({
+          ...defaultOptions,
+          category: 'custom-unknown',
+          lang: 'en',
+        });
         expect(html).toContain('<span class="article-type">custom-unknown</span>');
       });
 
@@ -161,10 +180,12 @@ describe('article-template', () => {
     describe('SEO Optimization', () => {
       it('should include Open Graph meta tags', () => {
         const html = generateArticleHTML(defaultOptions);
-        
+
         expect(html).toContain('<meta property="og:type" content="article">');
         expect(html).toContain(`<meta property="og:title" content="${defaultOptions.title}">`);
-        expect(html).toContain(`<meta property="og:description" content="${defaultOptions.subtitle}">`);
+        expect(html).toContain(
+          `<meta property="og:description" content="${defaultOptions.subtitle}">`
+        );
         expect(html).toContain('<meta property="og:site_name" content="EU Parliament Monitor">');
         // og:locale now uses BCP47 locale format (e.g. en_GB instead of en)
         expect(html).toContain('<meta property="og:locale" content="en_GB">');
@@ -172,15 +193,17 @@ describe('article-template', () => {
 
       it('should include Twitter Card meta tags', () => {
         const html = generateArticleHTML(defaultOptions);
-        
+
         expect(html).toContain('<meta name="twitter:card" content="summary_large_image">');
         expect(html).toContain(`<meta name="twitter:title" content="${defaultOptions.title}">`);
-        expect(html).toContain(`<meta name="twitter:description" content="${defaultOptions.subtitle}">`);
+        expect(html).toContain(
+          `<meta name="twitter:description" content="${defaultOptions.subtitle}">`
+        );
       });
 
       it('should include Schema.org structured data', () => {
         const html = generateArticleHTML(defaultOptions);
-        
+
         expect(html).toContain('<script type="application/ld+json">');
         expect(html).toContain('"@context": "https://schema.org"');
         expect(html).toContain('"@type": "NewsArticle"');
@@ -193,7 +216,7 @@ describe('article-template', () => {
           ...defaultOptions,
           keywords: ['parliament', 'legislation', 'EU'],
         });
-        
+
         expect(html).toContain('<meta name="keywords" content="parliament, legislation, EU">');
       });
 
@@ -202,13 +225,13 @@ describe('article-template', () => {
           ...defaultOptions,
           keywords: ['parliament', 'legislation'],
         });
-        
+
         expect(html).toContain('"keywords": "parliament, legislation"');
       });
 
       it('should include article:section Open Graph meta tag', () => {
         const html = generateArticleHTML(defaultOptions);
-        
+
         expect(html).toContain('<meta property="article:section" content="');
       });
 
@@ -224,7 +247,9 @@ describe('article-template', () => {
 
       it('should include article:modified_time meta tag', () => {
         const html = generateArticleHTML(defaultOptions);
-        expect(html).toContain(`<meta property="article:modified_time" content="${defaultOptions.date}">`);
+        expect(html).toContain(
+          `<meta property="article:modified_time" content="${defaultOptions.date}">`
+        );
       });
 
       it('should include dateModified in structured data', () => {
@@ -247,7 +272,7 @@ describe('article-template', () => {
     describe('Sources Section', () => {
       it('should include sources when provided', () => {
         const html = generateArticleHTML(defaultOptions);
-        
+
         expect(html).toContain('<section class="article-sources">');
         expect(html).toContain('<h2>Sources</h2>');
         mockSources.forEach((source) => {
@@ -258,14 +283,14 @@ describe('article-template', () => {
 
       it('should not include sources section when empty', () => {
         const html = generateArticleHTML({ ...defaultOptions, sources: [] });
-        
+
         expect(html).not.toContain('<section class="article-sources">');
         expect(html).not.toContain('<h2>Sources</h2>');
       });
 
       it('should use rel="noopener noreferrer" for external links', () => {
         const html = generateArticleHTML(defaultOptions);
-        
+
         mockSources.forEach((source) => {
           expect(html).toMatch(new RegExp(`<a href="[^"]*"[^>]*rel="noopener noreferrer"`));
         });
@@ -275,22 +300,24 @@ describe('article-template', () => {
     describe('Navigation', () => {
       it('should include back to news link at bottom', () => {
         const html = generateArticleHTML({ ...defaultOptions, lang: 'en' });
-        
+
         expect(html).toContain('<nav class="article-nav" aria-label="Article navigation">');
         expect(html).toContain('<a href="../index.html" class="back-to-news">← Back to News</a>');
       });
 
       it('should include back to news link at top', () => {
         const html = generateArticleHTML({ ...defaultOptions, lang: 'en' });
-        
+
         expect(html).toContain('<nav class="article-top-nav" aria-label="Article navigation">');
         expect(html).toContain('<a href="../index.html" class="back-to-news">← Back to News</a>');
       });
 
       it('should use correct back link for language', () => {
         const html = generateArticleHTML({ ...defaultOptions, lang: 'de' });
-        
-        expect(html).toContain('<a href="../index-de.html" class="back-to-news">← Zurück zu Nachrichten</a>');
+
+        expect(html).toContain(
+          '<a href="../index-de.html" class="back-to-news">← Zurück zu Nachrichten</a>'
+        );
       });
     });
 
@@ -298,12 +325,29 @@ describe('article-template', () => {
       it('should include language switcher navigation', () => {
         const html = generateArticleHTML(defaultOptions);
 
-        expect(html).toContain('<nav class="site-header__langs" role="navigation" aria-label="Language selection">');
+        expect(html).toContain(
+          '<nav class="site-header__langs" role="navigation" aria-label="Language selection">'
+        );
       });
 
       it('should include lang-link elements for all 14 languages', () => {
         const html = generateArticleHTML(defaultOptions);
-        const langCodes = ['en', 'sv', 'da', 'no', 'fi', 'de', 'fr', 'es', 'nl', 'ar', 'he', 'ja', 'ko', 'zh'];
+        const langCodes = [
+          'en',
+          'sv',
+          'da',
+          'no',
+          'fi',
+          'de',
+          'fr',
+          'es',
+          'nl',
+          'ar',
+          'he',
+          'ja',
+          'ko',
+          'zh',
+        ];
 
         langCodes.forEach((code) => {
           expect(html).toContain(`hreflang="${code}"`);
@@ -317,7 +361,12 @@ describe('article-template', () => {
       });
 
       it('should link to same article in other languages using filename pattern', () => {
-        const html = generateArticleHTML({ ...defaultOptions, slug: 'week-ahead-january-2025', date: '2025-01-15', lang: 'en' });
+        const html = generateArticleHTML({
+          ...defaultOptions,
+          slug: 'week-ahead-january-2025',
+          date: '2025-01-15',
+          lang: 'en',
+        });
 
         expect(html).toContain('href="2025-01-15-week-ahead-january-2025-de.html"');
         expect(html).toContain('href="2025-01-15-week-ahead-january-2025-fr.html"');
@@ -334,35 +383,51 @@ describe('article-template', () => {
       });
 
       it('should throw on invalid date format in language switcher', () => {
-        expect(() => generateArticleHTML({ ...defaultOptions, date: 'not-a-date' })).toThrow('Invalid article date format');
+        expect(() => generateArticleHTML({ ...defaultOptions, date: 'not-a-date' })).toThrow(
+          'Invalid article date format'
+        );
       });
 
       it('should throw on date with HTML injection', () => {
-        expect(() => generateArticleHTML({ ...defaultOptions, date: '2025"><script>' })).toThrow('Invalid article date format');
+        expect(() => generateArticleHTML({ ...defaultOptions, date: '2025"><script>' })).toThrow(
+          'Invalid article date format'
+        );
       });
 
       it('should throw on slug with HTML injection characters', () => {
-        expect(() => generateArticleHTML({ ...defaultOptions, slug: 'test"onclick="alert(1)' })).toThrow('Invalid article slug format');
+        expect(() =>
+          generateArticleHTML({ ...defaultOptions, slug: 'test"onclick="alert(1)' })
+        ).toThrow('Invalid article slug format');
       });
 
       it('should throw on slug with angle brackets', () => {
-        expect(() => generateArticleHTML({ ...defaultOptions, slug: 'test<script>alert(1)</script>' })).toThrow('Invalid article slug format');
+        expect(() =>
+          generateArticleHTML({ ...defaultOptions, slug: 'test<script>alert(1)</script>' })
+        ).toThrow('Invalid article slug format');
       });
 
       it('should throw on empty slug', () => {
-        expect(() => generateArticleHTML({ ...defaultOptions, slug: '' })).toThrow('Invalid article slug format');
+        expect(() => generateArticleHTML({ ...defaultOptions, slug: '' })).toThrow(
+          'Invalid article slug format'
+        );
       });
 
       it('should throw on whitespace-only slug', () => {
-        expect(() => generateArticleHTML({ ...defaultOptions, slug: '   ' })).toThrow('Invalid article slug format');
+        expect(() => generateArticleHTML({ ...defaultOptions, slug: '   ' })).toThrow(
+          'Invalid article slug format'
+        );
       });
 
       it('should throw on empty date', () => {
-        expect(() => generateArticleHTML({ ...defaultOptions, date: '' })).toThrow('Invalid article date format');
+        expect(() => generateArticleHTML({ ...defaultOptions, date: '' })).toThrow(
+          'Invalid article date format'
+        );
       });
 
       it('should throw on whitespace-only date', () => {
-        expect(() => generateArticleHTML({ ...defaultOptions, date: '   ' })).toThrow('Invalid article date format');
+        expect(() => generateArticleHTML({ ...defaultOptions, date: '   ' })).toThrow(
+          'Invalid article date format'
+        );
       });
 
       it('should escape language names in title attributes', () => {
@@ -450,18 +515,18 @@ describe('article-template', () => {
       it('should not include executable script tags in content', () => {
         const maliciousContent = '<script>alert("XSS")</script><p>Safe content</p>';
         const html = generateArticleHTML({ ...defaultOptions, content: maliciousContent });
-        
+
         // Content is inserted as-is in this template system
         // The actual content should be the responsibility of the content generator
         // We just verify that the malicious content is present (not sanitized by template)
         // and that there are no other XSS vectors introduced by the template
         expect(html).toContain(maliciousContent);
-        
+
         // Check that only JSON-LD script tags exist (not executable scripts)
         const scriptTags = html.match(/<script[^>]*>/gi) || [];
-        const jsonLdScripts = scriptTags.filter(tag => tag.includes('application/ld+json'));
-        const executableScripts = scriptTags.filter(tag => !tag.includes('application/ld+json'));
-        
+        const jsonLdScripts = scriptTags.filter((tag) => tag.includes('application/ld+json'));
+        const executableScripts = scriptTags.filter((tag) => !tag.includes('application/ld+json'));
+
         // Template should only have JSON-LD script tags
         expect(jsonLdScripts.length).toBeGreaterThan(0);
         // Executable scripts: 1 from the malicious content + 1 reading-progress bar script + 1 theme toggle script
@@ -471,7 +536,7 @@ describe('article-template', () => {
       it('should properly escape special characters in title', () => {
         const titleWithQuotes = 'Article with "quotes" and \'apostrophes\'';
         const html = generateArticleHTML({ ...defaultOptions, title: titleWithQuotes });
-        
+
         // Title should be HTML-escaped in attributes
         expect(html).toContain('&quot;quotes&quot;');
         expect(html).toContain('&#39;apostrophes&#39;');
@@ -483,7 +548,7 @@ describe('article-template', () => {
           { title: 'Malicious', url: 'javascript:alert("XSS")' },
         ];
         const html = generateArticleHTML({ ...defaultOptions, sources: maliciousSources });
-        
+
         // javascript: URLs should be replaced with '#' for safety
         expect(html).not.toContain('javascript:');
         expect(html).toContain('href="#"');
@@ -494,7 +559,7 @@ describe('article-template', () => {
     describe('Accessibility', () => {
       it('should include proper semantic HTML', () => {
         const html = generateArticleHTML(defaultOptions);
-        
+
         expect(html).toContain('<article class="news-article"');
         expect(html).toContain('<header class="article-header">');
         expect(html).toContain('<footer class="article-footer">');
@@ -503,7 +568,7 @@ describe('article-template', () => {
 
       it('should include lang attribute on article element', () => {
         const html = generateArticleHTML({ ...defaultOptions, lang: 'fr' });
-        
+
         expect(html).toContain('<article class="news-article" lang="fr">');
       });
 
@@ -598,13 +663,13 @@ describe('article-template', () => {
 
         const html = generateArticleHTML(minimalOptions);
         const validation = validateHTML(html);
-        
+
         expect(validation.valid).toBe(true);
       });
 
       it('should use default values for undefined language', () => {
         const html = generateArticleHTML({ ...defaultOptions, lang: 'zz' });
-        
+
         // Should fall back to English labels
         expect(html).toContain('<span class="article-lang">English</span>');
       });
@@ -670,13 +735,17 @@ describe('article-template', () => {
     describe('Localized header subtitle and footer sections', () => {
       it('should render English header subtitle in English articles', () => {
         const html = generateArticleHTML({ ...defaultOptions, lang: 'en' });
-        expect(html).toContain('<span class="site-header__subtitle">European Parliament Intelligence</span>');
+        expect(html).toContain(
+          '<span class="site-header__subtitle">European Parliament Intelligence</span>'
+        );
       });
 
       it('should render German header subtitle in German articles', () => {
         const html = generateArticleHTML({ ...defaultOptions, lang: 'de' });
         expect(html).toContain('class="site-header__subtitle"');
-        expect(html).not.toContain('<span class="site-header__subtitle">European Parliament Intelligence</span>');
+        expect(html).not.toContain(
+          '<span class="site-header__subtitle">European Parliament Intelligence</span>'
+        );
       });
 
       it('should render localized footer "About" heading in English', () => {
@@ -710,7 +779,21 @@ describe('article-template', () => {
       });
 
       it('should render localized header subtitle for all 14 languages', () => {
-        const nonEnglishLangs = ['sv', 'da', 'no', 'fi', 'de', 'fr', 'es', 'nl', 'ar', 'he', 'ja', 'ko', 'zh'];
+        const nonEnglishLangs = [
+          'sv',
+          'da',
+          'no',
+          'fi',
+          'de',
+          'fr',
+          'es',
+          'nl',
+          'ar',
+          'he',
+          'ja',
+          'ko',
+          'zh',
+        ];
         for (const lang of nonEnglishLangs) {
           const html = generateArticleHTML({ ...defaultOptions, lang });
           expect(html).toContain('class="site-header__subtitle"');
@@ -779,11 +862,225 @@ describe('article-template', () => {
       });
     });
 
+    describe('Schema.org structured data', () => {
+      it('should include NewsArticle JSON-LD', () => {
+        const html = generateArticleHTML(defaultOptions);
+        expect(html).toContain('"@type": "NewsArticle"');
+      });
+
+      it('should include hasPart in NewsArticle JSON-LD conditionally based on content', () => {
+        // Default content without deep-analysis class should NOT include deep-analysis hasPart
+        const html = generateArticleHTML(defaultOptions);
+        expect(html).toContain('"hasPart"');
+        expect(html).toContain('"WebPageElement"');
+        expect(html).toContain('.article-sources');
+
+        // Content with deep-analysis class SHOULD include deep-analysis hasPart
+        const deepContent = '<section class="deep-analysis"><p>Analysis content</p></section>';
+        const htmlWithDeep = generateArticleHTML({ ...defaultOptions, content: deepContent });
+        expect(htmlWithDeep).toContain('.deep-analysis');
+        expect(htmlWithDeep).toContain('.article-sources');
+
+        // When sources is empty, .article-sources hasPart should NOT appear
+        const htmlNoSources = generateArticleHTML({ ...defaultOptions, sources: [] });
+        expect(htmlNoSources).not.toContain('.article-sources');
+      });
+
+      it('should include BreadcrumbList JSON-LD', () => {
+        const html = generateArticleHTML(defaultOptions);
+        expect(html).toContain('"@type": "BreadcrumbList"');
+        expect(html).toContain('"ListItem"');
+        expect(html).toContain('"position": 1');
+        expect(html).toContain('"position": 2');
+        expect(html).toContain('"position": 3');
+      });
+
+      it('should localize breadcrumb names for non-English languages', () => {
+        const html = generateArticleHTML({ ...defaultOptions, lang: /** @type {'sv'} */ ('sv') });
+        expect(html).toContain('"name": "Hem"');
+        expect(html).toContain('"name": "Nyheter"');
+      });
+
+      it('should escape </script> sequences in JSON-LD to prevent XSS', () => {
+        const xssTitle = 'Test</script><script>alert(1)</script>';
+        const html = generateArticleHTML({ ...defaultOptions, title: xssTitle });
+        // The raw </script> must NOT appear in JSON-LD blocks
+        expect(html).not.toMatch(/<\/script>\s*<script>alert/i);
+        // The safe \u003c escape should be present
+        expect(html).toContain('\\u003c');
+      });
+
+      it('should use "Related Articles" heading not "Related Analysis"', () => {
+        const html = generateArticleHTML({
+          ...defaultOptions,
+          relatedArticles: [
+            {
+              slug: 'breaking',
+              date: '2026-01-15',
+              lang: /** @type {'en'} */ ('en'),
+              title: 'Test Article',
+              category: 'breaking',
+            },
+          ],
+        });
+        expect(html).toContain('Related Articles');
+        expect(html).not.toContain('Related Analysis');
+      });
+
+      it('should include BreadcrumbList hash in CSP header', () => {
+        const html = generateArticleHTML(defaultOptions);
+        // CSP should contain at least 4 sha256 hashes (jsonLd + breadcrumbLd + readingProgress + themeToggle)
+        const cspMatch = html.match(/Content-Security-Policy[^>]*script-src[^>]*/);
+        expect(cspMatch).not.toBeNull();
+        const cspContent = cspMatch?.[0] ?? '';
+        const sha256Count = (cspContent.match(/sha256-/g) ?? []).length;
+        expect(sha256Count).toBeGreaterThanOrEqual(4);
+      });
+
+      it('should include timeRequired in Schema.org markup', () => {
+        const html = generateArticleHTML({ ...defaultOptions, readTime: 5 });
+        expect(html).toContain('"timeRequired": "PT5M"');
+      });
+
+      it('should auto-compute read time from content when readTime is 0', () => {
+        const longContent = Array(300).fill('<p>word word word word word</p>').join('');
+        const html = generateArticleHTML({ ...defaultOptions, readTime: 0, content: longContent });
+        // 300 × 5 = 1500 words ÷ 250 wpm = 6 minutes
+        expect(html).toContain('PT6M');
+      });
+    });
+
+    describe('Cross-article navigation', () => {
+      it('should not render related articles nav when relatedArticles is empty', () => {
+        const html = generateArticleHTML({ ...defaultOptions, relatedArticles: [] });
+        expect(html).not.toContain('related-articles-nav');
+      });
+
+      it('should not render related articles nav when relatedArticles is omitted', () => {
+        const html = generateArticleHTML(defaultOptions);
+        expect(html).not.toContain('related-articles-nav');
+      });
+
+      it('should render related articles nav when articles are provided', () => {
+        const html = generateArticleHTML({
+          ...defaultOptions,
+          relatedArticles: [
+            {
+              slug: 'committee-reports',
+              date: '2026-01-15',
+              lang: /** @type {'en'} */ ('en'),
+              title: 'Committee Reports Overview',
+              category: 'committee-reports',
+            },
+          ],
+        });
+        expect(html).toContain('related-articles-nav');
+        expect(html).toContain('Committee Reports Overview');
+        expect(html).toContain('2026-01-15-committee-reports-en.html');
+        // Category should be localized (not raw key)
+        expect(html).toContain('Committee Activity');
+        expect(html).not.toContain('>committee-reports<');
+      });
+
+      it('should escape HTML in related article titles', () => {
+        const html = generateArticleHTML({
+          ...defaultOptions,
+          relatedArticles: [
+            {
+              slug: 'breaking',
+              date: '2026-01-15',
+              lang: /** @type {'en'} */ ('en'),
+              title: '<script>alert(1)</script>',
+              category: 'breaking',
+            },
+          ],
+        });
+        expect(html).not.toContain('<script>alert(1)</script>');
+        expect(html).toContain('&lt;script&gt;');
+      });
+
+      it('should render multiple related articles', () => {
+        const html = generateArticleHTML({
+          ...defaultOptions,
+          relatedArticles: [
+            {
+              slug: 'committee-reports',
+              date: '2026-01-15',
+              lang: /** @type {'en'} */ ('en'),
+              title: 'Article One',
+              category: 'committee-reports',
+            },
+            {
+              slug: 'breaking',
+              date: '2026-01-15',
+              lang: /** @type {'en'} */ ('en'),
+              title: 'Article Two',
+              category: 'breaking',
+            },
+          ],
+        });
+        expect(html).toContain('Article One');
+        expect(html).toContain('Article Two');
+        expect(html).toContain('related-article-item');
+      });
+
+      it('should filter out articles with invalid date/slug/lang patterns', () => {
+        const html = generateArticleHTML({
+          ...defaultOptions,
+          relatedArticles: [
+            {
+              slug: 'committee-reports',
+              date: '2026-01-15',
+              lang: /** @type {'en'} */ ('en'),
+              title: 'Valid Article',
+              category: 'committee-reports',
+            },
+            {
+              slug: 'javascript:alert(1)',
+              date: '2026-01-15',
+              lang: /** @type {'en'} */ ('en'),
+              title: 'XSS via slug',
+              category: 'breaking',
+            },
+            {
+              slug: 'breaking',
+              date: 'not-a-date',
+              lang: /** @type {'en'} */ ('en'),
+              title: 'Bad date',
+              category: 'breaking',
+            },
+          ],
+        });
+        expect(html).toContain('Valid Article');
+        expect(html).not.toContain('XSS via slug');
+        expect(html).not.toContain('Bad date');
+      });
+
+      it('should use relative path prefix in href', () => {
+        const html = generateArticleHTML({
+          ...defaultOptions,
+          relatedArticles: [
+            {
+              slug: 'breaking',
+              date: '2026-01-15',
+              lang: /** @type {'en'} */ ('en'),
+              title: 'Test Article',
+              category: 'breaking',
+            },
+          ],
+        });
+        expect(html).toContain('href="./2026-01-15-breaking-en.html"');
+      });
+    });
+
     describe('Analysis transparency - dynamic analysisFiles', () => {
       it('should render dynamic links grouped by subdirectory when analysisFiles provided', () => {
         /** @type {import('../../scripts/types/generation.js').AnalysisFileEntry[]} */
         const analysisFiles = [
-          { method: 'significance-classification', outputFile: 'classification/significance-classification.md' },
+          {
+            method: 'significance-classification',
+            outputFile: 'classification/significance-classification.md',
+          },
           { method: 'actor-mapping', outputFile: 'classification/actor-mapping.md' },
           { method: 'risk-matrix', outputFile: 'risk-scoring/risk-matrix.md' },
           { method: 'deep-analysis', outputFile: 'existing/deep-analysis.md' },
@@ -879,7 +1176,10 @@ describe('article-template', () => {
       it('should URL-encode path segments in analysis file links', () => {
         /** @type {import('../../scripts/types/generation.js').AnalysisFileEntry[]} */
         const analysisFiles = [
-          { method: 'significance-classification', outputFile: 'classification/significance-classification.md' },
+          {
+            method: 'significance-classification',
+            outputFile: 'classification/significance-classification.md',
+          },
         ];
         const html = generateArticleHTML({
           ...defaultOptions,
@@ -913,9 +1213,7 @@ describe('article-template', () => {
       it('should always include manifest.json link regardless of analysisFiles', () => {
         const htmlWithFiles = generateArticleHTML({
           ...defaultOptions,
-          analysisFiles: [
-            { method: 'risk-matrix', outputFile: 'risk-scoring/risk-matrix.md' },
-          ],
+          analysisFiles: [{ method: 'risk-matrix', outputFile: 'risk-scoring/risk-matrix.md' }],
         });
         const htmlWithout = generateArticleHTML({
           ...defaultOptions,
@@ -930,8 +1228,14 @@ describe('article-template', () => {
         const analysisFiles = [
           { method: 'deep-analysis', outputFile: 'existing/deep-analysis.md' },
           { method: 'risk-matrix', outputFile: 'risk-scoring/risk-matrix.md' },
-          { method: 'significance-classification', outputFile: 'classification/significance-classification.md' },
-          { method: 'political-threat-landscape', outputFile: 'threat-assessment/political-threat-landscape.md' },
+          {
+            method: 'significance-classification',
+            outputFile: 'classification/significance-classification.md',
+          },
+          {
+            method: 'political-threat-landscape',
+            outputFile: 'threat-assessment/political-threat-landscape.md',
+          },
         ];
         const html = generateArticleHTML({
           ...defaultOptions,

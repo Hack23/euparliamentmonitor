@@ -12,6 +12,7 @@ import type {
   ArticleSource,
   ArticleCategoryLabels,
   LanguageCode,
+  RelatedArticleLink,
   AnalysisFileEntry,
   LanguageMap,
 } from '../types/index.js';
@@ -23,6 +24,9 @@ import {
   READ_TIME_LABELS,
   BACK_TO_NEWS_LABELS,
   ARTICLE_NAV_LABELS,
+  RELATED_ARTICLES_NAV_LABELS,
+  BREADCRUMB_HOME_LABELS,
+  BREADCRUMB_NEWS_LABELS,
   SKIP_LINK_TEXTS,
   SOURCES_HEADING_LABELS,
   HEADER_SUBTITLE_LABELS,
@@ -91,6 +95,21 @@ const SRI_HASH_PATTERN = /^sha(?:256|384|512)-[A-Za-z0-9+/]+={0,2}$/u;
 
 /** Words per minute for read-time calculation */
 const TEMPLATE_WORDS_PER_MINUTE = 250;
+
+/**
+ * Serialize an object to JSON suitable for embedding inside `<script>` tags.
+ *
+ * `JSON.stringify` alone does not prevent `</script>` or `<!--` sequences that
+ * can terminate a script element and enable XSS. This helper replaces `<` with
+ * the Unicode escape `\u003c` in the serialized output, rendering such
+ * sequences inert while remaining valid JSON.
+ *
+ * @param value - The value to serialize (typically a structured data object).
+ * @returns Pretty-printed JSON string with `<` characters safely escaped.
+ */
+function safeJsonLdForHtml(value: unknown): string {
+  return JSON.stringify(value, null, 4).replace(/</gu, '\\u003c');
+}
 
 /**
  * Base URL for the deployed site, constructed via the URL API so that CodeQL
@@ -190,6 +209,59 @@ function buildArticleFooterLanguageGrid(currentLang: string): string {
 }
 
 /**
+ * Build the related articles navigation section at the bottom of an article.
+ *
+ * Renders a `<nav>` element with links to same-day articles of different types.
+ * Returns an empty string when the array is empty.
+ *
+ * @param articles - Related article links to render
+ * @param lang - Language code for the localized section heading
+ * @returns HTML string for the related articles `<nav>`, or empty string when empty
+ */
+function buildRelatedArticlesNav(
+  articles: ReadonlyArray<RelatedArticleLink>,
+  lang: LanguageCode
+): string {
+  if (articles.length === 0) return '';
+
+  const safeHeading = escapeHTML(getLocalizedString(RELATED_ARTICLES_NAV_LABELS, lang));
+
+  // Filter articles to only those with valid date, slug, and lang to prevent XSS via URL schemes
+  const validArticles = articles.filter(
+    (a) => DATE_PATTERN.test(a.date) && SLUG_PATTERN.test(a.slug) && ALL_LANGUAGES.includes(a.lang)
+  );
+
+  if (validArticles.length === 0) return '';
+
+  // Localized category labels for display (fall back to raw key)
+  const categoryLabels = getLocalizedString(ARTICLE_TYPE_LABELS, lang) as ArticleCategoryLabels;
+
+  const items = validArticles
+    .map((a) => {
+      const safeTitle = escapeHTML(a.title);
+      const safeCategory = escapeHTML(categoryLabels[a.category] ?? a.category);
+      // Safe: date/slug/lang are validated above, so href is always a relative filename
+      // escapeHTML applied for defense-in-depth within HTML attribute context
+      const href = escapeHTML(`./${a.date}-${a.slug}-${a.lang}.html`);
+      return (
+        `<li class="related-article-item">` +
+        `<span class="related-article-type">${safeCategory}</span> ` +
+        `<a href="${href}" hreflang="${escapeHTML(a.lang)}">${safeTitle}</a>` +
+        `</li>`
+      );
+    })
+    .join('\n        ');
+
+  return `
+    <nav class="related-articles-nav" aria-label="${safeHeading}">
+      <h2>${safeHeading}</h2>
+      <ul class="related-articles-list">
+        ${items}
+      </ul>
+    </nav>`;
+}
+
+/**
  * Generate complete HTML for a news article
  *
  * @param options - Article generation options
@@ -210,6 +282,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
     stylesHash,
     availableLanguages,
     analysisDir,
+    relatedArticles = [],
     analysisFiles,
   } = options;
 
@@ -251,50 +324,95 @@ export function generateArticleHTML(options: ArticleOptions): string {
   const safeCategoryLabel = escapeHTML(categoryLabel);
 
   // Build JSON-LD as object for safe serialization
-  const jsonLd = JSON.stringify(
-    {
-      '@context': 'https://schema.org',
-      '@type': 'NewsArticle',
-      headline: title,
-      description: subtitle,
-      datePublished: date,
-      dateModified: date,
-      inLanguage: lang,
-      articleSection: categoryLabel,
-      author: {
-        '@type': 'Organization',
-        name: 'EU Parliament Monitor',
-      },
-      publisher: {
-        '@type': 'Organization',
-        name: 'EU Parliament Monitor',
-        url: SITE_BASE_URL,
-      },
-      keywords: keywords.join(', '),
-      about: {
-        '@type': 'GovernmentOrganization',
-        name: 'European Parliament',
-        url: 'https://www.europarl.europa.eu',
-      },
-      isBasedOn:
-        sources.length > 0
-          ? sources
-              .filter((s) => typeof s.url === 'string' && /^https?:\/\//i.test(s.url))
-              .slice(0, 5)
-              .map((s) => ({
-                '@type': 'Dataset',
-                name: s.title,
-                url: s.url,
-              }))
-          : undefined,
-      mainEntityOfPage: {
-        '@type': 'WebPage',
-        '@id': `${SITE_BASE_URL}/news/${date}-${slug}-${lang}.html`,
-      },
+  const jsonLd = safeJsonLdForHtml({
+    '@context': 'https://schema.org',
+    '@type': 'NewsArticle',
+    headline: title,
+    description: subtitle,
+    datePublished: date,
+    dateModified: date,
+    inLanguage: lang,
+    articleSection: categoryLabel,
+    timeRequired: `PT${effectiveReadTime}M`,
+    author: {
+      '@type': 'Organization',
+      name: 'EU Parliament Monitor',
     },
-    null,
-    4
-  );
+    publisher: {
+      '@type': 'Organization',
+      name: 'EU Parliament Monitor',
+      url: SITE_BASE_URL,
+    },
+    keywords: keywords.join(', '),
+    about: {
+      '@type': 'GovernmentOrganization',
+      name: 'European Parliament',
+      url: 'https://www.europarl.europa.eu',
+    },
+    hasPart: [
+      ...(content.includes('deep-analysis')
+        ? [
+            {
+              '@type': 'WebPageElement',
+              cssSelector: '.deep-analysis',
+              name: 'Deep Political Analysis',
+            },
+          ]
+        : []),
+      ...(sources.length > 0
+        ? [
+            {
+              '@type': 'WebPageElement',
+              cssSelector: '.article-sources',
+              name: 'Sources',
+            },
+          ]
+        : []),
+    ],
+    isBasedOn:
+      sources.length > 0
+        ? sources
+            .filter((s) => typeof s.url === 'string' && /^https?:\/\//i.test(s.url))
+            .slice(0, 5)
+            .map((s) => ({
+              '@type': 'Dataset',
+              name: s.title,
+              url: s.url,
+            }))
+        : undefined,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${SITE_BASE_URL}/news/${date}-${slug}-${lang}.html`,
+    },
+  });
+
+  // BreadcrumbList structured data for SEO (localized names)
+  const breadcrumbHome = getLocalizedString(BREADCRUMB_HOME_LABELS, lang);
+  const breadcrumbNews = getLocalizedString(BREADCRUMB_NEWS_LABELS, lang);
+  const breadcrumbLd = safeJsonLdForHtml({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: breadcrumbHome,
+        item: `${SITE_BASE_URL}/`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: breadcrumbNews,
+        item: `${SITE_BASE_URL}/news/`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: title,
+        item: `${SITE_BASE_URL}/news/${date}-${slug}-${lang}.html`,
+      },
+    ],
+  });
 
   // Validate and escape stylesHash — only allow valid SRI hash format
   const safeSriAttrs =
@@ -311,6 +429,10 @@ export function generateArticleHTML(options: ArticleOptions): string {
   const jsonLdScriptContent = `\n  ${jsonLd}\n  `;
   const jsonLdHash = `sha256-${createHash('sha256').update(jsonLdScriptContent).digest('base64')}`;
 
+  // Compute CSP hash for BreadcrumbList JSON-LD script
+  const breadcrumbLdScriptContent = `\n  ${breadcrumbLd}\n  `;
+  const breadcrumbLdHash = `sha256-${createHash('sha256').update(breadcrumbLdScriptContent).digest('base64')}`;
+
   // Reading-progress script hash — content must exactly match the <script> block.
   const readingProgressScript = `\n  (function(){\n    var bar=document.querySelector('.reading-progress');\n    if(!bar)return;\n    bar.style.display='block';\n    var ticking=false;\n    window.addEventListener('scroll',function(){\n      if(!ticking){\n        window.requestAnimationFrame(function(){\n          var h=document.documentElement;\n          var scrollTop=h.scrollTop||document.body.scrollTop;\n          var scrollHeight=h.scrollHeight-h.clientHeight;\n          bar.style.width=scrollHeight>0?((scrollTop/scrollHeight)*100)+'%':'0%';\n          ticking=false;\n        });\n        ticking=true;\n      }\n    },{passive:true});\n  })();\n  `;
   const readingProgressHash = `sha256-${createHash('sha256').update(readingProgressScript).digest('base64')}`;
@@ -321,6 +443,9 @@ export function generateArticleHTML(options: ArticleOptions): string {
   // Localized theme toggle button
   const themeToggleLabel = escapeHTML(getLocalizedString(THEME_TOGGLE_LABELS, lang));
 
+  // Related articles navigation HTML (optional)
+  const relatedArticlesHtml = buildRelatedArticlesNav(relatedArticles, lang);
+
   return `<!DOCTYPE html>
 <html lang="${lang}" dir="${dir}">
 <head>
@@ -328,7 +453,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="no-referrer">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' '${jsonLdHash}' '${readingProgressHash}' '${themeToggleHash}'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self'; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' '${jsonLdHash}' '${breadcrumbLdHash}' '${readingProgressHash}' '${themeToggleHash}'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self'; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'none'">
   <title>${safeTitle} | EU Parliament Monitor</title>
   <meta name="description" content="${safeSubtitle}">
   <meta name="keywords" content="${safeKeywords}">
@@ -380,6 +505,10 @@ export function generateArticleHTML(options: ArticleOptions): string {
   <script type="application/ld+json">
   ${jsonLd}
   </script>
+  <!-- BreadcrumbList structured data -->
+  <script type="application/ld+json">
+  ${breadcrumbLd}
+  </script>
 </head>
 <body>
   <div class="reading-progress" aria-hidden="true"></div>
@@ -426,6 +555,8 @@ export function generateArticleHTML(options: ArticleOptions): string {
     ${renderSourcesSection(sources, lang)}
     
     ${renderAnalysisTransparencySection(date, slug, lang, analysisDir, analysisFiles)}
+    
+    ${relatedArticlesHtml}
     
     <nav class="article-nav" aria-label="${escapeHTML(articleNavLabel)}">
       <a href="${indexHref}" class="back-to-news">${backLabel}</a>

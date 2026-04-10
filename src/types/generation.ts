@@ -23,6 +23,20 @@ export interface ArticleSource {
   url: string;
 }
 
+/** Related article link for cross-article navigation */
+export interface RelatedArticleLink {
+  /** Article slug (e.g. 'committee-reports') */
+  slug: string;
+  /** Article date (YYYY-MM-DD) */
+  date: string;
+  /** Language code */
+  lang: LanguageCode;
+  /** Article title */
+  title: string;
+  /** Article category */
+  category: ArticleCategory;
+}
+
 /** Entry describing a single analysis file produced during a pipeline run */
 export interface AnalysisFileEntry {
   /** Canonical analysis method name (e.g. 'significance-classification') */
@@ -50,6 +64,8 @@ export interface ArticleOptions {
   availableLanguages?: ReadonlyArray<LanguageCode> | undefined;
   /** Override analysis directory name for transparency links (e.g. `"breaking-2"` when suffix deduplication applied). When omitted, falls back to `slug`. */
   analysisDir?: string | undefined;
+  /** Related articles for cross-article navigation at the bottom of the article. */
+  relatedArticles?: ReadonlyArray<RelatedArticleLink> | undefined;
   /** Analysis files produced by the pipeline run, from manifest.json. When provided, the transparency section dynamically links to ALL these files instead of using hardcoded defaults. */
   analysisFiles?: ReadonlyArray<AnalysisFileEntry> | undefined;
 }

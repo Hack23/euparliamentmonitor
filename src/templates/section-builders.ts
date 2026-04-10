@@ -4,13 +4,49 @@
 /**
  * @module Templates/SectionBuilders
  * @description Reusable section builder utilities for article template architecture.
- * Provides quality scoring, table of contents generation, and quality badge rendering.
+ * Provides quality scoring, table of contents generation, quality badge rendering,
+ * timeline sections, comparison tables, and key figures bars.
  */
 
 import { escapeHTML } from '../utils/file-utils.js';
 import type { ArticleQualityScore, TOCEntry, LanguageCode } from '../types/index.js';
-import { getLocalizedString, TOC_ARIA_LABELS } from '../constants/languages.js';
+import {
+  getLocalizedString,
+  TOC_ARIA_LABELS,
+  TIMELINE_HEADINGS,
+  COMPARISON_BEFORE_LABELS,
+  COMPARISON_AFTER_LABELS,
+  KEY_FIGURES_HEADINGS,
+} from '../constants/languages.js';
 import { stripScriptBlocks, stripHtmlTags } from '../utils/html-sanitize.js';
+
+// ─── New section builder interfaces ─────────────────────────────────────────
+
+/**
+ * A single item in a legislative or procedural timeline.
+ */
+export interface TimelineItem {
+  /** Date label (e.g. "2026-03-15" or human-readable) */
+  date: string;
+  /** Short event label */
+  label: string;
+  /** Optional extended description */
+  description?: string | undefined;
+}
+
+/**
+ * A numeric highlight figure for a key-figures bar.
+ */
+export interface KeyFigure {
+  /** Descriptive label for the figure */
+  label: string;
+  /** Formatted value string (e.g. "42", "78%") */
+  value: string;
+  /** Optional unit suffix (e.g. "votes", "days", "%") */
+  unit?: string | undefined;
+  /** Optional longer description for screen readers / tooltips */
+  description?: string | undefined;
+}
 
 /**
  * Count occurrences of a regex pattern in a string.
@@ -155,4 +191,146 @@ export function buildQualityScoreBadge(score: ArticleQualityScore): string {
   <span class="qs-visuals">${score.visualizationCount}</span>
   <span class="qs-evidence">${score.evidenceReferences}</span>
 </div>`;
+}
+
+// ─── New section builders ────────────────────────────────────────────────────
+
+/**
+ * Build an HTML timeline section for legislative or procedural events.
+ *
+ * Renders an ordered list of dated events. Each item includes a date badge
+ * and a label. An optional description is included as visible text when
+ * provided. Empty items array returns an empty string.
+ *
+ * @param items - Ordered list of {@link TimelineItem} events to render.
+ * @param lang - Language code used for the section heading.
+ * @returns HTML string for the timeline `<section>`, or empty string when items is empty.
+ */
+export function buildTimelineSection(
+  items: ReadonlyArray<TimelineItem>,
+  lang: LanguageCode
+): string {
+  if (items.length === 0) return '';
+
+  const heading = escapeHTML(getLocalizedString(TIMELINE_HEADINGS, lang));
+
+  const listItems = items
+    .map((item) => {
+      const safeDate = escapeHTML(item.date);
+      const safeLabel = escapeHTML(item.label);
+      const descPart = item.description
+        ? `<span class="timeline-description">${escapeHTML(item.description)}</span>`
+        : '';
+      return (
+        `<li class="timeline-item">` +
+        `<span class="timeline-date">${safeDate}</span>` +
+        `<span class="timeline-label">${safeLabel}</span>` +
+        descPart +
+        `</li>`
+      );
+    })
+    .join('\n      ');
+
+  return `<section class="timeline-section" aria-label="${heading}">
+  <h2>${heading}</h2>
+  <ol class="timeline-list" role="list">
+      ${listItems}
+  </ol>
+</section>`;
+}
+
+/**
+ * Build an HTML before/after comparison table for legislative changes.
+ *
+ * Renders a two-column table comparing the state of something before and after
+ * a legislative action. When the input arrays have different lengths, the
+ * table uses the longer length and renders missing cells as empty strings.
+ * Returns an empty string when either array is empty.
+ *
+ * @param before - Array of "before" state descriptions for the first column.
+ * @param after - Array of "after" state descriptions for the second column.
+ * @param lang - Language code used for column headings.
+ * @returns HTML string for the comparison `<table>`, or empty string when either array is empty.
+ */
+export function buildComparisonTable(
+  before: ReadonlyArray<string>,
+  after: ReadonlyArray<string>,
+  lang: LanguageCode
+): string {
+  if (before.length === 0 || after.length === 0) return '';
+
+  const beforeLabel = escapeHTML(getLocalizedString(COMPARISON_BEFORE_LABELS, lang));
+  const afterLabel = escapeHTML(getLocalizedString(COMPARISON_AFTER_LABELS, lang));
+  const maxRows = Math.max(before.length, after.length);
+
+  const rows = Array.from({ length: maxRows }, (_, i) => {
+    const beforeCell = escapeHTML(before[i] ?? '');
+    const afterCell = escapeHTML(after[i] ?? '');
+    return (
+      `<tr>` +
+      `<td class="comparison-before">${beforeCell}</td>` +
+      `<td class="comparison-after">${afterCell}</td>` +
+      `</tr>`
+    );
+  }).join('\n      ');
+
+  return `<div class="comparison-table-wrapper" role="region" aria-label="${beforeLabel} / ${afterLabel}">
+  <table class="comparison-table">
+    <caption class="sr-only">${beforeLabel} / ${afterLabel}</caption>
+    <thead>
+      <tr>
+        <th scope="col">${beforeLabel}</th>
+        <th scope="col">${afterLabel}</th>
+      </tr>
+    </thead>
+    <tbody>
+      ${rows}
+    </tbody>
+  </table>
+</div>`;
+}
+
+/**
+ * Build an HTML key figures bar for quick-scan numeric highlights.
+ *
+ * Renders a horizontal strip of numeric summary cards. Each card shows a
+ * value (with optional unit), a label, and an optional screen-reader-only
+ * description. Empty figures array returns an empty string.
+ *
+ * @param figures - Array of {@link KeyFigure} items to render.
+ * @param lang - Language code used for the section heading.
+ * @returns HTML string for the key figures `<section>`, or empty string when figures is empty.
+ */
+export function buildKeyFiguresBar(figures: ReadonlyArray<KeyFigure>, lang: LanguageCode): string {
+  if (figures.length === 0) return '';
+
+  const heading = escapeHTML(getLocalizedString(KEY_FIGURES_HEADINGS, lang));
+
+  const cards = figures
+    .map((fig) => {
+      const safeLabel = escapeHTML(fig.label);
+      const safeValue = escapeHTML(fig.value);
+      const safeUnit = fig.unit ? escapeHTML(fig.unit) : '';
+      const unitSpan = safeUnit
+        ? ` <span class="kf-unit" aria-hidden="true">${safeUnit}</span>`
+        : '';
+      const descriptionPart = fig.description
+        ? `<span class="sr-only">${escapeHTML(fig.description)}</span>`
+        : '';
+      return (
+        `<div class="key-figure-card" role="listitem" aria-label="${safeLabel}: ${safeValue}${safeUnit ? ' ' + safeUnit : ''}">` +
+        `<span class="kf-value">${safeValue}${unitSpan}</span>` +
+        `<span class="kf-label">${safeLabel}</span>` +
+        descriptionPart +
+        `</div>`
+      );
+    })
+    .join('\n      ');
+
+  return `<section class="key-figures-bar" aria-label="${heading}">
+  <h2 class="sr-only">${heading}</h2>
+  <div class="key-figures-grid" role="list">
+      ${cards}
+  </div>
+</section>`;
 }

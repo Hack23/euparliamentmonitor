@@ -324,6 +324,126 @@ export const ARTICLE_NAV_LABELS = {
     ko: '기사 탐색',
     zh: '文章导航',
 };
+/** "Related Articles" heading for cross-article navigation */
+export const RELATED_ARTICLES_NAV_LABELS = {
+    en: 'Related Articles',
+    sv: 'Relaterade artiklar',
+    da: 'Relaterede artikler',
+    no: 'Relaterte artikler',
+    fi: 'Aiheeseen liittyvät artikkelit',
+    de: 'Verwandte Artikel',
+    fr: 'Articles connexes',
+    es: 'Artículos relacionados',
+    nl: 'Gerelateerde artikelen',
+    ar: 'مقالات ذات صلة',
+    he: 'מאמרים קשורים',
+    ja: '関連記事',
+    ko: '관련 기사',
+    zh: '相关文章',
+};
+/** Breadcrumb "Home" label per language */
+export const BREADCRUMB_HOME_LABELS = {
+    en: 'Home',
+    sv: 'Hem',
+    da: 'Hjem',
+    no: 'Hjem',
+    fi: 'Etusivu',
+    de: 'Startseite',
+    fr: 'Accueil',
+    es: 'Inicio',
+    nl: 'Home',
+    ar: 'الرئيسية',
+    he: 'דף הבית',
+    ja: 'ホーム',
+    ko: '홈',
+    zh: '首页',
+};
+/** Breadcrumb "News" label per language */
+export const BREADCRUMB_NEWS_LABELS = {
+    en: 'News',
+    sv: 'Nyheter',
+    da: 'Nyheder',
+    no: 'Nyheter',
+    fi: 'Uutiset',
+    de: 'Nachrichten',
+    fr: 'Actualités',
+    es: 'Noticias',
+    nl: 'Nieuws',
+    ar: 'الأخبار',
+    he: 'חדשות',
+    ja: 'ニュース',
+    ko: '뉴스',
+    zh: '新闻',
+};
+/* ─── Section Builder Localized Strings ──────────────────────────── */
+/** Localized headings for buildTimelineSection */
+export const TIMELINE_HEADINGS = {
+    en: 'Legislative Timeline',
+    sv: 'Lagstiftande tidslinje',
+    da: 'Lovgivningstidslinje',
+    no: 'Lovgivningstidslinje',
+    fi: 'Lainsäädäntöaikajana',
+    de: 'Legislativer Zeitplan',
+    fr: 'Calendrier législatif',
+    es: 'Cronograma legislativo',
+    nl: 'Wetgevend tijdpad',
+    ar: 'الجدول الزمني التشريعي',
+    he: 'ציר הזמן החקיקתי',
+    ja: '立法タイムライン',
+    ko: '입법 일정',
+    zh: '立法时间轴',
+};
+/** Localized "Before" column header for buildComparisonTable */
+export const COMPARISON_BEFORE_LABELS = {
+    en: 'Before',
+    sv: 'Före',
+    da: 'Før',
+    no: 'Før',
+    fi: 'Ennen',
+    de: 'Vorher',
+    fr: 'Avant',
+    es: 'Antes',
+    nl: 'Vóór',
+    ar: 'قبل',
+    he: 'לפני',
+    ja: '前',
+    ko: '이전',
+    zh: '之前',
+};
+/** Localized "After" column header for buildComparisonTable */
+export const COMPARISON_AFTER_LABELS = {
+    en: 'After',
+    sv: 'Efter',
+    da: 'Efter',
+    no: 'Etter',
+    fi: 'Jälkeen',
+    de: 'Nachher',
+    fr: 'Après',
+    es: 'Después',
+    nl: 'Na',
+    ar: 'بعد',
+    he: 'אחרי',
+    ja: '後',
+    ko: '이후',
+    zh: '之后',
+};
+/** Localized headings for buildKeyFiguresBar */
+export const KEY_FIGURES_HEADINGS = {
+    en: 'Key Figures',
+    sv: 'Nyckeltal',
+    da: 'Nøgletal',
+    no: 'Nøkkeltall',
+    fi: 'Avainluvut',
+    de: 'Schlüsselzahlen',
+    fr: 'Chiffres clés',
+    es: 'Cifras clave',
+    nl: 'Kerngetallen',
+    ar: 'الأرقام الرئيسية',
+    he: 'נתונים מרכזיים',
+    ja: '主要数値',
+    ko: '주요 수치',
+    zh: '关键数据',
+};
 /** AI section localized content for all 14 languages */
 export const AI_SECTION_CONTENT = {
     en: {
