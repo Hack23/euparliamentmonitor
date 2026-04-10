@@ -1,184 +1,59 @@
 {
-  "version": "4.1",
-  "analysisDate": "2026-04-10T00:50:00Z",
+  "date": "2026-04-10",
   "articleType": "breaking",
-  "articleDate": "2026-04-10",
-  "producedBy": "news-breaking",
-  "runNumber": 5,
-  "runSeries": "easter-recess-2026",
-  "parliamentStatus": "Easter Recess Day 15/18 (March 27 – April 13)",
-  "articleGenerated": false,
-  "reason": "Easter recess Day 15 — all EP API feeds returned errors, no today-dated events",
-  "overallConfidence": "MEDIUM",
-  "compositeRisk": 10.85,
-  "compositeRiskTier": "MEDIUM",
-  "threatLevel": "MODERATE",
-  "topSignificanceScore": 7.75,
-  "topSignificanceItem": "US Tariff Countermeasures (2025/0261(COD))",
-  "publicationDecision": "analysis-only",
+  "runNumber": 6,
+  "generatedAt": "2026-04-10T06:35:00Z",
+  "mcpServerVersion": "1.2.1",
+  "dataAvailability": {
+    "level": "Unavailable",
+    "operationalFeeds": 0,
+    "totalFeeds": 13,
+    "precomputedStats": true,
+    "coalitionDynamics": "partial-structure-only",
+    "votingAnomalies": false,
+    "politicalLandscape": false,
+    "earlyWarning": false
+  },
   "feedStatus": {
-    "adopted_texts_today": "error",
-    "adopted_texts_oneweek": "error",
-    "events_today": "error",
-    "events_oneweek": "error",
-    "procedures_today": "error",
-    "procedures_oneweek": "error",
-    "meps_today": "error",
-    "meps_oneweek": "error",
-    "documents_oneweek": "error",
-    "plenary_docs_oneweek": "error",
-    "committee_docs_oneweek": "error",
-    "questions_oneweek": "error",
-    "voting_anomalies": "error",
-    "coalition_dynamics": "partial",
-    "political_landscape": "error",
-    "early_warning": "error",
-    "precomputed_stats": "success"
+    "get_adopted_texts_feed": "error",
+    "get_events_feed": "error",
+    "get_procedures_feed": "error",
+    "get_meps_feed": "error",
+    "get_documents_feed": "error",
+    "get_plenary_documents_feed": "error",
+    "get_committee_documents_feed": "error",
+    "get_parliamentary_questions_feed": "error"
   },
-  "dataSourcesSummary": {
-    "precomputedStats": "Available (generated 2026-04-08)",
-    "coalitionDynamics": "Partial (groups listed, metrics UNAVAILABLE)",
-    "feedEndpoints": "All 13 feeds returning errors during recess",
-    "analyticalTools": "3 of 4 failed (coalition dynamics partial success)"
-  },
-  "analysisMethods": [
-    "political-classification",
-    "risk-assessment",
-    "threat-landscape-6dim",
-    "attack-trees",
-    "diamond-model",
-    "political-kill-chain",
-    "evidence-based-swot",
-    "tows-matrix",
-    "stakeholder-impact-6cat",
-    "significance-scoring-7dim",
-    "coalition-dynamics",
-    "three-pole-analysis",
-    "legislative-backlog-risk",
-    "composite-risk-scoring",
-    "risk-trajectory-projection",
-    "scenario-planning-4track",
-    "feed-availability-analysis",
-    "cumulative-run-analysis"
-  ],
-  "totalMethodsApplied": 18,
-  "cumulativeMethodsAcross5Runs": 42,
-  "trackedDevelopments": [
-    {
-      "id": "DEV-001",
-      "title": "US Tariff Countermeasures",
-      "reference": "2025/0261(COD)",
-      "adoptedText": "TA-10-2026-0096",
-      "significance": 7.75,
-      "risk": 16,
-      "riskTier": "CRITICAL",
-      "status": "urgency-procedure-adopted",
-      "nextEvent": "INTA committee debate April 14-17"
-    },
-    {
-      "id": "DEV-002",
-      "title": "Post-Recess Legislative Backlog",
-      "reference": "13 active COD procedures",
-      "significance": 5.70,
-      "risk": 12,
-      "riskTier": "HIGH",
-      "status": "accumulating-during-recess",
-      "nextEvent": "Committee week April 14-17"
-    },
-    {
-      "id": "DEV-003",
-      "title": "Anti-Corruption Directive Implementation",
-      "reference": "2023/0135(COD)",
-      "adoptedText": "TA-10-2026-0094",
-      "significance": 4.20,
-      "risk": 10,
-      "riskTier": "HIGH",
-      "status": "24-month-transposition-clock",
-      "nextEvent": "First transposition progress review Q3 2026"
-    },
-    {
-      "id": "DEV-004",
-      "title": "Banking Union Trilogy",
-      "reference": "SRMR3/BRRD3/DGSD2",
-      "adoptedText": "TA-10-2026-0092",
-      "significance": 3.80,
-      "risk": 6,
-      "riskTier": "MEDIUM",
-      "status": "awaiting-council-position",
-      "nextEvent": "Council common position expected Q2 2026"
-    },
-    {
-      "id": "DEV-005",
-      "title": "Three-Pole Coalition Dynamics",
-      "reference": "EP10 fragmentation index 6.59",
-      "significance": 3.20,
-      "risk": 9,
-      "riskTier": "MEDIUM",
-      "status": "crystallising-during-recess",
-      "nextEvent": "First committee vote post-Easter (April 14)"
-    }
-  ],
-  "scenarios": [
-    {
-      "id": "SCN-1",
-      "name": "Orderly Restart",
-      "probability": "likely",
-      "probabilityPct": 55,
-      "riskImpact": "composite drops to 11/25 by April 17"
-    },
-    {
-      "id": "SCN-2",
-      "name": "Tariff-Dominated Restart",
-      "probability": "possible",
-      "probabilityPct": 30,
-      "riskImpact": "composite rises to 14/25 by April 17"
-    },
-    {
-      "id": "SCN-3",
-      "name": "Coalition Fracture on Trade",
-      "probability": "unlikely",
-      "probabilityPct": 12,
-      "riskImpact": "composite spikes to 17/25 by April 17"
-    },
-    {
-      "id": "SCN-4",
-      "name": "External Shock Escalation",
-      "probability": "rare",
-      "probabilityPct": 3,
-      "riskImpact": "composite immediately jumps to 20/25"
-    }
+  "contextSources": [
+    "get_all_generated_stats (264KB, 2026 Q1 complete)",
+    "analyze_coalition_dynamics (partial structure, data UNAVAILABLE)",
+    "editorial-context.md (cross-run memory, 10 prior articles)",
+    "Prior run analysis (runs 1-5 findings incorporated)"
   ],
   "analysisFiles": [
-    "political-classification.md",
-    "risk-assessment.md",
-    "threat-analysis.md",
+    "synthesis-summary.md",
+    "political-risk-assessment.md",
     "swot-analysis.md",
-    "stakeholder-impact.md",
+    "threat-landscape.md",
     "significance-scoring.md",
-    "synthesis-summary.md"
+    "pre-restart-intelligence-brief.md"
   ],
-  "previousRuns": [
-    { "date": "2026-04-08", "run": 1, "methods": 14, "compositeRisk": 9.55 },
-    { "date": "2026-04-09", "run": 2, "methods": 20, "compositeRisk": 9.80 },
-    { "date": "2026-04-09", "run": 3, "methods": 26, "compositeRisk": 10.00 },
-    { "date": "2026-04-09", "run": 4, "methods": 36, "compositeRisk": 10.10 },
-    { "date": "2026-04-10", "run": 5, "methods": 42, "compositeRisk": 10.85 }
-  ],
-  "politicalLandscape": {
-    "groups": [
-      { "name": "EPP", "seats": 185, "seatShare": 25.7 },
-      { "name": "S&D", "seats": 135, "seatShare": 18.8 },
-      { "name": "PfE", "seats": 84, "seatShare": 11.7 },
-      { "name": "ECR", "seats": 79, "seatShare": 11.0 },
-      { "name": "RE", "seats": 76, "seatShare": 10.6 },
-      { "name": "Greens/EFA", "seats": 53, "seatShare": 7.4 },
-      { "name": "GUE/NGL", "seats": 46, "seatShare": 6.4 },
-      { "name": "ESN", "seats": 28, "seatShare": 3.9 },
-      { "name": "NI", "seats": 34, "seatShare": 4.7 }
-    ],
-    "fragmentationIndex": 6.59,
-    "majorityThreshold": 361,
-    "grandCoalitionDeficit": -5.5,
-    "minimumWinningCoalitionSize": 3
-  }
+  "articleGenerated": false,
+  "reason": "Easter recess Day 15 — all EP API feeds returning errors; no today-dated events; committee restart T-4 (14 April)",
+  "analysisMethods": [
+    "significance-classification",
+    "impact-matrix",
+    "actor-mapping",
+    "forces-analysis",
+    "political-threat-landscape",
+    "consequence-trees",
+    "risk-matrix",
+    "political-capital-risk",
+    "quantitative-swot",
+    "legislative-velocity-risk",
+    "deep-analysis",
+    "stakeholder-analysis",
+    "coalition-analysis",
+    "cross-session-intelligence"
+  ]
 }
