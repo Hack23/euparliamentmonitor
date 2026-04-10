@@ -5,7 +5,7 @@
  * @description Generates HTML templates for news articles with proper structure and metadata
  */
 import { createHash } from 'crypto';
-import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, ARTICLE_TYPE_LABELS, READ_TIME_LABELS, BACK_TO_NEWS_LABELS, ARTICLE_NAV_LABELS, SKIP_LINK_TEXTS, SOURCES_HEADING_LABELS, HEADER_SUBTITLE_LABELS, THEME_TOGGLE_LABELS, FOOTER_ABOUT_HEADING_LABELS, FOOTER_ABOUT_TEXT_LABELS, FOOTER_QUICK_LINKS_LABELS, FOOTER_BUILT_BY_LABELS, FOOTER_LANGUAGES_LABELS, ANALYSIS_TRANSPARENCY_LABELS, ANALYSIS_SUMMARY_LABELS, METHODOLOGY_LABELS, TRANSPARENCY_DISCLOSURE_LABELS, CLASSIFICATION_ANALYSIS_LABELS, THREAT_ASSESSMENT_LABELS, RISK_SCORING_LABELS, DEEP_ANALYSIS_LABELS, VIEW_SOURCE_LABELS, OPEN_SOURCE_NOTE_LABELS, AI_ANALYSIS_GUIDE_LABELS, SWOT_FRAMEWORK_LABELS, RISK_METHODOLOGY_LABELS, THREAT_FRAMEWORK_LABELS, CLASSIFICATION_GUIDE_LABELS, STYLE_GUIDE_LABELS, SIGNIFICANCE_CLASSIFICATION_LABELS, ACTOR_MAPPING_LABELS, FORCES_ANALYSIS_LABELS, IMPACT_MATRIX_LABELS, POLITICAL_THREAT_LANDSCAPE_LABELS, ACTOR_THREAT_PROFILING_LABELS, CONSEQUENCE_TREES_LABELS, LEGISLATIVE_DISRUPTION_LABELS, RISK_MATRIX_LABELS, QUANTITATIVE_SWOT_LABELS, POLITICAL_CAPITAL_RISK_LABELS, LEGISLATIVE_VELOCITY_RISK_LABELS, AGENT_RISK_WORKFLOW_LABELS, STAKEHOLDER_IMPACT_LABELS, COALITION_DYNAMICS_LABELS, VOTING_PATTERNS_LABELS, CROSS_SESSION_INTELLIGENCE_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
+import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, ARTICLE_TYPE_LABELS, READ_TIME_LABELS, BACK_TO_NEWS_LABELS, ARTICLE_NAV_LABELS, SKIP_LINK_TEXTS, SOURCES_HEADING_LABELS, HEADER_SUBTITLE_LABELS, THEME_TOGGLE_LABELS, FOOTER_ABOUT_HEADING_LABELS, FOOTER_ABOUT_TEXT_LABELS, FOOTER_QUICK_LINKS_LABELS, FOOTER_BUILT_BY_LABELS, FOOTER_LANGUAGES_LABELS, ANALYSIS_TRANSPARENCY_LABELS, ANALYSIS_SUMMARY_LABELS, METHODOLOGY_LABELS, TRANSPARENCY_DISCLOSURE_LABELS, CLASSIFICATION_ANALYSIS_LABELS, THREAT_ASSESSMENT_LABELS, RISK_SCORING_LABELS, DEEP_ANALYSIS_LABELS, VIEW_SOURCE_LABELS, OPEN_SOURCE_NOTE_LABELS, AI_ANALYSIS_GUIDE_LABELS, SWOT_FRAMEWORK_LABELS, RISK_METHODOLOGY_LABELS, THREAT_FRAMEWORK_LABELS, CLASSIFICATION_GUIDE_LABELS, STYLE_GUIDE_LABELS, SIGNIFICANCE_CLASSIFICATION_LABELS, ACTOR_MAPPING_LABELS, FORCES_ANALYSIS_LABELS, IMPACT_MATRIX_LABELS, POLITICAL_THREAT_LANDSCAPE_LABELS, ACTOR_THREAT_PROFILING_LABELS, CONSEQUENCE_TREES_LABELS, LEGISLATIVE_DISRUPTION_LABELS, RISK_MATRIX_LABELS, QUANTITATIVE_SWOT_LABELS, POLITICAL_CAPITAL_RISK_LABELS, LEGISLATIVE_VELOCITY_RISK_LABELS, AGENT_RISK_WORKFLOW_LABELS, STAKEHOLDER_IMPACT_LABELS, COALITION_DYNAMICS_LABELS, VOTING_PATTERNS_LABELS, CROSS_SESSION_INTELLIGENCE_LABELS, RELATED_ANALYSIS_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
 import { escapeHTML, isSafeURL } from '../utils/file-utils.js';
 import { stripHtmlTags } from '../utils/html-sanitize.js';
 import { APP_VERSION, createThemeToggleButton, THEME_TOGGLE_SCRIPT, THEME_TOGGLE_SCRIPT_CONTENT, } from '../constants/config.js';
@@ -100,6 +100,40 @@ function buildArticleFooterLanguageGrid(currentLang) {
         const active = code === currentLang ? ' class="active"' : '';
         return `<a href="${href}"${active} hreflang="${code}">${flag} ${safeName}</a>`;
     }).join('\n            ');
+}
+/**
+ * Build the related articles navigation section at the bottom of an article.
+ *
+ * Renders a `<nav>` element with links to same-day articles of different types.
+ * Returns an empty string when the array is empty.
+ *
+ * @param articles - Related article links to render
+ * @param lang - Language code for the localized section heading
+ * @returns HTML string for the related articles `<nav>`, or empty string when empty
+ */
+function buildRelatedArticlesNav(articles, lang) {
+    if (articles.length === 0)
+        return '';
+    const strings = getLocalizedString(RELATED_ANALYSIS_LABELS, lang);
+    const safeHeading = escapeHTML(strings.heading);
+    const items = articles
+        .map((a) => {
+        const safeTitle = escapeHTML(a.title);
+        const safeCategory = escapeHTML(a.category);
+        const href = `${escapeHTML(a.date)}-${escapeHTML(a.slug)}-${escapeHTML(a.lang)}.html`;
+        return (`<li class="related-article-item">` +
+            `<span class="related-article-type">${safeCategory}</span> ` +
+            `<a href="${href}" hreflang="${escapeHTML(a.lang)}">${safeTitle}</a>` +
+            `</li>`);
+    })
+        .join('\n        ');
+    return `
+    <nav class="related-articles-nav" aria-label="${safeHeading}">
+      <h2>${safeHeading}</h2>
+      <ul class="related-articles-list">
+        ${items}
+      </ul>
+    </nav>`;
 }
 /**
  * Generate complete HTML for a news article
@@ -250,7 +284,7 @@ export function generateArticleHTML(options) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="no-referrer">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' '${jsonLdHash}' '${readingProgressHash}' '${themeToggleHash}'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self'; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' '${jsonLdHash}' '${breadcrumbLdHash}' '${readingProgressHash}' '${themeToggleHash}'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self'; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'none'">
   <title>${safeTitle} | EU Parliament Monitor</title>
   <meta name="description" content="${safeSubtitle}">
   <meta name="keywords" content="${safeKeywords}">
@@ -302,6 +336,10 @@ export function generateArticleHTML(options) {
   <script type="application/ld+json">
   ${jsonLd}
   </script>
+  <!-- BreadcrumbList structured data -->
+  <script type="application/ld+json">
+  ${breadcrumbLd}
+  </script>
 </head>
 <body>
   <div class="reading-progress" aria-hidden="true"></div>
@@ -348,6 +386,8 @@ export function generateArticleHTML(options) {
     ${renderSourcesSection(sources, lang)}
     
     ${renderAnalysisTransparencySection(date, slug, lang, analysisDir)}
+    
+    ${relatedArticlesHtml}
     
     <nav class="article-nav" aria-label="${escapeHTML(articleNavLabel)}">
       <a href="${indexHref}" class="back-to-news">${backLabel}</a>

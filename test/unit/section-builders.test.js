@@ -8,6 +8,9 @@ import {
   computeArticleQualityScore,
   buildTableOfContents,
   buildQualityScoreBadge,
+  buildTimelineSection,
+  buildComparisonTable,
+  buildKeyFiguresBar,
 } from '../../scripts/templates/section-builders.js';
 
 describe('section-builders', () => {
@@ -200,6 +203,174 @@ describe('section-builders', () => {
       };
       const html = buildQualityScoreBadge(score);
       expect(html).toContain('aria-hidden="true"');
+    });
+  });
+
+  describe('buildTimelineSection', () => {
+    it('should return empty string for empty items', () => {
+      expect(buildTimelineSection([], 'en')).toBe('');
+    });
+
+    it('should render a timeline section with items', () => {
+      const items = [
+        { date: '2026-01-15', label: 'First reading' },
+        { date: '2026-03-10', label: 'Committee vote', description: 'Vote in ENVI' },
+      ];
+      const html = buildTimelineSection(items, 'en');
+      expect(html).toContain('<section class="timeline-section"');
+      expect(html).toContain('Legislative Timeline');
+      expect(html).toContain('First reading');
+      expect(html).toContain('Committee vote');
+      expect(html).toContain('Vote in ENVI');
+    });
+
+    it('should use localized heading for German', () => {
+      const html = buildTimelineSection([{ date: '2026-01-01', label: 'Start' }], 'de');
+      expect(html).toContain('Legislativer Zeitplan');
+    });
+
+    it('should use English fallback for unknown language', () => {
+      const html = buildTimelineSection([{ date: '2026-01-01', label: 'Start' }], 'xx');
+      expect(html).toContain('Legislative Timeline');
+    });
+
+    it('should escape HTML in date and label', () => {
+      const items = [{ date: '<b>date</b>', label: '<script>alert(1)</script>' }];
+      const html = buildTimelineSection(items, 'en');
+      expect(html).not.toContain('<b>date</b>');
+      expect(html).not.toContain('<script>alert(1)</script>');
+      expect(html).toContain('&lt;b&gt;date&lt;/b&gt;');
+    });
+
+    it('should include aria-labelledby attribute', () => {
+      const html = buildTimelineSection([{ date: '2026-01-01', label: 'Start' }], 'en');
+      expect(html).toContain('aria-labelledby="timeline-section-heading"');
+    });
+
+    it('should render an ordered list', () => {
+      const html = buildTimelineSection([{ date: '2026-01-01', label: 'Start' }], 'en');
+      expect(html).toContain('<ol class="timeline-list"');
+    });
+
+    it('should render optional description when provided', () => {
+      const items = [{ date: '2026-01-01', label: 'Event', description: 'Details here' }];
+      const html = buildTimelineSection(items, 'en');
+      expect(html).toContain('timeline-description');
+      expect(html).toContain('Details here');
+    });
+
+    it('should not render description element when not provided', () => {
+      const items = [{ date: '2026-01-01', label: 'Event' }];
+      const html = buildTimelineSection(items, 'en');
+      expect(html).not.toContain('timeline-description');
+    });
+  });
+
+  describe('buildComparisonTable', () => {
+    it('should return empty string for empty before array', () => {
+      expect(buildComparisonTable([], ['After change'], 'en')).toBe('');
+    });
+
+    it('should return empty string for empty after array', () => {
+      expect(buildComparisonTable(['Before change'], [], 'en')).toBe('');
+    });
+
+    it('should render a comparison table', () => {
+      const html = buildComparisonTable(['Old rule A', 'Old rule B'], ['New rule A', 'New rule B'], 'en');
+      expect(html).toContain('<table class="comparison-table">');
+      expect(html).toContain('Old rule A');
+      expect(html).toContain('New rule A');
+    });
+
+    it('should use localized column headers', () => {
+      const html = buildComparisonTable(['Vorher'], ['Nachher'], 'de');
+      expect(html).toContain('Vorher');
+      expect(html).toContain('Nachher');
+    });
+
+    it('should escape HTML in cell content', () => {
+      const html = buildComparisonTable(['<script>alert(1)</script>'], ['After'], 'en');
+      expect(html).not.toContain('<script>alert(1)</script>');
+      expect(html).toContain('&lt;script&gt;');
+    });
+
+    it('should include scope attributes for accessibility', () => {
+      const html = buildComparisonTable(['A'], ['B'], 'en');
+      expect(html).toContain('scope="col"');
+    });
+
+    it('should include role="region" on wrapper', () => {
+      const html = buildComparisonTable(['A'], ['B'], 'en');
+      expect(html).toContain('role="region"');
+    });
+
+    it('should handle mismatched array lengths using max length', () => {
+      const html = buildComparisonTable(['A', 'B', 'C'], ['X'], 'en');
+      expect(html).toContain('comparison-before');
+      // 3 body rows + 1 header row = 4 total <tr> elements
+      const rowMatches = html.match(/<tr>/g);
+      expect(rowMatches).toHaveLength(4);
+    });
+  });
+
+  describe('buildKeyFiguresBar', () => {
+    it('should return empty string for empty figures', () => {
+      expect(buildKeyFiguresBar([], 'en')).toBe('');
+    });
+
+    it('should render a key figures bar', () => {
+      const figures = [
+        { label: 'Votes cast', value: '400' },
+        { label: 'In favour', value: '280', unit: 'MEPs' },
+      ];
+      const html = buildKeyFiguresBar(figures, 'en');
+      expect(html).toContain('key-figures-bar');
+      expect(html).toContain('Votes cast');
+      expect(html).toContain('400');
+      expect(html).toContain('280');
+      expect(html).toContain('MEPs');
+    });
+
+    it('should use localized heading', () => {
+      const html = buildKeyFiguresBar([{ label: 'Test', value: '1' }], 'de');
+      expect(html).toContain('Schlüsselzahlen');
+    });
+
+    it('should include sr-only heading', () => {
+      const html = buildKeyFiguresBar([{ label: 'Test', value: '1' }], 'en');
+      expect(html).toContain('class="sr-only"');
+    });
+
+    it('should include aria-label on figure cards', () => {
+      const html = buildKeyFiguresBar([{ label: 'Votes', value: '400', unit: 'MEPs' }], 'en');
+      expect(html).toContain('aria-label="Votes: 400 MEPs"');
+    });
+
+    it('should render optional description as sr-only', () => {
+      const figures = [{ label: 'Votes', value: '400', description: 'Total votes cast' }];
+      const html = buildKeyFiguresBar(figures, 'en');
+      expect(html).toContain('Total votes cast');
+      expect(html).toContain('sr-only');
+    });
+
+    it('should escape HTML in labels and values', () => {
+      const figures = [{ label: '<b>Label</b>', value: '<em>100</em>' }];
+      const html = buildKeyFiguresBar(figures, 'en');
+      expect(html).not.toContain('<b>Label</b>');
+      expect(html).toContain('&lt;b&gt;Label&lt;/b&gt;');
+    });
+
+    it('should include unit with aria-hidden', () => {
+      const figures = [{ label: 'Votes', value: '400', unit: 'MEPs' }];
+      const html = buildKeyFiguresBar(figures, 'en');
+      expect(html).toContain('aria-hidden="true"');
+      expect(html).toContain('kf-unit');
+    });
+
+    it('should not render unit span when unit is not provided', () => {
+      const figures = [{ label: 'Votes', value: '400' }];
+      const html = buildKeyFiguresBar(figures, 'en');
+      expect(html).not.toContain('kf-unit');
     });
   });
 });

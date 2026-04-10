@@ -778,5 +778,122 @@ describe('article-template', () => {
         expect(d3ScriptMatch).not.toBeNull();
       });
     });
+
+    describe('Schema.org structured data', () => {
+      it('should include NewsArticle JSON-LD', () => {
+        const html = generateArticleHTML(defaultOptions);
+        expect(html).toContain('"@type": "NewsArticle"');
+      });
+
+      it('should include hasPart in NewsArticle JSON-LD', () => {
+        const html = generateArticleHTML(defaultOptions);
+        expect(html).toContain('"hasPart"');
+        expect(html).toContain('"WebPageElement"');
+        expect(html).toContain('.deep-analysis');
+      });
+
+      it('should include BreadcrumbList JSON-LD', () => {
+        const html = generateArticleHTML(defaultOptions);
+        expect(html).toContain('"@type": "BreadcrumbList"');
+        expect(html).toContain('"ListItem"');
+        expect(html).toContain('"position": 1');
+        expect(html).toContain('"position": 2');
+        expect(html).toContain('"position": 3');
+      });
+
+      it('should include BreadcrumbList hash in CSP header', () => {
+        const html = generateArticleHTML(defaultOptions);
+        // CSP should contain at least 4 sha256 hashes (jsonLd + breadcrumbLd + readingProgress + themeToggle)
+        const cspMatch = html.match(/Content-Security-Policy[^>]*script-src[^>]*/);
+        expect(cspMatch).not.toBeNull();
+        const cspContent = cspMatch?.[0] ?? '';
+        const sha256Count = (cspContent.match(/sha256-/g) ?? []).length;
+        expect(sha256Count).toBeGreaterThanOrEqual(4);
+      });
+
+      it('should include timeRequired in Schema.org markup', () => {
+        const html = generateArticleHTML({ ...defaultOptions, readTime: 5 });
+        expect(html).toContain('"timeRequired": "PT5M"');
+      });
+
+      it('should auto-compute read time from content when readTime is 0', () => {
+        const longContent = Array(300).fill('<p>word word word word word</p>').join('');
+        const html = generateArticleHTML({ ...defaultOptions, readTime: 0, content: longContent });
+        // 300 × 5 = 1500 words ÷ 250 wpm = 6 minutes
+        expect(html).toContain('PT6M');
+      });
+    });
+
+    describe('Cross-article navigation', () => {
+      it('should not render related articles nav when relatedArticles is empty', () => {
+        const html = generateArticleHTML({ ...defaultOptions, relatedArticles: [] });
+        expect(html).not.toContain('related-articles-nav');
+      });
+
+      it('should not render related articles nav when relatedArticles is omitted', () => {
+        const html = generateArticleHTML(defaultOptions);
+        expect(html).not.toContain('related-articles-nav');
+      });
+
+      it('should render related articles nav when articles are provided', () => {
+        const html = generateArticleHTML({
+          ...defaultOptions,
+          relatedArticles: [
+            {
+              slug: 'committee-reports',
+              date: '2026-01-15',
+              lang: /** @type {'en'} */ ('en'),
+              title: 'Committee Reports Overview',
+              category: 'committee-reports',
+            },
+          ],
+        });
+        expect(html).toContain('related-articles-nav');
+        expect(html).toContain('Committee Reports Overview');
+        expect(html).toContain('2026-01-15-committee-reports-en.html');
+      });
+
+      it('should escape HTML in related article titles', () => {
+        const html = generateArticleHTML({
+          ...defaultOptions,
+          relatedArticles: [
+            {
+              slug: 'breaking',
+              date: '2026-01-15',
+              lang: /** @type {'en'} */ ('en'),
+              title: '<script>alert(1)</script>',
+              category: 'breaking',
+            },
+          ],
+        });
+        expect(html).not.toContain('<script>alert(1)</script>');
+        expect(html).toContain('&lt;script&gt;');
+      });
+
+      it('should render multiple related articles', () => {
+        const html = generateArticleHTML({
+          ...defaultOptions,
+          relatedArticles: [
+            {
+              slug: 'committee-reports',
+              date: '2026-01-15',
+              lang: /** @type {'en'} */ ('en'),
+              title: 'Article One',
+              category: 'committee-reports',
+            },
+            {
+              slug: 'breaking',
+              date: '2026-01-15',
+              lang: /** @type {'en'} */ ('en'),
+              title: 'Article Two',
+              category: 'breaking',
+            },
+          ],
+        });
+        expect(html).toContain('Article One');
+        expect(html).toContain('Article Two');
+        expect(html).toContain('related-article-item');
+      });
+    });
   });
 });

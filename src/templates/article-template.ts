@@ -12,6 +12,7 @@ import type {
   ArticleSource,
   ArticleCategoryLabels,
   LanguageCode,
+  RelatedArticleLink,
 } from '../types/index.js';
 import {
   ALL_LANGUAGES,
@@ -63,6 +64,7 @@ import {
   COALITION_DYNAMICS_LABELS,
   VOTING_PATTERNS_LABELS,
   CROSS_SESSION_INTELLIGENCE_LABELS,
+  RELATED_ANALYSIS_LABELS,
   getLocalizedString,
   getTextDirection,
 } from '../constants/languages.js';
@@ -182,6 +184,48 @@ function buildArticleFooterLanguageGrid(currentLang: string): string {
     const active = code === currentLang ? ' class="active"' : '';
     return `<a href="${href}"${active} hreflang="${code}">${flag} ${safeName}</a>`;
   }).join('\n            ');
+}
+
+/**
+ * Build the related articles navigation section at the bottom of an article.
+ *
+ * Renders a `<nav>` element with links to same-day articles of different types.
+ * Returns an empty string when the array is empty.
+ *
+ * @param articles - Related article links to render
+ * @param lang - Language code for the localized section heading
+ * @returns HTML string for the related articles `<nav>`, or empty string when empty
+ */
+function buildRelatedArticlesNav(
+  articles: ReadonlyArray<RelatedArticleLink>,
+  lang: string
+): string {
+  if (articles.length === 0) return '';
+
+  const strings = getLocalizedString(RELATED_ANALYSIS_LABELS, lang);
+  const safeHeading = escapeHTML(strings.heading);
+
+  const items = articles
+    .map((a) => {
+      const safeTitle = escapeHTML(a.title);
+      const safeCategory = escapeHTML(a.category);
+      const href = `${escapeHTML(a.date)}-${escapeHTML(a.slug)}-${escapeHTML(a.lang)}.html`;
+      return (
+        `<li class="related-article-item">` +
+        `<span class="related-article-type">${safeCategory}</span> ` +
+        `<a href="${href}" hreflang="${escapeHTML(a.lang)}">${safeTitle}</a>` +
+        `</li>`
+      );
+    })
+    .join('\n        ');
+
+  return `
+    <nav class="related-articles-nav" aria-label="${safeHeading}">
+      <h2>${safeHeading}</h2>
+      <ul class="related-articles-list">
+        ${items}
+      </ul>
+    </nav>`;
 }
 
 /**
@@ -373,7 +417,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="no-referrer">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' '${jsonLdHash}' '${readingProgressHash}' '${themeToggleHash}'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self'; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' '${jsonLdHash}' '${breadcrumbLdHash}' '${readingProgressHash}' '${themeToggleHash}'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self'; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'none'">
   <title>${safeTitle} | EU Parliament Monitor</title>
   <meta name="description" content="${safeSubtitle}">
   <meta name="keywords" content="${safeKeywords}">
@@ -425,6 +469,10 @@ export function generateArticleHTML(options: ArticleOptions): string {
   <script type="application/ld+json">
   ${jsonLd}
   </script>
+  <!-- BreadcrumbList structured data -->
+  <script type="application/ld+json">
+  ${breadcrumbLd}
+  </script>
 </head>
 <body>
   <div class="reading-progress" aria-hidden="true"></div>
@@ -471,6 +519,8 @@ export function generateArticleHTML(options: ArticleOptions): string {
     ${renderSourcesSection(sources, lang)}
     
     ${renderAnalysisTransparencySection(date, slug, lang, analysisDir)}
+    
+    ${relatedArticlesHtml}
     
     <nav class="article-nav" aria-label="${escapeHTML(articleNavLabel)}">
       <a href="${indexHref}" class="back-to-news">${backLabel}</a>
