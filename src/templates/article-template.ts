@@ -24,6 +24,9 @@ import {
   READ_TIME_LABELS,
   BACK_TO_NEWS_LABELS,
   ARTICLE_NAV_LABELS,
+  RELATED_ARTICLES_NAV_LABELS,
+  BREADCRUMB_HOME_LABELS,
+  BREADCRUMB_NEWS_LABELS,
   SKIP_LINK_TEXTS,
   SOURCES_HEADING_LABELS,
   HEADER_SUBTITLE_LABELS,
@@ -66,7 +69,6 @@ import {
   COALITION_DYNAMICS_LABELS,
   VOTING_PATTERNS_LABELS,
   CROSS_SESSION_INTELLIGENCE_LABELS,
-  RELATED_ANALYSIS_LABELS,
   SYNTHESIS_SUMMARY_LABELS,
   DOCUMENT_ANALYSIS_LABELS,
   SIGNIFICANCE_SCORING_LABELS,
@@ -93,6 +95,21 @@ const SRI_HASH_PATTERN = /^sha(?:256|384|512)-[A-Za-z0-9+/]+={0,2}$/u;
 
 /** Words per minute for read-time calculation */
 const TEMPLATE_WORDS_PER_MINUTE = 250;
+
+/**
+ * Serialize an object to JSON suitable for embedding inside `<script>` tags.
+ *
+ * `JSON.stringify` alone does not prevent `</script>` or `<!--` sequences that
+ * can terminate a script element and enable XSS. This helper replaces `<` with
+ * the Unicode escape `\u003c` in the serialized output, rendering such
+ * sequences inert while remaining valid JSON.
+ *
+ * @param value - The value to serialize (typically a structured data object).
+ * @returns Pretty-printed JSON string with `<` characters safely escaped.
+ */
+function safeJsonLdForHtml(value: unknown): string {
+  return JSON.stringify(value, null, 4).replace(/</gu, '\\u003c');
+}
 
 /**
  * Base URL for the deployed site, constructed via the URL API so that CodeQL
@@ -207,15 +224,11 @@ function buildRelatedArticlesNav(
 ): string {
   if (articles.length === 0) return '';
 
-  const strings = getLocalizedString(RELATED_ANALYSIS_LABELS, lang);
-  const safeHeading = escapeHTML(strings.heading);
+  const safeHeading = escapeHTML(getLocalizedString(RELATED_ARTICLES_NAV_LABELS, lang));
 
   // Filter articles to only those with valid date, slug, and lang to prevent XSS via URL schemes
   const validArticles = articles.filter(
-    (a) =>
-      DATE_PATTERN.test(a.date) &&
-      SLUG_PATTERN.test(a.slug) &&
-      ALL_LANGUAGES.includes(a.lang)
+    (a) => DATE_PATTERN.test(a.date) && SLUG_PATTERN.test(a.slug) && ALL_LANGUAGES.includes(a.lang)
   );
 
   if (validArticles.length === 0) return '';
@@ -308,97 +321,91 @@ export function generateArticleHTML(options: ArticleOptions): string {
   const safeCategoryLabel = escapeHTML(categoryLabel);
 
   // Build JSON-LD as object for safe serialization
-  const jsonLd = JSON.stringify(
-    {
-      '@context': 'https://schema.org',
-      '@type': 'NewsArticle',
-      headline: title,
-      description: subtitle,
-      datePublished: date,
-      dateModified: date,
-      inLanguage: lang,
-      articleSection: categoryLabel,
-      timeRequired: `PT${effectiveReadTime}M`,
-      author: {
-        '@type': 'Organization',
-        name: 'EU Parliament Monitor',
-      },
-      publisher: {
-        '@type': 'Organization',
-        name: 'EU Parliament Monitor',
-        url: SITE_BASE_URL,
-      },
-      keywords: keywords.join(', '),
-      about: {
-        '@type': 'GovernmentOrganization',
-        name: 'European Parliament',
-        url: 'https://www.europarl.europa.eu',
-      },
-      hasPart: [
-        ...(content.includes('deep-analysis')
-          ? [
-              {
-                '@type': 'WebPageElement',
-                cssSelector: '.deep-analysis',
-                name: 'Deep Political Analysis',
-              },
-            ]
-          : []),
-        {
-          '@type': 'WebPageElement',
-          cssSelector: '.article-sources',
-          name: 'Sources',
-        },
-      ],
-      isBasedOn:
-        sources.length > 0
-          ? sources
-              .filter((s) => typeof s.url === 'string' && /^https?:\/\//i.test(s.url))
-              .slice(0, 5)
-              .map((s) => ({
-                '@type': 'Dataset',
-                name: s.title,
-                url: s.url,
-              }))
-          : undefined,
-      mainEntityOfPage: {
-        '@type': 'WebPage',
-        '@id': `${SITE_BASE_URL}/news/${date}-${slug}-${lang}.html`,
-      },
+  const jsonLd = safeJsonLdForHtml({
+    '@context': 'https://schema.org',
+    '@type': 'NewsArticle',
+    headline: title,
+    description: subtitle,
+    datePublished: date,
+    dateModified: date,
+    inLanguage: lang,
+    articleSection: categoryLabel,
+    timeRequired: `PT${effectiveReadTime}M`,
+    author: {
+      '@type': 'Organization',
+      name: 'EU Parliament Monitor',
     },
-    null,
-    4
-  );
+    publisher: {
+      '@type': 'Organization',
+      name: 'EU Parliament Monitor',
+      url: SITE_BASE_URL,
+    },
+    keywords: keywords.join(', '),
+    about: {
+      '@type': 'GovernmentOrganization',
+      name: 'European Parliament',
+      url: 'https://www.europarl.europa.eu',
+    },
+    hasPart: [
+      ...(content.includes('deep-analysis')
+        ? [
+            {
+              '@type': 'WebPageElement',
+              cssSelector: '.deep-analysis',
+              name: 'Deep Political Analysis',
+            },
+          ]
+        : []),
+      {
+        '@type': 'WebPageElement',
+        cssSelector: '.article-sources',
+        name: 'Sources',
+      },
+    ],
+    isBasedOn:
+      sources.length > 0
+        ? sources
+            .filter((s) => typeof s.url === 'string' && /^https?:\/\//i.test(s.url))
+            .slice(0, 5)
+            .map((s) => ({
+              '@type': 'Dataset',
+              name: s.title,
+              url: s.url,
+            }))
+        : undefined,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${SITE_BASE_URL}/news/${date}-${slug}-${lang}.html`,
+    },
+  });
 
-  // BreadcrumbList structured data for SEO
-  const breadcrumbLd = JSON.stringify(
-    {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        {
-          '@type': 'ListItem',
-          position: 1,
-          name: 'Home',
-          item: `${SITE_BASE_URL}/`,
-        },
-        {
-          '@type': 'ListItem',
-          position: 2,
-          name: 'News',
-          item: `${SITE_BASE_URL}/news/`,
-        },
-        {
-          '@type': 'ListItem',
-          position: 3,
-          name: title,
-          item: `${SITE_BASE_URL}/news/${date}-${slug}-${lang}.html`,
-        },
-      ],
-    },
-    null,
-    4
-  );
+  // BreadcrumbList structured data for SEO (localized names)
+  const breadcrumbHome = getLocalizedString(BREADCRUMB_HOME_LABELS, lang);
+  const breadcrumbNews = getLocalizedString(BREADCRUMB_NEWS_LABELS, lang);
+  const breadcrumbLd = safeJsonLdForHtml({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: breadcrumbHome,
+        item: `${SITE_BASE_URL}/`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: breadcrumbNews,
+        item: `${SITE_BASE_URL}/news/`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: title,
+        item: `${SITE_BASE_URL}/news/${date}-${slug}-${lang}.html`,
+      },
+    ],
+  });
 
   // Validate and escape stylesHash — only allow valid SRI hash format
   const safeSriAttrs =

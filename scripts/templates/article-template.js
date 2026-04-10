@@ -5,7 +5,7 @@
  * @description Generates HTML templates for news articles with proper structure and metadata
  */
 import { createHash } from 'crypto';
-import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, ARTICLE_TYPE_LABELS, READ_TIME_LABELS, BACK_TO_NEWS_LABELS, ARTICLE_NAV_LABELS, SKIP_LINK_TEXTS, SOURCES_HEADING_LABELS, HEADER_SUBTITLE_LABELS, THEME_TOGGLE_LABELS, FOOTER_ABOUT_HEADING_LABELS, FOOTER_ABOUT_TEXT_LABELS, FOOTER_QUICK_LINKS_LABELS, FOOTER_BUILT_BY_LABELS, FOOTER_LANGUAGES_LABELS, ANALYSIS_TRANSPARENCY_LABELS, ANALYSIS_SUMMARY_LABELS, METHODOLOGY_LABELS, TRANSPARENCY_DISCLOSURE_LABELS, CLASSIFICATION_ANALYSIS_LABELS, THREAT_ASSESSMENT_LABELS, RISK_SCORING_LABELS, DEEP_ANALYSIS_LABELS, VIEW_SOURCE_LABELS, OPEN_SOURCE_NOTE_LABELS, AI_ANALYSIS_GUIDE_LABELS, SWOT_FRAMEWORK_LABELS, RISK_METHODOLOGY_LABELS, THREAT_FRAMEWORK_LABELS, CLASSIFICATION_GUIDE_LABELS, STYLE_GUIDE_LABELS, SIGNIFICANCE_CLASSIFICATION_LABELS, ACTOR_MAPPING_LABELS, FORCES_ANALYSIS_LABELS, IMPACT_MATRIX_LABELS, POLITICAL_THREAT_LANDSCAPE_LABELS, ACTOR_THREAT_PROFILING_LABELS, CONSEQUENCE_TREES_LABELS, LEGISLATIVE_DISRUPTION_LABELS, RISK_MATRIX_LABELS, QUANTITATIVE_SWOT_LABELS, POLITICAL_CAPITAL_RISK_LABELS, LEGISLATIVE_VELOCITY_RISK_LABELS, AGENT_RISK_WORKFLOW_LABELS, STAKEHOLDER_IMPACT_LABELS, COALITION_DYNAMICS_LABELS, VOTING_PATTERNS_LABELS, CROSS_SESSION_INTELLIGENCE_LABELS, RELATED_ANALYSIS_LABELS, SYNTHESIS_SUMMARY_LABELS, DOCUMENT_ANALYSIS_LABELS, SIGNIFICANCE_SCORING_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
+import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, ARTICLE_TYPE_LABELS, READ_TIME_LABELS, BACK_TO_NEWS_LABELS, ARTICLE_NAV_LABELS, RELATED_ARTICLES_NAV_LABELS, BREADCRUMB_HOME_LABELS, BREADCRUMB_NEWS_LABELS, SKIP_LINK_TEXTS, SOURCES_HEADING_LABELS, HEADER_SUBTITLE_LABELS, THEME_TOGGLE_LABELS, FOOTER_ABOUT_HEADING_LABELS, FOOTER_ABOUT_TEXT_LABELS, FOOTER_QUICK_LINKS_LABELS, FOOTER_BUILT_BY_LABELS, FOOTER_LANGUAGES_LABELS, ANALYSIS_TRANSPARENCY_LABELS, ANALYSIS_SUMMARY_LABELS, METHODOLOGY_LABELS, TRANSPARENCY_DISCLOSURE_LABELS, CLASSIFICATION_ANALYSIS_LABELS, THREAT_ASSESSMENT_LABELS, RISK_SCORING_LABELS, DEEP_ANALYSIS_LABELS, VIEW_SOURCE_LABELS, OPEN_SOURCE_NOTE_LABELS, AI_ANALYSIS_GUIDE_LABELS, SWOT_FRAMEWORK_LABELS, RISK_METHODOLOGY_LABELS, THREAT_FRAMEWORK_LABELS, CLASSIFICATION_GUIDE_LABELS, STYLE_GUIDE_LABELS, SIGNIFICANCE_CLASSIFICATION_LABELS, ACTOR_MAPPING_LABELS, FORCES_ANALYSIS_LABELS, IMPACT_MATRIX_LABELS, POLITICAL_THREAT_LANDSCAPE_LABELS, ACTOR_THREAT_PROFILING_LABELS, CONSEQUENCE_TREES_LABELS, LEGISLATIVE_DISRUPTION_LABELS, RISK_MATRIX_LABELS, QUANTITATIVE_SWOT_LABELS, POLITICAL_CAPITAL_RISK_LABELS, LEGISLATIVE_VELOCITY_RISK_LABELS, AGENT_RISK_WORKFLOW_LABELS, STAKEHOLDER_IMPACT_LABELS, COALITION_DYNAMICS_LABELS, VOTING_PATTERNS_LABELS, CROSS_SESSION_INTELLIGENCE_LABELS, SYNTHESIS_SUMMARY_LABELS, DOCUMENT_ANALYSIS_LABELS, SIGNIFICANCE_SCORING_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
 import { escapeHTML, isSafeURL } from '../utils/file-utils.js';
 import { stripHtmlTags } from '../utils/html-sanitize.js';
 import { APP_VERSION, createThemeToggleButton, THEME_TOGGLE_SCRIPT, THEME_TOGGLE_SCRIPT_CONTENT, } from '../constants/config.js';
@@ -17,6 +17,20 @@ const SLUG_PATTERN = /^[a-z0-9-]+$/u;
 const SRI_HASH_PATTERN = /^sha(?:256|384|512)-[A-Za-z0-9+/]+={0,2}$/u;
 /** Words per minute for read-time calculation */
 const TEMPLATE_WORDS_PER_MINUTE = 250;
+/**
+ * Serialize an object to JSON suitable for embedding inside `<script>` tags.
+ *
+ * `JSON.stringify` alone does not prevent `</script>` or `<!--` sequences that
+ * can terminate a script element and enable XSS. This helper replaces `<` with
+ * the Unicode escape `\u003c` in the serialized output, rendering such
+ * sequences inert while remaining valid JSON.
+ *
+ * @param value - The value to serialize (typically a structured data object).
+ * @returns Pretty-printed JSON string with `<` characters safely escaped.
+ */
+function safeJsonLdForHtml(value) {
+    return JSON.stringify(value, null, 4).replace(/</gu, '\\u003c');
+}
 /**
  * Base URL for the deployed site, constructed via the URL API so that CodeQL
  * recognises it as a validated URL rather than a potential regex pattern.
@@ -114,12 +128,9 @@ function buildArticleFooterLanguageGrid(currentLang) {
 function buildRelatedArticlesNav(articles, lang) {
     if (articles.length === 0)
         return '';
-    const strings = getLocalizedString(RELATED_ANALYSIS_LABELS, lang);
-    const safeHeading = escapeHTML(strings.heading);
+    const safeHeading = escapeHTML(getLocalizedString(RELATED_ARTICLES_NAV_LABELS, lang));
     // Filter articles to only those with valid date, slug, and lang to prevent XSS via URL schemes
-    const validArticles = articles.filter((a) => DATE_PATTERN.test(a.date) &&
-        SLUG_PATTERN.test(a.slug) &&
-        ALL_LANGUAGES.includes(a.lang));
+    const validArticles = articles.filter((a) => DATE_PATTERN.test(a.date) && SLUG_PATTERN.test(a.slug) && ALL_LANGUAGES.includes(a.lang));
     if (validArticles.length === 0)
         return '';
     const items = validArticles
@@ -184,7 +195,7 @@ export function generateArticleHTML(options) {
     const safeKeywords = keywords.map((k) => escapeHTML(k)).join(', ');
     const safeCategoryLabel = escapeHTML(categoryLabel);
     // Build JSON-LD as object for safe serialization
-    const jsonLd = JSON.stringify({
+    const jsonLd = safeJsonLdForHtml({
         '@context': 'https://schema.org',
         '@type': 'NewsArticle',
         headline: title,
@@ -239,22 +250,24 @@ export function generateArticleHTML(options) {
             '@type': 'WebPage',
             '@id': `${SITE_BASE_URL}/news/${date}-${slug}-${lang}.html`,
         },
-    }, null, 4);
-    // BreadcrumbList structured data for SEO
-    const breadcrumbLd = JSON.stringify({
+    });
+    // BreadcrumbList structured data for SEO (localized names)
+    const breadcrumbHome = getLocalizedString(BREADCRUMB_HOME_LABELS, lang);
+    const breadcrumbNews = getLocalizedString(BREADCRUMB_NEWS_LABELS, lang);
+    const breadcrumbLd = safeJsonLdForHtml({
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: [
             {
                 '@type': 'ListItem',
                 position: 1,
-                name: 'Home',
+                name: breadcrumbHome,
                 item: `${SITE_BASE_URL}/`,
             },
             {
                 '@type': 'ListItem',
                 position: 2,
-                name: 'News',
+                name: breadcrumbNews,
                 item: `${SITE_BASE_URL}/news/`,
             },
             {
@@ -264,7 +277,7 @@ export function generateArticleHTML(options) {
                 item: `${SITE_BASE_URL}/news/${date}-${slug}-${lang}.html`,
             },
         ],
-    }, null, 4);
+    });
     // Validate and escape stylesHash — only allow valid SRI hash format
     const safeSriAttrs = stylesHash && SRI_HASH_PATTERN.test(stylesHash)
         ? ` integrity="${escapeHTML(stylesHash)}" crossorigin="anonymous"`

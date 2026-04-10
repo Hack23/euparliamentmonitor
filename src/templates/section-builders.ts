@@ -284,7 +284,10 @@ export function buildQualityScoreBadge(score: ArticleQualityScore): string {
  * @param lang - Language code used for the section heading.
  * @returns HTML string for the timeline `<section>`, or empty string when items is empty.
  */
-export function buildTimelineSection(items: TimelineItem[], lang: string): string {
+export function buildTimelineSection(
+  items: ReadonlyArray<TimelineItem>,
+  lang: LanguageCode
+): string {
   if (items.length === 0) return '';
 
   const heading = escapeHTML(getInlineLabel(TIMELINE_HEADINGS, lang));
@@ -294,10 +297,9 @@ export function buildTimelineSection(items: TimelineItem[], lang: string): strin
     .map((item) => {
       const safeDate = escapeHTML(item.date);
       const safeLabel = escapeHTML(item.label);
-      const descPart =
-        item.description
-          ? `<span class="timeline-description">${escapeHTML(item.description)}</span>`
-          : '';
+      const descPart = item.description
+        ? `<span class="timeline-description">${escapeHTML(item.description)}</span>`
+        : '';
       return (
         `<li class="timeline-item">` +
         `<span class="timeline-date">${safeDate}</span>` +
@@ -329,7 +331,11 @@ export function buildTimelineSection(items: TimelineItem[], lang: string): strin
  * @param lang - Language code used for column headings.
  * @returns HTML string for the comparison `<table>`, or empty string when either array is empty.
  */
-export function buildComparisonTable(before: string[], after: string[], lang: string): string {
+export function buildComparisonTable(
+  before: ReadonlyArray<string>,
+  after: ReadonlyArray<string>,
+  lang: LanguageCode
+): string {
   if (before.length === 0 || after.length === 0) return '';
 
   const beforeLabel = escapeHTML(getInlineLabel(COMPARISON_BEFORE, lang));
@@ -375,7 +381,7 @@ export function buildComparisonTable(before: string[], after: string[], lang: st
  * @param lang - Language code used for the section heading.
  * @returns HTML string for the key figures `<section>`, or empty string when figures is empty.
  */
-export function buildKeyFiguresBar(figures: KeyFigure[], lang: string): string {
+export function buildKeyFiguresBar(figures: ReadonlyArray<KeyFigure>, lang: LanguageCode): string {
   if (figures.length === 0) return '';
 
   const heading = escapeHTML(getInlineLabel(KEY_FIGURES_HEADINGS, lang));
@@ -389,10 +395,9 @@ export function buildKeyFiguresBar(figures: KeyFigure[], lang: string): string {
       const unitSpan = safeUnit
         ? ` <span class="kf-unit" aria-hidden="true">${safeUnit}</span>`
         : '';
-      const descriptionPart =
-        fig.description
-          ? `<span class="sr-only">${escapeHTML(fig.description)}</span>`
-          : '';
+      const descriptionPart = fig.description
+        ? `<span class="sr-only">${escapeHTML(fig.description)}</span>`
+        : '';
       return (
         `<div class="key-figure-card" role="listitem" aria-label="${safeLabel}: ${safeValue}${safeUnit ? ' ' + safeUnit : ''}">` +
         `<span class="kf-value">${safeValue}${unitSpan}</span>` +
@@ -410,4 +415,3 @@ export function buildKeyFiguresBar(figures: KeyFigure[], lang: string): string {
   </div>
 </section>`;
 }
-

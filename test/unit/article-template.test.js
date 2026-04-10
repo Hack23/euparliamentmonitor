@@ -808,6 +808,38 @@ describe('article-template', () => {
         expect(html).toContain('"position": 3');
       });
 
+      it('should localize breadcrumb names for non-English languages', () => {
+        const html = generateArticleHTML({ ...defaultOptions, lang: /** @type {'sv'} */ ('sv') });
+        expect(html).toContain('"name": "Hem"');
+        expect(html).toContain('"name": "Nyheter"');
+      });
+
+      it('should escape </script> sequences in JSON-LD to prevent XSS', () => {
+        const xssTitle = 'Test</script><script>alert(1)</script>';
+        const html = generateArticleHTML({ ...defaultOptions, title: xssTitle });
+        // The raw </script> must NOT appear in JSON-LD blocks
+        expect(html).not.toMatch(/<\/script>\s*<script>alert/i);
+        // The safe \u003c escape should be present
+        expect(html).toContain('\\u003c');
+      });
+
+      it('should use "Related Articles" heading not "Related Analysis"', () => {
+        const html = generateArticleHTML({
+          ...defaultOptions,
+          relatedArticles: [
+            {
+              slug: 'breaking',
+              date: '2026-01-15',
+              lang: /** @type {'en'} */ ('en'),
+              title: 'Test Article',
+              category: 'breaking',
+            },
+          ],
+        });
+        expect(html).toContain('Related Articles');
+        expect(html).not.toContain('Related Analysis');
+      });
+
       it('should include BreadcrumbList hash in CSP header', () => {
         const html = generateArticleHTML(defaultOptions);
         // CSP should contain at least 4 sha256 hashes (jsonLd + breadcrumbLd + readingProgress + themeToggle)
