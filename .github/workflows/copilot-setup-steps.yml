@@ -69,14 +69,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install gh-aw CLI
-        run: |
-          echo "Installing gh-aw $GH_AW_VERSION..."
-          curl -sL https://raw.githubusercontent.com/github/gh-aw/main/install-gh-aw.sh | bash -s -- "$GH_AW_VERSION"
-          gh aw version
-        env:
-          GH_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
-
       # Pre-install MCP server packages globally
       - name: Install MCP server packages globally
         run: |
