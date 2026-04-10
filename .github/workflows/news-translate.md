@@ -241,13 +241,13 @@ Each translated article must score well on these 5 dimensions:
 
 - **Minutes 0–5**: Date validation, discover English articles, set up MCP gateway
 - **Minutes 5–20**: Generate article HTML files using the TypeScript generator (Step 3)
-- **Minutes 20–70**: **AI Translation** — translate English narrative content per file (Step 3b)
-- **Minutes 70–75**: Validate translated HTML files (Step 4)
-- **Minutes 75–80**: Create PR with `safeoutputs___create_pull_request`
+- **Minutes 20–65**: **AI Translation** — translate English narrative content per file (Step 3b)
+- **Minutes 65–72**: Validate translated HTML files (Step 4)
+- **Minutes 72–80**: Create PR with `safeoutputs___create_pull_request`
 
 > **🔑 TRANSLATION FOCUS**: The generator produces articles with localized UI but English narrative. YOU translate ALL English content.
 
-> **⚠️ HARD DEADLINE**: You MUST call `safeoutputs___create_pull_request` before minute 80. Partial translations in a PR are better than a timeout with no PR. **Track elapsed time after each article type translation and STOP translating when 70 minutes have elapsed.**
+> **⚠️ HARD DEADLINE**: You MUST call `safeoutputs___create_pull_request` before minute 80. Partial translations in a PR are better than a timeout with no PR. **Track elapsed time after each article type translation and STOP translating when 65 minutes have elapsed** (leaving time for validation and PR creation).
 
 ## MANDATORY Date Context Establishment
 
@@ -260,12 +260,14 @@ ARTICLE_DATE="${EP_ARTICLE_DATE:-$TODAY}"
 CURRENT_YEAR=$(date -u +%Y)
 DAY_OF_WEEK=$(date -u +%A)
 START_EPOCH=$(date +%s)
+TRANSLATION_DEADLINE_MIN=65
 echo "Today:        $TODAY ($DAY_OF_WEEK)"
 echo "Article date: $ARTICLE_DATE"
 echo "Year:         $CURRENT_YEAR"
 echo "Start epoch:  $START_EPOCH"
+echo "Deadline:     ${TRANSLATION_DEADLINE_MIN} minutes"
 echo "==================================="
-export TODAY ARTICLE_DATE CURRENT_YEAR DAY_OF_WEEK START_EPOCH
+export TODAY ARTICLE_DATE CURRENT_YEAR DAY_OF_WEEK START_EPOCH TRANSLATION_DEADLINE_MIN
 
 # ⚠️ MANDATORY: Create baseline analysis directory and summary BEFORE any noop exits.
 # Per ai-driven-analysis-guide.md Rule 5, no workflow run should be wasted.
@@ -536,11 +538,11 @@ for TYPE in $(echo "$NEEDS_TRANSLATION" | tr ',' ' '); do
   echo "🌐 Translating: $TYPE (date: $ARTICLE_DATE)"
   echo "═══════════════════════════════════════════"
 
-  # ⏱️ Time check: stop translating if 65 minutes have elapsed
+  # ⏱️ Time check: stop translating if deadline reached
   NOW_EPOCH=$(date +%s)
   ELAPSED_MIN=$(( (NOW_EPOCH - START_EPOCH) / 60 ))
-  echo "⏱️ Elapsed: ${ELAPSED_MIN} minutes"
-  if [ "$ELAPSED_MIN" -ge 65 ]; then
+  echo "⏱️ Elapsed: ${ELAPSED_MIN} minutes (deadline: ${TRANSLATION_DEADLINE_MIN})"
+  if [ "$ELAPSED_MIN" -ge "$TRANSLATION_DEADLINE_MIN" ]; then
     echo "⚠️ Time limit approaching (${ELAPSED_MIN}min elapsed). Stopping translation to ensure PR creation."
     break
   fi
