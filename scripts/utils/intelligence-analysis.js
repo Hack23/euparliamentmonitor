@@ -969,7 +969,7 @@ export function buildLegislativeVelocityReport(docs) {
  * to identify non-traditional coalition patterns.
  */
 const TRADITIONAL_LEFT_GROUPS = ['S&D', 'Greens/EFA', 'The Left'];
-const TRADITIONAL_RIGHT_GROUPS = ['ECR', 'ID', 'Patriots'];
+const TRADITIONAL_RIGHT_GROUPS = ['ECR', 'ID', 'PfE', 'Patriots'];
 const TRADITIONAL_CENTRE_GROUPS = ['EPP', 'Renew'];
 /** Signal type constant for cross-party alignment detection */
 const CROSS_PARTY_ALIGNMENT = 'cross-party-alignment';

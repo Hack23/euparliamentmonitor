@@ -672,11 +672,14 @@ const EP_POLITICAL_GROUPS: ReadonlyArray<string> = [
   'EPP',
   'S&D',
   'Renew Europe',
+  'Renew',
   'Greens/EFA',
   'ECR',
   'Identity and Democracy',
+  'ID',
   'The Left',
   'Patriots for Europe',
+  'PfE',
 ];
 
 /** Patterns indicating forward-looking content (temporal coverage validation) */
