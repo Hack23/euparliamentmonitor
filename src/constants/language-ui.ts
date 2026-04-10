@@ -397,6 +397,80 @@ export const BREADCRUMB_NEWS_LABELS: LanguageMap = {
   zh: '新闻',
 };
 
+/* ─── Section Builder Localized Strings ──────────────────────────── */
+
+/** Localized headings for buildTimelineSection */
+export const TIMELINE_HEADINGS: LanguageMap = {
+  en: 'Legislative Timeline',
+  sv: 'Lagstiftande tidslinje',
+  da: 'Lovgivningstidslinje',
+  no: 'Lovgivningstidslinje',
+  fi: 'Lainsäädäntöaikajana',
+  de: 'Legislativer Zeitplan',
+  fr: 'Calendrier législatif',
+  es: 'Cronograma legislativo',
+  nl: 'Wetgevend tijdpad',
+  ar: 'الجدول الزمني التشريعي',
+  he: 'ציר הזמן החקיקתי',
+  ja: '立法タイムライン',
+  ko: '입법 일정',
+  zh: '立法时间轴',
+};
+
+/** Localized "Before" column header for buildComparisonTable */
+export const COMPARISON_BEFORE_LABELS: LanguageMap = {
+  en: 'Before',
+  sv: 'Före',
+  da: 'Før',
+  no: 'Før',
+  fi: 'Ennen',
+  de: 'Vorher',
+  fr: 'Avant',
+  es: 'Antes',
+  nl: 'Vóór',
+  ar: 'قبل',
+  he: 'לפני',
+  ja: '前',
+  ko: '이전',
+  zh: '之前',
+};
+
+/** Localized "After" column header for buildComparisonTable */
+export const COMPARISON_AFTER_LABELS: LanguageMap = {
+  en: 'After',
+  sv: 'Efter',
+  da: 'Efter',
+  no: 'Etter',
+  fi: 'Jälkeen',
+  de: 'Nachher',
+  fr: 'Après',
+  es: 'Después',
+  nl: 'Na',
+  ar: 'بعد',
+  he: 'אחרי',
+  ja: '後',
+  ko: '이후',
+  zh: '之后',
+};
+
+/** Localized headings for buildKeyFiguresBar */
+export const KEY_FIGURES_HEADINGS: LanguageMap = {
+  en: 'Key Figures',
+  sv: 'Nyckeltal',
+  da: 'Nøgletal',
+  no: 'Nøkkeltall',
+  fi: 'Avainluvut',
+  de: 'Schlüsselzahlen',
+  fr: 'Chiffres clés',
+  es: 'Cifras clave',
+  nl: 'Kerngetallen',
+  ar: 'الأرقام الرئيسية',
+  he: 'נתונים מרכזיים',
+  ja: '主要数値',
+  ko: '주요 수치',
+  zh: '关键数据',
+};
+
 /* ─── AI Section Localized Strings ───────────────────────────────── */
 
 /** AI section interface for structured localized content */

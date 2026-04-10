@@ -276,16 +276,20 @@ describe('section-builders', () => {
     });
 
     it('should render a comparison table', () => {
-      const html = buildComparisonTable(['Old rule A', 'Old rule B'], ['New rule A', 'New rule B'], 'en');
+      const html = buildComparisonTable(
+        ['Old rule A', 'Old rule B'],
+        ['New rule A', 'New rule B'],
+        'en'
+      );
       expect(html).toContain('<table class="comparison-table">');
       expect(html).toContain('Old rule A');
       expect(html).toContain('New rule A');
     });
 
     it('should use localized column headers', () => {
-      const html = buildComparisonTable(['Vorher'], ['Nachher'], 'de');
-      expect(html).toContain('Vorher');
-      expect(html).toContain('Nachher');
+      const html = buildComparisonTable(['Alte Regel'], ['Neue Regel'], 'de');
+      expect(html).toContain('<th scope="col">Vorher</th>');
+      expect(html).toContain('<th scope="col">Nachher</th>');
     });
 
     it('should escape HTML in cell content', () => {

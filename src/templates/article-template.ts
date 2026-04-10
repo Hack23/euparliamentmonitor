@@ -220,7 +220,7 @@ function buildArticleFooterLanguageGrid(currentLang: string): string {
  */
 function buildRelatedArticlesNav(
   articles: ReadonlyArray<RelatedArticleLink>,
-  lang: string
+  lang: LanguageCode
 ): string {
   if (articles.length === 0) return '';
 
@@ -233,10 +233,13 @@ function buildRelatedArticlesNav(
 
   if (validArticles.length === 0) return '';
 
+  // Localized category labels for display (fall back to raw key)
+  const categoryLabels = getLocalizedString(ARTICLE_TYPE_LABELS, lang) as ArticleCategoryLabels;
+
   const items = validArticles
     .map((a) => {
       const safeTitle = escapeHTML(a.title);
-      const safeCategory = escapeHTML(a.category);
+      const safeCategory = escapeHTML(categoryLabels[a.category] ?? a.category);
       // Safe: date/slug/lang are validated above, so href is always a relative filename
       // escapeHTML applied for defense-in-depth within HTML attribute context
       const href = escapeHTML(`./${a.date}-${a.slug}-${a.lang}.html`);

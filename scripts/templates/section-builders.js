@@ -7,87 +7,8 @@
  * timeline sections, comparison tables, and key figures bars.
  */
 import { escapeHTML } from '../utils/file-utils.js';
-import { getLocalizedString, TOC_ARIA_LABELS } from '../constants/languages.js';
+import { getLocalizedString, TOC_ARIA_LABELS, TIMELINE_HEADINGS, COMPARISON_BEFORE_LABELS, COMPARISON_AFTER_LABELS, KEY_FIGURES_HEADINGS, } from '../constants/languages.js';
 import { stripScriptBlocks, stripHtmlTags } from '../utils/html-sanitize.js';
-// ─── Localized heading maps (inline, no new language-constants module needed) ─
-/** Localized headings for buildTimelineSection */
-const TIMELINE_HEADINGS = {
-    en: 'Legislative Timeline',
-    de: 'Legislativer Zeitplan',
-    fr: 'Calendrier législatif',
-    es: 'Cronograma legislativo',
-    nl: 'Wetgevend tijdpad',
-    sv: 'Lagstiftande tidslinje',
-    da: 'Lovgivningstidslinje',
-    no: 'Lovgivningstidslinje',
-    fi: 'Lainsäädäntöaikajana',
-    ar: 'الجدول الزمني التشريعي',
-    he: 'ציר הזמן החקיקתי',
-    ja: '立法タイムライン',
-    ko: '입법 일정',
-    zh: '立法时间轴',
-};
-/** Localized "Before" labels for buildComparisonTable */
-const COMPARISON_BEFORE = {
-    en: 'Before',
-    de: 'Vorher',
-    fr: 'Avant',
-    es: 'Antes',
-    nl: 'Vóór',
-    sv: 'Före',
-    da: 'Før',
-    no: 'Før',
-    fi: 'Ennen',
-    ar: 'قبل',
-    he: 'לפני',
-    ja: '前',
-    ko: '이전',
-    zh: '之前',
-};
-/** Localized "After" labels for buildComparisonTable */
-const COMPARISON_AFTER = {
-    en: 'After',
-    de: 'Nachher',
-    fr: 'Après',
-    es: 'Después',
-    nl: 'Na',
-    sv: 'Efter',
-    da: 'Efter',
-    no: 'Etter',
-    fi: 'Jälkeen',
-    ar: 'بعد',
-    he: 'אחרי',
-    ja: '後',
-    ko: '이후',
-    zh: '之后',
-};
-/** Localized headings for buildKeyFiguresBar */
-const KEY_FIGURES_HEADINGS = {
-    en: 'Key Figures',
-    de: 'Schlüsselzahlen',
-    fr: 'Chiffres clés',
-    es: 'Cifras clave',
-    nl: 'Kerngetallen',
-    sv: 'Nyckeltal',
-    da: 'Nøgletal',
-    no: 'Nøkkeltall',
-    fi: 'Avainluvut',
-    ar: 'الأرقام الرئيسية',
-    he: 'נתונים מרכזיים',
-    ja: '主要数値',
-    ko: '주요 수치',
-    zh: '关键数据',
-};
-/**
- * Get a localized label from an inline map, falling back to English.
- *
- * @param map - Map of language codes to strings
- * @param lang - Target language code
- * @returns Localized string or English fallback
- */
-function getInlineLabel(map, lang) {
-    return map[lang] ?? map['en'] ?? '';
-}
 /**
  * Count occurrences of a regex pattern in a string.
  *
@@ -231,7 +152,7 @@ export function buildQualityScoreBadge(score) {
 export function buildTimelineSection(items, lang) {
     if (items.length === 0)
         return '';
-    const heading = escapeHTML(getInlineLabel(TIMELINE_HEADINGS, lang));
+    const heading = escapeHTML(getLocalizedString(TIMELINE_HEADINGS, lang));
     const sectionId = 'timeline-section';
     const listItems = items
         .map((item) => {
@@ -270,8 +191,8 @@ export function buildTimelineSection(items, lang) {
 export function buildComparisonTable(before, after, lang) {
     if (before.length === 0 || after.length === 0)
         return '';
-    const beforeLabel = escapeHTML(getInlineLabel(COMPARISON_BEFORE, lang));
-    const afterLabel = escapeHTML(getInlineLabel(COMPARISON_AFTER, lang));
+    const beforeLabel = escapeHTML(getLocalizedString(COMPARISON_BEFORE_LABELS, lang));
+    const afterLabel = escapeHTML(getLocalizedString(COMPARISON_AFTER_LABELS, lang));
     const tableId = 'comparison-table';
     const maxRows = Math.max(before.length, after.length);
     const rows = Array.from({ length: maxRows }, (_, i) => {
@@ -311,7 +232,7 @@ export function buildComparisonTable(before, after, lang) {
 export function buildKeyFiguresBar(figures, lang) {
     if (figures.length === 0)
         return '';
-    const heading = escapeHTML(getInlineLabel(KEY_FIGURES_HEADINGS, lang));
+    const heading = escapeHTML(getLocalizedString(KEY_FIGURES_HEADINGS, lang));
     const sectionId = 'key-figures-bar';
     const cards = figures
         .map((fig) => {

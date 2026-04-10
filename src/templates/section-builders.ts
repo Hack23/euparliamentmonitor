@@ -10,7 +10,14 @@
 
 import { escapeHTML } from '../utils/file-utils.js';
 import type { ArticleQualityScore, TOCEntry, LanguageCode } from '../types/index.js';
-import { getLocalizedString, TOC_ARIA_LABELS } from '../constants/languages.js';
+import {
+  getLocalizedString,
+  TOC_ARIA_LABELS,
+  TIMELINE_HEADINGS,
+  COMPARISON_BEFORE_LABELS,
+  COMPARISON_AFTER_LABELS,
+  KEY_FIGURES_HEADINGS,
+} from '../constants/languages.js';
 import { stripScriptBlocks, stripHtmlTags } from '../utils/html-sanitize.js';
 
 // ─── New section builder interfaces ─────────────────────────────────────────
@@ -39,91 +46,6 @@ export interface KeyFigure {
   unit?: string | undefined;
   /** Optional longer description for screen readers / tooltips */
   description?: string | undefined;
-}
-
-// ─── Localized heading maps (inline, no new language-constants module needed) ─
-
-/** Localized headings for buildTimelineSection */
-const TIMELINE_HEADINGS: Readonly<Record<string, string>> = {
-  en: 'Legislative Timeline',
-  de: 'Legislativer Zeitplan',
-  fr: 'Calendrier législatif',
-  es: 'Cronograma legislativo',
-  nl: 'Wetgevend tijdpad',
-  sv: 'Lagstiftande tidslinje',
-  da: 'Lovgivningstidslinje',
-  no: 'Lovgivningstidslinje',
-  fi: 'Lainsäädäntöaikajana',
-  ar: 'الجدول الزمني التشريعي',
-  he: 'ציר הזמן החקיקתי',
-  ja: '立法タイムライン',
-  ko: '입법 일정',
-  zh: '立法时间轴',
-} as const;
-
-/** Localized "Before" labels for buildComparisonTable */
-const COMPARISON_BEFORE: Readonly<Record<string, string>> = {
-  en: 'Before',
-  de: 'Vorher',
-  fr: 'Avant',
-  es: 'Antes',
-  nl: 'Vóór',
-  sv: 'Före',
-  da: 'Før',
-  no: 'Før',
-  fi: 'Ennen',
-  ar: 'قبل',
-  he: 'לפני',
-  ja: '前',
-  ko: '이전',
-  zh: '之前',
-} as const;
-
-/** Localized "After" labels for buildComparisonTable */
-const COMPARISON_AFTER: Readonly<Record<string, string>> = {
-  en: 'After',
-  de: 'Nachher',
-  fr: 'Après',
-  es: 'Después',
-  nl: 'Na',
-  sv: 'Efter',
-  da: 'Efter',
-  no: 'Etter',
-  fi: 'Jälkeen',
-  ar: 'بعد',
-  he: 'אחרי',
-  ja: '後',
-  ko: '이후',
-  zh: '之后',
-} as const;
-
-/** Localized headings for buildKeyFiguresBar */
-const KEY_FIGURES_HEADINGS: Readonly<Record<string, string>> = {
-  en: 'Key Figures',
-  de: 'Schlüsselzahlen',
-  fr: 'Chiffres clés',
-  es: 'Cifras clave',
-  nl: 'Kerngetallen',
-  sv: 'Nyckeltal',
-  da: 'Nøgletal',
-  no: 'Nøkkeltall',
-  fi: 'Avainluvut',
-  ar: 'الأرقام الرئيسية',
-  he: 'נתונים מרכזיים',
-  ja: '主要数値',
-  ko: '주요 수치',
-  zh: '关键数据',
-} as const;
-
-/**
- * Get a localized label from an inline map, falling back to English.
- *
- * @param map - Map of language codes to strings
- * @param lang - Target language code
- * @returns Localized string or English fallback
- */
-function getInlineLabel(map: Readonly<Record<string, string>>, lang: string): string {
-  return map[lang] ?? map['en'] ?? '';
 }
 
 /**
@@ -290,7 +212,7 @@ export function buildTimelineSection(
 ): string {
   if (items.length === 0) return '';
 
-  const heading = escapeHTML(getInlineLabel(TIMELINE_HEADINGS, lang));
+  const heading = escapeHTML(getLocalizedString(TIMELINE_HEADINGS, lang));
   const sectionId = 'timeline-section';
 
   const listItems = items
@@ -338,8 +260,8 @@ export function buildComparisonTable(
 ): string {
   if (before.length === 0 || after.length === 0) return '';
 
-  const beforeLabel = escapeHTML(getInlineLabel(COMPARISON_BEFORE, lang));
-  const afterLabel = escapeHTML(getInlineLabel(COMPARISON_AFTER, lang));
+  const beforeLabel = escapeHTML(getLocalizedString(COMPARISON_BEFORE_LABELS, lang));
+  const afterLabel = escapeHTML(getLocalizedString(COMPARISON_AFTER_LABELS, lang));
   const tableId = 'comparison-table';
   const maxRows = Math.max(before.length, after.length);
 
@@ -384,7 +306,7 @@ export function buildComparisonTable(
 export function buildKeyFiguresBar(figures: ReadonlyArray<KeyFigure>, lang: LanguageCode): string {
   if (figures.length === 0) return '';
 
-  const heading = escapeHTML(getInlineLabel(KEY_FIGURES_HEADINGS, lang));
+  const heading = escapeHTML(getLocalizedString(KEY_FIGURES_HEADINGS, lang));
   const sectionId = 'key-figures-bar';
 
   const cards = figures
