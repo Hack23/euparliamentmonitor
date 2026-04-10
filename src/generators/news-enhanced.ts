@@ -79,6 +79,7 @@ import {
   deriveArticleTypeSlug,
 } from './pipeline/analysis-stage.js';
 import type { AnalysisMethod, AnalysisContext } from './pipeline/analysis-stage.js';
+import type { AnalysisFileEntry } from '../types/index.js';
 
 // ─── Content-module imports (bounded contexts) ───────────────────────────────
 
@@ -536,6 +537,42 @@ function wireAIMetadata(): void {
 }
 
 /**
+ * Compute the dedup suffix by comparing the resolved analysis directory
+ * basename with the original slug.  Examples:
+ * - `('breaking', 'breaking-2')`    → `'-2'`
+ * - `('breaking', 'breaking')`       → `''`
+ * - `('breaking-run6', 'breaking-run6-2')` → `'-run6-2'`
+ *
+ * @param articleTypes - Article type strings to derive the base slug
+ * @param analysisDir - Resolved analysis directory basename (may include suffix)
+ * @returns Validated dedup suffix string (empty when no suffix applies)
+ */
+function computeDedupSuffix(articleTypes: readonly string[], analysisDir?: string): string {
+  const baseSlugNoRun = deriveArticleTypeSlug(
+    articleTypes.filter((t): t is ArticleCategory =>
+      VALID_ARTICLE_CATEGORIES.includes(t as ArticleCategory)
+    )
+  );
+  const rawSuffix =
+    analysisDir !== undefined && analysisDir.startsWith(baseSlugNoRun)
+      ? analysisDir.slice(baseSlugNoRun.length)
+      : '';
+  // Suffix validation patterns for dedup suffix extraction.
+  // -run6, -run12           → run-id only
+  // -2, -3, -a1b2c3d4      → dedup only (numeric or UUID-fragment)
+  // -run6-2, -run12-a1b2    → combined run-id + dedup
+  const RUN_ID_SUFFIX = /^-run\d{1,10}$/u;
+  const DEDUP_SUFFIX = /^-[\da-f]{1,8}$/iu;
+  const COMBINED_SUFFIX = /^-run\d{1,10}-[\da-f]{1,8}$/iu;
+  const isValidSuffix =
+    rawSuffix === '' ||
+    RUN_ID_SUFFIX.test(rawSuffix) ||
+    DEDUP_SUFFIX.test(rawSuffix) ||
+    COMBINED_SUFFIX.test(rawSuffix);
+  return isValidSuffix ? rawSuffix : '';
+}
+
+/**
  * Main execution: initialise the MCP client, optionally run analysis stage,
  * iterate over requested article types, delegate to the appropriate strategy,
  * then persist metadata.
@@ -582,39 +619,16 @@ async function main(): Promise<void> {
       process.env['EP_ANALYSIS_SLUG'] = analysisDir;
     }
 
-    // Extract the dedup suffix by comparing the resolved analysis dir
-    // basename with the original slug.  For example:
-    //   slug = 'breaking'        →  analysisDir = 'breaking-2'       →  dedupSuffix = '-2'
-    //   slug = 'breaking'        →  analysisDir = 'breaking'          →  dedupSuffix = ''
-    //   slug = 'breaking-run6'   →  analysisDir = 'breaking-run6'     →  dedupSuffix = '-run6'
-    //   slug = 'breaking-run6'   →  analysisDir = 'breaking-run6-2'   →  dedupSuffix = '-run6-2'
-    // This suffix is applied per-strategy to article slugs, so multi-type
-    // runs produce distinct slugs (e.g. 'breaking-run6' and 'week-ahead-run6').
-    const baseSlugNoRun = deriveArticleTypeSlug(
-      articleTypes.filter((t): t is ArticleCategory =>
-        VALID_ARTICLE_CATEGORIES.includes(t as ArticleCategory)
-      )
-    );
-    // When run ID is present, the suffix includes the run part (e.g. '-run6')
-    // plus any additional dedup suffix (e.g. '-2').  When absent, only the
-    // dedup suffix applies.
-    const rawSuffix =
-      analysisDir !== undefined && analysisDir.startsWith(baseSlugNoRun)
-        ? analysisDir.slice(baseSlugNoRun.length)
-        : '';
-    // Suffix validation patterns for dedup suffix extraction.
-    // -run6, -run12           → run-id only
-    // -2, -3, -a1b2c3d4      → dedup only (numeric or UUID-fragment)
-    // -run6-2, -run12-a1b2    → combined run-id + dedup
-    const RUN_ID_SUFFIX = /^-run\d{1,10}$/u;
-    const DEDUP_SUFFIX = /^-[\da-f]{1,8}$/iu;
-    const COMBINED_SUFFIX = /^-run\d{1,10}-[\da-f]{1,8}$/iu;
-    const isValidSuffix =
-      rawSuffix === '' ||
-      RUN_ID_SUFFIX.test(rawSuffix) ||
-      DEDUP_SUFFIX.test(rawSuffix) ||
-      COMBINED_SUFFIX.test(rawSuffix);
-    const dedupSuffix = isValidSuffix ? rawSuffix : '';
+    // Compute dedup suffix by comparing resolved analysis dir with the base slug
+    const dedupSuffix = computeDedupSuffix(articleTypes, analysisDir);
+
+    // Extract analysis file entries from the manifest so the article template
+    // can dynamically link to ALL analysis files produced during this run.
+    const analysisFiles: AnalysisFileEntry[] | undefined = analysisCtx
+      ? analysisCtx.manifest.methods
+          .filter((m) => m.status === 'completed')
+          .map((m) => ({ method: m.method, outputFile: m.outputFile }))
+      : undefined;
 
     // If --analysis-only, skip article generation
     if (analysisOnlyArg) {
@@ -652,7 +666,8 @@ async function main(): Promise<void> {
           outputOptions,
           stats,
           dedupSuffix,
-          analysisDir
+          analysisDir,
+          analysisFiles
         )
       );
     }

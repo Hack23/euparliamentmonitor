@@ -1473,4 +1473,55 @@ export const CROSS_SESSION_INTELLIGENCE_LABELS = {
     ko: '세션 간 인텔리전스',
     zh: '跨会期情报分析',
 };
+/** Localized "Synthesis Summary" labels */
+export const SYNTHESIS_SUMMARY_LABELS = {
+    en: 'Synthesis Summary',
+    sv: 'Syntessammanfattning',
+    da: 'Synteseoversigt',
+    no: 'Synteseoppsummering',
+    fi: 'Synteesiyhteenveto',
+    de: 'Synthese-Zusammenfassung',
+    fr: 'Synthèse récapitulative',
+    es: 'Resumen de síntesis',
+    nl: 'Syntheseoverzicht',
+    ar: 'ملخص تركيبي',
+    he: 'סיכום סינתזה',
+    ja: '総合要約',
+    ko: '종합 요약',
+    zh: '综合摘要',
+};
+/** Localized "Document Analysis" labels */
+export const DOCUMENT_ANALYSIS_LABELS = {
+    en: 'Document Analysis',
+    sv: 'Dokumentanalys',
+    da: 'Dokumentanalyse',
+    no: 'Dokumentanalyse',
+    fi: 'Asiakirja-analyysi',
+    de: 'Dokumentenanalyse',
+    fr: 'Analyse documentaire',
+    es: 'Análisis documental',
+    nl: 'Documentanalyse',
+    ar: 'تحليل الوثائق',
+    he: 'ניתוח מסמכים',
+    ja: '文書分析',
+    ko: '문서 분석',
+    zh: '文件分析',
+};
+/** Localized "Significance Scoring" labels */
+export const SIGNIFICANCE_SCORING_LABELS = {
+    en: 'Significance Scoring',
+    sv: 'Betydelsepoängsättning',
+    da: 'Betydningsvurdering',
+    no: 'Betydningsvurdering',
+    fi: 'Merkittävyyspisteytys',
+    de: 'Bedeutungsbewertung',
+    fr: 'Évaluation de signification',
+    es: 'Puntuación de significancia',
+    nl: 'Significantiebeoordeling',
+    ar: 'تقييم الأهمية',
+    he: 'דירוג חשיבות',
+    ja: '重要度スコアリング',
+    ko: '중요도 평가',
+    zh: '重要性评分',
+};
 //# sourceMappingURL=language-ui.js.map
