@@ -14,6 +14,10 @@ permissions:
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  # Pin gh-aw version to avoid regressions from broken stable releases.
+  # v0.67.4 introduced GITHUB_COPILOT_INTEGRATION_ID which breaks PAT auth.
+  # v0.68.0 fixes this (PR #25521). Update this when newer versions are verified.
+  GH_AW_VERSION: "v0.68.0"
 
 jobs:
   compile:
@@ -38,13 +42,9 @@ jobs:
 
       - name: Install gh-aw CLI
         run: |
-          echo "Installing gh-aw tool..."
-          if gh auth status 2>/dev/null; then
-            gh extension install github/gh-aw || echo "Failed to install gh-aw extension"
-          else
-            echo "⚠️ GitHub CLI not authenticated"
-            echo "Skipping gh-aw installation"
-          fi
+          echo "Installing gh-aw $GH_AW_VERSION..."
+          curl -sL https://raw.githubusercontent.com/github/gh-aw/main/install-gh-aw.sh | bash -s -- "$GH_AW_VERSION"
+          gh aw version
         env:
           GH_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
 
@@ -187,8 +187,8 @@ jobs:
               'Please compile the lock files locally:',
               '',
               '```bash',
-              '# Install gh-aw extension (first time only)',
-              'gh extension install github/gh-aw',
+              '# Install gh-aw extension at pinned version (first time only)',
+              'curl -sL https://raw.githubusercontent.com/github/gh-aw/main/install-gh-aw.sh | bash -s -- ' + process.env.GH_AW_VERSION,
               '',
               '# Compile all agentic workflows',
               'cd .github/workflows',

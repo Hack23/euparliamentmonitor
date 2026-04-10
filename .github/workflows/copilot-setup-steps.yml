@@ -16,6 +16,10 @@ env:
   GITHUB_PERSONAL_ACCESS_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN }}
   DISPLAY: ":99"
   EP_REQUEST_TIMEOUT_MS: "90000"
+  # Pin gh-aw version to avoid regressions from broken stable releases.
+  # v0.67.4 introduced GITHUB_COPILOT_INTEGRATION_ID which breaks PAT auth.
+  # v0.68.0 fixes this (PR #25521). Update this when newer versions are verified.
+  GH_AW_VERSION: "v0.68.0"
 
 jobs:
   # The job MUST be called `copilot-setup-steps` or it will not be picked up by Copilot.
@@ -67,15 +71,9 @@ jobs:
 
       - name: Install gh-aw CLI
         run: |
-          echo "Installing gh-aw tool..."
-          # Try to install the GitHub CLI extension
-          # Note: This may require authentication
-          if gh auth status 2>/dev/null; then
-            gh extension install github/gh-aw || echo "Failed to install gh-aw extension"
-          else
-            echo "⚠️ GitHub CLI not authenticated"
-            echo "Skipping gh-aw installation"
-          fi
+          echo "Installing gh-aw $GH_AW_VERSION..."
+          curl -sL https://raw.githubusercontent.com/github/gh-aw/main/install-gh-aw.sh | bash -s -- "$GH_AW_VERSION"
+          gh aw version
         env:
           GH_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
 
