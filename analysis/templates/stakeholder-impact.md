@@ -136,8 +136,6 @@
 
 ---
 
----
-
 ## 📅 Temporal Stakeholder Outlook — 30/60/90-Day Horizon — New in v2.2
 
 > **AI Instructions:** Stakeholder impacts evolve over time. Immediate impacts (days to weeks) are different from structural impacts (months to years). This section maps both dimensions, providing a forward-looking stakeholder outlook. Use the legislative calendar and procedure timeline to anchor the timelines.

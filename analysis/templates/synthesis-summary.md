@@ -269,6 +269,38 @@ Confidence: HIGH (3/3 frameworks align)
 
 ---
 
+## 🔗 Cross-Article-Type Intelligence (Rule 18 Compliance) — New in v1.3
+
+> **AI Instructions:** When ≥2 different workflow types (e.g., `breaking` + `committee-reports`, or `week-ahead` + `propositions`) have produced analysis for events that overlap in the current synthesis window, this section is **MANDATORY**. Cross-article-type correlation reveals insights that single-workflow analysis cannot — for example, a breaking news event may be more significant when it also appears in a committee report analysis with deeper procedural context. See [ai-driven-analysis-guide.md Rule 18](../methodologies/ai-driven-analysis-guide.md) for the authoritative requirement.
+
+### Cross-Article-Type Coverage Matrix
+
+| Event / Topic | Workflow Types Covering It | Complementary Insights | Combined Significance |
+|--------------|---------------------------|----------------------|:---------------------:|
+| `[REQUIRED if ≥2 workflows overlap: event name]` | `[e.g., breaking + committee-reports]` | `[What does each workflow type add that the other doesn't?]` | `[higher/same/lower than individual scores]` |
+| `[event 2]` | `[workflow types]` | `[complementary insights]` | `[assessment]` |
+
+### Cross-Article-Type Intelligence Findings
+
+`[REQUIRED if ≥2 workflows overlap: 2–4 sentences describing what the multi-workflow coverage reveals. E.g., "The CBAM vote (breaking analysis, SIG-2026-04-06-001, score 8.1) gains additional context from the committee-reports analysis (SIG-2026-04-06-003, score 7.2), which reveals that ENVI rapporteur Schmidt signalled willingness to compromise on Article 12 — a detail absent from the plenary-focused breaking analysis. Combined significance: 8.4 (upward adjustment due to procedural depth)."]`
+
+**❌ BAD (no cross-workflow synthesis):**
+```markdown
+Breaking news covered the CBAM vote. Committee reports also covered CBAM. Both are important.
+```
+
+**✅ GOOD (genuine cross-workflow insight):**
+```markdown
+The breaking analysis (SIG-2026-04-06-001) captured the headline vote result (412–156–52) 
+and immediate coalition dynamics. The committee-reports analysis (SIG-2026-04-06-003) adds 
+critical procedural context: rapporteur Schmidt's compromise on Article 12 was negotiated 
+in the April 2 ENVI shadow rapporteur meeting — information absent from the plenary record. 
+Combined, these reveal that the "surprise" EPP support was pre-negotiated, not spontaneous — 
+upgrading coalition stability confidence from MEDIUM to HIGH.
+```
+
+---
+
 ## 🎯 Narrative Direction
 
 `[REQUIRED: 4–6 sentences providing the primary narrative direction for article generation. This is the lede thesis that the article generator should use. Be specific about the central political tension, the key actors, and the intelligence-level insight. Include confidence assessment. Reference any integrated intelligence nuggets from the Cross-Method Correlation section above.]`

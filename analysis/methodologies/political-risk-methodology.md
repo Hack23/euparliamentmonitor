@@ -9,7 +9,7 @@
   <em>🎯 Coalition · Policy · Budget · Institutional · Geopolitical Risk Quantification</em>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.2 | **📅 Last Updated:** 2026-04-06 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 2.2 | **📅 Last Updated:** 2026-04-10 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
@@ -296,13 +296,15 @@ continues, the score may reach CRITICAL (≥15) by the April 22 plenary session.
 
 ### Trajectory Integration with Synthesis Summaries
 
-The `↑/→/↓` trajectory symbols in the **Risk Landscape Summary** table of `synthesis-summary.md` are populated directly from this trajectory tracking table. Ensure they match:
+The `↑/→/↓` trajectory symbols in the **Risk Landscape Summary** table of `synthesis-summary.md` are populated directly from this trajectory tracking table. Because `synthesis-summary.md` supports only `↑/→/↓`, any more detailed trajectory labels defined in this methodology must be normalized to one of those three symbols. Ensure they match:
 
 | synthesis-summary.md column | Source |
 |----------------------------|--------|
-| "Trend vs. Previous" → `↑` | This table: trajectory = Rising or Accelerating |
+| "Trend vs. Previous" → `↑` | This table: trajectory = Rising, Accelerating, or Spike |
 | "Trend vs. Previous" → `→` | This table: trajectory = Stable |
 | "Trend vs. Previous" → `↓` | This table: trajectory = Declining |
+
+> **📌 Normalization Rule:** Detailed methodology trajectories such as `↑↑ Accelerating` and `⚡ Spike` must appear as `↑` in `synthesis-summary.md`. The synthesis summary uses only coarse trend symbols; the detailed label remains in the full risk assessment narrative.
 
 > **🚨 Anti-Pattern Warning:** Trajectory arrows in synthesis summaries that are not backed by an explicit prior score comparison in the risk assessment are REJECTED. Every trajectory symbol must be traceable to a prior score with a date and source reference.
 

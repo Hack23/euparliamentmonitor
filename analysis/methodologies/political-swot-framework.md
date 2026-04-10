@@ -163,7 +163,7 @@ The AI agent **MUST** follow this protocol when generating SWOT analysis:
 
 ---
 
-## 📐 Advanced Technique 0: Mandatory Evidence Citation Format per SWOT Item (New in v2.1)
+## 📐 Advanced Technique 0: Mandatory Evidence Citation Format per SWOT Item (New in v2.2)
 
 Every single SWOT entry — whether in a per-file analysis, daily synthesis, or weekly rollup — MUST follow this citation format. This is not optional.
 
@@ -210,7 +210,7 @@ Every single SWOT entry — whether in a per-file analysis, daily synthesis, or 
 
 ---
 
-## 🕐 Advanced Technique 5: Temporal SWOT — Current vs. 90-Day Projected (New in v2.1)
+## 🕐 Advanced Technique 5: Temporal SWOT — Current vs. 90-Day Projected (New in v2.2)
 
 A standard SWOT captures the **current** political landscape. The Temporal SWOT extends this by projecting how each entry is likely to **evolve over the next 90 days**, enabling forward-looking strategic intelligence rather than rear-view analysis.
 
