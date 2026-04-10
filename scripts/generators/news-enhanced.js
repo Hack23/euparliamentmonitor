@@ -73,8 +73,23 @@ const analysisOnlyArg = args.includes('--analysis-only');
 const analysisVerboseArg = args.includes('--analysis-verbose');
 const analysisDirArg = args.find((arg) => arg.startsWith('--analysis-dir='));
 const analysisMethodsArg = args.find((arg) => arg.startsWith('--analysis-methods='));
+const runIdArg = args.find((arg) => arg.startsWith('--run-id='));
 const titleArg = args.find((arg) => arg.startsWith('--title='));
 const descriptionArg = args.find((arg) => arg.startsWith('--description='));
+/**
+ * Workflow run identifier (typically `GITHUB_RUN_NUMBER`) used to create
+ * a unique analysis directory per workflow execution.  This prevents
+ * multiple runs on the same date from overwriting each other's analysis
+ * artifacts and ensures article transparency links point to the exact
+ * analysis used for that specific article generation run.
+ *
+ * Falls back to `GITHUB_RUN_NUMBER` env var, then empty string (no suffix).
+ * Sanitised to alphanumeric and hyphens only (supports both numeric run
+ * numbers and custom identifiers passed via `--run-id`).
+ */
+export const runId = (runIdArg?.slice('--run-id='.length).trim() ||
+    process.env['GITHUB_RUN_NUMBER'] ||
+    '').replace(/[^a-z0-9-]/giu, '');
 /**
  * AI-generated article title passed by the agentic workflow.
  * When provided, this OVERRIDES any script-generated title.
@@ -278,8 +293,14 @@ async function maybeRunAnalysis(date, client) {
     const validArticleTypes = normalizedArticleTypes.filter((t) => VALID_ARTICLE_CATEGORIES.includes(t));
     // Derive a slug from the article types to scope analysis output per workflow,
     // preventing merge conflicts when multiple workflows run on the same date.
-    const slug = deriveArticleTypeSlug(validArticleTypes);
+    // When a run ID is provided (e.g. GITHUB_RUN_NUMBER), append it to the slug
+    // so each workflow execution gets a unique analysis directory.  This prevents
+    // overwrites when the same workflow runs multiple times on the same day.
+    const baseSlugForAnalysis = deriveArticleTypeSlug(validArticleTypes);
+    const slug = runId ? `${baseSlugForAnalysis}-run${runId}` : baseSlugForAnalysis;
     console.log(`   Article type slug: ${slug}`);
+    if (runId)
+        console.log(`   Run ID: ${runId}`);
     // Pass requireData=true so runAnalysisStage enforces data availability
     // and aborts on any failed method — no hollow or partially failed analysis should exist.
     const ctx = await runAnalysisStage(fetchedData, {
@@ -363,6 +384,34 @@ function wireAIMetadata() {
     }
 }
 /**
+ * Compute the dedup suffix by comparing the resolved analysis directory
+ * basename with the original slug.  Examples:
+ * - `('breaking', 'breaking-2')`    → `'-2'`
+ * - `('breaking', 'breaking')`       → `''`
+ * - `('breaking-run6', 'breaking-run6-2')` → `'-run6-2'`
+ *
+ * @param articleTypes - Article type strings to derive the base slug
+ * @param analysisDir - Resolved analysis directory basename (may include suffix)
+ * @returns Validated dedup suffix string (empty when no suffix applies)
+ */
+export function computeDedupSuffix(articleTypes, analysisDir) {
+    const baseSlugNoRun = deriveArticleTypeSlug(articleTypes.filter((t) => VALID_ARTICLE_CATEGORIES.includes(t)));
+    const rawSuffix = analysisDir !== undefined && analysisDir.startsWith(baseSlugNoRun)
+        ? analysisDir.slice(baseSlugNoRun.length)
+        : '';
+    // Suffix validation patterns for dedup suffix extraction.
+    // Run IDs are sanitized to alphanumeric + hyphen, so preserve the same
+    // character class here to avoid dropping custom run scopes such as
+    // `-runabc-1` or `-runrelease-candidate`.
+    // -run6, -runabc-1              → run-id only
+    // -2, -3, -a1b2c3d4             → dedup only (numeric or UUID-fragment)
+    // -run6-2, -runabc-1-a1b2c3d4   → combined run-id + dedup
+    const RUN_ID_SUFFIX = /^-run[a-z0-9-]{1,64}$/iu;
+    const DEDUP_SUFFIX = /^-[\da-f]{1,8}$/iu;
+    const isValidSuffix = rawSuffix === '' || RUN_ID_SUFFIX.test(rawSuffix) || DEDUP_SUFFIX.test(rawSuffix);
+    return isValidSuffix ? rawSuffix : '';
+}
+/**
  * Main execution: initialise the MCP client, optionally run analysis stage,
  * iterate over requested article types, delegate to the appropriate strategy,
  * then persist metadata.
@@ -401,19 +450,15 @@ async function main() {
             // Slug: the resolved directory basename (may include dedup suffix like 'breaking-2')
             process.env['EP_ANALYSIS_SLUG'] = analysisDir;
         }
-        // Extract the dedup suffix by comparing the resolved analysis dir
-        // basename with the original slug.  For example:
-        //   slug = 'breaking'  →  analysisDir = 'breaking-2'  →  dedupSuffix = '-2'
-        //   slug = 'breaking'  →  analysisDir = 'breaking'     →  dedupSuffix = ''
-        // This suffix is applied per-strategy to article slugs, so multi-type
-        // runs produce distinct slugs (e.g. 'breaking-2' and 'week-ahead-2').
-        const baseSlug = deriveArticleTypeSlug(articleTypes.filter((t) => VALID_ARTICLE_CATEGORIES.includes(t)));
-        // Only extract the suffix if it matches the expected dedup pattern:
-        // numeric (-2, -3, …) or UUID-based (-a1b2c3d4).
-        const rawSuffix = analysisDir !== undefined && analysisDir.startsWith(baseSlug)
-            ? analysisDir.slice(baseSlug.length)
-            : '';
-        const dedupSuffix = /^-[\da-f]+$/i.test(rawSuffix) ? rawSuffix : '';
+        // Compute dedup suffix by comparing resolved analysis dir with the base slug
+        const dedupSuffix = computeDedupSuffix(articleTypes, analysisDir);
+        // Extract analysis file entries from the manifest so the article template
+        // can dynamically link to ALL analysis files produced during this run.
+        const analysisFiles = analysisCtx
+            ? analysisCtx.manifest.methods
+                .filter((m) => m.status === 'completed')
+                .map((m) => ({ method: m.method, outputFile: m.outputFile }))
+            : undefined;
         // If --analysis-only, skip article generation
         if (analysisOnlyArg) {
             console.log('ℹ️  --analysis-only specified. Skipping article generation.');
@@ -436,7 +481,7 @@ async function main() {
                 console.log(`⏭️ Article type "${articleType}" not yet implemented`);
                 continue;
             }
-            results.push(await generateArticleForStrategy(strategy, client, languages, outputOptions, stats, dedupSuffix, analysisDir));
+            results.push(await generateArticleForStrategy(strategy, client, languages, outputOptions, stats, dedupSuffix, analysisDir, analysisFiles));
         }
         console.log('');
         console.log('📊 Generation Summary:');
