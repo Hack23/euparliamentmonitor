@@ -523,6 +523,30 @@ ${analysisLinksHtml}
     `;
 }
 /**
+ * Validate that an analysis output file path is safe for use in URLs.
+ *
+ * Rejects absolute paths, path traversal (`..`), backslashes, and any
+ * characters outside the expected alphanumeric + hyphen + slash + dot + underscore set.
+ *
+ * @param outputFile - Relative path from manifest (e.g. 'classification/significance-classification.md')
+ * @returns true if the path is safe to interpolate into a URL
+ */
+function isSafeAnalysisPath(outputFile) {
+    if (!outputFile || outputFile.length === 0)
+        return false;
+    // Reject absolute paths, backslashes, consecutive slashes, and path traversal
+    if (/^[/\\]/u.test(outputFile))
+        return false;
+    if (/\.\./u.test(outputFile))
+        return false;
+    if (/\\/u.test(outputFile))
+        return false;
+    if (/\/\//u.test(outputFile))
+        return false;
+    // Only allow safe characters: alphanumeric, hyphens, underscores, dots, forward slashes
+    return /^[\da-zA-Z][\da-zA-Z._/-]*$/u.test(outputFile);
+}
+/**
  * Render dynamic analysis links from manifest entries, grouped by subdirectory.
  *
  * @param files - Analysis file entries from the manifest
@@ -531,9 +555,11 @@ ${analysisLinksHtml}
  * @returns HTML string for the grouped analysis links
  */
 function renderDynamicAnalysisLinks(files, analysisFileBase, lang) {
+    // Filter out entries with unsafe paths (path traversal, absolute, backslashes)
+    const safeFiles = files.filter((f) => isSafeAnalysisPath(f.outputFile));
     // Group files by their subdirectory (first path segment)
     const groups = new Map();
-    for (const file of files) {
+    for (const file of safeFiles) {
         const slashIdx = file.outputFile.indexOf('/');
         const subdir = slashIdx > 0 ? file.outputFile.slice(0, slashIdx) : '';
         const key = subdir || '_root';
@@ -546,7 +572,13 @@ function renderDynamicAnalysisLinks(files, analysisFileBase, lang) {
         }
     }
     // Known ordering for subdirectories
-    const orderedSubdirs = ['classification', 'threat-assessment', 'risk-scoring', 'existing', 'documents'];
+    const orderedSubdirs = [
+        'classification',
+        'threat-assessment',
+        'risk-scoring',
+        'existing',
+        'documents',
+    ];
     const sortedKeys = [
         ...orderedSubdirs.filter((k) => groups.has(k)),
         ...[...groups.keys()].filter((k) => k !== '_root' && !orderedSubdirs.includes(k)),
@@ -564,8 +596,12 @@ function renderDynamicAnalysisLinks(files, analysisFileBase, lang) {
         const emoji = sectionInfo?.emoji ?? '📋';
         const items = groupFiles.map((f) => {
             const label = getMethodLabel(f.method, lang);
-            const safeFile = escapeHTML(f.outputFile);
-            return `          <li><a href="${analysisFileBase}/${safeFile}" target="_blank" rel="noopener noreferrer">${label}</a></li>`;
+            // URL-encode each path segment to prevent URL injection
+            const encodedFile = f.outputFile
+                .split('/')
+                .map((seg) => encodeURIComponent(seg))
+                .join('/');
+            return `          <li><a href="${analysisFileBase}/${encodedFile}" target="_blank" rel="noopener noreferrer">${label}</a></li>`;
         });
         sections.push(`        <h3><span aria-hidden="true">${emoji}</span> ${sectionHeading}</h3>
         <ul>

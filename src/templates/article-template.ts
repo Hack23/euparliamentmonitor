@@ -569,9 +569,7 @@ const METHOD_LABEL_MAP: Readonly<Record<string, LanguageMap>> = {
  * Map of analysis subdirectory names to their section heading label constants
  * and display emoji.
  */
-const SUBDIR_SECTION_MAP: Readonly<
-  Record<string, { labels: LanguageMap; emoji: string }>
-> = {
+const SUBDIR_SECTION_MAP: Readonly<Record<string, { labels: LanguageMap; emoji: string }>> = {
   classification: { labels: CLASSIFICATION_ANALYSIS_LABELS, emoji: '🏷️' },
   'threat-assessment': { labels: THREAT_ASSESSMENT_LABELS, emoji: '🛡️' },
   'risk-scoring': { labels: RISK_SCORING_LABELS, emoji: '⚖️' },
@@ -592,9 +590,7 @@ function getMethodLabel(method: string, lang: LanguageCode): string {
     return escapeHTML(getLocalizedString(labelMap, lang));
   }
   // Fallback: titleize the method name (e.g. 'political-stride' → 'Political Stride')
-  return escapeHTML(
-    method.replace(/-/gu, ' ').replace(/\b\w/gu, (c) => c.toUpperCase())
-  );
+  return escapeHTML(method.replace(/-/gu, ' ').replace(/\b\w/gu, (c) => c.toUpperCase()));
 }
 
 /**
@@ -678,6 +674,26 @@ ${analysisLinksHtml}
 }
 
 /**
+ * Validate that an analysis output file path is safe for use in URLs.
+ *
+ * Rejects absolute paths, path traversal (`..`), backslashes, and any
+ * characters outside the expected alphanumeric + hyphen + slash + dot + underscore set.
+ *
+ * @param outputFile - Relative path from manifest (e.g. 'classification/significance-classification.md')
+ * @returns true if the path is safe to interpolate into a URL
+ */
+function isSafeAnalysisPath(outputFile: string): boolean {
+  if (!outputFile || outputFile.length === 0) return false;
+  // Reject absolute paths, backslashes, consecutive slashes, and path traversal
+  if (/^[/\\]/u.test(outputFile)) return false;
+  if (/\.\./u.test(outputFile)) return false;
+  if (/\\/u.test(outputFile)) return false;
+  if (/\/\//u.test(outputFile)) return false;
+  // Only allow safe characters: alphanumeric, hyphens, underscores, dots, forward slashes
+  return /^[\da-zA-Z][\da-zA-Z._/-]*$/u.test(outputFile);
+}
+
+/**
  * Render dynamic analysis links from manifest entries, grouped by subdirectory.
  *
  * @param files - Analysis file entries from the manifest
@@ -690,9 +706,12 @@ function renderDynamicAnalysisLinks(
   analysisFileBase: string,
   lang: LanguageCode
 ): string {
+  // Filter out entries with unsafe paths (path traversal, absolute, backslashes)
+  const safeFiles = files.filter((f) => isSafeAnalysisPath(f.outputFile));
+
   // Group files by their subdirectory (first path segment)
   const groups = new Map<string, AnalysisFileEntry[]>();
-  for (const file of files) {
+  for (const file of safeFiles) {
     const slashIdx = file.outputFile.indexOf('/');
     const subdir = slashIdx > 0 ? file.outputFile.slice(0, slashIdx) : '';
     const key = subdir || '_root';
@@ -705,7 +724,13 @@ function renderDynamicAnalysisLinks(
   }
 
   // Known ordering for subdirectories
-  const orderedSubdirs = ['classification', 'threat-assessment', 'risk-scoring', 'existing', 'documents'];
+  const orderedSubdirs = [
+    'classification',
+    'threat-assessment',
+    'risk-scoring',
+    'existing',
+    'documents',
+  ];
   const sortedKeys = [
     ...orderedSubdirs.filter((k) => groups.has(k)),
     ...[...groups.keys()].filter((k) => k !== '_root' && !orderedSubdirs.includes(k)),
@@ -726,8 +751,12 @@ function renderDynamicAnalysisLinks(
 
     const items = groupFiles.map((f) => {
       const label = getMethodLabel(f.method, lang);
-      const safeFile = escapeHTML(f.outputFile);
-      return `          <li><a href="${analysisFileBase}/${safeFile}" target="_blank" rel="noopener noreferrer">${label}</a></li>`;
+      // URL-encode each path segment to prevent URL injection
+      const encodedFile = f.outputFile
+        .split('/')
+        .map((seg) => encodeURIComponent(seg))
+        .join('/');
+      return `          <li><a href="${analysisFileBase}/${encodedFile}" target="_blank" rel="noopener noreferrer">${label}</a></li>`;
     });
 
     sections.push(`        <h3><span aria-hidden="true">${emoji}</span> ${sectionHeading}</h3>
@@ -752,12 +781,18 @@ function renderFallbackAnalysisLinks(analysisFileBase: string, lang: LanguageCod
   const riskLabel = escapeHTML(getLocalizedString(RISK_SCORING_LABELS, lang));
   const deepLabel = escapeHTML(getLocalizedString(DEEP_ANALYSIS_LABELS, lang));
 
-  const significanceLabel = escapeHTML(getLocalizedString(SIGNIFICANCE_CLASSIFICATION_LABELS, lang));
+  const significanceLabel = escapeHTML(
+    getLocalizedString(SIGNIFICANCE_CLASSIFICATION_LABELS, lang)
+  );
   const actorMappingLabel = escapeHTML(getLocalizedString(ACTOR_MAPPING_LABELS, lang));
   const forcesLabel = escapeHTML(getLocalizedString(FORCES_ANALYSIS_LABELS, lang));
   const impactMatrixLabel = escapeHTML(getLocalizedString(IMPACT_MATRIX_LABELS, lang));
-  const threatLandscapeLabel = escapeHTML(getLocalizedString(POLITICAL_THREAT_LANDSCAPE_LABELS, lang));
-  const actorThreatProfilingLabel = escapeHTML(getLocalizedString(ACTOR_THREAT_PROFILING_LABELS, lang));
+  const threatLandscapeLabel = escapeHTML(
+    getLocalizedString(POLITICAL_THREAT_LANDSCAPE_LABELS, lang)
+  );
+  const actorThreatProfilingLabel = escapeHTML(
+    getLocalizedString(ACTOR_THREAT_PROFILING_LABELS, lang)
+  );
   const consequenceLabel = escapeHTML(getLocalizedString(CONSEQUENCE_TREES_LABELS, lang));
   const disruptionLabel = escapeHTML(getLocalizedString(LEGISLATIVE_DISRUPTION_LABELS, lang));
   const riskMatrixLabel = escapeHTML(getLocalizedString(RISK_MATRIX_LABELS, lang));
