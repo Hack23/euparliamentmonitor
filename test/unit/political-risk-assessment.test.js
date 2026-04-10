@@ -953,7 +953,7 @@ import {
 describe('computeRiskInterconnection', () => {
   it('should return isolated for a single risk', () => {
     const result = computeRiskInterconnection([
-      { riskId: 'R1', category: 'shift', numericScore: 5 },
+      { riskId: 'R1', category: 'coalition_fracture', numericScore: 5 },
     ]);
     expect(result.assessment).toBe('isolated');
     expect(result.cascadingPairs).toHaveLength(0);
@@ -961,9 +961,9 @@ describe('computeRiskInterconnection', () => {
 
   it('should compute cascade pairs for multiple risks', () => {
     const result = computeRiskInterconnection([
-      { riskId: 'R1', category: 'shift', numericScore: 8 },
-      { riskId: 'R2', category: 'shift', numericScore: 7 },
-      { riskId: 'R3', category: 'delay', numericScore: 3 },
+      { riskId: 'R1', category: 'coalition_fracture', numericScore: 8 },
+      { riskId: 'R2', category: 'coalition_fracture', numericScore: 7 },
+      { riskId: 'R3', category: 'legislative_delay', numericScore: 3 },
     ]);
     expect(result.riskCount).toBe(3);
     expect(result.cascadingPairs.length).toBe(3);
@@ -971,9 +971,9 @@ describe('computeRiskInterconnection', () => {
 
   it('should score same-category pairs higher than cross-category', () => {
     const result = computeRiskInterconnection([
-      { riskId: 'R1', category: 'shift', numericScore: 8 },
-      { riskId: 'R2', category: 'shift', numericScore: 8 },
-      { riskId: 'R3', category: 'delay', numericScore: 8 },
+      { riskId: 'R1', category: 'coalition_fracture', numericScore: 8 },
+      { riskId: 'R2', category: 'coalition_fracture', numericScore: 8 },
+      { riskId: 'R3', category: 'legislative_delay', numericScore: 8 },
     ]);
     const sameCat = result.cascadingPairs.find((p) => p.riskAId === 'R1' && p.riskBId === 'R2');
     const crossCat = result.cascadingPairs.find((p) => p.riskAId === 'R1' && p.riskBId === 'R3');
@@ -984,6 +984,15 @@ describe('computeRiskInterconnection', () => {
     const result = computeRiskInterconnection([]);
     expect(result.riskCount).toBe(0);
     expect(result.assessment).toBe('isolated');
+  });
+
+  it('should clamp negative numeric scores to zero', () => {
+    const result = computeRiskInterconnection([
+      { riskId: 'R1', category: 'coalition_fracture', numericScore: -5 },
+      { riskId: 'R2', category: 'coalition_fracture', numericScore: 2 },
+    ]);
+    expect(result.cascadingPairs[0].cascadeScore).toBeGreaterThanOrEqual(0);
+    expect(result.cascadingPairs[0].cascadeScore).toBeLessThanOrEqual(1);
   });
 });
 

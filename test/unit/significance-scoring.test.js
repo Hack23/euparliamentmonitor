@@ -563,6 +563,21 @@ describe('computeComparativeSignificance', () => {
     const result = computeComparativeSignificance(target, peers);
     expect(result.aboveAverage).toBe(false);
   });
+
+  it('should give percentile 100 to all tied top scores', () => {
+    const target = makeScore(5.0);
+    const peers = [makeScore(5.0), makeScore(5.0), makeScore(4.0)];
+    const result = computeComparativeSignificance(target, peers);
+    expect(result.rank).toBe(1);
+    expect(result.percentile).toBe(100);
+  });
+
+  it('should give percentile 0 to all tied bottom scores', () => {
+    const target = makeScore(3.0);
+    const peers = [makeScore(3.0), makeScore(3.0), makeScore(8.0)];
+    const result = computeComparativeSignificance(target, peers);
+    expect(result.percentile).toBe(0);
+  });
 });
 
 describe('detectSignificanceTrend', () => {

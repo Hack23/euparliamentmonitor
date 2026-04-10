@@ -294,10 +294,18 @@ export function computeComparativeSignificance(
   const strictlyHigher = peers.filter((p) => p.composite > target.composite).length;
   const rank = strictlyHigher + 1;
 
-  // Percentile: 0 = lowest, 100 = highest
-  // Uses count of items with lower composite scores
+  // Percentile: 0 = lowest, 100 = highest.
+  // Handle tied extremes explicitly so all highest-scoring peers receive 100
+  // and all lowest-scoring peers receive 0.
   const strictlyLower = peers.filter((p) => p.composite < target.composite).length;
-  const percentile = total > 1 ? Math.round((strictlyLower / (total - 1)) * 100) : 100;
+  const percentile =
+    total <= 1
+      ? 100
+      : strictlyHigher === 0
+        ? 100
+        : strictlyLower === 0
+          ? 0
+          : Math.round((strictlyLower / (total - 1)) * 100);
 
   return {
     rank,

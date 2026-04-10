@@ -1087,7 +1087,9 @@ export function computeRiskInterconnection(
         category: PoliticalThreatCategory;
         numericScore: number;
       };
-      const avgScore = (riskA.numericScore + riskB.numericScore) / 2;
+      const clampedA = Math.max(0, Math.min(10, riskA.numericScore));
+      const clampedB = Math.max(0, Math.min(10, riskB.numericScore));
+      const avgScore = (clampedA + clampedB) / 2;
       const sameCategory = riskA.category === riskB.category;
 
       const cascadeScore = sameCategory

@@ -760,7 +760,10 @@ export function scoreCrossReferenceDensity(html) {
     PROCEDURE_REF_PATTERN.lastIndex = 0;
     const procMatches = htmlNoScripts.match(PROCEDURE_REF_PATTERN) ?? [];
     const procedureReferences = new Set(procMatches).size;
-    const totalReferences = epDocumentIds + procedureReferences + taNumbers;
+    // Avoid double-counting TA references already present in EP_DOC_PATTERNS by
+    // scoring against the union of all matched reference identifiers.
+    const totalReferenceSet = new Set([...epDocSet, ...taMatches, ...procMatches]);
+    const totalReferences = totalReferenceSet.size;
     // Score: 10 references = 100 points (same scale as EVIDENCE_MAX)
     const score = clamp100(Math.round((totalReferences / EVIDENCE_MAX) * 100));
     return { epDocumentIds, procedureReferences, taNumbers, totalReferences, score };

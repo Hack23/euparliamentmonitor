@@ -868,7 +868,9 @@ export function computeRiskInterconnection(risks) {
         for (let j = i + 1; j < risks.length; j++) {
             const riskA = risks[i];
             const riskB = risks[j];
-            const avgScore = (riskA.numericScore + riskB.numericScore) / 2;
+            const clampedA = Math.max(0, Math.min(10, riskA.numericScore));
+            const clampedB = Math.max(0, Math.min(10, riskB.numericScore));
+            const avgScore = (clampedA + clampedB) / 2;
             const sameCategory = riskA.category === riskB.category;
             const cascadeScore = sameCategory
                 ? Math.min(1, 0.6 + (avgScore / 10) * 0.4)
