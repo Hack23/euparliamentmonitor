@@ -1090,6 +1090,9 @@ const TRADITIONAL_LEFT_GROUPS: readonly string[] = ['S&D', 'Greens/EFA', 'The Le
 const TRADITIONAL_RIGHT_GROUPS: readonly string[] = ['ECR', 'ID', 'Patriots'];
 const TRADITIONAL_CENTRE_GROUPS: readonly string[] = ['EPP', 'Renew'];
 
+/** Signal type constant for cross-party alignment detection */
+const CROSS_PARTY_ALIGNMENT = 'cross-party-alignment' as const;
+
 /**
  * Classify a group into its traditional EP bloc.
  *
@@ -1161,7 +1164,7 @@ function classifyPatternSignal(
     if (opposingHighCohesion.length > 0) {
       return {
         group,
-        patternType: 'cross-party-alignment',
+        patternType: CROSS_PARTY_ALIGNMENT,
         cohesion,
         confidence: cohesion > 0.9 ? 'high' : 'medium',
         description: `${group} (${(cohesion * 100).toFixed(0)}% cohesion) may be aligning with ${opposingHighCohesion.map((p) => p.group).join(', ')}`,
@@ -1174,44 +1177,46 @@ function classifyPatternSignal(
 
 /**
  * Detect new-bloc-formation signals across high-cohesion groups spanning
- * multiple traditional blocs.
+ * multiple traditional blocs. Returns new signals and a set of group names
+ * whose cross-party signals should be replaced.
  *
  * @param currentPatterns - All voting patterns
- * @param existingSignals - Signals already detected per group
- * @returns New-bloc-formation signals to append
+ * @param existingSignals - Signals already detected per group (read-only)
+ * @returns Object with new-bloc signals and groups whose cross-party signals to remove
  */
 function detectNewBlocFormation(
   currentPatterns: readonly VotingPattern[],
-  existingSignals: CoalitionShiftSignal[]
-): CoalitionShiftSignal[] {
+  existingSignals: readonly CoalitionShiftSignal[]
+): { signals: CoalitionShiftSignal[]; upgradedGroups: ReadonlySet<string> } {
   const highCohesionGroups = currentPatterns.filter((p) => p.cohesion > 0.8);
   const hasLeft = highCohesionGroups.some((p) => classifyBloc(p.group) === 'left');
   const hasRight = highCohesionGroups.some((p) => classifyBloc(p.group) === 'right');
   const hasCentre = highCohesionGroups.some((p) => classifyBloc(p.group) === 'centre');
   const distinctBlocsHigh = [hasLeft, hasRight, hasCentre].filter(Boolean).length;
 
-  if (distinctBlocsHigh < 2 || highCohesionGroups.length < 3) return [];
+  if (distinctBlocsHigh < 2 || highCohesionGroups.length < 3) {
+    return { signals: [], upgradedGroups: new Set() };
+  }
 
   // Upgrade cross-party signals to new-bloc-formation when a broad coalition is forming
   const results: CoalitionShiftSignal[] = [];
+  const upgraded = new Set<string>();
   for (const pattern of highCohesionGroups) {
-    const crossPartyIdx = existingSignals.findIndex(
-      (s) => s.group === pattern.group && s.patternType === 'cross-party-alignment'
+    const hasCrossParty = existingSignals.some(
+      (s) => s.group === pattern.group && s.patternType === CROSS_PARTY_ALIGNMENT
     );
-    const signal: CoalitionShiftSignal = {
+    results.push({
       group: pattern.group,
       patternType: 'new-bloc-formation',
       cohesion: pattern.cohesion,
       confidence: highCohesionGroups.length >= 4 ? 'high' : 'medium',
       description: `${pattern.group} part of an emerging cross-bloc coalition (${highCohesionGroups.length} groups with >80% cohesion)`,
-    };
-    if (crossPartyIdx >= 0) {
-      // Replace individual cross-party with collective new-bloc-formation
-      existingSignals.splice(crossPartyIdx, 1);
+    });
+    if (hasCrossParty) {
+      upgraded.add(pattern.group);
     }
-    results.push(signal);
   }
-  return results;
+  return { signals: results, upgradedGroups: upgraded };
 }
 
 /**
@@ -1244,12 +1249,20 @@ export function deriveCoalitionShiftSignals(
   }
 
   // Detect new-bloc-formation across the full set
-  const blocSignals = detectNewBlocFormation(currentPatterns, signals);
-  signals.push(...blocSignals);
+  const { signals: blocSignals, upgradedGroups } = detectNewBlocFormation(currentPatterns, signals);
+
+  // Filter out cross-party signals that have been upgraded to new-bloc-formation
+  const filtered =
+    upgradedGroups.size > 0
+      ? signals.filter(
+          (s) => !(s.patternType === CROSS_PARTY_ALIGNMENT && upgradedGroups.has(s.group))
+        )
+      : signals;
+  filtered.push(...blocSignals);
 
   // Sort by confidence (high → medium → low)
   const confidenceOrder: Record<string, number> = { high: 3, medium: 2, low: 1 };
-  return signals.sort(
+  return filtered.sort(
     (a, b) => (confidenceOrder[b.confidence] ?? 0) - (confidenceOrder[a.confidence] ?? 0)
   );
 }
