@@ -1,0 +1,74 @@
+{
+  "articleType": "motions",
+  "analysisDate": "2026-04-10",
+  "analysisTimestamp": "2026-04-10T06:55:00Z",
+  "workflow": "news-motions",
+  "feedStatus": {
+    "adoptedTextsFeed": "WORKING",
+    "proceduresFeed": "UNAVAILABLE",
+    "parliamentaryQuestionsFeed": "UNAVAILABLE",
+    "mepsFeed": "WORKING",
+    "coalitionDynamics": "WORKING",
+    "votingAnomalies": "WORKING",
+    "politicalLandscape": "WORKING"
+  },
+  "dataQuality": {
+    "overallConfidence": "MEDIUM",
+    "adoptedTextsCount": 100,
+    "marchPlenaryTexts": 17,
+    "feedDegradation": "Easter recess Day 15 - 4+ feeds returning 404"
+  },
+  "analysisArtifacts": {
+    "classification": [
+      "significance-classification.md"
+    ],
+    "threatAssessment": [
+      "political-threat-landscape.md"
+    ],
+    "riskScoring": [
+      "risk-matrix.md"
+    ],
+    "existing": [
+      "deep-analysis.md",
+      "coalition-dynamics.md",
+      "stakeholder-impact.md",
+      "synthesis-summary.md"
+    ],
+    "documents": [
+      "document-analysis-index.md"
+    ]
+  },
+  "significanceScores": {
+    "topItem": {
+      "ref": "TA-10-2026-0096",
+      "title": "US Tariff Countermeasures",
+      "score": 8.4
+    },
+    "secondItem": {
+      "ref": "TA-10-2026-0094",
+      "title": "Anti-Corruption Directive",
+      "score": 8.0
+    },
+    "thirdItem": {
+      "ref": "TA-10-2026-0092",
+      "title": "SRMR3 Banking Resolution",
+      "score": 7.6
+    }
+  },
+  "articleDecision": {
+    "generate": true,
+    "angle": "Geopolitical assertiveness pivot \u2014 trade defence, defence spending, and Global Gateway convergence",
+    "leadItems": [
+      "TA-10-2026-0096",
+      "TA-10-2026-0079",
+      "TA-10-2026-0080",
+      "TA-10-2026-0104"
+    ],
+    "supportingItems": [
+      "TA-10-2026-0090",
+      "TA-10-2026-0091",
+      "TA-10-2026-0092",
+      "TA-10-2026-0094"
+    ]
+  }
+}
