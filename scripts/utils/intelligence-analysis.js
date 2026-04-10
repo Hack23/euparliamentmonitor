@@ -962,4 +962,172 @@ export function buildLegislativeVelocityReport(docs) {
         throughputAssessment: assessThroughput(hasDateData, averageDaysPerStage),
     };
 }
+// ─── Coalition shift signal detection ────────────────────────────────────────
+/**
+ * Traditional EP political groups used as baseline for cross-party alignment detection.
+ * Groups from different blocs (centre-left vs centre-right vs far-right) are tracked
+ * to identify non-traditional coalition patterns.
+ */
+const TRADITIONAL_LEFT_GROUPS = ['S&D', 'Greens/EFA', 'The Left'];
+const TRADITIONAL_RIGHT_GROUPS = ['ECR', 'ID', 'Patriots'];
+const TRADITIONAL_CENTRE_GROUPS = ['EPP', 'Renew'];
+/**
+ * Derive coalition shift signals from current voting patterns, detecting patterns
+ * that diverge from traditional EP political group alignments.
+ *
+ * Signals detected:
+ * - `cross-party-alignment`: a group is voting consistently with a traditionally
+ *   opposing bloc (e.g. EPP aligning with S&D)
+ * - `bloc-fragmentation`: low cohesion (< 0.4) indicating internal breakdown
+ * - `isolation`: group voting against all others (only pattern with very low cohesion
+ *   while all others have high cohesion)
+ * - `new-bloc-formation`: multiple groups from different blocs all showing high cohesion
+ *
+ * @param currentPatterns - Current voting patterns with cohesion scores
+ * @returns Array of CoalitionShiftSignal objects ordered by confidence (high → low)
+ */
+export function deriveCoalitionShiftSignals(currentPatterns) {
+    if (currentPatterns.length === 0)
+        return [];
+    const signals = [];
+    const avgCohesion = currentPatterns.reduce((s, p) => s + p.cohesion, 0) / currentPatterns.length;
+    for (const pattern of currentPatterns) {
+        const group = pattern.group;
+        const cohesion = pattern.cohesion;
+        // Bloc fragmentation: internal cohesion critically low
+        if (cohesion < 0.4) {
+            signals.push({
+                group,
+                patternType: 'bloc-fragmentation',
+                cohesion,
+                confidence: cohesion < 0.25 ? 'high' : 'medium',
+                description: `${group} internal cohesion at ${(cohesion * 100).toFixed(0)}% — bloc may be fragmenting`,
+            });
+            continue;
+        }
+        // Isolation: group cohesion significantly below peers, near-zero participation alignment
+        if (cohesion < avgCohesion * 0.6 && avgCohesion > 0.6) {
+            signals.push({
+                group,
+                patternType: 'isolation',
+                cohesion,
+                confidence: 'medium',
+                description: `${group} cohesion (${(cohesion * 100).toFixed(0)}%) significantly below group average (${(avgCohesion * 100).toFixed(0)}%) — possible isolation`,
+            });
+            continue;
+        }
+        // Cross-party alignment: high-cohesion group from one traditional bloc
+        if (cohesion > 0.8) {
+            const isLeft = TRADITIONAL_LEFT_GROUPS.includes(group);
+            const isRight = TRADITIONAL_RIGHT_GROUPS.includes(group);
+            const isCentre = TRADITIONAL_CENTRE_GROUPS.includes(group);
+            // Check if other traditionally opposing blocs also have high cohesion (potential alliance)
+            const opposingHighCohesion = currentPatterns.filter((p) => {
+                if (p.group === group || p.cohesion <= 0.8)
+                    return false;
+                const pIsLeft = TRADITIONAL_LEFT_GROUPS.includes(p.group);
+                const pIsRight = TRADITIONAL_RIGHT_GROUPS.includes(p.group);
+                const pIsCentre = TRADITIONAL_CENTRE_GROUPS.includes(p.group);
+                // Traditionally opposing: left vs right
+                return (isLeft && (pIsRight || pIsCentre)) || (isRight && (pIsLeft || pIsCentre)) || (isCentre && (pIsLeft || pIsRight));
+            });
+            if (opposingHighCohesion.length > 0) {
+                signals.push({
+                    group,
+                    patternType: 'cross-party-alignment',
+                    cohesion,
+                    confidence: cohesion > 0.9 ? 'high' : 'medium',
+                    description: `${group} (${(cohesion * 100).toFixed(0)}% cohesion) may be aligning with ${opposingHighCohesion.map((p) => p.group).join(', ')}`,
+                });
+            }
+        }
+    }
+    // New-bloc-formation: 3+ groups from different traditional blocs all show high cohesion
+    const highCohesionGroups = currentPatterns.filter((p) => p.cohesion > 0.8);
+    const hasLeft = highCohesionGroups.some((p) => TRADITIONAL_LEFT_GROUPS.includes(p.group));
+    const hasRight = highCohesionGroups.some((p) => TRADITIONAL_RIGHT_GROUPS.includes(p.group));
+    const hasCentre = highCohesionGroups.some((p) => TRADITIONAL_CENTRE_GROUPS.includes(p.group));
+    const distinctBlocsHigh = [hasLeft, hasRight, hasCentre].filter(Boolean).length;
+    if (distinctBlocsHigh >= 2 && highCohesionGroups.length >= 3) {
+        for (const pattern of highCohesionGroups) {
+            // Only add new-bloc-formation if not already signalled as cross-party
+            const alreadySignalled = signals.some((s) => s.group === pattern.group && s.patternType === 'cross-party-alignment');
+            if (!alreadySignalled) {
+                signals.push({
+                    group: pattern.group,
+                    patternType: 'new-bloc-formation',
+                    cohesion: pattern.cohesion,
+                    confidence: highCohesionGroups.length >= 4 ? 'high' : 'medium',
+                    description: `${pattern.group} part of an emerging cross-bloc coalition (${highCohesionGroups.length} groups with >80% cohesion)`,
+                });
+            }
+        }
+    }
+    // Sort by confidence (high → medium → low)
+    const confidenceOrder = { high: 3, medium: 2, low: 1 };
+    return signals.sort((a, b) => (confidenceOrder[b.confidence] ?? 0) - (confidenceOrder[a.confidence] ?? 0));
+}
+/**
+ * Compute the influence trajectory for a stakeholder based on their current
+ * score, committee engagement, and comparison to historical baseline.
+ *
+ * Trajectory logic:
+ * - If current score > historical by ≥ 5 points AND has committee/rapporteur roles → rising
+ * - If current score < historical by ≥ 5 points → declining
+ * - Otherwise → stable
+ *
+ * Confidence depends on whether historical data is available and role count.
+ *
+ * @param input - Stakeholder engagement metrics
+ * @returns StakeholderInfluenceTrajectory with direction and driving factors
+ */
+export function computeStakeholderInfluenceTrajectory(input) {
+    const drivingFactors = [];
+    const hasHistorical = typeof input.historicalScore === 'number';
+    const scoreDelta = hasHistorical ? input.currentScore - input.historicalScore : 0;
+    if (input.committeeAssignments > 0) {
+        drivingFactors.push(`${input.committeeAssignments} active committee assignment(s)`);
+    }
+    if (input.rapporteurRoles > 0) {
+        drivingFactors.push(`${input.rapporteurRoles} rapporteur role(s)`);
+    }
+    if (input.shadowRapporteurRoles > 0) {
+        drivingFactors.push(`${input.shadowRapporteurRoles} shadow rapporteur role(s)`);
+    }
+    if (hasHistorical) {
+        drivingFactors.push(`Score ${scoreDelta >= 0 ? '+' : ''}${scoreDelta.toFixed(1)} vs baseline`);
+    }
+    let trajectory;
+    const totalEngagement = input.committeeAssignments + input.rapporteurRoles + input.shadowRapporteurRoles;
+    if (hasHistorical && scoreDelta >= 5 && totalEngagement > 0) {
+        trajectory = 'rising';
+    }
+    else if (hasHistorical && scoreDelta <= -5) {
+        trajectory = 'declining';
+    }
+    else if (!hasHistorical && totalEngagement >= 3) {
+        trajectory = 'rising';
+    }
+    else {
+        trajectory = 'stable';
+    }
+    let confidence;
+    if (hasHistorical && totalEngagement > 0) {
+        confidence = 'high';
+    }
+    else if (hasHistorical || totalEngagement > 0) {
+        confidence = 'medium';
+    }
+    else {
+        confidence = 'low';
+    }
+    return {
+        stakeholderId: input.stakeholderId,
+        name: input.name,
+        trajectory,
+        currentScore: input.currentScore,
+        confidence,
+        drivingFactors,
+    };
+}
 //# sourceMappingURL=intelligence-analysis.js.map

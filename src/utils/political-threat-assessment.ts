@@ -1578,3 +1578,171 @@ export function generateThreatAssessmentMarkdown(
  */
 export const ALL_THREAT_LANDSCAPE_DIMENSIONS: readonly PoliticalThreatCategory[] =
   ALL_THREAT_DIMENSIONS;
+
+// ─── Threat correlation matrix ────────────────────────────────────────────────
+
+import type { ThreatCorrelation, EmergingThreat } from '../types/political-threats.js';
+
+/**
+ * Pre-computed correlation scores between EP political threat dimensions.
+ * Positive values = mutually reinforcing threats.
+ * Negative values = counteracting threats.
+ * Structure: MAP[dimA][dimB] — only upper triangle defined; lower triangle mirrors it.
+ */
+const THREAT_CORRELATION_MAP: Readonly<Record<string, Readonly<Record<string, number>>>> = {
+  shift:         { transparency: 0.6, reversal: 0.5, institutional: 0.4, delay: 0.3, erosion: 0.7 },
+  transparency:  { reversal: 0.4, institutional: 0.7, delay: 0.3, erosion: 0.8 },
+  reversal:      { institutional: 0.3, delay: 0.4, erosion: 0.5 },
+  institutional: { delay: 0.6, erosion: 0.7 },
+  delay:         { erosion: 0.4 },
+  erosion:       {},
+};
+
+/**
+ * Generate a description for a pair of correlated threat dimensions.
+ *
+ * @param dimA - First dimension
+ * @param dimB - Second dimension
+ * @param score - Correlation score (-1 to +1)
+ * @returns Human-readable description of the interaction
+ */
+function describeThreatCorrelation(
+  dimA: PoliticalThreatCategory,
+  dimB: PoliticalThreatCategory,
+  score: number
+): string {
+  if (score > 0.6) return `${dimA} and ${dimB} are strongly mutually reinforcing — escalation in one typically accelerates the other`;
+  if (score > 0.3) return `${dimA} and ${dimB} show moderate positive correlation — they often co-occur`;
+  if (score > 0) return `${dimA} and ${dimB} have weak positive correlation`;
+  if (score < -0.3) return `${dimA} and ${dimB} are partially counteracting — mitigation of one may reduce the other`;
+  return `${dimA} and ${dimB} are largely independent`;
+}
+
+/**
+ * Compute a threat correlation matrix for a set of active threat dimensions.
+ *
+ * Uses pre-calibrated EP-specific correlation scores to identify which threats
+ * reinforce each other. Only pairs with |correlationScore| > 0.2 are returned
+ * as significant correlations.
+ *
+ * @param dimensions - Threat categories to analyse (e.g. currently active dimensions)
+ * @returns Array of ThreatCorrelation pairs sorted by absolute correlation descending
+ */
+export function computeThreatCorrelationMatrix(
+  dimensions: readonly PoliticalThreatCategory[]
+): ThreatCorrelation[] {
+  if (dimensions.length < 2) return [];
+
+  const correlations: ThreatCorrelation[] = [];
+
+  for (let i = 0; i < dimensions.length; i++) {
+    for (let j = i + 1; j < dimensions.length; j++) {
+      const dimA = dimensions[i] as PoliticalThreatCategory;
+      const dimB = dimensions[j] as PoliticalThreatCategory;
+
+      // Look up correlation in upper triangle, then try reverse
+      const score =
+        (THREAT_CORRELATION_MAP[dimA]?.[dimB] ?? THREAT_CORRELATION_MAP[dimB]?.[dimA]) ?? 0;
+
+      if (Math.abs(score) > 0.2) {
+        correlations.push({
+          dimensionA: dimA,
+          dimensionB: dimB,
+          correlationScore: Math.round(score * 100) / 100,
+          mutuallyReinforcing: score > 0,
+          description: describeThreatCorrelation(dimA, dimB, score),
+        });
+      }
+    }
+  }
+
+  // Sort by absolute correlation score descending
+  return correlations.sort((a, b) => Math.abs(b.correlationScore) - Math.abs(a.correlationScore));
+}
+
+// ─── Emerging threat detection ────────────────────────────────────────────────
+
+/**
+ * Numeric weights for ImpactLevel — used to detect escalation rate.
+ */
+const IMPACT_LEVEL_ORDER: Readonly<Record<ImpactLevel, number>> = {
+  none: 0,
+  low: 1,
+  moderate: 2,
+  high: 3,
+  critical: 4,
+};
+
+/**
+ * Detect emerging threats by comparing current threat levels against a baseline.
+ *
+ * A threat is considered "emerging" when:
+ * - The category was not present in the baseline (new threat), OR
+ * - The current impact level is higher than the baseline level
+ *
+ * Escalation rate:
+ * - `rapid`: escalated by ≥ 2 impact levels
+ * - `moderate`: escalated by 1 level
+ * - `slow`: new (no baseline) or minimal change
+ *
+ * @param currentThreats - Current threat dimensions with their impact levels
+ * @param baselineThreats - Baseline (historical) threat dimensions for comparison
+ * @param detectionDate - ISO date string for the detection timestamp (defaults to today)
+ * @returns Array of EmergingThreat objects sorted by escalation rate (rapid first)
+ */
+export function detectEmergingThreats(
+  currentThreats: readonly { category: PoliticalThreatCategory; level: ImpactLevel; evidence: readonly string[] }[],
+  baselineThreats: readonly { category: PoliticalThreatCategory; level: ImpactLevel }[],
+  detectionDate?: string
+): EmergingThreat[] {
+  const date = detectionDate ?? new Date().toISOString().split('T')[0] ?? '';
+  const baselineMap = new Map<string, ImpactLevel>();
+  for (const bt of baselineThreats) {
+    baselineMap.set(bt.category, bt.level);
+  }
+
+  const emerging: EmergingThreat[] = [];
+
+  for (const current of currentThreats) {
+    const baseline = baselineMap.get(current.category);
+
+    if (!baseline) {
+      // New threat — not seen in baseline
+      emerging.push({
+        category: current.category,
+        firstDetected: date,
+        currentLevel: current.level,
+        escalationRate: 'slow',
+        evidence: current.evidence,
+      });
+      continue;
+    }
+
+    const currentOrder = IMPACT_LEVEL_ORDER[current.level];
+    const baselineOrder = IMPACT_LEVEL_ORDER[baseline];
+    const levelDiff = currentOrder - baselineOrder;
+
+    if (levelDiff >= 2) {
+      emerging.push({
+        category: current.category,
+        firstDetected: date,
+        currentLevel: current.level,
+        escalationRate: 'rapid',
+        evidence: current.evidence,
+      });
+    } else if (levelDiff === 1) {
+      emerging.push({
+        category: current.category,
+        firstDetected: date,
+        currentLevel: current.level,
+        escalationRate: 'moderate',
+        evidence: current.evidence,
+      });
+    }
+    // No change or improvement — not emerging
+  }
+
+  // Sort: rapid first, then moderate, then slow
+  const rateOrder: Record<string, number> = { rapid: 3, moderate: 2, slow: 1 };
+  return emerging.sort((a, b) => (rateOrder[b.escalationRate] ?? 0) - (rateOrder[a.escalationRate] ?? 0));
+}

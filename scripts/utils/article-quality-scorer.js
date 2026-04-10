@@ -88,6 +88,71 @@ const CONFIDENCE_LEVEL_KEYWORDS = [
     'uncertain',
     'confidence',
 ];
+// ─── Coalition analysis depth keywords ────────────────────────────────────────
+/**
+ * Extended keywords specifically for deep coalition analysis sub-scoring.
+ * These go beyond basic coalition detection to identify in-depth alliance
+ * and cross-group dynamics analysis.
+ */
+const COALITION_ANALYSIS_DEPTH_KEYWORDS = [
+    'inter-group',
+    'cross-party',
+    'grand coalition',
+    'qualified majority',
+    'blocking minority',
+    'rapporteur',
+    'shadow rapporteur',
+    'trilogue',
+    'coreper',
+    'vote margin',
+];
+// ─── Temporal coverage keyword sets ──────────────────────────────────────────
+/** Keywords indicating past context or historical references */
+const TEMPORAL_PAST_KEYWORDS = [
+    'historically',
+    'previous',
+    'since 2019',
+    'past',
+    'earlier',
+    'last year',
+    'former',
+    'compared to',
+    'traditionally',
+];
+/** Keywords indicating current state or present analysis */
+const TEMPORAL_CURRENT_KEYWORDS = [
+    'currently',
+    'present',
+    'today',
+    'ongoing',
+    'at present',
+    'this week',
+    'now',
+    'recent',
+    'latest',
+];
+/** Keywords indicating forward outlook, forecasts, or scenarios */
+const TEMPORAL_FORWARD_KEYWORDS = [
+    'forecast',
+    'projection',
+    'expected',
+    'anticipated',
+    'upcoming',
+    'future',
+    'scenario',
+    'could',
+    'will',
+    'outlook',
+    'predict',
+];
+// ─── Procedure reference pattern ──────────────────────────────────────────────
+/**
+ * Pattern matching EP legislative procedure references.
+ * Covers formats like 2024/0001(COD), 2023/0123(NLE), 2022/0456(APP).
+ */
+const PROCEDURE_REF_PATTERN = /\b\d{4}\/\d+\([A-Z]{2,4}\)\b/gu;
+/** Pattern matching TA-format adopted text references specifically */
+const TA_NUMBER_PATTERN = /\bTA-\d+-\d+-\d+\b/gu;
 // ─── Stakeholder detection sets ───────────────────────────────────────────────
 /** All known stakeholder categories and their keyword signals */
 const STAKEHOLDER_KEYWORDS = [
@@ -634,6 +699,71 @@ function clamp100(value) {
 }
 // ─── Analysis depth assessment ────────────────────────────────────────────────
 /**
+ * Compute a coalition analysis depth sub-score (0–100) from plain text.
+ *
+ * Scans for extended coalition analysis keywords beyond basic coalition
+ * detection, reflecting how deeply inter-group dynamics are analysed.
+ *
+ * @param text - Pre-extracted plain text
+ * @returns Coalition analysis sub-score 0–100
+ */
+function computeCoalitionAnalysisScore(text) {
+    const present = COALITION_ANALYSIS_DEPTH_KEYWORDS.filter((kw) => containsAnyKeyword(text, [kw])).length;
+    return clamp100(Math.round((present / COALITION_ANALYSIS_DEPTH_KEYWORDS.length) * 100));
+}
+/**
+ * Score temporal coverage across three dimensions: past context, current state,
+ * and forward outlook. An article covering all three temporal dimensions
+ * demonstrates comprehensive, time-aware analysis.
+ *
+ * @param htmlOrText - Raw HTML string or pre-extracted plain text
+ * @param preExtracted - If true, treat `htmlOrText` as already-extracted plain text
+ * @returns Temporal coverage score with per-dimension flags and composite
+ */
+export function scoreTemporalCoverage(htmlOrText, preExtracted = false) {
+    const text = preExtracted ? htmlOrText : extractPlainText(htmlOrText);
+    const pastContextPresent = containsAnyKeyword(text, TEMPORAL_PAST_KEYWORDS);
+    const currentStatePresent = containsAnyKeyword(text, TEMPORAL_CURRENT_KEYWORDS);
+    const forwardOutlookPresent = containsAnyKeyword(text, TEMPORAL_FORWARD_KEYWORDS);
+    const presentCount = [pastContextPresent, currentStatePresent, forwardOutlookPresent].filter(Boolean).length;
+    const score = clamp100(Math.round((presentCount / 3) * 100));
+    return { pastContextPresent, currentStatePresent, forwardOutlookPresent, score };
+}
+/**
+ * Score the cross-reference density of an article by counting unique EP document
+ * IDs, procedure references, and TA-numbers. Higher density indicates stronger
+ * grounding in official EP documents.
+ *
+ * @param html - Raw HTML string of the article
+ * @returns Cross-reference density score with per-category counts and composite
+ */
+export function scoreCrossReferenceDensity(html) {
+    const htmlNoScripts = stripScriptBlocks(html);
+    // Count unique EP document IDs (reuses EP_DOC_PATTERNS)
+    const epDocSet = new Set();
+    for (const pattern of EP_DOC_PATTERNS) {
+        pattern.lastIndex = 0;
+        const hits = htmlNoScripts.match(pattern);
+        if (hits) {
+            for (const hit of hits)
+                epDocSet.add(hit);
+        }
+    }
+    const epDocumentIds = epDocSet.size;
+    // Count TA-format references specifically
+    TA_NUMBER_PATTERN.lastIndex = 0;
+    const taMatches = htmlNoScripts.match(TA_NUMBER_PATTERN) ?? [];
+    const taNumbers = new Set(taMatches).size;
+    // Count procedure references (e.g. 2024/0001(COD))
+    PROCEDURE_REF_PATTERN.lastIndex = 0;
+    const procMatches = htmlNoScripts.match(PROCEDURE_REF_PATTERN) ?? [];
+    const procedureReferences = new Set(procMatches).size;
+    const totalReferences = epDocumentIds + procedureReferences;
+    // Score: 10 references = 100 points (same scale as EVIDENCE_MAX)
+    const score = clamp100(Math.round((totalReferences / EVIDENCE_MAX) * 100));
+    return { epDocumentIds, procedureReferences, taNumbers, totalReferences, score };
+}
+/**
  * Assess the analytical depth of an article by detecting keyword signals.
  *
  * Accepts either raw HTML or pre-extracted plain text. When called from
@@ -662,6 +792,8 @@ export function assessAnalysisDepth(htmlOrText, preExtracted = false) {
     ];
     const presentCount = dimensions.filter(Boolean).length;
     const score = clamp100(Math.round((presentCount / dimensions.length) * 100));
+    // Coalition analysis depth sub-score: bonus metric beyond basic flag
+    const coalitionAnalysisScore = computeCoalitionAnalysisScore(text);
     return {
         politicalContextPresent,
         coalitionDynamicsAnalyzed,
@@ -669,6 +801,7 @@ export function assessAnalysisDepth(htmlOrText, preExtracted = false) {
         evidenceBasedConclusions,
         scenarioPlanning,
         confidenceLevelsIndicated,
+        coalitionAnalysisScore,
         score,
     };
 }
@@ -925,22 +1058,25 @@ function addWordCountRecommendations(report, recs) {
  */
 function addAnalysisDepthRecommendations(depth, recs) {
     if (!depth.politicalContextPresent) {
-        recs.push('Add political context: discuss coalitions, majorities, and opposition dynamics');
+        recs.push('Add political context: discuss coalitions, vote margins, and current parliamentary dynamics');
     }
     if (!depth.coalitionDynamicsAnalyzed) {
-        recs.push('Analyse coalition dynamics between EPP, S&D, Renew, and other groups');
+        recs.push('Analyse coalition dynamics — name specific inter-group alliances (e.g. EPP+Renew, S&D+Greens) and their vote margins');
     }
     if (!depth.historicalContextProvided) {
-        recs.push('Provide historical context by comparing to previous terms or key milestones');
+        recs.push('Provide historical context: compare to previous parliamentary terms, cite precedents or earlier decisions');
     }
     if (!depth.evidenceBasedConclusions) {
-        recs.push('Support conclusions with data, figures, or cited evidence');
+        recs.push('Support conclusions with specific data: cite vote counts, attendance figures, or referenced EP documents');
     }
     if (!depth.scenarioPlanning) {
-        recs.push('Include forward-looking scenarios or projections');
+        recs.push('Include forward-looking analysis: describe at least two scenarios (e.g. "if the amendment passes" vs "if rejected")');
     }
     if (!depth.confidenceLevelsIndicated) {
-        recs.push('State confidence levels or acknowledge uncertainty in assessments');
+        recs.push('State confidence levels explicitly (e.g. "likely", "uncertain") to reflect analytical rigour');
+    }
+    if (depth.coalitionAnalysisScore !== undefined && depth.coalitionAnalysisScore < 30) {
+        recs.push('Deepen coalition analysis: add rapporteur names, qualified-majority thresholds, or trilogue references');
     }
 }
 /**
