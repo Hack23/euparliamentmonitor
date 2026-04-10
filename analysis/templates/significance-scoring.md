@@ -229,6 +229,76 @@ flowchart TD
 
 ---
 
+## 📏 Section 5: Historical Significance Baseline Comparison — New in v2.2
+
+> **AI Instructions:** Significance scores only acquire full analytical value when compared against historical baselines. A composite score of 8.4/10 means little in isolation — but "8.4/10, the highest trade-related score since EP10 inauguration" is actionable intelligence. **Every significance score ≥ 7.0 MUST include a historical baseline comparison.** For scores below 7.0, baseline comparison is strongly recommended.
+
+### Baseline Comparison Table
+
+For each scored event, look back through prior synthesis summaries and significance scores in the `analysis/` folder and complete this table:
+
+| Baseline Dimension | This Event | Previous High | Previous High Date | Context |
+|:------------------:|:----------:|:-------------:|:-----------------:|---------|
+| **Domain-specific baseline** | `[score]` | `[highest prior score for this domain, e.g. ENVI/trade]` | `[YYYY-MM-DD]` | `[brief description of that event]` |
+| **EP term (EP10) baseline** | `[score]` | `[highest score in EP10]` | `[YYYY-MM-DD]` | `[what was that event?]` |
+| **Article-type baseline** | `[score]` | `[highest score for this article type, e.g. breaking/committee-reports]` | `[YYYY-MM-DD]` | `[what was that event?]` |
+| **30-day rolling average** | `[score]` | `[avg. composite over last 30 days]` | `[30-day window]` | `[above/below/at average?]` |
+
+### Baseline Comparison Narrative
+
+**Mandatory Format:** `[Score] / 10 — [superlative/comparison, e.g., "highest trade-related score since EP10 inauguration" OR "above EP10 average of 6.2 for committee-reports" OR "ties with CBAM final adoption as highest environmental score this term"]`
+
+**❌ BAD (score without context):**
+```markdown
+Composite significance: 8.4/10. Decision: Priority.
+```
+
+**✅ GOOD (score anchored to historical baseline):**
+```markdown
+Composite significance: **8.4/10** — the highest trade-related significance score since EP10 
+inauguration (June 2024), surpassing the CBAM final adoption (8.1/10, SIG-2026-02-18-001) 
+and 35% above the EP10 average for INTA committee documents (6.2/10). This score reflects 
+the convergence of high cross-group relevance (9/10 — ECR and S&D both issuing public positions) 
+and structural policy impact (9/10 — permanent MFN tariff change with no sunset clause).
+Decision: **Priority** (≥7.5 threshold met; urgency dimension 6/10 below BREAKING threshold of 8).
+```
+
+### Domain-Specific Baseline Tables
+
+> **AI Instructions:** Use the calibration examples in Section 3 as rough anchors, then compare against actual analysis files in the `analysis/` folder for your specific domain. Calibration examples are illustrative only — use real historical data wherever available.
+
+#### EP Domain Significance Anchors (Reference Calibration)
+
+| Domain | Typical Range | High-End Anchor Event | High-End Score |
+|--------|:------------:|----------------------|:--------------:|
+| Climate / Environment (ENVI) | 5.5–8.5 | CBAM final plenary adoption | ~8.1 |
+| Digital / Technology (ITRE/IMCO) | 5.0–8.0 | AI Act final vote | ~8.8 |
+| Migration / Asylum (LIBE) | 6.0–9.0 | Pact on Migration final adoption | ~9.0 |
+| Trade / INTA | 5.5–8.5 | US-EU trade agreement rejection | ~8.4 |
+| Budget / MFF (BUDG) | 6.0–9.5 | MFF revision/rejection | ~9.2 |
+| Defence / Security (AFET) | 5.5–9.0 | Defence support package vote | ~8.9 |
+| Economic Governance (ECON) | 5.0–8.0 | Stability Pact reform | ~7.8 |
+| Health / Food Safety (ENVI/AGRI) | 4.0–7.5 | Emergency health mandate | ~7.5 |
+| Social Policy (EMPL) | 4.5–7.5 | Platform workers directive | ~7.2 |
+| Institutional / Procedural | 5.0–9.5 | Motion of censure | ~9.6 |
+
+> **⚠️ Note:** These are **calibration anchors only**, derived from the calibration examples in Section 3. Use actual historical analysis files in `analysis/` for precise baselines. If no prior data exists for a domain, note "No EP10 baseline available — using calibration anchor."
+
+### Significance Percentile Assessment
+
+After establishing the baseline, assess the percentile position of this score:
+
+| Percentile | Meaning | Action |
+|:----------:|---------|--------|
+| **Top 5%** (≥9.0 for most domains) | Historically significant event — landmark EP10 moment | BREAKING consideration; ensure multi-language coverage |
+| **Top 15%** (≥8.0 for most domains) | Major event; likely to appear in weekly/monthly rollups | Priority publication; flag in synthesis summary |
+| **Top 35%** (≥7.0 for most domains) | Above-average significance; worth publishing | Standard publish in session week |
+| **Below top 35%** (<7.0) | Routine or minor event | Monitor or archive based on thresholds |
+
+**Percentile Assessment:** `[REQUIRED: e.g., "Score 8.4/10 places this in the top 15% of INTA domain events in EP10. Only 3 prior INTA events have scored higher: US-EU tariff rejection (8.6), Mercosur agreement vote (8.5), and Supply Chain Directive final adoption (8.4 — tied)."]`
+
+---
+
 ## 🗓️ EP Calendar Awareness
 
 > **AI Instructions:** Before finalizing the publication decision, check the current EP calendar context. Recess periods, upcoming plenary weeks, and election cycles significantly affect scoring thresholds.
@@ -274,8 +344,9 @@ flowchart TD
 
 **Document Control:**
 - **Template Path:** `/analysis/templates/significance-scoring.md`
-- **Version:** 2.1
-- **Advanced Features:** Composite Score Calculation, Publication Decision Thresholds, Publication Decision Tree (Mermaid), EP Calendar Awareness, Significance Trend Tracking
+- **Version:** 2.2
+- **Advanced Features (v2.2):** Historical Significance Baseline Comparison (Section 5), domain-specific baseline anchors, significance percentile assessment, mandatory baseline narrative for scores ≥7.0
+- **Advanced Features (v2.1):** Composite Score Calculation, Publication Decision Thresholds, Publication Decision Tree (Mermaid), EP Calendar Awareness, Significance Trend Tracking
 - **Framework Reference:** [methodologies/ai-driven-analysis-guide.md](../methodologies/ai-driven-analysis-guide.md)
 - **Classification:** Public
 - **Next Review:** 2026-06-30

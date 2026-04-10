@@ -11,12 +11,12 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.1-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--06-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.3-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--10-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Last Updated:** 2026-04-06 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 1.3 | **📅 Last Updated:** 2026-04-10 (UTC)
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
 > **📌 Template Instructions:** This template synthesizes the outputs of all other analysis templates into a single intelligence summary. Copy to `analysis/daily/{date}/{article-type-slug}/` and save as `synthesis-summary.md`. This file is consumed by the news article generators to determine narrative direction.
@@ -190,9 +190,120 @@ graph LR
 
 ---
 
+## 🧩 Cross-Method Intelligence Correlation — New in v1.3
+
+> **AI Instructions:** This section synthesises findings from ALL analysis streams (Classification + SWOT + Risk + Threat + Stakeholder + Significance) into integrated intelligence nuggets. Do NOT repeat findings verbatim from individual sections — identify how results from different frameworks **reinforce, contradict, or amplify** each other.
+
+### Cross-Method Correlation Matrix
+
+For each significant event in this synthesis, complete a correlation row:
+
+| Event / Document | Classification Signal | Risk Finding | Threat Finding | SWOT Dominant Quadrant | Significance | Correlated Intelligence Nugget |
+|-----------------|----------------------|-------------|----------------|:---------------------:|:------------:|-------------------------------|
+| `[EP ref + event name]` | `[Sensitivity/Domain/Urgency]` | `[Risk tier + score]` | `[Threat level + framework]` | `[S/W/O/T]` | `[score]` | `[REQUIRED: 1–2 sentences synthesising what these frameworks together tell us — is there convergence, contradiction, or amplification?]` |
+| `[event 2]` | `[...]` | `[...]` | `[...]` | `[...]` | `[...]` | `[...]` |
+
+**Convergence Assessment:** `[REQUIRED: When 3+ frameworks flag the same event as significant, that convergence is a strong analytical signal. State which events show multi-framework convergence and what that means.]`
+
+**Contradiction Assessment:** `[REQUIRED: When frameworks diverge — e.g. low risk score but high threat level, or high significance but few stakeholder impacts — identify the contradiction and explain it. Contradictions often reveal hidden complexity.]`
+
+### Integrated Intelligence Nuggets
+
+Each synthesis session MUST produce at least **3 integrated intelligence nuggets** — concise, actionable findings that only emerge when frameworks are combined:
+
+**Format:**
+```
+🔶 NUGGET [N]: [Short label — what this is about]
+Frameworks: [List which frameworks contributed]
+Finding: [1–3 sentences — what the combined analysis reveals that no single framework shows alone]
+Action: [What this means for the article generator / editorial decision]
+Confidence: [HIGH / MEDIUM / LOW]
+```
+
+**Example:**
+
+```
+🔶 NUGGET 1: EPP Cohesion Signal Amplified Across Frameworks
+Frameworks: Risk (Grand Coalition Stability ↑), Threat (Coalition Shift — MODERATE), SWOT (Threat quadrant dominant), Classification (SENSITIVE)
+Finding: Three independent frameworks converge on EPP cohesion stress: the risk assessment 
+identifies rising coalition instability (Score 12→↑), the threat analysis flags coalition shift 
+at MODERATE severity (RCV-2026-0298, 11 defections), and the SWOT threat quadrant is dominant 
+for the first time since EP10 inauguration. This multi-framework convergence elevates confidence 
+from MEDIUM to HIGH that EPP internal tension is a structural development — not an isolated vote.
+Action: Lead with EPP cohesion as primary narrative angle; significance score upgrades from 7.8 
+to 8.3 based on cross-framework convergence and reinforcing signals across the analyses.
+Confidence: HIGH
+```
+
+**❌ BAD (single-framework regurgitation):**
+```markdown
+## Cross-Method Correlation
+Risk is HIGH, threat is MODERATE, significance is 8.3. All indicate important developments.
+```
+
+**✅ GOOD (genuine synthesis revealing emergent insight):**
+```markdown
+🔶 NUGGET 1: Converging signals reveal structural EPP realignment, not tactical dissent.
+Frameworks: Risk ↑ (Score 12), Threat CS-MODERATE, SWOT Threat-dominant, Classification SENSITIVE
+Finding: The Migration Package vote (RCV-2026-0298) appears as a tactical EPP dissent in 
+isolation — 11 members voting against group line. But when the classification (SENSITIVE 
+sensitivity level reflecting institutional sensitivity), the trajectory tracking (EPP cohesion 
+declined from 72%→61% over 4 weeks), and the threat analysis (coalition shift MODERATE for the 
+third consecutive procedure) are combined, the pattern suggests structural: EPP is rebalancing 
+its position on migration, which historically prefigures group position changes within 3–6 months.
+Action: Frame as EPP repositioning story, not single-vote anomaly; connect to 2029 election 
+positioning; flag for ongoing monitoring in weekly rollup.
+Confidence: HIGH (3/3 frameworks align)
+```
+
+### Framework Signal Summary
+
+| Framework | Dominant Signal | Confidence | Anomalies / Surprises |
+|-----------|:--------------:|:----------:|----------------------|
+| Classification | `[Sensitivity/Domain/Urgency level]` | `[H/M/L]` | `[Any classification surprises — e.g., higher sensitivity than expected?]` |
+| Risk Assessment | `[Highest tier + category]` | `[H/M/L]` | `[Any risk contradictions — e.g., high likelihood but low impact?]` |
+| SWOT Analysis | `[Dominant quadrant]` | `[H/M/L]` | `[Any SWOT contradictions — e.g., strengths and threats both HIGH simultaneously?]` |
+| Threat Analysis | `[Highest severity + framework]` | `[H/M/L]` | `[Unexpected threat vectors — e.g., LINDDUN privacy threat on a fiscal document?]` |
+| Stakeholder Impact | `[Most-affected stakeholder]` | `[H/M/L]` | `[Unexpected impacts — e.g., international impact higher than domestic?]` |
+| Significance Scoring | `[Composite score + decision]` | `[H/M/L]` | `[Score outliers — e.g., high urgency but low public interest?]` |
+
+---
+
+## 🔗 Cross-Article Intelligence (Rule 18 Compliance) — New in v1.3
+
+> **AI Instructions:** When ≥2 different workflow types (e.g., `breaking` + `committee-reports`, or `week-ahead` + `propositions`) have produced analysis for events that overlap in the current synthesis window, this section is **MANDATORY**. Cross-article correlation reveals insights that single-workflow analysis cannot — for example, a breaking news event may be more significant when it also appears in a committee report analysis with deeper procedural context. Use the exact Rule 18 structure below. See [ai-driven-analysis-guide.md Rule 18](../methodologies/ai-driven-analysis-guide.md) for the authoritative requirement.
+
+### Cross-Article Intelligence
+
+| Other Article Type | Date | Corroborating Signal | Contradiction? |
+|--------------------|------|----------------------|----------------|
+| `[REQUIRED if ≥2 workflows overlap: e.g., committee-reports / week-ahead / propositions]` | `[YYYY-MM-DD]` | `[What signal from the other article type corroborates, deepens, or changes the current synthesis?]` | `[No / Partial / Yes — explain briefly]` |
+| `[other article type 2]` | `[YYYY-MM-DD]` | `[corroborating or qualifying signal]` | `[No / Partial / Yes]` |
+
+### Cross-Article Intelligence Findings
+
+`[REQUIRED if ≥2 workflows overlap: 2–4 sentences describing what the cross-article evidence reveals overall. Explicitly state whether the other article types corroborate, deepen, or contradict the current synthesis, and whether combined significance should be adjusted upward, downward, or remain unchanged. E.g., "The CBAM vote (breaking analysis, SIG-2026-04-06-001, score 8.1) is corroborated by the committee-reports analysis dated 2026-04-06 (SIG-2026-04-06-003, score 7.2), which adds procedural depth by noting that ENVI rapporteur Schmidt signalled willingness to compromise on Article 12. This does not contradict the breaking analysis; it deepens it. Combined significance: 8.4 (upward adjustment due to procedural depth)."]`
+
+**❌ BAD (no cross-workflow synthesis):**
+```markdown
+Breaking news covered the CBAM vote. Committee reports also covered CBAM. Both are important.
+```
+
+**✅ GOOD (genuine cross-workflow insight):**
+```markdown
+The breaking analysis (SIG-2026-04-06-001) captured the headline vote result (412–156–52) 
+and immediate coalition dynamics. The committee-reports analysis (SIG-2026-04-06-003) adds 
+critical procedural context: rapporteur Schmidt's compromise on Article 12 was negotiated 
+in the April 2 ENVI shadow rapporteur meeting — information absent from the plenary record. 
+Combined, these reveal that the "surprise" EPP support was pre-negotiated, not spontaneous — 
+upgrading coalition stability confidence from MEDIUM to HIGH.
+```
+
+---
+
 ## 🎯 Narrative Direction
 
-`[REQUIRED: 4–6 sentences providing the primary narrative direction for article generation. This is the lede thesis that the article generator should use. Be specific about the central political tension, the key actors, and the intelligence-level insight. Include confidence assessment.]`
+`[REQUIRED: 4–6 sentences providing the primary narrative direction for article generation. This is the lede thesis that the article generator should use. Be specific about the central political tension, the key actors, and the intelligence-level insight. Include confidence assessment. Reference any integrated intelligence nuggets from the Cross-Method Correlation section above.]`
 
 **Primary Narrative Angle:** `[REQUIRED: 1 sentence — the article headline thesis]`
 **Secondary Angles:** `[OPTIONAL: 1–2 alternative narrative framings]`
@@ -321,7 +432,8 @@ flowchart LR
 
 **Document Control:**
 - **Template Path:** `/analysis/templates/synthesis-summary.md`
-- **Version:** 1.2
+- **Version:** 1.3
+- **What's New in 1.3:** Cross-Method Intelligence Correlation section with integrated intelligence nuggets, framework signal summary, convergence/contradiction assessment; Cross-Article-Type Intelligence / Rule 18 compliance section
 - **What's New in 1.2:** AI-Generated Article Metadata section (mandatory --title and --description for article generator)
 - **Consumed By:** All news article generator workflows
 - **Classification:** Public

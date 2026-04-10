@@ -11,12 +11,12 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.1-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--06-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.2-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--10-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Last Updated:** 2026-04-06 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 1.2 | **📅 Last Updated:** 2026-04-10 (UTC)
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
 > **📌 Template Instructions:** This template is for **per-file** analysis. For each data file downloaded via EP MCP (e.g., an adopted text, vote record, committee document), the AI agent produces one analysis markdown file stored alongside the data file.
@@ -294,6 +294,120 @@ graph TD
 
 ---
 
+## 📅 Legislative Timeline Tracking
+
+> **AI Instructions:** For documents that are part of an active legislative procedure, complete this section to track the procedure's position in the legislative calendar. Use `get_procedures` (parameter: `processId`, e.g. `processId: "2024/0001(COD)"`) and `track_legislation` (parameter: `procedureId`, e.g. `procedureId: "2024/0001(COD)"`) MCP tools to retrieve current status. Note the different parameter names: `processId` for `get_procedures`, `procedureId` for `track_legislation`.
+
+| Field | Value |
+|-------|-------|
+| **Procedure ID** | `[REQUIRED if applicable: e.g. 2024/0001(COD)]` |
+| **Current Stage** | `[REQUIRED: e.g. "Committee vote", "Plenary 1st reading", "Trilogue round 3", "Awaiting Council position"]` |
+| **Stage Entry Date** | `[REQUIRED: YYYY-MM-DD]` |
+| **Days in Current Stage** | `[REQUIRED: N days]` |
+| **Expected Next Stage** | `[REQUIRED: e.g. "Plenary 2nd reading (est. 2026-06)"]` |
+| **Deadline Risk** | `[REQUIRED: None / Low / Medium / High / CRITICAL — Is the procedure approaching a legislative deadline?]` |
+
+### Legislative Timeline Diagram
+
+```mermaid
+timeline
+    title Legislative Procedure Timeline
+    section Past
+        Proposal : Commission proposal submitted
+        Committee : Committee rapporteur assigned
+    section Current
+        Stage : [REQUIRED: Current stage label]
+    section Projected
+        Next Stage : [REQUIRED: Expected next milestone]
+        Completion : [REQUIRED: Estimated final adoption or abandonment]
+```
+
+> ⚠️ AI Agent: Replace with actual procedure milestones from `get_procedures` / `track_legislation` output. If this document is not part of a formal procedure (e.g., a plenary speech, MEP question, or standalone event), mark this section `N/A — Not a legislative procedure document`.
+
+### Historical Baseline Comparison
+
+Compare the current procedure's pace against historical norms:
+
+| Metric | This Procedure | EP10 Average | EP9 Average | Assessment |
+|--------|:--------------:|:------------:|:-----------:|-----------|
+| Days from proposal to committee vote | `[N]` | `[N]` | `[N]` | `[faster/slower/on-track]` |
+| Days from committee to plenary 1st reading | `[N]` | `[N]` | `[N]` | `[faster/slower/on-track]` |
+| Total procedure duration so far | `[N]` | `[N]` | `[N]` | `[faster/slower/on-track]` |
+
+**Pace Assessment:** `[REQUIRED if procedure: Is this moving faster or slower than typical procedures of this type? Cite any delays with reasons (e.g., "Extended 14 weeks in committee due to EPP-S&D disagreement on amendment AM-073")]`
+
+---
+
+## 🏢 Committee Workload Benchmarking
+
+> **AI Instructions:** When the document originates from or relates to a specific EP committee, benchmark that committee's current workload against historical activity levels. Use `analyze_committee_activity` and `get_committee_documents` MCP tools.
+
+| Field | Value |
+|-------|-------|
+| **Lead Committee** | `[REQUIRED if applicable: e.g. ENVI, ECON, LIBE]` |
+| **Opinion Committees** | `[If applicable: e.g. ITRE (opinion), BUDG (opinion)]` |
+| **Rapporteur** | `[REQUIRED: MEP name and political group]` |
+| **Shadow Rapporteurs** | `[REQUIRED: list with political group, e.g. "S&D: MEP A; Renew: MEP B; ECR: MEP C"]` |
+
+### Committee Productivity Assessment
+
+| Metric | Current Period | 90-Day Average | Benchmark Tier | Source |
+|--------|:--------------:|:--------------:|:--------------:|--------|
+| Reports in progress | `[N]` | `[N]` | `[Above/Below/At]` | `[MCP tool]` |
+| Documents produced (30d) | `[N]` | `[N]` | `[Above/Below/At]` | `[MCP tool]` |
+| Meeting frequency (per month) | `[N]` | `[N]` | `[Above/Below/At]` | `[MCP tool]` |
+| Amendment volume (this dossier) | `[N]` | `[N]` | `[Above/Below/At]` | `[MCP tool]` |
+
+**Workload Assessment:** `[REQUIRED if committee known: e.g. "ENVI committee is currently handling 12 active procedures — 40% above its EP10 average of 8.5, concentrated in climate and biodiversity files. This may create rapporteur bandwidth constraints for this dossier."]`
+
+**❌ BAD (no benchmark):**
+```markdown
+The ENVI committee is working on this dossier along with other files.
+```
+
+**✅ GOOD (benchmarked, quantified):**
+```markdown
+ENVI currently has 12 active procedures (EP10 average: 8.5, EP9 average: 9.1 — 41% above average).
+The rapporteur (MEP Schmidt, EPP) is simultaneously managing 3 other reports, exceeding the
+typical single-rapporteur load. This creates a risk of delayed committee amendments for this dossier
+(procedure 2024/0022(COD)); watch for a rapporteur extension request at the April 22 ENVI meeting.
+```
+
+---
+
+## 🔀 Coalition Shift Detection
+
+> **AI Instructions:** For documents that interact with coalition dynamics (votes, key positions, opposition statements), analyse whether this event signals any coalition shift. For coalition-level or political-group metrics, use `analyze_coalition_dynamics`, `compare_political_groups`, and/or `detect_voting_anomalies` with `politicalGroup`. Use `analyze_voting_patterns` only to drill into specific defectors or swing MEPs when a valid `mepId` is available.
+
+### Coalition Stability Indicators
+
+| Indicator | Current Value | 30-Day Baseline | Trend | Signal |
+|-----------|:------------:|:---------------:|:-----:|--------|
+| Grand coalition cohesion (EPP+S&D+Renew) | `[%]` | `[%]` | `[↑/→/↓]` | `[STABLE/WARNING/ALERT]` |
+| EPP intra-group cohesion | `[%]` | `[%]` | `[↑/→/↓]` | `[STABLE/WARNING/ALERT]` |
+| S&D intra-group cohesion | `[%]` | `[%]` | `[↑/→/↓]` | `[STABLE/WARNING/ALERT]` |
+| Renew intra-group cohesion | `[%]` | `[%]` | `[↑/→/↓]` | `[STABLE/WARNING/ALERT]` |
+| ECR-PfE cross-group alignment | `[%]` | `[%]` | `[↑/→/↓]` | `[STABLE/WARNING/ALERT]` |
+| Cross-coalition votes (grand coalition + opposition) | `[N]` | `[N]` | `[↑/→/↓]` | `[STABLE/WARNING/ALERT]` |
+
+**Coalition Shift Assessment:** `[REQUIRED if voting data available: Describe whether this event confirms, challenges, or shifts the current coalition pattern. Name specific defectors, swing votes, or realignment signals. E.g.: "11 EPP defections on RCV-2026-0298 represent the largest within-term EPP dissent on environmental policy, exceeding the previous high of 7 defections in 2024. If repeated on the May migration vote, it would reduce the grand coalition's functional majority from 41 to ≤17 seats above threshold."]`
+
+### Defection Pattern Analysis
+
+> Complete only if this document involves a recorded vote with cross-group or within-group defections.
+
+| Group | Expected Position | Actual Votes | Defections | Defection Rate | vs. 30-Day Average |
+|-------|:-----------------:|:------------:|:----------:|:--------------:|:-----------------:|
+| EPP | `[For/Against/Abstain]` | `[F/A/Abs N]` | `[N]` | `[%]` | `[+/-pp vs baseline]` |
+| S&D | `[For/Against/Abstain]` | `[F/A/Abs N]` | `[N]` | `[%]` | `[+/-pp vs baseline]` |
+| Renew | `[For/Against/Abstain]` | `[F/A/Abs N]` | `[N]` | `[%]` | `[+/-pp vs baseline]` |
+| ECR | `[For/Against/Abstain]` | `[F/A/Abs N]` | `[N]` | `[%]` | `[+/-pp vs baseline]` |
+| PfE | `[For/Against/Abstain]` | `[F/A/Abs N]` | `[N]` | `[%]` | `[+/-pp vs baseline]` |
+
+**Interpretation:** `[REQUIRED if vote data available: What do these defection patterns mean for coalition coherence? Are they isolated or part of a trend?]`
+
+---
+
 ## 📂 MCP Data Files Used
 
 `[REQUIRED: List all EP MCP data file paths consulted for this analysis]`
@@ -303,7 +417,8 @@ graph TD
 **Document Control:**
 - **Template Path:** `/analysis/templates/per-file-political-intelligence.md`
 - **Output Path:** Same directory as the JSON source file, named `{id}.analysis.md`
-- **Version:** 1.1
+- **Version:** 1.2
+- **What's New in 1.2:** Legislative Timeline Tracking section, Committee Workload Benchmarking section, Coalition Shift Detection section
 - **What's New in 1.1:** EP MCP Tool Mapping per section, Cross-Session Delta Tracking
 - **Framework References:** [SWOT.md](../../SWOT.md), [THREAT_MODEL.md](../../THREAT_MODEL.md)
 - **Methodology:** [ai-driven-analysis-guide.md](../methodologies/ai-driven-analysis-guide.md)

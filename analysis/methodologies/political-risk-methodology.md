@@ -9,7 +9,7 @@
   <em>🎯 Coalition · Policy · Budget · Institutional · Geopolitical Risk Quantification</em>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.1 | **📅 Last Updated:** 2026-04-06 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 2.2 | **📅 Last Updated:** 2026-04-10 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
@@ -237,6 +237,80 @@ Political risk scores should be **updated** as new evidence arrives, not just re
 
 ---
 
+## 📈 Advanced Technique 2b: Risk Trajectory Tracking — New in v2.2
+
+Risk scores are not static snapshots — they must be tracked over time to reveal whether political risks are **rising, stable, or declining**. This trajectory context is as important as the current score. Every risk assessment MUST include a trajectory assessment aligned with the trajectory arrows (↑/→/↓) already present in synthesis summaries.
+
+### Risk Trajectory Definitions
+
+| Trajectory | Symbol | Definition | EP Parliamentary Indicator |
+|:----------:|:------:|------------|---------------------------|
+| **Rising** | ↑ | Score increased ≥3 points in the past 14 days, OR confidence upgraded while score held | Coalition cohesion declining across consecutive sessions |
+| **Stable** | → | Score fluctuated <3 points in the past 14 days | No major new vote evidence; situation holding |
+| **Declining** | ↓ | Score decreased ≥3 points in the past 14 days, OR confidence downgraded | Cross-party agreement reached; trilogue advancing |
+| **Accelerating** | ↑↑ | Score increased ≥5 points in the past 7 days | Imminent vote; coalition fracture signal detected |
+| **Spike** | ⚡ | Score exceeded CRITICAL (≥15) threshold within 24 hours | Emergency session called; censure motion tabled |
+
+### Trajectory Tracking Table
+
+Each risk assessment MUST include this trajectory table to align with synthesis-summary.md output:
+
+| Risk Category | Prior Score (date) | Current Score | Trajectory | Key Driver of Change |
+|:------------:|:-----------------:|:-------------:|:----------:|----------------------|
+| Grand Coalition Stability | `[score] ([date])` | `[score]` | `[↑/→/↓/↑↑/⚡]` | `[REQUIRED: cite evidence — EP doc or MCP data point]` |
+| Policy Implementation | `[score] ([date])` | `[score]` | `[↑/→/↓]` | `[REQUIRED]` |
+| Budget / MFF | `[score] ([date])` | `[score]` | `[↑/→/↓]` | `[REQUIRED]` |
+| Institutional Integrity | `[score] ([date])` | `[score]` | `[↑/→/↓]` | `[REQUIRED]` |
+| Social Cohesion | `[score] ([date])` | `[score]` | `[↑/→/↓]` | `[REQUIRED]` |
+| Geopolitical Standing | `[score] ([date])` | `[score]` | `[↑/→/↓]` | `[REQUIRED]` |
+
+### Trajectory Mermaid Chart
+
+Include the following trend chart when multiple sessions are available. Replace `[X]` placeholders with actual trajectory scores (comma-separated as labels + data):
+
+```mermaid
+xychart-beta
+    title "Grand Coalition Stability Risk — 4-Week Trend"
+    x-axis ["Week -4", "Week -3", "Week -2", "Week -1", "Current"]
+    y-axis "Risk Score (L×I)" 0 --> 25
+    line [6, 8, 10, 9, 12]
+```
+
+> ⚠️ AI Agent: Replace the data array `[6, 8, 10, 9, 12]` with actual risk scores from prior synthesis summaries. If fewer than 5 data points are available, use what is available and note the gap.
+
+### Good vs. Bad — Risk Trajectory Assessment
+
+**❌ BAD (no trajectory):**
+```markdown
+Grand Coalition stability risk: L=3, I=4, Score=12 (🟠 HIGH).
+```
+
+**✅ GOOD (trajectory-anchored):**
+```markdown
+Grand Coalition stability risk: L=3, I=4, Score=12 (🟠 HIGH) ↑ **Rising** — score
+increased from 6 (🟡 MEDIUM) three weeks ago (SYN-2026-03-22-A1B2) to current 12.
+Key driver: EPP cohesion dropped from 72% to 61% over the same period
+(`analyze_coalition_dynamics`, coalition=Grand Coalition, focus=EPP cohesion, 2026-03-01 to
+2026-04-06). If this trajectory continues, the score may reach CRITICAL (≥15) by the
+April 22 plenary session.
+```
+
+### Trajectory Integration with Synthesis Summaries
+
+The `↑/→/↓` trajectory symbols in the **Risk Landscape Summary** table of `synthesis-summary.md` are populated directly from this trajectory tracking table. Because `synthesis-summary.md` supports only `↑/→/↓`, any more detailed trajectory labels defined in this methodology must be normalized to one of those three symbols. Ensure they match:
+
+| synthesis-summary.md column | Source |
+|----------------------------|--------|
+| "Trend vs. Previous" → `↑` | This table: trajectory = Rising, Accelerating, or Spike |
+| "Trend vs. Previous" → `→` | This table: trajectory = Stable |
+| "Trend vs. Previous" → `↓` | This table: trajectory = Declining |
+
+> **📌 Normalization Rule:** Detailed methodology trajectories such as `↑↑ Accelerating` and `⚡ Spike` must appear as `↑` in `synthesis-summary.md`. The synthesis summary uses only coarse trend symbols; the detailed label remains in the full risk assessment narrative.
+
+> **🚨 Anti-Pattern Warning:** Trajectory arrows in synthesis summaries that are not backed by an explicit prior score comparison in the risk assessment are REJECTED. Every trajectory symbol must be traceable to a prior score with a date and source reference.
+
+---
+
 ## 🔗 Advanced Technique 3: Risk Interconnection Mapping
 
 Political risks are **interconnected** — coalition risk affects legislative risk, which affects institutional credibility risk. Map these connections to understand system-level vulnerability:
@@ -281,6 +355,31 @@ graph TD
 | Social Cohesion → Institutional | **Medium** | Social fragmentation undermines institutional legitimacy | `[EP participation data, speeches]` |
 
 **System-Level Risk Assessment:** When ≥3 risk categories score ≥10 (High), the system is in a **fragile state** where any single trigger event could cascade across multiple risk dimensions simultaneously.
+
+### Risk Interconnection Cascade Example
+
+**❌ BAD (interconnection not mapped):**
+```markdown
+Coalition risk: HIGH. Policy implementation risk: HIGH. Both need monitoring.
+```
+
+**✅ GOOD (cascade path traced with mechanism):**
+```markdown
+## Risk Interconnection — Active Cascade Chain
+
+Grand Coalition Stability (Score 12, ↑ Rising) is driving a **secondary risk cascade**:
+
+1. **Source risk:** Grand Coalition cohesion at 61% (↓ from 72%) — EPP internal split on
+   migration (RCV-2026-0298: 11 EPP defections)
+2. **First cascade:** Policy Implementation risk rising from 8→11 — the EPP defections have
+   already delayed the CBAM regulation trilogue by 6 weeks (procedure 2023/0406(COD))
+3. **Second cascade:** Institutional Integrity risk now at 9 — ECR has filed a transparency
+   inquiry citing the delayed trilogue (written question P-001234/2026)
+4. **Circuit breaker:** An EPP group leadership statement reaffirming coalition commitment
+   (expected before April 22 plenary) would interrupt the cascade at Stage 1.
+
+Connection strength: Grand-Coalition → Policy: **STRONG** (direct legislative blocking).
+```
 
 ---
 
@@ -391,3 +490,4 @@ During EP recess periods (Easter, summer, year-end), risk scores from the most r
 - **ISMS Reference:** [Risk_Assessment_Methodology.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Risk_Assessment_Methodology.md)
 - **Adapted from:** [Riksdagsmonitor risk methodology](https://github.com/Hack23/riksdagsmonitor/blob/main/analysis/methodologies/political-risk-methodology.md)
 - **Classification:** Public
+- **Version:** 2.2 — Added Advanced Technique 2b (Risk Trajectory Tracking), enhanced Advanced Technique 3 (Risk Interconnection Cascade Example with good vs. bad patterns)
