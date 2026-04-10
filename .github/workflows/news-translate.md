@@ -342,7 +342,6 @@ export TODAY ARTICLE_DATE CURRENT_YEAR DAY_OF_WEEK START_EPOCH TRANSLATION_DEADL
 # This ensures even early noop paths (no articles found, all translations exist)
 # produce a committed analysis artifact via an analysis-only PR.
 mkdir -p "${ANALYSIS_DIR}"
-mkdir -p "${ANALYSIS_DIR}"
 SUMMARY_FILE="${ANALYSIS_DIR}/summary.md"
 if [ ! -f "${SUMMARY_FILE}" ]; then
   cat > "${SUMMARY_FILE}" <<EOF
