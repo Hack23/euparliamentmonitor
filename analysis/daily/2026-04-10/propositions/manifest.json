@@ -1,0 +1,52 @@
+{
+  "runId": "PROP-2026-04-10-001",
+  "date": "2026-04-10",
+  "articleTypeSlug": "propositions",
+  "articleType": "propositions",
+  "startTime": "2026-04-10T05:45:00Z",
+  "endTime": "2026-04-10T06:10:00Z",
+  "articleTypes": ["propositions"],
+  "methods": [
+    "significance-scoring",
+    "political-risk-matrix",
+    "political-threat-landscape",
+    "deep-analysis",
+    "stakeholder-impact",
+    "coalition-dynamics",
+    "PESTLE-analysis",
+    "passage-probability",
+    "SWOT",
+    "committee-workload-analysis"
+  ],
+  "overallConfidence": "HIGH",
+  "dataSourcesUsed": [
+    "adopted_texts_feed (one-month, 216 items)",
+    "adopted_texts (year=2026, 100 items)",
+    "procedures (year=2026, 50 items)",
+    "precomputed_stats (2004-2026, full)",
+    "track_legislation (2025/0261, 2026/0044)",
+    "monitor_legislative_pipeline",
+    "search_documents",
+    "get_server_health",
+    "get_committee_info (INTA)",
+    "analyze_legislative_effectiveness (ECON)"
+  ],
+  "documentsAnalyzed": 18,
+  "analyzedDocumentIds": [
+    "TA-10-2026-0090", "TA-10-2026-0091", "TA-10-2026-0092",
+    "TA-10-2026-0093", "TA-10-2026-0094", "TA-10-2026-0096",
+    "TA-10-2026-0097", "TA-10-2026-0104", "TA-10-2026-0085",
+    "TA-10-2026-0086", "TA-10-2026-0087", "TA-10-2026-0088",
+    "TA-10-2026-0008", "2026/0044(COD)", "2026/0045(COD)",
+    "2025/0261(COD)", "2023/0135(COD)", "2023/0111(COD)"
+  ],
+  "easterRecessStatus": "Day 15 — T-4 from committee restart",
+  "epApiFeedStatus": {
+    "procedures_feed": "404 (recess maintenance)",
+    "documents_feed": "404 (recess maintenance)",
+    "adopted_texts_feed": "operational (216 items)",
+    "adopted_texts": "operational (100 items for 2026)",
+    "precomputed_stats": "operational (generated 2026-04-08)",
+    "plenary_documents_feed": "404 (recess maintenance)"
+  }
+}
