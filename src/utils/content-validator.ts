@@ -456,6 +456,9 @@ export function validateArticleContent(
     );
   }
 
+  // Extended validation: cross-reference density, stakeholder balance, temporal coverage
+  collectExtendedValidationWarnings(html, warnings);
+
   return {
     valid: errors.length === 0,
     warnings,
@@ -643,4 +646,165 @@ export function validateTranslationCompleteness(
       untranslatedPhrases,
     },
   };
+}
+
+// ─── Extended validation rules ────────────────────────────────────────────────
+
+/**
+ * Collect warnings from extended validation rules (cross-reference density,
+ * stakeholder group balance, temporal coverage). Extracted to keep
+ * {@link validateArticleContent} within cognitive-complexity limits.
+ *
+ * @param html - Complete article HTML
+ * @param warnings - Mutable array to push warning strings into
+ */
+function collectExtendedValidationWarnings(html: string, warnings: string[]): void {
+  const crossRefWarning = validateCrossReferenceDensity(html);
+  if (crossRefWarning) warnings.push(crossRefWarning);
+
+  const balanceWarning = validateStakeholderGroupBalance(html);
+  if (balanceWarning) warnings.push(balanceWarning);
+
+  const temporalWarning = validateTemporalCoverage(html);
+  if (temporalWarning) warnings.push(temporalWarning);
+}
+
+/**
+ * Patterns matching known EP document reference formats.
+ * Uses separate patterns to avoid alternation complexity.
+ * Covers: TA-10-2026-0123, PE-123, PE-123.456, A9-0123, B9-0123, C9-0123, P9_TA(2024)0001
+ */
+const CV_EP_DOC_PATTERNS: ReadonlyArray<RegExp> = [
+  /\bTA-\d+-\d+-\d+\b/gu,
+  /\bPE-\d+\.\d+\b/gu,
+  /\bPE-\d+(?!\.\d)\b/gu,
+  /\b[A-C]\d-\d+\b/gu,
+  /\bP\d_TA\(\d{4}\)\d+\b/gu,
+];
+
+/** Pattern matching EP legislative procedure references (e.g. 2024/0001(COD)) */
+const CV_PROCEDURE_REF_PATTERN = /\b\d{4}\/\d+\([A-Z]{2,4}\)/gu;
+
+/**
+ * Known EP political groups for stakeholder balance validation.
+ * Each entry must be a single canonical, non-overlapping group name so
+ * independent matching does not double-count aliases such as "Renew Europe"
+ * and "Renew".
+ */
+const EP_POLITICAL_GROUPS: ReadonlyArray<string> = [
+  'EPP',
+  'S&D',
+  'Renew Europe',
+  'Greens/EFA',
+  'ECR',
+  'Identity and Democracy',
+  'The Left',
+  'Patriots for Europe',
+];
+
+/** Patterns indicating forward-looking content (temporal coverage validation) */
+const FORWARD_LOOKING_PATTERNS: ReadonlyArray<RegExp> = [
+  /\bforecast\b/iu,
+  /\bprojection\b/iu,
+  /\bexpected\b/iu,
+  /\banticipated\b/iu,
+  /\bupcoming\b/iu,
+  /\bfuture\b/iu,
+  /\bscenario\b/iu,
+  /\bcould\b/iu,
+  /\bwill\b/iu,
+  /\boutlook\b/iu,
+  /\bpredict\b/iu,
+  /\bnext\b/iu,
+  /\bforthcoming\b/iu,
+];
+
+/**
+ * Validate that an article cites a minimum number of EP document references
+ * (TA-, PE-, A9-, procedure IDs). Articles lacking document citations may rely
+ * on unsupported assertions.
+ *
+ * @param html - Complete article HTML
+ * @param minRefs - Minimum number of unique EP references required (default: 2)
+ * @returns Warning message if density is insufficient, or null if acceptable
+ */
+export function validateCrossReferenceDensity(html: string, minRefs = 2): string | null {
+  const htmlNoScripts = stripScriptBlocks(html);
+  const found = new Set<string>();
+
+  for (const pattern of CV_EP_DOC_PATTERNS) {
+    pattern.lastIndex = 0;
+    const hits = htmlNoScripts.match(pattern);
+    if (hits) {
+      for (const hit of hits) found.add(hit);
+    }
+  }
+
+  CV_PROCEDURE_REF_PATTERN.lastIndex = 0;
+  const procHits = htmlNoScripts.match(CV_PROCEDURE_REF_PATTERN);
+  if (procHits) {
+    for (const hit of procHits) found.add(hit);
+  }
+
+  if (found.size < minRefs) {
+    return `Cross-reference density too low: ${found.size} EP document reference(s) found (minimum ${minRefs} required)`;
+  }
+  return null;
+}
+
+/**
+ * Validate that no single EP political group dominates the article's coverage.
+ * Single-group dominance (one group with > 60% of all group mentions) may indicate
+ * bias or unbalanced perspective coverage.
+ *
+ * @param html - Complete article HTML
+ * @returns Warning message if one group dominates, or null if balanced
+ */
+export function validateStakeholderGroupBalance(html: string): string | null {
+  const text = stripScriptBlocks(html)
+    .replace(/<[^>]+>/gu, ' ')
+    .replace(/\s+/gu, ' ');
+
+  const counts: Record<string, number> = Object.create(null) as Record<string, number>;
+  let total = 0;
+  for (const group of EP_POLITICAL_GROUPS) {
+    const escaped = group.replace(/[.*+?^${}()|[\]\\]/gu, '\\$&');
+    // eslint-disable-next-line security/detect-non-literal-regexp
+    const pattern = new RegExp(`\\b${escaped}\\b`, 'giu');
+    const matches = text.match(pattern);
+    const count = matches?.length ?? 0;
+    counts[group] = count;
+    total += count;
+  }
+
+  if (total < 3) return null; // Too few mentions to assess balance
+
+  for (const group of EP_POLITICAL_GROUPS) {
+    const groupCount = counts[group] ?? 0;
+    if (groupCount / total > 0.6) {
+      return `Stakeholder balance concern: "${group}" accounts for ${Math.round((groupCount / total) * 100)}% of political group mentions — consider covering other groups`;
+    }
+  }
+  return null;
+}
+
+/**
+ * Validate that an article includes forward-looking content (temporal coverage).
+ * Articles lacking any forward-looking language may not provide actionable intelligence.
+ *
+ * @param html - Complete article HTML
+ * @returns Warning message if no forward-looking content is detected, or null if present
+ */
+export function validateTemporalCoverage(html: string): string | null {
+  const text = stripScriptBlocks(html)
+    .replace(/<[^>]+>/gu, ' ')
+    .replace(/\s+/gu, ' ')
+    .toLowerCase();
+
+  const hasForwardLooking = FORWARD_LOOKING_PATTERNS.some((pattern) => pattern.test(text));
+
+  if (!hasForwardLooking) {
+    return 'Temporal coverage: article lacks forward-looking content — add forecasts, scenarios, or outlook sections for actionable intelligence';
+  }
+  return null;
 }

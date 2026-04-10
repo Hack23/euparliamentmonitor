@@ -187,4 +187,108 @@ export function formatBatchMarkdown(inputs, scores) {
     });
     return [header, separator, ...rows].join('\n');
 }
+// ─── Comparative & Trend Scoring ──────────────────────────────────────────────
+/**
+ * Compute comparative significance for a single item within a peer group.
+ *
+ * Ranks the target score among all peers, computes a percentile position,
+ * and compares against the peer average. Peers are sorted descending by
+ * composite score; rank 1 = highest composite.
+ *
+ * @param target - The significance score of the item to rank
+ * @param peers - All scores in the comparison group (including the target)
+ * @returns ComparativeSignificance result with rank, percentile, and average
+ */
+export function computeComparativeSignificance(target, peers) {
+    if (peers.length === 0) {
+        return {
+            rank: 1,
+            total: 1,
+            percentile: 100,
+            aboveAverage: true,
+            peerAverage: target.composite,
+        };
+    }
+    const total = peers.length;
+    const peerAverage = Math.round((peers.reduce((sum, p) => sum + p.composite, 0) / total) * 100) / 100;
+    // Count peers with strictly higher composite score for rank (1-based)
+    const strictlyHigher = peers.filter((p) => p.composite > target.composite).length;
+    const rank = strictlyHigher + 1;
+    // Percentile: 0 = lowest, 100 = highest.
+    // Handle tied extremes explicitly so all highest-scoring peers receive 100
+    // and all lowest-scoring peers receive 0.
+    const strictlyLower = peers.filter((p) => p.composite < target.composite).length;
+    const percentile = total <= 1
+        ? 100
+        : strictlyHigher === 0
+            ? 100
+            : strictlyLower === 0
+                ? 0
+                : Math.round((strictlyLower / (total - 1)) * 100);
+    return {
+        rank,
+        total,
+        percentile,
+        aboveAverage: target.composite > peerAverage,
+        peerAverage,
+    };
+}
+/**
+ * Detect significance trend from a sequence of composite scores over time.
+ *
+ * Computes the average signed change per step to determine whether
+ * significance is increasing, decreasing, or stable. At least 2 data points
+ * are required; for 1 or 0, the trend is 'stable' with 'low' confidence.
+ *
+ * Confidence is calibrated by data volume:
+ * - ≥ 5 data points → high
+ * - 3–4 data points → medium
+ * - < 3 data points → low
+ *
+ * A trend is considered 'stable' when |averageChange| ≤ 0.1.
+ *
+ * @param scores - Ordered sequence of composite scores (oldest → newest)
+ * @returns SignificanceTrend with direction, average change, and confidence
+ */
+export function detectSignificanceTrend(scores) {
+    const dataPoints = scores.length;
+    if (dataPoints < 2) {
+        return { direction: 'stable', averageChange: 0, confidence: 'low', dataPoints };
+    }
+    let totalChange = 0;
+    for (let i = 1; i < dataPoints; i++) {
+        totalChange += scores[i] - scores[i - 1];
+    }
+    const averageChange = Math.round((totalChange / (dataPoints - 1)) * 1000) / 1000;
+    let direction;
+    if (averageChange > 0.1)
+        direction = 'increasing';
+    else if (averageChange < -0.1)
+        direction = 'decreasing';
+    else
+        direction = 'stable';
+    let confidence;
+    if (dataPoints >= 5)
+        confidence = 'high';
+    else if (dataPoints >= 3)
+        confidence = 'medium';
+    else
+        confidence = 'low';
+    return { direction, averageChange, confidence, dataPoints };
+}
+/**
+ * Compute a novelty bonus (0 or 5) for items appearing for the first time in
+ * a monitoring window.
+ *
+ * An item is considered novel when its identifier does not appear in the set
+ * of previously seen identifiers. Novel items receive a bonus equal to half
+ * the maximum score, calibrated to reward fresh intelligence signals.
+ *
+ * @param itemId - Unique identifier for the item being scored
+ * @param previouslySeenIds - Set of identifiers already observed in the window
+ * @returns Novelty bonus value (0 = previously seen, 5 = novel)
+ */
+export function computeNoveltyBonus(itemId, previouslySeenIds) {
+    return previouslySeenIds.has(itemId) ? 0 : 5;
+}
 //# sourceMappingURL=significance-scoring.js.map

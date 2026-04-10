@@ -748,3 +748,103 @@ describe('generateThreatAssessmentMarkdown', () => {
     expect(md).toContain('## Political Threat Landscape Analysis');
   });
 });
+
+// ─── Tests for new threat correlation & emerging threat detection ──────────────
+
+import {
+  computeThreatCorrelationMatrix,
+  detectEmergingThreats,
+} from '../../scripts/utils/political-threat-assessment.js';
+
+describe('computeThreatCorrelationMatrix', () => {
+  it('should return empty array for fewer than 2 dimensions', () => {
+    expect(computeThreatCorrelationMatrix(['shift'])).toEqual([]);
+    expect(computeThreatCorrelationMatrix([])).toEqual([]);
+  });
+
+  it('should return correlations for valid dimension pairs', () => {
+    const result = computeThreatCorrelationMatrix(['shift', 'erosion']);
+    expect(result.length).toBeGreaterThan(0);
+    expect(result[0].dimensionA).toBe('shift');
+    expect(result[0].dimensionB).toBe('erosion');
+    expect(result[0].mutuallyReinforcing).toBe(true);
+  });
+
+  it('should filter out weak correlations (|score| <= 0.2)', () => {
+    const result = computeThreatCorrelationMatrix(['shift', 'transparency', 'delay', 'erosion']);
+    for (const corr of result) {
+      expect(Math.abs(corr.correlationScore)).toBeGreaterThan(0.2);
+    }
+  });
+
+  it('should sort by absolute correlation score descending', () => {
+    const result = computeThreatCorrelationMatrix([
+      'shift', 'transparency', 'reversal', 'institutional', 'delay', 'erosion',
+    ]);
+    for (let i = 1; i < result.length; i++) {
+      expect(Math.abs(result[i].correlationScore)).toBeLessThanOrEqual(
+        Math.abs(result[i - 1].correlationScore)
+      );
+    }
+  });
+
+  it('should include a human-readable description', () => {
+    const result = computeThreatCorrelationMatrix(['shift', 'erosion']);
+    expect(result[0].description).toBeTruthy();
+    expect(typeof result[0].description).toBe('string');
+  });
+});
+
+describe('detectEmergingThreats', () => {
+  it('should return empty array when no threats are escalating', () => {
+    const current = [{ category: 'shift', level: 'moderate', evidence: [] }];
+    const baseline = [{ category: 'shift', level: 'moderate' }];
+    expect(detectEmergingThreats(current, baseline)).toEqual([]);
+  });
+
+  it('should detect a new threat not in baseline', () => {
+    const current = [{ category: 'erosion', level: 'high', evidence: ['new data'] }];
+    const baseline = [{ category: 'shift', level: 'low' }];
+    const result = detectEmergingThreats(current, baseline, '2026-04-10');
+    expect(result).toHaveLength(1);
+    expect(result[0].category).toBe('erosion');
+    expect(result[0].escalationRate).toBe('slow');
+    expect(result[0].firstDetected).toBe('2026-04-10');
+  });
+
+  it('should detect rapid escalation (2+ level jump)', () => {
+    const current = [{ category: 'shift', level: 'critical', evidence: ['voting data'] }];
+    const baseline = [{ category: 'shift', level: 'low' }];
+    const result = detectEmergingThreats(current, baseline);
+    expect(result[0].escalationRate).toBe('rapid');
+  });
+
+  it('should detect moderate escalation (1 level jump)', () => {
+    const current = [{ category: 'delay', level: 'high', evidence: [] }];
+    const baseline = [{ category: 'delay', level: 'moderate' }];
+    const result = detectEmergingThreats(current, baseline);
+    expect(result[0].escalationRate).toBe('moderate');
+  });
+
+  it('should sort by escalation rate (rapid first)', () => {
+    const current = [
+      { category: 'shift', level: 'critical', evidence: [] },
+      { category: 'delay', level: 'high', evidence: [] },
+      { category: 'erosion', level: 'moderate', evidence: [] },
+    ];
+    const baseline = [
+      { category: 'shift', level: 'low' },
+      { category: 'delay', level: 'moderate' },
+    ];
+    const result = detectEmergingThreats(current, baseline);
+    expect(result.length).toBeGreaterThan(0);
+    if (result.length >= 2) {
+      const rateOrder = { rapid: 3, moderate: 2, slow: 1 };
+      for (let i = 1; i < result.length; i++) {
+        expect(rateOrder[result[i].escalationRate]).toBeLessThanOrEqual(
+          rateOrder[result[i - 1].escalationRate]
+        );
+      }
+    }
+  });
+});

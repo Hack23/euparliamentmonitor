@@ -75,11 +75,13 @@ export type {
   EPFeedData,
   VotingIntensity,
   CoalitionShift,
+  CoalitionShiftSignal,
   PolarizationIndex,
   PoliticalSignificanceScore,
   VotingTrend,
   CoalitionStabilityReport,
   LegislativeVelocityReport,
+  StakeholderInfluenceTrajectory,
 } from './parliament.js';
 
 export type {
@@ -280,6 +282,8 @@ export type {
   PoliticalThreatDimension,
   PoliticalThreatAssessment,
   ThreatAssessmentInput,
+  ThreatCorrelation,
+  EmergingThreat,
 } from './political-threats.js';
 
 export type {
@@ -300,6 +304,10 @@ export type {
   AgentRiskAssessmentWorkflow,
   RiskLevelCounts,
   PoliticalRiskSummary,
+  RiskCascadePair,
+  RiskInterconnection,
+  RiskVelocity,
+  HistoricalRiskComparison,
 } from './political-risk.js';
 
 export type {

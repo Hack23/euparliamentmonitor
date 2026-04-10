@@ -708,3 +708,87 @@ describe('utils/content-validator', () => {
     });
   });
 });
+
+// ─── Tests for new extended validation rules ──────────────────────────────────
+
+import {
+  validateCrossReferenceDensity,
+  validateStakeholderGroupBalance,
+  validateTemporalCoverage,
+} from '../../scripts/utils/content-validator.js';
+
+describe('validateCrossReferenceDensity', () => {
+  it('should return null when enough EP references are present', () => {
+    const html = '<main>References: TA-10-2026-0001, 2024/0001(COD), PE-123</main>';
+    expect(validateCrossReferenceDensity(html)).toBeNull();
+  });
+
+  it('should warn when fewer than minimum references found', () => {
+    const html = '<main>No references here.</main>';
+    const result = validateCrossReferenceDensity(html);
+    expect(result).toContain('Cross-reference density too low');
+  });
+
+  it('should count procedure references', () => {
+    const html = '<main>Procedure 2024/0001(COD) and 2023/0456(NLE)</main>';
+    expect(validateCrossReferenceDensity(html, 2)).toBeNull();
+  });
+
+  it('should not count references inside script blocks', () => {
+    const html = '<script>{"ref": "TA-10-2026-0001"}</script><main>No refs</main>';
+    const result = validateCrossReferenceDensity(html);
+    expect(result).toContain('Cross-reference density too low');
+  });
+
+  it('should respect custom minRefs parameter', () => {
+    const html = '<main>TA-10-2026-0001</main>';
+    expect(validateCrossReferenceDensity(html, 1)).toBeNull();
+    expect(validateCrossReferenceDensity(html, 5)).toContain('Cross-reference density too low');
+  });
+});
+
+describe('validateStakeholderGroupBalance', () => {
+  it('should return null for balanced group mentions', () => {
+    const html = '<main>The EPP group and S&D both voted. Renew Europe abstained. Greens/EFA opposed.</main>';
+    expect(validateStakeholderGroupBalance(html)).toBeNull();
+  });
+
+  it('should warn when a single group dominates', () => {
+    const html = '<main>EPP EPP EPP EPP EPP EPP EPP EPP EPP EPP S&D</main>';
+    const result = validateStakeholderGroupBalance(html);
+    expect(result).toContain('Stakeholder balance concern');
+    expect(result).toContain('EPP');
+  });
+
+  it('should return null for too few mentions to assess', () => {
+    const html = '<main>The EPP group voted.</main>';
+    expect(validateStakeholderGroupBalance(html)).toBeNull();
+  });
+});
+
+describe('validateTemporalCoverage', () => {
+  it('should return null when forward-looking content is present', () => {
+    const html = '<main>The forecast shows an increasing trend in legislative output.</main>';
+    expect(validateTemporalCoverage(html)).toBeNull();
+  });
+
+  it('should warn when no forward-looking language is found', () => {
+    const html = '<main>The committee held a meeting and discussed the report in detail.</main>';
+    const result = validateTemporalCoverage(html);
+    expect(result).toContain('forward-looking');
+  });
+
+  it('should detect "will" with word boundary (not matching "William")', () => {
+    const htmlWithWilliam = '<main>William presented the committee report on trade matters.</main>';
+    const resultWilliam = validateTemporalCoverage(htmlWithWilliam);
+    expect(resultWilliam).toContain('forward-looking');
+
+    const htmlWithWill = '<main>The parliament will vote on this proposal next week.</main>';
+    expect(validateTemporalCoverage(htmlWithWill)).toBeNull();
+  });
+
+  it('should match "expected" as forward-looking', () => {
+    const html = '<main>The vote is expected to take place in the next session.</main>';
+    expect(validateTemporalCoverage(html)).toBeNull();
+  });
+});

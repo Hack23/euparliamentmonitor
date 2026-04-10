@@ -322,3 +322,83 @@ export interface PoliticalRiskSummary {
   /** Legislative velocity risks */
   readonly legislativeVelocityRisks: readonly LegislativeVelocityRisk[];
 }
+
+// ─── Risk interconnection types ───────────────────────────────────────────────
+
+/**
+ * Describes a cascading pair of political risks where one risk
+ * triggers or amplifies the other.
+ */
+export interface RiskCascadePair {
+  /** ID of the triggering risk */
+  readonly riskAId: string;
+  /** ID of the downstream risk */
+  readonly riskBId: string;
+  /** Cascade score (0–1, higher = stronger triggering relationship) */
+  readonly cascadeScore: number;
+}
+
+/**
+ * Measures how interconnected a set of political risks are —
+ * i.e. whether one risk escalating would cascade to others.
+ */
+export interface RiskInterconnection {
+  /** Total number of risks analysed */
+  readonly riskCount: number;
+  /** Pairs of risks with identified cascading potential */
+  readonly cascadingPairs: readonly RiskCascadePair[];
+  /** Aggregate interconnection score (0–1, higher = more interconnected) */
+  readonly interconnectionScore: number;
+  /** Assessment label reflecting overall systemic risk */
+  readonly assessment:
+    | 'isolated'
+    | 'moderate-interconnection'
+    | 'high-interconnection'
+    | 'systemic';
+}
+
+/**
+ * Measures the rate and direction of change in a political risk's score
+ * between two consecutive assessment runs.
+ */
+export interface RiskVelocity {
+  /** Identifier of the assessed risk */
+  readonly riskId: string;
+  /** Signed score change (current − previous) */
+  readonly scoreDelta: number;
+  /** Direction of the risk level change */
+  readonly levelChange: 'escalating' | 'stable' | 'de-escalating';
+  /**
+   * Fine-grained velocity label:
+   * - `rapidly-escalating`: scoreDelta > 1.5
+   * - `escalating`: scoreDelta in (0.5, 1.5]
+   * - `stable`: |scoreDelta| ≤ 0.5
+   * - `de-escalating`: scoreDelta in [-1.5, -0.5)
+   * - `rapidly-de-escalating`: scoreDelta < -1.5
+   */
+  readonly assessment:
+    | 'rapidly-escalating'
+    | 'escalating'
+    | 'stable'
+    | 'de-escalating'
+    | 'rapidly-de-escalating';
+}
+
+/**
+ * Compares the current risk score against historical baselines
+ * to contextualise the current risk posture.
+ */
+export interface HistoricalRiskComparison {
+  /** Identifier of the assessed risk */
+  readonly riskId: string;
+  /** Current risk score */
+  readonly currentScore: number;
+  /** Rolling 7-day average risk score from the baseline window */
+  readonly sevenDayAverage: number;
+  /** Rolling 30-day average risk score from the baseline window */
+  readonly thirtyDayAverage: number;
+  /** Whether current score is above, at, or below the 7-day average */
+  readonly vsSevenDayAverage: 'above' | 'at' | 'below';
+  /** Whether current score is above, at, or below the 30-day average */
+  readonly vsThirtyDayAverage: 'above' | 'at' | 'below';
+}

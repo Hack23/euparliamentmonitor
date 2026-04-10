@@ -257,3 +257,48 @@ export interface ThreatAssessmentInput {
   /** Feed data (adopted texts, procedures, MEPs) */
   readonly feedData?: Record<string, unknown>;
 }
+
+// ─── Threat correlation types ─────────────────────────────────────────────────
+
+/**
+ * Describes a correlation between two political threat dimensions,
+ * indicating whether they reinforce or counteract each other.
+ */
+export interface ThreatCorrelation {
+  /** First threat dimension in the pair */
+  readonly dimensionA: PoliticalThreatCategory;
+  /** Second threat dimension in the pair */
+  readonly dimensionB: PoliticalThreatCategory;
+  /**
+   * Correlation score: positive = mutually reinforcing,
+   * negative = counteracting, 0 = independent.
+   * Range: −1 to +1.
+   */
+  readonly correlationScore: number;
+  /** Whether the two threats reinforce each other */
+  readonly mutuallyReinforcing: boolean;
+  /** Human-readable description of the interaction */
+  readonly description: string;
+}
+
+/**
+ * An emerging threat pattern detected across multiple assessments —
+ * i.e. a threat category that has appeared or escalated recently.
+ */
+export interface EmergingThreat {
+  /** Threat dimension that is emerging */
+  readonly category: PoliticalThreatCategory;
+  /** ISO date when this threat pattern was first detected */
+  readonly firstDetected: string;
+  /** Current threat level */
+  readonly currentLevel: ImpactLevel;
+  /**
+   * Rate at which the threat is escalating:
+   * - `rapid`: escalated by two or more levels
+   * - `moderate`: escalated by one level
+   * - `slow`: marginal escalation within the same level
+   */
+  readonly escalationRate: 'rapid' | 'moderate' | 'slow';
+  /** Evidence data points supporting the emergence */
+  readonly evidence: readonly string[];
+}

@@ -29,7 +29,48 @@ export interface AnalysisDepthScore {
   readonly scenarioPlanning: boolean;
   /** Whether uncertainty or confidence levels are explicitly stated */
   readonly confidenceLevelsIndicated: boolean;
+  /**
+   * Optional sub-score (0–100) measuring depth of coalition analysis,
+   * derived from inter-group alliance language and specific group mentions.
+   */
+  readonly coalitionAnalysisScore?: number;
   /** Composite 0–100 score derived from the boolean dimensions above */
+  readonly score: number;
+}
+
+// ─── Temporal Coverage ────────────────────────────────────────────────────────
+
+/**
+ * Measures whether an article covers past context, current state, AND
+ * forward-looking outlook — the three temporal dimensions of quality analysis.
+ */
+export interface TemporalCoverageScore {
+  /** Whether past context or historical references are present */
+  readonly pastContextPresent: boolean;
+  /** Whether current state or present-tense analysis is covered */
+  readonly currentStatePresent: boolean;
+  /** Whether forward outlook, forecasts, or scenarios are included */
+  readonly forwardOutlookPresent: boolean;
+  /** Composite 0–100 score (33 per dimension present) */
+  readonly score: number;
+}
+
+// ─── Cross-Reference Density ─────────────────────────────────────────────────
+
+/**
+ * Measures the density of EP document references (TA-, PE-, A9-, procedure IDs)
+ * in an article — a key indicator of evidence-grounded reporting.
+ */
+export interface CrossReferenceDensityScore {
+  /** Number of unique EP document IDs detected (TA-, PE-, A9-, P9_TA patterns) */
+  readonly epDocumentIds: number;
+  /** Number of EP legislative procedure references (e.g. 2024/0001(COD)) */
+  readonly procedureReferences: number;
+  /** Number of TA-format adopted text references specifically */
+  readonly taNumbers: number;
+  /** Total unique cross-references across all detected patterns */
+  readonly totalReferences: number;
+  /** Composite 0–100 score based on total reference density */
   readonly score: number;
 }
 

@@ -1529,3 +1529,161 @@ describe('buildLegislativeVelocityReport', () => {
     expect(Object.keys(result.stageBreakdown).length).toBeGreaterThan(0);
   });
 });
+
+// ─── Tests for new coalition shift signals & stakeholder trajectory ───────────
+
+import {
+  deriveCoalitionShiftSignals,
+  computeStakeholderInfluenceTrajectory,
+} from '../../scripts/utils/intelligence-analysis.js';
+
+describe('deriveCoalitionShiftSignals', () => {
+  it('should return empty array for empty input', () => {
+    expect(deriveCoalitionShiftSignals([])).toEqual([]);
+  });
+
+  it('should detect bloc-fragmentation for low cohesion (<0.4)', () => {
+    const patterns = [
+      { group: 'EPP', cohesion: 0.2, participation: 100 },
+      { group: 'S&D', cohesion: 0.9, participation: 100 },
+    ];
+    const signals = deriveCoalitionShiftSignals(patterns);
+    expect(signals.some((s) => s.group === 'EPP' && s.patternType === 'bloc-fragmentation')).toBe(true);
+  });
+
+  it('should assign high confidence to very low cohesion (<0.25)', () => {
+    const patterns = [
+      { group: 'EPP', cohesion: 0.15, participation: 100 },
+      { group: 'S&D', cohesion: 0.9, participation: 100 },
+    ];
+    const signals = deriveCoalitionShiftSignals(patterns);
+    const epp = signals.find((s) => s.group === 'EPP');
+    expect(epp?.confidence).toBe('high');
+  });
+
+  it('should detect isolation when group cohesion is far below average', () => {
+    const patterns = [
+      { group: 'EPP', cohesion: 0.9, participation: 100 },
+      { group: 'S&D', cohesion: 0.9, participation: 100 },
+      { group: 'ECR', cohesion: 0.42, participation: 50 },
+    ];
+    const signals = deriveCoalitionShiftSignals(patterns);
+    expect(signals.some((s) => s.group === 'ECR' && s.patternType === 'isolation')).toBe(true);
+  });
+
+  it('should detect cross-party-alignment when opposing blocs have high cohesion', () => {
+    const patterns = [
+      { group: 'EPP', cohesion: 0.95, participation: 100 },
+      { group: 'S&D', cohesion: 0.92, participation: 100 },
+    ];
+    const signals = deriveCoalitionShiftSignals(patterns);
+    expect(signals.some((s) => s.patternType === 'cross-party-alignment')).toBe(true);
+  });
+
+  it('should detect new-bloc-formation when 3+ groups from different blocs have high cohesion', () => {
+    const patterns = [
+      { group: 'EPP', cohesion: 0.85, participation: 100 },
+      { group: 'S&D', cohesion: 0.85, participation: 100 },
+      { group: 'ECR', cohesion: 0.85, participation: 100 },
+    ];
+    const signals = deriveCoalitionShiftSignals(patterns);
+    const newBloc = signals.filter((s) => s.patternType === 'new-bloc-formation');
+    expect(newBloc.length).toBeGreaterThan(0);
+  });
+
+  it('should sort signals by confidence descending', () => {
+    const patterns = [
+      { group: 'EPP', cohesion: 0.1, participation: 100 },
+      { group: 'S&D', cohesion: 0.45, participation: 100 },
+      { group: 'ECR', cohesion: 0.9, participation: 100 },
+    ];
+    const signals = deriveCoalitionShiftSignals(patterns);
+    if (signals.length >= 2) {
+      const order = { high: 3, medium: 2, low: 1 };
+      for (let i = 1; i < signals.length; i++) {
+        expect(order[signals[i].confidence]).toBeLessThanOrEqual(order[signals[i - 1].confidence]);
+      }
+    }
+  });
+});
+
+describe('computeStakeholderInfluenceTrajectory', () => {
+  it('should return rising when score delta >= 5 and has engagement', () => {
+    const result = computeStakeholderInfluenceTrajectory({
+      stakeholderId: 'MEP-1',
+      name: 'Test MEP',
+      currentScore: 75,
+      historicalScore: 65,
+      committeeAssignments: 2,
+      rapporteurRoles: 1,
+      shadowRapporteurRoles: 0,
+    });
+    expect(result.trajectory).toBe('rising');
+    expect(result.confidence).toBe('high');
+  });
+
+  it('should return declining when score delta <= -5', () => {
+    const result = computeStakeholderInfluenceTrajectory({
+      stakeholderId: 'MEP-2',
+      name: 'Declining MEP',
+      currentScore: 40,
+      historicalScore: 50,
+      committeeAssignments: 1,
+      rapporteurRoles: 0,
+      shadowRapporteurRoles: 0,
+    });
+    expect(result.trajectory).toBe('declining');
+  });
+
+  it('should return stable when no significant change', () => {
+    const result = computeStakeholderInfluenceTrajectory({
+      stakeholderId: 'MEP-3',
+      name: 'Stable MEP',
+      currentScore: 50,
+      historicalScore: 52,
+      committeeAssignments: 1,
+      rapporteurRoles: 0,
+      shadowRapporteurRoles: 0,
+    });
+    expect(result.trajectory).toBe('stable');
+  });
+
+  it('should return rising without historical when engagement >= 3', () => {
+    const result = computeStakeholderInfluenceTrajectory({
+      stakeholderId: 'MEP-4',
+      name: 'New Active MEP',
+      currentScore: 60,
+      committeeAssignments: 2,
+      rapporteurRoles: 1,
+      shadowRapporteurRoles: 0,
+    });
+    expect(result.trajectory).toBe('rising');
+    expect(result.confidence).toBe('medium');
+  });
+
+  it('should return low confidence without historical and without engagement', () => {
+    const result = computeStakeholderInfluenceTrajectory({
+      stakeholderId: 'MEP-5',
+      name: 'Unknown MEP',
+      currentScore: 30,
+      committeeAssignments: 0,
+      rapporteurRoles: 0,
+      shadowRapporteurRoles: 0,
+    });
+    expect(result.trajectory).toBe('stable');
+    expect(result.confidence).toBe('low');
+  });
+
+  it('should populate driving factors', () => {
+    const result = computeStakeholderInfluenceTrajectory({
+      stakeholderId: 'MEP-6',
+      name: 'Factor MEP',
+      currentScore: 80,
+      historicalScore: 70,
+      committeeAssignments: 3,
+      rapporteurRoles: 2,
+      shadowRapporteurRoles: 1,
+    });
+    expect(result.drivingFactors.length).toBeGreaterThanOrEqual(3);
+  });
+});

@@ -838,4 +838,140 @@ export function createRiskDriver(description, category, contribution, trend = 's
         trend,
     };
 }
+/**
+ * Compute how interconnected a set of political risks are.
+ *
+ * Cascade potential between two risks is estimated by comparing their
+ * threat categories and numeric risk scores. Risks of the same category
+ * with high scores are considered more likely to cascade.
+ *
+ * Cascade score formula:
+ * - Same category: baseScore = 0.6 + (avgScore / 10) * 0.4
+ * - Different category: baseScore = 0.2 + (avgScore / 10) * 0.2
+ *
+ * The overall interconnection score is the mean of all pair cascade scores.
+ *
+ * @param risks - Array of objects with riskId, category, and numericScore (0–10)
+ * @returns RiskInterconnection with cascade pairs and overall assessment
+ */
+export function computeRiskInterconnection(risks) {
+    if (risks.length < 2) {
+        return {
+            riskCount: risks.length,
+            cascadingPairs: [],
+            interconnectionScore: 0,
+            assessment: 'isolated',
+        };
+    }
+    const cascadingPairs = [];
+    for (let i = 0; i < risks.length; i++) {
+        for (let j = i + 1; j < risks.length; j++) {
+            const riskA = risks[i];
+            const riskB = risks[j];
+            const clampedA = Math.max(0, Math.min(10, riskA.numericScore));
+            const clampedB = Math.max(0, Math.min(10, riskB.numericScore));
+            const avgScore = (clampedA + clampedB) / 2;
+            const sameCategory = riskA.category === riskB.category;
+            const cascadeScore = sameCategory
+                ? Math.min(1, 0.6 + (avgScore / 10) * 0.4)
+                : Math.min(1, 0.2 + (avgScore / 10) * 0.2);
+            const roundedScore = Math.round(cascadeScore * 100) / 100;
+            cascadingPairs.push({
+                riskAId: riskA.riskId,
+                riskBId: riskB.riskId,
+                cascadeScore: roundedScore,
+            });
+        }
+    }
+    const interconnectionScore = cascadingPairs.length > 0
+        ? Math.round((cascadingPairs.reduce((sum, p) => sum + p.cascadeScore, 0) / cascadingPairs.length) * 100) / 100
+        : 0;
+    let assessment;
+    if (interconnectionScore >= 0.75)
+        assessment = 'systemic';
+    else if (interconnectionScore >= 0.5)
+        assessment = 'high-interconnection';
+    else if (interconnectionScore >= 0.25)
+        assessment = 'moderate-interconnection';
+    else
+        assessment = 'isolated';
+    return { riskCount: risks.length, cascadingPairs, interconnectionScore, assessment };
+}
+/**
+ * Compute the velocity (rate and direction of change) of a political risk score.
+ *
+ * Velocity thresholds (scoreDelta):
+ * - > 1.5  → rapidly-escalating
+ * - > 0.5  → escalating
+ * - ≥ -0.5 → stable
+ * - ≥ -1.5 → de-escalating
+ * - < -1.5 → rapidly-de-escalating
+ *
+ * @param riskId - Identifier of the risk being assessed
+ * @param previousScore - Score from the previous assessment run
+ * @param currentScore - Score from the current assessment run
+ * @returns RiskVelocity with signed delta and assessment labels
+ */
+export function computeRiskVelocity(riskId, previousScore, currentScore) {
+    const scoreDelta = Math.round((currentScore - previousScore) * 100) / 100;
+    let levelChange;
+    if (scoreDelta > 0.5)
+        levelChange = 'escalating';
+    else if (scoreDelta < -0.5)
+        levelChange = 'de-escalating';
+    else
+        levelChange = 'stable';
+    let assessment;
+    if (scoreDelta > 1.5)
+        assessment = 'rapidly-escalating';
+    else if (scoreDelta > 0.5)
+        assessment = 'escalating';
+    else if (scoreDelta >= -0.5)
+        assessment = 'stable';
+    else if (scoreDelta >= -1.5)
+        assessment = 'de-escalating';
+    else
+        assessment = 'rapidly-de-escalating';
+    return { riskId, scoreDelta, levelChange, assessment };
+}
+/**
+ * Compare the current risk score against historical baselines (7-day and 30-day averages).
+ *
+ * Scores are considered 'above' when current > average by more than 0.1,
+ * 'below' when current < average by more than 0.1, and 'at' otherwise.
+ *
+ * @param riskId - Identifier of the risk being assessed
+ * @param currentScore - Current risk score
+ * @param sevenDayScores - Historical scores from the past 7 days
+ * @param thirtyDayScores - Historical scores from the past 30 days
+ * @returns HistoricalRiskComparison with averages and relative position
+ */
+export function compareRiskHistorical(riskId, currentScore, sevenDayScores, thirtyDayScores) {
+    const sevenDayAverage = sevenDayScores.length > 0
+        ? Math.round((sevenDayScores.reduce((s, v) => s + v, 0) / sevenDayScores.length) * 100) / 100
+        : currentScore;
+    const thirtyDayAverage = thirtyDayScores.length > 0
+        ? Math.round((thirtyDayScores.reduce((s, v) => s + v, 0) / thirtyDayScores.length) * 100) /
+            100
+        : currentScore;
+    const THRESHOLD = 0.1;
+    const vsSevenDayAverage = currentScore > sevenDayAverage + THRESHOLD
+        ? 'above'
+        : currentScore < sevenDayAverage - THRESHOLD
+            ? 'below'
+            : 'at';
+    const vsThirtyDayAverage = currentScore > thirtyDayAverage + THRESHOLD
+        ? 'above'
+        : currentScore < thirtyDayAverage - THRESHOLD
+            ? 'below'
+            : 'at';
+    return {
+        riskId,
+        currentScore,
+        sevenDayAverage,
+        thirtyDayAverage,
+        vsSevenDayAverage,
+        vsThirtyDayAverage,
+    };
+}
 //# sourceMappingURL=political-risk-assessment.js.map
