@@ -136,9 +136,70 @@
 
 ---
 
+---
+
+## 📅 Temporal Stakeholder Outlook — 30/60/90-Day Horizon — New in v2.2
+
+> **AI Instructions:** Stakeholder impacts evolve over time. Immediate impacts (days to weeks) are different from structural impacts (months to years). This section maps both dimensions, providing a forward-looking stakeholder outlook. Use the legislative calendar and procedure timeline to anchor the timelines.
+
+### Immediate vs. Structural Impact Classification
+
+| Stakeholder Group | Immediate Impact (0–30d) | Short-term Impact (30–90d) | Structural Impact (90d+) | Impact Type |
+|-------------------|:------------------------:|:-------------------------:|:------------------------:|------------|
+| 🏘️ EU Citizens | `[description or N/A]` | `[description or N/A]` | `[description or N/A]` | `[IMMEDIATE / STRUCTURAL / BOTH / NONE]` |
+| 🏛️ Grand Coalition | `[description or N/A]` | `[description or N/A]` | `[description or N/A]` | `[IMMEDIATE / STRUCTURAL / BOTH / NONE]` |
+| 🗳️ Opposition | `[description or N/A]` | `[description or N/A]` | `[description or N/A]` | `[IMMEDIATE / STRUCTURAL / BOTH / NONE]` |
+| 🏭 Business | `[description or N/A]` | `[description or N/A]` | `[description or N/A]` | `[IMMEDIATE / STRUCTURAL / BOTH / NONE]` |
+| 🤝 Member States | `[description or N/A]` | `[description or N/A]` | `[description or N/A]` | `[IMMEDIATE / STRUCTURAL / BOTH / NONE]` |
+| 🌍 International | `[description or N/A]` | `[description or N/A]` | `[description or N/A]` | `[IMMEDIATE / STRUCTURAL / BOTH / NONE]` |
+
+### Immediate Impact (0–30 Days)
+
+> Impacts that materialize within days to weeks of the event — typically legislative, electoral, or procedural consequences that are already underway or certain.
+
+`[REQUIRED: 2–4 sentences describing which stakeholders are affected RIGHT NOW and how. Examples: "Grand Coalition must decide on a rapporteur replacement within 2 weeks"; "Digital platforms must publicly respond to the new gatekeeper criteria within 30 days under DMA Art. 3(3)"; "MEPs from Eastern member states face immediate constituency pressure on the migration vote."]`
+
+**Most-Affected Stakeholder (Immediate):** `[REQUIRED: group name + specific immediate impact]`
+
+### Structural Impact (90+ Days)
+
+> Impacts that reshape the political landscape over months — legislative transposition, market restructuring, political positioning for 2029 elections, or institutional precedents.
+
+`[REQUIRED: 2–4 sentences describing which stakeholders face the most significant structural changes. Examples: "The precedent of 11 EPP defections on environmental policy may structurally realign EPP positions ahead of 2029 election manifesto negotiations"; "SMEs face a structural compliance cost of €2–8M from new DMA obligations, creating competitive disadvantage vs. non-EU rivals."]`
+
+**Most-Affected Stakeholder (Structural):** `[REQUIRED: group name + specific structural impact]`
+
+### 30/60/90-Day Stakeholder Outlook Table
+
+> Complete for the two or three most-affected stakeholder groups. Use EP calendar knowledge — plenary sessions, trilogue rounds, transposition deadlines — to anchor timelines.
+
+| Stakeholder | 30-Day Outlook | 60-Day Outlook | 90-Day Outlook | Key Trigger Event |
+|------------|:--------------:|:--------------:|:--------------:|-------------------|
+| `[Group 1]` | `[Specific expected development]` | `[Expected development]` | `[Expected development]` | `[Calendar anchor — e.g., "April 22 plenary vote on amendment"]` |
+| `[Group 2]` | `[Specific expected development]` | `[Expected development]` | `[Expected development]` | `[Calendar anchor]` |
+| `[Group 3 — optional]` | `[Specific expected development]` | `[Expected development]` | `[Expected development]` | `[Calendar anchor]` |
+
+**Good vs. Bad — Temporal Stakeholder Assessment:**
+
+**❌ BAD (static, no temporal dimension):**
+```markdown
+Business is negatively impacted by new compliance requirements.
+```
+
+**✅ GOOD (temporally structured, concrete milestones):**
+```markdown
+| Business | [30d] Commission consultation response deadline (Art. 45 DMA) | [60d] Legal analysis complete; lobby strategy deployed | [90d] First compliance reports due; SMEs at highest risk (estimated 3,400 affected firms) | Commission delegated act publication (est. 2026-06-15) |
+```
+
+### Structural vs. Immediate Impact Assessment
+
+`[REQUIRED: 2–3 sentences synthesising the relationship between immediate and structural impacts. E.g., "The immediate coalition stress (EPP defections) is acute but reversible — political group discipline has historically self-corrected within 2–3 plenary sessions. However, the structural impact on EPP-Green electoral positioning ahead of 2029 is more durable — this vote will feature in environmental NGO scorecards for the remainder of the parliamentary term."]`
+
+---
+
 ## 🔑 Key Insights
 
-`[REQUIRED: 3–5 sentences identifying the most significant stakeholder dynamics. Which groups are in tension? Where are unexpected winners/losers? What are the second-order political effects?]`
+`[REQUIRED: 3–5 sentences identifying the most significant stakeholder dynamics. Which groups are in tension? Where are unexpected winners/losers? What are the second-order political effects? Include at least one temporal observation from the 30/60/90-day outlook.]`
 
 ---
 
@@ -155,6 +216,8 @@ When stakeholder impacts conflict (e.g., Citizens benefit but Business bears cos
 | All stakeholders positive | **Rare consensus** — highlight cross-party achievement | Note rarity; check for hidden costs or losers |
 | Member States opposed + EP in favour | **Interinstitutional tension** — trilogue friction | Frame as EP asserting legislative power; track Council response |
 | Business positive + Citizens neutral | **Regulatory capture risk** — scrutinise lobbying | Investigate industry influence; check for citizen safeguards |
+| Immediate positive + Structural negative | **Short-term gain, long-term risk** — temporal conflict | Note both dimensions; track structural impact trajectory |
+| Immediate negative + Structural positive | **Transition pain** — disruptive but directionally correct | Acknowledge transition cost; emphasise structural benefit |
 
 ### Stakeholder Impact Mermaid Diagram
 
@@ -258,8 +321,9 @@ flowchart TD
 
 **Document Control:**
 - **Template Path:** `/analysis/templates/stakeholder-impact.md`
-- **Version:** 2.1
-- **Advanced Features:** Conflicting Impact Resolution matrix, Stakeholder Impact Mermaid diagram, EU Institutional Hierarchy Awareness, Cross-Committee Stakeholder Mapping
+- **Version:** 2.2
+- **Advanced Features (v2.2):** Temporal Stakeholder Outlook (30/60/90-Day Horizon), Immediate vs. Structural Impact classification, temporal conflict patterns in Conflicting Impact Resolution matrix
+- **Advanced Features (v2.1):** Conflicting Impact Resolution matrix, Stakeholder Impact Mermaid diagram, EU Institutional Hierarchy Awareness, Cross-Committee Stakeholder Mapping
 - **Framework Reference:** [methodologies/political-style-guide.md](../methodologies/political-style-guide.md)
 - **Classification:** Public
 - **Next Review:** 2026-06-30
