@@ -190,22 +190,22 @@ Every single SWOT entry — whether in a per-file analysis, daily synthesis, or 
 
 **❌ BAD (opinion-only, no evidence):**
 ```markdown
-| ✅ S | Grand coalition has strong legislative majority | — | H | H | high |
+| ✅ S | Grand coalition has strong legislative majority | — | H | H |
 ```
 
 **✅ GOOD (evidence-anchored, citable):**
 ```markdown
-| ✅ S | Grand coalition (EPP+S&D+Renew) secured 412/720 majority on Green Deal vote, 18pp above required majority | EP MCP `get_voting_records`, RCV-2026-0342, 2026-03-15 | H | H | high |
+| ✅ S | Grand coalition (EPP+S&D+Renew) secured 412/720 majority on Green Deal vote, 18pp above required majority — Severity: high | EP MCP `get_voting_records`, RCV-2026-0342, 2026-03-15 | H | H |
 ```
 
 **❌ BAD (vague threat, no quantification):**
 ```markdown
-| 🔴 T | Far-right groups growing in Parliament | — | M | H | high |
+| 🔴 T | Far-right groups growing in Parliament | — | M | H |
 ```
 
 **✅ GOOD (quantified, traceable):**
 ```markdown
-| 🔴 T | ECR+PfE combined seat share rose from 22% to 26% between EP9 and EP10, reducing grand coalition surplus from 87 to 41 above majority threshold | EP MCP `compare_political_groups`, seat share data EP9 vs EP10 | H | H | high |
+| 🔴 T | ECR+PfE combined seat share rose from 22% to 26% between EP9 and EP10, reducing grand coalition surplus from 87 to 41 above majority threshold — Severity: high | EP MCP `compare_political_groups`, seat share data EP9 vs EP10 | H | H |
 ```
 
 ---

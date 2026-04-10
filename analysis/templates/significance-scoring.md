@@ -256,7 +256,7 @@ Composite significance: 8.4/10. Decision: Priority.
 **✅ GOOD (score anchored to historical baseline):**
 ```markdown
 Composite significance: **8.4/10** — the highest trade-related significance score since EP10 
-inauguration (June 2024), surpassing the CBAM final adoption (8.1/10, SIG-2026-03-13-001) 
+inauguration (June 2024), surpassing the CBAM final adoption (8.1/10, SIG-2026-02-18-001) 
 and 35% above the EP10 average for INTA committee documents (6.2/10). This score reflects 
 the convergence of high cross-group relevance (9/10 — ECR and S&D both issuing public positions) 
 and structural policy impact (9/10 — permanent MFN tariff change with no sunset clause).

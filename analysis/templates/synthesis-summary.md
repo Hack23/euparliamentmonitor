@@ -269,20 +269,20 @@ Confidence: HIGH (3/3 frameworks align)
 
 ---
 
-## 🔗 Cross-Article-Type Intelligence (Rule 18 Compliance) — New in v1.3
+## 🔗 Cross-Article Intelligence (Rule 18 Compliance) — New in v1.3
 
-> **AI Instructions:** When ≥2 different workflow types (e.g., `breaking` + `committee-reports`, or `week-ahead` + `propositions`) have produced analysis for events that overlap in the current synthesis window, this section is **MANDATORY**. Cross-article-type correlation reveals insights that single-workflow analysis cannot — for example, a breaking news event may be more significant when it also appears in a committee report analysis with deeper procedural context. See [ai-driven-analysis-guide.md Rule 18](../methodologies/ai-driven-analysis-guide.md) for the authoritative requirement.
+> **AI Instructions:** When ≥2 different workflow types (e.g., `breaking` + `committee-reports`, or `week-ahead` + `propositions`) have produced analysis for events that overlap in the current synthesis window, this section is **MANDATORY**. Cross-article correlation reveals insights that single-workflow analysis cannot — for example, a breaking news event may be more significant when it also appears in a committee report analysis with deeper procedural context. Use the exact Rule 18 structure below. See [ai-driven-analysis-guide.md Rule 18](../methodologies/ai-driven-analysis-guide.md) for the authoritative requirement.
 
-### Cross-Article-Type Coverage Matrix
+### Cross-Article Intelligence
 
-| Event / Topic | Workflow Types Covering It | Complementary Insights | Combined Significance |
-|--------------|---------------------------|----------------------|:---------------------:|
-| `[REQUIRED if ≥2 workflows overlap: event name]` | `[e.g., breaking + committee-reports]` | `[What does each workflow type add that the other doesn't?]` | `[higher/same/lower than individual scores]` |
-| `[event 2]` | `[workflow types]` | `[complementary insights]` | `[assessment]` |
+| Other Article Type | Date | Corroborating Signal | Contradiction? |
+|--------------------|------|----------------------|----------------|
+| `[REQUIRED if ≥2 workflows overlap: e.g., committee-reports / week-ahead / propositions]` | `[YYYY-MM-DD]` | `[What signal from the other article type corroborates, deepens, or changes the current synthesis?]` | `[No / Partial / Yes — explain briefly]` |
+| `[other article type 2]` | `[YYYY-MM-DD]` | `[corroborating or qualifying signal]` | `[No / Partial / Yes]` |
 
-### Cross-Article-Type Intelligence Findings
+### Cross-Article Intelligence Findings
 
-`[REQUIRED if ≥2 workflows overlap: 2–4 sentences describing what the multi-workflow coverage reveals. E.g., "The CBAM vote (breaking analysis, SIG-2026-04-06-001, score 8.1) gains additional context from the committee-reports analysis (SIG-2026-04-06-003, score 7.2), which reveals that ENVI rapporteur Schmidt signalled willingness to compromise on Article 12 — a detail absent from the plenary-focused breaking analysis. Combined significance: 8.4 (upward adjustment due to procedural depth)."]`
+`[REQUIRED if ≥2 workflows overlap: 2–4 sentences describing what the cross-article evidence reveals overall. Explicitly state whether the other article types corroborate, deepen, or contradict the current synthesis, and whether combined significance should be adjusted upward, downward, or remain unchanged. E.g., "The CBAM vote (breaking analysis, SIG-2026-04-06-001, score 8.1) is corroborated by the committee-reports analysis dated 2026-04-06 (SIG-2026-04-06-003, score 7.2), which adds procedural depth by noting that ENVI rapporteur Schmidt signalled willingness to compromise on Article 12. This does not contradict the breaking analysis; it deepens it. Combined significance: 8.4 (upward adjustment due to procedural depth)."]`
 
 **❌ BAD (no cross-workflow synthesis):**
 ```markdown
