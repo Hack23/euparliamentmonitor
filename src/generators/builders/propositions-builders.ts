@@ -45,7 +45,7 @@ import {
 } from './shared-builders.js';
 
 const CONFERENCE_OF_PRESIDENTS_EN = 'Conference of Presidents';
-const CONFERENCE_OF_PRESIDENTS: Record<string, string> = {
+const CONFERENCE_OF_PRESIDENTS: Partial<Record<LanguageCode, string>> = {
   en: CONFERENCE_OF_PRESIDENTS_EN,
   sv: 'Talmanskonferensen',
   da: 'Formandskonferencen',
@@ -100,9 +100,7 @@ function buildPropositionsWhy(): string {
  * @param lang - Target language code
  * @returns Localized name or English fallback
  */
-function getConferenceOfPresidents(lang: string): string {
-  if (!Object.hasOwn(CONFERENCE_OF_PRESIDENTS, lang)) return CONFERENCE_OF_PRESIDENTS_EN;
-  // eslint-disable-next-line security/detect-object-injection -- key validated via Object.hasOwn
+function getConferenceOfPresidents(lang: LanguageCode): string {
   return CONFERENCE_OF_PRESIDENTS[lang] ?? CONFERENCE_OF_PRESIDENTS_EN;
 }
 

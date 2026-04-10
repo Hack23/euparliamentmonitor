@@ -3,7 +3,7 @@
 import { getLocalizedString, BREAKING_STRINGS, SWOT_BUILDER_STRINGS, DASHBOARD_BUILDER_STRINGS, } from '../../constants/languages.js';
 import { buildDefaultStakeholderPerspectives } from '../../utils/intelligence-analysis.js';
 import { AI_MARKER } from '../../constants/analysis-constants.js';
-import { buildOutcomeMatrix, buildTrendFromCounts, buildGenericTrendPanel, makeDimension, } from './shared-builders.js';
+import { buildOutcomeMatrix, buildCategoryDistributionPanel, makeDimension, } from './shared-builders.js';
 // ─── Constant ─────────────────────────────────────────────────────────────────
 /**
  * Build multi-stakeholder perspectives for a breaking news analysis.
@@ -325,10 +325,10 @@ export function buildBreakingDashboard(feedData, lang = 'en') {
             }
             : {}),
     };
-    // Trend analytics from feed counts
+    // Category distribution — shows feed counts per category (not a time-series trend)
     const feedCounts = [adoptedCount, eventCount, procCount, mepCount];
-    const trend = buildTrendFromCounts(feedCounts, 'weekly');
-    const trendPanel = buildGenericTrendPanel(d, trend, [d.adoptedTexts, d.events, d.procedures, d.mepUpdates], d.feedActivity);
+    const feedLabels = [d.adoptedTexts, d.events, d.procedures, d.mepUpdates];
+    const trendPanel = buildCategoryDistributionPanel(d, feedLabels, feedCounts, d.feedActivity, d.feedActivity);
     const panels = [feedPanel, summaryPanel, ...(trendPanel ? [trendPanel] : [])];
     return { panels };
 }

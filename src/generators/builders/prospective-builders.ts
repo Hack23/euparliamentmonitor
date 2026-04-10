@@ -34,8 +34,7 @@ import { AI_MARKER } from '../../constants/analysis-constants.js';
 import {
   buildOutcomeMatrix,
   buildPipelineFromWeekData,
-  buildTrendFromCounts,
-  buildGenericTrendPanel,
+  buildCategoryDistributionPanel,
   makeDimension,
   CIVIL_SOCIETY,
 } from './shared-builders.js';
@@ -74,7 +73,7 @@ function buildProspectiveStakeholderPerspectives(
 export function buildProspectiveAnalysis(
   weekData: WeekAheadData,
   dateRange: DateRange,
-  label: string
+  label: 'week' | 'month'
 ): DeepAnalysis {
   const eventCount = weekData.events.length;
   const committeeCount = weekData.committees.length;
@@ -329,21 +328,19 @@ export function buildProspectiveDashboard(
         }
       : null;
 
-  // Trend analytics from activity counts
+  // Category distribution — shows activity counts per category (not a time-series trend)
   const activityCounts = [
     weekData.events.length,
     weekData.committees.length,
     weekData.documents.length,
     weekData.questions.length,
   ];
-  const trend =
-    activityCounts.filter((c) => c > 0).length >= 2
-      ? buildTrendFromCounts(activityCounts, 'weekly')
-      : null;
-  const trendPanel = buildGenericTrendPanel(
+  const categoryLabels = [d.plenaryEvents, d.committeeMeetings, d.documents, d.questionsFiled];
+  const trendPanel = buildCategoryDistributionPanel(
     d,
-    trend,
-    [d.plenaryEvents, d.committeeMeetings, d.documents, d.questionsFiled],
+    categoryLabels,
+    activityCounts,
+    d.scheduledActivity,
     d.scheduledActivity
   );
 
@@ -385,7 +382,6 @@ export function buildProspectiveMindmap(
   const events = weekData.events ?? [];
   const pipeline = weekData.pipeline ?? [];
   const pipelineSlice = pipeline.slice(0, 4);
-  const bottleneckCount = pipelineSlice.filter((p) => p.bottleneck === true).length;
 
   const domainNodes: MindmapNode[] = policyDomains.map((domain, i) => {
     const relatedEvents = events.slice(i * 2, i * 2 + 2);
@@ -448,7 +444,7 @@ export function buildProspectiveMindmap(
     connections,
     actorNetwork,
     stakeholderGroups: ['Parliament', 'Council', 'Commission', CIVIL_SOCIETY],
-    summary: `${events.length} events scheduled. ${bottleneckCount} legislative bottlenecks identified.`,
+    summary: `${events.length} events scheduled. ${pipeline.filter((p) => p.bottleneck === true).length} legislative bottlenecks identified.`,
   };
 }
 

@@ -55,9 +55,6 @@ function buildPropositionsWhy() {
  * @returns Localized name or English fallback
  */
 function getConferenceOfPresidents(lang) {
-    if (!Object.hasOwn(CONFERENCE_OF_PRESIDENTS, lang))
-        return CONFERENCE_OF_PRESIDENTS_EN;
-    // eslint-disable-next-line security/detect-object-injection -- key validated via Object.hasOwn
     return CONFERENCE_OF_PRESIDENTS[lang] ?? CONFERENCE_OF_PRESIDENTS_EN;
 }
 /**

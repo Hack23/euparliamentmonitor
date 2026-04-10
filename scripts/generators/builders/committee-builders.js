@@ -4,7 +4,7 @@ import { getLocalizedString, COMMITTEE_ANALYSIS_CONTENT_STRINGS, SWOT_BUILDER_ST
 import { isPlaceholderCommitteeData } from '../committee-helpers.js';
 import { buildDefaultStakeholderPerspectives } from '../../utils/intelligence-analysis.js';
 import { AI_MARKER } from '../../constants/analysis-constants.js';
-import { buildOutcomeMatrix, buildTrendFromCounts, buildGenericTrendPanel, makeDimension, } from './shared-builders.js';
+import { buildOutcomeMatrix, buildCategoryDistributionPanel, makeDimension, } from './shared-builders.js';
 // ─── Constant ─────────────────────────────────────────────────────────────────
 /**
  * Build multi-stakeholder perspectives for a committee reports analysis.
@@ -271,11 +271,10 @@ export function buildCommitteeDashboard(committees, lang = 'en') {
             };
         })()
         : null;
-    // Trend analytics from committee document counts
+    // Category distribution — shows document counts per committee (not a time-series trend)
     const docCounts = committees.slice(0, 6).map((c) => c.documents.length);
-    const trend = docCounts.length >= 2 ? buildTrendFromCounts(docCounts, 'monthly') : null;
     const committeeLabels = committees.slice(0, 6).map((c) => c.abbreviation);
-    const trendPanel = buildGenericTrendPanel(d, trend, committeeLabels, d.documentsProduced);
+    const trendPanel = buildCategoryDistributionPanel(d, committeeLabels, docCounts, d.documents, d.documentsProduced);
     const panels = [
         overviewPanel,
         ...(chartPanel ? [chartPanel] : []),

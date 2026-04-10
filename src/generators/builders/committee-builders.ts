@@ -36,8 +36,7 @@ import { buildDefaultStakeholderPerspectives } from '../../utils/intelligence-an
 import { AI_MARKER } from '../../constants/analysis-constants.js';
 import {
   buildOutcomeMatrix,
-  buildTrendFromCounts,
-  buildGenericTrendPanel,
+  buildCategoryDistributionPanel,
   makeDimension,
 } from './shared-builders.js';
 
@@ -353,11 +352,16 @@ export function buildCommitteeDashboard(
         })()
       : null;
 
-  // Trend analytics from committee document counts
+  // Category distribution — shows document counts per committee (not a time-series trend)
   const docCounts = committees.slice(0, 6).map((c) => c.documents.length);
-  const trend = docCounts.length >= 2 ? buildTrendFromCounts(docCounts, 'monthly') : null;
   const committeeLabels = committees.slice(0, 6).map((c) => c.abbreviation);
-  const trendPanel = buildGenericTrendPanel(d, trend, committeeLabels, d.documentsProduced);
+  const trendPanel = buildCategoryDistributionPanel(
+    d,
+    committeeLabels,
+    docCounts,
+    d.documents,
+    d.documentsProduced
+  );
 
   const panels = [
     overviewPanel,

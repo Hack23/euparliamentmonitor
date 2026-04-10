@@ -36,8 +36,7 @@ import { buildDefaultStakeholderPerspectives } from '../../utils/intelligence-an
 import { AI_MARKER } from '../../constants/analysis-constants.js';
 import {
   buildOutcomeMatrix,
-  buildTrendFromCounts,
-  buildGenericTrendPanel,
+  buildCategoryDistributionPanel,
   makeDimension,
 } from './shared-builders.js';
 
@@ -444,13 +443,14 @@ export function buildBreakingDashboard(
       : {}),
   };
 
-  // Trend analytics from feed counts
+  // Category distribution — shows feed counts per category (not a time-series trend)
   const feedCounts = [adoptedCount, eventCount, procCount, mepCount];
-  const trend = buildTrendFromCounts(feedCounts, 'weekly');
-  const trendPanel = buildGenericTrendPanel(
+  const feedLabels = [d.adoptedTexts, d.events, d.procedures, d.mepUpdates];
+  const trendPanel = buildCategoryDistributionPanel(
     d,
-    trend,
-    [d.adoptedTexts, d.events, d.procedures, d.mepUpdates],
+    feedLabels,
+    feedCounts,
+    d.feedActivity,
     d.feedActivity
   );
 

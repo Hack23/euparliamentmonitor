@@ -3,7 +3,7 @@
 import { getLocalizedString, SWOT_BUILDER_STRINGS, DASHBOARD_BUILDER_STRINGS, } from '../../constants/languages.js';
 import { buildDefaultStakeholderPerspectives } from '../../utils/intelligence-analysis.js';
 import { AI_MARKER } from '../../constants/analysis-constants.js';
-import { buildOutcomeMatrix, buildPipelineFromWeekData, buildTrendFromCounts, buildGenericTrendPanel, makeDimension, CIVIL_SOCIETY, } from './shared-builders.js';
+import { buildOutcomeMatrix, buildPipelineFromWeekData, buildCategoryDistributionPanel, makeDimension, CIVIL_SOCIETY, } from './shared-builders.js';
 /**
  * Build multi-stakeholder perspectives for a prospective (week/month-ahead) analysis.
  *
@@ -264,17 +264,15 @@ export function buildProspectiveDashboard(weekData, _label, lang = 'en') {
             },
         }
         : null;
-    // Trend analytics from activity counts
+    // Category distribution — shows activity counts per category (not a time-series trend)
     const activityCounts = [
         weekData.events.length,
         weekData.committees.length,
         weekData.documents.length,
         weekData.questions.length,
     ];
-    const trend = activityCounts.filter((c) => c > 0).length >= 2
-        ? buildTrendFromCounts(activityCounts, 'weekly')
-        : null;
-    const trendPanel = buildGenericTrendPanel(d, trend, [d.plenaryEvents, d.committeeMeetings, d.documents, d.questionsFiled], d.scheduledActivity);
+    const categoryLabels = [d.plenaryEvents, d.committeeMeetings, d.documents, d.questionsFiled];
+    const trendPanel = buildCategoryDistributionPanel(d, categoryLabels, activityCounts, d.scheduledActivity, d.scheduledActivity);
     const panels = [
         scheduledPanel,
         questionsPanel,
@@ -306,7 +304,6 @@ export function buildProspectiveMindmap(weekData, _lang = 'en', label = 'week') 
     const events = weekData.events ?? [];
     const pipeline = weekData.pipeline ?? [];
     const pipelineSlice = pipeline.slice(0, 4);
-    const bottleneckCount = pipelineSlice.filter((p) => p.bottleneck === true).length;
     const domainNodes = policyDomains.map((domain, i) => {
         const relatedEvents = events.slice(i * 2, i * 2 + 2);
         const children = relatedEvents.map((ev, ei) => ({
@@ -363,7 +360,7 @@ export function buildProspectiveMindmap(weekData, _lang = 'en', label = 'week') 
         connections,
         actorNetwork,
         stakeholderGroups: ['Parliament', 'Council', 'Commission', CIVIL_SOCIETY],
-        summary: `${events.length} events scheduled. ${bottleneckCount} legislative bottlenecks identified.`,
+        summary: `${events.length} events scheduled. ${pipeline.filter((p) => p.bottleneck === true).length} legislative bottlenecks identified.`,
     };
 }
 /**

@@ -304,6 +304,52 @@ export function buildGenericTrendPanel(
 }
 
 /**
+ * Build a category distribution panel showing counts per category as a bar chart.
+ * Unlike `buildGenericTrendPanel`, this does not compute direction or week-over-week
+ * change metrics, which are only meaningful for chronological time-series data.
+ *
+ * @param d - Localized strings
+ * @param labels - Category labels for x-axis
+ * @param counts - Counts per category (must align with labels)
+ * @param datasetLabel - Label for the dataset
+ * @param title - Panel title
+ * @returns Panel object or null if all counts are zero
+ */
+export function buildCategoryDistributionPanel(
+  d: DashboardBuilderStrings,
+  labels: readonly string[],
+  counts: readonly number[],
+  datasetLabel: string,
+  title: string
+): DashboardPanel | null {
+  if (counts.length === 0 || counts.every((c) => c === 0)) return null;
+  return {
+    title,
+    metrics: [
+      {
+        label: d.trendAnalysis,
+        value: `${counts.reduce((a, b) => a + b, 0)} total`,
+      },
+    ],
+    chart: {
+      type: 'bar' as const,
+      title,
+      data: {
+        labels: [...labels],
+        datasets: [
+          {
+            label: datasetLabel,
+            data: [...counts],
+            borderColor: EP_BLUE_BORDER,
+            backgroundColor: EP_BLUE_TRANSPARENT,
+          },
+        ],
+      },
+    },
+  };
+}
+
+/**
  * Build a dimension object from sets of pre-computed SWOT items.
  *
  * @param name - Dimension name
