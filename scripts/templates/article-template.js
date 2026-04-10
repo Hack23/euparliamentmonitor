@@ -127,7 +127,8 @@ function buildRelatedArticlesNav(articles, lang) {
         const safeTitle = escapeHTML(a.title);
         const safeCategory = escapeHTML(a.category);
         // Safe: date/slug/lang are validated above, so href is always a relative filename
-        const href = `./${a.date}-${a.slug}-${a.lang}.html`;
+        // escapeHTML applied for defense-in-depth within HTML attribute context
+        const href = escapeHTML(`./${a.date}-${a.slug}-${a.lang}.html`);
         return (`<li class="related-article-item">` +
             `<span class="related-article-type">${safeCategory}</span> ` +
             `<a href="${href}" hreflang="${escapeHTML(a.lang)}">${safeTitle}</a>` +
