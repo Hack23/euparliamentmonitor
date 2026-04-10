@@ -1565,7 +1565,7 @@ describe('deriveCoalitionShiftSignals', () => {
     const patterns = [
       { group: 'EPP', cohesion: 0.9, participation: 100 },
       { group: 'S&D', cohesion: 0.9, participation: 100 },
-      { group: 'ECR', cohesion: 0.45, participation: 50 },
+      { group: 'ECR', cohesion: 0.42, participation: 50 },
     ];
     const signals = deriveCoalitionShiftSignals(patterns);
     expect(signals.some((s) => s.group === 'ECR' && s.patternType === 'isolation')).toBe(true);

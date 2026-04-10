@@ -1182,7 +1182,7 @@ function classifyPatternSignal(
  */
 function detectNewBlocFormation(
   currentPatterns: readonly VotingPattern[],
-  existingSignals: readonly CoalitionShiftSignal[]
+  existingSignals: CoalitionShiftSignal[]
 ): CoalitionShiftSignal[] {
   const highCohesionGroups = currentPatterns.filter((p) => p.cohesion > 0.8);
   const hasLeft = highCohesionGroups.some((p) => classifyBloc(p.group) === 'left');
@@ -1192,20 +1192,24 @@ function detectNewBlocFormation(
 
   if (distinctBlocsHigh < 2 || highCohesionGroups.length < 3) return [];
 
+  // Upgrade cross-party signals to new-bloc-formation when a broad coalition is forming
   const results: CoalitionShiftSignal[] = [];
   for (const pattern of highCohesionGroups) {
-    const alreadyCrossParty = existingSignals.some(
+    const crossPartyIdx = existingSignals.findIndex(
       (s) => s.group === pattern.group && s.patternType === 'cross-party-alignment'
     );
-    if (!alreadyCrossParty) {
-      results.push({
-        group: pattern.group,
-        patternType: 'new-bloc-formation',
-        cohesion: pattern.cohesion,
-        confidence: highCohesionGroups.length >= 4 ? 'high' : 'medium',
-        description: `${pattern.group} part of an emerging cross-bloc coalition (${highCohesionGroups.length} groups with >80% cohesion)`,
-      });
+    const signal: CoalitionShiftSignal = {
+      group: pattern.group,
+      patternType: 'new-bloc-formation',
+      cohesion: pattern.cohesion,
+      confidence: highCohesionGroups.length >= 4 ? 'high' : 'medium',
+      description: `${pattern.group} part of an emerging cross-bloc coalition (${highCohesionGroups.length} groups with >80% cohesion)`,
+    };
+    if (crossPartyIdx >= 0) {
+      // Replace individual cross-party with collective new-bloc-formation
+      existingSignals.splice(crossPartyIdx, 1);
     }
+    results.push(signal);
   }
   return results;
 }

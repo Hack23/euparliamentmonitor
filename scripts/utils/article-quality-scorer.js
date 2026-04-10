@@ -152,7 +152,7 @@ const TEMPORAL_FORWARD_KEYWORDS = [
  * Pattern matching EP legislative procedure references.
  * Covers formats like 2024/0001(COD), 2023/0123(NLE), 2022/0456(APP).
  */
-const PROCEDURE_REF_PATTERN = /\b\d{4}\/\d+\([A-Z]{2,4}\)\b/gu;
+const PROCEDURE_REF_PATTERN = /\b\d{4}\/\d+\([A-Z]{2,4}\)/gu;
 /** Pattern matching TA-format adopted text references specifically */
 const TA_NUMBER_PATTERN = /\bTA-\d+-\d+-\d+\b/gu;
 // ─── Stakeholder detection sets ───────────────────────────────────────────────

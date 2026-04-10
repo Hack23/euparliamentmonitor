@@ -661,7 +661,7 @@ const CV_EP_DOC_PATTERNS: ReadonlyArray<RegExp> = [
 ];
 
 /** Pattern matching EP legislative procedure references (e.g. 2024/0001(COD)) */
-const CV_PROCEDURE_REF_PATTERN = /\b\d{4}\/\d+\([A-Z]{2,4}\)\b/gu;
+const CV_PROCEDURE_REF_PATTERN = /\b\d{4}\/\d+\([A-Z]{2,4}\)/gu;
 
 /**
  * Known EP political groups for stakeholder balance validation.
