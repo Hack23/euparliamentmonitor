@@ -242,9 +242,9 @@ describe('section-builders', () => {
       expect(html).toContain('&lt;b&gt;date&lt;/b&gt;');
     });
 
-    it('should include aria-labelledby attribute', () => {
+    it('should include aria-label on section', () => {
       const html = buildTimelineSection([{ date: '2026-01-01', label: 'Start' }], 'en');
-      expect(html).toContain('aria-labelledby="timeline-section-heading"');
+      expect(html).toContain('aria-label="Legislative Timeline"');
     });
 
     it('should render an ordered list', () => {

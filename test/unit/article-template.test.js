@@ -880,6 +880,10 @@ describe('article-template', () => {
         const htmlWithDeep = generateArticleHTML({ ...defaultOptions, content: deepContent });
         expect(htmlWithDeep).toContain('.deep-analysis');
         expect(htmlWithDeep).toContain('.article-sources');
+
+        // When sources is empty, .article-sources hasPart should NOT appear
+        const htmlNoSources = generateArticleHTML({ ...defaultOptions, sources: [] });
+        expect(htmlNoSources).not.toContain('.article-sources');
       });
 
       it('should include BreadcrumbList JSON-LD', () => {

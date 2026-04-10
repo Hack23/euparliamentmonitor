@@ -153,7 +153,6 @@ export function buildTimelineSection(items, lang) {
     if (items.length === 0)
         return '';
     const heading = escapeHTML(getLocalizedString(TIMELINE_HEADINGS, lang));
-    const sectionId = 'timeline-section';
     const listItems = items
         .map((item) => {
         const safeDate = escapeHTML(item.date);
@@ -168,8 +167,8 @@ export function buildTimelineSection(items, lang) {
             `</li>`);
     })
         .join('\n      ');
-    return `<section class="timeline-section" aria-labelledby="${sectionId}-heading">
-  <h2 id="${sectionId}-heading">${heading}</h2>
+    return `<section class="timeline-section" aria-label="${heading}">
+  <h2>${heading}</h2>
   <ol class="timeline-list" role="list">
       ${listItems}
   </ol>
@@ -193,7 +192,6 @@ export function buildComparisonTable(before, after, lang) {
         return '';
     const beforeLabel = escapeHTML(getLocalizedString(COMPARISON_BEFORE_LABELS, lang));
     const afterLabel = escapeHTML(getLocalizedString(COMPARISON_AFTER_LABELS, lang));
-    const tableId = 'comparison-table';
     const maxRows = Math.max(before.length, after.length);
     const rows = Array.from({ length: maxRows }, (_, i) => {
         const beforeCell = escapeHTML(before[i] ?? '');
@@ -203,9 +201,9 @@ export function buildComparisonTable(before, after, lang) {
             `<td class="comparison-after">${afterCell}</td>` +
             `</tr>`);
     }).join('\n      ');
-    return `<div class="comparison-table-wrapper" role="region" aria-labelledby="${tableId}-caption">
+    return `<div class="comparison-table-wrapper" role="region" aria-label="${beforeLabel} / ${afterLabel}">
   <table class="comparison-table">
-    <caption id="${tableId}-caption" class="sr-only">${beforeLabel} / ${afterLabel}</caption>
+    <caption class="sr-only">${beforeLabel} / ${afterLabel}</caption>
     <thead>
       <tr>
         <th scope="col">${beforeLabel}</th>
@@ -233,7 +231,6 @@ export function buildKeyFiguresBar(figures, lang) {
     if (figures.length === 0)
         return '';
     const heading = escapeHTML(getLocalizedString(KEY_FIGURES_HEADINGS, lang));
-    const sectionId = 'key-figures-bar';
     const cards = figures
         .map((fig) => {
         const safeLabel = escapeHTML(fig.label);
@@ -252,8 +249,8 @@ export function buildKeyFiguresBar(figures, lang) {
             `</div>`);
     })
         .join('\n      ');
-    return `<section class="key-figures-bar" aria-labelledby="${sectionId}-heading">
-  <h2 id="${sectionId}-heading" class="sr-only">${heading}</h2>
+    return `<section class="key-figures-bar" aria-label="${heading}">
+  <h2 class="sr-only">${heading}</h2>
   <div class="key-figures-grid" role="list">
       ${cards}
   </div>

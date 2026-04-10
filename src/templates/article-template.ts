@@ -359,11 +359,15 @@ export function generateArticleHTML(options: ArticleOptions): string {
             },
           ]
         : []),
-      {
-        '@type': 'WebPageElement',
-        cssSelector: '.article-sources',
-        name: 'Sources',
-      },
+      ...(sources.length > 0
+        ? [
+            {
+              '@type': 'WebPageElement',
+              cssSelector: '.article-sources',
+              name: 'Sources',
+            },
+          ]
+        : []),
     ],
     isBasedOn:
       sources.length > 0
