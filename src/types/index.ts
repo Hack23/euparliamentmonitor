@@ -86,6 +86,7 @@ export type {
   ParsedArticle,
   ArticleSource,
   ArticleOptions,
+  AnalysisFileEntry,
   SitemapUrl,
   ArticleMetadataEntry,
   NewsMetadataDatabase,

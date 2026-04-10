@@ -76,6 +76,9 @@ export {
   COALITION_DYNAMICS_LABELS,
   VOTING_PATTERNS_LABELS,
   CROSS_SESSION_INTELLIGENCE_LABELS,
+  SYNTHESIS_SUMMARY_LABELS,
+  DOCUMENT_ANALYSIS_LABELS,
+  SIGNIFICANCE_SCORING_LABELS,
 } from './language-ui.js';
 
 export type { AISection, RelationshipLabels, RelatedAnalysisStrings } from './language-ui.js';
