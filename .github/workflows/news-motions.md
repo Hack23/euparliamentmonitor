@@ -119,7 +119,7 @@ You are the **News Journalist Agent** for EU Parliament Monitor generating **EU 
 
 ## 🚫 MANDATORY Scope Restriction
 
-> **⚠️ CRITICAL**: This workflow ONLY creates article files in the `news/` directory and analysis artifacts in `analysis/daily/${TODAY}/motions/`. You MUST NOT modify any other files.
+> **⚠️ CRITICAL**: This workflow ONLY creates article files in the `news/` directory and analysis artifacts in the `analysis/daily/` directory. You MUST NOT modify any other files.
 >
 > **⚠️ FILE COUNT LIMIT**: The PR safe output enforces a **maximum of 100 files** per pull request. You MUST keep the total number of new/modified files (articles + analysis artifacts) **under 90 files**. Consolidate analysis into combined files per category rather than creating individual per-document files. See the "Analysis File Consolidation" section below.
 
@@ -323,16 +323,16 @@ For each motion or resolution vote, analyze:
 ## 🔗 ANALYSIS FILE REFERENCES (MANDATORY)
 
 Every generated article MUST link to ALL analysis files. Verify the Analysis & Transparency section includes:
-- [ ] Links to canonical method-level files in `analysis/daily/${TODAY}/motions/classification/`
-- [ ] Links to canonical method-level files in `analysis/daily/${TODAY}/motions/threat-assessment/`
-- [ ] Links to canonical method-level files in `analysis/daily/${TODAY}/motions/risk-scoring/`
-- [ ] Links to canonical method-level files in `analysis/daily/${TODAY}/motions/existing/`
+- [ ] Links to canonical method-level files in `${ANALYSIS_DIR}/classification/`
+- [ ] Links to canonical method-level files in `${ANALYSIS_DIR}/threat-assessment/`
+- [ ] Links to canonical method-level files in `${ANALYSIS_DIR}/risk-scoring/`
+- [ ] Links to canonical method-level files in `${ANALYSIS_DIR}/existing/`
 - [ ] Links to `analysis/methodologies/*.md` methodology documents
 
 ## ⏱️ Time Budget (60 minutes)
 - **Minutes 0–3**: Date validation, MCP warm-up
-- **Minutes 3–8**: 🔬 Automated political intelligence analysis stage (significance classification, political threat landscape assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `analysis/daily/${TODAY}/motions/`)
-- **Minutes 8–15**: Query EP MCP tools for COMPLETE motions data (parallel where possible) — **⚠️ Download FULL document content, not just metadata. Store complete adopted texts, procedure details, and voting records in `analysis/daily/${TODAY}/motions/data/`**
+- **Minutes 3–8**: 🔬 Automated political intelligence analysis stage (significance classification, political threat landscape assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `${ANALYSIS_DIR}/`)
+- **Minutes 8–15**: Query EP MCP tools for COMPLETE motions data (parallel where possible) — **⚠️ Download FULL document content, not just metadata. Store complete adopted texts, procedure details, and voting records in `${ANALYSIS_DIR}/data/`**
 - **Minutes 15–35**: 🔬🔬🔬 **MANDATORY DEEP POLITICAL ANALYSIS PHASE (15-20 MINUTES)** — Read ALL methodology guides and templates, apply them to EVERY downloaded MCP data file, write substantive analysis markdown, use `sequentialthinking` for complex reasoning, cross-reference documents via knowledge graph, complete 4-pass refinement cycle. **⚠️ Per Rule 7, spend ≥15 minutes on AI-driven analysis.** Article topic and angle MUST be decided ONLY from completed significance scoring results, not predetermined.
 - **Minutes 35–50**: Generate English article with deep political intelligence analysis informed by completed analysis artifacts
 - **Minutes 50–55**: Validate HTML
@@ -350,12 +350,12 @@ Every generated article MUST link to ALL analysis files. Verify the Analysis & T
 > **Rule**: Keep total new/modified files **under 90** (articles + analysis artifacts combined). Preserve the repo's **canonical analysis artifact naming convention**: write the single canonical markdown file for each analysis method/category directory (as documented in `analysis/README.md`), and avoid creating individual per-document analysis files.
 
 **Canonical analysis file structure** (target: ≤20 analysis files total):
-- `analysis/daily/${TODAY}/motions/manifest.json` — 1 file
-- `analysis/daily/${TODAY}/motions/classification/<canonical-method-files>.md` — canonical method-level files (e.g., `significance-classification.md`, `impact-matrix.md`, `actor-mapping.md`, `forces-analysis.md`)
-- `analysis/daily/${TODAY}/motions/threat-assessment/<canonical-method-files>.md` — canonical method-level files (e.g., `political-threat-landscape.md`, `actor-threat-profiling.md`)
-- `analysis/daily/${TODAY}/motions/risk-scoring/<canonical-method-files>.md` — canonical method-level files (e.g., `risk-matrix.md`, `political-capital-risk.md`, `quantitative-swot.md`)
-- `analysis/daily/${TODAY}/motions/existing/<canonical-method-files>.md` — canonical method-level files (e.g., `deep-analysis.md`, `stakeholder-impact.md`, `coalition-dynamics.md`, `synthesis-summary.md`)
-- `analysis/daily/${TODAY}/motions/documents/document-analysis-index.md` — 1 file (documents index)
+- `${ANALYSIS_DIR}/manifest.json` — 1 file
+- `${ANALYSIS_DIR}/classification/<canonical-method-files>.md` — canonical method-level files (e.g., `significance-classification.md`, `impact-matrix.md`, `actor-mapping.md`, `forces-analysis.md`)
+- `${ANALYSIS_DIR}/threat-assessment/<canonical-method-files>.md` — canonical method-level files (e.g., `political-threat-landscape.md`, `actor-threat-profiling.md`)
+- `${ANALYSIS_DIR}/risk-scoring/<canonical-method-files>.md` — canonical method-level files (e.g., `risk-matrix.md`, `political-capital-risk.md`, `quantitative-swot.md`)
+- `${ANALYSIS_DIR}/existing/<canonical-method-files>.md` — canonical method-level files (e.g., `deep-analysis.md`, `stakeholder-impact.md`, `coalition-dynamics.md`, `synthesis-summary.md`)
+- `${ANALYSIS_DIR}/documents/document-analysis-index.md` — 1 file (documents index)
 - `news/${TODAY}-motions-en.html` — 1 article file (English)
 
 **DO NOT** create individual analysis files for each adopted text, voting record, or MCP data item. Instead, append item-level sections within the relevant canonical method-level file using `## Item: <document-title>` headers.
@@ -371,7 +371,7 @@ The `--analysis` flag activates the political intelligence analysis pipeline **b
    - **Risk Scoring** (5 methods): political risk matrix, capital-at-risk assessment, quantitative SWOT, legislative velocity risk, agent risk workflow
    - **Existing / Intelligence** (5 methods): deep analysis, stakeholder analysis, coalition dynamics, voting patterns, cross-session intelligence
    - **Per-Document Analysis** (`document-analysis`): included in the default method set — generates per-document markdown + JSON files under `documents/`. These per-document outputs are a primary driver of file-count blowups; the `excluded-files` config strips `documents/raw-data/**` and `documents/*-analysis.md` from the PR patch, and the pre-PR consolidation script removes remaining excess files
-3. **Writes and commits analysis artifacts** to `analysis/daily/${TODAY}/motions/` using canonical filenames from `analysis/README.md` + `manifest.json` — each workflow writes to its own per-article-type subdirectory; MCP data files in `analysis/daily/${TODAY}/motions/data/` are excluded from the PR via `excluded-files` and also cleaned up before PR creation. Do not add additional per-document analysis files beyond what the pipeline generates; the pipeline's per-document outputs are excluded from the PR via `excluded-files` and removed by the pre-PR consolidation script. Write any human-driven analysis into the **canonical method-level files** to stay under the 100-file PR limit.
+3. **Writes and commits analysis artifacts** to `${ANALYSIS_DIR}/` using canonical filenames from `analysis/README.md` + `manifest.json` — each workflow writes to its own per-article-type subdirectory; MCP data files in `${ANALYSIS_DIR}/data/` are excluded from the PR via `excluded-files` and also cleaned up before PR creation. Do not add additional per-document analysis files beyond what the pipeline generates; the pipeline's per-document outputs are excluded from the PR via `excluded-files` and removed by the pre-PR consolidation script. Write any human-driven analysis into the **canonical method-level files** to stay under the 100-file PR limit.
 4. **Blocks article generation on failure in agentic mode** — when `--analysis` is enabled, analysis failures abort the run; disable `--analysis` if you want generation to proceed without analysis
 
 The analysis artifacts provide structured political intelligence that enriches the article generation phase with deeper context, evidence-based assessments, and systematic threat/risk analysis.
@@ -382,11 +382,11 @@ The analysis artifacts provide structured political intelligence that enriches t
 
 > **⚠️ FULL DATA ANALYSIS**: Read ALL structured templates in `analysis/templates/` and methodology guides in `analysis/methodologies/` BEFORE starting analysis. Apply them to every downloaded MCP data file, writing results into the **canonical method-level files** (see `analysis/README.md` Canonical Artifact Naming Convention). Do NOT create individual per-document analysis files — append item-level sections within the canonical files to stay under the 100-file PR limit.
 
-> **⚠️ IMPROVE EXISTING ANALYSIS**: Per `ai-driven-analysis-guide.md` Rule 5, before producing new analysis, check for existing analysis in `analysis/daily/${TODAY}/motions/`. If previous analysis exists, READ it first and **improve, extend, correct, or complete** it — never discard prior work. No workflow run should be wasted.
+> **⚠️ UNIQUE RUN DIRECTORY**: Each workflow run writes analysis to a unique directory scoped by run number (`${ANALYSIS_DIR}/`). Do NOT read or modify analysis from other runs. This ensures every article links to the exact analysis that produced it and prevents merge conflicts between concurrent or repeated runs.
 
 ### Structured Analysis Templates (analysis/templates/)
 
-Read and apply the complete template set below when analyzing `analysis/daily/${TODAY}/motions/data/`. **IMPORTANT: Write ONE canonical method-level file per analysis method** using the canonical filenames from `analysis/README.md` (e.g., `significance-classification.md`, `risk-matrix.md`, `political-threat-landscape.md`). Do NOT create separate files for each MCP data item — append item-level sections within the canonical file. This prevents exceeding the 100-file PR limit.
+Read and apply the complete template set below when analyzing `${ANALYSIS_DIR}/data/`. **IMPORTANT: Write ONE canonical method-level file per analysis method** using the canonical filenames from `analysis/README.md` (e.g., `significance-classification.md`, `risk-matrix.md`, `political-threat-landscape.md`). Do NOT create separate files for each MCP data item — append item-level sections within the canonical file. This prevents exceeding the 100-file PR limit.
 
 | Template | File | When to Apply |
 |----------|------|--------------|
@@ -414,7 +414,7 @@ Read these BEFORE creating analysis artifacts — they define the scoring framew
 
 ### Higher-Level Analysis Templates (docs/analysis-methodology/)
 
-Use templates marked **PRIMARY** or **KEY** when generating analysis artifacts in `analysis/daily/${TODAY}/motions/`. All other templates in this table are reference-only and optional; apply them only when relevant to the specific motion or supporting analysis.
+Use templates marked **PRIMARY** or **KEY** when generating analysis artifacts in `${ANALYSIS_DIR}/`. All other templates in this table are reference-only and optional; apply them only when relevant to the specific motion or supporting analysis.
 
 | Template | File | When to Apply |
 |----------|------|--------------|
@@ -482,14 +482,18 @@ CURRENT_MONTH_NAME=$(date -u +%B)
 CURRENT_DAY=$(date -u +%d)
 DAY_OF_WEEK=$(date -u +%A)
 DAY_NUM=$(date -u +%u)
+RUN_ID="${GITHUB_RUN_NUMBER:-0}"
+ANALYSIS_DIR="analysis/daily/${TODAY}/motions-run${RUN_ID}"
 LAST_WEEK=$(date -u -d "$TODAY - 7 days" +%Y-%m-%d)
 echo "Today:     $TODAY ($DAY_OF_WEEK)"
 echo "Month:     $CURRENT_MONTH_NAME $CURRENT_YEAR"
 echo "Year:      $CURRENT_YEAR"
 echo "Last week: $LAST_WEEK"
 echo "Article Type: motions"
+echo "Run ID: $RUN_ID"
+echo "Analysis Dir: $ANALYSIS_DIR"
 echo "==================================="
-export TODAY CURRENT_YEAR CURRENT_MONTH CURRENT_MONTH_NAME CURRENT_DAY DAY_OF_WEEK DAY_NUM LAST_WEEK
+export TODAY CURRENT_YEAR CURRENT_MONTH CURRENT_MONTH_NAME CURRENT_DAY DAY_OF_WEEK DAY_NUM LAST_WEEK RUN_ID ANALYSIS_DIR
 ```
 
 **⚠️ DATE GUARD**: When passing `dateFrom`/`dateTo` to ANY MCP tool, ALWAYS derive dates from `$TODAY` and `$LAST_WEEK` (set above). NEVER hardcode a year (e.g. 2024, 2025). Use `date -u -d` for offsets.
@@ -548,7 +552,7 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 **If no significant data found (genuinely empty — only after ALL feeds were queried in the standard collection pass):**
 1. Verify ALL feed endpoints were queried once according to the data-gathering rules
 2. Run full analysis pipeline on whatever data was collected
-3. **Create an analysis-only PR** with `safeoutputs___create_pull_request` — per `ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted. Commit analysis artifacts to `analysis/daily/${TODAY}/motions/`. If existing analysis exists, improve/extend it
+3. **Create an analysis-only PR** with `safeoutputs___create_pull_request` — per `ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted. Commit analysis artifacts to `${ANALYSIS_DIR}/`. Each run creates its own unique analysis directory
 
 **If article generation fails AFTER starting work:**
 1. Log the specific failure
@@ -834,6 +838,7 @@ npx tsx src/generators/news-enhanced.ts \
   --types=motions \
   --languages="$LANG_ARG" \
   --analysis \
+  --run-id="$RUN_ID" \
   --title="$AI_TITLE" \
   --description="$AI_DESCRIPTION" \
   $FEED_DATA_FLAG \
@@ -1011,7 +1016,7 @@ fi
 - ✅ **manifest.json** includes `"articleType": "motions"`
 - ✅ **Analysis markdown** files include `articleType: motions` in YAML frontmatter
 - ✅ **Article HTML** includes `<meta name="article-type" content="motions">`
-- ✅ **Analysis directory** is scoped to `analysis/daily/${TODAY}/motions/`
+- ✅ **Analysis directory** is scoped to `${ANALYSIS_DIR}/`
 
 ### Minimum AI Analysis Time (Rule 7 — required)
 - ✅ **≥15 minutes** spent on dedicated deep political intelligence analysis phase (reading ALL 6 methodology guides, querying MCP, applying templates to every data file, writing original analytical prose)
@@ -1104,7 +1109,7 @@ rm -f news/metadata/generation-*.json
 # No workflow run should be wasted — analysis is ALWAYS persisted.
 # Remove only raw MCP data downloads to control PR size. Analysis markdown MUST be committed.
 # Scope cleanup to THIS run's analysis directory only — never touch historical data
-RUN_ANALYSIS_DIR="analysis/daily/${TODAY}/motions"
+RUN_ANALYSIS_DIR="${ANALYSIS_DIR}"
 if [ -d "$RUN_ANALYSIS_DIR" ]; then
   find "$RUN_ANALYSIS_DIR" -type f -path "*/data/*" ! -name "*.analysis.md" ! -name "*.md" -delete 2>/dev/null || true
   find "$RUN_ANALYSIS_DIR" -type d -name "data" -empty -delete 2>/dev/null || true
@@ -1117,7 +1122,7 @@ echo "🧹 Cleaned raw MCP data payloads for ${TODAY}/motions; analysis markdown
 > **⚠️ CRITICAL**: The `create_pull_request` safe output enforces a hard limit of **100 files per PR**. Exceeding this limit causes error E003 and the workflow fails. The `excluded-files` config always strips per-document analysis files from the PR patch, so the script below **unconditionally** reconciles `document-analysis-index.md` to avoid broken links to excluded files. It then checks the total file count and applies additional consolidation if needed to stay under 90.
 
 ```bash
-RUN_ANALYSIS_DIR="analysis/daily/${TODAY}/motions"
+RUN_ANALYSIS_DIR="${ANALYSIS_DIR}"
 
 # Always reconcile top-level document analysis outputs before counting files.
 # The PR patch excludes per-document analysis files regardless of total file count,

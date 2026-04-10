@@ -23,6 +23,14 @@ export interface ArticleSource {
   url: string;
 }
 
+/** Entry describing a single analysis file produced during a pipeline run */
+export interface AnalysisFileEntry {
+  /** Canonical analysis method name (e.g. 'significance-classification') */
+  readonly method: string;
+  /** Relative file path within the analysis directory (e.g. 'classification/significance-classification.md') */
+  readonly outputFile: string;
+}
+
 /** Options for generating article HTML */
 export interface ArticleOptions {
   slug: string;
@@ -42,6 +50,8 @@ export interface ArticleOptions {
   availableLanguages?: ReadonlyArray<LanguageCode> | undefined;
   /** Override analysis directory name for transparency links (e.g. `"breaking-2"` when suffix deduplication applied). When omitted, falls back to `slug`. */
   analysisDir?: string | undefined;
+  /** Analysis files produced by the pipeline run, from manifest.json. When provided, the transparency section dynamically links to ALL these files instead of using hardcoded defaults. */
+  analysisFiles?: ReadonlyArray<AnalysisFileEntry> | undefined;
 }
 
 /** Sitemap URL entry */

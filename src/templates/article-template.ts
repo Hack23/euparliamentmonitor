@@ -12,6 +12,8 @@ import type {
   ArticleSource,
   ArticleCategoryLabels,
   LanguageCode,
+  AnalysisFileEntry,
+  LanguageMap,
 } from '../types/index.js';
 import {
   ALL_LANGUAGES,
@@ -63,6 +65,9 @@ import {
   COALITION_DYNAMICS_LABELS,
   VOTING_PATTERNS_LABELS,
   CROSS_SESSION_INTELLIGENCE_LABELS,
+  SYNTHESIS_SUMMARY_LABELS,
+  DOCUMENT_ANALYSIS_LABELS,
+  SIGNIFICANCE_SCORING_LABELS,
   getLocalizedString,
   getTextDirection,
 } from '../constants/languages.js';
@@ -205,6 +210,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
     stylesHash,
     availableLanguages,
     analysisDir,
+    analysisFiles,
   } = options;
 
   const dir = getTextDirection(lang);
@@ -419,7 +425,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
     
     ${renderSourcesSection(sources, lang)}
     
-    ${renderAnalysisTransparencySection(date, slug, lang, analysisDir)}
+    ${renderAnalysisTransparencySection(date, slug, lang, analysisDir, analysisFiles)}
     
     <nav class="article-nav" aria-label="${escapeHTML(articleNavLabel)}">
       <a href="${indexHref}" class="back-to-news">${backLabel}</a>
@@ -532,32 +538,92 @@ function renderSourcesSection(sources: ArticleSource[], lang: LanguageCode): str
 }
 
 /**
- * Render the analysis transparency section with links to analysis artifacts and methodology
+ * Map of analysis method names to their localized label constants.
+ * Used by renderAnalysisTransparencySection to resolve display names.
+ */
+const METHOD_LABEL_MAP: Readonly<Record<string, LanguageMap>> = {
+  'significance-classification': SIGNIFICANCE_CLASSIFICATION_LABELS,
+  'significance-scoring': SIGNIFICANCE_SCORING_LABELS,
+  'actor-mapping': ACTOR_MAPPING_LABELS,
+  'forces-analysis': FORCES_ANALYSIS_LABELS,
+  'impact-matrix': IMPACT_MATRIX_LABELS,
+  'political-threat-landscape': POLITICAL_THREAT_LANDSCAPE_LABELS,
+  'actor-threat-profiling': ACTOR_THREAT_PROFILING_LABELS,
+  'consequence-trees': CONSEQUENCE_TREES_LABELS,
+  'legislative-disruption': LEGISLATIVE_DISRUPTION_LABELS,
+  'risk-matrix': RISK_MATRIX_LABELS,
+  'quantitative-swot': QUANTITATIVE_SWOT_LABELS,
+  'political-capital-risk': POLITICAL_CAPITAL_RISK_LABELS,
+  'legislative-velocity-risk': LEGISLATIVE_VELOCITY_RISK_LABELS,
+  'agent-risk-workflow': AGENT_RISK_WORKFLOW_LABELS,
+  'deep-analysis': DEEP_ANALYSIS_LABELS,
+  'stakeholder-analysis': STAKEHOLDER_IMPACT_LABELS,
+  'coalition-analysis': COALITION_DYNAMICS_LABELS,
+  'voting-patterns': VOTING_PATTERNS_LABELS,
+  'cross-session-intelligence': CROSS_SESSION_INTELLIGENCE_LABELS,
+  'synthesis-summary': SYNTHESIS_SUMMARY_LABELS,
+  'document-analysis': DOCUMENT_ANALYSIS_LABELS,
+};
+
+/**
+ * Map of analysis subdirectory names to their section heading label constants
+ * and display emoji.
+ */
+const SUBDIR_SECTION_MAP: Readonly<Record<string, { labels: LanguageMap; emoji: string }>> = {
+  classification: { labels: CLASSIFICATION_ANALYSIS_LABELS, emoji: '🏷️' },
+  'threat-assessment': { labels: THREAT_ASSESSMENT_LABELS, emoji: '🛡️' },
+  'risk-scoring': { labels: RISK_SCORING_LABELS, emoji: '⚖️' },
+  existing: { labels: DEEP_ANALYSIS_LABELS, emoji: '🔍' },
+  documents: { labels: DOCUMENT_ANALYSIS_LABELS, emoji: '📄' },
+};
+
+/**
+ * Resolve the localized display label for an analysis method.
+ *
+ * @param method - Canonical method name
+ * @param lang - Language code
+ * @returns Localized and HTML-escaped label, or titleized method name as fallback
+ */
+function getMethodLabel(method: string, lang: LanguageCode): string {
+  const labelMap = METHOD_LABEL_MAP[method];
+  if (labelMap) {
+    return escapeHTML(getLocalizedString(labelMap, lang));
+  }
+  // Fallback: titleize the method name (e.g. 'political-stride' → 'Political Stride')
+  return escapeHTML(method.replace(/-/gu, ' ').replace(/\b\w/gu, (c) => c.toUpperCase()));
+}
+
+/**
+ * Render the analysis transparency section with links to analysis artifacts and methodology.
+ *
+ * When `analysisFiles` is provided (from manifest.json), links are generated dynamically
+ * for ALL analysis files produced during the run — including document-analysis per-document
+ * files, synthesis summaries, and any additional methods. This ensures every article links
+ * to the exact analysis that produced it.
+ *
+ * When `analysisFiles` is not available (legacy/fallback), a hardcoded set of standard
+ * analysis file links is rendered.
  *
  * @param date - Article date (YYYY-MM-DD)
  * @param slug - Article type slug (e.g., 'committee-reports', 'breaking')
  * @param lang - Language code
  * @param analysisDir - Optional override for analysis directory name (e.g. 'breaking-2' after deduplication)
+ * @param analysisFiles - Optional manifest-derived file entries for dynamic link generation
  * @returns HTML string for analysis transparency section
  */
 function renderAnalysisTransparencySection(
   date: string,
   slug: string,
   lang: LanguageCode,
-  analysisDir?: string | undefined
+  analysisDir?: string | undefined,
+  analysisFiles?: ReadonlyArray<AnalysisFileEntry> | undefined
 ): string {
   const safeDate = escapeHTML(date);
-  // Use the resolved analysis directory name when provided (suffix deduplication),
-  // otherwise fall back to the original slug.
   const safeAnalysisDirName = escapeHTML(analysisDir ?? slug);
   const heading = escapeHTML(getLocalizedString(ANALYSIS_TRANSPARENCY_LABELS, lang));
   const analysisSummaryLabel = escapeHTML(getLocalizedString(ANALYSIS_SUMMARY_LABELS, lang));
   const methodologyLabel = escapeHTML(getLocalizedString(METHODOLOGY_LABELS, lang));
   const disclosure = escapeHTML(getLocalizedString(TRANSPARENCY_DISCLOSURE_LABELS, lang));
-  const classificationLabel = escapeHTML(getLocalizedString(CLASSIFICATION_ANALYSIS_LABELS, lang));
-  const threatLabel = escapeHTML(getLocalizedString(THREAT_ASSESSMENT_LABELS, lang));
-  const riskLabel = escapeHTML(getLocalizedString(RISK_SCORING_LABELS, lang));
-  const deepLabel = escapeHTML(getLocalizedString(DEEP_ANALYSIS_LABELS, lang));
   const viewSourceLabel = escapeHTML(getLocalizedString(VIEW_SOURCE_LABELS, lang));
   const openSourceNote = escapeHTML(getLocalizedString(OPEN_SOURCE_NOTE_LABELS, lang));
   const aiGuideLabel = escapeHTML(getLocalizedString(AI_ANALYSIS_GUIDE_LABELS, lang));
@@ -573,7 +639,145 @@ function renderAnalysisTransparencySection(
   const analysisFileBase = `${repoBase}/analysis/daily/${safeDate}/${safeAnalysisDirName}`;
   const methodologyDir = `${repoBase}/analysis/methodologies`;
 
-  // Per-file localized link labels
+  // Build the analysis links section — dynamic from manifest or hardcoded fallback
+  const analysisLinksHtml =
+    analysisFiles && analysisFiles.length > 0
+      ? renderDynamicAnalysisLinks(analysisFiles, analysisFileBase, lang)
+      : renderFallbackAnalysisLinks(analysisFileBase, lang);
+
+  return `
+    <section class="analysis-transparency" aria-label="${heading}">
+      <h2 id="analysis-transparency-heading">${heading}</h2>
+      <p>${disclosure}</p>
+      <nav class="analysis-links" aria-labelledby="analysis-transparency-heading">
+        <h3><span aria-hidden="true">📊</span> ${analysisSummaryLabel}</h3>
+        <ul>
+          <li><a href="${analysisDirUrl}" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">📁</span> ${analysisSummaryLabel}</a></li>
+          <li><a href="${analysisFileBase}/manifest.json" target="_blank" rel="noopener noreferrer">manifest.json</a></li>
+        </ul>
+${analysisLinksHtml}
+      </nav>
+      <nav class="methodology-links" aria-label="${methodologyLabel}">
+        <h3>${methodologyLabel}</h3>
+        <ul>
+          <li><a href="${methodologyDir}/ai-driven-analysis-guide.md" target="_blank" rel="noopener noreferrer">${aiGuideLabel}</a></li>
+          <li><a href="${methodologyDir}/political-swot-framework.md" target="_blank" rel="noopener noreferrer">${swotLabel}</a></li>
+          <li><a href="${methodologyDir}/political-risk-methodology.md" target="_blank" rel="noopener noreferrer">${riskMethodLabel}</a></li>
+          <li><a href="${methodologyDir}/political-threat-framework.md" target="_blank" rel="noopener noreferrer">${threatFrameworkLabel}</a></li>
+          <li><a href="${methodologyDir}/political-classification-guide.md" target="_blank" rel="noopener noreferrer">${classGuideLabel}</a></li>
+          <li><a href="${methodologyDir}/political-style-guide.md" target="_blank" rel="noopener noreferrer">${styleGuideLabel}</a></li>
+        </ul>
+      </nav>
+      <p class="transparency-note"><a href="https://github.com/Hack23/euparliamentmonitor" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">🔓</span> ${viewSourceLabel}</a> — ${openSourceNote}</p>
+    </section>
+    `;
+}
+
+/**
+ * Validate that an analysis output file path is safe for use in URLs.
+ *
+ * Rejects absolute paths, path traversal (`..`), backslashes, and any
+ * characters outside the expected alphanumeric + hyphen + slash + dot + underscore set.
+ *
+ * @param outputFile - Relative path from manifest (e.g. 'classification/significance-classification.md')
+ * @returns true if the path is safe to interpolate into a URL
+ */
+function isSafeAnalysisPath(outputFile: string): boolean {
+  if (!outputFile || outputFile.length === 0 || outputFile.length > 256) return false;
+  // Reject path traversal, absolute paths, backslashes, and consecutive slashes
+  if (/\.\.|[\\]|^[/]|\/\//u.test(outputFile)) return false;
+  // Only allow safe characters: alphanumeric, hyphens, underscores, dots, forward slashes
+  return /^[\da-zA-Z][\da-zA-Z._/-]*$/u.test(outputFile);
+}
+
+/**
+ * Render dynamic analysis links from manifest entries, grouped by subdirectory.
+ *
+ * @param files - Analysis file entries from the manifest
+ * @param analysisFileBase - Base URL for analysis file links
+ * @param lang - Language code for localized labels
+ * @returns HTML string for the grouped analysis links
+ */
+function renderDynamicAnalysisLinks(
+  files: ReadonlyArray<AnalysisFileEntry>,
+  analysisFileBase: string,
+  lang: LanguageCode
+): string {
+  // Filter out entries with unsafe paths (path traversal, absolute, backslashes)
+  const safeFiles = files.filter((f) => isSafeAnalysisPath(f.outputFile));
+
+  // Group files by their subdirectory (first path segment)
+  const groups = new Map<string, AnalysisFileEntry[]>();
+  for (const file of safeFiles) {
+    const slashIdx = file.outputFile.indexOf('/');
+    const subdir = slashIdx > 0 ? file.outputFile.slice(0, slashIdx) : '';
+    const key = subdir || '_root';
+    const group = groups.get(key);
+    if (group) {
+      group.push(file);
+    } else {
+      groups.set(key, [file]);
+    }
+  }
+
+  // Known ordering for subdirectories
+  const orderedSubdirs = [
+    'classification',
+    'threat-assessment',
+    'risk-scoring',
+    'existing',
+    'documents',
+  ];
+  const sortedKeys = [
+    ...orderedSubdirs.filter((k) => groups.has(k)),
+    ...[...groups.keys()].filter((k) => k !== '_root' && !orderedSubdirs.includes(k)),
+    ...(groups.has('_root') ? ['_root'] : []),
+  ];
+
+  const sections: string[] = [];
+
+  for (const key of sortedKeys) {
+    const groupFiles = groups.get(key);
+    if (!groupFiles || groupFiles.length === 0) continue;
+
+    const sectionInfo = SUBDIR_SECTION_MAP[key];
+    const sectionHeading = sectionInfo
+      ? escapeHTML(getLocalizedString(sectionInfo.labels, lang))
+      : escapeHTML(key.replace(/-/gu, ' ').replace(/\b\w/gu, (c) => c.toUpperCase()));
+    const emoji = sectionInfo?.emoji ?? '📋';
+
+    const items = groupFiles.map((f) => {
+      const label = getMethodLabel(f.method, lang);
+      // URL-encode each path segment to prevent URL injection
+      const encodedFile = f.outputFile
+        .split('/')
+        .map((seg) => encodeURIComponent(seg))
+        .join('/');
+      return `          <li><a href="${analysisFileBase}/${encodedFile}" target="_blank" rel="noopener noreferrer">${label}</a></li>`;
+    });
+
+    sections.push(`        <h3><span aria-hidden="true">${emoji}</span> ${sectionHeading}</h3>
+        <ul>
+${items.join('\n')}
+        </ul>`);
+  }
+
+  return sections.join('\n');
+}
+
+/**
+ * Render the legacy hardcoded analysis links for when no manifest data is available.
+ *
+ * @param analysisFileBase - Base URL for analysis file links
+ * @param lang - Language code for localized labels
+ * @returns HTML string for the hardcoded analysis links
+ */
+function renderFallbackAnalysisLinks(analysisFileBase: string, lang: LanguageCode): string {
+  const classificationLabel = escapeHTML(getLocalizedString(CLASSIFICATION_ANALYSIS_LABELS, lang));
+  const threatLabel = escapeHTML(getLocalizedString(THREAT_ASSESSMENT_LABELS, lang));
+  const riskLabel = escapeHTML(getLocalizedString(RISK_SCORING_LABELS, lang));
+  const deepLabel = escapeHTML(getLocalizedString(DEEP_ANALYSIS_LABELS, lang));
+
   const significanceLabel = escapeHTML(
     getLocalizedString(SIGNIFICANCE_CLASSIFICATION_LABELS, lang)
   );
@@ -599,17 +803,7 @@ function renderAnalysisTransparencySection(
   const votingPatternsLabel = escapeHTML(getLocalizedString(VOTING_PATTERNS_LABELS, lang));
   const crossSessionLabel = escapeHTML(getLocalizedString(CROSS_SESSION_INTELLIGENCE_LABELS, lang));
 
-  return `
-    <section class="analysis-transparency" aria-label="${heading}">
-      <h2 id="analysis-transparency-heading">${heading}</h2>
-      <p>${disclosure}</p>
-      <nav class="analysis-links" aria-labelledby="analysis-transparency-heading">
-        <h3><span aria-hidden="true">📊</span> ${analysisSummaryLabel}</h3>
-        <ul>
-          <li><a href="${analysisDirUrl}" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">📁</span> ${analysisSummaryLabel}</a></li>
-          <li><a href="${analysisFileBase}/manifest.json" target="_blank" rel="noopener noreferrer">manifest.json</a></li>
-        </ul>
-        <h3><span aria-hidden="true">🏷️</span> ${classificationLabel}</h3>
+  return `        <h3><span aria-hidden="true">🏷️</span> ${classificationLabel}</h3>
         <ul>
           <li><a href="${analysisFileBase}/classification/significance-classification.md" target="_blank" rel="noopener noreferrer">${significanceLabel}</a></li>
           <li><a href="${analysisFileBase}/classification/actor-mapping.md" target="_blank" rel="noopener noreferrer">${actorMappingLabel}</a></li>
@@ -638,20 +832,5 @@ function renderAnalysisTransparencySection(
           <li><a href="${analysisFileBase}/existing/coalition-dynamics.md" target="_blank" rel="noopener noreferrer">${coalitionLabel}</a></li>
           <li><a href="${analysisFileBase}/existing/voting-patterns.md" target="_blank" rel="noopener noreferrer">${votingPatternsLabel}</a></li>
           <li><a href="${analysisFileBase}/existing/cross-session-intelligence.md" target="_blank" rel="noopener noreferrer">${crossSessionLabel}</a></li>
-        </ul>
-      </nav>
-      <nav class="methodology-links" aria-label="${methodologyLabel}">
-        <h3>${methodologyLabel}</h3>
-        <ul>
-          <li><a href="${methodologyDir}/ai-driven-analysis-guide.md" target="_blank" rel="noopener noreferrer">${aiGuideLabel}</a></li>
-          <li><a href="${methodologyDir}/political-swot-framework.md" target="_blank" rel="noopener noreferrer">${swotLabel}</a></li>
-          <li><a href="${methodologyDir}/political-risk-methodology.md" target="_blank" rel="noopener noreferrer">${riskMethodLabel}</a></li>
-          <li><a href="${methodologyDir}/political-threat-framework.md" target="_blank" rel="noopener noreferrer">${threatFrameworkLabel}</a></li>
-          <li><a href="${methodologyDir}/political-classification-guide.md" target="_blank" rel="noopener noreferrer">${classGuideLabel}</a></li>
-          <li><a href="${methodologyDir}/political-style-guide.md" target="_blank" rel="noopener noreferrer">${styleGuideLabel}</a></li>
-        </ul>
-      </nav>
-      <p class="transparency-note"><a href="https://github.com/Hack23/euparliamentmonitor" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">🔓</span> ${viewSourceLabel}</a> — ${openSourceNote}</p>
-    </section>
-    `;
+        </ul>`;
 }
