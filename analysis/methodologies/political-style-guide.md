@@ -11,12 +11,12 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-2.1-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-2.2-555?style=for-the-badge" alt="Version"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--06-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.1 | **📅 Last Updated:** 2026-04-06 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 2.2 | **📅 Last Updated:** 2026-04-06 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
@@ -111,7 +111,74 @@ All political analysis is written at one of three depth levels. The target depth
 
 ---
 
-## 🏖️ Recess and Data-Sparse Period Guidance (New in v2.1)
+## 🗞️ The Economist-Style Analytical Writing Patterns (New in v2.2)
+
+EU Parliament Monitor analysis must emulate The Economist's editorial voice: authoritative, precise, and evidence-grounded. This section codifies the specific sentence and paragraph patterns that distinguish The Economist from generic news writing.
+
+### Core Sentence Patterns
+
+| Pattern | Template | Example |
+|---------|----------|---------|
+| **Consequence lead** | "[Actor] [action], [consequence]." | "The ENVI committee's rejection of the rapporteur's compromise, by a margin of 22-38, puts the entire biodiversity regulation at risk of expiring before end of term." |
+| **Contradiction reveal** | "[Group] publicly supports X; its voting record tells a different story." | "EPP publicly supports the green transition; its voting record on the CBAM amendment tells a different story: 11 of 31 EPP ENVI members backed the ECR wrecking amendment (RCV-2026-0312)." |
+| **Probability qualifier** | "The chances of [outcome] have [risen/fallen] to roughly [range]%." | "The chances of a trilogue deal on the AI Liability Directive before June 2026 have fallen to roughly 20-30%, down from 55% in January (political-risk-methodology.md calibration, coalition risk L=4×I=4=16)." |
+| **Historical parallel** | "This echoes [prior event], when [outcome]." | "This echoes the 2019 Spitzenkandidaten crisis, when EPP's failure to secure a parliamentary majority forced a Commission President compromise — a dynamic now replaying under different arithmetic." |
+| **Second-order reveal** | "The immediate effect is [X]; the deeper consequence is [Y]." | "The immediate effect is a three-month delay in AI Act implementation; the deeper consequence is that 14 member states' national AI regulators are now operating in a legal vacuum." |
+| **Quantified claim** | "[Metric] is [value], [comparison to baseline]." | "Grand coalition cohesion stands at 61%, 7 percentage points below its Q1 2026 average and the lowest reading since the October 2024 farm subsidy confrontation." |
+
+### Paragraph Architecture
+
+Every analytical paragraph MUST follow this structure:
+
+1. **Assertion** — a specific, testable claim (not a description of what happened)
+2. **Evidence** — EP document ID, vote count, or MCP data reference
+3. **Implication** — what this means for EP political dynamics or EU policy
+4. **Qualifier** — confidence level and any counter-argument
+
+**❌ BAD (descriptive, no architecture):**
+> The committee voted on the report. Several amendments were proposed. The outcome will have implications for future EU policy.
+
+**✅ GOOD (assertion → evidence → implication → qualifier):**
+> The ECON committee's 28-18 adoption of the capital markets union framework (PE-748.234/2026) marks the first time EPP and S&D have jointly overruled Renew Europe on a financial regulation in this parliamentary term [assertion]. The roll-call vote (RCV-2026-0388) shows 6 of 9 Renew ECON members abstaining rather than voting against, signalling passive acquiescence rather than active opposition [evidence]. This pattern suggests Renew is positioning for a face-saving trilogue compromise rather than a blocking minority in plenary — a strategy last used successfully on the DORA regulation (P9_TA(2022)0381) [implication]. Confidence: MEDIUM — trilogue dynamics could still reverse this trend if Council raises substantive objections [qualifier].
+
+### Quantitative Claim Standards (New in v2.2)
+
+**Every quantitative claim MUST meet at least one of these citation standards:**
+
+| Claim Type | Required Citation Standard | Example |
+|-----------|---------------------------|---------|
+| Vote count | Roll-call reference (RCV-YYYY-NNNN) + vote breakdown | "Passed 412-156-12 (RCV-2026-0342)" |
+| Percentage | Named data source + time period | "61% EPP-S&D cohesion (EP MCP `analyze_voting_patterns`, group=EPP+SD, 2026-Q1)" |
+| Seat count | Parliamentary term reference | "EPP holds 188 of 720 seats (EP10, elected June 2024)" |
+| Procedure status | Procedure ID + current stage | "2024/0001(COD) in trilogue since 2026-01-15 (`track_legislation`)" |
+| Historical comparison | Prior EP MCP data point or EP document | "Highest since October 2024 (SIG-2024-10-14-002: 8.1/10)" |
+| Probability estimate | Confidence level + methodology reference | "35–45% [MEDIUM confidence, scenario tree analysis per political-risk-methodology.md Advanced Technique 4]" |
+| Economic figure | Named source + publication date | "€12B estimated compliance cost (Commission Impact Assessment SEC(2024)0145, published 2024-03-15)" |
+
+**Forbidden quantitative patterns:**
+- ❌ "High voter turnout" — must specify: "61.4% EU-wide turnout in June 2024 EP elections (official EP result)"
+- ❌ "Most MEPs" — must specify: "412 of 720 MEPs (57.2%) voted in favour"
+- ❌ "Significant majority" — must specify: "passed by 38-22 (63% of committee) with 4 abstentions"
+- ❌ "Recently" — must specify the exact date or relative period: "in the 2026-03-18 plenary session"
+- ❌ "Growing support" — must specify the direction and magnitude: "support rose from 18 to 24 formal co-signatories between January and March 2026"
+
+### EP-Specific Vocabulary Standards
+
+The Economist style applied to EP coverage requires precise institutional vocabulary. Never substitute informal language for official EP terminology:
+
+| Informal (❌ Avoid) | Official (✅ Use) | Context |
+|-------------------|-----------------|---------|
+| "The EU parliament" | "The European Parliament" or "Parliament" | Institutional name |
+| "Passed by majority" | "Adopted by [N] votes to [N] with [N] abstentions" | Vote outcome |
+| "Negotiated a deal" | "Concluded a trilogue agreement" | Interinstitutional process |
+| "Party leader" | "Group leader" or "group chair" | EP political groups are not parties |
+| "EU law" (for a draft) | "Legislative proposal" or "directive/regulation under negotiation" | Distinguish enacted from pending |
+| "Rejected outright" | "Fell on the vote [N to N]" or "failed to secure a majority" | Precise vote language |
+| "Cross-party deal" | "Cross-group majority" or "grand coalition agreement" | EP groups, not parties |
+
+---
+
+## 🗞️ Recess and Data-Sparse Period Guidance (New in v2.1)
 
 The European Parliament has scheduled recess periods (Easter, summer, year-end) during which plenary sessions, committee meetings, and voting do not occur. During recess, EP MCP API feeds return reduced or empty datasets. This section defines how analysis depth and focus should adapt.
 
@@ -402,4 +469,5 @@ All analysis produced in English serves as the source for 13 additional language
 - **Path:** `/analysis/methodologies/political-style-guide.md`
 - **ISMS Reference:** [STYLE_GUIDE.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/STYLE_GUIDE.md)
 - **Classification:** Public
+- **Version:** 2.2 — Added The Economist-Style Analytical Writing Patterns, Quantitative Claim Standards, and EP-Specific Vocabulary Standards
 - **Next Review:** 2026-06-30

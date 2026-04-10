@@ -9,7 +9,7 @@
   <em>🎯 MCP Sources · Confidence Levels · Aggregation · Temporal Decay</em>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.0 | **📅 Last Updated:** 2026-03-31 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 2.1 | **📅 Last Updated:** 2026-03-31 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
@@ -163,7 +163,102 @@ The AI agent **MUST** follow this protocol when generating SWOT analysis:
 
 ---
 
-## 🔄 Advanced Technique 1: Cross-SWOT Interference Analysis
+## 📐 Advanced Technique 0: Mandatory Evidence Citation Format per SWOT Item (New in v2.1)
+
+Every single SWOT entry — whether in a per-file analysis, daily synthesis, or weekly rollup — MUST follow this citation format. This is not optional.
+
+### Required SWOT Entry Structure
+
+```markdown
+| Quadrant | Statement | Evidence | Confidence | Impact | Severity |
+|----------|-----------|----------|:----------:|:------:|:--------:|
+| ✅ S | [Specific, testable strength claim] | [EP ref: P9_TA(2026)0089 / RCV-2026-0342 / MCP tool output] | H/M/L | H/M/L | high/medium/low |
+```
+
+**Every field is mandatory.** No entry may omit evidence, confidence, impact, or severity.
+
+### Evidence Citation Minimum Standards
+
+| SWOT Quadrant | Minimum Evidence Requirement | Acceptable Sources |
+|:-------------:|------------------------------|-------------------|
+| ✅ Strengths | Official EP document OR verified vote result | Adopted text ref, roll-call vote, MCP `get_adopted_texts` |
+| ⚠️ Weaknesses | Observable institutional deficiency with data source | MCP `detect_voting_anomalies`, `monitor_legislative_pipeline` bottleneck index |
+| 🚀 Opportunities | Pending procedure or confirmed political signal | Procedure ID from `get_procedures`, group position statement |
+| 🔴 Threats | Specific risk indicator with likelihood evidence | MCP `analyze_voting_patterns`, `compare_political_groups` seat share trends |
+
+### Good vs. Bad — SWOT Citation
+
+**❌ BAD (opinion-only, no evidence):**
+```markdown
+| ✅ S | Grand coalition has strong legislative majority | — | H | H | high |
+```
+
+**✅ GOOD (evidence-anchored, citable):**
+```markdown
+| ✅ S | Grand coalition (EPP+S&D+Renew) secured 412/720 majority on Green Deal vote, 18pp above required majority | EP MCP `get_voting_records`, RCV-2026-0342, 2026-03-15 | H | H | high |
+```
+
+**❌ BAD (vague threat, no quantification):**
+```markdown
+| 🔴 T | Far-right groups growing in Parliament | — | M | H | high |
+```
+
+**✅ GOOD (quantified, traceable):**
+```markdown
+| 🔴 T | ECR+PfE combined seat share rose from 22% to 26% between EP9 and EP10, reducing grand coalition surplus from 87 to 41 above majority threshold | EP MCP `compare_political_groups`, seat share data EP9 vs EP10 | H | H | high |
+```
+
+---
+
+## 🕐 Advanced Technique 5: Temporal SWOT — Current vs. 90-Day Projected (New in v2.1)
+
+A standard SWOT captures the **current** political landscape. The Temporal SWOT extends this by projecting how each entry is likely to **evolve over the next 90 days**, enabling forward-looking strategic intelligence rather than rear-view analysis.
+
+### Temporal SWOT Protocol
+
+For each SWOT entry, the AI agent MUST add:
+1. **Current assessment** — the entry as it stands today (with evidence)
+2. **90-day projection** — how is this entry likely to evolve? (with trigger conditions)
+3. **Trajectory** — Is the entry strengthening (↑), stable (→), or weakening (↓)?
+
+### Temporal SWOT Table Format
+
+```markdown
+| Quadrant | Current Statement | 90-Day Projection | Trajectory | Key Trigger |
+|----------|-----------------|------------------|:----------:|------------|
+| ✅ S | [Current strength with evidence] | [Projected status in 90 days] | ↑/→/↓ | [Event that would change trajectory] |
+| ⚠️ W | [Current weakness with evidence] | [Projected status in 90 days] | ↑/→/↓ | [Event that could resolve or worsen] |
+| 🚀 O | [Current opportunity with evidence] | [Projected window — open/closing/closed] | ↑/→/↓ | [Decision point that opens/closes window] |
+| 🔴 T | [Current threat with evidence] | [Projected materialization likelihood] | ↑/→/↓ | [Trigger that would materialize or neutralize] |
+```
+
+### Temporal SWOT Example
+
+**Grand Coalition Legislative Majority — Temporal Assessment**
+
+| Field | Current (2026-04-06) | 90-Day Projection (2026-07-06) |
+|-------|---------------------|-------------------------------|
+| **Statement** | EPP+S&D+Renew holds 412-seat combined majority (57.2% of 720 seats) [HIGH confidence, EP10 seat data] | Majority likely to hold at 57–58% unless Renew suffers defections on migration package |
+| **Trajectory** | → Stable | ↓ Declining risk — migration vote in May plenary is key test |
+| **Key Trigger** | — | Renew abstentions ≥15 on May migration vote → would reduce functional majority below 395, increasing coalition stress score from 12→16 |
+| **Evidence** | EP MCP `compare_political_groups`, seat share 2026-04-01 | Scenario analysis per political-risk-methodology.md AT4 |
+
+### 90-Day Projection Windows
+
+| SWOT Quadrant | Projection Approach | Horizon Focus |
+|:-------------:|--------------------|----|
+| ✅ Strengths | Will the strength be sustained, eroded, or reinforced? | Upcoming votes, group leadership changes |
+| ⚠️ Weaknesses | Will the weakness be resolved, unchanged, or worsened? | Upcoming events that could address or deepen the weakness |
+| 🚀 Opportunities | Is the opportunity window open, closing, or already closed? | Specific dates: plenary sessions, trilogue deadlines |
+| 🔴 Threats | What is the materialization probability over 90 days? | Trigger conditions and probability range |
+
+### Mandatory 90-Day Projection Rule
+
+Every **daily SWOT** MUST include at least one Temporal SWOT entry with an explicit 90-day projection and trigger condition. **Weekly and monthly rollups MUST include Temporal SWOT for all HIGH-impact entries.**
+
+> **Anti-pattern (REJECTED):** A SWOT that describes only the current state without any forward-looking projections. The European Parliament operates on predictable calendar rhythms — plenary weeks, committee deadlines, trilogue rounds — making 90-day projections feasible for most entries.
+
+---
 
 When the EU political landscape involves multiple actors (Grand Coalition, Opposition, kingmaker groups), their SWOT elements don't exist in isolation — they **interfere** with each other, creating amplification effects:
 
@@ -311,3 +406,5 @@ quadrantChart
 - **Path:** `/analysis/methodologies/political-swot-framework.md`
 - **Adapted from:** [Riksdagsmonitor SWOT framework](https://github.com/Hack23/riksdagsmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - **Classification:** Public
+- **Version:** 2.1 — Added Advanced Technique 0 (Mandatory Evidence Citation Format per SWOT Item), Advanced Technique 5 (Temporal SWOT — Current vs. 90-Day Projected)
+- **Next Review:** 2026-06-30

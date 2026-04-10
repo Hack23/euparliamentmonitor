@@ -11,12 +11,12 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-4.1-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-4.2-555?style=for-the-badge" alt="Version"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--06-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 4.1 | **📅 Last Updated:** 2026-04-06 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 4.2 | **📅 Last Updated:** 2026-04-06 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
@@ -589,6 +589,17 @@ taken significant action. Further monitoring is recommended.
 
 **Why rejected:** Zero analytical content. No evidence. No classification. No risk scoring. This is "scripted crap content" — the AI did not actually analyse the document.
 
+**Additional rejected boilerplate phrases (as of v4.2 — do not produce these):**
+
+| Rejected Phrase | Why It's Boilerplate | Required Alternative |
+|----------------|---------------------|---------------------|
+| "This shapes the legislative trajectory" | Generic; applies to any document | "This advances the CBAM procedure to trilogue (2024/0018(COD)) by forcing a Council position before the June 2026 plenary recess" |
+| "Carries potential regulatory implications" | Vague; zero informational content | "Triggers a 24-month national transposition deadline under Art. 288 TFEU, with non-conforming member states facing CJEU infringement proceedings" |
+| "The political situation is complex" | Analyst filler; tells reader nothing | "EPP internal split (7 of 31 EPP ENVI members voted against group line, RCV-2026-0342) creates a potential grand coalition realignment on environmental policy" |
+| "Further monitoring is recommended" | Adds no assessment | "Watch the ECR amendment vote on Art. 12 scheduled for 2026-04-18 plenary — if it passes with S&D support, it signals a new cross-group dynamic on climate enforcement" |
+| "Various stakeholders are impacted" | Names no one, quantifies nothing | "Digital platforms with >45M EU users face new gatekeeper obligations under Art. 3(1)(b) DMA; estimated compliance cost €2–8M per firm (Commission Impact Assessment SEC(2020)0363)" |
+| "Pipeline health at X% with throughput of Y reflects moderate legislative processing capacity" | Metric-as-prose; belongs in dashboards | Remove from analytical prose; place in dashboard table only |
+
 ### ✅ Correct Approach
 
 ```markdown
@@ -803,6 +814,109 @@ AI agents MUST NOT write custom Python, Ruby, Perl, or ad-hoc scripts during wor
 - ❌ Writing temporary `.py`, `.rb`, `.pl` scripts — Use existing tools
 - ❌ `pip install` or `gem install` — No installing new runtimes
 - ❌ Reimplementing existing TypeScript functionality in another language
+
+---
+
+### Rule 17: Comparative Analysis Against Historical Baselines — New in v4.2
+
+**Every quantitative claim MUST be compared to a historical baseline.** A score or metric without comparison to prior periods has no analytical value — it cannot reveal whether the situation is improving, worsening, or stable.
+
+#### Mandatory Baseline Comparisons
+
+| Metric Type | Baseline Source | Required Comparison |
+|-------------|----------------|---------------------|
+| Significance score | Prior 30-day or 90-day score range from `analysis/` folder | State whether current score is above/below/at average; cite highest comparable event |
+| Risk score | Same risk category's 30-day trend from synthesis summaries | State trajectory: rising / stable / declining |
+| Coalition cohesion | Prior session cohesion data from `analyze_voting_patterns` | Report change in percentage points vs. last plenary week |
+| Committee output | Same committee's 90-day output from `analyze_committee_activity` | Compare to committee's quarterly average |
+| Legislative pipeline velocity | `monitor_legislative_pipeline` throughput from prior month | Flag if current throughput is ≥10% above or below prior month |
+
+#### Good vs. Bad — Comparative Analysis
+
+**❌ BAD (no baseline, no context):**
+```markdown
+## Risk Assessment
+Grand Coalition stability risk score: L=3 × I=4 = 12 (🟠 HIGH).
+EPP-S&D cohesion at 61%.
+```
+
+**✅ GOOD (baseline-anchored, contextualised):**
+```markdown
+## Risk Assessment
+Grand Coalition stability risk score: L=3 × I=4 = 12 (🟠 HIGH) — this is the **highest
+coalition risk score in 8 weeks**, up from L=2×I=3=6 (🟡 MEDIUM) in the prior analysis
+cycle (2026-03-22 synthesis, SYN-2026-03-22-A1B2). EPP-S&D cohesion at 61%,
+down from 68% in Q1 2026 average (`analyze_voting_patterns`, EPP, Q1-2026).
+This is the lowest cohesion reading since the October 2024 farm subsidy vote.
+```
+
+**❌ BAD (generic significance without history):**
+```markdown
+The AI Act amendment scored 7.8/10 — Priority publication.
+```
+
+**✅ GOOD (significance anchored to historical comparable):**
+```markdown
+The AI Act amendment scored 7.8/10 — Priority publication. This is the **highest
+trade-related score since EP10 inauguration** (prior high: 7.6 for Digital Markets Act
+enforcement trigger, SIG-2025-11-14-003). The elevated score reflects the unusual
+cross-group coalition pattern: ECR breaking from PfE on a digital regulation vote
+has occurred only twice in EP10 (roll-call RCV-2026-0298, RCV-2025-0511).
+```
+
+#### Baseline Lookup Protocol
+
+Before assigning any significance score or risk level, the AI agent MUST:
+
+1. **Search `analysis/` folder** for comparable prior scores on the same topic domain
+2. **Query EP MCP** `get_all_generated_stats` for historical baselines across EP6–EP10
+3. **Cite the baseline explicitly**: "Current score 8.4 vs. 30-day average of 6.2"
+4. **Characterise the trajectory**: Is this a new high? A return to baseline? An anomaly?
+5. **If no baseline exists**, explicitly state: "First occurrence in EP10 — no prior baseline available"
+
+**Anti-patterns (REJECTED):**
+- ❌ Assigning a significance score without stating whether it is above/below historical average
+- ❌ Reporting a risk level without comparing to the same category's recent trend
+- ❌ "The risk is HIGH" — instead write "The risk is HIGH (score 12), up from MEDIUM (score 6) last week, consistent with ECR defection pattern observed twice in Q1 2026"
+
+---
+
+### Rule 18: Cross-Article-Type Correlation — New in v4.2
+
+When a workflow produces analysis for one article type (e.g., `breaking`), it MUST cross-reference findings against analysis already committed for other article types on the same or adjacent dates. This prevents each article type from operating in an analytical silo.
+
+#### When Cross-Article-Type Correlation Is Required
+
+| Trigger | Action Required |
+|---------|----------------|
+| Breaking news detects coalition risk ≥ HIGH | Check latest `week-ahead` or `committee-reports` analysis for corroborating signals |
+| Committee report documents stalled legislative procedure | Check latest `propositions` analysis — does the same procedure appear as at-risk? |
+| Week-in-review finds significance trend reversal | Check `breaking` analyses for what drove the reversal |
+| Month-ahead identifies upcoming high-risk vote | Check `motions` history for precedent — how did similar votes play out? |
+
+#### Cross-Article Correlation Section (Required in Synthesis Summaries)
+
+Every `synthesis-summary.md` MUST include a **Cross-Article Intelligence** block:
+
+```markdown
+## 🔗 Cross-Article-Type Intelligence (Rule 18)
+
+| Other Article Type | Date | Corroborating Signal | Contradiction? |
+|-------------------|------|---------------------|----------------|
+| `breaking` (2026-04-02) | SYN-2026-04-02-A1B2 | ECR defection on migration vote — consistent with today's coalition risk score | No |
+| `committee-reports` (2026-04-01) | SYN-2026-04-01-C3D4 | ENVI committee output 40% below 90-day average — explains delayed pipeline | No |
+| `week-ahead` (2026-04-01) | SYN-2026-04-01-E5F6 | Flagged same plenary vote as HIGH risk — this analysis confirms and raises to CRITICAL | Upgraded |
+```
+
+**Correlation strength rating:**
+- **Convergence** — Multiple article types independently reach same conclusion → upgrade confidence level
+- **Divergence** — Article types contradict each other → flag for review; do not automatically accept current analysis
+- **Gap** — No prior analysis exists for related topics → mark as "First observation"
+
+**Anti-patterns (REJECTED):**
+- ❌ Breaking news analysis that ignores what the week-ahead workflow already identified about the same plenary session
+- ❌ Committee report analysis that does not reference whether propositions workflow identified the same procedure as stalled
+- ❌ Month-in-review that treats each week's events as independent rather than connecting them into a narrative arc
 
 ---
 
@@ -1092,4 +1206,5 @@ When cross-referencing:
 **Document Control:**
 - **Path:** `/analysis/methodologies/ai-driven-analysis-guide.md`
 - **Classification:** Public
+- **Version:** 4.2 — Added Rule 17 (Comparative Analysis Against Historical Baselines), Rule 18 (Cross-Article-Type Correlation), and expanded anti-boilerplate examples
 - **Next Review:** 2026-06-30
