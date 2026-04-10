@@ -159,26 +159,26 @@ You are the **Translation Agent** for EU Parliament Monitor. Your job is to take
 - ✅ Log the error and continue with translation
 - ✅ The translation generator handles all code logic; your job is to RUN it, not FIX it
 
-## 🚨 CRITICAL — NEVER USE GIT COMMANDS (READ BEFORE ANYTHING ELSE)
+## 🚨 CRITICAL — NEVER USE AD-HOC GIT COMMANDS (READ BEFORE ANYTHING ELSE)
 
-> **⛔ ABSOLUTE RULE — ZERO EXCEPTIONS**: You MUST NEVER run `git add`, `git commit`, `git push`, `git checkout -b`, or ANY git write command. The gh-aw framework handles ALL git operations automatically. If you commit files, the `create_pull_request` safe output WILL fail with "No changes to commit" because it expects uncommitted working directory changes.
+> **⛔ ABSOLUTE RULE — ZERO EXCEPTIONS FOR MANUAL GIT OPERATIONS**: You MUST NEVER run ad-hoc/manual git commands such as `git add`, `git commit`, `git push`, `git checkout -b`, or other self-directed git write operations **unless this workflow explicitly instructs you to do so in a later safety/cleanup/recovery step**. The gh-aw framework handles normal PR git operations automatically. If you manually commit files, the `create_pull_request` safe output WILL fail with "No changes to commit" because it expects uncommitted working directory changes.
 
-**The ONLY correct workflow:**
+**The ONLY correct normal workflow:**
 1. Write/edit files using bash, `edit`, or `create` tools → files remain as **uncommitted working directory changes**
 2. Call `safeoutputs___create_pull_request` with `title`, `body`, `base`, `head` → the framework auto-commits, creates the branch, and opens the PR
+3. If a later section of this workflow explicitly tells you to run a git cleanup/recovery command (for example, scope cleanup or git-state safety steps), follow that instruction exactly as written
 
-**FORBIDDEN git operations (these WILL break the workflow):**
+**FORBIDDEN ad-hoc git operations (these WILL break the workflow):**
 - ❌ `git add` — NEVER stage files manually
 - ❌ `git commit` — NEVER commit files manually
 - ❌ `git push` — NEVER push manually
 - ❌ `git checkout -b` — NEVER create branches manually
-- ❌ `git reset` / `git stash` — NEVER manipulate git state
-- ❌ ANY attempt to "fix" a failed `create_pull_request` call with git commands — retry **once**, then let the workflow fail
+- ❌ `git reset`, `git checkout`, `git stash`, or similar git state changes **unless this workflow explicitly directs that exact recovery/cleanup step**
+- ❌ ANY ad-hoc attempt to "fix" a failed `create_pull_request` call with git commands — retry **once**, then let the workflow fail unless this workflow explicitly instructs a specific git recovery step
 
 **If `create_pull_request` fails:**
 1. Retry `safeoutputs___create_pull_request` exactly **once**
-2. If still fails: ❌ workflow MUST FAIL — do NOT try alternative git commands, branch tricks, or API calls
-3. Do NOT waste time on multiple retry approaches — this just wastes the run budget
+2. If still fails: ❌ workflow MUST FAIL — do NOT try alternative ad-hoc git commands, branch tricks, or API calls, except for git commands explicitly required elsewhere in this workflow
 
 ## 🧠 Memory & Reasoning Tools
 
@@ -779,6 +779,8 @@ fi
 ## Step 4b: Scope Verification (Prevent Patch Conflicts)
 
 > **⚠️ CRITICAL**: This step prevents patch apply failures caused by unintended file modifications.
+>
+> **NOTE**: The `git checkout` and `git reset` commands in this scope cleanup block are **explicitly whitelisted** — run them exactly as written below to revert out-of-scope changes.
 
 ```bash
 echo "=== Scope Verification ==="
@@ -877,6 +879,8 @@ echo "📊 Extending analysis summary with translation results: ${SUMMARY_FILE}"
 #### MANDATORY Git State Safety Check (Prevent "No changes to commit" Error)
 
 > **⚠️ CRITICAL**: The `create_pull_request` safe output expects ALL file changes to be **uncommitted working directory modifications**. If any git commits were accidentally made (e.g., via `git add` + `git commit`), this safety check undoes them so the safe output can capture the changes.
+>
+> **NOTE**: The `git reset` and `git checkout` commands in this block are **explicitly whitelisted** — they are the only git state-changing commands permitted in this workflow. Run them exactly as written below.
 
 ```bash
 # Safety check: undo any accidental git commits made during translation
@@ -1027,9 +1031,9 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 
 **If PR creation fails AFTER generating translations:**
 1. Retry `safeoutputs___create_pull_request` exactly **once**
-2. If still fails: ❌ workflow MUST FAIL — do NOT try alternative git commands or API calls
+2. If still fails: ❌ workflow MUST FAIL — do NOT try alternative ad-hoc git commands or API calls
 3. The translations exist but no PR = readers can't see them = FAILURE
-4. Do NOT attempt: branch creation, git reset, git checkout, reflog recovery, or any other git tricks
+4. Do NOT attempt: ad-hoc branch creation, ad-hoc git reset, reflog recovery, or any other git tricks (the mandatory safety/cleanup steps above are the only permitted git commands)
 
 **If no English articles found:**
 - Create analysis-only PR or call `safeoutputs___noop`
