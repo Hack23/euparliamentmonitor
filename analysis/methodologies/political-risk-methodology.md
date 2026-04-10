@@ -290,8 +290,9 @@ Grand Coalition stability risk: L=3, I=4, Score=12 (🟠 HIGH).
 Grand Coalition stability risk: L=3, I=4, Score=12 (🟠 HIGH) ↑ **Rising** — score
 increased from 6 (🟡 MEDIUM) three weeks ago (SYN-2026-03-22-A1B2) to current 12.
 Key driver: EPP cohesion dropped from 72% to 61% over the same period
-(`compare_political_groups`, group=EPP, metric=cohesion, 2026-03-01 to 2026-04-06). If this trajectory
-continues, the score may reach CRITICAL (≥15) by the April 22 plenary session.
+(`analyze_coalition_dynamics`, coalition=Grand Coalition, focus=EPP cohesion, 2026-03-01 to
+2026-04-06). If this trajectory continues, the score may reach CRITICAL (≥15) by the
+April 22 plenary session.
 ```
 
 ### Trajectory Integration with Synthesis Summaries

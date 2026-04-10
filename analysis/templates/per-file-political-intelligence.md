@@ -377,7 +377,7 @@ typical single-rapporteur load. This creates a risk of delayed committee amendme
 
 ## 🔀 Coalition Shift Detection
 
-> **AI Instructions:** For documents that interact with coalition dynamics (votes, key positions, opposition statements), analyse whether this event signals any coalition shift. Use `analyze_voting_patterns`, `detect_voting_anomalies`, and `analyze_coalition_dynamics` MCP tools.
+> **AI Instructions:** For documents that interact with coalition dynamics (votes, key positions, opposition statements), analyse whether this event signals any coalition shift. For coalition-level or political-group metrics, use `analyze_coalition_dynamics`, `compare_political_groups`, and/or `detect_voting_anomalies` with `politicalGroup`. Use `analyze_voting_patterns` only to drill into specific defectors or swing MEPs when a valid `mepId` is available.
 
 ### Coalition Stability Indicators
 

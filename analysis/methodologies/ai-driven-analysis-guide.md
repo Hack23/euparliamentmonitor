@@ -846,7 +846,8 @@ EPP-S&D cohesion at 61%.
 Grand Coalition stability risk score: L=3 × I=4 = 12 (🟠 HIGH) — this is the **highest
 coalition risk score in 8 weeks**, up from L=2×I=3=6 (🟡 MEDIUM) in the prior analysis
 cycle (2026-03-22 synthesis, SYN-2026-03-22-A1B2). EPP-S&D cohesion at 61%,
-down from 68% in Q1 2026 average (`analyze_voting_patterns`, EPP, Q1-2026).
+down from 68% in Q1 2026 average (`compare_political_groups`, groups: [EPP, S&D],
+period: Q1-2026).
 This is the lowest cohesion reading since the October 2024 farm subsidy vote.
 ```
 

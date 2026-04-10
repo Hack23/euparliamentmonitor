@@ -184,7 +184,7 @@ Every single SWOT entry — whether in a per-file analysis, daily synthesis, or 
 | ✅ Strengths | Official EP document OR verified vote result | Adopted text ref, roll-call vote, MCP `get_adopted_texts` |
 | ⚠️ Weaknesses | Observable institutional deficiency with data source | MCP `detect_voting_anomalies`, `monitor_legislative_pipeline` bottleneck index |
 | 🚀 Opportunities | Pending procedure or confirmed political signal | Procedure ID from `get_procedures`, group position statement |
-| 🔴 Threats | Specific risk indicator with likelihood evidence | MCP `analyze_voting_patterns`, `compare_political_groups` seat share trends |
+| 🔴 Threats | Specific risk indicator with likelihood evidence | For group-level seat share / trend claims: MCP `compare_political_groups`, `analyze_coalition_dynamics`, `get_all_generated_stats`; for individual-MEP threat claims only: MCP `analyze_voting_patterns` |
 
 ### Good vs. Bad — SWOT Citation
 
