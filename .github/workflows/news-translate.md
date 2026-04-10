@@ -108,6 +108,7 @@ safe-outputs:
   max-patch-size: 2560
   create-pull-request:
     title-prefix: "[news] "
+    max-patch-size: 2560
   add-comment:
     max: 1
 
