@@ -162,8 +162,24 @@ const analysisOnlyArg = args.includes('--analysis-only');
 const analysisVerboseArg = args.includes('--analysis-verbose');
 const analysisDirArg = args.find((arg) => arg.startsWith('--analysis-dir='));
 const analysisMethodsArg = args.find((arg) => arg.startsWith('--analysis-methods='));
+const runIdArg = args.find((arg) => arg.startsWith('--run-id='));
 const titleArg = args.find((arg) => arg.startsWith('--title='));
 const descriptionArg = args.find((arg) => arg.startsWith('--description='));
+
+/**
+ * Workflow run identifier (typically `GITHUB_RUN_NUMBER`) used to create
+ * a unique analysis directory per workflow execution.  This prevents
+ * multiple runs on the same date from overwriting each other's analysis
+ * artifacts and ensures article transparency links point to the exact
+ * analysis used for that specific article generation run.
+ *
+ * Falls back to `GITHUB_RUN_NUMBER` env var, then empty string (no suffix).
+ */
+export const runId: string = (
+  runIdArg?.slice('--run-id='.length).trim() ||
+  process.env['GITHUB_RUN_NUMBER'] ||
+  ''
+).replace(/[^a-z0-9-]/giu, '');
 
 /**
  * AI-generated article title passed by the agentic workflow.
@@ -405,9 +421,14 @@ async function maybeRunAnalysis(
 
   // Derive a slug from the article types to scope analysis output per workflow,
   // preventing merge conflicts when multiple workflows run on the same date.
-  const slug = deriveArticleTypeSlug(validArticleTypes);
+  // When a run ID is provided (e.g. GITHUB_RUN_NUMBER), append it to the slug
+  // so each workflow execution gets a unique analysis directory.  This prevents
+  // overwrites when the same workflow runs multiple times on the same day.
+  const baseSlugForAnalysis = deriveArticleTypeSlug(validArticleTypes);
+  const slug = runId ? `${baseSlugForAnalysis}-run${runId}` : baseSlugForAnalysis;
 
   console.log(`   Article type slug: ${slug}`);
+  if (runId) console.log(`   Run ID: ${runId}`);
 
   // Pass requireData=true so runAnalysisStage enforces data availability
   // and aborts on any failed method — no hollow or partially failed analysis should exist.
@@ -561,22 +582,27 @@ async function main(): Promise<void> {
 
     // Extract the dedup suffix by comparing the resolved analysis dir
     // basename with the original slug.  For example:
-    //   slug = 'breaking'  →  analysisDir = 'breaking-2'  →  dedupSuffix = '-2'
-    //   slug = 'breaking'  →  analysisDir = 'breaking'     →  dedupSuffix = ''
+    //   slug = 'breaking'        →  analysisDir = 'breaking-2'       →  dedupSuffix = '-2'
+    //   slug = 'breaking'        →  analysisDir = 'breaking'          →  dedupSuffix = ''
+    //   slug = 'breaking-run6'   →  analysisDir = 'breaking-run6'     →  dedupSuffix = '-run6'
+    //   slug = 'breaking-run6'   →  analysisDir = 'breaking-run6-2'   →  dedupSuffix = '-run6-2'
     // This suffix is applied per-strategy to article slugs, so multi-type
-    // runs produce distinct slugs (e.g. 'breaking-2' and 'week-ahead-2').
-    const baseSlug = deriveArticleTypeSlug(
+    // runs produce distinct slugs (e.g. 'breaking-run6' and 'week-ahead-run6').
+    const baseSlugNoRun = deriveArticleTypeSlug(
       articleTypes.filter((t): t is ArticleCategory =>
         VALID_ARTICLE_CATEGORIES.includes(t as ArticleCategory)
       )
     );
-    // Only extract the suffix if it matches the expected dedup pattern:
-    // numeric (-2, -3, …) or UUID-based (-a1b2c3d4).
+    // When run ID is present, the suffix includes the run part (e.g. '-run6')
+    // plus any additional dedup suffix (e.g. '-2').  When absent, only the
+    // dedup suffix applies.
     const rawSuffix =
-      analysisDir !== undefined && analysisDir.startsWith(baseSlug)
-        ? analysisDir.slice(baseSlug.length)
+      analysisDir !== undefined && analysisDir.startsWith(baseSlugNoRun)
+        ? analysisDir.slice(baseSlugNoRun.length)
         : '';
-    const dedupSuffix = /^-[\da-f]+$/i.test(rawSuffix) ? rawSuffix : '';
+    // Accept run-id suffixes (-run6, -run12), dedup suffixes (-2, -3),
+    // combined (-run6-2), or UUID-based (-a1b2c3d4).
+    const dedupSuffix = /^(-run\d+)?(-[\da-f]+)?$/i.test(rawSuffix) ? rawSuffix : '';
 
     // If --analysis-only, skip article generation
     if (analysisOnlyArg) {
