@@ -365,11 +365,13 @@ export function buildProspectiveDashboard(
  *
  * @param weekData - Aggregated week/month-ahead data
  * @param _lang - Reserved for future localisation (default: 'en')
+ * @param label - Whether this is a "week" or "month" mindmap (default: 'week')
  * @returns Intelligence mindmap data
  */
 export function buildProspectiveMindmap(
   weekData: WeekAheadData,
-  _lang: LanguageCode = 'en'
+  _lang: LanguageCode = 'en',
+  label: 'week' | 'month' = 'week'
 ): IntelligenceMindmap {
   void _lang;
   const policyDomains = [
@@ -438,7 +440,10 @@ export function buildProspectiveMindmap(
     }));
 
   return {
-    centralTopic: 'Week Ahead: Parliamentary Priorities',
+    centralTopic:
+      label === 'month'
+        ? 'Month Ahead: Parliamentary Priorities'
+        : 'Week Ahead: Parliamentary Priorities',
     layers: [{ depth: 1, nodes: domainNodes }],
     connections,
     actorNetwork,

@@ -64,16 +64,16 @@ function getConferenceOfPresidents(lang) {
  * Build the action-consequence pairs for propositions analysis.
  * Returns AI_MARKER for consequences so the AI agent writes real analysis.
  *
- * @param _pct - Pipeline health percentage as string
+ * @param pct - Pipeline health percentage as string
  * @param healthScore - Pipeline health score (0-1)
  * @param throughput - Throughput rate
  * @returns Action-consequence pairs with AI_MARKER for consequence text
  */
-function buildPropositionsConsequences(_pct, healthScore, throughput) {
+function buildPropositionsConsequences(pct, healthScore, throughput) {
     const healthSeverity = healthScore < 0.3 ? 'critical' : healthScore < 0.5 ? 'high' : 'medium';
     return [
         {
-            action: `Pipeline health at ${_pct}%`,
+            action: `Pipeline health at ${pct}%`,
             consequence: AI_MARKER,
             severity: healthSeverity,
         },
@@ -88,22 +88,22 @@ function buildPropositionsConsequences(_pct, healthScore, throughput) {
  * Build the primary stakeholder outcome for propositions analysis.
  * Reasoning text is deferred to the AI agent via AI_MARKER.
  *
- * @param _healthScore - Pipeline health score (used for outcome classification only)
- * @param _pct - Pipeline health percentage (unused — AI generates reasoning)
+ * @param healthScore - Pipeline health score used for outcome classification
+ * @param pct - Pipeline health percentage used as reasoning context
  * @returns Single stakeholder outcome with AI_MARKER reasoning
  */
-function buildPropositionsStakeholderOutcome(_healthScore, _pct) {
-    if (_healthScore > 0.7) {
+function buildPropositionsStakeholderOutcome(healthScore, pct) {
+    if (healthScore > 0.7) {
         return {
             actor: 'Parliament presidency',
             outcome: 'winner',
-            reason: AI_MARKER,
+            reason: `${AI_MARKER} Pipeline health at ${pct}%`,
         };
     }
     return {
         actor: 'Pending legislation sponsors',
         outcome: 'loser',
-        reason: AI_MARKER,
+        reason: `${AI_MARKER} Pipeline health at ${pct}%`,
     };
 }
 /**

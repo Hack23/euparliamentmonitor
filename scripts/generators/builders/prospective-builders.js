@@ -291,9 +291,10 @@ export function buildProspectiveDashboard(weekData, _label, lang = 'en') {
  *
  * @param weekData - Aggregated week/month-ahead data
  * @param _lang - Reserved for future localisation (default: 'en')
+ * @param label - Whether this is a "week" or "month" mindmap (default: 'week')
  * @returns Intelligence mindmap data
  */
-export function buildProspectiveMindmap(weekData, _lang = 'en') {
+export function buildProspectiveMindmap(weekData, _lang = 'en', label = 'week') {
     void _lang;
     const policyDomains = [
         { id: 'envi', label: 'Environment & Climate', color: 'green' },
@@ -355,7 +356,9 @@ export function buildProspectiveMindmap(weekData, _lang = 'en') {
         evidence: p.title ? p.title.slice(0, 60) : 'Legislative bottleneck',
     }));
     return {
-        centralTopic: 'Week Ahead: Parliamentary Priorities',
+        centralTopic: label === 'month'
+            ? 'Month Ahead: Parliamentary Priorities'
+            : 'Week Ahead: Parliamentary Priorities',
         layers: [{ depth: 1, nodes: domainNodes }],
         connections,
         actorNetwork,

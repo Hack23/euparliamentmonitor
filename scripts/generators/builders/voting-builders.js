@@ -18,7 +18,7 @@ import { buildOutcomeMatrix, buildAiMarkerImpactAssessment, buildCoalitionMetric
  */
 function deriveStakeholderOutcomesFromVoting(records, patterns) {
     const outcomes = [];
-    // High-cohesion groups that vote with majority are winners
+    // High-cohesion groups with strong participation are classified as winners
     for (const pattern of patterns) {
         if (pattern.cohesion > 0.8 && pattern.participation > 0.7) {
             outcomes.push({
@@ -527,8 +527,6 @@ export function buildVotingMindmap(records, patterns, anomalies, _lang = 'en') {
     const realRecords = records.filter((r) => r.result !== PLACEHOLDER_MARKER);
     const realPatterns = patterns.filter((p) => !/placeholder/i.test(p.group));
     const realAnomalies = anomalies.filter((a) => !/placeholder/i.test(a.type));
-    if (realRecords.length === 0 && realPatterns.length === 0)
-        return null;
     if (realPatterns.length === 0)
         return null;
     const domainNodes = realPatterns.slice(0, 8).map((p, i) => {

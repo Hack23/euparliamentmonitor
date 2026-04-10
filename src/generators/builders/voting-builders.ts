@@ -74,7 +74,7 @@ function deriveStakeholderOutcomesFromVoting(
   patterns: readonly VotingPattern[]
 ): StakeholderOutcome[] {
   const outcomes: StakeholderOutcome[] = [];
-  // High-cohesion groups that vote with majority are winners
+  // High-cohesion groups with strong participation are classified as winners
   for (const pattern of patterns) {
     if (pattern.cohesion > 0.8 && pattern.participation > 0.7) {
       outcomes.push({
@@ -698,7 +698,6 @@ export function buildVotingMindmap(
   const realPatterns = patterns.filter((p) => !/placeholder/i.test(p.group));
   const realAnomalies = anomalies.filter((a) => !/placeholder/i.test(a.type));
 
-  if (realRecords.length === 0 && realPatterns.length === 0) return null;
   if (realPatterns.length === 0) return null;
 
   const domainNodes: MindmapNode[] = realPatterns.slice(0, 8).map((p, i) => {
