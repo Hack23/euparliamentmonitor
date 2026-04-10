@@ -23,9 +23,7 @@ import type {
   SwotItem,
   StakeholderMetric,
 } from '../../types/index.js';
-import {
-  buildStakeholderOutcomeMatrix,
-} from '../../utils/intelligence-analysis.js';
+import { buildStakeholderOutcomeMatrix } from '../../utils/intelligence-analysis.js';
 import { AI_MARKER } from '../../constants/analysis-constants.js';
 
 // ─── Style constants ─────────────────────────────────────────────────────────
@@ -40,21 +38,20 @@ export const CIVIL_SOCIETY = 'Civil Society';
  * Build the stakeholder outcome matrix for a list of key actions.
  * Used by all 5 analysis builders to populate the outcome matrix.
  *
- * @param actions - Array of (action, scores) pairs to include in the matrix
+ * @param actions - Readonly array of (action, scores) pairs to include in the matrix
  * @returns Stakeholder outcome matrix rows
  */
 export function buildOutcomeMatrix(
-  actions: Array<{
-    action: string;
-    scores: Partial<Record<AnalysisStakeholderType, number>>;
-    confidence: 'high' | 'medium' | 'low';
-  }>
+  actions: readonly {
+    readonly action: string;
+    readonly scores: Readonly<Partial<Record<AnalysisStakeholderType, number>>>;
+    readonly confidence: 'high' | 'medium' | 'low';
+  }[]
 ): StakeholderOutcomeMatrix[] {
   return actions.map(({ action, scores, confidence }) =>
     buildStakeholderOutcomeMatrix(action, scores, confidence)
   );
 }
-
 
 /**
  * Build an AI_MARKER impact assessment placeholder.
@@ -71,7 +68,6 @@ export function buildAiMarkerImpactAssessment(): DeepAnalysis['impactAssessment'
     geopolitical: AI_MARKER,
   };
 }
-
 
 /**
  * Build coalition metrics from voting patterns data.
@@ -106,7 +102,6 @@ export function buildCoalitionMetricsFromPatterns(
   };
 }
 
-
 /**
  * Build legislative pipeline data from WeekAheadData.
  *
@@ -129,11 +124,10 @@ export function buildPipelineFromWeekData(weekData: WeekAheadData): LegislativeP
   };
 }
 
-
 /**
- * Build trend analytics from feed data counts using the last 4 items as periods.
+ * Build trend analytics from feed data counts using the provided periods as-is.
  *
- * @param counts - Array of activity counts per period
+ * @param counts - Array of activity counts per period in chronological order
  * @param period - Trend period label
  * @returns Trend analytics object or null if no data
  */
@@ -166,7 +160,6 @@ export function buildTrendFromCounts(
   };
 }
 
-
 /**
  * Build stakeholder metrics from voting patterns.
  *
@@ -197,7 +190,6 @@ export function buildStakeholderMetricsFromVoting(
   return metrics;
 }
 
-
 /**
  * Build stakeholder metrics for legislative pipeline actors.
  *
@@ -227,7 +219,6 @@ export function buildStakeholderMetricsFromPipeline(
   ];
 }
 
-
 /**
  * Build a stakeholder panel from stakeholder metric array.
  *
@@ -254,7 +245,6 @@ export function buildStakeholderPanel(
   };
 }
 
-
 /**
  * Resolve a direction label from trend direction.
  *
@@ -270,7 +260,6 @@ export function resolveTrendDirectionLabel(
   if (direction === 'declining') return d.trendDeclining;
   return d.trendStableLabel;
 }
-
 
 /**
  * Build a generic trend panel from a trend object.
@@ -314,7 +303,6 @@ export function buildGenericTrendPanel(
   };
 }
 
-
 /**
  * Build a dimension object from sets of pre-computed SWOT items.
  *
@@ -327,11 +315,10 @@ export function buildGenericTrendPanel(
  */
 export function makeDimension(
   name: SwotDimension['name'],
-  strengths: SwotItem[],
-  weaknesses: SwotItem[],
-  opportunities: SwotItem[],
-  threats: SwotItem[]
+  strengths: readonly SwotItem[],
+  weaknesses: readonly SwotItem[],
+  opportunities: readonly SwotItem[],
+  threats: readonly SwotItem[]
 ): SwotDimension {
   return { name, strengths, weaknesses, opportunities, threats };
 }
-

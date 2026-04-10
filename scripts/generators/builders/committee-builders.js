@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 import { getLocalizedString, COMMITTEE_ANALYSIS_CONTENT_STRINGS, SWOT_BUILDER_STRINGS, DASHBOARD_BUILDER_STRINGS, } from '../../constants/languages.js';
 import { isPlaceholderCommitteeData } from '../committee-helpers.js';
-import { buildDefaultStakeholderPerspectives, } from '../../utils/intelligence-analysis.js';
+import { buildDefaultStakeholderPerspectives } from '../../utils/intelligence-analysis.js';
 import { AI_MARKER } from '../../constants/analysis-constants.js';
 import { buildOutcomeMatrix, buildTrendFromCounts, buildGenericTrendPanel, makeDimension, } from './shared-builders.js';
 // ─── Constant ─────────────────────────────────────────────────────────────────

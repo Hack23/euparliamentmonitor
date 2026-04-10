@@ -58,10 +58,10 @@ import {
   CIVIL_SOCIETY,
 } from './shared-builders.js';
 
-
 /**
  * Derive stakeholder outcomes from voting records.
- * Groups that win votes are "winners"; groups on the losing side are "losers".
+ * Groups with high cohesion (>0.8) and high participation (>0.7) are treated as
+ * "winners"; groups with low cohesion (<0.5) are flagged as "at risk".
  * Returns `{actor, outcome, reason}` where `reason` is set to `AI_MARKER`
  * so the AI enrichment step provides substantive political reasoning.
  *
@@ -103,7 +103,6 @@ function deriveStakeholderOutcomesFromVoting(
   return outcomes;
 }
 
-
 /**
  * Derive action→consequence chains from voting records and anomalies.
  *
@@ -143,7 +142,6 @@ function deriveConsequencesFromVoting(
   return consequences;
 }
 
-
 /**
  * Derive political mistakes from anomalies — defections signal miscalculations.
  *
@@ -160,7 +158,6 @@ function deriveMistakesFromAnomalies(anomalies: readonly VotingAnomaly[]): Polit
       alternative: AI_MARKER,
     }));
 }
-
 
 /**
  * Build multi-stakeholder perspectives for a voting analysis.
@@ -187,7 +184,6 @@ function buildVotingStakeholderPerspectives(
     eu_institutions: 0.8,
   });
 }
-
 
 /**
  * Build the "what" summary for a voting analysis, including intensity metrics.
@@ -224,7 +220,6 @@ function buildVotingWhatText(
   return `${base} Voting intensity: ${intensity.closeVoteCount} close ${intensity.closeVoteCount === 1 ? 'vote' : 'votes'}, ${intensity.decisiveVoteCount} decisive ${intensity.decisiveVoteCount === 1 ? 'vote' : 'votes'}. Polarization index: ${polarization?.assessment ?? 'N/A'}.`;
 }
 
-
 /**
  * Build the "why" text for a voting analysis.
  * Returns AI_MARKER so the AI agent provides real political analysis.
@@ -235,7 +230,6 @@ function buildVotingWhyText(): string {
   return AI_MARKER;
 }
 
-
 /**
  * Build outlook text for voting analysis.
  * Returns AI_MARKER — the AI agent provides real forward-looking analysis.
@@ -245,7 +239,6 @@ function buildVotingWhyText(): string {
 function buildVotingOutlook(): string {
   return AI_MARKER;
 }
-
 
 /**
  * Build the coalition alignment panel for a voting dashboard.
@@ -295,7 +288,6 @@ function buildVotingCoalitionPanel(
   };
 }
 
-
 /**
  * Build the trend panel for a voting dashboard.
  *
@@ -341,7 +333,6 @@ function buildVotingTrendPanel(
   };
 }
 
-
 /**
  * Build the stakeholder panel for a voting dashboard.
  *
@@ -358,7 +349,6 @@ function buildVotingStakeholderPanel(
   const stakeholderMetrics = buildStakeholderMetricsFromVoting(patterns, anomalyCount);
   return buildStakeholderPanel(d, stakeholderMetrics);
 }
-
 
 /**
  * Build stakeholder views for voting multi-dimensional SWOT.
@@ -414,7 +404,6 @@ function buildVotingMDStakeholders(
     },
   };
 }
-
 
 /**
  * Build deep analysis for voting-based articles (motions, weekly/monthly review).
@@ -501,7 +490,6 @@ export function buildVotingAnalysis(
     ]),
   };
 }
-
 
 /**
  * Build SWOT analysis for voting-based articles (motions, weekly/monthly review).
@@ -604,7 +592,6 @@ export function buildVotingSwot(
   };
 }
 
-
 /**
  * Build dashboard for voting-based articles (motions, weekly/monthly review).
  * Includes a coalition alignment radar chart and stakeholder impact scorecard.
@@ -687,7 +674,6 @@ export function buildVotingDashboard(
 
   return { panels };
 }
-
 
 /**
  * Build intelligence mindmap for voting analysis articles.
@@ -781,7 +767,6 @@ export function buildVotingMindmap(
     summary: `Analysing ${realRecords.length} votes across ${realPatterns.length} political groups. ${adoptedCount} measures adopted.`,
   };
 }
-
 
 /**
  * Build multi-dimensional SWOT analysis for voting-based articles.
@@ -898,4 +883,3 @@ export function buildVotingMultiDimensionalSwot(
     stakeholderViews,
   };
 }
-

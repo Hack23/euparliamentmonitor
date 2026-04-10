@@ -32,9 +32,7 @@ import {
   DASHBOARD_BUILDER_STRINGS,
 } from '../../constants/languages.js';
 import { isPlaceholderCommitteeData } from '../committee-helpers.js';
-import {
-  buildDefaultStakeholderPerspectives,
-} from '../../utils/intelligence-analysis.js';
+import { buildDefaultStakeholderPerspectives } from '../../utils/intelligence-analysis.js';
 import { AI_MARKER } from '../../constants/analysis-constants.js';
 import {
   buildOutcomeMatrix,
@@ -44,7 +42,6 @@ import {
 } from './shared-builders.js';
 
 // ─── Constant ─────────────────────────────────────────────────────────────────
-
 
 /**
  * Build multi-stakeholder perspectives for a committee reports analysis.
@@ -68,7 +65,6 @@ function buildCommitteeStakeholderPerspectives(
     eu_institutions: 0.8,
   });
 }
-
 
 /**
  * Build stakeholder views for committee multi-dimensional SWOT.
@@ -119,7 +115,6 @@ function buildCommitteeMDStakeholders(
     },
   };
 }
-
 
 /**
  * Build deep analysis for committee reports articles.
@@ -218,7 +213,6 @@ export function buildCommitteeAnalysis(
   };
 }
 
-
 /**
  * Build SWOT analysis for committee reports articles.
  *
@@ -300,7 +294,6 @@ export function buildCommitteeSwot(
   };
 }
 
-
 /**
  * Build dashboard for committee reports articles.
  * Includes document trend analytics alongside committee activity metrics.
@@ -374,7 +367,6 @@ export function buildCommitteeDashboard(
 
   return { panels };
 }
-
 
 /**
  * Build intelligence mindmap for committee reports articles.
@@ -461,7 +453,6 @@ export function buildCommitteeMindmap(
     summary: `${activeCommittees.length} active committees producing ${totalDocs} documents.`,
   };
 }
-
 
 /**
  * Build multi-dimensional SWOT analysis for committee reports articles.
@@ -567,4 +558,3 @@ export function buildCommitteeMultiDimensionalSwot(
     stakeholderViews,
   };
 }
-

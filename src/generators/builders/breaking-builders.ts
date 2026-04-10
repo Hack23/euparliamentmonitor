@@ -32,9 +32,7 @@ import {
   SWOT_BUILDER_STRINGS,
   DASHBOARD_BUILDER_STRINGS,
 } from '../../constants/languages.js';
-import {
-  buildDefaultStakeholderPerspectives,
-} from '../../utils/intelligence-analysis.js';
+import { buildDefaultStakeholderPerspectives } from '../../utils/intelligence-analysis.js';
 import { AI_MARKER } from '../../constants/analysis-constants.js';
 import {
   buildOutcomeMatrix,
@@ -44,7 +42,6 @@ import {
 } from './shared-builders.js';
 
 // ─── Constant ─────────────────────────────────────────────────────────────────
-
 
 /**
  * Build multi-stakeholder perspectives for a breaking news analysis.
@@ -66,7 +63,6 @@ function buildBreakingStakeholderPerspectives(
     eu_institutions: 0.9,
   });
 }
-
 
 /**
  * Build stakeholder views for breaking multi-dimensional SWOT.
@@ -114,7 +110,6 @@ function buildBreakingMDStakeholders(
   };
 }
 
-
 /**
  * Compute weakness and opportunity items for breaking news based on procedure count.
  * Returns a weakness when no procedures exist, or an opportunity when they do.
@@ -132,7 +127,6 @@ function getBreakingProcedureItems(
   }
   return [[], [{ text: s.breakingProceduresActive(procCount), severity: 'medium' as const }]];
 }
-
 
 /**
  * Build the 5 SWOT dimensions for breaking news multi-dimensional SWOT.
@@ -194,7 +188,6 @@ function buildBreakingMDDimensions(
   return [political, economic, social, legal, geopolitical];
 }
 
-
 /**
  * Build deep analysis for breaking news articles.
  *
@@ -210,7 +203,7 @@ export function buildBreakingAnalysis(
   feedData: BreakingNewsFeedData | undefined,
   anomalyRaw: string,
   coalitionRaw: string,
-  lang = 'en'
+  lang: LanguageCode = 'en'
 ): DeepAnalysis {
   const adoptedCount = feedData?.adoptedTexts.length ?? 0;
   const eventCount = feedData?.events.length ?? 0;
@@ -304,7 +297,6 @@ export function buildBreakingAnalysis(
   };
 }
 
-
 /**
  * Build SWOT analysis for breaking news articles.
  *
@@ -397,7 +389,6 @@ export function buildBreakingSwot(
   };
 }
 
-
 /**
  * Build dashboard for breaking news articles.
  * Includes activity trend sparklines for cross-article analysis.
@@ -467,7 +458,6 @@ export function buildBreakingDashboard(
 
   return { panels };
 }
-
 
 /**
  * Build intelligence mindmap for breaking news articles.
@@ -611,7 +601,6 @@ export function buildBreakingMindmap(
   };
 }
 
-
 /**
  * Build multi-dimensional SWOT analysis for breaking news articles.
  *
@@ -667,4 +656,3 @@ export function buildBreakingMultiDimensionalSwot(
     stakeholderViews,
   };
 }
-

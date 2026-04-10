@@ -33,9 +33,7 @@ import {
   SWOT_BUILDER_STRINGS,
   DASHBOARD_BUILDER_STRINGS,
 } from '../../constants/languages.js';
-import {
-  buildDefaultStakeholderPerspectives,
-} from '../../utils/intelligence-analysis.js';
+import { buildDefaultStakeholderPerspectives } from '../../utils/intelligence-analysis.js';
 import { AI_MARKER } from '../../constants/analysis-constants.js';
 import {
   buildOutcomeMatrix,
@@ -85,7 +83,6 @@ function buildPropositionsStakeholderPerspectives(
   });
 }
 
-
 /**
  * Build the "why" explanation for propositions based on pipeline health.
  * Returns AI_MARKER so the gh-aw AI agent produces real political analysis
@@ -96,7 +93,6 @@ function buildPropositionsStakeholderPerspectives(
 function buildPropositionsWhy(): string {
   return AI_MARKER;
 }
-
 
 /**
  * Get the localized Conference of Presidents name.
@@ -109,7 +105,6 @@ function getConferenceOfPresidents(lang: string): string {
   // eslint-disable-next-line security/detect-object-injection -- key validated via Object.hasOwn
   return CONFERENCE_OF_PRESIDENTS[lang] ?? CONFERENCE_OF_PRESIDENTS_EN;
 }
-
 
 /**
  * Build the action-consequence pairs for propositions analysis.
@@ -141,7 +136,6 @@ function buildPropositionsConsequences(
   ];
 }
 
-
 /**
  * Build the primary stakeholder outcome for propositions analysis.
  * Reasoning text is deferred to the AI agent via AI_MARKER.
@@ -167,7 +161,6 @@ function buildPropositionsStakeholderOutcome(
     reason: AI_MARKER,
   };
 }
-
 
 /**
  * Build a pipeline status breakdown panel for propositions dashboard.
@@ -217,7 +210,6 @@ function buildPropositionsPipelinePanel(
   };
 }
 
-
 /**
  * Resolve the pipeline strength label from a health score.
  *
@@ -230,7 +222,6 @@ function resolvePipelineStrengthLabel(d: DashboardBuilderStrings, healthScore: n
   if (healthScore > 0.4) return d.pipelineModerate;
   return d.pipelineWeak;
 }
-
 
 /**
  * Build legislative pipeline data from PipelineData.
@@ -261,7 +252,6 @@ function buildPipelineFromPipelineData(
   };
 }
 
-
 /**
  * Build deep analysis for propositions articles.
  *
@@ -276,8 +266,8 @@ export function buildPropositionsAnalysis(
   proposalsHtml: string,
   pipelineData: PipelineData | null,
   date: string,
-  lang = 'en',
-  adoptedTextsHtml = ''
+  lang: LanguageCode = 'en',
+  adoptedTextsHtml: string = ''
 ): DeepAnalysis {
   const hasProposals = proposalsHtml.length > 0 || adoptedTextsHtml.length > 0;
   const healthScore = pipelineData?.healthScore ?? 0;
@@ -330,7 +320,6 @@ export function buildPropositionsAnalysis(
     ]),
   };
 }
-
 
 /**
  * Build SWOT analysis for propositions articles.
@@ -412,7 +401,6 @@ export function buildPropositionsSwot(
   };
 }
 
-
 /**
  * Build dashboard for propositions articles.
  * Includes color-coded pipeline status chart and stakeholder scorecard.
@@ -469,7 +457,6 @@ export function buildPropositionsDashboard(
 
   return { panels };
 }
-
 
 /**
  * Build intelligence mindmap for propositions / legislative pipeline articles.
@@ -644,7 +631,6 @@ export function buildPropositionsMindmap(
   };
 }
 
-
 /**
  * Build multi-dimensional SWOT analysis for propositions articles.
  *
@@ -756,4 +742,3 @@ export function buildPropositionsMultiDimensionalSwot(
     stakeholderViews,
   };
 }
-

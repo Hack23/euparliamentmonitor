@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
-import { buildStakeholderOutcomeMatrix, } from '../../utils/intelligence-analysis.js';
+import { buildStakeholderOutcomeMatrix } from '../../utils/intelligence-analysis.js';
 import { AI_MARKER } from '../../constants/analysis-constants.js';
 // ─── Style constants ─────────────────────────────────────────────────────────
 export const EP_BLUE_TRANSPARENT = 'rgba(0,51,153,0.1)';
@@ -10,7 +10,7 @@ export const CIVIL_SOCIETY = 'Civil Society';
  * Build the stakeholder outcome matrix for a list of key actions.
  * Used by all 5 analysis builders to populate the outcome matrix.
  *
- * @param actions - Array of (action, scores) pairs to include in the matrix
+ * @param actions - Readonly array of (action, scores) pairs to include in the matrix
  * @returns Stakeholder outcome matrix rows
  */
 export function buildOutcomeMatrix(actions) {
@@ -79,9 +79,9 @@ export function buildPipelineFromWeekData(weekData) {
     };
 }
 /**
- * Build trend analytics from feed data counts using the last 4 items as periods.
+ * Build trend analytics from feed data counts using the provided periods as-is.
  *
- * @param counts - Array of activity counts per period
+ * @param counts - Array of activity counts per period in chronological order
  * @param period - Trend period label
  * @returns Trend analytics object or null if no data
  */

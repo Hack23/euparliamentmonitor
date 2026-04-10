@@ -7,7 +7,8 @@ import { AI_MARKER } from '../../constants/analysis-constants.js';
 import { buildOutcomeMatrix, buildAiMarkerImpactAssessment, buildCoalitionMetricsFromPatterns, buildStakeholderMetricsFromVoting, buildStakeholderPanel, makeDimension, EP_BLUE_TRANSPARENT, EP_BLUE_BORDER, CIVIL_SOCIETY, } from './shared-builders.js';
 /**
  * Derive stakeholder outcomes from voting records.
- * Groups that win votes are "winners"; groups on the losing side are "losers".
+ * Groups with high cohesion (>0.8) and high participation (>0.7) are treated as
+ * "winners"; groups with low cohesion (<0.5) are flagged as "at risk".
  * Returns `{actor, outcome, reason}` where `reason` is set to `AI_MARKER`
  * so the AI enrichment step provides substantive political reasoning.
  *

@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
 import { getLocalizedString, BREAKING_STRINGS, SWOT_BUILDER_STRINGS, DASHBOARD_BUILDER_STRINGS, } from '../../constants/languages.js';
-import { buildDefaultStakeholderPerspectives, } from '../../utils/intelligence-analysis.js';
+import { buildDefaultStakeholderPerspectives } from '../../utils/intelligence-analysis.js';
 import { AI_MARKER } from '../../constants/analysis-constants.js';
 import { buildOutcomeMatrix, buildTrendFromCounts, buildGenericTrendPanel, makeDimension, } from './shared-builders.js';
 // ─── Constant ─────────────────────────────────────────────────────────────────

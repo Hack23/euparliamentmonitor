@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
 import { getLocalizedString, SWOT_BUILDER_STRINGS, DASHBOARD_BUILDER_STRINGS, } from '../../constants/languages.js';
-import { buildDefaultStakeholderPerspectives, } from '../../utils/intelligence-analysis.js';
+import { buildDefaultStakeholderPerspectives } from '../../utils/intelligence-analysis.js';
 import { AI_MARKER } from '../../constants/analysis-constants.js';
 import { buildOutcomeMatrix, buildPipelineFromWeekData, buildTrendFromCounts, buildGenericTrendPanel, makeDimension, CIVIL_SOCIETY, } from './shared-builders.js';
 /**
@@ -270,8 +270,10 @@ export function buildProspectiveDashboard(weekData, _label, lang = 'en') {
         weekData.committees.length,
         weekData.documents.length,
         weekData.questions.length,
-    ].filter((c) => c > 0);
-    const trend = activityCounts.length >= 2 ? buildTrendFromCounts(activityCounts, 'weekly') : null;
+    ];
+    const trend = activityCounts.filter((c) => c > 0).length >= 2
+        ? buildTrendFromCounts(activityCounts, 'weekly')
+        : null;
     const trendPanel = buildGenericTrendPanel(d, trend, [d.plenaryEvents, d.committeeMeetings, d.documents, d.questionsFiled], d.scheduledActivity);
     const panels = [
         scheduledPanel,

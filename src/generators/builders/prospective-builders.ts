@@ -29,9 +29,7 @@ import {
   SWOT_BUILDER_STRINGS,
   DASHBOARD_BUILDER_STRINGS,
 } from '../../constants/languages.js';
-import {
-  buildDefaultStakeholderPerspectives,
-} from '../../utils/intelligence-analysis.js';
+import { buildDefaultStakeholderPerspectives } from '../../utils/intelligence-analysis.js';
 import { AI_MARKER } from '../../constants/analysis-constants.js';
 import {
   buildOutcomeMatrix,
@@ -41,7 +39,6 @@ import {
   makeDimension,
   CIVIL_SOCIETY,
 } from './shared-builders.js';
-
 
 /**
  * Build multi-stakeholder perspectives for a prospective (week/month-ahead) analysis.
@@ -65,7 +62,6 @@ function buildProspectiveStakeholderPerspectives(
     eu_institutions: 0.8,
   });
 }
-
 
 /**
  * Build deep analysis for week-ahead/month-ahead articles.
@@ -167,7 +163,6 @@ export function buildProspectiveAnalysis(
   };
 }
 
-
 /**
  * Build SWOT analysis for week-ahead / month-ahead articles.
  *
@@ -255,7 +250,6 @@ export function buildProspectiveSwot(
   };
 }
 
-
 /**
  * Build dashboard for week-ahead / month-ahead articles.
  * Includes pipeline status bars and trend analytics panels.
@@ -341,8 +335,11 @@ export function buildProspectiveDashboard(
     weekData.committees.length,
     weekData.documents.length,
     weekData.questions.length,
-  ].filter((c) => c > 0);
-  const trend = activityCounts.length >= 2 ? buildTrendFromCounts(activityCounts, 'weekly') : null;
+  ];
+  const trend =
+    activityCounts.filter((c) => c > 0).length >= 2
+      ? buildTrendFromCounts(activityCounts, 'weekly')
+      : null;
   const trendPanel = buildGenericTrendPanel(
     d,
     trend,
@@ -359,7 +356,6 @@ export function buildProspectiveDashboard(
 
   return { panels };
 }
-
 
 /**
  * Build intelligence mindmap for week-ahead / month-ahead (prospective) articles.
@@ -451,7 +447,6 @@ export function buildProspectiveMindmap(
   };
 }
 
-
 /**
  * Build multi-dimensional SWOT analysis for prospective (week/month-ahead) articles.
  *
@@ -542,4 +537,3 @@ export function buildProspectiveMultiDimensionalSwot(
     temporal,
   };
 }
-
