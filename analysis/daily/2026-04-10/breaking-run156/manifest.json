@@ -1,0 +1,20 @@
+{
+  "articleType": "breaking",
+  "date": "2026-04-10",
+  "runId": 156,
+  "analysisOnly": true,
+  "reason": "Easter recess Day 15 — all 13 EP API feeds returning INTERNAL_ERROR; no today-dated events",
+  "dataSource": "Precomputed stats (get_all_generated_stats, generated 2026-04-08, 264KB)",
+  "feedsAttempted": 16,
+  "feedsSucceeded": 1,
+  "feedsFailed": 15,
+  "analysisFiles": [
+    "synthesis-summary.md",
+    "risk-assessment.md",
+    "significance-scoring.md",
+    "precomputed-stats.analysis.md"
+  ],
+  "priorRunsToday": ["breaking-run5", "breaking-run6"],
+  "compositeRisk": "11.35/25",
+  "riskTrend": "RISING"
+}
