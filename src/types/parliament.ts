@@ -424,3 +424,53 @@ export interface EPFeedData {
   /** Recently updated corporate bodies */
   corporateBodies: readonly CorporateBodyFeedItem[];
 }
+
+// ─── Coalition shift signal types ─────────────────────────────────────────────
+
+/**
+ * Signal indicating a possible emerging coalition pattern that deviates
+ * from traditional EP group alignments.
+ */
+export interface CoalitionShiftSignal {
+  /** Political group showing the emerging pattern */
+  readonly group: string;
+  /**
+   * Type of emerging pattern detected:
+   * - `cross-party-alignment`: group aligning with historically opposing group
+   * - `bloc-fragmentation`: group showing internal cohesion breakdown
+   * - `new-bloc-formation`: multiple groups converging into a new voting bloc
+   * - `isolation`: group voting consistently against all others
+   */
+  readonly patternType:
+    | 'cross-party-alignment'
+    | 'bloc-fragmentation'
+    | 'new-bloc-formation'
+    | 'isolation';
+  /** Cohesion score that triggered the signal (0–1) */
+  readonly cohesion: number;
+  /** Confidence in the signal detection */
+  readonly confidence: 'high' | 'medium' | 'low';
+  /** Human-readable description of the emerging pattern */
+  readonly description: string;
+}
+
+// ─── Stakeholder influence trajectory ─────────────────────────────────────────
+
+/**
+ * Trajectory assessment for a stakeholder's (MEP's) influence over time,
+ * derived from committee assignments, rapporteur roles, and overall scores.
+ */
+export interface StakeholderInfluenceTrajectory {
+  /** MEP or stakeholder identifier */
+  readonly stakeholderId: string;
+  /** Display name */
+  readonly name: string;
+  /** Trajectory direction based on score and engagement metrics */
+  readonly trajectory: 'rising' | 'stable' | 'declining';
+  /** Current influence score (0–100) */
+  readonly currentScore: number;
+  /** Confidence in trajectory assessment */
+  readonly confidence: 'high' | 'medium' | 'low';
+  /** Key factors driving the trajectory */
+  readonly drivingFactors: readonly string[];
+}

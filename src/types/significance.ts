@@ -149,3 +149,37 @@ export interface SynthesisSummary {
   /** Editorial recommendations */
   readonly editorialRecommendations: readonly string[];
 }
+
+// ─── Comparative Significance ─────────────────────────────────────────────────
+
+/**
+ * Contextualises a significance score by ranking it among a peer group
+ * (e.g. all items in the same week or article type).
+ */
+export interface ComparativeSignificance {
+  /** 1-based rank among peers (1 = highest composite score) */
+  readonly rank: number;
+  /** Total number of peers in the comparison group */
+  readonly total: number;
+  /** Percentile position (0–100, where 100 = top of the group) */
+  readonly percentile: number;
+  /** Whether this item's composite score is above the peer average */
+  readonly aboveAverage: boolean;
+  /** Average composite score of the peer group */
+  readonly peerAverage: number;
+}
+
+/**
+ * Trend in significance scores over a sequence of items,
+ * indicating whether scores are increasing, decreasing, or stable.
+ */
+export interface SignificanceTrend {
+  /** Direction of the trend */
+  readonly direction: 'increasing' | 'decreasing' | 'stable';
+  /** Average signed change in composite score per item */
+  readonly averageChange: number;
+  /** Confidence in the trend detection */
+  readonly confidence: 'high' | 'medium' | 'low';
+  /** Number of data points used for trend computation */
+  readonly dataPoints: number;
+}
