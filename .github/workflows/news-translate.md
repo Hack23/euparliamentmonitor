@@ -247,7 +247,7 @@ Each translated article must score well on these 5 dimensions:
 
 > **🔑 TRANSLATION FOCUS**: The generator produces articles with localized UI but English narrative. YOU translate ALL English content.
 
-> **⚠️ HARD DEADLINE**: You MUST call `safeoutputs___create_pull_request` before minute 80. Partial translations in a PR are better than a timeout with no PR. **Track elapsed time after each article type translation and STOP translating when 65 minutes have elapsed** (leaving time for validation and PR creation).
+> **⚠️ HARD DEADLINE**: Translation MUST stop by minute 65 to leave time for validation and PR creation. You MUST call `safeoutputs___create_pull_request` before minute 80. Partial translations in a PR are better than a timeout with no PR.
 
 ## MANDATORY Date Context Establishment
 
@@ -543,7 +543,7 @@ for TYPE in $(echo "$NEEDS_TRANSLATION" | tr ',' ' '); do
   ELAPSED_MIN=$(( (NOW_EPOCH - START_EPOCH) / 60 ))
   echo "⏱️ Elapsed: ${ELAPSED_MIN} minutes (deadline: ${TRANSLATION_DEADLINE_MIN})"
   if [ "$ELAPSED_MIN" -ge "$TRANSLATION_DEADLINE_MIN" ]; then
-    echo "⚠️ Time limit approaching (${ELAPSED_MIN}min elapsed). Stopping translation to ensure PR creation."
+    echo "⚠️ Deadline reached (${ELAPSED_MIN}min elapsed, limit: ${TRANSLATION_DEADLINE_MIN}min). Stopping translation to ensure PR creation."
     break
   fi
 
@@ -591,6 +591,8 @@ For each non-English article file generated in Step 3:
 4. Keep: proper nouns (MEP names), abbreviations (EPP, S&D), reference IDs, location names
 
 Translate ALL narrative content: analysis, stakeholder perspectives, impact assessments, SWOT entries, outlook, footer disclaimers, and alt text.
+
+**Quality checklist per article:**
 - [ ] All list items and table cells with descriptions are translated
 - [ ] EP terminology follows the official vocabulary table above
 - [ ] Confidence markers (🟢/🟡/🔴) are preserved with translated labels
