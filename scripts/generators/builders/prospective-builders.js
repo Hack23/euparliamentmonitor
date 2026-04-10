@@ -3,9 +3,7 @@
 import { getLocalizedString, SWOT_BUILDER_STRINGS, DASHBOARD_BUILDER_STRINGS, } from '../../constants/languages.js';
 import { buildDefaultStakeholderPerspectives, } from '../../utils/intelligence-analysis.js';
 import { AI_MARKER } from '../../constants/analysis-constants.js';
-import { buildOutcomeMatrix, buildPipelineFromWeekData, buildTrendFromCounts, buildGenericTrendPanel, makeDimension, } from './shared-builders.js';
-// ─── Constant ─────────────────────────────────────────────────────────────────
-const CIVIL_SOCIETY = 'Civil Society';
+import { buildOutcomeMatrix, buildPipelineFromWeekData, buildTrendFromCounts, buildGenericTrendPanel, makeDimension, CIVIL_SOCIETY, } from './shared-builders.js';
 /**
  * Build multi-stakeholder perspectives for a prospective (week/month-ahead) analysis.
  *

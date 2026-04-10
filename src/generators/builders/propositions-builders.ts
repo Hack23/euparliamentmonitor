@@ -43,11 +43,9 @@ import {
   buildStakeholderMetricsFromPipeline,
   buildStakeholderPanel,
   makeDimension,
+  CIVIL_SOCIETY,
 } from './shared-builders.js';
 
-// ─── Constants ────────────────────────────────────────────────────────────────
-
-const CIVIL_SOCIETY = 'Civil Society';
 const CONFERENCE_OF_PRESIDENTS_EN = 'Conference of Presidents';
 const CONFERENCE_OF_PRESIDENTS: Record<string, string> = {
   en: CONFERENCE_OF_PRESIDENTS_EN,

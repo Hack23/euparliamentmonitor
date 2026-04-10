@@ -4,9 +4,7 @@ import { getLocalizedString, SWOT_BUILDER_STRINGS, DASHBOARD_BUILDER_STRINGS, } 
 import { PLACEHOLDER_MARKER } from '../motions-content.js';
 import { buildDefaultStakeholderPerspectives, computeVotingIntensity, computePolarizationIndex, } from '../../utils/intelligence-analysis.js';
 import { AI_MARKER } from '../../constants/analysis-constants.js';
-import { buildOutcomeMatrix, buildAiMarkerImpactAssessment, buildCoalitionMetricsFromPatterns, buildStakeholderMetricsFromVoting, buildStakeholderPanel, makeDimension, EP_BLUE_TRANSPARENT, EP_BLUE_BORDER, } from './shared-builders.js';
-// ─── Constant ─────────────────────────────────────────────────────────────────
-const CIVIL_SOCIETY = 'Civil Society';
+import { buildOutcomeMatrix, buildAiMarkerImpactAssessment, buildCoalitionMetricsFromPatterns, buildStakeholderMetricsFromVoting, buildStakeholderPanel, makeDimension, EP_BLUE_TRANSPARENT, EP_BLUE_BORDER, CIVIL_SOCIETY, } from './shared-builders.js';
 /**
  * Derive stakeholder outcomes from voting records.
  * Groups that win votes are "winners"; groups on the losing side are "losers".

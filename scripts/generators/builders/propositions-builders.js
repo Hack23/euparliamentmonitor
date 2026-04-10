@@ -3,9 +3,7 @@
 import { getLocalizedString, SWOT_BUILDER_STRINGS, DASHBOARD_BUILDER_STRINGS, } from '../../constants/languages.js';
 import { buildDefaultStakeholderPerspectives, } from '../../utils/intelligence-analysis.js';
 import { AI_MARKER } from '../../constants/analysis-constants.js';
-import { buildOutcomeMatrix, buildAiMarkerImpactAssessment, buildStakeholderMetricsFromPipeline, buildStakeholderPanel, makeDimension, } from './shared-builders.js';
-// ─── Constants ────────────────────────────────────────────────────────────────
-const CIVIL_SOCIETY = 'Civil Society';
+import { buildOutcomeMatrix, buildAiMarkerImpactAssessment, buildStakeholderMetricsFromPipeline, buildStakeholderPanel, makeDimension, CIVIL_SOCIETY, } from './shared-builders.js';
 const CONFERENCE_OF_PRESIDENTS_EN = 'Conference of Presidents';
 const CONFERENCE_OF_PRESIDENTS = {
     en: CONFERENCE_OF_PRESIDENTS_EN,

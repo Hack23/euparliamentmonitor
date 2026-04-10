@@ -5,6 +5,7 @@ import { AI_MARKER } from '../../constants/analysis-constants.js';
 // ─── Style constants ─────────────────────────────────────────────────────────
 export const EP_BLUE_TRANSPARENT = 'rgba(0,51,153,0.1)';
 export const EP_BLUE_BORDER = '#003399';
+export const CIVIL_SOCIETY = 'Civil Society';
 /**
  * Build the stakeholder outcome matrix for a list of key actions.
  * Used by all 5 analysis builders to populate the outcome matrix.

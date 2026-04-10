@@ -55,11 +55,9 @@ import {
   makeDimension,
   EP_BLUE_TRANSPARENT,
   EP_BLUE_BORDER,
+  CIVIL_SOCIETY,
 } from './shared-builders.js';
 
-// ─── Constant ─────────────────────────────────────────────────────────────────
-
-const CIVIL_SOCIETY = 'Civil Society';
 
 /**
  * Derive stakeholder outcomes from voting records.

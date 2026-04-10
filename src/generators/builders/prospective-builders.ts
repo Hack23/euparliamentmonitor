@@ -39,11 +39,9 @@ import {
   buildTrendFromCounts,
   buildGenericTrendPanel,
   makeDimension,
+  CIVIL_SOCIETY,
 } from './shared-builders.js';
 
-// ─── Constant ─────────────────────────────────────────────────────────────────
-
-const CIVIL_SOCIETY = 'Civil Society';
 
 /**
  * Build multi-stakeholder perspectives for a prospective (week/month-ahead) analysis.
