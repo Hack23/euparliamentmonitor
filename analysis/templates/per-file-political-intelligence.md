@@ -296,7 +296,7 @@ graph TD
 
 ## 📅 Legislative Timeline Tracking
 
-> **AI Instructions:** For documents that are part of an active legislative procedure, complete this section to track the procedure's position in the legislative calendar. Use `get_procedures` and `track_legislation` MCP tools to retrieve current status.
+> **AI Instructions:** For documents that are part of an active legislative procedure, complete this section to track the procedure's position in the legislative calendar. Use `get_procedures` (parameter: `processId`, e.g. `processId: "2024/0001(COD)"`) and `track_legislation` (parameter: `procedureId`, e.g. `procedureId: "2024/0001(COD)"`) MCP tools to retrieve current status. Note the different parameter names: `processId` for `get_procedures`, `procedureId` for `track_legislation`.
 
 | Field | Value |
 |-------|-------|
