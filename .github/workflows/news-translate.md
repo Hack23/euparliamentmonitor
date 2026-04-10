@@ -856,35 +856,40 @@ echo "📊 Extending analysis summary with translation results: ${SUMMARY_FILE}"
 # If the agent accidentally committed, reset to the original checkout state
 # while keeping all file changes in the working directory.
 ORIGINAL_BRANCH=$(git rev-parse --abbrev-ref HEAD)
-# Find the original checkout SHA — the commit that was HEAD when the workflow started
-# In a shallow clone, use the oldest commit available; in a full clone, use the first commit
-# on the current branch that matches what Actions checked out
-CHECKOUT_SHA=$(git rev-list --max-parents=0 HEAD 2>/dev/null | tail -1)
+# Find the original checkout SHA — use GITHUB_SHA (set by Actions) if available,
+# otherwise find the root commit of the current branch
+CHECKOUT_SHA="${GITHUB_SHA:-}"
 if [ -z "$CHECKOUT_SHA" ]; then
-  CHECKOUT_SHA=$(git log --format='%H' --reverse 2>/dev/null | head -1)
+  CHECKOUT_SHA=$(git rev-list --max-parents=0 HEAD 2>/dev/null | tail -1)
 fi
-CURRENT_SHA=$(git rev-parse HEAD)
-COMMITS_SINCE_CHECKOUT=$(git rev-list --count "$CHECKOUT_SHA".."$CURRENT_SHA" 2>/dev/null || echo 0)
-
-echo "📋 Git state check:"
-echo "  Branch:               $ORIGINAL_BRANCH"
-echo "  Checkout SHA:         $CHECKOUT_SHA"
-echo "  Current SHA:          $CURRENT_SHA"
-echo "  Commits since checkout: $COMMITS_SINCE_CHECKOUT"
-
-if [ "$COMMITS_SINCE_CHECKOUT" -gt 0 ]; then
-  echo "⚠️ Git state safety: detected $COMMITS_SINCE_CHECKOUT commit(s) since checkout — resetting to keep files as uncommitted changes"
-  # Reset to the original checkout commit, keeping all file changes in working directory
-  git reset --mixed "$CHECKOUT_SHA" 2>/dev/null || true
-  echo "✅ Git state restored — all changes are now uncommitted working directory modifications"
+if [ -z "$CHECKOUT_SHA" ]; then
+  echo "⚠️ Could not determine original checkout SHA — skipping safety check"
 else
-  echo "✅ Git state clean — no accidental commits detected"
+  CURRENT_SHA=$(git rev-parse HEAD)
+  COMMITS_SINCE_CHECKOUT=$(git rev-list --count "$CHECKOUT_SHA".."$CURRENT_SHA" 2>/dev/null || echo 0)
+
+  echo "📋 Git state check:"
+  echo "  Branch:               $ORIGINAL_BRANCH"
+  echo "  Checkout SHA:         $CHECKOUT_SHA"
+  echo "  Current SHA:          $CURRENT_SHA"
+  echo "  Commits since checkout: $COMMITS_SINCE_CHECKOUT"
+
+  if [ "$COMMITS_SINCE_CHECKOUT" -gt 0 ]; then
+    echo "⚠️ Git state safety: detected $COMMITS_SINCE_CHECKOUT commit(s) since checkout — resetting to keep files as uncommitted changes"
+    # Reset to the original checkout commit, keeping all file changes in working directory
+    git reset --mixed "$CHECKOUT_SHA" 2>/dev/null || true
+    echo "✅ Git state restored — all changes are now uncommitted working directory modifications"
+  else
+    echo "✅ Git state clean — no accidental commits detected"
+  fi
 fi
 
 # Ensure we're on the original branch (not a manually created branch)
-if [ "$ORIGINAL_BRANCH" != "main" ] && [ "$ORIGINAL_BRANCH" != "HEAD" ]; then
-  echo "⚠️ Git state safety: on branch '$ORIGINAL_BRANCH' instead of main — switching back"
-  git checkout main 2>/dev/null || true
+# Use GITHUB_REF_NAME if available, otherwise default to main
+DEFAULT_BRANCH="${GITHUB_REF_NAME:-main}"
+if [ "$ORIGINAL_BRANCH" != "$DEFAULT_BRANCH" ] && [ "$ORIGINAL_BRANCH" != "HEAD" ]; then
+  echo "⚠️ Git state safety: on branch '$ORIGINAL_BRANCH' instead of '$DEFAULT_BRANCH' — switching back"
+  git checkout "$DEFAULT_BRANCH" 2>/dev/null || true
 fi
 
 echo "📋 Working directory status (should show uncommitted changes):"
