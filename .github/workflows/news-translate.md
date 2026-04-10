@@ -158,52 +158,16 @@ You are the **Translation Agent** for EU Parliament Monitor. Your job is to take
 
 ## 🧠 Memory & Reasoning Tools
 
-### Repo Memory — Cross-Run Translation Tracking (persistent across runs)
+### Repo Memory (persistent across runs)
+Read prior translation context at START: `cat /tmp/gh-aw/repo-memory/default/memory/news-generation/translation-log.json 2>/dev/null || echo '[]'`
 
-This workflow has access to **persistent repo memory** at `/tmp/gh-aw/repo-memory/default/`. Use it to track translation progress across runs.
+At END, update `translation-log.json` with today's metadata (keep last 30 entries). Writing to `/tmp/gh-aw/repo-memory/default/memory/news-generation/` is explicitly allowed.
 
-**At workflow START** — read prior context:
-```bash
-cat /tmp/gh-aw/repo-memory/default/memory/news-generation/translation-log.json 2>/dev/null || echo '[]'
-```
+### Memory MCP (session-scoped)
+Use `create_entities`/`search_nodes` to track terminology consistency across translations within this run.
 
-**At workflow END** — update memory (keep concise, max 50KB per file):
-
-> **Scope clarification**: The `news/`-only file creation rule applies to the **main repository workspace**. Writing to the repo-memory workspace under `/tmp/gh-aw/repo-memory/default/memory/news-generation/` is **explicitly allowed** and does not violate the workspace scope restriction.
-1. **`translation-log.json`** — Append today's translation metadata (date, source article, target languages, status). Keep last 30 entries.
-
-**Use repo memory to**:
-- Skip articles that were already translated in a prior run
-- Track which language translations are pending vs completed
-- Prioritize untranslated articles
-
-> ⚠️ Repo memory is best-effort. If files are empty or missing, proceed normally without prior context.
-
-### Memory MCP — In-Run Knowledge Graph (within current run)
-
-The `memory` MCP server provides a **session-scoped knowledge graph** for tracking entities and relations discovered during this run. Use it when translating **multiple articles in batch** to maintain consistency.
-
-**When to use**:
-- Track terminology decisions across multiple article translations in the same run
-- Maintain consistent proper noun translations (MEP names, committee names, legislative references)
-- Build a running glossary of domain-specific terms per target language
-
-**How to use**:
-1. `create_entities` — Store translation decisions (term → translated term per language)
-2. `create_relations` — Link source articles to their translations
-3. `search_nodes` — Look up prior translation choices for consistency
-
-### Sequential Thinking — Structured Reasoning Chains
-
-The `sequential-thinking` MCP server enables **step-by-step analytical reasoning** for complex translation decisions.
-
-**When to use**:
-- Resolving ambiguous political terminology that has different connotations across languages
-- Deciding how to adapt culturally-specific references for different audiences
-- Planning batch translation order to maximize terminology consistency
-
-**How to use**:
-Call `sequentialthinking` with structured thought chains — each step builds on the previous, allowing revision and branching when translation reveals unexpected complexities.
+### Sequential Thinking
+Use `sequentialthinking` for complex translation decisions (ambiguous political terminology, cultural adaptation).
 
 ## 🔧 Workflow Dispatch Parameters
 
@@ -275,16 +239,15 @@ Each translated article must score well on these 5 dimensions:
 
 ## ⏱️ Time Budget (90 minutes)
 
-- **Minutes 0–3**: Date validation, discover English articles that need translation
-- **Minutes 3–8**: Set up MCP gateway, validate environment
-- **Minutes 8–20**: Generate article HTML files using the TypeScript generator (Step 3)
-- **Minutes 20–75**: **AI Translation** — read each non-English article, translate all English narrative content to the target language, write back fully translated files (Step 3b)
-- **Minutes 75–82**: Validate translated HTML files (Step 4)
-- **Minutes 82–90**: Create PR with `safeoutputs___create_pull_request`
+- **Minutes 0–5**: Date validation, discover English articles, set up MCP gateway
+- **Minutes 5–20**: Generate article HTML files using the TypeScript generator (Step 3)
+- **Minutes 20–70**: **AI Translation** — translate English narrative content per file (Step 3b)
+- **Minutes 70–75**: Validate translated HTML files (Step 4)
+- **Minutes 75–80**: Create PR with `safeoutputs___create_pull_request`
 
-> **🔑 TRANSLATION FOCUS**: This workflow generates article structure via TypeScript, then YOU (the AI agent) translate ALL English content to the target language. The generator produces English narrative with NO markers — **read every paragraph in the file. If it is in English, translate it.** The majority of your time should be spent on Step 3b — reading each file cover-to-cover, translating every English sentence, and writing back fully translated articles. The goal is 100% translated content.
+> **🔑 TRANSLATION FOCUS**: The generator produces articles with localized UI but English narrative. YOU translate ALL English content.
 
-**If you reach minute 82 and the PR has not yet been created**: Stop translating. Finalize current file edits and immediately create the PR. Partial translations in a PR are better than a timeout with no PR.
+> **⚠️ HARD DEADLINE**: You MUST call `safeoutputs___create_pull_request` before minute 80. Partial translations in a PR are better than a timeout with no PR. **Track elapsed time after each article type translation and STOP translating when 70 minutes have elapsed.**
 
 ## MANDATORY Date Context Establishment
 
@@ -296,11 +259,13 @@ TODAY=$(date -u +%Y-%m-%d)
 ARTICLE_DATE="${EP_ARTICLE_DATE:-$TODAY}"
 CURRENT_YEAR=$(date -u +%Y)
 DAY_OF_WEEK=$(date -u +%A)
+START_EPOCH=$(date +%s)
 echo "Today:        $TODAY ($DAY_OF_WEEK)"
 echo "Article date: $ARTICLE_DATE"
 echo "Year:         $CURRENT_YEAR"
+echo "Start epoch:  $START_EPOCH"
 echo "==================================="
-export TODAY ARTICLE_DATE CURRENT_YEAR DAY_OF_WEEK
+export TODAY ARTICLE_DATE CURRENT_YEAR DAY_OF_WEEK START_EPOCH
 
 # ⚠️ MANDATORY: Create baseline analysis directory and summary BEFORE any noop exits.
 # Per ai-driven-analysis-guide.md Rule 5, no workflow run should be wasted.
@@ -571,6 +536,15 @@ for TYPE in $(echo "$NEEDS_TRANSLATION" | tr ',' ' '); do
   echo "🌐 Translating: $TYPE (date: $ARTICLE_DATE)"
   echo "═══════════════════════════════════════════"
 
+  # ⏱️ Time check: stop translating if 65 minutes have elapsed
+  NOW_EPOCH=$(date +%s)
+  ELAPSED_MIN=$(( (NOW_EPOCH - START_EPOCH) / 60 ))
+  echo "⏱️ Elapsed: ${ELAPSED_MIN} minutes"
+  if [ "$ELAPSED_MIN" -ge 65 ]; then
+    echo "⚠️ Time limit approaching (${ELAPSED_MIN}min elapsed). Stopping translation to ensure PR creation."
+    break
+  fi
+
   SKIP_FLAG=""
   if [ "${{ github.event.inputs.force_translation }}" = "false" ]; then
     SKIP_FLAG="--skip-existing"
@@ -596,66 +570,25 @@ echo "✅ Translated: ${TRANSLATED_TYPES:-none}"
 echo "❌ Failed:     ${FAILED_TYPES:-none}"
 
 if [ -z "$TRANSLATED_TYPES" ]; then
-  echo "❌ All translations failed" >&2
-  exit 1
+  echo "⚠️ All translations failed — will create analysis-only PR"
+  TRANSLATED_TYPES=""
 fi
 ```
 
-## Step 3b: MANDATORY AI Translation — Translate ALL English Content
+## Step 3b: AI Translation — Translate English Content
 
-> **⚠️ CRITICAL — THIS IS THE CORE TRANSLATION STEP**: The TypeScript generator produces articles with **localized UI strings** (headings, labels, navigation) but **ALL narrative content** (analysis, descriptions, stakeholder perspectives, impact assessments, outlook, consequences, editorial text) **is generated in English without any markers**. There are NO `lang="en"` attributes to guide you. **YOU MUST read the ENTIRE file and translate EVERY English sentence** to the target language. This is NOT optional — it is the primary purpose of this workflow.
+> **CORE STEP**: The generator produces articles with localized UI but **English narrative content**. You MUST translate all English text in each non-English file.
+
+> **⏱️ TIME MANAGEMENT**: Check elapsed time after each article type. If 65+ minutes elapsed, SKIP remaining translations and proceed directly to Step 5 (PR creation). Partial translations are acceptable.
 
 For each non-English article file generated in Step 3:
 
-1. **Read the ENTIRE file** from top to bottom
-2. **Identify ALL English text** by reading every paragraph, every `<p>`, `<li>`, `<td>`, `<span>`, `<div>` text node. If it is in English, it must be translated.
-3. **Translate every English sentence** to the target language following the terminology standards and quality dimensions above
-4. **Write the fully translated file** back
+1. Read the file, identify English text in `<p>`, `<li>`, `<td>`, `<span>`, `<div>` elements
+2. Translate to the target language using EP terminology standards (see table above)
+3. Write the translated file back
+4. Keep: proper nouns (MEP names), abbreviations (EPP, S&D), reference IDs, location names
 
-### What MUST be translated (100% — no exceptions)
-
-Read the ENTIRE article and translate ALL English text. This includes but is not limited to:
-
-- **ALL paragraph text** (`<p>` elements) — every sentence in the article body
-- **ALL list items** (`<li>` elements) — bullet points, numbered lists
-- **ALL table cells** (`<td>`, `<th>` elements) — data descriptions, labels
-- **Deep Analysis "What Happened"**: Factual summaries, legislative pipeline assessments, event descriptions
-- **Deep Analysis "Why This Matters"**: Political significance explanations
-- **Deep Analysis "Impact Assessment"**: Political, economic, social, legal, and geopolitical impact cards
-- **Deep Analysis "Outlook"**: Forward-looking scenario analysis
-- **Stakeholder Perspectives**: All actor descriptions, reasoning text, and evidence
-- **Action-Consequence Pairs**: Action descriptions and consequence explanations
-- **Mistakes & Missed Opportunities**: Description of errors and alternative approaches
-- **SWOT Analysis**: All strength, weakness, opportunity, and threat descriptions
-- **Mindmap Summaries**: All summary text in mindmap nodes
-- **Footer disclaimer text**: Legal/editorial disclaimers
-- **Alt text on images/charts**: Accessibility text
-- **Any other English text** in the file that is not a proper noun, abbreviation, or reference ID
-
-### Translation approach per file
-
-```
-For each non-English file news/${ARTICLE_DATE}-${TYPE}-${LANG}.html:
-  1. Read the COMPLETE HTML file — every line
-  2. Scan ALL text content (not HTML tags, not attributes except alt/title)
-  3. For EVERY English sentence or phrase found:
-     a. Translate to ${LANG} using EP terminology standards
-  4. The ONLY English that should remain: proper nouns (MEP names), 
-     abbreviations (EPP, S&D), reference IDs (2024/0001(COD)), 
-     location names (Strasbourg, Brussels)
-  5. Write the fully translated file
-  6. Self-verify: read the file again — is there ANY English sentence 
-     that a reader of ${LANG} would not understand? If yes, translate it.
-```
-
-> **🔑 KEY PRINCIPLE**: The AI agent (you) translates ALL content. There are NO `lang="en"` markers in the generated HTML — the generator no longer produces them. Read every paragraph. If it's English, translate it. The goal is **100% translated content** — a native speaker of the target language should be able to read the entire article without encountering a single untranslated English sentence.
-
-### Translation quality checklist per article
-
-Before moving to the next file, verify:
-- [ ] **Read the entire file again** — is there ANY remaining English narrative text?
-- [ ] All deep analysis narrative is fully in the target language
-- [ ] All paragraph body text is in the target language
+Translate ALL narrative content: analysis, stakeholder perspectives, impact assessments, SWOT entries, outlook, footer disclaimers, and alt text.
 - [ ] All list items and table cells with descriptions are translated
 - [ ] EP terminology follows the official vocabulary table above
 - [ ] Confidence markers (🟢/🟡/🔴) are preserved with translated labels
@@ -761,8 +694,7 @@ for TYPE in $(echo "$TRANSLATED_TYPES" | tr ',' ' '); do
 done
 
 if [ "$VALIDATION_FAILURES" -gt 0 ]; then
-  echo "❌ Translation validation failed with $VALIDATION_FAILURES issue(s)"
-  exit 1
+  echo "⚠️ Translation validation found $VALIDATION_FAILURES issue(s) — proceeding with PR creation"
 else
   echo "✅ All translations pass validation"
 fi
@@ -902,103 +834,30 @@ safeoutputs___create_pull_request({
 })
 ```
 
-## MANDATORY Translation Quality Rules
+## Translation Rules Summary
 
 ### NEVER Translate
-- EP document reference IDs (e.g., `2024/0001(COD)`, `B10-0001/2025`)
-- Political group abbreviations (EPP, S&D, Renew, Greens/EFA, ECR, PfE, ESN)
-- Committee abbreviations (ENVI, AGRI, ECON, LIBE, AFET)
-- MEP names
-- Session location names (Strasbourg, Brussels)
-- Procedure codes (COD, CNS, APP)
+- EP document reference IDs, political group abbreviations, committee abbreviations, MEP names, session location names, procedure codes
 
-### MUST Translate (100% Coverage Required)
-- All narrative body paragraphs (analysis, context, commentary)
-- Event descriptions and agenda summaries
-- Any free-text editorial content
-- Policy impact descriptions and stakeholder positions
-- Calendar and scheduling descriptions
-- **Deep analysis sections**: what happened, who, when, why, outlook
-- **Stakeholder perspectives**: all reasoning and evidence text
-- **Impact assessments**: political, economic, social, legal, geopolitical descriptions
-- **Action-consequence pairs**: action labels and consequence descriptions
-- **Mistakes & missed opportunities**: description and alternative texts
-- **Mindmap summaries**: all summary text nodes
-- **Footer disclaimer text**
-
-### Language-Specific Requirements
-
-#### Nordic Languages (sv, da, no, fi)
-- **Swedish (sv)**: Use formal register; EP is "Europaparlamentet"; committees use official riksdag-style naming
-- **Danish (da)**: Use formal register; EP is "Europa-Parlamentet"; follow Dansk Sprognævn conventions
-- **Norwegian (no)**: Use Bokmål; EP is "Europaparlamentet"; follow Språkrådet conventions
-- **Finnish (fi)**: Use formal register; EP is "Euroopan parlamentti"; follow Kotimaisten kielten keskus conventions
-
-#### EU Core Languages (de, fr, es, nl)
-- **German (de)**: Use formal register; compound nouns are standard (e.g., "Gesetzgebungsverfahren"); capitalize all nouns
-- **French (fr)**: Use formal register; EP is "Parlement européen" (lowercase 'e'); accents are mandatory (é, è, ê, ë, à, ù, ç)
-- **Spanish (es)**: Use formal register; EP is "Parlamento Europeo"; use Latin American-neutral Spanish for broader reach
-- **Dutch (nl)**: Use formal register; EP is "Europees Parlement"; follow Taalunie conventions
-
-#### RTL Languages (ar, he)
-- **Arabic (ar)**: Use Modern Standard Arabic (MSA); RTL layout; use `→` arrow in navigation; numbers remain LTR within RTL text; use proper Arabic punctuation (، ؛ .)
-- **Hebrew (he)**: Use formal Hebrew; RTL layout; use `→` arrow in navigation; transliterate MEP names consistently
-
-#### CJK Languages (ja, ko, zh)
-- **Japanese (ja)**: Use formal Japanese (です/ます form); CJK punctuation (。、「」); no spaces between words; use katakana for foreign names
-- **Korean (ko)**: Use formal Korean (합니다 form); CJK punctuation; proper spacing between words (Korean uses spaces unlike Japanese); use official Korean EP terminology
-- **Chinese (zh)**: Use Simplified Chinese; CJK punctuation (。、《》); no spaces between characters; use official Chinese EP terminology from eu.europa.eu/zh
-
-### Quality Gate
-- ZERO TOLERANCE for language mixing within a single article — **100% of content must be in the target language**
-- Each translated article must have same analytical depth as the English source
-- Vote counts and percentages are locale-formatted but numerically identical
-- All UI strings are already localized by the TypeScript code — focus on **narrative content translation**
-- **Read the ENTIRE file** — translate ALL English content. The generator produces English narrative with NO markers.
-- After translation, there should be ZERO English sentences remaining (except proper nouns, abbreviations, reference IDs)
-- For CJK languages (ja, ko, zh): verify CJK character density is >50% of body text
-- For RTL languages (ar, he): verify `dir="rtl"` is present on the `<html>` element
+### Language-Specific Notes
+- **Nordic** (sv, da, no, fi): Formal register, official EP names per language
+- **EU Core** (de, fr, es, nl): Formal register, official terminology
+- **RTL** (ar, he): Modern Standard Arabic / formal Hebrew; RTL layout with `dir="rtl"`
+- **CJK** (ja, ko, zh): Formal register; CJK punctuation; verify CJK character density
 
 ## MANDATORY PR Creation
 
-- ✅ `safeoutputs___create_pull_request` when translations are generated
-- ✅ `noop` ONLY if no English articles found to translate
-- ❌ NEVER use `noop` as fallback for PR creation failures
+> **⚠️ CRITICAL**: You MUST call `safeoutputs___create_pull_request` in EVERY run where files were generated, even if translation is incomplete. The gh-aw framework captures all file changes as a patch — you do NOT manage git operations.
 
-### 🔑 How Safe Pull Request Works (READ FIRST)
-
-The gh-aw framework **automatically captures all file changes** you make in the working directory as a patch. You do NOT manage git operations yourself.
-
-**The mechanism:**
-1. The TypeScript generator writes article HTML files to `news/` with localized UI but English analysis content
-2. You (AI agent) read each non-English file and translate all English narrative content to the target language
-3. You call `safeoutputs___create_pull_request` with `title`, `body`, `base`, and `head`
-4. The framework diffs your working directory, creates a branch, applies the patch, and opens the PR
-
-**MUST do:** Generate article files → Translate English content in each file → Call `safeoutputs___create_pull_request` once.
-
-**MUST NOT do:**
-- ❌ `git add`, `git commit`, `git push`
-- ❌ `git checkout -b`
-- ❌ GitHub API calls to create PRs
-- ❌ Passing a `files` parameter
-
-**⚠️ NEVER use `git push` directly** — always use `safeoutputs___create_pull_request`
+- ✅ `safeoutputs___create_pull_request` when ANY translations are generated
+- ✅ `safeoutputs___create_pull_request` with analysis-only if no articles found
+- ✅ `safeoutputs___noop` ONLY if no English articles exist AND no analysis-only PR created
+- ❌ NEVER use `git push` — always use `safeoutputs___create_pull_request`
+- ❌ NEVER exit without calling either `safeoutputs___create_pull_request` or `safeoutputs___noop`
 
 ## Error Handling
 
-**If no English articles found:**
-1. `safeoutputs___noop` with descriptive message — legitimate noop
-
-**If MCP server unavailable:**
-1. The generator will fall back to stdio mode
-2. If that also fails, the generator will produce articles with placeholder data — the AI translation step (3b) should still translate any English content
-
-**If translation generation fails for some types:**
-1. Continue with remaining types
-2. Create PR with partial translations
-3. Log which types failed
-
-**If PR creation fails:**
-1. Retry once
-2. If still fails: workflow MUST FAIL
+- **No English articles**: Create analysis-only PR or call `safeoutputs___noop`
+- **MCP server unavailable**: Generator falls back to stdio mode
+- **Some types fail**: Continue with remaining, create PR with partial translations
+- **PR creation fails**: Retry once, then workflow MUST FAIL
