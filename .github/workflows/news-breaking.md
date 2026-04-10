@@ -214,7 +214,7 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 4. **GENERATE**: If newsworthy, generate the article using the analysis intelligence AND commit analysis data in the same PR to `${ANALYSIS_DIR}/`
 5. **ANALYSIS-ONLY PR**: If analysis determines no breaking news significance, **still create an analysis-only PR** with `safeoutputs___create_pull_request` containing analysis artifacts in `${ANALYSIS_DIR}/`.
    - Per `ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted
-   - If existing analysis for this date exists, improve/extend it
+   - Each run creates its own unique analysis directory
    - Use `safeoutputs___noop` ONLY when MCP server is completely unavailable and zero data was collected
 
 **Data source hierarchy:**
@@ -228,7 +228,7 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 - Per `ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted
 - On quiet days, **create an analysis-only PR** with `safeoutputs___create_pull_request` containing analysis artifacts in `${ANALYSIS_DIR}/`
 - Analysis of quiet periods reveals patterns and must always be committed
-- If existing analysis for this date already exists, read it first and improve/extend/correct it
+- Each run creates its own unique analysis directory to avoid overwrites
 - Do NOT skip data collection
 
 
@@ -532,7 +532,7 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 1. Verify all feed endpoints were queried (including one-week fallback)
 2. Run the FULL analysis pipeline on collected data
 3. Write analysis artifacts to `${ANALYSIS_DIR}/`
-4. **Create an analysis-only PR** with `safeoutputs___create_pull_request` — per `ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted. If existing analysis for this date exists, improve/extend it
+4. **Create an analysis-only PR** with `safeoutputs___create_pull_request` — per `ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted. Each run creates its own unique analysis directory
 
 **If article generation fails AFTER starting work:**
 1. Log the specific failure

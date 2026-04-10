@@ -834,7 +834,7 @@ fi
 
 ## Step 4c: Translation Analysis (MANDATORY per ai-driven-analysis-guide.md Rule 5)
 
-> **⚠️ MANDATORY**: Per `analysis/methodologies/ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted. The translation workflow MUST produce analysis artifacts documenting translation quality, coverage, and terminology consistency. If existing translation analysis exists for this date, improve and extend it.
+> **⚠️ MANDATORY**: Per `analysis/methodologies/ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted. The translation workflow MUST produce analysis artifacts documenting translation quality, coverage, and terminology consistency. Each run creates its own unique analysis directory.
 
 Before creating the PR, read ALL methodology documents in `analysis/methodologies/` and produce a translation analysis report in `analysis/${ARTICLE_DATE}/translate/`:
 

@@ -437,7 +437,12 @@ async function main() {
             : '';
         // Accept run-id suffixes (-run6, -run12), dedup suffixes (-2, -3),
         // combined (-run6-2), or UUID-based (-a1b2c3d4).
-        const dedupSuffix = /^(-run\d+)?(-[\da-f]+)?$/i.test(rawSuffix) ? rawSuffix : '';
+        // Validate each part separately to avoid backtracking in combined regex.
+        const isValidSuffix = rawSuffix === '' ||
+            /^-run\d{1,10}$/u.test(rawSuffix) ||
+            /^-[\da-f]{1,8}$/iu.test(rawSuffix) ||
+            /^-run\d{1,10}-[\da-f]{1,8}$/iu.test(rawSuffix);
+        const dedupSuffix = isValidSuffix ? rawSuffix : '';
         // If --analysis-only, skip article generation
         if (analysisOnlyArg) {
             console.log('ℹ️  --analysis-only specified. Skipping article generation.');
