@@ -520,12 +520,20 @@ const CV_PROCEDURE_REF_PATTERN = /\b\d{4}\/\d+\([A-Z]{2,4}\)\b/gu;
  * of group mentions across all known groups.
  */
 const EP_POLITICAL_GROUPS = [
-    'EPP', 'S&D', 'Renew', 'Greens', 'ECR', 'ID', 'The Left', 'Patriots',
+    'EPP',
+    'S&D',
+    'Renew Europe',
+    'Greens/EFA',
+    'ECR',
+    'Identity and Democracy',
+    'The Left',
+    'Patriots for Europe',
 ];
-/** Keywords indicating forward-looking content (temporal coverage validation) */
-const FORWARD_LOOKING_KEYWORDS = [
-    'forecast', 'projection', 'expected', 'anticipated', 'upcoming', 'future',
-    'scenario', 'could', 'will ', 'outlook', 'predict', 'next', 'forthcoming',
+/** Patterns indicating forward-looking content (temporal coverage validation) */
+const FORWARD_LOOKING_PATTERNS = [
+    /\bforecast\b/iu, /\bprojection\b/iu, /\bexpected\b/iu, /\banticipated\b/iu,
+    /\bupcoming\b/iu, /\bfuture\b/iu, /\bscenario\b/iu, /\bcould\b/iu,
+    /\bwill\b/iu, /\boutlook\b/iu, /\bpredict\b/iu, /\bnext\b/iu, /\bforthcoming\b/iu,
 ];
 /**
  * Validate that an article cites a minimum number of EP document references
@@ -603,7 +611,7 @@ export function validateTemporalCoverage(html) {
         .replace(/<[^>]+>/gu, ' ')
         .replace(/\s+/gu, ' ')
         .toLowerCase();
-    const hasForwardLooking = FORWARD_LOOKING_KEYWORDS.some((kw) => text.includes(kw.toLowerCase()));
+    const hasForwardLooking = FORWARD_LOOKING_PATTERNS.some((pattern) => pattern.test(text));
     if (!hasForwardLooking) {
         return 'Temporal coverage: article lacks forward-looking content — add forecasts, scenarios, or outlook sections for actionable intelligence';
     }

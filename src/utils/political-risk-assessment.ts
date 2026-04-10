@@ -1062,7 +1062,7 @@ import type {
  * @returns RiskInterconnection with cascade pairs and overall assessment
  */
 export function computeRiskInterconnection(
-  risks: readonly { riskId: string; category: string; numericScore: number }[]
+  risks: readonly { riskId: string; category: PoliticalThreatCategory; numericScore: number }[]
 ): RiskInterconnection {
   if (risks.length < 2) {
     return {
@@ -1077,8 +1077,8 @@ export function computeRiskInterconnection(
 
   for (let i = 0; i < risks.length; i++) {
     for (let j = i + 1; j < risks.length; j++) {
-      const riskA = risks[i] as { riskId: string; category: string; numericScore: number };
-      const riskB = risks[j] as { riskId: string; category: string; numericScore: number };
+      const riskA = risks[i] as { riskId: string; category: PoliticalThreatCategory; numericScore: number };
+      const riskB = risks[j] as { riskId: string; category: PoliticalThreatCategory; numericScore: number };
       const avgScore = (riskA.numericScore + riskB.numericScore) / 2;
       const sameCategory = riskA.category === riskB.category;
 

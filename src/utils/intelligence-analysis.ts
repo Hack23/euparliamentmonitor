@@ -1091,6 +1091,126 @@ const TRADITIONAL_RIGHT_GROUPS: readonly string[] = ['ECR', 'ID', 'Patriots'];
 const TRADITIONAL_CENTRE_GROUPS: readonly string[] = ['EPP', 'Renew'];
 
 /**
+ * Classify a group into its traditional EP bloc.
+ *
+ * @param group - Political group name
+ * @returns 'left' | 'right' | 'centre' | 'unknown'
+ */
+function classifyBloc(group: string): 'left' | 'right' | 'centre' | 'unknown' {
+  if (TRADITIONAL_LEFT_GROUPS.includes(group)) return 'left';
+  if (TRADITIONAL_RIGHT_GROUPS.includes(group)) return 'right';
+  if (TRADITIONAL_CENTRE_GROUPS.includes(group)) return 'centre';
+  return 'unknown';
+}
+
+/**
+ * Check if two traditional blocs are opposing each other.
+ *
+ * @param blocA - First bloc classification
+ * @param blocB - Second bloc classification
+ * @returns true if the two blocs are traditionally opposing
+ */
+function areOpposingBlocs(blocA: string, blocB: string): boolean {
+  if (blocA === 'unknown' || blocB === 'unknown') return false;
+  return blocA !== blocB;
+}
+
+/**
+ * Classify a single voting pattern into a coalition shift signal (if any).
+ *
+ * @param pattern - Current voting pattern for one group
+ * @param avgCohesion - Average cohesion across all groups
+ * @param currentPatterns - All current patterns (for cross-party detection)
+ * @returns A signal or null if no anomaly detected
+ */
+function classifyPatternSignal(
+  pattern: VotingPattern,
+  avgCohesion: number,
+  currentPatterns: readonly VotingPattern[]
+): CoalitionShiftSignal | null {
+  const { group, cohesion } = pattern;
+
+  // Bloc fragmentation: internal cohesion critically low
+  if (cohesion < 0.4) {
+    return {
+      group,
+      patternType: 'bloc-fragmentation',
+      cohesion,
+      confidence: cohesion < 0.25 ? 'high' : 'medium',
+      description: `${group} internal cohesion at ${(cohesion * 100).toFixed(0)}% — bloc may be fragmenting`,
+    };
+  }
+
+  // Isolation: group cohesion significantly below peers
+  if (cohesion < avgCohesion * 0.6 && avgCohesion > 0.6) {
+    return {
+      group,
+      patternType: 'isolation',
+      cohesion,
+      confidence: 'medium',
+      description: `${group} cohesion (${(cohesion * 100).toFixed(0)}%) significantly below group average (${(avgCohesion * 100).toFixed(0)}%) — possible isolation`,
+    };
+  }
+
+  // Cross-party alignment: high-cohesion group with traditionally opposing partners
+  if (cohesion > 0.8) {
+    const bloc = classifyBloc(group);
+    const opposingHighCohesion = currentPatterns.filter(
+      (p) => p.group !== group && p.cohesion > 0.8 && areOpposingBlocs(bloc, classifyBloc(p.group))
+    );
+    if (opposingHighCohesion.length > 0) {
+      return {
+        group,
+        patternType: 'cross-party-alignment',
+        cohesion,
+        confidence: cohesion > 0.9 ? 'high' : 'medium',
+        description: `${group} (${(cohesion * 100).toFixed(0)}% cohesion) may be aligning with ${opposingHighCohesion.map((p) => p.group).join(', ')}`,
+      };
+    }
+  }
+
+  return null;
+}
+
+/**
+ * Detect new-bloc-formation signals across high-cohesion groups spanning
+ * multiple traditional blocs.
+ *
+ * @param currentPatterns - All voting patterns
+ * @param existingSignals - Signals already detected per group
+ * @returns New-bloc-formation signals to append
+ */
+function detectNewBlocFormation(
+  currentPatterns: readonly VotingPattern[],
+  existingSignals: readonly CoalitionShiftSignal[]
+): CoalitionShiftSignal[] {
+  const highCohesionGroups = currentPatterns.filter((p) => p.cohesion > 0.8);
+  const hasLeft = highCohesionGroups.some((p) => classifyBloc(p.group) === 'left');
+  const hasRight = highCohesionGroups.some((p) => classifyBloc(p.group) === 'right');
+  const hasCentre = highCohesionGroups.some((p) => classifyBloc(p.group) === 'centre');
+  const distinctBlocsHigh = [hasLeft, hasRight, hasCentre].filter(Boolean).length;
+
+  if (distinctBlocsHigh < 2 || highCohesionGroups.length < 3) return [];
+
+  const results: CoalitionShiftSignal[] = [];
+  for (const pattern of highCohesionGroups) {
+    const alreadyCrossParty = existingSignals.some(
+      (s) => s.group === pattern.group && s.patternType === 'cross-party-alignment'
+    );
+    if (!alreadyCrossParty) {
+      results.push({
+        group: pattern.group,
+        patternType: 'new-bloc-formation',
+        cohesion: pattern.cohesion,
+        confidence: highCohesionGroups.length >= 4 ? 'high' : 'medium',
+        description: `${pattern.group} part of an emerging cross-bloc coalition (${highCohesionGroups.length} groups with >80% cohesion)`,
+      });
+    }
+  }
+  return results;
+}
+
+/**
  * Derive coalition shift signals from current voting patterns, detecting patterns
  * that diverge from traditional EP political group alignments.
  *
@@ -1110,89 +1230,19 @@ export function deriveCoalitionShiftSignals(
 ): CoalitionShiftSignal[] {
   if (currentPatterns.length === 0) return [];
 
-  const signals: CoalitionShiftSignal[] = [];
   const avgCohesion =
     currentPatterns.reduce((s, p) => s + p.cohesion, 0) / currentPatterns.length;
 
+  // Classify individual patterns
+  const signals: CoalitionShiftSignal[] = [];
   for (const pattern of currentPatterns) {
-    const group = pattern.group;
-    const cohesion = pattern.cohesion;
-
-    // Bloc fragmentation: internal cohesion critically low
-    if (cohesion < 0.4) {
-      signals.push({
-        group,
-        patternType: 'bloc-fragmentation',
-        cohesion,
-        confidence: cohesion < 0.25 ? 'high' : 'medium',
-        description: `${group} internal cohesion at ${(cohesion * 100).toFixed(0)}% — bloc may be fragmenting`,
-      });
-      continue;
-    }
-
-    // Isolation: group cohesion significantly below peers, near-zero participation alignment
-    if (cohesion < avgCohesion * 0.6 && avgCohesion > 0.6) {
-      signals.push({
-        group,
-        patternType: 'isolation',
-        cohesion,
-        confidence: 'medium',
-        description: `${group} cohesion (${(cohesion * 100).toFixed(0)}%) significantly below group average (${(avgCohesion * 100).toFixed(0)}%) — possible isolation`,
-      });
-      continue;
-    }
-
-    // Cross-party alignment: high-cohesion group from one traditional bloc
-    if (cohesion > 0.8) {
-      const isLeft = TRADITIONAL_LEFT_GROUPS.includes(group);
-      const isRight = TRADITIONAL_RIGHT_GROUPS.includes(group);
-      const isCentre = TRADITIONAL_CENTRE_GROUPS.includes(group);
-
-      // Check if other traditionally opposing blocs also have high cohesion (potential alliance)
-      const opposingHighCohesion = currentPatterns.filter((p) => {
-        if (p.group === group || p.cohesion <= 0.8) return false;
-        const pIsLeft = TRADITIONAL_LEFT_GROUPS.includes(p.group);
-        const pIsRight = TRADITIONAL_RIGHT_GROUPS.includes(p.group);
-        const pIsCentre = TRADITIONAL_CENTRE_GROUPS.includes(p.group);
-        // Traditionally opposing: left vs right
-        return (isLeft && (pIsRight || pIsCentre)) || (isRight && (pIsLeft || pIsCentre)) || (isCentre && (pIsLeft || pIsRight));
-      });
-
-      if (opposingHighCohesion.length > 0) {
-        signals.push({
-          group,
-          patternType: 'cross-party-alignment',
-          cohesion,
-          confidence: cohesion > 0.9 ? 'high' : 'medium',
-          description: `${group} (${(cohesion * 100).toFixed(0)}% cohesion) may be aligning with ${opposingHighCohesion.map((p) => p.group).join(', ')}`,
-        });
-      }
-    }
+    const signal = classifyPatternSignal(pattern, avgCohesion, currentPatterns);
+    if (signal) signals.push(signal);
   }
 
-  // New-bloc-formation: 3+ groups from different traditional blocs all show high cohesion
-  const highCohesionGroups = currentPatterns.filter((p) => p.cohesion > 0.8);
-  const hasLeft = highCohesionGroups.some((p) => TRADITIONAL_LEFT_GROUPS.includes(p.group));
-  const hasRight = highCohesionGroups.some((p) => TRADITIONAL_RIGHT_GROUPS.includes(p.group));
-  const hasCentre = highCohesionGroups.some((p) => TRADITIONAL_CENTRE_GROUPS.includes(p.group));
-  const distinctBlocsHigh = [hasLeft, hasRight, hasCentre].filter(Boolean).length;
-  if (distinctBlocsHigh >= 2 && highCohesionGroups.length >= 3) {
-    for (const pattern of highCohesionGroups) {
-      // Only add new-bloc-formation if not already signalled as cross-party
-      const alreadySignalled = signals.some(
-        (s) => s.group === pattern.group && s.patternType === 'cross-party-alignment'
-      );
-      if (!alreadySignalled) {
-        signals.push({
-          group: pattern.group,
-          patternType: 'new-bloc-formation',
-          cohesion: pattern.cohesion,
-          confidence: highCohesionGroups.length >= 4 ? 'high' : 'medium',
-          description: `${pattern.group} part of an emerging cross-bloc coalition (${highCohesionGroups.length} groups with >80% cohesion)`,
-        });
-      }
-    }
-  }
+  // Detect new-bloc-formation across the full set
+  const blocSignals = detectNewBlocFormation(currentPatterns, signals);
+  signals.push(...blocSignals);
 
   // Sort by confidence (high → medium → low)
   const confidenceOrder: Record<string, number> = { high: 3, medium: 2, low: 1 };
@@ -1222,6 +1272,70 @@ export interface StakeholderInfluenceInput {
 }
 
 /**
+ * Collect driving factor descriptions from stakeholder engagement metrics.
+ *
+ * @param input - Stakeholder engagement metrics
+ * @param scoreDelta - Score difference vs historical baseline
+ * @param hasHistorical - Whether historical score is available
+ * @returns Array of descriptive factor strings
+ */
+function collectDrivingFactors(
+  input: StakeholderInfluenceInput,
+  scoreDelta: number,
+  hasHistorical: boolean
+): string[] {
+  const factors: string[] = [];
+  if (input.committeeAssignments > 0) {
+    factors.push(`${input.committeeAssignments} active committee assignment(s)`);
+  }
+  if (input.rapporteurRoles > 0) {
+    factors.push(`${input.rapporteurRoles} rapporteur role(s)`);
+  }
+  if (input.shadowRapporteurRoles > 0) {
+    factors.push(`${input.shadowRapporteurRoles} shadow rapporteur role(s)`);
+  }
+  if (hasHistorical) {
+    factors.push(`Score ${scoreDelta >= 0 ? '+' : ''}${scoreDelta.toFixed(1)} vs baseline`);
+  }
+  return factors;
+}
+
+/**
+ * Determine trajectory direction from score delta and engagement level.
+ *
+ * @param hasHistorical - Whether historical score is available
+ * @param scoreDelta - Score difference vs historical baseline
+ * @param totalEngagement - Sum of committee + rapporteur + shadow roles
+ * @returns Trajectory direction
+ */
+function determineTrajectory(
+  hasHistorical: boolean,
+  scoreDelta: number,
+  totalEngagement: number
+): StakeholderInfluenceTrajectory['trajectory'] {
+  if (hasHistorical && scoreDelta >= 5 && totalEngagement > 0) return 'rising';
+  if (hasHistorical && scoreDelta <= -5) return 'declining';
+  if (!hasHistorical && totalEngagement >= 3) return 'rising';
+  return 'stable';
+}
+
+/**
+ * Determine confidence level from data availability.
+ *
+ * @param hasHistorical - Whether historical score is available
+ * @param totalEngagement - Sum of committee + rapporteur + shadow roles
+ * @returns Confidence level
+ */
+function determineTrajectoryConfidence(
+  hasHistorical: boolean,
+  totalEngagement: number
+): StakeholderInfluenceTrajectory['confidence'] {
+  if (hasHistorical && totalEngagement > 0) return 'high';
+  if (hasHistorical || totalEngagement > 0) return 'medium';
+  return 'low';
+}
+
+/**
  * Compute the influence trajectory for a stakeholder based on their current
  * score, committee engagement, and comparison to historical baseline.
  *
@@ -1238,51 +1352,16 @@ export interface StakeholderInfluenceInput {
 export function computeStakeholderInfluenceTrajectory(
   input: StakeholderInfluenceInput
 ): StakeholderInfluenceTrajectory {
-  const drivingFactors: string[] = [];
   const hasHistorical = typeof input.historicalScore === 'number';
   const scoreDelta = hasHistorical ? input.currentScore - (input.historicalScore as number) : 0;
-
-  if (input.committeeAssignments > 0) {
-    drivingFactors.push(`${input.committeeAssignments} active committee assignment(s)`);
-  }
-  if (input.rapporteurRoles > 0) {
-    drivingFactors.push(`${input.rapporteurRoles} rapporteur role(s)`);
-  }
-  if (input.shadowRapporteurRoles > 0) {
-    drivingFactors.push(`${input.shadowRapporteurRoles} shadow rapporteur role(s)`);
-  }
-  if (hasHistorical) {
-    drivingFactors.push(`Score ${scoreDelta >= 0 ? '+' : ''}${scoreDelta.toFixed(1)} vs baseline`);
-  }
-
-  let trajectory: StakeholderInfluenceTrajectory['trajectory'];
   const totalEngagement = input.committeeAssignments + input.rapporteurRoles + input.shadowRapporteurRoles;
-
-  if (hasHistorical && scoreDelta >= 5 && totalEngagement > 0) {
-    trajectory = 'rising';
-  } else if (hasHistorical && scoreDelta <= -5) {
-    trajectory = 'declining';
-  } else if (!hasHistorical && totalEngagement >= 3) {
-    trajectory = 'rising';
-  } else {
-    trajectory = 'stable';
-  }
-
-  let confidence: StakeholderInfluenceTrajectory['confidence'];
-  if (hasHistorical && totalEngagement > 0) {
-    confidence = 'high';
-  } else if (hasHistorical || totalEngagement > 0) {
-    confidence = 'medium';
-  } else {
-    confidence = 'low';
-  }
 
   return {
     stakeholderId: input.stakeholderId,
     name: input.name,
-    trajectory,
+    trajectory: determineTrajectory(hasHistorical, scoreDelta, totalEngagement),
     currentScore: input.currentScore,
-    confidence,
-    drivingFactors,
+    confidence: determineTrajectoryConfidence(hasHistorical, totalEngagement),
+    drivingFactors: collectDrivingFactors(input, scoreDelta, hasHistorical),
   };
 }

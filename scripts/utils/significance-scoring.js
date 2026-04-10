@@ -264,7 +264,7 @@ export function detectSignificanceTrend(scores) {
     return { direction, averageChange, confidence, dataPoints };
 }
 /**
- * Compute a novelty bonus (0–10) for items appearing for the first time in
+ * Compute a novelty bonus (0 or 5) for items appearing for the first time in
  * a monitoring window.
  *
  * An item is considered novel when its identifier does not appear in the set

@@ -970,3 +970,76 @@ describe('edge cases', () => {
     expect(report.evidenceReferences).toBe(1);
   });
 });
+
+// ─── Tests for new scoring dimensions ─────────────────────────────────────────
+
+import {
+  scoreTemporalCoverage,
+  scoreCrossReferenceDensity,
+} from '../../scripts/utils/article-quality-scorer.js';
+
+describe('scoreTemporalCoverage', () => {
+  it('should return score=0 for empty text', () => {
+    const result = scoreTemporalCoverage('');
+    expect(result.score).toBe(0);
+    expect(result.pastContextPresent).toBe(false);
+    expect(result.currentStatePresent).toBe(false);
+    expect(result.forwardOutlookPresent).toBe(false);
+  });
+
+  it('should detect past context keywords', () => {
+    const result = scoreTemporalCoverage('historically, the parliament has changed', true);
+    expect(result.pastContextPresent).toBe(true);
+  });
+
+  it('should detect current state keywords', () => {
+    const result = scoreTemporalCoverage('currently, the proposal is being debated', true);
+    expect(result.currentStatePresent).toBe(true);
+  });
+
+  it('should detect forward outlook keywords', () => {
+    const result = scoreTemporalCoverage('the forecast shows continued growth', true);
+    expect(result.forwardOutlookPresent).toBe(true);
+  });
+
+  it('should score 100 when all three temporal dimensions are present', () => {
+    const text = 'historically the EU has; currently debating; forecast for next quarter';
+    const result = scoreTemporalCoverage(text, true);
+    expect(result.score).toBeGreaterThanOrEqual(99);
+  });
+
+  it('should not false-match "will" inside "William"', () => {
+    const result = scoreTemporalCoverage('William presented the report', true);
+    expect(result.forwardOutlookPresent).toBe(false);
+  });
+});
+
+describe('scoreCrossReferenceDensity', () => {
+  it('should return score=0 for HTML with no references', () => {
+    const result = scoreCrossReferenceDensity('<main>No references</main>');
+    expect(result.totalReferences).toBe(0);
+    expect(result.score).toBe(0);
+  });
+
+  it('should count TA-number references', () => {
+    const result = scoreCrossReferenceDensity('<main>TA-10-2026-0001 and TA-10-2026-0002</main>');
+    expect(result.taNumbers).toBeGreaterThanOrEqual(2);
+  });
+
+  it('should count procedure references', () => {
+    const result = scoreCrossReferenceDensity('<main>2024/0001(COD) and 2023/0456(NLE)</main>');
+    expect(result.procedureReferences).toBe(2);
+  });
+
+  it('should include taNumbers in totalReferences', () => {
+    const result = scoreCrossReferenceDensity('<main>TA-10-2026-0001</main>');
+    expect(result.totalReferences).toBeGreaterThanOrEqual(result.taNumbers);
+    expect(result.totalReferences).toBeGreaterThan(0);
+  });
+
+  it('should not count references inside script blocks', () => {
+    const html = '<script>{"ref": "TA-10-2026-0099"}</script><main>No refs</main>';
+    const result = scoreCrossReferenceDensity(html);
+    expect(result.totalReferences).toBe(0);
+  });
+});

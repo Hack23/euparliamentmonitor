@@ -941,3 +941,108 @@ describe('createRiskDriver', () => {
     }
   });
 });
+
+// ─── Tests for new risk dynamics helpers ──────────────────────────────────────
+
+import {
+  computeRiskInterconnection,
+  computeRiskVelocity,
+  compareRiskHistorical,
+} from '../../scripts/utils/political-risk-assessment.js';
+
+describe('computeRiskInterconnection', () => {
+  it('should return isolated for a single risk', () => {
+    const result = computeRiskInterconnection([
+      { riskId: 'R1', category: 'shift', numericScore: 5 },
+    ]);
+    expect(result.assessment).toBe('isolated');
+    expect(result.cascadingPairs).toHaveLength(0);
+  });
+
+  it('should compute cascade pairs for multiple risks', () => {
+    const result = computeRiskInterconnection([
+      { riskId: 'R1', category: 'shift', numericScore: 8 },
+      { riskId: 'R2', category: 'shift', numericScore: 7 },
+      { riskId: 'R3', category: 'delay', numericScore: 3 },
+    ]);
+    expect(result.riskCount).toBe(3);
+    expect(result.cascadingPairs.length).toBe(3);
+  });
+
+  it('should score same-category pairs higher than cross-category', () => {
+    const result = computeRiskInterconnection([
+      { riskId: 'R1', category: 'shift', numericScore: 8 },
+      { riskId: 'R2', category: 'shift', numericScore: 8 },
+      { riskId: 'R3', category: 'delay', numericScore: 8 },
+    ]);
+    const sameCat = result.cascadingPairs.find((p) => p.riskAId === 'R1' && p.riskBId === 'R2');
+    const crossCat = result.cascadingPairs.find((p) => p.riskAId === 'R1' && p.riskBId === 'R3');
+    expect(sameCat.cascadeScore).toBeGreaterThan(crossCat.cascadeScore);
+  });
+
+  it('should return empty for empty input', () => {
+    const result = computeRiskInterconnection([]);
+    expect(result.riskCount).toBe(0);
+    expect(result.assessment).toBe('isolated');
+  });
+});
+
+describe('computeRiskVelocity', () => {
+  it('should detect rapidly-escalating for delta > 1.5', () => {
+    const result = computeRiskVelocity('R1', 3.0, 5.0);
+    expect(result.assessment).toBe('rapidly-escalating');
+    expect(result.levelChange).toBe('escalating');
+  });
+
+  it('should detect escalating for delta in (0.5, 1.5]', () => {
+    const result = computeRiskVelocity('R1', 3.0, 4.0);
+    expect(result.assessment).toBe('escalating');
+  });
+
+  it('should detect stable for small delta', () => {
+    const result = computeRiskVelocity('R1', 5.0, 5.2);
+    expect(result.assessment).toBe('stable');
+    expect(result.levelChange).toBe('stable');
+  });
+
+  it('should detect de-escalating for delta in [-1.5, -0.5)', () => {
+    const result = computeRiskVelocity('R1', 5.0, 4.0);
+    expect(result.assessment).toBe('de-escalating');
+    expect(result.levelChange).toBe('de-escalating');
+  });
+
+  it('should detect rapidly-de-escalating for delta < -1.5', () => {
+    const result = computeRiskVelocity('R1', 7.0, 4.0);
+    expect(result.assessment).toBe('rapidly-de-escalating');
+  });
+});
+
+describe('compareRiskHistorical', () => {
+  it('should compute 7-day and 30-day averages', () => {
+    const result = compareRiskHistorical('R1', 6.0, [5.0, 5.0, 5.0], [4.0, 4.0, 4.0]);
+    expect(result.sevenDayAverage).toBe(5.0);
+    expect(result.thirtyDayAverage).toBe(4.0);
+    expect(result.vsSevenDayAverage).toBe('above');
+    expect(result.vsThirtyDayAverage).toBe('above');
+  });
+
+  it('should use current score as default when history is empty', () => {
+    const result = compareRiskHistorical('R1', 5.0, [], []);
+    expect(result.sevenDayAverage).toBe(5.0);
+    expect(result.thirtyDayAverage).toBe(5.0);
+    expect(result.vsSevenDayAverage).toBe('at');
+    expect(result.vsThirtyDayAverage).toBe('at');
+  });
+
+  it('should detect below-average correctly', () => {
+    const result = compareRiskHistorical('R1', 3.0, [5.0, 5.0], [6.0, 6.0]);
+    expect(result.vsSevenDayAverage).toBe('below');
+    expect(result.vsThirtyDayAverage).toBe('below');
+  });
+
+  it('should detect at-average within threshold', () => {
+    const result = compareRiskHistorical('R1', 5.0, [5.05], [4.95]);
+    expect(result.vsSevenDayAverage).toBe('at');
+    expect(result.vsThirtyDayAverage).toBe('at');
+  });
+});

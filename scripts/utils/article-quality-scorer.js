@@ -141,7 +141,9 @@ const TEMPORAL_FORWARD_KEYWORDS = [
     'future',
     'scenario',
     'could',
-    'will',
+    'will be',
+    'will likely',
+    'is expected to',
     'outlook',
     'predict',
 ];
@@ -758,7 +760,7 @@ export function scoreCrossReferenceDensity(html) {
     PROCEDURE_REF_PATTERN.lastIndex = 0;
     const procMatches = htmlNoScripts.match(PROCEDURE_REF_PATTERN) ?? [];
     const procedureReferences = new Set(procMatches).size;
-    const totalReferences = epDocumentIds + procedureReferences;
+    const totalReferences = epDocumentIds + procedureReferences + taNumbers;
     // Score: 10 references = 100 points (same scale as EVIDENCE_MAX)
     const score = clamp100(Math.round((totalReferences / EVIDENCE_MAX) * 100));
     return { epDocumentIds, procedureReferences, taNumbers, totalReferences, score };

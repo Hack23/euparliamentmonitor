@@ -507,3 +507,117 @@ describe('formatBatchMarkdown', () => {
     );
   });
 });
+
+// ─── Tests for new comparative & trend scoring functions ──────────────────────
+
+import {
+  computeComparativeSignificance,
+  detectSignificanceTrend,
+  computeNoveltyBonus,
+} from '../../scripts/utils/significance-scoring.js';
+
+describe('computeComparativeSignificance', () => {
+  const makeScore = (composite) => ({
+    parliamentarySignificance: 5,
+    policyImpact: 5,
+    publicInterest: 5,
+    temporalUrgency: 5,
+    institutionalRelevance: 5,
+    composite,
+    decision: 'publish',
+  });
+
+  it('should rank a single item as rank 1 with percentile 100', () => {
+    const target = makeScore(7.0);
+    const result = computeComparativeSignificance(target, [target]);
+    expect(result.rank).toBe(1);
+    expect(result.total).toBe(1);
+    expect(result.percentile).toBe(100);
+  });
+
+  it('should return rank 1 for the highest composite score', () => {
+    const target = makeScore(9.0);
+    const peers = [makeScore(9.0), makeScore(6.0), makeScore(3.0)];
+    const result = computeComparativeSignificance(target, peers);
+    expect(result.rank).toBe(1);
+    expect(result.aboveAverage).toBe(true);
+  });
+
+  it('should return correct peer average', () => {
+    const target = makeScore(5.0);
+    const peers = [makeScore(5.0), makeScore(3.0), makeScore(7.0)];
+    const result = computeComparativeSignificance(target, peers);
+    expect(result.peerAverage).toBe(5.0);
+  });
+
+  it('should handle empty peers array', () => {
+    const target = makeScore(5.0);
+    const result = computeComparativeSignificance(target, []);
+    expect(result.rank).toBe(1);
+    expect(result.total).toBe(1);
+  });
+
+  it('should compute aboveAverage correctly when below average', () => {
+    const target = makeScore(2.0);
+    const peers = [makeScore(2.0), makeScore(8.0), makeScore(8.0)];
+    const result = computeComparativeSignificance(target, peers);
+    expect(result.aboveAverage).toBe(false);
+  });
+});
+
+describe('detectSignificanceTrend', () => {
+  it('should return stable with low confidence for empty array', () => {
+    const result = detectSignificanceTrend([]);
+    expect(result.direction).toBe('stable');
+    expect(result.confidence).toBe('low');
+    expect(result.dataPoints).toBe(0);
+  });
+
+  it('should return stable with low confidence for single item', () => {
+    const result = detectSignificanceTrend([5.0]);
+    expect(result.direction).toBe('stable');
+    expect(result.confidence).toBe('low');
+    expect(result.dataPoints).toBe(1);
+  });
+
+  it('should detect increasing trend', () => {
+    const result = detectSignificanceTrend([1.0, 2.0, 3.0, 4.0, 5.0]);
+    expect(result.direction).toBe('increasing');
+    expect(result.averageChange).toBeGreaterThan(0);
+    expect(result.confidence).toBe('high');
+  });
+
+  it('should detect decreasing trend', () => {
+    const result = detectSignificanceTrend([5.0, 4.0, 3.0, 2.0, 1.0]);
+    expect(result.direction).toBe('decreasing');
+    expect(result.averageChange).toBeLessThan(0);
+  });
+
+  it('should detect stable trend for flat scores', () => {
+    const result = detectSignificanceTrend([5.0, 5.0, 5.0]);
+    expect(result.direction).toBe('stable');
+    expect(result.averageChange).toBe(0);
+    expect(result.confidence).toBe('medium');
+  });
+
+  it('should assign medium confidence for 3-4 data points', () => {
+    const result = detectSignificanceTrend([1, 2, 3]);
+    expect(result.confidence).toBe('medium');
+  });
+});
+
+describe('computeNoveltyBonus', () => {
+  it('should return 5 for a novel item', () => {
+    const seen = new Set(['item-a', 'item-b']);
+    expect(computeNoveltyBonus('item-c', seen)).toBe(5);
+  });
+
+  it('should return 0 for a previously seen item', () => {
+    const seen = new Set(['item-a', 'item-b']);
+    expect(computeNoveltyBonus('item-a', seen)).toBe(0);
+  });
+
+  it('should return 5 when the seen set is empty', () => {
+    expect(computeNoveltyBonus('item-a', new Set())).toBe(5);
+  });
+});
