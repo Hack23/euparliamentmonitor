@@ -532,16 +532,10 @@ ${analysisLinksHtml}
  * @returns true if the path is safe to interpolate into a URL
  */
 function isSafeAnalysisPath(outputFile) {
-    if (!outputFile || outputFile.length === 0)
+    if (!outputFile || outputFile.length === 0 || outputFile.length > 256)
         return false;
-    // Reject absolute paths, backslashes, consecutive slashes, and path traversal
-    if (/^[/\\]/u.test(outputFile))
-        return false;
-    if (/\.\./u.test(outputFile))
-        return false;
-    if (/\\/u.test(outputFile))
-        return false;
-    if (/\/\//u.test(outputFile))
+    // Reject path traversal, absolute paths, backslashes, and consecutive slashes
+    if (/\.\.|[\\]|^[/]|\/\//u.test(outputFile))
         return false;
     // Only allow safe characters: alphanumeric, hyphens, underscores, dots, forward slashes
     return /^[\da-zA-Z][\da-zA-Z._/-]*$/u.test(outputFile);

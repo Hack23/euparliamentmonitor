@@ -858,6 +858,8 @@ describe('article-template', () => {
           { method: 'bad-traversal', outputFile: '../../../etc/passwd' },
           { method: 'bad-absolute', outputFile: '/etc/secret' },
           { method: 'bad-backslash', outputFile: 'classification\\bad.md' },
+          { method: 'bad-mid-backslash', outputFile: 'valid/path\\injection.md' },
+          { method: 'bad-long', outputFile: 'a'.repeat(300) + '.md' },
         ];
         const html = generateArticleHTML({
           ...defaultOptions,
@@ -870,6 +872,8 @@ describe('article-template', () => {
         expect(html).not.toContain('etc/passwd');
         expect(html).not.toContain('/etc/secret');
         expect(html).not.toContain('classification\\bad.md');
+        expect(html).not.toContain('path\\injection.md');
+        expect(html).not.toContain('a'.repeat(300));
       });
 
       it('should URL-encode path segments in analysis file links', () => {
