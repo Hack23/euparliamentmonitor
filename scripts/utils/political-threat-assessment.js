@@ -1345,7 +1345,7 @@ export function computeThreatCorrelationMatrix(dimensions) {
             const dimA = dimensions[i];
             const dimB = dimensions[j];
             // Look up correlation in upper triangle, then try reverse
-            const score = (THREAT_CORRELATION_MAP[dimA]?.[dimB] ?? THREAT_CORRELATION_MAP[dimB]?.[dimA]) ?? 0;
+            const score = THREAT_CORRELATION_MAP[dimA]?.[dimB] ?? THREAT_CORRELATION_MAP[dimB]?.[dimA] ?? 0;
             if (Math.abs(score) > 0.2) {
                 correlations.push({
                     dimensionA: dimA,

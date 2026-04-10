@@ -1077,8 +1077,16 @@ export function computeRiskInterconnection(
 
   for (let i = 0; i < risks.length; i++) {
     for (let j = i + 1; j < risks.length; j++) {
-      const riskA = risks[i] as { riskId: string; category: PoliticalThreatCategory; numericScore: number };
-      const riskB = risks[j] as { riskId: string; category: PoliticalThreatCategory; numericScore: number };
+      const riskA = risks[i] as {
+        riskId: string;
+        category: PoliticalThreatCategory;
+        numericScore: number;
+      };
+      const riskB = risks[j] as {
+        riskId: string;
+        category: PoliticalThreatCategory;
+        numericScore: number;
+      };
       const avgScore = (riskA.numericScore + riskB.numericScore) / 2;
       const sameCategory = riskA.category === riskB.category;
 
@@ -1087,13 +1095,19 @@ export function computeRiskInterconnection(
         : Math.min(1, 0.2 + (avgScore / 10) * 0.2);
 
       const roundedScore = Math.round(cascadeScore * 100) / 100;
-      cascadingPairs.push({ riskAId: riskA.riskId, riskBId: riskB.riskId, cascadeScore: roundedScore });
+      cascadingPairs.push({
+        riskAId: riskA.riskId,
+        riskBId: riskB.riskId,
+        cascadeScore: roundedScore,
+      });
     }
   }
 
   const interconnectionScore =
     cascadingPairs.length > 0
-      ? Math.round((cascadingPairs.reduce((sum, p) => sum + p.cascadeScore, 0) / cascadingPairs.length) * 100) / 100
+      ? Math.round(
+          (cascadingPairs.reduce((sum, p) => sum + p.cascadeScore, 0) / cascadingPairs.length) * 100
+        ) / 100
       : 0;
 
   let assessment: RiskInterconnection['assessment'];
@@ -1167,18 +1181,32 @@ export function compareRiskHistorical(
 
   const thirtyDayAverage =
     thirtyDayScores.length > 0
-      ? Math.round((thirtyDayScores.reduce((s, v) => s + v, 0) / thirtyDayScores.length) * 100) / 100
+      ? Math.round((thirtyDayScores.reduce((s, v) => s + v, 0) / thirtyDayScores.length) * 100) /
+        100
       : currentScore;
 
   const THRESHOLD = 0.1;
 
   const vsSevenDayAverage: HistoricalRiskComparison['vsSevenDayAverage'] =
-    currentScore > sevenDayAverage + THRESHOLD ? 'above' :
-    currentScore < sevenDayAverage - THRESHOLD ? 'below' : 'at';
+    currentScore > sevenDayAverage + THRESHOLD
+      ? 'above'
+      : currentScore < sevenDayAverage - THRESHOLD
+        ? 'below'
+        : 'at';
 
   const vsThirtyDayAverage: HistoricalRiskComparison['vsThirtyDayAverage'] =
-    currentScore > thirtyDayAverage + THRESHOLD ? 'above' :
-    currentScore < thirtyDayAverage - THRESHOLD ? 'below' : 'at';
+    currentScore > thirtyDayAverage + THRESHOLD
+      ? 'above'
+      : currentScore < thirtyDayAverage - THRESHOLD
+        ? 'below'
+        : 'at';
 
-  return { riskId, currentScore, sevenDayAverage, thirtyDayAverage, vsSevenDayAverage, vsThirtyDayAverage };
+  return {
+    riskId,
+    currentScore,
+    sevenDayAverage,
+    thirtyDayAverage,
+    vsSevenDayAverage,
+    vsThirtyDayAverage,
+  };
 }

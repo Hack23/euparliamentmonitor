@@ -350,7 +350,11 @@ export interface RiskInterconnection {
   /** Aggregate interconnection score (0–1, higher = more interconnected) */
   readonly interconnectionScore: number;
   /** Assessment label reflecting overall systemic risk */
-  readonly assessment: 'isolated' | 'moderate-interconnection' | 'high-interconnection' | 'systemic';
+  readonly assessment:
+    | 'isolated'
+    | 'moderate-interconnection'
+    | 'high-interconnection'
+    | 'systemic';
 }
 
 /**

@@ -201,7 +201,13 @@ export function formatBatchMarkdown(inputs, scores) {
  */
 export function computeComparativeSignificance(target, peers) {
     if (peers.length === 0) {
-        return { rank: 1, total: 1, percentile: 100, aboveAverage: true, peerAverage: target.composite };
+        return {
+            rank: 1,
+            total: 1,
+            percentile: 100,
+            aboveAverage: true,
+            peerAverage: target.composite,
+        };
     }
     const total = peers.length;
     const peerAverage = Math.round((peers.reduce((sum, p) => sum + p.composite, 0) / total) * 100) / 100;

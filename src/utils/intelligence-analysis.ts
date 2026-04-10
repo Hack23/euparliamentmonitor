@@ -1230,8 +1230,7 @@ export function deriveCoalitionShiftSignals(
 ): CoalitionShiftSignal[] {
   if (currentPatterns.length === 0) return [];
 
-  const avgCohesion =
-    currentPatterns.reduce((s, p) => s + p.cohesion, 0) / currentPatterns.length;
+  const avgCohesion = currentPatterns.reduce((s, p) => s + p.cohesion, 0) / currentPatterns.length;
 
   // Classify individual patterns
   const signals: CoalitionShiftSignal[] = [];
@@ -1246,7 +1245,9 @@ export function deriveCoalitionShiftSignals(
 
   // Sort by confidence (high → medium → low)
   const confidenceOrder: Record<string, number> = { high: 3, medium: 2, low: 1 };
-  return signals.sort((a, b) => (confidenceOrder[b.confidence] ?? 0) - (confidenceOrder[a.confidence] ?? 0));
+  return signals.sort(
+    (a, b) => (confidenceOrder[b.confidence] ?? 0) - (confidenceOrder[a.confidence] ?? 0)
+  );
 }
 
 // ─── Stakeholder influence trajectory ────────────────────────────────────────
@@ -1354,7 +1355,8 @@ export function computeStakeholderInfluenceTrajectory(
 ): StakeholderInfluenceTrajectory {
   const hasHistorical = typeof input.historicalScore === 'number';
   const scoreDelta = hasHistorical ? input.currentScore - (input.historicalScore as number) : 0;
-  const totalEngagement = input.committeeAssignments + input.rapporteurRoles + input.shadowRapporteurRoles;
+  const totalEngagement =
+    input.committeeAssignments + input.rapporteurRoles + input.shadowRapporteurRoles;
 
   return {
     stakeholderId: input.stakeholderId,

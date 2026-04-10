@@ -858,7 +858,6 @@ export function scoreCrossReferenceDensity(html: string): CrossReferenceDensityS
   return { epDocumentIds, procedureReferences, taNumbers, totalReferences, score };
 }
 
-
 /**
  * Assess the analytical depth of an article by detecting keyword signals.
  *

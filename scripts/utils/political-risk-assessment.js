@@ -874,7 +874,11 @@ export function computeRiskInterconnection(risks) {
                 ? Math.min(1, 0.6 + (avgScore / 10) * 0.4)
                 : Math.min(1, 0.2 + (avgScore / 10) * 0.2);
             const roundedScore = Math.round(cascadeScore * 100) / 100;
-            cascadingPairs.push({ riskAId: riskA.riskId, riskBId: riskB.riskId, cascadeScore: roundedScore });
+            cascadingPairs.push({
+                riskAId: riskA.riskId,
+                riskBId: riskB.riskId,
+                cascadeScore: roundedScore,
+            });
         }
     }
     const interconnectionScore = cascadingPairs.length > 0
@@ -945,13 +949,27 @@ export function compareRiskHistorical(riskId, currentScore, sevenDayScores, thir
         ? Math.round((sevenDayScores.reduce((s, v) => s + v, 0) / sevenDayScores.length) * 100) / 100
         : currentScore;
     const thirtyDayAverage = thirtyDayScores.length > 0
-        ? Math.round((thirtyDayScores.reduce((s, v) => s + v, 0) / thirtyDayScores.length) * 100) / 100
+        ? Math.round((thirtyDayScores.reduce((s, v) => s + v, 0) / thirtyDayScores.length) * 100) /
+            100
         : currentScore;
     const THRESHOLD = 0.1;
-    const vsSevenDayAverage = currentScore > sevenDayAverage + THRESHOLD ? 'above' :
-        currentScore < sevenDayAverage - THRESHOLD ? 'below' : 'at';
-    const vsThirtyDayAverage = currentScore > thirtyDayAverage + THRESHOLD ? 'above' :
-        currentScore < thirtyDayAverage - THRESHOLD ? 'below' : 'at';
-    return { riskId, currentScore, sevenDayAverage, thirtyDayAverage, vsSevenDayAverage, vsThirtyDayAverage };
+    const vsSevenDayAverage = currentScore > sevenDayAverage + THRESHOLD
+        ? 'above'
+        : currentScore < sevenDayAverage - THRESHOLD
+            ? 'below'
+            : 'at';
+    const vsThirtyDayAverage = currentScore > thirtyDayAverage + THRESHOLD
+        ? 'above'
+        : currentScore < thirtyDayAverage - THRESHOLD
+            ? 'below'
+            : 'at';
+    return {
+        riskId,
+        currentScore,
+        sevenDayAverage,
+        thirtyDayAverage,
+        vsSevenDayAverage,
+        vsThirtyDayAverage,
+    };
 }
 //# sourceMappingURL=political-risk-assessment.js.map

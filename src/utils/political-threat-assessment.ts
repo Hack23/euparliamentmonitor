@@ -1590,12 +1590,12 @@ import type { ThreatCorrelation, EmergingThreat } from '../types/political-threa
  * Structure: MAP[dimA][dimB] — only upper triangle defined; lower triangle mirrors it.
  */
 const THREAT_CORRELATION_MAP: Readonly<Record<string, Readonly<Record<string, number>>>> = {
-  shift:         { transparency: 0.6, reversal: 0.5, institutional: 0.4, delay: 0.3, erosion: 0.7 },
-  transparency:  { reversal: 0.4, institutional: 0.7, delay: 0.3, erosion: 0.8 },
-  reversal:      { institutional: 0.3, delay: 0.4, erosion: 0.5 },
+  shift: { transparency: 0.6, reversal: 0.5, institutional: 0.4, delay: 0.3, erosion: 0.7 },
+  transparency: { reversal: 0.4, institutional: 0.7, delay: 0.3, erosion: 0.8 },
+  reversal: { institutional: 0.3, delay: 0.4, erosion: 0.5 },
   institutional: { delay: 0.6, erosion: 0.7 },
-  delay:         { erosion: 0.4 },
-  erosion:       {},
+  delay: { erosion: 0.4 },
+  erosion: {},
 };
 
 /**
@@ -1611,10 +1611,13 @@ function describeThreatCorrelation(
   dimB: PoliticalThreatCategory,
   score: number
 ): string {
-  if (score > 0.6) return `${dimA} and ${dimB} are strongly mutually reinforcing — escalation in one typically accelerates the other`;
-  if (score > 0.3) return `${dimA} and ${dimB} show moderate positive correlation — they often co-occur`;
+  if (score > 0.6)
+    return `${dimA} and ${dimB} are strongly mutually reinforcing — escalation in one typically accelerates the other`;
+  if (score > 0.3)
+    return `${dimA} and ${dimB} show moderate positive correlation — they often co-occur`;
   if (score > 0) return `${dimA} and ${dimB} have weak positive correlation`;
-  if (score < -0.3) return `${dimA} and ${dimB} are partially counteracting — mitigation of one may reduce the other`;
+  if (score < -0.3)
+    return `${dimA} and ${dimB} are partially counteracting — mitigation of one may reduce the other`;
   return `${dimA} and ${dimB} are largely independent`;
 }
 
@@ -1642,7 +1645,7 @@ export function computeThreatCorrelationMatrix(
 
       // Look up correlation in upper triangle, then try reverse
       const score =
-        (THREAT_CORRELATION_MAP[dimA]?.[dimB] ?? THREAT_CORRELATION_MAP[dimB]?.[dimA]) ?? 0;
+        THREAT_CORRELATION_MAP[dimA]?.[dimB] ?? THREAT_CORRELATION_MAP[dimB]?.[dimA] ?? 0;
 
       if (Math.abs(score) > 0.2) {
         correlations.push({
@@ -1691,7 +1694,11 @@ const IMPACT_LEVEL_ORDER: Readonly<Record<ImpactLevel, number>> = {
  * @returns Array of EmergingThreat objects sorted by escalation rate (rapid first)
  */
 export function detectEmergingThreats(
-  currentThreats: readonly { category: PoliticalThreatCategory; level: ImpactLevel; evidence: readonly string[] }[],
+  currentThreats: readonly {
+    category: PoliticalThreatCategory;
+    level: ImpactLevel;
+    evidence: readonly string[];
+  }[],
   baselineThreats: readonly { category: PoliticalThreatCategory; level: ImpactLevel }[],
   detectionDate?: string
 ): EmergingThreat[] {
@@ -1744,5 +1751,7 @@ export function detectEmergingThreats(
 
   // Sort: rapid first, then moderate, then slow
   const rateOrder: Record<string, number> = { rapid: 3, moderate: 2, slow: 1 };
-  return emerging.sort((a, b) => (rateOrder[b.escalationRate] ?? 0) - (rateOrder[a.escalationRate] ?? 0));
+  return emerging.sort(
+    (a, b) => (rateOrder[b.escalationRate] ?? 0) - (rateOrder[a.escalationRate] ?? 0)
+  );
 }

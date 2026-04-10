@@ -681,9 +681,19 @@ const EP_POLITICAL_GROUPS: ReadonlyArray<string> = [
 
 /** Patterns indicating forward-looking content (temporal coverage validation) */
 const FORWARD_LOOKING_PATTERNS: ReadonlyArray<RegExp> = [
-  /\bforecast\b/iu, /\bprojection\b/iu, /\bexpected\b/iu, /\banticipated\b/iu,
-  /\bupcoming\b/iu, /\bfuture\b/iu, /\bscenario\b/iu, /\bcould\b/iu,
-  /\bwill\b/iu, /\boutlook\b/iu, /\bpredict\b/iu, /\bnext\b/iu, /\bforthcoming\b/iu,
+  /\bforecast\b/iu,
+  /\bprojection\b/iu,
+  /\bexpected\b/iu,
+  /\banticipated\b/iu,
+  /\bupcoming\b/iu,
+  /\bfuture\b/iu,
+  /\bscenario\b/iu,
+  /\bcould\b/iu,
+  /\bwill\b/iu,
+  /\boutlook\b/iu,
+  /\bpredict\b/iu,
+  /\bnext\b/iu,
+  /\bforthcoming\b/iu,
 ];
 
 /**

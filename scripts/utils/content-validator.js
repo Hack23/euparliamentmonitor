@@ -531,9 +531,19 @@ const EP_POLITICAL_GROUPS = [
 ];
 /** Patterns indicating forward-looking content (temporal coverage validation) */
 const FORWARD_LOOKING_PATTERNS = [
-    /\bforecast\b/iu, /\bprojection\b/iu, /\bexpected\b/iu, /\banticipated\b/iu,
-    /\bupcoming\b/iu, /\bfuture\b/iu, /\bscenario\b/iu, /\bcould\b/iu,
-    /\bwill\b/iu, /\boutlook\b/iu, /\bpredict\b/iu, /\bnext\b/iu, /\bforthcoming\b/iu,
+    /\bforecast\b/iu,
+    /\bprojection\b/iu,
+    /\bexpected\b/iu,
+    /\banticipated\b/iu,
+    /\bupcoming\b/iu,
+    /\bfuture\b/iu,
+    /\bscenario\b/iu,
+    /\bcould\b/iu,
+    /\bwill\b/iu,
+    /\boutlook\b/iu,
+    /\bpredict\b/iu,
+    /\bnext\b/iu,
+    /\bforthcoming\b/iu,
 ];
 /**
  * Validate that an article cites a minimum number of EP document references
