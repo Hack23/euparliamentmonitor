@@ -827,7 +827,7 @@ AI agents MUST NOT write custom Python, Ruby, Perl, or ad-hoc scripts during wor
 |-------------|----------------|---------------------|
 | Significance score | Prior 30-day or 90-day score range from `analysis/` folder | State whether current score is above/below/at average; cite highest comparable event |
 | Risk score | Same risk category's 30-day trend from synthesis summaries | State trajectory: rising / stable / declining |
-| Coalition cohesion | Prior session cohesion data from `analyze_voting_patterns` | Report change in percentage points vs. last plenary week |
+| Coalition cohesion | Prior session coalition/group cohesion data from `analyze_coalition_dynamics` or `compare_political_groups` (or aggregated `get_voting_records`) | Report change in percentage points vs. last plenary week |
 | Committee output | Same committee's 90-day output from `analyze_committee_activity` | Compare to committee's quarterly average |
 | Legislative pipeline velocity | `monitor_legislative_pipeline` throughput from prior month | Flag if current throughput is ≥10% above or below prior month |
 
@@ -858,7 +858,7 @@ The AI Act amendment scored 7.8/10 — Priority publication.
 **✅ GOOD (significance anchored to historical comparable):**
 ```markdown
 The AI Act amendment scored 7.8/10 — Priority publication. This is the **highest
-trade-related score since EP10 inauguration** (prior high: 7.6 for Digital Markets Act
+digital/tech-related score since EP10 inauguration** (prior high: 7.6 for Digital Markets Act
 enforcement trigger, SIG-2025-11-14-003). The elevated score reflects the unusual
 cross-group coalition pattern: ECR breaking from PfE on a digital regulation vote
 has occurred only twice in EP10 (roll-call RCV-2026-0298, RCV-2025-0511).

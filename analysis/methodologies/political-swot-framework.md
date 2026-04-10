@@ -170,12 +170,12 @@ Every single SWOT entry — whether in a per-file analysis, daily synthesis, or 
 ### Required SWOT Entry Structure
 
 ```markdown
-| Quadrant | Statement | Evidence | Confidence | Impact | Severity |
-|----------|-----------|----------|:----------:|:------:|:--------:|
-| ✅ S | [Specific, testable strength claim] | [EP ref: P9_TA(2026)0089 / RCV-2026-0342 / MCP tool output] | H/M/L | H/M/L | high/medium/low |
+| Quadrant | Statement | Evidence | Confidence | Impact |
+|----------|-----------|----------|:----------:|:------:|
+| ✅ S | [Specific, testable strength claim] | [EP ref: P9_TA(2026)0089 / RCV-2026-0342 / MCP tool output] | H/M/L | H/M/L |
 ```
 
-**Every field is mandatory.** No entry may omit evidence, confidence, impact, or severity.
+**Every field is mandatory.** No entry may omit evidence, confidence, or impact. This format aligns with the per-quadrant table structure in `analysis/templates/swot-analysis.md`. When a Severity dimension is needed (e.g., in risk-adjacent SWOT entries), append it as inline text within the Statement field: `"[claim] — Severity: high"`.
 
 ### Evidence Citation Minimum Standards
 
@@ -259,6 +259,8 @@ Every **daily SWOT** MUST include at least one Temporal SWOT entry with an expli
 > **Anti-pattern (REJECTED):** A SWOT that describes only the current state without any forward-looking projections. The European Parliament operates on predictable calendar rhythms — plenary weeks, committee deadlines, trilogue rounds — making 90-day projections feasible for most entries.
 
 ---
+
+## 🔀 Advanced Technique 1: Cross-SWOT Interference Analysis
 
 When the EU political landscape involves multiple actors (Grand Coalition, Opposition, kingmaker groups), their SWOT elements don't exist in isolation — they **interfere** with each other, creating amplification effects:
 

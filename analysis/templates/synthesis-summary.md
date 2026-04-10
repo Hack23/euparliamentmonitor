@@ -231,7 +231,7 @@ at MODERATE severity (RCV-2026-0298, 11 defections), and the SWOT threat quadran
 for the first time since EP10 inauguration. This multi-framework convergence elevates confidence 
 from MEDIUM to HIGH that EPP internal tension is a structural development — not an isolated vote.
 Action: Lead with EPP cohesion as primary narrative angle; significance score upgrades from 7.8 
-to 8.3 given multi-framework amplification (per ai-driven-analysis-guide.md Rule 17).
+to 8.3 based on cross-framework convergence and reinforcing signals across the analyses.
 Confidence: HIGH
 ```
 
@@ -433,7 +433,7 @@ flowchart LR
 **Document Control:**
 - **Template Path:** `/analysis/templates/synthesis-summary.md`
 - **Version:** 1.3
-- **What's New in 1.3:** Cross-Method Intelligence Correlation section with integrated intelligence nuggets, framework signal summary, convergence/contradiction assessment
+- **What's New in 1.3:** Cross-Method Intelligence Correlation section with integrated intelligence nuggets, framework signal summary, convergence/contradiction assessment; Cross-Article-Type Intelligence / Rule 18 compliance section
 - **What's New in 1.2:** AI-Generated Article Metadata section (mandatory --title and --description for article generator)
 - **Consumed By:** All news article generator workflows
 - **Classification:** Public

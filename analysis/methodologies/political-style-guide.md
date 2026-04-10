@@ -148,7 +148,7 @@ Every analytical paragraph MUST follow this structure:
 | Claim Type | Required Citation Standard | Example |
 |-----------|---------------------------|---------|
 | Vote count | Roll-call reference (RCV-YYYY-NNNN) + vote breakdown | "Passed 412-156-12 (RCV-2026-0342)" |
-| Percentage | Named data source + time period | "61% EPP-S&D cohesion (EP MCP `analyze_voting_patterns`, group=EPP+SD, 2026-Q1)" |
+| Percentage | Named data source + time period | "61% EPP-S&D cohesion (EP MCP `analyze_coalition_dynamics`, groups=EPP+S&D, 2026-Q1)" |
 | Seat count | Parliamentary term reference | "EPP holds 188 of 720 seats (EP10, elected June 2024)" |
 | Procedure status | Procedure ID + current stage | "2024/0001(COD) in trilogue since 2026-01-15 (`track_legislation`)" |
 | Historical comparison | Prior EP MCP data point or EP document | "Highest since October 2024 (SIG-2024-10-14-002: 8.1/10)" |
