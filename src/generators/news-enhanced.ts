@@ -547,7 +547,7 @@ function wireAIMetadata(): void {
  * @param analysisDir - Resolved analysis directory basename (may include suffix)
  * @returns Validated dedup suffix string (empty when no suffix applies)
  */
-function computeDedupSuffix(articleTypes: readonly string[], analysisDir?: string): string {
+export function computeDedupSuffix(articleTypes: readonly string[], analysisDir?: string): string {
   const baseSlugNoRun = deriveArticleTypeSlug(
     articleTypes.filter((t): t is ArticleCategory =>
       VALID_ARTICLE_CATEGORIES.includes(t as ArticleCategory)
@@ -558,17 +558,16 @@ function computeDedupSuffix(articleTypes: readonly string[], analysisDir?: strin
       ? analysisDir.slice(baseSlugNoRun.length)
       : '';
   // Suffix validation patterns for dedup suffix extraction.
-  // -run6, -run12           → run-id only
-  // -2, -3, -a1b2c3d4      → dedup only (numeric or UUID-fragment)
-  // -run6-2, -run12-a1b2    → combined run-id + dedup
-  const RUN_ID_SUFFIX = /^-run\d{1,10}$/u;
+  // Run IDs are sanitized to alphanumeric + hyphen, so preserve the same
+  // character class here to avoid dropping custom run scopes such as
+  // `-runabc-1` or `-runrelease-candidate`.
+  // -run6, -runabc-1              → run-id only
+  // -2, -3, -a1b2c3d4             → dedup only (numeric or UUID-fragment)
+  // -run6-2, -runabc-1-a1b2c3d4   → combined run-id + dedup
+  const RUN_ID_SUFFIX = /^-run[a-z0-9-]{1,64}$/iu;
   const DEDUP_SUFFIX = /^-[\da-f]{1,8}$/iu;
-  const COMBINED_SUFFIX = /^-run\d{1,10}-[\da-f]{1,8}$/iu;
   const isValidSuffix =
-    rawSuffix === '' ||
-    RUN_ID_SUFFIX.test(rawSuffix) ||
-    DEDUP_SUFFIX.test(rawSuffix) ||
-    COMBINED_SUFFIX.test(rawSuffix);
+    rawSuffix === '' || RUN_ID_SUFFIX.test(rawSuffix) || DEDUP_SUFFIX.test(rawSuffix);
   return isValidSuffix ? rawSuffix : '';
 }
 
