@@ -105,6 +105,7 @@ safe-outputs:
     - www.riksdagsmonitor.com
     - euparliamentmonitor.com
     - www.euparliamentmonitor.com
+  max-patch-size: 2560
   create-pull-request:
     title-prefix: "[news] "
   add-comment:
