@@ -85,6 +85,7 @@ export type {
 export type {
   ParsedArticle,
   ArticleSource,
+  RelatedArticleLink,
   ArticleOptions,
   SitemapUrl,
   ArticleMetadataEntry,

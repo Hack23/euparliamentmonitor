@@ -108,7 +108,7 @@ function buildArticleFooterLanguageGrid(currentLang) {
  * @returns Complete HTML document string
  */
 export function generateArticleHTML(options) {
-    const { slug, title, subtitle, date, category, readTime, lang, content, keywords = [], sources = [], stylesHash, availableLanguages, analysisDir, } = options;
+    const { slug, title, subtitle, date, category, readTime, lang, content, keywords = [], sources = [], stylesHash, availableLanguages, analysisDir, relatedArticles = [], } = options;
     const dir = getTextDirection(lang);
     const year = new Date().getFullYear();
     // Format date for display
@@ -151,6 +151,7 @@ export function generateArticleHTML(options) {
         dateModified: date,
         inLanguage: lang,
         articleSection: categoryLabel,
+        timeRequired: `PT${effectiveReadTime}M`,
         author: {
             '@type': 'Organization',
             name: 'EU Parliament Monitor',
@@ -166,6 +167,18 @@ export function generateArticleHTML(options) {
             name: 'European Parliament',
             url: 'https://www.europarl.europa.eu',
         },
+        hasPart: [
+            {
+                '@type': 'WebPageElement',
+                cssSelector: '.deep-analysis',
+                name: 'Deep Political Analysis',
+            },
+            {
+                '@type': 'WebPageElement',
+                cssSelector: '.article-sources',
+                name: 'Sources',
+            },
+        ],
         isBasedOn: sources.length > 0
             ? sources
                 .filter((s) => typeof s.url === 'string' && /^https?:\/\//i.test(s.url))
@@ -181,6 +194,31 @@ export function generateArticleHTML(options) {
             '@id': `${SITE_BASE_URL}/news/${date}-${slug}-${lang}.html`,
         },
     }, null, 4);
+    // BreadcrumbList structured data for SEO
+    const breadcrumbLd = JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+            {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: `${SITE_BASE_URL}/`,
+            },
+            {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'News',
+                item: `${SITE_BASE_URL}/news/`,
+            },
+            {
+                '@type': 'ListItem',
+                position: 3,
+                name: title,
+                item: `${SITE_BASE_URL}/news/${date}-${slug}-${lang}.html`,
+            },
+        ],
+    }, null, 4);
     // Validate and escape stylesHash — only allow valid SRI hash format
     const safeSriAttrs = stylesHash && SRI_HASH_PATTERN.test(stylesHash)
         ? ` integrity="${escapeHTML(stylesHash)}" crossorigin="anonymous"`
@@ -193,6 +231,9 @@ export function generateArticleHTML(options) {
     //   </script>
     const jsonLdScriptContent = `\n  ${jsonLd}\n  `;
     const jsonLdHash = `sha256-${createHash('sha256').update(jsonLdScriptContent).digest('base64')}`;
+    // Compute CSP hash for BreadcrumbList JSON-LD script
+    const breadcrumbLdScriptContent = `\n  ${breadcrumbLd}\n  `;
+    const breadcrumbLdHash = `sha256-${createHash('sha256').update(breadcrumbLdScriptContent).digest('base64')}`;
     // Reading-progress script hash — content must exactly match the <script> block.
     const readingProgressScript = `\n  (function(){\n    var bar=document.querySelector('.reading-progress');\n    if(!bar)return;\n    bar.style.display='block';\n    var ticking=false;\n    window.addEventListener('scroll',function(){\n      if(!ticking){\n        window.requestAnimationFrame(function(){\n          var h=document.documentElement;\n          var scrollTop=h.scrollTop||document.body.scrollTop;\n          var scrollHeight=h.scrollHeight-h.clientHeight;\n          bar.style.width=scrollHeight>0?((scrollTop/scrollHeight)*100)+'%':'0%';\n          ticking=false;\n        });\n        ticking=true;\n      }\n    },{passive:true});\n  })();\n  `;
     const readingProgressHash = `sha256-${createHash('sha256').update(readingProgressScript).digest('base64')}`;
@@ -200,6 +241,8 @@ export function generateArticleHTML(options) {
     const themeToggleHash = `sha256-${createHash('sha256').update(THEME_TOGGLE_SCRIPT_CONTENT).digest('base64')}`;
     // Localized theme toggle button
     const themeToggleLabel = escapeHTML(getLocalizedString(THEME_TOGGLE_LABELS, lang));
+    // Related articles navigation HTML (optional)
+    const relatedArticlesHtml = buildRelatedArticlesNav(relatedArticles, lang);
     return `<!DOCTYPE html>
 <html lang="${lang}" dir="${dir}">
 <head>

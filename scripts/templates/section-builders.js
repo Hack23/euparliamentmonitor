@@ -3,11 +3,91 @@
 /**
  * @module Templates/SectionBuilders
  * @description Reusable section builder utilities for article template architecture.
- * Provides quality scoring, table of contents generation, and quality badge rendering.
+ * Provides quality scoring, table of contents generation, quality badge rendering,
+ * timeline sections, comparison tables, and key figures bars.
  */
 import { escapeHTML } from '../utils/file-utils.js';
 import { getLocalizedString, TOC_ARIA_LABELS } from '../constants/languages.js';
 import { stripScriptBlocks, stripHtmlTags } from '../utils/html-sanitize.js';
+// ─── Localized heading maps (inline, no new language-constants module needed) ─
+/** Localized headings for buildTimelineSection */
+const TIMELINE_HEADINGS = {
+    en: 'Legislative Timeline',
+    de: 'Legislativer Zeitplan',
+    fr: 'Calendrier législatif',
+    es: 'Cronograma legislativo',
+    nl: 'Wetgevend tijdpad',
+    sv: 'Lagstiftande tidslinje',
+    da: 'Lovgivningstidslinje',
+    no: 'Lovgivningstidslinje',
+    fi: 'Lainsäädäntöaikajana',
+    ar: 'الجدول الزمني التشريعي',
+    he: 'ציר הזמן החקיקתי',
+    ja: '立法タイムライン',
+    ko: '입법 일정',
+    zh: '立法时间轴',
+};
+/** Localized "Before" labels for buildComparisonTable */
+const COMPARISON_BEFORE = {
+    en: 'Before',
+    de: 'Vorher',
+    fr: 'Avant',
+    es: 'Antes',
+    nl: 'Vóór',
+    sv: 'Före',
+    da: 'Før',
+    no: 'Før',
+    fi: 'Ennen',
+    ar: 'قبل',
+    he: 'לפני',
+    ja: '前',
+    ko: '이전',
+    zh: '之前',
+};
+/** Localized "After" labels for buildComparisonTable */
+const COMPARISON_AFTER = {
+    en: 'After',
+    de: 'Nachher',
+    fr: 'Après',
+    es: 'Después',
+    nl: 'Na',
+    sv: 'Efter',
+    da: 'Efter',
+    no: 'Etter',
+    fi: 'Jälkeen',
+    ar: 'بعد',
+    he: 'אחרי',
+    ja: '後',
+    ko: '이후',
+    zh: '之后',
+};
+/** Localized headings for buildKeyFiguresBar */
+const KEY_FIGURES_HEADINGS = {
+    en: 'Key Figures',
+    de: 'Schlüsselzahlen',
+    fr: 'Chiffres clés',
+    es: 'Cifras clave',
+    nl: 'Kerngetallen',
+    sv: 'Nyckeltal',
+    da: 'Nøgletal',
+    no: 'Nøkkeltall',
+    fi: 'Avainluvut',
+    ar: 'الأرقام الرئيسية',
+    he: 'נתונים מרכזיים',
+    ja: '主要数値',
+    ko: '주요 수치',
+    zh: '关键数据',
+};
+/**
+ * Get a localized label from an inline map, falling back to English.
+ *
+ * @param map - Map of language codes to strings
+ * @param lang - Target language code
+ * @returns Localized string or English fallback
+ */
+function getInlineLabel(map, lang) {
+    return map[lang] ?? map['en'] ?? '';
+}
 /**
  * Count occurrences of a regex pattern in a string.
  *
@@ -135,5 +215,126 @@ export function buildQualityScoreBadge(score) {
   <span class="qs-visuals">${score.visualizationCount}</span>
   <span class="qs-evidence">${score.evidenceReferences}</span>
 </div>`;
+}
+// ─── New section builders ────────────────────────────────────────────────────
+/**
+ * Build an HTML timeline section for legislative or procedural events.
+ *
+ * Renders an ordered list of dated events. Each item includes a date badge
+ * and a label. An optional description is included for screen readers when
+ * provided. Empty items array returns an empty string.
+ *
+ * @param items - Ordered list of {@link TimelineItem} events to render.
+ * @param lang - Language code used for the section heading.
+ * @returns HTML string for the timeline `<section>`, or empty string when items is empty.
+ */
+export function buildTimelineSection(items, lang) {
+    if (items.length === 0)
+        return '';
+    const heading = escapeHTML(getInlineLabel(TIMELINE_HEADINGS, lang));
+    const sectionId = 'timeline-section';
+    const listItems = items
+        .map((item) => {
+        const safeDate = escapeHTML(item.date);
+        const safeLabel = escapeHTML(item.label);
+        const descPart = item.description
+            ? `<span class="timeline-description">${escapeHTML(item.description)}</span>`
+            : '';
+        return (`<li class="timeline-item">` +
+            `<span class="timeline-date">${safeDate}</span>` +
+            `<span class="timeline-label">${safeLabel}</span>` +
+            descPart +
+            `</li>`);
+    })
+        .join('\n      ');
+    return `<section class="timeline-section" aria-labelledby="${sectionId}-heading">
+  <h2 id="${sectionId}-heading">${heading}</h2>
+  <ol class="timeline-list" role="list">
+      ${listItems}
+  </ol>
+</section>`;
+}
+/**
+ * Build an HTML before/after comparison table for legislative changes.
+ *
+ * Renders a two-column table comparing the state of something before and after
+ * a legislative action. Both columns must have equal row counts. Returns an
+ * empty string when either array is empty.
+ *
+ * @param before - Array of "before" state descriptions (one per row).
+ * @param after - Array of "after" state descriptions (one per row).
+ * @param lang - Language code used for column headings.
+ * @returns HTML string for the comparison `<table>`, or empty string when either array is empty.
+ */
+export function buildComparisonTable(before, after, lang) {
+    if (before.length === 0 || after.length === 0)
+        return '';
+    const beforeLabel = escapeHTML(getInlineLabel(COMPARISON_BEFORE, lang));
+    const afterLabel = escapeHTML(getInlineLabel(COMPARISON_AFTER, lang));
+    const tableId = 'comparison-table';
+    const maxRows = Math.max(before.length, after.length);
+    const rows = Array.from({ length: maxRows }, (_, i) => {
+        const beforeCell = escapeHTML(before[i] ?? '');
+        const afterCell = escapeHTML(after[i] ?? '');
+        return (`<tr>` +
+            `<td class="comparison-before">${beforeCell}</td>` +
+            `<td class="comparison-after">${afterCell}</td>` +
+            `</tr>`);
+    }).join('\n      ');
+    return `<div class="comparison-table-wrapper" role="region" aria-labelledby="${tableId}-caption">
+  <table class="comparison-table">
+    <caption id="${tableId}-caption" class="sr-only">${beforeLabel} / ${afterLabel}</caption>
+    <thead>
+      <tr>
+        <th scope="col">${beforeLabel}</th>
+        <th scope="col">${afterLabel}</th>
+      </tr>
+    </thead>
+    <tbody>
+      ${rows}
+    </tbody>
+  </table>
+</div>`;
+}
+/**
+ * Build an HTML key figures bar for quick-scan numeric highlights.
+ *
+ * Renders a horizontal strip of numeric summary cards. Each card shows a
+ * value (with optional unit), a label, and an optional screen-reader-only
+ * description. Empty figures array returns an empty string.
+ *
+ * @param figures - Array of {@link KeyFigure} items to render.
+ * @param lang - Language code used for the section heading.
+ * @returns HTML string for the key figures `<section>`, or empty string when figures is empty.
+ */
+export function buildKeyFiguresBar(figures, lang) {
+    if (figures.length === 0)
+        return '';
+    const heading = escapeHTML(getInlineLabel(KEY_FIGURES_HEADINGS, lang));
+    const sectionId = 'key-figures-bar';
+    const cards = figures
+        .map((fig) => {
+        const safeLabel = escapeHTML(fig.label);
+        const safeValue = escapeHTML(fig.value);
+        const safeUnit = fig.unit ? escapeHTML(fig.unit) : '';
+        const unitSpan = safeUnit
+            ? ` <span class="kf-unit" aria-hidden="true">${safeUnit}</span>`
+            : '';
+        const descriptionPart = fig.description
+            ? `<span class="sr-only">${escapeHTML(fig.description)}</span>`
+            : '';
+        return (`<div class="key-figure-card" role="figure" aria-label="${safeLabel}: ${safeValue}${safeUnit ? ' ' + safeUnit : ''}">` +
+            `<span class="kf-value">${safeValue}${unitSpan}</span>` +
+            `<span class="kf-label">${safeLabel}</span>` +
+            descriptionPart +
+            `</div>`);
+    })
+        .join('\n      ');
+    return `<section class="key-figures-bar" aria-labelledby="${sectionId}-heading">
+  <h2 id="${sectionId}-heading" class="sr-only">${heading}</h2>
+  <div class="key-figures-grid" role="list">
+      ${cards}
+  </div>
+</section>`;
 }
 //# sourceMappingURL=section-builders.js.map
