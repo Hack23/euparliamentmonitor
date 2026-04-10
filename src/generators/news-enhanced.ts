@@ -174,6 +174,8 @@ const descriptionArg = args.find((arg) => arg.startsWith('--description='));
  * analysis used for that specific article generation run.
  *
  * Falls back to `GITHUB_RUN_NUMBER` env var, then empty string (no suffix).
+ * Sanitised to alphanumeric and hyphens only (supports both numeric run
+ * numbers and custom identifiers passed via `--run-id`).
  */
 export const runId: string = (
   runIdArg?.slice('--run-id='.length).trim() ||
@@ -600,14 +602,18 @@ async function main(): Promise<void> {
       analysisDir !== undefined && analysisDir.startsWith(baseSlugNoRun)
         ? analysisDir.slice(baseSlugNoRun.length)
         : '';
-    // Accept run-id suffixes (-run6, -run12), dedup suffixes (-2, -3),
-    // combined (-run6-2), or UUID-based (-a1b2c3d4).
-    // Validate each part separately to avoid backtracking in combined regex.
+    // Suffix validation patterns for dedup suffix extraction.
+    // -run6, -run12           → run-id only
+    // -2, -3, -a1b2c3d4      → dedup only (numeric or UUID-fragment)
+    // -run6-2, -run12-a1b2    → combined run-id + dedup
+    const RUN_ID_SUFFIX = /^-run\d{1,10}$/u;
+    const DEDUP_SUFFIX = /^-[\da-f]{1,8}$/iu;
+    const COMBINED_SUFFIX = /^-run\d{1,10}-[\da-f]{1,8}$/iu;
     const isValidSuffix =
       rawSuffix === '' ||
-      /^-run\d{1,10}$/u.test(rawSuffix) ||
-      /^-[\da-f]{1,8}$/iu.test(rawSuffix) ||
-      /^-run\d{1,10}-[\da-f]{1,8}$/iu.test(rawSuffix);
+      RUN_ID_SUFFIX.test(rawSuffix) ||
+      DEDUP_SUFFIX.test(rawSuffix) ||
+      COMBINED_SUFFIX.test(rawSuffix);
     const dedupSuffix = isValidSuffix ? rawSuffix : '';
 
     // If --analysis-only, skip article generation
