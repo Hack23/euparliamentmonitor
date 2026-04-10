@@ -105,9 +105,11 @@ safe-outputs:
     - www.riksdagsmonitor.com
     - euparliamentmonitor.com
     - www.euparliamentmonitor.com
-  max-patch-size: 2560
+  max-patch-size: 5120
   create-pull-request:
     title-prefix: "[news] "
+    excluded-files:
+      - "analysis/daily/**/data/**"
   add-comment:
     max: 1
 
@@ -135,11 +137,12 @@ You are the **Translation Agent** for EU Parliament Monitor. Your job is to take
 
 ## 🚫 MANDATORY Scope Restriction
 
-> **⚠️ CRITICAL — READ FIRST**: This workflow ONLY creates translated article files in the `news/` directory. You MUST NOT modify any other files.
+> **⚠️ CRITICAL — READ FIRST**: This workflow ONLY creates translated article files in the `news/` directory and analysis artifacts in the `analysis/daily/` directory. You MUST NOT modify any other files.
 
 **ALLOWED modifications:**
 - ✅ Create new `news/*.html` translation files (non-English only)
 - ✅ Read existing `news/*-en.html` English source articles
+- ✅ Write analysis artifacts to `analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}/`
 
 **FORBIDDEN modifications (will cause patch conflicts and workflow failure):**
 - ❌ `news/*-en.html` — NEVER modify English source articles (read-only)
@@ -272,7 +275,28 @@ Each translated article must score well on these 5 dimensions:
 
 ## MANDATORY MCP Health Gate
 
-Before starting any translation work, verify that the MCP servers required by this workflow are available. The translate workflow relies on `memory` and `sequential-thinking` MCP servers for terminology tracking and complex translation decisions.
+Before starting any translation work, verify that ALL MCP servers required by this workflow are available. The translate workflow uses `european-parliament` MCP for article generation, `memory` for cross-run terminology tracking, and `sequential-thinking` for complex translation decisions.
+
+### EP MCP Health Check (REQUIRED for generation)
+
+1. Call `european_parliament___get_plenary_sessions({ limit: 1 })` — if successful, EP MCP is healthy
+2. If it fails, wait 30 seconds and retry (up to 3 total attempts)
+3. If ALL 3 attempts fail:
+   - Log the warning: "⚠️ EP MCP server unavailable — article generation may skip types that require live data"
+   - Continue with translation (the generator will handle MCP fallback per article type)
+   - Do NOT noop — existing English articles can still be translated even without EP MCP
+
+**Implementation pattern** — execute this check before any other work:
+
+```javascript
+// EP MCP Health Gate — verify European Parliament server availability
+european_parliament___get_plenary_sessions({ limit: 1 })
+// If the call succeeds, EP MCP is healthy — all article types can be generated.
+// If it fails after 3 retries (30s between each), log a warning and continue.
+// The generator handles MCP unavailability per article type.
+```
+
+### Memory MCP Health Check (helpful but not required)
 
 1. Call `memory___read_graph({})` — if successful, the memory MCP server is healthy
 2. If it fails, wait 15 seconds and retry (up to 3 total attempts)
@@ -280,16 +304,14 @@ Before starting any translation work, verify that the MCP servers required by th
    - Log the warning: "⚠️ Memory MCP server unavailable — proceeding without cross-run terminology tracking"
    - Continue with translation (memory is helpful but NOT required for core translation)
 
-**Implementation pattern** — execute this check before any other work:
-
 ```javascript
-// MCP Health Gate — verify memory server availability
+// Memory MCP Health Gate — verify memory server availability
 memory___read_graph({})
 // If the call succeeds, proceed to Date Context Establishment below.
 // If it fails after 3 retries (15s between each), log a warning and continue.
 ```
 
-> **NOTE**: Unlike content workflows, the translate workflow does NOT require the European Parliament MCP server for its core function (translating existing English articles). The EP MCP server is declared in the `mcp-servers:` frontmatter for potential EP terminology cross-reference lookups (e.g., verifying official committee names in target languages), but it is NOT a hard dependency. The workflow should NEVER noop solely because the EP MCP server is unavailable.
+> **NOTE**: Both EP MCP and Memory MCP are declared in `mcp-servers:` and MUST be health-checked. The translate workflow should NEVER noop solely because one MCP server is unavailable — partial results are always better than no results.
 
 ## MANDATORY Date Context Establishment
 
@@ -303,19 +325,23 @@ CURRENT_YEAR=$(date -u +%Y)
 DAY_OF_WEEK=$(date -u +%A)
 START_EPOCH=$(date +%s)
 TRANSLATION_DEADLINE_MIN=65
+RUN_ID="${GITHUB_RUN_NUMBER:-0}"
+ANALYSIS_DIR="analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}"
 echo "Today:        $TODAY ($DAY_OF_WEEK)"
 echo "Article date: $ARTICLE_DATE"
 echo "Year:         $CURRENT_YEAR"
+echo "Run ID:       $RUN_ID"
+echo "Analysis Dir: $ANALYSIS_DIR"
 echo "Start epoch:  $START_EPOCH"
 echo "Deadline:     ${TRANSLATION_DEADLINE_MIN} minutes"
 echo "==================================="
-export TODAY ARTICLE_DATE CURRENT_YEAR DAY_OF_WEEK START_EPOCH TRANSLATION_DEADLINE_MIN
+export TODAY ARTICLE_DATE CURRENT_YEAR DAY_OF_WEEK START_EPOCH TRANSLATION_DEADLINE_MIN RUN_ID ANALYSIS_DIR
 
 # ⚠️ MANDATORY: Create baseline analysis directory and summary BEFORE any noop exits.
 # Per ai-driven-analysis-guide.md Rule 5, no workflow run should be wasted.
 # This ensures even early noop paths (no articles found, all translations exist)
 # produce a committed analysis artifact via an analysis-only PR.
-ANALYSIS_DIR="analysis/${ARTICLE_DATE}/translate"
+mkdir -p "${ANALYSIS_DIR}"
 mkdir -p "${ANALYSIS_DIR}"
 SUMMARY_FILE="${ANALYSIS_DIR}/summary.md"
 if [ ! -f "${SUMMARY_FILE}" ]; then
@@ -410,7 +436,6 @@ if [ -z "$ARTICLE_TYPES" ]; then
   # Per Rule 5: no workflow run wasted — create analysis-only PR with baseline summary
   echo "📊 Creating analysis-only PR with baseline translation analysis for $ARTICLE_DATE"
   # Update the baseline summary with specifics about why no translations were produced
-  ANALYSIS_DIR="analysis/${ARTICLE_DATE}/translate"
   cat >> "${ANALYSIS_DIR}/summary.md" <<EOF
 
 ## Run Outcome — No Articles Found
@@ -462,7 +487,6 @@ if [ -z "$NEEDS_TRANSLATION" ]; then
   # Per Rule 5: no workflow run wasted — create analysis-only PR with baseline summary
   echo "📊 Creating analysis-only PR with baseline translation analysis for $ARTICLE_DATE"
   # Update the baseline summary with specifics about why no new translations were produced
-  ANALYSIS_DIR="analysis/${ARTICLE_DATE}/translate"
   cat >> "${ANALYSIS_DIR}/summary.md" <<EOF
 
 ## Run Outcome — Translations Already Exist
@@ -822,7 +846,7 @@ fi
 
 > **⚠️ MANDATORY**: Per `analysis/methodologies/ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted. The translation workflow MUST produce analysis artifacts documenting translation quality, coverage, and terminology consistency. Each run creates its own unique analysis directory.
 
-Before creating the PR, read ALL methodology documents in `analysis/methodologies/` and produce a translation analysis report in `analysis/${ARTICLE_DATE}/translate/`:
+Before creating the PR, read ALL methodology documents in `analysis/methodologies/` and produce a translation analysis report in `${ANALYSIS_DIR}/`:
 
 **Required analysis content:**
 1. **Translation Coverage Matrix** — Which article types × languages were translated, which were skipped and why
@@ -831,10 +855,15 @@ Before creating the PR, read ALL methodology documents in `analysis/methodologie
 4. **Coverage Gap Analysis** — Languages or article types that could not be translated, with reasons
 5. **Improvement Recommendations** — What could be improved in the next translation run
 
-Write the analysis artifacts to `analysis/${ARTICLE_DATE}/translate/` following the templates in `analysis/templates/`. If previous translation analysis exists for this date, read it first and extend/improve it rather than replacing.
+Write the analysis artifacts to `${ANALYSIS_DIR}/` following the templates in `analysis/templates/`. If previous translation analysis exists for this date, read it first and extend/improve it rather than replacing.
 
 ```bash
-ANALYSIS_DIR="analysis/${ARTICLE_DATE}/translate"
+# Re-initialize ANALYSIS_DIR (env vars do NOT persist across bash blocks)
+if [ -z "${ARTICLE_DATE:-}" ]; then
+  ARTICLE_DATE=$(date -u +%Y-%m-%d)
+fi
+RUN_ID="${GITHUB_RUN_NUMBER:-0}"
+ANALYSIS_DIR="analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}"
 mkdir -p "${ANALYSIS_DIR}"
 echo "📊 Translation analysis directory: ${ANALYSIS_DIR}/"
 
@@ -914,7 +943,8 @@ rm -rf analysis-output/
 if [ -z "${ARTICLE_DATE:-}" ]; then
   ARTICLE_DATE=$(date -u +%Y-%m-%d)
 fi
-TRANSLATE_ANALYSIS_DIR="analysis/${ARTICLE_DATE}/translate"
+RUN_ID="${GITHUB_RUN_NUMBER:-0}"
+TRANSLATE_ANALYSIS_DIR="analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}"
 if [ -d "${TRANSLATE_ANALYSIS_DIR}" ]; then
   find "${TRANSLATE_ANALYSIS_DIR}" -type f -path "*/data/*" ! -name "*.analysis.md" ! -name "*.md" -delete 2>/dev/null || true
   find "${TRANSLATE_ANALYSIS_DIR}" -type d -name "data" -empty -delete 2>/dev/null || true
