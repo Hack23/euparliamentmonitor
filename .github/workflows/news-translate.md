@@ -259,7 +259,16 @@ Before starting any translation work, verify that the MCP servers required by th
    - Log the warning: "⚠️ Memory MCP server unavailable — proceeding without cross-run terminology tracking"
    - Continue with translation (memory is helpful but NOT required for core translation)
 
-> **NOTE**: Unlike content workflows, the translate workflow does NOT require the European Parliament MCP server for its core function (translating existing English articles). The EP MCP server is declared for potential cross-reference lookups but is NOT a hard dependency. The workflow should NEVER noop solely because the EP MCP server is unavailable.
+**Implementation pattern** — execute this check before any other work:
+
+```javascript
+// MCP Health Gate — verify memory server availability
+memory___read_graph({})
+// If the call succeeds, proceed to Date Context Establishment below.
+// If it fails after 3 retries (15s between each), log a warning and continue.
+```
+
+> **NOTE**: Unlike content workflows, the translate workflow does NOT require the European Parliament MCP server for its core function (translating existing English articles). The EP MCP server is declared in the `mcp-servers:` frontmatter for potential EP terminology cross-reference lookups (e.g., verifying official committee names in target languages), but it is NOT a hard dependency. The workflow should NEVER noop solely because the EP MCP server is unavailable.
 
 ## MANDATORY Date Context Establishment
 
