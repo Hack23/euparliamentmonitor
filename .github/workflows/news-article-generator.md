@@ -242,27 +242,28 @@ Call `sequentialthinking` with structured thought chains — each step builds on
 
 ## 🔬 Political Intelligence Analysis Stage
 
-The `--analysis` flag activates the political intelligence analysis pipeline **before** article generation. This stage:
+The `--analysis` flag activates analysis discovery **before** article generation. The `--analysis` flag fetches EP data and then discovers the analysis `.md` files YOU wrote to `${ANALYSIS_DIR}/`. This stage:
 
 1. **Fetches EP feed data** from the MCP server (events, documents, procedures, adopted texts, MEP updates)
-2. **Runs all 18 default analysis methods** across 4 default categories:
-   - **Classification** (4 methods): significance scoring, impact matrix, actor mapping, political forces analysis
-   - **Threat Assessment** (4 methods): political threat landscape model, actor threat profiling, consequence trees, legislative disruption analysis
-   - **Risk Scoring** (5 methods): political risk matrix, capital-at-risk assessment, quantitative SWOT, legislative velocity risk, agent risk workflow
-   - **Intelligence** (5 methods): deep analysis, stakeholder analysis, coalition dynamics, voting patterns, cross-session intelligence
-   - _Optional_: **Per-Document Analysis** (opt-in via `--analysis-methods=document-analysis`) — per-document markdown + JSON intelligence files for every downloaded MCP file; not included in default set
+2. **Discovers existing AI-generated analysis** — scans `${ANALYSIS_DIR}/` for `.md` files created by YOU (the AI agent) during this run across the standard analysis subdirectories:
+   - **Classification**: significance-classification, significance-scoring, actor-mapping, forces-analysis, impact-matrix
+   - **Threat Assessment**: political-threat-landscape, actor-threat-profiling, consequence-trees, legislative-disruption
+   - **Risk Scoring**: risk-matrix, political-capital-risk, quantitative-swot, legislative-velocity-risk, agent-risk-workflow
+   - **Existing/Intelligence**: deep-analysis, stakeholder-impact, coalition-dynamics, voting-patterns, cross-session-intelligence, synthesis-summary
+   - **Documents**: document-analysis-index (per-document intelligence consolidated)
 3. **Writes and commits analysis artifacts** to `${ANALYSIS_DIR}/` (markdown files + `manifest.json`) — each workflow writes to its own per-article-type subdirectory, preventing merge conflicts when multiple workflows run concurrently on the same date; MCP data is stored at `${ANALYSIS_DIR}/data/`
-4. **Blocks article generation on failure in agentic mode** — when `--analysis` is enabled, analysis failures abort the run; disable `--analysis` if you want generation to proceed without analysis
+4. **Verifies analysis completeness** — when `--analysis` is enabled, the discovery stage checks that substantive EP data was fetched and analysis files exist; generation proceeds using the AI-produced analysis artifacts
 
 The analysis artifacts provide structured political intelligence that enriches the article generation phase with deeper context, evidence-based assessments, and systematic threat/risk analysis.
 
 ## 📐 MANDATORY: AI-Driven Analysis Using Methodology Templates
 
-> **⚠️ CRITICAL**: After MCP data is fetched, the AI agent MUST produce **extensive, publication-quality analysis markdown** following the methodology templates in `docs/analysis-methodology/`. The scripted analysis stage provides data preparation — the AI agent performs the actual analytical work.
+> **⚠️ CRITICAL**: After MCP data is fetched, the AI agent MUST produce **extensive, publication-quality analysis markdown** following the methodology templates in `docs/analysis-methodology/`. The `--analysis` flag discovers AI-generated analysis files and links them to the article. YOU (the AI agent) perform ALL the analytical work by writing substantive `.md` files to `${ANALYSIS_DIR}/` subdirectories.
 
 > **⚠️ FULL DATA ANALYSIS**: Analysis MUST be performed for **every file downloaded** from MCP sources — not per session, not per day summary, but for **every individual piece of content**. Read ALL templates and methodologies before starting.
 
 > **⚠️ UNIQUE RUN DIRECTORY**: Each workflow run writes analysis to a unique directory scoped by run number (`${ANALYSIS_DIR}/`). Do NOT read or modify analysis from other runs. This ensures every article links to the exact analysis that produced it and prevents merge conflicts between concurrent or repeated runs.
+> **🔗 CROSS-REFERENCE PRIOR ANALYSIS**: Before writing your analysis, scan `analysis/daily/` for analysis from **prior dates** (up to 7 days back). Read synthesis-summary.md and significance-scoring.md from prior runs to identify ongoing legislative threads, evolving political dynamics, and previously identified risks. Reference these in your analysis for continuity (e.g. "as identified in our 2026-04-09 analysis, the ENVI committee's position on..."). Do NOT modify prior analysis files — only READ them for context. This ensures cross-article intelligence continuity across daily runs.
 
 ### Structured Analysis Templates (analysis/templates/)
 
