@@ -65,6 +65,8 @@
       "tools": ["*"],
       "command": "european-parliament-mcp-server",
       "args": [
+        "-y",
+        "european-parliament-mcp-server@1.2.1",
         "--timeout",
         "90000"
       ],

@@ -487,6 +487,23 @@ export TODAY CURRENT_YEAR CURRENT_MONTH CURRENT_MONTH_NAME CURRENT_DAY DAY_OF_WE
 
 Before generating ANY articles, verify MCP connectivity:
 
+### Step 0: EP API Connectivity Pre-Check (bash)
+
+Run a lightweight HTTP probe **before** the MCP health gate to detect network-level failures (DNS, firewall, EP API outage) instantly without consuming MCP call budget:
+
+```bash
+EP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 "https://data.europarl.europa.eu/api/v2/meps?format=application%2Fld%2Bjson&offset=0&limit=1" 2>/dev/null || true)
+EP_STATUS="${EP_STATUS:-000}"
+echo "EP API connectivity check: HTTP $EP_STATUS"
+if [ "$EP_STATUS" = "000" ] || [ "$EP_STATUS" -ge 500 ] 2>/dev/null; then
+  echo "⚠️ EP API appears DOWN (HTTP $EP_STATUS) — MCP health gate may also fail"
+fi
+```
+
+> **If curl returns 000 (connection failed) or 5xx**: The EP API at `data.europarl.europa.eu` is likely down. The MCP health gate will almost certainly fail too. Proceed with the health gate anyway (it may succeed via cached responses), but be prepared for noop.
+
+### Step 1: MCP Health Gate
+
 1. Call `european_parliament___get_plenary_sessions({ limit: 1 })` — if successful, proceed
 2. If it fails, wait 30 seconds and retry (up to 3 total attempts)
 3. If ALL 3 attempts fail:
@@ -532,6 +549,18 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 
 **If EP MCP server unavailable (3 retries failed):**
 1. `safeoutputs___noop` with descriptive message — legitimate noop
+
+**If ≥3 consecutive feed endpoints return INTERNAL_ERROR (total EP API outage):**
+1. This indicates the entire EP API (`data.europarl.europa.eu`) is down — do NOT continue burning MCP call budget
+2. Call `european_parliament___get_server_health({})` once for diagnostic context
+3. Call `european_parliament___get_all_generated_stats({ category: "all", includePredictions: true })` for precomputed context (static data, no live API needed)
+4. Write a diagnostic analysis file to `${ANALYSIS_DIR}/existing/api-outage-diagnostic.md` with:
+   - The exact error messages from the 3 failed feeds
+   - The `get_server_health` output
+   - The curl connectivity pre-check result (if available from the bash block)
+   - Timestamp and run ID
+5. Create an analysis-only PR with `safeoutputs___create_pull_request` — the diagnostic is valuable for post-mortem
+6. Do NOT noop — the diagnostic analysis PR is the output
 
 **If no significant data found (genuinely empty — only after ALL feeds were queried according to the data-gathering rules):**
 1. Verify ALL feed endpoints were queried once, respecting the "each tool at most once, no retries during data gathering" constraint
