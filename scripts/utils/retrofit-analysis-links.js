@@ -27,6 +27,21 @@ const ANALYSIS_SECTION_REGEX = /<section\s+class="analysis-transparency"/;
 const INJECTION_REGEX = /(\s*<nav\s+class="article-nav")/;
 // ─── Analysis directory resolution ──────────────────────────────────────────
 /**
+ * Parse a directory suffix into a numeric priority.
+ * Exact match (no suffix) = 0, numeric suffix = its value, runN = N+1000.
+ *
+ * @param suffixStr - The suffix string from the regex capture, or undefined
+ * @returns Numeric priority value
+ */
+function parseSuffixPriority(suffixStr) {
+    if (!suffixStr)
+        return 0;
+    if (suffixStr.startsWith('run')) {
+        return parseInt(suffixStr.slice(3), 10) + 1000;
+    }
+    return parseInt(suffixStr, 10);
+}
+/**
  * Find the best matching analysis directory for a given date and article type.
  *
  * Checks for exact match first (e.g. `propositions`), then scans for suffixed
@@ -51,21 +66,12 @@ function findBestAnalysisDir(date, articleType) {
             if (!entry.isDirectory())
                 continue;
             const match = pattern.exec(entry.name);
-            if (match) {
-                // Exact match gets suffix 0, numeric suffix gets its value, runN gets N+1000
-                let suffix = 0;
-                if (match[1]) {
-                    if (match[1].startsWith('run')) {
-                        suffix = parseInt(match[1].slice(3), 10) + 1000;
-                    }
-                    else {
-                        suffix = parseInt(match[1], 10);
-                    }
-                }
-                if (suffix > bestSuffix) {
-                    bestSuffix = suffix;
-                    bestPath = path.join(dateDir, entry.name);
-                }
+            if (!match)
+                continue;
+            const suffix = parseSuffixPriority(match[1]);
+            if (suffix > bestSuffix) {
+                bestSuffix = suffix;
+                bestPath = path.join(dateDir, entry.name);
             }
         }
         return bestPath;
@@ -137,6 +143,59 @@ function retrofitArticle(filePath, date, articleType, lang, analysisDirPath, dry
 }
 // ─── Main execution ─────────────────────────────────────────────────────────
 /**
+ * Log the result of a single article retrofit operation.
+ *
+ * @param result - The retrofit result, or null if skipped
+ * @param filename - Article filename
+ * @param analysisDirName - Analysis directory name
+ * @param dryRun - Whether this is a dry run
+ */
+function logRetrofitResult(result, filename, analysisDirName, dryRun) {
+    if (!result)
+        return;
+    const prefix = dryRun ? '🔍 Would retrofit' : '✅ Retrofitted';
+    console.log(`  ${prefix}: ${filename} → ${analysisDirName} (${result.fileCount} analysis files)`);
+}
+/**
+ * Process a single article group (one date+type with all its language variants).
+ *
+ * @param group - The article group containing date, type, and language variants
+ * @param group.date - Article date
+ * @param group.articleType - Article type slug
+ * @param group.files - Array of filename + language code tuples
+ * @param newsDir - Absolute path to the news directory
+ * @param dryRun - Whether to skip writing changes
+ * @returns Count of retrofitted, skipped, and errored articles
+ */
+function processArticleGroup(group, newsDir, dryRun) {
+    const analysisDirPath = findBestAnalysisDir(group.date, group.articleType);
+    if (!analysisDirPath)
+        return { total: 0, retrofitted: 0, skipped: 0, errors: 0 };
+    const analysisDirName = path.basename(analysisDirPath);
+    let total = 0;
+    let retrofitted = 0;
+    let skipped = 0;
+    let errors = 0;
+    for (const { filename, lang } of group.files) {
+        total++;
+        try {
+            const result = retrofitArticle(path.join(newsDir, filename), group.date, group.articleType, lang, analysisDirPath, dryRun);
+            if (result) {
+                retrofitted++;
+                logRetrofitResult(result, filename, analysisDirName, dryRun);
+            }
+            else {
+                skipped++;
+            }
+        }
+        catch (err) {
+            errors++;
+            console.error(`  ❌ Error processing ${filename}: ${err instanceof Error ? err.message : String(err)}`);
+        }
+    }
+    return { total, retrofitted, skipped, errors };
+}
+/**
  * Retrofit all articles that have matching analysis directories.
  *
  * @param dryRun - If true, report what would be changed without writing
@@ -149,10 +208,7 @@ export function retrofitAllArticles(dryRun = false) {
         return { total: 0, retrofitted: 0, skipped: 0, errors: 0 };
     }
     const files = fs.readdirSync(newsDir).filter((f) => f.endsWith('.html'));
-    let total = 0;
-    let retrofitted = 0;
-    let skipped = 0;
-    let errors = 0;
+    const counts = { total: 0, retrofitted: 0, skipped: 0, errors: 0 };
     // Group by date+type to avoid redundant analysis dir lookups
     const articleGroups = new Map();
     for (const filename of files) {
@@ -173,35 +229,13 @@ export function retrofitAllArticles(dryRun = false) {
         }
     }
     for (const [, group] of articleGroups) {
-        const analysisDirPath = findBestAnalysisDir(group.date, group.articleType);
-        if (!analysisDirPath)
-            continue;
-        const analysisDirName = path.basename(analysisDirPath);
-        for (const { filename, lang } of group.files) {
-            total++;
-            const filePath = path.join(newsDir, filename);
-            try {
-                const result = retrofitArticle(filePath, group.date, group.articleType, lang, analysisDirPath, dryRun);
-                if (result) {
-                    retrofitted++;
-                    if (dryRun) {
-                        console.log(`  🔍 Would retrofit: ${filename} → ${analysisDirName} (${result.fileCount} analysis files)`);
-                    }
-                    else {
-                        console.log(`  ✅ Retrofitted: ${filename} → ${analysisDirName} (${result.fileCount} analysis files)`);
-                    }
-                }
-                else {
-                    skipped++;
-                }
-            }
-            catch (err) {
-                errors++;
-                console.error(`  ❌ Error processing ${filename}: ${err instanceof Error ? err.message : String(err)}`);
-            }
-        }
+        const groupResult = processArticleGroup(group, newsDir, dryRun);
+        counts.total += groupResult.total;
+        counts.retrofitted += groupResult.retrofitted;
+        counts.skipped += groupResult.skipped;
+        counts.errors += groupResult.errors;
     }
-    return { total, retrofitted, skipped, errors };
+    return counts;
 }
 // ─── CLI entry point ────────────────────────────────────────────────────────
 const isDryRun = process.argv.includes('--dry-run');
