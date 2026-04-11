@@ -43,16 +43,16 @@ const SERVER_HEALTH_FALLBACK = '{"server": null, "feeds": []}';
  */
 function classifyToolError(message) {
     const lowerMsg = message.toLowerCase();
-    // EP MCP Server v1.2.1 structured error codes
-    if (lowerMsg.includes('internal_error') || lowerMsg.includes('"errorcode":"internal_error"')) {
+    // EP MCP Server v1.2.1 structured error codes (matched case-insensitively)
+    if (lowerMsg.includes('internal_error')) {
         return 'INTERNAL_ERROR';
     }
     if (lowerMsg.includes('upstream_500') ||
         lowerMsg.includes('upstream_503') ||
-        lowerMsg.includes('"errorcategory":"server_error"')) {
+        lowerMsg.includes('server_error')) {
         return 'SERVER_ERROR';
     }
-    if (lowerMsg.includes('upstream_timeout') || lowerMsg.includes('"errorcategory":"timeout"')) {
+    if (lowerMsg.includes('upstream_timeout')) {
         return 'TIMEOUT';
     }
     if (lowerMsg.includes('gateway timeout') ||
@@ -84,6 +84,20 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
     /** Tracks tools that have been called (attempted) in the current session */
     _calledTools = new Set();
     /**
+     * Record a tool failure and log a warning.
+     *
+     * @param toolName - MCP tool name that failed
+     * @param errorText - Raw error text from the failure
+     * @param fallbackText - JSON text for the fallback result
+     * @returns Fallback MCPToolResult
+     */
+    _recordToolFailure(toolName, errorText, fallbackText) {
+        const errorType = classifyToolError(errorText);
+        this._failedTools.set(toolName, `${errorType}: ${errorText.slice(0, 200)}`);
+        console.warn(`⚠️ ${toolName} failed [${errorType}]:`, errorText.slice(0, 200));
+        return { content: [{ type: 'text', text: fallbackText }] };
+    }
+    /**
      * Generic error-safe wrapper around {@link callToolWithRetry}.
      * Retries transient failures (timeouts, connection drops) with a bounded
      * back-off delay before falling back. Non-retriable errors (session expiry,
@@ -113,11 +127,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
             // The server may return isError: true with JSON content containing errorCode
             // (e.g., INTERNAL_ERROR, UPSTREAM_500) instead of throwing an exception.
             if (result.isError === true) {
-                const text = result.content?.[0]?.text ?? '';
-                const errorType = classifyToolError(text);
-                this._failedTools.set(toolName, `${errorType}: ${text.slice(0, 200)}`);
-                console.warn(`⚠️ ${toolName} returned error result [${errorType}]:`, text.slice(0, 200));
-                return { content: [{ type: 'text', text: fallbackText }] };
+                return this._recordToolFailure(toolName, result.content?.[0]?.text ?? '', fallbackText);
             }
             // Clear from failed tools on success
             this._failedTools.delete(toolName);
@@ -125,10 +135,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
         }
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);
-            const errorType = classifyToolError(message);
-            this._failedTools.set(toolName, `${errorType}: ${message}`);
-            console.warn(`⚠️ ${toolName} failed [${errorType}]:`, message);
-            return { content: [{ type: 'text', text: fallbackText }] };
+            return this._recordToolFailure(toolName, message, fallbackText);
         }
     }
     /**
