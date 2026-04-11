@@ -744,6 +744,8 @@ fi
 if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
   if [ ! -f "node_modules/.bin/european-parliament-mcp-server" ]; then
     npm install --no-save european-parliament-mcp-server@1.2.1
+      - --timeout
+      - "90000"
   fi
 fi
 
