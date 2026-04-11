@@ -30,6 +30,10 @@ const ANALYSIS_BASE_DIR = 'analysis/daily';
 /** Regex to detect analysis transparency section already present */
 const ANALYSIS_SECTION_REGEX = /<section\s+class="analysis-transparency"/;
 
+/** Regex to match the full analysis transparency section for replacement */
+const ANALYSIS_SECTION_FULL_REGEX =
+  /\s*<section\s+class="analysis-transparency"[\s\S]*?<\/section>/;
+
 /** Injection point — insert the analysis section just before the article-nav */
 const INJECTION_REGEX = /(\s*<nav\s+class="article-nav")/;
 
@@ -129,6 +133,7 @@ interface RetrofitResult {
  * @param lang - Language code
  * @param analysisDirPath - Absolute path to the analysis directory
  * @param dryRun - If true, don't write changes
+ * @param force - If true, replace existing analysis sections
  * @returns Retrofit result or null if no changes needed
  */
 function retrofitArticle(
@@ -137,12 +142,20 @@ function retrofitArticle(
   articleType: string,
   lang: LanguageCode,
   analysisDirPath: string,
-  dryRun: boolean
+  dryRun: boolean,
+  force: boolean
 ): RetrofitResult | null {
-  const html = fs.readFileSync(filePath, 'utf-8');
+  let html = fs.readFileSync(filePath, 'utf-8');
 
-  // Skip if already has analysis section
-  if (ANALYSIS_SECTION_REGEX.test(html)) return null;
+  const hasExisting = ANALYSIS_SECTION_REGEX.test(html);
+
+  // Skip if already has analysis section (unless force mode)
+  if (hasExisting && !force) return null;
+
+  // In force mode, remove existing section before re-injecting
+  if (hasExisting && force) {
+    html = html.replace(ANALYSIS_SECTION_FULL_REGEX, '');
+  }
 
   // Find the injection point
   const injectionMatch = INJECTION_REGEX.exec(html);
@@ -214,12 +227,18 @@ function logRetrofitResult(
  * @param group.files - Array of filename + language code tuples
  * @param newsDir - Absolute path to the news directory
  * @param dryRun - Whether to skip writing changes
+ * @param force - Whether to replace existing analysis sections
  * @returns Count of retrofitted, skipped, and errored articles
  */
 function processArticleGroup(
-  group: { date: string; articleType: string; files: Array<{ filename: string; lang: LanguageCode }> },
+  group: {
+    date: string;
+    articleType: string;
+    files: Array<{ filename: string; lang: LanguageCode }>;
+  },
   newsDir: string,
-  dryRun: boolean
+  dryRun: boolean,
+  force: boolean
 ): { total: number; retrofitted: number; skipped: number; errors: number } {
   const analysisDirPath = findBestAnalysisDir(group.date, group.articleType);
   if (!analysisDirPath) return { total: 0, retrofitted: 0, skipped: 0, errors: 0 };
@@ -239,7 +258,8 @@ function processArticleGroup(
         group.articleType,
         lang,
         analysisDirPath,
-        dryRun
+        dryRun,
+        force
       );
       if (result) {
         retrofitted++;
@@ -249,7 +269,9 @@ function processArticleGroup(
       }
     } catch (err) {
       errors++;
-      console.error(`  ❌ Error processing ${filename}: ${err instanceof Error ? err.message : String(err)}`);
+      console.error(
+        `  ❌ Error processing ${filename}: ${err instanceof Error ? err.message : String(err)}`
+      );
     }
   }
 
@@ -260,9 +282,13 @@ function processArticleGroup(
  * Retrofit all articles that have matching analysis directories.
  *
  * @param dryRun - If true, report what would be changed without writing
+ * @param force - If true, replace existing analysis sections
  * @returns Summary statistics
  */
-export function retrofitAllArticles(dryRun: boolean = false): {
+export function retrofitAllArticles(
+  dryRun: boolean = false,
+  force: boolean = false
+): {
   total: number;
   retrofitted: number;
   skipped: number;
@@ -278,7 +304,10 @@ export function retrofitAllArticles(dryRun: boolean = false): {
   const counts = { total: 0, retrofitted: 0, skipped: 0, errors: 0 };
 
   // Group by date+type to avoid redundant analysis dir lookups
-  const articleGroups = new Map<string, { date: string; articleType: string; files: Array<{ filename: string; lang: LanguageCode }> }>();
+  const articleGroups = new Map<
+    string,
+    { date: string; articleType: string; files: Array<{ filename: string; lang: LanguageCode }> }
+  >();
 
   for (const filename of files) {
     const parsed = parseArticleComponents(filename);
@@ -298,7 +327,7 @@ export function retrofitAllArticles(dryRun: boolean = false): {
   }
 
   for (const [, group] of articleGroups) {
-    const groupResult = processArticleGroup(group, newsDir, dryRun);
+    const groupResult = processArticleGroup(group, newsDir, dryRun, force);
     counts.total += groupResult.total;
     counts.retrofitted += groupResult.retrofitted;
     counts.skipped += groupResult.skipped;
@@ -311,13 +340,16 @@ export function retrofitAllArticles(dryRun: boolean = false): {
 // ─── CLI entry point ────────────────────────────────────────────────────────
 
 const isDryRun = process.argv.includes('--dry-run');
+const isForce = process.argv.includes('--force');
 
 console.log('');
 console.log('🔗 Analysis Transparency Retrofit Tool');
-console.log(`   Mode: ${isDryRun ? 'DRY RUN (no files will be modified)' : 'LIVE (files will be modified)'}`);
+console.log(
+  `   Mode: ${isDryRun ? 'DRY RUN (no files will be modified)' : 'LIVE (files will be modified)'}${isForce ? ' [FORCE: replacing existing sections]' : ''}`
+);
 console.log('');
 
-const result = retrofitAllArticles(isDryRun);
+const result = retrofitAllArticles(isDryRun, isForce);
 
 console.log('');
 console.log('📊 Summary:');

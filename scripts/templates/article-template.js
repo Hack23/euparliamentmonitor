@@ -781,7 +781,7 @@ function renderFallbackAnalysisLinks(analysisFileBase, lang) {
           <li><a href="${analysisFileBase}/existing/coalition-dynamics.md" target="_blank" rel="noopener noreferrer">${coalitionLabel}</a></li>
           <li><a href="${analysisFileBase}/existing/voting-patterns.md" target="_blank" rel="noopener noreferrer">${votingPatternsLabel}</a></li>
           <li><a href="${analysisFileBase}/existing/cross-session-intelligence.md" target="_blank" rel="noopener noreferrer">${crossSessionLabel}</a></li>
-          <li><a href="${analysisFileBase}/existing/synthesis-summary.md" target="_blank" rel="noopener noreferrer">${synthesisSummaryLabel}</a></li>
+          <li><a href="${analysisFileBase}/synthesis-summary.md" target="_blank" rel="noopener noreferrer">${synthesisSummaryLabel}</a></li>
         </ul>
         <h3><span aria-hidden="true">📄</span> ${documentLabel}</h3>
         <ul>

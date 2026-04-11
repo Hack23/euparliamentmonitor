@@ -475,6 +475,32 @@ const DISCOVERY_SUBDIRS = [
     'intelligence',
 ];
 /**
+ * Maps canonical analysis filenames (without `.md`) to their canonical
+ * analysis method IDs used by `METHOD_LABEL_MAP` in `article-template.ts`.
+ *
+ * Per `analysis/README.md`, some canonical filenames differ from the method
+ * identifier (e.g. the `stakeholder-analysis` method produces
+ * `stakeholder-impact.md`). This mapping ensures localized labels render
+ * correctly in the analysis transparency section.
+ */
+const FILENAME_TO_METHOD = {
+    'stakeholder-impact': 'stakeholder-analysis',
+    'coalition-dynamics': 'coalition-analysis',
+    'document-analysis-index': 'document-analysis',
+};
+/**
+ * Resolve the canonical analysis method ID for a given filename (without `.md`).
+ *
+ * Uses the {@link FILENAME_TO_METHOD} mapping for known mismatches; falls back
+ * to the filename itself when no mapping exists.
+ *
+ * @param baseName - Filename without extension (e.g. `stakeholder-impact`)
+ * @returns Canonical method ID (e.g. `stakeholder-analysis`)
+ */
+function resolveCanonicalMethod(baseName) {
+    return FILENAME_TO_METHOD[baseName] ?? baseName;
+}
+/**
  * Discover analysis file entries by scanning the analysis directory on disk.
  *
  * Scans known subdirectories plus root-level `.md` files to produce a
@@ -515,8 +541,9 @@ function scanSubdirectory(subdirPath, subdir, entries) {
         for (const file of files) {
             if (!file.endsWith('.md'))
                 continue;
+            const baseName = file.replace(/\.md$/u, '');
             entries.push({
-                method: file.replace(/\.md$/u, ''),
+                method: resolveCanonicalMethod(baseName),
                 outputFile: `${subdir}/${file}`,
             });
         }
@@ -540,8 +567,9 @@ function scanRootMarkdownFiles(dirPath, entries) {
             const filePath = path.join(dirPath, file);
             if (!fs.statSync(filePath).isFile())
                 continue;
+            const baseName = file.replace(/\.md$/u, '');
             entries.push({
-                method: file.replace(/\.md$/u, ''),
+                method: resolveCanonicalMethod(baseName),
                 outputFile: file,
             });
         }

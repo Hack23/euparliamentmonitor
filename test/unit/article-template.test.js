@@ -1118,7 +1118,8 @@ describe('article-template', () => {
         expect(html).toContain('threat-assessment/political-threat-landscape.md');
         expect(html).toContain('risk-scoring/risk-matrix.md');
         expect(html).toContain('existing/deep-analysis.md');
-        expect(html).toContain('existing/synthesis-summary.md');
+        expect(html).toContain('/synthesis-summary.md');
+        expect(html).not.toContain('existing/synthesis-summary.md');
         expect(html).toContain('documents/document-analysis-index.md');
       });
 
@@ -1133,7 +1134,8 @@ describe('article-template', () => {
         expect(html).toContain('classification/significance-classification.md');
         expect(html).toContain('classification/significance-scoring.md');
         expect(html).toContain('existing/deep-analysis.md');
-        expect(html).toContain('existing/synthesis-summary.md');
+        expect(html).toContain('/synthesis-summary.md');
+        expect(html).not.toContain('existing/synthesis-summary.md');
         expect(html).toContain('documents/document-analysis-index.md');
       });
 

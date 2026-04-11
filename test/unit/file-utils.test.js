@@ -532,7 +532,7 @@ describe('utils/file-utils', () => {
       const result = discoverAnalysisFileEntries(analysisDir);
       expect(result).toHaveLength(1);
       expect(result[0]).toEqual({
-        method: 'document-analysis-index',
+        method: 'document-analysis',
         outputFile: 'documents/document-analysis-index.md',
       });
     });
@@ -588,6 +588,42 @@ describe('utils/file-utils', () => {
           outputFile: `${subdir}/test-file.md`,
         });
       }
+    });
+
+    it('should map known filenames to canonical method IDs', async () => {
+      const { discoverAnalysisFileEntries } = await import(
+        '../../scripts/utils/file-utils.js'
+      );
+      const analysisDir = path.join(tempDir, 'analysis-canonical');
+      fs.mkdirSync(path.join(analysisDir, 'existing'), { recursive: true });
+      fs.mkdirSync(path.join(analysisDir, 'documents'), { recursive: true });
+      fs.writeFileSync(
+        path.join(analysisDir, 'existing', 'stakeholder-impact.md'),
+        '# Stakeholder'
+      );
+      fs.writeFileSync(
+        path.join(analysisDir, 'existing', 'coalition-dynamics.md'),
+        '# Coalition'
+      );
+      fs.writeFileSync(
+        path.join(analysisDir, 'documents', 'document-analysis-index.md'),
+        '# Index'
+      );
+
+      const result = discoverAnalysisFileEntries(analysisDir);
+      expect(result).toHaveLength(3);
+      expect(result).toContainEqual({
+        method: 'stakeholder-analysis',
+        outputFile: 'existing/stakeholder-impact.md',
+      });
+      expect(result).toContainEqual({
+        method: 'coalition-analysis',
+        outputFile: 'existing/coalition-dynamics.md',
+      });
+      expect(result).toContainEqual({
+        method: 'document-analysis',
+        outputFile: 'documents/document-analysis-index.md',
+      });
     });
   });
 });
