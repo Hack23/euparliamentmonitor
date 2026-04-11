@@ -48,6 +48,8 @@ mcp-servers:
     args:
       - -y
       - european-parliament-mcp-server@1.2.1
+      - --timeout
+      - "90000"
     env:
       EP_REQUEST_TIMEOUT_MS: "90000"
   memory:
@@ -802,6 +804,8 @@ if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
   else
     echo "⚠️ EP MCP server binary not found, attempting reinstall..."
     npm install --no-save european-parliament-mcp-server@1.2.1
+      - --timeout
+      - "90000"
   fi
 fi
 

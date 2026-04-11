@@ -549,11 +549,19 @@ export class MCPConnection {
       const args: string[] = isJavaScriptFile ? [this.serverPath] : [];
 
       // Ensure EP_REQUEST_TIMEOUT_MS is propagated to the MCP server subprocess.
-      // The EP MCP server defaults to only 10 seconds; we need 90+ seconds for
-      // slow EP API feed endpoints (events, procedures, documents, etc.).
+      // The EP MCP server defaults to only 10 seconds (v1.1.x) or 60 seconds (v1.2.x);
+      // we need 90+ seconds for slow EP API feed endpoints (events, procedures, documents, etc.).
       const childEnv = { ...process.env };
-      if (!childEnv['EP_REQUEST_TIMEOUT_MS']) {
-        childEnv['EP_REQUEST_TIMEOUT_MS'] = String(REQUEST_TIMEOUT_MS);
+      const effectiveTimeoutMs = childEnv['EP_REQUEST_TIMEOUT_MS']
+        ? Number(childEnv['EP_REQUEST_TIMEOUT_MS'])
+        : REQUEST_TIMEOUT_MS;
+      childEnv['EP_REQUEST_TIMEOUT_MS'] = String(effectiveTimeoutMs);
+
+      // Pass --timeout as CLI arg (highest precedence in EP MCP server).
+      // This guarantees the timeout is applied even when the env var is not
+      // read at module load time (e.g. due to import ordering in some versions).
+      if (!isJavaScriptFile) {
+        args.push('--timeout', String(effectiveTimeoutMs));
       }
 
       this.process = spawn(command, args, {
