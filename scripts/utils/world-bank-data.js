@@ -42,14 +42,38 @@ export const EU_AGGREGATE_CODE = 'EUU';
  * These indicators map to common policy areas discussed in EP legislation.
  */
 export const POLICY_INDICATORS = {
+    // Macro-economic (get-economic-data)
     gdp: 'NY.GDP.MKTP.CD',
     gdpGrowth: 'NY.GDP.MKTP.KD.ZG',
+    gdpPerCapita: 'NY.GDP.PCAP.CD',
+    gniPerCapita: 'NY.GNP.PCAP.CD',
     inflation: 'FP.CPI.TOTL.ZG',
     unemployment: 'SL.UEM.TOTL.ZS',
+    exportsGdp: 'NE.EXP.GNFS.ZS',
+    fdiNet: 'BN.KLT.DINV.CD',
+    // Trade & fiscal
     trade: 'NE.TRD.GNFS.ZS',
-    co2Emissions: 'EN.ATM.CO2E.PC',
+    taxRevenue: 'GC.TAX.TOTL.GD.ZS',
+    govExpenditure: 'NE.CON.GOVT.ZS',
+    militaryExpenditure: 'MS.MIL.XPND.GD.ZS',
+    // Social (get-social-data)
     population: 'SP.POP.TOTL',
+    lifeExpectancy: 'SP.DYN.LE00.IN',
+    birthRate: 'SP.DYN.CBRT.IN',
+    deathRate: 'SP.DYN.CDRT.IN',
+    internetUsers: 'IT.NET.USER.ZS',
+    // Health (get-health-data)
+    healthExpenditure: 'SH.XPD.CHEX.GD.ZS',
+    physicians: 'SH.MED.PHYS.ZS',
+    hospitalBeds: 'SH.MED.BEDS.ZS',
+    // Education (get-education-data)
+    educationExpenditure: 'SE.XPD.TOTL.GD.ZS',
+    // Environment & energy
+    co2Emissions: 'EN.ATM.CO2E.PC',
+    renewableEnergy: 'EG.FEC.RNEW.ZS',
+    // Research & innovation
     rdExpenditure: 'GB.XPD.RSDV.GD.ZS',
+    hightechExports: 'TX.VAL.TECH.MF.ZS',
 };
 // ─── CSV Parsing ─────────────────────────────────────────────────────────────
 /** Known CSV header aliases for each World Bank field */

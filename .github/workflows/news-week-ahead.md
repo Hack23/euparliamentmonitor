@@ -622,6 +622,54 @@ EU Parliament API responses commonly take 30+ seconds. To handle this:
 4. Log warnings for failed queries but generate articles with whatever data is available
 
 
+## 🌍 World Bank Economic Context (Optional Enrichment)
+
+When the week ahead covers legislation with economic, trade, employment, defence, or environmental impact, use the `world-bank` MCP server to add macroeconomic context. Refer to `analysis/worldbank/indicator-catalog.md` for the complete indicator reference and `analysis/worldbank/chart-integration-guide.md` for Chart.js integration patterns.
+
+### Available World Bank MCP Tools
+
+| Tool | Key Indicators | When to Use |
+|------|---------------|-------------|
+| `get-economic-data` | GDP, GDP_GROWTH, GDP_PER_CAPITA, GNI_PER_CAPITA, INFLATION, UNEMPLOYMENT, EXPORTS_GDP, FDI_NET | Economic legislation, budget, trade |
+| `get-social-data` | POPULATION, LIFE_EXPECTANCY, BIRTH_RATE, DEATH_RATE, INTERNET_USERS | Demographics, digital policy, social rights |
+| `get-health-data` | HEALTH_EXPENDITURE, PHYSICIANS, HOSPITAL_BEDS, IMMUNIZATION, MALNUTRITION, TUBERCULOSIS | Health policy, pandemic preparedness |
+| `get-education-data` | EDUCATION_EXPENDITURE, SCHOOL_ENROLLMENT, LITERACY_RATE, SCHOOL_COMPLETION | Education, skills agenda |
+| `get-country-info` | Country metadata (region, income, capital) | Country context verification |
+| `get-countries` | Filter by region/income | EU member state listings |
+
+### Key Indicators for Week Ahead
+
+```javascript
+// EU GDP growth trends for economic legislation context (World Bank indicator: NY.GDP.MKTP.KD.ZG)
+world_bank___get_economic_data({ countryCode: "DE", indicator: "GDP_GROWTH", years: 5 })
+
+// Unemployment data for employment-related agenda items (World Bank indicator: SL.UEM.TOTL.ZS)
+world_bank___get_economic_data({ countryCode: "ES", indicator: "UNEMPLOYMENT", years: 5 })
+
+// Military expenditure for defence agenda items — compare against NATO 2% GDP target
+// Tax revenue (GC.TAX.TOTL.GD.ZS) for fiscal governance agenda items
+// Health expenditure for health committee agenda items
+world_bank___get_health_data({ countryCode: "FR", indicator: "HEALTH_EXPENDITURE", years: 5 })
+
+// CO₂ emissions for environmental agenda items (World Bank indicator: EN.ATM.CO2E.PC)
+// Renewable energy for energy policy agenda items (World Bank indicator: EG.FEC.RNEW.ZS)
+```
+
+### Chart Integration for Week Ahead
+
+When including economic data, embed Chart.js visualizations using `buildDashboardSection()`:
+- **Economic outlook**: Line chart with GDP growth + inflation trends (5-year)
+- **Committee-specific**: Bar charts comparing relevant indicators across key member states
+- **Defence items**: Horizontal bar chart with military spending vs NATO 2% target annotation line
+- **Trade items**: Line chart showing trade openness (% of GDP) trends
+
+**Rules**: Use at most 2 World Bank calls per week-ahead workflow run. Only include when specific agenda items have clear economic dimensions. Always note the data year.
+
+### EU Country Codes for World Bank
+
+Key EU member states: DE (Germany), FR (France), IT (Italy), ES (Spain), PL (Poland), NL (Netherlands), RO (Romania), BE (Belgium), SE (Sweden), AT (Austria). EU aggregate: EUU. See `analysis/worldbank/eu-country-mapping.md` for complete EU-27 mapping.
+
+
 ## 📄 EP DOCUMENT ANALYSIS FRAMEWORK (MANDATORY)
 
 For every key EP document featured in the deep-analysis section, provide structured analysis covering (other document references may remain as citations without full framework analysis):

@@ -57,17 +57,41 @@ describe('world-bank-data', () => {
       expect(POLICY_INDICATORS.gdp).toBe('NY.GDP.MKTP.CD');
     });
 
-    it('should contain all 8 policy-relevant indicators', () => {
+    it('should contain all 25 policy-relevant indicators', () => {
       const keys = Object.keys(POLICY_INDICATORS);
-      expect(keys).toHaveLength(8);
+      expect(keys).toHaveLength(25);
+      // Macro-economic
       expect(keys).toContain('gdp');
       expect(keys).toContain('gdpGrowth');
+      expect(keys).toContain('gdpPerCapita');
+      expect(keys).toContain('gniPerCapita');
       expect(keys).toContain('inflation');
       expect(keys).toContain('unemployment');
+      expect(keys).toContain('exportsGdp');
+      expect(keys).toContain('fdiNet');
+      // Trade & fiscal
       expect(keys).toContain('trade');
-      expect(keys).toContain('co2Emissions');
+      expect(keys).toContain('taxRevenue');
+      expect(keys).toContain('govExpenditure');
+      expect(keys).toContain('militaryExpenditure');
+      // Social
       expect(keys).toContain('population');
+      expect(keys).toContain('lifeExpectancy');
+      expect(keys).toContain('birthRate');
+      expect(keys).toContain('deathRate');
+      expect(keys).toContain('internetUsers');
+      // Health
+      expect(keys).toContain('healthExpenditure');
+      expect(keys).toContain('physicians');
+      expect(keys).toContain('hospitalBeds');
+      // Education
+      expect(keys).toContain('educationExpenditure');
+      // Environment
+      expect(keys).toContain('co2Emissions');
+      expect(keys).toContain('renewableEnergy');
+      // Research
       expect(keys).toContain('rdExpenditure');
+      expect(keys).toContain('hightechExports');
     });
   });
 

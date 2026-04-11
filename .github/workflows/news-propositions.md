@@ -671,20 +671,53 @@ Use `timeframe` parameter on feed calls to control recency:
 
 ## 🌍 World Bank Economic Context (Optional Enrichment)
 
-When propositions involve economic, trade, or environmental regulation, use the `world-bank` MCP server to add macroeconomic context:
+When propositions involve economic, trade, defence, employment, or environmental regulation, use the `world-bank` MCP server to add macroeconomic context. Refer to `analysis/worldbank/indicator-catalog.md` for the complete indicator reference and `analysis/worldbank/chart-integration-guide.md` for Chart.js integration patterns.
+
+### Available World Bank MCP Tools
+
+| Tool | Key Indicators | When to Use |
+|------|---------------|-------------|
+| `get-economic-data` | GDP, GDP_GROWTH, GDP_PER_CAPITA, GNI_PER_CAPITA, INFLATION, UNEMPLOYMENT, EXPORTS_GDP, FDI_NET | Economic legislation, budget, trade |
+| `get-social-data` | POPULATION, LIFE_EXPECTANCY, BIRTH_RATE, DEATH_RATE, INTERNET_USERS | Demographics, digital policy, social rights |
+| `get-health-data` | HEALTH_EXPENDITURE, PHYSICIANS, HOSPITAL_BEDS, IMMUNIZATION, MALNUTRITION, TUBERCULOSIS | Health policy, pandemic preparedness |
+| `get-education-data` | EDUCATION_EXPENDITURE, SCHOOL_ENROLLMENT, LITERACY_RATE, SCHOOL_COMPLETION | Education, skills agenda |
+| `get-country-info` | Country metadata (region, income, capital) | Country context verification |
+| `get-countries` | Filter by region/income | EU member state listings |
+
+### Key Indicators for Propositions
 
 ```javascript
-// EU GDP growth for economic legislation context (World Bank indicator: NY.GDP.MKTP.KD.ZG)
-world_bank___get_indicator_for_country({ country_id: "EUU", indicator_id: "NY.GDP.MKTP.KD.ZG", years: 5 })
+// GDP growth for economic legislation context
+world_bank___get_economic_data({ countryCode: "DE", indicator: "GDP_GROWTH", years: 5 })
 
-// Trade data for trade-related proposals (World Bank indicator: NE.EXP.GNFS.ZS)
-world_bank___get_indicator_for_country({ country_id: "EUU", indicator_id: "NE.EXP.GNFS.ZS", years: 5 })
+// Unemployment for employment proposals
+world_bank___get_economic_data({ countryCode: "ES", indicator: "UNEMPLOYMENT", years: 5 })
 
-// Health expenditure for health-related legislation (World Bank indicator: SH.XPD.CHEX.GD.ZS)
-world_bank___get_indicator_for_country({ country_id: "EUU", indicator_id: "SH.XPD.CHEX.GD.ZS", years: 5 })
+// Health expenditure for health-related legislation
+world_bank___get_health_data({ countryCode: "FR", indicator: "HEALTH_EXPENDITURE", years: 5 })
+
+// Additional indicators by proposal domain:
+// - Military expenditure (MS.MIL.XPND.GD.ZS) for defence proposals — use NATO 2% target annotation
+// - Tax revenue (GC.TAX.TOTL.GD.ZS) for fiscal governance proposals
+// - R&D expenditure (GB.XPD.RSDV.GD.ZS) for innovation/industrial proposals
+// - CO₂ emissions (EN.ATM.CO2E.PC) for environmental proposals
+// - Education expenditure (SE.XPD.TOTL.GD.ZS) for education proposals
 ```
 
-**Rules**: Use at most 3 World Bank calls per workflow run. Only include when it directly contextualizes the legislative proposals being analyzed.
+### Chart Integration for Propositions
+
+When including economic data, embed Chart.js visualizations using `buildDashboardSection()`:
+- **Economic proposals**: Line chart with GDP growth/inflation trends for EU + key member states
+- **Defence proposals**: Horizontal bar chart with military spending vs NATO 2% target annotation
+- **Trade proposals**: Line chart showing trade openness trends for affected countries
+- **Environmental proposals**: Dual-axis chart (CO₂ emissions declining, renewable energy rising)
+- **Health proposals**: Bar chart comparing health expenditure across member states
+
+**Rules**: Use at most 3 World Bank calls per workflow run. Only include when it directly contextualizes the legislative proposals being analyzed. Always note the data year.
+
+### EU Country Codes for World Bank
+
+Key EU member states: DE (Germany), FR (France), IT (Italy), ES (Spain), PL (Poland), NL (Netherlands), RO (Romania), BE (Belgium), SE (Sweden), AT (Austria). EU aggregate: EUU. See `analysis/worldbank/eu-country-mapping.md` for complete EU-27 mapping.
 
 
 ## 📄 EP DOCUMENT ANALYSIS FRAMEWORK (MANDATORY)

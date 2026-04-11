@@ -683,6 +683,54 @@ EU Parliament API responses commonly take 30+ seconds. To handle this:
 4. Log warnings for failed queries but generate articles with whatever data is available
 
 
+## 🌍 World Bank Economic Context (Optional Enrichment)
+
+When motions and resolutions address economic, defence, trade, employment, or environmental policy, use the `world-bank` MCP server to add macroeconomic context. Refer to `analysis/worldbank/indicator-catalog.md` for the complete indicator reference and `analysis/worldbank/chart-integration-guide.md` for Chart.js integration patterns.
+
+### Available World Bank MCP Tools
+
+| Tool | Key Indicators | When to Use |
+|------|---------------|-------------|
+| `get-economic-data` | GDP, GDP_GROWTH, GDP_PER_CAPITA, GNI_PER_CAPITA, INFLATION, UNEMPLOYMENT, EXPORTS_GDP, FDI_NET | Economic motions, budget resolutions, trade |
+| `get-social-data` | POPULATION, LIFE_EXPECTANCY, BIRTH_RATE, DEATH_RATE, INTERNET_USERS | Social rights motions, demographics |
+| `get-health-data` | HEALTH_EXPENDITURE, PHYSICIANS, HOSPITAL_BEDS, IMMUNIZATION, MALNUTRITION, TUBERCULOSIS | Health resolutions, pandemic preparedness |
+| `get-education-data` | EDUCATION_EXPENDITURE, SCHOOL_ENROLLMENT, LITERACY_RATE, SCHOOL_COMPLETION | Education motions |
+| `get-country-info` | Country metadata (region, income, capital) | Country context verification |
+| `get-countries` | Filter by region/income | EU member state listings |
+
+### Key Indicators for Motions & Resolutions
+
+```javascript
+// GDP growth for economic governance motions (World Bank indicator: NY.GDP.MKTP.KD.ZG)
+world_bank___get_economic_data({ countryCode: "DE", indicator: "GDP_GROWTH", years: 5 })
+
+// Unemployment for employment policy motions (World Bank indicator: SL.UEM.TOTL.ZS)
+world_bank___get_economic_data({ countryCode: "ES", indicator: "UNEMPLOYMENT", years: 5 })
+
+// Military expenditure for defence/security resolutions — compare against NATO 2% GDP target
+// Tax revenue (GC.TAX.TOTL.GD.ZS) for fiscal policy motions
+// Health expenditure for health emergency resolutions
+world_bank___get_health_data({ countryCode: "IT", indicator: "HEALTH_EXPENDITURE", years: 5 })
+
+// Population for migration-related resolutions
+world_bank___get_social_data({ countryCode: "DE", indicator: "POPULATION", years: 5 })
+```
+
+### Chart Integration for Motions
+
+When including economic data, embed Chart.js visualizations using `buildDashboardSection()`:
+- **Economic motions**: Line chart with GDP growth/inflation trends for affected member states
+- **Defence resolutions**: Horizontal bar chart with military spending + NATO 2% target annotation
+- **Employment motions**: Grouped bar chart comparing unemployment rates across member states
+- **Environmental resolutions**: Dual-axis chart (CO₂ vs renewable energy trends)
+
+**Rules**: Use at most 2 World Bank calls per motions workflow run. Only include when motions/resolutions directly address economic policy. Always note the data year.
+
+### EU Country Codes for World Bank
+
+Key EU member states: DE (Germany), FR (France), IT (Italy), ES (Spain), PL (Poland), NL (Netherlands), RO (Romania), BE (Belgium), SE (Sweden), AT (Austria). EU aggregate: EUU. See `analysis/worldbank/eu-country-mapping.md` for complete EU-27 mapping.
+
+
 ## 📄 EP DOCUMENT ANALYSIS FRAMEWORK (MANDATORY)
 
 For every key EP document featured in the deep-analysis section, provide structured analysis covering (other document references may remain as citations without full framework analysis):

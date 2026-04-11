@@ -696,6 +696,72 @@ EU Parliament API responses commonly take 30+ seconds. To handle this:
 | CONT | Budgetary Control |
 
 
+## 🌍 World Bank Economic Context (Optional Enrichment)
+
+Committee reports often cover policy domains with direct economic implications. Use the `world-bank` MCP server to enrich committee reports with domain-specific economic data. Refer to `analysis/worldbank/indicator-catalog.md` for the complete indicator reference and `analysis/worldbank/chart-integration-guide.md` for Chart.js integration patterns.
+
+### Available World Bank MCP Tools
+
+| Tool | Key Indicators | When to Use |
+|------|---------------|-------------|
+| `get-economic-data` | GDP, GDP_GROWTH, GDP_PER_CAPITA, GNI_PER_CAPITA, INFLATION, UNEMPLOYMENT, EXPORTS_GDP, FDI_NET | ECON, BUDG, INTA, IMCO committees |
+| `get-social-data` | POPULATION, LIFE_EXPECTANCY, BIRTH_RATE, DEATH_RATE, INTERNET_USERS | LIBE, AFCO, EMPL, PETI committees |
+| `get-health-data` | HEALTH_EXPENDITURE, PHYSICIANS, HOSPITAL_BEDS, IMMUNIZATION, MALNUTRITION, TUBERCULOSIS | ENVI committee health topics |
+| `get-education-data` | EDUCATION_EXPENDITURE, SCHOOL_ENROLLMENT, LITERACY_RATE, SCHOOL_COMPLETION | CULT committee |
+| `get-country-info` | Country metadata (region, income, capital) | Any committee for country context |
+| `get-countries` | Filter by region/income | Cross-country comparisons |
+
+### Committee-Specific Indicator Reference
+
+Use `src/constants/committee-indicator-map.ts` as the authoritative mapping. Key committee → indicator mappings:
+
+| Committee | Primary Indicators | WB Tool |
+|-----------|-------------------|---------|
+| **ECON** | GDP_GROWTH, INFLATION, UNEMPLOYMENT | `get-economic-data` |
+| **ENVI** | CO₂ (EN.ATM.CO2E.PC), HEALTH_EXPENDITURE | `get-health-data` |
+| **EMPL** | UNEMPLOYMENT, Youth Unemployment (SL.UEM.1524.ZS) | `get-economic-data` |
+| **AFET/SEDE** | Military Expenditure (MS.MIL.XPND.GD.ZS), Trade | `get-economic-data` |
+| **ITRE** | R&D (GB.XPD.RSDV.GD.ZS), High-tech Exports | `get-economic-data` |
+| **AGRI** | Agriculture GDP (NV.AGR.TOTL.ZS), Cereal Yield | `get-economic-data` |
+| **BUDG** | GDP, Gov Expenditure, Tax Revenue | `get-economic-data` |
+| **LIBE** | Net Migration (SM.POP.NETM), Population | `get-social-data` |
+| **CULT** | EDUCATION_EXPENDITURE, Tertiary Enrollment | `get-education-data` |
+| **INTA** | Trade, Exports GDP, FDI, High-tech Exports | `get-economic-data` |
+
+```javascript
+// Example: ECON committee report — fetch GDP growth and inflation for EU context
+world_bank___get_economic_data({ countryCode: "DE", indicator: "GDP_GROWTH", years: 5 })
+world_bank___get_economic_data({ countryCode: "FR", indicator: "INFLATION", years: 5 })
+
+// Example: AFET/SEDE report — military expenditure vs NATO 2% target
+world_bank___get_economic_data({ countryCode: "PL", indicator: "GDP_PER_CAPITA", years: 5 })
+
+// Example: ENVI report — health infrastructure
+world_bank___get_health_data({ countryCode: "DE", indicator: "HOSPITAL_BEDS", years: 5 })
+
+// Example: CULT report — education spending
+world_bank___get_education_data({ countryCode: "FI", indicator: "EDUCATION_EXPENDITURE", years: 5 })
+```
+
+### Chart Integration for Committee Reports
+
+When including economic data, embed Chart.js visualizations using `buildDashboardSection()`:
+- **ECON/BUDG**: Grouped bar chart with GDP growth + inflation across member states
+- **AFET/SEDE**: Horizontal bar chart with military spending + NATO 2% target annotation line
+- **ENVI**: Dual-axis line chart (CO₂ declining, renewable energy rising)
+- **EMPL**: Stacked bar chart (youth unemployment vs total unemployment)
+- **INTA**: Line chart showing trade openness trends
+- **AGRI**: Bar chart comparing agriculture % of GDP across member states
+- **CULT**: Scatter plot (education expenditure vs tertiary enrollment)
+- **LIBE**: Area chart showing net migration trends
+
+**Rules**: Use at most 3 World Bank calls per committee reports workflow run. Match indicators to the specific committee being reported. Always note the data year.
+
+### EU Country Codes for World Bank
+
+Key EU member states: DE (Germany), FR (France), IT (Italy), ES (Spain), PL (Poland), NL (Netherlands), RO (Romania), BE (Belgium), SE (Sweden), AT (Austria). EU aggregate: EUU. See `analysis/worldbank/eu-country-mapping.md` for complete EU-27 mapping.
+
+
 ## 📄 EP DOCUMENT ANALYSIS FRAMEWORK (MANDATORY)
 
 For every key EP document featured in the deep-analysis section, provide structured analysis covering (other document references may remain as citations without full framework analysis):

@@ -76,20 +76,95 @@ export type EUCountryCodeMap = Readonly<Record<string, string>>;
 
 /** Key World Bank indicators relevant to EU Parliament policy analysis */
 export interface PolicyRelevantIndicators {
+  // ── Macro-economic (get-economic-data) ──
   /** GDP (current US$) — NY.GDP.MKTP.CD */
   gdp: string;
   /** GDP growth (annual %) — NY.GDP.MKTP.KD.ZG */
   gdpGrowth: string;
+  /** GDP per capita (current US$) — NY.GDP.PCAP.CD */
+  gdpPerCapita: string;
+  /** GNI per capita, Atlas method (current US$) — NY.GNP.PCAP.CD */
+  gniPerCapita: string;
   /** Inflation, consumer prices (annual %) — FP.CPI.TOTL.ZG */
   inflation: string;
   /** Unemployment, total (% of total labor force) — SL.UEM.TOTL.ZS */
   unemployment: string;
+  /** Exports of goods and services (% of GDP) — NE.EXP.GNFS.ZS */
+  exportsGdp: string;
+  /** Foreign direct investment, net inflows (BoP, current US$) — BN.KLT.DINV.CD */
+  fdiNet: string;
+
+  // ── Trade & fiscal ──
   /** Trade (% of GDP) — NE.TRD.GNFS.ZS */
   trade: string;
-  /** CO2 emissions (metric tons per capita) — EN.ATM.CO2E.PC */
-  co2Emissions: string;
+  /** Tax revenue (% of GDP) — GC.TAX.TOTL.GD.ZS */
+  taxRevenue: string;
+  /** General government final consumption expenditure (% of GDP) — NE.CON.GOVT.ZS */
+  govExpenditure: string;
+  /** Military expenditure (% of GDP) — MS.MIL.XPND.GD.ZS */
+  militaryExpenditure: string;
+
+  // ── Social (get-social-data) ──
   /** Population, total — SP.POP.TOTL */
   population: string;
+  /** Life expectancy at birth, total (years) — SP.DYN.LE00.IN */
+  lifeExpectancy: string;
+  /** Birth rate, crude (per 1,000 people) — SP.DYN.CBRT.IN */
+  birthRate: string;
+  /** Death rate, crude (per 1,000 people) — SP.DYN.CDRT.IN */
+  deathRate: string;
+  /** Individuals using the Internet (% of population) — IT.NET.USER.ZS */
+  internetUsers: string;
+
+  // ── Health (get-health-data) ──
+  /** Current health expenditure (% of GDP) — SH.XPD.CHEX.GD.ZS */
+  healthExpenditure: string;
+  /** Physicians (per 1,000 people) — SH.MED.PHYS.ZS */
+  physicians: string;
+  /** Hospital beds (per 1,000 people) — SH.MED.BEDS.ZS */
+  hospitalBeds: string;
+
+  // ── Education (get-education-data) ──
+  /** Government expenditure on education, total (% of GDP) — SE.XPD.TOTL.GD.ZS */
+  educationExpenditure: string;
+
+  // ── Environment & energy ──
+  /** CO2 emissions (metric tons per capita) — EN.ATM.CO2E.PC */
+  co2Emissions: string;
+  /** Renewable energy consumption (% of total) — EG.FEC.RNEW.ZS */
+  renewableEnergy: string;
+
+  // ── Research & innovation ──
   /** Research and development expenditure (% of GDP) — GB.XPD.RSDV.GD.ZS */
   rdExpenditure: string;
+  /** High-technology exports (% of manufactured exports) — TX.VAL.TECH.MF.ZS */
+  hightechExports: string;
+}
+
+/**
+ * World Bank MCP tool names available for data fetching.
+ * Maps to the tool functions on the worldbank-mcp server.
+ */
+export type WBMCPToolName =
+  | 'get-economic-data'
+  | 'get-social-data'
+  | 'get-health-data'
+  | 'get-education-data'
+  | 'get-country-info'
+  | 'get-countries'
+  | 'search-indicators';
+
+/**
+ * World Bank MCP tool indicator key mapping.
+ * Maps each tool to the indicator keys it accepts.
+ */
+export interface WBToolIndicatorKeys {
+  /** Economic indicators: GDP, GDP_GROWTH, GDP_PER_CAPITA, GNI, GNI_PER_CAPITA, EXPORTS_GDP, FDI_NET, INFLATION, UNEMPLOYMENT */
+  'get-economic-data': string;
+  /** Social indicators: POPULATION, LIFE_EXPECTANCY, BIRTH_RATE, DEATH_RATE, INTERNET_USERS */
+  'get-social-data': string;
+  /** Health indicators: HEALTH_EXPENDITURE, PHYSICIANS, HOSPITAL_BEDS, IMMUNIZATION, HIV_PREVALENCE, MALNUTRITION, TUBERCULOSIS */
+  'get-health-data': string;
+  /** Education indicators: LITERACY_RATE, SCHOOL_ENROLLMENT, SCHOOL_COMPLETION, TEACHERS_PRIMARY, EDUCATION_EXPENDITURE */
+  'get-education-data': string;
 }

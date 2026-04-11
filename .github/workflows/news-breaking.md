@@ -1020,6 +1020,50 @@ The **SWOT** section helps assess breaking news implications. The **Mindmap** se
 - MEP names are NEVER translated
 - ZERO TOLERANCE for language mixing within a single article
 
+## 🌍 World Bank Economic Context (Optional Enrichment)
+
+When the breaking news involves economic policy, budget decisions, defence, trade, or environmental legislation, use the `world-bank` MCP server to add macroeconomic context. Refer to `analysis/worldbank/indicator-catalog.md` for the complete indicator reference and `analysis/worldbank/chart-integration-guide.md` for Chart.js integration patterns.
+
+### Available World Bank MCP Tools
+
+| Tool | Key Indicators | When to Use |
+|------|---------------|-------------|
+| `get-economic-data` | GDP, GDP_GROWTH, GDP_PER_CAPITA, GNI_PER_CAPITA, INFLATION, UNEMPLOYMENT, EXPORTS_GDP, FDI_NET | Economic legislation, budget, trade |
+| `get-social-data` | POPULATION, LIFE_EXPECTANCY, BIRTH_RATE, DEATH_RATE, INTERNET_USERS | Demographics, digital policy, social rights |
+| `get-health-data` | HEALTH_EXPENDITURE, PHYSICIANS, HOSPITAL_BEDS, IMMUNIZATION, MALNUTRITION, TUBERCULOSIS | Health policy, pandemic preparedness |
+| `get-education-data` | EDUCATION_EXPENDITURE, SCHOOL_ENROLLMENT, LITERACY_RATE, SCHOOL_COMPLETION | Education, skills agenda |
+| `get-country-info` | Country metadata (region, income, capital) | Country context verification |
+| `get-countries` | Filter by region/income | EU member state listings |
+
+### Key Indicators for Breaking News
+
+```javascript
+// GDP growth for economic breaking news (World Bank indicator: NY.GDP.MKTP.KD.ZG)
+world_bank___get_economic_data({ countryCode: "DE", indicator: "GDP_GROWTH", years: 5 })
+
+// Military expenditure for defence/security breaking news (World Bank indicator: MS.MIL.XPND.GD.ZS)
+// Use with countries: DE, FR, PL, IT, ES — compare against NATO 2% GDP target
+world_bank___get_economic_data({ countryCode: "PL", indicator: "UNEMPLOYMENT", years: 5 })
+
+// Tax revenue for fiscal policy news (World Bank indicator: GC.TAX.TOTL.GD.ZS)
+// Health expenditure for health policy news (World Bank indicator: SH.XPD.CHEX.GD.ZS)
+world_bank___get_health_data({ countryCode: "DE", indicator: "HEALTH_EXPENDITURE", years: 5 })
+```
+
+### Chart Integration for Breaking News
+
+When including economic data, embed Chart.js visualizations using `buildDashboardSection()`:
+- **Economic breaking news**: Line chart with GDP growth/inflation trends
+- **Defence breaking news**: Bar chart with military spending vs NATO 2% target (use `chartjs-plugin-annotation` for target line)
+- **Employment breaking news**: Bar chart comparing unemployment across affected member states
+
+**Rules**: Use at most 1 World Bank call per breaking news workflow run. Only include when the breaking event has immediate economic significance. Always note the data year.
+
+### EU Country Codes for World Bank
+
+Key EU member states: DE (Germany), FR (France), IT (Italy), ES (Spain), PL (Poland), NL (Netherlands), RO (Romania), BE (Belgium), SE (Sweden), AT (Austria). EU aggregate: EUU. See `analysis/worldbank/eu-country-mapping.md` for complete EU-27 mapping.
+
+
 ## 📄 EP DOCUMENT ANALYSIS FRAMEWORK (MANDATORY)
 
 For every key EP document featured in the deep-analysis section, provide structured analysis covering (other document references may remain as citations without full framework analysis):

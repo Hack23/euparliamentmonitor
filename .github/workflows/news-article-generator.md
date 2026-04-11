@@ -649,20 +649,53 @@ european_parliament___get_corporate_bodies_feed({ timeframe: "one-week", limit: 
 
 ## 🌍 World Bank Economic Context (Optional Enrichment)
 
-When articles cover legislation with economic impact (trade, employment, environment, budget), use the `world-bank` MCP server to add macroeconomic context. This is **supplementary** — EU Parliament MCP remains the primary data source.
+When articles cover legislation with economic, trade, employment, defence, or environmental impact, use the `world-bank` MCP server to add macroeconomic context. This is **supplementary** — EU Parliament MCP remains the primary data source. Refer to `analysis/worldbank/indicator-catalog.md` for the complete indicator reference and `analysis/worldbank/chart-integration-guide.md` for Chart.js integration patterns.
+
+### Available World Bank MCP Tools
+
+| Tool | Key Indicators | When to Use |
+|------|---------------|-------------|
+| `get-economic-data` | GDP, GDP_GROWTH, GDP_PER_CAPITA, GNI_PER_CAPITA, INFLATION, UNEMPLOYMENT, EXPORTS_GDP, FDI_NET | Economic legislation, budget, trade |
+| `get-social-data` | POPULATION, LIFE_EXPECTANCY, BIRTH_RATE, DEATH_RATE, INTERNET_USERS | Demographics, digital policy, social rights |
+| `get-health-data` | HEALTH_EXPENDITURE, PHYSICIANS, HOSPITAL_BEDS, IMMUNIZATION, MALNUTRITION, TUBERCULOSIS | Health policy, pandemic preparedness |
+| `get-education-data` | EDUCATION_EXPENDITURE, SCHOOL_ENROLLMENT, LITERACY_RATE, SCHOOL_COMPLETION | Education, skills agenda |
+| `get-country-info` | Country metadata (region, income, capital) | Country context verification |
+| `get-countries` | Filter by region/income | EU member state listings |
+
+### Key Indicators for Article Generation
 
 ```javascript
-// GDP growth for EU context (World Bank indicator: NY.GDP.MKTP.KD.ZG)
-world_bank___get_indicator_for_country({ country_id: "EUU", indicator_id: "NY.GDP.MKTP.KD.ZG", years: 5 })
+// GDP growth for EU context
+world_bank___get_economic_data({ countryCode: "DE", indicator: "GDP_GROWTH", years: 5 })
 
-// Unemployment trends (World Bank indicator: SL.UEM.TOTL.ZS)
-world_bank___get_indicator_for_country({ country_id: "EUU", indicator_id: "SL.UEM.TOTL.ZS", years: 5 })
+// Unemployment trends
+world_bank___get_economic_data({ countryCode: "ES", indicator: "UNEMPLOYMENT", years: 5 })
 
-// Trade data for trade-related legislation (World Bank indicator: NE.EXP.GNFS.ZS)
-world_bank___get_indicator_for_country({ country_id: "EUU", indicator_id: "NE.EXP.GNFS.ZS", years: 5 })
+// Trade data for trade-related legislation
+world_bank___get_economic_data({ countryCode: "FR", indicator: "EXPORTS_GDP", years: 5 })
+
+// Additional indicators by policy domain:
+// - Military expenditure for defence articles — compare against NATO 2% GDP target
+// - Tax revenue (GC.TAX.TOTL.GD.ZS) for fiscal governance articles
+// - Health expenditure for health policy articles
+// - Education expenditure for skills/education articles
+// - CO₂ emissions for environmental articles
+// - GINI index for inequality analysis
 ```
 
-**Rules**: Use at most 3 World Bank calls per workflow run. Only include World Bank data when it directly contextualizes the parliamentary activity being reported.
+### Chart Integration
+
+When including economic data, embed Chart.js visualizations using `buildDashboardSection()`:
+- **Economic context**: Line chart with GDP growth + inflation trends
+- **Country comparison**: Bar chart comparing indicators across EU member states
+- **Defence analysis**: Horizontal bar chart with military spending + NATO 2% target annotation
+- **Climate tracking**: Dual-axis chart (CO₂ vs renewable energy)
+
+**Rules**: Use at most 3 World Bank calls per workflow run. Only include World Bank data when it directly contextualizes the parliamentary activity being reported. Always note the data year.
+
+### EU Country Codes for World Bank
+
+Key EU member states: DE (Germany), FR (France), IT (Italy), ES (Spain), PL (Poland), NL (Netherlands), RO (Romania), BE (Belgium), SE (Sweden), AT (Austria). EU aggregate: EUU. See `analysis/worldbank/eu-country-mapping.md` for complete EU-27 mapping.
 
 ## MANDATORY Article HTML Structure
 

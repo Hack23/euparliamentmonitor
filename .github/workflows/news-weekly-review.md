@@ -600,6 +600,54 @@ european_parliament___generate_political_landscape({})
 ```
 
 
+## 🌍 World Bank Economic Context (Optional Enrichment)
+
+When the weekly review covers votes or decisions with economic, trade, employment, defence, or environmental impact, use the `world-bank` MCP server to add macroeconomic context. Refer to `analysis/worldbank/indicator-catalog.md` for the complete indicator reference and `analysis/worldbank/chart-integration-guide.md` for Chart.js integration patterns.
+
+### Available World Bank MCP Tools
+
+| Tool | Key Indicators | When to Use |
+|------|---------------|-------------|
+| `get-economic-data` | GDP, GDP_GROWTH, GDP_PER_CAPITA, GNI_PER_CAPITA, INFLATION, UNEMPLOYMENT, EXPORTS_GDP, FDI_NET | Economic legislation, budget, trade |
+| `get-social-data` | POPULATION, LIFE_EXPECTANCY, BIRTH_RATE, DEATH_RATE, INTERNET_USERS | Demographics, digital policy, social rights |
+| `get-health-data` | HEALTH_EXPENDITURE, PHYSICIANS, HOSPITAL_BEDS, IMMUNIZATION, MALNUTRITION, TUBERCULOSIS | Health policy, pandemic preparedness |
+| `get-education-data` | EDUCATION_EXPENDITURE, SCHOOL_ENROLLMENT, LITERACY_RATE, SCHOOL_COMPLETION | Education, skills agenda |
+| `get-country-info` | Country metadata (region, income, capital) | Country context verification |
+| `get-countries` | Filter by region/income | EU member state listings |
+
+### Key Indicators for Weekly Review
+
+```javascript
+// GDP growth to contextualize the week's economic votes (World Bank indicator: NY.GDP.MKTP.KD.ZG)
+world_bank___get_economic_data({ countryCode: "DE", indicator: "GDP_GROWTH", years: 5 })
+
+// Trade data for trade-related votes (World Bank indicator: NE.TRD.GNFS.ZS → use EXPORTS_GDP key)
+world_bank___get_economic_data({ countryCode: "DE", indicator: "EXPORTS_GDP", years: 5 })
+
+// Military expenditure for defence votes — compare against NATO 2% GDP target
+// Tax revenue (GC.TAX.TOTL.GD.ZS) for fiscal governance votes
+// Unemployment for employment-related voting outcomes
+world_bank___get_economic_data({ countryCode: "ES", indicator: "UNEMPLOYMENT", years: 5 })
+
+// Health expenditure for health committee votes
+world_bank___get_health_data({ countryCode: "IT", indicator: "HEALTH_EXPENDITURE", years: 5 })
+```
+
+### Chart Integration for Weekly Review
+
+When including economic data, embed Chart.js visualizations using `buildDashboardSection()`:
+- **Economic votes**: Line chart showing indicator trends that contextualize voting outcomes
+- **Defence votes**: Bar chart with military spending across member states + NATO 2% target annotation
+- **Trade votes**: Line chart with trade openness trends for affected countries
+- **Employment votes**: Grouped bar chart with unemployment vs. youth unemployment
+
+**Rules**: Use at most 2 World Bank calls per weekly review workflow run. Only include when votes had clear economic implications. Always note the data year.
+
+### EU Country Codes for World Bank
+
+Key EU member states: DE (Germany), FR (France), IT (Italy), ES (Spain), PL (Poland), NL (Netherlands), RO (Romania), BE (Belgium), SE (Sweden), AT (Austria). EU aggregate: EUU. See `analysis/worldbank/eu-country-mapping.md` for complete EU-27 mapping.
+
+
 ## 📄 EP DOCUMENT ANALYSIS FRAMEWORK (MANDATORY)
 
 For every key EP document featured in the deep-analysis section, provide structured analysis covering (other document references may remain as citations without full framework analysis):

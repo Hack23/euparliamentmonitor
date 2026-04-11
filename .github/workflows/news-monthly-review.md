@@ -608,20 +608,52 @@ european_parliament___generate_political_landscape({})
 
 ## 🌍 World Bank Economic Context (Optional Enrichment)
 
-When the monthly review covers legislation with economic impact, use the `world-bank` MCP server to contextualize legislative achievements:
+When the monthly review covers legislation with economic, trade, employment, defence, or environmental impact, use the `world-bank` MCP server to contextualize legislative achievements. Refer to `analysis/worldbank/indicator-catalog.md` for the complete indicator reference and `analysis/worldbank/chart-integration-guide.md` for Chart.js integration patterns.
+
+### Available World Bank MCP Tools
+
+| Tool | Key Indicators | When to Use |
+|------|---------------|-------------|
+| `get-economic-data` | GDP, GDP_GROWTH, GDP_PER_CAPITA, GNI_PER_CAPITA, INFLATION, UNEMPLOYMENT, EXPORTS_GDP, FDI_NET | Economic legislation, budget, trade |
+| `get-social-data` | POPULATION, LIFE_EXPECTANCY, BIRTH_RATE, DEATH_RATE, INTERNET_USERS | Demographics, digital policy, social rights |
+| `get-health-data` | HEALTH_EXPENDITURE, PHYSICIANS, HOSPITAL_BEDS, IMMUNIZATION, MALNUTRITION, TUBERCULOSIS | Health policy, pandemic preparedness |
+| `get-education-data` | EDUCATION_EXPENDITURE, SCHOOL_ENROLLMENT, LITERACY_RATE, SCHOOL_COMPLETION | Education, skills agenda |
+| `get-country-info` | Country metadata (region, income, capital) | Country context verification |
+| `get-countries` | Filter by region/income | EU member state listings |
+
+### Key Indicators for Monthly Review
 
 ```javascript
-// EU GDP growth for economic policy context (World Bank indicator: NY.GDP.MKTP.KD.ZG)
-world_bank___get_indicator_for_country({ country_id: "EUU", indicator_id: "NY.GDP.MKTP.KD.ZG", years: 5 })
+// EU GDP growth for economic policy context
+world_bank___get_economic_data({ countryCode: "DE", indicator: "GDP_GROWTH", years: 5 })
 
-// Unemployment trends for employment legislation impact (World Bank indicator: SL.UEM.TOTL.ZS)
-world_bank___get_indicator_for_country({ country_id: "EUU", indicator_id: "SL.UEM.TOTL.ZS", years: 5 })
+// Unemployment trends for employment legislation impact
+world_bank___get_economic_data({ countryCode: "ES", indicator: "UNEMPLOYMENT", years: 5 })
 
-// FDI data for trade/investment legislation (World Bank indicator: BX.KLT.DINV.WD.GD.ZS)
-world_bank___get_indicator_for_country({ country_id: "EUU", indicator_id: "BX.KLT.DINV.WD.GD.ZS", years: 5 })
+// FDI data for trade/investment legislation
+world_bank___get_economic_data({ countryCode: "FR", indicator: "FDI_NET", years: 5 })
+
+// Additional indicators by review focus:
+// - Military expenditure for defence policy review — compare against NATO 2% GDP target
+// - Tax revenue (GC.TAX.TOTL.GD.ZS) for fiscal governance review
+// - Inflation for monetary policy review
+// - Health expenditure for health legislation review
+// - CO₂ emissions for environmental legislation review
 ```
 
-**Rules**: Use at most 3 World Bank calls per workflow run. Only include when it directly contextualizes the month's legislative output.
+### Chart Integration for Monthly Review
+
+When including economic data, embed Chart.js visualizations using `buildDashboardSection()`:
+- **Economic review**: Line chart with GDP growth + inflation trends showing the month's context
+- **Legislative impact**: Bar chart comparing before/after indicators for passed legislation
+- **Defence review**: Horizontal bar chart with military spending vs NATO 2% target
+- **Employment review**: Grouped bar comparing unemployment rates across key member states
+
+**Rules**: Use at most 3 World Bank calls per workflow run. Only include when it directly contextualizes the month's legislative output. Always note the data year.
+
+### EU Country Codes for World Bank
+
+Key EU member states: DE (Germany), FR (France), IT (Italy), ES (Spain), PL (Poland), NL (Netherlands), RO (Romania), BE (Belgium), SE (Sweden), AT (Austria). EU aggregate: EUU. See `analysis/worldbank/eu-country-mapping.md` for complete EU-27 mapping.
 
 
 ## 📄 EP DOCUMENT ANALYSIS FRAMEWORK (MANDATORY)
