@@ -31,17 +31,30 @@ const SERVER_HEALTH_FALLBACK = '{"server": null, "feeds": []}';
  * EP MCP Server v1.2.1 standardized error categories.
  *
  * Priority:
- * 1. Gateway 5xx → SERVER_ERROR (not TIMEOUT, even for 504 "Gateway Timeout")
- * 2. 429 / rate-limit → RATE_LIMIT
- * 3. 404 → NOT_FOUND
- * 4. Client-side timeout → TIMEOUT
- * 5. Everything else → UNKNOWN
+ * 1. EP MCP structured error codes (INTERNAL_ERROR, UPSTREAM_500, UPSTREAM_503, UPSTREAM_TIMEOUT)
+ * 2. Gateway 5xx → SERVER_ERROR (not TIMEOUT, even for 504 "Gateway Timeout")
+ * 3. 429 / rate-limit → RATE_LIMIT
+ * 4. 404 → NOT_FOUND
+ * 5. Client-side timeout → TIMEOUT
+ * 6. Everything else → UNKNOWN
  *
  * @param message - Raw error message
  * @returns Diagnostic error category string
  */
 function classifyToolError(message) {
     const lowerMsg = message.toLowerCase();
+    // EP MCP Server v1.2.1 structured error codes
+    if (lowerMsg.includes('internal_error') || lowerMsg.includes('"errorcode":"internal_error"')) {
+        return 'INTERNAL_ERROR';
+    }
+    if (lowerMsg.includes('upstream_500') ||
+        lowerMsg.includes('upstream_503') ||
+        lowerMsg.includes('"errorcategory":"server_error"')) {
+        return 'SERVER_ERROR';
+    }
+    if (lowerMsg.includes('upstream_timeout') || lowerMsg.includes('"errorcategory":"timeout"')) {
+        return 'TIMEOUT';
+    }
     if (lowerMsg.includes('gateway timeout') ||
         lowerMsg.includes('gateway error 500') ||
         lowerMsg.includes('gateway error 502') ||
@@ -51,10 +64,11 @@ function classifyToolError(message) {
     }
     if (lowerMsg.includes('429') ||
         lowerMsg.includes('rate limit') ||
-        lowerMsg.includes('too many requests')) {
+        lowerMsg.includes('too many requests') ||
+        lowerMsg.includes('rate_limited')) {
         return 'RATE_LIMIT';
     }
-    if (lowerMsg.includes('404'))
+    if (lowerMsg.includes('404') || lowerMsg.includes('upstream_404'))
         return 'NOT_FOUND';
     if (lowerMsg.includes('timeout'))
         return 'TIMEOUT';
@@ -77,6 +91,10 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * Catches any error thrown by the tool (or by the args factory), logs a warning,
      * and returns a fallback payload.
      *
+     * Also inspects the tool result for structured error responses (isError flag
+     * and errorCode in JSON content) from the EP MCP server, which are not thrown
+     * but returned as successful results with error metadata.
+     *
      * Accepts either a plain args object or a factory function `() => object`.
      * Using a factory ensures that options normalization/destructuring runs inside
      * the try/catch so invalid runtime inputs fall back gracefully.
@@ -91,6 +109,16 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
         try {
             const resolvedArgs = typeof args === 'function' ? args() : args;
             const result = await this.callToolWithRetry(toolName, resolvedArgs);
+            // Inspect the result for structured error responses from the EP MCP server.
+            // The server may return isError: true with JSON content containing errorCode
+            // (e.g., INTERNAL_ERROR, UPSTREAM_500) instead of throwing an exception.
+            if (result.isError === true) {
+                const text = result.content?.[0]?.text ?? '';
+                const errorType = classifyToolError(text);
+                this._failedTools.set(toolName, `${errorType}: ${text.slice(0, 200)}`);
+                console.warn(`⚠️ ${toolName} returned error result [${errorType}]:`, text.slice(0, 200));
+                return { content: [{ type: 'text', text: fallbackText }] };
+            }
             // Clear from failed tools on success
             this._failedTools.delete(toolName);
             return result;

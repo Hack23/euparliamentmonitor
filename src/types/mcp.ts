@@ -31,6 +31,8 @@ export interface MCPContentItem {
 /** MCP tool call result */
 export interface MCPToolResult {
   content?: MCPContentItem[] | undefined;
+  /** Set to `true` by the MCP server when the tool invocation produced an error response */
+  isError?: boolean | undefined;
 }
 
 /** JSON-RPC 2.0 request */
