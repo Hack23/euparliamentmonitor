@@ -63,7 +63,7 @@
     "european-parliament": {
       "type": "local",
       "tools": ["*"],
-      "command": "european-parliament-mcp-server",
+      "command": "npx",
       "args": [
         "-y",
         "european-parliament-mcp-server@1.2.1",

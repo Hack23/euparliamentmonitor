@@ -52,6 +52,7 @@ network:
     - github.com
     - api.github.com
     - data.europarl.europa.eu
+    - api.worldbank.org
     - "*.europa.eu"
     - hack23.com
     - www.hack23.com
@@ -71,6 +72,11 @@ mcp-servers:
       - "90000"
     env:
       EP_REQUEST_TIMEOUT_MS: "90000"
+  world-bank:
+    command: npx
+    args:
+      - -y
+      - worldbank-mcp@1.0.0
   memory:
     command: npx
     args:
