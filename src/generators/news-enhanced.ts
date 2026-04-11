@@ -7,18 +7,20 @@
  * @module Generators/NewsEnhanced
  * @description CLI orchestrator for European Parliament news generation.
  *
- * Coordinates the four-stage pipeline (fetch → analysis → generate → output)
+ * Coordinates the four-stage pipeline (fetch → analysis discovery → generate → output)
  * via dedicated pipeline-stage modules and a strategy registry.  Each article
  * type is handled by its own {@link ArticleStrategy} implementation.
  *
  * When the `--analysis` flag is supplied (all 9 agentic workflows do this),
- * the analysis stage runs **before** article generation, producing structured
- * political intelligence artifacts under `analysis/daily/{date}/{article-type}/`.  These
- * artifacts are committed to the repository for review and improvement.
+ * the analysis discovery stage runs **before** article generation, discovering
+ * AI-generated analysis `.md` files under `analysis/daily/{date}/{article-type}/`.
+ * The AI agentic workflows produce all analysis content directly — the TypeScript
+ * pipeline only discovers and links to these artifacts.  Analysis artifacts are
+ * committed to the repository for review and improvement.
  *
  * Pipeline stages:
  * - {@link module:Generators/Pipeline/FetchStage}
- * - {@link module:Generators/Pipeline/AnalysisStage}  (political intelligence: classification, threat assessment, risk scoring)
+ * - {@link module:Generators/Pipeline/AnalysisStage}  (discovers AI-generated analysis artifacts)
  * - {@link module:Generators/Pipeline/GenerateStage}
  * - {@link module:Generators/Pipeline/OutputStage}
  *
@@ -80,6 +82,7 @@ import {
 } from './pipeline/analysis-stage.js';
 import type { AnalysisMethod, AnalysisContext } from './pipeline/analysis-stage.js';
 import type { AnalysisFileEntry } from '../types/index.js';
+import { discoverAnalysisFileEntries } from '../utils/file-utils.js';
 
 // ─── Content-module imports (bounded contexts) ───────────────────────────────
 
@@ -323,14 +326,17 @@ function parseAnalysisMethods(): readonly AnalysisMethod[] {
 }
 
 /**
- * Run the optional analysis stage (Fetch → Analysis) before article generation.
+ * Run the analysis discovery stage (Fetch → Discover) before article generation.
  *
- * This function is **side-effect-only**: it writes analysis markdown and a
- * `manifest.json` to disk under `analysis/daily/{date}/{article-type}/`.  The returned
+ * This function fetches EP feed data and then discovers the analysis `.md`
+ * files that the AI agentic workflow wrote to `analysis/daily/{date}/{article-type}/`.
+ * It writes a minimal `manifest.json` if one doesn't already exist, so that
+ * downstream consumers (strategies, article template) can reference the analysis.
+ *
+ * The AI agent performs ALL analytical work directly — this function merely
+ * discovers and catalogues what exists on disk.  The returned
  * {@link AnalysisContext} is informational; strategies read analysis output
- * from disk rather than consuming the context object in-memory.  Analysis
- * artifacts are committed to the repository for review and political
- * intelligence improvement.
+ * from disk rather than consuming the context object in-memory.
  *
  * The feed timeframe is derived from the requested article types: if any
  * month-level types (month-ahead, month-in-review, committee-reports, motions)
@@ -360,7 +366,7 @@ async function maybeRunAnalysis(
   const enabledMethods = parseAnalysisMethods();
 
   console.log('');
-  console.log('🔬 Running analysis stage...');
+  console.log('🔬 Running analysis discovery stage...');
   console.log(`   Output dir: ${analysisDirBase}/${date}`);
   console.log(`   Methods: ${enabledMethods.length} enabled`);
   console.log('');
@@ -434,7 +440,7 @@ async function maybeRunAnalysis(
   if (runId) console.log(`   Run ID: ${runId}`);
 
   // Pass requireData=true so runAnalysisStage enforces data availability
-  // and aborts on any failed method — no hollow or partially failed analysis should exist.
+  // and aborts when no substantive data is available — discovery on empty data produces no artifacts.
   const ctx = await runAnalysisStage(fetchedData, {
     articleTypes: validArticleTypes,
     date,
@@ -456,27 +462,27 @@ async function maybeRunAnalysis(
 
   console.log('');
   console.log(
-    `🔬 Analysis complete: ${completedCount} completed, ${skippedCount} skipped, ${failedCount} failed (of ${totalMethods})`
+    `🔬 Analysis discovery complete: ${completedCount} files found, ${skippedCount} skipped, ${failedCount} issues (of ${totalMethods})`
   );
   console.log(`   Confidence: ${ctx.manifest.overallConfidence}`);
   console.log(`   Manifest: ${ctx.outputDir}/manifest.json`);
   console.log('');
 
-  // Verify ALL analysis methods succeeded — article generation must never
-  // proceed with incomplete analysis.  Any failures mean the agentic workflow
-  // should fix issues rather than produce articles from partial analysis.
+  // Verify analysis discovery found files — article generation must never
+  // proceed without analysis artifacts.  Zero results mean the AI agent
+  // needs to write analysis files before the generator can proceed.
   if (failedCount > 0) {
     const failedNames = failedMethods.map((m) => m.method).join(', ');
     throw new Error(
-      `Analysis incomplete: ${failedCount} of ${totalMethods} methods failed (${failedNames}). ` +
-        'Article generation requires ALL analysis methods to succeed.'
+      `Analysis incomplete: ${failedCount} of ${totalMethods} discovered analysis files had issues (${failedNames}). ` +
+        'Article generation requires analysis artifacts to exist.'
     );
   }
 
   if (ctx.completedMethods.length === 0) {
     throw new Error(
-      `Analysis produced no completed methods (${failedCount} failed). ` +
-        'Article generation requires successful analysis output.'
+      `Analysis produced no discovered files (${failedCount} issues). ` +
+        'Article generation requires AI-generated analysis artifacts in the analysis output directory.'
     );
   }
 
@@ -572,6 +578,45 @@ export function computeDedupSuffix(articleTypes: readonly string[], analysisDir?
 }
 
 /**
+ * Resolve analysis file entries for article transparency links.
+ *
+ * Extracts entries from the manifest when it uses the standard pipeline format
+ * (methods[] with status and outputFile).  When the manifest lacks standard
+ * entries (e.g. agentic workflow manifests), falls back to scanning the
+ * analysis directory on disk for all `.md` files.  This ensures articles
+ * link to ALL analysis artifacts regardless of manifest format.
+ *
+ * @param analysisCtx - Analysis context from the pipeline stage, or null
+ * @returns Array of analysis file entries, or undefined when unavailable
+ */
+function resolveAnalysisFileEntries(
+  analysisCtx: AnalysisContext | null
+): AnalysisFileEntry[] | undefined {
+  if (!analysisCtx) return undefined;
+
+  const manifestMethods = analysisCtx.manifest.methods;
+  const completedEntries = manifestMethods
+    .filter((m) => m.status === 'completed')
+    .map((m) => ({ method: m.method, outputFile: m.outputFile }));
+
+  if (completedEntries.length > 0) {
+    return completedEntries;
+  }
+
+  // Manifest may use agentic-workflow format without standard methods[].
+  // Fall back to scanning the analysis directory on disk for all .md files.
+  const discovered = discoverAnalysisFileEntries(analysisCtx.outputDir);
+  if (discovered.length > 0) {
+    console.log(
+      `📂 Discovered ${discovered.length} analysis files from disk (manifest lacked standard methods)`
+    );
+    return discovered;
+  }
+
+  return undefined;
+}
+
+/**
  * Main execution: initialise the MCP client, optionally run analysis stage,
  * iterate over requested article types, delegate to the appropriate strategy,
  * then persist metadata.
@@ -621,13 +666,8 @@ async function main(): Promise<void> {
     // Compute dedup suffix by comparing resolved analysis dir with the base slug
     const dedupSuffix = computeDedupSuffix(articleTypes, analysisDir);
 
-    // Extract analysis file entries from the manifest so the article template
-    // can dynamically link to ALL analysis files produced during this run.
-    const analysisFiles: AnalysisFileEntry[] | undefined = analysisCtx
-      ? analysisCtx.manifest.methods
-          .filter((m) => m.status === 'completed')
-          .map((m) => ({ method: m.method, outputFile: m.outputFile }))
-      : undefined;
+    // Extract analysis file entries for the article template's transparency section.
+    const analysisFiles = resolveAnalysisFileEntries(analysisCtx);
 
     // If --analysis-only, skip article generation
     if (analysisOnlyArg) {

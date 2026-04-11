@@ -453,4 +453,177 @@ describe('utils/file-utils', () => {
       expect(checkArticleExists('2025-01-15-week-ahead', 'de', newsDir)).toBe(false);
     });
   });
+
+  describe('discoverAnalysisFileEntries', () => {
+    it('should return empty array for non-existent directory', async () => {
+      const { discoverAnalysisFileEntries } = await import(
+        '../../scripts/utils/file-utils.js'
+      );
+      const result = discoverAnalysisFileEntries(path.join(tempDir, 'nonexistent'));
+      expect(result).toEqual([]);
+    });
+
+    it('should discover .md files in known subdirectories', async () => {
+      const { discoverAnalysisFileEntries } = await import(
+        '../../scripts/utils/file-utils.js'
+      );
+      const analysisDir = path.join(tempDir, 'analysis');
+      fs.mkdirSync(path.join(analysisDir, 'classification'), { recursive: true });
+      fs.mkdirSync(path.join(analysisDir, 'risk-scoring'), { recursive: true });
+      fs.writeFileSync(
+        path.join(analysisDir, 'classification', 'significance-classification.md'),
+        '# Test'
+      );
+      fs.writeFileSync(
+        path.join(analysisDir, 'risk-scoring', 'risk-matrix.md'),
+        '# Risk'
+      );
+
+      const result = discoverAnalysisFileEntries(analysisDir);
+      expect(result).toHaveLength(2);
+      expect(result).toContainEqual({
+        method: 'significance-classification',
+        outputFile: 'classification/significance-classification.md',
+      });
+      expect(result).toContainEqual({
+        method: 'risk-matrix',
+        outputFile: 'risk-scoring/risk-matrix.md',
+      });
+    });
+
+    it('should discover root-level .md files', async () => {
+      const { discoverAnalysisFileEntries } = await import(
+        '../../scripts/utils/file-utils.js'
+      );
+      const analysisDir = path.join(tempDir, 'analysis-root');
+      fs.mkdirSync(analysisDir, { recursive: true });
+      fs.writeFileSync(
+        path.join(analysisDir, 'synthesis-summary.md'),
+        '# Synthesis'
+      );
+      fs.writeFileSync(
+        path.join(analysisDir, 'weekly-intelligence-brief.md'),
+        '# Brief'
+      );
+
+      const result = discoverAnalysisFileEntries(analysisDir);
+      expect(result).toHaveLength(2);
+      expect(result).toContainEqual({
+        method: 'synthesis-summary',
+        outputFile: 'synthesis-summary.md',
+      });
+      expect(result).toContainEqual({
+        method: 'weekly-intelligence-brief',
+        outputFile: 'weekly-intelligence-brief.md',
+      });
+    });
+
+    it('should discover files in documents/ subdirectory', async () => {
+      const { discoverAnalysisFileEntries } = await import(
+        '../../scripts/utils/file-utils.js'
+      );
+      const analysisDir = path.join(tempDir, 'analysis-docs');
+      fs.mkdirSync(path.join(analysisDir, 'documents'), { recursive: true });
+      fs.writeFileSync(
+        path.join(analysisDir, 'documents', 'document-analysis-index.md'),
+        '# Index'
+      );
+
+      const result = discoverAnalysisFileEntries(analysisDir);
+      expect(result).toHaveLength(1);
+      expect(result[0]).toEqual({
+        method: 'document-analysis',
+        outputFile: 'documents/document-analysis-index.md',
+      });
+    });
+
+    it('should ignore non-.md files', async () => {
+      const { discoverAnalysisFileEntries } = await import(
+        '../../scripts/utils/file-utils.js'
+      );
+      const analysisDir = path.join(tempDir, 'analysis-mixed');
+      fs.mkdirSync(path.join(analysisDir, 'classification'), { recursive: true });
+      fs.writeFileSync(
+        path.join(analysisDir, 'classification', 'significance-classification.md'),
+        '# Test'
+      );
+      fs.writeFileSync(
+        path.join(analysisDir, 'classification', 'data.json'),
+        '{}'
+      );
+      fs.writeFileSync(path.join(analysisDir, 'manifest.json'), '{}');
+
+      const result = discoverAnalysisFileEntries(analysisDir);
+      expect(result).toHaveLength(1);
+      expect(result[0].outputFile).toBe(
+        'classification/significance-classification.md'
+      );
+    });
+
+    it('should discover files across all known subdirectories', async () => {
+      const { discoverAnalysisFileEntries } = await import(
+        '../../scripts/utils/file-utils.js'
+      );
+      const analysisDir = path.join(tempDir, 'analysis-full');
+      const subdirs = [
+        'classification',
+        'threat-assessment',
+        'risk-scoring',
+        'existing',
+        'documents',
+      ];
+      for (const subdir of subdirs) {
+        fs.mkdirSync(path.join(analysisDir, subdir), { recursive: true });
+        fs.writeFileSync(
+          path.join(analysisDir, subdir, 'test-file.md'),
+          '# Test'
+        );
+      }
+
+      const result = discoverAnalysisFileEntries(analysisDir);
+      expect(result).toHaveLength(5);
+      for (const subdir of subdirs) {
+        expect(result).toContainEqual({
+          method: 'test-file',
+          outputFile: `${subdir}/test-file.md`,
+        });
+      }
+    });
+
+    it('should map known filenames to canonical method IDs', async () => {
+      const { discoverAnalysisFileEntries } = await import(
+        '../../scripts/utils/file-utils.js'
+      );
+      const analysisDir = path.join(tempDir, 'analysis-canonical');
+      fs.mkdirSync(path.join(analysisDir, 'existing'), { recursive: true });
+      fs.mkdirSync(path.join(analysisDir, 'documents'), { recursive: true });
+      fs.writeFileSync(
+        path.join(analysisDir, 'existing', 'stakeholder-impact.md'),
+        '# Stakeholder'
+      );
+      fs.writeFileSync(
+        path.join(analysisDir, 'existing', 'coalition-dynamics.md'),
+        '# Coalition'
+      );
+      fs.writeFileSync(
+        path.join(analysisDir, 'documents', 'document-analysis-index.md'),
+        '# Index'
+      );
+
+      const result = discoverAnalysisFileEntries(analysisDir);
+      expect(result).toHaveLength(3);
+      expect(result).toContainEqual({
+        method: 'stakeholder-analysis',
+        outputFile: 'existing/stakeholder-impact.md',
+      });
+      expect(result).toContainEqual({
+        method: 'coalition-analysis',
+        outputFile: 'existing/coalition-dynamics.md',
+      });
+      expect(result).toContainEqual({
+        method: 'document-analysis',
+        outputFile: 'documents/document-analysis-index.md',
+      });
+    });
+  });
 });

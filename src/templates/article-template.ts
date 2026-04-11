@@ -742,7 +742,7 @@ function getMethodLabel(method: string, lang: LanguageCode): string {
  * @param analysisFiles - Optional manifest-derived file entries for dynamic link generation
  * @returns HTML string for analysis transparency section
  */
-function renderAnalysisTransparencySection(
+export function renderAnalysisTransparencySection(
   date: string,
   slug: string,
   lang: LanguageCode,
@@ -908,9 +908,13 @@ function renderFallbackAnalysisLinks(analysisFileBase: string, lang: LanguageCod
   const threatLabel = escapeHTML(getLocalizedString(THREAT_ASSESSMENT_LABELS, lang));
   const riskLabel = escapeHTML(getLocalizedString(RISK_SCORING_LABELS, lang));
   const deepLabel = escapeHTML(getLocalizedString(DEEP_ANALYSIS_LABELS, lang));
+  const documentLabel = escapeHTML(getLocalizedString(DOCUMENT_ANALYSIS_LABELS, lang));
 
   const significanceLabel = escapeHTML(
     getLocalizedString(SIGNIFICANCE_CLASSIFICATION_LABELS, lang)
+  );
+  const significanceScoringLabel = escapeHTML(
+    getLocalizedString(SIGNIFICANCE_SCORING_LABELS, lang)
   );
   const actorMappingLabel = escapeHTML(getLocalizedString(ACTOR_MAPPING_LABELS, lang));
   const forcesLabel = escapeHTML(getLocalizedString(FORCES_ANALYSIS_LABELS, lang));
@@ -933,10 +937,12 @@ function renderFallbackAnalysisLinks(analysisFileBase: string, lang: LanguageCod
   const coalitionLabel = escapeHTML(getLocalizedString(COALITION_DYNAMICS_LABELS, lang));
   const votingPatternsLabel = escapeHTML(getLocalizedString(VOTING_PATTERNS_LABELS, lang));
   const crossSessionLabel = escapeHTML(getLocalizedString(CROSS_SESSION_INTELLIGENCE_LABELS, lang));
+  const synthesisSummaryLabel = escapeHTML(getLocalizedString(SYNTHESIS_SUMMARY_LABELS, lang));
 
   return `        <h3><span aria-hidden="true">🏷️</span> ${classificationLabel}</h3>
         <ul>
           <li><a href="${analysisFileBase}/classification/significance-classification.md" target="_blank" rel="noopener noreferrer">${significanceLabel}</a></li>
+          <li><a href="${analysisFileBase}/classification/significance-scoring.md" target="_blank" rel="noopener noreferrer">${significanceScoringLabel}</a></li>
           <li><a href="${analysisFileBase}/classification/actor-mapping.md" target="_blank" rel="noopener noreferrer">${actorMappingLabel}</a></li>
           <li><a href="${analysisFileBase}/classification/forces-analysis.md" target="_blank" rel="noopener noreferrer">${forcesLabel}</a></li>
           <li><a href="${analysisFileBase}/classification/impact-matrix.md" target="_blank" rel="noopener noreferrer">${impactMatrixLabel}</a></li>
@@ -963,5 +969,10 @@ function renderFallbackAnalysisLinks(analysisFileBase: string, lang: LanguageCod
           <li><a href="${analysisFileBase}/existing/coalition-dynamics.md" target="_blank" rel="noopener noreferrer">${coalitionLabel}</a></li>
           <li><a href="${analysisFileBase}/existing/voting-patterns.md" target="_blank" rel="noopener noreferrer">${votingPatternsLabel}</a></li>
           <li><a href="${analysisFileBase}/existing/cross-session-intelligence.md" target="_blank" rel="noopener noreferrer">${crossSessionLabel}</a></li>
+          <li><a href="${analysisFileBase}/synthesis-summary.md" target="_blank" rel="noopener noreferrer">${synthesisSummaryLabel}</a></li>
+        </ul>
+        <h3><span aria-hidden="true">📄</span> ${documentLabel}</h3>
+        <ul>
+          <li><a href="${analysisFileBase}/documents/document-analysis-index.md" target="_blank" rel="noopener noreferrer">${documentLabel}</a></li>
         </ul>`;
 }

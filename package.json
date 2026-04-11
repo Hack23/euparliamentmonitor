@@ -65,6 +65,7 @@
     "generate-news-indexes": "node scripts/generators/news-indexes.js",
     "generate-sitemap": "node scripts/generators/sitemap.js",
     "fix-articles": "npx tsx src/utils/fix-articles.ts",
+    "retrofit-analysis": "npx tsx src/utils/retrofit-analysis-links.ts",
     "validate-articles": "npx tsx src/utils/validate-articles.ts",
     "validate-articles:strict": "npx tsx src/utils/validate-articles.ts --strict",
     "validate-ep-api": "npx tsx src/utils/validate-ep-api.ts",

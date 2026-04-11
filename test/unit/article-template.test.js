@@ -1112,11 +1112,15 @@ describe('article-template', () => {
           // No analysisFiles
         });
 
-        // Should contain hardcoded fallback links
+        // Should contain hardcoded fallback links including newly added ones
         expect(html).toContain('classification/significance-classification.md');
+        expect(html).toContain('classification/significance-scoring.md');
         expect(html).toContain('threat-assessment/political-threat-landscape.md');
         expect(html).toContain('risk-scoring/risk-matrix.md');
         expect(html).toContain('existing/deep-analysis.md');
+        expect(html).toContain('/synthesis-summary.md');
+        expect(html).not.toContain('existing/synthesis-summary.md');
+        expect(html).toContain('documents/document-analysis-index.md');
       });
 
       it('should render fallback links when analysisFiles is empty', () => {
@@ -1126,9 +1130,13 @@ describe('article-template', () => {
           analysisFiles: [],
         });
 
-        // Should contain hardcoded fallback links
+        // Should contain hardcoded fallback links including newly added ones
         expect(html).toContain('classification/significance-classification.md');
+        expect(html).toContain('classification/significance-scoring.md');
         expect(html).toContain('existing/deep-analysis.md');
+        expect(html).toContain('/synthesis-summary.md');
+        expect(html).not.toContain('existing/synthesis-summary.md');
+        expect(html).toContain('documents/document-analysis-index.md');
       });
 
       it('should handle unknown methods with titleized fallback labels', () => {

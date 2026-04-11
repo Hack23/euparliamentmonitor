@@ -331,7 +331,7 @@ Every generated article MUST link to ALL analysis files. Verify the Analysis & T
 
 ## ⏱️ Time Budget (60 minutes)
 - **Minutes 0–3**: Date validation, MCP warm-up
-- **Minutes 3–8**: 🔬 Automated political intelligence analysis stage (significance classification, political threat landscape assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writes analysis artifacts to `${ANALYSIS_DIR}/`)
+- **Minutes 3–8**: 🔬 EP MCP data fetch and analysis directory setup (the `--analysis` flag fetches EP data, creates `${ANALYSIS_DIR}/`, and discovers your analysis `.md` files after you write them)
 - **Minutes 8–15**: Query EP MCP tools for COMPLETE motions data (parallel where possible) — **⚠️ Download FULL document content, not just metadata. Store complete adopted texts, procedure details, and voting records in `${ANALYSIS_DIR}/data/`**
 - **Minutes 15–35**: 🔬🔬🔬 **MANDATORY DEEP POLITICAL ANALYSIS PHASE (15-20 MINUTES)** — Read ALL methodology guides and templates, apply them to EVERY downloaded MCP data file, write substantive analysis markdown, use `sequentialthinking` for complex reasoning, cross-reference documents via knowledge graph, complete 4-pass refinement cycle. **⚠️ Per Rule 7, spend ≥15 minutes on AI-driven analysis.** Article topic and angle MUST be decided ONLY from completed significance scoring results, not predetermined.
 - **Minutes 35–50**: Generate English article with deep political intelligence analysis informed by completed analysis artifacts
@@ -362,27 +362,28 @@ Every generated article MUST link to ALL analysis files. Verify the Analysis & T
 
 ## 🔬 Political Intelligence Analysis Stage
 
-The `--analysis` flag activates the political intelligence analysis pipeline **before** article generation. This stage:
+The `--analysis` flag activates analysis discovery **before** article generation. The `--analysis` flag fetches EP data and then discovers the analysis `.md` files YOU wrote to `${ANALYSIS_DIR}/`. This stage:
 
 1. **Fetches EP feed data** from the MCP server (events, documents, procedures, adopted texts, MEP updates)
-2. **Runs all 18 default analysis methods** across 4 default categories:
-   - **Classification** (4 methods): significance scoring, impact matrix, actor mapping, political forces analysis
-   - **Threat Assessment** (4 methods): political threat landscape model, actor threat profiling, consequence trees, legislative disruption analysis
-   - **Risk Scoring** (5 methods): political risk matrix, capital-at-risk assessment, quantitative SWOT, legislative velocity risk, agent risk workflow
-   - **Existing / Intelligence** (5 methods): deep analysis, stakeholder analysis, coalition dynamics, voting patterns, cross-session intelligence
-   - **Per-Document Analysis** (`document-analysis`): included in the default method set — generates per-document markdown + JSON files under `documents/`. These per-document outputs are a primary driver of file-count blowups; the `excluded-files` config strips `documents/raw-data/**` and `documents/*-analysis.md` from the PR patch, and the pre-PR consolidation script removes remaining excess files
+2. **Discovers existing AI-generated analysis** — scans `${ANALYSIS_DIR}/` for `.md` files created by YOU (the AI agent) during this run across the standard analysis subdirectories:
+   - **Classification**: significance-classification, significance-scoring, actor-mapping, forces-analysis, impact-matrix
+   - **Threat Assessment**: political-threat-landscape, actor-threat-profiling, consequence-trees, legislative-disruption
+   - **Risk Scoring**: risk-matrix, political-capital-risk, quantitative-swot, legislative-velocity-risk, agent-risk-workflow
+   - **Existing/Intelligence**: deep-analysis, stakeholder-impact, coalition-dynamics, voting-patterns, cross-session-intelligence, synthesis-summary
+   - **Documents**: document-analysis-index (per-document intelligence consolidated)
 3. **Writes and commits analysis artifacts** to `${ANALYSIS_DIR}/` using canonical filenames from `analysis/README.md` + `manifest.json` — each workflow writes to its own per-article-type subdirectory; MCP data files in `${ANALYSIS_DIR}/data/` are excluded from the PR via `excluded-files` and also cleaned up before PR creation. Do not add additional per-document analysis files beyond what the pipeline generates; the pipeline's per-document outputs are excluded from the PR via `excluded-files` and removed by the pre-PR consolidation script. Write any human-driven analysis into the **canonical method-level files** to stay under the 100-file PR limit.
-4. **Blocks article generation on failure in agentic mode** — when `--analysis` is enabled, analysis failures abort the run; disable `--analysis` if you want generation to proceed without analysis
+4. **Verifies analysis completeness** — when `--analysis` is enabled, the discovery stage checks that substantive EP data was fetched and analysis files exist; generation proceeds using the AI-produced analysis artifacts
 
 The analysis artifacts provide structured political intelligence that enriches the article generation phase with deeper context, evidence-based assessments, and systematic threat/risk analysis.
 
 ## 📐 MANDATORY: AI-Driven Analysis Using Methodology Templates
 
-> **⚠️ CRITICAL**: After MCP data is fetched, produce **extensive, publication-quality analysis markdown** following the methodology templates. The scripted analysis stage provides data preparation — YOU perform the actual analytical work.
+> **⚠️ CRITICAL**: After MCP data is fetched, produce **extensive, publication-quality analysis markdown** following the methodology templates. The `--analysis` flag discovers your AI-generated analysis files and links them to the article. YOU (the AI agent) perform ALL the analytical work by writing substantive `.md` files to `${ANALYSIS_DIR}/` subdirectories.
 
 > **⚠️ FULL DATA ANALYSIS**: Read ALL structured templates in `analysis/templates/` and methodology guides in `analysis/methodologies/` BEFORE starting analysis. Apply them to every downloaded MCP data file, writing results into the **canonical method-level files** (see `analysis/README.md` Canonical Artifact Naming Convention). Do NOT create individual per-document analysis files — append item-level sections within the canonical files to stay under the 100-file PR limit.
 
 > **⚠️ UNIQUE RUN DIRECTORY**: Each workflow run writes analysis to a unique directory scoped by run number (`${ANALYSIS_DIR}/`). Do NOT read or modify analysis from other runs. This ensures every article links to the exact analysis that produced it and prevents merge conflicts between concurrent or repeated runs.
+> **🔗 CROSS-REFERENCE PRIOR ANALYSIS**: Before writing your analysis, scan `analysis/daily/` for analysis from **prior dates** (up to 7 days back). Read synthesis-summary.md and significance-scoring.md from prior runs to identify ongoing legislative threads, evolving political dynamics, and previously identified risks. Reference these in your analysis for continuity (e.g. "as identified in our 2026-04-09 analysis, the ENVI committee's position on..."). Do NOT modify prior analysis files — only READ them for context. This ensures cross-article intelligence continuity across daily runs.
 
 ### Structured Analysis Templates (analysis/templates/)
 
@@ -551,7 +552,7 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 
 **If no significant data found (genuinely empty — only after ALL feeds were queried in the standard collection pass):**
 1. Verify ALL feed endpoints were queried once according to the data-gathering rules
-2. Run full analysis pipeline on whatever data was collected
+2. Write ALL analysis `.md` files based on collected data
 3. **Create an analysis-only PR** with `safeoutputs___create_pull_request` — per `ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted. Commit analysis artifacts to `${ANALYSIS_DIR}/`. Each run creates its own unique analysis directory
 
 **If article generation fails AFTER starting work:**
