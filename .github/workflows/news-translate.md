@@ -284,7 +284,8 @@ Before starting any translation work, verify that ALL MCP servers required by th
 Run a lightweight HTTP probe **before** the MCP health gate to detect network-level failures (DNS, firewall, EP API outage) instantly:
 
 ```bash
-EP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 "https://data.europarl.europa.eu/api/v2/meps?format=application%2Fld%2Bjson&offset=0&limit=1" 2>/dev/null || echo "000")
+EP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 "https://data.europarl.europa.eu/api/v2/meps?format=application%2Fld%2Bjson&offset=0&limit=1" 2>/dev/null || true)
+EP_STATUS="${EP_STATUS:-000}"
 echo "EP API connectivity check: HTTP $EP_STATUS"
 if [ "$EP_STATUS" = "000" ] || [ "$EP_STATUS" -ge 500 ] 2>/dev/null; then
   echo "⚠️ EP API appears DOWN (HTTP $EP_STATUS) — EP MCP health gate may also fail. Translation can still proceed with existing English articles."

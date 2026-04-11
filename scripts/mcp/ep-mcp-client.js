@@ -27,16 +27,18 @@ const PROCEDURE_EVENT_FALLBACK = '{"event": null}';
 /** Fallback payload for server health status */
 const SERVER_HEALTH_FALLBACK = '{"server": null, "feeds": []}';
 /**
- * Classify an error message into a diagnostic error category, aligned with
- * EP MCP Server v1.2.1 standardized error categories.
+ * Classify an error message into a diagnostic error category.
  *
- * Priority:
- * 1. EP MCP structured error codes (INTERNAL_ERROR, UPSTREAM_500, UPSTREAM_503, UPSTREAM_TIMEOUT)
- * 2. Gateway 5xx → SERVER_ERROR (not TIMEOUT, even for 504 "Gateway Timeout")
- * 3. 429 / rate-limit → RATE_LIMIT
- * 4. 404 → NOT_FOUND
- * 5. Client-side timeout → TIMEOUT
- * 6. Everything else → UNKNOWN
+ * Maps EP MCP Server v1.2.1 structured error codes and generic HTTP/network
+ * errors into one of six broad categories used for logging and retry decisions:
+ *
+ * Returned categories (priority order):
+ * 1. `INTERNAL_ERROR` — EP MCP `INTERNAL_ERROR` (catch-all for DNS, TLS, unclassified upstream failures)
+ * 2. `SERVER_ERROR`   — EP MCP `UPSTREAM_500`/`UPSTREAM_503`/`SERVER_ERROR`, or gateway 5xx patterns
+ * 3. `TIMEOUT`        — EP MCP `UPSTREAM_TIMEOUT`, or generic "timeout" strings
+ * 4. `RATE_LIMIT`     — EP MCP `RATE_LIMITED`, HTTP 429, or "rate limit"/"too many requests" strings
+ * 5. `NOT_FOUND`      — EP MCP `UPSTREAM_404`, or generic "404" strings
+ * 6. `UNKNOWN`        — everything else
  *
  * @param message - Raw error message
  * @returns Diagnostic error category string

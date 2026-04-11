@@ -449,7 +449,8 @@ Before generating ANY articles, verify MCP connectivity:
 Run a lightweight HTTP probe **before** the MCP health gate to detect network-level failures (DNS, firewall, EP API outage) instantly without consuming MCP call budget:
 
 ```bash
-EP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 "https://data.europarl.europa.eu/api/v2/meps?format=application%2Fld%2Bjson&offset=0&limit=1" 2>/dev/null || echo "000")
+EP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 "https://data.europarl.europa.eu/api/v2/meps?format=application%2Fld%2Bjson&offset=0&limit=1" 2>/dev/null || true)
+EP_STATUS="${EP_STATUS:-000}"
 echo "EP API connectivity check: HTTP $EP_STATUS"
 if [ "$EP_STATUS" = "000" ] || [ "$EP_STATUS" -ge 500 ] 2>/dev/null; then
   echo "⚠️ EP API appears DOWN (HTTP $EP_STATUS) — MCP health gate may also fail"
