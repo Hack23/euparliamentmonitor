@@ -742,7 +742,7 @@ function getMethodLabel(method: string, lang: LanguageCode): string {
  * @param analysisFiles - Optional manifest-derived file entries for dynamic link generation
  * @returns HTML string for analysis transparency section
  */
-function renderAnalysisTransparencySection(
+export function renderAnalysisTransparencySection(
   date: string,
   slug: string,
   lang: LanguageCode,

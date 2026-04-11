@@ -585,7 +585,7 @@ function getMethodLabel(method, lang) {
  * @param analysisFiles - Optional manifest-derived file entries for dynamic link generation
  * @returns HTML string for analysis transparency section
  */
-function renderAnalysisTransparencySection(date, slug, lang, analysisDir, analysisFiles) {
+export function renderAnalysisTransparencySection(date, slug, lang, analysisDir, analysisFiles) {
     const safeDate = escapeHTML(date);
     const safeAnalysisDirName = escapeHTML(analysisDir ?? slug);
     const heading = escapeHTML(getLocalizedString(ANALYSIS_TRANSPARENCY_LABELS, lang));
