@@ -67,6 +67,8 @@ mcp-servers:
     args:
       - -y
       - european-parliament-mcp-server@1.2.1
+      - --timeout
+      - "90000"
     env:
       EP_REQUEST_TIMEOUT_MS: "90000"
   memory:
