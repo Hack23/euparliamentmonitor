@@ -163,7 +163,7 @@ You are the **Translation Agent** for EU Parliament Monitor. Your job is to take
 - ❌ `package.json` / `package-lock.json` — NEVER modify dependency files
 
 **FORBIDDEN practices (waste time and produce low-quality output):**
-- ❌ **Writing new custom scripts in ANY language** — NEVER create new helper scripts (`.js`, `.py`, `.sh`, `.rb`, etc.) in `/tmp/`, the repo, or anywhere else. Use ONLY the existing Node.js/TypeScript toolchain (`npm run build`, `node scripts/...`). NEVER use `python3`, `pip install`, or any Python-based workaround
+- ❌ **Writing new custom scripts in ANY language** — NEVER create new helper scripts (`.js`, `.py`, `.sh`, `.rb`, etc.) in `/tmp/`, the repo, or anywhere else. Use ONLY the existing Node.js/TypeScript toolchain (for example: `npm run build`, `node scripts/...`, `npx tsx src/generators/news-enhanced.ts ...`). NEVER use `python3`, `pip install`, or any Python-based workaround
 - ❌ **Creating translation dictionary/data files** — NEVER create JSON, JS, or other data files containing translation dictionaries. Translate directly in each HTML file using the `edit` tool
 - ❌ **Batch translation via custom code** — NEVER write a script (e.g., `gen-translations.js`) to automate translation. Translate each file individually using the `edit` tool, one file at a time
 - ❌ **Dangerous shell expansion patterns** — NEVER use `${var@P}`, `${!var}`, `eval`, nested command substitutions `$($(..))`, or indirect variable expansion. These will be blocked by the sandbox
@@ -680,9 +680,9 @@ fi
 
 > **CORE STEP**: The generator produces articles with localized UI but **English narrative content**. You MUST translate all English text in each non-English file.
 
-> **⛔ REMINDER — NO GIT COMMANDS**: Use `edit` tool or bash file writes (e.g., `cat > file`, `sed -i`) to update translation files. NEVER run `git add`, `git commit`, or any git command. Files MUST remain as uncommitted working directory changes for the PR creation step to work.
+> **⛔ REMINDER — NO GIT COMMANDS**: Use the `edit` tool to update translation files, one file and one section at a time. NEVER run `git add`, `git commit`, or any git command. Files MUST remain as uncommitted working directory changes for the PR creation step to work.
 
-> **⛔ NEVER CREATE HELPER SCRIPTS OR DATA FILES**: Do NOT create new script files (e.g., `gen-translations.js`, `translate.sh`) or translation data files (e.g., `translations.json`, `dictionaries.js`) in `/tmp/` or anywhere else. Translate DIRECTLY in each HTML file using the `edit` tool. Creating helper scripts wastes time, risks tool call failures on large files, and violates the FORBIDDEN practices above.
+> **⛔ NEVER CREATE HELPER SCRIPTS OR TRANSLATION DICTIONARY/BATCH FILES**: Do NOT create new script files (e.g., `gen-translations.js`, `translate.sh`) or translation helper data files (e.g., `translations.json`, `dictionaries.js`) in `/tmp/` or anywhere else to perform or stage translations indirectly. Translate DIRECTLY in each HTML file using the `edit` tool. **This prohibition does NOT apply to repo-memory logs or analysis artifacts explicitly required elsewhere in this workflow** (for example `/tmp/gh-aw/repo-memory/.../translation-log.json`). Creating translation helper scripts or dictionary/batch artifacts wastes time, risks tool call failures on large files, and violates the FORBIDDEN practices above.
 
 > **⏱️ TIME MANAGEMENT**: Check elapsed time after each article type. If 65+ minutes elapsed, SKIP remaining translations and proceed directly to Step 5 (PR creation). Partial translations are acceptable.
 
