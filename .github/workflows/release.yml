@@ -257,7 +257,7 @@ jobs:
             -x "*.git*" "node_modules/*"
 
       - name: Upload build artifact
-        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v6.0.0
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v6.0.0
         with:
           name: build-artifacts
           path: release-artifacts/
@@ -291,7 +291,7 @@ jobs:
         run: cp ${{ steps.attestsbom.outputs.bundle-path }} euparliamentmonitor-${{ needs.prepare.outputs.version }}.spdx.json.intoto.jsonl
 
       - name: Upload security artifacts
-        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v6.0.0
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v6.0.0
         with:
           name: security-artifacts
           path: |
