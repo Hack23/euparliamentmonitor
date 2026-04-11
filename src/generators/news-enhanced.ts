@@ -482,7 +482,7 @@ async function maybeRunAnalysis(
   if (ctx.completedMethods.length === 0) {
     throw new Error(
       `Analysis produced no discovered files (${failedCount} issues). ` +
-        'Article generation requires AI-generated analysis artifacts in ${ANALYSIS_DIR}/.'
+        'Article generation requires AI-generated analysis artifacts in the analysis output directory.'
     );
   }
 
