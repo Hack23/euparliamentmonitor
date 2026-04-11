@@ -163,7 +163,9 @@ You are the **Translation Agent** for EU Parliament Monitor. Your job is to take
 - ❌ `package.json` / `package-lock.json` — NEVER modify dependency files
 
 **FORBIDDEN practices (waste time and produce low-quality output):**
-- ❌ **Writing custom Python/Ruby/Perl scripts** — Use ONLY the existing Node.js/TypeScript toolchain (`npm run build`, `node scripts/...`). NEVER use `python3`, `pip install`, or any Python-based workaround
+- ❌ **Writing new custom scripts in ANY language** — NEVER create new helper scripts (`.js`, `.py`, `.sh`, `.rb`, etc.) in `/tmp/`, the repo, or anywhere else. Use ONLY the existing Node.js/TypeScript toolchain (for example: `npm run build`, `node scripts/...`, `npx tsx src/generators/news-enhanced.ts ...`). NEVER use `python3`, `pip install`, or any Python-based workaround
+- ❌ **Creating translation dictionary/data files** — NEVER create JSON, JS, or other data files containing translation dictionaries. Translate directly in each HTML file using the `edit` tool
+- ❌ **Batch translation via custom code** — NEVER write a script (e.g., `gen-translations.js`) to automate translation. Translate each file individually using the `edit` tool, one file at a time
 - ❌ **Dangerous shell expansion patterns** — NEVER use `${var@P}`, `${!var}`, `eval`, nested command substitutions `$($(..))`, or indirect variable expansion. These will be blocked by the sandbox
 - ❌ **Ad-hoc data processing scripts** — Use the existing `scripts/generate-news-enhanced.js` and pipeline tools
 - ❌ **Workarounds for existing tools** — If `npm run build` or existing scripts fail, log the error and continue; do NOT reimplement their functionality in another language
@@ -678,21 +680,42 @@ fi
 
 > **CORE STEP**: The generator produces articles with localized UI but **English narrative content**. You MUST translate all English text in each non-English file.
 
-> **⛔ REMINDER — NO GIT COMMANDS**: Use `edit` tool or bash file writes (e.g., `cat > file`, `sed -i`) to update translation files. NEVER run `git add`, `git commit`, or any git command. Files MUST remain as uncommitted working directory changes for the PR creation step to work.
+> **⛔ REMINDER — NO GIT COMMANDS**: Use the `edit` tool to update translation files, one file and one section at a time. NEVER run `git add`, `git commit`, or any git command. Files MUST remain as uncommitted working directory changes for the PR creation step to work.
+
+> **⛔ NEVER CREATE HELPER SCRIPTS OR TRANSLATION DICTIONARY/BATCH FILES**: Do NOT create new script files (e.g., `gen-translations.js`, `translate.sh`) or translation helper data files (e.g., `translations.json`, `dictionaries.js`) in `/tmp/` or anywhere else to perform or stage translations indirectly. Translate DIRECTLY in each HTML file using the `edit` tool. **This prohibition does NOT apply to repo-memory logs or analysis artifacts explicitly required elsewhere in this workflow** (for example `/tmp/gh-aw/repo-memory/.../translation-log.json`). Creating translation helper scripts or dictionary/batch artifacts wastes time, risks tool call failures on large files, and violates the FORBIDDEN practices above.
 
 > **⏱️ TIME MANAGEMENT**: Check elapsed time after each article type. If 65+ minutes elapsed, SKIP remaining translations and proceed directly to Step 5 (PR creation). Partial translations are acceptable.
 
-For each non-English article file generated in Step 3:
+### Translation Method (MANDATORY — follow exactly)
 
-1. Read the file, identify English text in `<p>`, `<li>`, `<td>`, `<span>`, `<div>` elements
-2. Translate to the target language using EP terminology standards (see table above)
-3. Write the translated file back using `edit` tool or bash file writes — do NOT use git commands
-4. Keep: proper nouns (MEP names), abbreviations (EPP, S&D), reference IDs, location names
+For each non-English article file generated in Step 3, process **one file at a time**:
 
-Translate ALL narrative content: analysis, stakeholder perspectives, impact assessments, SWOT entries, outlook, footer disclaimers, and alt text.
+1. **Read** the file with `cat news/${ARTICLE_DATE}-${TYPE}-${LANG}.html`
+2. **Identify** English text in ALL user-visible elements: `<h1>`, `<h2>`, `<h3>`, `<p>`, `<li>`, `<td>`, `<th>`, `<span>`, `<div>`, `<a>` (link text), `<figcaption>`, `<blockquote>`, and `<title>`
+3. **Translate** to the target language using EP terminology standards (see table above)
+4. **Write back** the translated content using the `edit` tool — replace old English text with translated text, one section at a time
+5. **Keep unchanged**: proper nouns (MEP names), abbreviations (EPP, S&D), reference IDs, location names, HTML tags, CSS classes, URLs
+
+**Also translate these SEO and structured data elements:**
+- `<title>` tag — translate the page title (keep `| EU Parliament Monitor` suffix)
+- `<meta name="description" content="...">` — translate the description content
+- `<meta name="keywords" content="...">` — translate keywords to the target language
+- `<meta property="og:title" content="...">` — translate the Open Graph title
+- `<meta property="og:description" content="...">` — translate the OG description
+- `<meta property="og:image:alt" content="...">` — translate the image alt text
+- `<script type="application/ld+json">` — translate `headline`, `description`, and `keywords` fields in the JSON-LD structured data blocks
+- **Do NOT change**: `og:locale`, `og:url`, `og:site_name`, schema.org `@context`/`@type`, `datePublished`, `dateModified`, author names, or any URLs
+
+> **⚠️ CRITICAL APPROACH**: Process ONE file, then ONE section within that file, using `edit` tool calls. Do NOT try to create a batch translation script or a translation dictionary data file. The `edit` tool replaces specific text in a file — use it to swap English paragraphs for translated paragraphs.
+
+Translate ALL narrative content: headings, analysis, stakeholder perspectives, impact assessments, SWOT entries, outlook, footer disclaimers, alt text, SEO metadata, and structured data.
 
 **Quality checklist per article:**
+- [ ] All headings (`<h1>`–`<h3>`), table headers (`<th>`), and link text are translated
 - [ ] All list items and table cells with descriptions are translated
+- [ ] SEO meta tags (`title`, `description`, `keywords`) are translated
+- [ ] Open Graph tags (`og:title`, `og:description`, `og:image:alt`) are translated
+- [ ] JSON-LD structured data (`headline`, `description`, `keywords`) is translated
 - [ ] EP terminology follows the official vocabulary table above
 - [ ] Confidence markers (🟢/🟡/🔴) are preserved with translated labels
 - [ ] Vote counts and percentages are numerically identical to English source
