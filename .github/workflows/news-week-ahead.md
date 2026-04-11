@@ -128,10 +128,11 @@ You are the **News Journalist Agent** for EU Parliament Monitor generating **wee
 - ❌ `package.json` / `package-lock.json` — NEVER modify dependency files
 
 **FORBIDDEN practices (waste time and produce low-quality output):**
-- ❌ **Writing custom Python/Ruby/Perl scripts** — Use ONLY the existing Node.js/TypeScript toolchain (`npm run build`, `node scripts/...`)
+- ❌ **Writing custom Python/Ruby/Perl scripts** — Use ONLY the existing Node.js/TypeScript toolchain (`npm run build`, `node scripts/...`). NEVER use `python3`, `pip install`, or any Python-based workaround
+- ❌ **Dangerous shell expansion patterns** — NEVER use `${var@P}`, `${!var}`, `eval`, nested command substitutions `$($(..))`, or indirect variable expansion. These will be blocked by the sandbox
 - ❌ **Ad-hoc data processing scripts** — Use the existing `scripts/generate-news-enhanced.js` and pipeline tools
 - ❌ **Metadata-only analysis** — You MUST download and store COMPLETE EP documents (full titles, descriptions, procedure references, work types), not just IDs and counts
-- ❌ **Workarounds for existing tools** — If `npm run build` or existing scripts fail, log the error and continue; do NOT reimplement their functionality
+- ❌ **Workarounds for existing tools** — If `npm run build` or existing scripts fail, log the error and continue; do NOT reimplement their functionality in another language
 - ❌ **Rushing analysis in <5 minutes** — Spend the full allocated 15-20 minutes on deep political intelligence analysis
 - ❌ **Deciding article topic before analysis is complete** — Finish ALL analysis methods first, THEN decide what article to write based on significance scoring results
 
@@ -780,8 +781,6 @@ if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
   else
     echo "⚠️ EP MCP server binary not found, attempting reinstall..."
     npm install --no-save european-parliament-mcp-server@1.2.1
-      - --timeout
-      - "90000"
   fi
 fi
 
