@@ -98,6 +98,8 @@ safe-outputs:
     title-prefix: "[news] "
   add-comment:
     max: 1
+  noop:
+    report-as-issue: false
 
 steps:
   - name: Setup Node.js
