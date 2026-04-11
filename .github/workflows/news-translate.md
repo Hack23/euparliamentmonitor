@@ -163,7 +163,9 @@ You are the **Translation Agent** for EU Parliament Monitor. Your job is to take
 - ❌ `package.json` / `package-lock.json` — NEVER modify dependency files
 
 **FORBIDDEN practices (waste time and produce low-quality output):**
-- ❌ **Writing custom Python/Ruby/Perl scripts** — Use ONLY the existing Node.js/TypeScript toolchain (`npm run build`, `node scripts/...`). NEVER use `python3`, `pip install`, or any Python-based workaround
+- ❌ **Writing custom scripts in ANY language** — NEVER create helper scripts (`.js`, `.py`, `.sh`, `.rb`, etc.) in `/tmp/`, the repo, or anywhere else. Use ONLY the existing Node.js/TypeScript toolchain (`npm run build`, `node scripts/...`). NEVER use `python3`, `pip install`, or any Python-based workaround
+- ❌ **Creating translation dictionary/data files** — NEVER create JSON, JS, or other data files containing translation dictionaries. Translate directly in each HTML file using the `edit` tool
+- ❌ **Batch translation via custom code** — NEVER write a script (e.g., `gen-translations.js`) to automate translation. Translate each file individually using the `edit` tool, one file at a time
 - ❌ **Dangerous shell expansion patterns** — NEVER use `${var@P}`, `${!var}`, `eval`, nested command substitutions `$($(..))`, or indirect variable expansion. These will be blocked by the sandbox
 - ❌ **Ad-hoc data processing scripts** — Use the existing `scripts/generate-news-enhanced.js` and pipeline tools
 - ❌ **Workarounds for existing tools** — If `npm run build` or existing scripts fail, log the error and continue; do NOT reimplement their functionality in another language
@@ -680,14 +682,21 @@ fi
 
 > **⛔ REMINDER — NO GIT COMMANDS**: Use `edit` tool or bash file writes (e.g., `cat > file`, `sed -i`) to update translation files. NEVER run `git add`, `git commit`, or any git command. Files MUST remain as uncommitted working directory changes for the PR creation step to work.
 
+> **⛔ NEVER CREATE HELPER SCRIPTS**: Do NOT create custom `.js`, `.py`, `.sh`, or other script files (e.g., `gen-translations.js`, `translate.sh`, `translations.json`) in `/tmp/` or anywhere else. Translate DIRECTLY in each HTML file using the `edit` tool. Creating helper scripts wastes time, risks tool call failures on large files, and violates the FORBIDDEN practices above.
+
 > **⏱️ TIME MANAGEMENT**: Check elapsed time after each article type. If 65+ minutes elapsed, SKIP remaining translations and proceed directly to Step 5 (PR creation). Partial translations are acceptable.
 
-For each non-English article file generated in Step 3:
+### Translation Method (MANDATORY — follow exactly)
 
-1. Read the file, identify English text in `<p>`, `<li>`, `<td>`, `<span>`, `<div>` elements
-2. Translate to the target language using EP terminology standards (see table above)
-3. Write the translated file back using `edit` tool or bash file writes — do NOT use git commands
-4. Keep: proper nouns (MEP names), abbreviations (EPP, S&D), reference IDs, location names
+For each non-English article file generated in Step 3, process **one file at a time**:
+
+1. **Read** the file with `cat news/${ARTICLE_DATE}-${TYPE}-${LANG}.html`
+2. **Identify** English text in `<p>`, `<li>`, `<td>`, `<span>`, `<div>` elements
+3. **Translate** to the target language using EP terminology standards (see table above)
+4. **Write back** the translated content using the `edit` tool — replace old English text with translated text, one section at a time
+5. **Keep unchanged**: proper nouns (MEP names), abbreviations (EPP, S&D), reference IDs, location names, HTML tags, CSS classes
+
+> **⚠️ CRITICAL APPROACH**: Process ONE file, then ONE section within that file, using `edit` tool calls. Do NOT try to create a batch translation script or a translation dictionary data file. The `edit` tool replaces specific text in a file — use it to swap English paragraphs for translated paragraphs.
 
 Translate ALL narrative content: analysis, stakeholder perspectives, impact assessments, SWOT entries, outlook, footer disclaimers, and alt text.
 
