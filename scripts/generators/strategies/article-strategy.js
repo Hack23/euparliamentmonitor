@@ -36,6 +36,7 @@ const ANALYSIS_SUBDIRS = [
     'threat-assessment',
     'risk-scoring',
     'existing',
+    'documents',
 ];
 /**
  * Load analysis context from the analysis pipeline output directory.

@@ -462,4 +462,92 @@ export function validateArticleHTML(html) {
     }
     return { valid: errors.length === 0, errors };
 }
+/**
+ * Well-known analysis subdirectories scanned for transparency links.
+ * Matches the subdirectory structure created by agentic workflows.
+ */
+const DISCOVERY_SUBDIRS = [
+    'classification',
+    'threat-assessment',
+    'risk-scoring',
+    'existing',
+    'documents',
+    'intelligence',
+];
+/**
+ * Discover analysis file entries by scanning the analysis directory on disk.
+ *
+ * Scans known subdirectories plus root-level `.md` files to produce a
+ * complete list of {@link AnalysisFileEntry} objects suitable for the
+ * article template's dynamic analysis transparency section.
+ *
+ * This provides a robust fallback when the manifest.json doesn't contain
+ * a standard `methods[]` array (e.g. manifests written by agentic workflows
+ * use a different structure).
+ *
+ * @param analysisDirPath - Absolute path to the analysis directory on disk
+ * @returns Array of discovered analysis file entries, or empty array when directory doesn't exist
+ */
+export function discoverAnalysisFileEntries(analysisDirPath) {
+    if (!fs.existsSync(analysisDirPath))
+        return [];
+    const entries = [];
+    // Scan known subdirectories
+    for (const subdir of DISCOVERY_SUBDIRS) {
+        scanSubdirectory(path.join(analysisDirPath, subdir), subdir, entries);
+    }
+    // Scan root-level .md files (e.g. synthesis-summary.md, weekly-intelligence-brief.md)
+    scanRootMarkdownFiles(analysisDirPath, entries);
+    return entries;
+}
+/**
+ * Scan a single subdirectory for .md files and add them to the entries list.
+ *
+ * @param subdirPath - Absolute path to the subdirectory
+ * @param subdir - Subdirectory name for the output file path prefix
+ * @param entries - Mutable array to push discovered entries into
+ */
+function scanSubdirectory(subdirPath, subdir, entries) {
+    try {
+        if (!fs.existsSync(subdirPath) || !fs.statSync(subdirPath).isDirectory())
+            return;
+        const files = fs.readdirSync(subdirPath);
+        for (const file of files) {
+            if (!file.endsWith('.md'))
+                continue;
+            entries.push({
+                method: file.replace(/\.md$/u, ''),
+                outputFile: `${subdir}/${file}`,
+            });
+        }
+    }
+    catch {
+        // Skip unreadable directories
+    }
+}
+/**
+ * Scan root-level .md files in the analysis directory.
+ *
+ * @param dirPath - Analysis directory path
+ * @param entries - Mutable array to push discovered entries into
+ */
+function scanRootMarkdownFiles(dirPath, entries) {
+    try {
+        const rootFiles = fs.readdirSync(dirPath);
+        for (const file of rootFiles) {
+            if (!file.endsWith('.md'))
+                continue;
+            const filePath = path.join(dirPath, file);
+            if (!fs.statSync(filePath).isFile())
+                continue;
+            entries.push({
+                method: file.replace(/\.md$/u, ''),
+                outputFile: file,
+            });
+        }
+    }
+    catch {
+        // Skip if unreadable
+    }
+}
 //# sourceMappingURL=file-utils.js.map

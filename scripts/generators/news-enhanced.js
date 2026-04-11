@@ -48,6 +48,7 @@ import { initializeMCPClient, fetchEPFeedData } from './pipeline/fetch-stage.js'
 import { createStrategyRegistry, generateArticleForStrategy, setAIMetadata, } from './pipeline/generate-stage.js';
 import { writeGenerationMetadata } from './pipeline/output-stage.js';
 import { runAnalysisStage, ALL_ANALYSIS_METHODS, VALID_ANALYSIS_METHODS, hasSubstantiveData, deriveArticleTypeSlug, } from './pipeline/analysis-stage.js';
+import { discoverAnalysisFileEntries } from '../utils/file-utils.js';
 // ─── Content-module imports (bounded contexts) ───────────────────────────────
 import { parsePlenarySessions, parseEPEvents, parseCommitteeMeetings, parseLegislativeDocuments, parseLegislativePipeline, parseParliamentaryQuestions, buildWeekAheadContent, buildKeywords, PLACEHOLDER_EVENTS, buildWhatToWatchSection, buildStakeholderImpactMatrix, computeWeekPoliticalTemperature, } from './week-ahead-content.js';
 import { buildBreakingNewsContent, scoreBreakingNewsSignificance, SIGNIFICANCE_THRESHOLD, } from './breaking-content.js';
@@ -412,6 +413,37 @@ export function computeDedupSuffix(articleTypes, analysisDir) {
     return isValidSuffix ? rawSuffix : '';
 }
 /**
+ * Resolve analysis file entries for article transparency links.
+ *
+ * Extracts entries from the manifest when it uses the standard pipeline format
+ * (methods[] with status and outputFile).  When the manifest lacks standard
+ * entries (e.g. agentic workflow manifests), falls back to scanning the
+ * analysis directory on disk for all `.md` files.  This ensures articles
+ * link to ALL analysis artifacts regardless of manifest format.
+ *
+ * @param analysisCtx - Analysis context from the pipeline stage, or null
+ * @returns Array of analysis file entries, or undefined when unavailable
+ */
+function resolveAnalysisFileEntries(analysisCtx) {
+    if (!analysisCtx)
+        return undefined;
+    const manifestMethods = analysisCtx.manifest.methods;
+    const completedEntries = manifestMethods
+        .filter((m) => m.status === 'completed')
+        .map((m) => ({ method: m.method, outputFile: m.outputFile }));
+    if (completedEntries.length > 0) {
+        return completedEntries;
+    }
+    // Manifest may use agentic-workflow format without standard methods[].
+    // Fall back to scanning the analysis directory on disk for all .md files.
+    const discovered = discoverAnalysisFileEntries(analysisCtx.outputDir);
+    if (discovered.length > 0) {
+        console.log(`📂 Discovered ${discovered.length} analysis files from disk (manifest lacked standard methods)`);
+        return discovered;
+    }
+    return undefined;
+}
+/**
  * Main execution: initialise the MCP client, optionally run analysis stage,
  * iterate over requested article types, delegate to the appropriate strategy,
  * then persist metadata.
@@ -452,13 +484,8 @@ async function main() {
         }
         // Compute dedup suffix by comparing resolved analysis dir with the base slug
         const dedupSuffix = computeDedupSuffix(articleTypes, analysisDir);
-        // Extract analysis file entries from the manifest so the article template
-        // can dynamically link to ALL analysis files produced during this run.
-        const analysisFiles = analysisCtx
-            ? analysisCtx.manifest.methods
-                .filter((m) => m.status === 'completed')
-                .map((m) => ({ method: m.method, outputFile: m.outputFile }))
-            : undefined;
+        // Extract analysis file entries for the article template's transparency section.
+        const analysisFiles = resolveAnalysisFileEntries(analysisCtx);
         // If --analysis-only, skip article generation
         if (analysisOnlyArg) {
             console.log('ℹ️  --analysis-only specified. Skipping article generation.');

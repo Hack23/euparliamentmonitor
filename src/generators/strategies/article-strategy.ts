@@ -85,6 +85,7 @@ const ANALYSIS_SUBDIRS = [
   'threat-assessment',
   'risk-scoring',
   'existing',
+  'documents',
 ] as const;
 
 /**
