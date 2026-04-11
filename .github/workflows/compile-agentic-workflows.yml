@@ -17,7 +17,7 @@ env:
   # Pin gh-aw version to avoid regressions from broken stable releases.
   # v0.67.4 introduced GITHUB_COPILOT_INTEGRATION_ID which breaks PAT auth.
   # v0.68.0 fixes this (PR #25521). Update this when newer versions are verified.
-  GH_AW_VERSION: "v0.68.0"
+  GH_AW_VERSION: "v0.68.1"
 
 jobs:
   compile:
