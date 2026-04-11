@@ -105,9 +105,11 @@ safe-outputs:
     - www.riksdagsmonitor.com
     - euparliamentmonitor.com
     - www.euparliamentmonitor.com
-  max-patch-size: 2560
+  max-patch-size: 5120
   create-pull-request:
     title-prefix: "[news] "
+    excluded-files:
+      - "analysis/daily/**/data/**"
   add-comment:
     max: 1
 
@@ -135,11 +137,12 @@ You are the **Translation Agent** for EU Parliament Monitor. Your job is to take
 
 ## 🚫 MANDATORY Scope Restriction
 
-> **⚠️ CRITICAL — READ FIRST**: This workflow ONLY creates translated article files in the `news/` directory. You MUST NOT modify any other files.
+> **⚠️ CRITICAL — READ FIRST**: This workflow ONLY creates translated article files in the `news/` directory and analysis artifacts in the `analysis/daily/` directory. You MUST NOT modify any other files.
 
 **ALLOWED modifications:**
 - ✅ Create new `news/*.html` translation files (non-English only)
 - ✅ Read existing `news/*-en.html` English source articles
+- ✅ Write analysis artifacts to `analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}/`
 
 **FORBIDDEN modifications (will cause patch conflicts and workflow failure):**
 - ❌ `news/*-en.html` — NEVER modify English source articles (read-only)
@@ -155,6 +158,27 @@ You are the **Translation Agent** for EU Parliament Monitor. Your job is to take
 - ❌ DO NOT attempt to fix them — that is outside this workflow's scope
 - ✅ Log the error and continue with translation
 - ✅ The translation generator handles all code logic; your job is to RUN it, not FIX it
+
+## 🚨 CRITICAL — NEVER USE AD-HOC GIT COMMANDS (READ BEFORE ANYTHING ELSE)
+
+> **⛔ ABSOLUTE RULE — ZERO EXCEPTIONS FOR MANUAL GIT OPERATIONS**: You MUST NEVER run ad-hoc/manual git commands such as `git add`, `git commit`, `git push`, `git checkout -b`, or other self-directed git write operations **unless this workflow explicitly instructs you to do so in a later safety/cleanup/recovery step**. The gh-aw framework handles normal PR git operations automatically. If you manually commit files, the `create_pull_request` safe output WILL fail with "No changes to commit" because it expects uncommitted working directory changes.
+
+**The ONLY correct normal workflow:**
+1. Write/edit files using bash, `edit`, or `create` tools → files remain as **uncommitted working directory changes**
+2. Call `safeoutputs___create_pull_request` with `title`, `body`, `base`, `head` → the framework auto-commits, creates the branch, and opens the PR
+3. If a later section of this workflow explicitly tells you to run a git cleanup/recovery command (for example, scope cleanup or git-state safety steps), follow that instruction exactly as written
+
+**FORBIDDEN ad-hoc git operations (these WILL break the workflow):**
+- ❌ `git add` — NEVER stage files manually
+- ❌ `git commit` — NEVER commit files manually
+- ❌ `git push` — NEVER push manually
+- ❌ `git checkout -b` — NEVER create branches manually
+- ❌ `git reset`, `git checkout`, `git stash`, or similar git state changes **unless this workflow explicitly directs that exact recovery/cleanup step**
+- ❌ ANY ad-hoc attempt to "fix" a failed `create_pull_request` call with git commands — retry **once**, then let the workflow fail unless this workflow explicitly instructs a specific git recovery step
+
+**If `create_pull_request` fails:**
+1. Retry `safeoutputs___create_pull_request` exactly **once**
+2. If still fails: ❌ workflow MUST FAIL — do NOT try alternative ad-hoc git commands, branch tricks, or API calls, except for git commands explicitly required elsewhere in this workflow
 
 ## 🧠 Memory & Reasoning Tools
 
@@ -251,7 +275,28 @@ Each translated article must score well on these 5 dimensions:
 
 ## MANDATORY MCP Health Gate
 
-Before starting any translation work, verify that the MCP servers required by this workflow are available. The translate workflow relies on `memory` and `sequential-thinking` MCP servers for terminology tracking and complex translation decisions.
+Before starting any translation work, verify that ALL MCP servers required by this workflow are available. The translate workflow uses `european-parliament` MCP for article generation, `memory` for cross-run terminology tracking, and `sequential-thinking` for complex translation decisions.
+
+### EP MCP Health Check (REQUIRED for generation)
+
+1. Call `european_parliament___get_plenary_sessions({ limit: 1 })` — if successful, EP MCP is healthy
+2. If it fails, wait 30 seconds and retry (up to 3 total attempts)
+3. If ALL 3 attempts fail:
+   - Log the warning: "⚠️ EP MCP server unavailable — article generation may skip types that require live data"
+   - Continue with translation (the generator will handle MCP fallback per article type)
+   - Do NOT noop — existing English articles can still be translated even without EP MCP
+
+**Implementation pattern** — execute this check before any other work:
+
+```javascript
+// EP MCP Health Gate — verify European Parliament server availability
+european_parliament___get_plenary_sessions({ limit: 1 })
+// If the call succeeds, EP MCP is healthy — all article types can be generated.
+// If it fails after 3 retries (30s between each), log a warning and continue.
+// The generator handles MCP unavailability per article type.
+```
+
+### Memory MCP Health Check (helpful but not required)
 
 1. Call `memory___read_graph({})` — if successful, the memory MCP server is healthy
 2. If it fails, wait 15 seconds and retry (up to 3 total attempts)
@@ -259,16 +304,14 @@ Before starting any translation work, verify that the MCP servers required by th
    - Log the warning: "⚠️ Memory MCP server unavailable — proceeding without cross-run terminology tracking"
    - Continue with translation (memory is helpful but NOT required for core translation)
 
-**Implementation pattern** — execute this check before any other work:
-
 ```javascript
-// MCP Health Gate — verify memory server availability
+// Memory MCP Health Gate — verify memory server availability
 memory___read_graph({})
 // If the call succeeds, proceed to Date Context Establishment below.
 // If it fails after 3 retries (15s between each), log a warning and continue.
 ```
 
-> **NOTE**: Unlike content workflows, the translate workflow does NOT require the European Parliament MCP server for its core function (translating existing English articles). The EP MCP server is declared in the `mcp-servers:` frontmatter for potential EP terminology cross-reference lookups (e.g., verifying official committee names in target languages), but it is NOT a hard dependency. The workflow should NEVER noop solely because the EP MCP server is unavailable.
+> **NOTE**: Both EP MCP and Memory MCP are declared in `mcp-servers:` and MUST be health-checked. The translate workflow should NEVER noop solely because one MCP server is unavailable — partial results are always better than no results.
 
 ## MANDATORY Date Context Establishment
 
@@ -282,19 +325,22 @@ CURRENT_YEAR=$(date -u +%Y)
 DAY_OF_WEEK=$(date -u +%A)
 START_EPOCH=$(date +%s)
 TRANSLATION_DEADLINE_MIN=65
+RUN_ID="${GITHUB_RUN_NUMBER:-0}"
+ANALYSIS_DIR="analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}"
 echo "Today:        $TODAY ($DAY_OF_WEEK)"
 echo "Article date: $ARTICLE_DATE"
 echo "Year:         $CURRENT_YEAR"
+echo "Run ID:       $RUN_ID"
+echo "Analysis Dir: $ANALYSIS_DIR"
 echo "Start epoch:  $START_EPOCH"
 echo "Deadline:     ${TRANSLATION_DEADLINE_MIN} minutes"
 echo "==================================="
-export TODAY ARTICLE_DATE CURRENT_YEAR DAY_OF_WEEK START_EPOCH TRANSLATION_DEADLINE_MIN
+export TODAY ARTICLE_DATE CURRENT_YEAR DAY_OF_WEEK START_EPOCH TRANSLATION_DEADLINE_MIN RUN_ID ANALYSIS_DIR
 
 # ⚠️ MANDATORY: Create baseline analysis directory and summary BEFORE any noop exits.
 # Per ai-driven-analysis-guide.md Rule 5, no workflow run should be wasted.
 # This ensures even early noop paths (no articles found, all translations exist)
 # produce a committed analysis artifact via an analysis-only PR.
-ANALYSIS_DIR="analysis/${ARTICLE_DATE}/translate"
 mkdir -p "${ANALYSIS_DIR}"
 SUMMARY_FILE="${ANALYSIS_DIR}/summary.md"
 if [ ! -f "${SUMMARY_FILE}" ]; then
@@ -389,7 +435,6 @@ if [ -z "$ARTICLE_TYPES" ]; then
   # Per Rule 5: no workflow run wasted — create analysis-only PR with baseline summary
   echo "📊 Creating analysis-only PR with baseline translation analysis for $ARTICLE_DATE"
   # Update the baseline summary with specifics about why no translations were produced
-  ANALYSIS_DIR="analysis/${ARTICLE_DATE}/translate"
   cat >> "${ANALYSIS_DIR}/summary.md" <<EOF
 
 ## Run Outcome — No Articles Found
@@ -441,7 +486,6 @@ if [ -z "$NEEDS_TRANSLATION" ]; then
   # Per Rule 5: no workflow run wasted — create analysis-only PR with baseline summary
   echo "📊 Creating analysis-only PR with baseline translation analysis for $ARTICLE_DATE"
   # Update the baseline summary with specifics about why no new translations were produced
-  ANALYSIS_DIR="analysis/${ARTICLE_DATE}/translate"
   cat >> "${ANALYSIS_DIR}/summary.md" <<EOF
 
 ## Run Outcome — Translations Already Exist
@@ -607,13 +651,15 @@ fi
 
 > **CORE STEP**: The generator produces articles with localized UI but **English narrative content**. You MUST translate all English text in each non-English file.
 
+> **⛔ REMINDER — NO GIT COMMANDS**: Use `edit` tool or bash file writes (e.g., `cat > file`, `sed -i`) to update translation files. NEVER run `git add`, `git commit`, or any git command. Files MUST remain as uncommitted working directory changes for the PR creation step to work.
+
 > **⏱️ TIME MANAGEMENT**: Check elapsed time after each article type. If 65+ minutes elapsed, SKIP remaining translations and proceed directly to Step 5 (PR creation). Partial translations are acceptable.
 
 For each non-English article file generated in Step 3:
 
 1. Read the file, identify English text in `<p>`, `<li>`, `<td>`, `<span>`, `<div>` elements
 2. Translate to the target language using EP terminology standards (see table above)
-3. Write the translated file back
+3. Write the translated file back using `edit` tool or bash file writes — do NOT use git commands
 4. Keep: proper nouns (MEP names), abbreviations (EPP, S&D), reference IDs, location names
 
 Translate ALL narrative content: analysis, stakeholder perspectives, impact assessments, SWOT entries, outlook, footer disclaimers, and alt text.
@@ -733,15 +779,17 @@ fi
 ## Step 4b: Scope Verification (Prevent Patch Conflicts)
 
 > **⚠️ CRITICAL**: This step prevents patch apply failures caused by unintended file modifications.
+>
+> **NOTE**: The `git checkout` and `git reset` commands in this scope cleanup block are **explicitly whitelisted** — run them exactly as written below to revert out-of-scope changes.
 
 ```bash
 echo "=== Scope Verification ==="
 
 # Use NUL-delimited output for safe handling of all filenames
-# Check for modifications outside news/ and analysis/ directories (unstaged, staged, and untracked)
-OUT_OF_SCOPE=$(git diff -z --name-only 2>/dev/null | tr '\0' '\n' | grep -Ev '^(news|analysis)(/|$)' || true)
-STAGED_OOS=$(git diff -z --name-only --staged 2>/dev/null | tr '\0' '\n' | grep -Ev '^(news|analysis)(/|$)' || true)
-UNTRACKED_OOS=$(git ls-files -z --others --exclude-standard 2>/dev/null | tr '\0' '\n' | grep -Ev '^(news|analysis)(/|$)' || true)
+# Check for modifications outside news/ and analysis/daily/ directories (unstaged, staged, and untracked)
+OUT_OF_SCOPE=$(git diff -z --name-only 2>/dev/null | tr '\0' '\n' | grep -Ev '^(news|analysis/daily)(/|$)' || true)
+STAGED_OOS=$(git diff -z --name-only --staged 2>/dev/null | tr '\0' '\n' | grep -Ev '^(news|analysis/daily)(/|$)' || true)
+UNTRACKED_OOS=$(git ls-files -z --others --exclude-standard 2>/dev/null | tr '\0' '\n' | grep -Ev '^(news|analysis/daily)(/|$)' || true)
 
 # Check for modifications to English source articles (translate must not edit originals)
 EN_MODIFIED=$(git diff -z --name-only 2>/dev/null | tr '\0' '\n' | grep -E '^news/.*-en\.html$' || true)
@@ -799,7 +847,7 @@ fi
 
 > **⚠️ MANDATORY**: Per `analysis/methodologies/ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted. The translation workflow MUST produce analysis artifacts documenting translation quality, coverage, and terminology consistency. Each run creates its own unique analysis directory.
 
-Before creating the PR, read ALL methodology documents in `analysis/methodologies/` and produce a translation analysis report in `analysis/${ARTICLE_DATE}/translate/`:
+Before creating the PR, read ALL methodology documents in `analysis/methodologies/` and produce a translation analysis report in `${ANALYSIS_DIR}/`:
 
 **Required analysis content:**
 1. **Translation Coverage Matrix** — Which article types × languages were translated, which were skipped and why
@@ -808,10 +856,15 @@ Before creating the PR, read ALL methodology documents in `analysis/methodologie
 4. **Coverage Gap Analysis** — Languages or article types that could not be translated, with reasons
 5. **Improvement Recommendations** — What could be improved in the next translation run
 
-Write the analysis artifacts to `analysis/${ARTICLE_DATE}/translate/` following the templates in `analysis/templates/`. If previous translation analysis exists for this date, read it first and extend/improve it rather than replacing.
+Write the analysis artifacts to `${ANALYSIS_DIR}/` following the templates in `analysis/templates/`. If previous translation analysis exists for this date, read it first and extend/improve it rather than replacing.
 
 ```bash
-ANALYSIS_DIR="analysis/${ARTICLE_DATE}/translate"
+# Re-initialize ANALYSIS_DIR (env vars do NOT persist across bash blocks)
+if [ -z "${ARTICLE_DATE:-}" ]; then
+  ARTICLE_DATE=$(date -u +%Y-%m-%d)
+fi
+RUN_ID="${GITHUB_RUN_NUMBER:-0}"
+ANALYSIS_DIR="analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}"
 mkdir -p "${ANALYSIS_DIR}"
 echo "📊 Translation analysis directory: ${ANALYSIS_DIR}/"
 
@@ -823,6 +876,60 @@ echo "📊 Extending analysis summary with translation results: ${SUMMARY_FILE}"
 
 ## Step 5: Create Pull Request
 
+#### MANDATORY Git State Safety Check (Prevent "No changes to commit" Error)
+
+> **⚠️ CRITICAL**: The `create_pull_request` safe output expects ALL file changes to be **uncommitted working directory modifications**. If any git commits were accidentally made (e.g., via `git add` + `git commit`), this safety check undoes them so the safe output can capture the changes.
+>
+> **NOTE**: The `git reset` and `git checkout` commands in this block are **explicitly whitelisted** — they are the only git state-changing commands permitted in this workflow. Run them exactly as written below.
+
+```bash
+# Safety check: undo any accidental git commits made during translation
+# The safe output mechanism expects uncommitted working directory changes.
+# If the agent accidentally committed, reset to the original checkout state
+# while keeping all file changes in the working directory.
+ORIGINAL_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+# Find the original checkout SHA — use GITHUB_SHA (set by Actions) if available,
+# otherwise find the root commit of the current branch
+CHECKOUT_SHA="${GITHUB_SHA:-}"
+if [ -z "$CHECKOUT_SHA" ]; then
+  CHECKOUT_SHA=$(git rev-list --max-parents=0 HEAD 2>/dev/null | tail -1)
+fi
+if [ -z "$CHECKOUT_SHA" ]; then
+  echo "⚠️ Could not determine original checkout SHA — skipping safety check"
+else
+  CURRENT_SHA=$(git rev-parse HEAD)
+  COMMITS_SINCE_CHECKOUT=$(git rev-list --count "$CHECKOUT_SHA".."$CURRENT_SHA" 2>/dev/null || echo 0)
+
+  echo "📋 Git state check:"
+  echo "  Branch:               $ORIGINAL_BRANCH"
+  echo "  Checkout SHA:         $CHECKOUT_SHA"
+  echo "  Current SHA:          $CURRENT_SHA"
+  echo "  Commits since checkout: $COMMITS_SINCE_CHECKOUT"
+
+  if [ "$COMMITS_SINCE_CHECKOUT" -gt 0 ]; then
+    echo "⚠️ Git state safety: detected $COMMITS_SINCE_CHECKOUT commit(s) since checkout — resetting to keep files as uncommitted changes"
+    # Reset to the original checkout commit, keeping all file changes in working directory
+    git reset --mixed "$CHECKOUT_SHA" 2>/dev/null || true
+    echo "✅ Git state restored — all changes are now uncommitted working directory modifications"
+  else
+    echo "✅ Git state clean — no accidental commits detected"
+  fi
+fi
+
+# Ensure we're on the original branch (not a manually created branch)
+# Use GITHUB_REF_NAME if available, otherwise default to main
+DEFAULT_BRANCH="${GITHUB_REF_NAME:-main}"
+if [ "$ORIGINAL_BRANCH" != "$DEFAULT_BRANCH" ] && [ "$ORIGINAL_BRANCH" != "HEAD" ]; then
+  echo "⚠️ Git state safety: on branch '$ORIGINAL_BRANCH' instead of '$DEFAULT_BRANCH' — switching back"
+  git checkout "$DEFAULT_BRANCH" 2>/dev/null || true
+fi
+
+echo "📋 Working directory status (should show uncommitted changes):"
+git status --short | head -20
+CHANGE_COUNT=$(git status --short | wc -l)
+echo "📊 Total uncommitted changes: $CHANGE_COUNT"
+```
+
 #### MANDATORY Metadata Cleanup (Prevent Patch Conflicts)
 
 > **⚠️ CRITICAL**: The generator writes `news/metadata/generation-YYYY-MM-DD.json` during article creation. When multiple news workflows run on the same day, each creates the same date's metadata file. If another workflow's PR is merged before this workflow's patch is applied, the metadata file already exists on `main` and the patch fails with "Failed to apply patch". **Remove the metadata file from the working directory before creating the PR** so it is not included in the diff.
@@ -831,20 +938,21 @@ echo "📊 Extending analysis summary with translation results: ${SUMMARY_FILE}"
 # Remove metadata files to prevent patch conflicts with other same-day workflows
 rm -f news/metadata/generation-*.json
 rm -f news/articles-metadata.json
-# ⚠️ MANDATORY: Commit analysis artifacts per ai-driven-analysis-guide.md Rule 5
+# ⚠️ MANDATORY: Persist analysis artifacts per ai-driven-analysis-guide.md Rule 5
 # No workflow run should be wasted — translation analysis is ALWAYS persisted.
-# Remove only raw data downloads to control PR size. Analysis markdown MUST be committed.
+# Remove only raw data downloads to control PR size. Analysis markdown MUST be kept.
 rm -rf analysis-output/
 # Scope cleanup to THIS workflow's analysis directory only — never touch other workflows' data
 if [ -z "${ARTICLE_DATE:-}" ]; then
   ARTICLE_DATE=$(date -u +%Y-%m-%d)
 fi
-TRANSLATE_ANALYSIS_DIR="analysis/${ARTICLE_DATE}/translate"
+RUN_ID="${GITHUB_RUN_NUMBER:-0}"
+TRANSLATE_ANALYSIS_DIR="analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}"
 if [ -d "${TRANSLATE_ANALYSIS_DIR}" ]; then
   find "${TRANSLATE_ANALYSIS_DIR}" -type f -path "*/data/*" ! -name "*.analysis.md" ! -name "*.md" -delete 2>/dev/null || true
   find "${TRANSLATE_ANALYSIS_DIR}" -type d -name "data" -empty -delete 2>/dev/null || true
 fi
-echo "🧹 Cleaned raw data payloads for ${ARTICLE_DATE}/translate; translation analysis markdown artifacts PRESERVED for commit"
+echo "🧹 Cleaned raw data payloads for ${TRANSLATE_ANALYSIS_DIR}; translation analysis markdown artifacts PRESERVED for PR"
 
 if [ -z "${ARTICLE_DATE:-}" ]; then
   ARTICLE_DATE=$(date -u +%Y-%m-%d)
@@ -907,15 +1015,28 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 - ❌ Passing a `files` parameter — it does not exist; all working directory changes are captured automatically
 - ❌ Trying multiple alternative approaches if PR creation fails — retry **once**, then let the workflow fail
 
+**⚠️ NEVER use `git push` directly** — always use `safeoutputs___create_pull_request`
+
 - ✅ `safeoutputs___create_pull_request` when ANY translations are generated
 - ✅ `safeoutputs___create_pull_request` with analysis-only if no articles found
 - ✅ `safeoutputs___noop` ONLY if no English articles exist AND no analysis-only PR created
-- ❌ NEVER use `git push` — always use `safeoutputs___create_pull_request`
 - ❌ NEVER exit without calling either `safeoutputs___create_pull_request` or `safeoutputs___noop`
 
 ## Error Handling
 
-- **No English articles**: Create analysis-only PR or call `safeoutputs___noop`
-- **MCP server unavailable**: Generator falls back to stdio mode
-- **Some types fail**: Continue with remaining, create PR with partial translations
-- **PR creation fails**: Retry once, then workflow MUST FAIL
+**If translation generator fails:**
+1. Log the specific failure
+2. Continue with remaining article types — partial translations are acceptable
+3. If ALL types fail, create analysis-only PR with failure summary
+
+**If PR creation fails AFTER generating translations:**
+1. Retry `safeoutputs___create_pull_request` exactly **once**
+2. If still fails: ❌ workflow MUST FAIL — do NOT try alternative ad-hoc git commands or API calls
+3. The translations exist but no PR = readers can't see them = FAILURE
+4. Do NOT attempt: ad-hoc branch creation, ad-hoc git reset, reflog recovery, or any other git tricks (the mandatory safety/cleanup steps above are the only permitted git commands)
+
+**If no English articles found:**
+- Create analysis-only PR or call `safeoutputs___noop`
+
+**If MCP server unavailable:**
+- Generator falls back to stdio mode — continue normally
