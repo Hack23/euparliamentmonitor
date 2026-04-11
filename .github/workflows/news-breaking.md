@@ -48,6 +48,8 @@ mcp-servers:
     args:
       - -y
       - european-parliament-mcp-server@1.2.1
+      - --timeout
+      - "90000"
     env:
       EP_REQUEST_TIMEOUT_MS: "90000"
   memory:
@@ -126,10 +128,11 @@ You are the **News Journalist Agent** for EU Parliament Monitor generating **bre
 - ❌ `package.json` / `package-lock.json` — NEVER modify dependency files
 
 **FORBIDDEN practices (waste time and produce low-quality output):**
-- ❌ **Writing custom Python/Ruby/Perl scripts** — Use ONLY the existing Node.js/TypeScript toolchain (`npm run build`, `node scripts/...`)
+- ❌ **Writing custom Python/Ruby/Perl scripts** — Use ONLY the existing Node.js/TypeScript toolchain (`npm run build`, `node scripts/...`). NEVER use `python3`, `pip install`, or any Python-based workaround
+- ❌ **Dangerous shell expansion patterns** — NEVER use `${var@P}`, `${!var}`, `eval`, nested command substitutions `$($(..))`, or indirect variable expansion. These will be blocked by the sandbox
 - ❌ **Ad-hoc data processing scripts** — Use the existing `scripts/generate-news-enhanced.js` and pipeline tools
 - ❌ **Metadata-only analysis** — You MUST download and store COMPLETE EP documents (full titles, descriptions, procedure references, work types), not just IDs and counts
-- ❌ **Workarounds for existing tools** — If `npm run build` or existing scripts fail, log the error and continue; do NOT reimplement their functionality
+- ❌ **Workarounds for existing tools** — If `npm run build` or existing scripts fail, log the error and continue; do NOT reimplement their functionality in another language
 - ❌ **Rushing analysis in <5 minutes** — Spend the full allocated 15-20 minutes on deep political intelligence analysis
 - ❌ **Deciding article topic before analysis is complete** — Finish ALL analysis methods first, THEN decide what article to write based on significance scoring results
 
@@ -320,9 +323,9 @@ For each breaking development, immediately assess:
 Every generated article (or analysis-only PR) MUST link to ALL individual analysis files. The Analysis & Transparency section must include links to each specific `.md` file in `${ANALYSIS_DIR}/`.
 
 ## ⏱️ Time Budget (60 minutes)
-- **Minutes 0–3**: Date check, MCP warm-up with EP MCP tools
-- **Minutes 3–20**: Query ALL EP feed endpoints — download ALL documents, adopted texts, events, procedures, MEP updates. Use `timeframe: "today"` first, then retry with `timeframe: "one-week"` for any empty/failed endpoint. Also fetch advisory feeds (documents, plenary docs, committee docs, questions) with `timeframe: "one-week"`. **⚠️ EP API can be slow (30-90s per call) — be patient, do NOT abort on slow responses. Allow up to 120s per call.**
-- **Minutes 20–40**: 🔬🔬🔬 **MANDATORY DEEP POLITICAL ANALYSIS PHASE (15-20 MINUTES)** — Fetch analytical context (voting anomalies, coalition dynamics, political landscape, early warning), write ALL analysis `.md` files across the 5 analysis categories. Read ALL methodology guides and templates, apply them to EVERY downloaded MCP data file, write substantive analysis markdown, use `sequentialthinking` for complex reasoning, cross-reference documents via knowledge graph, complete 4-pass refinement cycle. **⚠️ Download and store COMPLETE EP document data, not just metadata.** Save ALL MCP data to `${ANALYSIS_DIR}/data/`
+- **Minutes 0–3**: Date check, MCP warm-up with EP MCP tools, **MANDATORY health gate** (plenary sessions probe + feed endpoint probe), **MANDATORY `get_server_health`** call. If health check triggers **DEGRADED MODE**, adapt strategy immediately
+- **Minutes 3–20**: Query ALL EP feed endpoints — download ALL documents, adopted texts, events, procedures, MEP updates. **In NORMAL mode**: Use `timeframe: "today"` first, then retry with `timeframe: "one-week"` for any empty/failed endpoint. **In DEGRADED MODE**: Skip `today` entirely, go straight to `timeframe: "one-week"` for ALL feeds (saves 4+ minutes of timeout waits). Also fetch advisory feeds (documents, plenary docs, committee docs, questions) with `timeframe: "one-week"`. **⚠️ EP API can be slow (30-90s per call) — be patient, do NOT abort on slow responses. Allow up to 120s per call.**
+- **Minutes 20–40**: 🔬🔬🔬 **MANDATORY DEEP POLITICAL ANALYSIS PHASE (15-20 MINUTES)** — **In NORMAL mode**: Fetch analytical context (voting anomalies, coalition dynamics, political landscape, early warning). **In DEGRADED MODE**: Fetch coalition dynamics only (skip voting anomalies, political landscape, early warning — they depend on the same failing EP API). Write ALL analysis `.md` files across the 5 analysis categories. Read ALL methodology guides and templates, apply them to EVERY downloaded MCP data file, write substantive analysis markdown, use `sequentialthinking` for complex reasoning, cross-reference documents via knowledge graph, complete 4-pass refinement cycle. **⚠️ Download and store COMPLETE EP document data, not just metadata.** Save ALL MCP data to `${ANALYSIS_DIR}/data/`
 - **Minutes 40–45**: 📊 AI evaluates analysis artifacts to determine breaking news significance — ONLY proceed with article generation if analysis confirms newsworthy developments from TODAY
 - **Minutes 45–52**: Generate English article with deep political intelligence analysis informed by analysis artifacts (SKIP if no today-dated breaking news)
 - **Minutes 52–57**: Validate and finalize changes
@@ -477,6 +480,23 @@ export TODAY CURRENT_YEAR CURRENT_MONTH CURRENT_MONTH_NAME CURRENT_DAY DAY_OF_WE
 
 Before generating ANY articles, verify MCP connectivity:
 
+### Step 0: EP API Connectivity Pre-Check (bash)
+
+Run a lightweight HTTP probe **before** the MCP health gate to detect network-level failures (DNS, firewall, EP API outage) instantly without consuming MCP call budget:
+
+```bash
+EP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 "https://data.europarl.europa.eu/api/v2/meps?format=application%2Fld%2Bjson&offset=0&limit=1" 2>/dev/null || true)
+EP_STATUS="${EP_STATUS:-000}"
+echo "EP API connectivity check: HTTP $EP_STATUS"
+if [ "$EP_STATUS" = "000" ] || [ "$EP_STATUS" -ge 500 ] 2>/dev/null; then
+  echo "⚠️ EP API appears DOWN (HTTP $EP_STATUS) — MCP health gate may also fail"
+fi
+```
+
+> **If curl returns 000 (connection failed) or 5xx**: The EP API at `data.europarl.europa.eu` is likely down. The MCP health gate will almost certainly fail too. Proceed with the health gate anyway (it may succeed via cached responses), but be prepared for noop.
+
+### Step 1: MCP Health Gate
+
 1. Call `european_parliament___get_plenary_sessions({ limit: 1 })` — if successful, proceed
 2. If it fails, wait 30 seconds and retry (up to 3 total attempts)
 3. If ALL 3 attempts fail:
@@ -484,6 +504,7 @@ Before generating ANY articles, verify MCP connectivity:
    - DO NOT analyze existing articles in the repository
    - DO NOT fabricate or recycle content
    - The workflow MUST end with noop
+5. If Step 1 succeeds but Step 2 fails (feed probe returns error/INTERNAL_ERROR/timeout), **enter DEGRADED MODE** — see section below
 
 **CRITICAL**: ALL article content MUST originate from live MCP data. Never generate content from:
 - Existing articles in the news/ directory
@@ -491,6 +512,24 @@ Before generating ANY articles, verify MCP connectivity:
 - AI-generated content without MCP source data
 - Synthetic/test IDs (VOTE-2024-001, DOC-2024-001, etc.)
 - Manually constructed HTML by studying existing article patterns
+
+## ⚠️ DEGRADED MODE Protocol
+
+**Trigger**: Health gate Step 2 feed probe fails, OR `get_server_health` reports ≥50% feeds as `error`/`Degraded`/`Unavailable`, OR the first 2+ primary feed calls (Step 1 of feed gathering) return INTERNAL_ERROR/timeout.
+
+**When in Degraded Mode:**
+
+1. **Skip `timeframe: "today"` entirely** — go directly to `timeframe: "one-week"` for ALL feed calls (saves time and API budget when the EP API is partially down)
+2. **Skip analytical tools that require live upstream API calls**: `detect_voting_anomalies`, `generate_political_landscape`, `early_warning_system` — these are likely to fail too. Record them as `SKIPPED_DEGRADED_MODE` in the manifest
+3. **Focus on reliable data sources**:
+   - `get_all_generated_stats` (precomputed, does NOT call EP API) — ALWAYS works
+   - `analyze_coalition_dynamics` (uses cached structural data) — usually works
+   - `get_meps_feed` / `get_current_meps` (simpler endpoint, often works when feeds fail)
+4. **Still attempt ALL feed endpoints** with `one-week` timeframe — some feeds may work even when others don't. Log each result
+5. **Still write ALL analysis artifacts** — use precomputed stats and whatever data was collected
+6. **Record degraded mode in manifest**: Set `"degradedMode": true` and list which tools were skipped and why
+
+> **📊 WHY**: The EP API at `data.europarl.europa.eu` experiences periodic outages, especially during parliamentary recess periods. Feed endpoints (which use the `/feed` API path) are more fragile than direct endpoints. Degraded Mode maximises useful output from each workflow run while minimising wasted API calls and timeout waits.
 
 ## MANDATORY PR Creation
 
@@ -523,11 +562,33 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 **If EP MCP server unavailable (3 retries failed):**
 1. `safeoutputs___noop` with descriptive message — legitimate noop
 
+**If ≥3 consecutive feed endpoints return INTERNAL_ERROR (total EP API outage):**
+1. This indicates the entire EP API (`data.europarl.europa.eu`) is down — do NOT continue burning MCP call budget
+2. Call `european_parliament___get_server_health({})` once for diagnostic context
+3. Call `european_parliament___get_all_generated_stats({ category: "all", includePredictions: true })` for precomputed context (static data, no live API needed)
+4. Write a diagnostic analysis file to `${ANALYSIS_DIR}/existing/api-outage-diagnostic.md` with:
+   - The exact error messages from the 3 failed feeds
+   - The `get_server_health` output
+   - The curl connectivity pre-check result (if available from the bash block)
+   - Timestamp and run ID
+5. Create an analysis-only PR with `safeoutputs___create_pull_request` — the diagnostic is valuable for post-mortem
+6. Do NOT noop — the diagnostic analysis PR is the output
+
 **If individual feed endpoints fail/timeout:**
 1. Log the error and continue with other feeds — do NOT abort the entire data collection
-2. Retry failed endpoints with `timeframe: "one-week"` (wider window = more likely to return data)
-3. If retry also fails, continue with the data you have — partial data is better than no data
-4. NEVER skip analysis because some feeds failed — run analysis with whatever data was collected
+2. If ≥2 primary feeds fail in sequence, **enter DEGRADED MODE** immediately — skip `today` timeframe for remaining feeds and go straight to `one-week`
+3. Retry failed endpoints with `timeframe: "one-week"` (wider window = more likely to return data)
+4. If retry also fails, continue with the data you have — partial data is better than no data
+5. NEVER skip analysis because some feeds failed — run analysis with whatever data was collected
+6. In DEGRADED MODE, skip analytical tools (`detect_voting_anomalies`, `generate_political_landscape`, `early_warning_system`) that depend on the same EP API that is failing — they will likely fail too, wasting timeout budget
+
+**If ALL feed endpoints fail (total EP API outage):**
+1. This is expected during parliamentary recess periods and EP API maintenance windows
+2. Still call `get_all_generated_stats` (precomputed, does NOT depend on live EP API)
+3. Still call `analyze_coalition_dynamics` (uses structural composition data, often works)
+4. Write ALL analysis `.md` files based on precomputed stats and any available data
+5. **Create an analysis-only PR** — per `ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted
+6. Record complete feed status in manifest `feedEndpointStatus` field
 
 **If no newsworthy events found in feeds (but data was collected):**
 1. Verify all feed endpoints were queried (including one-week fallback)
@@ -546,15 +607,15 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 
 ## EP MCP Tools for Breaking News
 
-### 🏥 RECOMMENDED: Server Health Check
+### 🏥 MANDATORY: Server Health Check
 
-**Call `get_server_health` before data gathering** to check which EP API feeds are currently operational. This avoids wasting API calls on degraded feeds and helps adapt the data collection strategy.
+**Call `get_server_health` BEFORE data gathering** to check which EP API feeds are currently operational. This avoids wasting API calls on degraded feeds and triggers the Degraded Mode protocol when needed.
 
 ```javascript
 european_parliament___get_server_health({})
 ```
 
-> **📊 ADAPTIVE STRATEGY**: If health check shows feeds as `error` or availability is `Degraded`/`Sparse`/`Unavailable`, widen initial timeframe from `"today"` to `"one-week"` for ALL feeds, and skip analytical tools that depend on upstream API calls (voting anomalies, coalition dynamics, etc.). Focus on `get_all_generated_stats` for precomputed context.
+> **📊 ADAPTIVE STRATEGY**: If health check shows feeds as `error` or availability is `Degraded`/`Sparse`/`Unavailable`, **enter DEGRADED MODE** (see protocol above): widen initial timeframe from `"today"` to `"one-week"` for ALL feeds, skip analytical tools that depend on upstream API calls (voting anomalies, political landscape, early warning), and focus on `get_all_generated_stats` for precomputed context. Record the health check result in the manifest `feedEndpointStatus` field.
 
 ### ⚡ MANDATORY: Precomputed Statistics for Context
 
@@ -614,32 +675,35 @@ After fetching all feed data AND running analysis, evaluate newsworthiness:
 **If YES to any**: Proceed with article generation — include publish dates for ALL referenced items
 **If NO to all**: **Still create an analysis-only PR** with `safeoutputs___create_pull_request` containing analysis artifacts — per `ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted. Analysis of quiet periods reveals patterns. Include a summary of what data WAS collected (e.g., "Downloaded 42 procedures, 15 events from past week; none dated today")
 
-### 📊 MANDATORY: Analytical Context
+### 📊 MANDATORY: Analytical Context (skip in DEGRADED MODE)
 
-**ALWAYS fetch these — they provide essential context for analysis regardless of newsworthiness:**
+**In NORMAL mode, ALWAYS fetch these — they provide essential context for analysis regardless of newsworthiness.**
+**In DEGRADED MODE, skip `detect_voting_anomalies`, `generate_political_landscape`, and `early_warning_system`** (they depend on the same EP API that is failing and will likely timeout, wasting 3×90s = 4.5 minutes). Still call `analyze_coalition_dynamics` (uses structural data).
 
 ```javascript
-// Voting anomalies — mandatory analytical context
+// Voting anomalies — mandatory in NORMAL mode, SKIP in DEGRADED MODE
 european_parliament___detect_voting_anomalies({ sensitivityThreshold: 0.3 })
 
-// Coalition dynamics — mandatory analytical context
+// Coalition dynamics — ALWAYS call (uses structural composition data, works even during API outages)
 european_parliament___analyze_coalition_dynamics({})
 
-// Political landscape — mandatory for comprehensive analysis
+// Political landscape — mandatory in NORMAL mode, SKIP in DEGRADED MODE
 european_parliament___generate_political_landscape({})
 
-// Early warning system — mandatory for trend detection
+// Early warning system — mandatory in NORMAL mode, SKIP in DEGRADED MODE
 european_parliament___early_warning_system({ sensitivity: "medium" })
 ```
 
 ### ⚡ MCP Call Budget
 
 - This budget applies to **manual pre-generation data gathering only**.
+- **Health check**: 1 mandatory call (`get_server_health`) + 1 feed probe in health gate = 2 calls (exempt from budget)
 - **Precomputed stats**: call `european_parliament___get_all_generated_stats` once (does not count toward budget)
-- **Feed endpoints**: 4 mandatory calls with today + up to 4 conditional retry calls with one-week fallback = max 8 feed calls
+- **Feed endpoints**: 4 mandatory calls with today + up to 4 conditional retry calls with one-week fallback = max 8 feed calls (in DEGRADED MODE: 4 calls with one-week only)
 - **Advisory feeds**: 4 mandatory calls with one-week timeframe = 4 calls
-- **Analytical context**: 4 mandatory calls (anomalies, coalition dynamics, political landscape, early warning) = 4 calls
-- **Maximum 16 manual MCP tool calls total** (4 primary + 4 retries + 4 advisory + 4 analytical; health-gate and generator script calls exempt)
+- **Analytical context**: 4 calls in NORMAL mode (anomalies, coalition dynamics, political landscape, early warning) or 1 call in DEGRADED MODE (coalition dynamics only)
+- **Maximum 16 manual MCP tool calls in NORMAL mode** (4 primary + 4 retries + 4 advisory + 4 analytical; health-gate and generator script calls exempt)
+- **Maximum 9 manual MCP tool calls in DEGRADED MODE** (4 feeds one-week + 4 advisory one-week + 1 coalition dynamics)
 - **⚠️ ALL non-retry calls are mandatory** — the workflow must attempt every call, logging errors but continuing with other calls
 
 ## 📝 Article Generation

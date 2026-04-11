@@ -2070,6 +2070,42 @@ describe('ep-mcp-client', () => {
       await client.getMEPs();
       expect(client.getFailedTools().has('get_meps')).toBe(false);
     });
+
+    it('should record an INTERNAL_ERROR failure when isError is true with INTERNAL_ERROR content', async () => {
+      vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
+        isError: true,
+        content: [{ type: 'text', text: '{"errorCode":"INTERNAL_ERROR","message":"ECONNREFUSED"}' }],
+      });
+      const result = await client.getMEPs();
+      const failed = client.getFailedTools();
+      expect(failed.size).toBe(1);
+      expect(failed.get('get_meps')).toMatch(/^INTERNAL_ERROR:/);
+      // Should return fallback data, not the error content
+      expect(result.content[0].text).not.toContain('ECONNREFUSED');
+    });
+
+    it('should record a SERVER_ERROR failure when isError is true with UPSTREAM_500 content', async () => {
+      vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
+        isError: true,
+        content: [{ type: 'text', text: '{"errorCode":"UPSTREAM_500","message":"Internal Server Error"}' }],
+      });
+      const result = await client.getEventsFeed();
+      const failed = client.getFailedTools();
+      expect(failed.size).toBe(1);
+      expect(failed.get('get_events_feed')).toMatch(/^SERVER_ERROR:/);
+      expect(result.content[0].text).not.toContain('UPSTREAM_500');
+    });
+
+    it('should record an UNKNOWN failure when isError is true with empty content', async () => {
+      vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
+        isError: true,
+        content: [],
+      });
+      await client.getProceduresFeed();
+      const failed = client.getFailedTools();
+      expect(failed.size).toBe(1);
+      expect(failed.get('get_procedures_feed')).toMatch(/^UNKNOWN:/);
+    });
   });
 
   describe('getFeedHealthSummary', () => {

@@ -1,0 +1,90 @@
+{
+  "articleType": "breaking",
+  "analysisDate": "2026-04-11",
+  "runId": 158,
+  "producedBy": "news-breaking",
+  "generatedAt": "2026-04-11T06:30:00Z",
+  "confidence": "MEDIUM",
+  "breakingNewsGenerated": false,
+  "reason": "Easter recess Day 16 - all 13 EP API feeds returning errors, no today-dated events. Significance score 4.0/10 (threshold 6.0). Second same-day assessment (Run 157 at 00:30 UTC).",
+  "compositeRisk": 13.17,
+  "riskTrend": "rising",
+  "dataSourcesAvailable": {
+    "precomputedStats": true,
+    "coalitionDynamics": true,
+    "feedEndpoints": false,
+    "votingAnomalies": false,
+    "politicalLandscape": false,
+    "earlyWarning": false
+  },
+  "feedEndpointStatus": {
+    "get_adopted_texts_feed": "INTERNAL_ERROR",
+    "get_events_feed": "INTERNAL_ERROR",
+    "get_procedures_feed": "INTERNAL_ERROR",
+    "get_meps_feed": "INTERNAL_ERROR",
+    "get_documents_feed": "INTERNAL_ERROR",
+    "get_plenary_documents_feed": "INTERNAL_ERROR",
+    "get_committee_documents_feed": "INTERNAL_ERROR",
+    "get_parliamentary_questions_feed": "INTERNAL_ERROR"
+  },
+  "analysisFiles": [
+    {
+      "file": "significance-scoring.md",
+      "framework": "5-Dimension Significance Scoring",
+      "lines": 92
+    },
+    {
+      "file": "political-risk-assessment.md",
+      "framework": "Likelihood x Impact 5x5 Matrix",
+      "lines": 167
+    },
+    {
+      "file": "threat-landscape-analysis.md",
+      "framework": "Political Threat Landscape + Attack Trees + PESTLE",
+      "lines": 187
+    },
+    {
+      "file": "swot-analysis.md",
+      "framework": "Evidence-Based SWOT",
+      "lines": 176
+    },
+    {
+      "file": "coalition-intelligence.md",
+      "framework": "Coalition Configuration Analysis",
+      "lines": 175
+    },
+    {
+      "file": "synthesis-summary.md",
+      "framework": "Cross-Source Intelligence Synthesis",
+      "lines": 207
+    }
+  ],
+  "frameworksApplied": [
+    "5-Dimension Significance Scoring",
+    "Likelihood x Impact 5x5 Risk Matrix",
+    "Political Threat Landscape (6-dimension)",
+    "Attack Trees",
+    "PESTLE",
+    "Evidence-Based SWOT",
+    "TOWS Strategy Matrix",
+    "Coalition Configuration Analysis"
+  ],
+  "epReferences": [
+    "TA-10-2026-0092",
+    "TA-10-2026-0094",
+    "TA-10-2026-0096",
+    "TA-10-2026-0088",
+    "2025/0261(COD)",
+    "2023/0135(COD)",
+    "2023/0111(COD)"
+  ],
+  "crossRunTrajectory": {
+    "run3": { "date": "2026-04-09", "compositeRisk": 10.10 },
+    "run4": { "date": "2026-04-09", "compositeRisk": 10.45 },
+    "run5": { "date": "2026-04-10", "compositeRisk": 10.85 },
+    "run6": { "date": "2026-04-10", "compositeRisk": 11.10 },
+    "run12": { "date": "2026-04-10", "compositeRisk": 12.50 },
+    "run157": { "date": "2026-04-11", "compositeRisk": 12.85 },
+    "run158": { "date": "2026-04-11", "compositeRisk": 13.17 }
+  }
+}

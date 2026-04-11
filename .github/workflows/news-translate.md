@@ -67,6 +67,8 @@ mcp-servers:
     args:
       - -y
       - european-parliament-mcp-server@1.2.1
+      - --timeout
+      - "90000"
     env:
       EP_REQUEST_TIMEOUT_MS: "90000"
   memory:
@@ -153,6 +155,12 @@ You are the **Translation Agent** for EU Parliament Monitor. Your job is to take
 - ❌ `.github/` — NEVER modify workflow or configuration files
 - ❌ `index*.html` — NEVER modify index pages
 - ❌ `package.json` / `package-lock.json` — NEVER modify dependency files
+
+**FORBIDDEN practices (waste time and produce low-quality output):**
+- ❌ **Writing custom Python/Ruby/Perl scripts** — Use ONLY the existing Node.js/TypeScript toolchain (`npm run build`, `node scripts/...`). NEVER use `python3`, `pip install`, or any Python-based workaround
+- ❌ **Dangerous shell expansion patterns** — NEVER use `${var@P}`, `${!var}`, `eval`, nested command substitutions `$($(..))`, or indirect variable expansion. These will be blocked by the sandbox
+- ❌ **Ad-hoc data processing scripts** — Use the existing `scripts/generate-news-enhanced.js` and pipeline tools
+- ❌ **Workarounds for existing tools** — If `npm run build` or existing scripts fail, log the error and continue; do NOT reimplement their functionality in another language
 
 **If you encounter build errors, test failures, or source code bugs:**
 - ❌ DO NOT attempt to fix them — that is outside this workflow's scope
@@ -276,6 +284,19 @@ Each translated article must score well on these 5 dimensions:
 ## MANDATORY MCP Health Gate
 
 Before starting any translation work, verify that ALL MCP servers required by this workflow are available. The translate workflow uses `european-parliament` MCP for article generation, `memory` for cross-run terminology tracking, and `sequential-thinking` for complex translation decisions.
+
+### Step 0: EP API Connectivity Pre-Check (bash)
+
+Run a lightweight HTTP probe **before** the MCP health gate to detect network-level failures (DNS, firewall, EP API outage) instantly:
+
+```bash
+EP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 "https://data.europarl.europa.eu/api/v2/meps?format=application%2Fld%2Bjson&offset=0&limit=1" 2>/dev/null || true)
+EP_STATUS="${EP_STATUS:-000}"
+echo "EP API connectivity check: HTTP $EP_STATUS"
+if [ "$EP_STATUS" = "000" ] || [ "$EP_STATUS" -ge 500 ] 2>/dev/null; then
+  echo "⚠️ EP API appears DOWN (HTTP $EP_STATUS) — EP MCP health gate may also fail. Translation can still proceed with existing English articles."
+fi
+```
 
 ### EP MCP Health Check (REQUIRED for generation)
 
