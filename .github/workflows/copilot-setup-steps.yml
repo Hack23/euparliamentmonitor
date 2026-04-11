@@ -85,7 +85,7 @@ jobs:
             echo "🧹 Clearing npx cache to prevent stale EP MCP server versions..."
             find "$npx_cache_dir" -path "*/european-parliament-mcp-server*" -type d -exec rm -rf {} + 2>/dev/null || true
           fi
-          npm install -g european-parliament-mcp-server@1.2.1
+          npm install -g european-parliament-mcp-server@1.2.2
           
           # Verify the installed version matches expected
           EP_VERSION=$(european-parliament-mcp-server --version 2>/dev/null || echo "unknown")
