@@ -107,9 +107,11 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * Catches any error thrown by the tool (or by the args factory), logs a warning,
      * and returns a fallback payload.
      *
-     * Also inspects the tool result for structured error responses (isError flag
-     * and errorCode in JSON content) from the EP MCP server, which are not thrown
-     * but returned as successful results with error metadata.
+     * Also inspects the tool result for the MCP protocol `isError` flag. When
+     * `isError === true`, the first content item's text is passed through
+     * {@link classifyToolError} for diagnostic categorization, and the tool is
+     * recorded as failed via {@link _recordToolFailure}. This handles EP MCP
+     * Server error responses that are returned (not thrown) as structured results.
      *
      * Accepts either a plain args object or a factory function `() => object`.
      * Using a factory ensures that options normalization/destructuring runs inside
