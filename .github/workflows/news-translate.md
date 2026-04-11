@@ -691,17 +691,31 @@ fi
 For each non-English article file generated in Step 3, process **one file at a time**:
 
 1. **Read** the file with `cat news/${ARTICLE_DATE}-${TYPE}-${LANG}.html`
-2. **Identify** English text in `<p>`, `<li>`, `<td>`, `<span>`, `<div>` elements
+2. **Identify** English text in ALL user-visible elements: `<h1>`, `<h2>`, `<h3>`, `<p>`, `<li>`, `<td>`, `<th>`, `<span>`, `<div>`, `<a>` (link text), `<figcaption>`, `<blockquote>`, and `<title>`
 3. **Translate** to the target language using EP terminology standards (see table above)
 4. **Write back** the translated content using the `edit` tool — replace old English text with translated text, one section at a time
-5. **Keep unchanged**: proper nouns (MEP names), abbreviations (EPP, S&D), reference IDs, location names, HTML tags, CSS classes
+5. **Keep unchanged**: proper nouns (MEP names), abbreviations (EPP, S&D), reference IDs, location names, HTML tags, CSS classes, URLs
+
+**Also translate these SEO and structured data elements:**
+- `<title>` tag — translate the page title (keep `| EU Parliament Monitor` suffix)
+- `<meta name="description" content="...">` — translate the description content
+- `<meta name="keywords" content="...">` — translate keywords to the target language
+- `<meta property="og:title" content="...">` — translate the Open Graph title
+- `<meta property="og:description" content="...">` — translate the OG description
+- `<meta property="og:image:alt" content="...">` — translate the image alt text
+- `<script type="application/ld+json">` — translate `headline`, `description`, and `keywords` fields in the JSON-LD structured data blocks
+- **Do NOT change**: `og:locale`, `og:url`, `og:site_name`, schema.org `@context`/`@type`, `datePublished`, `dateModified`, author names, or any URLs
 
 > **⚠️ CRITICAL APPROACH**: Process ONE file, then ONE section within that file, using `edit` tool calls. Do NOT try to create a batch translation script or a translation dictionary data file. The `edit` tool replaces specific text in a file — use it to swap English paragraphs for translated paragraphs.
 
-Translate ALL narrative content: analysis, stakeholder perspectives, impact assessments, SWOT entries, outlook, footer disclaimers, and alt text.
+Translate ALL narrative content: headings, analysis, stakeholder perspectives, impact assessments, SWOT entries, outlook, footer disclaimers, alt text, SEO metadata, and structured data.
 
 **Quality checklist per article:**
+- [ ] All headings (`<h1>`–`<h3>`), table headers (`<th>`), and link text are translated
 - [ ] All list items and table cells with descriptions are translated
+- [ ] SEO meta tags (`title`, `description`, `keywords`) are translated
+- [ ] Open Graph tags (`og:title`, `og:description`, `og:image:alt`) are translated
+- [ ] JSON-LD structured data (`headline`, `description`, `keywords`) is translated
 - [ ] EP terminology follows the official vocabulary table above
 - [ ] Confidence markers (🟢/🟡/🔴) are preserved with translated labels
 - [ ] Vote counts and percentages are numerically identical to English source
