@@ -156,15 +156,41 @@ export type WBMCPToolName =
 
 /**
  * World Bank MCP tool indicator key mapping.
- * Maps each tool to the indicator keys it accepts.
+ * Maps each tool to the indicator key literals it accepts.
  */
 export interface WBToolIndicatorKeys {
-  /** Economic indicators: GDP, GDP_GROWTH, GDP_PER_CAPITA, GNI, GNI_PER_CAPITA, EXPORTS_GDP, FDI_NET, INFLATION, UNEMPLOYMENT */
-  'get-economic-data': string;
-  /** Social indicators: POPULATION, LIFE_EXPECTANCY, BIRTH_RATE, DEATH_RATE, INTERNET_USERS */
-  'get-social-data': string;
-  /** Health indicators: HEALTH_EXPENDITURE, PHYSICIANS, HOSPITAL_BEDS, IMMUNIZATION, HIV_PREVALENCE, MALNUTRITION, TUBERCULOSIS */
-  'get-health-data': string;
-  /** Education indicators: LITERACY_RATE, SCHOOL_ENROLLMENT, SCHOOL_COMPLETION, TEACHERS_PRIMARY, EDUCATION_EXPENDITURE */
-  'get-education-data': string;
+  /** Economic indicators accepted by `get-economic-data` */
+  'get-economic-data':
+    | 'GDP'
+    | 'GDP_GROWTH'
+    | 'GDP_PER_CAPITA'
+    | 'GNI'
+    | 'GNI_PER_CAPITA'
+    | 'EXPORTS_GDP'
+    | 'FDI_NET'
+    | 'INFLATION'
+    | 'UNEMPLOYMENT';
+  /** Social indicators accepted by `get-social-data` */
+  'get-social-data':
+    | 'POPULATION'
+    | 'LIFE_EXPECTANCY'
+    | 'BIRTH_RATE'
+    | 'DEATH_RATE'
+    | 'INTERNET_USERS';
+  /** Health indicators accepted by `get-health-data` */
+  'get-health-data':
+    | 'HEALTH_EXPENDITURE'
+    | 'PHYSICIANS'
+    | 'HOSPITAL_BEDS'
+    | 'IMMUNIZATION'
+    | 'HIV_PREVALENCE'
+    | 'MALNUTRITION'
+    | 'TUBERCULOSIS';
+  /** Education indicators accepted by `get-education-data` */
+  'get-education-data':
+    | 'LITERACY_RATE'
+    | 'SCHOOL_ENROLLMENT'
+    | 'SCHOOL_COMPLETION'
+    | 'TEACHERS_PRIMARY'
+    | 'EDUCATION_EXPENDITURE';
 }

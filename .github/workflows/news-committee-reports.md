@@ -733,8 +733,10 @@ Use `src/constants/committee-indicator-map.ts` as the authoritative mapping. Key
 world_bank___get_economic_data({ countryCode: "DE", indicator: "GDP_GROWTH", years: 5 })
 world_bank___get_economic_data({ countryCode: "FR", indicator: "INFLATION", years: 5 })
 
-// Example: AFET/SEDE report — military expenditure vs NATO 2% target
-world_bank___get_economic_data({ countryCode: "PL", indicator: "GDP_PER_CAPITA", years: 5 })
+// Example: AFET/SEDE report — military expenditure (MS.MIL.XPND.GD.ZS)
+// Note: Military expenditure not directly available via get-economic-data tool keys;
+// use WB API indicator ID via wb-mcp-client or reference analysis/worldbank/indicator-catalog.md
+world_bank___get_economic_data({ countryCode: "PL", indicator: "GDP", years: 5 })
 
 // Example: ENVI report — health infrastructure
 world_bank___get_health_data({ countryCode: "DE", indicator: "HOSPITAL_BEDS", years: 5 })

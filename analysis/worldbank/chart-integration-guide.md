@@ -1,6 +1,6 @@
 # 📊 Chart Integration Guide — World Bank Data in EU Parliament Articles
 
-> **Purpose**: Technical guide for embedding World Bank indicator data as Chart.js and D3.js visualizations in generated EU Parliament news articles.
+> **Purpose**: Technical guide for embedding World Bank indicator data as Chart.js visualizations in generated EU Parliament news articles. D3.js is used for mindmaps, force graphs, and SWOT matrices (see `js/d3-init.js`) but Chart.js is the primary library for World Bank data charts.
 
 **📅 Last Updated:** 2026-04-11 | **🏷️ Classification:** Public
 
