@@ -25,7 +25,7 @@ This document defines **shared prompt patterns, rules, and tool references** use
 
 ### Primary Output Directories
 
-All news generation workflows write ONLY to these directories:
+All news generation workflows write ONLY to these directories (with one narrow exception for minor `src/`/`scripts/` fixes — see [Conditional Allow](#minor-typescriptscript-corrections-conditional-allow) below):
 
 | Directory | Purpose | All Workflows |
 |-----------|---------|:-------------:|

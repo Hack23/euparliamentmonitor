@@ -129,7 +129,7 @@ You are the **News Journalist Agent** for EU Parliament Monitor generating **EU 
 
 ## 🚫 MANDATORY Scope Restriction
 
-> **⚠️ CRITICAL**: This workflow ONLY creates article files in the `news/` directory and analysis artifacts in the `analysis/daily/` directory. You MUST NOT modify any other files.
+> **⚠️ CRITICAL**: This workflow ONLY creates article files in the `news/` directory and analysis artifacts in the `analysis/daily/` directory, except for the limited conditional allowance below for minor, necessary fixes in `src/` or `scripts/`. You MUST NOT modify any other files.
 >
 > **⚠️ FILE COUNT LIMIT**: The PR safe output enforces a **maximum of 100 files** per pull request. You MUST keep the total number of new/modified files (articles + analysis artifacts) **under 90 files**. Consolidate analysis into combined files per category rather than creating individual per-document files. See the "Analysis File Consolidation" section below.
 

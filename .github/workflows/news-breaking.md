@@ -125,7 +125,7 @@ You are the **News Journalist Agent** for EU Parliament Monitor generating **bre
 
 ## 🚫 MANDATORY Scope Restriction
 
-> **⚠️ CRITICAL**: This workflow ONLY creates article files in the `news/` directory and analysis artifacts in the `analysis/daily/` directory. You MUST NOT modify any other files.
+> **⚠️ CRITICAL**: This workflow ONLY creates article files in the `news/` directory and analysis artifacts in the `analysis/daily/` directory. You MUST NOT modify any other files, **except** for the narrowly permitted minor TypeScript/script corrections in `src/` or `scripts/` described below when they are necessary to complete news generation.
 
 **FORBIDDEN modifications (will cause patch conflicts and workflow failure):**
 - ❌ `.github/` — NEVER modify workflow or configuration files
