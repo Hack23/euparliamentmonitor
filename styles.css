@@ -48,7 +48,7 @@
   --max-width: 1440px;
   --transition: 0.25s ease;
 
-  /* Surface tokens — used by SWOT, dashboard, mindmap, stakeholder panels */
+  /* Generic surface and text tokens */
   --surface-alt: #ffffff;
   --surface-muted: #f8f9fa;
   --text-primary: #1a1a2e;
