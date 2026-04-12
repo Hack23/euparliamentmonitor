@@ -313,16 +313,18 @@ flowchart TD
 
 ## 📊 World Bank Economic Context for Stakeholder Impact
 
-> **AI Instructions:** When stakeholder impacts have economic dimensions, quantify with World Bank data. Use `analysis/worldbank/indicator-catalog.md` as the full indicator reference (200+ indicators). Use `analysis/worldbank/eu-country-mapping.md` for comparison country groups.
+> **AI Instructions:** When stakeholder impacts have economic dimensions, quantify with World Bank data. Use `analysis/worldbank/indicator-catalog.md` as the full indicator reference (200+ indicators). Use `analysis/worldbank/eu-country-mapping.md` for comparison country groups. Only request indicators via MCP when they are documented for the relevant MCP tool; catalog entries marked as API-only must be fetched via another documented mechanism, not via MCP tool calls.
 
 ### Key Economic Indicators for Stakeholder Assessment
 
-| Stakeholder Group | Relevant WB Indicators | MCP Tool | Comparison Group |
-|-------------------|----------------------|----------|-----------------|
-| 🏘️ Citizens | Inflation, Unemployment, GINI, Health Expenditure | `get-economic-data`, `get-health-data` | Affected member states |
-| 🏭 Business | GDP Growth, Tax Revenue, Ease of Business, FDI | `get-economic-data` | EU Big Four + competitors |
-| 🤝 Member States | Gov Debt, Tax Revenue, Gov Expenditure | `get-economic-data` | Eurozone Core vs Convergence |
+| Stakeholder Group | MCP-Fetchable WB Indicators | MCP Tool | Comparison Group |
+|-------------------|-----------------------------|----------|-----------------|
+| 🏘️ Citizens | Inflation, Unemployment, Health Expenditure | `get-economic-data`, `get-health-data` | Affected member states |
+| 🏭 Business | GDP Growth, Tax Revenue, FDI | `get-economic-data` | EU Big Four + competitors |
+| 🤝 Member States | Gov Expenditure, Tax Revenue | `get-economic-data` | Eurozone Core vs Convergence |
 | 🌍 International | Exports (% GDP), FDI, Military Expenditure | `get-economic-data` | EU vs G7, EU vs BRICS |
+
+> **Note:** Some indicators from the World Bank catalog (e.g., GINI coefficient, Ease of Business) are not among the documented MCP tool indicator keys. If those indicators are needed, use `search-indicators` to verify availability and the appropriate retrieval mechanism.
 
 ### WB Data Mermaid Template for Stakeholder Impact
 

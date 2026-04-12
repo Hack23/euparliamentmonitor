@@ -145,9 +145,17 @@ export interface PolicyRelevantIndicators {
  * World Bank MCP tool names available for data fetching.
  * Maps to the tool functions on the worldbank-mcp server.
  *
- * These use **kebab-case** (e.g., `get-economic-data`) which matches the
- * actual tool registration names in worldbank-mcp@1.0.0 (`server.tool('get-economic-data', ...)`).
- * When called via the MCP gateway prefix, use `world_bank___get-economic-data(...)`.
+ * These type literals use **kebab-case** (e.g., `get-economic-data`) to match
+ * the underlying tool registration names in worldbank-mcp@1.0.0
+ * (`server.tool('get-economic-data', ...)`).
+ * When called via the MCP gateway prefix in this repository's workflows, use
+ * the corresponding **snake_case** form, for example
+ * `world_bank___get_economic_data(...)`.
+ *
+ * **Note:** The codebase also has a `WorldBankMCPClient.getIndicatorForCountry()`
+ * wrapper (in `src/mcp/wb-mcp-client.ts`) that calls the `get_indicator_for_country`
+ * tool — this is a legacy convenience method not listed in this type union since it
+ * is not part of the standard worldbank-mcp tool surface.
  */
 export type WBMCPToolName =
   | 'get-economic-data'

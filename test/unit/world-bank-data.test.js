@@ -224,6 +224,18 @@ DEU,"He said ""hi""",FP.CPI.TOTL.ZG,Inflation,2023,5.7`;
       expect(formatIndicatorValue(6.3, POLICY_INDICATORS.unemployment)).toBe('6.3%');
     });
 
+    it('should format new percentage-based indicators', () => {
+      expect(formatIndicatorValue(15.2, POLICY_INDICATORS.taxRevenue)).toBe('15.2%');
+      expect(formatIndicatorValue(18.7, POLICY_INDICATORS.govExpenditure)).toBe('18.7%');
+      expect(formatIndicatorValue(2.1, POLICY_INDICATORS.militaryExpenditure)).toBe('2.1%');
+      expect(formatIndicatorValue(45.3, POLICY_INDICATORS.exportsGdp)).toBe('45.3%');
+      expect(formatIndicatorValue(9.8, POLICY_INDICATORS.healthExpenditure)).toBe('9.8%');
+      expect(formatIndicatorValue(4.5, POLICY_INDICATORS.educationExpenditure)).toBe('4.5%');
+      expect(formatIndicatorValue(87.3, POLICY_INDICATORS.internetUsers)).toBe('87.3%');
+      expect(formatIndicatorValue(22.1, POLICY_INDICATORS.renewableEnergy)).toBe('22.1%');
+      expect(formatIndicatorValue(31.4, POLICY_INDICATORS.hightechExports)).toBe('31.4%');
+    });
+
     it('should format CO2 emissions', () => {
       expect(formatIndicatorValue(7.5, POLICY_INDICATORS.co2Emissions)).toBe('7.5 t/cap');
     });
