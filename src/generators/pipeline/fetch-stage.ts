@@ -1478,6 +1478,7 @@ function getWiderTimeframe(current: FeedTimeframe): FeedTimeframe | undefined {
  * `{ data: [{ id, type, work_type, identifier, label }], "@context": [...] }`
  *
  * Also handles legacy shapes (`feed`, `entries`, `items`) and bare arrays.
+ * Logs a warning when the MCP server reports an upstream timeout.
  *
  * @param result - Raw MCP tool result
  * @returns Array of parsed feed entry objects (may be empty)
@@ -1486,12 +1487,21 @@ function parseFeedResult(result: MCPToolResult | undefined): Record<string, unkn
   if (!result?.content?.[0]?.text) return [];
   const parsed = parseJSON<unknown>(result.content[0].text, 'feed');
   if (!parsed) return [];
+  // Detect upstream timeout responses from EP MCP server
+  const envelope = parsed as Record<string, unknown>;
+  if (envelope['timedOut'] === true || envelope['status'] === 'timeout') {
+    const toolName = envelope['toolName'] ? String(envelope['toolName']) : 'unknown';
+    console.warn(
+      `${WARN_PREFIX} EP MCP upstream timeout for ${toolName} — data may be incomplete. ` +
+        'Consider using year-based endpoints as fallback.'
+    );
+  }
   // EP API v2 feeds use `data` key; also check legacy shapes
   const candidates = [
-    (parsed as Record<string, unknown>)['data'],
-    (parsed as Record<string, unknown>)['feed'],
-    (parsed as Record<string, unknown>)['entries'],
-    (parsed as Record<string, unknown>)['items'],
+    envelope['data'],
+    envelope['feed'],
+    envelope['entries'],
+    envelope['items'],
     parsed,
   ];
   for (const candidate of candidates) {
@@ -1504,6 +1514,7 @@ function parseFeedResult(result: MCPToolResult | undefined): Record<string, unkn
  * Parse an EP API v2 feed response envelope in a single JSON parse, returning
  * both the array of feed items and the API-reported total count.
  * Avoids parsing the same JSON payload twice when both values are needed.
+ * Logs a warning when the MCP server reports an upstream timeout.
  *
  * @param result - Raw MCP tool result
  * @returns Object with `items` array and `total` count from the API
@@ -1516,6 +1527,14 @@ function parseFeedEnvelope(result: MCPToolResult | undefined): {
   const parsed = parseJSON<unknown>(result.content[0].text, 'feed');
   if (!parsed || typeof parsed !== 'object') return { items: [], total: 0 };
   const envelope = parsed as Record<string, unknown>;
+  // Detect upstream timeout responses from EP MCP server
+  if (envelope['timedOut'] === true || envelope['status'] === 'timeout') {
+    const toolName = envelope['toolName'] ? String(envelope['toolName']) : 'unknown';
+    console.warn(
+      `${WARN_PREFIX} EP MCP upstream timeout for ${toolName} — data may be incomplete. ` +
+        'Consider using year-based endpoints as fallback.'
+    );
+  }
   const total = typeof envelope['total'] === 'number' ? envelope['total'] : 0;
   const candidates = [
     envelope['data'],
