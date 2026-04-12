@@ -38,6 +38,53 @@ export const EU_COUNTRY_CODES = {
 /** EU aggregate code in World Bank (European Union) */
 export const EU_AGGREGATE_CODE = 'EUU';
 /**
+ * Comparison country codes for benchmarking EU performance against global peers.
+ * Organized by geopolitical relevance to EU Parliament policy analysis.
+ */
+export const COMPARISON_COUNTRIES = {
+    // ── G7 Non-EU ──
+    US: 'USA', // United States
+    GB: 'GBR', // United Kingdom (post-Brexit benchmark)
+    JP: 'JPN', // Japan
+    CA: 'CAN', // Canada
+    // ── BRICS ──
+    CN: 'CHN', // China
+    IN: 'IND', // India
+    BR: 'BRA', // Brazil
+    RU: 'RUS', // Russia
+    ZA: 'ZAF', // South Africa
+    // ── EU Candidate States ──
+    UA: 'UKR', // Ukraine
+    TR: 'TUR', // Türkiye
+    RS: 'SRB', // Serbia
+    ME: 'MNE', // Montenegro
+    AL: 'ALB', // Albania
+    MK: 'MKD', // North Macedonia
+    MD: 'MDA', // Moldova
+    BA: 'BIH', // Bosnia & Herzegovina
+    GE: 'GEO', // Georgia
+    // ── Key Trade Partners ──
+    KR: 'KOR', // South Korea
+    AU: 'AUS', // Australia
+    NO: 'NOR', // Norway (EEA)
+    CH: 'CHE', // Switzerland (EFTA)
+    IL: 'ISR', // Israel
+};
+/**
+ * Aggregate/region codes useful for EU benchmarking.
+ * These are World Bank group codes, not individual countries.
+ */
+export const WB_AGGREGATE_CODES = {
+    EUU: 'European Union',
+    EMU: 'Euro area',
+    OED: 'OECD members',
+    WLD: 'World',
+    ECS: 'Europe & Central Asia',
+    NAC: 'North America',
+    EAS: 'East Asia & Pacific',
+    SSF: 'Sub-Saharan Africa',
+};
+/**
  * World Bank indicator IDs relevant to EU Parliament policy analysis.
  * These indicators map to common policy areas discussed in EP legislation.
  */

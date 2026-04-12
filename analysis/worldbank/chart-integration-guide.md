@@ -349,15 +349,166 @@ All Chart.js visualizations MUST include:
 
 ---
 
+## 📐 Mermaid Chart Templates for Analysis Documents
+
+Mermaid charts are used in analysis `.md` documents (not HTML articles). They render on GitHub and in documentation viewers. Use these templates for World Bank indicator visualizations in analysis files.
+
+### Mermaid Template 1: Economic Comparison Bar (xychart-beta)
+
+```mermaid
+xychart-beta
+    title "GDP Growth Rate Comparison (2024)"
+    x-axis ["DE", "FR", "IT", "ES", "PL", "US", "CN"]
+    y-axis "GDP Growth (%)" -1 --> 7
+    bar [-0.5, 1.1, 0.7, 2.4, 3.1, 2.8, 5.0]
+```
+
+### Mermaid Template 2: Indicator Trend Over Time (xychart-beta)
+
+```mermaid
+xychart-beta
+    title "EU Inflation Trend (2020-2024)"
+    x-axis ["2020", "2021", "2022", "2023", "2024"]
+    y-axis "Annual %" 0 --> 10
+    line [0.7, 2.6, 8.4, 5.4, 2.3]
+```
+
+### Mermaid Template 3: Country Comparison Radar (Quadrant)
+
+```mermaid
+quadrantChart
+    title EU Member State Economic Profile
+    x-axis "Low GDP Growth" --> "High GDP Growth"
+    y-axis "Low Employment" --> "High Employment"
+    quadrant-1 Dynamic & Inclusive
+    quadrant-2 Growing but Unequal
+    quadrant-3 Stagnant & Struggling
+    quadrant-4 Stable but Slow
+    Germany: [0.3, 0.75]
+    France: [0.5, 0.65]
+    Spain: [0.65, 0.5]
+    Poland: [0.7, 0.7]
+    Italy: [0.35, 0.55]
+    Greece: [0.55, 0.45]
+```
+
+### Mermaid Template 4: Policy Domain Indicator Flow
+
+```mermaid
+graph LR
+    subgraph "🔴 Critical Indicators"
+        GDP["GDP Growth<br/>NY.GDP.MKTP.KD.ZG"]
+        INF["Inflation<br/>FP.CPI.TOTL.ZG"]
+        UNE["Unemployment<br/>SL.UEM.TOTL.ZS"]
+        MIL["Military Exp<br/>MS.MIL.XPND.GD.ZS"]
+    end
+
+    subgraph "🟡 High Priority"
+        CO2["CO₂ Emissions<br/>EN.ATM.CO2E.PC"]
+        REN["Renewables<br/>EG.FEC.RNEW.ZS"]
+        RD["R&D Spend<br/>GB.XPD.RSDV.GD.ZS"]
+        TAX["Tax Revenue<br/>GC.TAX.TOTL.GD.ZS"]
+    end
+
+    subgraph "📰 Article Types"
+        ART["News Article"]
+    end
+
+    GDP & INF & UNE --> ART
+    MIL --> ART
+    CO2 & REN & RD & TAX --> ART
+
+    style GDP fill:#dc3545,color:#fff
+    style INF fill:#dc3545,color:#fff
+    style UNE fill:#dc3545,color:#fff
+    style MIL fill:#dc3545,color:#fff
+    style CO2 fill:#ffc107,color:#000
+    style REN fill:#ffc107,color:#000
+    style RD fill:#ffc107,color:#000
+    style TAX fill:#ffc107,color:#000
+    style ART fill:#003399,color:#fff
+```
+
+### Mermaid Template 5: Stakeholder Impact with Economic Context
+
+Use this in stakeholder-impact.md analysis files to visualize how WB indicators affect different stakeholders:
+
+```mermaid
+graph TD
+    subgraph "📊 Economic Context"
+        GDP_G["GDP Growth: +0.8%"]
+        INF_V["Inflation: 2.3%"]
+        UNE_V["Unemployment: 6.0%"]
+    end
+
+    subgraph "👥 Stakeholder Impact"
+        CIT["🏘️ Citizens<br/>Cost of living impact"]
+        BUS["🏭 Business<br/>Investment climate"]
+        GOV["🤝 Member States<br/>Fiscal space"]
+    end
+
+    GDP_G --> BUS & GOV
+    INF_V --> CIT & BUS
+    UNE_V --> CIT & GOV
+
+    style GDP_G fill:#28a745,color:#fff
+    style INF_V fill:#ffc107,color:#000
+    style UNE_V fill:#dc3545,color:#fff
+    style CIT fill:#003399,color:#fff
+    style BUS fill:#0d6efd,color:#fff
+    style GOV fill:#6f42c1,color:#fff
+```
+
+### Mermaid Template 6: Comparison Framework Pie
+
+```mermaid
+pie title EU-27 GDP Share (Top 6 + Rest)
+    "Germany" : 25
+    "France" : 18
+    "Italy" : 13
+    "Spain" : 9
+    "Netherlands" : 7
+    "Poland" : 5
+    "Other 21 States" : 23
+```
+
+### Mermaid Template 7: Defence Spending Timeline (Gantt)
+
+```mermaid
+gantt
+    title NATO 2% GDP Target Progress
+    dateFormat YYYY
+    axisFormat %Y
+    section Above 2%
+        Poland (3.9%)       : done, 2022, 2025
+        Greece (3.0%)       : done, 2022, 2025
+    section 1.5-2%
+        France (1.9%)       : active, 2022, 2025
+        Germany (1.5%)      : active, 2022, 2025
+        Italy (1.5%)        : active, 2022, 2025
+    section Below 1.5%
+        Spain (1.3%)        : crit, 2022, 2025
+        Belgium (1.1%)      : crit, 2022, 2025
+```
+
+---
+
 ## 🎯 AI Workflow Integration Checklist
 
-When generating articles with World Bank data:
-
+### For HTML Articles (Chart.js)
 - [ ] Fetch indicator data using World Bank MCP tools (max 3-5 calls per article)
-- [ ] Create Chart.js configuration JSON with real data values
-- [ ] Pass chart config to `buildDashboardSection()` or embed directly
-- [ ] Include data attribution: "Source: World Bank Open Data (2024)"
+- [ ] Create Chart.js configuration JSON with **real data values** (never placeholder zeros)
+- [ ] Pass chart config to `buildDashboardSection()` or embed directly in `<canvas>`
+- [ ] Include data attribution: "Source: World Bank Open Data (YYYY)"
 - [ ] Add accessible `aria-label` describing the chart
-- [ ] Verify chart data values are non-zero (no `[0,0,0]` placeholder data)
 - [ ] Include trend indicators (↑↓→) in metric cards
 - [ ] Note data year in chart subtitle or caption
+
+### For Analysis Documents (Mermaid)
+- [ ] Use `xychart-beta` for bar/line comparisons in .md files
+- [ ] Use `quadrantChart` for positioning analysis
+- [ ] Use `pie` for share/composition analysis
+- [ ] Use `graph` for flow/relationship diagrams with WB data context
+- [ ] Replace placeholder values in Mermaid templates with actual WB data
+- [ ] Include data year and source note below chart
+- [ ] Ensure Mermaid renders correctly on GitHub (test with preview)

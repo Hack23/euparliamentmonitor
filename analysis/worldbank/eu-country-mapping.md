@@ -1,8 +1,8 @@
 # 🇪🇺 EU-27 → World Bank Country Code Mapping
 
-> **Purpose**: Maps all 27 EU member states to World Bank ISO2 country codes, with EP seat allocations and political group representation for cross-referencing parliamentary data with economic indicators.
+> **Purpose**: Maps all 27 EU member states plus comparison country groups to World Bank codes, with EP political entity mapping for cross-referencing parliamentary data with economic indicators.
 
-**📅 Last Updated:** 2026-04-11 | **🏷️ Classification:** Public
+**📅 Last Updated:** 2026-04-12 | **🏷️ Classification:** Public
 
 ---
 
@@ -42,19 +42,90 @@
 
 ---
 
-## Special Aggregate Codes
+## 🌍 Comparison Country Groups
+
+### G7 Non-EU (Global Competitiveness Benchmark)
+
+| Country | WB Code | GDP Rank | Use Case |
+|---------|---------|----------|----------|
+| 🇺🇸 United States | `US` | 1st | Trade, technology, defence, economic benchmark |
+| 🇬🇧 United Kingdom | `GB` | 6th | Post-Brexit comparison; regulatory divergence |
+| 🇯🇵 Japan | `JP` | 4th | Aging society, technology, trade partner |
+| 🇨🇦 Canada | `CA` | 9th | Trade partner (CETA); regulatory alignment |
+
+### BRICS+ (Geopolitical Counterweights)
+
+| Country | WB Code | GDP Rank | Use Case |
+|---------|---------|----------|----------|
+| 🇨🇳 China | `CN` | 2nd | Strategic autonomy; supply chains; trade balance |
+| 🇮🇳 India | `IN` | 5th | Trade negotiations; climate; development |
+| 🇧🇷 Brazil | `BR` | 8th | Mercosur trade; deforestation; agriculture |
+| 🇷🇺 Russia | `RU` | 11th | Sanctions impact; energy dependency; security |
+| 🇿🇦 South Africa | `ZA` | 33rd | Development; trade; minerals |
+
+### EU Candidate States (Enlargement Monitoring)
+
+| Country | WB Code | Status | Use Case |
+|---------|---------|--------|----------|
+| 🇺🇦 Ukraine | `UA` | Candidate (2022) | Reconstruction; accession progress; defence |
+| 🇹🇷 Türkiye | `TR` | Candidate (1999) | Migration; customs union; geopolitics |
+| 🇷🇸 Serbia | `RS` | Candidate (2012) | Western Balkans; rule of law |
+| 🇲🇪 Montenegro | `ME` | Candidate (2010) | Frontrunner accession |
+| 🇦🇱 Albania | `AL` | Candidate (2014) | Western Balkans stability |
+| 🇲🇰 North Macedonia | `MK` | Candidate (2005) | Bilateral issues; rule of law |
+| 🇲🇩 Moldova | `MD` | Candidate (2022) | Eastern Partnership; security |
+| 🇧🇦 Bosnia & Herzegovina | `BA` | Candidate (2022) | State-building; EU accession path |
+| 🇬🇪 Georgia | `GE` | Candidate (2023) | Democracy; Eastern Partnership |
+
+### Key Trade Partners & Neighbours
+
+| Country | WB Code | Relationship | Use Case |
+|---------|---------|-------------|----------|
+| 🇰🇷 South Korea | `KR` | FTA partner | Trade; technology; IP |
+| 🇦🇺 Australia | `AU` | FTA negotiations | Trade; minerals; climate |
+| 🇳🇴 Norway | `NO` | EEA member | Single market; energy; fisheries |
+| 🇨🇭 Switzerland | `CH` | Bilateral agreements | Financial services; research; Schengen |
+| 🇮🇱 Israel | `IL` | Association agreement | Trade; technology; geopolitics |
+
+---
+
+## 📊 Aggregate & Regional Codes
 
 | Code | Description | Use Case |
 |------|-------------|----------|
 | `EUU` | European Union aggregate | EU-wide indicators (GDP, inflation, unemployment) |
 | `EMU` | Euro area | Eurozone-specific monetary indicators |
-| `ECS` | Europe & Central Asia | Broader regional comparison |
+| `OED` | OECD members | High-income country benchmark |
+| `WLD` | World | Global average benchmark |
+| `ECS` | Europe & Central Asia (WB region) | Broader European comparison |
+| `NAC` | North America | US/Canada transatlantic comparison |
+| `EAS` | East Asia & Pacific | Asia-Pacific trade benchmark |
+| `SSF` | Sub-Saharan Africa | Development cooperation context |
 
 ---
 
 ## 🏛️ EP Political Group → Country Presence
 
-Key for understanding which indicators matter most per political group's member state base:
+```mermaid
+graph LR
+    subgraph "Political Groups by Country Strength"
+        EPP["<b>EPP</b><br/>DE 🇩🇪 PL 🇵🇱 RO 🇷🇴<br/>ES 🇪🇸 FR 🇫🇷 IT 🇮🇹"]
+        SD["<b>S&D</b><br/>ES 🇪🇸 IT 🇮🇹 DE 🇩🇪<br/>RO 🇷🇴 PT 🇵🇹"]
+        REN["<b>Renew</b><br/>FR 🇫🇷 DE 🇩🇪 NL 🇳🇱<br/>IE 🇮🇪"]
+        ECR["<b>ECR</b><br/>PL 🇵🇱 IT 🇮🇹 CZ 🇨🇿<br/>SE 🇸🇪"]
+        GREEN["<b>Greens/EFA</b><br/>DE 🇩🇪 FR 🇫🇷 NL 🇳🇱<br/>BE 🇧🇪"]
+        LEFT["<b>The Left</b><br/>FR 🇫🇷 DE 🇩🇪 ES 🇪🇸<br/>GR 🇬🇷"]
+        PFE["<b>PfE/ID</b><br/>FR 🇫🇷 IT 🇮🇹 AT 🇦🇹"]
+    end
+
+    style EPP fill:#003399,color:#fff
+    style SD fill:#dc3545,color:#fff
+    style REN fill:#ffc107,color:#000
+    style ECR fill:#17a2b8,color:#fff
+    style GREEN fill:#28a745,color:#fff
+    style LEFT fill:#800020,color:#fff
+    style PFE fill:#0d47a1,color:#fff
+```
 
 | Political Group | Strongest Countries (by seats) | Key Economic Indicators |
 |----------------|-------------------------------|------------------------|
@@ -64,7 +135,7 @@ Key for understanding which indicators matter most per political group's member 
 | **ECR** | PL, IT, CZ, SE | Military Expenditure, Trade, GDP Growth |
 | **Greens/EFA** | DE, FR, NL, BE | CO₂ Emissions, Renewable Energy, Forest Area |
 | **The Left** | FR, DE, ES, GR | Unemployment, GINI, Health Expenditure |
-| **ID/PfE** | FR, IT, AT | Military Expenditure, Net Migration, GDP |
+| **PfE/ID** | FR, IT, AT | Military Expenditure, Net Migration, GDP |
 
 ---
 
@@ -94,20 +165,35 @@ Germany (DE), France (FR), Italy (IT), Spain (ES), Netherlands (NL), Belgium (BE
 
 ## 📊 Recommended Country Comparisons
 
-### 1. Big Four Comparison (DE, FR, IT, ES)
-Most impactful for macro-economic articles. Covers ~73% of EU GDP.
+```mermaid
+graph TD
+    subgraph "Comparison Patterns"
+        B4["<b>Big Four</b><br/>DE, FR, IT, ES<br/>~73% EU GDP"]
+        F6["<b>Founding Six</b><br/>DE, FR, IT, NL, BE, LU<br/>Historical convergence"]
+        EW["<b>East vs West</b><br/>PL,RO,HU,CZ vs DE,FR,NL,AT<br/>Cohesion policy"]
+        NOR["<b>Nordic</b><br/>DK, FI, SE + NO<br/>Social model"]
+        MED["<b>Mediterranean</b><br/>IT, ES, GR, PT, CY, MT<br/>Fiscal governance"]
+        EUUS["<b>EU vs US/CN</b><br/>EUU vs US, CN<br/>Global competitiveness"]
+    end
 
-### 2. Founding Six (DE, FR, IT, NL, BE, LU)
-For historical convergence analysis and integration depth.
+    style B4 fill:#003399,color:#fff
+    style F6 fill:#0d6efd,color:#fff
+    style EW fill:#ffc107,color:#000
+    style NOR fill:#28a745,color:#fff
+    style MED fill:#fd7e14,color:#fff
+    style EUUS fill:#6f42c1,color:#fff
+```
 
-### 3. East vs. West (PL/RO/HU/CZ vs. DE/FR/NL/AT)
-For cohesion policy articles and convergence debates.
-
-### 4. Nordic Comparison (DK, FI, SE + NO for context)
-For social policy, renewable energy, and digital governance articles.
-
-### 5. Mediterranean (IT, ES, GR, PT, CY, MT)
-For tourism, agriculture, migration, and fiscal governance articles.
+| Comparison | Countries | Use For |
+|-----------|-----------|---------|
+| **Big Four** | DE, FR, IT, ES | Macro-economic articles; fiscal governance |
+| **Founding Six** | DE, FR, IT, NL, BE, LU | Historical convergence; integration depth |
+| **East vs West** | PL/RO/HU/CZ vs DE/FR/NL/AT | Cohesion policy; convergence debates |
+| **Nordic** | DK, FI, SE + NO | Social policy; renewable energy; digital |
+| **Mediterranean** | IT, ES, GR, PT, CY, MT | Tourism; agriculture; fiscal; youth jobs |
+| **EU vs G7** | EUU vs US, GB, JP, CA | Global competitiveness; technology |
+| **EU vs BRICS** | EUU vs CN, IN, BR, RU | Geopolitics; strategic autonomy |
+| **EU vs Candidates** | EUU vs UA, TR, RS | Enlargement readiness; convergence |
 
 ---
 
@@ -116,5 +202,7 @@ For tourism, agriculture, migration, and fiscal governance articles.
 1. **Malta**: WB region is "Middle East & North Africa" (geographic, not political)
 2. **EU aggregate (EUU)**: Not all indicators available at EU level
 3. **Data lag**: Most indicators 1-2 years behind current date
-4. **Military expenditure**: Particularly important post-2022 for AFET/SEDE committee work
-5. **Tax revenue**: Key for ECON/BUDG committees on EU fiscal governance debates
+4. **Comparison countries**: All work with WB MCP tools using ISO2 codes
+5. **Russia (RU)**: Some indicators may have reduced availability post-2022
+6. **Candidate states**: Some indicators (GINI, health) have gaps
+7. **Annual data only**: All WB indicators are annual time series
