@@ -1073,14 +1073,74 @@ function getWiderTimeframe(current) {
     return TIMEFRAME_FALLBACK_CHAIN.get(current);
 }
 /**
+ * Error thrown when the EP MCP server returns a timeout envelope instead of data.
+ * This is distinct from network-level timeouts — the MCP server responds successfully
+ * but reports that the upstream EP API did not respond in time.
+ */
+class UpstreamTimeoutError extends Error {
+    constructor(toolName) {
+        super(`EP MCP upstream timeout for ${toolName} — data may be incomplete`);
+        this.name = 'UpstreamTimeoutError';
+    }
+}
+/**
+ * Check whether a parsed MCP response envelope indicates an upstream timeout
+ * and throw {@link UpstreamTimeoutError} if so.  The EP MCP server returns
+ * `{ timedOut: true, status: "timeout" }` when the upstream EP API did not
+ * respond within the configured timeout window.  Throwing ensures callers
+ * stop timeframe-widening retry loops instead of treating the empty `data: []`
+ * as "no data".
+ *
+ * @param value - Parsed response value (may be an object envelope or a bare array)
+ * @throws {UpstreamTimeoutError} when the response indicates an upstream timeout
+ */
+function checkUpstreamTimeout(value) {
+    if (typeof value !== 'object' || value === null)
+        return;
+    const envelope = value;
+    if (envelope['timedOut'] === true || envelope['status'] === 'timeout') {
+        const toolName = envelope['toolName'] ? String(envelope['toolName']) : 'unknown';
+        console.warn(`${WARN_PREFIX} EP MCP upstream timeout for ${toolName} — data may be incomplete. ` +
+            'Consider using year-based endpoints as fallback.');
+        throw new UpstreamTimeoutError(toolName);
+    }
+}
+/**
+ * Handle errors from feed-fetching functions with timeframe-widening logic.
+ * Encapsulates the common catch-block pattern: upstream timeouts return `undefined`
+ * (caller should stop retrying), errors whose message contains '404' or 'timed out'
+ * widen to the next timeframe, and other errors log and return `undefined`.
+ *
+ * @param error - Caught error
+ * @param tf - Current feed timeframe
+ * @param toolName - Feed tool name for log messages
+ * @returns A wider {@link FeedTimeframe} to retry, or `undefined` to stop
+ */
+function handleFeedFetchError(error, tf, toolName) {
+    if (error instanceof UpstreamTimeoutError)
+        return undefined;
+    const message = error instanceof Error ? error.message : String(error);
+    const wider = getWiderTimeframe(tf);
+    if (wider && (message.includes('404') || message.includes('timed out'))) {
+        console.warn(`${WARN_PREFIX} ${toolName} failed (${tf}): ${message} — retrying with ${wider}`);
+        return wider;
+    }
+    console.warn(`${WARN_PREFIX} ${toolName} failed:`, message);
+    return undefined;
+}
+/**
  * Parse a feed result from MCP into a flat array of items.
  * EP API v2 feeds return items under the `data` key:
  * `{ data: [{ id, type, work_type, identifier, label }], "@context": [...] }`
  *
  * Also handles legacy shapes (`feed`, `entries`, `items`) and bare arrays.
+ * Throws {@link UpstreamTimeoutError} when the MCP server reports an upstream
+ * timeout (`{ timedOut: true, status: "timeout" }`), so callers can stop
+ * timeframe-widening loops instead of treating the empty `data: []` as "no data".
  *
  * @param result - Raw MCP tool result
  * @returns Array of parsed feed entry objects (may be empty)
+ * @throws {UpstreamTimeoutError} when the response indicates an upstream timeout
  */
 function parseFeedResult(result) {
     if (!result?.content?.[0]?.text)
@@ -1088,12 +1148,14 @@ function parseFeedResult(result) {
     const parsed = parseJSON(result.content[0].text, 'feed');
     if (!parsed)
         return [];
+    checkUpstreamTimeout(parsed);
+    const envelope = parsed;
     // EP API v2 feeds use `data` key; also check legacy shapes
     const candidates = [
-        parsed['data'],
-        parsed['feed'],
-        parsed['entries'],
-        parsed['items'],
+        envelope['data'],
+        envelope['feed'],
+        envelope['entries'],
+        envelope['items'],
         parsed,
     ];
     for (const candidate of candidates) {
@@ -1106,9 +1168,13 @@ function parseFeedResult(result) {
  * Parse an EP API v2 feed response envelope in a single JSON parse, returning
  * both the array of feed items and the API-reported total count.
  * Avoids parsing the same JSON payload twice when both values are needed.
+ * Throws {@link UpstreamTimeoutError} when the MCP server reports an upstream
+ * timeout (`{ timedOut: true, status: "timeout" }`), so callers can stop
+ * timeframe-widening loops instead of treating the empty `data: []` as "no data".
  *
  * @param result - Raw MCP tool result
  * @returns Object with `items` array and `total` count from the API
+ * @throws {UpstreamTimeoutError} when the response indicates an upstream timeout
  */
 function parseFeedEnvelope(result) {
     if (!result?.content?.[0]?.text)
@@ -1116,6 +1182,7 @@ function parseFeedEnvelope(result) {
     const parsed = parseJSON(result.content[0].text, 'feed');
     if (!parsed || typeof parsed !== 'object')
         return { items: [], total: 0 };
+    checkUpstreamTimeout(parsed);
     const envelope = parsed;
     const total = typeof envelope['total'] === 'number' ? envelope['total'] : 0;
     const candidates = [
@@ -1178,14 +1245,11 @@ export async function fetchAdoptedTextsFeed(client, timeframe = 'one-week') {
             currentTimeframe = getWiderTimeframe(currentTimeframe);
         }
         catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            const wider = getWiderTimeframe(tf);
-            if (wider && (message.includes('404') || message.includes('timed out'))) {
-                console.warn(`${WARN_PREFIX} get_adopted_texts_feed failed (${currentTimeframe}): ${message} — retrying with ${wider}`);
+            const wider = handleFeedFetchError(error, tf, 'get_adopted_texts_feed');
+            if (wider) {
                 currentTimeframe = wider;
             }
             else {
-                console.warn(`${WARN_PREFIX} get_adopted_texts_feed failed:`, message);
                 return [];
             }
         }
@@ -1220,14 +1284,11 @@ export async function fetchEventsFeed(client, timeframe = 'one-week') {
             currentTimeframe = getWiderTimeframe(currentTimeframe);
         }
         catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            const wider = getWiderTimeframe(tf);
-            if (wider && (message.includes('404') || message.includes('timed out'))) {
-                console.warn(`${WARN_PREFIX} get_events_feed failed (${currentTimeframe}): ${message} — retrying with ${wider}`);
+            const wider = handleFeedFetchError(error, tf, 'get_events_feed');
+            if (wider) {
                 currentTimeframe = wider;
             }
             else {
-                console.warn(`${WARN_PREFIX} get_events_feed failed:`, message);
                 return [];
             }
         }
@@ -1261,14 +1322,11 @@ export async function fetchProceduresFeed(client, timeframe = 'one-week') {
             currentTimeframe = getWiderTimeframe(currentTimeframe);
         }
         catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            const wider = getWiderTimeframe(tf);
-            if (wider && (message.includes('404') || message.includes('timed out'))) {
-                console.warn(`${WARN_PREFIX} get_procedures_feed failed (${currentTimeframe}): ${message} — retrying with ${wider}`);
+            const wider = handleFeedFetchError(error, tf, 'get_procedures_feed');
+            if (wider) {
                 currentTimeframe = wider;
             }
             else {
-                console.warn(`${WARN_PREFIX} get_procedures_feed failed:`, message);
                 return [];
             }
         }
@@ -1319,6 +1377,8 @@ export async function fetchMEPsFeedWithTotal(client, timeframe = 'one-week') {
         return { items, total };
     }
     catch (error) {
+        if (error instanceof UpstreamTimeoutError)
+            return { items: [], total: 0 };
         const message = error instanceof Error ? error.message : String(error);
         console.warn(`${WARN_PREFIX} get_meps_feed failed:`, message);
         return { items: [], total: 0 };
@@ -1348,14 +1408,11 @@ export async function fetchDocumentsFeed(client, timeframe = 'one-week') {
             currentTimeframe = getWiderTimeframe(currentTimeframe);
         }
         catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            const wider = getWiderTimeframe(tf);
-            if (wider && (message.includes('404') || message.includes('timed out'))) {
-                console.warn(`${WARN_PREFIX} get_documents_feed failed (${currentTimeframe}): ${message} — retrying with ${wider}`);
+            const wider = handleFeedFetchError(error, tf, 'get_documents_feed');
+            if (wider) {
                 currentTimeframe = wider;
             }
             else {
-                console.warn(`${WARN_PREFIX} get_documents_feed failed:`, message);
                 return [];
             }
         }
@@ -1386,14 +1443,11 @@ export async function fetchPlenaryDocumentsFeed(client, timeframe = 'one-week') 
             currentTimeframe = getWiderTimeframe(currentTimeframe);
         }
         catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            const wider = getWiderTimeframe(tf);
-            if (wider && (message.includes('404') || message.includes('timed out'))) {
-                console.warn(`${WARN_PREFIX} get_plenary_documents_feed failed (${currentTimeframe}): ${message} — retrying with ${wider}`);
+            const wider = handleFeedFetchError(error, tf, 'get_plenary_documents_feed');
+            if (wider) {
                 currentTimeframe = wider;
             }
             else {
-                console.warn(`${WARN_PREFIX} get_plenary_documents_feed failed:`, message);
                 return [];
             }
         }
@@ -1424,14 +1478,11 @@ export async function fetchCommitteeDocumentsFeed(client, timeframe = 'one-week'
             currentTimeframe = getWiderTimeframe(currentTimeframe);
         }
         catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            const wider = getWiderTimeframe(tf);
-            if (wider && (message.includes('404') || message.includes('timed out'))) {
-                console.warn(`${WARN_PREFIX} get_committee_documents_feed failed (${currentTimeframe}): ${message} — retrying with ${wider}`);
+            const wider = handleFeedFetchError(error, tf, 'get_committee_documents_feed');
+            if (wider) {
                 currentTimeframe = wider;
             }
             else {
-                console.warn(`${WARN_PREFIX} get_committee_documents_feed failed:`, message);
                 return [];
             }
         }
@@ -1462,14 +1513,11 @@ export async function fetchPlenarySessionDocumentsFeed(client, timeframe = 'one-
             currentTimeframe = getWiderTimeframe(currentTimeframe);
         }
         catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            const wider = getWiderTimeframe(tf);
-            if (wider && (message.includes('404') || message.includes('timed out'))) {
-                console.warn(`${WARN_PREFIX} get_plenary_session_documents_feed failed (${currentTimeframe}): ${message} — retrying with ${wider}`);
+            const wider = handleFeedFetchError(error, tf, 'get_plenary_session_documents_feed');
+            if (wider) {
                 currentTimeframe = wider;
             }
             else {
-                console.warn(`${WARN_PREFIX} get_plenary_session_documents_feed failed:`, message);
                 return [];
             }
         }
@@ -1500,14 +1548,11 @@ export async function fetchExternalDocumentsFeed(client, timeframe = 'one-week')
             currentTimeframe = getWiderTimeframe(currentTimeframe);
         }
         catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            const wider = getWiderTimeframe(tf);
-            if (wider && (message.includes('404') || message.includes('timed out'))) {
-                console.warn(`${WARN_PREFIX} get_external_documents_feed failed (${currentTimeframe}): ${message} — retrying with ${wider}`);
+            const wider = handleFeedFetchError(error, tf, 'get_external_documents_feed');
+            if (wider) {
                 currentTimeframe = wider;
             }
             else {
-                console.warn(`${WARN_PREFIX} get_external_documents_feed failed:`, message);
                 return [];
             }
         }
@@ -1538,14 +1583,11 @@ export async function fetchQuestionsFeed(client, timeframe = 'one-week') {
             currentTimeframe = getWiderTimeframe(currentTimeframe);
         }
         catch (error) {
-            const message = error instanceof Error ? error.message : String(error);
-            const wider = getWiderTimeframe(tf);
-            if (wider && (message.includes('404') || message.includes('timed out'))) {
-                console.warn(`${WARN_PREFIX} get_parliamentary_questions_feed failed (${currentTimeframe}): ${message} — retrying with ${wider}`);
+            const wider = handleFeedFetchError(error, tf, 'get_parliamentary_questions_feed');
+            if (wider) {
                 currentTimeframe = wider;
             }
             else {
-                console.warn(`${WARN_PREFIX} get_parliamentary_questions_feed failed:`, message);
                 return [];
             }
         }
@@ -1568,6 +1610,8 @@ export async function fetchDeclarationsFeed(client, timeframe = 'one-week') {
         return parseFeedResult(result).map((item) => mapFeedItemBase(item));
     }
     catch (error) {
+        if (error instanceof UpstreamTimeoutError)
+            return [];
         const message = error instanceof Error ? error.message : String(error);
         console.warn(`${WARN_PREFIX} get_mep_declarations_feed failed:`, message);
         return [];
@@ -1589,6 +1633,8 @@ export async function fetchCorporateBodiesFeed(client, timeframe = 'one-week') {
         return parseFeedResult(result).map((item) => mapFeedItemBase(item));
     }
     catch (error) {
+        if (error instanceof UpstreamTimeoutError)
+            return [];
         const message = error instanceof Error ? error.message : String(error);
         console.warn(`${WARN_PREFIX} get_corporate_bodies_feed failed:`, message);
         return [];
