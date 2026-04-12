@@ -26,6 +26,13 @@
  * @see {@link https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md | Secure Development Policy}
  * @see {@link https://github.com/Hack23/euparliamentmonitor/blob/main/ARCHITECTURE.md | Architecture}
  * @see {@link https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY_ARCHITECTURE.md | Security Architecture}
+ *
+ * **Dead-code removal (v0.8.27+):** The following previously-exported symbols
+ * were removed as unused dead code: `generateSankeyContent`,
+ * `buildMindmapSection`, `buildMultiDimensionalSwotSection`,
+ * `build*MultiDimensionalSwot` builders, `MULTI_DIMENSIONAL_SWOT_STRINGS`,
+ * and related visualization types. Use `buildIntelligenceMindmapSection`,
+ * `buildSwotSection`, and domain-specific builders instead.
  */
 // ─── Types ───────────────────────────────────────────────────────────────────
 export * from './types/index.js';

@@ -5,7 +5,11 @@
  * @module Generators/AnalysisBuilders
  * @description Barrel re-export — the implementation has been refactored into
  * bounded-context modules under {@link module:Generators/Builders}.
- * All public symbols remain accessible at this path for backward compatibility.
+ *
+ * **Note:** Multi-dimensional SWOT builders, standard mindmap/sankey section
+ * builders, and related helpers were removed as dead code in v0.8.27+.
+ * Only the actively-used analysis, SWOT, dashboard, and intelligence mindmap
+ * builders are exported below.
  */
 
 export {

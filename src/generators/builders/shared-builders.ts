@@ -5,7 +5,7 @@
  * @module Generators/Builders/SharedBuilders
  * @description Shared helper functions used across multiple analysis builder
  * domains. Includes outcome matrix construction, AI marker impact assessments,
- * coalition metrics, pipeline builders, trend analytics, and SWOT dimension helpers.
+ * coalition metrics, pipeline builders, and trend analytics.
  */
 
 import type {
