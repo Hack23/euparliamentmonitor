@@ -1125,7 +1125,6 @@ fi
 ### Script/AI Separation (Rule 8 — required)
 - ✅ **No `[AI_ANALYSIS_REQUIRED]` placeholders** remain in final HTML
 - ✅ **No empty SWOT entries** (every quadrant has ≥2 substantive entries with evidence)
-- ✅ **No `data-connections="0"` mindmaps** — real policy connections mapped
 - ✅ **Every stakeholder outcome** has AI-written rationale (not just Winner/Loser labels)
 - ✅ **Confidence levels** stated on all non-factual analytical claims
 - ✅ **Every impact card** (Political, Economic, Social, Legal, Geopolitical) has ≥40 words of AI analysis
@@ -1134,7 +1133,6 @@ fi
 ### Visualization Completeness (v4.0 — required)
 - ✅ **SWOT**: All 4 quadrants populated with ≥2 items each, severity badges on every item
 - ✅ **Dashboard charts**: Canvas elements have real data in `data-chart-config` (not `[0,0,0]`)
-- ✅ **Mindmap**: Central node + ≥3 branches with sub-nodes containing named policies/procedures
 - ✅ **Stakeholder panels**: Each panel has analytical text explaining the stakeholder's position
 - ✅ **Analysis transparency links**: All linked `.md` files in the analysis directory contain substantive content (≥200 words)
 
@@ -1142,7 +1140,6 @@ fi
 - ✅ **Stakeholder coverage**: Min 3 perspectives analyzed per key development
 - ✅ **SWOT dimensions**: Must include both political AND economic/regulatory dimensions
 - ✅ **Dashboard trends**: Must include trend indicators (↑↓→) not just current values
-- ✅ **Mindmap connections**: Must show cross-domain policy links (e.g., environment ↔ trade ↔ social)
 - ✅ **Evidence chains**: Deep analysis must cite specific document IDs, vote counts, or MCP data
 - ✅ **Outlook scenarios**: Must provide at least 2 named scenarios with probability labels
 - ✅ **Sources section**: Must cite ≥3 specific EP data sources (document IDs, MCP tools, procedure references)
@@ -1251,7 +1248,7 @@ The generator pipeline supports rich data-driven visualizations. These are produ
 | **Dashboard** | `buildDashboardSection()` | Metric cards, bar/line charts with data tables |
 | **Deep Analysis** | `buildDeepAnalysisSection()` | Free-form analytical narrative |
 
-The **Mindmap** section is ideal for committee reports to visualise topic coverage across committees. The **Dashboard** shows committee activity metrics and document counts.
+The **Dashboard** shows committee activity metrics and document counts. The **Deep Analysis** section provides detailed topic coverage across committees.
 
 ## Translation Notes
 

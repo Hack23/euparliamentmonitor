@@ -951,7 +951,6 @@ fi
 ### Script/AI Separation (Rule 8 — required)
 - ✅ **No `[AI_ANALYSIS_REQUIRED]` placeholders** remain in final HTML
 - ✅ **No empty SWOT entries** (every quadrant has ≥2 substantive entries with evidence)
-- ✅ **No `data-connections="0"` mindmaps** — real policy connections mapped
 - ✅ **Every stakeholder outcome** has AI-written rationale (not just Winner/Loser labels)
 - ✅ **Confidence levels** stated on all non-factual analytical claims
 - ✅ **Every impact card** (Political, Economic, Social, Legal, Geopolitical) has ≥40 words of AI analysis
@@ -960,7 +959,6 @@ fi
 ### Visualization Completeness (v4.0 — required)
 - ✅ **SWOT**: All 4 quadrants populated with ≥2 items each, severity badges on every item
 - ✅ **Dashboard charts**: Canvas elements have real data in `data-chart-config` (not `[0,0,0]`)
-- ✅ **Mindmap**: Central node + ≥3 branches with sub-nodes containing named policies/procedures
 - ✅ **Stakeholder panels**: Each panel has analytical text explaining the stakeholder's position
 - ✅ **Analysis transparency links**: All linked `.md` files in the analysis directory contain substantive content (≥200 words)
 
