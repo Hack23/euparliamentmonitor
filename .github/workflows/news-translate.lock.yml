@@ -43,8 +43,9 @@
 name: "News: Translate Articles"
 "on":
   schedule:
-  - cron: "0 9,12,15 * * 1-5"
+  - cron: "0 9,12,15,17 * * 1-5"
   - cron: "0 15 * * 6"
+  - cron: "0 10 * * 0"
   - cron: "0 15 1,28 * *"
   workflow_dispatch:
     inputs:
