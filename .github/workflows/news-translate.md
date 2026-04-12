@@ -171,7 +171,7 @@ You are the **Translation Agent** for EU Parliament Monitor. Your job is to take
 - ❌ **Dangerous shell expansion patterns** — NEVER use `${var@P}`, `${!var}`, `eval`, nested command substitutions `$($(..))`, or indirect variable expansion. These will be blocked by the sandbox
 - ❌ **Ad-hoc data processing scripts** — Use the existing `scripts/generate-news-enhanced.js` and pipeline tools
 - ❌ **Workarounds for existing tools** — If `npm run build` or existing scripts fail, log the error and continue; do NOT reimplement their functionality in another language
-- ❌ **Exiting without translating** — NEVER exit early, call `safeoutputs___noop`, or create analysis-only PRs. There is ALWAYS work to do: new translations, backfill of older dates, or quality improvement of existing translations
+- ❌ **Exiting without translating** — NEVER use an analysis-only PR, `safeoutputs___noop`, or any other no-op path as an early-exit shortcut before attempting the required Phase 1/2/3 translation flow. After those phases have been attempted, follow the later workflow rules: if they explicitly require preserved analysis artifacts (for example when `TOTAL_FILES=0`) so a reviewable PR can still be opened, that fallback is allowed
 
 **If you encounter build errors, test failures, or source code bugs:**
 - ❌ DO NOT attempt to fix them — that is outside this workflow's scope
@@ -919,7 +919,7 @@ echo "💾 Generation state persisted to $GEN_STATE_FILE"
 
 For each non-English article file (from Step 3 generation, backfill, or improvement), process **one file at a time**:
 
-1. **Derive the translation target list for this run only** by listing changed `news/` files and keeping only non-English HTML articles: `git status --porcelain -- news/ | awk '{print $2}' | grep -E '^news/.+-(sv|da|no|fi|de|fr|es|nl|ar|he|ja|ko|zh)\.html$'`
+1. **Derive the translation target list for this run only** by listing tracked changes and untracked new files under `news/`, then keeping only non-English HTML articles: `(git diff --name-only -- news/; git ls-files --others --exclude-standard -- news/) | grep -E '^news/.+-(sv|da|no|fi|de|fr|es|nl|ar|he|ja|ko|zh)\.html$'`
 2. **Do not** use a repository-wide glob such as `ls news/*-{sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh}.html`, because that can include historical translations outside the current run
 3. **For each changed file** `news/<DATE>-<TYPE>-<LANG>.html`:
 4. **Read** the target file with `cat news/<DATE>-<TYPE>-<LANG>.html`
@@ -989,9 +989,9 @@ for ITEM in $(echo "$TRANSLATED_TYPES" | tr ',' ' '); do
       continue
     fi
 
-    # Validate HTML structure (use selectors matching article-template.ts output)
-    if ! grep -q 'class="site-header__langs"' "$FILE" 2>/dev/null && ! grep -q 'class="language-grid"' "$FILE" 2>/dev/null; then
-      echo "⚠️ $FILE: Missing required language switcher (site-header__langs or language-grid)"
+    # Validate HTML structure (use selectors matching repository article validators)
+    if ! grep -q 'class="site-header__langs"' "$FILE" 2>/dev/null && ! grep -q 'class="language-switcher"' "$FILE" 2>/dev/null; then
+      echo "⚠️ $FILE: Missing required language switcher (site-header__langs or language-switcher)"
       VALIDATION_FAILURES=$((VALIDATION_FAILURES + 1))
     fi
     if ! grep -q 'class="site-header"' "$FILE" 2>/dev/null; then
