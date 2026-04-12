@@ -185,5 +185,5 @@ Recommended Chart.js config:
 1. **Translation workflow** — Never fetch WB data during translation; preserve existing data
 2. **Breaking news with no economic angle** — Don't force economic context on procedural/rights-focused stories
 3. **Outdated data caveat** — Always note the data year; don't present 2022 data as "current"
-4. **Over-enrichment** — Max 3-5 WB calls per article; don't drown political analysis in charts
+4. **Over-enrichment** — Do not exceed the workflow's maxWBCalls; don't drown political analysis in charts
 5. **Misleading comparisons** — Don't compare Luxembourg GDP per capita with Romania without noting population differences

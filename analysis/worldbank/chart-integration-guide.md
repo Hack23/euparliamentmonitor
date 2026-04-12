@@ -10,7 +10,7 @@
 
 ```
 World Bank MCP Server  ──▶  AI Agent (Copilot)  ──▶  TypeScript Generator  ──▶  HTML Article
- (worldbank-mcp@1.0.1)      (fetches data,           (generateArticleHTML)       (with canvas
+ (worldbank-mcp@1.0.0)      (fetches data,           (generateArticleHTML)       (with canvas
                               creates chart configs)    (embeds as data attrs)     elements)
                                                                                      │
                                                                                      ▼
@@ -496,7 +496,7 @@ gantt
 ## 🎯 AI Workflow Integration Checklist
 
 ### For HTML Articles (Chart.js)
-- [ ] Fetch indicator data using World Bank MCP tools (max 3-5 calls per article)
+- [ ] Fetch indicator data using World Bank MCP tools (within the workflow's `maxWBCalls` budget)
 - [ ] Create Chart.js configuration JSON with **real data values** (never placeholder zeros)
 - [ ] Pass chart config to `buildDashboardSection()` or embed directly in `<canvas>`
 - [ ] Include data attribution: "Source: World Bank Open Data (YYYY)"
