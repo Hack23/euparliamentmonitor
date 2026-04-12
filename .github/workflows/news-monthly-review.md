@@ -517,19 +517,19 @@ fi
 
 **If individual feed endpoints fail/timeout:**
 1. Log the error and continue with other feeds — do NOT abort the entire data collection
-2. If retry also fails, continue with the data you have — partial data is better than no data
+2. For non-timeout feed errors only, you may retry once; if that retry also fails, continue with the data you have — partial data is better than no data
 3. NEVER skip analysis because some feeds failed — run analysis with whatever data was collected
-4. **FALLBACK**: When a feed endpoint times out (e.g. `get_procedures_feed`, `get_events_feed`), use the corresponding non-feed endpoint with year filter instead:
+4. **TIMEOUT FALLBACK**: When a feed endpoint times out (e.g. `get_procedures_feed`, `get_events_feed`), do **NOT** retry the same feed endpoint; use the corresponding non-feed endpoint with year filter instead:
    - `get_procedures_feed` timeout → call `european_parliament___get_procedures({ year: CURRENT_YEAR, limit: 20 })` instead
    - `get_events_feed` timeout → call `european_parliament___get_events({ year: CURRENT_YEAR, limit: 20 })` instead
    - `get_plenary_documents_feed` timeout → call `european_parliament___get_plenary_documents({ year: CURRENT_YEAR, limit: 20 })` instead
 
 **NOOP PREVENTION — Data Must Exist for Noop:**
 > **⚠️ CRITICAL**: Before emitting `safeoutputs___noop`, you MUST verify that ALL of the following return empty:
-> 1. `get_adopted_texts_feed({ timeframe: "one-month" })` — adopted texts
-> 2. `get_adopted_texts({ year: CURRENT_YEAR, limit: 5 })` — year-based fallback
-> 3. `get_plenary_sessions({ year: CURRENT_YEAR, limit: 5 })` — plenary sessions
-> 4. `get_plenary_documents({ year: CURRENT_YEAR, limit: 5 })` — plenary documents
+> 1. `european_parliament___get_adopted_texts_feed({ timeframe: "one-month" })` — adopted texts
+> 2. `european_parliament___get_adopted_texts({ year: CURRENT_YEAR, limit: 5 })` — year-based fallback
+> 3. `european_parliament___get_plenary_sessions({ year: CURRENT_YEAR, limit: 5 })` — plenary sessions
+> 4. `european_parliament___get_plenary_documents({ year: CURRENT_YEAR, limit: 5 })` — plenary documents
 >
 > If ANY of these 4 endpoints return data, there IS parliamentary activity. Proceed with article generation using whatever data is available. **Noop is ONLY legitimate when the EP API is completely down (health gate fails) or genuinely zero parliamentary activity occurred in the review period.**
 
@@ -616,9 +616,9 @@ european_parliament___get_parliamentary_questions_feed({ timeframe: "one-month",
 > 4. **Filter results by date in your analysis** — year-based endpoints return the full year, so filter to the past 30 days when writing the article
 
 > **⚠️ RELIABLE ENDPOINTS**: The following tools consistently return data and should ALWAYS be called:
-> - `get_adopted_texts_feed({ timeframe: "one-month" })` — **most reliable feed**, rarely times out
-> - `get_adopted_texts({ year: CURRENT_YEAR, limit: 20 })` — **always works** with year filter
-> - `get_plenary_sessions({ year: CURRENT_YEAR, limit: 10 })` — **always works** with year filter
+> - `european_parliament___get_adopted_texts_feed({ timeframe: "one-month" })` — **most reliable feed**, rarely times out
+> - `european_parliament___get_adopted_texts({ year: CURRENT_YEAR, limit: 20 })` — **always works** with year filter
+> - `european_parliament___get_plenary_sessions({ year: CURRENT_YEAR, limit: 10 })` — **always works** with year filter
 
 > **⚠️ ARTICLE CONTENT MUST COME FROM THESE FEEDS**: The article's lede, headlines, and primary sections must reference **specific adopted texts, voting results, or procedure updates** found in these feed results. If feeds return items, those items ARE the news.
 
