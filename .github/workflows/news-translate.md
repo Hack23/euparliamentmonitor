@@ -590,11 +590,12 @@ if [ -z "$NEEDS_TRANSLATION" ]; then
       TYPE=$(echo "$EN_FILE" | sed "s|news/${CHECK_DATE}-||;s|-en\.html||")
       NEEDS_TRANSLATION="${NEEDS_TRANSLATION:+$NEEDS_TRANSLATION,}${CHECK_DATE}:${TYPE}"
       echo "✨ Will improve translations: ${CHECK_DATE}/${TYPE}"
+      # Enforce item cap inside per-file loop (same pattern as backfill)
+      ITEM_COUNT=$(echo "$NEEDS_TRANSLATION" | tr ',' '\n' | wc -l)
+      if [ "$ITEM_COUNT" -ge 3 ]; then
+        break 2
+      fi
     done
-    ITEM_COUNT=$(echo "$NEEDS_TRANSLATION" | tr ',' '\n' | wc -l)
-    if [ "$ITEM_COUNT" -ge 3 ]; then
-      break
-    fi
   done
 fi
 
@@ -812,20 +813,24 @@ for ITEM in $(echo "$NEEDS_TRANSLATION" | tr ',' ' '); do
           *) LANG_DIR="ltr"; OG_LOCALE="${LANG}" ;;
         esac
 
-        # Normalize all language-identifying metadata in the copied file so Step 3b
-        # can focus on translating content rather than fixing structural metadata.
-        python3 - "$LANG_FILE" "$LANG" "$LANG_DIR" "$OG_LOCALE" <<'PY'
-import re, sys
-from pathlib import Path
-fp = Path(sys.argv[1]); lang = sys.argv[2]; lang_dir = sys.argv[3]; og_locale = sys.argv[4]
-c = fp.read_text(encoding="utf-8")
-c = re.sub(r'lang="en"', f'lang="{lang}"', c)
-c = re.sub(r'dir="(?:ltr|rtl)"', f'dir="{lang_dir}"', c)
-c = re.sub(r'hreflang="en"', f'hreflang="{lang}"', c)
-c = re.sub(r'("inLanguage"\s*:\s*")en(")', rf'\g<1>{lang}\g<2>', c)
-c = re.sub(r'(<meta\s+property="og:locale"\s+content=")[^"]*(")', rf'\g<1>{og_locale}\g<2>', c)
-fp.write_text(c, encoding="utf-8")
-PY
+        # Normalize all language-identifying metadata and URL-bearing fields in the
+        # copied file so Step 3b can focus on translating content rather than
+        # fixing structural metadata. Uses Node.js (not python3 — see FORBIDDEN list).
+        EN_BASENAME=$(basename "$EN_SOURCE")
+        LANG_BASENAME=$(basename "$LANG_FILE")
+        node -e '
+const fs = require("node:fs");
+const [filePath, lang, langDir, ogLocale, enName, langName] = process.argv.slice(1);
+let c = fs.readFileSync(filePath, "utf8");
+c = c.replace(/lang="en"/g, `lang="${lang}"`);
+c = c.replace(/dir="(?:ltr|rtl)"/g, `dir="${langDir}"`);
+c = c.replace(/hreflang="en"/g, `hreflang="${lang}"`);
+c = c.replace(/("inLanguage"\s*:\s*")en(")/g, `$1${lang}$2`);
+c = c.replace(/(<meta\s+property="og:locale"\s+content=")[^"]*(")/g, `$1${ogLocale}$2`);
+// Update URL-bearing fields so the translated page is self-referential
+c = c.replaceAll(enName, langName);
+fs.writeFileSync(filePath, c, "utf8");
+' "$LANG_FILE" "$LANG" "$LANG_DIR" "$OG_LOCALE" "$EN_BASENAME" "$LANG_BASENAME"
         COPY_COUNT=$((COPY_COUNT + 1))
       fi
     done
@@ -870,12 +875,14 @@ echo "💾 Generation state persisted to $GEN_STATE_FILE"
 
 For each non-English article file (from Step 3 generation, backfill, or improvement), process **one file at a time**:
 
-1. **Read** the target file with `cat news/${ITEM_DATE}-${TYPE}-${LANG}.html`
-2. **Read** the English source with `cat news/${ITEM_DATE}-${TYPE}-en.html`
-3. **Identify** English text in ALL user-visible elements: `<h1>`, `<h2>`, `<h3>`, `<p>`, `<li>`, `<td>`, `<th>`, `<span>`, `<div>`, `<a>` (link text), `<figcaption>`, `<blockquote>`, and `<title>`
-4. **Translate** to the target language using EP terminology standards (see table above)
-5. **Write back** the translated content using the `edit` tool — replace old English text with translated text, one section at a time
-6. **Keep unchanged**: proper nouns (MEP names), abbreviations (EPP, S&D), reference IDs, location names, HTML tags, CSS classes, URLs
+1. **List** available translation files: `ls news/*-{sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh}.html`
+2. **For each file** `news/<DATE>-<TYPE>-<LANG>.html`:
+3. **Read** the target file with `cat news/<DATE>-<TYPE>-<LANG>.html`
+4. **Read** the English source with `cat news/<DATE>-<TYPE>-en.html`
+5. **Identify** English text in ALL user-visible elements: `<h1>`, `<h2>`, `<h3>`, `<p>`, `<li>`, `<td>`, `<th>`, `<span>`, `<div>`, `<a>` (link text), `<figcaption>`, `<blockquote>`, and `<title>`
+6. **Translate** to the target language using EP terminology standards (see table above)
+7. **Write back** the translated content using the `edit` tool — replace old English text with translated text, one section at a time
+8. **Keep unchanged**: proper nouns (MEP names), abbreviations (EPP, S&D), reference IDs, location names, HTML tags, CSS classes, URLs
 
 **Also translate these SEO and structured data elements:**
 - `<title>` tag — translate the page title (keep `| EU Parliament Monitor` suffix)
@@ -1224,9 +1231,20 @@ UNTRACKED_COUNT=$(git ls-files --others --exclude-standard 2>/dev/null | grep '^
 TOTAL_FILES=$((TRANSLATED_COUNT + UNTRACKED_COUNT))
 echo "📊 Total modified/new translation files: $TOTAL_FILES"
 if [ "$TOTAL_FILES" -eq 0 ]; then
-  echo "❌ No translated non-English news/*.html changes were detected. Skipping branch and PR creation to avoid a 'No changes to commit' failure."
+  echo "⚠️ No translated non-English news/*.html changes were detected."
   echo "ℹ️ This can happen when translation targets are already up to date or improvement mode produced no HTML edits."
-  exit 1
+  echo "ℹ️ Creating a preserved analysis summary so branch and PR creation can still proceed."
+  mkdir -p "${TRANSLATE_ANALYSIS_DIR}"
+  cat > "${TRANSLATE_ANALYSIS_DIR}/translation-no-html-changes.analysis.md" <<EOF
+# Translation run produced no non-English HTML changes
+
+- article_date: ${ARTICLE_DATE}
+- run_id: ${RUN_ID}
+- improvement_mode: ${IMPROVEMENT_MODE:-false}
+- reason: Translation targets were already up to date, or refinement produced no HTML edits.
+
+This summary is intentionally written so the workflow can still create a reviewable PR with preserved analysis artifacts instead of hard-failing before branch/PR creation.
+EOF
 fi
 
 # Determine branch name — include backfill info if applicable
