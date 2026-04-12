@@ -1,138 +1,130 @@
-# 🌍 World Bank Indicator Inventory — EU Parliament Monitor
+# 🌍 World Bank Indicator Integration — EU Parliament Monitor
 
-> **Purpose**: Comprehensive reference for World Bank MCP server indicators mapped to European Parliament political entities, committees, and article types.
+> **Purpose**: Central reference for integrating World Bank economic data into EU Parliament intelligence analysis. This directory contains the complete indicator inventory, country mappings, chart templates, and use case analysis for AI workflows generating news articles and analysis documents.
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.0 | **📅 Last Updated:** 2026-04-11 (UTC) | **🏷️ Classification:** Public
-
----
-
-## 📚 Inventory Documents
-
-| Document | Description |
-|----------|-------------|
-| **[Indicator Catalog](indicator-catalog.md)** | Complete reference of ALL World Bank MCP tools and indicators with IDs, descriptions, and data availability |
-| **[EU Country Mapping](eu-country-mapping.md)** | EU-27 member states → World Bank country codes with EP seat counts and political entity mapping |
-| **[Use Cases](use-cases.md)** | Analysis of when each indicator type adds value to EU Parliament articles, with priority rankings |
-| **[Chart Integration Guide](chart-integration-guide.md)** | How to embed World Bank data as Chart.js/D3.js visualizations in generated articles |
+**📅 Last Updated:** 2026-04-12 | **🏷️ Classification:** Public
 
 ---
 
-## 🔑 Quick Reference: World Bank MCP Tools
+## 📂 Directory Contents
 
-The `worldbank-mcp` MCP server (v1.0.1) exposes these tools:
-
-| Tool | Parameters | Description |
-|------|-----------|-------------|
-| `get-economic-data` | `countryCode`, `indicator`, `years` | GDP, inflation, unemployment, trade, FDI |
-| `get-social-data` | `countryCode`, `indicator`, `years` | Population, life expectancy, internet users |
-| `get-health-data` | `countryCode`, `indicator`, `years` | Health expenditure, hospital beds, physicians |
-| `get-education-data` | `countryCode`, `indicator`, `years` | Education expenditure, enrollment, literacy |
-| `get-country-info` | `countryCode` | Country metadata (region, income level, capital) |
-| `get-countries` | `region`, `incomeLevel` | List countries by region/income filter |
-| `search-indicators` | `keyword` | Search available indicators by keyword |
+| Document | Description | Audience |
+|----------|------------|----------|
+| [`indicator-catalog.md`](indicator-catalog.md) | **200+ indicators** organized by 10 EP policy domains with WB IDs, tools, and priorities | AI workflows, developers |
+| [`eu-country-mapping.md`](eu-country-mapping.md) | EU-27 + comparison groups (G7, BRICS, candidates, trade partners) with WB codes | AI workflows, analysis |
+| [`chart-integration-guide.md`](chart-integration-guide.md) | Chart.js templates (6) + Mermaid templates (7) for WB data visualization | AI workflows, frontend |
+| [`use-cases.md`](use-cases.md) | When each indicator type adds value, ranked by priority | AI workflows, product |
 
 ---
 
-## 🎯 Key Indicator Categories for EU Parliament
+## 🔑 Quick Reference
 
-### Macro-Economic (via `get-economic-data`)
+### World Bank MCP Tools
 
-| Indicator Key | WB ID | Name | EU Policy Relevance |
-|--------------|-------|------|---------------------|
-| `GDP` | NY.GDP.MKTP.CD | GDP (current US$) | EU budget contributions, economic weight |
-| `GDP_GROWTH` | NY.GDP.MKTP.KD.ZG | GDP growth (annual %) | Stability Pact compliance, fiscal governance |
-| `GDP_PER_CAPITA` | NY.GDP.PCAP.CD | GDP per capita | Cohesion fund eligibility, convergence |
-| `GNI_PER_CAPITA` | NY.GNP.PCAP.CD | GNI per capita (Atlas) | ODA commitments (0.7% target) |
-| `INFLATION` | FP.CPI.TOTL.ZG | Inflation (CPI annual %) | ECB policy, cost-of-living legislation |
-| `UNEMPLOYMENT` | SL.UEM.TOTL.ZS | Unemployment rate | Employment policy, social fund targeting |
-| `EXPORTS_GDP` | NE.EXP.GNFS.ZS | Exports (% of GDP) | Trade policy, single market health |
-| `FDI_NET` | BN.KLT.DINV.CD | FDI net inflows (BoP) | Investment screening, trade agreements |
+| Tool | # Indicators | Data Type | Key Use |
+|------|:-----------:|-----------|---------|
+| `get-economic-data` | 9 | GDP, inflation, unemployment, trade | **Core**: most articles |
+| `get-social-data` | 5 | Population, life expectancy, internet | Demographics, social policy |
+| `get-health-data` | 7 | Health spending, physicians, disease | Health policy, pandemic |
+| `get-education-data` | 5 | Education spending, enrollment | Education, skills agenda |
+| `get-country-info` | — | Metadata (region, income, capital) | Country context |
+| `get-countries` | — | Country listing by filters | Comparison groups |
+| `search-indicators` | — | Keyword search | Discover new indicators |
 
-### Social (via `get-social-data`)
+### Total Indicator Coverage
 
-| Indicator Key | WB ID | Name | EU Policy Relevance |
-|--------------|-------|------|---------------------|
-| `POPULATION` | SP.POP.TOTL | Population total | EP seat allocation, burden-sharing |
-| `LIFE_EXPECTANCY` | SP.DYN.LE00.IN | Life expectancy | Health policy, SDG benchmarks |
-| `BIRTH_RATE` | SP.DYN.CBRT.IN | Birth rate (per 1,000) | Demographics, social protection |
-| `DEATH_RATE` | SP.DYN.CDRT.IN | Death rate (per 1,000) | Public health outcomes |
-| `INTERNET_USERS` | IT.NET.USER.ZS | Internet users (% population) | Digital single market, connectivity |
+| Source | Count | Description |
+|--------|:-----:|-------------|
+| MCP Tool indicators (direct keys) | 26 | Fetchable by name via MCP tools |
+| Extended indicators (WB API IDs) | 140+ | Mapped in committee-indicator-map.ts |
+| **Total catalog** | **200+** | Documented in indicator-catalog.md |
 
-### Health (via `get-health-data`)
+### Country Coverage
 
-| Indicator Key | WB ID | Name | EU Policy Relevance |
-|--------------|-------|------|---------------------|
-| `HEALTH_EXPENDITURE` | SH.XPD.CHEX.GD.ZS | Health expenditure (% GDP) | EU4Health, pandemic preparedness |
-| `PHYSICIANS` | SH.MED.PHYS.ZS | Physicians per 1,000 | Healthcare capacity |
-| `HOSPITAL_BEDS` | SH.MED.BEDS.ZS | Hospital beds per 1,000 | Health infrastructure |
-| `IMMUNIZATION` | SH.IMM.MEAS | Measles immunization (%) | Public health mandates |
-| `HIV_PREVALENCE` | SH.DYN.AIDS.ZS | HIV prevalence | Health policy |
-| `MALNUTRITION` | SH.STA.MALN.ZS | Undernourishment prevalence | Food security policy |
-| `TUBERCULOSIS` | SH.TBS.INCD | TB incidence (per 100k) | Cross-border health |
-
-### Education (via `get-education-data`)
-
-| Indicator Key | WB ID | Name | EU Policy Relevance |
-|--------------|-------|------|---------------------|
-| `LITERACY_RATE` | SE.ADT.LITR.ZS | Adult literacy rate | Education benchmarks |
-| `SCHOOL_ENROLLMENT` | SE.PRM.ENRR | Primary enrollment (gross) | Education access |
-| `SCHOOL_COMPLETION` | SE.PRM.CMPT.ZS | Primary completion rate | Education outcomes |
-| `TEACHERS_PRIMARY` | SE.PRM.TCHR | Primary teachers count | Education investment |
-| `EDUCATION_EXPENDITURE` | SE.XPD.TOTL.GD.ZS | Education spending (% GDP) | Erasmus+, skills agenda |
+| Group | Count | Countries |
+|-------|:-----:|-----------|
+| EU-27 | 27 | All EU member states |
+| EU Aggregate | 3 | EUU, EMU, ECS |
+| G7 Non-EU | 4 | US, GB, JP, CA |
+| BRICS | 5 | CN, IN, BR, RU, ZA |
+| EU Candidates | 9 | UA, TR, RS, ME, AL, MK, MD, BA, GE |
+| Trade Partners | 5 | KR, AU, NO, CH, IL |
+| WB Aggregates | 5 | OED, WLD, NAC, EAS, SSF |
 
 ---
 
-## 🏛️ EP Committee → Indicator Mapping Summary
+## 🏛️ EP Committee → Indicator Mapping
 
-See [indicator-catalog.md](indicator-catalog.md) for full details. Key committee mappings:
+All 22 EP committees are mapped to relevant World Bank indicators in `src/constants/committee-indicator-map.ts` (1,350 lines). Key mappings:
 
-| Committee | Primary Indicators | Policy Domain |
-|-----------|-------------------|---------------|
-| **ECON** | GDP Growth, Inflation, Unemployment | Economic governance |
-| **ENVI** | CO₂ Emissions, Renewable Energy, Health Expenditure | Climate, health |
-| **EMPL** | Unemployment, Youth Unemployment, GINI | Employment, social |
-| **AFET** | Military Expenditure, Trade, FDI | Foreign affairs, defence |
-| **ITRE** | R&D Expenditure, Renewable Energy, High-tech Exports | Industry, research |
-| **AGRI** | Agriculture GDP, Cereal Yield, Arable Land | Agriculture, food |
-| **BUDG** | GDP, Government Expenditure, Tax Revenue | EU budget |
-| **SEDE** | Military Expenditure, GDP | Security, defence |
-| **INTA** | Trade, Exports, FDI, High-tech Exports | International trade |
-| **LIBE** | Net Migration, Population | Civil liberties, migration |
-
----
-
-## 📊 Integration Architecture
-
-```
-┌─────────────────┐     ┌──────────────────┐     ┌─────────────────────┐
-│  Agentic Workflow│     │ World Bank MCP   │     │ Article Generator   │
-│  (.md prompts)   │────▶│ Server (worldbank │────▶│ (TypeScript pipeline)│
-│                  │     │  -mcp@1.0.1)     │     │                     │
-│ • EP MCP data    │     │ • get-economic   │     │ • Chart.js config   │
-│ • WB indicators  │     │ • get-social     │     │ • Dashboard panels  │
-│ • Analysis       │     │ • get-health     │     │ • Metric cards      │
-└─────────────────┘     │ • get-education  │     │ • D3 visualizations │
-                         │ • get-countries  │     └─────────────────────┘
-                         └──────────────────┘
-```
+| Committee | Policy Domain | Primary Indicators |
+|-----------|-------------|-------------------|
+| **ECON** | Economic & Monetary | GDP Growth, Inflation, Unemployment, Tax Revenue, Gov Debt |
+| **BUDG** | Budgets | GDP, GNI, Tax Revenue, Gov Expenditure |
+| **EMPL** | Employment & Social | Unemployment, Youth Unemployment, GINI, Labor Participation |
+| **ENVI** | Environment & Health | CO₂ Emissions, Renewable Energy, Health Expenditure |
+| **ITRE** | Industry & Energy | R&D Expenditure, Energy Use, High-tech Exports |
+| **AFET** | Foreign Affairs | Military Expenditure, Net ODA, FDI |
+| **SEDE** | Security & Defence | Military Expenditure, Armed Forces, GDP Growth |
+| **AGRI** | Agriculture | Agriculture % GDP, Cereal Yield, Arable Land |
+| **DEVE** | Development | GNI per Capita, Net ODA, Life Expectancy |
+| **FEMM** | Women's Rights | Female Labor Participation, Women in Parliament |
 
 ---
 
-## 🔒 ISMS Compliance
+## 📊 Visualization Options
 
-| Control | Implementation |
-|---------|---------------|
-| **ISO 27001 A.5.10** | Only public World Bank Open Data used |
-| **GDPR Data Minimization** | Country-level aggregates only, no personal data |
-| **ISO 27001 A.8.28** | All inputs validated before embedding in HTML |
-| **NIST CSF ID.AM** | Data sources clearly attributed to World Bank |
+### For HTML Articles (Chart.js)
+- **Line charts**: GDP growth, inflation, unemployment trends over time
+- **Bar charts**: Country comparisons, defence spending vs NATO 2% target
+- **Pie/doughnut**: GDP share, energy mix composition
+- **Radar**: Multi-dimension country profiles
+- **Scatter/bubble**: R&D vs high-tech exports correlation
+
+### For Analysis Documents (Mermaid)
+- **`xychart-beta`**: Bar/line charts for indicator comparisons
+- **`quadrantChart`**: Country positioning (growth vs employment)
+- **`pie`**: GDP share, energy composition
+- **`graph`**: Indicator flow to stakeholder impact
+- **`gantt`**: Defence spending timeline, target progress
 
 ---
 
-## 📖 Related Documentation
+## 🔗 Integration Points
 
-- [`src/constants/committee-indicator-map.ts`](../../src/constants/committee-indicator-map.ts) — TypeScript mappings
-- [`src/types/world-bank.ts`](../../src/types/world-bank.ts) — Type definitions
-- [`src/mcp/wb-mcp-client.ts`](../../src/mcp/wb-mcp-client.ts) — WB MCP client
-- [`src/generators/dashboard-content.ts`](../../src/generators/dashboard-content.ts) — Chart.js integration
-- [`js/chart-init.js`](../../js/chart-init.js) — Client-side Chart.js hydration
+### TypeScript Source Files
+
+| File | Purpose |
+|------|---------|
+| `src/types/world-bank.ts` | PolicyRelevantIndicators (25 fields), WBToolIndicatorKeys, WBMCPToolName |
+| `src/utils/world-bank-data.ts` | COMPARISON_COUNTRIES, WB_AGGREGATE_CODES, EU_COUNTRY_CODES, formatIndicatorValue() |
+| `src/constants/committee-indicator-map.ts` | WB_INDICATORS (34 IDs), committee→indicator mappings |
+| `src/generators/dashboard-content.ts` | buildDashboardSection(), Chart.js config generation |
+| `js/chart-init.js` | Client-side Chart.js hydration with EU Parliament color palette |
+
+### Workflow Integration
+
+All 9 content workflow `.md` files include:
+- **Full Reference Documents** block pointing to this directory
+- **Available WB MCP Tools** table with all 7 tools
+- **Extended Indicators** table with fiscal, defence, climate, labor, agriculture, innovation, demographics, governance indicators
+- **Chart Integration** guidance specific to each article type
+- **Max WB call limits** per workflow type
+
+### Analysis Template Integration
+
+Three analysis templates now include WB data sections:
+- `analysis/templates/per-file-political-intelligence.md` — Economic Context section with Mermaid chart template
+- `analysis/templates/stakeholder-impact.md` — WB indicators per stakeholder group
+- `analysis/templates/synthesis-summary.md` — Period Economic Snapshot with top/bottom movers
+
+---
+
+## ⚠️ ISMS Compliance
+
+| Framework | Requirement | Implementation |
+|-----------|------------|---------------|
+| ISO 27001 A.5.10 | Appropriate use of information | Public World Bank data only |
+| GDPR | Data minimization | Country-level aggregates only (no personal data) |
+| ISO 27001 A.8.28 | Secure coding | Input validation via escapeHTML() before embedding |
+| NIST CSF ID.AM | Asset identification | All data sources attributed to World Bank |
