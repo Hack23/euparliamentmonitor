@@ -163,10 +163,10 @@ You are the **Translation Agent** for EU Parliament Monitor. Your job is to take
 - ❌ `package.json` / `package-lock.json` — NEVER modify dependency files
 
 **FORBIDDEN practices (waste time and produce low-quality output):**
-- ❌ **Writing new custom scripts in ANY language** — NEVER create new helper scripts (`.js`, `.py`, `.sh`, `.rb`, etc.) in `/tmp/`, the repo, or anywhere else. Use ONLY the existing Node.js/TypeScript toolchain (for example: `npm run build`, `node scripts/...`, `npx tsx src/generators/news-enhanced.ts ...`). NEVER use `python3`, `pip install`, or any Python-based workaround
+- ❌ **Writing new custom scripts in ANY language** — NEVER create new helper scripts (`.js`, `.py`, `.sh`, `.rb`, etc.) in `/tmp/`, the repo, or anywhere else. Use ONLY the existing Node.js/TypeScript toolchain (for example: `npm run build`, `node scripts/...`, `npx tsx src/generators/news-enhanced.ts ...`). NEVER use `python3`, `pip install`, or any Python-based workaround. **Approved exception**: the inline `node -e` snippet in Step 3's backfill/improvement path is permitted for metadata-normalization only (updating `lang`, `dir`, `og:locale`, and self-referential URLs in copied placeholder files). It must NOT be expanded into general content transformation or new standalone scripting
 - ❌ **Creating translation dictionary/data files** — NEVER create JSON, JS, or other data files containing translation dictionaries. Translate directly in each HTML file using the `edit` tool
 - ❌ **Batch translation via custom code** — NEVER write a script (e.g., `gen-translations.js`) to automate translation. Translate each file individually using the `edit` tool, one file at a time
-- ❌ **Search/replace pattern-based translation** — NEVER use `sed`, `awk`, `perl`, `tr`, regex substitution, or ANY text-processing command to translate content. The AI must READ the English text, UNDERSTAND its meaning, and WRITE the correct translation. Pattern-based replacement produces garbage translations
+- ❌ **Search/replace pattern-based translation** — NEVER use `sed`, `awk`, `perl`, `tr`, regex substitution, or ANY text-processing command to **translate narrative content**. The AI must READ the English text, UNDERSTAND its meaning, and WRITE the correct translation. Pattern-based replacement produces garbage translations. (Note: using `grep`, `sed`, or shell tools for non-translation tasks like file listing, path manipulation, or metadata extraction is fine)
 - ❌ **Translation lookup tables** — NEVER create a mapping like `{"English phrase": "Translated phrase"}` and then apply it. Each translation must be done by the AI reading context and producing natural-sounding output
 - ❌ **Dangerous shell expansion patterns** — NEVER use `${var@P}`, `${!var}`, `eval`, nested command substitutions `$($(..))`, or indirect variable expansion. These will be blocked by the sandbox
 - ❌ **Ad-hoc data processing scripts** — Use the existing `scripts/generate-news-enhanced.js` and pipeline tools
@@ -465,6 +465,15 @@ fi
 Find English articles that need translation — starting with today, then scanning backward:
 
 ```bash
+# Re-derive date context (env vars do NOT persist across bash blocks in gh-aw)
+TODAY=$(date -u +%Y-%m-%d)
+ARTICLE_DATE="${{ github.event.inputs.article_date }}"
+if [ -z "$ARTICLE_DATE" ]; then
+  ARTICLE_DATE="${EP_ARTICLE_DATE:-$TODAY}"
+fi
+RUN_ID="${GITHUB_RUN_NUMBER:-0}"
+TRANSLATE_ANALYSIS_DIR="analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}"
+
 # Determine which article types to process (prefer workflow_dispatch inputs, fall back to env)
 ARTICLE_TYPES_INPUT="${{ github.event.inputs.article_types }}"
 if [ -z "$ARTICLE_TYPES_INPUT" ]; then
@@ -628,6 +637,9 @@ STATE_FILE="/tmp/gh-aw-translate-state.sh"
   printf 'IMPROVEMENT_MODE=%q\n' "${IMPROVEMENT_MODE}"
   printf 'FORCE_TRANSLATION=%q\n' "${FORCE_TRANSLATION}"
   printf 'LANG_ARG=%q\n' "${LANG_ARG}"
+  printf 'ARTICLE_DATE=%q\n' "${ARTICLE_DATE}"
+  printf 'RUN_ID=%q\n' "${RUN_ID}"
+  printf 'TRANSLATE_ANALYSIS_DIR=%q\n' "${TRANSLATE_ANALYSIS_DIR}"
 } > "$STATE_FILE"
 echo "💾 Discovery state persisted to $STATE_FILE"
 ```
@@ -645,7 +657,7 @@ else
   echo "⚠️ State file not found — re-resolving languages"
   LANG_ARG="sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh"
 fi
-export NEEDS_TRANSLATION BACKFILL_DATES IMPROVEMENT_MODE FORCE_TRANSLATION LANG_ARG
+export NEEDS_TRANSLATION BACKFILL_DATES IMPROVEMENT_MODE FORCE_TRANSLATION LANG_ARG ARTICLE_DATE RUN_ID TRANSLATE_ANALYSIS_DIR
 echo "🌐 Target languages: $LANG_ARG"
 ```
 
@@ -683,9 +695,16 @@ else
   IMPROVEMENT_MODE="false"
   FORCE_TRANSLATION="false"
   LANG_ARG="sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh"
-  ANALYSIS_DIR="analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}"
-  mkdir -p "${ANALYSIS_DIR}"
-  cat > "${ANALYSIS_DIR}/translation-state-missing.analysis.md" <<EOF
+  # Re-derive date context for fallback (since state file was not available)
+  TODAY=$(date -u +%Y-%m-%d)
+  ARTICLE_DATE="${{ github.event.inputs.article_date }}"
+  if [ -z "$ARTICLE_DATE" ]; then
+    ARTICLE_DATE="${EP_ARTICLE_DATE:-$TODAY}"
+  fi
+  RUN_ID="${GITHUB_RUN_NUMBER:-0}"
+  TRANSLATE_ANALYSIS_DIR="analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}"
+  mkdir -p "${TRANSLATE_ANALYSIS_DIR}"
+  cat > "${TRANSLATE_ANALYSIS_DIR}/translation-state-missing.analysis.md" <<EOF
 # Translation state file missing
 
 - article_date: ${ARTICLE_DATE}
@@ -813,11 +832,22 @@ for ITEM in $(echo "$NEEDS_TRANSLATION" | tr ',' ' '); do
     # The AI agent will translate the content in Step 3b
     EN_SOURCE="news/${ITEM_DATE}-${TYPE}-en.html"
     COPY_COUNT=0
+    MARK_COUNT=0
     for LANG in $(echo "$MISSING_LANGS" | tr ',' ' '); do
       LANG_FILE="news/${ITEM_DATE}-${TYPE}-${LANG}.html"
+      IS_NEW_COPY="false"
       if [ ! -f "$LANG_FILE" ]; then
         cp "$EN_SOURCE" "$LANG_FILE"
+        IS_NEW_COPY="true"
+      elif [ "$IMPROVEMENT_MODE" = "true" ] || [ "$FORCE_TRANSLATION" = "true" ]; then
+        # File exists but needs improvement/re-translation — append a marker comment
+        # so Step 3b's git-diff-based discovery can detect it as a changed file
+        echo "<!-- translation-pending: improvement run $(date -u +%Y-%m-%dT%H:%M:%SZ) -->" >> "$LANG_FILE"
+        MARK_COUNT=$((MARK_COUNT + 1))
+      fi
 
+      # Metadata normalization: only for newly copied files (existing files already have correct metadata)
+      if [ "$IS_NEW_COPY" = "true" ]; then
         # Map language to dir and og:locale for comprehensive metadata update
         case "$LANG" in
           ar) LANG_DIR="rtl"; OG_LOCALE="ar_SA" ;;
@@ -839,8 +869,11 @@ for ITEM in $(echo "$NEEDS_TRANSLATION" | tr ',' ' '); do
         # Normalize document-level language metadata and self-referential URLs in the
         # copied file so Step 3b can focus on translating content rather than
         # fixing structural metadata. Scope replacements to page metadata only to avoid
-        # rewriting navigation/footer hreflang links or unrelated content. Uses Node.js
-        # (not python3 — see FORBIDDEN list).
+        # rewriting navigation/footer hreflang links or unrelated content.
+        # Approved exception to the FORBIDDEN "never write new custom scripts" rule:
+        # this inline Node.js snippet is metadata-normalization only for copied
+        # placeholder files in the backfill/improvement path, and must not be expanded
+        # into general content transformation or new standalone scripting.
         EN_BASENAME=$(basename "$EN_SOURCE")
         LANG_BASENAME=$(basename "$LANG_FILE")
         node -e '
@@ -879,6 +912,9 @@ fs.writeFileSync(filePath, c, "utf8");
       fi
     done
     echo "📋 Copied English source to $COPY_COUNT language files for AI translation"
+    if [ "$MARK_COUNT" -gt 0 ]; then
+      echo "📋 Marked $MARK_COUNT existing files for improvement/re-translation"
+    fi
     TRANSLATED_TYPES="${TRANSLATED_TYPES:+$TRANSLATED_TYPES,}${ITEM_DATE}:${TYPE}"
   fi
 done
