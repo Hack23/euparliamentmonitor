@@ -521,7 +521,7 @@ fi
 3. NEVER skip analysis because some feeds failed — run analysis with whatever data was collected
 4. **TIMEOUT FALLBACK**: When a feed endpoint times out (e.g. `get_procedures_feed`, `get_events_feed`), do **NOT** retry the same feed endpoint; use the corresponding non-feed endpoint with year filter instead:
    - `get_procedures_feed` timeout → call `european_parliament___get_procedures({ year: CURRENT_YEAR, limit: 20 })` instead
-   - `get_events_feed` timeout → call `european_parliament___get_events({ year: CURRENT_YEAR, limit: 20 })` instead
+   - `get_events_feed` timeout → call `european_parliament___get_events({ dateFrom: "YYYY-MM-01", dateTo: "YYYY-MM-DD", limit: 20 })` instead (uses date range, not year)
    - `get_plenary_documents_feed` timeout → call `european_parliament___get_plenary_documents({ year: CURRENT_YEAR, limit: 20 })` instead
 
 **NOOP PREVENTION — Data Must Exist for Noop:**
@@ -608,11 +608,11 @@ european_parliament___get_parliamentary_questions_feed({ timeframe: "one-month",
 >    // If get_procedures_feed times out:
 >    european_parliament___get_procedures({ year: CURRENT_YEAR, limit: 20 })
 >    // If get_events_feed times out:
->    european_parliament___get_events({ year: CURRENT_YEAR, limit: 20 })
+>    european_parliament___get_events({ dateFrom: "YYYY-MM-01", dateTo: "YYYY-MM-DD", limit: 20 })
 >    // If get_plenary_documents_feed times out:
 >    european_parliament___get_plenary_documents({ year: CURRENT_YEAR, limit: 20 })
 >    ```
-> 3. **Year-based endpoints are faster** because they query a pre-indexed dataset rather than computing a time window
+> 3. **Year-based endpoints are faster** because they query a pre-indexed dataset rather than computing a time window; `get_events` uses `dateFrom`/`dateTo` (no `year` parameter) so pass the review period dates directly
 > 4. **Filter results by date in your analysis** — year-based endpoints return the full year, so filter to the past 30 days when writing the article
 
 > **⚠️ RELIABLE ENDPOINTS**: The following tools consistently return data and should ALWAYS be called:

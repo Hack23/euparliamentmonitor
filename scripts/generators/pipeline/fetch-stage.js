@@ -1108,8 +1108,8 @@ function checkUpstreamTimeout(value) {
 /**
  * Handle errors from feed-fetching functions with timeframe-widening logic.
  * Encapsulates the common catch-block pattern: upstream timeouts return `undefined`
- * (caller should stop retrying), network/404 errors widen to the next timeframe,
- * and other errors log and return `undefined`.
+ * (caller should stop retrying), errors whose message contains '404' or 'timed out'
+ * widen to the next timeframe, and other errors log and return `undefined`.
  *
  * @param error - Caught error
  * @param tf - Current feed timeframe
@@ -1134,10 +1134,13 @@ function handleFeedFetchError(error, tf, toolName) {
  * `{ data: [{ id, type, work_type, identifier, label }], "@context": [...] }`
  *
  * Also handles legacy shapes (`feed`, `entries`, `items`) and bare arrays.
- * Logs a warning when the MCP server reports an upstream timeout.
+ * Throws {@link UpstreamTimeoutError} when the MCP server reports an upstream
+ * timeout (`{ timedOut: true, status: "timeout" }`), so callers can stop
+ * timeframe-widening loops instead of treating the empty `data: []` as "no data".
  *
  * @param result - Raw MCP tool result
  * @returns Array of parsed feed entry objects (may be empty)
+ * @throws {UpstreamTimeoutError} when the response indicates an upstream timeout
  */
 function parseFeedResult(result) {
     if (!result?.content?.[0]?.text)
@@ -1165,10 +1168,13 @@ function parseFeedResult(result) {
  * Parse an EP API v2 feed response envelope in a single JSON parse, returning
  * both the array of feed items and the API-reported total count.
  * Avoids parsing the same JSON payload twice when both values are needed.
- * Logs a warning when the MCP server reports an upstream timeout.
+ * Throws {@link UpstreamTimeoutError} when the MCP server reports an upstream
+ * timeout (`{ timedOut: true, status: "timeout" }`), so callers can stop
+ * timeframe-widening loops instead of treating the empty `data: []` as "no data".
  *
  * @param result - Raw MCP tool result
  * @returns Object with `items` array and `total` count from the API
+ * @throws {UpstreamTimeoutError} when the response indicates an upstream timeout
  */
 function parseFeedEnvelope(result) {
     if (!result?.content?.[0]?.text)
