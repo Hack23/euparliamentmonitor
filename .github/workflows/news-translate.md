@@ -715,7 +715,6 @@ export USE_EP_MCP=true
 # NEEDS_TRANSLATION entries are either "TYPE" (today) or "DATE:TYPE" (backfill/improvement)
 TRANSLATED_TYPES=""
 FAILED_TYPES=""
-ALL_TRANSLATED_DATES=""
 CURRENT_DATE_CACHED=$(date -u +%Y-%m-%d)
 
 for ITEM in $(echo "$NEEDS_TRANSLATION" | tr ',' ' '); do
@@ -780,7 +779,6 @@ for ITEM in $(echo "$NEEDS_TRANSLATION" | tr ',' ' '); do
 
     if [ $? -eq 0 ]; then
       TRANSLATED_TYPES="${TRANSLATED_TYPES:+$TRANSLATED_TYPES,}${ITEM_DATE}:${TYPE}"
-      ALL_TRANSLATED_DATES="${ALL_TRANSLATED_DATES:+$ALL_TRANSLATED_DATES,}${ITEM_DATE}"
       echo "✅ Generation completed for ${ITEM_DATE}/${TYPE}"
     else
       FAILED_TYPES="${FAILED_TYPES:+$FAILED_TYPES,}${ITEM_DATE}:${TYPE}"
@@ -795,14 +793,44 @@ for ITEM in $(echo "$NEEDS_TRANSLATION" | tr ',' ' '); do
       LANG_FILE="news/${ITEM_DATE}-${TYPE}-${LANG}.html"
       if [ ! -f "$LANG_FILE" ]; then
         cp "$EN_SOURCE" "$LANG_FILE"
-        # Update the lang attribute in the copied file
-        sed -i "s/lang=\"en\"/lang=\"${LANG}\"/g" "$LANG_FILE" 2>/dev/null || true
+
+        # Map language to dir and og:locale for comprehensive metadata update
+        case "$LANG" in
+          ar) LANG_DIR="rtl"; OG_LOCALE="ar_AR" ;;
+          he) LANG_DIR="rtl"; OG_LOCALE="he_IL" ;;
+          sv) LANG_DIR="ltr"; OG_LOCALE="sv_SE" ;;
+          da) LANG_DIR="ltr"; OG_LOCALE="da_DK" ;;
+          no) LANG_DIR="ltr"; OG_LOCALE="nb_NO" ;;
+          fi) LANG_DIR="ltr"; OG_LOCALE="fi_FI" ;;
+          de) LANG_DIR="ltr"; OG_LOCALE="de_DE" ;;
+          fr) LANG_DIR="ltr"; OG_LOCALE="fr_FR" ;;
+          es) LANG_DIR="ltr"; OG_LOCALE="es_ES" ;;
+          nl) LANG_DIR="ltr"; OG_LOCALE="nl_NL" ;;
+          ja) LANG_DIR="ltr"; OG_LOCALE="ja_JP" ;;
+          ko) LANG_DIR="ltr"; OG_LOCALE="ko_KR" ;;
+          zh) LANG_DIR="ltr"; OG_LOCALE="zh_CN" ;;
+          *) LANG_DIR="ltr"; OG_LOCALE="${LANG}" ;;
+        esac
+
+        # Normalize all language-identifying metadata in the copied file so Step 3b
+        # can focus on translating content rather than fixing structural metadata.
+        python3 - "$LANG_FILE" "$LANG" "$LANG_DIR" "$OG_LOCALE" <<'PY'
+import re, sys
+from pathlib import Path
+fp = Path(sys.argv[1]); lang = sys.argv[2]; lang_dir = sys.argv[3]; og_locale = sys.argv[4]
+c = fp.read_text(encoding="utf-8")
+c = re.sub(r'lang="en"', f'lang="{lang}"', c)
+c = re.sub(r'dir="(?:ltr|rtl)"', f'dir="{lang_dir}"', c)
+c = re.sub(r'hreflang="en"', f'hreflang="{lang}"', c)
+c = re.sub(r'("inLanguage"\s*:\s*")en(")', rf'\g<1>{lang}\g<2>', c)
+c = re.sub(r'(<meta\s+property="og:locale"\s+content=")[^"]*(")', rf'\g<1>{og_locale}\g<2>', c)
+fp.write_text(c, encoding="utf-8")
+PY
         COPY_COUNT=$((COPY_COUNT + 1))
       fi
     done
     echo "📋 Copied English source to $COPY_COUNT language files for AI translation"
     TRANSLATED_TYPES="${TRANSLATED_TYPES:+$TRANSLATED_TYPES,}${ITEM_DATE}:${TYPE}"
-    ALL_TRANSLATED_DATES="${ALL_TRANSLATED_DATES:+$ALL_TRANSLATED_DATES,}${ITEM_DATE}"
   fi
 done
 
@@ -820,7 +848,6 @@ GEN_STATE_FILE="/tmp/gh-aw-translate-generation.sh"
 {
   printf 'TRANSLATED_TYPES=%q\n' "${TRANSLATED_TYPES}"
   printf 'FAILED_TYPES=%q\n' "${FAILED_TYPES}"
-  printf 'ALL_TRANSLATED_DATES=%q\n' "${ALL_TRANSLATED_DATES}"
 } > "$GEN_STATE_FILE"
 echo "💾 Generation state persisted to $GEN_STATE_FILE"
 ```
@@ -1196,6 +1223,11 @@ TRANSLATED_COUNT=$(git diff --name-only 2>/dev/null | grep '^news/.*\.html$' | g
 UNTRACKED_COUNT=$(git ls-files --others --exclude-standard 2>/dev/null | grep '^news/.*\.html$' | grep -v '\-en\.html$' | wc -l | tr -d ' ')
 TOTAL_FILES=$((TRANSLATED_COUNT + UNTRACKED_COUNT))
 echo "📊 Total modified/new translation files: $TOTAL_FILES"
+if [ "$TOTAL_FILES" -eq 0 ]; then
+  echo "❌ No translated non-English news/*.html changes were detected. Skipping branch and PR creation to avoid a 'No changes to commit' failure."
+  echo "ℹ️ This can happen when translation targets are already up to date or improvement mode produced no HTML edits."
+  exit 1
+fi
 
 # Determine branch name — include backfill info if applicable
 if [ -n "$BACKFILL_DATES" ]; then
