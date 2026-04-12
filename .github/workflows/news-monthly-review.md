@@ -50,9 +50,9 @@ mcp-servers:
       - -y
       - european-parliament-mcp-server@1.2.2
       - --timeout
-      - "90000"
+      - "120000"
     env:
-      EP_REQUEST_TIMEOUT_MS: "90000"
+      EP_REQUEST_TIMEOUT_MS: "120000"
   world-bank:
     command: npx
     args:
@@ -461,20 +461,38 @@ Run a lightweight HTTP probe **before** the MCP health gate to detect network-le
 ```bash
 EP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 "https://data.europarl.europa.eu/api/v2/meps?format=application%2Fld%2Bjson&offset=0&limit=1" 2>/dev/null || true)
 EP_STATUS="${EP_STATUS:-000}"
-echo "EP API connectivity check: HTTP $EP_STATUS"
-if [ "$EP_STATUS" = "000" ] || [ "$EP_STATUS" -ge 500 ] 2>/dev/null; then
-  echo "⚠️ EP API appears DOWN (HTTP $EP_STATUS) — MCP health gate may also fail"
+echo "EP API connectivity check (meps): HTTP $EP_STATUS"
+
+# Test adopted-texts endpoint (faster and more reliable for data availability)
+EP_AT_STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 30 -H "Accept: application/ld+json" "https://data.europarl.europa.eu/api/v2/adopted-texts?offset=0&limit=1&year=$(date -u +%Y)" 2>/dev/null || true)
+EP_AT_STATUS="${EP_AT_STATUS:-000}"
+echo "EP API connectivity check (adopted-texts): HTTP $EP_AT_STATUS"
+
+if [ "$EP_STATUS" = "000" ] && [ "$EP_AT_STATUS" = "000" ]; then
+  echo "⚠️ EP API appears DOWN (both endpoints unreachable) — MCP health gate may also fail"
+elif [ "$EP_AT_STATUS" = "200" ]; then
+  echo "✅ EP API reachable — adopted-texts endpoint confirmed working"
+elif [ "$EP_STATUS" -ge 500 ] 2>/dev/null || [ "$EP_AT_STATUS" -ge 500 ] 2>/dev/null; then
+  echo "⚠️ EP API returning server errors (meps: $EP_STATUS, adopted-texts: $EP_AT_STATUS) — MCP health gate may also fail"
+else
+  echo "ℹ️ EP API partial response (meps: $EP_STATUS, adopted-texts: $EP_AT_STATUS) — proceed with MCP health gate"
 fi
 ```
 
-> **If curl returns 000 (connection failed) or 5xx**: The EP API at `data.europarl.europa.eu` is likely down. The MCP health gate will almost certainly fail too. Proceed with the health gate anyway (it may succeed via cached responses), but be prepared for noop.
+> **Interpret both curl checks together**: This pre-check probes both the `meps` and `adopted-texts` endpoints. Treat the EP API as likely down only if **both** return `000` (connection failed / unreachable). If only one probe fails or returns `5xx`, treat that as a partial failure and continue to the MCP health gate.
+>
+> **If `adopted-texts` returns 200**: The EP API is reachable and has data, even if feed-oriented endpoints are slow or degraded. Do NOT noop — use fallback endpoints if feeds time out.
+>
+> **If either endpoint returns 5xx**: The EP API is returning server-side errors on that endpoint. In particular, `meps >= 500` is already treated as a warning by the script, and `adopted-texts` 5xx should also be read as endpoint degradation rather than automatic full outage unless both checks are unreachable.
 
 ### Step 1: MCP Health Gate
 
 1. Call `european_parliament___get_plenary_sessions({ limit: 1 })` — if successful, proceed
 2. If it fails, wait 30 seconds and retry (up to 3 total attempts)
-3. If ALL 3 attempts fail:
-   - Use `safeoutputs___noop` with message: "MCP server unavailable after 3 connection attempts. No articles generated."
+3. If ALL 3 attempts fail, try the fallback: `european_parliament___get_adopted_texts({ year: CURRENT_YEAR, limit: 1 })` — this endpoint is faster and more reliable
+4. If the fallback succeeds, proceed with data gathering (the MCP server is reachable, just slow on some endpoints)
+5. If ALL 4 attempts fail (3 plenary + 1 adopted texts):
+   - Use `safeoutputs___noop` with message: "MCP server unavailable after 4 connection attempts. No articles generated."
    - DO NOT fabricate or recycle content
    - DO NOT analyze existing articles in the repository
    - DO NOT manually construct HTML by studying existing article patterns
@@ -482,7 +500,7 @@ fi
 
 ## Error Handling
 
-**If EP MCP server unavailable (3 retries failed):**
+**If EP MCP server unavailable (3 plenary session retries + 1 adopted texts fallback all failed):**
 1. `safeoutputs___noop` with descriptive message — legitimate noop
 
 **If ≥3 consecutive feed endpoints return INTERNAL_ERROR (total EP API outage):**
@@ -499,8 +517,21 @@ fi
 
 **If individual feed endpoints fail/timeout:**
 1. Log the error and continue with other feeds — do NOT abort the entire data collection
-2. If retry also fails, continue with the data you have — partial data is better than no data
+2. For non-timeout feed errors only, you may retry once; if that retry also fails, continue with the data you have — partial data is better than no data
 3. NEVER skip analysis because some feeds failed — run analysis with whatever data was collected
+4. **TIMEOUT FALLBACK**: When a feed endpoint times out (e.g. `get_procedures_feed`, `get_events_feed`), do **NOT** retry the same feed endpoint; use the corresponding non-feed endpoint with year filter instead:
+   - `get_procedures_feed` timeout → call `european_parliament___get_procedures({ year: CURRENT_YEAR, limit: 20 })` instead
+   - `get_events_feed` timeout → call `european_parliament___get_events({ dateFrom: "YYYY-MM-01", dateTo: "YYYY-MM-DD", limit: 20 })` instead (uses date range, not year)
+   - `get_plenary_documents_feed` timeout → call `european_parliament___get_plenary_documents({ year: CURRENT_YEAR, limit: 20 })` instead
+
+**NOOP PREVENTION — Data Must Exist for Noop:**
+> **⚠️ CRITICAL**: Before emitting `safeoutputs___noop`, you MUST verify that ALL of the following checks are empty:
+> 1. `european_parliament___get_adopted_texts_feed({ timeframe: "one-month" })` — adopted texts
+> 2. `european_parliament___get_adopted_texts({ year: CURRENT_YEAR, limit: 5 })` — year-based fallback
+> 3. The earlier health-gate `get_plenary_sessions({ limit: 1 })` result — plenary sessions; if that health-gate call succeeded and returned data, reuse that result here and do **NOT** call `get_plenary_sessions` again
+> 4. `european_parliament___get_plenary_documents({ year: CURRENT_YEAR, limit: 5 })` — plenary documents
+>
+> If ANY of these checks return data, there IS parliamentary activity. Proceed with article generation using whatever data is available. **Noop is ONLY legitimate when the EP API is completely down (health gate fails) or genuinely zero parliamentary activity occurred in the review period.**
 
 **If article generation fails AFTER starting work:**
 1. Log the specific failure
@@ -515,8 +546,10 @@ fi
 ## MANDATORY PR Creation
 
 - ✅ `safeoutputs___create_pull_request` when articles generated
-- ✅ `noop` ONLY if genuinely no parliamentary activity in the past month
+- ✅ `noop` ONLY if genuinely no parliamentary activity in the past month AND all 4 fallback checks in "NOOP PREVENTION" above returned empty
 - ❌ NEVER use `noop` as fallback for PR creation failures
+- ❌ NEVER use `noop` when `get_adopted_texts_feed` or `get_adopted_texts` returned data
+- ❌ NEVER use `noop` because some feed endpoints timed out — use year-based fallbacks first
 
 ### 🔑 How Safe Pull Request Works (READ FIRST)
 
@@ -568,6 +601,25 @@ european_parliament___get_plenary_documents_feed({ timeframe: "one-month", limit
 european_parliament___get_parliamentary_questions_feed({ timeframe: "one-month", limit: 20 })
 ```
 
+> **⚠️ TIMEOUT FALLBACK STRATEGY**: Some EP feed endpoints (`get_procedures_feed`, `get_events_feed`) frequently time out even with 120s timeout because the upstream EP API is slow. When a feed endpoint times out or returns `"timedOut": true`:
+> 1. **Do NOT retry the same feed** — it will time out again
+> 2. **Use the corresponding year-based endpoint instead**:
+>    ```javascript
+>    // If get_procedures_feed times out:
+>    european_parliament___get_procedures({ year: CURRENT_YEAR, limit: 20 })
+>    // If get_events_feed times out:
+>    european_parliament___get_events({ dateFrom: "YYYY-MM-01", dateTo: "YYYY-MM-DD", limit: 20 })
+>    // If get_plenary_documents_feed times out:
+>    european_parliament___get_plenary_documents({ year: CURRENT_YEAR, limit: 20 })
+>    ```
+> 3. **Year-based endpoints are faster** because they query a pre-indexed dataset rather than computing a time window; `get_events` uses `dateFrom`/`dateTo` (no `year` parameter) so pass the review period dates directly
+> 4. **Filter results by date in your analysis** — year-based endpoints return the full year, so filter to the past 30 days when writing the article
+
+> **⚠️ RELIABLE ENDPOINTS**: The following tools consistently return data and should ALWAYS be called:
+> - `european_parliament___get_adopted_texts_feed({ timeframe: "one-month" })` — **most reliable feed**, rarely times out
+> - `european_parliament___get_adopted_texts({ year: CURRENT_YEAR, limit: 20 })` — **always works** with year filter
+> - `european_parliament___get_plenary_sessions({ year: CURRENT_YEAR, limit: 10 })` — **always works** with year filter
+
 > **⚠️ ARTICLE CONTENT MUST COME FROM THESE FEEDS**: The article's lede, headlines, and primary sections must reference **specific adopted texts, voting results, or procedure updates** found in these feed results. If feeds return items, those items ARE the news.
 
 ### 📊 OPTIONAL: Background Context (Secondary — NEVER the news)
@@ -604,6 +656,8 @@ european_parliament___detect_voting_anomalies({ dateFrom: lastMonth, dateTo: tod
 european_parliament___analyze_coalition_dynamics({ dateFrom: lastMonth, dateTo: today })
 european_parliament___generate_political_landscape({})
 ```
+
+> **⚠️ NOTE**: `get_voting_records` frequently returns empty for recent date ranges because the EP publishes roll-call voting data with a delay. If voting records are empty, this is NORMAL — proceed with adopted texts, procedures, and plenary session data. Do NOT treat empty voting records as evidence of "no parliamentary activity".
 
 
 ## 🌍 World Bank Economic Context — Active Indicator Discovery
