@@ -466,6 +466,24 @@ Find English articles that need translation — starting with today, then scanni
 ARTICLE_TYPES_INPUT="${EP_ARTICLE_TYPES:-}"
 FORCE_TRANSLATION="${EP_FORCE_TRANSLATION:-${{ github.event.inputs.force_translation }}}"
 
+# --- Resolve target languages FIRST (needed by discovery) ---
+LANGUAGES_INPUT="${EP_LANG_INPUT:-all-non-en}"
+case "$LANGUAGES_INPUT" in
+  "all-non-en") LANG_ARG="sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh" ;;
+  "eu-core")    LANG_ARG="de,fr,es,nl" ;;
+  "nordic")     LANG_ARG="sv,da,no,fi" ;;
+  *)
+    if printf '%s' "$LANGUAGES_INPUT" | grep -Eq '^(sv|da|no|fi|de|fr|es|nl|ar|he|ja|ko|zh)(,(sv|da|no|fi|de|fr|es|nl|ar|he|ja|ko|zh))*$'; then
+      LANG_ARG="$LANGUAGES_INPUT"
+    else
+      echo "❌ Invalid languages input: $LANGUAGES_INPUT" >&2
+      echo "Allowed: all-non-en, eu-core, nordic, or comma-separated: sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh" >&2
+      exit 1
+    fi
+    ;;
+esac
+echo "🌐 Target languages for discovery and generation: $LANG_ARG"
+
 # --- Phase 1: Check today's articles ---
 if [ -z "$ARTICLE_TYPES_INPUT" ]; then
   ARTICLE_TYPES=$(ls news/${ARTICLE_DATE}-*-en.html 2>/dev/null | \
@@ -479,7 +497,6 @@ fi
 
 # Check which articles for today need translation
 NEEDS_TRANSLATION=""
-TARGET_LANGS="sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh"
 for TYPE in $(echo "$ARTICLE_TYPES" | tr ',' ' '); do
   EN_FILE="news/${ARTICLE_DATE}-${TYPE}-en.html"
   if [ ! -f "$EN_FILE" ]; then
@@ -487,9 +504,9 @@ for TYPE in $(echo "$ARTICLE_TYPES" | tr ',' ' '); do
     continue
   fi
 
-  # Check if ALL 13 translations exist (not just sv)
+  # Check if selected target translations exist
   MISSING_COUNT=0
-  for LANG in $(echo "$TARGET_LANGS" | tr ',' ' '); do
+  for LANG in $(echo "$LANG_ARG" | tr ',' ' '); do
     LANG_FILE="news/${ARTICLE_DATE}-${TYPE}-${LANG}.html"
     if [ ! -f "$LANG_FILE" ]; then
       MISSING_COUNT=$((MISSING_COUNT + 1))
@@ -500,7 +517,7 @@ for TYPE in $(echo "$ARTICLE_TYPES" | tr ',' ' '); do
     NEEDS_TRANSLATION="${NEEDS_TRANSLATION:+$NEEDS_TRANSLATION,}$TYPE"
     echo "📝 Will translate: $TYPE ($EN_FILE) — $MISSING_COUNT languages missing"
   else
-    echo "✅ All 13 translations exist for $TYPE on $ARTICLE_DATE"
+    echo "✅ All selected translations exist for $TYPE on $ARTICLE_DATE"
   fi
 done
 
@@ -527,7 +544,7 @@ if [ -z "$NEEDS_TRANSLATION" ]; then
 
       MISSING_COUNT=0
       MISSING_LANGS=""
-      for LANG in $(echo "$TARGET_LANGS" | tr ',' ' '); do
+      for LANG in $(echo "$LANG_ARG" | tr ',' ' '); do
         LANG_FILE="news/${CHECK_DATE}-${TYPE}-${LANG}.html"
         if [ ! -f "$LANG_FILE" ]; then
           MISSING_COUNT=$((MISSING_COUNT + 1))
@@ -590,32 +607,33 @@ else
 fi
 echo "🌐 Articles to translate: ${NEEDS_TRANSLATION:-none}"
 
-export NEEDS_TRANSLATION BACKFILL_DATES IMPROVEMENT_MODE
+# --- Persist state across bash blocks ---
+STATE_FILE="/tmp/gh-aw-translate-state.sh"
+cat > "$STATE_FILE" <<STATEEOF
+NEEDS_TRANSLATION='${NEEDS_TRANSLATION}'
+BACKFILL_DATES='${BACKFILL_DATES}'
+IMPROVEMENT_MODE='${IMPROVEMENT_MODE}'
+FORCE_TRANSLATION='${FORCE_TRANSLATION}'
+LANG_ARG='${LANG_ARG}'
+STATEEOF
+echo "💾 Discovery state persisted to $STATE_FILE"
 ```
 
-## Step 2: Set Up Translation Languages
+## Step 2: Restore Discovery State & Target Languages
 
 ```bash
-LANGUAGES_INPUT="${EP_LANG_INPUT:-all-non-en}"
-
-# Strict allowlist validation
-case "$LANGUAGES_INPUT" in
-  "all-non-en") LANG_ARG="sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh" ;;
-  "eu-core")    LANG_ARG="de,fr,es,nl" ;;
-  "nordic")     LANG_ARG="sv,da,no,fi" ;;
-  *)
-    if printf '%s' "$LANGUAGES_INPUT" | grep -Eq '^(sv|da|no|fi|de|fr|es|nl|ar|he|ja|ko|zh)(,(sv|da|no|fi|de|fr|es|nl|ar|he|ja|ko|zh))*$'; then
-      LANG_ARG="$LANGUAGES_INPUT"
-    else
-      echo "❌ Invalid languages input: $LANGUAGES_INPUT" >&2
-      echo "Allowed: all-non-en, eu-core, nordic, or comma-separated: sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh" >&2
-      exit 1
-    fi
-    ;;
-esac
-
+# Source state from Step 1 (env vars do NOT persist across bash blocks)
+STATE_FILE="/tmp/gh-aw-translate-state.sh"
+if [ -f "$STATE_FILE" ]; then
+  source "$STATE_FILE"
+  echo "✅ Restored discovery state: NEEDS_TRANSLATION=$NEEDS_TRANSLATION"
+  echo "✅ Target languages: LANG_ARG=$LANG_ARG"
+else
+  echo "⚠️ State file not found — re-resolving languages"
+  LANG_ARG="sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh"
+fi
+export NEEDS_TRANSLATION BACKFILL_DATES IMPROVEMENT_MODE FORCE_TRANSLATION LANG_ARG
 echo "🌐 Target languages: $LANG_ARG"
-export LANG_ARG
 ```
 
 ## Step 3: Generate Article Structure
@@ -638,6 +656,17 @@ export LANG_ARG
 START_EPOCH=$(date +%s)
 TRANSLATION_DEADLINE_MIN=65
 echo "⏱️ Translation start epoch: $START_EPOCH (deadline: ${TRANSLATION_DEADLINE_MIN} min)"
+
+# --- Restore discovery state from Step 1 ---
+STATE_FILE="/tmp/gh-aw-translate-state.sh"
+if [ -f "$STATE_FILE" ]; then
+  source "$STATE_FILE"
+  echo "✅ Restored: NEEDS_TRANSLATION=$NEEDS_TRANSLATION"
+  echo "✅ Restored: LANG_ARG=$LANG_ARG FORCE_TRANSLATION=$FORCE_TRANSLATION IMPROVEMENT_MODE=$IMPROVEMENT_MODE"
+else
+  echo "❌ State file not found — cannot proceed without discovery results"
+  exit 1
+fi
 
 # --- MCP Gateway Setup ---
 MCP_CONFIG="${GH_AW_MCP_CONFIG:-/home/runner/.copilot/mcp-config.json}"
@@ -721,7 +750,7 @@ for ITEM in $(echo "$NEEDS_TRANSLATION" | tr ',' ' '); do
 
   for LANG in $(echo "$LANG_ARG" | tr ',' ' '); do
     LANG_FILE="news/${ITEM_DATE}-${TYPE}-${LANG}.html"
-    if [ ! -f "$LANG_FILE" ] || [ "$IMPROVEMENT_MODE" = "true" ]; then
+    if [ ! -f "$LANG_FILE" ] || [ "$IMPROVEMENT_MODE" = "true" ] || [ "$FORCE_TRANSLATION" = "true" ]; then
       MISSING_LANGS="${MISSING_LANGS:+$MISSING_LANGS,}$LANG"
     fi
   done
@@ -782,13 +811,22 @@ echo "❌ Failed:    ${FAILED_TYPES:-none}"
 if [ -z "$TRANSLATED_TYPES" ]; then
   echo "⚠️ All generation attempts failed — will still attempt AI translation of any existing files"
 fi
+
+# --- Persist generation results for later steps ---
+GEN_STATE_FILE="/tmp/gh-aw-translate-generation.sh"
+cat > "$GEN_STATE_FILE" <<GENSTATEEOF
+TRANSLATED_TYPES='${TRANSLATED_TYPES}'
+FAILED_TYPES='${FAILED_TYPES}'
+ALL_TRANSLATED_DATES='${ALL_TRANSLATED_DATES}'
+GENSTATEEOF
+echo "💾 Generation state persisted to $GEN_STATE_FILE"
 ```
 
 ## Step 3b: AI Translation — Translate English Content
 
 > **🚨 CORE STEP — THIS IS THE MOST IMPORTANT STEP**: The generator produces articles with localized UI but **English narrative content**. YOU (the AI agent) MUST read each file and translate ALL English text to the target language. This is pure AI translation work — you read English, you think in the target language, you write the translation using the `edit` tool.
 
-> **⛔ ABSOLUTE PROHIBITION — AI DOES ALL TRANSLATION WORK**: You MUST NEVER create any script, code, dictionary, translation map, JSON file, search/replace pattern, sed command, awk command, Python script, Node.js script, or ANY programmatic approach to translate content. The AI (YOU) must read the English text, understand its meaning, and write the correct translation in the target language. Use ONLY the `edit` tool to replace English text with translated text in each HTML file. **Any attempt to automate translation via code is a CRITICAL violation.**
+> **⛔ ABSOLUTE PROHIBITION — AI DOES ALL TRANSLATION WORK**: You MUST NEVER create any script, code, dictionary, translation map, JSON file, search/replace pattern, regex-based bulk replacement, sed command, awk command, Python script, Node.js script, or ANY other programmatic approach to translate **narrative or user-visible content**. The AI (YOU) must read the English text, understand its meaning, and write the correct translation in the target language. Use ONLY the `edit` tool to replace English text with translated text in each HTML file. **Any attempt to automate translation via code is a CRITICAL violation.** Limited non-translation mechanical edits explicitly required elsewhere in this workflow — for example updating a copied file's `lang` attribute or similarly narrow metadata-only adjustments — are allowed and are NOT considered automated translation.
 
 > **⛔ REMINDER — NO GIT COMMANDS**: Use the `edit` tool to update translation files, one file and one section at a time. NEVER run `git add`, `git commit`, or any git command. Files MUST remain as uncommitted working directory changes for the PR creation step to work.
 
@@ -837,6 +875,13 @@ Translate ALL narrative content: headings, analysis, stakeholder perspectives, i
 ## Step 4: Validate Translated Articles
 
 ```bash
+# --- Restore state from previous steps ---
+STATE_FILE="/tmp/gh-aw-translate-state.sh"
+GEN_STATE_FILE="/tmp/gh-aw-translate-generation.sh"
+[ -f "$STATE_FILE" ] && source "$STATE_FILE"
+[ -f "$GEN_STATE_FILE" ] && source "$GEN_STATE_FILE"
+echo "✅ Restored state: TRANSLATED_TYPES=$TRANSLATED_TYPES LANG_ARG=$LANG_ARG"
+
 if [ -z "${ARTICLE_DATE:-}" ]; then
   ARTICLE_DATE=$(date -u +%Y-%m-%d)
 fi
@@ -1106,6 +1151,13 @@ echo "📊 Total uncommitted changes: $CHANGE_COUNT"
 > **⚠️ CRITICAL**: The generator writes `news/metadata/generation-YYYY-MM-DD.json` during article creation. When multiple news workflows run on the same day, each creates the same date's metadata file. If another workflow's PR is merged before this workflow's patch is applied, the metadata file already exists on `main` and the patch fails with "Failed to apply patch". **Remove the metadata file from the working directory before creating the PR** so it is not included in the diff.
 
 ```bash
+# --- Restore state from previous steps ---
+STATE_FILE="/tmp/gh-aw-translate-state.sh"
+GEN_STATE_FILE="/tmp/gh-aw-translate-generation.sh"
+[ -f "$STATE_FILE" ] && source "$STATE_FILE"
+[ -f "$GEN_STATE_FILE" ] && source "$GEN_STATE_FILE"
+echo "✅ Restored state for PR creation: BACKFILL_DATES=$BACKFILL_DATES IMPROVEMENT_MODE=$IMPROVEMENT_MODE"
+
 # Remove metadata files to prevent patch conflicts with other same-day workflows
 rm -f news/metadata/generation-*.json
 rm -f news/articles-metadata.json
