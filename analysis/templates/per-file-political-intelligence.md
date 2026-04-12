@@ -443,6 +443,10 @@ xychart-beta
 | Health | Health Expenditure, Physicians, Hospital Beds | Eurozone Core |
 | Education | Education Expenditure, Tertiary Enrollment | Nordic vs Convergence states |
 
+> **Important World Bank tool note:** Several indicator names in the table above are conceptual labels only and may be **API-only** or otherwise **not accepted as direct indicator keys** by standard WB MCP tools such as `get-economic-data`.
+>
+> Before calling any WB indicator tool, **always use `search-indicators` first** to find the exact supported indicator code. If the required indicator is not available through the standard WB MCP tool path, use the **documented fallback/API mechanism** (for example **legacy `get_indicator_for_country`**) instead of passing the display label directly.
+
 ---
 
 ## 📂 MCP Data Files Used

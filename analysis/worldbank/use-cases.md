@@ -66,7 +66,7 @@ Recommended Chart.js config:
 ```
 
 **AI Prompt Pattern**:
-> "For defence-related articles, fetch military expenditure (MS.MIL.XPND.GD.ZS) for DE, FR, PL, IT, ES, and the EU (EUU). Create a bar chart comparing spending vs the NATO 2% GDP target. Highlight which states meet/exceed the target."
+> "For defence-related articles, first use `search-indicators` to confirm the World Bank indicator `MS.MIL.XPND.GD.ZS` (Military expenditure, % of GDP). Do not use `get-economic-data` for this API-ID-based indicator. Then fetch the data for DE, FR, PL, IT, ES, and the EU aggregate (EUU) using the documented indicator fetch path, e.g. `get_indicator_for_country` with indicatorId `MS.MIL.XPND.GD.ZS`. Create a bar chart comparing spending vs the NATO 2% GDP target. Highlight which states meet/exceed the target."
 
 ---
 
@@ -86,7 +86,7 @@ Recommended Chart.js config:
 ```
 
 **AI Prompt Pattern**:
-> "For fiscal policy articles, fetch tax revenue (GC.TAX.TOTL.GD.ZS) and government expenditure (NE.CON.GOVT.ZS) for the Big Four (DE, FR, IT, ES) plus NL and PL. Create a grouped bar chart showing fiscal capacity differences."
+> "For fiscal policy articles, compare tax revenue and government expenditure for the Big Four (DE, FR, IT, ES) plus NL and PL. First use `search-indicators` to find the relevant World Bank indicators and confirm the supported fetch route. Note that `GC.TAX.TOTL.GD.ZS` (tax revenue % of GDP) and `NE.CON.GOVT.ZS` (government expenditure % of GDP) are World Bank API indicator IDs, not valid `get-economic-data` indicator keys. After discovery, fetch the series via the documented World Bank API/legacy path for those indicator IDs, then create a grouped bar chart showing fiscal capacity differences."
 
 ---
 

@@ -97,7 +97,7 @@ All 22 EP committees are mapped to relevant World Bank indicators in `src/consta
 | File | Purpose |
 |------|---------|
 | `src/types/world-bank.ts` | PolicyRelevantIndicators (25 fields), WBToolIndicatorKeys, WBMCPToolName |
-| `src/utils/world-bank-data.ts` | COMPARISON_COUNTRIES, WB_AGGREGATE_CODES, EU_COUNTRY_CODES, formatIndicatorValue() |
+| `src/utils/world-bank-data.ts` | COMPARISON_COUNTRIES, WB_AGGREGATE_LABELS, EU_COUNTRY_CODES, formatIndicatorValue() |
 | `src/constants/committee-indicator-map.ts` | WB_INDICATORS (34 IDs), committee→indicator mappings |
 | `src/generators/dashboard-content.ts` | buildDashboardSection(), Chart.js config generation |
 | `js/chart-init.js` | Client-side Chart.js hydration with EU Parliament color palette |

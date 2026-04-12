@@ -113,9 +113,9 @@ export const COMPARISON_COUNTRIES: Readonly<Record<string, string>> = {
 
 /**
  * Aggregate/region codes useful for EU benchmarking.
- * These are World Bank group codes, not individual countries.
+ * Keys are World Bank group codes; values are human-readable labels.
  */
-export const WB_AGGREGATE_CODES: Readonly<Record<string, string>> = {
+export const WB_AGGREGATE_LABELS: Readonly<Record<string, string>> = {
   EUU: 'European Union',
   EMU: 'Euro area',
   OED: 'OECD members',

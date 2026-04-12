@@ -72,9 +72,9 @@ export const COMPARISON_COUNTRIES = {
 };
 /**
  * Aggregate/region codes useful for EU benchmarking.
- * These are World Bank group codes, not individual countries.
+ * Keys are World Bank group codes; values are human-readable labels.
  */
-export const WB_AGGREGATE_CODES = {
+export const WB_AGGREGATE_LABELS = {
     EUU: 'European Union',
     EMU: 'Euro area',
     OED: 'OECD members',
