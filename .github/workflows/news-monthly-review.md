@@ -479,9 +479,11 @@ else
 fi
 ```
 
-> **If curl returns 000 (connection failed) or 5xx**: The EP API at `data.europarl.europa.eu` is likely down. The MCP health gate will almost certainly fail too. Proceed with the health gate anyway (it may succeed via cached responses), but be prepared for noop.
+> **Interpret both curl checks together**: This pre-check probes both the `meps` and `adopted-texts` endpoints. Treat the EP API as likely down only if **both** return `000` (connection failed / unreachable). If only one probe fails or returns `5xx`, treat that as a partial failure and continue to the MCP health gate.
 >
-> **If adopted-texts curl returns 200**: The EP API is reachable and has data. Feed endpoints may still be slow, but year-based endpoints will work. Do NOT noop — use fallback endpoints if feeds time out.
+> **If `adopted-texts` returns 200**: The EP API is reachable and has data, even if feed-oriented endpoints are slow or degraded. Do NOT noop — use fallback endpoints if feeds time out.
+>
+> **If either endpoint returns 5xx**: The EP API is returning server-side errors on that endpoint. In particular, `meps >= 500` is already treated as a warning by the script, and `adopted-texts` 5xx should also be read as endpoint degradation rather than automatic full outage unless both checks are unreachable.
 
 ### Step 1: MCP Health Gate
 
@@ -498,7 +500,7 @@ fi
 
 ## Error Handling
 
-**If EP MCP server unavailable (3 retries failed):**
+**If EP MCP server unavailable (3 plenary session retries + 1 adopted texts fallback all failed):**
 1. `safeoutputs___noop` with descriptive message — legitimate noop
 
 **If ≥3 consecutive feed endpoints return INTERNAL_ERROR (total EP API outage):**

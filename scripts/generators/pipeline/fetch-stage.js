@@ -1078,10 +1078,13 @@ function getWiderTimeframe(current) {
  * upstream EP API did not respond within the configured timeout window.
  * Logs a warning when a timeout is detected.
  *
- * @param envelope - Parsed response envelope
+ * @param value - Parsed response value (may be an object envelope or a bare array)
  * @returns true if the response indicates an upstream timeout
  */
-function isUpstreamTimeout(envelope) {
+function isUpstreamTimeout(value) {
+    if (typeof value !== 'object' || value === null)
+        return false;
+    const envelope = value;
     if (envelope['timedOut'] === true || envelope['status'] === 'timeout') {
         const toolName = envelope['toolName'] ? String(envelope['toolName']) : 'unknown';
         console.warn(`${WARN_PREFIX} EP MCP upstream timeout for ${toolName} — data may be incomplete. ` +
@@ -1107,8 +1110,8 @@ function parseFeedResult(result) {
     const parsed = parseJSON(result.content[0].text, 'feed');
     if (!parsed)
         return [];
+    isUpstreamTimeout(parsed);
     const envelope = parsed;
-    isUpstreamTimeout(envelope);
     // EP API v2 feeds use `data` key; also check legacy shapes
     const candidates = [
         envelope['data'],
@@ -1138,8 +1141,8 @@ function parseFeedEnvelope(result) {
     const parsed = parseJSON(result.content[0].text, 'feed');
     if (!parsed || typeof parsed !== 'object')
         return { items: [], total: 0 };
+    isUpstreamTimeout(parsed);
     const envelope = parsed;
-    isUpstreamTimeout(envelope);
     const total = typeof envelope['total'] === 'number' ? envelope['total'] : 0;
     const candidates = [
         envelope['data'],
