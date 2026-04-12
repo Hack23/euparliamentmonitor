@@ -141,7 +141,7 @@ Call `sequentialthinking` with structured thought chains — each step builds on
 
 ### Feed Endpoints (Primary Data Source)
 
-These endpoints use `timeframe` parameter: `"today"`, `"one-day"`, `"one-week"`, `"one-month"`, `"custom"` (requires `startDate`).
+These endpoints use the `timeframe` parameter with supported values: `"today"`, `"one-day"`, `"one-week"`, `"one-month"`, `"three-months"`, and `"one-year"`. Where supported, `startDate` can be provided as an override alongside `timeframe`; it is not a separate `"custom"` timeframe mode.
 
 | Tool | Purpose | Key Parameters |
 |------|---------|----------------|
@@ -168,11 +168,11 @@ These endpoints use `timeframe` parameter: `"today"`, `"one-day"`, `"one-week"`,
 | `get_adopted_texts` | Adopted texts | `year`, `limit` |
 | `get_plenary_documents` | Plenary documents | `year`, `limit` |
 | `get_committee_documents` | Committee documents | `year`, `limit` |
-| `get_speeches` | Plenary speeches | `year`, `dateFrom`/`dateTo`, `limit` |
-| `get_parliamentary_questions` | Parliamentary questions | `topic`, `type`, `status`, `dateFrom`/`dateTo` |
+| `get_speeches` | Plenary speeches | `dateFrom`/`dateTo`, `limit` |
+| `get_parliamentary_questions` | Parliamentary questions | `type`, `startDate`, `limit` |
 | `get_mep_details` | Specific MEP info | `id` (e.g., "MEP-124810") |
 | `get_mep_declarations` | MEP financial declarations | `year`, `docId` |
-| `get_committee_info` | Committee details | `abbreviation` (e.g., "ENVI") or `showCurrent: true` |
+| `get_committee_info` | Committee details | `committeeId` or `abbreviation` (e.g., "ENVI") |
 | `search_documents` | Search EP documents | `keyword`, `documentType`, `committee`, `dateFrom`/`dateTo` |
 | `track_legislation` | Legislative procedure progress | `procedureId` (e.g., "2024/0001(COD)") |
 | `get_procedure_events` | Events for a procedure | `processId` |
@@ -183,11 +183,11 @@ These endpoints use `timeframe` parameter: `"today"`, `"one-day"`, `"one-week"`,
 
 | Tool | Purpose | Key Parameters |
 |------|---------|----------------|
-| `get_voting_records` | Aggregate plenary votes | `sessionId`, `topic`, `dateFrom`/`dateTo` |
+| `get_voting_records` | Aggregate plenary votes | `sessionId`, `mepId`, `limit` |
 | `analyze_voting_patterns` | MEP voting behavior | `mepId`, `dateFrom`/`dateTo`, `compareWithGroup` |
-| `analyze_coalition_dynamics` | Political group alliances | `groupIds[]`, `dateFrom`/`dateTo`, `minimumCohesion` |
-| `detect_voting_anomalies` | Unusual voting patterns | `groupId`, `mepId`, `dateFrom`/`dateTo`, `sensitivityThreshold` |
-| `compare_political_groups` | Multi-dimension comparison | `groupIds[]` (min 2), `dimensions[]`, `dateFrom`/`dateTo` |
+| `analyze_coalition_dynamics` | Political group alliances | `politicalGroups`, `dateFrom`/`dateTo` |
+| `detect_voting_anomalies` | Unusual voting patterns | `politicalGroup`, `mepId`, `dateFrom` |
+| `compare_political_groups` | Multi-dimension comparison | `groups` (min 2), `metrics`, `dateFrom` |
 | `assess_mep_influence` | MEP influence scoring | `mepId`, `includeDetails`, `dateFrom`/`dateTo` |
 | `analyze_legislative_effectiveness` | MEP/committee productivity | `subjectType` ("MEP"/"COMMITTEE"), `subjectId` |
 | `generate_political_landscape` | Full political overview | `dateFrom`/`dateTo` |
@@ -213,8 +213,8 @@ These endpoints use `timeframe` parameter: `"today"`, `"one-day"`, `"one-week"`,
 |----------|-----------|-------|
 | `get_plenary_sessions({ year: 2026 })` | `get_plenary_sessions({ dateFrom: "2026-01-01", dateTo: "2026-12-31" })` | No `year` param on plenary sessions |
 | `get_events({ year: 2026 })` | `get_events({ dateFrom: "2026-01-01", dateTo: "2026-12-31" })` | No `year` param on events |
-| `get_adopted_texts_feed({ startDate: "2026-04-01" })` | `get_adopted_texts_feed({ timeframe: "one-week" })` | Feed endpoints use `timeframe`, not date params |
-| `get_voting_records({ mepId: "MEP-123" })` | `get_voting_records({ topic: "...", dateFrom: "..." })` | `mepId` accepted but ignored — only aggregate tallies |
+| `get_adopted_texts_feed({ startDate: "2026-04-01" })` | `get_adopted_texts_feed({ timeframe: "one-week" })` | Feed endpoints use `timeframe`; `startDate` is an optional override, not a standalone param |
+| `get_voting_records({ topic: "climate" })` | `get_voting_records({ sessionId: "...", limit: 50 })` | No `topic`/`dateFrom`/`dateTo` — use `sessionId`, `mepId`, `limit` |
 | `get_mep_details({ name: "Weber" })` | `get_mep_details({ id: "MEP-124810" })` | Must use MEP ID, not name |
 
 ### World Bank MCP Tools (Economic Context Enrichment)
