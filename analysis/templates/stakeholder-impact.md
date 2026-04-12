@@ -320,11 +320,11 @@ flowchart TD
 | Stakeholder Group | MCP-Fetchable WB Indicators | MCP Tool | Comparison Group |
 |-------------------|-----------------------------|----------|-----------------|
 | 🏘️ Citizens | Inflation, Unemployment, Health Expenditure | `get-economic-data`, `get-health-data` | Affected member states |
-| 🏭 Business | GDP Growth, Tax Revenue, FDI | `get-economic-data` | EU Big Four + competitors |
-| 🤝 Member States | Gov Expenditure, Tax Revenue | `get-economic-data` | Eurozone Core vs Convergence |
-| 🌍 International | Exports (% GDP), FDI, Military Expenditure | `get-economic-data` | EU vs G7, EU vs BRICS |
+| 🏭 Business | GDP Growth, FDI | `get-economic-data` | EU Big Four + competitors |
+| 🤝 Member States | GDP Growth, Inflation | `get-economic-data` | Eurozone Core vs Convergence |
+| 🌍 International | Exports (% GDP), FDI | `get-economic-data` | EU vs G7, EU vs BRICS |
 
-> **Note:** Some indicators from the World Bank catalog (e.g., GINI coefficient, Ease of Business) are not among the documented MCP tool indicator keys. If those indicators are needed, use `search-indicators` to verify availability and the appropriate retrieval mechanism.
+> **Note:** Some indicators from the World Bank catalog (e.g., GINI coefficient, Ease of Business, Tax Revenue, Gov Expenditure, Military Expenditure) are not among the documented MCP tool indicator keys for `get-economic-data`. If those indicators are needed, use `search-indicators` to verify availability and fetch them via the appropriate documented mechanism (for example, the legacy `get_indicator_for_country` path), not via `get-economic-data`.
 
 ### WB Data Mermaid Template for Stakeholder Impact
 

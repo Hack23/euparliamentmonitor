@@ -620,7 +620,7 @@ world_bank___search_indicators({ keyword: "<topic keyword from the week's key vo
 **Step 3 — Cross-reference the full catalog:**
 Read `analysis/worldbank/indicator-catalog.md` for 200+ pre-evaluated indicators with EP committee relevance and priority rankings. Read `analysis/worldbank/use-cases.md` for when each indicator type adds editorial value.
 
-**Step 4 — Fetch data within budget (max 2 WB calls for weekly review):**
+**Step 4 — Fetch data within budget (max 2 WB data calls for weekly review; `search-indicators` is exempt — it's a discovery tool, not a data fetch):**
 ```
 // countryCode accepts ISO2 codes (DE, IT) — the WB MCP tool resolves both ISO2 and alpha-3
 world_bank___get_economic_data({ countryCode: "DE", indicator: "GDP_GROWTH", years: 5 })
