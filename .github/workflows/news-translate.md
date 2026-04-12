@@ -628,6 +628,11 @@ export LANG_ARG
 
 > ⚠️ **CRITICAL — MCP env vars and the generation script MUST run in the same bash block.**
 
+> **📅 BACKFILL/IMPROVEMENT MODE**: For articles from older dates (backfill) or improvement mode, the generator creates new HTML files using today's date logic. For backfill items, the AI must instead:
+> 1. Read the existing English article (`news/${ITEM_DATE}-${TYPE}-en.html`)
+> 2. For each missing language, COPY the English article to create `news/${ITEM_DATE}-${TYPE}-${LANG}.html`
+> 3. Then translate ALL English content in the copy using the `edit` tool (Step 3b)
+
 ```bash
 # --- Re-initialize time tracking (env vars do NOT persist across bash blocks) ---
 START_EPOCH=$(date +%s)
@@ -727,24 +732,44 @@ for ITEM in $(echo "$NEEDS_TRANSLATION" | tr ',' ' '); do
 
   echo "📝 Languages to generate: $MISSING_LANGS"
 
-  SKIP_FLAG=""
-  if [ "${{ github.event.inputs.force_translation }}" = "false" ]; then
-    SKIP_FLAG="--skip-existing"
-  fi
+  # For today's items, use the generator; for backfill/improvement, copy English and prepare for AI translation
+  if [ "$ITEM_DATE" = "$(date -u +%Y-%m-%d)" ] && [ "$IMPROVEMENT_MODE" != "true" ]; then
+    # Today's articles: use the TypeScript generator
+    SKIP_FLAG=""
+    if [ "${{ github.event.inputs.force_translation }}" = "false" ]; then
+      SKIP_FLAG="--skip-existing"
+    fi
 
-  npx tsx src/generators/news-enhanced.ts \
-    --types="$TYPE" \
-    --date="$ITEM_DATE" \
-    --languages="$MISSING_LANGS" \
-    $SKIP_FLAG
+    npx tsx src/generators/news-enhanced.ts \
+      --types="$TYPE" \
+      --languages="$MISSING_LANGS" \
+      $SKIP_FLAG
 
-  if [ $? -eq 0 ]; then
+    if [ $? -eq 0 ]; then
+      TRANSLATED_TYPES="${TRANSLATED_TYPES:+$TRANSLATED_TYPES,}${ITEM_DATE}:${TYPE}"
+      ALL_TRANSLATED_DATES="${ALL_TRANSLATED_DATES:+$ALL_TRANSLATED_DATES,}${ITEM_DATE}"
+      echo "✅ Generation completed for ${ITEM_DATE}/${TYPE}"
+    else
+      FAILED_TYPES="${FAILED_TYPES:+$FAILED_TYPES,}${ITEM_DATE}:${TYPE}"
+      echo "⚠️ Generation failed for ${ITEM_DATE}/${TYPE} — continuing with remaining types"
+    fi
+  else
+    # Backfill or improvement: copy English article for each missing language
+    # The AI agent will translate the content in Step 3b
+    EN_SOURCE="news/${ITEM_DATE}-${TYPE}-en.html"
+    COPY_COUNT=0
+    for LANG in $(echo "$MISSING_LANGS" | tr ',' ' '); do
+      LANG_FILE="news/${ITEM_DATE}-${TYPE}-${LANG}.html"
+      if [ ! -f "$LANG_FILE" ]; then
+        cp "$EN_SOURCE" "$LANG_FILE"
+        # Update the lang attribute in the copied file
+        sed -i "s/lang=\"en\"/lang=\"${LANG}\"/g" "$LANG_FILE" 2>/dev/null || true
+        COPY_COUNT=$((COPY_COUNT + 1))
+      fi
+    done
+    echo "📋 Copied English source to $COPY_COUNT language files for AI translation"
     TRANSLATED_TYPES="${TRANSLATED_TYPES:+$TRANSLATED_TYPES,}${ITEM_DATE}:${TYPE}"
     ALL_TRANSLATED_DATES="${ALL_TRANSLATED_DATES:+$ALL_TRANSLATED_DATES,}${ITEM_DATE}"
-    echo "✅ Generation completed for ${ITEM_DATE}/${TYPE}"
-  else
-    FAILED_TYPES="${FAILED_TYPES:+$FAILED_TYPES,}${ITEM_DATE}:${TYPE}"
-    echo "⚠️ Generation failed for ${ITEM_DATE}/${TYPE} — continuing with remaining types"
   fi
 done
 
