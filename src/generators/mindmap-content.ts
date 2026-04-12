@@ -11,6 +11,9 @@
  * and stakeholder perspective overlays using `<details>/<summary>` elements
  * (CSS-only toggle, no JavaScript).
  *
+ * Also re-exports the `MindmapBranchColor` type from the types barrel for
+ * backward compatibility with consumers that imported it from this module.
+ *
  * Produces WCAG 2.1 AA compliant HTML with appropriate ARIA roles, labels,
  * and heading levels.
  *
@@ -27,28 +30,6 @@ import type { IntelligenceMindmap, MindmapBranchColor, MindmapNode } from '../ty
 // Re-export the canonical MindmapBranchColor from the types barrel so that
 // existing consumers importing it from this module continue to work.
 export type { MindmapBranchColor } from '../types/index.js';
-
-/** A single branch of the mindmap, attached to the central node. */
-export interface MindmapBranch {
-  /** Branch label (rendered in the colored branch node). */
-  readonly label: string;
-  /** Semantic color for the branch node. */
-  readonly color: MindmapBranchColor;
-  /** Child leaf items displayed below the branch node. */
-  readonly items?: readonly string[] | undefined;
-  /** Optional icon/emoji prefix for the branch label. */
-  readonly icon?: string | undefined;
-}
-
-/** Full mindmap configuration. */
-export interface MindmapConfig {
-  /** Central topic text (the root of the mindmap). */
-  readonly topic: string;
-  /** Array of branches radiating from the central node. */
-  readonly branches: readonly MindmapBranch[];
-  /** Optional introductory paragraph rendered above the mindmap. */
-  readonly summary?: string | undefined;
-}
 
 // ---------------------------------------------------------------------------
 // Color palette (mapped to CSS custom properties on each branch element)

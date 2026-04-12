@@ -10,6 +10,9 @@
  * and stakeholder perspective overlays using `<details>/<summary>` elements
  * (CSS-only toggle, no JavaScript).
  *
+ * Also re-exports the `MindmapBranchColor` type from the types barrel for
+ * backward compatibility with consumers that imported it from this module.
+ *
  * Produces WCAG 2.1 AA compliant HTML with appropriate ARIA roles, labels,
  * and heading levels.
  *
