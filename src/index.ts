@@ -527,8 +527,6 @@ export {
 export { buildDeepAnalysisSection } from './generators/deep-analysis-content.js';
 
 export {
-  type MindmapBranch,
-  type MindmapConfig,
   buildIntelligenceMindmapSection,
 } from './generators/mindmap-content.js';
 

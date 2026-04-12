@@ -1,21 +1,17 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
 /**
- * Generates color-coded mindmap HTML sections using pure CSS —
+ * Generates intelligence mindmap HTML sections using pure CSS —
  * no JavaScript or third-party libraries required.
  *
- * Two rendering modes are provided:
- * 1. **Standard mindmap** (`buildMindmapSection`) — a flat central topic with
- *    colored branch nodes and optional leaf items. Suitable for simple
- *    topic-branch visualisations.
- * 2. **Intelligence mindmap** (`buildIntelligenceMindmapSection`) — a
- *    multi-layer policy domain intelligence map with actor-network nodes,
- *    influence-weighted nodes (via CSS `--node-influence` custom property),
- *    policy connection indicators, and stakeholder perspective overlays using
- *    `<details>/<summary>` elements (CSS-only toggle, no JavaScript).
+ * Provides `buildIntelligenceMindmapSection` — a multi-layer policy domain
+ * intelligence map with actor-network nodes, influence-weighted nodes
+ * (via CSS `--node-influence` custom property), policy connection indicators,
+ * and stakeholder perspective overlays using `<details>/<summary>` elements
+ * (CSS-only toggle, no JavaScript).
  *
- * Both renderers produce WCAG 2.1 AA compliant HTML with appropriate ARIA
- * roles, labels, and heading levels.
+ * Produces WCAG 2.1 AA compliant HTML with appropriate ARIA roles, labels,
+ * and heading levels.
  *
  * @module Generators/MindmapContent
  */
@@ -51,22 +47,6 @@ const ACTOR_TYPE_LABELS = {
 // ---------------------------------------------------------------------------
 // Section heading labels (14 languages)
 // ---------------------------------------------------------------------------
-const MINDMAP_HEADINGS = {
-    en: 'Policy Mindmap',
-    sv: 'Policykarta',
-    da: 'Politikkort',
-    no: 'Politikkart',
-    fi: 'Politiikkakartta',
-    de: 'Politikkarte',
-    fr: 'Carte conceptuelle',
-    es: 'Mapa conceptual',
-    nl: 'Beleidskaart',
-    ar: 'خريطة السياسات',
-    he: 'מפת מדיניות',
-    ja: '政策マインドマップ',
-    ko: '정책 마인드맵',
-    zh: '政策思维导图',
-};
 const INTELLIGENCE_MINDMAP_HEADINGS = {
     en: 'Intelligence Policy Map',
     sv: 'Underrättelsebaserad policykarta',
@@ -195,23 +175,6 @@ const DETAILS_LABELS = {
     ko: '세부 정보',
     zh: '详情',
 };
-// ---------------------------------------------------------------------------
-// Rendering helpers — standard mindmap
-// ---------------------------------------------------------------------------
-function renderBranch(branch) {
-    const palette = BRANCH_PALETTE[branch.color] ?? BRANCH_PALETTE.cyan;
-    const iconPrefix = branch.icon ? `${branch.icon} ` : '';
-    const labelHtml = `${escapeHTML(iconPrefix)}${escapeHTML(branch.label)}`;
-    const leafItems = branch.items && branch.items.length > 0
-        ? `\n      <ul class="mindmap-leaf-list" role="list">\n${branch.items
-            .map((item) => `        <li>${escapeHTML(item)}</li>`)
-            .join('\n')}\n      </ul>`
-        : '';
-    return `    <div class="mindmap-branch" role="listitem"
-      style="--branch-bg:${palette.bg};--branch-border:${palette.border};--branch-text:${palette.text}">
-      <div class="mindmap-branch-label">${labelHtml}</div>${leafItems}
-    </div>`;
-}
 // ---------------------------------------------------------------------------
 // Rendering helpers — intelligence mindmap
 // ---------------------------------------------------------------------------
@@ -394,37 +357,6 @@ ${panels}
 // ---------------------------------------------------------------------------
 // Public API
 // ---------------------------------------------------------------------------
-/**
- * Generate a color-coded mindmap section as an HTML string.
- *
- * Returns an empty string when `config` is null/undefined or has no branches,
- * following the same convention as `buildSwotSection` and
- * `buildDashboardSection`.
- *
- * @param config - Mindmap data (topic, branches, optional summary).
- * @param lang - BCP 47 language code for the section heading.
- * @param heading - Optional heading override.
- * @returns HTML string for the mindmap section, or empty string.
- */
-export function buildMindmapSection(config, lang = 'en', heading) {
-    if (!config || !config.branches || config.branches.length === 0) {
-        return '';
-    }
-    const titleText = heading?.trim() || MINDMAP_HEADINGS[lang] || 'Policy Mindmap';
-    const summaryBlock = config.summary?.trim()
-        ? `  <p class="mindmap-summary">${escapeHTML(config.summary.trim())}</p>\n`
-        : '';
-    const branchItems = config.branches.map((b) => renderBranch(b)).join('\n');
-    return `<section class="mindmap-section" role="region" aria-label="${escapeHTML(titleText)}">
-  <h2>${escapeHTML(titleText)}</h2>
-${summaryBlock}  <div class="mindmap-container" data-branch-count="${config.branches.length}">
-    <div class="mindmap-center" role="heading" aria-level="3">${escapeHTML(config.topic)}</div>
-    <div class="mindmap-branches" role="list">
-${branchItems}
-    </div>
-  </div>
-</section>`;
-}
 /**
  * Generate a multi-layer intelligence mindmap section as an HTML string.
  *

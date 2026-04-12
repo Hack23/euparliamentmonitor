@@ -3,7 +3,7 @@
 import { getLocalizedString, BREAKING_STRINGS, SWOT_BUILDER_STRINGS, DASHBOARD_BUILDER_STRINGS, } from '../../constants/languages.js';
 import { buildDefaultStakeholderPerspectives } from '../../utils/intelligence-analysis.js';
 import { AI_MARKER } from '../../constants/analysis-constants.js';
-import { buildOutcomeMatrix, buildCategoryDistributionPanel, makeDimension, } from './shared-builders.js';
+import { buildOutcomeMatrix, buildCategoryDistributionPanel, } from './shared-builders.js';
 // ─── Constant ─────────────────────────────────────────────────────────────────
 /**
  * Build multi-stakeholder perspectives for a breaking news analysis.
@@ -21,77 +21,6 @@ function buildBreakingStakeholderPerspectives(adoptedCount, topic) {
         citizens: adoptedCount > 0 ? 0.6 : 0.3,
         eu_institutions: 0.9,
     });
-}
-/**
- * Build stakeholder views for breaking multi-dimensional SWOT.
- *
- * @param adoptedCount - Number of adopted texts
- * @param anomalyRaw - Raw anomaly text
- * @param procCount - Number of active procedures
- * @param eventCount - Number of events
- * @param coalitionRaw - Raw coalition text
- * @param s - Localized SWOT builder strings
- * @returns Stakeholder views map
- */
-function buildBreakingMDStakeholders(adoptedCount, anomalyRaw, procCount, eventCount, coalitionRaw, s) {
-    return {
-        citizen: {
-            strengths: adoptedCount > 0
-                ? [{ text: s.breakingAdopted(adoptedCount), severity: 'medium' }]
-                : [],
-            weaknesses: anomalyRaw
-                ? [{ text: s.breakingAnomalyWeakness, severity: 'high' }]
-                : [],
-            opportunities: procCount > 0
-                ? [{ text: s.breakingProceduresActive(procCount), severity: 'medium' }]
-                : [],
-            threats: anomalyRaw ? [{ text: s.breakingAnomalyThreat, severity: 'high' }] : [],
-        },
-        media: {
-            strengths: eventCount > 0 ? [{ text: s.breakingEvents(eventCount), severity: 'high' }] : [],
-            weaknesses: [],
-            opportunities: coalitionRaw
-                ? [{ text: s.breakingCoalitionOpportunity, severity: 'medium' }]
-                : [],
-            threats: [{ text: s.breakingRapidEvents, severity: 'medium' }],
-        },
-    };
-}
-/**
- * Compute weakness and opportunity items for breaking news based on procedure count.
- * Returns a weakness when no procedures exist, or an opportunity when they do.
- *
- * @param procCount - Number of active procedures
- * @param s - Localized SWOT builder strings
- * @returns Tuple of weakness items and opportunity items
- */
-function getBreakingProcedureItems(procCount, s) {
-    if (procCount === 0) {
-        return [[{ text: s.breakingNoProcedures, severity: 'medium' }], []];
-    }
-    return [[], [{ text: s.breakingProceduresActive(procCount), severity: 'medium' }]];
-}
-/**
- * Build the 5 SWOT dimensions for breaking news multi-dimensional SWOT.
- *
- * @param adoptedCount - Number of adopted texts
- * @param anomalyRaw - Raw anomaly text
- * @param coalitionRaw - Raw coalition text
- * @param procCount - Number of active procedures
- * @param eventCount - Number of events
- * @param s - Localized SWOT builder strings
- * @returns Array of 5 SwotDimension objects
- */
-function buildBreakingMDDimensions(adoptedCount, anomalyRaw, coalitionRaw, procCount, eventCount, s) {
-    const [procWeakness, procOpportunity] = getBreakingProcedureItems(procCount, s);
-    const political = makeDimension('political', adoptedCount > 0 ? [{ text: s.breakingAdopted(adoptedCount), severity: 'high' }] : [], anomalyRaw ? [{ text: s.breakingAnomalyWeakness, severity: 'high' }] : [], coalitionRaw ? [{ text: s.breakingCoalitionOpportunity, severity: 'medium' }] : [], anomalyRaw ? [{ text: s.breakingAnomalyThreat, severity: 'high' }] : []);
-    const economic = makeDimension('economic', adoptedCount > 0
-        ? [{ text: s.breakingAdopted(adoptedCount), severity: 'medium' }]
-        : [], procWeakness, procOpportunity, [{ text: s.breakingRapidEvents, severity: 'medium' }]);
-    const social = makeDimension('social', eventCount > 0 ? [{ text: s.breakingEvents(eventCount), severity: 'medium' }] : [], [], procOpportunity, [{ text: s.breakingRapidEvents, severity: 'medium' }]);
-    const legal = makeDimension('legal', adoptedCount > 0 ? [{ text: s.breakingAdopted(adoptedCount), severity: 'high' }] : [], procWeakness, procOpportunity, anomalyRaw ? [{ text: s.breakingAnomalyThreat, severity: 'high' }] : []);
-    const geopolitical = makeDimension('geopolitical', eventCount > 0 ? [{ text: s.breakingEvents(eventCount), severity: 'medium' }] : [], [], coalitionRaw ? [{ text: s.breakingCoalitionOpportunity, severity: 'medium' }] : [], anomalyRaw ? [{ text: s.breakingAnomalyThreat, severity: 'medium' }] : []);
-    return [political, economic, social, legal, geopolitical];
 }
 /**
  * Build deep analysis for breaking news articles.
@@ -462,38 +391,6 @@ export function buildBreakingMindmap(feedData, _lang = 'en') {
         actorNetwork,
         stakeholderGroups: ['Parliament', 'Commission', 'Council', 'Public'],
         summary: `${totalItems} feed items detected across ${domainNodes.length} activity categories.`,
-    };
-}
-/**
- * Build multi-dimensional SWOT analysis for breaking news articles.
- *
- * @param feedData - EP feed data
- * @param anomalyRaw - Raw anomaly text
- * @param coalitionRaw - Raw coalition text
- * @param lang - Target language code
- * @returns Multi-dimensional SWOT data
- */
-export function buildBreakingMultiDimensionalSwot(feedData, anomalyRaw, coalitionRaw, lang = 'en') {
-    const s = getLocalizedString(SWOT_BUILDER_STRINGS, lang);
-    const base = buildBreakingSwot(feedData, anomalyRaw, coalitionRaw, lang);
-    const adoptedCount = feedData?.adoptedTexts.length ?? 0;
-    const eventCount = feedData?.events.length ?? 0;
-    const procCount = feedData?.procedures.length ?? 0;
-    const dimensions = buildBreakingMDDimensions(adoptedCount, anomalyRaw, coalitionRaw, procCount, eventCount, s);
-    const temporal = {
-        shortTerm: base,
-        mediumTerm: {
-            strengths: base.strengths.filter((i) => i.severity === 'high'),
-            weaknesses: base.weaknesses,
-            opportunities: base.opportunities,
-            threats: base.threats.filter((i) => i.severity === 'high'),
-        },
-    };
-    const stakeholderViews = buildBreakingMDStakeholders(adoptedCount, anomalyRaw, procCount, eventCount, coalitionRaw, s);
-    return {
-        dimensions,
-        temporal,
-        stakeholderViews,
     };
 }
 //# sourceMappingURL=breaking-builders.js.map

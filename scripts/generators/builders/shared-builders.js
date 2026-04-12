@@ -270,17 +270,4 @@ export function buildCategoryDistributionPanel(d, labels, counts, datasetLabel, 
         },
     };
 }
-/**
- * Build a dimension object from sets of pre-computed SWOT items.
- *
- * @param name - Dimension name
- * @param strengths - Strength items for this dimension
- * @param weaknesses - Weakness items for this dimension
- * @param opportunities - Opportunity items for this dimension
- * @param threats - Threat items for this dimension
- * @returns Typed SwotDimension
- */
-export function makeDimension(name, strengths, weaknesses, opportunities, threats) {
-    return { name, strengths, weaknesses, opportunities, threats };
-}
 //# sourceMappingURL=shared-builders.js.map

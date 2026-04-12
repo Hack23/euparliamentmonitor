@@ -4,7 +4,7 @@ import { getLocalizedString, COMMITTEE_ANALYSIS_CONTENT_STRINGS, SWOT_BUILDER_ST
 import { isPlaceholderCommitteeData } from '../committee-helpers.js';
 import { buildDefaultStakeholderPerspectives } from '../../utils/intelligence-analysis.js';
 import { AI_MARKER } from '../../constants/analysis-constants.js';
-import { buildOutcomeMatrix, buildCategoryDistributionPanel, makeDimension, } from './shared-builders.js';
+import { buildOutcomeMatrix, buildCategoryDistributionPanel, } from './shared-builders.js';
 // ─── Constant ─────────────────────────────────────────────────────────────────
 /**
  * Build multi-stakeholder perspectives for a committee reports analysis.
@@ -23,45 +23,6 @@ function buildCommitteeStakeholderPerspectives(activePct, totalDocs, topic) {
         citizens: totalDocs > 5 ? 0.5 : 0.3,
         eu_institutions: 0.8,
     });
-}
-/**
- * Build stakeholder views for committee multi-dimensional SWOT.
- *
- * @param active - Active committees
- * @param committees - All committees
- * @param totalDocs - Total document count
- * @param inactiveCount - Number of inactive committees
- * @param s - Localized SWOT builder strings
- * @returns Stakeholder views map
- */
-function buildCommitteeMDStakeholders(active, committees, totalDocs, inactiveCount, s) {
-    return {
-        mep: {
-            strengths: active.length > 0
-                ? [
-                    {
-                        text: s.committeeActive(active.length, committees.length),
-                        severity: 'high',
-                    },
-                ]
-                : [],
-            weaknesses: inactiveCount > 0
-                ? [{ text: s.committeeInactive(inactiveCount), severity: 'medium' }]
-                : [],
-            opportunities: [{ text: s.committeeHearings, severity: 'medium' }],
-            threats: [{ text: s.committeeCompetingPriorities, severity: 'medium' }],
-        },
-        ngo: {
-            strengths: totalDocs > 0
-                ? [{ text: s.committeeDocuments(totalDocs), severity: 'medium' }]
-                : [],
-            weaknesses: inactiveCount > committees.length * 0.3
-                ? [{ text: s.committeeLowActivity, severity: 'high' }]
-                : [],
-            opportunities: [{ text: s.committeeCrossCollaboration, severity: 'medium' }],
-            threats: [],
-        },
-    };
 }
 /**
  * Build deep analysis for committee reports articles.
@@ -355,64 +316,6 @@ export function buildCommitteeMindmap(committees, _lang = 'en') {
         actorNetwork,
         stakeholderGroups: ['MEPs', 'Political Groups', 'Secretariat', 'External Experts'],
         summary: `${activeCommittees.length} active committees producing ${totalDocs} documents.`,
-    };
-}
-/**
- * Build multi-dimensional SWOT analysis for committee reports articles.
- *
- * @param committees - Committee data list
- * @param lang - Target language code
- * @returns Multi-dimensional SWOT data, or `null` when all committee data is placeholder
- */
-export function buildCommitteeMultiDimensionalSwot(committees, lang = 'en') {
-    if (isPlaceholderCommitteeData(committees))
-        return null;
-    const s = getLocalizedString(SWOT_BUILDER_STRINGS, lang);
-    const base = buildCommitteeSwot(committees, lang);
-    if (!base)
-        return null;
-    const active = committees.filter((c) => c.documents.length > 0);
-    const totalDocs = committees.reduce((sum, c) => sum + c.documents.length, 0);
-    const inactiveCount = committees.length - active.length;
-    const highActivity = active.length >= committees.length * 0.7;
-    const political = makeDimension('political', active.length > 0
-        ? [
-            {
-                text: s.committeeActive(active.length, committees.length),
-                severity: highActivity ? 'high' : 'medium',
-            },
-        ]
-        : [], inactiveCount > committees.length * 0.3
-        ? [{ text: s.committeeInactive(inactiveCount), severity: 'high' }]
-        : [], [{ text: s.committeeCrossCollaboration, severity: 'medium' }], inactiveCount > committees.length * 0.3
-        ? [{ text: s.committeeLowActivity, severity: 'high' }]
-        : [{ text: s.committeeCompetingPriorities, severity: 'medium' }]);
-    const economic = makeDimension('economic', totalDocs > 0 ? [{ text: s.committeeDocuments(totalDocs), severity: 'medium' }] : [], inactiveCount > 0
-        ? [{ text: s.committeeInactive(inactiveCount), severity: 'medium' }]
-        : [], committees.length > 0 ? [{ text: s.committeeHearings, severity: 'medium' }] : [], [{ text: s.committeeCompetingPriorities, severity: 'medium' }]);
-    const social = makeDimension('social', active.length > 0
-        ? [{ text: s.committeeActive(active.length, committees.length), severity: 'medium' }]
-        : [], [], [{ text: s.committeeCrossCollaboration, severity: 'medium' }], []);
-    const legal = makeDimension('legal', totalDocs > 0 ? [{ text: s.committeeDocuments(totalDocs), severity: 'high' }] : [], inactiveCount > committees.length * 0.3
-        ? [{ text: s.committeeInactive(inactiveCount), severity: 'high' }]
-        : [], committees.length > 0 ? [{ text: s.committeeHearings, severity: 'medium' }] : [], inactiveCount > committees.length * 0.3
-        ? [{ text: s.committeeLowActivity, severity: 'high' }]
-        : []);
-    const geopolitical = makeDimension('geopolitical', [], [], [{ text: s.committeeCrossCollaboration, severity: 'medium' }], [{ text: s.committeeCompetingPriorities, severity: 'medium' }]);
-    const temporal = {
-        shortTerm: base,
-        mediumTerm: {
-            strengths: base.strengths.filter((i) => i.severity === 'high'),
-            weaknesses: base.weaknesses,
-            opportunities: base.opportunities,
-            threats: base.threats,
-        },
-    };
-    const stakeholderViews = buildCommitteeMDStakeholders(active, committees, totalDocs, inactiveCount, s);
-    return {
-        dimensions: [political, economic, social, legal, geopolitical],
-        temporal,
-        stakeholderViews,
     };
 }
 //# sourceMappingURL=committee-builders.js.map

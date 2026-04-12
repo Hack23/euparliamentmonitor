@@ -7,9 +7,9 @@
  * a single import path.
  */
 export { AI_MARKER } from '../../constants/analysis-constants.js';
-export { buildVotingAnalysis, buildVotingSwot, buildVotingDashboard, buildVotingMindmap, buildVotingMultiDimensionalSwot, } from './voting-builders.js';
-export { buildProspectiveAnalysis, buildProspectiveSwot, buildProspectiveDashboard, buildProspectiveMindmap, buildProspectiveMultiDimensionalSwot, } from './prospective-builders.js';
-export { buildBreakingAnalysis, buildBreakingSwot, buildBreakingDashboard, buildBreakingMindmap, buildBreakingMultiDimensionalSwot, } from './breaking-builders.js';
-export { buildPropositionsAnalysis, buildPropositionsSwot, buildPropositionsDashboard, buildPropositionsMindmap, buildPropositionsMultiDimensionalSwot, } from './propositions-builders.js';
-export { buildCommitteeAnalysis, buildCommitteeSwot, buildCommitteeDashboard, buildCommitteeMindmap, buildCommitteeMultiDimensionalSwot, } from './committee-builders.js';
+export { buildVotingAnalysis, buildVotingSwot, buildVotingDashboard, buildVotingMindmap, } from './voting-builders.js';
+export { buildProspectiveAnalysis, buildProspectiveSwot, buildProspectiveDashboard, buildProspectiveMindmap, } from './prospective-builders.js';
+export { buildBreakingAnalysis, buildBreakingSwot, buildBreakingDashboard, buildBreakingMindmap, } from './breaking-builders.js';
+export { buildPropositionsAnalysis, buildPropositionsSwot, buildPropositionsDashboard, buildPropositionsMindmap, } from './propositions-builders.js';
+export { buildCommitteeAnalysis, buildCommitteeSwot, buildCommitteeDashboard, buildCommitteeMindmap, } from './committee-builders.js';
 //# sourceMappingURL=index.js.map
