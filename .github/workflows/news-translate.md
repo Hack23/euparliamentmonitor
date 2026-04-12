@@ -555,16 +555,19 @@ if [ -z "$NEEDS_TRANSLATION" ]; then
       if [ "$MISSING_COUNT" -gt 0 ]; then
         echo "📝 Backfill: ${CHECK_DATE}/${TYPE} — $MISSING_COUNT languages missing:$MISSING_LANGS"
         NEEDS_TRANSLATION="${NEEDS_TRANSLATION:+$NEEDS_TRANSLATION,}${CHECK_DATE}:${TYPE}"
-        BACKFILL_DATES="${BACKFILL_DATES:+$BACKFILL_DATES,}${CHECK_DATE}"
+        case ",${BACKFILL_DATES}," in
+          *,"${CHECK_DATE}",*) ;;
+          *) BACKFILL_DATES="${BACKFILL_DATES:+$BACKFILL_DATES,}${CHECK_DATE}" ;;
+        esac
+
+        # Limit backfill to a manageable batch (max 5 article types per run)
+        ITEM_COUNT=$(echo "$NEEDS_TRANSLATION" | tr ',' '\n' | wc -l)
+        if [ "$ITEM_COUNT" -ge 5 ]; then
+          echo "⏱️ Backfill batch limit reached ($ITEM_COUNT items) — remaining gaps will be filled in next run"
+          break 2
+        fi
       fi
     done
-
-    # Limit backfill to a manageable batch (max 5 article types per run)
-    ITEM_COUNT=$(echo "$NEEDS_TRANSLATION" | tr ',' '\n' | wc -l)
-    if [ "$ITEM_COUNT" -ge 5 ]; then
-      echo "⏱️ Backfill batch limit reached ($ITEM_COUNT items) — remaining gaps will be filled in next run"
-      break
-    fi
   done
 fi
 
@@ -607,15 +610,15 @@ else
 fi
 echo "🌐 Articles to translate: ${NEEDS_TRANSLATION:-none}"
 
-# --- Persist state across bash blocks ---
+# --- Persist state across bash blocks (sanitized to prevent shell injection) ---
 STATE_FILE="/tmp/gh-aw-translate-state.sh"
-cat > "$STATE_FILE" <<STATEEOF
-NEEDS_TRANSLATION='${NEEDS_TRANSLATION}'
-BACKFILL_DATES='${BACKFILL_DATES}'
-IMPROVEMENT_MODE='${IMPROVEMENT_MODE}'
-FORCE_TRANSLATION='${FORCE_TRANSLATION}'
-LANG_ARG='${LANG_ARG}'
-STATEEOF
+{
+  printf 'NEEDS_TRANSLATION=%q\n' "${NEEDS_TRANSLATION}"
+  printf 'BACKFILL_DATES=%q\n' "${BACKFILL_DATES}"
+  printf 'IMPROVEMENT_MODE=%q\n' "${IMPROVEMENT_MODE}"
+  printf 'FORCE_TRANSLATION=%q\n' "${FORCE_TRANSLATION}"
+  printf 'LANG_ARG=%q\n' "${LANG_ARG}"
+} > "$STATE_FILE"
 echo "💾 Discovery state persisted to $STATE_FILE"
 ```
 
@@ -766,7 +769,7 @@ for ITEM in $(echo "$NEEDS_TRANSLATION" | tr ',' ' '); do
   if [ "$ITEM_DATE" = "$CURRENT_DATE_CACHED" ] && [ "$IMPROVEMENT_MODE" != "true" ]; then
     # Today's articles: use the TypeScript generator
     SKIP_FLAG=""
-    if [ "${{ github.event.inputs.force_translation }}" = "false" ]; then
+    if [ "$FORCE_TRANSLATION" != "true" ]; then
       SKIP_FLAG="--skip-existing"
     fi
 
@@ -812,13 +815,13 @@ if [ -z "$TRANSLATED_TYPES" ]; then
   echo "⚠️ All generation attempts failed — will still attempt AI translation of any existing files"
 fi
 
-# --- Persist generation results for later steps ---
+# --- Persist generation results for later steps (sanitized to prevent shell injection) ---
 GEN_STATE_FILE="/tmp/gh-aw-translate-generation.sh"
-cat > "$GEN_STATE_FILE" <<GENSTATEEOF
-TRANSLATED_TYPES='${TRANSLATED_TYPES}'
-FAILED_TYPES='${FAILED_TYPES}'
-ALL_TRANSLATED_DATES='${ALL_TRANSLATED_DATES}'
-GENSTATEEOF
+{
+  printf 'TRANSLATED_TYPES=%q\n' "${TRANSLATED_TYPES}"
+  printf 'FAILED_TYPES=%q\n' "${FAILED_TYPES}"
+  printf 'ALL_TRANSLATED_DATES=%q\n' "${ALL_TRANSLATED_DATES}"
+} > "$GEN_STATE_FILE"
 echo "💾 Generation state persisted to $GEN_STATE_FILE"
 ```
 
@@ -990,6 +993,11 @@ if [ "$VALIDATION_FAILURES" -gt 0 ]; then
 else
   echo "✅ All translations pass validation"
 fi
+
+# --- Persist validation results for PR body ---
+VAL_STATE_FILE="/tmp/gh-aw-translate-validation.sh"
+printf 'VALIDATION_FAILURES=%q\n' "${VALIDATION_FAILURES}" > "$VAL_STATE_FILE"
+echo "💾 Validation state persisted to $VAL_STATE_FILE"
 ```
 
 ## Step 4b: Scope Verification (Prevent Patch Conflicts)
@@ -1154,9 +1162,12 @@ echo "📊 Total uncommitted changes: $CHANGE_COUNT"
 # --- Restore state from previous steps ---
 STATE_FILE="/tmp/gh-aw-translate-state.sh"
 GEN_STATE_FILE="/tmp/gh-aw-translate-generation.sh"
+VAL_STATE_FILE="/tmp/gh-aw-translate-validation.sh"
 [ -f "$STATE_FILE" ] && source "$STATE_FILE"
 [ -f "$GEN_STATE_FILE" ] && source "$GEN_STATE_FILE"
-echo "✅ Restored state for PR creation: BACKFILL_DATES=$BACKFILL_DATES IMPROVEMENT_MODE=$IMPROVEMENT_MODE"
+[ -f "$VAL_STATE_FILE" ] && source "$VAL_STATE_FILE"
+VALIDATION_FAILURES="${VALIDATION_FAILURES:-0}"
+echo "✅ Restored state for PR creation: BACKFILL_DATES=$BACKFILL_DATES IMPROVEMENT_MODE=$IMPROVEMENT_MODE VALIDATION_FAILURES=$VALIDATION_FAILURES"
 
 # Remove metadata files to prevent patch conflicts with other same-day workflows
 rm -f news/metadata/generation-*.json
@@ -1181,8 +1192,8 @@ if [ -z "${ARTICLE_DATE:-}" ]; then
   ARTICLE_DATE=$(date -u +%Y-%m-%d)
 fi
 # Count ALL newly generated/modified non-English HTML files (not just today's date)
-TRANSLATED_COUNT=$(git diff --name-only 2>/dev/null | grep '^news/.*\.html$' | grep -vc '\-en\.html$' || echo 0)
-UNTRACKED_COUNT=$(git ls-files --others --exclude-standard 2>/dev/null | grep '^news/.*\.html$' | grep -vc '\-en\.html$' || echo 0)
+TRANSLATED_COUNT=$(git diff --name-only 2>/dev/null | grep '^news/.*\.html$' | grep -v '\-en\.html$' | wc -l | tr -d ' ')
+UNTRACKED_COUNT=$(git ls-files --others --exclude-standard 2>/dev/null | grep '^news/.*\.html$' | grep -v '\-en\.html$' | wc -l | tr -d ' ')
 TOTAL_FILES=$((TRANSLATED_COUNT + UNTRACKED_COUNT))
 echo "📊 Total modified/new translation files: $TOTAL_FILES"
 
@@ -1197,16 +1208,23 @@ else
 fi
 echo "Branch: $BRANCH_NAME"
 
-# Build PR title and body
+# Build PR title and body — reflect actual validation results
+if [ "${VALIDATION_FAILURES:-0}" -gt 0 ]; then
+  VAL_STATUS="⚠️ ${VALIDATION_FAILURES} issue(s) found"
+else
+  VAL_STATUS="✅ Passed"
+fi
+QUALITY_CHECKS="### Quality Checks\n- HTML validation: ${VAL_STATUS}\n- Language attribute verification: ${VAL_STATUS}\n- RTL/CJK layout validation: ${VAL_STATUS}\n- EP terminology consistency: ${VAL_STATUS}"
+
 if [ "$IMPROVEMENT_MODE" = "true" ]; then
   PR_TITLE="chore: improve EU Parliament article translations ${ARTICLE_DATE}"
-  PR_BODY="## ✨ EU Parliament Translation Improvements — ${ARTICLE_DATE}\n\n### Summary\nImproved translation quality for EU Parliament news articles.\n\n### Details\n- **Improved articles**: ${TRANSLATED_TYPES}\n- **Target languages**: ${LANG_ARG}\n- **Total files modified**: ${TOTAL_FILES}\n- **Mode**: Quality improvement (all translations were 100% complete)\n- **Workflow**: \`news-translate\`\n\n---\n> Generated by the \`news-translate\` agentic workflow."
+  PR_BODY="## ✨ EU Parliament Translation Improvements — ${ARTICLE_DATE}\n\n### Summary\nImproved translation quality for EU Parliament news articles.\n\n### Details\n- **Improved articles**: ${TRANSLATED_TYPES}\n- **Target languages**: ${LANG_ARG}\n- **Total files modified**: ${TOTAL_FILES}\n- **Mode**: Quality improvement (all translations were 100% complete)\n- **Workflow**: \`news-translate\`\n\n${QUALITY_CHECKS}\n\n---\n> Generated by the \`news-translate\` agentic workflow."
 elif [ -n "$BACKFILL_DATES" ]; then
   PR_TITLE="chore: translate EU Parliament articles (backfill)"
-  PR_BODY="## 🌐 EU Parliament Article Translations — Backfill\n\n### Summary\nBackfilled missing translations for EU Parliament news articles.\n\n### Translation Coverage\n- **Backfill dates**: ${BACKFILL_DATES}\n- **Article types**: ${TRANSLATED_TYPES}\n- **Target languages**: ${LANG_ARG}\n- **Total translated files**: ${TOTAL_FILES}\n- **Workflow**: \`news-translate\`\n\n### Quality Checks\n- HTML validation: ✅ Passed\n- Language attribute verification: ✅ Checked\n- RTL/CJK layout validation: ✅ Verified (where applicable)\n- EP terminology consistency: ✅ Cross-referenced with official EU terminology\n\n---\n> Generated by the \`news-translate\` agentic workflow."
+  PR_BODY="## 🌐 EU Parliament Article Translations — Backfill\n\n### Summary\nBackfilled missing translations for EU Parliament news articles.\n\n### Translation Coverage\n- **Backfill dates**: ${BACKFILL_DATES}\n- **Article types**: ${TRANSLATED_TYPES}\n- **Target languages**: ${LANG_ARG}\n- **Total translated files**: ${TOTAL_FILES}\n- **Workflow**: \`news-translate\`\n\n${QUALITY_CHECKS}\n\n---\n> Generated by the \`news-translate\` agentic workflow."
 else
   PR_TITLE="chore: translate EU Parliament articles ${ARTICLE_DATE}"
-  PR_BODY="## 🌐 EU Parliament Article Translations — ${ARTICLE_DATE}\n\n### Summary\nTranslated EU Parliament news articles from English to ${LANG_ARG} for ${ARTICLE_DATE}.\n\n### Translation Coverage\n- **Article types**: ${TRANSLATED_TYPES}\n- **Target languages**: ${LANG_ARG}\n- **Total translated files**: ${TOTAL_FILES}\n- **Workflow**: \`news-translate\`\n\n### Quality Checks\n- HTML validation: ✅ Passed\n- Language attribute verification: ✅ Checked\n- RTL/CJK layout validation: ✅ Verified (where applicable)\n- EP terminology consistency: ✅ Cross-referenced with official EU terminology\n\n### Data Pipeline\n- **Source**: English articles generated by content workflows (\`news-breaking\`, \`news-week-ahead\`, etc.)\n- **Translation method**: AI translation with EP-specific terminology standards\n- **Post-processing**: TypeScript generator pipeline with locale-specific formatting\n\n---\n> Generated by the \`news-translate\` agentic workflow. English source articles were generated by the individual content workflows."
+  PR_BODY="## 🌐 EU Parliament Article Translations — ${ARTICLE_DATE}\n\n### Summary\nTranslated EU Parliament news articles from English to ${LANG_ARG} for ${ARTICLE_DATE}.\n\n### Translation Coverage\n- **Article types**: ${TRANSLATED_TYPES}\n- **Target languages**: ${LANG_ARG}\n- **Total translated files**: ${TOTAL_FILES}\n- **Workflow**: \`news-translate\`\n\n${QUALITY_CHECKS}\n\n### Data Pipeline\n- **Source**: English articles generated by content workflows (\`news-breaking\`, \`news-week-ahead\`, etc.)\n- **Translation method**: AI translation with EP-specific terminology standards\n- **Post-processing**: TypeScript generator pipeline with locale-specific formatting\n\n---\n> Generated by the \`news-translate\` agentic workflow. English source articles were generated by the individual content workflows."
 fi
 echo "PR title: $PR_TITLE"
 ```
