@@ -677,8 +677,22 @@ if [ -f "$STATE_FILE" ]; then
   echo "✅ Restored: NEEDS_TRANSLATION=$NEEDS_TRANSLATION"
   echo "✅ Restored: LANG_ARG=$LANG_ARG FORCE_TRANSLATION=$FORCE_TRANSLATION IMPROVEMENT_MODE=$IMPROVEMENT_MODE"
 else
-  echo "❌ State file not found — cannot proceed without discovery results"
-  exit 1
+  echo "⚠️ State file not found — discovery results unavailable. Creating analysis artifact and continuing with empty state."
+  NEEDS_TRANSLATION=""
+  BACKFILL_DATES=""
+  IMPROVEMENT_MODE="false"
+  FORCE_TRANSLATION="false"
+  LANG_ARG="sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh"
+  ANALYSIS_DIR="analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}"
+  mkdir -p "${ANALYSIS_DIR}"
+  cat > "${ANALYSIS_DIR}/translation-state-missing.analysis.md" <<EOF
+# Translation state file missing
+
+- article_date: ${ARTICLE_DATE}
+- run_id: ${RUN_ID}
+- reason: /tmp/gh-aw-translate-state.sh was not found. Discovery results from Step 1 were unavailable.
+- action: Proceeding with empty state so PR creation can still complete with analysis artifacts.
+EOF
 fi
 
 # --- MCP Gateway Setup ---
@@ -806,7 +820,7 @@ for ITEM in $(echo "$NEEDS_TRANSLATION" | tr ',' ' '); do
 
         # Map language to dir and og:locale for comprehensive metadata update
         case "$LANG" in
-          ar) LANG_DIR="rtl"; OG_LOCALE="ar_AR" ;;
+          ar) LANG_DIR="rtl"; OG_LOCALE="ar_SA" ;;
           he) LANG_DIR="rtl"; OG_LOCALE="he_IL" ;;
           sv) LANG_DIR="ltr"; OG_LOCALE="sv_SE" ;;
           da) LANG_DIR="ltr"; OG_LOCALE="da_DK" ;;
@@ -822,22 +836,43 @@ for ITEM in $(echo "$NEEDS_TRANSLATION" | tr ',' ' '); do
           *) LANG_DIR="ltr"; OG_LOCALE="${LANG}" ;;
         esac
 
-        # Normalize all language-identifying metadata and URL-bearing fields in the
+        # Normalize document-level language metadata and self-referential URLs in the
         # copied file so Step 3b can focus on translating content rather than
-        # fixing structural metadata. Uses Node.js (not python3 — see FORBIDDEN list).
+        # fixing structural metadata. Scope replacements to page metadata only to avoid
+        # rewriting navigation/footer hreflang links or unrelated content. Uses Node.js
+        # (not python3 — see FORBIDDEN list).
         EN_BASENAME=$(basename "$EN_SOURCE")
         LANG_BASENAME=$(basename "$LANG_FILE")
         node -e '
 const fs = require("node:fs");
 const [filePath, lang, langDir, ogLocale, enName, langName] = process.argv.slice(1);
 let c = fs.readFileSync(filePath, "utf8");
-c = c.replace(/lang="en"/g, `lang="${lang}"`);
-c = c.replace(/dir="(?:ltr|rtl)"/g, `dir="${langDir}"`);
-c = c.replace(/hreflang="en"/g, `hreflang="${lang}"`);
+
+// Update document-level <html> and <article> lang/dir attributes only (not nav/footer)
+c = c.replace(/(<html\b[^>]*\s)lang="en"/, `$1lang="${lang}"`);
+c = c.replace(/(<html\b[^>]*\s)dir="(?:ltr|rtl)"/, `$1dir="${langDir}"`);
+c = c.replace(/(<article\b[^>]*\s)lang="en"/, `$1lang="${lang}"`);
+
+// Update JSON-LD inLanguage
 c = c.replace(/("inLanguage"\s*:\s*")en(")/g, `$1${lang}$2`);
+
+// Update og:locale meta tag
 c = c.replace(/(<meta\s+property="og:locale"\s+content=")[^"]*(")/g, `$1${ogLocale}$2`);
-// Update URL-bearing fields so the translated page is self-referential
-c = c.replaceAll(enName, langName);
+
+// Update self-referential URL-bearing fields: canonical, og:url, JSON-LD @id/url
+// Use targeted replacements on specific tags rather than blanket replaceAll
+const enEsc = enName.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const urlFieldRe = new RegExp(
+  `(<(?:link|meta)\\s[^>]*(?:href|content)=")([^"]*)(")` +
+  `|("(?:@id|url|mainEntityOfPage)"\\s*:\\s*")([^"]*)(")`,
+  "g"
+);
+c = c.replace(urlFieldRe, (match, p1, p2, p3, j1, j2, j3) => {
+  if (p1) return p1 + p2.replace(new RegExp(enEsc, "g"), langName) + p3;
+  if (j1) return j1 + j2.replace(new RegExp(enEsc, "g"), langName) + j3;
+  return match;
+});
+
 fs.writeFileSync(filePath, c, "utf8");
 ' "$LANG_FILE" "$LANG" "$LANG_DIR" "$OG_LOCALE" "$EN_BASENAME" "$LANG_BASENAME"
         COPY_COUNT=$((COPY_COUNT + 1))
@@ -954,14 +989,12 @@ for ITEM in $(echo "$TRANSLATED_TYPES" | tr ',' ' '); do
       continue
     fi
 
-    # Validate HTML structure
-    MISSING_SWITCHER=$(grep -cL 'class="language-switcher"' "$FILE" 2>/dev/null || echo 0)
-    MISSING_HEADER=$(grep -cL 'class="site-header"' "$FILE" 2>/dev/null || echo 0)
-    if [ "$MISSING_SWITCHER" -gt 0 ]; then
-      echo "⚠️ $FILE: Missing required language switcher"
+    # Validate HTML structure (use selectors matching article-template.ts output)
+    if ! grep -q 'class="site-header__langs"' "$FILE" 2>/dev/null && ! grep -q 'class="language-grid"' "$FILE" 2>/dev/null; then
+      echo "⚠️ $FILE: Missing required language switcher (site-header__langs or language-grid)"
       VALIDATION_FAILURES=$((VALIDATION_FAILURES + 1))
     fi
-    if [ "$MISSING_HEADER" -gt 0 ]; then
+    if ! grep -q 'class="site-header"' "$FILE" 2>/dev/null; then
       echo "⚠️ $FILE: Missing required site header"
       VALIDATION_FAILURES=$((VALIDATION_FAILURES + 1))
     fi
