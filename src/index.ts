@@ -309,7 +309,6 @@ export {
   DASHBOARD_STRINGS,
   SWOT_BUILDER_STRINGS,
   DASHBOARD_BUILDER_STRINGS,
-  MULTI_DIMENSIONAL_SWOT_STRINGS,
   MONTH_IN_REVIEW_STRINGS,
   ANALYSIS_QUALITY_LABELS,
 } from './constants/language-articles.js';
@@ -497,11 +496,6 @@ export {
   buildBreakingMindmap,
   buildPropositionsMindmap,
   buildCommitteeMindmap,
-  buildVotingMultiDimensionalSwot,
-  buildProspectiveMultiDimensionalSwot,
-  buildBreakingMultiDimensionalSwot,
-  buildPropositionsMultiDimensionalSwot,
-  buildCommitteeMultiDimensionalSwot,
 } from './generators/analysis-builders.js';
 
 export {
@@ -535,7 +529,6 @@ export { buildDeepAnalysisSection } from './generators/deep-analysis-content.js'
 export {
   type MindmapBranch,
   type MindmapConfig,
-  buildMindmapSection,
   buildIntelligenceMindmapSection,
 } from './generators/mindmap-content.js';
 
@@ -547,15 +540,7 @@ export {
   buildAdoptedTextsSection,
 } from './generators/motions-content.js';
 
-export {
-  type SankeyNodeColor,
-  type SankeyNode,
-  type SankeyFlow,
-  type SankeyConfig,
-  buildSankeySection,
-} from './generators/sankey-content.js';
-
-export { buildSwotSection, buildMultiDimensionalSwotSection } from './generators/swot-content.js';
+export { buildSwotSection } from './generators/swot-content.js';
 
 export {
   PLACEHOLDER_EVENTS,

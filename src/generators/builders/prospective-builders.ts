@@ -3,7 +3,7 @@
 
 /**
  * @module Generators/Builders/ProspectiveBuilders
- * @description Deep analysis, SWOT, dashboard, mindmap and multi-dimensional SWOT
+ * @description Deep analysis, SWOT, dashboard and mindmap
  * builders for prospective articles (week-ahead, month-ahead).
  */
 
@@ -21,8 +21,6 @@ import type {
   ActorNode,
   PolicyConnection,
   StakeholderPerspective,
-  MultiDimensionalSwot,
-  TemporalSwotAssessment,
 } from '../../types/index.js';
 import {
   getLocalizedString,
@@ -35,7 +33,6 @@ import {
   buildOutcomeMatrix,
   buildPipelineFromWeekData,
   buildCategoryDistributionPanel,
-  makeDimension,
   CIVIL_SOCIETY,
 } from './shared-builders.js';
 
@@ -445,96 +442,5 @@ export function buildProspectiveMindmap(
     actorNetwork,
     stakeholderGroups: ['Parliament', 'Council', 'Commission', CIVIL_SOCIETY],
     summary: `${events.length} events scheduled. ${pipeline.filter((p) => p.bottleneck === true).length} legislative bottlenecks identified.`,
-  };
-}
-
-/**
- * Build multi-dimensional SWOT analysis for prospective (week/month-ahead) articles.
- *
- * @param weekData - Aggregated week/month data
- * @param _label - "week" or "month" (reserved for future localisation)
- * @param lang - Target language code
- * @returns Multi-dimensional SWOT data
- */
-export function buildProspectiveMultiDimensionalSwot(
-  weekData: WeekAheadData,
-  _label: string,
-  lang: LanguageCode = 'en'
-): MultiDimensionalSwot {
-  const s: SwotBuilderStrings = getLocalizedString(SWOT_BUILDER_STRINGS, lang);
-  const base = buildProspectiveSwot(weekData, _label, lang);
-  const bottlenecks = weekData.pipeline.filter((p) => p.bottleneck === true).length;
-
-  const political = makeDimension(
-    'political',
-    weekData.events.length > 0
-      ? [{ text: s.prospectiveEvents(weekData.events.length), severity: 'high' as const }]
-      : [],
-    bottlenecks > 0
-      ? [{ text: s.prospectiveBottlenecks(bottlenecks), severity: 'high' as const }]
-      : [],
-    [],
-    bottlenecks > 0 ? [{ text: s.prospectiveBottleneckRisk, severity: 'high' as const }] : []
-  );
-
-  const economic = makeDimension(
-    'economic',
-    [],
-    weekData.events.length > 5
-      ? [{ text: s.prospectiveHighDensity(weekData.events.length), severity: 'medium' as const }]
-      : [],
-    weekData.documents.length > 0
-      ? [{ text: s.prospectiveDocuments(weekData.documents.length), severity: 'medium' as const }]
-      : [],
-    [{ text: s.prospectiveSchedulingRisk, severity: 'medium' as const }]
-  );
-
-  const social = makeDimension(
-    'social',
-    weekData.committees.length > 0
-      ? [{ text: s.prospectiveCommittees(weekData.committees.length), severity: 'medium' as const }]
-      : [],
-    [],
-    weekData.questions.length > 0
-      ? [{ text: s.prospectiveQuestions(weekData.questions.length), severity: 'medium' as const }]
-      : [],
-    []
-  );
-
-  const legal = makeDimension(
-    'legal',
-    [],
-    bottlenecks > 0
-      ? [{ text: s.prospectiveBottlenecks(bottlenecks), severity: 'high' as const }]
-      : [],
-    weekData.documents.length > 0
-      ? [{ text: s.prospectiveDocuments(weekData.documents.length), severity: 'medium' as const }]
-      : [],
-    bottlenecks > 0 ? [{ text: s.prospectiveBottleneckRisk, severity: 'high' as const }] : []
-  );
-
-  const geopolitical = makeDimension(
-    'geopolitical',
-    weekData.events.length > 0
-      ? [{ text: s.prospectiveEvents(weekData.events.length), severity: 'medium' as const }]
-      : [],
-    [],
-    [],
-    [{ text: s.prospectiveSchedulingRisk, severity: 'medium' as const }]
-  );
-
-  const temporal: TemporalSwotAssessment = {
-    shortTerm: base,
-    mediumTerm: {
-      strengths: base.strengths,
-      weaknesses: base.weaknesses.filter((i) => i.severity === 'high'),
-      opportunities: base.opportunities,
-      threats: base.threats.filter((i) => i.severity === 'high'),
-    },
-  };
-
-  return {
-    dimensions: [political, economic, social, legal, geopolitical],
-    temporal,
   };
 }
