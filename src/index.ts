@@ -526,9 +526,7 @@ export {
 
 export { buildDeepAnalysisSection } from './generators/deep-analysis-content.js';
 
-export {
-  buildIntelligenceMindmapSection,
-} from './generators/mindmap-content.js';
+export { buildIntelligenceMindmapSection } from './generators/mindmap-content.js';
 
 export {
   PLACEHOLDER_MARKER,

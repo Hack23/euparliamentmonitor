@@ -6770,7 +6770,6 @@ export const DASHBOARD_BUILDER_STRINGS: LanguageMap<DashboardBuilderStrings> = {
   },
 };
 
-
 // ─── Month-in-Review section heading strings ──────────────────────────────────
 
 /** Section headings for month-in-review articles, localized to all 14 languages */

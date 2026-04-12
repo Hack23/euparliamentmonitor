@@ -31,10 +31,7 @@ import {
 import { isPlaceholderCommitteeData } from '../committee-helpers.js';
 import { buildDefaultStakeholderPerspectives } from '../../utils/intelligence-analysis.js';
 import { AI_MARKER } from '../../constants/analysis-constants.js';
-import {
-  buildOutcomeMatrix,
-  buildCategoryDistributionPanel,
-} from './shared-builders.js';
+import { buildOutcomeMatrix, buildCategoryDistributionPanel } from './shared-builders.js';
 
 // ─── Constant ─────────────────────────────────────────────────────────────────
 

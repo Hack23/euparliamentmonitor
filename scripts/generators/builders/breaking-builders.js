@@ -3,7 +3,7 @@
 import { getLocalizedString, BREAKING_STRINGS, SWOT_BUILDER_STRINGS, DASHBOARD_BUILDER_STRINGS, } from '../../constants/languages.js';
 import { buildDefaultStakeholderPerspectives } from '../../utils/intelligence-analysis.js';
 import { AI_MARKER } from '../../constants/analysis-constants.js';
-import { buildOutcomeMatrix, buildCategoryDistributionPanel, } from './shared-builders.js';
+import { buildOutcomeMatrix, buildCategoryDistributionPanel } from './shared-builders.js';
 // ─── Constant ─────────────────────────────────────────────────────────────────
 /**
  * Build multi-stakeholder perspectives for a breaking news analysis.

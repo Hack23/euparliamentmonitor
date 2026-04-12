@@ -99,7 +99,7 @@ export { SIGNIFICANCE_THRESHOLD, scoreBreakingNewsSignificance, buildBreakingNew
 export { FEATURED_COMMITTEES, PLACEHOLDER_CHAIR, PLACEHOLDER_MEMBERS, applyCommitteeInfo, applyDocuments, isPlaceholderCommitteeData, applyEffectiveness, } from './generators/committee-helpers.js';
 export { buildCoalitionPanel, buildPipelinePanel, buildTrendPanel, buildStakeholderScorecardPanel, buildDashboardSection, dashboardHasCharts, buildEconomicContextPanel, } from './generators/dashboard-content.js';
 export { buildDeepAnalysisSection } from './generators/deep-analysis-content.js';
-export { buildIntelligenceMindmapSection, } from './generators/mindmap-content.js';
+export { buildIntelligenceMindmapSection } from './generators/mindmap-content.js';
 export { PLACEHOLDER_MARKER, getMotionsFallbackData, generateMotionsContent, buildPoliticalAlignmentSection, buildAdoptedTextsSection, } from './generators/motions-content.js';
 export { buildSwotSection } from './generators/swot-content.js';
 export { PLACEHOLDER_EVENTS, parsePlenarySessions, parseEPEvents, parseCommitteeMeetings, parseLegislativeDocuments, parseLegislativePipeline, parseParliamentaryQuestions, computeWeekPoliticalTemperature, buildStakeholderImpactMatrix, buildWeekAheadContent, buildKeywords, buildWhatToWatchSection, } from './generators/week-ahead-content.js';

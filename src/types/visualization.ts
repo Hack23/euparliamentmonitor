@@ -234,7 +234,6 @@ export interface DashboardStrings {
   readonly categoryLabel: string;
 }
 
-
 // ─── SWOT Builder Localization ───────────────────────────────────────────────
 
 /**
