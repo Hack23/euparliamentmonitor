@@ -12,6 +12,21 @@
  *
  * Used by news generation strategies to automatically select the right
  * economic indicators when enriching articles with World Bank data.
+ *
+ * ## ⚠️ For AI Agents / Agentic Workflows
+ *
+ * The 34 indicators in {@link WB_INDICATORS} are a **curated subset** mapped
+ * to EP committee mandates. The full World Bank catalog has **thousands** of
+ * indicators. For dynamic indicator discovery:
+ *
+ * 1. Use `search-indicators` MCP tool to find indicators by keyword on demand
+ * 2. Read `analysis/worldbank/indicator-catalog.md` for the full **200+ indicator**
+ *    reference organized by 10 EP policy domains
+ * 3. Use `analysis/worldbank/use-cases.md` to decide when indicators add editorial value
+ * 4. Use `analysis/worldbank/chart-integration-guide.md` for visualization templates
+ *
+ * **Never assume the indicators below are exhaustive.** Always consider whether
+ * `search-indicators` would reveal a more specific indicator for the policy topic.
  */
 import { ArticleCategory, AnalysisPerspective } from '../types/common.js';
 // ─── Priority Constants ──────────────────────────────────────────────────────
@@ -61,6 +76,10 @@ const N = {
  * Extended set of World Bank indicator IDs relevant to EU Parliament policy areas.
  * Superset of {@link PolicyRelevantIndicators} — includes domain-specific indicators
  * that map to individual committee mandates.
+ *
+ * ⚠️ **AI Agents**: This is a **curated subset of 34 indicators**. The World Bank
+ * has thousands more. Use `search-indicators` MCP tool for on-demand discovery.
+ * Full reference: `analysis/worldbank/indicator-catalog.md` (200+ indicators).
  */
 export const WB_INDICATORS = {
     // ── Macro-economic ──

@@ -6,6 +6,39 @@
 
 ---
 
+## 🤖 AI Agent / Agentic Workflow Instructions
+
+**This catalog is a reference document, NOT a hard limit.** The World Bank has **thousands** of indicators. Follow this process for every article or analysis:
+
+### Step 1: Determine Relevance
+Does the article topic involve economic policy, employment, health, environment, defence, trade, education, agriculture, demographics, or governance? If YES → add World Bank context.
+
+### Step 2: Discover Indicators On Demand
+**Always use `search-indicators` first** to find the best match for the specific policy topic:
+```
+world_bank___search_indicators({ keyword: "renewable energy" })
+world_bank___search_indicators({ keyword: "youth unemployment" })
+world_bank___search_indicators({ keyword: "military expenditure" })
+```
+This returns indicators NOT in this catalog — the WB API has thousands more. Use search results to find the **most specific** indicator for your topic.
+
+### Step 3: Cross-Reference This Catalog
+After searching, check this catalog for:
+- **Priority ranking** (🔴🟡🟢⚪) — which indicators are most impactful
+- **EP committee relevance** — which committee's mandate the indicator maps to
+- **Comparison country groups** — see `eu-country-mapping.md`
+
+### Step 4: Fetch Data (Within Budget)
+Each workflow has a `maxWBCalls` limit (1-3 calls). Pick the highest-impact indicators.
+- Use `get-economic-data`, `get-social-data`, `get-health-data`, `get-education-data` for named keys
+- Use `years: 5` for articles, `years: 10` for trend analysis
+
+### Step 5: Visualize
+- **HTML articles**: Chart.js via `buildDashboardSection()` — see `chart-integration-guide.md`
+- **Analysis .md files**: Mermaid `xychart-beta`, `quadrantChart`, or `pie` — see `chart-integration-guide.md`
+
+---
+
 ## 🔑 How to Read This Catalog
 
 - **Tool column**: Which WB MCP tool fetches this indicator (or `API` for direct WB API indicators mapped in `committee-indicator-map.ts`)

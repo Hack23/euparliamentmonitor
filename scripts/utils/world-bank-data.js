@@ -86,7 +86,13 @@ export const WB_AGGREGATE_CODES = {
 };
 /**
  * World Bank indicator IDs relevant to EU Parliament policy analysis.
- * These indicators map to common policy areas discussed in EP legislation.
+ *
+ * ⚠️ **AI Agents**: This is a convenience subset of 25 core indicators used by
+ * TypeScript formatting code. The World Bank has **thousands** of indicators.
+ * For article/analysis generation:
+ * - Read `analysis/worldbank/indicator-catalog.md` for the full **200+ indicator** reference
+ * - Use `search-indicators` MCP tool to discover indicators on demand by keyword
+ * - See `analysis/worldbank/use-cases.md` for when each indicator type adds value
  */
 export const POLICY_INDICATORS = {
     // Macro-economic (get-economic-data)

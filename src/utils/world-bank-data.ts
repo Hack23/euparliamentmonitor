@@ -12,6 +12,22 @@
  * Functions in this module are designed to be stateless and avoid observable
  * side effects, with the exception of explicitly recording metadata such as
  * data timestamps in returned objects.
+ *
+ * ## ⚠️ For AI Agents / Agentic Workflows
+ *
+ * The constants below ({@link POLICY_INDICATORS}, {@link EU_COUNTRY_CODES},
+ * {@link COMPARISON_COUNTRIES}) are a **convenience subset** used by TypeScript
+ * code for formatting and parsing. They do **NOT** represent the full World Bank
+ * indicator inventory.
+ *
+ * **For indicator selection in articles and analysis:**
+ * 1. Read `analysis/worldbank/indicator-catalog.md` — **200+ indicators** by EP policy domain
+ * 2. Use `search-indicators` MCP tool to **discover indicators on demand** by keyword
+ * 3. Read `analysis/worldbank/eu-country-mapping.md` for country codes + comparison groups
+ * 4. Read `analysis/worldbank/chart-integration-guide.md` for Chart.js + Mermaid templates
+ *
+ * The World Bank MCP server has thousands of indicators beyond the ones listed
+ * here. Use `search-indicators` to find the best match for any policy topic.
  */
 
 import type {
@@ -112,7 +128,13 @@ export const WB_AGGREGATE_CODES: Readonly<Record<string, string>> = {
 
 /**
  * World Bank indicator IDs relevant to EU Parliament policy analysis.
- * These indicators map to common policy areas discussed in EP legislation.
+ *
+ * ⚠️ **AI Agents**: This is a convenience subset of 25 core indicators used by
+ * TypeScript formatting code. The World Bank has **thousands** of indicators.
+ * For article/analysis generation:
+ * - Read `analysis/worldbank/indicator-catalog.md` for the full **200+ indicator** reference
+ * - Use `search-indicators` MCP tool to discover indicators on demand by keyword
+ * - See `analysis/worldbank/use-cases.md` for when each indicator type adds value
  */
 export const POLICY_INDICATORS: PolicyRelevantIndicators = {
   // Macro-economic (get-economic-data)

@@ -696,95 +696,64 @@ EU Parliament API responses commonly take 30+ seconds. To handle this:
 | CONT | Budgetary Control |
 
 
-## 🌍 World Bank Economic Context (Optional Enrichment)
+## 🌍 World Bank Economic Context — Active Indicator Discovery
 
-Committee reports often cover policy domains with direct economic implications. Use the `world-bank` MCP server to enrich committee reports with domain-specific economic data. 
-**📚 Full Reference Documents (MUST READ for indicator selection):**
-- `analysis/worldbank/indicator-catalog.md` — Complete catalog of **200+ indicators** organized by 10 EP policy domains
-- `analysis/worldbank/eu-country-mapping.md` — EU-27 codes + comparison groups (G7, BRICS, EU candidates)
-- `analysis/worldbank/chart-integration-guide.md` — Chart.js templates + 7 Mermaid visualization templates
-- `analysis/worldbank/use-cases.md` — When each indicator type adds value to articles
+**IMPORTANT**: Do NOT rely only on pre-mapped indicators. The World Bank has **thousands** of indicators. Use `search-indicators` to find the best match for the specific policy topic of this article.
+
+### 📋 Indicator Discovery Process (MANDATORY when article has economic relevance)
+
+**Step 1 — Determine if economic context adds value:**
+Does this committee report's policy domain have measurable economic, social, or environmental indicators? If YES → proceed.
+
+**Step 2 — Discover indicators on demand with `search-indicators`:**
+```
+// ALWAYS search first — the WB API has indicators not in our pre-mapped list
+world_bank___search_indicators({ keyword: "<topic keyword from article>" })
+// Examples: "energy efficiency", "pharmaceutical spending", "fisheries production", "digital infrastructure", "agricultural land use"
+```
+
+**Step 3 — Cross-reference the full catalog:**
+Read `analysis/worldbank/indicator-catalog.md` for 200+ pre-evaluated indicators with EP committee relevance and priority rankings. Read `analysis/worldbank/use-cases.md` for when each indicator type adds editorial value.
+
+**Step 4 — Fetch data within budget (max 3 WB calls for committee report):**
+```
+world_bank___get_economic_data({ countryCode: "DE", indicator: "GDP_GROWTH", years: 5 })
+world_bank___get_social_data({ countryCode: "FR", indicator: "POPULATION", years: 5 })
+```
+
+**Step 5 — Visualize:**
+- HTML articles: Chart.js via `buildDashboardSection()` — see `analysis/worldbank/chart-integration-guide.md`
+- Analysis .md files: Mermaid `xychart-beta` / `quadrantChart` / `pie` templates
 
 ### Available World Bank MCP Tools
 
 | Tool | Key Indicators | When to Use |
 |------|---------------|-------------|
-| `get-economic-data` | GDP, GDP_GROWTH, GDP_PER_CAPITA, GNI_PER_CAPITA, INFLATION, UNEMPLOYMENT, EXPORTS_GDP, FDI_NET | ECON, BUDG, INTA, IMCO committees |
-| `get-social-data` | POPULATION, LIFE_EXPECTANCY, BIRTH_RATE, DEATH_RATE, INTERNET_USERS | LIBE, AFCO, EMPL, PETI committees |
-| `get-health-data` | HEALTH_EXPENDITURE, PHYSICIANS, HOSPITAL_BEDS, IMMUNIZATION, MALNUTRITION, TUBERCULOSIS | ENVI committee health topics |
-| `get-education-data` | EDUCATION_EXPENDITURE, SCHOOL_ENROLLMENT, LITERACY_RATE, SCHOOL_COMPLETION | CULT committee |
-| `get-country-info` | Country metadata (region, income, capital) | Any committee for country context |
-| `get-countries` | Filter by region/income | Cross-country comparisons |
-| `search-indicators` | Search by keyword | Discover new indicators for specific policy topics |
+| **`search-indicators`** | **Search by keyword** | **ALWAYS use first** to discover the best indicator for the policy topic |
+| `get-economic-data` | GDP, GDP_GROWTH, GDP_PER_CAPITA, GNI_PER_CAPITA, INFLATION, UNEMPLOYMENT, EXPORTS_GDP, FDI_NET | Economic legislation, budget, trade |
+| `get-social-data` | POPULATION, LIFE_EXPECTANCY, BIRTH_RATE, DEATH_RATE, INTERNET_USERS | Demographics, digital policy, social rights |
+| `get-health-data` | HEALTH_EXPENDITURE, PHYSICIANS, HOSPITAL_BEDS, IMMUNIZATION, MALNUTRITION, TUBERCULOSIS | Health policy, pandemic preparedness |
+| `get-education-data` | EDUCATION_EXPENDITURE, SCHOOL_ENROLLMENT, LITERACY_RATE, SCHOOL_COMPLETION | Education, skills agenda |
+| `get-country-info` | Country metadata (region, income, capital) | Country context verification |
+| `get-countries` | Filter by region/income | EU member state listings |
 
-### Extended Indicators Available (via committee-indicator-map.ts WB API IDs)
+### Comparison Country Groups
 
-These indicators are mapped in the codebase but use direct WB API IDs. See `analysis/worldbank/indicator-catalog.md` for the full 200+ catalog.
+| Comparison | Countries | When to Use |
+|-----------|-----------|-------------|
+| **Big Four** | DE, FR, IT, ES | EU-internal economic comparison |
+| **EU vs G7** | EUU vs US, GB, JP | Global competitiveness context |
+| **EU vs BRICS** | EUU vs CN, IN, RU | Geopolitical/strategic context |
+| **EU Candidates** | UA, TR, RS | Enlargement-related news |
+| **NATO** | DE, FR, PL, IT + US, GB | Defence spending comparison |
 
-| Category | Key Indicators | WB IDs |
-|----------|---------------|--------|
-| **Fiscal** | Tax Revenue, Gov Debt, Gov Expenditure | GC.TAX.TOTL.GD.ZS, GC.DOD.TOTL.GD.ZS, NE.CON.GOVT.ZS |
-| **Defence** | Military Expenditure (% GDP), Armed Forces | MS.MIL.XPND.GD.ZS, MS.MIL.TOTL.P1 |
-| **Climate** | CO₂ per capita, Renewables %, Energy imports | EN.ATM.CO2E.PC, EG.FEC.RNEW.ZS, EG.IMP.CONS.ZS |
-| **Labor** | Youth Unemployment, Female Labor, GINI | SL.UEM.1524.ZS, SL.TLF.CACT.FE.ZS, SI.POV.GINI |
-| **Agriculture** | Agriculture % GDP, Cereal Yield | NV.AGR.TOTL.ZS, AG.YLD.CREL.KG |
-| **Innovation** | R&D % GDP, High-tech Exports, Patents | GB.XPD.RSDV.GD.ZS, TX.VAL.TECH.MF.ZS, IP.PAT.RESD |
-| **Demographics** | Pop 65+, Net Migration, Urban % | SP.POP.65UP.TO.ZS, SM.POP.NETM, SP.URB.TOTL.IN.ZS |
-| **Governance** | Women in Parliament | SG.GEN.PARL.ZS |
+### Full Reference Documents
+- `analysis/worldbank/indicator-catalog.md` — **200+ indicators** with EP relevance + priority rankings
+- `analysis/worldbank/eu-country-mapping.md` — EU-27 codes + comparison groups (G7, BRICS, candidates)
+- `analysis/worldbank/chart-integration-guide.md` — Chart.js + 7 Mermaid visualization templates
+- `analysis/worldbank/use-cases.md` — When each indicator type adds editorial value
 
-### Committee-Specific Indicator Reference
-
-Use `src/constants/committee-indicator-map.ts` as the authoritative mapping. Key committee → indicator mappings:
-
-| Committee | Primary Indicators | WB Tool |
-|-----------|-------------------|---------|
-| **ECON** | GDP_GROWTH, INFLATION, UNEMPLOYMENT | `get-economic-data` |
-| **ENVI** | CO₂ (EN.ATM.CO2E.PC), HEALTH_EXPENDITURE | `get-health-data` |
-| **EMPL** | UNEMPLOYMENT, Youth Unemployment (SL.UEM.1524.ZS) | `get-economic-data` |
-| **AFET/SEDE** | Military Expenditure (MS.MIL.XPND.GD.ZS), Trade | `get-economic-data` |
-| **ITRE** | R&D (GB.XPD.RSDV.GD.ZS), High-tech Exports | `get-economic-data` |
-| **AGRI** | Agriculture GDP (NV.AGR.TOTL.ZS), Cereal Yield | `get-economic-data` |
-| **BUDG** | GDP, Gov Expenditure, Tax Revenue | `get-economic-data` |
-| **LIBE** | Net Migration (SM.POP.NETM), Population | `get-social-data` |
-| **CULT** | EDUCATION_EXPENDITURE, Tertiary Enrollment | `get-education-data` |
-| **INTA** | Trade, Exports GDP, FDI, High-tech Exports | `get-economic-data` |
-
-```javascript
-// Example: ECON committee report — fetch GDP growth and inflation for EU context
-world_bank___get_economic_data({ countryCode: "DE", indicator: "GDP_GROWTH", years: 5 })
-world_bank___get_economic_data({ countryCode: "FR", indicator: "INFLATION", years: 5 })
-
-// Example: AFET/SEDE report — military expenditure (MS.MIL.XPND.GD.ZS)
-// Note: Military expenditure not directly available via get-economic-data tool keys;
-// use WB API indicator ID via wb-mcp-client or reference analysis/worldbank/indicator-catalog.md
-world_bank___get_economic_data({ countryCode: "PL", indicator: "GDP", years: 5 })
-
-// Example: ENVI report — health infrastructure
-world_bank___get_health_data({ countryCode: "DE", indicator: "HOSPITAL_BEDS", years: 5 })
-
-// Example: CULT report — education spending
-world_bank___get_education_data({ countryCode: "FI", indicator: "EDUCATION_EXPENDITURE", years: 5 })
-```
-
-### Chart Integration for Committee Reports
-
-When including economic data, embed Chart.js visualizations using `buildDashboardSection()`:
-- **ECON/BUDG**: Grouped bar chart with GDP growth + inflation across member states
-- **AFET/SEDE**: Horizontal bar chart with military spending + NATO 2% target annotation line
-- **ENVI**: Dual-axis line chart (CO₂ declining, renewable energy rising)
-- **EMPL**: Stacked bar chart (youth unemployment vs total unemployment)
-- **INTA**: Line chart showing trade openness trends
-- **AGRI**: Bar chart comparing agriculture % of GDP across member states
-- **CULT**: Scatter plot (education expenditure vs tertiary enrollment)
-- **LIBE**: Area chart showing net migration trends
-
-**Rules**: Use at most 3 World Bank calls per committee reports workflow run. Match indicators to the specific committee being reported. Always note the data year.
-
-### EU Country Codes for World Bank
-
-Key EU member states: DE (Germany), FR (France), IT (Italy), ES (Spain), PL (Poland), NL (Netherlands), RO (Romania), BE (Belgium), SE (Sweden), AT (Austria). EU aggregate: EUU. See `analysis/worldbank/eu-country-mapping.md` for complete EU-27 mapping.
-
-
+**Rules**: Max 3 World Bank calls per committee report. Always note the data year. EU country codes: DE, FR, IT, ES, PL, NL, RO, BE, SE, AT. Aggregate: EUU.
 ## 📄 EP DOCUMENT ANALYSIS FRAMEWORK (MANDATORY)
 
 For every key EP document featured in the deep-analysis section, provide structured analysis covering (other document references may remain as citations without full framework analysis):
