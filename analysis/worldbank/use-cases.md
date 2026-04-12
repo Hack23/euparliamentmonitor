@@ -45,7 +45,7 @@ Recommended Chart.js config:
 ```
 
 **AI Prompt Pattern**:
-> "Use `get-economic-data` with countryCode 'DE' (or relevant member state) and indicator keys GDP_GROWTH, INFLATION, UNEMPLOYMENT for 5 years. WB indicator IDs: NY.GDP.MKTP.KD.ZG, FP.CPI.TOTL.ZG, SL.UEM.TOTL.ZS. Include a line chart showing trends. Use this data to explain WHY the current legislative agenda matters in economic context."
+> "Use `get-economic-data` with countryCode 'DE' (ISO2 code — the tool accepts both ISO2 and alpha-3) and indicator keys GDP_GROWTH, INFLATION, UNEMPLOYMENT for 5 years. WB indicator IDs: NY.GDP.MKTP.KD.ZG, FP.CPI.TOTL.ZG, SL.UEM.TOTL.ZS. Include a line chart showing trends. Use this data to explain WHY the current legislative agenda matters in economic context."
 
 ---
 

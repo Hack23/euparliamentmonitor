@@ -144,6 +144,10 @@ export interface PolicyRelevantIndicators {
 /**
  * World Bank MCP tool names available for data fetching.
  * Maps to the tool functions on the worldbank-mcp server.
+ *
+ * These use **kebab-case** (e.g., `get-economic-data`) which matches the
+ * actual tool registration names in worldbank-mcp@1.0.0 (`server.tool('get-economic-data', ...)`).
+ * When called via the MCP gateway prefix, use `world_bank___get-economic-data(...)`.
  */
 export type WBMCPToolName =
   | 'get-economic-data'

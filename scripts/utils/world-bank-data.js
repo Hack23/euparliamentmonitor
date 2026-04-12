@@ -271,7 +271,16 @@ export function formatIndicatorValue(value, indicatorId) {
         indicatorId === POLICY_INDICATORS.inflation ||
         indicatorId === POLICY_INDICATORS.unemployment ||
         indicatorId === POLICY_INDICATORS.trade ||
-        indicatorId === POLICY_INDICATORS.rdExpenditure) {
+        indicatorId === POLICY_INDICATORS.taxRevenue ||
+        indicatorId === POLICY_INDICATORS.govExpenditure ||
+        indicatorId === POLICY_INDICATORS.militaryExpenditure ||
+        indicatorId === POLICY_INDICATORS.exportsGdp ||
+        indicatorId === POLICY_INDICATORS.healthExpenditure ||
+        indicatorId === POLICY_INDICATORS.educationExpenditure ||
+        indicatorId === POLICY_INDICATORS.internetUsers ||
+        indicatorId === POLICY_INDICATORS.renewableEnergy ||
+        indicatorId === POLICY_INDICATORS.rdExpenditure ||
+        indicatorId === POLICY_INDICATORS.hightechExports) {
         return `${value.toFixed(1)}%`;
     }
     // CO2 emissions - metric tons per capita

@@ -8,35 +8,37 @@
 
 ## EU-27 Member States
 
-| # | Country | WB Code | WB Region | Income Level | EP Seats | Capital |
-|---|---------|---------|-----------|-------------|----------|---------|
-| 1 | 🇦🇹 Austria | `AT` | Europe & Central Asia | High income | 20 | Vienna |
-| 2 | 🇧🇪 Belgium | `BE` | Europe & Central Asia | High income | 22 | Brussels |
-| 3 | 🇧🇬 Bulgaria | `BG` | Europe & Central Asia | Upper middle income | 17 | Sofia |
-| 4 | 🇭🇷 Croatia | `HR` | Europe & Central Asia | High income | 12 | Zagreb |
-| 5 | 🇨🇾 Cyprus | `CY` | Europe & Central Asia | High income | 6 | Nicosia |
-| 6 | 🇨🇿 Czechia | `CZ` | Europe & Central Asia | High income | 21 | Prague |
-| 7 | 🇩🇰 Denmark | `DK` | Europe & Central Asia | High income | 15 | Copenhagen |
-| 8 | 🇪🇪 Estonia | `EE` | Europe & Central Asia | High income | 7 | Tallinn |
-| 9 | 🇫🇮 Finland | `FI` | Europe & Central Asia | High income | 15 | Helsinki |
-| 10 | 🇫🇷 France | `FR` | Europe & Central Asia | High income | 81 | Paris |
-| 11 | 🇩🇪 Germany | `DE` | Europe & Central Asia | High income | 96 | Berlin |
-| 12 | 🇬🇷 Greece | `GR` | Europe & Central Asia | High income | 21 | Athens |
-| 13 | 🇭🇺 Hungary | `HU` | Europe & Central Asia | High income | 21 | Budapest |
-| 14 | 🇮🇪 Ireland | `IE` | Europe & Central Asia | High income | 14 | Dublin |
-| 15 | 🇮🇹 Italy | `IT` | Europe & Central Asia | High income | 76 | Rome |
-| 16 | 🇱🇻 Latvia | `LV` | Europe & Central Asia | High income | 9 | Riga |
-| 17 | 🇱🇹 Lithuania | `LT` | Europe & Central Asia | High income | 11 | Vilnius |
-| 18 | 🇱🇺 Luxembourg | `LU` | Europe & Central Asia | High income | 6 | Luxembourg |
-| 19 | 🇲🇹 Malta | `MT` | Middle East & North Africa | High income | 6 | Valletta |
-| 20 | 🇳🇱 Netherlands | `NL` | Europe & Central Asia | High income | 31 | Amsterdam |
-| 21 | 🇵🇱 Poland | `PL` | Europe & Central Asia | High income | 53 | Warsaw |
-| 22 | 🇵🇹 Portugal | `PT` | Europe & Central Asia | High income | 21 | Lisbon |
-| 23 | 🇷🇴 Romania | `RO` | Europe & Central Asia | High income | 33 | Bucharest |
-| 24 | 🇸🇰 Slovakia | `SK` | Europe & Central Asia | High income | 15 | Bratislava |
-| 25 | 🇸🇮 Slovenia | `SI` | Europe & Central Asia | High income | 9 | Ljubljana |
-| 26 | 🇪🇸 Spain | `ES` | Europe & Central Asia | High income | 61 | Madrid |
-| 27 | 🇸🇪 Sweden | `SE` | Europe & Central Asia | High income | 21 | Stockholm |
+> **⚠️ Country Code Note**: The `worldbank-mcp` tool's `countryCode` parameter accepts **both** ISO 3166-1 alpha-2 codes (e.g., `DE`) and World Bank alpha-3 codes (e.g., `DEU`). The TypeScript utility `EU_COUNTRY_CODES` in `src/utils/world-bank-data.ts` maps ISO2 → WB alpha-3 for internal use.
+
+| # | Country | ISO2 | WB Alpha-3 | WB Region | Income Level | EP Seats | Capital |
+|---|---------|------|-----------|-----------|-------------|----------|---------|
+| 1 | 🇦🇹 Austria | `AT` | `AUT` | Europe & Central Asia | High income | 20 | Vienna |
+| 2 | 🇧🇪 Belgium | `BE` | `BEL` | Europe & Central Asia | High income | 22 | Brussels |
+| 3 | 🇧🇬 Bulgaria | `BG` | `BGR` | Europe & Central Asia | Upper middle income | 17 | Sofia |
+| 4 | 🇭🇷 Croatia | `HR` | `HRV` | Europe & Central Asia | High income | 12 | Zagreb |
+| 5 | 🇨🇾 Cyprus | `CY` | `CYP` | Europe & Central Asia | High income | 6 | Nicosia |
+| 6 | 🇨🇿 Czechia | `CZ` | `CZE` | Europe & Central Asia | High income | 21 | Prague |
+| 7 | 🇩🇰 Denmark | `DK` | `DNK` | Europe & Central Asia | High income | 15 | Copenhagen |
+| 8 | 🇪🇪 Estonia | `EE` | `EST` | Europe & Central Asia | High income | 7 | Tallinn |
+| 9 | 🇫🇮 Finland | `FI` | `FIN` | Europe & Central Asia | High income | 15 | Helsinki |
+| 10 | 🇫🇷 France | `FR` | `FRA` | Europe & Central Asia | High income | 81 | Paris |
+| 11 | 🇩🇪 Germany | `DE` | `DEU` | Europe & Central Asia | High income | 96 | Berlin |
+| 12 | 🇬🇷 Greece | `GR` | `GRC` | Europe & Central Asia | High income | 21 | Athens |
+| 13 | 🇭🇺 Hungary | `HU` | `HUN` | Europe & Central Asia | High income | 21 | Budapest |
+| 14 | 🇮🇪 Ireland | `IE` | `IRL` | Europe & Central Asia | High income | 14 | Dublin |
+| 15 | 🇮🇹 Italy | `IT` | `ITA` | Europe & Central Asia | High income | 76 | Rome |
+| 16 | 🇱🇻 Latvia | `LV` | `LVA` | Europe & Central Asia | High income | 9 | Riga |
+| 17 | 🇱🇹 Lithuania | `LT` | `LTU` | Europe & Central Asia | High income | 11 | Vilnius |
+| 18 | 🇱🇺 Luxembourg | `LU` | `LUX` | Europe & Central Asia | High income | 6 | Luxembourg |
+| 19 | 🇲🇹 Malta | `MT` | `MLT` | Middle East & North Africa | High income | 6 | Valletta |
+| 20 | 🇳🇱 Netherlands | `NL` | `NLD` | Europe & Central Asia | High income | 31 | Amsterdam |
+| 21 | 🇵🇱 Poland | `PL` | `POL` | Europe & Central Asia | High income | 53 | Warsaw |
+| 22 | 🇵🇹 Portugal | `PT` | `PRT` | Europe & Central Asia | High income | 21 | Lisbon |
+| 23 | 🇷🇴 Romania | `RO` | `ROU` | Europe & Central Asia | High income | 33 | Bucharest |
+| 24 | 🇸🇰 Slovakia | `SK` | `SVK` | Europe & Central Asia | High income | 15 | Bratislava |
+| 25 | 🇸🇮 Slovenia | `SI` | `SVN` | Europe & Central Asia | High income | 9 | Ljubljana |
+| 26 | 🇪🇸 Spain | `ES` | `ESP` | Europe & Central Asia | High income | 61 | Madrid |
+| 27 | 🇸🇪 Sweden | `SE` | `SWE` | Europe & Central Asia | High income | 21 | Stockholm |
 
 **Total EP seats**: 720
 
@@ -46,46 +48,46 @@
 
 ### G7 Non-EU (Global Competitiveness Benchmark)
 
-| Country | WB Code | GDP Rank | Use Case |
-|---------|---------|----------|----------|
-| 🇺🇸 United States | `US` | 1st | Trade, technology, defence, economic benchmark |
-| 🇬🇧 United Kingdom | `GB` | 6th | Post-Brexit comparison; regulatory divergence |
-| 🇯🇵 Japan | `JP` | 4th | Aging society, technology, trade partner |
-| 🇨🇦 Canada | `CA` | 9th | Trade partner (CETA); regulatory alignment |
+| Country | ISO2 | WB Alpha-3 | GDP Rank | Use Case |
+|---------|------|-----------|----------|----------|
+| 🇺🇸 United States | `US` | `USA` | 1st | Trade, technology, defence, economic benchmark |
+| 🇬🇧 United Kingdom | `GB` | `GBR` | 6th | Post-Brexit comparison; regulatory divergence |
+| 🇯🇵 Japan | `JP` | `JPN` | 4th | Aging society, technology, trade partner |
+| 🇨🇦 Canada | `CA` | `CAN` | 9th | Trade partner (CETA); regulatory alignment |
 
 ### BRICS+ (Geopolitical Counterweights)
 
-| Country | WB Code | GDP Rank | Use Case |
-|---------|---------|----------|----------|
-| 🇨🇳 China | `CN` | 2nd | Strategic autonomy; supply chains; trade balance |
-| 🇮🇳 India | `IN` | 5th | Trade negotiations; climate; development |
-| 🇧🇷 Brazil | `BR` | 8th | Mercosur trade; deforestation; agriculture |
-| 🇷🇺 Russia | `RU` | 11th | Sanctions impact; energy dependency; security |
-| 🇿🇦 South Africa | `ZA` | 33rd | Development; trade; minerals |
+| Country | ISO2 | WB Alpha-3 | GDP Rank | Use Case |
+|---------|------|-----------|----------|----------|
+| 🇨🇳 China | `CN` | `CHN` | 2nd | Strategic autonomy; supply chains; trade balance |
+| 🇮🇳 India | `IN` | `IND` | 5th | Trade negotiations; climate; development |
+| 🇧🇷 Brazil | `BR` | `BRA` | 8th | Mercosur trade; deforestation; agriculture |
+| 🇷🇺 Russia | `RU` | `RUS` | 11th | Sanctions impact; energy dependency; security |
+| 🇿🇦 South Africa | `ZA` | `ZAF` | 33rd | Development; trade; minerals |
 
 ### EU Candidate States (Enlargement Monitoring)
 
-| Country | WB Code | Status | Use Case |
-|---------|---------|--------|----------|
-| 🇺🇦 Ukraine | `UA` | Candidate (2022) | Reconstruction; accession progress; defence |
-| 🇹🇷 Türkiye | `TR` | Candidate (1999) | Migration; customs union; geopolitics |
-| 🇷🇸 Serbia | `RS` | Candidate (2012) | Western Balkans; rule of law |
-| 🇲🇪 Montenegro | `ME` | Candidate (2010) | Frontrunner accession |
-| 🇦🇱 Albania | `AL` | Candidate (2014) | Western Balkans stability |
-| 🇲🇰 North Macedonia | `MK` | Candidate (2005) | Bilateral issues; rule of law |
-| 🇲🇩 Moldova | `MD` | Candidate (2022) | Eastern Partnership; security |
-| 🇧🇦 Bosnia & Herzegovina | `BA` | Candidate (2022) | State-building; EU accession path |
-| 🇬🇪 Georgia | `GE` | Candidate (2023) | Democracy; Eastern Partnership |
+| Country | ISO2 | WB Alpha-3 | Status | Use Case |
+|---------|------|-----------|--------|----------|
+| 🇺🇦 Ukraine | `UA` | `UKR` | Candidate (2022) | Reconstruction; accession progress; defence |
+| 🇹🇷 Türkiye | `TR` | `TUR` | Candidate (1999) | Migration; customs union; geopolitics |
+| 🇷🇸 Serbia | `RS` | `SRB` | Candidate (2012) | Western Balkans; rule of law |
+| 🇲🇪 Montenegro | `ME` | `MNE` | Candidate (2010) | Frontrunner accession |
+| 🇦🇱 Albania | `AL` | `ALB` | Candidate (2014) | Western Balkans stability |
+| 🇲🇰 North Macedonia | `MK` | `MKD` | Candidate (2005) | Bilateral issues; rule of law |
+| 🇲🇩 Moldova | `MD` | `MDA` | Candidate (2022) | Eastern Partnership; security |
+| 🇧🇦 Bosnia & Herzegovina | `BA` | `BIH` | Candidate (2022) | State-building; EU accession path |
+| 🇬🇪 Georgia | `GE` | `GEO` | Candidate (2023) | Democracy; Eastern Partnership |
 
 ### Key Trade Partners & Neighbours
 
-| Country | WB Code | Relationship | Use Case |
-|---------|---------|-------------|----------|
-| 🇰🇷 South Korea | `KR` | FTA partner | Trade; technology; IP |
-| 🇦🇺 Australia | `AU` | FTA negotiations | Trade; minerals; climate |
-| 🇳🇴 Norway | `NO` | EEA member | Single market; energy; fisheries |
-| 🇨🇭 Switzerland | `CH` | Bilateral agreements | Financial services; research; Schengen |
-| 🇮🇱 Israel | `IL` | Association agreement | Trade; technology; geopolitics |
+| Country | ISO2 | WB Alpha-3 | Relationship | Use Case |
+|---------|------|-----------|-------------|----------|
+| 🇰🇷 South Korea | `KR` | `KOR` | FTA partner | Trade; technology; IP |
+| 🇦🇺 Australia | `AU` | `AUS` | FTA negotiations | Trade; minerals; climate |
+| 🇳🇴 Norway | `NO` | `NOR` | EEA member | Single market; energy; fisheries |
+| 🇨🇭 Switzerland | `CH` | `CHE` | Bilateral agreements | Financial services; research; Schengen |
+| 🇮🇱 Israel | `IL` | `ISR` | Association agreement | Trade; technology; geopolitics |
 
 ---
 

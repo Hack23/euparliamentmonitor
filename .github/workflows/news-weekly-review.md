@@ -622,6 +622,7 @@ Read `analysis/worldbank/indicator-catalog.md` for 200+ pre-evaluated indicators
 
 **Step 4 — Fetch data within budget (max 2 WB calls for weekly review):**
 ```
+// countryCode accepts ISO2 codes (DE, IT) — the WB MCP tool resolves both ISO2 and alpha-3
 world_bank___get_economic_data({ countryCode: "DE", indicator: "GDP_GROWTH", years: 5 })
 world_bank___get_health_data({ countryCode: "IT", indicator: "HEALTH_EXPENDITURE", years: 5 })
 ```
