@@ -474,6 +474,8 @@ elif [ "$EP_AT_STATUS" = "200" ]; then
   echo "✅ EP API reachable — adopted-texts endpoint confirmed working"
 elif [ "$EP_STATUS" -ge 500 ] 2>/dev/null; then
   echo "⚠️ EP API returning server errors (HTTP $EP_STATUS) — MCP health gate may also fail"
+else
+  echo "ℹ️ EP API partial response (meps: $EP_STATUS, adopted-texts: $EP_AT_STATUS) — proceed with MCP health gate"
 fi
 ```
 

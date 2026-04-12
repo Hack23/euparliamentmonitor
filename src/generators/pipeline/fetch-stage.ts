@@ -1473,6 +1473,27 @@ function getWiderTimeframe(current: FeedTimeframe): FeedTimeframe | undefined {
 }
 
 /**
+ * Detect whether a parsed MCP response envelope indicates an upstream timeout.
+ * The EP MCP server returns `{ timedOut: true, status: "timeout" }` when the
+ * upstream EP API did not respond within the configured timeout window.
+ * Logs a warning when a timeout is detected.
+ *
+ * @param envelope - Parsed response envelope
+ * @returns true if the response indicates an upstream timeout
+ */
+function isUpstreamTimeout(envelope: Record<string, unknown>): boolean {
+  if (envelope['timedOut'] === true || envelope['status'] === 'timeout') {
+    const toolName = envelope['toolName'] ? String(envelope['toolName']) : 'unknown';
+    console.warn(
+      `${WARN_PREFIX} EP MCP upstream timeout for ${toolName} — data may be incomplete. ` +
+        'Consider using year-based endpoints as fallback.'
+    );
+    return true;
+  }
+  return false;
+}
+
+/**
  * Parse a feed result from MCP into a flat array of items.
  * EP API v2 feeds return items under the `data` key:
  * `{ data: [{ id, type, work_type, identifier, label }], "@context": [...] }`
@@ -1487,15 +1508,8 @@ function parseFeedResult(result: MCPToolResult | undefined): Record<string, unkn
   if (!result?.content?.[0]?.text) return [];
   const parsed = parseJSON<unknown>(result.content[0].text, 'feed');
   if (!parsed) return [];
-  // Detect upstream timeout responses from EP MCP server
   const envelope = parsed as Record<string, unknown>;
-  if (envelope['timedOut'] === true || envelope['status'] === 'timeout') {
-    const toolName = envelope['toolName'] ? String(envelope['toolName']) : 'unknown';
-    console.warn(
-      `${WARN_PREFIX} EP MCP upstream timeout for ${toolName} — data may be incomplete. ` +
-        'Consider using year-based endpoints as fallback.'
-    );
-  }
+  isUpstreamTimeout(envelope);
   // EP API v2 feeds use `data` key; also check legacy shapes
   const candidates = [
     envelope['data'],
@@ -1527,14 +1541,7 @@ function parseFeedEnvelope(result: MCPToolResult | undefined): {
   const parsed = parseJSON<unknown>(result.content[0].text, 'feed');
   if (!parsed || typeof parsed !== 'object') return { items: [], total: 0 };
   const envelope = parsed as Record<string, unknown>;
-  // Detect upstream timeout responses from EP MCP server
-  if (envelope['timedOut'] === true || envelope['status'] === 'timeout') {
-    const toolName = envelope['toolName'] ? String(envelope['toolName']) : 'unknown';
-    console.warn(
-      `${WARN_PREFIX} EP MCP upstream timeout for ${toolName} — data may be incomplete. ` +
-        'Consider using year-based endpoints as fallback.'
-    );
-  }
+  isUpstreamTimeout(envelope);
   const total = typeof envelope['total'] === 'number' ? envelope['total'] : 0;
   const candidates = [
     envelope['data'],
