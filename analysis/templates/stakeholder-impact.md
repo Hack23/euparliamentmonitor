@@ -309,6 +309,33 @@ flowchart TD
 
 **Cross-Committee Tension:** `[REQUIRED: 1–2 sentences on whether committees align or diverge on stakeholder impact. E.g., "ENVI prioritizes environmental protection (negative for Business) while ITRE emphasizes competitiveness (positive for Business), creating legislative tension during inter-committee compromise amendments and subsequent trilogue with Council/Commission."]`
 
+---
+
+## 📊 World Bank Economic Context for Stakeholder Impact
+
+> **AI Instructions:** When stakeholder impacts have economic dimensions, quantify with World Bank data. Use `analysis/worldbank/indicator-catalog.md` as the full indicator reference (200+ indicators). Use `analysis/worldbank/eu-country-mapping.md` for comparison country groups.
+
+### Key Economic Indicators for Stakeholder Assessment
+
+| Stakeholder Group | Relevant WB Indicators | MCP Tool | Comparison Group |
+|-------------------|----------------------|----------|-----------------|
+| 🏘️ Citizens | Inflation, Unemployment, GINI, Health Expenditure | `get-economic-data`, `get-health-data` | Affected member states |
+| 🏭 Business | GDP Growth, Tax Revenue, Ease of Business, FDI | `get-economic-data` | EU Big Four + competitors |
+| 🤝 Member States | Gov Debt, Tax Revenue, Gov Expenditure | `get-economic-data` | Eurozone Core vs Convergence |
+| 🌍 International | Exports (% GDP), FDI, Military Expenditure | `get-economic-data` | EU vs G7, EU vs BRICS |
+
+### WB Data Mermaid Template for Stakeholder Impact
+
+> Replace placeholder values with actual WB MCP data.
+
+```mermaid
+xychart-beta
+    title "Economic Impact on Key Stakeholder Groups"
+    x-axis ["Citizens", "Business", "Member States", "International"]
+    y-axis "Impact Severity (1-5)" 0 --> 5
+    bar [0, 0, 0, 0]
+```
+
 ### MCP Data Files Used
 
 ```

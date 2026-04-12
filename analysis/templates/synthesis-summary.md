@@ -424,6 +424,28 @@ flowchart LR
 
 ---
 
+## 📊 World Bank Economic Context Summary
+
+> **AI Instructions:** Include a summary of World Bank data context for the synthesis period. This provides economic backdrop for interpreting political developments. Reference `analysis/worldbank/indicator-catalog.md` for the full indicator catalog (200+ indicators).
+
+### Period Economic Snapshot
+
+| Indicator | EU Aggregate (EUU) | Top Mover | Bottom Mover | Trend |
+|-----------|:------------------:|-----------|-------------|:-----:|
+| GDP Growth (%) | `[fetch from WB]` | `[e.g. PL +3.1%]` | `[e.g. DE -0.5%]` | ↑↓→ |
+| Inflation (%) | `[fetch from WB]` | | | ↑↓→ |
+| Unemployment (%) | `[fetch from WB]` | | | ↑↓→ |
+
+### Key WB Indicators for This Period
+
+`[REQUIRED: 2-3 sentences explaining which economic indicators are most relevant to the political developments summarized above, and why. E.g., "Rising inflation across Southern EU states explains ECON committee urgency on ECB oversight reform."]`
+
+### Recommended Chart for Article
+
+`[REQUIRED: Specify which Chart.js template from analysis/worldbank/chart-integration-guide.md should be used to visualize the economic context in the generated article.]`
+
+---
+
 ## 📂 MCP Data Files Used
 
 `[REQUIRED: List all EP MCP data file paths consulted for this synthesis]`

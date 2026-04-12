@@ -602,7 +602,12 @@ european_parliament___generate_political_landscape({})
 
 ## 🌍 World Bank Economic Context (Optional Enrichment)
 
-When the weekly review covers votes or decisions with economic, trade, employment, defence, or environmental impact, use the `world-bank` MCP server to add macroeconomic context. Refer to `analysis/worldbank/indicator-catalog.md` for the complete indicator reference and `analysis/worldbank/chart-integration-guide.md` for Chart.js integration patterns.
+When the weekly review covers votes or decisions with economic, trade, employment, defence, or environmental impact, use the `world-bank` MCP server to add macroeconomic context. 
+**📚 Full Reference Documents (MUST READ for indicator selection):**
+- `analysis/worldbank/indicator-catalog.md` — Complete catalog of **200+ indicators** organized by 10 EP policy domains
+- `analysis/worldbank/eu-country-mapping.md` — EU-27 codes + comparison groups (G7, BRICS, EU candidates)
+- `analysis/worldbank/chart-integration-guide.md` — Chart.js templates + 7 Mermaid visualization templates
+- `analysis/worldbank/use-cases.md` — When each indicator type adds value to articles
 
 ### Available World Bank MCP Tools
 
@@ -614,6 +619,22 @@ When the weekly review covers votes or decisions with economic, trade, employmen
 | `get-education-data` | EDUCATION_EXPENDITURE, SCHOOL_ENROLLMENT, LITERACY_RATE, SCHOOL_COMPLETION | Education, skills agenda |
 | `get-country-info` | Country metadata (region, income, capital) | Country context verification |
 | `get-countries` | Filter by region/income | EU member state listings |
+| `search-indicators` | Search by keyword | Discover new indicators for specific policy topics |
+
+### Extended Indicators Available (via committee-indicator-map.ts WB API IDs)
+
+These indicators are mapped in the codebase but use direct WB API IDs. See `analysis/worldbank/indicator-catalog.md` for the full 200+ catalog.
+
+| Category | Key Indicators | WB IDs |
+|----------|---------------|--------|
+| **Fiscal** | Tax Revenue, Gov Debt, Gov Expenditure | GC.TAX.TOTL.GD.ZS, GC.DOD.TOTL.GD.ZS, NE.CON.GOVT.ZS |
+| **Defence** | Military Expenditure (% GDP), Armed Forces | MS.MIL.XPND.GD.ZS, MS.MIL.TOTL.P1 |
+| **Climate** | CO₂ per capita, Renewables %, Energy imports | EN.ATM.CO2E.PC, EG.FEC.RNEW.ZS, EG.IMP.CONS.ZS |
+| **Labor** | Youth Unemployment, Female Labor, GINI | SL.UEM.1524.ZS, SL.TLF.CACT.FE.ZS, SI.POV.GINI |
+| **Agriculture** | Agriculture % GDP, Cereal Yield | NV.AGR.TOTL.ZS, AG.YLD.CREL.KG |
+| **Innovation** | R&D % GDP, High-tech Exports, Patents | GB.XPD.RSDV.GD.ZS, TX.VAL.TECH.MF.ZS, IP.PAT.RESD |
+| **Demographics** | Pop 65+, Net Migration, Urban % | SP.POP.65UP.TO.ZS, SM.POP.NETM, SP.URB.TOTL.IN.ZS |
+| **Governance** | Women in Parliament | SG.GEN.PARL.ZS |
 
 ### Key Indicators for Weekly Review
 

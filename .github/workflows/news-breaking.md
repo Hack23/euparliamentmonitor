@@ -1022,18 +1022,39 @@ The **SWOT** section helps assess breaking news implications. The **Mindmap** se
 
 ## 🌍 World Bank Economic Context (Optional Enrichment)
 
-When the breaking news involves economic policy, budget decisions, defence, trade, or environmental legislation, use the `world-bank` MCP server to add macroeconomic context. Refer to `analysis/worldbank/indicator-catalog.md` for the complete indicator reference and `analysis/worldbank/chart-integration-guide.md` for Chart.js integration patterns.
+When the breaking news involves economic policy, budget decisions, defence, trade, or environmental legislation, use the `world-bank` MCP server to add macroeconomic context.
+
+**📚 Full Reference Documents (MUST READ for indicator selection):**
+- `analysis/worldbank/indicator-catalog.md` — Complete catalog of **200+ indicators** organized by 10 EP policy domains
+- `analysis/worldbank/eu-country-mapping.md` — EU-27 codes + comparison groups (G7, BRICS, EU candidates)
+- `analysis/worldbank/chart-integration-guide.md` — Chart.js templates + 7 Mermaid visualization templates
+- `analysis/worldbank/use-cases.md` — When each indicator type adds value to articles
 
 ### Available World Bank MCP Tools
 
 | Tool | Key Indicators | When to Use |
 |------|---------------|-------------|
-| `get-economic-data` | GDP, GDP_GROWTH, GDP_PER_CAPITA, GNI_PER_CAPITA, INFLATION, UNEMPLOYMENT, EXPORTS_GDP, FDI_NET | Economic legislation, budget, trade |
+| `get-economic-data` | GDP, GDP_GROWTH, GDP_PER_CAPITA, GNI, GNI_PER_CAPITA, INFLATION, UNEMPLOYMENT, EXPORTS_GDP, FDI_NET | Economic legislation, budget, trade |
 | `get-social-data` | POPULATION, LIFE_EXPECTANCY, BIRTH_RATE, DEATH_RATE, INTERNET_USERS | Demographics, digital policy, social rights |
-| `get-health-data` | HEALTH_EXPENDITURE, PHYSICIANS, HOSPITAL_BEDS, IMMUNIZATION, MALNUTRITION, TUBERCULOSIS | Health policy, pandemic preparedness |
-| `get-education-data` | EDUCATION_EXPENDITURE, SCHOOL_ENROLLMENT, LITERACY_RATE, SCHOOL_COMPLETION | Education, skills agenda |
+| `get-health-data` | HEALTH_EXPENDITURE, PHYSICIANS, HOSPITAL_BEDS, IMMUNIZATION, HIV_PREVALENCE, MALNUTRITION, TUBERCULOSIS | Health policy, pandemic preparedness |
+| `get-education-data` | EDUCATION_EXPENDITURE, SCHOOL_ENROLLMENT, SCHOOL_COMPLETION, TEACHERS_PRIMARY, LITERACY_RATE | Education, skills agenda |
 | `get-country-info` | Country metadata (region, income, capital) | Country context verification |
 | `get-countries` | Filter by region/income | EU member state listings |
+| `search-indicators` | Search by keyword | Discover new indicators for specific policy topics |
+
+### Extended Indicators Available (via committee-indicator-map.ts WB API IDs)
+
+These indicators are mapped in the codebase with their WB API IDs but require using the direct WB API IDs:
+
+| Category | Key Indicators | WB IDs |
+|----------|---------------|--------|
+| **Fiscal** | Tax Revenue, Gov Debt, Gov Expenditure | GC.TAX.TOTL.GD.ZS, GC.DOD.TOTL.GD.ZS, NE.CON.GOVT.ZS |
+| **Defence** | Military Expenditure (% GDP), Armed Forces | MS.MIL.XPND.GD.ZS, MS.MIL.TOTL.P1 |
+| **Climate** | CO₂ per capita, Renewables %, Energy imports | EN.ATM.CO2E.PC, EG.FEC.RNEW.ZS, EG.IMP.CONS.ZS |
+| **Labor** | Youth Unemployment, Female Labor Force, GINI | SL.UEM.1524.ZS, SL.TLF.CACT.FE.ZS, SI.POV.GINI |
+| **Agriculture** | Agriculture % GDP, Cereal Yield | NV.AGR.TOTL.ZS, AG.YLD.CREL.KG |
+| **Innovation** | R&D % GDP, High-tech Exports, Patents | GB.XPD.RSDV.GD.ZS, TX.VAL.TECH.MF.ZS, IP.PAT.RESD |
+| **Demographics** | Population 65+, Net Migration, Urban % | SP.POP.65UP.TO.ZS, SM.POP.NETM, SP.URB.TOTL.IN.ZS |
 
 ### Key Indicators for Breaking News
 
@@ -1045,10 +1066,20 @@ world_bank___get_economic_data({ countryCode: "DE", indicator: "GDP_GROWTH", yea
 // Use with countries: DE, FR, PL, IT, ES — compare against NATO 2% GDP target
 world_bank___get_economic_data({ countryCode: "PL", indicator: "UNEMPLOYMENT", years: 5 })
 
-// Tax revenue for fiscal policy news (World Bank indicator: GC.TAX.TOTL.GD.ZS)
-// Health expenditure for health policy news (World Bank indicator: SH.XPD.CHEX.GD.ZS)
-world_bank___get_health_data({ countryCode: "DE", indicator: "HEALTH_EXPENDITURE", years: 5 })
+// Compare EU vs global: use US, CN, JP, GB for benchmarking
+world_bank___get_economic_data({ countryCode: "US", indicator: "GDP_GROWTH", years: 5 })
+world_bank___get_economic_data({ countryCode: "CN", indicator: "GDP_GROWTH", years: 5 })
 ```
+
+### Comparison Country Groups for Breaking News
+
+| Comparison | Countries | When to Use |
+|-----------|-----------|-------------|
+| **Big Four** | DE, FR, IT, ES | EU-internal economic comparison |
+| **EU vs G7** | EUU vs US, GB, JP | Global competitiveness context |
+| **EU vs BRICS** | EUU vs CN, IN, RU | Geopolitical/strategic context |
+| **EU Candidates** | UA, TR, RS | Enlargement-related news |
+| **NATO** | DE, FR, PL, IT + US, GB | Defence spending comparison |
 
 ### Chart Integration for Breaking News
 
@@ -1057,11 +1088,13 @@ When including economic data, embed Chart.js visualizations using `buildDashboar
 - **Defence breaking news**: Bar chart with military spending vs NATO 2% target (use `chartjs-plugin-annotation` for target line)
 - **Employment breaking news**: Bar chart comparing unemployment across affected member states
 
+For analysis .md files, use Mermaid `xychart-beta`, `quadrantChart`, or `pie` chart templates from `analysis/worldbank/chart-integration-guide.md`.
+
 **Rules**: Use at most 1 World Bank call per breaking news workflow run. Only include when the breaking event has immediate economic significance. Always note the data year.
 
 ### EU Country Codes for World Bank
 
-Key EU member states: DE (Germany), FR (France), IT (Italy), ES (Spain), PL (Poland), NL (Netherlands), RO (Romania), BE (Belgium), SE (Sweden), AT (Austria). EU aggregate: EUU. See `analysis/worldbank/eu-country-mapping.md` for complete EU-27 mapping.
+Key EU member states: DE (Germany), FR (France), IT (Italy), ES (Spain), PL (Poland), NL (Netherlands), RO (Romania), BE (Belgium), SE (Sweden), AT (Austria). EU aggregate: EUU. See `analysis/worldbank/eu-country-mapping.md` for complete EU-27 mapping + comparison groups.
 
 
 ## 📄 EP DOCUMENT ANALYSIS FRAMEWORK (MANDATORY)
