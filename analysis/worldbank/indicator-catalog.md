@@ -1,0 +1,553 @@
+# 📊 World Bank Indicator Catalog — Complete Reference
+
+> **Purpose**: Exhaustive catalog of World Bank indicators available via the `worldbank-mcp` MCP server tools and the broader WB API, organized by EP policy domain. AI workflows MUST reference this catalog when selecting indicators for articles and analysis documents.
+
+**📅 Last Updated:** 2026-04-12 | **🏷️ Classification:** Public | **Indicator Count:** 200+
+
+---
+
+## 🤖 AI Agent / Agentic Workflow Instructions
+
+**This catalog is a reference document, NOT a hard limit.** The World Bank has **thousands** of indicators. Follow this process for every article or analysis:
+
+### Step 1: Determine Relevance
+Does the article topic involve economic policy, employment, health, environment, defence, trade, education, agriculture, demographics, or governance? If YES → add World Bank context.
+
+### Step 2: Discover Indicators On Demand
+**Always use `search-indicators` first** to find the best match for the specific policy topic:
+```
+world_bank___search_indicators({ keyword: "renewable energy" })
+world_bank___search_indicators({ keyword: "youth unemployment" })
+world_bank___search_indicators({ keyword: "military expenditure" })
+```
+This returns indicators NOT in this catalog — the WB API has thousands more. Use search results to find the **most specific** indicator for your topic.
+
+### Step 3: Cross-Reference This Catalog
+After searching, check this catalog for:
+- **Priority ranking** (🔴🟡🟢⚪) — which indicators are most impactful
+- **EP committee relevance** — which committee's mandate the indicator maps to
+- **Comparison country groups** — see `eu-country-mapping.md`
+
+### Step 4: Fetch Data (Within Budget)
+Each workflow has a `maxWBCalls` limit (1-3 calls). Pick the highest-impact indicators.
+- Use `get-economic-data`, `get-social-data`, `get-health-data`, `get-education-data` for named keys
+- Use `years: 5` for articles, `years: 10` for trend analysis
+
+### Step 5: Visualize
+- **HTML articles**: Chart.js via `buildDashboardSection()` — see `chart-integration-guide.md`
+- **Analysis .md files**: Mermaid `xychart-beta`, `quadrantChart`, or `pie` — see `chart-integration-guide.md`
+
+---
+
+## 🔑 How to Read This Catalog
+
+- **Tool column**: Which WB MCP tool fetches this indicator (or `API` for direct WB API indicators mapped in `committee-indicator-map.ts`)
+- **Indicator Key**: The string passed to the MCP tool's `indicator` parameter
+- **WB ID**: World Bank indicator code for reference and `search-indicators` lookups
+- **Priority**: 🔴 Critical (always include) | 🟡 High (include when relevant) | 🟢 Medium (optional context) | ⚪ Specialized
+- **Annual data only** — all indicators are time series with annual frequency
+- **Years parameter**: Default 10 years; use 5 for articles, 10-20 for trend analysis
+
+---
+
+## 📐 Indicator Organization by EP Policy Domain
+
+```mermaid
+mindmap
+  root((World Bank<br/>Indicators))
+    Economic & Monetary
+      GDP & Growth
+      Inflation & Prices
+      Employment
+      Trade & Investment
+      Fiscal Policy
+    Social & Demographic
+      Population
+      Labor Market
+      Migration
+      Inequality
+    Health & Food Safety
+      Health Systems
+      Disease
+      Nutrition
+    Environment & Energy
+      Climate
+      Energy
+      Natural Resources
+    Education & Culture
+      Spending
+      Enrollment
+      Outcomes
+    Industry & Innovation
+      R&D
+      Technology
+      Infrastructure
+    Agriculture & Fisheries
+      Production
+      Land Use
+      Food Security
+    Defence & Foreign Affairs
+      Military
+      Aid
+      Governance
+```
+
+---
+
+## 1️⃣ ECONOMIC & MONETARY POLICY (ECON/BUDG/CONT)
+
+### 1.1 GDP & National Accounts
+
+| Tool | Key | WB ID | Full Name | Unit | EP Relevance | Priority |
+|------|-----|-------|-----------|------|-------------|----------|
+| `get-economic-data` | `GDP` | NY.GDP.MKTP.CD | GDP (current US$) | US$ | EU budget contributions; economic weight in Council | 🔴 |
+| `get-economic-data` | `GDP_GROWTH` | NY.GDP.MKTP.KD.ZG | GDP growth (annual %) | % | Stability & Growth Pact; recession indicators | 🔴 |
+| `get-economic-data` | `GDP_PER_CAPITA` | NY.GDP.PCAP.CD | GDP per capita (current US$) | US$ | Cohesion fund eligibility (75% EU avg); convergence | 🟡 |
+| `get-economic-data` | `GNI` | NY.GNP.MKTP.CD | GNI (current US$) | US$ | EU budget own resources calculation | 🟡 |
+| `get-economic-data` | `GNI_PER_CAPITA` | NY.GNP.PCAP.CD | GNI per capita, Atlas (US$) | US$ | ODA commitment (0.7% GNI target) | 🟡 |
+| API | — | NY.GDP.MKTP.KD | GDP (constant 2015 US$) | US$ | Real growth comparison across states | 🟢 |
+| API | — | NY.GDP.MKTP.PP.CD | GDP, PPP (current intl $) | Intl$ | Purchasing power comparison | 🟢 |
+| API | — | NY.GDP.PCAP.PP.CD | GDP per capita, PPP | Intl$ | Living standard comparison | 🟢 |
+| API | — | NY.GDP.DEFL.KD.ZG | GDP deflator (annual %) | % | Price level changes; real vs. nominal | 🟢 |
+| API | — | NE.GDI.TOTL.ZS | Gross capital formation (% GDP) | % | Investment activity indicator | 🟢 |
+| API | — | NE.DAB.TOTL.ZS | Gross national expenditure (% GDP) | % | Domestic demand strength | ⚪ |
+
+### 1.2 Inflation & Prices
+
+| Tool | Key | WB ID | Full Name | Unit | EP Relevance | Priority |
+|------|-----|-------|-----------|------|-------------|----------|
+| `get-economic-data` | `INFLATION` | FP.CPI.TOTL.ZG | Inflation, consumer prices (annual %) | % | ECB policy; cost-of-living legislation | 🔴 |
+| API | — | FP.CPI.TOTL | Consumer price index (2010 = 100) | Index | Price level comparison over time | 🟢 |
+| API | — | NY.GDP.DEFL.KD.ZG | GDP deflator (annual %) | % | Broad price changes | 🟢 |
+| API | — | FP.WPI.TOTL | Wholesale price index | Index | Producer cost pressure | ⚪ |
+
+### 1.3 Employment & Labor Market
+
+| Tool | Key | WB ID | Full Name | Unit | EP Relevance | Priority |
+|------|-----|-------|-----------|------|-------------|----------|
+| `get-economic-data` | `UNEMPLOYMENT` | SL.UEM.TOTL.ZS | Unemployment (% of total labor force) | % | Employment policy; European Pillar of Social Rights | 🔴 |
+| API | — | SL.UEM.1524.ZS | Youth unemployment (% ages 15-24) | % | Youth Guarantee; skills mismatch; EMPL committee | 🔴 |
+| API | — | SL.UEM.LTRM.ZS | Long-term unemployment (% total) | % | Structural employment challenges | 🟡 |
+| API | — | SL.TLF.CACT.ZS | Labor force participation (% pop 15+) | % | Workforce engagement; gender gaps | 🟡 |
+| API | — | SL.TLF.CACT.FE.ZS | Female labor force participation (%) | % | Gender equality; FEMM committee | 🟡 |
+| API | — | SL.TLF.CACT.MA.ZS | Male labor force participation (%) | % | Gender gap benchmark | 🟢 |
+| API | — | SL.EMP.TOTL.SP.ZS | Employment to population ratio, 15+ | % | Broad employment health | 🟢 |
+| API | — | SL.EMP.VULN.ZS | Vulnerable employment (% total) | % | Precarious work; gig economy | 🟢 |
+| API | — | SL.EMP.WORK.ZS | Wage and salaried workers (% total) | % | Formal employment structure | ⚪ |
+| API | — | SL.EMP.SELF.ZS | Self-employed (% total employment) | % | Entrepreneurship; platform work | ⚪ |
+| API | — | SL.TLF.TOTL.IN | Labor force, total | Count | Workforce size comparison | ⚪ |
+| API | — | SL.UEM.TOTL.NE.ZS | Unemployment (% national estimate) | % | National vs. ILO methodology | ⚪ |
+
+### 1.4 Trade & Investment
+
+| Tool | Key | WB ID | Full Name | Unit | EP Relevance | Priority |
+|------|-----|-------|-----------|------|-------------|----------|
+| `get-economic-data` | `EXPORTS_GDP` | NE.EXP.GNFS.ZS | Exports (% of GDP) | % | Trade policy; export dependency | 🟡 |
+| `get-economic-data` | `FDI_NET` | BN.KLT.DINV.CD | FDI net inflows (BoP, current US$) | US$ | Investment screening; sovereignty | 🟡 |
+| API | — | NE.TRD.GNFS.ZS | Trade (% of GDP) | % | Single market openness | 🟡 |
+| API | — | NE.IMP.GNFS.ZS | Imports (% of GDP) | % | Trade balance; dependency | 🟢 |
+| API | — | BN.CAB.XOKA.GD.ZS | Current account balance (% GDP) | % | External sustainability | 🟢 |
+| API | — | BX.KLT.DINV.WD.GD.ZS | FDI net inflows (% of GDP) | % | Investment attractiveness | 🟢 |
+| API | — | TX.VAL.TECH.MF.ZS | High-tech exports (% manufactured) | % | Strategic autonomy; tech sovereignty | 🟡 |
+| API | — | TX.VAL.MRCH.CD.WT | Merchandise exports (current US$) | US$ | Trade volume | ⚪ |
+| API | — | TM.VAL.MRCH.CD.WT | Merchandise imports (current US$) | US$ | Import dependency | ⚪ |
+| API | — | BX.TRF.PWKR.CD.DT | Personal remittances received (US$) | US$ | Migration economics | ⚪ |
+| API | — | IC.BUS.EASE.XQ | Ease of doing business score | Score | Regulatory environment | 🟢 |
+
+### 1.5 Fiscal & Public Finance
+
+| Tool | Key | WB ID | Full Name | Unit | EP Relevance | Priority |
+|------|-----|-------|-----------|------|-------------|----------|
+| API | — | GC.TAX.TOTL.GD.ZS | Tax revenue (% of GDP) | % | EU tax harmonization; Pillar Two | 🔴 |
+| API | — | NE.CON.GOVT.ZS | Gov final consumption (% GDP) | % | Fiscal discipline; Stability Pact | 🔴 |
+| API | — | GC.DOD.TOTL.GD.ZS | Central gov debt (% of GDP) | % | Maastricht 60% criterion | 🔴 |
+| API | — | GC.BAL.CASH.GD.ZS | Cash surplus/deficit (% GDP) | % | Maastricht 3% deficit criterion | 🟡 |
+| API | — | GC.REV.XGRT.GD.ZS | Revenue excl. grants (% GDP) | % | Tax capacity; fiscal space | 🟡 |
+| API | — | GC.XPN.TOTL.GD.ZS | Expense (% of GDP) | % | Public spending level | 🟢 |
+| API | — | GC.NFN.TOTL.GD.ZS | Net investment (% GDP) | % | Public infrastructure investment | ⚪ |
+| API | — | DT.DOD.DECT.GD.ZS | External debt stocks (% GNI) | % | External vulnerability | 🟢 |
+| API | — | DT.TDS.DECT.GD.ZS | Total debt service (% GNI) | % | Debt sustainability | ⚪ |
+| API | — | FM.LBL.BMNY.GD.ZS | Broad money (% of GDP) | % | Monetary conditions | ⚪ |
+| API | — | FR.INR.RINR | Real interest rate (%) | % | Borrowing costs; monetary transmission | ⚪ |
+| API | — | FR.INR.LEND | Lending interest rate (%) | % | Credit conditions | ⚪ |
+| API | — | CM.MKT.LCAP.GD.ZS | Market capitalization (% GDP) | % | Financial market depth | ⚪ |
+
+### 1.6 Monetary & Financial
+
+| Tool | Key | WB ID | Full Name | Unit | EP Relevance | Priority |
+|------|-----|-------|-----------|------|-------------|----------|
+| API | — | PA.NUS.FCRF | Official exchange rate (LCU/$) | Rate | Currency competitiveness | ⚪ |
+| API | — | PA.NUS.PPP | PPP conversion factor | Factor | Price level comparison | ⚪ |
+| API | — | FI.RES.TOTL.CD | Total reserves (incl. gold, US$) | US$ | Financial resilience | ⚪ |
+| API | — | FD.AST.PRVT.GD.ZS | Domestic credit to private sector (% GDP) | % | Financial sector depth | 🟢 |
+| API | — | FB.CBK.BRCH.P5 | Commercial bank branches (per 100k adults) | Per 100k | Financial inclusion | ⚪ |
+
+---
+
+## 2️⃣ SOCIAL POLICY & DEMOGRAPHICS (EMPL/LIBE/FEMM)
+
+### 2.1 Population & Demographics
+
+| Tool | Key | WB ID | Full Name | Unit | EP Relevance | Priority |
+|------|-----|-------|-----------|------|-------------|----------|
+| `get-social-data` | `POPULATION` | SP.POP.TOTL | Population, total | Count | EP seat allocation; degressive proportionality | 🔴 |
+| `get-social-data` | `LIFE_EXPECTANCY` | SP.DYN.LE00.IN | Life expectancy at birth (years) | Years | Health policy outcomes; SDGs | 🟡 |
+| `get-social-data` | `BIRTH_RATE` | SP.DYN.CBRT.IN | Birth rate (per 1,000) | Rate | Demographic challenges; pension policy | 🟢 |
+| `get-social-data` | `DEATH_RATE` | SP.DYN.CDRT.IN | Death rate (per 1,000) | Rate | Public health; aging population | 🟢 |
+| API | — | SP.POP.GROW | Population growth (annual %) | % | Rural depopulation; territorial cohesion | 🟡 |
+| API | — | SP.POP.65UP.TO.ZS | Population ages 65+ (% of total) | % | Aging society; pension sustainability | 🔴 |
+| API | — | SP.POP.0014.TO.ZS | Population ages 0-14 (% total) | % | Youth dependency; education demand | 🟢 |
+| API | — | SP.POP.1564.TO.ZS | Population ages 15-64 (% total) | % | Working-age population | 🟢 |
+| API | — | SP.URB.TOTL.IN.ZS | Urban population (% of total) | % | Urbanization; territorial cohesion | 🟡 |
+| API | — | SP.DYN.TFRT.IN | Fertility rate (births per woman) | Rate | Long-term demographic trajectory | 🟢 |
+| API | — | SP.DYN.LE00.FE.IN | Life expectancy, female (years) | Years | Gender health gap | 🟢 |
+| API | — | SP.DYN.LE00.MA.IN | Life expectancy, male (years) | Years | Gender health gap | 🟢 |
+| API | — | SP.DYN.IMRT.IN | Infant mortality (per 1,000 live births) | Rate | Health system quality indicator | 🟢 |
+| API | — | SP.ADO.TFRT | Adolescent fertility rate | Rate | Gender equality; youth policy | ⚪ |
+| API | — | SP.POP.DPND.OL | Old-age dependency ratio | Ratio | Pension system stress | 🟡 |
+| API | — | SP.POP.DPND.YG | Age dependency ratio, young | Ratio | Youth support needs | ⚪ |
+
+### 2.2 Migration
+
+| Tool | Key | WB ID | Full Name | Unit | EP Relevance | Priority |
+|------|-----|-------|-----------|------|-------------|----------|
+| API | — | SM.POP.NETM | Net migration | Count | Migration policy; asylum reform; burden-sharing | 🔴 |
+| API | — | SM.POP.REFG | Refugee population by country of asylum | Count | Asylum policy; burden-sharing | 🟡 |
+| API | — | SM.POP.REFG.OR | Refugee population by origin | Count | Foreign policy implications | 🟢 |
+| API | — | SM.POP.TOTL.ZS | International migrant stock (% pop) | % | Integration policy | 🟡 |
+| API | — | BX.TRF.PWKR.DT.GD.ZS | Personal remittances (% GDP) | % | Diaspora economics | ⚪ |
+
+### 2.3 Inequality & Poverty
+
+| Tool | Key | WB ID | Full Name | Unit | EP Relevance | Priority |
+|------|-----|-------|-----------|------|-------------|----------|
+| API | — | SI.POV.GINI | GINI index | Index | Income inequality; social pillar | 🔴 |
+| API | — | SI.POV.NAHC | Poverty headcount (national line, %) | % | National poverty; cohesion policy | 🟡 |
+| API | — | SI.DST.10TH.10 | Income share held by highest 10% | % | Wealth concentration | 🟡 |
+| API | — | SI.DST.FRST.10 | Income share held by lowest 10% | % | Bottom-decile wellbeing | 🟡 |
+| API | — | SI.SPR.PCAP.ZG | Annualized growth, bottom 40% | % | Shared prosperity; inclusive growth | 🟢 |
+| API | — | SI.POV.DDAY | Poverty headcount ($2.15/day) | % | Extreme poverty (development context) | ⚪ |
+
+### 2.4 Gender Equality (FEMM)
+
+| Tool | Key | WB ID | Full Name | Unit | EP Relevance | Priority |
+|------|-----|-------|-----------|------|-------------|----------|
+| API | — | SL.TLF.CACT.FE.ZS | Female labor force participation (%) | % | Gender equality; pay gap debates | 🔴 |
+| API | — | SL.UEM.TOTL.FE.ZS | Female unemployment (%) | % | Gender employment gap | 🟡 |
+| API | — | SE.ENR.TERT.FM.ZS | School enrollment, tertiary (female %) | % | Women in higher education | 🟢 |
+| API | — | SG.GEN.PARL.ZS | Women in national parliaments (%) | % | Political representation | 🔴 |
+| API | — | SL.EMP.TOTL.SP.FE.ZS | Employment ratio, female (%) | % | Women's economic activity | 🟢 |
+
+---
+
+## 3️⃣ HEALTH & FOOD SAFETY (ENVI — health dimension)
+
+### 3.1 Health Systems
+
+| Tool | Key | WB ID | Full Name | Unit | EP Relevance | Priority |
+|------|-----|-------|-----------|------|-------------|----------|
+| `get-health-data` | `HEALTH_EXPENDITURE` | SH.XPD.CHEX.GD.ZS | Health expenditure (% GDP) | % | EU4Health; pandemic preparedness | 🟡 |
+| `get-health-data` | `PHYSICIANS` | SH.MED.PHYS.ZS | Physicians (per 1,000 people) | Per 1k | Healthcare capacity; cross-border health | 🟢 |
+| `get-health-data` | `HOSPITAL_BEDS` | SH.MED.BEDS.ZS | Hospital beds (per 1,000 people) | Per 1k | Health infrastructure; pandemic resilience | 🟢 |
+| `get-health-data` | `IMMUNIZATION` | SH.IMM.MEAS | Immunization, measles (% children) | % | Vaccine coordination; public health | 🟢 |
+| API | — | SH.XPD.CHEX.PC.CD | Health expenditure per capita (US$) | US$ | Absolute spending comparison | 🟢 |
+| API | — | SH.XPD.GHED.GD.ZS | Government health expenditure (% GDP) | % | Public health investment | 🟡 |
+| API | — | SH.XPD.OOPC.CH.ZS | Out-of-pocket expenditure (% health) | % | Healthcare access equity | 🟢 |
+| API | — | SH.MED.NUMW.P3 | Nurses and midwives (per 1,000) | Per 1k | Healthcare staffing | ⚪ |
+| API | — | SH.DYN.NCOM.ZS | Mortality from NCDs (% total deaths) | % | Non-communicable disease burden | ⚪ |
+| API | — | SP.DYN.IMRT.IN | Infant mortality (per 1,000 births) | Per 1k | Health system quality | 🟢 |
+| API | — | SH.STA.MMRT | Maternal mortality ratio (per 100k) | Per 100k | Women's health; SDG target | 🟢 |
+
+### 3.2 Disease & Public Health
+
+| Tool | Key | WB ID | Full Name | Unit | EP Relevance | Priority |
+|------|-----|-------|-----------|------|-------------|----------|
+| `get-health-data` | `HIV_PREVALENCE` | SH.DYN.AIDS.ZS | HIV prevalence (% pop 15-49) | % | Cross-border health policy | ⚪ |
+| `get-health-data` | `TUBERCULOSIS` | SH.TBS.INCD | TB incidence (per 100,000) | Per 100k | Cross-border health threats | ⚪ |
+| `get-health-data` | `MALNUTRITION` | SH.STA.MALN.ZS | Undernourishment (% pop) | % | Food security; CAP reform | 🟢 |
+| API | — | SH.STA.STNT.ZS | Stunting prevalence (% under-5) | % | Child nutrition; development | ⚪ |
+| API | — | SH.STA.OWGH.ZS | Overweight prevalence (% under-5) | % | Nutrition policy | ⚪ |
+| API | — | SH.PRV.SMOK | Smoking prevalence (% pop 15+) | % | Public health regulation; tobacco directive | 🟢 |
+| API | — | SH.ALC.PCAP.LI | Alcohol consumption per capita (L) | Liters | Public health; excise harmonization | ⚪ |
+
+### 3.3 Water & Sanitation
+
+| Tool | Key | WB ID | Full Name | Unit | EP Relevance | Priority |
+|------|-----|-------|-----------|------|-------------|----------|
+| API | — | SH.H2O.SMDW.ZS | Safely managed drinking water (%) | % | Water Framework Directive | 🟡 |
+| API | — | SH.STA.SMSS.ZS | Safely managed sanitation (%) | % | Urban waste water directive | 🟡 |
+| API | — | SH.H2O.BASW.ZS | Basic drinking water services (%) | % | Development context | ⚪ |
+
+---
+
+## 4️⃣ ENVIRONMENT, ENERGY & CLIMATE (ENVI/ITRE)
+
+### 4.1 Climate & Emissions
+
+| Tool | Key | WB ID | Full Name | Unit | EP Relevance | Priority |
+|------|-----|-------|-----------|------|-------------|----------|
+| API | — | EN.ATM.CO2E.PC | CO₂ emissions per capita (metric tons) | t/cap | Green Deal; 55% reduction target; net-zero 2050 | 🔴 |
+| API | — | EN.ATM.CO2E.KT | CO₂ emissions total (kt) | kt | National emissions comparison | 🟡 |
+| API | — | EN.ATM.CO2E.PP.GD | CO₂ emissions/GDP (kg per PPP $) | kg/$ | Carbon intensity of economy | 🟡 |
+| API | — | EN.ATM.GHGO.KT.CE | Other GHG emissions (kt CO₂ equiv) | kt CO₂e | Broader climate impact | 🟢 |
+| API | — | EN.ATM.METH.KT.CE | Methane emissions (kt CO₂ equiv) | kt CO₂e | Agriculture; waste sector emissions | 🟢 |
+| API | — | EN.ATM.NOXE.KT.CE | Nitrous oxide emissions (kt CO₂ equiv) | kt CO₂e | Agriculture; industrial emissions | ⚪ |
+| API | — | EN.ATM.PM25.MC.ZS | PM2.5 exposure (% pop > WHO limit) | % | Air quality directive; health | 🟡 |
+
+### 4.2 Energy
+
+| Tool | Key | WB ID | Full Name | Unit | EP Relevance | Priority |
+|------|-----|-------|-----------|------|-------------|----------|
+| API | — | EG.FEC.RNEW.ZS | Renewable energy (% total consumption) | % | REPowerEU; energy transition | 🔴 |
+| API | — | EG.USE.PCAP.KG.OE | Energy use per capita (kg oil equiv) | kg OE | Energy efficiency directive | 🟡 |
+| API | — | EG.USE.ELEC.KH.PC | Electric power consumption (kWh/cap) | kWh | Electricity access; digitalization load | 🟢 |
+| API | — | EG.ELC.RNEW.ZS | Renewable electricity output (% total) | % | Electricity sector decarbonization | 🔴 |
+| API | — | EG.ELC.NUCL.ZS | Electricity from nuclear (%) | % | Energy mix; nuclear taxonomy debate | 🟡 |
+| API | — | EG.ELC.FOSL.ZS | Electricity from fossil fuels (%) | % | Fossil fuel phase-out tracking | 🟡 |
+| API | — | EG.ELC.HYRO.ZS | Electricity from hydroelectric (%) | % | Renewable mix detail | 🟢 |
+| API | — | EG.IMP.CONS.ZS | Energy imports, net (% energy use) | % | Energy security; dependence | 🔴 |
+| API | — | EG.GDP.PUSE.KO.PP.KD | GDP per unit of energy use | $ per kg OE | Energy efficiency of economy | 🟢 |
+
+### 4.3 Natural Resources & Land Use
+
+| Tool | Key | WB ID | Full Name | Unit | EP Relevance | Priority |
+|------|-----|-------|-----------|------|-------------|----------|
+| API | — | AG.LND.FRST.ZS | Forest area (% of land area) | % | Biodiversity strategy; deforestation regulation | 🟡 |
+| API | — | AG.LND.ARBL.ZS | Arable land (% of land area) | % | Land use policy; CAP conditionality | 🟢 |
+| API | — | ER.PTD.TOTL.ZS | Terrestrial protected areas (%) | % | Nature Restoration Law; Natura 2000 | 🟡 |
+| API | — | ER.MRN.PTMR.ZS | Marine protected areas (%) | % | Ocean governance; PECH committee | 🟡 |
+| API | — | ER.H2O.FWTL.ZS | Annual freshwater withdrawals (% total) | % | Water stress; Water Framework Directive | 🟢 |
+| API | — | AG.LND.TOTL.K2 | Land area (sq km) | km² | Country size reference | ⚪ |
+| API | — | EN.POP.DNST | Population density (per sq km) | Per km² | Territorial planning | ⚪ |
+
+---
+
+## 5️⃣ EDUCATION & CULTURE (CULT/EMPL)
+
+### 5.1 Education Spending & Access
+
+| Tool | Key | WB ID | Full Name | Unit | EP Relevance | Priority |
+|------|-----|-------|-----------|------|-------------|----------|
+| `get-education-data` | `EDUCATION_EXPENDITURE` | SE.XPD.TOTL.GD.ZS | Education expenditure (% GDP) | % | Erasmus+; European Education Area | 🟡 |
+| `get-education-data` | `SCHOOL_ENROLLMENT` | SE.PRM.ENRR | Primary enrollment (% gross) | % | Education access; SDG 4 | ⚪ |
+| `get-education-data` | `SCHOOL_COMPLETION` | SE.PRM.CMPT.ZS | Primary completion rate | % | Education outcomes | ⚪ |
+| `get-education-data` | `TEACHERS_PRIMARY` | SE.PRM.TCHR | Teachers in primary education | Count | Education investment | ⚪ |
+| `get-education-data` | `LITERACY_RATE` | SE.ADT.LITR.ZS | Adult literacy rate (% 15+) | % | Digital literacy; media literacy | ⚪ |
+| API | — | SE.TER.ENRR | Tertiary enrollment (% gross) | % | Higher education; EEA | 🟡 |
+| API | — | SE.SEC.ENRR | Secondary enrollment (% gross) | % | Secondary education outcomes | 🟢 |
+| API | — | SE.XPD.TERT.ZS | Expenditure on tertiary (% gov education) | % | University funding | 🟢 |
+| API | — | SE.COM.DURS | Compulsory education duration (years) | Years | Education system structure | ⚪ |
+| API | — | SE.PRM.UNER | Out-of-school children, primary | Count | Education access gaps | ⚪ |
+| API | — | UIS.NERA.2 | Adjusted net enrollment, secondary | % | Secondary access quality | ⚪ |
+
+### 5.2 Digital Skills & Connectivity
+
+| Tool | Key | WB ID | Full Name | Unit | EP Relevance | Priority |
+|------|-----|-------|-----------|------|-------------|----------|
+| `get-social-data` | `INTERNET_USERS` | IT.NET.USER.ZS | Internet users (% of population) | % | Digital single market; digital divide | 🟡 |
+| API | — | IT.CEL.SETS.P2 | Mobile subscriptions (per 100 people) | Per 100 | Connectivity; telecom regulation | 🟢 |
+| API | — | IT.NET.BBND.P2 | Fixed broadband subscriptions (per 100) | Per 100 | Broadband targets; digital decade | 🟡 |
+| API | — | IT.NET.SECR.P6 | Secure Internet servers (per 1M) | Per 1M | Digital infrastructure security | 🟢 |
+
+---
+
+## 6️⃣ INDUSTRY, RESEARCH & ENERGY (ITRE)
+
+### 6.1 Research & Innovation
+
+| Tool | Key | WB ID | Full Name | Unit | EP Relevance | Priority |
+|------|-----|-------|-----------|------|-------------|----------|
+| API | — | GB.XPD.RSDV.GD.ZS | R&D expenditure (% of GDP) | % | Horizon Europe; 3% GDP R&D target | 🔴 |
+| API | — | TX.VAL.TECH.MF.ZS | High-tech exports (% manufactured) | % | Strategic autonomy; tech sovereignty | 🟡 |
+| API | — | IP.PAT.RESD | Patent applications, residents | Count | Innovation output | 🟡 |
+| API | — | IP.PAT.NRES | Patent applications, non-residents | Count | International innovation attractiveness | 🟢 |
+| API | — | IP.TMK.TOTL | Trademark applications | Count | IP activity; brand economy | ⚪ |
+| API | — | SP.POP.SCIE.RD.P6 | Researchers in R&D (per million) | Per 1M | Research workforce; brain drain | 🟡 |
+
+### 6.2 Industry & Manufacturing
+
+| Tool | Key | WB ID | Full Name | Unit | EP Relevance | Priority |
+|------|-----|-------|-----------|------|-------------|----------|
+| API | — | NV.IND.TOTL.ZS | Industry (incl. construction, % GDP) | % | Industrial policy; reindustrialization | 🟡 |
+| API | — | NV.IND.MANF.ZS | Manufacturing (% of GDP) | % | Manufacturing base; reshoring | 🟡 |
+| API | — | NV.SRV.TOTL.ZS | Services (% of GDP) | % | Services economy transition | 🟢 |
+| API | — | IS.VEH.NVEH.P3 | Motor vehicles (per 1,000 people) | Per 1k | Automotive sector; EV transition | 🟢 |
+| API | — | IS.AIR.PSGR | Air transport passengers carried | Count | Aviation sector; ETS aviation | ⚪ |
+| API | — | IS.RRS.TOTL.KM | Rail lines (total route-km) | km | Transport infrastructure; TEN-T | 🟢 |
+
+### 6.3 Infrastructure & Transport (TRAN)
+
+| Tool | Key | WB ID | Full Name | Unit | EP Relevance | Priority |
+|------|-----|-------|-----------|------|-------------|----------|
+| API | — | IS.ROD.PSGR.K6 | Railways passengers carried (mil pass-km) | M pass-km | Modal shift; Green Deal transport | 🟢 |
+| API | — | IS.SHP.GOOD.TU | Container port traffic (TEU) | TEU | Maritime trade; port infrastructure | 🟢 |
+| API | — | IS.AIR.GOOD.MT.K1 | Air freight (million ton-km) | M t-km | Air cargo; logistics | ⚪ |
+
+---
+
+## 7️⃣ AGRICULTURE & FISHERIES (AGRI/PECH)
+
+### 7.1 Agricultural Production
+
+| Tool | Key | WB ID | Full Name | Unit | EP Relevance | Priority |
+|------|-----|-------|-----------|------|-------------|----------|
+| API | — | NV.AGR.TOTL.ZS | Agriculture, forestry, fishing (% GDP) | % | CAP budget; agricultural sector weight | 🔴 |
+| API | — | AG.YLD.CREL.KG | Cereal yield (kg per hectare) | kg/ha | Food security; agricultural productivity | 🟡 |
+| API | — | AG.LND.ARBL.ZS | Arable land (% of land area) | % | Land use; CAP conditionality | 🟢 |
+| API | — | AG.LND.AGRI.ZS | Agricultural land (% of land area) | % | Total agricultural footprint | 🟢 |
+| API | — | AG.PRD.FOOD.XD | Food production index | Index | Food output trends | 🟢 |
+| API | — | AG.PRD.LVSK.XD | Livestock production index | Index | Livestock sector; methane | 🟢 |
+| API | — | AG.PRD.CREL.MT | Cereal production (metric tons) | MT | Food security | ⚪ |
+| API | — | AG.CON.FERT.ZS | Fertilizer consumption (kg/ha arable) | kg/ha | Sustainable farming; nitrate directive | 🟢 |
+
+### 7.2 Food Security
+
+| Tool | Key | WB ID | Full Name | Unit | EP Relevance | Priority |
+|------|-----|-------|-----------|------|-------------|----------|
+| API | — | SN.ITK.DEFC.ZS | Prevalence of undernourishment (%) | % | Food security; development cooperation | 🟢 |
+| API | — | AG.PRD.FOOD.XD | Food production index (2014-16=100) | Index | Food output trends | 🟢 |
+
+---
+
+## 8️⃣ DEFENCE & FOREIGN AFFAIRS (AFET/SEDE/DEVE)
+
+### 8.1 Military & Security
+
+| Tool | Key | WB ID | Full Name | Unit | EP Relevance | Priority |
+|------|-----|-------|-----------|------|-------------|----------|
+| API | — | MS.MIL.XPND.GD.ZS | Military expenditure (% of GDP) | % | NATO 2% target; EU defence fund; CSDP | 🔴 |
+| API | — | MS.MIL.XPND.CD | Military expenditure (current US$) | US$ | Absolute defence spending | 🟡 |
+| API | — | MS.MIL.TOTL.P1 | Armed forces personnel (total) | Count | Defence capacity | 🟢 |
+| API | — | MS.MIL.TOTL.TF.ZS | Armed forces personnel (% labor force) | % | Defence sector employment | ⚪ |
+
+### 8.2 Development & Aid (DEVE)
+
+| Tool | Key | WB ID | Full Name | Unit | EP Relevance | Priority |
+|------|-----|-------|-----------|------|-------------|----------|
+| API | — | DT.ODA.ODAT.GN.ZS | Net ODA received (% of GNI) | % | Aid recipient perspective | 🟡 |
+| API | — | DT.ODA.ALLD.CD | Net ODA provided (current US$) | US$ | EU donor commitments | 🟡 |
+| API | — | DC.DAC.TOTL.CD | Net ODA from DAC donors (US$) | US$ | Total OECD aid comparison | 🟢 |
+
+### 8.3 Governance & Institutions
+
+| Tool | Key | WB ID | Full Name | Unit | EP Relevance | Priority |
+|------|-----|-------|-----------|------|-------------|----------|
+| API | — | IQ.CPA.GNDR.XQ | CPIA gender equality rating | Rating | EU accession; rule of law | 🟢 |
+| API | — | SE.ENR.PRSC.FM.ZS | School enrollment, primary (gender parity) | Ratio | Gender equality benchmark | ⚪ |
+| API | — | SG.GEN.PARL.ZS | Women in national parliament (%) | % | Political representation; democracy | 🔴 |
+| API | — | VC.IHR.PSRC.P5 | Intentional homicides (per 100k) | Per 100k | Security; rule of law assessment | 🟢 |
+
+---
+
+## 9️⃣ INTERNAL MARKET & CONSUMER (IMCO)
+
+| Tool | Key | WB ID | Full Name | Unit | EP Relevance | Priority |
+|------|-----|-------|-----------|------|-------------|----------|
+| API | — | IC.BUS.EASE.XQ | Ease of doing business score | Score | Single market; regulatory burden | 🟡 |
+| API | — | IC.REG.DURS | Time to start a business (days) | Days | Business environment; SME policy | 🟡 |
+| API | — | IC.TAX.TOTL.CP.ZS | Total tax and contribution rate (% profit) | % | Tax burden on business | 🟢 |
+| API | — | IC.TAX.DURS | Time to prepare and pay taxes (hours) | Hours | Tax compliance burden | 🟢 |
+| API | — | IC.IMP.DURS | Time to import (days) | Days | Trade facilitation | ⚪ |
+| API | — | IC.EXP.DURS | Time to export (days) | Days | Trade facilitation | ⚪ |
+
+---
+
+## 🔟 REGIONAL DEVELOPMENT (REGI)
+
+| Tool | Key | WB ID | Full Name | Unit | EP Relevance | Priority |
+|------|-----|-------|-----------|------|-------------|----------|
+| API | — | NY.GDP.PCAP.PP.CD | GDP per capita, PPP | Intl$ | Regional convergence; cohesion fund | 🔴 |
+| API | — | SP.URB.TOTL.IN.ZS | Urban population (%) | % | Urban-rural divide; territorial cohesion | 🟡 |
+| API | — | SP.RUR.TOTL.ZS | Rural population (% total) | % | Rural development; CAP Pillar II | 🟡 |
+| API | — | EN.POP.DNST | Population density | Per km² | Spatial planning; infrastructure needs | 🟢 |
+| API | — | IT.NET.BBND.P2 | Fixed broadband per 100 | Per 100 | Digital divide; connectivity targets | 🟡 |
+
+---
+
+## Comparison Country Groups
+
+For each indicator, AI workflows should compare the relevant EU member state(s) against appropriate benchmark groups:
+
+```mermaid
+graph TD
+    subgraph "🎯 Comparison Framework"
+        EU["🇪🇺 EU-27 / EUU Aggregate"]
+        G7["🏛️ G7 Non-EU<br/>US, GB, JP, CA"]
+        BRICS["🌍 BRICS<br/>CN, IN, BR, RU, ZA"]
+        CAND["🗳️ EU Candidates<br/>UA, TR, RS, ME, AL, MK, MD, BA, GE"]
+        TRADE["🤝 Trade Partners<br/>KR, AU, NO, CH, IL"]
+        AGG["📊 Aggregates<br/>EUU, EMU, OED, WLD"]
+    end
+
+    EU --> G7 & BRICS & CAND & TRADE & AGG
+
+    style EU fill:#003399,color:#fff,stroke:#002266
+    style G7 fill:#0d6efd,color:#fff
+    style BRICS fill:#28a745,color:#fff
+    style CAND fill:#ffc107,color:#000
+    style TRADE fill:#17a2b8,color:#fff
+    style AGG fill:#6f42c1,color:#fff
+```
+
+### When to Use Each Group
+
+| Comparison Group | Use Case | Example |
+|-----------------|----------|---------|
+| **Big Four** (DE, FR, IT, ES) | Macro-economic articles; fiscal governance | GDP Growth, Inflation, Debt |
+| **G7 Non-EU** (US, GB, JP, CA) | Global competitiveness; trade policy | R&D, High-tech exports, FDI |
+| **BRICS** (CN, IN, BR, RU, ZA) | Geopolitics; development; strategic autonomy | GDP Growth, Military, Trade |
+| **EU Candidates** (UA, TR, RS...) | Enlargement; accession progress | GDP per capita, Rule of law, Inflation |
+| **Nordic** (DK, FI, SE + NO) | Social policy; green transition | Renewable energy, Education, Equality |
+| **Eurozone Core** (DE, FR, NL, BE, AT) | Monetary policy; fiscal discipline | Inflation, Debt, Unemployment |
+| **Convergence** (BG, RO, HR, PL, HU) | Cohesion policy; catching-up | GDP per capita growth, FDI, Infrastructure |
+| **Mediterranean** (IT, ES, GR, PT) | Fiscal governance; youth unemployment | Youth unemployment, Debt, Tourism |
+| **EEA/EFTA** (NO, CH) | Single market alignment | Trade, FDI, Regulatory comparison |
+| **World/OECD aggregates** | Global benchmarking | Any indicator vs. OED or WLD average |
+
+---
+
+## 📈 Data Availability Notes
+
+1. **Most recent year**: 2024 for economic (GDP, inflation); 2023-2024 for social/health
+2. **EU aggregate (EUU)**: Available for most macro indicators; gaps in health/education
+3. **Data lag**: Health/education indicators typically 1-3 years behind
+4. **Military expenditure**: Available for most countries; critical post-2022
+5. **GINI index**: Sporadic availability; not annual for all EU states
+6. **Annual data only**: All indicators are annual time series
+7. **Years parameter**: Use 5 for articles, 10 for trend analysis, 20 for long-term structural analysis
+
+---
+
+## 🎯 Indicator Priority Guide for AI Workflows
+
+### 🔴 Always Include (when article covers related policy)
+GDP Growth, Inflation, Unemployment, Population, Military Expenditure (defence), Tax Revenue (fiscal), CO₂ Emissions (climate), GINI (inequality), Net Migration (migration)
+
+### 🟡 Include When Relevant
+GDP per Capita, Health Expenditure, Education Expenditure, R&D Expenditure, Renewable Energy, Internet Users, Life Expectancy, Gov Debt, Youth Unemployment, Women in Parliament, Urban Population, Broadband, Energy Imports
+
+### 🟢 Optional Context
+Trade, FDI, Birth/Death Rates, Hospital Beds, Physicians, Forest Area, Arable Land, Manufacturing %, Cereal Yield, PM2.5, Old-age Dependency
+
+### ⚪ Specialized (committee-specific only)
+TB incidence, HIV prevalence, Livestock index, Fertilizer consumption, Compulsory education duration, Rail line km, Container port TEU
+
+---
+
+## 🧮 Total Indicator Count by Domain
+
+| EP Policy Domain | MCP Tool Indicators | Extended (API) Indicators | Total |
+|-----------------|:-------------------:|:------------------------:|:-----:|
+| Economic & Monetary | 9 | 30+ | ~40 |
+| Social & Demographics | 5 | 25+ | ~30 |
+| Health & Food Safety | 7 | 15+ | ~22 |
+| Environment & Energy | 0 | 18+ | ~18 |
+| Education & Culture | 5 | 10+ | ~15 |
+| Industry & Innovation | 0 | 12+ | ~12 |
+| Agriculture & Fisheries | 0 | 10+ | ~10 |
+| Defence & Foreign Affairs | 0 | 8+ | ~8 |
+| Internal Market | 0 | 6+ | ~6 |
+| Regional Development | 0 | 5+ | ~5 |
+| **Total** | **26** | **140+** | **~200** |
+
+> **Note**: The 26 MCP tool indicators are directly fetchable via named keys. The 140+ extended indicators use WB API indicator IDs and are mapped in `committee-indicator-map.ts` or can be queried via `search-indicators`.

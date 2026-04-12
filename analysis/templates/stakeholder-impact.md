@@ -309,6 +309,35 @@ flowchart TD
 
 **Cross-Committee Tension:** `[REQUIRED: 1–2 sentences on whether committees align or diverge on stakeholder impact. E.g., "ENVI prioritizes environmental protection (negative for Business) while ITRE emphasizes competitiveness (positive for Business), creating legislative tension during inter-committee compromise amendments and subsequent trilogue with Council/Commission."]`
 
+---
+
+## 📊 World Bank Economic Context for Stakeholder Impact
+
+> **AI Instructions:** When stakeholder impacts have economic dimensions, quantify with World Bank data. Use `analysis/worldbank/indicator-catalog.md` as the full indicator reference (200+ indicators). Use `analysis/worldbank/eu-country-mapping.md` for comparison country groups. Only request indicators via MCP when they are documented for the relevant MCP tool; catalog entries marked as API-only must be fetched via another documented mechanism, not via MCP tool calls.
+
+### Key Economic Indicators for Stakeholder Assessment
+
+| Stakeholder Group | MCP-Fetchable WB Indicators | MCP Tool | Comparison Group |
+|-------------------|-----------------------------|----------|-----------------|
+| 🏘️ Citizens | Inflation, Unemployment, Health Expenditure | `get-economic-data`, `get-health-data` | Affected member states |
+| 🏭 Business | GDP Growth, FDI | `get-economic-data` | EU Big Four + competitors |
+| 🤝 Member States | GDP Growth, Inflation | `get-economic-data` | Eurozone Core vs Convergence |
+| 🌍 International | Exports (% GDP), FDI | `get-economic-data` | EU vs G7, EU vs BRICS |
+
+> **Note:** Some indicators from the World Bank catalog (e.g., GINI coefficient, Ease of Business, Tax Revenue, Gov Expenditure, Military Expenditure) are not among the documented MCP tool indicator keys for `get-economic-data`. If those indicators are needed, use `search-indicators` to verify availability and fetch them via the appropriate documented mechanism (for example, the legacy `get_indicator_for_country` path), not via `get-economic-data`.
+
+### WB Data Mermaid Template for Stakeholder Impact
+
+> Replace placeholder values with actual WB MCP data.
+
+```mermaid
+xychart-beta
+    title "Economic Impact on Key Stakeholder Groups"
+    x-axis ["Citizens", "Business", "Member States", "International"]
+    y-axis "Impact Severity (1-5)" 0 --> 5
+    bar [0, 0, 0, 0]
+```
+
 ### MCP Data Files Used
 
 ```

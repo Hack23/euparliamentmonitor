@@ -12,6 +12,22 @@
  * Functions in this module are designed to be stateless and avoid observable
  * side effects, with the exception of explicitly recording metadata such as
  * data timestamps in returned objects.
+ *
+ * ## ⚠️ For AI Agents / Agentic Workflows
+ *
+ * The constants below ({@link POLICY_INDICATORS}, {@link EU_COUNTRY_CODES},
+ * {@link COMPARISON_COUNTRIES}) are a **convenience subset** used by TypeScript
+ * code for formatting and parsing. They do **NOT** represent the full World Bank
+ * indicator inventory.
+ *
+ * **For indicator selection in articles and analysis:**
+ * 1. Read `analysis/worldbank/indicator-catalog.md` — **200+ indicators** by EP policy domain
+ * 2. Use `search-indicators` MCP tool to **discover indicators on demand** by keyword
+ * 3. Read `analysis/worldbank/eu-country-mapping.md` for country codes + comparison groups
+ * 4. Read `analysis/worldbank/chart-integration-guide.md` for Chart.js + Mermaid templates
+ *
+ * The World Bank MCP server has thousands of indicators beyond the ones listed
+ * here. Use `search-indicators` to find the best match for any policy topic.
  */
 
 import type {
@@ -62,18 +78,103 @@ export const EU_COUNTRY_CODES: Readonly<Record<string, string>> = {
 export const EU_AGGREGATE_CODE = 'EUU';
 
 /**
+ * Comparison country codes for benchmarking EU performance against global peers.
+ * Organized by geopolitical relevance to EU Parliament policy analysis.
+ */
+export const COMPARISON_COUNTRIES: Readonly<Record<string, string>> = {
+  // ── G7 Non-EU ──
+  US: 'USA', // United States
+  GB: 'GBR', // United Kingdom (post-Brexit benchmark)
+  JP: 'JPN', // Japan
+  CA: 'CAN', // Canada
+  // ── BRICS ──
+  CN: 'CHN', // China
+  IN: 'IND', // India
+  BR: 'BRA', // Brazil
+  RU: 'RUS', // Russia
+  ZA: 'ZAF', // South Africa
+  // ── EU Candidate States ──
+  UA: 'UKR', // Ukraine
+  TR: 'TUR', // Türkiye
+  RS: 'SRB', // Serbia
+  ME: 'MNE', // Montenegro
+  AL: 'ALB', // Albania
+  MK: 'MKD', // North Macedonia
+  MD: 'MDA', // Moldova
+  BA: 'BIH', // Bosnia & Herzegovina
+  GE: 'GEO', // Georgia
+  // ── Key Trade Partners ──
+  KR: 'KOR', // South Korea
+  AU: 'AUS', // Australia
+  NO: 'NOR', // Norway (EEA)
+  CH: 'CHE', // Switzerland (EFTA)
+  IL: 'ISR', // Israel
+} as const;
+
+/**
+ * Aggregate/region codes useful for EU benchmarking.
+ * Keys are World Bank group codes; values are human-readable labels.
+ */
+export const WB_AGGREGATE_LABELS: Readonly<Record<string, string>> = {
+  EUU: 'European Union',
+  EMU: 'Euro area',
+  OED: 'OECD members',
+  WLD: 'World',
+  ECS: 'Europe & Central Asia',
+  NAC: 'North America',
+  EAS: 'East Asia & Pacific',
+  SSF: 'Sub-Saharan Africa',
+} as const;
+
+/**
  * World Bank indicator IDs relevant to EU Parliament policy analysis.
- * These indicators map to common policy areas discussed in EP legislation.
+ *
+ * ⚠️ **AI Agents**: This is a convenience subset of 25 core indicators used by
+ * TypeScript formatting code. The World Bank has **thousands** of indicators.
+ * For article/analysis generation:
+ * - Read `analysis/worldbank/indicator-catalog.md` for the full **200+ indicator** reference
+ * - Use `search-indicators` MCP tool to discover indicators on demand by keyword
+ * - See `analysis/worldbank/use-cases.md` for when each indicator type adds value
  */
 export const POLICY_INDICATORS: PolicyRelevantIndicators = {
+  // Macro-economic (get-economic-data)
   gdp: 'NY.GDP.MKTP.CD',
   gdpGrowth: 'NY.GDP.MKTP.KD.ZG',
+  gdpPerCapita: 'NY.GDP.PCAP.CD',
+  gniPerCapita: 'NY.GNP.PCAP.CD',
   inflation: 'FP.CPI.TOTL.ZG',
   unemployment: 'SL.UEM.TOTL.ZS',
+  exportsGdp: 'NE.EXP.GNFS.ZS',
+  fdiNet: 'BN.KLT.DINV.CD',
+
+  // Trade & fiscal
   trade: 'NE.TRD.GNFS.ZS',
-  co2Emissions: 'EN.ATM.CO2E.PC',
+  taxRevenue: 'GC.TAX.TOTL.GD.ZS',
+  govExpenditure: 'NE.CON.GOVT.ZS',
+  militaryExpenditure: 'MS.MIL.XPND.GD.ZS',
+
+  // Social (get-social-data)
   population: 'SP.POP.TOTL',
+  lifeExpectancy: 'SP.DYN.LE00.IN',
+  birthRate: 'SP.DYN.CBRT.IN',
+  deathRate: 'SP.DYN.CDRT.IN',
+  internetUsers: 'IT.NET.USER.ZS',
+
+  // Health (get-health-data)
+  healthExpenditure: 'SH.XPD.CHEX.GD.ZS',
+  physicians: 'SH.MED.PHYS.ZS',
+  hospitalBeds: 'SH.MED.BEDS.ZS',
+
+  // Education (get-education-data)
+  educationExpenditure: 'SE.XPD.TOTL.GD.ZS',
+
+  // Environment & energy
+  co2Emissions: 'EN.ATM.CO2E.PC',
+  renewableEnergy: 'EG.FEC.RNEW.ZS',
+
+  // Research & innovation
   rdExpenditure: 'GB.XPD.RSDV.GD.ZS',
+  hightechExports: 'TX.VAL.TECH.MF.ZS',
 } as const;
 
 // ─── CSV Parsing ─────────────────────────────────────────────────────────────
@@ -236,7 +337,16 @@ export function formatIndicatorValue(value: number | null, indicatorId: string):
     indicatorId === POLICY_INDICATORS.inflation ||
     indicatorId === POLICY_INDICATORS.unemployment ||
     indicatorId === POLICY_INDICATORS.trade ||
-    indicatorId === POLICY_INDICATORS.rdExpenditure
+    indicatorId === POLICY_INDICATORS.taxRevenue ||
+    indicatorId === POLICY_INDICATORS.govExpenditure ||
+    indicatorId === POLICY_INDICATORS.militaryExpenditure ||
+    indicatorId === POLICY_INDICATORS.exportsGdp ||
+    indicatorId === POLICY_INDICATORS.healthExpenditure ||
+    indicatorId === POLICY_INDICATORS.educationExpenditure ||
+    indicatorId === POLICY_INDICATORS.internetUsers ||
+    indicatorId === POLICY_INDICATORS.renewableEnergy ||
+    indicatorId === POLICY_INDICATORS.rdExpenditure ||
+    indicatorId === POLICY_INDICATORS.hightechExports
   ) {
     return `${value.toFixed(1)}%`;
   }
@@ -288,12 +398,29 @@ export function buildEconomicContext(
   const indicatorNames: Record<string, string> = {
     [POLICY_INDICATORS.gdp]: 'GDP',
     [POLICY_INDICATORS.gdpGrowth]: 'GDP Growth',
+    [POLICY_INDICATORS.gdpPerCapita]: 'GDP per Capita',
+    [POLICY_INDICATORS.gniPerCapita]: 'GNI per Capita',
     [POLICY_INDICATORS.inflation]: 'Inflation',
     [POLICY_INDICATORS.unemployment]: 'Unemployment',
+    [POLICY_INDICATORS.exportsGdp]: 'Exports (% of GDP)',
+    [POLICY_INDICATORS.fdiNet]: 'FDI Net Inflows',
     [POLICY_INDICATORS.trade]: 'Trade (% of GDP)',
-    [POLICY_INDICATORS.co2Emissions]: 'CO₂ Emissions',
+    [POLICY_INDICATORS.taxRevenue]: 'Tax Revenue (% of GDP)',
+    [POLICY_INDICATORS.govExpenditure]: 'Gov. Expenditure (% of GDP)',
+    [POLICY_INDICATORS.militaryExpenditure]: 'Military Expenditure (% of GDP)',
     [POLICY_INDICATORS.population]: 'Population',
-    [POLICY_INDICATORS.rdExpenditure]: 'R&D Expenditure',
+    [POLICY_INDICATORS.lifeExpectancy]: 'Life Expectancy',
+    [POLICY_INDICATORS.birthRate]: 'Birth Rate',
+    [POLICY_INDICATORS.deathRate]: 'Death Rate',
+    [POLICY_INDICATORS.internetUsers]: 'Internet Users (%)',
+    [POLICY_INDICATORS.healthExpenditure]: 'Health Expenditure (% of GDP)',
+    [POLICY_INDICATORS.physicians]: 'Physicians (per 1,000)',
+    [POLICY_INDICATORS.hospitalBeds]: 'Hospital Beds (per 1,000)',
+    [POLICY_INDICATORS.educationExpenditure]: 'Education Expenditure (% of GDP)',
+    [POLICY_INDICATORS.co2Emissions]: 'CO₂ Emissions',
+    [POLICY_INDICATORS.renewableEnergy]: 'Renewable Energy (%)',
+    [POLICY_INDICATORS.rdExpenditure]: 'R&D Expenditure (% of GDP)',
+    [POLICY_INDICATORS.hightechExports]: 'High-Tech Exports (%)',
   };
 
   for (const [indicatorId, dataPoints] of indicatorData) {

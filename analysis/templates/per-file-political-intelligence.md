@@ -408,6 +408,47 @@ typical single-rapporteur load. This creates a risk of delayed committee amendme
 
 ---
 
+## 📊 World Bank Economic Context
+
+> **AI Instructions:** Include World Bank data context when the policy subject has economic, social, or environmental implications. Use the WB MCP tools to fetch relevant indicators for affected EU member states and comparison countries. Reference `analysis/worldbank/indicator-catalog.md` for the full catalog of 200+ indicators.
+
+### Economic Indicators for This Policy
+
+| Indicator | Country | Value | Year | Trend | Source |
+|-----------|---------|------:|-----:|-------|--------|
+| `[REQUIRED if economically relevant: e.g. GDP Growth]` | `[e.g. DE]` | `[e.g. -0.5%]` | `[e.g. 2024]` | `[↑↓→]` | WB MCP `get-economic-data` |
+| `[Optional: additional indicator]` | | | | | |
+
+### Mermaid Economic Context Chart
+
+> Insert one of the Mermaid chart templates from `analysis/worldbank/chart-integration-guide.md` with real WB data. Example:
+
+```mermaid
+xychart-beta
+    title "[Policy Subject] — Economic Context"
+    x-axis ["Country1", "Country2", "Country3"]
+    y-axis "[Indicator Name] (%)" 0 --> 10
+    bar [0, 0, 0]
+```
+
+### Which Indicators to Use
+
+| Policy Domain | Primary Indicators | Comparison Group |
+|--------------|-------------------|-----------------|
+| Fiscal governance | GDP Growth, Tax Revenue, Gov Debt | Big Four (DE, FR, IT, ES) |
+| Employment | Unemployment, Youth Unemployment, GINI | Mediterranean (IT, ES, GR, PT) |
+| Defence/security | Military Expenditure (% GDP) | NATO EU members vs US |
+| Climate/environment | CO₂ Emissions, Renewable Energy | Nordic (DK, FI, SE) vs EU avg |
+| Trade/investment | Exports (% GDP), FDI, High-tech Exports | EU vs G7, EU vs BRICS |
+| Health | Health Expenditure, Physicians, Hospital Beds | Eurozone Core |
+| Education | Education Expenditure, Tertiary Enrollment | Nordic vs Convergence states |
+
+> **Important World Bank tool note:** Several indicator names in the table above are conceptual labels only and may be **API-only** or otherwise **not accepted as direct indicator keys** by standard WB MCP tools such as `get-economic-data`.
+>
+> Before calling any WB indicator tool, **always use `search-indicators` first** to find the exact supported indicator code. If the required indicator is not available through the standard WB MCP tool path, use the **documented fallback/API mechanism** (for example **legacy `get_indicator_for_country`**) instead of passing the display label directly.
+
+---
+
 ## 📂 MCP Data Files Used
 
 `[REQUIRED: List all EP MCP data file paths consulted for this analysis]`

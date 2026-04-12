@@ -184,6 +184,8 @@ export { detectCategory } from './utils/article-category.js';
 export {
   EU_COUNTRY_CODES,
   EU_AGGREGATE_CODE,
+  COMPARISON_COUNTRIES,
+  WB_AGGREGATE_LABELS,
   POLICY_INDICATORS,
   parseWorldBankCSV,
   formatIndicatorValue,
