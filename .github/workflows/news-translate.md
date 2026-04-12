@@ -163,12 +163,15 @@ You are the **Translation Agent** for EU Parliament Monitor. Your job is to take
 - ❌ `package.json` / `package-lock.json` — NEVER modify dependency files
 
 **FORBIDDEN practices (waste time and produce low-quality output):**
-- ❌ **Writing new custom scripts in ANY language** — NEVER create new helper scripts (`.js`, `.py`, `.sh`, `.rb`, etc.) in `/tmp/`, the repo, or anywhere else. Use ONLY the existing Node.js/TypeScript toolchain (for example: `npm run build`, `node scripts/...`, `npx tsx src/generators/news-enhanced.ts ...`). NEVER use `python3`, `pip install`, or any Python-based workaround
+- ❌ **Writing new custom scripts in ANY language** — NEVER create new helper scripts (`.js`, `.py`, `.sh`, `.rb`, etc.) in `/tmp/`, the repo, or anywhere else. Use ONLY the existing Node.js/TypeScript toolchain (for example: `npm run build`, `node scripts/...`, `npx tsx src/generators/news-enhanced.ts ...`). NEVER use `python3`, `pip install`, or any Python-based workaround. **Approved exception**: the inline `node -e` snippet in Step 3's backfill/improvement path is permitted for metadata-normalization only (updating `lang`, `dir`, `og:locale`, and self-referential URLs in copied placeholder files). It must NOT be expanded into general content transformation or new standalone scripting
 - ❌ **Creating translation dictionary/data files** — NEVER create JSON, JS, or other data files containing translation dictionaries. Translate directly in each HTML file using the `edit` tool
 - ❌ **Batch translation via custom code** — NEVER write a script (e.g., `gen-translations.js`) to automate translation. Translate each file individually using the `edit` tool, one file at a time
+- ❌ **Search/replace pattern-based translation** — NEVER use `sed`, `awk`, `perl`, `tr`, regex substitution, or ANY text-processing command to **translate narrative content**. The AI must READ the English text, UNDERSTAND its meaning, and WRITE the correct translation. Pattern-based replacement produces garbage translations. (Note: using `grep`, `sed`, or shell tools for non-translation tasks like file listing, path manipulation, or metadata extraction is fine)
+- ❌ **Translation lookup tables** — NEVER create a mapping like `{"English phrase": "Translated phrase"}` and then apply it. Each translation must be done by the AI reading context and producing natural-sounding output
 - ❌ **Dangerous shell expansion patterns** — NEVER use `${var@P}`, `${!var}`, `eval`, nested command substitutions `$($(..))`, or indirect variable expansion. These will be blocked by the sandbox
 - ❌ **Ad-hoc data processing scripts** — Use the existing `scripts/generate-news-enhanced.js` and pipeline tools
 - ❌ **Workarounds for existing tools** — If `npm run build` or existing scripts fail, log the error and continue; do NOT reimplement their functionality in another language
+- ❌ **Exiting without translating** — NEVER use an analysis-only PR, `safeoutputs___noop`, or any other no-op path as an early-exit shortcut before attempting the required Phase 1/2/3 translation flow. After those phases have been attempted, follow the later workflow rules: if they explicitly require preserved analysis artifacts (for example when `TOTAL_FILES=0`) so a reviewable PR can still be opened, that fallback is allowed
 
 **If you encounter build errors, test failures, or source code bugs:**
 - ❌ DO NOT attempt to fix them — that is outside this workflow's scope
@@ -219,6 +222,18 @@ Use `sequentialthinking` for complex translation decisions (ambiguous political 
 ## 🎯 Purpose
 
 This workflow is the **dedicated translation workflow**. Content generation workflows (news-week-ahead, news-motions, etc.) focus exclusively on producing excellent English articles with deep political intelligence. This workflow takes those English articles and translates them faithfully to all other supported languages.
+
+### 🚨 ALWAYS-TRANSLATE Mandate
+
+> **This workflow MUST ALWAYS produce translated files when possible. If no translations are possible, it produces preserved analysis artifacts for a reviewable PR.**
+
+The workflow follows a **three-phase priority system**:
+
+1. **Phase 1 — Today's articles**: Translate any English articles from today that lack translations
+2. **Phase 2 — Historical backfill**: If today has no articles or all are translated, scan backward through the last 30+ days for ANY English articles with missing translations in ANY language
+3. **Phase 3 — Quality improvement**: If ALL articles across ALL dates have complete translations (all 13 languages), select recent articles and IMPROVE their translation quality (fix awkward phrasing, improve terminology, make translations read more naturally)
+
+**There is ALWAYS work to do.** NEVER call `safeoutputs___noop`. NEVER create an analysis-only PR without attempting all three phases first. If all phases find no actionable work and `TOTAL_FILES=0`, the workflow creates a preserved analysis summary artifact so a reviewable PR can still be created.
 
 ### Supported Languages (13 non-English targets)
 
@@ -349,7 +364,10 @@ memory___read_graph({})
 ```bash
 echo "=== Translation Date Context ==="
 TODAY=$(date -u +%Y-%m-%d)
-ARTICLE_DATE="${EP_ARTICLE_DATE:-$TODAY}"
+ARTICLE_DATE="${{ github.event.inputs.article_date }}"
+if [ -z "$ARTICLE_DATE" ]; then
+  ARTICLE_DATE="${EP_ARTICLE_DATE:-$TODAY}"
+fi
 CURRENT_YEAR=$(date -u +%Y)
 DAY_OF_WEEK=$(date -u +%A)
 START_EPOCH=$(date +%s)
@@ -442,116 +460,32 @@ fi
 
 ## Step 1: Discover English Articles Needing Translation
 
-Find English articles that don't have corresponding translations:
+> **🚨 MANDATORY RULE — NEVER EXIT WITHOUT A PR**: This workflow MUST ALWAYS attempt translations. If today's articles are all translated, scan backward through older dates. If ALL articles across ALL dates are 100% translated, improve the quality of existing translations. There is ALWAYS work to do. **NEVER** call `safeoutputs___noop`. If all three phases find no actionable work and `TOTAL_FILES=0`, the workflow creates a preserved analysis artifact so a reviewable PR can still be produced.
+
+Find English articles that need translation — starting with today, then scanning backward:
 
 ```bash
-# Determine which article types to process
-ARTICLE_TYPES_INPUT="${EP_ARTICLE_TYPES:-}"
+# Re-derive date context (env vars do NOT persist across bash blocks in gh-aw)
+TODAY=$(date -u +%Y-%m-%d)
+ARTICLE_DATE="${{ github.event.inputs.article_date }}"
+if [ -z "$ARTICLE_DATE" ]; then
+  ARTICLE_DATE="${EP_ARTICLE_DATE:-$TODAY}"
+fi
+RUN_ID="${GITHUB_RUN_NUMBER:-0}"
+TRANSLATE_ANALYSIS_DIR="analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}"
 
+# Determine which article types to process (prefer workflow_dispatch inputs, fall back to env)
+ARTICLE_TYPES_INPUT="${{ github.event.inputs.article_types }}"
 if [ -z "$ARTICLE_TYPES_INPUT" ]; then
-  # Auto-discover: find all English articles for the target date
-  ARTICLE_TYPES=$(ls news/${ARTICLE_DATE}-*-en.html 2>/dev/null | \
-    sed "s|news/${ARTICLE_DATE}-||;s|-en\.html||" | \
-    sort -u | tr '\n' ',' | sed 's/,$//')
-  echo "Auto-discovered article types: $ARTICLE_TYPES"
-else
-  ARTICLE_TYPES="$ARTICLE_TYPES_INPUT"
-  echo "Specified article types: $ARTICLE_TYPES"
+  ARTICLE_TYPES_INPUT="${EP_ARTICLE_TYPES:-}"
 fi
+FORCE_TRANSLATION="${EP_FORCE_TRANSLATION:-${{ github.event.inputs.force_translation }}}"
 
-if [ -z "$ARTICLE_TYPES" ]; then
-  echo "ℹ️ No English articles found for $ARTICLE_DATE — nothing to translate"
-  # Per Rule 5: no workflow run wasted — create analysis-only PR with baseline summary
-  echo "📊 Creating analysis-only PR with baseline translation analysis for $ARTICLE_DATE"
-  # Update the baseline summary with specifics about why no translations were produced
-  cat >> "${ANALYSIS_DIR}/summary.md" <<EOF
-
-## Run Outcome — No Articles Found
-
-- **Date**: ${ARTICLE_DATE}
-- **Result**: No English articles found for this date
-- **Action**: No translations produced; baseline analysis committed
-EOF
-  BRANCH_NAME="news/translate-${ARTICLE_DATE}"
-```
-
-Create the analysis-only PR and exit:
-
-```javascript
-safeoutputs___create_pull_request({
-  title: "chore: translate EU Parliament articles ${ARTICLE_DATE} (analysis-only)",
-  body: "## 📊 Translation Analysis Only — ${ARTICLE_DATE}\n\n### Summary\nNo English articles found for ${ARTICLE_DATE}.\n\n### Details\n- **Date**: ${ARTICLE_DATE}\n- **Result**: No English source articles available for translation\n- **Action**: Baseline translation analysis committed per Rule 5\n- **Workflow**: `news-translate`\n\n### Next Steps\n- Check if content workflows have run for this date\n- Verify English articles were merged to main branch\n\n---\n> Generated by the `news-translate` agentic workflow.",
-  base: "main",
-  head: BRANCH_NAME
-})
-```
-
-```bash
-  exit 0
+# --- Resolve target languages FIRST (needed by discovery) ---
+LANGUAGES_INPUT="${{ github.event.inputs.languages }}"
+if [ -z "$LANGUAGES_INPUT" ]; then
+  LANGUAGES_INPUT="${EP_LANG_INPUT:-all-non-en}"
 fi
-
-# Check which articles already have translations
-NEEDS_TRANSLATION=""
-for TYPE in $(echo "$ARTICLE_TYPES" | tr ',' ' '); do
-  EN_FILE="news/${ARTICLE_DATE}-${TYPE}-en.html"
-  if [ ! -f "$EN_FILE" ]; then
-    echo "⚠️ English article not found: $EN_FILE — skipping type $TYPE"
-    continue
-  fi
-
-  # Check if translations already exist (use sv as indicator)
-  SV_FILE="news/${ARTICLE_DATE}-${TYPE}-sv.html"
-  if [ -f "$SV_FILE" ] && [ "${EP_FORCE_TRANSLATION:-}" != "true" ]; then
-    echo "ℹ️ Translations already exist for $TYPE on $ARTICLE_DATE — skipping"
-    continue
-  fi
-
-  NEEDS_TRANSLATION="${NEEDS_TRANSLATION:+$NEEDS_TRANSLATION,}$TYPE"
-  echo "📝 Will translate: $TYPE ($EN_FILE)"
-done
-
-if [ -z "$NEEDS_TRANSLATION" ]; then
-  echo "ℹ️ All articles for $ARTICLE_DATE already have translations"
-  # Per Rule 5: no workflow run wasted — create analysis-only PR with baseline summary
-  echo "📊 Creating analysis-only PR with baseline translation analysis for $ARTICLE_DATE"
-  # Update the baseline summary with specifics about why no new translations were produced
-  cat >> "${ANALYSIS_DIR}/summary.md" <<EOF
-
-## Run Outcome — Translations Already Exist
-
-- **Date**: ${ARTICLE_DATE}
-- **Article types checked**: ${ARTICLE_TYPES}
-- **Result**: All articles already have translations
-- **Action**: No new translations produced; baseline analysis committed
-EOF
-  BRANCH_NAME="news/translate-${ARTICLE_DATE}"
-```
-
-Create the analysis-only PR and exit:
-
-```javascript
-safeoutputs___create_pull_request({
-  title: "chore: translate EU Parliament articles ${ARTICLE_DATE} (analysis-only)",
-  body: "## 📊 Translation Analysis Only — ${ARTICLE_DATE}\n\n### Summary\nAll articles for ${ARTICLE_DATE} already have translations.\n\n### Details\n- **Date**: ${ARTICLE_DATE}\n- **Article types checked**: ${ARTICLE_TYPES}\n- **Result**: All translations already exist — no new translations needed\n- **Action**: Baseline translation analysis committed per Rule 5\n- **Workflow**: `news-translate`\n\n---\n> Generated by the `news-translate` agentic workflow.",
-  base: "main",
-  head: BRANCH_NAME
-})
-```
-
-```bash
-  exit 0
-fi
-
-echo "🌐 Articles to translate: $NEEDS_TRANSLATION"
-export NEEDS_TRANSLATION
-```
-
-## Step 2: Set Up Translation Languages
-
-```bash
-LANGUAGES_INPUT="${EP_LANG_INPUT:-all-non-en}"
-
-# Strict allowlist validation
 case "$LANGUAGES_INPUT" in
   "all-non-en") LANG_ARG="sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh" ;;
   "eu-core")    LANG_ARG="de,fr,es,nl" ;;
@@ -566,9 +500,165 @@ case "$LANGUAGES_INPUT" in
     fi
     ;;
 esac
+echo "🌐 Target languages for discovery and generation: $LANG_ARG"
 
+# --- Phase 1: Check today's articles ---
+if [ -z "$ARTICLE_TYPES_INPUT" ]; then
+  ARTICLE_TYPES=$(ls news/${ARTICLE_DATE}-*-en.html 2>/dev/null | \
+    sed "s|news/${ARTICLE_DATE}-||;s|-en\.html||" | \
+    sort -u | tr '\n' ',' | sed 's/,$//')
+  echo "Auto-discovered article types for $ARTICLE_DATE: ${ARTICLE_TYPES:-none}"
+else
+  ARTICLE_TYPES="$ARTICLE_TYPES_INPUT"
+  echo "Specified article types: $ARTICLE_TYPES"
+fi
+
+# Check which articles for today need translation
+NEEDS_TRANSLATION=""
+for TYPE in $(echo "$ARTICLE_TYPES" | tr ',' ' '); do
+  EN_FILE="news/${ARTICLE_DATE}-${TYPE}-en.html"
+  if [ ! -f "$EN_FILE" ]; then
+    echo "⚠️ English article not found: $EN_FILE — skipping type $TYPE"
+    continue
+  fi
+
+  # Check if selected target translations exist
+  MISSING_COUNT=0
+  for LANG in $(echo "$LANG_ARG" | tr ',' ' '); do
+    LANG_FILE="news/${ARTICLE_DATE}-${TYPE}-${LANG}.html"
+    if [ ! -f "$LANG_FILE" ]; then
+      MISSING_COUNT=$((MISSING_COUNT + 1))
+    fi
+  done
+
+  if [ "$MISSING_COUNT" -gt 0 ] || [ "$FORCE_TRANSLATION" = "true" ]; then
+    NEEDS_TRANSLATION="${NEEDS_TRANSLATION:+$NEEDS_TRANSLATION,}$TYPE"
+    echo "📝 Will translate: $TYPE ($EN_FILE) — $MISSING_COUNT languages missing"
+  else
+    echo "✅ All selected translations exist for $TYPE on $ARTICLE_DATE"
+  fi
+done
+
+# --- Phase 2: Historical backfill — scan backward for missing translations ---
+# If today has no work (no articles or all translated), scan the last 30 days
+BACKFILL_DATES=""
+if [ -z "$NEEDS_TRANSLATION" ]; then
+  echo ""
+  echo "═══════════════════════════════════════════"
+  echo "📅 Phase 2: Historical Backfill Scan"
+  echo "═══════════════════════════════════════════"
+  echo "Today ($ARTICLE_DATE) has no pending translations — scanning recent dates..."
+
+  # Scan all dates with English articles, most recent first
+  ALL_DATES=$(ls news/*-en.html 2>/dev/null | sed 's|news/||;s|-[a-z].*||' | sort -ru | head -60)
+
+  for CHECK_DATE in $ALL_DATES; do
+    # Skip today (already checked)
+    [ "$CHECK_DATE" = "$ARTICLE_DATE" ] && continue
+
+    for EN_FILE in news/${CHECK_DATE}-*-en.html; do
+      [ ! -f "$EN_FILE" ] && continue
+      TYPE=$(echo "$EN_FILE" | sed "s|news/${CHECK_DATE}-||;s|-en\.html||")
+
+      MISSING_COUNT=0
+      MISSING_LANGS=""
+      for LANG in $(echo "$LANG_ARG" | tr ',' ' '); do
+        LANG_FILE="news/${CHECK_DATE}-${TYPE}-${LANG}.html"
+        if [ ! -f "$LANG_FILE" ]; then
+          MISSING_COUNT=$((MISSING_COUNT + 1))
+          MISSING_LANGS="${MISSING_LANGS} ${LANG}"
+        fi
+      done
+
+      if [ "$MISSING_COUNT" -gt 0 ]; then
+        echo "📝 Backfill: ${CHECK_DATE}/${TYPE} — $MISSING_COUNT languages missing:$MISSING_LANGS"
+        NEEDS_TRANSLATION="${NEEDS_TRANSLATION:+$NEEDS_TRANSLATION,}${CHECK_DATE}:${TYPE}"
+        case ",${BACKFILL_DATES}," in
+          *,"${CHECK_DATE}",*) ;;
+          *) BACKFILL_DATES="${BACKFILL_DATES:+$BACKFILL_DATES,}${CHECK_DATE}" ;;
+        esac
+
+        # Limit backfill to a manageable batch (max 5 article types per run)
+        ITEM_COUNT=$(echo "$NEEDS_TRANSLATION" | tr ',' '\n' | wc -l)
+        if [ "$ITEM_COUNT" -ge 5 ]; then
+          echo "⏱️ Backfill batch limit reached ($ITEM_COUNT items) — remaining gaps will be filled in next run"
+          break 2
+        fi
+      fi
+    done
+  done
+fi
+
+# --- Phase 3: Translation improvement mode ---
+# If ALL articles are 100% translated, improve quality of existing translations
+IMPROVEMENT_MODE=""
+if [ -z "$NEEDS_TRANSLATION" ]; then
+  echo ""
+  echo "═══════════════════════════════════════════"
+  echo "✨ Phase 3: Translation Quality Improvement"
+  echo "═══════════════════════════════════════════"
+  echo "All articles have complete translations — entering improvement mode"
+  IMPROVEMENT_MODE="true"
+
+  # Pick the 3 most recent dates with translations to improve
+  IMPROVE_DATES=$(ls news/*-en.html 2>/dev/null | sed 's|news/||;s|-[a-z].*||' | sort -ru | head -3)
+  for CHECK_DATE in $IMPROVE_DATES; do
+    for EN_FILE in news/${CHECK_DATE}-*-en.html; do
+      [ ! -f "$EN_FILE" ] && continue
+      TYPE=$(echo "$EN_FILE" | sed "s|news/${CHECK_DATE}-||;s|-en\.html||")
+      NEEDS_TRANSLATION="${NEEDS_TRANSLATION:+$NEEDS_TRANSLATION,}${CHECK_DATE}:${TYPE}"
+      echo "✨ Will improve translations: ${CHECK_DATE}/${TYPE}"
+      # Enforce item cap inside per-file loop (same pattern as backfill)
+      ITEM_COUNT=$(echo "$NEEDS_TRANSLATION" | tr ',' '\n' | wc -l)
+      if [ "$ITEM_COUNT" -ge 3 ]; then
+        break 2
+      fi
+    done
+  done
+fi
+
+echo ""
+echo "═══ Discovery Summary ═══"
+if [ -n "$BACKFILL_DATES" ]; then
+  echo "📅 Mode: Historical backfill"
+  echo "📅 Backfill dates: $BACKFILL_DATES"
+elif [ "$IMPROVEMENT_MODE" = "true" ]; then
+  echo "✨ Mode: Translation quality improvement"
+else
+  echo "📅 Mode: Today's translations ($ARTICLE_DATE)"
+fi
+echo "🌐 Articles to translate: ${NEEDS_TRANSLATION:-none}"
+
+# --- Persist state across bash blocks (sanitized to prevent shell injection) ---
+STATE_FILE="/tmp/gh-aw-translate-state.sh"
+{
+  printf 'NEEDS_TRANSLATION=%q\n' "${NEEDS_TRANSLATION}"
+  printf 'BACKFILL_DATES=%q\n' "${BACKFILL_DATES}"
+  printf 'IMPROVEMENT_MODE=%q\n' "${IMPROVEMENT_MODE}"
+  printf 'FORCE_TRANSLATION=%q\n' "${FORCE_TRANSLATION}"
+  printf 'LANG_ARG=%q\n' "${LANG_ARG}"
+  printf 'ARTICLE_DATE=%q\n' "${ARTICLE_DATE}"
+  printf 'RUN_ID=%q\n' "${RUN_ID}"
+  printf 'TRANSLATE_ANALYSIS_DIR=%q\n' "${TRANSLATE_ANALYSIS_DIR}"
+} > "$STATE_FILE"
+echo "💾 Discovery state persisted to $STATE_FILE"
+```
+
+## Step 2: Restore Discovery State & Target Languages
+
+```bash
+# Source state from Step 1 (env vars do NOT persist across bash blocks)
+STATE_FILE="/tmp/gh-aw-translate-state.sh"
+if [ -f "$STATE_FILE" ]; then
+  source "$STATE_FILE"
+  echo "✅ Restored discovery state: NEEDS_TRANSLATION=$NEEDS_TRANSLATION"
+  echo "✅ Target languages: LANG_ARG=$LANG_ARG"
+else
+  echo "⚠️ State file not found — re-resolving languages"
+  LANG_ARG="sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh"
+fi
+export NEEDS_TRANSLATION BACKFILL_DATES IMPROVEMENT_MODE FORCE_TRANSLATION LANG_ARG ARTICLE_DATE RUN_ID TRANSLATE_ANALYSIS_DIR
 echo "🌐 Target languages: $LANG_ARG"
-export LANG_ARG
 ```
 
 ## Step 3: Generate Article Structure
@@ -581,11 +671,48 @@ export LANG_ARG
 
 > ⚠️ **CRITICAL — MCP env vars and the generation script MUST run in the same bash block.**
 
+> **📅 BACKFILL/IMPROVEMENT MODE**: For articles from older dates (backfill) or improvement mode, the TypeScript generator is NOT used (it only works for today's date). Instead, the AI must:
+> 1. Read the existing English article (`news/${ITEM_DATE}-${TYPE}-en.html`)
+> 2. For each missing language, the workflow copies the English article to create `news/${ITEM_DATE}-${TYPE}-${LANG}.html`
+> 3. Then YOU (the AI) translate ALL English content in the copy using the `edit` tool (Step 3b)
+
 ```bash
 # --- Re-initialize time tracking (env vars do NOT persist across bash blocks) ---
 START_EPOCH=$(date +%s)
 TRANSLATION_DEADLINE_MIN=65
 echo "⏱️ Translation start epoch: $START_EPOCH (deadline: ${TRANSLATION_DEADLINE_MIN} min)"
+
+# --- Restore discovery state from Step 1 ---
+STATE_FILE="/tmp/gh-aw-translate-state.sh"
+if [ -f "$STATE_FILE" ]; then
+  source "$STATE_FILE"
+  echo "✅ Restored: NEEDS_TRANSLATION=$NEEDS_TRANSLATION"
+  echo "✅ Restored: LANG_ARG=$LANG_ARG FORCE_TRANSLATION=$FORCE_TRANSLATION IMPROVEMENT_MODE=$IMPROVEMENT_MODE"
+else
+  echo "⚠️ State file not found — discovery results unavailable. Creating analysis artifact and continuing with empty state."
+  NEEDS_TRANSLATION=""
+  BACKFILL_DATES=""
+  IMPROVEMENT_MODE="false"
+  FORCE_TRANSLATION="false"
+  LANG_ARG="sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh"
+  # Re-derive date context for fallback (since state file was not available)
+  TODAY=$(date -u +%Y-%m-%d)
+  ARTICLE_DATE="${{ github.event.inputs.article_date }}"
+  if [ -z "$ARTICLE_DATE" ]; then
+    ARTICLE_DATE="${EP_ARTICLE_DATE:-$TODAY}"
+  fi
+  RUN_ID="${GITHUB_RUN_NUMBER:-0}"
+  TRANSLATE_ANALYSIS_DIR="analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}"
+  mkdir -p "${TRANSLATE_ANALYSIS_DIR}"
+  cat > "${TRANSLATE_ANALYSIS_DIR}/translation-state-missing.analysis.md" <<EOF
+# Translation state file missing
+
+- article_date: ${ARTICLE_DATE}
+- run_id: ${RUN_ID}
+- reason: /tmp/gh-aw-translate-state.sh was not found. Discovery results from Step 1 were unavailable.
+- action: Proceeding with empty state so PR creation can still complete with analysis artifacts.
+EOF
+fi
 
 # --- MCP Gateway Setup ---
 MCP_CONFIG="${GH_AW_MCP_CONFIG:-/home/runner/.copilot/mcp-config.json}"
@@ -628,13 +755,24 @@ fi
 export USE_EP_MCP=true
 
 # --- Translate Each Article Type ---
+# NEEDS_TRANSLATION entries are either "TYPE" (today) or "DATE:TYPE" (backfill/improvement)
 TRANSLATED_TYPES=""
 FAILED_TYPES=""
+CURRENT_DATE_CACHED=$(date -u +%Y-%m-%d)
 
-for TYPE in $(echo "$NEEDS_TRANSLATION" | tr ',' ' '); do
+for ITEM in $(echo "$NEEDS_TRANSLATION" | tr ',' ' '); do
+  # Parse DATE:TYPE or just TYPE
+  if echo "$ITEM" | grep -q ':'; then
+    ITEM_DATE=$(echo "$ITEM" | cut -d: -f1)
+    TYPE=$(echo "$ITEM" | cut -d: -f2)
+  else
+    ITEM_DATE="$ARTICLE_DATE"
+    TYPE="$ITEM"
+  fi
+
   echo ""
   echo "═══════════════════════════════════════════"
-  echo "🌐 Translating: $TYPE (date: $ARTICLE_DATE)"
+  echo "🌐 Translating: $TYPE (date: $ITEM_DATE)"
   echo "═══════════════════════════════════════════"
 
   # ⏱️ Time check: stop translating if deadline reached
@@ -646,39 +784,164 @@ for TYPE in $(echo "$NEEDS_TRANSLATION" | tr ',' ' '); do
     break
   fi
 
-  SKIP_FLAG=""
-  if [ "${{ github.event.inputs.force_translation }}" = "false" ]; then
-    SKIP_FLAG="--skip-existing"
+  # Determine which languages are missing for this article
+  MISSING_LANGS=""
+  EN_FILE="news/${ITEM_DATE}-${TYPE}-en.html"
+  if [ ! -f "$EN_FILE" ]; then
+    echo "⚠️ English source not found: $EN_FILE — skipping"
+    FAILED_TYPES="${FAILED_TYPES:+$FAILED_TYPES,}${ITEM_DATE}:${TYPE}"
+    continue
   fi
 
-  npx tsx src/generators/news-enhanced.ts \
-    --types="$TYPE" \
-    --languages="$LANG_ARG" \
-    $SKIP_FLAG
+  for LANG in $(echo "$LANG_ARG" | tr ',' ' '); do
+    LANG_FILE="news/${ITEM_DATE}-${TYPE}-${LANG}.html"
+    if [ ! -f "$LANG_FILE" ] || [ "$IMPROVEMENT_MODE" = "true" ] || [ "$FORCE_TRANSLATION" = "true" ]; then
+      MISSING_LANGS="${MISSING_LANGS:+$MISSING_LANGS,}$LANG"
+    fi
+  done
 
-  if [ $? -eq 0 ]; then
-    TRANSLATED_TYPES="${TRANSLATED_TYPES:+$TRANSLATED_TYPES,}$TYPE"
-    echo "✅ Translation completed for $TYPE"
+  if [ -z "$MISSING_LANGS" ]; then
+    echo "✅ All translations exist for ${ITEM_DATE}/${TYPE} — skipping"
+    continue
+  fi
+
+  echo "📝 Languages to generate: $MISSING_LANGS"
+
+  # For today's items, use the generator; for backfill/improvement, copy English and prepare for AI translation
+  if [ "$ITEM_DATE" = "$CURRENT_DATE_CACHED" ] && [ "$IMPROVEMENT_MODE" != "true" ]; then
+    # Today's articles: use the TypeScript generator
+    SKIP_FLAG=""
+    if [ "$FORCE_TRANSLATION" != "true" ]; then
+      SKIP_FLAG="--skip-existing"
+    fi
+
+    npx tsx src/generators/news-enhanced.ts \
+      --types="$TYPE" \
+      --languages="$MISSING_LANGS" \
+      $SKIP_FLAG
+
+    if [ $? -eq 0 ]; then
+      TRANSLATED_TYPES="${TRANSLATED_TYPES:+$TRANSLATED_TYPES,}${ITEM_DATE}:${TYPE}"
+      echo "✅ Generation completed for ${ITEM_DATE}/${TYPE}"
+    else
+      FAILED_TYPES="${FAILED_TYPES:+$FAILED_TYPES,}${ITEM_DATE}:${TYPE}"
+      echo "⚠️ Generation failed for ${ITEM_DATE}/${TYPE} — continuing with remaining types"
+    fi
   else
-    FAILED_TYPES="${FAILED_TYPES:+$FAILED_TYPES,}$TYPE"
-    echo "⚠️ Translation failed for $TYPE — continuing with remaining types"
+    # Backfill or improvement: copy English article for each missing language
+    # The AI agent will translate the content in Step 3b
+    EN_SOURCE="news/${ITEM_DATE}-${TYPE}-en.html"
+    COPY_COUNT=0
+    MARK_COUNT=0
+    for LANG in $(echo "$MISSING_LANGS" | tr ',' ' '); do
+      LANG_FILE="news/${ITEM_DATE}-${TYPE}-${LANG}.html"
+      IS_NEW_COPY="false"
+      if [ ! -f "$LANG_FILE" ]; then
+        cp "$EN_SOURCE" "$LANG_FILE"
+        IS_NEW_COPY="true"
+      elif [ "$IMPROVEMENT_MODE" = "true" ] || [ "$FORCE_TRANSLATION" = "true" ]; then
+        # File exists but needs improvement/re-translation — append a marker comment
+        # so Step 3b's git-diff-based discovery can detect it as a changed file
+        echo "<!-- translation-pending: improvement run $(date -u +%Y-%m-%dT%H:%M:%SZ) -->" >> "$LANG_FILE"
+        MARK_COUNT=$((MARK_COUNT + 1))
+      fi
+
+      # Metadata normalization: only for newly copied files (existing files already have correct metadata)
+      if [ "$IS_NEW_COPY" = "true" ]; then
+        # Map language to dir and og:locale for comprehensive metadata update
+        case "$LANG" in
+          ar) LANG_DIR="rtl"; OG_LOCALE="ar_SA" ;;
+          he) LANG_DIR="rtl"; OG_LOCALE="he_IL" ;;
+          sv) LANG_DIR="ltr"; OG_LOCALE="sv_SE" ;;
+          da) LANG_DIR="ltr"; OG_LOCALE="da_DK" ;;
+          no) LANG_DIR="ltr"; OG_LOCALE="nb_NO" ;;
+          fi) LANG_DIR="ltr"; OG_LOCALE="fi_FI" ;;
+          de) LANG_DIR="ltr"; OG_LOCALE="de_DE" ;;
+          fr) LANG_DIR="ltr"; OG_LOCALE="fr_FR" ;;
+          es) LANG_DIR="ltr"; OG_LOCALE="es_ES" ;;
+          nl) LANG_DIR="ltr"; OG_LOCALE="nl_NL" ;;
+          ja) LANG_DIR="ltr"; OG_LOCALE="ja_JP" ;;
+          ko) LANG_DIR="ltr"; OG_LOCALE="ko_KR" ;;
+          zh) LANG_DIR="ltr"; OG_LOCALE="zh_CN" ;;
+          *) LANG_DIR="ltr"; OG_LOCALE="${LANG}" ;;
+        esac
+
+        # Normalize document-level language metadata and self-referential URLs in the
+        # copied file so Step 3b can focus on translating content rather than
+        # fixing structural metadata. Scope replacements to page metadata only to avoid
+        # rewriting navigation/footer hreflang links or unrelated content.
+        # Approved exception to the FORBIDDEN "never write new custom scripts" rule:
+        # this inline Node.js snippet is metadata-normalization only for copied
+        # placeholder files in the backfill/improvement path, and must not be expanded
+        # into general content transformation or new standalone scripting.
+        EN_BASENAME=$(basename "$EN_SOURCE")
+        LANG_BASENAME=$(basename "$LANG_FILE")
+        node -e '
+const fs = require("node:fs");
+const [filePath, lang, langDir, ogLocale, enName, langName] = process.argv.slice(1);
+let c = fs.readFileSync(filePath, "utf8");
+
+// Update document-level <html> and <article> lang/dir attributes only (not nav/footer)
+c = c.replace(/(<html\b[^>]*\s)lang="en"/, `$1lang="${lang}"`);
+c = c.replace(/(<html\b[^>]*\s)dir="(?:ltr|rtl)"/, `$1dir="${langDir}"`);
+c = c.replace(/(<article\b[^>]*\s)lang="en"/, `$1lang="${lang}"`);
+
+// Update JSON-LD inLanguage
+c = c.replace(/("inLanguage"\s*:\s*")en(")/g, `$1${lang}$2`);
+
+// Update og:locale meta tag
+c = c.replace(/(<meta\s+property="og:locale"\s+content=")[^"]*(")/g, `$1${ogLocale}$2`);
+
+// Update self-referential URL-bearing fields: canonical, og:url, JSON-LD @id/url
+// Use targeted replacements on specific tags rather than blanket replaceAll
+const enEsc = enName.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const urlFieldRe = new RegExp(
+  `(<(?:link|meta)\\s[^>]*(?:href|content)=")([^"]*)(")` +
+  `|("(?:@id|url|mainEntityOfPage)"\\s*:\\s*")([^"]*)(")`,
+  "g"
+);
+c = c.replace(urlFieldRe, (match, p1, p2, p3, j1, j2, j3) => {
+  if (p1) return p1 + p2.replace(new RegExp(enEsc, "g"), langName) + p3;
+  if (j1) return j1 + j2.replace(new RegExp(enEsc, "g"), langName) + j3;
+  return match;
+});
+
+fs.writeFileSync(filePath, c, "utf8");
+' "$LANG_FILE" "$LANG" "$LANG_DIR" "$OG_LOCALE" "$EN_BASENAME" "$LANG_BASENAME"
+        COPY_COUNT=$((COPY_COUNT + 1))
+      fi
+    done
+    echo "📋 Copied English source to $COPY_COUNT language files for AI translation"
+    if [ "$MARK_COUNT" -gt 0 ]; then
+      echo "📋 Marked $MARK_COUNT existing files for improvement/re-translation"
+    fi
+    TRANSLATED_TYPES="${TRANSLATED_TYPES:+$TRANSLATED_TYPES,}${ITEM_DATE}:${TYPE}"
   fi
 done
 
 echo ""
-echo "═══ Translation Summary ═══"
-echo "✅ Translated: ${TRANSLATED_TYPES:-none}"
-echo "❌ Failed:     ${FAILED_TYPES:-none}"
+echo "═══ Generation Summary ═══"
+echo "✅ Generated: ${TRANSLATED_TYPES:-none}"
+echo "❌ Failed:    ${FAILED_TYPES:-none}"
 
 if [ -z "$TRANSLATED_TYPES" ]; then
-  echo "⚠️ All translations failed — will create analysis-only PR"
-  TRANSLATED_TYPES="none"
+  echo "⚠️ All generation attempts failed — will still attempt AI translation of any existing files"
 fi
+
+# --- Persist generation results for later steps (sanitized to prevent shell injection) ---
+GEN_STATE_FILE="/tmp/gh-aw-translate-generation.sh"
+{
+  printf 'TRANSLATED_TYPES=%q\n' "${TRANSLATED_TYPES}"
+  printf 'FAILED_TYPES=%q\n' "${FAILED_TYPES}"
+} > "$GEN_STATE_FILE"
+echo "💾 Generation state persisted to $GEN_STATE_FILE"
 ```
 
 ## Step 3b: AI Translation — Translate English Content
 
-> **CORE STEP**: The generator produces articles with localized UI but **English narrative content**. You MUST translate all English text in each non-English file.
+> **🚨 CORE STEP — THIS IS THE MOST IMPORTANT STEP**: The generator produces articles with localized UI but **English narrative content**. YOU (the AI agent) MUST read each file and translate ALL English text to the target language. This is pure AI translation work — you read English, you think in the target language, you write the translation using the `edit` tool.
+
+> **⛔ ABSOLUTE PROHIBITION — AI DOES ALL TRANSLATION WORK**: You MUST NEVER create any script, code, dictionary, translation map, JSON file, search/replace pattern, regex-based bulk replacement, sed command, awk command, Python script, Node.js script, or ANY other programmatic approach to translate **narrative or user-visible content**. The AI (YOU) must read the English text, understand its meaning, and write the correct translation in the target language. Use ONLY the `edit` tool to replace English text with translated text in each HTML file. **Any attempt to automate translation via code is a CRITICAL violation.** Limited non-translation mechanical edits explicitly required elsewhere in this workflow — for example updating a copied file's `lang` attribute or similarly narrow metadata-only adjustments — are allowed and are NOT considered automated translation.
 
 > **⛔ REMINDER — NO GIT COMMANDS**: Use the `edit` tool to update translation files, one file and one section at a time. NEVER run `git add`, `git commit`, or any git command. Files MUST remain as uncommitted working directory changes for the PR creation step to work.
 
@@ -686,15 +949,21 @@ fi
 
 > **⏱️ TIME MANAGEMENT**: Check elapsed time after each article type. If 65+ minutes elapsed, SKIP remaining translations and proceed directly to Step 5 (PR creation). Partial translations are acceptable.
 
+> **✨ IMPROVEMENT MODE**: When `IMPROVEMENT_MODE=true`, the files already contain translations. Read both the English source and the existing translation, then improve the translation quality — fix awkward phrasing, improve terminology, ensure EP official vocabulary is used, and make the text read more naturally in the target language.
+
 ### Translation Method (MANDATORY — follow exactly)
 
-For each non-English article file generated in Step 3, process **one file at a time**:
+For each non-English article file (from Step 3 generation, backfill, or improvement), process **one file at a time**:
 
-1. **Read** the file with `cat news/${ARTICLE_DATE}-${TYPE}-${LANG}.html`
-2. **Identify** English text in ALL user-visible elements: `<h1>`, `<h2>`, `<h3>`, `<p>`, `<li>`, `<td>`, `<th>`, `<span>`, `<div>`, `<a>` (link text), `<figcaption>`, `<blockquote>`, and `<title>`
-3. **Translate** to the target language using EP terminology standards (see table above)
-4. **Write back** the translated content using the `edit` tool — replace old English text with translated text, one section at a time
-5. **Keep unchanged**: proper nouns (MEP names), abbreviations (EPP, S&D), reference IDs, location names, HTML tags, CSS classes, URLs
+1. **Derive the translation target list for this run only** by listing tracked changes and untracked new files under `news/`, then keeping only non-English HTML articles: `(git diff --name-only -- news/; git ls-files --others --exclude-standard -- news/) | grep -E '^news/.+-(sv|da|no|fi|de|fr|es|nl|ar|he|ja|ko|zh)\.html$'`
+2. **Do not** use a repository-wide glob such as `ls news/*-{sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh}.html`, because that can include historical translations outside the current run
+3. **For each changed file** `news/<DATE>-<TYPE>-<LANG>.html`:
+4. **Read** the target file with `cat news/<DATE>-<TYPE>-<LANG>.html`
+5. **Read** the English source with `cat news/<DATE>-<TYPE>-en.html`
+6. **Identify** English text in ALL user-visible elements: `<h1>`, `<h2>`, `<h3>`, `<p>`, `<li>`, `<td>`, `<th>`, `<span>`, `<div>`, `<a>` (link text), `<figcaption>`, `<blockquote>`, and `<title>`
+7. **Translate** to the target language using EP terminology standards (see table above)
+8. **Write back** the translated content using the `edit` tool — replace old English text with translated text, one section at a time
+9. **Keep unchanged**: proper nouns (MEP names), abbreviations (EPP, S&D), reference IDs, location names, HTML tags, CSS classes, URLs
 
 **Also translate these SEO and structured data elements:**
 - `<title>` tag — translate the page title (keep `| EU Parliament Monitor` suffix)
@@ -724,31 +993,44 @@ Translate ALL narrative content: headings, analysis, stakeholder perspectives, i
 ## Step 4: Validate Translated Articles
 
 ```bash
+# --- Restore state from previous steps ---
+STATE_FILE="/tmp/gh-aw-translate-state.sh"
+GEN_STATE_FILE="/tmp/gh-aw-translate-generation.sh"
+[ -f "$STATE_FILE" ] && source "$STATE_FILE"
+[ -f "$GEN_STATE_FILE" ] && source "$GEN_STATE_FILE"
+echo "✅ Restored state: TRANSLATED_TYPES=$TRANSLATED_TYPES LANG_ARG=$LANG_ARG"
+
 if [ -z "${ARTICLE_DATE:-}" ]; then
   ARTICLE_DATE=$(date -u +%Y-%m-%d)
 fi
 CURRENT_YEAR=$(date -u +%Y)
 VALIDATION_FAILURES=0
 
-for TYPE in $(echo "$TRANSLATED_TYPES" | tr ',' ' '); do
-  echo "Validating translations for: $TYPE"
+for ITEM in $(echo "$TRANSLATED_TYPES" | tr ',' ' '); do
+  # Parse DATE:TYPE format
+  if echo "$ITEM" | grep -q ':'; then
+    ITEM_DATE=$(echo "$ITEM" | cut -d: -f1)
+    TYPE=$(echo "$ITEM" | cut -d: -f2)
+  else
+    ITEM_DATE="$ARTICLE_DATE"
+    TYPE="$ITEM"
+  fi
+  echo "Validating translations for: $TYPE (date: $ITEM_DATE)"
 
   for LANG in $(echo "$LANG_ARG" | tr ',' ' '); do
-    FILE="news/${ARTICLE_DATE}-${TYPE}-${LANG}.html"
+    FILE="news/${ITEM_DATE}-${TYPE}-${LANG}.html"
     if [ ! -f "$FILE" ]; then
       echo "⚠️ Missing: $FILE"
       VALIDATION_FAILURES=$((VALIDATION_FAILURES + 1))
       continue
     fi
 
-    # Validate HTML structure
-    MISSING_SWITCHER=$(grep -cL 'class="language-switcher"' "$FILE" 2>/dev/null || echo 0)
-    MISSING_HEADER=$(grep -cL 'class="site-header"' "$FILE" 2>/dev/null || echo 0)
-    if [ "$MISSING_SWITCHER" -gt 0 ]; then
-      echo "⚠️ $FILE: Missing required language switcher"
+    # Validate HTML structure (use selectors matching repository article validators)
+    if ! grep -q 'class="site-header__langs"' "$FILE" 2>/dev/null && ! grep -q 'class="language-switcher"' "$FILE" 2>/dev/null; then
+      echo "⚠️ $FILE: Missing required language switcher (site-header__langs or language-switcher)"
       VALIDATION_FAILURES=$((VALIDATION_FAILURES + 1))
     fi
-    if [ "$MISSING_HEADER" -gt 0 ]; then
+    if ! grep -q 'class="site-header"' "$FILE" 2>/dev/null; then
       echo "⚠️ $FILE: Missing required site header"
       VALIDATION_FAILURES=$((VALIDATION_FAILURES + 1))
     fi
@@ -824,6 +1106,11 @@ if [ "$VALIDATION_FAILURES" -gt 0 ]; then
 else
   echo "✅ All translations pass validation"
 fi
+
+# --- Persist validation results for PR body ---
+VAL_STATE_FILE="/tmp/gh-aw-translate-validation.sh"
+printf 'VALIDATION_FAILURES=%q\n' "${VALIDATION_FAILURES}" > "$VAL_STATE_FILE"
+echo "💾 Validation state persisted to $VAL_STATE_FILE"
 ```
 
 ## Step 4b: Scope Verification (Prevent Patch Conflicts)
@@ -985,6 +1272,16 @@ echo "📊 Total uncommitted changes: $CHANGE_COUNT"
 > **⚠️ CRITICAL**: The generator writes `news/metadata/generation-YYYY-MM-DD.json` during article creation. When multiple news workflows run on the same day, each creates the same date's metadata file. If another workflow's PR is merged before this workflow's patch is applied, the metadata file already exists on `main` and the patch fails with "Failed to apply patch". **Remove the metadata file from the working directory before creating the PR** so it is not included in the diff.
 
 ```bash
+# --- Restore state from previous steps ---
+STATE_FILE="/tmp/gh-aw-translate-state.sh"
+GEN_STATE_FILE="/tmp/gh-aw-translate-generation.sh"
+VAL_STATE_FILE="/tmp/gh-aw-translate-validation.sh"
+[ -f "$STATE_FILE" ] && source "$STATE_FILE"
+[ -f "$GEN_STATE_FILE" ] && source "$GEN_STATE_FILE"
+[ -f "$VAL_STATE_FILE" ] && source "$VAL_STATE_FILE"
+VALIDATION_FAILURES="${VALIDATION_FAILURES:-0}"
+echo "✅ Restored state for PR creation: BACKFILL_DATES=$BACKFILL_DATES IMPROVEMENT_MODE=$IMPROVEMENT_MODE VALIDATION_FAILURES=$VALIDATION_FAILURES"
+
 # Remove metadata files to prevent patch conflicts with other same-day workflows
 rm -f news/metadata/generation-*.json
 rm -f news/articles-metadata.json
@@ -1007,18 +1304,56 @@ echo "🧹 Cleaned raw data payloads for ${TRANSLATE_ANALYSIS_DIR}; translation 
 if [ -z "${ARTICLE_DATE:-}" ]; then
   ARTICLE_DATE=$(date -u +%Y-%m-%d)
 fi
-TRANSLATED_COUNT=$(find news/ -type f -name "${ARTICLE_DATE}-*-*.html" ! -name "*-en.html" 2>/dev/null | wc -l)
-echo "📊 Total translated files: $TRANSLATED_COUNT"
-BRANCH_NAME="news/translate-${ARTICLE_DATE}"
+# Count ALL newly generated/modified non-English HTML files (not just today's date)
+TRANSLATED_COUNT=$(git diff --name-only 2>/dev/null | grep '^news/.*\.html$' | grep -v '\-en\.html$' | wc -l | tr -d ' ')
+UNTRACKED_COUNT=$(git ls-files --others --exclude-standard 2>/dev/null | grep '^news/.*\.html$' | grep -v '\-en\.html$' | wc -l | tr -d ' ')
+TOTAL_FILES=$((TRANSLATED_COUNT + UNTRACKED_COUNT))
+echo "📊 Total modified/new translation files: $TOTAL_FILES"
+if [ "$TOTAL_FILES" -eq 0 ]; then
+  echo "⚠️ No translated non-English news/*.html changes were detected."
+  echo "ℹ️ This can happen when translation targets are already up to date or improvement mode produced no HTML edits."
+  echo "ℹ️ Creating a preserved analysis summary so branch and PR creation can still proceed."
+  mkdir -p "${TRANSLATE_ANALYSIS_DIR}"
+  cat > "${TRANSLATE_ANALYSIS_DIR}/translation-no-html-changes.analysis.md" <<EOF
+# Translation run produced no non-English HTML changes
+
+- article_date: ${ARTICLE_DATE}
+- run_id: ${RUN_ID}
+- improvement_mode: ${IMPROVEMENT_MODE:-false}
+- reason: Translation targets were already up to date, or refinement produced no HTML edits.
+
+This summary is intentionally written so the workflow can still create a reviewable PR with preserved analysis artifacts instead of hard-failing before branch/PR creation.
+EOF
+fi
+
+# Determine branch name — include backfill info if applicable
+if [ -n "$BACKFILL_DATES" ]; then
+  FIRST_BACKFILL_DATE=$(echo "$BACKFILL_DATES" | tr ',' '\n' | head -1)
+  BRANCH_NAME="news/translate-backfill-${FIRST_BACKFILL_DATE}-${ARTICLE_DATE}"
+elif [ "$IMPROVEMENT_MODE" = "true" ]; then
+  BRANCH_NAME="news/translate-improve-${ARTICLE_DATE}"
+else
+  BRANCH_NAME="news/translate-${ARTICLE_DATE}"
+fi
 echo "Branch: $BRANCH_NAME"
 
-# Determine PR title and body based on whether translations were produced
-if [ "${TRANSLATED_TYPES}" = "none" ] || [ "$TRANSLATED_COUNT" -eq 0 ]; then
-  PR_TITLE="chore: translate EU Parliament articles ${ARTICLE_DATE} (analysis-only)"
-  PR_BODY="## 📊 Translation Analysis Only — ${ARTICLE_DATE}\n\n### Summary\nAll translation attempts failed for ${ARTICLE_DATE}. Analysis artifacts committed per Rule 5.\n\n### Details\n- **Article types attempted**: ${FAILED_TYPES:-unknown}\n- **Target languages**: ${LANG_ARG}\n- **Translated files**: 0\n- **Workflow**: \`news-translate\`\n- **Data source**: Existing English articles in \`news/\` directory\n\n### Next Steps\n- Review failed article types and retry on next scheduled run\n- Check English source article availability\n\n---\n> Generated by the \`news-translate\` agentic workflow."
+# Build PR title and body — reflect actual validation results
+if [ "${VALIDATION_FAILURES:-0}" -gt 0 ]; then
+  VAL_STATUS="⚠️ ${VALIDATION_FAILURES} issue(s) found"
+else
+  VAL_STATUS="✅ Passed"
+fi
+QUALITY_CHECKS="### Quality Checks\n- HTML validation: ${VAL_STATUS}\n- Language attribute verification: ${VAL_STATUS}\n- RTL/CJK layout validation: ${VAL_STATUS}\n- EP terminology consistency: ${VAL_STATUS}"
+
+if [ "$IMPROVEMENT_MODE" = "true" ]; then
+  PR_TITLE="chore: improve EU Parliament article translations ${ARTICLE_DATE}"
+  PR_BODY="## ✨ EU Parliament Translation Improvements — ${ARTICLE_DATE}\n\n### Summary\nImproved translation quality for EU Parliament news articles.\n\n### Details\n- **Improved articles**: ${TRANSLATED_TYPES}\n- **Target languages**: ${LANG_ARG}\n- **Total files modified**: ${TOTAL_FILES}\n- **Mode**: Quality improvement (all translations were 100% complete)\n- **Workflow**: \`news-translate\`\n\n${QUALITY_CHECKS}\n\n---\n> Generated by the \`news-translate\` agentic workflow."
+elif [ -n "$BACKFILL_DATES" ]; then
+  PR_TITLE="chore: translate EU Parliament articles (backfill)"
+  PR_BODY="## 🌐 EU Parliament Article Translations — Backfill\n\n### Summary\nBackfilled missing translations for EU Parliament news articles.\n\n### Translation Coverage\n- **Backfill dates**: ${BACKFILL_DATES}\n- **Article types**: ${TRANSLATED_TYPES}\n- **Target languages**: ${LANG_ARG}\n- **Total translated files**: ${TOTAL_FILES}\n- **Workflow**: \`news-translate\`\n\n${QUALITY_CHECKS}\n\n---\n> Generated by the \`news-translate\` agentic workflow."
 else
   PR_TITLE="chore: translate EU Parliament articles ${ARTICLE_DATE}"
-  PR_BODY="## 🌐 EU Parliament Article Translations — ${ARTICLE_DATE}\n\n### Summary\nTranslated EU Parliament news articles from English to ${LANG_ARG} for ${ARTICLE_DATE}.\n\n### Translation Coverage\n- **Article types**: ${TRANSLATED_TYPES}\n- **Target languages**: ${LANG_ARG}\n- **Total translated files**: ${TRANSLATED_COUNT}\n- **Workflow**: \`news-translate\`\n\n### Quality Checks\n- HTML validation: ✅ Passed\n- Language attribute verification: ✅ Checked\n- RTL/CJK layout validation: ✅ Verified (where applicable)\n- EP terminology consistency: ✅ Cross-referenced with official EU terminology\n\n### Data Pipeline\n- **Source**: English articles generated by content workflows (\`news-breaking\`, \`news-week-ahead\`, etc.)\n- **Translation method**: AI translation with EP-specific terminology standards\n- **Post-processing**: TypeScript generator pipeline with locale-specific formatting\n\n---\n> Generated by the \`news-translate\` agentic workflow. English source articles were generated by the individual content workflows."
+  PR_BODY="## 🌐 EU Parliament Article Translations — ${ARTICLE_DATE}\n\n### Summary\nTranslated EU Parliament news articles from English to ${LANG_ARG} for ${ARTICLE_DATE}.\n\n### Translation Coverage\n- **Article types**: ${TRANSLATED_TYPES}\n- **Target languages**: ${LANG_ARG}\n- **Total translated files**: ${TOTAL_FILES}\n- **Workflow**: \`news-translate\`\n\n${QUALITY_CHECKS}\n\n### Data Pipeline\n- **Source**: English articles generated by content workflows (\`news-breaking\`, \`news-week-ahead\`, etc.)\n- **Translation method**: AI translation with EP-specific terminology standards\n- **Post-processing**: TypeScript generator pipeline with locale-specific formatting\n\n---\n> Generated by the \`news-translate\` agentic workflow. English source articles were generated by the individual content workflows."
 fi
 echo "PR title: $PR_TITLE"
 ```
@@ -1067,17 +1402,19 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 
 **⚠️ NEVER use `git push` directly** — always use `safeoutputs___create_pull_request`
 
-- ✅ `safeoutputs___create_pull_request` when ANY translations are generated
-- ✅ `safeoutputs___create_pull_request` with analysis-only if no articles found
-- ✅ `safeoutputs___noop` ONLY if no English articles exist AND no analysis-only PR created
-- ❌ NEVER exit without calling either `safeoutputs___create_pull_request` or `safeoutputs___noop`
+- ✅ `safeoutputs___create_pull_request` when ANY translations are generated or improved
+- ✅ `safeoutputs___create_pull_request` for backfill translations of older dates
+- ❌ NEVER call `safeoutputs___noop` — there is ALWAYS work to do (new translations, backfill, or quality improvement)
+- ❌ NEVER exit without calling `safeoutputs___create_pull_request`
 
 ## Error Handling
 
-**If translation generator fails:**
+**If translation generator fails for a specific article type:**
 1. Log the specific failure
 2. Continue with remaining article types — partial translations are acceptable
-3. If ALL types fail, create analysis-only PR with failure summary
+3. If ALL types fail for today, move to historical backfill (Phase 2)
+4. If backfill also fails, move to improvement mode (Phase 3)
+5. There is ALWAYS work to do — NEVER produce an empty PR
 
 **If PR creation fails AFTER generating translations:**
 1. Retry `safeoutputs___create_pull_request` exactly **once**
@@ -1085,8 +1422,10 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 3. The translations exist but no PR = readers can't see them = FAILURE
 4. Do NOT attempt: ad-hoc branch creation, ad-hoc git reset, reflog recovery, or any other git tricks (the mandatory safety/cleanup steps above are the only permitted git commands)
 
-**If no English articles found:**
-- Create analysis-only PR or call `safeoutputs___noop`
+**If no English articles found for today:**
+- Scan backward through older dates for missing translations (Phase 2)
+- If all older dates are fully translated, improve existing translations (Phase 3)
+- NEVER call `safeoutputs___noop` — ALWAYS produce translations
 
 **If MCP server unavailable:**
 - Generator falls back to stdio mode — continue normally
