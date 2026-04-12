@@ -122,48 +122,18 @@ import {
 
 ## Current Status
 
-**MCP Server Integration**: The project is designed to use the
+**MCP Server Integration**: The project uses the
 [European-Parliament-MCP-Server](https://github.com/Hack23/European-Parliament-MCP-Server)
-for accessing real EU Parliament data.
+v1.2.4 for accessing real EU Parliament data via the Model Context Protocol.
 
-- **MCP Server Status**: The MCP server is currently in development (skeleton
-  implementation)
-- **Fallback Mode**: News generation works with placeholder content when MCP
-  server is unavailable
+- **MCP Server Status**: ✅ Fully operational — 60+ EP data tools available
+  (feeds, direct lookups, analytical tools, intelligence correlation)
+- **Agentic Workflows**: 10 gh-aw markdown workflows for automated news
+  generation with AI-driven political intelligence analysis
+- **Fallback Mode**: News generation can work with reduced data when EP API
+  endpoints are temporarily unavailable
 - **Environment Variable**: Set `USE_EP_MCP=false` to disable MCP client
   connection attempts
-
-### When MCP Server is Ready
-
-Once the European-Parliament-MCP-Server is fully implemented, the system will
-automatically:
-
-1. Connect to the MCP server for real-time EU Parliament data
-2. Fetch plenary sessions, committee meetings, and documents
-3. Generate articles with actual parliamentary information
-4. Provide proper translation or content generation in each language
-
-### Current Limitations
-
-**Note**: The current implementation generates placeholder content in English
-for all languages when MCP server is unavailable. To enable full functionality:
-
-1. **Complete the MCP Server**: The European-Parliament-MCP-Server needs
-   implementation of:
-   - `get_plenary_sessions` tool
-   - `search_documents` tool
-   - `get_parliamentary_questions` tool
-   - `get_committee_info` tool
-
-2. **Install MCP Server**: Once ready, install the MCP server:
-
-   ```bash
-   npm install -g european-parliament-mcp-server
-   # or clone and build locally
-   ```
-
-3. **Enable MCP Client**: The news generator will automatically connect when the
-   server is available
 
 EU Parliament Monitor is an automated news generation platform that monitors
 European Parliament activities and generates multi-language news articles
