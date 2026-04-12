@@ -472,8 +472,8 @@ if [ "$EP_STATUS" = "000" ] && [ "$EP_AT_STATUS" = "000" ]; then
   echo "⚠️ EP API appears DOWN (both endpoints unreachable) — MCP health gate may also fail"
 elif [ "$EP_AT_STATUS" = "200" ]; then
   echo "✅ EP API reachable — adopted-texts endpoint confirmed working"
-elif [ "$EP_STATUS" -ge 500 ] 2>/dev/null; then
-  echo "⚠️ EP API returning server errors (HTTP $EP_STATUS) — MCP health gate may also fail"
+elif [ "$EP_STATUS" -ge 500 ] 2>/dev/null || [ "$EP_AT_STATUS" -ge 500 ] 2>/dev/null; then
+  echo "⚠️ EP API returning server errors (meps: $EP_STATUS, adopted-texts: $EP_AT_STATUS) — MCP health gate may also fail"
 else
   echo "ℹ️ EP API partial response (meps: $EP_STATUS, adopted-texts: $EP_AT_STATUS) — proceed with MCP health gate"
 fi
