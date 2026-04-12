@@ -48,6 +48,11 @@
   --max-width: 1440px;
   --transition: 0.25s ease;
 
+  /* Surface tokens — used by SWOT, dashboard, mindmap, stakeholder panels */
+  --surface-alt: #ffffff;
+  --surface-muted: #f8f9fa;
+  --text-primary: #1a1a2e;
+
   /* Chart/Dashboard tokens */
   --metric-gradient-start: #003399;
   --metric-gradient-end: #1565c0;
@@ -1657,6 +1662,11 @@ button:focus-visible {
     --hero-surface-soft: rgba(255, 255, 255, 0.04);
     --hero-surface-border: rgba(255, 255, 255, 0.1);
 
+    /* Surface tokens */
+    --surface-alt: #1a1f2e;
+    --surface-muted: #161b22;
+    --text-primary: #e8eaf0;
+
     /* Chart/Dashboard dark tokens */
     --metric-gradient-start: #4da3ff;
     --metric-gradient-end: #80bfff;
@@ -1712,6 +1722,10 @@ html[data-theme='dark'] {
   --hero-surface-strong: rgba(255, 255, 255, 0.1);
   --hero-surface-soft: rgba(255, 255, 255, 0.04);
   --hero-surface-border: rgba(255, 255, 255, 0.1);
+  /* Surface tokens */
+  --surface-alt: #1a1f2e;
+  --surface-muted: #161b22;
+  --text-primary: #e8eaf0;
   /* Chart/Dashboard dark tokens */
   --metric-gradient-start: #4da3ff;
   --metric-gradient-end: #80bfff;
@@ -2304,39 +2318,7 @@ html[data-theme='dark'] .site-header {
   }
 
   /* Mindmap system dark */
-  html:not([data-theme='light']) .mindmap-section {
-    background: var(--bg-card);
-  }
-
-  html:not([data-theme='light']) .mindmap-center {
-    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-  }
-
-  html:not([data-theme='light']) .mindmap-branch {
-    background: var(--bg-card);
-    border-color: var(--border);
-  }
-
-  html:not([data-theme='light']) .mindmap-branch:hover {
-    border-color: var(--accent);
-  }
-
-  html:not([data-theme='light']) .mindmap-branch-label {
-    color: var(--text);
-  }
-
-  html:not([data-theme='light']) .mindmap-leaf-list li {
-    color: var(--text-secondary);
-  }
-
-  html:not([data-theme='light']) .mindmap-intel-node {
-    background: var(--bg-card);
-    border-color: var(--border);
-  }
-
-  html:not([data-theme='light']) .mindmap-intel-node:hover {
-    border-color: var(--accent);
-  }
+  /* Mindmap — see comprehensive overrides in system-preference dark block below */
 
   /* SWOT system dark */
   html:not([data-theme='light']) .swot-analysis {
@@ -2419,29 +2401,9 @@ html[data-theme='dark'] .site-header {
     background: var(--chart-row-hover);
   }
 
-  /* Sankey system dark */
-  html:not([data-theme='light']) .sankey-section {
-    background: var(--bg-card);
-    border-color: var(--border);
-  }
-
-  html:not([data-theme='light']) .sankey-section h2 {
-    color: var(--text);
-    border-bottom-color: var(--border);
-  }
-
+  /* Sankey — see comprehensive overrides in system-preference dark block below */
   html:not([data-theme='light']) .sankey-summary {
     color: var(--text-secondary);
-  }
-
-  html:not([data-theme='light']) .sankey-chart-wrapper {
-    background: var(--bg);
-    border-color: var(--border);
-  }
-
-  html:not([data-theme='light']) .sankey-fallback-table th {
-    background: var(--primary-light);
-    color: var(--text);
   }
 
   html:not([data-theme='light']) .sankey-fallback-table td {
@@ -2767,39 +2729,7 @@ html[data-theme='dark'] a:hover {
 }
 
 /* Mindmap dark mode */
-html[data-theme='dark'] .mindmap-section {
-  background: var(--bg-card);
-}
-
-html[data-theme='dark'] .mindmap-center {
-  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-}
-
-html[data-theme='dark'] .mindmap-branch {
-  background: var(--bg-card);
-  border-color: var(--border);
-}
-
-html[data-theme='dark'] .mindmap-branch:hover {
-  border-color: var(--accent);
-}
-
-html[data-theme='dark'] .mindmap-branch-label {
-  color: var(--text);
-}
-
-html[data-theme='dark'] .mindmap-leaf-list li {
-  color: var(--text-secondary);
-}
-
-html[data-theme='dark'] .mindmap-intel-node {
-  background: var(--bg-card);
-  border-color: var(--border);
-}
-
-html[data-theme='dark'] .mindmap-intel-node:hover {
-  border-color: var(--accent);
-}
+/* Mindmap — see comprehensive overrides below for color-mix() approach */
 
 /* SWOT dark mode */
 html[data-theme='dark'] .swot-analysis {
@@ -2882,29 +2812,9 @@ html[data-theme='dark'] .chart-fallback-table tbody tr:hover {
   background: var(--chart-row-hover);
 }
 
-/* Sankey dark mode */
-html[data-theme='dark'] .sankey-section {
-  background: var(--bg-card);
-  border-color: var(--border);
-}
-
-html[data-theme='dark'] .sankey-section h2 {
-  color: var(--text);
-  border-bottom-color: var(--border);
-}
-
+/* Sankey dark mode — see comprehensive overrides below for enhanced rules */
 html[data-theme='dark'] .sankey-summary {
   color: var(--text-secondary);
-}
-
-html[data-theme='dark'] .sankey-chart-wrapper {
-  background: var(--bg);
-  border-color: var(--border);
-}
-
-html[data-theme='dark'] .sankey-fallback-table th {
-  background: var(--primary-light);
-  color: var(--text);
 }
 
 html[data-theme='dark'] .sankey-fallback-table td {
@@ -2940,6 +2850,581 @@ html[data-theme='dark'] [dir='rtl'] .data-card {
 html[data-theme='dark'] [dir='rtl'] .news-card {
   border-left-color: var(--border);
   border-right-color: var(--primary);
+}
+
+/* ─── Comprehensive Dark Mode Overrides ─────────────────────────── */
+/* Covers analysis, SWOT, mindmap, sankey, dashboard, scenario,
+ * methodology, stakeholder, and evidence/confidence components
+ * that use hardcoded light-mode backgrounds.
+ */
+
+/* --- Analysis & Deep Analysis sections --- */
+html[data-theme='dark'] .analysis-executive-summary {
+  background: linear-gradient(135deg, var(--primary-light), var(--bg-card));
+}
+
+html[data-theme='dark'] .analysis-methodology {
+  background: var(--bg-card);
+  border-color: var(--border);
+}
+
+html[data-theme='dark'] .iteration-item {
+  background: var(--bg);
+}
+
+html[data-theme='dark'] .reasoning-chain-card {
+  background: var(--bg);
+}
+
+html[data-theme='dark'] .evidence-refs-block,
+html[data-theme='dark'] .counter-args-block {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* --- Scenario & Wildcard components --- */
+html[data-theme='dark'] .scenario-wildcards {
+  background: #2a2000;
+  border-color: #6b5a00;
+}
+
+html[data-theme='dark'] .scenario-severity-critical {
+  color: #ff90b0;
+}
+
+html[data-theme='dark'] .scenario-severity-medium {
+  color: #f0c040;
+}
+
+/* --- SWOT Analysis section backgrounds --- */
+html[data-theme='dark'] .swot-analysis {
+  background: var(--bg-card);
+}
+
+html[data-theme='dark'] .swot-analysis h2 {
+  color: var(--text);
+}
+
+html[data-theme='dark'] .swot-strengths {
+  background: linear-gradient(135deg, #0d2818 0%, #122a1c 100%);
+}
+
+html[data-theme='dark'] .swot-strengths .swot-quadrant-heading {
+  color: #5ed08a;
+}
+
+html[data-theme='dark'] .swot-strengths .swot-quadrant-heading::before {
+  color: #34d058;
+}
+
+html[data-theme='dark'] .swot-weaknesses {
+  background: linear-gradient(135deg, #2a0808 0%, #2e0f0f 100%);
+}
+
+html[data-theme='dark'] .swot-weaknesses .swot-quadrant-heading {
+  color: #ff7070;
+}
+
+html[data-theme='dark'] .swot-weaknesses .swot-quadrant-heading::before {
+  color: #ff5050;
+}
+
+html[data-theme='dark'] .swot-opportunities {
+  background: linear-gradient(135deg, #0a1628 0%, #0d1f3c 100%);
+}
+
+html[data-theme='dark'] .swot-opportunities .swot-quadrant-heading {
+  color: #5cb8ff;
+}
+
+html[data-theme='dark'] .swot-opportunities .swot-quadrant-heading::before {
+  color: #4da3ff;
+}
+
+html[data-theme='dark'] .swot-threats {
+  background: linear-gradient(135deg, #2a1a08 0%, #2e1e0c 100%);
+}
+
+html[data-theme='dark'] .swot-threats .swot-quadrant-heading {
+  color: #f0a050;
+}
+
+html[data-theme='dark'] .swot-threats .swot-quadrant-heading::before {
+  color: #f0a050;
+}
+
+html[data-theme='dark'] .swot-item {
+  border-bottom-color: var(--border-light);
+}
+
+html[data-theme='dark'] .swot-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* SWOT severity badges in dark mode */
+html[data-theme='dark'] .swot-severity-low .swot-severity-badge {
+  background: #0d2818;
+  color: #5ed08a;
+}
+
+html[data-theme='dark'] .swot-severity-medium .swot-severity-badge {
+  background: #2a2000;
+  color: #f0c040;
+}
+
+html[data-theme='dark'] .swot-severity-high .swot-severity-badge {
+  background: #2a0808;
+  color: #ff7070;
+}
+
+/* Multi-Dimensional SWOT panels */
+html[data-theme='dark'] .swot-dimension {
+  border-color: var(--border);
+  background: var(--bg-card);
+}
+
+html[data-theme='dark'] .swot-dimension-summary {
+  background: rgba(77, 163, 255, 0.06);
+}
+
+html[data-theme='dark'] .swot-dimension-summary:hover {
+  background: rgba(77, 163, 255, 0.1);
+}
+
+html[data-theme='dark'] .swot-stakeholder {
+  border-color: var(--border);
+  background: var(--bg-card);
+}
+
+html[data-theme='dark'] .swot-stakeholder-summary {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+html[data-theme='dark'] .swot-stakeholder-summary:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme='dark'] .swot-mini-grid {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Dashboard section backgrounds --- */
+html[data-theme='dark'] .dashboard {
+  background: var(--bg-card);
+}
+
+html[data-theme='dark'] .dashboard h2 {
+  color: var(--text);
+}
+
+html[data-theme='dark'] .dashboard-panel {
+  background: var(--bg);
+  border-color: var(--border);
+}
+
+html[data-theme='dark'] .dashboard-panel:hover {
+  border-color: var(--accent);
+}
+
+html[data-theme='dark'] .panel-title {
+  color: var(--text);
+}
+
+/* --- Mindmap section backgrounds --- */
+html[data-theme='dark'] .mindmap-section {
+  background: linear-gradient(160deg, #0a1628 0%, #0d1424 50%, #14102a 100%);
+  border-color: var(--primary);
+  box-shadow: 0 4px 16px rgba(77, 163, 255, 0.08);
+}
+
+html[data-theme='dark'] .mindmap-center {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  border-color: var(--primary-dark);
+}
+
+/* Mindmap branch/node dark overrides using color-mix()
+ * Blends inline-set --branch-bg/border/text with the dark palette
+ * so each branch retains its semantic hue in dark mode.
+ */
+html[data-theme='dark'] .mindmap-branch {
+  background: color-mix(in srgb, var(--branch-bg, #e3f2fd) 18%, var(--bg-card));
+  border-color: color-mix(in srgb, var(--branch-border, #1565c0) 60%, var(--text));
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+html[data-theme='dark'] .mindmap-branch:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+html[data-theme='dark'] .mindmap-branch-label {
+  color: color-mix(in srgb, var(--branch-text, #1565c0) 55%, var(--text));
+  border-bottom-color: color-mix(in srgb, var(--branch-border, #1565c0) 35%, var(--border));
+}
+
+html[data-theme='dark'] .mindmap-leaf-list {
+  color: var(--text-secondary);
+}
+
+html[data-theme='dark'] .mindmap-leaf-list li::before {
+  color: color-mix(in srgb, var(--branch-border, #1565c0) 60%, var(--text));
+}
+
+/* Intelligence mindmap dark mode */
+html[data-theme='dark'] .intelligence-mindmap {
+  background: linear-gradient(160deg, #0a1628 0%, #0d1424 40%, #14102a 100%);
+}
+
+html[data-theme='dark'] .mindmap-intel-node {
+  background: color-mix(in srgb, var(--branch-bg, #e3f2fd) 18%, var(--bg-card));
+  border-color: color-mix(in srgb, var(--branch-border, #1565c0) 60%, var(--text));
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+html[data-theme='dark'] .mindmap-intel-node:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+html[data-theme='dark'] .mindmap-intel-label {
+  color: color-mix(in srgb, var(--branch-text, #1565c0) 55%, var(--text));
+}
+
+html[data-theme='dark'] .mindmap-influence-bar {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme='dark'] .mindmap-influence-fill {
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--branch-border, #1565c0) 70%, var(--text)),
+    color-mix(in srgb, var(--branch-text, #003399) 60%, var(--text))
+  );
+}
+
+html[data-theme='dark'] .mindmap-actor-toggle,
+html[data-theme='dark'] .mindmap-connections-toggle,
+html[data-theme='dark'] .mindmap-actor-network-toggle,
+html[data-theme='dark'] .mindmap-stakeholder-toggle {
+  color: var(--accent);
+  background: var(--bg);
+}
+
+html[data-theme='dark'] .mindmap-stakeholder-desc {
+  color: var(--text-secondary);
+}
+
+/* --- Sankey section backgrounds --- */
+html[data-theme='dark'] .sankey-section {
+  background: linear-gradient(160deg, #14102a 0%, #0d1424 50%, #0a1628 100%);
+  border-color: #9b59b6;
+  box-shadow: 0 4px 16px rgba(155, 89, 182, 0.08);
+}
+
+html[data-theme='dark'] .sankey-section h2 {
+  color: var(--text);
+  border-bottom-color: #9b59b6;
+}
+
+html[data-theme='dark'] .sankey-chart-wrapper {
+  background: var(--bg);
+  border-color: var(--border);
+}
+
+html[data-theme='dark'] .sankey-fallback-table thead th {
+  background: linear-gradient(135deg, var(--bg-card), var(--bg));
+  color: var(--text-secondary);
+}
+
+/* --- Stakeholder Impact section --- */
+html[data-theme='dark'] .stakeholder-impact {
+  background: var(--bg-card);
+}
+
+html[data-theme='dark'] .stakeholder-impact h2 {
+  color: var(--text);
+}
+
+html[data-theme='dark'] .stakeholder-winner {
+  background: #0d2818;
+  border-color: var(--success);
+}
+
+html[data-theme='dark'] .stakeholder-loser {
+  background: #2a0808;
+  border-color: var(--danger);
+}
+
+html[data-theme='dark'] .stakeholder-neutral {
+  background: #2a2000;
+  border-color: var(--warning);
+}
+
+/* --- Stakeholder perspective cards --- */
+html[data-theme='dark'] .stakeholder-perspective-card {
+  background: var(--bg-card);
+  border-color: var(--border);
+}
+
+/* ─── System-preference Dark Mode: Comprehensive Overrides ──────── */
+@media (prefers-color-scheme: dark) {
+  /* Analysis & methodology */
+  html:not([data-theme='light']) .analysis-executive-summary {
+    background: linear-gradient(135deg, var(--primary-light), var(--bg-card));
+  }
+
+  html:not([data-theme='light']) .analysis-methodology {
+    background: var(--bg-card);
+    border-color: var(--border);
+  }
+
+  html:not([data-theme='light']) .iteration-item {
+    background: var(--bg);
+  }
+
+  html:not([data-theme='light']) .reasoning-chain-card {
+    background: var(--bg);
+  }
+
+  html:not([data-theme='light']) .evidence-refs-block,
+  html:not([data-theme='light']) .counter-args-block {
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  /* Scenario/wildcard */
+  html:not([data-theme='light']) .scenario-wildcards {
+    background: #2a2000;
+    border-color: #6b5a00;
+  }
+
+  html:not([data-theme='light']) .scenario-severity-critical {
+    color: #ff90b0;
+  }
+
+  html:not([data-theme='light']) .scenario-severity-medium {
+    color: #f0c040;
+  }
+
+  /* SWOT section */
+  html:not([data-theme='light']) .swot-analysis {
+    background: var(--bg-card);
+  }
+
+  html:not([data-theme='light']) .swot-analysis h2 {
+    color: var(--text);
+  }
+
+  html:not([data-theme='light']) .swot-strengths {
+    background: linear-gradient(135deg, #0d2818 0%, #122a1c 100%);
+  }
+
+  html:not([data-theme='light']) .swot-strengths .swot-quadrant-heading {
+    color: #5ed08a;
+  }
+
+  html:not([data-theme='light']) .swot-strengths .swot-quadrant-heading::before {
+    color: #34d058;
+  }
+
+  html:not([data-theme='light']) .swot-weaknesses {
+    background: linear-gradient(135deg, #2a0808 0%, #2e0f0f 100%);
+  }
+
+  html:not([data-theme='light']) .swot-weaknesses .swot-quadrant-heading {
+    color: #ff7070;
+  }
+
+  html:not([data-theme='light']) .swot-weaknesses .swot-quadrant-heading::before {
+    color: #ff5050;
+  }
+
+  html:not([data-theme='light']) .swot-opportunities {
+    background: linear-gradient(135deg, #0a1628 0%, #0d1f3c 100%);
+  }
+
+  html:not([data-theme='light']) .swot-opportunities .swot-quadrant-heading {
+    color: #5cb8ff;
+  }
+
+  html:not([data-theme='light']) .swot-opportunities .swot-quadrant-heading::before {
+    color: #4da3ff;
+  }
+
+  html:not([data-theme='light']) .swot-threats {
+    background: linear-gradient(135deg, #2a1a08 0%, #2e1e0c 100%);
+  }
+
+  html:not([data-theme='light']) .swot-threats .swot-quadrant-heading {
+    color: #f0a050;
+  }
+
+  html:not([data-theme='light']) .swot-threats .swot-quadrant-heading::before {
+    color: #f0a050;
+  }
+
+  html:not([data-theme='light']) .swot-item {
+    border-bottom-color: var(--border-light);
+  }
+
+  html:not([data-theme='light']) .swot-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  html:not([data-theme='light']) .swot-severity-low .swot-severity-badge {
+    background: #0d2818;
+    color: #5ed08a;
+  }
+
+  html:not([data-theme='light']) .swot-severity-medium .swot-severity-badge {
+    background: #2a2000;
+    color: #f0c040;
+  }
+
+  html:not([data-theme='light']) .swot-severity-high .swot-severity-badge {
+    background: #2a0808;
+    color: #ff7070;
+  }
+
+  /* Multi-Dimensional SWOT panels */
+  html:not([data-theme='light']) .swot-dimension {
+    border-color: var(--border);
+    background: var(--bg-card);
+  }
+
+  html:not([data-theme='light']) .swot-dimension-summary {
+    background: rgba(77, 163, 255, 0.06);
+  }
+
+  html:not([data-theme='light']) .swot-dimension-summary:hover {
+    background: rgba(77, 163, 255, 0.1);
+  }
+
+  html:not([data-theme='light']) .swot-stakeholder {
+    border-color: var(--border);
+    background: var(--bg-card);
+  }
+
+  html:not([data-theme='light']) .swot-stakeholder-summary {
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  html:not([data-theme='light']) .swot-stakeholder-summary:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  html:not([data-theme='light']) .swot-mini-grid {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Dashboard */
+  html:not([data-theme='light']) .dashboard {
+    background: var(--bg-card);
+  }
+
+  html:not([data-theme='light']) .dashboard h2 {
+    color: var(--text);
+  }
+
+  html:not([data-theme='light']) .dashboard-panel {
+    background: var(--bg);
+    border-color: var(--border);
+  }
+
+  html:not([data-theme='light']) .panel-title {
+    color: var(--text);
+  }
+
+  /* Mindmap section */
+  html:not([data-theme='light']) .mindmap-section {
+    background: linear-gradient(160deg, #0a1628 0%, #0d1424 50%, #14102a 100%);
+    border-color: var(--primary);
+    box-shadow: 0 4px 16px rgba(77, 163, 255, 0.08);
+  }
+
+  html:not([data-theme='light']) .mindmap-branch {
+    background: color-mix(in srgb, var(--branch-bg, #e3f2fd) 18%, var(--bg-card));
+    border-color: color-mix(in srgb, var(--branch-border, #1565c0) 60%, var(--text));
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  html:not([data-theme='light']) .mindmap-branch:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  html:not([data-theme='light']) .mindmap-branch-label {
+    color: color-mix(in srgb, var(--branch-text, #1565c0) 55%, var(--text));
+    border-bottom-color: color-mix(in srgb, var(--branch-border, #1565c0) 35%, var(--border));
+  }
+
+  html:not([data-theme='light']) .mindmap-leaf-list {
+    color: var(--text-secondary);
+  }
+
+  html:not([data-theme='light']) .mindmap-leaf-list li::before {
+    color: color-mix(in srgb, var(--branch-border, #1565c0) 60%, var(--text));
+  }
+
+  /* Intelligence mindmap */
+  html:not([data-theme='light']) .intelligence-mindmap {
+    background: linear-gradient(160deg, #0a1628 0%, #0d1424 40%, #14102a 100%);
+  }
+
+  html:not([data-theme='light']) .mindmap-intel-node {
+    background: color-mix(in srgb, var(--branch-bg, #e3f2fd) 18%, var(--bg-card));
+    border-color: color-mix(in srgb, var(--branch-border, #1565c0) 60%, var(--text));
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  html:not([data-theme='light']) .mindmap-intel-label {
+    color: color-mix(in srgb, var(--branch-text, #1565c0) 55%, var(--text));
+  }
+
+  html:not([data-theme='light']) .mindmap-influence-bar {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  html:not([data-theme='light']) .mindmap-influence-fill {
+    background: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--branch-border, #1565c0) 70%, var(--text)),
+      color-mix(in srgb, var(--branch-text, #003399) 60%, var(--text))
+    );
+  }
+
+  html:not([data-theme='light']) .mindmap-actor-toggle,
+  html:not([data-theme='light']) .mindmap-connections-toggle,
+  html:not([data-theme='light']) .mindmap-actor-network-toggle,
+  html:not([data-theme='light']) .mindmap-stakeholder-toggle {
+    color: var(--accent);
+    background: var(--bg);
+  }
+
+  /* Sankey section */
+  html:not([data-theme='light']) .sankey-section {
+    background: linear-gradient(160deg, #14102a 0%, #0d1424 50%, #0a1628 100%);
+    border-color: #9b59b6;
+    box-shadow: 0 4px 16px rgba(155, 89, 182, 0.08);
+  }
+
+  html:not([data-theme='light']) .sankey-section h2 {
+    border-bottom-color: #9b59b6;
+  }
+
+  html:not([data-theme='light']) .sankey-fallback-table thead th {
+    background: linear-gradient(135deg, var(--bg-card), var(--bg));
+    color: var(--text-secondary);
+  }
+
+  /* Stakeholder impact */
+  html:not([data-theme='light']) .stakeholder-impact {
+    background: var(--bg-card);
+  }
+
+  html:not([data-theme='light']) .stakeholder-impact h2 {
+    color: var(--text);
+  }
+
+  html:not([data-theme='light']) .stakeholder-perspective-card {
+    background: var(--bg-card);
+    border-color: var(--border);
+  }
 }
 
 /* ─── Tablet Breakpoint (769px – 1024px) ────────────────────────── */
