@@ -1042,8 +1042,6 @@ The generator pipeline supports rich data-driven visualizations. These are produ
 |---------|-----------|---------------|
 | **SWOT Analysis** | `buildSwotSection()` | Strengths / Weaknesses / Opportunities / Threats grid |
 | **Dashboard** | `buildDashboardSection()` | Metric cards, bar/line charts with data tables |
-| **Mindmap** | `buildMindmapSection()` | Central topic → color-coded policy branches → leaf items |
-| **Sankey Flow** | `buildSankeySection()` | Inline SVG flow diagram: source nodes → target nodes |
 | **Deep Analysis** | `buildDeepAnalysisSection()` | Free-form analytical narrative |
 
 The **Mindmap** section is ideal for month-ahead articles to visualise upcoming policy domains and their interconnections. The **Sankey** section works well for showing the flow of legislative procedures from committees to plenary outcomes.
