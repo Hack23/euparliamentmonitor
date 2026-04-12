@@ -525,13 +525,13 @@ fi
    - `get_plenary_documents_feed` timeout → call `european_parliament___get_plenary_documents({ year: CURRENT_YEAR, limit: 20 })` instead
 
 **NOOP PREVENTION — Data Must Exist for Noop:**
-> **⚠️ CRITICAL**: Before emitting `safeoutputs___noop`, you MUST verify that ALL of the following return empty:
+> **⚠️ CRITICAL**: Before emitting `safeoutputs___noop`, you MUST verify that ALL of the following checks are empty:
 > 1. `european_parliament___get_adopted_texts_feed({ timeframe: "one-month" })` — adopted texts
 > 2. `european_parliament___get_adopted_texts({ year: CURRENT_YEAR, limit: 5 })` — year-based fallback
-> 3. `european_parliament___get_plenary_sessions({ year: CURRENT_YEAR, limit: 5 })` — plenary sessions
+> 3. The earlier health-gate `get_plenary_sessions({ limit: 1 })` result — plenary sessions; if that health-gate call succeeded and returned data, reuse that result here and do **NOT** call `get_plenary_sessions` again
 > 4. `european_parliament___get_plenary_documents({ year: CURRENT_YEAR, limit: 5 })` — plenary documents
 >
-> If ANY of these 4 endpoints return data, there IS parliamentary activity. Proceed with article generation using whatever data is available. **Noop is ONLY legitimate when the EP API is completely down (health gate fails) or genuinely zero parliamentary activity occurred in the review period.**
+> If ANY of these checks return data, there IS parliamentary activity. Proceed with article generation using whatever data is available. **Noop is ONLY legitimate when the EP API is completely down (health gate fails) or genuinely zero parliamentary activity occurred in the review period.**
 
 **If article generation fails AFTER starting work:**
 1. Log the specific failure

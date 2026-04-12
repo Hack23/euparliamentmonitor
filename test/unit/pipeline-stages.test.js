@@ -881,6 +881,122 @@ describe('feed fetchers accept timeframe parameter', () => {
   });
 });
 
+// ─── Upstream timeout detection tests ─────────────────────────────────────────
+
+describe('upstream timeout detection in feed fetchers', () => {
+  // Mock client that returns a timeout envelope from the EP MCP server:
+  // { data: [], timedOut: true, status: "timeout", toolName: "get_adopted_texts_feed" }
+  // This simulates the EP API not responding within the MCP server's timeout window.
+  const mockClientTimeout = {
+    getAdoptedTextsFeed: async () => ({
+      content: [{
+        text: JSON.stringify({
+          data: [],
+          timedOut: true,
+          status: 'timeout',
+          toolName: 'get_adopted_texts_feed',
+        }),
+      }],
+    }),
+    getEventsFeed: async () => ({
+      content: [{
+        text: JSON.stringify({
+          data: [],
+          timedOut: true,
+          status: 'timeout',
+          toolName: 'get_events_feed',
+        }),
+      }],
+    }),
+    getProceduresFeed: async () => ({
+      content: [{
+        text: JSON.stringify({
+          data: [],
+          timedOut: true,
+          status: 'timeout',
+          toolName: 'get_procedures_feed',
+        }),
+      }],
+    }),
+    callTool: async () => undefined,
+    getPlenarySessions: async () => undefined,
+    getCommitteeInfo: async () => undefined,
+    searchDocuments: async () => undefined,
+    monitorLegislativePipeline: async () => undefined,
+    getParliamentaryQuestions: async () => undefined,
+    trackLegislation: async () => undefined,
+  };
+
+  beforeEach(() => { mcpCircuitBreaker.recordSuccess(); });
+
+  it('fetchAdoptedTextsFeed returns empty on upstream timeout without widening timeframe', async () => {
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+
+    const result = await fetchAdoptedTextsFeed(mockClientTimeout, 'one-week');
+
+    // Should return empty — timeout is not "no data", the fetch was aborted
+    expect(result).toEqual([]);
+
+    // Should have logged an upstream timeout warning
+    const timeoutWarns = warnSpy.mock.calls.filter(
+      (call) => call.some((arg) => typeof arg === 'string' && arg.includes('upstream timeout'))
+    );
+    expect(timeoutWarns.length).toBeGreaterThan(0);
+
+    // Should NOT have widened the timeframe (no "widening timeframe" log)
+    const wideningLogs = logSpy.mock.calls.filter(
+      (call) => call.some((arg) => typeof arg === 'string' && arg.includes('widening timeframe'))
+    );
+    expect(wideningLogs).toHaveLength(0);
+
+    warnSpy.mockRestore();
+    logSpy.mockRestore();
+  });
+
+  it('fetchEventsFeed returns empty on upstream timeout without widening', async () => {
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+
+    const result = await fetchEventsFeed(mockClientTimeout, 'one-week');
+    expect(result).toEqual([]);
+
+    const timeoutWarns = warnSpy.mock.calls.filter(
+      (call) => call.some((arg) => typeof arg === 'string' && arg.includes('upstream timeout'))
+    );
+    expect(timeoutWarns.length).toBeGreaterThan(0);
+
+    const wideningLogs = logSpy.mock.calls.filter(
+      (call) => call.some((arg) => typeof arg === 'string' && arg.includes('widening timeframe'))
+    );
+    expect(wideningLogs).toHaveLength(0);
+
+    warnSpy.mockRestore();
+    logSpy.mockRestore();
+  });
+
+  it('fetchProceduresFeed returns empty on upstream timeout without widening', async () => {
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+
+    const result = await fetchProceduresFeed(mockClientTimeout, 'one-week');
+    expect(result).toEqual([]);
+
+    const timeoutWarns = warnSpy.mock.calls.filter(
+      (call) => call.some((arg) => typeof arg === 'string' && arg.includes('upstream timeout'))
+    );
+    expect(timeoutWarns.length).toBeGreaterThan(0);
+
+    const wideningLogs = logSpy.mock.calls.filter(
+      (call) => call.some((arg) => typeof arg === 'string' && arg.includes('widening timeframe'))
+    );
+    expect(wideningLogs).toHaveLength(0);
+
+    warnSpy.mockRestore();
+    logSpy.mockRestore();
+  });
+});
+
 // ─── generateArticleForStrategy tests ─────────────────────────────────────────
 
 describe('generateArticleForStrategy', () => {
