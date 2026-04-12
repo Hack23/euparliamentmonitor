@@ -225,7 +225,7 @@ This workflow is the **dedicated translation workflow**. Content generation work
 
 ### 🚨 ALWAYS-TRANSLATE Mandate
 
-> **This workflow MUST ALWAYS produce translated files. There is NO valid reason to exit without translations.**
+> **This workflow MUST ALWAYS produce translated files when possible. If no translations are possible, it produces preserved analysis artifacts for a reviewable PR.**
 
 The workflow follows a **three-phase priority system**:
 
@@ -233,7 +233,7 @@ The workflow follows a **three-phase priority system**:
 2. **Phase 2 — Historical backfill**: If today has no articles or all are translated, scan backward through the last 30+ days for ANY English articles with missing translations in ANY language
 3. **Phase 3 — Quality improvement**: If ALL articles across ALL dates have complete translations (all 13 languages), select recent articles and IMPROVE their translation quality (fix awkward phrasing, improve terminology, make translations read more naturally)
 
-**There is ALWAYS work to do.** NEVER call `safeoutputs___noop`. NEVER create an analysis-only PR.
+**There is ALWAYS work to do.** NEVER call `safeoutputs___noop`. NEVER create an analysis-only PR without attempting all three phases first. If all phases find no actionable work and `TOTAL_FILES=0`, the workflow creates a preserved analysis summary artifact so a reviewable PR can still be created.
 
 ### Supported Languages (13 non-English targets)
 
@@ -364,7 +364,10 @@ memory___read_graph({})
 ```bash
 echo "=== Translation Date Context ==="
 TODAY=$(date -u +%Y-%m-%d)
-ARTICLE_DATE="${EP_ARTICLE_DATE:-$TODAY}"
+ARTICLE_DATE="${{ github.event.inputs.article_date }}"
+if [ -z "$ARTICLE_DATE" ]; then
+  ARTICLE_DATE="${EP_ARTICLE_DATE:-$TODAY}"
+fi
 CURRENT_YEAR=$(date -u +%Y)
 DAY_OF_WEEK=$(date -u +%A)
 START_EPOCH=$(date +%s)
@@ -457,17 +460,23 @@ fi
 
 ## Step 1: Discover English Articles Needing Translation
 
-> **🚨 MANDATORY RULE — NEVER EXIT WITHOUT TRANSLATING**: This workflow MUST ALWAYS produce translations. If today's articles are all translated, scan backward through older dates. If ALL articles across ALL dates are 100% translated, improve the quality of existing translations. There is ALWAYS work to do. **NEVER** create an analysis-only PR. **NEVER** call `safeoutputs___noop`. **ALWAYS** produce translated HTML files.
+> **🚨 MANDATORY RULE — NEVER EXIT WITHOUT A PR**: This workflow MUST ALWAYS attempt translations. If today's articles are all translated, scan backward through older dates. If ALL articles across ALL dates are 100% translated, improve the quality of existing translations. There is ALWAYS work to do. **NEVER** call `safeoutputs___noop`. If all three phases find no actionable work and `TOTAL_FILES=0`, the workflow creates a preserved analysis artifact so a reviewable PR can still be produced.
 
 Find English articles that need translation — starting with today, then scanning backward:
 
 ```bash
-# Determine which article types to process
-ARTICLE_TYPES_INPUT="${EP_ARTICLE_TYPES:-}"
+# Determine which article types to process (prefer workflow_dispatch inputs, fall back to env)
+ARTICLE_TYPES_INPUT="${{ github.event.inputs.article_types }}"
+if [ -z "$ARTICLE_TYPES_INPUT" ]; then
+  ARTICLE_TYPES_INPUT="${EP_ARTICLE_TYPES:-}"
+fi
 FORCE_TRANSLATION="${EP_FORCE_TRANSLATION:-${{ github.event.inputs.force_translation }}}"
 
 # --- Resolve target languages FIRST (needed by discovery) ---
-LANGUAGES_INPUT="${EP_LANG_INPUT:-all-non-en}"
+LANGUAGES_INPUT="${{ github.event.inputs.languages }}"
+if [ -z "$LANGUAGES_INPUT" ]; then
+  LANGUAGES_INPUT="${EP_LANG_INPUT:-all-non-en}"
+fi
 case "$LANGUAGES_INPUT" in
   "all-non-en") LANG_ARG="sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh" ;;
   "eu-core")    LANG_ARG="de,fr,es,nl" ;;
@@ -875,14 +884,15 @@ echo "💾 Generation state persisted to $GEN_STATE_FILE"
 
 For each non-English article file (from Step 3 generation, backfill, or improvement), process **one file at a time**:
 
-1. **List** available translation files: `ls news/*-{sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh}.html`
-2. **For each file** `news/<DATE>-<TYPE>-<LANG>.html`:
-3. **Read** the target file with `cat news/<DATE>-<TYPE>-<LANG>.html`
-4. **Read** the English source with `cat news/<DATE>-<TYPE>-en.html`
-5. **Identify** English text in ALL user-visible elements: `<h1>`, `<h2>`, `<h3>`, `<p>`, `<li>`, `<td>`, `<th>`, `<span>`, `<div>`, `<a>` (link text), `<figcaption>`, `<blockquote>`, and `<title>`
-6. **Translate** to the target language using EP terminology standards (see table above)
-7. **Write back** the translated content using the `edit` tool — replace old English text with translated text, one section at a time
-8. **Keep unchanged**: proper nouns (MEP names), abbreviations (EPP, S&D), reference IDs, location names, HTML tags, CSS classes, URLs
+1. **Derive the translation target list for this run only** by listing changed `news/` files and keeping only non-English HTML articles: `git status --porcelain -- news/ | awk '{print $2}' | grep -E '^news/.+-(sv|da|no|fi|de|fr|es|nl|ar|he|ja|ko|zh)\.html$'`
+2. **Do not** use a repository-wide glob such as `ls news/*-{sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh}.html`, because that can include historical translations outside the current run
+3. **For each changed file** `news/<DATE>-<TYPE>-<LANG>.html`:
+4. **Read** the target file with `cat news/<DATE>-<TYPE>-<LANG>.html`
+5. **Read** the English source with `cat news/<DATE>-<TYPE>-en.html`
+6. **Identify** English text in ALL user-visible elements: `<h1>`, `<h2>`, `<h3>`, `<p>`, `<li>`, `<td>`, `<th>`, `<span>`, `<div>`, `<a>` (link text), `<figcaption>`, `<blockquote>`, and `<title>`
+7. **Translate** to the target language using EP terminology standards (see table above)
+8. **Write back** the translated content using the `edit` tool — replace old English text with translated text, one section at a time
+9. **Keep unchanged**: proper nouns (MEP names), abbreviations (EPP, S&D), reference IDs, location names, HTML tags, CSS classes, URLs
 
 **Also translate these SEO and structured data elements:**
 - `<title>` tag — translate the page title (keep `| EU Parliament Monitor` suffix)
