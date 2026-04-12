@@ -4,12 +4,17 @@ description: Translates English EU Parliament news articles to 13 other language
 strict: false
 on:
   schedule:
-    # Run 3x daily on weekdays to pick up new English articles
+    # Run 4x daily on weekdays to keep up with content workflows + clear backlog faster
     # Offset from content workflows: committee-reports(04), propositions(05), motions(06), week-ahead(Fri 07)
-    - cron: "0 9,12,15 * * 1-5"
-    # Saturday for weekly review translations — offset to 15:00 to avoid conflict
-    # with news-weekly-review (09:00 Sat, ~90min run + PR merge ~11:00-12:00)
+    # 09:00 — first pass after morning content workflows complete (~07:00–08:00)
+    # 12:00 — midday catch-up, picks up breaking news (00:00/06:00 slots)
+    # 15:00 — afternoon pass, clears any remaining gaps from the day
+    # 17:00 — late afternoon backfill, maximises daily translation throughput
+    - cron: "0 9,12,15,17 * * 1-5"
+    # Saturday: 15:00 to avoid conflict with news-weekly-review (09:00 Sat, ~90min run + PR merge ~11:00-12:00)
     - cron: "0 15 * * 6"
+    # Sunday: 10:00 — weekend backfill pass (no content workflows run Sunday)
+    - cron: "0 10 * * 0"
     # 1st and 28th for monthly article translations — offset to 15:00 to avoid conflict
     # with news-monthly-review (10:00 on 28th, ~90min run + PR merge ~12:00-13:00)
     - cron: "0 15 1,28 * *"
@@ -269,19 +274,75 @@ When translating articles, preserve ALL analytical nuance:
 
 Use official EU/EP institutional terminology for each target language. Key terms:
 
-| English Term | sv | de | fr | es | ja | ar |
-|---|---|---|---|---|---|---|
-| European Parliament | Europaparlamentet | Europäisches Parlament | Parlement européen | Parlamento Europeo | 欧州議会 | البرلمان الأوروبي |
-| plenary session | plenarsammanträde | Plenarsitzung | séance plénière | sesión plenaria | 本会議 | الجلسة العامة |
-| committee | utskott | Ausschuss | commission | comisión | 委員会 | اللجنة |
-| rapporteur | föredragande | Berichterstatter | rapporteur | ponente | 報告者 | المقرر |
-| legislative procedure | lagstiftningsförfarande | Gesetzgebungsverfahren | procédure législative | procedimiento legislativo | 立法手続き | الإجراء التشريعي |
-| adopted text | antagen text | angenommener Text | texte adopté | texto aprobado | 採択文 | النص المعتمد |
-| amendment | ändringsförslag | Änderungsantrag | amendement | enmienda | 修正案 | التعديل |
-| trilogue | trilog | Trilog | trilogue | trílogo | 三者協議 | الحوار الثلاثي |
-| roll-call vote | omröstning med namnupprop | namentliche Abstimmung | vote par appel nominal | votación nominal | 記名投票 | تصويت بنداء الأسماء |
+| English Term | sv | da | no |
+|---|---|---|---|
+| European Parliament | Europaparlamentet | Europa-Parlamentet | Europaparlamentet |
+| plenary session | plenarsammanträde | plenarmøde | plenumsmøte |
+| committee | utskott | udvalg | komité |
+| rapporteur | föredragande | ordfører | ordfører |
+| legislative procedure | lagstiftningsförfarande | lovgivningsprocedure | lovgivningsprosedyre |
+| adopted text | antagen text | vedtaget tekst | vedtatt tekst |
+| amendment | ändringsförslag | ændringsforslag | endringsforslag |
+| trilogue | trilog | trilog | trilog |
+| roll-call vote | omröstning med namnupprop | afstemning ved navneopråb | navneopprop |
+
+| English Term | fi | de | fr |
+|---|---|---|---|
+| European Parliament | Euroopan parlamentti | Europäisches Parlament | Parlement européen |
+| plenary session | täysistunto | Plenarsitzung | séance plénière |
+| committee | valiokunta | Ausschuss | commission |
+| rapporteur | esittelijä | Berichterstatter | rapporteur |
+| legislative procedure | lainsäädäntömenettely | Gesetzgebungsverfahren | procédure législative |
+| adopted text | hyväksytty teksti | angenommener Text | texte adopté |
+| amendment | tarkistus | Änderungsantrag | amendement |
+| trilogue | kolmikantaneuvottelu | Trilog | trilogue |
+| roll-call vote | nimenhuutoäänestys | namentliche Abstimmung | vote par appel nominal |
+
+| English Term | es | nl | ar |
+|---|---|---|---|
+| European Parliament | Parlamento Europeo | Europees Parlement | البرلمان الأوروبي |
+| plenary session | sesión plenaria | plenaire vergadering | الجلسة العامة |
+| committee | comisión | commissie | اللجنة |
+| rapporteur | ponente | rapporteur | المقرر |
+| legislative procedure | procedimiento legislativo | wetgevingsprocedure | الإجراء التشريعي |
+| adopted text | texto aprobado | aangenomen tekst | النص المعتمد |
+| amendment | enmienda | amendement | التعديل |
+| trilogue | trílogo | triloog | الحوار الثلاثي |
+| roll-call vote | votación nominal | stemming bij naamafroeping | تصويت بنداء الأسماء |
+
+| English Term | he | ja | ko | zh |
+|---|---|---|---|---|
+| European Parliament | הפרלמנט האירופי | 欧州議会 | 유럽의회 | 欧洲议会 |
+| plenary session | מליאה | 本会議 | 본회의 | 全体会议 |
+| committee | ועדה | 委員会 | 위원회 | 委员会 |
+| rapporteur | מדווח | 報告者 | 보고자 | 报告员 |
+| legislative procedure | הליך חקיקה | 立法手続き | 입법절차 | 立法程序 |
+| adopted text | טקסט שאומץ | 採択文 | 채택된 문서 | 通过的文本 |
+| amendment | תיקון | 修正案 | 개정안 | 修正案 |
+| trilogue | טרילוג | 三者協議 | 삼자협의 | 三方谈判 |
+| roll-call vote | הצבעה בקריאת שמות | 記名投票 | 기명투표 | 点名投票 |
 
 > For full terminology, consult [EP Multilingual Termbase](https://www.europarl.europa.eu/portal/en) and [IATE](https://iate.europa.eu/).
+
+### 🗣️ Per-Language Register & Style Guidelines
+
+Apply these language-specific conventions in addition to the terminology table above:
+
+| Language | Register | Key Style Notes |
+|----------|----------|-----------------|
+| **sv** Swedish | Formal | Use *Europaparlamentet* (one word). Political groups: EPP→*Europeiska folkpartiet*, S&D→*Progressiva alliansen*. Formal pronoun *ni* in UI; avoid passive overuse. |
+| **da** Danish | Formal | Use *Europa-Parlamentet* (hyphenated). Capitalise *Kommissionen*, *Rådet*. Avoid anglicised constructions; prefer Danish word order. |
+| **no** Norwegian | Formal (Bokmål) | Use *Europaparlamentet*. Prefer Bokmål over Nynorsk. Political process terms follow EU Norwegian terminology. |
+| **fi** Finnish | Formal | Use *Euroopan parlamentti*. Finnish requires correct case endings on all EP institution names. Avoid calque constructions from Swedish. |
+| **de** German | Formal | Capitalise ALL nouns (e.g., *der Ausschuss*, *die Abstimmung*). Use *Europäisches Parlament* (full form) on first use; *EP* on subsequent use. Political groups translated per their German official names. |
+| **fr** French | Formal | Use *le Parlement européen* (lower-case *e*). Gendered agreement required. Use *la Commission européenne*, *le Conseil*. Prefer passive constructions for formal EP texts. |
+| **es** Spanish | Formal | Use *el Parlamento Europeo*. Gender agreement required. Formal register (*usted* forms). Use *comisión* for committee. |
+| **nl** Dutch | Formal | Use *het Europees Parlement*. Compound nouns written together or hyphenated per Dutch rules. Use *commissie* for committee. |
+| **ar** Arabic | Formal (Modern Standard) | Right-to-left. Use *البرلمان الأوروبي*. Formal MSA — no colloquial Arabic. Verify `dir="rtl"` is present (set by metadata normalization in Step 3) and use Arabic Unicode punctuation (،، ؟). Numbers in Eastern Arabic (٠١٢…) or Western per article style. |
+| **he** Hebrew | Formal | Right-to-left. Use *הפרלמנט האירופי*. Modern formal Hebrew; no archaisms. Verify `dir="rtl"` is present (set by metadata normalization in Step 3). Numbers typically Western (0-9) for EP statistical data. |
+| **ja** Japanese | Formal (敬体) | Use *欧州議会* (not *ヨーロッパ議会*). Formal desu/masu style for UI; da/de aru for narrative. Full-width punctuation (。、「」). Katakana for foreign loan words only where no kanji exists. |
+| **ko** Korean | Formal (격식체) | Use *유럽의회*. Formal 합쇼체 register. Full-width CJK punctuation. Hanja rarely needed — hangul preferred. |
+| **zh** Chinese (Simplified) | Formal | Use *欧洲议会* (not *欧洲国会* or *欧盟议会*). Formal written Chinese. Full-width punctuation (。，「」). No Traditional Chinese characters. |
 
 ### 🎯 Translation Quality Dimensions
 
@@ -293,17 +354,27 @@ Each translated article must score well on these 5 dimensions:
 4. **Completeness** (10%): Every section, SWOT entry, stakeholder perspective, and confidence marker is present
 5. **Formatting** (10%): RTL/CJK layout correct, locale-appropriate number formatting, emoji markers preserved
 
+### ⚡ Throughput Strategy (clear backlog efficiently)
+
+When multiple article–language pairs are queued (backfill mode), maximise throughput by:
+
+1. **Process one file completely** before starting the next — do not interleave edits across files
+2. **Batch `edit` calls within a file** — translate entire sections (e.g., all `<p>` tags in a section) in one `edit` call rather than one `edit` per sentence
+3. **Prioritise structural completeness** over perfect fluency for backfill runs — ensure every section is translated even if quality review comes in a later improvement-mode run
+4. **Use the terminology tables above verbatim** — do not re-derive institution names; copy from the table to ensure consistency
+5. **Check elapsed time after each file** (not each section) — if time is running short, complete the current file and stop
+
 ## ⏱️ Time Budget (90 minutes)
 
 - **Minutes 0–5**: Date validation, discover English articles, set up MCP gateway
 - **Minutes 5–20**: Generate article HTML files using the TypeScript generator (Step 3)
-- **Minutes 20–65**: **AI Translation** — translate English narrative content per file (Step 3b)
-- **Minutes 65–72**: Validate translated HTML files (Step 4)
-- **Minutes 72–80**: Create PR with `safeoutputs___create_pull_request`
+- **Minutes 20–75**: **AI Translation** — translate English narrative content per file (Step 3b)
+- **Minutes 75–82**: Validate translated HTML files (Step 4)
+- **Minutes 82–88**: Create PR with `safeoutputs___create_pull_request`
 
 > **🔑 TRANSLATION FOCUS**: The generator produces articles with localized UI but English narrative. YOU translate ALL English content.
 
-> **⚠️ HARD DEADLINE**: Translation MUST stop by minute 65 to leave time for validation and PR creation. You MUST call `safeoutputs___create_pull_request` before minute 80. Partial translations in a PR are better than a timeout with no PR.
+> **⚠️ HARD DEADLINE**: Translation MUST stop by minute 75 to leave time for validation and PR creation. You MUST call `safeoutputs___create_pull_request` before minute 86. Partial translations in a PR are better than a timeout with no PR.
 
 ## MANDATORY MCP Health Gate
 
@@ -372,7 +443,7 @@ fi
 CURRENT_YEAR=$(date -u +%Y)
 DAY_OF_WEEK=$(date -u +%A)
 START_EPOCH=$(date +%s)
-TRANSLATION_DEADLINE_MIN=65
+TRANSLATION_DEADLINE_MIN=75
 RUN_ID="${GITHUB_RUN_NUMBER:-0}"
 ANALYSIS_DIR="analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}"
 echo "Today:        $TODAY ($DAY_OF_WEEK)"
@@ -551,7 +622,7 @@ if [ -z "$NEEDS_TRANSLATION" ]; then
   echo "Today ($ARTICLE_DATE) has no pending translations — scanning recent dates..."
 
   # Scan all dates with English articles, most recent first
-  ALL_DATES=$(ls news/*-en.html 2>/dev/null | sed 's|news/||;s|-[a-z].*||' | sort -ru | head -60)
+  ALL_DATES=$(ls news/*-en.html 2>/dev/null | sed 's|news/||;s|-[a-z].*||' | sort -ru | head -90)
 
   for CHECK_DATE in $ALL_DATES; do
     # Skip today (already checked)
@@ -579,9 +650,9 @@ if [ -z "$NEEDS_TRANSLATION" ]; then
           *) BACKFILL_DATES="${BACKFILL_DATES:+$BACKFILL_DATES,}${CHECK_DATE}" ;;
         esac
 
-        # Limit backfill to a manageable batch (max 5 article types per run)
+        # Limit backfill to a manageable batch (max 10 article types per run)
         ITEM_COUNT=$(echo "$NEEDS_TRANSLATION" | tr ',' '\n' | wc -l)
-        if [ "$ITEM_COUNT" -ge 5 ]; then
+        if [ "$ITEM_COUNT" -ge 10 ]; then
           echo "⏱️ Backfill batch limit reached ($ITEM_COUNT items) — remaining gaps will be filled in next run"
           break 2
         fi
@@ -601,8 +672,8 @@ if [ -z "$NEEDS_TRANSLATION" ]; then
   echo "All articles have complete translations — entering improvement mode"
   IMPROVEMENT_MODE="true"
 
-  # Pick the 3 most recent dates with translations to improve
-  IMPROVE_DATES=$(ls news/*-en.html 2>/dev/null | sed 's|news/||;s|-[a-z].*||' | sort -ru | head -3)
+  # Pick the 2 most recent dates with translations to improve
+  IMPROVE_DATES=$(ls news/*-en.html 2>/dev/null | sed 's|news/||;s|-[a-z].*||' | sort -ru | head -2)
   for CHECK_DATE in $IMPROVE_DATES; do
     for EN_FILE in news/${CHECK_DATE}-*-en.html; do
       [ ! -f "$EN_FILE" ] && continue
@@ -611,7 +682,7 @@ if [ -z "$NEEDS_TRANSLATION" ]; then
       echo "✨ Will improve translations: ${CHECK_DATE}/${TYPE}"
       # Enforce item cap inside per-file loop (same pattern as backfill)
       ITEM_COUNT=$(echo "$NEEDS_TRANSLATION" | tr ',' '\n' | wc -l)
-      if [ "$ITEM_COUNT" -ge 3 ]; then
+      if [ "$ITEM_COUNT" -ge 2 ]; then
         break 2
       fi
     done
@@ -680,7 +751,7 @@ echo "🌐 Target languages: $LANG_ARG"
 ```bash
 # --- Re-initialize time tracking (env vars do NOT persist across bash blocks) ---
 START_EPOCH=$(date +%s)
-TRANSLATION_DEADLINE_MIN=65
+TRANSLATION_DEADLINE_MIN=75
 echo "⏱️ Translation start epoch: $START_EPOCH (deadline: ${TRANSLATION_DEADLINE_MIN} min)"
 
 # --- Restore discovery state from Step 1 ---
@@ -948,7 +1019,7 @@ echo "💾 Generation state persisted to $GEN_STATE_FILE"
 
 > **⛔ NEVER CREATE HELPER SCRIPTS OR TRANSLATION DICTIONARY/BATCH FILES**: Do NOT create new script files (e.g., `gen-translations.js`, `translate.sh`) or translation helper data files (e.g., `translations.json`, `dictionaries.js`) in `/tmp/` or anywhere else to perform or stage translations indirectly. Translate DIRECTLY in each HTML file using the `edit` tool. **This prohibition does NOT apply to repo-memory logs or analysis artifacts explicitly required elsewhere in this workflow** (for example `/tmp/gh-aw/repo-memory/.../translation-log.json`). Creating translation helper scripts or dictionary/batch artifacts wastes time, risks tool call failures on large files, and violates the FORBIDDEN practices above.
 
-> **⏱️ TIME MANAGEMENT**: Check elapsed time after each article type. If 65+ minutes elapsed, SKIP remaining translations and proceed directly to Step 5 (PR creation). Partial translations are acceptable.
+> **⏱️ TIME MANAGEMENT**: Check elapsed time after each article type. If 75+ minutes elapsed, SKIP remaining translations and proceed directly to Step 5 (PR creation). Partial translations are acceptable.
 
 > **✨ IMPROVEMENT MODE**: When `IMPROVEMENT_MODE=true`, the files already contain translations. Read both the English source and the existing translation, then improve the translation quality — fix awkward phrasing, improve terminology, ensure EP official vocabulary is used, and make the text read more naturally in the target language.
 
@@ -1374,10 +1445,13 @@ safeoutputs___create_pull_request({
 - EP document reference IDs, political group abbreviations, committee abbreviations, MEP names, session location names, procedure codes
 
 ### Language-Specific Notes
-- **Nordic** (sv, da, no, fi): Formal register, official EP names per language
-- **EU Core** (de, fr, es, nl): Formal register, official terminology
-- **RTL** (ar, he): Modern Standard Arabic / formal Hebrew; RTL layout with `dir="rtl"`
-- **CJK** (ja, ko, zh): Formal register; CJK punctuation; verify CJK character density
+
+See the full **Per-Language EP Terminology Standards** and **Per-Language Register & Style Guidelines** tables above for detailed language-specific guidance. Summary:
+
+- **Nordic** (sv, da, no, fi): Formal register; official EP institution names per language (note: *Europaparlamentet* in sv/no, *Europa-Parlamentet* in da, *Euroopan parlamentti* in fi); genitive/case forms required in fi
+- **EU Core** (de, fr, es, nl): Formal register; strict gender agreement (de/fr/es/nl); capitalise ALL nouns in German; *le Parlement européen* (lower-case *e* after article) in French
+- **RTL** (ar, he): Modern Standard Arabic / formal Hebrew; `dir="rtl"` and `lang="ar"` / `lang="he"` already set by metadata normalization; use Unicode RTL punctuation (،، ؟ for ar; standard Hebrew punctuation for he); double-check that all text blocks render RTL
+- **CJK** (ja, ko, zh): Formal register; full-width CJK punctuation (。、「」); verify CJK character density ≥ 50 chars per article in validation; *欧州議会* (ja), *유럽의회* (ko), *欧洲议会* (zh) — use these exact forms
 
 ## MANDATORY PR Creation
 
