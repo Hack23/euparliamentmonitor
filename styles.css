@@ -2425,6 +2425,10 @@ html[data-theme='dark'] .site-header {
     color: var(--text-secondary);
   }
 
+  html:not([data-theme='light']) .sankey-chart-wrapper {
+    background: var(--bg);
+  }
+
   /* Analysis & methodology */
   html:not([data-theme='light']) .analysis-methodology {
     background: var(--bg-card);
@@ -2572,6 +2576,11 @@ html[data-theme='dark'] .site-header {
     box-shadow: 0 4px 16px rgba(77, 163, 255, 0.08);
   }
 
+  html:not([data-theme='light']) .mindmap-center {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    border-color: var(--primary-dark);
+  }
+
   html:not([data-theme='light']) .mindmap-branch {
     background: color-mix(in srgb, var(--branch-bg, #e3f2fd) 18%, var(--bg-card));
     border-color: color-mix(in srgb, var(--branch-border, #1565c0) 60%, var(--text));
@@ -2604,6 +2613,10 @@ html[data-theme='dark'] .site-header {
     background: color-mix(in srgb, var(--branch-bg, #e3f2fd) 18%, var(--bg-card));
     border-color: color-mix(in srgb, var(--branch-border, #1565c0) 60%, var(--text));
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  html:not([data-theme='light']) .mindmap-intel-node:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
   }
 
   html:not([data-theme='light']) .mindmap-intel-label {
@@ -3068,7 +3081,6 @@ html[data-theme='dark'] .sankey-section h2 {
 
 html[data-theme='dark'] .sankey-chart-wrapper {
   background: var(--bg);
-  border-color: var(--border);
 }
 
 html[data-theme='dark'] .sankey-fallback-table thead th {
