@@ -563,7 +563,7 @@ if [ -z "$NEEDS_TRANSLATION" ]; then
   IMPROVEMENT_MODE="true"
 
   # Pick the 3 most recent dates with translations to improve
-  IMPROVE_DATES=$(ls news/*-en.html 2>/dev/null | sed 's|news/||;s|-[a-z].*||' | sort -ru | head -5)
+  IMPROVE_DATES=$(ls news/*-en.html 2>/dev/null | sed 's|news/||;s|-[a-z].*||' | sort -ru | head -3)
   for CHECK_DATE in $IMPROVE_DATES; do
     for EN_FILE in news/${CHECK_DATE}-*-en.html; do
       [ ! -f "$EN_FILE" ] && continue
@@ -628,10 +628,10 @@ export LANG_ARG
 
 > ⚠️ **CRITICAL — MCP env vars and the generation script MUST run in the same bash block.**
 
-> **📅 BACKFILL/IMPROVEMENT MODE**: For articles from older dates (backfill) or improvement mode, the generator creates new HTML files using today's date logic. For backfill items, the AI must instead:
+> **📅 BACKFILL/IMPROVEMENT MODE**: For articles from older dates (backfill) or improvement mode, the TypeScript generator is NOT used (it only works for today's date). Instead, the AI must:
 > 1. Read the existing English article (`news/${ITEM_DATE}-${TYPE}-en.html`)
-> 2. For each missing language, COPY the English article to create `news/${ITEM_DATE}-${TYPE}-${LANG}.html`
-> 3. Then translate ALL English content in the copy using the `edit` tool (Step 3b)
+> 2. For each missing language, the workflow copies the English article to create `news/${ITEM_DATE}-${TYPE}-${LANG}.html`
+> 3. Then YOU (the AI) translate ALL English content in the copy using the `edit` tool (Step 3b)
 
 ```bash
 # --- Re-initialize time tracking (env vars do NOT persist across bash blocks) ---
@@ -684,6 +684,7 @@ export USE_EP_MCP=true
 TRANSLATED_TYPES=""
 FAILED_TYPES=""
 ALL_TRANSLATED_DATES=""
+CURRENT_DATE_CACHED=$(date -u +%Y-%m-%d)
 
 for ITEM in $(echo "$NEEDS_TRANSLATION" | tr ',' ' '); do
   # Parse DATE:TYPE or just TYPE
@@ -733,7 +734,7 @@ for ITEM in $(echo "$NEEDS_TRANSLATION" | tr ',' ' '); do
   echo "📝 Languages to generate: $MISSING_LANGS"
 
   # For today's items, use the generator; for backfill/improvement, copy English and prepare for AI translation
-  if [ "$ITEM_DATE" = "$(date -u +%Y-%m-%d)" ] && [ "$IMPROVEMENT_MODE" != "true" ]; then
+  if [ "$ITEM_DATE" = "$CURRENT_DATE_CACHED" ] && [ "$IMPROVEMENT_MODE" != "true" ]; then
     # Today's articles: use the TypeScript generator
     SKIP_FLAG=""
     if [ "${{ github.event.inputs.force_translation }}" = "false" ]; then
@@ -801,12 +802,12 @@ fi
 
 For each non-English article file (from Step 3 generation, backfill, or improvement), process **one file at a time**:
 
-1. **Read** the file with `cat news/${ITEM_DATE}-${TYPE}-${LANG}.html`
+1. **Read** the target file with `cat news/${ITEM_DATE}-${TYPE}-${LANG}.html`
 2. **Read** the English source with `cat news/${ITEM_DATE}-${TYPE}-en.html`
-2. **Identify** English text in ALL user-visible elements: `<h1>`, `<h2>`, `<h3>`, `<p>`, `<li>`, `<td>`, `<th>`, `<span>`, `<div>`, `<a>` (link text), `<figcaption>`, `<blockquote>`, and `<title>`
-3. **Translate** to the target language using EP terminology standards (see table above)
-4. **Write back** the translated content using the `edit` tool — replace old English text with translated text, one section at a time
-5. **Keep unchanged**: proper nouns (MEP names), abbreviations (EPP, S&D), reference IDs, location names, HTML tags, CSS classes, URLs
+3. **Identify** English text in ALL user-visible elements: `<h1>`, `<h2>`, `<h3>`, `<p>`, `<li>`, `<td>`, `<th>`, `<span>`, `<div>`, `<a>` (link text), `<figcaption>`, `<blockquote>`, and `<title>`
+4. **Translate** to the target language using EP terminology standards (see table above)
+5. **Write back** the translated content using the `edit` tool — replace old English text with translated text, one section at a time
+6. **Keep unchanged**: proper nouns (MEP names), abbreviations (EPP, S&D), reference IDs, location names, HTML tags, CSS classes, URLs
 
 **Also translate these SEO and structured data elements:**
 - `<title>` tag — translate the page title (keep `| EU Parliament Monitor` suffix)
@@ -1127,9 +1128,9 @@ echo "🧹 Cleaned raw data payloads for ${TRANSLATE_ANALYSIS_DIR}; translation 
 if [ -z "${ARTICLE_DATE:-}" ]; then
   ARTICLE_DATE=$(date -u +%Y-%m-%d)
 fi
-# Count ALL newly generated/modified non-English files (not just today's date)
-TRANSLATED_COUNT=$(git diff --name-only 2>/dev/null | grep -c '^news/.*\.html$' || echo 0)
-UNTRACKED_COUNT=$(git ls-files --others --exclude-standard 2>/dev/null | grep -c '^news/.*\.html$' || echo 0)
+# Count ALL newly generated/modified non-English HTML files (not just today's date)
+TRANSLATED_COUNT=$(git diff --name-only 2>/dev/null | grep '^news/.*\.html$' | grep -vc '\-en\.html$' || echo 0)
+UNTRACKED_COUNT=$(git ls-files --others --exclude-standard 2>/dev/null | grep '^news/.*\.html$' | grep -vc '\-en\.html$' || echo 0)
 TOTAL_FILES=$((TRANSLATED_COUNT + UNTRACKED_COUNT))
 echo "📊 Total modified/new translation files: $TOTAL_FILES"
 
