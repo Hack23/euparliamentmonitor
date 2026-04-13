@@ -137,7 +137,7 @@ Call `sequentialthinking` with structured thought chains — each step builds on
 
 ## 🔗 European Parliament MCP Server Tools Reference
 
-**Server:** `european-parliament-mcp-server@1.2.4`
+**Server:** `european-parliament-mcp-server@1.2.5`
 
 ### Feed Endpoints (Primary Data Source)
 
@@ -431,7 +431,7 @@ safe-outputs:
 ```
 MCP CONNECTIVITY DIAGNOSTIC — {workflow-name}
 Timestamp: {ISO-8601 UTC timestamp}
-MCP Server: european-parliament-mcp-server@1.2.4
+MCP Server: european-parliament-mcp-server@1.2.5
 
 AWF Firewall Check:
   DNS Resolution: {PASS/FAIL} — nslookup data.europarl.europa.eu
@@ -475,7 +475,7 @@ Resolution Hints:
 |---------------|-----------------|
 | `TIMEOUT` | EP API is slow — use direct endpoint fallbacks from Reliability Matrix, increase `EP_REQUEST_TIMEOUT_MS` to `"120000"`, try `timeframe: "one-week"` instead of `"today"` |
 | `SERVER_ERROR` | EP API returning 5xx — likely maintenance/outage, retry in 1-2 hours, then rerun the direct probe URL `https://data.europarl.europa.eu/api/v2/meps?format=application%2Fld%2Bjson&offset=0&limit=1` to confirm whether the EP API is responding again |
-| `INTERNAL_ERROR` | MCP server internal failure — verify `european-parliament-mcp-server@1.2.4` is installed, check DNS resolution for `data.europarl.europa.eu` |
+| `INTERNAL_ERROR` | MCP server internal failure — verify `european-parliament-mcp-server@1.2.5` is installed, check DNS resolution for `data.europarl.europa.eu` |
 | `RATE_LIMIT` | Too many requests — reduce MCP call frequency, wait 5+ minutes before retry |
 | `NOT_FOUND` | Endpoint not found — verify tool name and parameters match API_USAGE_GUIDE.md |
 | `UNKNOWN` | Unclassified error — check AWF firewall (see diagnostic checklist below), network connectivity, MCP server logs |
@@ -499,7 +499,7 @@ All news workflows use the same MCP server stack:
 mcp-servers:
   european-parliament:
     command: npx
-    args: ["-y", "european-parliament-mcp-server@1.2.4", "--timeout", "90000"]
+    args: ["-y", "european-parliament-mcp-server@1.2.5", "--timeout", "90000"]
     env:
       EP_REQUEST_TIMEOUT_MS: "90000"
   world-bank:
@@ -547,7 +547,7 @@ At workflow start, probe EP server health:
 
 ## 🔌 MCP Tool Reliability Matrix (Verified April 2026)
 
-> **Based on live testing against `european-parliament-mcp-server@1.2.4`**. The EP API at `data.europarl.europa.eu` has inherent latency — feed endpoints (`/feed` path) are consistently slower than direct lookup endpoints. This matrix guides health gate design and fallback escalation.
+> **Based on live testing against `european-parliament-mcp-server@1.2.5`**. The EP API at `data.europarl.europa.eu` has inherent latency — feed endpoints (`/feed` path) are consistently slower than direct lookup endpoints. This matrix guides health gate design and fallback escalation.
 
 ### ✅ Reliable Tools (respond within 30s)
 
@@ -698,7 +698,7 @@ echo "NODE_ENV=${NODE_ENV:-not set}"
 | `curl` exit 28 with HTTP 000 and `/dev/tcp` reachable | Network path exists but request timed out; EP API slow | NOT a firewall issue — increase `EP_REQUEST_TIMEOUT_MS`, use direct endpoint fallbacks |
 | HTTP 000 with other `curl` exit code | Transport/TLS/other client error | Check `curl` exit code and `/dev/tcp` reachability probe; may be TLS or proxy issue |
 | HTTP 5xx from EP API | EP API maintenance/outage | Retry in 1-2 hours; use `get_all_generated_stats` for precomputed data |
-| MCP binary not found | `npx -y european-parliament-mcp-server@1.2.4` failed | Ensure `node` is in `network.allowed` (for npm registry) |
+| MCP binary not found | `npx -y european-parliament-mcp-server@1.2.5` failed | Ensure `node` is in `network.allowed` (for npm registry) |
 | Timeout after 60s | EP API slow + default timeout too low | Verify `EP_REQUEST_TIMEOUT_MS: "90000"` in `mcp-servers` env |
 | Timeout after 90s | EP API exceptionally slow (feed endpoints) | Use direct endpoint fallback (see Reliability Matrix) |
 | `get_server_health` fails | MCP server process didn't start | Check `npx` output, verify Node.js version ≥18 |

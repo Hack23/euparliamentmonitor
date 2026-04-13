@@ -105,7 +105,7 @@ const SERVER_HEALTH_FALLBACK = '{"server": null, "feeds": []}';
 /**
  * Classify an error message into a diagnostic error category.
  *
- * Maps EP MCP Server v1.2.4 structured error codes and generic HTTP/network
+ * Maps EP MCP Server v1.2.5 structured error codes and generic HTTP/network
  * errors into one of six broad categories used for logging and retry decisions:
  *
  * Returned categories (priority order):
@@ -121,7 +121,7 @@ const SERVER_HEALTH_FALLBACK = '{"server": null, "feeds": []}';
  */
 function classifyToolError(message: string): string {
   const lowerMsg = message.toLowerCase();
-  // EP MCP Server v1.2.4 structured error codes (matched case-insensitively)
+  // EP MCP Server v1.2.5 structured error codes (matched case-insensitively)
   if (lowerMsg.includes('internal_error')) {
     return 'INTERNAL_ERROR';
   }
