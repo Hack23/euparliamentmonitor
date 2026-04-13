@@ -16,7 +16,7 @@
 
 - **Stack**: Node.js 25, TypeScript 6, HTML5/CSS3, Vitest, Playwright, ESLint
 - **License**: Apache-2.0 | **Deployment**: AWS S3/CloudFront (primary) with GitHub Pages as fallback/runbook
-- **Data**: European Parliament MCP Server (`european-parliament-mcp-server@1.2.5`)
+- **Data**: European Parliament MCP Server (`european-parliament-mcp-server@1.2.6`)
 - **Languages**: EN, SV, DA, NO, FI, DE, FR, ES, NL, AR, HE, JA, KO, ZH
 - **Agentic Workflows**: 10 gh-aw markdown workflows for automated news generation
 - **Security**: ISO 27001, NIST CSF 2.0, CIS Controls v8.1, GDPR, NIS2, EU CRA
@@ -57,6 +57,8 @@ This project uses **10 gh-aw markdown workflows** in `.github/workflows/*.md` fo
 **Workflow files**: `news-breaking.md`, `news-weekly-review.md`, `news-monthly-review.md`, `news-week-ahead.md`, `news-month-ahead.md`, `news-committee-reports.md`, `news-motions.md`, `news-propositions.md`, `news-article-generator.md`, `news-translate.md`
 
 **Key concepts**: Safe outputs (create-pull-request with constraints), AWF firewall (Squid proxy allowlist), 5-layer security model, JSONL artifacts, lock file compilation.
+
+**MCP Gateway**: All workflows use `source scripts/mcp-setup.sh` to configure `EP_MCP_GATEWAY_URL=http://host.docker.internal:80/mcp/european-parliament` and extract auth tokens (no `jq` dependency). The EP MCP TypeScript client is in `src/mcp/ep-mcp-client.ts` (compiled to `scripts/mcp/ep-mcp-client.js`) and reads these env vars automatically.
 
 **gh-aw docs**: https://github.github.com/gh-aw/ | [Abridged](https://github.github.com/gh-aw/llms-small.txt) | [Full](https://github.github.com/gh-aw/llms-full.txt)
 

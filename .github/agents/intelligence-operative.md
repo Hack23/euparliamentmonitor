@@ -11,7 +11,8 @@ tools: ["*"]
 **ALWAYS read these files at the start of your session:**
 
 1. **`scripts/generate-news-enhanced.js`** - News generation engine and data transformation
-2. **`scripts/ep-mcp-client.js`** - European Parliament MCP integration patterns
+2. **`src/mcp/ep-mcp-client.ts`** - European Parliament MCP client (TypeScript source; compiled to `scripts/mcp/ep-mcp-client.js`)
+3. **`scripts/mcp-setup.sh`** - AWF gateway connectivity script
 3. **`ARCHITECTURE.md`** - System architecture and data flows
 4. **`DATA_MODEL.md`** - Data structures and relationships
 5. **`SECURITY_ARCHITECTURE.md`** - Security controls and threat model

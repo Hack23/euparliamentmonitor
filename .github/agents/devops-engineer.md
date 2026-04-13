@@ -681,7 +681,7 @@ mcp-servers:
   european-parliament:
     container: "node:25-alpine"      # Docker container for MCP server
     entrypoint: "npx"
-    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.5", "--timeout", "90000"]
+    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.6", "--timeout", "90000"]
     env:
       EP_REQUEST_TIMEOUT_MS: "90000"
     allowed: ["*"]                   # Full tool access

@@ -137,7 +137,7 @@ Call `sequentialthinking` with structured thought chains — each step builds on
 
 ## 🔗 European Parliament MCP Server Tools Reference
 
-**Server:** `european-parliament-mcp-server@1.2.5`
+**Server:** `european-parliament-mcp-server@1.2.6`
 
 ### Feed Endpoints (Primary Data Source)
 
@@ -363,6 +363,78 @@ For every major parliamentary action, analyze from ≥3 of these 6 perspectives:
 
 ---
 
+## 🔌 MCP Gateway Setup Script
+
+All agentic workflows that run generation scripts use `scripts/mcp-setup.sh` to configure gateway connectivity. **Always `source` this script in the same bash block as generation commands** (env vars don't persist across blocks).
+
+### `scripts/mcp-setup.sh` — What It Does
+
+```bash
+# Route through MCP gateway (direct HTTPS fails in AWF sandbox)
+source scripts/mcp-setup.sh
+# Sets:
+#   EP_MCP_GATEWAY_URL=http://host.docker.internal:80/mcp/european-parliament
+#   EP_MCP_GATEWAY_API_KEY=<extracted from MCP config JSON via node -e>
+#   WORLD_BANK_MCP_SERVER_URL=http://host.docker.internal:80/mcp/world-bank
+#   MCP_CLIENT_TIMEOUT_MS=90000
+```
+
+The script extracts auth tokens from `/home/runner/.copilot/mcp-config.json` using `node -e` (no `jq` dependency). Token priority: `gateway.apiKey` → `mcpServers['european-parliament'].headers.Authorization`.
+
+### Canonical Gateway + Generation Block Pattern
+
+```bash
+# ⚠️ CRITICAL: mcp-setup.sh, generation script, and USE_EP_MCP MUST be in the same bash block
+source scripts/mcp-setup.sh
+
+# Fallback: verify binary for stdio mode
+if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
+  if [ -f "node_modules/.bin/european-parliament-mcp-server" ]; then
+    echo "✅ EP MCP server binary found for stdio mode"
+  else
+    npm install --no-save european-parliament-mcp-server@1.2.6
+  fi
+fi
+
+export USE_EP_MCP=true
+npx tsx src/generators/news-enhanced.ts --types=breaking ...
+```
+
+---
+
+## 🏗️ EP MCP TypeScript Client (`src/mcp/ep-mcp-client.ts`)
+
+The TypeScript source for the EP MCP client lives at `src/mcp/ep-mcp-client.ts` (compiled to `scripts/mcp/ep-mcp-client.js`).
+
+### Connection Modes
+
+| Mode | When Used | How Activated |
+|------|-----------|---------------|
+| **Gateway (HTTP)** | AWF sandbox / agentic workflows | `EP_MCP_GATEWAY_URL` env var or `gatewayUrl` constructor option |
+| **Stdio** | Local development / standard CI | Default when `EP_MCP_GATEWAY_URL` is unset |
+
+### Gateway Mode Activation
+
+```typescript
+// Automatic via env var (set by scripts/mcp-setup.sh):
+//   EP_MCP_GATEWAY_URL=http://host.docker.internal:80/mcp/european-parliament
+//   EP_MCP_GATEWAY_API_KEY=<raw-api-key>
+import { EuropeanParliamentMCPClient } from './mcp/ep-mcp-client.js';
+const client = new EuropeanParliamentMCPClient(); // reads env vars automatically
+```
+
+### Key Env Vars Read by the Client
+
+| Variable | Purpose | Default |
+|----------|---------|---------|
+| `EP_MCP_GATEWAY_URL` | HTTP gateway URL (set by mcp-setup.sh) | — (stdio mode if unset) |
+| `EP_MCP_GATEWAY_API_KEY` | Gateway authentication (set by mcp-setup.sh) | — |
+| `EP_REQUEST_TIMEOUT_MS` | Per-request timeout in milliseconds | `90000` (set in MCP server frontmatter) |
+| `MCP_CLIENT_TIMEOUT_MS` | Client-level timeout (set by mcp-setup.sh) | `90000` |
+| `EP_MCP_SERVER_PATH` | Override binary path (stdio mode only) | `european-parliament-mcp-server` |
+
+---
+
 ## 📰 Article Generation Commands
 
 ### News Enhanced Generator
@@ -431,7 +503,7 @@ safe-outputs:
 ```
 MCP CONNECTIVITY DIAGNOSTIC — {workflow-name}
 Timestamp: {ISO-8601 UTC timestamp}
-MCP Server: european-parliament-mcp-server@1.2.5
+MCP Server: european-parliament-mcp-server@1.2.6
 
 AWF Firewall Check:
   DNS Resolution: {PASS/FAIL} — nslookup data.europarl.europa.eu
@@ -475,7 +547,7 @@ Resolution Hints:
 |---------------|-----------------|
 | `TIMEOUT` | EP API is slow — use direct endpoint fallbacks from Reliability Matrix, increase `EP_REQUEST_TIMEOUT_MS` to `"120000"`, try `timeframe: "one-week"` instead of `"today"` |
 | `SERVER_ERROR` | EP API returning 5xx — likely maintenance/outage, retry in 1-2 hours, then rerun the direct probe URL `https://data.europarl.europa.eu/api/v2/meps?format=application%2Fld%2Bjson&offset=0&limit=1` to confirm whether the EP API is responding again |
-| `INTERNAL_ERROR` | MCP server internal failure — verify `european-parliament-mcp-server@1.2.5` is installed, check DNS resolution for `data.europarl.europa.eu` |
+| `INTERNAL_ERROR` | MCP server internal failure — verify `european-parliament-mcp-server@1.2.6` is installed, check DNS resolution for `data.europarl.europa.eu` |
 | `RATE_LIMIT` | Too many requests — reduce MCP call frequency, wait 5+ minutes before retry |
 | `NOT_FOUND` | Endpoint not found — verify tool name and parameters match API_USAGE_GUIDE.md |
 | `UNKNOWN` | Unclassified error — check AWF firewall (see diagnostic checklist below), network connectivity, MCP server logs |
@@ -514,7 +586,7 @@ mcp-servers:
   european-parliament:
     container: "node:25-alpine"
     entrypoint: "npx"
-    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.5", "--timeout", "90000"]
+    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.6", "--timeout", "90000"]
     env:
       EP_REQUEST_TIMEOUT_MS: "90000"
   world-bank:
@@ -601,7 +673,7 @@ At workflow start, probe EP server health:
 
 ## 🔌 MCP Tool Reliability Matrix (Verified April 2026)
 
-> **Based on live testing against `european-parliament-mcp-server@1.2.5`**. The EP API at `data.europarl.europa.eu` has inherent latency — feed endpoints (`/feed` path) are consistently slower than direct lookup endpoints. This matrix guides health gate design and fallback escalation.
+> **Based on live testing against `european-parliament-mcp-server@1.2.6`**. The EP API at `data.europarl.europa.eu` has inherent latency — feed endpoints (`/feed` path) are consistently slower than direct lookup endpoints. This matrix guides health gate design and fallback escalation.
 
 ### ✅ Reliable Tools (respond within 30s)
 
@@ -752,7 +824,7 @@ echo "NODE_ENV=${NODE_ENV:-not set}"
 | `curl` exit 28 with HTTP 000 and `/dev/tcp` reachable | Network path exists but request timed out; EP API slow | NOT a firewall issue — increase `EP_REQUEST_TIMEOUT_MS`, use direct endpoint fallbacks |
 | HTTP 000 with other `curl` exit code | Transport/TLS/other client error | Check `curl` exit code and `/dev/tcp` reachability probe; may be TLS or proxy issue |
 | HTTP 5xx from EP API | EP API maintenance/outage | Retry in 1-2 hours; use `get_all_generated_stats` for precomputed data |
-| MCP binary not found | `npx -y european-parliament-mcp-server@1.2.5` failed | Ensure `node` is in `network.allowed` (for npm registry) |
+| MCP binary not found | `npx -y european-parliament-mcp-server@1.2.6` failed | Ensure `node` is in `network.allowed` (for npm registry) |
 | Timeout after 60s | EP API slow + default timeout too low | Verify `EP_REQUEST_TIMEOUT_MS: "90000"` in `mcp-servers` env |
 | Timeout after 90s | EP API exceptionally slow (feed endpoints) | Use direct endpoint fallback (see Reliability Matrix) |
 | `get_server_health` fails | MCP server process didn't start | Check `npx` output, verify Node.js version ≥18 |

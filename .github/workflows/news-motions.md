@@ -54,7 +54,7 @@ mcp-servers:
   european-parliament:
     container: "node:25-alpine"
     entrypoint: "npx"
-    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.5", "--timeout", "90000"]
+    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.6", "--timeout", "90000"]
     env:
       EP_REQUEST_TIMEOUT_MS: "90000"
   world-bank:
@@ -930,52 +930,21 @@ The generation script (`src/generators/news-enhanced.ts`) has its own built-in M
 **In this agentic workflow, use gateway mode.** The MCP Gateway is already running and provides access to the EP MCP server. Read the gateway configuration to pass credentials to the script:
 
 > ⚠️ **CRITICAL — MCP env vars and the generation script MUST run in the same bash block.**
-> Environment variables (`EP_MCP_GATEWAY_URL`, `USE_EP_MCP`) set via `export` in one bash block
+> `source scripts/mcp-setup.sh`, `USE_EP_MCP=true`, and the generation script MUST be in the same bash block
 > do NOT persist to the next block in agentic workflow execution. Keep setup and generation together.
 
 ```bash
 # --- MCP Gateway Setup ---
-# Read MCP gateway config from the environment
-MCP_CONFIG="${GH_AW_MCP_CONFIG:-/home/runner/.copilot/mcp-config.json}"
-
-if [ -f "$MCP_CONFIG" ]; then
-  echo "✅ MCP gateway config found at $MCP_CONFIG"
-  # Extract gateway configuration using jq for robust JSON parsing
-  if command -v jq >/dev/null 2>&1; then
-    GATEWAY_PORT=$(jq -r '.gateway.port // empty' "$MCP_CONFIG")
-    GATEWAY_DOMAIN=$(jq -r '.gateway.domain // empty' "$MCP_CONFIG")
-    GATEWAY_API_KEY=$(jq -r '.gateway.apiKey // empty' "$MCP_CONFIG")
-  else
-    echo "⚠️ jq not found; falling back to basic grep/sed parsing of MCP config"
-    GATEWAY_PORT=$(cat "$MCP_CONFIG" | grep -o '"port":[^,}]*' | head -1 | grep -o '[0-9]*')
-    GATEWAY_DOMAIN=$(cat "$MCP_CONFIG" | grep -o '"domain":"[^"]*"' | head -1 | sed 's/"domain":"//;s/"//')
-    GATEWAY_API_KEY=$(cat "$MCP_CONFIG" | grep -o '"apiKey":"[^"]*"' | head -1 | sed 's/"apiKey":"//;s/"//')
-  fi
-
-  if [ -n "${GATEWAY_PORT:-}" ] && [ -n "${GATEWAY_DOMAIN:-}" ]; then
-    case "$GATEWAY_DOMAIN" in
-      localhost|127.0.0.1|::1|host.docker.internal)
-        GATEWAY_SCHEME="http"
-        ;;
-      *)
-        GATEWAY_SCHEME="https"
-        ;;
-    esac
-    export EP_MCP_GATEWAY_URL="${GATEWAY_SCHEME}://${GATEWAY_DOMAIN}:${GATEWAY_PORT}/mcp/european-parliament"
-    export EP_MCP_GATEWAY_API_KEY="${GATEWAY_API_KEY:-}"
-    echo "✅ Gateway mode: EP_MCP_GATEWAY_URL=$EP_MCP_GATEWAY_URL"
-  fi
-else
-  echo "ℹ️ No gateway config found, will use stdio mode"
-fi
+# Route through MCP gateway using the shared setup script (uses node -e, no jq dependency)
+source scripts/mcp-setup.sh
 
 # Fallback: verify binary for stdio mode
 if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
   if [ -f "node_modules/.bin/european-parliament-mcp-server" ]; then
     echo "✅ EP MCP server binary found for stdio mode"
   else
-    echo "⚠️ EP MCP server binary not found, attempting reinstall..."
-    npm install --no-save european-parliament-mcp-server@1.2.5
+    echo "⚠️ No gateway URL set, installing EP MCP server for stdio mode..."
+    npm install --no-save european-parliament-mcp-server@1.2.6
   fi
 fi
 

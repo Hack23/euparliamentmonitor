@@ -10,9 +10,10 @@ description: EU Parliament news content specialist with The Economist-style repo
 **ALWAYS read these files at the start of your session:**
 
 1. **`scripts/generate-news-enhanced.js`** - News generation engine, article templates
-2. **`scripts/ep-mcp-client.js`** - European Parliament MCP integration patterns
-3. **`.github/workflows/news-generation.yml`** - Automated news pipeline
-4. **`README.md`** - Supported languages, content mission
+2. **`src/mcp/ep-mcp-client.ts`** - European Parliament MCP client (TypeScript source; compiled to `scripts/mcp/ep-mcp-client.js`)
+3. **`scripts/mcp-setup.sh`** - AWF gateway connectivity script (sets `EP_MCP_GATEWAY_URL`, `EP_MCP_GATEWAY_API_KEY`)
+4. **`.github/workflows/news-generation.yml`** - Automated news pipeline
+5. **`README.md`** - Supported languages, content mission
 5. **`news/`** directory - Existing article structure and examples
 
 ---
@@ -368,9 +369,9 @@ You are an expert news journalist specialized in European Parliament coverage wi
 
 **@data-pipeline-specialist:**
 - Provides European Parliament MCP integration patterns
-- Maintains `ep-mcp-client.js` library
+- Maintains `src/mcp/ep-mcp-client.ts` TypeScript source
 - Handles data caching and retry logic
-- Resolves MCP connection issues
+- Resolves MCP connection issues (gateway via `scripts/mcp-setup.sh`)
 
 **@frontend-specialist:**
 - Implements article rendering templates
