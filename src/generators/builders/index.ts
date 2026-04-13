@@ -15,7 +15,6 @@ export {
   buildVotingSwot,
   buildVotingDashboard,
   buildVotingMindmap,
-  buildVotingMultiDimensionalSwot,
 } from './voting-builders.js';
 
 export {
@@ -23,7 +22,6 @@ export {
   buildProspectiveSwot,
   buildProspectiveDashboard,
   buildProspectiveMindmap,
-  buildProspectiveMultiDimensionalSwot,
 } from './prospective-builders.js';
 
 export {
@@ -31,7 +29,6 @@ export {
   buildBreakingSwot,
   buildBreakingDashboard,
   buildBreakingMindmap,
-  buildBreakingMultiDimensionalSwot,
 } from './breaking-builders.js';
 
 export {
@@ -39,7 +36,6 @@ export {
   buildPropositionsSwot,
   buildPropositionsDashboard,
   buildPropositionsMindmap,
-  buildPropositionsMultiDimensionalSwot,
 } from './propositions-builders.js';
 
 export {
@@ -47,5 +43,4 @@ export {
   buildCommitteeSwot,
   buildCommitteeDashboard,
   buildCommitteeMindmap,
-  buildCommitteeMultiDimensionalSwot,
 } from './committee-builders.js';

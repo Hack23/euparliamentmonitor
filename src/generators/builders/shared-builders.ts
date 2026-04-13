@@ -5,7 +5,7 @@
  * @module Generators/Builders/SharedBuilders
  * @description Shared helper functions used across multiple analysis builder
  * domains. Includes outcome matrix construction, AI marker impact assessments,
- * coalition metrics, pipeline builders, trend analytics, and SWOT dimension helpers.
+ * coalition metrics, pipeline builders, and trend analytics.
  */
 
 import type {
@@ -19,8 +19,6 @@ import type {
   DashboardBuilderStrings,
   WeekAheadData,
   VotingPattern,
-  SwotDimension,
-  SwotItem,
   StakeholderMetric,
 } from '../../types/index.js';
 import { buildStakeholderOutcomeMatrix } from '../../utils/intelligence-analysis.js';
@@ -347,24 +345,4 @@ export function buildCategoryDistributionPanel(
       },
     },
   };
-}
-
-/**
- * Build a dimension object from sets of pre-computed SWOT items.
- *
- * @param name - Dimension name
- * @param strengths - Strength items for this dimension
- * @param weaknesses - Weakness items for this dimension
- * @param opportunities - Opportunity items for this dimension
- * @param threats - Threat items for this dimension
- * @returns Typed SwotDimension
- */
-export function makeDimension(
-  name: SwotDimension['name'],
-  strengths: readonly SwotItem[],
-  weaknesses: readonly SwotItem[],
-  opportunities: readonly SwotItem[],
-  threats: readonly SwotItem[]
-): SwotDimension {
-  return { name, strengths, weaknesses, opportunities, threats };
 }

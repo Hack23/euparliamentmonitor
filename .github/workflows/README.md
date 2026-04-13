@@ -116,12 +116,15 @@ The project uses **10 agentic workflow markdown files** (`.md`) that are compile
 ---
 
 **Common features across all news workflows**:
-- Uses `european-parliament-mcp-server` as primary data source
+- Uses `european-parliament-mcp-server@1.2.4` as primary data source
 - Mandatory date context establishment via `date -u` command
 - Supports 14 languages: en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh
 - HTML validation and quality checks before PR creation
 - Never commits generated files (sitemap, rss, index files)
 - Uses `safeoutputs___create_pull_request` for PR creation
+- References [SHARED_PROMPT_PATTERNS.md](SHARED_PROMPT_PATTERNS.md) for shared rules, EP MCP tool reference, and analysis pipeline
+- References [ai-driven-analysis-guide.md](../../analysis/methodologies/ai-driven-analysis-guide.md) for analysis protocol (Rules 1-12)
+- May apply minor TypeScript/script corrections (max 20 lines) to unblock generation — see SHARED_PROMPT_PATTERNS.md
 
 **Security**: Read-only permissions by default, MCP data only from official EU Parliament sources
 

@@ -3,7 +3,7 @@
 
 /**
  * @module Generators/Builders/PropositionsBuilders
- * @description Deep analysis, SWOT, dashboard, mindmap and multi-dimensional SWOT
+ * @description Deep analysis, SWOT, dashboard and mindmap
  * builders for propositions articles.
  */
 
@@ -23,9 +23,6 @@ import type {
   PolicyConnection,
   StakeholderPerspective,
   LegislativePipeline,
-  MultiDimensionalSwot,
-  TemporalSwotAssessment,
-  StakeholderType,
 } from '../../types/index.js';
 import type { PipelineData } from '../propositions-content.js';
 import {
@@ -40,7 +37,6 @@ import {
   buildAiMarkerImpactAssessment,
   buildStakeholderMetricsFromPipeline,
   buildStakeholderPanel,
-  makeDimension,
   CIVIL_SOCIETY,
 } from './shared-builders.js';
 
@@ -623,117 +619,5 @@ export function buildPropositionsMindmap(
     actorNetwork,
     stakeholderGroups: ['Commission', 'Parliament', 'Council', 'Businesses', CIVIL_SOCIETY],
     summary: `Pipeline health: ${healthPct}%. Throughput rate: ${throughput}. ${throughput > 5 ? 'Strong legislative momentum.' : 'Moderate legislative pace.'}`,
-  };
-}
-
-/**
- * Build multi-dimensional SWOT analysis for propositions articles.
- *
- * @param pipelineData - Pipeline metrics
- * @param lang - Target language code
- * @returns Multi-dimensional SWOT data
- */
-export function buildPropositionsMultiDimensionalSwot(
-  pipelineData: PipelineData | null,
-  lang: LanguageCode = 'en'
-): MultiDimensionalSwot {
-  const s: SwotBuilderStrings = getLocalizedString(SWOT_BUILDER_STRINGS, lang);
-  const base = buildPropositionsSwot(pipelineData, lang);
-  const healthScore = pipelineData?.healthScore ?? 0;
-  const throughput = pipelineData?.throughput ?? 0;
-  const pct = (healthScore * 100).toFixed(0);
-
-  const political = makeDimension(
-    'political',
-    healthScore > 0.7 ? [{ text: s.propositionsHealthStrong(pct), severity: 'high' as const }] : [],
-    healthScore < 0.5 ? [{ text: s.propositionsHealthWeak(pct), severity: 'high' as const }] : [],
-    [{ text: s.propositionsPrioritisation, severity: 'medium' as const }],
-    healthScore < 0.3 ? [{ text: s.propositionsCriticalCongestion, severity: 'high' as const }] : []
-  );
-
-  const economic = makeDimension(
-    'economic',
-    throughput >= 5
-      ? [{ text: s.propositionsThroughputGood(throughput), severity: 'medium' as const }]
-      : [],
-    throughput < 5
-      ? [{ text: s.propositionsThroughputLow(throughput), severity: 'medium' as const }]
-      : [],
-    [{ text: s.propositionsTrilogueAcceleration, severity: 'medium' as const }],
-    [{ text: s.propositionsOverlapping, severity: 'medium' as const }]
-  );
-
-  const social = makeDimension(
-    'social',
-    [],
-    [],
-    [{ text: s.propositionsPrioritisation, severity: 'medium' as const }],
-    healthScore < 0.3 ? [{ text: s.propositionsCriticalCongestion, severity: 'high' as const }] : []
-  );
-
-  const legal = makeDimension(
-    'legal',
-    healthScore > 0.7 ? [{ text: s.propositionsHealthStrong(pct), severity: 'high' as const }] : [],
-    healthScore < 0.5 ? [{ text: s.propositionsHealthWeak(pct), severity: 'high' as const }] : [],
-    [{ text: s.propositionsTrilogueAcceleration, severity: 'medium' as const }],
-    [{ text: s.propositionsOverlapping, severity: 'medium' as const }]
-  );
-
-  const geopolitical = makeDimension(
-    'geopolitical',
-    throughput >= 5
-      ? [{ text: s.propositionsThroughputGood(throughput), severity: 'medium' as const }]
-      : [],
-    [],
-    [],
-    healthScore < 0.3
-      ? [{ text: s.propositionsCriticalCongestion, severity: 'high' as const }]
-      : [{ text: s.propositionsOverlapping, severity: 'medium' as const }]
-  );
-
-  const temporal: TemporalSwotAssessment = {
-    shortTerm: base,
-    mediumTerm: {
-      strengths: base.strengths,
-      weaknesses: base.weaknesses.filter((i) => i.severity === 'high'),
-      opportunities: base.opportunities,
-      threats: base.threats.filter((i) => i.severity === 'high'),
-    },
-  };
-
-  const stakeholderViews: Partial<Record<StakeholderType, SwotAnalysis>> = {
-    industry: {
-      strengths:
-        throughput >= 5
-          ? [{ text: s.propositionsThroughputGood(throughput), severity: 'medium' as const }]
-          : [],
-      weaknesses:
-        throughput < 5
-          ? [{ text: s.propositionsThroughputLow(throughput), severity: 'medium' as const }]
-          : [],
-      opportunities: [{ text: s.propositionsTrilogueAcceleration, severity: 'medium' as const }],
-      threats: [{ text: s.propositionsOverlapping, severity: 'medium' as const }],
-    },
-    government: {
-      strengths:
-        healthScore > 0.7
-          ? [{ text: s.propositionsHealthStrong(pct), severity: 'high' as const }]
-          : [],
-      weaknesses:
-        healthScore < 0.5
-          ? [{ text: s.propositionsHealthWeak(pct), severity: 'high' as const }]
-          : [],
-      opportunities: [{ text: s.propositionsPrioritisation, severity: 'medium' as const }],
-      threats:
-        healthScore < 0.3
-          ? [{ text: s.propositionsCriticalCongestion, severity: 'high' as const }]
-          : [],
-    },
-  };
-
-  return {
-    dimensions: [political, economic, social, legal, geopolitical],
-    temporal,
-    stakeholderViews,
   };
 }

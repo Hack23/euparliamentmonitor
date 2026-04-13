@@ -4,7 +4,7 @@ import { getLocalizedString, SWOT_BUILDER_STRINGS, DASHBOARD_BUILDER_STRINGS, } 
 import { PLACEHOLDER_MARKER } from '../motions-content.js';
 import { buildDefaultStakeholderPerspectives, computeVotingIntensity, computePolarizationIndex, } from '../../utils/intelligence-analysis.js';
 import { AI_MARKER } from '../../constants/analysis-constants.js';
-import { buildOutcomeMatrix, buildAiMarkerImpactAssessment, buildCoalitionMetricsFromPatterns, buildStakeholderMetricsFromVoting, buildStakeholderPanel, makeDimension, EP_BLUE_TRANSPARENT, EP_BLUE_BORDER, CIVIL_SOCIETY, } from './shared-builders.js';
+import { buildOutcomeMatrix, buildAiMarkerImpactAssessment, buildCoalitionMetricsFromPatterns, buildStakeholderMetricsFromVoting, buildStakeholderPanel, EP_BLUE_TRANSPARENT, EP_BLUE_BORDER, CIVIL_SOCIETY, } from './shared-builders.js';
 /**
  * Derive stakeholder outcomes from voting records.
  * Groups with high cohesion (>0.8) and high participation (>0.7) are treated as
@@ -255,46 +255,6 @@ function buildVotingTrendPanel(d, realRecords, adoptedCount, rejectedCount) {
 function buildVotingStakeholderPanel(d, patterns, anomalyCount) {
     const stakeholderMetrics = buildStakeholderMetricsFromVoting(patterns, anomalyCount);
     return buildStakeholderPanel(d, stakeholderMetrics);
-}
-/**
- * Build stakeholder views for voting multi-dimensional SWOT.
- *
- * @param adoptedCount - Number of adopted votes
- * @param realAnomalies - Non-placeholder anomalies
- * @param highSeverity - High-severity anomalies
- * @param highCohesion - High-cohesion patterns
- * @param lowCohesion - Low-cohesion patterns
- * @param realPatterns - Non-placeholder patterns
- * @param s - Localized SWOT builder strings
- * @returns Stakeholder views map
- */
-function buildVotingMDStakeholders(adoptedCount, realAnomalies, highSeverity, highCohesion, lowCohesion, realPatterns, s) {
-    return {
-        citizen: {
-            strengths: adoptedCount > 0
-                ? [{ text: s.votingAdopted(adoptedCount), severity: 'medium' }]
-                : [],
-            weaknesses: realAnomalies.length > 0
-                ? [{ text: s.votingAnomalies(realAnomalies.length), severity: 'medium' }]
-                : [],
-            opportunities: [{ text: s.votingCrossParty, severity: 'medium' }],
-            threats: highSeverity.length > 0
-                ? [{ text: s.votingHighSeverity(highSeverity.length), severity: 'high' }]
-                : [],
-        },
-        mep: {
-            strengths: highCohesion.length > 0
-                ? [{ text: s.votingHighCohesion(highCohesion.length), severity: 'high' }]
-                : [],
-            weaknesses: lowCohesion.length > 0
-                ? [{ text: s.votingLowCohesion(lowCohesion.length), severity: 'high' }]
-                : [],
-            opportunities: realPatterns.length > 0
-                ? [{ text: s.votingDiverseGroups(realPatterns.length), severity: 'medium' }]
-                : [],
-            threats: [{ text: s.votingShiftingAlliances, severity: 'medium' }],
-        },
-    };
 }
 /**
  * Build deep analysis for voting-based articles (motions, weekly/monthly review).
@@ -588,69 +548,6 @@ export function buildVotingMindmap(records, patterns, anomalies, _lang = 'en') {
         actorNetwork,
         stakeholderGroups: ['Political Groups', CIVIL_SOCIETY, 'Member States'],
         summary: `Analysing ${realRecords.length} votes across ${realPatterns.length} political groups. ${adoptedCount} measures adopted.`,
-    };
-}
-/**
- * Build multi-dimensional SWOT analysis for voting-based articles.
- *
- * Produces dimension-specific breakdowns (political, economic, social,
- * legal, geopolitical), temporal assessments, and stakeholder views
- * derived from voting records, patterns, and anomaly data.
- *
- * @param records - Voting records
- * @param patterns - Voting patterns
- * @param anomalies - Detected anomalies
- * @param lang - Target language code
- * @returns Multi-dimensional SWOT data
- */
-export function buildVotingMultiDimensionalSwot(records, patterns, anomalies, lang = 'en') {
-    const s = getLocalizedString(SWOT_BUILDER_STRINGS, lang);
-    const base = buildVotingSwot(records, patterns, anomalies, lang);
-    const realRecords = records.filter((r) => r.result !== PLACEHOLDER_MARKER);
-    const realPatterns = patterns.filter((p) => !/placeholder/i.test(p.group));
-    const realAnomalies = anomalies.filter((a) => !/placeholder/i.test(a.type));
-    const adoptedCount = realRecords.filter((r) => r.result?.toLowerCase().includes('adopt')).length;
-    const highCohesion = realPatterns.filter((p) => p.cohesion > 0.8);
-    const lowCohesion = realPatterns.filter((p) => p.cohesion < 0.5);
-    const highSeverity = realAnomalies.filter((a) => a.severity?.toUpperCase() === 'HIGH');
-    const political = makeDimension('political', highCohesion.length > 0
-        ? [{ text: s.votingHighCohesion(highCohesion.length), severity: 'high' }]
-        : [], lowCohesion.length > 0
-        ? [{ text: s.votingLowCohesion(lowCohesion.length), severity: 'high' }]
-        : [], [{ text: s.votingCrossParty, severity: 'medium' }], highSeverity.length > 0
-        ? [{ text: s.votingHighSeverity(highSeverity.length), severity: 'high' }]
-        : []);
-    const economic = makeDimension('economic', adoptedCount > 0 ? [{ text: s.votingAdopted(adoptedCount), severity: 'medium' }] : [], [], realPatterns.length > 0
-        ? [{ text: s.votingDiverseGroups(realPatterns.length), severity: 'medium' }]
-        : [], [{ text: s.votingShiftingAlliances, severity: 'medium' }]);
-    const social = makeDimension('social', realRecords.length > 0
-        ? [{ text: s.votingActiveVotes(realRecords.length), severity: 'medium' }]
-        : [], realAnomalies.length > 0
-        ? [{ text: s.votingAnomalies(realAnomalies.length), severity: 'medium' }]
-        : [], [], []);
-    const legal = makeDimension('legal', adoptedCount > 0 ? [{ text: s.votingAdopted(adoptedCount), severity: 'medium' }] : [], [], [], highSeverity.length > 0
-        ? [{ text: s.votingHighSeverity(highSeverity.length), severity: 'high' }]
-        : []);
-    const geopolitical = makeDimension('geopolitical', [], lowCohesion.length > 0
-        ? [{ text: s.votingLowCohesion(lowCohesion.length), severity: 'medium' }]
-        : [], highCohesion.length > 0
-        ? [{ text: s.votingHighCohesion(highCohesion.length), severity: 'medium' }]
-        : [], [{ text: s.votingShiftingAlliances, severity: 'medium' }]);
-    const temporal = {
-        shortTerm: base,
-        mediumTerm: {
-            strengths: base.strengths.filter((i) => i.severity === 'high'),
-            weaknesses: base.weaknesses.filter((i) => i.severity === 'high'),
-            opportunities: base.opportunities,
-            threats: base.threats.filter((i) => i.severity === 'high'),
-        },
-    };
-    const stakeholderViews = buildVotingMDStakeholders(adoptedCount, realAnomalies, highSeverity, highCohesion, lowCohesion, realPatterns, s);
-    return {
-        title: base.title,
-        dimensions: [political, economic, social, legal, geopolitical],
-        temporal,
-        stakeholderViews,
     };
 }
 //# sourceMappingURL=voting-builders.js.map

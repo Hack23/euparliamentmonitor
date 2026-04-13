@@ -27,6 +27,14 @@
  * @see {@link https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md | Secure Development Policy}
  * @see {@link https://github.com/Hack23/euparliamentmonitor/blob/main/ARCHITECTURE.md | Architecture}
  * @see {@link https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY_ARCHITECTURE.md | Security Architecture}
+ *
+ * **Dead-code removal (v0.8.27+):** The following previously-exported symbols
+ * were removed as unused dead code: `buildSankeySection`,
+ * `sankey-content`, `buildMindmapSection`,
+ * `buildMultiDimensionalSwotSection`, `build*MultiDimensionalSwot`
+ * builders, `MULTI_DIMENSIONAL_SWOT_STRINGS`, and related visualization
+ * types. Use `buildIntelligenceMindmapSection`, `buildSwotSection`, and
+ * domain-specific builders instead.
  */
 
 // ─── Types ───────────────────────────────────────────────────────────────────
@@ -309,7 +317,6 @@ export {
   DASHBOARD_STRINGS,
   SWOT_BUILDER_STRINGS,
   DASHBOARD_BUILDER_STRINGS,
-  MULTI_DIMENSIONAL_SWOT_STRINGS,
   MONTH_IN_REVIEW_STRINGS,
   ANALYSIS_QUALITY_LABELS,
 } from './constants/language-articles.js';
@@ -497,11 +504,6 @@ export {
   buildBreakingMindmap,
   buildPropositionsMindmap,
   buildCommitteeMindmap,
-  buildVotingMultiDimensionalSwot,
-  buildProspectiveMultiDimensionalSwot,
-  buildBreakingMultiDimensionalSwot,
-  buildPropositionsMultiDimensionalSwot,
-  buildCommitteeMultiDimensionalSwot,
 } from './generators/analysis-builders.js';
 
 export {
@@ -532,12 +534,7 @@ export {
 
 export { buildDeepAnalysisSection } from './generators/deep-analysis-content.js';
 
-export {
-  type MindmapBranch,
-  type MindmapConfig,
-  buildMindmapSection,
-  buildIntelligenceMindmapSection,
-} from './generators/mindmap-content.js';
+export { buildIntelligenceMindmapSection } from './generators/mindmap-content.js';
 
 export {
   PLACEHOLDER_MARKER,
@@ -547,15 +544,7 @@ export {
   buildAdoptedTextsSection,
 } from './generators/motions-content.js';
 
-export {
-  type SankeyNodeColor,
-  type SankeyNode,
-  type SankeyFlow,
-  type SankeyConfig,
-  buildSankeySection,
-} from './generators/sankey-content.js';
-
-export { buildSwotSection, buildMultiDimensionalSwotSection } from './generators/swot-content.js';
+export { buildSwotSection } from './generators/swot-content.js';
 
 export {
   PLACEHOLDER_EVENTS,

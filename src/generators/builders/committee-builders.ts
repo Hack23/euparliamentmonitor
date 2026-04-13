@@ -3,7 +3,7 @@
 
 /**
  * @module Generators/Builders/CommitteeBuilders
- * @description Deep analysis, SWOT, dashboard, mindmap and multi-dimensional SWOT
+ * @description Deep analysis, SWOT, dashboard and mindmap
  * builders for committee report articles.
  */
 
@@ -20,9 +20,6 @@ import type {
   ActorNode,
   PolicyConnection,
   StakeholderPerspective,
-  MultiDimensionalSwot,
-  TemporalSwotAssessment,
-  StakeholderType,
   MindmapBranchColor,
 } from '../../types/index.js';
 import {
@@ -34,11 +31,7 @@ import {
 import { isPlaceholderCommitteeData } from '../committee-helpers.js';
 import { buildDefaultStakeholderPerspectives } from '../../utils/intelligence-analysis.js';
 import { AI_MARKER } from '../../constants/analysis-constants.js';
-import {
-  buildOutcomeMatrix,
-  buildCategoryDistributionPanel,
-  makeDimension,
-} from './shared-builders.js';
+import { buildOutcomeMatrix, buildCategoryDistributionPanel } from './shared-builders.js';
 
 // ─── Constant ─────────────────────────────────────────────────────────────────
 
@@ -63,56 +56,6 @@ function buildCommitteeStakeholderPerspectives(
     citizens: totalDocs > 5 ? 0.5 : 0.3,
     eu_institutions: 0.8,
   });
-}
-
-/**
- * Build stakeholder views for committee multi-dimensional SWOT.
- *
- * @param active - Active committees
- * @param committees - All committees
- * @param totalDocs - Total document count
- * @param inactiveCount - Number of inactive committees
- * @param s - Localized SWOT builder strings
- * @returns Stakeholder views map
- */
-function buildCommitteeMDStakeholders(
-  active: readonly CommitteeData[],
-  committees: readonly CommitteeData[],
-  totalDocs: number,
-  inactiveCount: number,
-  s: SwotBuilderStrings
-): Partial<Record<StakeholderType, SwotAnalysis>> {
-  return {
-    mep: {
-      strengths:
-        active.length > 0
-          ? [
-              {
-                text: s.committeeActive(active.length, committees.length),
-                severity: 'high' as const,
-              },
-            ]
-          : [],
-      weaknesses:
-        inactiveCount > 0
-          ? [{ text: s.committeeInactive(inactiveCount), severity: 'medium' as const }]
-          : [],
-      opportunities: [{ text: s.committeeHearings, severity: 'medium' as const }],
-      threats: [{ text: s.committeeCompetingPriorities, severity: 'medium' as const }],
-    },
-    ngo: {
-      strengths:
-        totalDocs > 0
-          ? [{ text: s.committeeDocuments(totalDocs), severity: 'medium' as const }]
-          : [],
-      weaknesses:
-        inactiveCount > committees.length * 0.3
-          ? [{ text: s.committeeLowActivity, severity: 'high' as const }]
-          : [],
-      opportunities: [{ text: s.committeeCrossCollaboration, severity: 'medium' as const }],
-      threats: [],
-    },
-  };
 }
 
 /**
@@ -455,110 +398,5 @@ export function buildCommitteeMindmap(
     actorNetwork,
     stakeholderGroups: ['MEPs', 'Political Groups', 'Secretariat', 'External Experts'],
     summary: `${activeCommittees.length} active committees producing ${totalDocs} documents.`,
-  };
-}
-
-/**
- * Build multi-dimensional SWOT analysis for committee reports articles.
- *
- * @param committees - Committee data list
- * @param lang - Target language code
- * @returns Multi-dimensional SWOT data, or `null` when all committee data is placeholder
- */
-export function buildCommitteeMultiDimensionalSwot(
-  committees: readonly CommitteeData[],
-  lang: LanguageCode = 'en'
-): MultiDimensionalSwot | null {
-  if (isPlaceholderCommitteeData(committees)) return null;
-  const s: SwotBuilderStrings = getLocalizedString(SWOT_BUILDER_STRINGS, lang);
-  const base = buildCommitteeSwot(committees, lang);
-  if (!base) return null;
-
-  const active = committees.filter((c) => c.documents.length > 0);
-  const totalDocs = committees.reduce((sum, c) => sum + c.documents.length, 0);
-  const inactiveCount = committees.length - active.length;
-  const highActivity = active.length >= committees.length * 0.7;
-
-  const political = makeDimension(
-    'political',
-    active.length > 0
-      ? [
-          {
-            text: s.committeeActive(active.length, committees.length),
-            severity: highActivity ? ('high' as const) : ('medium' as const),
-          },
-        ]
-      : [],
-    inactiveCount > committees.length * 0.3
-      ? [{ text: s.committeeInactive(inactiveCount), severity: 'high' as const }]
-      : [],
-    [{ text: s.committeeCrossCollaboration, severity: 'medium' as const }],
-    inactiveCount > committees.length * 0.3
-      ? [{ text: s.committeeLowActivity, severity: 'high' as const }]
-      : [{ text: s.committeeCompetingPriorities, severity: 'medium' as const }]
-  );
-
-  const economic = makeDimension(
-    'economic',
-    totalDocs > 0 ? [{ text: s.committeeDocuments(totalDocs), severity: 'medium' as const }] : [],
-    inactiveCount > 0
-      ? [{ text: s.committeeInactive(inactiveCount), severity: 'medium' as const }]
-      : [],
-    committees.length > 0 ? [{ text: s.committeeHearings, severity: 'medium' as const }] : [],
-    [{ text: s.committeeCompetingPriorities, severity: 'medium' as const }]
-  );
-
-  const social = makeDimension(
-    'social',
-    active.length > 0
-      ? [{ text: s.committeeActive(active.length, committees.length), severity: 'medium' as const }]
-      : [],
-    [],
-    [{ text: s.committeeCrossCollaboration, severity: 'medium' as const }],
-    []
-  );
-
-  const legal = makeDimension(
-    'legal',
-    totalDocs > 0 ? [{ text: s.committeeDocuments(totalDocs), severity: 'high' as const }] : [],
-    inactiveCount > committees.length * 0.3
-      ? [{ text: s.committeeInactive(inactiveCount), severity: 'high' as const }]
-      : [],
-    committees.length > 0 ? [{ text: s.committeeHearings, severity: 'medium' as const }] : [],
-    inactiveCount > committees.length * 0.3
-      ? [{ text: s.committeeLowActivity, severity: 'high' as const }]
-      : []
-  );
-
-  const geopolitical = makeDimension(
-    'geopolitical',
-    [],
-    [],
-    [{ text: s.committeeCrossCollaboration, severity: 'medium' as const }],
-    [{ text: s.committeeCompetingPriorities, severity: 'medium' as const }]
-  );
-
-  const temporal: TemporalSwotAssessment = {
-    shortTerm: base,
-    mediumTerm: {
-      strengths: base.strengths.filter((i) => i.severity === 'high'),
-      weaknesses: base.weaknesses,
-      opportunities: base.opportunities,
-      threats: base.threats,
-    },
-  };
-
-  const stakeholderViews = buildCommitteeMDStakeholders(
-    active,
-    committees,
-    totalDocs,
-    inactiveCount,
-    s
-  );
-
-  return {
-    dimensions: [political, economic, social, legal, geopolitical],
-    temporal,
-    stakeholderViews,
   };
 }

@@ -4,7 +4,11 @@
  * @module Generators/AnalysisBuilders
  * @description Barrel re-export — the implementation has been refactored into
  * bounded-context modules under {@link module:Generators/Builders}.
- * All public symbols remain accessible at this path for backward compatibility.
+ *
+ * **Note:** Multi-dimensional SWOT builders, standard mindmap/sankey section
+ * builders, and related helpers were removed as dead code in v0.8.27+.
+ * Only the actively-used analysis, SWOT, dashboard, and intelligence mindmap
+ * builders are exported below.
  */
-export { AI_MARKER, buildVotingAnalysis, buildVotingSwot, buildVotingDashboard, buildVotingMindmap, buildVotingMultiDimensionalSwot, buildProspectiveAnalysis, buildProspectiveSwot, buildProspectiveDashboard, buildProspectiveMindmap, buildProspectiveMultiDimensionalSwot, buildBreakingAnalysis, buildBreakingSwot, buildBreakingDashboard, buildBreakingMindmap, buildBreakingMultiDimensionalSwot, buildPropositionsAnalysis, buildPropositionsSwot, buildPropositionsDashboard, buildPropositionsMindmap, buildPropositionsMultiDimensionalSwot, buildCommitteeAnalysis, buildCommitteeSwot, buildCommitteeDashboard, buildCommitteeMindmap, buildCommitteeMultiDimensionalSwot, } from './builders/index.js';
+export { AI_MARKER, buildVotingAnalysis, buildVotingSwot, buildVotingDashboard, buildVotingMindmap, buildProspectiveAnalysis, buildProspectiveSwot, buildProspectiveDashboard, buildProspectiveMindmap, buildBreakingAnalysis, buildBreakingSwot, buildBreakingDashboard, buildBreakingMindmap, buildPropositionsAnalysis, buildPropositionsSwot, buildPropositionsDashboard, buildPropositionsMindmap, buildCommitteeAnalysis, buildCommitteeSwot, buildCommitteeDashboard, buildCommitteeMindmap, } from './builders/index.js';
 //# sourceMappingURL=analysis-builders.js.map
