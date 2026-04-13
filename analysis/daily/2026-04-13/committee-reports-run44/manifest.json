@@ -1,0 +1,36 @@
+{
+  "runId": "44",
+  "date": "2026-04-13",
+  "articleType": "committee-reports",
+  "timestamp": "2026-04-13T10:01:36Z",
+  "status": "api-outage",
+  "analysisDir": "analysis/daily/2026-04-13/committee-reports-run44",
+  "artifacts": [
+    {
+      "path": "existing/api-outage-diagnostic.md",
+      "type": "diagnostic",
+      "description": "EP API outage diagnostic with full connectivity analysis"
+    }
+  ],
+  "mcpHealth": {
+    "serverVersion": "1.2.4",
+    "gatewayVersion": "v0.2.17",
+    "toolsViaGateway": 0,
+    "toolsViaStdio": 62,
+    "feedsOperational": 0,
+    "feedsTotal": 13,
+    "healthLevel": "Unavailable",
+    "serverStatus": "unhealthy"
+  },
+  "connectivity": {
+    "dns": "OK",
+    "tcp443": "REACHABLE",
+    "httpGet": "TIMEOUT (000)",
+    "feedEndpoints": "ALL INTERNAL_ERROR"
+  },
+  "context": {
+    "easterRecess": "Day 18/18 (final day)",
+    "expectedRecovery": "2026-04-14 (Monday)",
+    "consecutiveDegradedRuns": 12
+  }
+}
