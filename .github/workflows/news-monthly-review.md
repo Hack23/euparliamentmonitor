@@ -464,7 +464,13 @@ echo "Timestamp: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
 
 # 1. DNS resolution check
 echo "--- DNS Resolution ---"
-nslookup data.europarl.europa.eu 2>&1 | head -5 || echo "DNS FAILED — AWF may be blocking DNS"
+if command -v getent >/dev/null 2>&1; then
+  getent hosts data.europarl.europa.eu | head -5 || echo "DNS FAILED — AWF may be blocking DNS"
+elif command -v nslookup >/dev/null 2>&1; then
+  (set -o pipefail; nslookup data.europarl.europa.eu 2>&1 | head -5) || echo "DNS FAILED — AWF may be blocking DNS"
+else
+  echo "DNS FAILED — neither getent nor nslookup is available"
+fi
 
 # 2. Direct HTTP connectivity — test both meps and adopted-texts endpoints
 echo "--- EP API Direct HTTP Check ---"

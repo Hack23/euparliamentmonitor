@@ -335,7 +335,7 @@ The AI agent MUST:
 Every workflow run MUST produce output:
 - **Article generated:** Include analysis artifacts in PR alongside `news/` files
 - **No article (quiet period):** Create analysis-only PR with `safeoutputs___create_pull_request`
-- **`safeoutputs___noop`:** ONLY when MCP server is completely unavailable and zero data collected — MUST include full diagnostics (see [Mandatory Noop Diagnostics](#-mandatory-noop-diagnostics-all-workflows))
+- **`safeoutputs___noop`:** ONLY when MCP server is completely unavailable and zero data collected — MUST include full diagnostics (see [Mandatory Noop Diagnostics](#mandatory-noop-diagnostics-all-workflows))
 
 ---
 
@@ -446,7 +446,7 @@ MCP Health Gate:
   get_current_meps({ limit: 1 }): {PASS/FAIL} — {data summary or error + category}
   get_adopted_texts_feed({ timeframe: "one-week" }): {PASS/FAIL} — {item count or error + category}
   get_all_generated_stats({ category: "all" }): {PASS/FAIL} — {stats available or error}
-  Error Category: {TIMEOUT/SERVER_ERROR/INTERNAL_ERROR/RATE_LIMIT/NOT_FOUND/UNKNOWN}
+  Error Category: {TIMEOUT/SERVER_ERROR/INTERNAL_ERROR/RATE_LIMIT/NOT_FOUND/DNS_FAILURE/CONNECTION_REFUSED/UNKNOWN}
 
 Individual Tool Results:
   Reliable tools tested: {count passed}/{count attempted}
@@ -619,7 +619,13 @@ echo "Timestamp: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
 
 # 1. DNS resolution check
 echo "--- DNS Resolution ---"
-nslookup data.europarl.europa.eu 2>&1 | head -5 || echo "DNS FAILED"
+if command -v getent >/dev/null 2>&1; then
+  getent hosts data.europarl.europa.eu | head -5 || echo "DNS FAILED"
+elif command -v nslookup >/dev/null 2>&1; then
+  (set -o pipefail; nslookup data.europarl.europa.eu 2>&1 | head -5) || echo "DNS FAILED"
+else
+  echo "DNS FAILED: neither getent nor nslookup is available"
+fi
 
 # 2. Direct HTTP connectivity (bypasses MCP)
 echo "--- EP API Direct HTTP Check ---"
