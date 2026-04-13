@@ -461,18 +461,37 @@ echo "Timestamp: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
 # 1. DNS resolution check
 echo "--- DNS Resolution ---"
 if command -v getent >/dev/null 2>&1; then
-  getent hosts data.europarl.europa.eu | head -5 || echo "DNS FAILED — AWF may be blocking DNS"
+  DNS_OUTPUT=$(set -o pipefail; getent hosts data.europarl.europa.eu | head -5)
+  DNS_EXIT=$?
+  if [ $DNS_EXIT -eq 0 ] && [ -n "$DNS_OUTPUT" ]; then
+    printf '%s\n' "$DNS_OUTPUT"
+  else
+    echo "DNS FAILED — AWF may be blocking DNS"
+  fi
 elif command -v nslookup >/dev/null 2>&1; then
-  (set -o pipefail; nslookup data.europarl.europa.eu 2>&1 | head -5) || echo "DNS FAILED — AWF may be blocking DNS"
+  DNS_OUTPUT=$(set -o pipefail; nslookup data.europarl.europa.eu 2>&1 | head -5)
+  DNS_EXIT=$?
+  if [ $DNS_EXIT -eq 0 ] && [ -n "$DNS_OUTPUT" ]; then
+    printf '%s\n' "$DNS_OUTPUT"
+  else
+    echo "DNS FAILED — AWF may be blocking DNS"
+  fi
 else
   echo "DNS FAILED — neither getent nor nslookup is available"
 fi
 
 # 2. Direct HTTP connectivity (bypasses MCP server)
 echo "--- EP API Direct HTTP Check ---"
-EP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 "https://data.europarl.europa.eu/api/v2/meps?format=application%2Fld%2Bjson&offset=0&limit=1" 2>/dev/null || true)
+EP_STATUS=$(curl -sS -o /dev/null -w "%{http_code}" --connect-timeout 5 --max-time 30 "https://data.europarl.europa.eu/api/v2/meps?format=application%2Fld%2Bjson&offset=0&limit=1" 2>/dev/null)
+EP_CURL_EXIT=$?
 EP_STATUS="${EP_STATUS:-000}"
-echo "EP API HTTP Status: $EP_STATUS"
+case "$EP_CURL_EXIT" in
+  0)  echo "EP API HTTP Status: $EP_STATUS" ;;
+  6)  echo "EP API HTTP Status: $EP_STATUS (curl exit $EP_CURL_EXIT: DNS resolution failed)" ;;
+  7)  echo "EP API HTTP Status: $EP_STATUS (curl exit $EP_CURL_EXIT: connection failed)" ;;
+  28) echo "EP API HTTP Status: $EP_STATUS (curl exit $EP_CURL_EXIT: operation timed out after connect)" ;;
+  *)  echo "EP API HTTP Status: $EP_STATUS (curl exit $EP_CURL_EXIT: transport/TLS/other client error)" ;;
+esac
 
 # 3. Network reachability to key hosts
 echo "--- Network Reachability ---"
