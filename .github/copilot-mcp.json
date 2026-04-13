@@ -1,87 +1,69 @@
 {
   "mcpServers": {
     "github": {
-      "type": "local",
-      "command": "npx",
-      "tools": ["*"],
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-github",
-        "--toolsets",
-        "all",
-        "--tools",
-        "*"
-        
-      ],
-      "env": {
-        "GITHUB_TOKEN": "${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN }}",
-        "GITHUB_PERSONAL_ACCESS_TOKEN": "${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN }}",
-        "GITHUB_OWNER": "Hack23",
-        "GITHUB_API_URL": "https://api.githubcopilot.com/mcp/insiders"
-      }
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/insiders",
+      "headers": {
+        "Authorization": "Bearer ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN }}",
+        "X-MCP-Toolsets": "all"
+      },
+      "tools": ["*"]
     },
     "filesystem": {
       "type": "local",
-      "command": "npx",
-      "tools": ["*"],
+      "command": "mcp-server-filesystem",
       "args": [
-        "-y",
-        "@modelcontextprotocol/server-filesystem",
         "/home/runner/work/euparliamentmonitor/euparliamentmonitor"
-      ]
+      ],
+      "tools": ["*"]
     },
     "memory": {
       "type": "local",
-      "tools": ["*"],
-      "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-memory"
-      ]
+      "command": "mcp-server-memory",
+      "args": [],
+      "tools": ["*"]
     },
     "sequential-thinking": {
       "type": "local",
-      "tools": ["*"],
-      "command": "npx",
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-sequential-thinking"
-      ]
+      "command": "mcp-server-sequential-thinking",
+      "args": [],
+      "tools": ["*"]
     },
     "playwright": {
       "type": "local",
-      "tools": ["*"],
       "command": "npx",
       "args": [
         "-y",
-        "@playwright/mcp"
+        "@playwright/mcp@latest",
+        "--headless"
       ],
       "env": {
         "DISPLAY": ":99"
-      }
+      },
+      "tools": ["*"]
     },
     "european-parliament": {
       "type": "local",
-      "tools": ["*"],
       "command": "npx",
       "args": [
         "-y",
-        "european-parliament-mcp-server@1.2.5",
+        "european-parliament-mcp-server@1.2.6",
         "--timeout",
         "90000"
       ],
       "env": {
         "EP_REQUEST_TIMEOUT_MS": "90000"
-      }
+      },
+      "tools": ["*"]
     },
     "world-bank": {
       "type": "local",
-      "tools": ["*"],
       "command": "npx",
       "args": [
         "-y",
         "worldbank-mcp@1.0.1"
-      ]
+      ],
+      "tools": ["*"]
     }
   }
 }

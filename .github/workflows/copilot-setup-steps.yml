@@ -14,6 +14,7 @@ on:
 env:
   GITHUB_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN }}
   GITHUB_PERSONAL_ACCESS_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN }}
+  COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN }}
   DISPLAY: ":99"
   EP_REQUEST_TIMEOUT_MS: "90000"
 
@@ -78,6 +79,9 @@ jobs:
           # Pre-cache @playwright/mcp for faster startup
           npm install -g @playwright/mcp
           
+          # Install World Bank MCP server for economic data
+          npm install -g worldbank-mcp@1.0.1
+          
           # Install European Parliament MCP Server for parliamentary data access
           # Clear any stale npx cache to prevent version mismatch
           npx_cache_dir=$(npm config get cache)/_npx
@@ -85,13 +89,13 @@ jobs:
             echo "🧹 Clearing npx cache to prevent stale EP MCP server versions..."
             find "$npx_cache_dir" -path "*/european-parliament-mcp-server*" -type d -exec rm -rf {} + 2>/dev/null || true
           fi
-          npm install -g european-parliament-mcp-server@1.2.5
+          npm install -g european-parliament-mcp-server@1.2.6
           
           # Verify the installed version matches expected
           EP_VERSION=$(european-parliament-mcp-server --version 2>/dev/null || echo "unknown")
           echo "📍 Installed EP MCP Server version: $EP_VERSION"
-          if [ "$EP_VERSION" != "1.2.5" ]; then
-            echo "⚠️ Warning: Expected version 1.2.5 but got $EP_VERSION"
+          if [ "$EP_VERSION" != "1.2.6" ]; then
+            echo "⚠️ Warning: Expected version 1.2.6 but got $EP_VERSION"
           fi
                     
           echo "✅ Node.js MCP server packages installed globally"
@@ -116,6 +120,9 @@ jobs:
           
           echo "Checking european-parliament-mcp-server..."
           which european-parliament-mcp-server 2>/dev/null && echo "✅ european-parliament-mcp-server found" || echo "❌ european-parliament-mcp-server NOT found"
+          
+          echo "Checking worldbank-mcp..."
+          which worldbank-mcp 2>/dev/null && echo "✅ worldbank-mcp found" || echo "❌ worldbank-mcp NOT found"
                               
           echo ""
           echo "=== HTTP MCP Servers ==="
