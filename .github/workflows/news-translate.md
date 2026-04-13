@@ -380,9 +380,13 @@ When multiple article–language pairs are queued (backfill mode), maximise thro
 
 > **⚠️ HARD DEADLINE**: Translation MUST stop by minute 75 to leave time for validation and PR creation. You MUST call `safeoutputs___create_pull_request` before minute 86. Partial translations in a PR are better than a timeout with no PR.
 
+> **🛡️ EARLY SAFE OUTPUT — CRITICAL FOR ENGINE CRASH RESILIENCE**: The Copilot engine may terminate unexpectedly due to transient authentication failures. To protect your work, call `safeoutputs___create_pull_request` **as early as possible** — ideally right after Step 3 generates the article HTML files (minute ~20), BEFORE starting AI translation in Step 3b. The framework captures ALL files in the working directory when the agent job ends (whether normally or due to a crash), so translations completed AFTER the safeoutputs call are still included in the PR. If you have NOT yet called safeoutputs and the engine crashes, ALL work is lost. Call it early, then keep translating.
+
 ## MANDATORY MCP Health Gate
 
-Before starting any translation work, verify that ALL MCP servers required by this workflow are available. The translate workflow uses `european-parliament` MCP for article generation, `memory` for cross-run terminology tracking, and `sequential-thinking` for complex translation decisions.
+Before starting any translation work, verify that MCP servers required by this workflow are available. The translate workflow uses `european-parliament` MCP for supplemental context (not required for core translation), `memory` for cross-run terminology tracking, and `sequential-thinking` for complex translation decisions.
+
+> **⚡ SPEED NOTE**: The EP MCP health check is helpful but **NOT required** for translation. If the EP API is unreachable, log a warning and continue — the translate workflow reads existing English HTML articles, it does not need EP API data. Do NOT spend more than 2 minutes total on health checks. Minimise retries and wait times to preserve the time budget for translation work.
 
 ### Step 0: EP API Connectivity & AWF Firewall Pre-Check (bash)
 
@@ -461,31 +465,29 @@ elif [ "$EP_STATUS" = "200" ]; then
 fi
 ```
 
-### EP MCP Health Check (REQUIRED for generation)
+### EP MCP Health Check (helpful but NOT required for translation)
 
 1. Call `european_parliament___get_plenary_sessions({ limit: 1 })` — if successful, EP MCP is healthy
-2. If it fails, wait 30 seconds and retry (up to 3 total attempts)
-3. If ALL 3 attempts fail:
-   - Call `european_parliament___get_server_health({})` for diagnostic context and log the full result
-   - Log a **detailed** warning including: EP API HTTP status from curl pre-check (if available), all 3 health gate attempt error messages, error categories (TIMEOUT/SERVER_ERROR/INTERNAL_ERROR/etc.), and resolution hints per SHARED_PROMPT_PATTERNS.md "Mandatory Noop Diagnostics" error-category table
-   - Continue with translation (the generator will handle MCP fallback per article type)
-   - Do NOT noop — existing English articles can still be translated even without EP MCP
+2. If it fails, wait 10 seconds and retry (**1 retry only** — max 2 total attempts to save time)
+3. If both attempts fail:
+   - Log a brief warning: "⚠️ EP MCP unavailable — continuing without EP context (not needed for translation)"
+   - Continue with translation immediately — existing English articles can be translated without EP MCP
+   - Do NOT noop, do NOT call `get_server_health`, do NOT spend additional time diagnosing
 
-**Implementation pattern** — execute this check before any other work:
+**Implementation pattern** — execute this check quickly:
 
 ```javascript
-// EP MCP Health Gate — verify European Parliament server availability
+// EP MCP Health Gate — quick check, not required for translation
 european_parliament___get_plenary_sessions({ limit: 1 })
-// If the call succeeds, EP MCP is healthy — all article types can be generated.
-// If it fails after 3 retries (30s between each), log a warning and continue.
-// The generator handles MCP unavailability per article type.
+// If it fails once, retry after 10s. If still fails, log warning and move on.
+// Translation reads existing English HTML files — EP API data is supplemental only.
 ```
 
 ### Memory MCP Health Check (helpful but not required)
 
 1. Call `memory___read_graph({})` — if successful, the memory MCP server is healthy
-2. If it fails, wait 15 seconds and retry (up to 3 total attempts)
-3. If ALL 3 attempts fail:
+2. If it fails, wait 10 seconds and retry (**1 retry only** — max 2 total attempts)
+3. If both attempts fail:
    - Log the warning: "⚠️ Memory MCP server unavailable — proceeding without cross-run terminology tracking"
    - Continue with translation (memory is helpful but NOT required for core translation)
 
@@ -493,10 +495,10 @@ european_parliament___get_plenary_sessions({ limit: 1 })
 // Memory MCP Health Gate — verify memory server availability
 memory___read_graph({})
 // If the call succeeds, proceed to Date Context Establishment below.
-// If it fails after 3 retries (15s between each), log a warning and continue.
+// If it fails after 1 retry (10s wait), log a warning and continue.
 ```
 
-> **NOTE**: Both EP MCP and Memory MCP are declared in `mcp-servers:` and MUST be health-checked. The translate workflow should NEVER noop solely because one MCP server is unavailable — partial results are always better than no results.
+> **NOTE**: Both EP MCP and Memory MCP are declared in `mcp-servers:` and MUST be health-checked. The translate workflow should NEVER noop solely because one MCP server is unavailable — partial results are always better than no results. Keep total health check time under 2 minutes.
 
 ## MANDATORY Date Context Establishment
 
@@ -1078,6 +1080,23 @@ GEN_STATE_FILE="/tmp/gh-aw-translate-generation.sh"
 echo "💾 Generation state persisted to $GEN_STATE_FILE"
 ```
 
+### 🛡️ Step 3 Checkpoint: Early Safe Output (ENGINE CRASH PROTECTION)
+
+> **⚠️ CRITICAL**: Call `safeoutputs___create_pull_request` NOW, immediately after Step 3 generates the HTML files and BEFORE starting AI translation. This protects all generated files against engine crashes. The framework captures the working directory state when the agent job ends (whether normally or due to a crash), so files you translate in Step 3b AFTER this call are still included in the PR.
+
+Call `safeoutputs___create_pull_request` with the generated files. Use a descriptive title and body. Even though translations are not yet done, this checkpoint ensures the generated article structure is preserved. Continue to Step 3b for AI translation — the PR will automatically include all subsequent changes.
+
+```javascript
+// ENGINE CRASH PROTECTION — call safeoutputs BEFORE starting AI translation
+safeoutputs___create_pull_request({
+  title: "[news] Translate ${ARTICLE_DATE} articles (${TRANSLATED_TYPES})",
+  body: "Translates ${ARTICLE_DATE} articles. Languages: ${TARGET_LANGS}.\n\nGenerated by news-translate workflow.",
+  base: "main",
+  head: "news/translate-${ARTICLE_DATE}-${RUN_ID}"
+})
+// Continue to Step 3b — all subsequent file edits are captured automatically
+```
+
 ## Step 3b: AI Translation — Translate English Content
 
 > **🚨 CORE STEP — THIS IS THE MOST IMPORTANT STEP**: The generator produces articles with localized UI but **English narrative content**. YOU (the AI agent) MUST read each file and translate ALL English text to the target language. This is pure AI translation work — you read English, you think in the target language, you write the translation using the `edit` tool.
@@ -1354,6 +1373,8 @@ echo "📊 Extending analysis summary with translation results: ${SUMMARY_FILE}"
 
 ## Step 5: Create Pull Request
 
+> **🛡️ REMINDER — EARLY SAFE OUTPUT**: If you have NOT already called `safeoutputs___create_pull_request` (as instructed in the Time Budget section), call it NOW. The sooner it is called, the more resilient the run is to engine crashes. Files generated after this call are still captured.
+
 #### MANDATORY Git State Safety Check (Prevent "No changes to commit" Error)
 
 > **⚠️ CRITICAL**: The `create_pull_request` safe output expects ALL file changes to be **uncommitted working directory modifications**. If any git commits were accidentally made (e.g., via `git add` + `git commit`), this safety check undoes them so the safe output can capture the changes.
@@ -1552,6 +1573,12 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 - ❌ NEVER exit without calling `safeoutputs___create_pull_request`
 
 ## Error Handling
+
+**If the Copilot engine terminates unexpectedly (transient auth failure):**
+- This is a known intermittent issue — "No authentication information found" errors are transient platform failures
+- If you called `safeoutputs___create_pull_request` before the crash, the framework will still create a PR with ALL files in the working directory
+- **Prevention**: Call `safeoutputs___create_pull_request` as early as possible (right after Step 3 generates HTML files) so your work is preserved even if the engine crashes during Step 3b AI translation
+- The next scheduled run will pick up remaining untranslated languages
 
 **If translation generator fails for a specific article type:**
 1. Log the specific failure
