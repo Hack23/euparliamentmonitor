@@ -154,7 +154,13 @@ permissions:
   issues: read
   pull-requests: read
   actions: read
+  discussions: read
+  security-events: read
 timeout-minutes: 60
+
+runtimes:
+  node:
+    version: "25"
 
 network:
   allowed:
@@ -162,31 +168,57 @@ network:
     - github.com
     - api.github.com
     - data.europarl.europa.eu
+    - api.worldbank.org
     - "*.europa.eu"
-    - default
+    - hack23.com
+    - www.hack23.com
+    - defaults
 
 mcp-servers:
   european-parliament:
-    command: npx
-    args:
-      - -y
-      - european-parliament-mcp-server@1.2.5
+    container: "node:25-alpine"
+    entrypoint: "npx"
+    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.5", "--timeout", "90000"]
     env:
-      EP_REQUEST_TIMEOUT_MS: "120000"
+      EP_REQUEST_TIMEOUT_MS: "90000"
+    allowed: ["*"]
+  world-bank:
+    container: "node:25-alpine"
+    entrypoint: "npx"
+    entrypointArgs: ["-y", "worldbank-mcp@1.0.1"]
+    allowed: ["*"]
+  memory:
+    container: "node:25-alpine"
+    entrypoint: "npx"
+    entrypointArgs: ["-y", "@modelcontextprotocol/server-memory"]
+    allowed: ["*"]
+  sequential-thinking:
+    container: "node:25-alpine"
+    entrypoint: "npx"
+    entrypointArgs: ["-y", "@modelcontextprotocol/server-sequential-thinking"]
+    allowed: ["*"]
 
 tools:
   github:
     toolsets:
       - all
   bash: true
+  repo-memory:
+    branch-name: memory/news-generation
+    allowed-extensions: [".md", ".json"]
+    max-file-size: 51200
+    max-file-count: 50
+    max-patch-size: 51200
 
 safe-outputs:
   allowed-domains:
     - data.europarl.europa.eu
     - www.europarl.europa.eu
     - github.com
-  create-pull-request: {}
-  add-comment: {}
+  create-pull-request:
+    title-prefix: "[news] "
+  add-comment:
+    max: 1
 
 engine:
   id: copilot
@@ -196,15 +228,42 @@ engine:
 Fetch latest EP activity and generate multi-language articles...
 ```
 
+## MCP Server Inspection
+
+Use `gh aw mcp inspect` to analyze and debug MCP servers in workflows:
+
+```bash
+# List workflows with MCP configurations
+gh aw mcp inspect
+
+# Inspect MCP servers in a specific workflow
+gh aw mcp inspect news-breaking
+
+# Filter to a specific MCP server
+gh aw mcp inspect news-breaking --server european-parliament
+
+# Show detailed information about a specific tool
+gh aw mcp inspect news-breaking --server european-parliament --tool get_plenary_sessions
+```
+
+The `--tool` flag provides:
+- Tool name, title, and description
+- Input schema and parameters
+- Whether the tool is allowed in the workflow configuration
+- Annotations and additional metadata
+
 ## Best Practices
 
 1. **Minimal permissions** — Only request read access the agent needs
 2. **Explicit safe-outputs** — Define exact output types with constraints
 3. **Title prefixes** — Use prefixes to identify automated content
-4. **Domain allowlists** — Restrict network access to required domains
+4. **Domain allowlists** — Restrict network access to required domains; use `defaults` (not `default`) for basic infrastructure
 5. **Timeout limits** — Set appropriate timeout-minutes
-6. **Single-file output** — One .md workflow file, no separate docs
-7. **Compile and validate** — Always run `gh aw compile --validate`
+6. **Runtimes** — Always include `runtimes: node: version: "25"` for Node.js 25
+7. **MCP container format** — Use `container/entrypoint/entrypointArgs/allowed` (not `command/args`)
+8. **MCP tool access** — Use `allowed: ["*"]` to grant full tool access
+9. **Compile and validate** — Always run `gh aw compile --validate`
+10. **Inspect MCP** — Use `gh aw mcp inspect` to debug MCP server configurations
 
 ## Resources
 

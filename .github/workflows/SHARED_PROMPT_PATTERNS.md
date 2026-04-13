@@ -493,6 +493,20 @@ Resolution Hints:
 
 ## 🛡️ MCP Server Configuration
 
+### Node.js Runtime
+
+All news workflows MUST include the `runtimes:` field to ensure Node.js 25 is used on the runner:
+
+```yaml
+runtimes:
+  node:
+    version: "25"
+```
+
+This ensures the GitHub Actions runner uses Node.js 25 for all scripts, builds, and tool execution. MCP server containers independently use `node:25-alpine` images.
+
+### MCP Server Stack
+
 All news workflows use the same MCP server stack:
 
 ```yaml
@@ -522,6 +536,39 @@ mcp-servers:
 ```
 
 > **Exception:** `news-monthly-review.md` uses `EP_REQUEST_TIMEOUT_MS: "120000"` due to larger data volumes.
+
+### MCP Server Inspection
+
+Use `gh aw mcp inspect` to analyze and debug MCP servers in workflows:
+
+```bash
+# List workflows with MCP configurations
+gh aw mcp inspect
+
+# Inspect MCP servers in a specific workflow
+gh aw mcp inspect news-breaking
+
+# Filter to a specific MCP server
+gh aw mcp inspect news-breaking --server european-parliament
+
+# Show detailed information about a specific tool
+gh aw mcp inspect news-breaking --server european-parliament --tool get_plenary_sessions
+```
+
+The `--tool` flag provides: tool name, title, description, input schema, whether the tool is allowed in the workflow configuration, and annotations. Requires the `--server` flag.
+
+### Required Frontmatter Fields for All Workflows
+
+Every news workflow `.md` file MUST include these fields in the YAML frontmatter:
+
+| Field | Required Value | Purpose |
+|-------|---------------|---------|
+| `runtimes.node.version` | `"25"` | Ensures Node.js 25 runtime on the runner |
+| `network.allowed` | See domains list below | AWF firewall domain allowlist |
+| `mcp-servers` | See MCP server stack above | MCP server definitions with `container/entrypoint/entrypointArgs/allowed` format |
+| `tools.github.toolsets` | `[all]` | Full GitHub API access |
+| `tools.bash` | `true` | Shell access for diagnostics and scripts |
+| `tools.repo-memory` | See config | Cross-run editorial memory |
 
 ---
 
@@ -616,7 +663,7 @@ network:
     - data.europarl.europa.eu        # Required: EP Open Data API (primary)
     - "*.europa.eu"                  # Required: EP API subdomains
     - api.worldbank.org              # Optional: World Bank economic data
-    - default                        # Required: GitHub Actions runtime
+    - defaults                       # Required: GitHub Actions runtime infrastructure
 ```
 
 ### Firewall Diagnostic Steps (Include in Noop)

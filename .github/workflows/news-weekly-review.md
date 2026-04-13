@@ -26,6 +26,10 @@ permissions:
 
 timeout-minutes: 60
 
+runtimes:
+  node:
+    version: "25"
+
 network:
   allowed:
     - node
@@ -40,7 +44,7 @@ network:
     - www.riksdagsmonitor.com
     - euparliamentmonitor.com
     - www.euparliamentmonitor.com
-    - default
+    - defaults
 
 mcp-servers:
   european-parliament:

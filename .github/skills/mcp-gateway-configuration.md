@@ -290,3 +290,56 @@ curl -X POST http://localhost:8000/mcp/github \
 - **Configuration Specification**: [MCP Gateway Reference](https://github.com/github/gh-aw/blob/main/docs/src/content/docs/reference/mcp-gateway.md)
 - **Example Configurations**: See `examples/` directory
 - **Validation Documentation**: README.md - Configuration Validation section
+
+### MCP Server Inspection
+
+Use `gh aw mcp inspect` to analyze and debug MCP servers:
+
+```bash
+# List workflows with MCP configurations
+gh aw mcp inspect
+
+# Inspect MCP servers in a specific workflow
+gh aw mcp inspect news-breaking --server european-parliament
+
+# Show detailed tool info
+gh aw mcp inspect news-breaking --server european-parliament --tool get_plenary_sessions
+```
+
+### gh-aw MCP Server Format vs Copilot MCP Format
+
+**gh-aw workflows** (`.md` files) use `container/entrypoint/entrypointArgs/allowed`:
+```yaml
+mcp-servers:
+  european-parliament:
+    container: "node:25-alpine"
+    entrypoint: "npx"
+    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.5"]
+    allowed: ["*"]
+```
+
+**Copilot coding agent** (`.github/copilot-mcp.json`) uses `command/args`:
+```json
+{
+  "european-parliament": {
+    "type": "local",
+    "command": "npx",
+    "args": ["-y", "european-parliament-mcp-server@1.2.5"],
+    "tools": ["*"]
+  }
+}
+```
+
+These are different contexts — gh-aw uses Docker containers via the MCP gateway, while Copilot coding agent runs tools directly on the runner.
+
+### Runtimes Configuration
+
+All gh-aw workflows MUST include `runtimes:` to ensure Node.js 25 on the runner:
+
+```yaml
+runtimes:
+  node:
+    version: "25"
+```
+
+This is independent of the `container: "node:25-alpine"` in MCP server definitions — `runtimes:` controls the runner, `container:` controls MCP server containers.

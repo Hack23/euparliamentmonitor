@@ -23,9 +23,10 @@ Enable effective use of GitHub Agentic Workflows (gh-aw) for automated developme
 2. MUST compile workflows with `gh aw compile` before use
 3. MUST define `safe-outputs` for any write operations
 4. MUST use minimal `permissions` (read-only for agent)
-5. MUST use `assign_copilot_to_issue` for issue-based automation
-6. MUST track job status with `get_copilot_job_status`
-7. MUST pin GitHub Actions to SHA (not tags)
+5. MUST include `runtimes: node: version: "25"` in all workflows
+6. MUST use `container/entrypoint/entrypointArgs/allowed` format for MCP servers (NOT `command/args`)
+7. MUST use `defaults` (not `default`) as the network ecosystem identifier for basic infrastructure
+8. MUST pin GitHub Actions to SHA (not tags)
 
 ### Workflow Structure
 
@@ -54,6 +55,10 @@ permissions:
   discussions: read
   security-events: read
 
+runtimes:
+  node:
+    version: "25"
+
 network:
   allowed:
     - node
@@ -61,32 +66,38 @@ network:
     - api.github.com
     - data.europarl.europa.eu
     - "*.europa.eu"
+    - api.worldbank.org
     - hack23.com
     - www.hack23.com
     - riksdagsmonitor.com
     - www.riksdagsmonitor.com
     - euparliamentmonitor.com
     - www.euparliamentmonitor.com
-    - default
+    - defaults
 
 mcp-servers:
   european-parliament:
-    command: npx
-    args:
-      - -y
-      - european-parliament-mcp-server@1.2.5
+    container: "node:25-alpine"
+    entrypoint: "npx"
+    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.5", "--timeout", "90000"]
     env:
-      EP_REQUEST_TIMEOUT_MS: "120000"
+      EP_REQUEST_TIMEOUT_MS: "90000"
+    allowed: ["*"]
+  world-bank:
+    container: "node:25-alpine"
+    entrypoint: "npx"
+    entrypointArgs: ["-y", "worldbank-mcp@1.0.1"]
+    allowed: ["*"]
   memory:
-    command: npx
-    args:
-      - -y
-      - "@modelcontextprotocol/server-memory"
+    container: "node:25-alpine"
+    entrypoint: "npx"
+    entrypointArgs: ["-y", "@modelcontextprotocol/server-memory"]
+    allowed: ["*"]
   sequential-thinking:
-    command: npx
-    args:
-      - -y
-      - "@modelcontextprotocol/server-sequential-thinking"
+    container: "node:25-alpine"
+    entrypoint: "npx"
+    entrypointArgs: ["-y", "@modelcontextprotocol/server-sequential-thinking"]
+    allowed: ["*"]
 
 tools:
   repo-memory:
@@ -148,7 +159,7 @@ The AWF (Agent Workflow Firewall) enforces domain allowlists. Follow these rules
 2. **Avoid broad wildcards** — `*.com`, `*.org`, `*.io` effectively disable the firewall. Use explicit domains instead
 3. **Only allow what's needed** — Each workflow should only list domains it actually accesses
 4. **Use `*.europa.eu`** sparingly — This repo allows it for EU institutional subdomains, but explicit domains are preferred when possible
-5. **Add `default`** — This enables basic infrastructure (DNS, etc.)
+5. **Add `defaults`** — This enables basic infrastructure (DNS, certificates, etc.)
 
 **Example — EP-only workflow:**
 ```yaml
@@ -165,7 +176,7 @@ network:
     - www.riksdagsmonitor.com     # Swedish Parliament monitor
     - euparliamentmonitor.com     # EU Parliament monitor
     - www.euparliamentmonitor.com # EU Parliament monitor
-    - default                     # Basic infrastructure
+    - defaults                    # Basic infrastructure (certificates, DNS, etc.)
 ```
 
 **Example — EP + World Bank workflow:**
@@ -202,11 +213,70 @@ gh aw init                     # Initialize repository
 gh aw compile [workflow]        # Compile .md to .lock.yml
 gh aw compile --validate        # Validate without writing
 gh aw compile --dependabot      # Bundle Dependabot fixes
+gh aw compile --actionlint      # Run actionlint + shellcheck
+gh aw compile --zizmor          # Run zizmor security scanner
+gh aw compile --poutine         # Run poutine supply chain scanner
 gh aw fix --write              # Apply codemods for upgrades
 gh aw logs [workflow]           # View workflow logs
 gh aw audit <run-id>           # Audit a specific run
 gh aw add-wizard <url>          # Add workflow from template
+gh aw mcp inspect               # List workflows with MCP configurations
+gh aw mcp inspect <workflow>    # Inspect MCP servers in a specific workflow
+gh aw mcp inspect <workflow> --server <name>  # Filter to a specific MCP server
+gh aw mcp inspect <workflow> --server <name> --tool <tool>  # Detailed tool info
 ```
+
+### MCP Server Inspection
+
+Use `gh aw mcp inspect` to analyze and debug MCP servers:
+
+```bash
+# List all workflows with MCP configurations
+gh aw mcp inspect
+
+# Inspect European Parliament MCP server in news-breaking workflow
+gh aw mcp inspect news-breaking --server european-parliament
+
+# Show detailed information about get_plenary_sessions tool
+gh aw mcp inspect news-breaking --server european-parliament --tool get_plenary_sessions
+```
+
+The `--tool` flag provides:
+- Tool name, title, and description
+- Input schema and parameters
+- Whether the tool is allowed in the workflow configuration
+- Annotations and additional metadata
+
+**Note**: The `--tool` flag requires the `--server` flag to specify which MCP server contains the tool.
+
+### Runtimes Configuration
+
+All workflows MUST include the `runtimes:` field to specify Node.js 25:
+
+```yaml
+runtimes:
+  node:
+    version: "25"
+```
+
+This ensures the GitHub Actions runner uses Node.js 25 for scripts and builds. MCP containers independently use `node:25-alpine` images via the `container:` field in `mcp-servers:`.
+
+### MCP Server Format (Container-based)
+
+MCP servers in gh-aw workflows use the `container/entrypoint/entrypointArgs/allowed` format:
+
+```yaml
+mcp-servers:
+  my-server:
+    container: "node:25-alpine"           # Docker container image
+    entrypoint: "npx"                     # Entrypoint command
+    entrypointArgs: ["-y", "pkg@version"] # Arguments to entrypoint
+    env:                                  # Optional: environment variables
+      MY_VAR: "value"
+    allowed: ["*"]                        # Tool allowlist ("*" = all tools)
+```
+
+**Do NOT use** the `command/args` format — that is for copilot-mcp.json (Copilot coding agent), not for gh-aw workflows.
 
 ### Copilot Coding Agent Assignment
 

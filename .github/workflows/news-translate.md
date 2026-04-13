@@ -51,6 +51,10 @@ timeout-minutes: 90
 concurrency:
   job-discriminator: translate-${{ github.event.inputs.article_date || 'scheduled' }}
 
+runtimes:
+  node:
+    version: "25"
+
 network:
   allowed:
     - node
@@ -65,7 +69,7 @@ network:
     - www.riksdagsmonitor.com
     - euparliamentmonitor.com
     - www.euparliamentmonitor.com
-    - default
+    - defaults
 
 mcp-servers:
   european-parliament:
