@@ -376,7 +376,7 @@ source scripts/mcp-setup.sh
 #   EP_MCP_GATEWAY_URL=http://host.docker.internal:80/mcp/european-parliament
 #   EP_MCP_GATEWAY_API_KEY=<extracted from MCP config JSON via node -e>
 #   WORLD_BANK_MCP_SERVER_URL=http://host.docker.internal:80/mcp/world-bank
-#   MCP_CLIENT_TIMEOUT_MS=90000
+#   MCP_CLIENT_TIMEOUT_MS=120000
 ```
 
 The script extracts auth tokens from `/home/runner/.copilot/mcp-config.json` using `node -e` (no `jq` dependency). Token priority: `gateway.apiKey` → `mcpServers['european-parliament'].headers.Authorization`.
@@ -429,8 +429,8 @@ const client = new EuropeanParliamentMCPClient(); // reads env vars automaticall
 |----------|---------|---------|
 | `EP_MCP_GATEWAY_URL` | HTTP gateway URL (set by mcp-setup.sh) | — (stdio mode if unset) |
 | `EP_MCP_GATEWAY_API_KEY` | Gateway authentication (set by mcp-setup.sh) | — |
-| `EP_REQUEST_TIMEOUT_MS` | Per-request timeout in milliseconds | `90000` (set in MCP server frontmatter) |
-| `MCP_CLIENT_TIMEOUT_MS` | Client-level timeout (set by mcp-setup.sh) | `90000` |
+| `EP_REQUEST_TIMEOUT_MS` | Per-request timeout in milliseconds | `120000` (set in MCP server frontmatter) |
+| `MCP_CLIENT_TIMEOUT_MS` | Client-level timeout (set by mcp-setup.sh) | `120000` |
 | `EP_MCP_SERVER_PATH` | Override binary path (stdio mode only) | `european-parliament-mcp-server` |
 
 ---
@@ -586,9 +586,9 @@ mcp-servers:
   european-parliament:
     container: "node:25-alpine"
     entrypoint: "npx"
-    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.6", "--timeout", "90000"]
+    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.6", "--timeout", "120000"]
     env:
-      EP_REQUEST_TIMEOUT_MS: "90000"
+      EP_REQUEST_TIMEOUT_MS: "120000"
   world-bank:
     container: "node:25-alpine"
     entrypoint: "npx"
@@ -605,7 +605,7 @@ mcp-servers:
 
 > **Note:** Do NOT add `allowed: ["*"]` to MCP server definitions. The MCP gateway (awmg) treats `*` as a literal tool name, not a wildcard, causing 0 tools to be exposed. Omitting `allowed` allows all tools through by default.
 
-> **Exception:** `news-monthly-review.md` uses `EP_REQUEST_TIMEOUT_MS: "120000"` due to larger data volumes.
+> **Note:** All workflows now use `EP_REQUEST_TIMEOUT_MS: "120000"` to handle slow EP API response times (60-120 seconds for some tools).
 
 ### MCP Server Inspection
 
@@ -767,11 +767,34 @@ else
   echo "DNS FAILED: neither getent nor nslookup is available"
 fi
 
-# 2. Direct HTTP connectivity (bypasses MCP)
+# 2. MCP Gateway connectivity check (preferred path in AWF sandbox)
+echo "--- MCP Gateway Connectivity Check ---"
+source scripts/mcp-setup.sh
+if [ -n "${EP_MCP_GATEWAY_URL:-}" ]; then
+  if GW_STATUS=$(curl -sS -o /dev/null -w "%{http_code}" --connect-timeout 10 --max-time 30 \
+    -H "Content-Type: application/json" \
+    ${EP_MCP_GATEWAY_API_KEY:+-H "Authorization: Bearer ${EP_MCP_GATEWAY_API_KEY}"} \
+    -X POST -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"curl-diag","version":"1.0.0"}}}' \
+    "${EP_MCP_GATEWAY_URL}" 2>/dev/null); then
+    GW_CURL_EXIT=0
+  else
+    GW_CURL_EXIT=$?
+  fi
+  GW_STATUS="${GW_STATUS:-000}"
+  echo "MCP Gateway: HTTP ${GW_STATUS} (curl exit ${GW_CURL_EXIT})"
+  echo "MCP Gateway URL: $EP_MCP_GATEWAY_URL"
+  echo "MCP Gateway Auth: ${EP_MCP_GATEWAY_API_KEY:+SET (${#EP_MCP_GATEWAY_API_KEY} chars)}"
+  [ -z "${EP_MCP_GATEWAY_API_KEY:-}" ] && echo "MCP Gateway Auth: NOT SET"
+  echo "MCP Client Timeout: ${MCP_CLIENT_TIMEOUT_MS:-NOT SET}ms"
+else
+  echo "⚠️ EP_MCP_GATEWAY_URL not set — mcp-setup.sh may have failed"
+fi
+
+# 3. Direct EP API HTTP connectivity (diagnostic only — MCP gateway is preferred)
 echo "--- EP API Direct HTTP Check ---"
 if EP_STATUS=$(curl -sS -o /dev/null -w "%{http_code}" \
-  --connect-timeout 5 \
-  --max-time 30 \
+  --connect-timeout 10 \
+  --max-time 120 \
   "https://data.europarl.europa.eu/api/v2/meps?format=application%2Fld%2Bjson&offset=0&limit=1" 2>/dev/null); then
   EP_CURL_EXIT=0
 else
@@ -796,20 +819,20 @@ case "$EP_CURL_EXIT" in
     ;;
 esac
 
-# 3. MCP server binary check
+# 4. MCP server binary check
 echo "--- MCP Server Binary ---"
 which european-parliament-mcp-server 2>/dev/null || \
   ls node_modules/.bin/european-parliament-mcp-server 2>/dev/null || \
   echo "MCP binary NOT FOUND — npx may need to install it"
 
-# 4. Network connectivity to key hosts
+# 5. Network connectivity to key hosts
 echo "--- Network Connectivity ---"
 for host in data.europarl.europa.eu github.com api.github.com; do
   timeout 5 bash -c "echo >/dev/tcp/$host/443" 2>/dev/null && \
     echo "$host:443 REACHABLE" || echo "$host:443 UNREACHABLE (AWF firewall?)"
 done
 
-# 5. Environment variables
+# 6. Environment variables
 echo "--- MCP Environment ---"
 echo "EP_REQUEST_TIMEOUT_MS=${EP_REQUEST_TIMEOUT_MS:-NOT SET (default 60000)}"
 echo "NODE_ENV=${NODE_ENV:-not set}"
@@ -825,8 +848,8 @@ echo "NODE_ENV=${NODE_ENV:-not set}"
 | HTTP 000 with other `curl` exit code | Transport/TLS/other client error | Check `curl` exit code and `/dev/tcp` reachability probe; may be TLS or proxy issue |
 | HTTP 5xx from EP API | EP API maintenance/outage | Retry in 1-2 hours; use `get_all_generated_stats` for precomputed data |
 | MCP binary not found | `npx -y european-parliament-mcp-server@1.2.6` failed | Ensure `node` is in `network.allowed` (for npm registry) |
-| Timeout after 60s | EP API slow + default timeout too low | Verify `EP_REQUEST_TIMEOUT_MS: "90000"` in `mcp-servers` env |
-| Timeout after 90s | EP API exceptionally slow (feed endpoints) | Use direct endpoint fallback (see Reliability Matrix) |
+| Timeout after 60s | EP API slow + default timeout too low | Verify `EP_REQUEST_TIMEOUT_MS: "120000"` in `mcp-servers` env |
+| Timeout after 120s | EP API exceptionally slow (feed endpoints) | Use direct endpoint fallback (see Reliability Matrix) |
 | `get_server_health` fails | MCP server process didn't start | Check `npx` output, verify Node.js version ≥18 |
 | All tools fail with "connection closed" | MCP stdio transport broken | Restart workflow, check process limits |
 

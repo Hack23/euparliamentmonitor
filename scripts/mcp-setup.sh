@@ -49,5 +49,5 @@ if [ -f "$_MCP_CONFIG_PATH" ]; then
   fi
 fi
 
-# Cold-start-tolerant timeout (90 s)
-export MCP_CLIENT_TIMEOUT_MS=90000
+# EP API slow response timeout (120 s — some EP MCP tools need 60-120 s)
+export MCP_CLIENT_TIMEOUT_MS=120000
