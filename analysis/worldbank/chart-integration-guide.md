@@ -10,7 +10,7 @@
 
 ```
 World Bank MCP Server  ──▶  AI Agent (Copilot)  ──▶  TypeScript Generator  ──▶  HTML Article
- (worldbank-mcp@1.0.0)      (fetches data,           (generateArticleHTML)       (with canvas
+ (worldbank-mcp@1.0.1)      (fetches data,           (generateArticleHTML)       (with canvas
                               creates chart configs)    (embeds as data attrs)     elements)
                                                                                      │
                                                                                      ▼

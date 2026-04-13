@@ -146,7 +146,7 @@ export interface PolicyRelevantIndicators {
  * Maps to the tool functions on the worldbank-mcp server.
  *
  * These type literals use **kebab-case** (e.g., `get-economic-data`) to match
- * the underlying tool registration names in worldbank-mcp@1.0.0
+ * the underlying tool registration names in worldbank-mcp@1.0.1
  * (`server.tool('get-economic-data', ...)`).
  * When called via the MCP gateway prefix in this repository's workflows, use
  * the corresponding **snake_case** form, for example
