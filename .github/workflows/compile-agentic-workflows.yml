@@ -143,7 +143,7 @@ jobs:
       - name: Check for changes
         id: check_changes
         run: |
-          lock_files=$(find .github/workflows -name "*.lock.yml" -type f)
+          lock_files=$(find .github/workflows -name "*.yml" -type f)
           if [ -z "$lock_files" ]; then
             echo "No lock files found"
             echo "has_changes=false" >> $GITHUB_OUTPUT
@@ -166,7 +166,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          lock_files=$(find .github/workflows -name "*.lock.yml" -type f)
+          lock_files=$(find .github/workflows -name "*.yml" -type f)
           git add $lock_files
           git commit -m "chore: recompile agentic workflow lock files"
           git push
