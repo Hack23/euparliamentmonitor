@@ -460,8 +460,10 @@ Recovery Attempts:
 
 Resolution Hints:
   - {Specific actionable suggestion based on error category and AWF check results}
-  - If DNS failed: Add "data.europarl.europa.eu" and "*.europa.eu" to network.allowed
-  - If HTTP 000: AWF firewall blocking — verify network.allowed includes required domains
+  - If curl exit 6 (DNS failure): Add "data.europarl.europa.eu" and "*.europa.eu" to network.allowed
+  - If curl exit 7 (connection refused): AWF firewall blocking HTTPS — verify network.allowed includes required domains
+  - If curl exit 28 (timeout): EP API slow, NOT a firewall issue — use direct endpoint fallbacks (see MCP Tool Reliability Matrix)
+  - If HTTP 000 with other curl exit: Transport/TLS error — check network.allowed and TLS connectivity
   - If TIMEOUT: Use direct endpoint fallbacks (see MCP Tool Reliability Matrix in SHARED_PROMPT_PATTERNS.md)
   - Check EP API status: https://data.europarl.europa.eu/api/v2/meps?format=application%2Fld%2Bjson&offset=0&limit=1
   - MCP server docs: https://github.com/Hack23/European-Parliament-MCP-Server/blob/main/API_USAGE_GUIDE.md
@@ -691,8 +693,10 @@ echo "NODE_ENV=${NODE_ENV:-not set}"
 
 | Symptom | Root Cause | Fix |
 |---------|-----------|-----|
-| DNS resolution fails | AWF blocking DNS for `data.europarl.europa.eu` | Add `data.europarl.europa.eu` and `"*.europa.eu"` to `network.allowed` |
-| HTTP 000 (connection refused) | AWF blocking HTTPS to EP API | Add `data.europarl.europa.eu` to `network.allowed` |
+| `curl` exit 6 with HTTP 000 | DNS resolution failure for EP API host | AWF blocking DNS — add `data.europarl.europa.eu` and `"*.europa.eu"` to `network.allowed` |
+| `curl` exit 7 with HTTP 000 and `/dev/tcp` unreachable | TCP connect failure/refused; AWF blocking HTTPS | Add `data.europarl.europa.eu` to `network.allowed` |
+| `curl` exit 28 with HTTP 000 and `/dev/tcp` reachable | Network path exists but request timed out; EP API slow | NOT a firewall issue — increase `EP_REQUEST_TIMEOUT_MS`, use direct endpoint fallbacks |
+| HTTP 000 with other `curl` exit code | Transport/TLS/other client error | Check `curl` exit code and `/dev/tcp` reachability probe; may be TLS or proxy issue |
 | HTTP 5xx from EP API | EP API maintenance/outage | Retry in 1-2 hours; use `get_all_generated_stats` for precomputed data |
 | MCP binary not found | `npx -y european-parliament-mcp-server@1.2.4` failed | Ensure `node` is in `network.allowed` (for npm registry) |
 | Timeout after 60s | EP API slow + default timeout too low | Verify `EP_REQUEST_TIMEOUT_MS: "90000"` in `mcp-servers` env |

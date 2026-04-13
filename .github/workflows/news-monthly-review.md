@@ -525,21 +525,28 @@ done
 echo "--- MCP Environment ---"
 echo "EP_REQUEST_TIMEOUT_MS=${EP_REQUEST_TIMEOUT_MS:-NOT SET (default 60000)}"
 
-# 5. Diagnosis
-if [ "$EP_STATUS" = "000" ] && [ "$EP_AT_STATUS" = "000" ]; then
-  echo "⚠️ EP API UNREACHABLE (both endpoints HTTP 000) — likely AWF firewall or DNS failure"
-  echo "   Check: network.allowed must include data.europarl.europa.eu and *.europa.eu"
+# 5. Diagnosis (uses curl exit codes to distinguish DNS/connect/timeout failures)
+if [ "$EP_CURL_EXIT" -eq 6 ] || [ "$EP_AT_CURL_EXIT" -eq 6 ]; then
+  echo "⚠️ EP API DNS FAILURE (curl exit 6) — AWF firewall blocking DNS resolution"
+  echo "   Fix: Add data.europarl.europa.eu and *.europa.eu to network.allowed"
+elif [ "$EP_CURL_EXIT" -eq 7 ] || [ "$EP_AT_CURL_EXIT" -eq 7 ]; then
+  echo "⚠️ EP API CONNECTION REFUSED (curl exit 7) — AWF firewall blocking HTTPS"
+  echo "   Fix: Add data.europarl.europa.eu to network.allowed"
+elif [ "$EP_CURL_EXIT" -eq 28 ] && [ "$EP_AT_CURL_EXIT" -eq 28 ]; then
+  echo "⚠️ EP API TIMEOUT (both endpoints curl exit 28) — EP API slow, not a firewall issue"
+  echo "   Action: Increase EP_REQUEST_TIMEOUT_MS, use direct endpoint fallbacks"
 elif [ "$EP_AT_STATUS" = "200" ]; then
   echo "✅ EP API reachable — adopted-texts endpoint confirmed working"
 elif [ "$EP_STATUS" -ge 500 ] 2>/dev/null || [ "$EP_AT_STATUS" -ge 500 ] 2>/dev/null; then
   echo "⚠️ EP API SERVER ERROR (meps: $EP_STATUS, adopted-texts: $EP_AT_STATUS) — EP API outage/maintenance"
 else
-  echo "ℹ️ EP API partial response (meps: $EP_STATUS, adopted-texts: $EP_AT_STATUS) — proceed with MCP health gate"
+  echo "ℹ️ EP API partial response (meps: $EP_STATUS exit $EP_CURL_EXIT, adopted-texts: $EP_AT_STATUS exit $EP_AT_CURL_EXIT) — proceed with MCP health gate"
 fi
 ```
 
-> **If DNS fails**: AWF firewall is blocking DNS resolution — add `data.europarl.europa.eu` and `"*.europa.eu"` to `network.allowed` in workflow frontmatter.
-> **If both HTTP 000**: AWF firewall is blocking HTTPS — verify `network.allowed` includes all required domains (see SHARED_PROMPT_PATTERNS.md AWF Firewall Diagnostic Checklist).
+> **If curl exit 6 (DNS failure)**: AWF firewall is blocking DNS resolution — add `data.europarl.europa.eu` and `"*.europa.eu"` to `network.allowed` in workflow frontmatter.
+> **If curl exit 7 (connection refused)**: AWF firewall is blocking HTTPS — verify `network.allowed` includes all required domains (see SHARED_PROMPT_PATTERNS.md AWF Firewall Diagnostic Checklist).
+> **If curl exit 28 (timeout)**: EP API is slow but network is working — this is NOT a firewall issue. Increase `EP_REQUEST_TIMEOUT_MS`, use direct endpoint fallbacks.
 > **If `adopted-texts` returns 200**: The EP API is reachable and has data, even if feed-oriented endpoints are slow or degraded. Do NOT noop — use fallback endpoints if feeds time out.
 > **If either returns 5xx**: Endpoint degradation — continue to MCP health gate.
 

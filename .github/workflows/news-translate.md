@@ -437,9 +437,18 @@ done
 echo "--- MCP Environment ---"
 echo "EP_REQUEST_TIMEOUT_MS=${EP_REQUEST_TIMEOUT_MS:-NOT SET (default 60000)}"
 
-# 5. Diagnosis
-if [ "$EP_STATUS" = "000" ]; then
-  echo "⚠️ EP API UNREACHABLE (HTTP 000) — likely AWF firewall or DNS failure"
+# 5. Diagnosis (uses curl exit code to distinguish DNS/connect/timeout failures)
+if [ "$EP_CURL_EXIT" -eq 6 ]; then
+  echo "⚠️ EP API DNS FAILURE (curl exit 6) — AWF firewall blocking DNS resolution"
+  echo "   Translation can still proceed with existing English articles."
+elif [ "$EP_CURL_EXIT" -eq 7 ]; then
+  echo "⚠️ EP API CONNECTION REFUSED (curl exit 7) — AWF firewall blocking HTTPS"
+  echo "   Translation can still proceed with existing English articles."
+elif [ "$EP_CURL_EXIT" -eq 28 ]; then
+  echo "⚠️ EP API TIMEOUT (curl exit 28) — EP API slow, not a firewall issue"
+  echo "   Translation can still proceed with existing English articles."
+elif [ "$EP_STATUS" = "000" ]; then
+  echo "⚠️ EP API UNREACHABLE (HTTP 000, curl exit $EP_CURL_EXIT) — transport/TLS error"
   echo "   Translation can still proceed with existing English articles."
 elif [ "$EP_STATUS" -ge 500 ] 2>/dev/null; then
   echo "⚠️ EP API SERVER ERROR (HTTP $EP_STATUS) — EP MCP health gate may fail. Translation can still proceed."
