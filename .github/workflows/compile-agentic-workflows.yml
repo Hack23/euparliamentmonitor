@@ -1,7 +1,7 @@
 name: Compile Agentic Workflows
 
-# Manually compile .md workflow files to .lock.yml via workflow_dispatch
-# This helps keep the lock files in sync with their markdown sources when requested
+# Recompile all gh-aw markdown workflows to .lock.yml, agentics-maintenance.yml,
+# and actions-lock.json, then commit all generated files.
 
 on:
   workflow_dispatch:
@@ -14,7 +14,7 @@ permissions:
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-  GH_AW_VERSION: "v0.68.2"
+  GH_AW_VERSION: "v0.68.1"
 
 jobs:
   compile:
@@ -39,203 +39,82 @@ jobs:
 
       - name: Install gh-aw CLI
         run: |
-          echo "Installing gh-aw $GH_AW_VERSION..."
-          curl -sL https://raw.githubusercontent.com/github/gh-aw/main/install-gh-aw.sh | bash -s -- "$GH_AW_VERSION"
-          gh aw version
+          gh extension install github/gh-aw --pin "$GH_AW_VERSION"
+          echo "✅ Installed gh-aw $GH_AW_VERSION"
         env:
           GH_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
 
-      - name: Delete existing lock files
+      - name: Delete existing generated files
         run: |
-          echo "Deleting existing lock files for clean recompilation..."
           find .github/workflows -name "*.lock.yml" -type f -delete
-          echo "✅ All lock files deleted"
+          rm -f .github/workflows/agentics-maintenance.yml
+          echo "✅ Deleted existing generated files"
 
-      - name: Compile Agentic Workflows
-        id: compile
-        run: |
-          echo "Compiling agentic workflows..."
-
-          # Exclude non-workflow markdown files (README.md, SHARED_PROMPT_PATTERNS.md)
-          md_files=$(find .github/workflows -name "*.md" \
-            -not -name "README.md" \
-            -not -name "SHARED_PROMPT_PATTERNS.md" \
-            -type f | sort)
-
-          if [ -z "$md_files" ]; then
-            echo "No .md workflow files found"
-            exit 0
-          fi
-
-          compiled=false
-          compile_failed=false
-
-          for md_file in $md_files; do
-            echo "Processing: $md_file"
-
-            if command -v gh >/dev/null 2>&1 && gh aw compile --help >/dev/null 2>&1; then
-              echo "  Compiling with gh aw compile..."
-              if gh aw compile "$md_file"; then
-                compiled=true
-              else
-                echo "  ❌ Failed to compile $md_file"
-                compile_failed=true
-              fi
-            else
-              echo "  ⚠️ gh-aw tool not available"
-              echo "  Please install gh-aw extension: gh extension install github/gh-aw"
-              echo "  Or run 'gh aw compile' locally"
-              echo "needs_manual_compile=true" >> $GITHUB_OUTPUT
-              exit 1
-            fi
-          done
-
-          if [ "$compile_failed" = true ]; then
-            echo "❌ One or more workflows failed to compile"
-            echo "needs_manual_compile=true" >> $GITHUB_OUTPUT
-            exit 1
-          fi
-
-          if [ "$compiled" = true ]; then
-            echo "✅ Workflows compiled successfully"
-            echo "compiled=true" >> $GITHUB_OUTPUT
-          else
-            echo "ℹ️ No workflows were compiled"
-          fi
+      - name: Compile all workflows
+        run: gh aw compile --validate
         env:
           GH_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
 
-      - name: Patch lock files — use Node.js 25 for MCP containers
+      - name: Normalize and validate generated lock files
         run: |
-          echo "Patching lock files: node:lts-alpine → node:25-alpine..."
-          lock_files=$(find .github/workflows -name "*.lock.yml" -type f)
-          if [ -z "$lock_files" ]; then
-            echo "No lock files to patch"
+          python3 <<'PY'
+          from pathlib import Path
+          import re
+          import sys
+
+          lock_files = sorted(Path(".github/workflows").glob("*.lock.yml"))
+          if not lock_files:
+              print("❌ No generated lock files found")
+              sys.exit(1)
+
+          updated_files = []
+          invalid_files = []
+
+          for lock_file in lock_files:
+              original = lock_file.read_text(encoding="utf-8")
+              normalized = original.replace("node:lts-alpine", "node:25-alpine")
+              normalized = re.sub(r'(?m)^[ \t]*"tools":\s*\[\s*\n\s*"\*"\s*\n\s*\],?\s*\n', "", normalized)
+
+              if normalized != original:
+                  lock_file.write_text(normalized, encoding="utf-8")
+                  updated_files.append(str(lock_file))
+
+              if 'node:lts-alpine' in normalized or re.search(r'"tools":\s*\[', normalized):
+                  invalid_files.append(str(lock_file))
+
+          if updated_files:
+              print("✅ Normalized generated lock files:")
+              for path in updated_files:
+                  print(f" - {path}")
+          else:
+              print("ℹ️ No lock file normalization changes were required")
+
+          if invalid_files:
+              print("❌ Generated lock files still contain unsupported patterns:")
+              for path in invalid_files:
+                  print(f" - {path}")
+              sys.exit(1)
+
+          print("✅ Generated lock files validated successfully")
+          PY
+
+      - name: Commit all generated files
+        run: |
+          # Add all files that gh-aw compile generates:
+          # - .lock.yml workflow files
+          # - agentics-maintenance.yml (auto-generated maintenance workflow)
+          # - actions-lock.json (action version pins)
+          git add .github/workflows/*.lock.yml \
+                  .github/workflows/agentics-maintenance.yml \
+                  .github/aw/actions-lock.json
+
+          if git diff --cached --quiet; then
+            echo "ℹ️ No changes to commit"
           else
-            for lock_file in $lock_files; do
-              if grep -q 'node:lts-alpine' "$lock_file"; then
-                sed -i 's|node:lts-alpine|node:25-alpine|g' "$lock_file"
-                echo "  ✅ Patched $lock_file"
-              fi
-            done
-            echo "✅ Node.js 25 MCP container patch applied"
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git diff --cached --stat
+            git commit -m "chore: recompile agentic workflow lock files"
+            git push
+            echo "✅ Committed and pushed all generated files"
           fi
-
-      - name: Patch lock files — remove tools filter that blocks MCP gateway
-        run: |
-          echo "Removing \"tools\": [\"*\"] from lock files..."
-          echo "The MCP gateway (awmg) treats \"*\" as a literal tool name, not a wildcard."
-          echo "This causes 0 tools to be exposed. Removing the tools filter allows all tools through."
-          lock_files=$(find .github/workflows -name "*.lock.yml" -type f)
-          if [ -z "$lock_files" ]; then
-            echo "No lock files to patch"
-          else
-            for lock_file in $lock_files; do
-              if grep -q '"tools"' "$lock_file"; then
-                # Remove the 3-line "tools": ["*"] block
-                sed -i '/"tools": \[/{N;N;/\*.*\]/d}' "$lock_file"
-                echo "  ✅ Removed tools filter from $lock_file"
-              fi
-            done
-            echo "✅ MCP gateway tools filter patch applied"
-          fi
-
-      - name: Check for changes
-        id: check_changes
-        run: |
-          lock_files=$(find .github/workflows -name "*.yml" -type f)
-          if [ -z "$lock_files" ]; then
-            echo "No lock files found"
-            echo "has_changes=false" >> $GITHUB_OUTPUT
-          else
-            # Detect modified and untracked lock files (excluding ignored)
-            changed_lock_files=$(git ls-files -m -o --exclude-standard -- $lock_files 2>/dev/null || true)
-            if [ -z "$changed_lock_files" ]; then
-              echo "No changes to lock files"
-              echo "has_changes=false" >> $GITHUB_OUTPUT
-            else
-              echo "Lock files have changes:"
-              echo "$changed_lock_files"
-              echo "has_changes=true" >> $GITHUB_OUTPUT
-              git diff --stat -- $changed_lock_files || true
-            fi
-          fi
-
-      - name: Commit changes
-        if: steps.check_changes.outputs.has_changes == 'true'
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          lock_files=$(find .github/workflows -name "*.yml" -type f)
-          git add $lock_files
-          git commit -m "chore: recompile agentic workflow lock files"
-          git push
-
-      - name: Create issue for manual compilation
-        if: always() && steps.compile.outputs.needs_manual_compile == 'true'
-        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
-        with:
-          script: |
-            const issueBody = [
-              '## Problem',
-              '',
-              'The agentic workflow markdown files have been updated, but the lock files could not be automatically compiled.',
-              '',
-              '### Action Required',
-              '',
-              'Please compile the lock files locally:',
-              '',
-              '```bash',
-              '# Install gh-aw extension at pinned version (first time only)',
-              'curl -sL https://raw.githubusercontent.com/github/gh-aw/main/install-gh-aw.sh | bash -s -- ' + process.env.GH_AW_VERSION,
-              '',
-              '# Delete existing lock files and recompile all agentic workflows',
-              'cd .github/workflows',
-              'rm -f *.lock.yml',
-              'for md in $(find . -name "*.md" -not -name "README.md" -not -name "SHARED_PROMPT_PATTERNS.md" | sort); do',
-              '  gh aw compile "$md"',
-              'done',
-              '',
-              '# Commit and push the updated lock files',
-              'git add *.lock.yml',
-              'git commit -m "chore: recompile agentic workflow lock files"',
-              'git push',
-              '```',
-              '',
-              '### Why This Happened',
-              '',
-              'The gh-aw tool requires GitHub authentication and is not available in the automated workflow environment.',
-              '',
-              '### More Information',
-              '',
-              '- [GitHub Agentic Workflows Documentation](https://github.github.com/gh-aw/)',
-              '- Triggered by: ' + (context.payload.head_commit?.message || 'Manual trigger'),
-              '- Workflow run: ' + context.serverUrl + '/' + context.repo.owner + '/' + context.repo.repo + '/actions/runs/' + context.runId
-            ].join('\n');
-
-            const labels = ['infrastructure', 'automated-issue', 'needs-action'];
-
-            let issue;
-            try {
-              issue = await github.rest.issues.create({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                title: '⚠️ Agentic Workflow Lock Files Need Manual Compilation',
-                body: issueBody,
-                labels
-              });
-            } catch (error) {
-              core.warning(
-                `Failed to create issue with labels ${JSON.stringify(labels)}: ${error.message}. ` +
-                'Retrying without the optional labels.'
-              );
-              issue = await github.rest.issues.create({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                title: '⚠️ Agentic Workflow Lock Files Need Manual Compilation',
-                body: issueBody,
-                labels: ['infrastructure']
-              });
-            }
-
-            console.log(`Created issue #${issue.data.number}`);
