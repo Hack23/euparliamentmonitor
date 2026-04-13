@@ -87,30 +87,48 @@ tools: []
 
 ### European Parliament MCP Server
 
+**Version**: `european-parliament-mcp-server@1.2.6` | **Tools**: 62 | **Source**: `src/mcp/ep-mcp-client.ts`
+
+#### AWF Workflow Configuration (gh-aw frontmatter)
+
+```yaml
+mcp-servers:
+  european-parliament:
+    container: "node:25-alpine"
+    entrypoint: "npx"
+    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.6", "--timeout", "90000"]
+    env:
+      EP_REQUEST_TIMEOUT_MS: "90000"
+```
+
+> **Note:** Do NOT add `allowed: ["*"]` — the MCP gateway (awmg) treats `*` as a literal tool name, not a wildcard, resulting in 0 tools exposed.
+
+#### Gateway URL for Script Access (AWF sandbox)
+
+```bash
+# Always use scripts/mcp-setup.sh — sets EP_MCP_GATEWAY_URL automatically
+source scripts/mcp-setup.sh
+# EP_MCP_GATEWAY_URL=http://host.docker.internal:80/mcp/european-parliament
+# EP_MCP_GATEWAY_API_KEY=<extracted from mcp-config.json via node -e>
+```
+
+#### Local / copilot-mcp.json Configuration
+
 ```json
 {
   "mcpServers": {
     "european-parliament": {
-      "type": "stdio",
-      "container": "ghcr.io/hack23/european-parliament-mcp-server:latest",
-      "env": {
-        "EP_API_KEY": "${EP_API_KEY}",
-        "EP_CACHE_DIR": "/tmp/ep-cache"
-      },
-      "mounts": [
-        "/host/cache:/tmp/ep-cache:rw"
-      ]
+      "type": "local",
+      "command": "npx",
+      "args": ["-y", "european-parliament-mcp-server@1.2.6", "--timeout", "90000"],
+      "env": { "EP_REQUEST_TIMEOUT_MS": "90000" },
+      "tools": ["*"]
     }
   }
 }
 ```
 
-**Available Tools**:
-- `get_plenary_sessions`: Fetch plenary session data
-- `search_documents`: Search parliamentary documents
-- `get_parliamentary_questions`: Get parliamentary questions
-- `get_committee_info`: Get committee information
-- `get_mep_details`: Get MEP (Member of European Parliament) details
+**62 Available Tools** — see `.github/skills/european-parliament-data.md` for the full catalog.
 
 ### Filesystem MCP Server
 

@@ -363,6 +363,78 @@ For every major parliamentary action, analyze from ≥3 of these 6 perspectives:
 
 ---
 
+## 🔌 MCP Gateway Setup Script
+
+All agentic workflows that run generation scripts use `scripts/mcp-setup.sh` to configure gateway connectivity. **Always `source` this script in the same bash block as generation commands** (env vars don't persist across blocks).
+
+### `scripts/mcp-setup.sh` — What It Does
+
+```bash
+# Route through MCP gateway (direct HTTPS fails in AWF sandbox)
+source scripts/mcp-setup.sh
+# Sets:
+#   EP_MCP_GATEWAY_URL=http://host.docker.internal:80/mcp/european-parliament
+#   EP_MCP_GATEWAY_API_KEY=<extracted from MCP config JSON via node -e>
+#   WORLD_BANK_MCP_SERVER_URL=http://host.docker.internal:80/mcp/world-bank
+#   MCP_CLIENT_TIMEOUT_MS=90000
+```
+
+The script extracts auth tokens from `/home/runner/.copilot/mcp-config.json` using `node -e` (no `jq` dependency). Token priority: `gateway.apiKey` → `mcpServers['european-parliament'].headers.Authorization`.
+
+### Canonical Gateway + Generation Block Pattern
+
+```bash
+# ⚠️ CRITICAL: mcp-setup.sh, generation script, and USE_EP_MCP MUST be in the same bash block
+source scripts/mcp-setup.sh
+
+# Fallback: verify binary for stdio mode
+if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
+  if [ -f "node_modules/.bin/european-parliament-mcp-server" ]; then
+    echo "✅ EP MCP server binary found for stdio mode"
+  else
+    npm install --no-save european-parliament-mcp-server@1.2.6
+  fi
+fi
+
+export USE_EP_MCP=true
+npx tsx src/generators/news-enhanced.ts --types=breaking ...
+```
+
+---
+
+## 🏗️ EP MCP TypeScript Client (`src/mcp/ep-mcp-client.ts`)
+
+The TypeScript source for the EP MCP client lives at `src/mcp/ep-mcp-client.ts` (compiled to `scripts/mcp/ep-mcp-client.js`).
+
+### Connection Modes
+
+| Mode | When Used | How Activated |
+|------|-----------|---------------|
+| **Gateway (HTTP)** | AWF sandbox / agentic workflows | `EP_MCP_GATEWAY_URL` env var or `gatewayUrl` constructor option |
+| **Stdio** | Local development / standard CI | Default when `EP_MCP_GATEWAY_URL` is unset |
+
+### Gateway Mode Activation
+
+```typescript
+// Automatic via env var (set by scripts/mcp-setup.sh):
+//   EP_MCP_GATEWAY_URL=http://host.docker.internal:80/mcp/european-parliament
+//   EP_MCP_GATEWAY_API_KEY=<raw-api-key>
+import { EuropeanParliamentMCPClient } from './mcp/ep-mcp-client.js';
+const client = new EuropeanParliamentMCPClient(); // reads env vars automatically
+```
+
+### Key Env Vars Read by the Client
+
+| Variable | Purpose | Default |
+|----------|---------|---------|
+| `EP_MCP_GATEWAY_URL` | HTTP gateway URL (set by mcp-setup.sh) | — (stdio mode if unset) |
+| `EP_MCP_GATEWAY_API_KEY` | Gateway authentication (set by mcp-setup.sh) | — |
+| `EP_REQUEST_TIMEOUT_MS` | Per-request timeout in milliseconds | `90000` (set in MCP server frontmatter) |
+| `MCP_CLIENT_TIMEOUT_MS` | Client-level timeout (set by mcp-setup.sh) | `90000` |
+| `EP_MCP_SERVER_PATH` | Override binary path (stdio mode only) | `european-parliament-mcp-server` |
+
+---
+
 ## 📰 Article Generation Commands
 
 ### News Enhanced Generator

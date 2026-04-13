@@ -295,7 +295,8 @@ assign_copilot_to_issue({
   issue_number: 42,
   base_ref: "feature/mcp-integration",
   custom_instructions: `
-    - Follow patterns in scripts/ep-mcp-client.js
+    - Follow patterns in src/mcp/ep-mcp-client.ts (compiled to scripts/mcp/ep-mcp-client.js)
+    - Use source scripts/mcp-setup.sh for AWF gateway env setup (EP_MCP_GATEWAY_URL, EP_MCP_GATEWAY_API_KEY)
     - Include Vitest unit tests (80%+ coverage)
     - Update DATA_MODEL.md if data schemas change
     - Ensure ISMS compliance per SECURITY_ARCHITECTURE.md

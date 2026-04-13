@@ -121,7 +121,7 @@ All agents follow the **2026 GitHub Copilot Coding Agent Standard** with:
 
 **Key Capabilities**:
 - European Parliament MCP tool mastery (6 tools)
-- ep-mcp-client.js patterns and best practices
+- src/mcp/ep-mcp-client.ts TypeScript source and gateway setup (scripts/mcp-setup.sh)
 - LRU cache implementation and TTL strategies
 - Exponential backoff retry logic
 - Undici HTTP client patterns
