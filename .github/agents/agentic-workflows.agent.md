@@ -154,17 +154,31 @@ gh aw audit <run-id>
 # Upgrade workflows
 gh aw fix --write
 gh aw compile --validate
+
+# MCP server inspection
+gh aw mcp inspect                                          # List all workflows with MCP configs
+gh aw mcp inspect news-breaking                            # Inspect MCP servers in workflow
+gh aw mcp inspect news-breaking --server european-parliament  # Filter to specific server
+gh aw mcp inspect news-breaking --server european-parliament --tool get_plenary_sessions  # Tool details
+
+# Security scanning
+gh aw compile --actionlint                # Lint + shellcheck
+gh aw compile --zizmor                    # Security vulnerabilities
+gh aw compile --poutine                   # Supply chain risks
 ```
 
 ## Key Features of gh-aw
 
 - **Natural Language Workflows**: Write workflows in markdown with YAML frontmatter
-- **AI Engine Support**: Copilot, Claude, Codex, or custom engines
-- **MCP Server Integration**: Connect to Model Context Protocol servers for tools
+- **AI Engine Support**: Copilot, Claude, Codex, Gemini, or custom engines
+- **MCP Server Integration**: Connect to Model Context Protocol servers for tools (use `container/entrypoint/entrypointArgs/allowed` format)
+- **MCP Server Inspection**: Debug MCP servers with `gh aw mcp inspect`
 - **Safe Outputs**: Structured communication between AI and GitHub API
 - **Strict Mode**: Security-first validation and sandboxing
 - **Shared Components**: Reusable workflow building blocks
 - **Repo Memory**: Persistent git-backed storage for agents
+- **Runtimes**: Override runtime versions (e.g., `runtimes: node: version: "25"`) for all workflows
+- **Network Ecosystem Identifiers**: Use `defaults`, `node`, `python`, etc. for AWF firewall domain allowlists
 - **Sandboxed Execution**: All workflows run in the Agent Workflow Firewall (AWF) sandbox, enabling full `bash` and `edit` tools by default
 
 ## Important Notes
@@ -175,3 +189,7 @@ gh aw compile --validate
 - **Bash tools are enabled by default** - Don't restrict bash commands unnecessarily since workflows are sandboxed by the AWF
 - Follow security best practices: minimal permissions, explicit network access, no template injection
 - **Single-file output**: When creating a workflow, produce exactly **one** workflow `.md` file. Do not create separate documentation files (architecture docs, runbooks, usage guides, etc.). If documentation is needed, add a brief `## Usage` section inside the workflow file itself.
+- **Always include `runtimes: node: version: "25"`** in all workflow .md files for Node.js 25 runtime
+- **Use `defaults` (not `default`)** as the network ecosystem identifier for basic infrastructure
+- **MCP servers use `container/entrypoint/entrypointArgs/allowed` format** in gh-aw workflows (not `command/args` which is for copilot-mcp.json)
+- **Use `allowed: ["*"]`** on all MCP servers to grant full tool access
