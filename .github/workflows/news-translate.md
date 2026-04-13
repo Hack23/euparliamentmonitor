@@ -406,7 +406,7 @@ echo "EP API HTTP Status: $EP_STATUS"
 
 # 3. Network reachability
 echo "--- Network Reachability ---"
-for host in data.europarl.europa.eu github.com; do
+for host in data.europarl.europa.eu github.com api.github.com; do
   timeout 5 bash -c "echo >/dev/tcp/$host/443" 2>/dev/null && \
     echo "$host:443 REACHABLE" || echo "$host:443 UNREACHABLE (AWF firewall?)"
 done

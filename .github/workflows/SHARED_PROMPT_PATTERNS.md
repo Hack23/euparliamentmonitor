@@ -472,7 +472,7 @@ Resolution Hints:
 | Error Category | Resolution Hints |
 |---------------|-----------------|
 | `TIMEOUT` | EP API is slow — use direct endpoint fallbacks from Reliability Matrix, increase `EP_REQUEST_TIMEOUT_MS` to `"120000"`, try `timeframe: "one-week"` instead of `"today"` |
-| `SERVER_ERROR` | EP API returning 5xx — likely maintenance/outage, retry in 1-2 hours, check EP API status page |
+| `SERVER_ERROR` | EP API returning 5xx — likely maintenance/outage, retry in 1-2 hours, then rerun the direct probe URL `https://data.europarl.europa.eu/api/v2/meps?format=application%2Fld%2Bjson&offset=0&limit=1` to confirm whether the EP API is responding again |
 | `INTERNAL_ERROR` | MCP server internal failure — verify `european-parliament-mcp-server@1.2.4` is installed, check DNS resolution for `data.europarl.europa.eu` |
 | `RATE_LIMIT` | Too many requests — reduce MCP call frequency, wait 5+ minutes before retry |
 | `NOT_FOUND` | Endpoint not found — verify tool name and parameters match API_USAGE_GUIDE.md |
@@ -555,7 +555,7 @@ At workflow start, probe EP server health:
 | `get_all_generated_stats` | `{ category: "all" }` | Precomputed data, NO live EP API call — always works |
 | `get_current_meps` | `{ limit: 1 }` | Fast lightweight probe |
 | `get_plenary_sessions` | `{ limit: 1 }` | ⚠️ **ONLY without date filters** — adding `dateFrom`/`dateTo` causes timeouts |
-| `get_adopted_texts` | `{ year: 2026, limit: 3 }` | Direct lookup with year filter — reliable |
+| `get_adopted_texts` | `{ year: CURRENT_YEAR, limit: 3 }` | Direct lookup with year filter — reliable |
 | `get_adopted_texts_feed` | `{ timeframe: "one-week" }` | **Only feed that reliably responds** |
 | `get_meps_feed` | `{ timeframe: "one-week" }` | Large response but reliable |
 | `get_speeches` | `{ dateFrom, dateTo, limit: 3 }` | Direct lookup — reliable |
