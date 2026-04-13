@@ -219,7 +219,7 @@ These endpoints use the `timeframe` parameter with supported values: `"today"`, 
 
 ### World Bank MCP Tools (Economic Context Enrichment)
 
-**Server:** `worldbank-mcp@1.0.0`
+**Server:** `worldbank-mcp@1.0.1`
 
 | Tool | Purpose | Key Parameters |
 |------|---------|----------------|
@@ -504,7 +504,7 @@ mcp-servers:
       EP_REQUEST_TIMEOUT_MS: "90000"
   world-bank:
     command: npx
-    args: ["-y", "worldbank-mcp@1.0.0"]
+    args: ["-y", "worldbank-mcp@1.0.1"]
   memory:
     command: npx
     args: ["-y", "@modelcontextprotocol/server-memory"]
