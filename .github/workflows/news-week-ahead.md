@@ -3,8 +3,7 @@ name: "News: EU Parliament Week Ahead"
 description: Generates EU Parliament week-ahead English article with deep political intelligence. Translations are handled by the separate news-translate workflow.
 strict: false
 on:
-  schedule:
-    - cron: "0 7 * * 5"
+  schedule: weekly on friday around 7:00
   workflow_dispatch:
     inputs:
       force_generation:
@@ -61,31 +60,19 @@ mcp-servers:
     command: npx
     args:
       - -y
-      - worldbank-mcp@1.0.0
-  memory:
-    command: npx
-    args:
-      - -y
-      - "@modelcontextprotocol/server-memory"
-  sequential-thinking:
-    command: npx
-    args:
-      - -y
-      - "@modelcontextprotocol/server-sequential-thinking"
+      - worldbank-mcp@1.0.1
 
 tools:
-  repo-memory:
-    branch-name: memory/news-generation
-    description: "Cross-run editorial memory for EU Parliament news generation"
-    file-glob: ["memory/news-generation/*.md", "memory/news-generation/*.json"]
-    max-file-size: 51200
-    max-file-count: 50
-    max-patch-size: 51200
-    allowed-extensions: [".md", ".json"]
   github:
     toolsets:
       - all
   bash: true
+  repo-memory:
+    branch-name: memory/news-generation
+    allowed-extensions: [".md", ".json"]
+    max-file-size: 51200
+    max-file-count: 50
+    max-patch-size: 51200
 
 safe-outputs:
   allowed-domains:
@@ -100,7 +87,13 @@ safe-outputs:
     - www.euparliamentmonitor.com
   create-pull-request:
     title-prefix: "[news] "
+    labels: [agentic-news, analysis-data]
+    draft: false
+    expires: 14d
   add-comment:
+    max: 1
+  dispatch-workflow:
+    workflows: [news-translate]
     max: 1
 
 steps:
