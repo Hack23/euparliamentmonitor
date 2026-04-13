@@ -335,7 +335,7 @@ The AI agent MUST:
 Every workflow run MUST produce output:
 - **Article generated:** Include analysis artifacts in PR alongside `news/` files
 - **No article (quiet period):** Create analysis-only PR with `safeoutputs___create_pull_request`
-- **`safeoutputs___noop`:** ONLY when MCP server is completely unavailable and zero data collected
+- **`safeoutputs___noop`:** ONLY when MCP server is completely unavailable and zero data collected — MUST include full diagnostics (see [Mandatory Noop Diagnostics](#mandatory-noop-diagnostics-all-workflows))
 
 ---
 
@@ -422,6 +422,73 @@ safe-outputs:
 | `safeoutputs___add_comment` | Post workflow summary comment |
 | `safeoutputs___noop` | No-op (ONLY when zero data collected) |
 
+### 🔍 Mandatory Noop Diagnostics (All Workflows)
+
+> **⚠️ CRITICAL**: Every `safeoutputs___noop` call MUST include a detailed diagnostic message following this template. A bare "MCP server unavailable" message is NOT acceptable — include ALL available connectivity details so operators can diagnose and fix the root cause.
+
+**Required noop message template:**
+
+```
+MCP CONNECTIVITY DIAGNOSTIC — {workflow-name}
+Timestamp: {ISO-8601 UTC timestamp}
+MCP Server: european-parliament-mcp-server@1.2.4
+
+AWF Firewall Check:
+  DNS Resolution: {PASS/FAIL} — nslookup data.europarl.europa.eu
+  EP API Direct HTTP: {HTTP status code} — curl https://data.europarl.europa.eu/api/v2/meps?format=application%2Fld%2Bjson&offset=0&limit=1
+  Network Reachability: data.europarl.europa.eu:443 {REACHABLE/UNREACHABLE}
+  MCP Binary: {FOUND at path / NOT FOUND}
+  EP_REQUEST_TIMEOUT_MS: {value or "NOT SET (default 60000)"}
+
+MCP Health Gate:
+  get_server_health: {PASS/FAIL} — {version + status or error message}
+  get_plenary_sessions({ limit: 1 }): {PASS/FAIL} — {data summary or error + category}
+  get_current_meps({ limit: 1 }): {PASS/FAIL} — {data summary or error + category}
+  get_adopted_texts_feed({ timeframe: "one-week" }): {PASS/FAIL} — {item count or error + category}
+  get_all_generated_stats({ category: "all" }): {PASS/FAIL} — {stats available or error}
+  Error Category: {TIMEOUT/SERVER_ERROR/INTERNAL_ERROR/RATE_LIMIT/NOT_FOUND/DNS_FAILURE/CONNECTION_REFUSED/UNKNOWN}
+
+Individual Tool Results:
+  Reliable tools tested: {count passed}/{count attempted}
+  Feed tools tested: {count passed}/{count attempted} — {list of timed-out feeds}
+  Analytical tools: {count passed}/{count attempted}
+
+Recovery Attempts:
+  1. get_server_health: {result summary}
+  2. get_all_generated_stats: {PASS — precomputed data available / FAIL — reason}
+  3. Analysis-only PR possible: {YES — precomputed stats available / NO — MCP server unreachable}
+
+Resolution Hints:
+  - {Specific actionable suggestion based on error category and AWF check results}
+  - If curl exit 6 (DNS failure): Add "data.europarl.europa.eu" and "*.europa.eu" to network.allowed
+  - If curl exit 7 (connection refused): AWF firewall blocking HTTPS — verify network.allowed includes required domains
+  - If curl exit 28 (timeout): EP API slow, NOT a firewall issue — use direct endpoint fallbacks (see MCP Tool Reliability Matrix)
+  - If HTTP 000 with other curl exit: Transport/TLS error — check network.allowed and TLS connectivity
+  - If TIMEOUT: Use direct endpoint fallbacks (see MCP Tool Reliability Matrix in SHARED_PROMPT_PATTERNS.md)
+  - Check EP API status: https://data.europarl.europa.eu/api/v2/meps?format=application%2Fld%2Bjson&offset=0&limit=1
+  - MCP server docs: https://github.com/Hack23/European-Parliament-MCP-Server/blob/main/API_USAGE_GUIDE.md
+```
+
+**Error-category-specific resolution hints:**
+
+| Error Category | Resolution Hints |
+|---------------|-----------------|
+| `TIMEOUT` | EP API is slow — use direct endpoint fallbacks from Reliability Matrix, increase `EP_REQUEST_TIMEOUT_MS` to `"120000"`, try `timeframe: "one-week"` instead of `"today"` |
+| `SERVER_ERROR` | EP API returning 5xx — likely maintenance/outage, retry in 1-2 hours, then rerun the direct probe URL `https://data.europarl.europa.eu/api/v2/meps?format=application%2Fld%2Bjson&offset=0&limit=1` to confirm whether the EP API is responding again |
+| `INTERNAL_ERROR` | MCP server internal failure — verify `european-parliament-mcp-server@1.2.4` is installed, check DNS resolution for `data.europarl.europa.eu` |
+| `RATE_LIMIT` | Too many requests — reduce MCP call frequency, wait 5+ minutes before retry |
+| `NOT_FOUND` | Endpoint not found — verify tool name and parameters match API_USAGE_GUIDE.md |
+| `UNKNOWN` | Unclassified error — check AWF firewall (see diagnostic checklist below), network connectivity, MCP server logs |
+| `DNS_FAILURE` | AWF firewall blocking DNS — add `data.europarl.europa.eu` and `"*.europa.eu"` to `network.allowed` |
+| `CONNECTION_REFUSED` | AWF firewall blocking HTTPS — add `data.europarl.europa.eu` to `network.allowed`, verify `node` is in allowlist |
+
+**Before calling noop, ALWAYS attempt these recovery steps:**
+1. Run the **AWF Firewall Diagnostic** bash block (see section below) — include output in noop message
+2. Call `european_parliament___get_server_health({})` for server-side diagnostics
+3. Call `european_parliament___get_all_generated_stats({ category: "all" })` — this uses precomputed data (no live EP API needed) and can confirm MCP server is running even if EP API is down
+4. If `get_all_generated_stats` succeeds, the MCP server IS working — the issue is EP API availability, not MCP connectivity. **Create an analysis-only PR with precomputed stats instead of noop**
+5. Test at least 2 additional reliable tools from the Reliability Matrix (e.g., `get_current_meps`, `get_adopted_texts`) — if ANY direct endpoint works, the EP API is partially available and noop should be avoided
+
 ---
 
 ## 🛡️ MCP Server Configuration
@@ -459,7 +526,7 @@ EP API calls can be slow (30-90s per call). Use these strategies:
 ```
 1. Try timeframe: "today" (for daily workflows)
 2. If empty/error/timeout → retry with timeframe: "one-week"
-3. If still failing → use direct lookup with dateFrom/dateTo
+3. If still failing → use direct lookup with dateFrom/dateTo or year filter
 ```
 
 ### Direct Endpoint Fallback
@@ -473,8 +540,169 @@ EP API calls can be slow (30-90s per call). Use these strategies:
 
 At workflow start, probe EP server health:
 1. Call `get_server_health` — check feed availability
-2. Call `get_plenary_sessions({ dateFrom: LAST_WEEK, dateTo: TODAY, limit: 1 })` — connectivity probe
+2. Call `get_plenary_sessions({ limit: 1 })` — connectivity probe (**⚠️ use `limit: 1` WITHOUT date filters** — date-filtered calls are much slower and may timeout)
 3. If DEGRADED → skip `today` timeframe, go straight to `one-week`
+
+---
+
+## 🔌 MCP Tool Reliability Matrix (Verified April 2026)
+
+> **Based on live testing against `european-parliament-mcp-server@1.2.4`**. The EP API at `data.europarl.europa.eu` has inherent latency — feed endpoints (`/feed` path) are consistently slower than direct lookup endpoints. This matrix guides health gate design and fallback escalation.
+
+### ✅ Reliable Tools (respond within 30s)
+
+| Tool | Parameters | Notes |
+|------|-----------|-------|
+| `get_server_health` | `{}` | ALWAYS call first — confirms MCP server is running |
+| `get_all_generated_stats` | `{ category: "all" }` | Precomputed data, NO live EP API call — always works |
+| `get_current_meps` | `{ limit: 1 }` | Fast lightweight probe |
+| `get_plenary_sessions` | `{ limit: 1 }` | ⚠️ **ONLY without date filters** — adding `dateFrom`/`dateTo` causes timeouts |
+| `get_adopted_texts` | `{ year: CURRENT_YEAR, limit: 3 }` | Direct lookup with year filter — reliable |
+| `get_adopted_texts_feed` | `{ timeframe: "one-week" }` | **Only feed that reliably responds** |
+| `get_meps_feed` | `{ timeframe: "one-week" }` | Large response but reliable |
+| `get_speeches` | `{ dateFrom, dateTo, limit: 3 }` | Direct lookup — reliable |
+| `generate_political_landscape` | `{}` | Analytical — uses cached structural data |
+| `analyze_coalition_dynamics` | `{}` | Analytical — uses cached structural data |
+| `early_warning_system` | `{ focusArea: "all" }` | Analytical — uses cached structural data |
+
+### ⏱️ Frequently Timing Out (>60s — use fallbacks)
+
+| Feed Tool (Slow) | Fallback Direct Tool | Fallback Parameters |
+|-------------------|---------------------|-------------------|
+| `get_procedures_feed` | `get_procedures` | `{ year: CURRENT_YEAR, limit: 20 }` |
+| `get_events_feed` | `get_events` | `{ dateFrom: "YYYY-MM-01", dateTo: "YYYY-MM-DD", limit: 20 }` |
+| `get_documents_feed` | `get_plenary_documents` | `{ year: CURRENT_YEAR, limit: 20 }` |
+| `get_parliamentary_questions_feed` | `get_parliamentary_questions` | `{ type: "WRITTEN", startDate: "YYYY-MM-DD", limit: 20 }` |
+| `get_plenary_documents_feed` | `get_plenary_documents` | `{ year: CURRENT_YEAR, limit: 20 }` |
+| `get_committee_documents_feed` | `get_committee_documents` | `{ year: CURRENT_YEAR, limit: 20 }` |
+| `get_plenary_sessions` (with dates) | `get_plenary_sessions` | `{ limit: 5 }` (no date filters!) |
+
+### ⚠️ Health Gate Best Practice
+
+```
+1. get_server_health({}) → confirms MCP server running
+2. get_plenary_sessions({ limit: 1 }) → confirms EP API reachable (NO date filters)
+3. get_adopted_texts_feed({ timeframe: "one-week" }) → confirms feed layer working
+4. If step 2 fails: get_current_meps({ limit: 1 }) → alternative EP API probe
+5. If steps 2+4 fail: get_all_generated_stats({ category: "all" }) → MCP server works but EP API is down
+```
+
+> **Key insight**: If `get_server_health` succeeds but `get_plenary_sessions` fails, the MCP server is running but cannot reach the EP API. Check AWF firewall rules, DNS resolution, and EP API status. If `get_all_generated_stats` succeeds, create an analysis-only PR with precomputed stats instead of noop.
+
+---
+
+## 🛡️ gh-aw AWF Firewall Diagnostic Checklist
+
+> The Agent Workflow Firewall (AWF) restricts network access in gh-aw sandboxed workflows. If MCP tools fail with connection errors (not timeouts), the AWF firewall is the most likely cause.
+
+### Required `network.allowed` Domains
+
+Every news workflow `.md` file MUST include these domains in the `network:` section:
+
+```yaml
+network:
+  allowed:
+    - node                           # Required: npm/npx package installation
+    - github.com                     # Required: GitHub API, safe outputs
+    - api.github.com                 # Required: GitHub REST API
+    - data.europarl.europa.eu        # Required: EP Open Data API (primary)
+    - "*.europa.eu"                  # Required: EP API subdomains
+    - api.worldbank.org              # Optional: World Bank economic data
+    - default                        # Required: GitHub Actions runtime
+```
+
+### Firewall Diagnostic Steps (Include in Noop)
+
+When a noop is triggered, the noop message MUST include results from this bash diagnostic block:
+
+```bash
+echo "=== AWF FIREWALL DIAGNOSTIC ==="
+echo "Timestamp: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+
+# 1. DNS resolution check
+echo "--- DNS Resolution ---"
+if command -v getent >/dev/null 2>&1; then
+  DNS_EXIT=0
+  DNS_OUTPUT=$(set -o pipefail; getent hosts data.europarl.europa.eu | head -5) || DNS_EXIT=$?
+  if [ $DNS_EXIT -eq 0 ] && [ -n "$DNS_OUTPUT" ]; then
+    printf '%s\n' "$DNS_OUTPUT"
+  else
+    echo "DNS FAILED"
+  fi
+elif command -v nslookup >/dev/null 2>&1; then
+  DNS_EXIT=0
+  DNS_OUTPUT=$(set -o pipefail; nslookup data.europarl.europa.eu 2>&1 | head -5) || DNS_EXIT=$?
+  if [ $DNS_EXIT -eq 0 ] && [ -n "$DNS_OUTPUT" ]; then
+    printf '%s\n' "$DNS_OUTPUT"
+  else
+    echo "DNS FAILED"
+  fi
+else
+  echo "DNS FAILED: neither getent nor nslookup is available"
+fi
+
+# 2. Direct HTTP connectivity (bypasses MCP)
+echo "--- EP API Direct HTTP Check ---"
+if EP_STATUS=$(curl -sS -o /dev/null -w "%{http_code}" \
+  --connect-timeout 5 \
+  --max-time 30 \
+  "https://data.europarl.europa.eu/api/v2/meps?format=application%2Fld%2Bjson&offset=0&limit=1" 2>/dev/null); then
+  EP_CURL_EXIT=0
+else
+  EP_CURL_EXIT=$?
+fi
+EP_STATUS="${EP_STATUS:-000}"
+case "$EP_CURL_EXIT" in
+  0)
+    echo "EP API HTTP Status: $EP_STATUS"
+    ;;
+  6)
+    echo "EP API HTTP Status: $EP_STATUS (curl exit $EP_CURL_EXIT: DNS resolution failed)"
+    ;;
+  7)
+    echo "EP API HTTP Status: $EP_STATUS (curl exit $EP_CURL_EXIT: connection failed)"
+    ;;
+  28)
+    echo "EP API HTTP Status: $EP_STATUS (curl exit $EP_CURL_EXIT: operation timed out)"
+    ;;
+  *)
+    echo "EP API HTTP Status: $EP_STATUS (curl exit $EP_CURL_EXIT: transport/TLS/other client error)"
+    ;;
+esac
+
+# 3. MCP server binary check
+echo "--- MCP Server Binary ---"
+which european-parliament-mcp-server 2>/dev/null || \
+  ls node_modules/.bin/european-parliament-mcp-server 2>/dev/null || \
+  echo "MCP binary NOT FOUND — npx may need to install it"
+
+# 4. Network connectivity to key hosts
+echo "--- Network Connectivity ---"
+for host in data.europarl.europa.eu github.com api.github.com; do
+  timeout 5 bash -c "echo >/dev/tcp/$host/443" 2>/dev/null && \
+    echo "$host:443 REACHABLE" || echo "$host:443 UNREACHABLE (AWF firewall?)"
+done
+
+# 5. Environment variables
+echo "--- MCP Environment ---"
+echo "EP_REQUEST_TIMEOUT_MS=${EP_REQUEST_TIMEOUT_MS:-NOT SET (default 60000)}"
+echo "NODE_ENV=${NODE_ENV:-not set}"
+```
+
+### Error Pattern → Root Cause Mapping
+
+| Symptom | Root Cause | Fix |
+|---------|-----------|-----|
+| `curl` exit 6 with HTTP 000 | DNS resolution failure for EP API host | AWF blocking DNS — add `data.europarl.europa.eu` and `"*.europa.eu"` to `network.allowed` |
+| `curl` exit 7 with HTTP 000 and `/dev/tcp` unreachable | TCP connect failure/refused; AWF blocking HTTPS | Add `data.europarl.europa.eu` to `network.allowed` |
+| `curl` exit 28 with HTTP 000 and `/dev/tcp` reachable | Network path exists but request timed out; EP API slow | NOT a firewall issue — increase `EP_REQUEST_TIMEOUT_MS`, use direct endpoint fallbacks |
+| HTTP 000 with other `curl` exit code | Transport/TLS/other client error | Check `curl` exit code and `/dev/tcp` reachability probe; may be TLS or proxy issue |
+| HTTP 5xx from EP API | EP API maintenance/outage | Retry in 1-2 hours; use `get_all_generated_stats` for precomputed data |
+| MCP binary not found | `npx -y european-parliament-mcp-server@1.2.4` failed | Ensure `node` is in `network.allowed` (for npm registry) |
+| Timeout after 60s | EP API slow + default timeout too low | Verify `EP_REQUEST_TIMEOUT_MS: "90000"` in `mcp-servers` env |
+| Timeout after 90s | EP API exceptionally slow (feed endpoints) | Use direct endpoint fallback (see Reliability Matrix) |
+| `get_server_health` fails | MCP server process didn't start | Check `npx` output, verify Node.js version ≥18 |
+| All tools fail with "connection closed" | MCP stdio transport broken | Restart workflow, check process limits |
 
 ---
 

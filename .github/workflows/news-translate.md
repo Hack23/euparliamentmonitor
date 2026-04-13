@@ -380,16 +380,80 @@ When multiple article–language pairs are queued (backfill mode), maximise thro
 
 Before starting any translation work, verify that ALL MCP servers required by this workflow are available. The translate workflow uses `european-parliament` MCP for article generation, `memory` for cross-run terminology tracking, and `sequential-thinking` for complex translation decisions.
 
-### Step 0: EP API Connectivity Pre-Check (bash)
+### Step 0: EP API Connectivity & AWF Firewall Pre-Check (bash)
 
-Run a lightweight HTTP probe **before** the MCP health gate to detect network-level failures (DNS, firewall, EP API outage) instantly:
+Run a comprehensive network diagnostic **before** the MCP health gate to detect AWF firewall blocks, DNS failures, and EP API outages instantly:
 
 ```bash
-EP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 "https://data.europarl.europa.eu/api/v2/meps?format=application%2Fld%2Bjson&offset=0&limit=1" 2>/dev/null || true)
+echo "=== AWF FIREWALL & EP API DIAGNOSTIC ==="
+echo "Timestamp: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+
+# 1. DNS resolution check
+echo "--- DNS Resolution ---"
+if command -v getent >/dev/null 2>&1; then
+  DNS_EXIT=0
+  DNS_OUTPUT=$(set -o pipefail; getent hosts data.europarl.europa.eu | head -5) || DNS_EXIT=$?
+  if [ $DNS_EXIT -eq 0 ] && [ -n "$DNS_OUTPUT" ]; then
+    printf '%s\n' "$DNS_OUTPUT"
+  else
+    echo "DNS FAILED — AWF may be blocking DNS"
+  fi
+elif command -v nslookup >/dev/null 2>&1; then
+  DNS_EXIT=0
+  DNS_OUTPUT=$(set -o pipefail; nslookup data.europarl.europa.eu 2>&1 | head -5) || DNS_EXIT=$?
+  if [ $DNS_EXIT -eq 0 ] && [ -n "$DNS_OUTPUT" ]; then
+    printf '%s\n' "$DNS_OUTPUT"
+  else
+    echo "DNS FAILED — AWF may be blocking DNS"
+  fi
+else
+  echo "DNS FAILED — neither getent nor nslookup is available"
+fi
+
+# 2. Direct HTTP connectivity (bypasses MCP server)
+echo "--- EP API Direct HTTP Check ---"
+if EP_STATUS=$(curl -sS -o /dev/null -w "%{http_code}" --connect-timeout 5 --max-time 30 "https://data.europarl.europa.eu/api/v2/meps?format=application%2Fld%2Bjson&offset=0&limit=1" 2>/dev/null); then
+  EP_CURL_EXIT=0
+else
+  EP_CURL_EXIT=$?
+fi
 EP_STATUS="${EP_STATUS:-000}"
-echo "EP API connectivity check: HTTP $EP_STATUS"
-if [ "$EP_STATUS" = "000" ] || [ "$EP_STATUS" -ge 500 ] 2>/dev/null; then
-  echo "⚠️ EP API appears DOWN (HTTP $EP_STATUS) — EP MCP health gate may also fail. Translation can still proceed with existing English articles."
+case "$EP_CURL_EXIT" in
+  0)  echo "EP API HTTP Status: $EP_STATUS" ;;
+  6)  echo "EP API HTTP Status: $EP_STATUS (curl exit $EP_CURL_EXIT: DNS resolution failed)" ;;
+  7)  echo "EP API HTTP Status: $EP_STATUS (curl exit $EP_CURL_EXIT: connection failed)" ;;
+  28) echo "EP API HTTP Status: $EP_STATUS (curl exit $EP_CURL_EXIT: operation timed out)" ;;
+  *)  echo "EP API HTTP Status: $EP_STATUS (curl exit $EP_CURL_EXIT: transport/TLS/other client error)" ;;
+esac
+
+# 3. Network reachability
+echo "--- Network Reachability ---"
+for host in data.europarl.europa.eu github.com api.github.com; do
+  timeout 5 bash -c "echo >/dev/tcp/$host/443" 2>/dev/null && \
+    echo "$host:443 REACHABLE" || echo "$host:443 UNREACHABLE (AWF firewall?)"
+done
+
+# 4. MCP environment check
+echo "--- MCP Environment ---"
+echo "EP_REQUEST_TIMEOUT_MS=${EP_REQUEST_TIMEOUT_MS:-NOT SET (default 60000)}"
+
+# 5. Diagnosis (uses curl exit code to distinguish DNS/connect/timeout failures)
+if [ "$EP_CURL_EXIT" -eq 6 ]; then
+  echo "⚠️ EP API DNS FAILURE (curl exit 6) — AWF firewall blocking DNS resolution"
+  echo "   Translation can still proceed with existing English articles."
+elif [ "$EP_CURL_EXIT" -eq 7 ]; then
+  echo "⚠️ EP API CONNECTION REFUSED (curl exit 7) — AWF firewall blocking HTTPS"
+  echo "   Translation can still proceed with existing English articles."
+elif [ "$EP_CURL_EXIT" -eq 28 ]; then
+  echo "⚠️ EP API TIMEOUT (curl exit 28) — EP API slow, not a firewall issue"
+  echo "   Translation can still proceed with existing English articles."
+elif [ "$EP_STATUS" = "000" ]; then
+  echo "⚠️ EP API UNREACHABLE (HTTP 000, curl exit $EP_CURL_EXIT) — transport/TLS error"
+  echo "   Translation can still proceed with existing English articles."
+elif [ "$EP_STATUS" -ge 500 ] 2>/dev/null; then
+  echo "⚠️ EP API SERVER ERROR (HTTP $EP_STATUS) — EP MCP health gate may fail. Translation can still proceed."
+elif [ "$EP_STATUS" = "200" ]; then
+  echo "✅ EP API reachable and responding (HTTP 200)"
 fi
 ```
 
@@ -398,7 +462,8 @@ fi
 1. Call `european_parliament___get_plenary_sessions({ limit: 1 })` — if successful, EP MCP is healthy
 2. If it fails, wait 30 seconds and retry (up to 3 total attempts)
 3. If ALL 3 attempts fail:
-   - Log the warning: "⚠️ EP MCP server unavailable — article generation may skip types that require live data"
+   - Call `european_parliament___get_server_health({})` for diagnostic context and log the full result
+   - Log a **detailed** warning including: EP API HTTP status from curl pre-check (if available), all 3 health gate attempt error messages, error categories (TIMEOUT/SERVER_ERROR/INTERNAL_ERROR/etc.), and resolution hints per SHARED_PROMPT_PATTERNS.md "Mandatory Noop Diagnostics" error-category table
    - Continue with translation (the generator will handle MCP fallback per article type)
    - Do NOT noop — existing English articles can still be translated even without EP MCP
 

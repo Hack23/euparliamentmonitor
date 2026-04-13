@@ -451,27 +451,98 @@ export TODAY CURRENT_YEAR CURRENT_MONTH CURRENT_MONTH_NAME CURRENT_DAY DAY_OF_WE
 
 Before generating ANY articles, verify MCP connectivity:
 
-### Step 0: EP API Connectivity Pre-Check (bash)
+### Step 0: EP API Connectivity & AWF Firewall Pre-Check (bash)
 
-Run a lightweight HTTP probe **before** the MCP health gate to detect network-level failures (DNS, firewall, EP API outage) instantly without consuming MCP call budget:
+Run a comprehensive network diagnostic **before** the MCP health gate to detect AWF firewall blocks, DNS failures, and EP API outages instantly without consuming MCP call budget:
 
 ```bash
-EP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 "https://data.europarl.europa.eu/api/v2/meps?format=application%2Fld%2Bjson&offset=0&limit=1" 2>/dev/null || true)
+echo "=== AWF FIREWALL & EP API DIAGNOSTIC ==="
+echo "Timestamp: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+
+# 1. DNS resolution check
+echo "--- DNS Resolution ---"
+if command -v getent >/dev/null 2>&1; then
+  DNS_EXIT=0
+  DNS_OUTPUT=$(set -o pipefail; getent hosts data.europarl.europa.eu | head -5) || DNS_EXIT=$?
+  if [ $DNS_EXIT -eq 0 ] && [ -n "$DNS_OUTPUT" ]; then
+    printf '%s\n' "$DNS_OUTPUT"
+  else
+    echo "DNS FAILED — AWF may be blocking DNS"
+  fi
+elif command -v nslookup >/dev/null 2>&1; then
+  DNS_EXIT=0
+  DNS_OUTPUT=$(set -o pipefail; nslookup data.europarl.europa.eu 2>&1 | head -5) || DNS_EXIT=$?
+  if [ $DNS_EXIT -eq 0 ] && [ -n "$DNS_OUTPUT" ]; then
+    printf '%s\n' "$DNS_OUTPUT"
+  else
+    echo "DNS FAILED — AWF may be blocking DNS"
+  fi
+else
+  echo "DNS FAILED — neither getent nor nslookup is available"
+fi
+
+# 2. Direct HTTP connectivity (bypasses MCP server)
+echo "--- EP API Direct HTTP Check ---"
+if EP_STATUS=$(curl -sS -o /dev/null -w "%{http_code}" --connect-timeout 5 --max-time 30 "https://data.europarl.europa.eu/api/v2/meps?format=application%2Fld%2Bjson&offset=0&limit=1" 2>/dev/null); then
+  EP_CURL_EXIT=0
+else
+  EP_CURL_EXIT=$?
+fi
 EP_STATUS="${EP_STATUS:-000}"
-echo "EP API connectivity check: HTTP $EP_STATUS"
-if [ "$EP_STATUS" = "000" ] || [ "$EP_STATUS" -ge 500 ] 2>/dev/null; then
-  echo "⚠️ EP API appears DOWN (HTTP $EP_STATUS) — MCP health gate may also fail"
+case "$EP_CURL_EXIT" in
+  0)  echo "EP API HTTP Status: $EP_STATUS" ;;
+  6)  echo "EP API HTTP Status: $EP_STATUS (curl exit $EP_CURL_EXIT: DNS resolution failed)" ;;
+  7)  echo "EP API HTTP Status: $EP_STATUS (curl exit $EP_CURL_EXIT: connection failed)" ;;
+  28) echo "EP API HTTP Status: $EP_STATUS (curl exit $EP_CURL_EXIT: operation timed out)" ;;
+  *)  echo "EP API HTTP Status: $EP_STATUS (curl exit $EP_CURL_EXIT: transport/TLS/other client error)" ;;
+esac
+
+# 3. Network reachability to key hosts
+echo "--- Network Reachability ---"
+for host in data.europarl.europa.eu github.com api.github.com; do
+  timeout 5 bash -c "echo >/dev/tcp/$host/443" 2>/dev/null && \
+    echo "$host:443 REACHABLE" || echo "$host:443 UNREACHABLE (AWF firewall?)"
+done
+
+# 4. MCP environment check
+echo "--- MCP Environment ---"
+echo "EP_REQUEST_TIMEOUT_MS=${EP_REQUEST_TIMEOUT_MS:-NOT SET (default 60000)}"
+
+# 5. Diagnosis (uses curl exit code to distinguish DNS/connect/timeout failures)
+if [ "$EP_CURL_EXIT" -eq 6 ]; then
+  echo "⚠️ EP API DNS FAILURE (curl exit 6) — AWF firewall blocking DNS resolution"
+  echo "   Fix: Add data.europarl.europa.eu and *.europa.eu to network.allowed"
+elif [ "$EP_CURL_EXIT" -eq 7 ]; then
+  echo "⚠️ EP API CONNECTION REFUSED (curl exit 7) — AWF firewall blocking HTTPS"
+  echo "   Fix: Add data.europarl.europa.eu to network.allowed"
+elif [ "$EP_CURL_EXIT" -eq 28 ]; then
+  echo "⚠️ EP API TIMEOUT (curl exit 28) — EP API slow, not a firewall issue"
+  echo "   Action: Increase EP_REQUEST_TIMEOUT_MS, use direct endpoint fallbacks"
+elif [ "$EP_STATUS" = "000" ]; then
+  echo "⚠️ EP API UNREACHABLE (HTTP 000, curl exit $EP_CURL_EXIT) — transport/TLS error"
+  echo "   Check: network.allowed and TLS connectivity"
+elif [ "$EP_STATUS" -ge 500 ] 2>/dev/null; then
+  echo "⚠️ EP API SERVER ERROR (HTTP $EP_STATUS) — EP API outage/maintenance"
+elif [ "$EP_STATUS" = "200" ]; then
+  echo "✅ EP API reachable and responding (HTTP 200)"
 fi
 ```
 
-> **If curl returns 000 (connection failed) or 5xx**: The EP API at `data.europarl.europa.eu` is likely down. The MCP health gate will almost certainly fail too. Proceed with the health gate anyway (it may succeed via cached responses), but be prepared for noop.
+> **If curl exit 6 (DNS failure)**: AWF firewall is blocking DNS resolution — add `data.europarl.europa.eu` and `"*.europa.eu"` to `network.allowed` in workflow frontmatter.
+> **If curl exit 7 (connection refused)**: AWF firewall is blocking HTTPS — verify `network.allowed` includes all required domains (see SHARED_PROMPT_PATTERNS.md AWF Firewall Diagnostic Checklist).
+> **If curl exit 28 (timeout)**: EP API is slow but network is working — increase `EP_REQUEST_TIMEOUT_MS`, use direct endpoint fallbacks. This is NOT a firewall issue.
+> **If HTTP 5xx**: EP API is down — proceed with health gate (MCP may use cached responses), use direct endpoint fallbacks.
+> **If HTTP 200**: EP API is up — proceed normally. If MCP tools still fail, the issue is MCP server configuration, not network.
 
 ### Step 1: MCP Health Gate
 
 1. Call `european_parliament___get_plenary_sessions({ limit: 1 })` — if successful, proceed
 2. If it fails, wait 30 seconds and retry (up to 3 total attempts)
 3. If ALL 3 attempts fail:
-   - Use `safeoutputs___noop` with message: "MCP server unavailable after 3 connection attempts. No articles generated."
+   - Call `european_parliament___get_server_health({})` for diagnostic context
+   - Call `european_parliament___get_all_generated_stats({ category: "all" })` to verify MCP server is running (precomputed data, no live EP API needed)
+   - If `get_all_generated_stats` succeeds, consider creating an analysis-only PR with precomputed stats instead of noop
+   - If truly no data can be collected, use `safeoutputs___noop` with **full diagnostics** following the Mandatory Noop Diagnostics template in SHARED_PROMPT_PATTERNS.md — include: EP API HTTP status from curl pre-check, all 3 health gate attempt error messages with error categories, `get_server_health` output, and resolution hints matching the error category
    - DO NOT analyze existing articles in the repository
    - DO NOT fabricate or recycle content
    - The workflow MUST end with noop
@@ -512,7 +583,8 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 ## Error Handling
 
 **If EP MCP server unavailable (3 retries failed):**
-1. `safeoutputs___noop` with descriptive message — legitimate noop
+1. Before calling noop, attempt recovery per SHARED_PROMPT_PATTERNS.md "Mandatory Noop Diagnostics": call `get_server_health`, call `get_all_generated_stats`, check if analysis-only PR is possible
+2. `safeoutputs___noop` with **full diagnostic message** (EP API HTTP status, all attempt errors, error categories, server health, resolution hints) — see SHARED_PROMPT_PATTERNS.md template
 
 **If ≥3 consecutive feed endpoints return INTERNAL_ERROR (total EP API outage):**
 1. This indicates the entire EP API (`data.europarl.europa.eu`) is down — do NOT continue burning MCP call budget
