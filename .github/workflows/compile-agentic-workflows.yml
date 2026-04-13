@@ -48,12 +48,22 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
 
+      - name: Delete existing lock files
+        run: |
+          echo "Deleting existing lock files for clean recompilation..."
+          find .github/workflows -name "*.lock.yml" -type f -delete
+          echo "✅ All lock files deleted"
+
       - name: Compile Agentic Workflows
         id: compile
         run: |
           echo "Compiling agentic workflows..."
 
-          md_files=$(find .github/workflows -name "*.md" -not -name "README.md" -type f)
+          # Exclude non-workflow markdown files (README.md, SHARED_PROMPT_PATTERNS.md)
+          md_files=$(find .github/workflows -name "*.md" \
+            -not -name "README.md" \
+            -not -name "SHARED_PROMPT_PATTERNS.md" \
+            -type f | sort)
 
           if [ -z "$md_files" ]; then
             echo "No .md workflow files found"
@@ -97,49 +107,6 @@ jobs:
           fi
         env:
           GH_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
-
-      - name: Patch news lock files with shared concurrency group
-        # gh aw compile regenerates lock files from .md sources and resets the concurrency group.
-        # This step re-applies the shared "news-article-generation" concurrency group to all 4
-        # news workflow lock files after each compile, making the patch-conflict fix durable.
-        run: |
-          news_lock_files="
-            .github/workflows/news-motions.lock.yml
-            .github/workflows/news-propositions.lock.yml
-            .github/workflows/news-committee-reports.lock.yml
-            .github/workflows/news-week-ahead.lock.yml
-          "
-          for lock_file in $news_lock_files; do
-            if [ -f "$lock_file" ]; then
-              # Replace the per-workflow concurrency group with the shared one (single-line form)
-              if grep -q 'group: "gh-aw-\${{ github.workflow }}"' "$lock_file"; then
-                sed -i 's|group: "gh-aw-\${{ github.workflow }}"|group: "news-article-generation"|' "$lock_file"
-                # Ensure cancel-in-progress: false is present on the line after the group line
-                awk '
-                  /group: "news-article-generation"/ {
-                    print
-                    if ((getline nextLine) <= 0) {
-                      print "  cancel-in-progress: false"
-                      exit
-                    }
-                    if (nextLine ~ /cancel-in-progress:/) {
-                      sub(/cancel-in-progress:.*/, "cancel-in-progress: false", nextLine)
-                    } else {
-                      print "  cancel-in-progress: false"
-                    }
-                    print nextLine
-                    next
-                  }
-                  { print }
-                ' "$lock_file" > "${lock_file}.tmp" && mv "${lock_file}.tmp" "$lock_file"
-                echo "✅ Patched concurrency group in $lock_file"
-              else
-                echo "ℹ️  $lock_file already has a custom concurrency group — skipping"
-              fi
-            else
-              echo "⚠️  $lock_file not found — skipping"
-            fi
-          done
 
       - name: Check for changes
         id: check_changes
@@ -190,12 +157,12 @@ jobs:
               '# Install gh-aw extension at pinned version (first time only)',
               'curl -sL https://raw.githubusercontent.com/github/gh-aw/main/install-gh-aw.sh | bash -s -- ' + process.env.GH_AW_VERSION,
               '',
-              '# Compile all agentic workflows',
+              '# Delete existing lock files and recompile all agentic workflows',
               'cd .github/workflows',
-              'gh aw compile news-committee-reports.md',
-              'gh aw compile news-motions.md',
-              'gh aw compile news-propositions.md',
-              'gh aw compile news-week-ahead.md',
+              'rm -f *.lock.yml',
+              'for md in $(find . -name "*.md" -not -name "README.md" -not -name "SHARED_PROMPT_PATTERNS.md" | sort); do',
+              '  gh aw compile "$md"',
+              'done',
               '',
               '# Commit and push the updated lock files',
               'git add *.lock.yml',
@@ -203,20 +170,13 @@ jobs:
               'git push',
               '```',
               '',
-              '### Files Affected',
-              '',
-              '- `.github/workflows/news-committee-reports.md` → `news-committee-reports.lock.yml`',
-              '- `.github/workflows/news-motions.md` → `news-motions.lock.yml`',
-              '- `.github/workflows/news-propositions.md` → `news-propositions.lock.yml`',
-              '- `.github/workflows/news-week-ahead.md` → `news-week-ahead.lock.yml`',
-              '',
               '### Why This Happened',
               '',
               'The gh-aw tool requires GitHub authentication and is not available in the automated workflow environment.',
               '',
               '### More Information',
               '',
-              '- [GitHub Agentic Workflows Documentation](https://github.com/github/gh-aw/blob/main/.github/aw/github-agentic-workflows.md)',
+              '- [GitHub Agentic Workflows Documentation](https://github.github.com/gh-aw/)',
               '- Triggered by: ' + (context.payload.head_commit?.message || 'Manual trigger'),
               '- Workflow run: ' + context.serverUrl + '/' + context.repo.owner + '/' + context.repo.repo + '/actions/runs/' + context.runId
             ].join('\n');
