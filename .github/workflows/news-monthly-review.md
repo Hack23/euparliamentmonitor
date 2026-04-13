@@ -492,7 +492,10 @@ fi
 3. If ALL 3 attempts fail, try the fallback: `european_parliament___get_adopted_texts({ year: CURRENT_YEAR, limit: 1 })` — this endpoint is faster and more reliable
 4. If the fallback succeeds, proceed with data gathering (the MCP server is reachable, just slow on some endpoints)
 5. If ALL 4 attempts fail (3 plenary + 1 adopted texts):
-   - Use `safeoutputs___noop` with message: "MCP server unavailable after 4 connection attempts. No articles generated."
+   - Call `european_parliament___get_server_health({})` for diagnostic context
+   - Call `european_parliament___get_all_generated_stats({ category: "all" })` to verify MCP server is running (precomputed data, no live EP API needed)
+   - If `get_all_generated_stats` succeeds, consider creating an analysis-only PR with precomputed stats instead of noop
+   - If truly no data can be collected, use `safeoutputs___noop` with **full diagnostics** following the Mandatory Noop Diagnostics template in SHARED_PROMPT_PATTERNS.md — include: EP API HTTP status from curl pre-check, all 4 health gate attempt error messages with error categories (3 plenary + 1 adopted texts), `get_server_health` output, and resolution hints matching the error category
    - DO NOT fabricate or recycle content
    - DO NOT analyze existing articles in the repository
    - DO NOT manually construct HTML by studying existing article patterns
@@ -501,7 +504,8 @@ fi
 ## Error Handling
 
 **If EP MCP server unavailable (3 plenary session retries + 1 adopted texts fallback all failed):**
-1. `safeoutputs___noop` with descriptive message — legitimate noop
+1. Before calling noop, attempt recovery per SHARED_PROMPT_PATTERNS.md "Mandatory Noop Diagnostics": call `get_server_health`, call `get_all_generated_stats`, check if analysis-only PR is possible
+2. `safeoutputs___noop` with **full diagnostic message** (EP API HTTP status, all 4 attempt errors, error categories, server health, resolution hints) — see SHARED_PROMPT_PATTERNS.md template
 
 **If ≥3 consecutive feed endpoints return INTERNAL_ERROR (total EP API outage):**
 1. This indicates the entire EP API (`data.europarl.europa.eu`) is down — do NOT continue burning MCP call budget

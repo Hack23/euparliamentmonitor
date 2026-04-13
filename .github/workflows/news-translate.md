@@ -398,7 +398,8 @@ fi
 1. Call `european_parliament___get_plenary_sessions({ limit: 1 })` — if successful, EP MCP is healthy
 2. If it fails, wait 30 seconds and retry (up to 3 total attempts)
 3. If ALL 3 attempts fail:
-   - Log the warning: "⚠️ EP MCP server unavailable — article generation may skip types that require live data"
+   - Call `european_parliament___get_server_health({})` for diagnostic context and log the full result
+   - Log a **detailed** warning including: EP API HTTP status from curl pre-check (if available), all 3 health gate attempt error messages, error categories (TIMEOUT/SERVER_ERROR/INTERNAL_ERROR/etc.), and resolution hints per SHARED_PROMPT_PATTERNS.md "Mandatory Noop Diagnostics" error-category table
    - Continue with translation (the generator will handle MCP fallback per article type)
    - Do NOT noop — existing English articles can still be translated even without EP MCP
 

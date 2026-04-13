@@ -335,7 +335,7 @@ The AI agent MUST:
 Every workflow run MUST produce output:
 - **Article generated:** Include analysis artifacts in PR alongside `news/` files
 - **No article (quiet period):** Create analysis-only PR with `safeoutputs___create_pull_request`
-- **`safeoutputs___noop`:** ONLY when MCP server is completely unavailable and zero data collected
+- **`safeoutputs___noop`:** ONLY when MCP server is completely unavailable and zero data collected — MUST include full diagnostics (see [Mandatory Noop Diagnostics](#-mandatory-noop-diagnostics-all-workflows))
 
 ---
 
@@ -421,6 +421,56 @@ safe-outputs:
 | `safeoutputs___create_pull_request` | Create PR with article + analysis files |
 | `safeoutputs___add_comment` | Post workflow summary comment |
 | `safeoutputs___noop` | No-op (ONLY when zero data collected) |
+
+### 🔍 Mandatory Noop Diagnostics (All Workflows)
+
+> **⚠️ CRITICAL**: Every `safeoutputs___noop` call MUST include a detailed diagnostic message following this template. A bare "MCP server unavailable" message is NOT acceptable — include ALL available connectivity details so operators can diagnose and fix the root cause.
+
+**Required noop message template:**
+
+```
+MCP CONNECTIVITY DIAGNOSTIC — {workflow-name}
+Timestamp: {ISO-8601 UTC timestamp}
+MCP Server: european-parliament-mcp-server@1.2.4
+
+EP API Pre-Check:
+  HTTP Status: {HTTP status code from curl pre-check, e.g., 000/200/500/503}
+  Endpoint: https://data.europarl.europa.eu/api/v2/meps?format=application%2Fld%2Bjson&offset=0&limit=1
+
+MCP Health Gate:
+  Attempt 1: {PASS/FAIL} — {tool called} — {error message or "OK"}
+  Attempt 2: {PASS/FAIL} — {tool called} — {error message or "skipped (attempt 1 passed)"}
+  Attempt 3: {PASS/FAIL} — {tool called} — {error message or "skipped"}
+  Error Category: {TIMEOUT/SERVER_ERROR/INTERNAL_ERROR/RATE_LIMIT/NOT_FOUND/UNKNOWN}
+
+Server Health (if available):
+  get_server_health result: {JSON summary or "call failed: {reason}"}
+
+Feed Probe (if attempted):
+  Tool: {feed tool name}
+  Result: {error message or data summary}
+
+Resolution Hints:
+  - {Specific actionable suggestion based on error category}
+  - Check EP API status: https://data.europarl.europa.eu/api/v2/meps?format=application%2Fld%2Bjson&offset=0&limit=1
+  - MCP server docs: https://github.com/Hack23/European-Parliament-MCP-Server/blob/main/API_USAGE_GUIDE.md
+```
+
+**Error-category-specific resolution hints:**
+
+| Error Category | Resolution Hints |
+|---------------|-----------------|
+| `TIMEOUT` | EP API is slow — increase `EP_REQUEST_TIMEOUT_MS`, try `timeframe: "one-week"` instead of `"today"`, retry during off-peak hours |
+| `SERVER_ERROR` | EP API returning 5xx — likely maintenance/outage, retry in 1-2 hours, check EP API status page |
+| `INTERNAL_ERROR` | MCP server internal failure — verify `european-parliament-mcp-server@1.2.4` is installed, check DNS resolution for `data.europarl.europa.eu` |
+| `RATE_LIMIT` | Too many requests — reduce MCP call frequency, wait 5+ minutes before retry |
+| `NOT_FOUND` | Endpoint not found — verify tool name and parameters match API_USAGE_GUIDE.md |
+| `UNKNOWN` | Unclassified error — check network connectivity, firewall rules, MCP server logs |
+
+**Before calling noop, ALWAYS attempt these recovery steps:**
+1. Call `european_parliament___get_server_health({})` for server-side diagnostics
+2. Call `european_parliament___get_all_generated_stats({ category: "all" })` — this uses precomputed data (no live EP API needed) and can confirm MCP server is running even if EP API is down
+3. If `get_all_generated_stats` succeeds, the MCP server IS working — the issue is EP API availability, not MCP connectivity. Consider creating an analysis-only PR with precomputed stats instead of noop
 
 ---
 
