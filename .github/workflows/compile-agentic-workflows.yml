@@ -124,6 +124,25 @@ jobs:
             echo "✅ Node.js 25 MCP container patch applied"
           fi
 
+      - name: Patch lock files — remove tools filter that blocks MCP gateway
+        run: |
+          echo "Removing \"tools\": [\"*\"] from lock files..."
+          echo "The MCP gateway (awmg) treats \"*\" as a literal tool name, not a wildcard."
+          echo "This causes 0 tools to be exposed. Removing the tools filter allows all tools through."
+          lock_files=$(find .github/workflows -name "*.lock.yml" -type f)
+          if [ -z "$lock_files" ]; then
+            echo "No lock files to patch"
+          else
+            for lock_file in $lock_files; do
+              if grep -q '"tools"' "$lock_file"; then
+                # Remove the 3-line "tools": ["*"] block
+                sed -i '/"tools": \[/{N;N;/\*.*\]/d}' "$lock_file"
+                echo "  ✅ Removed tools filter from $lock_file"
+              fi
+            done
+            echo "✅ MCP gateway tools filter patch applied"
+          fi
+
       - name: Check for changes
         id: check_changes
         run: |
