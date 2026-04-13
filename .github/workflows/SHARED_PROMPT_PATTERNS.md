@@ -517,23 +517,21 @@ mcp-servers:
     entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.5", "--timeout", "90000"]
     env:
       EP_REQUEST_TIMEOUT_MS: "90000"
-    allowed: ["*"]
   world-bank:
     container: "node:25-alpine"
     entrypoint: "npx"
     entrypointArgs: ["-y", "worldbank-mcp@1.0.1"]
-    allowed: ["*"]
   memory:
     container: "node:25-alpine"
     entrypoint: "npx"
     entrypointArgs: ["-y", "@modelcontextprotocol/server-memory"]
-    allowed: ["*"]
   sequential-thinking:
     container: "node:25-alpine"
     entrypoint: "npx"
     entrypointArgs: ["-y", "@modelcontextprotocol/server-sequential-thinking"]
-    allowed: ["*"]
 ```
+
+> **Note:** Do NOT add `allowed: ["*"]` to MCP server definitions. The MCP gateway (awmg) treats `*` as a literal tool name, not a wildcard, causing 0 tools to be exposed. Omitting `allowed` allows all tools through by default.
 
 > **Exception:** `news-monthly-review.md` uses `EP_REQUEST_TIMEOUT_MS: "120000"` due to larger data volumes.
 
