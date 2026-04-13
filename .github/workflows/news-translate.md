@@ -69,29 +69,27 @@ network:
 
 mcp-servers:
   european-parliament:
-    command: npx
-    args:
-      - -y
-      - european-parliament-mcp-server@1.2.5
-      - --timeout
-      - "90000"
+    container: "node:lts-alpine"
+    entrypoint: "npx"
+    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.5", "--timeout", "90000"]
     env:
       EP_REQUEST_TIMEOUT_MS: "90000"
+    allowed: ["*"]
   world-bank:
-    command: npx
-    args:
-      - -y
-      - worldbank-mcp@1.0.1
+    container: "node:lts-alpine"
+    entrypoint: "npx"
+    entrypointArgs: ["-y", "worldbank-mcp@1.0.1"]
+    allowed: ["*"]
   memory:
-    command: npx
-    args:
-      - -y
-      - "@modelcontextprotocol/server-memory"
+    container: "node:lts-alpine"
+    entrypoint: "npx"
+    entrypointArgs: ["-y", "@modelcontextprotocol/server-memory"]
+    allowed: ["*"]
   sequential-thinking:
-    command: npx
-    args:
-      - -y
-      - "@modelcontextprotocol/server-sequential-thinking"
+    container: "node:lts-alpine"
+    entrypoint: "npx"
+    entrypointArgs: ["-y", "@modelcontextprotocol/server-sequential-thinking"]
+    allowed: ["*"]
 
 tools:
   github:
