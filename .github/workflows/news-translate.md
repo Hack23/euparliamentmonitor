@@ -380,16 +380,43 @@ When multiple article–language pairs are queued (backfill mode), maximise thro
 
 Before starting any translation work, verify that ALL MCP servers required by this workflow are available. The translate workflow uses `european-parliament` MCP for article generation, `memory` for cross-run terminology tracking, and `sequential-thinking` for complex translation decisions.
 
-### Step 0: EP API Connectivity Pre-Check (bash)
+### Step 0: EP API Connectivity & AWF Firewall Pre-Check (bash)
 
-Run a lightweight HTTP probe **before** the MCP health gate to detect network-level failures (DNS, firewall, EP API outage) instantly:
+Run a comprehensive network diagnostic **before** the MCP health gate to detect AWF firewall blocks, DNS failures, and EP API outages instantly:
 
 ```bash
+echo "=== AWF FIREWALL & EP API DIAGNOSTIC ==="
+echo "Timestamp: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+
+# 1. DNS resolution check
+echo "--- DNS Resolution ---"
+nslookup data.europarl.europa.eu 2>&1 | head -5 || echo "DNS FAILED — AWF may be blocking DNS"
+
+# 2. Direct HTTP connectivity (bypasses MCP server)
+echo "--- EP API Direct HTTP Check ---"
 EP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 "https://data.europarl.europa.eu/api/v2/meps?format=application%2Fld%2Bjson&offset=0&limit=1" 2>/dev/null || true)
 EP_STATUS="${EP_STATUS:-000}"
-echo "EP API connectivity check: HTTP $EP_STATUS"
-if [ "$EP_STATUS" = "000" ] || [ "$EP_STATUS" -ge 500 ] 2>/dev/null; then
-  echo "⚠️ EP API appears DOWN (HTTP $EP_STATUS) — EP MCP health gate may also fail. Translation can still proceed with existing English articles."
+echo "EP API HTTP Status: $EP_STATUS"
+
+# 3. Network reachability
+echo "--- Network Reachability ---"
+for host in data.europarl.europa.eu github.com; do
+  timeout 5 bash -c "echo >/dev/tcp/$host/443" 2>/dev/null && \
+    echo "$host:443 REACHABLE" || echo "$host:443 UNREACHABLE (AWF firewall?)"
+done
+
+# 4. MCP environment check
+echo "--- MCP Environment ---"
+echo "EP_REQUEST_TIMEOUT_MS=${EP_REQUEST_TIMEOUT_MS:-NOT SET (default 60000)}"
+
+# 5. Diagnosis
+if [ "$EP_STATUS" = "000" ]; then
+  echo "⚠️ EP API UNREACHABLE (HTTP 000) — likely AWF firewall or DNS failure"
+  echo "   Translation can still proceed with existing English articles."
+elif [ "$EP_STATUS" -ge 500 ] 2>/dev/null; then
+  echo "⚠️ EP API SERVER ERROR (HTTP $EP_STATUS) — EP MCP health gate may fail. Translation can still proceed."
+elif [ "$EP_STATUS" = "200" ]; then
+  echo "✅ EP API reachable and responding (HTTP 200)"
 fi
 ```
 

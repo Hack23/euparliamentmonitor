@@ -486,20 +486,50 @@ export TODAY CURRENT_YEAR CURRENT_MONTH CURRENT_MONTH_NAME CURRENT_DAY DAY_OF_WE
 
 Before generating ANY articles, verify MCP connectivity:
 
-### Step 0: EP API Connectivity Pre-Check (bash)
+### Step 0: EP API Connectivity & AWF Firewall Pre-Check (bash)
 
-Run a lightweight HTTP probe **before** the MCP health gate to detect network-level failures (DNS, firewall, EP API outage) instantly without consuming MCP call budget:
+Run a comprehensive network diagnostic **before** the MCP health gate to detect AWF firewall blocks, DNS failures, and EP API outages instantly without consuming MCP call budget:
 
 ```bash
+echo "=== AWF FIREWALL & EP API DIAGNOSTIC ==="
+echo "Timestamp: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+
+# 1. DNS resolution check
+echo "--- DNS Resolution ---"
+nslookup data.europarl.europa.eu 2>&1 | head -5 || echo "DNS FAILED — AWF may be blocking DNS"
+
+# 2. Direct HTTP connectivity (bypasses MCP server)
+echo "--- EP API Direct HTTP Check ---"
 EP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 "https://data.europarl.europa.eu/api/v2/meps?format=application%2Fld%2Bjson&offset=0&limit=1" 2>/dev/null || true)
 EP_STATUS="${EP_STATUS:-000}"
-echo "EP API connectivity check: HTTP $EP_STATUS"
-if [ "$EP_STATUS" = "000" ] || [ "$EP_STATUS" -ge 500 ] 2>/dev/null; then
-  echo "⚠️ EP API appears DOWN (HTTP $EP_STATUS) — MCP health gate may also fail"
+echo "EP API HTTP Status: $EP_STATUS"
+
+# 3. Network reachability to key hosts
+echo "--- Network Reachability ---"
+for host in data.europarl.europa.eu github.com; do
+  timeout 5 bash -c "echo >/dev/tcp/$host/443" 2>/dev/null && \
+    echo "$host:443 REACHABLE" || echo "$host:443 UNREACHABLE (AWF firewall?)"
+done
+
+# 4. MCP environment check
+echo "--- MCP Environment ---"
+echo "EP_REQUEST_TIMEOUT_MS=${EP_REQUEST_TIMEOUT_MS:-NOT SET (default 60000)}"
+
+# 5. Diagnosis
+if [ "$EP_STATUS" = "000" ]; then
+  echo "⚠️ EP API UNREACHABLE (HTTP 000) — likely AWF firewall or DNS failure"
+  echo "   Check: network.allowed must include data.europarl.europa.eu and *.europa.eu"
+elif [ "$EP_STATUS" -ge 500 ] 2>/dev/null; then
+  echo "⚠️ EP API SERVER ERROR (HTTP $EP_STATUS) — EP API outage/maintenance"
+elif [ "$EP_STATUS" = "200" ]; then
+  echo "✅ EP API reachable and responding (HTTP 200)"
 fi
 ```
 
-> **If curl returns 000 (connection failed) or 5xx**: The EP API at `data.europarl.europa.eu` is likely down. The MCP health gate will almost certainly fail too. Proceed with the health gate anyway (it may succeed via cached responses), but be prepared for noop.
+> **If DNS fails**: AWF firewall is blocking DNS resolution — add `data.europarl.europa.eu` and `"*.europa.eu"` to `network.allowed` in workflow frontmatter.
+> **If HTTP 000**: AWF firewall is blocking HTTPS — verify `network.allowed` includes all required domains (see SHARED_PROMPT_PATTERNS.md AWF Firewall Diagnostic Checklist).
+> **If HTTP 5xx**: EP API is down — proceed with health gate (MCP may use cached responses), use direct endpoint fallbacks.
+> **If HTTP 200**: EP API is up — proceed normally. If MCP tools still fail, the issue is MCP server configuration, not network.
 
 ### Step 1: MCP Health Gate
 
