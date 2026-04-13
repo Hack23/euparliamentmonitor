@@ -53,22 +53,18 @@ mcp-servers:
     entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.5", "--timeout", "90000"]
     env:
       EP_REQUEST_TIMEOUT_MS: "90000"
-    allowed: ["*"]
   world-bank:
     container: "node:25-alpine"
     entrypoint: "npx"
     entrypointArgs: ["-y", "worldbank-mcp@1.0.1"]
-    allowed: ["*"]
   memory:
     container: "node:25-alpine"
     entrypoint: "npx"
     entrypointArgs: ["-y", "@modelcontextprotocol/server-memory"]
-    allowed: ["*"]
   sequential-thinking:
     container: "node:25-alpine"
     entrypoint: "npx"
     entrypointArgs: ["-y", "@modelcontextprotocol/server-sequential-thinking"]
-    allowed: ["*"]
 
 tools:
   github:
