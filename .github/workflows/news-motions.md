@@ -27,6 +27,10 @@ permissions:
 
 timeout-minutes: 60
 
+concurrency:
+  group: "news-article-generation"
+  cancel-in-progress: false
+
 network:
   allowed:
     - node
