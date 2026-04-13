@@ -568,6 +568,7 @@ Every news workflow `.md` file MUST include these fields in the YAML frontmatter
 | `mcp-servers` | See MCP server stack above | MCP server definitions with `container/entrypoint/entrypointArgs/allowed` format |
 | `tools.github.toolsets` | `[all]` | Full GitHub API access |
 | `tools.bash` | `true` | Shell access for diagnostics and scripts |
+| `tools.agentic-workflows` | `true` | Workflow/MCP introspection support |
 | `tools.repo-memory` | See config | Cross-run editorial memory |
 
 ---

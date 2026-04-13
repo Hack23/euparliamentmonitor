@@ -664,7 +664,7 @@ gh aw audit <run-id>                 # Audit a specific run
 
 ### Required Workflow Frontmatter
 
-All gh-aw workflow `.md` files MUST include:
+All gh-aw workflow `.md` files MUST include (note: MCP servers are configured in workflows, not in repo-scoped agents):
 
 ```yaml
 runtimes:

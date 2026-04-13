@@ -195,7 +195,7 @@ network:
     - www.riksdagsmonitor.com
     - euparliamentmonitor.com
     - www.euparliamentmonitor.com
-    - default
+    - defaults                    # Basic infrastructure (certificates, DNS, etc.)
 ```
 
 ### 5 Security Layers

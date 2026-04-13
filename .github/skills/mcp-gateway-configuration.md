@@ -318,14 +318,16 @@ mcp-servers:
     allowed: ["*"]
 ```
 
-**Copilot coding agent** (`.github/copilot-mcp.json`) uses `command/args`:
+**Copilot coding agent** (`.github/copilot-mcp.json`) uses `command/args` nested under `mcpServers`:
 ```json
 {
-  "european-parliament": {
-    "type": "local",
-    "command": "npx",
-    "args": ["-y", "european-parliament-mcp-server@1.2.5"],
-    "tools": ["*"]
+  "mcpServers": {
+    "european-parliament": {
+      "type": "local",
+      "command": "npx",
+      "args": ["-y", "european-parliament-mcp-server@1.2.5"],
+      "tools": ["*"]
+    }
   }
 }
 ```

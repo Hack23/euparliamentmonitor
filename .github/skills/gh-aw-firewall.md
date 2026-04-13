@@ -37,7 +37,7 @@ network:
     - api.github.com
     - data.europarl.europa.eu
     - "*.europa.eu"
-    - default
+    - defaults
 ---
 ```
 

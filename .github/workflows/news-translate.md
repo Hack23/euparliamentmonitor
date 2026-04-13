@@ -100,6 +100,7 @@ tools:
     toolsets:
       - all
   bash: true
+  agentic-workflows: true
   repo-memory:
     branch-name: memory/news-generation
     allowed-extensions: [".md", ".json"]

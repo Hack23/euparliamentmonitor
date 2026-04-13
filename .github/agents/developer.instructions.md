@@ -101,16 +101,7 @@ network:
     - api.github.com
     - data.europarl.europa.eu
     - "*.europa.eu"
-    - default
-
-mcp-servers:
-  european-parliament:
-    command: npx
-    args:
-      - -y
-      - european-parliament-mcp-server@1.2.0
-    env:
-      EP_REQUEST_TIMEOUT_MS: "120000"
+    - defaults
 
 tools:
   github:
