@@ -54,9 +54,9 @@ mcp-servers:
   european-parliament:
     container: "node:25-alpine"
     entrypoint: "npx"
-    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.6", "--timeout", "90000"]
+    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.6", "--timeout", "120000"]
     env:
-      EP_REQUEST_TIMEOUT_MS: "90000"
+      EP_REQUEST_TIMEOUT_MS: "120000"
   world-bank:
     container: "node:25-alpine"
     entrypoint: "npx"
@@ -487,9 +487,32 @@ else
   echo "DNS FAILED — neither getent nor nslookup is available"
 fi
 
-# 2. Direct HTTP connectivity (bypasses MCP server)
+# 2. MCP Gateway connectivity check (preferred path in AWF sandbox)
+echo "--- MCP Gateway Connectivity Check ---"
+source scripts/mcp-setup.sh
+if [ -n "${EP_MCP_GATEWAY_URL:-}" ]; then
+  if GW_STATUS=$(curl -sS -o /dev/null -w "%{http_code}" --connect-timeout 10 --max-time 30 \
+    -H "Content-Type: application/json" \
+    ${EP_MCP_GATEWAY_API_KEY:+-H "Authorization: Bearer ${EP_MCP_GATEWAY_API_KEY}"} \
+    -X POST -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"curl-diag","version":"1.0.0"}}}' \
+    "${EP_MCP_GATEWAY_URL}" 2>/dev/null); then
+    GW_CURL_EXIT=0
+  else
+    GW_CURL_EXIT=$?
+  fi
+  GW_STATUS="${GW_STATUS:-000}"
+  echo "MCP Gateway: HTTP ${GW_STATUS} (curl exit ${GW_CURL_EXIT})"
+  echo "MCP Gateway URL: $EP_MCP_GATEWAY_URL"
+  echo "MCP Gateway Auth: ${EP_MCP_GATEWAY_API_KEY:+SET (${#EP_MCP_GATEWAY_API_KEY} chars)}"
+  [ -z "${EP_MCP_GATEWAY_API_KEY:-}" ] && echo "MCP Gateway Auth: NOT SET"
+  echo "MCP Client Timeout: ${MCP_CLIENT_TIMEOUT_MS:-NOT SET}ms"
+else
+  echo "⚠️ EP_MCP_GATEWAY_URL not set — mcp-setup.sh may have failed"
+fi
+
+# 3. Direct EP API HTTP connectivity (diagnostic only — MCP gateway is preferred)
 echo "--- EP API Direct HTTP Check ---"
-if EP_STATUS=$(curl -sS -o /dev/null -w "%{http_code}" --connect-timeout 5 --max-time 30 "https://data.europarl.europa.eu/api/v2/meps?format=application%2Fld%2Bjson&offset=0&limit=1" 2>/dev/null); then
+if EP_STATUS=$(curl -sS -o /dev/null -w "%{http_code}" --connect-timeout 10 --max-time 120 "https://data.europarl.europa.eu/api/v2/meps?format=application%2Fld%2Bjson&offset=0&limit=1" 2>/dev/null); then
   EP_CURL_EXIT=0
 else
   EP_CURL_EXIT=$?
@@ -503,18 +526,18 @@ case "$EP_CURL_EXIT" in
   *)  echo "EP API HTTP Status: $EP_STATUS (curl exit $EP_CURL_EXIT: transport/TLS/other client error)" ;;
 esac
 
-# 3. Network reachability to key hosts
+# 4. Network reachability to key hosts
 echo "--- Network Reachability ---"
 for host in data.europarl.europa.eu github.com api.github.com; do
   timeout 5 bash -c "echo >/dev/tcp/$host/443" 2>/dev/null && \
     echo "$host:443 REACHABLE" || echo "$host:443 UNREACHABLE (AWF firewall?)"
 done
 
-# 4. MCP environment check
+# 5. MCP environment check
 echo "--- MCP Environment ---"
 echo "EP_REQUEST_TIMEOUT_MS=${EP_REQUEST_TIMEOUT_MS:-NOT SET (default 60000)}"
 
-# 5. Diagnosis (uses curl exit code to distinguish DNS/connect/timeout failures)
+# 6. Diagnosis (uses curl exit code to distinguish DNS/connect/timeout failures)
 if [ "$EP_CURL_EXIT" -eq 6 ]; then
   echo "⚠️ EP API DNS FAILURE (curl exit 6) — AWF firewall blocking DNS resolution"
   echo "   Fix: Add data.europarl.europa.eu and *.europa.eu to network.allowed"
