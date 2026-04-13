@@ -1,0 +1,34 @@
+{
+  "articleType": "motions",
+  "date": "2026-04-13",
+  "runId": 40,
+  "generatedAt": "2026-04-13T21:19:00Z",
+  "epApiStatus": "OUTAGE",
+  "articleGenerated": false,
+  "reason": "EP API total outage — HTTP 000, 12+ consecutive MCP timeouts across all endpoints. Easter recess Day 18/18. Analysis-only PR with cross-session intelligence.",
+  "dataSources": [
+    "precomputed_stats_2004_2026",
+    "prior_analysis_apr10_motions",
+    "prior_analysis_apr13_breaking_run168",
+    "prior_analysis_apr13_propositions_run41",
+    "prior_analysis_apr13_motions_run39"
+  ],
+  "analysisArtifacts": [
+    "existing/api-outage-diagnostic.md",
+    "existing/synthesis-summary.md",
+    "classification/significance-classification.md",
+    "risk-scoring/risk-matrix.md",
+    "threat-assessment/political-threat-landscape.md",
+    "documents/document-analysis-index.md"
+  ],
+  "mcpCallSummary": {
+    "healthGateAttempts": 3,
+    "healthGateResult": "FAILED_ALL_TIMEOUT",
+    "feedEndpointAttempts": 4,
+    "feedEndpointResult": "FAILED_ALL_TIMEOUT",
+    "supplementaryToolAttempts": 4,
+    "supplementaryToolResult": "3_TIMEOUT_1_NULL_DATA",
+    "precomputedStatsResult": "SUCCESS_85KB",
+    "serverHealth": "unhealthy_all_feeds_unknown"
+  }
+}
