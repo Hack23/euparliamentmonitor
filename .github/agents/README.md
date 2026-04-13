@@ -910,9 +910,6 @@ When creating new agents, follow this structure:
 name: agent-name
 description: Brief description (max 200 chars)
 tools: ["*"]
-mcp-servers:
-  github:
-    # Standard GitHub MCP configuration
 ---
 
 # Agent Title

@@ -30,6 +30,10 @@ concurrency:
   group: "news-article-generation"
   cancel-in-progress: false
 
+runtimes:
+  node:
+    version: "25"
+
 network:
   allowed:
     - node
@@ -44,7 +48,7 @@ network:
     - www.riksdagsmonitor.com
     - euparliamentmonitor.com
     - www.euparliamentmonitor.com
-    - default
+    - defaults
 
 mcp-servers:
   european-parliament:
@@ -75,6 +79,7 @@ tools:
     toolsets:
       - all
   bash: true
+  agentic-workflows: true
   repo-memory:
     branch-name: memory/news-generation
     allowed-extensions: [".md", ".json"]
