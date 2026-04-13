@@ -420,7 +420,7 @@ The language switcher dropdown in the header cannot be operated with keyboard on
 - Voting: bill reference, MEP, vote (for/against/abstain), date
 
 **Integration Patterns:**
-- Use `ep-mcp-client.js` for MCP communication
+- Use `src/mcp/ep-mcp-client.ts` for MCP communication (compiled to `scripts/mcp/ep-mcp-client.js`); use `source scripts/mcp-setup.sh` for AWF gateway setup
 - Implement retry logic with exponential backoff
 - Cache responses (LRU cache, configurable TTL)
 - Graceful fallback to placeholder content

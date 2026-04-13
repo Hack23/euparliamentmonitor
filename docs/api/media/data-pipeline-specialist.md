@@ -9,10 +9,11 @@ description: European Parliament data integration expert for MCP server connecti
 
 **ALWAYS read these files at the start of your session:**
 
-1. **`scripts/ep-mcp-client.js`** - European Parliament MCP client implementation
-2. **`scripts/generate-news-enhanced.js`** - News generation with MCP integration
-3. **`.github/copilot-mcp.json`** - MCP server configuration
-4. **`package.json`** - Dependencies (undici, lru-cache)
+1. **`src/mcp/ep-mcp-client.ts`** - European Parliament MCP client (TypeScript source; compiled to `scripts/mcp/ep-mcp-client.js`)
+2. **`scripts/mcp-setup.sh`** - AWF gateway connectivity script (sets `EP_MCP_GATEWAY_URL`, `EP_MCP_GATEWAY_API_KEY`)
+3. **`scripts/generate-news-enhanced.js`** - News generation with MCP integration
+4. **`.github/copilot-mcp.json`** - MCP server configuration
+5. **`package.json`** - Dependencies (undici, lru-cache)
 5. **`.github/workflows/news-generation.yml`** - MCP pre-installation workflow
 
 ---
@@ -243,10 +244,28 @@ interface FeedBaseOptions {
 
 ### MCP Client Implementation
 
-**ep-mcp-client.js Pattern:**
+**TypeScript source: `src/mcp/ep-mcp-client.ts`** (compiled to `scripts/mcp/ep-mcp-client.js`)
+
+The client supports two transport modes activated by environment variables:
+- **Gateway mode** (AWF workflows): Set `EP_MCP_GATEWAY_URL` via `source scripts/mcp-setup.sh`
+- **Stdio mode** (local/CI): Default when `EP_MCP_GATEWAY_URL` is unset
+
+**ep-mcp-client.ts Pattern:**
+
+```typescript
+// src/mcp/ep-mcp-client.ts — TypeScript source
+import { EuropeanParliamentMCPClient } from './mcp/ep-mcp-client.js';
+
+// Gateway mode (activated by scripts/mcp-setup.sh in AWF):
+//   EP_MCP_GATEWAY_URL=http://host.docker.internal:80/mcp/european-parliament
+//   EP_MCP_GATEWAY_API_KEY=<raw-api-key>
+const client = new EuropeanParliamentMCPClient(); // reads env vars automatically
+```
+
+**Legacy JavaScript pattern (pre-TypeScript migration):**
 
 ```javascript
-// scripts/ep-mcp-client.js
+// scripts/mcp/ep-mcp-client.js — compiled output, do not edit directly
 import { request } from 'undici';
 import { LRUCache } from 'lru-cache';
 

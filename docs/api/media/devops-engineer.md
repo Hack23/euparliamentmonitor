@@ -87,10 +87,10 @@ jobs:
           fetch-depth: 0 # Full history for git operations
       
       # 2. Setup Node.js with caching
-      - name: Setup Node.js 24
+      - name: Setup Node.js 25
         uses: actions/setup-node@v4
         with:
-          node-version: '24'
+          node-version: '25'
           cache: 'npm'
       
       # 3. Cache APT packages for Playwright
@@ -217,7 +217,7 @@ jobs:
 - name: Setup Node.js with npm cache
   uses: actions/setup-node@v4
   with:
-    node-version: '24'
+    node-version: '25'
     cache: 'npm' # Automatic npm cache
     cache-dependency-path: 'package-lock.json'
 ```
@@ -646,6 +646,59 @@ Configuration:
 
 ---
 
-**Last Updated**: 2026-02-16  
-**Version**: 1.0  
+## GitHub Agentic Workflows (gh-aw)
+
+This repository uses **10 gh-aw markdown workflows** in `.github/workflows/*.md` for automated news generation. These compile to `.lock.yml` files.
+
+### Key gh-aw Commands
+
+```bash
+gh aw compile                        # Compile all .md workflows to .lock.yml
+gh aw compile --actionlint --zizmor  # Compile with security scanning
+gh aw mcp inspect                    # List workflows with MCP configurations
+gh aw mcp inspect news-breaking --server european-parliament  # Inspect specific MCP server
+gh aw mcp inspect news-breaking --server european-parliament --tool get_plenary_sessions  # Tool details
+gh aw logs [workflow]                # Download workflow logs
+gh aw audit <run-id>                 # Audit a specific run
+```
+
+### Required Workflow Frontmatter
+
+All gh-aw workflow `.md` files MUST include (note: MCP servers are configured in workflows, not in repo-scoped agents):
+
+```yaml
+runtimes:
+  node:
+    version: "25"                    # Node.js 25 runtime on the runner
+
+network:
+  allowed:
+    - node                           # npm ecosystem
+    - defaults                       # Basic infrastructure (certificates, DNS, etc.)
+    # ... plus domain-specific allowlists
+
+mcp-servers:
+  european-parliament:
+    container: "node:25-alpine"      # Docker container for MCP server
+    entrypoint: "npx"
+    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.6", "--timeout", "90000"]
+    env:
+      EP_REQUEST_TIMEOUT_MS: "90000"
+    allowed: ["*"]                   # Full tool access
+```
+
+### Compile Workflow
+
+The `compile-agentic-workflows.yml` workflow:
+1. Deletes existing `.lock.yml` files
+2. Compiles all `.md` workflows with `gh aw compile`
+3. Patches `node:lts-alpine` → `node:25-alpine` in compiled lock files
+4. Commits changes
+
+**Never modify `.lock.yml` files directly** — always edit the `.md` source and recompile.
+
+---
+
+**Last Updated**: 2026-04-13  
+**Version**: 1.1  
 **Maintained by**: Hack23 AB
