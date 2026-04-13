@@ -108,6 +108,22 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
 
+      - name: Patch lock files — use Node.js 25 for MCP containers
+        run: |
+          echo "Patching lock files: node:lts-alpine → node:25-alpine..."
+          lock_files=$(find .github/workflows -name "*.lock.yml" -type f)
+          if [ -z "$lock_files" ]; then
+            echo "No lock files to patch"
+          else
+            for lock_file in $lock_files; do
+              if grep -q 'node:lts-alpine' "$lock_file"; then
+                sed -i 's|node:lts-alpine|node:25-alpine|g' "$lock_file"
+                echo "  ✅ Patched $lock_file"
+              fi
+            done
+            echo "✅ Node.js 25 MCP container patch applied"
+          fi
+
       - name: Check for changes
         id: check_changes
         run: |
