@@ -366,17 +366,18 @@ When multiple article–language pairs are queued (backfill mode), maximise thro
 
 ## ⏱️ Time Budget (90 minutes)
 
+- **Minute ~3**: **🛡️ CHECKPOINT** — call `safeoutputs___create_pull_request` immediately after baseline analysis is created (Date Context Establishment — see the CHECKPOINT section below). This is your crash-resilience checkpoint. ALL subsequent work (generator output, translations) is automatically captured in this PR even if the engine crashes afterward.
 - **Minutes 0–5**: Date validation, discover English articles, set up MCP gateway
 - **Minutes 5–20**: Generate article HTML files using the TypeScript generator (Step 3)
 - **Minutes 20–75**: **AI Translation** — translate English narrative content per file (Step 3b)
 - **Minutes 75–82**: Validate translated HTML files (Step 4)
-- **Minutes 82–88**: Create PR with `safeoutputs___create_pull_request`
+- **Minutes 82–88**: Final PR confirmation (checkpoint PR already created at minute ~3; if NOT yet called, call `safeoutputs___create_pull_request` now)
 
 > **🔑 TRANSLATION FOCUS**: The generator produces articles with localized UI but English narrative. YOU translate ALL English content.
 
-> **⚠️ HARD DEADLINE**: Translation MUST stop by minute 75 to leave time for validation and PR creation. You MUST call `safeoutputs___create_pull_request` before minute 86. Partial translations in a PR are better than a timeout with no PR.
+> **⚠️ HARD DEADLINE**: Translation MUST stop by minute 75 to leave time for validation and PR creation. If you did NOT call `safeoutputs___create_pull_request` at the minute ~3 checkpoint, you MUST call it before minute 86. Partial translations in a PR are better than a timeout with no PR.
 
-> **🛡️ EARLY SAFE OUTPUT — CRITICAL FOR ENGINE CRASH RESILIENCE**: The Copilot engine may terminate unexpectedly due to transient authentication failures. To protect your work, call `safeoutputs___create_pull_request` **as early as possible** — ideally right after Step 3 generates the article HTML files (minute ~20), BEFORE starting AI translation in Step 3b. The framework captures ALL files in the working directory when the agent job ends (whether normally or due to a crash), so translations completed AFTER the safeoutputs call are still included in the PR. If you have NOT yet called safeoutputs and the engine crashes, ALL work is lost. Call it early, then keep translating.
+> **🛡️ EARLY SAFE OUTPUT — CRITICAL FOR ENGINE CRASH RESILIENCE**: The Copilot engine may terminate unexpectedly due to transient authentication failures — typically at minute 10–20 into the run. To protect your work, call `safeoutputs___create_pull_request` **immediately after the baseline analysis summary is created in Date Context Establishment (minute ~3)**, before running MCP health checks, discovery, or the generator. The framework captures ALL files in the working directory when the agent job ends (whether normally or due to a crash), so translations completed AFTER the safeoutputs call are still included in the PR. If you have NOT yet called safeoutputs and the engine crashes, ALL work is lost. **Call it at minute ~3 right after the baseline summary is written, then keep working.**
 
 ## MANDATORY MCP Health Gate
 
@@ -571,6 +572,20 @@ else
   echo "📊 Existing translation analysis found — will extend in Step 4c"
 fi
 ```
+
+## 🛡️ CHECKPOINT: Immediate Safe Output (minute ~3)
+
+> **⚡ MANDATORY — DO THIS NOW, BEFORE ANY OTHER STEP**: Call `safeoutputs___create_pull_request` **immediately** after the Date Context Establishment block above creates the baseline analysis summary. Do NOT wait until after the generator or translations. The framework captures ALL files in the working directory when the agent job ends — translations done AFTER this call are included in the PR automatically.
+
+**Why so early?** The Copilot engine may crash at minute 10–20 due to transient authentication failures. If that happens before a safeoutputs call is made, ALL work is lost and no PR is created. By calling it at minute ~3 (when the baseline analysis file already exists), you guarantee that at minimum the analysis artifact is preserved, and that all subsequent generator output and translations are automatically captured in the same PR.
+
+Call safeoutputs now with:
+- **title**: `Translate articles checkpoint — ${ARTICLE_DATE} (run ${RUN_ID})` (use the ARTICLE_DATE and RUN_ID variables from the bash block above; the `[news] ` prefix is added automatically)
+- **body**: Baseline translation analysis checkpoint. Engine crash resilience PR — generator output and AI translations will be added to this PR automatically as the agent continues working.
+- **base**: `main`
+- **head**: `news/translate-${ARTICLE_DATE}-${RUN_ID}` (use ARTICLE_DATE and RUN_ID from above)
+
+> **After calling safeoutputs**: continue immediately with Pre-flight, Step 1 (discovery), Step 3 (generator), and Step 3b (AI translation). Do NOT stop. The PR title remains as set above, but all subsequent translations are automatically captured as file changes in this PR.
 
 ## Pre-flight: Verify No Pending Content PRs
 
@@ -1076,17 +1091,24 @@ GEN_STATE_FILE="/tmp/gh-aw-translate-generation.sh"
 echo "💾 Generation state persisted to $GEN_STATE_FILE"
 ```
 
-### 🛡️ Step 3 Checkpoint: Early Safe Output (ENGINE CRASH PROTECTION)
+### 🛡️ Step 3 Checkpoint: Safe Output Fallback (If Minute ~3 Checkpoint Was Missed)
 
-> **⚠️ CRITICAL**: Call `safeoutputs___create_pull_request` NOW, immediately after Step 3 generates the HTML files and BEFORE starting AI translation. This protects all generated files against engine crashes. The framework captures the working directory state when the agent job ends (whether normally or due to a crash), so files you translate in Step 3b AFTER this call are still included in the PR.
+> **⚠️ ONLY if you did NOT call `safeoutputs___create_pull_request` at the minute ~3 checkpoint in Date Context Establishment**: Call it NOW, immediately after Step 3 generates the HTML files and BEFORE starting AI translation. The framework captures the working directory state when the agent job ends (whether normally or due to a crash), so files you translate in Step 3b AFTER this call are still included in the PR.
 
-Call `safeoutputs___create_pull_request` with the generated files. Use a descriptive title and body. Even though translations are not yet done, this checkpoint ensures the generated article structure is preserved. Continue to Step 3b for AI translation — the PR will automatically include all subsequent changes.
+> **If you already called safeoutputs at the minute ~3 checkpoint**: Skip this step — max 1 PR per run. Continue directly to Step 3b for AI translation.
+
+Call `safeoutputs___create_pull_request` if NOT already called, using:
+- **title**: `Translate articles checkpoint — ${ARTICLE_DATE} (run ${RUN_ID})` (the `[news] ` prefix is added automatically)
+- **body**: Translation checkpoint for ${ARTICLE_DATE}. Generator output and AI translations will be added to this PR automatically as the agent continues working.
+- **base**: `main`
+- **head**: `news/translate-${ARTICLE_DATE}-${RUN_ID}`
 
 ```javascript
-// ENGINE CRASH PROTECTION — call safeoutputs BEFORE starting AI translation
+// FALLBACK: Call safeoutputs only if NOT already called at minute ~3 checkpoint
+// If already called, skip this block — continue to Step 3b directly
 safeoutputs___create_pull_request({
-  title: "[news] Translate ${ARTICLE_DATE} articles (${TRANSLATED_TYPES})",
-  body: "Translates ${ARTICLE_DATE} articles. Languages: ${TARGET_LANGS}.\n\nGenerated by news-translate workflow.",
+  title: "Translate articles checkpoint — ${ARTICLE_DATE} (run ${RUN_ID})",
+  body: "Translation checkpoint for ${ARTICLE_DATE}. Generator output and AI translations captured automatically.",
   base: "main",
   head: "news/translate-${ARTICLE_DATE}-${RUN_ID}"
 })
@@ -1369,7 +1391,7 @@ echo "📊 Extending analysis summary with translation results: ${SUMMARY_FILE}"
 
 ## Step 5: Create Pull Request
 
-> **🛡️ REMINDER — EARLY SAFE OUTPUT**: If you have NOT already called `safeoutputs___create_pull_request` (as instructed in the Time Budget section), call it NOW. The sooner it is called, the more resilient the run is to engine crashes. Files generated after this call are still captured.
+> **🛡️ REMINDER — SAFE OUTPUT**: If you have NOT already called `safeoutputs___create_pull_request` (as instructed in the minute ~3 checkpoint in Date Context Establishment, or in the Step 3 fallback), call it NOW. This is the last chance — you MUST call it before minute 86. Files generated after this call are still captured if the agent job continues.
 
 #### MANDATORY Git State Safety Check (Prevent "No changes to commit" Error)
 
@@ -1543,6 +1565,8 @@ See the full **Per-Language EP Terminology Standards** and **Per-Language Regist
 
 > **⚠️ CRITICAL**: You MUST call `safeoutputs___create_pull_request` in EVERY run where files were generated, even if translation is incomplete. The gh-aw framework captures all file changes as a patch — you do NOT manage git operations.
 
+> **🛡️ CHECKPOINT ALREADY CALLED?** If you called `safeoutputs___create_pull_request` at the minute ~3 checkpoint (Date Context Establishment) or at the Step 3 fallback, DO NOT call it again here (max 1 PR per run). The checkpoint PR already captures ALL translations made during this run. Proceed directly to updating the repo memory and finishing.
+
 ### 🔑 How Safe Pull Request Works (READ FIRST)
 
 The gh-aw framework **automatically captures all file changes** you make in the working directory as a patch. You do NOT manage git operations yourself.
@@ -1572,8 +1596,8 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 
 **If the Copilot engine terminates unexpectedly (transient auth failure):**
 - This is a known intermittent issue — "No authentication information found" errors are transient platform failures
-- If you called `safeoutputs___create_pull_request` before the crash, the framework will still create a PR with ALL files in the working directory
-- **Prevention**: Call `safeoutputs___create_pull_request` as early as possible (right after Step 3 generates HTML files) so your work is preserved even if the engine crashes during Step 3b AI translation
+- If you called `safeoutputs___create_pull_request` before the crash (e.g., at the minute ~3 checkpoint), the framework will still create a PR with ALL files in the working directory
+- **Prevention**: Call `safeoutputs___create_pull_request` at the minute ~3 checkpoint (immediately after creating the baseline analysis summary in Date Context Establishment), BEFORE running discovery, MCP checks, or the generator. This is the primary crash protection mechanism.
 - The next scheduled run will pick up remaining untranslated languages
 
 **If translation generator fails for a specific article type:**
