@@ -345,13 +345,13 @@ Every generated article MUST link to ALL analysis files. Verify the Analysis & T
 - [ ] Links to `analysis/methodologies/*.md` methodology documents
 
 ## ⏱️ Time Budget (60 minutes)
-- **Minutes 0–3**: Date validation, MCP warm-up
-- **Minutes 3–8**: 🔬 EP MCP data fetch and analysis directory setup (the `--analysis` flag fetches EP data, creates `${ANALYSIS_DIR}/`, and discovers your analysis `.md` files after you write them)
-- **Minutes 8–15**: Query EP MCP tools for COMPLETE motions data (parallel where possible) — **⚠️ Download FULL document content, not just metadata. Store complete adopted texts, procedure details, and voting records in `${ANALYSIS_DIR}/data/`**
+- **Minutes 0–3**: Date validation, create baseline analysis file, **🛡️ CHECKPOINT** — call `safeoutputs___create_pull_request` immediately (crash-resilience PR)
+- **Minutes 3–8**: MCP warm-up and health gate
+- **Minutes 8–15**: 🔬 EP MCP data fetch — ALL feed endpoints + supplementary tools (parallel where possible) — **⚠️ Download FULL document content. Store complete adopted texts, procedure details, and voting records in `${ANALYSIS_DIR}/data/`**
 - **Minutes 15–35**: 🔬🔬🔬 **MANDATORY DEEP POLITICAL ANALYSIS PHASE (15-20 MINUTES)** — Read ALL methodology guides and templates, apply them to EVERY downloaded MCP data file, write substantive analysis markdown, use `sequentialthinking` for complex reasoning, cross-reference documents via knowledge graph, complete 4-pass refinement cycle. **⚠️ Per Rule 7, spend ≥15 minutes on AI-driven analysis.** Article topic and angle MUST be decided ONLY from completed significance scoring results, not predetermined.
 - **Minutes 35–50**: Generate English article with deep political intelligence analysis informed by completed analysis artifacts
 - **Minutes 50–55**: Validate HTML
-- **Minutes 55–60**: Create PR with `safeoutputs___create_pull_request`
+- **Minutes 55–60**: Final PR confirmation (checkpoint PR already created at minute ~3; all file changes are captured automatically)
 
 > **🔑 ENGLISH-ONLY FOCUS**: This workflow generates English content only. Use the extra time (vs. translating to 13 languages) to produce deeper political analysis, richer context, and more comprehensive intelligence. Translations to other languages are handled by the separate `news-translate` workflow.
 
@@ -510,10 +510,56 @@ echo "Run ID: $RUN_ID"
 echo "Analysis Dir: $ANALYSIS_DIR"
 echo "==================================="
 export TODAY CURRENT_YEAR CURRENT_MONTH CURRENT_MONTH_NAME CURRENT_DAY DAY_OF_WEEK DAY_NUM LAST_WEEK RUN_ID ANALYSIS_DIR
+
+# ⚠️ MANDATORY: Create baseline analysis directory and session file BEFORE any noop exits.
+# Per ai-driven-analysis-guide.md Rule 5, no workflow run should be wasted.
+# This baseline file ensures the checkpoint PR always contains at least one artifact.
+mkdir -p "${ANALYSIS_DIR}/existing"
+BASELINE_FILE="${ANALYSIS_DIR}/existing/session-baseline.md"
+if [ ! -f "${BASELINE_FILE}" ]; then
+  cat > "${BASELINE_FILE}" <<EOF
+# Motions & Resolutions Analysis Baseline — ${TODAY}
+
+Automatically generated baseline session record for run ${RUN_ID}.
+Ensures no workflow run is wasted — subsequent analysis and article generation
+will extend and replace this file with substantive political intelligence.
+
+## Run Context
+- Date: ${TODAY} (${DAY_OF_WEEK})
+- Run ID: ${RUN_ID}
+- Analysis directory: ${ANALYSIS_DIR}
+- Article type: motions
+
+## Analysis Phases (to be filled by the agent)
+1. EP MCP data fetch — adopted texts, parliamentary questions, procedures
+2. Deep political analysis (15-20 min) — significance scoring, coalition dynamics, risk assessment
+3. Article generation — English motions article with AI analysis
+4. Quality validation
+
+---
+_This baseline is replaced with substantive analysis content as the workflow progresses._
+EOF
+  echo "📊 Created baseline session file: ${BASELINE_FILE}"
+fi
 ```
 
 **⚠️ DATE GUARD**: When passing `dateFrom`/`dateTo` to ANY MCP tool, ALWAYS derive dates from `$TODAY` and `$LAST_WEEK` (set above). NEVER hardcode a year (e.g. 2024, 2025). Use `date -u -d` for offsets.
 
+## 🛡️ CHECKPOINT: Immediate Safe Output (minute ~3)
+
+> **⚡ MANDATORY — DO THIS NOW, BEFORE ANY OTHER STEP**: Call `safeoutputs___create_pull_request` **immediately** after the Date Context Establishment block above creates the baseline session file. Do NOT wait until after MCP health checks, data gathering, or article generation. The framework captures ALL files in the working directory when the agent job ends — analysis artifacts and the final article written AFTER this call are included in the PR automatically.
+
+**Why so early?** The Copilot engine may run out of context or encounter transient failures at minute 15–35 during the deep analysis phase. If that happens before a safeoutputs call is made, ALL work is lost and no PR is created. By calling it at minute ~3 (when the baseline session file already exists), you guarantee that at minimum the analysis artifact is preserved, and all subsequent data, analysis markdown files, and the final article are automatically captured in the same PR.
+
+Call safeoutputs now with:
+- **title**: `Motions analysis checkpoint — ${TODAY} (run ${RUN_ID})` (the `[news] ` prefix is added automatically)
+- **body**: `Baseline motions analysis checkpoint for ${TODAY}. Engine crash-resilience PR — EP MCP data, deep political analysis artifacts, and the final article will be added automatically as the agent continues working.`
+- **base**: `main`
+- **head**: `news/motions-${TODAY}` (use TODAY from the bash block above)
+
+> **After calling safeoutputs**: continue immediately with the MCP Health Gate, EP data gathering, deep analysis, and article generation. Do NOT stop. All subsequent file changes are captured automatically in this PR.
+
+> **⚠️ MAX 1 PR PER RUN**: Do NOT call `safeoutputs___create_pull_request` again at the end of the workflow — the checkpoint PR already captures all your work. The final PR confirmation step (minutes 55–60) checks that this checkpoint was called, but does NOT call safeoutputs a second time.
 
 ## MANDATORY MCP Health Gate
 
@@ -632,11 +678,11 @@ fi
 3. If ALL 3 attempts fail:
    - Call `european_parliament___get_server_health({})` for diagnostic context
    - Call `european_parliament___get_all_generated_stats({ category: "all" })` to verify MCP server is running (precomputed data, no live EP API needed)
-   - If `get_all_generated_stats` succeeds, consider creating an analysis-only PR with precomputed stats instead of noop
-   - If truly no data can be collected, use `safeoutputs___noop` with **full diagnostics** following the Mandatory Noop Diagnostics template in SHARED_PROMPT_PATTERNS.md — include: EP API HTTP status from curl pre-check, all 3 health gate attempt error messages with error categories, `get_server_health` output, and resolution hints matching the error category
+   - Write a diagnostic file to `${ANALYSIS_DIR}/existing/api-outage-diagnostic.md` with the error messages, server health output, and curl pre-check results
+   - If `get_all_generated_stats` succeeds, continue with analysis using precomputed data only (do NOT call noop — the checkpoint PR already exists)
+   - If truly no data can be collected: write the diagnostic file, then **end the workflow normally** — do NOT call `safeoutputs___noop` because the checkpoint PR was already created at minute ~3. The checkpoint PR will contain the baseline file + diagnostic file, which is a valid output.
    - DO NOT analyze existing articles in the repository
    - DO NOT fabricate or recycle content
-   - The workflow MUST end with noop
 
 **CRITICAL**: ALL article content MUST originate from live MCP data. Never generate content from:
 - Existing articles in the news/ directory
@@ -647,9 +693,11 @@ fi
 
 ## MANDATORY PR Creation
 
-- ✅ `safeoutputs___create_pull_request` when articles generated
-- ✅ `noop` ONLY if genuinely no new motions
+- ✅ `safeoutputs___create_pull_request` at minute ~3 (CHECKPOINT — immediately after Date Context Establishment)
+- ✅ The checkpoint PR captures ALL subsequent file changes automatically
+- ✅ `noop` ONLY if genuinely no new motions AND the checkpoint PR was not already created
 - ❌ NEVER use `noop` as fallback for PR creation failures
+- ❌ NEVER call `safeoutputs___create_pull_request` a second time after the checkpoint
 
 ### 🔑 How Safe Pull Request Works (READ FIRST)
 
@@ -673,9 +721,12 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 
 ## Error Handling
 
+> **⚠️ CHECKPOINT PR ALREADY CREATED**: Because `safeoutputs___create_pull_request` was called at minute ~3 (CHECKPOINT), the PR already exists. Do NOT call safeoutputs again for any error scenario below. Instead, write diagnostic information to `${ANALYSIS_DIR}/existing/` and end the workflow normally — the checkpoint PR captures everything.
+
 **If EP MCP server unavailable (3 retries failed):**
-1. Before calling noop, attempt recovery per SHARED_PROMPT_PATTERNS.md "Mandatory Noop Diagnostics": call `get_server_health`, call `get_all_generated_stats`, check if analysis-only PR is possible
-2. `safeoutputs___noop` with **full diagnostic message** (EP API HTTP status, all attempt errors, error categories, server health, resolution hints) — see SHARED_PROMPT_PATTERNS.md template
+1. Call `get_server_health` and `get_all_generated_stats` for diagnostics
+2. Write full diagnostic message to `${ANALYSIS_DIR}/existing/api-outage-diagnostic.md` (EP API HTTP status, all attempt errors, error categories, server health, resolution hints)
+3. End the workflow normally — the checkpoint PR already captures the baseline + diagnostic files. Do NOT call `safeoutputs___noop`.
 
 **If ≥3 consecutive feed endpoints return INTERNAL_ERROR (total EP API outage):**
 1. This indicates the entire EP API (`data.europarl.europa.eu`) is down — do NOT continue burning MCP call budget
@@ -686,21 +737,20 @@ The gh-aw framework **automatically captures all file changes** you make in the 
    - The `get_server_health` output
    - The curl connectivity pre-check result (if available from the bash block)
    - Timestamp and run ID
-5. Create an analysis-only PR with `safeoutputs___create_pull_request` — the diagnostic is valuable for post-mortem
-6. Do NOT noop — the diagnostic analysis PR is the output
+5. End the workflow normally — the checkpoint PR already captures the baseline + diagnostic files
 
 **If no significant data found (genuinely empty — only after ALL feeds were queried in the standard collection pass):**
 1. Verify ALL feed endpoints were queried once according to the data-gathering rules
-2. Write ALL analysis `.md` files based on collected data
-3. **Create an analysis-only PR** with `safeoutputs___create_pull_request` — per `ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted. Commit analysis artifacts to `${ANALYSIS_DIR}/`. Each run creates its own unique analysis directory
+2. Write ALL analysis `.md` files based on collected data to `${ANALYSIS_DIR}/`
+3. End the workflow normally — the checkpoint PR already captures all analysis artifacts. Per `ai-driven-analysis-guide.md` Rule 5, no workflow run is wasted.
 
 **If article generation fails AFTER starting work:**
 1. Log the specific failure
-2. ❌ **DO NOT use noop** — workflow should FAIL
+2. ❌ **DO NOT use noop** — the checkpoint PR exists; let the error be visible in the run summary
 3. Let error propagate so it's visible
 
 **If PR creation fails AFTER generating articles:**
-1. Retry `safeoutputs___create_pull_request` once
+1. Retry `safeoutputs___create_pull_request` once (only if checkpoint was NOT already called)
 2. If still fails: ❌ workflow MUST FAIL — do NOT try alternative git commands or API calls
 3. The articles exist but no PR = readers can't see them = FAILURE
 
@@ -1411,7 +1461,7 @@ if [ "$TOTAL_FILES" -gt 90 ]; then
 fi
 ```
 
-Set the deterministic branch name for the PR.
+Set the deterministic branch name for the PR (same as the checkpoint branch).
 
 ```bash
 # Reuse $TODAY from Date Context Establishment
@@ -1419,9 +1469,12 @@ BRANCH_NAME="news/motions-$TODAY"
 echo "Branch: $BRANCH_NAME"
 ```
 
-Pass `$BRANCH_NAME` (e.g., `news/motions-2026-02-24`) as the `head` parameter when calling `safeoutputs___create_pull_request`. The framework automatically captures all file changes — do NOT pass a `files` parameter:
+> **🛡️ CHECKPOINT ALREADY CALLED?** If you called `safeoutputs___create_pull_request` at the minute ~3 checkpoint (Date Context Establishment), DO NOT call it again here — max 1 PR per run. The checkpoint PR already captures ALL analysis artifacts and the generated article. Proceed directly to updating repo memory and finishing.
+
+**ONLY if you did NOT call `safeoutputs___create_pull_request` at the minute ~3 checkpoint** (i.e., the checkpoint was skipped due to an error), call it now:
 
 ```javascript
+// FALLBACK: Call safeoutputs only if NOT already called at minute ~3 checkpoint
 // All file changes in the working directory are captured automatically
 safeoutputs___create_pull_request({
   title: `chore: EU Parliament motions articles ${TODAY}`,
