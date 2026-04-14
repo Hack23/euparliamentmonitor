@@ -366,163 +366,23 @@ When multiple article–language pairs are queued (backfill mode), maximise thro
 
 ## ⏱️ Time Budget (90 minutes)
 
-- **Minute ~3**: **🛡️ CHECKPOINT** — call `safeoutputs___create_pull_request` immediately after baseline analysis is created (Date Context Establishment — see the CHECKPOINT section below). This is your crash-resilience checkpoint. ALL subsequent work (generator output, translations) is automatically captured in this PR even if the engine crashes afterward.
-- **Minutes 0–5**: Date validation, discover English articles, set up MCP gateway
-- **Minutes 5–20**: Generate article HTML files using the TypeScript generator (Step 3)
+- **Minute ~1–2**: Date Context Establishment + **🛡️ CHECKPOINT** — create baseline analysis file, then call `safeoutputs___create_pull_request` IMMEDIATELY. This is your crash-resilience checkpoint. ALL subsequent work (MCP checks, generator output, translations) is automatically captured in this PR even if the engine crashes afterward.
+- **Minutes 2–5**: MCP Health Gate (diagnostic + EP health check + Memory health check) — AFTER checkpoint is secured
+- **Minutes 5–10**: Pre-flight check + Discover English articles
+- **Minutes 10–20**: Generate article HTML files using the TypeScript generator (Step 3)
 - **Minutes 20–75**: **AI Translation** — translate English narrative content per file (Step 3b)
 - **Minutes 75–82**: Validate translated HTML files (Step 4)
-- **Minutes 82–88**: Final PR confirmation (checkpoint PR already created at minute ~3; if NOT yet called, call `safeoutputs___create_pull_request` now)
+- **Minutes 82–88**: Final PR confirmation (checkpoint PR already created at minute ~1–2; if NOT yet called, call `safeoutputs___create_pull_request` now)
 
 > **🔑 TRANSLATION FOCUS**: The generator produces articles with localized UI but English narrative. YOU translate ALL English content.
 
-> **⚠️ HARD DEADLINE**: Translation MUST stop by minute 75 to leave time for validation and PR creation. If you did NOT call `safeoutputs___create_pull_request` at the minute ~3 checkpoint, you MUST call it before minute 86. Partial translations in a PR are better than a timeout with no PR.
+> **⚠️ HARD DEADLINE**: Translation MUST stop by minute 75 to leave time for validation and PR creation. If you did NOT call `safeoutputs___create_pull_request` at the minute ~1–2 checkpoint, you MUST call it before minute 86. Partial translations in a PR are better than a timeout with no PR.
 
-> **🛡️ EARLY SAFE OUTPUT — CRITICAL FOR ENGINE CRASH RESILIENCE**: The Copilot engine may terminate unexpectedly due to transient authentication failures — typically at minute 10–20 into the run. To protect your work, call `safeoutputs___create_pull_request` **immediately after the baseline analysis summary is created in Date Context Establishment (minute ~3)**, before running MCP health checks, discovery, or the generator. The framework captures ALL files in the working directory when the agent job ends (whether normally or due to a crash), so translations completed AFTER the safeoutputs call are still included in the PR. If you have NOT yet called safeoutputs and the engine crashes, ALL work is lost. **Call it at minute ~3 right after the baseline summary is written, then keep working.**
-
-## MANDATORY MCP Health Gate
-
-Before starting any translation work, verify that MCP servers required by this workflow are available. The translate workflow uses `european-parliament` MCP for supplemental context (not required for core translation), `memory` for cross-run terminology tracking, and `sequential-thinking` for complex translation decisions.
-
-> **⚡ SPEED NOTE**: The EP MCP health check is helpful but **NOT required** for translation. If the EP API is unreachable, log a warning and continue — the translate workflow reads existing English HTML articles, it does not need EP API data. Do NOT spend more than 2 minutes total on health checks. Minimise retries and wait times to preserve the time budget for translation work.
-
-### Step 0: EP API Connectivity & AWF Firewall Pre-Check (bash)
-
-Run a comprehensive network diagnostic **before** the MCP health gate to detect AWF firewall blocks, DNS failures, and EP API outages instantly:
-
-```bash
-echo "=== AWF FIREWALL & EP API DIAGNOSTIC ==="
-echo "Timestamp: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
-
-# 1. DNS resolution check
-echo "--- DNS Resolution ---"
-if command -v getent >/dev/null 2>&1; then
-  DNS_EXIT=0
-  DNS_OUTPUT=$(set -o pipefail; getent hosts data.europarl.europa.eu | head -5) || DNS_EXIT=$?
-  if [ $DNS_EXIT -eq 0 ] && [ -n "$DNS_OUTPUT" ]; then
-    printf '%s\n' "$DNS_OUTPUT"
-  else
-    echo "DNS FAILED — AWF may be blocking DNS"
-  fi
-elif command -v nslookup >/dev/null 2>&1; then
-  DNS_EXIT=0
-  DNS_OUTPUT=$(set -o pipefail; nslookup data.europarl.europa.eu 2>&1 | head -5) || DNS_EXIT=$?
-  if [ $DNS_EXIT -eq 0 ] && [ -n "$DNS_OUTPUT" ]; then
-    printf '%s\n' "$DNS_OUTPUT"
-  else
-    echo "DNS FAILED — AWF may be blocking DNS"
-  fi
-else
-  echo "DNS FAILED — neither getent nor nslookup is available"
-fi
-
-# 2. MCP Gateway connectivity check (preferred path in AWF sandbox)
-echo "--- MCP Gateway Connectivity Check ---"
-source scripts/mcp-setup.sh
-if [ -n "${EP_MCP_GATEWAY_URL:-}" ]; then
-  if GW_STATUS=$(curl -sS -o /dev/null -w "%{http_code}" --connect-timeout 10 --max-time 30 \
-    -H "Content-Type: application/json" \
-    ${EP_MCP_GATEWAY_API_KEY:+-H "Authorization: Bearer ${EP_MCP_GATEWAY_API_KEY}"} \
-    -X POST -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"curl-diag","version":"1.0.0"}}}' \
-    "${EP_MCP_GATEWAY_URL}" 2>/dev/null); then
-    GW_CURL_EXIT=0
-  else
-    GW_CURL_EXIT=$?
-  fi
-  GW_STATUS="${GW_STATUS:-000}"
-  echo "MCP Gateway: HTTP ${GW_STATUS} (curl exit ${GW_CURL_EXIT})"
-  echo "MCP Gateway URL: $EP_MCP_GATEWAY_URL"
-  echo "MCP Gateway Auth: ${EP_MCP_GATEWAY_API_KEY:+SET (${#EP_MCP_GATEWAY_API_KEY} chars)}"
-  [ -z "${EP_MCP_GATEWAY_API_KEY:-}" ] && echo "MCP Gateway Auth: NOT SET"
-  echo "MCP Client Timeout: ${MCP_CLIENT_TIMEOUT_MS:-NOT SET}ms"
-else
-  echo "⚠️ EP_MCP_GATEWAY_URL not set — mcp-setup.sh may have failed"
-fi
-
-# 3. Direct EP API HTTP connectivity (diagnostic only — MCP gateway is preferred)
-echo "--- EP API Direct HTTP Check ---"
-if EP_STATUS=$(curl -sS -o /dev/null -w "%{http_code}" --connect-timeout 10 --max-time 120 "https://data.europarl.europa.eu/api/v2/meps?format=application%2Fld%2Bjson&offset=0&limit=1" 2>/dev/null); then
-  EP_CURL_EXIT=0
-else
-  EP_CURL_EXIT=$?
-fi
-EP_STATUS="${EP_STATUS:-000}"
-case "$EP_CURL_EXIT" in
-  0)  echo "EP API HTTP Status: $EP_STATUS" ;;
-  6)  echo "EP API HTTP Status: $EP_STATUS (curl exit $EP_CURL_EXIT: DNS resolution failed)" ;;
-  7)  echo "EP API HTTP Status: $EP_STATUS (curl exit $EP_CURL_EXIT: connection failed)" ;;
-  28) echo "EP API HTTP Status: $EP_STATUS (curl exit $EP_CURL_EXIT: operation timed out)" ;;
-  *)  echo "EP API HTTP Status: $EP_STATUS (curl exit $EP_CURL_EXIT: transport/TLS/other client error)" ;;
-esac
-
-# 4. Network reachability
-echo "--- Network Reachability ---"
-for host in data.europarl.europa.eu github.com api.github.com; do
-  timeout 5 bash -c "echo >/dev/tcp/$host/443" 2>/dev/null && \
-    echo "$host:443 REACHABLE" || echo "$host:443 UNREACHABLE (AWF firewall?)"
-done
-
-# 5. MCP environment check
-echo "--- MCP Environment ---"
-echo "EP_REQUEST_TIMEOUT_MS=${EP_REQUEST_TIMEOUT_MS:-NOT SET (default 60000)}"
-
-# 6. Diagnosis (uses curl exit code to distinguish DNS/connect/timeout failures)
-if [ "$EP_CURL_EXIT" -eq 6 ]; then
-  echo "⚠️ EP API DNS FAILURE (curl exit 6) — AWF firewall blocking DNS resolution"
-  echo "   Translation can still proceed with existing English articles."
-elif [ "$EP_CURL_EXIT" -eq 7 ]; then
-  echo "⚠️ EP API CONNECTION REFUSED (curl exit 7) — AWF firewall blocking HTTPS"
-  echo "   Translation can still proceed with existing English articles."
-elif [ "$EP_CURL_EXIT" -eq 28 ]; then
-  echo "⚠️ EP API TIMEOUT (curl exit 28) — EP API slow, not a firewall issue"
-  echo "   Translation can still proceed with existing English articles."
-elif [ "$EP_STATUS" = "000" ]; then
-  echo "⚠️ EP API UNREACHABLE (HTTP 000, curl exit $EP_CURL_EXIT) — transport/TLS error"
-  echo "   Translation can still proceed with existing English articles."
-elif [ "$EP_STATUS" -ge 500 ] 2>/dev/null; then
-  echo "⚠️ EP API SERVER ERROR (HTTP $EP_STATUS) — EP MCP health gate may fail. Translation can still proceed."
-elif [ "$EP_STATUS" = "200" ]; then
-  echo "✅ EP API reachable and responding (HTTP 200)"
-fi
-```
-
-### EP MCP Health Check (helpful but NOT required for translation)
-
-1. Call `european_parliament___get_plenary_sessions({ limit: 1 })` — if successful, EP MCP is healthy
-2. If it fails, wait 10 seconds and retry (**1 retry only** — max 2 total attempts to save time)
-3. If both attempts fail:
-   - Log a brief warning: "⚠️ EP MCP unavailable — continuing without EP context (not needed for translation)"
-   - Continue with translation immediately — existing English articles can be translated without EP MCP
-   - Do NOT noop, do NOT call `get_server_health`, do NOT spend additional time diagnosing
-
-**Implementation pattern** — execute this check quickly:
-
-```javascript
-// EP MCP Health Gate — quick check, not required for translation
-european_parliament___get_plenary_sessions({ limit: 1 })
-// If it fails once, retry after 10s. If still fails, log warning and move on.
-// Translation reads existing English HTML files — EP API data is supplemental only.
-```
-
-### Memory MCP Health Check (helpful but not required)
-
-1. Call `memory___read_graph({})` — if successful, the memory MCP server is healthy
-2. If it fails, wait 10 seconds and retry (**1 retry only** — max 2 total attempts)
-3. If both attempts fail:
-   - Log the warning: "⚠️ Memory MCP server unavailable — proceeding without cross-run terminology tracking"
-   - Continue with translation (memory is helpful but NOT required for core translation)
-
-```javascript
-// Memory MCP Health Gate — verify memory server availability
-memory___read_graph({})
-// If the call succeeds, proceed to Date Context Establishment below.
-// If it fails after 1 retry (10s wait), log a warning and continue.
-```
-
-> **NOTE**: Both EP MCP and Memory MCP are declared in `mcp-servers:` and MUST be health-checked. The translate workflow should NEVER noop solely because one MCP server is unavailable — partial results are always better than no results. Keep total health check time under 2 minutes.
+> **🛡️ EARLY SAFE OUTPUT — CRITICAL FOR ENGINE CRASH RESILIENCE**: The Copilot engine may terminate unexpectedly due to transient authentication failures — typically at minute 10–20 into the run. To protect your work, call `safeoutputs___create_pull_request` **immediately after the baseline analysis summary is created in Date Context Establishment (minute ~1–2)**, before running MCP health checks, discovery, or the generator. The framework captures ALL files in the working directory when the agent job ends (whether normally or due to a crash), so translations completed AFTER the safeoutputs call are still included in the PR. If you have NOT yet called safeoutputs and the engine crashes, ALL work is lost. **Call it at minute ~2 right after the baseline summary is written, then keep working.**
 
 ## MANDATORY Date Context Establishment
 
-**⚠️ ALWAYS run this block FIRST (immediately after the MCP Health Gate above).**
+**⚠️ ALWAYS run this block as the VERY FIRST step** — before MCP health checks, before diagnostics, before anything else. The baseline analysis file it creates enables the CHECKPOINT safeoutputs call that protects all subsequent work from engine auth failures.
 
 ```bash
 echo "=== Translation Date Context ==="
@@ -598,7 +458,7 @@ fi
 
 ## 🛡️ CHECKPOINT: Immediate Safe Output (minute ~3)
 
-> **⚡ MANDATORY — DO THIS NOW, BEFORE ANY OTHER STEP**: Call `safeoutputs___create_pull_request` **immediately** after the Date Context Establishment block above creates the baseline analysis summary. Do NOT wait until after the generator or translations. The framework captures ALL files in the working directory when the agent job ends — translations done AFTER this call are included in the PR automatically.
+> **⚡ MANDATORY — DO THIS NOW**: Call `safeoutputs___create_pull_request` **immediately** after the Date Context Establishment block above creates the baseline analysis summary. Do NOT wait until after MCP health checks, the generator, or translations. The framework captures ALL files in the working directory when the agent job ends — MCP diagnostics, generator output, and translations done AFTER this call are all included in the PR automatically.
 
 **Why so early?** The Copilot engine may crash at minute 10–20 due to transient authentication failures. If that happens before a safeoutputs call is made, ALL work is lost and no PR is created. By calling it at minute ~3 (when the baseline analysis file already exists), you guarantee that at minimum the analysis artifact is preserved, and that all subsequent generator output and translations are automatically captured in the same PR.
 
@@ -608,7 +468,148 @@ Call safeoutputs now with:
 - **base**: `main`
 - **head**: `news/translate-${ARTICLE_DATE}-${RUN_ID}` (use ARTICLE_DATE and RUN_ID from above)
 
-> **After calling safeoutputs**: continue immediately with Pre-flight, Step 1 (discovery), Step 3 (generator), and Step 3b (AI translation). Do NOT stop. The PR title remains as set above, but all subsequent translations are automatically captured as file changes in this PR.
+> **After calling safeoutputs**: continue immediately with the MCP Health Gate below, then Pre-flight, Step 1 (discovery), Step 3 (generator), and Step 3b (AI translation). Do NOT stop. The PR title remains as set above, but all subsequent translations are automatically captured as file changes in this PR.
+
+## MANDATORY MCP Health Gate
+
+> **⚡ This runs AFTER the CHECKPOINT** — safeoutputs has already been called above, so any time spent here is protected. The translate workflow uses `european-parliament` MCP for supplemental context (not required for core translation), `memory` for cross-run terminology tracking, and `sequential-thinking` for complex translation decisions.
+
+> **⚡ SPEED NOTE**: The EP MCP health check is helpful but **NOT required** for translation. If the EP API is unreachable, log a warning and continue — the translate workflow reads existing English HTML articles, it does not need EP API data. Do NOT spend more than 2 minutes total on health checks. Minimise retries and wait times to preserve the time budget for translation work.
+
+### Step 0: EP API Connectivity & AWF Firewall Pre-Check (bash)
+
+Run a comprehensive network diagnostic to detect AWF firewall blocks, DNS failures, and EP API outages. This is **informational only** — the CHECKPOINT above is already secured:
+
+```bash
+echo "=== AWF FIREWALL & EP API DIAGNOSTIC ==="
+echo "Timestamp: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+
+# 1. DNS resolution check
+echo "--- DNS Resolution ---"
+if command -v getent >/dev/null 2>&1; then
+  DNS_EXIT=0
+  DNS_OUTPUT=$(set -o pipefail; getent hosts data.europarl.europa.eu | head -5) || DNS_EXIT=$?
+  if [ $DNS_EXIT -eq 0 ] && [ -n "$DNS_OUTPUT" ]; then
+    printf '%s\n' "$DNS_OUTPUT"
+  else
+    echo "DNS FAILED — AWF may be blocking DNS"
+  fi
+elif command -v nslookup >/dev/null 2>&1; then
+  DNS_EXIT=0
+  DNS_OUTPUT=$(set -o pipefail; nslookup data.europarl.europa.eu 2>&1 | head -5) || DNS_EXIT=$?
+  if [ $DNS_EXIT -eq 0 ] && [ -n "$DNS_OUTPUT" ]; then
+    printf '%s\n' "$DNS_OUTPUT"
+  else
+    echo "DNS FAILED — AWF may be blocking DNS"
+  fi
+else
+  echo "DNS FAILED — neither getent nor nslookup is available"
+fi
+
+# 2. MCP Gateway connectivity check (preferred path in AWF sandbox)
+echo "--- MCP Gateway Connectivity Check ---"
+source scripts/mcp-setup.sh
+if [ -n "${EP_MCP_GATEWAY_URL:-}" ]; then
+  if GW_STATUS=$(curl -sS -o /dev/null -w "%{http_code}" --connect-timeout 10 --max-time 30 \
+    -H "Content-Type: application/json" \
+    ${EP_MCP_GATEWAY_API_KEY:+-H "Authorization: Bearer ${EP_MCP_GATEWAY_API_KEY}"} \
+    -X POST -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"curl-diag","version":"1.0.0"}}}' \
+    "${EP_MCP_GATEWAY_URL}" 2>/dev/null); then
+    GW_CURL_EXIT=0
+  else
+    GW_CURL_EXIT=$?
+  fi
+  GW_STATUS="${GW_STATUS:-000}"
+  echo "MCP Gateway: HTTP ${GW_STATUS} (curl exit ${GW_CURL_EXIT})"
+  echo "MCP Gateway URL: $EP_MCP_GATEWAY_URL"
+  echo "MCP Gateway Auth: ${EP_MCP_GATEWAY_API_KEY:+SET (${#EP_MCP_GATEWAY_API_KEY} chars)}"
+  [ -z "${EP_MCP_GATEWAY_API_KEY:-}" ] && echo "MCP Gateway Auth: NOT SET"
+  echo "MCP Client Timeout: ${MCP_CLIENT_TIMEOUT_MS:-NOT SET}ms"
+else
+  echo "⚠️ EP_MCP_GATEWAY_URL not set — mcp-setup.sh may have failed"
+fi
+
+# 3. Direct EP API HTTP connectivity (diagnostic only — MCP gateway is preferred; short timeout to avoid blocking)
+echo "--- EP API Direct HTTP Check ---"
+if EP_STATUS=$(curl -sS -o /dev/null -w "%{http_code}" --connect-timeout 10 --max-time 30 "https://data.europarl.europa.eu/api/v2/meps?format=application%2Fld%2Bjson&offset=0&limit=1" 2>/dev/null); then
+  EP_CURL_EXIT=0
+else
+  EP_CURL_EXIT=$?
+fi
+EP_STATUS="${EP_STATUS:-000}"
+case "$EP_CURL_EXIT" in
+  0)  echo "EP API HTTP Status: $EP_STATUS" ;;
+  6)  echo "EP API HTTP Status: $EP_STATUS (curl exit $EP_CURL_EXIT: DNS resolution failed)" ;;
+  7)  echo "EP API HTTP Status: $EP_STATUS (curl exit $EP_CURL_EXIT: connection failed)" ;;
+  28) echo "EP API HTTP Status: $EP_STATUS (curl exit $EP_CURL_EXIT: operation timed out)" ;;
+  *)  echo "EP API HTTP Status: $EP_STATUS (curl exit $EP_CURL_EXIT: transport/TLS/other client error)" ;;
+esac
+
+# 4. Network reachability
+echo "--- Network Reachability ---"
+for host in data.europarl.europa.eu github.com api.github.com; do
+  timeout 5 bash -c "echo >/dev/tcp/$host/443" 2>/dev/null && \
+    echo "$host:443 REACHABLE" || echo "$host:443 UNREACHABLE (AWF firewall?)"
+done
+
+# 5. MCP environment check
+echo "--- MCP Environment ---"
+echo "EP_REQUEST_TIMEOUT_MS=${EP_REQUEST_TIMEOUT_MS:-NOT SET (default 60000)}"
+
+# 6. Diagnosis (uses curl exit code to distinguish DNS/connect/timeout failures)
+if [ "$EP_CURL_EXIT" -eq 6 ]; then
+  echo "⚠️ EP API DNS FAILURE (curl exit 6) — AWF firewall blocking DNS resolution"
+  echo "   Translation can still proceed with existing English articles."
+elif [ "$EP_CURL_EXIT" -eq 7 ]; then
+  echo "⚠️ EP API CONNECTION REFUSED (curl exit 7) — AWF firewall blocking HTTPS"
+  echo "   Translation can still proceed with existing English articles."
+elif [ "$EP_CURL_EXIT" -eq 28 ]; then
+  echo "⚠️ EP API TIMEOUT (curl exit 28) — EP API slow, not a firewall issue"
+  echo "   Translation can still proceed with existing English articles."
+elif [ "$EP_STATUS" = "000" ]; then
+  echo "⚠️ EP API UNREACHABLE (HTTP 000, curl exit $EP_CURL_EXIT) — transport/TLS error"
+  echo "   Translation can still proceed with existing English articles."
+elif [ "$EP_STATUS" -ge 500 ] 2>/dev/null; then
+  echo "⚠️ EP API SERVER ERROR (HTTP $EP_STATUS) — EP MCP health gate may fail. Translation can still proceed."
+elif [ "$EP_STATUS" = "200" ]; then
+  echo "✅ EP API reachable and responding (HTTP 200)"
+fi
+```
+
+### EP MCP Health Check (helpful but NOT required for translation)
+
+1. Call `european_parliament___get_plenary_sessions({ limit: 1 })` — if successful, EP MCP is healthy
+2. If it fails, wait 10 seconds and retry (**1 retry only** — max 2 total attempts to save time)
+3. If both attempts fail:
+   - Log a brief warning: "⚠️ EP MCP unavailable — continuing without EP context (not needed for translation)"
+   - Continue with translation immediately — existing English articles can be translated without EP MCP
+   - Do NOT noop, do NOT call `get_server_health`, do NOT spend additional time diagnosing
+
+**Implementation pattern** — execute this check quickly:
+
+```javascript
+// EP MCP Health Gate — quick check, not required for translation
+european_parliament___get_plenary_sessions({ limit: 1 })
+// If it fails once, retry after 10s. If still fails, log warning and move on.
+// Translation reads existing English HTML files — EP API data is supplemental only.
+```
+
+### Memory MCP Health Check (helpful but not required)
+
+1. Call `memory___read_graph({})` — if successful, the memory MCP server is healthy
+2. If it fails, wait 10 seconds and retry (**1 retry only** — max 2 total attempts)
+3. If both attempts fail:
+   - Log the warning: "⚠️ Memory MCP server unavailable — proceeding without cross-run terminology tracking"
+   - Continue with translation (memory is helpful but NOT required for core translation)
+
+```javascript
+// Memory MCP Health Gate — verify memory server availability
+memory___read_graph({})
+// If the call succeeds, proceed to Pre-flight below.
+// If it fails after 1 retry (10s wait), log a warning and continue.
+```
+
+> **NOTE**: Both EP MCP and Memory MCP are declared in `mcp-servers:` and MUST be health-checked. The translate workflow should NEVER noop solely because one MCP server is unavailable — partial results are always better than no results. Keep total health check time under 2 minutes.
 
 ## Pre-flight: Verify No Pending Content PRs
 
