@@ -138,11 +138,13 @@ You are the **Translation Agent**. Your ONLY job: take existing English articles
 
 ## ⚡ IMMEDIATE ACTIONS (do these FIRST, before reading anything else)
 
+> **🚨 CRITICAL — SESSION EXPIRY**: The safeoutputs MCP server session EXPIRES after ~10-20 minutes of inactivity. In run #107 (Apr 14), the agent translated 13 files over 65 minutes but only called safeoutputs at the end — every call returned **"session not found"** and ALL translations were lost. `git add`/`git commit`/`git push` will NOT save your work — the framework ONLY captures **uncommitted working directory changes** after a successful safeoutputs call. There is NO fallback.
+
 1. **Run the Date Context bash block** below (MANDATORY Date Context Establishment section)
-2. **Call `safeoutputs___create_pull_request`** immediately after with: title=`Translate articles checkpoint — ${ARTICLE_DATE} (run ${RUN_ID})`, body=`Translation checkpoint`, base=`main`, head=`news/translate-${ARTICLE_DATE}-${RUN_ID}`
+2. **Call `safeoutputs___create_pull_request` IMMEDIATELY** (within the first 2 minutes, BEFORE translating) with: title=`Translate articles checkpoint — ${ARTICLE_DATE} (run ${RUN_ID})`, body=`Translation checkpoint`, base=`main`, head=`news/translate-${ARTICLE_DATE}-${RUN_ID}`
 3. **Then immediately proceed to Step 1 (Discovery) and Step 3 (Generation/Translation)** — do NOT spend time on health checks or analysis
 
-> Auth tokens expire at minute 10–20. The framework captures ALL files when the job ends. Call safeoutputs early, then KEEP TRANSLATING.
+> Once safeoutputs is called successfully, the framework captures ALL files you create/edit for the rest of the job. Every file you write with `edit`/`create` tools is automatically included in the PR. If you delay this call past ~10 minutes, the session WILL expire and you WILL lose all work.
 
 > **📚 Reference**: [SHARED_PROMPT_PATTERNS.md](../prompts/SHARED_PROMPT_PATTERNS.md) for EP MCP tools and safe outputs.
 
@@ -150,7 +152,7 @@ You are the **Translation Agent**. Your ONLY job: take existing English articles
 
 **ALLOWED:** ✅ Create `news/*.html` translations (non-English) | ✅ Read `news/*-en.html` sources | ✅ Write to `analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}/`
 
-**FORBIDDEN:** ❌ Modify English articles, `.github/`, `test/`, `index*.html`, `package.json` | ❌ Write scripts, translation dictionaries, or batch tools | ❌ Use `sed`/`awk`/regex for translating narrative content | ❌ Use `git add`/`commit`/`push` — framework handles git | ❌ Call `safeoutputs___noop` — always produce translations | ❌ Exit with analysis-only PR without attempting translation
+**FORBIDDEN:** ❌ Modify English articles, `.github/`, `test/`, `index*.html`, `package.json` | ❌ Write scripts, translation dictionaries, or batch tools | ❌ Use `sed`/`awk`/regex for translating narrative content | ❌ Use `git add`/`commit`/`push` — these are USELESS, framework does NOT capture committed files, only uncommitted working directory changes | ❌ Call `safeoutputs___noop` — always produce translations | ❌ Exit with analysis-only PR without attempting translation
 
 > **Minor TypeScript fixes** (max 20 lines in `src/`/`scripts/`) allowed ONLY to unblock translation generation.
 
@@ -214,7 +216,7 @@ sv (Swedish), da (Danish), no (Norwegian), fi (Finnish), de (German), fr (French
 
 > **TRANSLATION IS THE PRIORITY**: Spend 65+ minutes translating. Skip or minimize everything else. Partial translations in a PR are better than a timeout with no translations.
 
-> **No git commands**: Write files with `edit`/`create` tools → call `safeoutputs___create_pull_request` once. Framework handles git.
+> **No git commands**: Write files with `edit`/`create` tools → call `safeoutputs___create_pull_request` EARLY (first 2 min). NEVER use `git add`/`commit`/`push` — the framework does NOT capture committed files. Only uncommitted working directory changes are captured after a successful safeoutputs call.
 
 ## MANDATORY Date Context Establishment
 
@@ -297,7 +299,9 @@ else
 fi
 ```
 
-## 🛡️ CHECKPOINT (minute ~2)
+## 🛡️ CHECKPOINT (minute ~2) — MANDATORY
+
+> **⚠️ The safeoutputs MCP session EXPIRES. You MUST call it within the first 2 minutes or all work will be lost.**
 
 Call `safeoutputs___create_pull_request` NOW (if not already called) with title=`Translate articles checkpoint — ${ARTICLE_DATE} (run ${RUN_ID})`, body=`Translation checkpoint`, base=`main`, head=`news/translate-${ARTICLE_DATE}-${RUN_ID}`. Then **immediately proceed to Step 1** — do NOT stop here.
 
@@ -767,7 +771,7 @@ echo "💾 Generation state persisted to $GEN_STATE_FILE"
 
 ### Step 3 Checkpoint Fallback
 
-If you did NOT call `safeoutputs___create_pull_request` yet, call it NOW before starting AI translation.
+> **⚠️ WARNING**: If you have NOT called `safeoutputs___create_pull_request` yet, the MCP session may already be expired (sessions expire after ~10-20 min). Try calling it NOW — if you get "session not found", all work is lost. This is why the IMMEDIATE ACTIONS section tells you to call it in the first 2 minutes.
 
 ```javascript
 // FALLBACK: Call safeoutputs only if NOT already called at minute ~3 checkpoint
@@ -1003,11 +1007,11 @@ echo "📊 Translation analysis directory: ${ANALYSIS_DIR}/"
 
 ## Step 5: Create Pull Request
 
-> **🛡️ REMINDER — SAFE OUTPUT**: If you have NOT already called `safeoutputs___create_pull_request` (as instructed in the minute ~3 checkpoint in Date Context Establishment, or in the Step 3 fallback), call it NOW. This is the last chance — you MUST call it before minute 86. Files generated after this call are still captured if the agent job continues.
+> **🛡️ REMINDER — SAFE OUTPUT**: If you have NOT already called `safeoutputs___create_pull_request`, the MCP session is likely EXPIRED by now (sessions expire after ~10-20 min of inactivity). If you get "session not found" errors, it is too late — all work is lost. This is why you MUST call safeoutputs in the first 2 minutes as instructed in IMMEDIATE ACTIONS. If you already called it successfully earlier, this step just updates the PR title/body.
 
 #### MANDATORY Git State Safety Check (Prevent "No changes to commit" Error)
 
-> **⚠️ CRITICAL**: The `create_pull_request` safe output expects ALL file changes to be **uncommitted working directory modifications**. If any git commits were accidentally made (e.g., via `git add` + `git commit`), this safety check undoes them so the safe output can capture the changes.
+> **⚠️ CRITICAL**: The `create_pull_request` safe output expects ALL file changes to be **uncommitted working directory modifications**. If any git commits were accidentally made (e.g., via `git add` + `git commit`), this safety check undoes them so the safe output can capture the changes. NEVER use `git add`/`commit`/`push` — the framework does NOT capture committed files. Using git commands will actually PREVENT the framework from capturing your translations.
 >
 > **NOTE**: The `git reset` and `git checkout` commands in this block are **explicitly whitelisted** — they are the only git state-changing commands permitted in this workflow. Run them exactly as written below.
 
@@ -1185,7 +1189,9 @@ safeoutputs___create_pull_request({
 
 ## Error Handling
 
-- **Engine crash**: If safeoutputs was called, framework creates PR with all files in working directory
+- **Engine crash**: If safeoutputs was called early, framework creates PR with all uncommitted files in working directory
+- **"session not found" from safeoutputs**: The MCP session has expired — all work is lost. This happens if safeoutputs was NOT called within the first ~10 minutes. There is NO recovery. Prevent this by calling safeoutputs in the first 2 minutes as instructed.
+- **`git commit` does NOT help**: The framework ONLY captures uncommitted working directory changes. Using `git add`/`commit`/`push` will PREVENT file capture, not enable it.
 - **Generator failure**: Log error, continue with remaining types. Move to backfill (Phase 2) if all fail.
 - **No English articles today**: Scan backward for missing translations. Improve existing if all complete.
 - **MCP unavailable**: Continue without — translation reads existing HTML, not EP API data
