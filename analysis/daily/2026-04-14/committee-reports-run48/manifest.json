@@ -1,0 +1,65 @@
+{
+  "runId": "e93a1c2e-1784-43d5-8039-6855c4e1a1d4",
+  "date": "2026-04-14",
+  "articleTypeSlug": "committee-reports-run48",
+  "startTime": "2026-04-14T05:58:32.442Z",
+  "endTime": "2026-04-14T05:58:32.443Z",
+  "articleTypes": [
+    "committee-reports"
+  ],
+  "methods": [
+    {
+      "method": "significance-scoring",
+      "status": "completed",
+      "outputFile": "classification/significance-scoring.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: classification/significance-scoring.md"
+    },
+    {
+      "method": "political-threat-landscape",
+      "status": "completed",
+      "outputFile": "threat-assessment/political-threat-landscape.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: threat-assessment/political-threat-landscape.md"
+    },
+    {
+      "method": "risk-matrix",
+      "status": "completed",
+      "outputFile": "risk-scoring/risk-matrix.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: risk-scoring/risk-matrix.md"
+    },
+    {
+      "method": "deep-analysis",
+      "status": "completed",
+      "outputFile": "existing/deep-analysis.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: existing/deep-analysis.md"
+    },
+    {
+      "method": "stakeholder-analysis",
+      "status": "completed",
+      "outputFile": "existing/stakeholder-impact.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: existing/stakeholder-impact.md"
+    },
+    {
+      "method": "synthesis-summary",
+      "status": "completed",
+      "outputFile": "existing/synthesis-summary.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: existing/synthesis-summary.md"
+    }
+  ],
+  "overallConfidence": "medium",
+  "dataSourcesUsed": [
+    "ai-agentic-workflow",
+    "filesystem-discovery"
+  ]
+}
