@@ -217,7 +217,7 @@ fi
 
 Call `safeoutputs___create_pull_request` with:
 - **title**: `Translate articles checkpoint — ${ARTICLE_DATE} (run ${RUN_ID})` (use the ARTICLE_DATE and RUN_ID variables from the bash block above; the `[news] ` prefix is added automatically)
-- **body**: `Baseline translation analysis checkpoint. Engine crash-resilience PR — generator output and AI translations will be added to this PR automatically as the agent continues working.`
+- **body**: `Baseline translation analysis checkpoint. Engine crash resilience PR — generator output and AI translations will be added to this PR automatically as the agent continues working.`
 - **base**: `main`
 - **head**: `news/translate-${ARTICLE_DATE}-${RUN_ID}` (use ARTICLE_DATE and RUN_ID from above)
 
@@ -465,7 +465,7 @@ When multiple article–language pairs are queued (backfill mode), maximise thro
 
 > **ℹ️ NOTE**: If you followed the **⚡⚡⚡ IMMEDIATE FIRST ACTION** section at the very top of this document, you have already run the bash block below AND called `safeoutputs___create_pull_request`. In that case, skip directly to the [🛡️ CHECKPOINT](#-checkpoint-immediate-safe-output-minute-3) section below to confirm the checkpoint was made, then proceed to the **MANDATORY MCP Health Gate**. Do NOT run the bash block again or call safeoutputs again.
 
-**⚠️ ALWAYS run this block as the VERY FIRST step (if not already done above)** — before MCP health checks, before diagnostics, before anything else. The baseline analysis file it creates enables the CHECKPOINT safeoutputs call that protects all subsequent work from engine auth failures.
+**⚠️ ONLY run this block if you did NOT follow the IMMEDIATE FIRST ACTION section at the top of this document** — before MCP health checks, before diagnostics, before anything else. The baseline analysis file it creates enables the CHECKPOINT safeoutputs call that protects all subsequent work from engine auth failures.
 
 ```bash
 echo "=== Translation Date Context ==="
