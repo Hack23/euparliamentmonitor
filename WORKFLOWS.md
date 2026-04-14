@@ -430,7 +430,7 @@ graph TD
 
 | Workflow | Schedule | Purpose |
 |----------|----------|---------|
-| `news-translate.md` | Mon–Fri 09/12/15 UTC, Sat 12 UTC, 1st+28th 12 UTC | Translate English articles to sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh |
+| `news-translate.md` | Mon–Fri 07/09/12/15/17/19 UTC, Sat–Sun 09/12/15 UTC | Translate English articles to sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh |
 
 #### Supported Languages (14 total)
 

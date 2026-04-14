@@ -4,8 +4,8 @@ description: Translates English EU Parliament news articles to 13 other language
 strict: false
 on:
   schedule:
-    - cron: '0 9,12,15,17 * * 1-5' # Weekdays: 4× daily at business hours (after content workflows finish ~07:00)
-    - cron: '0 12 * * 0,6'          # Weekends: single midday pass (Sat+Sun consolidated)
+    - cron: '0 7,9,12,15,17,19 * * 1-5' # Weekdays: 6× daily (added 07:00+19:00 for backlog clearing)
+    - cron: '0 9,12,15 * * 0,6'          # Weekends: 3× daily (added 09:00+15:00 for backlog clearing)
   workflow_dispatch:
     inputs:
       article_types:
@@ -797,9 +797,9 @@ if [ -z "$NEEDS_TRANSLATION" ]; then
           *) BACKFILL_DATES="${BACKFILL_DATES:+$BACKFILL_DATES,}${CHECK_DATE}" ;;
         esac
 
-        # Limit backfill to a manageable batch (max 10 article types per run)
+        # Limit backfill to a manageable batch (max 20 article types per run)
         ITEM_COUNT=$(echo "$NEEDS_TRANSLATION" | tr ',' '\n' | wc -l)
-        if [ "$ITEM_COUNT" -ge 10 ]; then
+        if [ "$ITEM_COUNT" -ge 20 ]; then
           echo "⏱️ Backfill batch limit reached ($ITEM_COUNT items) — remaining gaps will be filled in next run"
           break 2
         fi
@@ -819,8 +819,8 @@ if [ -z "$NEEDS_TRANSLATION" ]; then
   echo "All articles have complete translations — entering improvement mode"
   IMPROVEMENT_MODE="true"
 
-  # Pick the 2 most recent dates with translations to improve
-  IMPROVE_DATES=$(ls news/*-en.html 2>/dev/null | sed 's|news/||;s|-[a-z].*||' | sort -ru | head -2)
+  # Pick the 4 most recent dates with translations to improve
+  IMPROVE_DATES=$(ls news/*-en.html 2>/dev/null | sed 's|news/||;s|-[a-z].*||' | sort -ru | head -4)
   for CHECK_DATE in $IMPROVE_DATES; do
     for EN_FILE in news/${CHECK_DATE}-*-en.html; do
       [ ! -f "$EN_FILE" ] && continue
@@ -829,7 +829,7 @@ if [ -z "$NEEDS_TRANSLATION" ]; then
       echo "✨ Will improve translations: ${CHECK_DATE}/${TYPE}"
       # Enforce item cap inside per-file loop (same pattern as backfill)
       ITEM_COUNT=$(echo "$NEEDS_TRANSLATION" | tr ',' '\n' | wc -l)
-      if [ "$ITEM_COUNT" -ge 2 ]; then
+      if [ "$ITEM_COUNT" -ge 4 ]; then
         break 2
       fi
     done
