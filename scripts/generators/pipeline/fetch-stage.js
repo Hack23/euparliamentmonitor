@@ -116,9 +116,8 @@ function filterFeedItemsByDateRange(items, dateRange, label) {
         return [...items];
     const filtered = items.filter((item) => {
         const normalized = normalizeFeedItemDate(item.date);
-        // Include items without parseable dates — feed endpoints already apply time-scoped filtering
         if (normalized === undefined)
-            return true;
+            return false;
         return normalized >= dateRange.start && normalized <= dateRange.end;
     });
     if (filtered.length !== items.length) {
