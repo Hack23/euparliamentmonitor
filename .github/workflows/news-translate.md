@@ -4,9 +4,8 @@ description: Translates English EU Parliament news articles to 13 other language
 strict: false
 on:
   schedule:
-    - cron: '0 9,12,15,17 * * 1-5'
-    - cron: '0 12 * * 0,6'
-    - cron: '0 13 1 * *'
+    - cron: '0 9,12,15,17 * * 1-5' # Weekdays: 4× daily at business hours (after content workflows finish ~07:00)
+    - cron: '0 12 * * 0,6'          # Weekends: single midday pass (Sat+Sun consolidated)
   workflow_dispatch:
     inputs:
       article_types:
