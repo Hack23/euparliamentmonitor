@@ -75,7 +75,8 @@ These restrictions prevent patch conflicts and workflow failures:
 | Practice | Why Forbidden |
 |----------|--------------|
 | Writing custom Python/Ruby/Perl scripts | Use ONLY the Node.js/TypeScript toolchain |
-| Dangerous shell expansion (`${var@P}`, `${!var}`, `eval`) | Blocked by sandbox security |
+| Dangerous shell expansion (`${var@P}`, `${!var}`, `eval`, nested `$($(..))`, `${var:+...${#other}...}`) | Blocked by sandbox security — use `if/else` blocks instead |
+| Input redirection inside command substitution (`$(cmd < file)`) | May be blocked — use `cmd file` or `cat file \| cmd` instead |
 | Ad-hoc data processing scripts | Use existing `scripts/generate-news-enhanced.js` pipeline |
 | Metadata-only analysis | MUST download and store COMPLETE EP documents |
 | Workarounds for existing tools | Log errors and continue; do not reimplement |
@@ -771,20 +772,35 @@ fi
 echo "--- MCP Gateway Connectivity Check ---"
 source scripts/mcp-setup.sh
 if [ -n "${EP_MCP_GATEWAY_URL:-}" ]; then
-  if GW_STATUS=$(curl -sS -o /dev/null -w "%{http_code}" --connect-timeout 10 --max-time 30 \
-    -H "Content-Type: application/json" \
-    ${EP_MCP_GATEWAY_API_KEY:+-H "Authorization: Bearer ${EP_MCP_GATEWAY_API_KEY}"} \
-    -X POST -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"curl-diag","version":"1.0.0"}}}' \
-    "${EP_MCP_GATEWAY_URL}" 2>/dev/null); then
-    GW_CURL_EXIT=0
+  # Conditionally add auth header (if/else avoids blocked nested shell expansion ${var:+...${#var}...})
+  if [ -n "$EP_MCP_GATEWAY_API_KEY" ]; then
+    if GW_STATUS=$(curl -sS -o /dev/null -w "%{http_code}" --connect-timeout 10 --max-time 30 \
+      -H "Content-Type: application/json" \
+      -H "Authorization: Bearer $EP_MCP_GATEWAY_API_KEY" \
+      -X POST -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"curl-diag","version":"1.0.0"}}}' \
+      "${EP_MCP_GATEWAY_URL}" 2>/dev/null); then
+      GW_CURL_EXIT=0
+    else
+      GW_CURL_EXIT=$?
+    fi
   else
-    GW_CURL_EXIT=$?
+    if GW_STATUS=$(curl -sS -o /dev/null -w "%{http_code}" --connect-timeout 10 --max-time 30 \
+      -H "Content-Type: application/json" \
+      -X POST -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"curl-diag","version":"1.0.0"}}}' \
+      "${EP_MCP_GATEWAY_URL}" 2>/dev/null); then
+      GW_CURL_EXIT=0
+    else
+      GW_CURL_EXIT=$?
+    fi
   fi
   GW_STATUS="${GW_STATUS:-000}"
   echo "MCP Gateway: HTTP ${GW_STATUS} (curl exit ${GW_CURL_EXIT})"
   echo "MCP Gateway URL: $EP_MCP_GATEWAY_URL"
-  echo "MCP Gateway Auth: ${EP_MCP_GATEWAY_API_KEY:+SET (${#EP_MCP_GATEWAY_API_KEY} chars)}"
-  [ -z "${EP_MCP_GATEWAY_API_KEY:-}" ] && echo "MCP Gateway Auth: NOT SET"
+  if [ -n "$EP_MCP_GATEWAY_API_KEY" ]; then
+    echo "MCP Gateway Auth: SET"
+  else
+    echo "MCP Gateway Auth: NOT SET"
+  fi
   echo "MCP Client Timeout: ${MCP_CLIENT_TIMEOUT_MS:-NOT SET}ms"
 else
   echo "⚠️ EP_MCP_GATEWAY_URL not set — mcp-setup.sh may have failed"
