@@ -138,7 +138,7 @@ engine:
 
 ## ⚡⚡⚡ IMMEDIATE FIRST ACTION — RUN THIS BEFORE READING ANYTHING ELSE ⚡⚡⚡
 
-> **🚨 CRITICAL — AUTH EXPIRES EARLY**: Do NOT read the terminology tables, scope restrictions, or any other section below before completing the two steps in this section. The Copilot auth token expires within the first few minutes. If you spend tokens reading this prompt without acting immediately, the run will fail with **"No authentication information found"** and ALL work will be lost with zero output.
+> **🚨 CRITICAL — AUTH EXPIRES EARLY**: Do NOT read the terminology tables, scope restrictions, or any other section below before completing the two steps in this section. The Copilot auth token expires within 10–20 minutes of run start. If you spend tokens reading this long prompt without acting immediately, auth will expire before you reach the checkpoint and the run will fail with **"No authentication information found"** with ALL work lost and zero output.
 >
 > **ACT NOW. Read later.**
 
@@ -221,7 +221,7 @@ Call `safeoutputs___create_pull_request` with:
 - **base**: `main`
 - **head**: `news/translate-${ARTICLE_DATE}-${RUN_ID}` (use ARTICLE_DATE and RUN_ID from above)
 
-> **Why so early?** Auth tokens expire at minute 10–20. The framework captures ALL files in the working directory when the agent job ends (whether normally or due to a crash), so every translation you produce AFTER this call is still included in the PR. If you have NOT called safeoutputs before the crash, ALL work is lost.
+> **Why so early?** Auth tokens expire at minute 10–20. The framework captures ALL files in the working directory when the agent job ends (whether normally or due to a crash), so every translation you produce AFTER this call is still included in the PR. If you have NOT called safeoutputs before the crash, ALL work is lost. (See also the [🛡️ CHECKPOINT](#-checkpoint-immediate-safe-output-minute-3) section later in this document for the full explanation.)
 
 ### ✅ ONLY AFTER completing Steps 1 and 2 above: continue reading the rest of this document and proceed with the full translation workflow.
 
