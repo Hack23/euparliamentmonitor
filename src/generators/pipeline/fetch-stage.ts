@@ -180,7 +180,9 @@ function filterFeedItemsByDateRange<T extends DatedFeedItem>(
 
   const filtered = items.filter((item) => {
     const normalized = normalizeFeedItemDate(item.date);
-    return normalized !== undefined && normalized >= dateRange.start && normalized <= dateRange.end;
+    // Include items without parseable dates — feed endpoints already apply time-scoped filtering
+    if (normalized === undefined) return true;
+    return normalized >= dateRange.start && normalized <= dateRange.end;
   });
 
   if (filtered.length !== items.length) {
