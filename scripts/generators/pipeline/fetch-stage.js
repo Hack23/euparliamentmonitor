@@ -116,7 +116,9 @@ function filterFeedItemsByDateRange(items, dateRange, label) {
         return [...items];
     const filtered = items.filter((item) => {
         const normalized = normalizeFeedItemDate(item.date);
-        return normalized !== undefined && normalized >= dateRange.start && normalized <= dateRange.end;
+        if (normalized === undefined)
+            return false;
+        return normalized >= dateRange.start && normalized <= dateRange.end;
     });
     if (filtered.length !== items.length) {
         console.log(`${INFO_PREFIX} Filtered ${label} to ${filtered.length}/${items.length} items within ` +
