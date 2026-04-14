@@ -3,7 +3,10 @@ name: "News: Translate Articles"
 description: Translates English EU Parliament news articles to 13 other languages. Runs after content workflows generate English articles, ensuring high-quality translations with full linguistic fidelity.
 strict: false
 on:
-  schedule: every 6h
+  schedule:
+    - cron: '0 9,12,15,17 * * 1-5'
+    - cron: '0 12 * * 0,6'
+    - cron: '0 13 1 * *'
   workflow_dispatch:
     inputs:
       article_types:
