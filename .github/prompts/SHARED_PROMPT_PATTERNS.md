@@ -76,7 +76,7 @@ These restrictions prevent patch conflicts and workflow failures:
 |----------|--------------|
 | Writing custom Python/Ruby/Perl scripts | Use ONLY the Node.js/TypeScript toolchain |
 | Dangerous shell expansion (`${var@P}`, `${!var}`, `eval`, nested `$($(..))`, `${var:+...${#other}...}`) | Blocked by sandbox security — use `if/else` blocks instead |
-| Input redirection inside command substitution (`$(cmd < file)`) | May be blocked — use `cmd file` or `cat file \| cmd` instead |
+| Input redirection inside command substitution (`$(cmd < file)`) | Blocked by sandbox — use `cmd file` or `cat file \| cmd` instead |
 | Ad-hoc data processing scripts | Use existing `scripts/generate-news-enhanced.js` pipeline |
 | Metadata-only analysis | MUST download and store COMPLETE EP documents |
 | Workarounds for existing tools | Log errors and continue; do not reimplement |
@@ -772,7 +772,7 @@ fi
 echo "--- MCP Gateway Connectivity Check ---"
 source scripts/mcp-setup.sh
 if [ -n "${EP_MCP_GATEWAY_URL:-}" ]; then
-  # Conditionally add auth header (if/else avoids blocked nested shell expansion ${var:+...${#var}...})
+  # Conditionally add auth header (avoid nested parameter expansion blocked by sandbox)
   if [ -n "$EP_MCP_GATEWAY_API_KEY" ]; then
     if GW_STATUS=$(curl -sS -o /dev/null -w "%{http_code}" --connect-timeout 10 --max-time 30 \
       -H "Content-Type: application/json" \
