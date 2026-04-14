@@ -419,7 +419,7 @@ if [ -n "${EP_MCP_GATEWAY_URL:-}" ]; then
   if [ -n "$EP_MCP_GATEWAY_API_KEY" ]; then
     if GW_STATUS=$(curl -sS -o /dev/null -w "%{http_code}" --connect-timeout 10 --max-time 30 \
       -H "Content-Type: application/json" \
-      -H "Authorization: Bearer $EP_MCP_GATEWAY_API_KEY" \
+      -H "Authorization: $EP_MCP_GATEWAY_API_KEY" \
       -X POST -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"curl-diag","version":"1.0.0"}}}' \
       "${EP_MCP_GATEWAY_URL}" 2>/dev/null); then
       GW_CURL_EXIT=0
