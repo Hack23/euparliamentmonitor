@@ -1,0 +1,86 @@
+{
+  "manifestVersion": "2.0",
+  "analysisDate": "2026-04-14",
+  "analysisTimestamp": "2026-04-14T14:28:07Z",
+  "articleType": "breaking",
+  "runId": 171,
+  "workflowName": "news-breaking",
+  "analysisDirectory": "analysis/daily/2026-04-14/breaking-run171",
+  "articleGenerated": false,
+  "analysisOnly": true,
+  "reason": "No today-dated EP events. Easter recess Day 18/18 (final day). Parliament returns April 15. Tariff activation T-0 eve.",
+  "degradedMode": true,
+  "degradedModeReason": "EP API partially functional: 3/13 endpoints operational, 6 feeds 404. Direct EP API HTTP 000 (connection refused through AWF proxy).",
+  "overallConfidence": "MEDIUM",
+  "overallRiskLevel": "HIGH",
+  "compositeRiskScore": "10.6/25",
+  "politicalTemperature": "6.1/10 ELEVATED",
+  "topSignificanceScore": "9.6/10 (Tariff T-0 activation)",
+  "analysisFiles": [
+    {
+      "file": "synthesis-summary.md",
+      "category": "existing/intelligence",
+      "description": "Integrated intelligence synthesis — tariff T-0 convergence and post-recess pipeline"
+    },
+    {
+      "file": "significance-scoring.md",
+      "category": "classification",
+      "description": "6-event significance scoring with 5-dimension composite"
+    },
+    {
+      "file": "risk-assessment.md",
+      "category": "risk-scoring",
+      "description": "5-risk inventory with L*I scoring and cascade analysis"
+    },
+    {
+      "file": "political-classification.md",
+      "category": "classification",
+      "description": "7-dimension political temperature and actor mapping"
+    },
+    {
+      "file": "threat-analysis.md",
+      "category": "threat-assessment",
+      "description": "Threat landscape, attack tree, and PESTLE analysis"
+    },
+    {
+      "file": "swot-analysis.md",
+      "category": "risk-scoring",
+      "description": "Evidence-based SWOT with TOWS strategic implications"
+    }
+  ],
+  "feedEndpointStatus": {
+    "get_adopted_texts_feed": "OK (32 texts)",
+    "get_meps_feed": "OK (737 MEPs)",
+    "get_plenary_sessions": "OK with year filter (1 session)",
+    "get_events_feed": "404",
+    "get_procedures_feed": "404",
+    "get_documents_feed": "404",
+    "get_plenary_documents_feed": "404",
+    "get_committee_documents_feed": "404",
+    "get_parliamentary_questions_feed": "404",
+    "get_all_generated_stats": "OK (155KB)",
+    "get_server_health": "OK (0/13 operational)",
+    "analyze_coalition_dynamics": "OK"
+  },
+  "skippedDegradedMode": [
+    "detect_voting_anomalies",
+    "generate_political_landscape",
+    "early_warning_system"
+  ],
+  "keyFindings": [
+    "Tariff countermeasures (TA-10-2026-0096) activate April 15 — T-0 eve",
+    "Record legislative velocity: 114 acts in 2026 Q1 vs 78 in 2025 (+46%)",
+    "Grand coalition below majority: EPP+S&D = 323/361",
+    "13 pending COD procedures — largest post-recess backlog",
+    "Fragmentation index 4.04 — three-pole parliamentary structure",
+    "Easter recess Day 18/18 final day — Parliament returns tomorrow"
+  ],
+  "scenarios": [
+    {"name": "Managed Post-Recess Convergence", "probability": "55%"},
+    {"name": "Trade Crisis Escalation", "probability": "30%"},
+    {"name": "Legislative Gridlock", "probability": "15%"}
+  ],
+  "priorRunsCrossReferenced": [169, 170, 168, 167, 163, 156],
+  "mcpServerVersion": "1.2.6",
+  "epApiDirectStatus": "HTTP 000 (connection refused)"
+}
