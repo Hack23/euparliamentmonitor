@@ -1,0 +1,60 @@
+{
+  "manifestVersion": "2.0",
+  "runId": 169,
+  "articleType": "breaking",
+  "analysisDate": "2026-04-14T00:25:00Z",
+  "producedBy": "news-breaking",
+  "articleGenerated": false,
+  "reason": "No today-dated events — Parliament returns from Easter recess, first plenary expected April 15",
+  "degradedMode": true,
+  "degradedModeReason": "EP API feeds partially degraded — events/procedures/documents feeds returning 404",
+  "confidence": "MEDIUM",
+  "compositeRisk": 18.7,
+  "compositeRiskLevel": "ELEVATED",
+  "feedEndpointStatus": {
+    "adopted_texts_feed_today": "INTERNAL_ERROR",
+    "adopted_texts_feed_oneweek": "OK_21_items",
+    "events_feed_today": "404",
+    "events_feed_oneweek": "404",
+    "procedures_feed_today": "404",
+    "procedures_feed_oneweek": "404",
+    "meps_feed_today": "OK_737_items",
+    "documents_feed_oneweek": "404",
+    "plenary_documents_feed_oneweek": "404",
+    "committee_documents_feed_oneweek": "404",
+    "parliamentary_questions_feed_oneweek": "404",
+    "adopted_texts_direct": "OK_51_items",
+    "procedures_direct": "OK_51_items",
+    "coalition_dynamics": "OK_8_groups",
+    "precomputed_stats": "OK_85KB"
+  },
+  "analysisFiles": [
+    "existing/synthesis-summary.md",
+    "classification/significance-scoring.md",
+    "classification/political-classification.md",
+    "risk-scoring/risk-assessment.md",
+    "threat-assessment/political-threat-landscape.md",
+    "documents/document-analysis-index.md"
+  ],
+  "dataCollected": {
+    "adoptedTexts": 51,
+    "procedures": 51,
+    "mepRecords": 737,
+    "coalitionGroups": 8,
+    "precomputedStatsKB": 85
+  },
+  "keyFindings": [
+    "US tariff deadline T-1 (April 15): CRITICAL risk 25/25 — implementation imminent",
+    "Record 2026 legislative pace: 114 acts vs 78 in 2025 (+46%)",
+    "13 pending COD procedures — largest post-recess backlog in EP10",
+    "Grand coalition at 47% — below working majority threshold",
+    "Fragmentation index 6.59 — record high for EP10",
+    "SRMR3 trilogue expected late April — Banking Union milestone",
+    "Anti-corruption directive final endorsement window late April"
+  ],
+  "crossSessionContinuity": {
+    "priorRunsReferenced": ["168", "163", "159-162"],
+    "tariffRiskTrajectory": "20/25 → 23/25 → 25/25 (escalating)",
+    "consecutiveDegradedRuns": 9
+  }
+}
