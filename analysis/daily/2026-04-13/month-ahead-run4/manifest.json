@@ -1,0 +1,65 @@
+{
+  "runId": "07c000a5-e613-4ca8-98c7-cae22b3eb835",
+  "date": "2026-04-13",
+  "articleTypeSlug": "month-ahead-run4",
+  "startTime": "2026-04-13T23:38:28.931Z",
+  "endTime": "2026-04-13T23:38:28.932Z",
+  "articleTypes": [
+    "month-ahead"
+  ],
+  "methods": [
+    {
+      "method": "significance-classification",
+      "status": "completed",
+      "outputFile": "classification/significance-classification.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: classification/significance-classification.md"
+    },
+    {
+      "method": "political-threat-landscape",
+      "status": "completed",
+      "outputFile": "threat-assessment/political-threat-landscape.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: threat-assessment/political-threat-landscape.md"
+    },
+    {
+      "method": "risk-matrix",
+      "status": "completed",
+      "outputFile": "risk-scoring/risk-matrix.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: risk-scoring/risk-matrix.md"
+    },
+    {
+      "method": "stakeholder-analysis",
+      "status": "completed",
+      "outputFile": "existing/stakeholder-impact.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: existing/stakeholder-impact.md"
+    },
+    {
+      "method": "swot-analysis",
+      "status": "completed",
+      "outputFile": "existing/swot-analysis.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: existing/swot-analysis.md"
+    },
+    {
+      "method": "synthesis-summary",
+      "status": "completed",
+      "outputFile": "existing/synthesis-summary.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: existing/synthesis-summary.md"
+    }
+  ],
+  "overallConfidence": "medium",
+  "dataSourcesUsed": [
+    "ai-agentic-workflow",
+    "filesystem-discovery"
+  ]
+}
