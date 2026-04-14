@@ -3,8 +3,7 @@ name: "News: EU Parliament Breaking News"
 description: Generates EU Parliament breaking news English articles using EP feed endpoints as the primary data source. Translations are handled by the separate news-translate workflow.
 strict: false
 on:
-  schedule:
-    - cron: "0 */6 * * *"
+  schedule: every 6h
   workflow_dispatch:
     inputs:
       force_generation:
