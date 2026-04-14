@@ -142,86 +142,19 @@ engine:
 >
 > **ACT NOW. Read later.**
 
-### 🔴 STEP 1 — Run Date Context bash block (do this RIGHT NOW):
+### 🔴 STEP 1 — Run the Date Context bash block (do this RIGHT NOW):
 
-```bash
-echo "=== Translation Date Context (FIRST ACTION) ==="
-TODAY=$(date -u +%Y-%m-%d)
-ARTICLE_DATE="${{ github.event.inputs.article_date }}"
-if [ -z "$ARTICLE_DATE" ]; then
-  ARTICLE_DATE="${EP_ARTICLE_DATE:-$TODAY}"
-fi
-CURRENT_YEAR=$(date -u +%Y)
-DAY_OF_WEEK=$(date -u +%A)
-START_EPOCH=$(date +%s)
-TRANSLATION_DEADLINE_MIN=75
-RUN_ID="${GITHUB_RUN_NUMBER:-0}"
-ANALYSIS_DIR="analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}"
-echo "Today:        $TODAY ($DAY_OF_WEEK)"
-echo "Article date: $ARTICLE_DATE"
-echo "Year:         $CURRENT_YEAR"
-echo "Run ID:       $RUN_ID"
-echo "Analysis Dir: $ANALYSIS_DIR"
-echo "Start epoch:  $START_EPOCH"
-echo "Deadline:     ${TRANSLATION_DEADLINE_MIN} minutes"
-echo "==================================="
-export TODAY ARTICLE_DATE CURRENT_YEAR DAY_OF_WEEK START_EPOCH TRANSLATION_DEADLINE_MIN RUN_ID ANALYSIS_DIR
-
-# Create baseline analysis directory and summary
-mkdir -p "${ANALYSIS_DIR}"
-SUMMARY_FILE="${ANALYSIS_DIR}/summary.md"
-if [ ! -f "${SUMMARY_FILE}" ]; then
-  cat > "${SUMMARY_FILE}" <<EOF
-# Translation Analysis Summary — ${ARTICLE_DATE}
-
-Automatically generated baseline translation analysis report for ${ARTICLE_DATE}.
-Ensures no workflow run is wasted, even when no new translations were produced
-or when all translations already existed.
-
-## 1. Translation Coverage Matrix
-
-- Article types covered: _(to be filled/extended by translation steps or reviewers)_
-- Languages covered: _(to be filled/extended by translation steps or reviewers)_
-
-## 2. Terminology Consistency
-
-- EP-specific terms observed: _(document here)_
-- Cross-language consistency notes: _(summarize here)_
-
-## 3. Quality Assessment
-
-- Overall quality per language: _(score + brief justification)_
-
-## 4. Coverage Gap Analysis
-
-- Article types not translated and reasons: _(document here)_
-- Languages not translated and reasons: _(document here)_
-
-## 5. Improvement Recommendations
-
-- Short-term: _(e.g., terminology updates, language-specific fixes)_
-- Longer-term: _(e.g., better prompts, additional validation, automation)_
-
----
-_If a more detailed analysis already exists for this date, extend and refine it rather
-than replacing it. This file is a minimal baseline to satisfy analysis requirements
-when translation activity is low or skipped._
-EOF
-  echo "📊 Created baseline translation analysis summary: ${SUMMARY_FILE}"
-else
-  echo "📊 Existing translation analysis found — will extend in Step 4c"
-fi
-```
+> **Single source of truth:** Jump to the **[MANDATORY Date Context Establishment](#mandatory-date-context-establishment)** section below, run that canonical bash block, and then return here. Use only the `ARTICLE_DATE` and `RUN_ID` values exported by that canonical section. Do NOT skip any part of it — it includes input validation and the baseline analysis summary creation.
 
 ### 🔴 STEP 2 — Call `safeoutputs___create_pull_request` IMMEDIATELY (do this RIGHT NOW, before any MCP calls, memory reads, or discovery):
 
 Call `safeoutputs___create_pull_request` with:
-- **title**: `Translate articles checkpoint — ${ARTICLE_DATE} (run ${RUN_ID})` (use the ARTICLE_DATE and RUN_ID variables from the bash block above; the `[news] ` prefix is added automatically)
+- **title**: `Translate articles checkpoint — ${ARTICLE_DATE} (run ${RUN_ID})` (use the `ARTICLE_DATE` and `RUN_ID` variables exported by the canonical **MANDATORY Date Context Establishment** block; the `[news] ` prefix is added automatically)
 - **body**: `Baseline translation analysis checkpoint. Engine crash resilience PR — generator output and AI translations will be added to this PR automatically as the agent continues working.`
 - **base**: `main`
-- **head**: `news/translate-${ARTICLE_DATE}-${RUN_ID}` (use ARTICLE_DATE and RUN_ID from above)
+- **head**: `news/translate-${ARTICLE_DATE}-${RUN_ID}` (use the `ARTICLE_DATE` and `RUN_ID` variables from the canonical section)
 
-> **Why so early?** Auth tokens expire at minute 10–20. The framework captures ALL files in the working directory when the agent job ends (whether normally or due to a crash), so every translation you produce AFTER this call is still included in the PR. If you have NOT called safeoutputs before the crash, ALL work is lost. (See also the [🛡️ CHECKPOINT](#-checkpoint-immediate-safe-output-minute-3) section later in this document for the full explanation.)
+> **Why so early?** Auth tokens expire at minute 10–20. The framework captures ALL files in the working directory when the agent job ends (whether normally or due to a crash), so every translation you produce AFTER this call is still included in the PR. If you have NOT called safeoutputs before the crash, ALL work is lost. (See also the [🛡️ CHECKPOINT](#checkpoint-immediate-safe-output-minute-3) section later in this document for the full explanation.)
 
 ### ✅ ONLY AFTER completing Steps 1 and 2 above: continue reading the rest of this document and proceed with the full translation workflow.
 
@@ -463,7 +396,7 @@ When multiple article–language pairs are queued (backfill mode), maximise thro
 
 ## MANDATORY Date Context Establishment
 
-> **ℹ️ NOTE**: If you followed the **⚡⚡⚡ IMMEDIATE FIRST ACTION** section at the very top of this document, you have already run the bash block below AND called `safeoutputs___create_pull_request`. In that case, skip directly to the [🛡️ CHECKPOINT](#-checkpoint-immediate-safe-output-minute-3) section below to confirm the checkpoint was made, then proceed to the **MANDATORY MCP Health Gate**. Do NOT run the bash block again or call safeoutputs again.
+> **ℹ️ NOTE**: If you followed the **⚡⚡⚡ IMMEDIATE FIRST ACTION** section at the very top of this document, you have already run the bash block below AND called `safeoutputs___create_pull_request`. In that case, skip directly to the [🛡️ CHECKPOINT](#checkpoint-immediate-safe-output-minute-3) section below to confirm the checkpoint was made, then proceed to the **MANDATORY MCP Health Gate**. Do NOT run the bash block again or call safeoutputs again.
 
 **⚠️ ONLY run this block if you did NOT follow the IMMEDIATE FIRST ACTION section at the top of this document** — before MCP health checks, before diagnostics, before anything else. The baseline analysis file it creates enables the CHECKPOINT safeoutputs call that protects all subsequent work from engine auth failures.
 
@@ -473,6 +406,11 @@ TODAY=$(date -u +%Y-%m-%d)
 ARTICLE_DATE="${{ github.event.inputs.article_date }}"
 if [ -z "$ARTICLE_DATE" ]; then
   ARTICLE_DATE="${EP_ARTICLE_DATE:-$TODAY}"
+fi
+# Validate ARTICLE_DATE is YYYY-MM-DD to prevent path traversal and invalid branch names
+if ! echo "$ARTICLE_DATE" | grep -qE '^[0-9]{4}-[0-9]{2}-[0-9]{2}$'; then
+  echo "⚠️ Invalid ARTICLE_DATE='$ARTICLE_DATE' — must be YYYY-MM-DD. Falling back to TODAY."
+  ARTICLE_DATE="$TODAY"
 fi
 CURRENT_YEAR=$(date -u +%Y)
 DAY_OF_WEEK=$(date -u +%A)
@@ -747,6 +685,11 @@ ARTICLE_DATE="${{ github.event.inputs.article_date }}"
 if [ -z "$ARTICLE_DATE" ]; then
   ARTICLE_DATE="${EP_ARTICLE_DATE:-$TODAY}"
 fi
+# Validate ARTICLE_DATE is YYYY-MM-DD to prevent path traversal and invalid branch names
+if ! echo "$ARTICLE_DATE" | grep -qE '^[0-9]{4}-[0-9]{2}-[0-9]{2}$'; then
+  echo "⚠️ Invalid ARTICLE_DATE='$ARTICLE_DATE' — must be YYYY-MM-DD. Falling back to TODAY."
+  ARTICLE_DATE="$TODAY"
+fi
 RUN_ID="${GITHUB_RUN_NUMBER:-0}"
 TRANSLATE_ANALYSIS_DIR="analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}"
 
@@ -976,6 +919,11 @@ else
   ARTICLE_DATE="${{ github.event.inputs.article_date }}"
   if [ -z "$ARTICLE_DATE" ]; then
     ARTICLE_DATE="${EP_ARTICLE_DATE:-$TODAY}"
+  fi
+  # Validate ARTICLE_DATE is YYYY-MM-DD to prevent path traversal and invalid branch names
+  if ! echo "$ARTICLE_DATE" | grep -qE '^[0-9]{4}-[0-9]{2}-[0-9]{2}$'; then
+    echo "⚠️ Invalid ARTICLE_DATE='$ARTICLE_DATE' — must be YYYY-MM-DD. Falling back to TODAY."
+    ARTICLE_DATE="$TODAY"
   fi
   RUN_ID="${GITHUB_RUN_NUMBER:-0}"
   TRANSLATE_ANALYSIS_DIR="analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}"
