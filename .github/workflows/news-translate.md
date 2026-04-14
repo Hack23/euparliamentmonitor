@@ -134,6 +134,32 @@ engine:
 ---
 # 🌐 EU Parliament News Article Translation Workflow
 
+---
+
+## ⚡⚡⚡ IMMEDIATE FIRST ACTION — RUN THIS BEFORE READING ANYTHING ELSE ⚡⚡⚡
+
+> **🚨 CRITICAL — AUTH EXPIRES EARLY**: Do NOT read the terminology tables, scope restrictions, or any other section below before completing the two steps in this section. The Copilot auth token expires within 10–20 minutes of run start. If you spend tokens reading this long prompt without acting immediately, auth will expire before you reach the checkpoint and the run will fail with **"No authentication information found"** with ALL work lost and zero output.
+>
+> **ACT NOW. Read later.**
+
+### 🔴 STEP 1 — Run the Date Context bash block (do this RIGHT NOW):
+
+> **Single source of truth:** Jump to the **[MANDATORY Date Context Establishment](#mandatory-date-context-establishment)** section below, run that canonical bash block, and then return here. Use only the `ARTICLE_DATE` and `RUN_ID` values exported by that canonical section. Do NOT skip any part of it — it includes input validation and the baseline analysis summary creation.
+
+### 🔴 STEP 2 — Call `safeoutputs___create_pull_request` IMMEDIATELY (do this RIGHT NOW, before any MCP calls, memory reads, or discovery):
+
+Call `safeoutputs___create_pull_request` with:
+- **title**: `Translate articles checkpoint — ${ARTICLE_DATE} (run ${RUN_ID})` (use the `ARTICLE_DATE` and `RUN_ID` variables exported by the canonical **MANDATORY Date Context Establishment** block; the `[news] ` prefix is added automatically)
+- **body**: `Baseline translation analysis checkpoint. Engine crash resilience PR — generator output and AI translations will be added to this PR automatically as the agent continues working.`
+- **base**: `main`
+- **head**: `news/translate-${ARTICLE_DATE}-${RUN_ID}` (use the `ARTICLE_DATE` and `RUN_ID` variables from the canonical section)
+
+> **Why so early?** Auth tokens expire at minute 10–20. The framework captures ALL files in the working directory when the agent job ends (whether normally or due to a crash), so every translation you produce AFTER this call is still included in the PR. If you have NOT called safeoutputs before the crash, ALL work is lost. (See also the [🛡️ CHECKPOINT](#checkpoint-immediate-safe-output-minute-3) section later in this document for the full explanation.)
+
+### ✅ ONLY AFTER completing Steps 1 and 2 above: continue reading the rest of this document and proceed with the full translation workflow.
+
+---
+
 You are the **Translation Agent** for EU Parliament Monitor. Your job is to take **existing English articles** and produce **high-quality translations** in 13 other languages.
 
 > **📚 Shared patterns reference**: See [SHARED_PROMPT_PATTERNS.md](../prompts/SHARED_PROMPT_PATTERNS.md) for EP MCP tool reference, safe outputs, and shared rules. See [ai-driven-analysis-guide.md](../../analysis/methodologies/ai-driven-analysis-guide.md) for the analysis protocol.
@@ -370,7 +396,9 @@ When multiple article–language pairs are queued (backfill mode), maximise thro
 
 ## MANDATORY Date Context Establishment
 
-**⚠️ ALWAYS run this block as the VERY FIRST step** — before MCP health checks, before diagnostics, before anything else. The baseline analysis file it creates enables the CHECKPOINT safeoutputs call that protects all subsequent work from engine auth failures.
+> **ℹ️ NOTE**: If you followed the **⚡⚡⚡ IMMEDIATE FIRST ACTION** section at the very top of this document, you have already run the bash block below AND called `safeoutputs___create_pull_request`. In that case, skip directly to the [🛡️ CHECKPOINT](#checkpoint-immediate-safe-output-minute-3) section below to confirm the checkpoint was made, then proceed to the **MANDATORY MCP Health Gate**. Do NOT run the bash block again or call safeoutputs again.
+
+**⚠️ ONLY run this block if you did NOT follow the IMMEDIATE FIRST ACTION section at the top of this document** — before MCP health checks, before diagnostics, before anything else. The baseline analysis file it creates enables the CHECKPOINT safeoutputs call that protects all subsequent work from engine auth failures.
 
 ```bash
 echo "=== Translation Date Context ==="
@@ -378,6 +406,11 @@ TODAY=$(date -u +%Y-%m-%d)
 ARTICLE_DATE="${{ github.event.inputs.article_date }}"
 if [ -z "$ARTICLE_DATE" ]; then
   ARTICLE_DATE="${EP_ARTICLE_DATE:-$TODAY}"
+fi
+# Validate ARTICLE_DATE is YYYY-MM-DD to prevent path traversal and invalid branch names
+if ! echo "$ARTICLE_DATE" | grep -qE '^[0-9]{4}-[0-9]{2}-[0-9]{2}$'; then
+  echo "⚠️ Invalid ARTICLE_DATE='$ARTICLE_DATE' — must be YYYY-MM-DD. Falling back to TODAY."
+  ARTICLE_DATE="$TODAY"
 fi
 CURRENT_YEAR=$(date -u +%Y)
 DAY_OF_WEEK=$(date -u +%A)
@@ -446,17 +479,17 @@ fi
 
 ## 🛡️ CHECKPOINT: Immediate Safe Output (minute ~3)
 
-> **⚡ MANDATORY — DO THIS NOW**: Call `safeoutputs___create_pull_request` **immediately** after the Date Context Establishment block above creates the baseline analysis summary. Do NOT wait until after MCP health checks, the generator, or translations. The framework captures ALL files in the working directory when the agent job ends — MCP diagnostics, generator output, and translations done AFTER this call are all included in the PR automatically.
+> **⚡ MANDATORY — DO THIS NOW** (if not already done in the **⚡⚡⚡ IMMEDIATE FIRST ACTION** section at the top): Call `safeoutputs___create_pull_request` **immediately** after the Date Context Establishment block above creates the baseline analysis summary. If you already called it in the FIRST ACTION section, **skip this call** (max 1 PR per run) and proceed to the MCP Health Gate. Do NOT call safeoutputs twice.
 
 **Why so early?** The Copilot engine may crash at minute 10–20 due to transient authentication failures. If that happens before a safeoutputs call is made, ALL work is lost and no PR is created. By calling it at minute ~3 (when the baseline analysis file already exists), you guarantee that at minimum the analysis artifact is preserved, and that all subsequent generator output and translations are automatically captured in the same PR.
 
-Call safeoutputs now with:
+Call safeoutputs now (only if NOT already called) with:
 - **title**: `Translate articles checkpoint — ${ARTICLE_DATE} (run ${RUN_ID})` (use the ARTICLE_DATE and RUN_ID variables from the bash block above; the `[news] ` prefix is added automatically)
 - **body**: Baseline translation analysis checkpoint. Engine crash resilience PR — generator output and AI translations will be added to this PR automatically as the agent continues working.
 - **base**: `main`
 - **head**: `news/translate-${ARTICLE_DATE}-${RUN_ID}` (use ARTICLE_DATE and RUN_ID from above)
 
-> **After calling safeoutputs**: continue immediately with the MCP Health Gate below, then Pre-flight, Step 1 (discovery), Step 3 (generator), and Step 3b (AI translation). Do NOT stop. The PR title remains as set above, but all subsequent translations are automatically captured as file changes in this PR.
+> **After calling safeoutputs** (or confirming it was already called): continue immediately with the MCP Health Gate below, then Pre-flight, Step 1 (discovery), Step 3 (generator), and Step 3b (AI translation). Do NOT stop. The PR title remains as set above, but all subsequent translations are automatically captured as file changes in this PR.
 
 ## MANDATORY MCP Health Gate
 
@@ -651,6 +684,11 @@ TODAY=$(date -u +%Y-%m-%d)
 ARTICLE_DATE="${{ github.event.inputs.article_date }}"
 if [ -z "$ARTICLE_DATE" ]; then
   ARTICLE_DATE="${EP_ARTICLE_DATE:-$TODAY}"
+fi
+# Validate ARTICLE_DATE is YYYY-MM-DD to prevent path traversal and invalid branch names
+if ! echo "$ARTICLE_DATE" | grep -qE '^[0-9]{4}-[0-9]{2}-[0-9]{2}$'; then
+  echo "⚠️ Invalid ARTICLE_DATE='$ARTICLE_DATE' — must be YYYY-MM-DD. Falling back to TODAY."
+  ARTICLE_DATE="$TODAY"
 fi
 RUN_ID="${GITHUB_RUN_NUMBER:-0}"
 TRANSLATE_ANALYSIS_DIR="analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}"
@@ -881,6 +919,11 @@ else
   ARTICLE_DATE="${{ github.event.inputs.article_date }}"
   if [ -z "$ARTICLE_DATE" ]; then
     ARTICLE_DATE="${EP_ARTICLE_DATE:-$TODAY}"
+  fi
+  # Validate ARTICLE_DATE is YYYY-MM-DD to prevent path traversal and invalid branch names
+  if ! echo "$ARTICLE_DATE" | grep -qE '^[0-9]{4}-[0-9]{2}-[0-9]{2}$'; then
+    echo "⚠️ Invalid ARTICLE_DATE='$ARTICLE_DATE' — must be YYYY-MM-DD. Falling back to TODAY."
+    ARTICLE_DATE="$TODAY"
   fi
   RUN_ID="${GITHUB_RUN_NUMBER:-0}"
   TRANSLATE_ANALYSIS_DIR="analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}"
