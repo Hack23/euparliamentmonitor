@@ -4,20 +4,8 @@ description: Translates English EU Parliament news articles to 13 other language
 strict: false
 on:
   schedule:
-    # Run 4x daily on weekdays to keep up with content workflows + clear backlog faster
-    # Offset from content workflows: committee-reports(04), propositions(05), motions(06), week-ahead(Fri 07)
-    # 09:00 — first pass after morning content workflows complete (~07:00–08:00)
-    # 12:00 — midday catch-up, picks up breaking news (00:00/06:00 slots)
-    # 15:00 — afternoon pass, clears any remaining gaps from the day
-    # 17:00 — late afternoon backfill, maximises daily translation throughput
-    - cron: "0 9,12,15,17 * * 1-5"
-    # Saturday: 15:00 to avoid conflict with news-weekly-review (09:00 Sat, ~90min run + PR merge ~11:00-12:00)
-    - cron: "0 15 * * 6"
-    # Sunday: 10:00 — weekend backfill pass (no content workflows run Sunday)
-    - cron: "0 10 * * 0"
-    # 1st and 28th for monthly article translations — offset to 15:00 to avoid conflict
-    # with news-monthly-review (10:00 on 28th, ~90min run + PR merge ~12:00-13:00)
-    - cron: "0 15 1,28 * *"
+    - cron: '0 9,12,15,17 * * 1-5' # Weekdays: 4× daily at business hours (after content workflows finish ~07:00)
+    - cron: '0 12 * * 0,6'          # Weekends: single midday pass (Sat+Sun consolidated)
   workflow_dispatch:
     inputs:
       article_types:
