@@ -162,7 +162,7 @@ You are the **Translation Agent** for EU Parliament Monitor. Your job is to take
 - ❌ **Batch translation via custom code** — NEVER write a script (e.g., `gen-translations.js`) to automate translation. Translate each file individually using the `edit` tool, one file at a time
 - ❌ **Search/replace pattern-based translation** — NEVER use `sed`, `awk`, `perl`, `tr`, regex substitution, or ANY text-processing command to **translate narrative content**. The AI must READ the English text, UNDERSTAND its meaning, and WRITE the correct translation. Pattern-based replacement produces garbage translations. (Note: using `grep`, `sed`, or shell tools for non-translation tasks like file listing, path manipulation, or metadata extraction is fine)
 - ❌ **Translation lookup tables** — NEVER create a mapping like `{"English phrase": "Translated phrase"}` and then apply it. Each translation must be done by the AI reading context and producing natural-sounding output
-- ❌ **Dangerous shell expansion patterns** — NEVER use `${var@P}`, `${!var}`, `eval`, nested command substitutions `$($(..))`, or indirect variable expansion. These will be blocked by the sandbox
+- ❌ **Dangerous shell expansion patterns** — NEVER use `${var@P}`, `${!var}`, `eval`, nested command substitutions `$($(..))`, nested parameter expansions like `${var:+...${#other}...}`, or input redirection inside command substitution `$(cmd < file)` (use `cmd file` or `cat file | cmd` instead). Use `if/else` blocks instead. These will be blocked by the sandbox
 - ❌ **Ad-hoc data processing scripts** — Use the existing `scripts/generate-news-enhanced.js` and pipeline tools
 - ❌ **Workarounds for existing tools** — If `npm run build` or existing scripts fail, log the error and continue; do NOT reimplement their functionality in another language
 - ❌ **Exiting without translating** — NEVER use an analysis-only PR, `safeoutputs___noop`, or any other no-op path as an early-exit shortcut before attempting the required Phase 1/2/3 translation flow. After those phases have been attempted, follow the later workflow rules: if they explicitly require preserved analysis artifacts (for example when `TOTAL_FILES=0`) so a reviewable PR can still be opened, that fallback is allowed
@@ -498,20 +498,35 @@ fi
 echo "--- MCP Gateway Connectivity Check ---"
 source scripts/mcp-setup.sh
 if [ -n "${EP_MCP_GATEWAY_URL:-}" ]; then
-  if GW_STATUS=$(curl -sS -o /dev/null -w "%{http_code}" --connect-timeout 10 --max-time 30 \
-    -H "Content-Type: application/json" \
-    ${EP_MCP_GATEWAY_API_KEY:+-H "Authorization: Bearer ${EP_MCP_GATEWAY_API_KEY}"} \
-    -X POST -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"curl-diag","version":"1.0.0"}}}' \
-    "${EP_MCP_GATEWAY_URL}" 2>/dev/null); then
-    GW_CURL_EXIT=0
+  # Conditionally add auth header (avoid nested parameter expansion blocked by sandbox)
+  if [ -n "$EP_MCP_GATEWAY_API_KEY" ]; then
+    if GW_STATUS=$(curl -sS -o /dev/null -w "%{http_code}" --connect-timeout 10 --max-time 30 \
+      -H "Content-Type: application/json" \
+      -H "Authorization: $EP_MCP_GATEWAY_API_KEY" \
+      -X POST -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"curl-diag","version":"1.0.0"}}}' \
+      "${EP_MCP_GATEWAY_URL}" 2>/dev/null); then
+      GW_CURL_EXIT=0
+    else
+      GW_CURL_EXIT=$?
+    fi
   else
-    GW_CURL_EXIT=$?
+    if GW_STATUS=$(curl -sS -o /dev/null -w "%{http_code}" --connect-timeout 10 --max-time 30 \
+      -H "Content-Type: application/json" \
+      -X POST -d '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"curl-diag","version":"1.0.0"}}}' \
+      "${EP_MCP_GATEWAY_URL}" 2>/dev/null); then
+      GW_CURL_EXIT=0
+    else
+      GW_CURL_EXIT=$?
+    fi
   fi
   GW_STATUS="${GW_STATUS:-000}"
   echo "MCP Gateway: HTTP ${GW_STATUS} (curl exit ${GW_CURL_EXIT})"
   echo "MCP Gateway URL: $EP_MCP_GATEWAY_URL"
-  echo "MCP Gateway Auth: ${EP_MCP_GATEWAY_API_KEY:+SET (${#EP_MCP_GATEWAY_API_KEY} chars)}"
-  [ -z "${EP_MCP_GATEWAY_API_KEY:-}" ] && echo "MCP Gateway Auth: NOT SET"
+  if [ -n "$EP_MCP_GATEWAY_API_KEY" ]; then
+    echo "MCP Gateway Auth: SET"
+  else
+    echo "MCP Gateway Auth: NOT SET"
+  fi
   echo "MCP Client Timeout: ${MCP_CLIENT_TIMEOUT_MS:-NOT SET}ms"
 else
   echo "⚠️ EP_MCP_GATEWAY_URL not set — mcp-setup.sh may have failed"
