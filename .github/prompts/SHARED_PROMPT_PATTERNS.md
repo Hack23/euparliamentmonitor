@@ -76,7 +76,7 @@ These restrictions prevent patch conflicts and workflow failures:
 |----------|--------------|
 | Writing custom Python/Ruby/Perl scripts | Use ONLY the Node.js/TypeScript toolchain |
 | Dangerous shell expansion (`${var@P}`, `${!var}`, `eval`, nested `$($(..))`, `${var:+...${#other}...}`) | Blocked by sandbox security — use `if/else` blocks instead |
-| Input redirection inside command substitution (`$(cmd < file)`) | Blocked by sandbox — use `cmd file` or `cat file \| cmd` instead |
+| Input redirection inside command substitution (`$(cmd < file)`) | Blocked by sandbox — use `cmd file` or pipe with `cat file` instead |
 | Ad-hoc data processing scripts | Use existing `scripts/generate-news-enhanced.js` pipeline |
 | Metadata-only analysis | MUST download and store COMPLETE EP documents |
 | Workarounds for existing tools | Log errors and continue; do not reimplement |
