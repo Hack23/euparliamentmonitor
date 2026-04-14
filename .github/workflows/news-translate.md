@@ -134,6 +134,99 @@ engine:
 ---
 # 🌐 EU Parliament News Article Translation Workflow
 
+---
+
+## ⚡⚡⚡ IMMEDIATE FIRST ACTION — RUN THIS BEFORE READING ANYTHING ELSE ⚡⚡⚡
+
+> **🚨 CRITICAL — AUTH EXPIRES EARLY**: Do NOT read the terminology tables, scope restrictions, or any other section below before completing the two steps in this section. The Copilot auth token expires within the first few minutes. If you spend tokens reading this prompt without acting immediately, the run will fail with **"No authentication information found"** and ALL work will be lost with zero output.
+>
+> **ACT NOW. Read later.**
+
+### 🔴 STEP 1 — Run Date Context bash block (do this RIGHT NOW):
+
+```bash
+echo "=== Translation Date Context (FIRST ACTION) ==="
+TODAY=$(date -u +%Y-%m-%d)
+ARTICLE_DATE="${{ github.event.inputs.article_date }}"
+if [ -z "$ARTICLE_DATE" ]; then
+  ARTICLE_DATE="${EP_ARTICLE_DATE:-$TODAY}"
+fi
+CURRENT_YEAR=$(date -u +%Y)
+DAY_OF_WEEK=$(date -u +%A)
+START_EPOCH=$(date +%s)
+TRANSLATION_DEADLINE_MIN=75
+RUN_ID="${GITHUB_RUN_NUMBER:-0}"
+ANALYSIS_DIR="analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}"
+echo "Today:        $TODAY ($DAY_OF_WEEK)"
+echo "Article date: $ARTICLE_DATE"
+echo "Year:         $CURRENT_YEAR"
+echo "Run ID:       $RUN_ID"
+echo "Analysis Dir: $ANALYSIS_DIR"
+echo "Start epoch:  $START_EPOCH"
+echo "Deadline:     ${TRANSLATION_DEADLINE_MIN} minutes"
+echo "==================================="
+export TODAY ARTICLE_DATE CURRENT_YEAR DAY_OF_WEEK START_EPOCH TRANSLATION_DEADLINE_MIN RUN_ID ANALYSIS_DIR
+
+# Create baseline analysis directory and summary
+mkdir -p "${ANALYSIS_DIR}"
+SUMMARY_FILE="${ANALYSIS_DIR}/summary.md"
+if [ ! -f "${SUMMARY_FILE}" ]; then
+  cat > "${SUMMARY_FILE}" <<EOF
+# Translation Analysis Summary — ${ARTICLE_DATE}
+
+Automatically generated baseline translation analysis report for ${ARTICLE_DATE}.
+Ensures no workflow run is wasted, even when no new translations were produced
+or when all translations already existed.
+
+## 1. Translation Coverage Matrix
+
+- Article types covered: _(to be filled/extended by translation steps or reviewers)_
+- Languages covered: _(to be filled/extended by translation steps or reviewers)_
+
+## 2. Terminology Consistency
+
+- EP-specific terms observed: _(document here)_
+- Cross-language consistency notes: _(summarize here)_
+
+## 3. Quality Assessment
+
+- Overall quality per language: _(score + brief justification)_
+
+## 4. Coverage Gap Analysis
+
+- Article types not translated and reasons: _(document here)_
+- Languages not translated and reasons: _(document here)_
+
+## 5. Improvement Recommendations
+
+- Short-term: _(e.g., terminology updates, language-specific fixes)_
+- Longer-term: _(e.g., better prompts, additional validation, automation)_
+
+---
+_If a more detailed analysis already exists for this date, extend and refine it rather
+than replacing it. This file is a minimal baseline to satisfy analysis requirements
+when translation activity is low or skipped._
+EOF
+  echo "📊 Created baseline translation analysis summary: ${SUMMARY_FILE}"
+else
+  echo "📊 Existing translation analysis found — will extend in Step 4c"
+fi
+```
+
+### 🔴 STEP 2 — Call `safeoutputs___create_pull_request` IMMEDIATELY (do this RIGHT NOW, before any MCP calls, memory reads, or discovery):
+
+Call `safeoutputs___create_pull_request` with:
+- **title**: `Translate articles checkpoint — ${ARTICLE_DATE} (run ${RUN_ID})` (use the ARTICLE_DATE and RUN_ID variables from the bash block above; the `[news] ` prefix is added automatically)
+- **body**: `Baseline translation analysis checkpoint. Engine crash-resilience PR — generator output and AI translations will be added to this PR automatically as the agent continues working.`
+- **base**: `main`
+- **head**: `news/translate-${ARTICLE_DATE}-${RUN_ID}` (use ARTICLE_DATE and RUN_ID from above)
+
+> **Why so early?** Auth tokens expire at minute 10–20. The framework captures ALL files in the working directory when the agent job ends (whether normally or due to a crash), so every translation you produce AFTER this call is still included in the PR. If you have NOT called safeoutputs before the crash, ALL work is lost.
+
+### ✅ ONLY AFTER completing Steps 1 and 2 above: continue reading the rest of this document and proceed with the full translation workflow.
+
+---
+
 You are the **Translation Agent** for EU Parliament Monitor. Your job is to take **existing English articles** and produce **high-quality translations** in 13 other languages.
 
 > **📚 Shared patterns reference**: See [SHARED_PROMPT_PATTERNS.md](../prompts/SHARED_PROMPT_PATTERNS.md) for EP MCP tool reference, safe outputs, and shared rules. See [ai-driven-analysis-guide.md](../../analysis/methodologies/ai-driven-analysis-guide.md) for the analysis protocol.
@@ -370,7 +463,9 @@ When multiple article–language pairs are queued (backfill mode), maximise thro
 
 ## MANDATORY Date Context Establishment
 
-**⚠️ ALWAYS run this block as the VERY FIRST step** — before MCP health checks, before diagnostics, before anything else. The baseline analysis file it creates enables the CHECKPOINT safeoutputs call that protects all subsequent work from engine auth failures.
+> **ℹ️ NOTE**: If you followed the **⚡⚡⚡ IMMEDIATE FIRST ACTION** section at the very top of this document, you have already run the bash block below AND called `safeoutputs___create_pull_request`. In that case, skip directly to the [🛡️ CHECKPOINT](#-checkpoint-immediate-safe-output-minute-3) section below to confirm the checkpoint was made, then proceed to the **MANDATORY MCP Health Gate**. Do NOT run the bash block again or call safeoutputs again.
+
+**⚠️ ALWAYS run this block as the VERY FIRST step (if not already done above)** — before MCP health checks, before diagnostics, before anything else. The baseline analysis file it creates enables the CHECKPOINT safeoutputs call that protects all subsequent work from engine auth failures.
 
 ```bash
 echo "=== Translation Date Context ==="
@@ -446,17 +541,17 @@ fi
 
 ## 🛡️ CHECKPOINT: Immediate Safe Output (minute ~3)
 
-> **⚡ MANDATORY — DO THIS NOW**: Call `safeoutputs___create_pull_request` **immediately** after the Date Context Establishment block above creates the baseline analysis summary. Do NOT wait until after MCP health checks, the generator, or translations. The framework captures ALL files in the working directory when the agent job ends — MCP diagnostics, generator output, and translations done AFTER this call are all included in the PR automatically.
+> **⚡ MANDATORY — DO THIS NOW** (if not already done in the **⚡⚡⚡ IMMEDIATE FIRST ACTION** section at the top): Call `safeoutputs___create_pull_request` **immediately** after the Date Context Establishment block above creates the baseline analysis summary. If you already called it in the FIRST ACTION section, **skip this call** (max 1 PR per run) and proceed to the MCP Health Gate. Do NOT call safeoutputs twice.
 
 **Why so early?** The Copilot engine may crash at minute 10–20 due to transient authentication failures. If that happens before a safeoutputs call is made, ALL work is lost and no PR is created. By calling it at minute ~3 (when the baseline analysis file already exists), you guarantee that at minimum the analysis artifact is preserved, and that all subsequent generator output and translations are automatically captured in the same PR.
 
-Call safeoutputs now with:
+Call safeoutputs now (only if NOT already called) with:
 - **title**: `Translate articles checkpoint — ${ARTICLE_DATE} (run ${RUN_ID})` (use the ARTICLE_DATE and RUN_ID variables from the bash block above; the `[news] ` prefix is added automatically)
 - **body**: Baseline translation analysis checkpoint. Engine crash resilience PR — generator output and AI translations will be added to this PR automatically as the agent continues working.
 - **base**: `main`
 - **head**: `news/translate-${ARTICLE_DATE}-${RUN_ID}` (use ARTICLE_DATE and RUN_ID from above)
 
-> **After calling safeoutputs**: continue immediately with the MCP Health Gate below, then Pre-flight, Step 1 (discovery), Step 3 (generator), and Step 3b (AI translation). Do NOT stop. The PR title remains as set above, but all subsequent translations are automatically captured as file changes in this PR.
+> **After calling safeoutputs** (or confirming it was already called): continue immediately with the MCP Health Gate below, then Pre-flight, Step 1 (discovery), Step 3 (generator), and Step 3b (AI translation). Do NOT stop. The PR title remains as set above, but all subsequent translations are automatically captured as file changes in this PR.
 
 ## MANDATORY MCP Health Gate
 
