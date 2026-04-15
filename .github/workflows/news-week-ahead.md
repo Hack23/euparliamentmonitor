@@ -54,7 +54,7 @@ mcp-servers:
   european-parliament:
     container: "node:25-alpine"
     entrypoint: "npx"
-    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.6", "--timeout", "120000"]
+    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.7", "--timeout", "120000"]
     env:
       EP_REQUEST_TIMEOUT_MS: "120000"
   world-bank:
@@ -721,10 +721,10 @@ european_parliament___get_all_generated_stats({ category: "all", includePredicti
 const today = new Date().toISOString().split('T')[0];
 const nextWeek = new Date(Date.now() + 7 * 86400000).toISOString().split('T')[0];
 
-european_parliament___get_plenary_sessions({ startDate: today, endDate: nextWeek, limit: 50 })
+european_parliament___get_plenary_sessions({ dateFrom: today, dateTo: nextWeek, limit: 50 })
 
 // Get committee meetings
-european_parliament___get_committee_info({ dateFrom: today, dateTo: nextWeek, limit: 20 })
+european_parliament___get_committee_info({ showCurrent: true })
 
 // Monitor legislation at critical stages
 european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 20 })
@@ -900,9 +900,9 @@ const nextWeek = new Date(Date.now() + 7 * 86400000).toISOString().split('T')[0]
 
 // Fetch all week-ahead data in parallel
 const [sessions, committees, documents, pipeline, meps] = await Promise.allSettled([
-  european_parliament___get_plenary_sessions({ startDate: today, endDate: nextWeek, limit: 50 }),
-  european_parliament___get_committee_info({ dateFrom: today, dateTo: nextWeek, limit: 20 }),
-  european_parliament___search_documents({ query: "plenary agenda", limit: 20 }),
+  european_parliament___get_plenary_sessions({ dateFrom: today, dateTo: nextWeek, limit: 50 }),
+  european_parliament___get_committee_info({ showCurrent: true }),
+  european_parliament___search_documents({ keyword: "plenary agenda", limit: 20 }),
   european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 20 }),
   european_parliament___get_meps({ limit: 20 }),
 ]);
@@ -934,7 +934,7 @@ if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
     echo "✅ EP MCP server binary found for stdio mode"
   else
     echo "⚠️ No gateway URL set, installing EP MCP server for stdio mode..."
-    npm install --no-save european-parliament-mcp-server@1.2.6
+    npm install --no-save european-parliament-mcp-server@1.2.7
   fi
 fi
 

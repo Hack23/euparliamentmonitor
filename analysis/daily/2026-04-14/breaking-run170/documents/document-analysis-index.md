@@ -189,4 +189,4 @@ Broad support across EPP, S&D, Renew, ECR. ECR particularly supportive (defence 
 
 ---
 
-*Source: European Parliament Open Data Portal via EP MCP Server v1.2.6. Document analysis based on adopted texts metadata and precomputed statistics. All assessments subject to revision based on post-recess developments.*
+*Source: European Parliament Open Data Portal via EP MCP Server v1.2.7. Document analysis based on adopted texts metadata and precomputed statistics. All assessments subject to revision based on post-recess developments.*

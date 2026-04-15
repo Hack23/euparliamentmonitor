@@ -46,19 +46,33 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "startDate": {
+          "eventId": {
             "type": "string",
-            "description": "Start date in YYYY-MM-DD format",
+            "description": "Meeting event ID for single meeting lookup"
+          },
+          "year": {
+            "type": "number",
+            "description": "Filter by calendar year (1900-2100, recommended for annual counts)",
+            "minimum": 1900,
+            "maximum": 2100
+          },
+          "dateFrom": {
+            "type": "string",
+            "description": "Start date (YYYY-MM-DD format)",
             "examples": [
               "2024-01-01"
             ]
           },
-          "endDate": {
+          "dateTo": {
             "type": "string",
-            "description": "End date in YYYY-MM-DD format",
+            "description": "End date (YYYY-MM-DD format)",
             "examples": [
               "2024-12-31"
             ]
+          },
+          "location": {
+            "type": "string",
+            "description": "Session location (e.g., 'Strasbourg', 'Brussels')"
           },
           "limit": {
             "type": "number",
@@ -66,6 +80,11 @@
             "default": 50,
             "minimum": 1,
             "maximum": 100
+          },
+          "offset": {
+            "type": "number",
+            "description": "Pagination offset",
+            "default": 0
           }
         },
         "required": []
@@ -73,28 +92,42 @@
     },
     {
       "name": "search_documents",
-      "description": "Search European Parliament documents (reports, resolutions, etc.) by query",
+      "description": "Search European Parliament documents by keyword, or retrieve a single document by docId",
       "inputSchema": {
         "type": "object",
         "properties": {
-          "query": {
+          "docId": {
             "type": "string",
-            "description": "Search query for documents",
+            "description": "Document ID for single document lookup (bypasses keyword search)"
+          },
+          "keyword": {
+            "type": "string",
+            "description": "Search keyword or phrase (alphanumeric, spaces, hyphens, underscores)",
             "examples": [
               "climate change",
-              "artificial intelligence",
-              "migration policy"
+              "artificial intelligence"
             ]
           },
-          "type": {
+          "documentType": {
             "type": "string",
-            "description": "Document type filter (e.g., REPORT, RESOLUTION, DIRECTIVE)",
+            "description": "Document type: REPORT, RESOLUTION, DECISION, DIRECTIVE, REGULATION, OPINION, AMENDMENT",
             "examples": [
               "REPORT",
               "RESOLUTION",
-              "DIRECTIVE",
-              "REGULATION"
+              "DIRECTIVE"
             ]
+          },
+          "dateFrom": {
+            "type": "string",
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          "dateTo": {
+            "type": "string",
+            "description": "End date (YYYY-MM-DD)"
+          },
+          "committee": {
+            "type": "string",
+            "description": "Committee identifier"
           },
           "limit": {
             "type": "number",
@@ -102,19 +135,26 @@
             "default": 20,
             "minimum": 1,
             "maximum": 100
+          },
+          "offset": {
+            "type": "number",
+            "description": "Pagination offset",
+            "default": 0
           }
         },
-        "required": [
-          "query"
-        ]
+        "required": []
       }
     },
     {
       "name": "get_parliamentary_questions",
-      "description": "Get parliamentary questions with optional filters for type and date",
+      "description": "Get parliamentary questions with optional filters for type, author, topic, status, date range, or single lookup by docId",
       "inputSchema": {
         "type": "object",
         "properties": {
+          "docId": {
+            "type": "string",
+            "description": "Document ID for single question lookup"
+          },
           "type": {
             "type": "string",
             "description": "Question type (e.g., WRITTEN, ORAL, PRIORITY)",
@@ -124,12 +164,29 @@
               "PRIORITY"
             ]
           },
-          "startDate": {
+          "author": {
             "type": "string",
-            "description": "Filter questions from this date (YYYY-MM-DD format)",
-            "examples": [
-              "2024-01-01"
+            "description": "MEP identifier or name of question author"
+          },
+          "topic": {
+            "type": "string",
+            "description": "Question topic or keyword to search"
+          },
+          "status": {
+            "type": "string",
+            "description": "Question status: PENDING or ANSWERED",
+            "enum": [
+              "PENDING",
+              "ANSWERED"
             ]
+          },
+          "dateFrom": {
+            "type": "string",
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          "dateTo": {
+            "type": "string",
+            "description": "End date (YYYY-MM-DD)"
           },
           "limit": {
             "type": "number",
@@ -137,6 +194,11 @@
             "default": 20,
             "minimum": 1,
             "maximum": 100
+          },
+          "offset": {
+            "type": "number",
+            "description": "Pagination offset",
+            "default": 0
           }
         }
       }
@@ -147,24 +209,24 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "committeeId": {
+          "id": {
             "type": "string",
-            "description": "Specific committee ID (e.g., AFET, ECON, ENVI, LIBE)",
+            "description": "Committee identifier"
+          },
+          "abbreviation": {
+            "type": "string",
+            "description": "Committee abbreviation (e.g., 'ENVI', 'AGRI', 'ECON')",
             "examples": [
-              "AFET",
-              "ECON",
               "ENVI",
-              "LIBE",
-              "CULT",
-              "EMPL"
+              "AGRI",
+              "ECON",
+              "LIBE"
             ]
           },
-          "limit": {
-            "type": "number",
-            "description": "Maximum number of results (1-100)",
-            "default": 50,
-            "minimum": 1,
-            "maximum": 100
+          "showCurrent": {
+            "type": "boolean",
+            "description": "If true, returns all current active corporate bodies",
+            "default": false
           }
         }
       }
@@ -400,19 +462,12 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "politicalGroups": {
+          "groupIds": {
             "type": "array",
             "items": {
               "type": "string"
             },
-            "description": "Political group identifiers to analyze (omit for all groups)",
-            "examples": [
-              [
-                "EPP",
-                "S&D",
-                "Renew"
-              ]
-            ]
+            "description": "Political group identifiers to analyze (omit for all groups, 1-10 items)"
           },
           "dateFrom": {
             "type": "string",
@@ -421,6 +476,13 @@
           "dateTo": {
             "type": "string",
             "description": "Analysis end date in YYYY-MM-DD format"
+          },
+          "minimumCohesion": {
+            "type": "number",
+            "description": "Minimum cohesion threshold for alliance detection (0-1)",
+            "default": 0.5,
+            "minimum": 0,
+            "maximum": 1
           }
         }
       }
@@ -435,13 +497,24 @@
             "type": "string",
             "description": "MEP identifier (omit for broad analysis)"
           },
-          "politicalGroup": {
+          "groupId": {
             "type": "string",
             "description": "Political group to analyze"
           },
           "dateFrom": {
             "type": "string",
             "description": "Analysis start date in YYYY-MM-DD format"
+          },
+          "dateTo": {
+            "type": "string",
+            "description": "Analysis end date (YYYY-MM-DD)"
+          },
+          "sensitivityThreshold": {
+            "type": "number",
+            "description": "Anomaly sensitivity (0-1, lower = more)",
+            "default": 0.3,
+            "minimum": 0,
+            "maximum": 1
           }
         }
       }
@@ -452,39 +525,38 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "groups": {
+          "groupIds": {
             "type": "array",
             "items": {
               "type": "string"
             },
-            "description": "Political group identifiers to compare (minimum 2)",
-            "examples": [
-              [
-                "EPP",
-                "S&D"
-              ]
-            ]
+            "description": "Political group identifiers to compare (minimum 2, maximum 10)"
           },
-          "metrics": {
+          "dimensions": {
             "type": "array",
             "items": {
-              "type": "string"
-            },
-            "description": "Comparison dimensions (omit for all)",
-            "examples": [
-              [
+              "type": "string",
+              "enum": [
                 "voting_discipline",
-                "activity_level"
+                "activity_level",
+                "legislative_output",
+                "attendance",
+                "cohesion"
               ]
-            ]
+            },
+            "description": "Comparison dimensions (omit for all)"
           },
           "dateFrom": {
             "type": "string",
             "description": "Analysis start date in YYYY-MM-DD format"
+          },
+          "dateTo": {
+            "type": "string",
+            "description": "Analysis end date (YYYY-MM-DD)"
           }
         },
         "required": [
-          "groups"
+          "groupIds"
         ]
       }
     },
@@ -617,6 +689,12 @@
             "type": "number",
             "description": "Pagination offset",
             "default": 0
+          },
+          "year": {
+            "type": "number",
+            "description": "Filter by calendar year (1900-2100)",
+            "minimum": 1900,
+            "maximum": 2100
           }
         }
       }
@@ -702,6 +780,12 @@
             "type": "number",
             "description": "Pagination offset",
             "default": 0
+          },
+          "year": {
+            "type": "number",
+            "description": "Filter by calendar year (1900-2100)",
+            "minimum": 1900,
+            "maximum": 2100
           }
         }
       }
@@ -1212,23 +1296,39 @@
       "inputSchema": {
         "type": "object",
         "properties": {
-          "mepId": {
-            "type": "number",
-            "description": "Optional numeric EP API internal MEP ID to focus the correlation. Note: Phase 6 OSINT tools use numeric IDs from the EP API v2, unlike core tools which use string identifiers like 'MEP-124810'"
-          },
-          "correlationScenarios": {
+          "mepIds": {
             "type": "array",
             "items": {
-              "type": "string",
-              "enum": [
-                "influence_anomaly",
-                "coalition_stress",
-                "network_activity"
-              ]
+              "type": "string"
             },
-            "description": "Correlation scenarios to run"
+            "description": "MEP identifiers to cross-correlate (1-5 MEPs)"
+          },
+          "groups": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Political groups for coalition fracture analysis (max 8)"
+          },
+          "sensitivityLevel": {
+            "type": "string",
+            "enum": [
+              "HIGH",
+              "MEDIUM",
+              "LOW"
+            ],
+            "description": "Alert sensitivity",
+            "default": "MEDIUM"
+          },
+          "includeNetworkAnalysis": {
+            "type": "boolean",
+            "description": "Run network centrality analysis",
+            "default": false
           }
-        }
+        },
+        "required": [
+          "mepIds"
+        ]
       }
     },
     {

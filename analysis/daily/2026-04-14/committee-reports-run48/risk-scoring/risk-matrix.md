@@ -86,4 +86,4 @@ Post-recess pipeline overwhelms committee capacity. Tariff crisis + Banking Unio
 
 ## Source Attribution
 
-Risk scores based on EP adopted texts (TA-10-2026 series), procedure pipeline data (51 procedures), political landscape stats (fragmentation 6.59, grand coalition 47%), and coalition dynamics analysis. Data from European Parliament Open Data Portal via MCP Server v1.2.6.
+Risk scores based on EP adopted texts (TA-10-2026 series), procedure pipeline data (51 procedures), political landscape stats (fragmentation 6.59, grand coalition 47%), and coalition dynamics analysis. Data from European Parliament Open Data Portal via MCP Server v1.2.7.

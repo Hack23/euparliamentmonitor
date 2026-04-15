@@ -14,7 +14,7 @@ confidence: HIGH
 - **Analysis Date**: 2026-04-14 (Tuesday)
 - **Parliamentary Context**: First working day after Easter recess (March 28 — April 14)
 - **Data Sources**: EP Open Data (100 adopted texts, 51 procedures, political landscape, coalition dynamics)
-- **MCP Server**: v1.2.6
+- **MCP Server**: v1.2.7
 
 ## Key Findings
 

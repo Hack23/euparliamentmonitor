@@ -54,7 +54,7 @@ mcp-servers:
   european-parliament:
     container: "node:25-alpine"
     entrypoint: "npx"
-    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.6", "--timeout", "120000"]
+    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.7", "--timeout", "120000"]
     env:
       EP_REQUEST_TIMEOUT_MS: "120000"
   world-bank:
@@ -760,7 +760,7 @@ european_parliament___get_all_generated_stats({ category: "all", includePredicti
 
 ```javascript
 // Fetch latest legislative proposals
-european_parliament___search_documents({ query: "Commission proposal", limit: 20 })
+european_parliament___search_documents({ keyword: "Commission proposal", limit: 20 })
 
 // Monitor legislative pipeline
 european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 10 })
@@ -769,7 +769,7 @@ european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 10
 european_parliament___track_legislation({ procedureId: "<ID from feed>" })
 
 // Get committee referral information
-european_parliament___get_committee_info({ committeeId: "ENVI" })
+european_parliament___get_committee_info({ abbreviation: "ENVI" })
 
 // Analyze legislative effectiveness
 european_parliament___analyze_legislative_effectiveness({ subjectType: "COMMITTEE", subjectId: "ENVI" })
@@ -941,7 +941,7 @@ Check if propositions articles exist from the last 11 hours. If **force_generati
 ### Step 2: Query EP MCP
 
 ```javascript
-european_parliament___search_documents({ query: "Commission proposal", limit: 20 })
+european_parliament___search_documents({ keyword: "Commission proposal", limit: 20 })
 european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 10 })
 ```
 
@@ -971,7 +971,7 @@ if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
     echo "✅ EP MCP server binary found for stdio mode"
   else
     echo "⚠️ No gateway URL set, installing EP MCP server for stdio mode..."
-    npm install --no-save european-parliament-mcp-server@1.2.6
+    npm install --no-save european-parliament-mcp-server@1.2.7
   fi
 fi
 
