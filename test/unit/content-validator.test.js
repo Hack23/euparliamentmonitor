@@ -838,9 +838,9 @@ describe('keyword quality gate', () => {
 });
 
 describe('zero-percent metric detection', () => {
-  it('should warn when dashboard contains 0% metrics', () => {
+  it('should warn when pipeline-health dashboard contains 0% metrics', () => {
     const bodyText = `
-      <div class="dashboard-panel">
+      <div class="pipeline-metrics">
         <span class="metric-value">0%</span>
       </div>
       ${Array(80).fill('Legislative pipeline analysis content word').join(' ')}
@@ -854,7 +854,7 @@ describe('zero-percent metric detection', () => {
 
   it('should not warn when dashboard shows non-zero metrics', () => {
     const bodyText = `
-      <div class="dashboard-panel">
+      <div class="pipeline-metrics">
         <span class="metric-value">75%</span>
       </div>
       ${Array(80).fill('Legislative pipeline analysis content word').join(' ')}
@@ -867,11 +867,13 @@ describe('zero-percent metric detection', () => {
     expect(zeroWarning).toBeUndefined();
   });
 
-  it('should count multiple 0% metrics', () => {
+  it('should count multiple 0% metrics in pipeline context', () => {
     const bodyText = `
-      <span class="metric-value">0%</span>
-      <span class="metric-value">0%</span>
-      <span class="metric-value">42%</span>
+      <div class="pipeline-metrics">
+        <span class="metric-value">0%</span>
+        <span class="metric-value">0%</span>
+        <span class="metric-value">42%</span>
+      </div>
       ${Array(80).fill('Content filler words for test').join(' ')}
     `;
     const html = buildArticleHtml(bodyText);
@@ -879,6 +881,21 @@ describe('zero-percent metric detection', () => {
     const zeroWarning = result.warnings.find((w) => w.includes('0%'));
     expect(zeroWarning).toBeDefined();
     expect(zeroWarning).toContain('2 metric(s)');
+  });
+
+  it('should not warn when 0% appears in trend panels outside pipeline context', () => {
+    const bodyText = `
+      <div class="dashboard-panel trend-panel">
+        <span class="metric-value">0%</span>
+      </div>
+      ${Array(80).fill('Content filler words for test').join(' ')}
+    `;
+    const html = buildArticleHtml(bodyText);
+    const result = validateArticleContent(html, 'en', 'propositions');
+    const zeroWarning = result.warnings.find((w) =>
+      w.includes('pipeline') && w.includes('0%')
+    );
+    expect(zeroWarning).toBeUndefined();
   });
 });
 
@@ -934,5 +951,29 @@ describe('empty section detection', () => {
       w.includes('empty or near-empty <section>')
     );
     expect(emptyWarning).toBeDefined();
+  });
+
+  it('should detect empty nested sections while not flagging non-empty outer sections', () => {
+    const bodyText = `
+      <section class="outer">
+        <h2>Outer heading with content</h2>
+        <p>This outer section has enough meaningful content to pass the threshold.</p>
+        <section class="inner-empty">
+          <div></div>
+        </section>
+        <section class="inner-ok">
+          <p>This inner section has enough content to not be empty at all.</p>
+        </section>
+      </section>
+      ${Array(80).fill('Article content filler words').join(' ')}
+    `;
+    const html = buildArticleHtml(bodyText);
+    const result = validateArticleContent(html, 'en', 'committee-reports');
+    const emptyWarning = result.warnings.find((w) =>
+      w.includes('empty or near-empty <section>')
+    );
+    // The inner-empty section should be detected; outer and inner-ok should not
+    expect(emptyWarning).toBeDefined();
+    expect(emptyWarning).toMatch(/1 empty/);
   });
 });

@@ -135,6 +135,11 @@ const BANNED_KEYWORD_PATTERNS = [
  * considered non-empty. Below this threshold the section is treated as empty.
  */
 const MIN_SECTION_CONTENT_LENGTH = 10;
+/**
+ * How many characters to look back from a tag position when checking
+ * whether the tag is inside a pipeline-health/pipeline-metrics container.
+ */
+const PIPELINE_CONTEXT_LOOKBEHIND_CHARS = 2000;
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 // stripScriptBlocks is imported from html-sanitize.ts
 /**
@@ -406,17 +411,23 @@ function hasClassToken(startTag, token) {
     return false;
 }
 /**
- * Detect metric values showing "0%" which indicate no-data conditions
- * that should not be rendered as real dashboard metrics.
+ * Detect metric values showing "0%" in pipeline-health / pipeline-metrics
+ * containers, which indicate no-data conditions that should not be rendered
+ * as real dashboard metrics.
+ *
+ * Only flags `0%` inside elements whose surrounding context includes a
+ * `pipeline-metrics` or `pipeline-health` class, avoiding false positives
+ * on legitimate trend-panel change indicators (e.g. week-over-week 0%).
  *
  * @param html - HTML string to inspect
- * @returns Number of 0% metric values found in dashboard contexts
+ * @returns Number of 0% pipeline metric values found
  */
 function detectZeroPercentMetrics(html) {
     // Use indexOf-based search to avoid regex backtracking (ReDoS-safe)
     let count = 0;
     let searchFrom = 0;
     const zeroValue = '0%';
+    const lowerHtml = html.toLowerCase();
     while (searchFrom < html.length) {
         const tagStart = html.indexOf('<', searchFrom);
         if (tagStart === -1)
@@ -432,7 +443,7 @@ function detectZeroPercentMetrics(html) {
             if (nextTag === -1)
                 break;
             const textContent = html.slice(contentStart, nextTag).trim();
-            if (textContent === zeroValue) {
+            if (textContent === zeroValue && isInPipelineContext(lowerHtml, tagStart)) {
                 count++;
             }
             searchFrom = nextTag;
@@ -441,6 +452,19 @@ function detectZeroPercentMetrics(html) {
         searchFrom = tagClose + 1;
     }
     return count;
+}
+/**
+ * Check whether a position in the HTML is inside a pipeline-health/metrics context.
+ * Looks backward up to 2000 chars for pipeline marker class names.
+ *
+ * @param lowerHtml - Lowercase HTML string
+ * @param position - Current scan position
+ * @returns true if inside a pipeline context
+ */
+function isInPipelineContext(lowerHtml, position) {
+    const precedingHtml = lowerHtml.slice(Math.max(0, position - PIPELINE_CONTEXT_LOOKBEHIND_CHARS), position);
+    return (precedingHtml.lastIndexOf('pipeline-metrics') !== -1 ||
+        precedingHtml.lastIndexOf('pipeline-health') !== -1);
 }
 /**
  * Strip HTML tags from a string using a simple character scanner.
@@ -467,35 +491,64 @@ function stripHtmlTags(input) {
     return parts.join('');
 }
 /**
+ * Evaluate whether a section's inner HTML has enough meaningful content.
+ *
+ * @param innerHtml - The HTML content between `<section>` and `</section>` tags
+ * @returns true if the section is empty or near-empty
+ */
+function isSectionEmpty(innerHtml) {
+    const plainText = stripHtmlTags(innerHtml).replace(/\s+/gu, ' ').trim();
+    return plainText.length < MIN_SECTION_CONTENT_LENGTH;
+}
+/**
+ * Find the next `<section` open or `</section>` close tag from a given cursor.
+ * Returns `{ type, pos }` or `null` if no more section tags found.
+ *
+ * @param lowerHtml - Lowercase HTML string
+ * @param cursor - Start position
+ * @returns Tag event or null
+ */
+function findNextSectionTag(lowerHtml, cursor) {
+    const nextOpen = lowerHtml.indexOf('<section', cursor);
+    const nextClose = lowerHtml.indexOf('</section>', cursor);
+    if (nextOpen === -1 && nextClose === -1)
+        return null;
+    const openFirst = nextOpen !== -1 && (nextClose === -1 || nextOpen < nextClose);
+    return openFirst ? { type: 'open', pos: nextOpen } : { type: 'close', pos: nextClose };
+}
+/**
  * Count empty `<section>` elements — those with little or no visible content.
  * An empty section contains only whitespace or very short boilerplate text.
+ * Uses a stack-based scanner to correctly handle nested `<section>` elements.
  *
  * @param html - HTML string to inspect
  * @returns Number of empty sections found
  */
 function countEmptySections(html) {
-    // Use indexOf-based parsing to avoid regex backtracking (ReDoS-safe)
-    let count = 0;
-    let searchFrom = 0;
     const lowerHtml = html.toLowerCase();
-    const openTag = '<section';
-    const closeTag = '</section>';
-    while (searchFrom < html.length) {
-        const openPos = lowerHtml.indexOf(openTag, searchFrom);
-        if (openPos === -1)
-            break;
-        const tagClose = html.indexOf('>', openPos);
-        if (tagClose === -1)
-            break;
-        const closePos = lowerHtml.indexOf(closeTag, tagClose);
-        if (closePos === -1)
-            break;
-        const innerHtml = html.slice(tagClose + 1, closePos);
-        const plainText = stripHtmlTags(innerHtml).replace(/\s+/gu, ' ').trim();
-        if (plainText.length < MIN_SECTION_CONTENT_LENGTH) {
-            count++;
+    let count = 0;
+    const stack = [];
+    let cursor = 0;
+    let event = findNextSectionTag(lowerHtml, cursor);
+    while (event) {
+        if (event.type === 'open') {
+            const tagEnd = html.indexOf('>', event.pos);
+            if (tagEnd === -1)
+                break;
+            stack.push(tagEnd + 1);
+            cursor = tagEnd + 1;
         }
-        searchFrom = closePos + closeTag.length;
+        else {
+            if (stack.length > 0) {
+                const contentStart = stack[stack.length - 1] ?? 0;
+                stack.pop();
+                if (isSectionEmpty(html.slice(contentStart, event.pos))) {
+                    count++;
+                }
+            }
+            cursor = event.pos + '</section>'.length;
+        }
+        event = findNextSectionTag(lowerHtml, cursor);
     }
     return count;
 }

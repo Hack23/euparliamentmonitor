@@ -79,7 +79,7 @@ export function collectDocsHtmlFiles(dir: string, rootDir: string = PROJECT_ROOT
  */
 export function generateSitemap(articles: string[], docsFiles: string[] = []): string {
   const urls: SitemapUrl[] = [];
-  const today = new Date().toISOString().split('T')[0] ?? '';
+  const today = new Date().toISOString().slice(0, 10);
 
   // Add home pages for each language
   for (const lang of ALL_LANGUAGES) {
