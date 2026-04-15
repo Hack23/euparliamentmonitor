@@ -835,6 +835,37 @@ describe('keyword quality gate', () => {
     expect(keywordWarning).toContain('Impact Assessment');
     expect(keywordWarning).toContain('Timeline');
   });
+
+  it('should detect newly-added forbidden keywords from SHARED_PROMPT_PATTERNS', () => {
+    const bodyText = Array(100).fill('Policy analysis content for testing').join(' ');
+    const html = buildArticleHtml(bodyText, {
+      keywords: 'EU, Strategic Outlook, SWOT Analysis, Dashboard, Pipeline Health',
+    });
+    const result = validateArticleContent(html, 'en', 'breaking');
+    const keywordWarning = result.warnings.find((w) =>
+      w.includes('section heading')
+    );
+    expect(keywordWarning).toBeDefined();
+    expect(keywordWarning).toContain('Strategic Outlook');
+    expect(keywordWarning).toContain('SWOT Analysis');
+    expect(keywordWarning).toContain('Dashboard');
+    expect(keywordWarning).toContain('Pipeline Health');
+  });
+
+  it('should detect HTML-entity-encoded banned keywords', () => {
+    const bodyText = Array(100).fill('Policy analysis content for testing').join(' ');
+    // Template engine escapes & as &amp; in meta keywords
+    const html = buildArticleHtml(bodyText, {
+      keywords: 'EU, Winners &amp; Losers, Miscalculations &amp; Missed Opportunities',
+    });
+    const result = validateArticleContent(html, 'en', 'breaking');
+    const keywordWarning = result.warnings.find((w) =>
+      w.includes('section heading')
+    );
+    expect(keywordWarning).toBeDefined();
+    expect(keywordWarning).toContain('Winners & Losers');
+    expect(keywordWarning).toContain('Miscalculations & Missed Opportunities');
+  });
 });
 
 describe('zero-percent metric detection', () => {

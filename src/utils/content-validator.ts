@@ -204,12 +204,23 @@ const BANNED_KEYWORD_PATTERNS: ReadonlyArray<string> = [
   'Key Actors',
   'Timeline',
   'Why It Matters',
+  'Why This Matters',
   'Legislative Pipeline Overview',
   'Impact Assessment',
   'Actions → Consequences',
+  'Miscalculations & Missed Opportunities',
   'Winners & Losers',
   'Root Causes',
   'Stakeholder Perspectives',
+  'Multi-Stakeholder Perspectives',
+  'Stakeholder Outcome Matrix',
+  'Intelligence Policy Map',
+  'Strategic Outlook',
+  'SWOT Analysis',
+  'Dashboard',
+  'Pipeline Health',
+  'Analysis Pipeline Insights',
+  'Plenary Sessions',
   'Executive Summary',
   'Table of Contents',
   'Political Context',
@@ -398,8 +409,48 @@ function checkMetaTagSync(html: string): boolean {
 }
 
 /**
+ * Decode common HTML entities that appear in meta keyword values.
+ * Only covers the entities actually used by the article template engine.
+ *
+ * @param s - String potentially containing HTML entities
+ * @returns The string with common entities decoded
+ */
+function decodeKeywordEntities(s: string): string {
+  return s
+    .replace(/&amp;/giu, '&')
+    .replace(/&lt;/giu, '<')
+    .replace(/&gt;/giu, '>')
+    .replace(/&quot;/giu, '"')
+    .replace(/&#39;/gu, "'")
+    .replace(/&mdash;/giu, '—')
+    .replace(/&ndash;/giu, '–')
+    .replace(/&rarr;/giu, '→');
+}
+
+/**
+ * Normalize a keyword token for comparison: decode HTML entities,
+ * collapse arrow/dash variants, and normalize whitespace.
+ *
+ * @param s - Raw keyword token to normalize
+ * @returns Lowercased, entity-decoded, dash-normalized token
+ */
+function normalizeKeywordToken(s: string): string {
+  let decoded = decodeKeywordEntities(s);
+  // Normalize arrow/dash variants → single canonical form
+  decoded = decoded.replace(/→/gu, '->');
+  decoded = decoded.replace(/—/gu, '-');
+  decoded = decoded.replace(/–/gu, '-');
+  // Collapse whitespace and lowercase
+  return decoded.replace(/\s+/gu, ' ').trim().toLowerCase();
+}
+
+/**
  * Detect section-heading keywords that leaked into the article's meta keywords.
  * Returns the list of banned keywords found.
+ *
+ * Decodes HTML entities (e.g. `&amp;` → `&`) and normalizes dash/arrow
+ * variants so that "Winners &amp; Losers" matches "Winners & Losers" and
+ * "Why It Matters — Root Causes" matches both halves independently.
  *
  * @param html - HTML string to inspect
  * @returns Array of section-heading keywords found in the meta tag
@@ -411,22 +462,18 @@ function detectBannedKeywords(html: string): string[] {
   // Parse comma-separated keywords and normalize each token
   const tokens = keywordsMeta
     .split(',')
-    .map((k) => k.trim().replace(/\s+/gu, ' ').toLowerCase())
+    .map((k) => normalizeKeywordToken(k))
     .filter((k) => k.length > 0);
 
   // Build a normalized banned-set for exact-match comparison
   const bannedNormalized = new Map<string, string>();
   for (const pattern of BANNED_KEYWORD_PATTERNS) {
-    bannedNormalized.set(
-      pattern.replace(/→/gu, '->').replace(/\s+/gu, ' ').trim().toLowerCase(),
-      pattern
-    );
+    bannedNormalized.set(normalizeKeywordToken(pattern), pattern);
   }
 
   const found: string[] = [];
   for (const token of tokens) {
-    const normalized = token.replace(/→/gu, '->');
-    const original = bannedNormalized.get(normalized);
+    const original = bannedNormalized.get(token);
     if (original) {
       found.push(original);
     }
