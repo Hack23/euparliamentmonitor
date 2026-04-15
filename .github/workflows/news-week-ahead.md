@@ -941,9 +941,11 @@ If recent articles exist and force_generation is `false`, use `--skip-existing` 
 const today = new Date().toISOString().split('T')[0];
 const nextWeek = new Date(Date.now() + 7 * 86400000).toISOString().split('T')[0];
 
-// Fetch all week-ahead data in parallel
-const [sessions, committees, documents, pipeline, meps] = await Promise.allSettled([
-  european_parliament___get_plenary_sessions({ dateFrom: today, dateTo: nextWeek, limit: 50 }),
+// Reuse health-gate result for sessions (do NOT call get_plenary_sessions again)
+// Filter health-gate sessions by date range [today, nextWeek] in analysis
+
+// Fetch remaining week-ahead data in parallel
+const [committees, documents, pipeline, meps] = await Promise.allSettled([
   european_parliament___get_committee_info({ showCurrent: true }),
   european_parliament___search_documents({ keyword: "plenary agenda", limit: 20 }),
   european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 20 }),
