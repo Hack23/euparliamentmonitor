@@ -25,6 +25,8 @@
 
 > **🚨 Anti-Pattern Warning:** Plain prose without structured tables, Mermaid diagrams, or evidence citations is REJECTED. Every analysis file MUST follow this template exactly: metadata header, structured tables with evidence columns, ≥1 color-coded Mermaid diagram, confidence labels on all claims. See [ai-driven-analysis-guide.md](../methodologies/ai-driven-analysis-guide.md) for good vs. bad examples.
 
+> **🔴 Per-File Deep Data Requirement (NEW):** For EACH document analyzed, the agent MUST attempt to fetch the full document via `track_legislation({ procedureId: "..." })` and/or `search_documents({ keyword: "..." })`. Analysis based solely on adopted text titles and TA numbers (metadata-only) MUST be marked LOW confidence. Fetch voting records, procedure timelines, and committee reports to support the analysis.
+
 ---
 
 ## 📋 Document Identity

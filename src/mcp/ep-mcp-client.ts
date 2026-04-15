@@ -458,7 +458,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
   /**
    * Retrieve voting records with optional filters
    *
-   * @param options - Filter options (mepId, sessionId, limit)
+   * @param options - Filter options (sessionId, mepId, topic, dateFrom, dateTo, limit, offset)
    * @returns Voting records data
    */
   async getVotingRecords(options: VotingRecordsOptions = {}): Promise<MCPToolResult> {

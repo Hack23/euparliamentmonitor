@@ -78,7 +78,7 @@ These restrictions prevent patch conflicts and workflow failures:
 | Dangerous shell expansion (`${var@P}`, `${!var}`, `eval`, nested `$($(..))`, `${var:+...${#other}...}`) | Blocked by sandbox security — use `if/else` blocks instead |
 | Input redirection inside command substitution (`$(cmd < file)`) | Blocked by sandbox — use `cmd file` or pipe with `cat file` instead |
 | Ad-hoc data processing scripts | Use existing `scripts/generate-news-enhanced.js` pipeline |
-| Metadata-only analysis | MUST download and store COMPLETE EP documents |
+| Metadata-only analysis | MUST download and store COMPLETE EP documents — use `track_legislation`, `get_voting_records`, `get_meeting_decisions`, `get_speeches` to get full content beyond titles and TA numbers |
 | Workarounds for existing tools | Log errors and continue; do not reimplement |
 | Deciding article topic before analysis is complete | Finish ALL analysis first, then decide based on significance scoring |
 | `safeoutputs___noop` when analysis artifacts exist | Create analysis-only PR instead (Rule 5) |
@@ -159,33 +159,86 @@ These endpoints use the `timeframe` parameter with supported values: `"today"`, 
 | `get_corporate_bodies_feed` | Committee/delegation updates | `timeframe` |
 | `get_mep_declarations_feed` | MEP financial declarations | `timeframe` |
 
-### Direct Lookup Endpoints
+### Direct Lookup Endpoints (CRITICAL FALLBACKS)
 
-| Tool | Purpose | Key Parameters |
-|------|---------|----------------|
-| `get_plenary_sessions` | Plenary sessions | `dateFrom`/`dateTo`, `year`, `eventId`, `location`, `limit` |
-| `get_events` | EP events | `dateFrom`/`dateTo`, `year`, `eventId`, `limit` |
-| `get_procedures` | Legislative procedures | `year`, `processId`, `limit` |
-| `get_adopted_texts` | Adopted texts | `year`, `docId`, `limit` |
-| `get_plenary_documents` | Plenary documents | `year`, `docId`, `limit` |
-| `get_committee_documents` | Committee documents | `year`, `docId`, `limit` |
-| `get_speeches` | Plenary speeches | `dateFrom`/`dateTo`, `year`, `speechId`, `limit` |
-| `get_parliamentary_questions` | Parliamentary questions | `type`, `dateFrom`/`dateTo`, `author`, `topic`, `status`, `docId`, `limit` |
-| `get_mep_details` | Specific MEP info | `id` (e.g., "MEP-124810") |
-| `get_mep_declarations` | MEP financial declarations | `year`, `docId` |
-| `get_committee_info` | Committee details | `abbreviation`, `id`, `showCurrent` (e.g., "ENVI") |
-| `search_documents` | Search EP documents | `keyword`, `documentType`, `committee`, `dateFrom`/`dateTo` |
-| `track_legislation` | Legislative procedure progress | `procedureId` (e.g., "2024/0001(COD)") |
-| `get_procedure_events` | Events for a procedure | `processId` |
-| `get_meeting_decisions` | Plenary sitting decisions | `sittingId` |
-| `get_meeting_activities` | Plenary sitting activities | `sittingId` |
+> **⚠️ DEGRADED MODE FALLBACK STRATEGY**: When feed endpoints return 404 or timeout, these direct endpoints are your primary data source. They query the underlying EP database directly and are typically MORE reliable than feeds. **ALWAYS use these as fallback — do not skip data collection because feeds are down.**
 
+| Tool | Purpose | Key Parameters | Feed Fallback For |
+|------|---------|----------------|-------------------|
+| `get_plenary_sessions` | Plenary sessions | `dateFrom`/`dateTo`, `year`, `eventId`, `location`, `limit` | *(no dedicated sessions feed; use `get_plenary_session_documents_feed` for session documents when appropriate, or use dateFrom/dateTo for date range queries)* |
+| `get_events` | EP events | `dateFrom`/`dateTo`, `year`, `eventId`, `limit` | `get_events_feed` |
+| `get_procedures` | Legislative procedures | `year`, `processId`, `limit` | `get_procedures_feed` |
+| `get_adopted_texts` | Adopted texts | `year`, `docId`, `limit` | `get_adopted_texts_feed` |
+| `get_plenary_documents` | Plenary documents | `year`, `docId`, `limit` | `get_plenary_documents_feed` |
+| `get_committee_documents` | Committee documents | `year`, `docId`, `limit` | `get_committee_documents_feed` |
+| `get_speeches` | Plenary speeches | `dateFrom`/`dateTo`, `year`, `speechId`, `limit` | *(no feed equivalent)* |
+| `get_parliamentary_questions` | Parliamentary questions | `type`, `dateFrom`/`dateTo`, `author`, `topic`, `status`, `docId`, `limit` | `get_parliamentary_questions_feed` |
+| `get_mep_details` | Specific MEP info | `id` (e.g., "MEP-124810") | — |
+| `get_mep_declarations` | MEP financial declarations | `year`, `docId` | `get_mep_declarations_feed` |
+| `get_committee_info` | Committee details | `abbreviation`, `id`, `showCurrent` (e.g., "ENVI") | — |
+| `search_documents` | Search EP documents | `keyword`, `documentType`, `committee`, `dateFrom`/`dateTo` | — |
+| `track_legislation` | Legislative procedure progress | `procedureId` (e.g., "2024/0001(COD)") | — |
+| `get_procedure_events` | Events for a procedure | `processId` | — |
+| `get_meeting_decisions` | Plenary sitting decisions | `sittingId` | — |
+| `get_meeting_activities` | Plenary sitting activities | `sittingId` | — |
+
+### 🔴 MANDATORY Deep Data Collection (All Workflows)
+
+> **Anti-Pattern**: Fetching only metadata (titles, TA numbers, procedure IDs) without downloading full document content, voting records, or meeting decisions. This produces shallow analysis that asserts political positions without evidence.
+
+**Every workflow MUST attempt these deep data collection steps:**
+
+1. **Full document content**: Use `search_documents` with `keyword` to find documents by topic. Use `get_adopted_texts({ year: YYYY, limit: 100 })` to get full adopted text details, not just titles.
+
+2. **Voting records for specific sessions**: Use `get_voting_records({ sessionId: "...", limit: 50 })` for EACH plenary session discussed in analysis. This provides actual vote counts (for/against/abstain) to support coalition claims.
+
+3. **Meeting decisions for plenary sittings**: Use `get_meeting_decisions({ sittingId: "..." })` for recent plenary sittings to get adopted decisions and voting outcomes.
+
+4. **Procedure details for cited legislation**: Use `track_legislation({ procedureId: "YYYY/NNNN(COD)" })` for EACH procedure referenced in analysis to get current status, timeline, and committee assignments.
+
+5. **Speeches from key debates**: Use `get_speeches({ dateFrom: "...", dateTo: "...", limit: 20 })` to get actual debate contributions for color and direct quotes.
+
+6. **Committee activity**: Use `get_committee_documents({ year: YYYY, limit: 50 })` when committee document feeds fail to still get committee output.
+
+**Data Verification Checklist** (include in every manifest.json):
+```json
+{
+  "dataVerification": {
+    "adoptedTextsDownloaded": true,
+    "votingRecordsFetched": false,
+    "meetingDecisionsFetched": false,
+    "procedureDetailsTracked": ["2025/0261(COD)", "2023/0115(COD)"],
+    "speechesFetched": false,
+    "committeeDocumentsFetched": false,
+    "reason": "Feeds returned 404; direct endpoints used as fallback"
+  }
+}
+```
+
+### 🔄 Feed → Direct Endpoint Fallback Chain
+
+When a feed endpoint fails (404/timeout/error), IMMEDIATELY try the corresponding direct endpoint:
+
+| Failed Feed | Direct Fallback | Fallback Parameters |
+|------------|----------------|---------------------|
+| `get_events_feed` (404) | `get_events({ dateFrom: "YYYY-MM-DD", dateTo: "YYYY-MM-DD", limit: 50 })` | Use last 7 days |
+| `get_procedures_feed` (404) | `get_procedures({ year: YYYY, limit: 50 })` | Current year |
+| `get_committee_documents_feed` (timeout) | `get_committee_documents({ year: YYYY, limit: 50 })` | Current year |
+| `get_plenary_documents_feed` (timeout) | `get_plenary_documents({ year: YYYY, limit: 50 })` | Current year |
+| `get_parliamentary_questions_feed` (timeout) | `get_parliamentary_questions({ type: "WRITTEN", limit: 20 })` | Recent questions |
+| `get_adopted_texts_feed` (error) | `get_adopted_texts({ year: YYYY, limit: 100 })` | Current year |
+
+> **⚠️ DO NOT SKIP DATA COLLECTION**: A feed returning 404 does NOT mean the data is unavailable. The underlying EP API often works fine — only the feed aggregation layer is degraded. ALWAYS try direct endpoints before concluding data is unavailable.
+
+### Cross-Run Data Consistency
+
+> **⚠️ SEAT COUNT NORMALIZATION**: When citing political group seat counts, use the SAME data source within a single analysis run. Get seat counts from `analyze_coalition_dynamics` OR from `get_meps_feed` — do NOT mix sources. Record the source in the analysis metadata. Inconsistent seat counts across same-day runs (e.g., EPP=185 vs EPP=188) undermine analytical credibility.
 ### Analytical Tools (AI-Powered Analysis)
 
 | Tool | Purpose | Key Parameters |
 |------|---------|----------------|
-| `get_voting_records` | Aggregate plenary votes | `sessionId`, `mepId`, `limit` |
-| `analyze_voting_patterns` | MEP voting behavior | `mepId`, `dateFrom`/`dateTo`, `compareWithGroup` |
+| `get_voting_records` | Aggregate plenary votes | `sessionId`, `mepId`, `topic`, `dateFrom`/`dateTo`, `limit`, `offset` |
+| `analyze_voting_patterns` | MEP voting behaviour | `mepId`, `dateFrom`/`dateTo`, `compareWithGroup` |
 | `analyze_coalition_dynamics` | Political group alliances | `groupIds`, `dateFrom`/`dateTo`, `minimumCohesion` |
 | `detect_voting_anomalies` | Unusual voting patterns | `groupId`, `mepId`, `dateFrom`/`dateTo`, `sensitivityThreshold` |
 | `compare_political_groups` | Multi-dimension comparison | `groupIds` (min 2), `dimensions`, `dateFrom`/`dateTo` |
@@ -217,7 +270,7 @@ These endpoints use the `timeframe` parameter with supported values: `"today"`, 
 | `search_documents({ query: "climate" })` | `search_documents({ keyword: "climate" })` | v1.2.7 uses `keyword`, not `query`; also supports `documentType`, `docId` |
 | `get_adopted_texts_feed({ timeframe: "three-months" })` | `get_adopted_texts_feed({ timeframe: "one-month" })` | Valid timeframes: `today`, `one-day`, `one-week`, `one-month`, `custom` |
 | `compare_political_groups({ groups: ["EPP", "S&D"] })` | `compare_political_groups({ groupIds: ["EPP", "S&D"] })` | v1.2.7 uses `groupIds`, not `groups` |
-| `get_voting_records({ topic: "climate" })` | `get_voting_records({ sessionId: "...", limit: 50 })` | No `topic`/`dateFrom`/`dateTo` — use `sessionId`, `mepId`, `limit` |
+| `get_voting_records({ topic: "climate" })` *(unbounded)* | `get_voting_records({ sessionId: "...", limit: 50 })` or `get_voting_records({ topic: "climate", dateFrom: "...", dateTo: "...", limit: 50 })` | `topic` is supported but always combine with `sessionId` or `dateFrom`/`dateTo` to bound results |
 | `get_mep_details({ name: "Weber" })` | `get_mep_details({ id: "MEP-124810" })` | Must use MEP ID, not name |
 
 ### World Bank MCP Tools (Economic Context Enrichment)
@@ -241,16 +294,17 @@ All news generation workflows follow this mandatory pipeline defined in `ai-driv
 ### Pipeline Steps
 
 ```
-1. DOWNLOAD → 2. ANALYZE → 3. EVALUATE → 4. GENERATE → 5. PR
+1. DOWNLOAD → 2. DEEP-FETCH → 3. ANALYZE → 4. EVALUATE → 5. GENERATE → 6. PR
 ```
 
 | Step | Action | Minimum Time | Reference |
 |------|--------|:------------:|-----------|
-| 1. **Download** | Fetch EP feed data via MCP tools | — | Feed endpoints above |
-| 2. **Analyze** | AI reads ALL 6 methodology docs + 8 templates, applies to every data file | 15-25 min | `ai-driven-analysis-guide.md` Rules 2-4, 7 |
-| 3. **Evaluate** | AI evaluates analysis artifacts for newsworthiness | — | `ai-driven-analysis-guide.md` Rule 5 |
-| 4. **Generate** | Generate article with AI-driven title/description | — | `ai-driven-analysis-guide.md` Rules 8-9, 12 |
-| 5. **PR** | Create PR with articles AND analysis artifacts | — | `ai-driven-analysis-guide.md` Rule 5 |
+| 1. **Download** | Fetch EP feed data via MCP tools; if feeds fail, use direct endpoint fallbacks | — | Feed endpoints + Direct Lookup fallbacks above |
+| 2. **Deep-Fetch** | For every adopted text/procedure cited: fetch `track_legislation`, `get_voting_records`, `get_meeting_decisions`, `get_speeches` | — | Mandatory Deep Data Collection section above |
+| 3. **Analyze** | AI reads ALL 6 methodology docs + 8 templates, applies to every data file | 15-25 min | `ai-driven-analysis-guide.md` Rules 2-4, 7 |
+| 4. **Evaluate** | AI evaluates analysis artifacts for newsworthiness | — | `ai-driven-analysis-guide.md` Rule 5 |
+| 5. **Generate** | Generate article with AI-driven title/description | — | `ai-driven-analysis-guide.md` Rules 8-9, 12 |
+| 6. **PR** | Create PR with articles AND analysis artifacts | — | `ai-driven-analysis-guide.md` Rule 5 |
 
 ### Minimum AI Analysis Time per Workflow
 
@@ -339,6 +393,70 @@ Every workflow run MUST produce output:
 - **Article generated:** Include analysis artifacts in PR alongside `news/` files
 - **No article (quiet period):** Create analysis-only PR with `safeoutputs___create_pull_request`
 - **`safeoutputs___noop`:** ONLY when MCP server is completely unavailable and zero data collected — MUST include full diagnostics (see [Mandatory Noop Diagnostics](#mandatory-noop-diagnostics-all-workflows))
+
+---
+
+## 📋 Article Quality Gates (Mandatory for All Workflows)
+
+All generated articles MUST pass these quality gates before publication. These rules prevent recurring quality issues observed in production runs.
+
+### Keywords Quality Rules
+
+Article `<meta name="keywords">` MUST contain **only policy-relevant terms**:
+
+| ✅ Good Keywords | ❌ Banned Keywords |
+|---|---|
+| Policy terms: `anti-corruption directive`, `banking reform` | Section headings: `Deep Political Analysis`, `What Happened` |
+| Committee names: `ECON`, `LIBE`, `ENVI` | Navigation labels: `Key Actors`, `Timeline`, `Why It Matters` |
+| Document IDs: `TA-10-2026-0090`, `2025/0042(COD)` | Template artifacts: `Legislative Pipeline Overview`, `Impact Assessment` |
+| Political groups: `EPP`, `S&D`, `ECR`, `Renew` | Generic fillers: `European Parliament`, `EU legislation` |
+| Specific topics: `tariff response`, `digital markets` | Internal headings: `Actions → Consequences`, `Stakeholder Impact` |
+
+**Rule:** If a keyword matches a section heading from the article template, it MUST be removed.
+
+### Title Quality Rules
+
+Article `<title>` and `<h1>` MUST be:
+- ✅ **AI-generated from political content analysis** — names specific actors, legislation, outcomes
+- ✅ **Active voice, max 70 characters** — reads like a newspaper headline
+- ❌ **NEVER** contain raw metrics: `Pipeline 0%`, `Health Score 45`, `Fragmentation 6.59`
+- ❌ **NEVER** contain article type labels: `Weekly Review:`, `Committee Reports:`, `Propositions:`
+- ❌ **NEVER** use date-centric format: `EU Parliament Monitor — 2026-04-15`
+
+**Good examples:**
+- `ECR Breaks Ranks on Tariff Response as Grand Coalition Holds on Banking Reform`
+- `Parliament Adopts Anti-Corruption Directive Despite PfE Opposition`
+
+**Bad examples:**
+- `Legislative Procedures: European Parliament Monitor — Pipeline 0%`
+- `Weekly Review: European Parliament Activity 2026-04-15`
+
+### Description Quality Rules
+
+Article `<meta name="description">` MUST be:
+- ✅ **150-160 characters**, names the most significant item + outcome + coalition dynamics
+- ❌ **NEVER** use boilerplate: `Comprehensive analysis of European Parliament legislative activity`
+- ❌ **NEVER** repeat the title verbatim
+- ❌ **NEVER** contain placeholder text: `data unavailable`, `analysis pending`
+
+### Minimum Publication Threshold
+
+**Do NOT publish an article when:**
+- ALL feed endpoints returned empty/error AND no adopted texts exist for the time period
+- Analysis contains ONLY precomputed stats with zero feed-sourced data points
+- Article body would consist entirely of historical context paragraphs with no news
+
+**Instead:** Create an analysis-only PR per Rule 5 — analysis artifacts are still valuable.
+
+### Dashboard & Metric Rendering Rules
+
+When `monitor_legislative_pipeline` returns `health: 0%` and `throughput: 0`:
+- This means **NO DATA was available** — NOT that the pipeline scored 0%
+- ❌ **NEVER** render a dashboard showing `0%` health, `0` throughput as real metrics
+- ✅ **Instead:** Omit the pipeline dashboard entirely, or show "Data unavailable for this period"
+- ✅ **Alternative:** Use `get_procedures(year=YYYY)` as fallback to get actual pipeline data
+
+**General rule:** Any metric that equals exactly 0 from an analytical tool should be verified against feed data before rendering. Zero often means "no data returned" not "zero activity".
 
 ---
 

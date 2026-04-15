@@ -769,6 +769,21 @@ european_parliament___get_events_feed({ timeframe: "one-week", limit: 50 })     
 
 > **⚠️ TIMEOUT HANDLING**: The EP API can be slow (30-90+ seconds per request). The `EP_REQUEST_TIMEOUT_MS` is set to 90 seconds. If a feed still times out, log the error and continue with other feeds — do NOT abort the entire data collection phase. A partial dataset is better than no data.
 
+> **🔴 FEED FAILURE ≠ DATA UNAVAILABLE**: If a feed endpoint returns 404 or timeout after both `today` and `one-week` retries, use the corresponding direct endpoint from the fallback chain below:
+
+**Feed → Direct Endpoint Fallback Chain:**
+
+| Failed Feed | Direct Fallback | Parameters |
+|------------|----------------|------------|
+| `get_adopted_texts_feed` | `get_adopted_texts` | `{ year: YYYY, limit: 100 }` |
+| `get_events_feed` | `get_events` | `{ dateFrom: "<7-days-ago>", dateTo: "<today>", limit: 50 }` |
+| `get_procedures_feed` | `get_procedures` | `{ year: YYYY, limit: 50 }` |
+| `get_meps_feed` | `get_current_meps` | `{ limit: 50 }` |
+| `get_documents_feed` | `get_plenary_documents` + `get_committee_documents` | `{ year: YYYY, limit: 50 }` each |
+| `get_plenary_documents_feed` | `get_plenary_documents` | `{ year: YYYY, limit: 50 }` |
+| `get_committee_documents_feed` | `get_committee_documents` | `{ year: YYYY, limit: 50 }` |
+| `get_parliamentary_questions_feed` | `get_parliamentary_questions` | `{ type: "WRITTEN", limit: 20 }` |
+
 **MANDATORY: Advisory feeds (ALWAYS download — for analysis and context):**
 
 ```javascript
@@ -812,6 +827,28 @@ european_parliament___generate_political_landscape({})
 european_parliament___early_warning_system({ sensitivity: "medium" })
 ```
 
+### 🔬 MANDATORY: Deep Data Collection
+
+**Call for the most significant cited procedures/adopted texts, up to max 5 deep-fetch calls total across all deep-fetch tools — prioritize by: (1) items directly supporting article claims, (2) items with voting/coalition implications, (3) most recent items:**
+
+```text
+// Track specific procedures cited in analysis — call for the most significant cited items, up to the max 5 cap
+european_parliament___track_legislation({ procedureId: "<procedure-ID-from-feed>" })
+
+// Fetch plenary session decisions for voting evidence
+european_parliament___get_meeting_decisions({ sittingId: "<sitting-ID>" })
+
+// Fetch voting records for cited sessions — MANDATORY for coalition behaviour claims
+// Prefer sessionId as primary selector; use dateFrom/dateTo as bounded fallback
+european_parliament___get_voting_records({ sessionId: "<session-ID-from-plenary>", limit: 20 })
+// ↳ FALLBACK if no sessionId: get_voting_records({ topic: "<topic-keyword>", dateFrom: "<7-days-ago>" (YYYY-MM-DD), dateTo: "<today>" (YYYY-MM-DD), limit: 20 })
+
+// Fetch speeches for debate context and direct quotes
+european_parliament___get_speeches({ dateFrom: "<7-days-ago>" (YYYY-MM-DD), dateTo: "<today>" (YYYY-MM-DD), limit: 20 })
+```
+
+> **🔴 VOTING EVIDENCE REQUIREMENT**: Any analysis that claims political group voting positions (e.g., "ECR broke ranks", "Grand Coalition held") MUST cite actual data from `get_voting_records` or `get_meeting_decisions`. If voting records are unavailable (EP publishes with delay), mark coalition claims as LOW confidence.
+
 ### ⚡ MCP Call Budget
 
 - This budget applies to **manual pre-generation data gathering only**.
@@ -821,6 +858,7 @@ european_parliament___early_warning_system({ sensitivity: "medium" })
 - **Advisory feeds**: 4 mandatory calls with one-week timeframe = 4 calls
 - **Analytical context**: 4 calls in NORMAL mode (anomalies, coalition dynamics, political landscape, early warning) or 1 call in DEGRADED MODE (coalition dynamics only)
 - **Maximum 16 manual MCP tool calls in NORMAL mode** (4 primary + 4 retries + 4 advisory + 4 analytical; health-gate and generator script calls exempt)
+- **Deep-fetch calls** (up to 5 additional): `track_legislation`, `get_meeting_decisions`, `get_voting_records`, `get_speeches` — called per cited item, max 5 total across all deep-fetch tools
 - **Maximum 9 manual MCP tool calls in DEGRADED MODE** (4 feeds one-week + 4 advisory one-week + 1 coalition dynamics)
 - **⚠️ ALL non-retry calls are mandatory** — the workflow must attempt every call, logging errors but continuing with other calls
 

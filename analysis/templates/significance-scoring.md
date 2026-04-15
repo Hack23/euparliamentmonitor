@@ -7,6 +7,30 @@
 
 > **🚨 Anti-Pattern Warning:** Significance scores without 5-dimension breakdowns and evidence citations are REJECTED. Every score MUST show: Political Impact (1–10) + Policy Significance (1–10) + Institutional Relevance (1–10) + Public Interest (1–10) + Temporal Urgency (1–10) = Composite (weighted average). See [methodologies/ai-driven-analysis-guide.md](../methodologies/ai-driven-analysis-guide.md) for quality requirements. **Never use scripted boilerplate — AI must analyse the actual data.**
 
+> **🔴 Data Depth Requirement (NEW):** Before scoring any event, verify that you have downloaded **full document content** — not just metadata. Political group position claims MUST cite voting records from `get_voting_records` or `get_meeting_decisions`, not inferred from general patterns. If voting data is unavailable, state confidence as LOW and note "voting records not available for this session."
+
+---
+
+## 🔍 Data Verification Gate (MANDATORY)
+
+> **Complete this section BEFORE scoring any events. Scores without data verification are REJECTED.**
+
+| Data Source | Status | Items Retrieved | Tool Used |
+|-------------|--------|:---------------:|-----------|
+| Adopted texts (full details) | `[OK/FAILED/SKIPPED]` | `[N]` | `[get_adopted_texts / get_adopted_texts_feed]` |
+| Voting records for cited sessions | `[OK/FAILED/SKIPPED]` | `[N]` | `[get_voting_records]` |
+| Meeting decisions | `[OK/FAILED/SKIPPED]` | `[N]` | `[get_meeting_decisions]` |
+| Procedure tracking for cited legislation | `[OK/FAILED/SKIPPED]` | `[N]` | `[track_legislation]` |
+| Committee documents | `[OK/FAILED/SKIPPED]` | `[N]` | `[get_committee_documents / feed]` |
+| Parliamentary questions | `[OK/FAILED/SKIPPED]` | `[N]` | `[get_parliamentary_questions / feed]` |
+| Speeches | `[OK/FAILED/SKIPPED]` | `[N]` | `[get_speeches]` |
+| Coalition dynamics | `[OK/FAILED/SKIPPED]` | `[N groups]` | `[analyze_coalition_dynamics]` |
+| Precomputed stats | `[OK/FAILED/SKIPPED]` | `[size KB]` | `[get_all_generated_stats]` |
+
+**Seat Count Source:** `[REQUIRED: state which single tool provided group seat counts — e.g., "analyze_coalition_dynamics" or "get_meps_feed"]`
+
+**Data Gaps Impact on Scoring:** `[REQUIRED: describe how missing data affects confidence levels — e.g., "No voting records available; all coalition position claims are LOW confidence inferred from prior sessions"]`
+
 ---
 
 ## 📋 Event Context
