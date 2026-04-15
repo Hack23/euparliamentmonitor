@@ -426,7 +426,7 @@ Every workflow run MUST produce output:
 
 **Pipeline/dashboard metrics of 0% or 0 indicate NO DATA, not actual zero performance.**
 
-- If `monitor_legislative_pipeline` returns health=0%, throughput=0: **DO NOT render the dashboard panel**. Instead, explain the inter-session gap: "Parliament is between sessions; the pipeline is paused, not stalled."
+- If `monitor_legislative_pipeline` returns health=0%, throughput=0: **DO NOT render the dashboard panel**. Instead, explain the inter-session gap — e.g., "Parliament is between sessions; the pipeline is paused, not stalled." (adapt wording to fit the article context)
 - If rendering a dashboard, every metric MUST have contextual annotation (e.g., "↑ from last week" or "expected during recess")
 - NEVER show raw 0% metrics without explanation — readers interpret 0% as failure
 - The Actions → Consequences table MUST NOT use "Pipeline health at 0%" as an action — this is a data gap, not a parliamentary action
