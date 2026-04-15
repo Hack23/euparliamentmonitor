@@ -866,10 +866,10 @@ european_parliament___get_voting_records({ sessionId: "<session-ID-from-plenary>
 // ↳ FALLBACK if no sessionId: get_voting_records({ topic: "resolution", dateFrom: "<7-days-ago>", dateTo: "<today>", limit: 20 })
 ```
 
-**MANDATORY deep data collection** (call for EVERY procedure/adopted text cited in analysis):
+**MANDATORY deep data collection** (call for the most significant cited procedures/texts, up to the **max 5 deep-fetch calls** cap; prioritize by: (1) items directly supporting article claims, (2) items with voting/coalition implications, (3) most recent items):
 
 ```javascript
-// Track specific procedures cited in analysis — repeat for each cited procedure ID
+// Track specific procedures cited in analysis — repeat for each cited procedure ID (up to cap)
 european_parliament___track_legislation({ procedureId: "<procedure-ID-from-feed>" })
 
 // Fetch plenary session decisions for voting evidence
@@ -1050,7 +1050,7 @@ Fetch all required data from the European Parliament MCP server:
 // Fetch in parallel for efficiency
 european_parliament___search_documents({ keyword: "motion for resolution", limit: 20 })
 european_parliament___get_parliamentary_questions({ limit: 10 })
-european_parliament___detect_voting_anomalies({})
+// NOTE: detect_voting_anomalies already called in mandatory supplementary tools — reuse that result
 european_parliament___analyze_coalition_dynamics({})
 european_parliament___get_voting_records({ sessionId: "<session-ID>", topic: "resolution", limit: 20 })
 // ↳ FALLBACK if no sessionId: get_voting_records({ topic: "resolution", dateFrom: "<7-days-ago>", dateTo: "<today>", limit: 20 })

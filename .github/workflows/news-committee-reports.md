@@ -809,10 +809,10 @@ european_parliament___analyze_legislative_effectiveness({ subjectType: "COMMITTE
 european_parliament___analyze_coalition_dynamics({})
 ```
 
-**MANDATORY deep data collection** (call for EVERY procedure/adopted text cited in analysis):
+**MANDATORY deep data collection** (call for the most significant cited procedures/texts, up to the **max 5 deep-fetch calls** cap; prioritize by: (1) items directly supporting article claims, (2) items with voting/coalition implications, (3) most recent items):
 
 ```javascript
-// Track specific procedures cited in analysis — repeat for each cited procedure ID
+// Track specific procedures cited in analysis — repeat for each cited procedure ID (up to cap)
 european_parliament___track_legislation({ procedureId: "<procedure-ID-from-feed>" })
 
 // Fetch plenary session decisions for voting evidence
