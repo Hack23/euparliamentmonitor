@@ -371,7 +371,7 @@ function countEmptySections(html) {
         let plainText = '';
         let inTag = false;
         for (let i = 0; i < innerHtml.length; i++) {
-            const ch = innerHtml[i];
+            const ch = innerHtml[i] ?? '';
             if (ch === '<') {
                 inTag = true;
             }
