@@ -134,7 +134,7 @@ engine:
 ---
 # 🌐 EU Parliament News Article Translation Workflow
 
-You are the **Translation Agent**. Your ONLY job: take existing English articles and produce **high-quality translations** in 13 languages. **TRANSLATE FILES — that is your primary output.** Produce at least **5 translated files per run** across **ALL 13 languages**.
+You are the **Translation Agent**. Your ONLY job: take existing English articles and produce **high-quality translations** in 13 languages. **TRANSLATE FILES — that is your primary output.** Produce at least **5 translated files total per run** in the selected non-English target languages.
 
 ## ⚡ IMMEDIATE ACTIONS (do these FIRST, before reading anything else)
 
@@ -836,11 +836,11 @@ for ITEM in $(echo "$TRANSLATED_TYPES" | tr ',' ' '); do
     fi
 
     # HTMLHint validation — final safety net (agent should have linted per-file in Step 3b)
-    HTMLHINT_OUTPUT=$(npx htmlhint "$FILE" 2>&1 || true)
-    HTMLHINT_ERRORS=$(echo "$HTMLHINT_OUTPUT" | grep -c 'error' 2>/dev/null || echo 0)
-    if [ "$HTMLHINT_ERRORS" -gt 0 ]; then
-      echo "❌ $FILE: HTMLHint found $HTMLHINT_ERRORS error(s) — fix before PR"
-      echo "$HTMLHINT_OUTPUT" | grep -E '(error|L[0-9])' | head -5
+    HTMLHINT_OUTPUT=$(npx htmlhint "$FILE" 2>&1)
+    HTMLHINT_STATUS=$?
+    if [ "$HTMLHINT_STATUS" -ne 0 ]; then
+      echo "❌ $FILE: HTMLHint validation failed — fix before PR"
+      echo "$HTMLHINT_OUTPUT" | grep -E '(error|L[0-9])' | head -5 || echo "$HTMLHINT_OUTPUT"
       VALIDATION_FAILURES=$((VALIDATION_FAILURES + 1))
     fi
 
@@ -1124,7 +1124,7 @@ for FILE in $ALL_TRANSLATED_FILES; do
   # Verify against <html lang> attribute
   HTML_LANG=$(grep -oP '<html[^>]*\slang="\K[^"]+' "$FILE" 2>/dev/null | head -1)
   if [ -n "$HTML_LANG" ] && [ "$HTML_LANG" != "$FILE_LANG" ]; then
-    MISMATCH_LIST="${MISMATCH_LIST}| \`$(basename "$FILE")\` | \`$FILE_LANG\` | \`$HTML_LANG\` | ❌ MISMATCH |\n"
+    MISMATCH_LIST="${MISMATCH_LIST}$(printf '| `%s` | `%s` | `%s` | ❌ MISMATCH |\n' "$(basename "$FILE")" "$FILE_LANG" "$HTML_LANG")"
   fi
   # Count per language
   LANG_COUNTS="${LANG_COUNTS} ${FILE_LANG}"
@@ -1150,10 +1150,10 @@ for ENTRY in $LANG_FLAG_MAP; do
   done
   COUNT=$(echo "$LANG_COUNTS" | tr ' ' '\n' | grep -c "^${L}$" 2>/dev/null || echo 0)
   if [ "$COUNT" -gt 0 ]; then
-    LANG_TABLE="${LANG_TABLE}| ${FLAG} ${LNAME} (\`${L}\`) | ${COUNT} | ✅ |\n"
+    LANG_TABLE="${LANG_TABLE}$(printf '| %s %s (`%s`) | %s | ✅ |\n' "$FLAG" "$LNAME" "$L" "$COUNT")"
     LANG_COVERAGE_SUMMARY="${LANG_COVERAGE_SUMMARY}${FLAG}"
   else
-    LANG_TABLE="${LANG_TABLE}| ${FLAG} ${LNAME} (\`${L}\`) | 0 | ⬜ |\n"
+    LANG_TABLE="${LANG_TABLE}$(printf '| %s %s (`%s`) | 0 | ⬜ |\n' "$FLAG" "$LNAME" "$L")"
   fi
 done
 
@@ -1209,7 +1209,7 @@ fi
 # Build mismatch warning section (empty if no mismatches)
 MISMATCH_SECTION=""
 if [ -n "$MISMATCH_LIST" ]; then
-  MISMATCH_SECTION="\n### ❌ Language Mismatches Detected\n\n| File | Filename Lang | HTML Lang | Status |\n|------|---------------|-----------|--------|\n${MISMATCH_LIST}\n> **Action needed**: Files with mismatched language codes may contain wrong-language content.\n"
+  MISMATCH_SECTION="$(printf '\n### ❌ Language Mismatches Detected\n\n| File | Filename Lang | HTML Lang | Status |\n|------|---------------|-----------|--------|\n%s\n> **Action needed**: Files with mismatched language codes may contain wrong-language content.\n' "$MISMATCH_LIST")"
 fi
 
 # Dynamic title based on actual content (safe-outputs adds "[news] " prefix automatically)
@@ -1224,48 +1224,78 @@ fi
 # Article list for body
 ARTICLE_LIST=""
 for ART in $(echo "$ARTICLE_SET" | tr ',' '\n'); do
-  ARTICLE_LIST="${ARTICLE_LIST}- \`${ART}\`\n"
+  ARTICLE_LIST="$(printf '%s- `%s`\n' "$ARTICLE_LIST" "$ART")"
 done
 
-PR_BODY="## 🌐 EU Parliament Article Translations — ${ARTICLE_DATE}\n\n"
-PR_BODY="${PR_BODY}### 📊 Summary\n\n"
-PR_BODY="${PR_BODY}| Metric | Value |\n|--------|-------|\n"
-PR_BODY="${PR_BODY}| 📄 **Total files** | ${TOTAL_FILES} |\n"
-PR_BODY="${PR_BODY}| 📰 **Articles translated** | ${ARTICLE_COUNT} |\n"
-PR_BODY="${PR_BODY}| 🌍 **Languages** | ${LANG_COVERAGE_SUMMARY} |\n"
-PR_BODY="${PR_BODY}| ${VAL_ICON} **Validation** | ${VAL_STATUS} |\n"
-if [ "$IMPROVEMENT_MODE" = "true" ]; then
-  PR_BODY="${PR_BODY}| 🔧 **Mode** | Quality improvement |\n"
-elif [ -n "$BACKFILL_DATES" ]; then
-  PR_BODY="${PR_BODY}| 📅 **Mode** | Backfill (${BACKFILL_DATES}) |\n"
-else
-  PR_BODY="${PR_BODY}| 📅 **Mode** | Scheduled translation |\n"
-fi
-PR_BODY="${PR_BODY}\n### 📰 Articles\n\n${ARTICLE_LIST}\n"
-PR_BODY="${PR_BODY}### 🌍 Language Coverage\n\n"
-PR_BODY="${PR_BODY}| Language | Files | Status |\n|----------|-------|--------|\n${LANG_TABLE}\n"
-PR_BODY="${PR_BODY}${MISMATCH_SECTION}"
-PR_BODY="${PR_BODY}### ✅ Quality Checks\n\n"
-PR_BODY="${PR_BODY}| Check | Result |\n|-------|--------|\n"
-PR_BODY="${PR_BODY}| HTML structure | ${VAL_ICON} ${VAL_STATUS} |\n"
-PR_BODY="${PR_BODY}| Language attributes | ${VAL_ICON} |\n"
-PR_BODY="${PR_BODY}| RTL/CJK layout | ${VAL_ICON} |\n"
-PR_BODY="${PR_BODY}| EP terminology | ${VAL_ICON} |\n"
 FILENAME_MATCH_STATUS="✅"
 if [ -n "$MISMATCH_LIST" ]; then FILENAME_MATCH_STATUS="❌ Mismatches"; fi
-PR_BODY="${PR_BODY}| Filename↔lang match | ${FILENAME_MATCH_STATUS} |\n"
-PR_BODY="${PR_BODY}| 🔍 HTMLHint lint | ${VAL_ICON} |\n"
-PR_BODY="${PR_BODY}\n### 🔧 Pipeline\n\n"
-PR_BODY="${PR_BODY}- **Source**: English articles from content workflows\n"
-PR_BODY="${PR_BODY}- **Method**: AI translation with EP-specific terminology\n"
-PR_BODY="${PR_BODY}- **Workflow**: \`news-translate\` (run ${RUN_ID})\n"
+
+# Determine mode row
+MODE_ROW="| 📅 **Mode** | Scheduled translation |"
+if [ "$IMPROVEMENT_MODE" = "true" ]; then
+  MODE_ROW="| 🔧 **Mode** | Quality improvement |"
+elif [ -n "$BACKFILL_DATES" ]; then
+  MODE_ROW="| 📅 **Mode** | Backfill (${BACKFILL_DATES}) |"
+fi
+
+# Write PR body to temp file with real newlines (not escaped \n)
+PR_BODY_FILE="/tmp/gh-aw-pr-body.md"
+cat > "$PR_BODY_FILE" <<PRBODYEOF
+## 🌐 EU Parliament Article Translations — ${ARTICLE_DATE}
+
+### 📊 Summary
+
+| Metric | Value |
+|--------|-------|
+| 📄 **Total files** | ${TOTAL_FILES} |
+| 📰 **Articles translated** | ${ARTICLE_COUNT} |
+| 🌍 **Languages** | ${LANG_COVERAGE_SUMMARY} |
+| ${VAL_ICON} **Validation** | ${VAL_STATUS} |
+${MODE_ROW}
+
+### 📰 Articles
+
+${ARTICLE_LIST}
+
+### 🌍 Language Coverage
+
+| Language | Files | Status |
+|----------|-------|--------|
+${LANG_TABLE}
+${MISMATCH_SECTION}
+### ✅ Quality Checks
+
+| Check | Result |
+|-------|--------|
+| HTML structure | ${VAL_ICON} ${VAL_STATUS} |
+| Language attributes | ${VAL_ICON} |
+| RTL/CJK layout | ${VAL_ICON} |
+| EP terminology | ${VAL_ICON} |
+| Filename↔lang match | ${FILENAME_MATCH_STATUS} |
+| 🔍 HTMLHint lint | ${VAL_ICON} |
+
+### 🔧 Pipeline
+
+- **Source**: English articles from content workflows
+- **Method**: AI translation with EP-specific terminology
+- **Workflow**: \`news-translate\` (run ${RUN_ID})
+PRBODYEOF
+
+# Write PR title to temp file
+PR_TITLE_FILE="/tmp/gh-aw-pr-title.txt"
+echo "$PR_TITLE" > "$PR_TITLE_FILE"
 echo "PR title: $PR_TITLE"
+echo "PR body written to: $PR_BODY_FILE ($(wc -l < "$PR_BODY_FILE") lines)"
 ```
 
+Read `/tmp/gh-aw-pr-title.txt` for the PR title and `/tmp/gh-aw-pr-body.md` for the PR body, then call safeoutputs:
+
 ```javascript
+// Read the computed PR title and body from the temp files written by the bash block above.
+// The title is in /tmp/gh-aw-pr-title.txt and the body in /tmp/gh-aw-pr-body.md.
 safeoutputs___create_pull_request({
-  title: PR_TITLE,
-  body: PR_BODY,
+  title: "<contents of /tmp/gh-aw-pr-title.txt>",
+  body: "<contents of /tmp/gh-aw-pr-body.md>",
   base: "main",
   head: BRANCH_NAME
 })
