@@ -1,0 +1,88 @@
+{
+  "manifestVersion": "1.0",
+  "runId": 175,
+  "articleType": "breaking",
+  "analysisDate": "2026-04-15",
+  "analysisTimestamp": "2026-04-15T13:23:00Z",
+  "workflowRunId": 24456689745,
+  "editorialDecision": "analysis-only",
+  "breakingNewsThresholdMet": false,
+  "compositeSignificanceScore": 7.2,
+  "breakingThreshold": 8.0,
+  "overallRiskLevel": "HIGH",
+  "overallThreatLevel": "ELEVATED",
+  "degradedMode": true,
+  "feedStatus": {
+    "operational": 4,
+    "total": 12,
+    "operational_feeds": ["adopted_texts_feed", "meps_feed", "adopted_texts_direct", "procedures_direct"],
+    "error_404": ["events_feed", "procedures_feed"],
+    "timeout": ["documents_feed", "plenary_documents_feed", "committee_documents_feed", "questions_feed"],
+    "not_attempted": ["speeches", "external_documents"]
+  },
+  "dataCollected": {
+    "adoptedTexts": 51,
+    "procedures": 51,
+    "meps": 737,
+    "coalitionGroups": 8,
+    "plenarySessionsProbe": true,
+    "precomputedStats": true
+  },
+  "analysisFiles": [
+    {
+      "path": "existing/synthesis-summary.md",
+      "category": "existing",
+      "sizeBytes": 11400,
+      "description": "Cross-session intelligence synthesis with T-0+13h tariff assessment"
+    },
+    {
+      "path": "classification/significance-scoring.md",
+      "category": "classification",
+      "sizeBytes": 6056,
+      "description": "7-dimension significance scoring for 4 key items"
+    },
+    {
+      "path": "classification/political-classification.md",
+      "category": "classification",
+      "sizeBytes": 5776,
+      "description": "Parliamentary architecture, coalition mathematics, group positioning"
+    },
+    {
+      "path": "risk-scoring/risk-assessment.md",
+      "category": "risk-scoring",
+      "sizeBytes": 5695,
+      "description": "5x5 risk matrix with 6 identified risks, composite score 16.3/25"
+    },
+    {
+      "path": "threat-assessment/threat-analysis.md",
+      "category": "threat-assessment",
+      "sizeBytes": 7328,
+      "description": "4-threat profile with interaction matrix, ELEVATED level"
+    },
+    {
+      "path": "existing/swot-analysis.md",
+      "category": "existing",
+      "sizeBytes": 6200,
+      "description": "Evidence-based SWOT with interaction strategies"
+    }
+  ],
+  "keyFindings": [
+    "Tariff T-0+13h: No US response — silence phase continues",
+    "EP API 67% degraded during critical oversight period",
+    "Composite risk 16.3/25 (HIGH) — 4 interacting threat vectors",
+    "No today-dated parliamentary actions — analysis-only decision",
+    "Legislative velocity +46% projected but 33-day gap constrains capacity"
+  ],
+  "crossRunReferences": [
+    {"runId": 173, "type": "breaking", "date": "2026-04-15", "decision": "analysis-only"},
+    {"runId": 174, "type": "breaking", "date": "2026-04-15", "decision": "analysis-only"},
+    {"runId": 49, "type": "committee-reports", "date": "2026-04-15", "decision": "article-generated"},
+    {"runId": 43, "type": "propositions", "date": "2026-04-15", "decision": "article-generated"}
+  ],
+  "scenarios": {
+    "managedActivation": {"probability": "50%", "description": "US responds diplomatically, tariffs absorbed without retaliation"},
+    "tradeEscalation": {"probability": "25%", "description": "US retaliates within 7-14 days, triggering WTO dispute"},
+    "coalitionFracture": {"probability": "15%", "description": "ECR-PfE alignment on trade creates blocking minority"},
+    "paralysis": {"probability": "10%", "description": "Multiple crises overwhelm post-recess legislative capacity"}
+  }
+}
