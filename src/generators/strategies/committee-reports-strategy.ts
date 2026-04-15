@@ -331,7 +331,7 @@ function buildAdoptedTextsSection(feedData: EPFeedData | undefined, lang: Langua
   const sections = displayOrder
     .filter((cat) => grouped[cat]?.length)
     .map((cat) => {
-      const items = grouped[cat]!;
+      const items = grouped[cat] ?? [];
       const listItems = items
         .map(
           (item) =>

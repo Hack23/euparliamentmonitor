@@ -389,7 +389,7 @@ export function validateArticleContent(
   // Word count check
   const wordCount = countWordsInHtml(html);
   const minWords =
-    MIN_WORD_COUNTS[articleType] !== undefined ? MIN_WORD_COUNTS[articleType] : DEFAULT_MIN_WORDS;
+    MIN_WORD_COUNTS[articleType] ?? DEFAULT_MIN_WORDS;
 
   if (wordCount < minWords) {
     warnings.push(

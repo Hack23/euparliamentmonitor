@@ -90,8 +90,8 @@ const descriptionArg = args.find((arg) => arg.startsWith('--description='));
  * Sanitised to alphanumeric and hyphens only (supports both numeric run
  * numbers and custom identifiers passed via `--run-id`).
  */
-export const runId = (runIdArg?.slice('--run-id='.length).trim() ||
-    process.env['GITHUB_RUN_NUMBER'] ||
+export const runId = (runIdArg?.slice('--run-id='.length).trim() ??
+    process.env['GITHUB_RUN_NUMBER'] ??
     '').replace(/[^a-z0-9-]/giu, '');
 /**
  * AI-generated article title passed by the agentic workflow.
@@ -118,8 +118,9 @@ let languagesInput = languagesArg
     ? (languagesArg.split(ARG_SEPARATOR)[1] ?? '').trim().toLowerCase()
     : 'en';
 // Expand presets
-if (LANGUAGE_PRESETS[languagesInput]) {
-    languagesInput = LANGUAGE_PRESETS[languagesInput].join(',');
+const presetLanguages = LANGUAGE_PRESETS[languagesInput];
+if (presetLanguages) {
+    languagesInput = presetLanguages.join(',');
 }
 const languages = languagesInput
     .split(',')
@@ -402,7 +403,7 @@ function wireAIMetadata() {
  */
 export function computeDedupSuffix(articleTypes, analysisDir) {
     const baseSlugNoRun = deriveArticleTypeSlug(articleTypes.filter((t) => VALID_ARTICLE_CATEGORIES.includes(t)));
-    const rawSuffix = analysisDir !== undefined && analysisDir.startsWith(baseSlugNoRun)
+    const rawSuffix = analysisDir?.startsWith(baseSlugNoRun)
         ? analysisDir.slice(baseSlugNoRun.length)
         : '';
     // Suffix validation patterns for dedup suffix extraction.

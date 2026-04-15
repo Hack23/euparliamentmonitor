@@ -182,8 +182,8 @@ const descriptionArg = args.find((arg) => arg.startsWith('--description='));
  * numbers and custom identifiers passed via `--run-id`).
  */
 export const runId: string = (
-  runIdArg?.slice('--run-id='.length).trim() ||
-  process.env['GITHUB_RUN_NUMBER'] ||
+  runIdArg?.slice('--run-id='.length).trim() ??
+  process.env['GITHUB_RUN_NUMBER'] ??
   ''
 ).replace(/[^a-z0-9-]/giu, '');
 
@@ -217,8 +217,9 @@ let languagesInput = languagesArg
   : 'en';
 
 // Expand presets
-if (LANGUAGE_PRESETS[languagesInput as LanguagePreset]) {
-  languagesInput = LANGUAGE_PRESETS[languagesInput as LanguagePreset]!.join(',');
+const presetLanguages = LANGUAGE_PRESETS[languagesInput as LanguagePreset];
+if (presetLanguages) {
+  languagesInput = presetLanguages.join(',');
 }
 
 const languages: LanguageCode[] = languagesInput
@@ -560,7 +561,7 @@ export function computeDedupSuffix(articleTypes: readonly string[], analysisDir?
     )
   );
   const rawSuffix =
-    analysisDir !== undefined && analysisDir.startsWith(baseSlugNoRun)
+    analysisDir?.startsWith(baseSlugNoRun)
       ? analysisDir.slice(baseSlugNoRun.length)
       : '';
   // Suffix validation patterns for dedup suffix extraction.

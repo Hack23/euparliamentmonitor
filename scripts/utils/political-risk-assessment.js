@@ -528,7 +528,11 @@ function synthesiseOverallRisk(risks, assessmentId, date) {
         return calculatePoliticalRiskScore('rare', 'negligible', `OVERALL-${assessmentId}`, `Overall risk profile for assessment ${assessmentId} on ${date}`, [], [], 'low');
     }
     // Safe: risks.length > 0 is guaranteed by the guard above
-    const firstRisk = risks[0];
+    const firstRisk = risks[0] ?? risks.at(0);
+    if (!firstRisk) {
+        // This should never happen due to the guard above, but satisfies TypeScript
+        return calculatePoliticalRiskScore('rare', 'negligible', `OVERALL-${assessmentId}`, `Fallback for ${date}`, [], [], 'low');
+    }
     const maxRisk = risks.reduce((max, r) => (r.riskScore > max.riskScore ? r : max), firstRisk);
     // Count confidence levels to pick the dominant one
     const confidenceCounts = { high: 0, medium: 0, low: 0 };

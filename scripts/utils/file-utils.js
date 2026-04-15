@@ -60,12 +60,12 @@ export function groupArticlesByLanguage(articles, languages) {
     for (const article of articles) {
         const parsed = parseArticleFilename(article);
         if (parsed && grouped[parsed.lang] !== undefined) {
-            grouped[parsed.lang].push(parsed);
+            grouped[parsed.lang]?.push(parsed);
         }
     }
     // Sort by date (newest first)
     for (const lang in grouped) {
-        grouped[lang].sort((a, b) => b.date.localeCompare(a.date));
+        grouped[lang]?.sort((a, b) => b.date.localeCompare(a.date));
     }
     return grouped;
 }
@@ -90,7 +90,7 @@ export function formatSlug(slug) {
 export function getModifiedDate(filepath) {
     const stats = fs.statSync(filepath);
     // split('T') on an ISO string always produces at least one element
-    return stats.mtime.toISOString().split('T')[0];
+    return stats.mtime.toISOString().split('T')[0] ?? '';
 }
 /**
  * Format date for article slug
@@ -100,7 +100,7 @@ export function getModifiedDate(filepath) {
  */
 export function formatDateForSlug(date = new Date()) {
     // split('T') on an ISO string always produces at least one element
-    return date.toISOString().split('T')[0];
+    return date.toISOString().split('T')[0] ?? '';
 }
 /**
  * Calculate read time estimate from content

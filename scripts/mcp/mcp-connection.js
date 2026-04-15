@@ -419,7 +419,7 @@ export class MCPConnection {
                 return trimmedKey;
             }
         }
-        const rawScheme = typeof process !== 'undefined' && process.env && process.env['EP_MCP_GATEWAY_AUTH_SCHEME'];
+        const rawScheme = typeof process !== 'undefined' && process.env?.['EP_MCP_GATEWAY_AUTH_SCHEME'];
         const scheme = typeof rawScheme === 'string' ? rawScheme.trim() : '';
         if (scheme && tokenRegex.test(scheme)) {
             return `${scheme} ${trimmedKey}`;
@@ -430,6 +430,9 @@ export class MCPConnection {
      * Attempt a single connection via MCP Gateway (HTTP transport)
      */
     async _attemptGatewayConnection() {
+        if (!this.gatewayUrl) {
+            throw new Error('Gateway URL not configured');
+        }
         try {
             const headers = {
                 'Content-Type': 'application/json',
@@ -565,11 +568,13 @@ export class MCPConnection {
             if (message.id && this.pendingRequests.has(message.id)) {
                 const pending = this.pendingRequests.get(message.id);
                 this.pendingRequests.delete(message.id);
-                if (message.error) {
-                    pending.reject(new Error(message.error.message ?? 'MCP server error'));
-                }
-                else {
-                    pending.resolve(message.result);
+                if (pending) {
+                    if (message.error) {
+                        pending.reject(new Error(message.error.message ?? 'MCP server error'));
+                    }
+                    else {
+                        pending.resolve(message.result);
+                    }
                 }
             }
             else if (!message.id && message.method) {
@@ -619,6 +624,9 @@ export class MCPConnection {
      * @returns Server response
      */
     async _sendGatewayRequest(method, params = {}) {
+        if (!this.gatewayUrl) {
+            throw new Error('Gateway URL not configured');
+        }
         const id = ++this.requestId;
         const request = {
             jsonrpc: '2.0',
