@@ -168,4 +168,4 @@ Easter recess Day 18/18 (final day). Zero today-dated EP events across all feeds
 
 ---
 
-*Source: European Parliament Open Data Portal via EP MCP Server v1.2.6. Cross-session intelligence from runs 169, 168, 163, 48, 41, 40, 39. All assessments subject to revision based on post-recess developments. DEGRADED MODE active due to EP API partial outage.*
+*Source: European Parliament Open Data Portal via EP MCP Server v1.2.7. Cross-session intelligence from runs 169, 168, 163, 48, 41, 40, 39. All assessments subject to revision based on post-recess developments. DEGRADED MODE active due to EP API partial outage.*

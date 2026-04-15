@@ -54,7 +54,7 @@ mcp-servers:
   european-parliament:
     container: "node:25-alpine"
     entrypoint: "npx"
-    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.6", "--timeout", "120000"]
+    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.7", "--timeout", "120000"]
     env:
       EP_REQUEST_TIMEOUT_MS: "120000"
   world-bank:
@@ -824,7 +824,7 @@ european_parliament___get_all_generated_stats({ category: "all", includePredicti
 
 ```javascript
 // Primary motions data
-european_parliament___search_documents({ query: "motion for resolution", limit: 20 })
+european_parliament___search_documents({ keyword: "motion for resolution", limit: 20 })
 
 // OSINT: Voting anomalies on motions
 european_parliament___detect_voting_anomalies({})
@@ -997,7 +997,7 @@ Fetch all required data from the European Parliament MCP server:
 
 ```javascript
 // Fetch in parallel for efficiency
-european_parliament___search_documents({ query: "motion for resolution", limit: 20 })
+european_parliament___search_documents({ keyword: "motion for resolution", limit: 20 })
 european_parliament___get_parliamentary_questions({ limit: 10 })
 european_parliament___detect_voting_anomalies({})
 european_parliament___analyze_coalition_dynamics({})
@@ -1031,7 +1031,7 @@ if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
     echo "✅ EP MCP server binary found for stdio mode"
   else
     echo "⚠️ No gateway URL set, installing EP MCP server for stdio mode..."
-    npm install --no-save european-parliament-mcp-server@1.2.6
+    npm install --no-save european-parliament-mcp-server@1.2.7
   fi
 fi
 

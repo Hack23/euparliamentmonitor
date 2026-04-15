@@ -126,4 +126,4 @@ pie title EP10 Political Group Seat Distribution
 - Political landscape: Precomputed stats generated 2026-04-08
 - Coalition dynamics: EP MCP analyze_coalition_dynamics tool
 - Committee activity: EP MCP analyze_committee_activity tool (ENVI, ECON, LIBE)
-- All data accessed via European Parliament MCP Server v1.2.6
+- All data accessed via European Parliament MCP Server v1.2.7

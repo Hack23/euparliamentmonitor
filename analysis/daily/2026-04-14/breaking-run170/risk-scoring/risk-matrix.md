@@ -223,4 +223,4 @@ Each group will need to spend political capital on trade response, Banking Union
 
 ---
 
-*Source: European Parliament Open Data Portal via EP MCP Server v1.2.6. Risk methodology: Political Risk Methodology 5x5 matrix. Coalition data from real-time MCP analytics. All scores subject to revision based on post-recess developments.*
+*Source: European Parliament Open Data Portal via EP MCP Server v1.2.7. Risk methodology: Political Risk Methodology 5x5 matrix. Coalition data from real-time MCP analytics. All scores subject to revision based on post-recess developments.*

@@ -29,7 +29,7 @@ const SERVER_HEALTH_FALLBACK = '{"server": null, "feeds": []}';
 /**
  * Classify an error message into a diagnostic error category.
  *
- * Maps EP MCP Server v1.2.6 structured error codes and generic HTTP/network
+ * Maps EP MCP Server v1.2.7 structured error codes and generic HTTP/network
  * errors into one of six broad categories used for logging and retry decisions:
  *
  * Returned categories (priority order):
@@ -45,7 +45,7 @@ const SERVER_HEALTH_FALLBACK = '{"server": null, "feeds": []}';
  */
 function classifyToolError(message) {
     const lowerMsg = message.toLowerCase();
-    // EP MCP Server v1.2.6 structured error codes (matched case-insensitively)
+    // EP MCP Server v1.2.7 structured error codes (matched case-insensitively)
     if (lowerMsg.includes('internal_error')) {
         return 'INTERNAL_ERROR';
     }
@@ -205,78 +205,38 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
     /**
      * Get plenary sessions
      *
-     * @param options - Filter options. `dateFrom` is mapped to `startDate` and `dateTo` to `endDate`
-     *   per the tool schema when the canonical fields are absent.
+     * @param options - Filter options including dateFrom, dateTo, eventId, year, location
      * @returns Plenary sessions data
      */
     async getPlenarySessions(options = {}) {
-        return this.safeCallTool('get_plenary_sessions', () => {
-            const { dateFrom, dateTo, ...rest } = options;
-            const normalizedOptions = { ...rest };
-            if (normalizedOptions['startDate'] === undefined && dateFrom !== undefined) {
-                normalizedOptions['startDate'] = dateFrom;
-            }
-            if (normalizedOptions['endDate'] === undefined && dateTo !== undefined) {
-                normalizedOptions['endDate'] = dateTo;
-            }
-            return normalizedOptions;
-        }, '{"sessions": []}');
+        return this.safeCallTool('get_plenary_sessions', options, '{"sessions": []}');
     }
     /**
      * Search legislative documents
      *
-     * @param options - Search options (normalizes `query` to `keyword` if `keyword` is absent,
-     *   since the MCP tool schema requires the `keyword` parameter)
+     * @param options - Search options using v1.2.7 parameters: keyword, documentType, docId, etc.
      * @returns Search results
      */
     async searchDocuments(options = {}) {
-        return this.safeCallTool('search_documents', () => {
-            const { query, ...rest } = options;
-            const normalizedOptions = { ...rest };
-            // MCP tool schema expects 'keyword', not 'query'
-            if (normalizedOptions['keyword'] === undefined && query !== undefined) {
-                const trimmed = String(query).trim();
-                if (trimmed.length > 0) {
-                    normalizedOptions['keyword'] = trimmed;
-                }
-            }
-            return normalizedOptions;
-        }, DOCUMENTS_FALLBACK);
+        return this.safeCallTool('search_documents', options, DOCUMENTS_FALLBACK);
     }
     /**
      * Get parliamentary questions
      *
-     * @param options - Filter options. `dateFrom` is mapped to `startDate` per the tool schema.
-     *   `dateTo` is intentionally ignored because the `get_parliamentary_questions` tool schema
-     *   only supports `startDate` as a date filter; passing `dateTo` would have no effect.
+     * @param options - Filter options including docId, type, author, topic, status, dateFrom, dateTo
      * @returns Parliamentary questions data
      */
     async getParliamentaryQuestions(options = {}) {
-        return this.safeCallTool('get_parliamentary_questions', () => {
-            const { dateFrom, dateTo: _dateTo, ...rest } = options;
-            const toolOptions = { ...rest };
-            if (toolOptions['startDate'] === undefined && dateFrom !== undefined) {
-                toolOptions['startDate'] = dateFrom;
-            }
-            return toolOptions;
-        }, '{"questions": []}');
+        return this.safeCallTool('get_parliamentary_questions', options, '{"questions": []}');
     }
     /**
      * Get committee information
      *
-     * @param options - Filter options
+     * @param options - Filter options: id, abbreviation, showCurrent
      * @returns Committee info data
      */
     async getCommitteeInfo(options = {}) {
-        return this.safeCallTool('get_committee_info', () => {
-            const { committeeId, ...rest } = options;
-            const toolOptions = { ...rest };
-            // MCP tool schema expects 'abbreviation', not 'committeeId'
-            if (toolOptions['abbreviation'] === undefined && committeeId !== undefined) {
-                toolOptions['abbreviation'] = committeeId;
-            }
-            return toolOptions;
-        }, '{"committees": []}');
+        return this.safeCallTool('get_committee_info', options, '{"committees": []}');
     }
     /**
      * Monitor legislative pipeline
@@ -319,7 +279,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
     /**
      * Analyze coalition dynamics and cohesion
      *
-     * @param options - Options including optional political groups and date range
+     * @param options - Options including optional groupIds and date range
      * @returns Coalition cohesion and stress analysis
      */
     async analyzeCoalitionDynamics(options = {}) {
@@ -328,7 +288,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
     /**
      * Detect voting anomalies and party defections
      *
-     * @param options - Options including optional MEP id, political group, and date
+     * @param options - Options including optional MEP id, groupId, and date range
      * @returns Anomaly detection results
      */
     async detectVotingAnomalies(options = {}) {
@@ -337,19 +297,18 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
     /**
      * Compare political groups across dimensions
      *
-     * @param options - Options including required groups and optional metrics and date
+     * @param options - Options including required groupIds and optional dimensions and date range
      * @returns Cross-group comparative analysis
      */
     async comparePoliticalGroups(options) {
-        const rawGroups = options && Array.isArray(options.groups) ? options.groups : [];
-        const groups = rawGroups
+        const groupIds = (Array.isArray(options.groupIds) ? options.groupIds : [])
             .map((g) => (typeof g === 'string' ? g.trim() : ''))
             .filter((g) => g.length > 0);
-        if (groups.length === 0) {
-            console.warn('compare_political_groups called without valid groups (non-empty string array required)');
+        if (groupIds.length === 0) {
+            console.warn('compare_political_groups called without valid groupIds (non-empty string array required)');
             return { content: [{ type: 'text', text: '{"comparison": {}}' }] };
         }
-        return this.safeCallTool('compare_political_groups', { ...options, groups }, '{"comparison": {}}');
+        return this.safeCallTool('compare_political_groups', { ...options, groupIds }, '{"comparison": {}}');
     }
     /**
      * Get detailed information about a specific MEP
@@ -708,10 +667,14 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
     /**
      * Cross-tool OSINT intelligence correlation engine
      *
-     * @param options - Options including optional mepId and correlation scenarios
+     * @param options - Options including required mepIds, optional groups, sensitivityLevel, includeNetworkAnalysis
      * @returns Correlated intelligence alerts and insights
      */
-    async correlateIntelligence(options = {}) {
+    async correlateIntelligence(options) {
+        if (!Array.isArray(options.mepIds) || options.mepIds.length === 0) {
+            console.warn('correlate_intelligence called without valid mepIds (non-empty string array required)');
+            return { content: [{ type: 'text', text: INTELLIGENCE_FALLBACK }] };
+        }
         return this.safeCallTool('correlate_intelligence', options, INTELLIGENCE_FALLBACK);
     }
     /**
