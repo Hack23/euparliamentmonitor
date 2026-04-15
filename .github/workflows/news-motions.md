@@ -334,7 +334,7 @@ For each motion or resolution vote, analyze:
 - `<meta name="keywords">` — Specific EP document IDs, committee names, political group names from the data — see [SHARED_PROMPT_PATTERNS.md Keywords Quality Rules](../prompts/SHARED_PROMPT_PATTERNS.md#-keywords-quality-rules) — NEVER include section headings like "Deep Political Analysis", "What Happened", "Why This Matters"
 - Structured data (`application/ld+json`) — Must include `headline`, `description`, `datePublished`, `author`, and `about` fields referencing specific EP content
 
-**🛑 No-publish threshold**: If adopted texts feed and voting records yield fewer than 3 specific resolutions or votes, create an analysis-only PR instead. See [SHARED_PROMPT_PATTERNS.md Minimum Publication Threshold](../prompts/SHARED_PROMPT_PATTERNS.md#-minimum-publication-threshold-no-publish-rule).
+**🛑 No-publish threshold**: Apply the canonical FEED-FIRST minimum publication threshold defined above; see [SHARED_PROMPT_PATTERNS.md Minimum Publication Threshold](../prompts/SHARED_PROMPT_PATTERNS.md#-minimum-publication-threshold-no-publish-rule).
 
 **Example AI-generated titles:**
 - ✅ `ECR Breaks Ranks on Tariff Response as Grand Coalition Holds on Banking Reform`

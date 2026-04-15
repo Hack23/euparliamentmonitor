@@ -485,8 +485,10 @@ function normalizeKeywordToken(s: string): string {
  * Returns the list of banned keywords found.
  *
  * Decodes HTML entities (e.g. `&amp;` → `&`) and normalizes dash/arrow
- * variants so that "Winners &amp; Losers" matches "Winners & Losers" and
- * "Why It Matters — Root Causes" matches both halves independently.
+ * variants so that exact comma-separated tokens can be matched after
+ * normalization, for example "Winners &amp; Losers" matching
+ * "Winners & Losers". Combined phrases are not split on dash or arrow
+ * separators and therefore only match if the full normalized token is banned.
  *
  * @param html - HTML string to inspect
  * @returns Array of section-heading keywords found in the meta tag

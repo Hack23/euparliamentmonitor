@@ -13,14 +13,14 @@ import { stripScriptBlocks } from './html-sanitize.js';
 // ─── Constants ────────────────────────────────────────────────────────────────
 /** Minimum word counts (plain text) required per article category */
 const MIN_WORD_COUNTS = {
-    [ArticleCategory.WEEK_AHEAD]: 500,
-    [ArticleCategory.MONTH_AHEAD]: 500,
-    [ArticleCategory.BREAKING_NEWS]: 300,
-    [ArticleCategory.COMMITTEE_REPORTS]: 400,
-    [ArticleCategory.PROPOSITIONS]: 300,
-    [ArticleCategory.MOTIONS]: 300,
-    [ArticleCategory.WEEK_IN_REVIEW]: 300,
-    [ArticleCategory.MONTH_IN_REVIEW]: 600,
+  [ArticleCategory.WEEK_AHEAD]: 500,
+  [ArticleCategory.MONTH_AHEAD]: 500,
+  [ArticleCategory.BREAKING_NEWS]: 300,
+  [ArticleCategory.COMMITTEE_REPORTS]: 400,
+  [ArticleCategory.PROPOSITIONS]: 300,
+  [ArticleCategory.MOTIONS]: 300,
+  [ArticleCategory.WEEK_IN_REVIEW]: 300,
+  [ArticleCategory.MONTH_IN_REVIEW]: 600,
 };
 /** Default minimum word count when category is not listed */
 const DEFAULT_MIN_WORDS = 300;
@@ -31,20 +31,16 @@ const READ_TIME_TOLERANCE = 2;
 /** RTL language codes requiring dir="rtl" */
 const RTL_LANGUAGES = new Set(['ar', 'he']);
 /** Patterns that indicate un-replaced template markers */
-const PLACEHOLDER_PATTERNS = [
-    /\{\{[^}]+\}\}/u,
-    /\[TODO[^\]]*\]/iu,
-    /\bPLACEHOLDER\b/u,
-];
+const PLACEHOLDER_PATTERNS = [/\{\{[^}]+\}\}/u, /\[TODO[^\]]*\]/iu, /\bPLACEHOLDER\b/u];
 /** Required structural HTML elements that every article must contain */
 const REQUIRED_HTML_ELEMENTS = [
-    {
-        selector: ['class="site-header__langs"', 'class="language-switcher"'],
-        label: 'language switcher nav',
-    },
-    { selector: 'class="article-top-nav"', label: 'article-top-nav (back button)' },
-    { selector: 'class="site-header"', label: 'site-header' },
-    { selector: '<main id="main"', label: 'main content wrapper' },
+  {
+    selector: ['class="site-header__langs"', 'class="language-switcher"'],
+    label: 'language switcher nav',
+  },
+  { selector: 'class="article-top-nav"', label: 'article-top-nav (back button)' },
+  { selector: 'class="site-header"', label: 'site-header' },
+  { selector: '<main id="main"', label: 'main content wrapper' },
 ];
 /**
  * Localized keyword indicators per language.
@@ -53,19 +49,19 @@ const REQUIRED_HTML_ELEMENTS = [
  * This catches the common issue of English-only keywords in translated articles.
  */
 const LOCALIZED_KEYWORD_INDICATORS = {
-    sv: ['parlamentet', 'lagstiftning', 'EU', 'europeisk', 'utskott', 'omröstning', 'förordning'],
-    da: ['parlamentet', 'lovgivning', 'udvalg', 'afstemning', 'forordning', 'europæisk'],
-    no: ['parlamentet', 'lovgivning', 'komité', 'avstemning', 'forordning', 'europeisk'],
-    fi: ['parlamentti', 'lainsäädäntö', 'valiokunta', 'äänestys', 'asetus', 'eurooppalainen'],
-    de: ['Parlament', 'Gesetzgebung', 'Ausschuss', 'Abstimmung', 'Verordnung', 'europäisch'],
-    fr: ['parlement', 'législation', 'commission', 'vote', 'règlement', 'européen'],
-    es: ['parlamento', 'legislación', 'comisión', 'votación', 'reglamento', 'europeo'],
-    nl: ['parlement', 'wetgeving', 'commissie', 'stemming', 'verordening', 'Europees'],
-    ar: ['البرلمان', 'التشريع', 'اللجنة', 'التصويت', 'الأوروبي', 'القرار'],
-    he: ['הפרלמנט', 'חקיקה', 'ועדה', 'הצבעה', 'האירופי', 'תקנה'],
-    ja: ['議会', '立法', '委員会', '投票', '規則', '欧州'],
-    ko: ['의회', '입법', '위원회', '투표', '규정', '유럽'],
-    zh: ['议会', '立法', '委员会', '投票', '条例', '欧洲'],
+  sv: ['parlamentet', 'lagstiftning', 'EU', 'europeisk', 'utskott', 'omröstning', 'förordning'],
+  da: ['parlamentet', 'lovgivning', 'udvalg', 'afstemning', 'forordning', 'europæisk'],
+  no: ['parlamentet', 'lovgivning', 'komité', 'avstemning', 'forordning', 'europeisk'],
+  fi: ['parlamentti', 'lainsäädäntö', 'valiokunta', 'äänestys', 'asetus', 'eurooppalainen'],
+  de: ['Parlament', 'Gesetzgebung', 'Ausschuss', 'Abstimmung', 'Verordnung', 'europäisch'],
+  fr: ['parlement', 'législation', 'commission', 'vote', 'règlement', 'européen'],
+  es: ['parlamento', 'legislación', 'comisión', 'votación', 'reglamento', 'europeo'],
+  nl: ['parlement', 'wetgeving', 'commissie', 'stemming', 'verordening', 'Europees'],
+  ar: ['البرلمان', 'التشريع', 'اللجنة', 'التصويت', 'الأوروبي', 'القرار'],
+  he: ['הפרלמנט', 'חקיקה', 'ועדה', 'הצבעה', 'האירופי', 'תקנה'],
+  ja: ['議会', '立法', '委員会', '投票', '規則', '欧州'],
+  ko: ['의회', '입법', '위원회', '투표', '규정', '유럽'],
+  zh: ['议会', '立法', '委员会', '投票', '条例', '欧洲'],
 };
 /** CJK language codes requiring ideographic character density checks */
 const CJK_LANGUAGES = new Set(['ja', 'ko', 'zh']);
@@ -84,27 +80,27 @@ const CJK_CHAR_RATIO_THRESHOLD = 0.05;
  * These are generic header/label/placeholder phrases that a proper translation would replace.
  */
 const ENGLISH_PLACEHOLDER_PHRASES = [
-    'European Parliament',
-    'Read more',
-    'Table of Contents',
-    'Key Takeaways',
-    'Executive Summary',
-    'Click here',
-    'Learn more',
-    'Subscribe',
-    'Pipeline health',
-    'Throughput rate',
-    'legislative processing capacity',
-    'Bottlenecked procedures',
-    'coalition-building strategies',
-    'regulatory implications',
-    'democratic participation',
-    'inter-institutional relations',
-    'Likely scenario',
-    'Possible scenario',
-    'Earlier intervention',
-    'political group dynamics',
-    'committee coordinators',
+  'European Parliament',
+  'Read more',
+  'Table of Contents',
+  'Key Takeaways',
+  'Executive Summary',
+  'Click here',
+  'Learn more',
+  'Subscribe',
+  'Pipeline health',
+  'Throughput rate',
+  'legislative processing capacity',
+  'Bottlenecked procedures',
+  'coalition-building strategies',
+  'regulatory implications',
+  'democratic participation',
+  'inter-institutional relations',
+  'Likely scenario',
+  'Possible scenario',
+  'Earlier intervention',
+  'political group dynamics',
+  'committee coordinators',
 ];
 // ─── Article Quality Gate Constants ───────────────────────────────────────────
 /**
@@ -115,31 +111,31 @@ const ENGLISH_PLACEHOLDER_PHRASES = [
  * @see SHARED_PROMPT_PATTERNS.md § Keywords Quality Rules
  */
 const BANNED_KEYWORD_PATTERNS = [
-    'Deep Political Analysis',
-    'What Happened',
-    'Key Actors',
-    'Timeline',
-    'Why It Matters',
-    'Why This Matters',
-    'Legislative Pipeline Overview',
-    'Impact Assessment',
-    'Actions → Consequences',
-    'Miscalculations & Missed Opportunities',
-    'Winners & Losers',
-    'Root Causes',
-    'Stakeholder Perspectives',
-    'Multi-Stakeholder Perspectives',
-    'Stakeholder Outcome Matrix',
-    'Intelligence Policy Map',
-    'Strategic Outlook',
-    'SWOT Analysis',
-    'Dashboard',
-    'Pipeline Health',
-    'Analysis Pipeline Insights',
-    'Plenary Sessions',
-    'Executive Summary',
-    'Table of Contents',
-    'Political Context',
+  'Deep Political Analysis',
+  'What Happened',
+  'Key Actors',
+  'Timeline',
+  'Why It Matters',
+  'Why This Matters',
+  'Legislative Pipeline Overview',
+  'Impact Assessment',
+  'Actions → Consequences',
+  'Miscalculations & Missed Opportunities',
+  'Winners & Losers',
+  'Root Causes',
+  'Stakeholder Perspectives',
+  'Multi-Stakeholder Perspectives',
+  'Stakeholder Outcome Matrix',
+  'Intelligence Policy Map',
+  'Strategic Outlook',
+  'SWOT Analysis',
+  'Dashboard',
+  'Pipeline Health',
+  'Analysis Pipeline Insights',
+  'Plenary Sessions',
+  'Executive Summary',
+  'Table of Contents',
+  'Political Context',
 ];
 /**
  * Minimum number of non-whitespace characters for a `<section>` to be
@@ -157,14 +153,14 @@ const PIPELINE_CONTEXT_LOOKBEHIND_CHARS = 2000;
  * inside `&amp;lt;` before the full entity `&amp;lt;` is checked.
  */
 const ENTITY_PAIRS = [
-    ['&mdash;', '—'],
-    ['&ndash;', '–'],
-    ['&rarr;', '→'],
-    ['&quot;', '"'],
-    ['&amp;', '&'],
-    ['&#39;', "'"],
-    ['&lt;', '<'],
-    ['&gt;', '>'],
+  ['&mdash;', '—'],
+  ['&ndash;', '–'],
+  ['&rarr;', '→'],
+  ['&quot;', '"'],
+  ['&amp;', '&'],
+  ['&#39;', "'"],
+  ['&lt;', '<'],
+  ['&gt;', '>'],
 ];
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 // stripScriptBlocks is imported from html-sanitize.ts
@@ -179,15 +175,14 @@ const ENTITY_PAIRS = [
  * @returns Approximate word count of the main content area
  */
 function countWordsInHtml(html) {
-    const mainMatch = /<main[^>]*>([\s\S]*?)<\/main>/u.exec(html);
-    const source = mainMatch?.[1] ?? html;
-    const plainText = stripScriptBlocks(source)
-        .replace(/<[^>]+>/gu, ' ')
-        .replace(/\s+/gu, ' ')
-        .trim();
-    if (!plainText)
-        return 0;
-    return plainText.split(' ').length;
+  const mainMatch = /<main[^>]*>([\s\S]*?)<\/main>/u.exec(html);
+  const source = mainMatch?.[1] ?? html;
+  const plainText = stripScriptBlocks(source)
+    .replace(/<[^>]+>/gu, ' ')
+    .replace(/\s+/gu, ' ')
+    .trim();
+  if (!plainText) return 0;
+  return plainText.split(' ').length;
 }
 /**
  * Detect whether any un-replaced template placeholder patterns remain in the content.
@@ -196,7 +191,7 @@ function countWordsInHtml(html) {
  * @returns true if at least one placeholder pattern is found
  */
 function detectPlaceholders(html) {
-    return PLACEHOLDER_PATTERNS.some((pattern) => pattern.test(html));
+  return PLACEHOLDER_PATTERNS.some((pattern) => pattern.test(html));
 }
 /**
  * Check that all required structural HTML elements are present.
@@ -205,13 +200,13 @@ function detectPlaceholders(html) {
  * @returns Array of labels for missing elements (empty when all present)
  */
 function findMissingElements(html) {
-    return REQUIRED_HTML_ELEMENTS.filter((el) => {
-        const sel = el.selector;
-        if (Array.isArray(sel)) {
-            return !sel.some((s) => html.includes(s));
-        }
-        return !html.includes(sel);
-    }).map((el) => el.label);
+  return REQUIRED_HTML_ELEMENTS.filter((el) => {
+    const sel = el.selector;
+    if (Array.isArray(sel)) {
+      return !sel.some((s) => html.includes(s));
+    }
+    return !html.includes(sel);
+  }).map((el) => el.label);
 }
 /**
  * Extract the value of the `lang` attribute from the `<html>` tag.
@@ -220,8 +215,8 @@ function findMissingElements(html) {
  * @returns The lang value or empty string if not found
  */
 function extractLangAttribute(html) {
-    const match = /<html[^>]*\slang="([^"]+)"/iu.exec(html);
-    return match?.[1] ?? '';
+  const match = /<html[^>]*\slang="([^"]+)"/iu.exec(html);
+  return match?.[1] ?? '';
 }
 /**
  * Extract the value of the `dir` attribute from the `<html>` tag.
@@ -230,8 +225,8 @@ function extractLangAttribute(html) {
  * @returns The dir value or empty string if not found
  */
 function extractDirAttribute(html) {
-    const match = /<html[^>]*\sdir="([^"]+)"/iu.exec(html);
-    return match?.[1] ?? '';
+  const match = /<html[^>]*\sdir="([^"]+)"/iu.exec(html);
+  return match?.[1] ?? '';
 }
 /**
  * Extract the claimed read-time from the article.
@@ -241,15 +236,15 @@ function extractDirAttribute(html) {
  * @returns Claimed read time in minutes or 0 if not found
  */
 function extractClaimedReadTime(html) {
-    // Look for read-time inside the article meta section
-    const readTimeMatch = /class="article-read-time"[^>]*>([^<]*)/iu.exec(html) ??
-        /article-read-time[^>]*>([^<]*)/iu.exec(html);
-    if (!readTimeMatch?.[1])
-        return 0;
-    const text = readTimeMatch[1].trim();
-    // Extract the numeric portion — handles "5 min read", "5分で読了", "٥ دقائق قراءة"
-    const numMatch = /(\d+)/u.exec(text);
-    return numMatch?.[1] ? parseInt(numMatch[1], 10) : 0;
+  // Look for read-time inside the article meta section
+  const readTimeMatch =
+    /class="article-read-time"[^>]*>([^<]*)/iu.exec(html) ??
+    /article-read-time[^>]*>([^<]*)/iu.exec(html);
+  if (!readTimeMatch?.[1]) return 0;
+  const text = readTimeMatch[1].trim();
+  // Extract the numeric portion — handles "5 min read", "5分で読了", "٥ دقائق قراءة"
+  const numMatch = /(\d+)/u.exec(text);
+  return numMatch?.[1] ? parseInt(numMatch[1], 10) : 0;
 }
 /**
  * Extract meta tag content by name or property.
@@ -260,10 +255,10 @@ function extractClaimedReadTime(html) {
  * @returns The content attribute value or empty string
  */
 function extractMetaContent(html, attr, value) {
-    // Handle both orderings: <meta name="x" content="y"> and <meta content="y" name="x">
-    const pattern1 = new RegExp(`<meta\\s+${attr}="${value}"\\s+content="([^"]*)"`, 'iu');
-    const pattern2 = new RegExp(`<meta\\s+content="([^"]*)"\\s+${attr}="${value}"`, 'iu');
-    return pattern1.exec(html)?.[1] ?? pattern2.exec(html)?.[1] ?? '';
+  // Handle both orderings: <meta name="x" content="y"> and <meta content="y" name="x">
+  const pattern1 = new RegExp(`<meta\\s+${attr}="${value}"\\s+content="([^"]*)"`, 'iu');
+  const pattern2 = new RegExp(`<meta\\s+content="([^"]*)"\\s+${attr}="${value}"`, 'iu');
+  return pattern1.exec(html)?.[1] ?? pattern2.exec(html)?.[1] ?? '';
 }
 /**
  * Extract the page title from the `<title>` tag.
@@ -272,8 +267,8 @@ function extractMetaContent(html, attr, value) {
  * @returns Title text or empty string
  */
 function extractTitle(html) {
-    const match = /<title>([^<]*)<\/title>/iu.exec(html);
-    return match?.[1]?.trim() ?? '';
+  const match = /<title>([^<]*)<\/title>/iu.exec(html);
+  return match?.[1]?.trim() ?? '';
 }
 /**
  * Check whether keywords contain language-specific localized terms.
@@ -286,16 +281,13 @@ function extractTitle(html) {
  * @returns true if keywords appear localized for the given language
  */
 function checkKeywordLocalization(html, language) {
-    if (language === 'en')
-        return true;
-    const keywordsMeta = extractMetaContent(html, 'name', 'keywords');
-    if (!keywordsMeta)
-        return true; // No keywords = no localization issue
-    const indicators = LOCALIZED_KEYWORD_INDICATORS[language];
-    if (!indicators)
-        return true; // Unknown language = skip check
-    const keywordsLower = keywordsMeta.toLowerCase();
-    return indicators.some((indicator) => keywordsLower.includes(indicator.toLowerCase()));
+  if (language === 'en') return true;
+  const keywordsMeta = extractMetaContent(html, 'name', 'keywords');
+  if (!keywordsMeta) return true; // No keywords = no localization issue
+  const indicators = LOCALIZED_KEYWORD_INDICATORS[language];
+  if (!indicators) return true; // Unknown language = skip check
+  const keywordsLower = keywordsMeta.toLowerCase();
+  return indicators.some((indicator) => keywordsLower.includes(indicator.toLowerCase()));
 }
 /**
  * Check whether meta tags (title, OG, Twitter) are synchronized.
@@ -304,25 +296,21 @@ function checkKeywordLocalization(html, language) {
  * @returns true if the core meta tags are reasonably aligned
  */
 function checkMetaTagSync(html) {
-    const pageTitle = extractTitle(html);
-    const ogTitle = extractMetaContent(html, 'property', 'og:title');
-    const twitterTitle = extractMetaContent(html, 'name', 'twitter:title');
-    // If OG or Twitter title is present, it should match the page title
-    // (stripping the " | EU Parliament Monitor" suffix from page title)
-    const coreTitle = pageTitle.replace(/\s*\|\s*EU Parliament Monitor$/iu, '').trim();
-    if (ogTitle && ogTitle !== coreTitle)
-        return false;
-    if (twitterTitle && twitterTitle !== coreTitle)
-        return false;
-    // Also check description alignment
-    const description = extractMetaContent(html, 'name', 'description');
-    const ogDescription = extractMetaContent(html, 'property', 'og:description');
-    const twitterDescription = extractMetaContent(html, 'name', 'twitter:description');
-    if (ogDescription && description && ogDescription !== description)
-        return false;
-    if (twitterDescription && description && twitterDescription !== description)
-        return false;
-    return true;
+  const pageTitle = extractTitle(html);
+  const ogTitle = extractMetaContent(html, 'property', 'og:title');
+  const twitterTitle = extractMetaContent(html, 'name', 'twitter:title');
+  // If OG or Twitter title is present, it should match the page title
+  // (stripping the " | EU Parliament Monitor" suffix from page title)
+  const coreTitle = pageTitle.replace(/\s*\|\s*EU Parliament Monitor$/iu, '').trim();
+  if (ogTitle && ogTitle !== coreTitle) return false;
+  if (twitterTitle && twitterTitle !== coreTitle) return false;
+  // Also check description alignment
+  const description = extractMetaContent(html, 'name', 'description');
+  const ogDescription = extractMetaContent(html, 'property', 'og:description');
+  const twitterDescription = extractMetaContent(html, 'name', 'twitter:description');
+  if (ogDescription && description && ogDescription !== description) return false;
+  if (twitterDescription && description && twitterDescription !== description) return false;
+  return true;
 }
 /**
  * Decode common HTML entities that appear in meta keyword values.
@@ -336,32 +324,31 @@ function checkMetaTagSync(html) {
  * @returns The string with common entities decoded
  */
 function decodeKeywordEntities(s) {
-    const parts = [];
-    let i = 0;
-    while (i < s.length) {
-        const ch = s[i] ?? '';
-        if (ch === '&') {
-            const rest = s.slice(i).toLowerCase();
-            let matched = false;
-            for (const [entity, replacement] of ENTITY_PAIRS) {
-                if (rest.startsWith(entity)) {
-                    parts.push(replacement);
-                    i += entity.length;
-                    matched = true;
-                    break;
-                }
-            }
-            if (!matched) {
-                parts.push(ch);
-                i++;
-            }
+  const parts = [];
+  let i = 0;
+  while (i < s.length) {
+    const ch = s[i] ?? '';
+    if (ch === '&') {
+      const rest = s.slice(i).toLowerCase();
+      let matched = false;
+      for (const [entity, replacement] of ENTITY_PAIRS) {
+        if (rest.startsWith(entity)) {
+          parts.push(replacement);
+          i += entity.length;
+          matched = true;
+          break;
         }
-        else {
-            parts.push(ch);
-            i++;
-        }
+      }
+      if (!matched) {
+        parts.push(ch);
+        i++;
+      }
+    } else {
+      parts.push(ch);
+      i++;
     }
-    return parts.join('');
+  }
+  return parts.join('');
 }
 /**
  * Normalize a keyword token for comparison: decode HTML entities,
@@ -371,47 +358,48 @@ function decodeKeywordEntities(s) {
  * @returns Lowercased, entity-decoded, dash-normalized token
  */
 function normalizeKeywordToken(s) {
-    let decoded = decodeKeywordEntities(s);
-    // Normalize arrow/dash variants → single canonical form
-    decoded = decoded.replace(/→/gu, '->');
-    decoded = decoded.replace(/—/gu, '-');
-    decoded = decoded.replace(/–/gu, '-');
-    // Collapse whitespace and lowercase
-    return decoded.replace(/\s+/gu, ' ').trim().toLowerCase();
+  let decoded = decodeKeywordEntities(s);
+  // Normalize arrow/dash variants → single canonical form
+  decoded = decoded.replace(/→/gu, '->');
+  decoded = decoded.replace(/—/gu, '-');
+  decoded = decoded.replace(/–/gu, '-');
+  // Collapse whitespace and lowercase
+  return decoded.replace(/\s+/gu, ' ').trim().toLowerCase();
 }
 /**
  * Detect section-heading keywords that leaked into the article's meta keywords.
  * Returns the list of banned keywords found.
  *
  * Decodes HTML entities (e.g. `&amp;` → `&`) and normalizes dash/arrow
- * variants so that "Winners &amp; Losers" matches "Winners & Losers" and
- * "Why It Matters — Root Causes" matches both halves independently.
+ * variants so that exact comma-separated tokens can be matched after
+ * normalization, for example "Winners &amp; Losers" matching
+ * "Winners & Losers". Combined phrases are not split on dash or arrow
+ * separators and therefore only match if the full normalized token is banned.
  *
  * @param html - HTML string to inspect
  * @returns Array of section-heading keywords found in the meta tag
  */
 function detectBannedKeywords(html) {
-    const keywordsMeta = extractMetaContent(html, 'name', 'keywords');
-    if (!keywordsMeta)
-        return [];
-    // Parse comma-separated keywords and normalize each token
-    const tokens = keywordsMeta
-        .split(',')
-        .map((k) => normalizeKeywordToken(k))
-        .filter((k) => k.length > 0);
-    // Build a normalized banned-set for exact-match comparison
-    const bannedNormalized = new Map();
-    for (const pattern of BANNED_KEYWORD_PATTERNS) {
-        bannedNormalized.set(normalizeKeywordToken(pattern), pattern);
+  const keywordsMeta = extractMetaContent(html, 'name', 'keywords');
+  if (!keywordsMeta) return [];
+  // Parse comma-separated keywords and normalize each token
+  const tokens = keywordsMeta
+    .split(',')
+    .map((k) => normalizeKeywordToken(k))
+    .filter((k) => k.length > 0);
+  // Build a normalized banned-set for exact-match comparison
+  const bannedNormalized = new Map();
+  for (const pattern of BANNED_KEYWORD_PATTERNS) {
+    bannedNormalized.set(normalizeKeywordToken(pattern), pattern);
+  }
+  const found = [];
+  for (const token of tokens) {
+    const original = bannedNormalized.get(token);
+    if (original) {
+      found.push(original);
     }
-    const found = [];
-    for (const token of tokens) {
-        const original = bannedNormalized.get(token);
-        if (original) {
-            found.push(original);
-        }
-    }
-    return found;
+  }
+  return found;
 }
 /**
  * Test whether a character is a boundary before/after the word "class"
@@ -422,13 +410,10 @@ function detectBannedKeywords(html) {
  * @returns true if the character is a valid boundary
  */
 function isAttrBoundary(ch, side) {
-    if (!ch || ch === '')
-        return true;
-    if (ch === ' ' || ch === '\t' || ch === '\n' || ch === '\r')
-        return true;
-    if (side === 'before')
-        return ch === '"' || ch === "'";
-    return ch === '=';
+  if (!ch || ch === '') return true;
+  if (ch === ' ' || ch === '\t' || ch === '\n' || ch === '\r') return true;
+  if (side === 'before') return ch === '"' || ch === "'";
+  return ch === '=';
 }
 /**
  * Extract the quoted value of the `class` attribute starting at a given cursor
@@ -440,26 +425,20 @@ function isAttrBoundary(ch, side) {
  * @returns `{ value, end }` or `null`
  */
 function extractClassValue(tag, cursor) {
-    let pos = cursor;
-    // Skip whitespace before '='
-    while (pos < tag.length && (tag[pos] === ' ' || tag[pos] === '\t'))
-        pos++;
-    if (pos >= tag.length || tag[pos] !== '=')
-        return null;
-    pos++; // skip '='
-    // Skip whitespace before opening quote
-    while (pos < tag.length && (tag[pos] === ' ' || tag[pos] === '\t'))
-        pos++;
-    if (pos >= tag.length)
-        return null;
-    const quote = tag[pos];
-    if (quote !== '"' && quote !== "'")
-        return null;
-    const valueStart = pos + 1;
-    const valueEnd = tag.indexOf(quote, valueStart);
-    if (valueEnd === -1)
-        return null;
-    return { value: tag.slice(valueStart, valueEnd), end: valueEnd + 1 };
+  let pos = cursor;
+  // Skip whitespace before '='
+  while (pos < tag.length && (tag[pos] === ' ' || tag[pos] === '\t')) pos++;
+  if (pos >= tag.length || tag[pos] !== '=') return null;
+  pos++; // skip '='
+  // Skip whitespace before opening quote
+  while (pos < tag.length && (tag[pos] === ' ' || tag[pos] === '\t')) pos++;
+  if (pos >= tag.length) return null;
+  const quote = tag[pos];
+  if (quote !== '"' && quote !== "'") return null;
+  const valueStart = pos + 1;
+  const valueEnd = tag.indexOf(quote, valueStart);
+  if (valueEnd === -1) return null;
+  return { value: tag.slice(valueStart, valueEnd), end: valueEnd + 1 };
 }
 /**
  * Check whether an HTML start tag has a specific class token (whitespace-tokenized).
@@ -470,29 +449,27 @@ function extractClassValue(tag, cursor) {
  * @returns true if the class attribute contains the exact token
  */
 function hasClassToken(startTag, token) {
-    const lowerTag = startTag.toLowerCase();
-    let searchFrom = 0;
-    while (searchFrom < lowerTag.length) {
-        const classPos = lowerTag.indexOf('class', searchFrom);
-        if (classPos === -1)
-            return false;
-        const before = classPos > 0 ? lowerTag[classPos - 1] : undefined;
-        const after = classPos + 5 < lowerTag.length ? lowerTag[classPos + 5] : undefined;
-        if (!isAttrBoundary(before, 'before') || !isAttrBoundary(after, 'after')) {
-            searchFrom = classPos + 5;
-            continue;
-        }
-        const extracted = extractClassValue(startTag, classPos + 5);
-        if (!extracted) {
-            searchFrom = classPos + 5;
-            continue;
-        }
-        const tokens = extracted.value.split(/\s+/u).filter((t) => t.length > 0);
-        if (tokens.includes(token))
-            return true;
-        searchFrom = extracted.end;
+  const lowerTag = startTag.toLowerCase();
+  let searchFrom = 0;
+  while (searchFrom < lowerTag.length) {
+    const classPos = lowerTag.indexOf('class', searchFrom);
+    if (classPos === -1) return false;
+    const before = classPos > 0 ? lowerTag[classPos - 1] : undefined;
+    const after = classPos + 5 < lowerTag.length ? lowerTag[classPos + 5] : undefined;
+    if (!isAttrBoundary(before, 'before') || !isAttrBoundary(after, 'after')) {
+      searchFrom = classPos + 5;
+      continue;
     }
-    return false;
+    const extracted = extractClassValue(startTag, classPos + 5);
+    if (!extracted) {
+      searchFrom = classPos + 5;
+      continue;
+    }
+    const tokens = extracted.value.split(/\s+/u).filter((t) => t.length > 0);
+    if (tokens.includes(token)) return true;
+    searchFrom = extracted.end;
+  }
+  return false;
 }
 /**
  * Detect metric values showing "0%" in pipeline-health / pipeline-metrics
@@ -507,35 +484,32 @@ function hasClassToken(startTag, token) {
  * @returns Number of 0% pipeline metric values found
  */
 function detectZeroPercentMetrics(html) {
-    // Use indexOf-based search to avoid regex backtracking (ReDoS-safe)
-    let count = 0;
-    let searchFrom = 0;
-    const zeroValue = '0%';
-    const lowerHtml = html.toLowerCase();
-    while (searchFrom < html.length) {
-        const tagStart = html.indexOf('<', searchFrom);
-        if (tagStart === -1)
-            break;
-        const tagClose = html.indexOf('>', tagStart);
-        if (tagClose === -1)
-            break;
-        const startTag = html.slice(tagStart, tagClose + 1);
-        // Only check elements that have the 'metric-value' class token
-        if (hasClassToken(startTag, 'metric-value')) {
-            const contentStart = tagClose + 1;
-            const nextTag = html.indexOf('<', contentStart);
-            if (nextTag === -1)
-                break;
-            const textContent = html.slice(contentStart, nextTag).trim();
-            if (textContent === zeroValue && isInPipelineContext(lowerHtml, tagStart)) {
-                count++;
-            }
-            searchFrom = nextTag;
-            continue;
-        }
-        searchFrom = tagClose + 1;
+  // Use indexOf-based search to avoid regex backtracking (ReDoS-safe)
+  let count = 0;
+  let searchFrom = 0;
+  const zeroValue = '0%';
+  const lowerHtml = html.toLowerCase();
+  while (searchFrom < html.length) {
+    const tagStart = html.indexOf('<', searchFrom);
+    if (tagStart === -1) break;
+    const tagClose = html.indexOf('>', tagStart);
+    if (tagClose === -1) break;
+    const startTag = html.slice(tagStart, tagClose + 1);
+    // Only check elements that have the 'metric-value' class token
+    if (hasClassToken(startTag, 'metric-value')) {
+      const contentStart = tagClose + 1;
+      const nextTag = html.indexOf('<', contentStart);
+      if (nextTag === -1) break;
+      const textContent = html.slice(contentStart, nextTag).trim();
+      if (textContent === zeroValue && isInPipelineContext(lowerHtml, tagStart)) {
+        count++;
+      }
+      searchFrom = nextTag;
+      continue;
     }
-    return count;
+    searchFrom = tagClose + 1;
+  }
+  return count;
 }
 /**
  * Check whether a position in the HTML is inside a pipeline-health/metrics context.
@@ -546,9 +520,14 @@ function detectZeroPercentMetrics(html) {
  * @returns true if inside a pipeline context
  */
 function isInPipelineContext(lowerHtml, position) {
-    const precedingHtml = lowerHtml.slice(Math.max(0, position - PIPELINE_CONTEXT_LOOKBEHIND_CHARS), position);
-    return (precedingHtml.lastIndexOf('pipeline-metrics') !== -1 ||
-        precedingHtml.lastIndexOf('pipeline-health') !== -1);
+  const precedingHtml = lowerHtml.slice(
+    Math.max(0, position - PIPELINE_CONTEXT_LOOKBEHIND_CHARS),
+    position
+  );
+  return (
+    precedingHtml.lastIndexOf('pipeline-metrics') !== -1 ||
+    precedingHtml.lastIndexOf('pipeline-health') !== -1
+  );
 }
 /**
  * Strip HTML tags from a string using a simple character scanner.
@@ -558,21 +537,19 @@ function isInPipelineContext(lowerHtml, position) {
  * @returns Plain text content with tags removed
  */
 function stripHtmlTags(input) {
-    const parts = [];
-    let inTag = false;
-    for (let i = 0; i < input.length; i++) {
-        const ch = input[i] ?? '';
-        if (ch === '<') {
-            inTag = true;
-        }
-        else if (ch === '>') {
-            inTag = false;
-        }
-        else if (!inTag) {
-            parts.push(ch);
-        }
+  const parts = [];
+  let inTag = false;
+  for (let i = 0; i < input.length; i++) {
+    const ch = input[i] ?? '';
+    if (ch === '<') {
+      inTag = true;
+    } else if (ch === '>') {
+      inTag = false;
+    } else if (!inTag) {
+      parts.push(ch);
     }
-    return parts.join('');
+  }
+  return parts.join('');
 }
 /**
  * Evaluate whether a section's inner HTML has enough meaningful content.
@@ -581,8 +558,8 @@ function stripHtmlTags(input) {
  * @returns true if the section is empty or near-empty
  */
 function isSectionEmpty(innerHtml) {
-    const plainText = stripHtmlTags(innerHtml).replace(/\s+/gu, ' ').trim();
-    return plainText.length < MIN_SECTION_CONTENT_LENGTH;
+  const plainText = stripHtmlTags(innerHtml).replace(/\s+/gu, ' ').trim();
+  return plainText.length < MIN_SECTION_CONTENT_LENGTH;
 }
 /**
  * Find the next `<section` open or `</section>` close tag from a given cursor.
@@ -593,12 +570,11 @@ function isSectionEmpty(innerHtml) {
  * @returns Tag event or null
  */
 function findNextSectionTag(lowerHtml, cursor) {
-    const nextOpen = lowerHtml.indexOf('<section', cursor);
-    const nextClose = lowerHtml.indexOf('</section>', cursor);
-    if (nextOpen === -1 && nextClose === -1)
-        return null;
-    const openFirst = nextOpen !== -1 && (nextClose === -1 || nextOpen < nextClose);
-    return openFirst ? { type: 'open', pos: nextOpen } : { type: 'close', pos: nextClose };
+  const nextOpen = lowerHtml.indexOf('<section', cursor);
+  const nextClose = lowerHtml.indexOf('</section>', cursor);
+  if (nextOpen === -1 && nextClose === -1) return null;
+  const openFirst = nextOpen !== -1 && (nextClose === -1 || nextOpen < nextClose);
+  return openFirst ? { type: 'open', pos: nextOpen } : { type: 'close', pos: nextClose };
 }
 /**
  * Count empty `<section>` elements — those with little or no visible content.
@@ -609,32 +585,30 @@ function findNextSectionTag(lowerHtml, cursor) {
  * @returns Number of empty sections found
  */
 function countEmptySections(html) {
-    const lowerHtml = html.toLowerCase();
-    let count = 0;
-    const stack = [];
-    let cursor = 0;
-    let event = findNextSectionTag(lowerHtml, cursor);
-    while (event) {
-        if (event.type === 'open') {
-            const tagEnd = html.indexOf('>', event.pos);
-            if (tagEnd === -1)
-                break;
-            stack.push(tagEnd + 1);
-            cursor = tagEnd + 1;
+  const lowerHtml = html.toLowerCase();
+  let count = 0;
+  const stack = [];
+  let cursor = 0;
+  let event = findNextSectionTag(lowerHtml, cursor);
+  while (event) {
+    if (event.type === 'open') {
+      const tagEnd = html.indexOf('>', event.pos);
+      if (tagEnd === -1) break;
+      stack.push(tagEnd + 1);
+      cursor = tagEnd + 1;
+    } else {
+      if (stack.length > 0) {
+        const contentStart = stack[stack.length - 1] ?? 0;
+        stack.pop();
+        if (isSectionEmpty(html.slice(contentStart, event.pos))) {
+          count++;
         }
-        else {
-            if (stack.length > 0) {
-                const contentStart = stack[stack.length - 1] ?? 0;
-                stack.pop();
-                if (isSectionEmpty(html.slice(contentStart, event.pos))) {
-                    count++;
-                }
-            }
-            cursor = event.pos + '</section>'.length;
-        }
-        event = findNextSectionTag(lowerHtml, cursor);
+      }
+      cursor = event.pos + '</section>'.length;
     }
-    return count;
+    event = findNextSectionTag(lowerHtml, cursor);
+  }
+  return count;
 }
 // ─── Public API ───────────────────────────────────────────────────────────────
 /**
@@ -645,21 +619,27 @@ function countEmptySections(html) {
  * @param warnings - Mutable warnings array to append to
  */
 function collectQualityGateWarnings(html, warnings) {
-    // Keyword quality: detect section-heading keywords leaked into meta tags
-    const bannedKeywords = detectBannedKeywords(html);
-    if (bannedKeywords.length > 0) {
-        warnings.push(`Keywords contain ${bannedKeywords.length} section heading(s) that should not be used as keywords: ${bannedKeywords.join(', ')}`);
-    }
-    // Dashboard metric quality: detect 0% metrics rendered as real data
-    const zeroMetricCount = detectZeroPercentMetrics(html);
-    if (zeroMetricCount > 0) {
-        warnings.push(`Dashboard renders ${zeroMetricCount} metric(s) showing "0%" — this likely indicates no-data, not a real score. Omit the dashboard when data is unavailable.`);
-    }
-    // Empty section detection: flag sections with no meaningful content
-    const emptySectionCount = countEmptySections(html);
-    if (emptySectionCount > 0) {
-        warnings.push(`Article contains ${emptySectionCount} empty or near-empty <section> element(s) that should be removed`);
-    }
+  // Keyword quality: detect section-heading keywords leaked into meta tags
+  const bannedKeywords = detectBannedKeywords(html);
+  if (bannedKeywords.length > 0) {
+    warnings.push(
+      `Keywords contain ${bannedKeywords.length} section heading(s) that should not be used as keywords: ${bannedKeywords.join(', ')}`
+    );
+  }
+  // Dashboard metric quality: detect 0% metrics rendered as real data
+  const zeroMetricCount = detectZeroPercentMetrics(html);
+  if (zeroMetricCount > 0) {
+    warnings.push(
+      `Dashboard renders ${zeroMetricCount} metric(s) showing "0%" — this likely indicates no-data, not a real score. Omit the dashboard when data is unavailable.`
+    );
+  }
+  // Empty section detection: flag sections with no meaningful content
+  const emptySectionCount = countEmptySections(html);
+  if (emptySectionCount > 0) {
+    warnings.push(
+      `Article contains ${emptySectionCount} empty or near-empty <section> element(s) that should be removed`
+    );
+  }
 }
 /**
  * Validate the quality of a generated article.
@@ -679,77 +659,88 @@ function collectQualityGateWarnings(html, warnings) {
  * @returns Structured validation result with errors, warnings and metrics
  */
 export function validateArticleContent(html, language, articleType) {
-    const warnings = [];
-    const errors = [];
-    // Word count check
-    const wordCount = countWordsInHtml(html);
-    const minWords = MIN_WORD_COUNTS[articleType] ?? DEFAULT_MIN_WORDS;
-    if (wordCount < minWords) {
-        warnings.push(`Content too short: ${wordCount} words (minimum ${minWords} for "${articleType}")`);
-    }
-    // Placeholder detection
-    const hasPlaceholders = detectPlaceholders(html);
-    if (hasPlaceholders) {
-        errors.push('Un-replaced template placeholder(s) detected in generated content');
-    }
-    // Required HTML elements
-    const missingElements = findMissingElements(html);
-    const htmlValid = missingElements.length === 0;
-    if (!htmlValid) {
-        errors.push(`Missing required HTML element(s): ${missingElements.join(', ')}`);
-    }
-    // Read-time accuracy
-    const computedReadTime = Math.max(1, Math.ceil(wordCount / WORDS_PER_MINUTE));
-    const claimedReadTime = extractClaimedReadTime(html);
-    if (claimedReadTime > 0 && Math.abs(computedReadTime - claimedReadTime) > READ_TIME_TOLERANCE) {
-        warnings.push(`Read-time mismatch: claimed ${claimedReadTime} min but content is ~${computedReadTime} min (${wordCount} words)`);
-    }
-    // Language attribute check
-    const langAttr = extractLangAttribute(html);
-    const langAttributeValid = langAttr === language;
-    if (!langAttributeValid && langAttr) {
-        warnings.push(`Language attribute mismatch: <html lang="${langAttr}"> but expected "${language}"`);
-    }
-    else if (!langAttr) {
-        warnings.push('Missing lang attribute on <html> element');
-    }
-    // Dir attribute check for RTL languages
-    const dirAttr = extractDirAttribute(html);
-    const isRtl = RTL_LANGUAGES.has(language);
-    const dirAttributeValid = isRtl ? dirAttr === 'rtl' : dirAttr !== 'rtl';
-    if (isRtl && dirAttr !== 'rtl') {
-        warnings.push(`RTL language "${language}" should have dir="rtl" but found dir="${dirAttr || '(none)'}"`);
-    }
-    // Meta tag synchronization
-    const metaTagsSynced = checkMetaTagSync(html);
-    if (!metaTagsSynced) {
-        warnings.push('Meta tag mismatch: title, og:title, twitter:title, or descriptions are not synchronized');
-    }
-    // Keyword localization
-    const keywordsLocalized = checkKeywordLocalization(html, language);
-    if (!keywordsLocalized) {
-        warnings.push(`Keywords for "${language}" article appear to be entirely in English — consider localizing`);
-    }
-    // Extended validation: cross-reference density, stakeholder balance, temporal coverage
-    collectExtendedValidationWarnings(html, warnings);
-    // Machine-enforceable article quality gates
-    collectQualityGateWarnings(html, warnings);
-    return {
-        valid: errors.length === 0,
-        warnings,
-        errors,
-        metrics: {
-            wordCount,
-            htmlValid,
-            hasPlaceholders,
-            computedReadTime,
-            claimedReadTime,
-            langAttributeValid,
-            dirAttributeValid,
-            metaTagsSynced,
-            keywordsLocalized,
-        },
-    };
+  const warnings = [];
+  const errors = [];
+  // Word count check
+  const wordCount = countWordsInHtml(html);
+  const minWords = MIN_WORD_COUNTS[articleType] ?? DEFAULT_MIN_WORDS;
+  if (wordCount < minWords) {
+    warnings.push(
+      `Content too short: ${wordCount} words (minimum ${minWords} for "${articleType}")`
+    );
+  }
+  // Placeholder detection
+  const hasPlaceholders = detectPlaceholders(html);
+  if (hasPlaceholders) {
+    errors.push('Un-replaced template placeholder(s) detected in generated content');
+  }
+  // Required HTML elements
+  const missingElements = findMissingElements(html);
+  const htmlValid = missingElements.length === 0;
+  if (!htmlValid) {
+    errors.push(`Missing required HTML element(s): ${missingElements.join(', ')}`);
+  }
+  // Read-time accuracy
+  const computedReadTime = Math.max(1, Math.ceil(wordCount / WORDS_PER_MINUTE));
+  const claimedReadTime = extractClaimedReadTime(html);
+  if (claimedReadTime > 0 && Math.abs(computedReadTime - claimedReadTime) > READ_TIME_TOLERANCE) {
+    warnings.push(
+      `Read-time mismatch: claimed ${claimedReadTime} min but content is ~${computedReadTime} min (${wordCount} words)`
+    );
+  }
+  // Language attribute check
+  const langAttr = extractLangAttribute(html);
+  const langAttributeValid = langAttr === language;
+  if (!langAttributeValid && langAttr) {
+    warnings.push(
+      `Language attribute mismatch: <html lang="${langAttr}"> but expected "${language}"`
+    );
+  } else if (!langAttr) {
+    warnings.push('Missing lang attribute on <html> element');
+  }
+  // Dir attribute check for RTL languages
+  const dirAttr = extractDirAttribute(html);
+  const isRtl = RTL_LANGUAGES.has(language);
+  const dirAttributeValid = isRtl ? dirAttr === 'rtl' : dirAttr !== 'rtl';
+  if (isRtl && dirAttr !== 'rtl') {
+    warnings.push(
+      `RTL language "${language}" should have dir="rtl" but found dir="${dirAttr || '(none)'}"`
+    );
+  }
+  // Meta tag synchronization
+  const metaTagsSynced = checkMetaTagSync(html);
+  if (!metaTagsSynced) {
+    warnings.push(
+      'Meta tag mismatch: title, og:title, twitter:title, or descriptions are not synchronized'
+    );
+  }
+  // Keyword localization
+  const keywordsLocalized = checkKeywordLocalization(html, language);
+  if (!keywordsLocalized) {
+    warnings.push(
+      `Keywords for "${language}" article appear to be entirely in English — consider localizing`
+    );
+  }
+  // Extended validation: cross-reference density, stakeholder balance, temporal coverage
+  collectExtendedValidationWarnings(html, warnings);
+  // Machine-enforceable article quality gates
+  collectQualityGateWarnings(html, warnings);
+  return {
+    valid: errors.length === 0,
+    warnings,
+    errors,
+    metrics: {
+      wordCount,
+      htmlValid,
+      hasPlaceholders,
+      computedReadTime,
+      claimedReadTime,
+      langAttributeValid,
+      dirAttributeValid,
+      metaTagsSynced,
+      keywordsLocalized,
+    },
+  };
 }
 // ─── Translation validation helpers ───────────────────────────────────────────
 /**
@@ -760,13 +751,13 @@ export function validateArticleContent(html, language, articleType) {
  * @returns Plain text content from the main element
  */
 function extractMainPlainText(html) {
-    const mainMatch = /<main[^>]*>([\s\S]*?)<\/main>/u.exec(html);
-    const source = mainMatch?.[1] ?? html;
-    return stripScriptBlocks(source)
-        .replace(/<[^>]+>/gu, ' ')
-        .replace(/&(?:[a-z][a-z0-9]+|#\d+|#x[0-9a-f]+);/giu, ' ')
-        .replace(/\s+/gu, ' ')
-        .trim();
+  const mainMatch = /<main[^>]*>([\s\S]*?)<\/main>/u.exec(html);
+  const source = mainMatch?.[1] ?? html;
+  return stripScriptBlocks(source)
+    .replace(/<[^>]+>/gu, ' ')
+    .replace(/&(?:[a-z][a-z0-9]+|#\d+|#x[0-9a-f]+);/giu, ' ')
+    .replace(/\s+/gu, ' ')
+    .trim();
 }
 /**
  * Compute the ratio of ASCII printable characters (0x20–0x7E) in a string.
@@ -775,12 +766,11 @@ function extractMainPlainText(html) {
  * @returns Ratio from 0 to 1 (1 = all ASCII)
  */
 function computeAsciiRatio(text) {
-    if (text.length === 0)
-        return 0;
-    const asciiCount = (text.match(/[\x20-\x7E]/gu) ?? []).length;
-    // Use Array.from to correctly count Unicode characters (handles surrogate pairs)
-    const charCount = Array.from(text).length;
-    return asciiCount / charCount;
+  if (text.length === 0) return 0;
+  const asciiCount = (text.match(/[\x20-\x7E]/gu) ?? []).length;
+  // Use Array.from to correctly count Unicode characters (handles surrogate pairs)
+  const charCount = Array.from(text).length;
+  return asciiCount / charCount;
 }
 /**
  * Compute the ratio of CJK Unified Ideograph characters in a string.
@@ -791,16 +781,15 @@ function computeAsciiRatio(text) {
  * @returns Ratio from 0 to 1
  */
 function computeCjkCharRatio(text) {
-    if (text.length === 0)
-        return 0;
-    // CJK Unified Ideographs + Extension A, Hiragana, Katakana, Hangul Syllables
-    // Note: Extension B (U+20000–U+2A6DF) is omitted as it triggers unsafe-regex lint
-    // and is extremely rare in EU Parliament content.
-    const cjkPattern = /[\u4E00-\u9FFF\u3400-\u4DBF\u3040-\u309F\u30A0-\u30FF\uAC00-\uD7AF]/gu;
-    const matches = text.match(cjkPattern);
-    // Use Array.from to correctly count Unicode characters (handles surrogate pairs)
-    const charCount = Array.from(text).length;
-    return (matches?.length ?? 0) / charCount;
+  if (text.length === 0) return 0;
+  // CJK Unified Ideographs + Extension A, Hiragana, Katakana, Hangul Syllables
+  // Note: Extension B (U+20000–U+2A6DF) is omitted as it triggers unsafe-regex lint
+  // and is extremely rare in EU Parliament content.
+  const cjkPattern = /[\u4E00-\u9FFF\u3400-\u4DBF\u3040-\u309F\u30A0-\u30FF\uAC00-\uD7AF]/gu;
+  const matches = text.match(cjkPattern);
+  // Use Array.from to correctly count Unicode characters (handles surrogate pairs)
+  const charCount = Array.from(text).length;
+  return (matches?.length ?? 0) / charCount;
 }
 /**
  * Detect common English phrases that should have been translated in non-English articles.
@@ -809,8 +798,8 @@ function computeCjkCharRatio(text) {
  * @returns Array of detected untranslated English phrases
  */
 function findUntranslatedPhrases(text) {
-    const lowerText = text.toLowerCase();
-    return ENGLISH_PLACEHOLDER_PHRASES.filter((phrase) => lowerText.includes(phrase.toLowerCase()));
+  const lowerText = text.toLowerCase();
+  return ENGLISH_PLACEHOLDER_PHRASES.filter((phrase) => lowerText.includes(phrase.toLowerCase()));
 }
 /**
  * Check whether Unicode bidirectional control characters or HTML bidi markers are present.
@@ -819,11 +808,11 @@ function findUntranslatedPhrases(text) {
  * @returns true if bidi markers or control characters are found
  */
 function detectBidiMarkers(html) {
-    // Unicode bidi control characters: LRM, RLM, LRE, RLE, PDF, LRO, RLO, LRI, RLI, FSI, PDI
-    const bidiControlPattern = /[\u200E\u200F\u202A-\u202E\u2066-\u2069]/u;
-    // HTML entities: &lrm; &rlm;
-    const bidiEntityPattern = /&(?:lrm|rlm);/iu;
-    return bidiControlPattern.test(html) || bidiEntityPattern.test(html);
+  // Unicode bidi control characters: LRM, RLM, LRE, RLE, PDF, LRO, RLO, LRI, RLI, FSI, PDI
+  const bidiControlPattern = /[\u200E\u200F\u202A-\u202E\u2066-\u2069]/u;
+  // HTML entities: &lrm; &rlm;
+  const bidiEntityPattern = /&(?:lrm|rlm);/iu;
+  return bidiControlPattern.test(html) || bidiEntityPattern.test(html);
 }
 /**
  * Validate translation completeness and cultural adaptation for a generated article.
@@ -842,62 +831,71 @@ function detectBidiMarkers(html) {
  * @returns Structured translation validation result with warnings and metrics
  */
 export function validateTranslationCompleteness(html, lang) {
-    const warnings = [];
-    const plainText = extractMainPlainText(html);
-    const asciiRatio = computeAsciiRatio(plainText);
-    const cjkCharRatio = computeCjkCharRatio(plainText);
-    const htmlDir = extractDirAttribute(html);
-    const hasRtlDir = htmlDir === 'rtl';
-    const hasBidiMarkers = detectBidiMarkers(html);
-    const untranslatedPhrases = findUntranslatedPhrases(plainText);
-    // Skip validation warnings for English — it is the source language,
-    // but still compute and return real metrics for telemetry/reporting.
-    if (lang === 'en') {
-        return {
-            valid: true,
-            warnings: [],
-            metrics: {
-                asciiRatio,
-                cjkCharRatio,
-                hasRtlDir,
-                hasBidiMarkers,
-                untranslatedPhrases,
-            },
-        };
-    }
-    // ── RTL validation ──────────────────────────────────────────────────────
-    if (RTL_LANGUAGES.has(lang) && !hasRtlDir) {
-        if (!htmlDir) {
-            warnings.push(`Translation quality: RTL language "${lang}" missing dir="rtl" on <html> element`);
-        }
-        else {
-            warnings.push(`Translation quality: RTL language "${lang}" expected dir="rtl" on <html> element but found dir="${htmlDir}"`);
-        }
-    }
-    // ── CJK density check ──────────────────────────────────────────────────
-    if (CJK_LANGUAGES.has(lang) && plainText.length > 0) {
-        if (asciiRatio > CJK_ASCII_RATIO_THRESHOLD) {
-            warnings.push(`Translation quality: ${lang.toUpperCase()} article has ${(asciiRatio * 100).toFixed(0)}% ASCII characters — content may be untranslated`);
-        }
-        if (cjkCharRatio < CJK_CHAR_RATIO_THRESHOLD) {
-            warnings.push(`Translation quality: ${lang.toUpperCase()} article has only ${(cjkCharRatio * 100).toFixed(1)}% CJK characters — expected native script content`);
-        }
-    }
-    // ── Untranslated English phrase detection ───────────────────────────────
-    if (untranslatedPhrases.length > 0) {
-        warnings.push(`Translation quality: found ${untranslatedPhrases.length} likely untranslated English phrase(s): ${untranslatedPhrases.slice(0, 3).join(', ')}`);
-    }
+  const warnings = [];
+  const plainText = extractMainPlainText(html);
+  const asciiRatio = computeAsciiRatio(plainText);
+  const cjkCharRatio = computeCjkCharRatio(plainText);
+  const htmlDir = extractDirAttribute(html);
+  const hasRtlDir = htmlDir === 'rtl';
+  const hasBidiMarkers = detectBidiMarkers(html);
+  const untranslatedPhrases = findUntranslatedPhrases(plainText);
+  // Skip validation warnings for English — it is the source language,
+  // but still compute and return real metrics for telemetry/reporting.
+  if (lang === 'en') {
     return {
-        valid: warnings.length === 0,
-        warnings,
-        metrics: {
-            asciiRatio,
-            cjkCharRatio,
-            hasRtlDir,
-            hasBidiMarkers,
-            untranslatedPhrases,
-        },
+      valid: true,
+      warnings: [],
+      metrics: {
+        asciiRatio,
+        cjkCharRatio,
+        hasRtlDir,
+        hasBidiMarkers,
+        untranslatedPhrases,
+      },
     };
+  }
+  // ── RTL validation ──────────────────────────────────────────────────────
+  if (RTL_LANGUAGES.has(lang) && !hasRtlDir) {
+    if (!htmlDir) {
+      warnings.push(
+        `Translation quality: RTL language "${lang}" missing dir="rtl" on <html> element`
+      );
+    } else {
+      warnings.push(
+        `Translation quality: RTL language "${lang}" expected dir="rtl" on <html> element but found dir="${htmlDir}"`
+      );
+    }
+  }
+  // ── CJK density check ──────────────────────────────────────────────────
+  if (CJK_LANGUAGES.has(lang) && plainText.length > 0) {
+    if (asciiRatio > CJK_ASCII_RATIO_THRESHOLD) {
+      warnings.push(
+        `Translation quality: ${lang.toUpperCase()} article has ${(asciiRatio * 100).toFixed(0)}% ASCII characters — content may be untranslated`
+      );
+    }
+    if (cjkCharRatio < CJK_CHAR_RATIO_THRESHOLD) {
+      warnings.push(
+        `Translation quality: ${lang.toUpperCase()} article has only ${(cjkCharRatio * 100).toFixed(1)}% CJK characters — expected native script content`
+      );
+    }
+  }
+  // ── Untranslated English phrase detection ───────────────────────────────
+  if (untranslatedPhrases.length > 0) {
+    warnings.push(
+      `Translation quality: found ${untranslatedPhrases.length} likely untranslated English phrase(s): ${untranslatedPhrases.slice(0, 3).join(', ')}`
+    );
+  }
+  return {
+    valid: warnings.length === 0,
+    warnings,
+    metrics: {
+      asciiRatio,
+      cjkCharRatio,
+      hasRtlDir,
+      hasBidiMarkers,
+      untranslatedPhrases,
+    },
+  };
 }
 // ─── Extended validation rules ────────────────────────────────────────────────
 /**
@@ -909,15 +907,12 @@ export function validateTranslationCompleteness(html, lang) {
  * @param warnings - Mutable array to push warning strings into
  */
 function collectExtendedValidationWarnings(html, warnings) {
-    const crossRefWarning = validateCrossReferenceDensity(html);
-    if (crossRefWarning)
-        warnings.push(crossRefWarning);
-    const balanceWarning = validateStakeholderGroupBalance(html);
-    if (balanceWarning)
-        warnings.push(balanceWarning);
-    const temporalWarning = validateTemporalCoverage(html);
-    if (temporalWarning)
-        warnings.push(temporalWarning);
+  const crossRefWarning = validateCrossReferenceDensity(html);
+  if (crossRefWarning) warnings.push(crossRefWarning);
+  const balanceWarning = validateStakeholderGroupBalance(html);
+  if (balanceWarning) warnings.push(balanceWarning);
+  const temporalWarning = validateTemporalCoverage(html);
+  if (temporalWarning) warnings.push(temporalWarning);
 }
 /**
  * Patterns matching known EP document reference formats.
@@ -925,11 +920,11 @@ function collectExtendedValidationWarnings(html, warnings) {
  * Covers: TA-10-2026-0123, PE-123, PE-123.456, A9-0123, B9-0123, C9-0123, P9_TA(2024)0001
  */
 const CV_EP_DOC_PATTERNS = [
-    /\bTA-\d+-\d+-\d+\b/gu,
-    /\bPE-\d+\.\d+\b/gu,
-    /\bPE-\d+(?!\.\d)\b/gu,
-    /\b[A-C]\d-\d+\b/gu,
-    /\bP\d_TA\(\d{4}\)\d+\b/gu,
+  /\bTA-\d+-\d+-\d+\b/gu,
+  /\bPE-\d+\.\d+\b/gu,
+  /\bPE-\d+(?!\.\d)\b/gu,
+  /\b[A-C]\d-\d+\b/gu,
+  /\bP\d_TA\(\d{4}\)\d+\b/gu,
 ];
 /** Pattern matching EP legislative procedure references (e.g. 2024/0001(COD)) */
 const CV_PROCEDURE_REF_PATTERN = /\b\d{4}\/\d+\([A-Z]{2,4}\)/gu;
@@ -940,30 +935,30 @@ const CV_PROCEDURE_REF_PATTERN = /\b\d{4}\/\d+\([A-Z]{2,4}\)/gu;
  * and "Renew".
  */
 const EP_POLITICAL_GROUPS = [
-    'EPP',
-    'S&D',
-    'Renew Europe',
-    'Greens/EFA',
-    'ECR',
-    'Identity and Democracy',
-    'The Left',
-    'Patriots for Europe',
+  'EPP',
+  'S&D',
+  'Renew Europe',
+  'Greens/EFA',
+  'ECR',
+  'Identity and Democracy',
+  'The Left',
+  'Patriots for Europe',
 ];
 /** Patterns indicating forward-looking content (temporal coverage validation) */
 const FORWARD_LOOKING_PATTERNS = [
-    /\bforecast\b/iu,
-    /\bprojection\b/iu,
-    /\bexpected\b/iu,
-    /\banticipated\b/iu,
-    /\bupcoming\b/iu,
-    /\bfuture\b/iu,
-    /\bscenario\b/iu,
-    /\bcould\b/iu,
-    /\bwill\b/iu,
-    /\boutlook\b/iu,
-    /\bpredict\b/iu,
-    /\bnext\b/iu,
-    /\bforthcoming\b/iu,
+  /\bforecast\b/iu,
+  /\bprojection\b/iu,
+  /\bexpected\b/iu,
+  /\banticipated\b/iu,
+  /\bupcoming\b/iu,
+  /\bfuture\b/iu,
+  /\bscenario\b/iu,
+  /\bcould\b/iu,
+  /\bwill\b/iu,
+  /\boutlook\b/iu,
+  /\bpredict\b/iu,
+  /\bnext\b/iu,
+  /\bforthcoming\b/iu,
 ];
 /**
  * Validate that an article cites a minimum number of EP document references
@@ -975,26 +970,24 @@ const FORWARD_LOOKING_PATTERNS = [
  * @returns Warning message if density is insufficient, or null if acceptable
  */
 export function validateCrossReferenceDensity(html, minRefs = 2) {
-    const htmlNoScripts = stripScriptBlocks(html);
-    const found = new Set();
-    for (const pattern of CV_EP_DOC_PATTERNS) {
-        pattern.lastIndex = 0;
-        const hits = htmlNoScripts.match(pattern);
-        if (hits) {
-            for (const hit of hits)
-                found.add(hit);
-        }
+  const htmlNoScripts = stripScriptBlocks(html);
+  const found = new Set();
+  for (const pattern of CV_EP_DOC_PATTERNS) {
+    pattern.lastIndex = 0;
+    const hits = htmlNoScripts.match(pattern);
+    if (hits) {
+      for (const hit of hits) found.add(hit);
     }
-    CV_PROCEDURE_REF_PATTERN.lastIndex = 0;
-    const procHits = htmlNoScripts.match(CV_PROCEDURE_REF_PATTERN);
-    if (procHits) {
-        for (const hit of procHits)
-            found.add(hit);
-    }
-    if (found.size < minRefs) {
-        return `Cross-reference density too low: ${found.size} EP document reference(s) found (minimum ${minRefs} required)`;
-    }
-    return null;
+  }
+  CV_PROCEDURE_REF_PATTERN.lastIndex = 0;
+  const procHits = htmlNoScripts.match(CV_PROCEDURE_REF_PATTERN);
+  if (procHits) {
+    for (const hit of procHits) found.add(hit);
+  }
+  if (found.size < minRefs) {
+    return `Cross-reference density too low: ${found.size} EP document reference(s) found (minimum ${minRefs} required)`;
+  }
+  return null;
 }
 /**
  * Validate that no single EP political group dominates the article's coverage.
@@ -1005,29 +998,28 @@ export function validateCrossReferenceDensity(html, minRefs = 2) {
  * @returns Warning message if one group dominates, or null if balanced
  */
 export function validateStakeholderGroupBalance(html) {
-    const text = stripScriptBlocks(html)
-        .replace(/<[^>]+>/gu, ' ')
-        .replace(/\s+/gu, ' ');
-    const counts = Object.create(null);
-    let total = 0;
-    for (const group of EP_POLITICAL_GROUPS) {
-        const escaped = group.replace(/[.*+?^${}()|[\]\\]/gu, '\\$&');
-        // eslint-disable-next-line security/detect-non-literal-regexp
-        const pattern = new RegExp(`\\b${escaped}\\b`, 'giu');
-        const matches = text.match(pattern);
-        const count = matches?.length ?? 0;
-        counts[group] = count;
-        total += count;
+  const text = stripScriptBlocks(html)
+    .replace(/<[^>]+>/gu, ' ')
+    .replace(/\s+/gu, ' ');
+  const counts = Object.create(null);
+  let total = 0;
+  for (const group of EP_POLITICAL_GROUPS) {
+    const escaped = group.replace(/[.*+?^${}()|[\]\\]/gu, '\\$&');
+    // eslint-disable-next-line security/detect-non-literal-regexp
+    const pattern = new RegExp(`\\b${escaped}\\b`, 'giu');
+    const matches = text.match(pattern);
+    const count = matches?.length ?? 0;
+    counts[group] = count;
+    total += count;
+  }
+  if (total < 3) return null; // Too few mentions to assess balance
+  for (const group of EP_POLITICAL_GROUPS) {
+    const groupCount = counts[group] ?? 0;
+    if (groupCount / total > 0.6) {
+      return `Stakeholder balance concern: "${group}" accounts for ${Math.round((groupCount / total) * 100)}% of political group mentions — consider covering other groups`;
     }
-    if (total < 3)
-        return null; // Too few mentions to assess balance
-    for (const group of EP_POLITICAL_GROUPS) {
-        const groupCount = counts[group] ?? 0;
-        if (groupCount / total > 0.6) {
-            return `Stakeholder balance concern: "${group}" accounts for ${Math.round((groupCount / total) * 100)}% of political group mentions — consider covering other groups`;
-        }
-    }
-    return null;
+  }
+  return null;
 }
 /**
  * Validate that an article includes forward-looking content (temporal coverage).
@@ -1037,14 +1029,14 @@ export function validateStakeholderGroupBalance(html) {
  * @returns Warning message if no forward-looking content is detected, or null if present
  */
 export function validateTemporalCoverage(html) {
-    const text = stripScriptBlocks(html)
-        .replace(/<[^>]+>/gu, ' ')
-        .replace(/\s+/gu, ' ')
-        .toLowerCase();
-    const hasForwardLooking = FORWARD_LOOKING_PATTERNS.some((pattern) => pattern.test(text));
-    if (!hasForwardLooking) {
-        return 'Temporal coverage: article lacks forward-looking content — add forecasts, scenarios, or outlook sections for actionable intelligence';
-    }
-    return null;
+  const text = stripScriptBlocks(html)
+    .replace(/<[^>]+>/gu, ' ')
+    .replace(/\s+/gu, ' ')
+    .toLowerCase();
+  const hasForwardLooking = FORWARD_LOOKING_PATTERNS.some((pattern) => pattern.test(text));
+  if (!hasForwardLooking) {
+    return 'Temporal coverage: article lacks forward-looking content — add forecasts, scenarios, or outlook sections for actionable intelligence';
+  }
+  return null;
 }
 //# sourceMappingURL=content-validator.js.map
