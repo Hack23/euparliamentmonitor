@@ -106,6 +106,89 @@ const ENGLISH_PLACEHOLDER_PHRASES = [
     'political group dynamics',
     'committee coordinators',
 ];
+// ─── Article Quality Gate Constants ───────────────────────────────────────────
+/**
+ * Section headings that MUST NOT appear as article keywords.
+ * These leak into meta tags when AI agents copy their section headers
+ * into the keywords field instead of using policy terms.
+ *
+ * @see SHARED_PROMPT_PATTERNS.md § Keywords Quality Rules
+ */
+const BANNED_KEYWORD_PATTERNS = [
+    'Deep Political Analysis',
+    'What Happened',
+    'Key Actors',
+    'Timeline',
+    'Why It Matters',
+    'Why This Matters',
+    'Legislative Pipeline Overview',
+    'Impact Assessment',
+    'Actions → Consequences',
+    'Miscalculations & Missed Opportunities',
+    'Winners & Losers',
+    'Root Causes',
+    'Stakeholder Perspectives',
+    'Multi-Stakeholder Perspectives',
+    'Stakeholder Outcome Matrix',
+    'Intelligence Policy Map',
+    'Strategic Outlook',
+    'SWOT Analysis',
+    'Dashboard',
+    'Pipeline Health',
+    'Analysis Pipeline Insights',
+    'Plenary Sessions',
+    'Executive Summary',
+    'Table of Contents',
+    'Political Context',
+];
+/**
+ * Minimum number of non-whitespace characters for a `<section>` to be
+ * considered non-empty. Below this threshold the section is treated as empty.
+ */
+const MIN_SECTION_CONTENT_LENGTH = 10;
+/**
+ * How many characters to look back from a tag position when checking
+ * whether the tag is inside a pipeline-health/pipeline-metrics container.
+ */
+const PIPELINE_CONTEXT_LOOKBEHIND_CHARS = 2000;
+/**
+ * Pre-computed normalized banned-keyword map for exact-match comparison.
+ * Built once at module init from BANNED_KEYWORD_PATTERNS + normalizeKeywordToken.
+ *
+ * Keys are normalized tokens; values are original patterns.
+ */
+let _bannedNormalizedCache;
+/**
+ * Return (and lazily compute once) the normalized banned-keyword map.
+ * Lazy initialization avoids a forward-reference to `normalizeKeywordToken`
+ * which is defined later in this module.
+ *
+ * @returns Map from normalized token to original banned pattern
+ */
+function getBannedNormalized() {
+    if (!_bannedNormalizedCache) {
+        _bannedNormalizedCache = new Map();
+        for (const pattern of BANNED_KEYWORD_PATTERNS) {
+            _bannedNormalizedCache.set(normalizeKeywordToken(pattern), pattern);
+        }
+    }
+    return _bannedNormalizedCache;
+}
+/**
+ * HTML entity → decoded character pairs used by the single-pass decoder.
+ * Longest entities are listed first so that `&amp;` doesn't greedily match
+ * inside `&amp;lt;` before the full entity `&amp;lt;` is checked.
+ */
+const ENTITY_PAIRS = [
+    ['&mdash;', '—'],
+    ['&ndash;', '–'],
+    ['&rarr;', '→'],
+    ['&quot;', '"'],
+    ['&amp;', '&'],
+    ['&#39;', "'"],
+    ['&lt;', '<'],
+    ['&gt;', '>'],
+];
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 // stripScriptBlocks is imported from html-sanitize.ts
 /**
@@ -264,7 +347,357 @@ function checkMetaTagSync(html) {
         return false;
     return true;
 }
+/**
+ * Decode common HTML entities that appear in meta keyword values.
+ * Only covers the entities actually used by the article template engine.
+ *
+ * Uses a single-pass scan to avoid double-unescaping (e.g. `&amp;lt;`
+ * becomes `&lt;`, NOT `<`). Each `&` in the input is checked once;
+ * decoded replacements are never re-scanned.
+ *
+ * @param s - String potentially containing HTML entities
+ * @returns The string with common entities decoded
+ */
+function decodeKeywordEntities(s) {
+    const parts = [];
+    let i = 0;
+    while (i < s.length) {
+        const ch = s[i] ?? '';
+        if (ch === '&') {
+            const rest = s.slice(i).toLowerCase();
+            let matched = false;
+            for (const [entity, replacement] of ENTITY_PAIRS) {
+                if (rest.startsWith(entity)) {
+                    parts.push(replacement);
+                    i += entity.length;
+                    matched = true;
+                    break;
+                }
+            }
+            if (!matched) {
+                parts.push(ch);
+                i++;
+            }
+        }
+        else {
+            parts.push(ch);
+            i++;
+        }
+    }
+    return parts.join('');
+}
+/**
+ * Normalize a keyword token for comparison: decode HTML entities,
+ * collapse arrow/dash variants, and normalize whitespace.
+ *
+ * @param s - Raw keyword token to normalize
+ * @returns Lowercased, entity-decoded, dash-normalized token
+ */
+function normalizeKeywordToken(s) {
+    let decoded = decodeKeywordEntities(s);
+    // Normalize arrow/dash variants → single canonical form
+    decoded = decoded.replace(/→/gu, '->');
+    decoded = decoded.replace(/—/gu, '-');
+    decoded = decoded.replace(/–/gu, '-');
+    // Collapse whitespace and lowercase
+    return decoded.replace(/\s+/gu, ' ').trim().toLowerCase();
+}
+/**
+ * Detect section-heading keywords that leaked into the article's meta keywords.
+ * Returns the list of banned keywords found.
+ *
+ * Decodes HTML entities (e.g. `&amp;` → `&`) and normalizes dash/arrow
+ * variants so that exact comma-separated tokens can be matched after
+ * normalization, for example "Winners &amp; Losers" matching
+ * "Winners & Losers". Combined phrases are not split on dash or arrow
+ * separators and therefore only match if the full normalized token is banned.
+ *
+ * @param html - HTML string to inspect
+ * @returns Array of section-heading keywords found in the meta tag
+ */
+function detectBannedKeywords(html) {
+    const keywordsMeta = extractMetaContent(html, 'name', 'keywords');
+    if (!keywordsMeta)
+        return [];
+    // Parse comma-separated keywords and normalize each token
+    const tokens = keywordsMeta
+        .split(',')
+        .map((k) => normalizeKeywordToken(k))
+        .filter((k) => k.length > 0);
+    const bannedNormalized = getBannedNormalized();
+    const found = [];
+    for (const token of tokens) {
+        const original = bannedNormalized.get(token);
+        if (original) {
+            found.push(original);
+        }
+    }
+    return found;
+}
+/**
+ * Test whether a character is a boundary before/after the word "class"
+ * in an HTML attribute context.
+ *
+ * @param ch - The character to test (or undefined if at string edge)
+ * @param side - Whether to check as a 'before' or 'after' boundary
+ * @returns true if the character is a valid boundary
+ */
+function isAttrBoundary(ch, side) {
+    if (!ch || ch === '')
+        return true;
+    if (ch === ' ' || ch === '\t' || ch === '\n' || ch === '\r')
+        return true;
+    if (side === 'before')
+        return ch === '"' || ch === "'";
+    return ch === '=';
+}
+/**
+ * Extract the quoted value of the `class` attribute starting at a given cursor
+ * position (immediately after the word "class"). Returns `null` if the syntax
+ * is not `class = "..."` or `class = '...'`.
+ *
+ * @param tag - The full start-tag string
+ * @param cursor - Index right after the word "class" in `tag`
+ * @returns `{ value, end }` or `null`
+ */
+function extractClassValue(tag, cursor) {
+    let pos = cursor;
+    // Skip whitespace before '=' (space, tab, newline, carriage return)
+    while (pos < tag.length &&
+        (tag[pos] === ' ' || tag[pos] === '\t' || tag[pos] === '\n' || tag[pos] === '\r'))
+        pos++;
+    if (pos >= tag.length || tag[pos] !== '=')
+        return null;
+    pos++; // skip '='
+    // Skip whitespace before opening quote
+    while (pos < tag.length &&
+        (tag[pos] === ' ' || tag[pos] === '\t' || tag[pos] === '\n' || tag[pos] === '\r'))
+        pos++;
+    if (pos >= tag.length)
+        return null;
+    const quote = tag[pos];
+    if (quote !== '"' && quote !== "'")
+        return null;
+    const valueStart = pos + 1;
+    const valueEnd = tag.indexOf(quote, valueStart);
+    if (valueEnd === -1)
+        return null;
+    return { value: tag.slice(valueStart, valueEnd), end: valueEnd + 1 };
+}
+/**
+ * Check whether an HTML start tag has a specific class token (whitespace-tokenized).
+ * Handles both single-quoted and double-quoted class attributes.
+ *
+ * @param startTag - An opening HTML tag string (e.g. `<span class="metric-value foo">`)
+ * @param token - The class token to look for (e.g. `metric-value`)
+ * @returns true if the class attribute contains the exact token
+ */
+function hasClassToken(startTag, token) {
+    const lowerTag = startTag.toLowerCase();
+    let searchFrom = 0;
+    while (searchFrom < lowerTag.length) {
+        const classPos = lowerTag.indexOf('class', searchFrom);
+        if (classPos === -1)
+            return false;
+        const before = classPos > 0 ? lowerTag[classPos - 1] : undefined;
+        const after = classPos + 5 < lowerTag.length ? lowerTag[classPos + 5] : undefined;
+        if (!isAttrBoundary(before, 'before') || !isAttrBoundary(after, 'after')) {
+            searchFrom = classPos + 5;
+            continue;
+        }
+        const extracted = extractClassValue(startTag, classPos + 5);
+        if (!extracted) {
+            searchFrom = classPos + 5;
+            continue;
+        }
+        const tokens = extracted.value.split(/\s+/u).filter((t) => t.length > 0);
+        if (tokens.includes(token))
+            return true;
+        searchFrom = extracted.end;
+    }
+    return false;
+}
+/**
+ * Detect metric values showing "0%" in pipeline-health / pipeline-metrics
+ * containers, which indicate no-data conditions that should not be rendered
+ * as real dashboard metrics.
+ *
+ * Only flags `0%` inside elements whose surrounding context includes a
+ * `pipeline-metrics` or `pipeline-health` class, avoiding false positives
+ * on legitimate trend-panel change indicators (e.g. week-over-week 0%).
+ *
+ * @param html - HTML string to inspect
+ * @returns Number of 0% pipeline metric values found
+ */
+function detectZeroPercentMetrics(html) {
+    // Use indexOf-based search to avoid regex backtracking (ReDoS-safe)
+    let count = 0;
+    let searchFrom = 0;
+    const zeroValue = '0%';
+    const lowerHtml = html.toLowerCase();
+    while (searchFrom < html.length) {
+        const tagStart = html.indexOf('<', searchFrom);
+        if (tagStart === -1)
+            break;
+        const tagClose = html.indexOf('>', tagStart);
+        if (tagClose === -1)
+            break;
+        const startTag = html.slice(tagStart, tagClose + 1);
+        // Only check elements that have the 'metric-value' class token
+        if (hasClassToken(startTag, 'metric-value')) {
+            const contentStart = tagClose + 1;
+            const nextTag = html.indexOf('<', contentStart);
+            if (nextTag === -1)
+                break;
+            const textContent = html.slice(contentStart, nextTag).trim();
+            if (textContent === zeroValue && isInPipelineContext(lowerHtml, tagStart)) {
+                count++;
+            }
+            searchFrom = nextTag;
+            continue;
+        }
+        searchFrom = tagClose + 1;
+    }
+    return count;
+}
+/**
+ * Check whether a position in the HTML is inside a pipeline-health/metrics context.
+ * Looks backward up to 2000 chars for pipeline marker class names.
+ *
+ * If a `trend-panel` marker appears *after* the nearest pipeline marker,
+ * the element is inside a trend panel (not pipeline), so return false.
+ * This avoids flagging legitimate WoW/MoM 0% deltas rendered by
+ * `buildTrendPanel` that happen to fall within the look-behind window.
+ *
+ * @param lowerHtml - Lowercase HTML string
+ * @param position - Current scan position
+ * @returns true if inside a pipeline context
+ */
+function isInPipelineContext(lowerHtml, position) {
+    const precedingHtml = lowerHtml.slice(Math.max(0, position - PIPELINE_CONTEXT_LOOKBEHIND_CHARS), position);
+    const pipelineMetricsPos = precedingHtml.lastIndexOf('pipeline-metrics');
+    const pipelineHealthPos = precedingHtml.lastIndexOf('pipeline-health');
+    const lastPipelinePos = Math.max(pipelineMetricsPos, pipelineHealthPos);
+    if (lastPipelinePos === -1)
+        return false;
+    // If a trend-panel marker appears after the pipeline marker, the element
+    // is inside a trend panel, not the pipeline panel.
+    const trendPanelPos = precedingHtml.lastIndexOf('trend-panel');
+    if (trendPanelPos !== -1 && trendPanelPos > lastPipelinePos)
+        return false;
+    return true;
+}
+/**
+ * Strip HTML tags from a string using a simple character scanner.
+ * ReDoS-safe alternative to regex-based tag removal.
+ *
+ * @param input - HTML string to strip tags from
+ * @returns Plain text content with tags removed
+ */
+function stripHtmlTags(input) {
+    const parts = [];
+    let inTag = false;
+    for (let i = 0; i < input.length; i++) {
+        const ch = input[i] ?? '';
+        if (ch === '<') {
+            inTag = true;
+        }
+        else if (ch === '>') {
+            inTag = false;
+        }
+        else if (!inTag) {
+            parts.push(ch);
+        }
+    }
+    return parts.join('');
+}
+/**
+ * Evaluate whether a section's inner HTML has enough meaningful content.
+ *
+ * @param innerHtml - The HTML content between `<section>` and `</section>` tags
+ * @returns true if the section is empty or near-empty
+ */
+function isSectionEmpty(innerHtml) {
+    const plainText = stripHtmlTags(innerHtml).replace(/\s+/gu, ' ').trim();
+    return plainText.length < MIN_SECTION_CONTENT_LENGTH;
+}
+/**
+ * Find the next `<section` open or `</section>` close tag from a given cursor.
+ * Returns `{ type, pos }` or `null` if no more section tags found.
+ *
+ * @param lowerHtml - Lowercase HTML string
+ * @param cursor - Start position
+ * @returns Tag event or null
+ */
+function findNextSectionTag(lowerHtml, cursor) {
+    const nextOpen = lowerHtml.indexOf('<section', cursor);
+    const nextClose = lowerHtml.indexOf('</section>', cursor);
+    if (nextOpen === -1 && nextClose === -1)
+        return null;
+    const openFirst = nextOpen !== -1 && (nextClose === -1 || nextOpen < nextClose);
+    return openFirst ? { type: 'open', pos: nextOpen } : { type: 'close', pos: nextClose };
+}
+/**
+ * Count empty `<section>` elements — those with little or no visible content.
+ * An empty section contains only whitespace or very short boilerplate text.
+ * Uses a stack-based scanner to correctly handle nested `<section>` elements.
+ *
+ * @param html - HTML string to inspect
+ * @returns Number of empty sections found
+ */
+function countEmptySections(html) {
+    const lowerHtml = html.toLowerCase();
+    let count = 0;
+    const stack = [];
+    let cursor = 0;
+    let event = findNextSectionTag(lowerHtml, cursor);
+    while (event) {
+        if (event.type === 'open') {
+            const tagEnd = html.indexOf('>', event.pos);
+            if (tagEnd === -1)
+                break;
+            stack.push(tagEnd + 1);
+            cursor = tagEnd + 1;
+        }
+        else {
+            if (stack.length > 0) {
+                const contentStart = stack[stack.length - 1] ?? 0;
+                stack.pop();
+                if (isSectionEmpty(html.slice(contentStart, event.pos))) {
+                    count++;
+                }
+            }
+            cursor = event.pos + '</section>'.length;
+        }
+        event = findNextSectionTag(lowerHtml, cursor);
+    }
+    return count;
+}
 // ─── Public API ───────────────────────────────────────────────────────────────
+/**
+ * Collect warnings from machine-enforceable article quality gates.
+ * Extracted to keep `validateArticleContent` within cognitive-complexity limits.
+ *
+ * @param html - Complete HTML string
+ * @param warnings - Mutable warnings array to append to
+ */
+function collectQualityGateWarnings(html, warnings) {
+    // Keyword quality: detect section-heading keywords leaked into meta tags
+    const bannedKeywords = detectBannedKeywords(html);
+    if (bannedKeywords.length > 0) {
+        warnings.push(`Keywords contain ${bannedKeywords.length} section heading(s) that should not be used as keywords: ${bannedKeywords.join(', ')}`);
+    }
+    // Dashboard metric quality: detect 0% metrics rendered as real data
+    const zeroMetricCount = detectZeroPercentMetrics(html);
+    if (zeroMetricCount > 0) {
+        warnings.push(`Dashboard renders ${zeroMetricCount} metric(s) showing "0%" — this likely indicates no-data, not a real score. Omit the dashboard when data is unavailable.`);
+    }
+    // Empty section detection: flag sections with no meaningful content
+    const emptySectionCount = countEmptySections(html);
+    if (emptySectionCount > 0) {
+        warnings.push(`Article contains ${emptySectionCount} empty or near-empty <section> element(s) that should be removed`);
+    }
+}
 /**
  * Validate the quality of a generated article.
  *
@@ -287,7 +720,7 @@ export function validateArticleContent(html, language, articleType) {
     const errors = [];
     // Word count check
     const wordCount = countWordsInHtml(html);
-    const minWords = MIN_WORD_COUNTS[articleType] !== undefined ? MIN_WORD_COUNTS[articleType] : DEFAULT_MIN_WORDS;
+    const minWords = MIN_WORD_COUNTS[articleType] ?? DEFAULT_MIN_WORDS;
     if (wordCount < minWords) {
         warnings.push(`Content too short: ${wordCount} words (minimum ${minWords} for "${articleType}")`);
     }
@@ -336,6 +769,8 @@ export function validateArticleContent(html, language, articleType) {
     }
     // Extended validation: cross-reference density, stakeholder balance, temporal coverage
     collectExtendedValidationWarnings(html, warnings);
+    // Machine-enforceable article quality gates
+    collectQualityGateWarnings(html, warnings);
     return {
         valid: errors.length === 0,
         warnings,

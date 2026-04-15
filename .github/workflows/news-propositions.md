@@ -229,6 +229,12 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 > **Article structure**: The lede paragraph and first two sections MUST reference **specific items from today's feed data** (procedure titles, document names, dates). Historical stats may appear in later sections ONLY as brief comparative background.
 >
 > **Window rule**: Treat feed items as primary news only when their substantive parliamentary date falls inside this article's current UTC window. Older backlog procedures may be background context, but they are not today's lead.
+>
+> **🛑 Pipeline 0% = NO DATA, NOT a real score**: If `monitor_legislative_pipeline` returns health=0% and throughput=0, this means the API returned no data (often during inter-session gaps or recess) — NOT that Parliament's pipeline is at 0%. **DO NOT render a dashboard showing 0% health.** Instead, skip the dashboard section entirely and focus the article on specific legislative procedures from feed data and direct lookup endpoints. Never use "Pipeline health at 0%" in the Actions → Consequences table.
+>
+> **🛑 No-publish threshold**: If EP feed data yields fewer than 3 specific legislative proposals or procedures, create an analysis-only PR instead of publishing a thin article. See [SHARED_PROMPT_PATTERNS.md Article Quality Gates](../prompts/SHARED_PROMPT_PATTERNS.md#-article-quality-gates-all-workflows--mandatory) for full rules.
+>
+> **🔑 Keyword quality**: See [SHARED_PROMPT_PATTERNS.md Keywords Quality Rules](../prompts/SHARED_PROMPT_PATTERNS.md#-keywords-quality-rules). NEVER include section headings like "Deep Political Analysis", "What Happened", "Legislative Pipeline Overview" as keywords. Use policy terms, committee names, procedure IDs, and political group names only.
 
 ## 🔒 Required Skills
 
@@ -312,7 +318,10 @@ For each new legislative proposition, assess:
 **REJECTED title patterns:**
 - ❌ `Legislative Procedures: European Parliament Monitor — Pipeline 0%` (technical metric, meaningless to readers)
 - ❌ `Propositions: 2026-04-02 — Legislative Tracker` (date-centric, no news value)
+- ❌ Any title starting with "Legislative Procedures:" — this is a label, not a headline
+- ❌ Any title containing "Pipeline 0%" or raw metric values
 - ❌ Any title that could apply to any date — titles MUST reference specific political content
+- ❌ See also: [SHARED_PROMPT_PATTERNS.md Title Quality Rules](../prompts/SHARED_PROMPT_PATTERNS.md#-title-quality-rules) for the full forbidden-title list
 
 **REQUIRED title approach — AI must generate headlines by:**
 1. Completing ALL analysis methods first (significance scoring, deep analysis, coalition dynamics)
@@ -323,14 +332,15 @@ For each new legislative proposition, assess:
 
 **REQUIRED SEO metadata (all generated from analysis results):**
 - `<title>` — Specific political headline, max 60 chars, names key legislation/action
-- `<meta name="description">` — 150-160 chars, names the most significant item + outcome + coalition dynamics
-- `<meta name="keywords">` — Specific EP document IDs, committee names, political group names from the data — NEVER generic placeholder keywords
+- `<meta name="description">` — 150-160 chars, names the most significant item + outcome + coalition dynamics — see [SHARED_PROMPT_PATTERNS.md Description Quality Rules](../prompts/SHARED_PROMPT_PATTERNS.md#-description-quality-rules)
+- `<meta name="keywords">` — Specific EP document IDs, committee names, political group names from the data — see [SHARED_PROMPT_PATTERNS.md Keywords Quality Rules](../prompts/SHARED_PROMPT_PATTERNS.md#-keywords-quality-rules) — NEVER include section headings like "Deep Political Analysis", "What Happened", "Legislative Pipeline Overview"
 - Structured data (`application/ld+json`) — Must include `headline`, `description`, `datePublished`, `author`, and `about` fields referencing specific EP content
 
 **Example AI-generated titles:**
 - ✅ `Banking Resolution Reforms and Corruption Directive Lead Parliament's Legislative Surge`
 - ✅ `EU Legislators Advance 12 COD Procedures as Digital Infrastructure Bill Enters Trilogue`
 - ✅ `Parliament's Legislative Pipeline Stalls Between Sessions — Key Proposals Await April Restart`
+- ✅ `Tariff Deadline and Anti-Corruption Drive Shape Parliament's Post-Recess Agenda`
 
 **Meta description AI prompt:**
 > Based on the EP procedures feed and adopted texts data, generate a meta description (150-160 chars) that: (1) names the most significant legislative proposals, (2) states their stage in the process, (3) indicates political dynamics. Never use generic descriptions like "legislative effectiveness analysis".

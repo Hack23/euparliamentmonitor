@@ -79,7 +79,7 @@ export function collectDocsHtmlFiles(dir: string, rootDir: string = PROJECT_ROOT
  */
 export function generateSitemap(articles: string[], docsFiles: string[] = []): string {
   const urls: SitemapUrl[] = [];
-  const today = new Date().toISOString().split('T')[0]!;
+  const today = new Date().toISOString().slice(0, 10);
 
   // Add home pages for each language
   for (const lang of ALL_LANGUAGES) {
@@ -365,8 +365,17 @@ export function generateSitemapHTML(
   const skipLinkText = getLocalizedString(SKIP_LINK_TEXTS, lang);
   const dir = getTextDirection(lang);
   const year = new Date().getFullYear();
-  const sections = SITEMAP_SECTIONS[lang] ?? SITEMAP_SECTIONS['en']!;
-  const docsLabels = DOCS_LABELS[lang] ?? DOCS_LABELS['en']!;
+  const sections = (SITEMAP_SECTIONS[lang] ?? SITEMAP_SECTIONS['en']) as {
+    news: string;
+    docs: string;
+    pages: string;
+  };
+  const docsLabels = (DOCS_LABELS[lang] ?? DOCS_LABELS['en']) as {
+    api: string;
+    coverage: string;
+    testResults: string;
+    docsHome: string;
+  };
   const heroTitle = getLocalizedString(PAGE_TITLES, lang).split(' - ')[0] ?? '';
   const headerSubtitle = escapeHTML(getLocalizedString(HEADER_SUBTITLE_LABELS, lang));
   const themeToggleLabel = escapeHTML(getLocalizedString(THEME_TOGGLE_LABELS, lang));
@@ -637,7 +646,7 @@ function main(): void {
   // Generate sitemap HTML for each language
   let htmlGenerated = 0;
   for (const lang of ALL_LANGUAGES) {
-    const langArticles = articlesByLang.get(lang) || [];
+    const langArticles = articlesByLang.get(lang) ?? [];
     // Sort newest first
     langArticles.sort((a, b) => b.date.localeCompare(a.date));
 

@@ -225,7 +225,7 @@ function splitCSVLine(line: string): string[] {
   let inQuotes = false;
 
   for (let i = 0; i < line.length; i++) {
-    const ch = line[i]!;
+    const ch = line[i] ?? '';
     if (ch === '"') {
       if (inQuotes && i + 1 < line.length && line[i + 1] === '"') {
         // RFC 4180 escaped quote: "" → literal "
@@ -263,7 +263,7 @@ export function parseWorldBankCSV(csvText: string | null | undefined): WorldBank
     return [];
   }
 
-  const headers = splitCSVLine(lines[0]!).map((h) => h.toLowerCase());
+  const headers = splitCSVLine(lines[0] ?? '').map((h) => h.toLowerCase());
   const colMap = Object.fromEntries(
     Object.entries(HEADER_ALIASES).map(([key, aliases]) => [key, findColumnIndex(headers, aliases)])
   );
@@ -271,7 +271,7 @@ export function parseWorldBankCSV(csvText: string | null | undefined): WorldBank
   const results: WorldBankIndicator[] = [];
 
   for (let i = 1; i < lines.length; i++) {
-    const cols = splitCSVLine(lines[i]!);
+    const cols = splitCSVLine(lines[i] ?? '');
     const rawValue = readCol(cols, colMap['value'] ?? -1);
     const parsedValue = rawValue !== '' ? Number(rawValue) : null;
     const yearStr = readCol(cols, colMap['date'] ?? -1);

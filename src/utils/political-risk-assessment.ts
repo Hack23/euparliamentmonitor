@@ -688,7 +688,12 @@ function synthesiseOverallRisk(
   }
 
   // Safe: risks.length > 0 is guaranteed by the guard above
-  const firstRisk = risks[0]!;
+  const firstRisk = risks[0];
+  if (!firstRisk) {
+    throw new Error(
+      `Invariant violation: risks[0] was undefined for non-empty risks array in assessment ${assessmentId} on ${date}`
+    );
+  }
   const maxRisk = risks.reduce((max, r) => (r.riskScore > max.riskScore ? r : max), firstRisk);
 
   // Count confidence levels to pick the dominant one

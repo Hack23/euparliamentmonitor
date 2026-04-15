@@ -349,9 +349,13 @@ export function buildAdoptedTextsSection(adoptedTexts, language) {
     if (adoptedTexts.length === 0)
         return '';
     const heading = ADOPTED_TEXTS_HEADINGS[language] ?? ADOPTED_TEXTS_HEADINGS['en'] ?? 'Recently Adopted Texts';
-    const countFn = ADOPTED_TEXTS_COUNT_STRINGS[language] ?? ADOPTED_TEXTS_COUNT_STRINGS['en'];
+    const countFn = ADOPTED_TEXTS_COUNT_STRINGS[language] ??
+        ADOPTED_TEXTS_COUNT_STRINGS['en'] ??
+        ((n) => `${n} adopted texts`);
     const countText = countFn(adoptedTexts.length);
-    const unknownDate = ADOPTED_TEXTS_DATE_UNKNOWN_STRINGS[language] ?? ADOPTED_TEXTS_DATE_UNKNOWN_STRINGS['en'];
+    const unknownDate = ADOPTED_TEXTS_DATE_UNKNOWN_STRINGS[language] ??
+        ADOPTED_TEXTS_DATE_UNKNOWN_STRINGS['en'] ??
+        'Unknown date';
     // Group by date, sort most recent first
     const byDate = new Map();
     for (const item of adoptedTexts) {

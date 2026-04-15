@@ -217,8 +217,9 @@ let languagesInput = languagesArg
   : 'en';
 
 // Expand presets
-if (LANGUAGE_PRESETS[languagesInput as LanguagePreset]) {
-  languagesInput = LANGUAGE_PRESETS[languagesInput as LanguagePreset]!.join(',');
+const presetLanguages = LANGUAGE_PRESETS[languagesInput as LanguagePreset];
+if (presetLanguages) {
+  languagesInput = presetLanguages.join(',');
 }
 
 const languages: LanguageCode[] = languagesInput
@@ -559,10 +560,9 @@ export function computeDedupSuffix(articleTypes: readonly string[], analysisDir?
       VALID_ARTICLE_CATEGORIES.includes(t as ArticleCategory)
     )
   );
-  const rawSuffix =
-    analysisDir !== undefined && analysisDir.startsWith(baseSlugNoRun)
-      ? analysisDir.slice(baseSlugNoRun.length)
-      : '';
+  const rawSuffix = analysisDir?.startsWith(baseSlugNoRun)
+    ? analysisDir.slice(baseSlugNoRun.length)
+    : '';
   // Suffix validation patterns for dedup suffix extraction.
   // Run IDs are sanitized to alphanumeric + hyphen, so preserve the same
   // character class here to avoid dropping custom run scopes such as

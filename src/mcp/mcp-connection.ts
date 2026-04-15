@@ -474,8 +474,7 @@ export class MCPConnection {
       }
     }
 
-    const rawScheme =
-      typeof process !== 'undefined' && process.env && process.env['EP_MCP_GATEWAY_AUTH_SCHEME'];
+    const rawScheme = typeof process !== 'undefined' && process.env?.['EP_MCP_GATEWAY_AUTH_SCHEME'];
     const scheme = typeof rawScheme === 'string' ? rawScheme.trim() : '';
 
     if (scheme && tokenRegex.test(scheme)) {
@@ -489,6 +488,11 @@ export class MCPConnection {
    * Attempt a single connection via MCP Gateway (HTTP transport)
    */
   private async _attemptGatewayConnection(): Promise<void> {
+    if (!this.gatewayUrl) {
+      throw new Error(
+        'Gateway URL not configured. Set the EP_MCP_GATEWAY_URL environment variable or provide the gatewayUrl constructor option.'
+      );
+    }
     try {
       const headers: Record<string, string> = {
         'Content-Type': 'application/json',
@@ -509,7 +513,7 @@ export class MCPConnection {
         },
       };
 
-      const response = await fetch(this.gatewayUrl!, {
+      const response = await fetch(this.gatewayUrl, {
         method: 'POST',
         headers,
         body: JSON.stringify(initRequest),
@@ -642,16 +646,21 @@ export class MCPConnection {
     try {
       const message = JSON.parse(line) as JSONRPCResponse;
 
-      if (message.id && this.pendingRequests.has(message.id)) {
-        const pending = this.pendingRequests.get(message.id)!;
-        this.pendingRequests.delete(message.id);
-
-        if (message.error) {
-          pending.reject(new Error(message.error.message ?? 'MCP server error'));
+      if (message.id !== null && message.id !== undefined && this.pendingRequests.has(message.id)) {
+        const pending = this.pendingRequests.get(message.id);
+        if (pending) {
+          this.pendingRequests.delete(message.id);
+          if (message.error) {
+            pending.reject(new Error(message.error.message ?? 'MCP server error'));
+          } else {
+            pending.resolve(message.result);
+          }
         } else {
-          pending.resolve(message.result);
+          // has() returned true but get() returned undefined — unexpected
+          this.pendingRequests.delete(message.id);
+          console.error(`MCP pending request ${String(message.id)} vanished before handling`);
         }
-      } else if (!message.id && message.method) {
+      } else if ((message.id === null || message.id === undefined) && message.method) {
         console.log(`MCP Notification: ${message.method}`);
       }
     } catch (error) {
@@ -706,6 +715,11 @@ export class MCPConnection {
     method: string,
     params: Record<string, unknown> = {}
   ): Promise<unknown> {
+    if (!this.gatewayUrl) {
+      throw new Error(
+        'Gateway URL not configured. Set EP_MCP_GATEWAY_URL or provide gatewayUrl in MCP client options.'
+      );
+    }
     const id = ++this.requestId;
     const request: JSONRPCRequest = {
       jsonrpc: '2.0',
@@ -725,7 +739,7 @@ export class MCPConnection {
       headers['Mcp-Session-Id'] = this.mcpSessionId;
     }
 
-    const response = await fetch(this.gatewayUrl!, {
+    const response = await fetch(this.gatewayUrl, {
       method: 'POST',
       headers,
       body: JSON.stringify(request),

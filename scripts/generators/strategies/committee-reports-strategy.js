@@ -249,7 +249,7 @@ function buildAdoptedTextsSection(feedData, lang) {
     const sections = displayOrder
         .filter((cat) => grouped[cat]?.length)
         .map((cat) => {
-        const items = grouped[cat];
+        const items = grouped[cat] ?? [];
         const listItems = items
             .map((item) => `<li class="adopted-text-item"><strong>${escapeHTML(item.title)}</strong> <span class="document-date">(${escapeHTML(item.date)})</span></li>`)
             .join('\n                ');
