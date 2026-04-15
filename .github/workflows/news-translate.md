@@ -785,7 +785,7 @@ safeoutputs___create_pull_request({
 7. **After finishing each file, run HTMLHint** to validate: `npx htmlhint <file>`. Fix ALL errors before starting the next file. Common issues: unclosed tags, duplicate IDs, missing alt attributes.
 8. **Check elapsed time after each file** — stop at 75 minutes and proceed to Step 5
 
-> **⚠️ MANDATORY PER-FILE LINT**: After completing translation of EACH file, you MUST run `npx htmlhint news/DATE-TYPE-LANG.html` and fix any errors BEFORE moving to the next file. Do NOT batch lint at the end — catch and fix errors immediately while the file context is fresh. Zero HTMLHint errors per file is required.
+> **⚠️ MANDATORY PER-FILE LINT**: After completing translation of EACH file, you MUST run `npx htmlhint news/DATE-TYPE-LANG.html` and fix any errors BEFORE moving to the next file. Do not defer validation until the end or rely on an end-of-run batch lint as a substitute for this per-file check — catch and fix errors immediately while the file context is fresh. A later batch validation in Step 4 is allowed, but only as an additional backstop. Zero HTMLHint errors per file is required.
 
 > **Improvement mode** (`IMPROVEMENT_MODE=true`): Read both English and existing translation, then improve quality.
 > **Throughput**: Process one file completely (translate → lint → fix) before starting the next. Batch `edit` calls within a file.
@@ -1107,7 +1107,9 @@ fi
 # ── Auto-detect actual translation inventory from working directory ──
 # This builds the PR title/body from ACTUAL files, not agent assumptions.
 # Prevents mismatches like PR #1186 (title said "Spanish" but file was German).
-ALL_TRANSLATED_FILES=$( { git diff --name-only 2>/dev/null; git ls-files --others --exclude-standard 2>/dev/null; } | grep '^news/.*\.html$' | grep -v '\-en\.html$' | sort -u)
+ALL_TRANSLATED_FILES=$( { git diff --diff-filter=ACMR --name-only 2>/dev/null; git ls-files --others --exclude-standard 2>/dev/null; } | grep '^news/.*\.html$' | grep -v '\-en\.html$' | sort -u)
+# Filter to files that actually exist (safety check)
+ALL_TRANSLATED_FILES=$(echo "$ALL_TRANSLATED_FILES" | while read -r f; do [ -f "$f" ] && echo "$f"; done)
 TOTAL_FILES=$(echo "$ALL_TRANSLATED_FILES" | grep -c '.' 2>/dev/null || echo 0)
 echo "📊 Total modified/new translation files: $TOTAL_FILES"
 
