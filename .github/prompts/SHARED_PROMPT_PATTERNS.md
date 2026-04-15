@@ -142,7 +142,7 @@ Call `sequentialthinking` with structured thought chains — each step builds on
 
 ### Feed Endpoints (Primary Data Source)
 
-These endpoints use the `timeframe` parameter with supported values: `"today"`, `"one-day"`, `"one-week"`, `"one-month"`, `"three-months"`, and `"one-year"`. Where supported, `startDate` can be provided as an override alongside `timeframe`; it is not a separate `"custom"` timeframe mode.
+These endpoints use the `timeframe` parameter with supported values: `"today"`, `"one-day"`, `"one-week"`, `"one-month"`, and `"custom"`. When `timeframe` is `"custom"`, a `startDate` parameter (YYYY-MM-DD) is required.
 
 | Tool | Purpose | Key Parameters |
 |------|---------|----------------|
@@ -163,17 +163,17 @@ These endpoints use the `timeframe` parameter with supported values: `"today"`, 
 
 | Tool | Purpose | Key Parameters |
 |------|---------|----------------|
-| `get_plenary_sessions` | Plenary sessions | `dateFrom`/`dateTo`, `location`, `limit` (⚠️ NO `year` param) |
-| `get_events` | EP events | `dateFrom`/`dateTo`, `limit` (⚠️ NO `year` param) |
-| `get_procedures` | Legislative procedures | `year`, `limit` |
-| `get_adopted_texts` | Adopted texts | `year`, `limit` |
-| `get_plenary_documents` | Plenary documents | `year`, `limit` |
-| `get_committee_documents` | Committee documents | `year`, `limit` |
-| `get_speeches` | Plenary speeches | `dateFrom`/`dateTo`, `limit` |
-| `get_parliamentary_questions` | Parliamentary questions | `type`, `startDate`, `limit` |
+| `get_plenary_sessions` | Plenary sessions | `dateFrom`/`dateTo`, `year`, `eventId`, `location`, `limit` |
+| `get_events` | EP events | `dateFrom`/`dateTo`, `year`, `eventId`, `limit` |
+| `get_procedures` | Legislative procedures | `year`, `processId`, `limit` |
+| `get_adopted_texts` | Adopted texts | `year`, `docId`, `limit` |
+| `get_plenary_documents` | Plenary documents | `year`, `docId`, `limit` |
+| `get_committee_documents` | Committee documents | `year`, `docId`, `limit` |
+| `get_speeches` | Plenary speeches | `dateFrom`/`dateTo`, `year`, `speechId`, `limit` |
+| `get_parliamentary_questions` | Parliamentary questions | `type`, `dateFrom`/`dateTo`, `author`, `topic`, `status`, `docId`, `limit` |
 | `get_mep_details` | Specific MEP info | `id` (e.g., "MEP-124810") |
 | `get_mep_declarations` | MEP financial declarations | `year`, `docId` |
-| `get_committee_info` | Committee details | `committeeId` or `abbreviation` (e.g., "ENVI") |
+| `get_committee_info` | Committee details | `abbreviation`, `id`, `showCurrent` (e.g., "ENVI") |
 | `search_documents` | Search EP documents | `keyword`, `documentType`, `committee`, `dateFrom`/`dateTo` |
 | `track_legislation` | Legislative procedure progress | `procedureId` (e.g., "2024/0001(COD)") |
 | `get_procedure_events` | Events for a procedure | `processId` |
@@ -212,9 +212,11 @@ These endpoints use the `timeframe` parameter with supported values: `"today"`, 
 
 | ❌ Wrong | ✅ Correct | Notes |
 |----------|-----------|-------|
-| `get_plenary_sessions({ year: 2026 })` | `get_plenary_sessions({ dateFrom: "2026-01-01", dateTo: "2026-12-31" })` | No `year` param on plenary sessions |
-| `get_events({ year: 2026 })` | `get_events({ dateFrom: "2026-01-01", dateTo: "2026-12-31" })` | No `year` param on events |
-| `get_adopted_texts_feed({ startDate: "2026-04-01" })` | `get_adopted_texts_feed({ timeframe: "one-week" })` | Feed endpoints use `timeframe`; `startDate` is an optional override, not a standalone param |
+| `get_plenary_sessions({ startDate: "2026-01-01", endDate: "2026-12-31" })` | `get_plenary_sessions({ dateFrom: "2026-01-01", dateTo: "2026-12-31" })` | v1.2.7 uses `dateFrom`/`dateTo`, also supports `year` param |
+| `get_parliamentary_questions({ startDate: "2026-01-01" })` | `get_parliamentary_questions({ dateFrom: "2026-01-01" })` | v1.2.7 uses `dateFrom`/`dateTo` |
+| `search_documents({ query: "climate" })` | `search_documents({ keyword: "climate" })` | v1.2.7 uses `keyword`, not `query`; also supports `documentType`, `docId` |
+| `get_adopted_texts_feed({ timeframe: "three-months" })` | `get_adopted_texts_feed({ timeframe: "one-month" })` | Valid timeframes: `today`, `one-day`, `one-week`, `one-month`, `custom` |
+| `compare_political_groups({ groups: ["EPP", "S&D"] })` | `compare_political_groups({ groupIds: ["EPP", "S&D"] })` | v1.2.7 uses `groupIds`, not `groups` |
 | `get_voting_records({ topic: "climate" })` | `get_voting_records({ sessionId: "...", limit: 50 })` | No `topic`/`dateFrom`/`dateTo` — use `sessionId`, `mepId`, `limit` |
 | `get_mep_details({ name: "Weber" })` | `get_mep_details({ id: "MEP-124810" })` | Must use MEP ID, not name |
 
@@ -699,7 +701,7 @@ At workflow start, probe EP server health:
 | `get_procedures_feed` | `get_procedures` | `{ year: CURRENT_YEAR, limit: 20 }` |
 | `get_events_feed` | `get_events` | `{ dateFrom: "YYYY-MM-01", dateTo: "YYYY-MM-DD", limit: 20 }` |
 | `get_documents_feed` | `get_plenary_documents` | `{ year: CURRENT_YEAR, limit: 20 }` |
-| `get_parliamentary_questions_feed` | `get_parliamentary_questions` | `{ type: "WRITTEN", startDate: "YYYY-MM-DD", limit: 20 }` |
+| `get_parliamentary_questions_feed` | `get_parliamentary_questions` | `{ type: "WRITTEN", dateFrom: "YYYY-MM-DD", limit: 20 }` |
 | `get_plenary_documents_feed` | `get_plenary_documents` | `{ year: CURRENT_YEAR, limit: 20 }` |
 | `get_committee_documents_feed` | `get_committee_documents` | `{ year: CURRENT_YEAR, limit: 20 }` |
 | `get_plenary_sessions` (with dates) | `get_plenary_sessions` | `{ limit: 5 }` (no date filters!) |

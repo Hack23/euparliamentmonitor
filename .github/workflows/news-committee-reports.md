@@ -768,7 +768,7 @@ european_parliament___get_all_generated_stats({ category: "all", includePredicti
 european_parliament___get_committee_info({ committeeId: "ENVI" })
 
 // Search for recent committee reports
-european_parliament___search_documents({ query: "committee report", type: "REPORT" })
+european_parliament___search_documents({ keyword: "committee report", documentType: "REPORT" })
 
 // Monitor legislative pipeline for committee work
 european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 10 })

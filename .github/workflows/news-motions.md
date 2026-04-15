@@ -824,7 +824,7 @@ european_parliament___get_all_generated_stats({ category: "all", includePredicti
 
 ```javascript
 // Primary motions data
-european_parliament___search_documents({ query: "motion for resolution", limit: 20 })
+european_parliament___search_documents({ keyword: "motion for resolution", limit: 20 })
 
 // OSINT: Voting anomalies on motions
 european_parliament___detect_voting_anomalies({})
@@ -997,7 +997,7 @@ Fetch all required data from the European Parliament MCP server:
 
 ```javascript
 // Fetch in parallel for efficiency
-european_parliament___search_documents({ query: "motion for resolution", limit: 20 })
+european_parliament___search_documents({ keyword: "motion for resolution", limit: 20 })
 european_parliament___get_parliamentary_questions({ limit: 10 })
 european_parliament___detect_voting_anomalies({})
 european_parliament___analyze_coalition_dynamics({})

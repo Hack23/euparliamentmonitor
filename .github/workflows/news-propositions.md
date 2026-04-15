@@ -750,7 +750,7 @@ european_parliament___get_all_generated_stats({ category: "all", includePredicti
 
 ```javascript
 // Fetch latest legislative proposals
-european_parliament___search_documents({ query: "Commission proposal", limit: 20 })
+european_parliament___search_documents({ keyword: "Commission proposal", limit: 20 })
 
 // Monitor legislative pipeline
 european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 10 })
@@ -931,7 +931,7 @@ Check if propositions articles exist from the last 11 hours. If **force_generati
 ### Step 2: Query EP MCP
 
 ```javascript
-european_parliament___search_documents({ query: "Commission proposal", limit: 20 })
+european_parliament___search_documents({ keyword: "Commission proposal", limit: 20 })
 european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 10 })
 ```
 
