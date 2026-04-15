@@ -474,8 +474,7 @@ export class MCPConnection {
       }
     }
 
-    const rawScheme =
-      typeof process !== 'undefined' && process.env?.['EP_MCP_GATEWAY_AUTH_SCHEME'];
+    const rawScheme = typeof process !== 'undefined' && process.env?.['EP_MCP_GATEWAY_AUTH_SCHEME'];
     const scheme = typeof rawScheme === 'string' ? rawScheme.trim() : '';
 
     if (scheme && tokenRegex.test(scheme)) {
@@ -645,21 +644,21 @@ export class MCPConnection {
     try {
       const message = JSON.parse(line) as JSONRPCResponse;
 
-      if (message.id && this.pendingRequests.has(message.id)) {
+      if (message.id !== null && message.id !== undefined && this.pendingRequests.has(message.id)) {
         const pending = this.pendingRequests.get(message.id);
-        if (!pending) {
-          // Should not happen after has() check, but guard against race conditions
-          console.error(`MCP pending request ${String(message.id)} vanished before handling`);
-          return;
-        }
-        this.pendingRequests.delete(message.id);
-
-        if (message.error) {
-          pending.reject(new Error(message.error.message ?? 'MCP server error'));
+        if (pending) {
+          this.pendingRequests.delete(message.id);
+          if (message.error) {
+            pending.reject(new Error(message.error.message ?? 'MCP server error'));
+          } else {
+            pending.resolve(message.result);
+          }
         } else {
-          pending.resolve(message.result);
+          // has() returned true but get() returned undefined — unexpected
+          this.pendingRequests.delete(message.id);
+          console.error(`MCP pending request ${String(message.id)} vanished before handling`);
         }
-      } else if (!message.id && message.method) {
+      } else if ((message.id === null || message.id === undefined) && message.method) {
         console.log(`MCP Notification: ${message.method}`);
       }
     } catch (error) {

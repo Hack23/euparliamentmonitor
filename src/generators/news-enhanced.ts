@@ -560,10 +560,9 @@ export function computeDedupSuffix(articleTypes: readonly string[], analysisDir?
       VALID_ARTICLE_CATEGORIES.includes(t as ArticleCategory)
     )
   );
-  const rawSuffix =
-    analysisDir?.startsWith(baseSlugNoRun)
-      ? analysisDir.slice(baseSlugNoRun.length)
-      : '';
+  const rawSuffix = analysisDir?.startsWith(baseSlugNoRun)
+    ? analysisDir.slice(baseSlugNoRun.length)
+    : '';
   // Suffix validation patterns for dedup suffix extraction.
   // Run IDs are sanitized to alphanumeric + hyphen, so preserve the same
   // character class here to avoid dropping custom run scopes such as

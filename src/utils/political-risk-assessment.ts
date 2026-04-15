@@ -691,7 +691,15 @@ function synthesiseOverallRisk(
   const firstRisk = risks[0];
   if (!firstRisk) {
     // This should never happen due to the guard above, but satisfies TypeScript
-    return calculatePoliticalRiskScore('rare', 'negligible', `OVERALL-${assessmentId}`, `Fallback for ${date}`, [], [], 'low');
+    return calculatePoliticalRiskScore(
+      'rare',
+      'negligible',
+      `OVERALL-${assessmentId}`,
+      `Fallback for ${date}`,
+      [],
+      [],
+      'low'
+    );
   }
   const maxRisk = risks.reduce((max, r) => (r.riskScore > max.riskScore ? r : max), firstRisk);
 

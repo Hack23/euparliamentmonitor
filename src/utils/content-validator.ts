@@ -402,10 +402,110 @@ function detectBannedKeywords(html: string): string[] {
   const keywordsMeta = extractMetaContent(html, 'name', 'keywords');
   if (!keywordsMeta) return [];
 
-  const keywordsLower = keywordsMeta.toLowerCase();
-  return BANNED_KEYWORD_PATTERNS.filter((pattern) =>
-    keywordsLower.includes(pattern.toLowerCase())
-  );
+  // Parse comma-separated keywords and normalize each token
+  const tokens = keywordsMeta
+    .split(',')
+    .map((k) => k.trim().replace(/\s+/gu, ' ').toLowerCase())
+    .filter((k) => k.length > 0);
+
+  // Build a normalized banned-set for exact-match comparison
+  const bannedNormalized = new Map<string, string>();
+  for (const pattern of BANNED_KEYWORD_PATTERNS) {
+    bannedNormalized.set(
+      pattern.replace(/→/gu, '->').replace(/\s+/gu, ' ').trim().toLowerCase(),
+      pattern
+    );
+  }
+
+  const found: string[] = [];
+  for (const token of tokens) {
+    const normalized = token.replace(/→/gu, '->');
+    const original = bannedNormalized.get(normalized);
+    if (original) {
+      found.push(original);
+    }
+  }
+  return found;
+}
+
+/**
+ * Test whether a character is a boundary before/after the word "class"
+ * in an HTML attribute context.
+ *
+ * @param ch - The character to test (or undefined if at string edge)
+ * @param side - Whether to check as a 'before' or 'after' boundary
+ * @returns true if the character is a valid boundary
+ */
+function isAttrBoundary(ch: string | undefined, side: 'before' | 'after'): boolean {
+  if (!ch || ch === '') return true;
+  if (ch === ' ' || ch === '\t' || ch === '\n' || ch === '\r') return true;
+  if (side === 'before') return ch === '"' || ch === "'";
+  return ch === '=';
+}
+
+/**
+ * Extract the quoted value of the `class` attribute starting at a given cursor
+ * position (immediately after the word "class"). Returns `null` if the syntax
+ * is not `class = "..."` or `class = '...'`.
+ *
+ * @param tag - The full start-tag string
+ * @param cursor - Index right after the word "class" in `tag`
+ * @returns `{ value, end }` or `null`
+ */
+function extractClassValue(tag: string, cursor: number): { value: string; end: number } | null {
+  let pos = cursor;
+  // Skip whitespace before '='
+  while (pos < tag.length && (tag[pos] === ' ' || tag[pos] === '\t')) pos++;
+  if (pos >= tag.length || tag[pos] !== '=') return null;
+  pos++; // skip '='
+  // Skip whitespace before opening quote
+  while (pos < tag.length && (tag[pos] === ' ' || tag[pos] === '\t')) pos++;
+  if (pos >= tag.length) return null;
+  const quote = tag[pos];
+  if (quote !== '"' && quote !== "'") return null;
+  const valueStart = pos + 1;
+  const valueEnd = tag.indexOf(quote, valueStart);
+  if (valueEnd === -1) return null;
+  return { value: tag.slice(valueStart, valueEnd), end: valueEnd + 1 };
+}
+
+/**
+ * Check whether an HTML start tag has a specific class token (whitespace-tokenized).
+ * Handles both single-quoted and double-quoted class attributes.
+ *
+ * @param startTag - An opening HTML tag string (e.g. `<span class="metric-value foo">`)
+ * @param token - The class token to look for (e.g. `metric-value`)
+ * @returns true if the class attribute contains the exact token
+ */
+function hasClassToken(startTag: string, token: string): boolean {
+  const lowerTag = startTag.toLowerCase();
+  let searchFrom = 0;
+
+  while (searchFrom < lowerTag.length) {
+    const classPos = lowerTag.indexOf('class', searchFrom);
+    if (classPos === -1) return false;
+
+    const before = classPos > 0 ? lowerTag[classPos - 1] : undefined;
+    const after = classPos + 5 < lowerTag.length ? lowerTag[classPos + 5] : undefined;
+
+    if (!isAttrBoundary(before, 'before') || !isAttrBoundary(after, 'after')) {
+      searchFrom = classPos + 5;
+      continue;
+    }
+
+    const extracted = extractClassValue(startTag, classPos + 5);
+    if (!extracted) {
+      searchFrom = classPos + 5;
+      continue;
+    }
+
+    const tokens = extracted.value.split(/\s+/u).filter((t) => t.length > 0);
+    if (tokens.includes(token)) return true;
+
+    searchFrom = extracted.end;
+  }
+
+  return false;
 }
 
 /**
@@ -419,27 +519,32 @@ function detectZeroPercentMetrics(html: string): number {
   // Use indexOf-based search to avoid regex backtracking (ReDoS-safe)
   let count = 0;
   let searchFrom = 0;
-  const marker = 'class="metric-value"';
   const zeroValue = '0%';
 
   while (searchFrom < html.length) {
-    const markerPos = html.indexOf(marker, searchFrom);
-    if (markerPos === -1) break;
+    const tagStart = html.indexOf('<', searchFrom);
+    if (tagStart === -1) break;
 
-    // Find the closing > of this tag
-    const tagClose = html.indexOf('>', markerPos);
+    const tagClose = html.indexOf('>', tagStart);
     if (tagClose === -1) break;
 
-    // Extract text between > and next <
-    const contentStart = tagClose + 1;
-    const nextTag = html.indexOf('<', contentStart);
-    if (nextTag === -1) break;
+    const startTag = html.slice(tagStart, tagClose + 1);
 
-    const textContent = html.slice(contentStart, nextTag).trim();
-    if (textContent === zeroValue) {
-      count++;
+    // Only check elements that have the 'metric-value' class token
+    if (hasClassToken(startTag, 'metric-value')) {
+      const contentStart = tagClose + 1;
+      const nextTag = html.indexOf('<', contentStart);
+      if (nextTag === -1) break;
+
+      const textContent = html.slice(contentStart, nextTag).trim();
+      if (textContent === zeroValue) {
+        count++;
+      }
+      searchFrom = nextTag;
+      continue;
     }
-    searchFrom = nextTag;
+
+    searchFrom = tagClose + 1;
   }
   return count;
 }
@@ -452,7 +557,7 @@ function detectZeroPercentMetrics(html: string): number {
  * @returns Plain text content with tags removed
  */
 function stripHtmlTags(input: string): string {
-  let result = '';
+  const parts: string[] = [];
   let inTag = false;
   for (let i = 0; i < input.length; i++) {
     const ch = input[i] ?? '';
@@ -461,10 +566,10 @@ function stripHtmlTags(input: string): string {
     } else if (ch === '>') {
       inTag = false;
     } else if (!inTag) {
-      result += ch;
+      parts.push(ch);
     }
   }
-  return result;
+  return parts.join('');
 }
 
 /**
@@ -565,8 +670,7 @@ export function validateArticleContent(
 
   // Word count check
   const wordCount = countWordsInHtml(html);
-  const minWords =
-    MIN_WORD_COUNTS[articleType] ?? DEFAULT_MIN_WORDS;
+  const minWords = MIN_WORD_COUNTS[articleType] ?? DEFAULT_MIN_WORDS;
 
   if (wordCount < minWords) {
     warnings.push(

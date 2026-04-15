@@ -89,8 +89,7 @@ export function formatSlug(slug) {
  */
 export function getModifiedDate(filepath) {
     const stats = fs.statSync(filepath);
-    // split('T') on an ISO string always produces at least one element
-    return stats.mtime.toISOString().split('T')[0] ?? '';
+    return stats.mtime.toISOString().slice(0, 10);
 }
 /**
  * Format date for article slug
@@ -99,8 +98,7 @@ export function getModifiedDate(filepath) {
  * @returns Formatted date string (YYYY-MM-DD)
  */
 export function formatDateForSlug(date = new Date()) {
-    // split('T') on an ISO string always produces at least one element
-    return date.toISOString().split('T')[0] ?? '';
+    return date.toISOString().slice(0, 10);
 }
 /**
  * Calculate read time estimate from content
