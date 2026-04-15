@@ -460,7 +460,7 @@ export function buildIntelligenceMindmapSection(
   if (allNodes.length === 0) return '';
 
   const titleText: string =
-    heading?.trim() ?? INTELLIGENCE_MINDMAP_HEADINGS[lang] ?? 'Intelligence Policy Map';
+    heading?.trim() || INTELLIGENCE_MINDMAP_HEADINGS[lang] || 'Intelligence Policy Map';
   const detailsLabel = DETAILS_LABELS[lang] ?? 'Details';
   const stakeholderLabel = STAKEHOLDER_PERSPECTIVES_LABELS[lang] ?? 'Stakeholder Perspectives';
   const connectionsLabel = POLICY_CONNECTIONS_LABELS[lang] ?? 'Policy Connections';

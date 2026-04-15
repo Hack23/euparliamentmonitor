@@ -445,6 +445,29 @@ function detectZeroPercentMetrics(html: string): number {
 }
 
 /**
+ * Strip HTML tags from a string using a simple character scanner.
+ * ReDoS-safe alternative to regex-based tag removal.
+ *
+ * @param input - HTML string to strip tags from
+ * @returns Plain text content with tags removed
+ */
+function stripHtmlTags(input: string): string {
+  let result = '';
+  let inTag = false;
+  for (let i = 0; i < input.length; i++) {
+    const ch = input[i] ?? '';
+    if (ch === '<') {
+      inTag = true;
+    } else if (ch === '>') {
+      inTag = false;
+    } else if (!inTag) {
+      result += ch;
+    }
+  }
+  return result;
+}
+
+/**
  * Count empty `<section>` elements — those with little or no visible content.
  * An empty section contains only whitespace or very short boilerplate text.
  *
@@ -455,36 +478,22 @@ function countEmptySections(html: string): number {
   // Use indexOf-based parsing to avoid regex backtracking (ReDoS-safe)
   let count = 0;
   let searchFrom = 0;
+  const lowerHtml = html.toLowerCase();
   const openTag = '<section';
   const closeTag = '</section>';
 
   while (searchFrom < html.length) {
-    const openPos = html.toLowerCase().indexOf(openTag, searchFrom);
+    const openPos = lowerHtml.indexOf(openTag, searchFrom);
     if (openPos === -1) break;
 
-    // Find end of opening tag
     const tagClose = html.indexOf('>', openPos);
     if (tagClose === -1) break;
 
-    // Find matching closing tag
-    const closePos = html.toLowerCase().indexOf(closeTag, tagClose);
+    const closePos = lowerHtml.indexOf(closeTag, tagClose);
     if (closePos === -1) break;
 
-    // Extract inner HTML and strip tags to get plain text
     const innerHtml = html.slice(tagClose + 1, closePos);
-    let plainText = '';
-    let inTag = false;
-    for (let i = 0; i < innerHtml.length; i++) {
-      const ch = innerHtml[i] ?? '';
-      if (ch === '<') {
-        inTag = true;
-      } else if (ch === '>') {
-        inTag = false;
-      } else if (!inTag) {
-        plainText += ch;
-      }
-    }
-    plainText = plainText.replace(/\s+/gu, ' ').trim();
+    const plainText = stripHtmlTags(innerHtml).replace(/\s+/gu, ' ').trim();
 
     if (plainText.length < MIN_SECTION_CONTENT_LENGTH) {
       count++;
@@ -495,6 +504,39 @@ function countEmptySections(html: string): number {
 }
 
 // ─── Public API ───────────────────────────────────────────────────────────────
+
+/**
+ * Collect warnings from machine-enforceable article quality gates.
+ * Extracted to keep `validateArticleContent` within cognitive-complexity limits.
+ *
+ * @param html - Complete HTML string
+ * @param warnings - Mutable warnings array to append to
+ */
+function collectQualityGateWarnings(html: string, warnings: string[]): void {
+  // Keyword quality: detect section-heading keywords leaked into meta tags
+  const bannedKeywords = detectBannedKeywords(html);
+  if (bannedKeywords.length > 0) {
+    warnings.push(
+      `Keywords contain ${bannedKeywords.length} section heading(s) that should not be used as keywords: ${bannedKeywords.join(', ')}`
+    );
+  }
+
+  // Dashboard metric quality: detect 0% metrics rendered as real data
+  const zeroMetricCount = detectZeroPercentMetrics(html);
+  if (zeroMetricCount > 0) {
+    warnings.push(
+      `Dashboard renders ${zeroMetricCount} metric(s) showing "0%" — this likely indicates no-data, not a real score. Omit the dashboard when data is unavailable.`
+    );
+  }
+
+  // Empty section detection: flag sections with no meaningful content
+  const emptySectionCount = countEmptySections(html);
+  if (emptySectionCount > 0) {
+    warnings.push(
+      `Article contains ${emptySectionCount} empty or near-empty <section> element(s) that should be removed`
+    );
+  }
+}
 
 /**
  * Validate the quality of a generated article.
@@ -594,31 +636,8 @@ export function validateArticleContent(
   // Extended validation: cross-reference density, stakeholder balance, temporal coverage
   collectExtendedValidationWarnings(html, warnings);
 
-  // ── Article Quality Gate checks ─────────────────────────────────────────────
-
-  // Keyword quality: detect section-heading keywords leaked into meta tags
-  const bannedKeywords = detectBannedKeywords(html);
-  if (bannedKeywords.length > 0) {
-    warnings.push(
-      `Keywords contain ${bannedKeywords.length} section heading(s) that should not be used as keywords: ${bannedKeywords.join(', ')}`
-    );
-  }
-
-  // Dashboard metric quality: detect 0% metrics rendered as real data
-  const zeroMetricCount = detectZeroPercentMetrics(html);
-  if (zeroMetricCount > 0) {
-    warnings.push(
-      `Dashboard renders ${zeroMetricCount} metric(s) showing "0%" — this likely indicates no-data, not a real score. Omit the dashboard when data is unavailable.`
-    );
-  }
-
-  // Empty section detection: flag sections with no meaningful content
-  const emptySectionCount = countEmptySections(html);
-  if (emptySectionCount > 0) {
-    warnings.push(
-      `Article contains ${emptySectionCount} empty or near-empty <section> element(s) that should be removed`
-    );
-  }
+  // Machine-enforceable article quality gates
+  collectQualityGateWarnings(html, warnings);
 
   return {
     valid: errors.length === 0,

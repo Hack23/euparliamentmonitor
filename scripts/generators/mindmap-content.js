@@ -384,7 +384,7 @@ export function buildIntelligenceMindmapSection(imap, lang = 'en', heading) {
     const allNodes = imap.layers.flatMap((l) => l.nodes);
     if (allNodes.length === 0)
         return '';
-    const titleText = heading?.trim() ?? INTELLIGENCE_MINDMAP_HEADINGS[lang] ?? 'Intelligence Policy Map';
+    const titleText = heading?.trim() || INTELLIGENCE_MINDMAP_HEADINGS[lang] || 'Intelligence Policy Map';
     const detailsLabel = DETAILS_LABELS[lang] ?? 'Details';
     const stakeholderLabel = STAKEHOLDER_PERSPECTIVES_LABELS[lang] ?? 'Stakeholder Perspectives';
     const connectionsLabel = POLICY_CONNECTIONS_LABELS[lang] ?? 'Policy Connections';

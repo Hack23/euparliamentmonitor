@@ -90,8 +90,8 @@ const descriptionArg = args.find((arg) => arg.startsWith('--description='));
  * Sanitised to alphanumeric and hyphens only (supports both numeric run
  * numbers and custom identifiers passed via `--run-id`).
  */
-export const runId = (runIdArg?.slice('--run-id='.length).trim() ??
-    process.env['GITHUB_RUN_NUMBER'] ??
+export const runId = (runIdArg?.slice('--run-id='.length).trim() ||
+    process.env['GITHUB_RUN_NUMBER'] ||
     '').replace(/[^a-z0-9-]/giu, '');
 /**
  * AI-generated article title passed by the agentic workflow.

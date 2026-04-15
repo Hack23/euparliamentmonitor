@@ -70,9 +70,9 @@ export function loadAnalysisContext(date, articleTypeSlug, baseDir = DEFAULT_ANA
     // Resolve base dir: prefer explicit non-default param, then env var, then default
     const resolvedBaseDir = baseDir !== DEFAULT_ANALYSIS_BASE_DIR
         ? baseDir
-        : process.env[ENV_ANALYSIS_DIR]?.trim() ?? DEFAULT_ANALYSIS_BASE_DIR;
+        : process.env[ENV_ANALYSIS_DIR]?.trim() || DEFAULT_ANALYSIS_BASE_DIR;
     // Resolve slug: prefer env var override, then per-strategy slug
-    const resolvedSlug = process.env[ENV_ANALYSIS_SLUG]?.trim() ?? articleTypeSlug;
+    const resolvedSlug = process.env[ENV_ANALYSIS_SLUG]?.trim() || articleTypeSlug;
     // Validate slug: alphanumeric, hyphens only — no path separators
     if (!/^[\da-z][\da-z-]*$/u.test(resolvedSlug))
         return null;

@@ -567,14 +567,17 @@ export class MCPConnection {
             const message = JSON.parse(line);
             if (message.id && this.pendingRequests.has(message.id)) {
                 const pending = this.pendingRequests.get(message.id);
+                if (!pending) {
+                    // Should not happen after has() check, but guard against race conditions
+                    console.error(`MCP pending request ${String(message.id)} vanished before handling`);
+                    return;
+                }
                 this.pendingRequests.delete(message.id);
-                if (pending) {
-                    if (message.error) {
-                        pending.reject(new Error(message.error.message ?? 'MCP server error'));
-                    }
-                    else {
-                        pending.resolve(message.result);
-                    }
+                if (message.error) {
+                    pending.reject(new Error(message.error.message ?? 'MCP server error'));
+                }
+                else {
+                    pending.resolve(message.result);
                 }
             }
             else if (!message.id && message.method) {

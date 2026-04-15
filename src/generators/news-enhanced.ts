@@ -182,8 +182,8 @@ const descriptionArg = args.find((arg) => arg.startsWith('--description='));
  * numbers and custom identifiers passed via `--run-id`).
  */
 export const runId: string = (
-  runIdArg?.slice('--run-id='.length).trim() ??
-  process.env['GITHUB_RUN_NUMBER'] ??
+  runIdArg?.slice('--run-id='.length).trim() ||
+  process.env['GITHUB_RUN_NUMBER'] ||
   ''
 ).replace(/[^a-z0-9-]/giu, '');
 
