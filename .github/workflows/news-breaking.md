@@ -829,10 +829,10 @@ european_parliament___early_warning_system({ sensitivity: "medium" })
 
 ### 🔬 MANDATORY: Deep Data Collection
 
-**Call for EVERY procedure/adopted text cited in analysis — provides evidence for coalition and voting claims:**
+**Call for the most significant cited procedures/adopted texts, up to max 5 deep-fetch calls total across all deep-fetch tools — prioritize by: (1) items directly supporting article claims, (2) items with voting/coalition implications, (3) most recent items:**
 
-```javascript
-// Track specific procedures cited in analysis — repeat for each cited procedure ID
+```text
+// Track specific procedures cited in analysis — call for the most significant cited items, up to the max 5 cap
 european_parliament___track_legislation({ procedureId: "<procedure-ID-from-feed>" })
 
 // Fetch plenary session decisions for voting evidence
@@ -841,10 +841,10 @@ european_parliament___get_meeting_decisions({ sittingId: "<sitting-ID>" })
 // Fetch voting records for cited sessions — MANDATORY for coalition behaviour claims
 // Prefer sessionId as primary selector; use dateFrom/dateTo as bounded fallback
 european_parliament___get_voting_records({ sessionId: "<session-ID-from-plenary>", limit: 20 })
-// ↳ FALLBACK if no sessionId: get_voting_records({ topic: "<topic-keyword>", dateFrom: "<7-days-ago>", dateTo: "<today>", limit: 20 })
+// ↳ FALLBACK if no sessionId: get_voting_records({ topic: "<topic-keyword>", dateFrom: "<7-days-ago>" (YYYY-MM-DD), dateTo: "<today>" (YYYY-MM-DD), limit: 20 })
 
 // Fetch speeches for debate context and direct quotes
-european_parliament___get_speeches({ dateFrom: "<7-days-ago>", dateTo: "<today>", limit: 20 })
+european_parliament___get_speeches({ dateFrom: "<7-days-ago>" (YYYY-MM-DD), dateTo: "<today>" (YYYY-MM-DD), limit: 20 })
 ```
 
 > **🔴 VOTING EVIDENCE REQUIREMENT**: Any analysis that claims political group voting positions (e.g., "ECR broke ranks", "Grand Coalition held") MUST cite actual data from `get_voting_records` or `get_meeting_decisions`. If voting records are unavailable (EP publishes with delay), mark coalition claims as LOW confidence.
@@ -858,6 +858,7 @@ european_parliament___get_speeches({ dateFrom: "<7-days-ago>", dateTo: "<today>"
 - **Advisory feeds**: 4 mandatory calls with one-week timeframe = 4 calls
 - **Analytical context**: 4 calls in NORMAL mode (anomalies, coalition dynamics, political landscape, early warning) or 1 call in DEGRADED MODE (coalition dynamics only)
 - **Maximum 16 manual MCP tool calls in NORMAL mode** (4 primary + 4 retries + 4 advisory + 4 analytical; health-gate and generator script calls exempt)
+- **Deep-fetch calls** (up to 5 additional): `track_legislation`, `get_meeting_decisions`, `get_voting_records`, `get_speeches` — called per cited item, max 5 total across all deep-fetch tools
 - **Maximum 9 manual MCP tool calls in DEGRADED MODE** (4 feeds one-week + 4 advisory one-week + 1 coalition dynamics)
 - **⚠️ ALL non-retry calls are mandatory** — the workflow must attempt every call, logging errors but continuing with other calls
 

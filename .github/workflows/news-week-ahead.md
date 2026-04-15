@@ -754,17 +754,17 @@ european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 20
 european_parliament___analyze_coalition_dynamics({})
 ```
 
-**MANDATORY deep data collection** (for cited upcoming procedures and events):
+**MANDATORY deep data collection** (for cited upcoming procedures and events — prioritize by significance score; max 5 deep-fetch calls total across all deep-fetch tools):
 
-```javascript
-// Track specific procedures cited in analysis — repeat for each cited procedure ID
+```text
+// Track specific procedures cited in analysis — call for the most significant cited items, up to the max 5 cap
 european_parliament___track_legislation({ procedureId: "<procedure-ID-from-feed>" })
 
 // Fetch voting records for recent session context
 european_parliament___get_voting_records({ sessionId: "<recent-session-ID>", limit: 50 })
 
 // Fetch speeches for recent debate context
-european_parliament___get_speeches({ dateFrom: "<7-days-ago>", dateTo: "<today>", limit: 20 })
+european_parliament___get_speeches({ dateFrom: "<7-days-ago>" (YYYY-MM-DD), dateTo: "<today>" (YYYY-MM-DD), limit: 20 })
 ```
 
 > **🔴 VOTING EVIDENCE REQUIREMENT**: Any analysis citing recent political group voting behaviour to predict upcoming votes MUST reference actual `get_voting_records` data. If unavailable, mark predictions as LOW confidence.
