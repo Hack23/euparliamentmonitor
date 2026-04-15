@@ -697,11 +697,11 @@ european_parliament___get_events_feed({ timeframe: "one-month", limit: 50 })
 
 // Procedures feed — legislative procedure updates and upcoming stages
 european_parliament___get_procedures_feed({ timeframe: "one-week", limit: 50 })
-// ↳ FALLBACK if 404/timeout: european_parliament___get_procedures({ year: 2026, limit: 50 })
+// ↳ FALLBACK if 404/timeout: european_parliament___get_procedures({ year: <current-year>, limit: 50 })
 
 // Plenary documents feed — recently published plenary documents and agendas
 european_parliament___get_plenary_documents_feed({ timeframe: "one-week", limit: 50 })
-// ↳ FALLBACK if 404/timeout: european_parliament___get_plenary_documents({ year: 2026, limit: 50 })
+// ↳ FALLBACK if 404/timeout: european_parliament___get_plenary_documents({ year: <current-year>, limit: 50 })
 
 // Plenary session documents feed — session agendas, voting lists
 european_parliament___get_plenary_session_documents_feed({ timeframe: "one-week", limit: 20 })
@@ -747,7 +747,7 @@ european_parliament___search_documents({ keyword: "plenary agenda", limit: 20 })
 european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 20 })
 
 // Parliamentary questions for upcoming topics
-european_parliament___get_parliamentary_questions({ dateFrom: today, limit: 20 })
+european_parliament___get_parliamentary_questions({ dateFrom: "<today>", limit: 20 })
 
 // Political landscape overview
 european_parliament___generate_political_landscape({})
@@ -771,15 +771,6 @@ european_parliament___get_speeches({ dateFrom: "<30-days-ago>", dateTo: "<today>
 
 > **🔴 VOTING EVIDENCE REQUIREMENT**: Any analysis predicting voting outcomes based on recent political group positions MUST cite actual `get_voting_records` data. If unavailable, mark predictions as LOW confidence.
 
-**CONDITIONAL analytical tools** (skip in DEGRADED MODE):
-
-```javascript
-// Political landscape — SKIP in DEGRADED MODE
-european_parliament___generate_political_landscape({})
-
-// Parliamentary questions for context — SKIP in DEGRADED MODE
-european_parliament___get_parliamentary_questions({ dateFrom: "<today>", limit: 20 })
-```
 
 
 ## 🌍 World Bank Economic Context — Active Indicator Discovery

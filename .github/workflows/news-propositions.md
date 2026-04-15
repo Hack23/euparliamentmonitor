@@ -736,19 +736,19 @@ european_parliament___get_server_health({})
 ```javascript
 // Procedures feed — THE primary data source for propositions articles
 european_parliament___get_procedures_feed({ timeframe: "one-week", limit: 50 })
-// ↳ FALLBACK if 404/timeout: european_parliament___get_procedures({ year: 2026, limit: 50 })
+// ↳ FALLBACK if 404/timeout: european_parliament___get_procedures({ year: <current-year>, limit: 50 })
 
 // Documents feed — recently updated legislative documents
 european_parliament___get_documents_feed({ timeframe: "one-week", limit: 50 })
-// ↳ FALLBACK if 404/timeout: european_parliament___get_plenary_documents({ year: 2026, limit: 50 })
+// ↳ FALLBACK if 404/timeout: european_parliament___get_plenary_documents({ year: <current-year>, limit: 50 })
 
 // Adopted texts feed — skip if feed returns empty (no new texts in last 12h)
 european_parliament___get_adopted_texts_feed({ timeframe: "one-day", limit: 20 })
-// ↳ FALLBACK if 404/timeout: european_parliament___get_adopted_texts({ year: 2026, limit: 100 })
+// ↳ FALLBACK if 404/timeout: european_parliament___get_adopted_texts({ year: <current-year>, limit: 100 })
 
 // Plenary documents feed — recent plenary documents
 european_parliament___get_plenary_documents_feed({ timeframe: "one-week", limit: 20 })
-// ↳ FALLBACK if 404/timeout: european_parliament___get_plenary_documents({ year: 2026, limit: 50 })
+// ↳ FALLBACK if 404/timeout: european_parliament___get_plenary_documents({ year: <current-year>, limit: 50 })
 ```
 
 > **⚠️ ARTICLE CONTENT MUST COME FROM THESE FEEDS**: The article's lede, headlines, and primary sections must reference **specific procedures, documents, or adopted texts** found in these feed results. If feeds return items, those items ARE the news. If feeds return no recent items, still perform full analysis and create an analysis-only PR per `ai-driven-analysis-guide.md` Rule 5 — do NOT fall back to writing an article from precomputed stats.

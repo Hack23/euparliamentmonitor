@@ -810,7 +810,7 @@ european_parliament___get_server_health({})
 ```javascript
 // Adopted texts feed — skip if feed returns empty (no new texts in last 12h)
 european_parliament___get_adopted_texts_feed({ timeframe: "one-day", limit: 50 })
-// ↳ FALLBACK if 404/timeout: european_parliament___get_adopted_texts({ year: 2026, limit: 100 })
+// ↳ FALLBACK if 404/timeout: european_parliament___get_adopted_texts({ year: <current-year>, limit: 100 })
 
 // Parliamentary questions feed — recent questions and interpellations
 european_parliament___get_parliamentary_questions_feed({ timeframe: "one-week", limit: 50 })
@@ -821,7 +821,7 @@ european_parliament___get_meps_feed({ timeframe: "one-week", limit: 20 })
 
 // Procedures feed — legislative procedure updates
 european_parliament___get_procedures_feed({ timeframe: "one-week", limit: 20 })
-// ↳ FALLBACK if 404/timeout: european_parliament___get_procedures({ year: 2026, limit: 50 })
+// ↳ FALLBACK if 404/timeout: european_parliament___get_procedures({ year: <current-year>, limit: 50 })
 ```
 
 > **⚠️ ARTICLE CONTENT MUST COME FROM THESE FEEDS**: The article's lede, headlines, and primary sections must reference **specific adopted texts, resolutions, or motions** found in these feed results. If feeds return items, those items ARE the news. If feeds return no recent items, still perform full analysis and create an analysis-only PR per `ai-driven-analysis-guide.md` Rule 5 — do NOT fall back to writing an article from precomputed stats.

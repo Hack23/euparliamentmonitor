@@ -703,11 +703,11 @@ european_parliament___get_events_feed({ timeframe: "one-week", limit: 50 })
 
 // Procedures feed — legislative procedure updates and upcoming stages
 european_parliament___get_procedures_feed({ timeframe: "one-week", limit: 50 })
-// ↳ FALLBACK if 404/timeout: european_parliament___get_procedures({ year: 2026, limit: 50 })
+// ↳ FALLBACK if 404/timeout: european_parliament___get_procedures({ year: <current-year>, limit: 50 })
 
 // Plenary documents feed — recently published plenary documents and agendas
 european_parliament___get_plenary_documents_feed({ timeframe: "one-week", limit: 50 })
-// ↳ FALLBACK if 404/timeout: european_parliament___get_plenary_documents({ year: 2026, limit: 50 })
+// ↳ FALLBACK if 404/timeout: european_parliament___get_plenary_documents({ year: <current-year>, limit: 50 })
 
 // Plenary session documents feed — session agendas and voting lists
 european_parliament___get_plenary_session_documents_feed({ timeframe: "one-week", limit: 20 })

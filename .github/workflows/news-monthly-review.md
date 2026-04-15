@@ -713,15 +713,15 @@ european_parliament___get_server_health({})
 ```javascript
 // Adopted texts feed — always include for monthly review (one-month timeframe)
 european_parliament___get_adopted_texts_feed({ timeframe: "one-month", limit: 50 })
-// ↳ FALLBACK if 404/timeout: european_parliament___get_adopted_texts({ year: 2026, limit: 100 })
+// ↳ FALLBACK if 404/timeout: european_parliament___get_adopted_texts({ year: <current-year>, limit: 100 })
 
 // Procedures feed — legislative procedure updates this month
 european_parliament___get_procedures_feed({ timeframe: "one-month", limit: 50 })
-// ↳ FALLBACK if 404/timeout: european_parliament___get_procedures({ year: 2026, limit: 50 })
+// ↳ FALLBACK if 404/timeout: european_parliament___get_procedures({ year: <current-year>, limit: 50 })
 
 // Plenary documents feed — recently published plenary documents
 european_parliament___get_plenary_documents_feed({ timeframe: "one-month", limit: 50 })
-// ↳ FALLBACK if 404/timeout: european_parliament___get_plenary_documents({ year: 2026, limit: 50 })
+// ↳ FALLBACK if 404/timeout: european_parliament___get_plenary_documents({ year: <current-year>, limit: 50 })
 
 // Parliamentary questions feed — recent questions and interpellations
 european_parliament___get_parliamentary_questions_feed({ timeframe: "one-month", limit: 20 })

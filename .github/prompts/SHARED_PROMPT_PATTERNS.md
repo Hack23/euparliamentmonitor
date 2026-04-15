@@ -165,7 +165,7 @@ These endpoints use the `timeframe` parameter with supported values: `"today"`, 
 
 | Tool | Purpose | Key Parameters | Feed Fallback For |
 |------|---------|----------------|-------------------|
-| `get_plenary_sessions` | Plenary sessions | `dateFrom`/`dateTo`, `year`, `eventId`, `location`, `limit` | `get_events_feed` |
+| `get_plenary_sessions` | Plenary sessions | `dateFrom`/`dateTo`, `year`, `eventId`, `location`, `limit` | *(no feed equivalent — use dateFrom/dateTo for date range queries)* |
 | `get_events` | EP events | `dateFrom`/`dateTo`, `year`, `eventId`, `limit` | `get_events_feed` |
 | `get_procedures` | Legislative procedures | `year`, `processId`, `limit` | `get_procedures_feed` |
 | `get_adopted_texts` | Adopted texts | `year`, `docId`, `limit` | `get_adopted_texts_feed` |
