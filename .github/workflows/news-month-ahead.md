@@ -710,7 +710,7 @@ const today = new Date().toISOString().split('T')[0];
 const nextMonth = new Date(Date.now() + 30 * 86400000).toISOString().split('T')[0];
 
 european_parliament___get_plenary_sessions({ dateFrom: today, dateTo: nextMonth, limit: 50 })
-european_parliament___get_committee_info({ limit: 20 })
+european_parliament___get_committee_info({ showCurrent: true })
 european_parliament___search_documents({ keyword: "plenary agenda", limit: 20 })
 european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 20 })
 european_parliament___get_parliamentary_questions({ dateFrom: today, limit: 20 })

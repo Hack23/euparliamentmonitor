@@ -759,7 +759,7 @@ european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 10
 european_parliament___track_legislation({ procedureId: "<ID from feed>" })
 
 // Get committee referral information
-european_parliament___get_committee_info({ committeeId: "ENVI" })
+european_parliament___get_committee_info({ abbreviation: "ENVI" })
 
 // Analyze legislative effectiveness
 european_parliament___analyze_legislative_effectiveness({ subjectType: "COMMITTEE", subjectId: "ENVI" })

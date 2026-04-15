@@ -765,7 +765,7 @@ european_parliament___get_all_generated_stats({ category: "all", includePredicti
 
 ```javascript
 // Verify connectivity and fetch representative committee info
-european_parliament___get_committee_info({ committeeId: "ENVI" })
+european_parliament___get_committee_info({ abbreviation: "ENVI" })
 
 // Search for recent committee reports
 european_parliament___search_documents({ keyword: "committee report", documentType: "REPORT" })
