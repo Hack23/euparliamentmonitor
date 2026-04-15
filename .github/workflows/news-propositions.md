@@ -771,7 +771,7 @@ european_parliament___get_all_generated_stats({ category: "all", includePredicti
 - **No hard limit on MCP calls**, but expect each call to take 30+ seconds. Plan time budget accordingly.
 - **Feed endpoints (MANDATORY)**: call all feed endpoints listed above FIRST — these are non-negotiable
 - **Precomputed stats**: call `european_parliament___get_all_generated_stats` once AFTER feeds — reuse across all sections
-- **Call each tool at most once** — never call the same tool a second time during data gathering
+- **Call each broad context tool at most once** — never call the same broad tool a second time during initial data gathering. **Exception:** deep-fetch tools (`track_legislation`, `get_meeting_decisions`, `get_speeches`, `get_voting_records`) may be called once **per cited item** (max 5 deep-fetch calls total)
 - If data looks sparse, generic, historical, or placeholder after the first call: **proceed to article generation immediately — do NOT retry**
 - If you notice you are about to call a tool you already called, **STOP data gathering and move to generation**
 

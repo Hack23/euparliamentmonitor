@@ -724,7 +724,7 @@ european_parliament___get_all_generated_stats({ category: "all", includePredicti
 - **Feed endpoints (MANDATORY)**: call all feed endpoints listed above FIRST — these are non-negotiable (adopted texts may be skipped if no items from last 12h)
 - **Precomputed stats**: call `european_parliament___get_all_generated_stats` once AFTER feeds — reuse across all sections
 - **Health-gate connectivity check**: call `european_parliament___get_plenary_sessions` at the start to verify MCP health (up to 3 attempts with 30-second delays); must **not** be invoked again later in the run after it succeeds
-- **Per-tool limit (no retries)**: each MCP tool may be called **at most once per workflow run** — never call the same tool a second time
+- **Per-tool limit (no retries)**: each broad context MCP tool may be called **at most once per workflow run** — never call the same broad tool a second time. **Exception:** deep-fetch tools (`track_legislation`, `get_meeting_decisions`, `get_speeches`, `get_voting_records`) may be called once **per cited item** (max 5 deep-fetch calls total)
 - If data from a tool looks sparse, generic, historical, or placeholder after its first call, **proceed to article generation immediately — do NOT retry that tool**
 
 **ALWAYS call `european_parliament___get_plenary_sessions` FIRST as the mandatory MCP Health Gate and connectivity check (up to 3 attempts). Do not call it again after it succeeds.**
