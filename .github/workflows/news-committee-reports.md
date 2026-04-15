@@ -231,6 +231,10 @@ This focused approach ensures:
 > **Article structure**: The lede paragraph and first two sections MUST reference **specific items from today's feed data** (document titles, procedure IDs, event names with dates). Historical context from precomputed stats may appear in later sections ONLY as brief comparative background.
 >
 > **Window rule**: Treat feed items as primary news only when their substantive parliamentary date falls inside this article's current UTC window. Older committee documents can inform context but must not dominate the lead.
+>
+> **🛑 No-publish threshold**: If feed data yields fewer than 3 specific committee documents or adopted texts, create an analysis-only PR instead. See [SHARED_PROMPT_PATTERNS.md Minimum Publication Threshold](../prompts/SHARED_PROMPT_PATTERNS.md#-minimum-publication-threshold-no-publish-rule).
+>
+> **🔑 Keyword, title, description quality**: See [SHARED_PROMPT_PATTERNS.md Article Quality Gates](../prompts/SHARED_PROMPT_PATTERNS.md#-article-quality-gates-all-workflows--mandatory). NEVER list committee abbreviations as the title. NEVER include section headings as keywords.
 
 
 ## 🔬 MANDATORY DEEP POLITICAL ANALYSIS PHASE (15-20 MINUTES)
@@ -306,7 +310,10 @@ For each committee report, analyze:
 - ❌ `EU Parliament Committee Activity Report: ENVI, ECON, AFET, LIBE, AGRI — 19 Adopted Texts` (data dump, not news)
 - ❌ `Committee Reports: 2026-04-02 — Data Analysis` (date-centric, not newsworthy)
 - ❌ `Legislative Pipeline: Pipeline Health 0%` (technical metric, meaningless to readers)
+- ❌ Any title starting with "EU Parliament Committee Activity Report:" — this is a label, not a headline
+- ❌ Any title that lists committee abbreviations separated by commas as its main content
 - ❌ Any title that could apply to any date — titles MUST reference specific political content
+- ❌ See also: [SHARED_PROMPT_PATTERNS.md Title Quality Rules](../prompts/SHARED_PROMPT_PATTERNS.md#-title-quality-rules) for the full forbidden-title list
 
 **REQUIRED title approach — AI must generate headlines by:**
 1. Completing ALL analysis methods first (significance scoring, deep analysis, coalition dynamics)
@@ -318,21 +325,23 @@ For each committee report, analyze:
 
 **REQUIRED SEO metadata (all generated from analysis results):**
 - `<title>` — Specific political headline, max 60 chars, names key legislation/action
-- `<meta name="description">` — 150-160 chars, names the most significant item + outcome + coalition dynamics
-- `<meta name="keywords">` — Specific EP document IDs, committee names, political group names from the data — NEVER generic placeholder keywords
+- `<meta name="description">` — 150-160 chars, names the most significant item + outcome + coalition dynamics — see [SHARED_PROMPT_PATTERNS.md Description Quality Rules](../prompts/SHARED_PROMPT_PATTERNS.md#-description-quality-rules)
+- `<meta name="keywords">` — Specific EP document IDs, committee names, political group names from the data — see [SHARED_PROMPT_PATTERNS.md Keywords Quality Rules](../prompts/SHARED_PROMPT_PATTERNS.md#-keywords-quality-rules) — NEVER include section headings like "Deep Political Analysis", "What Happened"
 - Structured data (`application/ld+json`) — Must include `headline`, `description`, `datePublished`, `author`, and `about` fields referencing specific EP content
 
 **Example AI-generated titles:**
 - ✅ `ENVI Committee Advances Landmark Anti-Corruption Directive After Heated Debate`
 - ✅ `Five EP Committees Reshape Banking and Climate Policy in Sprint to Summer Recess`
 - ✅ `Parliament's ECON Committee Splits on Banking Resolution as ECR Signals Opposition`
+- ✅ `Committees Deliver Banking Union and Anti-Corruption as Tariffs Activate`
+- ✅ `ECON and LIBE Dominate Q1 as Committees Gear Up for Post-Easter Sprint`
 
 **Meta description requirements:**
 - 150-160 characters summarizing the political significance
 - Must reference specific legislation or committee actions
 - Must include at least one stakeholder impact statement
 - ❌ NEVER: `"European Parliament committee activity and legislative effectiveness analysis."` (generic boilerplate)
-- ✅ INSTEAD: `"ENVI committee approves corruption directive while ECON splits on banking reform — five committees advance 19 texts before April recess."`
+- ✅ INSTEAD: `"ECON completes Banking Union triple package and LIBE delivers first EU anti-corruption directive in record March 26 session"`
 
 **AI prompt for title/description generation:**
 > Based on the EP MCP feed data and analysis artifacts, generate:

@@ -241,6 +241,9 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 - Analysis of quiet periods reveals patterns and must always be committed
 - Each run creates its own unique analysis directory to avoid overwrites
 - Do NOT skip data collection
+- **🛑 CRITICAL: NEVER publish an article with "No recent feed data" as its content or description.** An empty breaking news article destroys editorial credibility. If no breaking developments exist, create an analysis-only PR. See [SHARED_PROMPT_PATTERNS.md Minimum Publication Threshold](../prompts/SHARED_PROMPT_PATTERNS.md#-minimum-publication-threshold-no-publish-rule).
+- **During parliamentary recess**: If Parliament is in recess and feeds are quiet, consider writing a "Between Sessions" analysis piece covering coalition patterns, legislative pipeline outlook, or institutional dynamics — but ONLY if you have sufficient data for substantive analysis. Otherwise, analysis-only PR.
+- **🔑 Keyword and title quality**: See [SHARED_PROMPT_PATTERNS.md Article Quality Gates](../prompts/SHARED_PROMPT_PATTERNS.md#-article-quality-gates-all-workflows--mandatory) for mandatory keyword, title, and description quality rules that apply to all article types including breaking news.
 
 
 ## 🔬 MANDATORY DEEP POLITICAL ANALYSIS PHASE (15-20 MINUTES)
@@ -309,7 +312,13 @@ For each breaking development, immediately assess:
 
 ## 📰 AI-DRIVEN HEADLINE AND DESCRIPTION GENERATION (MANDATORY)
 
-> **⚠️ CRITICAL**: Breaking news titles MUST be AI-generated from political content analysis. They must convey urgency and significance.
+> **⚠️ CRITICAL**: Breaking news titles MUST be AI-generated from political content analysis. They must convey urgency and significance. See [SHARED_PROMPT_PATTERNS.md Title Quality Rules](../prompts/SHARED_PROMPT_PATTERNS.md#-title-quality-rules) for the full forbidden-title list.
+
+**REJECTED title patterns:**
+- ❌ `Breaking: Significant Parliamentary Developments — 2026-04-07` (generic, no substance)
+- ❌ `Breaking News Intelligence Brief — 2026-04-02` (generic, not informative)
+- ❌ Any title starting with "Breaking:" followed by a generic phrase
+- ❌ Any title where the description says "No recent feed data" — DO NOT publish this article
 
 **REQUIRED title approach — AI must generate headlines by:**
 1. Reading the analysis artifacts in `${ANALYSIS_DIR}/`
@@ -325,6 +334,8 @@ For each breaking development, immediately assess:
 **For analysis-only (no breaking news) articles:**
 - ✅ `Between Sessions: Coalition Patterns and Legislative Pipeline Analysis — 2 April 2026`
 - ❌ `Breaking News Intelligence Brief — 2026-04-02` (generic, not informative)
+
+**🔑 Keyword quality**: See [SHARED_PROMPT_PATTERNS.md Keywords Quality Rules](../prompts/SHARED_PROMPT_PATTERNS.md#-keywords-quality-rules). NEVER include section headings as keywords.
 
 ## 🔗 ANALYSIS FILE REFERENCES (MANDATORY)
 

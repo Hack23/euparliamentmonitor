@@ -237,6 +237,10 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 > **Article structure**: The lede paragraph and first two sections MUST reference **specific items from today's feed data**. Historical stats may appear in later sections ONLY as brief comparative background.
 >
 > **Window rule**: Use feed items as primary news only when their substantive parliamentary date falls inside this article's rolling analysis window. Older resurfaced texts may be cited as background, not as today's lead.
+>
+> **🛑 No-publish threshold**: If adopted texts and voting records yield fewer than 3 specific resolutions or votes, create an analysis-only PR instead. See [SHARED_PROMPT_PATTERNS.md Minimum Publication Threshold](../prompts/SHARED_PROMPT_PATTERNS.md#-minimum-publication-threshold-no-publish-rule).
+>
+> **🔑 Keyword, title, description quality**: See [SHARED_PROMPT_PATTERNS.md Article Quality Gates](../prompts/SHARED_PROMPT_PATTERNS.md#-article-quality-gates-all-workflows--mandatory). NEVER use "Plenary Votes & Resolutions: DATE — N Votes" as a title. NEVER include section headings as keywords. NEVER use "Example motion (placeholder)" in keywords.
 
 
 ## 🔬 MANDATORY DEEP POLITICAL ANALYSIS PHASE (15-20 MINUTES)
@@ -312,7 +316,10 @@ For each motion or resolution vote, analyze:
 - ❌ `Plenary Votes & Resolutions: 2026-04-02 — 2 Votes, 1 Anomaly` (data metrics, not a news story)
 - ❌ `Motions Analysis: European Parliament Monitor` (generic, no news value)
 - ❌ `EU Parliament motions articles 2026-04-08` (date-centric, no substance)
+- ❌ Any title starting with "Plenary Votes & Resolutions:" — this is a label, not a headline
+- ❌ Any title containing raw vote counts ("2 Votes, 1 Anomaly")
 - ❌ Any title that could apply to any date — titles MUST reference specific political content
+- ❌ See also: [SHARED_PROMPT_PATTERNS.md Title Quality Rules](../prompts/SHARED_PROMPT_PATTERNS.md#-title-quality-rules) for the full forbidden-title list
 
 **REQUIRED title approach — AI must generate headlines by:**
 1. Completing ALL analysis methods first (significance scoring, deep analysis, coalition dynamics)
@@ -323,17 +330,21 @@ For each motion or resolution vote, analyze:
 
 **REQUIRED SEO metadata (all generated from analysis results):**
 - `<title>` — Specific political headline, max 60 chars, names key legislation/action
-- `<meta name="description">` — 150-160 chars, names the most significant item + outcome + coalition dynamics
-- `<meta name="keywords">` — Specific EP document IDs, committee names, political group names from the data — NEVER generic placeholder keywords
+- `<meta name="description">` — 150-160 chars, names the most significant item + outcome + coalition dynamics — see [SHARED_PROMPT_PATTERNS.md Description Quality Rules](../prompts/SHARED_PROMPT_PATTERNS.md#-description-quality-rules)
+- `<meta name="keywords">` — Specific EP document IDs, committee names, political group names from the data — see [SHARED_PROMPT_PATTERNS.md Keywords Quality Rules](../prompts/SHARED_PROMPT_PATTERNS.md#-keywords-quality-rules) — NEVER include section headings like "Deep Political Analysis", "What Happened", "Why This Matters"
 - Structured data (`application/ld+json`) — Must include `headline`, `description`, `datePublished`, `author`, and `about` fields referencing specific EP content
+
+**🛑 No-publish threshold**: If adopted texts feed and voting records yield fewer than 3 specific resolutions or votes, create an analysis-only PR instead. See [SHARED_PROMPT_PATTERNS.md Minimum Publication Threshold](../prompts/SHARED_PROMPT_PATTERNS.md#-minimum-publication-threshold-no-publish-rule).
 
 **Example AI-generated titles:**
 - ✅ `ECR Breaks Ranks on Tariff Response as Grand Coalition Holds on Banking Reform`
 - ✅ `Parliament Adopts Anti-Corruption Directive Despite PfE Opposition — Key Votes Analysed`
 - ✅ `Close Vote on Trade Measures Exposes Deep Divisions Within EPP and Renew`
+- ✅ `Defence and Trade Votes Signal Parliament's Geopolitical Pivot as Easter Recess Ends`
+- ✅ `Trade Defence and Anti-Corruption Lead Pre-Easter Sprint`
 
 **Meta description AI prompt:**
-> Based on the voting records and adopted texts from EP MCP data, generate a meta description (150-160 chars) that: (1) names the most significant vote/resolution, (2) states the outcome, (3) identifies the coalition dynamics. Never use generic descriptions.
+> Based on the voting records and adopted texts from EP MCP data, generate a meta description (150-160 chars) that: (1) names the most significant vote/resolution, (2) states the outcome, (3) identifies the coalition dynamics. Never use generic descriptions like "Recent parliamentary activities reveal key voting patterns".
 
 ## 🔗 ANALYSIS FILE REFERENCES (MANDATORY)
 
