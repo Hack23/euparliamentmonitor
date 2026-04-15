@@ -1119,12 +1119,12 @@ MISMATCH_LIST=""
 ARTICLE_SET=""
 for FILE in $ALL_TRANSLATED_FILES; do
   BASENAME=$(basename "$FILE" .html)
-  # Extract language code from filename (last segment after final hyphen)
-  FILE_LANG=$(echo "$BASENAME" | grep -oP '[a-z]{2}$')
+  # Extract language code from filename (last two chars after final hyphen)
+  FILE_LANG=$(echo "$BASENAME" | grep -oP '(?<=-)[a-z]{2}$')
   # Verify against <html lang> attribute
   HTML_LANG=$(grep -oP '<html[^>]*\slang="\K[^"]+' "$FILE" 2>/dev/null | head -1)
   if [ -n "$HTML_LANG" ] && [ "$HTML_LANG" != "$FILE_LANG" ]; then
-    MISMATCH_LIST="${MISMATCH_LIST}| \`$(basename $FILE)\` | \`$FILE_LANG\` | \`$HTML_LANG\` | ❌ MISMATCH |\n"
+    MISMATCH_LIST="${MISMATCH_LIST}| \`$(basename "$FILE")\` | \`$FILE_LANG\` | \`$HTML_LANG\` | ❌ MISMATCH |\n"
   fi
   # Count per language
   LANG_COUNTS="${LANG_COUNTS} ${FILE_LANG}"
@@ -1158,7 +1158,7 @@ for ENTRY in $LANG_FLAG_MAP; do
 done
 
 ARTICLE_COUNT=$(echo "$ARTICLE_SET" | tr ',' '\n' | grep -c '.' 2>/dev/null || echo 0)
-echo "📊 Articles: $ARTICLE_COUNT | Languages with files: $(echo $LANG_COUNTS | tr ' ' '\n' | sort -u | grep -c '.' || echo 0) | Total files: $TOTAL_FILES"
+echo "📊 Articles: $ARTICLE_COUNT | Languages with files: $(echo "$LANG_COUNTS" | tr ' ' '\n' | sort -u | grep -c '.' || echo 0) | Total files: $TOTAL_FILES"
 
 # ── Minimum translation enforcement ──
 if [ "$TOTAL_FILES" -lt 5 ]; then
@@ -1251,7 +1251,9 @@ PR_BODY="${PR_BODY}| HTML structure | ${VAL_ICON} ${VAL_STATUS} |\n"
 PR_BODY="${PR_BODY}| Language attributes | ${VAL_ICON} |\n"
 PR_BODY="${PR_BODY}| RTL/CJK layout | ${VAL_ICON} |\n"
 PR_BODY="${PR_BODY}| EP terminology | ${VAL_ICON} |\n"
-PR_BODY="${PR_BODY}| Filename↔lang match | $([ -n \"$MISMATCH_LIST\" ] && echo '❌ Mismatches' || echo '✅') |\n"
+FILENAME_MATCH_STATUS="✅"
+if [ -n "$MISMATCH_LIST" ]; then FILENAME_MATCH_STATUS="❌ Mismatches"; fi
+PR_BODY="${PR_BODY}| Filename↔lang match | ${FILENAME_MATCH_STATUS} |\n"
 PR_BODY="${PR_BODY}| 🔍 HTMLHint lint | ${VAL_ICON} |\n"
 PR_BODY="${PR_BODY}\n### 🔧 Pipeline\n\n"
 PR_BODY="${PR_BODY}- **Source**: English articles from content workflows\n"
