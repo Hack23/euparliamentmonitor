@@ -688,7 +688,7 @@ function synthesiseOverallRisk(
   }
 
   // Safe: risks.length > 0 is guaranteed by the guard above
-  const firstRisk = risks[0] ?? risks.at(0);
+  const firstRisk = risks[0];
   if (!firstRisk) {
     // This should never happen due to the guard above, but satisfies TypeScript
     return calculatePoliticalRiskScore('rare', 'negligible', `OVERALL-${assessmentId}`, `Fallback for ${date}`, [], [], 'low');

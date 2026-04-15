@@ -416,10 +416,32 @@ function detectBannedKeywords(html: string): string[] {
  * @returns Number of 0% metric values found in dashboard contexts
  */
 function detectZeroPercentMetrics(html: string): number {
-  // Match <span class="metric-value">0%</span> patterns
-  const metricPattern = /<span\s+class="metric-value"[^>]*>\s*0%\s*<\/span>/giu;
-  const matches = html.match(metricPattern);
-  return matches?.length ?? 0;
+  // Use indexOf-based search to avoid regex backtracking (ReDoS-safe)
+  let count = 0;
+  let searchFrom = 0;
+  const marker = 'class="metric-value"';
+  const zeroValue = '0%';
+
+  while (searchFrom < html.length) {
+    const markerPos = html.indexOf(marker, searchFrom);
+    if (markerPos === -1) break;
+
+    // Find the closing > of this tag
+    const tagClose = html.indexOf('>', markerPos);
+    if (tagClose === -1) break;
+
+    // Extract text between > and next <
+    const contentStart = tagClose + 1;
+    const nextTag = html.indexOf('<', contentStart);
+    if (nextTag === -1) break;
+
+    const textContent = html.slice(contentStart, nextTag).trim();
+    if (textContent === zeroValue) {
+      count++;
+    }
+    searchFrom = nextTag;
+  }
+  return count;
 }
 
 /**
@@ -430,19 +452,44 @@ function detectZeroPercentMetrics(html: string): number {
  * @returns Number of empty sections found
  */
 function countEmptySections(html: string): number {
-  const sectionPattern = /<section[^>]*>([\s\S]*?)<\/section>/giu;
+  // Use indexOf-based parsing to avoid regex backtracking (ReDoS-safe)
   let count = 0;
-  let match: RegExpExecArray | null;
+  let searchFrom = 0;
+  const openTag = '<section';
+  const closeTag = '</section>';
 
-  while ((match = sectionPattern.exec(html)) !== null) {
-    const content = (match[1] ?? '')
-      .replace(/<[^>]+>/gu, ' ')
-      .replace(/&[a-z]+;/giu, ' ')
-      .replace(/\s+/gu, ' ')
-      .trim();
-    if (content.length < MIN_SECTION_CONTENT_LENGTH) {
+  while (searchFrom < html.length) {
+    const openPos = html.toLowerCase().indexOf(openTag, searchFrom);
+    if (openPos === -1) break;
+
+    // Find end of opening tag
+    const tagClose = html.indexOf('>', openPos);
+    if (tagClose === -1) break;
+
+    // Find matching closing tag
+    const closePos = html.toLowerCase().indexOf(closeTag, tagClose);
+    if (closePos === -1) break;
+
+    // Extract inner HTML and strip tags to get plain text
+    const innerHtml = html.slice(tagClose + 1, closePos);
+    let plainText = '';
+    let inTag = false;
+    for (let i = 0; i < innerHtml.length; i++) {
+      const ch = innerHtml[i];
+      if (ch === '<') {
+        inTag = true;
+      } else if (ch === '>') {
+        inTag = false;
+      } else if (!inTag) {
+        plainText += ch;
+      }
+    }
+    plainText = plainText.replace(/\s+/gu, ' ').trim();
+
+    if (plainText.length < MIN_SECTION_CONTENT_LENGTH) {
       count++;
     }
+    searchFrom = closePos + closeTag.length;
   }
   return count;
 }
