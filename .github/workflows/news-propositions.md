@@ -740,7 +740,7 @@ european_parliament___get_procedures_feed({ timeframe: "one-week", limit: 50 })
 
 // Documents feed — recently updated legislative documents
 european_parliament___get_documents_feed({ timeframe: "one-week", limit: 50 })
-// ↳ FALLBACK if 404/timeout: european_parliament___get_plenary_documents({ year: <current-year>, limit: 50 })
+// ↳ FALLBACK if 404/timeout: european_parliament___get_plenary_documents({ year: <current-year>, limit: 50 }) + european_parliament___get_committee_documents({ year: <current-year>, limit: 50 })
 
 // Adopted texts feed — skip if feed returns empty (no new texts in last 12h)
 european_parliament___get_adopted_texts_feed({ timeframe: "one-day", limit: 20 })
@@ -806,7 +806,7 @@ european_parliament___track_legislation({ procedureId: "<procedure-ID-from-feed>
 // Fetch plenary session decisions for voting evidence
 european_parliament___get_meeting_decisions({ sittingId: "<sitting-ID>" })
 
-// Fetch voting records for cited sessions — MANDATORY for coalition behavior claims
+// Fetch voting records for cited sessions — MANDATORY for coalition behaviour claims
 european_parliament___get_voting_records({ sessionId: "<session-ID>", limit: 50 })
 
 // Fetch speeches for debate context and direct quotes

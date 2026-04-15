@@ -165,7 +165,7 @@ These endpoints use the `timeframe` parameter with supported values: `"today"`, 
 
 | Tool | Purpose | Key Parameters | Feed Fallback For |
 |------|---------|----------------|-------------------|
-| `get_plenary_sessions` | Plenary sessions | `dateFrom`/`dateTo`, `year`, `eventId`, `location`, `limit` | *(no feed equivalent — use dateFrom/dateTo for date range queries)* |
+| `get_plenary_sessions` | Plenary sessions | `dateFrom`/`dateTo`, `year`, `eventId`, `location`, `limit` | *(no dedicated sessions feed; use `get_plenary_session_documents_feed` for session documents when appropriate, or use dateFrom/dateTo for date range queries)* |
 | `get_events` | EP events | `dateFrom`/`dateTo`, `year`, `eventId`, `limit` | `get_events_feed` |
 | `get_procedures` | Legislative procedures | `year`, `processId`, `limit` | `get_procedures_feed` |
 | `get_adopted_texts` | Adopted texts | `year`, `docId`, `limit` | `get_adopted_texts_feed` |
@@ -238,7 +238,7 @@ When a feed endpoint fails (404/timeout/error), IMMEDIATELY try the correspondin
 | Tool | Purpose | Key Parameters |
 |------|---------|----------------|
 | `get_voting_records` | Aggregate plenary votes | `sessionId`, `mepId`, `limit` |
-| `analyze_voting_patterns` | MEP voting behavior | `mepId`, `dateFrom`/`dateTo`, `compareWithGroup` |
+| `analyze_voting_patterns` | MEP voting behaviour | `mepId`, `dateFrom`/`dateTo`, `compareWithGroup` |
 | `analyze_coalition_dynamics` | Political group alliances | `groupIds`, `dateFrom`/`dateTo`, `minimumCohesion` |
 | `detect_voting_anomalies` | Unusual voting patterns | `groupId`, `mepId`, `dateFrom`/`dateTo`, `sensitivityThreshold` |
 | `compare_political_groups` | Multi-dimension comparison | `groupIds` (min 2), `dimensions`, `dateFrom`/`dateTo` |

@@ -790,7 +790,7 @@ european_parliament___get_all_generated_stats({ category: "all", includePredicti
 european_parliament___get_voting_records({ dateFrom: "<last-month>", dateTo: "<today>", limit: 30 })
 
 // Coalition dynamics — ALWAYS call (uses structural data, works in DEGRADED MODE)
-european_parliament___analyze_coalition_dynamics({ dateFrom: "<last-month>", dateTo: "<today>" })
+european_parliament___analyze_coalition_dynamics({})
 ```
 
 **MANDATORY deep data collection** (call for EVERY procedure/adopted text cited in analysis):

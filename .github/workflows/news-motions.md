@@ -437,7 +437,7 @@ Use templates marked **PRIMARY** or **KEY** when generating analysis artifacts i
 | **Political Landscape** | `docs/analysis-methodology/political-landscape-analysis.md` | Optional reference — Group dynamics context, strategic overview |
 | **Coalition Dynamics** | `docs/analysis-methodology/coalition-dynamics-analysis.md` | **PRIMARY** — Coalition network, voting alignment, defection analysis |
 | **Legislative Risk** | `docs/analysis-methodology/legislative-risk-assessment.md` | Optional reference — Pipeline analysis, passage probability |
-| **MEP Scorecard** | `docs/analysis-methodology/mep-influence-scorecard.md` | **KEY** — Key actor voting behavior, influence scoring |
+| **MEP Scorecard** | `docs/analysis-methodology/mep-influence-scorecard.md` | **KEY** — Key actor voting behaviour, influence scoring |
 | **Weekly Brief** | `docs/analysis-methodology/weekly-intelligence-brief.md` | Optional reference — Early warning indicators, trend analysis |
 | **Committee Power** | `docs/analysis-methodology/committee-power-analysis.md` | Optional reference — Committee reports, institutional analysis |
 
@@ -454,7 +454,7 @@ Read and follow `docs/analysis-methodology/coalition-dynamics-analysis.md` for m
 
 | Template | File | Purpose for Motions |
 |----------|------|-------------------|
-| **MEP Scorecard** | `docs/analysis-methodology/mep-influence-scorecard.md` | Key actor voting behavior, influence scoring |
+| **MEP Scorecard** | `docs/analysis-methodology/mep-influence-scorecard.md` | Key actor voting behaviour, influence scoring |
 
 ### Quality Standards for Analysis Output
 
@@ -860,7 +860,7 @@ european_parliament___detect_voting_anomalies({})
 // OSINT: Political group alignment on motions
 european_parliament___analyze_coalition_dynamics({})
 
-// Voting records on motions — MANDATORY for any coalition behavior claims
+// Voting records on motions — MANDATORY for any coalition behaviour claims
 european_parliament___get_voting_records({ topic: "resolution", limit: 20 })
 ```
 

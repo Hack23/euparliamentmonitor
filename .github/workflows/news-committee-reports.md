@@ -426,7 +426,7 @@ For committee reports, do **not** apply every template by default. Use the requi
 | Template | File | When to Apply |
 |----------|------|--------------|
 | **Political Landscape** | `docs/analysis-methodology/political-landscape-analysis.md` | **OPTIONAL** — Use for group dynamics context or strategic overview when the committee activity has clear cross-group political significance |
-| **Coalition Dynamics** | `docs/analysis-methodology/coalition-dynamics-analysis.md` | **OPTIONAL** — Use for voting analysis or alliance patterns when evidence of coalition behavior is present |
+| **Coalition Dynamics** | `docs/analysis-methodology/coalition-dynamics-analysis.md` | **OPTIONAL** — Use for voting analysis or alliance patterns when evidence of coalition behaviour is present |
 | **Legislative Risk** | `docs/analysis-methodology/legislative-risk-assessment.md` | **KEY (required supporting template)** — Always use for dossier progress tracking and pipeline bottlenecks |
 | **MEP Scorecard** | `docs/analysis-methodology/mep-influence-scorecard.md` | **OPTIONAL** — Use for rapporteur influence or delegation analysis when member-level influence is material |
 | **Weekly Brief** | `docs/analysis-methodology/weekly-intelligence-brief.md` | **OPTIONAL** — Use for early warning indicators or trend analysis when developments justify a broader intelligence framing |
@@ -818,7 +818,7 @@ european_parliament___track_legislation({ procedureId: "<procedure-ID-from-feed>
 // Fetch plenary session decisions for voting evidence
 european_parliament___get_meeting_decisions({ sittingId: "<sitting-ID>" })
 
-// Fetch voting records for cited sessions — MANDATORY for coalition behavior claims
+// Fetch voting records for cited sessions — MANDATORY for coalition behaviour claims
 european_parliament___get_voting_records({ sessionId: "<session-ID>", limit: 50 })
 
 // Fetch speeches for debate context and direct quotes
