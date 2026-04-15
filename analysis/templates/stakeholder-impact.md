@@ -9,6 +9,8 @@
 
 > **🔴 AI ANALYSIS REQUIRED**: Every field in this template MUST be filled by the AI agent (Opus 4.6) through genuine analysis of the EP data. Never use scripted defaults, template placeholders in final output, or data-count summaries. Analyse what the data MEANS politically.
 
+> **🔴 Stakeholder Evidence Depth (NEW):** Political group stakeholder assessments MUST cite actual voting data (from `get_voting_records` or `get_meeting_decisions`) when claiming group positions on specific legislation. Claims like "ECR supported DGSD2 but abstained on SRMR3" require roll-call evidence. If voting records are unavailable, mark the claim as LOW confidence and note the evidence gap.
+
 ---
 
 ## 📋 Assessment Context

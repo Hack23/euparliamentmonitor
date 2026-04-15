@@ -665,7 +665,30 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 european_parliament___get_server_health({})
 ```
 
-> **📊 ADAPTIVE STRATEGY**: If health shows `Degraded`/`Sparse`/`Unavailable`, widen initial timeframe for ALL feeds and focus on `get_all_generated_stats` for precomputed context.
+> **📊 ADAPTIVE STRATEGY**: If health shows `Degraded`/`Sparse`/`Unavailable`, **enter DEGRADED MODE** immediately: widen initial timeframe from `"today"` to `"one-week"` for ALL feeds, use direct endpoint fallbacks for failed feeds, skip analytical tools that depend on upstream API calls, and focus on `get_all_generated_stats` for precomputed context.
+
+### ⚠️ DEGRADED MODE Protocol
+
+**Trigger**: `get_server_health` reports ≥50% feeds as `error`/`Degraded`/`Unavailable`, OR the first 2+ primary feed calls return INTERNAL_ERROR/timeout.
+
+**When in Degraded Mode:**
+
+1. **Skip `timeframe: "today"` entirely** — go directly to `timeframe: "one-week"` or `"one-month"` for ALL feed calls
+2. **Use direct endpoint fallbacks** when feeds fail (see table below)
+3. **Skip analytical tools that require live upstream API calls**: `detect_voting_anomalies`, `generate_political_landscape`, `early_warning_system` — record as `SKIPPED_DEGRADED_MODE` in manifest
+4. **Focus on reliable data sources**: `get_all_generated_stats` (precomputed), `analyze_coalition_dynamics` (cached structural data)
+5. **Still attempt ALL feed endpoints** with `one-week`/`one-month` timeframe — some feeds may work even when others don't
+6. **Still write ALL analysis artifacts** — use precomputed stats and whatever data was collected
+7. **Record degraded mode in manifest**: Set `"degradedMode": true`
+
+**Feed → Direct Endpoint Fallback Chain:**
+
+| Failed Feed | Direct Fallback | Parameters |
+|------------|----------------|------------|
+| `get_events_feed` | `get_events` | `{ dateFrom: "<today>", dateTo: "<next-month>", limit: 50 }` *(YYYY-MM-DD)* |
+| `get_procedures_feed` | `get_procedures` | `{ year: YYYY, limit: 50 }` |
+| `get_plenary_documents_feed` | `get_plenary_documents` | `{ year: YYYY, limit: 50 }` |
+| `get_plenary_session_documents_feed` | `get_plenary_session_documents` | `{ limit: 20 }` |
 
 ### 🚨 MANDATORY: EP Feed Endpoints (PRIMARY News Source)
 
@@ -674,18 +697,23 @@ european_parliament___get_server_health({})
 ```javascript
 // Events feed — THE primary data source for month-ahead (upcoming events, hearings, conferences)
 european_parliament___get_events_feed({ timeframe: "one-month", limit: 50 })
+// ↳ FALLBACK if 404/timeout: european_parliament___get_events({ dateFrom: "<today>", dateTo: "<next-month>", limit: 50 })
 
 // Procedures feed — legislative procedure updates and upcoming stages
 european_parliament___get_procedures_feed({ timeframe: "one-week", limit: 50 })
+// ↳ FALLBACK if 404/timeout: european_parliament___get_procedures({ year: <current-year>, limit: 50 })
 
 // Plenary documents feed — recently published plenary documents and agendas
 european_parliament___get_plenary_documents_feed({ timeframe: "one-week", limit: 50 })
+// ↳ FALLBACK if 404/timeout: european_parliament___get_plenary_documents({ year: <current-year>, limit: 50 })
 
 // Plenary session documents feed — session agendas, voting lists
 european_parliament___get_plenary_session_documents_feed({ timeframe: "one-week", limit: 20 })
 ```
 
 > **⚠️ ARTICLE CONTENT MUST COME FROM THESE FEEDS**: The article's lede, headlines, and primary sections must reference **specific upcoming events, sessions, or agenda items** found in these feed results.
+
+> **🔴 FEED FAILURE ≠ DATA UNAVAILABLE**: If a feed endpoint returns 404 or timeout, IMMEDIATELY try the corresponding direct endpoint from the fallback chain above. Do NOT skip the data.
 
 ### 📊 OPTIONAL: Background Context (Secondary — NEVER the news)
 
@@ -701,35 +729,52 @@ european_parliament___get_all_generated_stats({ category: "all", includePredicti
 ### ⚡ MCP Call Budget
 
 - **No hard limit on MCP calls**, but expect each call to take 30+ seconds. Plan time budget accordingly.
-- The **MCP Health Gate** (earlier in this workflow) calls `european_parliament___get_plenary_sessions({ limit: 1 })` with up to 3 retries — that health check is separate from data-gathering.
+- The **MCP Health Gate** (earlier in this workflow) calls `european_parliament___get_plenary_sessions({ limit: 1 })` with up to 3 retries — that is a dedicated health-check; reuse or discard its result
 - **Feed endpoints (MANDATORY)**: call all feed endpoints listed above FIRST — these are non-negotiable
 - **Precomputed stats**: call `european_parliament___get_all_generated_stats` once AFTER feeds — reuse across all sections
-- Each MCP tool may be called **at most once** — never call the same tool a second time
+- Each broad context MCP tool may be called **at most once** — never call the same broad tool a second time (including `get_plenary_sessions` — the health gate counts as its single invocation). **Exception:** deep-fetch tools (`track_legislation`, `get_meeting_decisions`, `get_speeches`, `get_voting_records`) may be called once **per cited item** (max 5 deep-fetch calls total)
 - If data looks sparse, generic, historical, or placeholder after the first call: **proceed to article generation immediately — do NOT retry**
 
 **MANDATORY supplementary tools** (ALWAYS call for comprehensive analysis — do NOT skip even if feed data is sparse for upcoming activity):
 
-```javascript
-const today = new Date().toISOString().split('T')[0];
-const nextMonth = new Date(Date.now() + 30 * 86400000).toISOString().split('T')[0];
+> **Note:** `get_plenary_sessions` was already called as the MCP Health Gate — do NOT call it again. Use the health-gate result or filter it by date in your analysis.
 
-european_parliament___get_plenary_sessions({ dateFrom: today, dateTo: nextMonth, limit: 50 })
+```javascript
+
+// Get committee info for context
 european_parliament___get_committee_info({ showCurrent: true })
+
+// Search for upcoming agenda items
 european_parliament___search_documents({ keyword: "plenary agenda", limit: 20 })
+
+// Monitor legislation at critical stages
 european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 20 })
-european_parliament___get_parliamentary_questions({ dateFrom: today, limit: 20 })
+
+// Parliamentary questions for upcoming topics
+european_parliament___get_parliamentary_questions({ dateFrom: "<today>", limit: 20 })
+
+// Political landscape overview — SKIP in DEGRADED MODE (depends on live EP API)
 european_parliament___generate_political_landscape({})
+
+// Coalition dynamics — ALWAYS call (uses structural data, works in DEGRADED MODE)
+european_parliament___analyze_coalition_dynamics({})
 ```
 
-### 📡 Preferred: EP API v2 Feed Endpoints for Recent Updates
-
-**Prefer feed endpoints for the latest parliamentary updates.** These return the most recently updated items:
+**MANDATORY deep data collection** (for cited upcoming procedures):
 
 ```javascript
-european_parliament___get_events_feed({ limit: 20 })
-european_parliament___get_procedures_feed({ limit: 20 })
-european_parliament___get_plenary_documents_feed({ limit: 20 })
+// Track specific procedures cited in analysis — repeat for each cited procedure ID
+european_parliament___track_legislation({ procedureId: "<procedure-ID-from-feed>" })
+
+// Fetch recent voting records for context on upcoming votes
+european_parliament___get_voting_records({ sessionId: "<recent-session-ID>", limit: 50 })
+
+// Fetch speeches for recent debate context
+european_parliament___get_speeches({ dateFrom: "<30-days-ago>", dateTo: "<today>", limit: 20 })
 ```
+
+> **🔴 VOTING EVIDENCE REQUIREMENT**: Any analysis predicting voting outcomes based on recent political group positions MUST cite actual `get_voting_records` data. If unavailable, mark predictions as LOW confidence.
+
 
 
 ## 🌍 World Bank Economic Context — Active Indicator Discovery

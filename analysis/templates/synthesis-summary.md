@@ -23,6 +23,10 @@
 
 > **🚨 Anti-Pattern Warning:** Plain prose without structured tables, Mermaid diagrams, or evidence citations is REJECTED. Every analysis file MUST follow this template exactly: metadata header, structured tables with evidence columns, ≥1 color-coded Mermaid diagram, confidence labels on all claims. See [ai-driven-analysis-guide.md](../methodologies/ai-driven-analysis-guide.md) for good vs. bad examples.
 
+> **🔴 Deep Data Requirement (NEW):** A synthesis that cites political group positions (e.g., "ECR split on trade vote") without actual voting record data from `get_voting_records` or `get_meeting_decisions` MUST mark those claims as LOW confidence. The synthesis MUST include a "Data Sources Used" section listing every MCP tool called, items returned, and any failed endpoints with the direct fallback attempted.
+
+> **🔴 Cross-Run Consistency (NEW):** When citing political group seat counts, use EXACTLY the same numbers as other analysis files in the same run. Inconsistencies between breaking-run and committee-reports-run on the same day (e.g., EPP=185 vs EPP=188) undermine credibility. Use a single canonical source per run and record it.
+
 ---
 
 ## 📋 Synthesis Context

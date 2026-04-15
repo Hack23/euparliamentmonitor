@@ -190,7 +190,11 @@ export interface AnalyzeLegislativeEffectivenessOptions {
 export interface VotingRecordsOptions {
   mepId?: string | undefined;
   sessionId?: string | undefined;
+  topic?: string | undefined;
+  dateFrom?: string | undefined;
+  dateTo?: string | undefined;
   limit?: number | undefined;
+  offset?: number | undefined;
 }
 
 /** Options for analyzing voting patterns */

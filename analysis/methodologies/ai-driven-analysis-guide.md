@@ -763,13 +763,27 @@ Every SWOT analysis section MUST contain:
 **Metadata-only analysis is unacceptable.** The analysis pipeline MUST download and store COMPLETE EP document data, not just document IDs and counts.
 
 **Required data for each EP item:**
-| Data Type | Minimum Fields Required |
-|-----------|------------------------|
-| Adopted Texts | Full title, work type, procedure reference, adoption date, document ID, committee(s), related procedures |
-| Procedures | Full title, procedure type (COD/NLE/APP), current stage, committee(s), rapporteur, timeline events |
-| Events | Full title, date, location, type, participating committees, agenda items |
-| Documents | Full title, document type, committee, date, reference number, related procedures |
-| MEP Updates | Full name, political group, country, mandate changes, committee assignments |
+| Data Type | Minimum Fields Required | Primary MCP Tool | Fallback Tool |
+|-----------|------------------------|------------------|---------------|
+| Adopted Texts | Full title, work type, procedure reference, adoption date, document ID, committee(s), related procedures | `get_adopted_texts_feed` | `get_adopted_texts({ year: YYYY, limit: 100 })` |
+| Procedures | Full title, procedure type (COD/NLE/APP), current stage, committee(s), rapporteur, timeline events | `get_procedures_feed` | `get_procedures({ year: YYYY, limit: 50 })` + `track_legislation({ procedureId: "..." })` per cited procedure |
+| Events | Full title, date, location, type, participating committees, agenda items | `get_events_feed` | `get_events({ dateFrom: "...", dateTo: "...", limit: 50 })` |
+| Documents | Full title, document type, committee, date, reference number, related procedures | `get_documents_feed` | `get_committee_documents({ year: YYYY })` + `get_plenary_documents({ year: YYYY })` |
+| MEP Updates | Full name, political group, country, mandate changes, committee assignments | `get_meps_feed` | `get_current_meps({ limit: 100 })` |
+| Voting Records | For/against/abstain counts per political group for cited sessions | *(no feed)* | `get_voting_records({ sessionId: "...", limit: 50 })` |
+| Meeting Decisions | Adopted decisions and voting outcomes for cited plenary sittings | *(no feed)* | `get_meeting_decisions({ sittingId: "..." })` |
+| Speeches | Key debate contributions for context and direct quotes | *(no feed)* | `get_speeches({ dateFrom: "...", dateTo: "...", limit: 20 })` |
+
+**🔴 CRITICAL: Feed Failure Does NOT Excuse Missing Data**
+
+When feed endpoints return 404 or timeout, the agent MUST attempt the corresponding direct endpoint fallback. Reporting "0 procedures" because `get_procedures_feed` returned 404 — without trying `get_procedures({ year: 2026, limit: 50 })` — is a quality failure.
+
+**🔴 CRITICAL: Voting Records Are Mandatory for Coalition Claims**
+
+Any analysis that asserts political group voting behavior (e.g., "ECR split on trade vote", "broad cross-party support") MUST attempt `get_voting_records` for the relevant plenary session. If voting records are unavailable (EP API publishes roll-call data with a delay), the analysis MUST:
+1. State "voting records not yet available for this session"
+2. Mark coalition claims as LOW confidence
+3. Use `analyze_coalition_dynamics` for structural analysis only (not behavioral claims)
 
 **The `document-analysis` method is now enabled by default** — it stores per-document analysis markdown AND complete raw JSON data in `documents/raw-data/`. This ensures that:
 1. Every EP document downloaded via MCP is preserved in full
@@ -779,7 +793,9 @@ Every SWOT analysis section MUST contain:
 **Anti-patterns (REJECTED):**
 - ❌ `"Events: 42"` — must include full event titles and details
 - ❌ `"Adopted Texts: 19"` — must include each text's title, procedure type, and significance
-- ❌ `"0 procedures tracked"` without checking MCP data — must explain data gaps
+- ❌ `"0 procedures tracked"` without checking direct endpoint fallback — must explain data gaps AND confirm fallback was attempted
+- ❌ Asserting "ECR split on Banking Union" without citing `get_voting_records` data — must attempt voting record fetch first
+- ❌ Using different seat counts across analysis files in the same run — use one canonical source
 
 ### Rule 15: Analysis-First Article Decisions — Topic Chosen After Scoring
 

@@ -448,7 +448,7 @@ Use templates marked **PRIMARY** or **KEY** when generating analysis artifacts i
 | **Political Landscape** | `docs/analysis-methodology/political-landscape-analysis.md` | Optional reference — Group dynamics context, strategic overview |
 | **Coalition Dynamics** | `docs/analysis-methodology/coalition-dynamics-analysis.md` | **PRIMARY** — Coalition network, voting alignment, defection analysis |
 | **Legislative Risk** | `docs/analysis-methodology/legislative-risk-assessment.md` | Optional reference — Pipeline analysis, passage probability |
-| **MEP Scorecard** | `docs/analysis-methodology/mep-influence-scorecard.md` | **KEY** — Key actor voting behavior, influence scoring |
+| **MEP Scorecard** | `docs/analysis-methodology/mep-influence-scorecard.md` | **KEY** — Key actor voting behaviour, influence scoring |
 | **Weekly Brief** | `docs/analysis-methodology/weekly-intelligence-brief.md` | Optional reference — Early warning indicators, trend analysis |
 | **Committee Power** | `docs/analysis-methodology/committee-power-analysis.md` | Optional reference — Committee reports, institutional analysis |
 
@@ -465,7 +465,7 @@ Read and follow `docs/analysis-methodology/coalition-dynamics-analysis.md` for m
 
 | Template | File | Purpose for Motions |
 |----------|------|-------------------|
-| **MEP Scorecard** | `docs/analysis-methodology/mep-influence-scorecard.md` | Key actor voting behavior, influence scoring |
+| **MEP Scorecard** | `docs/analysis-methodology/mep-influence-scorecard.md` | Key actor voting behaviour, influence scoring |
 
 ### Quality Standards for Analysis Output
 
@@ -789,7 +789,30 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 european_parliament___get_server_health({})
 ```
 
-> **📊 ADAPTIVE STRATEGY**: If health shows `Degraded`/`Sparse`/`Unavailable`, widen initial timeframe for ALL feeds and focus on `get_all_generated_stats` for precomputed context.
+> **📊 ADAPTIVE STRATEGY**: If health shows `Degraded`/`Sparse`/`Unavailable`, **enter DEGRADED MODE** immediately (see protocol below): widen initial timeframe from `"today"` to `"one-week"` for ALL feeds, skip analytical tools that depend on upstream API calls, use direct endpoint fallbacks for failed feeds, and focus on `get_all_generated_stats` for precomputed context.
+
+### ⚠️ DEGRADED MODE Protocol
+
+**Trigger**: `get_server_health` reports ≥50% feeds as `error`/`Degraded`/`Unavailable`, OR the first 2+ primary feed calls return INTERNAL_ERROR/timeout.
+
+**When in Degraded Mode:**
+
+1. **Skip `timeframe: "today"` entirely** — go directly to `timeframe: "one-week"` for ALL feed calls
+2. **Use direct endpoint fallbacks** when feeds fail (see table below)
+3. **Skip analytical tools that require live upstream API calls**: `detect_voting_anomalies`, `generate_political_landscape`, `early_warning_system` — record as `SKIPPED_DEGRADED_MODE` in manifest
+4. **Focus on reliable data sources**: `get_all_generated_stats` (precomputed), `analyze_coalition_dynamics` (cached structural data)
+5. **Still attempt ALL feed endpoints** with `one-week` timeframe — some feeds may work even when others don't
+6. **Still write ALL analysis artifacts** — use precomputed stats and whatever data was collected
+7. **Record degraded mode in manifest**: Set `"degradedMode": true`
+
+**Feed → Direct Endpoint Fallback Chain:**
+
+| Failed Feed | Direct Fallback | Parameters |
+|------------|----------------|------------|
+| `get_adopted_texts_feed` | `get_adopted_texts` | `{ year: YYYY, limit: 100 }` |
+| `get_procedures_feed` | `get_procedures` | `{ year: YYYY, limit: 50 }` |
+| `get_parliamentary_questions_feed` | `get_parliamentary_questions` | `{ type: "WRITTEN", limit: 20 }` |
+| `get_events_feed` | `get_events` | `{ dateFrom: "<7-days-ago>", dateTo: "<today>", limit: 50 }` *(YYYY-MM-DD)* |
 
 ### 🚨 MANDATORY: EP Feed Endpoints (PRIMARY News Source)
 
@@ -798,18 +821,23 @@ european_parliament___get_server_health({})
 ```javascript
 // Adopted texts feed — skip if feed returns empty (no new texts in last 12h)
 european_parliament___get_adopted_texts_feed({ timeframe: "one-day", limit: 50 })
+// ↳ FALLBACK if 404/timeout: european_parliament___get_adopted_texts({ year: <current-year>, limit: 100 })
 
 // Parliamentary questions feed — recent questions and interpellations
 european_parliament___get_parliamentary_questions_feed({ timeframe: "one-week", limit: 50 })
+// ↳ FALLBACK if 404/timeout: european_parliament___get_parliamentary_questions({ type: "WRITTEN", limit: 20 })
 
 // MEPs feed — recent MEP updates relevant to motions
 european_parliament___get_meps_feed({ timeframe: "one-week", limit: 20 })
 
 // Procedures feed — legislative procedure updates
 european_parliament___get_procedures_feed({ timeframe: "one-week", limit: 20 })
+// ↳ FALLBACK if 404/timeout: european_parliament___get_procedures({ year: <current-year>, limit: 50 })
 ```
 
 > **⚠️ ARTICLE CONTENT MUST COME FROM THESE FEEDS**: The article's lede, headlines, and primary sections must reference **specific adopted texts, resolutions, or motions** found in these feed results. If feeds return items, those items ARE the news. If feeds return no recent items, still perform full analysis and create an analysis-only PR per `ai-driven-analysis-guide.md` Rule 5 — do NOT fall back to writing an article from precomputed stats.
+
+> **🔴 FEED FAILURE ≠ DATA UNAVAILABLE**: If a feed endpoint returns 404 or timeout, IMMEDIATELY try the corresponding direct endpoint from the fallback chain above. Do NOT skip the data — the underlying EP database is often working even when feeds are down.
 
 ### 📊 OPTIONAL: Background Context (Secondary — NEVER the news)
 
@@ -827,7 +855,7 @@ european_parliament___get_all_generated_stats({ category: "all", includePredicti
 - **No hard limit on MCP calls**, but expect each call to take 30+ seconds. Plan time budget accordingly.
 - **Feed endpoints (MANDATORY)**: call all feed endpoints listed above FIRST — these are non-negotiable
 - **Precomputed stats**: call `european_parliament___get_all_generated_stats` once AFTER feeds — reuse across all sections
-- **Call each selected tool at most once** — never call the same tool a second time in the same run
+- **Call each broad context tool at most once** — never call the same broad tool a second time during initial data gathering. **Exception:** deep-fetch tools (`track_legislation`, `get_meeting_decisions`, `get_speeches`, `get_voting_records`) may be called once **per cited item** (max 5 deep-fetch calls **total across all deep-fetch tools** — prioritize by: (1) items directly supporting article claims, (2) items with voting/coalition implications, (3) most recent items)
 - If data looks sparse, generic, historical, or placeholder after the first call to a tool: **proceed to article generation immediately — do NOT retry that tool**
 - If you notice you are about to call a tool you already called, **STOP data gathering and move to generation**
 
@@ -843,12 +871,35 @@ european_parliament___detect_voting_anomalies({})
 // OSINT: Political group alignment on motions
 european_parliament___analyze_coalition_dynamics({})
 
-// Voting records on motions
-european_parliament___get_voting_records({ topic: "resolution", limit: 20 })
+// Voting records on motions — MANDATORY for any coalition behaviour claims
+// Prefer sessionId when available; otherwise bound with dateFrom/dateTo
+european_parliament___get_voting_records({ sessionId: "<session-ID-from-plenary>", topic: "resolution", limit: 20 })
+// ↳ FALLBACK if no sessionId: get_voting_records({ topic: "resolution", dateFrom: "<7-days-ago>", dateTo: "<today>", limit: 20 })
+```
 
-// Parliament-wide landscape for context
+**MANDATORY deep data collection** (call for the most significant cited procedures/texts, up to the **max 5 deep-fetch calls** cap; prioritize by: (1) items directly supporting article claims, (2) items with voting/coalition implications, (3) most recent items):
+
+```javascript
+// Track specific procedures cited in analysis — repeat for each cited procedure ID (up to cap)
+european_parliament___track_legislation({ procedureId: "<procedure-ID-from-feed>" })
+
+// Fetch plenary session decisions for voting evidence
+european_parliament___get_meeting_decisions({ sittingId: "<sitting-ID>" })
+
+// Fetch speeches for debate context and direct quotes
+european_parliament___get_speeches({ dateFrom: "<7-days-ago>", dateTo: "<today>", limit: 20 })
+```
+
+> **🔴 VOTING EVIDENCE REQUIREMENT**: Any analysis that claims political group voting positions (e.g., "ECR split on resolution") MUST cite actual data from `get_voting_records` or `get_meeting_decisions`. If voting records are unavailable, mark coalition claims as LOW confidence.
+
+**CONDITIONAL analytical tools** (skip in DEGRADED MODE — they depend on the same EP API that may be failing):
+
+```javascript
+// Parliament-wide landscape for context — SKIP in DEGRADED MODE
 european_parliament___generate_political_landscape({})
 ```
+
+> **Note:** `detect_voting_anomalies` is already called in the mandatory supplementary block above — do NOT call it again here.
 
 ### Handling Slow API Responses
 
@@ -1010,9 +1061,10 @@ Fetch all required data from the European Parliament MCP server:
 // Fetch in parallel for efficiency
 european_parliament___search_documents({ keyword: "motion for resolution", limit: 20 })
 european_parliament___get_parliamentary_questions({ limit: 10 })
-european_parliament___detect_voting_anomalies({})
+// NOTE: detect_voting_anomalies already called in mandatory supplementary tools — reuse that result
 european_parliament___analyze_coalition_dynamics({})
-european_parliament___get_voting_records({ topic: "resolution", limit: 20 })
+european_parliament___get_voting_records({ sessionId: "<session-ID>", topic: "resolution", limit: 20 })
+// ↳ FALLBACK if no sessionId: get_voting_records({ topic: "resolution", dateFrom: "<7-days-ago>", dateTo: "<today>", limit: 20 })
 european_parliament___compare_political_groups({ groupIds: ["EPP", "S&D", "Renew", "Greens/EFA", "ECR"] })
 ```
 
