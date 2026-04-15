@@ -630,19 +630,7 @@ export async function fetchWeekAheadData(
 
   return {
     events:
-      events.length > 0
-        ? events
-        : [
-            {
-              ...(PLACEHOLDER_EVENTS[0] ?? {
-                date: '',
-                title: 'Placeholder',
-                type: 'Plenary',
-                description: 'Placeholder event',
-              }),
-              date: dateRange.start,
-            },
-          ],
+      events.length > 0 ? events : PLACEHOLDER_EVENTS.map((e) => ({ ...e, date: dateRange.start })),
     committees: parseCommitteeMeetings(committeeInfo, dateRange.start),
     documents: parseLegislativeDocuments(documents),
     pipeline: parseLegislativePipeline(pipeline),
