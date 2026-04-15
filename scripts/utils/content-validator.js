@@ -151,6 +151,21 @@ const MIN_SECTION_CONTENT_LENGTH = 10;
  * whether the tag is inside a pipeline-health/pipeline-metrics container.
  */
 const PIPELINE_CONTEXT_LOOKBEHIND_CHARS = 2000;
+/**
+ * HTML entity → decoded character pairs used by the single-pass decoder.
+ * Longest entities are listed first so that `&amp;` doesn't greedily match
+ * inside `&amp;lt;` before the full entity `&amp;lt;` is checked.
+ */
+const ENTITY_PAIRS = [
+    ['&mdash;', '—'],
+    ['&ndash;', '–'],
+    ['&rarr;', '→'],
+    ['&quot;', '"'],
+    ['&amp;', '&'],
+    ['&#39;', "'"],
+    ['&lt;', '<'],
+    ['&gt;', '>'],
+];
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 // stripScriptBlocks is imported from html-sanitize.ts
 /**
@@ -313,19 +328,40 @@ function checkMetaTagSync(html) {
  * Decode common HTML entities that appear in meta keyword values.
  * Only covers the entities actually used by the article template engine.
  *
+ * Uses a single-pass scan to avoid double-unescaping (e.g. `&amp;lt;`
+ * becomes `&lt;`, NOT `<`). Each `&` in the input is checked once;
+ * decoded replacements are never re-scanned.
+ *
  * @param s - String potentially containing HTML entities
  * @returns The string with common entities decoded
  */
 function decodeKeywordEntities(s) {
-    return s
-        .replace(/&amp;/giu, '&')
-        .replace(/&lt;/giu, '<')
-        .replace(/&gt;/giu, '>')
-        .replace(/&quot;/giu, '"')
-        .replace(/&#39;/gu, "'")
-        .replace(/&mdash;/giu, '—')
-        .replace(/&ndash;/giu, '–')
-        .replace(/&rarr;/giu, '→');
+    const parts = [];
+    let i = 0;
+    while (i < s.length) {
+        const ch = s[i] ?? '';
+        if (ch === '&') {
+            const rest = s.slice(i).toLowerCase();
+            let matched = false;
+            for (const [entity, replacement] of ENTITY_PAIRS) {
+                if (rest.startsWith(entity)) {
+                    parts.push(replacement);
+                    i += entity.length;
+                    matched = true;
+                    break;
+                }
+            }
+            if (!matched) {
+                parts.push(ch);
+                i++;
+            }
+        }
+        else {
+            parts.push(ch);
+            i++;
+        }
+    }
+    return parts.join('');
 }
 /**
  * Normalize a keyword token for comparison: decode HTML entities,
