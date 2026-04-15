@@ -681,7 +681,7 @@ european_parliament___get_server_health({})
 
 | Failed Feed | Direct Fallback | Parameters |
 |------------|----------------|------------|
-| `get_events_feed` | `get_events` | `{ dateFrom: "today", dateTo: "next-month", limit: 50 }` |
+| `get_events_feed` | `get_events` | `{ dateFrom: "<today>", dateTo: "<next-month>", limit: 50 }` *(YYYY-MM-DD)* |
 | `get_procedures_feed` | `get_procedures` | `{ year: YYYY, limit: 50 }` |
 | `get_plenary_documents_feed` | `get_plenary_documents` | `{ year: YYYY, limit: 50 }` |
 | `get_plenary_session_documents_feed` | `get_plenary_session_documents` | `{ limit: 20 }` |
@@ -725,17 +725,17 @@ european_parliament___get_all_generated_stats({ category: "all", includePredicti
 ### ⚡ MCP Call Budget
 
 - **No hard limit on MCP calls**, but expect each call to take 30+ seconds. Plan time budget accordingly.
-- The **MCP Health Gate** (earlier in this workflow) calls `european_parliament___get_plenary_sessions({ limit: 1 })` with up to 3 retries — that health check is separate from data-gathering.
+- The **MCP Health Gate** (earlier in this workflow) calls `european_parliament___get_plenary_sessions({ limit: 1 })` with up to 3 retries — that is a dedicated health-check; reuse or discard its result
 - **Feed endpoints (MANDATORY)**: call all feed endpoints listed above FIRST — these are non-negotiable
 - **Precomputed stats**: call `european_parliament___get_all_generated_stats` once AFTER feeds — reuse across all sections
-- Each MCP tool may be called **at most once** — never call the same tool a second time
+- Each MCP tool may be called **at most once** — never call the same tool a second time (including `get_plenary_sessions` — the health gate counts as its single invocation)
 - If data looks sparse, generic, historical, or placeholder after the first call: **proceed to article generation immediately — do NOT retry**
 
 **MANDATORY supplementary tools** (ALWAYS call for comprehensive analysis — do NOT skip even if feed data is sparse for upcoming activity):
 
+> **Note:** `get_plenary_sessions` was already called as the MCP Health Gate — do NOT call it again. Use the health-gate result or filter it by date in your analysis.
+
 ```javascript
-// Get upcoming plenary sessions
-european_parliament___get_plenary_sessions({ dateFrom: "<today>", dateTo: "<next-month>", limit: 50 })
 
 // Get committee info for context
 european_parliament___get_committee_info({ showCurrent: true })

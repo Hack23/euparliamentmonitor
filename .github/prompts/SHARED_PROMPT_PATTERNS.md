@@ -270,7 +270,7 @@ When a feed endpoint fails (404/timeout/error), IMMEDIATELY try the correspondin
 | `search_documents({ query: "climate" })` | `search_documents({ keyword: "climate" })` | v1.2.7 uses `keyword`, not `query`; also supports `documentType`, `docId` |
 | `get_adopted_texts_feed({ timeframe: "three-months" })` | `get_adopted_texts_feed({ timeframe: "one-month" })` | Valid timeframes: `today`, `one-day`, `one-week`, `one-month`, `custom` |
 | `compare_political_groups({ groups: ["EPP", "S&D"] })` | `compare_political_groups({ groupIds: ["EPP", "S&D"] })` | v1.2.7 uses `groupIds`, not `groups` |
-| `get_voting_records({ topic: "climate" })` | `get_voting_records({ sessionId: "...", limit: 50 })` | Prefer `sessionId` as primary selector; `topic`/`dateFrom`/`dateTo` supported as bounded fallback |
+| `get_voting_records({ topic: "climate" })` *(unbounded)* | `get_voting_records({ sessionId: "...", limit: 50 })` or `get_voting_records({ topic: "climate", dateFrom: "...", dateTo: "...", limit: 50 })` | `topic` is supported but always combine with `sessionId` or `dateFrom`/`dateTo` to bound results |
 | `get_mep_details({ name: "Weber" })` | `get_mep_details({ id: "MEP-124810" })` | Must use MEP ID, not name |
 
 ### World Bank MCP Tools (Economic Context Enrichment)

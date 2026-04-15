@@ -745,7 +745,7 @@ european_parliament___get_parliamentary_questions_feed({ timeframe: "one-month",
 > **⚠️ RELIABLE ENDPOINTS**: The following tools consistently return data and should ALWAYS be called:
 > - `european_parliament___get_adopted_texts_feed({ timeframe: "one-month" })` — **most reliable feed**, rarely times out
 > - `european_parliament___get_adopted_texts({ year: CURRENT_YEAR, limit: 20 })` — **always works** with year filter
-> - `european_parliament___get_plenary_sessions({ dateFrom: "...", dateTo: "...", limit: 10 })` — **always works** with date filter
+> - `european_parliament___get_plenary_sessions({ limit: 1 })` — **always works** (called as MCP Health Gate; reuse its result, do not call again)
 
 > **⚠️ ARTICLE CONTENT MUST COME FROM THESE FEEDS**: The article's lede, headlines, and primary sections must reference **specific adopted texts, voting results, or procedure updates** found in these feed results. If feeds return items, those items ARE the news.
 
@@ -777,11 +777,11 @@ european_parliament___get_all_generated_stats({ category: "all", includePredicti
 - **No hard limit on MCP calls**, but expect each call to take 30+ seconds. Plan time budget accordingly.
 - **Feed endpoints (MANDATORY)**: call all feed endpoints listed above FIRST — these are non-negotiable
 - **Precomputed stats**: call `european_parliament___get_all_generated_stats` once AFTER feeds — reuse across all sections
-- **Health-gate connectivity check**: call `european_parliament___get_plenary_sessions({ limit: 1 })` at the start to verify MCP health (up to 3 attempts with 30-second delays); must **not** be repeated after it succeeds
-- **Per-tool limit (no retries)**: each MCP tool may be called **at most once per workflow run** — never call the same tool a second time
+- **Health-gate connectivity check**: call `european_parliament___get_plenary_sessions({ limit: 1 })` at the start to verify MCP health (up to 3 attempts with 30-second delays); reuse or discard its result — do NOT call `get_plenary_sessions` again
+- **Per-tool limit (no retries)**: each MCP tool may be called **at most once per workflow run** — never call the same tool a second time (including `get_plenary_sessions` — the health gate counts as its single invocation)
 - If data from a tool looks sparse, generic, historical, or placeholder after its first call, **proceed to article generation immediately — do NOT retry that tool**
 
-**ALWAYS call `european_parliament___get_plenary_sessions` FIRST as the mandatory MCP Health Gate / warm-up and connectivity check (up to 3 attempts). Do not call it again after it succeeds.**
+**ALWAYS call `european_parliament___get_plenary_sessions` FIRST as the mandatory MCP Health Gate / warm-up and connectivity check (up to 3 attempts). Do not call it again after it succeeds — reuse its result or filter by date in analysis.**
 
 **MANDATORY supplementary tools** (ALWAYS call for comprehensive analysis — do NOT skip even if feed data is sparse for activity this month — replace placeholders with actual ISO dates):
 
