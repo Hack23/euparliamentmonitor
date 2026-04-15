@@ -543,14 +543,28 @@ function detectZeroPercentMetrics(html) {
  * Check whether a position in the HTML is inside a pipeline-health/metrics context.
  * Looks backward up to 2000 chars for pipeline marker class names.
  *
+ * If a `trend-panel` marker appears *after* the nearest pipeline marker,
+ * the element is inside a trend panel (not pipeline), so return false.
+ * This avoids flagging legitimate WoW/MoM 0% deltas rendered by
+ * `buildTrendPanel` that happen to fall within the look-behind window.
+ *
  * @param lowerHtml - Lowercase HTML string
  * @param position - Current scan position
  * @returns true if inside a pipeline context
  */
 function isInPipelineContext(lowerHtml, position) {
     const precedingHtml = lowerHtml.slice(Math.max(0, position - PIPELINE_CONTEXT_LOOKBEHIND_CHARS), position);
-    return (precedingHtml.lastIndexOf('pipeline-metrics') !== -1 ||
-        precedingHtml.lastIndexOf('pipeline-health') !== -1);
+    const pipelineMetricsPos = precedingHtml.lastIndexOf('pipeline-metrics');
+    const pipelineHealthPos = precedingHtml.lastIndexOf('pipeline-health');
+    const lastPipelinePos = Math.max(pipelineMetricsPos, pipelineHealthPos);
+    if (lastPipelinePos === -1)
+        return false;
+    // If a trend-panel marker appears after the pipeline marker, the element
+    // is inside a trend panel, not the pipeline panel.
+    const trendPanelPos = precedingHtml.lastIndexOf('trend-panel');
+    if (trendPanelPos !== -1 && trendPanelPos > lastPipelinePos)
+        return false;
+    return true;
 }
 /**
  * Strip HTML tags from a string using a simple character scanner.

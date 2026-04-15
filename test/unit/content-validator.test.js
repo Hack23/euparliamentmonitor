@@ -928,6 +928,34 @@ describe('zero-percent metric detection', () => {
     );
     expect(zeroWarning).toBeUndefined();
   });
+
+  it('should not flag trend-panel 0% when it follows a pipeline panel within look-behind window', () => {
+    // Regression: pipeline panel followed by trend panel with 0% WoW delta.
+    // The trend-panel marker should override the earlier pipeline marker.
+    const bodyText = `
+      <div class="dashboard-panel pipeline-panel pipeline-healthy" role="region">
+        <div class="pipeline-health-indicator pipeline-healthy">
+          <span class="metric-label">Health</span>
+          <span class="metric-value">85%</span>
+        </div>
+      </div>
+      <div class="dashboard-panel trend-panel" role="region">
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <span class="metric-label">Week-over-Week</span>
+            <span class="metric-value">0%</span>
+          </div>
+        </div>
+      </div>
+      ${Array(80).fill('Content filler words for test').join(' ')}
+    `;
+    const html = buildArticleHtml(bodyText);
+    const result = validateArticleContent(html, 'en', 'propositions');
+    const zeroWarning = result.warnings.find((w) =>
+      w.includes('Dashboard renders') && w.includes('"0%"')
+    );
+    expect(zeroWarning).toBeUndefined();
+  });
 });
 
 describe('empty section detection', () => {
