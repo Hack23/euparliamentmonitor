@@ -667,7 +667,30 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 european_parliament___get_server_health({})
 ```
 
-> **📊 ADAPTIVE STRATEGY**: If health shows `Degraded`/`Sparse`/`Unavailable`, widen initial timeframe for ALL feeds and focus on `get_all_generated_stats` for precomputed context.
+> **📊 ADAPTIVE STRATEGY**: If health shows `Degraded`/`Sparse`/`Unavailable`, **enter DEGRADED MODE** immediately: widen initial timeframe from `"today"` to `"one-week"` for ALL feeds, use direct endpoint fallbacks for failed feeds, skip analytical tools that depend on upstream API calls, and focus on `get_all_generated_stats` for precomputed context.
+
+### ⚠️ DEGRADED MODE Protocol
+
+**Trigger**: `get_server_health` reports ≥50% feeds as `error`/`Degraded`/`Unavailable`, OR the first 2+ primary feed calls return INTERNAL_ERROR/timeout.
+
+**When in Degraded Mode:**
+
+1. **Skip `timeframe: "today"` entirely** — go directly to `timeframe: "one-week"` for ALL feed calls
+2. **Use direct endpoint fallbacks** when feeds fail (see table below)
+3. **Skip analytical tools that require live upstream API calls**: `detect_voting_anomalies`, `generate_political_landscape`, `early_warning_system` — record as `SKIPPED_DEGRADED_MODE` in manifest
+4. **Focus on reliable data sources**: `get_all_generated_stats` (precomputed), `analyze_coalition_dynamics` (cached structural data)
+5. **Still attempt ALL feed endpoints** with `one-week` timeframe — some feeds may work even when others don't
+6. **Still write ALL analysis artifacts** — use precomputed stats and whatever data was collected
+7. **Record degraded mode in manifest**: Set `"degradedMode": true`
+
+**Feed → Direct Endpoint Fallback Chain:**
+
+| Failed Feed | Direct Fallback | Parameters |
+|------------|----------------|------------|
+| `get_events_feed` | `get_events` | `{ dateFrom: "today", dateTo: "next-week", limit: 50 }` |
+| `get_procedures_feed` | `get_procedures` | `{ year: YYYY, limit: 50 }` |
+| `get_plenary_documents_feed` | `get_plenary_documents` | `{ year: YYYY, limit: 50 }` |
+| `get_plenary_session_documents_feed` | `get_plenary_sessions` | `{ dateFrom: "today", dateTo: "next-week", limit: 20 }` |
 
 ### 🚨 MANDATORY: EP Feed Endpoints (PRIMARY News Source)
 
@@ -676,18 +699,23 @@ european_parliament___get_server_health({})
 ```javascript
 // Events feed — THE primary data source for week-ahead (upcoming events, hearings, conferences)
 european_parliament___get_events_feed({ timeframe: "one-week", limit: 50 })
+// ↳ FALLBACK if 404/timeout: european_parliament___get_events({ dateFrom: "<today>", dateTo: "<next-week>", limit: 50 })
 
 // Procedures feed — legislative procedure updates and upcoming stages
 european_parliament___get_procedures_feed({ timeframe: "one-week", limit: 50 })
+// ↳ FALLBACK if 404/timeout: european_parliament___get_procedures({ year: 2026, limit: 50 })
 
 // Plenary documents feed — recently published plenary documents and agendas
 european_parliament___get_plenary_documents_feed({ timeframe: "one-week", limit: 50 })
+// ↳ FALLBACK if 404/timeout: european_parliament___get_plenary_documents({ year: 2026, limit: 50 })
 
 // Plenary session documents feed — session agendas and voting lists
 european_parliament___get_plenary_session_documents_feed({ timeframe: "one-week", limit: 20 })
 ```
 
 > **⚠️ ARTICLE CONTENT MUST COME FROM THESE FEEDS**: The article's lede, headlines, and primary sections must reference **specific upcoming events, sessions, or agenda items** found in these feed results. If feeds return items, those items ARE the news.
+
+> **🔴 FEED FAILURE ≠ DATA UNAVAILABLE**: If a feed endpoint returns 404 or timeout, IMMEDIATELY try the corresponding direct endpoint from the fallback chain above. Do NOT skip the data.
 
 ### 📊 OPTIONAL: Background Context (Secondary — NEVER the news)
 
@@ -714,18 +742,37 @@ european_parliament___get_all_generated_stats({ category: "all", includePredicti
 
 ```javascript
 // Get upcoming plenary sessions
-const today = new Date().toISOString().split('T')[0];
-const nextWeek = new Date(Date.now() + 7 * 86400000).toISOString().split('T')[0];
+european_parliament___get_plenary_sessions({ dateFrom: "<today>", dateTo: "<next-week>", limit: 50 })
 
-european_parliament___get_plenary_sessions({ startDate: today, endDate: nextWeek, limit: 50 })
-
-// Get committee meetings
-european_parliament___get_committee_info({ dateFrom: today, dateTo: nextWeek, limit: 20 })
+// Get committee info for context
+european_parliament___get_committee_info({ showCurrent: true })
 
 // Monitor legislation at critical stages
 european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 20 })
 
-// Parliament-wide political landscape overview
+// Coalition dynamics — ALWAYS call (uses structural data, works in DEGRADED MODE)
+european_parliament___analyze_coalition_dynamics({})
+```
+
+**MANDATORY deep data collection** (for cited upcoming procedures and events):
+
+```javascript
+// Track specific procedures cited in analysis — repeat for each cited procedure ID
+european_parliament___track_legislation({ procedureId: "<procedure-ID-from-feed>" })
+
+// Fetch voting records for recent session context
+european_parliament___get_voting_records({ sessionId: "<recent-session-ID>", limit: 50 })
+
+// Fetch speeches for recent debate context
+european_parliament___get_speeches({ dateFrom: "<7-days-ago>", dateTo: "<today>", limit: 20 })
+```
+
+> **🔴 VOTING EVIDENCE REQUIREMENT**: Any analysis citing recent political group voting behaviour to predict upcoming votes MUST reference actual `get_voting_records` data. If unavailable, mark predictions as LOW confidence.
+
+**CONDITIONAL analytical tools** (skip in DEGRADED MODE):
+
+```javascript
+// Parliament-wide political landscape overview — SKIP in DEGRADED MODE
 european_parliament___generate_political_landscape({})
 ```
 
@@ -898,7 +945,7 @@ const nextWeek = new Date(Date.now() + 7 * 86400000).toISOString().split('T')[0]
 const [sessions, committees, documents, pipeline, meps] = await Promise.allSettled([
   european_parliament___get_plenary_sessions({ startDate: today, endDate: nextWeek, limit: 50 }),
   european_parliament___get_committee_info({ dateFrom: today, dateTo: nextWeek, limit: 20 }),
-  european_parliament___search_documents({ query: "plenary agenda", limit: 20 }),
+  european_parliament___search_documents({ keyword: "plenary agenda", limit: 20 }),
   european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 20 }),
   european_parliament___get_meps({ limit: 20 }),
 ]);

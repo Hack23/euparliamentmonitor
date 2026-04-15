@@ -656,7 +656,30 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 european_parliament___get_server_health({})
 ```
 
-> **📊 ADAPTIVE STRATEGY**: If health shows `Degraded`/`Sparse`/`Unavailable`, widen initial timeframe for ALL feeds and focus on `get_all_generated_stats` for precomputed context.
+> **📊 ADAPTIVE STRATEGY**: If health shows `Degraded`/`Sparse`/`Unavailable`, **enter DEGRADED MODE** immediately: widen initial timeframe from `"today"` to `"one-week"` for ALL feeds, use direct endpoint fallbacks for failed feeds, skip analytical tools that depend on upstream API calls, and focus on `get_all_generated_stats` for precomputed context.
+
+### ⚠️ DEGRADED MODE Protocol
+
+**Trigger**: `get_server_health` reports ≥50% feeds as `error`/`Degraded`/`Unavailable`, OR the first 2+ primary feed calls return INTERNAL_ERROR/timeout.
+
+**When in Degraded Mode:**
+
+1. **Skip `timeframe: "today"` entirely** — go directly to `timeframe: "one-week"` for ALL feed calls
+2. **Use direct endpoint fallbacks** when feeds fail (see table below)
+3. **Skip analytical tools that require live upstream API calls**: `detect_voting_anomalies`, `generate_political_landscape`, `early_warning_system` — record as `SKIPPED_DEGRADED_MODE` in manifest
+4. **Focus on reliable data sources**: `get_all_generated_stats` (precomputed), `analyze_coalition_dynamics` (cached structural data)
+5. **Still attempt ALL feed endpoints** with `one-week` timeframe — some feeds may work even when others don't
+6. **Still write ALL analysis artifacts** — use precomputed stats and whatever data was collected
+7. **Record degraded mode in manifest**: Set `"degradedMode": true`
+
+**Feed → Direct Endpoint Fallback Chain:**
+
+| Failed Feed | Direct Fallback | Parameters |
+|------------|----------------|------------|
+| `get_adopted_texts_feed` | `get_adopted_texts` | `{ year: YYYY, limit: 100 }` |
+| `get_procedures_feed` | `get_procedures` | `{ year: YYYY, limit: 50 }` |
+| `get_plenary_documents_feed` | `get_plenary_documents` | `{ year: YYYY, limit: 50 }` |
+| `get_parliamentary_questions_feed` | `get_parliamentary_questions` | `{ type: "WRITTEN", limit: 20 }` |
 
 ### 🚨 MANDATORY: EP Feed Endpoints (PRIMARY News Source)
 
@@ -665,18 +688,24 @@ european_parliament___get_server_health({})
 ```javascript
 // Adopted texts feed — CONDITIONAL: ignore if no items from last 12h for daily runs; for weekly review always include
 european_parliament___get_adopted_texts_feed({ timeframe: "one-week", limit: 50 })
+// ↳ FALLBACK if 404/timeout: european_parliament___get_adopted_texts({ year: 2026, limit: 100 })
 
 // Procedures feed — legislative procedure updates this week
 european_parliament___get_procedures_feed({ timeframe: "one-week", limit: 50 })
+// ↳ FALLBACK if 404/timeout: european_parliament___get_procedures({ year: 2026, limit: 50 })
 
 // Plenary documents feed — recently published plenary documents
 european_parliament___get_plenary_documents_feed({ timeframe: "one-week", limit: 50 })
+// ↳ FALLBACK if 404/timeout: european_parliament___get_plenary_documents({ year: 2026, limit: 50 })
 
 // Parliamentary questions feed — recent questions and interpellations
 european_parliament___get_parliamentary_questions_feed({ timeframe: "one-week", limit: 20 })
+// ↳ FALLBACK if 404/timeout: european_parliament___get_parliamentary_questions({ type: "WRITTEN", limit: 20 })
 ```
 
 > **⚠️ ARTICLE CONTENT MUST COME FROM THESE FEEDS**: The article's lede, headlines, and primary sections must reference **specific adopted texts, voting results, or procedure updates** found in these feed results. If feeds return items, those items ARE the news.
+
+> **🔴 FEED FAILURE ≠ DATA UNAVAILABLE**: If a feed endpoint returns 404 or timeout, IMMEDIATELY try the corresponding direct endpoint from the fallback chain above. Do NOT skip the data.
 
 ### 📊 OPTIONAL: Background Context (Secondary — NEVER the news)
 
@@ -703,11 +732,35 @@ european_parliament___get_all_generated_stats({ category: "all", includePredicti
 **MANDATORY supplementary tools** (ALWAYS call for comprehensive analysis — do NOT skip even if feed data is sparse for activity this week):
 
 ```javascript
-const lastWeek = new Date(Date.now() - 7 * 86400000).toISOString().split('T')[0];
+// Retrospective voting data — past 7 days
+european_parliament___get_voting_records({ dateFrom: "<last-week>", dateTo: "<today>", limit: 20 })
 
-// Retrospective data — past 7 days
-european_parliament___get_voting_records({ dateFrom: lastWeek, dateTo: today, limit: 20 })
-european_parliament___detect_voting_anomalies({ dateFrom: lastWeek, dateTo: today })
+// Coalition dynamics — ALWAYS call (uses structural data, works in DEGRADED MODE)
+european_parliament___analyze_coalition_dynamics({})
+```
+
+**MANDATORY deep data collection** (call for EVERY procedure/adopted text cited in analysis):
+
+```javascript
+// Track specific procedures cited in analysis — repeat for each cited procedure ID
+european_parliament___track_legislation({ procedureId: "<procedure-ID-from-feed>" })
+
+// Fetch plenary session decisions for voting evidence
+european_parliament___get_meeting_decisions({ sittingId: "<sitting-ID>" })
+
+// Fetch speeches for debate context and direct quotes
+european_parliament___get_speeches({ dateFrom: "<last-week>", dateTo: "<today>", limit: 20 })
+```
+
+> **🔴 VOTING EVIDENCE REQUIREMENT**: Weekly review articles MUST include actual voting record data when discussing this week's votes. Use `get_voting_records` and `get_meeting_decisions` to verify all coalition behaviour claims.
+
+**CONDITIONAL analytical tools** (skip in DEGRADED MODE):
+
+```javascript
+// Voting anomalies — SKIP in DEGRADED MODE
+european_parliament___detect_voting_anomalies({ dateFrom: "<last-week>", dateTo: "<today>" })
+
+// Political landscape — SKIP in DEGRADED MODE
 european_parliament___generate_political_landscape({})
 ```
 
