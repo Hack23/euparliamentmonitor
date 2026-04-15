@@ -156,4 +156,4 @@ Post-recess positions hardened. Grand coalition deficit prevents progress on con
 
 ---
 
-*Source: European Parliament Open Data Portal via EP MCP Server v1.2.6. Threat assessment adapted from Political Threat Framework. Coalition data from real-time MCP analytics. Risk scores use 5x5 Likelihood x Impact matrix.*
+*Source: European Parliament Open Data Portal via EP MCP Server v1.2.7. Threat assessment adapted from Political Threat Framework. Coalition data from real-time MCP analytics. Risk scores use 5x5 Likelihood x Impact matrix.*

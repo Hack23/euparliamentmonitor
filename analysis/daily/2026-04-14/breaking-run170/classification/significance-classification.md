@@ -138,4 +138,4 @@ The convergence of tariff deadline (T-1), record legislative backlog, and coalit
 
 ---
 
-*Source: European Parliament Open Data Portal via EP MCP Server v1.2.6. Data freshness: Precomputed stats refreshed 2026-04-08; adopted texts feed one-week window; coalition dynamics structural data.*
+*Source: European Parliament Open Data Portal via EP MCP Server v1.2.7. Data freshness: Precomputed stats refreshed 2026-04-08; adopted texts feed one-week window; coalition dynamics structural data.*

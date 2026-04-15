@@ -138,11 +138,11 @@ Call `sequentialthinking` with structured thought chains — each step builds on
 
 ## 🔗 European Parliament MCP Server Tools Reference
 
-**Server:** `european-parliament-mcp-server@1.2.6`
+**Server:** `european-parliament-mcp-server@1.2.7`
 
 ### Feed Endpoints (Primary Data Source)
 
-These endpoints use the `timeframe` parameter with supported values: `"today"`, `"one-day"`, `"one-week"`, `"one-month"`, `"three-months"`, and `"one-year"`. Where supported, `startDate` can be provided as an override alongside `timeframe`; it is not a separate `"custom"` timeframe mode.
+These endpoints use the `timeframe` parameter with supported values: `"today"`, `"one-day"`, `"one-week"`, `"one-month"`, and `"custom"`. When `timeframe` is `"custom"`, a `startDate` parameter (YYYY-MM-DD) is required.
 
 | Tool | Purpose | Key Parameters |
 |------|---------|----------------|
@@ -165,17 +165,17 @@ These endpoints use the `timeframe` parameter with supported values: `"today"`, 
 
 | Tool | Purpose | Key Parameters | Feed Fallback For |
 |------|---------|----------------|-------------------|
-| `get_plenary_sessions` | Plenary sessions | `dateFrom`/`dateTo`, `location`, `limit` (⚠️ NO `year` param) | `get_events_feed` |
-| `get_events` | EP events | `dateFrom`/`dateTo`, `limit` (⚠️ NO `year` param) | `get_events_feed` |
-| `get_procedures` | Legislative procedures | `year`, `limit` | `get_procedures_feed` |
-| `get_adopted_texts` | Adopted texts | `year`, `limit` | `get_adopted_texts_feed` |
-| `get_plenary_documents` | Plenary documents | `year`, `limit` | `get_plenary_documents_feed` |
-| `get_committee_documents` | Committee documents | `year`, `limit` | `get_committee_documents_feed` |
-| `get_speeches` | Plenary speeches | `dateFrom`/`dateTo`, `limit` | *(no feed equivalent)* |
-| `get_parliamentary_questions` | Parliamentary questions | `type`, `startDate`, `limit` | `get_parliamentary_questions_feed` |
+| `get_plenary_sessions` | Plenary sessions | `dateFrom`/`dateTo`, `year`, `eventId`, `location`, `limit` | `get_events_feed` |
+| `get_events` | EP events | `dateFrom`/`dateTo`, `year`, `eventId`, `limit` | `get_events_feed` |
+| `get_procedures` | Legislative procedures | `year`, `processId`, `limit` | `get_procedures_feed` |
+| `get_adopted_texts` | Adopted texts | `year`, `docId`, `limit` | `get_adopted_texts_feed` |
+| `get_plenary_documents` | Plenary documents | `year`, `docId`, `limit` | `get_plenary_documents_feed` |
+| `get_committee_documents` | Committee documents | `year`, `docId`, `limit` | `get_committee_documents_feed` |
+| `get_speeches` | Plenary speeches | `dateFrom`/`dateTo`, `year`, `speechId`, `limit` | *(no feed equivalent)* |
+| `get_parliamentary_questions` | Parliamentary questions | `type`, `dateFrom`/`dateTo`, `author`, `topic`, `status`, `docId`, `limit` | `get_parliamentary_questions_feed` |
 | `get_mep_details` | Specific MEP info | `id` (e.g., "MEP-124810") | — |
 | `get_mep_declarations` | MEP financial declarations | `year`, `docId` | `get_mep_declarations_feed` |
-| `get_committee_info` | Committee details | `committeeId` or `abbreviation` (e.g., "ENVI") | — |
+| `get_committee_info` | Committee details | `abbreviation`, `id`, `showCurrent` (e.g., "ENVI") | — |
 | `search_documents` | Search EP documents | `keyword`, `documentType`, `committee`, `dateFrom`/`dateTo` | — |
 | `track_legislation` | Legislative procedure progress | `procedureId` (e.g., "2024/0001(COD)") | — |
 | `get_procedure_events` | Events for a procedure | `processId` | — |
@@ -233,16 +233,15 @@ When a feed endpoint fails (404/timeout/error), IMMEDIATELY try the correspondin
 ### Cross-Run Data Consistency
 
 > **⚠️ SEAT COUNT NORMALIZATION**: When citing political group seat counts, use the SAME data source within a single analysis run. Get seat counts from `analyze_coalition_dynamics` OR from `get_meps_feed` — do NOT mix sources. Record the source in the analysis metadata. Inconsistent seat counts across same-day runs (e.g., EPP=185 vs EPP=188) undermine analytical credibility.
-
 ### Analytical Tools (AI-Powered Analysis)
 
 | Tool | Purpose | Key Parameters |
 |------|---------|----------------|
 | `get_voting_records` | Aggregate plenary votes | `sessionId`, `mepId`, `limit` |
 | `analyze_voting_patterns` | MEP voting behavior | `mepId`, `dateFrom`/`dateTo`, `compareWithGroup` |
-| `analyze_coalition_dynamics` | Political group alliances | `politicalGroups`, `dateFrom`/`dateTo` |
-| `detect_voting_anomalies` | Unusual voting patterns | `politicalGroup`, `mepId`, `dateFrom` |
-| `compare_political_groups` | Multi-dimension comparison | `groups` (min 2), `metrics`, `dateFrom` |
+| `analyze_coalition_dynamics` | Political group alliances | `groupIds`, `dateFrom`/`dateTo`, `minimumCohesion` |
+| `detect_voting_anomalies` | Unusual voting patterns | `groupId`, `mepId`, `dateFrom`/`dateTo`, `sensitivityThreshold` |
+| `compare_political_groups` | Multi-dimension comparison | `groupIds` (min 2), `dimensions`, `dateFrom`/`dateTo` |
 | `assess_mep_influence` | MEP influence scoring | `mepId`, `includeDetails`, `dateFrom`/`dateTo` |
 | `analyze_legislative_effectiveness` | MEP/committee productivity | `subjectType` ("MEP"/"COMMITTEE"), `subjectId` |
 | `generate_political_landscape` | Full political overview | `dateFrom`/`dateTo` |
@@ -266,9 +265,11 @@ When a feed endpoint fails (404/timeout/error), IMMEDIATELY try the correspondin
 
 | ❌ Wrong | ✅ Correct | Notes |
 |----------|-----------|-------|
-| `get_plenary_sessions({ year: 2026 })` | `get_plenary_sessions({ dateFrom: "2026-01-01", dateTo: "2026-12-31" })` | No `year` param on plenary sessions |
-| `get_events({ year: 2026 })` | `get_events({ dateFrom: "2026-01-01", dateTo: "2026-12-31" })` | No `year` param on events |
-| `get_adopted_texts_feed({ startDate: "2026-04-01" })` | `get_adopted_texts_feed({ timeframe: "one-week" })` | Feed endpoints use `timeframe`; `startDate` is an optional override, not a standalone param |
+| `get_plenary_sessions({ startDate: "2026-01-01", endDate: "2026-12-31" })` | `get_plenary_sessions({ dateFrom: "2026-01-01", dateTo: "2026-12-31" })` | v1.2.7 uses `dateFrom`/`dateTo`, also supports `year` param |
+| `get_parliamentary_questions({ startDate: "2026-01-01" })` | `get_parliamentary_questions({ dateFrom: "2026-01-01" })` | v1.2.7 uses `dateFrom`/`dateTo` |
+| `search_documents({ query: "climate" })` | `search_documents({ keyword: "climate" })` | v1.2.7 uses `keyword`, not `query`; also supports `documentType`, `docId` |
+| `get_adopted_texts_feed({ timeframe: "three-months" })` | `get_adopted_texts_feed({ timeframe: "one-month" })` | Valid timeframes: `today`, `one-day`, `one-week`, `one-month`, `custom` |
+| `compare_political_groups({ groups: ["EPP", "S&D"] })` | `compare_political_groups({ groupIds: ["EPP", "S&D"] })` | v1.2.7 uses `groupIds`, not `groups` |
 | `get_voting_records({ topic: "climate" })` | `get_voting_records({ sessionId: "...", limit: 50 })` | No `topic`/`dateFrom`/`dateTo` — use `sessionId`, `mepId`, `limit` |
 | `get_mep_details({ name: "Weber" })` | `get_mep_details({ id: "MEP-124810" })` | Must use MEP ID, not name |
 
@@ -512,7 +513,7 @@ if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
   if [ -f "node_modules/.bin/european-parliament-mcp-server" ]; then
     echo "✅ EP MCP server binary found for stdio mode"
   else
-    npm install --no-save european-parliament-mcp-server@1.2.6
+    npm install --no-save european-parliament-mcp-server@1.2.7
   fi
 fi
 
@@ -623,7 +624,7 @@ safe-outputs:
 ```
 MCP CONNECTIVITY DIAGNOSTIC — {workflow-name}
 Timestamp: {ISO-8601 UTC timestamp}
-MCP Server: european-parliament-mcp-server@1.2.6
+MCP Server: european-parliament-mcp-server@1.2.7
 
 AWF Firewall Check:
   DNS Resolution: {PASS/FAIL} — nslookup data.europarl.europa.eu
@@ -667,7 +668,7 @@ Resolution Hints:
 |---------------|-----------------|
 | `TIMEOUT` | EP API is slow — use direct endpoint fallbacks from Reliability Matrix, increase `EP_REQUEST_TIMEOUT_MS` to `"120000"`, try `timeframe: "one-week"` instead of `"today"` |
 | `SERVER_ERROR` | EP API returning 5xx — likely maintenance/outage, retry in 1-2 hours, then rerun the direct probe URL `https://data.europarl.europa.eu/api/v2/meps?format=application%2Fld%2Bjson&offset=0&limit=1` to confirm whether the EP API is responding again |
-| `INTERNAL_ERROR` | MCP server internal failure — verify `european-parliament-mcp-server@1.2.6` is installed, check DNS resolution for `data.europarl.europa.eu` |
+| `INTERNAL_ERROR` | MCP server internal failure — verify `european-parliament-mcp-server@1.2.7` is installed, check DNS resolution for `data.europarl.europa.eu` |
 | `RATE_LIMIT` | Too many requests — reduce MCP call frequency, wait 5+ minutes before retry |
 | `NOT_FOUND` | Endpoint not found — verify tool name and parameters match API_USAGE_GUIDE.md |
 | `UNKNOWN` | Unclassified error — check AWF firewall (see diagnostic checklist below), network connectivity, MCP server logs |
@@ -706,7 +707,7 @@ mcp-servers:
   european-parliament:
     container: "node:25-alpine"
     entrypoint: "npx"
-    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.6", "--timeout", "120000"]
+    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.7", "--timeout", "120000"]
     env:
       EP_REQUEST_TIMEOUT_MS: "120000"
   world-bank:
@@ -793,7 +794,7 @@ At workflow start, probe EP server health:
 
 ## 🔌 MCP Tool Reliability Matrix (Verified April 2026)
 
-> **Based on live testing against `european-parliament-mcp-server@1.2.6`**. The EP API at `data.europarl.europa.eu` has inherent latency — feed endpoints (`/feed` path) are consistently slower than direct lookup endpoints. This matrix guides health gate design and fallback escalation.
+> **Based on live testing against `european-parliament-mcp-server@1.2.7`**. The EP API at `data.europarl.europa.eu` has inherent latency — feed endpoints (`/feed` path) are consistently slower than direct lookup endpoints. This matrix guides health gate design and fallback escalation.
 
 ### ✅ Reliable Tools (respond within 30s)
 
@@ -818,7 +819,7 @@ At workflow start, probe EP server health:
 | `get_procedures_feed` | `get_procedures` | `{ year: CURRENT_YEAR, limit: 20 }` |
 | `get_events_feed` | `get_events` | `{ dateFrom: "YYYY-MM-01", dateTo: "YYYY-MM-DD", limit: 20 }` |
 | `get_documents_feed` | `get_plenary_documents` | `{ year: CURRENT_YEAR, limit: 20 }` |
-| `get_parliamentary_questions_feed` | `get_parliamentary_questions` | `{ type: "WRITTEN", startDate: "YYYY-MM-DD", limit: 20 }` |
+| `get_parliamentary_questions_feed` | `get_parliamentary_questions` | `{ type: "WRITTEN", dateFrom: "YYYY-MM-DD", limit: 20 }` |
 | `get_plenary_documents_feed` | `get_plenary_documents` | `{ year: CURRENT_YEAR, limit: 20 }` |
 | `get_committee_documents_feed` | `get_committee_documents` | `{ year: CURRENT_YEAR, limit: 20 }` |
 | `get_plenary_sessions` (with dates) | `get_plenary_sessions` | `{ limit: 5 }` (no date filters!) |
@@ -982,7 +983,7 @@ echo "NODE_ENV=${NODE_ENV:-not set}"
 | `curl` exit 28 with HTTP 000 and `/dev/tcp` reachable | Network path exists but request timed out; EP API slow | NOT a firewall issue — increase `EP_REQUEST_TIMEOUT_MS`, use direct endpoint fallbacks |
 | HTTP 000 with other `curl` exit code | Transport/TLS/other client error | Check `curl` exit code and `/dev/tcp` reachability probe; may be TLS or proxy issue |
 | HTTP 5xx from EP API | EP API maintenance/outage | Retry in 1-2 hours; use `get_all_generated_stats` for precomputed data |
-| MCP binary not found | `npx -y european-parliament-mcp-server@1.2.6` failed | Ensure `node` is in `network.allowed` (for npm registry) |
+| MCP binary not found | `npx -y european-parliament-mcp-server@1.2.7` failed | Ensure `node` is in `network.allowed` (for npm registry) |
 | Timeout after 60s | EP API slow + default timeout too low | Verify `EP_REQUEST_TIMEOUT_MS: "120000"` in `mcp-servers` env |
 | Timeout after 120s | EP API exceptionally slow (feed endpoints) | Use direct endpoint fallback (see Reliability Matrix) |
 | `get_server_health` fails | MCP server process didn't start | Check `npx` output, verify Node.js version ≥18 |

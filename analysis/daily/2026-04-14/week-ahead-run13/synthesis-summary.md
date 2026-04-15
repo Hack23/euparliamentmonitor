@@ -87,4 +87,4 @@ TA-10-2026-0094 (COD 2023/0135) — post-Qatargate reforms entering trilogue. LI
 - Coalition dynamics, early warning system
 - Precomputed statistics (2025-2026)
 - Prior analysis cross-reference (Runs 156-171)
-- Data: data.europarl.europa.eu | MCP v1.2.6
+- Data: data.europarl.europa.eu | MCP v1.2.7

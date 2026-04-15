@@ -204,7 +204,7 @@ Coalition arithmetic prevents majority on trade response. Banking Union trilogue
 | `get_parliamentary_questions_feed` (one-week) | ❌ Timeout 120s | 0 items |
 | `get_all_generated_stats` | ✅ Operational | 85KB precomputed (2004-2026) |
 | `analyze_coalition_dynamics` | ✅ Operational | Group composition + pair cohesion |
-| `get_server_health` | ✅ Operational | Server v1.2.6, unhealthy, 0/13 feeds known |
+| `get_server_health` | ✅ Operational | Server v1.2.7, unhealthy, 0/13 feeds known |
 
 ---
 

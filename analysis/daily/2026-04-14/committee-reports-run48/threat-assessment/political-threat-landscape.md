@@ -66,4 +66,4 @@ This domain-specific coalition variability means committee chairs cannot predict
 
 ## Source Attribution
 
-Threat landscape based on adopted texts (TA-10-2026 series), political landscape data (fragmentation 6.59, 9 groups), coalition dynamics analysis, and procedure pipeline data. All data from European Parliament Open Data Portal via MCP Server v1.2.6.
+Threat landscape based on adopted texts (TA-10-2026 series), political landscape data (fragmentation 6.59, 9 groups), coalition dynamics analysis, and procedure pipeline data. All data from European Parliament Open Data Portal via MCP Server v1.2.7.

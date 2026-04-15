@@ -82,4 +82,4 @@ Analysis of March 26 pre-Easter committee output from six stakeholder perspectiv
 
 ## Source Attribution
 
-Stakeholder analysis based on adopted texts TA-10-2026-0090 through TA-10-2026-0104 (March 26, 2026 plenary), procedure references, and precomputed political landscape data. All data from European Parliament Open Data Portal via MCP Server v1.2.6.
+Stakeholder analysis based on adopted texts TA-10-2026-0090 through TA-10-2026-0104 (March 26, 2026 plenary), procedure references, and precomputed political landscape data. All data from European Parliament Open Data Portal via MCP Server v1.2.7.

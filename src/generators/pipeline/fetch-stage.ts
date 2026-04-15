@@ -593,16 +593,16 @@ export async function fetchWeekAheadData(
 
   const [plenarySessions, committeeInfo, documents, pipeline, questions, epEvents] =
     await Promise.allSettled([
-      client.getPlenarySessions({ startDate: dateRange.start, endDate: dateRange.end, limit: 50 }),
-      client.getCommitteeInfo({ limit: 20 }),
-      client.searchDocuments({ query: 'parliament', limit: 20 }),
+      client.getPlenarySessions({ dateFrom: dateRange.start, dateTo: dateRange.end, limit: 50 }),
+      client.getCommitteeInfo({ showCurrent: true }),
+      client.searchDocuments({ keyword: 'parliament', limit: 20 }),
       client.monitorLegislativePipeline({
         dateFrom: dateRange.start,
         dateTo: dateRange.end,
         status: 'ACTIVE',
         limit: 20,
       }),
-      client.getParliamentaryQuestions({ startDate: dateRange.start, limit: 20 }),
+      client.getParliamentaryQuestions({ dateFrom: dateRange.start, limit: 20 }),
       client.getEvents({ dateFrom: dateRange.start, dateTo: dateRange.end, limit: 20 }),
     ]);
 
@@ -961,7 +961,7 @@ export async function fetchCommitteeData(
   try {
     console.log(`${MCP_FETCH_PREFIX} Fetching committee info for ${abbreviation}...`);
     const committeeResult = await callMCP(
-      () => client.getCommitteeInfo({ committeeId: abbreviation }),
+      () => client.getCommitteeInfo({ abbreviation }),
       null,
       `getCommitteeInfo(${abbreviation})`
     );
@@ -974,7 +974,7 @@ export async function fetchCommitteeData(
   try {
     console.log(`${MCP_FETCH_PREFIX} Fetching documents for ${abbreviation}...`);
     const docsResult = await callMCP(
-      () => client.searchDocuments({ query: abbreviation, limit: 5 }),
+      () => client.searchDocuments({ keyword: abbreviation, limit: 5 }),
       null,
       `searchDocuments(${abbreviation})`
     );
@@ -1459,8 +1459,7 @@ const TIMEFRAME_FALLBACK_CHAIN: ReadonlyMap<FeedTimeframe, FeedTimeframe | undef
   ['one-day', 'one-week'],
   ['one-week', 'one-month'],
   ['one-month', undefined],
-  ['three-months', undefined],
-  ['one-year', undefined],
+  ['custom', undefined],
 ]);
 
 /**

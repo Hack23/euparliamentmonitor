@@ -14,7 +14,7 @@ confidence: HIGH
 - **Analysis Date**: 2026-04-15 (Wednesday)
 - **Parliamentary Context**: Tariff T-0 Day. Easter recess ended. Next plenary April 27-30.
 - **Data Sources**: EP Open Data (101 adopted texts in 2026, political landscape, committee activity)
-- **MCP Server**: v1.2.6
+- **MCP Server**: v1.2.7
 
 ## Key Findings
 

@@ -54,7 +54,7 @@ mcp-servers:
   european-parliament:
     container: "node:25-alpine"
     entrypoint: "npx"
-    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.6", "--timeout", "120000"]
+    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.7", "--timeout", "120000"]
     env:
       EP_REQUEST_TIMEOUT_MS: "120000"
   world-bank:
@@ -744,7 +744,7 @@ european_parliament___get_all_generated_stats({ category: "all", includePredicti
 // Get upcoming plenary sessions
 european_parliament___get_plenary_sessions({ dateFrom: "<today>", dateTo: "<next-week>", limit: 50 })
 
-// Get committee info for context
+// Get committee meetings
 european_parliament___get_committee_info({ showCurrent: true })
 
 // Monitor legislation at critical stages
@@ -977,7 +977,7 @@ if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
     echo "✅ EP MCP server binary found for stdio mode"
   else
     echo "⚠️ No gateway URL set, installing EP MCP server for stdio mode..."
-    npm install --no-save european-parliament-mcp-server@1.2.6
+    npm install --no-save european-parliament-mcp-server@1.2.7
   fi
 fi
 
