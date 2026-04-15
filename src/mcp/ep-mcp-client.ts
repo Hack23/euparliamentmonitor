@@ -312,31 +312,11 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
   /**
    * Search legislative documents
    *
-   * @param options - Search options (normalizes `query` to `keyword` and `type` to `documentType`
-   *   per the v1.2.7 MCP tool schema)
+   * @param options - Search options using v1.2.7 parameters: keyword, documentType, docId, etc.
    * @returns Search results
    */
   async searchDocuments(options: SearchDocumentsOptions = {}): Promise<MCPToolResult> {
-    return this.safeCallTool(
-      'search_documents',
-      () => {
-        const { query, type: docType, ...rest } = options;
-        const normalizedOptions: Record<string, unknown> = { ...rest };
-        // MCP tool schema expects 'keyword', not 'query'
-        if (normalizedOptions['keyword'] === undefined && query !== undefined) {
-          const trimmed = String(query).trim();
-          if (trimmed.length > 0) {
-            normalizedOptions['keyword'] = trimmed;
-          }
-        }
-        // MCP tool schema expects 'documentType', not 'type'
-        if (normalizedOptions['documentType'] === undefined && docType !== undefined) {
-          normalizedOptions['documentType'] = docType;
-        }
-        return normalizedOptions;
-      },
-      DOCUMENTS_FALLBACK
-    );
+    return this.safeCallTool('search_documents', options, DOCUMENTS_FALLBACK);
   }
 
   /**
@@ -354,23 +334,11 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
   /**
    * Get committee information
    *
-   * @param options - Filter options
+   * @param options - Filter options: id, abbreviation, showCurrent
    * @returns Committee info data
    */
   async getCommitteeInfo(options: GetCommitteeInfoOptions = {}): Promise<MCPToolResult> {
-    return this.safeCallTool(
-      'get_committee_info',
-      () => {
-        const { committeeId, ...rest } = options;
-        const toolOptions: Record<string, unknown> = { ...rest };
-        // MCP tool schema expects 'abbreviation', not 'committeeId'
-        if (toolOptions['abbreviation'] === undefined && committeeId !== undefined) {
-          toolOptions['abbreviation'] = committeeId;
-        }
-        return toolOptions;
-      },
-      '{"committees": []}'
-    );
+    return this.safeCallTool('get_committee_info', options, '{"committees": []}');
   }
 
   /**
@@ -431,47 +399,23 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
   /**
    * Analyze coalition dynamics and cohesion
    *
-   * @param options - Options including optional political groups (groupIds) and date range
+   * @param options - Options including optional groupIds and date range
    * @returns Coalition cohesion and stress analysis
    */
   async analyzeCoalitionDynamics(
     options: AnalyzeCoalitionDynamicsOptions = {}
   ): Promise<MCPToolResult> {
-    return this.safeCallTool(
-      'analyze_coalition_dynamics',
-      () => {
-        const { politicalGroups, ...rest } = options;
-        const toolOptions: Record<string, unknown> = { ...rest };
-        // Normalize deprecated 'politicalGroups' to 'groupIds'
-        if (toolOptions['groupIds'] === undefined && politicalGroups !== undefined) {
-          toolOptions['groupIds'] = politicalGroups;
-        }
-        return toolOptions;
-      },
-      '{"coalitions": []}'
-    );
+    return this.safeCallTool('analyze_coalition_dynamics', options, '{"coalitions": []}');
   }
 
   /**
    * Detect voting anomalies and party defections
    *
-   * @param options - Options including optional MEP id, political group (groupId), and date range
+   * @param options - Options including optional MEP id, groupId, and date range
    * @returns Anomaly detection results
    */
   async detectVotingAnomalies(options: DetectVotingAnomaliesOptions = {}): Promise<MCPToolResult> {
-    return this.safeCallTool(
-      'detect_voting_anomalies',
-      () => {
-        const { politicalGroup, ...rest } = options;
-        const toolOptions: Record<string, unknown> = { ...rest };
-        // Normalize deprecated 'politicalGroup' to 'groupId'
-        if (toolOptions['groupId'] === undefined && politicalGroup !== undefined) {
-          toolOptions['groupId'] = politicalGroup;
-        }
-        return toolOptions;
-      },
-      '{"anomalies": []}'
-    );
+    return this.safeCallTool('detect_voting_anomalies', options, '{"anomalies": []}');
   }
 
   /**
@@ -481,11 +425,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
    * @returns Cross-group comparative analysis
    */
   async comparePoliticalGroups(options: ComparePoliticalGroupsOptions): Promise<MCPToolResult> {
-    // Support both 'groupIds' (v1.2.7) and deprecated 'groups' (v1.2.6)
-    const rawGroupIds = options && Array.isArray(options.groupIds) ? options.groupIds : [];
-    const rawGroups = options && Array.isArray(options.groups) ? options.groups : [];
-    const allGroups = rawGroupIds.length > 0 ? rawGroupIds : rawGroups;
-    const groupIds = allGroups
+    const groupIds = (Array.isArray(options.groupIds) ? options.groupIds : [])
       .map((g) => (typeof g === 'string' ? g.trim() : ''))
       .filter((g) => g.length > 0);
     if (groupIds.length === 0) {
@@ -494,13 +434,11 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
       );
       return { content: [{ type: 'text', text: '{"comparison": {}}' }] };
     }
-    // Normalize deprecated 'metrics' to 'dimensions'
-    const { groups: _groups, groupIds: _groupIds, metrics, ...rest } = options;
-    const toolOptions: Record<string, unknown> = { ...rest, groupIds };
-    if (toolOptions['dimensions'] === undefined && metrics !== undefined) {
-      toolOptions['dimensions'] = metrics;
-    }
-    return this.safeCallTool('compare_political_groups', toolOptions, '{"comparison": {}}');
+    return this.safeCallTool(
+      'compare_political_groups',
+      { ...options, groupIds },
+      '{"comparison": {}}'
+    );
   }
 
   /**
@@ -970,23 +908,17 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
   /**
    * Cross-tool OSINT intelligence correlation engine
    *
-   * @param options - Options including mepIds (string array), groups, sensitivityLevel, includeNetworkAnalysis
+   * @param options - Options including required mepIds, optional groups, sensitivityLevel, includeNetworkAnalysis
    * @returns Correlated intelligence alerts and insights
    */
-  async correlateIntelligence(options: CorrelateIntelligenceOptions = {}): Promise<MCPToolResult> {
-    return this.safeCallTool(
-      'correlate_intelligence',
-      () => {
-        const { mepId, correlationScenarios: _scenarios, ...rest } = options;
-        const toolOptions: Record<string, unknown> = { ...rest };
-        // Normalize deprecated 'mepId' (single number) to 'mepIds' (string array)
-        if (toolOptions['mepIds'] === undefined && mepId !== undefined) {
-          toolOptions['mepIds'] = [String(mepId)];
-        }
-        return toolOptions;
-      },
-      INTELLIGENCE_FALLBACK
-    );
+  async correlateIntelligence(options: CorrelateIntelligenceOptions): Promise<MCPToolResult> {
+    if (!Array.isArray(options.mepIds) || options.mepIds.length === 0) {
+      console.warn(
+        'correlate_intelligence called without valid mepIds (non-empty string array required)'
+      );
+      return { content: [{ type: 'text', text: INTELLIGENCE_FALLBACK }] };
+    }
+    return this.safeCallTool('correlate_intelligence', options, INTELLIGENCE_FALLBACK);
   }
 
   /**

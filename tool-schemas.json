@@ -92,7 +92,7 @@
     },
     {
       "name": "search_documents",
-      "description": "Search European Parliament documents (reports, resolutions, etc.) by query",
+      "description": "Search European Parliament documents by keyword, or retrieve a single document by docId",
       "inputSchema": {
         "type": "object",
         "properties": {
@@ -147,7 +147,7 @@
     },
     {
       "name": "get_parliamentary_questions",
-      "description": "Get parliamentary questions with optional filters for type and date",
+      "description": "Get parliamentary questions with optional filters for type, author, topic, status, date range, or single lookup by docId",
       "inputSchema": {
         "type": "object",
         "properties": {

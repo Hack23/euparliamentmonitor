@@ -428,8 +428,8 @@ export async function fetchWeekAheadData(client, dateRange) {
     console.log(`${MCP_FETCH_PREFIX} Fetching week-ahead data from MCP (parallel)...`);
     const [plenarySessions, committeeInfo, documents, pipeline, questions, epEvents] = await Promise.allSettled([
         client.getPlenarySessions({ dateFrom: dateRange.start, dateTo: dateRange.end, limit: 50 }),
-        client.getCommitteeInfo({ limit: 20 }),
-        client.searchDocuments({ query: 'parliament', limit: 20 }),
+        client.getCommitteeInfo({ showCurrent: true }),
+        client.searchDocuments({ keyword: 'parliament', limit: 20 }),
         client.monitorLegislativePipeline({
             dateFrom: dateRange.start,
             dateTo: dateRange.end,
@@ -728,7 +728,7 @@ export async function fetchCommitteeData(client, abbreviation) {
         return defaultResult;
     try {
         console.log(`${MCP_FETCH_PREFIX} Fetching committee info for ${abbreviation}...`);
-        const committeeResult = await callMCP(() => client.getCommitteeInfo({ committeeId: abbreviation }), null, `getCommitteeInfo(${abbreviation})`);
+        const committeeResult = await callMCP(() => client.getCommitteeInfo({ abbreviation }), null, `getCommitteeInfo(${abbreviation})`);
         if (committeeResult)
             applyCommitteeInfo(committeeResult, defaultResult, abbreviation);
     }
@@ -738,7 +738,7 @@ export async function fetchCommitteeData(client, abbreviation) {
     }
     try {
         console.log(`${MCP_FETCH_PREFIX} Fetching documents for ${abbreviation}...`);
-        const docsResult = await callMCP(() => client.searchDocuments({ query: abbreviation, limit: 5 }), null, `searchDocuments(${abbreviation})`);
+        const docsResult = await callMCP(() => client.searchDocuments({ keyword: abbreviation, limit: 5 }), null, `searchDocuments(${abbreviation})`);
         if (docsResult)
             applyDocuments(docsResult, defaultResult);
     }

@@ -400,10 +400,9 @@ describe('ep-mcp-client', () => {
           content: [{ type: 'text', text: '{"documents": []}' }],
         });
 
-        const options = { query: 'climate', type: 'proposal' };
+        const options = { keyword: 'climate', documentType: 'proposal' };
         await client.searchDocuments(options);
 
-        // query is mapped to keyword, type is mapped to documentType for the MCP tool
         expect(client.callTool).toHaveBeenCalledWith('search_documents', {
           keyword: 'climate',
           documentType: 'proposal',
@@ -473,13 +472,11 @@ describe('ep-mcp-client', () => {
           content: [{ type: 'text', text: '{"committees": []}' }],
         });
 
-        const options = { committeeId: 'ENVI', limit: 20 };
+        const options = { abbreviation: 'ENVI' };
         await client.getCommitteeInfo(options);
 
-        // committeeId is mapped to abbreviation for the MCP tool
         expect(client.callTool).toHaveBeenCalledWith('get_committee_info', {
           abbreviation: 'ENVI',
-          limit: 20,
         });
       });
 
@@ -733,14 +730,10 @@ describe('ep-mcp-client', () => {
           content: [{ type: 'text', text: '{"coalitions": []}' }],
         });
 
-        const options = { politicalGroups: ['EPP', 'S&D'], dateFrom: '2024-01-01' };
+        const options = { groupIds: ['EPP', 'S&D'], dateFrom: '2024-01-01' };
         await client.analyzeCoalitionDynamics(options);
 
-        // politicalGroups is normalized to groupIds for the MCP tool
-        expect(client.callTool).toHaveBeenCalledWith('analyze_coalition_dynamics', {
-          groupIds: ['EPP', 'S&D'],
-          dateFrom: '2024-01-01',
-        });
+        expect(client.callTool).toHaveBeenCalledWith('analyze_coalition_dynamics', options);
       });
 
       it('should handle missing analyze coalition dynamics tool gracefully', async () => {
@@ -758,15 +751,10 @@ describe('ep-mcp-client', () => {
           content: [{ type: 'text', text: '{"anomalies": []}' }],
         });
 
-        const options = { mepId: 'MEP-123', politicalGroup: 'EPP', dateFrom: '2024-01-01' };
+        const options = { mepId: 'MEP-123', groupId: 'EPP', dateFrom: '2024-01-01' };
         await client.detectVotingAnomalies(options);
 
-        // politicalGroup is normalized to groupId for the MCP tool
-        expect(client.callTool).toHaveBeenCalledWith('detect_voting_anomalies', {
-          mepId: 'MEP-123',
-          groupId: 'EPP',
-          dateFrom: '2024-01-01',
-        });
+        expect(client.callTool).toHaveBeenCalledWith('detect_voting_anomalies', options);
       });
 
       it('should handle missing detect voting anomalies tool gracefully', async () => {
@@ -784,21 +772,16 @@ describe('ep-mcp-client', () => {
           content: [{ type: 'text', text: '{"comparison": {}}' }],
         });
 
-        const options = { groups: ['EPP', 'S&D'], metrics: ['attendance'], dateFrom: '2024-01-01' };
+        const options = { groupIds: ['EPP', 'S&D'], dimensions: ['attendance'], dateFrom: '2024-01-01' };
         await client.comparePoliticalGroups(options);
 
-        // groups is normalized to groupIds, metrics is normalized to dimensions
-        expect(client.callTool).toHaveBeenCalledWith('compare_political_groups', {
-          groupIds: ['EPP', 'S&D'],
-          dimensions: ['attendance'],
-          dateFrom: '2024-01-01',
-        });
+        expect(client.callTool).toHaveBeenCalledWith('compare_political_groups', options);
       });
 
       it('should handle missing compare political groups tool gracefully', async () => {
         client.callTool.mockRejectedValue(new Error('Tool not available'));
 
-        const result = await client.comparePoliticalGroups({ groups: ['EPP', 'S&D'] });
+        const result = await client.comparePoliticalGroups({ groupIds: ['EPP', 'S&D'] });
 
         expect(result).toEqual({
           content: [{ type: 'text', text: '{"comparison": {}}' }],
@@ -806,7 +789,7 @@ describe('ep-mcp-client', () => {
       });
 
       it('should return fallback for comparePoliticalGroups with empty groups', async () => {
-        const result = await client.comparePoliticalGroups({ groups: [] });
+        const result = await client.comparePoliticalGroups({ groupIds: [] });
 
         expect(client.callTool).not.toHaveBeenCalled();
         expect(result).toEqual({
@@ -1607,20 +1590,16 @@ describe('ep-mcp-client', () => {
           content: [{ type: 'text', text: '{"alerts": []}' }],
         });
 
-        const options = { mepId: 12345, correlationScenarios: ['influence_anomaly'] };
+        const options = { mepIds: ['MEP-12345'], sensitivityLevel: 'HIGH' };
         await client.correlateIntelligence(options);
 
-        // mepId (number) is normalized to mepIds (string array), correlationScenarios is dropped
-        expect(client.callTool).toHaveBeenCalledWith('correlate_intelligence', {
-          mepIds: ['12345'],
-        });
+        expect(client.callTool).toHaveBeenCalledWith('correlate_intelligence', options);
       });
 
-      it('should handle missing correlate_intelligence tool gracefully', async () => {
-        client.callTool.mockRejectedValue(new Error('Tool not available'));
+      it('should return fallback for correlateIntelligence with empty mepIds', async () => {
+        const result = await client.correlateIntelligence({ mepIds: [] });
 
-        const result = await client.correlateIntelligence();
-
+        expect(client.callTool).not.toHaveBeenCalled();
         expect(result).toEqual({
           content: [{ type: 'text', text: '{"analysis": null}' }],
         });

@@ -186,9 +186,9 @@ These endpoints use the `timeframe` parameter with supported values: `"today"`, 
 |------|---------|----------------|
 | `get_voting_records` | Aggregate plenary votes | `sessionId`, `mepId`, `limit` |
 | `analyze_voting_patterns` | MEP voting behavior | `mepId`, `dateFrom`/`dateTo`, `compareWithGroup` |
-| `analyze_coalition_dynamics` | Political group alliances | `politicalGroups`, `dateFrom`/`dateTo` |
-| `detect_voting_anomalies` | Unusual voting patterns | `politicalGroup`, `mepId`, `dateFrom` |
-| `compare_political_groups` | Multi-dimension comparison | `groups` (min 2), `metrics`, `dateFrom` |
+| `analyze_coalition_dynamics` | Political group alliances | `groupIds`, `dateFrom`/`dateTo`, `minimumCohesion` |
+| `detect_voting_anomalies` | Unusual voting patterns | `groupId`, `mepId`, `dateFrom`/`dateTo`, `sensitivityThreshold` |
+| `compare_political_groups` | Multi-dimension comparison | `groupIds` (min 2), `dimensions`, `dateFrom`/`dateTo` |
 | `assess_mep_influence` | MEP influence scoring | `mepId`, `includeDetails`, `dateFrom`/`dateTo` |
 | `analyze_legislative_effectiveness` | MEP/committee productivity | `subjectType` ("MEP"/"COMMITTEE"), `subjectId` |
 | `generate_political_landscape` | Full political overview | `dateFrom`/`dateTo` |

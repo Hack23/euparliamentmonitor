@@ -594,8 +594,8 @@ export async function fetchWeekAheadData(
   const [plenarySessions, committeeInfo, documents, pipeline, questions, epEvents] =
     await Promise.allSettled([
       client.getPlenarySessions({ dateFrom: dateRange.start, dateTo: dateRange.end, limit: 50 }),
-      client.getCommitteeInfo({ limit: 20 }),
-      client.searchDocuments({ query: 'parliament', limit: 20 }),
+      client.getCommitteeInfo({ showCurrent: true }),
+      client.searchDocuments({ keyword: 'parliament', limit: 20 }),
       client.monitorLegislativePipeline({
         dateFrom: dateRange.start,
         dateTo: dateRange.end,
@@ -961,7 +961,7 @@ export async function fetchCommitteeData(
   try {
     console.log(`${MCP_FETCH_PREFIX} Fetching committee info for ${abbreviation}...`);
     const committeeResult = await callMCP(
-      () => client.getCommitteeInfo({ committeeId: abbreviation }),
+      () => client.getCommitteeInfo({ abbreviation }),
       null,
       `getCommitteeInfo(${abbreviation})`
     );
@@ -974,7 +974,7 @@ export async function fetchCommitteeData(
   try {
     console.log(`${MCP_FETCH_PREFIX} Fetching documents for ${abbreviation}...`);
     const docsResult = await callMCP(
-      () => client.searchDocuments({ query: abbreviation, limit: 5 }),
+      () => client.searchDocuments({ keyword: abbreviation, limit: 5 }),
       null,
       `searchDocuments(${abbreviation})`
     );

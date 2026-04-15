@@ -92,11 +92,10 @@ export interface GetPlenarySessionsOptions {
 export interface SearchDocumentsOptions {
   /** Document ID for single document lookup (bypasses keyword search) */
   docId?: string | undefined;
-  query?: string | undefined;
+  /** Search keyword or phrase */
   keyword?: string | undefined;
   /** Document type: REPORT, RESOLUTION, DECISION, DIRECTIVE, REGULATION, OPINION, AMENDMENT */
   documentType?: string | undefined;
-  type?: string | undefined;
   committee?: string | undefined;
   dateFrom?: string | undefined;
   dateTo?: string | undefined;
@@ -126,15 +125,10 @@ export interface GetParliamentaryQuestionsOptions {
 export interface GetCommitteeInfoOptions {
   /** Committee identifier */
   id?: string | undefined;
-  /** Committee abbreviation (e.g., "ENVI", "AGRI") — mapped from committeeId for backward compat */
-  committeeId?: string | undefined;
   /** Committee abbreviation (e.g., "ENVI", "AGRI") */
   abbreviation?: string | undefined;
   /** If true, returns all current active corporate bodies */
   showCurrent?: boolean | undefined;
-  dateFrom?: string | undefined;
-  dateTo?: string | undefined;
-  limit?: number | undefined;
 }
 
 /** Options for monitorLegislativePipeline */
@@ -157,8 +151,6 @@ export interface AssessMEPInfluenceOptions {
 export interface AnalyzeCoalitionDynamicsOptions {
   /** Political group identifiers to analyze (omit for all groups) */
   groupIds?: string[] | undefined;
-  /** @deprecated Use groupIds instead */
-  politicalGroups?: string[] | undefined;
   dateFrom?: string | undefined;
   dateTo?: string | undefined;
   /** Minimum cohesion threshold for alliance detection (0-1) */
@@ -170,8 +162,6 @@ export interface DetectVotingAnomaliesOptions {
   mepId?: string | undefined;
   /** Political group to analyze */
   groupId?: string | undefined;
-  /** @deprecated Use groupId instead */
-  politicalGroup?: string | undefined;
   dateFrom?: string | undefined;
   dateTo?: string | undefined;
   /** Anomaly sensitivity (0-1, lower = more anomalies detected) */
@@ -181,13 +171,9 @@ export interface DetectVotingAnomaliesOptions {
 /** Options for comparePoliticalGroups */
 export interface ComparePoliticalGroupsOptions {
   /** Political group identifiers to compare (minimum 2, maximum 10) */
-  groupIds?: string[] | undefined;
-  /** @deprecated Use groupIds instead */
-  groups?: string[] | undefined;
+  groupIds: string[];
   /** Comparison dimensions: voting_discipline, activity_level, legislative_output, attendance, cohesion */
   dimensions?: string[] | undefined;
-  /** @deprecated Use dimensions instead */
-  metrics?: string[] | undefined;
   dateFrom?: string | undefined;
   dateTo?: string | undefined;
 }
@@ -439,20 +425,14 @@ export interface ComparativeIntelligenceOptions {
 
 /** Options for correlateIntelligence */
 export interface CorrelateIntelligenceOptions {
-  /** MEP identifiers to cross-correlate (1-5 MEPs) */
-  mepIds?: string[] | undefined;
+  /** MEP identifiers to cross-correlate (1-5 MEPs, required) */
+  mepIds: string[];
   /** Political groups for coalition fracture analysis (max 8, omit for all) */
   groups?: string[] | undefined;
   /** Alert sensitivity: HIGH, MEDIUM, or LOW */
   sensitivityLevel?: 'HIGH' | 'MEDIUM' | 'LOW' | undefined;
   /** Run network centrality analysis (increases response time) */
   includeNetworkAnalysis?: boolean | undefined;
-  /** @deprecated Use mepIds instead */
-  mepId?: number | undefined;
-  /** @deprecated Use sensitivityLevel instead */
-  correlationScenarios?:
-    | ('influence_anomaly' | 'coalition_stress' | 'network_activity')[]
-    | undefined;
 }
 
 /** Allowed category values for getAllGeneratedStats */
@@ -489,12 +469,7 @@ export interface GetAllGeneratedStatsOptions {
  * Allowed timeframe values for EP API v2 feed endpoints.
  * Controls how far back the feed looks for recently updated items.
  */
-export type FeedTimeframe =
-  | 'today'
-  | 'one-day'
-  | 'one-week'
-  | 'one-month'
-  | 'custom';
+export type FeedTimeframe = 'today' | 'one-day' | 'one-week' | 'one-month' | 'custom';
 
 /** Common options shared by all EP API v2 feed endpoints */
 export interface FeedBaseOptions {
