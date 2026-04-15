@@ -749,7 +749,7 @@ european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 20
 // Parliamentary questions for upcoming topics
 european_parliament___get_parliamentary_questions({ dateFrom: "<today>", limit: 20 })
 
-// Political landscape overview
+// Political landscape overview — SKIP in DEGRADED MODE (depends on live EP API)
 european_parliament___generate_political_landscape({})
 
 // Coalition dynamics — ALWAYS call (uses structural data, works in DEGRADED MODE)

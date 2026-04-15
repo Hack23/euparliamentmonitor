@@ -801,7 +801,7 @@ european_parliament___get_server_health({})
 | `get_adopted_texts_feed` | `get_adopted_texts` | `{ year: YYYY, limit: 100 }` |
 | `get_procedures_feed` | `get_procedures` | `{ year: YYYY, limit: 50 }` |
 | `get_parliamentary_questions_feed` | `get_parliamentary_questions` | `{ type: "WRITTEN", limit: 20 }` |
-| `get_events_feed` | `get_events` | `{ dateFrom: "7-days-ago", dateTo: "today", limit: 50 }` |
+| `get_events_feed` | `get_events` | `{ dateFrom: "<7-days-ago>", dateTo: "<today>", limit: 50 }` *(YYYY-MM-DD)* |
 
 ### 🚨 MANDATORY: EP Feed Endpoints (PRIMARY News Source)
 
@@ -884,12 +884,11 @@ european_parliament___get_speeches({ dateFrom: "<7-days-ago>", dateTo: "<today>"
 **CONDITIONAL analytical tools** (skip in DEGRADED MODE — they depend on the same EP API that may be failing):
 
 ```javascript
-// OSINT: Voting anomalies on motions — SKIP in DEGRADED MODE
-european_parliament___detect_voting_anomalies({})
-
 // Parliament-wide landscape for context — SKIP in DEGRADED MODE
 european_parliament___generate_political_landscape({})
 ```
+
+> **Note:** `detect_voting_anomalies` is already called in the mandatory supplementary block above — do NOT call it again here.
 
 ### Handling Slow API Responses
 
