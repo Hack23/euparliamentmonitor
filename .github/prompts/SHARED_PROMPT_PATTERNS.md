@@ -395,6 +395,70 @@ Every workflow run MUST produce output:
 
 ---
 
+## 📋 Article Quality Gates (Mandatory for All Workflows)
+
+All generated articles MUST pass these quality gates before publication. These rules prevent recurring quality issues observed in production runs.
+
+### Keywords Quality Rules
+
+Article `<meta name="keywords">` MUST contain **only policy-relevant terms**:
+
+| ✅ Good Keywords | ❌ Banned Keywords |
+|---|---|
+| Policy terms: `anti-corruption directive`, `banking reform` | Section headings: `Deep Political Analysis`, `What Happened` |
+| Committee names: `ECON`, `LIBE`, `ENVI` | Navigation labels: `Key Actors`, `Timeline`, `Why It Matters` |
+| Document IDs: `TA-10-2026-0090`, `2025/0042(COD)` | Template artifacts: `Legislative Pipeline Overview`, `Impact Assessment` |
+| Political groups: `EPP`, `S&D`, `ECR`, `Renew` | Generic fillers: `European Parliament`, `EU legislation` |
+| Specific topics: `tariff response`, `digital markets` | Internal headings: `Actions → Consequences`, `Stakeholder Impact` |
+
+**Rule:** If a keyword matches a section heading from the article template, it MUST be removed.
+
+### Title Quality Rules
+
+Article `<title>` and `<h1>` MUST be:
+- ✅ **AI-generated from political content analysis** — names specific actors, legislation, outcomes
+- ✅ **Active voice, max 70 characters** — reads like a newspaper headline
+- ❌ **NEVER** contain raw metrics: `Pipeline 0%`, `Health Score 45`, `Fragmentation 6.59`
+- ❌ **NEVER** contain article type labels: `Weekly Review:`, `Committee Reports:`, `Propositions:`
+- ❌ **NEVER** use date-centric format: `EU Parliament Monitor — 2026-04-15`
+
+**Good examples:**
+- `ECR Breaks Ranks on Tariff Response as Grand Coalition Holds on Banking Reform`
+- `Parliament Adopts Anti-Corruption Directive Despite PfE Opposition`
+
+**Bad examples:**
+- `Legislative Procedures: European Parliament Monitor — Pipeline 0%`
+- `Weekly Review: European Parliament Activity 2026-04-15`
+
+### Description Quality Rules
+
+Article `<meta name="description">` MUST be:
+- ✅ **150-160 characters**, names the most significant item + outcome + coalition dynamics
+- ❌ **NEVER** use boilerplate: `Comprehensive analysis of European Parliament legislative activity`
+- ❌ **NEVER** repeat the title verbatim
+- ❌ **NEVER** contain placeholder text: `data unavailable`, `analysis pending`
+
+### Minimum Publication Threshold
+
+**Do NOT publish an article when:**
+- ALL feed endpoints returned empty/error AND no adopted texts exist for the time period
+- Analysis contains ONLY precomputed stats with zero feed-sourced data points
+- Article body would consist entirely of historical context paragraphs with no news
+
+**Instead:** Create an analysis-only PR per Rule 5 — analysis artifacts are still valuable.
+
+### Dashboard & Metric Rendering Rules
+
+When `monitor_legislative_pipeline` returns `health: 0%` and `throughput: 0`:
+- This means **NO DATA was available** — NOT that the pipeline scored 0%
+- ❌ **NEVER** render a dashboard showing `0%` health, `0` throughput as real metrics
+- ✅ **Instead:** Omit the pipeline dashboard entirely, or show "Data unavailable for this period"
+- ✅ **Alternative:** Use `get_procedures(year=YYYY)` as fallback to get actual pipeline data
+
+**General rule:** Any metric that equals exactly 0 from an analytical tool should be verified against feed data before rendering. Zero often means "no data returned" not "zero activity".
+
+---
+
 ## 🔄 4-Pass AI Refinement Cycle (All Workflows)
 
 | Pass | Action |

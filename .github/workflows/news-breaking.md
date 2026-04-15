@@ -769,6 +769,21 @@ european_parliament___get_events_feed({ timeframe: "one-week", limit: 50 })     
 
 > **⚠️ TIMEOUT HANDLING**: The EP API can be slow (30-90+ seconds per request). The `EP_REQUEST_TIMEOUT_MS` is set to 90 seconds. If a feed still times out, log the error and continue with other feeds — do NOT abort the entire data collection phase. A partial dataset is better than no data.
 
+> **🔴 FEED FAILURE ≠ DATA UNAVAILABLE**: If a feed endpoint returns 404 or timeout after both `today` and `one-week` retries, use the corresponding direct endpoint from the fallback chain below:
+
+**Feed → Direct Endpoint Fallback Chain:**
+
+| Failed Feed | Direct Fallback | Parameters |
+|------------|----------------|------------|
+| `get_adopted_texts_feed` | `get_adopted_texts` | `{ year: YYYY, limit: 100 }` |
+| `get_events_feed` | `get_events` | `{ dateFrom: "<today>", dateTo: "<today>", limit: 50 }` |
+| `get_procedures_feed` | `get_procedures` | `{ year: YYYY, limit: 50 }` |
+| `get_meps_feed` | `get_current_meps` | `{ limit: 50 }` |
+| `get_documents_feed` | `get_plenary_documents` + `get_committee_documents` | `{ year: YYYY, limit: 50 }` each |
+| `get_plenary_documents_feed` | `get_plenary_documents` | `{ year: YYYY, limit: 50 }` |
+| `get_committee_documents_feed` | `get_committee_documents` | `{ year: YYYY, limit: 50 }` |
+| `get_parliamentary_questions_feed` | `get_parliamentary_questions` | `{ type: "WRITTEN", limit: 20 }` |
+
 **MANDATORY: Advisory feeds (ALWAYS download — for analysis and context):**
 
 ```javascript
@@ -811,6 +826,26 @@ european_parliament___generate_political_landscape({})
 // Early warning system — mandatory in NORMAL mode, SKIP in DEGRADED MODE
 european_parliament___early_warning_system({ sensitivity: "medium" })
 ```
+
+### 🔬 MANDATORY: Deep Data Collection
+
+**Call for EVERY procedure/adopted text cited in analysis — provides evidence for coalition and voting claims:**
+
+```javascript
+// Track specific procedures cited in analysis — repeat for each cited procedure ID
+european_parliament___track_legislation({ procedureId: "<procedure-ID-from-feed>" })
+
+// Fetch plenary session decisions for voting evidence
+european_parliament___get_meeting_decisions({ sittingId: "<sitting-ID>" })
+
+// Fetch voting records for cited sessions — MANDATORY for coalition behaviour claims
+european_parliament___get_voting_records({ topic: "<topic-keyword>", limit: 20 })
+
+// Fetch speeches for debate context and direct quotes
+european_parliament___get_speeches({ dateFrom: "<7-days-ago>", dateTo: "<today>", limit: 20 })
+```
+
+> **🔴 VOTING EVIDENCE REQUIREMENT**: Any analysis that claims political group voting positions (e.g., "ECR broke ranks", "Grand Coalition held") MUST cite actual data from `get_voting_records` or `get_meeting_decisions`. If voting records are unavailable (EP publishes with delay), mark coalition claims as LOW confidence.
 
 ### ⚡ MCP Call Budget
 

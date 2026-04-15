@@ -751,6 +751,16 @@ european_parliament___get_parliamentary_questions_feed({ timeframe: "one-month",
 
 > **🔴 FEED FAILURE ≠ DATA UNAVAILABLE**: If a feed endpoint returns 404 or timeout, IMMEDIATELY try the corresponding direct endpoint. Do NOT skip the data.
 
+**Feed → Direct Endpoint Fallback Chain:**
+
+| Failed Feed | Direct Fallback | Parameters |
+|------------|----------------|------------|
+| `get_adopted_texts_feed` | `get_adopted_texts` | `{ year: YYYY, limit: 100 }` |
+| `get_procedures_feed` | `get_procedures` | `{ year: YYYY, limit: 50 }` |
+| `get_plenary_documents_feed` | `get_plenary_documents` | `{ year: YYYY, limit: 50 }` |
+| `get_parliamentary_questions_feed` | `get_parliamentary_questions` | `{ type: "WRITTEN", limit: 20 }` |
+| `get_events_feed` | `get_events` | `{ dateFrom: "YYYY-MM-01", dateTo: "YYYY-MM-DD", limit: 50 }` |
+
 ### 📊 OPTIONAL: Background Context (Secondary — NEVER the news)
 
 **Only fetch after feed endpoints have been called. Use ONLY for brief historical comparison paragraphs:**
