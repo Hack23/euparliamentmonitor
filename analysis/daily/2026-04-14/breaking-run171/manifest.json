@@ -81,6 +81,6 @@
     {"name": "Legislative Gridlock", "probability": "15%"}
   ],
   "priorRunsCrossReferenced": [169, 170, 168, 167, 163, 156],
-  "mcpServerVersion": "1.2.6",
+  "mcpServerVersion": "1.2.7",
   "epApiDirectStatus": "HTTP 000 (connection refused)"
 }

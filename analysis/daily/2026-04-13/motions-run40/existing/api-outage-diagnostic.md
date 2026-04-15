@@ -17,7 +17,7 @@ runId: 40
 | **Timestamp** | 2026-04-13T21:19:00Z |
 | **Article Type** | motions |
 | **EP API Status** | UNREACHABLE (HTTP 000 — TCP connection timeout) |
-| **MCP Server** | v1.2.6 — unhealthy, 0/13 feeds operational |
+| **MCP Server** | v1.2.7 — unhealthy, 0/13 feeds operational |
 | **Precomputed Stats** | Available (85 KB, 23 years 2004-2026) |
 | **Prior Run Today** | Run 39 (analysis-only PR, same EP API outage) |
 
@@ -71,7 +71,7 @@ runId: 40
 
 ## Server Health Summary
 
-Server version 1.2.6, status unhealthy, uptime 94 seconds.
+Server version 1.2.7, status unhealthy, uptime 94 seconds.
 Availability: 0/13 feeds operational, level Unavailable.
 
 ## What Worked
@@ -81,7 +81,7 @@ Availability: 0/13 feeds operational, level Unavailable.
 | Precomputed stats (get_all_generated_stats) | 85 KB — full 2004-2026 data |
 | analyze_coalition_dynamics (partial) | Returned structure, all metrics null |
 | Cross-session intelligence | 5 prior analysis runs available |
-| MCP server startup | Server responds (v1.2.6) |
+| MCP server startup | Server responds (v1.2.7) |
 
 ## Recovery Outlook
 

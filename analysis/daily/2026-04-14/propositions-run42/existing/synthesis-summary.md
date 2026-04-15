@@ -92,7 +92,7 @@ Trade deal averts confrontation. Normal legislative rhythm resumes. All 13 COD p
 ## Data Sources
 
 - European Parliament Open Data Portal (adopted texts, procedures, plenary sessions)
-- EP MCP Server v1.2.6 (get_adopted_texts, get_procedures, get_adopted_texts_feed)
+- EP MCP Server v1.2.7 (get_adopted_texts, get_procedures, get_adopted_texts_feed)
 - Precomputed statistics (get_all_generated_stats, 2024-2026)
 - Political landscape analysis (generate_political_landscape)
 - Prior analysis: analysis/daily/2026-04-13/propositions-run41/existing/synthesis-summary.md

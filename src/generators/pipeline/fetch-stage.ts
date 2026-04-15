@@ -593,7 +593,7 @@ export async function fetchWeekAheadData(
 
   const [plenarySessions, committeeInfo, documents, pipeline, questions, epEvents] =
     await Promise.allSettled([
-      client.getPlenarySessions({ startDate: dateRange.start, endDate: dateRange.end, limit: 50 }),
+      client.getPlenarySessions({ dateFrom: dateRange.start, dateTo: dateRange.end, limit: 50 }),
       client.getCommitteeInfo({ limit: 20 }),
       client.searchDocuments({ query: 'parliament', limit: 20 }),
       client.monitorLegislativePipeline({
@@ -602,7 +602,7 @@ export async function fetchWeekAheadData(
         status: 'ACTIVE',
         limit: 20,
       }),
-      client.getParliamentaryQuestions({ startDate: dateRange.start, limit: 20 }),
+      client.getParliamentaryQuestions({ dateFrom: dateRange.start, limit: 20 }),
       client.getEvents({ dateFrom: dateRange.start, dateTo: dateRange.end, limit: 20 }),
     ]);
 
@@ -1459,8 +1459,7 @@ const TIMEFRAME_FALLBACK_CHAIN: ReadonlyMap<FeedTimeframe, FeedTimeframe | undef
   ['one-day', 'one-week'],
   ['one-week', 'one-month'],
   ['one-month', undefined],
-  ['three-months', undefined],
-  ['one-year', undefined],
+  ['custom', undefined],
 ]);
 
 /**

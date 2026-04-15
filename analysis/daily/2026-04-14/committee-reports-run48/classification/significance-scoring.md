@@ -107,4 +107,4 @@ pie title Committee Legislative Output — Q1 2026 Adopted Texts
 
 ## Source Attribution
 
-All scores based on European Parliament Open Data Portal adopted texts (TA-10-2026 series), procedures (2026 series), and precomputed statistics (generated 2026-04-08). Data accessed via EP MCP Server v1.2.6.
+All scores based on European Parliament Open Data Portal adopted texts (TA-10-2026 series), procedures (2026 series), and precomputed statistics (generated 2026-04-08). Data accessed via EP MCP Server v1.2.7.

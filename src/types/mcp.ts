@@ -74,43 +74,64 @@ export interface GetMEPsOptions {
 
 /** Options for getPlenarySessions */
 export interface GetPlenarySessionsOptions {
-  /** Tool schema field name */
-  startDate?: string | undefined;
-  /** Tool schema field name */
-  endDate?: string | undefined;
-  /** Alternative field name used by generators */
+  /** Meeting event ID for single meeting lookup */
+  eventId?: string | undefined;
+  /** Filter by calendar year (recommended for annual counts) */
+  year?: number | undefined;
+  /** Start date in YYYY-MM-DD format */
   dateFrom?: string | undefined;
-  /** Alternative field name used by generators */
+  /** End date in YYYY-MM-DD format */
   dateTo?: string | undefined;
+  /** Session location (e.g., "Strasbourg", "Brussels") */
   location?: string | undefined;
   limit?: number | undefined;
+  offset?: number | undefined;
 }
 
 /** Options for searchDocuments */
 export interface SearchDocumentsOptions {
+  /** Document ID for single document lookup (bypasses keyword search) */
+  docId?: string | undefined;
   query?: string | undefined;
   keyword?: string | undefined;
+  /** Document type: REPORT, RESOLUTION, DECISION, DIRECTIVE, REGULATION, OPINION, AMENDMENT */
+  documentType?: string | undefined;
   type?: string | undefined;
   committee?: string | undefined;
   dateFrom?: string | undefined;
   dateTo?: string | undefined;
   limit?: number | undefined;
+  offset?: number | undefined;
 }
 
 /** Options for getParliamentaryQuestions */
 export interface GetParliamentaryQuestionsOptions {
+  /** Document ID for single question lookup */
+  docId?: string | undefined;
+  /** Question type: WRITTEN or ORAL */
   type?: string | undefined;
-  startDate?: string | undefined;
+  /** MEP identifier or name of question author */
+  author?: string | undefined;
+  /** Question topic or keyword to search */
+  topic?: string | undefined;
+  /** Question status: PENDING or ANSWERED */
+  status?: string | undefined;
   dateFrom?: string | undefined;
   dateTo?: string | undefined;
   limit?: number | undefined;
+  offset?: number | undefined;
 }
 
 /** Options for getCommitteeInfo */
 export interface GetCommitteeInfoOptions {
+  /** Committee identifier */
+  id?: string | undefined;
+  /** Committee abbreviation (e.g., "ENVI", "AGRI") — mapped from committeeId for backward compat */
   committeeId?: string | undefined;
-  /** Alternative field name used by callers — maps to `abbreviation` in the MCP tool schema */
+  /** Committee abbreviation (e.g., "ENVI", "AGRI") */
   abbreviation?: string | undefined;
+  /** If true, returns all current active corporate bodies */
+  showCurrent?: boolean | undefined;
   dateFrom?: string | undefined;
   dateTo?: string | undefined;
   limit?: number | undefined;
@@ -134,23 +155,41 @@ export interface AssessMEPInfluenceOptions {
 
 /** Options for analyzeCoalitionDynamics */
 export interface AnalyzeCoalitionDynamicsOptions {
+  /** Political group identifiers to analyze (omit for all groups) */
+  groupIds?: string[] | undefined;
+  /** @deprecated Use groupIds instead */
   politicalGroups?: string[] | undefined;
   dateFrom?: string | undefined;
   dateTo?: string | undefined;
+  /** Minimum cohesion threshold for alliance detection (0-1) */
+  minimumCohesion?: number | undefined;
 }
 
 /** Options for detectVotingAnomalies */
 export interface DetectVotingAnomaliesOptions {
   mepId?: string | undefined;
+  /** Political group to analyze */
+  groupId?: string | undefined;
+  /** @deprecated Use groupId instead */
   politicalGroup?: string | undefined;
   dateFrom?: string | undefined;
+  dateTo?: string | undefined;
+  /** Anomaly sensitivity (0-1, lower = more anomalies detected) */
+  sensitivityThreshold?: number | undefined;
 }
 
 /** Options for comparePoliticalGroups */
 export interface ComparePoliticalGroupsOptions {
-  groups: string[];
+  /** Political group identifiers to compare (minimum 2, maximum 10) */
+  groupIds?: string[] | undefined;
+  /** @deprecated Use groupIds instead */
+  groups?: string[] | undefined;
+  /** Comparison dimensions: voting_discipline, activity_level, legislative_output, attendance, cohesion */
+  dimensions?: string[] | undefined;
+  /** @deprecated Use dimensions instead */
   metrics?: string[] | undefined;
   dateFrom?: string | undefined;
+  dateTo?: string | undefined;
 }
 
 /** Options for analyzeLegislativeEffectiveness */
@@ -226,6 +265,8 @@ export interface GetCurrentMEPsOptions {
 /** Options for getSpeeches */
 export interface GetSpeechesOptions {
   speechId?: string | undefined;
+  /** Filter by calendar year (recommended for annual counts) */
+  year?: number | undefined;
   dateFrom?: string | undefined;
   dateTo?: string | undefined;
   limit?: number | undefined;
@@ -251,6 +292,8 @@ export interface GetAdoptedTextsOptions {
 /** Options for getEvents */
 export interface GetEventsOptions {
   eventId?: string | undefined;
+  /** Filter by calendar year (recommended for annual counts) */
+  year?: number | undefined;
   dateFrom?: string | undefined;
   dateTo?: string | undefined;
   limit?: number | undefined;
@@ -396,7 +439,17 @@ export interface ComparativeIntelligenceOptions {
 
 /** Options for correlateIntelligence */
 export interface CorrelateIntelligenceOptions {
+  /** MEP identifiers to cross-correlate (1-5 MEPs) */
+  mepIds?: string[] | undefined;
+  /** Political groups for coalition fracture analysis (max 8, omit for all) */
+  groups?: string[] | undefined;
+  /** Alert sensitivity: HIGH, MEDIUM, or LOW */
+  sensitivityLevel?: 'HIGH' | 'MEDIUM' | 'LOW' | undefined;
+  /** Run network centrality analysis (increases response time) */
+  includeNetworkAnalysis?: boolean | undefined;
+  /** @deprecated Use mepIds instead */
   mepId?: number | undefined;
+  /** @deprecated Use sensitivityLevel instead */
   correlationScenarios?:
     | ('influence_anomaly' | 'coalition_stress' | 'network_activity')[]
     | undefined;
@@ -441,8 +494,7 @@ export type FeedTimeframe =
   | 'one-day'
   | 'one-week'
   | 'one-month'
-  | 'three-months'
-  | 'one-year';
+  | 'custom';
 
 /** Common options shared by all EP API v2 feed endpoints */
 export interface FeedBaseOptions {
