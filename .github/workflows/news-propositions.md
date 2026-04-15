@@ -704,7 +704,30 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 european_parliament___get_server_health({})
 ```
 
-> **📊 ADAPTIVE STRATEGY**: If health shows `Degraded`/`Sparse`/`Unavailable`, widen initial timeframe for ALL feeds and focus on `get_all_generated_stats` for precomputed context.
+> **📊 ADAPTIVE STRATEGY**: If health shows `Degraded`/`Sparse`/`Unavailable`, **enter DEGRADED MODE** immediately: widen initial timeframe from `"today"` to `"one-week"` for ALL feeds, use direct endpoint fallbacks for failed feeds, skip analytical tools that depend on upstream API calls, and focus on `get_all_generated_stats` for precomputed context.
+
+### ⚠️ DEGRADED MODE Protocol
+
+**Trigger**: `get_server_health` reports ≥50% feeds as `error`/`Degraded`/`Unavailable`, OR the first 2+ primary feed calls return INTERNAL_ERROR/timeout.
+
+**When in Degraded Mode:**
+
+1. **Skip `timeframe: "today"` entirely** — go directly to `timeframe: "one-week"` for ALL feed calls
+2. **Use direct endpoint fallbacks** when feeds fail (see table below)
+3. **Skip analytical tools that require live upstream API calls**: `detect_voting_anomalies`, `generate_political_landscape`, `early_warning_system` — record as `SKIPPED_DEGRADED_MODE` in manifest
+4. **Focus on reliable data sources**: `get_all_generated_stats` (precomputed), `analyze_coalition_dynamics` (cached structural data)
+5. **Still attempt ALL feed endpoints** with `one-week` timeframe — some feeds may work even when others don't
+6. **Still write ALL analysis artifacts** — use precomputed stats and whatever data was collected
+7. **Record degraded mode in manifest**: Set `"degradedMode": true`
+
+**Feed → Direct Endpoint Fallback Chain:**
+
+| Failed Feed | Direct Fallback | Parameters |
+|------------|----------------|------------|
+| `get_procedures_feed` | `get_procedures` | `{ year: YYYY, limit: 50 }` |
+| `get_documents_feed` | `get_plenary_documents` + `get_committee_documents` | `{ year: YYYY, limit: 50 }` each |
+| `get_adopted_texts_feed` | `get_adopted_texts` | `{ year: YYYY, limit: 100 }` |
+| `get_plenary_documents_feed` | `get_plenary_documents` | `{ year: YYYY, limit: 50 }` |
 
 ### 🚨 MANDATORY: EP Feed Endpoints (PRIMARY News Source)
 
@@ -713,18 +736,24 @@ european_parliament___get_server_health({})
 ```javascript
 // Procedures feed — THE primary data source for propositions articles
 european_parliament___get_procedures_feed({ timeframe: "one-week", limit: 50 })
+// ↳ FALLBACK if 404/timeout: european_parliament___get_procedures({ year: 2026, limit: 50 })
 
 // Documents feed — recently updated legislative documents
 european_parliament___get_documents_feed({ timeframe: "one-week", limit: 50 })
+// ↳ FALLBACK if 404/timeout: european_parliament___get_plenary_documents({ year: 2026, limit: 50 })
 
 // Adopted texts feed — skip if feed returns empty (no new texts in last 12h)
 european_parliament___get_adopted_texts_feed({ timeframe: "one-day", limit: 20 })
+// ↳ FALLBACK if 404/timeout: european_parliament___get_adopted_texts({ year: 2026, limit: 100 })
 
 // Plenary documents feed — recent plenary documents
 european_parliament___get_plenary_documents_feed({ timeframe: "one-week", limit: 20 })
+// ↳ FALLBACK if 404/timeout: european_parliament___get_plenary_documents({ year: 2026, limit: 50 })
 ```
 
 > **⚠️ ARTICLE CONTENT MUST COME FROM THESE FEEDS**: The article's lede, headlines, and primary sections must reference **specific procedures, documents, or adopted texts** found in these feed results. If feeds return items, those items ARE the news. If feeds return no recent items, still perform full analysis and create an analysis-only PR per `ai-driven-analysis-guide.md` Rule 5 — do NOT fall back to writing an article from precomputed stats.
+
+> **🔴 FEED FAILURE ≠ DATA UNAVAILABLE**: If a feed endpoint returns 404 or timeout, IMMEDIATELY try the corresponding direct endpoint from the fallback chain above. Do NOT skip the data.
 
 ### 📊 OPTIONAL: Background Context (Secondary — NEVER the news)
 
@@ -750,7 +779,7 @@ european_parliament___get_all_generated_stats({ category: "all", includePredicti
 
 ```javascript
 // Fetch latest legislative proposals
-european_parliament___search_documents({ query: "Commission proposal", limit: 20 })
+european_parliament___search_documents({ keyword: "Commission proposal", limit: 20 })
 
 // Monitor legislative pipeline
 european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 10 })
@@ -759,11 +788,32 @@ european_parliament___monitor_legislative_pipeline({ status: "ACTIVE", limit: 10
 european_parliament___track_legislation({ procedureId: "<ID from feed>" })
 
 // Get committee referral information
-european_parliament___get_committee_info({ committeeId: "ENVI" })
+european_parliament___get_committee_info({ abbreviation: "ENVI" })
 
 // Analyze legislative effectiveness
 european_parliament___analyze_legislative_effectiveness({ subjectType: "COMMITTEE", subjectId: "ENVI" })
+
+// Coalition dynamics — ALWAYS call (uses structural data, works in DEGRADED MODE)
+european_parliament___analyze_coalition_dynamics({})
 ```
+
+**MANDATORY deep data collection** (call for EVERY procedure/adopted text cited in analysis):
+
+```javascript
+// Track specific procedures cited in analysis — repeat for each cited procedure ID
+european_parliament___track_legislation({ procedureId: "<procedure-ID-from-feed>" })
+
+// Fetch plenary session decisions for voting evidence
+european_parliament___get_meeting_decisions({ sittingId: "<sitting-ID>" })
+
+// Fetch voting records for cited sessions — MANDATORY for coalition behavior claims
+european_parliament___get_voting_records({ sessionId: "<session-ID>", limit: 50 })
+
+// Fetch speeches for debate context and direct quotes
+european_parliament___get_speeches({ dateFrom: "<7-days-ago>", dateTo: "<today>", limit: 20 })
+```
+
+> **🔴 VOTING EVIDENCE REQUIREMENT**: Any analysis that claims political group voting positions (e.g., "broad cross-party support") MUST cite actual data from `get_voting_records` or `get_meeting_decisions`. If voting records are unavailable, mark coalition claims as LOW confidence.
 
 ### 📡 Feed Timeframe Parameters
 
