@@ -206,6 +206,14 @@ sv (Swedish), da (Danish), no (Norwegian), fi (Finnish), de (German), fr (French
 4. **Completeness** (10%): Every section, SWOT entry, confidence marker present
 5. **Formatting** (10%): RTL/CJK correct, emoji markers preserved
 
+### ❌ Translation Quality Gate (Step 4 auto-enforced)
+- **Title check**: `<title>` must differ from English source
+- **H1 check**: `<h1>` must differ from English source
+- **Body check**: First 500 chars of body text must differ from English source
+- **English pattern check**: Fewer than 5 English sentence patterns in translated file
+- Files failing these checks are **automatically REMOVED** from the PR and the agent is told to re-translate them
+- Per-language quality scores are included in the PR description and analysis summary
+
 ## ⏱️ Time Budget (90 minutes)
 
 | Minutes | Action |
@@ -214,9 +222,13 @@ sv (Swedish), da (Danish), no (Norwegian), fi (Finnish), de (German), fr (French
 | 2–5 | Discovery (find English articles needing translation) |
 | 5–10 | Generate article HTML files (Step 3) |
 | 10–75 | **AI TRANSLATION — THIS IS YOUR PRIMARY TASK** (Step 3b) |
-| 75–85 | Validate + Final PR |
+| 75–80 | Validate translations (Step 4) — reject untranslated copies |
+| 80–85 | **Write quality-scored summary** (Step 4c) — MANDATORY, no placeholders |
+| 85–90 | Final PR with quality scores |
 
-> **TRANSLATION IS THE PRIORITY**: Spend 65+ minutes translating. Skip or minimize everything else. Partial translations in a PR are better than a timeout with no translations.
+> **TRANSLATION IS THE PRIORITY**: Spend 65+ minutes translating. Every file MUST have its title, h1, description, and body text fully translated — just changing the lang attribute is NOT a translation. Files that are untranslated copies of English will be automatically REJECTED in Step 4.
+
+> **QUALITY SUMMARY IS MANDATORY**: Step 4c summary.md MUST contain per-language quality scores and a coverage matrix. Placeholders like "_(to be filled)_" are NEVER acceptable. If you run out of time, write what you have — but NEVER leave the template empty.
 
 > **No git commands**: Write files with `edit`/`create` tools → call `safeoutputs___create_pull_request` EARLY (first 2 min). NEVER use `git add`/`commit`/`push` — the framework does NOT capture committed files. Only uncommitted working directory changes are captured after a successful safeoutputs call.
 
@@ -853,6 +865,40 @@ for ITEM in $(echo "$TRANSLATED_TYPES" | tr ',' ' '); do
       fi
     fi
 
+    # ── CRITICAL: Untranslated copy detection ──
+    # Compare <title> and <h1> against English source to detect files that are
+    # just copies of English with lang attribute changed (but no actual translation).
+    # This is the #1 quality defect — agent copies English, changes html lang, and submits.
+    EN_SOURCE="news/${ITEM_DATE}-${TYPE}-en.html"
+    if [ -f "$EN_SOURCE" ]; then
+      EN_TITLE=$(grep -oP '<title>\K[^<]+' "$EN_SOURCE" 2>/dev/null | head -1)
+      LANG_TITLE=$(grep -oP '<title>\K[^<]+' "$FILE" 2>/dev/null | head -1)
+      EN_H1=$(grep -oP '<h1>\K[^<]+' "$EN_SOURCE" 2>/dev/null | head -1)
+      LANG_H1=$(grep -oP '<h1>\K[^<]+' "$FILE" 2>/dev/null | head -1)
+      # Strip site name suffix for comparison
+      EN_TITLE_BASE=$(echo "$EN_TITLE" | sed 's/ | EU Parliament Monitor$//')
+      LANG_TITLE_BASE=$(echo "$LANG_TITLE" | sed 's/ | EU Parliament Monitor$//')
+      if [ "$EN_TITLE_BASE" = "$LANG_TITLE_BASE" ] && [ "$LANG" != "en" ]; then
+        echo "❌ $FILE: UNTRANSLATED COPY — <title> is identical to English source (CRITICAL)"
+        echo "   English: $EN_TITLE_BASE"
+        echo "   $LANG:    $LANG_TITLE_BASE"
+        VALIDATION_FAILURES=$((VALIDATION_FAILURES + 1))
+        UNTRANSLATED_COPIES="${UNTRANSLATED_COPIES:-} $FILE"
+      fi
+      if [ "$EN_H1" = "$LANG_H1" ] && [ "$LANG" != "en" ]; then
+        echo "❌ $FILE: UNTRANSLATED COPY — <h1> is identical to English source (CRITICAL)"
+        VALIDATION_FAILURES=$((VALIDATION_FAILURES + 1))
+      fi
+      # Content similarity check: extract body text and compare
+      EN_BODY_TEXT=$(sed 's/<[^>]*>//g' "$EN_SOURCE" | tr -s '[:space:]' ' ' | head -c 500)
+      LANG_BODY_TEXT=$(sed 's/<[^>]*>//g' "$FILE" | tr -s '[:space:]' ' ' | head -c 500)
+      if [ "$EN_BODY_TEXT" = "$LANG_BODY_TEXT" ]; then
+        echo "❌ $FILE: UNTRANSLATED COPY — body text identical to English (CRITICAL)"
+        VALIDATION_FAILURES=$((VALIDATION_FAILURES + 1))
+        UNTRANSLATED_COPIES="${UNTRANSLATED_COPIES:-} $FILE"
+      fi
+    fi
+
     # ── Translation content-level quality checks ──
     # Check for untranslated English phrases in non-English articles
     # After Step 3b AI translation, ALL English content should be translated
@@ -879,6 +925,21 @@ for ITEM in $(echo "$TRANSLATED_TYPES" | tr ',' ' '); do
       echo "⚠️ $FILE: Detected ~$BROAD_ENGLISH English sentence patterns — significant untranslated content remains"
       VALIDATION_FAILURES=$((VALIDATION_FAILURES + 1))
     fi
+
+    # ── Per-file quality score using validate-articles ──
+    QUALITY_SCORE=""
+    QUALITY_GRADE=""
+    if command -v npx >/dev/null 2>&1; then
+      QUALITY_OUTPUT=$(npx tsx src/utils/validate-articles.ts --quality --date="${ITEM_DATE}" 2>&1 | grep -i "$(basename "$FILE")" | head -1 || true)
+      if [ -n "$QUALITY_OUTPUT" ]; then
+        QUALITY_SCORE=$(echo "$QUALITY_OUTPUT" | grep -oP 'score[:\s]*\K[0-9]+' 2>/dev/null || true)
+        QUALITY_GRADE=$(echo "$QUALITY_OUTPUT" | grep -oP 'grade[:\s]*\K[A-F]' 2>/dev/null || true)
+      fi
+    fi
+    # Persist per-file quality data for summary
+    QUALITY_DATA="${QUALITY_DATA:-}"
+    QUALITY_DATA="${QUALITY_DATA}${LANG}|${QUALITY_SCORE:-n/a}|${QUALITY_GRADE:-n/a}|${WORD_COUNT:-0}|${UNTRANSLATED_COUNT:-0}|${BROAD_ENGLISH:-0}
+"
 
     # CJK-specific checks: ensure CJK characters are present
     if echo "$LANG" | grep -qE '^(ja|ko|zh)$'; then
@@ -919,14 +980,41 @@ for ITEM in $(echo "$TRANSLATED_TYPES" | tr ',' ' '); do
 done
 
 if [ "$VALIDATION_FAILURES" -gt 0 ]; then
-  echo "⚠️ Translation validation found $VALIDATION_FAILURES issue(s) — proceeding with PR creation"
+  echo "⚠️ Translation validation found $VALIDATION_FAILURES issue(s)"
 else
   echo "✅ All translations pass validation"
 fi
 
+# ── CRITICAL: Remove untranslated copies from PR ──
+# Files detected as identical-to-English copies MUST be excluded.
+# They add noise and confuse users into thinking translations are done.
+UNTRANSLATED_COPIES="${UNTRANSLATED_COPIES:-}"
+REMOVED_COUNT=0
+if [ -n "$UNTRANSLATED_COPIES" ]; then
+  echo ""
+  echo "❌❌❌ UNTRANSLATED COPIES DETECTED — REMOVING FROM PR ❌❌❌"
+  echo ""
+  echo "The following files are just English content with a changed lang attribute."
+  echo "They are NOT actual translations and MUST NOT be included in the PR."
+  echo "The agent MUST go back to Step 3b and ACTUALLY TRANSLATE these files."
+  echo ""
+  for COPY_FILE in $UNTRANSLATED_COPIES; do
+    echo "  🗑️ Removing untranslated copy: $COPY_FILE"
+    git checkout -- "$COPY_FILE" 2>/dev/null || rm -f "$COPY_FILE" 2>/dev/null || true
+    REMOVED_COUNT=$((REMOVED_COUNT + 1))
+  done
+  echo ""
+  echo "⚠️ Removed $REMOVED_COUNT untranslated copies. You MUST translate these files before creating the PR."
+  echo "   Go back to Step 3b and translate the removed files properly."
+fi
+
 # --- Persist validation results for PR body ---
 VAL_STATE_FILE="/tmp/gh-aw-translate-validation.sh"
-printf 'VALIDATION_FAILURES=%q\n' "${VALIDATION_FAILURES}" > "$VAL_STATE_FILE"
+{
+  printf 'VALIDATION_FAILURES=%q\n' "${VALIDATION_FAILURES}"
+  printf 'UNTRANSLATED_COPY_COUNT=%q\n' "${REMOVED_COUNT}"
+  printf 'QUALITY_DATA=%q\n' "${QUALITY_DATA:-}"
+} > "$VAL_STATE_FILE"
 echo "💾 Validation state persisted to $VAL_STATE_FILE"
 ```
 
@@ -995,9 +1083,11 @@ else
 fi
 ```
 
-## Step 4c: Translation Analysis (brief)
+## Step 4c: Translation Analysis (MANDATORY — quality-scored summary)
 
-Write a brief translation summary to `${ANALYSIS_DIR}/summary.md` documenting: what was translated, languages covered, any gaps.
+> **⚠️ MANDATORY**: You MUST complete the analysis summary with ACTUAL data from validation. Do NOT leave placeholder text like "_(to be filled)_". The summary MUST include per-language quality scores and a coverage matrix. See `analysis/daily/2026-04-10/translate-run86/summary.md` for the expected format.
+
+Write the completed translation summary to `${ANALYSIS_DIR}/summary.md`. Use validation data from Step 4 to populate quality grades.
 
 ```bash
 if [ -z "${ARTICLE_DATE:-}" ]; then
@@ -1006,8 +1096,26 @@ fi
 RUN_ID="${GITHUB_RUN_NUMBER:-0}"
 ANALYSIS_DIR="analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}"
 mkdir -p "${ANALYSIS_DIR}"
+
+# Restore validation data
+VAL_STATE_FILE="/tmp/gh-aw-translate-validation.sh"
+[ -f "$VAL_STATE_FILE" ] && source "$VAL_STATE_FILE"
+
 echo "📊 Translation analysis directory: ${ANALYSIS_DIR}/"
+echo "📊 Writing quality-scored summary (MANDATORY — no placeholders allowed)"
 ```
+
+After the bash block above, you MUST use the `edit` tool to write the completed summary to `${ANALYSIS_DIR}/summary.md`. The summary MUST include:
+
+1. **Translation Coverage Matrix** — table showing article types × languages with ✅/❌ status
+2. **Quality Assessment** — table with columns: Language | Quality Score | Grade | Word Count | Notes
+3. **Terminology Consistency** — at least 3 EP-specific term examples per language
+4. **Coverage Gap Analysis** — any missing languages or articles
+5. **Improvement Recommendations** — actionable short-term and long-term items
+
+> **❌ NEVER** leave the template placeholders like `_(to be filled)_`. If you don't have data, explain why.
+> **❌ NEVER** mark a translation as "in progress" — either it is ✅ Fully translated or ❌ Not translated.
+> **✅ DO** use the `QUALITY_DATA` variable from Step 4 validation to populate per-language quality scores.
 
 ## Step 5: Create Pull Request
 
@@ -1080,7 +1188,9 @@ VAL_STATE_FILE="/tmp/gh-aw-translate-validation.sh"
 [ -f "$GEN_STATE_FILE" ] && source "$GEN_STATE_FILE"
 [ -f "$VAL_STATE_FILE" ] && source "$VAL_STATE_FILE"
 VALIDATION_FAILURES="${VALIDATION_FAILURES:-0}"
-echo "✅ Restored state for PR creation: BACKFILL_DATES=$BACKFILL_DATES IMPROVEMENT_MODE=$IMPROVEMENT_MODE VALIDATION_FAILURES=$VALIDATION_FAILURES"
+UNTRANSLATED_COPY_COUNT="${UNTRANSLATED_COPY_COUNT:-0}"
+QUALITY_DATA="${QUALITY_DATA:-}"
+echo "✅ Restored state for PR creation: BACKFILL_DATES=$BACKFILL_DATES IMPROVEMENT_MODE=$IMPROVEMENT_MODE VALIDATION_FAILURES=$VALIDATION_FAILURES UNTRANSLATED_COPIES=$UNTRANSLATED_COPY_COUNT"
 
 # Remove metadata files to prevent patch conflicts with other same-day workflows
 rm -f news/metadata/generation-*.json
@@ -1247,6 +1357,30 @@ fi
 
 # Write PR body to temp file with real newlines (not escaped \n)
 PR_BODY_FILE="/tmp/gh-aw-pr-body.md"
+
+# ── Build per-language quality table from validation data ──
+QUALITY_TABLE=""
+if [ -n "${QUALITY_DATA:-}" ]; then
+  while IFS='|' read -r QL_LANG QL_SCORE QL_GRADE QL_WORDS QL_UNTRANS QL_ENGLISH; do
+    [ -z "$QL_LANG" ] && continue
+    # Determine translation status
+    QL_STATUS="✅ Translated"
+    if [ "${QL_UNTRANS:-0}" -gt 5 ] || [ "${QL_ENGLISH:-0}" -gt 10 ]; then
+      QL_STATUS="⚠️ Partial"
+    fi
+    # Get flag emoji
+    QL_FLAG=""
+    for FE in $LANG_FLAG_MAP; do
+      FL=$(echo "$FE" | cut -d: -f1)
+      FF=$(echo "$FE" | cut -d: -f2)
+      if [ "$FL" = "$QL_LANG" ]; then QL_FLAG="$FF"; break; fi
+    done
+    QUALITY_TABLE="${QUALITY_TABLE}$(printf '| %s %s | %s | %s | %s | %s |\n' "$QL_FLAG" "$QL_LANG" "${QL_GRADE:-—}" "${QL_WORDS:-—}" "$QL_STATUS" "${QL_SCORE:-—}")"
+  done <<EOF
+${QUALITY_DATA}
+EOF
+fi
+
 cat > "$PR_BODY_FILE" <<PRBODYEOF
 ## 🌐 EU Parliament Article Translations — ${ARTICLE_DATE}
 
@@ -1258,6 +1392,7 @@ cat > "$PR_BODY_FILE" <<PRBODYEOF
 | 📰 **Articles translated** | ${ARTICLE_COUNT} |
 | 🌍 **Languages** | ${LANG_COVERAGE_SUMMARY} |
 | ${VAL_ICON} **Validation** | ${VAL_STATUS} |
+| 🗑️ **Untranslated copies removed** | ${UNTRANSLATED_COPY_COUNT:-0} |
 ${MODE_ROW}
 
 ### 📰 Articles
@@ -1270,6 +1405,13 @@ ${ARTICLE_LIST}
 |----------|-------|--------|
 ${LANG_TABLE}
 ${MISMATCH_SECTION}
+
+### 📊 Per-Language Quality Scores
+
+| Language | Grade | Words | Translation Status | Score |
+|----------|-------|-------|--------------------|-------|
+${QUALITY_TABLE:-| _(no quality data)_ | — | — | — | — |}
+
 ### ✅ Quality Checks
 
 | Check | Result |
@@ -1280,12 +1422,15 @@ ${MISMATCH_SECTION}
 | EP terminology | ${VAL_ICON} |
 | Filename↔lang match | ${FILENAME_MATCH_STATUS} |
 | 🔍 HTMLHint lint | ${VAL_ICON} |
+| 🔍 Title/H1 vs English | ${UNTRANSLATED_COPY_COUNT:-0} untranslated copies |
+| 📊 Quality scoring | Included above |
 
 ### 🔧 Pipeline
 
 - **Source**: English articles from content workflows
 - **Method**: AI translation with EP-specific terminology
 - **Workflow**: \`news-translate\` (run ${RUN_ID})
+- **Quality gate**: Title + H1 + body must differ from English source
 PRBODYEOF
 
 # Write PR title to temp file
