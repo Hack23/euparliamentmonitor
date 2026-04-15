@@ -103,7 +103,6 @@ safe-outputs:
     - www.riksdagsmonitor.com
     - euparliamentmonitor.com
     - www.euparliamentmonitor.com
-  max-patch-size: 5120
   create-pull-request:
     title-prefix: "[news] "
     labels: [agentic-news, analysis-data]
@@ -111,6 +110,7 @@ safe-outputs:
     expires: 14d
     excluded-files:
       - "analysis/daily/**/data/**"
+      - ".github/**"
   add-comment:
     max: 1
 
