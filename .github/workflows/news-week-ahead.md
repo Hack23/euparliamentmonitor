@@ -690,7 +690,7 @@ european_parliament___get_server_health({})
 | `get_events_feed` | `get_events` | `{ dateFrom: "today", dateTo: "next-week", limit: 50 }` |
 | `get_procedures_feed` | `get_procedures` | `{ year: YYYY, limit: 50 }` |
 | `get_plenary_documents_feed` | `get_plenary_documents` | `{ year: YYYY, limit: 50 }` |
-| `get_plenary_session_documents_feed` | `get_plenary_sessions` | `{ dateFrom: "today", dateTo: "next-week", limit: 20 }` |
+| `get_plenary_session_documents_feed` | `get_plenary_session_documents` | `{ limit: 20 }` |
 
 ### 🚨 MANDATORY: EP Feed Endpoints (PRIMARY News Source)
 

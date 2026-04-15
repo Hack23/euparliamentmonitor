@@ -783,19 +783,19 @@ european_parliament___get_all_generated_stats({ category: "all", includePredicti
 
 **ALWAYS call `european_parliament___get_plenary_sessions` FIRST as the mandatory MCP Health Gate / warm-up and connectivity check (up to 3 attempts). Do not call it again after it succeeds.**
 
-**MANDATORY supplementary tools** (ALWAYS call for comprehensive analysis — do NOT skip even if feed data is sparse for activity this month):
+**MANDATORY supplementary tools** (ALWAYS call for comprehensive analysis — do NOT skip even if feed data is sparse for activity this month — replace placeholders with actual ISO dates):
 
-```javascript
-// Voting records for the month — MANDATORY for any coalition behaviour claims
+```text
+// Voting records for the month — MANDATORY for any coalition behaviour claims (replace <last-month> and <today> with actual ISO dates)
 european_parliament___get_voting_records({ dateFrom: "<last-month>", dateTo: "<today>", limit: 30 })
 
 // Coalition dynamics — ALWAYS call (uses structural data, works in DEGRADED MODE)
 european_parliament___analyze_coalition_dynamics({})
 ```
 
-**MANDATORY deep data collection** (call for EVERY procedure/adopted text cited in analysis):
+**MANDATORY deep data collection** (call for EVERY procedure/adopted text cited in analysis — replace placeholders with actual IDs/dates):
 
-```javascript
+```text
 // Track specific procedures cited in analysis — repeat for each cited procedure ID
 european_parliament___track_legislation({ procedureId: "<procedure-ID-from-feed>" })
 

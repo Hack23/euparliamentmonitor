@@ -776,7 +776,7 @@ european_parliament___get_events_feed({ timeframe: "one-week", limit: 50 })     
 | Failed Feed | Direct Fallback | Parameters |
 |------------|----------------|------------|
 | `get_adopted_texts_feed` | `get_adopted_texts` | `{ year: YYYY, limit: 100 }` |
-| `get_events_feed` | `get_events` | `{ dateFrom: "<today>", dateTo: "<today>", limit: 50 }` |
+| `get_events_feed` | `get_events` | `{ dateFrom: "<7-days-ago>", dateTo: "<today>", limit: 50 }` |
 | `get_procedures_feed` | `get_procedures` | `{ year: YYYY, limit: 50 }` |
 | `get_meps_feed` | `get_current_meps` | `{ limit: 50 }` |
 | `get_documents_feed` | `get_plenary_documents` + `get_committee_documents` | `{ year: YYYY, limit: 50 }` each |
