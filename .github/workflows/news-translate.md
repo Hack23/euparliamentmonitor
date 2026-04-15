@@ -1190,14 +1190,19 @@ EOF
   fi
 fi
 
-# Determine branch name — include backfill info if applicable
+# Determine branch name — MUST include RUN_ID to match the early checkpoint safeoutputs call
+# The early checkpoint (Step 3a) uses head: "news/translate-${ARTICLE_DATE}-${RUN_ID}"
+# This MUST be identical or the final safeoutputs call will create a second PR.
+if [ -z "$RUN_ID" ]; then
+  RUN_ID="${GITHUB_RUN_NUMBER:-0}"
+fi
 if [ -n "$BACKFILL_DATES" ]; then
   FIRST_BACKFILL_DATE=$(echo "$BACKFILL_DATES" | tr ',' '\n' | head -1)
-  BRANCH_NAME="news/translate-backfill-${FIRST_BACKFILL_DATE}-${ARTICLE_DATE}"
+  BRANCH_NAME="news/translate-backfill-${FIRST_BACKFILL_DATE}-${ARTICLE_DATE}-${RUN_ID}"
 elif [ "$IMPROVEMENT_MODE" = "true" ]; then
-  BRANCH_NAME="news/translate-improve-${ARTICLE_DATE}"
+  BRANCH_NAME="news/translate-improve-${ARTICLE_DATE}-${RUN_ID}"
 else
-  BRANCH_NAME="news/translate-${ARTICLE_DATE}"
+  BRANCH_NAME="news/translate-${ARTICLE_DATE}-${RUN_ID}"
 fi
 echo "Branch: $BRANCH_NAME"
 
@@ -1287,7 +1292,7 @@ PRBODYEOF
 PR_TITLE_FILE="/tmp/gh-aw-pr-title.txt"
 echo "$PR_TITLE" > "$PR_TITLE_FILE"
 echo "PR title: $PR_TITLE"
-echo "PR body written to: $PR_BODY_FILE ($(wc -l < "$PR_BODY_FILE") lines)"
+echo "PR body written to: $PR_BODY_FILE ($(wc -l "$PR_BODY_FILE" | awk '{print $1}') lines)"
 ```
 
 Read `/tmp/gh-aw-pr-title.txt` for the PR title and `/tmp/gh-aw-pr-body.md` for the PR body, then call safeoutputs:
@@ -1295,11 +1300,13 @@ Read `/tmp/gh-aw-pr-title.txt` for the PR title and `/tmp/gh-aw-pr-body.md` for 
 ```javascript
 // Read the computed PR title and body from the temp files written by the bash block above.
 // The title is in /tmp/gh-aw-pr-title.txt and the body in /tmp/gh-aw-pr-body.md.
+// IMPORTANT: head MUST match the early checkpoint branch name (news/translate-${ARTICLE_DATE}-${RUN_ID})
+// to update the existing PR instead of creating a second one.
 safeoutputs___create_pull_request({
   title: "<contents of /tmp/gh-aw-pr-title.txt>",
   body: "<contents of /tmp/gh-aw-pr-body.md>",
   base: "main",
-  head: BRANCH_NAME
+  head: `news/translate-${ARTICLE_DATE}-${RUN_ID}`
 })
 ```
 
