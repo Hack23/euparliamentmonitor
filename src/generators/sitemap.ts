@@ -365,15 +365,17 @@ export function generateSitemapHTML(
   const skipLinkText = getLocalizedString(SKIP_LINK_TEXTS, lang);
   const dir = getTextDirection(lang);
   const year = new Date().getFullYear();
-  const sections = SITEMAP_SECTIONS[lang] ||
-    SITEMAP_SECTIONS['en'] || { news: 'News Articles', docs: 'Documentation', pages: 'Pages' };
-  const docsLabels = DOCS_LABELS[lang] ||
-    DOCS_LABELS['en'] || {
-      api: 'API Documentation',
-      coverage: 'Code Coverage',
-      testResults: 'Test Results',
-      docsHome: 'Documentation Home',
-    };
+  const sections = (SITEMAP_SECTIONS[lang] ?? SITEMAP_SECTIONS['en']) as {
+    news: string;
+    docs: string;
+    pages: string;
+  };
+  const docsLabels = (DOCS_LABELS[lang] ?? DOCS_LABELS['en']) as {
+    api: string;
+    coverage: string;
+    testResults: string;
+    docsHome: string;
+  };
   const heroTitle = getLocalizedString(PAGE_TITLES, lang).split(' - ')[0] ?? '';
   const headerSubtitle = escapeHTML(getLocalizedString(HEADER_SUBTITLE_LABELS, lang));
   const themeToggleLabel = escapeHTML(getLocalizedString(THEME_TOGGLE_LABELS, lang));

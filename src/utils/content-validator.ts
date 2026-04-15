@@ -239,6 +239,31 @@ const MIN_SECTION_CONTENT_LENGTH = 10;
 const PIPELINE_CONTEXT_LOOKBEHIND_CHARS = 2000;
 
 /**
+ * Pre-computed normalized banned-keyword map for exact-match comparison.
+ * Built once at module init from BANNED_KEYWORD_PATTERNS + normalizeKeywordToken.
+ *
+ * Keys are normalized tokens; values are original patterns.
+ */
+let _bannedNormalizedCache: Map<string, string> | undefined;
+
+/**
+ * Return (and lazily compute once) the normalized banned-keyword map.
+ * Lazy initialization avoids a forward-reference to `normalizeKeywordToken`
+ * which is defined later in this module.
+ *
+ * @returns Map from normalized token to original banned pattern
+ */
+function getBannedNormalized(): Map<string, string> {
+  if (!_bannedNormalizedCache) {
+    _bannedNormalizedCache = new Map<string, string>();
+    for (const pattern of BANNED_KEYWORD_PATTERNS) {
+      _bannedNormalizedCache.set(normalizeKeywordToken(pattern), pattern);
+    }
+  }
+  return _bannedNormalizedCache;
+}
+
+/**
  * HTML entity → decoded character pairs used by the single-pass decoder.
  * Longest entities are listed first so that `&amp;` doesn't greedily match
  * inside `&amp;lt;` before the full entity `&amp;lt;` is checked.
@@ -503,11 +528,7 @@ function detectBannedKeywords(html: string): string[] {
     .map((k) => normalizeKeywordToken(k))
     .filter((k) => k.length > 0);
 
-  // Build a normalized banned-set for exact-match comparison
-  const bannedNormalized = new Map<string, string>();
-  for (const pattern of BANNED_KEYWORD_PATTERNS) {
-    bannedNormalized.set(normalizeKeywordToken(pattern), pattern);
-  }
+  const bannedNormalized = getBannedNormalized();
 
   const found: string[] = [];
   for (const token of tokens) {
@@ -545,12 +566,20 @@ function isAttrBoundary(ch: string | undefined, side: 'before' | 'after'): boole
  */
 function extractClassValue(tag: string, cursor: number): { value: string; end: number } | null {
   let pos = cursor;
-  // Skip whitespace before '='
-  while (pos < tag.length && (tag[pos] === ' ' || tag[pos] === '\t')) pos++;
+  // Skip whitespace before '=' (space, tab, newline, carriage return)
+  while (
+    pos < tag.length &&
+    (tag[pos] === ' ' || tag[pos] === '\t' || tag[pos] === '\n' || tag[pos] === '\r')
+  )
+    pos++;
   if (pos >= tag.length || tag[pos] !== '=') return null;
   pos++; // skip '='
   // Skip whitespace before opening quote
-  while (pos < tag.length && (tag[pos] === ' ' || tag[pos] === '\t')) pos++;
+  while (
+    pos < tag.length &&
+    (tag[pos] === ' ' || tag[pos] === '\t' || tag[pos] === '\n' || tag[pos] === '\r')
+  )
+    pos++;
   if (pos >= tag.length) return null;
   const quote = tag[pos];
   if (quote !== '"' && quote !== "'") return null;

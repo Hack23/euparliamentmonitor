@@ -530,8 +530,7 @@ function synthesiseOverallRisk(risks, assessmentId, date) {
     // Safe: risks.length > 0 is guaranteed by the guard above
     const firstRisk = risks[0];
     if (!firstRisk) {
-        // This should never happen due to the guard above, but satisfies TypeScript
-        return calculatePoliticalRiskScore('rare', 'negligible', `OVERALL-${assessmentId}`, `Fallback for ${date}`, [], [], 'low');
+        throw new Error(`Invariant violation: risks[0] was undefined for non-empty risks array in assessment ${assessmentId} on ${date}`);
     }
     const maxRisk = risks.reduce((max, r) => (r.riskScore > max.riskScore ? r : max), firstRisk);
     // Count confidence levels to pick the dominant one
