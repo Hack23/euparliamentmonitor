@@ -189,6 +189,38 @@ const ENGLISH_PLACEHOLDER_PHRASES: ReadonlyArray<string> = [
   'committee coordinators',
 ] as const;
 
+// ─── Article Quality Gate Constants ───────────────────────────────────────────
+
+/**
+ * Section headings that MUST NOT appear as article keywords.
+ * These leak into meta tags when AI agents copy their section headers
+ * into the keywords field instead of using policy terms.
+ *
+ * @see SHARED_PROMPT_PATTERNS.md § Keywords Quality Rules
+ */
+const BANNED_KEYWORD_PATTERNS: ReadonlyArray<string> = [
+  'Deep Political Analysis',
+  'What Happened',
+  'Key Actors',
+  'Timeline',
+  'Why It Matters',
+  'Legislative Pipeline Overview',
+  'Impact Assessment',
+  'Actions → Consequences',
+  'Winners & Losers',
+  'Root Causes',
+  'Stakeholder Perspectives',
+  'Executive Summary',
+  'Table of Contents',
+  'Political Context',
+] as const;
+
+/**
+ * Minimum number of non-whitespace characters for a `<section>` to be
+ * considered non-empty. Below this threshold the section is treated as empty.
+ */
+const MIN_SECTION_CONTENT_LENGTH = 10;
+
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 // stripScriptBlocks is imported from html-sanitize.ts
@@ -359,6 +391,62 @@ function checkMetaTagSync(html: string): boolean {
   return true;
 }
 
+/**
+ * Detect section-heading keywords that leaked into the article's meta keywords.
+ * Returns the list of banned keywords found.
+ *
+ * @param html - HTML string to inspect
+ * @returns Array of section-heading keywords found in the meta tag
+ */
+function detectBannedKeywords(html: string): string[] {
+  const keywordsMeta = extractMetaContent(html, 'name', 'keywords');
+  if (!keywordsMeta) return [];
+
+  const keywordsLower = keywordsMeta.toLowerCase();
+  return BANNED_KEYWORD_PATTERNS.filter((pattern) =>
+    keywordsLower.includes(pattern.toLowerCase())
+  );
+}
+
+/**
+ * Detect metric values showing "0%" which indicate no-data conditions
+ * that should not be rendered as real dashboard metrics.
+ *
+ * @param html - HTML string to inspect
+ * @returns Number of 0% metric values found in dashboard contexts
+ */
+function detectZeroPercentMetrics(html: string): number {
+  // Match <span class="metric-value">0%</span> patterns
+  const metricPattern = /<span\s+class="metric-value"[^>]*>\s*0%\s*<\/span>/giu;
+  const matches = html.match(metricPattern);
+  return matches?.length ?? 0;
+}
+
+/**
+ * Count empty `<section>` elements — those with little or no visible content.
+ * An empty section contains only whitespace or very short boilerplate text.
+ *
+ * @param html - HTML string to inspect
+ * @returns Number of empty sections found
+ */
+function countEmptySections(html: string): number {
+  const sectionPattern = /<section[^>]*>([\s\S]*?)<\/section>/giu;
+  let count = 0;
+  let match: RegExpExecArray | null;
+
+  while ((match = sectionPattern.exec(html)) !== null) {
+    const content = (match[1] ?? '')
+      .replace(/<[^>]+>/gu, ' ')
+      .replace(/&[a-z]+;/giu, ' ')
+      .replace(/\s+/gu, ' ')
+      .trim();
+    if (content.length < MIN_SECTION_CONTENT_LENGTH) {
+      count++;
+    }
+  }
+  return count;
+}
+
 // ─── Public API ───────────────────────────────────────────────────────────────
 
 /**
@@ -458,6 +546,32 @@ export function validateArticleContent(
 
   // Extended validation: cross-reference density, stakeholder balance, temporal coverage
   collectExtendedValidationWarnings(html, warnings);
+
+  // ── Article Quality Gate checks ─────────────────────────────────────────────
+
+  // Keyword quality: detect section-heading keywords leaked into meta tags
+  const bannedKeywords = detectBannedKeywords(html);
+  if (bannedKeywords.length > 0) {
+    warnings.push(
+      `Keywords contain ${bannedKeywords.length} section heading(s) that should not be used as keywords: ${bannedKeywords.join(', ')}`
+    );
+  }
+
+  // Dashboard metric quality: detect 0% metrics rendered as real data
+  const zeroMetricCount = detectZeroPercentMetrics(html);
+  if (zeroMetricCount > 0) {
+    warnings.push(
+      `Dashboard renders ${zeroMetricCount} metric(s) showing "0%" — this likely indicates no-data, not a real score. Omit the dashboard when data is unavailable.`
+    );
+  }
+
+  // Empty section detection: flag sections with no meaningful content
+  const emptySectionCount = countEmptySections(html);
+  if (emptySectionCount > 0) {
+    warnings.push(
+      `Article contains ${emptySectionCount} empty or near-empty <section> element(s) that should be removed`
+    );
+  }
 
   return {
     valid: errors.length === 0,

@@ -792,3 +792,147 @@ describe('validateTemporalCoverage', () => {
     expect(validateTemporalCoverage(html)).toBeNull();
   });
 });
+
+// ─── Quality Gate Validation Tests ────────────────────────────────────────────
+
+describe('keyword quality gate', () => {
+  it('should warn when section headings leak into keywords', () => {
+    const bodyText = Array(100).fill('EU Parliament legislative analysis text').join(' ');
+    const html = buildArticleHtml(bodyText, {
+      keywords: 'EU Parliament, Deep Political Analysis, What Happened, ECON, S&D',
+    });
+    const result = validateArticleContent(html, 'en', 'breaking');
+    const keywordWarning = result.warnings.find((w) =>
+      w.includes('section heading')
+    );
+    expect(keywordWarning).toBeDefined();
+    expect(keywordWarning).toContain('Deep Political Analysis');
+    expect(keywordWarning).toContain('What Happened');
+  });
+
+  it('should not warn when keywords contain only policy terms', () => {
+    const bodyText = Array(100).fill('EU Parliament legislative analysis text').join(' ');
+    const html = buildArticleHtml(bodyText, {
+      keywords: 'ECON, LIBE, EPP, S&D, TA-10-2026-0090, carbon border adjustment',
+    });
+    const result = validateArticleContent(html, 'en', 'breaking');
+    const keywordWarning = result.warnings.find((w) =>
+      w.includes('section heading')
+    );
+    expect(keywordWarning).toBeUndefined();
+  });
+
+  it('should detect banned keywords case-insensitively', () => {
+    const bodyText = Array(100).fill('Policy analysis content for testing').join(' ');
+    const html = buildArticleHtml(bodyText, {
+      keywords: 'EU, impact assessment, timeline, policy',
+    });
+    const result = validateArticleContent(html, 'en', 'propositions');
+    const keywordWarning = result.warnings.find((w) =>
+      w.includes('section heading')
+    );
+    expect(keywordWarning).toBeDefined();
+    expect(keywordWarning).toContain('Impact Assessment');
+    expect(keywordWarning).toContain('Timeline');
+  });
+});
+
+describe('zero-percent metric detection', () => {
+  it('should warn when dashboard contains 0% metrics', () => {
+    const bodyText = `
+      <div class="dashboard-panel">
+        <span class="metric-value">0%</span>
+      </div>
+      ${Array(80).fill('Legislative pipeline analysis content word').join(' ')}
+    `;
+    const html = buildArticleHtml(bodyText);
+    const result = validateArticleContent(html, 'en', 'propositions');
+    const zeroWarning = result.warnings.find((w) => w.includes('0%'));
+    expect(zeroWarning).toBeDefined();
+    expect(zeroWarning).toContain('no-data');
+  });
+
+  it('should not warn when dashboard shows non-zero metrics', () => {
+    const bodyText = `
+      <div class="dashboard-panel">
+        <span class="metric-value">75%</span>
+      </div>
+      ${Array(80).fill('Legislative pipeline analysis content word').join(' ')}
+    `;
+    const html = buildArticleHtml(bodyText);
+    const result = validateArticleContent(html, 'en', 'propositions');
+    const zeroWarning = result.warnings.find((w) =>
+      w.includes('"0%"')
+    );
+    expect(zeroWarning).toBeUndefined();
+  });
+
+  it('should count multiple 0% metrics', () => {
+    const bodyText = `
+      <span class="metric-value">0%</span>
+      <span class="metric-value">0%</span>
+      <span class="metric-value">42%</span>
+      ${Array(80).fill('Content filler words for test').join(' ')}
+    `;
+    const html = buildArticleHtml(bodyText);
+    const result = validateArticleContent(html, 'en', 'propositions');
+    const zeroWarning = result.warnings.find((w) => w.includes('0%'));
+    expect(zeroWarning).toBeDefined();
+    expect(zeroWarning).toContain('2 metric(s)');
+  });
+});
+
+describe('empty section detection', () => {
+  it('should warn when article contains empty sections', () => {
+    const bodyText = `
+      <section class="analysis">
+        <p>This section has real content about EU legislation.</p>
+      </section>
+      <section class="empty-section">
+      </section>
+      <section class="another-empty">   </section>
+      ${Array(80).fill('Article content filler words').join(' ')}
+    `;
+    const html = buildArticleHtml(bodyText);
+    const result = validateArticleContent(html, 'en', 'breaking');
+    const emptyWarning = result.warnings.find((w) =>
+      w.includes('empty or near-empty <section>')
+    );
+    expect(emptyWarning).toBeDefined();
+    expect(emptyWarning).toContain('2 empty');
+  });
+
+  it('should not warn when all sections have content', () => {
+    const bodyText = `
+      <section class="analysis">
+        <p>This section has real content about EU legislation.</p>
+      </section>
+      <section class="details">
+        <p>This section also has meaningful content to display.</p>
+      </section>
+      ${Array(80).fill('Article content filler words').join(' ')}
+    `;
+    const html = buildArticleHtml(bodyText);
+    const result = validateArticleContent(html, 'en', 'breaking');
+    const emptyWarning = result.warnings.find((w) =>
+      w.includes('empty or near-empty <section>')
+    );
+    expect(emptyWarning).toBeUndefined();
+  });
+
+  it('should count sections with only whitespace/tags as empty', () => {
+    const bodyText = `
+      <section class="just-tags">
+        <div></div>
+        <span></span>
+      </section>
+      ${Array(80).fill('Article content filler words').join(' ')}
+    `;
+    const html = buildArticleHtml(bodyText);
+    const result = validateArticleContent(html, 'en', 'committee-reports');
+    const emptyWarning = result.warnings.find((w) =>
+      w.includes('empty or near-empty <section>')
+    );
+    expect(emptyWarning).toBeDefined();
+  });
+});
