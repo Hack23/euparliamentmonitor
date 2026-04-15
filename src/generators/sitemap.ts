@@ -365,10 +365,10 @@ export function generateSitemapHTML(
   const skipLinkText = getLocalizedString(SKIP_LINK_TEXTS, lang);
   const dir = getTextDirection(lang);
   const year = new Date().getFullYear();
-  const sections = SITEMAP_SECTIONS[lang] ??
-    SITEMAP_SECTIONS['en'] ?? { news: 'News Articles', docs: 'Documentation', pages: 'Pages' };
-  const docsLabels = DOCS_LABELS[lang] ??
-    DOCS_LABELS['en'] ?? {
+  const sections = SITEMAP_SECTIONS[lang] ||
+    SITEMAP_SECTIONS['en'] || { news: 'News Articles', docs: 'Documentation', pages: 'Pages' };
+  const docsLabels = DOCS_LABELS[lang] ||
+    DOCS_LABELS['en'] || {
       api: 'API Documentation',
       coverage: 'Code Coverage',
       testResults: 'Test Results',

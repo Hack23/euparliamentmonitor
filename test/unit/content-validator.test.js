@@ -924,7 +924,7 @@ describe('zero-percent metric detection', () => {
     const html = buildArticleHtml(bodyText);
     const result = validateArticleContent(html, 'en', 'propositions');
     const zeroWarning = result.warnings.find((w) =>
-      w.includes('pipeline') && w.includes('0%')
+      w.includes('Dashboard renders') && w.includes('"0%"')
     );
     expect(zeroWarning).toBeUndefined();
   });

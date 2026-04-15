@@ -489,7 +489,9 @@ export class MCPConnection {
    */
   private async _attemptGatewayConnection(): Promise<void> {
     if (!this.gatewayUrl) {
-      throw new Error('Gateway URL not configured');
+      throw new Error(
+        'Gateway URL not configured. Set the EP_MCP_GATEWAY_URL environment variable or provide the gatewayUrl constructor option.'
+      );
     }
     try {
       const headers: Record<string, string> = {
@@ -714,7 +716,9 @@ export class MCPConnection {
     params: Record<string, unknown> = {}
   ): Promise<unknown> {
     if (!this.gatewayUrl) {
-      throw new Error('Gateway URL not configured');
+      throw new Error(
+        'Gateway URL not configured. Set EP_MCP_GATEWAY_URL or provide gatewayUrl in MCP client options.'
+      );
     }
     const id = ++this.requestId;
     const request: JSONRPCRequest = {
