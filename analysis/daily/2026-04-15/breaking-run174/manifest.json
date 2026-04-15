@@ -1,0 +1,66 @@
+{
+  "analysisId": "breaking-run174-2026-04-15",
+  "articleType": "breaking",
+  "runId": 174,
+  "date": "2026-04-15",
+  "timestamp": "2026-04-15T07:20:00Z",
+  "producer": "news-breaking",
+  "outcome": "analysis-only",
+  "reason": "No today-dated EP events in any feed. Tariff T-0 activation is analytically significant but the underlying EP action (TA-10-2026-0096 adoption) occurred March 26. EP API in DEGRADED MODE.",
+  "degradedMode": true,
+  "compositeRisk": 13.0,
+  "topSignificance": 8.8,
+  "topEvent": "TA-10-2026-0096 tariff countermeasures entry into force",
+  "analysisFiles": [
+    "synthesis-summary.md",
+    "significance-scoring.md",
+    "risk-assessment.md",
+    "political-classification.md",
+    "threat-analysis.md",
+    "swot-analysis.md"
+  ],
+  "feedEndpointStatus": {
+    "get_adopted_texts_feed_today": "ok",
+    "get_adopted_texts_2026": "ok",
+    "get_meps_feed_today": "ok",
+    "get_events_feed_today": "404",
+    "get_events_feed_oneweek": "404",
+    "get_procedures_feed_today": "404",
+    "get_procedures_feed_oneweek": "404",
+    "get_documents_feed_oneweek": "timeout",
+    "get_plenary_documents_feed_oneweek": "timeout",
+    "get_committee_documents_feed_oneweek": "timeout",
+    "get_parliamentary_questions_feed_oneweek": "timeout",
+    "get_all_generated_stats": "ok",
+    "analyze_coalition_dynamics": "ok",
+    "get_server_health": "ok"
+  },
+  "dataCollected": {
+    "adoptedTexts": 41,
+    "meps": 737,
+    "precomputedStatsKb": 85,
+    "coalitionDynamics": true,
+    "events": 0,
+    "procedures": 0,
+    "documents": 0,
+    "plenaryDocuments": 0,
+    "committeeDocuments": 0,
+    "parliamentaryQuestions": 0
+  },
+  "skippedDegradedMode": [
+    "detect_voting_anomalies",
+    "generate_political_landscape",
+    "early_warning_system"
+  ],
+  "crossRunContinuity": {
+    "priorRun": 173,
+    "priorCompositeRisk": 16.5,
+    "riskTrend": "decreasing",
+    "consecutiveAnalysisOnlyRuns": 7
+  },
+  "scenarios": [
+    {"name": "Managed Trade Response", "probability": "55%", "label": "LIKELY"},
+    {"name": "Trade Crisis Escalation", "probability": "30%", "label": "POSSIBLE"},
+    {"name": "Parliamentary Gridlock", "probability": "15%", "label": "UNLIKELY"}
+  ]
+}
