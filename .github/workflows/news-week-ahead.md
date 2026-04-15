@@ -685,9 +685,9 @@ european_parliament___get_server_health({})
 
 **Feed → Direct Endpoint Fallback Chain:**
 
-| Failed Feed | Direct Fallback | Parameters |
+| Failed Feed | Direct Fallback | Parameters (dates in `YYYY-MM-DD`) |
 |------------|----------------|------------|
-| `get_events_feed` | `get_events` | `{ dateFrom: "today", dateTo: "next-week", limit: 50 }` |
+| `get_events_feed` | `get_events` | `{ dateFrom: "<today>", dateTo: "<next-week>", limit: 50 }` |
 | `get_procedures_feed` | `get_procedures` | `{ year: YYYY, limit: 50 }` |
 | `get_plenary_documents_feed` | `get_plenary_documents` | `{ year: YYYY, limit: 50 }` |
 | `get_plenary_session_documents_feed` | `get_plenary_session_documents` | `{ limit: 20 }` |

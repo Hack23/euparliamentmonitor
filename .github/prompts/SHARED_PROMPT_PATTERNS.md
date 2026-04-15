@@ -237,7 +237,7 @@ When a feed endpoint fails (404/timeout/error), IMMEDIATELY try the correspondin
 
 | Tool | Purpose | Key Parameters |
 |------|---------|----------------|
-| `get_voting_records` | Aggregate plenary votes | `sessionId`, `mepId`, `limit` |
+| `get_voting_records` | Aggregate plenary votes | `sessionId`, `mepId`, `topic`, `dateFrom`/`dateTo`, `limit`, `offset` |
 | `analyze_voting_patterns` | MEP voting behaviour | `mepId`, `dateFrom`/`dateTo`, `compareWithGroup` |
 | `analyze_coalition_dynamics` | Political group alliances | `groupIds`, `dateFrom`/`dateTo`, `minimumCohesion` |
 | `detect_voting_anomalies` | Unusual voting patterns | `groupId`, `mepId`, `dateFrom`/`dateTo`, `sensitivityThreshold` |
@@ -270,7 +270,7 @@ When a feed endpoint fails (404/timeout/error), IMMEDIATELY try the correspondin
 | `search_documents({ query: "climate" })` | `search_documents({ keyword: "climate" })` | v1.2.7 uses `keyword`, not `query`; also supports `documentType`, `docId` |
 | `get_adopted_texts_feed({ timeframe: "three-months" })` | `get_adopted_texts_feed({ timeframe: "one-month" })` | Valid timeframes: `today`, `one-day`, `one-week`, `one-month`, `custom` |
 | `compare_political_groups({ groups: ["EPP", "S&D"] })` | `compare_political_groups({ groupIds: ["EPP", "S&D"] })` | v1.2.7 uses `groupIds`, not `groups` |
-| `get_voting_records({ topic: "climate" })` | `get_voting_records({ sessionId: "...", limit: 50 })` | No `topic`/`dateFrom`/`dateTo` — use `sessionId`, `mepId`, `limit` |
+| `get_voting_records({ topic: "climate" })` | `get_voting_records({ sessionId: "...", limit: 50 })` | Prefer `sessionId` as primary selector; `topic`/`dateFrom`/`dateTo` supported as bounded fallback |
 | `get_mep_details({ name: "Weber" })` | `get_mep_details({ id: "MEP-124810" })` | Must use MEP ID, not name |
 
 ### World Bank MCP Tools (Economic Context Enrichment)

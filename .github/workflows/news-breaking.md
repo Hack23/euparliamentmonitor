@@ -839,7 +839,9 @@ european_parliament___track_legislation({ procedureId: "<procedure-ID-from-feed>
 european_parliament___get_meeting_decisions({ sittingId: "<sitting-ID>" })
 
 // Fetch voting records for cited sessions — MANDATORY for coalition behaviour claims
-european_parliament___get_voting_records({ topic: "<topic-keyword>", limit: 20 })
+// Prefer sessionId as primary selector; use dateFrom/dateTo as bounded fallback
+european_parliament___get_voting_records({ sessionId: "<session-ID-from-plenary>", limit: 20 })
+// ↳ FALLBACK if no sessionId: get_voting_records({ topic: "<topic-keyword>", dateFrom: "<7-days-ago>", dateTo: "<today>", limit: 20 })
 
 // Fetch speeches for debate context and direct quotes
 european_parliament___get_speeches({ dateFrom: "<7-days-ago>", dateTo: "<today>", limit: 20 })

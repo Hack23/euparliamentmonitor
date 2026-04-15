@@ -861,7 +861,9 @@ european_parliament___detect_voting_anomalies({})
 european_parliament___analyze_coalition_dynamics({})
 
 // Voting records on motions — MANDATORY for any coalition behaviour claims
-european_parliament___get_voting_records({ topic: "resolution", limit: 20 })
+// Prefer sessionId when available; otherwise bound with dateFrom/dateTo
+european_parliament___get_voting_records({ sessionId: "<session-ID-from-plenary>", topic: "resolution", limit: 20 })
+// ↳ FALLBACK if no sessionId: get_voting_records({ topic: "resolution", dateFrom: "<7-days-ago>", dateTo: "<today>", limit: 20 })
 ```
 
 **MANDATORY deep data collection** (call for EVERY procedure/adopted text cited in analysis):
@@ -1051,7 +1053,8 @@ european_parliament___search_documents({ keyword: "motion for resolution", limit
 european_parliament___get_parliamentary_questions({ limit: 10 })
 european_parliament___detect_voting_anomalies({})
 european_parliament___analyze_coalition_dynamics({})
-european_parliament___get_voting_records({ topic: "resolution", limit: 20 })
+european_parliament___get_voting_records({ sessionId: "<session-ID>", topic: "resolution", limit: 20 })
+// ↳ FALLBACK if no sessionId: get_voting_records({ topic: "resolution", dateFrom: "<7-days-ago>", dateTo: "<today>", limit: 20 })
 european_parliament___compare_political_groups({ groupIds: ["EPP", "S&D", "Renew", "Greens/EFA", "ECR"] })
 ```
 
