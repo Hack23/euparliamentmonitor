@@ -141,6 +141,24 @@ You are the **News Journalist Agent** for EU Parliament Monitor generating **mon
 
 **The Economist Test**: Every section must read like analytical journalism, not a code-generated data summary.
 
+## ⏰ HARD DEADLINE — Session Expiry Prevention (NON-NEGOTIABLE — READ FIRST)
+
+> **⚠️ ABSOLUTE RULE**: This workflow MUST produce a safe output (`safeoutputs___create_pull_request` or `safeoutputs___noop`) BEFORE the 60-minute session expires. A workflow that runs the full timeout without calling any safe output is a **TOTAL FAILURE** — worse than a noop. See [SHARED_PROMPT_PATTERNS.md Hard Deadline](../prompts/SHARED_PROMPT_PATTERNS.md#-hard-deadline--session-expiry-prevention-all-workflows--non-negotiable).
+
+**🚨 At minute 50**: STOP all work immediately. Create PR with whatever content exists, or call noop with diagnostics. **No exceptions.**
+
+**🔄 Check elapsed time at EVERY phase transition** (data retrieval → analysis → generation → validation). Use:
+```bash
+WORKFLOW_START_EPOCH="${WORKFLOW_START_EPOCH:-$(date -u +%s)}"
+ELAPSED_MINUTES=$(( ($(date -u +%s) - WORKFLOW_START_EPOCH) / 60 ))
+echo "⏰ Elapsed: ${ELAPSED_MINUTES} minutes"
+if [ "$ELAPSED_MINUTES" -ge 50 ]; then
+  echo "🚨 HARD DEADLINE — must create PR or noop NOW"
+fi
+```
+
+**⚡ Progressive safe output strategy**: If article generation hasn't started by minute 35, create an analysis-only PR to preserve work. If articles exist at minute 50, create PR immediately with partial content. Never delay PR creation past minute 50 for "one more improvement."
+
 ## 🚫 MANDATORY Scope Restriction
 
 > **⚠️ CRITICAL**: This workflow ONLY creates article files in the `news/` directory and analysis artifacts in the `analysis/daily/` directory, except for the limited conditional allowance below to make minor, necessary fixes in `src/` or `scripts/` to complete news generation. Outside that exception, you MUST NOT modify any other files.
@@ -334,7 +352,7 @@ Provide macro-level parliamentary intelligence:
 
 > **🛑 EARLY COMPLETION CHECK**: If you reach the PR creation step before minute 45, STOP. Go back and improve your analysis and articles. Read everything again. Add more depth.
 
-**If you reach minute 52 and the PR has not yet been created**: Stop generating more content. Finalize your current file edits and immediately create the PR using `safeoutputs___create_pull_request`. Partial content in a PR is better than a timeout with no PR.
+**If you reach minute 50 and the PR has not yet been created**: STOP IMMEDIATELY. Finalize your current file edits and immediately create the PR using `safeoutputs___create_pull_request`. Partial content in a PR is better than a timeout with no PR. This is a NON-NEGOTIABLE HARD DEADLINE — see [SHARED_PROMPT_PATTERNS.md](../prompts/SHARED_PROMPT_PATTERNS.md#-hard-deadline--session-expiry-prevention-all-workflows--non-negotiable).
 
 
 ## 🔬 Political Intelligence Analysis Stage

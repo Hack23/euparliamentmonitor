@@ -148,6 +148,24 @@ You are the **News Journalist Agent** for EU Parliament Monitor generating **EU 
 
 **The Economist Test**: Every section must read like analytical journalism, not a code-generated data summary.
 
+## ⏰ HARD DEADLINE — Session Expiry Prevention (NON-NEGOTIABLE — READ FIRST)
+
+> **⚠️ ABSOLUTE RULE**: This workflow MUST produce a safe output (`safeoutputs___create_pull_request` or `safeoutputs___noop`) BEFORE the 60-minute session expires. A workflow that runs the full timeout without calling any safe output is a **TOTAL FAILURE** — worse than a noop. See [SHARED_PROMPT_PATTERNS.md Hard Deadline](../prompts/SHARED_PROMPT_PATTERNS.md#-hard-deadline--session-expiry-prevention-all-workflows--non-negotiable).
+
+**🚨 At minute 50**: STOP all work immediately. Create PR with whatever content exists, or call noop with diagnostics. **No exceptions.**
+
+**🔄 Check elapsed time at EVERY phase transition** (data retrieval → analysis → generation → validation). Use:
+```bash
+WORKFLOW_START_EPOCH="${WORKFLOW_START_EPOCH:-$(date -u +%s)}"
+ELAPSED_MINUTES=$(( ($(date -u +%s) - WORKFLOW_START_EPOCH) / 60 ))
+echo "⏰ Elapsed: ${ELAPSED_MINUTES} minutes"
+if [ "$ELAPSED_MINUTES" -ge 50 ]; then
+  echo "🚨 HARD DEADLINE — must create PR or noop NOW"
+fi
+```
+
+**⚡ Progressive safe output strategy**: If article generation hasn't started by minute 35, create an analysis-only PR to preserve work. If articles exist at minute 50, create PR immediately with partial content. Never delay PR creation past minute 50 for "one more improvement."
+
 ## 🚫 MANDATORY Scope Restriction
 
 > **⚠️ CRITICAL**: This workflow ONLY creates article files in the `news/` directory and analysis artifacts in the `analysis/daily/` directory, except for the limited conditional allowance below for minor, necessary fixes in `src/` or `scripts/`. You MUST NOT modify any other files.
@@ -390,7 +408,7 @@ Every generated article MUST link to ALL analysis files. Verify the Analysis & T
 
 > **🔑 ENGLISH-ONLY FOCUS**: This workflow generates English content only. Use the extra time (vs. translating to 13 languages) to produce deeper political analysis, richer context, and more comprehensive intelligence. Translations to other languages are handled by the separate `news-translate` workflow.
 
-**If you reach minute 50 without generating articles**: The checkpoint PR exists with analysis artifacts. Finalize any remaining file edits — the PR captures everything automatically.
+**If you reach minute 50 without generating articles**: STOP IMMEDIATELY. The checkpoint PR exists with analysis artifacts. Finalize any remaining file edits — the PR captures everything automatically. This is a NON-NEGOTIABLE HARD DEADLINE — see [SHARED_PROMPT_PATTERNS.md](../prompts/SHARED_PROMPT_PATTERNS.md#-hard-deadline--session-expiry-prevention-all-workflows--non-negotiable).
 
 
 ## 📂 Analysis File Consolidation (MANDATORY)

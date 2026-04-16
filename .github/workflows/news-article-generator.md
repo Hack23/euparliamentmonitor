@@ -183,6 +183,24 @@ The code does NOT provide quality analysis. The code builders (`buildCommitteeAn
 
 See [SHARED_PROMPT_PATTERNS.md Article Content Depth Gates](../prompts/SHARED_PROMPT_PATTERNS.md#-article-content-depth-gates-mandatory-for-all-workflows) for the complete set of content depth requirements including prose ratio, SWOT depth, stakeholder depth, World Bank integration, and chart generation mandates.
 
+## ⏰ HARD DEADLINE — Session Expiry Prevention (NON-NEGOTIABLE — READ FIRST)
+
+> **⚠️ ABSOLUTE RULE**: This workflow MUST produce a safe output (`safeoutputs___create_pull_request` or `safeoutputs___noop`) BEFORE the 120-minute session expires. A workflow that runs the full timeout without calling any safe output is a **TOTAL FAILURE** — worse than a noop. See [SHARED_PROMPT_PATTERNS.md Hard Deadline](../prompts/SHARED_PROMPT_PATTERNS.md#-hard-deadline--session-expiry-prevention-all-workflows--non-negotiable).
+
+**🚨 At minute 100**: STOP all work immediately. Create PR with whatever content exists, or call noop with diagnostics. **No exceptions.**
+
+**🔄 Check elapsed time at EVERY phase transition** (data retrieval → analysis → generation → validation). Use:
+```bash
+WORKFLOW_START_EPOCH="${WORKFLOW_START_EPOCH:-$(date -u +%s)}"
+ELAPSED_MINUTES=$(( ($(date -u +%s) - WORKFLOW_START_EPOCH) / 60 ))
+echo "⏰ Elapsed: ${ELAPSED_MINUTES} minutes"
+if [ "$ELAPSED_MINUTES" -ge 100 ]; then
+  echo "🚨 HARD DEADLINE — must create PR or noop NOW"
+fi
+```
+
+**⚡ Progressive safe output strategy**: If article generation hasn't started by minute 70, create an analysis-only PR to preserve work. If articles exist at minute 100, create PR immediately with partial content. Never delay PR creation past minute 100 for "one more improvement."
+
 ## 🚫 MANDATORY Scope Restriction
 
 > **⚠️ CRITICAL**: This workflow creates article files in the `news/` directory and analysis artifacts in the `analysis/daily/` directory. You MUST NOT modify any other files, except for the conditional allowance below for minor, necessary compilation or runtime fixes in `src/` or `scripts/`.
@@ -307,7 +325,7 @@ Call `sequentialthinking` with structured thought chains — each step builds on
 
 > **🔑 ENGLISH-ONLY FOCUS**: By default this workflow generates English content only. Use the extra time to produce deeper political analysis. Translations to other languages are handled by the separate `news-translate` workflow.
 
-**If you reach minute 100 and the PR has not been created yet**: Stop generating more content and immediately create the PR using `safeoutputs___create_pull_request` with the content generated so far. Partial content in a PR is better than a timeout with no PR.
+**If you reach minute 100 and the PR has not been created yet**: STOP IMMEDIATELY. Create the PR using `safeoutputs___create_pull_request` with the content generated so far. Partial content in a PR is better than a timeout with no PR. This is a NON-NEGOTIABLE HARD DEADLINE — see [SHARED_PROMPT_PATTERNS.md](../prompts/SHARED_PROMPT_PATTERNS.md#-hard-deadline--session-expiry-prevention-all-workflows--non-negotiable).
 
 
 ## 🔬 Political Intelligence Analysis Stage
