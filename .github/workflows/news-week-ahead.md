@@ -160,7 +160,7 @@ You are the **News Journalist Agent** for EU Parliament Monitor generating **wee
 - ❌ **Writing custom Python/Ruby/Perl scripts** — Use ONLY the existing Node.js/TypeScript toolchain
 - ❌ **Dangerous shell expansion patterns** — NEVER use `${var@P}`, `${!var}`, `eval`, nested command substitutions `$($(..))`, nested parameter expansions like `${var:+...${#other}...}`, or input redirection inside command substitution `$(cmd < file)`. Use `if/else` blocks instead. These will be blocked by the sandbox
 - ❌ **Metadata-only analysis** — MUST download COMPLETE EP documents
-- ❌ **Rushing analysis in <5 minutes** — Spend the full allocated 15-20 minutes on deep political intelligence analysis
+- ❌ **Rushing analysis — You MUST spend the full allocated ≥20 minutes (2 passes) on deep political intelligence analysis. Completing analysis in under 15 minutes is a VIOLATION
 - ❌ **Deciding article topic before analysis** — Finish ALL analysis first
 
 **If you encounter build errors or source code bugs**: You MAY apply minor targeted fixes (max 20 lines in `src/`/`scripts/`) to unblock news generation. See [SHARED_PROMPT_PATTERNS.md](../prompts/SHARED_PROMPT_PATTERNS.md#minor-typescriptscript-corrections-conditional-allow) for constraints. For larger issues, log the error and continue.
@@ -254,11 +254,11 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 > **🔑 Keyword, title, description quality**: See [SHARED_PROMPT_PATTERNS.md Article Quality Gates](../prompts/SHARED_PROMPT_PATTERNS.md#-article-quality-gates-all-workflows--mandatory). NEVER use "Week Ahead: DATE — N Events" as a title. NEVER include section headings as keywords.
 
 
-## 🔬 MANDATORY DEEP POLITICAL ANALYSIS PHASE (15-20 MINUTES)
+## 🔬 MANDATORY DEEP POLITICAL ANALYSIS PHASE (≥20 MINUTES — 2 PASSES)
 
-> **⚠️ ABSOLUTE REQUIREMENT — NON-NEGOTIABLE**: You MUST spend a dedicated 15-20 minutes on deep political intelligence analysis BEFORE making ANY decisions about article content, angle, or topic. This is the single most important phase of the entire workflow.
+> **⚠️ ABSOLUTE REQUIREMENT — NON-NEGOTIABLE**: You MUST spend a dedicated ≥20 minutes (2 complete passes) on deep political intelligence analysis BEFORE making ANY decisions about article content, angle, or topic. This is the single most important phase of the entire workflow. Pass 1 writes initial analysis; Pass 2 reads it ALL back and improves every section. One pass is NEVER enough.
 
-**What "15-20 minutes of analysis" means:**
+**What "≥20 minutes of analysis (2 passes)" means:**
 1. **Read ALL 6 methodology guides** in `analysis/methodologies/` — these define your analytical frameworks
 2. **Read ALL structured templates** in `analysis/templates/` — these define your output format
 3. **Apply every template to every downloaded MCP data file** — no shortcuts, no skipping files
@@ -266,10 +266,11 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 5. **Cross-reference documents** using the `memory` MCP knowledge graph to find connections across upcoming events
 6. **Write substantive analysis markdown** (≥400 lines per analysis file, target 800+) with evidence citations
 7. **Complete the full 4-pass refinement cycle** on all analytical content
+8. **🔁 PASS 2 — MANDATORY READ-BACK & IMPROVEMENT**: Read EVERY analysis file you just wrote, completely. Expand shallow sections into full analytical paragraphs, add missing evidence citations, add confidence levels (🟢/🟡/🔴), add cross-references between files. Rewrite anything that doesn't meet the Economist Test. **This pass is NON-NEGOTIABLE — one pass is NEVER sufficient.**
 
 **CRITICAL SEQUENCING RULE**: The article topic, angle, headline, and narrative structure are ALL decided AFTER this analysis phase completes — NEVER before. The significance scoring results from the analysis determine what the article covers.
 
-> **🚫 VIOLATION**: Starting to write the article, choosing a headline, or deciding the narrative angle before spending 15-20 minutes on systematic analysis using the methodology guides and templates. If you find yourself writing article content before the analysis phase is complete, STOP and return to analysis.
+> **🚫 VIOLATION**: Starting to write the article, choosing a headline, or deciding the narrative angle before spending ≥20 minutes (2 complete passes) on systematic analysis using the methodology guides and templates. If you find yourself writing article content before the analysis phase is complete, STOP and return to analysis.
 
 ## 🎭 STAKEHOLDER PERSPECTIVE ANALYSIS (MANDATORY)
 
@@ -1249,7 +1250,7 @@ fi
 - ✅ **Analysis directory** is scoped to `${ANALYSIS_DIR}/`
 
 ### Minimum AI Analysis Time (Rule 7 — required)
-- ✅ **≥15 minutes** spent on dedicated deep political intelligence analysis phase (reading ALL 6 methodology guides, querying MCP, applying templates to every data file, writing original analytical prose)
+- ✅ **≥20 minutes** spent on dedicated deep political intelligence analysis phase with **mandatory 2-pass cycle** (Pass 1: write analysis using ALL 6 methodology guides; Pass 2: complete read-back and improvement of ALL analysis files)
 - ✅ **Article topic/angle decided ONLY AFTER analysis phase completes** — significance scoring results determine coverage
 - ✅ **4-pass refinement cycle** completed for all analytical content sections
 - ✅ **All 6 methodology documents** read before any analysis

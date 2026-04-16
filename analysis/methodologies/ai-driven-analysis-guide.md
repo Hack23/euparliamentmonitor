@@ -151,22 +151,25 @@ Every analysis artifact and news article MUST clearly identify which article typ
 - ❌ One article type's workflow writing analysis to another type's directory
 - ❌ Generic analysis that could belong to any article type — every analysis must be contextualised for its specific article perspective
 
-### Rule 7: Minimum 15-Minute AI Analysis Time — Deep Political Intelligence Required
+### Rule 7: Minimum 20-Minute AI Analysis Time — 2-Pass Deep Political Intelligence Required
 
-Every workflow MUST allocate a **minimum of 15 minutes** to AI-driven political intelligence analysis. This is the analysis time where the AI agent reads methodology documents, queries MCP tools, and produces original analytical content. This does NOT include data download time or HTML formatting time.
+Every workflow MUST allocate a **minimum of 20 minutes** to AI-driven political intelligence analysis, structured as **2 mandatory passes**. This is the analysis time where the AI agent reads methodology documents, queries MCP tools, and produces original analytical content. This does NOT include data download time or HTML formatting time.
+
+> **⚠️ ONE PASS IS NEVER SUFFICIENT**: Pass 1 writes initial analysis. Pass 2 reads ALL analysis back completely and improves every section. The AI MUST spend the full allocated time — completing early with shallow content is a VIOLATION.
 
 **Minimum analysis time budgets (updated):**
 
-| Workflow | Minimum AI Analysis Time | What the AI Must Produce |
-|----------|:------------------------:|--------------------------|
-| Breaking news | 15 minutes | Per-event significance scoring, coalition impact, threat assessment |
-| Committee reports | 15 minutes | Committee power analysis, rapporteur dynamics, amendment landscape |
-| Propositions | 15 minutes | Legislative pipeline risk, passage probability, institutional tension |
-| Motions | 15 minutes | Voting coalition analysis, group cohesion, cross-party patterns |
-| Week ahead | 15 minutes | Strategic outlook, scenario planning, risk forecasting |
-| Month ahead | 15 minutes | Political landscape analysis, coalition evolution, policy momentum |
-| Week in review | 20 minutes | Comprehensive weekly intelligence synthesis, trend detection |
-| Month in review | 25 minutes | Deep monthly analytical assessment, pattern identification |
+| Workflow | Minimum AI Analysis Time | Pass 1 (Write) | Pass 2 (Read-Back & Improve) | What the AI Must Produce |
+|----------|:------------------------:|:---------------:|:----------------------------:|--------------------------|
+| Breaking news | 20 minutes | ~12 min | ~8 min | Per-event significance scoring, coalition impact, threat assessment |
+| Committee reports | 20 minutes | ~12 min | ~8 min | Committee power analysis, rapporteur dynamics, amendment landscape |
+| Propositions | 20 minutes | ~12 min | ~8 min | Legislative pipeline risk, passage probability, institutional tension |
+| Motions | 20 minutes | ~12 min | ~8 min | Voting coalition analysis, group cohesion, cross-party patterns |
+| Week ahead | 20 minutes | ~12 min | ~8 min | Strategic outlook, scenario planning, risk forecasting |
+| Month ahead | 20 minutes | ~12 min | ~8 min | Political landscape analysis, coalition evolution, policy momentum |
+| Week in review | 25 minutes | ~15 min | ~10 min | Comprehensive weekly intelligence synthesis, trend detection |
+| Month in review | 25 minutes | ~15 min | ~10 min | Deep monthly analytical assessment, pattern identification |
+| Article generator | 20 min × types | ~60% | ~40% | Full analysis per article type with iterative improvement |
 
 **What counts as AI analysis time:**
 - ✅ Reading and applying methodology documents
@@ -175,12 +178,23 @@ Every workflow MUST allocate a **minimum of 15 minutes** to AI-driven political 
 - ✅ Producing Mermaid diagrams with real data
 - ✅ Conducting multi-framework analysis (SWOT + Risk + Threat)
 - ✅ Iterating through the 4-pass refinement cycle
+- ✅ **Pass 2: Reading back ALL analysis files and improving every section**
+- ✅ **Pass 2: Expanding shallow sections, adding evidence, adding cross-references**
 
 **What does NOT count:**
 - ❌ Running `npx tsx` scripts (data preparation, not analysis)
 - ❌ Waiting for MCP feed responses
 - ❌ HTML template formatting and rendering
 - ❌ Git operations (commit, PR creation)
+
+**Mandatory 2-pass article generation (ALSO applies after analysis):**
+
+After article generation, the AI MUST read the ENTIRE generated article and improve every section. This includes:
+- ✅ Verifying every section has ≥3 analytical paragraphs (not bullet lists)
+- ✅ Verifying SWOT items have ≥80 words with evidence
+- ✅ Verifying stakeholder perspectives have ≥150 words with evidence chains
+- ✅ Adding World Bank economic context where missing
+- ✅ Rewriting any section that fails the Economist Test
 
 ### Rule 8: Scripts Format, AI Analyses — Clear Separation of Concerns
 
@@ -534,7 +548,7 @@ When the workflow time budget is limited:
 | Week ahead | 10–30 files | All files (forward-looking) | 15 minutes |
 | Month ahead | 20–50 files | All files (strategic) | 15 minutes |
 
-> **⚠️ MINIMUM 15 MINUTES**: Per Rule 7, every workflow must spend at least 15 minutes on AI-driven political intelligence analysis. This is the time spent reading methodologies, querying MCP tools, and writing original analytical prose — not data download or HTML formatting time.
+> **⚠️ MINIMUM 20 MINUTES (2 PASSES)**: Per Rule 7, every workflow must spend at least 20 minutes on AI-driven political intelligence analysis with mandatory 2-pass improvement cycle. This is the time spent reading methodologies, querying MCP tools, and writing original analytical prose — not data download or HTML formatting time.
 
 ---
 
@@ -662,7 +676,7 @@ The following quality issues have been observed in generated news articles and M
 |:----:|-------|:--------:|-----------|-----------|
 | 1 | **`[AI_ANALYSIS_REQUIRED]` placeholders remain in final HTML** | 🔴 CRITICAL | AI analysis stage incomplete; script templates not filled | Rule 8: AI must fill ALL placeholders before HTML generation. Quality gate MUST reject articles with any `[AI_ANALYSIS_REQUIRED]` text |
 | 2 | **Placeholder text in meta keywords** (e.g. "Example motion (placeholder)") | 🔴 CRITICAL | Fallback data titles leak into SEO keywords | AI MUST review all `<meta name="keywords">` content — no "placeholder", "example", "data unavailable" in any keyword |
-| 3 | **SWOT quadrants contain empty `—` entries** | 🔴 HIGH | AI did not produce SWOT analysis; script fallback used | Rule 7: Minimum 15 min analysis. Every SWOT quadrant needs ≥2 substantive entries with evidence |
+| 3 | **SWOT quadrants contain empty `—` entries** | 🔴 HIGH | AI did not produce SWOT analysis; script fallback used | Rule 7: Minimum 20 min analysis (2 passes). Every SWOT quadrant needs ≥2 substantive entries with evidence |
 | 4 | **Mindmap visualizations show `data-connections="0"`** | 🔴 HIGH | No real policy connections mapped; template-only structure | AI must identify ≥3 cross-domain policy connections per mindmap |
 | 5 | **Missing statistical depth in political analysis** | 🔴 HIGH | No rapporteur/voting data integration; surface-level facts only | Rule 4: Multi-framework depth. Must include vote counts, margins, coalition breakdowns |
 | 6 | **Stakeholder outcome matrices lack justification** | 🔴 HIGH | Winner/Loser labels assigned without reasoning | Rule 8: Every stakeholder outcome MUST have AI-written rationale (not `[AI_ANALYSIS_REQUIRED]`) |

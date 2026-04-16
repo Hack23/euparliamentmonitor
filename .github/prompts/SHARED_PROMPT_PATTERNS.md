@@ -645,6 +645,68 @@ done
 
 ---
 
+## 🔁 MANDATORY Iterative Improvement Protocol (All Workflows)
+
+> **⚠️ ABSOLUTE RULE — NON-NEGOTIABLE**: One pass is NEVER sufficient. Every piece of content — analysis markdown, article HTML, SWOT, stakeholder sections — MUST go through at least **2 complete improvement iterations**. The AI MUST spend the FULL allocated time on each phase. Completing early with low-quality output is a VIOLATION.
+
+### Why This Exists
+
+Today's workflow runs complete in 24-30 minutes out of 60-minute budgets. The AI rushes through phases, produces shallow first-draft content, and moves on. This produces articles that read like code-generated summaries rather than Economist-quality political intelligence. **This stops now.**
+
+### 🛑 NO SHORTCUTS / NO EARLY COMPLETION Rules
+
+1. **NEVER complete a phase early** — If the time budget says "15-20 minutes for analysis," you MUST work for the FULL 15-20 minutes. Use every minute for iterative improvement.
+2. **NEVER produce first-draft quality** — A first pass is a starting point. You MUST read it back completely, identify gaps, and rewrite/extend before moving on.
+3. **NEVER skip the read-back step** — After writing any content, you MUST read the ENTIRE output, then improve it.
+4. **ALWAYS use the full workflow timeout** — If the workflow has a 60-minute budget, you should be actively working for ≥45 minutes. Finishing in 25 minutes means you rushed.
+5. **ALWAYS iterate until excellent** — "Good enough" is NOT acceptable. Every output must be the best possible quality achievable within the time budget.
+
+### 📋 Mandatory 2-Pass Improvement Cycle (Analysis Phase)
+
+| Step | Action | Time |
+|------|--------|------|
+| **Pass 1: Initial Analysis** | Write all analysis markdown files (SWOT, stakeholder, coalition, risk, significance scoring). Apply all methodology guides and templates to every downloaded MCP data file. | ~60% of analysis time |
+| **Pass 2: Complete Read-Back & Improvement** | Read EVERY analysis file you wrote — completely, word by word. For each file: (1) identify shallow sections, (2) add missing evidence/citations, (3) expand one-liners into full paragraphs, (4) add confidence levels where missing, (5) add cross-references between analysis files, (6) ensure every SWOT item has ≥80 words with evidence. Rewrite any section that doesn't meet the Economist Test. | ~40% of analysis time |
+
+> **⚠️ Pass 2 verification**: After Pass 2, every analysis file must have: ≥400 lines, evidence citations in ≥80% of paragraphs, no placeholder text, no `[AI_ANALYSIS_REQUIRED]` markers, and cross-references to other analysis files.
+
+### 📋 Mandatory 2-Pass Improvement Cycle (Article Generation Phase)
+
+| Step | Action | Time |
+|------|--------|------|
+| **Pass 1: Initial Article Generation** | Run the TypeScript generator, replace all `[AI_ANALYSIS_REQUIRED]` markers with substantive AI analysis. Write all sections with proper prose (≥60% paragraph ratio). | ~50% of article time |
+| **Pass 2: Complete Article Read-Back & Improvement** | Read the ENTIRE generated article — every section, every paragraph, every SWOT item, every stakeholder perspective. For each section: (1) is it ≥3 analytical paragraphs of ≥50 words? (2) does it cite specific EP data? (3) does it name specific actors/MEPs? (4) does it explain WHY not just WHAT? (5) is it prose, not a bullet list? Rewrite any section that fails. Add World Bank economic context if missing. Verify ≥1 Chart.js visualization exists. Run the prose ratio validation script. | ~50% of article time |
+
+> **⚠️ Pass 2 article verification checklist** (MUST complete ALL before PR creation):
+> - [ ] Read entire article from top to bottom
+> - [ ] Every section has ≥3 prose paragraphs (not bullet lists)
+> - [ ] Every SWOT item has ≥80 words with evidence and confidence level
+> - [ ] Every stakeholder perspective has ≥150 words with evidence chain
+> - [ ] Risk outlook is ≥200 words with probability-labelled scenarios
+> - [ ] World Bank economic data included where policy has economic dimension
+> - [ ] ≥1 Chart.js canvas with real data exists
+> - [ ] Zero `[AI_ANALYSIS_REQUIRED]` markers remain
+> - [ ] Article passes the Economist Test — reads like analytical journalism
+> - [ ] Prose ratio ≥60% (run validation script)
+
+### ⏱️ Time Enforcement Rules
+
+| Workflow Type | Total Budget | Min Active Work | Analysis Phase | Article Phase | Validation |
+|---------------|-------------|-----------------|---------------|--------------|------------|
+| Breaking news | 60 min | ≥45 min | ≥20 min (Pass 1: 12m + Pass 2: 8m) | ≥15 min (Pass 1: 8m + Pass 2: 7m) | 5 min |
+| Committee reports | 60 min | ≥45 min | ≥20 min (Pass 1: 12m + Pass 2: 8m) | ≥15 min (Pass 1: 8m + Pass 2: 7m) | 5 min |
+| Propositions | 60 min | ≥45 min | ≥20 min (Pass 1: 12m + Pass 2: 8m) | ≥15 min (Pass 1: 8m + Pass 2: 7m) | 5 min |
+| Motions | 60 min | ≥45 min | ≥20 min (Pass 1: 12m + Pass 2: 8m) | ≥15 min (Pass 1: 8m + Pass 2: 7m) | 5 min |
+| Week ahead | 60 min | ≥45 min | ≥20 min (Pass 1: 12m + Pass 2: 8m) | ≥15 min (Pass 1: 8m + Pass 2: 7m) | 5 min |
+| Weekly review | 60 min | ≥45 min | ≥25 min (Pass 1: 15m + Pass 2: 10m) | ≥15 min (Pass 1: 8m + Pass 2: 7m) | 5 min |
+| Month ahead | 60 min | ≥45 min | ≥20 min (Pass 1: 12m + Pass 2: 8m) | ≥15 min (Pass 1: 8m + Pass 2: 7m) | 5 min |
+| Monthly review | 60 min | ≥45 min | ≥25 min (Pass 1: 15m + Pass 2: 10m) | ≥15 min (Pass 1: 8m + Pass 2: 7m) | 5 min |
+| Article generator | 120 min | ≥90 min | ≥15 min × types | ≥15 min × types | 10 min |
+
+> **🚫 VIOLATION**: Completing a 60-minute workflow in under 45 minutes. If you find yourself about to create the PR before minute 45, STOP — go back and improve your analysis and articles. Read everything again. Add more depth. Every additional minute of improvement produces higher quality.
+
+---
+
 ## 🎭 Stakeholder Perspectives (6-Lens Model)
 
 For every major parliamentary action, analyze from **≥4** of these 6 perspectives (minimum ≥150 words per perspective):

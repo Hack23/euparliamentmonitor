@@ -251,11 +251,11 @@ This is a **retrospective** article providing comprehensive analysis of the past
 > **🔑 Keyword, title, description quality**: See [SHARED_PROMPT_PATTERNS.md Article Quality Gates](../prompts/SHARED_PROMPT_PATTERNS.md#-article-quality-gates-all-workflows--mandatory). NEVER use raw counts in titles. NEVER include section headings as keywords.
 
 
-## 🔬 MANDATORY DEEP POLITICAL ANALYSIS PHASE (25+ MINUTES)
+## 🔬 MANDATORY DEEP POLITICAL ANALYSIS PHASE (≥25 MINUTES — 2 PASSES)
 
-> **⚠️ ABSOLUTE REQUIREMENT — NON-NEGOTIABLE**: You MUST spend a dedicated minimum of 25 minutes on deep political intelligence analysis BEFORE making ANY decisions about article content, angle, or topic. This is the single most important phase of the entire workflow. Monthly reviews require the DEEPEST analysis (≥25 minutes) due to the breadth of material.
+> **⚠️ ABSOLUTE REQUIREMENT — NON-NEGOTIABLE**: You MUST spend a dedicated minimum of 25 minutes (2 complete passes) on deep political intelligence analysis BEFORE making ANY decisions about article content, angle, or topic. This is the single most important phase of the entire workflow. Monthly reviews require the DEEPEST analysis (≥25 minutes) due to the breadth of material.
 
-**What "at least 25 minutes of analysis" means:**
+**What "at least 25 minutes of analysis (2 passes)" means:**
 1. **Read ALL 6 methodology guides** in `analysis/methodologies/` — these define your analytical frameworks
 2. **Read ALL structured templates** in `analysis/templates/` — these define your output format
 3. **Apply every template to every downloaded MCP data file** — no shortcuts, no skipping files
@@ -263,10 +263,11 @@ This is a **retrospective** article providing comprehensive analysis of the past
 5. **Cross-reference documents** using the `memory` MCP knowledge graph to find connections across the month's events
 6. **Write substantive analysis markdown** (≥400 lines per analysis file, target 800+) with evidence citations
 7. **Complete the full 4-pass refinement cycle** on all analytical content
+8. **🔁 PASS 2 — MANDATORY READ-BACK & IMPROVEMENT**: Read EVERY analysis file you just wrote, completely. Expand shallow sections into full analytical paragraphs, add missing evidence citations, add confidence levels (🟢/🟡/🔴), add cross-references between files. Rewrite anything that doesn't meet the Economist Test. **This pass is NON-NEGOTIABLE — one pass is NEVER sufficient.**
 
 **CRITICAL SEQUENCING RULE**: The article topic, angle, headline, and narrative structure are ALL decided AFTER this analysis phase completes — NEVER before. The significance scoring results from the analysis determine what the article covers.
 
-> **🚫 VIOLATION**: Starting to write the article, choosing a headline, or deciding the narrative angle before spending ≥25 minutes on systematic analysis using the methodology guides and templates. If you find yourself writing article content before the analysis phase is complete, STOP and return to analysis.
+> **🚫 VIOLATION**: Starting to write the article, choosing a headline, or deciding the narrative angle before spending ≥25 minutes (2 passes) on systematic analysis using the methodology guides and templates. If you find yourself writing article content before the analysis phase is complete, STOP and return to analysis.
 
 ## 🎭 STAKEHOLDER PERSPECTIVE ANALYSIS (MANDATORY)
 
@@ -1129,7 +1130,7 @@ fi
 - ✅ **Analysis directory** is scoped to `${ANALYSIS_DIR}/`
 
 ### Minimum AI Analysis Time (Rule 7 — required)
-- ✅ **≥25 minutes** spent on dedicated deep political intelligence analysis phase (reading ALL 6 methodology guides, querying MCP, applying templates to every data file, writing original analytical prose) — monthly review requires the most analysis time
+- ✅ **≥25 minutes** spent on dedicated deep political intelligence analysis phase with **mandatory 2-pass cycle** (Pass 1: write analysis using ALL 6 methodology guides; Pass 2: complete read-back and improvement of ALL analysis files) — monthly review requires the most analysis time
 - ✅ **Article topic/angle decided ONLY AFTER analysis phase completes** — significance scoring results determine coverage
 - ✅ **4-pass refinement cycle** completed for all analytical content sections
 - ✅ **All 6 methodology documents** read before any analysis
