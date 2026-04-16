@@ -676,7 +676,7 @@ The following quality issues have been observed in generated news articles and M
 |:----:|-------|:--------:|-----------|-----------|
 | 1 | **`[AI_ANALYSIS_REQUIRED]` placeholders remain in final HTML** | 🔴 CRITICAL | AI analysis stage incomplete; script templates not filled | Rule 8: AI must fill ALL placeholders before HTML generation. Quality gate MUST reject articles with any `[AI_ANALYSIS_REQUIRED]` text |
 | 2 | **Placeholder text in meta keywords** (e.g. "Example motion (placeholder)") | 🔴 CRITICAL | Fallback data titles leak into SEO keywords | AI MUST review all `<meta name="keywords">` content — no "placeholder", "example", "data unavailable" in any keyword |
-| 3 | **SWOT quadrants contain empty `—` entries** | 🔴 HIGH | AI did not produce SWOT analysis; script fallback used | Rule 7: Minimum 20 min analysis (2 passes). Every SWOT quadrant needs ≥2 substantive entries with evidence |
+| 3 | **SWOT quadrants contain empty `—` entries** | 🔴 HIGH | AI did not produce SWOT analysis; script fallback used | Rule 7: Minimum 20 min analysis (2 passes). Every SWOT quadrant needs ≥3 substantive entries with evidence |
 | 4 | **Mindmap visualizations show `data-connections="0"`** | 🔴 HIGH | No real policy connections mapped; template-only structure | AI must identify ≥3 cross-domain policy connections per mindmap |
 | 5 | **Missing statistical depth in political analysis** | 🔴 HIGH | No rapporteur/voting data integration; surface-level facts only | Rule 4: Multi-framework depth. Must include vote counts, margins, coalition breakdowns |
 | 6 | **Stakeholder outcome matrices lack justification** | 🔴 HIGH | Winner/Loser labels assigned without reasoning | Rule 8: Every stakeholder outcome MUST have AI-written rationale (not `[AI_ANALYSIS_REQUIRED]`) |

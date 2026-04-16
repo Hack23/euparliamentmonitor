@@ -703,7 +703,7 @@ Today's workflow runs complete in 24-30 minutes out of 60-minute budgets. The AI
 | Weekly review | 60 min | ≥45 min | ≥25 min (Pass 1: 15m + Pass 2: 10m) | ≥15 min (Pass 1: 8m + Pass 2: 7m) | 5 min |
 | Month ahead | 60 min | ≥45 min | ≥20 min (Pass 1: 12m + Pass 2: 8m) | ≥15 min (Pass 1: 8m + Pass 2: 7m) | 5 min |
 | Monthly review | 60 min | ≥45 min | ≥25 min (Pass 1: 15m + Pass 2: 10m) | ≥15 min (Pass 1: 8m + Pass 2: 7m) | 5 min |
-| Article generator | 120 min | ≥90 min | ≥20 min × types | ≥20 min × types | 10 min |
+| Article generator | 120 min | ≥90 min | ≥15 min × types | ≥15 min × types | 10 min |
 
 > **🚫 VIOLATION**: Completing a 60-minute workflow in under 45 minutes. If you find yourself about to create the PR before minute 45, STOP — go back and improve your analysis and articles. Read everything again. Add more depth. Every additional minute of improvement produces higher quality.
 

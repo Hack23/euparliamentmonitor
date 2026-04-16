@@ -199,7 +199,7 @@ See [SHARED_PROMPT_PATTERNS.md Article Content Depth Gates](../prompts/SHARED_PR
 - ❌ **Writing custom Python/Ruby/Perl scripts** — Use ONLY the existing Node.js/TypeScript toolchain
 - ❌ **Dangerous shell expansion patterns** — NEVER use `${var@P}`, `${!var}`, `eval`, nested command substitutions `$($(..))`, nested parameter expansions like `${var:+...${#other}...}`, or input redirection inside command substitution `$(cmd < file)`. Use `if/else` blocks instead. These will be blocked by the sandbox
 - ❌ **Metadata-only analysis** — MUST download COMPLETE EP documents
-- ❌ **Rushing analysis** — You MUST spend ≥20 minutes per article type (2 passes each) on deep political intelligence analysis. Completing early is a VIOLATION.
+- ❌ **Rushing analysis** — You MUST spend ≥15 minutes per article type (2 passes each) on deep political intelligence analysis. Completing early is a VIOLATION.
 - ❌ **Deciding article topic before analysis** — Finish ALL analysis first
 
 **If you encounter build errors or source code bugs**: You MAY apply minor targeted fixes (max 20 lines in `src/`/`scripts/`) to unblock news generation. See [SHARED_PROMPT_PATTERNS.md](../prompts/SHARED_PROMPT_PATTERNS.md#minor-typescriptscript-corrections-conditional-allow) for constraints. For larger issues, log the error and continue.
@@ -269,11 +269,11 @@ Call `sequentialthinking` with structured thought chains — each step builds on
 
 **ALL article data MUST be fetched from the `european-parliament` MCP server.** The MCP server provides 62 tools covering MEPs, plenary sessions, committees, documents, voting records, legislative pipeline, OSINT intelligence analysis, and precomputed statistics.
 
-## 🔬 MANDATORY DEEP POLITICAL ANALYSIS PHASE (≥20 MINUTES PER ARTICLE TYPE — 2 PASSES)
+## 🔬 MANDATORY DEEP POLITICAL ANALYSIS PHASE (≥15 MINUTES PER ARTICLE TYPE — 2 PASSES)
 
-> **⚠️ ABSOLUTE REQUIREMENT — NON-NEGOTIABLE**: For EACH article type being generated, you MUST spend a dedicated ≥20 minutes (2 complete passes) on deep political intelligence analysis BEFORE making ANY decisions about article content, angle, or topic. This is the single most important phase of the entire workflow. Pass 1 writes initial analysis; Pass 2 reads it ALL back and improves every section. When generating multiple article types, the analysis time scales: 1 type = 20 min, 2 types = 40 min, 3 types = 60 min, etc.
+> **⚠️ ABSOLUTE REQUIREMENT — NON-NEGOTIABLE**: For EACH article type being generated, you MUST spend a dedicated ≥15 minutes (2 complete passes) on deep political intelligence analysis BEFORE making ANY decisions about article content, angle, or topic. This is the single most important phase of the entire workflow. Pass 1 writes initial analysis; Pass 2 reads it ALL back and improves every section. When generating multiple article types, the analysis time scales: 1 type = 15 min, 2 types = 30 min, 3 types = 45 min, etc.
 
-**What "≥20 minutes of analysis per article type (2 passes)" means:**
+**What "≥15 minutes of analysis per article type (2 passes)" means:**
 1. **Read ALL 6 methodology guides** in `analysis/methodologies/` — these define your analytical frameworks
 2. **Read ALL structured templates** in `analysis/templates/` — these define your output format
 3. **Apply every template to every downloaded MCP data file** — no shortcuts, no skipping files
@@ -285,7 +285,7 @@ Call `sequentialthinking` with structured thought chains — each step builds on
 
 **CRITICAL SEQUENCING RULE**: The article topic, angle, headline, and narrative structure are ALL decided AFTER this analysis phase completes — NEVER before. The significance scoring results from the analysis determine what the article covers.
 
-> **🚫 VIOLATION**: Starting to write any article, choosing a headline, or deciding the narrative angle before spending ≥20 minutes per article type (2 complete passes) on systematic analysis using the methodology guides and templates. If you find yourself writing article content before the analysis phase is complete, STOP and return to analysis.
+> **🚫 VIOLATION**: Starting to write any article, choosing a headline, or deciding the narrative angle before spending ≥15 minutes per article type (2 complete passes) on systematic analysis using the methodology guides and templates. If you find yourself writing article content before the analysis phase is complete, STOP and return to analysis.
 
 ## ⏱️ Time Budget (120 minutes — MUST spend ≥90 minutes of active work)
 
@@ -294,8 +294,8 @@ Call `sequentialthinking` with structured thought chains — each step builds on
 - **Minutes 0–3**: Date validation, MCP warm-up
 - **Minutes 3–13**: 📡 **DATA RETRIEVAL PHASE (≤10 minutes)** — Parse article types, verify MCP connectivity, fetch EP data for all article types. Complete all feed + deep-fetch calls (max 10 deep-fetch calls total across all article types — same global cap as other news workflows). Most EP MCP tools respond in <10s; allow up to 120s for slow feed endpoints. **Data retrieval MUST complete before analysis starts.**
 - **Minutes 13–20**: 🔬 Automated political intelligence analysis stage (significance classification, political threat landscape assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writing analysis artifacts to `${ANALYSIS_DIR}/` — a per-article-type directory for comprehensive analysis of all downloaded data for that article type)
-- **Minutes 20–N**: 🔬🔬🔬 **MANDATORY DEEP POLITICAL ANALYSIS PHASE (≥20 MINUTES × NUMBER OF ARTICLE TYPES — 2 PASSES PER TYPE)**
-  - **Pass 1 (~60% of analysis time)**: Read ALL methodology guides and templates, apply them to EVERY downloaded MCP data file, write substantive analysis markdown, use `sequentialthinking` for complex reasoning, cross-reference documents via knowledge graph, complete 4-pass refinement cycle. **⚠️ Per Rule 7, spend ≥20 minutes per article type on AI-driven analysis.** For 1 type: minutes 20–40. For 2 types: minutes 20–60. For 3+ types: scale accordingly. Article topics and angles MUST be decided ONLY from completed significance scoring results.
+- **Minutes 20–N**: 🔬🔬🔬 **MANDATORY DEEP POLITICAL ANALYSIS PHASE (≥15 MINUTES × NUMBER OF ARTICLE TYPES — 2 PASSES PER TYPE)**
+  - **Pass 1 (~60% of analysis time)**: Read ALL methodology guides and templates, apply them to EVERY downloaded MCP data file, write substantive analysis markdown, use `sequentialthinking` for complex reasoning, cross-reference documents via knowledge graph, complete 4-pass refinement cycle. **⚠️ Per Rule 7, spend ≥15 minutes per article type on AI-driven analysis.** For 1 type: minutes 20–35. For 2 types: minutes 20–50. For 3+ types: scale accordingly. Article topics and angles MUST be decided ONLY from completed significance scoring results.
   - **Pass 2 (~40% of analysis time)**: 🔁 **MANDATORY READ-BACK & IMPROVEMENT** — Read EVERY analysis file you wrote, completely, word by word. Expand shallow sections, add evidence citations, add confidence levels, add cross-references between analysis files, ensure every SWOT item has ≥80 words. Rewrite anything that doesn't meet the Economist Test. **DO NOT skip this pass.**
 - **Minutes N–100**: 📰 **ARTICLE GENERATION PHASE (2 PASSES PER ARTICLE)** — Generate English articles for each requested type with deep political intelligence informed by completed analysis artifacts. **Analysis MUST be complete before generation starts.**
   - **Pass 1 (~50% of article time per type)**: Generate article, replace ALL `[AI_ANALYSIS_REQUIRED]` markers. Ensure ≥60% prose ratio.
@@ -1106,7 +1106,7 @@ fi
 - ✅ **Analysis directory** is scoped to `${ANALYSIS_DIR}/`
 
 ### Minimum AI Analysis Time (Rule 7 — required)
-- ✅ **≥20 minutes per article type** spent on dedicated deep political intelligence analysis phase with **mandatory 2-pass cycle** (Pass 1: write analysis using ALL 6 methodology guides; Pass 2: complete read-back and improvement of ALL analysis files)
+- ✅ **≥15 minutes per article type** spent on dedicated deep political intelligence analysis phase with **mandatory 2-pass cycle** (Pass 1: write analysis using ALL 6 methodology guides; Pass 2: complete read-back and improvement of ALL analysis files)
 - ✅ **Article topic/angle decided ONLY AFTER analysis phase completes** — significance scoring results determine coverage
 - ✅ **4-pass refinement cycle** completed for all analytical content sections
 - ✅ **All 6 methodology documents** read before any analysis
