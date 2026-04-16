@@ -974,7 +974,7 @@ describe('ep-mcp-client', () => {
           content: [{ type: 'text', text: '{"procedures": []}' }],
         });
 
-        const options = { year: 2025, limit: 10 };
+        const options = { limit: 10 };
         await client.getProcedures(options);
 
         expect(client.callTool).toHaveBeenCalledWith('get_procedures', options);
@@ -1016,7 +1016,7 @@ describe('ep-mcp-client', () => {
           content: [{ type: 'text', text: '{"events": []}' }],
         });
 
-        const options = { dateFrom: '2025-01-01', dateTo: '2025-01-31' };
+        const options = { limit: 20 };
         await client.getEvents(options);
 
         expect(client.callTool).toHaveBeenCalledWith('get_events', options);
@@ -1220,7 +1220,7 @@ describe('ep-mcp-client', () => {
           content: [{ type: 'text', text: '{"documents": []}' }],
         });
 
-        const options = { year: 2025 };
+        const options = { limit: 50 };
         await client.getCommitteeDocuments(options);
 
         expect(client.callTool).toHaveBeenCalledWith('get_committee_documents', options);
@@ -1304,7 +1304,7 @@ describe('ep-mcp-client', () => {
           content: [{ type: 'text', text: '{"documents": []}' }],
         });
 
-        const options = { year: 2025 };
+        const options = { limit: 50 };
         await client.getExternalDocuments(options);
 
         expect(client.callTool).toHaveBeenCalledWith('get_external_documents', options);

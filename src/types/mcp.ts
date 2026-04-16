@@ -252,21 +252,20 @@ export interface GetCurrentMEPsOptions {
   offset?: number | undefined;
 }
 
-/** Options for getSpeeches */
+/** Options for getSpeeches — v1.2.8 removed `year` (EP API ignores it for /speeches) */
 export interface GetSpeechesOptions {
   speechId?: string | undefined;
-  /** Filter by calendar year (recommended for annual counts) */
-  year?: number | undefined;
+  /** Filter by sitting date start (maps to sitting-date in EP API) */
   dateFrom?: string | undefined;
+  /** Filter by sitting date end (maps to sitting-date-end in EP API) */
   dateTo?: string | undefined;
   limit?: number | undefined;
   offset?: number | undefined;
 }
 
-/** Options for getProcedures */
+/** Options for getProcedures — v1.2.8 removed `year` (EP API ignores it for /procedures) */
 export interface GetProceduresOptions {
   processId?: string | undefined;
-  year?: number | undefined;
   limit?: number | undefined;
   offset?: number | undefined;
 }
@@ -279,13 +278,9 @@ export interface GetAdoptedTextsOptions {
   offset?: number | undefined;
 }
 
-/** Options for getEvents */
+/** Options for getEvents — v1.2.8 removed `year`, `dateFrom`, `dateTo` (EP API /events has no date filtering) */
 export interface GetEventsOptions {
   eventId?: string | undefined;
-  /** Filter by calendar year (recommended for annual counts) */
-  year?: number | undefined;
-  dateFrom?: string | undefined;
-  dateTo?: string | undefined;
   limit?: number | undefined;
   offset?: number | undefined;
 }
@@ -338,10 +333,9 @@ export interface GetPlenaryDocumentsOptions {
   offset?: number | undefined;
 }
 
-/** Options for getCommitteeDocuments */
+/** Options for getCommitteeDocuments — v1.2.8 removed `year` (EP API ignores it for /committee-documents) */
 export interface GetCommitteeDocumentsOptions {
   docId?: string | undefined;
-  year?: number | undefined;
   limit?: number | undefined;
   offset?: number | undefined;
 }
@@ -366,10 +360,9 @@ export interface GetControlledVocabulariesOptions {
   offset?: number | undefined;
 }
 
-/** Options for getExternalDocuments */
+/** Options for getExternalDocuments — v1.2.8 removed `year` (EP API ignores it for /external-documents) */
 export interface GetExternalDocumentsOptions {
   docId?: string | undefined;
-  year?: number | undefined;
   limit?: number | undefined;
   offset?: number | undefined;
 }
