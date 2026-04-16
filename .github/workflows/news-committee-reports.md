@@ -373,13 +373,22 @@ Every generated article MUST include the Analysis & Transparency section that li
 - [ ] Links to `${ANALYSIS_DIR}/existing/*.md` files are present
 - [ ] Links to `analysis/methodologies/*.md` methodology documents are present
 
-## ⏱️ Time Budget (60 minutes)
+## ⏱️ Time Budget (60 minutes — MUST spend ≥45 minutes of active work)
+
+> **⚠️ NO EARLY COMPLETION**: You MUST spend at least 45 minutes on active work. Completing in under 45 minutes means you rushed and produced low-quality output. See [SHARED_PROMPT_PATTERNS.md Iterative Improvement Protocol](../prompts/SHARED_PROMPT_PATTERNS.md#-mandatory-iterative-improvement-protocol-all-workflows) for full rules.
+
 - **Minutes 0–3**: Date check, MCP warm-up with EP MCP tools
 - **Minutes 3–13**: 📡 **DATA RETRIEVAL PHASE (≤10 minutes)** — EP MCP data fetch, analysis directory setup, query EP MCP tools for COMPLETE committee reports data — **⚠️ Download FULL document content, not just metadata. Store complete adopted texts, procedure details, and committee document content in `${ANALYSIS_DIR}/data/`**. Complete all feed + deep-fetch calls (up to 10 total). Most EP MCP tools respond in <10s; allow up to 120s for slow feed endpoints. **Data retrieval MUST complete before analysis starts.**
-- **Minutes 13–35**: 🔬🔬🔬 **MANDATORY DEEP POLITICAL ANALYSIS PHASE (15-20 MINUTES)** — Read ALL methodology guides and templates, apply them to EVERY downloaded MCP data file, write substantive analysis markdown, use `sequentialthinking` for complex reasoning, cross-reference documents via knowledge graph, complete 4-pass refinement cycle. **⚠️ Per Rule 7, spend ≥15 minutes on AI-driven analysis.** Article topic and angle MUST be decided ONLY from completed significance scoring results, not predetermined.
-- **Minutes 35–50**: Generate English article with deep political intelligence analysis informed by completed analysis artifacts. **Analysis MUST be complete before generation starts.**
-- **Minutes 50–55**: Validate and finalize output — run HTML and WCAG checks (using project validation tools), verify metadata (titles, slugs, dates, language), sanity-check file paths and links, and prepare the pull request description summarizing key political intelligence findings.
-- **Minutes 55–60**: Create PR with `safeoutputs___create_pull_request`
+- **Minutes 13–35**: 🔬🔬🔬 **MANDATORY DEEP POLITICAL ANALYSIS PHASE (22 MINUTES — 2 PASSES)**
+  - **Pass 1 (Minutes 13–26, ~13 min)**: Read ALL methodology guides and templates, apply them to EVERY downloaded MCP data file, write substantive analysis markdown, use `sequentialthinking` for complex reasoning, cross-reference documents via knowledge graph, complete 4-pass refinement cycle. **⚠️ Per Rule 7, spend ≥20 minutes total on AI-driven analysis.** Article topic and angle MUST be decided ONLY from completed significance scoring results, not predetermined.
+  - **Pass 2 (Minutes 26–35, ~9 min)**: 🔁 **MANDATORY READ-BACK & IMPROVEMENT** — Read EVERY analysis file you wrote, completely, word by word. Expand shallow sections, add evidence citations, add confidence levels, add cross-references between analysis files, ensure every SWOT item has ≥80 words. Rewrite anything that doesn't meet the Economist Test. **DO NOT skip this pass.**
+- **Minutes 35–52**: 📰 **ARTICLE GENERATION PHASE (17 MINUTES — 2 PASSES)** — **Analysis MUST be complete before generation starts.**
+  - **Pass 1 (Minutes 35–44, ~9 min)**: Generate English article with deep political intelligence informed by completed analysis artifacts. Replace ALL `[AI_ANALYSIS_REQUIRED]` markers. Ensure ≥60% prose ratio.
+  - **Pass 2 (Minutes 44–52, ~8 min)**: 🔁 **MANDATORY ARTICLE READ-BACK & IMPROVEMENT** — Read the ENTIRE generated article from top to bottom. Verify every section has ≥3 analytical paragraphs, specific EP data citations, named actors/MEPs, prose not bullet lists. Add World Bank economic context if missing. Rewrite any section that fails the Economist Test. **DO NOT skip this pass.**
+- **Minutes 52–57**: Validate and finalize output — run HTML and WCAG checks, verify metadata, prose ratio check, verify zero markers remain
+- **Minutes 57–60**: Create PR with `safeoutputs___create_pull_request`
+
+> **🛑 EARLY COMPLETION CHECK**: If you reach the PR creation step before minute 45, STOP. Go back and improve your analysis and articles. Read everything again. Add more depth.
 
 > **🔑 ENGLISH-ONLY FOCUS**: This workflow generates English content only. Use the extra time (vs. translating to 13 languages) to produce deeper political analysis, richer context, and more comprehensive intelligence. Translations to other languages are handled by the separate `news-translate` workflow.
 

@@ -316,14 +316,22 @@ Provide macro-level parliamentary intelligence:
 - **Emerging themes**: What new issues or concerns gained traction this month?
 - **Term milestone assessment**: Where are we in the parliamentary term's policy ambitions?
 
-## ⏱️ Time Budget (60 minutes)
+## ⏱️ Time Budget (60 minutes — MUST spend ≥45 minutes of active work)
+
+> **⚠️ NO EARLY COMPLETION**: You MUST spend at least 45 minutes on active work. Completing in under 45 minutes means you rushed and produced low-quality output. See [SHARED_PROMPT_PATTERNS.md Iterative Improvement Protocol](../prompts/SHARED_PROMPT_PATTERNS.md#-mandatory-iterative-improvement-protocol-all-workflows) for full rules.
 
 - **Minutes 0–3**: Date validation, MCP Health Gate with `get_plenary_sessions({ limit: 1 })` (up to 3 attempts)
 - **Minutes 3–13**: 📡 **DATA RETRIEVAL PHASE (≤10 minutes)** — EP MCP data fetch, analysis directory setup, query voting records, documents, reports from past 30 days. Complete all feed + deep-fetch calls (up to 10 total). Most EP MCP tools respond in <10s; allow up to 120s for slow feed endpoints. **Data retrieval MUST complete before analysis starts.**
-- **Minutes 13–40**: 🔬🔬🔬 **MANDATORY DEEP POLITICAL ANALYSIS PHASE (25+ MINUTES)** — Read ALL methodology guides and templates, apply them to EVERY downloaded MCP data file, write substantive analysis markdown, use `sequentialthinking` for complex reasoning, cross-reference documents via knowledge graph, complete 4-pass refinement cycle. **⚠️ Per Rule 7, spend ≥25 minutes on AI-driven analysis.** Article topic and angle MUST be decided ONLY from completed significance scoring results. Monthly review requires the deepest synthesis across the full month's events, trends, and patterns.
-- **Minutes 40–52**: Generate English article with deep political intelligence analysis informed by completed analysis artifacts. **Analysis MUST be complete before generation starts.**
+- **Minutes 13–40**: 🔬🔬🔬 **MANDATORY DEEP POLITICAL ANALYSIS PHASE (27 MINUTES — 2 PASSES)** — Monthly review requires the deepest synthesis across the full month's events, trends, and patterns.
+  - **Pass 1 (Minutes 13–30, ~17 min)**: Read ALL methodology guides and templates, apply them to EVERY downloaded MCP data file, write substantive analysis markdown, use `sequentialthinking` for complex reasoning, cross-reference documents via knowledge graph, complete 4-pass refinement cycle. **⚠️ Per Rule 7, spend ≥25 minutes total on AI-driven analysis.** Article topic and angle MUST be decided ONLY from completed significance scoring results.
+  - **Pass 2 (Minutes 30–40, ~10 min)**: 🔁 **MANDATORY READ-BACK & IMPROVEMENT** — Read EVERY analysis file you wrote, completely, word by word. Expand shallow sections, add evidence citations, add confidence levels, add cross-references between analysis files, ensure every SWOT item has ≥80 words. Rewrite anything that doesn't meet the Economist Test. **DO NOT skip this pass.**
+- **Minutes 40–52**: 📰 **ARTICLE GENERATION PHASE (12 MINUTES — 2 PASSES)** — **Analysis MUST be complete before generation starts.**
+  - **Pass 1 (Minutes 40–46, ~6 min)**: Generate English article with deep political intelligence informed by completed analysis artifacts. Replace ALL `[AI_ANALYSIS_REQUIRED]` markers. Ensure ≥60% prose ratio.
+  - **Pass 2 (Minutes 46–52, ~6 min)**: 🔁 **MANDATORY ARTICLE READ-BACK & IMPROVEMENT** — Read the ENTIRE generated article from top to bottom. Verify every section has ≥3 analytical paragraphs, specific EP data citations, named actors/MEPs, prose not bullet lists. Add World Bank economic context if missing. Rewrite any section that fails the Economist Test. **DO NOT skip this pass.**
 - **Minutes 52–57**: Validate generated HTML
 - **Minutes 57–60**: Create PR with `safeoutputs___create_pull_request`
+
+> **🛑 EARLY COMPLETION CHECK**: If you reach the PR creation step before minute 45, STOP. Go back and improve your analysis and articles. Read everything again. Add more depth.
 
 **If you reach minute 52 and the PR has not yet been created**: Stop generating more content. Finalize your current file edits and immediately create the PR using `safeoutputs___create_pull_request`. Partial content in a PR is better than a timeout with no PR.
 

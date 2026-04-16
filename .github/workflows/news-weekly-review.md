@@ -314,14 +314,22 @@ Synthesize the week's significance:
 - **Surprise developments**: What was unexpected? What does the surprise reveal about political dynamics?
 - **Next week setup**: How do this week's outcomes set up next week's agenda?
 
-## ⏱️ Time Budget (60 minutes)
+## ⏱️ Time Budget (60 minutes — MUST spend ≥45 minutes of active work)
+
+> **⚠️ NO EARLY COMPLETION**: You MUST spend at least 45 minutes on active work. Completing in under 45 minutes means you rushed and produced low-quality output. See [SHARED_PROMPT_PATTERNS.md Iterative Improvement Protocol](../prompts/SHARED_PROMPT_PATTERNS.md#-mandatory-iterative-improvement-protocol-all-workflows) for full rules.
 
 - **Minutes 0–3**: Date validation, MCP Health Gate with `get_plenary_sessions({ limit: 1 })` (up to 3 attempts)
 - **Minutes 3–13**: 📡 **DATA RETRIEVAL PHASE (≤10 minutes)** — EP MCP data fetch, analysis directory setup, query voting records, documents, and questions from past 7 days. Complete all feed + deep-fetch calls (up to 10 total). Most EP MCP tools respond in <10s; allow up to 120s for slow feed endpoints. **Data retrieval MUST complete before analysis starts.**
-- **Minutes 13–35**: 🔬🔬🔬 **MANDATORY DEEP POLITICAL ANALYSIS PHASE (20+ MINUTES)** — Read ALL methodology guides and templates, apply them to EVERY downloaded MCP data file, write substantive analysis markdown, use `sequentialthinking` for complex reasoning, cross-reference documents via knowledge graph, complete 4-pass refinement cycle. **⚠️ Per Rule 7, spend ≥20 minutes on AI-driven analysis.** Article topic and angle MUST be decided ONLY from completed significance scoring results. Weekly review requires deeper synthesis across the full week's events.
-- **Minutes 35–50**: Generate English article with deep political intelligence analysis informed by completed analysis artifacts. **Analysis MUST be complete before generation starts.**
-- **Minutes 50–55**: Validate generated HTML
-- **Minutes 55–60**: Create PR with `safeoutputs___create_pull_request`
+- **Minutes 13–38**: 🔬🔬🔬 **MANDATORY DEEP POLITICAL ANALYSIS PHASE (25 MINUTES — 2 PASSES)** — Weekly review requires deeper synthesis across the full week's events.
+  - **Pass 1 (Minutes 13–28, ~15 min)**: Read ALL methodology guides and templates, apply them to EVERY downloaded MCP data file, write substantive analysis markdown, use `sequentialthinking` for complex reasoning, cross-reference documents via knowledge graph, complete 4-pass refinement cycle. **⚠️ Per Rule 7, spend ≥25 minutes total on AI-driven analysis.** Article topic and angle MUST be decided ONLY from completed significance scoring results.
+  - **Pass 2 (Minutes 28–38, ~10 min)**: 🔁 **MANDATORY READ-BACK & IMPROVEMENT** — Read EVERY analysis file you wrote, completely, word by word. Expand shallow sections, add evidence citations, add confidence levels, add cross-references between analysis files, ensure every SWOT item has ≥80 words. Rewrite anything that doesn't meet the Economist Test. **DO NOT skip this pass.**
+- **Minutes 38–52**: 📰 **ARTICLE GENERATION PHASE (14 MINUTES — 2 PASSES)** — **Analysis MUST be complete before generation starts.**
+  - **Pass 1 (Minutes 38–45, ~7 min)**: Generate English article with deep political intelligence informed by completed analysis artifacts. Replace ALL `[AI_ANALYSIS_REQUIRED]` markers. Ensure ≥60% prose ratio.
+  - **Pass 2 (Minutes 45–52, ~7 min)**: 🔁 **MANDATORY ARTICLE READ-BACK & IMPROVEMENT** — Read the ENTIRE generated article from top to bottom. Verify every section has ≥3 analytical paragraphs, specific EP data citations, named actors/MEPs, prose not bullet lists. Add World Bank economic context if missing. Rewrite any section that fails the Economist Test. **DO NOT skip this pass.**
+- **Minutes 52–57**: Validate generated HTML
+- **Minutes 57–60**: Create PR with `safeoutputs___create_pull_request`
+
+> **🛑 EARLY COMPLETION CHECK**: If you reach the PR creation step before minute 45, STOP. Go back and improve your analysis and articles. Read everything again. Add more depth.
 
 **If you reach minute 50 without having prepared the PR**: Stop generating. Finish your current file edits and immediately create the PR using `safeoutputs___create_pull_request` (do not run any git commands; the framework will capture your working-directory changes).
 
