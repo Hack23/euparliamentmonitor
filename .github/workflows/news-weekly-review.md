@@ -343,10 +343,10 @@ Synthesize the week's significance:
 - **Minutes 13–38**: 🔬🔬🔬 **MANDATORY DEEP POLITICAL ANALYSIS PHASE (25 MINUTES — 2 PASSES)** — Weekly review requires deeper synthesis across the full week's events.
   - **Pass 1 (Minutes 13–28, ~15 min)**: Read ALL methodology guides and templates, apply them to EVERY downloaded MCP data file, write substantive analysis markdown, use `sequentialthinking` for complex reasoning, cross-reference documents via knowledge graph, complete 4-pass refinement cycle. **⚠️ Per Rule 7, spend ≥25 minutes total on AI-driven analysis.** Article topic and angle MUST be decided ONLY from completed significance scoring results.
   - **Pass 2 (Minutes 28–38, ~10 min)**: 🔁 **MANDATORY READ-BACK & IMPROVEMENT** — Read EVERY analysis file you wrote, completely, word by word. Expand shallow sections, add evidence citations, add confidence levels, add cross-references between analysis files, ensure every SWOT item has ≥80 words. Rewrite anything that doesn't meet the Economist Test. **DO NOT skip this pass.**
-- **Minutes 38–52**: 📰 **ARTICLE GENERATION PHASE (14 MINUTES — 2 PASSES)** — **Analysis MUST be complete before generation starts.**
-  - **Pass 1 (Minutes 38–45, ~7 min)**: Generate English article with deep political intelligence informed by completed analysis artifacts. Replace ALL `[AI_ANALYSIS_REQUIRED]` markers. Ensure ≥60% prose ratio.
-  - **Pass 2 (Minutes 45–52, ~7 min)**: 🔁 **MANDATORY ARTICLE READ-BACK & IMPROVEMENT** — Read the ENTIRE generated article from top to bottom. Verify every section has ≥3 analytical paragraphs, specific EP data citations, named actors/MEPs, prose not bullet lists. Add World Bank economic context if missing. Rewrite any section that fails the Economist Test. **DO NOT skip this pass.**
-- **Minutes 45–50**: Validate generated HTML. **🚨 PR MUST be created by minute 50 (HARD DEADLINE).**
+- **Minutes 38–45**: 📰 **ARTICLE GENERATION PHASE (7 MINUTES — 2 PASSES)** — **Analysis MUST be complete before generation starts.**
+  - **Pass 1 (Minutes 38–42, ~4 min)**: Generate English article with deep political intelligence informed by completed analysis artifacts. Replace ALL `[AI_ANALYSIS_REQUIRED]` markers. Ensure ≥60% prose ratio.
+  - **Pass 2 (Minutes 42–45, ~3 min)**: 🔁 **MANDATORY ARTICLE READ-BACK & IMPROVEMENT** — Read the ENTIRE generated article from top to bottom. Verify every section has ≥3 analytical paragraphs, specific EP data citations, named actors/MEPs, prose not bullet lists. Add World Bank economic context if missing. Rewrite any section that fails the Economist Test. **DO NOT skip this pass.**
+- **Minutes 45–48**: Validate generated HTML. **🚨 PR MUST be created by minute 50 (HARD DEADLINE).**
 - **Minutes 48–50**: Create PR with `safeoutputs___create_pull_request`
 
 > **🛑 EARLY COMPLETION CHECK**: If you reach the PR creation step before minute 45, STOP. Go back and improve your analysis and articles. Read everything again. Add more depth.
