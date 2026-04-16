@@ -151,3 +151,14 @@ engine:
 | New article template | Update `src/templates/article-template.ts` |
 | New MCP tool usage | Update `src/mcp/ep-mcp-client.ts` |
 | New gh-aw workflow | Create `.md` file, compile with `gh aw compile` |
+
+## 🧠 AI-FIRST QUALITY PRINCIPLE
+
+> **See `.github/skills/ai-first-quality.md`** for the full specification.
+
+All AI-generated content (analysis, articles, documentation) MUST follow the **AI-First Quality Principle**:
+
+1. **Mandatory 2-Pass Iterative Improvement** — Every content output requires at least 2 passes: Pass 1 writes initial content, Pass 2 reads the ENTIRE output and improves every section.
+2. **No Early Completion** — Use the FULL allocated time. Rushing produces low-quality output.
+3. **Quality Gates** — ≥80 words/SWOT item, ≥150 words/stakeholder perspective, ≥60% prose ratio, ≥1 Chart.js visualization per article, zero `[AI_ANALYSIS_REQUIRED]` markers.
+4. **The Economist Test** — Every analytical paragraph must explain WHY (not just WHAT), name specific actors, and cite specific evidence.

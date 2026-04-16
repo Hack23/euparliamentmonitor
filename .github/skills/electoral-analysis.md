@@ -247,3 +247,13 @@ const report = await mcpClient.callTool('generate_report', {
 - [EU Parliament MCP Server](https://github.com/Hack23/European-Parliament-MCP-Server)
 - [Treaty on European Union, Art. 14 & 17](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:12012M/TXT)
 - [EU Open Data Portal — Elections](https://data.europa.eu/en)
+
+---
+
+## 🧠 AI-First Quality Integration
+
+> **All outputs from this skill MUST follow the [AI-First Quality Principle](ai-first-quality.md)**:
+> - **Mandatory 2-pass iterative improvement** for all analysis content
+> - **Complete read-back** of all output before finalizing
+> - **No early completion** — use the FULL allocated time
+> - **Quality gates**: ≥80 words/SWOT item, ≥150 words/stakeholder perspective, evidence citations in ≥80% of paragraphs

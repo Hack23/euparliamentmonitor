@@ -383,3 +383,13 @@ async function analyticalPipeline(analysisType, params) {
 - [VoteWatch Europe — Methodology](https://www.votewatch.eu/)
 - [Hix, Noury, Roland — Democratic Politics in the European Parliament](https://doi.org/10.1017/CBO9780511491955)
 - [Data Journalism Handbook](https://datajournalism.com/read/handbook/one)
+
+---
+
+## 🧠 AI-First Quality Integration
+
+> **All outputs from this skill MUST follow the [AI-First Quality Principle](ai-first-quality.md)**:
+> - **Mandatory 2-pass iterative improvement** for all analysis content
+> - **Complete read-back** of all output before finalizing
+> - **No early completion** — use the FULL allocated time
+> - **Quality gates**: ≥80 words/SWOT item, ≥150 words/stakeholder perspective, evidence citations in ≥80% of paragraphs

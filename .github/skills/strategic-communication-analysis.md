@@ -345,3 +345,13 @@ EU Parliament Monitor Article Standards:
 - [IATE — EU Terminology Database](https://iate.europa.eu/)
 - [EUR-Lex — EU Law](https://eur-lex.europa.eu/)
 - [EU Media Literacy Guidelines](https://digital-strategy.ec.europa.eu/en/policies/media-literacy)
+
+---
+
+## 🧠 AI-First Quality Integration
+
+> **All outputs from this skill MUST follow the [AI-First Quality Principle](ai-first-quality.md)**:
+> - **Mandatory 2-pass iterative improvement** for all analysis content
+> - **Complete read-back** of all output before finalizing
+> - **No early completion** — use the FULL allocated time
+> - **Quality gates**: ≥80 words/SWOT item, ≥150 words/stakeholder perspective, evidence citations in ≥80% of paragraphs

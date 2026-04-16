@@ -1,0 +1,147 @@
+---
+name: ai-first-quality
+description: AI-First Quality Principle — mandatory iterative improvement, 2-pass analysis/article cycles, and time-budget enforcement for all AI-generated content
+license: Apache-2.0
+---
+
+# 🧠 AI-First Quality Principle Skill
+
+## Purpose
+
+Codify the **AI-First Quality Principle** — the foundational standard that ALL AI-generated content (analysis, articles, intelligence products, documentation) MUST go through mandatory iterative improvement cycles. One pass is NEVER sufficient. This skill prevents quality regressions by embedding iterative improvement requirements into every agent and workflow.
+
+## When to Use
+
+✅ Every news article generation workflow (breaking, committee, motions, propositions, week-ahead, weekly-review, month-ahead, monthly-review)
+✅ Every intelligence analysis product (SWOT, stakeholder, coalition, risk, significance)
+✅ Every documentation generation task
+✅ Every content review or quality gate evaluation
+✅ Any task where AI writes prose, analysis, or structured content
+
+❌ Pure code generation (TypeScript, HTML templates — handled by code quality)
+❌ Infrastructure/DevOps tasks with no content output
+❌ Data pipeline plumbing with no analytical output
+
+## Core Principle
+
+> **AI-FIRST QUALITY PRINCIPLE**: The AI is the primary author of ALL analysis and article content. TypeScript code only handles HTML structure and data formatting. The AI MUST produce Economist-quality political intelligence — not shallow code-generated summaries. Every piece of AI-generated content MUST go through at least 2 complete improvement iterations before it is considered acceptable.
+
+## 🛑 Mandatory Rules (NON-NEGOTIABLE)
+
+### Rule 1: Iterative Improvement — 2-Pass Minimum
+
+Every piece of content MUST go through at least **2 complete passes**:
+
+| Pass | What Happens | Time Allocation |
+|------|-------------|-----------------|
+| **Pass 1: Initial Creation** | Write the full content — analysis, prose, SWOT, stakeholders, risk assessments. Apply methodology guides and templates. | ~60% of phase time |
+| **Pass 2: Complete Read-Back & Improvement** | Read the ENTIRE output word-by-word. Identify shallow sections, missing evidence, placeholder text, weak analysis. Rewrite and extend every section that doesn't meet quality gates. | ~40% of phase time |
+
+> **⚠️ Pass 1 is a STARTING POINT, not a finished product.** Pass 2 is where quality is achieved. Skipping Pass 2 is a VIOLATION.
+
+### Rule 2: No Early Completion
+
+- If the time budget says "20 minutes for analysis," you MUST work for the FULL 20 minutes.
+- If the workflow has a 60-minute budget, you MUST be actively working for ≥45 minutes.
+- Finishing early = rushed = low quality = VIOLATION.
+- If you finish Pass 2 early, do a **Pass 3** — there is ALWAYS more depth to add.
+
+### Rule 3: Complete Read-Back
+
+After writing ANY content (analysis files, article sections, SWOT items, stakeholder perspectives):
+1. **Read the ENTIRE output** — not a sample, not the first paragraph. ALL of it.
+2. **Identify gaps** — shallow sections, missing evidence, placeholder text, unsupported claims.
+3. **Rewrite and extend** — expand one-liners into full paragraphs, add evidence citations, add confidence levels.
+4. **Cross-reference** — ensure analysis files reference each other, articles cite specific EP data.
+
+### Rule 4: Quality Gates (Content Depth)
+
+| Content Type | Minimum Requirement |
+|-------------|-------------------|
+| SWOT items | ≥80 words per item with evidence and confidence level |
+| Stakeholder perspectives | ≥150 words per perspective with evidence chain |
+| Risk outlook | ≥200 words with probability-labelled scenarios |
+| Analysis files | ≥400 lines with evidence citations in ≥80% of paragraphs |
+| Article sections | ≥3 analytical prose paragraphs (not bullet lists) |
+| Prose ratio | ≥60% paragraphs (not bullet lists) |
+| Chart.js visualizations | ≥1 per article with real EP data |
+| World Bank data | Mandatory for policy articles with economic dimensions |
+
+### Rule 5: The Economist Test
+
+Every paragraph must pass this test:
+- Does it explain **WHY**, not just **WHAT**?
+- Does it name **specific actors** (MEPs, political groups, committees)?
+- Does it cite **specific evidence** (vote counts, document IDs, dates)?
+- Does it read like **analytical journalism**, not a data dump?
+- Would The Economist publish this paragraph? If not, rewrite it.
+
+### Rule 6: No Shortcuts
+
+- ❌ Never produce first-draft quality and move on
+- ❌ Never skip the read-back step
+- ❌ Never leave `[AI_ANALYSIS_REQUIRED]` markers in final output
+- ❌ Never use placeholder text ("Analysis pending", "TBD", "See data")
+- ❌ Never produce bullet-list articles instead of prose
+- ❌ Never accept shallow one-sentence SWOT items or stakeholder perspectives
+- ❌ Never finish a 60-minute workflow in under 45 minutes
+
+## Time Budget Enforcement
+
+| Workflow Type | Total Budget | Min Active Work | Analysis Phase (2-pass) | Article Phase (2-pass) |
+|---------------|-------------|-----------------|------------------------|----------------------|
+| Single-topic news | 60 min | ≥45 min | ≥20 min | ≥15 min |
+| Weekly/Monthly review | 60 min | ≥45 min | ≥25 min | ≥15 min |
+| Multi-article generator | 120 min | ≥90 min | ≥15 min × types | ≥15 min × types |
+
+## Application Per Agent Role
+
+### News Journalist
+- **Pass 1**: Generate article with AI analysis, replace all markers, write prose sections
+- **Pass 2**: Read entire article top-to-bottom, verify every section meets quality gates, add World Bank data, verify Chart.js visualization, ensure prose ratio ≥60%
+
+### Intelligence Operative
+- **Pass 1**: Write all analysis markdown (SWOT, stakeholder, coalition, risk, significance scoring)
+- **Pass 2**: Read every analysis file word-by-word, expand shallow sections, add evidence citations, add confidence levels, cross-reference between files
+
+### Data Pipeline Specialist
+- **Pass 1**: Fetch and structure EP data, validate completeness
+- **Pass 2**: Review data quality, verify all required fields populated, check for anomalies
+
+### Documentation Architect
+- **Pass 1**: Write documentation with proper structure and content
+- **Pass 2**: Read entire document, verify accuracy, add missing cross-references, improve clarity
+
+### Quality Engineer
+- **Pass 1**: Run validation checks and identify issues
+- **Pass 2**: Re-validate all fixes, verify no regressions, confirm all quality gates pass
+
+### All Other Agents
+- Apply the 2-pass minimum to ANY content output
+- No agent is exempt from the iterative improvement requirement
+
+## Integration with SHARED_PROMPT_PATTERNS.md
+
+This skill codifies the Iterative Improvement Protocol from `SHARED_PROMPT_PATTERNS.md` (§ Mandatory Iterative Improvement Protocol). All workflow `.md` files reference these time budgets and quality gates. This skill ensures consistency across all agents.
+
+## ISMS Compliance
+
+| Framework | Control | Application |
+|-----------|---------|-------------|
+| ISO 27001 | A.5.10 | Quality assurance of AI-generated content |
+| ISO 27001 | A.8.28 | Secure, validated content generation |
+| NIST CSF | PR.DS-1 | Data integrity in analytical outputs |
+| EU AI Act | Art. 52 | Transparency in AI-generated content quality |
+
+## Related Skills
+
+- **[AI Governance](ai-governance.md)** — EU AI Act compliance, OWASP LLM security
+- **[Intelligence Analysis Techniques](intelligence-analysis-techniques.md)** — Structured analytic techniques
+- **[European Parliament Data](european-parliament-data.md)** — EP MCP data validation
+- **[Code Quality Excellence](code-quality-excellence.md)** — Code-level quality standards
+
+---
+
+**Last Updated**: 2026-04-16
+**Version**: 1.0
+**Maintained by**: Hack23 AB
