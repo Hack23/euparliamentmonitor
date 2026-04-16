@@ -545,7 +545,8 @@ case "$EP_CURL_EXIT" in
   *)  echo "EP API HTTP Status (meps): $EP_STATUS (curl exit $EP_CURL_EXIT: transport/TLS/other client error)" ;;
 esac
 
-if EP_AT_STATUS=$(curl -sS -o /dev/null -w "%{http_code}" --connect-timeout 10 --max-time 120 -H "Accept: application/ld+json" "https://data.europarl.europa.eu/api/v2/adopted-texts?offset=0&limit=1&year=$(date -u +%Y)" 2>/dev/null); then
+AT_YEAR=$(date -u +%Y)
+if EP_AT_STATUS=$(curl -sS -o /dev/null -w "%{http_code}" --connect-timeout 10 --max-time 120 -H "Accept: application/ld+json" "https://data.europarl.europa.eu/api/v2/adopted-texts?offset=0&limit=1&year=${AT_YEAR}" 2>/dev/null); then
   EP_AT_CURL_EXIT=0
 else
   EP_AT_CURL_EXIT=$?

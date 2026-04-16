@@ -930,7 +930,8 @@ for ITEM in $(echo "$TRANSLATED_TYPES" | tr ',' ' '); do
     QUALITY_SCORE=""
     QUALITY_GRADE=""
     if command -v npx >/dev/null 2>&1; then
-      QUALITY_OUTPUT=$(npx tsx src/utils/validate-articles.ts --quality --date="${ITEM_DATE}" 2>&1 | grep -i "$(basename "$FILE")" | head -1 || true)
+      FILE_BASE=$(basename "$FILE")
+      QUALITY_OUTPUT=$(npx tsx src/utils/validate-articles.ts --quality --date="${ITEM_DATE}" 2>&1 | grep -i "$FILE_BASE" | head -1 || true)
       if [ -n "$QUALITY_OUTPUT" ]; then
         QUALITY_SCORE=$(echo "$QUALITY_OUTPUT" | grep -oP 'score[:\s]*\K[0-9]+' 2>/dev/null || true)
         QUALITY_GRADE=$(echo "$QUALITY_OUTPUT" | grep -oP 'grade[:\s]*\K[A-F]' 2>/dev/null || true)
@@ -1236,7 +1237,8 @@ for FILE in $ALL_TRANSLATED_FILES; do
   # Verify against <html lang> attribute
   HTML_LANG=$(grep -oP '<html[^>]*\slang="\K[^"]+' "$FILE" 2>/dev/null | head -1)
   if [ -n "$HTML_LANG" ] && [ "$HTML_LANG" != "$FILE_LANG" ]; then
-    MISMATCH_LIST="${MISMATCH_LIST}$(printf '| `%s` | `%s` | `%s` | ❌ MISMATCH |\n' "$(basename "$FILE")" "$FILE_LANG" "$HTML_LANG")"
+    FILE_NAME=$(basename "$FILE")
+    MISMATCH_LIST="${MISMATCH_LIST}$(printf '| `%s` | `%s` | `%s` | ❌ MISMATCH |\n' "$FILE_NAME" "$FILE_LANG" "$HTML_LANG")"
   fi
   # Count per language
   LANG_COUNTS="${LANG_COUNTS} ${FILE_LANG}"
