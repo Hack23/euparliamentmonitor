@@ -152,7 +152,7 @@
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-jsdoc": "62.9.0",
     "eslint-plugin-security": "4.0.0",
-    "eslint-plugin-sonarjs": "4.0.2",
+    "eslint-plugin-sonarjs": "4.0.3",
     "happy-dom": "20.9.0",
     "htmlhint": "1.9.2",
     "husky": "9.1.7",
