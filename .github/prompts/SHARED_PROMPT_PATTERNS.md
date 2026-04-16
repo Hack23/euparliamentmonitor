@@ -489,6 +489,147 @@ When `monitor_legislative_pipeline` returns `health: 0%` and `throughput: 0`:
 
 ---
 
+## 📊 Article Content Depth Gates (Mandatory for All Workflows)
+
+> **⚠️ ROOT CAUSE OF QUALITY REGRESSIONS**: Articles that read like "shallow code-generated lists" rather than deep political intelligence fail these gates. The AI MUST synthesize its analysis artifacts (SWOT, stakeholder impact, coalition dynamics, risk assessment) INTO the article prose — not just reference them. Every article must read like a publication from The Economist's political intelligence unit, not a data dump.
+
+### 🔤 Prose-First Writing Structure (MANDATORY)
+
+> **ABSOLUTE RULE**: Articles are **analytical essays**, not bullet-point reports. The AI agent (Opus 4.6) must write substantive prose paragraphs that synthesize political intelligence from the completed analysis phase.
+
+| Gate | Requirement | Validation |
+|------|-------------|------------|
+| **Prose ratio** | ≥60% of article body text must be in `<p>` paragraph tags, not `<li>` list items | Count chars in `<p>` vs `<li>` tags |
+| **Paragraph depth** | Each analytical section must contain ≥3 paragraphs of ≥50 words each | Count paragraphs per `<section>` |
+| **Lede paragraph** | Opening paragraph must be ≥80 words of analytical narrative, not a summary list | Word count of first `<p class="lede">` |
+| **No orphan lists** | Bullet lists must always follow an analytical paragraph that provides context | Every `<ul>`/`<ol>` preceded by a `<p>` |
+| **Analysis synthesis** | Each section must weave findings from the analysis phase into the narrative | Reference specific analysis artifacts |
+
+**Anti-patterns that FAIL this gate:**
+- ❌ Section heading → bullet list of items with one-line descriptions
+- ❌ Section heading → single paragraph → long bullet list
+- ❌ "Here are the key developments:" followed by a list (write analytical paragraphs instead)
+- ❌ SWOT/stakeholder sections with only 1-2 sentences per item
+- ❌ Coalition analysis that merely names groups without explaining motivations and strategy
+
+**Required pattern for EVERY analytical section:**
+1. **Opening analytical paragraph** (≥60 words) — synthesize the key finding with political context
+2. **Evidence paragraph** (≥50 words) — cite specific EP data (document IDs, vote counts, dates)
+3. **Implication paragraph** (≥50 words) — explain consequences, stakeholder impact, scenarios
+4. **Supporting details** (optional) — if needed, a brief list of ≤5 items with ≥20 words each
+
+### 🔬 Deep Political Intelligence Requirements (MANDATORY)
+
+> **These requirements transform shallow summaries into Economist-quality analysis.** The AI must demonstrate genuine political understanding, not just data recitation.
+
+#### SWOT Analysis Depth
+- Each SWOT quadrant (Strengths, Weaknesses, Opportunities, Threats) must contain **≥3 items**
+- Each SWOT item must have **≥80 words** of analytical prose explaining WHY it matters politically
+- SWOT must cover **both political AND economic/regulatory dimensions**
+- SWOT must reference **specific actors** (MEPs, committees, political groups) with evidence
+- SWOT must include **confidence levels** (🟢 High / 🟡 Medium / 🔴 Low) on each assessment
+- **⚠️ SWOT sections with only generic one-liners FAIL validation** — rewrite with evidence-based analysis
+
+#### Stakeholder Impact Depth
+- Minimum **4 stakeholder perspectives** per key development (from the 6-lens model)
+- Each stakeholder perspective must have **≥150 words** of analytical narrative
+- Must explain **specific mechanisms** through which stakeholders are affected (not just "positive/negative")
+- Must identify **winners and losers** with evidence chains (e.g., "EMPL's Talent Pool directive benefits tech sector recruitment by streamlining cross-border hiring — but Eastern EU states lose workforce to Western job markets, as evidenced by...")
+- Must include **stakeholder response scenarios** (what they're likely to do next)
+
+#### Coalition Dynamics Depth
+- Name **specific MEPs** who led or opposed each development
+- Explain **group voting motivations** in political-strategic terms (not just "EPP voted for")
+- Identify **coalition shifts** — is this vote consistent with or divergent from recent patterns?
+- Quantify where possible — vote margins, abstention rates, defections
+- Compare with **historical voting patterns** on similar issues (use precomputed stats for context)
+
+#### Risk Assessment Integration
+- Every article must include a **risk outlook** section with ≥200 words
+- Identify **2-3 political risks** from the developments covered, with probability labels
+- Include **institutional risks** (e.g., Council pushback, implementation failures, legal challenges)
+- Reference **specific evidence** for each risk (not generic "there are risks")
+
+### 📈 Mandatory World Bank Economic Context (CONDITIONAL)
+
+> **RULE**: When the article covers ANY policy area with measurable economic impact (trade, employment, digital economy, health, environment, energy, agriculture, housing, migration), the AI MUST include World Bank economic context.
+
+**When World Bank data is MANDATORY** (not optional):
+- Articles about employment/labour legislation → `UNEMPLOYMENT`, `GDP_GROWTH` for affected countries
+- Articles about trade policy (tariffs, Mercosur, WTO) → `EXPORTS_GDP`, `FDI_NET`, `GDP_GROWTH`
+- Articles about health legislation → `HEALTH_EXPENDITURE`, `PHYSICIANS`, `LIFE_EXPECTANCY`
+- Articles about digital/tech policy → `INTERNET_USERS`, `GDP_PER_CAPITA`
+- Articles about environment/energy → search for `renewable energy`, `CO2 emissions` indicators
+- Articles about education/skills → `EDUCATION_EXPENDITURE`, `SCHOOL_ENROLLMENT`
+- Articles about housing/social policy → `GDP_PER_CAPITA`, `POPULATION`, search for `housing`
+- Articles about agriculture → search for `agriculture`, `food security` indicators
+- Articles about defence → search for `military expenditure` indicators
+
+**Integration requirements:**
+1. Call `search-indicators` first to discover the best indicator for the specific topic
+2. Fetch data for ≥2 relevant EU countries using Big Four or affected member states
+3. Include the data as **context within analytical paragraphs** (not as a separate data dump)
+4. Generate a Chart.js visualization using `buildDashboardSection()` to display the data
+5. Write ≥1 paragraph (≥60 words) interpreting the economic data in the context of the legislation
+
+### 📊 Mandatory Chart/Dashboard Generation (ALL Article Types)
+
+> **RULE**: Every article MUST include at least one data visualization. Articles without charts feel like text-only reports rather than data-driven intelligence.
+
+**Minimum visualization requirements per article:**
+| Visualization | Requirement | How |
+|---------------|-------------|-----|
+| **Dashboard metrics** | ≥1 dashboard panel with real data | Pass `DashboardConfig` to `buildDashboardSection()` |
+| **Chart** | ≥1 Chart.js chart (bar, line, pie, or radar) with real data | Include `chart` property in dashboard panel |
+| **SWOT grid** | Full 4-quadrant SWOT with ≥3 items per quadrant | Pass SWOT data to `buildSwotSection()` |
+
+**Chart data MUST be real** — not placeholder `[0,0,0]` arrays. Sources for chart data:
+- EP MCP analytical tools (coalition dynamics, legislative pipeline, committee activity)
+- World Bank economic indicators
+- Precomputed statistics (as background context)
+
+**Anti-patterns:**
+- ❌ Article with zero `<canvas>` elements → FAILS validation
+- ❌ Dashboard with all metrics showing 0 or "N/A" → omit or explain
+- ❌ Chart with only 1 data point → use at least 3 data points
+
+### 🔗 Analysis-to-Article Synthesis (MANDATORY)
+
+> **⚠️ THE CRITICAL GAP**: Analysis artifacts (SWOT, risk assessment, stakeholder impact, significance scoring) are being created but NOT synthesized into article prose. This must stop.
+
+**Requirements:**
+1. **Every analysis artifact** written during the analysis phase MUST be referenced in the article
+2. **SWOT findings** must be woven into relevant sections (not isolated in a SWOT-only section)
+3. **Stakeholder perspectives** must appear throughout the article, not just in one dedicated section
+4. **Risk assessment findings** must inform the outlook/scenarios section
+5. **Significance scoring** must determine section ordering (highest-scored items first)
+6. **Coalition dynamics** must be discussed in the context of specific votes/decisions, not abstractly
+
+**Validation checklist before PR creation:**
+```bash
+# Check article depth metrics
+for f in news/${TODAY}-*-en.html; do
+  [ -f "$f" ] || continue
+  PARA_CHARS=$(python3 -c "import re; c=open('$f').read(); print(sum(len(re.sub(r'<[^>]+>','',p)) for p in re.findall(r'<p[^>]*>(.*?)</p>',c,re.DOTALL)))" 2>/dev/null || echo 0)
+  LI_CHARS=$(python3 -c "import re; c=open('$f').read(); print(sum(len(re.sub(r'<[^>]+>','',l)) for l in re.findall(r'<li[^>]*>(.*?)</li>',c,re.DOTALL)))" 2>/dev/null || echo 0)
+  TOTAL=$((PARA_CHARS + LI_CHARS))
+  if [ "$TOTAL" -gt 0 ]; then
+    RATIO=$((PARA_CHARS * 100 / TOTAL))
+    echo "$f: prose ratio ${RATIO}% (target: ≥60%)"
+    if [ "$RATIO" -lt 60 ]; then
+      echo "ERROR: Article prose ratio ${RATIO}% is below 60% — rewrite with more analytical paragraphs" >&2
+    fi
+  fi
+  CHARTS=$(grep -c '<canvas' "$f" 2>/dev/null || echo 0)
+  echo "$f: charts=$CHARTS (target: ≥1)"
+  if [ "$CHARTS" -lt 1 ]; then
+    echo "WARNING: Article has zero charts — add dashboard/chart visualization" >&2
+  fi
+done
+```
+
+---
+
 ## 🔄 4-Pass AI Refinement Cycle (All Workflows)
 
 | Pass | Action |
