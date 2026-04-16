@@ -169,7 +169,7 @@ Every workflow MUST allocate a **minimum of 20 minutes** to AI-driven political 
 | Month ahead | 20 minutes | ~12 min | ~8 min | Political landscape analysis, coalition evolution, policy momentum |
 | Week in review | 25 minutes | ~15 min | ~10 min | Comprehensive weekly intelligence synthesis, trend detection |
 | Month in review | 25 minutes | ~15 min | ~10 min | Deep monthly analytical assessment, pattern identification |
-| Article generator | 20 min × types | ~60% | ~40% | Full analysis per article type with iterative improvement |
+| Article generator | 15 min × types | ~60% | ~40% | Full analysis per article type with iterative improvement |
 
 **What counts as AI analysis time:**
 - ✅ Reading and applying methodology documents
