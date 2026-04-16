@@ -343,14 +343,15 @@ Every generated article (or analysis-only PR) MUST link to ALL individual analys
 
 ## ⏱️ Time Budget (60 minutes)
 - **Minutes 0–3**: Date check, MCP warm-up with EP MCP tools, **MANDATORY health gate** (plenary sessions probe + feed endpoint probe), **MANDATORY `get_server_health`** call. If health check triggers **DEGRADED MODE**, adapt strategy immediately
-- **Minutes 3–20**: Query ALL EP feed endpoints — download ALL documents, adopted texts, events, procedures, MEP updates. **In NORMAL mode**: Use `timeframe: "today"` first, then retry with `timeframe: "one-week"` for any empty/failed endpoint. **In DEGRADED MODE**: Skip `today` entirely, go straight to `timeframe: "one-week"` for ALL feeds (saves 4+ minutes of timeout waits). Also fetch advisory feeds (documents, plenary docs, committee docs, questions) with `timeframe: "one-week"`. **⚠️ EP API can be slow (30-90s per call) — be patient, do NOT abort on slow responses. Allow up to 120s per call.**
-- **Minutes 20–40**: 🔬🔬🔬 **MANDATORY DEEP POLITICAL ANALYSIS PHASE (15-20 MINUTES)** — **In NORMAL mode**: Fetch analytical context (voting anomalies, coalition dynamics, political landscape, early warning). **In DEGRADED MODE**: Fetch coalition dynamics only (skip voting anomalies, political landscape, early warning — they depend on the same failing EP API). Write ALL analysis `.md` files across the 5 analysis categories. Read ALL methodology guides and templates, apply them to EVERY downloaded MCP data file, write substantive analysis markdown, use `sequentialthinking` for complex reasoning, cross-reference documents via knowledge graph, complete 4-pass refinement cycle. **⚠️ Download and store COMPLETE EP document data, not just metadata.** Save ALL MCP data to `${ANALYSIS_DIR}/data/`
+- **Minutes 3–13**: 📡 **DATA RETRIEVAL PHASE (≤10 minutes)** — Query ALL EP feed endpoints — download ALL documents, adopted texts, events, procedures, MEP updates. **In NORMAL mode**: Use `timeframe: "today"` first, then retry with `timeframe: "one-week"` for any empty/failed endpoint. **In DEGRADED MODE**: Skip `today` entirely, go straight to `timeframe: "one-week"` for ALL feeds (saves 4+ minutes of timeout waits). Also fetch advisory feeds (documents, plenary docs, committee docs, questions) with `timeframe: "one-week"`. Complete deep-fetch calls (up to 10 total) for cited procedures/texts. **⚠️ Most EP MCP tools respond in <10s. Only slow feed endpoints (events, procedures, documents) take 30-120s — be patient with those, allow up to 120s per call.**
+- **Minutes 13–20**: **In NORMAL mode**: Fetch analytical context (voting anomalies, coalition dynamics, political landscape, early warning). **In DEGRADED MODE**: Fetch coalition dynamics only. Also fetch World Bank economic context if relevant to EP developments. **⚠️ Download and store COMPLETE EP document data, not just metadata.** Save ALL MCP data to `${ANALYSIS_DIR}/data/`
+- **Minutes 20–40**: 🔬🔬🔬 **MANDATORY DEEP POLITICAL ANALYSIS PHASE (15-20 MINUTES)** — **Data retrieval MUST be complete before this phase starts.** Write ALL analysis `.md` files across the 5 analysis categories. Read ALL methodology guides and templates, apply them to EVERY downloaded MCP data file, write substantive analysis markdown, use `sequentialthinking` for complex reasoning, cross-reference documents via knowledge graph, complete 4-pass refinement cycle
 - **Minutes 40–45**: 📊 AI evaluates analysis artifacts to determine breaking news significance — ONLY proceed with article generation if analysis confirms newsworthy developments from TODAY
-- **Minutes 45–52**: Generate English article with deep political intelligence analysis informed by analysis artifacts (SKIP if no today-dated breaking news)
+- **Minutes 45–52**: Generate English article with deep political intelligence analysis informed by analysis artifacts (SKIP if no today-dated breaking news). **Analysis MUST be complete before generation starts.**
 - **Minutes 52–57**: Validate and finalize changes
 - **Minutes 57–60**: Create PR with `safeoutputs___create_pull_request` — include both articles (if generated) AND analysis artifacts. If no breaking news, create an analysis-only PR per `ai-driven-analysis-guide.md` Rule 5
 
-> **⏱️ TIME BUDGET NOTE**: The minute allocations above are best-effort targets, not hard deadlines. In worst-case scenarios (all feed calls hitting the 120s timeout), the feed phase alone may exceed the 3–20 minute window. If feed calls run long: (1) continue waiting — do NOT abort slow responses, (2) compress later phases as needed, (3) if you reach minute 52 without completing all phases, finalize whatever work is done and create the PR or noop immediately. The 60-minute workflow timeout is the only hard deadline.
+> **⏱️ TIME BUDGET NOTE**: The minute allocations above are best-effort targets, not hard deadlines. Most EP MCP tools respond in <10 seconds (feeds, OSINT tools, endpoint tools with `year` filter). Only slow feed endpoints (events, procedures, documents, committee docs) take 30-120+ seconds. The 10-minute data retrieval budget allows 40+ tool calls comfortably within EP API rate limits (500 req/5min). If feed calls run long: (1) continue waiting — do NOT abort slow responses, (2) compress later phases as needed, (3) if you reach minute 52 without completing all phases, finalize whatever work is done and create the PR or noop immediately. The 60-minute workflow timeout is the only hard deadline.
 
 > **🔑 ENGLISH-ONLY FOCUS**: This workflow generates English content only. Use the extra time (vs. translating to 13 languages) to produce deeper political analysis, richer context, and more comprehensive intelligence. Translations to other languages are handled by the separate `news-translate` workflow.
 
@@ -778,7 +779,7 @@ european_parliament___get_events_feed({ timeframe: "one-week", limit: 50 })     
 
 > **📅 IMPORTANT**: When using `one-week` fallback, items are still tagged with their actual dates. Only items from TODAY qualify as breaking news for article generation, but ALL downloaded data is persisted for analysis.
 
-> **⚠️ TIMEOUT HANDLING**: The EP API can be slow (30-90+ seconds per request). The `EP_REQUEST_TIMEOUT_MS` is set to 90 seconds. If a feed still times out, log the error and continue with other feeds — do NOT abort the entire data collection phase. A partial dataset is better than no data.
+> **⚠️ TIMEOUT HANDLING**: Most EP MCP tools respond in <10 seconds, but slow feed endpoints (events, procedures, documents) can take 30-120+ seconds. The `EP_REQUEST_TIMEOUT_MS` is set to 120 seconds. If a feed still times out, log the error and continue with other feeds — do NOT abort the entire data collection phase. A partial dataset is better than no data.
 
 > **🔴 FEED FAILURE ≠ DATA UNAVAILABLE**: If a feed endpoint returns 404 or timeout after both `today` and `one-week` retries, use the corresponding direct endpoint from the fallback chain below:
 
@@ -840,10 +841,10 @@ european_parliament___early_warning_system({ sensitivity: "medium" })
 
 ### 🔬 MANDATORY: Deep Data Collection
 
-**Call for the most significant cited procedures/adopted texts, up to max 5 deep-fetch calls total across all deep-fetch tools — prioritize by: (1) items directly supporting article claims, (2) items with voting/coalition implications, (3) most recent items:**
+**Call for the most significant cited procedures/adopted texts, up to max 10 deep-fetch calls total across all deep-fetch tools — prioritize by: (1) items directly supporting article claims, (2) items with voting/coalition implications, (3) most recent items:**
 
 ```text
-// Track specific procedures cited in analysis — call for the most significant cited items, up to the max 5 cap
+// Track specific procedures cited in analysis — call for the most significant cited items, up to the max 10 cap
 european_parliament___track_legislation({ procedureId: "<procedure-ID-from-feed>" })
 
 // Fetch plenary session decisions for voting evidence
@@ -869,7 +870,7 @@ european_parliament___get_speeches({ dateFrom: "<7-days-ago>" (YYYY-MM-DD), date
 - **Advisory feeds**: 4 mandatory calls with one-week timeframe = 4 calls
 - **Analytical context**: 4 calls in NORMAL mode (anomalies, coalition dynamics, political landscape, early warning) or 1 call in DEGRADED MODE (coalition dynamics only)
 - **Maximum 16 manual MCP tool calls in NORMAL mode** (4 primary + 4 retries + 4 advisory + 4 analytical; health-gate and generator script calls exempt)
-- **Deep-fetch calls** (up to 5 additional): `track_legislation`, `get_meeting_decisions`, `get_voting_records`, `get_speeches` — called per cited item, max 5 total across all deep-fetch tools
+- **Deep-fetch calls** (up to 10 additional): `track_legislation`, `get_meeting_decisions`, `get_voting_records`, `get_speeches` — called per cited item, max 10 total across all deep-fetch tools
 - **Maximum 9 manual MCP tool calls in DEGRADED MODE** (4 feeds one-week + 4 advisory one-week + 1 coalition dynamics)
 - **⚠️ ALL non-retry calls are mandatory** — the workflow must attempt every call, logging errors but continuing with other calls
 

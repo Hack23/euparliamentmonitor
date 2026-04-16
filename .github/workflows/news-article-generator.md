@@ -231,10 +231,10 @@ Call `sequentialthinking` with structured thought chains — each step builds on
 ## ⏱️ Time Budget (120 minutes)
 
 - **Minutes 0–3**: Date validation, MCP warm-up
-- **Minutes 3–10**: 🔬 Automated political intelligence analysis stage (significance classification, political threat landscape assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writing analysis artifacts to `${ANALYSIS_DIR}/` — a per-article-type directory for comprehensive analysis of all downloaded data for that article type)
-- **Minutes 10–20**: Parse article types and verify MCP connectivity, fetch EP data for all article types
+- **Minutes 3–13**: 📡 **DATA RETRIEVAL PHASE (≤10 minutes)** — Parse article types, verify MCP connectivity, fetch EP data for all article types. Complete all feed + deep-fetch calls (up to 10 total per article type). Most EP MCP tools respond in <10s; allow up to 120s for slow feed endpoints. **Data retrieval MUST complete before analysis starts.**
+- **Minutes 13–20**: 🔬 Automated political intelligence analysis stage (significance classification, political threat landscape assessment, risk scoring, actor mapping — runs automatically via `--analysis` flag, writing analysis artifacts to `${ANALYSIS_DIR}/` — a per-article-type directory for comprehensive analysis of all downloaded data for that article type)
 - **Minutes 20–N**: 🔬🔬🔬 **MANDATORY DEEP POLITICAL ANALYSIS PHASE (≥15 MINUTES × NUMBER OF ARTICLE TYPES)** — Read ALL methodology guides and templates, apply them to EVERY downloaded MCP data file, write substantive analysis markdown, use `sequentialthinking` for complex reasoning, cross-reference documents via knowledge graph, complete 4-pass refinement cycle. **⚠️ Per Rule 7, spend ≥15 minutes per article type on AI-driven analysis.** For 1 type: minutes 20–35. For 2 types: minutes 20–50. For 3+ types: scale accordingly. Article topics and angles MUST be decided ONLY from completed significance scoring results.
-- **Minutes N–100**: Generate English articles for each requested type with deep political intelligence informed by completed analysis artifacts
+- **Minutes N–100**: Generate English articles for each requested type with deep political intelligence informed by completed analysis artifacts. **Analysis MUST be complete before generation starts.**
 - **Minutes 100–110**: Validate generated HTML
 - **Minutes 110–120**: Create PR with `safeoutputs___create_pull_request`
 
@@ -647,7 +647,7 @@ european_parliament___get_all_generated_stats({ category: "all", includePredicti
 
 ### ⚡ MCP Call Budget
 
-- **No hard limit on MCP calls**, but expect each call to take 30+ seconds. Plan time budget accordingly.
+- **No hard limit on MCP calls**. Most EP MCP tools respond in <10 seconds; only slow feed endpoints (events, procedures, documents, committee docs) take 30-120+ seconds. The 10-minute data retrieval budget allows 40+ tool calls within EP API rate limits (500 req/5min).
 - **Health-gate connectivity check**: call `european_parliament___get_server_health({})` at startup to verify MCP health — this uses cached status and does NOT make upstream API calls
 - **Feed endpoints (MANDATORY)**: call all relevant feed endpoints for each article type FIRST
 - **Precomputed stats**: call `european_parliament___get_all_generated_stats` once AFTER feeds — reuse across all article types

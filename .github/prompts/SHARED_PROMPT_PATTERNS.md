@@ -297,14 +297,43 @@ All news generation workflows follow this mandatory pipeline defined in `ai-driv
 1. DOWNLOAD → 2. DEEP-FETCH → 3. ANALYZE → 4. EVALUATE → 5. GENERATE → 6. PR
 ```
 
-| Step | Action | Minimum Time | Reference |
+| Step | Action | Time Budget | Reference |
 |------|--------|:------------:|-----------|
-| 1. **Download** | Fetch EP feed data via MCP tools; if feeds fail, use direct endpoint fallbacks | — | Feed endpoints + Direct Lookup fallbacks above |
-| 2. **Deep-Fetch** | For every adopted text/procedure cited: fetch `track_legislation`, `get_voting_records`, `get_meeting_decisions`, `get_speeches` | — | Mandatory Deep Data Collection section above |
-| 3. **Analyze** | AI reads ALL 6 methodology docs + 8 templates, applies to every data file | 15-25 min | `ai-driven-analysis-guide.md` Rules 2-4, 7 |
+| 1. **Download** | Fetch EP feed data via MCP tools; if feeds fail, use direct endpoint fallbacks | ≤10 min | Feed endpoints + Direct Lookup fallbacks above |
+| 2. **Deep-Fetch** | For every adopted text/procedure cited: fetch `track_legislation`, `get_voting_records`, `get_meeting_decisions`, `get_speeches` (max 10 deep-fetch calls) | included in ≤10 min | Mandatory Deep Data Collection section above |
+| 3. **Analyze** | AI reads ALL 6 methodology docs + 8 templates, applies to every data file. **Analysis MUST NOT start until Download + Deep-Fetch are complete.** | 15-25 min | `ai-driven-analysis-guide.md` Rules 2-4, 7 |
 | 4. **Evaluate** | AI evaluates analysis artifacts for newsworthiness | — | `ai-driven-analysis-guide.md` Rule 5 |
-| 5. **Generate** | Generate article with AI-driven title/description | — | `ai-driven-analysis-guide.md` Rules 8-9, 12 |
+| 5. **Generate** | Generate article with AI-driven title/description. **Generation MUST NOT start until Analyze is complete.** | — | `ai-driven-analysis-guide.md` Rules 8-9, 12 |
 | 6. **PR** | Create PR with articles AND analysis artifacts | — | `ai-driven-analysis-guide.md` Rule 5 |
+
+### EP MCP Tool Response Times (from API_USAGE_GUIDE.md)
+
+Most EP MCP tools respond in **<10 seconds**. Only slow feed endpoints take 30-120+ seconds. Plan call budgets accordingly — you can make many more calls than the old "30+ seconds per call" guidance suggested.
+
+| Tool Category | Response Time | Examples |
+|--------------|:------------:|---------|
+| **Fast endpoint tools** (with `year` filter) | <5 s | `get_adopted_texts`, `get_plenary_sessions`, `get_plenary_documents`, `get_external_documents`, `get_controlled_vocabularies` |
+| **Fast feed tools** | ~1 s | `get_adopted_texts_feed`, `get_mep_declarations_feed`, `get_external_documents_feed` |
+| **Medium feed tools** | ~9 s | `get_meps_feed` |
+| **OSINT/analysis tools** (cached) | <5 s | `analyze_coalition_dynamics`, `generate_political_landscape`, `early_warning_system`, `get_all_generated_stats` |
+| **Deep-fetch tools** | 5-30 s | `track_legislation`, `get_voting_records`, `get_speeches`, `get_meeting_decisions` |
+| **Slow feed tools** | 30-120+ s ⚠️ | `get_events_feed`, `get_procedures_feed`, `get_documents_feed`, `get_plenary_documents_feed`, `get_committee_documents_feed`, `get_corporate_bodies_feed` |
+
+> **Rate limits:** EP API allows 500 requests per 5 minutes. MCP server caches responses (<200ms for cached). The 10-minute data retrieval budget allows 40+ tool calls comfortably.
+
+### World Bank MCP Tool Reference
+
+The `worldbank-mcp@1.0.1` server provides **7 tools**. All respond in <5 seconds:
+
+| Tool | Parameters | Valid Indicators |
+|------|-----------|-----------------|
+| `search-indicators` | `keyword` (string) | — |
+| `get-countries` | `region`, `incomeLevel` (optional) | — |
+| `get-country-info` | `countryCode` (ISO2) | — |
+| `get-economic-data` | `countryCode`, `indicator`, `years` (default 10) | GDP, GDP_GROWTH, GDP_PER_CAPITA, GNI, GNI_PER_CAPITA, EXPORTS_GDP, FDI_NET, INFLATION, UNEMPLOYMENT |
+| `get-social-data` | `countryCode`, `indicator`, `years` (default 10) | POPULATION, LIFE_EXPECTANCY, BIRTH_RATE, DEATH_RATE, INTERNET_USERS |
+| `get-education-data` | `countryCode`, `indicator`, `years` (default 10) | LITERACY_RATE, SCHOOL_ENROLLMENT, SCHOOL_COMPLETION, TEACHERS_PRIMARY, EDUCATION_EXPENDITURE |
+| `get-health-data` | `countryCode`, `indicator`, `years` (default 10) | HEALTH_EXPENDITURE, PHYSICIANS, HOSPITAL_BEDS, IMMUNIZATION, HIV_PREVALENCE, MALNUTRITION, TUBERCULOSIS |
 
 ### Minimum AI Analysis Time per Workflow
 
@@ -726,7 +755,7 @@ mcp-servers:
 
 > **Note:** Do NOT add `allowed: ["*"]` to MCP server definitions. The MCP gateway (awmg) treats `*` as a literal tool name, not a wildcard, causing 0 tools to be exposed. Omitting `allowed` allows all tools through by default.
 
-> **Note:** All workflows now use `EP_REQUEST_TIMEOUT_MS: "120000"` to handle slow EP API response times (60-120 seconds for some tools).
+> **Note:** All workflows now use `EP_REQUEST_TIMEOUT_MS: "120000"` (120 seconds) to handle slow EP API feed endpoints. Most EP MCP tools respond in <10 seconds — only slow feed endpoints (events, procedures, documents, committee docs) take 30-120+ seconds. See the [EP MCP Tool Response Times](#ep-mcp-tool-response-times-from-api_usage_guidemd) table in the Pipeline Steps section for detailed timings.
 
 ### MCP Server Inspection
 
