@@ -177,7 +177,7 @@ Every workflow MUST allocate a **minimum of 20 minutes** to AI-driven political 
 - ✅ Writing original analytical prose with evidence citations
 - ✅ Producing Mermaid diagrams with real data
 - ✅ Conducting multi-framework analysis (SWOT + Risk + Threat)
-- ✅ Iterating through the 4-pass refinement cycle
+- ✅ Iterating through the mandatory 2-pass improvement cycle (Pass 1: write, Pass 2: read-back & improve)
 - ✅ **Pass 2: Reading back ALL analysis files and improving every section**
 - ✅ **Pass 2: Expanding shallow sections, adding evidence, adding cross-references**
 
@@ -539,14 +539,14 @@ When the workflow time budget is limited:
 
 | Workflow | Typical Download | Analysis Target | Minimum AI Analysis Time |
 |----------|:----------------:|:---------------:|:------------------------:|
-| Breaking news | 1–5 files | All files (full depth) | 15 minutes |
-| Committee reports | 5–20 files | All files (single type) | 15 minutes |
-| Propositions | 5–15 files | All files (full depth) | 15 minutes |
-| Motions | 10–30 files | Top 10 full + rest quick-classified | 15 minutes |
-| Week in review | 50–200 files | Top 20 full + rest aggregated | 20 minutes |
+| Breaking news | 1–5 files | All files (full depth) | 20 minutes |
+| Committee reports | 5–20 files | All files (single type) | 20 minutes |
+| Propositions | 5–15 files | All files (full depth) | 20 minutes |
+| Motions | 10–30 files | Top 10 full + rest quick-classified | 20 minutes |
+| Week in review | 50–200 files | Top 20 full + rest aggregated | 25 minutes |
 | Month in review | 200–500 files | Top 30 full + rest aggregated | 25 minutes |
-| Week ahead | 10–30 files | All files (forward-looking) | 15 minutes |
-| Month ahead | 20–50 files | All files (strategic) | 15 minutes |
+| Week ahead | 10–30 files | All files (forward-looking) | 20 minutes |
+| Month ahead | 20–50 files | All files (strategic) | 20 minutes |
 
 > **⚠️ MINIMUM 20 MINUTES (2 PASSES)**: Per Rule 7, every workflow must spend at least 20 minutes on AI-driven political intelligence analysis with mandatory 2-pass improvement cycle. This is the time spent reading methodologies, querying MCP tools, and writing original analytical prose — not data download or HTML formatting time.
 
