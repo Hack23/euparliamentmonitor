@@ -1,0 +1,54 @@
+{
+  "runId": 176,
+  "date": "2026-04-16",
+  "articleType": "breaking",
+  "outcome": "analysis-only",
+  "headline": "Tariff T+1 and Legislative Pipeline: Post-Recess Intelligence Assessment",
+  "reason": "No EP items published/updated on 2026-04-16. Parliament in inter-session (Easter recess ended, next plenary April 27).",
+  "mcpServerVersion": "1.2.7",
+  "mcpServerHealth": "unhealthy (cold start)",
+  "healthGate": "PASSED (plenary sessions probe returned data)",
+  "mode": "DEGRADED",
+  "feedsCollected": {
+    "adopted_texts_feed": {"status": "ok", "items": 59},
+    "meps_feed": {"status": "ok", "items": 738},
+    "events_feed": {"status": "error", "error": "404"},
+    "procedures_feed": {"status": "error", "error": "404"},
+    "documents_feed": {"status": "error", "error": "EP API enrichment failed"},
+    "parliamentary_questions_feed": {"status": "error", "error": "failed"},
+    "committee_documents_feed": {"status": "error", "error": "failed"}
+  },
+  "fallbacksUsed": {
+    "get_events": {"status": "ok", "items": 50, "note": "Only ancient referral events returned"},
+    "get_procedures": {"status": "ok", "items": 51},
+    "get_adopted_texts": {"status": "ok", "items": 51},
+    "get_plenary_sessions": {"status": "ok", "items": 20},
+    "get_plenary_documents": {"status": "ok", "items": 51}
+  },
+  "analyticalContext": {
+    "coalition_dynamics": {"status": "ok", "fragmentation": 4.04},
+    "political_landscape": {"status": "ok", "groups": 8},
+    "precomputed_stats": {"status": "ok", "sizeKB": 85.2}
+  },
+  "analysisFiles": [
+    "existing/synthesis-summary.md",
+    "classification/significance-scoring.md",
+    "classification/political-classification.md",
+    "risk-scoring/risk-assessment.md",
+    "risk-scoring/swot-analysis.md",
+    "threat-assessment/threat-analysis.md",
+    "documents/document-analysis-index.md"
+  ],
+  "keyFindings": {
+    "compositeRisk": "12.2/25",
+    "criticalItems": ["TA-10-2026-0096 (tariff countermeasures, activated Apr 15)"],
+    "highItems": ["TA-10-2026-0092 (SRMR3)", "TA-10-2026-0094 (anti-corruption)"],
+    "scenarios": {
+      "managed_convergence": "55%",
+      "trade_crisis": "30%",
+      "gridlock": "15%"
+    }
+  },
+  "breakingNewsGate": "FAILED — No items published/updated on 2026-04-16",
+  "generatedAt": "2026-04-16T12:00:00Z"
+}
