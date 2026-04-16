@@ -1,0 +1,81 @@
+{
+  "runId": "1677eddd-9ddd-4b92-a3b7-876a5a4ce8d4",
+  "date": "2026-04-16",
+  "articleTypeSlug": "committee-reports-run50",
+  "startTime": "2026-04-16T05:50:19.153Z",
+  "endTime": "2026-04-16T05:50:19.154Z",
+  "articleTypes": [
+    "committee-reports"
+  ],
+  "methods": [
+    {
+      "method": "political-classification",
+      "status": "completed",
+      "outputFile": "classification/political-classification.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: classification/political-classification.md"
+    },
+    {
+      "method": "significance-scoring",
+      "status": "completed",
+      "outputFile": "classification/significance-scoring.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: classification/significance-scoring.md"
+    },
+    {
+      "method": "threat-analysis",
+      "status": "completed",
+      "outputFile": "threat-assessment/threat-analysis.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: threat-assessment/threat-analysis.md"
+    },
+    {
+      "method": "risk-assessment",
+      "status": "completed",
+      "outputFile": "risk-scoring/risk-assessment.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: risk-scoring/risk-assessment.md"
+    },
+    {
+      "method": "stakeholder-analysis",
+      "status": "completed",
+      "outputFile": "existing/stakeholder-impact.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: existing/stakeholder-impact.md"
+    },
+    {
+      "method": "swot-analysis",
+      "status": "completed",
+      "outputFile": "existing/swot-analysis.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: existing/swot-analysis.md"
+    },
+    {
+      "method": "synthesis-summary",
+      "status": "completed",
+      "outputFile": "existing/synthesis-summary.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: existing/synthesis-summary.md"
+    },
+    {
+      "method": "document-analysis",
+      "status": "completed",
+      "outputFile": "documents/document-analysis-index.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: documents/document-analysis-index.md"
+    }
+  ],
+  "overallConfidence": "medium",
+  "dataSourcesUsed": [
+    "ai-agentic-workflow",
+    "filesystem-discovery"
+  ]
+}
