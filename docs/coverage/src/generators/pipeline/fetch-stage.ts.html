@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">72.54% </span>
+                <span class="strong">72.43% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>502/692</span>
+                <span class='fraction'>502/693</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">81.08% </span>
+                <span class="strong">80.35% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>90/111</span>
+                <span class='fraction'>90/112</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">74.14% </span>
+                <span class="strong">74.01% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>453/611</span>
+                <span class='fraction'>453/612</span>
             </div>
         
             
@@ -2961,6 +2961,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -3783,7 +3784,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -5190,16 +5190,16 @@ export async function fetchWeekAheadData(
 &nbsp;
   const [plenarySessions, committeeInfo, documents, pipeline, questions, epEvents] =
     await Promise.allSettled([
-      client.getPlenarySessions({ startDate: dateRange.start, endDate: dateRange.end, limit: 50 }),
-      client.getCommitteeInfo({ limit: 20 }),
-      client.searchDocuments({ query: 'parliament', limit: 20 }),
+      client.getPlenarySessions({ dateFrom: dateRange.start, dateTo: dateRange.end, limit: 50 }),
+      client.getCommitteeInfo({ showCurrent: true }),
+      client.searchDocuments({ keyword: 'parliament', limit: 20 }),
       client.monitorLegislativePipeline({
         dateFrom: dateRange.start,
         dateTo: dateRange.end,
         status: 'ACTIVE',
         limit: 20,
       }),
-      client.getParliamentaryQuestions({ startDate: dateRange.start, limit: 20 }),
+      client.getParliamentaryQuestions({ dateFrom: dateRange.start, limit: 20 }),
       client.getEvents({ dateFrom: dateRange.start, dateTo: dateRange.end, limit: 20 }),
     ]);
 &nbsp;
@@ -5226,7 +5226,8 @@ export async function fetchWeekAheadData(
   const events = [...plenaryEvents, ...additionalEvents];
 &nbsp;
   return {
-    events: events.length &gt; 0 ? events : <span class="branch-1 cbranch-no" title="branch not covered" >[{ ...PLACEHOLDER_EVENTS[0]!, date: dateRange.start }],</span>
+    events:
+      events.length &gt; 0 ? events : <span class="branch-1 cbranch-no" title="branch not covered" >PLACEHOLDER_EVENTS.map(<span class="fstat-no" title="function not covered" >(e</span>) =&gt; (<span class="cstat-no" title="statement not covered" >{ ...e, date: dateRange.start })</span>),</span>
     committees: parseCommitteeMeetings(committeeInfo, dateRange.start),
     documents: parseLegislativeDocuments(documents),
     pipeline: parseLegislativePipeline(pipeline),
@@ -5558,7 +5559,7 @@ export async function fetchCommitteeData(
   try {
     console.log(`${MCP_FETCH_PREFIX} Fetching committee info for ${abbreviation}...`);
     const committeeResult = await callMCP(
-      () =&gt; client.getCommitteeInfo({ committeeId: abbreviation }),
+      () =&gt; client.getCommitteeInfo({ abbreviation }),
       null,
       `getCommitteeInfo(${abbreviation})`
     );
@@ -5571,7 +5572,7 @@ export async function fetchCommitteeData(
   try {
     console.log(`${MCP_FETCH_PREFIX} Fetching documents for ${abbreviation}...`);
     const docsResult = await callMCP(
-      () =&gt; client.searchDocuments({ query: abbreviation, limit: 5 }),
+      () =&gt; client.searchDocuments({ keyword: abbreviation, limit: 5 }),
       null,
       `searchDocuments(${abbreviation})`
     );
@@ -6056,8 +6057,7 @@ const TIMEFRAME_FALLBACK_CHAIN: ReadonlyMap&lt;FeedTimeframe, FeedTimeframe | un
   ['one-day', 'one-week'],
   ['one-week', 'one-month'],
   ['one-month', undefined],
-  ['three-months', undefined],
-  ['one-year', undefined],
+  ['custom', undefined],
 ]);
 &nbsp;
 /**
@@ -6868,7 +6868,7 @@ export async function fetchEPFeedData(
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-14T20:47:06.712Z
+                at 2026-04-16T01:08:15.174Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

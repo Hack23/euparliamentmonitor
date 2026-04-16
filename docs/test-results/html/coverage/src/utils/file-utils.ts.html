@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">86.87% </span>
+                <span class="strong">87.19% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>139/160</span>
+                <span class='fraction'>143/164</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80.24% </span>
+                <span class="strong">78.31% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>65/81</span>
+                <span class='fraction'>65/83</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">86.84% </span>
+                <span class="strong">87.17% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>132/152</span>
+                <span class='fraction'>136/156</span>
             </div>
         
             
@@ -699,7 +699,11 @@
 <a name='L634'></a><a href='#L634'>634</a>
 <a name='L635'></a><a href='#L635'>635</a>
 <a name='L636'></a><a href='#L636'>636</a>
-<a name='L637'></a><a href='#L637'>637</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L637'></a><a href='#L637'>637</a>
+<a name='L638'></a><a href='#L638'>638</a>
+<a name='L639'></a><a href='#L639'>639</a>
+<a name='L640'></a><a href='#L640'>640</a>
+<a name='L641'></a><a href='#L641'>641</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -777,12 +781,18 @@
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
@@ -809,9 +819,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">26x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">26x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1411,14 +1419,20 @@ export function groupArticlesByLanguage(
 &nbsp;
   for (const article of articles) {
     const parsed = parseArticleFilename(article);
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (parsed &amp;&amp; grouped[parsed.lang] !== undefined) {
-      grouped[parsed.lang]!.push(parsed);
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (parsed) {
+      const bucket = grouped[parsed.lang];
+      <span class="missing-if-branch" title="else path not taken" >E</span>if (bucket) {
+        bucket.push(parsed);
+      }
     }
   }
 &nbsp;
   // Sort by date (newest first)
   for (const lang in grouped) {
-    grouped[lang]!.sort((a, b) =&gt; b.date.localeCompare(a.date));
+    const bucket = grouped[lang];
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (bucket) {
+      bucket.sort((a, b) =&gt; b.date.localeCompare(a.date));
+    }
   }
 &nbsp;
   return grouped;
@@ -1445,8 +1459,7 @@ export function formatSlug(slug: string): string {
  */
 export function getModifiedDate(filepath: string): string {
   const stats = fs.statSync(filepath);
-  // split('T') on an ISO string always produces at least one element
-  return stats.mtime.toISOString().split('T')[0]!;
+  return stats.mtime.toISOString().slice(0, 10);
 }
 &nbsp;
 /**
@@ -1456,8 +1469,7 @@ export function getModifiedDate(filepath: string): string {
  * @returns Formatted date string (YYYY-MM-DD)
  */
 export function formatDateForSlug(date: Date = new Date()): string {
-  // split('T') on an ISO string always produces at least one element
-  return date.toISOString().split('T')[0]!;
+  return date.toISOString().slice(0, 10);
 }
 &nbsp;
 /**
@@ -1978,7 +1990,7 @@ function scanRootMarkdownFiles(dirPath: string, entries: AnalysisFileEntry[]): v
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-14T20:47:06.712Z
+                at 2026-04-16T01:08:15.174Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
