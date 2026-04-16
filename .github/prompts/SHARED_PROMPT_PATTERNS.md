@@ -755,7 +755,7 @@ mcp-servers:
 
 > **Note:** Do NOT add `allowed: ["*"]` to MCP server definitions. The MCP gateway (awmg) treats `*` as a literal tool name, not a wildcard, causing 0 tools to be exposed. Omitting `allowed` allows all tools through by default.
 
-> **Note:** All workflows now use `EP_REQUEST_TIMEOUT_MS: "120000"` (120 seconds) to handle slow EP API feed endpoints. Most EP MCP tools respond in <10 seconds — only slow feed endpoints (events, procedures, documents, committee docs) take 30-120+ seconds. See the [EP MCP Tool Response Times](#ep-mcp-tool-response-times-from-api_usage_guidemd) table in the Pipeline Steps section for detailed timings.
+> **Note:** All news workflows use `EP_REQUEST_TIMEOUT_MS: "120000"` (120 seconds) to handle slow EP API feed endpoints. Other contexts (e.g., `copilot-setup-steps.yml`, `copilot-mcp.json`) may use shorter timeouts such as 90 seconds. Most EP MCP tools respond in <10 seconds — only slow feed endpoints (events, procedures, documents, committee docs) take 30-120+ seconds. See the [EP MCP Tool Response Times](#ep-mcp-tool-response-times-from-api_usage_guidemd) table in the Pipeline Steps section for detailed timings.
 
 ### MCP Server Inspection
 

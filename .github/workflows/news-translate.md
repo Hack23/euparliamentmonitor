@@ -931,7 +931,7 @@ for ITEM in $(echo "$TRANSLATED_TYPES" | tr ',' ' '); do
     QUALITY_GRADE=""
     if command -v npx >/dev/null 2>&1; then
       FILE_BASE=$(basename "$FILE")
-      QUALITY_OUTPUT=$(npx tsx src/utils/validate-articles.ts --quality --date="${ITEM_DATE}" 2>&1 | grep -i "$FILE_BASE" | head -1 || true)
+      QUALITY_OUTPUT=$(npx tsx src/utils/validate-articles.ts --quality --date="${ITEM_DATE}" 2>&1 | grep -F "$FILE_BASE" | head -1 || true)
       if [ -n "$QUALITY_OUTPUT" ]; then
         QUALITY_SCORE=$(echo "$QUALITY_OUTPUT" | grep -oP 'score[:\s]*\K[0-9]+' 2>/dev/null || true)
         QUALITY_GRADE=$(echo "$QUALITY_OUTPUT" | grep -oP 'grade[:\s]*\K[A-F]' 2>/dev/null || true)
