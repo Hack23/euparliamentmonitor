@@ -379,3 +379,13 @@ Key Legislative Indicators:
 - [TFEU Art. 289-294 — Legislative Procedures](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:12012E/TXT)
 - [EP Rules of Procedure](https://www.europarl.europa.eu/doceo/document/RULES-9-2024-09-16_EN.html)
 - [Codecision and Conciliation Guide](https://www.europarl.europa.eu/code/about/about_en.htm)
+
+---
+
+## 🧠 AI-First Quality Integration
+
+> **All outputs from this skill MUST follow the [AI-First Quality Principle](ai-first-quality.md)**:
+> - **Mandatory 2-pass iterative improvement** for all analysis content
+> - **Complete read-back** of all output before finalizing
+> - **No early completion** — use the FULL allocated time
+> - **Quality gates**: ≥80 words/SWOT item, ≥150 words/stakeholder perspective, evidence citations in ≥80% of paragraphs

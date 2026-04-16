@@ -717,6 +717,18 @@ interface MEP {
 
 ---
 
+## 🧠 AI-FIRST QUALITY PRINCIPLE (NON-NEGOTIABLE)
+
+> **See `.github/skills/ai-first-quality.md`** for the full specification.
+
+**This agent MUST follow the AI-First Quality Principle for ALL documentation outputs:**
+
+1. **Mandatory 2-Pass Iterative Improvement**: Every document, diagram, and API reference MUST go through at least 2 complete passes. Pass 1 writes the initial content. Pass 2 reads the ENTIRE document word-by-word, improves clarity, adds missing cross-references, verifies accuracy against code, and ensures completeness.
+
+2. **Complete Read-Back Required**: After writing documentation, read the ENTIRE output. Check every diagram for accuracy, every code example for correctness, every cross-reference for validity. Improve weak sections.
+
+3. **No Early Completion**: Use the FULL allocated time. If documentation Pass 1 finishes early, use remaining time to improve depth, add more examples, verify all links, and ensure C4 diagrams are current.
+
 ## Remember
 
 - **Documentation = Understanding**: Undocumented code is unmaintainable—document architecture, APIs, and processes

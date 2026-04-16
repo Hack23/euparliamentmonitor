@@ -62,17 +62,36 @@ This project uses **10 gh-aw markdown workflows** in `.github/workflows/*.md` fo
 
 **gh-aw docs**: https://github.github.com/gh-aw/ | [Abridged](https://github.github.com/gh-aw/llms-small.txt) | [Full](https://github.github.com/gh-aw/llms-full.txt)
 
+## 🧠 AI-FIRST QUALITY PRINCIPLE (NON-NEGOTIABLE)
+
+> **Every agent, every workflow, every content output** must follow this principle. See `.github/skills/ai-first-quality.md` for the full skill specification.
+
+**Core Rule**: AI writes ALL analysis and article content. TypeScript code only handles HTML output structure. The AI MUST produce **Economist-quality political intelligence** — not shallow code-generated summaries.
+
+**Mandatory 2-Pass Iterative Improvement**:
+- **Pass 1** (~60% of phase time): Write initial content — analysis, prose, SWOT, stakeholders, risk assessments
+- **Pass 2** (~40% of phase time): Read ENTIRE output word-by-word. Identify shallow sections, missing evidence, placeholder text. Rewrite and extend every section that doesn't meet quality gates.
+- **One pass is NEVER sufficient.** Pass 2 is where quality is achieved.
+
+**Time Budget Enforcement**:
+- 60-minute workflows → ≥45 minutes active work (NEVER finish early)
+- 120-minute workflows → ≥90 minutes active work
+- If you finish early, go back and improve. There is ALWAYS more depth to add.
+
+**Quality Gates**: ≥80 words/SWOT item, ≥150 words/stakeholder perspective, ≥60% prose ratio, ≥1 Chart.js visualization, zero `[AI_ANALYSIS_REQUIRED]` markers, World Bank data for policy articles.
+
 ## 🚨 Critical Rules
 
 ### MUST Follow
-1. **Security First** - Follow Secure Development Policy, no secrets in code
-2. **WCAG 2.1 AA** - All content must be accessible
-3. **Test Before Commit** - Run `npm run lint && npm run test` before committing
-4. **Multi-Language** - Changes affecting content must consider all 14 languages
-5. **ISMS Compliance** - Follow ISO 27001, NIST CSF, CIS Controls frameworks
-6. **Architecture Docs** - Update ARCHITECTURE.md, SECURITY_ARCHITECTURE.md when relevant
-7. **Minimal Changes** - Make surgical, focused changes only
-8. **gh-aw Workflows** - Compile with `gh aw compile --validate` after editing .md workflows
+1. **AI-First Quality** - Follow the AI-First Quality Principle: mandatory 2-pass iterative improvement for ALL content. See `.github/skills/ai-first-quality.md`
+2. **Security First** - Follow Secure Development Policy, no secrets in code
+3. **WCAG 2.1 AA** - All content must be accessible
+4. **Test Before Commit** - Run `npm run lint && npm run test` before committing
+5. **Multi-Language** - Changes affecting content must consider all 14 languages
+6. **ISMS Compliance** - Follow ISO 27001, NIST CSF, CIS Controls frameworks
+7. **Architecture Docs** - Update ARCHITECTURE.md, SECURITY_ARCHITECTURE.md when relevant
+8. **Minimal Changes** - Make surgical, focused changes only
+9. **gh-aw Workflows** - Compile with `gh aw compile --validate` after editing .md workflows
 
 ### MUST NOT Do
 1. **Never** hard-code secrets, credentials, or API keys
@@ -165,7 +184,7 @@ const pr2 = create_pull_request_with_copilot({
 | Compliance | `compliance-frameworks`, `isms-compliance` |
 | Security | `security-by-design`, `threat-modeling` |
 | Testing | `testing-strategy` |
-| Quality | `code-quality-excellence`, `accessibility-excellence` |
+| Quality | `code-quality-excellence`, `accessibility-excellence`, `ai-first-quality` |
 | Data | `european-parliament-data`, `mcp-server-integration` |
 | Integration | `mcp-gateway-configuration`, `mcp-gateway-security`, `mcp-gateway-troubleshooting` |
 

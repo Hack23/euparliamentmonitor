@@ -489,27 +489,238 @@ When `monitor_legislative_pipeline` returns `health: 0%` and `throughput: 0`:
 
 ---
 
+## 📊 Article Content Depth Gates (Mandatory for All Workflows)
+
+> **⚠️ ROOT CAUSE OF QUALITY REGRESSIONS**: Articles that read like "shallow code-generated lists" rather than deep political intelligence fail these gates. The AI MUST synthesize its analysis artifacts (SWOT, stakeholder impact, coalition dynamics, risk assessment) INTO the article prose — not just reference them. Every article must read like a publication from The Economist's political intelligence unit, not a data dump.
+
+### 🔤 Prose-First Writing Structure (MANDATORY)
+
+> **ABSOLUTE RULE**: Articles are **analytical essays**, not bullet-point reports. The AI agent (Opus 4.6) must write substantive prose paragraphs that synthesize political intelligence from the completed analysis phase.
+
+| Gate | Requirement | Validation |
+|------|-------------|------------|
+| **Prose ratio** | ≥60% of article body text (by character count) must be in `<p>` paragraph tags, not `<li>` list items | Count chars in `<p>` vs `<li>` tags (HTML stripped) |
+| **Paragraph depth** | Each analytical section must contain ≥3 paragraphs of ≥50 words each | Count paragraphs per `<section>` |
+| **Lede paragraph** | Opening paragraph must be ≥80 words of analytical narrative, not a summary list | Word count of first `<p class="lede">` |
+| **No orphan lists** | Bullet lists must always follow an analytical paragraph that provides context | Every `<ul>`/`<ol>` preceded by a `<p>` |
+| **Analysis synthesis** | Each section must weave findings from the analysis phase into the narrative | Reference specific analysis artifacts |
+
+**Anti-patterns that FAIL this gate:**
+- ❌ Section heading → bullet list of items with one-line descriptions
+- ❌ Section heading → single paragraph → long bullet list
+- ❌ "Here are the key developments:" followed by a list (write analytical paragraphs instead)
+- ❌ SWOT/stakeholder sections with only 1-2 sentences per item
+- ❌ Coalition analysis that merely names groups without explaining motivations and strategy
+
+**Required pattern for EVERY analytical section:**
+1. **Opening analytical paragraph** (≥60 words) — synthesize the key finding with political context
+2. **Evidence paragraph** (≥50 words) — cite specific EP data (document IDs, vote counts, dates)
+3. **Implication paragraph** (≥50 words) — explain consequences, stakeholder impact, scenarios
+4. **Supporting details** (optional) — if needed, a brief list of ≤5 items with ≥20 words each
+
+### 🔬 Deep Political Intelligence Requirements (MANDATORY)
+
+> **These requirements transform shallow summaries into Economist-quality analysis.** The AI must demonstrate genuine political understanding, not just data recitation.
+
+#### SWOT Analysis Depth
+- Each SWOT quadrant (Strengths, Weaknesses, Opportunities, Threats) must contain **≥3 items**
+- Each SWOT item must have **≥80 words** of analytical prose explaining WHY it matters politically
+- SWOT must cover **both political AND economic/regulatory dimensions**
+- SWOT must reference **specific actors** (MEPs, committees, political groups) with evidence
+- SWOT must include **confidence levels** (🟢 High / 🟡 Medium / 🔴 Low) on each assessment
+- **⚠️ SWOT sections with only generic one-liners FAIL validation** — rewrite with evidence-based analysis
+
+#### Stakeholder Impact Depth
+- Minimum **4 stakeholder perspectives** per key development (from the 6-lens model)
+- Each stakeholder perspective must have **≥150 words** of analytical narrative
+- Must explain **specific mechanisms** through which stakeholders are affected (not just "positive/negative")
+- Must identify **winners and losers** with evidence chains (e.g., "EMPL's Talent Pool directive benefits tech sector recruitment by streamlining cross-border hiring — but Eastern EU states lose workforce to Western job markets, as evidenced by...")
+- Must include **stakeholder response scenarios** (what they're likely to do next)
+
+#### Coalition Dynamics Depth
+- Name **specific MEPs** who led or opposed each development
+- Explain **group voting motivations** in political-strategic terms (not just "EPP voted for")
+- Identify **coalition shifts** — is this vote consistent with or divergent from recent patterns?
+- Quantify where possible — vote margins, abstention rates, defections
+- Compare with **historical voting patterns** on similar issues (use precomputed stats for context)
+
+#### Risk Assessment Integration
+- Every article must include a **risk outlook** section with ≥200 words
+- Identify **2-3 political risks** from the developments covered, with probability labels
+- Include **institutional risks** (e.g., Council pushback, implementation failures, legal challenges)
+- Reference **specific evidence** for each risk (not generic "there are risks")
+
+### 📈 Mandatory World Bank Economic Context (CONDITIONAL)
+
+> **RULE**: When the article covers ANY policy area with measurable economic impact (trade, employment, digital economy, health, environment, energy, agriculture, housing, migration), the AI MUST include World Bank economic context.
+
+**When World Bank data is MANDATORY** (not optional):
+- Articles about employment/labour legislation → `UNEMPLOYMENT`, `GDP_GROWTH` for affected countries
+- Articles about trade policy (tariffs, Mercosur, WTO) → `EXPORTS_GDP`, `FDI_NET`, `GDP_GROWTH`
+- Articles about health legislation → `HEALTH_EXPENDITURE`, `PHYSICIANS`, `LIFE_EXPECTANCY`
+- Articles about digital/tech policy → `INTERNET_USERS`, `GDP_PER_CAPITA`
+- Articles about environment/energy → search for `renewable energy`, `CO2 emissions` indicators
+- Articles about education/skills → `EDUCATION_EXPENDITURE`, `SCHOOL_ENROLLMENT`
+- Articles about housing/social policy → `GDP_PER_CAPITA`, `POPULATION`, search for `housing`
+- Articles about agriculture → search for `agriculture`, `food security` indicators
+- Articles about defence → search for `military expenditure` indicators
+
+**Integration requirements:**
+1. Call `search-indicators` first to discover the best indicator for the specific topic
+2. Fetch data for ≥2 relevant EU countries using Big Four or affected member states
+3. Include the data as **context within analytical paragraphs** (not as a separate data dump)
+4. Generate a Chart.js visualization using `buildDashboardSection()` to display the data
+5. Write ≥1 paragraph (≥60 words) interpreting the economic data in the context of the legislation
+
+### 📊 Mandatory Chart/Dashboard Generation (ALL Article Types)
+
+> **RULE**: Every article MUST include at least one data visualization. Articles without charts feel like text-only reports rather than data-driven intelligence.
+
+**Minimum visualization requirements per article:**
+| Visualization | Requirement | How |
+|---------------|-------------|-----|
+| **Dashboard metrics** | ≥1 dashboard panel with real data | Pass `DashboardConfig` to `buildDashboardSection()` |
+| **Chart** | ≥1 Chart.js chart (bar, line, pie, or radar) with real data | Include `chart` property in dashboard panel |
+| **SWOT grid** | Full 4-quadrant SWOT with ≥3 items per quadrant | Pass SWOT data to `buildSwotSection()` |
+
+**Chart data MUST be real** — not placeholder `[0,0,0]` arrays. Sources for chart data:
+- EP MCP analytical tools (coalition dynamics, legislative pipeline, committee activity)
+- World Bank economic indicators
+- Precomputed statistics (as background context)
+
+**Anti-patterns:**
+- ❌ Article with zero `<canvas>` elements → FAILS validation
+- ❌ Dashboard with all metrics showing 0 or "N/A" → omit or explain
+- ❌ Chart with only 1 data point → use at least 3 data points
+
+### 🔗 Analysis-to-Article Synthesis (MANDATORY)
+
+> **⚠️ THE CRITICAL GAP**: Analysis artifacts (SWOT, risk assessment, stakeholder impact, significance scoring) are being created but NOT synthesized into article prose. This must stop.
+
+**Requirements:**
+1. **Every analysis artifact** written during the analysis phase MUST be referenced in the article
+2. **SWOT findings** must be woven into relevant sections (not isolated in a SWOT-only section)
+3. **Stakeholder perspectives** must appear throughout the article, not just in one dedicated section
+4. **Risk assessment findings** must inform the outlook/scenarios section
+5. **Significance scoring** must determine section ordering (highest-scored items first)
+6. **Coalition dynamics** must be discussed in the context of specific votes/decisions, not abstractly
+
+**Validation checklist before PR creation:**
+```bash
+# Check article depth metrics
+for f in news/${TODAY}-*-en.html; do
+  [ -f "$f" ] || continue
+  METRICS=$(FILE="$f" node -e "const fs = require('node:fs'); const html = fs.readFileSync(process.env.FILE, 'utf8'); const stripTags = (value) => value.replace(/<[^>]+>/g, ''); const sumChars = (regex) => Array.from(html.matchAll(regex)).reduce((total, match) => total + stripTags(match[1]).length, 0); process.stdout.write(String(sumChars(/<p[^>]*>([\s\S]*?)<\/p>/gi)) + ' ' + String(sumChars(/<li[^>]*>([\s\S]*?)<\/li>/gi)));" 2>/dev/null || echo "0 0")
+  set -- $METRICS
+  PARA_CHARS=$1
+  LI_CHARS=$2
+  TOTAL=$((PARA_CHARS + LI_CHARS))
+  if [ "$TOTAL" -gt 0 ]; then
+    RATIO=$((PARA_CHARS * 100 / TOTAL))
+    echo "$f: prose ratio ${RATIO}% (target: ≥60%)"
+    if [ "$RATIO" -lt 60 ]; then
+      echo "ERROR: Article prose ratio ${RATIO}% is below 60% — rewrite with more analytical paragraphs" >&2
+    fi
+  fi
+  CHARTS=$(grep -c '<canvas' "$f" 2>/dev/null || echo 0)
+  echo "$f: charts=$CHARTS (target: ≥1)"
+  if [ "$CHARTS" -lt 1 ]; then
+    echo "WARNING: Article has zero charts — add dashboard/chart visualization" >&2
+  fi
+done
+```
+
+---
+
 ## 🔄 4-Pass AI Refinement Cycle (All Workflows)
 
-| Pass | Action |
-|------|--------|
-| **1. Initial Assessment** | Gather baseline data, identify key actors/actions/outcomes |
-| **2. Stakeholder Challenge** | Re-examine from each stakeholder perspective, find blind spots |
-| **3. Evidence Cross-Validation** | Cross-check claims against EP data, add confidence indicators (🟢/🟡/🔴) |
-| **4. Synthesis & Scenarios** | Multi-perspective conclusions, 2-3 forward-looking scenarios |
+> **⚠️ MANDATORY**: Every article MUST go through all 4 passes. Each pass adds depth. Skipping passes produces the shallow, list-like articles that fail the Economist Test.
+
+| Pass | Action | Minimum Output |
+|------|--------|----------------|
+| **1. Initial Assessment** | Gather baseline data, identify key actors/actions/outcomes. Write initial analysis prose. | ≥200 words per key development |
+| **2. Stakeholder Challenge** | Re-examine from ≥4 stakeholder perspectives, find blind spots, add dissenting views. Write stakeholder impact narratives. | ≥150 words per stakeholder perspective |
+| **3. Evidence Cross-Validation** | Cross-check claims against EP data (document IDs, vote counts, procedure references). Add confidence indicators (🟢/🟡/🔴). Remove unsupported claims. | Every claim has an evidence citation |
+| **4. Synthesis & Scenarios** | Multi-perspective conclusions, 2-3 forward-looking scenarios with probability labels, risk outlook with institutional risks. Weave SWOT, stakeholder, and risk findings into the narrative. | ≥200 words risk outlook, ≥2 named scenarios |
+
+> **Pass 4 is where analysis becomes journalism**: The synthesis pass transforms structured analysis into flowing prose. After Pass 4, every section should read like a paragraph from The Economist, not a template output.
+
+---
+
+## 🔁 MANDATORY Iterative Improvement Protocol (All Workflows)
+
+> **⚠️ ABSOLUTE RULE — NON-NEGOTIABLE**: One pass is NEVER sufficient. Every piece of content — analysis markdown, article HTML, SWOT, stakeholder sections — MUST go through at least **2 complete improvement iterations**. The AI MUST spend the FULL allocated time on each phase. Completing early with low-quality output is a VIOLATION.
+
+### Why This Exists
+
+Today's workflow runs complete in 24-30 minutes out of 60-minute budgets. The AI rushes through phases, produces shallow first-draft content, and moves on. This produces articles that read like code-generated summaries rather than Economist-quality political intelligence. **This stops now.**
+
+### 🛑 NO SHORTCUTS / NO EARLY COMPLETION Rules
+
+1. **NEVER complete a phase early** — If the time budget says "15-20 minutes for analysis," you MUST work for the FULL 15-20 minutes. Use every minute for iterative improvement.
+2. **NEVER produce first-draft quality** — A first pass is a starting point. You MUST read it back completely, identify gaps, and rewrite/extend before moving on.
+3. **NEVER skip the read-back step** — After writing any content, you MUST read the ENTIRE output, then improve it.
+4. **ALWAYS use the full workflow timeout** — If the workflow has a 60-minute budget, you should be actively working for ≥45 minutes. Finishing in 25 minutes means you rushed.
+5. **ALWAYS iterate until excellent** — "Good enough" is NOT acceptable. Every output must be the best possible quality achievable within the time budget.
+
+### 📋 Mandatory 2-Pass Improvement Cycle (Analysis Phase)
+
+| Step | Action | Time |
+|------|--------|------|
+| **Pass 1: Initial Analysis** | Write all analysis markdown files (SWOT, stakeholder, coalition, risk, significance scoring). Apply all methodology guides and templates to every downloaded MCP data file. | ~60% of analysis time |
+| **Pass 2: Complete Read-Back & Improvement** | Read EVERY analysis file you wrote — completely, word by word. For each file: (1) identify shallow sections, (2) add missing evidence/citations, (3) expand one-liners into full paragraphs, (4) add confidence levels where missing, (5) add cross-references between analysis files, (6) ensure every SWOT item has ≥80 words with evidence. Rewrite any section that doesn't meet the Economist Test. | ~40% of analysis time |
+
+> **⚠️ Pass 2 verification**: After Pass 2, every analysis file must have: ≥400 lines, evidence citations in ≥80% of paragraphs, no placeholder text, no `[AI_ANALYSIS_REQUIRED]` markers, and cross-references to other analysis files.
+
+### 📋 Mandatory 2-Pass Improvement Cycle (Article Generation Phase)
+
+| Step | Action | Time |
+|------|--------|------|
+| **Pass 1: Initial Article Generation** | Run the TypeScript generator, replace all `[AI_ANALYSIS_REQUIRED]` markers with substantive AI analysis. Write all sections with proper prose (≥60% paragraph ratio). | ~50% of article time |
+| **Pass 2: Complete Article Read-Back & Improvement** | Read the ENTIRE generated article — every section, every paragraph, every SWOT item, every stakeholder perspective. For each section: (1) is it ≥3 analytical paragraphs of ≥50 words? (2) does it cite specific EP data? (3) does it name specific actors/MEPs? (4) does it explain WHY not just WHAT? (5) is it prose, not a bullet list? Rewrite any section that fails. Add World Bank economic context if missing. Verify ≥1 Chart.js visualization exists. Run the prose ratio validation script. | ~50% of article time |
+
+> **⚠️ Pass 2 article verification checklist** (MUST complete ALL before PR creation):
+> - [ ] Read entire article from top to bottom
+> - [ ] Every section has ≥3 prose paragraphs (not bullet lists)
+> - [ ] Every SWOT item has ≥80 words with evidence and confidence level
+> - [ ] Every stakeholder perspective has ≥150 words with evidence chain
+> - [ ] Risk outlook is ≥200 words with probability-labelled scenarios
+> - [ ] World Bank economic data included where policy has economic dimension
+> - [ ] ≥1 Chart.js canvas with real data exists
+> - [ ] Zero `[AI_ANALYSIS_REQUIRED]` markers remain
+> - [ ] Article passes the Economist Test — reads like analytical journalism
+> - [ ] Prose ratio ≥60% (run validation script)
+
+### ⏱️ Time Enforcement Rules
+
+| Workflow Type | Total Budget | Min Active Work | Analysis Phase | Article Phase | Validation |
+|---------------|-------------|-----------------|---------------|--------------|------------|
+| Breaking news | 60 min | ≥45 min | ≥20 min (Pass 1: 12m + Pass 2: 8m) | ≥15 min (Pass 1: 8m + Pass 2: 7m) | 5 min |
+| Committee reports | 60 min | ≥45 min | ≥20 min (Pass 1: 12m + Pass 2: 8m) | ≥15 min (Pass 1: 8m + Pass 2: 7m) | 5 min |
+| Propositions | 60 min | ≥45 min | ≥20 min (Pass 1: 12m + Pass 2: 8m) | ≥15 min (Pass 1: 8m + Pass 2: 7m) | 5 min |
+| Motions | 60 min | ≥45 min | ≥20 min (Pass 1: 12m + Pass 2: 8m) | ≥15 min (Pass 1: 8m + Pass 2: 7m) | 5 min |
+| Week ahead | 60 min | ≥45 min | ≥20 min (Pass 1: 12m + Pass 2: 8m) | ≥15 min (Pass 1: 8m + Pass 2: 7m) | 5 min |
+| Weekly review | 60 min | ≥45 min | ≥25 min (Pass 1: 15m + Pass 2: 10m) | ≥15 min (Pass 1: 8m + Pass 2: 7m) | 5 min |
+| Month ahead | 60 min | ≥45 min | ≥20 min (Pass 1: 12m + Pass 2: 8m) | ≥15 min (Pass 1: 8m + Pass 2: 7m) | 5 min |
+| Monthly review | 60 min | ≥45 min | ≥25 min (Pass 1: 15m + Pass 2: 10m) | ≥15 min (Pass 1: 8m + Pass 2: 7m) | 5 min |
+| Article generator | 120 min | ≥90 min | ≥15 min × types | ≥15 min × types | 10 min |
+
+> **🚫 VIOLATION**: Completing a 60-minute workflow in under 45 minutes. If you find yourself about to create the PR before minute 45, STOP — go back and improve your analysis and articles. Read everything again. Add more depth. Every additional minute of improvement produces higher quality.
 
 ---
 
 ## 🎭 Stakeholder Perspectives (6-Lens Model)
 
-For every major parliamentary action, analyze from ≥3 of these 6 perspectives:
+For every major parliamentary action, analyze from **≥4** of these 6 perspectives (minimum ≥150 words per perspective):
 
-1. **EP Political Groups** — Group dynamics, coalition implications
-2. **Civil Society & NGOs** — Citizens' rights, transparency, democratic participation
-3. **Industry & Business** — Regulatory impact, market effects, compliance burden
-4. **National Governments** — Subsidiarity, implementation, diverging interests
-5. **EU Citizens** — Daily life impact, rights, services, representation
-6. **EU Institutions** — Commission/Council/ECB/CJEU inter-institutional dynamics
+1. **EP Political Groups** — Group dynamics, coalition implications, voting motivations, named MEP positions
+2. **Civil Society & NGOs** — Citizens' rights, transparency, democratic participation, specific organization responses
+3. **Industry & Business** — Regulatory impact, market effects, compliance burden, sector-specific consequences
+4. **National Governments** — Subsidiarity concerns, implementation challenges, diverging national interests with specific countries named
+5. **EU Citizens** — Daily life impact, rights, services, representation — make it concrete (e.g., "a Polish nurse seeking work in Germany")
+6. **EU Institutions** — Commission/Council/ECB/CJEU inter-institutional dynamics, power shifts, institutional precedent
+
+> **⚠️ DEPTH REQUIREMENT**: Each stakeholder perspective must include: (1) the specific mechanism of impact, (2) evidence from EP data, (3) the stakeholder's likely response or next move. One-sentence perspectives FAIL the quality gate.
 
 ---
 

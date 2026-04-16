@@ -20,10 +20,11 @@ Skills are reusable knowledge units that encode Hack23's security policies, arch
 - **[Compliance Frameworks](compliance-frameworks.md)** — ISO 27001, NIST CSF 2.0, CIS Controls, GDPR, NIS2, EU CRA
 - **[ISMS Compliance](isms-compliance.md)** — ISMS policy references, evidence requirements, framework mapping
 
-### 🧪 Quality Skills (3 skills)
+### 🧪 Quality Skills (4 skills)
 - **[Testing Strategy](testing-strategy.md)** — Vitest unit tests, Playwright E2E, coverage requirements
 - **[Code Quality Excellence](code-quality-excellence.md)** — ESLint, HTMLHint, JavaScript/HTML/CSS standards
 - **[Accessibility Excellence](accessibility-excellence.md)** — WCAG 2.1 AA, keyboard navigation, screen readers
+- **[AI-First Quality](ai-first-quality.md)** — Mandatory 2-pass iterative improvement for all AI-generated content, time-budget enforcement, quality gates
 
 ### ⚡ Performance Skills (1 skill)
 - **[Performance Optimization](performance-optimization.md)** — Core Web Vitals, caching, asset optimization
@@ -72,14 +73,14 @@ Skills are reusable knowledge units that encode Hack23's security policies, arch
 
 ## Skills Statistics
 
-**Total Skills**: 34 skills across 14 categories
+**Total Skills**: 35 skills across 14 categories
 
 | Category | Count | Focus |
 |----------|-------|-------|
 | Architecture | 1 | C4 models, documentation portfolio |
 | Security | 3 | Defense-in-depth, threat modeling, data protection |
 | Compliance | 2 | ISO 27001, NIST CSF, CIS, GDPR, NIS2 |
-| Quality | 3 | Testing, code quality, accessibility |
+| Quality | 4 | Testing, code quality, accessibility, AI-first quality |
 | Performance | 1 | Core Web Vitals, caching |
 | Documentation | 1 | Standards, REUSE compliance |
 | Governance | 1 | Open source, supply chain |
@@ -97,17 +98,17 @@ The skills library supports 11 specialized agents. Each agent references relevan
 
 | Agent | Primary Skills | Supporting Skills |
 |-------|---------------|-------------------|
-| **news-journalist** | european-parliament-data, strategic-communication-analysis, political-science-analysis | behavioral-analysis, risk-assessment-frameworks, seo-best-practices, data-protection |
-| **intelligence-operative** | political-science-analysis, osint-methodologies, intelligence-analysis-techniques, european-political-system, data-science-for-intelligence | electoral-analysis, behavioral-analysis, strategic-communication-analysis, legislative-monitoring, risk-assessment-frameworks |
-| **business-development-specialist** | business-model-canvas, european-parliament-data, seo-best-practices | compliance-frameworks, data-protection, isms-compliance |
-| **marketing-specialist** | seo-best-practices, strategic-communication-analysis, business-model-canvas | data-protection, european-parliament-data, accessibility-excellence |
-| **data-pipeline-specialist** | european-parliament-data, legislative-monitoring, mcp-server-integration | performance-optimization, testing-strategy, data-science-for-intelligence |
-| **frontend-specialist** | accessibility-excellence, code-quality-excellence, seo-best-practices | performance-optimization, security-by-design |
-| **quality-engineer** | testing-strategy, code-quality-excellence | accessibility-excellence, performance-optimization |
-| **security-architect** | security-by-design, threat-modeling, isms-compliance, ai-governance | compliance-frameworks, data-protection |
-| **documentation-architect** | c4-architecture-documentation, documentation-standards | isms-compliance, compliance-frameworks, european-political-system |
-| **devops-engineer** | github-agentic-workflows, open-source-governance | gh-aw-architecture, mcp-gateway-security |
-| **product-task-agent** | compliance-frameworks, isms-compliance, business-model-canvas | github-agentic-workflows, testing-strategy, risk-assessment-frameworks |
+| **news-journalist** | **ai-first-quality**, european-parliament-data, strategic-communication-analysis, political-science-analysis | behavioral-analysis, risk-assessment-frameworks, seo-best-practices, data-protection |
+| **intelligence-operative** | **ai-first-quality**, political-science-analysis, osint-methodologies, intelligence-analysis-techniques, european-political-system, data-science-for-intelligence | electoral-analysis, behavioral-analysis, strategic-communication-analysis, legislative-monitoring, risk-assessment-frameworks |
+| **business-development-specialist** | **ai-first-quality**, business-model-canvas, european-parliament-data, seo-best-practices | compliance-frameworks, data-protection, isms-compliance |
+| **marketing-specialist** | **ai-first-quality**, seo-best-practices, strategic-communication-analysis, business-model-canvas | data-protection, european-parliament-data, accessibility-excellence |
+| **data-pipeline-specialist** | **ai-first-quality**, european-parliament-data, legislative-monitoring, mcp-server-integration | performance-optimization, testing-strategy, data-science-for-intelligence |
+| **frontend-specialist** | **ai-first-quality**, accessibility-excellence, code-quality-excellence, seo-best-practices | performance-optimization, security-by-design |
+| **quality-engineer** | **ai-first-quality**, testing-strategy, code-quality-excellence | accessibility-excellence, performance-optimization |
+| **security-architect** | **ai-first-quality**, security-by-design, threat-modeling, isms-compliance, ai-governance | compliance-frameworks, data-protection |
+| **documentation-architect** | **ai-first-quality**, c4-architecture-documentation, documentation-standards | isms-compliance, compliance-frameworks, european-political-system |
+| **devops-engineer** | **ai-first-quality**, github-agentic-workflows, open-source-governance | gh-aw-architecture, mcp-gateway-security |
+| **product-task-agent** | **ai-first-quality**, compliance-frameworks, isms-compliance, business-model-canvas | github-agentic-workflows, testing-strategy, risk-assessment-frameworks |
 
 ## How to Use Skills
 

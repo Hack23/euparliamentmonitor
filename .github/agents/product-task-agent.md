@@ -561,6 +561,18 @@ The language switcher dropdown in the header cannot be operated with keyboard on
 
 ---
 
+## 🧠 AI-FIRST QUALITY PRINCIPLE (NON-NEGOTIABLE)
+
+> **See `.github/skills/ai-first-quality.md`** for the full specification.
+
+**This agent MUST follow the AI-First Quality Principle for ALL product outputs:**
+
+1. **Mandatory 2-Pass Iterative Improvement**: Every issue, product analysis, and task specification MUST go through at least 2 complete passes. Pass 1 creates the initial output. Pass 2 reviews the ENTIRE output, improves clarity, adds missing acceptance criteria, and verifies ISMS compliance mapping.
+
+2. **Complete Review Required**: After creating issues or product specifications, read the ENTIRE output. Verify every acceptance criterion is testable, every ISMS mapping is accurate, every priority assessment is justified.
+
+3. **No Early Completion**: Use the FULL allocated time. Shallow one-paragraph issues with vague acceptance criteria are unacceptable. Every issue must be actionable, well-specified, and ISMS-mapped.
+
 ## Remember
 
 - **European Parliament Focus**: This is EU Parliament monitoring, not Swedish Riksdag—ensure data sources and terminology are correct

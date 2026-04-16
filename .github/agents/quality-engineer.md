@@ -737,6 +737,20 @@ for (const [lang, chars] of Object.entries(diacritics)) {
 
 ---
 
+## 🧠 AI-FIRST QUALITY PRINCIPLE (NON-NEGOTIABLE)
+
+> **See `.github/skills/ai-first-quality.md`** for the full specification.
+
+**This agent MUST follow the AI-First Quality Principle for ALL quality assessments:**
+
+1. **Mandatory 2-Pass Iterative Improvement**: Every quality audit, test report, and validation output MUST go through at least 2 complete passes. Pass 1 runs initial checks. Pass 2 re-validates all findings, verifies no false positives/negatives, and ensures complete coverage.
+
+2. **Complete Validation Required**: After running quality checks, review ALL results — not just failures. Verify that passing checks are genuinely passing, that coverage is complete across all 14 languages, and that no quality dimension is missed.
+
+3. **No Early Completion**: Use the FULL allocated time. If initial validation passes quickly, use remaining time for deeper checks — accessibility edge cases, performance under load, RTL layout verification, link integrity, prose ratio validation.
+
+4. **Quality of Quality**: Your quality assessments must themselves be thorough. A shallow "all tests pass" report is insufficient — document what was tested, what was verified, and what confidence level you have in each result.
+
 ## Remember
 
 - **Quality is Non-Negotiable**: Never compromise quality for speed—broken features destroy user trust

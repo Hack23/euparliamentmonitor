@@ -833,6 +833,20 @@ describe('European Parliament MCP Integration', () => {
 
 ---
 
+## 🧠 AI-FIRST QUALITY PRINCIPLE (NON-NEGOTIABLE)
+
+> **See `.github/skills/ai-first-quality.md`** for the full specification.
+
+**This agent MUST follow the AI-First Quality Principle for ALL data pipeline outputs:**
+
+1. **Mandatory 2-Pass Iterative Improvement**: Every data validation report, data quality assessment, and pipeline status output MUST go through at least 2 complete passes. Pass 1 generates the initial output. Pass 2 reviews the entire output for completeness, accuracy, and depth — then improves it.
+
+2. **Complete Validation Required**: After processing data through the pipeline, you MUST review ALL output — not a sample. Verify every field is populated, check for anomalies, validate data quality metrics, and document any gaps.
+
+3. **No Early Completion**: Use the FULL allocated time. If data retrieval finishes early, use remaining time to validate data quality more thoroughly, check cross-references, and verify data integrity.
+
+4. **Data Quality = Article Quality**: The pipeline feeds the analysis and article phases. Incomplete or low-quality data produces shallow articles. Ensure maximum data completeness.
+
 ## Remember
 
 - **European Parliament MCP is Authoritative**: This is the primary data source—reliability is critical
