@@ -666,7 +666,7 @@ cost reduction.
 mindmap
   root((AI<br/>Advancement))
     Model Improvements
-      Opus 4.6/GPT-5+
+      Opus 4.7/GPT-5+
       Reasoning Models
       Multi-Modal Input
       Fact Verification

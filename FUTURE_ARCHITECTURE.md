@@ -97,7 +97,7 @@ This document outlines the architectural evolution of EU Parliament Monitor from
 a **static site generator** to a **real-time European political intelligence
 platform** over a 4-phase near-term roadmap spanning Q2 2026 through Q4 2027,
 followed by a **visionary 10-year roadmap (2027-2037)** driven by advances in
-AI — including Anthropic Opus 4.6 (with minor updates every ~2.3 months and
+AI — including Anthropic Opus 4.7 (with minor updates every ~2.3 months and
 major version upgrades annually) — and the potential emergence of competitors,
 new large language models, or future AGI.
 
@@ -1252,7 +1252,7 @@ The platform's architecture must adapt to continuous AI model improvements:
 
 | Year | AI Model Baseline | Update Cadence | Architectural Impact |
 | ---- | ----------------- | -------------- | -------------------- |
-| **2026** | Anthropic Opus 4.6 | Minor every ~2.3 months, major annually | Current MCP + LLM integration |
+| **2026** | Anthropic Opus 4.7 | Minor every ~2.3 months, major annually | Current MCP + LLM integration |
 | **2027** | Opus 5.x | ~5 minor releases/year | Multi-model orchestration layer |
 | **2028** | Opus 6.x or competitor | Annual major + minors | Model-agnostic abstraction layer |
 | **2029** | Next-gen LLMs / early AGI signals | Accelerating cadence | Autonomous content pipelines |

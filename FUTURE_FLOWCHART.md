@@ -676,7 +676,7 @@ flowchart TD
 
 ### AI-Powered Workflow Evolution
 
-As Anthropic Opus 4.6 evolves (minor updates every ~2.3 months, major version
+As Anthropic Opus 4.7 evolves (minor updates every ~2.3 months, major version
 upgrades annually) alongside competitors and potential AGI breakthroughs, the
 platform's workflows will transform from human-orchestrated pipelines to
 autonomous intelligence operations.

@@ -220,7 +220,7 @@ flowchart TB
 
 ### 1. Agentic News Workflows (×10)
 
-**🎯 Purpose:** AI-powered generation of multi-language news articles about European Parliament activities using GitHub Copilot with the `claude-opus-4.6` model  
+**🎯 Purpose:** AI-powered generation of multi-language news articles about European Parliament activities using GitHub Copilot with the `claude-opus-4.7` model  
 **📁 Architecture:** 10 markdown source files (9 content-generation + 1 translation) compiled to 10 `.lock.yml` files via `gh aw compile` (GitHub Agentic Workflows CLI)  
 **🌐 Languages:** 14 (en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh)
 
@@ -247,7 +247,7 @@ All 10 agentic workflows share a common architecture (9 content-generation workf
 graph TD
     A[🕐 Schedule / Manual Trigger] --> B[🔑 Activation Job]
     B --> C{Conditions Met?}
-    C -->|✅ Yes| D[🤖 Agent Job<br/>GitHub Copilot + claude-opus-4.6]
+    C -->|✅ Yes| D[🤖 Agent Job<br/>GitHub Copilot + claude-opus-4.7]
     C -->|❌ No| E[⏭️ Skip]
     D --> F[📥 Checkout Repository]
     F --> G[⚙️ Setup Node.js 25]
@@ -287,7 +287,7 @@ graph TD
 |----------|-------|
 | **Source format** | Markdown (`.md`) compiled by `gh aw compile` |
 | **Lock format** | YAML (`.lock.yml`) — auto-generated, do not edit directly |
-| **AI Model** | `claude-opus-4.6` via GitHub Copilot CLI |
+| **AI Model** | `claude-opus-4.7` via GitHub Copilot CLI |
 | **Top-level permissions** | `{}` (empty — no default permissions) |
 | **Activation job permissions** | `contents: read` |
 | **Agent job permissions** | `contents: write`, `pull-requests: write`, `issues: write`, `models: read` |
@@ -1756,7 +1756,7 @@ flowchart LR
     end
 
     subgraph "🤖 Agent Layer"
-        Agent["GitHub Copilot<br/>claude-opus-4.6"]
+        Agent["GitHub Copilot<br/>claude-opus-4.7"]
         Analyze["Analysis Pipeline<br/>6 methodologies<br/>8 templates"]
     end
 
