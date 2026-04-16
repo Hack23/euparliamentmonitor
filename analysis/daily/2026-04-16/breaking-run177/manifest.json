@@ -1,0 +1,61 @@
+{
+  "runId": 177,
+  "date": "2026-04-16",
+  "articleType": "breaking",
+  "mode": "DEGRADED",
+  "newsworthyGate": "NO_BREAKING_NEWS",
+  "outcome": "ANALYSIS_ONLY_PR",
+  "grade": "B",
+  "compositeRisk": 12.8,
+  "priorRunId": 176,
+  "priorRunGrade": "B+",
+  "parliamentaryStatus": "INTER_SESSION",
+  "tariffTracker": "T+2",
+  "dataRetrieved": {
+    "adoptedTextsFeed": { "status": "SUCCESS", "items": 63 },
+    "mepsFeed": { "status": "SUCCESS", "items": 738 },
+    "proceduresFeed": { "status": "FAILED", "error": "404" },
+    "procedures2026": { "status": "SUCCESS", "items": 51 },
+    "plenaryDocuments2026": { "status": "SUCCESS", "items": 30 },
+    "committeeDocuments2026": { "status": "SUCCESS", "items": 30 },
+    "adoptedTexts2026": { "status": "SUCCESS", "items": 30 },
+    "coalitionDynamics": { "status": "SUCCESS" },
+    "allGeneratedStats": { "status": "SUCCESS" },
+    "documentsFeed": { "status": "TIMEOUT" },
+    "questionsFeed": { "status": "TIMEOUT" },
+    "votingRecords": { "status": "EMPTY" },
+    "events": { "status": "IRRELEVANT", "note": "Historical referrals only" },
+    "worldBank": { "status": "NO_DATA" },
+    "serverHealth": { "status": "UNHEALTHY", "feedsOperational": 0 }
+  },
+  "deepFetchCalls": {
+    "used": 3,
+    "budget": 10,
+    "calls": [
+      { "tool": "track_legislation", "target": "2025/0261(COD)", "result": "MINIMAL_DATA" },
+      { "tool": "track_legislation", "target": "2023/0135(COD)", "result": "MINIMAL_DATA" },
+      { "tool": "get_voting_records", "target": "2026-03-24 to 2026-03-28", "result": "EMPTY" }
+    ]
+  },
+  "analysisFiles": [
+    "classification/significance-scoring.md",
+    "threat-assessment/political-threat-landscape.md",
+    "risk-scoring/risk-matrix.md",
+    "intelligence/quantitative-swot.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/synthesis-summary.md",
+    "documents/document-analysis-index.md"
+  ],
+  "keyMetrics": {
+    "fragmentationIndex": 4.04,
+    "grandCoalitionDeficit": -38,
+    "renewEcrCohesion": 0.95,
+    "legislativeActsQ1_2026": 114,
+    "pendingCodProcedures": 14,
+    "egfApplications": 2,
+    "actsPerSession": 2.11
+  },
+  "generatedAt": "2026-04-16T00:00:00Z",
+  "analysisToolsUsed": ["sequentialthinking", "memory-graph", "ep-mcp"],
+  "totalAnalysisOutputKB": 57
+}
