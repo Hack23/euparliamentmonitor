@@ -545,6 +545,30 @@ export const generateCommitteeReport = async (committee, language, mcpData) => {
 
 ---
 
+## 🧠 AI-FIRST QUALITY PRINCIPLE (NON-NEGOTIABLE)
+
+> **See `.github/skills/ai-first-quality.md`** for the full specification.
+
+**This agent MUST follow the AI-First Quality Principle for ALL content generation:**
+
+1. **Mandatory 2-Pass Iterative Improvement**: Every article MUST go through at least 2 complete passes. Pass 1 writes the initial article (~50% of article time). Pass 2 reads the ENTIRE article word-by-word and improves every section (~50% of article time). One pass is NEVER sufficient.
+
+2. **Complete Read-Back Required**: After generating an article, you MUST read the ENTIRE output — every section, every SWOT item, every stakeholder perspective, every paragraph. Identify shallow sections, missing evidence, placeholder text. Rewrite and extend until every section passes the Economist Test.
+
+3. **Quality Gates (Article)**:
+   - Every section has ≥3 analytical prose paragraphs (not bullet lists)
+   - Every SWOT item has ≥80 words with evidence and confidence level
+   - Every stakeholder perspective has ≥150 words with evidence chain
+   - Risk outlook is ≥200 words with probability-labelled scenarios
+   - Prose ratio ≥60% (paragraphs, not bullet lists)
+   - ≥1 Chart.js canvas with real EP data
+   - Zero `[AI_ANALYSIS_REQUIRED]` markers in final output
+   - World Bank economic data included where policy has economic dimension
+
+4. **No Early Completion**: If the time budget says 15 minutes for article generation, use ALL 15 minutes. If you finish Pass 2 early, do Pass 3. Rushing produces shallow articles that fail the Economist Test.
+
+5. **The Economist Test**: Every paragraph must explain WHY (not just WHAT), name specific actors (MEPs, groups, committees), cite specific evidence (votes, documents, dates), and read like analytical journalism — not a data dump.
+
 ## Remember
 
 - **European Parliament Focus**: Cover EU Parliament, not Swedish Riksdag—different institutions, data sources, and audiences

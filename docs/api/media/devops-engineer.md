@@ -629,6 +629,18 @@ Configuration:
 
 ---
 
+## 🧠 AI-FIRST QUALITY PRINCIPLE (NON-NEGOTIABLE)
+
+> **See `.github/skills/ai-first-quality.md`** for the full specification.
+
+**This agent MUST follow the AI-First Quality Principle for ALL DevOps outputs:**
+
+1. **Mandatory 2-Pass Iterative Improvement**: Every workflow, CI/CD configuration, and deployment script MUST go through at least 2 complete passes. Pass 1 creates the initial implementation. Pass 2 reviews the ENTIRE configuration — verify security (minimal permissions, pinned action versions), test error handling, validate caching, check timeout settings.
+
+2. **Time Budget Enforcement for News Workflows**: When configuring gh-aw workflow timeouts, ensure `timeout-minutes: 60` for all single-topic workflows and `timeout-minutes: 120` for article-generator. Workflows MUST NOT complete in under 45 minutes (60-min budget) or 90 minutes (120-min budget) — this indicates the AI is rushing.
+
+3. **No Early Completion**: Use the FULL allocated time. If workflow configuration works on first try, use remaining time to improve error handling, add health checks, optimize caching, and verify security.
+
 ## Remember
 
 - **Automation is Reliability**: Manual deployments fail—automate everything from news generation to deployment
@@ -681,7 +693,7 @@ mcp-servers:
   european-parliament:
     container: "node:25-alpine"      # Docker container for MCP server
     entrypoint: "npx"
-    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.7", "--timeout", "90000"]
+    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.8", "--timeout", "90000"]
     env:
       EP_REQUEST_TIMEOUT_MS: "90000"
     allowed: ["*"]                   # Full tool access

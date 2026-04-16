@@ -610,6 +610,18 @@ test('homepage passes axe accessibility audit', async ({ page }) => {
 
 ---
 
+## 🧠 AI-FIRST QUALITY PRINCIPLE (NON-NEGOTIABLE)
+
+> **See `.github/skills/ai-first-quality.md`** for the full specification.
+
+**This agent MUST follow the AI-First Quality Principle for ALL frontend outputs:**
+
+1. **Mandatory 2-Pass Iterative Improvement**: Every HTML/CSS change, component, and template MUST go through at least 2 complete passes. Pass 1 implements the initial change. Pass 2 reviews the ENTIRE output — verify accessibility (WCAG 2.1 AA), test all 14 languages, check responsive design, validate semantic HTML.
+
+2. **Complete Validation Required**: After implementing frontend changes, test across ALL 14 languages, verify RTL readiness, check keyboard navigation, run accessibility audits, and validate Core Web Vitals.
+
+3. **No Early Completion**: Use the FULL allocated time. If initial implementation works, use remaining time to improve accessibility, optimize performance, verify cross-browser compatibility.
+
 ## Remember
 
 - **Mobile First**: Design for smallest screens first, enhance for larger—80% of EU citizens use mobile
