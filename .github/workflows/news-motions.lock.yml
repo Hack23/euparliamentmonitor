@@ -1,4 +1,4 @@
-# gh-aw-metadata: {"schema_version":"v3","frontmatter_hash":"128f7c7abf539bbae64daefbe99241f0e9cfd14543cb5f1b00c7adfb3ed64af9","compiler_version":"v0.68.4","agent_id":"copilot","agent_model":"claude-opus-4.6"}
+# gh-aw-metadata: {"schema_version":"v3","frontmatter_hash":"9983076337234bc42090bddd0fc451a58b8d883be7571caae178e357bb2bac90","compiler_version":"v0.68.4","agent_id":"copilot","agent_model":"claude-opus-4.6"}
 # gh-aw-manifest: {"version":1,"secrets":["COPILOT_GITHUB_TOKEN","GH_AW_CI_TRIGGER_TOKEN","GH_AW_GITHUB_MCP_SERVER_TOKEN","GH_AW_GITHUB_TOKEN","GITHUB_TOKEN"],"actions":[{"repo":"actions/checkout","sha":"de0fac2e4500dabe0009e67214ff5f5447ce83dd","version":"v6.0.2"},{"repo":"actions/download-artifact","sha":"3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c","version":"v8.0.1"},{"repo":"actions/github-script","sha":"373c709c69115d41ff229c7e5df9f8788daa9553","version":"v9"},{"repo":"actions/setup-node","sha":"53b83947a5a98c8d113130e565377fae1a50d02f","version":"v6.3.0"},{"repo":"actions/upload-artifact","sha":"043fb46d1a93c77aae656e7c1c64a875d1fc6a0a","version":"v7.0.1"},{"repo":"github/gh-aw-actions/setup","sha":"57583dfa129051b855aa5d750d36fbeb8a885579","version":"v0.68.4"}],"containers":[{"image":"alpine:latest"},{"image":"ghcr.io/github/gh-aw-firewall/agent:0.25.21"},{"image":"ghcr.io/github/gh-aw-firewall/api-proxy:0.25.21"},{"image":"ghcr.io/github/gh-aw-firewall/squid:0.25.21"},{"image":"ghcr.io/github/gh-aw-mcpg:v0.2.19"},{"image":"ghcr.io/github/github-mcp-server:v0.32.0"},{"image":"node:25-alpine"},{"image":"node:25-alpine"}]}
 #    ___                   _   _      
 #   / _ \                 | | (_)     
@@ -189,21 +189,21 @@ jobs:
         run: |
           bash "${RUNNER_TEMP}/gh-aw/actions/create_prompt_first.sh"
           {
-          cat << 'GH_AW_PROMPT_c3ff165424885f20_EOF'
+          cat << 'GH_AW_PROMPT_824de166625f1ea4_EOF'
           <system>
-          GH_AW_PROMPT_c3ff165424885f20_EOF
+          GH_AW_PROMPT_824de166625f1ea4_EOF
           cat "${RUNNER_TEMP}/gh-aw/prompts/xpia.md"
           cat "${RUNNER_TEMP}/gh-aw/prompts/temp_folder_prompt.md"
           cat "${RUNNER_TEMP}/gh-aw/prompts/markdown.md"
           cat "${RUNNER_TEMP}/gh-aw/prompts/agentic_workflows_guide.md"
           cat "${RUNNER_TEMP}/gh-aw/prompts/repo_memory_prompt.md"
           cat "${RUNNER_TEMP}/gh-aw/prompts/safe_outputs_prompt.md"
-          cat << 'GH_AW_PROMPT_c3ff165424885f20_EOF'
+          cat << 'GH_AW_PROMPT_824de166625f1ea4_EOF'
           <safe-output-tools>
           Tools: add_comment, create_pull_request, dispatch_workflow, missing_tool, missing_data, noop
-          GH_AW_PROMPT_c3ff165424885f20_EOF
+          GH_AW_PROMPT_824de166625f1ea4_EOF
           cat "${RUNNER_TEMP}/gh-aw/prompts/safe_outputs_create_pull_request.md"
-          cat << 'GH_AW_PROMPT_c3ff165424885f20_EOF'
+          cat << 'GH_AW_PROMPT_824de166625f1ea4_EOF'
           </safe-output-tools>
           <github-context>
           The following GitHub context information is available for this workflow:
@@ -233,12 +233,12 @@ jobs:
           {{/if}}
           </github-context>
           
-          GH_AW_PROMPT_c3ff165424885f20_EOF
+          GH_AW_PROMPT_824de166625f1ea4_EOF
           cat "${RUNNER_TEMP}/gh-aw/prompts/github_mcp_tools_with_safeoutputs_prompt.md"
-          cat << 'GH_AW_PROMPT_c3ff165424885f20_EOF'
+          cat << 'GH_AW_PROMPT_824de166625f1ea4_EOF'
           </system>
           {{#runtime-import .github/workflows/news-motions.md}}
-          GH_AW_PROMPT_c3ff165424885f20_EOF
+          GH_AW_PROMPT_824de166625f1ea4_EOF
           } > "$GH_AW_PROMPT"
       - name: Interpolate variables and render templates
         uses: actions/github-script@373c709c69115d41ff229c7e5df9f8788daa9553 # v9
@@ -475,9 +475,9 @@ jobs:
           mkdir -p "${RUNNER_TEMP}/gh-aw/safeoutputs"
           mkdir -p /tmp/gh-aw/safeoutputs
           mkdir -p /tmp/gh-aw/mcp-logs/safeoutputs
-          cat > "${RUNNER_TEMP}/gh-aw/safeoutputs/config.json" << 'GH_AW_SAFE_OUTPUTS_CONFIG_0a2773514b7015ca_EOF'
+          cat > "${RUNNER_TEMP}/gh-aw/safeoutputs/config.json" << 'GH_AW_SAFE_OUTPUTS_CONFIG_3ca1c54521b81226_EOF'
           {"add_comment":{"max":1},"create_pull_request":{"draft":false,"excluded_files":["analysis/daily/**/data/**","analysis/daily/**/documents/raw-data/**","analysis/daily/**/documents/*-analysis.md"],"expires":336,"labels":["agentic-news","analysis-data"],"max":1,"max_patch_size":1024,"protected_files":["package.json","bun.lockb","bunfig.toml","deno.json","deno.jsonc","deno.lock","global.json","NuGet.Config","Directory.Packages.props","mix.exs","mix.lock","go.mod","go.sum","stack.yaml","stack.yaml.lock","pom.xml","build.gradle","build.gradle.kts","settings.gradle","settings.gradle.kts","gradle.properties","package-lock.json","yarn.lock","pnpm-lock.yaml","npm-shrinkwrap.json","requirements.txt","Pipfile","Pipfile.lock","pyproject.toml","setup.py","setup.cfg","Gemfile","Gemfile.lock","uv.lock","CODEOWNERS"],"protected_path_prefixes":[".github/",".agents/"],"title_prefix":"[news] "},"create_report_incomplete_issue":{},"dispatch_workflow":{"max":1,"workflow_files":{"news-translate":".lock.yml"},"workflows":["news-translate"]},"missing_data":{},"missing_tool":{},"noop":{"max":1,"report-as-issue":"true"},"push_repo_memory":{"memories":[{"dir":"/tmp/gh-aw/repo-memory/default","id":"default","max_file_count":50,"max_file_size":51200,"max_patch_size":51200}]},"report_incomplete":{}}
-          GH_AW_SAFE_OUTPUTS_CONFIG_0a2773514b7015ca_EOF
+          GH_AW_SAFE_OUTPUTS_CONFIG_3ca1c54521b81226_EOF
       - name: Write Safe Outputs Tools
         env:
           GH_AW_TOOLS_META_JSON: |
@@ -732,7 +732,7 @@ jobs:
           
           mkdir -p /home/runner/.copilot
           GH_AW_NODE=$(which node 2>/dev/null || command -v node 2>/dev/null || echo node)
-          cat << GH_AW_MCP_CONFIG_298ee7907c0115e2_EOF | "$GH_AW_NODE" "${RUNNER_TEMP}/gh-aw/actions/start_mcp_gateway.cjs"
+          cat << GH_AW_MCP_CONFIG_b1de0548ba4c5a39_EOF | "$GH_AW_NODE" "${RUNNER_TEMP}/gh-aw/actions/start_mcp_gateway.cjs"
           {
             "mcpServers": {
               "agenticworkflows": {
@@ -762,7 +762,7 @@ jobs:
                 "entrypoint": "npx",
                 "entrypointArgs": [
                   "-y",
-                  "european-parliament-mcp-server@1.2.7",
+                  "european-parliament-mcp-server@1.2.8",
                   "--timeout",
                   "120000"
                 ],
@@ -863,7 +863,7 @@ jobs:
               "payloadDir": "${MCP_GATEWAY_PAYLOAD_DIR}"
             }
           }
-          GH_AW_MCP_CONFIG_298ee7907c0115e2_EOF
+          GH_AW_MCP_CONFIG_b1de0548ba4c5a39_EOF
       - name: Download activation artifact
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
