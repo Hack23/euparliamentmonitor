@@ -499,7 +499,7 @@ When `monitor_legislative_pipeline` returns `health: 0%` and `throughput: 0`:
 
 | Gate | Requirement | Validation |
 |------|-------------|------------|
-| **Prose ratio** | ≥60% of article body text must be in `<p>` paragraph tags, not `<li>` list items | Count chars in `<p>` vs `<li>` tags |
+| **Prose ratio** | ≥60% of article body text (by character count) must be in `<p>` paragraph tags, not `<li>` list items | Count chars in `<p>` vs `<li>` tags (HTML stripped) |
 | **Paragraph depth** | Each analytical section must contain ≥3 paragraphs of ≥50 words each | Count paragraphs per `<section>` |
 | **Lede paragraph** | Opening paragraph must be ≥80 words of analytical narrative, not a summary list | Word count of first `<p class="lede">` |
 | **No orphan lists** | Bullet lists must always follow an analytical paragraph that provides context | Every `<ul>`/`<ol>` preceded by a `<p>` |
@@ -632,25 +632,31 @@ done
 
 ## 🔄 4-Pass AI Refinement Cycle (All Workflows)
 
-| Pass | Action |
-|------|--------|
-| **1. Initial Assessment** | Gather baseline data, identify key actors/actions/outcomes |
-| **2. Stakeholder Challenge** | Re-examine from each stakeholder perspective, find blind spots |
-| **3. Evidence Cross-Validation** | Cross-check claims against EP data, add confidence indicators (🟢/🟡/🔴) |
-| **4. Synthesis & Scenarios** | Multi-perspective conclusions, 2-3 forward-looking scenarios |
+> **⚠️ MANDATORY**: Every article MUST go through all 4 passes. Each pass adds depth. Skipping passes produces the shallow, list-like articles that fail the Economist Test.
+
+| Pass | Action | Minimum Output |
+|------|--------|----------------|
+| **1. Initial Assessment** | Gather baseline data, identify key actors/actions/outcomes. Write initial analysis prose. | ≥200 words per key development |
+| **2. Stakeholder Challenge** | Re-examine from ≥4 stakeholder perspectives, find blind spots, add dissenting views. Write stakeholder impact narratives. | ≥150 words per stakeholder perspective |
+| **3. Evidence Cross-Validation** | Cross-check claims against EP data (document IDs, vote counts, procedure references). Add confidence indicators (🟢/🟡/🔴). Remove unsupported claims. | Every claim has an evidence citation |
+| **4. Synthesis & Scenarios** | Multi-perspective conclusions, 2-3 forward-looking scenarios with probability labels, risk outlook with institutional risks. Weave SWOT, stakeholder, and risk findings into the narrative. | ≥200 words risk outlook, ≥2 named scenarios |
+
+> **Pass 4 is where analysis becomes journalism**: The synthesis pass transforms structured analysis into flowing prose. After Pass 4, every section should read like a paragraph from The Economist, not a template output.
 
 ---
 
 ## 🎭 Stakeholder Perspectives (6-Lens Model)
 
-For every major parliamentary action, analyze from ≥3 of these 6 perspectives:
+For every major parliamentary action, analyze from **≥4** of these 6 perspectives (minimum ≥150 words per perspective):
 
-1. **EP Political Groups** — Group dynamics, coalition implications
-2. **Civil Society & NGOs** — Citizens' rights, transparency, democratic participation
-3. **Industry & Business** — Regulatory impact, market effects, compliance burden
-4. **National Governments** — Subsidiarity, implementation, diverging interests
-5. **EU Citizens** — Daily life impact, rights, services, representation
-6. **EU Institutions** — Commission/Council/ECB/CJEU inter-institutional dynamics
+1. **EP Political Groups** — Group dynamics, coalition implications, voting motivations, named MEP positions
+2. **Civil Society & NGOs** — Citizens' rights, transparency, democratic participation, specific organization responses
+3. **Industry & Business** — Regulatory impact, market effects, compliance burden, sector-specific consequences
+4. **National Governments** — Subsidiarity concerns, implementation challenges, diverging national interests with specific countries named
+5. **EU Citizens** — Daily life impact, rights, services, representation — make it concrete (e.g., "a Polish nurse seeking work in Germany")
+6. **EU Institutions** — Commission/Council/ECB/CJEU inter-institutional dynamics, power shifts, institutional precedent
+
+> **⚠️ DEPTH REQUIREMENT**: Each stakeholder perspective must include: (1) the specific mechanism of impact, (2) evidence from EP data, (3) the stakeholder's likely response or next move. One-sentence perspectives FAIL the quality gate.
 
 ---
 

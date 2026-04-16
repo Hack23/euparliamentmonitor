@@ -184,30 +184,43 @@ Every workflow MUST allocate a **minimum of 15 minutes** to AI-driven political 
 
 ### Rule 8: Scripts Format, AI Analyses — Clear Separation of Concerns
 
+> **⚠️ FUNDAMENTAL PRINCIPLE**: AI writes ALL analysis and ALL article content. Code is ONLY for correct HTML output.
+
 The separation between script-generated structure and AI-generated analysis MUST be strictly maintained:
 
 | Layer | Responsibility | Examples |
 |-------|---------------|----------|
-| **Scripts** (TypeScript) | Data fetching, HTML rendering, template structure, chart/mindmap/SWOT HTML scaffolding, metadata generation | `analysis-builders.ts`, `swot-content.ts`, `mindmap-content.ts`, `deep-analysis-content.ts` |
-| **AI Agent** (Workflow LLM) | Political narrative, analytical conclusions, evidence-backed claims, confidence assessments, stakeholder reasoning, risk justifications, scenario planning | All `AI_MARKER` fields, analysis markdown prose, SWOT entry justifications |
+| **Scripts** (TypeScript) | HTML rendering, template structure, metadata, CSP headers, language switcher, Chart.js scaffolding | `article-template.ts`, `section-builders.ts`, `dashboard-content.ts` |
+| **AI Agent** (Opus 4.6) | ALL political analysis, ALL narrative prose, ALL SWOT content, ALL stakeholder reasoning, ALL risk assessment, ALL coalition dynamics, World Bank data interpretation, chart data selection | Analysis .md files, every `AI_MARKER` field, article body prose |
 
-**Scripts produce consistent formatting** — charts, mindmaps, SWOT grids, dashboards, Sankey diagrams, stakeholder matrices. These are HTML rendering components that ensure visual consistency across all articles.
+**Scripts produce the HTML container** — correct document structure, metadata, chart canvas elements, accessibility features. Scripts do NOT produce analysis or journalism.
 
-**AI produces the intelligence content** — the actual political analysis that fills those visual containers. Every SWOT entry must have AI-written justification. Every stakeholder outcome must have AI-written reasoning. Every risk score must have AI-written explanation.
+**AI produces ALL intelligence content** — the actual political analysis that fills those containers. This includes:
+- ≥60% prose paragraphs (not bullet lists) in article body
+- ≥80 words per SWOT item with evidence and confidence levels
+- ≥150 words per stakeholder perspective with evidence chains
+- ≥200 words risk outlook with probability-labelled scenarios
+- Named MEPs, specific vote counts, coalition shift analysis
+- World Bank economic data contextualized in analytical paragraphs
+- Chart data selection (what to visualize and why)
 
-**Test:** Remove all AI-written content from an article. If the remaining shell still looks like a complete article, the AI did too little work. The article should be visually rich but intellectually empty without AI analysis.
+**The Economist Test:** Remove all AI-written content from an article. If the remaining shell still looks like a complete article, the AI did too little work. The article should be visually rich but intellectually empty without AI analysis. Conversely, if the article reads like a shallow code-generated summary with bullet lists, the AI has failed its primary responsibility.
 
 **Anti-patterns (REJECTED):**
 - ❌ Scripts generating `[AI_ANALYSIS_REQUIRED]` placeholders that survive to the final article — all placeholders must be filled by the AI agent
-- ❌ SWOT quadrants with `—` (em-dash) entries instead of real analysis — every quadrant needs ≥2 substantive entries
-- ❌ Stakeholder outcome matrices with "Winner/Loser/Neutral" labels but no supporting rationale
-- ❌ Mindmap visualizations with template-only nodes and `data-connections="0"` — real policy connections required
+- ❌ SWOT quadrants with generic one-liners instead of ≥80 words of evidence-based analysis per item
+- ❌ Stakeholder matrices with "Winner/Loser/Neutral" labels but no supporting rationale (≥150 words required per perspective)
+- ❌ Article sections dominated by bullet lists with brief descriptions — write analytical paragraphs instead
+- ❌ Coalition analysis that merely names groups without explaining motivations, strategy, and named MEP positions
+- ❌ Articles with zero World Bank economic data when the topic has economic/policy relevance
+- ❌ Articles with zero chart visualizations — every article needs ≥1 Chart.js canvas with real data
+- ❌ Analysis artifacts (SWOT, risk, stakeholder) created but not synthesized INTO article prose
 - ❌ Scripts producing political narrative text — this is the AI agent's exclusive domain
-- ❌ Generic template text like "this shapes the legislative trajectory" or "carries potential regulatory implications" — these have been removed from the generators/templates going forward; older committed articles under `news/` may still contain legacy wording. If these phrases appear in newly generated content, treat them as invalid legacy patterns
+- ❌ Generic template text like "this shapes the legislative trajectory" or "carries potential regulatory implications" — write specific political intelligence instead
 - ❌ Metric-as-prose text like "Pipeline health at X% with throughput of Y reflects moderate legislative processing capacity" — data metrics belong in dashboard visualizations, not in analytical prose
 
 **AI_MARKER fields the AI agent MUST fill (post-generation):**
-The TypeScript generators now output `[AI_ANALYSIS_REQUIRED]` for: `why` (political drivers), `impactAssessment` (5 dimensions × ≥40 words each), `stakeholderOutcomes[].reason`, `actionConsequences[].consequence`, `mistakes[].alternative`, and `outlook` (named scenarios with probabilities). The AI agent must replace every marker with substantive, specific, evidence-backed political intelligence.
+The TypeScript generators output `[AI_ANALYSIS_REQUIRED]` for: `why` (political drivers), `impactAssessment` (5 dimensions × ≥60 words each), `stakeholderOutcomes[].reason` (≥150 words each), `actionConsequences[].consequence`, `mistakes[].alternative`, and `outlook` (≥200 words with named scenarios and probabilities). The AI agent must replace every marker with substantive, specific, evidence-backed political intelligence.
 
 ### Rule 9: AI-Driven Headlines and Descriptions — NEVER Code-Generated
 
