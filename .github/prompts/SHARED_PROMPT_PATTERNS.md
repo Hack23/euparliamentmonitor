@@ -709,6 +709,55 @@ Today's workflow runs complete in 24-30 minutes out of 60-minute budgets. The AI
 
 ---
 
+## ⏰ HARD DEADLINE — Session Expiry Prevention (All Workflows — NON-NEGOTIABLE)
+
+> **⚠️ ABSOLUTE RULE**: The workflow MUST produce a safe output (`safeoutputs___create_pull_request` or `safeoutputs___noop`) BEFORE the session expires. A workflow that runs the full timeout without calling any safe output tool is a **TOTAL FAILURE** — worse than a noop, because it wastes compute and produces zero observable output.
+
+### 🚨 Minute 50 HARD DEADLINE (60-minute workflows)
+
+**At minute 50 of a 60-minute workflow (or 10 minutes before timeout for any workflow), you MUST:**
+
+1. **STOP all analysis, article generation, and quality improvement immediately**
+2. **If article files exist in `news/`**: Call `safeoutputs___create_pull_request` with whatever content you have — partial content in a PR is infinitely better than no PR at all
+3. **If no article files exist but analysis files exist**: Call `safeoutputs___create_pull_request` with analysis artifacts only (per Rule 5: no workflow run should be wasted)
+4. **If no files of any kind exist**: Call `safeoutputs___noop` with full diagnostics
+
+### 🔄 Periodic Clock Checks (MANDATORY)
+
+**Check elapsed time at EVERY phase transition:**
+- After data retrieval phase → check clock
+- After analysis Pass 1 → check clock
+- After analysis Pass 2 → check clock
+- After article generation Pass 1 → check clock
+- After article generation Pass 2 → check clock
+- After validation → check clock
+
+**Use this bash snippet to check elapsed time:**
+```bash
+ELAPSED_MINUTES=$(( ($(date -u +%s) - ${WORKFLOW_START_EPOCH:-$(date -u +%s)}) / 60 ))
+echo "⏰ Elapsed: ${ELAPSED_MINUTES} minutes"
+if [ "$ELAPSED_MINUTES" -ge 50 ]; then
+  echo "🚨 HARD DEADLINE REACHED — must create PR or noop NOW"
+fi
+```
+
+### ⚡ Progressive Safe Output Strategy
+
+To prevent session expiry from losing all work:
+1. **Create analysis-only PR at minute 35** if article generation hasn't started — preserve analysis artifacts
+2. **Create PR with partial content at minute 50** — even a single English article is valuable
+3. **Never delay PR creation for "one more improvement"** after minute 50 — the risk of losing everything outweighs the benefit of marginal improvement
+
+### World Bank MCP Timeout Handling
+
+World Bank MCP calls have a built-in 10-second timeout. If a World Bank call fails or times out:
+1. **Skip it and continue** — World Bank data is supplementary context, never primary content
+2. **Do NOT retry** failed World Bank calls — they count against your time budget
+3. **Maximum 3 World Bank data calls** per 60-minute workflow (search-indicators calls are exempt)
+4. **If ALL World Bank calls fail**, proceed without economic context — this is acceptable
+
+---
+
 ## 🎭 Stakeholder Perspectives (6-Lens Model)
 
 For every major parliamentary action, analyze from **≥4** of these 6 perspectives (minimum ≥150 words per perspective):
