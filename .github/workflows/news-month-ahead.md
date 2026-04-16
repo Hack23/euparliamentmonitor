@@ -303,10 +303,9 @@ Connect this month's agenda to longer parliamentary trajectories:
 ## ⏱️ Time Budget (60 minutes)
 
 - **Minutes 0–3**: Date validation, MCP warm-up with `get_plenary_sessions`
-- **Minutes 3–8**: 🔬 EP MCP data fetch and analysis directory setup (the `--analysis` flag fetches EP data, creates `${ANALYSIS_DIR}/`, and discovers your analysis `.md` files after you write them)
-- **Minutes 8–15**: Query plenary sessions, committees, and legislative pipeline for next 30 days
-- **Minutes 15–35**: 🔬🔬🔬 **MANDATORY DEEP POLITICAL ANALYSIS PHASE (15-20 MINUTES)** — Read ALL methodology guides and templates, apply them to EVERY downloaded MCP data file, write substantive analysis markdown, use `sequentialthinking` for complex reasoning, cross-reference documents via knowledge graph, complete 4-pass refinement cycle. **⚠️ Per Rule 7, spend ≥15 minutes on AI-driven analysis.** Article topic and angle MUST be decided ONLY from completed significance scoring results.
-- **Minutes 35–50**: Generate English article with deep political intelligence analysis informed by completed analysis artifacts
+- **Minutes 3–13**: 📡 **DATA RETRIEVAL PHASE (≤10 minutes)** — EP MCP data fetch, analysis directory setup, query plenary sessions, committees, and legislative pipeline for next 30 days. Complete all feed + deep-fetch calls (up to 10 total). Most EP MCP tools respond in <10s; allow up to 120s for slow feed endpoints. **Data retrieval MUST complete before analysis starts.**
+- **Minutes 13–35**: 🔬🔬🔬 **MANDATORY DEEP POLITICAL ANALYSIS PHASE (15-20 MINUTES)** — Read ALL methodology guides and templates, apply them to EVERY downloaded MCP data file, write substantive analysis markdown, use `sequentialthinking` for complex reasoning, cross-reference documents via knowledge graph, complete 4-pass refinement cycle. **⚠️ Per Rule 7, spend ≥15 minutes on AI-driven analysis.** Article topic and angle MUST be decided ONLY from completed significance scoring results.
+- **Minutes 35–50**: Generate English article with deep political intelligence analysis informed by completed analysis artifacts. **Analysis MUST be complete before generation starts.**
 - **Minutes 50–55**: Validate generated HTML
 - **Minutes 55–60**: Create PR with `safeoutputs___create_pull_request`
 
@@ -728,11 +727,11 @@ european_parliament___get_all_generated_stats({ category: "all", includePredicti
 
 ### ⚡ MCP Call Budget
 
-- **No hard limit on MCP calls**, but expect each call to take 30+ seconds. Plan time budget accordingly.
+- **No hard limit on MCP calls**. Most EP MCP tools respond in <10 seconds; only slow feed endpoints (events, procedures, documents, committee docs) take 30-120+ seconds. The 10-minute data retrieval budget allows 40+ tool calls within EP API rate limits (500 req/5min).
 - The **MCP Health Gate** (earlier in this workflow) calls `european_parliament___get_plenary_sessions({ limit: 1 })` with up to 3 retries — that is a dedicated health-check; reuse or discard its result
 - **Feed endpoints (MANDATORY)**: call all feed endpoints listed above FIRST — these are non-negotiable
 - **Precomputed stats**: call `european_parliament___get_all_generated_stats` once AFTER feeds — reuse across all sections
-- Each broad context MCP tool may be called **at most once** — never call the same broad tool a second time (including `get_plenary_sessions` — the health gate counts as its single invocation). **Exception:** deep-fetch tools (`track_legislation`, `get_meeting_decisions`, `get_speeches`, `get_voting_records`) may be called once **per cited item** (max 5 deep-fetch calls total)
+- Each broad context MCP tool may be called **at most once** — never call the same broad tool a second time (including `get_plenary_sessions` — the health gate counts as its single invocation). **Exception:** deep-fetch tools (`track_legislation`, `get_meeting_decisions`, `get_speeches`, `get_voting_records`) may be called once **per cited item** (max 10 deep-fetch calls total)
 - If data looks sparse, generic, historical, or placeholder after the first call: **proceed to article generation immediately — do NOT retry**
 
 **MANDATORY supplementary tools** (ALWAYS call for comprehensive analysis — do NOT skip even if feed data is sparse for upcoming activity):

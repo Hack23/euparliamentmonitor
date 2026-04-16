@@ -304,10 +304,9 @@ Provide macro-level parliamentary intelligence:
 ## ⏱️ Time Budget (60 minutes)
 
 - **Minutes 0–3**: Date validation, MCP Health Gate with `get_plenary_sessions({ limit: 1 })` (up to 3 attempts)
-- **Minutes 3–8**: 🔬 EP MCP data fetch and analysis directory setup (the `--analysis` flag fetches EP data, creates `${ANALYSIS_DIR}/`, and discovers your analysis `.md` files after you write them)
-- **Minutes 8–15**: Query voting records, documents, reports from past 30 days
-- **Minutes 15–40**: 🔬🔬🔬 **MANDATORY DEEP POLITICAL ANALYSIS PHASE (25+ MINUTES)** — Read ALL methodology guides and templates, apply them to EVERY downloaded MCP data file, write substantive analysis markdown, use `sequentialthinking` for complex reasoning, cross-reference documents via knowledge graph, complete 4-pass refinement cycle. **⚠️ Per Rule 7, spend ≥25 minutes on AI-driven analysis.** Article topic and angle MUST be decided ONLY from completed significance scoring results. Monthly review requires the deepest synthesis across the full month's events, trends, and patterns.
-- **Minutes 40–52**: Generate English article with deep political intelligence analysis informed by completed analysis artifacts
+- **Minutes 3–13**: 📡 **DATA RETRIEVAL PHASE (≤10 minutes)** — EP MCP data fetch, analysis directory setup, query voting records, documents, reports from past 30 days. Complete all feed + deep-fetch calls (up to 10 total). Most EP MCP tools respond in <10s; allow up to 120s for slow feed endpoints. **Data retrieval MUST complete before analysis starts.**
+- **Minutes 13–40**: 🔬🔬🔬 **MANDATORY DEEP POLITICAL ANALYSIS PHASE (25+ MINUTES)** — Read ALL methodology guides and templates, apply them to EVERY downloaded MCP data file, write substantive analysis markdown, use `sequentialthinking` for complex reasoning, cross-reference documents via knowledge graph, complete 4-pass refinement cycle. **⚠️ Per Rule 7, spend ≥25 minutes on AI-driven analysis.** Article topic and angle MUST be decided ONLY from completed significance scoring results. Monthly review requires the deepest synthesis across the full month's events, trends, and patterns.
+- **Minutes 40–52**: Generate English article with deep political intelligence analysis informed by completed analysis artifacts. **Analysis MUST be complete before generation starts.**
 - **Minutes 52–57**: Validate generated HTML
 - **Minutes 57–60**: Create PR with `safeoutputs___create_pull_request`
 
@@ -545,7 +544,8 @@ case "$EP_CURL_EXIT" in
   *)  echo "EP API HTTP Status (meps): $EP_STATUS (curl exit $EP_CURL_EXIT: transport/TLS/other client error)" ;;
 esac
 
-if EP_AT_STATUS=$(curl -sS -o /dev/null -w "%{http_code}" --connect-timeout 10 --max-time 120 -H "Accept: application/ld+json" "https://data.europarl.europa.eu/api/v2/adopted-texts?offset=0&limit=1&year=$(date -u +%Y)" 2>/dev/null); then
+AT_YEAR=$(date -u +%Y)
+if EP_AT_STATUS=$(curl -sS -o /dev/null -w "%{http_code}" --connect-timeout 10 --max-time 120 -H "Accept: application/ld+json" "https://data.europarl.europa.eu/api/v2/adopted-texts?offset=0&limit=1&year=${AT_YEAR}" 2>/dev/null); then
   EP_AT_CURL_EXIT=0
 else
   EP_AT_CURL_EXIT=$?
@@ -778,11 +778,11 @@ european_parliament___get_all_generated_stats({ category: "all", includePredicti
 
 ### ⚡ MCP Call Budget
 
-- **No hard limit on MCP calls**, but expect each call to take 30+ seconds. Plan time budget accordingly.
+- **No hard limit on MCP calls**. Most EP MCP tools respond in <10 seconds; only slow feed endpoints (events, procedures, documents, committee docs) take 30-120+ seconds. The 10-minute data retrieval budget allows 40+ tool calls within EP API rate limits (500 req/5min).
 - **Feed endpoints (MANDATORY)**: call all feed endpoints listed above FIRST — these are non-negotiable
 - **Precomputed stats**: call `european_parliament___get_all_generated_stats` once AFTER feeds — reuse across all sections
 - **Health-gate connectivity check**: call `european_parliament___get_plenary_sessions({ limit: 1 })` at the start to verify MCP health (up to 3 attempts with 30-second delays); reuse or discard its result — do NOT call `get_plenary_sessions` again
-- **Per-tool limit (no retries)**: each broad context MCP tool may be called **at most once per workflow run** — never call the same broad tool a second time (including `get_plenary_sessions` — the health gate counts as its single invocation). **Exception:** deep-fetch tools (`track_legislation`, `get_meeting_decisions`, `get_speeches`, `get_voting_records`) may be called once **per cited item** (max 5 deep-fetch calls total)
+- **Per-tool limit (no retries)**: each broad context MCP tool may be called **at most once per workflow run** — never call the same broad tool a second time (including `get_plenary_sessions` — the health gate counts as its single invocation). **Exception:** deep-fetch tools (`track_legislation`, `get_meeting_decisions`, `get_speeches`, `get_voting_records`) may be called once **per cited item** (max 10 deep-fetch calls total)
 - If data from a tool looks sparse, generic, historical, or placeholder after its first call, **proceed to article generation immediately — do NOT retry that tool**
 
 **ALWAYS call `european_parliament___get_plenary_sessions` FIRST as the mandatory MCP Health Gate / warm-up and connectivity check (up to 3 attempts). Do not call it again after it succeeds — reuse its result or filter by date in analysis.**
@@ -797,7 +797,7 @@ european_parliament___get_voting_records({ dateFrom: "<last-month>", dateTo: "<t
 european_parliament___analyze_coalition_dynamics({})
 ```
 
-**MANDATORY deep data collection** (call for the most significant cited procedures/texts, up to the **max 5 deep-fetch calls** cap; prioritize by: (1) items directly supporting article claims, (2) items with voting/coalition implications, (3) most recent items — replace placeholders with actual IDs/dates):
+**MANDATORY deep data collection** (call for the most significant cited procedures/texts, up to the **max 10 deep-fetch calls** cap; prioritize by: (1) items directly supporting article claims, (2) items with voting/coalition implications, (3) most recent items — replace placeholders with actual IDs/dates):
 
 ```text
 // Track specific procedures cited in analysis — repeat for each cited procedure ID (up to cap)

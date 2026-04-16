@@ -357,10 +357,9 @@ Every generated article MUST link to ALL analysis files. Verify the Analysis & T
 
 ## ⏱️ Time Budget (60 minutes)
 - **Minutes 0–3**: Date context setup, create baseline analysis file in `${ANALYSIS_DIR}/existing/session-baseline.md`, then call **🛡️ CHECKPOINT** `safeoutputs___create_pull_request` (crash-resilience PR — do this as the last step of minute ~3, after the baseline file exists)
-- **Minutes 3–8**: MCP warm-up, health gate, and analysis directory setup
-- **Minutes 8–15**: 🔬 EP MCP data fetch — ALL feed endpoints + supplementary tools (parallel where possible) — **⚠️ Download FULL document content. Store complete adopted texts, procedure details, and voting records in `${ANALYSIS_DIR}/data/`**
-- **Minutes 15–35**: 🔬🔬🔬 **MANDATORY DEEP POLITICAL ANALYSIS PHASE (15-20 MINUTES)** — Read ALL methodology guides and templates, apply them to EVERY downloaded MCP data file, write substantive analysis markdown, use `sequentialthinking` for complex reasoning, cross-reference documents via knowledge graph, complete 4-pass refinement cycle. **⚠️ Per Rule 7, spend ≥15 minutes on AI-driven analysis.** Article topic and angle MUST be decided ONLY from completed significance scoring results, not predetermined.
-- **Minutes 35–50**: Generate English article with deep political intelligence analysis informed by completed analysis artifacts
+- **Minutes 3–13**: 📡 **DATA RETRIEVAL PHASE (≤10 minutes)** — MCP warm-up, health gate, analysis directory setup. EP MCP data fetch — ALL feed endpoints + supplementary tools (parallel where possible) — **⚠️ Download FULL document content. Store complete adopted texts, procedure details, and voting records in `${ANALYSIS_DIR}/data/`**. Complete all feed + deep-fetch calls (up to 10 total). Most EP MCP tools respond in <10s; allow up to 120s for slow feed endpoints. **Data retrieval MUST complete before analysis starts.**
+- **Minutes 13–35**: 🔬🔬🔬 **MANDATORY DEEP POLITICAL ANALYSIS PHASE (15-20 MINUTES)** — Read ALL methodology guides and templates, apply them to EVERY downloaded MCP data file, write substantive analysis markdown, use `sequentialthinking` for complex reasoning, cross-reference documents via knowledge graph, complete 4-pass refinement cycle. **⚠️ Per Rule 7, spend ≥15 minutes on AI-driven analysis.** Article topic and angle MUST be decided ONLY from completed significance scoring results, not predetermined.
+- **Minutes 35–50**: Generate English article with deep political intelligence analysis informed by completed analysis artifacts. **Analysis MUST be complete before generation starts.**
 - **Minutes 50–55**: Validate HTML
 - **Minutes 55–60**: Complete all remaining work; the checkpoint PR at minute ~3 captures all artifacts automatically — do NOT call `safeoutputs___create_pull_request` again
 
@@ -852,10 +851,10 @@ european_parliament___get_all_generated_stats({ category: "all", includePredicti
 
 ### ⚡ MCP Call Budget
 
-- **No hard limit on MCP calls**, but expect each call to take 30+ seconds. Plan time budget accordingly.
+- **No hard limit on MCP calls**. Most EP MCP tools respond in <10 seconds; only slow feed endpoints (events, procedures, documents, committee docs) take 30-120+ seconds. The 10-minute data retrieval budget allows 40+ tool calls within EP API rate limits (500 req/5min).
 - **Feed endpoints (MANDATORY)**: call all feed endpoints listed above FIRST — these are non-negotiable
 - **Precomputed stats**: call `european_parliament___get_all_generated_stats` once AFTER feeds — reuse across all sections
-- **Call each broad context tool at most once** — never call the same broad tool a second time during initial data gathering. **Exception:** deep-fetch tools (`track_legislation`, `get_meeting_decisions`, `get_speeches`, `get_voting_records`) may be called once **per cited item** (max 5 deep-fetch calls **total across all deep-fetch tools** — prioritize by: (1) items directly supporting article claims, (2) items with voting/coalition implications, (3) most recent items)
+- **Call each broad context tool at most once** — never call the same broad tool a second time during initial data gathering. **Exception:** deep-fetch tools (`track_legislation`, `get_meeting_decisions`, `get_speeches`, `get_voting_records`) may be called once **per cited item** (max 10 deep-fetch calls **total across all deep-fetch tools** — prioritize by: (1) items directly supporting article claims, (2) items with voting/coalition implications, (3) most recent items)
 - If data looks sparse, generic, historical, or placeholder after the first call to a tool: **proceed to article generation immediately — do NOT retry that tool**
 - If you notice you are about to call a tool you already called, **STOP data gathering and move to generation**
 
@@ -877,7 +876,7 @@ european_parliament___get_voting_records({ sessionId: "<session-ID-from-plenary>
 // ↳ FALLBACK if no sessionId: get_voting_records({ topic: "resolution", dateFrom: "<7-days-ago>", dateTo: "<today>", limit: 20 })
 ```
 
-**MANDATORY deep data collection** (call for the most significant cited procedures/texts, up to the **max 5 deep-fetch calls** cap; prioritize by: (1) items directly supporting article claims, (2) items with voting/coalition implications, (3) most recent items):
+**MANDATORY deep data collection** (call for the most significant cited procedures/texts, up to the **max 10 deep-fetch calls** cap; prioritize by: (1) items directly supporting article claims, (2) items with voting/coalition implications, (3) most recent items):
 
 ```javascript
 // Track specific procedures cited in analysis — repeat for each cited procedure ID (up to cap)
@@ -903,7 +902,7 @@ european_parliament___generate_political_landscape({})
 
 ### Handling Slow API Responses
 
-EU Parliament API responses commonly take 30+ seconds. To handle this:
+EU Parliament API slow feed endpoints (events, procedures, documents) can take 30-120+ seconds, though most EP MCP tools respond in <10 seconds. To handle this:
 1. Use `Promise.allSettled()` for all parallel MCP queries
 2. Never fail the workflow on individual tool timeouts
 3. Continue with available data if some queries time out
