@@ -7,7 +7,7 @@
 
 > **🚨 Anti-Pattern Warning:** Generic impact statements without specific evidence ("stakeholders are affected") are REJECTED. Every stakeholder assessment MUST include: specific impact description, EP document citation, confidence level, and impact direction (positive/negative/neutral). See [methodologies/ai-driven-analysis-guide.md](../methodologies/ai-driven-analysis-guide.md) for quality requirements. **Never use scripted boilerplate — AI must analyse the actual data.**
 
-> **🔴 AI ANALYSIS REQUIRED**: Every field in this template MUST be filled by the AI agent (Opus 4.7) through genuine analysis of the EP data. Never use scripted defaults, template placeholders in final output, or data-count summaries. Analyse what the data MEANS politically.
+> **🔴 AI ANALYSIS REQUIRED**: Every field in this template MUST be filled by the AI agent through genuine analysis of the EP data. Never use scripted defaults, template placeholders in final output, or data-count summaries. Analyse what the data MEANS politically.
 
 > **🔴 Stakeholder Evidence Depth (NEW):** Political group stakeholder assessments MUST cite actual voting data (from `get_voting_records` or `get_meeting_decisions`) when claiming group positions on specific legislation. Claims like "ECR supported DGSD2 but abstained on SRMR3" require roll-call evidence. If voting records are unavailable, mark the claim as LOW confidence and note the evidence gap.
 

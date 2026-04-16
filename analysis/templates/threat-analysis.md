@@ -7,7 +7,7 @@
 
 > **🚨 Anti-Pattern Warning:** Generic scripted analysis is REJECTED. Statements like "Coalition stability appears maintained" or "No significant signals detected" indicate the agent has NOT analysed the data. Every threat finding MUST cite specific EP MCP data. The AI must READ actual data, IDENTIFY specific threats, and PRODUCE original analysis with evidence. See [methodologies/ai-driven-analysis-guide.md](../methodologies/ai-driven-analysis-guide.md) for quality requirements.
 
-> **🔴 AI ANALYSIS REQUIRED**: Every field in this template MUST be filled by the AI agent (Opus 4.7) through genuine analysis of the EP data. Never use scripted defaults, template placeholders in final output, or data-count summaries. Analyse what the data MEANS politically.
+> **🔴 AI ANALYSIS REQUIRED**: Every field in this template MUST be filled by the AI agent through genuine analysis of the EP data. Never use scripted defaults, template placeholders in final output, or data-count summaries. Analyse what the data MEANS politically.
 
 > **🔴 Threat Evidence Standard (NEW):** Threat assessments that reference political group behaviour (e.g., "ECR fracture on trade") MUST cite specific voting data from `get_voting_records` or `get_meeting_decisions`. If voting data is unavailable, the threat assessment must: (1) state this explicitly, (2) reduce confidence to LOW, and (3) note "assessment based on structural analysis, not verified voting records."
 

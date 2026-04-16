@@ -7,7 +7,7 @@
 
 > **🚨 Anti-Pattern Warning:** SWOT entries without specific evidence citations (EP document IDs, MCP tool outputs, or named sources) are REJECTED. "The EU faces challenges" is NOT a valid Weakness entry. Every entry MUST include: Statement + Evidence (EP doc ref) + Confidence + Impact. See [methodologies/ai-driven-analysis-guide.md](../methodologies/ai-driven-analysis-guide.md) for quality requirements. **Never use scripted boilerplate — AI must analyse the actual data.**
 
-> **🔴 AI ANALYSIS REQUIRED**: Every field in this template MUST be filled by the AI agent (Opus 4.7) through genuine analysis of the EP data. Never use scripted defaults, template placeholders in final output, or data-count summaries. Analyse what the data MEANS politically.
+> **🔴 AI ANALYSIS REQUIRED**: Every field in this template MUST be filled by the AI agent through genuine analysis of the EP data. Never use scripted defaults, template placeholders in final output, or data-count summaries. Analyse what the data MEANS politically.
 
 > **🔴 SWOT Evidence Depth (NEW):** SWOT entries that cite legislative velocity or committee output MUST reference actual adopted text counts verified via `get_adopted_texts({ year: YYYY })`, not inferred from precomputed stats alone. Entries citing coalition dynamics MUST use consistent seat counts from a single canonical source per analysis run. Entries citing political group positions MUST attempt `get_voting_records` for the relevant plenary session before asserting voting behaviour.
 

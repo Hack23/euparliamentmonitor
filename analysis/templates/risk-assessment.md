@@ -7,7 +7,7 @@
 
 > **🚨 Anti-Pattern Warning:** Generic risk statements like "medium risk" or "various challenges" without specific Likelihood × Impact scores, EP document evidence, or calibration are REJECTED. Every risk MUST have a quantified L×I score with cited evidence. See [methodologies/ai-driven-analysis-guide.md](../methodologies/ai-driven-analysis-guide.md) for quality requirements. **Never use scripted boilerplate — AI must analyse the actual data.**
 
-> **🔴 AI ANALYSIS REQUIRED**: Every field in this template MUST be filled by the AI agent (Opus 4.7) through genuine analysis of the EP data. Never use scripted defaults, template placeholders in final output, or data-count summaries. Analyse what the data MEANS politically.
+> **🔴 AI ANALYSIS REQUIRED**: Every field in this template MUST be filled by the AI agent through genuine analysis of the EP data. Never use scripted defaults, template placeholders in final output, or data-count summaries. Analyse what the data MEANS politically.
 
 > **🔴 Evidence Standard for Risk Scores (NEW):** Risk likelihood scores ≥ 4/5 MUST be supported by specific EP data — actual voting records, procedure status from `track_legislation`, or meeting decisions. Risk assessments that claim "certain" or "likely" based only on news narrative or precomputed statistics (without verifying against primary EP data) should cap likelihood at 3/5 (POSSIBLE) and note the evidence gap.
 

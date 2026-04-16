@@ -582,7 +582,7 @@ flowchart TD
 - **Orchestrates all frameworks:** AI Guide is the entry point that invokes Classification → Risk → Threat → SWOT → Style in sequence
 - **Enforces quality gates:** Validates outputs from every upstream methodology meet minimum standards
 - **Handles conflicts:** Resolves parallel workflow collisions via timestamp-based precedence rules
-- **Mandates AI-driven metadata:** All article titles, descriptions, and SEO keywords MUST be produced by the AI agent (Opus 4.7) analysing the content — NEVER by script code or template strings. The AI agent passes `--title` and `--description` CLI flags to the generator.
+- **Mandates AI-driven metadata:** All article titles, descriptions, and SEO keywords MUST be produced by the AI agent analysing the content — NEVER by script code or template strings. The AI agent passes `--title` and `--description` CLI flags to the generator.
 
 ---
 

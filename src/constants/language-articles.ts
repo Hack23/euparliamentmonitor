@@ -3327,7 +3327,7 @@ export const WEEK_AHEAD_STAKEHOLDER_STRINGS: LanguageMap<WeekAheadStakeholderStr
   },
 };
 
-// ─── AI analysis marker — all analysis text is produced by the AI agent (Opus 4.7) ───
+// ─── AI analysis marker — all analysis text is produced by the AI agent ───
 const AI_ANALYSIS_MARKER = '[AI_ANALYSIS_REQUIRED]';
 const BRK_WHY_ANOMALIES = AI_ANALYSIS_MARKER;
 const BRK_WHY_NORMAL = AI_ANALYSIS_MARKER;

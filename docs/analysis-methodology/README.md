@@ -177,7 +177,7 @@ In addition to the higher-level methodology guides in this directory, EU Parliam
 
 ### Fillable Analysis Templates (`analysis/templates/`)
 
-These templates are designed to be filled by the AI agent (Opus) during the analysis stage:
+These templates are designed to be filled by the AI agent during the analysis stage:
 
 | Template | File | When to Use |
 |----------|------|-------------|
