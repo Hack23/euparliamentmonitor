@@ -191,15 +191,16 @@ See [SHARED_PROMPT_PATTERNS.md Article Content Depth Gates](../prompts/SHARED_PR
 
 **🔄 Check elapsed time at EVERY phase transition** (data retrieval → analysis → generation → validation). Use:
 ```bash
-WORKFLOW_START_EPOCH="${WORKFLOW_START_EPOCH:-$(date -u +%s)}"
+# Read persisted start time ($GITHUB_ENV or temp file fallback — see SHARED_PROMPT_PATTERNS.md)
+WORKFLOW_START_EPOCH="${WORKFLOW_START_EPOCH:-$(cat /tmp/workflow_start_epoch 2>/dev/null || date -u +%s)}"
 ELAPSED_MINUTES=$(( ($(date -u +%s) - WORKFLOW_START_EPOCH) / 60 ))
-echo "⏰ Elapsed: ${ELAPSED_MINUTES} minutes"
+echo "⏰ Elapsed: ${ELAPSED_MINUTES} minutes (hard deadline: 100)"
 if [ "$ELAPSED_MINUTES" -ge 100 ]; then
-  echo "🚨 HARD DEADLINE — must create PR or noop NOW"
+  echo "🚨 HARD DEADLINE REACHED — must create PR or noop NOW"
 fi
 ```
 
-**⚡ Progressive safe output strategy**: If article generation hasn't started by minute 70, create an analysis-only PR to preserve work. If articles exist at minute 100, create PR immediately with partial content. Never delay PR creation past minute 100 for "one more improvement."
+**⚡ Progressive safe output strategy**: If article generation hasn't started by minute 70, create an analysis-only PR to preserve work. If articles exist at minute 100, create PR immediately with partial content. Never delay PR creation past minute 100 for "one more improvement." **This minute-100 hard deadline supersedes any later time-budget guidance in this workflow that schedules PR creation after minute 100; those steps must be compressed into the deadline window.**
 
 ## 🚫 MANDATORY Scope Restriction
 
@@ -318,8 +319,8 @@ Call `sequentialthinking` with structured thought chains — each step builds on
 - **Minutes N–100**: 📰 **ARTICLE GENERATION PHASE (2 PASSES PER ARTICLE)** — Generate English articles for each requested type with deep political intelligence informed by completed analysis artifacts. **Analysis MUST be complete before generation starts.**
   - **Pass 1 (~50% of article time per type)**: Generate article, replace ALL `[AI_ANALYSIS_REQUIRED]` markers. Ensure ≥60% prose ratio.
   - **Pass 2 (~50% of article time per type)**: 🔁 **MANDATORY ARTICLE READ-BACK & IMPROVEMENT** — Read the ENTIRE generated article from top to bottom. Verify every section has ≥3 analytical paragraphs, specific EP data citations, named actors/MEPs, prose not bullet lists. Add World Bank economic context if missing. Rewrite any section that fails the Economist Test. **DO NOT skip this pass.**
-- **Minutes 100–110**: Validate generated HTML, run prose ratio validation, verify zero markers remain
-- **Minutes 110–120**: Create PR with `safeoutputs___create_pull_request`
+- **Minutes 95–100**: Validate generated HTML, run prose ratio validation, verify zero markers remain. **🚨 PR MUST be created by minute 100 (HARD DEADLINE).**
+- **Minutes 98–100**: Create PR with `safeoutputs___create_pull_request`
 
 > **🛑 EARLY COMPLETION CHECK**: If you reach the PR creation step before minute 90, STOP. Go back and improve your analysis and articles. Read everything again. Add more depth, more evidence, more stakeholder perspectives.
 

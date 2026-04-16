@@ -152,15 +152,16 @@ You are the **News Journalist Agent** for EU Parliament Monitor generating **wee
 
 **🔄 Check elapsed time at EVERY phase transition** (data retrieval → analysis → generation → validation). Use:
 ```bash
-WORKFLOW_START_EPOCH="${WORKFLOW_START_EPOCH:-$(date -u +%s)}"
+# Read persisted start time ($GITHUB_ENV or temp file fallback — see SHARED_PROMPT_PATTERNS.md)
+WORKFLOW_START_EPOCH="${WORKFLOW_START_EPOCH:-$(cat /tmp/workflow_start_epoch 2>/dev/null || date -u +%s)}"
 ELAPSED_MINUTES=$(( ($(date -u +%s) - WORKFLOW_START_EPOCH) / 60 ))
-echo "⏰ Elapsed: ${ELAPSED_MINUTES} minutes"
+echo "⏰ Elapsed: ${ELAPSED_MINUTES} minutes (hard deadline: 50)"
 if [ "$ELAPSED_MINUTES" -ge 50 ]; then
-  echo "🚨 HARD DEADLINE — must create PR or noop NOW"
+  echo "🚨 HARD DEADLINE REACHED — must create PR or noop NOW"
 fi
 ```
 
-**⚡ Progressive safe output strategy**: If article generation hasn't started by minute 35, create an analysis-only PR to preserve work. If articles exist at minute 50, create PR immediately with partial content. Never delay PR creation past minute 50 for "one more improvement."
+**⚡ Progressive safe output strategy**: If article generation hasn't started by minute 35, create an analysis-only PR to preserve work. If articles exist at minute 50, create PR immediately with partial content. Never delay PR creation past minute 50 for "one more improvement." **This minute-50 hard deadline supersedes any later time-budget guidance in this workflow that schedules PR creation after minute 50; those steps must be compressed into the deadline window.**
 
 ## 🚫 MANDATORY Scope Restriction
 
@@ -349,8 +350,8 @@ Beyond listing upcoming events, provide strategic intelligence:
 - **Minutes 35–52**: 📰 **ARTICLE GENERATION PHASE (17 MINUTES — 2 PASSES)** — **Analysis MUST be complete before generation starts.**
   - **Pass 1 (Minutes 35–44, ~9 min)**: Generate English article with deep political intelligence informed by completed analysis artifacts. Replace ALL `[AI_ANALYSIS_REQUIRED]` markers. Ensure ≥60% prose ratio.
   - **Pass 2 (Minutes 44–52, ~8 min)**: 🔁 **MANDATORY ARTICLE READ-BACK & IMPROVEMENT** — Read the ENTIRE generated article from top to bottom. Verify every section has ≥3 analytical paragraphs, specific EP data citations, named actors/MEPs, prose not bullet lists. Add World Bank economic context if missing. Rewrite any section that fails the Economist Test. **DO NOT skip this pass.**
-- **Minutes 52–57**: Validate generated HTML
-- **Minutes 57–60**: Create PR with `safeoutputs___create_pull_request`
+- **Minutes 45–50**: Validate generated HTML. **🚨 PR MUST be created by minute 50 (HARD DEADLINE).**
+- **Minutes 48–50**: Create PR with `safeoutputs___create_pull_request`
 
 > **🛑 EARLY COMPLETION CHECK**: If you reach the PR creation step before minute 45, STOP. Go back and improve your analysis and articles. Read everything again. Add more depth.
 
