@@ -183,6 +183,25 @@ The code does NOT provide quality analysis. The code builders (`buildCommitteeAn
 
 See [SHARED_PROMPT_PATTERNS.md Article Content Depth Gates](../prompts/SHARED_PROMPT_PATTERNS.md#-article-content-depth-gates-mandatory-for-all-workflows) for the complete set of content depth requirements including prose ratio, SWOT depth, stakeholder depth, World Bank integration, and chart generation mandates.
 
+## ⏰ HARD DEADLINE — Session Expiry Prevention (NON-NEGOTIABLE — READ FIRST)
+
+> **⚠️ ABSOLUTE RULE**: This workflow MUST produce a safe output (`safeoutputs___create_pull_request` or `safeoutputs___noop`) BEFORE the 120-minute session expires. A workflow that runs the full timeout without calling any safe output is a **TOTAL FAILURE** — worse than a noop. See [SHARED_PROMPT_PATTERNS.md Hard Deadline](../prompts/SHARED_PROMPT_PATTERNS.md#-hard-deadline--session-expiry-prevention-all-workflows--non-negotiable).
+
+**🚨 At minute 100**: STOP all work immediately. Create PR with whatever content exists, or call noop with diagnostics. **No exceptions.**
+
+**🔄 Check elapsed time at EVERY phase transition** (data retrieval → analysis → generation → validation). Use:
+```bash
+# Read persisted start time ($GITHUB_ENV or temp file fallback — see SHARED_PROMPT_PATTERNS.md)
+WORKFLOW_START_EPOCH="${WORKFLOW_START_EPOCH:-$(cat /tmp/workflow_start_epoch 2>/dev/null || date -u +%s)}"
+ELAPSED_MINUTES=$(( ($(date -u +%s) - WORKFLOW_START_EPOCH) / 60 ))
+echo "⏰ Elapsed: ${ELAPSED_MINUTES} minutes (hard deadline: 100)"
+if [ "$ELAPSED_MINUTES" -ge 100 ]; then
+  echo "🚨 HARD DEADLINE REACHED — must create PR or noop NOW"
+fi
+```
+
+**⚡ Progressive safe output strategy**: If article generation hasn't started by minute 70, create an analysis-only PR to preserve work. If articles exist at minute 100, create PR immediately with partial content. Never delay PR creation past minute 100 for "one more improvement." **This minute-100 hard deadline supersedes any later time-budget guidance in this workflow that schedules PR creation after minute 100; those steps must be compressed into the deadline window.**
+
 ## 🚫 MANDATORY Scope Restriction
 
 > **⚠️ CRITICAL**: This workflow creates article files in the `news/` directory and analysis artifacts in the `analysis/daily/` directory. You MUST NOT modify any other files, except for the conditional allowance below for minor, necessary compilation or runtime fixes in `src/` or `scripts/`.
@@ -297,17 +316,17 @@ Call `sequentialthinking` with structured thought chains — each step builds on
 - **Minutes 20–N**: 🔬🔬🔬 **MANDATORY DEEP POLITICAL ANALYSIS PHASE (≥15 MINUTES × NUMBER OF ARTICLE TYPES — 2 PASSES PER TYPE)**
   - **Pass 1 (~60% of analysis time)**: Read ALL methodology guides and templates, apply them to EVERY downloaded MCP data file, write substantive analysis markdown, use `sequentialthinking` for complex reasoning, cross-reference documents via knowledge graph, complete 4-pass refinement cycle. **⚠️ Per Rule 7, spend ≥15 minutes per article type on AI-driven analysis.** For 1 type: minutes 20–35. For 2 types: minutes 20–50. For 3+ types: scale accordingly. Article topics and angles MUST be decided ONLY from completed significance scoring results.
   - **Pass 2 (~40% of analysis time)**: 🔁 **MANDATORY READ-BACK & IMPROVEMENT** — Read EVERY analysis file you wrote, completely, word by word. Expand shallow sections, add evidence citations, add confidence levels, add cross-references between analysis files, ensure every SWOT item has ≥80 words. Rewrite anything that doesn't meet the Economist Test. **DO NOT skip this pass.**
-- **Minutes N–100**: 📰 **ARTICLE GENERATION PHASE (2 PASSES PER ARTICLE)** — Generate English articles for each requested type with deep political intelligence informed by completed analysis artifacts. **Analysis MUST be complete before generation starts.**
+- **Minutes N–95**: 📰 **ARTICLE GENERATION PHASE (2 PASSES PER ARTICLE)** — Generate English articles for each requested type with deep political intelligence informed by completed analysis artifacts. **Analysis MUST be complete before generation starts. Article generation MUST end by minute 95 to allow validation and PR creation.**
   - **Pass 1 (~50% of article time per type)**: Generate article, replace ALL `[AI_ANALYSIS_REQUIRED]` markers. Ensure ≥60% prose ratio.
   - **Pass 2 (~50% of article time per type)**: 🔁 **MANDATORY ARTICLE READ-BACK & IMPROVEMENT** — Read the ENTIRE generated article from top to bottom. Verify every section has ≥3 analytical paragraphs, specific EP data citations, named actors/MEPs, prose not bullet lists. Add World Bank economic context if missing. Rewrite any section that fails the Economist Test. **DO NOT skip this pass.**
-- **Minutes 100–110**: Validate generated HTML, run prose ratio validation, verify zero markers remain
-- **Minutes 110–120**: Create PR with `safeoutputs___create_pull_request`
+- **Minutes 95–98**: Validate generated HTML, run prose ratio validation, verify zero markers remain. **🚨 PR MUST be created by minute 100 (HARD DEADLINE).**
+- **Minutes 98–100**: Create PR with `safeoutputs___create_pull_request`
 
 > **🛑 EARLY COMPLETION CHECK**: If you reach the PR creation step before minute 90, STOP. Go back and improve your analysis and articles. Read everything again. Add more depth, more evidence, more stakeholder perspectives.
 
 > **🔑 ENGLISH-ONLY FOCUS**: By default this workflow generates English content only. Use the extra time to produce deeper political analysis. Translations to other languages are handled by the separate `news-translate` workflow.
 
-**If you reach minute 100 and the PR has not been created yet**: Stop generating more content and immediately create the PR using `safeoutputs___create_pull_request` with the content generated so far. Partial content in a PR is better than a timeout with no PR.
+**If you reach minute 100 and the PR has not been created yet**: STOP IMMEDIATELY. Create the PR using `safeoutputs___create_pull_request` with the content generated so far. Partial content in a PR is better than a timeout with no PR. This is a NON-NEGOTIABLE HARD DEADLINE — see [SHARED_PROMPT_PATTERNS.md](../prompts/SHARED_PROMPT_PATTERNS.md#-hard-deadline--session-expiry-prevention-all-workflows--non-negotiable).
 
 
 ## 🔬 Political Intelligence Analysis Stage

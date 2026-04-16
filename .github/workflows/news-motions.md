@@ -148,6 +148,25 @@ You are the **News Journalist Agent** for EU Parliament Monitor generating **EU 
 
 **The Economist Test**: Every section must read like analytical journalism, not a code-generated data summary.
 
+## ⏰ HARD DEADLINE — Session Expiry Prevention (NON-NEGOTIABLE — READ FIRST)
+
+> **⚠️ ABSOLUTE RULE**: This workflow MUST produce a safe output (`safeoutputs___create_pull_request` or `safeoutputs___noop`) BEFORE the 60-minute session expires. A workflow that runs the full timeout without calling any safe output is a **TOTAL FAILURE** — worse than a noop. See [SHARED_PROMPT_PATTERNS.md Hard Deadline](../prompts/SHARED_PROMPT_PATTERNS.md#-hard-deadline--session-expiry-prevention-all-workflows--non-negotiable).
+
+**🚨 At minute 50**: STOP all work immediately. Create PR with whatever content exists, or call noop with diagnostics. **No exceptions.**
+
+**🔄 Check elapsed time at EVERY phase transition** (data retrieval → analysis → generation → validation). Use:
+```bash
+# Read persisted start time ($GITHUB_ENV or temp file fallback — see SHARED_PROMPT_PATTERNS.md)
+WORKFLOW_START_EPOCH="${WORKFLOW_START_EPOCH:-$(cat /tmp/workflow_start_epoch 2>/dev/null || date -u +%s)}"
+ELAPSED_MINUTES=$(( ($(date -u +%s) - WORKFLOW_START_EPOCH) / 60 ))
+echo "⏰ Elapsed: ${ELAPSED_MINUTES} minutes (hard deadline: 50)"
+if [ "$ELAPSED_MINUTES" -ge 50 ]; then
+  echo "🚨 HARD DEADLINE REACHED — must create PR or noop NOW"
+fi
+```
+
+**⚡ Progressive safe output strategy**: This workflow creates a checkpoint PR at minute ~3 that automatically captures all subsequent file changes. The hard deadline is therefore already satisfied. At minute 50, finalize remaining work and stop — do NOT call `safeoutputs___create_pull_request` again. **This minute-50 hard deadline supersedes any later time-budget guidance.**
+
 ## 🚫 MANDATORY Scope Restriction
 
 > **⚠️ CRITICAL**: This workflow ONLY creates article files in the `news/` directory and analysis artifacts in the `analysis/daily/` directory, except for the limited conditional allowance below for minor, necessary fixes in `src/` or `scripts/`. You MUST NOT modify any other files.
@@ -380,17 +399,17 @@ Every generated article MUST link to ALL analysis files. Verify the Analysis & T
 - **Minutes 13–35**: 🔬🔬🔬 **MANDATORY DEEP POLITICAL ANALYSIS PHASE (22 MINUTES — 2 PASSES)**
   - **Pass 1 (Minutes 13–26, ~13 min)**: Read ALL methodology guides and templates, apply them to EVERY downloaded MCP data file, write substantive analysis markdown, use `sequentialthinking` for complex reasoning, cross-reference documents via knowledge graph, complete 4-pass refinement cycle. **⚠️ Per Rule 7, spend ≥20 minutes total on AI-driven analysis.** Article topic and angle MUST be decided ONLY from completed significance scoring results, not predetermined.
   - **Pass 2 (Minutes 26–35, ~9 min)**: 🔁 **MANDATORY READ-BACK & IMPROVEMENT** — Read EVERY analysis file you wrote, completely, word by word. Expand shallow sections, add evidence citations, add confidence levels, add cross-references between analysis files, ensure every SWOT item has ≥80 words. Rewrite anything that doesn't meet the Economist Test. **DO NOT skip this pass.**
-- **Minutes 35–52**: 📰 **ARTICLE GENERATION PHASE (17 MINUTES — 2 PASSES)** — **Analysis MUST be complete before generation starts.**
-  - **Pass 1 (Minutes 35–44, ~9 min)**: Generate English article with deep political intelligence informed by completed analysis artifacts. Replace ALL `[AI_ANALYSIS_REQUIRED]` markers. Ensure ≥60% prose ratio.
-  - **Pass 2 (Minutes 44–52, ~8 min)**: 🔁 **MANDATORY ARTICLE READ-BACK & IMPROVEMENT** — Read the ENTIRE generated article from top to bottom. Verify every section has ≥3 analytical paragraphs, specific EP data citations, named actors/MEPs, prose not bullet lists. Add World Bank economic context if missing. Rewrite any section that fails the Economist Test. **DO NOT skip this pass.**
-- **Minutes 52–57**: Validate HTML
-- **Minutes 57–60**: Complete all remaining work; the checkpoint PR at minute ~3 captures all artifacts automatically — do NOT call `safeoutputs___create_pull_request` again
+- **Minutes 35–45**: 📰 **ARTICLE GENERATION PHASE (10 MINUTES — 2 PASSES)** — **Analysis MUST be complete before generation starts.**
+  - **Pass 1 (Minutes 35–40, ~5 min)**: Generate English article with deep political intelligence informed by completed analysis artifacts. Replace ALL `[AI_ANALYSIS_REQUIRED]` markers. Ensure ≥60% prose ratio.
+  - **Pass 2 (Minutes 40–45, ~5 min)**: 🔁 **MANDATORY ARTICLE READ-BACK & IMPROVEMENT** — Read the ENTIRE generated article from top to bottom. Verify every section has ≥3 analytical paragraphs, specific EP data citations, named actors/MEPs, prose not bullet lists. Add World Bank economic context if missing. Rewrite any section that fails the Economist Test. **DO NOT skip this pass.**
+- **Minutes 45–48**: Validate HTML. **The checkpoint PR at minute ~3 captures all artifacts automatically.**
+- **Minutes 48–50**: Complete all remaining work; the checkpoint PR captures everything — do NOT call `safeoutputs___create_pull_request` again
 
 > **🛑 EARLY COMPLETION CHECK**: If you reach the final step before minute 45, STOP. Go back and improve your analysis and articles. Read everything again. Add more depth.
 
 > **🔑 ENGLISH-ONLY FOCUS**: This workflow generates English content only. Use the extra time (vs. translating to 13 languages) to produce deeper political analysis, richer context, and more comprehensive intelligence. Translations to other languages are handled by the separate `news-translate` workflow.
 
-**If you reach minute 50 without generating articles**: The checkpoint PR exists with analysis artifacts. Finalize any remaining file edits — the PR captures everything automatically.
+**If you reach minute 50 without generating articles**: STOP IMMEDIATELY. The checkpoint PR exists with analysis artifacts. Finalize any remaining file edits — the PR captures everything automatically. This is a NON-NEGOTIABLE HARD DEADLINE — see [SHARED_PROMPT_PATTERNS.md](../prompts/SHARED_PROMPT_PATTERNS.md#-hard-deadline--session-expiry-prevention-all-workflows--non-negotiable).
 
 
 ## 📂 Analysis File Consolidation (MANDATORY)

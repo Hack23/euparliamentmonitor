@@ -709,6 +709,89 @@ Today's workflow runs complete in 24-30 minutes out of 60-minute budgets. The AI
 
 ---
 
+## ⏰ HARD DEADLINE — Session Expiry Prevention (All Workflows — NON-NEGOTIABLE)
+
+> **⚠️ ABSOLUTE RULE**: The workflow MUST produce a safe output (`safeoutputs___create_pull_request` or `safeoutputs___noop`) BEFORE the session expires. A workflow that runs the full timeout without calling any safe output tool is a **TOTAL FAILURE** — worse than a noop, because it wastes compute and produces zero observable output.
+
+### 🚨 HARD DEADLINE (10 minutes before workflow timeout)
+
+**The hard deadline is 10 minutes before the workflow's `timeout-minutes`:**
+- **60-minute workflows**: Hard deadline at **minute 50**
+- **120-minute workflows**: Hard deadline at **minute 100**
+
+**At the hard deadline, you MUST:**
+
+1. **STOP all analysis, article generation, and quality improvement immediately**
+2. **If article files exist in `news/`**: Call `safeoutputs___create_pull_request` with whatever content you have — partial content in a PR is infinitely better than no PR at all
+3. **If no article files exist but analysis files exist**: Call `safeoutputs___create_pull_request` with analysis artifacts only (per Rule 5: no workflow run should be wasted)
+4. **If no files of any kind exist**: Call `safeoutputs___noop` with full diagnostics
+5. **If a checkpoint PR was already created** (e.g., news-motions creates one at minute ~3): The hard deadline is already satisfied — finalize remaining work without calling safeoutputs again
+
+> **⚠️ OVERRIDE RULE**: This hard deadline **supersedes** any later time-budget or minute-by-minute plan entries that schedule PR creation after the deadline (e.g., "Minutes 57–60: Create PR"). Those later schedule entries must be treated as compressed into the deadline window. After the deadline, the only valid actions are immediate `safeoutputs___create_pull_request` or `safeoutputs___noop`.
+
+### 🔄 Periodic Clock Checks (MANDATORY)
+
+**Check elapsed time at EVERY phase transition:**
+- After data retrieval phase → check clock
+- After analysis Pass 1 → check clock
+- After analysis Pass 2 → check clock
+- After article generation Pass 1 → check clock
+- After article generation Pass 2 → check clock
+- After validation → check clock
+
+**Initialize `WORKFLOW_START_EPOCH` once at workflow start** (in the first bash block or Date Context Establishment), then persist it across blocks via `$GITHUB_ENV` or a temp file:
+
+```bash
+# --- Run ONCE at workflow start (e.g., Date Context Establishment) ---
+WORKFLOW_START_EPOCH=$(date -u +%s)
+echo "WORKFLOW_START_EPOCH=$WORKFLOW_START_EPOCH" >> "$GITHUB_ENV"
+echo "$WORKFLOW_START_EPOCH" > /tmp/workflow_start_epoch
+
+# --- Run at EVERY phase transition to check elapsed time ---
+# Read the persisted start time (GITHUB_ENV or temp file fallback)
+WORKFLOW_START_EPOCH="${WORKFLOW_START_EPOCH:-$(cat /tmp/workflow_start_epoch 2>/dev/null || date -u +%s)}"
+# HARD_DEADLINE_MINUTES MUST be set explicitly by each workflow:
+#   60-minute workflows:  HARD_DEADLINE_MINUTES=50
+#   120-minute workflows: HARD_DEADLINE_MINUTES=100
+# If not set, this snippet will ERROR to prevent silent misconfiguration.
+if [ -z "${HARD_DEADLINE_MINUTES:-}" ]; then
+  echo "❌ ERROR: HARD_DEADLINE_MINUTES not set. Set to 50 (60-min) or 100 (120-min)."
+  HARD_DEADLINE_MINUTES=50  # safe fallback for 60-min workflows
+fi
+ELAPSED_MINUTES=$(( ($(date -u +%s) - WORKFLOW_START_EPOCH) / 60 ))
+echo "⏰ Elapsed: ${ELAPSED_MINUTES} minutes (hard deadline: ${HARD_DEADLINE_MINUTES})"
+if [ "$ELAPSED_MINUTES" -ge "$HARD_DEADLINE_MINUTES" ]; then
+  echo "🚨 HARD DEADLINE REACHED — must create PR or noop NOW"
+fi
+```
+
+### 🛑 Avoid Starting Slow Calls Near Deadline
+
+**After minute 40 (60-min workflows) or minute 90 (120-min workflows):**
+- Do NOT initiate new slow feed endpoint calls (events, procedures, documents, committee_docs — these take 30-120+ seconds)
+- Do NOT start new deep-fetch calls (`track_legislation`, `get_meeting_decisions`, `get_speeches`)
+- Complete any in-progress generation/validation, then proceed to PR creation
+- Fast tools (<10s response) are still OK to call if they support the current phase
+
+### ⚡ Progressive Safe Output Strategy
+
+To prevent session expiry from losing all work:
+1. **Create analysis-only PR at minute 35** (60-min) or **minute 70** (120-min) if article generation hasn't started — preserve analysis artifacts
+2. **Create PR with partial content at the hard deadline** — even a single English article is valuable
+3. **Never delay PR creation for "one more improvement"** after the hard deadline — the risk of losing everything outweighs the benefit of marginal improvement
+
+> **⚠️ CHECKPOINT PR PATTERN** (used by news-motions): If a workflow creates a checkpoint PR early (~minute 3), all subsequent file changes are automatically captured. In this case, the hard deadline requirement is already satisfied — do NOT call safeoutputs again. Just finalize work and stop.
+
+### World Bank MCP Timeout Handling
+
+The `worldbank-mcp@1.0.1` server uses a 10-second HTTP timeout for World Bank API requests (hardcoded `axios` timeout in the server source code). This is separate from the EP MCP `EP_REQUEST_TIMEOUT_MS` setting. If a World Bank call fails or times out:
+1. **Skip it and continue** — World Bank data is supplementary context, never primary content
+2. **Do NOT retry** failed World Bank calls — they count against your time budget
+3. **Maximum 3 World Bank data calls** per 60-minute workflow (search-indicators calls are exempt)
+4. **If ALL World Bank calls fail**, proceed without economic context — this is acceptable
+
+---
+
 ## 🎭 Stakeholder Perspectives (6-Lens Model)
 
 For every major parliamentary action, analyze from **≥4** of these 6 perspectives (minimum ≥150 words per perspective):
