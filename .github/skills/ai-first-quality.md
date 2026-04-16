@@ -92,7 +92,7 @@ Every paragraph must pass this test:
 |---------------|-------------|-----------------|------------------------|----------------------|
 | Single-topic news | 60 min | ≥45 min | ≥20 min | ≥15 min |
 | Weekly/Monthly review | 60 min | ≥45 min | ≥25 min | ≥15 min |
-| Multi-article generator | 120 min | ≥90 min | ≥15 min × types | ≥15 min × types |
+| Multi-article generator | 120 min | ≥90 min | ≥20 min × types | ≥15 min × types |
 
 ## Application Per Agent Role
 

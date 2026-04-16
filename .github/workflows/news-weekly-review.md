@@ -156,7 +156,7 @@ You are the **News Journalist Agent** for EU Parliament Monitor generating **wee
 - ❌ **Writing custom Python/Ruby/Perl scripts** — Use ONLY the existing Node.js/TypeScript toolchain
 - ❌ **Dangerous shell expansion patterns** — NEVER use `${var@P}`, `${!var}`, `eval`, nested command substitutions `$($(..))`, nested parameter expansions like `${var:+...${#other}...}`, or input redirection inside command substitution `$(cmd < file)`. Use `if/else` blocks instead. These will be blocked by the sandbox
 - ❌ **Metadata-only analysis** — MUST download COMPLETE EP documents
-- ❌ **Rushing analysis in <20 minutes** — Spend the full allocated ≥20 minutes on deep political intelligence analysis
+- ❌ **Rushing analysis in <25 minutes** — Spend the full allocated ≥25 minutes on deep political intelligence analysis
 - ❌ **Deciding article topic before analysis** — Finish ALL analysis first
 
 **If you encounter build errors or source code bugs**: You MAY apply minor targeted fixes (max 20 lines in `src/`/`scripts/`) to unblock news generation. See [SHARED_PROMPT_PATTERNS.md](../prompts/SHARED_PROMPT_PATTERNS.md#minor-typescriptscript-corrections-conditional-allow) for constraints. For larger issues, log the error and continue.
@@ -266,7 +266,7 @@ This is a **retrospective** article analyzing the past 7 days of parliamentary a
 
 **CRITICAL SEQUENCING RULE**: The article topic, angle, headline, and narrative structure are ALL decided AFTER this analysis phase completes — NEVER before. The significance scoring results from the analysis determine what the article covers.
 
-> **🚫 VIOLATION**: Starting to write the article, choosing a headline, or deciding the narrative angle before spending ≥20 minutes (2 passes) on systematic analysis using the methodology guides and templates. If you find yourself writing article content before the analysis phase is complete, STOP and return to analysis.
+> **🚫 VIOLATION**: Starting to write the article, choosing a headline, or deciding the narrative angle before spending ≥25 minutes (2 passes) on systematic analysis using the methodology guides and templates. If you find yourself writing article content before the analysis phase is complete, STOP and return to analysis.
 
 ## 🎭 STAKEHOLDER PERSPECTIVE ANALYSIS (MANDATORY)
 

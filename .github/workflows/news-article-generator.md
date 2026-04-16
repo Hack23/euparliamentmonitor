@@ -199,7 +199,7 @@ See [SHARED_PROMPT_PATTERNS.md Article Content Depth Gates](../prompts/SHARED_PR
 - ❌ **Writing custom Python/Ruby/Perl scripts** — Use ONLY the existing Node.js/TypeScript toolchain
 - ❌ **Dangerous shell expansion patterns** — NEVER use `${var@P}`, `${!var}`, `eval`, nested command substitutions `$($(..))`, nested parameter expansions like `${var:+...${#other}...}`, or input redirection inside command substitution `$(cmd < file)`. Use `if/else` blocks instead. These will be blocked by the sandbox
 - ❌ **Metadata-only analysis** — MUST download COMPLETE EP documents
-- ❌ **Rushing analysis — You MUST spend ≥20 minutes per article type (2 passes each) on deep political intelligence analysis. Completing early is a VIOLATION
+- ❌ **Rushing analysis** — You MUST spend ≥20 minutes per article type (2 passes each) on deep political intelligence analysis. Completing early is a VIOLATION.
 - ❌ **Deciding article topic before analysis** — Finish ALL analysis first
 
 **If you encounter build errors or source code bugs**: You MAY apply minor targeted fixes (max 20 lines in `src/`/`scripts/`) to unblock news generation. See [SHARED_PROMPT_PATTERNS.md](../prompts/SHARED_PROMPT_PATTERNS.md#minor-typescriptscript-corrections-conditional-allow) for constraints. For larger issues, log the error and continue.
