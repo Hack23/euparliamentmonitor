@@ -54,7 +54,7 @@ mcp-servers:
   european-parliament:
     container: "node:25-alpine"
     entrypoint: "npx"
-    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.7", "--timeout", "120000"]
+    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.8", "--timeout", "120000"]
     env:
       EP_REQUEST_TIMEOUT_MS: "120000"
   world-bank:
@@ -875,7 +875,7 @@ european_parliament___get_meps_feed({ timeframe: "one-week", limit: 20 })
 
 // Procedures feed — legislative procedure updates
 european_parliament___get_procedures_feed({ timeframe: "one-week", limit: 20 })
-// ↳ FALLBACK if 404/timeout: european_parliament___get_procedures({ year: <current-year>, limit: 50 })
+// ↳ FALLBACK if 404/timeout: european_parliament___get_procedures({ limit: 50 })
 ```
 
 > **⚠️ ARTICLE CONTENT MUST COME FROM THESE FEEDS**: The article's lede, headlines, and primary sections must reference **specific adopted texts, resolutions, or motions** found in these feed results. If feeds return items, those items ARE the news. If feeds return no recent items, still perform full analysis and create an analysis-only PR per `ai-driven-analysis-guide.md` Rule 5 — do NOT fall back to writing an article from precomputed stats.
@@ -1137,7 +1137,7 @@ if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
     echo "✅ EP MCP server binary found for stdio mode"
   else
     echo "⚠️ No gateway URL set, installing EP MCP server for stdio mode..."
-    npm install --no-save european-parliament-mcp-server@1.2.7
+    npm install --no-save european-parliament-mcp-server@1.2.8
   fi
 fi
 

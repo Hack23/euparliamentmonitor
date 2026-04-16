@@ -437,7 +437,7 @@ export async function fetchWeekAheadData(client, dateRange) {
             limit: 20,
         }),
         client.getParliamentaryQuestions({ dateFrom: dateRange.start, limit: 20 }),
-        client.getEvents({ dateFrom: dateRange.start, dateTo: dateRange.end, limit: 20 }),
+        client.getEvents({ limit: 20 }),
     ]);
     const allFailed = [
         plenarySessions,

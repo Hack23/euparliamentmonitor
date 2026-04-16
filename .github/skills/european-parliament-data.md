@@ -122,7 +122,7 @@ Ensure reliable integration with European Parliament open data via the MCP (Mode
 | **Today / Breaking** | `*_feed({ timeframe: "one-day" })` | Feeds return items published/updated today |
 | **This week** | `*_feed({ timeframe: "one-week" })` | Feeds return items from the past 7 days |
 | **This month** | `*_feed({ timeframe: "one-month" })` | Feeds return items from the past 30 days |
-| **Future / Preview** | `get_events({ dateFrom, dateTo })`, `get_plenary_sessions({ dateFrom, dateTo })` | Direct queries with future date ranges |
+| **Future / Preview** | `get_events({ limit: 50 })`, `get_plenary_sessions({ dateFrom, dateTo })` | Events have no date filtering (v1.2.8); plenary sessions support dateFrom/dateTo |
 | **Historical context** | `get_all_generated_stats({ yearFrom, yearTo })` | Precomputed stats — NEVER primary news content |
 
 **Feed endpoints** (return recently updated items):
