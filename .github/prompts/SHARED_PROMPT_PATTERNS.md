@@ -562,7 +562,21 @@ When `monitor_legislative_pipeline` returns `health: 0%` and `throughput: 0`:
 
 > **RULE**: When the article covers ANY policy area with measurable economic impact (trade, employment, digital economy, health, environment, energy, agriculture, housing, migration), the AI MUST include World Bank economic context.
 
-**When World Bank data is MANDATORY** (not optional):
+> **📘 Canonical indicator→article-type mapping**: See
+> [`analysis/methodologies/worldbank-indicator-mapping.md`](../../analysis/methodologies/worldbank-indicator-mapping.md).
+> That file is the single source of truth for which indicators to pick per
+> article type and per committee. Always cite it by relative path from
+> workflow prompts so the AI reads it at runtime.
+
+> **🔌 Connectivity probe**: Workflows SHOULD source
+> `scripts/wb-mcp-probe.sh` immediately after `scripts/mcp-setup.sh` and
+> branch on `$WB_MCP_OK`:
+>   - `WB_MCP_OK=true`  → World Bank gate is **mandatory** (full rule below).
+>   - `WB_MCP_OK=false` → World Bank gate degrades to **best-effort**: still
+>     include the phrase "World Bank" + a one-sentence degradation note in
+>     the article footer so the validator's evidence check passes.
+
+**When World Bank data is MANDATORY** (not optional — see the mapping file for the full list):
 - Articles about employment/labour legislation → `UNEMPLOYMENT`, `GDP_GROWTH` for affected countries
 - Articles about trade policy (tariffs, Mercosur, WTO) → `EXPORTS_GDP`, `FDI_NET`, `GDP_GROWTH`
 - Articles about health legislation → `HEALTH_EXPENDITURE`, `PHYSICIANS`, `LIFE_EXPECTANCY`
@@ -614,8 +628,28 @@ When `monitor_legislative_pipeline` returns `health: 0%` and `throughput: 0`:
 6. **Coalition dynamics** must be discussed in the context of specific votes/decisions, not abstractly
 
 **Validation checklist before PR creation:**
+
+> **⚠️ BLOCKING GATE**: The CLI validator below is authoritative. It must be
+> run and must pass before emitting the `create-pull-request` safe output.
+> The inline shell loop that follows it is informational/diagnostic only.
+
 ```bash
-# Check article depth metrics
+# Authoritative quality gate — fails on missing charts, missing World Bank
+# evidence (for policy article types), hand-written HTML fingerprints
+# (language-switcher count <14, missing .footer-content), and all pre-existing
+# structural checks. Non-zero exit MUST block PR creation.
+npx tsx src/utils/validate-articles.ts --date="$TODAY" --quality --strict
+VALIDATOR_EXIT=$?
+if [ "$VALIDATOR_EXIT" -ne 0 ]; then
+  echo "❌ BLOCKING: validate-articles failed (exit $VALIDATOR_EXIT). Fix the reported issues and re-run before PR." >&2
+  exit 1
+fi
+```
+
+```bash
+# Diagnostic loop — prints prose ratio and chart count per article. The
+# blocking check above already covers these rules; this loop exists so a
+# human reader of the workflow log can see per-article metrics at a glance.
 for f in news/${TODAY}-*-en.html; do
   [ -f "$f" ] || continue
   METRICS=$(FILE="$f" node -e "const fs = require('node:fs'); const html = fs.readFileSync(process.env.FILE, 'utf8'); const stripTags = (value) => value.replace(/<[^>]+>/g, ''); const sumChars = (regex) => Array.from(html.matchAll(regex)).reduce((total, match) => total + stripTags(match[1]).length, 0); process.stdout.write(String(sumChars(/<p[^>]*>([\s\S]*?)<\/p>/gi)) + ' ' + String(sumChars(/<li[^>]*>([\s\S]*?)<\/li>/gi)));" 2>/dev/null || echo "0 0")
@@ -626,15 +660,9 @@ for f in news/${TODAY}-*-en.html; do
   if [ "$TOTAL" -gt 0 ]; then
     RATIO=$((PARA_CHARS * 100 / TOTAL))
     echo "$f: prose ratio ${RATIO}% (target: ≥60%)"
-    if [ "$RATIO" -lt 60 ]; then
-      echo "ERROR: Article prose ratio ${RATIO}% is below 60% — rewrite with more analytical paragraphs" >&2
-    fi
   fi
   CHARTS=$(grep -c '<canvas' "$f" 2>/dev/null || echo 0)
   echo "$f: charts=$CHARTS (target: ≥1)"
-  if [ "$CHARTS" -lt 1 ]; then
-    echo "WARNING: Article has zero charts — add dashboard/chart visualization" >&2
-  fi
 done
 ```
 
@@ -693,11 +721,15 @@ Today's workflow runs complete in 24-30 minutes out of 60-minute budgets. The AI
 > - [ ] Every SWOT item has ≥80 words with evidence and confidence level
 > - [ ] Every stakeholder perspective has ≥150 words with evidence chain
 > - [ ] Risk outlook is ≥200 words with probability-labelled scenarios
-> - [ ] World Bank economic data included where policy has economic dimension
-> - [ ] ≥1 Chart.js canvas with real data exists
+> - [ ] World Bank economic data included where policy has economic dimension — rendered in ≥1 `<canvas data-chart-config="…">` block AND discussed in ≥1 analytical paragraph of ≥60 words. Indicator selection MUST follow [`analysis/methodologies/worldbank-indicator-mapping.md`](../../analysis/methodologies/worldbank-indicator-mapping.md)
+> - [ ] ≥1 Chart.js canvas with supported type (`bar`/`line`/`pie`/`doughnut`/`radar`/`polarArea`/`scatter`/`bubble`) and ≥3 data points — the validator's `articleHasChart()` rejects single-point canvases
+> - [ ] Standard language switcher emits all 14 `.lang-link` entries (hand-written HTML that skips the template is blocked by `countLanguageSwitcherLinks`)
+> - [ ] Footer includes BOTH `.footer-content` and `.footer-bottom` blocks (ditto)
+> - [ ] No inline `<script>` blocks in article body (CSP is fixed at `script-src 'self'`; all runtime JS lives in `js/article-runtime.js` / `js/chart-init.js`)
 > - [ ] Zero `[AI_ANALYSIS_REQUIRED]` markers remain
 > - [ ] Article passes the Economist Test — reads like analytical journalism
 > - [ ] Prose ratio ≥60% (run validation script)
+> - [ ] `npx tsx src/utils/validate-articles.ts --date=$TODAY --quality --strict` exits 0
 
 ### ⏱️ Time Enforcement Rules
 
