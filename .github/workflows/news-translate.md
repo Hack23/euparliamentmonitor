@@ -310,17 +310,17 @@ fi
 # but safeoutputs still returned "No changes to commit" — the unconditional marker
 # eliminates that failure mode. The marker contains RUN_ID + nanosecond epoch so every
 # invocation produces a unique byte-level change.
-RUN_MARKER_LINE="<!-- run-marker: run=${RUN_ID} ts=$(date -u +%Y-%m-%dT%H:%M:%S.%NZ) -->"
+RUN_MARKER_LINE="<!-- run-marker: run=${RUN_ID} ts=$(date -u +%Y-%m-%dT%H:%M:%SZ) seq=${RANDOM}${RANDOM} -->"
 printf '%s\n' "${RUN_MARKER_LINE}" >> "${SUMMARY_FILE}"
-sync "${SUMMARY_FILE}" 2>/dev/null || true
+sync 2>/dev/null || true
 
 # Verify baseline is visible to git as an uncommitted change — checkpoint PR depends on this.
 BASELINE_CHANGES=$(git status --porcelain -- "${ANALYSIS_DIR}" 2>/dev/null | wc -l)
 echo "📋 Baseline changes detected by git: ${BASELINE_CHANGES} (must be ≥1 for checkpoint PR to succeed)"
 if [ "${BASELINE_CHANGES}" -lt 1 ]; then
   echo "⚠️ git did not detect the baseline change — writing a second marker file as fallback."
-  printf 'run=%s epoch=%s\n' "${RUN_ID}" "$(date +%s%N)" > "${ANALYSIS_DIR}/run-marker.txt"
-  sync "${ANALYSIS_DIR}/run-marker.txt" 2>/dev/null || true
+  printf 'run=%s epoch=%s seq=%s\n' "${RUN_ID}" "$(date +%s)" "${RANDOM}${RANDOM}" > "${ANALYSIS_DIR}/run-marker.txt"
+  sync 2>/dev/null || true
   BASELINE_CHANGES=$(git status --porcelain -- "${ANALYSIS_DIR}" 2>/dev/null | wc -l)
   echo "📋 Baseline changes after fallback marker: ${BASELINE_CHANGES}"
 fi
@@ -339,8 +339,8 @@ Call `safeoutputs___create_pull_request` NOW (if not already called) with title=
 > ```bash
 > cd "${GITHUB_WORKSPACE:-/home/runner/work/euparliamentmonitor/euparliamentmonitor}"
 > mkdir -p "analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}"
-> echo "retry-marker $(date -u +%Y-%m-%dT%H:%M:%S.%NZ)" >> "analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}/summary.md"
-> sync "analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}/summary.md" 2>/dev/null || true
+> echo "retry-marker $(date -u +%Y-%m-%dT%H:%M:%SZ) seq=${RANDOM}${RANDOM}" >> "analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}/summary.md"
+> sync 2>/dev/null || true
 > git status --short -- "analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}/"
 > ```
 >
