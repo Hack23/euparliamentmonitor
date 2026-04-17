@@ -7,7 +7,7 @@
 
 > **🚨 Anti-Pattern Warning:** Plain prose without structured tables, Mermaid diagrams, or evidence citations is REJECTED. Every classification file MUST follow this template exactly: metadata header, structured tables with evidence columns, colour-coded Mermaid diagram, confidence labels on all claims. See [methodologies/ai-driven-analysis-guide.md](../methodologies/ai-driven-analysis-guide.md) for good vs. bad examples. **Never use scripted boilerplate — AI must analyse the actual document.**
 
-> **🔴 AI ANALYSIS REQUIRED**: Every field in this template MUST be filled by the AI agent (Opus 4.6) through genuine analysis of the EP data. Never use scripted defaults, template placeholders in final output, or data-count summaries. Analyse what the data MEANS politically.
+> **🔴 AI ANALYSIS REQUIRED**: Every field in this template MUST be filled by the AI agent through genuine analysis of the EP data. Never use scripted defaults, template placeholders in final output, or data-count summaries. Analyse what the data MEANS politically.
 
 > **🔴 Classification Data Sources (NEW):** Political alignment scores (Left-Right 1-10) MUST be derived from actual voting patterns, not assumed from group labels. Use `get_voting_records` for the relevant plenary session, or `analyze_coalition_dynamics` for structural composition. If voting data is unavailable, note "alignment score estimated from group composition, not verified voting data" and cap confidence at MEDIUM.
 

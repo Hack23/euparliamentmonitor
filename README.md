@@ -984,7 +984,7 @@ Projected workflow counts below include all CI/CD workflow definitions, agentic 
 
 | Year | Projected Workflow Definitions | AI Model | Key Capability |
 |------|-------------------------------|----------|----------------|
-| **2026** | 44–50 | Opus 4.6–4.9 | 🟢 Agentic news generation |
+| **2026** | 44–50 | Opus 4.7–4.9 | 🟢 Agentic news generation |
 | **2027** | 50–55 | Opus 5.x | 🔵 Predictive analytics |
 | **2028** | 55–65 | Opus 6.x | 🟣 Multi-modal content |
 | **2029** | 65–75 | Opus 7.x | 🟠 Autonomous pipeline |

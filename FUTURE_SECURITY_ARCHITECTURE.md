@@ -109,7 +109,7 @@ Parliament Monitor over the near-term (Q2 2026 - Q1 2027) and extends into a
 focuses on **proactive security**, **automated verification**, and
 **resilience** while maintaining the platform's core principles of simplicity
 and transparency. The long-term vision addresses the security implications of
-evolving AI capabilities — including Anthropic Opus 4.6 (minor updates every
+evolving AI capabilities — including Anthropic Opus 4.7 (minor updates every
 ~2.3 months, major version upgrades annually) — and potential AGI emergence.
 
 ## 🎯 Strategic Security Goals
@@ -2677,7 +2677,7 @@ async function getAnalytics(env) {
 
 ### AI-Driven Security Evolution
 
-As AI models evolve from Anthropic Opus 4.6 (minor updates every ~2.3 months,
+As AI models evolve from Anthropic Opus 4.7 (minor updates every ~2.3 months,
 major annual upgrades) through potential AGI, the security architecture must
 evolve to address both new capabilities and new threat vectors.
 

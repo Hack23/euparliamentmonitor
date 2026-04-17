@@ -773,7 +773,7 @@ stateDiagram-v2
 
 ### AI-Driven State Evolution
 
-As AI capabilities evolve — from Anthropic Opus 4.6 (minor updates every ~2.3
+As AI capabilities evolve — from Anthropic Opus 4.7 (minor updates every ~2.3
 months, major version upgrades annually) through potential AGI — state
 management must evolve from reactive to predictive to autonomous.
 

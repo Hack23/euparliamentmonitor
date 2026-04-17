@@ -1601,7 +1601,7 @@ SELECT cron.schedule('data-quality-check', '0 6 * * *',
 
 ### AI-Driven Data Evolution
 
-As AI models evolve — from Anthropic Opus 4.6 (minor updates every ~2.3 months,
+As AI models evolve — from Anthropic Opus 4.7 (minor updates every ~2.3 months,
 major annually) through potential AGI — the data model must evolve to support
 increasingly sophisticated analytical capabilities.
 

@@ -811,7 +811,7 @@ mindmap
 mindmap
   root((EU Parliament<br/>Monitor<br/>2027-2037))
     🤖 AI Evolution Path
-      2026-2027: Opus 4.6 Era
+      2026-2027: Opus 4.7 Era
         Minor updates every 2.3 months
         Major version upgrades annually
         MCP-based data integration

@@ -481,7 +481,7 @@ describe('isScaffoldContent', () => {
   });
 
   it('detects Instructions for AI Agent prompt', () => {
-    expect(isScaffoldContent('Instructions for AI Agent (Opus 4.6): do analysis')).toBe(true);
+    expect(isScaffoldContent('Instructions for AI Agent: do analysis')).toBe(true);
   });
 
   it('detects quality gate markers', () => {

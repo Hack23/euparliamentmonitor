@@ -190,14 +190,14 @@ export const runId: string = (
 /**
  * AI-generated article title passed by the agentic workflow.
  * When provided, this OVERRIDES any script-generated title.
- * The AI agent (Opus 4.6) must analyse the content and produce this.
+ * The AI agent must analyse the content and produce this.
  */
 export const aiTitle: string = titleArg ? titleArg.slice('--title='.length).trim() : '';
 
 /**
  * AI-generated article description/subtitle passed by the agentic workflow.
  * When provided, this OVERRIDES any script-generated description.
- * The AI agent (Opus 4.6) must analyse the content and produce this.
+ * The AI agent must analyse the content and produce this.
  */
 export const aiDescription: string = descriptionArg
   ? descriptionArg.slice('--description='.length).trim()
@@ -532,7 +532,7 @@ async function runAnalysisWithGuard(
 
 /**
  * Wire AI-provided title/description from CLI `--title` and `--description` flags.
- * The AI agent (Opus 4.6) passes these after analysing the content.
+ * The AI agent passes these after analysing the content.
  * They override ALL script-generated metadata for the English version.
  */
 function wireAIMetadata(): void {

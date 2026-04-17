@@ -500,7 +500,7 @@ When `monitor_legislative_pipeline` returns `health: 0%` and `throughput: 0`:
 
 ### 🔤 Prose-First Writing Structure (MANDATORY)
 
-> **ABSOLUTE RULE**: Articles are **analytical essays**, not bullet-point reports. The AI agent (Opus 4.6) must write substantive prose paragraphs that synthesize political intelligence from the completed analysis phase.
+> **ABSOLUTE RULE**: Articles are **analytical essays**, not bullet-point reports. The AI agent (Opus 4.7) must write substantive prose paragraphs that synthesize political intelligence from the completed analysis phase.
 
 | Gate | Requirement | Validation |
 |------|-------------|------------|

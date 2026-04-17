@@ -165,7 +165,7 @@ The following capabilities have already been delivered and are documented in [WO
 ### 0.2 Agentic News Workflows — ✅ COMPLETED
 
 **Status:** 10 agentic news workflows compiled via `gh-aw` (GitHub Agentic Workflows v0.57.0) are in production.  
-**Engine:** GitHub Copilot CLI with `claude-opus-4.6` model  
+**Engine:** GitHub Copilot CLI with `claude-opus-4.7` model  
 **Data Source:** `european-parliament-mcp-server` via MCP protocol  
 **Coverage:** 14 languages (EN, SV, DA, NO, FI, DE, FR, ES, NL, AR, HE, JA, KO, ZH)
 
@@ -901,7 +901,7 @@ jobs:
 
 ### Political Intelligence Evolution — From Pipeline to Autonomous Observatory
 
-As AI capabilities advance — from current LLMs (Opus 4.6) through multi-modal agents to potential AGI — the EU Parliament Monitor's workflow architecture will evolve from human-configured pipelines into an autonomous political intelligence observatory capable of real-time democratic transparency monitoring across all EU institutions.
+As AI capabilities advance — from current LLMs (Opus 4.7) through multi-modal agents to potential AGI — the EU Parliament Monitor's workflow architecture will evolve from human-configured pipelines into an autonomous political intelligence observatory capable of real-time democratic transparency monitoring across all EU institutions.
 
 ```mermaid
 flowchart TD
@@ -1102,7 +1102,7 @@ gantt
 ```mermaid
 flowchart LR
     subgraph "2026"
-        T1["claude-opus-4.6<br/>GitHub Copilot<br/>EP MCP Server"]
+        T1["claude-opus-4.7<br/>GitHub Copilot<br/>EP MCP Server"]
     end
 
     subgraph "2027-2029"
