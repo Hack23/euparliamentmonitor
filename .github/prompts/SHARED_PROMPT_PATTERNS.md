@@ -715,7 +715,7 @@ Today's workflow runs complete in 24-30 minutes out of 60-minute budgets. The AI
 
 > **🚫 VIOLATION**: Completing a 60-minute workflow in under 45 minutes. If you find yourself about to create the PR before minute 45, STOP — go back and improve your analysis and articles. Read everything again. Add more depth. Every additional minute of improvement produces higher quality.
 
-### 📋 Mandatory Analysis-Only 2-Pass Protocol (When No Article Is Generated)
+### 📋 Mandatory Analysis-Only 4-Pass Protocol (When No Article Is Generated)
 
 > **⚠️ NON-NEGOTIABLE**: The ≥45-minute active-work requirement applies **equally** to analysis-only runs (when the newsworthiness gate fails or Parliament is in recess and no article is produced). An agent that determines "no breaking news" at minute 15 and immediately creates the analysis-only PR is in **VIOLATION** — the time saved by skipping article generation MUST be reinvested into deeper analysis.
 >
@@ -727,14 +727,14 @@ Today's workflow runs complete in 24-30 minutes out of 60-minute budgets. The AI
 |------|--------|------|
 | **Minutes 15–27 — Pass 1 (initial analysis)** | Write all analysis markdown files across the 5 categories (classification, threat assessment, risk scoring, intelligence, documents). | ~12 min |
 | **Minutes 27–35 — Pass 2 (read-back & improvement)** | Read every analysis file completely, expand shallow sections, add evidence citations and confidence labels, cross-reference files. | ~8 min |
-| **Minutes 35–40 — Pass 3 (cross-run diff + scenario stress)** | Read the prior run's analysis from `analysis/daily/{YYYY-MM-DD}/{type}-run{N-1}/` (if present) and write a `cross-run-diff.md` file: what changed since prior run, what is new incremental intelligence, what hypotheses are now confirmed/refuted, what scenario probabilities have shifted. Stress-test each coalition/risk scenario with ≥1 alternate-probability scenario. | ~5 min |
+| **Minutes 35–40 — Pass 3 (cross-run diff + scenario stress)** | Locate the latest prior analysis folder by listing `analysis/daily/*/{type}-run*/` (excluding the current run's folder) and selecting the most recent earlier folder; if none exists within the last 7 days, consult repo-memory editorial context instead. Write `intelligence/cross-run-diff.md` documenting: what changed since prior run, what is new incremental intelligence, what hypotheses are now confirmed/refuted, what scenario probabilities have shifted. Stress-test each coalition/risk scenario with ≥1 alternate-probability scenario. | ~5 min |
 | **Minutes 40–45 — Pass 4 (forward-monitoring extension)** | Extend the synthesis file with a **Forward Monitoring Priorities** section listing ≥5 specific, dated, observable indicators to watch before the next scheduled run. Append **Data-Quality Delta** notes documenting any API feed degradation vs prior runs. | ~5 min |
 | **Minutes 45–48** | Validate analysis files (line counts, confidence labels present, zero placeholders remain). | 3 min |
 | **Minutes 48–50** | Create analysis-only PR via `safeoutputs___create_pull_request`. | 2 min |
 
 **Quality gates for analysis-only PRs (all MUST be met before PR creation):**
 - [ ] ≥7 analysis files written (classification/significance-scoring, risk-scoring/risk-matrix, threat-assessment/political-threat-landscape, intelligence/quantitative-swot, intelligence/coalition-dynamics, documents/document-analysis-index, intelligence/synthesis-summary)
-- [ ] `cross-run-diff.md` present comparing against the immediately prior run (if one exists within 7 days)
+- [ ] `intelligence/cross-run-diff.md` present comparing against the latest prior run (if one exists within 7 days)
 - [ ] Every SWOT quadrant has ≥3 entries of ≥80 words each with evidence and confidence label
 - [ ] ≥5 forward monitoring priorities with concrete observable triggers
 - [ ] Data-quality delta documented for any feed that returned 404/empty/timeout

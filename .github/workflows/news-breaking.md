@@ -393,16 +393,16 @@ Every generated article (or analysis-only PR) MUST link to ALL individual analys
 
 ### 🔁 Analysis-Only Extended Time Budget (when newsworthiness gate FAILS)
 
-> **⚠️ NON-NEGOTIABLE**: If at minute ~35 the AI determines "no breaking news" and skips article generation, you MUST NOT jump to PR creation at minute 36. Reinvest the saved 10+ minutes into deeper analysis per [SHARED_PROMPT_PATTERNS.md Analysis-Only 2-Pass Protocol](../prompts/SHARED_PROMPT_PATTERNS.md#mandatory-analysis-only-2-pass-protocol-when-no-article-is-generated). Early-exit at minute ~19 (as occurred in run 24541203743 / PR #1223) is a **VIOLATION**.
+> **⚠️ NON-NEGOTIABLE**: If at minute ~35 the AI determines "no breaking news" and skips article generation, you MUST NOT jump to PR creation at minute 36. Reinvest the saved 10+ minutes into deeper analysis per [SHARED_PROMPT_PATTERNS.md Analysis-Only 4-Pass Protocol](../prompts/SHARED_PROMPT_PATTERNS.md#mandatory-analysis-only-4-pass-protocol-when-no-article-is-generated). Early-exit at minute ~19 (as occurred in run 24541203743 / PR #1223) is a **VIOLATION**.
 
 Replace minutes 35–45 with:
 
-- **Minutes 35–40 (Pass 3 — Cross-Run Diff)**: Read the immediately prior run's analysis folder (`analysis/daily/{YYYY-MM-DD}/breaking-run{N-1}/`) and repo-memory editorial context. Write `intelligence/cross-run-diff.md` documenting: what changed since prior run, what is NEW incremental intelligence (not recycled), what hypotheses are now confirmed/refuted, which scenario probabilities shifted and why. Stress-test each coalition/risk scenario with ≥1 alternate-probability scenario and its triggering indicators.
+- **Minutes 35–40 (Pass 3 — Cross-Run Diff)**: Locate the latest prior breaking analysis folder by listing `analysis/daily/*/breaking-run*/`, excluding the current run's folder, and selecting the most recent earlier folder; if none exists within the last 7 days, consult the repo-memory editorial context/article log instead. Write `intelligence/cross-run-diff.md` documenting: what changed since the latest prior breaking run, what is NEW incremental intelligence (not recycled), what hypotheses are now confirmed/refuted, which scenario probabilities shifted and why. Stress-test each coalition/risk scenario with ≥1 alternate-probability scenario and its triggering indicators.
 - **Minutes 40–45 (Pass 4 — Forward Monitoring Extension)**: Append to `intelligence/synthesis-summary.md` a **Forward Monitoring Priorities** section with ≥5 specific, dated, observable indicators to watch before the next scheduled run (e.g., "Monitor USTR press page after 14:00 UTC on April 18 for Section 301 mentions"). Append a **Data-Quality Delta** subsection documenting any feed degradation vs prior runs (404/empty/timeout counts). Record final `ELAPSED_MINUTES` in the synthesis footer.
 
 **Quality gates for analysis-only PRs** (all MUST pass before minute 48 PR creation):
 - [ ] All 7 standard analysis files written (significance-scoring, risk-matrix, political-threat-landscape, quantitative-swot, coalition-dynamics, document-analysis-index, synthesis-summary)
-- [ ] `intelligence/cross-run-diff.md` present when a prior run exists within the last 7 days
+- [ ] `intelligence/cross-run-diff.md` present when a prior breaking run exists within the last 7 days or repo-memory provides equivalent recent editorial context
 - [ ] Every SWOT quadrant has ≥3 entries of ≥80 words with evidence + confidence label
 - [ ] ≥5 forward monitoring priorities with concrete observable triggers
 - [ ] Data-quality delta documented for every feed that returned 404/empty/timeout
