@@ -697,6 +697,137 @@ function collectQualityGateWarnings(html, warnings) {
     if (emptySectionCount > 0) {
         warnings.push(`Article contains ${emptySectionCount} empty or near-empty <section> element(s) that should be removed`);
     }
+    // Chart presence gate
+    if (!articleHasChart(html)) {
+        warnings.push('Missing required Chart.js visualization: no <canvas data-chart-config="…"> element with a valid type found (≥1 required, see ai-first-quality.md quality gates)');
+    }
+    // Structural integrity gates — catch hand-written HTML bypassing the template
+    const langSwitcherCount = countLanguageSwitcherLinks(html);
+    if (langSwitcherCount < MIN_LANG_SWITCHER_LINKS) {
+        warnings.push(`Language switcher has only ${langSwitcherCount} link(s); the template always emits ${MIN_LANG_SWITCHER_LINKS} — this article may have been hand-written and skipped the template`);
+    }
+    if (!hasStandardFooterContent(html)) {
+        warnings.push('Footer is missing the standard `.footer-content` + `.footer-bottom` blocks — the template always emits these; article may have been hand-written');
+    }
+}
+/** Minimum number of language switcher links the template always emits (14 languages). */
+const MIN_LANG_SWITCHER_LINKS = 14;
+/** Chart.js types accepted by the `data-chart-config` declarative pattern. */
+const CHART_JS_TYPES = /"type"\s*:\s*"(bar|line|pie|doughnut|radar|polarArea|scatter|bubble)"/u;
+/** Default text for a typed reason string used in `appendConfidenceReason`. */
+/**
+ * Detect whether the article contains at least one Chart.js canvas with a
+ * well-formed `data-chart-config` JSON payload.
+ *
+ * A valid chart must:
+ *  - be rendered via `<canvas data-chart-config="…">` (the declarative
+ *    CSP-safe pattern hydrated by `js/chart-init.js`)
+ *  - declare a supported Chart.js `type`
+ *  - carry at least 3 data points in the first dataset (single-point charts
+ *    are rejected by `SHARED_PROMPT_PATTERNS.md` anti-patterns)
+ *
+ * @param html - Raw article HTML
+ * @returns `true` when ≥1 chart meeting the rules is present
+ */
+export function articleHasChart(html) {
+    const canvasRegex = /<canvas[^>]*data-chart-config\s*=\s*"([^"]+)"/giu;
+    let match = canvasRegex.exec(html);
+    while (match !== null) {
+        const raw = match[1] ?? '';
+        // The config attribute is HTML-entity-encoded (JSON-LD-style). Decode the
+        // five entities that the template's escapeHTML produces.
+        const decoded = raw
+            .replace(/&quot;/gu, '"')
+            .replace(/&#39;/gu, "'")
+            .replace(/&gt;/gu, '>')
+            .replace(/&lt;/gu, '<')
+            .replace(/&amp;/gu, '&');
+        if (CHART_JS_TYPES.test(decoded)) {
+            // Count data points across the first dataset.
+            const dataMatch = /"data"\s*:\s*\[([^\]]*)\]/u.exec(decoded);
+            if (dataMatch) {
+                const points = (dataMatch[1] ?? '').split(',').filter((s) => s.trim().length > 0);
+                if (points.length >= 3)
+                    return true;
+            }
+        }
+        match = canvasRegex.exec(html);
+    }
+    return false;
+}
+/**
+ * Count distinct language switcher links emitted in the article header.
+ *
+ * @param html - Complete article HTML
+ * @returns Number of `.lang-link` anchors inside the header `site-header__langs` nav
+ */
+function countLanguageSwitcherLinks(html) {
+    const headerMatch = /<nav[^>]*class="[^"]*site-header__langs[^"]*"[^>]*>([\s\S]*?)<\/nav>/u.exec(html);
+    const scope = headerMatch?.[1] ?? html;
+    const matches = scope.match(/class="[^"]*\blang-link\b[^"]*"/gu);
+    return matches ? matches.length : 0;
+}
+/**
+ * Detect the two standard footer blocks always produced by `article-template.ts`.
+ *
+ * @param html - Complete article HTML
+ * @returns `true` when both `.footer-content` and `.footer-bottom` classes are present
+ */
+function hasStandardFooterContent(html) {
+    return /class="footer-content"/u.test(html) && /class="footer-bottom"/u.test(html);
+}
+/** Slugs for article types that MUST include World Bank economic context. */
+const POLICY_SLUGS_REQUIRING_WORLD_BANK = new Set([
+    'committee-reports',
+    'propositions',
+    'motions',
+    'weekly-review',
+    'monthly-review',
+    'week-in-review',
+    'month-in-review',
+    'month-ahead',
+]);
+/** Indicator substrings that prove World Bank data was actually used. */
+const WORLD_BANK_FINGERPRINTS = [
+    'World Bank',
+    'world bank',
+    'worldbank',
+    'GDP_GROWTH',
+    'GDP_PER_CAPITA',
+    'GNI_PER_CAPITA',
+    'UNEMPLOYMENT',
+    'INFLATION',
+    'EXPORTS_GDP',
+    'FDI_NET',
+    'LIFE_EXPECTANCY',
+    'HEALTH_EXPENDITURE',
+    'INTERNET_USERS',
+    'EDUCATION_EXPENDITURE',
+    'search-indicators',
+];
+/**
+ * Verify that a policy article (or the linked analysis artifacts) contains at
+ * least one World Bank fingerprint — indicator code, tool call trace, or the
+ * phrase "World Bank" itself. Returns `true` if the gate is satisfied OR the
+ * article type is not on the mandatory list.
+ *
+ * @param html - Article HTML
+ * @param articleType - Slug of the article category (e.g. `"committee-reports"`)
+ * @param _analysisDir - Reserved for API symmetry; filesystem recursion is
+ *   performed by the caller in `validate-articles.ts` to keep this module pure.
+ * @returns `true` when the World Bank evidence requirement is met or not applicable
+ */
+export function articlePolicyHasWorldBank(html, articleType, _analysisDir) {
+    if (!POLICY_SLUGS_REQUIRING_WORLD_BANK.has(articleType))
+        return true;
+    for (const fp of WORLD_BANK_FINGERPRINTS) {
+        if (html.includes(fp))
+            return true;
+    }
+    // Filesystem fallback is intentionally handled by the caller
+    // (validate-articles.ts) to keep this module free of I/O. The
+    // `_analysisDir` parameter is accepted for API symmetry.
+    return false;
 }
 /**
  * Validate the quality of a generated article.

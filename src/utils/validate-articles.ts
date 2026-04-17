@@ -20,8 +20,8 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { NEWS_DIR, ARTICLE_FILENAME_PATTERN } from '../constants/config.js';
-import { validateArticleContent } from './content-validator.js';
+import { NEWS_DIR, ARTICLE_FILENAME_PATTERN, PROJECT_ROOT } from '../constants/config.js';
+import { validateArticleContent, articlePolicyHasWorldBank } from './content-validator.js';
 import { scoreArticleQuality } from './article-quality-scorer.js';
 import type { ArticleQualityReport, ArticleGrade } from '../types/quality.js';
 
@@ -100,6 +100,127 @@ function slugToArticleType(slug: string): string {
 // ─── Main validation logic ────────────────────────────────────────────────────
 
 /**
+ * Substrings that indicate World Bank data was genuinely used. Kept in sync
+ * with `WORLD_BANK_FINGERPRINTS` in `content-validator.ts` but repeated here
+ * because the string list is short and used with filesystem I/O.
+ */
+const WORLD_BANK_FS_FINGERPRINTS = [
+  'World Bank',
+  'world bank',
+  'worldbank',
+  'GDP_GROWTH',
+  'GDP_PER_CAPITA',
+  'GNI_PER_CAPITA',
+  'UNEMPLOYMENT',
+  'INFLATION',
+  'EXPORTS_GDP',
+  'FDI_NET',
+  'LIFE_EXPECTANCY',
+  'HEALTH_EXPENDITURE',
+  'INTERNET_USERS',
+  'EDUCATION_EXPENDITURE',
+  'search-indicators',
+];
+
+/**
+ * For policy article types, verify World Bank evidence in either the article
+ * body OR any `.md` file under the article's `analysis/daily/{date}/{slug}*`
+ * directory. Non-policy article types are always considered satisfied.
+ *
+ * @param html - Full HTML of the article being validated
+ * @param articleType - Article category slug (e.g. `"committee-reports"`)
+ * @param date - Article publication date (`YYYY-MM-DD`)
+ * @param slug - Article slug used to locate the matching analysis directory
+ * @returns Warning string when the gate fails, or `null` when satisfied.
+ */
+function checkWorldBankEvidence(
+  html: string,
+  articleType: string,
+  date: string,
+  slug: string
+): string | null {
+  // Short-circuit for non-policy article types.
+  if (articlePolicyHasWorldBank(html, articleType)) return null;
+
+  // Sweep sibling analysis directories: analysis/daily/{date}/{slug}*
+  const analysisRoot = path.join(PROJECT_ROOT, 'analysis', 'daily', date);
+  if (!fs.existsSync(analysisRoot)) {
+    return `Missing required World Bank economic context for "${articleType}" article; analysis directory ${analysisRoot} does not exist`;
+  }
+
+  const candidates = safeReaddir(analysisRoot).filter(
+    (entry) => entry === slug || entry.startsWith(`${slug}-`) || entry.startsWith(`${slug}_`)
+  );
+
+  for (const dirName of candidates) {
+    if (directoryContainsWorldBankFingerprint(path.join(analysisRoot, dirName))) {
+      return null;
+    }
+  }
+
+  return `Missing required World Bank economic context for "${articleType}" article; neither article body nor analysis files under ${analysisRoot} reference any World Bank indicator`;
+}
+
+/**
+ * List directory entries, returning `[]` on any error (tolerate missing paths).
+ *
+ * @param dir - Directory to list
+ * @returns Array of entry names or `[]` when the directory cannot be read
+ */
+function safeReaddir(dir: string): string[] {
+  try {
+    return fs.readdirSync(dir);
+  } catch {
+    return [];
+  }
+}
+
+/**
+ * Depth-limited recursive search for any World Bank fingerprint in `.md` files.
+ *
+ * @param dir - Directory to scan
+ * @param depth - Current recursion depth (callers should omit; capped at 3)
+ * @returns `true` when at least one `.md` file contains a World Bank fingerprint
+ */
+function directoryContainsWorldBankFingerprint(dir: string, depth = 0): boolean {
+  if (depth > 3) return false;
+  let entries: fs.Dirent[];
+  try {
+    entries = fs.readdirSync(dir, { withFileTypes: true });
+  } catch {
+    return false;
+  }
+  for (const entry of entries) {
+    if (entryContainsWorldBankFingerprint(dir, entry, depth)) return true;
+  }
+  return false;
+}
+
+/**
+ * Test a single directory entry for World Bank fingerprints, recursing into
+ * subdirectories up to the shared depth cap.
+ *
+ * @param dir - Parent directory of `entry`
+ * @param entry - Directory entry to test
+ * @param depth - Current recursion depth of the caller
+ * @returns `true` when this entry (or any descendant) matches a fingerprint
+ */
+function entryContainsWorldBankFingerprint(dir: string, entry: fs.Dirent, depth: number): boolean {
+  const full = path.join(dir, entry.name);
+  if (entry.isDirectory()) {
+    return directoryContainsWorldBankFingerprint(full, depth + 1);
+  }
+  if (!entry.isFile() || !entry.name.endsWith('.md')) return false;
+  let content: string;
+  try {
+    content = fs.readFileSync(full, 'utf-8');
+  } catch {
+    return false;
+  }
+  return WORLD_BANK_FS_FINGERPRINTS.some((fp) => content.includes(fp));
+}
+
+/**
  * Validate a single article file and return a summary.
  *
  * @param filename - Filename of the article to validate
@@ -117,6 +238,12 @@ function validateSingleFile(filename: string): ArticleValidationSummary | null {
   const articleType = slugToArticleType(slug);
 
   const result = validateArticleContent(html, lang, articleType);
+
+  // World Bank gate — extend search to linked analysis markdown files
+  const wbWarning = checkWorldBankEvidence(html, articleType, date, slug);
+  if (wbWarning) {
+    result.warnings.push(wbWarning);
+  }
 
   const summary: ArticleValidationSummary = {
     filename,

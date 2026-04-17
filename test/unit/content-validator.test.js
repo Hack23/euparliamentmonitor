@@ -1036,3 +1036,134 @@ describe('empty section detection', () => {
     expect(emptyWarning).toMatch(/1 empty/);
   });
 });
+
+// ─── New quality gate: Chart.js + World Bank + structural guard ────────────
+
+describe('utils/content-validator — chart + structural + World Bank gates', () => {
+  /**
+   * Build a 600-word committee-reports article. Callers may inject extra HTML
+   * (e.g. a `<canvas data-chart-config>` block) via `extraBody`.
+   * @param {object} options - Test options
+   * @param {string} [options.extraBody=''] - Additional HTML injected into body
+   * @param {number} [options.languageLinks=14] - Number of `.lang-link` anchors in the header switcher
+   * @param {boolean} [options.includeFooter=true] - Whether to include the standard footer blocks
+   * @param {string} [options.worldBankText=''] - Text to include that mentions World Bank
+   * @returns {string} Article HTML
+   */
+  function buildCommitteeArticle(options = {}) {
+    const {
+      extraBody = '',
+      languageLinks = 14,
+      includeFooter = true,
+      worldBankText = '',
+    } = options;
+    const langLinks = Array.from(
+      { length: languageLinks },
+      (_, i) => `<a class="lang-link" href="#lang-${i}">lang${i}</a>`
+    ).join('');
+    const footer = includeFooter
+      ? `<footer class="site-footer"><div class="footer-content"><p>links</p></div><div class="footer-bottom"><p>copyright</p></div></footer>`
+      : `<footer class="site-footer"><p>no content blocks</p></footer>`;
+    return `<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <title>Committee Test | EU Parliament Monitor</title>
+  <meta name="description" content="Test">
+  <meta name="keywords" content="EU Parliament, committee">
+  <meta property="og:title" content="Committee Test">
+  <meta property="og:description" content="Test">
+  <meta name="twitter:title" content="Committee Test">
+  <meta name="twitter:description" content="Test">
+</head>
+<body>
+  <nav class="skip-link"></nav>
+  <div class="reading-progress"></div>
+  <header class="site-header"><div class="site-header__inner"><h1>Test</h1><nav class="site-header__langs">${langLinks}</nav></div></header>
+  <nav class="article-top-nav"><a href="#">Back</a></nav>
+  <main id="main"><article>
+    <div class="article-meta"><span class="article-read-time">3 min read</span></div>
+    <p>${Array(600).fill('word').join(' ')}</p>
+    ${worldBankText}
+    ${extraBody}
+  </article></main>
+  ${footer}
+</body>
+</html>`;
+  }
+
+  describe('Chart.js visualisation gate', () => {
+    it('warns when no canvas with data-chart-config is present', () => {
+      const html = buildCommitteeArticle();
+      const result = validateArticleContent(html, 'en', 'committee-reports');
+      const chartWarning = result.warnings.find((w) =>
+        w.includes('Missing required Chart.js visualization')
+      );
+      expect(chartWarning).toBeDefined();
+    });
+
+    it('passes when a well-formed declarative chart is present', () => {
+      const canvas = `<canvas data-chart-config="{&quot;type&quot;:&quot;bar&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;x&quot;,&quot;data&quot;:[1,2,3]}]}}"></canvas>`;
+      const html = buildCommitteeArticle({ extraBody: canvas });
+      const result = validateArticleContent(html, 'en', 'committee-reports');
+      const chartWarning = result.warnings.find((w) =>
+        w.includes('Missing required Chart.js visualization')
+      );
+      expect(chartWarning).toBeUndefined();
+    });
+
+    it('still warns when a chart type is missing', () => {
+      const canvas = `<canvas data-chart-config="{&quot;data&quot;:{&quot;datasets&quot;:[{&quot;data&quot;:[1,2,3]}]}}"></canvas>`;
+      const html = buildCommitteeArticle({ extraBody: canvas });
+      const result = validateArticleContent(html, 'en', 'committee-reports');
+      const chartWarning = result.warnings.find((w) =>
+        w.includes('Missing required Chart.js visualization')
+      );
+      expect(chartWarning).toBeDefined();
+    });
+
+    it('still warns when a chart has fewer than 3 data points', () => {
+      const canvas = `<canvas data-chart-config="{&quot;type&quot;:&quot;bar&quot;,&quot;data&quot;:{&quot;datasets&quot;:[{&quot;data&quot;:[1,2]}]}}"></canvas>`;
+      const html = buildCommitteeArticle({ extraBody: canvas });
+      const result = validateArticleContent(html, 'en', 'committee-reports');
+      const chartWarning = result.warnings.find((w) =>
+        w.includes('Missing required Chart.js visualization')
+      );
+      expect(chartWarning).toBeDefined();
+    });
+  });
+
+  describe('Structural guard — detects hand-written HTML', () => {
+    it('warns when the language switcher has fewer than 14 links', () => {
+      const html = buildCommitteeArticle({ languageLinks: 1 });
+      const result = validateArticleContent(html, 'en', 'committee-reports');
+      const switcherWarning = result.warnings.find((w) =>
+        w.includes('Language switcher has only')
+      );
+      expect(switcherWarning).toBeDefined();
+      expect(switcherWarning).toMatch(/only 1/);
+    });
+
+    it('warns when the standard footer content blocks are missing', () => {
+      const html = buildCommitteeArticle({ includeFooter: false });
+      const result = validateArticleContent(html, 'en', 'committee-reports');
+      const footerWarning = result.warnings.find((w) =>
+        w.includes('footer-content')
+      );
+      expect(footerWarning).toBeDefined();
+    });
+
+    it('passes structural checks for a well-formed article', () => {
+      const canvas = `<canvas data-chart-config="{&quot;type&quot;:&quot;bar&quot;,&quot;data&quot;:{&quot;datasets&quot;:[{&quot;data&quot;:[1,2,3]}]}}"></canvas>`;
+      const html = buildCommitteeArticle({ extraBody: canvas });
+      const result = validateArticleContent(html, 'en', 'committee-reports');
+      const hasSwitcherWarning = result.warnings.some((w) =>
+        w.includes('Language switcher has only')
+      );
+      const hasFooterWarning = result.warnings.some((w) =>
+        w.includes('footer-content')
+      );
+      expect(hasSwitcherWarning).toBe(false);
+      expect(hasFooterWarning).toBe(false);
+    });
+  });
+});
