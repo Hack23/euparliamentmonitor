@@ -24,7 +24,10 @@
  */
 
 import { describe, it, expect, vi, afterEach } from 'vitest';
-import { WorldBankMCPClient } from '../../../scripts/mcp/wb-mcp-client.js';
+import {
+  WorldBankMCPClient,
+  WORLD_BANK_MCP_TOOLS,
+} from '../../../scripts/mcp/wb-mcp-client.js';
 
 afterEach(() => {
   vi.restoreAllMocks();
@@ -141,11 +144,11 @@ describe('integration — World Bank MCP tool surface', () => {
     ).rejects.toThrow('Connection refused');
   });
 
-  it('covers all 7 canonical World Bank MCP tools in this test suite', () => {
-    // Guard test that fails if a new WB tool is added to the code paths
-    // but not covered here. Update both the list and add a new it() block
-    // in the same PR when you see this fail.
-    const canonicalTools = [
+  it('covers all canonical World Bank MCP tools exported by the client', () => {
+    // True drift guard: assert equality between the client's exported tool
+    // list and the tools exercised above. If a new tool is added to
+    // `wb-mcp-client.ts` but no integration test covers it, this fails.
+    const toolsUnderTest = [
       'search-indicators',
       'get-countries',
       'get-country-info',
@@ -154,6 +157,9 @@ describe('integration — World Bank MCP tool surface', () => {
       'get-education-data',
       'get-health-data',
     ];
-    expect(canonicalTools).toHaveLength(7);
+    // The exported list is the single source of truth shared with the probe
+    // script and the indicator-mapping methodology.
+    expect([...WORLD_BANK_MCP_TOOLS].sort()).toEqual([...toolsUnderTest].sort());
+    expect(WORLD_BANK_MCP_TOOLS).toHaveLength(toolsUnderTest.length);
   });
 });

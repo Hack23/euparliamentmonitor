@@ -19,7 +19,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { NEWS_DIR, ARTICLE_FILENAME_PATTERN, PROJECT_ROOT } from '../constants/config.js';
-import { validateArticleContent, articlePolicyHasWorldBank, WORLD_BANK_FINGERPRINTS, } from './content-validator.js';
+import { validateArticleContent, articlePolicyHasWorldBank, hasWorldBankEvidence, } from './content-validator.js';
 import { scoreArticleQuality } from './article-quality-scorer.js';
 // ─── CLI argument parsing ─────────────────────────────────────────────────────
 const args = process.argv.slice(2);
@@ -64,13 +64,6 @@ function slugToArticleType(slug) {
 }
 // ─── Main validation logic ────────────────────────────────────────────────────
 /**
- * Substrings that indicate World Bank data was genuinely used. Imported from
- * `content-validator` so the two validation surfaces share a single source
- * of truth and stay aligned with
- * `analysis/methodologies/worldbank-indicator-mapping.md`.
- */
-const WORLD_BANK_FS_FINGERPRINTS = WORLD_BANK_FINGERPRINTS;
-/**
  * For policy article types, verify World Bank evidence in either the article
  * body OR any `.md` file under the article's `analysis/daily/{date}/{slug}*`
  * directory. Non-policy article types are always considered satisfied.
@@ -113,17 +106,24 @@ function safeReaddir(dir) {
     }
 }
 /**
- * Maximum recursion depth when searching an analysis directory for World
- * Bank fingerprints. Three levels cover the expected layout
- * `analysis/daily/{date}/{slug}/<subdir>/<file>.md`; deeper trees are
- * truncated to guarantee bounded I/O during validator runs.
+ * Maximum recursion depth when searching an analysis directory for World Bank
+ * fingerprints. The starting directory is depth 0; the guard
+ * `depth >= ANALYSIS_SEARCH_MAX_DEPTH` stops recursion once it would exceed
+ * this depth. With `ANALYSIS_SEARCH_MAX_DEPTH = 3` the scanner reads files at
+ * depths 0, 1, 2 and 3 — enough to cover the expected layout
+ * `analysis/daily/{date}/{slug}/<subdir>/<file>.md` (depth 2) with one level
+ * of tolerance for deeper run artefacts. Trees deeper than this are truncated
+ * to guarantee bounded I/O during validator runs.
  */
 const ANALYSIS_SEARCH_MAX_DEPTH = 3;
 /**
  * Depth-limited recursive search for any World Bank fingerprint in `.md` files.
+ * Uses {@link hasWorldBankEvidence} so the gate enforces the same
+ * strong-phrase / word-bounded-indicator rule used on article bodies.
  *
  * @param dir - Directory to scan
- * @param depth - Current recursion depth (callers should omit; capped at 3)
+ * @param depth - Current recursion depth (callers should omit; max is
+ *   {@link ANALYSIS_SEARCH_MAX_DEPTH}, inclusive)
  * @returns `true` when at least one `.md` file contains a World Bank fingerprint
  */
 function directoryContainsWorldBankFingerprint(dir, depth = 0) {
@@ -165,7 +165,7 @@ function entryContainsWorldBankFingerprint(dir, entry, depth) {
     catch {
         return false;
     }
-    return WORLD_BANK_FS_FINGERPRINTS.some((fp) => content.includes(fp));
+    return hasWorldBankEvidence(content);
 }
 /**
  * Validate a single article file and return a summary.

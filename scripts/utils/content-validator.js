@@ -714,12 +714,30 @@ function collectQualityGateWarnings(html, warnings) {
 const MIN_LANG_SWITCHER_LINKS = 14;
 /** Chart.js types accepted by the `data-chart-config` declarative pattern. */
 const CHART_JS_TYPES = /"type"\s*:\s*"(bar|line|pie|doughnut|radar|polarArea|scatter|bubble)"/u;
+/** HTML whitespace characters per the WHATWG spec (space, tab, LF, CR, FF). */
+function isHtmlWhitespace(ch) {
+    return ch === ' ' || ch === '\t' || ch === '\n' || ch === '\r' || ch === '\f';
+}
+/** Decode the five entity escapes that `escapeHTML` emits into literal chars. */
+function decodeHtmlEntities(raw) {
+    return raw
+        .replace(/&quot;/gu, '"')
+        .replace(/&#39;/gu, "'")
+        .replace(/&gt;/gu, '>')
+        .replace(/&lt;/gu, '<')
+        .replace(/&amp;/gu, '&');
+}
 /**
  * Scan an HTML attribute value in a single `<canvas>` tag starting at
  * `tagStart`. Returns the decoded value of `attr` or `null` if not present.
- * Uses only `indexOf` so runtime is strictly linear in input length — this
- * avoids the polynomial-ReDoS class of regex that CodeQL flags when
- * nested character classes match the same tag prefix.
+ * Uses only `indexOf` + single-character look-arounds so runtime is strictly
+ * linear in input length — this avoids the polynomial-ReDoS class of regex
+ * that CodeQL flags when nested character classes match the same tag prefix.
+ *
+ * Tolerates all HTML-compliant attribute forms:
+ *  - double-quoted: `data-chart-config="..."`
+ *  - single-quoted: `data-chart-config='...'`
+ *  - optional whitespace around `=`: `data-chart-config = "..."`
  *
  * @param html - Full article HTML
  * @param tagStart - Byte offset of the `<` that opens the canvas tag
@@ -731,23 +749,50 @@ function extractCanvasAttribute(html, tagStart, attr) {
     if (tagEnd === -1)
         return null;
     const tag = html.slice(tagStart, tagEnd);
-    const key = `${attr}="`;
-    const attrIdx = tag.indexOf(key);
-    if (attrIdx === -1)
-        return null;
-    const valueStart = attrIdx + key.length;
-    const valueEnd = tag.indexOf('"', valueStart);
-    if (valueEnd === -1)
-        return null;
-    // Entity-decode the attribute value — `escapeHTML` in the template emits
-    // only these five entities.
-    const raw = tag.slice(valueStart, valueEnd);
-    return raw
-        .replace(/&quot;/gu, '"')
-        .replace(/&#39;/gu, "'")
-        .replace(/&gt;/gu, '>')
-        .replace(/&lt;/gu, '<')
-        .replace(/&amp;/gu, '&');
+    let searchFrom = 0;
+    while (searchFrom < tag.length) {
+        const attrIdx = tag.indexOf(attr, searchFrom);
+        if (attrIdx === -1)
+            return null;
+        // Accept only matches where the name has clean word boundaries — prevents
+        // e.g. `xdata-chart-config` from being treated as `data-chart-config`.
+        const before = attrIdx === 0 ? '' : tag[attrIdx - 1];
+        const afterNameIdx = attrIdx + attr.length;
+        const afterName = afterNameIdx < tag.length ? tag[afterNameIdx] : '';
+        const leadOk = before === '' || isHtmlWhitespace(before) || before === '<';
+        const trailOk = afterName === '' || isHtmlWhitespace(afterName) || afterName === '=';
+        if (!leadOk || !trailOk) {
+            searchFrom = attrIdx + attr.length;
+            continue;
+        }
+        // Skip optional whitespace, then require `=`, then optional whitespace
+        // again before the quoted value.
+        let i = afterNameIdx;
+        while (i < tag.length && isHtmlWhitespace(tag[i] ?? ''))
+            i++;
+        if (i >= tag.length || tag[i] !== '=') {
+            searchFrom = attrIdx + attr.length;
+            continue;
+        }
+        i++;
+        while (i < tag.length && isHtmlWhitespace(tag[i] ?? ''))
+            i++;
+        if (i >= tag.length)
+            return null;
+        const quote = tag[i];
+        if (quote !== '"' && quote !== "'") {
+            // Unquoted attribute values are legal HTML but never emitted by the
+            // template; treat as no-match and keep scanning.
+            searchFrom = attrIdx + attr.length;
+            continue;
+        }
+        const valueStart = i + 1;
+        const valueEnd = tag.indexOf(quote, valueStart);
+        if (valueEnd === -1)
+            return null;
+        return decodeHtmlEntities(tag.slice(valueStart, valueEnd));
+    }
+    return null;
 }
 /**
  * Detect whether the article contains at least one Chart.js canvas with a
@@ -852,13 +897,12 @@ const POLICY_SLUGS_REQUIRING_WORLD_BANK = new Set([
     'month-ahead',
 ]);
 /**
- * Indicator substrings that prove World Bank data was actually used. Kept
- * aligned with `analysis/methodologies/worldbank-indicator-mapping.md` so
- * strict validation never rejects a legitimate indicator that the mapping
- * doc lists as canonical (e.g. `GDP`, `GNI`, `FDI`). Exported so the CLI
- * validator (`validate-articles.ts`) can share the same list.
+ * Strong World Bank evidence tokens — plain substring match is enough to
+ * satisfy the gate because each is specific (the literal attribution phrase
+ * or an MCP tool name). Kept aligned with
+ * `analysis/methodologies/worldbank-indicator-mapping.md`.
  */
-export const WORLD_BANK_FINGERPRINTS = [
+export const WORLD_BANK_STRONG_FINGERPRINTS = [
     'World Bank',
     'world bank',
     'worldbank',
@@ -866,7 +910,19 @@ export const WORLD_BANK_FINGERPRINTS = [
     'get-social-data',
     'get-education-data',
     'get-health-data',
+    'get-country-info',
+    'get-countries',
     'search-indicators',
+];
+/**
+ * Short indicator codes published by the World Bank MCP server. These are
+ * matched with a word boundary (`[^A-Z0-9_]` look-arounds) so that prose like
+ * "GDP growth slowed" does NOT count as World Bank evidence, but an analysis
+ * file line like `INDICATOR: GDP` does. All codes are uppercase, so the match
+ * is case-sensitive — case-insensitive mentions in English prose are intentionally
+ * rejected.
+ */
+export const WORLD_BANK_INDICATOR_CODES = [
     'GDP',
     'GDP_GROWTH',
     'GDP_PER_CAPITA',
@@ -897,10 +953,71 @@ export const WORLD_BANK_FINGERPRINTS = [
     'TUBERCULOSIS',
 ];
 /**
+ * Backwards-compatible union of strong + short fingerprints. Kept exported so
+ * callers that only need a flat list (e.g. existing consumers that shipped
+ * before the strong/short split) continue to compile. New code SHOULD prefer
+ * {@link hasWorldBankEvidence}, which enforces the stricter word-boundary rule
+ * for short codes.
+ */
+export const WORLD_BANK_FINGERPRINTS = [
+    ...WORLD_BANK_STRONG_FINGERPRINTS,
+    ...WORLD_BANK_INDICATOR_CODES,
+];
+/**
+ * Return true when any WORLD_BANK_INDICATOR_CODES entry appears in `text` with
+ * word-boundary isolation on both sides. We treat `[A-Z0-9_]` as "identifier"
+ * characters — that keeps `GDP_GROWTH` from accidentally matching inside the
+ * shorter `GDP` scan, and keeps the English word "gdp" out of the match set.
+ *
+ * @param text - Article body or analysis markdown to scan
+ * @returns `true` when at least one canonical indicator code is present
+ */
+function hasIndicatorCodeWithBoundary(text) {
+    for (const code of WORLD_BANK_INDICATOR_CODES) {
+        let from = 0;
+        // Linear scan — each hit is O(n); cap inner loop by advancing past the
+        // last occurrence so total runtime is O(|text| · |codes|).
+        while (from < text.length) {
+            const idx = text.indexOf(code, from);
+            if (idx === -1)
+                break;
+            const before = idx === 0 ? '' : text[idx - 1] ?? '';
+            const afterIdx = idx + code.length;
+            const after = afterIdx < text.length ? text[afterIdx] ?? '' : '';
+            const isBoundary = (ch) => ch === '' || !/[A-Z0-9_]/u.test(ch);
+            if (isBoundary(before) && isBoundary(after))
+                return true;
+            from = idx + 1;
+        }
+    }
+    return false;
+}
+/**
+ * Detect World Bank sourcing in any piece of text (article body OR analysis
+ * markdown). Returns `true` when the text contains either a strong fingerprint
+ * (the phrase "World Bank", an MCP tool name, etc.) or an indicator code with
+ * clean word boundaries.
+ *
+ * This is the single source of truth for the policy quality gate — both the
+ * content validator and the CLI validator's filesystem fallback use it so a
+ * legitimate evidence trail on either side satisfies the rule, and generic
+ * prose mentions of economic terms do not.
+ *
+ * @param text - Text to scan
+ * @returns `true` when at least one strong or word-bounded fingerprint matches
+ */
+export function hasWorldBankEvidence(text) {
+    for (const fp of WORLD_BANK_STRONG_FINGERPRINTS) {
+        if (text.includes(fp))
+            return true;
+    }
+    return hasIndicatorCodeWithBoundary(text);
+}
+/**
  * Verify that a policy article (or the linked analysis artifacts) contains at
- * least one World Bank fingerprint — indicator code, tool call trace, or the
- * phrase "World Bank" itself. Returns `true` if the gate is satisfied OR the
- * article type is not on the mandatory list.
+ * least one World Bank fingerprint — indicator code (word-bounded), MCP
+ * tool-trace token, or the phrase "World Bank" itself. Returns `true` if the
+ * gate is satisfied OR the article type is not on the mandatory list.
  *
  * @param html - Article HTML
  * @param articleType - Slug of the article category (e.g. `"committee-reports"`)
@@ -911,14 +1028,7 @@ export const WORLD_BANK_FINGERPRINTS = [
 export function articlePolicyHasWorldBank(html, articleType, _analysisDir) {
     if (!POLICY_SLUGS_REQUIRING_WORLD_BANK.has(articleType))
         return true;
-    for (const fp of WORLD_BANK_FINGERPRINTS) {
-        if (html.includes(fp))
-            return true;
-    }
-    // Filesystem fallback is intentionally handled by the caller
-    // (validate-articles.ts) to keep this module free of I/O. The
-    // `_analysisDir` parameter is accepted for API symmetry.
-    return false;
+    return hasWorldBankEvidence(html);
 }
 /**
  * Validate the quality of a generated article.

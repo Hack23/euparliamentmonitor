@@ -37,6 +37,25 @@ const WB_DEFAULT_SERVER = resolve(
 const INDICATOR_FALLBACK = '';
 
 /**
+ * Canonical list of tools exposed by the World Bank MCP gateway. The news
+ * workflows, probe script, and the integration test suite all reference this
+ * list so a regression that adds/removes a tool fails a single drift guard
+ * (`test/integration/mcp/worldbank-mcp.test.js`) instead of silently breaking
+ * prompt/validator/probe coverage.
+ *
+ * Kept in sync with `analysis/methodologies/worldbank-indicator-mapping.md`.
+ */
+export const WORLD_BANK_MCP_TOOLS: readonly string[] = [
+  'search-indicators',
+  'get-countries',
+  'get-country-info',
+  'get-economic-data',
+  'get-social-data',
+  'get-education-data',
+  'get-health-data',
+];
+
+/**
  * MCP Client for World Bank economic data access.
  * Extends {@link MCPConnection} with World Bank-specific tool wrapper methods.
  *
