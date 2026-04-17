@@ -77,3 +77,43 @@ Key checks:
 - [Open Source Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md)
 - [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md)
 - [Third Party Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Third_Party_Management.md)
+
+## Open Source Policy — Dependency Intake Workflow
+
+Every new runtime or build dependency MUST pass these gates before being merged. See the extended checklist in [sdlc-security-integration](sdlc-security-integration.md#open-source-policy--dependency-intake-workflow).
+
+1. **License compatibility** — Apache-2.0 / MIT / BSD / ISC accepted; GPL / AGPL / SSPL / BUSL rejected; MPL-2.0 / LGPL reviewed
+2. **Advisory check** — `gh-advisory-database` + GHSA + OSV.dev; no unresolved High/Critical against adopted version
+3. **Maintenance health** — recent release within 24 months, active maintainers, resolved CVE backlog, Scorecard ≥ 4/10 for critical-path deps
+4. **Supply-chain provenance** — prefer deps with SLSA provenance / signed releases / protected branches
+5. **Pinning** — `package-lock.json` committed, GitHub Actions pinned by SHA, Docker by digest
+6. **Documentation** — update `SECURITY_ARCHITECTURE.md` when the dep is on a security-sensitive path (parser, auth, crypto, network)
+
+## Inbound Contribution Workflow (community PRs)
+
+1. **CLA / DCO** — contributor must accept per repo settings
+2. **Automated checks** — lint, build, test, CodeQL all pass
+3. **License compatibility** — any new transitive dep goes through intake workflow
+4. **Security review** — required for changes in `src/mcp/`, `src/types/`, `scripts/`, `.github/workflows/`
+5. **CONTRIBUTING.md compliance** — use `contribution-checker` agent
+
+## Outbound Contribution Workflow (we publish)
+
+- All code under Apache-2.0 with NOTICE maintained
+- Every file carries SPDX headers (REUSE 3.3 compliant)
+- Patches upstream are dual-reviewed before submission
+- Never include Hack23 or third-party confidential data in public PRs
+
+## Release Evidence Artifacts
+
+For every release, CI emits:
+
+- **SBOM (SPDX JSON)** via `anchore/sbom-action`
+- **Build provenance (SLSA L3)** via `actions/attest-build-provenance`
+- **Signed tag** (if enabled) + GitHub Release notes + CHANGELOG
+- **Attestation verification** — `gh attestation verify dist/*.tgz --repo Hack23/euparliamentmonitor`
+
+These satisfy:
+- Open Source Policy release requirements
+- EU Cyber Resilience Act essential requirements (known-vuln-free, secure-by-default, support period)
+- ISO 27001 A.5.19 supplier relationships + A.8.30 outsourced development

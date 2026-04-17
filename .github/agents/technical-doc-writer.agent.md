@@ -1,6 +1,7 @@
 ---
 name: technical-doc-writer
 description: Technical documentation writer following GitHub Docs voice for EU Parliament Monitor documentation
+tools: ["*"]
 disable-model-invocation: true
 ---
 

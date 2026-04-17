@@ -88,4 +88,44 @@ Ensure all development aligns with applicable regulatory and compliance framewor
 - [Compliance Checklist](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Compliance_Checklist.md)
 - [CRA Conformity Assessment](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CRA_Conformity_Assessment_Process.md)
 - [Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md)
+- [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md)
+- [Open Source Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md)
 - [Cryptography Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md)
+
+## Information Security Policy Alignment
+
+The Hack23 Information Security Policy is the umbrella under which every other compliance framework is implemented. It sets organisation-wide direction that every agent and change applies:
+
+| InfoSec Policy Directive | Concrete Implementation in EU Parliament Monitor |
+|--------------------------|--------------------------------------------------|
+| CIA triad as primary decision lens | Classification in ISMS skill; validated at design & review gates |
+| Risk-based decisions | Threat model + Risk Register; quantified severity drives SLA |
+| Defense in depth | Sandbox → AWF firewall → MCP gateway → app → CSP layers |
+| Least privilege | Fine-grained GitHub tokens, minimal workflow `permissions:`, scoped MCP tools |
+| Segregation of duties | Protected branches; author cannot self-merge security-sensitive changes |
+| Continuous improvement | Quarterly SECURITY_ARCHITECTURE review; dependency refresh via Dependabot |
+| Accountability | Named owners for each control; incident post-mortem after every P1/P2 |
+
+## Cross-Framework Mapping (Hack23 baseline)
+
+| Control Area | ISO 27001:2022 | NIST CSF 2.0 | CIS v8.1 | Implementation |
+|--------------|----------------|--------------|----------|----------------|
+| Governance | A.5.1, A.5.2 | GV.PO, GV.RR | CIS-14 | ISMS-PUBLIC repo, policy ownership |
+| Risk assessment | A.5.7 | ID.RA | CIS-13 | Risk_Register.md, threat model in PRs |
+| Asset inventory | A.5.9, A.5.10 | ID.AM | CIS-1, CIS-2 | package.json, SBOM, ARCHITECTURE.md |
+| Access control | A.5.15–A.5.18, A.8.2–A.8.5 | PR.AA | CIS-5, CIS-6 | Access_Control_Policy.md, GH org roles |
+| Cryptography | A.8.24 | PR.DS-2 | CIS-3.10 | Cryptography_Policy.md, TLS 1.3 only |
+| Secure development | A.8.25, A.8.28 | PR.IP-2 | CIS-16 | SSDLC gates, CodeQL, ESLint |
+| Vulnerability management | A.8.8 | DE.CM-8 | CIS-7 | Dependabot, GHSA, SLA tracking |
+| Monitoring | A.8.16 | DE.CM | CIS-8 | GitHub audit log, CI run history |
+| Incident response | A.5.24–A.5.27 | RS | CIS-17 | Incident_Response_Plan.md |
+| Supplier | A.5.19–A.5.22 | ID.SC, PR.AT | CIS-15 | Third_Party_Management.md, SBOM |
+| Change management | A.8.32 | PR.IP-3 | CIS-4.7 | PR review, protected branches |
+
+## Related Skills
+
+- [sdlc-security-integration](sdlc-security-integration.md) — Actionable SSDLC gates + evidence matrix
+- [isms-compliance](isms-compliance.md) — ISMS policy references + evidence
+- [security-by-design](security-by-design.md) — Defense-in-depth patterns
+- [open-source-governance](open-source-governance.md) — OSS intake + release
+- [ai-governance](ai-governance.md) — EU AI Act + OWASP LLM

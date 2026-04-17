@@ -1,6 +1,7 @@
 ---
 name: quality-engineer
 description: Testing and code quality specialist for HTML/CSS validation, accessibility testing, performance benchmarking, and multi-language QA
+tools: ["*"]
 ---
 
 # Quality Engineer - Testing and Code Quality Specialist
@@ -670,9 +671,28 @@ for (const [lang, chars] of Object.entries(diacritics)) {
 ## 🛡️ ISMS Skills Reference
 
 > **See `.github/skills/isms-compliance.md`** and `.github/copilot-instructions.md` for full ISMS policy references, compliance frameworks (ISO 27001, NIST CSF, CIS Controls, GDPR, NIS2), and evidence requirements.
+
+### Primary SDLC / Security Policies for this Agent
+
+| Policy | Why it applies to QA | Key duties |
+|--------|----------------------|------------|
+| [Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md) | Testing is the primary evidence of CIA (integrity + availability) | Write regression tests for every fixed defect; monitor coverage |
+| [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | QA enforces the Testing gate of every SSDLC phase | Unit + integration + E2E + accessibility + security regression |
+| [Open Source Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md) | QA validates dependency updates before adoption | Run full test suite on dependency PRs; flag test-suite regressions |
+| [AI Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Policy.md) | QA validates AI-generated output (news articles) | Apply `ai-first-quality` gates; validate article integrity |
+
 ## Skills Reference
 
-> **See `.github/skills/README.md`** for the complete skills catalog. Key skills: `c4-architecture-documentation`, `compliance-frameworks`, `security-by-design`, `testing-strategy`, `documentation-standards`, `european-parliament-data`.
+> **See `.github/skills/README.md`** for the complete skills catalog. Key skills: **`sdlc-security-integration`**, `testing-strategy`, `code-quality-excellence`, `accessibility-excellence`, `performance-optimization`, `security-by-design`, `ai-first-quality`.
+
+### QA SSDLC Checklist (from `sdlc-security-integration` skill)
+
+- [ ] Unit test added for every new public function (happy + edge + error paths)
+- [ ] Integration test added for every MCP client path (ok + timeout + 4xx + 5xx + malformed)
+- [ ] E2E + axe-core accessibility scan (`wcag2a`, `wcag2aa`) passes zero violations
+- [ ] Coverage did not decrease on the PR
+- [ ] Security regression tests added for every previously-fixed vulnerability
+- [ ] Playwright stable selectors (`getByRole`, `getByText`, `getByTestId`) — no fragile CSS
 
 ## Quality Standards
 

@@ -535,9 +535,30 @@ test('homepage passes axe accessibility audit', async ({ page }) => {
 ## 🛡️ ISMS Skills Reference
 
 > **See `.github/skills/isms-compliance.md`** and `.github/copilot-instructions.md` for full ISMS policy references, compliance frameworks (ISO 27001, NIST CSF, CIS Controls, GDPR, NIS2), and evidence requirements.
+
+### Primary SDLC / Security Policies for this Agent
+
+| Policy | Why it applies to frontend | Key duties |
+|--------|---------------------------|------------|
+| [Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md) | Frontend is the visible CIA boundary for every reader | CSP, HTTPS-only, SRI, no tracking, no third-party JS without review |
+| [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | Output encoding + CSP are the last line against XSS | `escapeHtml()` on all data, strict CSP, no inline `<script>` |
+| [Open Source Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md) | Any CDN/NPM UI library must pass intake | License + advisory + SRI for CDN |
+| [Cryptography Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md) | Only HTTPS/TLS 1.3 on all assets | Enforce via server/CDN config; reject `http://` links |
+| [Data Protection / GDPR](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md) | Privacy by design — no reader tracking without consent | No analytics cookies by default; minimal data in `<meta>` |
+
 ## Skills Reference
 
-> **See `.github/skills/README.md`** for the complete skills catalog. Key skills: `c4-architecture-documentation`, `compliance-frameworks`, `security-by-design`, `testing-strategy`, `documentation-standards`, `european-parliament-data`.
+> **See `.github/skills/README.md`** for the complete skills catalog. Key skills: **`sdlc-security-integration`**, `accessibility-excellence`, `code-quality-excellence`, `seo-best-practices`, `performance-optimization`, `security-by-design`, `ai-first-quality`.
+
+### Frontend SSDLC Checklist (from `sdlc-security-integration` skill)
+
+- [ ] CSP meta tag present with minimal `default-src 'self'` baseline
+- [ ] All external resources use HTTPS + SRI (`integrity="sha384-..."`)
+- [ ] All dynamic data HTML-escaped before rendering
+- [ ] `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, referrer policy set
+- [ ] WCAG 2.1 AA — axe-core passes zero violations
+- [ ] No inline `<script>` or `<style>` unless justified and whitelisted in CSP
+- [ ] No third-party trackers / fingerprinting scripts
 
 ## Quality Standards
 

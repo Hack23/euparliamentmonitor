@@ -1,6 +1,7 @@
 ---
 name: w3c-specification-writer
 description: Technical specification writer following W3C conventions with RFC 2119 keywords for formal documentation
+tools: ["*"]
 disable-model-invocation: true
 ---
 

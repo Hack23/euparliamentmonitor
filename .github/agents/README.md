@@ -487,16 +487,28 @@ All agents are configured with expertise in:
 
 ## 🔒 ISMS Compliance Framework
 
-All agents enforce compliance with:
+All agents enforce compliance with the Hack23 ISMS. The three foundational SDLC policies every agent honours:
+
+### Foundational SDLC Policies
+
+| Policy | Scope | Enforced by |
+|--------|-------|-------------|
+| **[Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md)** | CIA triad, risk management, ownership, least privilege, defense in depth | All agents; primary in product-task-agent, documentation-architect |
+| **[Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md)** | SSDLC phase gates, threat modelling, secure coding, testing, release | devops-engineer, data-pipeline-specialist, quality-engineer, frontend-specialist |
+| **[Open Source Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md)** | License intake, SBOM, SLSA, contribution workflow, supply chain | devops-engineer, data-pipeline-specialist, product-task-agent |
+
+**Consolidated checklist + phase gates**: [`sdlc-security-integration` skill](../skills/sdlc-security-integration.md)
 
 ### ISO 27001:2022 Controls
 - A.5.10: Information use (European Parliament transparency)
 - A.8.3: Access restrictions (GitHub permissions, branch protection)
 - A.8.23: Web filtering (CSP headers, security policies)
 - A.8.24: Cryptography (TLS 1.3, HTTPS-only)
+- A.8.25: Secure SDLC (enforced via sdlc-security-integration skill)
 - A.8.28: Secure coding (HTML/CSS validation, input sanitization)
 
 ### NIST CSF 2.0 Functions
+- **Govern**: ISMS policies, risk tolerance, ownership (product-task-agent)
 - **Identify**: Asset inventory (repositories, domains, data sources)
 - **Protect**: Access control (GitHub MFA, branch protection)
 - **Detect**: Monitoring (Dependabot, CodeQL, audit logs)
@@ -507,13 +519,16 @@ All agents enforce compliance with:
 - Control 1: Asset inventory
 - Control 4: Secure configuration (GitHub Pages, headers)
 - Control 6: Access control (branch protection, MFA)
+- Control 7: Continuous vulnerability management (Dependabot, CodeQL)
 - Control 8: Audit logging (GitHub audit logs)
+- Control 14: Security awareness (agent documentation)
+- Control 15: Service provider management (Third_Party_Management.md)
 - Control 16: Application security (validation, SAST)
 
 ### EU Regulations
 - **GDPR**: Data protection, privacy by design
 - **NIS2**: Network and information security directive
-- **EU CRA**: Cyber Resilience Act compliance
+- **EU CRA**: Cyber Resilience Act compliance (SBOM, SLSA L3, vuln disclosure)
 
 **Reference**: [Hack23 ISMS-PUBLIC Repository](https://github.com/Hack23/ISMS-PUBLIC)
 

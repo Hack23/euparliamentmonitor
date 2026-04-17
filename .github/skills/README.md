@@ -12,13 +12,14 @@ Skills are reusable knowledge units that encode Hack23's security policies, arch
 - **[C4 Architecture Documentation](c4-architecture-documentation.md)** — C4 models, Mermaid diagrams, documentation portfolio requirements
 
 ### 🔒 Security Skills (3 skills)
-- **[Security by Design](security-by-design.md)** — Defense-in-depth, CSP headers, input validation, STRIDE
+- **[Security by Design](security-by-design.md)** — Defense-in-depth, CSP headers, input validation, STRIDE, SSDLC phase activities
 - **[Threat Modeling](threat-modeling.md)** — STRIDE analysis, risk assessment, attack surface analysis
 - **[Data Protection](data-protection.md)** — GDPR compliance, data classification, sanitization
 
-### ✅ Compliance Skills (2 skills)
-- **[Compliance Frameworks](compliance-frameworks.md)** — ISO 27001, NIST CSF 2.0, CIS Controls, GDPR, NIS2, EU CRA
-- **[ISMS Compliance](isms-compliance.md)** — ISMS policy references, evidence requirements, framework mapping
+### ✅ Compliance Skills (3 skills)
+- **[Compliance Frameworks](compliance-frameworks.md)** — ISO 27001, NIST CSF 2.0, CIS Controls, GDPR, NIS2, EU CRA, Info Security Policy alignment
+- **[ISMS Compliance](isms-compliance.md)** — ISMS policy references, CIA triad, evidence requirements, framework mapping
+- **[SDLC Security Integration](sdlc-security-integration.md)** — Information Security Policy + Secure Development Policy + Open Source Policy consolidated into per-phase SSDLC gates, vulnerability SLA, dependency intake, contribution workflow, PR checklist
 
 ### 🧪 Quality Skills (4 skills)
 - **[Testing Strategy](testing-strategy.md)** — Vitest unit tests, Playwright E2E, coverage requirements
@@ -73,13 +74,13 @@ Skills are reusable knowledge units that encode Hack23's security policies, arch
 
 ## Skills Statistics
 
-**Total Skills**: 35 skills across 14 categories
+**Total Skills**: 36 skills across 14 categories
 
 | Category | Count | Focus |
 |----------|-------|-------|
 | Architecture | 1 | C4 models, documentation portfolio |
 | Security | 3 | Defense-in-depth, threat modeling, data protection |
-| Compliance | 2 | ISO 27001, NIST CSF, CIS, GDPR, NIS2 |
+| Compliance | 3 | ISO 27001, NIST CSF, CIS, GDPR, NIS2, Info Security Policy, Secure Dev Policy, Open Source Policy SSDLC gates |
 | Quality | 4 | Testing, code quality, accessibility, AI-first quality |
 | Performance | 1 | Core Web Vitals, caching |
 | Documentation | 1 | Standards, REUSE compliance |
@@ -98,17 +99,17 @@ The skills library supports 11 specialized agents. Each agent references relevan
 
 | Agent | Primary Skills | Supporting Skills |
 |-------|---------------|-------------------|
-| **news-journalist** | **ai-first-quality**, european-parliament-data, strategic-communication-analysis, political-science-analysis | behavioral-analysis, risk-assessment-frameworks, seo-best-practices, data-protection |
-| **intelligence-operative** | **ai-first-quality**, political-science-analysis, osint-methodologies, intelligence-analysis-techniques, european-political-system, data-science-for-intelligence | electoral-analysis, behavioral-analysis, strategic-communication-analysis, legislative-monitoring, risk-assessment-frameworks |
-| **business-development-specialist** | **ai-first-quality**, business-model-canvas, european-parliament-data, seo-best-practices | compliance-frameworks, data-protection, isms-compliance |
-| **marketing-specialist** | **ai-first-quality**, seo-best-practices, strategic-communication-analysis, business-model-canvas | data-protection, european-parliament-data, accessibility-excellence |
-| **data-pipeline-specialist** | **ai-first-quality**, european-parliament-data, legislative-monitoring, mcp-server-integration | performance-optimization, testing-strategy, data-science-for-intelligence |
-| **frontend-specialist** | **ai-first-quality**, accessibility-excellence, code-quality-excellence, seo-best-practices | performance-optimization, security-by-design |
-| **quality-engineer** | **ai-first-quality**, testing-strategy, code-quality-excellence | accessibility-excellence, performance-optimization |
-| **security-architect** | **ai-first-quality**, security-by-design, threat-modeling, isms-compliance, ai-governance | compliance-frameworks, data-protection |
-| **documentation-architect** | **ai-first-quality**, c4-architecture-documentation, documentation-standards | isms-compliance, compliance-frameworks, european-political-system |
-| **devops-engineer** | **ai-first-quality**, github-agentic-workflows, open-source-governance | gh-aw-architecture, mcp-gateway-security |
-| **product-task-agent** | **ai-first-quality**, compliance-frameworks, isms-compliance, business-model-canvas | github-agentic-workflows, testing-strategy, risk-assessment-frameworks |
+| **news-journalist** | **ai-first-quality**, european-parliament-data, strategic-communication-analysis, political-science-analysis | behavioral-analysis, risk-assessment-frameworks, seo-best-practices, data-protection, sdlc-security-integration |
+| **intelligence-operative** | **ai-first-quality**, political-science-analysis, osint-methodologies, intelligence-analysis-techniques, european-political-system, data-science-for-intelligence | electoral-analysis, behavioral-analysis, strategic-communication-analysis, legislative-monitoring, risk-assessment-frameworks, sdlc-security-integration |
+| **business-development-specialist** | **ai-first-quality**, business-model-canvas, european-parliament-data, seo-best-practices | compliance-frameworks, data-protection, isms-compliance, sdlc-security-integration |
+| **marketing-specialist** | **ai-first-quality**, seo-best-practices, strategic-communication-analysis, business-model-canvas | data-protection, european-parliament-data, accessibility-excellence, sdlc-security-integration |
+| **data-pipeline-specialist** | **ai-first-quality**, european-parliament-data, legislative-monitoring, mcp-server-integration, sdlc-security-integration | performance-optimization, testing-strategy, data-science-for-intelligence, security-by-design |
+| **frontend-specialist** | **ai-first-quality**, accessibility-excellence, code-quality-excellence, seo-best-practices, sdlc-security-integration | performance-optimization, security-by-design |
+| **quality-engineer** | **ai-first-quality**, testing-strategy, code-quality-excellence, sdlc-security-integration | accessibility-excellence, performance-optimization, security-by-design |
+| **security-architect** | **ai-first-quality**, security-by-design, threat-modeling, isms-compliance, ai-governance, sdlc-security-integration | compliance-frameworks, data-protection, open-source-governance |
+| **documentation-architect** | **ai-first-quality**, c4-architecture-documentation, documentation-standards, sdlc-security-integration | isms-compliance, compliance-frameworks, european-political-system, security-by-design |
+| **devops-engineer** | **ai-first-quality**, github-agentic-workflows, open-source-governance, sdlc-security-integration | gh-aw-architecture, mcp-gateway-security, security-by-design |
+| **product-task-agent** | **ai-first-quality**, compliance-frameworks, isms-compliance, business-model-canvas, sdlc-security-integration | github-agentic-workflows, testing-strategy, risk-assessment-frameworks |
 
 ## How to Use Skills
 
