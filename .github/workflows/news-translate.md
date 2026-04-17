@@ -138,10 +138,10 @@ You are the **Translation Agent**. Your ONLY job: take existing English articles
 
 ## ⚡ IMMEDIATE ACTIONS (do these FIRST, before reading anything else)
 
-> **🚨 CRITICAL — SESSION EXPIRY**: The safeoutputs MCP server session EXPIRES after ~10-20 minutes of inactivity. In run #107 (Apr 14), the agent translated 13 files over 65 minutes but only called safeoutputs at the end — every call returned **"session not found"** and ALL translations were lost. In run #126 (Apr 17), the agent's minute-2 checkpoint call returned `"No changes to commit - no commits found"` because the baseline summary.md was not created first; the agent then committed files with `git commit` over 44 minutes and the retry at the end returned `"session not found"` — 17 translations lost. `git add`/`git commit`/`git push` will NOT save your work — the framework ONLY captures **uncommitted working directory changes** after a successful safeoutputs call. There is NO fallback.
+> **🚨 CRITICAL — SESSION EXPIRY**: The safeoutputs MCP server session EXPIRES after ~10-20 minutes of inactivity. In run #107 (Apr 14), the agent translated 13 files over 65 minutes but only called safeoutputs at the end — every call returned **"session not found"** and ALL translations were lost. In run #126 (Apr 17), the agent's minute-2 checkpoint call returned `"No changes to commit - no commits found"` because the baseline summary.md was not created first; the agent then committed files with `git commit` over 44 minutes and the retry at the end returned `"session not found"` — 17 translations lost. In run #128 (Apr 17), the agent's first checkpoint call ALSO returned `"No changes to commit"` even though the Date Context bash block ran; the agent failed to **retry the checkpoint within 60 seconds** and instead spent ~40 minutes translating, after which every safeoutputs call returned `"session not found"` — 21 translations lost. `git add`/`git commit`/`git push` will NOT save your work — the framework ONLY captures **uncommitted working directory changes** after a successful safeoutputs call. There is NO fallback.
 
-1. **Run the Date Context bash block** below (MANDATORY Date Context Establishment section). This block **creates the baseline `summary.md`** that the checkpoint PR needs — do NOT condense or skip it.
-2. **Call `safeoutputs___create_pull_request` IMMEDIATELY** (within the first 2 minutes, BEFORE translating) with: title=`Translate articles checkpoint — ${ARTICLE_DATE} (run ${RUN_ID})`, body=`Translation checkpoint`, base=`main`, head=`news/translate-${ARTICLE_DATE}-${RUN_ID}`. **If this call returns `"No changes to commit - no commits found"`, append one line to `${ANALYSIS_DIR}/summary.md` and retry within the next minute — do NOT defer the retry.**
+1. **Run the Date Context bash block** below (MANDATORY Date Context Establishment section). This block **creates the baseline `summary.md` AND appends an unconditional run marker line** that the checkpoint PR needs — do NOT condense or skip it.
+2. **Call `safeoutputs___create_pull_request` IMMEDIATELY** (within the first 2 minutes, BEFORE translating) with: title=`Translate articles checkpoint — ${ARTICLE_DATE} (run ${RUN_ID})`, body=`Translation checkpoint`, base=`main`, head=`news/translate-${ARTICLE_DATE}-${RUN_ID}`. **If this call returns `"No changes to commit - no commits found"`, you MUST retry within 60 seconds — run ONE short bash block that appends another unique marker line to `${ANALYSIS_DIR}/summary.md` (e.g. `echo "retry $(date -u +%s%N)" >> ${ANALYSIS_DIR}/summary.md`), then call `safeoutputs___create_pull_request` again. Do NOT start translating until this call succeeds. Translating first and retrying later is a GUARANTEED DATA LOSS pattern (see run #128 above).**
 3. **Then immediately proceed to Step 1 (Discovery) and Step 3 (Generation/Translation)** — do NOT spend time on health checks or analysis
 
 > Once safeoutputs is called successfully, the framework captures ALL files you create/edit for the rest of the job. Every file you write with `edit`/`create` tools is automatically included in the PR. If you delay this call past ~10 minutes, the session WILL expire and you WILL lose all work.
@@ -303,9 +303,27 @@ else
   echo "📊 Existing translation analysis found — will extend in Step 4c"
 fi
 
+# ⚠️ UNCONDITIONAL RUN MARKER: Always append a unique line so that git-status ALWAYS
+# reports ≥1 uncommitted change at checkpoint-call time, even if ANALYSIS_DIR already
+# existed (e.g. from an earlier attempt of the same run) or was restored from the PR
+# branch. Run #128 (Apr 17) surfaced a case where the baseline creation branch was taken
+# but safeoutputs still returned "No changes to commit" — the unconditional marker
+# eliminates that failure mode. The marker contains RUN_ID + nanosecond epoch so every
+# invocation produces a unique byte-level change.
+RUN_MARKER_LINE="<!-- run-marker: run=${RUN_ID} ts=$(date -u +%Y-%m-%dT%H:%M:%SZ) seq=${RANDOM}${RANDOM} -->"
+printf '%s\n' "${RUN_MARKER_LINE}" >> "${SUMMARY_FILE}"
+sync 2>/dev/null || true
+
 # Verify baseline is visible to git as an uncommitted change — checkpoint PR depends on this.
 BASELINE_CHANGES=$(git status --porcelain -- "${ANALYSIS_DIR}" 2>/dev/null | wc -l)
 echo "📋 Baseline changes detected by git: ${BASELINE_CHANGES} (must be ≥1 for checkpoint PR to succeed)"
+if [ "${BASELINE_CHANGES}" -lt 1 ]; then
+  echo "⚠️ git did not detect the baseline change — writing a second marker file as fallback."
+  printf 'run=%s epoch=%s seq=%s\n' "${RUN_ID}" "$(date +%s)" "${RANDOM}${RANDOM}" > "${ANALYSIS_DIR}/run-marker.txt"
+  sync 2>/dev/null || true
+  BASELINE_CHANGES=$(git status --porcelain -- "${ANALYSIS_DIR}" 2>/dev/null | wc -l)
+  echo "📋 Baseline changes after fallback marker: ${BASELINE_CHANGES}"
+fi
 ```
 
 ## 🛡️ CHECKPOINT (minute ~2) — MANDATORY
@@ -316,7 +334,17 @@ echo "📋 Baseline changes detected by git: ${BASELINE_CHANGES} (must be ≥1 f
 
 Call `safeoutputs___create_pull_request` NOW (if not already called) with title=`Translate articles checkpoint — ${ARTICLE_DATE} (run ${RUN_ID})`, body=`Translation checkpoint`, base=`main`, head=`news/translate-${ARTICLE_DATE}-${RUN_ID}`. Then **immediately proceed to Step 1** — do NOT stop here.
 
-> **🔁 IF THE FIRST CALL FAILS WITH `"No changes to commit - no commits found"`**: the baseline file was not visible to the safeoutputs handler. Do NOT continue with translation and retry 40 minutes later — the session will expire. Instead, **immediately** run ONE more bash block to touch/recreate the baseline file (e.g. `mkdir -p analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID} && echo "# baseline retry $(date -u)" >> analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}/summary.md && git status --short`), then retry `safeoutputs___create_pull_request` within the next minute. This call MUST succeed before you start translating — once it does, all subsequent `edit`/`create` tool changes are captured automatically.
+> **🔁 IF THE FIRST CALL FAILS WITH `"No changes to commit - no commits found"`**: this means git did not see any uncommitted change when the safeoutputs handler ran. Do NOT continue to translation — the session will expire long before you get another chance. **Within 60 seconds**, run ONE tiny bash block to force a new uncommitted change, then retry immediately:
+>
+> ```bash
+> cd "${GITHUB_WORKSPACE:-/home/runner/work/euparliamentmonitor/euparliamentmonitor}"
+> mkdir -p "analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}"
+> echo "retry-marker $(date -u +%Y-%m-%dT%H:%M:%SZ) seq=${RANDOM}${RANDOM}" >> "analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}/summary.md"
+> sync 2>/dev/null || true
+> git status --short -- "analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}/"
+> ```
+>
+> Then call `safeoutputs___create_pull_request` again with the SAME parameters. Keep retrying (at most 3 times, each within 60 seconds) until the call succeeds. Translating first and retrying at minute 40+ is a GUARANTEED DATA LOSS pattern (run #128 lost 21 translations that way).
 
 > **🚫 NEVER use `git add` / `git commit` / `git push`** as a workaround. The framework captures ONLY uncommitted working-directory changes after a successful safeoutputs call. Committing your files HIDES them from the framework and guarantees data loss (run #126 lost 17 translations this way).
 
