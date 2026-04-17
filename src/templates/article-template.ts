@@ -6,7 +6,6 @@
  * @description Generates HTML templates for news articles with proper structure and metadata
  */
 
-import { createHash } from 'crypto';
 import type {
   ArticleOptions,
   ArticleSource,
@@ -77,12 +76,7 @@ import {
 } from '../constants/languages.js';
 import { escapeHTML, isSafeURL } from '../utils/file-utils.js';
 import { stripHtmlTags } from '../utils/html-sanitize.js';
-import {
-  APP_VERSION,
-  createThemeToggleButton,
-  THEME_TOGGLE_SCRIPT,
-  THEME_TOGGLE_SCRIPT_CONTENT,
-} from '../constants/config.js';
+import { APP_VERSION, createThemeToggleButton } from '../constants/config.js';
 
 /** Pattern for valid article dates (YYYY-MM-DD) */
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/u;
@@ -420,25 +414,12 @@ export function generateArticleHTML(options: ArticleOptions): string {
       ? ` integrity="${escapeHTML(stylesHash)}" crossorigin="anonymous"`
       : '';
 
-  // Compute SHA-256 hash of the inline JSON-LD script content for CSP.
-  // IMPORTANT: The whitespace here ("\n  " prefix and "\n  " suffix) must exactly
-  // match the script tag content in the HTML template below:
-  //   <script type="application/ld+json">
-  //   ${jsonLd}
-  //   </script>
-  const jsonLdScriptContent = `\n  ${jsonLd}\n  `;
-  const jsonLdHash = `sha256-${createHash('sha256').update(jsonLdScriptContent).digest('base64')}`;
-
-  // Compute CSP hash for BreadcrumbList JSON-LD script
-  const breadcrumbLdScriptContent = `\n  ${breadcrumbLd}\n  `;
-  const breadcrumbLdHash = `sha256-${createHash('sha256').update(breadcrumbLdScriptContent).digest('base64')}`;
-
-  // Reading-progress script hash — content must exactly match the <script> block.
-  const readingProgressScript = `\n  (function(){\n    var bar=document.querySelector('.reading-progress');\n    if(!bar)return;\n    bar.style.display='block';\n    var ticking=false;\n    window.addEventListener('scroll',function(){\n      if(!ticking){\n        window.requestAnimationFrame(function(){\n          var h=document.documentElement;\n          var scrollTop=h.scrollTop||document.body.scrollTop;\n          var scrollHeight=h.scrollHeight-h.clientHeight;\n          bar.style.width=scrollHeight>0?((scrollTop/scrollHeight)*100)+'%':'0%';\n          ticking=false;\n        });\n        ticking=true;\n      }\n    },{passive:true});\n  })();\n  `;
-  const readingProgressHash = `sha256-${createHash('sha256').update(readingProgressScript).digest('base64')}`;
-
-  // Theme toggle CSP hash — derived from the shared THEME_TOGGLE_SCRIPT_CONTENT constant
-  const themeToggleHash = `sha256-${createHash('sha256').update(THEME_TOGGLE_SCRIPT_CONTENT).digest('base64')}`;
+  // Compute SHA-256 hashes were previously required for inline <script>
+  // blocks (JSON-LD, reading progress, theme toggle). All executable inline
+  // scripts have been externalised to `js/article-runtime.js`, so the CSP
+  // reduces to `script-src 'self'`. JSON-LD blocks use
+  // `type="application/ld+json"` which is non-executable and not governed
+  // by `script-src`.
 
   // Localized theme toggle button
   const themeToggleLabel = escapeHTML(getLocalizedString(THEME_TOGGLE_LABELS, lang));
@@ -453,7 +434,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="no-referrer">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' '${jsonLdHash}' '${breadcrumbLdHash}' '${readingProgressHash}' '${themeToggleHash}'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self'; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self'; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'none'">
   <title>${safeTitle} | EU Parliament Monitor</title>
   <meta name="description" content="${safeSubtitle}">
   <meta name="keywords" content="${safeKeywords}">
@@ -600,26 +581,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
     </div>
   </footer>
 
-  <script>
-  (function(){
-    var bar=document.querySelector('.reading-progress');
-    if(!bar)return;
-    bar.style.display='block';
-    var ticking=false;
-    window.addEventListener('scroll',function(){
-      if(!ticking){
-        window.requestAnimationFrame(function(){
-          var h=document.documentElement;
-          var scrollTop=h.scrollTop||document.body.scrollTop;
-          var scrollHeight=h.scrollHeight-h.clientHeight;
-          bar.style.width=scrollHeight>0?((scrollTop/scrollHeight)*100)+'%':'0%';
-          ticking=false;
-        });
-        ticking=true;
-      }
-    },{passive:true});
-  })();
-  </script>${
+  <script src="../js/article-runtime.js" defer></script>${
     content.includes('data-chart-config')
       ? `
   <script src="../js/vendor/chart.umd.min.js" defer></script>
@@ -632,7 +594,7 @@ export function generateArticleHTML(options: ArticleOptions): string {
   <script src="../js/vendor/d3.min.js" defer></script>
   <script src="../js/d3-init.js" defer></script>`
       : ''
-  }${THEME_TOGGLE_SCRIPT}
+  }
 </body>
 </html>`;
 }

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="no-referrer">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-qDZtUzKBKqKaEf/UK/iRwiCgNCqVtJV/xBmcxfFijs0=' 'sha256-ngLhKxckA7RGnfJtCuv+AztHgG4unizeI9r21Sq5O1M=' 'sha256-jCjgPdUsu0QaiwOXd580G20L3aIy8W0V3p4VkI8Wr9Q='; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self'; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self'; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'none'">
   <title>EP Advances Workers&#8217; Rights, AI Copyright and Clean Transport in Diverse March Sprint | EU Parliament Monitor</title>
   <meta name="description" content="Parliament&#8217;s EMPL, JURI and ENVI committees complete March 2026 legislative sprint, advancing EU Talent Pool, AI copyright governance and clean transport before Easter recess.">
   <meta name="keywords" content="EU Talent Pool, TA-10-2026-0058, subcontracting chains, TA-10-2026-0050, copyright AI, TA-10-2026-0066, HGV emissions, TA-10-2026-0084, European Semester, TA-10-2026-0076, digital sovereignty, TA-10-2026-0022, EMPL, JURI, ITRE, ENVI, TRAN, European Parliament, EP10, committee reports, March sprint">
@@ -231,7 +231,21 @@
 
         <div class="analysis-insight-item chart-section">
           <h3>March Sprint Legislative Output by Policy Cluster</h3>
-          <canvas id="sprintOutputChart" width="400" height="300" aria-label="Bar chart showing March 2026 legislative output by committee cluster"></canvas>
+          <canvas id="sprintOutputChart" aria-label="Bar chart showing March 2026 legislative output by committee cluster" data-chart-config="{&quot;type&quot;:&quot;bar&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;EMPL Labour&quot;,&quot;JURI/ITRE Digital&quot;,&quot;ENVI/TRAN Climate&quot;,&quot;INTA Trade&quot;,&quot;REGI Housing&quot;,&quot;DEVE Global&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;Texts Adopted&quot;,&quot;data&quot;:[3,2,2,2,1,1]}]},&quot;options&quot;:{&quot;indexAxis&quot;:&quot;y&quot;,&quot;plugins&quot;:{&quot;title&quot;:{&quot;display&quot;:true,&quot;text&quot;:&quot;Texts Adopted per Policy Cluster — March Sprint 2026&quot;},&quot;legend&quot;:{&quot;display&quot;:false}},&quot;scales&quot;:{&quot;x&quot;:{&quot;beginAtZero&quot;:true,&quot;title&quot;:{&quot;display&quot;:true,&quot;text&quot;:&quot;Adopted Texts&quot;}}}}}"></canvas>
+          <noscript>
+            <table>
+              <caption>March 2026 legislative output by committee cluster</caption>
+              <thead><tr><th scope="col">Cluster</th><th scope="col">Texts Adopted</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">EMPL Labour</th><td>3</td></tr>
+                <tr><th scope="row">JURI/ITRE Digital</th><td>2</td></tr>
+                <tr><th scope="row">ENVI/TRAN Climate</th><td>2</td></tr>
+                <tr><th scope="row">INTA Trade</th><td>2</td></tr>
+                <tr><th scope="row">REGI Housing</th><td>1</td></tr>
+                <tr><th scope="row">DEVE Global</th><td>1</td></tr>
+              </tbody>
+            </table>
+          </noscript>
         </div>
       </section>
 
@@ -265,62 +279,9 @@
     </div>
   </footer>
 
-  <script>
-    // Reading progress bar
-    (function() {
-      const bar = document.querySelector('.reading-progress');
-      if (!bar) return;
-      function update() {
-        const scrolled = document.documentElement.scrollTop || document.body.scrollTop;
-        const total = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        bar.style.width = total > 0 ? (scrolled / total * 100) + '%' : '0%';
-      }
-      window.addEventListener('scroll', update, { passive: true });
-      update();
-    })();
-  </script>
-  <script>
-    // Chart.js visualization: March Sprint Legislative Output
-    (function() {
-      const canvas = document.getElementById('sprintOutputChart');
-      if (!canvas) return;
-      const ctx = canvas.getContext('2d');
-      if (!ctx) return;
-      // Inline micro-chart using Canvas API (no external Chart.js dependency)
-      const data = [
-        { label: 'EMPL Labour', value: 3, color: '#e07b39' },
-        { label: 'JURI/ITRE Digital', value: 2, color: '#003399' },
-        { label: 'ENVI/TRAN Climate', value: 2, color: '#009900' },
-        { label: 'INTA Trade', value: 2, color: '#cc0000' },
-        { label: 'REGI Housing', value: 1, color: '#9933cc' },
-        { label: 'DEVE Global', value: 1, color: '#336699' }
-      ];
-      const maxVal = Math.max(...data.map(d => d.value));
-      const barHeight = 36;
-      const barGap = 12;
-      const labelWidth = 140;
-      const chartWidth = canvas.width - labelWidth - 50;
-      canvas.height = data.length * (barHeight + barGap) + 40;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.font = '13px sans-serif';
-      ctx.fillStyle = '#333';
-      ctx.fillText('Texts Adopted per Policy Cluster &#8212; March Sprint 2026', 10, 20);
-      data.forEach((d, i) => {
-        const y = 30 + i * (barHeight + barGap);
-        const barLen = (d.value / maxVal) * chartWidth;
-        // Label
-        ctx.fillStyle = '#444';
-        ctx.textAlign = 'right';
-        ctx.fillText(d.label, labelWidth - 8, y + barHeight / 2 + 4);
-        // Bar
-        ctx.fillStyle = d.color;
-        ctx.fillRect(labelWidth, y, barLen, barHeight);
-        // Value
-        ctx.fillStyle = '#fff';
-        ctx.textAlign = 'left';
-        ctx.fillText(d.value, labelWidth + barLen - 20, y + barHeight / 2 + 4);
-      });
-    })();
-  </script>
+  <script src="../js/article-runtime.js" defer></script>
+  <script src="../js/vendor/chart.umd.min.js" defer></script>
+  <script src="../js/vendor/chartjs-plugin-annotation.min.js" defer></script>
+  <script src="../js/chart-init.js" defer></script>
 </body>
 </html>

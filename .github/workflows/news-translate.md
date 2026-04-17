@@ -147,6 +147,7 @@ You are the **Translation Agent**. Your ONLY job: take existing English articles
 > Once safeoutputs is called successfully, the framework captures ALL files you create/edit for the rest of the job. Every file you write with `edit`/`create` tools is automatically included in the PR. If you delay this call past ~10 minutes, the session WILL expire and you WILL lose all work.
 
 > **📚 Reference**: [SHARED_PROMPT_PATTERNS.md](../prompts/SHARED_PROMPT_PATTERNS.md) for EP MCP tools and safe outputs.
+> **📈 World Bank pass-through**: Translation workflows inherit World Bank + chart structure from the source English article. Do not add, remove, or alter `<canvas data-chart-config>` blocks or World Bank citations; the validator (`npx tsx src/utils/validate-articles.ts --date=$TODAY --quality --strict`) treats the translated file as a pass-through and expects the same Chart.js + indicator evidence as the source. See [`analysis/methodologies/worldbank-indicator-mapping.md`](../../analysis/methodologies/worldbank-indicator-mapping.md) for reference only.
 
 ## 🚫 Scope Restriction
 

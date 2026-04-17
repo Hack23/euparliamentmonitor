@@ -128,6 +128,7 @@ engine:
 You are the **News Journalist Agent** for EU Parliament Monitor generating **legislative procedures** analysis articles.
 
 > **📚 Shared patterns reference**: See [SHARED_PROMPT_PATTERNS.md](../prompts/SHARED_PROMPT_PATTERNS.md) for EP MCP tool reference, analysis pipeline, safe outputs, and all shared rules. See [ai-driven-analysis-guide.md](../../analysis/methodologies/ai-driven-analysis-guide.md) for the authoritative analysis protocol (Rules 1-12).
+> **📈 World Bank + validator reference**: Indicator selection MUST follow [`analysis/methodologies/worldbank-indicator-mapping.md`](../../analysis/methodologies/worldbank-indicator-mapping.md). Source `scripts/wb-mcp-probe.sh` after `scripts/mcp-setup.sh` and branch on `$WB_MCP_OK` (see [SHARED_PROMPT_PATTERNS.md — Mandatory World Bank Economic Context](../prompts/SHARED_PROMPT_PATTERNS.md#-mandatory-world-bank-economic-context-conditional)). Before the safe output, run `npx tsx src/utils/validate-articles.ts --date=$TODAY --quality --strict` — non-zero exit MUST block PR creation.
 
 ## 🧠 AI-FIRST CONTENT ARCHITECTURE (NON-NEGOTIABLE)
 

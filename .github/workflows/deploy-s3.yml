@@ -100,20 +100,27 @@ jobs:
 
       - name: Normalise CSP in legacy news articles
         run: |
-          # Ensure all committed articles use the current relaxed CSP directives
-          # so production is consistent regardless of when each article was generated.
+          # Convert legacy per-article CSPs (with sha256 hashes or `default-src 'none'`)
+          # to the current fixed policy: `script-src 'self'` with all executable
+          # inline blocks externalised to js/article-runtime.js. Newly generated
+          # articles already emit this CSP — this step only patches historical
+          # articles committed before the template refactor.
           count=0
           for f in news/*.html; do
             if grep -q "default-src 'none'" "$f" 2>/dev/null; then
               sed -i \
                 -e "s/default-src 'none'/default-src 'self'/g" \
-                -e "s/script-src 'sha256-/script-src 'self' 'sha256-/g" \
                 -e "s/connect-src 'none'/connect-src 'self'/g" \
                 "$f"
               count=$((count + 1))
             fi
+            # Collapse `script-src 'self' 'sha256-…' 'sha256-…' …;` → `script-src 'self';`
+            if grep -qE "script-src 'self'( 'sha256-[^']+')+" "$f" 2>/dev/null; then
+              sed -i -E "s/script-src 'self'( 'sha256-[^']+')+;/script-src 'self';/g" "$f"
+              count=$((count + 1))
+            fi
           done
-          echo "✅ Updated CSP in $count legacy article(s)"
+          echo "✅ Normalised CSP in $count legacy article(s)"
 
       - name: configure aws credentials
         uses: aws-actions/configure-aws-credentials@ec61189d14ec14c8efccab744f656cffd0e33f37 # v6.1.0
