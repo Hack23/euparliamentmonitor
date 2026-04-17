@@ -161,15 +161,14 @@ fi
 
 ## 🚫 MANDATORY Scope Restriction
 
-> **⚠️ CRITICAL**: This workflow ONLY creates article files in the `news/` directory and analysis artifacts in the `analysis/daily/` directory. You MUST NOT modify any other files, **except** for the narrowly permitted minor TypeScript/script corrections in `src/` or `scripts/` described below when they are necessary to complete news generation.
+> **⚠️ CRITICAL**: This workflow ONLY creates article files in the `news/` directory and analysis artifacts in the `analysis/daily/` directory. You MUST NOT modify any other files, **except** for the narrowly permitted minor TypeScript/script corrections in `src/` or `scripts/` (and the matching `test/` / `e2e/` updates strictly required by those fixes) described below when they are necessary to complete news generation.
 
 **FORBIDDEN modifications (will cause patch conflicts and workflow failure):**
 - ❌ `.github/` — NEVER modify workflow or configuration files
-- ❌ `test/` / `e2e/` — NEVER modify test files
 - ❌ `index*.html` — NEVER modify index pages
 - ❌ `package.json` / `package-lock.json` — NEVER modify dependency files
 
-**CONDITIONAL: Minor TypeScript/Script corrections** — see [SHARED_PROMPT_PATTERNS.md](../prompts/SHARED_PROMPT_PATTERNS.md#minor-typescriptscript-corrections-conditional-allow) for the full policy. In brief: you MAY fix compilation or runtime errors in `src/` or `scripts/` (max 20 lines) when the fix is necessary to complete news generation. You MUST NOT refactor, add features, or modify tests.
+**CONDITIONAL: Minor TypeScript/Script corrections + matching test updates** — see [SHARED_PROMPT_PATTERNS.md](../prompts/SHARED_PROMPT_PATTERNS.md#minor-typescriptscript-corrections-conditional-allow) for the full policy (v1.1). In brief: you MAY fix compilation or runtime errors in `src/` or `scripts/` (max 20 lines) when the fix is necessary to complete news generation, AND you MAY update the corresponding `test/` / `e2e/` tests (max 30 lines) **only when required by that fix** to keep the suite green. You MUST run both `npm run build` and `npm run test` and report both results in the PR body. You MUST NOT make standalone test edits, refactor tests, or weaken assertions.
 
 **FORBIDDEN practices** — see [SHARED_PROMPT_PATTERNS.md](../prompts/SHARED_PROMPT_PATTERNS.md#forbidden-practices-all-workflows) for the complete list.
 - ❌ **Writing custom Python/Ruby/Perl scripts** — Use ONLY the existing Node.js/TypeScript toolchain
@@ -391,6 +390,24 @@ Every generated article (or analysis-only PR) MUST link to ALL individual analys
   - **Pass 2 (Minutes 41–45, ~4 min)**: 🔁 **MANDATORY ARTICLE READ-BACK & IMPROVEMENT** — Read the ENTIRE generated article from top to bottom. For every section: verify ≥3 analytical paragraphs, verify specific EP data citations, verify named actors/MEPs, verify prose not bullet lists. Add World Bank economic context if missing. Add missing chart visualizations. Rewrite any section that fails the Economist Test. **DO NOT skip this pass.**
 - **Minutes 45–48**: Validate and finalize changes — run prose ratio check, verify zero markers remain
 - **Minutes 48–50**: Create PR with `safeoutputs___create_pull_request` — include both articles (if generated) AND analysis artifacts. If no breaking news, create an analysis-only PR per `ai-driven-analysis-guide.md` Rule 5. **🚨 PR MUST be created by minute 50 (HARD DEADLINE).**
+
+### 🔁 Analysis-Only Extended Time Budget (when newsworthiness gate FAILS)
+
+> **⚠️ NON-NEGOTIABLE**: If at minute ~35 the AI determines "no breaking news" and skips article generation, you MUST NOT jump to PR creation at minute 36. Reinvest the saved 10+ minutes into deeper analysis per [SHARED_PROMPT_PATTERNS.md Analysis-Only 4-Pass Protocol](../prompts/SHARED_PROMPT_PATTERNS.md#mandatory-analysis-only-4-pass-protocol-when-no-article-is-generated). Early-exit at minute ~19 (as occurred in run 24541203743 / PR #1223) is a **VIOLATION**.
+
+Replace minutes 35–45 with:
+
+- **Minutes 35–40 (Pass 3 — Cross-Run Diff)**: Locate the latest prior breaking analysis folder by listing `analysis/daily/*/breaking-run*/`, excluding the current run's folder, and selecting the most recent earlier folder; if none exists within the last 7 days, consult the repo-memory editorial context/article log instead. Write `intelligence/cross-run-diff.md` documenting: what changed since the latest prior breaking run, what is NEW incremental intelligence (not recycled), what hypotheses are now confirmed/refuted, which scenario probabilities shifted and why. Stress-test each coalition/risk scenario with ≥1 alternate-probability scenario and its triggering indicators.
+- **Minutes 40–45 (Pass 4 — Forward Monitoring Extension)**: Append to `intelligence/synthesis-summary.md` a **Forward Monitoring Priorities** section with ≥5 specific, dated, observable indicators to watch before the next scheduled run (e.g., "Monitor USTR press page after 14:00 UTC on April 18 for Section 301 mentions"). Append a **Data-Quality Delta** subsection documenting any feed degradation vs prior runs (404/empty/timeout counts). Record final `ELAPSED_MINUTES` in the synthesis footer.
+
+**Quality gates for analysis-only PRs** (all MUST pass before minute 48 PR creation):
+- [ ] All 7 standard analysis files written (significance-scoring, risk-matrix, political-threat-landscape, quantitative-swot, coalition-dynamics, document-analysis-index, synthesis-summary)
+- [ ] `intelligence/cross-run-diff.md` present when a prior breaking run exists within the last 7 days or repo-memory provides equivalent recent editorial context
+- [ ] Every SWOT quadrant has ≥3 entries of ≥80 words with evidence + confidence label
+- [ ] ≥5 forward monitoring priorities with concrete observable triggers
+- [ ] Data-quality delta documented for every feed that returned 404/empty/timeout
+- [ ] Zero `[AI_ANALYSIS_REQUIRED]` markers
+- [ ] Agent active runtime ≥45 minutes (record in synthesis footer)
 
 > **🛑 EARLY COMPLETION CHECK**: If you reach the PR creation step before minute 45, STOP. Go back and improve your analysis and articles. Read everything again. Add more depth, more evidence, more stakeholder perspectives. Every additional minute of improvement produces measurably higher quality.
 
