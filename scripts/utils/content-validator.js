@@ -714,11 +714,22 @@ function collectQualityGateWarnings(html, warnings) {
 const MIN_LANG_SWITCHER_LINKS = 14;
 /** Chart.js types accepted by the `data-chart-config` declarative pattern. */
 const CHART_JS_TYPES = /"type"\s*:\s*"(bar|line|pie|doughnut|radar|polarArea|scatter|bubble)"/u;
-/** HTML whitespace characters per the WHATWG spec (space, tab, LF, CR, FF). */
+/**
+ * Check whether a character is HTML whitespace per the WHATWG spec
+ * (space, tab, LF, CR, FF).
+ *
+ * @param ch - Single character to test (may be empty string)
+ * @returns `true` when `ch` is one of the recognised whitespace chars
+ */
 function isHtmlWhitespace(ch) {
     return ch === ' ' || ch === '\t' || ch === '\n' || ch === '\r' || ch === '\f';
 }
-/** Decode the five entity escapes that `escapeHTML` emits into literal chars. */
+/**
+ * Decode the five entity escapes that `escapeHTML` emits into literal chars.
+ *
+ * @param raw - Entity-encoded substring extracted from an attribute value
+ * @returns Decoded literal string
+ */
 function decodeHtmlEntities(raw) {
     return raw
         .replace(/&quot;/gu, '"')
@@ -726,6 +737,50 @@ function decodeHtmlEntities(raw) {
         .replace(/&gt;/gu, '>')
         .replace(/&lt;/gu, '<')
         .replace(/&amp;/gu, '&');
+}
+/**
+ * Check that the positions immediately before and after an attribute name
+ * form valid HTML word-boundary characters. Prevents `xdata-chart-config`
+ * from being treated as the `data-chart-config` attribute.
+ *
+ * @param tag - Full opening-tag text (without trailing `>`)
+ * @param attrIdx - Index where the attribute name was found
+ * @param attrLen - Length of the attribute name
+ * @returns `true` when both boundaries are whitespace / `<` / `=` / start-of-tag
+ */
+function hasAttributeBoundaries(tag, attrIdx, attrLen) {
+    const before = attrIdx === 0 ? '' : (tag[attrIdx - 1] ?? '');
+    const afterIdx = attrIdx + attrLen;
+    const after = afterIdx < tag.length ? (tag[afterIdx] ?? '') : '';
+    const leadOk = before === '' || isHtmlWhitespace(before) || before === '<';
+    const trailOk = after === '' || isHtmlWhitespace(after) || after === '=';
+    return leadOk && trailOk;
+}
+/**
+ * Starting just after an attribute name, locate the opening quote character
+ * (either `"` or `'`) that begins the attribute value, tolerating optional
+ * HTML whitespace on either side of the `=`.
+ *
+ * @param tag - Full opening-tag text
+ * @param from - Index immediately after the attribute name
+ * @returns `{quote, valueStart}` when a proper `=<whitespace?><quote>` run is
+ *   present; `null` when the attribute is malformed or unquoted
+ */
+function findAttributeValueStart(tag, from) {
+    let i = from;
+    while (i < tag.length && isHtmlWhitespace(tag[i] ?? ''))
+        i++;
+    if (i >= tag.length || tag[i] !== '=')
+        return null;
+    i++;
+    while (i < tag.length && isHtmlWhitespace(tag[i] ?? ''))
+        i++;
+    if (i >= tag.length)
+        return null;
+    const quote = tag[i] ?? '';
+    if (quote !== '"' && quote !== "'")
+        return null;
+    return { quote, valueStart: i + 1 };
 }
 /**
  * Scan an HTML attribute value in a single `<canvas>` tag starting at
@@ -754,43 +809,21 @@ function extractCanvasAttribute(html, tagStart, attr) {
         const attrIdx = tag.indexOf(attr, searchFrom);
         if (attrIdx === -1)
             return null;
-        // Accept only matches where the name has clean word boundaries — prevents
-        // e.g. `xdata-chart-config` from being treated as `data-chart-config`.
-        const before = attrIdx === 0 ? '' : tag[attrIdx - 1];
-        const afterNameIdx = attrIdx + attr.length;
-        const afterName = afterNameIdx < tag.length ? tag[afterNameIdx] : '';
-        const leadOk = before === '' || isHtmlWhitespace(before) || before === '<';
-        const trailOk = afterName === '' || isHtmlWhitespace(afterName) || afterName === '=';
-        if (!leadOk || !trailOk) {
+        // Keep scanning past false matches with bad boundaries or without a
+        // proper `=<quote>` run; this keeps the function linear in tag length.
+        if (!hasAttributeBoundaries(tag, attrIdx, attr.length)) {
             searchFrom = attrIdx + attr.length;
             continue;
         }
-        // Skip optional whitespace, then require `=`, then optional whitespace
-        // again before the quoted value.
-        let i = afterNameIdx;
-        while (i < tag.length && isHtmlWhitespace(tag[i] ?? ''))
-            i++;
-        if (i >= tag.length || tag[i] !== '=') {
+        const valueHead = findAttributeValueStart(tag, attrIdx + attr.length);
+        if (!valueHead) {
             searchFrom = attrIdx + attr.length;
             continue;
         }
-        i++;
-        while (i < tag.length && isHtmlWhitespace(tag[i] ?? ''))
-            i++;
-        if (i >= tag.length)
-            return null;
-        const quote = tag[i];
-        if (quote !== '"' && quote !== "'") {
-            // Unquoted attribute values are legal HTML but never emitted by the
-            // template; treat as no-match and keep scanning.
-            searchFrom = attrIdx + attr.length;
-            continue;
-        }
-        const valueStart = i + 1;
-        const valueEnd = tag.indexOf(quote, valueStart);
+        const valueEnd = tag.indexOf(valueHead.quote, valueHead.valueStart);
         if (valueEnd === -1)
             return null;
-        return decodeHtmlEntities(tag.slice(valueStart, valueEnd));
+        return decodeHtmlEntities(tag.slice(valueHead.valueStart, valueEnd));
     }
     return null;
 }
@@ -968,27 +1001,56 @@ export const WORLD_BANK_FINGERPRINTS = [
  * word-boundary isolation on both sides. We treat `[A-Z0-9_]` as "identifier"
  * characters — that keeps `GDP_GROWTH` from accidentally matching inside the
  * shorter `GDP` scan, and keeps the English word "gdp" out of the match set.
+ */
+/** Characters that count as part of an identifier-style token for the word-boundary check. */
+const WORD_BOUNDARY_PATTERN = /[A-Z0-9_]/u;
+/**
+ * Check whether `ch` is NOT an identifier-style character (so it qualifies
+ * as a word boundary on either side of a World Bank indicator code).
+ *
+ * @param ch - Single character (may be empty string for start/end-of-string)
+ * @returns `true` when `ch` is empty or a non-identifier character
+ */
+function isIdentifierBoundary(ch) {
+    return ch === '' || !WORD_BOUNDARY_PATTERN.test(ch);
+}
+/**
+ * Return `true` when `code` appears in `text` surrounded by identifier
+ * boundaries on both sides. Linear scan over `text`.
+ *
+ * @param text - Text to scan
+ * @param code - Indicator code to look for (all uppercase)
+ * @returns `true` when a word-bounded occurrence is present
+ */
+function textContainsIndicatorCode(text, code) {
+    let from = 0;
+    while (from < text.length) {
+        const idx = text.indexOf(code, from);
+        if (idx === -1)
+            return false;
+        const before = idx === 0 ? '' : (text[idx - 1] ?? '');
+        const afterIdx = idx + code.length;
+        const after = afterIdx < text.length ? (text[afterIdx] ?? '') : '';
+        if (isIdentifierBoundary(before) && isIdentifierBoundary(after))
+            return true;
+        from = idx + 1;
+    }
+    return false;
+}
+/**
+ * Return true when any `WORLD_BANK_INDICATOR_CODES` entry appears in `text`
+ * with word-boundary isolation on both sides. We treat `[A-Z0-9_]` as
+ * "identifier" characters — that keeps `GDP_GROWTH` from accidentally matching
+ * inside the shorter `GDP` scan, and keeps the English word "gdp" out of the
+ * match set.
  *
  * @param text - Article body or analysis markdown to scan
  * @returns `true` when at least one canonical indicator code is present
  */
 function hasIndicatorCodeWithBoundary(text) {
     for (const code of WORLD_BANK_INDICATOR_CODES) {
-        let from = 0;
-        // Linear scan — each hit is O(n); cap inner loop by advancing past the
-        // last occurrence so total runtime is O(|text| · |codes|).
-        while (from < text.length) {
-            const idx = text.indexOf(code, from);
-            if (idx === -1)
-                break;
-            const before = idx === 0 ? '' : text[idx - 1] ?? '';
-            const afterIdx = idx + code.length;
-            const after = afterIdx < text.length ? text[afterIdx] ?? '' : '';
-            const isBoundary = (ch) => ch === '' || !/[A-Z0-9_]/u.test(ch);
-            if (isBoundary(before) && isBoundary(after))
-                return true;
-            from = idx + 1;
-        }
+        if (textContainsIndicatorCode(text, code))
+            return true;
     }
     return false;
 }
