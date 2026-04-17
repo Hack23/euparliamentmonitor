@@ -138,10 +138,10 @@ You are the **Translation Agent**. Your ONLY job: take existing English articles
 
 ## ⚡ IMMEDIATE ACTIONS (do these FIRST, before reading anything else)
 
-> **🚨 CRITICAL — SESSION EXPIRY**: The safeoutputs MCP server session EXPIRES after ~10-20 minutes of inactivity. In run #107 (Apr 14), the agent translated 13 files over 65 minutes but only called safeoutputs at the end — every call returned **"session not found"** and ALL translations were lost. `git add`/`git commit`/`git push` will NOT save your work — the framework ONLY captures **uncommitted working directory changes** after a successful safeoutputs call. There is NO fallback.
+> **🚨 CRITICAL — SESSION EXPIRY**: The safeoutputs MCP server session EXPIRES after ~10-20 minutes of inactivity. In run #107 (Apr 14), the agent translated 13 files over 65 minutes but only called safeoutputs at the end — every call returned **"session not found"** and ALL translations were lost. In run #126 (Apr 17), the agent's minute-2 checkpoint call returned `"No changes to commit - no commits found"` because the baseline summary.md was not created first; the agent then committed files with `git commit` over 44 minutes and the retry at the end returned `"session not found"` — 17 translations lost. `git add`/`git commit`/`git push` will NOT save your work — the framework ONLY captures **uncommitted working directory changes** after a successful safeoutputs call. There is NO fallback.
 
-1. **Run the Date Context bash block** below (MANDATORY Date Context Establishment section)
-2. **Call `safeoutputs___create_pull_request` IMMEDIATELY** (within the first 2 minutes, BEFORE translating) with: title=`Translate articles checkpoint — ${ARTICLE_DATE} (run ${RUN_ID})`, body=`Translation checkpoint`, base=`main`, head=`news/translate-${ARTICLE_DATE}-${RUN_ID}`
+1. **Run the Date Context bash block** below (MANDATORY Date Context Establishment section). This block **creates the baseline `summary.md`** that the checkpoint PR needs — do NOT condense or skip it.
+2. **Call `safeoutputs___create_pull_request` IMMEDIATELY** (within the first 2 minutes, BEFORE translating) with: title=`Translate articles checkpoint — ${ARTICLE_DATE} (run ${RUN_ID})`, body=`Translation checkpoint`, base=`main`, head=`news/translate-${ARTICLE_DATE}-${RUN_ID}`. **If this call returns `"No changes to commit - no commits found"`, append one line to `${ANALYSIS_DIR}/summary.md` and retry within the next minute — do NOT defer the retry.**
 3. **Then immediately proceed to Step 1 (Discovery) and Step 3 (Generation/Translation)** — do NOT spend time on health checks or analysis
 
 > Once safeoutputs is called successfully, the framework captures ALL files you create/edit for the rest of the job. Every file you write with `edit`/`create` tools is automatically included in the PR. If you delay this call past ~10 minutes, the session WILL expire and you WILL lose all work.
@@ -272,10 +272,14 @@ echo "Deadline:     ${TRANSLATION_DEADLINE_MIN} minutes"
 echo "==================================="
 export TODAY ARTICLE_DATE CURRENT_YEAR DAY_OF_WEEK START_EPOCH TRANSLATION_DEADLINE_MIN RUN_ID ANALYSIS_DIR
 
-# ⚠️ MANDATORY: Create baseline analysis directory and summary BEFORE any noop exits.
-# Per ai-driven-analysis-guide.md Rule 5, no workflow run should be wasted.
-# This ensures even early noop paths (no articles found, all translations exist)
-# produce a committed analysis artifact via an analysis-only PR.
+# ⚠️ MANDATORY — REQUIRED FOR CHECKPOINT PR: Create baseline analysis directory and
+# summary file BEFORE calling safeoutputs___create_pull_request in the CHECKPOINT step.
+# The gh-aw safeoutputs create_pull_request handler FAILS with
+#   "No changes to commit - no commits found"
+# when there are zero uncommitted working-directory changes at call time. This baseline
+# file ensures the checkpoint PR always contains at least one artifact — it is the single
+# change that makes the minute-2 safeoutputs call succeed. Do NOT skip this block.
+# Per ai-driven-analysis-guide.md Rule 5, no workflow run is wasted either.
 mkdir -p "${ANALYSIS_DIR}"
 SUMMARY_FILE="${ANALYSIS_DIR}/summary.md"
 if [ ! -f "${SUMMARY_FILE}" ]; then
@@ -298,13 +302,23 @@ EOF
 else
   echo "📊 Existing translation analysis found — will extend in Step 4c"
 fi
+
+# Verify baseline is visible to git as an uncommitted change — checkpoint PR depends on this.
+BASELINE_CHANGES=$(git status --porcelain -- "${ANALYSIS_DIR}" 2>/dev/null | wc -l)
+echo "📋 Baseline changes detected by git: ${BASELINE_CHANGES} (must be ≥1 for checkpoint PR to succeed)"
 ```
 
 ## 🛡️ CHECKPOINT (minute ~2) — MANDATORY
 
-> **⚠️ The safeoutputs MCP session EXPIRES. You MUST call it within the first 2 minutes or all work will be lost.**
+> **⚠️ The safeoutputs MCP session EXPIRES after ~10-20 min of inactivity. You MUST call it within the first 2 minutes or all work will be lost.**
+
+> **📋 PRE-CONDITION**: The Date Context bash block above created `${ANALYSIS_DIR}/summary.md`. That baseline file MUST be in the working directory before this call. If it is not, the call WILL fail with `"No changes to commit - no commits found"`.
 
 Call `safeoutputs___create_pull_request` NOW (if not already called) with title=`Translate articles checkpoint — ${ARTICLE_DATE} (run ${RUN_ID})`, body=`Translation checkpoint`, base=`main`, head=`news/translate-${ARTICLE_DATE}-${RUN_ID}`. Then **immediately proceed to Step 1** — do NOT stop here.
+
+> **🔁 IF THE FIRST CALL FAILS WITH `"No changes to commit - no commits found"`**: the baseline file was not visible to the safeoutputs handler. Do NOT continue with translation and retry 40 minutes later — the session will expire. Instead, **immediately** run ONE more bash block to touch/recreate the baseline file (e.g. `mkdir -p analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID} && echo "# baseline retry $(date -u)" >> analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}/summary.md && git status --short`), then retry `safeoutputs___create_pull_request` within the next minute. This call MUST succeed before you start translating — once it does, all subsequent `edit`/`create` tool changes are captured automatically.
+
+> **🚫 NEVER use `git add` / `git commit` / `git push`** as a workaround. The framework captures ONLY uncommitted working-directory changes after a successful safeoutputs call. Committing your files HIDES them from the framework and guarantees data loss (run #126 lost 17 translations this way).
 
 ## MCP Health Check (OPTIONAL — max 30 seconds)
 
