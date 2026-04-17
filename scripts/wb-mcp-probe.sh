@@ -18,7 +18,7 @@
 #   WB_MCP_OK — "true" on success, "false" when any probe call fails.
 #   WB_MCP_PROBE_ERROR — free-form error string when WB_MCP_OK=false.
 #
-# Budget: max 3 outbound HTTP calls (search-indicators, get-countries,
+# Budget: max 3 outbound HTTP calls (search-indicators, get-country-info,
 # get-economic-data). The probe respects the `WORLD_BANK_MCP_SERVER_URL`
 # variable exported by `mcp-setup.sh`.
 

@@ -76,10 +76,7 @@ import {
 } from '../constants/languages.js';
 import { escapeHTML, isSafeURL } from '../utils/file-utils.js';
 import { stripHtmlTags } from '../utils/html-sanitize.js';
-import {
-  APP_VERSION,
-  createThemeToggleButton,
-} from '../constants/config.js';
+import { APP_VERSION, createThemeToggleButton } from '../constants/config.js';
 
 /** Pattern for valid article dates (YYYY-MM-DD) */
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/u;

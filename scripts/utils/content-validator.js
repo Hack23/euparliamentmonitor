@@ -779,29 +779,26 @@ export function articleHasChart(html) {
     return false;
 }
 /**
- * Count comma-separated data points in the first `"data":[…]` array of a
- * Chart.js config JSON. Uses linear indexOf to avoid regex back-tracking.
+ * Count data points in the first dataset of a Chart.js config JSON payload.
+ *
+ * Parses the decoded `data-chart-config` as JSON and returns the length of
+ * `config.data.datasets[0].data`. Handles both numeric-array datasets
+ * (`[1, 2, 3]`) and object-point datasets (`[{x:0,y:1}, …]`) correctly —
+ * the previous indexOf-based implementation miscounted scatter/bubble
+ * configs and accidentally looked at `data.labels` for typical layouts.
  *
  * @param json - Decoded Chart.js config JSON string
- * @returns Number of non-empty data points, or 0 when no `"data":[` is found
+ * @returns Number of data points in `data.datasets[0].data`, or 0 when absent/invalid
  */
 function countFirstDatasetPoints(json) {
-    const needle = '"data"';
-    const dataIdx = json.indexOf(needle);
-    if (dataIdx === -1)
+    try {
+        const config = JSON.parse(json);
+        const firstDataset = config.data?.datasets?.[0];
+        return Array.isArray(firstDataset?.data) ? firstDataset.data.length : 0;
+    }
+    catch {
         return 0;
-    // Find the next `[` after `"data"`, skipping any whitespace / colon.
-    const bracketStart = json.indexOf('[', dataIdx);
-    if (bracketStart === -1)
-        return 0;
-    const bracketEnd = json.indexOf(']', bracketStart + 1);
-    if (bracketEnd === -1)
-        return 0;
-    const slice = json.slice(bracketStart + 1, bracketEnd);
-    return slice
-        .split(',')
-        .map((s) => s.trim())
-        .filter((s) => s.length > 0).length;
+    }
 }
 /**
  * Count distinct language switcher links emitted in the article header.
@@ -854,23 +851,50 @@ const POLICY_SLUGS_REQUIRING_WORLD_BANK = new Set([
     'month-in-review',
     'month-ahead',
 ]);
-/** Indicator substrings that prove World Bank data was actually used. */
-const WORLD_BANK_FINGERPRINTS = [
+/**
+ * Indicator substrings that prove World Bank data was actually used. Kept
+ * aligned with `analysis/methodologies/worldbank-indicator-mapping.md` so
+ * strict validation never rejects a legitimate indicator that the mapping
+ * doc lists as canonical (e.g. `GDP`, `GNI`, `FDI`). Exported so the CLI
+ * validator (`validate-articles.ts`) can share the same list.
+ */
+export const WORLD_BANK_FINGERPRINTS = [
     'World Bank',
     'world bank',
     'worldbank',
+    'get-economic-data',
+    'get-social-data',
+    'get-education-data',
+    'get-health-data',
+    'search-indicators',
+    'GDP',
     'GDP_GROWTH',
     'GDP_PER_CAPITA',
+    'GNI',
     'GNI_PER_CAPITA',
     'UNEMPLOYMENT',
     'INFLATION',
+    'EXPORTS',
     'EXPORTS_GDP',
+    'FDI',
     'FDI_NET',
+    'POPULATION',
     'LIFE_EXPECTANCY',
-    'HEALTH_EXPENDITURE',
+    'BIRTH_RATE',
+    'DEATH_RATE',
     'INTERNET_USERS',
+    'LITERACY_RATE',
+    'SCHOOL_ENROLLMENT',
+    'SCHOOL_COMPLETION',
+    'TEACHERS_PRIMARY',
     'EDUCATION_EXPENDITURE',
-    'search-indicators',
+    'HEALTH_EXPENDITURE',
+    'PHYSICIANS',
+    'HOSPITAL_BEDS',
+    'IMMUNIZATION',
+    'HIV_PREVALENCE',
+    'MALNUTRITION',
+    'TUBERCULOSIS',
 ];
 /**
  * Verify that a policy article (or the linked analysis artifacts) contains at

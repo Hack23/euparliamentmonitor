@@ -21,7 +21,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { NEWS_DIR, ARTICLE_FILENAME_PATTERN, PROJECT_ROOT } from '../constants/config.js';
-import { validateArticleContent, articlePolicyHasWorldBank } from './content-validator.js';
+import {
+  validateArticleContent,
+  articlePolicyHasWorldBank,
+  WORLD_BANK_FINGERPRINTS,
+} from './content-validator.js';
 import { scoreArticleQuality } from './article-quality-scorer.js';
 import type { ArticleQualityReport, ArticleGrade } from '../types/quality.js';
 
@@ -100,27 +104,12 @@ function slugToArticleType(slug: string): string {
 // ─── Main validation logic ────────────────────────────────────────────────────
 
 /**
- * Substrings that indicate World Bank data was genuinely used. Kept in sync
- * with `WORLD_BANK_FINGERPRINTS` in `content-validator.ts` but repeated here
- * because the string list is short and used with filesystem I/O.
+ * Substrings that indicate World Bank data was genuinely used. Imported from
+ * `content-validator` so the two validation surfaces share a single source
+ * of truth and stay aligned with
+ * `analysis/methodologies/worldbank-indicator-mapping.md`.
  */
-const WORLD_BANK_FS_FINGERPRINTS = [
-  'World Bank',
-  'world bank',
-  'worldbank',
-  'GDP_GROWTH',
-  'GDP_PER_CAPITA',
-  'GNI_PER_CAPITA',
-  'UNEMPLOYMENT',
-  'INFLATION',
-  'EXPORTS_GDP',
-  'FDI_NET',
-  'LIFE_EXPECTANCY',
-  'HEALTH_EXPENDITURE',
-  'INTERNET_USERS',
-  'EDUCATION_EXPENDITURE',
-  'search-indicators',
-];
+const WORLD_BANK_FS_FINGERPRINTS: readonly string[] = WORLD_BANK_FINGERPRINTS;
 
 /**
  * For policy article types, verify World Bank evidence in either the article

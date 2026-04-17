@@ -617,8 +617,19 @@ describe('article-template', () => {
       it('should reference the external article-runtime.js for reading-progress + theme toggle', () => {
         const html = generateArticleHTML(defaultOptions);
         expect(html).toContain('<script src="../js/article-runtime.js" defer></script>');
-        // No inline <script> blocks should remain apart from JSON-LD data blocks.
-        const inlineExecutable = html.match(/<script>[^<]/g) ?? [];
+        // No inline executable <script> blocks should remain — only external
+        // `<script src="…">` references and non-executable
+        // `<script type="application/ld+json">` data blocks are allowed.
+        // Use a case-insensitive regex and scan every script tag's attributes
+        // rather than a narrow literal prefix so upper-case/mixed-case tags
+        // and tags with whitespace or attributes are all considered.
+        const scriptTags = html.match(/<script\b[^>]*>/giu) ?? [];
+        const inlineExecutable = scriptTags.filter((tag) => {
+          const lower = tag.toLowerCase();
+          const hasSrc = /\bsrc\s*=/u.test(lower);
+          const isJsonLd = /type\s*=\s*["']application\/ld\+json["']/u.test(lower);
+          return !hasSrc && !isJsonLd;
+        });
         expect(inlineExecutable).toHaveLength(0);
       });
 
