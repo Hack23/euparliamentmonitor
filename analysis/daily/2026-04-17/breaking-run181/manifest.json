@@ -1,0 +1,103 @@
+{
+  "runId": 181,
+  "runType": "breaking",
+  "date": "2026-04-17",
+  "analysisDir": "analysis/daily/2026-04-17/breaking-run181",
+  "mode": "ANALYSIS_ONLY",
+  "degradedMode": true,
+  "newsworthiness": "NO_BREAKING_NEWS",
+  "recessDay": 4,
+  "priorRunsToday": ["breaking-run179", "breaking-run180", "committee-reports-run53", "propositions-run45"],
+  "articlesGenerated": 0,
+  "analysisFilesGenerated": 7,
+  "compositeRiskScore": 22.6,
+  "criticalRisks": ["EGF Underfunding (16/25)"],
+  "highRisks": ["US Tariff Escalation (13.1/25)", "WTO Governance Failure (12/25)"],
+  "keyFindingsNewInRun181": [
+    "EGF underfunding as structural CRITICAL risk (not in prior runs)",
+    "Better Law-Making deregulatory substrate analysis",
+    "EU-Canada transatlantic democratic architecture framing",
+    "Commission housing resolution response deadline: April 21",
+    "EDIP-US tariff linkage: procurement preference retaliation risk"
+  ],
+  "scenarioProbabilityChanges": {
+    "defenceBreakthrough_A": {"prior": 0.35, "current": 0.40},
+    "coalitionFracture_B": {"prior": 0.40, "current": 0.35},
+    "quietPlenary_C": {"prior": 0.25, "current": 0.25}
+  },
+  "forwardMonitoringPriorities": [
+    {"priority": 1, "item": "Commission response to housing resolution (due April 21)"},
+    {"priority": 2, "item": "WTO Yaoundé Conference outcome"},
+    {"priority": 3, "item": "EDIP rapporteur appointment (April 27 CoP)"},
+    {"priority": 4, "item": "ECR immunity consistency test (LIBE agenda April 27-30)"},
+    {"priority": 5, "item": "US USTR retaliation scope (April 20-25)"},
+    {"priority": 6, "item": "German CDU position on EDIP procurement (April 21 Bundestag)"},
+    {"priority": 7, "item": "Commission MFF 2028-2034 EGF budget signals (Q3 2026)"}
+  ],
+  "documentsAnalyzed": 8,
+  "primaryDocumentCluster": "EP10 Secondary Sprint (TA-10-2026-0037 through 0103)",
+  "feedHealthAtRunTime": {
+    "adopted_texts_today": "EMPTY",
+    "adopted_texts_year": "OPERATIONAL",
+    "events_feed": "404",
+    "procedures_feed": "404",
+    "meps_feed": "OPERATIONAL",
+    "coalition_dynamics": "OPERATIONAL",
+    "documents_feed": "EMPTY_WITH_WARNING",
+    "parliamentary_questions": "EMPTY_WITH_WARNING",
+    "server_health_api": "UNHEALTHY"
+  },
+  "files": [
+    {
+      "path": "analysis/daily/2026-04-17/breaking-run181/classification/significance-scoring.md",
+      "type": "classification",
+      "lines": "~180",
+      "qualityGate": "PASS"
+    },
+    {
+      "path": "analysis/daily/2026-04-17/breaking-run181/risk-scoring/quantitative-swot.md",
+      "type": "swot",
+      "quadrants": {"strengths": 3, "weaknesses": 3, "opportunities": 3, "threats": 4},
+      "qualityGate": "PASS"
+    },
+    {
+      "path": "analysis/daily/2026-04-17/breaking-run181/risk-scoring/risk-matrix.md",
+      "type": "risk_matrix",
+      "risks": 10,
+      "criticalRisks": 1,
+      "qualityGate": "PASS"
+    },
+    {
+      "path": "analysis/daily/2026-04-17/breaking-run181/threat-assessment/political-threat-landscape.md",
+      "type": "threat_assessment",
+      "threats": 4,
+      "qualityGate": "PASS"
+    },
+    {
+      "path": "analysis/daily/2026-04-17/breaking-run181/intelligence/coalition-dynamics.md",
+      "type": "coalition_intelligence",
+      "qualityGate": "PASS"
+    },
+    {
+      "path": "analysis/daily/2026-04-17/breaking-run181/intelligence/cross-run-diff.md",
+      "type": "cross_run_diff",
+      "newIntelligenceItems": 4,
+      "changedProbabilities": 2,
+      "qualityGate": "PASS"
+    },
+    {
+      "path": "analysis/daily/2026-04-17/breaking-run181/intelligence/synthesis-summary.md",
+      "type": "synthesis",
+      "qualityGate": "PASS"
+    },
+    {
+      "path": "analysis/daily/2026-04-17/breaking-run181/documents/document-analysis-index.md",
+      "type": "document_index",
+      "documentsAnalyzed": 8,
+      "qualityGate": "PASS"
+    }
+  ],
+  "generated": "2026-04-17T08:05:00Z",
+  "generatedBy": "news-breaking workflow run 181",
+  "model": "claude-opus-4.7"
+}
