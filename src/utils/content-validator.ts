@@ -860,7 +860,42 @@ const MIN_LANG_SWITCHER_LINKS = 14;
 /** Chart.js types accepted by the `data-chart-config` declarative pattern. */
 const CHART_JS_TYPES = /"type"\s*:\s*"(bar|line|pie|doughnut|radar|polarArea|scatter|bubble)"/u;
 
-/** Default text for a typed reason string used in `appendConfidenceReason`. */
+/**
+ * Scan an HTML attribute value in a single `<canvas>` tag starting at
+ * `tagStart`. Returns the decoded value of `attr` or `null` if not present.
+ * Uses only `indexOf` so runtime is strictly linear in input length — this
+ * avoids the polynomial-ReDoS class of regex that CodeQL flags when
+ * nested character classes match the same tag prefix.
+ *
+ * @param html - Full article HTML
+ * @param tagStart - Byte offset of the `<` that opens the canvas tag
+ * @param attr - Attribute name (e.g. `data-chart-config`)
+ * @returns Decoded attribute value, or `null` when the attribute is missing
+ */
+function extractCanvasAttribute(
+  html: string,
+  tagStart: number,
+  attr: string
+): string | null {
+  const tagEnd = html.indexOf('>', tagStart);
+  if (tagEnd === -1) return null;
+  const tag = html.slice(tagStart, tagEnd);
+  const key = `${attr}="`;
+  const attrIdx = tag.indexOf(key);
+  if (attrIdx === -1) return null;
+  const valueStart = attrIdx + key.length;
+  const valueEnd = tag.indexOf('"', valueStart);
+  if (valueEnd === -1) return null;
+  // Entity-decode the attribute value — `escapeHTML` in the template emits
+  // only these five entities.
+  const raw = tag.slice(valueStart, valueEnd);
+  return raw
+    .replace(/&quot;/gu, '"')
+    .replace(/&#39;/gu, "'")
+    .replace(/&gt;/gu, '>')
+    .replace(/&lt;/gu, '<')
+    .replace(/&amp;/gu, '&');
+}
 
 /**
  * Detect whether the article contains at least one Chart.js canvas with a
@@ -877,29 +912,41 @@ const CHART_JS_TYPES = /"type"\s*:\s*"(bar|line|pie|doughnut|radar|polarArea|sca
  * @returns `true` when ≥1 chart meeting the rules is present
  */
 export function articleHasChart(html: string): boolean {
-  const canvasRegex = /<canvas[^>]*data-chart-config\s*=\s*"([^"]+)"/giu;
-  let match: RegExpExecArray | null = canvasRegex.exec(html);
-  while (match !== null) {
-    const raw = match[1] ?? '';
-    // The config attribute is HTML-entity-encoded (JSON-LD-style). Decode the
-    // five entities that the template's escapeHTML produces.
-    const decoded = raw
-      .replace(/&quot;/gu, '"')
-      .replace(/&#39;/gu, "'")
-      .replace(/&gt;/gu, '>')
-      .replace(/&lt;/gu, '<')
-      .replace(/&amp;/gu, '&');
-    if (CHART_JS_TYPES.test(decoded)) {
-      // Count data points across the first dataset.
-      const dataMatch = /"data"\s*:\s*\[([^\]]*)\]/u.exec(decoded);
-      if (dataMatch) {
-        const points = (dataMatch[1] ?? '').split(',').filter((s) => s.trim().length > 0);
-        if (points.length >= 3) return true;
-      }
+  let cursor = 0;
+  while (cursor < html.length) {
+    const tagStart = html.indexOf('<canvas', cursor);
+    if (tagStart === -1) return false;
+    const decoded = extractCanvasAttribute(html, tagStart, 'data-chart-config');
+    if (decoded !== null && CHART_JS_TYPES.test(decoded) && countFirstDatasetPoints(decoded) >= 3) {
+      return true;
     }
-    match = canvasRegex.exec(html);
+    // Advance past `<canvas` so overlapping matches cannot occur.
+    cursor = tagStart + '<canvas'.length;
   }
   return false;
+}
+
+/**
+ * Count comma-separated data points in the first `"data":[…]` array of a
+ * Chart.js config JSON. Uses linear indexOf to avoid regex back-tracking.
+ *
+ * @param json - Decoded Chart.js config JSON string
+ * @returns Number of non-empty data points, or 0 when no `"data":[` is found
+ */
+function countFirstDatasetPoints(json: string): number {
+  const needle = '"data"';
+  const dataIdx = json.indexOf(needle);
+  if (dataIdx === -1) return 0;
+  // Find the next `[` after `"data"`, skipping any whitespace / colon.
+  const bracketStart = json.indexOf('[', dataIdx);
+  if (bracketStart === -1) return 0;
+  const bracketEnd = json.indexOf(']', bracketStart + 1);
+  if (bracketEnd === -1) return 0;
+  const slice = json.slice(bracketStart + 1, bracketEnd);
+  return slice
+    .split(',')
+    .map((s) => s.trim())
+    .filter((s) => s.length > 0).length;
 }
 
 /**
@@ -909,11 +956,28 @@ export function articleHasChart(html: string): boolean {
  * @returns Number of `.lang-link` anchors inside the header `site-header__langs` nav
  */
 function countLanguageSwitcherLinks(html: string): number {
-  const headerMatch = /<nav[^>]*class="[^"]*site-header__langs[^"]*"[^>]*>([\s\S]*?)<\/nav>/u.exec(
-    html
-  );
-  const scope = headerMatch?.[1] ?? html;
-  const matches = scope.match(/class="[^"]*\blang-link\b[^"]*"/gu);
+  // Linear scan: locate the nav element by its unique class, then count
+  // `.lang-link` classes inside. Avoids the nested `[^">]*` regex pattern
+  // that CodeQL flags as polynomial-ReDoS-prone.
+  const marker = 'site-header__langs';
+  const markerIdx = html.indexOf(marker);
+  const NAV_CLOSE = '</nav>';
+  let scope = html;
+  if (markerIdx !== -1) {
+    // Find the closing `</nav>` of the enclosing nav (simple assumption:
+    // the next `</nav>` after the marker is the one we want). Falls back to
+    // the whole HTML if not found.
+    const endIdx = html.indexOf(NAV_CLOSE, markerIdx);
+    if (endIdx !== -1) {
+      // Walk backwards to find the opening `<nav`.
+      const startIdx = html.lastIndexOf('<nav', markerIdx);
+      if (startIdx !== -1) {
+        scope = html.slice(startIdx, endIdx);
+      }
+    }
+  }
+  // Count `lang-link` class tokens — bounded linear count.
+  const matches = scope.match(/\blang-link\b/gu);
   return matches ? matches.length : 0;
 }
 

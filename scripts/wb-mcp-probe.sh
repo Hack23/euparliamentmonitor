@@ -28,6 +28,8 @@ export WB_MCP_PROBE_ERROR=""
 if [ -z "${WORLD_BANK_MCP_SERVER_URL:-}" ]; then
   WB_MCP_PROBE_ERROR="WORLD_BANK_MCP_SERVER_URL is not set; did you source scripts/mcp-setup.sh?"
   echo "WB_MCP_OK=false  # $WB_MCP_PROBE_ERROR"
+  # `return` works when the script is sourced (typical workflow usage);
+  # `exit` is the fallback when the script is executed directly.
   return 0 2>/dev/null || exit 0
 fi
 

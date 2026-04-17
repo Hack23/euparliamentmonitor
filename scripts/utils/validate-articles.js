@@ -128,6 +128,13 @@ function safeReaddir(dir) {
     }
 }
 /**
+ * Maximum recursion depth when searching an analysis directory for World
+ * Bank fingerprints. Three levels cover the expected layout
+ * `analysis/daily/{date}/{slug}/<subdir>/<file>.md`; deeper trees are
+ * truncated to guarantee bounded I/O during validator runs.
+ */
+const ANALYSIS_SEARCH_MAX_DEPTH = 3;
+/**
  * Depth-limited recursive search for any World Bank fingerprint in `.md` files.
  *
  * @param dir - Directory to scan
@@ -135,7 +142,7 @@ function safeReaddir(dir) {
  * @returns `true` when at least one `.md` file contains a World Bank fingerprint
  */
 function directoryContainsWorldBankFingerprint(dir, depth = 0) {
-    if (depth > 3)
+    if (depth > ANALYSIS_SEARCH_MAX_DEPTH)
         return false;
     let entries;
     try {
