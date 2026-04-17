@@ -393,7 +393,7 @@ Every generated article (or analysis-only PR) MUST link to ALL individual analys
 
 ### 🔁 Analysis-Only Extended Time Budget (when newsworthiness gate FAILS)
 
-> **⚠️ NON-NEGOTIABLE**: If at minute ~35 the AI determines "no breaking news" and skips article generation, you MUST NOT jump to PR creation at minute 36. Reinvest the saved 10+ minutes into deeper analysis per [SHARED_PROMPT_PATTERNS.md Analysis-Only 2-Pass Protocol](../prompts/SHARED_PROMPT_PATTERNS.md#-mandatory-analysis-only-2-pass-protocol-when-no-article-is-generated). Early-exit at minute ~19 (as occurred in run 24541203743 / PR #1223) is a **VIOLATION**.
+> **⚠️ NON-NEGOTIABLE**: If at minute ~35 the AI determines "no breaking news" and skips article generation, you MUST NOT jump to PR creation at minute 36. Reinvest the saved 10+ minutes into deeper analysis per [SHARED_PROMPT_PATTERNS.md Analysis-Only 2-Pass Protocol](../prompts/SHARED_PROMPT_PATTERNS.md#mandatory-analysis-only-2-pass-protocol-when-no-article-is-generated). Early-exit at minute ~19 (as occurred in run 24541203743 / PR #1223) is a **VIOLATION**.
 
 Replace minutes 35–45 with:
 

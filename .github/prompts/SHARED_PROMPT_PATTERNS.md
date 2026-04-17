@@ -3,7 +3,7 @@
 
 # 📋 Shared Prompt Patterns for EU Parliament Monitor Agentic Workflows
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.0 | **📅 Last Updated:** 2026-04-12 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Last Updated:** 2026-04-17 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
@@ -67,8 +67,8 @@ These restrictions prevent patch conflicts and workflow failures:
 
 **Constraints on minor corrections:**
 1. **Maximum 20 lines changed** across all `src/` and `scripts/` files combined, plus up to **30 lines** across all `test/`/`e2e/` files strictly needed to cover the fix
-2. **Must include a comment** on each changed code line explaining why the fix is needed: `// Fix: [description] — gh-aw workflow correction`
-3. **Must keep the test suite green** — `npm run test` MUST pass after the fix; if the fix would require more than 30 lines of test changes or a new test file, skip the fix and log the error instead
+2. **Must include a short explanation** for each code change or edited file explaining why the fix is needed, either as a comment near the changed block or in the PR body; use a concise format such as `Fix: [description] — gh-aw workflow correction`
+3. **Must keep the test suite green** — `npm run test` MUST pass after the fix; if the fix would require more than 30 lines of test changes, skip the fix and log the error instead
 4. **Must update tests in the SAME PR** as the `src/`/`scripts/` change — never push a code fix that leaves tests broken "to be fixed later"
 5. **Must run `npm run build` AND `npm run test`** after the correction and report both results in the PR body
 6. **AI analysis and content creation MUST still use AI prompts** — script corrections are ONLY for infrastructure/toolchain fixes

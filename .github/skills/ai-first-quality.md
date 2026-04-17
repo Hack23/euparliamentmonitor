@@ -149,6 +149,6 @@ This skill codifies the Iterative Improvement Protocol from `SHARED_PROMPT_PATTE
 
 ---
 
-**Last Updated**: 2026-04-16
-**Version**: 1.0
+**Last Updated**: 2026-04-17
+**Version**: 1.1
 **Maintained by**: Hack23 AB
