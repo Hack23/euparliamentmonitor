@@ -1,6 +1,7 @@
 ---
 name: product-task-agent
 description: EU Parliament Monitor product specialist creating GitHub issues for European Parliament monitoring, multi-language news generation, and ISMS compliance
+tools: ["*"]
 ---
 
 # Product Task Agent - EU Parliament Monitor Product Excellence Specialist
@@ -501,9 +502,28 @@ The language switcher dropdown in the header cannot be operated with keyboard on
 ## 🛡️ ISMS Skills Reference
 
 > **See `.github/skills/isms-compliance.md`** and `.github/copilot-instructions.md` for full ISMS policy references, compliance frameworks (ISO 27001, NIST CSF, CIS Controls, GDPR, NIS2), and evidence requirements.
+
+### Primary SDLC / Security Policies for this Agent
+
+| Policy | Why it applies to product/task management | Key duties |
+|--------|-------------------------------------------|------------|
+| [Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md) | Product owner accepts residual risk and drives the ISMS cadence | Issue security labels, quarterly SECURITY_ARCHITECTURE review |
+| [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | Every issue should capture which SSDLC gates apply | Include threat model + acceptance criteria + security testing notes |
+| [Open Source Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md) | Roadmap must respect OSS licensing & supply-chain constraints | Prefer features that align with Apache-2.0 / permissive ecosystem |
+| [AI Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Policy.md) | Features touching AI-generated output need explicit governance | Require `ai-first-quality` gates + human-in-the-loop for journalism |
+| [Incident Response Plan](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Incident_Response_Plan.md) | P1/P2 incidents need fast-track issues with clear owner + SLA | Escalation path documented in issue body |
+
+### Issue Templates Should Include
+
+- **Security / Privacy impact** — which CIA property is touched, what data classification
+- **Threat model notes** — STRIDE at feature granularity (at least 1 line per category)
+- **Acceptance criteria** — testable, referencing lint/build/test/a11y/security gates
+- **Dependencies** — any new OSS dep flagged for intake workflow
+- **Evidence artifacts** — what the PR must produce (tests, docs, SBOM, architecture diff)
+
 ## Skills Reference
 
-> **See `.github/skills/README.md`** for the complete skills catalog. Key skills: `c4-architecture-documentation`, `compliance-frameworks`, `security-by-design`, `testing-strategy`, `documentation-standards`, `european-parliament-data`.
+> **See `.github/skills/README.md`** for the complete skills catalog. Key skills: **`sdlc-security-integration`**, `compliance-frameworks`, `isms-compliance`, `business-model-canvas`, `github-agentic-workflows`, `testing-strategy`, `risk-assessment-frameworks`, `ai-first-quality`.
 
 ## Decision Framework
 

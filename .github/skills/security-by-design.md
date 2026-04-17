@@ -74,6 +74,46 @@ npm audit --audit-level=high
 | **Elevation of Privilege** | No server-side code, minimal JavaScript |
 
 ## Related Policies
+- [Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md)
 - [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md)
 - [Cryptography Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md)
 - [Access Control Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Access_Control_Policy.md)
+
+## SSDLC Phase Activities (Secure Development Policy)
+
+Apply these security activities in every feature lifecycle. See [sdlc-security-integration](sdlc-security-integration.md) for the full gate + evidence matrix.
+
+| Phase | Security Activity | Gate |
+|-------|-------------------|------|
+| Requirements | Capture security + privacy requirements, data classification | Issue has threat-model notes |
+| Design | STRIDE threat model, update SECURITY_ARCHITECTURE.md, choose smallest trust boundary | Design review comment from security champion |
+| Implementation | SPDX headers, TS strict, input validation, secure-by-default, no hard-coded secrets | `npm run lint && build && test` green |
+| Testing | Unit + integration + E2E + security regression tests | Coverage not decreased, Playwright + axe green |
+| Review | Peer review, grumpy-reviewer for risky diffs | ≥ 1 approval, all status checks green |
+| Release | SBOM, SLSA L3 provenance, signed tag | Release artifacts present, `gh attestation verify` passes |
+| Operations | Monitor Dependabot, CodeQL, secret scanning alerts within SLA | Alerts triaged within SLA |
+
+## Secure Coding Quick Reference
+
+| Risk | Primary Control | Code Pattern |
+|------|-----------------|--------------|
+| XSS | HTML output encoding | `escapeHtml()` helper in templates |
+| Injection | Parameterised APIs | Never concatenate untrusted → RegExp, shell, SQL, HTML |
+| SSRF | Allowlist outbound URLs | Validate against known MCP hosts; use AWF firewall for workflows |
+| Prototype pollution | Safe parsing | Never merge untrusted JSON into shared objects |
+| Unsafe deserialisation | Schema validation | Validate MCP responses with shape guards before use |
+| Weak randomness | Platform crypto | `crypto.randomUUID()` / `crypto.randomBytes()` |
+| Secret leakage | Env + secret scanning | GitHub env secrets; never in code, logs, artifacts |
+| Broken auth | Least privilege | GitHub tokens scoped; workflows pinned by SHA |
+| Misconfig | CSP + security headers | See headers block above |
+| Vulnerable deps | Dependabot + npm audit | Per vulnerability SLA |
+
+## Vulnerability SLA
+
+| Severity | Fix By | Trigger |
+|----------|--------|---------|
+| Critical | 7 days | CodeQL critical, Dependabot critical, external disclosure |
+| High | 14 days | CodeQL high, Dependabot high |
+| Medium | 30 days | Scorecard warnings, npm audit medium |
+| Low | Next minor release | Style/policy findings |
+

@@ -1,6 +1,7 @@
 ---
 name: devops-engineer
 description: CI/CD and automation specialist for GitHub Actions workflows, European Parliament MCP pre-installation, and GitHub Pages deployment
+tools: ["*"]
 ---
 
 # DevOps Engineer - CI/CD and GitHub Actions Automation Expert
@@ -561,9 +562,30 @@ Configuration:
 ## 🛡️ ISMS Skills Reference
 
 > **See `.github/skills/isms-compliance.md`** and `.github/copilot-instructions.md` for full ISMS policy references, compliance frameworks (ISO 27001, NIST CSF, CIS Controls, GDPR, NIS2), and evidence requirements.
+
+### Primary SDLC / Security Policies for this Agent
+
+| Policy | Why it applies to DevOps | Key duties |
+|--------|--------------------------|------------|
+| [Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md) | Workflows are Hack23's control plane — they must embody CIA + least privilege | Scope `permissions:` minimally, keep runners patched, rotate secrets |
+| [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | CI/CD enforces every SSDLC gate (lint, build, test, scan, sign, release) | Wire CodeQL + Dependabot + npm audit + accessibility checks in CI |
+| [Open Source Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md) | Release pipelines must emit SBOM + SLSA provenance + signed tags | `anchore/sbom-action`, `actions/attest-build-provenance`, pin Actions by SHA, pin Docker by digest |
+| [Cryptography Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md) | Only modern crypto (TLS 1.3, Ed25519, AES-GCM) on any pipeline egress | Reject deprecated crypto; enable HTTPS-only for deployment endpoints |
+| [Access Control Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Access_Control_Policy.md) | Token + role governance for GitHub Actions | Use fine-grained PATs / OIDC; no `write` on PRs from forks |
+
 ## Skills Reference
 
-> **See `.github/skills/README.md`** for the complete skills catalog. Key skills: `c4-architecture-documentation`, `compliance-frameworks`, `security-by-design`, `testing-strategy`, `documentation-standards`, `european-parliament-data`.
+> **See `.github/skills/README.md`** for the complete skills catalog. Key skills: **`sdlc-security-integration`**, `c4-architecture-documentation`, `compliance-frameworks`, `security-by-design`, `testing-strategy`, `documentation-standards`, `european-parliament-data`, `open-source-governance`, `github-agentic-workflows`, `gh-aw-architecture`, `mcp-gateway-security`, `ai-first-quality`.
+
+### DevOps SSDLC Checklist (from `sdlc-security-integration` skill)
+
+- [ ] Every workflow `permissions:` block is explicit and minimal
+- [ ] All `uses:` Actions pinned to commit SHA (not tags) with comment noting version
+- [ ] All Docker base images pinned by digest (e.g. `node:25-alpine@sha256:…`)
+- [ ] Secrets referenced via `${{ secrets.* }}` and stored in GitHub environments, never in code
+- [ ] Release workflow emits SBOM (SPDX JSON) + SLSA L3 attestation + signed tag
+- [ ] CodeQL + Dependabot + secret scanning enabled and alerts triaged within SLA
+- [ ] Vulnerability SLA respected: Critical 7d, High 14d, Medium 30d, Low next minor
 
 ## Quality Standards
 

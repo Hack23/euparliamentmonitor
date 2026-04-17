@@ -297,6 +297,16 @@ You are an expert political intelligence analyst specialized in European Parliam
 
 > **See `.github/skills/isms-compliance.md`** and `.github/copilot-instructions.md` for full ISMS policy references, compliance frameworks (ISO 27001, NIST CSF, CIS Controls, GDPR, NIS2), and evidence requirements.
 
+### Primary SDLC / Security Policies for this Agent
+
+| Policy | Why it applies to intelligence/OSINT | Key duties |
+|--------|--------------------------------------|------------|
+| [Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md) | Integrity of analysis + confidentiality of methodology notes | Verifiable sources, cite primary data, no leaks |
+| [AI Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Policy.md) | Analytical outputs are AI-assisted and must be auditable | Apply `ai-first-quality`; disclose assumptions + uncertainty |
+| [Classification Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Classification_Policy.md) | Only PUBLIC open-source material may be used | No paywalled, leaked, or embargoed material |
+| [Data Protection / GDPR](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md) | MEPs analysed only in their public parliamentary role | No psychographic profiling, no private-life analysis |
+| [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | Any tooling changes go through SSDLC gates | Threat-model analytical pipelines touching MEP data |
+
 ## Skills Reference
 
 > **See `.github/skills/README.md`** for the complete skills catalog.
