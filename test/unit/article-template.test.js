@@ -529,8 +529,9 @@ describe('article-template', () => {
 
         // Template should only have JSON-LD script tags
         expect(jsonLdScripts.length).toBeGreaterThan(0);
-        // Executable scripts: 1 from the malicious content + 1 reading-progress bar script + 1 theme toggle script
-        expect(executableScripts.length).toBe(3);
+        // Executable scripts: 1 from the malicious content + 1 external article-runtime.js.
+        // (Inline reading-progress and theme-toggle blocks have been externalised.)
+        expect(executableScripts.length).toBe(2);
       });
 
       it('should properly escape special characters in title', () => {
@@ -599,7 +600,11 @@ describe('article-template', () => {
         expect(html).toContain('no-referrer');
         expect(html).toContain('Content-Security-Policy');
         expect(html).toContain("default-src 'self'");
-        expect(html).toContain("script-src 'self' 'sha256-");
+        // Executable inline <script> blocks have been externalised to
+        // js/article-runtime.js, so the CSP reduces to a fixed `'self'`
+        // and no longer requires per-article SHA-256 hashes.
+        expect(html).toContain("script-src 'self';");
+        expect(html).not.toContain('sha256-');
         expect(html).toContain("style-src 'self' 'unsafe-inline'");
         expect(html).toContain("img-src 'self' https: data:");
         expect(html).toContain("font-src 'self'");
@@ -609,20 +614,12 @@ describe('article-template', () => {
         expect(html).toContain("form-action 'none'");
       });
 
-      it('should include CSP script-src hash matching the JSON-LD content', async () => {
-        const { createHash } = await import('crypto');
+      it('should reference the external article-runtime.js for reading-progress + theme toggle', () => {
         const html = generateArticleHTML(defaultOptions);
-
-        // Extract the JSON-LD script content from the generated HTML
-        const scriptMatch = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
-        expect(scriptMatch).not.toBeNull();
-        const scriptContent = scriptMatch[1];
-
-        // Compute the expected hash
-        const expectedHash = `sha256-${createHash('sha256').update(scriptContent).digest('base64')}`;
-
-        // Verify the CSP contains this exact hash
-        expect(html).toContain(`script-src 'self' '${expectedHash}'`);
+        expect(html).toContain('<script src="../js/article-runtime.js" defer></script>');
+        // No inline <script> blocks should remain apart from JSON-LD data blocks.
+        const inlineExecutable = html.match(/<script>[^<]/g) ?? [];
+        expect(inlineExecutable).toHaveLength(0);
       });
 
       it('should include SRI integrity attribute on stylesheet when stylesHash is provided', () => {
@@ -927,14 +924,15 @@ describe('article-template', () => {
         expect(html).not.toContain('Related Analysis');
       });
 
-      it('should include BreadcrumbList hash in CSP header', () => {
+      it('should emit a fixed CSP without per-article sha256 hashes', () => {
         const html = generateArticleHTML(defaultOptions);
-        // CSP should contain at least 4 sha256 hashes (jsonLd + breadcrumbLd + readingProgress + themeToggle)
         const cspMatch = html.match(/Content-Security-Policy[^>]*script-src[^>]*/);
         expect(cspMatch).not.toBeNull();
         const cspContent = cspMatch?.[0] ?? '';
-        const sha256Count = (cspContent.match(/sha256-/g) ?? []).length;
-        expect(sha256Count).toBeGreaterThanOrEqual(4);
+        // All executable inline <script> blocks now live in the external
+        // js/article-runtime.js, so no sha256 hash should appear in the CSP.
+        expect(cspContent).not.toMatch(/sha256-/);
+        expect(cspContent).toMatch(/script-src 'self';/);
       });
 
       it('should include timeRequired in Schema.org markup', () => {
