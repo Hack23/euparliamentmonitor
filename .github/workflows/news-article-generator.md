@@ -204,15 +204,14 @@ fi
 
 ## 🚫 MANDATORY Scope Restriction
 
-> **⚠️ CRITICAL**: This workflow creates article files in the `news/` directory and analysis artifacts in the `analysis/daily/` directory. You MUST NOT modify any other files, except for the conditional allowance below for minor, necessary compilation or runtime fixes in `src/` or `scripts/`.
+> **⚠️ CRITICAL**: This workflow creates article files in the `news/` directory and analysis artifacts in the `analysis/daily/` directory. You MUST NOT modify any other files, except for the conditional allowance below for minor, necessary compilation or runtime fixes in `src/` or `scripts/` (and the matching `test/` / `e2e/` updates strictly required by those fixes).
 
 **FORBIDDEN modifications (will cause patch conflicts and workflow failure):**
 - ❌ `.github/` — NEVER modify workflow or configuration files
-- ❌ `test/` / `e2e/` — NEVER modify test files
 - ❌ `index*.html` — NEVER modify index pages
 - ❌ `package.json` / `package-lock.json` — NEVER modify dependency files
 
-**CONDITIONAL: Minor TypeScript/Script corrections** — see [SHARED_PROMPT_PATTERNS.md](../prompts/SHARED_PROMPT_PATTERNS.md#minor-typescriptscript-corrections-conditional-allow) for the full policy. In brief: you MAY fix compilation or runtime errors in `src/` or `scripts/` (max 20 lines) when the fix is necessary to complete news generation. You MUST NOT refactor, add features, or modify tests.
+**CONDITIONAL: Minor TypeScript/Script corrections + matching test updates** — see [SHARED_PROMPT_PATTERNS.md](../prompts/SHARED_PROMPT_PATTERNS.md#minor-typescriptscript-corrections-conditional-allow) for the full policy (v1.1). In brief: you MAY fix compilation or runtime errors in `src/` or `scripts/` (max 20 lines) when the fix is necessary to complete news generation, AND you MAY update the corresponding `test/` / `e2e/` tests (max 30 lines) **only when required by that fix** to keep the suite green. You MUST run both `npm run build` and `npm run test` and report both results in the PR body. You MUST NOT make standalone test edits, refactor tests, or weaken assertions.
 
 **FORBIDDEN practices** — see [SHARED_PROMPT_PATTERNS.md](../prompts/SHARED_PROMPT_PATTERNS.md#forbidden-practices-all-workflows) for the complete list.
 - ❌ **Writing custom Python/Ruby/Perl scripts** — Use ONLY the existing Node.js/TypeScript toolchain

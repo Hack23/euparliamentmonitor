@@ -93,6 +93,13 @@ Every paragraph must pass this test:
 | Single-topic news | 60 min | ≥45 min | ≥20 min | ≥15 min |
 | Weekly/Monthly review | 60 min | ≥45 min | ≥25 min | ≥15 min |
 | Multi-article generator | 120 min | ≥90 min | ≥15 min × types | ≥15 min × types |
+| **Analysis-only run** (no article) | 60 min | **≥45 min** | ≥20 min Pass 1+2 **+ ≥5 min Pass 3 (cross-run diff) + ≥5 min Pass 4 (forward monitoring)** | N/A |
+
+> **Analysis-only runs MUST NOT short-circuit**. When the newsworthiness gate fails, the time saved by skipping article generation MUST be reinvested into Pass 3 (cross-run diff) and Pass 4 (forward monitoring extension). See `SHARED_PROMPT_PATTERNS.md § Mandatory Analysis-Only 2-Pass Protocol`. Early exit before minute 45 is a VIOLATION. Reference incident: PR #1223 / run 24541203743 (19-minute agent run).
+
+## Tests Policy Alignment (v1.1)
+
+Under the v1.1 scope policy, agentic workflows MAY update `test/` and `e2e/` tests **only when required by an accompanying `src/`/`scripts/` fix**. Both `npm run build` AND `npm run test` MUST pass before PR creation, and both results MUST be reported in the PR body. Standalone test edits, refactors, or weakened assertions remain FORBIDDEN. See `SHARED_PROMPT_PATTERNS.md § Minor TypeScript/Script Corrections (CONDITIONAL ALLOW)` for the full policy.
 
 ## Application Per Agent Role
 

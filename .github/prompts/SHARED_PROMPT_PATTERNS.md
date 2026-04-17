@@ -42,33 +42,36 @@ These restrictions prevent patch conflicts and workflow failures:
 | `.github/` | ❌ NEVER modify | Workflow configuration files |
 | `index*.html` | ❌ NEVER modify | Index pages (generated separately) |
 | `package.json` / `package-lock.json` | ❌ NEVER modify | Dependency files |
-| `test/` | ❌ NEVER modify | Unit test files |
-| `e2e/` | ❌ NEVER modify | End-to-end test files |
+| `test/` | ⚠️ CONDITIONAL — modify ONLY when required by an accompanying `src/`/`scripts/` fix (see below) | Unit test files |
+| `e2e/` | ⚠️ CONDITIONAL — modify ONLY when required by an accompanying `src/`/`scripts/` fix (see below) | End-to-end test files |
 
 ### Minor TypeScript/Script Corrections (CONDITIONAL ALLOW)
 
-> **Policy change (v1.0, 2026-04-12):** Agentic workflows MAY make **minor, targeted corrections** to `src/` and `scripts/` files **only when the correction is necessary to complete the workflow's primary mission** (news generation or translation). This replaces the previous blanket ban.
+> **Policy change (v1.1, 2026-04-17):** Agentic workflows MAY make **minor, targeted corrections** to `src/` and `scripts/` files **only when the correction is necessary to complete the workflow's primary mission** (news generation or translation). When such a correction changes behaviour covered by tests, the workflow **MUST also update the corresponding `test/` or `e2e/` tests in the same PR** so the suite stays green. This supersedes the prior v1.0 rule that blanket-banned test modifications.
 
 **ALLOWED minor corrections:**
 - ✅ Fix a TypeScript compilation error that blocks `npm run build` (e.g., missing import, type mismatch)
 - ✅ Fix a runtime error in a generator script that prevents article generation
 - ✅ Add a missing constant or enum value that causes the pipeline to fail
 - ✅ Correct a data mapping error (e.g., wrong language code, incorrect URL pattern)
+- ✅ Update `test/` or `e2e/` tests **when and only when** they are required to reflect an accompanying `src/`/`scripts/` fix
 
 **STILL FORBIDDEN:**
 - ❌ Refactoring or restructuring code beyond the minimum fix
-- ❌ Adding new features, functions, or files to `src/`
-- ❌ Modifying test files or test expectations
-- ❌ Changing package.json dependencies
+- ❌ Adding new features, functions, or files to `src/` unrelated to the fix
+- ❌ Standalone test-only edits (renaming, restructuring, "improving" tests that are already passing)
+- ❌ Deleting tests or weakening assertions to make a broken fix pass
+- ❌ Changing `package.json` dependencies
 - ❌ Writing custom Python/Ruby/Perl scripts — use ONLY the Node.js/TypeScript toolchain
 - ❌ Creating new standalone helper scripts (`.js`, `.py`, `.sh`)
 
 **Constraints on minor corrections:**
-1. **Maximum 20 lines changed** across all `src/` and `scripts/` files combined
-2. **Must include a comment** explaining why the fix is needed: `// Fix: [description] — gh-aw workflow correction`
-3. **Must not break existing tests** — if the fix would require test changes, skip it and log the error
-4. **Must run `npm run build`** after the correction to verify it compiles
-5. **AI analysis and content creation MUST still use AI prompts** — script corrections are ONLY for infrastructure/toolchain fixes
+1. **Maximum 20 lines changed** across all `src/` and `scripts/` files combined, plus up to **30 lines** across all `test/`/`e2e/` files strictly needed to cover the fix
+2. **Must include a comment** on each changed code line explaining why the fix is needed: `// Fix: [description] — gh-aw workflow correction`
+3. **Must keep the test suite green** — `npm run test` MUST pass after the fix; if the fix would require more than 30 lines of test changes or a new test file, skip the fix and log the error instead
+4. **Must update tests in the SAME PR** as the `src/`/`scripts/` change — never push a code fix that leaves tests broken "to be fixed later"
+5. **Must run `npm run build` AND `npm run test`** after the correction and report both results in the PR body
+6. **AI analysis and content creation MUST still use AI prompts** — script corrections are ONLY for infrastructure/toolchain fixes
 
 ### FORBIDDEN Practices (All Workflows)
 
@@ -711,6 +714,34 @@ Today's workflow runs complete in 24-30 minutes out of 60-minute budgets. The AI
 | Article generator | 120 min | ≥90 min | ≥15 min × types | ≥15 min × types | 10 min |
 
 > **🚫 VIOLATION**: Completing a 60-minute workflow in under 45 minutes. If you find yourself about to create the PR before minute 45, STOP — go back and improve your analysis and articles. Read everything again. Add more depth. Every additional minute of improvement produces higher quality.
+
+### 📋 Mandatory Analysis-Only 2-Pass Protocol (When No Article Is Generated)
+
+> **⚠️ NON-NEGOTIABLE**: The ≥45-minute active-work requirement applies **equally** to analysis-only runs (when the newsworthiness gate fails or Parliament is in recess and no article is produced). An agent that determines "no breaking news" at minute 15 and immediately creates the analysis-only PR is in **VIOLATION** — the time saved by skipping article generation MUST be reinvested into deeper analysis.
+>
+> **Root cause this rule addresses**: Analysis-only runs historically short-circuit at minute ~20, produce 🟡 Medium-quality output, and waste 30+ minutes of the 60-minute budget. See PR #1223 / run 24541203743 (19-minute agent run).
+
+**Replace the normal article phase (minutes 35–45) with an Extended Analysis Phase when no article is generated:**
+
+| Step | Action | Time |
+|------|--------|------|
+| **Minutes 15–27 — Pass 1 (initial analysis)** | Write all analysis markdown files across the 5 categories (classification, threat assessment, risk scoring, intelligence, documents). | ~12 min |
+| **Minutes 27–35 — Pass 2 (read-back & improvement)** | Read every analysis file completely, expand shallow sections, add evidence citations and confidence labels, cross-reference files. | ~8 min |
+| **Minutes 35–40 — Pass 3 (cross-run diff + scenario stress)** | Read the prior run's analysis from `analysis/daily/{YYYY-MM-DD}/{type}-run{N-1}/` (if present) and write a `cross-run-diff.md` file: what changed since prior run, what is new incremental intelligence, what hypotheses are now confirmed/refuted, what scenario probabilities have shifted. Stress-test each coalition/risk scenario with ≥1 alternate-probability scenario. | ~5 min |
+| **Minutes 40–45 — Pass 4 (forward-monitoring extension)** | Extend the synthesis file with a **Forward Monitoring Priorities** section listing ≥5 specific, dated, observable indicators to watch before the next scheduled run. Append **Data-Quality Delta** notes documenting any API feed degradation vs prior runs. | ~5 min |
+| **Minutes 45–48** | Validate analysis files (line counts, confidence labels present, zero placeholders remain). | 3 min |
+| **Minutes 48–50** | Create analysis-only PR via `safeoutputs___create_pull_request`. | 2 min |
+
+**Quality gates for analysis-only PRs (all MUST be met before PR creation):**
+- [ ] ≥7 analysis files written (classification/significance-scoring, risk-scoring/risk-matrix, threat-assessment/political-threat-landscape, intelligence/quantitative-swot, intelligence/coalition-dynamics, documents/document-analysis-index, intelligence/synthesis-summary)
+- [ ] `cross-run-diff.md` present comparing against the immediately prior run (if one exists within 7 days)
+- [ ] Every SWOT quadrant has ≥3 entries of ≥80 words each with evidence and confidence label
+- [ ] ≥5 forward monitoring priorities with concrete observable triggers
+- [ ] Data-quality delta documented for any feed that returned 404/empty/timeout
+- [ ] Zero `[AI_ANALYSIS_REQUIRED]` markers in any analysis file
+- [ ] Total agent active runtime ≥45 minutes (record `ELAPSED_MINUTES` in synthesis footer)
+
+> **🚫 ANALYSIS-ONLY EARLY-EXIT VIOLATION**: Creating an analysis-only PR before minute 45 of elapsed agent time. If you reach minute 30 with all 7 files written and quality gates met, **do not stop** — proceed to Pass 3 (cross-run diff) and Pass 4 (forward monitoring). There is always more depth to add.
 
 ---
 
