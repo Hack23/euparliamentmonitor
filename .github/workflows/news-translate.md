@@ -237,6 +237,13 @@ sv (Swedish), da (Danish), no (Norwegian), fi (Finnish), de (German), fr (French
 
 Run this bash block FIRST, then call safeoutputs immediately after.
 
+> **Tool call contract (CRITICAL)**: Every time you invoke the `bash` tool, you MUST provide both required fields: `command` and `description`. Calls without either field fail validation and can stall the workflow.
+>
+> ✅ Correct format:
+> ```json
+> {"command":"echo \"hello\"","description":"Print hello"}
+> ```
+
 ```bash
 echo "=== Translation Date Context ==="
 TODAY=$(date -u +%Y-%m-%d)
