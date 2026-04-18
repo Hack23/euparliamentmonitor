@@ -1238,17 +1238,37 @@ When cross-referencing:
 
 ---
 
+## ⭐ Reference Analyses (Gold-Standard Exemplars)
+
+When a workflow is uncertain what "good enough" analytical depth looks like, consult the
+designated reference runs below. A reference run's artifacts are the illustrative
+depth-and-structure benchmark for the relevant article type; a new output thinner than
+the reference should trigger an additional improvement pass before submission.
+
+| Article Type | Reference Run | Artifact Directory | Designation Document |
+|--------------|--------------|--------------------|----------------------|
+| Breaking (analysis-only, API-degraded mode) | **Run 184** (2026-04-18) | [`analysis/daily/2026-04-18/breaking-run184/`](../daily/2026-04-18/breaking-run184/) | [`reference-analysis-quality.md`](../daily/2026-04-18/breaking-run184/intelligence/reference-analysis-quality.md) |
+
+**Run 184 also ships the canonical** [MCP reliability audit](../daily/2026-04-18/breaking-run184/intelligence/mcp-reliability-audit.md)
+— the enumeration of 7 EP MCP server data-reliability defects observed across Runs 179–184
+and the 5 upstream issues filed on `Hack23/European-Parliament-MCP-Server`. Future
+analysis-only runs operating under API-degraded conditions should produce a comparable
+`intelligence/mcp-reliability-audit.md` file whenever new defects are observed.
+
+---
+
 ## 🔗 Related Documents
 
 - [templates/per-file-political-intelligence.md](../templates/per-file-political-intelligence.md) — Per-file output template
 - [templates/synthesis-summary.md](../templates/synthesis-summary.md) — Daily synthesis template
 - [SWOT.md](../../SWOT.md) — Platform SWOT (**formatting exemplar**)
 - [THREAT_MODEL.md](../../THREAT_MODEL.md) — Platform threat model (**formatting exemplar**)
+- [Run 184 reference analysis](../daily/2026-04-18/breaking-run184/) — **depth exemplar**
 
 ---
 
 **Document Control:**
 - **Path:** `/analysis/methodologies/ai-driven-analysis-guide.md`
 - **Classification:** Public
-- **Version:** 4.2 — Added Rule 17 (Comparative Analysis Against Historical Baselines), Rule 18 (Cross-Article-Type Correlation), and expanded anti-boilerplate examples
+- **Version:** 4.3 — Added Reference Analyses section designating Run 184 (2026-04-18) as the depth benchmark for breaking / analysis-only / API-degraded-mode runs, and linked the canonical MCP reliability audit.
 - **Next Review:** 2026-06-30

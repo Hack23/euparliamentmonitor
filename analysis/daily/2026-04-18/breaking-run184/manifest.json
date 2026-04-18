@@ -5,7 +5,9 @@
     "articleType": "breaking",
     "mode": "ANALYSIS_ONLY",
     "newsworthiness": "NO_BREAKING_NEWS",
-    "reason": "Easter Saturday — Parliament in recess, no EP items published today"
+    "reason": "Easter Saturday — Parliament in recess, no EP items published today",
+    "referenceAnalysis": true,
+    "referenceAnalysisNote": "Designated reference-quality analysis per intelligence/reference-analysis-quality.md — used as the depth benchmark for AI guides, prompt patterns, and agentic workflow templates."
   },
   "context": {
     "recessDay": 6,
@@ -30,10 +32,35 @@
     "incrementalIntelligence": 26,
     "incrementalIntelligenceMax": 100
   },
+  "mcpReliabilityIssues": {
+    "auditFile": "intelligence/mcp-reliability-audit.md",
+    "defectsIdentified": 7,
+    "upstreamIssuesToFile": 5,
+    "defects": [
+      {"id": 1, "severity": "HIGH",   "summary": "get_server_health underreports availability (0/13 when 2 operational)", "remediableInMcpServer": true,  "upstreamIssueFiled": true},
+      {"id": 2, "severity": "HIGH",   "summary": "coalition_dynamics memberCount=0 for EPP, Greens/EFA, PfE, ESN",         "remediableInMcpServer": true,  "upstreamIssueFiled": true},
+      {"id": 3, "severity": "MEDIUM", "summary": "cohesion field is size-ratio artifact, not vote-level alignment",        "remediableInMcpServer": true,  "upstreamIssueFiled": true},
+      {"id": 4, "severity": "MEDIUM", "summary": "get_adopted_texts returns empty-string fields instead of 404/null",       "remediableInMcpServer": true,  "upstreamIssueFiled": true},
+      {"id": 5, "severity": "MEDIUM", "summary": "inconsistent error signalling across feeds (404 / empty / error-string)", "remediableInMcpServer": true,  "upstreamIssueFiled": true},
+      {"id": 6, "severity": "LOW",    "summary": "ENP computed over incomplete group data (covered by defect #2)",         "remediableInMcpServer": true,  "upstreamIssueFiled": false},
+      {"id": 7, "severity": "LOW",    "summary": "feed responses lack lastModified/ETag/itemCount metadata",                "remediableInMcpServer": true,  "upstreamIssueFiled": false}
+    ],
+    "clientSideMitigationsProposed": [
+      "coalition_dynamics incomplete-data detection in ep-mcp-client.ts",
+      "empty-string sentinel detection for get_adopted_texts responses",
+      "direct-probe fallback when get_server_health reports 0/13"
+    ]
+  },
   "files": {
     "classification": ["classification/significance-scoring.md"],
     "risk_scoring": ["risk-scoring/risk-matrix.md", "risk-scoring/quantitative-swot.md"],
-    "intelligence": ["intelligence/coalition-dynamics.md", "intelligence/synthesis-summary.md", "intelligence/cross-run-diff.md"],
+    "intelligence": [
+      "intelligence/coalition-dynamics.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/cross-run-diff.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/reference-analysis-quality.md"
+    ],
     "documents": ["documents/document-analysis-index.md"]
   },
   "forwardMonitoring": [
@@ -42,7 +69,9 @@
     {"trigger": "EP API Tier 2 recovery", "deadline": "2026-04-21 to 2026-04-23", "priority": "MEDIUM"},
     {"trigger": "German BRRD3 Bundesrat signal", "deadline": "2026-04-23 to 2026-04-25", "priority": "MEDIUM"},
     {"trigger": "TA-10-2026-0099–0104 content", "deadline": "2026-04-27+", "priority": "CRITICAL"},
-    {"trigger": "MEP plenary registration", "deadline": "2026-04-26 to 2026-04-27", "priority": "LOW"}
+    {"trigger": "MEP plenary registration", "deadline": "2026-04-26 to 2026-04-27", "priority": "LOW"},
+    {"trigger": "MCP server remediation (5 upstream issues)", "deadline": "european-parliament-mcp-server@1.3.0", "priority": "HIGH"}
   ],
-  "generated": "2026-04-18T07:35:00Z"
+  "generated": "2026-04-18T07:35:00Z",
+  "lastUpdated": "2026-04-18T08:15:00Z"
 }

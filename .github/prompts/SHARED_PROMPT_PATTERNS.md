@@ -236,6 +236,19 @@ When a feed endpoint fails (404/timeout/error), IMMEDIATELY try the correspondin
 ### Cross-Run Data Consistency
 
 > **⚠️ SEAT COUNT NORMALIZATION**: When citing political group seat counts, use the SAME data source within a single analysis run. Get seat counts from `analyze_coalition_dynamics` OR from `get_meps_feed` — do NOT mix sources. Record the source in the analysis metadata. Inconsistent seat counts across same-day runs (e.g., EPP=185 vs EPP=188) undermine analytical credibility.
+
+### 🔬 MCP Data-Quality Rules (empirical — basis: Runs 179–184)
+
+Observations from the Easter 2026 recess series revealed persistent EP MCP server data-reliability defects. The canonical audit is
+[`analysis/daily/2026-04-18/breaking-run184/intelligence/mcp-reliability-audit.md`](../../analysis/daily/2026-04-18/breaking-run184/intelligence/mcp-reliability-audit.md);
+every news workflow MUST apply the following defensive rules when consuming MCP responses:
+
+1. **`coalition_dynamics.cohesion` is not a political-alignment signal when `sharedVotes === null`.** Classify such scores as *"size-ratio artifacts"* and emit a data-quality warning. The Renew-ECR 0.95 figure is the reference example — do not treat as alliance evidence.
+2. **Never trust `get_server_health` alone.** Always cross-validate by probing at least one concrete feed (`get_adopted_texts_feed` is cheapest). If `server_health` reports 0/13 but a probe returns data, treat the server as DEGRADED, not UNAVAILABLE.
+3. **Empty-string field responses = missing content.** When `get_adopted_texts({docId})` returns `{"id":"","title":"",...}` (every string field empty), treat as `CONTENT_PENDING` — do not render blanks in articles; do not quote them as data.
+4. **Sum political-group `memberCount` before running coalition mathematics.** If the total is under 600 (EP10 ≈ 720 seats), emit a data-quality warning and cap coalition-probability estimates at 0.70 × raw_probability. The EPP / Greens-EFA / PfE / ESN `memberCount=0` bug is persistent; assume it until the server publishes a fix.
+5. **During API-degraded windows, produce an `intelligence/mcp-reliability-audit.md` file** alongside the normal artifact set whenever new defects are observed. This audit file is part of the analysis payload and feeds upstream issue tracking on `Hack23/European-Parliament-MCP-Server`.
+
 ### Analytical Tools (AI-Powered Analysis)
 
 | Tool | Purpose | Key Parameters |
