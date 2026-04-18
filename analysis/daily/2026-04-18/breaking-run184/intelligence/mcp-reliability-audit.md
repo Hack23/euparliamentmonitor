@@ -430,5 +430,5 @@ within the MCP server. It is the highest-priority upstream fix.
 ---
 
 *Audit compiled: April 18, 2026 | Run 184 | Basis: 6 consecutive Easter-recess runs*
-*Upstream issues to be filed: `Hack23/European-Parliament-MCP-Server`*
+*Upstream issues filed: `Hack23/European-Parliament-MCP-Server` #366–#370 (see per-defect sections above for issue numbers)*
 *Linked remediation tracked in: `src/mcp/ep-mcp-client.ts`, `.github/prompts/SHARED_PROMPT_PATTERNS.md`*

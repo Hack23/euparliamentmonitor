@@ -130,11 +130,11 @@ The April 27 target for full API restoration is achievable if EP IT follows its 
 
 | Run | Date | Composite Score | Dominant Vector | Feed Status |
 |-----|------|----------------|-----------------|-------------|
-| Run 179 | Apr 14 | 21/50 | Trade escalation | 0/13 |
-| Run 180 | Apr 15 | 23/50 | Banking Union | 0/13 |
-| Run 181 | Apr 16 | 24/50 | Banking Union | 0/13 |
-| Run 182 | Apr 17 | 24/50 | Banking Union | 0/13 |
-| Run 183 | Apr 18 | 24/50 | Banking Union | 0/13 |
+| Run 179 | Apr 13 | 21/50 | Trade escalation | 0/13 |
+| Run 180 | Apr 14 | 23/50 | Banking Union | 0/13 |
+| Run 181 | Apr 15 | 24/50 | Banking Union | 0/13 |
+| Run 182 | Apr 16 | 24/50 | Banking Union | 0/13 |
+| Run 183 | Apr 17 | 24/50 | Banking Union | 0/13 |
 | **Run 184** | **Apr 18** | **18/50** | **Banking Union** | **2/13 ↑** |
 
 *Note: Risk score reduction in Run 184 reflects recalibration methodology (EPP gap as separate vector + API risk reduced) rather than fundamental improvement in the political risk landscape.*
