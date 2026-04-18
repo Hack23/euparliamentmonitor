@@ -22,6 +22,29 @@ confidence: MEDIUM
 Political risk continues its upward trajectory as Easter recess Day 16 transitions into the final weekend before committee restart. The composite score has risen to 13.17/25 (up from 12.85 in Run 157, six hours earlier), driven by the tariff deadline approaching T-4 and the confirmed continued unavailability of all EP API feed endpoints. The geopolitical standing risk category remains at CRITICAL (20/25), the highest single-risk item tracked across the entire recess monitoring period.
 
 ```mermaid
+%%{init: {
+  "theme": "dark",
+  "themeVariables": {
+    "quadrant1Fill": "#1565C0",
+    "quadrant2Fill": "#2E7D32",
+    "quadrant3Fill": "#FF9800",
+    "quadrant4Fill": "#D32F2F",
+    "quadrantTitleFill": "#ffffff",
+    "quadrantPointFill": "#ffffff",
+    "quadrantPointTextFill": "#ffffff",
+    "quadrantXAxisTextFill": "#ffffff",
+    "quadrantYAxisTextFill": "#ffffff"
+  },
+  "quadrantChart": {
+    "chartWidth": 700,
+    "chartHeight": 700,
+    "pointLabelFontSize": 14,
+    "titleFontSize": 22,
+    "quadrantLabelFontSize": 18,
+    "xAxisLabelFontSize": 16,
+    "yAxisLabelFontSize": 16
+  }
+}}%%
 quadrantChart
     title Political Risk Quadrant - 11 April 2026 (Run 158)
     x-axis Low Likelihood --> High Likelihood

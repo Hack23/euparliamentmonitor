@@ -20,6 +20,29 @@ confidence: MEDIUM
 This SWOT analysis examines the European Parliament's secondary legislative sprint from January–March 2026 — the cluster of texts beyond the headline Banking Union and Anti-Corruption package that reveal EP10's programmatic identity. The cluster reveals a parliament simultaneously advancing deregulation (Better Law-Making), social ambition (housing), geopolitical positioning (enlargement, WTO, Canada), and democratic resilience (Braun immunity). The strategic tension between these agendas defines EP10's governing paradox.
 
 ```mermaid
+%%{init: {
+  "theme": "dark",
+  "themeVariables": {
+    "quadrant1Fill": "#1565C0",
+    "quadrant2Fill": "#2E7D32",
+    "quadrant3Fill": "#FF9800",
+    "quadrant4Fill": "#D32F2F",
+    "quadrantTitleFill": "#ffffff",
+    "quadrantPointFill": "#ffffff",
+    "quadrantPointTextFill": "#ffffff",
+    "quadrantXAxisTextFill": "#ffffff",
+    "quadrantYAxisTextFill": "#ffffff"
+  },
+  "quadrantChart": {
+    "chartWidth": 700,
+    "chartHeight": 700,
+    "pointLabelFontSize": 14,
+    "titleFontSize": 22,
+    "quadrantLabelFontSize": 18,
+    "xAxisLabelFontSize": 16,
+    "yAxisLabelFontSize": 16
+  }
+}}%%
 quadrantChart
     title EP10 Secondary Sprint — Significance vs. Coalition Unity
     x-axis Low Coalition Unity --> High Coalition Unity

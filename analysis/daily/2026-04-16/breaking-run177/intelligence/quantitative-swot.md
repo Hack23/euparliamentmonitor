@@ -13,6 +13,29 @@ confidenceLevel: MEDIUM
 This SWOT analysis follows the [Political SWOT Framework](../../../../../../analysis/methodologies/political-swot-framework.md). Each item is scored on Evidence Quality (1-5), Salience (1-5), and Actionability (1-5). Confidence levels follow the traffic-light system: 🟢 High (multiple corroborating sources), 🟡 Medium (single source or inferential), 🔴 Low (speculative or contested).
 
 ```mermaid
+%%{init: {
+  "theme": "dark",
+  "themeVariables": {
+    "quadrant1Fill": "#1565C0",
+    "quadrant2Fill": "#2E7D32",
+    "quadrant3Fill": "#FF9800",
+    "quadrant4Fill": "#D32F2F",
+    "quadrantTitleFill": "#ffffff",
+    "quadrantPointFill": "#ffffff",
+    "quadrantPointTextFill": "#ffffff",
+    "quadrantXAxisTextFill": "#ffffff",
+    "quadrantYAxisTextFill": "#ffffff"
+  },
+  "quadrantChart": {
+    "chartWidth": 700,
+    "chartHeight": 700,
+    "pointLabelFontSize": 14,
+    "titleFontSize": 22,
+    "quadrantLabelFontSize": 18,
+    "xAxisLabelFontSize": 16,
+    "yAxisLabelFontSize": 16
+  }
+}}%%
 quadrantChart
     title EP10 SWOT Assessment — 16 April 2026
     x-axis "Internal Factors" --> "External Factors"

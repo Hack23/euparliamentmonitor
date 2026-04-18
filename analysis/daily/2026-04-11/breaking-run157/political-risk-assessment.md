@@ -21,6 +21,29 @@ confidence: MEDIUM
 Political risk continues its upward trajectory as the Easter recess approaches its conclusion (Day 16 of 16). The convergence of the US tariff countermeasures deadline (15 April), legislative backlog from the pre-Easter sprint, and extended EP API monitoring gap creates a risk environment that has escalated from 10.10/25 (Run 3, Apr 9) to 12.85/25 (current run). The committee restart on 14 April faces a compressed timeframe with multiple high-priority files competing for attention.
 
 ```mermaid
+%%{init: {
+  "theme": "dark",
+  "themeVariables": {
+    "quadrant1Fill": "#1565C0",
+    "quadrant2Fill": "#2E7D32",
+    "quadrant3Fill": "#FF9800",
+    "quadrant4Fill": "#D32F2F",
+    "quadrantTitleFill": "#ffffff",
+    "quadrantPointFill": "#ffffff",
+    "quadrantPointTextFill": "#ffffff",
+    "quadrantXAxisTextFill": "#ffffff",
+    "quadrantYAxisTextFill": "#ffffff"
+  },
+  "quadrantChart": {
+    "chartWidth": 700,
+    "chartHeight": 700,
+    "pointLabelFontSize": 14,
+    "titleFontSize": 22,
+    "quadrantLabelFontSize": 18,
+    "xAxisLabelFontSize": 16,
+    "yAxisLabelFontSize": 16
+  }
+}}%%
 quadrantChart
     title Political Risk Quadrant - April 11 2026
     x-axis Low Likelihood --> High Likelihood
