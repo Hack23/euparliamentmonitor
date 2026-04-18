@@ -234,7 +234,7 @@ You are an expert frontend developer specializing in semantic HTML5, accessible 
 <!-- Meta tag CSP (GitHub Pages compatible) -->
 <meta http-equiv="Content-Security-Policy" 
       content="default-src 'self'; 
-               script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; 
+               script-src 'self' 'unsafe-inline'; 
                style-src 'self' 'unsafe-inline'; 
                img-src 'self' data: https:; 
                font-src 'self' https://fonts.gstatic.com; 
