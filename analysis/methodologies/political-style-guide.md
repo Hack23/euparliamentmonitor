@@ -11,12 +11,12 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-2.3-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-2.4-555?style=for-the-badge" alt="Version"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--18-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.3 | **📅 Last Updated:** 2026-04-18 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 2.4 | **📅 Last Updated:** 2026-04-18 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
@@ -452,14 +452,32 @@ quadrantChart
 ```
 ````
 
+#### Standard universal init block (REQUIRED for ALL non-quadrant diagrams)
+
+Every other mermaid diagram type — `graph`, `flowchart`, `mindmap`, `sequenceDiagram`, `gantt`, `pie`, `stateDiagram`, `classDiagram`, `erDiagram`, `gitGraph`, `timeline`, `journey`, `xychart-beta`, `C4Context`, `block-beta` — **MUST** be prefixed with the universal init block below. It applies the canonical ISMS palette across `primaryColor` / `secondaryColor` / `tertiaryColor`, `noteBkgColor`, `errorBkgColor`, `pie1`–`pie12`, `git0`–`git3`, and `cScale0`–`cScale7`, so every diagram inherits consistent colour coding without per-diagram `style` directives.
+
+Reusable single-line snippet (copy verbatim immediately after the ` ```mermaid ` fence):
+
+````markdown
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
+graph LR
+    A[🏛️ Council] --> B[📋 Committee]
+```
+````
+
+> **Note:** A `quadrantChart` MUST use its dedicated quadrant init block above (which sets `quadrant1Fill`–`quadrant4Fill`). Do NOT mix the two snippets.
+
 #### Diagram Authoring Rules
 
 - Use `{N}`, `{x}`, `{y}`, `{YYYY-MM}` placeholders in templates (never hardcoded values)
 - Include `⚠️ AI Agent: Replace placeholders with actual data` notes in templates
-- Apply `style` / `classDef` directives for colour coding — never rely on default grey
-- Prefix every `quadrantChart` with the standard init block above (no exceptions)
+- Apply `style` / `classDef` directives for additional severity-specific colour overrides where the universal palette is insufficient — never rely on default grey
+- Prefix every `quadrantChart` with the standard quadrant init block above (no exceptions)
+- Prefix every other diagram with the standard universal init block above (no exceptions)
 - Prefix every diagram **title** with a domain icon from the [Policy Domain Icons](#policy-domain-icons) table
 - Prefix every quadrant **label** with a coloured-circle emoji (🔵🟢🟠🔴🟡⚪) matching the canonical colour mapping
+- Prefix every node label in `graph` / `flowchart` / `mindmap` diagrams with a domain icon (🏛️ institution, 👥 stakeholder, 📋 document, ⚖️ policy, 🚨 risk, 🛡️ defence, 🌍 external, ⏰ time, 📊 metric)
 
 ---
 
@@ -548,5 +566,6 @@ All analysis produced in English serves as the source for 13 additional language
 - **Path:** `/analysis/methodologies/political-style-guide.md`
 - **ISMS Reference:** [STYLE_GUIDE.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/STYLE_GUIDE.md)
 - **Classification:** Public
+- **Version:** 2.4 — Added universal mermaid init block (mandatory for all `graph`/`flowchart`/`mindmap`/`pie`/`gantt`/`timeline`/`sequenceDiagram`/`stateDiagram`/`classDiagram`/`erDiagram`/`gitGraph`/`xychart-beta`/`C4Context`/`block-beta` diagrams) covering `pie1`–`pie12`, `git0`–`git3`, `cScale0`–`cScale7`, `noteBkgColor`, `errorBkgColor`, and xyChart `plotColorPalette` so every diagram inherits the canonical ISMS palette without per-diagram styling. Added node-icon authoring rule.
 - **Version:** 2.3 — Added classification-aligned Mermaid colour palette, mandatory `quadrantChart` init block (per ISMS STYLE_GUIDE.md stakeholder-mapping format), `classDef` snippet for graph/flowchart diagrams, and quadrant-icon labelling rules
 - **Next Review:** 2026-06-30
