@@ -1005,7 +1005,13 @@ an explicit step that workflows must cross.
 **Every article of every type** must render a structured *Analysis Sources* footer
 that links to every artifact consumed during generation. The canonical mechanism is
 `renderAnalysisTransparencySection` in `src/templates/article-template.ts`, which
-reads `manifest.json.files.*` entries and generates one link per artifact.
+accepts an `analysisFiles` parameter typed as `ReadonlyArray<AnalysisFileEntry>`
+(each entry `{ method: string; outputFile: string }`, defined in
+`src/types/generation.ts`). When this array is omitted, the helper falls back to a
+hardcoded set of standard analysis links. Workflows MUST build the array from the
+run's `manifest.json` — collect every `outputFile` path under `manifest.files.*` and
+pair it with its canonical `method` name (e.g. `significance-classification`,
+`risk-matrix`, `pestle-analysis`) so one link is rendered per artifact.
 
 #### What the footer MUST include
 
@@ -1399,5 +1405,5 @@ analysis-only runs operating under API-degraded conditions should produce a comp
 **Document Control:**
 - **Path:** `/analysis/methodologies/ai-driven-analysis-guide.md`
 - **Classification:** Public
-- **Version:** 4.5 — Added Rules 19–21: mandatory pre-flight analysis reading (every artifact in full before drafting), mandatory Analysis-Sources footer in every article of every type (validator-enforced), and minimum Analysis-Article Read Ratio quality signal. v4.4 added Mandatory Analytical Dimension Matrix; v4.3 added Reference Analyses section.
+- **Version:** 4.5 — Added Rules 19–21: mandatory pre-flight analysis reading (every artifact in full before drafting), mandatory Analysis-Sources footer in every article of every type (currently enforced by the `renderAnalysisTransparencySection` template helper and `retrofit-analysis-links.ts`, with a `validate-articles.ts` blocking check planned for v4.6), and minimum Analysis-Article Read Ratio quality signal. v4.4 added Mandatory Analytical Dimension Matrix; v4.3 added Reference Analyses section.
 - **Next Review:** 2026-06-30

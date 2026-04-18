@@ -332,9 +332,15 @@ that should be consulted when drafting each section. Use it.
 #### Step 6 — Render the mandatory Analysis-Sources footer
 
 - [ ] Call `renderAnalysisTransparencySection(date, slug, lang, analysisDir, analysisFiles)`
-      where `analysisFiles` is the flattened list of every path from
-      `manifest.json.files.*`. This function is in `src/templates/article-template.ts`
-      and exists precisely to enforce Rule 20.
+      where `analysisFiles` is a `ReadonlyArray<AnalysisFileEntry>` — one entry
+      `{ method, outputFile }` per artifact listed under `manifest.json.files.*`.
+      `method` is the canonical analysis method name (e.g. `significance-classification`,
+      `risk-matrix`, `pestle-analysis`), and `outputFile` is the relative path inside
+      the run directory (e.g. `classification/significance-scoring.md`). The function
+      is in `src/templates/article-template.ts` and `AnalysisFileEntry` is defined in
+      `src/types/generation.ts`. This call exists precisely to enforce Rule 20; if
+      `analysisFiles` is omitted, the helper falls back to a hardcoded default set
+      and will NOT link every manifest artifact.
 - [ ] Verify the rendered HTML contains a `<section class="analysis-transparency">`
       block with one `<li>` entry per analysis artifact.
 - [ ] Run `npx tsx src/utils/validate-articles.ts --date=$TODAY --quality --strict`

@@ -1,5 +1,5 @@
 ---
-title: "🏛️ Coalition Dynamics — Run 184 (Easter Recess Day 6)"
+title: "🏛️ Coalition Dynamics — Run 184 (Easter Recess Day 5)"
 date: 2026-04-18
 articleType: breaking
 runId: 184

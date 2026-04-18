@@ -11,8 +11,8 @@ scope: "Benchmark for AI guides, prompts, templates, and all agentic workflows"
 ![Role](https://img.shields.io/badge/Role-Reference_Analysis-gold?style=flat-square)
 ![Mode](https://img.shields.io/badge/Mode-Analysis_Only-grey?style=flat-square)
 ![Passes](https://img.shields.io/badge/AI_Passes-2-blue?style=flat-square)
-![Files](https://img.shields.io/badge/Artifacts-16_files_3400%2B_lines-green?style=flat-square)
-![Frameworks](https://img.shields.io/badge/Analytical_Frameworks-11-blueviolet?style=flat-square)
+![Files](https://img.shields.io/badge/Artifacts-17_files_3600%2B_lines-green?style=flat-square)
+![Frameworks](https://img.shields.io/badge/Analytical_Frameworks-13-blueviolet?style=flat-square)
 
 > **Purpose**: This document designates Run 184 as the **reference analysis** for the
 > EU Parliament Monitor project. AI guides, prompt patterns, templates, and agentic

@@ -10,7 +10,7 @@
     "referenceAnalysisNote": "Designated reference-quality analysis per intelligence/reference-analysis-quality.md — used as the depth benchmark for AI guides, prompt patterns, and agentic workflow templates."
   },
   "context": {
-    "recessDay": 6,
+    "recessDay": 5,
     "recurrenceSeries": "Easter Recess 2026 (Runs 179-184)",
     "plenaryReturn": "2026-04-27",
     "apiStatus": {

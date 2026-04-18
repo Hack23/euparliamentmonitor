@@ -36,7 +36,7 @@ quadrantChart
     European Commission: [0.85, 0.95]
     Von der Leyen Cabinet: [0.90, 0.90]
     EPP Group: [0.80, 0.95]
-    SD Group: [0.80, 0.80]
+    S&D Group: [0.80, 0.80]
     Renew Group: [0.70, 0.70]
     ECR Group: [0.55, 0.65]
     ECB: [0.55, 0.85]

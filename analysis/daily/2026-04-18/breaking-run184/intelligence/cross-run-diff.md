@@ -20,7 +20,7 @@ confidence: MEDIUM
 - **Run 183**: April 18, 2026 — Easter Recess Day 5 (Holy Saturday), US Countermeasures T+4
 - **Run 184**: April 18, 2026 — Same calendar date (both runs on April 18)
 - **Elapsed between runs**: Same-day run (Run 183 was an earlier execution; Run 184 is the current)
-- **Recess context**: Day 6 of Easter recess (counting April 13 as Day 0); 9 days until plenary return
+- **Recess context**: Day 5 of Easter recess (counting April 13 as Day 0 — same count as Run 183, which also labels April 18 as Day 5); 9 days until the April 28 plenary return.
 
 ---
 

@@ -22,7 +22,7 @@ role: "Pre-flight reading index for article-generation workflows"
 
 ## 🎯 Run Context (one-line summary)
 
-**Easter Saturday, April 18, 2026 — EP in recess (Day 6 of 10). Newsworthiness gate:
+**Easter Saturday, April 18, 2026 — EP in recess (Day 5 of 10). Newsworthiness gate:
 FAIL. Mode: ANALYSIS_ONLY. This is the 6th consecutive analysis-only run of the
 Easter recess series (Runs 179–184) and the designated reference-quality exemplar.**
 

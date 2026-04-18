@@ -1,5 +1,5 @@
 ---
-title: "📊 Significance Scoring — Easter Recess Day 6 / API Recovery Threshold"
+title: "📊 Significance Scoring — Easter Recess Day 5 / API Recovery Threshold"
 date: 2026-04-18
 articleType: breaking
 runId: 184
@@ -96,7 +96,7 @@ When EP returns April 27–28, these intelligence items should be immediately ve
 
 ---
 
-*Analysis generated: April 18, 2026 07:xx UTC | Run 184 | Breaking workflow | Analysis-only mode*
+*Analysis generated: April 18, 2026 | Run 184 | Breaking workflow | Analysis-only mode*
 
 ---
 

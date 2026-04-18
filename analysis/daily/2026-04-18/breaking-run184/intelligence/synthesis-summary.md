@@ -22,7 +22,7 @@ recessDay: 6
 
 ## Executive Intelligence Assessment
 
-**Date**: Saturday, April 18, 2026 — Easter Recess Day 6 (Holy Saturday, Day 2 of Easter weekend)
+**Date**: Saturday, April 18, 2026 — Easter Recess Day 5 (Holy Saturday, Day 2 of Easter weekend)
 **Newsworthiness Gate**: FAIL — no EP items published today (Parliament in Easter recess, no sessions)
 **Analysis Mode**: Extended analysis-only per ai-driven-analysis-guide.md Rule 5
 **Composite Risk Score**: 18.0/50 (MEDIUM-HIGH — recalibrated from 24.0/50 in Run 183)
