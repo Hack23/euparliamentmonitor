@@ -1,0 +1,47 @@
+{
+  "articleType": "week-in-review",
+  "runId": 11,
+  "date": "2026-04-18",
+  "weekFrom": "2026-04-11",
+  "weekTo": "2026-04-18",
+  "analysisOnly": true,
+  "noPublishReason": "Easter recess April 14-26: zero qualifying parliamentary items with April 11-18 substantive dates. No-publish threshold (<3 specific parliamentary items) not met.",
+  "degradedMode": true,
+  "apiHealthStatus": "DEGRADED (recovering) — server_health reports 0/13 but is unreliable; adopted_texts_feed and meps_feed confirmed functional",
+  "dataSourcesUsed": [
+    "european_parliament___get_plenary_sessions",
+    "european_parliament___get_server_health",
+    "european_parliament___get_adopted_texts_feed",
+    "european_parliament___get_adopted_texts",
+    "european_parliament___get_voting_records",
+    "european_parliament___get_all_generated_stats",
+    "european_parliament___analyze_coalition_dynamics",
+    "european_parliament___get_parliamentary_questions",
+    "european_parliament___get_speeches",
+    "european_parliament___monitor_legislative_pipeline"
+  ],
+  "keyFindings": [
+    "Zero parliamentary items in April 11-18 window (Easter recess confirmed)",
+    "TA-10-2026-0099 and TA-10-2026-0103 now accessible (Tier 3 API recovery partial)",
+    "TA-10-2026-0100, 0101, 0102, 0104 still inaccessible",
+    "Q1 2026 legislative output: 104 adopted texts (+46.2% year-over-year)",
+    "EPP data gap persists (memberCount=0 in coalition API)",
+    "Three external watchpoints active: Commission housing deadline, USTR watch, Bundesrat BRRD3"
+  ],
+  "compositeRiskScore": "18.0/50 (MEDIUM)",
+  "analysisFiles": [
+    "intelligence/synthesis-summary.md",
+    "classification/significance-scoring.md",
+    "risk-scoring/risk-matrix.md"
+  ],
+  "postRecessPriorities": [
+    "Retrieve TA-10-2026-0100, 0101, 0102, 0104 content (expected accessible April 25-27)",
+    "Assess Commission housing response (deadline April 21-26)",
+    "Monitor USTR Section 301 window (April 22-26)",
+    "Verify EPP data gap resolution",
+    "Cover April 28-30 Strasbourg return session"
+  ],
+  "generatedAt": "2026-04-18T09:30:00Z",
+  "workflow": "news-weekly-review",
+  "workflowRunId": "24601459578"
+}
