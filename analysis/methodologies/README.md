@@ -342,14 +342,37 @@ Provides a systematic **Likelihood × Impact** scoring framework for European Pa
 ### Risk Scoring Matrix
 
 ```mermaid
+%%{init: {
+  "theme": "dark",
+  "themeVariables": {
+    "quadrant1Fill": "#D32F2F",
+    "quadrant2Fill": "#FF9800",
+    "quadrant3Fill": "#2E7D32",
+    "quadrant4Fill": "#FFC107",
+    "quadrantTitleFill": "#ffffff",
+    "quadrantPointFill": "#ffffff",
+    "quadrantPointTextFill": "#ffffff",
+    "quadrantXAxisTextFill": "#ffffff",
+    "quadrantYAxisTextFill": "#ffffff"
+  },
+  "quadrantChart": {
+    "chartWidth": 700,
+    "chartHeight": 700,
+    "pointLabelFontSize": 14,
+    "titleFontSize": 22,
+    "quadrantLabelFontSize": 18,
+    "xAxisLabelFontSize": 16,
+    "yAxisLabelFontSize": 16
+  }
+}}%%
 quadrantChart
-    title Likelihood × Impact Risk Matrix
+    title ⚖️ Likelihood × Impact Risk Matrix
     x-axis Low Impact --> High Impact
     y-axis Low Likelihood --> High Likelihood
-    quadrant-1 Critical Risk (15–25)
-    quadrant-2 High Risk (10–14)
-    quadrant-3 Low Risk (1–4)
-    quadrant-4 Medium Risk (5–9)
+    quadrant-1 🔴 Critical Risk (15–25)
+    quadrant-2 🟠 High Risk (10–14)
+    quadrant-3 🟢 Low Risk (1–4)
+    quadrant-4 🟡 Medium Risk (5–9)
 ```
 
 ### Connection to Other Methodologies

@@ -369,21 +369,44 @@ Use SWOT combinations to construct **plausible political futures** (scenarios), 
 Position key stakeholders by their **power** (ability to influence EP outcomes) and **interest** (stake in specific issues) to identify who matters most:
 
 ```mermaid
+%%{init: {
+  "theme": "dark",
+  "themeVariables": {
+    "quadrant1Fill": "#1565C0",
+    "quadrant2Fill": "#2E7D32",
+    "quadrant3Fill": "#FF9800",
+    "quadrant4Fill": "#D32F2F",
+    "quadrantTitleFill": "#ffffff",
+    "quadrantPointFill": "#ffffff",
+    "quadrantPointTextFill": "#ffffff",
+    "quadrantXAxisTextFill": "#ffffff",
+    "quadrantYAxisTextFill": "#ffffff"
+  },
+  "quadrantChart": {
+    "chartWidth": 700,
+    "chartHeight": 700,
+    "pointLabelFontSize": 14,
+    "titleFontSize": 22,
+    "quadrantLabelFontSize": 18,
+    "xAxisLabelFontSize": 16,
+    "yAxisLabelFontSize": 16
+  }
+}}%%
 quadrantChart
-    title Stakeholder Power-Interest Map
+    title 🤝 Stakeholder Power-Interest Map
     x-axis "Low Interest" --> "High Interest"
     y-axis "Low Power" --> "High Power"
-    quadrant-1 "Manage Closely"
-    quadrant-2 "Keep Satisfied"
-    quadrant-3 "Monitor"
-    quadrant-4 "Keep Informed"
-    "EP President": [0.8, 0.9]
-    "EPP Group": [0.8, 0.85]
-    "S&D Group": [0.75, 0.75]
-    "European Commission": [0.5, 0.8]
-    "EU Council": [0.3, 0.7]
-    "Civil Society": [0.7, 0.25]
-    "EU Citizens": [0.6, 0.15]
+    quadrant-1 "🎯 Manage Closely"
+    quadrant-2 "🛡️ Keep Satisfied"
+    quadrant-3 "👁️ Monitor"
+    quadrant-4 "📢 Keep Informed"
+    "🏛️ EP President": [0.8, 0.9]
+    "🔵 EPP Group": [0.8, 0.85]
+    "🌹 S&D Group": [0.75, 0.75]
+    "🇪🇺 European Commission": [0.5, 0.8]
+    "🏛️ EU Council": [0.3, 0.7]
+    "🤝 Civil Society": [0.7, 0.25]
+    "👥 EU Citizens": [0.6, 0.15]
 ```
 
 | Quadrant | Strategy | Stakeholders |

@@ -11,12 +11,12 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-2.2-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--10-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-2.3-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--18-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.2 | **📅 Last Updated:** 2026-04-10 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 2.3 | **📅 Last Updated:** 2026-04-18 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
@@ -375,12 +375,91 @@ Every analysis artifact must include:
 
 ### Mermaid Diagram Standards
 
-All analysis artifacts must include **at least one colour-coded Mermaid diagram**. Standards:
+All analysis artifacts must include **at least one colour-coded Mermaid diagram**. Standards adapted from [Hack23 ISMS STYLE_GUIDE.md → Mermaid Diagram Guidelines](https://github.com/Hack23/ISMS-PUBLIC/blob/main/STYLE_GUIDE.md#-mermaid-diagram-guidelines):
 
-- Use the standard colour palette: `#dc3545` (red/critical), `#fd7e14` (orange/high), `#ffc107` (yellow/medium), `#28a745` (green/low), `#0d6efd` (blue/info), `#6f42c1` (purple/special)
+#### Colour Palette (Classification-Aligned)
+
+Use these exact hex codes — they are aligned with the ISMS classification scheme so SWOT, risk, threat, and stakeholder diagrams render consistently across the platform:
+
+| Severity / Class | Hex | Usage |
+|------------------|-----|-------|
+| 🔴 Critical / Extreme | `#D32F2F` | Critical risks, severe threats, red-flag items |
+| 🟠 High / Very High | `#FF9800` | High-priority risks, monitoring quadrants |
+| 🟡 Medium / Moderate | `#FFC107` | Medium risks, watchlist items |
+| 🟢 Low / Standard / Success | `#2E7D32` (dark) · `#4CAF50` (bright) | Low risks, opportunities, key-player stakeholders |
+| 🔵 Info / Neutral / Manage Closely | `#1565C0` | Primary actors, manage-closely quadrant, info nodes |
+| ⚪ Public / Disabled / N/A | `#9E9E9E` | Public/de-prioritised items |
+| 🟣 Special / Marketing | `#7B1FA2` | Cross-cutting / special-interest items |
+
+For **graph / flowchart / mindmap** diagrams, attach colour using `style` or `classDef` — never rely on default grey:
+
+```mermaid
+classDef critical fill:#D32F2F,stroke:#7F0000,color:#fff
+classDef high     fill:#FF9800,stroke:#7F4F00,color:#000
+classDef medium   fill:#FFC107,stroke:#7F6000,color:#000
+classDef low      fill:#2E7D32,stroke:#0F3F00,color:#fff
+classDef info     fill:#1565C0,stroke:#0A3F7F,color:#fff
+classDef neutral  fill:#9E9E9E,stroke:#4F4F4F,color:#fff
+```
+
+#### Standard `quadrantChart` init block (REQUIRED for all SWOT, TOWS, Stakeholder, Scenario quadrants)
+
+Every `quadrantChart` block in analysis output **MUST** be prefixed with this init block, which mirrors the [ISMS STYLE_GUIDE.md Stakeholder Mapping (Quadrant Format)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/STYLE_GUIDE.md#stakeholder-mapping-quadrant-format) theming. This ensures consistent legibility on dark and light backgrounds and enforces the canonical quadrant colour-to-meaning mapping below:
+
+| Quadrant | Hex | Canonical Meaning |
+|---------:|-----|-------------------|
+| `quadrant1` (top-right) | `#1565C0` 🔵 | Manage Closely · SO · Sovereignist Opportunities · Critical Risk |
+| `quadrant2` (top-left)  | `#2E7D32` 🟢 | Key Players · Stable Reform · Pro-Integration Opportunities |
+| `quadrant3` (bottom-left) | `#FF9800` 🟠 | Monitor · Stable Stagnation · Pro-Integration Risks |
+| `quadrant4` (bottom-right)| `#D32F2F` 🔴 | Keep Informed · Fragmented Gridlock · Sovereignist Risks |
+
+Reusable snippet (copy verbatim into every `quadrantChart`):
+
+````markdown
+```mermaid
+%%{init: {
+  "theme": "dark",
+  "themeVariables": {
+    "quadrant1Fill": "#1565C0",
+    "quadrant2Fill": "#2E7D32",
+    "quadrant3Fill": "#FF9800",
+    "quadrant4Fill": "#D32F2F",
+    "quadrantTitleFill": "#ffffff",
+    "quadrantPointFill": "#ffffff",
+    "quadrantPointTextFill": "#ffffff",
+    "quadrantXAxisTextFill": "#ffffff",
+    "quadrantYAxisTextFill": "#ffffff"
+  },
+  "quadrantChart": {
+    "chartWidth": 700,
+    "chartHeight": 700,
+    "pointLabelFontSize": 14,
+    "titleFontSize": 22,
+    "quadrantLabelFontSize": 18,
+    "xAxisLabelFontSize": 16,
+    "yAxisLabelFontSize": 16
+  }
+}}%%
+quadrantChart
+    title 🎯 [Diagram Title with Domain Icon]
+    x-axis "[Low X]" --> "[High X]"
+    y-axis "[Low Y]" --> "[High Y]"
+    quadrant-1 "🔵 [Top-Right Label]"
+    quadrant-2 "🟢 [Top-Left Label]"
+    quadrant-3 "🟠 [Bottom-Left Label]"
+    quadrant-4 "🔴 [Bottom-Right Label]"
+    "🏛️ [Stakeholder/Item 1]": [{x}, {y}]
+```
+````
+
+#### Diagram Authoring Rules
+
 - Use `{N}`, `{x}`, `{y}`, `{YYYY-MM}` placeholders in templates (never hardcoded values)
 - Include `⚠️ AI Agent: Replace placeholders with actual data` notes in templates
-- Apply `style` directives for colour coding — never rely on default grey
+- Apply `style` / `classDef` directives for colour coding — never rely on default grey
+- Prefix every `quadrantChart` with the standard init block above (no exceptions)
+- Prefix every diagram **title** with a domain icon from the [Policy Domain Icons](#policy-domain-icons) table
+- Prefix every quadrant **label** with a coloured-circle emoji (🔵🟢🟠🔴🟡⚪) matching the canonical colour mapping
 
 ---
 
@@ -469,5 +548,5 @@ All analysis produced in English serves as the source for 13 additional language
 - **Path:** `/analysis/methodologies/political-style-guide.md`
 - **ISMS Reference:** [STYLE_GUIDE.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/STYLE_GUIDE.md)
 - **Classification:** Public
-- **Version:** 2.2 — Added The Economist-Style Analytical Writing Patterns, Quantitative Claim Standards, and EP-Specific Vocabulary Standards
+- **Version:** 2.3 — Added classification-aligned Mermaid colour palette, mandatory `quadrantChart` init block (per ISMS STYLE_GUIDE.md stakeholder-mapping format), `classDef` snippet for graph/flowchart diagrams, and quadrant-icon labelling rules
 - **Next Review:** 2026-06-30

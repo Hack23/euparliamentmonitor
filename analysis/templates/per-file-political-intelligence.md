@@ -117,14 +117,37 @@ graph LR
 ### Quadrant Overview
 
 ```mermaid
+%%{init: {
+  "theme": "dark",
+  "themeVariables": {
+    "quadrant1Fill": "#1565C0",
+    "quadrant2Fill": "#2E7D32",
+    "quadrant3Fill": "#FF9800",
+    "quadrant4Fill": "#D32F2F",
+    "quadrantTitleFill": "#ffffff",
+    "quadrantPointFill": "#ffffff",
+    "quadrantPointTextFill": "#ffffff",
+    "quadrantXAxisTextFill": "#ffffff",
+    "quadrantYAxisTextFill": "#ffffff"
+  },
+  "quadrantChart": {
+    "chartWidth": 700,
+    "chartHeight": 700,
+    "pointLabelFontSize": 14,
+    "titleFontSize": 22,
+    "quadrantLabelFontSize": 18,
+    "xAxisLabelFontSize": 16,
+    "yAxisLabelFontSize": 16
+  }
+}}%%
 quadrantChart
-    title EP Political Impact Assessment
+    title 🎯 EP Political Impact Assessment
     x-axis "Pro-Integration" --> "Sovereignist"
     y-axis "Risk" --> "Opportunity"
-    quadrant-1 Sovereignist Opportunities
-    quadrant-2 Pro-Integration Opportunities
-    quadrant-3 Pro-Integration Risks
-    quadrant-4 Sovereignist Risks
+    quadrant-1 "🚀 Sovereignist Opportunities"
+    quadrant-2 "✨ Pro-Integration Opportunities"
+    quadrant-3 "⚠️ Pro-Integration Risks"
+    quadrant-4 "🔴 Sovereignist Risks"
 
     "[REQUIRED: key finding 1]": [0.3, 0.7]
     "[REQUIRED: key finding 2]": [0.7, 0.3]

@@ -164,14 +164,37 @@
 ### TOWS Matrix Diagram
 
 ```mermaid
+%%{init: {
+  "theme": "dark",
+  "themeVariables": {
+    "quadrant1Fill": "#1565C0",
+    "quadrant2Fill": "#2E7D32",
+    "quadrant3Fill": "#FF9800",
+    "quadrant4Fill": "#D32F2F",
+    "quadrantTitleFill": "#ffffff",
+    "quadrantPointFill": "#ffffff",
+    "quadrantPointTextFill": "#ffffff",
+    "quadrantXAxisTextFill": "#ffffff",
+    "quadrantYAxisTextFill": "#ffffff"
+  },
+  "quadrantChart": {
+    "chartWidth": 700,
+    "chartHeight": 700,
+    "pointLabelFontSize": 14,
+    "titleFontSize": 22,
+    "quadrantLabelFontSize": 18,
+    "xAxisLabelFontSize": 16,
+    "yAxisLabelFontSize": 16
+  }
+}}%%
 quadrantChart
-    title TOWS Strategic Matrix
+    title 🎯 TOWS Strategic Matrix
     x-axis "Internal Strengths" --> "Internal Weaknesses"
     y-axis "External Threats" --> "External Opportunities"
-    quadrant-1 "WO: Overcome<br/>(Fix weakness via opportunity)"
-    quadrant-2 "SO: Exploit<br/>(Use strength on opportunity)"
-    quadrant-3 "ST: Confront<br/>(Use strength vs threat)"
-    quadrant-4 "WT: Avoid<br/>(Minimize weakness + threat)"
+    quadrant-1 "🚀 WO: Overcome (Fix weakness via opportunity)"
+    quadrant-2 "✨ SO: Exploit (Use strength on opportunity)"
+    quadrant-3 "🛡️ ST: Confront (Use strength vs threat)"
+    quadrant-4 "⚠️ WT: Avoid (Minimize weakness + threat)"
 
     "[REQUIRED: SO strategy]": [0.3, 0.7]
     "[REQUIRED: WO strategy]": [0.7, 0.7]
