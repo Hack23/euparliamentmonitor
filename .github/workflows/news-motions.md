@@ -54,7 +54,7 @@ mcp-servers:
   european-parliament:
     container: "node:25-alpine"
     entrypoint: "npx"
-    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.8", "--timeout", "120000"]
+    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.9", "--timeout", "120000"]
     env:
       EP_REQUEST_TIMEOUT_MS: "120000"
   world-bank:
@@ -1139,7 +1139,7 @@ if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
     echo "✅ EP MCP server binary found for stdio mode"
   else
     echo "⚠️ No gateway URL set, installing EP MCP server for stdio mode..."
-    npm install --no-save european-parliament-mcp-server@1.2.8
+    npm install --no-save european-parliament-mcp-server@1.2.9
   fi
 fi
 

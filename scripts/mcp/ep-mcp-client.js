@@ -29,7 +29,7 @@ const SERVER_HEALTH_FALLBACK = '{"server": null, "feeds": []}';
 /**
  * Classify an error message into a diagnostic error category.
  *
- * Maps EP MCP Server v1.2.8 structured error codes and generic HTTP/network
+ * Maps EP MCP Server v1.2.9 structured error codes and generic HTTP/network
  * errors into one of six broad categories used for logging and retry decisions:
  *
  * Returned categories (priority order):
@@ -45,7 +45,7 @@ const SERVER_HEALTH_FALLBACK = '{"server": null, "feeds": []}';
  */
 function classifyToolError(message) {
     const lowerMsg = message.toLowerCase();
-    // EP MCP Server v1.2.8 structured error codes (matched case-insensitively)
+    // EP MCP Server v1.2.9 structured error codes (matched case-insensitively)
     if (lowerMsg.includes('internal_error')) {
         return 'INTERNAL_ERROR';
     }
@@ -214,7 +214,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
     /**
      * Search legislative documents
      *
-     * @param options - Search options using v1.2.8 parameters: keyword, documentType, docId, etc.
+     * @param options - Search options using v1.2.9 parameters: keyword, documentType, docId, etc.
      * @returns Search results
      */
     async searchDocuments(options = {}) {
@@ -423,7 +423,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
     /**
      * Get plenary speeches and debate contributions
      *
-     * @param options - Filter options including optional speechId, dateFrom/dateTo (v1.2.8: year removed)
+     * @param options - Filter options including optional speechId, dateFrom/dateTo (v1.2.9: year removed)
      * @returns Speeches data
      */
     async getSpeeches(options = {}) {
@@ -432,7 +432,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
     /**
      * Get legislative procedures
      *
-     * @param options - Filter options including optional processId (v1.2.8: year removed)
+     * @param options - Filter options including optional processId (v1.2.9: year removed)
      * @returns Procedures data
      */
     async getProcedures(options = {}) {
@@ -450,7 +450,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
     /**
      * Get European Parliament events (hearings, conferences, seminars)
      *
-     * @param options - Filter options including optional eventId, pagination only (v1.2.8: year/dateFrom/dateTo removed — EP API /events has no date filtering)
+     * @param options - Filter options including optional eventId, pagination only (v1.2.9: year/dateFrom/dateTo removed — EP API /events has no date filtering)
      * @returns Events data
      */
     async getEvents(options = {}) {
@@ -530,7 +530,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
     /**
      * Get committee documents
      *
-     * @param options - Filter options including optional docId (v1.2.8: year removed)
+     * @param options - Filter options including optional docId (v1.2.9: year removed)
      * @returns Committee documents data
      */
     async getCommitteeDocuments(options = {}) {
@@ -566,7 +566,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
     /**
      * Get external documents (non-EP documents such as Council positions)
      *
-     * @param options - Filter options including optional docId (v1.2.8: year removed)
+     * @param options - Filter options including optional docId (v1.2.9: year removed)
      * @returns External documents data
      */
     async getExternalDocuments(options = {}) {
