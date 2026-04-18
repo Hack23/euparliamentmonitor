@@ -31,14 +31,14 @@ server propagates without mitigation; four are defects in the MCP server's own r
 error handling, or response-shaping layer that could be fixed in the MCP server codebase
 itself.
 
-| # | Defect | Severity | Origin | Remediable In MCP? | Issue Filed |
-|:-:|--------|:--------:|--------|:------------------:|:-----------:|
-| 1 | `get_server_health` underreports availability (0/13 when 2/13 are operational) | 🔴 HIGH | MCP server | ✅ Yes | ✅ |
-| 2 | `coalition_dynamics` returns `memberCount=0` for EPP / Greens-EFA / PfE / ESN | 🔴 HIGH | MCP server mapping | ✅ Yes | ✅ |
-| 3 | Coalition `cohesion` field is a size-ratio artifact, not vote-level alignment | 🟠 MEDIUM | MCP server semantics | ✅ Yes (rename/clarify) | ✅ |
-| 4 | `get_adopted_texts({docId})` returns empty-string fields instead of 404 / null | 🟠 MEDIUM | MCP server | ✅ Yes | ✅ |
-| 5 | Inconsistent error signalling across feeds (404 / empty array / error string) | 🟠 MEDIUM | MCP server | ✅ Yes | ✅ |
-| 6 | `analytics.effectiveNumberOfParties` computed over incomplete group data (4.04 vs ~6.5 actual) | 🟡 LOW | MCP server derivation | ✅ Yes (sanity-check) | (covered by #2) |
+| # | Defect | Severity | Origin | Remediable In MCP? | Upstream Issue |
+|:-:|--------|:--------:|--------|:------------------:|:--------------:|
+| 1 | `get_server_health` underreports availability (0/13 when 2/13 are operational) | 🔴 HIGH | MCP server | ✅ Yes | [#366](https://github.com/Hack23/European-Parliament-MCP-Server/issues/366) |
+| 2 | `coalition_dynamics` returns `memberCount=0` for EPP / Greens-EFA / PfE / ESN | 🔴 HIGH | MCP server mapping | ✅ Yes | [#367](https://github.com/Hack23/European-Parliament-MCP-Server/issues/367) |
+| 3 | Coalition `cohesion` field is a size-ratio artifact, not vote-level alignment | 🟠 MEDIUM | MCP server semantics | ✅ Yes (rename/clarify) | [#368](https://github.com/Hack23/European-Parliament-MCP-Server/issues/368) |
+| 4 | `get_adopted_texts({docId})` returns empty-string fields instead of 404 / null | 🟠 MEDIUM | MCP server | ✅ Yes | [#369](https://github.com/Hack23/European-Parliament-MCP-Server/issues/369) |
+| 5 | Inconsistent error signalling across feeds (404 / empty array / error string) | 🟠 MEDIUM | MCP server | ✅ Yes | [#370](https://github.com/Hack23/European-Parliament-MCP-Server/issues/370) |
+| 6 | `analytics.effectiveNumberOfParties` computed over incomplete group data (4.04 vs ~6.5 actual) | 🟡 LOW | MCP server derivation | ✅ Yes (sanity-check) | (covered by [#367](https://github.com/Hack23/European-Parliament-MCP-Server/issues/367)) |
 | 7 | Feed responses lack `lastModified` / `ETag` / `itemCount` metadata | 🟡 LOW | MCP server | ✅ Yes | (backlog) |
 
 **Impact on analysis quality**: The EPP data gap (defect #2) is the single most damaging
@@ -93,7 +93,7 @@ documented "0 feeds operational" (matching server_health) rather than "2/13 oper
    collapse `unknown` into `unavailable`.
 3. Include a `lastProbedAt` timestamp per feed so consumers can judge staleness.
 
-> **Upstream issue**: Hack23/European-Parliament-MCP-Server#NEW-1 (to be filed).
+> **Upstream issue**: [Hack23/European-Parliament-MCP-Server#366](https://github.com/Hack23/European-Parliament-MCP-Server/issues/366).
 
 ---
 
@@ -150,7 +150,7 @@ and estimates the real Effective Number of Parties (~6.5) rather than reporting 
 3. Add `groupsKnown / groupsTotal` counters to every `coalition_dynamics` response so
    consumers can detect partial data.
 
-> **Upstream issue**: Hack23/European-Parliament-MCP-Server#NEW-2 (to be filed).
+> **Upstream issue**: [Hack23/European-Parliament-MCP-Server#367](https://github.com/Hack23/European-Parliament-MCP-Server/issues/367).
 
 ---
 
@@ -188,7 +188,7 @@ Either:
 3. Add a `methodologyNote` string in every response: `"cohesion derived from group-size
    ratio; vote-alignment data not available via EP Open Data Portal"`.
 
-> **Upstream issue**: Hack23/European-Parliament-MCP-Server#NEW-3 (to be filed).
+> **Upstream issue**: [Hack23/European-Parliament-MCP-Server#368](https://github.com/Hack23/European-Parliament-MCP-Server/issues/368).
 
 ---
 
@@ -233,7 +233,7 @@ the **worst possible** error signal for a consumer because:
 2. Never emit a response where every string field is the empty string — this is a sentinel
    of upstream failure that should be surfaced, not masked.
 
-> **Upstream issue**: Hack23/European-Parliament-MCP-Server#NEW-4 (to be filed).
+> **Upstream issue**: [Hack23/European-Parliament-MCP-Server#369](https://github.com/Hack23/European-Parliament-MCP-Server/issues/369).
 
 ---
 
@@ -276,7 +276,7 @@ the form:
 
 Reserve HTTP 4xx/5xx for genuine transport errors (auth, rate limit, gateway timeout).
 
-> **Upstream issue**: Hack23/European-Parliament-MCP-Server#NEW-5 (to be filed).
+> **Upstream issue**: [Hack23/European-Parliament-MCP-Server#370](https://github.com/Hack23/European-Parliament-MCP-Server/issues/370).
 
 ---
 
@@ -381,12 +381,12 @@ completeness.
 
 | Defect | Fix locus | PR target | Priority | ETA |
 |--------|-----------|-----------|:--------:|-----|
-| #1 health aggregation | MCP server | `Hack23/European-Parliament-MCP-Server` | 🔴 P0 | Pre-EP10 summer recess (Aug 2026) |
-| #2 coalition memberCount | MCP server | `Hack23/European-Parliament-MCP-Server` | 🔴 P0 | ASAP — blocks 6-run analytical baseline |
-| #3 cohesion semantics | MCP server | `Hack23/European-Parliament-MCP-Server` | 🟠 P1 | Next minor release |
-| #4 adopted_texts shape | MCP server | `Hack23/European-Parliament-MCP-Server` | 🟠 P1 | Next minor release |
-| #5 error signalling | MCP server | `Hack23/European-Parliament-MCP-Server` | 🟠 P1 | Next minor release |
-| #6 ENP analytics | MCP server | (covered by #2) | 🟡 P2 | — |
+| [#1 health aggregation](https://github.com/Hack23/European-Parliament-MCP-Server/issues/366) | MCP server | `Hack23/European-Parliament-MCP-Server` | 🔴 P0 | Pre-EP10 summer recess (Aug 2026) |
+| [#2 coalition memberCount](https://github.com/Hack23/European-Parliament-MCP-Server/issues/367) | MCP server | `Hack23/European-Parliament-MCP-Server` | 🔴 P0 | ASAP — blocks 6-run analytical baseline |
+| [#3 cohesion semantics](https://github.com/Hack23/European-Parliament-MCP-Server/issues/368) | MCP server | `Hack23/European-Parliament-MCP-Server` | 🟠 P1 | Next minor release |
+| [#4 adopted_texts shape](https://github.com/Hack23/European-Parliament-MCP-Server/issues/369) | MCP server | `Hack23/European-Parliament-MCP-Server` | 🟠 P1 | Next minor release |
+| [#5 error signalling](https://github.com/Hack23/European-Parliament-MCP-Server/issues/370) | MCP server | `Hack23/European-Parliament-MCP-Server` | 🟠 P1 | Next minor release |
+| #6 ENP analytics | MCP server | (covered by #2 / issue 367) | 🟡 P2 | — |
 | #7 caching metadata | MCP server | (backlog) | 🟡 P3 | Backlog |
 | Client sanity checks (3 proposed) | `euparliamentmonitor` | `src/mcp/ep-mcp-client.ts` | 🟠 P1 | Before first post-recess plenary (Apr 28) |
 | Prompt rules 1–4 | `euparliamentmonitor` | `.github/prompts/SHARED_PROMPT_PATTERNS.md` | 🟠 P1 | Before first post-recess plenary (Apr 28) |

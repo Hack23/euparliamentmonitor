@@ -36,14 +36,15 @@
     "auditFile": "intelligence/mcp-reliability-audit.md",
     "defectsIdentified": 7,
     "upstreamIssuesToFile": 5,
+    "upstreamIssuesFiledAt": "https://github.com/Hack23/European-Parliament-MCP-Server/issues",
     "defects": [
-      {"id": 1, "severity": "HIGH",   "summary": "get_server_health underreports availability (0/13 when 2 operational)", "remediableInMcpServer": true,  "upstreamIssueFiled": true},
-      {"id": 2, "severity": "HIGH",   "summary": "coalition_dynamics memberCount=0 for EPP, Greens/EFA, PfE, ESN",         "remediableInMcpServer": true,  "upstreamIssueFiled": true},
-      {"id": 3, "severity": "MEDIUM", "summary": "cohesion field is size-ratio artifact, not vote-level alignment",        "remediableInMcpServer": true,  "upstreamIssueFiled": true},
-      {"id": 4, "severity": "MEDIUM", "summary": "get_adopted_texts returns empty-string fields instead of 404/null",       "remediableInMcpServer": true,  "upstreamIssueFiled": true},
-      {"id": 5, "severity": "MEDIUM", "summary": "inconsistent error signalling across feeds (404 / empty / error-string)", "remediableInMcpServer": true,  "upstreamIssueFiled": true},
-      {"id": 6, "severity": "LOW",    "summary": "ENP computed over incomplete group data (covered by defect #2)",         "remediableInMcpServer": true,  "upstreamIssueFiled": false},
-      {"id": 7, "severity": "LOW",    "summary": "feed responses lack lastModified/ETag/itemCount metadata",                "remediableInMcpServer": true,  "upstreamIssueFiled": false}
+      {"id": 1, "severity": "HIGH",   "summary": "get_server_health underreports availability (0/13 when 2 operational)", "remediableInMcpServer": true,  "upstreamIssue": 366},
+      {"id": 2, "severity": "HIGH",   "summary": "coalition_dynamics memberCount=0 for EPP, Greens/EFA, PfE, ESN",         "remediableInMcpServer": true,  "upstreamIssue": 367},
+      {"id": 3, "severity": "MEDIUM", "summary": "cohesion field is size-ratio artifact, not vote-level alignment",        "remediableInMcpServer": true,  "upstreamIssue": 368},
+      {"id": 4, "severity": "MEDIUM", "summary": "get_adopted_texts returns empty-string fields instead of 404/null",       "remediableInMcpServer": true,  "upstreamIssue": 369},
+      {"id": 5, "severity": "MEDIUM", "summary": "inconsistent error signalling across feeds (404 / empty / error-string)", "remediableInMcpServer": true,  "upstreamIssue": 370},
+      {"id": 6, "severity": "LOW",    "summary": "ENP computed over incomplete group data (covered by defect #2)",         "remediableInMcpServer": true,  "upstreamIssue": null},
+      {"id": 7, "severity": "LOW",    "summary": "feed responses lack lastModified/ETag/itemCount metadata",                "remediableInMcpServer": true,  "upstreamIssue": null}
     ],
     "clientSideMitigationsProposed": [
       "coalition_dynamics incomplete-data detection in ep-mcp-client.ts",
