@@ -3,7 +3,7 @@
 
 # 📋 Shared Prompt Patterns for EU Parliament Monitor Agentic Workflows
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Last Updated:** 2026-04-17 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 1.2 | **📅 Last Updated:** 2026-04-18 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
@@ -14,7 +14,8 @@
 This document defines **shared prompt patterns, rules, and tool references** used by all 10 EU Parliament Monitor agentic workflows. Individual workflow `.md` files reference this document to avoid duplication and ensure consistency.
 
 **Authoritative references:**
-- **Analysis protocol:** `analysis/methodologies/ai-driven-analysis-guide.md` (Rules 1–12)
+- **Analysis protocol:** `analysis/methodologies/ai-driven-analysis-guide.md` (Rules 1–18; v4.4+ Mandatory Analytical Dimension Matrix)
+- **⭐ Depth reference:** `analysis/daily/2026-04-18/breaking-run184/` — **16-artifact / 11-framework / 3400+-line gold-standard exemplar**. See `intelligence/reference-analysis-quality.md` for quality gates.
 - **Analysis templates:** `analysis/templates/` (8 structured templates)
 - **Methodology guides:** `analysis/methodologies/` (6 framework documents)
 - **gh-aw documentation:** https://github.github.com/gh-aw/
@@ -248,6 +249,42 @@ every news workflow MUST apply the following defensive rules when consuming MCP 
 3. **Empty-string field responses = missing content.** When `get_adopted_texts({docId})` returns `{"id":"","title":"",...}` (every string field empty), treat as `CONTENT_PENDING` — do not render blanks in articles; do not quote them as data.
 4. **Sum political-group `memberCount` before running coalition mathematics.** If the total is under 600 (EP10 ≈ 720 seats), emit a data-quality warning and cap coalition-probability estimates at 0.70 × raw_probability. The EPP / Greens-EFA / PfE / ESN `memberCount=0` bug is persistent; assume it until the server publishes a fix.
 5. **During API-degraded windows, produce an `intelligence/mcp-reliability-audit.md` file** alongside the normal artifact set whenever new defects are observed. This audit file is part of the analysis payload and feeds upstream issue tracking on `Hack23/European-Parliament-MCP-Server`.
+
+### ⭐ Reference-Quality Depth Requirements (empirical — basis: Run 184)
+
+The project's designated reference-quality run is
+[`analysis/daily/2026-04-18/breaking-run184/`](../../analysis/daily/2026-04-18/breaking-run184/)
+(16 artifacts · 3400+ lines · 11 analytical frameworks · zero placeholder markers).
+When a workflow's analysis phase finishes, compare the output to the Mandatory
+Analytical Dimension Matrix in
+[`analysis/methodologies/ai-driven-analysis-guide.md`](../../analysis/methodologies/ai-driven-analysis-guide.md)
+§Reference Analyses. If any **mandatory** artifact for the current article type is
+missing or thin, execute a dedicated Pass 2 on that artifact before claiming
+reference-quality. The seven deep-intelligence artifacts that distinguish Run 184:
+
+1. `intelligence/pestle-analysis.md` — 6-dimension macro-environment scan (political /
+   economic / social / technological / legal / environmental) with cross-dimensional
+   coupling analysis.
+2. `intelligence/stakeholder-map.md` — Mendelow power × interest quadrant chart for
+   ≥12 stakeholders + position matrix on each key decision.
+3. `intelligence/scenario-forecast.md` — ≥3 probability-weighted scenarios on a 2×2
+   axes selected from the two most uncertain PESTLE drivers, plus decision tree and
+   per-scenario early-warning indicators.
+4. `intelligence/threat-model.md` — Diamond Model + Attack Trees + Kill Chain applied
+   to the top severity-4+ threats from the risk matrix. Minimum: 3 threats modelled.
+5. `intelligence/historical-baseline.md` — EP10 vs EP8/EP9 comparative baseline per
+   Rule 17. Required for weekly and monthly reviews; recommended for breaking during
+   plenary-return windows.
+6. `intelligence/economic-context.md` — World Bank-sourced macro indicators for the
+   member states materially affected by the current dossier, plus
+   economic-political risk coupling matrix. Always include explicit data-age notes.
+7. `intelligence/wildcards-blackswans.md` — ≥6 low-probability high-impact events plus
+   a residual 5% Black Swan reserve. Essential for epistemic humility; prevents main
+   scenario probabilities over-claiming.
+
+Every artifact must carry an explicit **confidence level** (🟢 High / 🟡 Medium /
+🔴 Low) on its aggregate findings and anchor claims to evidence (dated events, numeric
+indicators, cited frameworks).
 
 ### Analytical Tools (AI-Powered Analysis)
 

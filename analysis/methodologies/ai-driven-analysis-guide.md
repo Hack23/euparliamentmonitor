@@ -1249,6 +1249,42 @@ the reference should trigger an additional improvement pass before submission.
 |--------------|--------------|--------------------|----------------------|
 | Breaking (analysis-only, API-degraded mode) | **Run 184** (2026-04-18) | [`analysis/daily/2026-04-18/breaking-run184/`](../daily/2026-04-18/breaking-run184/) | [`reference-analysis-quality.md`](../daily/2026-04-18/breaking-run184/intelligence/reference-analysis-quality.md) |
 
+**Run 184 at a glance (reference bar):** 16 artifacts · 3400+ lines · 11 analytical
+frameworks applied in a single run · zero placeholder markers · 5 upstream data-source
+issues filed (Hack23/European-Parliament-MCP-Server #366–#370).
+
+### Mandatory Analytical Dimension Matrix (New in v4.4)
+
+The following matrix specifies, per article type, which analytical dimensions are
+**mandatory** (must be present), **recommended** (present when relevant data available),
+and **optional** (value-adding but not required). Article types not listed inherit from
+the closest listed row.
+
+| Dimension / Artifact | Breaking | Weekly Review | Monthly Review | Week Ahead | Month Ahead | Committee Reports | Motions | Propositions | Article Generator |
+|----------------------|:--------:|:-------------:|:--------------:|:----------:|:-----------:|:-----------------:|:-------:|:------------:|:-----------------:|
+| Newsworthiness gate + significance scoring | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M |
+| 5×5 Risk matrix (≥5 vectors) | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M |
+| 3+3+3+3 Quantitative SWOT | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M |
+| Coalition dynamics pair analysis | 🟥 M | 🟥 M | 🟥 M | 🟨 R | 🟨 R | 🟨 R | 🟨 R | 🟨 R | 🟥 M |
+| Cross-run hypothesis diff | 🟥 M | 🟥 M | 🟥 M | 🟨 R | 🟨 R | 🟨 R | 🟨 R | 🟨 R | 🟨 R |
+| Synthesis summary + forward monitoring ≥6 | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M |
+| PESTLE 6-dimension scan | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟨 R | 🟨 R | 🟥 M | 🟥 M |
+| Stakeholder power × interest map (≥12) | 🟥 M | 🟨 R | 🟥 M | 🟨 R | 🟥 M | 🟨 R | 🟥 M | 🟥 M | 🟥 M |
+| Scenario forecast (≥3 scenarios) | 🟥 M | 🟨 R | 🟥 M | 🟥 M | 🟥 M | 🟨 R | 🟨 R | 🟥 M | 🟥 M |
+| Threat model (Diamond / Attack Trees / Kill Chain — top severity-4+ threats) | 🟥 M | 🟨 R | 🟥 M | 🟨 R | 🟨 R | 🟨 R | 🟨 R | 🟨 R | 🟥 M |
+| Historical baseline (Rule 17) | 🟨 R | 🟥 M | 🟥 M | 🟨 R | 🟨 R | 🟨 R | 🟨 R | 🟨 R | 🟥 M |
+| Economic context (World Bank) | 🟨 R | 🟨 R | 🟥 M | 🟨 R | 🟥 M | 🟨 R | 🟨 R | 🟥 M | 🟥 M |
+| Wildcards + Black Swan reserve | 🟨 R | 🟨 R | 🟥 M | 🟨 R | 🟥 M | ⬜ O | ⬜ O | 🟨 R | 🟥 M |
+| Document-analysis index (per-text status) | 🟥 M | 🟥 M | 🟥 M | ⬜ O | ⬜ O | 🟥 M | 🟥 M | 🟥 M | 🟥 M |
+| MCP reliability audit | 🟨 R when API degraded | 🟨 R when API degraded | 🟨 R when API degraded | 🟨 R | 🟨 R | 🟨 R | 🟨 R | 🟨 R | 🟨 R |
+
+**Legend**: 🟥 **M** = mandatory · 🟨 **R** = recommended · ⬜ **O** = optional.
+
+**Rule of thumb**: a reference-quality output produces every mandatory artifact for its
+article type. "Mandatory" is subject to data availability — if the required input is
+unavailable (e.g., World Bank MCP unreachable), the artifact must still be present with
+an explicit `data_not_available` note explaining why, rather than being silently omitted.
+
 **Run 184 also ships the canonical** [MCP reliability audit](../daily/2026-04-18/breaking-run184/intelligence/mcp-reliability-audit.md)
 — the enumeration of 7 EP MCP server data-reliability defects observed across Runs 179–184
 and the 5 upstream issues filed on `Hack23/European-Parliament-MCP-Server`. Future
@@ -1270,5 +1306,5 @@ analysis-only runs operating under API-degraded conditions should produce a comp
 **Document Control:**
 - **Path:** `/analysis/methodologies/ai-driven-analysis-guide.md`
 - **Classification:** Public
-- **Version:** 4.3 — Added Reference Analyses section designating Run 184 (2026-04-18) as the depth benchmark for breaking / analysis-only / API-degraded-mode runs, and linked the canonical MCP reliability audit.
+- **Version:** 4.4 — Added Mandatory Analytical Dimension Matrix per article type (PESTLE, stakeholders, scenarios, threat model, historical baselines, economic context, wildcards) grounded in Run 184's 16-artifact / 11-framework reference output. Previous 4.3 added the Reference Analyses section.
 - **Next Review:** 2026-06-30
