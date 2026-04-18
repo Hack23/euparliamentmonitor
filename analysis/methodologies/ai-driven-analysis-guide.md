@@ -11,8 +11,8 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-4.2-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--10-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-4.5-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--18-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
@@ -1029,11 +1029,18 @@ reads `manifest.json.files.*` entries and generates one link per artifact.
 
 #### Enforcement
 
-- The article HTML validator (`src/utils/validate-articles.ts`) **MUST** fail articles
-  that do not contain an `<section class="analysis-transparency">` block with ≥3
-  `<li><a href="...">` entries in the analysis-links nav.
-- The workflow's final step before PR creation MUST run this validator; non-zero exit
-  blocks PR creation.
+- **Current state (v4.5):** `renderAnalysisTransparencySection` in
+  `src/templates/article-template.ts` emits the `<section class="analysis-transparency">`
+  block with one `<li><a href="…">` per `manifest.files.*` entry, and
+  `src/utils/retrofit-analysis-links.ts` repairs any article missing the section.
+  Workflows call these helpers during article generation — **omitting the footer
+  requires actively bypassing the template helper, which is a workflow violation**.
+- **Planned (follow-up code PR, tracked for v4.6):** extend
+  `src/utils/validate-articles.ts` to fail articles that lack a
+  `<section class="analysis-transparency">` block with ≥3 `<li><a href="…">` entries
+  in its analysis-links nav; wire the validator as a blocking final step before PR
+  creation. Until that validator lands, the footer is enforced by the template helper
+  contract and by PR review.
 
 ---
 
@@ -1335,7 +1342,7 @@ the reference should trigger an additional improvement pass before submission.
 |--------------|--------------|--------------------|----------------------|
 | Breaking (analysis-only, API-degraded mode) | **Run 184** (2026-04-18) | [`analysis/daily/2026-04-18/breaking-run184/`](../daily/2026-04-18/breaking-run184/) | [`reference-analysis-quality.md`](../daily/2026-04-18/breaking-run184/intelligence/reference-analysis-quality.md) |
 
-**Run 184 at a glance (reference bar):** 16 artifacts · 3400+ lines · 11 analytical
+**Run 184 at a glance (reference bar):** 17 artifacts · 3600+ lines · 13 analytical
 frameworks applied in a single run · zero placeholder markers · 5 upstream data-source
 issues filed (Hack23/European-Parliament-MCP-Server #366–#370).
 

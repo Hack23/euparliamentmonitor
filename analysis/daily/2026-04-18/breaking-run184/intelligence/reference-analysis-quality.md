@@ -16,7 +16,7 @@ scope: "Benchmark for AI guides, prompts, templates, and all agentic workflows"
 
 > **Purpose**: This document designates Run 184 as the **reference analysis** for the
 > EU Parliament Monitor project. AI guides, prompt patterns, templates, and agentic
-> workflow instructions should treat the 16 artifacts of Run 184 as the illustrative
+> workflow instructions should treat the 17 artifacts of Run 184 as the illustrative
 > example of expected analytical depth, structural rigour, framework plurality, and
 > data-quality candour.
 >
@@ -32,16 +32,17 @@ Run 184 is designated the reference analysis on the basis of **seven** propertie
 the six-run Easter-recess series (Runs 179–184) allowed it to develop but that no single
 prior analysis run had simultaneously achieved:
 
-1. **Depth without padding** — 3400+ lines of substantive prose across 16 artifacts with
+1. **Depth without padding** — 3600+ lines of substantive prose across 17 artifacts with
    zero boilerplate, zero `[AI_ANALYSIS_REQUIRED]` markers, and zero sections below the
    minimum evidence-density threshold (80 words per SWOT item, 150 words per stakeholder
    perspective per `.github/skills/ai-first-quality.md`).
-2. **Framework plurality** — 11 analytical frameworks applied in a single run: 5×5 Risk
-   Matrix, 3+3+3+3 SWOT, Coalition Dynamics Pair Analysis, Cross-Run Hypothesis Tracking,
-   MCP Data-Reliability Audit, PESTLE Macro Scan, Mendelow Power-Interest Grid, Shell
-   Scenario Planning (2×2 + decision tree), Diamond Model + Attack Trees + Kill Chain,
-   Historical Baseline Comparison, World Bank Indicator Mapping, Schwartz Wildcards +
-   Taleb Black Swan Reserve. No prior run applied more than 5 frameworks.
+2. **Framework plurality** — 13 analytical frameworks applied in a single run:
+   Newsworthiness Gate, 5×5 Risk Matrix, 3+3+3+3 SWOT, Coalition Dynamics Pair
+   Analysis, Cross-Run Hypothesis Tracking, MCP Data-Reliability Audit, PESTLE Macro
+   Scan, Mendelow Power-Interest Grid, Shell Scenario Planning (2×2 + decision tree),
+   Diamond Model + Attack Trees + Kill Chain, Historical Baseline Comparison, World
+   Bank Indicator Mapping, Schwartz Wildcards + Taleb Black Swan Reserve. No prior
+   run applied more than 5 frameworks.
 3. **Intellectual honesty about data quality** — every assessment carries an explicit
    confidence level (🟢 High / 🟡 Medium / 🔴 Low) and a specific evidence anchor. Where
    the EP MCP data is incomplete (e.g., EPP `memberCount=0`), the analysis documents the
@@ -147,7 +148,7 @@ pass before submitting:
 | `documents/document-analysis-index.md` | 109 | ≥ 90 lines |
 | `intelligence/mcp-reliability-audit.md` | 434 | ≥ 150 lines (when applicable) |
 | `intelligence/reference-analysis-quality.md` | (this file) | ≥ 150 lines (when claimed) |
-| **TOTAL** | **3400+** | **≥ 2500 lines** for reference-quality claim |
+| **TOTAL** | **3600+** | **≥ 2500 lines** for reference-quality claim |
 
 **Line counts are a floor, not a target.** Verbosity without substance fails the
 anti-boilerplate rules in `analysis/methodologies/ai-driven-analysis-guide.md`. The
@@ -209,4 +210,4 @@ reference run.
 ---
 
 *Document compiled: April 18, 2026 | Run 184 | Role: reference-analysis designation*
-*Next review: July 2026 (post-summer-recess series) or when methodology v4.3 ships*
+*Next review: July 2026 (post-summer-recess series) or when methodology v4.6+ ships*

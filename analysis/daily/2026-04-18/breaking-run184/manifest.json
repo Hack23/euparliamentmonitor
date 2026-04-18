@@ -73,7 +73,7 @@
     "documents": ["documents/document-analysis-index.md"]
   },
   "analyticalFrameworksApplied": {
-    "count": 11,
+    "count": 13,
     "frameworks": [
       {"name": "Newsworthiness Gate",                  "artifact": "classification/significance-scoring.md"},
       {"name": "5x5 Likelihood-Impact Risk Matrix",    "artifact": "risk-scoring/risk-matrix.md"},

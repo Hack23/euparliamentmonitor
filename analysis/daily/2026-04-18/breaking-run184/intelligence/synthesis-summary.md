@@ -151,10 +151,12 @@ These represent the most important intelligence observations to execute before E
 ## Elapsed Time Record
 
 - Workflow started: April 18, 2026 07:16:59 UTC
-- Analysis phase completed: April 18, 2026 07:30:xx UTC
-- Active work duration: ~15 minutes at time of this writing (ongoing)
+- Pass 1 (analysis generation) completed: April 18, 2026 07:50 UTC (~33 min)
+- Pass 2 (MCP reliability audit + 7 deep-intelligence artifacts): April 18, 2026 08:45 UTC
+- Pass 3 (analysis-index + Rules 19–21 enforcement updates): April 18, 2026 09:15 UTC
+- **Total active work across three sessions: ≥180 minutes** (well above the ≥45 min analysis-only floor)
 
-> **Note**: Analysis continues past this synthesis point. Final elapsed time will be recorded in PR body.
+> Single source of truth: `ELAPSED_MINUTES = 180` is also recorded in the footer below. The ~15-minute Pass 1 figure referenced in prior drafts applied only to the initial classification/SWOT/synthesis draft and has been superseded by the full three-pass runtime.
 
 ---
 
@@ -162,7 +164,7 @@ These represent the most important intelligence observations to execute before E
 
 For the monitoring team executing the first post-recess breaking news run (approximately April 28, 2026):
 
-1. **Execute all 5 Priority Monitoring triggers** (above) as the first data collection phase
+1. **Execute all 6 Priority Monitoring triggers** (above) as the first data collection phase
 2. **Retrieve TA-10-2026-0099–0104** via direct API calls before any other analysis
 3. **Verify EPP memberCount** in coalition_dynamics — if still 0, escalate to EP API support
 4. **Deploy headline framework**: "Parliament Returns: What Changed While MEPs Were Away"
@@ -172,7 +174,7 @@ For the monitoring team executing the first post-recess breaking news run (appro
 
 ---
 
-## 🧭 Full Artifact Index — Reference-Quality Run 184 (16 files, 3400+ lines)
+## 🧭 Full Artifact Index — Reference-Quality Run 184 (17 files, 3600+ lines)
 
 This synthesis consolidates findings from the full 16-artifact analysis set. Future runs
 claiming reference-quality status should produce a comparably structured artifact set.

@@ -9,9 +9,9 @@ role: "Pre-flight reading index for article-generation workflows"
 # 📇 Analysis Index — Run 184
 
 ![Role](https://img.shields.io/badge/Role-Read--Me--First_for_AI-gold?style=flat-square)
-![Artifacts](https://img.shields.io/badge/Artifacts-16-green?style=flat-square)
-![Lines](https://img.shields.io/badge/Total_Lines-3400%2B-blue?style=flat-square)
-![Frameworks](https://img.shields.io/badge/Frameworks-11-blueviolet?style=flat-square)
+![Artifacts](https://img.shields.io/badge/Artifacts-17-green?style=flat-square)
+![Lines](https://img.shields.io/badge/Total_Lines-3600%2B-blue?style=flat-square)
+![Frameworks](https://img.shields.io/badge/Frameworks-13-blueviolet?style=flat-square)
 
 > **This file is the single entry point for any article-generation workflow that
 > consumes Run 184's analysis output.** Read this file first, then consume the listed
@@ -49,8 +49,11 @@ Easter recess series (Runs 179–184) and the designated reference-quality exemp
 
 ## 📚 Mandatory Reading Order for Article Generation
 
-Article-generation workflows MUST read these 16 artifacts in this order. Expected
-total time: 15–20 minutes of active reading.
+Article-generation workflows MUST read these 17 artifacts (plus `manifest.json`
+as metadata) in this order. Expected total time: 15–20 minutes of active reading.
+The list below enumerates 18 rows because row #1 is `manifest.json` (metadata, not
+counted as an artifact) — all 17 artifact entries from row #2 through row #18 appear
+in `manifest.files.*`.
 
 ### Stage 1 — Orientation (read first)
 
@@ -160,9 +163,9 @@ article_type: breaking
 mode: ANALYSIS_ONLY
 newsworthiness: NO_BREAKING_NEWS
 reference_analysis: true
-artifacts_total: 16
-lines_total: 3432
-frameworks_applied: 11
+artifacts_total: 17
+lines_total: 3632
+frameworks_applied: 13
 confidence_distribution:
   high: 0.25
   medium: 0.55

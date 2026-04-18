@@ -15,7 +15,7 @@ This document defines **shared prompt patterns, rules, and tool references** use
 
 **Authoritative references:**
 - **Analysis protocol:** `analysis/methodologies/ai-driven-analysis-guide.md` (Rules 1–21; v4.5+ Mandatory Pre-Flight Reading + Analysis-Sources Footer)
-- **⭐ Depth reference:** `analysis/daily/2026-04-18/breaking-run184/` — **16-artifact / 11-framework / 3400+-line gold-standard exemplar**. See `intelligence/reference-analysis-quality.md` for quality gates.
+- **⭐ Depth reference:** `analysis/daily/2026-04-18/breaking-run184/` — **17-artifact / 13-framework / 3600+-line gold-standard exemplar**. See `intelligence/reference-analysis-quality.md` for quality gates.
 - **Analysis templates:** `analysis/templates/` (8 structured templates)
 - **Methodology guides:** `analysis/methodologies/` (6 framework documents)
 - **gh-aw documentation:** https://github.github.com/gh-aw/
@@ -254,7 +254,7 @@ every news workflow MUST apply the following defensive rules when consuming MCP 
 
 The project's designated reference-quality run is
 [`analysis/daily/2026-04-18/breaking-run184/`](../../analysis/daily/2026-04-18/breaking-run184/)
-(16 artifacts · 3400+ lines · 11 analytical frameworks · zero placeholder markers).
+(17 artifacts · 3600+ lines · 13 analytical frameworks · zero placeholder markers).
 When a workflow's analysis phase finishes, compare the output to the Mandatory
 Analytical Dimension Matrix in
 [`analysis/methodologies/ai-driven-analysis-guide.md`](../../analysis/methodologies/ai-driven-analysis-guide.md)
@@ -320,7 +320,7 @@ Before writing any article HTML, print to workflow stdout a line matching this
 format (substitute your actual counts):
 
 ```
-PREFLIGHT_ATTESTATION: read 17/17 artifacts from analysis/daily/2026-04-18/breaking-run184/ (3632 lines, 11 frameworks)
+PREFLIGHT_ATTESTATION: read 17/17 artifacts from analysis/daily/2026-04-18/breaking-run184/ (3632 lines, 13 frameworks)
 ```
 
 #### Step 5 — Consume the finding-level cross-reference map
