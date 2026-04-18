@@ -51,4 +51,4 @@ The most politically consequential of these is the Commission housing response. 
 
 Pass 1 (data retrieval + initial analysis): Minutes 0–13
 Pass 2 (synthesis + article generation): Minutes 13–45
-ELAPSED_MINUTES: 10
+ELAPSED_MINUTES: 45

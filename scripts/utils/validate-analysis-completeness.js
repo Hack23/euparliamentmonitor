@@ -349,11 +349,7 @@ const ARTICLE_TYPE_EXTRAS_MAP = new Map(Object.entries(ARTICLE_TYPE_EXTRAS));
  */
 function computeRequired(articleType) {
     const extras = ARTICLE_TYPE_EXTRAS_MAP.get(articleType) ?? [];
-    const set = new Set([
-        ...COMMON_REQUIRED,
-        ...REFERENCE_QUALITY_INTELLIGENCE,
-        ...extras,
-    ]);
+    const set = new Set([...COMMON_REQUIRED, ...REFERENCE_QUALITY_INTELLIGENCE, ...extras]);
     return Array.from(set).sort();
 }
 /**
@@ -379,18 +375,33 @@ function countErrors(checks, minLines, manifestErrorCount) {
     return errorCount;
 }
 /**
+ * Thrown by `validate()` for usage errors (missing/unreadable run directory).
+ * Carries the exit code that `main()` should use, so all `process.exit(…)`
+ * calls live in one place and the `validate()` function stays unit-testable.
+ */
+class ValidationUsageError extends Error {
+    exitCode;
+    constructor(message, exitCode = 2) {
+        super(message);
+        this.name = 'ValidationUsageError';
+        this.exitCode = exitCode;
+    }
+}
+/**
  * Run the full validation pipeline for a given analysis run directory.
  *
  * @param options - Parsed CLI options.
  * @returns Validation result with per-artifact checks and pass/fail flag.
+ * @throws {ValidationUsageError} When the analysis directory does not exist
+ *         or is not a directory — the CLI entrypoint translates this into
+ *         `process.exit(2)`.
  */
 function validate(options) {
     const absRunDir = path.isAbsolute(options.analysisDir)
         ? options.analysisDir
         : path.join(PROJECT_ROOT, options.analysisDir);
     if (!fs.existsSync(absRunDir) || !fs.statSync(absRunDir).isDirectory()) {
-        console.error(`❌ Analysis directory not found or not a directory: ${absRunDir}`);
-        process.exit(2);
+        throw new ValidationUsageError(`Analysis directory not found or not a directory: ${absRunDir}`, 2);
     }
     const manifest = loadManifest(absRunDir);
     const articleType = options.articleType ?? manifest.raw.articleType ?? 'unknown';
@@ -503,9 +514,23 @@ function renderTextReport(result, minLines) {
     printFooter(result);
 }
 // ─── Main ─────────────────────────────────────────────────────────────────────
+/**
+ * CLI entrypoint — parses args, runs validation, renders output, and owns
+ * every `process.exit(…)` decision for this module.
+ */
 function main() {
     const options = parseArgs(process.argv.slice(2));
-    const result = validate(options);
+    let result;
+    try {
+        result = validate(options);
+    }
+    catch (err) {
+        if (err instanceof ValidationUsageError) {
+            console.error(`❌ ${err.message}`);
+            process.exit(err.exitCode);
+        }
+        throw err;
+    }
     if (options.json) {
         console.log(JSON.stringify(result, null, 2));
     }

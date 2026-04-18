@@ -434,11 +434,7 @@ const ARTICLE_TYPE_EXTRAS_MAP: ReadonlyMap<string, readonly string[]> = new Map(
  */
 function computeRequired(articleType: string): readonly string[] {
   const extras = ARTICLE_TYPE_EXTRAS_MAP.get(articleType) ?? [];
-  const set = new Set<string>([
-    ...COMMON_REQUIRED,
-    ...REFERENCE_QUALITY_INTELLIGENCE,
-    ...extras,
-  ]);
+  const set = new Set<string>([...COMMON_REQUIRED, ...REFERENCE_QUALITY_INTELLIGENCE, ...extras]);
   return Array.from(set).sort();
 }
 
@@ -466,10 +462,27 @@ function countErrors(
 }
 
 /**
+ * Thrown by `validate()` for usage errors (missing/unreadable run directory).
+ * Carries the exit code that `main()` should use, so all `process.exit(…)`
+ * calls live in one place and the `validate()` function stays unit-testable.
+ */
+class ValidationUsageError extends Error {
+  public readonly exitCode: number;
+  constructor(message: string, exitCode = 2) {
+    super(message);
+    this.name = 'ValidationUsageError';
+    this.exitCode = exitCode;
+  }
+}
+
+/**
  * Run the full validation pipeline for a given analysis run directory.
  *
  * @param options - Parsed CLI options.
  * @returns Validation result with per-artifact checks and pass/fail flag.
+ * @throws {ValidationUsageError} When the analysis directory does not exist
+ *         or is not a directory — the CLI entrypoint translates this into
+ *         `process.exit(2)`.
  */
 function validate(options: CliOptions): ValidationResult {
   const absRunDir = path.isAbsolute(options.analysisDir)
@@ -477,8 +490,10 @@ function validate(options: CliOptions): ValidationResult {
     : path.join(PROJECT_ROOT, options.analysisDir);
 
   if (!fs.existsSync(absRunDir) || !fs.statSync(absRunDir).isDirectory()) {
-    console.error(`❌ Analysis directory not found or not a directory: ${absRunDir}`);
-    process.exit(2);
+    throw new ValidationUsageError(
+      `Analysis directory not found or not a directory: ${absRunDir}`,
+      2
+    );
   }
 
   const manifest = loadManifest(absRunDir);
@@ -493,9 +508,7 @@ function validate(options: CliOptions): ValidationResult {
   const onDiskIntel = walkIntelligenceDir(absRunDir);
   // O(1)-per-path lookup: convert `required` into a Set for the orphan filter.
   const requiredSet = new Set<string>(required);
-  const orphaned = onDiskIntel.filter(
-    (rel) => !listedSet.has(rel) && !requiredSet.has(rel)
-  );
+  const orphaned = onDiskIntel.filter((rel) => !listedSet.has(rel) && !requiredSet.has(rel));
 
   // Orphaned files are warnings, not errors (per Rule 6 "contamination risk"
   // they're a signal but not a blocker — a second workflow may legitimately add files)
@@ -607,9 +620,23 @@ function renderTextReport(result: ValidationResult, minLines: number): void {
 
 // ─── Main ─────────────────────────────────────────────────────────────────────
 
+/**
+ * CLI entrypoint — parses args, runs validation, renders output, and owns
+ * every `process.exit(…)` decision for this module.
+ */
 function main(): void {
   const options = parseArgs(process.argv.slice(2));
-  const result = validate(options);
+
+  let result: ValidationResult;
+  try {
+    result = validate(options);
+  } catch (err) {
+    if (err instanceof ValidationUsageError) {
+      console.error(`❌ ${err.message}`);
+      process.exit(err.exitCode);
+    }
+    throw err;
+  }
 
   if (options.json) {
     console.log(JSON.stringify(result, null, 2));

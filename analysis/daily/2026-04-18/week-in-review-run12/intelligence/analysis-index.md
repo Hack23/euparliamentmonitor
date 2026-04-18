@@ -41,11 +41,11 @@ week-in-review run in the EP10 series.**
    stress concentrates in Germany. See `economic-context.md` §Germany and
    `threat-model.md` §T1.
 3. **Anti-Corruption Directive (TA-10-2026-0094) creates Article 83 TFEU precedent** —
-   first sustained EP10 use of criminal-law competence. See `pestle-analysis.md` §L3
-   and `scenario-forecast.md` §Scenario C.
+   first sustained EP10 use of criminal-law competence. See `pestle-analysis.md` §L1
+   and `scenario-forecast.md` §Scenario 1 (Productive Recess).
 4. **Housing Initiative Commission-response deadline April 21** — 55% probability of
-   inadequate response (consultation-preferred). See `stakeholder-map.md` §17 and
-   `scenario-forecast.md` §Scenario B.
+   inadequate response (consultation-preferred). See `stakeholder-map.md` §3 (S&D)
+   and §19 (Housing Coalition) and `scenario-forecast.md` §Scenario 2 (Housing Stalemate).
 5. **US Section 301 window open April 22–26** — €9.6bn countermeasure pre-authorised via
    TA-10-2026-0096. See `threat-model.md` §T3 and `wildcards-blackswans.md` §W2.
 6. **Six recess-published texts (TA-10-2026-0099–0104) content-unavailable** — UPSTREAM_404
