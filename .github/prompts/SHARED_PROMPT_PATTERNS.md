@@ -3,7 +3,7 @@
 
 # 📋 Shared Prompt Patterns for EU Parliament Monitor Agentic Workflows
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Last Updated:** 2026-04-17 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 1.3 | **📅 Last Updated:** 2026-04-18 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
@@ -14,7 +14,8 @@
 This document defines **shared prompt patterns, rules, and tool references** used by all 10 EU Parliament Monitor agentic workflows. Individual workflow `.md` files reference this document to avoid duplication and ensure consistency.
 
 **Authoritative references:**
-- **Analysis protocol:** `analysis/methodologies/ai-driven-analysis-guide.md` (Rules 1–12)
+- **Analysis protocol:** `analysis/methodologies/ai-driven-analysis-guide.md` (Rules 1–21; v4.5+ Mandatory Pre-Flight Reading + Analysis-Sources Footer)
+- **⭐ Depth reference:** `analysis/daily/2026-04-18/breaking-run184/` — **17-artifact / 13-framework / 3600+-line gold-standard exemplar**. See `intelligence/reference-analysis-quality.md` for quality gates.
 - **Analysis templates:** `analysis/templates/` (8 structured templates)
 - **Methodology guides:** `analysis/methodologies/` (6 framework documents)
 - **gh-aw documentation:** https://github.github.com/gh-aw/
@@ -236,6 +237,133 @@ When a feed endpoint fails (404/timeout/error), IMMEDIATELY try the correspondin
 ### Cross-Run Data Consistency
 
 > **⚠️ SEAT COUNT NORMALIZATION**: When citing political group seat counts, use the SAME data source within a single analysis run. Get seat counts from `analyze_coalition_dynamics` OR from `get_meps_feed` — do NOT mix sources. Record the source in the analysis metadata. Inconsistent seat counts across same-day runs (e.g., EPP=185 vs EPP=188) undermine analytical credibility.
+
+### 🔬 MCP Data-Quality Rules (empirical — basis: Runs 179–184)
+
+Observations from the Easter 2026 recess series revealed persistent EP MCP server data-reliability defects. The canonical audit is
+[`analysis/daily/2026-04-18/breaking-run184/intelligence/mcp-reliability-audit.md`](../../analysis/daily/2026-04-18/breaking-run184/intelligence/mcp-reliability-audit.md);
+every news workflow MUST apply the following defensive rules when consuming MCP responses:
+
+1. **`coalition_dynamics.cohesion` is not a political-alignment signal when `sharedVotes === null`.** Classify such scores as *"size-ratio artifacts"* and emit a data-quality warning. The Renew-ECR 0.95 figure is the reference example — do not treat as alliance evidence.
+2. **Never trust `get_server_health` alone.** Always cross-validate by probing at least one concrete feed (`get_adopted_texts_feed` is cheapest). If `server_health` reports 0/13 but a probe returns data, treat the server as DEGRADED, not UNAVAILABLE.
+3. **Empty-string field responses = missing content.** When `get_adopted_texts({docId})` returns `{"id":"","title":"",...}` (every string field empty), treat as `CONTENT_PENDING` — do not render blanks in articles; do not quote them as data.
+4. **Sum political-group `memberCount` before running coalition mathematics.** If the total is under 600 (EP10 ≈ 720 seats), emit a data-quality warning and cap coalition-probability estimates at 0.70 × raw_probability. The EPP / Greens-EFA / PfE / ESN `memberCount=0` bug is persistent; assume it until the server publishes a fix.
+5. **During API-degraded windows, produce an `intelligence/mcp-reliability-audit.md` file** alongside the normal artifact set whenever new defects are observed. This audit file is part of the analysis payload and feeds upstream issue tracking on `Hack23/European-Parliament-MCP-Server`.
+
+### ⭐ Reference-Quality Depth Requirements (empirical — basis: Run 184)
+
+The project's designated reference-quality run is
+[`analysis/daily/2026-04-18/breaking-run184/`](../../analysis/daily/2026-04-18/breaking-run184/)
+(17 artifacts · 3600+ lines · 13 analytical frameworks · zero placeholder markers).
+When a workflow's analysis phase finishes, compare the output to the Mandatory
+Analytical Dimension Matrix in
+[`analysis/methodologies/ai-driven-analysis-guide.md`](../../analysis/methodologies/ai-driven-analysis-guide.md)
+§Reference Analyses. If any **mandatory** artifact for the current article type is
+missing or thin, execute a dedicated Pass 2 on that artifact before claiming
+reference-quality. The seven deep-intelligence artifacts that distinguish Run 184:
+
+1. `intelligence/pestle-analysis.md` — 6-dimension macro-environment scan (political /
+   economic / social / technological / legal / environmental) with cross-dimensional
+   coupling analysis.
+2. `intelligence/stakeholder-map.md` — Mendelow power × interest quadrant chart for
+   ≥12 stakeholders + position matrix on each key decision.
+3. `intelligence/scenario-forecast.md` — ≥3 probability-weighted scenarios on a 2×2
+   axes selected from the two most uncertain PESTLE drivers, plus decision tree and
+   per-scenario early-warning indicators.
+4. `intelligence/threat-model.md` — Diamond Model + Attack Trees + Kill Chain applied
+   to the top severity-4+ threats from the risk matrix. Minimum: 3 threats modelled.
+5. `intelligence/historical-baseline.md` — EP10 vs EP8/EP9 comparative baseline per
+   Rule 17. Required for weekly and monthly reviews; recommended for breaking during
+   plenary-return windows.
+6. `intelligence/economic-context.md` — World Bank-sourced macro indicators for the
+   member states materially affected by the current dossier, plus
+   economic-political risk coupling matrix. Always include explicit data-age notes.
+7. `intelligence/wildcards-blackswans.md` — ≥6 low-probability high-impact events plus
+   a residual 5% Black Swan reserve. Essential for epistemic humility; prevents main
+   scenario probabilities over-claiming.
+
+Every artifact must carry an explicit **confidence level** (🟢 High / 🟡 Medium /
+🔴 Low) on its aggregate findings and anchor claims to evidence (dated events, numeric
+indicators, cited frameworks).
+
+### 📋 Article Generation Pre-Flight Checklist (MANDATORY — Rules 19, 20, 21 of AI guide v4.5)
+
+**Before drafting any article sentence**, an article-generation workflow MUST complete
+every step of this checklist. Emit a `PREFLIGHT_ATTESTATION:` log line confirming
+completion before article generation begins.
+
+#### Step 1 — Read the index first
+
+- [ ] Open `${ANALYSIS_DIR}/intelligence/analysis-index.md` and read it in full.
+- [ ] If the file does not exist, generate it from `manifest.json` before proceeding
+      (use the Run 184 index as a structural template: [`analysis/daily/2026-04-18/breaking-run184/intelligence/analysis-index.md`](../../analysis/daily/2026-04-18/breaking-run184/intelligence/analysis-index.md)).
+
+#### Step 2 — Read `manifest.json`
+
+- [ ] Load `${ANALYSIS_DIR}/manifest.json`.
+- [ ] Record `artifactStats.totalFiles` and `analyticalFrameworksApplied.count`.
+- [ ] Enumerate every path in `files.classification[]`, `files.risk_scoring[]`,
+      `files.intelligence[]`, `files.documents[]` — this is the mandatory-read set.
+
+#### Step 3 — Read every artifact in the mandatory-read set
+
+- [ ] For each artifact in the set, read the entire file (not just the header).
+- [ ] If any artifact is under 30 lines or contains `[AI_ANALYSIS_REQUIRED]` / `TBD` /
+      placeholder text, **abort article drafting** and execute an analysis Pass 2 to
+      extend the artifact before proceeding.
+- [ ] Verify file-by-file that each artifact in the file system is listed in
+      `manifest.json` — orphaned analysis files are a contamination risk.
+
+#### Step 4 — Emit the attestation
+
+Before writing any article HTML, print to workflow stdout a line matching this
+format (substitute your actual counts):
+
+```
+PREFLIGHT_ATTESTATION: read 17/17 artifacts from analysis/daily/2026-04-18/breaking-run184/ (3632 lines, 13 frameworks)
+```
+
+#### Step 5 — Consume the finding-level cross-reference map
+
+`analysis-index.md` contains a table mapping article sections (headline, lede, risk
+paragraph, historical-comparison paragraph, etc.) to the specific analysis artifacts
+that should be consulted when drafting each section. Use it.
+
+#### Step 6 — Render the mandatory Analysis-Sources footer
+
+- [ ] Call `renderAnalysisTransparencySection(date, slug, lang, analysisDir, analysisFiles)`
+      where `analysisFiles` is a `ReadonlyArray<AnalysisFileEntry>` — one entry
+      `{ method, outputFile }` per artifact listed under `manifest.json.files.*`.
+      `method` is the canonical analysis method name (e.g. `significance-classification`,
+      `risk-matrix`, `pestle-analysis`), and `outputFile` is the relative path inside
+      the run directory (e.g. `classification/significance-scoring.md`). The function
+      is in `src/templates/article-template.ts` and `AnalysisFileEntry` is defined in
+      `src/types/generation.ts`. This call exists precisely to enforce Rule 20; if
+      `analysisFiles` is omitted, the helper falls back to a hardcoded default set
+      and will NOT link every manifest artifact.
+- [ ] Verify the rendered HTML contains a `<section class="analysis-transparency">`
+      block with one `<li>` entry per analysis artifact.
+- [ ] Run `npx tsx src/utils/validate-articles.ts --date=$TODAY --quality --strict`
+      before the safe output — non-zero exit blocks PR creation.
+      **Note:** The current `validate-articles.ts` does NOT yet assert the presence
+      of `<section class="analysis-transparency">`; enforcement of the footer today
+      comes from the template path (`renderAnalysisTransparencySection` in
+      `src/templates/article-template.ts`) and, for pre-existing articles, from
+      `src/utils/retrofit-analysis-links.ts`. A validator-level assertion is
+      planned as a follow-up; until that lands, the bullets above (render + verify)
+      are the authoritative enforcement points.
+
+#### Step 7 — Verify the Analysis-Article Read Ratio (Rule 21)
+
+After drafting, count artifacts cited (inline and in footer) and compare to article
+word count:
+
+- Breaking / weekly / monthly: target ≥ 1 artifact per 150 words
+- Article-generator long form: target ≥ 1 artifact per 100 words
+
+If the ratio is below target, execute Pass 2 to add specific artifact-anchored
+citations inline in prose.
+
 ### Analytical Tools (AI-Powered Analysis)
 
 | Tool | Purpose | Key Parameters |
@@ -361,7 +489,7 @@ The `worldbank-mcp@1.0.1` server provides **7 tools**. All respond in <5 seconds
 Every workflow MUST read and apply:
 
 **Methodology guides** (`analysis/methodologies/`):
-1. `ai-driven-analysis-guide.md` — Master protocol (Rules 1-12)
+1. `ai-driven-analysis-guide.md` — Master protocol (Rules 1-21)
 2. `political-classification-guide.md` — 7-dimension classification
 3. `political-risk-methodology.md` — 5×5 Likelihood × Impact matrix
 4. `political-threat-framework.md` — Multi-framework threat analysis
@@ -1386,7 +1514,7 @@ echo "NODE_ENV=${NODE_ENV:-not set}"
 
 | Document | Path | Purpose |
 |----------|------|---------|
-| AI Analysis Guide | `analysis/methodologies/ai-driven-analysis-guide.md` | Master analysis protocol (Rules 1-12) |
+| AI Analysis Guide | `analysis/methodologies/ai-driven-analysis-guide.md` | Master analysis protocol (Rules 1-21) |
 | Analysis Templates | `analysis/templates/` | 8 structured output templates |
 | Methodology Guides | `analysis/methodologies/` | 6 analytical frameworks |
 | Skills Library | `.github/skills/` | Agent skill definitions |
