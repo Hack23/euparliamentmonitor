@@ -23,6 +23,29 @@ framework: "Political SWOT with Evidence Chains — ai-first-quality.md §4.2"
 This SWOT evaluates EP10's digital governance legislative programme as revealed by TA-10-2026-0098 (Digital Omnibus on AI), in the context of the full EP10 Year 2 legislative sprint (January–March 2026). The central thesis: EP10 has achieved macro-institutional resilience (Banking Union, Anti-Corruption, Climate Neutrality) while simultaneously introducing a systematic deregulatory rollback (Digital Omnibus, Better Law-Making, CSRD threshold changes) that progressively weakens the enforcement architecture those macro-institutions depend on. This "Institutional Self-Contradiction" is EP10's defining political characteristic — and its greatest strategic vulnerability.
 
 ```mermaid
+%%{init: {
+  "theme": "dark",
+  "themeVariables": {
+    "quadrant1Fill": "#1565C0",
+    "quadrant2Fill": "#2E7D32",
+    "quadrant3Fill": "#FF9800",
+    "quadrant4Fill": "#D32F2F",
+    "quadrantTitleFill": "#ffffff",
+    "quadrantPointFill": "#ffffff",
+    "quadrantPointTextFill": "#ffffff",
+    "quadrantXAxisTextFill": "#ffffff",
+    "quadrantYAxisTextFill": "#ffffff"
+  },
+  "quadrantChart": {
+    "chartWidth": 700,
+    "chartHeight": 700,
+    "pointLabelFontSize": 14,
+    "titleFontSize": 22,
+    "quadrantLabelFontSize": 18,
+    "xAxisLabelFontSize": 16,
+    "yAxisLabelFontSize": 16
+  }
+}}%%
 quadrantChart
     title SWOT Quadrant Map — EP10 Digital Governance
     x-axis Internal --> External
