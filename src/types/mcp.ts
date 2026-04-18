@@ -252,7 +252,7 @@ export interface GetCurrentMEPsOptions {
   offset?: number | undefined;
 }
 
-/** Options for getSpeeches — v1.2.8 removed `year` (EP API ignores it for /speeches) */
+/** Options for getSpeeches — v1.2.9 removed `year` (EP API ignores it for /speeches) */
 export interface GetSpeechesOptions {
   speechId?: string | undefined;
   /** Filter by sitting date start (maps to sitting-date in EP API) */
@@ -263,7 +263,7 @@ export interface GetSpeechesOptions {
   offset?: number | undefined;
 }
 
-/** Options for getProcedures — v1.2.8 removed `year` (EP API ignores it for /procedures) */
+/** Options for getProcedures — v1.2.9 removed `year` (EP API ignores it for /procedures) */
 export interface GetProceduresOptions {
   processId?: string | undefined;
   limit?: number | undefined;
@@ -278,7 +278,7 @@ export interface GetAdoptedTextsOptions {
   offset?: number | undefined;
 }
 
-/** Options for getEvents — v1.2.8 removed `year`, `dateFrom`, `dateTo` (EP API /events has no date filtering) */
+/** Options for getEvents — v1.2.9 removed `year`, `dateFrom`, `dateTo` (EP API /events has no date filtering) */
 export interface GetEventsOptions {
   eventId?: string | undefined;
   limit?: number | undefined;
@@ -333,7 +333,7 @@ export interface GetPlenaryDocumentsOptions {
   offset?: number | undefined;
 }
 
-/** Options for getCommitteeDocuments — v1.2.8 removed `year` (EP API ignores it for /committee-documents) */
+/** Options for getCommitteeDocuments — v1.2.9 removed `year` (EP API ignores it for /committee-documents) */
 export interface GetCommitteeDocumentsOptions {
   docId?: string | undefined;
   limit?: number | undefined;
@@ -360,7 +360,7 @@ export interface GetControlledVocabulariesOptions {
   offset?: number | undefined;
 }
 
-/** Options for getExternalDocuments — v1.2.8 removed `year` (EP API ignores it for /external-documents) */
+/** Options for getExternalDocuments — v1.2.9 removed `year` (EP API ignores it for /external-documents) */
 export interface GetExternalDocumentsOptions {
   docId?: string | undefined;
   limit?: number | undefined;
