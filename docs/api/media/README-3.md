@@ -496,7 +496,7 @@ Each agentic workflow downloads **unique data** tailored to its article type:
 
 ```mermaid
 flowchart TD
-    subgraph "📡 EP MCP Server v1.2.8"
+    subgraph "📡 EP MCP Server v1.2.9"
         F1["get_adopted_texts_feed"]
         F2["get_events_feed"]
         F3["get_procedures_feed"]
