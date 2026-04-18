@@ -306,11 +306,19 @@ function loadManifest(runDir: string): ParsedManifest {
 
 // ─── Artifact inspection ─────────────────────────────────────────────────────
 
+/**
+ * Read and inspect a single artifact, producing the data needed by the
+ * aggregate pass/fail logic in `countErrors` / `artifactIssues`.
+ *
+ * @param runDir - Absolute path to the analysis run directory.
+ * @param relPath - Path relative to `runDir` of the artifact to inspect.
+ * @param listedInManifest - Whether the artifact appears under `manifest.files.*`.
+ * @returns Presence, line count, placeholder findings, and manifest-listing flag.
+ */
 function inspectArtifact(
   runDir: string,
   relPath: string,
-  listedInManifest: boolean,
-  minLines: number
+  listedInManifest: boolean
 ): ArtifactCheck {
   const abs = path.join(runDir, relPath);
   if (!fs.existsSync(abs)) {
@@ -328,10 +336,10 @@ function inspectArtifact(
   const lineCount = lines.length;
   const placeholders = findUnfilledPlaceholders(lines);
 
-  // Also reject extremely short files even if above minLines but obviously stubby
-  if (lineCount < minLines) {
-    // keep — flagged separately by caller
-  }
+  // NOTE: `lineCount < minLines` is intentionally not flagged here — the caller
+  // (`countErrors` / `artifactIssues`) is the single source of truth for
+  // short-file failures so the validator can report them with the correct
+  // formatting and exit semantics.
 
   return {
     relativePath: relPath,
@@ -479,12 +487,14 @@ function validate(options: CliOptions): ValidationResult {
   const listedSet = new Set<string>(manifest.allListedPaths);
 
   const checks: ArtifactCheck[] = required.map((rel) =>
-    inspectArtifact(absRunDir, rel, listedSet.has(rel), options.minLines)
+    inspectArtifact(absRunDir, rel, listedSet.has(rel))
   );
 
   const onDiskIntel = walkIntelligenceDir(absRunDir);
+  // O(1)-per-path lookup: convert `required` into a Set for the orphan filter.
+  const requiredSet = new Set<string>(required);
   const orphaned = onDiskIntel.filter(
-    (rel) => !listedSet.has(rel) && !required.includes(rel)
+    (rel) => !listedSet.has(rel) && !requiredSet.has(rel)
   );
 
   // Orphaned files are warnings, not errors (per Rule 6 "contamination risk"

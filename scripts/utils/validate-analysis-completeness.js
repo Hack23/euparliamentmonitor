@@ -232,7 +232,16 @@ function loadManifest(runDir) {
     return { raw, allListedPaths: extractListedPaths(filesField), errors };
 }
 // ─── Artifact inspection ─────────────────────────────────────────────────────
-function inspectArtifact(runDir, relPath, listedInManifest, minLines) {
+/**
+ * Read and inspect a single artifact, producing the data needed by the
+ * aggregate pass/fail logic in `countErrors` / `artifactIssues`.
+ *
+ * @param runDir - Absolute path to the analysis run directory.
+ * @param relPath - Path relative to `runDir` of the artifact to inspect.
+ * @param listedInManifest - Whether the artifact appears under `manifest.files.*`.
+ * @returns Presence, line count, placeholder findings, and manifest-listing flag.
+ */
+function inspectArtifact(runDir, relPath, listedInManifest) {
     const abs = path.join(runDir, relPath);
     if (!fs.existsSync(abs)) {
         return {
@@ -247,10 +256,10 @@ function inspectArtifact(runDir, relPath, listedInManifest, minLines) {
     const lines = text.split('\n');
     const lineCount = lines.length;
     const placeholders = findUnfilledPlaceholders(lines);
-    // Also reject extremely short files even if above minLines but obviously stubby
-    if (lineCount < minLines) {
-        // keep — flagged separately by caller
-    }
+    // NOTE: `lineCount < minLines` is intentionally not flagged here — the caller
+    // (`countErrors` / `artifactIssues`) is the single source of truth for
+    // short-file failures so the validator can report them with the correct
+    // formatting and exit semantics.
     return {
         relativePath: relPath,
         present: true,
@@ -387,9 +396,11 @@ function validate(options) {
     const articleType = options.articleType ?? manifest.raw.articleType ?? 'unknown';
     const required = computeRequired(articleType);
     const listedSet = new Set(manifest.allListedPaths);
-    const checks = required.map((rel) => inspectArtifact(absRunDir, rel, listedSet.has(rel), options.minLines));
+    const checks = required.map((rel) => inspectArtifact(absRunDir, rel, listedSet.has(rel)));
     const onDiskIntel = walkIntelligenceDir(absRunDir);
-    const orphaned = onDiskIntel.filter((rel) => !listedSet.has(rel) && !required.includes(rel));
+    // O(1)-per-path lookup: convert `required` into a Set for the orphan filter.
+    const requiredSet = new Set(required);
+    const orphaned = onDiskIntel.filter((rel) => !listedSet.has(rel) && !requiredSet.has(rel));
     // Orphaned files are warnings, not errors (per Rule 6 "contamination risk"
     // they're a signal but not a blocker — a second workflow may legitimately add files)
     const errorCount = countErrors(checks, options.minLines, manifest.errors.length);
