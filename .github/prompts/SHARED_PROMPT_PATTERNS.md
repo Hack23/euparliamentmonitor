@@ -345,6 +345,13 @@ that should be consulted when drafting each section. Use it.
       block with one `<li>` entry per analysis artifact.
 - [ ] Run `npx tsx src/utils/validate-articles.ts --date=$TODAY --quality --strict`
       before the safe output — non-zero exit blocks PR creation.
+      **Note:** The current `validate-articles.ts` does NOT yet assert the presence
+      of `<section class="analysis-transparency">`; enforcement of the footer today
+      comes from the template path (`renderAnalysisTransparencySection` in
+      `src/templates/article-template.ts`) and, for pre-existing articles, from
+      `src/utils/retrofit-analysis-links.ts`. A validator-level assertion is
+      planned as a follow-up; until that lands, the bullets above (render + verify)
+      are the authoritative enforcement points.
 
 #### Step 7 — Verify the Analysis-Article Read Ratio (Rule 21)
 
