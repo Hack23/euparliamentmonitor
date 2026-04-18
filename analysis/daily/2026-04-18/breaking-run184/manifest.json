@@ -56,6 +56,7 @@
     "classification": ["classification/significance-scoring.md"],
     "risk_scoring": ["risk-scoring/risk-matrix.md", "risk-scoring/quantitative-swot.md"],
     "intelligence": [
+      "intelligence/analysis-index.md",
       "intelligence/coalition-dynamics.md",
       "intelligence/synthesis-summary.md",
       "intelligence/cross-run-diff.md",
@@ -95,9 +96,10 @@
     ]
   },
   "artifactStats": {
-    "totalFiles": 16,
-    "totalLines": 3432,
-    "averageLinesPerFile": 214
+    "totalFiles": 17,
+    "totalLines": 3632,
+    "averageLinesPerFile": 214,
+    "readMeFirst": "intelligence/analysis-index.md"
   },
   "forwardMonitoring": [
     {"trigger": "Commission housing response", "deadline": "2026-04-21", "priority": "HIGH"},

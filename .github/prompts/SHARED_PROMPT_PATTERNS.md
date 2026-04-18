@@ -3,7 +3,7 @@
 
 # 📋 Shared Prompt Patterns for EU Parliament Monitor Agentic Workflows
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.2 | **📅 Last Updated:** 2026-04-18 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 1.3 | **📅 Last Updated:** 2026-04-18 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
@@ -14,7 +14,7 @@
 This document defines **shared prompt patterns, rules, and tool references** used by all 10 EU Parliament Monitor agentic workflows. Individual workflow `.md` files reference this document to avoid duplication and ensure consistency.
 
 **Authoritative references:**
-- **Analysis protocol:** `analysis/methodologies/ai-driven-analysis-guide.md` (Rules 1–18; v4.4+ Mandatory Analytical Dimension Matrix)
+- **Analysis protocol:** `analysis/methodologies/ai-driven-analysis-guide.md` (Rules 1–21; v4.5+ Mandatory Pre-Flight Reading + Analysis-Sources Footer)
 - **⭐ Depth reference:** `analysis/daily/2026-04-18/breaking-run184/` — **16-artifact / 11-framework / 3400+-line gold-standard exemplar**. See `intelligence/reference-analysis-quality.md` for quality gates.
 - **Analysis templates:** `analysis/templates/` (8 structured templates)
 - **Methodology guides:** `analysis/methodologies/` (6 framework documents)
@@ -286,6 +286,71 @@ Every artifact must carry an explicit **confidence level** (🟢 High / 🟡 Med
 🔴 Low) on its aggregate findings and anchor claims to evidence (dated events, numeric
 indicators, cited frameworks).
 
+### 📋 Article Generation Pre-Flight Checklist (MANDATORY — Rules 19, 20, 21 of AI guide v4.5)
+
+**Before drafting any article sentence**, an article-generation workflow MUST complete
+every step of this checklist. Emit a `PREFLIGHT_ATTESTATION:` log line confirming
+completion before article generation begins.
+
+#### Step 1 — Read the index first
+
+- [ ] Open `${ANALYSIS_DIR}/intelligence/analysis-index.md` and read it in full.
+- [ ] If the file does not exist, generate it from `manifest.json` before proceeding
+      (use the Run 184 index as a structural template: [`analysis/daily/2026-04-18/breaking-run184/intelligence/analysis-index.md`](../../analysis/daily/2026-04-18/breaking-run184/intelligence/analysis-index.md)).
+
+#### Step 2 — Read `manifest.json`
+
+- [ ] Load `${ANALYSIS_DIR}/manifest.json`.
+- [ ] Record `artifactStats.totalFiles` and `analyticalFrameworksApplied.count`.
+- [ ] Enumerate every path in `files.classification[]`, `files.risk_scoring[]`,
+      `files.intelligence[]`, `files.documents[]` — this is the mandatory-read set.
+
+#### Step 3 — Read every artifact in the mandatory-read set
+
+- [ ] For each artifact in the set, read the entire file (not just the header).
+- [ ] If any artifact is under 30 lines or contains `[AI_ANALYSIS_REQUIRED]` / `TBD` /
+      placeholder text, **abort article drafting** and execute an analysis Pass 2 to
+      extend the artifact before proceeding.
+- [ ] Verify file-by-file that each artifact in the file system is listed in
+      `manifest.json` — orphaned analysis files are a contamination risk.
+
+#### Step 4 — Emit the attestation
+
+Before writing any article HTML, print to workflow stdout a line matching this
+format (substitute your actual counts):
+
+```
+PREFLIGHT_ATTESTATION: read 17/17 artifacts from analysis/daily/2026-04-18/breaking-run184/ (3632 lines, 11 frameworks)
+```
+
+#### Step 5 — Consume the finding-level cross-reference map
+
+`analysis-index.md` contains a table mapping article sections (headline, lede, risk
+paragraph, historical-comparison paragraph, etc.) to the specific analysis artifacts
+that should be consulted when drafting each section. Use it.
+
+#### Step 6 — Render the mandatory Analysis-Sources footer
+
+- [ ] Call `renderAnalysisTransparencySection(date, slug, lang, analysisDir, analysisFiles)`
+      where `analysisFiles` is the flattened list of every path from
+      `manifest.json.files.*`. This function is in `src/templates/article-template.ts`
+      and exists precisely to enforce Rule 20.
+- [ ] Verify the rendered HTML contains a `<section class="analysis-transparency">`
+      block with one `<li>` entry per analysis artifact.
+- [ ] Run `npx tsx src/utils/validate-articles.ts --date=$TODAY --quality --strict`
+      before the safe output — non-zero exit blocks PR creation.
+
+#### Step 7 — Verify the Analysis-Article Read Ratio (Rule 21)
+
+After drafting, count artifacts cited (inline and in footer) and compare to article
+word count:
+
+- Breaking / weekly / monthly: target ≥ 1 artifact per 150 words
+- Article-generator long form: target ≥ 1 artifact per 100 words
+
+If the ratio is below target, execute Pass 2 to add specific artifact-anchored
+citations inline in prose.
+
 ### Analytical Tools (AI-Powered Analysis)
 
 | Tool | Purpose | Key Parameters |
@@ -411,7 +476,7 @@ The `worldbank-mcp@1.0.1` server provides **7 tools**. All respond in <5 seconds
 Every workflow MUST read and apply:
 
 **Methodology guides** (`analysis/methodologies/`):
-1. `ai-driven-analysis-guide.md` — Master protocol (Rules 1-12)
+1. `ai-driven-analysis-guide.md` — Master protocol (Rules 1-21)
 2. `political-classification-guide.md` — 7-dimension classification
 3. `political-risk-methodology.md` — 5×5 Likelihood × Impact matrix
 4. `political-threat-framework.md` — Multi-framework threat analysis
@@ -1436,7 +1501,7 @@ echo "NODE_ENV=${NODE_ENV:-not set}"
 
 | Document | Path | Purpose |
 |----------|------|---------|
-| AI Analysis Guide | `analysis/methodologies/ai-driven-analysis-guide.md` | Master analysis protocol (Rules 1-12) |
+| AI Analysis Guide | `analysis/methodologies/ai-driven-analysis-guide.md` | Master analysis protocol (Rules 1-21) |
 | Analysis Templates | `analysis/templates/` | 8 structured output templates |
 | Methodology Guides | `analysis/methodologies/` | 6 analytical frameworks |
 | Skills Library | `.github/skills/` | Agent skill definitions |

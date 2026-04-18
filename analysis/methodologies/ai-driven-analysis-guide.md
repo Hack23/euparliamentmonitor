@@ -16,7 +16,7 @@
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 4.2 | **📅 Last Updated:** 2026-04-10 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 4.5 | **📅 Last Updated:** 2026-04-18 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
@@ -964,6 +964,92 @@ Every `synthesis-summary.md` MUST include a **Cross-Article Intelligence** block
 
 ---
 
+### Rule 19: Mandatory Pre-Flight Analysis Reading — New in v4.5
+
+**Before any article content is drafted**, the article-generation workflow MUST read
+every artifact in the current run's analysis directory in full. Skim-reading, header-only
+reading, or consuming only the `synthesis-summary.md` is a **violation**.
+
+#### Pre-Flight Reading Protocol
+
+1. **Read the index first**: `<run_dir>/intelligence/analysis-index.md` — the
+   read-me-first entry point that names every artifact and prescribes reading order.
+   When an analysis directory lacks `analysis-index.md`, the workflow MUST generate it
+   before article drafting (or fail loudly).
+2. **Read `manifest.json`** — list of all artifacts, applied analytical frameworks,
+   composite scores, forward-monitoring triggers.
+3. **Read every file listed under `manifest.files.*`** in the order given by
+   `analysis-index.md` (Stage 1 → 2 → 3 → 4). Expected active reading time: 15–20
+   minutes minimum.
+4. **Emit a pre-flight attestation line** in the workflow's stdout log before any
+   article draft is produced, in the format:
+   ```
+   PREFLIGHT_ATTESTATION: read 17/17 artifacts from analysis/daily/2026-04-18/breaking-run184/ (3632 lines)
+   ```
+5. **If any artifact is <30 lines** or contains `[AI_ANALYSIS_REQUIRED]` / `TBD` /
+   placeholder markers, **abort article drafting** and execute an analysis Pass 2
+   to fill the gap first.
+
+#### Why this rule exists
+
+Previous runs produced articles that cited only the synthesis summary while ignoring
+the stakeholder map, scenario forecast, threat model, or economic context. The
+resulting prose had correct headlines but missed the depth signals that the full
+analysis pipeline produces. Rule 19 closes this gap by making "read every artifact"
+an explicit step that workflows must cross.
+
+---
+
+### Rule 20: Mandatory Analysis-Citation Footer in All Articles — New in v4.5
+
+**Every article of every type** must render a structured *Analysis Sources* footer
+that links to every artifact consumed during generation. The canonical mechanism is
+`renderAnalysisTransparencySection` in `src/templates/article-template.ts`, which
+reads `manifest.json.files.*` entries and generates one link per artifact.
+
+#### What the footer MUST include
+
+| Component | Source | Example |
+|-----------|--------|---------|
+| Run directory link | `analysis/daily/{date}/{type}-run{id}/` | `breaking-run184/` |
+| `manifest.json` link | `{run_dir}/manifest.json` | machine-readable metadata |
+| Every classification artifact | `manifest.files.classification[]` | `significance-scoring.md` |
+| Every risk-scoring artifact | `manifest.files.risk_scoring[]` | `risk-matrix.md`, `quantitative-swot.md` |
+| Every intelligence artifact | `manifest.files.intelligence[]` | all 13 intelligence files for reference-quality runs |
+| Every documents artifact | `manifest.files.documents[]` | `document-analysis-index.md` |
+| Methodology references | `analysis/methodologies/*.md` | guide, SWOT framework, risk methodology, threat framework |
+
+#### What the footer MUST NOT do
+
+- ❌ Omit the footer to shorten article length
+- ❌ Link to only a subset of artifacts ("synthesis only", "SWOT only")
+- ❌ Use stale/fallback hardcoded links when manifest-derived links are available
+- ❌ Use internal relative links (`./intelligence/foo.md`) — always use absolute GitHub
+  repository URLs so readers can verify sources from any article-hosting location
+
+#### Enforcement
+
+- The article HTML validator (`src/utils/validate-articles.ts`) **MUST** fail articles
+  that do not contain an `<section class="analysis-transparency">` block with ≥3
+  `<li><a href="...">` entries in the analysis-links nav.
+- The workflow's final step before PR creation MUST run this validator; non-zero exit
+  blocks PR creation.
+
+---
+
+### Rule 21: Analysis-Article Read Ratio (Quality Signal) — New in v4.5
+
+Reference-quality article generation produces an observable ratio:
+
+- **≥ 1 analysis artifact cited per 150 article words** (breaking, weekly, monthly)
+- **≥ 1 analysis artifact cited per 100 article words** (article-generator long form)
+
+Below this ratio, the article is likely under-sourced and should trigger a Pass 2
+that adds specific artifact citations inline (footnote references in prose to back
+specific claims).
+
+---
+
 ## 🔗 AI-Driven Article Content Generation Protocol
 
 ### The AI-First Content Rule (Rule 12 Extended)
@@ -1306,5 +1392,5 @@ analysis-only runs operating under API-degraded conditions should produce a comp
 **Document Control:**
 - **Path:** `/analysis/methodologies/ai-driven-analysis-guide.md`
 - **Classification:** Public
-- **Version:** 4.4 — Added Mandatory Analytical Dimension Matrix per article type (PESTLE, stakeholders, scenarios, threat model, historical baselines, economic context, wildcards) grounded in Run 184's 16-artifact / 11-framework reference output. Previous 4.3 added the Reference Analyses section.
+- **Version:** 4.5 — Added Rules 19–21: mandatory pre-flight analysis reading (every artifact in full before drafting), mandatory Analysis-Sources footer in every article of every type (validator-enforced), and minimum Analysis-Article Read Ratio quality signal. v4.4 added Mandatory Analytical Dimension Matrix; v4.3 added Reference Analyses section.
 - **Next Review:** 2026-06-30
