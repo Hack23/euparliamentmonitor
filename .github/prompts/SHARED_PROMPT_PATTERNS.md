@@ -315,6 +315,57 @@ completion before article generation begins.
 - [ ] Verify file-by-file that each artifact in the file system is listed in
       `manifest.json` — orphaned analysis files are a contamination risk.
 
+#### Step 3.5 — **MANDATORY BLOCKING GATE**: Run `validate-analysis-completeness`
+
+Before writing any article sentence, every article-generation workflow MUST run
+`npm run validate-analysis` (alias for `npx tsx src/utils/validate-analysis-completeness.ts`).
+A non-zero exit MUST abort article generation and trigger an analysis Pass 2 that
+fills the missing / short / placeholder-infested artifacts. This is the hard
+enforcement point for Rule 19 — prompt-level "MUST read all artifacts" language
+has historically been violated, so workflows now verify completeness with a script.
+
+```bash
+npm run validate-analysis -- \
+  --analysis-dir="${ANALYSIS_DIR}" \
+  --article-type="${ARTICLE_TYPE_SLUG}"
+# Exit codes:
+#   0 = all mandatory artifacts present, ≥30 lines, no placeholders, manifest consistent
+#   1 = gate FAILED — MUST execute analysis Pass 2, then re-run validator
+#   2 = usage error (missing --analysis-dir, bad manifest JSON, etc.)
+```
+
+The validator enforces, for every article-generation run:
+
+1. `intelligence/analysis-index.md` exists (Rule 19 read-me-first entry point)
+2. The seven reference-quality intelligence artifacts exist (per SHARED_PROMPT_PATTERNS
+   §Reference-Quality Depth Requirements): `pestle-analysis`, `stakeholder-map`,
+   `scenario-forecast`, `threat-model`, `historical-baseline`, `economic-context`,
+   `wildcards-blackswans`.
+3. `intelligence/synthesis-summary.md` exists and composes the artifacts above.
+4. Article-type-specific extras (e.g. `coalition-dynamics.md` for breaking).
+5. Each mandatory artifact is ≥ 30 lines (reject stub files).
+6. No artifact contains `[AI_ANALYSIS_REQUIRED]`, `AI_ANALYSIS_PENDING`,
+   `[TO BE FILLED BY AI AGENT]`, `[TBD]`, or `TODO:` outside of meta-documentation
+   contexts (markdown table rows that document "zero placeholders", backtick-quoted
+   marker names, and fenced code samples are correctly ignored).
+7. Every mandatory artifact is listed under `manifest.files.*` (prevents orphan
+   drift).
+8. `manifest.json` carries a top-level `articleType` (Rule 6).
+
+**Anti-patterns (blocked by the validator):**
+
+- ❌ Producing only `synthesis-summary.md` + `deep-analysis.md` and calling the
+  run "reference-quality".
+- ❌ Stub artifacts (< 30 lines) that satisfy the file-exists check but contain
+  no actual political intelligence.
+- ❌ Leaving `[AI_ANALYSIS_REQUIRED]` scaffolding markers in committed artifacts.
+- ❌ Creating intelligence files on disk but forgetting to list them under
+  `manifest.files.intelligence[]`.
+
+**Flags workflows MUST NOT use:** `--warn-only` downgrades failures to warnings
+and is intended for local exploration only. Any workflow invocation that passes
+`--warn-only` is in violation of Rule 19.
+
 #### Step 4 — Emit the attestation
 
 Before writing any article HTML, print to workflow stdout a line matching this

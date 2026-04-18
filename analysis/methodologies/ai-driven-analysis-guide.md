@@ -981,14 +981,30 @@ reading, or consuming only the `synthesis-summary.md` is a **violation**.
 3. **Read every file listed under `manifest.files.*`** in the order given by
    `analysis-index.md` (Stage 1 → 2 → 3 → 4). Expected active reading time: 15–20
    minutes minimum.
-4. **Emit a pre-flight attestation line** in the workflow's stdout log before any
+4. **Run the blocking validator** (hard enforcement of this rule):
+   ```bash
+   npm run validate-analysis -- \
+     --analysis-dir="${ANALYSIS_DIR}" \
+     --article-type="${ARTICLE_TYPE_SLUG}"
+   ```
+   Implemented by `src/utils/validate-analysis-completeness.ts` and wired into every
+   `.github/workflows/news-*.md` pre-flight banner. Exit code 1 MUST abort article
+   generation and trigger an analysis Pass 2 to fill missing / short /
+   placeholder-infested artifacts. The validator checks:
+   the seven reference-quality intelligence artifacts exist, each is ≥ 30 lines,
+   none contain `[AI_ANALYSIS_REQUIRED]` / `AI_ANALYSIS_PENDING` / `[TO BE FILLED
+   BY AI AGENT]` / `[TBD]` / `TODO:` outside meta-documentation rows, the manifest
+   carries a top-level `articleType`, and every mandatory artifact is listed under
+   `manifest.files.*`.
+5. **Emit a pre-flight attestation line** in the workflow's stdout log before any
    article draft is produced, in the format:
    ```
    PREFLIGHT_ATTESTATION: read 17/17 artifacts from analysis/daily/2026-04-18/breaking-run184/ (3632 lines)
    ```
-5. **If any artifact is <30 lines** or contains `[AI_ANALYSIS_REQUIRED]` / `TBD` /
+6. **If any artifact is <30 lines** or contains `[AI_ANALYSIS_REQUIRED]` / `TBD` /
    placeholder markers, **abort article drafting** and execute an analysis Pass 2
-   to fill the gap first.
+   to fill the gap first. (This is the same class of failure the validator blocks
+   on — step 4 makes the check machine-enforced rather than honour-system.)
 
 #### Why this rule exists
 
