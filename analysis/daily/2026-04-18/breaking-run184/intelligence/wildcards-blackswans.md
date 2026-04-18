@@ -17,8 +17,9 @@ confidence: LOW (by definition)
 > **Purpose**: Explicitly enumerate the low-probability high-impact events that would
 > *invalidate* the four scenarios in `scenario-forecast.md`. Wildcards and Black Swans
 > are deliberately excluded from the main scenario probabilities (which sum to 100%)
-> because their probabilities are individually <5% and typically not independently
-> estimable. Their role is to *stress-test* the main scenarios' robustness.
+> because their probabilities are individually low (typically <20% and for most <10%)
+> and typically not independently estimable. Their role is to *stress-test* the main
+> scenarios' robustness.
 >
 > **Methodological note**: A "wildcard" (Schwartz) is a known low-probability event
 > whose impact we can model; a "Black Swan" (Taleb) is an event outside our model
@@ -32,7 +33,7 @@ confidence: LOW (by definition)
 ```mermaid
 quadrantChart
     title Wildcard Events — Probability × Impact
-    x-axis Low Probability --> Higher (but still <10%) Probability
+    x-axis Low Probability --> Higher (but still <20%) Probability
     y-axis Low Impact --> Catastrophic Impact
     quadrant-1 Critical Stress-Tests
     quadrant-2 Monitor But Do Not Prepare

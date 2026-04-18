@@ -45,7 +45,7 @@ quadrantChart
     Italian Government: [0.55, 0.55]
     Polish Government: [0.60, 0.45]
     USTR / US Trade Rep: [0.75, 0.75]
-    Sparkassen Association: [0.90, 0.30]
+    Sparkassen Association: [0.90, 0.80]
     Civil Society (EDRi / Access Now): [0.80, 0.25]
     Housing Europe / EAPN: [0.75, 0.20]
     Bundesrat: [0.70, 0.60]

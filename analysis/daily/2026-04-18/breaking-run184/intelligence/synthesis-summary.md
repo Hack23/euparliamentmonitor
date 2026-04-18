@@ -154,9 +154,9 @@ These represent the most important intelligence observations to execute before E
 - Pass 1 (analysis generation) completed: April 18, 2026 07:50 UTC (~33 min)
 - Pass 2 (MCP reliability audit + 7 deep-intelligence artifacts): April 18, 2026 08:45 UTC
 - Pass 3 (analysis-index + Rules 19–21 enforcement updates): April 18, 2026 09:15 UTC
-- **Total active work across three sessions: ≥180 minutes** (well above the ≥45 min analysis-only floor)
+- **Total active work across three sessions: ≥118 minutes** (well above the ≥45 min analysis-only floor)
 
-> Single source of truth: `ELAPSED_MINUTES = 180` is also recorded in the footer below. The ~15-minute Pass 1 figure referenced in prior drafts applied only to the initial classification/SWOT/synthesis draft and has been superseded by the full three-pass runtime.
+> Single source of truth: `ELAPSED_MINUTES = 118` is also recorded in the footer below (computed from 07:16:59 UTC start → 09:15 UTC Pass 3 close). The ~15-minute Pass 1 figure referenced in prior drafts applied only to the initial classification/SWOT/synthesis draft and has been superseded by the full three-pass runtime. Subsequent review-feedback reconciliation commits are not included in ELAPSED_MINUTES.
 
 ---
 
@@ -225,4 +225,4 @@ the project's reference-quality exemplar per `reference-analysis-quality.md`.
 
 *Analysis generated: April 18, 2026 | Run 184 | Breaking workflow | Analysis-only mode*
 *Recess monitoring series: Runs 179–184 complete*
-*ELAPSED_MINUTES (approximate, ≥45 required for analysis-only): 180+ across three sessions*
+*ELAPSED_MINUTES (approximate, ≥45 required for analysis-only): 118 across three sessions*
