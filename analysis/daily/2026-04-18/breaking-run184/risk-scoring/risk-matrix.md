@@ -98,7 +98,7 @@ The probability of an inadequate Commission response reflects the Von der Leyen 
 
 The political confrontation scenario would unfold quickly: if the Commission's response is published April 21–26 and S&D parliamentary whip office assesses it as inadequate before April 27, the first post-recess plenary (April 28) would begin with a hostile reception for Commission representatives. This political temperature increase affects the institutional atmosphere for all other plenary agenda items, including the Banking Union follow-up and any emergency trade debate.
 
-**Observable trigger**: Commission press release page April 21–26; Von der Leyen official schedule; HOUSING committee chairperson social media.
+**Observable trigger**: Commission press release page April 21–26; Von der Leyen official schedule; EMPL and ECON committee chair social media (plus the Special Committee on the Housing Crisis chair, where convened).
 
 ---
 

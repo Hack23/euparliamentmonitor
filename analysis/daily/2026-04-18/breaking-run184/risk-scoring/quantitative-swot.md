@@ -92,7 +92,7 @@ The Easter 2026 recess monitoring series (Runs 179–184) has delivered progress
 
 The implication for analytical quality is that the final recess runs risk repeating prior findings with superficial reformulation rather than genuine new insight. Run 184 has avoided this trap by identifying genuine new findings (API recovery signal, text confirmation), but the standard is increasingly demanding. The monitoring team should be aware that the remaining 9 days of recess (April 19–27) are likely to yield further declining analytical returns unless an extraordinary event occurs (US Section 301 filing, Commission housing response failure, etc.).
 
-Evidence: Incremental intelligence scores from sequential runs: Run 179 (22 pts), Run 180 (18 pts), Run 181 (17 pts), Run 182 (16 pts), Run 183 (15 pts), Run 184 (12 pts). Trajectory: declining at approximately 2 points per run. If trend continues, Run 185 would score approximately 10/100 incremental intelligence points — still above the reporting threshold.
+Evidence: Relative intelligence-share points from sequential runs (normalized to sum to 100 across the 6-run series; see `classification/significance-scoring.md` pie chart): Run 179 (22 pts), Run 180 (18 pts), Run 181 (17 pts), Run 182 (16 pts), Run 183 (15 pts), Run 184 (12 pts). Trajectory: declining at approximately 2 share-points per run. Note these are **relative series shares**, not the same scale as Run 184's absolute incremental-intelligence score of 26/100 reported in the significance-scoring manifest. If the share-trend continues, Run 185 would score approximately 10 relative share-points — still above the reporting threshold.
 
 ---
 

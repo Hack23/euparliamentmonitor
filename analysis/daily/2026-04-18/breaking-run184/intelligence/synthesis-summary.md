@@ -77,7 +77,7 @@ The Renew-ECR 0.95 cohesion score, now documented across 6 consecutive runs, rem
 These represent the most important intelligence observations to execute before EP returns to session:
 
 ### Priority 1: Commission Housing Response (Deadline April 21–26)
-**What to monitor**: Commission press release page; Von der Leyen social media; AFET/HOUSING committee coordinators' statements
+**What to monitor**: Commission press release page; Von der Leyen social media; EMPL and ECON committee coordinators' statements (and, where convened, the Special Committee on the Housing Crisis rapporteurs)
 **Observable trigger**: Publication of Commission response document to TA-10-2026-0091
 **Threshold**: Response proposing concrete legislative timeline = adequate; response proposing consultation = inadequate
 **Intelligence value**: Determines whether April 28 plenary opens in political confrontation mode

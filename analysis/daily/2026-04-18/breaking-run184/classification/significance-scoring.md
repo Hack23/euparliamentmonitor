@@ -55,8 +55,8 @@ The significance scoring framework identifies no breaking news from today (Easte
 The six-run recess analytical series achieves a cumulative intelligence depth that no single run could produce:
 
 ```mermaid
-pie title Recess Series Intelligence Contribution by Run
-    "Run 179 (Day 1 baseline)" : 22
+pie title Recess Series — Relative Intelligence Share per Run (normalized, sums to 100)
+    "Run 179 (Day 0 baseline)" : 22
     "Run 180 (Banking Union depth)" : 18
     "Run 181 (Trade scenarios)" : 17
     "Run 182 (Digital/AI analysis)" : 16
@@ -64,7 +64,7 @@ pie title Recess Series Intelligence Contribution by Run
     "Run 184 (API recovery + text confirmation)" : 12
 ```
 
-*Note: Diminishing returns are expected as recess progresses — each subsequent run contributes less incremental intelligence as the core analytical framework becomes established.*
+*Note: These values are **relative shares** of the cumulative 6-run intelligence output (normalized to sum to 100) — NOT the same as a run's absolute **incremental intelligence score** on the 0–100 newsworthiness scale (Run 184 = 26/100 per `classification/significance-scoring.md`). Diminishing returns are expected as recess progresses — each subsequent run contributes a smaller share of the series total as the core analytical framework becomes established.*
 
 ---
 
