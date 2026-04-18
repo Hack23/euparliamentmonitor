@@ -53,9 +53,12 @@ pie title Legislative Acts Adopted — January-April Year 2 (Comparative)
 | Average RCVs per plenary | 65 | 71 | 78 | +10% vs EP9 |
 
 **Interpretation**: EP10's Year-2 April legislative output is substantially above both
-EP8 and EP9 baselines. The March 26 plenary alone (TA-10-2026-0081 through 0104 = 24
-texts) would have represented nearly 40% of EP8's full Jan-April 2016 output. This
-confirms the "March sprint" framing and establishes EP10 as the most legislatively
+EP8 and EP9 baselines. The March plenary cluster as a whole (TA-10-2026-0081 through
+0104 = 24 texts) — of which TA-10-2026-0090 through 0104 (15 texts) were adopted at
+the March 26 sitting and TA-10-2026-0081 through 0089 (9 texts) at earlier March
+sittings — would have represented nearly 40% of EP8's full Jan-April 2016 output. This
+confirms the "March sprint" framing (per `documents/document-analysis-index.md` and
+`risk-scoring/quantitative-swot.md`) and establishes EP10 as the most legislatively
 productive parliament in its Year-2 phase in Union history.
 
 ---

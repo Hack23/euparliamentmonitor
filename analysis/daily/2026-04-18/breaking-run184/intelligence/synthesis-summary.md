@@ -151,12 +151,14 @@ These represent the most important intelligence observations to execute before E
 ## Elapsed Time Record
 
 - Workflow started: April 18, 2026 07:16:59 UTC
-- Pass 1 (analysis generation) completed: April 18, 2026 07:50 UTC (~33 min)
-- Pass 2 (MCP reliability audit + 7 deep-intelligence artifacts): April 18, 2026 08:45 UTC
-- Pass 3 (analysis-index + Rules 19–21 enforcement updates): April 18, 2026 09:15 UTC
-- **Total active work across three sessions: ≥118 minutes** (well above the ≥45 min analysis-only floor)
+- **Pass 1** (analysis generation — classification, SWOT, synthesis, coalition, cross-run) completed: April 18, 2026 07:50 UTC (~33 min)
+- **Pass 2** (mandatory read-back + improvement: MCP reliability audit + 7 deep-intelligence artifacts): April 18, 2026 08:45 UTC
+- *Post-processing step* (analysis-index + Rules 19–21 enforcement updates — not counted as an analytical pass): April 18, 2026 09:15 UTC
+- **Total active work across the two analytical passes plus post-processing: ≥118 minutes** (well above the ≥45 min analysis-only floor)
 
-> Single source of truth: `ELAPSED_MINUTES = 118` is also recorded in the footer below (computed from 07:16:59 UTC start → 09:15 UTC Pass 3 close). The ~15-minute Pass 1 figure referenced in prior drafts applied only to the initial classification/SWOT/synthesis draft and has been superseded by the full three-pass runtime. Subsequent review-feedback reconciliation commits are not included in ELAPSED_MINUTES.
+> **Pass-count convention**: This run is a **2-pass analysis** (Pass 1 = generation, Pass 2 = read-back/improvement) per the methodology guide and matching the `AI_Passes-2` badge in `intelligence/reference-analysis-quality.md`. The 09:15 UTC post-processing step propagated v4.5 Rules 19–21 across workflows but did not produce new analytical content; it is included in elapsed-time accounting for transparency but is not an additional analytical pass.
+>
+> Single source of truth: `ELAPSED_MINUTES = 118` is also recorded in the footer below (computed from 07:16:59 UTC start → 09:15 UTC post-processing close). The ~15-minute Pass 1 figure referenced in prior drafts applied only to the initial classification/SWOT/synthesis draft and has been superseded by the full runtime. Subsequent review-feedback reconciliation commits are not included in ELAPSED_MINUTES.
 
 ---
 

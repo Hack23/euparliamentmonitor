@@ -14,6 +14,7 @@
   },
   "context": {
     "recessDay": 5,
+    "recessDayConvention": "Day 0 = April 13, 2026 (Easter Monday, recess start) → Day 5 = April 18, 2026. PR descriptions and badges in this run consistently use this Day-0-based numbering.",
     "recurrenceSeries": "Easter Recess 2026 (Runs 179-184)",
     "plenaryReturn": "2026-04-27",
     "apiStatus": {

@@ -17,7 +17,7 @@ framework: "Likelihood × Impact 5×5 Matrix"
 
 ## Executive Risk Assessment
 
-The pre-plenary risk landscape for the April 28–30 Strasbourg session remains in the HIGH tier, with a composite score of **18/50** (recalibrated from run 183's 24/50 after adding EPP coalition gap as a distinct risk vector and reducing API operational risk following partial recovery). The dominant risk vectors are Banking Union transposition defection risk and housing policy confrontation — both entering their critical resolution windows this week.
+The pre-plenary risk landscape for the April 28–30 Strasbourg session remains in the **MEDIUM-HIGH tier** (composite **18/50** on the 0–50 scale, where 0–10 = LOW, 11–20 = MEDIUM-HIGH, 21–35 = HIGH, 36–50 = CRITICAL — matching the tier labels used in `intelligence/synthesis-summary.md` and `manifest.json`). The score was recalibrated from run 183's 24/50 after adding EPP coalition gap as a distinct risk vector and reducing API operational risk following partial recovery. The dominant risk vectors are Banking Union transposition defection risk and housing policy confrontation — both entering their critical resolution windows this week.
 
 The most significant risk development in this run is the **reclassification of the EPP coalition data gap** from an operational footnote to a distinct strategic risk vector. With EPP's parliamentary data unavailable, the EP's largest political group (~188 seats) enters the first post-recess plenary analytically invisible to our monitoring systems. This creates an asymmetric intelligence gap where EPP internal whipping decisions on Banking Union and trade votes cannot be assessed with normal confidence.
 
