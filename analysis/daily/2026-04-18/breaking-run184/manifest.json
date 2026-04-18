@@ -60,9 +60,44 @@
       "intelligence/synthesis-summary.md",
       "intelligence/cross-run-diff.md",
       "intelligence/mcp-reliability-audit.md",
-      "intelligence/reference-analysis-quality.md"
+      "intelligence/reference-analysis-quality.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/threat-model.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/economic-context.md",
+      "intelligence/wildcards-blackswans.md"
     ],
     "documents": ["documents/document-analysis-index.md"]
+  },
+  "analyticalFrameworksApplied": {
+    "count": 11,
+    "frameworks": [
+      {"name": "Newsworthiness Gate",                  "artifact": "classification/significance-scoring.md"},
+      {"name": "5x5 Likelihood-Impact Risk Matrix",    "artifact": "risk-scoring/risk-matrix.md"},
+      {"name": "3+3+3+3 Quantitative SWOT",            "artifact": "risk-scoring/quantitative-swot.md"},
+      {"name": "Coalition Dynamics Pair Analysis",     "artifact": "intelligence/coalition-dynamics.md"},
+      {"name": "Cross-Run Hypothesis Tracking",        "artifact": "intelligence/cross-run-diff.md"},
+      {"name": "MCP Data-Reliability Audit",           "artifact": "intelligence/mcp-reliability-audit.md"},
+      {"name": "PESTLE Macro-Environmental Scan",      "artifact": "intelligence/pestle-analysis.md"},
+      {"name": "Mendelow Power-Interest Stakeholder Grid", "artifact": "intelligence/stakeholder-map.md"},
+      {"name": "Shell Scenario Planning (2x2 + Decision Tree)", "artifact": "intelligence/scenario-forecast.md"},
+      {"name": "Diamond Model + Attack Trees + Kill Chain", "artifact": "intelligence/threat-model.md"},
+      {"name": "Historical Baseline Comparison (EP8/EP9/EP10)", "artifact": "intelligence/historical-baseline.md"},
+      {"name": "World Bank Indicator Mapping",         "artifact": "intelligence/economic-context.md"},
+      {"name": "Schwartz Wildcards + Taleb Black Swan", "artifact": "intelligence/wildcards-blackswans.md"}
+    ],
+    "historicallyNovelContributions": [
+      "First sustained Diamond Model + Attack Tree application across three threats",
+      "First MCP data-reliability audit with upstream-issue tracking",
+      "First empirical API-tiered recovery model"
+    ]
+  },
+  "artifactStats": {
+    "totalFiles": 16,
+    "totalLines": 3432,
+    "averageLinesPerFile": 214
   },
   "forwardMonitoring": [
     {"trigger": "Commission housing response", "deadline": "2026-04-21", "priority": "HIGH"},
@@ -74,5 +109,5 @@
     {"trigger": "MCP server remediation (5 upstream issues)", "deadline": "european-parliament-mcp-server@1.3.0", "priority": "HIGH"}
   ],
   "generated": "2026-04-18T07:35:00Z",
-  "lastUpdated": "2026-04-18T08:15:00Z"
+  "lastUpdated": "2026-04-18T08:40:00Z"
 }

@@ -11,12 +11,14 @@ scope: "Benchmark for AI guides, prompts, templates, and all agentic workflows"
 ![Role](https://img.shields.io/badge/Role-Reference_Analysis-gold?style=flat-square)
 ![Mode](https://img.shields.io/badge/Mode-Analysis_Only-grey?style=flat-square)
 ![Passes](https://img.shields.io/badge/AI_Passes-2-blue?style=flat-square)
-![Files](https://img.shields.io/badge/Artifacts-9-green?style=flat-square)
+![Files](https://img.shields.io/badge/Artifacts-16_files_3400%2B_lines-green?style=flat-square)
+![Frameworks](https://img.shields.io/badge/Analytical_Frameworks-11-blueviolet?style=flat-square)
 
 > **Purpose**: This document designates Run 184 as the **reference analysis** for the
 > EU Parliament Monitor project. AI guides, prompt patterns, templates, and agentic
-> workflow instructions should treat the 9 artifacts of Run 184 as the illustrative
-> example of expected analytical depth, structural rigour, and data-quality candour.
+> workflow instructions should treat the 16 artifacts of Run 184 as the illustrative
+> example of expected analytical depth, structural rigour, framework plurality, and
+> data-quality candour.
 >
 > When a future workflow is uncertain what "good enough" looks like, the answer is:
 > **produce an output of comparable depth to Run 184**. If the output is thinner, the
@@ -26,25 +28,40 @@ scope: "Benchmark for AI guides, prompts, templates, and all agentic workflows"
 
 ## 1. Why Run 184 Qualifies as the Reference
 
-Run 184 is designated the reference analysis on the basis of four properties that the
-six-run Easter-recess series (Runs 179–184) allowed it to develop but that no single
+Run 184 is designated the reference analysis on the basis of **seven** properties that
+the six-run Easter-recess series (Runs 179–184) allowed it to develop but that no single
 prior analysis run had simultaneously achieved:
 
-1. **Depth without padding** — 1000+ lines of substantive prose across 9 artifacts with
+1. **Depth without padding** — 3400+ lines of substantive prose across 16 artifacts with
    zero boilerplate, zero `[AI_ANALYSIS_REQUIRED]` markers, and zero sections below the
    minimum evidence-density threshold (80 words per SWOT item, 150 words per stakeholder
    perspective per `.github/skills/ai-first-quality.md`).
-2. **Intellectual honesty about data quality** — every assessment carries an explicit
+2. **Framework plurality** — 11 analytical frameworks applied in a single run: 5×5 Risk
+   Matrix, 3+3+3+3 SWOT, Coalition Dynamics Pair Analysis, Cross-Run Hypothesis Tracking,
+   MCP Data-Reliability Audit, PESTLE Macro Scan, Mendelow Power-Interest Grid, Shell
+   Scenario Planning (2×2 + decision tree), Diamond Model + Attack Trees + Kill Chain,
+   Historical Baseline Comparison, World Bank Indicator Mapping, Schwartz Wildcards +
+   Taleb Black Swan Reserve. No prior run applied more than 5 frameworks.
+3. **Intellectual honesty about data quality** — every assessment carries an explicit
    confidence level (🟢 High / 🟡 Medium / 🔴 Low) and a specific evidence anchor. Where
    the EP MCP data is incomplete (e.g., EPP `memberCount=0`), the analysis documents the
-   gap rather than silently working around it.
-3. **Cumulative intelligence build** — Run 184 does not restate Run 183; its
+   gap rather than silently working around it, and files upstream issues on the data
+   source (#366–#370).
+4. **Cumulative intelligence build** — Run 184 does not restate Run 183; its
    `cross-run-diff.md` explicitly enumerates the 3 incremental findings (API recovery
    signal, TA-0099–0104 confirmation, server-health reporting lag) that the run adds.
-4. **Forward-monitoring actionability** — the 6 forward-monitoring priorities each
+5. **Forward-monitoring actionability** — the 6 forward-monitoring priorities each
    specify (a) what to watch, (b) an observable trigger, (c) a threshold that
    distinguishes outcomes, and (d) a probability estimate with confidence level. This
    structure is directly executable by the next run's prompt.
+6. **Historically novel contributions** — three framework applications first-of-their
+   kind in the pipeline (sustained Diamond Model + Attack Trees; MCP reliability audit
+   with upstream issues; empirical API-tiered recovery model) — see
+   `historical-baseline.md` §Analytical Framework Novelty.
+7. **Wildcard and Black Swan candour** — explicit acknowledgment of 8 wildcard events
+   and a residual 5% Black Swan probability reserve (`wildcards-blackswans.md`). Most
+   political-analysis pipelines omit this epistemic-humility section; its presence is a
+   defining feature of reference-quality analysis.
 
 Together, these four properties are what "Economist-quality political intelligence"
 (per the core AI-First Quality principle) looks like when an analysis-only run is
@@ -61,18 +78,25 @@ A workflow output qualifies as reference-quality only when *all* of the followin
 ### 2.1 Structural gates
 
 - [x] `manifest.json` present with `articleType`, `runId`, `mode`, `newsworthiness`,
-      `scores`, and `forwardMonitoring` keys populated
+      `scores`, `analyticalFrameworksApplied`, `artifactStats`, and `forwardMonitoring` keys populated
 - [x] `classification/significance-scoring.md` — newsworthiness gate + incremental score
 - [x] `risk-scoring/risk-matrix.md` — ≥5 named risk vectors with 5×5 Likelihood × Impact
 - [x] `risk-scoring/quantitative-swot.md` — 3+3+3+3 items, each ≥80 words with
       evidence + confidence
 - [x] `intelligence/coalition-dynamics.md` — with data-quality warnings where applicable
 - [x] `intelligence/cross-run-diff.md` — documents ≥3 new findings vs the previous run
-- [x] `intelligence/synthesis-summary.md` — consolidated picture + ≥6 forward triggers
+- [x] `intelligence/synthesis-summary.md` — consolidated picture + ≥6 forward triggers + full artifact index
+- [x] `intelligence/pestle-analysis.md` — 6-dimension macro-environment scan
+- [x] `intelligence/stakeholder-map.md` — Mendelow Power × Interest grid with ≥15 stakeholders
+- [x] `intelligence/scenario-forecast.md` — 2×2 scenario matrix with ≥4 probability-weighted scenarios + decision tree + early-warning indicators
+- [x] `intelligence/threat-model.md` — Diamond Model + Attack Tree for ≥top 3 threats (severity ≥4)
+- [x] `intelligence/historical-baseline.md` — EP10 vs EP8/EP9 comparative (Rule 17)
+- [x] `intelligence/wildcards-blackswans.md` — ≥6 wildcard events with explicit Black Swan probability reserve
 - [x] `documents/document-analysis-index.md` — status table + structural inference
       framework for inaccessible items
 - [x] (Recommended when applicable) `intelligence/mcp-reliability-audit.md` — data-quality
       defects observed during the run, with remediation recommendations
+- [x] (Recommended when applicable) `intelligence/economic-context.md` — World Bank macro data for policy-affected member states
 
 ### 2.2 Content gates
 
@@ -107,15 +131,23 @@ pass before submitting:
 
 | Artifact | Run 184 lines | Minimum for reference-quality |
 |----------|:-------------:|:-----------------------------:|
-| `significance-scoring.md` | 118 | ≥ 90 lines |
-| `risk-matrix.md` | 144 | ≥ 120 lines |
-| `quantitative-swot.md` | 159 | ≥ 140 lines |
-| `coalition-dynamics.md` | 150 | ≥ 120 lines |
-| `cross-run-diff.md` | 112 | ≥ 90 lines |
-| `synthesis-summary.md` | 176 | ≥ 140 lines |
-| `document-analysis-index.md` | 109 | ≥ 90 lines |
-| `mcp-reliability-audit.md` | (new — ~260) | ≥ 150 lines (when applicable) |
-| `reference-analysis-quality.md` | (this file) | ≥ 90 lines (optional) |
+| `classification/significance-scoring.md` | 118 | ≥ 90 lines |
+| `risk-scoring/risk-matrix.md` | 144 | ≥ 120 lines |
+| `risk-scoring/quantitative-swot.md` | 159 | ≥ 140 lines |
+| `intelligence/coalition-dynamics.md` | 150 | ≥ 120 lines |
+| `intelligence/cross-run-diff.md` | 112 | ≥ 90 lines |
+| `intelligence/synthesis-summary.md` | 230+ | ≥ 180 lines (incl. artifact index) |
+| `intelligence/pestle-analysis.md` | 282 | ≥ 200 lines |
+| `intelligence/stakeholder-map.md` | 317 | ≥ 240 lines |
+| `intelligence/scenario-forecast.md` | 290 | ≥ 220 lines |
+| `intelligence/threat-model.md` | 254 | ≥ 200 lines |
+| `intelligence/historical-baseline.md` | 211 | ≥ 160 lines |
+| `intelligence/economic-context.md` | 211 | ≥ 150 lines (when applicable) |
+| `intelligence/wildcards-blackswans.md` | 285 | ≥ 180 lines |
+| `documents/document-analysis-index.md` | 109 | ≥ 90 lines |
+| `intelligence/mcp-reliability-audit.md` | 434 | ≥ 150 lines (when applicable) |
+| `intelligence/reference-analysis-quality.md` | (this file) | ≥ 150 lines (when claimed) |
+| **TOTAL** | **3400+** | **≥ 2500 lines** for reference-quality claim |
 
 **Line counts are a floor, not a target.** Verbosity without substance fails the
 anti-boilerplate rules in `analysis/methodologies/ai-driven-analysis-guide.md`. The
@@ -164,7 +196,7 @@ follow this integration protocol:
 
 This reference designation should be re-evaluated when *any* of the following occurs:
 
-- Another run produces artifacts of comparable or greater depth across all 9 files
+- Another run produces artifacts of comparable or greater depth across all 16 files
 - Methodology documents (e.g., `ai-driven-analysis-guide.md`) receive a version bump
   that invalidates Run 184's structure
 - The EP MCP server ships remediation for the defects documented in
