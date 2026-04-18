@@ -1,6 +1,7 @@
 ---
 name: documentation-architect
 description: Technical documentation specialist for architecture diagrams, C4 models, API docs, and ISMS documentation
+tools: ["*"]
 ---
 
 # Documentation Architect - Technical Documentation and Architecture Specialist
@@ -646,9 +647,29 @@ interface MEP {
 ## 🛡️ ISMS Skills Reference
 
 > **See `.github/skills/isms-compliance.md`** and `.github/copilot-instructions.md` for full ISMS policy references, compliance frameworks (ISO 27001, NIST CSF, CIS Controls, GDPR, NIS2), and evidence requirements.
+
+### Primary SDLC / Security Policies for this Agent
+
+| Policy | Why it applies to documentation | Key duties |
+|--------|--------------------------------|------------|
+| [Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md) | Architecture docs describe the CIA implementation and are audit evidence | Keep `SECURITY_ARCHITECTURE.md` current; update on every control change |
+| [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | Design gate requires threat model + architecture diff | Maintain `THREAT_MODEL.md`; capture STRIDE per feature |
+| [Open Source Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md) | Public docs are part of the supply chain — must be accurate | Keep README/CONTRIBUTING aligned; list third-party deps with license |
+| [Classification Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Classification_Policy.md) | Every data type in DATA_MODEL.md needs a classification | Label PUBLIC / INTERNAL / CONFIDENTIAL / RESTRICTED |
+
 ## Skills Reference
 
-> **See `.github/skills/README.md`** for the complete skills catalog. Key skills: `c4-architecture-documentation`, `compliance-frameworks`, `security-by-design`, `testing-strategy`, `documentation-standards`, `european-parliament-data`.
+> **See `.github/skills/README.md`** for the complete skills catalog. Key skills: **`sdlc-security-integration`**, `c4-architecture-documentation`, `documentation-standards`, `isms-compliance`, `compliance-frameworks`, `european-political-system`, `security-by-design`, `ai-first-quality`.
+
+### Documentation SSDLC Checklist (from `sdlc-security-integration` skill)
+
+- [ ] Every architectural change reflected in `ARCHITECTURE.md` (C1–C4 levels as relevant)
+- [ ] Security-impacting changes mirrored in `SECURITY_ARCHITECTURE.md`
+- [ ] Threat-relevant changes mirrored in `THREAT_MODEL.md`
+- [ ] Data structure changes reflected in `DATA_MODEL.md` with classification labels
+- [ ] Future variants (`FUTURE_*.md`) updated when roadmap shifts
+- [ ] Diagrams use Mermaid (readable source) + descriptive alt-text
+- [ ] All docs carry SPDX headers per REUSE 3.3
 
 ## Quality Standards
 

@@ -1,6 +1,7 @@
 ---
 name: data-pipeline-specialist
 description: European Parliament data integration expert for MCP server connectivity, data validation, and caching strategies
+tools: ["*"]
 ---
 
 # Data Pipeline Specialist - European Parliament MCP Integration Expert
@@ -769,9 +770,30 @@ describe('European Parliament MCP Integration', () => {
 ## 🛡️ ISMS Skills Reference
 
 > **See `.github/skills/isms-compliance.md`** and `.github/copilot-instructions.md` for full ISMS policy references, compliance frameworks (ISO 27001, NIST CSF, CIS Controls, GDPR, NIS2), and evidence requirements.
+
+### Primary SDLC / Security Policies for this Agent
+
+| Policy | Why it applies to data pipelines | Key duties |
+|--------|----------------------------------|------------|
+| [Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md) | Pipelines are the integrity boundary for every downstream article | Enforce CIA on each MCP response; validate + sanitise; fail closed |
+| [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | Every new tool/endpoint is a trust boundary needing threat-model + tests | Shape-validate responses, timeout, circuit break, log without leaking |
+| [Open Source Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md) | New HTTP/parsing deps (undici, lru-cache, etc.) must pass intake workflow | License check, advisory check, maintenance health, pin version |
+| [Data Protection / GDPR](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md) | MEPs have public roles; don't exceed that scope | No collection beyond public parliamentary data |
+| [AI Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Policy.md) | Pipeline output feeds AI article generation | Traceable source → output mapping for audit |
+
 ## Skills Reference
 
-> **See `.github/skills/README.md`** for the complete skills catalog. Key skills: `c4-architecture-documentation`, `compliance-frameworks`, `security-by-design`, `testing-strategy`, `documentation-standards`, `european-parliament-data`.
+> **See `.github/skills/README.md`** for the complete skills catalog. Key skills: **`sdlc-security-integration`**, `european-parliament-data`, `legislative-monitoring`, `mcp-server-integration`, `mcp-gateway-security`, `mcp-gateway-configuration`, `performance-optimization`, `testing-strategy`, `security-by-design`, `data-protection`, `ai-first-quality`.
+
+### Data Pipeline SSDLC Checklist (from `sdlc-security-integration` skill)
+
+- [ ] Every new MCP tool has schema/shape validation before downstream use
+- [ ] All external inputs treated as untrusted — sanitised before rendering
+- [ ] Timeout + retry + circuit breaker on every outbound call
+- [ ] Errors logged without exposing tokens, internal stack traces, or PII
+- [ ] New dependencies passed license + advisory + maintenance + provenance intake
+- [ ] Unit tests cover error, timeout, malformed, and empty-response paths
+- [ ] No secrets in code — only via env (`EP_MCP_GATEWAY_URL`, `EP_MCP_GATEWAY_API_KEY`)
 
 ## Quality Standards
 
