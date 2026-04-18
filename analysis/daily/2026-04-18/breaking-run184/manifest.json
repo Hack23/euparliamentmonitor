@@ -1,0 +1,48 @@
+{
+  "run": {
+    "id": 184,
+    "date": "2026-04-18",
+    "articleType": "breaking",
+    "mode": "ANALYSIS_ONLY",
+    "newsworthiness": "NO_BREAKING_NEWS",
+    "reason": "Easter Saturday — Parliament in recess, no EP items published today"
+  },
+  "context": {
+    "recessDay": 6,
+    "recurrenceSeries": "Easter Recess 2026 (Runs 179-184)",
+    "plenaryReturn": "2026-04-27",
+    "apiStatus": {
+      "serverHealthReport": "0/13 operational",
+      "directTestResult": "2/13 operational",
+      "discrepancy": "Server health endpoint has reporting lag",
+      "tier1": ["adopted_texts_feed", "meps_feed"],
+      "tier2Projected": "2026-04-21 to 2026-04-23",
+      "tier3Projected": "2026-04-25 to 2026-04-27"
+    }
+  },
+  "texts": {
+    "confirmed_with_content": ["TA-10-2026-0090", "TA-10-2026-0091", "TA-10-2026-0092", "TA-10-2026-0093", "TA-10-2026-0094", "TA-10-2026-0095", "TA-10-2026-0096", "TA-10-2026-0097", "TA-10-2026-0098"],
+    "confirmed_in_feed_no_content": ["TA-10-2026-0099", "TA-10-2026-0100", "TA-10-2026-0101", "TA-10-2026-0102", "TA-10-2026-0103", "TA-10-2026-0104"]
+  },
+  "scores": {
+    "compositeRisk": 18.0,
+    "compositeRiskMax": 50,
+    "incrementalIntelligence": 26,
+    "incrementalIntelligenceMax": 100
+  },
+  "files": {
+    "classification": ["classification/significance-scoring.md"],
+    "risk_scoring": ["risk-scoring/risk-matrix.md", "risk-scoring/quantitative-swot.md"],
+    "intelligence": ["intelligence/coalition-dynamics.md", "intelligence/synthesis-summary.md", "intelligence/cross-run-diff.md"],
+    "documents": ["documents/document-analysis-index.md"]
+  },
+  "forwardMonitoring": [
+    {"trigger": "Commission housing response", "deadline": "2026-04-21", "priority": "HIGH"},
+    {"trigger": "USTR Section 301 window", "deadline": "2026-04-22 to 2026-04-26", "priority": "HIGH"},
+    {"trigger": "EP API Tier 2 recovery", "deadline": "2026-04-21 to 2026-04-23", "priority": "MEDIUM"},
+    {"trigger": "German BRRD3 Bundesrat signal", "deadline": "2026-04-23 to 2026-04-25", "priority": "MEDIUM"},
+    {"trigger": "TA-10-2026-0099–0104 content", "deadline": "2026-04-27+", "priority": "CRITICAL"},
+    {"trigger": "MEP plenary registration", "deadline": "2026-04-26 to 2026-04-27", "priority": "LOW"}
+  ],
+  "generated": "2026-04-18T07:35:00Z"
+}
