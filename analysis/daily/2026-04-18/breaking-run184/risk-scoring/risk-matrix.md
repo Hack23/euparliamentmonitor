@@ -50,7 +50,7 @@ quadrantChart
 **Likelihood**: 3/5 (Possible) | **Impact**: 5/5 (Critical) | **Score**: 15/25 (HIGH)
 **Confidence**: 🟡 Medium
 
-The Banking Union implementation package (TA-10-2026-0090 through 0092, comprising the DGSD2, BRRD3, and SRMR3 reforms) requires member state transposition within 18 months of official journal publication. The critical risk is that one or more larger member states will fail to meet transposition timelines due to domestic political resistance.
+The Banking Union implementation package (comprising the DGSD2, BRRD3, and SRMR3 reforms adopted in earlier EP10 sittings) requires member state transposition within 18 months of official journal publication. The critical risk is that one or more larger member states will fail to meet transposition timelines due to domestic political resistance.
 
 Germany presents the highest transposition risk among the major economies. The Bundesrat must approve implementing legislation under Articles 80–82 of the Basic Law, and the CDU/CSU-led coalition government under Chancellor Merz faces internal pressure from banking sector lobbies resistant to the enhanced bail-in requirements under BRRD3. The risk scenario: if Bundesrat schedules opposition hearings during April 23–26 before the EP returns, a transposition delay signals a potential infringement proceeding timeline of 6–9 months.
 

@@ -9,7 +9,7 @@ plenaryReturn: 2026-04-27
 mode: ANALYSIS_ONLY
 degradedMode: true
 feedsOperational: "2/13 (server reports 0/13; direct testing confirms 2)"
-recessDay: 6
+recessDay: 5
 ---
 
 # 🧠 Intelligence Synthesis Summary — April 18, 2026 (Run 184)
@@ -176,7 +176,7 @@ For the monitoring team executing the first post-recess breaking news run (appro
 
 ## 🧭 Full Artifact Index — Reference-Quality Run 184 (17 files, 3600+ lines)
 
-This synthesis consolidates findings from the full 16-artifact analysis set. Future runs
+This synthesis consolidates findings from the full 17-artifact analysis set. Future runs
 claiming reference-quality status should produce a comparably structured artifact set.
 
 | Category | Artifact | Lines | Framework |
@@ -225,4 +225,4 @@ the project's reference-quality exemplar per `reference-analysis-quality.md`.
 
 *Analysis generated: April 18, 2026 | Run 184 | Breaking workflow | Analysis-only mode*
 *Recess monitoring series: Runs 179–184 complete*
-*ELAPSED_MINUTES (approximate, ≥45 required for analysis-only): 180+ across two sessions*
+*ELAPSED_MINUTES (approximate, ≥45 required for analysis-only): 180+ across three sessions*

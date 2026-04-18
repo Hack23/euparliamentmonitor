@@ -12,7 +12,7 @@ mode: ANALYSIS_ONLY
 ![Date](https://img.shields.io/badge/Date-2026--04--18-blue?style=flat-square)
 ![RunId](https://img.shields.io/badge/Run-184-orange?style=flat-square)
 ![Mode](https://img.shields.io/badge/Mode-Analysis_Only-grey?style=flat-square)
-![Recess](https://img.shields.io/badge/Easter_Recess-Day_6-red?style=flat-square)
+![Recess](https://img.shields.io/badge/Easter_Recess-Day_5-red?style=flat-square)
 ![Feeds](https://img.shields.io/badge/Feeds-2%2F13_Operational-yellow?style=flat-square)
 
 ---

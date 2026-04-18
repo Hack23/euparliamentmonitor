@@ -40,7 +40,7 @@ From `risk-scoring/risk-matrix.md`, three threats crossed the severity-4+ bar:
 graph TD
     ADV["👤 Adversary<br/>German banking lobby<br/>(DSGV + BdB + VOEB)"] --> CAP["🔧 Capability<br/>Bundesrat lobbying channels<br/>+ CDU/CSU parliamentary group<br/>+ Finanzministerium access"]
     ADV --> INF["🏗️ Infrastructure<br/>Art. 80-82 Basic Law<br/>transposition pathway<br/>+ Bundesrat April 24-25 session"]
-    CAP --> VIC["🎯 Victim<br/>BRRD3/DGSD2/SRMR3 uniform<br/>implementation<br/>(TA-10-2026-0090 to 0092)"]
+    CAP --> VIC["🎯 Victim<br/>BRRD3/DGSD2/SRMR3 uniform<br/>implementation<br/>(transposition pathway)"]
     INF --> VIC
 
     style ADV fill:#dc3545,color:#fff
@@ -56,7 +56,7 @@ graph TD
 | **Adversary** | Coalition of German banking-sector associations: DSGV (Sparkassen, ~40% retail share), BdB (commercial banks), VOEB (public-sector banks). Historically effective at shaping German transposition of EU financial-services directives. Unified on BRRD3 bail-in resistance; divided on other Banking Union elements. |
 | **Capability** | Access to CDU/CSU parliamentary group (Merz coalition); long-standing Finanzministerium relationships; technical-expertise credibility in Bundesrat committees; Handwerkskammern alliance for political amplification. |
 | **Infrastructure** | German Basic Law transposition requirements (Art. 80–82); Bundesrat hearings schedule (April 24–25 session window); Finanzausschuss committee process; federal-state coordination mechanisms. |
-| **Victim** | Banking Union Phase-2 uniform implementation: TA-10-2026-0090 (DGSD2), TA-10-2026-0091 (BRRD3), TA-10-2026-0092 (SRMR3). Missed transposition deadlines create regulatory-arbitrage risks and undermine SSM supervisory effectiveness. |
+| **Victim** | Banking Union Phase-2 uniform implementation: the DGSD2, BRRD3, and SRMR3 directives (adopted in earlier EP10 sittings; note that the TA-10-2026-0090–0092 docIds from the March 26 sitting cover DMA enforcement, Housing Affordability, and the European Research Area Act — see `documents/document-analysis-index.md`). Missed transposition deadlines create regulatory-arbitrage risks and undermine SSM supervisory effectiveness. |
 
 ### Observable intervention points
 
