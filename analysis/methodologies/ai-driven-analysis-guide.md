@@ -11,12 +11,12 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-4.2-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--10-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-4.5-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--18-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 4.2 | **📅 Last Updated:** 2026-04-10 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 4.5 | **📅 Last Updated:** 2026-04-18 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
@@ -964,6 +964,105 @@ Every `synthesis-summary.md` MUST include a **Cross-Article Intelligence** block
 
 ---
 
+### Rule 19: Mandatory Pre-Flight Analysis Reading — New in v4.5
+
+**Before any article content is drafted**, the article-generation workflow MUST read
+every artifact in the current run's analysis directory in full. Skim-reading, header-only
+reading, or consuming only the `synthesis-summary.md` is a **violation**.
+
+#### Pre-Flight Reading Protocol
+
+1. **Read the index first**: `<run_dir>/intelligence/analysis-index.md` — the
+   read-me-first entry point that names every artifact and prescribes reading order.
+   When an analysis directory lacks `analysis-index.md`, the workflow MUST generate it
+   before article drafting (or fail loudly).
+2. **Read `manifest.json`** — list of all artifacts, applied analytical frameworks,
+   composite scores, forward-monitoring triggers.
+3. **Read every file listed under `manifest.files.*`** in the order given by
+   `analysis-index.md` (Stage 1 → 2 → 3 → 4). Expected active reading time: 15–20
+   minutes minimum.
+4. **Emit a pre-flight attestation line** in the workflow's stdout log before any
+   article draft is produced, in the format:
+   ```
+   PREFLIGHT_ATTESTATION: read 17/17 artifacts from analysis/daily/2026-04-18/breaking-run184/ (3632 lines)
+   ```
+5. **If any artifact is <30 lines** or contains `[AI_ANALYSIS_REQUIRED]` / `TBD` /
+   placeholder markers, **abort article drafting** and execute an analysis Pass 2
+   to fill the gap first.
+
+#### Why this rule exists
+
+Previous runs produced articles that cited only the synthesis summary while ignoring
+the stakeholder map, scenario forecast, threat model, or economic context. The
+resulting prose had correct headlines but missed the depth signals that the full
+analysis pipeline produces. Rule 19 closes this gap by making "read every artifact"
+an explicit step that workflows must cross.
+
+---
+
+### Rule 20: Mandatory Analysis-Citation Footer in All Articles — New in v4.5
+
+**Every article of every type** must render a structured *Analysis Sources* footer
+that links to every artifact consumed during generation. The canonical mechanism is
+`renderAnalysisTransparencySection` in `src/templates/article-template.ts`, which
+accepts an `analysisFiles` parameter typed as `ReadonlyArray<AnalysisFileEntry>`
+(each entry `{ method: string; outputFile: string }`, defined in
+`src/types/generation.ts`). When this array is omitted, the helper falls back to a
+hardcoded set of standard analysis links. Workflows MUST build the array from the
+run's `manifest.json` — collect every `outputFile` path under `manifest.files.*` and
+pair it with its canonical `method` name (e.g. `significance-classification`,
+`risk-matrix`, `pestle-analysis`) so one link is rendered per artifact.
+
+#### What the footer MUST include
+
+| Component | Source | Example |
+|-----------|--------|---------|
+| Run directory link | `analysis/daily/{date}/{type}-run{id}/` | `breaking-run184/` |
+| `manifest.json` link | `{run_dir}/manifest.json` | machine-readable metadata |
+| Every classification artifact | `manifest.files.classification[]` | `significance-scoring.md` |
+| Every risk-scoring artifact | `manifest.files.risk_scoring[]` | `risk-matrix.md`, `quantitative-swot.md` |
+| Every intelligence artifact | `manifest.files.intelligence[]` | all 13 intelligence files for reference-quality runs |
+| Every documents artifact | `manifest.files.documents[]` | `document-analysis-index.md` |
+| Methodology references | `analysis/methodologies/*.md` | guide, SWOT framework, risk methodology, threat framework |
+
+#### What the footer MUST NOT do
+
+- ❌ Omit the footer to shorten article length
+- ❌ Link to only a subset of artifacts ("synthesis only", "SWOT only")
+- ❌ Use stale/fallback hardcoded links when manifest-derived links are available
+- ❌ Use internal relative links (`./intelligence/foo.md`) — always use absolute GitHub
+  repository URLs so readers can verify sources from any article-hosting location
+
+#### Enforcement
+
+- **Current state (v4.5):** `renderAnalysisTransparencySection` in
+  `src/templates/article-template.ts` emits the `<section class="analysis-transparency">`
+  block with one `<li><a href="…">` per `manifest.files.*` entry, and
+  `src/utils/retrofit-analysis-links.ts` repairs any article missing the section.
+  Workflows call these helpers during article generation — **omitting the footer
+  requires actively bypassing the template helper, which is a workflow violation**.
+- **Planned (follow-up code PR, tracked for v4.6):** extend
+  `src/utils/validate-articles.ts` to fail articles that lack a
+  `<section class="analysis-transparency">` block with ≥3 `<li><a href="…">` entries
+  in its analysis-links nav; wire the validator as a blocking final step before PR
+  creation. Until that validator lands, the footer is enforced by the template helper
+  contract and by PR review.
+
+---
+
+### Rule 21: Analysis-Article Read Ratio (Quality Signal) — New in v4.5
+
+Reference-quality article generation produces an observable ratio:
+
+- **≥ 1 analysis artifact cited per 150 article words** (breaking, weekly, monthly)
+- **≥ 1 analysis artifact cited per 100 article words** (article-generator long form)
+
+Below this ratio, the article is likely under-sourced and should trigger a Pass 2
+that adds specific artifact citations inline (footnote references in prose to back
+specific claims).
+
+---
+
 ## 🔗 AI-Driven Article Content Generation Protocol
 
 ### The AI-First Content Rule (Rule 12 Extended)
@@ -1238,17 +1337,73 @@ When cross-referencing:
 
 ---
 
+## ⭐ Reference Analyses (Gold-Standard Exemplars)
+
+When a workflow is uncertain what "good enough" analytical depth looks like, consult the
+designated reference runs below. A reference run's artifacts are the illustrative
+depth-and-structure benchmark for the relevant article type; a new output thinner than
+the reference should trigger an additional improvement pass before submission.
+
+| Article Type | Reference Run | Artifact Directory | Designation Document |
+|--------------|--------------|--------------------|----------------------|
+| Breaking (analysis-only, API-degraded mode) | **Run 184** (2026-04-18) | [`analysis/daily/2026-04-18/breaking-run184/`](../daily/2026-04-18/breaking-run184/) | [`reference-analysis-quality.md`](../daily/2026-04-18/breaking-run184/intelligence/reference-analysis-quality.md) |
+
+**Run 184 at a glance (reference bar):** 17 artifacts · 3600+ lines · 13 analytical
+frameworks applied in a single run · zero placeholder markers · 5 upstream data-source
+issues filed (Hack23/European-Parliament-MCP-Server #366–#370).
+
+### Mandatory Analytical Dimension Matrix (New in v4.4)
+
+The following matrix specifies, per article type, which analytical dimensions are
+**mandatory** (must be present), **recommended** (present when relevant data available),
+and **optional** (value-adding but not required). Article types not listed inherit from
+the closest listed row.
+
+| Dimension / Artifact | Breaking | Weekly Review | Monthly Review | Week Ahead | Month Ahead | Committee Reports | Motions | Propositions | Article Generator |
+|----------------------|:--------:|:-------------:|:--------------:|:----------:|:-----------:|:-----------------:|:-------:|:------------:|:-----------------:|
+| Newsworthiness gate + significance scoring | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M |
+| 5×5 Risk matrix (≥5 vectors) | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M |
+| 3+3+3+3 Quantitative SWOT | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M |
+| Coalition dynamics pair analysis | 🟥 M | 🟥 M | 🟥 M | 🟨 R | 🟨 R | 🟨 R | 🟨 R | 🟨 R | 🟥 M |
+| Cross-run hypothesis diff | 🟥 M | 🟥 M | 🟥 M | 🟨 R | 🟨 R | 🟨 R | 🟨 R | 🟨 R | 🟨 R |
+| Synthesis summary + forward monitoring ≥6 | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M |
+| PESTLE 6-dimension scan | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟨 R | 🟨 R | 🟥 M | 🟥 M |
+| Stakeholder power × interest map (≥12) | 🟥 M | 🟨 R | 🟥 M | 🟨 R | 🟥 M | 🟨 R | 🟥 M | 🟥 M | 🟥 M |
+| Scenario forecast (≥3 scenarios) | 🟥 M | 🟨 R | 🟥 M | 🟥 M | 🟥 M | 🟨 R | 🟨 R | 🟥 M | 🟥 M |
+| Threat model (Diamond / Attack Trees / Kill Chain — top severity-4+ threats) | 🟥 M | 🟨 R | 🟥 M | 🟨 R | 🟨 R | 🟨 R | 🟨 R | 🟨 R | 🟥 M |
+| Historical baseline (Rule 17) | 🟨 R | 🟥 M | 🟥 M | 🟨 R | 🟨 R | 🟨 R | 🟨 R | 🟨 R | 🟥 M |
+| Economic context (World Bank) | 🟨 R | 🟨 R | 🟥 M | 🟨 R | 🟥 M | 🟨 R | 🟨 R | 🟥 M | 🟥 M |
+| Wildcards + Black Swan reserve | 🟨 R | 🟨 R | 🟥 M | 🟨 R | 🟥 M | ⬜ O | ⬜ O | 🟨 R | 🟥 M |
+| Document-analysis index (per-text status) | 🟥 M | 🟥 M | 🟥 M | ⬜ O | ⬜ O | 🟥 M | 🟥 M | 🟥 M | 🟥 M |
+| MCP reliability audit | 🟨 R when API degraded | 🟨 R when API degraded | 🟨 R when API degraded | 🟨 R | 🟨 R | 🟨 R | 🟨 R | 🟨 R | 🟨 R |
+
+**Legend**: 🟥 **M** = mandatory · 🟨 **R** = recommended · ⬜ **O** = optional.
+
+**Rule of thumb**: a reference-quality output produces every mandatory artifact for its
+article type. "Mandatory" is subject to data availability — if the required input is
+unavailable (e.g., World Bank MCP unreachable), the artifact must still be present with
+an explicit `data_not_available` note explaining why, rather than being silently omitted.
+
+**Run 184 also ships the canonical** [MCP reliability audit](../daily/2026-04-18/breaking-run184/intelligence/mcp-reliability-audit.md)
+— the enumeration of 7 EP MCP server data-reliability defects observed across Runs 179–184
+and the 5 upstream issues filed on `Hack23/European-Parliament-MCP-Server`. Future
+analysis-only runs operating under API-degraded conditions should produce a comparable
+`intelligence/mcp-reliability-audit.md` file whenever new defects are observed.
+
+---
+
 ## 🔗 Related Documents
 
 - [templates/per-file-political-intelligence.md](../templates/per-file-political-intelligence.md) — Per-file output template
 - [templates/synthesis-summary.md](../templates/synthesis-summary.md) — Daily synthesis template
 - [SWOT.md](../../SWOT.md) — Platform SWOT (**formatting exemplar**)
 - [THREAT_MODEL.md](../../THREAT_MODEL.md) — Platform threat model (**formatting exemplar**)
+- [Run 184 reference analysis](../daily/2026-04-18/breaking-run184/) — **depth exemplar**
 
 ---
 
 **Document Control:**
 - **Path:** `/analysis/methodologies/ai-driven-analysis-guide.md`
 - **Classification:** Public
-- **Version:** 4.2 — Added Rule 17 (Comparative Analysis Against Historical Baselines), Rule 18 (Cross-Article-Type Correlation), and expanded anti-boilerplate examples
+- **Version:** 4.5 — Added Rules 19–21: mandatory pre-flight analysis reading (every artifact in full before drafting), mandatory Analysis-Sources footer in every article of every type (currently enforced by the `renderAnalysisTransparencySection` template helper and `retrofit-analysis-links.ts`, with a `validate-articles.ts` blocking check planned for v4.6), and minimum Analysis-Article Read Ratio quality signal. v4.4 added Mandatory Analytical Dimension Matrix; v4.3 added Reference Analyses section.
 - **Next Review:** 2026-06-30
