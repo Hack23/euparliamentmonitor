@@ -1,0 +1,19 @@
+{
+  "runId": "week-in-review-run12",
+  "date": "2026-04-18",
+  "articleType": "week-in-review",
+  "generatedAt": "2026-04-18T00:00:00Z",
+  "files": {
+    "intelligence/significance-scoring.md": "Significance scoring analysis (76/100 composite)",
+    "intelligence/deep-analysis.md": "Full SWOT, stakeholder perspectives, risk matrix, scenarios",
+    "intelligence/synthesis-summary.md": "Executive synthesis with World Bank economic context"
+  },
+  "dataQuality": {
+    "eplPlenaryVotes": "EMPTY (Easter recess — no plenary votes April 11-18)",
+    "adoptedTextsFeed": "OK (159 items returned, TA-10-2026-0082 through 0104 confirmed)",
+    "individualTextContent": "UNAVAILABLE (Easter API maintenance — UPSTREAM_404 for all)",
+    "worldBankDE": "OK (GDP growth 2023/2024)",
+    "worldBankIT": "OK (GDP growth 2023/2024)",
+    "eppDataGap": "EPP memberCount=0 in coalition dynamics API (persistent data quality issue)"
+  }
+}
