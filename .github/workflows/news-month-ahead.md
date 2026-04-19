@@ -276,6 +276,49 @@ This is a **prospective** article providing a 30-day forward-looking strategic o
 
 > **⚠️ ABSOLUTE REQUIREMENT — NON-NEGOTIABLE**: You MUST spend a dedicated ≥20 minutes (2 complete passes) on deep political intelligence analysis BEFORE making ANY decisions about article content, angle, or topic. This is the single most important phase of the entire workflow. Pass 1 writes initial analysis; Pass 2 reads it ALL back and improves every section. One pass is NEVER enough.
 
+### 📋 Mandatory Analytical Dimension Matrix — month-ahead checklist
+
+Per `analysis/methodologies/ai-driven-analysis-guide.md` v4.5 (Mandatory Analytical Dimension Matrix), **every** month-ahead run MUST produce the following artifacts under `${ANALYSIS_DIR}` (runs missing any mandatory artifact are reference-quality violations):
+
+**Mandatory (M) for month-ahead — produce ALL of these:**
+- [ ] `intelligence/analysis-index.md` — read-me-first index (Rule 19 pre-flight target)
+- [ ] `intelligence/synthesis-summary.md` — synthesis + ≥6 forward-monitoring triggers
+- [ ] `intelligence/significance-scoring.md` — Immediacy × Impact × Coverage Gap
+- [ ] `intelligence/pestle-analysis.md` — PESTLE 6-dimension macro scan (30-day horizon)
+- [ ] `intelligence/stakeholder-map.md` — Mendelow power × interest grid, ≥12 stakeholders
+- [ ] `intelligence/scenario-forecast.md` — Shell 2×2, ≥3 scenarios + probability + early-warning indicators
+- [ ] `intelligence/economic-context.md` — World Bank DE + at-least-2 other politically-salient countries
+- [ ] `intelligence/wildcards-blackswans.md` — Schwartz wildcards + Taleb Black Swan reserve
+- [ ] `risk/risk-matrix.md` — 5×5 likelihood × impact, ≥5 vectors
+- [ ] `risk/quantitative-swot.md` — 3+3+3+3 scored SWOT
+- [ ] `classification/political-classification.md` — subject-matter codes for each key text
+
+**Recommended (R) for month-ahead — produce ALL of these for reference-quality:**
+- [ ] `intelligence/coalition-dynamics.md` — group composition + pair analysis + defection thresholds
+- [ ] `intelligence/cross-run-diff.md` — compare to previous month-ahead run; forecast-track validation
+- [ ] `intelligence/historical-baseline.md` — EP8/EP9 Year-2 Apr-May comparison (Rule 17)
+- [ ] `intelligence/threat-model.md` — Diamond Model + Attack Trees + Kill Chain for top 3 threats
+- [ ] `intelligence/mcp-reliability-audit.md` — if API degraded, carry-over defect inventory
+- [ ] `documents/document-analysis-index.md` — per-text intelligence for all in-scope TA-IDs
+
+**Reference-quality benchmark**: `analysis/daily/2026-04-18/breaking-run184/` (17 artifacts) and `analysis/daily/2026-04-19/month-ahead-run5/` (17 artifacts). Any month-ahead run with fewer than **15 artifacts** is substandard.
+
+### 🧭 Prior-Analysis Forward-Looking Mining (MANDATORY pre-analysis step)
+
+Before writing new analysis, **mine forward-looking content from the most recent daily analyses** — they contain plans, schedules, and forward-monitoring triggers that must be carried forward:
+
+1. **List all runs in `analysis/daily/` for the last 21 days** (`ls -la analysis/daily/ | tail -30`)
+2. **Read `intelligence/synthesis-summary.md` + `intelligence/scenario-forecast.md` + `intelligence/analysis-index.md`** in:
+   - The most recent `breaking-run*` with `intelligence/` subdirectory (e.g., Run 184-style)
+   - The most recent `week-ahead-run*`
+   - The most recent `week-in-review-run*`
+   - The most recent **previous** `month-ahead-run*` (predecessor — mandatory input for `cross-run-diff.md`)
+3. **Extract every forward-looking statement**: scheduled sessions, expected adoption dates, forecasted trigger events, pending files, upstream-issue escalation deadlines
+4. **Persist these in your working memory** — they form the skeleton of your scenario-forecast.md + synthesis-summary.md forward-monitoring section
+5. **Document the read set** in `intelligence/analysis-index.md` under a "Prior-run lineage" section — Rule 19 audit trail
+
+**Violation signal**: If your month-ahead run does not reference at least 3 prior-run forward-looking statements, it has skipped this step.
+
 **What "≥20 minutes of analysis (2 passes)" means:**
 1. **Read ALL 6 methodology guides** in `analysis/methodologies/` — these define your analytical frameworks
 2. **Read ALL structured templates** in `analysis/templates/` — these define your output format

@@ -287,6 +287,47 @@ Every artifact must carry an explicit **confidence level** (🟢 High / 🟡 Med
 🔴 Low) on its aggregate findings and anchor claims to evidence (dated events, numeric
 indicators, cited frameworks).
 
+### 🧭 Prior-Analysis Forward-Looking Mining (MANDATORY — week-ahead, month-ahead, week-in-review, month-in-review)
+
+Forward-looking workflows (anything that previews an upcoming window) MUST mine
+forward-looking content from prior daily analyses BEFORE writing new analysis. Prior
+runs contain plans, schedules, forecasted trigger events, and upstream-issue deadlines
+that form the skeleton of the new run's scenario-forecast and monitoring triggers.
+
+**Procedure (approximately 5 minutes, after data retrieval, before analysis writing):**
+
+1. **Enumerate recent runs**: `ls -la analysis/daily/ | tail -30` — focus on the last
+   14 days (week-ahead) or 21 days (month-ahead)
+2. **Read the 3-file skeleton from the most recent instance of each relevant run type**:
+   - `intelligence/analysis-index.md`
+   - `intelligence/synthesis-summary.md`
+   - `intelligence/scenario-forecast.md` (if present)
+3. **Must include**: the most recent predecessor run of the **same type** (e.g., for
+   `month-ahead-run5` read `month-ahead-run4`) — this is the mandatory input for
+   `intelligence/cross-run-diff.md`
+4. **Must include**: the latest `breaking-run*` with an `intelligence/` subdirectory
+   (reference-quality pattern)
+5. **Must include**: the adjacent-horizon runs (week-ahead if you are a month-ahead;
+   month-ahead if you are a week-ahead; week-in-review for context)
+6. **Extract forward-looking statements verbatim**:
+   - Scheduled sessions (dates + venues)
+   - Expected adoption dates for specific TA-IDs
+   - Forecasted trigger events (e.g., "USTR filing April 22–26")
+   - Pending files in the legislative pipeline
+   - Upstream-issue escalation deadlines (MCP defects, Commission responses, etc.)
+   - API Tier-restoration projections
+7. **Document the read set** in your new `intelligence/analysis-index.md` under a
+   "Prior-run lineage" section — this is your Rule 19 audit trail
+
+**Compliance signal**: Your new run must reference **≥3 prior-run forward-looking
+statements** in its synthesis-summary.md and scenario-forecast.md. Runs that reference
+fewer are implicitly failing the forward-looking-mining step.
+
+**Why this matters**: Month-ahead-run4 (2026-04-13) forecast a "Parliament returns
+April 14" (actual: April 27) because it did not consult the precomputed academic
+calendar; this kind of error is avoided when prior runs' explicit forward-looking
+statements are mined systematically.
+
 ### 📋 Article Generation Pre-Flight Checklist (MANDATORY — Rules 19, 20, 21 of AI guide v4.5)
 
 **Before drafting any article sentence**, an article-generation workflow MUST complete

@@ -279,6 +279,48 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 
 > **⚠️ ABSOLUTE REQUIREMENT — NON-NEGOTIABLE**: You MUST spend a dedicated ≥20 minutes (2 complete passes) on deep political intelligence analysis BEFORE making ANY decisions about article content, angle, or topic. This is the single most important phase of the entire workflow. Pass 1 writes initial analysis; Pass 2 reads it ALL back and improves every section. One pass is NEVER enough.
 
+### 📋 Mandatory Analytical Dimension Matrix — week-ahead checklist
+
+Per `analysis/methodologies/ai-driven-analysis-guide.md` v4.5 (Mandatory Analytical Dimension Matrix), **every** week-ahead run MUST produce the following artifacts under `${ANALYSIS_DIR}`:
+
+**Mandatory (M) for week-ahead — produce ALL of these:**
+- [ ] `intelligence/analysis-index.md` — read-me-first index (Rule 19 pre-flight target)
+- [ ] `intelligence/synthesis-summary.md` — synthesis + ≥5 forward-monitoring triggers for the 7-day window
+- [ ] `intelligence/significance-scoring.md` — Immediacy × Impact × Coverage Gap
+- [ ] `intelligence/pestle-analysis.md` — PESTLE 6-dimension scan (7-day horizon)
+- [ ] `intelligence/stakeholder-map.md` — Mendelow power × interest grid, ≥10 stakeholders
+- [ ] `intelligence/scenario-forecast.md` — ≥3 scenarios for the upcoming week with probability + early-warning indicators
+- [ ] `risk/risk-matrix.md` — 5×5 likelihood × impact, ≥4 vectors
+- [ ] `risk/quantitative-swot.md` — 3+3+3+3 scored SWOT
+- [ ] `classification/political-classification.md`
+
+**Recommended (R) for week-ahead — produce for reference-quality:**
+- [ ] `intelligence/economic-context.md` — World Bank indicators for salient countries
+- [ ] `intelligence/coalition-dynamics.md` — group composition + pair analysis
+- [ ] `intelligence/cross-run-diff.md` — compare to previous week-ahead run; forecast-track validation
+- [ ] `intelligence/wildcards-blackswans.md` — Schwartz + Taleb reserve (shorter list OK for week horizon)
+- [ ] `intelligence/threat-model.md` — Diamond Model for top 2 threats
+- [ ] `intelligence/mcp-reliability-audit.md` — if API degraded
+- [ ] `documents/document-analysis-index.md` — per-text intelligence
+
+**Reference-quality benchmark**: `analysis/daily/2026-04-18/breaking-run184/` (17 artifacts) and `analysis/daily/2026-04-19/month-ahead-run5/` (17 artifacts). Any week-ahead run with fewer than **10 artifacts** is substandard.
+
+### 🧭 Prior-Analysis Forward-Looking Mining (MANDATORY pre-analysis step)
+
+Before writing new analysis, **mine forward-looking content from the most recent daily analyses** — they contain plans, schedules, and forward-monitoring triggers that must be carried forward:
+
+1. **List all runs in `analysis/daily/` for the last 14 days** (`ls -la analysis/daily/ | tail -30`)
+2. **Read `intelligence/synthesis-summary.md` + `intelligence/scenario-forecast.md` + `intelligence/analysis-index.md`** in:
+   - The most recent `breaking-run*` with `intelligence/` subdirectory
+   - The most recent **previous** `week-ahead-run*` (predecessor — mandatory input for `cross-run-diff.md`)
+   - The most recent `week-in-review-run*`
+   - The most recent `month-ahead-run*` (30-day context for week-ahead)
+3. **Extract every forward-looking statement**: scheduled sessions, expected adoption dates, forecasted trigger events, pending files
+4. **Persist these in your working memory** — they form the skeleton of your scenario-forecast.md
+5. **Document the read set** in `intelligence/analysis-index.md` under a "Prior-run lineage" section
+
+**Violation signal**: If your week-ahead run does not reference at least 3 prior-run forward-looking statements, it has skipped this step.
+
 **What "≥20 minutes of analysis (2 passes)" means:**
 1. **Read ALL 6 methodology guides** in `analysis/methodologies/` — these define your analytical frameworks
 2. **Read ALL structured templates** in `analysis/templates/` — these define your output format
