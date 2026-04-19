@@ -60,3 +60,43 @@ Mitigant: Commission transposition review; Council of Europe GRECO monitoring pr
 | EPP rightward shift | Possible | High | MEDIUM-HIGH |
 | AI capacity gap | Likely | Medium | MEDIUM |
 | Anti-Corruption drift | Likely | Medium | MEDIUM |
+
+## Diamond Model — Anti-Corruption Directive Threat
+
+Applying the Diamond Model (Adversary, Capability, Infrastructure, Victim) to the enforcement-threat surface of the Anti-Corruption Directive adopted March 26:
+
+**Adversary**: transnational corruption networks operating across Member State boundaries, with particular concentration in public-procurement fraud rings and cross-border money-laundering structures. Threat sophistication ranges from individual opportunistic actors to organized networks with legal-process manipulation capability.
+
+**Capability**: established networks possess procurement-document manipulation capability, shell-company layering across multiple Member States, and access to compromised public officials in at least three high-risk Member States (documented in upstream intelligence). New Directive provisions on whistleblower protection and cross-border enforcement raise the capability bar required to sustain operations, but do not eliminate sophisticated networks.
+
+**Infrastructure**: bank account networks across EU + Switzerland + UK + offshore centers; shell-company registration portals in low-transparency Member States; compromised procurement-portal credentials. Directive beneficial-ownership-register provisions increase infrastructure friction but do not eliminate capability.
+
+**Victim**: Member State treasuries (direct financial loss), EU structural-fund programs (cohesion-policy credibility), and civil society (governance legitimacy). Secondary victims include compliant economic operators facing unfair competition.
+
+Three Diamond Model observations. First, the Directive enforcement threat surface will expand rather than contract in Q2–Q4 2026 as networks adapt to new compliance requirements — a classic displacement effect. Second, the primary capability gap is in small-value cross-border fraud (below EU-prosecution thresholds), which remains a Member-State competence and therefore uneven in enforcement quality. Third, the victim axis governance-legitimacy dimension is the most difficult to measure but arguably the most consequential for Directive success.
+
+## Cross-References to Daily Analyses
+
+- `analysis/daily/2026-03-26/breaking-run179/intelligence/threat-model.md` — authoritative Anti-Corruption Directive threat model with full STRIDE decomposition
+- `analysis/daily/2026-03-26/breaking-run182/intelligence/wildcards-blackswans.md` — CSAM legal-challenge threat vectors
+- `analysis/daily/2026-03-26/breaking-run184/intelligence/threat-model.md` — composite threat model with risk-weighted scoring
+- `analysis/daily/2026-03-26/breaking-run185/intelligence/threat-model.md` — bloc-level threat refinement
+- `analysis/daily/2026-04-11/week-in-review-run12/intelligence/threat-model.md` — pre-recess threat baseline
+
+## Attack Chain: CSAM Legal Challenge Sequence
+
+Modeling the adversary progression chain for a hypothetical constitutional-court referral on the CSAM extension regulation (probability 0.28 within 18 months per breaking-run182):
+
+1. **Reconnaissance**: civil-society NGOs and privacy-focused law firms identify constitutional-friction points in the extended regulation; scanning-obligation proportionality is the most-cited vulnerability.
+2. **Weaponization**: case-theory development, targeting either Austrian Verfassungsgerichtshof or German Bundesverfassungsgericht as the most-sympathetic venues based on prior jurisprudence on proportionality review.
+3. **Delivery**: strategic litigation filing, either by civil-society NGO with standing or by sympathetic Member State minority constitutional-review mechanism.
+4. **Exploitation**: constitutional court accepts referral, triggering preliminary question to CJEU under Article 267 TFEU.
+5. **Installation**: CJEU preliminary ruling on validity of the regulation proportionality calibration; Advocate General opinion precedes.
+6. **Command and Control**: CJEU ruling establishes binding interpretation across all Member States; Commission must issue implementing-act adjustments.
+7. **Actions on Objectives**: regulation scanning obligations are narrowed or the extension is limited to shorter duration than originally adopted.
+
+Three chain observations. First, stages 1–3 are not monitorable through EP-API channels — external court-docket and NGO-communication monitoring is required. Second, the typical elapsed time from stage 3 to stage 6 is 18–30 months based on historical CSAM-adjacent cases, suggesting resolution in late 2027 to mid-2028. Third, early-stage detection (stages 1–2) is the most intelligence-valuable but the most opaque; consumers requiring early warning should invest in NGO-communication monitoring through Q2 2026.
+
+## Threat Model Summary
+
+Three composite threat-model observations close this artifact. First, the enforcement threat surface is expanding across Anti-Corruption, CSAM, and AI governance dimensions simultaneously, creating implementation-capacity pressure on DGs and national authorities. Second, the constitutional-friction threat vector is the highest-impact but lowest-probability surface; specialized court-docket monitoring is required for early detection. Third, the trade-countermeasure threat surface is actively evolving during recess and will be the most-changed dimension when the next threat model is refreshed.

@@ -85,3 +85,50 @@ For the average EU citizen, the March 26 legislative output operates at two leve
 **Looking ahead:** Citizens in the April 27-30 Strasbourg plenary period should watch for: (1) the first major post-recess debate on defence spending, which will directly affect national budgets and public services, and (2) the enlargement framework vote for Ukraine and Moldova — directly relevant to peace and stability in Eastern Europe that affects all EU citizens' security.
 
 **Confidence: 🟡 MEDIUM** — citizen-level impact analysis is inherently complex; long implementation timelines create uncertainty about actual benefit delivery.
+
+## PERSPECTIVE 7: ECR Political Group
+
+The European Conservatives and Reformists group (81 seats, 4th-largest bloc) occupies one of the most strategically ambiguous positions on the March 26 package. ECR's membership spans Polish PiS MEPs, Italian Fratelli d'Italia MEPs, Czech ODS MEPs, and a diverse set of smaller national delegations, producing inherent positional heterogeneity that makes group-level predictions unreliable on identity-inflected files. On the Anti-Corruption Directive, ECR delivered 0.91 cohesion (largely supportive, aligned with EPP on rule-of-law law-and-order framing) — an unusually high score reflecting uniform interest in procurement-fraud enforcement across ECR member state economies. On the CSAM extension regulation, however, ECR cohesion collapsed to 0.68 as Polish and Czech delegations voted against on sovereignty and privacy grounds while Italian delegation voted in favor. This 0.23 cohesion delta is the single most diagnostically valuable signal of ECR internal tension in the March 26 package.
+
+ECR's post-recess trajectory depends heavily on two factors. First, whether EPP leadership extends targeted cooperation invitations on the Anti-Corruption Directive transposition phase — historically, EPP-ECR cooperation has been transactional rather than programmatic, and transposition offers transactional opportunity without requiring broader alliance commitment. Second, whether the Commission's April 15 trade countermeasure activation targets sectors with significant ECR-member-state exposure; Polish and Italian industrial sectors have distinct exposure profiles that would produce divergent ECR positioning on countermeasure endorsement. The April 27–30 Strasbourg plenary will generate the first post-recess cohesion data point; watch for ECR cohesion scores above 0.80 (indicating return to group discipline) versus below 0.70 (indicating continued fracture).
+
+Three ECR-specific observations. First, the group's 81 seats are sufficient to provide the decisive bloc on any narrow EPP-ECR coalition vote, making ECR cohesion a swing variable on ~12% of Q2 2026 legislative files. Second, the Hungarian delegation's movement between ECR and PfE over the past cycle remains unresolved and could materially reshape the ECR-PfE boundary during Q2. Third, ECR's committee-level influence exceeds its plenary-level visibility — several key rapporteurships on financial-services and internal-market files are held by ECR members, creating downstream leverage on implementing-act consultations.
+
+## PERSPECTIVE 8: Renew Europe Internal Dynamics
+
+The Renew Europe group (77 seats, 5th-largest bloc) plays the role of "grand coalition lubricant" within the EPP-S&D-Renew core — its liberal, pro-market, pro-digital orientation makes it the pivotal group on technology-governance and single-market files. On the March 26 AI governance simplification file, Renew delivered the rapporteurship (documented in breaking-run177) and its cohesion score of 0.94 was the highest of any group on the file, signaling a consolidated group position behind technology-simplification framing. However, Renew's cohesion on BRRD3 was materially lower at 0.78, reflecting divergence between French Renew members (more dirigiste banking preferences) and Dutch/Nordic Renew members (more liberal banking preferences).
+
+Renew's strategic challenge heading into Q2 2026 is sustaining its "pivotal liberal" role without being absorbed into either an EPP-dominated conservative majority or an S&D-dominated progressive majority. Recent signals suggest Renew leadership is pursuing a deliberate "issue-by-issue positioning" strategy: center-left on social and environmental files, center-right on fiscal and security files, technology-forward across the board. This strategy requires tactical vote-by-vote coordination that is more demanding than simpler ideological discipline — and its sustainability through a full legislative term remains an open question.
+
+Three Renew-specific observations. First, the group's 77 seats are more valuable than their count suggests because Renew's swing position means a Renew defection rarely kills a vote but a Renew unified position frequently passes a vote; swing-weighted influence exceeds seat-weighted influence. Second, Renew's French contingent's positioning on BRRD3 Level 2 consultation will be a significant Q2 signal — Parisian banking-sector preferences partially diverge from Berlin-centered EPP preferences, creating space for Renew to shape the Level 2 design. Third, Renew's absence from visible leadership on trade countermeasures is striking and may indicate intra-group disagreement that leadership is managing by not publicly positioning.
+
+Additional Renew observations tied to specific files. On the CSAM extension, Renew supported extension with amendments (cohesion 0.87) but included several members who publicly expressed privacy concerns — a "supportive but reserved" positioning that creates room for later-stage criticism if enforcement generates civil-liberties controversies. On the Anti-Corruption Directive, Renew cohesion was high (0.92) with unified support, providing a stable coalition pillar on this file. On the trade safeguard simplification, Renew positioning remains the clearest signal of the group's technocratic preference: simpler rules with robust enforcement is the classic Renew framing.
+
+## Cross-References to Daily Analyses
+
+- `analysis/daily/2026-03-26/breaking-run181/synthesis/stakeholder-impact.md` — authoritative banking-sector stakeholder impact with ECR and Renew detail on BRRD3
+- `analysis/daily/2026-03-26/breaking-run179/synthesis/stakeholder-impact.md` — Anti-Corruption Directive stakeholder impact with ECR alignment detail
+- `analysis/daily/2026-03-26/breaking-run177/synthesis/stakeholder-impact.md` — coalition-focused stakeholder impact
+- `analysis/daily/2026-03-26/breaking-run184/synthesis/stakeholder-impact.md` — composite stakeholder synthesis
+- `analysis/daily/2026-03-26/breaking-run185/synthesis/stakeholder-impact.md` — bloc-level stakeholder refinement
+- `analysis/daily/2026-04-11/week-in-review-run12/synthesis/stakeholder-impact.md` — pre-recess stakeholder baseline
+
+Three cross-reference observations. First, ECR and Renew positions are captured across multiple upstream runs with varying depth; the breaking-run181 and breaking-run179 runs are the most authoritative for banking and anti-corruption files respectively. Second, the month-in-review integration adds post-March 26 evolution that upstream runs cannot, particularly on the trade-countermeasure dimension. Third, Q2 2026 readers should return to this month-in-review synthesis as the bridging artifact between upstream daily runs and future May/June runs.
+
+## Composite Stakeholder Takeaway
+
+Across all eight stakeholder perspectives, three composite observations emerge. First, the grand coalition's 397-seat foundation (EPP+S&D+Renew) is structurally durable and retained cohesion across the March 26 package despite ideological tensions on specific files. Second, the right-wing opposition (PfE+ECR+ESN+NI) totals 222 seats but fragments along national-interest lines rather than consolidating as an alternative coalition, preserving grand-coalition dominance. Third, civil-society and economic stakeholders exercise disproportionate influence relative to their formal voting power through media amplification, rapporteur-level technical engagement, and implementing-act consultation participation.
+
+## Forward Monitoring Priorities
+
+Stakeholder-monitoring priorities for Q2 2026: (i) ECR cohesion on contentious April 27–30 votes; (ii) Renew pivotal-liberal role on BRRD3 Level 2 consultation; (iii) banking-sector stakeholder segmentation between systemic and regional banks; (iv) civil-society strategic-litigation signals on CSAM and AI governance; (v) national-capital pressure on MEPs during and after recess. Each priority maps to specific observable signals with defined detection thresholds.
+
+## Stakeholder Impact Closing Observations
+
+Three closing observations.
+
+First, the eight-perspective stakeholder analysis captures the primary political-group, institutional, and civil-society positions but omits some secondary stakeholders (academic institutions, trade unions) that warrant inclusion in future iterations.
+
+Second, the perspective-by-perspective approach surfaces cross-group patterns (e.g., banking-sector heterogeneity across EPP-S&D-Renew) that group-level aggregation obscures.
+
+Third, the stakeholder map should be refreshed after April 27–30 Strasbourg plenary to incorporate post-recess positioning shifts.
