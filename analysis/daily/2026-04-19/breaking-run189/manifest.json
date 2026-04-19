@@ -1,0 +1,53 @@
+{
+  "runId": 189,
+  "date": "2026-04-19",
+  "articleType": "breaking",
+  "mode": "ANALYSIS_ONLY",
+  "significanceScore": 14,
+  "significanceThreshold": 25,
+  "newsworthinessGate": "FAIL",
+  "degradedMode": true,
+  "tier2OutageDays": 9,
+  "feedEndpointStatus": {
+    "adopted_texts_feed_today": "EMPTY",
+    "adopted_texts_feed_one_week": "OPERATIONAL",
+    "events_feed": "404",
+    "procedures_feed": "404",
+    "meps_feed": "OPERATIONAL",
+    "documents_feed": "ERROR",
+    "plenary_documents_feed": "ERROR",
+    "committee_documents_feed": "ERROR",
+    "parliamentary_questions_feed": "ERROR"
+  },
+  "apiState": {
+    "metadataAccessible": 101,
+    "contentAccessible": 61,
+    "feedIndexed": 159,
+    "mepCount": 738,
+    "earlyWarningStability": 84
+  },
+  "analysisArtifacts": [
+    "intelligence/significance-scoring.md",
+    "intelligence/cross-run-diff.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md",
+    "classification/significance-classification.md",
+    "documents/document-analysis-index.md"
+  ],
+  "keyFindings": [
+    "Second consecutive metadata regression (104→101): API restoration estimate revised to April 23-26",
+    "USTR Section 301 probability revised down to ~20% based on TA-10-2026-0096 dual-instrument architecture",
+    "March 26 mini-plenary confirmed as five-dimensional diplomatic signal: trade + banking + anti-corruption + digital + investment",
+    "TA-10-2026-0101 content regression confirmed for second consecutive run",
+    "Scenario probability shift: Smooth Return 55%→45%, Prolonged Degradation 15%→30%"
+  ],
+  "forwardMonitoring": {
+    "ustrWindow": "2026-04-21",
+    "bundesratSession": "2026-04-23",
+    "parliamentReturns": "2026-04-27",
+    "firstPostRecessPlenary": "2026-04-28"
+  },
+  "recessSeriesRun": 11,
+  "note": "Easter recess Day 8. Parliament returns April 27."
+}
