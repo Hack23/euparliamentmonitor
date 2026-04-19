@@ -138,13 +138,24 @@ You are the **Translation Agent**. Your ONLY job: take existing English articles
 
 ## ⚡ IMMEDIATE ACTIONS (do these FIRST, before reading anything else)
 
-> **🚨 CRITICAL — SESSION EXPIRY**: The safeoutputs MCP server session EXPIRES after ~10-20 minutes of inactivity. In run #107 (Apr 14), the agent translated 13 files over 65 minutes but only called safeoutputs at the end — every call returned **"session not found"** and ALL translations were lost. In run #126 (Apr 17), the agent's minute-2 checkpoint call returned `"No changes to commit - no commits found"` because the baseline summary.md was not created first; the agent then committed files with `git commit` over 44 minutes and the retry at the end returned `"session not found"` — 17 translations lost. In run #128 (Apr 17), the agent's first checkpoint call ALSO returned `"No changes to commit"` even though the Date Context bash block ran; the agent failed to **retry the checkpoint within 60 seconds** and instead spent ~40 minutes translating, after which every safeoutputs call returned `"session not found"` — 21 translations lost. `git add`/`git commit`/`git push` will NOT save your work — the framework ONLY captures **uncommitted working directory changes** after a successful safeoutputs call. There is NO fallback.
+> **🚨 CRITICAL — HOW SAFEOUTPUTS ACTUALLY WORKS (READ CAREFULLY, THE PROMPT USED TO GET THIS WRONG)**:
+>
+> **Each** call to `safeoutputs___create_pull_request` takes a **snapshot of all current changes relative to the base branch** — that includes **uncommitted working-directory changes plus any commits made since base** — and overwrites the PR's patch with that snapshot. It is **NOT a stream**. Files you edit **or commits you create after** the most recent successful call are NOT in the PR until you call `safeoutputs___create_pull_request` **again**.
+>
+> This means interim `git commit` usage does **not** make changes disappear from safeoutputs by itself: committed-since-base changes are still included in the next successful snapshot. The real risk is waiting too long between successful calls, because the PR only contains whatever was captured by the **latest** successful snapshot. Note also that a subsequent `git reset` (e.g. `git reset --mixed`) can remove commits from future snapshots — so if you ever commit, always **flush first, reset second**.
+>
+> The MCP session also expires after ~10–20 min of inactivity. If the session expires, every subsequent call returns `"session not found"` and there is NO recovery.
+>
+> ⇒ **You MUST call `safeoutputs___create_pull_request` repeatedly throughout the run** — once at min ~2 as the checkpoint, then AGAIN after **every 3 translated files** (see Step 3b "Periodic Flush"), then once more in Step 5 with the final title/body. **Step 5 follows the same snapshot model above; it is not limited to uncommitted working-directory changes only.** This simultaneously (a) refreshes the session so it never idle-times-out and (b) updates the PR patch to include the latest uncommitted and committed-since-base changes.
+>
+> **Past failures** (keep in mind): run #107 called it only at the end → 13 translations lost. Run #126 called it once at min 2 then `git commit`-ted for 44 min → final call returned "session not found" → 17 translations lost. Run #128 tried to retry the checkpoint after 40 min of translating → 21 translations lost. Run #131 (PR #1254) made only ONE successful call at min ~5 (snapshot = baseline only) then translated for 45 min → final call returned "session not found" → 13 translations lost.
 
 1. **Run the Date Context bash block** below (MANDATORY Date Context Establishment section). This block **creates the baseline `summary.md` AND appends an unconditional run marker line** that the checkpoint PR needs — do NOT condense or skip it.
-2. **Call `safeoutputs___create_pull_request` IMMEDIATELY** (within the first 2 minutes, BEFORE translating) with: title=`Translate articles checkpoint — ${ARTICLE_DATE} (run ${RUN_ID})`, body=`Translation checkpoint`, base=`main`, head=`news/translate-${ARTICLE_DATE}-${RUN_ID}`. **If this call returns `"No changes to commit - no commits found"`, you MUST retry within 60 seconds — run ONE short bash block that appends another unique marker line to `${ANALYSIS_DIR}/summary.md` (e.g. `echo "retry $(date -u +%s%N)" >> ${ANALYSIS_DIR}/summary.md`), then call `safeoutputs___create_pull_request` again. Do NOT start translating until this call succeeds. Translating first and retrying later is a GUARANTEED DATA LOSS pattern (see run #128 above).**
-3. **Then immediately proceed to Step 1 (Discovery) and Step 3 (Generation/Translation)** — do NOT spend time on health checks or analysis
+2. **Call `safeoutputs___create_pull_request` IMMEDIATELY** (within the first 2 minutes, BEFORE translating) with: title=`Translate articles checkpoint — ${ARTICLE_DATE} (run ${RUN_ID})`, body=`Translation checkpoint`, base=`main`, head=`news/translate-${ARTICLE_DATE}-${RUN_ID}`. **If this call returns `"No changes to commit - no commits found"`, retry within 60 seconds** using the sandbox-safe retry block shown in the CHECKPOINT section (no adjacent `${RANDOM}${RANDOM}` expansions, no risky nested `$(...)` patterns). Do NOT start translating until this call succeeds.
+3. **Then proceed to Step 1 → Step 3 → Step 3b.** While translating, **call `safeoutputs___create_pull_request` again after every 3 completed files** (see "Periodic Flush" in Step 3b). This is the single most important rule for avoiding data loss.
+4. **In Step 5, call `safeoutputs___create_pull_request` one final time** with the quality-scored title and body.
 
-> Once safeoutputs is called successfully, the framework captures ALL files you create/edit for the rest of the job. Every file you write with `edit`/`create` tools is automatically included in the PR. If you delay this call past ~10 minutes, the session WILL expire and you WILL lose all work.
+> **Why periodic flushing matters**: each call is both a snapshot (captures files written since the last call) AND a keep-alive (resets the session idle timer). 3 files ≈ 5–10 minutes of translation work, which is well inside the 10–20 min session window. If one flush fails with `"session not found"` the remaining files are already captured in the previous flush's patch — bounded data loss, not catastrophic.
 
 > **📚 Reference**: [SHARED_PROMPT_PATTERNS.md](../prompts/SHARED_PROMPT_PATTERNS.md) for EP MCP tools and safe outputs.
 > **📈 World Bank pass-through**: Translation workflows inherit World Bank + chart structure from the source English article. Do not add, remove, or alter `<canvas data-chart-config>` blocks or World Bank citations; the validator (`npx tsx src/utils/validate-articles.ts --date=$TODAY --quality --strict`) treats the translated file as a pass-through and expects the same Chart.js + indicator evidence as the source. See [`analysis/methodologies/worldbank-indicator-mapping.md`](../../analysis/methodologies/worldbank-indicator-mapping.md) for reference only.
@@ -153,7 +164,7 @@ You are the **Translation Agent**. Your ONLY job: take existing English articles
 
 **ALLOWED:** ✅ Create `news/*.html` translations (non-English) | ✅ Read `news/*-en.html` sources | ✅ Write to `analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}/`
 
-**FORBIDDEN:** ❌ Modify English articles, `.github/`, `index*.html`, `package.json` | ❌ Modify `test/` or `e2e/` unless required by an accompanying `src/`/`scripts/` fix (see [SHARED_PROMPT_PATTERNS.md](../prompts/SHARED_PROMPT_PATTERNS.md#minor-typescriptscript-corrections-conditional-allow)) | ❌ Write scripts, translation dictionaries, or batch tools | ❌ Use `sed`/`awk`/regex for translating narrative content | ❌ Use `git add`/`commit`/`push` — these are USELESS, framework does NOT capture committed files, only uncommitted working directory changes | ❌ Call `safeoutputs___noop` — always produce translations | ❌ Exit with analysis-only PR without attempting translation | ❌ Produce a PR with only 1 translated file — minimum is 5
+**FORBIDDEN:** ❌ Modify English articles, `.github/`, `index*.html`, `package.json` | ❌ Modify `test/` or `e2e/` unless required by an accompanying `src/`/`scripts/` fix (see [SHARED_PROMPT_PATTERNS.md](../prompts/SHARED_PROMPT_PATTERNS.md#minor-typescriptscript-corrections-conditional-allow)) | ❌ Write scripts, translation dictionaries, or batch tools | ❌ Use `sed`/`awk`/regex for translating narrative content | ❌ Use `git commit`/`git push` during translation — stay in working-dir-only mode. **Safe rule**: avoid committing entirely; if a commit is ever made, call `safeoutputs___create_pull_request` **immediately** (before any `git reset --mixed` or other reset), because a later reset can remove unflushed commits from subsequent snapshots. One narrow exception: the very first checkpoint may use `git add` + `git commit` on the baseline `summary.md` to force the initial snapshot to succeed — flush immediately before any reset | ❌ Call `safeoutputs___noop` — always produce translations | ❌ Exit with analysis-only PR without attempting translation | ❌ Produce a PR with only 1 translated file — minimum is 5 | ❌ Skip the periodic flush in Step 3b — that is the #1 cause of data loss
 
 > **Minor TypeScript fixes** (max 20 lines in `src/`/`scripts/`) allowed ONLY to unblock translation generation.
 
@@ -219,19 +230,21 @@ sv (Swedish), da (Danish), no (Norwegian), fi (Finnish), de (German), fr (French
 
 | Minutes | Action |
 |---------|--------|
-| 1–2 | Date Context + CHECKPOINT (safeoutputs) |
+| 1–2 | Date Context + CHECKPOINT (safeoutputs call #1) |
 | 2–5 | Discovery (find English articles needing translation) |
 | 5–10 | Generate article HTML files (Step 3) |
-| 10–75 | **AI TRANSLATION — THIS IS YOUR PRIMARY TASK** (Step 3b) |
+| 10–75 | **AI TRANSLATION — THIS IS YOUR PRIMARY TASK** (Step 3b). **Flush safeoutputs after every 3 files** (~every 5–10 min) — calls #2, #3, #4, … |
 | 75–80 | Validate translations (Step 4) — reject untranslated copies |
 | 80–85 | **Write quality-scored summary** (Step 4c) — MANDATORY, no placeholders |
-| 85–90 | Final PR with quality scores |
+| 85–90 | Final `safeoutputs___create_pull_request` with quality scores (last flush, Step 5) |
+
+> **Per-run article-type scope**: Prefer ONE article type (13 language files) per run. A single article × 13 languages ≈ 45–60 min translation time and produces 4–5 periodic flushes (13 / 3 ≈ 4.3). This keeps the total translation window comfortably under the safeoutputs session ceiling. If `article_types` input names multiple types, translate them sequentially and flush between types. If inputs leave `article_types` empty, discovery (Step 1) should cap itself at 1 article type per run.
 
 > **TRANSLATION IS THE PRIORITY**: Spend 65+ minutes translating. Every file MUST have its title, h1, description, and body text fully translated — just changing the lang attribute is NOT a translation. Files that are untranslated copies of English will be automatically REJECTED in Step 4.
 
 > **QUALITY SUMMARY IS MANDATORY**: Step 4c summary.md MUST contain per-language quality scores and a coverage matrix. Placeholders like "_(to be filled)_" are NEVER acceptable. If you run out of time, write what you have — but NEVER leave the template empty.
 
-> **No git commands**: Write files with `edit`/`create` tools → call `safeoutputs___create_pull_request` EARLY (first 2 min). NEVER use `git add`/`commit`/`push` — the framework does NOT capture committed files. Only uncommitted working directory changes are captured after a successful safeoutputs call.
+> **Periodic flush is NOT optional**: Write files with `edit`/`create` tools → call `safeoutputs___create_pull_request` EARLY (first 2 min) → call it AGAIN after every 3 completed translations → call it one more time at the end of Step 5. Each call refreshes the session idle-timer AND snapshots new files into the PR patch. Missing one flush ≈ losing 3 files; missing several ≈ losing all files past the last successful call.
 
 ## MANDATORY Date Context Establishment
 
@@ -334,19 +347,51 @@ fi
 
 Call `safeoutputs___create_pull_request` NOW (if not already called) with title=`Translate articles checkpoint — ${ARTICLE_DATE} (run ${RUN_ID})`, body=`Translation checkpoint`, base=`main`, head=`news/translate-${ARTICLE_DATE}-${RUN_ID}`. Then **immediately proceed to Step 1** — do NOT stop here.
 
-> **🔁 IF THE FIRST CALL FAILS WITH `"No changes to commit - no commits found"`**: this means git did not see any uncommitted change when the safeoutputs handler ran. Do NOT continue to translation — the session will expire long before you get another chance. **Within 60 seconds**, run ONE tiny bash block to force a new uncommitted change, then retry immediately:
+> **🔁 IF THE FIRST CALL FAILS WITH `"No changes to commit - no commits found"`**: this means git did not see any uncommitted change when the safeoutputs handler ran. Do NOT continue to translation — the session will expire long before you get another chance. **Within 60 seconds**, run ONE tiny bash block to force a new uncommitted change, then retry immediately.
+>
+> The AWF shell sandbox rejects adjacent parameter expansions such as `${RANDOM}${RANDOM}` and certain nested `$(...)` combinations. Use the following sandbox-safe retry block verbatim — it avoids those patterns by using plain literal paths, a single-command `date +%s` redirected to a file, and the shell's `$$` (PID) for uniqueness:
 >
 > ```bash
-> cd "${GITHUB_WORKSPACE:-/home/runner/work/euparliamentmonitor/euparliamentmonitor}"
-> mkdir -p "analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}"
-> echo "retry-marker $(date -u +%Y-%m-%dT%H:%M:%SZ) seq=${RANDOM}${RANDOM}" >> "analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}/summary.md"
+> cd "${GITHUB_WORKSPACE:-$PWD}"
+> # Re-derive ARTICLE_DATE exactly the same way as the Date Context bash block above.
+> # Env vars do NOT persist across bash tool calls in gh-aw, so this MUST happen here.
+> # Note: the Date Context block uses `${{ github.event.inputs.article_date }}` — the
+> # only way to access the workflow_dispatch input is via that literal expression,
+> # because there is no `INPUT_ARTICLE_DATE` env var set by this workflow.
+> ARTICLE_DATE="${{ github.event.inputs.article_date || '' }}"
+> if [ -z "$ARTICLE_DATE" ]; then ARTICLE_DATE="${EP_ARTICLE_DATE:-$(date -u +%Y-%m-%d)}"; fi
+> RUN_ID=${GITHUB_RUN_NUMBER:-0}
+> DIR=analysis/daily/$ARTICLE_DATE/translate-run$RUN_ID
+> mkdir -p "$DIR"
+> SEQ=$$-$(date +%s)
+> echo "retry-marker seq=$SEQ" >> "$DIR/summary.md"
 > sync 2>/dev/null || true
-> git status --short -- "analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}/"
+> git status --short -- "$DIR/"
+> echo DONE
 > ```
 >
 > Then call `safeoutputs___create_pull_request` again with the SAME parameters. Keep retrying (at most 3 times, each within 60 seconds) until the call succeeds. Translating first and retrying at minute 40+ is a GUARANTEED DATA LOSS pattern (run #128 lost 21 translations that way).
-
-> **🚫 NEVER use `git add` / `git commit` / `git push`** as a workaround. The framework captures ONLY uncommitted working-directory changes after a successful safeoutputs call. Committing your files HIDES them from the framework and guarantees data loss (run #126 lost 17 translations this way).
+>
+> **Last-resort fallback if three retries still return `"No changes to commit"`**: because safeoutputs computes the patch as `git diff base..HEAD + working-dir`, you can force it to see the baseline by committing it once. This is the ONE exception to the "no git commands" rule and was actually what made run #131's checkpoint succeed. Use **exactly** this block (it re-derives `ARTICLE_DATE`/`RUN_ID`/`DIR` inside the same bash call — env vars do NOT persist from the retry block above — and configures the bot identity, since `git commit` on GitHub-hosted runners fails with "Please tell me who you are" unless `user.name`/`user.email` are set):
+>
+> ```bash
+> cd "${GITHUB_WORKSPACE:-$PWD}"
+> ARTICLE_DATE="${{ github.event.inputs.article_date || '' }}"
+> if [ -z "$ARTICLE_DATE" ]; then ARTICLE_DATE="${EP_ARTICLE_DATE:-$(date -u +%Y-%m-%d)}"; fi
+> RUN_ID=${GITHUB_RUN_NUMBER:-0}
+> DIR=analysis/daily/$ARTICLE_DATE/translate-run$RUN_ID
+> mkdir -p "$DIR"
+> # Ensure a baseline file exists for the commit
+> [ -s "$DIR/summary.md" ] || echo "Translation checkpoint baseline" > "$DIR/summary.md"
+> git checkout -b news/translate-$ARTICLE_DATE-$RUN_ID 2>/dev/null || true
+> git config user.name "github-actions[bot]"
+> git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+> git add "$DIR/summary.md"
+> git commit -m "Translation checkpoint baseline $ARTICLE_DATE run $RUN_ID"
+> git log --oneline -1
+> ```
+>
+> Then call `safeoutputs___create_pull_request` again. Note (per the snapshot model): this committed baseline is included in all subsequent snapshots of this branch. Do NOT run `git reset` between this commit and the final Step 5 flush — if a reset is ever unavoidable, flush first, reset second.
 
 ## MCP Health Check (OPTIONAL — max 30 seconds)
 
@@ -818,14 +863,14 @@ echo "💾 Generation state persisted to $GEN_STATE_FILE"
 
 ```javascript
 // FALLBACK: Call safeoutputs only if NOT already called at minute ~3 checkpoint
-// If already called, skip this block — continue to Step 3b directly
+// If already called, skip this block — the Periodic Flush below will keep the session alive.
 safeoutputs___create_pull_request({
   title: "Translate articles checkpoint — ${ARTICLE_DATE} (run ${RUN_ID})",
   body: "Translation checkpoint for ${ARTICLE_DATE}. Generator output and AI translations captured automatically.",
   base: "main",
   head: "news/translate-${ARTICLE_DATE}-${RUN_ID}"
 })
-// Continue to Step 3b — all subsequent file edits are captured automatically
+// Continue to Step 3b — but remember each file edited after this call is ONLY captured by the NEXT safeoutputs call.
 ```
 
 ## Step 3b: AI Translation — Translate English Content
@@ -836,6 +881,33 @@ safeoutputs___create_pull_request({
 
 > **⚠️ LANGUAGE CORRECTNESS**: When translating a file like `news/DATE-TYPE-es.html`, you MUST translate to SPANISH (not German, not French). The filename suffix (`-es`, `-de`, `-fr`) tells you the target language. The `<html lang="es">` attribute MUST match the filename. **PR #1186 was caused by writing German content into a Spanish-labeled file — this is unacceptable.**
 
+### 🔁 Periodic Flush (CRITICAL — the #1 data-loss prevention rule)
+
+> **After every 3 completed translations**, and again whenever you are about to spend more than ~8 minutes on a single file, you MUST call `safeoutputs___create_pull_request` with the SAME title/body/base/head as the initial checkpoint. Each call:
+>
+> 1. **Snapshots the current working directory** into the PR patch — every translated file you have finished since the last call lands in the PR.
+> 2. **Refreshes the safeoutputs session idle timer** — without this, the session expires after ~10–20 min of inactivity and every subsequent call returns `"session not found"` (total data loss past the last successful flush).
+>
+> **Flush schedule for a 13-language single-article run**:
+> - After files 1–3 translated and lint-clean → flush #2
+> - After files 4–6 → flush #3
+> - After files 7–9 → flush #4
+> - After files 10–12 → flush #5
+> - After file 13 → flush #6 (this is the final Step 5 flush with the quality-scored title/body)
+>
+> **If a flush returns `"session not found"`**: the session is gone and your remaining files for this run will not be saved. Stop translating, write a short note into `${ANALYSIS_DIR}/summary.md` explaining which files were translated in the working directory but could not be flushed, and END the run. Do NOT keep translating — every additional minute is wasted work. The scheduled next run (or the `news-translate-reconciler` workflow) will pick up the gap.
+
+Use this exact javascript pattern for each periodic flush. **Only `base` and `head` MUST be identical to the initial checkpoint** (that is what causes the PR to be updated instead of a new one being created). `title` and `body` may vary per call — a differing body is fine and actually helps debugging by recording which flush this was:
+
+```javascript
+safeoutputs___create_pull_request({
+  title: "Translate articles checkpoint — ${ARTICLE_DATE} (run ${RUN_ID})",
+  body: "Translation checkpoint for ${ARTICLE_DATE} — periodic flush.",
+  base: "main",
+  head: "news/translate-${ARTICLE_DATE}-${RUN_ID}"
+})
+```
+
 ### Translation Method
 
 1. List files to translate: `(git diff --name-only -- news/; git ls-files --others --exclude-standard -- news/) | grep -E '^news/.+-(sv|da|no|fi|de|fr|es|nl|ar|he|ja|ko|zh)\.html$'`
@@ -845,7 +917,8 @@ safeoutputs___create_pull_request({
 5. Keep unchanged: MEP names, abbreviations (EPP, S&D), reference IDs, HTML tags, CSS, URLs
 6. Also translate: `<title>`, `<meta name="description">`, `<meta name="keywords">`, `og:title`, `og:description`, JSON-LD fields
 7. **After finishing each file, run HTMLHint** to validate: `npx htmlhint <file>`. Fix ALL errors before starting the next file. Common issues: unclosed tags, duplicate IDs, missing alt attributes.
-8. **Check elapsed time after each file** — stop at 75 minutes and proceed to Step 5
+8. **After every 3 completed + lint-clean files, call `safeoutputs___create_pull_request`** (see Periodic Flush block above) — this is NOT optional. Track your flush cadence explicitly: count completed files and call safeoutputs at counts 3, 6, 9, 12.
+9. **Check elapsed time after each file** — stop at 75 minutes and proceed to Step 5
 
 > **⚠️ MANDATORY PER-FILE LINT**: After completing translation of EACH file, you MUST run `npx htmlhint news/DATE-TYPE-LANG.html` and fix any errors BEFORE moving to the next file. Do not defer validation until the end or rely on an end-of-run batch lint as a substitute for this per-file check — catch and fix errors immediately while the file context is fresh. A later batch validation in Step 4 is allowed, but only as an additional backstop. Zero HTMLHint errors per file is required.
 
@@ -1170,7 +1243,7 @@ After the bash block above, you MUST use the `edit` tool to write the completed 
 
 ## Step 5: Create Pull Request
 
-> **🛡️ REMINDER — SAFE OUTPUT**: If you have NOT already called `safeoutputs___create_pull_request`, the MCP session is likely EXPIRED by now (sessions expire after ~10-20 min of inactivity). If you get "session not found" errors, it is too late — all work is lost. This is why you MUST call safeoutputs in the first 2 minutes as instructed in IMMEDIATE ACTIONS. If you already called it successfully earlier, this step just updates the PR title/body.
+> **🛡️ REMINDER — FINAL FLUSH**: This is your LAST `safeoutputs___create_pull_request` call. If you have been doing periodic flushes every 3 files (as required by Step 3b), this call simply replaces the PR title/body with the quality-scored version and snapshots any last 1–2 files not yet flushed. If you SKIPPED the periodic flushes and this is only your 2nd-ever call, the session is almost certainly expired already and you will lose everything since the checkpoint — this is why Step 3b's Periodic Flush rule is non-negotiable.
 
 #### MANDATORY Git State Safety Check
 
@@ -1516,10 +1589,11 @@ safeoutputs___create_pull_request({
 
 ## Error Handling
 
-- **Engine crash**: If safeoutputs was called early, framework creates PR with all uncommitted files in working directory
-- **"session not found" from safeoutputs**: The MCP session has expired — all work is lost. This happens if safeoutputs was NOT called within the first ~10 minutes. There is NO recovery. Prevent this by calling safeoutputs in the first 2 minutes as instructed.
-- **`git commit` does NOT help**: The framework ONLY captures uncommitted working directory changes. Using `git add`/`commit`/`push` will PREVENT file capture, not enable it.
+- **Engine crash**: If safeoutputs was called recently (within the last periodic flush), the framework has a patch snapshot up to that flush. Files translated after the last flush are lost.
+- **"session not found" from safeoutputs**: The MCP session has expired. **Bounded data loss**: everything up to the last successful flush is already in the PR patch. Files translated since the last flush are lost. DO NOT keep translating — write a short note to `${ANALYSIS_DIR}/summary.md` listing which files were lost and END the run. Periodic flushing (Step 3b) is the ONLY prevention.
+- **`git commit` during translation**: NOT recommended — the next flush's diff-vs-base may not include committed files if Step 5's safety reset is not reached. The ONE exception is the very first checkpoint retry (see CHECKPOINT section last-resort fallback).
 - **Generator failure**: Log error, continue with remaining types. Move to backfill (Phase 2) if all fail.
 - **No English articles today**: Scan backward for missing translations. Improve existing if all complete.
 - **MCP unavailable**: Continue without — translation reads existing HTML, not EP API data
-- **PR creation failure**: Retry once. If still fails, let workflow fail.
+- **PR creation failure (first checkpoint)**: Use the sandbox-safe retry block, then the last-resort `git commit` fallback as documented in the CHECKPOINT section. If still failing after 3 retries + fallback, let the workflow fail so the next scheduled run can try cleanly.
+- **Missed periodic flush**: If you realize you've translated 4+ files without a flush, call `safeoutputs___create_pull_request` IMMEDIATELY (before translating one more file). Every minute past the 10-min idle threshold increases session-loss risk.
