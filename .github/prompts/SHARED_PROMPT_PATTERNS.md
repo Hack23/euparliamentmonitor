@@ -327,8 +327,14 @@ The full catalogue for all article types lives in the JSON file; this table is
 an extract for the most common workflow (breaking). When the breaking table and
 the JSON diverge, the JSON is authoritative — update the table.
 
-`npm run validate-analysis` is the enforcement point; per-artifact shortfalls surface
-as `SHORT (52 < 250 lines)` entries. See
+`npm run validate-analysis` is the enforcement point. The validator applies
+per-artifact floors to **every manifest-listed file that has a threshold
+entry** — not just the mandatory required set — so the `risk-scoring/*`,
+`documents/*`, and `classification/*` rows above are machine-enforced once
+those files are registered in `manifest.files.*`. Per-artifact shortfalls
+surface as `SHORT (52 < 250 lines)` entries. Files not listed in the manifest
+are still reported as orphans but do not trigger a threshold failure (that is
+a separate completeness signal). See
 [`analysis/methodologies/ai-driven-analysis-guide.md`](../../analysis/methodologies/ai-driven-analysis-guide.md)
 §Rule 22 for the full specification and rationale.
 

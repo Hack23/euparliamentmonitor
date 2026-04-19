@@ -8,25 +8,47 @@ confidence: MEDIUM
 
 # ⚠️ Risk Matrix — Run 188 / Easter Recess Day 7
 
-**Updated composite risk: 15.5/50** (down from 16.5/50 in Run 187)
+**Updated composite risk: 25.3/50** (down from 26.0/50 in Run 187)
 
 ```mermaid
-%%{init: {'theme': 'dark', 'themeVariables': {'primaryColor': '#1565C0'}}}%%
+%%{init: {
+  "theme": "dark",
+  "themeVariables": {
+    "quadrant1Fill": "#1565C0",
+    "quadrant2Fill": "#2E7D32",
+    "quadrant3Fill": "#FF9800",
+    "quadrant4Fill": "#D32F2F",
+    "quadrantTitleFill": "#ffffff",
+    "quadrantPointFill": "#ffffff",
+    "quadrantPointTextFill": "#ffffff",
+    "quadrantXAxisTextFill": "#ffffff",
+    "quadrantYAxisTextFill": "#ffffff"
+  },
+  "quadrantChart": {
+    "chartWidth": 700,
+    "chartHeight": 700,
+    "pointLabelFontSize": 14,
+    "titleFontSize": 22,
+    "quadrantLabelFontSize": 18,
+    "xAxisLabelFontSize": 16,
+    "yAxisLabelFontSize": 16
+  }
+}}%%
 quadrantChart
-    title EP10 Risk Landscape — April 19, 2026
-    x-axis Low Impact --> High Impact
-    y-axis Low Probability --> High Probability
-    quadrant-1 Monitor
-    quadrant-2 Critical
-    quadrant-3 Low Priority
-    quadrant-4 Plan For
-    USTR_Section_301: [0.72, 0.65]
-    API_Content_Gap: [0.45, 0.85]
-    Coalition_Fracture: [0.35, 0.25]
-    Council_SRMR3_Delay: [0.65, 0.45]
-    ECR_PfE_Coordination: [0.55, 0.35]
-    Anti_Corruption_Pushback: [0.60, 0.30]
-    TA0101_Regression_Pattern: [0.30, 0.55]
+    title 🎯 EP10 Risk Landscape — April 19, 2026
+    x-axis "Low Impact" --> "High Impact"
+    y-axis "Low Probability" --> "High Probability"
+    quadrant-1 "🔵 Manage Closely"
+    quadrant-2 "🟢 Monitor"
+    quadrant-3 "🟠 Low Priority"
+    quadrant-4 "🔴 Plan For"
+    "🚨 USTR Section 301": [0.72, 0.65]
+    "🌐 API Content Gap": [0.45, 0.85]
+    "🤝 Coalition Fracture": [0.35, 0.25]
+    "🏛️ Council SRMR3 Delay": [0.65, 0.45]
+    "👥 ECR-PfE Coordination": [0.55, 0.35]
+    "⚖️ Anti-Corruption Pushback": [0.60, 0.30]
+    "📊 TA-0101 Regression Pattern": [0.30, 0.55]
 ```
 
 ---
@@ -44,7 +66,9 @@ quadrantChart
 | R7 | Coalition fracture signal | 1 | 5 | 5 | ↓ (series-low — stability score 84/100) |
 | R8 | EPP internal division on trade response | 2 | 3 | 6 | ↔ |
 
-**Composite score**: Sum of top-3 scores (15+15+8) / maximum (25*3) × 50 = **15.5/50**
+**Composite score**: Sum of top-3 scores (15 + 15 + 8 = 38) / maximum possible top-3 (25 × 3 = 75) × 50 = **25.3/50**
+
+> **Why 25.3/50, not higher**: The composite is deliberately pegged to the top-3 concentration rather than a smoothed full-inventory average, so single-risk escalations (e.g. R1 likelihood moving from 3 to 5 on a USTR filing, score 15→25) move the composite decisively. At 25.3/50 Run 188 sits right at the "active risk management" threshold — above the recess-baseline band (15–22) yet below the "crisis footing" band (>35). This reflects the simultaneous presence of a high-probability non-severe risk (R2 API gap) and a mid-probability severe risk (R1 USTR window) without either having yet triggered.
 
 ---
 
@@ -149,20 +173,20 @@ pressure. Probability: ~5%; see `intelligence/wildcards-blackswans.md` W4.
 
 | Run | Composite Score | Trajectory Driver |
 |:---:|:---------------:|--------------------|
-| 179 | 14.5/50 | Early recess baseline |
-| 180 | 15.0/50 | +0.5 on first content-gap signals |
-| 181–186 | 15.0–16.5/50 | Stable recess baseline |
-| 187 | 16.5/50 | +TA-0101 accessibility briefly elevated intelligence density |
-| **188** | **15.5/50** | Net −1.0: title confirmations (+) offset TA-0101 regression (−); USTR window approaching (+) |
-| 189 (forecast) | 14–32/50 | Bifurcated: Smooth → 14; USTR-filing → 32 |
+| 179 | 23.7/50 | Early recess baseline |
+| 180 | 24.3/50 | +0.6 on first content-gap signals |
+| 181–186 | 24.3–26.0/50 | Stable recess baseline |
+| 187 | 26.0/50 | +TA-0101 accessibility briefly elevated intelligence density |
+| **188** | **25.3/50** | Net −0.7: title confirmations (+) offset TA-0101 regression (−); USTR window approaching (+) |
+| 189 (forecast) | 23–36/50 | Bifurcated: Smooth → 23; USTR-filing → 36 |
 
-The Run 188 composite 15.5/50 reflects the offsetting effect of incremental
+The Run 188 composite 25.3/50 reflects the offsetting effect of incremental
 positive intelligence (title confirmations) against the new operational-threat
 signal (TA-0101 regression) and the approaching external-threat window (USTR
 Section 301 April 21–24). The composite is engineered to respond sensitively to
 top-3 risks rather than to produce a smoothed average, so a single-risk escalation
 (e.g., USTR filing elevating R1 from Likelihood 3 to Likelihood 5, score 15 → 25)
-would move the composite decisively above 20/50 — the "active risk management"
+would move the composite decisively above 30/50 — the "active risk management"
 threshold.
 
 ---

@@ -3,25 +3,25 @@ title: "🛡️ Threat Model — Diamond + Attack Trees + Kill Chain for Post-Re
 date: 2026-04-19
 articleType: breaking
 runId: 188
-framework: "Diamond Model + STRIDE + MITRE ATT&CK-style Attack Tree + Lockheed Martin Kill Chain"
+framework: "Diamond Model + Political Process Stress Vectors + MITRE ATT&CK-style Attack Tree + Lockheed Martin Kill Chain"
 threats: 5
 confidence: MEDIUM
 ---
 
 # 🛡️ Threat Model — Post-Recess Strasbourg Plenary (Run 188)
 
-![Framework](https://img.shields.io/badge/Framework-Diamond_+_Kill_Chain_+_STRIDE-blue?style=flat-square)
+![Framework](https://img.shields.io/badge/Framework-Diamond_+_Kill_Chain_+_PPSV-blue?style=flat-square)
 ![Threats](https://img.shields.io/badge/Threats_Modelled-5-red?style=flat-square)
 ![Confidence](https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=flat-square)
 
 > **Purpose**: Apply structured threat-modelling frameworks — Diamond Model (adversary
 > / capability / infrastructure / victim), Lockheed Martin Cyber Kill Chain adapted
-> for political escalation, STRIDE for process-level threat decomposition, and MITRE
-> ATT&CK-style Attack Trees — to the five highest-salience threat vectors facing the
-> European Parliament in the April 19 – June 30 horizon. The analysis feeds directly
-> into `risk-scoring/risk-matrix.md`, into the Scenario B escalation pathway in
-> `intelligence/scenario-forecast.md`, and into the forward-monitoring triggers in
-> `intelligence/synthesis-summary.md`.
+> for political escalation, Political Process Stress Vectors (PPSV) for cross-threat
+> decomposition, and MITRE ATT&CK-style Attack Trees — to the five highest-salience
+> threat vectors facing the European Parliament in the April 19 – June 30 horizon.
+> The analysis feeds directly into `risk-scoring/risk-matrix.md`, into the Scenario B
+> escalation pathway in `intelligence/scenario-forecast.md`, and into the
+> forward-monitoring triggers in `intelligence/synthesis-summary.md`.
 
 ---
 
@@ -37,37 +37,55 @@ confidence: MEDIUM
 
 ---
 
-## STRIDE Assessment — Process-Level Decomposition
+## Political Process Stress Vectors — Cross-Threat Decomposition
 
-STRIDE (Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service,
-Elevation of Privilege) is typically applied to software systems but maps cleanly
-onto political-institutional processes when we substitute "institutional process"
-for "software component":
+The `political-style-guide.md` anti-patterns list bars software-centric threat
+taxonomies like STRIDE/DREAD for political intelligence. The decomposition
+below adapts the same six-axis "what can go wrong at a component interface"
+framing to **political-institutional processes**, using domain-native axis
+names. Combined with the Diamond Model (below), Attack Trees (§T1, T5) and
+Kill Chain (§T1) this gives EP Monitor a multi-framework view consistent with
+the approved Political Threat Landscape + Diamond + Attack Tree + Kill Chain
++ PESTLE stack referenced in the style guide.
 
-| Threat | Spoofing | Tampering | Repudiation | Info Disclosure | DoS (agenda) | Elevation |
-|--------|:--------:|:---------:|:-----------:|:---------------:|:------------:|:---------:|
+| Threat | Misrepresentation | Amendment Subversion | Commitment Reversal | Leakage / Disclosure | Agenda Denial | Procedural Overreach |
+|--------|:-----------------:|:--------------------:|:-------------------:|:--------------------:|:-------------:|:--------------------:|
 | T1 USTR Section 301 | — | — | — | Medium | **HIGH** | Medium |
 | T2 Banking Union delay | — | — | Low | — | **HIGH** | Low |
 | T3 Anti-Corruption subsidiarity | — | Low | Medium | — | Medium | Low |
 | T4 API regression | — | — | **HIGH** | Medium | **HIGH** | — |
 | T5 Coalition fracture | — | — | Medium | Low | **HIGH** | **HIGH** |
 
-Where the STRIDE-to-political mapping is:
-- **Spoofing**: misrepresentation of institutional authority (e.g., false Commission
-  statements) — not applicable to the listed threats.
-- **Tampering**: unauthorised modification of legal texts — relevant mostly to T3
-  (subsidiarity-based text modification through Council amendments).
-- **Repudiation**: denial of previous institutional commitments — T2 (Bundesrat
-  repudiating transposition commitment), T4 (EP API denying content previously
-  accessible), T5 (EPP repudiating prior coalition-support signals).
-- **Info Disclosure**: release of sensitive negotiating information — T1 (USTR
-  publicly naming EU AI Act provisions), T4 (API inconsistency disclosing which
-  texts are in legal-linguistic review).
-- **DoS (agenda)**: flooding the political agenda such that other items cannot be
-  processed — strongest for T1 and T5, moderate for T2, T3, T4.
-- **Elevation of Privilege**: an actor gaining procedural authority beyond their
-  designed role — T1 (USTR elevating from trade dispute to regulatory-sovereignty
-  challenge), T5 (right-flank group elevating to coalition-blocker status).
+Axis definitions (politics-native, not software-centric):
+
+- **Misrepresentation** — false or inflated institutional authority (e.g.,
+  spurious Commission statements, member-state "official" briefings with no
+  coalition backing). Not applicable to the five threats above.
+- **Amendment Subversion** — unauthorised modification of legal text through
+  procedural channels beyond the adopted mandate. Most relevant to T3
+  (subsidiarity-based text modification via Council amendments).
+- **Commitment Reversal** — denial or repudiation of previously recorded
+  institutional commitments. T2 (Bundesrat walking back transposition
+  commitment), T4 (EP API revoking content previously accessible), T5 (EPP
+  retreating from prior coalition-support signals).
+- **Leakage / Disclosure** — release of sensitive negotiating or strategic
+  information. T1 (USTR publicly naming specific EU AI Act provisions), T4
+  (API inconsistency disclosing which texts are still in legal-linguistic
+  review).
+- **Agenda Denial** — flooding or blocking the political agenda so that other
+  items cannot be processed — strongest for T1 and T5, moderate for T2, T3,
+  T4. Structurally comparable to a "denial of service" on parliamentary
+  attention, but the resource being contested is plenary/committee time, not
+  compute.
+- **Procedural Overreach** — an actor acquiring procedural authority beyond
+  their designed institutional role. T1 (USTR elevating from trade dispute
+  to regulatory-sovereignty challenge), T5 (right-flank group elevating to
+  coalition-blocker status).
+
+> **Methodology note**: This matrix is *complementary to*, not a substitute
+> for, the Diamond Model, Attack Tree, and Kill Chain treatments below. The
+> style guide approves multi-framework layering; it only bars the STRIDE
+> taxonomy itself as a software-artefact import.
 
 ---
 
@@ -406,5 +424,5 @@ quadrantChart
 
 ---
 
-*Frameworks: Diamond Model + STRIDE + Attack Trees + Cyber Kill Chain per `analysis/methodologies/political-threat-framework.md`*
+*Frameworks: Diamond Model + Political Process Stress Vectors + Attack Trees + Cyber Kill Chain per `analysis/methodologies/political-threat-framework.md`*
 *Analysis generated: April 19, 2026 | Run 188 | Breaking workflow | Analysis-only mode*

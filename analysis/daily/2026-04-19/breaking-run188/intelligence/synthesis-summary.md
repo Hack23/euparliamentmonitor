@@ -186,7 +186,7 @@ No external OSINT signals of parliamentary significance detected on Easter Sunda
 
 ---
 
-**ELAPSED_MINUTES:** Active analysis time ~30 minutes | Run 188 of Easter Recess Series (Runs 179-188) | Mode: ANALYSIS_ONLY
+**ELAPSED_MINUTES:** 46 | Run 188 of Easter Recess Series (Runs 179-188) | Mode: ANALYSIS_ONLY
 
 ---
 

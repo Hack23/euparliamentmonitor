@@ -166,7 +166,7 @@ Rule 22 introduced in this PR.
 | 8    | Economic context cites ≥3 World Bank indicators | 🟢 PASS        | `economic-context.md` post-expansion                                            |
 | 9    | Stakeholder map ≥12 actors, ≥150 words each    | 🟡 PARTIAL     | Initial 4/12; post-expansion target 12/12                                       |
 | 10   | Scenario forecast = 4 scenarios, Schwartz method| 🟡 PARTIAL     | Initial: scenarios listed, Schwartz method absent; post-expansion: full method  |
-| 11   | Threat model: STRIDE + Attack Tree + Kill Chain | 🟡 PARTIAL     | Initial: STRIDE only; post-expansion: + Attack Tree + USTR Kill Chain           |
+| 11   | Threat model: Diamond + Attack Tree + Kill Chain | 🟡 PARTIAL    | Initial: single-axis decomposition; post-expansion: + Diamond + Attack Tree + USTR Kill Chain + PPSV |
 | 12   | Wildcards ≥6 + Taleb Black Swan reserve         | 🟡 PARTIAL     | Initial: 3 wildcards, no reserve; post-expansion: 8 + 5% reserve                |
 | 13   | Cross-run diff cites prior run's files by path  | 🟢 PASS        | `cross-run-diff.md` cites run187 artifacts by absolute path                     |
 | 14   | Coalition dynamics: all seven major groups      | 🟢 PASS        | EPP, S&D, Renew, Greens/EFA, The Left, PfE, ECR all enumerated                  |

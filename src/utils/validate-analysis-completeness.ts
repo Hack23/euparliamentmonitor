@@ -553,10 +553,7 @@ function computeRequired(articleType: string): readonly string[] {
  * @param manifestErrorCount - Number of manifest-level errors.
  * @returns Total error count used for the pass/fail decision.
  */
-function countErrors(
-  checks: readonly ArtifactCheck[],
-  manifestErrorCount: number
-): number {
+function countErrors(checks: readonly ArtifactCheck[], manifestErrorCount: number): number {
   let errorCount = manifestErrorCount;
   for (const c of checks) {
     if (!c.present) errorCount++;
@@ -617,10 +614,29 @@ function validate(options: CliOptions): ValidationResult {
     )
   );
 
-  const onDiskIntel = walkIntelligenceDir(absRunDir);
-  // O(1)-per-path lookup: convert `required` into a Set for the orphan filter.
+  // Rule 22 supplemental enforcement: any manifest-listed file that has a
+  // per-artifact threshold entry but is NOT in the mandatory `required` set
+  // (e.g. `risk-scoring/*`, `documents/*`, `classification/*`) also has its
+  // depth floor enforced. This keeps `reference-quality-thresholds.json` and
+  // `.github/prompts/SHARED_PROMPT_PATTERNS.md §Per-Artifact Budgets` truthful
+  // about which files are machine-enforced.
   const requiredSet = new Set<string>(required);
-  const orphaned = onDiskIntel.filter((rel) => !listedSet.has(rel) && !requiredSet.has(rel));
+  const supplementalChecks: ArtifactCheck[] = [];
+  for (const [rel, floor] of perArtifactThresholds) {
+    if (requiredSet.has(rel)) continue;
+    if (!listedSet.has(rel)) continue;
+    supplementalChecks.push(
+      inspectArtifact(absRunDir, rel, true, Math.max(floor, options.minLines))
+    );
+  }
+  supplementalChecks.sort((a, b) => a.relativePath.localeCompare(b.relativePath));
+  checks.push(...supplementalChecks);
+
+  const onDiskIntel = walkIntelligenceDir(absRunDir);
+  // O(1)-per-path lookup: build a lookup set that includes both required and
+  // supplemental-threshold artifacts so the orphan filter doesn't flag them.
+  const inspectedSet = new Set<string>(checks.map((c) => c.relativePath));
+  const orphaned = onDiskIntel.filter((rel) => !listedSet.has(rel) && !inspectedSet.has(rel));
 
   // Orphaned files are warnings, not errors (per Rule 6 "contamination risk"
   // they're a signal but not a blocker — a second workflow may legitimately add files)
@@ -673,7 +689,9 @@ function printHeader(result: ValidationResult, minLines: number): void {
   console.log(`📁 Run dir        : ${path.relative(PROJECT_ROOT, result.analysisDir)}`);
   console.log(`🏷️  Article type   : ${result.articleType}`);
   console.log(`📋 Required count : ${result.required.length}`);
-  console.log(`🧾 Min lines/file : ${minLines} (default) — per-artifact floors from Rule 22 thresholds`);
+  console.log(
+    `🧾 Min lines/file : ${minLines} (default) — per-artifact floors from Rule 22 thresholds`
+  );
   console.log('');
 }
 

@@ -11,25 +11,47 @@ confidence: MEDIUM
 **Easter Recess Day 7 | April 19, 2026 | EU Parliament Monitor**
 
 ```mermaid
-%%{init: {'theme': 'dark', 'themeVariables': {'primaryColor': '#1565C0', 'quadrant1Fill': '#1565C0', 'quadrant2Fill': '#2E7D32', 'quadrant3Fill': '#FF9800', 'quadrant4Fill': '#D32F2F'}}}%%
+%%{init: {
+  "theme": "dark",
+  "themeVariables": {
+    "quadrant1Fill": "#1565C0",
+    "quadrant2Fill": "#2E7D32",
+    "quadrant3Fill": "#FF9800",
+    "quadrant4Fill": "#D32F2F",
+    "quadrantTitleFill": "#ffffff",
+    "quadrantPointFill": "#ffffff",
+    "quadrantPointTextFill": "#ffffff",
+    "quadrantXAxisTextFill": "#ffffff",
+    "quadrantYAxisTextFill": "#ffffff"
+  },
+  "quadrantChart": {
+    "chartWidth": 700,
+    "chartHeight": 700,
+    "pointLabelFontSize": 14,
+    "titleFontSize": 22,
+    "quadrantLabelFontSize": 18,
+    "xAxisLabelFontSize": 16,
+    "yAxisLabelFontSize": 16
+  }
+}}%%
 quadrantChart
-    title EP10 SWOT Positioning — April 19, 2026
-    x-axis Weakness --> Strength
-    y-axis Threat --> Opportunity
-    quadrant-1 Opportunities
-    quadrant-2 Strengths
-    quadrant-3 Weaknesses
-    quadrant-4 Threats
-    Grand_Centre_Stability: [0.80, 0.65]
-    March26_Legislative_Sprint: [0.85, 0.75]
-    Title_Confirmations: [0.72, 0.80]
-    API_Degradation: [0.20, 0.25]
-    EPP_Data_Gap: [0.25, 0.40]
-    Tier2_Offline: [0.15, 0.30]
-    Post_Recess_Plenary: [0.70, 0.85]
-    Trade_Leverage: [0.65, 0.70]
-    USTR_Section301: [0.40, 0.20]
-    Banking_Union_Council: [0.45, 0.15]
+    title 🎯 EP10 SWOT Positioning — April 19, 2026
+    x-axis "Weakness" --> "Strength"
+    y-axis "Threat" --> "Opportunity"
+    quadrant-1 "🔵 Opportunities"
+    quadrant-2 "🟢 Strengths"
+    quadrant-3 "🟠 Weaknesses"
+    quadrant-4 "🔴 Threats"
+    "🤝 Grand Centre Stability": [0.80, 0.65]
+    "📋 March 26 Legislative Sprint": [0.85, 0.75]
+    "✅ Title Confirmations": [0.72, 0.80]
+    "🌐 API Degradation": [0.20, 0.25]
+    "🏛️ EPP Data Gap": [0.25, 0.40]
+    "📡 Tier 2 Offline": [0.15, 0.30]
+    "🗓️ Post-Recess Plenary": [0.70, 0.85]
+    "💱 Trade Leverage": [0.65, 0.70]
+    "🚨 USTR Section 301": [0.40, 0.20]
+    "🏦 Banking Union Council": [0.45, 0.15]
 ```
 
 ---
@@ -73,8 +95,8 @@ The EP Open Data Portal's inconsistency in labeling EPP as "PPE" (the French acr
 
 **Severity**: Medium | **Confidence**: 🟢 HIGH | **Trend**: ↔ Persistent, no resolution
 
-### W3: Tier 2 Feed Offline — Events and Procedures Inaccessible (�� HIGH confidence)
-Both `get_events_feed` and `get_procedures_feed` have returned 404 errors consistently across 10 monitoring runs. This means EP Monitor has had zero direct visibility into parliamentary events (committee meetings, hearings, inter-group meetings) and zero direct visibility into new legislative procedure registrations during the entire Easter recess period. While the recess reduces the practical impact (fewer events occur), the absence of Tier 2 data means EP Monitor cannot confirm or deny any extra-ordinary committee activity, emergency hearings, or new procedure registrations that may have occurred.
+### W3: Tier 2 Feed Offline — Events and Procedures Inaccessible (🟢 HIGH confidence)
+Both `get_events_feed` and `get_procedures_feed` have returned 404 errors consistently across 10 monitoring runs. This means EP Monitor has had zero direct visibility into parliamentary events (committee meetings, hearings, inter-group meetings) and zero direct visibility into new legislative procedure registrations during the entire Easter recess period. While the recess reduces the practical impact (fewer events occur), the absence of Tier 2 data means EP Monitor cannot confirm or deny any extraordinary committee activity, emergency hearings, or new procedure registrations that may have occurred.
 
 **Severity**: Medium | **Confidence**: 🟢 HIGH | **Trend**: ↔ Day 7, expected to resolve April 21-23
 

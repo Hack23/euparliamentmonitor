@@ -244,4 +244,60 @@ describe('validate-analysis-completeness — Rule 22 per-artifact depth floors',
     expect(failing.status).toBe(1);
     expect(failing.stdout).toMatch(/SHORT \(200 < 500 lines\)/);
   });
+
+  it('enforces thresholds on supplemental manifest-listed files (risk-scoring/*, documents/*, classification/*)', () => {
+    // Write the mandatory required-set so the gate is not blocked by missing
+    // intelligence artifacts, then add a short supplemental file (listed in
+    // manifest, not part of the required set) with a per-artifact threshold.
+    writeRun(runDir, {});
+    const supplementalRel = 'risk-scoring/risk-matrix.md';
+    fs.mkdirSync(path.join(runDir, 'risk-scoring'), { recursive: true });
+    fs.writeFileSync(path.join(runDir, supplementalRel), synthArtifact(40), 'utf-8');
+
+    // Extend manifest.files with the supplemental entry.
+    const manifestPath = path.join(runDir, 'manifest.json');
+    const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf-8'));
+    manifest.files[supplementalRel] = 'fixture';
+    fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2), 'utf-8');
+
+    fs.writeFileSync(
+      thresholdsFile,
+      JSON.stringify({
+        thresholds: { breaking: { [supplementalRel]: 150 } },
+      })
+    );
+
+    const { status, stdout } = runCli({ analysisDir: runDir, thresholdsFile });
+    expect(status).toBe(1);
+    // Short-file diagnostic must surface the supplemental path and its
+    // per-artifact floor (not the default 30).
+    expect(stdout).toContain(supplementalRel);
+    expect(stdout).toMatch(/SHORT \(40 < 150 lines\)/);
+  });
+
+  it('does NOT enforce supplemental thresholds on files absent from the manifest', () => {
+    // Matches real behaviour: a supplemental threshold only fires when the
+    // file is listed in manifest.files.*. Writing the file to disk without
+    // registering it must not spuriously fail the gate — orphan detection
+    // surfaces that separately.
+    writeRun(runDir, {});
+    fs.mkdirSync(path.join(runDir, 'risk-scoring'), { recursive: true });
+    fs.writeFileSync(
+      path.join(runDir, 'risk-scoring/risk-matrix.md'),
+      synthArtifact(40),
+      'utf-8'
+    );
+
+    fs.writeFileSync(
+      thresholdsFile,
+      JSON.stringify({
+        thresholds: { breaking: { 'risk-scoring/risk-matrix.md': 150 } },
+      })
+    );
+
+    const { status } = runCli({ analysisDir: runDir, thresholdsFile });
+    // Required set is all >= 200 lines (writeRun default), manifest is valid,
+    // supplemental file is not manifest-listed → gate passes.
+    expect(status).toBe(0);
+  });
 });

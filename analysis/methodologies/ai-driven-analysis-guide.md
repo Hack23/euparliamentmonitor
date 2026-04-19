@@ -1097,9 +1097,8 @@ Before v4.6, `validate-analysis-completeness.ts` enforced only a flat floor of 3
 per artifact. This permitted a 50-line `pestle-analysis.md` to pass validation despite
 the reference benchmark being 284 lines. The predictable result: PRs landed the
 machine gate only to fail human review — see Run 188 (`analysis/daily/2026-04-19/breaking-run188/`)
-for the canonical example of that failure mode, and the rejection comment
-[#4276063665](https://github.com/Hack23/euparliamentmonitor/pull/) for the review
-that forced the durable fix rather than a patch-in-place.
+for the canonical example of that failure mode, and the rejection review comment
+[PR #1266 review #4136205799](https://github.com/Hack23/euparliamentmonitor/pull/1266#pullrequestreview-4136205799) that forced the durable fix rather than a patch-in-place.
 
 Rule 22 codifies a file-level expectation that closes the gap **at build time**, not
 at review time.
