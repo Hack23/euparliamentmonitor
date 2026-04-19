@@ -8,7 +8,7 @@ degradedMode: true
 ---
 
 # Synthesis Summary — April Month-Ahead 2026
-**Analysis Date:** 2026-04-19 | **Run:** month-ahead-run5 | **ELAPSED_MINUTES: 8**
+**Analysis Date:** 2026-04-19 | **Run:** month-ahead-run5
 
 ## Executive Summary
 
