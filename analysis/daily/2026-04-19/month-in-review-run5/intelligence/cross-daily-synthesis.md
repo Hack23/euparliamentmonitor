@@ -130,22 +130,16 @@ The Easter recess (April 14–26) created a 23-day window where Parliament was n
 
 The chronological reconstruction reveals a **deliberate 8-week legislative pipeline**:
 
-```
-Weeks 1-3 (Feb 3 - Feb 21): Trilogue conclusions → compromise texts finalised
-    ↓
-Week 4 (Feb 24 - Feb 28): Legal-linguistic verification → texts cleared for committee
-    ↓
-Weeks 5-6 (Mar 3 - Mar 14): Committee final votes (ECON, LIBE, INTA, ENVI) → plenary-ready
-    ↓
-Week 6 (Mar 12): Conference of Presidents → 18-text mini-plenary agenda set
-    ↓
-Week 7 (Mar 9-12): Strasbourg debates → political positions publicly established
-    ↓
-Week 8 (Mar 25-26): Brussels mini-plenary → 18 texts adopted in single day
-    ↓
-Post (Mar 27 - Apr 13): Implementation cascade → Commission activation → recess begins
-    ↓
-Current (Apr 14-19): Monitoring → consequence tracking → retrospective analysis
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
+graph TD
+    A["🏛️ Weeks 1-3 (Feb 3-21): Trilogue conclusions"] --> B["📋 Week 4 (Feb 24-28): Legal-linguistic verification"]
+    B --> C["⚖️ Weeks 5-6 (Mar 3-14): Committee final votes"]
+    C --> D["🎯 Week 6 (Mar 12): Conference of Presidents agenda"]
+    D --> E["🗣️ Week 7 (Mar 9-12): Strasbourg debates"]
+    E --> F["✅ Week 8 (Mar 25-26): Brussels mini-plenary — 18 texts adopted"]
+    F --> G["⚡ Post (Mar 27-Apr 13): Implementation cascade"]
+    G --> H["📊 Current (Apr 14-19): Monitoring & retrospective analysis"]
 ```
 
 ### Key Insight: Legislative Density as Coalition Management Tool
