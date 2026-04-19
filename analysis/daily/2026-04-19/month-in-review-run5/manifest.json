@@ -1,0 +1,121 @@
+{
+  "runId": "b391cced-d8f0-4d03-9c19-ec9478557ec6",
+  "date": "2026-04-19",
+  "articleType": "month-in-review",
+  "articleTypeSlug": "month-in-review-run5",
+  "startTime": "2026-04-19T16:02:50.335Z",
+  "endTime": "2026-04-19T16:02:50.336Z",
+  "articleTypes": [
+    "month-in-review"
+  ],
+  "files": {
+    "intelligence": [
+      "intelligence/analysis-index.md",
+      "intelligence/deep-analysis.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/threat-model.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/economic-context.md",
+      "intelligence/wildcards-blackswans.md"
+    ],
+    "synthesis": [
+      "synthesis/swot-analysis.md",
+      "synthesis/stakeholder-impact.md",
+      "synthesis/synthesis-summary.md"
+    ],
+    "risk": [
+      "risk/risk-matrix.md"
+    ]
+  },
+  "methods": [
+    {
+      "method": "analysis-index",
+      "status": "completed",
+      "outputFile": "intelligence/analysis-index.md",
+      "confidence": "high",
+      "duration": 0,
+      "summary": "Executive summary: March 26 2026 mini-plenary, 18 adopted texts, Banking Union, Anti-Corruption, CSAM"
+    },
+    {
+      "method": "deep-analysis",
+      "status": "completed",
+      "outputFile": "intelligence/deep-analysis.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "8-section deep political intelligence analysis of March 26 legislative package"
+    },
+    {
+      "method": "synthesis-summary",
+      "status": "completed",
+      "outputFile": "intelligence/synthesis-summary.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Cross-cutting synthesis with key intelligence judgements and confidence assessments"
+    },
+    {
+      "method": "pestle-analysis",
+      "status": "completed",
+      "outputFile": "intelligence/pestle-analysis.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "PESTLE framework applied to March 26 package: political, economic, social, technological, legal, environmental"
+    },
+    {
+      "method": "stakeholder-map",
+      "status": "completed",
+      "outputFile": "intelligence/stakeholder-map.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Mendelow grid stakeholder map: EPP, S&D, Renew Europe, national governments, EBA, ECB, civil society"
+    },
+    {
+      "method": "scenario-forecast",
+      "status": "completed",
+      "outputFile": "intelligence/scenario-forecast.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "3 forward scenarios: baseline sprint (~65%), CMDI fracture (~25%), crisis acceleration (~10%)"
+    },
+    {
+      "method": "threat-model",
+      "status": "completed",
+      "outputFile": "intelligence/threat-model.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "6-threat model: Banking Union incompletion, CSAM legal challenge, coalition fragmentation, implementation gaps"
+    },
+    {
+      "method": "historical-baseline",
+      "status": "completed",
+      "outputFile": "intelligence/historical-baseline.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "EP6-EP10 legislative productivity baseline; Banking Union, CSAM, anti-corruption legislative history"
+    },
+    {
+      "method": "economic-context",
+      "status": "completed",
+      "outputFile": "intelligence/economic-context.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "World Bank economic data: Germany GDP contraction, EU trade context, digital economy, anti-corruption costs"
+    },
+    {
+      "method": "wildcards-blackswans",
+      "status": "completed",
+      "outputFile": "intelligence/wildcards-blackswans.md",
+      "confidence": "low",
+      "duration": 0,
+      "summary": "Schwartz wildcards + Taleb black swans: German bank failure, CSAM exodus, US tariff shock, EU crises"
+    }
+  ],
+  "overallConfidence": "medium",
+  "dataSourcesUsed": [
+    "european-parliament-mcp",
+    "world-bank-mcp",
+    "ai-agentic-workflow"
+  ]
+}
