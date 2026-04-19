@@ -166,6 +166,21 @@ fi
 
 **⚡ Progressive safe output strategy**: If article generation hasn't started by minute 35, create an analysis-only PR to preserve work. If articles exist at minute 50, create PR immediately with partial content. Never delay PR creation past minute 50 for "one more improvement." **This minute-50 hard deadline supersedes any later time-budget guidance in this workflow that schedules PR creation after minute 50; those steps must be compressed into the deadline window.**
 
+## 🔁 Safe Outputs Session Keep-Alive (NON-NEGOTIABLE)
+
+> **⚠️ CRITICAL**: The safeoutputs MCP session can expire after ~10–20 minutes of inactivity. This workflow MUST keep the session alive throughout long analysis phases so that the final `safeoutputs___create_pull_request` call succeeds.
+
+**Mandatory heartbeat rule**:
+- First keep-alive call by **minute 10**
+- Then keep-alive at least every **8 minutes** until final PR/noop (at approximately minutes **8, 16, 24, 32, 40, and 48**, or sooner at phase transitions)
+- Use this tool call for heartbeat (does not consume PR quota):
+
+```javascript
+safeoutputs___push_repo_memory({ memory_id: "default" })
+```
+
+If a heartbeat fails with `session not found`, immediately stop further analysis and attempt final safe output with the current working directory state.
+
 ## 🚫 MANDATORY Scope Restriction
 
 > **⚠️ CRITICAL**: This workflow creates article files in the `news/` directory and analysis artifacts in the `analysis/daily/` directory. Aside from those outputs, you MUST NOT modify any other files, except for the limited conditional allowance below for minor necessary fixes in `src/` or `scripts/` (and the matching `test/` / `e2e/` updates strictly required by those fixes).

@@ -170,6 +170,21 @@ fi
 
 **⚡ Progressive safe output strategy**: This workflow creates a checkpoint PR at minute ~3 that automatically captures all subsequent file changes. The hard deadline is therefore already satisfied. At minute 50, finalize remaining work and stop — do NOT call `safeoutputs___create_pull_request` again. **This minute-50 hard deadline supersedes any later time-budget guidance.**
 
+## 🔁 Safe Outputs Session Keep-Alive (NON-NEGOTIABLE)
+
+> **⚠️ CRITICAL**: Even after the checkpoint PR is created at minute ~3, the safeoutputs MCP session can still expire after ~10–20 minutes of inactivity. If the session expires before minute 50, the final patch snapshot (which is what ships to the PR) will be stale or incomplete. This workflow MUST keep the session alive throughout long analysis phases.
+
+**Mandatory heartbeat rule**:
+- First keep-alive call by **minute 10** (after the checkpoint PR call at minute ~3)
+- Then keep-alive at least every **8 minutes** until final work completes (at approximately minutes **10, 18, 26, 34, 42, and 48**, or sooner at phase transitions)
+- Use this tool call for heartbeat (does not consume PR quota; also refreshes the checkpoint PR snapshot):
+
+```javascript
+safeoutputs___push_repo_memory({ memory_id: "default" })
+```
+
+If a heartbeat fails with `session not found`, stop further analysis immediately — the checkpoint PR already contains whatever you had at the most recent successful flush.
+
 ## 🚫 MANDATORY Scope Restriction
 
 > **⚠️ CRITICAL**: This workflow ONLY creates article files in the `news/` directory and analysis artifacts in the `analysis/daily/` directory, except for the limited conditional allowance below for minor, necessary fixes in `src/` or `scripts/` (and the matching `test/` / `e2e/` updates strictly required by those fixes). You MUST NOT modify any other files.
