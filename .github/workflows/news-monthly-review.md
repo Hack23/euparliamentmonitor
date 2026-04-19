@@ -163,6 +163,21 @@ fi
 
 **⚡ Progressive safe output strategy**: If article generation hasn't started by minute 35, create an analysis-only PR to preserve work. If articles exist at minute 50, create PR immediately with partial content. Never delay PR creation past minute 50 for "one more improvement." **This minute-50 hard deadline supersedes any later time-budget guidance in this workflow that schedules PR creation after minute 50; those steps must be compressed into the deadline window.**
 
+## 🔁 Safe Outputs Session Keep-Alive (NON-NEGOTIABLE)
+
+> **⚠️ CRITICAL**: The safeoutputs MCP session can expire after ~10–20 minutes of inactivity. This workflow MUST keep the session alive throughout long analysis phases.
+
+**Mandatory heartbeat rule**:
+- First keep-alive call by **minute 10**
+- Then keep-alive at least every **8 minutes** until final PR/noop
+- Use this tool call for heartbeat (does not consume PR quota):
+
+```javascript
+safeoutputs___push_repo_memory({ memory_id: "default" })
+```
+
+If a heartbeat fails with `session not found`, immediately stop further analysis and attempt final safe output with the current working directory state.
+
 ## 🚫 MANDATORY Scope Restriction
 
 > **⚠️ CRITICAL**: This workflow ONLY creates article files in the `news/` directory and analysis artifacts in the `analysis/daily/` directory, except for the limited conditional allowance below to make minor, necessary fixes in `src/` or `scripts/` (and the matching `test/` / `e2e/` updates strictly required by those fixes) to complete news generation. Outside that exception, you MUST NOT modify any other files.
@@ -352,6 +367,7 @@ Provide macro-level parliamentary intelligence:
   - **Pass 2 (Minutes 43–45, ~2 min)**: 🔁 **MANDATORY ARTICLE READ-BACK & IMPROVEMENT** — Read the ENTIRE generated article from top to bottom. Verify every section has ≥3 analytical paragraphs, specific EP data citations, named actors/MEPs, prose not bullet lists. Add World Bank economic context if missing. Rewrite any section that fails the Economist Test. **DO NOT skip this pass.**
 - **Minutes 45–48**: Validate generated HTML. **🚨 PR MUST be created by minute 50 (HARD DEADLINE).**
 - **Minutes 48–50**: Create PR with `safeoutputs___create_pull_request`
+- **Keep-alive checkpoints**: Call `safeoutputs___push_repo_memory({ memory_id: "default" })` at approximately minutes **8, 16, 24, 32, 40, and 48** (or sooner if phase transitions occur) to prevent safeoutputs session expiry before final PR creation.
 
 > **🛑 EARLY COMPLETION CHECK**: If you reach the PR creation step before minute 45, STOP. Go back and improve your analysis and articles. Read everything again. Add more depth.
 
