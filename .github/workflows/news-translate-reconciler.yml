@@ -169,28 +169,56 @@ jobs:
           # The compiled workflow file name — this is the target of `gh workflow run`.
           WORKFLOW_FILE="news-translate.lock.yml"
 
-          # Read each gap line; one dispatch per (date, type) pair, capped at MAX_DISPATCHES.
-          # We deliberately do NOT dispatch per-slug because the translate workflow picks
-          # up every article of the given type for the given date automatically.
-          SEEN="$RUNNER_TEMP/seen.txt"
-          : > "$SEEN"
+          # Pre-aggregate the gaps: for each unique (date, type) pair, UNION the missing
+          # language codes across ALL slugs that share that key. Without this, the
+          # dedupe-by-(date,type) loop would dispatch using only the first slug's
+          # MISSING list, leaving other slugs' gaps unaddressed for this run.
+          AGG_FILE="$RUNNER_TEMP/gaps.agg.tsv"
+          awk -F'\t' '
+            {
+              key = $1 "|" $3
+              # Track the first-seen slug per key purely for log readability
+              if (!(key in first_slug)) { first_slug[key] = $2 }
+              date[key] = $1
+              type[key] = $3
+              n = split($4, langs, ",")
+              for (i = 1; i <= n; i++) {
+                lang = langs[i]
+                if (lang != "" && !(key SUBSEP lang in seen)) {
+                  seen[key SUBSEP lang] = 1
+                  all_langs[key] = (all_langs[key] == "" ? lang : all_langs[key] "," lang)
+                }
+              }
+            }
+            END {
+              for (key in all_langs) {
+                # Deterministic output: sort the union alphabetically
+                n = split(all_langs[key], arr, ",")
+                for (i = 1; i <= n; i++) {
+                  for (j = i + 1; j <= n; j++) {
+                    if (arr[j] < arr[i]) { t = arr[i]; arr[i] = arr[j]; arr[j] = t }
+                  }
+                }
+                sorted = arr[1]
+                for (i = 2; i <= n; i++) sorted = sorted "," arr[i]
+                print date[key] "\t" first_slug[key] "\t" type[key] "\t" sorted
+              }
+            }
+          ' "$GAPS_FILE" | sort > "$AGG_FILE"
 
+          # The aggregated file has one line per (date, type); dispatch in order,
+          # capped at MAX_DISPATCHES.
           while IFS=$'\t' read -r D SLUG TYPE MISSING; do
             if [ -z "$D" ] || [ -z "$TYPE" ]; then
               continue
             fi
-            KEY="${D}|${TYPE}"
-            if grep -Fxq "$KEY" "$SEEN"; then
-              continue
-            fi
-            echo "$KEY" >> "$SEEN"
 
             if [ "$DISPATCHED" -ge "$MAX_DISPATCHES" ]; then
               echo "⏸️  Dispatch cap (${MAX_DISPATCHES}) reached — remaining gaps will be picked up on the next run."
               break
             fi
 
-            echo "🚀 Dispatching news-translate for date=${D} type=${TYPE} (missing langs: ${MISSING}, slug: ${SLUG})"
+            echo "🚀 Dispatching news-translate for date=${D} type=${TYPE} (union of missing langs: ${MISSING}, first slug: ${SLUG})"
             ATTEMPTED=$((ATTEMPTED + 1))
             # --field passes a string input. We pass only the missing langs so the
             # translate agent focuses its time budget on what's actually needed.
@@ -207,7 +235,7 @@ jobs:
               FAILED=$((FAILED + 1))
               echo "⚠️  Dispatch failed for ${D}/${TYPE} — continuing"
             fi
-          done < "$GAPS_FILE"
+          done < "$AGG_FILE"
 
           echo "✅ Reconciler completed — ${DISPATCHED} successful dispatch(es), ${FAILED} failed, ${ATTEMPTED} attempted."
 
