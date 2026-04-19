@@ -30,10 +30,10 @@ Each item scored on three dimensions (1-5 each): Immediacy × Impact × Coverage
 - **Score: 80/125** 🟡 MEDIUM CONFIDENCE
 - **Justification:** BRRD3 is the legislative "second leg" of the Banking Union reform that SRMR3 begins. Without BRRD3 transposition, member states cannot exercise early-intervention powers envisaged by SRMR3. Germany's structural recession (GDP -0.496% in 2024, -0.87% in 2023) makes BRRD3 burden-sharing politically explosive: the CDU/CSU government must protect Sparkassen from new resolution requirements while nominally supporting Banking Union. The Bundesrat session April 23-25 will be the first formal signal of Germany's Council position.
 
-### 3. US Section 301 Tariff Window — Trade Defense Urgency
+### 3. US Section 301 Tariff Window — Trade Defence Urgency
 - **Immediacy:** 5 (Window opens April 21-24, before Parliament returns)
 - **Impact:** 4 (Parliament already adopted counter-measures; escalation would force extraordinary response)
-- **Coverage Gap:** 3 (trade defense has been covered but Section 301 window timing not highlighted)
+- **Coverage Gap:** 3 (trade defence has been covered but Section 301 window timing not highlighted)
 - **Score: 60/125** 🟡 MEDIUM CONFIDENCE
 - **Justification:** The USTR Section 301 review is the annual mechanism by which the US reviews "unfair trade practices" and can impose additional tariffs. The 2026 window opening coincides with Parliament's recess — creating a democratic accountability gap where the executive (Commission, USTR) acts while Parliament is absent. This is precisely the context in which TA-10-2026-0096 (US tariff counter-measures) was adopted March 26 — a pre-emptive parliamentary mandate. If the USTR acts during the window, the April 28-30 plenary becomes the first democratic response forum.
 
@@ -73,4 +73,4 @@ Each item scored on three dimensions (1-5 each): Immediacy × Impact × Coverage
 - Germany GDP growth: -0.496% (2024), -0.87% (2023) — 2-year recession
 - France GDP growth: +1.19% (2024), +1.44% (2023) — modest recovery
 - Germany unemployment: 3.7% (2025) — structurally low despite recession
-- **Implication:** Germany's recession makes BRRD3 burden-sharing toxic AND US tariff escalation existential for its auto sector. France's relative stability gives Macron government more flexibility on trade defense. This economic divergence will drive political group tensions within EPP.
+- **Implication:** Germany's recession makes BRRD3 burden-sharing toxic AND US tariff escalation existential for its auto sector. France's relative stability gives Macron government more flexibility on trade defence. This economic divergence will drive political group tensions within EPP.

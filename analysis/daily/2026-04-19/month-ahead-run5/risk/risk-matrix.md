@@ -40,9 +40,9 @@ framework: risk-matrix
 - **Mitigation:** Directive includes Commission infringement procedure trigger. JURI committee can request progress reports. Transparency International and GRECO monitoring creates reputational pressure.
 - **Evidence:** Hungary's track record on rule of law conditionality (Article 7, MFF access suspension); Slovak government's stated positions on judicial independence; TA-10-2026-0094 subject matter code COJP.
 
-### RISK-004: EPP Coalition Fracture on Trade Defense
+### RISK-004: EPP Coalition Fracture on Trade Defence
 - **Likelihood:** 2 (Low — EPP has held coalition positions through Q1 2026; German MEPs unhappy but have stayed within group discipline)
-- **Impact:** 5 (Catastrophic for Grand Centre — if 20+ EPP MEPs defect on trade defense, Greens/Left become kingmakers, shifting policy toward more aggressive measures)
+- **Impact:** 5 (Catastrophic for Grand Centre — if 20+ EPP MEPs defect on trade defence, Greens/Left become kingmakers, shifting policy toward more aggressive measures)
 - **Score: 10/25** 🟡 MEDIUM RISK
 - **Mitigation:** EPP leadership (Weber) likely to manage German delegation. Possible "sunset clause" on counter-measures to reassure export-sector MEPs that this is temporary not permanent.
 - **Evidence:** EPP member count ~187; German delegation ~96 of those; auto sector MEPs with Wolfsburg, Munich, Stuttgart constituencies; Sinzig (CDU) and Voss (CDU) previously expressed export concerns.

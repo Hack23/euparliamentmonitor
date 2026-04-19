@@ -11,7 +11,7 @@
     "projectedTier2Restore": "2026-04-21 to 2026-04-23",
     "projectedTier3Restore": "2026-04-25 to 2026-04-27"
   },
-  "analysisArtifacts": 16,
+  "analysisArtifacts": 17,
   "analyticalFrameworks": [
     "Significance Scoring (Immediacy x Impact x Coverage Gap)",
     "5x5 Risk Matrix (Likelihood x Impact)",

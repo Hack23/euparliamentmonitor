@@ -42,7 +42,7 @@ World Bank data: Germany GDP growth -0.496% (2024), -0.87% (2023). Two consecuti
 USTR Section 301 annual review window opens April 21-24. Parliament has already adopted TA-10-2026-0096 (US tariff counter-measures). If USTR imposes additional tariffs during this window, April 28-30 plenary will face emergency trade debate — testing the Grand Centre coalition's cohesion on reciprocity.
 
 ### Finding 5: Grand Centre Coalition Structurally Stable 🟢 HIGH CONFIDENCE
-EPP (~187) + S&D (135) + Renew (77) = ~399 seats (55.4% of 720). No fracture signals during 8-day recess monitoring period (Runs 179-187). Anti-Corruption Directive support cuts across all three groups. However, trade defense creates EPP internal stress from German/Austrian auto-sector MEPs.
+EPP (~187) + S&D (135) + Renew (77) = ~399 seats (55.4% of 720). No fracture signals during 8-day recess monitoring period (Runs 179-187). Anti-Corruption Directive support cuts across all three groups. However, trade defence creates EPP internal stress from German/Austrian auto-sector MEPs.
 
 ### Finding 6: Anti-Corruption Directive — Historic Implementation Stakes 🟢 HIGH CONFIDENCE
 TA-10-2026-0094 represents the first binding EU anti-corruption standard, requiring member states to adopt national strategies, whistleblower protections, and minimum prosecution standards. Implementation oversight (post-adoption monitoring) falls to JURI committee. High civil society attention expected.
