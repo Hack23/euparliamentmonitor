@@ -67,8 +67,9 @@ jobs:
           NON_EN="ar da de es fi fr he ja ko nl no sv zh"
 
           # Validate WINDOW_DAYS is a positive integer with sensible bounds (1..90).
-          if ! [[ "$WINDOW_DAYS" =~ ^[0-9]+$ ]] || [ "$WINDOW_DAYS" -lt 1 ] || [ "$WINDOW_DAYS" -gt 90 ]; then
-            echo "❌ window_days must be an integer between 1 and 90 (got: '$WINDOW_DAYS')" >&2
+          # Reject leading zeros to avoid decimal/octal ambiguity confusion downstream.
+          if ! [[ "$WINDOW_DAYS" =~ ^[1-9][0-9]*$ ]] || [ "$WINDOW_DAYS" -lt 1 ] || [ "$WINDOW_DAYS" -gt 90 ]; then
+            echo "❌ window_days must be an integer between 1 and 90, no leading zeros (got: '$WINDOW_DAYS')" >&2
             exit 2
           fi
 
@@ -156,8 +157,9 @@ jobs:
           set -euo pipefail
 
           # Validate MAX_DISPATCHES is a positive integer with sensible bounds (1..20).
-          if ! [[ "$MAX_DISPATCHES" =~ ^[0-9]+$ ]] || [ "$MAX_DISPATCHES" -lt 1 ] || [ "$MAX_DISPATCHES" -gt 20 ]; then
-            echo "❌ max_dispatches must be an integer between 1 and 20 (got: '$MAX_DISPATCHES')" >&2
+          # Reject leading zeros to avoid decimal/octal ambiguity confusion downstream.
+          if ! [[ "$MAX_DISPATCHES" =~ ^[1-9][0-9]*$ ]] || [ "$MAX_DISPATCHES" -lt 1 ] || [ "$MAX_DISPATCHES" -gt 20 ]; then
+            echo "❌ max_dispatches must be an integer between 1 and 20, no leading zeros (got: '$MAX_DISPATCHES')" >&2
             exit 2
           fi
 
