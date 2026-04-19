@@ -55,14 +55,14 @@ For a full audit, read all 18 artifacts in the order below.
 
 ## Artifact Catalogue
 
-| File | Type | Lines | Status | Threshold |
-|------|------|:-----:|:------:|:---------:|
+| File | Type | Lines | Status | Rule 22 floor |
+|------|------|:-----:|:------:|:-------------:|
 | `intelligence/analysis-index.md` | Index | *(this file)* | ✅ | 160 |
 | `intelligence/synthesis-summary.md` | Synthesis | ≥205 | ✅ | 205 |
 | `intelligence/cross-run-diff.md` | Differential | ≥100 | ✅ | 100 |
-| `intelligence/significance-scoring.md` | Significance | ≥150 | ✅ | 150 (informal) |
+| `intelligence/significance-scoring.md` | Significance | ≥150 | ✅ | 105 |
 | `intelligence/coalition-dynamics.md` | Coalition | ≥135 | ✅ | 135 |
-| `intelligence/political-threat-landscape.md` | Threats | ≥200 | ✅ | 200 (informal) |
+| `intelligence/political-threat-landscape.md` | Threats | ≥200 | ✅ | 90 |
 | `intelligence/pestle-analysis.md` | PESTLE | ≥250 | ✅ | 250 |
 | `intelligence/scenario-forecast.md` | Scenarios | ≥280 | ✅ | 280 |
 | `intelligence/stakeholder-map.md` | Stakeholders | ≥305 | ✅ | 305 |
@@ -70,13 +70,15 @@ For a full audit, read all 18 artifacts in the order below.
 | `intelligence/wildcards-blackswans.md` | Wild cards | ≥275 | ✅ | 275 |
 | `intelligence/historical-baseline.md` | Historical | 286 | ✅ (Phase 0 landed) | 190 |
 | `intelligence/economic-context.md` | Economic | 219 | ✅ (Phase 0 landed) | 185 |
-| `intelligence/reference-analysis-quality.md` | Reference | existing | ✅ | — |
-| `intelligence/mcp-reliability-audit.md` | MCP audit | existing | ✅ | — |
+| `intelligence/reference-analysis-quality.md` | Reference | existing | ✅ | 190 |
+| `intelligence/mcp-reliability-audit.md` | MCP audit | existing | ✅ | 385 |
 | `risk-scoring/risk-matrix.md` | Risk | ≥150 | ✅ | 150 |
 | `risk-scoring/quantitative-swot.md` | SWOT | ≥140 | ✅ | 140 |
-| `documents/document-analysis-index.md` | Documents | ≥160 | ✅ | 160 (informal) |
-| `classification/significance-classification.md` | Classification | ≥120 | ✅ | 120 (informal) |
+| `documents/document-analysis-index.md` | Documents | ≥160 | ✅ | 95 |
+| `classification/significance-classification.md` | Classification | ≥120 | ✅ | 105 |
 | `manifest.json` | Metadata | — | ✅ | — |
+
+> **Note**: the *Lines* column lists workflow target budgets (what the agent aims to produce); the *Rule 22 floor* column is the machine-enforced minimum from `analysis/methodologies/reference-quality-thresholds.json` — validator output is keyed against the latter.
 
 ## Cross-Reference Map
 

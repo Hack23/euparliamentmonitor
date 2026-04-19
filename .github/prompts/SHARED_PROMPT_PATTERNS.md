@@ -300,7 +300,12 @@ marking the analysis phase complete:
 
 1. Open `analysis/methodologies/reference-quality-thresholds.json`.
 2. Read the `thresholds.<articleType>` entry for the current run's article type.
-3. For each listed artifact, verify `wc -l <file>` meets or exceeds the threshold.
+3. For each listed artifact, verify the line count with a method that matches the
+   validator's `text.split('\n').length` counting, for example:
+   `node -e "const fs=require('fs'); console.log(fs.readFileSync(process.argv[1],'utf8').split('\n').length)" <file>`
+   and confirm it meets or exceeds the threshold. Do **not** rely on `wc -l` alone —
+   it can undercount by 1 when a file does not end with a trailing newline, causing
+   confusing "meets budget" vs `SHORT` discrepancies against the validator output.
 4. If any file is short, run Pass 2 on **that specific file** until the budget is met.
    Do not pad; write substantive prose sections, cite sources, add per-item evidence
    anchors.

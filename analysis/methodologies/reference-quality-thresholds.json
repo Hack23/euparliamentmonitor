@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "description": "Per-artifact minimum line-count floors used by src/utils/validate-analysis-completeness.ts to enforce Rule 22 (Per-Artifact Depth Floors) of analysis/methodologies/ai-driven-analysis-guide.md. Values are derived from the Run 184 reference benchmark (analysis/daily/2026-04-18/breaking-run184/) minus a 10% tolerance, rounded down to the nearest 5 lines. A file below its threshold MUST trigger Pass 2; it MUST NOT be shipped with a note. When an articleType × relativePath entry is absent the validator falls back to DEFAULT_MIN_LINES (30).",
+  "description": "Per-artifact minimum line-count floors used by src/utils/validate-analysis-completeness.ts to enforce Rule 22 (Per-Artifact Depth Floors) of analysis/methodologies/ai-driven-analysis-guide.md. Values are derived from the Run 184 reference benchmark (analysis/daily/2026-04-18/breaking-run184/) minus a 10% tolerance, rounded down to the nearest 5 lines. A file below its threshold MUST trigger Pass 2; it MUST NOT be shipped with a note. When an articleType × relativePath entry is absent the validator falls back to the CLI --min-lines flag (DEFAULT_MIN_LINES = 30). When a per-artifact entry is present the effective floor is max(perArtifact, --min-lines), so --min-lines can raise but never lower a configured floor.",
   "referenceBenchmark": {
     "runDir": "analysis/daily/2026-04-18/breaking-run184/",
     "runId": "184",

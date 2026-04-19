@@ -52,7 +52,21 @@ const DEFAULT_MIN_LINES = 30;
  * @returns Map from `relativePath` → per-file `minLines` threshold.
  */
 function loadPerArtifactThresholds(articleType, overrideFile) {
-    const file = overrideFile ?? THRESHOLDS_FILE;
+    // `overrideFile` may be absolute or relative. Relative paths are resolved
+    // against `PROJECT_ROOT` (matching how `--analysis-dir` is resolved) so that
+    // callers invoking the CLI from any working directory get consistent
+    // behaviour; otherwise the file is silently treated as missing and Rule 22
+    // floors fall back to the flat `--min-lines` value.
+    let file;
+    if (overrideFile === undefined) {
+        file = THRESHOLDS_FILE;
+    }
+    else if (path.isAbsolute(overrideFile)) {
+        file = overrideFile;
+    }
+    else {
+        file = path.join(PROJECT_ROOT, overrideFile);
+    }
     if (!fs.existsSync(file))
         return new Map();
     let parsed;
@@ -76,18 +90,25 @@ function loadPerArtifactThresholds(articleType, overrideFile) {
 /**
  * Resolve the effective `minLines` floor for a specific artifact.
  *
- * Prefers the Rule 22 per-artifact threshold when defined for the active
- * `articleType`; otherwise falls back to the flat floor supplied by the CLI
- * (`--min-lines`, default `DEFAULT_MIN_LINES`).
+ * When a Rule 22 per-artifact threshold is defined for the active
+ * `articleType`, the effective floor is `max(perArtifactFloor, flatFallback)`
+ * so `--min-lines` can raise (but never silently lower) a per-artifact floor.
+ * This keeps behaviour consistent between required-set artifacts and
+ * supplemental (manifest-listed) artifacts — both paths apply the same rule.
  *
  * @param relPath - Artifact path relative to the run directory.
  * @param perArtifact - Per-artifact threshold map for the active article type.
- * @param fallback - Flat floor to apply when no per-artifact entry exists.
+ * @param fallback - Flat floor supplied by the CLI (`--min-lines`, default
+ *                   `DEFAULT_MIN_LINES`). Used directly when no per-artifact
+ *                   entry exists; otherwise combined via `max` with the
+ *                   per-artifact entry.
  * @returns Effective `minLines` threshold.
  */
 function effectiveMinLines(relPath, perArtifact, fallback) {
     const configured = perArtifact.get(relPath);
-    return configured ?? fallback;
+    if (configured === undefined)
+        return fallback;
+    return Math.max(configured, fallback);
 }
 /** Placeholder markers that indicate an incomplete analysis artifact */
 const PLACEHOLDER_MARKERS = [
@@ -496,12 +517,12 @@ function validate(options) {
     // about which files are machine-enforced.
     const requiredSet = new Set(required);
     const supplementalChecks = [];
-    for (const [rel, floor] of perArtifactThresholds) {
+    for (const rel of perArtifactThresholds.keys()) {
         if (requiredSet.has(rel))
             continue;
         if (!listedSet.has(rel))
             continue;
-        supplementalChecks.push(inspectArtifact(absRunDir, rel, true, Math.max(floor, options.minLines)));
+        supplementalChecks.push(inspectArtifact(absRunDir, rel, true, effectiveMinLines(rel, perArtifactThresholds, options.minLines)));
     }
     supplementalChecks.sort((a, b) => a.relativePath.localeCompare(b.relativePath));
     checks.push(...supplementalChecks);
