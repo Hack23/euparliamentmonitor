@@ -1093,8 +1093,18 @@ echo "WORKFLOW_START_EPOCH=$WORKFLOW_START_EPOCH" >> "$GITHUB_ENV"
 echo "$WORKFLOW_START_EPOCH" > /tmp/workflow_start_epoch
 
 # --- Run at EVERY phase transition to check elapsed time ---
-# Read the persisted start time (GITHUB_ENV or temp file fallback)
-WORKFLOW_START_EPOCH="${WORKFLOW_START_EPOCH:-$(cat /tmp/workflow_start_epoch 2>/dev/null || date -u +%s)}"
+# Sandbox-safe: avoid nested $() inside $(( ... )) and $(... || ...) chains.
+# Read each command output into its own variable on its own line first,
+# then do arithmetic with plain variables.
+WORKFLOW_START_EPOCH_FILE=$(cat /tmp/workflow_start_epoch 2>/dev/null)
+CURRENT_EPOCH=$(date -u +%s)
+if [ -n "${WORKFLOW_START_EPOCH:-}" ]; then
+  :
+elif [ -n "$WORKFLOW_START_EPOCH_FILE" ]; then
+  WORKFLOW_START_EPOCH=$WORKFLOW_START_EPOCH_FILE
+else
+  WORKFLOW_START_EPOCH=$CURRENT_EPOCH
+fi
 # HARD_DEADLINE_MINUTES MUST be set explicitly by each workflow:
 #   60-minute workflows:  HARD_DEADLINE_MINUTES=50
 #   120-minute workflows: HARD_DEADLINE_MINUTES=100
@@ -1103,7 +1113,8 @@ if [ -z "${HARD_DEADLINE_MINUTES:-}" ]; then
   echo "❌ ERROR: HARD_DEADLINE_MINUTES not set. Set to 50 (60-min) or 100 (120-min)."
   HARD_DEADLINE_MINUTES=50  # safe fallback for 60-min workflows
 fi
-ELAPSED_MINUTES=$(( ($(date -u +%s) - WORKFLOW_START_EPOCH) / 60 ))
+ELAPSED_SECONDS=$((CURRENT_EPOCH - WORKFLOW_START_EPOCH))
+ELAPSED_MINUTES=$((ELAPSED_SECONDS / 60))
 echo "⏰ Elapsed: ${ELAPSED_MINUTES} minutes (hard deadline: ${HARD_DEADLINE_MINUTES})"
 if [ "$ELAPSED_MINUTES" -ge "$HARD_DEADLINE_MINUTES" ]; then
   echo "🚨 HARD DEADLINE REACHED — must create PR or noop NOW"

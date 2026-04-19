@@ -331,9 +331,19 @@ fi
 # existed (e.g. from an earlier attempt of the same run) or was restored from the PR
 # branch. Run #128 (Apr 17) surfaced a case where the baseline creation branch was taken
 # but safeoutputs still returned "No changes to commit" — the unconditional marker
-# eliminates that failure mode. The marker contains RUN_ID + nanosecond epoch so every
-# invocation produces a unique byte-level change.
-RUN_MARKER_LINE="<!-- run-marker: run=${RUN_ID} ts=$(date -u +%Y-%m-%dT%H:%M:%SZ) seq=${RANDOM}${RANDOM} -->"
+# eliminates that failure mode.
+#
+# ⚠️ SANDBOX-SAFE UNIQUENESS: The AWF shell sandbox rejects adjacent parameter
+# expansions such as `${RANDOM}${RANDOM}` ("dangerous shell expansion patterns").
+# Use `$$` (PID) + `$(date +%s%N)` (epoch NANOSECONDS, finer than seconds so
+# repeated calls within the same second still differ) + `$GITHUB_RUN_ATTEMPT`
+# (to disambiguate re-runs of the same workflow run) assigned on their own
+# lines to build a unique seq token without nested/adjacent expansions.
+MARKER_TS=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+MARKER_EPOCH_NS=$(date +%s%N)
+MARKER_RUN_ATTEMPT="${GITHUB_RUN_ATTEMPT:-0}"
+MARKER_SEQ="$$-${MARKER_EPOCH_NS}-${MARKER_RUN_ATTEMPT}"
+RUN_MARKER_LINE="<!-- run-marker: run=${RUN_ID} ts=${MARKER_TS} seq=${MARKER_SEQ} -->"
 printf '%s\n' "${RUN_MARKER_LINE}" >> "${SUMMARY_FILE}"
 sync 2>/dev/null || true
 
@@ -342,7 +352,10 @@ BASELINE_CHANGES=$(git status --porcelain -- "${ANALYSIS_DIR}" 2>/dev/null | wc 
 echo "📋 Baseline changes detected by git: ${BASELINE_CHANGES} (must be ≥1 for checkpoint PR to succeed)"
 if [ "${BASELINE_CHANGES}" -lt 1 ]; then
   echo "⚠️ git did not detect the baseline change — writing a second marker file as fallback."
-  printf 'run=%s epoch=%s seq=%s\n' "${RUN_ID}" "$(date +%s)" "${RANDOM}${RANDOM}" > "${ANALYSIS_DIR}/run-marker.txt"
+  FALLBACK_EPOCH_NS=$(date +%s%N)
+  FALLBACK_RUN_ATTEMPT="${GITHUB_RUN_ATTEMPT:-0}"
+  FALLBACK_SEQ="$$-${FALLBACK_EPOCH_NS}-${FALLBACK_RUN_ATTEMPT}"
+  printf 'run=%s epoch_ns=%s seq=%s\n' "${RUN_ID}" "${FALLBACK_EPOCH_NS}" "${FALLBACK_SEQ}" > "${ANALYSIS_DIR}/run-marker.txt"
   sync 2>/dev/null || true
   BASELINE_CHANGES=$(git status --porcelain -- "${ANALYSIS_DIR}" 2>/dev/null | wc -l)
   echo "📋 Baseline changes after fallback marker: ${BASELINE_CHANGES}"

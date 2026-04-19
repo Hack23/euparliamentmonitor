@@ -194,9 +194,20 @@ See [SHARED_PROMPT_PATTERNS.md Article Content Depth Gates](../prompts/SHARED_PR
 
 **🔄 Check elapsed time at EVERY phase transition** (data retrieval → analysis → generation → validation). Use:
 ```bash
-# Read persisted start time ($GITHUB_ENV or temp file fallback — see SHARED_PROMPT_PATTERNS.md)
-WORKFLOW_START_EPOCH="${WORKFLOW_START_EPOCH:-$(cat /tmp/workflow_start_epoch 2>/dev/null || date -u +%s)}"
-ELAPSED_MINUTES=$(( ($(date -u +%s) - WORKFLOW_START_EPOCH) / 60 ))
+# Sandbox-safe: avoid nested $() inside $(( ... )) and $(... || ...) chains.
+# Read each command output into its own variable on its own line first,
+# then do arithmetic with plain variables.
+WORKFLOW_START_EPOCH_FILE=$(cat /tmp/workflow_start_epoch 2>/dev/null)
+CURRENT_EPOCH=$(date -u +%s)
+if [ -n "${WORKFLOW_START_EPOCH:-}" ]; then
+  :
+elif [ -n "$WORKFLOW_START_EPOCH_FILE" ]; then
+  WORKFLOW_START_EPOCH=$WORKFLOW_START_EPOCH_FILE
+else
+  WORKFLOW_START_EPOCH=$CURRENT_EPOCH
+fi
+ELAPSED_SECONDS=$((CURRENT_EPOCH - WORKFLOW_START_EPOCH))
+ELAPSED_MINUTES=$((ELAPSED_SECONDS / 60))
 echo "⏰ Elapsed: ${ELAPSED_MINUTES} minutes (hard deadline: 100)"
 if [ "$ELAPSED_MINUTES" -ge 100 ]; then
   echo "🚨 HARD DEADLINE REACHED — must create PR or noop NOW"
@@ -204,6 +215,46 @@ fi
 ```
 
 **⚡ Progressive safe output strategy**: If article generation hasn't started by minute 70, create an analysis-only PR to preserve work. If articles exist at minute 100, create PR immediately with partial content. Never delay PR creation past minute 100 for "one more improvement." **This minute-100 hard deadline supersedes any later time-budget guidance in this workflow that schedules PR creation after minute 100; those steps must be compressed into the deadline window.**
+
+## 🔁 Safe Outputs Session Keep-Alive (NON-NEGOTIABLE)
+
+> **⚠️ CRITICAL**: The safeoutputs MCP session can expire after ~10–20 minutes of inactivity. This 120-minute workflow is especially exposed to session expiry — extended analysis and multi-article generation phases can easily exceed the idle window. This workflow MUST keep the session alive throughout so that the final `safeoutputs___create_pull_request` call succeeds.
+
+**Mandatory heartbeat rule**:
+- First keep-alive call by **minute 8**
+- Then keep-alive at least every **8 minutes** until final PR/noop (at approximately minutes **8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, and 96**, or sooner at phase transitions)
+- Use this tool call for heartbeat (does not consume PR quota):
+
+```javascript
+safeoutputs___push_repo_memory({ memory_id: "default" })
+```
+
+If a heartbeat fails with `session not found`, immediately stop further analysis and attempt final safe output with the current working directory state.
+
+## 📞 Bash Tool Call Contract (CRITICAL)
+
+> **⚠️ NON-NEGOTIABLE**: Every time you invoke the `bash` / shell tool, you MUST provide BOTH required fields: `command` AND `description`. Calls that omit either field fail with `Multiple validation errors: - "command": Required, - "description": Required`, waste a tool-call turn, and can stall the workflow.
+>
+> ✅ Correct format:
+> ```json
+> {"command": "echo hello", "description": "Print hello to verify shell works"}
+> ```
+>
+> ❌ Wrong — missing `description`:
+> ```json
+> {"command": "echo hello"}
+> ```
+>
+> ❌ Wrong — missing `command`:
+> ```json
+> {"description": "Print hello"}
+> ```
+>
+> Additionally, to avoid AWF sandbox shell-expansion rejections:
+> - Do NOT nest `$(...)` inside `$(( ... ))` arithmetic — assign command output to a variable on its own line first, then reference the variable.
+> - Do NOT combine `${VAR:-$(cmd || cmd2)}` default-with-fallback — use explicit `if/else` blocks.
+> - Do NOT use adjacent `${RANDOM}${RANDOM}` — use `$$` (PID) and `$(date +%s)` on separate assignment lines.
+> - Avoid putting multiple `$(...)` substitutions inside a single double-quoted string — split onto separate variable assignments.
 
 ## 🚫 MANDATORY Scope Restriction
 
