@@ -1,0 +1,40 @@
+{
+  "runId": "month-ahead-run5",
+  "date": "2026-04-19",
+  "articleType": "month-ahead",
+  "degradedMode": true,
+  "apiStatus": {
+    "tier1": "OPERATIONAL",
+    "tier2": "OFFLINE",
+    "tier3": "OFFLINE"
+  },
+  "analysisArtifacts": 4,
+  "analyticalFrameworks": 5,
+  "compositeRisk": "17.0/50",
+  "significanceScore": "100/125",
+  "publicationDecision": "PUBLISH",
+  "keyTopics": [
+    "Easter recess end April 27",
+    "First Strasbourg plenary April 28-30",
+    "BRRD3 Banking Union completion",
+    "SRMR3 adopted March 26 (TA-10-2026-0092)",
+    "Anti-Corruption Directive TA-10-2026-0094",
+    "US tariff counter-measures TA-10-2026-0096",
+    "Global Gateway TA-10-2026-0104",
+    "USTR Section 301 window April 21-24",
+    "German Bundesrat BRRD3 signals April 23-25",
+    "Grand Centre coalition stable 399/720 seats"
+  ],
+  "worldBankData": {
+    "DE_GDP_GROWTH": [-0.87, -0.496],
+    "FR_GDP_GROWTH": [1.44, 1.19],
+    "DE_UNEMPLOYMENT": [3.4, 3.7]
+  },
+  "files": {
+    "intelligence/analysis-index.md": "Main intelligence index",
+    "intelligence/significance-scoring.md": "Significance and priority scoring",
+    "intelligence/synthesis-summary.md": "Full synthesis with scenarios",
+    "classification/political-classification.md": "Political classification of key texts",
+    "risk/risk-matrix.md": "Likelihood × Impact risk matrix"
+  }
+}
