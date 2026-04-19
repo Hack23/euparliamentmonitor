@@ -350,8 +350,13 @@ Call `safeoutputs___create_pull_request` NOW (if not already called) with title=
 > The AWF shell sandbox rejects `${VAR}` indirect expansion, `${RANDOM}${RANDOM}` adjacent expansions, and some nested `$(...)` combinations. Use the following sandbox-safe retry block verbatim — it avoids all of those patterns by using plain literal paths, a single-command `date +%s` redirected to a file, and the shell's `$$` (PID) for uniqueness:
 >
 > ```bash
-> cd /home/runner/work/euparliamentmonitor/euparliamentmonitor
-> ARTICLE_DATE=$(date -u +%Y-%m-%d)
+> cd "${GITHUB_WORKSPACE:-$PWD}"
+> # Re-derive ARTICLE_DATE the same way the Date Context block does (env vars
+> # do NOT persist across bash tool calls in gh-aw, so re-derive here).
+> # Prefer workflow_dispatch input, else today UTC. This keeps reconciler
+> # back-date dispatches writing into the correct analysis directory.
+> ARTICLE_DATE="${INPUT_ARTICLE_DATE:-}"
+> if [ -z "$ARTICLE_DATE" ]; then ARTICLE_DATE=$(date -u +%Y-%m-%d); fi
 > RUN_ID=${GITHUB_RUN_NUMBER:-0}
 > DIR=analysis/daily/$ARTICLE_DATE/translate-run$RUN_ID
 > mkdir -p "$DIR"
@@ -364,10 +369,17 @@ Call `safeoutputs___create_pull_request` NOW (if not already called) with title=
 >
 > Then call `safeoutputs___create_pull_request` again with the SAME parameters. Keep retrying (at most 3 times, each within 60 seconds) until the call succeeds. Translating first and retrying at minute 40+ is a GUARANTEED DATA LOSS pattern (run #128 lost 21 translations that way).
 >
-> **Last-resort fallback if three retries still return `"No changes to commit"`**: because safeoutputs computes the patch as `git diff base..HEAD + working-dir`, you can force it to see the baseline by committing it once. This is the ONE exception to the "no git commands" rule and was actually what made run #131's checkpoint succeed. Use **exactly** this block:
+> **Last-resort fallback if three retries still return `"No changes to commit"`**: because safeoutputs computes the patch as `git diff base..HEAD + working-dir`, you can force it to see the baseline by committing it once. This is the ONE exception to the "no git commands" rule and was actually what made run #131's checkpoint succeed. Use **exactly** this block (it re-derives `ARTICLE_DATE`/`RUN_ID`/`DIR` inside the same bash call — env vars do NOT persist from the retry block above):
 >
 > ```bash
-> cd /home/runner/work/euparliamentmonitor/euparliamentmonitor
+> cd "${GITHUB_WORKSPACE:-$PWD}"
+> ARTICLE_DATE="${INPUT_ARTICLE_DATE:-}"
+> if [ -z "$ARTICLE_DATE" ]; then ARTICLE_DATE=$(date -u +%Y-%m-%d); fi
+> RUN_ID=${GITHUB_RUN_NUMBER:-0}
+> DIR=analysis/daily/$ARTICLE_DATE/translate-run$RUN_ID
+> mkdir -p "$DIR"
+> # Ensure a baseline file exists for the commit
+> [ -s "$DIR/summary.md" ] || echo "Translation checkpoint baseline" > "$DIR/summary.md"
 > git checkout -b news/translate-$ARTICLE_DATE-$RUN_ID 2>/dev/null || true
 > git add "$DIR/summary.md"
 > git commit -m "Translation checkpoint baseline $ARTICLE_DATE run $RUN_ID"
@@ -880,7 +892,7 @@ safeoutputs___create_pull_request({
 >
 > **If a flush returns `"session not found"`**: the session is gone and your remaining files for this run will not be saved. Stop translating, write a short note into `${ANALYSIS_DIR}/summary.md` explaining which files were translated in the working directory but could not be flushed, and END the run. Do NOT keep translating — every additional minute is wasted work. The scheduled next run (or the `news-translate-reconciler` workflow) will pick up the gap.
 
-Use this exact javascript pattern for each periodic flush (same parameters every time so the PR updates rather than creating a new one):
+Use this exact javascript pattern for each periodic flush. **Only `base` and `head` MUST be identical to the initial checkpoint** (that is what causes the PR to be updated instead of a new one being created). `title` and `body` may vary per call — a differing body is fine and actually helps debugging by recording which flush this was:
 
 ```javascript
 safeoutputs___create_pull_request({

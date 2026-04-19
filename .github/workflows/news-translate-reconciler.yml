@@ -16,7 +16,7 @@ name: "News: Translate Reconciler"
 
 on:
   schedule:
-    # Top of every hour, weekdays and weekends — cheap (no AI, no checkout of content).
+    # Quarter past every hour — cheap (no AI; sparse-checkout of news/ only to scan for gaps).
     - cron: '15 * * * *'
   workflow_dispatch:
     inputs:
@@ -66,11 +66,19 @@ jobs:
           WINDOW_DAYS="${{ github.event.inputs.window_days || '10' }}"
           NON_EN="ar da de es fi fr he ja ko nl no sv zh"
 
-          echo "📅 Scanning last ${WINDOW_DAYS} days for incomplete language coverage..."
+          # Validate WINDOW_DAYS is a positive integer with sensible bounds (1..90).
+          if ! [[ "$WINDOW_DAYS" =~ ^[0-9]+$ ]] || [ "$WINDOW_DAYS" -lt 1 ] || [ "$WINDOW_DAYS" -gt 90 ]; then
+            echo "❌ window_days must be an integer between 1 and 90 (got: '$WINDOW_DAYS')" >&2
+            exit 2
+          fi
+
+          echo "📅 Scanning last ${WINDOW_DAYS} day(s) for incomplete language coverage..."
 
           # Build the set of dates in the window (YYYY-MM-DD, UTC).
+          # seq 0..(WINDOW_DAYS-1) so WINDOW_DAYS=10 scans exactly 10 days (today + 9 prior).
           DATES=""
-          for i in $(seq 0 "${WINDOW_DAYS}"); do
+          LAST_OFFSET=$((WINDOW_DAYS - 1))
+          for i in $(seq 0 "${LAST_OFFSET}"); do
             DATES="$DATES $(date -u -d "-${i} days" +%Y-%m-%d)"
           done
 
@@ -147,7 +155,15 @@ jobs:
         run: |
           set -euo pipefail
 
+          # Validate MAX_DISPATCHES is a positive integer with sensible bounds (1..20).
+          if ! [[ "$MAX_DISPATCHES" =~ ^[0-9]+$ ]] || [ "$MAX_DISPATCHES" -lt 1 ] || [ "$MAX_DISPATCHES" -gt 20 ]; then
+            echo "❌ max_dispatches must be an integer between 1 and 20 (got: '$MAX_DISPATCHES')" >&2
+            exit 2
+          fi
+
           DISPATCHED=0
+          ATTEMPTED=0
+          FAILED=0
           # The compiled workflow file name — this is the target of `gh workflow run`.
           WORKFLOW_FILE="news-translate.lock.yml"
 
@@ -173,20 +189,25 @@ jobs:
             fi
 
             echo "🚀 Dispatching news-translate for date=${D} type=${TYPE} (missing langs: ${MISSING}, slug: ${SLUG})"
-            # --field passes a string input.  We pass only the missing langs so the
+            ATTEMPTED=$((ATTEMPTED + 1))
+            # --field passes a string input. We pass only the missing langs so the
             # translate agent focuses its time budget on what's actually needed.
-            gh workflow run "$WORKFLOW_FILE" \
-              --ref main \
-              --field article_date="$D" \
-              --field article_types="$TYPE" \
-              --field languages="$MISSING" \
-              --field force_translation=true \
-              || echo "⚠️  Dispatch failed for ${D}/${TYPE} — continuing"
-
-            DISPATCHED=$((DISPATCHED + 1))
+            # Only count as dispatched on success — a masked failure would otherwise
+            # prematurely hit the cap without actually starting any runs.
+            if gh workflow run "$WORKFLOW_FILE" \
+                --ref main \
+                --field article_date="$D" \
+                --field article_types="$TYPE" \
+                --field languages="$MISSING" \
+                --field force_translation=true; then
+              DISPATCHED=$((DISPATCHED + 1))
+            else
+              FAILED=$((FAILED + 1))
+              echo "⚠️  Dispatch failed for ${D}/${TYPE} — continuing"
+            fi
           done < "$GAPS_FILE"
 
-          echo "✅ Reconciler completed — ${DISPATCHED} backfill dispatch(es) issued."
+          echo "✅ Reconciler completed — ${DISPATCHED} successful dispatch(es), ${FAILED} failed, ${ATTEMPTED} attempted."
 
       - name: Summary
         if: always()
