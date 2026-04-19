@@ -186,15 +186,17 @@ fi
 > **⚠️ CRITICAL**: Even after the checkpoint PR is created at minute ~3, the safeoutputs MCP session can still expire after ~10–20 minutes of inactivity. If the session expires before minute 50, the final patch snapshot (which is what ships to the PR) will be stale or incomplete. This workflow MUST keep the session alive throughout long analysis phases.
 
 **Mandatory heartbeat rule**:
-- First keep-alive call by **minute 10** (after the checkpoint PR call at minute ~3)
-- Then keep-alive at least every **8 minutes** until final work completes (at approximately minutes **10, 18, 26, 34, 42, and 48**, or sooner at phase transitions)
-- Use this tool call for heartbeat (does not consume PR quota; also refreshes the checkpoint PR snapshot):
+- First keep-alive call by **minute 8** (after the checkpoint PR call at minute ~3)
+- Then keep-alive at least every **8 minutes** until final work completes (at approximately minutes **8, 16, 24, 32, 40, and 48**, or sooner at phase transitions)
+- Use this tool call for heartbeat (does not consume PR quota):
 
 ```javascript
 safeoutputs___push_repo_memory({ memory_id: "default" })
 ```
 
-If a heartbeat fails with `session not found`, stop further analysis immediately — the checkpoint PR already contains whatever you had at the most recent successful flush.
+> **⚠️ IMPORTANT — heartbeat vs PR snapshot are different mechanisms**: `safeoutputs___push_repo_memory` only keeps the MCP session alive; it does **NOT** refresh the checkpoint PR's patch contents. The PR patch is a snapshot taken by each `safeoutputs___create_pull_request` call (see news-translate.md periodic-flush doctrine). Because this workflow uses the minute-~3 checkpoint-PR pattern, you MUST also re-call `safeoutputs___create_pull_request` with the same branch name before minute 50 to replace the checkpoint snapshot with the final analysis/article files; otherwise the PR will ship with only the near-empty minute-3 baseline. Heartbeats keep the session alive long enough to let that final re-snapshot succeed.
+
+If a heartbeat fails with `session not found`, stop further analysis immediately — the checkpoint PR will ship with whatever was in the last successful `safeoutputs___create_pull_request` snapshot, which may be the near-empty minute-3 baseline.
 
 ## 📞 Bash Tool Call Contract (CRITICAL)
 

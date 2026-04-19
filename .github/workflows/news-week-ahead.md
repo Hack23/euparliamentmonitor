@@ -182,7 +182,7 @@ fi
 > **⚠️ CRITICAL**: The safeoutputs MCP session can expire after ~10–20 minutes of inactivity. This workflow MUST keep the session alive throughout long analysis phases so that the final `safeoutputs___create_pull_request` call succeeds.
 
 **Mandatory heartbeat rule**:
-- First keep-alive call by **minute 10**
+- First keep-alive call by **minute 8**
 - Then keep-alive at least every **8 minutes** until final PR/noop (at approximately minutes **8, 16, 24, 32, 40, and 48**, or sooner at phase transitions)
 - Use this tool call for heartbeat (does not consume PR quota):
 
