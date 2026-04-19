@@ -93,6 +93,16 @@ tools:
     max-patch-size: 51200
 
 safe-outputs:
+  # This workflow translates 1 English article into 13 languages per run
+  # (plus scheduled runs may cover 2+ article types). Each translated HTML is
+  # typically 20–40 KB, so a full run patch is commonly 500 KB–2 MB once
+  # analysis artifacts are included. The gh-aw default of 1024 KB is too
+  # small: run 156 (24635614642) had all 26 translations completed by the
+  # agent but safeoutputs rejected the PR with
+  #   "Patch size (1084 KB) exceeds maximum allowed size (1024 KB)"
+  # causing total data loss. Raising to 10 MB gives ample headroom while
+  # still protecting against runaway patches.
+  max-patch-size: 10240
   allowed-domains:
     - data.europarl.europa.eu
     - www.europarl.europa.eu
