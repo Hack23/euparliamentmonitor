@@ -47,15 +47,58 @@ EPP (~187) + S&D (135) + Renew (77) = ~399 seats (55.4% of 720). No fracture sig
 ### Finding 6: Anti-Corruption Directive — Historic Implementation Stakes 🟢 HIGH CONFIDENCE
 TA-10-2026-0094 represents the first binding EU anti-corruption standard, requiring member states to adopt national strategies, whistleblower protections, and minimum prosecution standards. Implementation oversight (post-adoption monitoring) falls to JURI committee. High civil society attention expected.
 
-## Analysis Artifacts
-- `intelligence/analysis-index.md` — This file
-- `intelligence/significance-scoring.md` — Significance and priority scoring
-- `intelligence/synthesis-summary.md` — Full synthesis with scenarios
-- `classification/political-classification.md` — Classification of key texts
-- `risk/risk-matrix.md` — Likelihood × Impact risk matrix
+## Analysis Artifacts (Read-me-first per ai-driven-analysis-guide.md v4.5 Rule 19)
+
+**Core intelligence (start here):**
+- `intelligence/analysis-index.md` — This file (read first)
+- `intelligence/synthesis-summary.md` — Full synthesis with scenarios and forward monitoring
+- `intelligence/significance-scoring.md` — Significance and priority scoring (Immediacy × Impact × Coverage Gap)
+
+**Mandatory Analytical Dimension Matrix (month-ahead = M):**
+- `intelligence/pestle-analysis.md` — PESTLE 6-dimension macro-environmental scan (30-day horizon)
+- `intelligence/stakeholder-map.md` — Mendelow power × interest grid, 16 stakeholders
+- `intelligence/scenario-forecast.md` — Shell 2×2 scenario planning, 4 scenarios, probability + early-warning indicators
+- `risk/risk-matrix.md` — 5×5 likelihood × impact risk matrix with 5 vectors
+- `risk/quantitative-swot.md` — 3+3+3+3 scored SWOT analysis
+- `intelligence/economic-context.md` — World Bank indicator mapping for DE / FR / PL / HU / IT
+- `intelligence/wildcards-blackswans.md` — Schwartz wildcards + Taleb Black Swan reserve (10 events tracked)
+
+**Recommended artifacts (month-ahead = R, upgraded to M-equivalent for reference-quality):**
+- `intelligence/coalition-dynamics.md` — Group composition + pair analysis + defection thresholds
+- `intelligence/cross-run-diff.md` — Run 5 vs Run 4 forecast-track and hypothesis evolution
+- `intelligence/historical-baseline.md` — EP8/EP9/EP10 Year-2 April-May comparison (Rule 17)
+- `intelligence/threat-model.md` — Diamond Model + Attack Trees + Kill Chain for top 3 threats
+- `intelligence/mcp-reliability-audit.md` — 7-defect inventory applied to Run 5 degraded mode
+- `documents/document-analysis-index.md` — Per-text intelligence for TA-10-2026-0092..0104
+
+**Classification:**
+- `classification/political-classification.md` — Political classification of key texts
+
+## Forward-Looking Monitoring Triggers (watch April 20 – May 19)
+
+Summary of triggers detailed in `intelligence/scenario-forecast.md` and `intelligence/threat-model.md`:
+
+1. **USTR press schedule** (April 21) — filing signal
+2. **Bundesrat April 23 agenda publication** — BRRD3 resolution-item signal
+3. **Federal Register April 22–26** — Section 301 filing trigger
+4. **Commission counter-measure activation memo leak** — Scenario B signal
+5. **German Finanzministerium Sparkassen briefing** — Scenario C trigger
+6. **EP API Tier-2 restoration April 22–23** — analytical confidence upgrade
+7. **EP API Tier-3 restoration April 25–27** — full content access
+8. **BRRD3 rapporteur assignment April 28 plenary** — Scenario A validation
+9. **LIBE monitoring framework proposal May plenary** — Anti-Corruption implementation signal
+10. **Brussels mini-plenary May 19 BRRD3 Council position paper** — trilogue opening
 
 ## Data Sources
 - EP Adopted Texts API: 51 texts for 2026 (data.europarl.europa.eu)
-- EP Coalition Dynamics: MCP tool (EP Open Data)
-- World Bank: Germany GDP growth, France GDP growth, Germany unemployment
+- EP Coalition Dynamics: MCP tool (EP Open Data) — LOW confidence (defect #2)
+- World Bank: Germany / France / Poland / Hungary / Italy GDP growth, unemployment, inflation, public debt
+- Prior-run context: breaking-runs 179–187, week-in-review-run12, week-ahead-run14, month-ahead-run4
+
+## Methodology References
+- `analysis/methodologies/ai-driven-analysis-guide.md` v4.5 (Mandatory Analytical Dimension Matrix, Rules 17–21)
+- `analysis/methodologies/political-style-guide.md` v2.3 (Mermaid theming)
+- `analysis/methodologies/political-swot-framework.md` (3+3+3+3 scored SWOT)
+- `analysis/methodologies/political-threat-framework.md` (Diamond + Attack Trees + Kill Chain)
+- `analysis/methodologies/worldbank-indicator-mapping.md` v2.1
 - Editorial Context: Runs 179-187 (month-long recess monitoring series)

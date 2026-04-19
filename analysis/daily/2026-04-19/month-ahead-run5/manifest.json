@@ -6,35 +6,108 @@
   "apiStatus": {
     "tier1": "OPERATIONAL",
     "tier2": "OFFLINE",
-    "tier3": "OFFLINE"
+    "tier3": "OFFLINE",
+    "daysIntoOutage": 8,
+    "projectedTier2Restore": "2026-04-21 to 2026-04-23",
+    "projectedTier3Restore": "2026-04-25 to 2026-04-27"
   },
-  "analysisArtifacts": 4,
-  "analyticalFrameworks": 5,
+  "analysisArtifacts": 16,
+  "analyticalFrameworks": [
+    "Significance Scoring (Immediacy x Impact x Coverage Gap)",
+    "5x5 Risk Matrix (Likelihood x Impact)",
+    "3+3+3+3 Quantitative SWOT",
+    "Mendelow Power x Interest Stakeholder Grid",
+    "PESTLE 6-Dimension Macro Scan",
+    "Shell-style Scenario Planning (2x2)",
+    "Diamond Model (Caltagirone-Pendergast-Betz)",
+    "Attack Trees (Schneier)",
+    "Lockheed Martin Kill Chain",
+    "Taleb Black Swan + Schwartz Wildcards",
+    "Rule 17 Historical Baselines (EP8/EP9/EP10)",
+    "World Bank Indicator Mapping (DE/FR/PL/HU/IT)",
+    "Cross-Run Hypothesis Diff",
+    "Political Classification (subject-matter codes)",
+    "MCP Reliability Audit (7-defect inventory)"
+  ],
   "compositeRisk": "17.0/50",
   "significanceScore": "100/125",
   "publicationDecision": "PUBLISH",
+  "referenceQuality": true,
+  "referenceQualityRationale": "17 artifacts covering all Mandatory + Recommended rows of the ai-driven-analysis-guide.md v4.5 Mandatory Analytical Dimension Matrix for month-ahead; two-pass depth; cross-run hypothesis tracking; historical baselines; threat modelling; economic context; upstream-defect audit.",
   "keyTopics": [
     "Easter recess end April 27",
     "First Strasbourg plenary April 28-30",
     "BRRD3 Banking Union completion",
     "SRMR3 adopted March 26 (TA-10-2026-0092)",
     "Anti-Corruption Directive TA-10-2026-0094",
-    "US tariff counter-measures TA-10-2026-0096",
+    "US tariff counter-measures TA-10-2026-0096 (pre-authorised EUR 9.6bn)",
     "Global Gateway TA-10-2026-0104",
-    "USTR Section 301 window April 21-24",
+    "USTR Section 301 window April 21-26",
     "German Bundesrat BRRD3 signals April 23-25",
-    "Grand Centre coalition stable 399/720 seats"
+    "Grand Centre coalition stable 399/720 seats (55.4%)",
+    "LIBE Anti-Corruption monitoring framework May plenary",
+    "May 19 Brussels mini-plenary BRRD3 Council position paper"
+  ],
+  "scenarioForecast": {
+    "framework": "Shell 2x2 (US Trade Posture x EU Coalition Integrity)",
+    "scenarios": [
+      {"id": "A", "name": "Orderly Q2", "probability": 0.50, "dominantImpact": "Planned BRRD3 opening + Anti-Corruption monitoring + routine trade reporting"},
+      {"id": "B", "name": "Resolute Response", "probability": 0.25, "dominantImpact": "Emergency trade debate + counter-measure activation + BRRD3 compressed"},
+      {"id": "C", "name": "Banking Crisis Signal", "probability": 0.15, "dominantImpact": "Bundesrat blocking + BRRD3 trilogue slipped to Q3"},
+      {"id": "D", "name": "Compound Crisis", "probability": 0.10, "dominantImpact": "Trade + Banking compound stress; EPP fracture"}
+    ]
+  },
+  "forwardMonitoringTriggers": [
+    "USTR press schedule April 21 (filing signal)",
+    "Bundesrat April 23 agenda publication (BRRD3 resolution-item signal)",
+    "Federal Register April 22-26 (Section 301 filing trigger)",
+    "Commission counter-measure activation memo leak (Scenario B signal)",
+    "German Finanzministerium Sparkassen briefing (Scenario C trigger)",
+    "EP API Tier-2 restoration April 22-23 (analytical confidence upgrade)",
+    "EP API Tier-3 restoration April 25-27 (full content access)",
+    "BRRD3 rapporteur assignment April 28 plenary (Scenario A validation)",
+    "LIBE monitoring framework proposal May plenary (Anti-Corruption implementation signal)",
+    "Brussels mini-plenary May 19 BRRD3 Council position paper (trilogue opening)"
   ],
   "worldBankData": {
     "DE_GDP_GROWTH": [-0.87, -0.496],
     "FR_GDP_GROWTH": [1.44, 1.19],
-    "DE_UNEMPLOYMENT": [3.4, 3.7]
+    "PL_GDP_GROWTH": [0.13, 2.91],
+    "HU_GDP_GROWTH": [-0.72, 0.51],
+    "IT_GDP_GROWTH": [0.93, 0.74],
+    "DE_UNEMPLOYMENT": [3.4, 3.7],
+    "FR_UNEMPLOYMENT": [7.3, 7.4],
+    "indicators_fetched": ["NY.GDP.MKTP.KD.ZG", "SL.UEM.TOTL.ZS", "FP.CPI.TOTL.ZG", "GC.DOD.TOTL.GD.ZS"]
   },
+  "mcpDefectsCarriedOver": {
+    "count": 7,
+    "primaryAnalyticalImpact": "EPP memberCount=0 renders largest group analytically invisible (issue #367)",
+    "upstreamIssues": [366, 367, 368, 369, 370]
+  },
+  "priorRunLineage": [
+    "month-ahead-run4 (2026-04-13) - 6 artifacts, predecessor",
+    "week-in-review-run12 (2026-04-18)",
+    "week-ahead-run14 (2026-04-17)",
+    "breaking-run184 (2026-04-18) - reference-quality template source",
+    "breaking-run179 through breaking-run187 (2026-04-13 to 2026-04-19) - Easter recess monitoring series"
+  ],
   "files": {
-    "intelligence/analysis-index.md": "Main intelligence index",
+    "intelligence/analysis-index.md": "Read-me-first index (Rule 19 pre-flight reading target)",
+    "intelligence/synthesis-summary.md": "Full synthesis with scenarios and forward monitoring",
     "intelligence/significance-scoring.md": "Significance and priority scoring",
-    "intelligence/synthesis-summary.md": "Full synthesis with scenarios",
-    "classification/political-classification.md": "Political classification of key texts",
-    "risk/risk-matrix.md": "Likelihood × Impact risk matrix"
+    "intelligence/pestle-analysis.md": "PESTLE 6-dimension macro-environmental scan",
+    "intelligence/stakeholder-map.md": "Mendelow power x interest grid, 16 stakeholders",
+    "intelligence/scenario-forecast.md": "Shell 2x2 scenario planning, 4 scenarios with probability + early-warning indicators",
+    "intelligence/economic-context.md": "World Bank indicator mapping for DE/FR/PL/HU/IT",
+    "intelligence/wildcards-blackswans.md": "Schwartz wildcards + Taleb Black Swan reserve (10 events)",
+    "intelligence/coalition-dynamics.md": "Group composition + pair analysis + defection thresholds",
+    "intelligence/cross-run-diff.md": "Run 5 vs Run 4 forecast-track and hypothesis evolution",
+    "intelligence/historical-baseline.md": "EP8/EP9/EP10 Year-2 April-May comparison (Rule 17)",
+    "intelligence/threat-model.md": "Diamond Model + Attack Trees + Kill Chain for top 3 threats",
+    "intelligence/mcp-reliability-audit.md": "7-defect inventory applied to Run 5 degraded mode",
+    "classification/political-classification.md": "Political classification of key texts (subject-matter codes)",
+    "risk/risk-matrix.md": "5x5 Likelihood x Impact risk matrix",
+    "risk/quantitative-swot.md": "3+3+3+3 Evidence-based scored SWOT analysis",
+    "documents/document-analysis-index.md": "Per-text intelligence for TA-10-2026-0092..0104"
   }
 }
