@@ -287,6 +287,62 @@ Every artifact must carry an explicit **confidence level** (🟢 High / 🟡 Med
 🔴 Low) on its aggregate findings and anchor claims to evidence (dated events, numeric
 indicators, cited frameworks).
 
+### ⚙️ Per-Artifact Budgets (Rule 22 — machine-enforced)
+
+Reference-quality depth is not only a guideline — it is a machine-enforced build gate
+as of `ai-driven-analysis-guide.md` v4.6 (Rule 22). The single source of truth is
+[`analysis/methodologies/reference-quality-thresholds.json`](../../analysis/methodologies/reference-quality-thresholds.json),
+keyed by `articleType × relativePath`. Thresholds are derived from the Run 184
+benchmark minus a 10% tolerance.
+
+**The generating agent MUST treat each threshold as a hard budget per file.** Before
+marking the analysis phase complete:
+
+1. Open `analysis/methodologies/reference-quality-thresholds.json`.
+2. Read the `thresholds.<articleType>` entry for the current run's article type.
+3. For each listed artifact, verify the line count with a method that matches the
+   validator's `text.split('\n').length` counting, for example:
+   `node -e "const fs=require('fs'); console.log(fs.readFileSync(process.argv[1],'utf8').split('\n').length)" <file>`
+   and confirm it meets or exceeds the threshold. Do **not** rely on `wc -l` alone —
+   it can undercount by 1 when a file does not end with a trailing newline, causing
+   confusing "meets budget" vs `SHORT` discrepancies against the validator output.
+4. If any file is short, run Pass 2 on **that specific file** until the budget is met.
+   Do not pad; write substantive prose sections, cite sources, add per-item evidence
+   anchors.
+
+**Breaking-news budgets (summary extract):**
+
+| Artifact                                       | Breaking floor |
+|------------------------------------------------|----------------|
+| `intelligence/pestle-analysis.md`              | 250 lines      |
+| `intelligence/stakeholder-map.md`              | 305 lines      |
+| `intelligence/scenario-forecast.md`            | 280 lines      |
+| `intelligence/threat-model.md`                 | 250 lines      |
+| `intelligence/wildcards-blackswans.md`         | 275 lines      |
+| `intelligence/historical-baseline.md`          | 190 lines      |
+| `intelligence/economic-context.md`             | 185 lines      |
+| `intelligence/synthesis-summary.md`            | 205 lines      |
+| `intelligence/analysis-index.md`               | 160 lines      |
+| `intelligence/coalition-dynamics.md`           | 135 lines      |
+| `intelligence/mcp-reliability-audit.md`        | 385 lines      |
+| `risk-scoring/risk-matrix.md`                  | 150 lines      |
+| `risk-scoring/quantitative-swot.md`            | 140 lines      |
+
+The full catalogue for all article types lives in the JSON file; this table is
+an extract for the most common workflow (breaking). When the breaking table and
+the JSON diverge, the JSON is authoritative — update the table.
+
+`npm run validate-analysis` is the enforcement point. The validator applies
+per-artifact floors to **every manifest-listed file that has a threshold
+entry** — not just the mandatory required set — so the `risk-scoring/*`,
+`documents/*`, and `classification/*` rows above are machine-enforced once
+those files are registered in `manifest.files.*`. Per-artifact shortfalls
+surface as `SHORT (52 < 250 lines)` entries. Files not listed in the manifest
+are still reported as orphans but do not trigger a threshold failure (that is
+a separate completeness signal). See
+[`analysis/methodologies/ai-driven-analysis-guide.md`](../../analysis/methodologies/ai-driven-analysis-guide.md)
+§Rule 22 for the full specification and rationale.
+
 ### 🧭 Prior-Analysis Forward-Looking Mining (MANDATORY — week-ahead, month-ahead, week-in-review, month-in-review)
 
 Forward-looking workflows (anything that previews an upcoming window) MUST mine

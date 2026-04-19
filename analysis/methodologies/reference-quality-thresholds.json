@@ -1,0 +1,123 @@
+{
+  "version": "1.0.0",
+  "description": "Per-artifact minimum line-count floors used by src/utils/validate-analysis-completeness.ts to enforce Rule 22 (Per-Artifact Depth Floors) of analysis/methodologies/ai-driven-analysis-guide.md. Values are derived from the Run 184 reference benchmark (analysis/daily/2026-04-18/breaking-run184/) minus a 10% tolerance, rounded down to the nearest 5 lines. A file below its threshold MUST trigger Pass 2; it MUST NOT be shipped with a note. When an articleType × relativePath entry is absent the validator falls back to the CLI --min-lines flag (DEFAULT_MIN_LINES = 30). When a per-artifact entry is present the effective floor is max(perArtifact, --min-lines), so --min-lines can raise but never lower a configured floor.",
+  "referenceBenchmark": {
+    "runDir": "analysis/daily/2026-04-18/breaking-run184/",
+    "runId": "184",
+    "date": "2026-04-18"
+  },
+  "thresholds": {
+    "breaking": {
+      "intelligence/analysis-index.md": 160,
+      "intelligence/synthesis-summary.md": 205,
+      "intelligence/coalition-dynamics.md": 135,
+      "intelligence/cross-run-diff.md": 100,
+      "intelligence/economic-context.md": 185,
+      "intelligence/historical-baseline.md": 190,
+      "intelligence/mcp-reliability-audit.md": 385,
+      "intelligence/pestle-analysis.md": 250,
+      "intelligence/political-threat-landscape.md": 90,
+      "intelligence/scenario-forecast.md": 280,
+      "intelligence/significance-scoring.md": 105,
+      "intelligence/stakeholder-map.md": 305,
+      "intelligence/threat-model.md": 250,
+      "intelligence/wildcards-blackswans.md": 275,
+      "intelligence/reference-analysis-quality.md": 190,
+      "risk-scoring/risk-matrix.md": 150,
+      "risk-scoring/quantitative-swot.md": 140,
+      "documents/document-analysis-index.md": 95,
+      "classification/significance-classification.md": 105
+    },
+    "week-in-review": {
+      "intelligence/analysis-index.md": 120,
+      "intelligence/synthesis-summary.md": 180,
+      "intelligence/historical-baseline.md": 150,
+      "intelligence/economic-context.md": 150,
+      "intelligence/pestle-analysis.md": 200,
+      "intelligence/stakeholder-map.md": 240,
+      "intelligence/scenario-forecast.md": 220,
+      "intelligence/threat-model.md": 180,
+      "intelligence/wildcards-blackswans.md": 200,
+      "risk-scoring/risk-matrix.md": 120,
+      "risk-scoring/quantitative-swot.md": 120
+    },
+    "month-in-review": {
+      "intelligence/analysis-index.md": 140,
+      "intelligence/synthesis-summary.md": 220,
+      "intelligence/historical-baseline.md": 180,
+      "intelligence/economic-context.md": 180,
+      "intelligence/pestle-analysis.md": 240,
+      "intelligence/stakeholder-map.md": 280,
+      "intelligence/scenario-forecast.md": 260,
+      "intelligence/threat-model.md": 220,
+      "intelligence/wildcards-blackswans.md": 240,
+      "risk-scoring/risk-matrix.md": 140,
+      "risk-scoring/quantitative-swot.md": 140
+    },
+    "week-ahead": {
+      "intelligence/analysis-index.md": 100,
+      "intelligence/synthesis-summary.md": 160,
+      "intelligence/historical-baseline.md": 120,
+      "intelligence/economic-context.md": 120,
+      "intelligence/pestle-analysis.md": 180,
+      "intelligence/stakeholder-map.md": 220,
+      "intelligence/scenario-forecast.md": 200,
+      "intelligence/threat-model.md": 160,
+      "intelligence/wildcards-blackswans.md": 180,
+      "risk-scoring/risk-matrix.md": 100,
+      "risk-scoring/quantitative-swot.md": 100
+    },
+    "month-ahead": {
+      "intelligence/analysis-index.md": 120,
+      "intelligence/synthesis-summary.md": 180,
+      "intelligence/historical-baseline.md": 140,
+      "intelligence/economic-context.md": 140,
+      "intelligence/pestle-analysis.md": 200,
+      "intelligence/stakeholder-map.md": 240,
+      "intelligence/scenario-forecast.md": 220,
+      "intelligence/threat-model.md": 180,
+      "intelligence/wildcards-blackswans.md": 200,
+      "risk-scoring/risk-matrix.md": 120,
+      "risk-scoring/quantitative-swot.md": 120
+    },
+    "committee-reports": {
+      "intelligence/analysis-index.md": 100,
+      "intelligence/synthesis-summary.md": 160,
+      "intelligence/historical-baseline.md": 120,
+      "intelligence/economic-context.md": 120,
+      "intelligence/pestle-analysis.md": 180,
+      "intelligence/stakeholder-map.md": 200,
+      "intelligence/scenario-forecast.md": 180,
+      "intelligence/threat-model.md": 160,
+      "intelligence/wildcards-blackswans.md": 180,
+      "risk-scoring/risk-matrix.md": 100,
+      "risk-scoring/quantitative-swot.md": 100
+    },
+    "motions": {
+      "intelligence/analysis-index.md": 100,
+      "intelligence/synthesis-summary.md": 160,
+      "intelligence/historical-baseline.md": 120,
+      "intelligence/economic-context.md": 120,
+      "intelligence/pestle-analysis.md": 180,
+      "intelligence/stakeholder-map.md": 200,
+      "intelligence/scenario-forecast.md": 180,
+      "intelligence/threat-model.md": 160,
+      "intelligence/wildcards-blackswans.md": 180,
+      "risk-scoring/risk-matrix.md": 100,
+      "risk-scoring/quantitative-swot.md": 100
+    },
+    "propositions": {
+      "intelligence/analysis-index.md": 100,
+      "intelligence/synthesis-summary.md": 160,
+      "intelligence/historical-baseline.md": 120,
+      "intelligence/economic-context.md": 120,
+      "intelligence/pestle-analysis.md": 180,
+      "intelligence/stakeholder-map.md": 200,
+      "intelligence/scenario-forecast.md": 180,
+      "intelligence/threat-model.md": 160,
+      "intelligence/wildcards-blackswans.md": 180,
+      "risk-scoring/risk-matrix.md": 100,
+      "risk-scoring/quantitative-swot.md": 100
+    }
+  }
+}

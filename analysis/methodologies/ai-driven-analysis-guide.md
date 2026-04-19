@@ -1082,6 +1082,96 @@ specific claims).
 
 ---
 
+### Rule 22: Per-Artifact Depth Floors — New in v4.6
+
+Reference-quality analysis is not a subjective judgement. Every article type has a
+machine-readable **per-artifact depth floor** that represents the minimum line count
+below which an artifact is considered a stub. These floors are stored in
+`analysis/methodologies/reference-quality-thresholds.json`, keyed by
+`articleType × relativePath`, and enforced by the pre-flight validator
+`src/utils/validate-analysis-completeness.ts`.
+
+#### Why this rule exists
+
+Before v4.6, `validate-analysis-completeness.ts` enforced only a flat floor of 30 lines
+per artifact. This permitted a 50-line `pestle-analysis.md` to pass validation despite
+the reference benchmark being 284 lines. The predictable result: PRs landed the
+machine gate only to fail human review — see Run 188 (`analysis/daily/2026-04-19/breaking-run188/`)
+for the canonical example of that failure mode, and the rejection review comment
+[PR #1266 review #4136205799](https://github.com/Hack23/euparliamentmonitor/pull/1266#pullrequestreview-4136205799) that forced the durable fix rather than a patch-in-place.
+
+Rule 22 codifies a file-level expectation that closes the gap **at build time**, not
+at review time.
+
+#### Threshold derivation
+
+Every threshold in `reference-quality-thresholds.json` is derived from the **Run 184
+reference benchmark** (`analysis/daily/2026-04-18/breaking-run184/`) minus a **10%
+tolerance**, rounded down to the nearest 5 lines. The 10% tolerance accounts for
+legitimate drift in how a given day's facts split across sections; anything below
+that allowance is a structural shortfall, not style.
+
+When an article type has not yet been benchmarked against a specific reference run,
+its thresholds are set conservatively to ~75–85% of the `breaking` floor on the
+assumption that shorter-cycle article types (`week-ahead`, `committee-reports`,
+`motions`) do not require the same depth as the flagship breaking analysis.
+
+#### Enforcement
+
+When the validator resolves an article's type, it loads the
+`thresholds.<articleType>` entry from the JSON catalogue. For each required
+artifact, it looks up the relative path; if an entry exists, that line count is
+the effective floor. If no entry exists, the validator falls back to the flat
+`--min-lines` value (default 30). This means:
+
+- **New article types** continue to work unchanged until thresholds are added.
+- **New artifacts** under an existing article type enforce only the flat floor
+  until a threshold is added — a soft on-ramp that invites but does not force
+  calibration.
+- **Adjusting a threshold** is a single JSON edit — no code change, no deploy.
+
+A file below its threshold MUST trigger a Pass 2 rewrite. Shipping with a
+"note explaining the shortfall" is a violation; either the artifact is deep
+enough, or Pass 2 happens. The only legitimate path to a lower number is to
+edit the JSON catalogue, which is a separate commit and a separate review
+(because calibrating thresholds downward is itself a significant decision).
+
+#### CLI output
+
+Post-v4.6 validator output displays both observed and required lines per artifact:
+
+```
+❌ SHORT (52 < 250 lines)        intelligence/pestle-analysis.md (52/250 lines)
+✅ ok                            intelligence/historical-baseline.md (286/190 lines)
+```
+
+This makes triage immediate: the failed line and the target are next to each other
+on the same row.
+
+#### Workflow integration
+
+Article-generation workflows (`news-breaking.md`, `news-weekly-review.md`,
+`news-article-generator.md`, and peers) MUST continue to call
+`npm run validate-analysis -- --analysis-dir=<dir> --article-type=<slug>` as the
+first post-analysis gate. No CLI flag change is required: the per-artifact
+thresholds are activated automatically by the presence of the JSON catalogue.
+Workflows SHOULD also display the relevant threshold table (extracted from the
+JSON catalogue) in their preamble so the generating agent has an explicit
+budget per file. See `.github/prompts/SHARED_PROMPT_PATTERNS.md` §Per-Artifact
+Budgets for the integration contract.
+
+#### Test coverage
+
+Unit coverage for Rule 22 resides in `test/unit/validate-analysis-completeness.test.js`
+and must at minimum assert:
+
+1. A file below its per-article threshold fails the gate.
+2. The same file above its per-article threshold passes.
+3. A missing `thresholds.<articleType>` entry falls back to the flat floor.
+4. A missing JSON catalogue file falls back to the flat floor (no crash).
+
+---
+
 ## 🔗 AI-Driven Article Content Generation Protocol
 
 ### The AI-First Content Rule (Rule 12 Extended)
