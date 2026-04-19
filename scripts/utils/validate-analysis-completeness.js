@@ -31,6 +31,64 @@ import { PROJECT_ROOT } from '../constants/config.js';
 // ─── Types ────────────────────────────────────────────────────────────────────
 /** Minimum line count below which an artifact is considered a stub */
 const DEFAULT_MIN_LINES = 30;
+/**
+ * Load the Rule 22 per-artifact threshold catalogue for a given article type.
+ *
+ * Returns a `Map<relativePath, minLines>` containing every per-file floor
+ * defined under `thresholds.<articleType>` in
+ * `analysis/methodologies/reference-quality-thresholds.json`. When the
+ * catalogue file is missing, unreadable, malformed, or lacks an entry for the
+ * article type, an empty map is returned and the caller's flat
+ * `DEFAULT_MIN_LINES` floor applies to every artifact.
+ *
+ * This load is deliberately tolerant: a missing catalogue must not break
+ * existing article types whose depth is still enforced only by the flat floor.
+ *
+ * @param articleType - Article category slug (e.g. `breaking`).
+ * @param overrideFile - Optional absolute path to a thresholds JSON file,
+ *                       overriding the default `THRESHOLDS_FILE`. Intended for
+ *                       tests that need fixture thresholds without touching the
+ *                       repo-wide catalogue.
+ * @returns Map from `relativePath` → per-file `minLines` threshold.
+ */
+function loadPerArtifactThresholds(articleType, overrideFile) {
+    const file = overrideFile ?? THRESHOLDS_FILE;
+    if (!fs.existsSync(file))
+        return new Map();
+    let parsed;
+    try {
+        parsed = JSON.parse(fs.readFileSync(file, 'utf-8'));
+    }
+    catch {
+        return new Map();
+    }
+    const entry = parsed.thresholds?.[articleType];
+    if (!entry || typeof entry !== 'object')
+        return new Map();
+    const result = new Map();
+    for (const [rel, n] of Object.entries(entry)) {
+        if (typeof n === 'number' && Number.isFinite(n) && n > 0) {
+            result.set(rel, n);
+        }
+    }
+    return result;
+}
+/**
+ * Resolve the effective `minLines` floor for a specific artifact.
+ *
+ * Prefers the Rule 22 per-artifact threshold when defined for the active
+ * `articleType`; otherwise falls back to the flat floor supplied by the CLI
+ * (`--min-lines`, default `DEFAULT_MIN_LINES`).
+ *
+ * @param relPath - Artifact path relative to the run directory.
+ * @param perArtifact - Per-artifact threshold map for the active article type.
+ * @param fallback - Flat floor to apply when no per-artifact entry exists.
+ * @returns Effective `minLines` threshold.
+ */
+function effectiveMinLines(relPath, perArtifact, fallback) {
+    const configured = perArtifact.get(relPath);
+    return configured ?? fallback;
+}
 /** Placeholder markers that indicate an incomplete analysis artifact */
 const PLACEHOLDER_MARKERS = [
     '[AI_ANALYSIS_REQUIRED]',
@@ -39,6 +97,12 @@ const PLACEHOLDER_MARKERS = [
     '[TBD]',
     'TODO:',
 ];
+/**
+ * Location of the Rule 22 per-artifact depth-floor catalogue.
+ * When present, per-artifact thresholds defined here override the flat
+ * `DEFAULT_MIN_LINES` floor for matching `articleType × relativePath` tuples.
+ */
+const THRESHOLDS_FILE = path.join(PROJECT_ROOT, 'analysis', 'methodologies', 'reference-quality-thresholds.json');
 /**
  * The seven reference-quality intelligence artifacts per
  * `analysis/methodologies/ai-driven-analysis-guide.md` §Reference-Quality Depth
@@ -101,6 +165,10 @@ function applyArg(arg, opts) {
             opts.minLines = parsed;
         return true;
     }
+    if (arg.startsWith('--thresholds-file=')) {
+        opts.thresholdsFile = arg.slice('--thresholds-file='.length);
+        return true;
+    }
     if (arg === '--json') {
         opts.json = true;
         return true;
@@ -156,6 +224,11 @@ Options:
   --article-type=<slug>    Article category slug (breaking, week-in-review, …).
                            When omitted, inferred from manifest.json.
   --min-lines=<n>          Minimum line count per artifact (default 30).
+                           Used as fallback when no Rule 22 per-artifact
+                           threshold is defined for this article type × path.
+  --thresholds-file=<path> Override the Rule 22 thresholds catalogue (default:
+                           analysis/methodologies/reference-quality-thresholds.json).
+                           Primarily for tests.
   --json                   Emit a JSON report on stdout instead of text.
   --warn-only              Exit 0 on validation failure (report only). Use for
                            local exploration; workflows MUST NOT pass this flag.
@@ -239,15 +312,18 @@ function loadManifest(runDir) {
  * @param runDir - Absolute path to the analysis run directory.
  * @param relPath - Path relative to `runDir` of the artifact to inspect.
  * @param listedInManifest - Whether the artifact appears under `manifest.files.*`.
+ * @param minLines - Effective `minLines` floor (Rule 22 per-artifact threshold
+ *                   when defined for this path, or the flat fallback otherwise).
  * @returns Presence, line count, placeholder findings, and manifest-listing flag.
  */
-function inspectArtifact(runDir, relPath, listedInManifest) {
+function inspectArtifact(runDir, relPath, listedInManifest, minLines) {
     const abs = path.join(runDir, relPath);
     if (!fs.existsSync(abs)) {
         return {
             relativePath: relPath,
             present: false,
             lineCount: 0,
+            minLines,
             placeholdersFound: [],
             listedInManifest,
         };
@@ -264,6 +340,7 @@ function inspectArtifact(runDir, relPath, listedInManifest) {
         relativePath: relPath,
         present: true,
         lineCount,
+        minLines,
         placeholdersFound: placeholders,
         listedInManifest,
     };
@@ -355,17 +432,19 @@ function computeRequired(articleType) {
 /**
  * Count how many artifact checks failed, combined with any manifest errors.
  *
+ * Each check carries its own `minLines` threshold (Rule 22 per-artifact floor
+ * or the flat fallback), so no single `minLines` argument is needed here.
+ *
  * @param checks - Per-artifact inspection results.
- * @param minLines - Minimum required line count.
  * @param manifestErrorCount - Number of manifest-level errors.
  * @returns Total error count used for the pass/fail decision.
  */
-function countErrors(checks, minLines, manifestErrorCount) {
+function countErrors(checks, manifestErrorCount) {
     let errorCount = manifestErrorCount;
     for (const c of checks) {
         if (!c.present)
             errorCount++;
-        else if (c.lineCount < minLines)
+        else if (c.lineCount < c.minLines)
             errorCount++;
         else if (c.placeholdersFound.length > 0)
             errorCount++;
@@ -407,14 +486,15 @@ function validate(options) {
     const articleType = options.articleType ?? manifest.raw.articleType ?? 'unknown';
     const required = computeRequired(articleType);
     const listedSet = new Set(manifest.allListedPaths);
-    const checks = required.map((rel) => inspectArtifact(absRunDir, rel, listedSet.has(rel)));
+    const perArtifactThresholds = loadPerArtifactThresholds(articleType, options.thresholdsFile);
+    const checks = required.map((rel) => inspectArtifact(absRunDir, rel, listedSet.has(rel), effectiveMinLines(rel, perArtifactThresholds, options.minLines)));
     const onDiskIntel = walkIntelligenceDir(absRunDir);
     // O(1)-per-path lookup: convert `required` into a Set for the orphan filter.
     const requiredSet = new Set(required);
     const orphaned = onDiskIntel.filter((rel) => !listedSet.has(rel) && !requiredSet.has(rel));
     // Orphaned files are warnings, not errors (per Rule 6 "contamination risk"
     // they're a signal but not a blocker — a second workflow may legitimately add files)
-    const errorCount = countErrors(checks, options.minLines, manifest.errors.length);
+    const errorCount = countErrors(checks, manifest.errors.length);
     return {
         analysisDir: absRunDir,
         articleType,
@@ -431,16 +511,17 @@ function validate(options) {
 /**
  * Build a list of issue labels for a single artifact check.
  *
+ * Uses the per-check `minLines` (Rule 22 per-artifact floor or flat fallback).
+ *
  * @param c - The artifact check result.
- * @param minLines - Minimum required line count.
  * @returns Array of short issue labels; empty if the artifact passes.
  */
-function artifactIssues(c, minLines) {
+function artifactIssues(c) {
     if (!c.present)
         return ['MISSING'];
     const parts = [];
-    if (c.lineCount < minLines)
-        parts.push(`SHORT (${c.lineCount} < ${minLines} lines)`);
+    if (c.lineCount < c.minLines)
+        parts.push(`SHORT (${c.lineCount} < ${c.minLines} lines)`);
     if (c.placeholdersFound.length > 0) {
         parts.push(`PLACEHOLDERS (${c.placeholdersFound.join(', ')})`);
     }
@@ -452,16 +533,16 @@ function artifactIssues(c, minLines) {
  * Print the header block of a text-mode report.
  *
  * @param result - Validation result.
- * @param minLines - Minimum required line count.
+ * @param minLines - Flat fallback line floor (displayed as the default).
  */
 function printHeader(result, minLines) {
     console.log('━'.repeat(72));
-    console.log('🔍 Analysis Completeness Validator (Rule 19 pre-flight gate)');
+    console.log('🔍 Analysis Completeness Validator (Rule 19 + Rule 22 pre-flight gate)');
     console.log('━'.repeat(72));
     console.log(`📁 Run dir        : ${path.relative(PROJECT_ROOT, result.analysisDir)}`);
     console.log(`🏷️  Article type   : ${result.articleType}`);
     console.log(`📋 Required count : ${result.required.length}`);
-    console.log(`🧾 Min lines/file : ${minLines}`);
+    console.log(`🧾 Min lines/file : ${minLines} (default) — per-artifact floors from Rule 22 thresholds`);
     console.log('');
 }
 /**
@@ -477,7 +558,7 @@ function printFooter(result) {
     else {
         console.log(`❌ Pre-flight gate FAILED — ${result.errorCount} error(s). ` +
             'Article generation MUST NOT proceed.');
-        console.log('   See analysis/methodologies/ai-driven-analysis-guide.md §Rule 19 and');
+        console.log('   See analysis/methodologies/ai-driven-analysis-guide.md §Rule 19 / Rule 22 and');
         console.log('   .github/prompts/SHARED_PROMPT_PATTERNS.md §Article Generation Pre-Flight.');
     }
     console.log('━'.repeat(72));
@@ -486,7 +567,7 @@ function printFooter(result) {
  * Render the full text-mode report to stdout.
  *
  * @param result - Validation result.
- * @param minLines - Minimum required line count threshold.
+ * @param minLines - Flat fallback line floor (per-artifact floors live on each check).
  */
 function renderTextReport(result, minLines) {
     printHeader(result, minLines);
@@ -498,9 +579,9 @@ function renderTextReport(result, minLines) {
     }
     console.log('📊 Artifact checks:');
     for (const c of result.checks) {
-        const issues = artifactIssues(c, minLines);
+        const issues = artifactIssues(c);
         const status = issues.length === 0 ? '✅ ok' : `❌ ${issues.join('; ')}`;
-        const lineInfo = c.present ? ` (${c.lineCount} lines)` : '';
+        const lineInfo = c.present ? ` (${c.lineCount}/${c.minLines} lines)` : '';
         console.log(`   ${status.padEnd(60)} ${c.relativePath}${lineInfo}`);
     }
     if (result.orphanedOnDisk.length > 0) {
