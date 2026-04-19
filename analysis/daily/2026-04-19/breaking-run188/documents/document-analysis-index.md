@@ -143,3 +143,43 @@ This explains why prior runs (179-187) showed "content not available" while the 
 | **TA-10-2026-0104** | **CONFIRMED Run 188 (Global Gateway)** | DATA_UNAVAILABLE |
 
 *4 new title confirmations in Run 188 (bold). 11/15 March 26 texts now identified by title.*
+
+---
+
+## Pass 2 Refinements — Run 188 Intelligence Implications
+
+**Why the title-confirmation breakthrough matters analytically**: The Run 188
+title confirmations for TA-10-2026-0092, 0094, 0096, and 0104 close a 24-day
+intelligence gap during which the four highest-significance texts of EP10's
+most consequential single day had to be inferred from procedure-reference numbers
+and subject-matter codes alone. With titles confirmed, the analytical framework
+can move from structural inference (🟡 Medium confidence) to title-informed
+analysis (🟢 High confidence) on legislative categorisation, while the content-
+layer unavailability continues to constrain detailed vote-margin and amendment
+analysis (🔴 Low confidence).
+
+**The TA-0096 dual-instrument revelation**: The most strategically important of
+the four confirmations is TA-10-2026-0096, whose full title ("Adjustment of
+customs duties **and** opening of tariff quotas") reveals a dual-instrument
+design that was not evident from the procedure reference 2025-0261 alone. This
+refines the Run 188 assessment of EU trade posture from "pure retaliation" to
+"calibrated rules-based response with negotiating flexibility", which in turn
+softens ECR and PfE expected opposition intensity and strengthens Renew and
+EPP-industrialist-wing support on countermeasure activation — see
+`intelligence/stakeholder-map.md` position matrix updates.
+
+**The TA-0101 regression as operational-intelligence signal**: The first observed
+content regression in 10 monitoring runs establishes that EP API content-layer
+accessibility is non-deterministic during legal-linguistic review cycles. This
+finding generalises beyond TA-0101 to any subsequent text: the monitoring team
+must now treat API accessibility as provisional rather than definitive until
+texts are stable across multiple consecutive runs. See
+`intelligence/mcp-reliability-audit.md` candidate-defect #8 for upstream-issue
+tracking and `intelligence/threat-model.md` T4 for the process-level threat
+assessment.
+
+**Forward catalogue for Run 189**: The document-analysis-index will be updated
+in Run 189 with: (a) any new titles confirmed via the metadata endpoint for
+the three remaining unknown-title texts (TA-0093, 0097, 0102); (b) any
+re-accessibility of TA-0101; (c) any content-layer unlocks on TA-0092/0094/0096/
+0104 moving them from title-only to full-content status.

@@ -87,3 +87,30 @@ The MEP feed shows 738 active MEPs. No significant changes from Run 187. No new 
 | Coalition fracture April 28-30 | 5% | 5% | No change — 84/100 stability score |
 | EP emergency resolution on trade | 15% | 18% | Slightly elevated due to USTR window |
 | Banking Union Council delay | 20% | 22% | German Bundesrat signals due; SRMR3 title confirmed |
+
+---
+
+## Pass 2 Refinements — Delta Framework Formalisation
+
+Run 188's cross-run-differential exposes three categories of inter-run intelligence
+transition that should be tracked formally in subsequent runs:
+
+1. **Positive restoration transitions** (DATA_UNAVAILABLE → accessible): Historical
+   baseline across Runs 179–187 showed this as the expected monotonic pattern.
+2. **Negative restoration transitions** (accessible → DATA_UNAVAILABLE): Run 188's
+   TA-0101 regression is the first observation in this category. If more than one
+   such transition is observed in Run 189–191, the non-deterministic-restoration
+   hypothesis upgrades from 🟡 Medium to 🟢 High confidence.
+3. **Metadata-layer revelations** (title-unknown → title-confirmed): The four
+   Run 188 title confirmations represent a qualitatively different transition —
+   not content restoration but metadata-endpoint discovery.
+
+For Run 189 cross-run-diff.md, track:
+- TA-0101 re-accessibility (Category 1, recovery from regression)
+- TA-0092/0094/0096/0104 content-layer unlock (Category 1)
+- Any new text regressions (Category 2)
+- Titles confirmed for TA-0093/0097/0102 (Category 3)
+
+**Composite delta-confidence for Run 188**: 🟢 HIGH — four independent verifiable
+observations (4 title confirmations, 1 regression, 159-vs-61 gap quantification,
+738 MEP stability). No findings rely on single-source inference.

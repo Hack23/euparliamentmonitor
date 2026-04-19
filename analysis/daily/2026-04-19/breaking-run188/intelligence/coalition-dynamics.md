@@ -115,3 +115,35 @@ The ~187-seat estimate for EPP (based on external EP website data) would make EP
 | Commission VP trade position April 27 | High priority | Policy signal |
 | April 28-30 plenary emergency additions | Highest priority | Breaking news |
 | TA-0092/0094/0096/0104 vote margin release | When accessible | Coalition intelligence |
+
+---
+
+## Pass 2 Refinements — EPP Proxy-Indicator Protocol
+
+Because the `analyze_coalition_dynamics` MCP tool continues to report EPP
+`memberCount=0` (API uses the `PPE` label; see `intelligence/mcp-reliability-audit.md`
+candidate-defect #2), direct EPP-group cohesion measurement is unavailable in Run
+188. The coalition-intelligence framework therefore relies on EPP proxy indicators:
+
+1. **EPP.eu public communications** — Weber statements, press releases, Twitter/X
+   account activity
+2. **National delegation coordinator activity** — especially German CDU/CSU
+   delegation coordinator (as the largest single national delegation within EPP)
+3. **Weekly bundesrat.de agenda** — proxy for German federal-level banking-sector
+   pressure on CDU/CSU EPP MEPs
+4. **EPP-aligned think-tank outputs** — Wilfried Martens Centre publications,
+   Konrad Adenauer Stiftung positioning papers
+5. **Inter-group coordination signals** — Renew-EPP and S&D-EPP coordinator
+   bilateral meeting frequencies (observable via EP calendar)
+
+These proxies allowed the Run 188 coalition-dynamics analysis to assign 🟢 HIGH
+confidence to the 84/100 stability score despite the direct-measurement data gap,
+on the grounds that 10 runs of consistent proxy signals provide convergent
+evidence. Any divergence in these proxies during the April 20–27 window would
+trigger 🟡 Medium confidence downgrade on coalition-stability assessments.
+
+**Forward monitoring**: Run 189 should explicitly check whether the Tier-2 API
+restoration (projected April 21–23) also resolves the EPP `memberCount` data
+anomaly. If yes, this is a methodological improvement for all downstream
+coalition analysis. If no, the anomaly becomes a persistent data-quality defect
+requiring upstream EP IT engagement.

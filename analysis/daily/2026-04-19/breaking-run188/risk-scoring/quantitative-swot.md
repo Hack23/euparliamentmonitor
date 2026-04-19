@@ -125,3 +125,32 @@ The threat is mitigated but not eliminated by the metadata/title confirmations (
 SRMR3, BRRD3, and DGSD2 require Council formal ratification after EP adoption. The Council typically acts within 3-6 months for major legislative packages. However, the Banking Union texts face specific national sensitivities: Germany's Savings Bank (Sparkassen) and Cooperative Bank (Volksbanken) sectors have historically lobbied against stronger MREL requirements; Austria's banking sector also has exposure through TA-10-2026-0103 (EGF Austria/KTM). If Germany signals formal reservations at the April 23-25 Bundesrat session (Priority 3 indicator), it could create Council delays that push Banking Union final entry into force past the Q3 2026 target.
 
 **Severity**: Medium-High | **Confidence**: 🟡 MEDIUM | **Trend**: ↑ Bundesrat session approaching
+
+---
+
+## Pass 2 Refinements — SWOT Confidence Scoring
+
+Each SWOT item is scored on severity (S1–3 / W1–3 / O1–3 / T1–3) and confidence
+(🟢 HIGH / 🟡 MEDIUM / 🔴 LOW). Aggregate SWOT confidence: 🟡 MEDIUM, reflecting
+that most items are assessed on multi-run data (🟢) but content-pending uncertainty
+on banking/trade files reduces several to 🟡.
+
+| Aggregate metric | Value |
+|-----------------|------:|
+| Strengths aggregate score | 2.35 / 3.00 |
+| Weaknesses aggregate score | 2.15 / 3.00 |
+| Opportunities aggregate score | 2.25 / 3.00 |
+| Threats aggregate score | 2.20 / 3.00 |
+| **Net SWOT balance** | Strengths + Opportunities vs Weaknesses + Threats = 4.60 vs 4.35 — marginally positive |
+
+**Interpretation**: The marginally-positive net balance reflects the institution's
+current post-legislative-sprint position — significant accomplishments banked
+(March 26 sprint) but substantial execution risk ahead (Council ratification, USTR
+exposure, API reliability). This is the position of an institution with delivered
+achievement but fragile near-term execution — consistent with Run 188's Scenario-A
+55% baseline and Scenario-B/C/D tail risks summing to 45%.
+
+**Forward-SWOT trajectory for Run 189**: If Tier-2 API restores and TA-0096/0094
+content unlocks, S2 and S3 upgrade from 🟡 to 🟢; W1 and W3 downgrade in severity.
+Net balance moves toward +0.8, confirming Scenario A trajectory. If USTR files
+Section 301, T1 severity-score upgrades from 3 to 4 (peak); weaknesses unchanged.

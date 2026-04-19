@@ -116,3 +116,69 @@ Early warning analysis (Run 188) shows:
 The Grand Centre coalition (EPP+S&D+Renew, ~399/720 seats, 55%+) remains unchallenged through 9 monitoring runs. No fracture signals detected. The ECR-PfE size-similarity score of 0.96 (Run 188 coalition dynamics analysis) suggests these groups are nearly equal in size, creating conditions for sustained right-wing minority opposition — but not for destabilizing the Grand Centre majority.
 
 **Post-recess coalition watch**: The April 28-30 plenary agenda will reveal whether groups pre-positioned during recess. EPP typically announces its post-recess legislative priorities at a press conference the day before plenary (April 27). S&D and Renew coordinate through inter-group working meetings. ECR and PfE sometimes coordinate pre-plenary communications to signal unified opposition.
+
+---
+
+## Pass 2 Refinements — Residual Risk Tracking
+
+Risks not fully captured in the 8-item inventory but warranting forward-monitoring:
+
+### R9 — Commission Delegated-Act Objection Trigger (🟢 LOW, 🟡 MEDIUM impact)
+Article 290 TFEU delegated-act publication during recess that requires EP objection
+within specified deadline could force agenda modification. Probability: 5–8% of
+any-delegated-act-being-published; most are routine. Watch for DG CNECT AI Act
+implementing provisions or DG TRADE tariff-implementation acts.
+
+### R10 — Civil-Society Article 263 TFEU Challenge Timeline (🟡 MEDIUM, 🟠 HIGH impact)
+EDRi/Access Now/noyb coalition's Article 263 TFEU challenge against Digital
+Omnibus has a mid-June 2026 filing deadline. If filed with Article 278 TFEU
+interim-relief request and granted (rare), AI Act enforcement faces interim
+suspension pending final ruling. Probability: ~8% of interim relief granted
+conditional on filing; ~35% of filing occurring. See also
+`intelligence/wildcards-blackswans.md` W2.
+
+### R11 — ECB Emergency Policy Action Intersection (🟢 LOW, 🟠 HIGH impact)
+The April 30 ECB Governing Council meeting immediately post-plenary. Any emergency
+policy action (unscheduled rate move, forward-guidance shift, asset-purchase
+modification) would colour SRMR3/BRRD3 market reception and ratification-timeline
+pressure. Probability: ~5%; see `intelligence/wildcards-blackswans.md` W4.
+
+---
+
+## Composite-Risk Trajectory
+
+| Run | Composite Score | Trajectory Driver |
+|:---:|:---------------:|--------------------|
+| 179 | 14.5/50 | Early recess baseline |
+| 180 | 15.0/50 | +0.5 on first content-gap signals |
+| 181–186 | 15.0–16.5/50 | Stable recess baseline |
+| 187 | 16.5/50 | +TA-0101 accessibility briefly elevated intelligence density |
+| **188** | **15.5/50** | Net −1.0: title confirmations (+) offset TA-0101 regression (−); USTR window approaching (+) |
+| 189 (forecast) | 14–32/50 | Bifurcated: Smooth → 14; USTR-filing → 32 |
+
+The Run 188 composite 15.5/50 reflects the offsetting effect of incremental
+positive intelligence (title confirmations) against the new operational-threat
+signal (TA-0101 regression) and the approaching external-threat window (USTR
+Section 301 April 21–24). The composite is engineered to respond sensitively to
+top-3 risks rather than to produce a smoothed average, so a single-risk escalation
+(e.g., USTR filing elevating R1 from Likelihood 3 to Likelihood 5, score 15 → 25)
+would move the composite decisively above 20/50 — the "active risk management"
+threshold.
+
+---
+
+## Risk-Owner Assignments (for post-recess plenary preparation)
+
+| Risk | Primary Owner | Secondary Owner | Monitoring Frequency |
+|------|---------------|-----------------|:--------------------:|
+| R1 USTR | Commission DG TRADE | EP INTA Chair | Hourly (window days) |
+| R2 API gap | EP IT / EU Parliament Monitor ops | EP API maintainer | Every run |
+| R3 Council SRMR3 | Commission DG FISMA | Presidency | Daily |
+| R4 ECR-PfE coordination | EP Secretariat | Group coordinators | Weekly |
+| R5 Anti-Corruption legal | Commission DG JUST | EP LIBE Chair | Monthly |
+| R6 TA-0101 pattern | EP Monitor ops | EP IT | Every run |
+| R7 Coalition fracture | EPP coordinator | S&D + Renew coordinators | Daily (pre-plenary) |
+| R8 EPP trade division | EPP coordinator | National delegation leads | Weekly |
+
+Risk-owner assignment enables accountability tracking and post-event assessment
+of mitigation effectiveness.
