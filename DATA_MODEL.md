@@ -663,7 +663,7 @@ erDiagram
     MCP_CLIENT ||--o{ RESPONSE_VALIDATOR : "validates with"
 
     MCP_SERVER {
-        string version "1.2.9"
+        string version "1.2.10"
         string connectionType "stdio, SSE"
         string status "running, stopped"
         datetime lastHealthCheck
