@@ -322,8 +322,11 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
         return this._recordToolFailure(toolName, result.content?.[0]?.text ?? '', fallbackText);
       }
 
-      // Detect the raw upstream 404 shape still emitted by get_events_feed /
-      // get_procedures_feed (Hack23/European-Parliament-MCP-Server#378). The
+      // Detect the unavailable-feed envelope — uniform `{status:"unavailable"}`
+      // (all feeds as of v1.2.10, #301/#380) as well as the legacy raw upstream
+      // 404 shape `{"@id":..., "error":"404 ..."}` that pre-v1.2.10
+      // get_events_feed / get_procedures_feed emitted
+      // (Hack23/European-Parliament-MCP-Server#378, closed by PR #380). The
       // server returns HTTP 200 with a payload that bypasses isError — record
       // it as a NOT_FOUND failure so it is visible in getFailedTools() and the
       // error summary instead of silently passing through as garbage data.

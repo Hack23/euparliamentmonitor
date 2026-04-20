@@ -101,20 +101,22 @@ function _parseResultPayload(result) {
 }
 /**
  * Detect whether an MCP feed result represents an "unavailable" response,
- * covering the two incompatible shapes emitted by
- * `european-parliament-mcp-server@1.2.10`:
+ * covering the two shapes historically emitted by the EP MCP server.
  *
- * 1. **Uniform envelope** (most feeds) —
- *    `{status:"unavailable", items:[], generatedAt:"..."}`
- *    established by Hack23/European-Parliament-MCP-Server#301.
- * 2. **Raw upstream 404 shape** (still emitted by `get_events_feed` and
- *    `get_procedures_feed`) —
- *    `{"@id":"https://data.europarl.europa.eu/eli/dl/...","error":"404 N..."}`
- *    — see upstream issue Hack23/European-Parliament-MCP-Server#378.
+ * 1. **Uniform envelope** (all feeds as of
+ *    `european-parliament-mcp-server@1.2.10`) —
+ *    `{status:"unavailable", items:[], generatedAt:"..."}` established by
+ *    Hack23/European-Parliament-MCP-Server#301 and extended to
+ *    `get_events_feed`/`get_procedures_feed` by
+ *    Hack23/European-Parliament-MCP-Server#380 (which closed #378).
+ * 2. **Legacy raw upstream 404 shape** (pre-v1.2.10, still emitted by
+ *    `get_events_feed` / `get_procedures_feed`) —
+ *    `{"@id":"https://data.europarl.europa.eu/eli/dl/...","error":"404 N..."}`.
+ *    Retained as defense-in-depth so older pinned server versions (or any
+ *    future regression of #378) do not silently poison downstream analysis.
  *
  * Returning `true` from this helper lets callers treat both shapes as
- * "known-empty" rather than "success with garbage payload", which was
- * previously silently poisoning downstream analysis.
+ * "known-empty" rather than "success with garbage payload".
  *
  * @param result - Raw MCP tool result
  * @returns `true` when the payload matches either unavailable envelope
@@ -123,10 +125,10 @@ export function isFeedUnavailable(result) {
     const envelope = _parseResultPayload(result);
     if (!envelope)
         return false;
-    // Shape 1 — uniform {status:"unavailable"} envelope from #301.
+    // Shape 1 — uniform {status:"unavailable"} envelope (#301 / #380).
     if (envelope['status'] === 'unavailable')
         return true;
-    // Shape 2 — raw upstream 404 leaked through (events/procedures, #378).
+    // Shape 2 — legacy raw upstream 404 leak (pre-v1.2.10, #378).
     const error = envelope['error'];
     const idField = envelope['@id'];
     if (typeof error === 'string' &&
@@ -223,8 +225,11 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
             if (result.isError === true) {
                 return this._recordToolFailure(toolName, result.content?.[0]?.text ?? '', fallbackText);
             }
-            // Detect the raw upstream 404 shape still emitted by get_events_feed /
-            // get_procedures_feed (Hack23/European-Parliament-MCP-Server#378). The
+            // Detect the unavailable-feed envelope — uniform `{status:"unavailable"}`
+            // (all feeds as of v1.2.10, #301/#380) as well as the legacy raw upstream
+            // 404 shape `{"@id":..., "error":"404 ..."}` that pre-v1.2.10
+            // get_events_feed / get_procedures_feed emitted
+            // (Hack23/European-Parliament-MCP-Server#378, closed by PR #380). The
             // server returns HTTP 200 with a payload that bypasses isError — record
             // it as a NOT_FOUND failure so it is visible in getFailedTools() and the
             // error summary instead of silently passing through as garbage data.

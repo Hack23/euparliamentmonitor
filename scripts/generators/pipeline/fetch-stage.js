@@ -1105,15 +1105,16 @@ function checkUpstreamTimeout(value) {
             'Consider using year-based endpoints as fallback.');
         throw new UpstreamTimeoutError(toolName);
     }
-    // Defensive detection of the raw upstream 404 shape still emitted by
-    // get_events_feed / get_procedures_feed (upstream issue
-    // Hack23/European-Parliament-MCP-Server#378). The shape looks like:
+    // Defensive detection of the legacy raw upstream 404 shape that pre-v1.2.10
+    // get_events_feed / get_procedures_feed emitted
+    // (Hack23/European-Parliament-MCP-Server#378, closed by PR #380 in
+    // v1.2.10). Shape:
     //   {"@id":"https://data.europarl.europa.eu/eli/dl/...", "error":"404 N..."}
-    // Treat it identically to the uniform `{status:"unavailable"}` envelope —
+    // Treated identically to the uniform `{status:"unavailable"}` envelope —
     // i.e. stop timeframe-widening retry loops instead of silently returning [].
-    // This is a belt-and-braces guard: the EP MCP client's safeCallTool already
-    // records these as NOT_FOUND failures and substitutes the feed fallback,
-    // but parseFeedResult may also be called on raw results bypassing that path.
+    // Retained as belt-and-braces so older pinned server versions (or any future
+    // regression) do not bypass the NOT_FOUND bookkeeping done by the EP MCP
+    // client's safeCallTool.
     const idField = envelope['@id'];
     const errorField = envelope['error'];
     if (typeof idField === 'string' &&
