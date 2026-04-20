@@ -167,7 +167,7 @@ function safeReaddir(dir: string): string[] {
 /**
  * Maximum recursion depth when searching an analysis directory for economic
  * context fingerprints (World Bank OR IMF). The starting directory is
- * depth 0; the guard `depth >= ANALYSIS_SEARCH_MAX_DEPTH` stops recursion
+ * depth 0; the guard `depth > ANALYSIS_SEARCH_MAX_DEPTH` stops recursion
  * once it would exceed this depth. With `ANALYSIS_SEARCH_MAX_DEPTH = 3` the
  * scanner reads files at depths 0, 1, 2 and 3 — enough to cover the expected
  * layout `analysis/daily/{date}/{slug}/<subdir>/<file>.md` (depth 2) with one

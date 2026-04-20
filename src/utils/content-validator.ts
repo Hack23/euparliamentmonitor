@@ -1337,16 +1337,17 @@ export const IMF_INDICATOR_CODES: readonly string[] = [
 /**
  * Detect IMF sourcing in any piece of text (article body OR analysis
  * markdown). Returns `true` when the text contains either a strong
- * fingerprint (word-bounded `IMF`/`WEO`, a case-insensitive match for
- * `International Monetary Fund` / `World Economic Outlook` /
- * `Fiscal Monitor` / `data.imf.org` / any IMF MCP tool id) or a word-
- * bounded SDMX indicator code.
+ * fingerprint (word-bounded `IMF`/`WEO` matched case-insensitively, a
+ * case-insensitive match for `International Monetary Fund` / `World
+ * Economic Outlook` / `Fiscal Monitor` / `data.imf.org` / any IMF MCP
+ * tool id) or a word-bounded (case-sensitive) SDMX indicator code.
  *
  * Matching is delegated per-fingerprint via the rules documented on
- * {@link IMF_STRONG_FINGERPRINTS}. In particular, short all-caps
- * tokens use the same identifier-boundary rule as indicator codes so
- * they do not leak into unrelated identifiers such as
- * `IMF_API_BASE_URL`.
+ * {@link IMF_STRONG_FINGERPRINTS}. Short all-caps tokens (`IMF`,
+ * `WEO`) use the identifier-boundary rule against an uppercased copy
+ * of the text so lowercase/mixed-case citations still match, while
+ * still excluding occurrences inside larger identifiers such as
+ * `IMF_API_BASE_URL` or `WEO_VERSION_2026`.
  *
  * @param text - Text to scan.
  * @returns `true` when at least one strong or word-bounded IMF fingerprint matches.
@@ -1354,14 +1355,21 @@ export const IMF_INDICATOR_CODES: readonly string[] = [
 export function hasIMFEvidence(text: string): boolean {
   if (text.length === 0) return false;
   const lower = text.toLowerCase();
+  const upper = text.toUpperCase();
   for (const fp of IMF_STRONG_FINGERPRINTS) {
     if (IMF_SHORT_ALLCAPS_TOKENS.has(fp)) {
-      // All-caps short token — word-bounded, case-sensitive match.
-      if (textContainsIndicatorCode(text, fp)) return true;
+      // All-caps short token — word-bounded, case-INsensitive match.
+      // Scan the uppercased text so variants like `imf`/`Imf`/`weo` match
+      // while still rejecting occurrences inside larger identifiers like
+      // `IMF_API_BASE_URL` or `WEO_VERSION_2026` (the `_`/alnum neighbour
+      // fails the identifier-boundary check regardless of original case).
+      if (textContainsIndicatorCode(upper, fp)) return true;
     } else if (lower.includes(fp.toLowerCase())) {
       return true;
     }
   }
+  // Indicator-code scan stays case-sensitive — SDMX codes are uppercase by
+  // spec and lowercasing would false-positive on English prose.
   for (const code of IMF_INDICATOR_CODES) {
     if (textContainsIndicatorCode(text, code)) return true;
   }

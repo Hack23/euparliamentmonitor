@@ -94,6 +94,16 @@ describe('content-validator — IMF fingerprints', () => {
       expect(hasIMFEvidence('WEO_VERSION_2026')).toBe(false);
       expect(hasIMFEvidence('NWEOFFSET')).toBe(false);
     });
+
+    it('matches short tokens `IMF`/`WEO` case-insensitively when word-bounded', () => {
+      // Lowercase / mixed-case, as a standalone word, must pass the gate.
+      expect(hasIMFEvidence('the imf forecasts EU growth at 1.2 percent')).toBe(true);
+      expect(hasIMFEvidence('Imf projections indicate stable inflation')).toBe(true);
+      expect(hasIMFEvidence('the weo vintage is April 2026')).toBe(true);
+      // But still excluded inside lowercase identifiers with adjacent identifier chars.
+      expect(hasIMFEvidence('imf_api_base_url=https://example.invalid/')).toBe(false);
+      expect(hasIMFEvidence('weo_version_2026')).toBe(false);
+    });
   });
 
   describe('articlePolicyHasEconomicContext — OR-gate', () => {

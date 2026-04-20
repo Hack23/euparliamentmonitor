@@ -7,7 +7,7 @@
 > fresher macro/fiscal context and native multi-year forecasts relative
 > to the World Bank WDI.
 
-**🌀 Wave:** 1 (Additive dual-source; World Bank remains the validator's primary gate)
+**🌀 Wave:** 1 IMF integration + Wave-2 validation enforcement (strict validator uses the WB-or-IMF OR-gate `articlePolicyHasEconomicContext`; IMF citations alone satisfy the policy gate)
 
 > **Transport note:** The first Wave 1 iteration proxied through the
 > Python `c-cf/imf-data-mcp` MCP server. That transport was replaced
@@ -94,11 +94,11 @@ Bank when IMF is unreachable.
 
 ## Validator Hooks
 
-| Helper | Wave | Purpose |
+| Helper | Status | Purpose |
 |---|:---:|---|
-| `hasIMFEvidence(text)` | 1 | Detects IMF sourcing (tool names, product names, SDMX codes) |
-| `articlePolicyHasEconomicContext(html, type)` | 1 (helper) / 2 (default) | OR-gate: passes when WB **or** IMF evidence is present |
-| `articlePolicyHasWorldBank(html, type)` | 1 (default) | Legacy gate; retained for non-breaking transition |
+| `hasIMFEvidence(text)` | shipped | Detects IMF sourcing (tool names, product names, SDMX codes); case-insensitive on short tokens `IMF`/`WEO` |
+| `articlePolicyHasEconomicContext(html, type)` | **default gate** | OR-gate: passes when WB **or** IMF evidence is present. Wired into `src/utils/validate-articles.ts`. |
+| `articlePolicyHasWorldBank(html, type)` | legacy | Retained as a non-breaking helper for the transition; no longer the default validator gate |
 
 Fingerprint sources: `IMF_STRONG_FINGERPRINTS` and `IMF_INDICATOR_CODES`
 (`src/utils/content-validator.ts`), drift-guarded by

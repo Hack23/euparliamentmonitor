@@ -36,13 +36,32 @@
 import type { MCPClientOptions } from './mcp.js';
 
 /**
- * IMF MCP client connection options.
+ * IMF client connection options, as accepted by the native TypeScript
+ * SDMX 3.0 REST client in `src/mcp/imf-mcp-client.ts`.
  *
- * Alias for {@link MCPClientOptions} so all base transport options
- * (gateway URL, API key, retry policy, server label) remain available
- * for the IMF client, matching the pattern used by `WBMCPClientOptions`.
+ * Extends {@link MCPClientOptions} so existing call-sites that pass the
+ * shared base options continue to compile, but adds the three fields
+ * actually consumed by the native HTTP transport:
+ *
+ * - `apiBaseUrl` — override the IMF REST base URL (default
+ *   `https://dataservices.imf.org/REST/SDMX_3.0`).
+ * - `timeoutMs` — per-request timeout in milliseconds.
+ * - `fetchImpl` — optional `fetch` injection for tests.
+ *
+ * The inherited legacy MCP transport fields (`serverPath`, `gatewayUrl`,
+ * `gatewayApiKey`, `maxConnectionAttempts`, `connectionRetryDelay`) are
+ * accepted for backwards compatibility but **ignored** by the native
+ * client — they date from the earlier `c-cf/imf-data-mcp` proxy
+ * transport and are retained only so existing callers do not break.
  */
-export type IMFMCPClientOptions = MCPClientOptions;
+export interface IMFMCPClientOptions extends MCPClientOptions {
+  /** Override the IMF REST base URL. */
+  apiBaseUrl?: string;
+  /** Per-request timeout in milliseconds. */
+  timeoutMs?: number;
+  /** Optional `fetch` implementation injection for testing. */
+  fetchImpl?: typeof fetch;
+}
 
 /**
  * Canonical IMF dataset (database) identifier.

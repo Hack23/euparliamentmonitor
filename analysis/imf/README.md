@@ -14,7 +14,7 @@
 > stack stays npm-pure and pinnable per ISMS §7. The five "tool" identifiers
 > are preserved verbatim as the content-validator fingerprint anchors.
 
-**📅 Last Updated:** 2026-04-20 | **🏷️ Classification:** Public | **🌀 Wave:** 1 (Additive dual-source; WB remains the validator's primary gate)
+**📅 Last Updated:** 2026-04-20 | **🏷️ Classification:** Public | **🌀 Wave:** 1 IMF integration, with Wave-2 validation enforcement (`validate-articles` uses the WB-or-IMF OR-gate rather than a WB-only primary gate)
 
 ---
 

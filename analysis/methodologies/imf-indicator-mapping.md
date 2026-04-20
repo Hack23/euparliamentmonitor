@@ -11,14 +11,17 @@ article types. Social / health / education / environment / innovation
 indicators remain on World Bank — see
 [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md).
 
-**Enforcement (Wave 1 — current)**: `articlePolicyHasWorldBank` remains
-the blocking gate in `src/utils/validate-articles.ts`. IMF evidence is
-recognised via `hasIMFEvidence()` and `articlePolicyHasEconomicContext()`
-in `src/utils/content-validator.ts`, but is not yet the default.
+**Enforcement (current)**: `articlePolicyHasEconomicContext` is the
+default gate in `src/utils/validate-articles.ts`. A policy-required
+article satisfies the rule when **either** `hasWorldBankEvidence()` or
+`hasIMFEvidence()` in `src/utils/content-validator.ts` matches — so IMF
+citations alone are now sufficient to pass the strict validator.
+`articlePolicyHasWorldBank` is retained as a legacy helper for the
+non-breaking transition.
 
-**Enforcement (Wave 2 — planned)**: `articlePolicyHasEconomicContext`
-becomes the default; policy-required articles satisfy the gate with
-**either** World Bank or IMF evidence.
+**Deferred (Wave 3 / 4)**: Wave 3 deprecates the WB macro subset after
+two weeks of green Wave 2 runs; Wave 4 removes the WB macro path
+entirely if Wave 3 holds — see the migration plan §5.
 
 ---
 
