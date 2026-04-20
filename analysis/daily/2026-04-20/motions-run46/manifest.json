@@ -1,0 +1,68 @@
+{
+  "workflowRunId": 46,
+  "articleType": "motions",
+  "articleDate": "2026-04-20",
+  "analysisDir": "analysis/daily/2026-04-20/motions-run46",
+  "status": "analysis-complete",
+  "degradedMode": true,
+  "degradedModeReason": "EP API individual text content unavailable (HTTP 404 for TA-0083+) - Day 10+ outage",
+  "analysisConfidence": "MEDIUM",
+  "created": "2026-04-20T00:00:00Z",
+  "dataRetrieval": {
+    "adoptedTextsFromFeed": 203,
+    "ep10TextsIdentified": 80,
+    "textContentAvailable": 0,
+    "textMetadataAvailable": 50,
+    "votingRecordsAvailable": 0,
+    "parliamentaryQuestionsAvailable": 0,
+    "speechesDataAvailable": 0
+  },
+  "analysisFiles": [
+    "existing/session-baseline.md",
+    "existing/deep-analysis.md",
+    "existing/coalition-dynamics.md",
+    "existing/stakeholder-impact.md",
+    "existing/synthesis-summary.md",
+    "classification/significance-classification.md",
+    "risk-scoring/risk-matrix.md",
+    "threat-assessment/political-threat-landscape.md",
+    "documents/document-analysis-index.md"
+  ],
+  "keyTopics": [
+    "US tariff countermeasures (TA-10-2026-0096)",
+    "EU Housing crisis resolution (TA-10-2026-0064)",
+    "EU Enlargement strategy (TA-10-2026-0077)",
+    "Defence single market (TA-10-2026-0079)",
+    "EU-Canada cooperation (TA-10-2026-0078)",
+    "Global Gateway evaluation (TA-10-2026-0104)",
+    "WTO MC14 Yaoundé position (TA-10-2026-0086)",
+    "European Semester 2026 (TA-10-2026-0076)",
+    "SRMR3/BRRD3 Banking Union (TA-10-2026-0092)",
+    "Anti-Corruption Directive (TA-10-2026-0094)"
+  ],
+  "politicalGroups": {
+    "EPP": 182,
+    "SD": 135,
+    "PfE": 84,
+    "ECR": 81,
+    "Renew": 77,
+    "Greens_EFA": 53,
+    "TheLeft": 46,
+    "NI": 30,
+    "ESN": 27
+  },
+  "recordStatistics": {
+    "Q1_2026_RCVs": 567,
+    "Q1_2026_resolutions": 180,
+    "Q1_2026_adoptedTexts": 104,
+    "full_2025_RCVs": 420,
+    "full_2025_resolutions": 135,
+    "paceMultiplier": "2.7x"
+  },
+  "articleParameters": {
+    "title": "EP10's Record Quarter: From Housing Rights to Trade Wars, Parliament Defines Its Political Identity",
+    "description": "An unprecedented 567 roll-call votes and 180 resolutions in Q1 2026 reveal a European Parliament achieving strategic clarity across defence, social policy, and geopolitical positioning — the statistical signature of institutional maturation in a polycrisis era.",
+    "slug": "motions",
+    "languages": ["en"]
+  }
+}
