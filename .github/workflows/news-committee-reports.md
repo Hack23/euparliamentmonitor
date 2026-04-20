@@ -146,6 +146,21 @@ You are the **News Journalist Agent** for EU Parliament Monitor generating **com
 - ✅ World Bank economic context when committee work has policy/economic dimension
 - ✅ Chart/dashboard data for ≥1 data visualization with real data
 
+> **⚠️ ANALYSIS-TO-ARTICLE DATA CONTRACT (AI-First)**: Per [SHARED_PROMPT_PATTERNS.md §Analysis-to-Article Data Contract](../prompts/SHARED_PROMPT_PATTERNS.md#-analysis-to-article-data-contract-ai-first), analysis markdown is **NEVER parsed by scripts**. YOU read every `analysis/daily/<date>/committee-reports-run<id>/**/*.md` file (especially `existing/stakeholder-impact.md`, `classification/impact-matrix.md`, `intelligence/stakeholder-map.md`) as context and author each stakeholder card, outcome-matrix `reason` cell, impact-assessment dimension, rapporteur-voice block, `why` text, and `outlook` prose directly in the rendered English HTML. **FORBIDDEN** to ship the `[AI_ANALYSIS_REQUIRED]` sentinel, any of the six generic stakeholder-reasoning fallback sentences, or date-range topic placeholders. The HTML fallback-leak validator enforces this at publish time — see the Validator Enforcement command below.
+
+**Validator Enforcement (MANDATORY before PR creation)**:
+
+```bash
+# After rendering the English article, fail-fast on fallback-template leaks.
+# Handles both suffixed (`-runNN-en.html`) and plain (`-en.html`) filenames.
+ARTICLE_HTML=$(ls -t "news/${TODAY}-committee-reports"*"-en.html" 2>/dev/null | head -1)
+if [ -n "$ARTICLE_HTML" ]; then
+  node scripts/utils/validate-analysis-completeness.js --article-html="$ARTICLE_HTML"
+fi
+# Exit 1 = AI did not author required slots. Re-run Pass 2 before any
+# translate/PR step.
+```
+
 **The Economist Test**: Every section must read like analytical journalism from The Economist's political intelligence unit — not a code-generated data summary.
 
 ## ⏰ HARD DEADLINE — Session Expiry Prevention (NON-NEGOTIABLE — READ FIRST)

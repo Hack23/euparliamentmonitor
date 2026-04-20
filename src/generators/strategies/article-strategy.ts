@@ -79,13 +79,32 @@ const ENV_ANALYSIS_DIR = 'EP_ANALYSIS_DIR';
  */
 const ENV_ANALYSIS_SLUG = 'EP_ANALYSIS_SLUG';
 
-/** Analysis subdirectories to scan for markdown files */
+/**
+ * Analysis subdirectories to scan for markdown files.
+ *
+ * Includes the two richer-content conventions used by reference-quality runs:
+ * - `intelligence/` — used by breaking / month-ahead workflows (e.g. Run 190)
+ *   for stakeholder-map, scenario-forecast, pestle-analysis, mcp-reliability-audit
+ * - `synthesis/` — alternate location used by monthly-review runs for
+ *   synthesis-summary and stakeholder-impact
+ *
+ * Adding these here means `loadAnalysisContext` surfaces the AI-authored
+ * markdown to the article-rewriter AI pass as raw context.  Per the AI-First
+ * Analysis-to-Article Data Contract
+ * (`.github/prompts/SHARED_PROMPT_PATTERNS.md#-analysis-to-article-data-contract-ai-first`),
+ * **scripts never parse this markdown into structured data**; the AI reads
+ * every file here as context and authors all stakeholder / outcome / impact
+ * content directly in the rendered HTML.
+ */
 const ANALYSIS_SUBDIRS = [
   'classification',
   'threat-assessment',
   'risk-scoring',
   'existing',
   'documents',
+  'intelligence',
+  'synthesis',
+  'risk',
 ] as const;
 
 /**

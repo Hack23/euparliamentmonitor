@@ -27,6 +27,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { PROJECT_ROOT } from '../constants/config.js';
 // ─── Types ────────────────────────────────────────────────────────────────────
 /** Minimum line count below which an artifact is considered a stub */
@@ -190,6 +191,10 @@ function applyArg(arg, opts) {
         opts.thresholdsFile = arg.slice('--thresholds-file='.length);
         return true;
     }
+    if (arg.startsWith('--article-html=')) {
+        opts.articleHtmlPaths.push(arg.slice('--article-html='.length));
+        return true;
+    }
     if (arg === '--json') {
         opts.json = true;
         return true;
@@ -212,6 +217,7 @@ function parseArgs(argv) {
         minLines: DEFAULT_MIN_LINES,
         json: false,
         warnOnly: false,
+        articleHtmlPaths: [],
     };
     for (const arg of argv) {
         if (arg === '--help' || arg === '-h') {
@@ -220,8 +226,8 @@ function parseArgs(argv) {
         }
         applyArg(arg, opts);
     }
-    if (!opts.analysisDir) {
-        console.error('❌ Missing required argument: --analysis-dir=<path>');
+    if (!opts.analysisDir && opts.articleHtmlPaths.length === 0) {
+        console.error('❌ Missing required argument: --analysis-dir=<path> or --article-html=<path>');
         printHelp();
         process.exit(2);
     }
@@ -236,12 +242,14 @@ Usage:
       --analysis-dir=analysis/daily/<date>/<type>-run<id> \\
       [--article-type=<slug>] \\
       [--min-lines=30] \\
+      [--article-html=<path>]... \\
       [--json] \\
       [--warn-only]
 
 Options:
-  --analysis-dir=<path>    Run directory to validate (required).
-                           Path is resolved relative to PROJECT_ROOT.
+  --analysis-dir=<path>    Run directory to validate (required unless only
+                           --article-html is used). Resolved relative to
+                           PROJECT_ROOT.
   --article-type=<slug>    Article category slug (breaking, week-in-review, …).
                            When omitted, inferred from manifest.json.
   --min-lines=<n>          Minimum line count per artifact (default 30).
@@ -250,12 +258,18 @@ Options:
   --thresholds-file=<path> Override the Rule 22 thresholds catalogue (default:
                            analysis/methodologies/reference-quality-thresholds.json).
                            Primarily for tests.
+  --article-html=<path>    Scan a rendered HTML article for AI-First fallback-
+                           template leaks (AI_MARKER sentinels, generic
+                           stakeholder-reasoning phrases, date-only topic
+                           placeholders). May be repeated. Each file is
+                           checked independently and any match fails the run.
   --json                   Emit a JSON report on stdout instead of text.
   --warn-only              Exit 0 on validation failure (report only). Use for
                            local exploration; workflows MUST NOT pass this flag.
 
 Exit codes:
-  0 = all mandatory artifacts present, no placeholders, manifest consistent
+  0 = all mandatory artifacts present, no placeholders, manifest consistent,
+      and (when --article-html is given) no fallback-template leaks in HTML
   1 = validation failed
   2 = usage error (missing args, unreadable dir, invalid manifest)
 `);
@@ -633,16 +647,163 @@ function renderTextReport(result, minLines) {
     }
     printFooter(result);
 }
+// ─── Article HTML validation (AI-First fallback-template leak detector) ─────
+/**
+ * Regex patterns matching script-generated fallback text that must never
+ * appear in a published article.
+ *
+ * **Source of each pattern** (grep-anchored to the code that could emit it):
+ *
+ * - `AI_MARKER` — the canonical unfilled-slot sentinel
+ *   (`src/constants/analysis-constants.ts`).  If this leaks through, the AI
+ *   agent failed to author the slot.
+ * - *"This parliamentary activity on ..."*, *"Civil society organisations
+ *   monitoring ..."*, *"Industry and business stakeholders observe ..."*,
+ *   *"National governments assess ..."*, *"EU citizens experience ..."*,
+ *   *"EU institutional dynamics show ..."* — legacy `deriveStakeholderReasoning`
+ *   template sentences.  New code emits `AI_MARKER` instead, so any match is
+ *   an article that regenerated against the old logic or copied the text
+ *   verbatim from a template.
+ * - *"Voting outcomes 2026-MM-DD–2026-MM-DD"* and *"voting period
+ *   2026-MM-DD–2026-MM-DD"* — `buildVotingAnalysis` date-range topic fallback
+ *   (`src/generators/builders/voting-builders.ts`).  Indicates the AI did not
+ *   supply a substantive topic label for the stakeholder outcome matrix.
+ * - *"EP activity 2026-MM-DD"* — `buildBreakingAnalysis` date-only topic
+ *   fallback (`src/generators/builders/breaking-builders.ts`).
+ * - *"Stakeholder impact assessment for ... indicates ... relevance."* —
+ *   the legacy `default` branch of `deriveStakeholderReasoning`.
+ *
+ * The sentinel patterns `[AI_ANALYSIS_REQUIRED]`, `[REQUIRED]`, and
+ * `AI_ANALYSIS_PENDING` are matched with their exact casing — the generators
+ * emit these literal strings and we do NOT want to match user-authored prose
+ * that happens to mention them in a different case. The prose and date-range
+ * patterns are case-insensitive (`i` flag). All patterns are evaluated against
+ * a whitespace-normalised copy of the HTML (see `normalizeHtmlForScan`), so
+ * they are tolerant of HTML reflow, newlines, and inter-tag whitespace
+ * without needing dotAll.
+ *
+ * Update this list whenever a new fallback-sentinel is introduced in the
+ * generators; the test suite asserts that every new sentinel is added here
+ * so that the validator can detect it.
+ */
+export const FALLBACK_TEMPLATE_PATTERNS = [
+    /\[AI_ANALYSIS_REQUIRED\]/,
+    /\[REQUIRED\]/,
+    /\bAI_ANALYSIS_PENDING\b/,
+    /This parliamentary activity on .{0,200}?has (?:significant|moderate|limited) implications for political group dynamics/i,
+    /Civil society organisations monitoring .{0,200}?face (?:significant|moderate|limited) impact on transparency/i,
+    /Industry and business stakeholders observe (?:significant|moderate|limited) regulatory implications from/i,
+    /National governments assess (?:significant|moderate|limited) impact from .{0,200}?on subsidiarity/i,
+    /EU citizens experience (?:significant|moderate|limited) consequences from/i,
+    /EU institutional dynamics show (?:significant|moderate|limited) effects from/i,
+    /Stakeholder impact assessment for .{0,200}?indicates (?:significant|moderate|limited) relevance/i,
+    /\bVoting outcomes \d{4}-\d{2}-\d{2}[–-]\d{4}-\d{2}-\d{2}\b/i,
+    /\bvoting period \d{4}-\d{2}-\d{2}[–-]\d{4}-\d{2}-\d{2}\b/i,
+    /\bEP activity \d{4}-\d{2}-\d{2}\b/i,
+    /\bEP breaking news \d{4}-\d{2}-\d{2}\b/i,
+];
+/**
+ * Normalise HTML for fallback-pattern scanning.
+ *
+ * Collapses all whitespace (including newlines, tabs, and runs of spaces) to
+ * a single space so that sentence-level patterns like
+ * *"This parliamentary activity on … has moderate implications …"*
+ * still match when the rendered HTML wraps the prose across multiple lines or
+ * inserts inter-tag whitespace. Keeps the transformation purely lexical — we
+ * do not strip tags, because several sentinels (e.g. `[AI_ANALYSIS_REQUIRED]`)
+ * can legitimately appear inside attribute text.
+ *
+ * @param html - Raw HTML document or fragment.
+ * @returns Whitespace-normalised copy suitable for regex scanning.
+ */
+function normalizeHtmlForScan(html) {
+    return html.replace(/\s+/g, ' ');
+}
+/**
+ * Scan rendered HTML for AI-First fallback-template leaks.
+ *
+ * This enforces the
+ * [Analysis-to-Article Data Contract](../../.github/prompts/SHARED_PROMPT_PATTERNS.md#analysis-to-article-data-contract)
+ * at publish time: the AI agent must have authored every stakeholder /
+ * outcome / impact slot by reading the run's analysis markdown as context.
+ * If any {@link FALLBACK_TEMPLATE_PATTERNS} pattern matches, the AI did not
+ * do its job and publication must fail.
+ *
+ * The HTML is whitespace-normalised (all runs of whitespace collapsed to a
+ * single space) before scanning so that sentence-level patterns still match
+ * across HTML reflow and newline boundaries.
+ *
+ * @param html - Full HTML document or `.article-content` fragment.
+ * @returns Array of leak records (empty when clean).
+ */
+export function scanHtmlForFallbackLeaks(html) {
+    const normalized = normalizeHtmlForScan(html);
+    const leaks = [];
+    for (let i = 0; i < FALLBACK_TEMPLATE_PATTERNS.length; i++) {
+        const pattern = FALLBACK_TEMPLATE_PATTERNS[i];
+        if (!pattern)
+            continue;
+        // Create a new global regex each iteration so we can use exec() with lastIndex
+        const global = new RegExp(pattern.source, pattern.flags.includes('g') ? pattern.flags : pattern.flags + 'g');
+        let m;
+        while ((m = global.exec(normalized)) !== null) {
+            leaks.push({
+                patternIndex: i,
+                match: m[0].length > 240 ? m[0].slice(0, 237) + '…' : m[0],
+                offset: m.index,
+            });
+            if (m[0].length === 0)
+                global.lastIndex++;
+        }
+    }
+    return leaks;
+}
+/**
+ * Scan one or more article HTML files for fallback-template leaks.
+ *
+ * @param paths - File paths. Absolute paths are used as-is; relative paths
+ *   are resolved against the repository root (`PROJECT_ROOT`), matching the
+ *   repo-relative invocations emitted by the news workflows (e.g.
+ *   `news/2026-04-20-breaking-en.html`).
+ * @returns Map of `path → leaks`.  Paths that do not exist or cannot be read
+ *   yield a synthetic leak describing the read error.
+ */
+export function scanArticleHtmlFiles(paths) {
+    const result = new Map();
+    for (const p of paths) {
+        const abs = path.isAbsolute(p) ? p : path.resolve(PROJECT_ROOT, p);
+        if (!fs.existsSync(abs)) {
+            result.set(p, [{ patternIndex: -1, match: `File not found: ${abs}`, offset: 0 }]);
+            continue;
+        }
+        try {
+            const html = fs.readFileSync(abs, 'utf-8');
+            result.set(p, scanHtmlForFallbackLeaks(html));
+        }
+        catch (err) {
+            const msg = err instanceof Error ? err.message : String(err);
+            result.set(p, [{ patternIndex: -1, match: `Read error: ${msg}`, offset: 0 }]);
+        }
+    }
+    return result;
+}
 // ─── Main ─────────────────────────────────────────────────────────────────────
 /**
  * CLI entrypoint — parses args, runs validation, renders output, and owns
  * every `process.exit(…)` decision for this module.
  */
-function main() {
-    const options = parseArgs(process.argv.slice(2));
-    let result;
+/**
+ * Run the Rule 22 analysis-dir validation when `--analysis-dir=<path>` is
+ * supplied, handling `ValidationUsageError` as a CLI-level exit.
+ *
+ * @param options - Parsed CLI options.
+ * @returns Validation result, or `null` when no analysis dir was supplied.
+ */
+function runAnalysisValidation(options) {
+    if (!options.analysisDir)
+        return null;
     try {
-        result = validate(options);
+        return validate(options);
     }
     catch (err) {
         if (err instanceof ValidationUsageError) {
@@ -651,15 +812,71 @@ function main() {
         }
         throw err;
     }
+}
+/**
+ * Render the per-file HTML-scan report to stdout in text mode.
+ *
+ * @param htmlScan - Map of scanned HTML paths to detected leaks.
+ */
+function renderHtmlScanReport(htmlScan) {
+    console.log('');
+    console.log('🔍 Article HTML fallback-template scan');
+    for (const [p, leaks] of htmlScan.entries()) {
+        if (leaks.length === 0) {
+            console.log(`  ✅ ${p} (clean)`);
+            continue;
+        }
+        console.log(`  ❌ ${p} — ${leaks.length} leak(s):`);
+        for (const leak of leaks.slice(0, 10)) {
+            console.log(`     • [pattern ${leak.patternIndex} @${leak.offset}] ${leak.match}`);
+        }
+        if (leaks.length > 10) {
+            console.log(`     • … and ${leaks.length - 10} more`);
+        }
+    }
+}
+/**
+ * Emit JSON or text output for the combined analysis + HTML scan result.
+ *
+ * @param options - Parsed CLI options (controls `--json` vs text output).
+ * @param result - Analysis-dir validation result, or `null` when skipped.
+ * @param htmlScan - Per-file HTML scan map, or `null` when `--article-html`
+ *   was not supplied.
+ */
+function renderCombinedReport(options, result, htmlScan) {
     if (options.json) {
-        console.log(JSON.stringify(result, null, 2));
+        console.log(JSON.stringify({
+            analysis: result,
+            htmlScan: htmlScan ? Object.fromEntries(htmlScan.entries()) : null,
+        }, null, 2));
+        return;
     }
-    else {
+    if (result)
         renderTextReport(result, options.minLines);
-    }
-    if (!result.passed && !options.warnOnly) {
+    if (htmlScan)
+        renderHtmlScanReport(htmlScan);
+}
+/**
+ * CLI entrypoint — parses args, runs validation, renders output, and owns
+ * every `process.exit(…)` decision for this module.
+ */
+function main() {
+    const options = parseArgs(process.argv.slice(2));
+    // HTML-only mode: skip analysis-dir validation, just scan rendered articles.
+    const htmlScan = options.articleHtmlPaths.length > 0 ? scanArticleHtmlFiles(options.articleHtmlPaths) : null;
+    const result = runAnalysisValidation(options);
+    renderCombinedReport(options, result, htmlScan);
+    const htmlFailed = htmlScan ? Array.from(htmlScan.values()).some((v) => v.length > 0) : false;
+    const analysisPassed = result ? result.passed : true;
+    const passed = analysisPassed && !htmlFailed;
+    if (!passed && !options.warnOnly) {
         process.exit(1);
     }
 }
-main();
+// Only run the CLI when this file is executed directly (not when imported by
+// tests or other modules).  Matches the conventional guard used by sibling
+// CLI utilities in `src/utils/` (e.g. `validate-ep-api.ts`).
+if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {
+    main();
+}
 //# sourceMappingURL=validate-analysis-completeness.js.map

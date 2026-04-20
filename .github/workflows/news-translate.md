@@ -179,6 +179,41 @@ You are the **Translation Agent**. Your ONLY job: take existing English articles
 
 > **Minor TypeScript fixes** (max 20 lines in `src/`/`scripts/`) allowed ONLY to unblock translation generation.
 
+## 🛡️ AI-First Pre-Translation Diagnostic (NON-BLOCKING — translate EVERY source anyway)
+
+> **🚫 NEVER REFUSE TRANSLATION**: This workflow MUST translate every eligible English source. The validator below is **diagnostic only** — a non-zero exit is a signal to the translating AI, not a reason to skip a file, call `safeoutputs___noop`, backfill an older date, or reduce the translation set. **Every English article on `${ARTICLE_DATE}` MUST receive all 13 language translations, contaminated or not.**
+
+> **How to handle leaks in the English source**: Per the [Analysis-to-Article Data Contract](../prompts/SHARED_PROMPT_PATTERNS.md#-analysis-to-article-data-contract-ai-first), the `[AI_ANALYSIS_REQUIRED]` sentinel, the six generic stakeholder-reasoning fallback sentences (e.g. *"This parliamentary activity on 'voting period …' has moderate implications…"*), and date-range topic placeholders (e.g. `"Voting outcomes <date>–<date>"`) are defects in the source English article. When YOU encounter one of these in a section YOU are translating:
+>
+> 1. **Do NOT translate the placeholder verbatim.** Propagating it across 13 languages multiplies the defect.
+> 2. **Author a faithful, concise replacement** in the target language, using the matching `analysis/daily/${ARTICLE_DATE}/<run>/**/*.md` artefacts (especially `intelligence/stakeholder-map.md`, `intelligence/synthesis-summary.md`, `existing/stakeholder-impact.md`, `classification/impact-matrix.md`) as your source of truth — exactly the same contract the English workflow was meant to follow.
+> 3. **Keep the English article unchanged** (scope restriction forbids editing `*-en.html`). Your repair is contained in the target-language HTML only.
+> 4. **Continue translating every remaining section of every remaining article.** Never stop at the first leak, never skip a file, never reduce the set.
+
+**Run this diagnostic BEFORE starting Step 1 (translation), capture the report, then proceed regardless of exit code:**
+
+```bash
+# Diagnostic scan: records which English sources have fallback leaks so the
+# AI translator knows where to perform section-level repairs while still
+# translating every file. This block NEVER exits the workflow — the trailing
+# "|| true" and "; true" ensure the translator always proceeds to Step 1.
+mkdir -p "analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}"
+DIAG="analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}/source-leak-report.txt"
+SOURCES=$(ls news/${ARTICLE_DATE}-*-en.html 2>/dev/null | tr '\n' ' ')
+if [ -n "$SOURCES" ]; then
+  VALIDATOR_ARGS=""
+  for S in $SOURCES; do
+    VALIDATOR_ARGS="$VALIDATOR_ARGS --article-html=$S"
+  done
+  # shellcheck disable=SC2086
+  node scripts/utils/validate-analysis-completeness.js $VALIDATOR_ARGS > "$DIAG" 2>&1 || true
+  echo "ℹ️ Leak diagnostic written to $DIAG — translator MUST repair leaks per-section while translating; translation of ALL sources still proceeds."
+fi
+true  # Non-blocking: continue to Step 1 no matter what.
+```
+
+> **Why non-blocking**: Translation coverage across 13 languages is a primary product commitment. Refusing to translate a contaminated English article would punish downstream readers for an upstream defect; silently propagating the defect would be equally bad. The only acceptable behaviour is: **translate everything, repair leaks at translation time, record the diagnostic in the run directory for the English workflow owners to fix upstream.**
+
 ## 🎯 MINIMUM TRANSLATION REQUIREMENT
 
 > **⚠️ HARD REQUIREMENT**: Every run MUST produce at least **5 translated HTML files**. If today has no articles, backfill older dates. If all articles are translated, improve existing translations. There is ALWAYS work to do. NEVER produce an empty or analysis-only PR.

@@ -20,9 +20,75 @@ import type {
   WeekAheadData,
   VotingPattern,
   StakeholderMetric,
+  StakeholderPerspective,
 } from '../../types/index.js';
 import { buildStakeholderOutcomeMatrix } from '../../utils/intelligence-analysis.js';
 import { AI_MARKER } from '../../constants/analysis-constants.js';
+
+// ─── Analysis override types ─────────────────────────────────────────────────
+
+/**
+ * Optional AI-authored overrides that callers may supply to the five
+ * `build*Analysis()` functions.  When a field is present and non-empty, it
+ * replaces the corresponding section of the default template-derived
+ * {@link DeepAnalysis} object.
+ *
+ * These overrides are typically sourced from loaded analysis markdown via
+ * {@link module:Utils/ParseAnalysisStakeholders} and close the
+ * Analysis-to-Article Data Contract gap documented in
+ * `.github/prompts/SHARED_PROMPT_PATTERNS.md`.
+ */
+export interface AnalysisOverrides {
+  /** Replace the default six-bucket stakeholder perspective array */
+  readonly stakeholderPerspectives?: readonly StakeholderPerspective[] | null | undefined;
+  /** Replace the default stakeholder outcome matrix */
+  readonly stakeholderOutcomeMatrix?: readonly StakeholderOutcomeMatrix[] | null | undefined;
+  /** Replace the `AI_MARKER` placeholders in every impact-assessment dimension */
+  readonly impactAssessment?: DeepAnalysis['impactAssessment'] | null | undefined;
+}
+
+/**
+ * Merge a caller-supplied {@link AnalysisOverrides} set into the default
+ * `DeepAnalysis` produced by a builder.
+ *
+ * Undefined, null, and empty array/record overrides are ignored, so callers
+ * can pass a single unified overrides object across the five builders without
+ * null-guarding every field.
+ *
+ * @param base - The builder's default `DeepAnalysis` object.
+ * @param overrides - Optional AI-authored overrides (see {@link AnalysisOverrides}).
+ * @returns The merged `DeepAnalysis`.
+ */
+export function applyAnalysisOverrides(
+  base: DeepAnalysis,
+  overrides?: AnalysisOverrides
+): DeepAnalysis {
+  if (!overrides) return base;
+  type Mutable = { -readonly [K in keyof DeepAnalysis]: DeepAnalysis[K] };
+  const next: Mutable = { ...base };
+  if (overrides.stakeholderPerspectives && overrides.stakeholderPerspectives.length > 0) {
+    next.stakeholderPerspectives = [...overrides.stakeholderPerspectives];
+  }
+  if (overrides.stakeholderOutcomeMatrix && overrides.stakeholderOutcomeMatrix.length > 0) {
+    next.stakeholderOutcomeMatrix = [...overrides.stakeholderOutcomeMatrix];
+  }
+  if (overrides.impactAssessment) {
+    // Only overlay dimensions whose override is non-empty and not the AI_MARKER
+    // sentinel, so partial AI-authored impact blocks can coexist with fallback
+    // markers for missing dimensions.
+    const merged: Record<keyof DeepAnalysis['impactAssessment'], string> = {
+      ...base.impactAssessment,
+    };
+    for (const key of ['political', 'economic', 'social', 'legal', 'geopolitical'] as const) {
+      const val = overrides.impactAssessment[key];
+      if (typeof val === 'string' && val.length > 0 && val !== AI_MARKER) {
+        merged[key] = val;
+      }
+    }
+    next.impactAssessment = merged;
+  }
+  return next;
+}
 
 // ─── Style constants ─────────────────────────────────────────────────────────
 
@@ -52,12 +118,20 @@ export function buildOutcomeMatrix(
 }
 
 /**
- * Build an AI_MARKER impact assessment placeholder.
- * All five dimensions are marked for AI completion.
+ * Build a placeholder impact assessment with every dimension marked `AI_MARKER`.
  *
- * @returns Impact assessment with AI_MARKER placeholders
+ * This is the **last-resort fallback** used only when no AI-authored
+ * `## Impact Assessment` block was parseable from the run's
+ * `synthesis-summary.md` or `deep-analysis.md`.  Agentic workflows should
+ * satisfy the Analysis-to-Article Data Contract (see
+ * `.github/prompts/SHARED_PROMPT_PATTERNS.md#-analysis-to-article-data-contract`)
+ * so this fallback is never rendered.  When it is rendered, the downstream
+ * `article-rewriter` step replaces the `AI_MARKER` strings with real analysis
+ * content before publication.
+ *
+ * @returns Impact assessment with `AI_MARKER` placeholders in every dimension.
  */
-export function buildAiMarkerImpactAssessment(): DeepAnalysis['impactAssessment'] {
+export function buildFallbackImpactAssessment(): DeepAnalysis['impactAssessment'] {
   return {
     political: AI_MARKER,
     economic: AI_MARKER,
@@ -66,6 +140,15 @@ export function buildAiMarkerImpactAssessment(): DeepAnalysis['impactAssessment'
     geopolitical: AI_MARKER,
   };
 }
+
+/**
+ * @deprecated Use {@link buildFallbackImpactAssessment} — the name was changed
+ * to reflect that this is a last-resort path rather than the AI-integration
+ * path.  The alias is retained for backward compatibility with internal
+ * callers and will be removed after all builders route through
+ * `buildFallbackImpactAssessment`.
+ */
+export const buildAiMarkerImpactAssessment = buildFallbackImpactAssessment;
 
 /**
  * Build coalition metrics from voting patterns data.

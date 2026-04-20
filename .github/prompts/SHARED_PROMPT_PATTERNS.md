@@ -1169,6 +1169,63 @@ For every major parliamentary action, analyze from **≥4** of these 6 perspecti
 
 ---
 
+## 📜 Analysis-to-Article Data Contract (AI-First)
+
+> **NON-NEGOTIABLE**: Per [AI-First Quality Principle](../skills/ai-first-quality.md), analysis markdown is **NEVER parsed by scripts**. The AI agent reads every `analysis/daily/<date>/<run>/**/*.md` file as context and authors ALL narrative content — including per-stakeholder reasoning, outcome-matrix justifications, and impact-assessment prose — directly in the rendered HTML article.
+
+### Why this contract exists
+
+The `2026-04-20-motions-run46-en.html` regression shipped six stakeholder cards containing script-generated template sentences such as:
+
+> *"This parliamentary activity on 'voting period 2026-03-21–2026-04-20' has moderate implications for political group dynamics, affecting coalition-building strategies and inter-group negotiation positions."*
+
+That text **looked** AI-authored but was produced entirely by `deriveStakeholderReasoning()` in `src/utils/intelligence-analysis.ts`. The rich AI-authored `existing/stakeholder-impact.md` (with DG TRADE / DG GROW / DG NEAR mandate-convergence analysis, 374 lines) was orphaned from the article body. This contract ensures that class of leak is both prevented (at author time) and caught (at publish time).
+
+### Division of responsibility
+
+| Layer | Owns | Does NOT do |
+|---|---|---|
+| **Generator scripts** (`src/generators/**`) | Structural HTML scaffold, data-derived counts/IDs/dates, Mermaid charts, `AI_MARKER` sentinels for any narrative slot | Parse analysis markdown; author stakeholder reasoning; author impact prose; invent topics from date ranges |
+| **AI agent** (news-* gh-aw workflows) | Read all `analysis/daily/<date>/<run>/**/*.md` files, author every stakeholder/outcome/impact slot by replacing the sentinel with evidence-grounded prose, honor the ≥150 words per perspective gate | Fabricate data the MCP server did not return; skip reading the intelligence/ or synthesis/ subdirectories |
+| **Validator** (`src/utils/validate-analysis-completeness.ts`) | Refuse to publish any article where `AI_MARKER` or any fallback-template sentence leaks through (see `FALLBACK_TEMPLATE_PATTERNS`) | Render content; judge prose quality beyond the depth floors |
+
+### What the AI agent MUST do before writing an article
+
+1. **Read** every file listed in the run's `manifest.json` under `files.*` — treat it as mandatory context.
+2. **Also read** files in `intelligence/`, `synthesis/`, `classification/`, `risk/`, `existing/`, and `documents/` subdirectories. Reference-quality exemplars (breaking-run190, motions-run46) place stakeholder-map, stakeholder-impact, pestle-analysis, impact-matrix, and synthesis-summary here.
+3. **Author**, in the rendered English HTML:
+   - The `reasoning` prose for each of the 6 stakeholder perspective cards (≥150 words each), grounded in the stakeholder-map / stakeholder-impact markdown.
+   - The `reason` cell for every row of the stakeholder outcome matrix, drawing from the impact-matrix markdown.
+   - The `political / economic / social / legal / geopolitical` dimensions of the Impact Assessment block, drawing from synthesis-summary / deep-analysis.
+   - Every `[AI_ANALYSIS_REQUIRED]` sentinel remaining in the document.
+4. **Never** ship the date-range topic strings (*"voting period 2026-03-21–2026-04-20"*, *"EP activity 2026-04-20"*, *"Voting outcomes <date>–<date>"*) into stakeholder-perspective or outcome-matrix prose. These are scaffold labels, not topics. The AI must substitute the substantive policy topic (e.g. *"EU-US tariff response and Common Commercial Policy"*).
+
+### Validator enforcement
+
+After article generation, the workflow **must** invoke:
+
+```bash
+node scripts/utils/validate-analysis-completeness.js \
+  --article-html=news/<date>-<type>-en.html
+```
+
+If any `FALLBACK_TEMPLATE_PATTERNS` sentinel matches, exit code 1 fails the run before the `create-pull-request` safe-output fires. Adding a new fallback sentinel to the generator code REQUIRES adding its pattern to `FALLBACK_TEMPLATE_PATTERNS` and a matching test in `test/unit/validate-html-fallback.test.js` in the same commit.
+
+### Minimum Viable Article Types map
+
+| Article type | Required analysis files (inputs) | Rendered sections AI must author from them |
+|---|---|---|
+| `motions` | `existing/stakeholder-impact.md`, `classification/impact-matrix.md`, `synthesis/synthesis-summary.md`, `intelligence/stakeholder-map.md` (when present) | Stakeholder Perspectives, Stakeholder Outcome Matrix, Impact Assessment |
+| `breaking` | `intelligence/stakeholder-map.md`, `intelligence/coalition-dynamics.md`, `intelligence/mcp-reliability-audit.md`, `synthesis-summary.md` | Stakeholder Perspectives, Impact Assessment, Coalition-shift narrative |
+| `week-in-review` / `month-in-review` | `synthesis/synthesis-summary.md`, `intelligence/stakeholder-map.md`, `risk/risk-matrix.md` | Stakeholder Perspectives, Stakeholder Outcome Matrix, Outlook |
+| `week-ahead` / `month-ahead` | `intelligence/scenario-forecast.md`, `intelligence/stakeholder-map.md`, `synthesis-summary.md` | Scenario cards, Stakeholder Perspectives, Impact Assessment |
+| `committee-reports` | `existing/committee-productivity.md`, `classification/`, `risk-scoring/` | Stakeholder Perspectives, Outlook |
+| `propositions` | `existing/pipeline-health.md`, `classification/`, `synthesis-summary.md` | Stakeholder Perspectives, Action→Consequence table |
+
+> Scripts only scaffold these sections with `AI_MARKER` sentinels. Shipping any article of a given type without having read and authored from all its input files listed above is a violation of this contract.
+
+---
+
 ## 🔌 MCP Gateway Setup Script
 
 All agentic workflows that run generation scripts use `scripts/mcp-setup.sh` to configure gateway connectivity. **Always `source` this script in the same bash block as generation commands** (env vars don't persist across blocks).

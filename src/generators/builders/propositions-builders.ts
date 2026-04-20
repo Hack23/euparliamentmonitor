@@ -34,9 +34,11 @@ import { buildDefaultStakeholderPerspectives } from '../../utils/intelligence-an
 import { AI_MARKER } from '../../constants/analysis-constants.js';
 import {
   buildOutcomeMatrix,
-  buildAiMarkerImpactAssessment,
+  buildFallbackImpactAssessment,
   buildStakeholderMetricsFromPipeline,
   buildStakeholderPanel,
+  applyAnalysisOverrides,
+  type AnalysisOverrides,
   CIVIL_SOCIETY,
 } from './shared-builders.js';
 
@@ -251,21 +253,24 @@ function buildPipelineFromPipelineData(
  * @param date - Publication date
  * @param lang - Target display language (default: 'en')
  * @param adoptedTextsHtml - Adopted texts HTML (also used to detect content presence)
- * @returns Deep analysis object
+ * @param overrides - Optional AI-authored overrides (see Analysis-to-Article
+ *   Data Contract in `.github/prompts/SHARED_PROMPT_PATTERNS.md`).
+ * @returns Deep analysis object, with overrides applied when present.
  */
 export function buildPropositionsAnalysis(
   proposalsHtml: string,
   pipelineData: PipelineData | null,
   date: string,
   lang: LanguageCode = 'en',
-  adoptedTextsHtml: string = ''
+  adoptedTextsHtml: string = '',
+  overrides?: AnalysisOverrides
 ): DeepAnalysis {
   const hasProposals = proposalsHtml.length > 0 || adoptedTextsHtml.length > 0;
   const healthScore = pipelineData?.healthScore ?? 0;
   const throughput = pipelineData?.throughput ?? 0;
   const pct = (healthScore * 100).toFixed(0);
 
-  return {
+  const base: DeepAnalysis = {
     what: hasProposals
       ? `Legislative pipeline assessment as of ${date}: Active proposals under consideration.`
       : `Legislative pipeline assessment as of ${date}: No new proposals detected in this period.`,
@@ -278,7 +283,7 @@ export function buildPropositionsAnalysis(
     when: [`Assessment date: ${date}`, 'Pipeline health reflects cumulative legislative progress'],
     why: buildPropositionsWhy(),
     stakeholderOutcomes: [buildPropositionsStakeholderOutcome(healthScore, pct)],
-    impactAssessment: buildAiMarkerImpactAssessment(),
+    impactAssessment: buildFallbackImpactAssessment(),
     actionConsequences: buildPropositionsConsequences(pct, healthScore, throughput),
     mistakes:
       healthScore < 0.5
@@ -310,6 +315,7 @@ export function buildPropositionsAnalysis(
       },
     ]),
   };
+  return applyAnalysisOverrides(base, overrides);
 }
 
 /**

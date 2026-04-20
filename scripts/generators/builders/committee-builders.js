@@ -4,7 +4,7 @@ import { getLocalizedString, COMMITTEE_ANALYSIS_CONTENT_STRINGS, SWOT_BUILDER_ST
 import { isPlaceholderCommitteeData } from '../committee-helpers.js';
 import { buildDefaultStakeholderPerspectives } from '../../utils/intelligence-analysis.js';
 import { AI_MARKER } from '../../constants/analysis-constants.js';
-import { buildOutcomeMatrix, buildCategoryDistributionPanel } from './shared-builders.js';
+import { buildOutcomeMatrix, buildCategoryDistributionPanel, applyAnalysisOverrides, } from './shared-builders.js';
 // ─── Constant ─────────────────────────────────────────────────────────────────
 /**
  * Build multi-stakeholder perspectives for a committee reports analysis.
@@ -30,16 +30,18 @@ function buildCommitteeStakeholderPerspectives(activePct, totalDocs, topic) {
  * @param committees - Committee data list
  * @param date - Publication date
  * @param lang - Target language code for localized content
+ * @param overrides - Optional AI-authored overrides (see Analysis-to-Article
+ *   Data Contract in `.github/prompts/SHARED_PROMPT_PATTERNS.md`).
  * @returns Deep analysis object, or `null` when all committee data is placeholder
  */
-export function buildCommitteeAnalysis(committees, date, lang = 'en') {
+export function buildCommitteeAnalysis(committees, date, lang = 'en', overrides) {
     if (isPlaceholderCommitteeData(committees))
         return null;
     const totalDocs = committees.reduce((sum, c) => sum + c.documents.length, 0);
     const activeCommittees = committees.filter((c) => c.documents.length > 0);
     const s = getLocalizedString(COMMITTEE_ANALYSIS_CONTENT_STRINGS, lang);
     const activePct = (activeCommittees.length / Math.max(committees.length, 1)) * 100;
-    return {
+    const base = {
         what: totalDocs === 0
             ? s.whatNoData.replace('{date}', date).replace('{total}', String(committees.length))
             : s.what
@@ -105,6 +107,7 @@ export function buildCommitteeAnalysis(committees, date, lang = 'en') {
             },
         ]),
     };
+    return applyAnalysisOverrides(base, overrides);
 }
 /**
  * Build SWOT analysis for committee reports articles.
