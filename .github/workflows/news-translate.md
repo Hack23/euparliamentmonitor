@@ -475,7 +475,7 @@ Call `safeoutputs___create_pull_request` NOW (if not already called) with title=
 > # because there is no `INPUT_ARTICLE_DATE` env var set by this workflow.
 > # Sandbox-safe: avoid `${VAR:-$(cmd)}` default-with-command-substitution (AWF rejects).
 > # Assign $() outputs to plain variables on their own lines, then use explicit if/else.
-> ARTICLE_DATE="${{ github.event.inputs.article_date || '' }}"
+> ARTICLE_DATE="${{ github.event.inputs.article_date }}"
 > if [ -z "$ARTICLE_DATE" ]; then
 >   if [ -n "${EP_ARTICLE_DATE:-}" ]; then
 >     ARTICLE_DATE="$EP_ARTICLE_DATE"
@@ -502,7 +502,7 @@ Call `safeoutputs___create_pull_request` NOW (if not already called) with title=
 > cd "${GITHUB_WORKSPACE:-$PWD}"
 > # Sandbox-safe: avoid `${VAR:-$(cmd)}` default-with-command-substitution (AWF rejects).
 > # Assign $() outputs to plain variables on their own lines, then use explicit if/else.
-> ARTICLE_DATE="${{ github.event.inputs.article_date || '' }}"
+> ARTICLE_DATE="${{ github.event.inputs.article_date }}"
 > if [ -z "$ARTICLE_DATE" ]; then
 >   if [ -n "${EP_ARTICLE_DATE:-}" ]; then
 >     ARTICLE_DATE="$EP_ARTICLE_DATE"
