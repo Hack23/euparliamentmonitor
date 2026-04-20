@@ -1,48 +1,26 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
-/**
- * @module MCP/IMFMCPClient
- * @description IMF MCP client — domain-specific tool wrappers for the
- * IMF Data MCP server ({@link https://github.com/c-cf/imf-data-mcp}),
- * which fronts the SDMX 3.0 API at {@link https://data.imf.org/}.
- *
- * Extends {@link MCPConnection} with IMF-specific tool methods.
- * Provides fresher macroeconomic indicators (WEO, IFS, Fiscal Monitor,
- * BOP, ER, PCPS) than the World Bank WDI — including native multi-year
- * forecasts — to enrich European Parliament news articles with genuine
- * forward-looking macro context.
- *
- * ## Transport
- *
- * The IMF MCP server is a Python process (`uvx imf-data-mcp` or
- * `pipx run imf-data-mcp`); because Node stdio spawning of Python
- * binaries is brittle in the agentic-workflow sandbox, this client is
- * **gateway-only**. The `serverPath` is left as an empty fallback and
- * the gateway URL (set by `scripts/mcp-setup.sh`) is the supported
- * transport. If only the server path is configured (no gateway), the
- * client will fail fast on connect so callers can degrade gracefully.
- *
- * Environment variables:
- * - `IMF_MCP_GATEWAY_URL` — HTTP gateway URL (preferred transport).
- * - `IMF_MCP_GATEWAY_API_KEY` — gateway API key; falls back to
- *   `EP_MCP_GATEWAY_API_KEY` (both route through the same gateway in
- *   the default deployment).
- * - `IMF_MCP_SERVER_PATH` — optional stdio fallback for local dev.
- */
-import { MCPConnection } from './mcp-connection.js';
+// ─── Defaults ────────────────────────────────────────────────────────────────
+/** Default base URL for the IMF SDMX 3.0 REST API. */
+const DEFAULT_IMF_API_BASE_URL = 'https://dataservices.imf.org/REST/SDMX_3.0';
+/** Default per-request timeout (milliseconds). */
+const DEFAULT_IMF_API_TIMEOUT_MS = 30_000;
 /** Fallback payload shape when an IMF call fails or the server is offline. */
 const IMF_FALLBACK = {
     content: [{ type: 'text', text: '' }],
 };
 /**
- * Canonical list of tools exposed by the IMF Data MCP server. The news
- * workflows, probe script, and the integration test suite all reference
- * this list so a regression that adds/removes a tool fails a single
- * drift guard (`test/integration/mcp/imf-mcp.test.js`) instead of
- * silently breaking prompt/validator/probe coverage.
+ * Canonical list of "virtual tools" exposed by this client. The client no
+ * longer talks to an MCP server, but the tool-name list is preserved so
+ * it continues to serve as:
  *
- * Kept in sync with `analysis/methodologies/imf-indicator-mapping.md`
- * and the upstream `c-cf/imf-data-mcp` README.
+ * 1. The content-validator fingerprint source (`IMF_STRONG_FINGERPRINTS`).
+ * 2. The workflow probe's heartbeat identifiers.
+ * 3. A drift guard against method additions: if a new helper method lands
+ *    here, `test/integration/mcp/imf-mcp.test.js` fails unless the list
+ *    and the test are updated in lock-step.
+ *
+ * Kept in sync with `analysis/methodologies/imf-indicator-mapping.md`.
  */
 export const IMF_MCP_TOOLS = [
     'imf-list-databases',
@@ -51,41 +29,204 @@ export const IMF_MCP_TOOLS = [
     'imf-get-parameter-codes',
     'imf-fetch-data',
 ];
+// ─── Utilities ───────────────────────────────────────────────────────────────
 /**
- * MCP client for the IMF Data MCP server.
+ * Unwrap SDMX localised labels to a plain string.
  *
- * Extends {@link MCPConnection} with semantic wrappers over the five
- * upstream discovery/fetch tools. The wrappers validate required
- * arguments client-side and return a standard {@link IMF_FALLBACK}
- * payload on error rather than throwing, so callers upstream can keep
- * running even when IMF is unavailable — matching the `WorldBankMCPClient`
- * pattern.
+ * SDMX 3.0 sometimes returns `name`/`description` as a language-keyed
+ * object (`{ en: "World Economic Outlook" }`); older payloads return a
+ * raw string. Prefer English, fall back to the first available value.
+ *
+ * @param raw - Raw label (string, locale object, or undefined).
+ * @returns Plain string (empty when no label is available).
+ * @internal
  */
-export class IMFMCPClient extends MCPConnection {
+function unwrapLocalisedLabel(raw) {
+    if (!raw)
+        return '';
+    if (typeof raw === 'string')
+        return raw;
+    if (typeof raw['en'] === 'string')
+        return raw['en'];
+    for (const v of Object.values(raw)) {
+        if (typeof v === 'string')
+            return v;
+    }
+    return '';
+}
+/**
+ * Wrap a JSON-serialisable value in the canonical MCP tool-result shape
+ * so consumers that already expect `response.content[0]?.text` to hold a
+ * JSON blob keep working without change.
+ *
+ * @param payload - Serialisable payload (object, array, or already-stringified JSON).
+ * @returns MCP tool-result envelope with a single text content item.
+ * @internal
+ */
+function wrapAsMCPResult(payload) {
+    const text = typeof payload === 'string' ? payload : JSON.stringify(payload ?? null);
+    return { content: [{ type: 'text', text }] };
+}
+/**
+ * Simple value-encoder for SDMX URL dimension components. SDMX uses `+`
+ * to join alternative codes inside a single dimension slot and `.` as
+ * the dimension separator, so the value must be URI-encoded first to
+ * avoid collisions with user-supplied codes that happen to contain
+ * those characters.
+ *
+ * @param codes - Ordered code values for a single dimension (may be empty = wildcard).
+ * @returns URL-safe dimension component (`""` for wildcard, `"A+B"` for union).
+ * @internal
+ */
+function encodeSDMXDimension(codes) {
+    return codes.map((c) => encodeURIComponent(c)).join('+');
+}
+/**
+ * Build an SDMX key from a filters map + declared dimension order.
+ *
+ * If a declared dimension is absent from `filters`, the slot is left as
+ * the wildcard (empty string). Extra filter keys not present in the
+ * declared order are ignored — the caller is expected to have discovered
+ * the correct dimension names via {@link IMFMCPClient.getParameterDefs}.
+ *
+ * @param dimensions - Declared dimension order (e.g. `["country","indicator","frequency"]`).
+ * @param filters - Map of dimension → selected codes.
+ * @returns SDMX key (e.g. `"DEU.NGDP_RPCH.A"`).
+ * @internal
+ */
+function buildSDMXKey(dimensions, filters) {
+    return dimensions
+        .map((dim) => {
+        const codes = filters[dim];
+        return Array.isArray(codes) ? encodeSDMXDimension(codes) : '';
+    })
+        .join('.');
+}
+/**
+ * Infer the dimension order for a given dataflow when
+ * {@link IMFMCPClient.getParameterDefs} has not been called yet. Used as a
+ * fallback because the WEO datastructure in particular is so widely used
+ * that encoding a well-known default eliminates one round-trip per fetch.
+ *
+ * Order mirrors the conventional `{country}.{indicator}.{frequency}`
+ * layout documented on the IMF Data Services pages.
+ *
+ * @param databaseId - Dataflow identifier (case-insensitive).
+ * @returns Default dimension order used when the caller omits it.
+ * @internal
+ */
+function defaultDimensionOrder(databaseId) {
+    switch (databaseId.toUpperCase()) {
+        case 'WEO':
+        case 'FM':
+            return ['country', 'indicator', 'frequency'];
+        case 'IFS':
+        case 'CPI':
+            return ['frequency', 'country', 'indicator'];
+        case 'BOP_AGG':
+        case 'ER':
+        case 'PCPS':
+            return ['frequency', 'country', 'indicator'];
+        default:
+            return ['country', 'indicator', 'frequency'];
+    }
+}
+// ─── Client ──────────────────────────────────────────────────────────────────
+/**
+ * Native TypeScript client for the IMF SDMX 3.0 REST API.
+ *
+ * Despite the historical class name, no MCP server process is involved —
+ * the class keeps the name `IMFMCPClient` purely to avoid breaking the
+ * existing import surface (`src/index.ts`, test suites, documentation).
+ * New code is welcome to import it as `IMFClient` (alias below).
+ */
+export class IMFMCPClient {
+    _apiBaseUrl;
+    _timeoutMs;
+    _fetchImpl;
+    _connected = false;
     constructor(options = {}) {
-        super({
-            ...options,
-            // Python-backed server; stdio is best-effort. Gateway mode is the
-            // supported transport (set by workflow prompts via `scripts/mcp-setup.sh`).
-            serverPath: options.serverPath ?? process.env['IMF_MCP_SERVER_PATH'] ?? '',
-            gatewayUrl: options.gatewayUrl ?? process.env['IMF_MCP_GATEWAY_URL'] ?? '',
-            gatewayApiKey: options.gatewayApiKey ??
-                process.env['IMF_MCP_GATEWAY_API_KEY'] ??
-                process.env['EP_MCP_GATEWAY_API_KEY'] ??
-                '',
-            serverLabel: options.serverLabel ?? 'IMF Data MCP Server',
-        });
+        const envBase = process.env['IMF_API_BASE_URL'];
+        const envTimeout = process.env['IMF_API_TIMEOUT_MS'];
+        const parsedEnvTimeout = envTimeout !== undefined && envTimeout !== '' ? Number.parseInt(envTimeout, 10) : Number.NaN;
+        const base = options.apiBaseUrl ?? (envBase && envBase !== '' ? envBase : DEFAULT_IMF_API_BASE_URL);
+        this._apiBaseUrl = base.replace(/\/+$/u, '');
+        this._timeoutMs =
+            options.timeoutMs !== undefined && Number.isFinite(options.timeoutMs) && options.timeoutMs > 0
+                ? options.timeoutMs
+                : Number.isFinite(parsedEnvTimeout) && parsedEnvTimeout > 0
+                    ? parsedEnvTimeout
+                    : DEFAULT_IMF_API_TIMEOUT_MS;
+        this._fetchImpl = options.fetchImpl ?? globalThis.fetch.bind(globalThis);
     }
     /**
-     * List every IMF database exposed by the MCP server.
+     * Base URL currently in use (read-only — set at construction time).
      *
-     * Wraps the `imf-list-databases` tool.
+     * @returns The fully-qualified IMF SDMX base URL (no trailing slash).
+     */
+    getApiBaseUrl() {
+        return this._apiBaseUrl;
+    }
+    /**
+     * Per-request timeout in milliseconds.
      *
-     * @returns MCP tool result with a JSON payload of `{id,name,description}` rows.
+     * @returns The timeout currently applied to every `fetch()` call.
+     */
+    getTimeoutMs() {
+        return this._timeoutMs;
+    }
+    /**
+     * Mark the client as ready. HTTP is stateless so there is no real
+     * connection, but callers historically invoke `connect()` before use —
+     * this is preserved for API compatibility and also exercises the
+     * base URL to catch misconfiguration early.
+     *
+     * @returns A resolved promise; never throws for valid URLs.
+     */
+    async connect() {
+        try {
+            // Validate the base URL shape without making a network request so
+            // construction-time errors surface immediately.
+            new URL(this._apiBaseUrl);
+            this._connected = true;
+        }
+        catch (error) {
+            const message = error instanceof Error ? error.message : String(error);
+            throw new Error(`Invalid IMF_API_BASE_URL "${this._apiBaseUrl}": ${message}`, {
+                cause: error,
+            });
+        }
+    }
+    /**
+     * Whether {@link connect} has been called successfully.
+     *
+     * @returns `true` after a successful {@link connect}; reset by {@link disconnect}.
+     */
+    isConnected() {
+        return this._connected;
+    }
+    /** Reset the connected flag. No real socket to close. */
+    disconnect() {
+        this._connected = false;
+    }
+    /**
+     * List every IMF database (dataflow) exposed by the SDMX 3.0 API.
+     *
+     * Virtual tool: `imf-list-databases`.
+     *
+     * @returns MCP-shaped result whose `content[0].text` carries a JSON
+     *   array of `{ id, name, description }` entries. Empty on error.
      */
     async listDatabases() {
         try {
-            return await this.callTool('imf-list-databases', {});
+            const json = await this._getJSON('/dataflow/IMF');
+            const flows = json?.data?.dataflows ?? [];
+            const rows = flows.map((f) => ({
+                id: f.id ?? '',
+                name: unwrapLocalisedLabel(f.name),
+                description: unwrapLocalisedLabel(f.description),
+            }));
+            return wrapAsMCPResult(rows);
         }
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);
@@ -94,12 +235,15 @@ export class IMFMCPClient extends MCPConnection {
         }
     }
     /**
-     * Search IMF databases by free-text keyword.
+     * Search IMF databases by free-text keyword (case-insensitive
+     * substring match against id / name / description).
      *
-     * Wraps the `imf-search-databases` tool.
+     * Virtual tool: `imf-search-databases`. Runs client-side over the
+     * full dataflow list so a single SDMX round-trip serves every
+     * keyword query in a workflow run.
      *
      * @param keyword - Free-text keyword (e.g. `"inflation"`, `"trade"`).
-     * @returns MCP tool result filtered to matching databases, or fallback on error.
+     * @returns Filtered list in MCP-shaped result; empty on error or when keyword is blank.
      */
     async searchDatabases(keyword) {
         if (!keyword) {
@@ -107,7 +251,20 @@ export class IMFMCPClient extends MCPConnection {
             return IMF_FALLBACK;
         }
         try {
-            return await this.callTool('imf-search-databases', { keyword });
+            const json = await this._getJSON('/dataflow/IMF');
+            const flows = json?.data?.dataflows ?? [];
+            const needle = keyword.toLowerCase();
+            const rows = flows
+                .map((f) => ({
+                id: f.id ?? '',
+                name: unwrapLocalisedLabel(f.name),
+                description: unwrapLocalisedLabel(f.description),
+            }))
+                .filter((r) => {
+                const hay = `${r.id} ${r.name} ${r.description}`.toLowerCase();
+                return hay.includes(needle);
+            });
+            return wrapAsMCPResult(rows);
         }
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);
@@ -116,14 +273,15 @@ export class IMFMCPClient extends MCPConnection {
         }
     }
     /**
-     * Get the parameter (dimension) definitions for a specific IMF database.
+     * Fetch the dimension (parameter) definitions for a specific IMF
+     * dataflow. Essential before building an SDMX key for
+     * {@link fetchData} because each database has its own dimension set.
      *
-     * Wraps the `imf-get-parameter-defs` tool — essential before calling
-     * `imf-fetch-data` because each database has its own dimension set
-     * (country, frequency, indicator, ...).
+     * Virtual tool: `imf-get-parameter-defs`.
      *
-     * @param databaseId - IMF database identifier (e.g. `"WEO"`, `"IFS"`).
-     * @returns MCP tool result listing the dimension IDs, or fallback on error.
+     * @param databaseId - IMF dataflow identifier (e.g. `"WEO"`, `"IFS"`).
+     * @returns MCP-shaped result whose `content[0].text` carries the
+     *   ordered list of dimensions (`[{ id, name }]`). Empty on error.
      */
     async getParameterDefs(databaseId) {
         if (!databaseId) {
@@ -131,7 +289,11 @@ export class IMFMCPClient extends MCPConnection {
             return IMF_FALLBACK;
         }
         try {
-            return await this.callTool('imf-get-parameter-defs', { database_id: databaseId });
+            const json = await this._getJSON(`/datastructure/${encodeURIComponent(databaseId)}`);
+            const ds = json?.data?.dataStructures?.[0];
+            const dims = ds?.dataStructureComponents?.dimensionList?.dimensions ?? [];
+            const rows = dims.map((d) => ({ id: d.id, name: unwrapLocalisedLabel(d.name) }));
+            return wrapAsMCPResult(rows);
         }
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);
@@ -140,15 +302,18 @@ export class IMFMCPClient extends MCPConnection {
         }
     }
     /**
-     * List valid codes for a specific dimension of an IMF database —
-     * with optional free-text search to narrow the result set.
+     * List valid codes for a single dimension of an IMF dataflow, with
+     * an optional free-text filter to narrow the result.
      *
-     * Wraps the `imf-get-parameter-codes` tool.
+     * Virtual tool: `imf-get-parameter-codes`. The underlying SDMX
+     * `/codelist/` endpoint is used, looked up from the datastructure so
+     * the caller does not need to know the codelist identifier ahead of
+     * time.
      *
-     * @param databaseId - IMF database identifier.
+     * @param databaseId - IMF dataflow identifier.
      * @param parameter - Dimension name (e.g. `"country"`, `"indicator"`).
-     * @param search - Optional free-text search term.
-     * @returns MCP tool result listing matching code values, or fallback on error.
+     * @param search - Optional free-text search (case-insensitive substring).
+     * @returns MCP-shaped result with `[{ id, name }]` rows; empty on error.
      */
     async getParameterCodes(databaseId, parameter, search) {
         if (!databaseId || !parameter) {
@@ -156,14 +321,43 @@ export class IMFMCPClient extends MCPConnection {
             return IMF_FALLBACK;
         }
         try {
-            const args = {
-                database_id: databaseId,
-                parameter,
-            };
-            if (search) {
-                args['search'] = search;
+            // 1. Discover the codelist id for the requested dimension.
+            const structure = await this._getJSON(`/datastructure/${encodeURIComponent(databaseId)}?references=codelist`);
+            const ds = structure?.data?.dataStructures?.[0];
+            const dims = ds?.dataStructureComponents?.dimensionList?.dimensions ?? [];
+            const dim = dims.find((d) => d.id.toLowerCase() === parameter.toLowerCase());
+            if (!dim) {
+                return wrapAsMCPResult([]);
             }
-            return await this.callTool('imf-get-parameter-codes', args);
+            // The SDMX codelist reference URN looks like
+            //   "urn:sdmx:org.sdmx.infomodel.codelist.Codelist=IMF:CL_AREA(1.0)"
+            // We only need the codelist id — use string-split parsing
+            // (no regex) so the static-analysis "unsafe regex" detector has
+            // nothing to object to and the extraction stays obviously linear.
+            let codelistId = dim.localRepresentation?.enumeration;
+            if (codelistId) {
+                const afterEquals = codelistId.includes('=')
+                    ? (codelistId.split('=')[1] ?? '')
+                    : codelistId;
+                const beforeParen = afterEquals.split('(')[0] ?? '';
+                const parts = beforeParen.split(':');
+                codelistId = (parts[parts.length - 1] ?? beforeParen).trim() || codelistId;
+            }
+            // Some payloads inline the values directly; prefer those when present.
+            let codes = dim.values ?? [];
+            if (codes.length === 0 && codelistId) {
+                const cl = structure?.data?.codelists?.find((c) => c.id === codelistId);
+                codes = cl?.codes ?? [];
+            }
+            const needle = (search ?? '').toLowerCase();
+            const rows = codes
+                .map((c) => ({ id: c.id, name: unwrapLocalisedLabel(c.name) }))
+                .filter((r) => {
+                if (!needle)
+                    return true;
+                return `${r.id} ${r.name}`.toLowerCase().includes(needle);
+            });
+            return wrapAsMCPResult(rows);
         }
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);
@@ -172,22 +366,25 @@ export class IMFMCPClient extends MCPConnection {
         }
     }
     /**
-     * Fetch a time series from an IMF database.
+     * Fetch a time-series slice from an IMF dataflow as SDMX-JSON.
      *
-     * Wraps the `imf-fetch-data` tool. Callers MUST populate the
-     * `filters` object with the dimension codes returned by
-     * {@link getParameterCodes} — at minimum `country` (ISO-3 code) and
-     * typically `indicator` plus `frequency`.
+     * Virtual tool: `imf-fetch-data`. The response is already in SDMX-JSON
+     * format, so {@link parseSDMXJSON} (`src/utils/imf-data.ts`) can
+     * consume `response.content[0]?.text` directly without reshaping.
      *
      * @param options - Fetch parameters.
-     * @param options.databaseId - IMF database ID (`WEO`, `IFS`, ...).
+     * @param options.databaseId - IMF dataflow ID (`"WEO"`, `"IFS"`, ...).
      * @param options.startYear - Inclusive start year (e.g. `2015`).
      * @param options.endYear - Inclusive end year (e.g. `2030` for WEO forecasts).
-     * @param options.filters - Map of dimension name to list of codes.
-     * @returns MCP tool result carrying the SDMX-JSON payload, or fallback on error.
+     * @param options.filters - Map of dimension → selected codes.
+     * @param options.dimensionOrder - Optional override of the dimension order
+     *   used to build the SDMX key. Defaults to
+     *   {@link defaultDimensionOrder} for the database.
+     * @returns MCP-shaped result whose `content[0].text` carries the raw
+     *   SDMX-JSON response. Empty on error or invalid inputs.
      */
     async fetchData(options) {
-        const { databaseId, startYear, endYear, filters } = options;
+        const { databaseId, startYear, endYear, filters, dimensionOrder } = options;
         if (!databaseId || !filters || Object.keys(filters).length === 0) {
             console.warn('imf-fetch-data requires databaseId and a non-empty filters map');
             return IMF_FALLBACK;
@@ -197,12 +394,16 @@ export class IMFMCPClient extends MCPConnection {
             return IMF_FALLBACK;
         }
         try {
-            return await this.callTool('imf-fetch-data', {
-                database_id: databaseId,
-                start_year: startYear,
-                end_year: endYear,
-                filters,
+            const dims = dimensionOrder ?? defaultDimensionOrder(databaseId);
+            const key = buildSDMXKey(dims, filters);
+            const qs = new URLSearchParams({
+                startPeriod: String(startYear),
+                endPeriod: String(endYear),
+                format: 'jsondata',
             });
+            const url = `/data/${encodeURIComponent(databaseId)}/${key}?${qs.toString()}`;
+            const text = await this._getText(url);
+            return wrapAsMCPResult(text);
         }
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);
@@ -210,27 +411,75 @@ export class IMFMCPClient extends MCPConnection {
             return IMF_FALLBACK;
         }
     }
+    // ─── private transport helpers ─────────────────────────────────────────────
+    /**
+     * Build a full URL and GET it as text, enforcing the client-wide timeout.
+     *
+     * @param path - Path (already URL-encoded) to append to the base URL.
+     * @returns Response body (`text/*` or `application/*`) as a string.
+     * @throws When the HTTP status is not 2xx, the request times out, or
+     *   the network layer raises.
+     * @internal
+     */
+    async _getText(path) {
+        const url = `${this._apiBaseUrl}${path.startsWith('/') ? path : `/${path}`}`;
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), this._timeoutMs);
+        try {
+            const response = await this._fetchImpl(url, {
+                method: 'GET',
+                headers: { Accept: 'application/json' },
+                signal: controller.signal,
+            });
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status} ${response.statusText} for ${url}`);
+            }
+            return await response.text();
+        }
+        finally {
+            clearTimeout(timer);
+        }
+    }
+    /**
+     * GET a URL and parse the response body as JSON.
+     *
+     * @template T - Narrow response type declared by the caller.
+     * @param path - Path to append to the base URL.
+     * @returns Parsed JSON value.
+     * @throws When the response is not JSON, not 2xx, or the request fails.
+     * @internal
+     */
+    async _getJSON(path) {
+        const raw = await this._getText(path);
+        try {
+            return JSON.parse(raw);
+        }
+        catch (error) {
+            const message = error instanceof Error ? error.message : String(error);
+            throw new Error(`Failed to parse IMF response as JSON: ${message}`, { cause: error });
+        }
+    }
 }
-/** Singleton IMF MCP client instance. */
+/**
+ * Forward-looking alias for {@link IMFMCPClient}. New code should prefer
+ * `IMFClient`; the `IMFMCPClient` name is retained for backward
+ * compatibility with the MCP-backed iteration shipped in Wave 1.
+ */
+export const IMFClient = IMFMCPClient;
+// ─── Singleton lifecycle ─────────────────────────────────────────────────────
+/** Singleton instance, created lazily by {@link getIMFMCPClient}. */
 let imfClientInstance = null;
 /**
- * Get or create the singleton IMF MCP client.
+ * Get or create the singleton IMF client, validating the base URL on
+ * first use. Subsequent calls return the cached instance.
  *
- * Uses `IMF_MCP_GATEWAY_URL` / `IMF_MCP_GATEWAY_API_KEY` (falling back
- * to `EP_MCP_GATEWAY_API_KEY`) for gateway configuration. Throws if the
- * connect fails so callers can branch to a World Bank fallback.
- *
- * @param options - Client options (override env vars).
- * @returns The shared IMF MCP client instance, connected on first call.
+ * @param options - Client options (override env vars and defaults).
+ * @returns Connected singleton client.
+ * @throws When the base URL is malformed (e.g. missing protocol).
  */
 export async function getIMFMCPClient(options = {}) {
     if (!imfClientInstance) {
-        const mergedOptions = {
-            ...options,
-            maxConnectionAttempts: options.maxConnectionAttempts ?? 2,
-            connectionRetryDelay: options.connectionRetryDelay ?? 1000,
-        };
-        const client = new IMFMCPClient(mergedOptions);
+        const client = new IMFMCPClient(options);
         try {
             await client.connect();
             imfClientInstance = client;
@@ -242,7 +491,7 @@ export async function getIMFMCPClient(options = {}) {
     }
     return imfClientInstance;
 }
-/** Close and cleanup the singleton IMF MCP client. */
+/** Close and clear the singleton instance (idempotent). */
 export async function closeIMFMCPClient() {
     if (imfClientInstance) {
         imfClientInstance.disconnect();

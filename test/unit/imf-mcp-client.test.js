@@ -2,22 +2,48 @@
 // SPDX-License-Identifier: Apache-2.0
 
 /**
- * Unit tests for imf-mcp-client.js
- * Tests IMF MCP client construction, tool wrapper methods, and singleton lifecycle.
- * Covers the Wave 1 additive IMF data surface introduced in the migration plan.
+ * Unit tests for imf-mcp-client.js (native TypeScript IMF SDMX REST client).
+ *
+ * Mocks `fetch()` (injected via the `fetchImpl` option) so the tests are
+ * network-free and deterministic. Covers:
+ * - IMF_MCP_TOOLS drift guard
+ * - Client construction (defaults, env vars, explicit options)
+ * - Each semantic tool wrapper (listDatabases, searchDatabases,
+ *   getParameterDefs, getParameterCodes, fetchData) — success path,
+ *   input-validation path, and transport-error fallback path.
+ * - Singleton lifecycle.
  */
 
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import {
   IMFMCPClient,
+  IMFClient,
   IMF_MCP_TOOLS,
+  getIMFMCPClient,
   closeIMFMCPClient,
 } from '../../scripts/mcp/imf-mcp-client.js';
 import { mockConsole } from '../helpers/test-utils.js';
 
+/**
+ * Build a minimal `fetch`-compatible mock that returns the given body
+ * and status for a single call. Accepts a string body (JSON or SDMX-JSON)
+ * and produces a `Response`-like object with the subset of methods the
+ * client actually uses (`ok`, `status`, `statusText`, `text()`).
+ */
+function mockFetchResponse(body, { status = 200, statusText = 'OK' } = {}) {
+  return {
+    ok: status >= 200 && status < 300,
+    status,
+    statusText,
+    async text() {
+      return body;
+    },
+  };
+}
+
 describe('imf-mcp-client', () => {
   describe('IMF_MCP_TOOLS drift guard', () => {
-    it('exposes exactly the five upstream c-cf/imf-data-mcp tools', () => {
+    it('exposes exactly the five virtual IMF tool names', () => {
       expect([...IMF_MCP_TOOLS].sort()).toEqual([
         'imf-fetch-data',
         'imf-get-parameter-codes',
@@ -35,229 +61,515 @@ describe('imf-mcp-client', () => {
     });
   });
 
-  describe('IMFMCPClient', () => {
-    let client;
+  describe('IMFClient alias', () => {
+    it('is the same class as IMFMCPClient (forward-looking alias)', () => {
+      expect(IMFClient).toBe(IMFMCPClient);
+    });
+  });
+
+  describe('IMFMCPClient construction', () => {
     let consoleOutput;
+    const originalEnv = { ...process.env };
 
     beforeEach(() => {
       consoleOutput = mockConsole();
-      client = new IMFMCPClient();
     });
 
     afterEach(() => {
       consoleOutput.restore();
-      if (client?.isConnected?.()) {
-        client.disconnect();
+      for (const key of Object.keys(process.env)) {
+        if (!(key in originalEnv)) {
+          delete process.env[key];
+        }
+      }
+      for (const [key, value] of Object.entries(originalEnv)) {
+        process.env[key] = value;
       }
     });
 
-    describe('Constructor', () => {
-      it('should initialize with default options', () => {
-        expect(client).toBeInstanceOf(IMFMCPClient);
-        expect(client.isConnected()).toBe(false);
-      });
-
-      it('should accept custom options', () => {
-        const customClient = new IMFMCPClient({
-          gatewayUrl: 'http://host.docker.internal:80/mcp/imf-data',
-          gatewayApiKey: 'test-key',
-        });
-        expect(customClient).toBeInstanceOf(IMFMCPClient);
-        expect(customClient.isGatewayMode()).toBe(true);
-        expect(customClient.getGatewayUrl()).toBe(
-          'http://host.docker.internal:80/mcp/imf-data'
-        );
-      });
+    it('uses the default SDMX 3.0 base URL and timeout', () => {
+      delete process.env['IMF_API_BASE_URL'];
+      delete process.env['IMF_API_TIMEOUT_MS'];
+      const c = new IMFMCPClient();
+      expect(c.getApiBaseUrl()).toBe('https://dataservices.imf.org/REST/SDMX_3.0');
+      expect(c.getTimeoutMs()).toBe(30_000);
+      expect(c.isConnected()).toBe(false);
     });
 
-    describe('listDatabases', () => {
-      it('calls the upstream imf-list-databases tool', async () => {
-        const mockResult = { content: [{ type: 'text', text: '[]' }] };
-        vi.spyOn(client, 'callTool').mockResolvedValue(mockResult);
-        const result = await client.listDatabases();
-        expect(client.callTool).toHaveBeenCalledWith('imf-list-databases', {});
-        expect(result).toEqual(mockResult);
-      });
-
-      it('returns empty fallback on transport error', async () => {
-        vi.spyOn(client, 'callTool').mockRejectedValue(new Error('Connection refused'));
-        const result = await client.listDatabases();
-        expect(result.content[0].type).toBe('text');
-        expect(result.content[0].text).toBe('');
-      });
+    it('honours IMF_API_BASE_URL env var and strips trailing slashes', () => {
+      process.env['IMF_API_BASE_URL'] = 'https://custom.example.com/api///';
+      const c = new IMFMCPClient();
+      expect(c.getApiBaseUrl()).toBe('https://custom.example.com/api');
     });
 
-    describe('searchDatabases', () => {
-      it('passes the keyword through to the upstream tool', async () => {
-        vi.spyOn(client, 'callTool').mockResolvedValue({ content: [{ type: 'text', text: '[]' }] });
-        await client.searchDatabases('inflation');
-        expect(client.callTool).toHaveBeenCalledWith('imf-search-databases', {
-          keyword: 'inflation',
-        });
-      });
-
-      it('returns fallback without calling the tool when keyword is empty', async () => {
-        const spy = vi.spyOn(client, 'callTool');
-        const result = await client.searchDatabases('');
-        expect(spy).not.toHaveBeenCalled();
-        expect(result.content[0].text).toBe('');
-      });
+    it('honours IMF_API_TIMEOUT_MS env var', () => {
+      process.env['IMF_API_TIMEOUT_MS'] = '15000';
+      const c = new IMFMCPClient();
+      expect(c.getTimeoutMs()).toBe(15_000);
     });
 
-    describe('getParameterDefs', () => {
-      it('uses database_id snake_case for the upstream schema', async () => {
-        vi.spyOn(client, 'callTool').mockResolvedValue({ content: [{ type: 'text', text: '[]' }] });
-        await client.getParameterDefs('WEO');
-        expect(client.callTool).toHaveBeenCalledWith('imf-get-parameter-defs', {
-          database_id: 'WEO',
-        });
+    it('prefers explicit options over env vars', () => {
+      process.env['IMF_API_BASE_URL'] = 'https://env.example.com';
+      process.env['IMF_API_TIMEOUT_MS'] = '5000';
+      const c = new IMFMCPClient({
+        apiBaseUrl: 'https://explicit.example.com',
+        timeoutMs: 12_345,
       });
-
-      it('validates the databaseId argument', async () => {
-        const spy = vi.spyOn(client, 'callTool');
-        const result = await client.getParameterDefs('');
-        expect(spy).not.toHaveBeenCalled();
-        expect(result.content[0].text).toBe('');
-      });
+      expect(c.getApiBaseUrl()).toBe('https://explicit.example.com');
+      expect(c.getTimeoutMs()).toBe(12_345);
     });
 
-    describe('getParameterCodes', () => {
-      it('requires databaseId and parameter', async () => {
-        const spy = vi.spyOn(client, 'callTool');
-        const result = await client.getParameterCodes('', 'country');
-        expect(spy).not.toHaveBeenCalled();
-        expect(result.content[0].text).toBe('');
-      });
-
-      it('omits the search field when not provided', async () => {
-        vi.spyOn(client, 'callTool').mockResolvedValue({ content: [{ type: 'text', text: '[]' }] });
-        await client.getParameterCodes('WEO', 'indicator');
-        expect(client.callTool).toHaveBeenCalledWith('imf-get-parameter-codes', {
-          database_id: 'WEO',
-          parameter: 'indicator',
-        });
-      });
-
-      it('includes the search field when provided', async () => {
-        vi.spyOn(client, 'callTool').mockResolvedValue({ content: [{ type: 'text', text: '[]' }] });
-        await client.getParameterCodes('WEO', 'indicator', 'NGDP');
-        expect(client.callTool).toHaveBeenCalledWith('imf-get-parameter-codes', {
-          database_id: 'WEO',
-          parameter: 'indicator',
-          search: 'NGDP',
-        });
-      });
+    it('ignores a malformed timeout env var and falls back to the default', () => {
+      process.env['IMF_API_TIMEOUT_MS'] = 'not-a-number';
+      const c = new IMFMCPClient();
+      expect(c.getTimeoutMs()).toBe(30_000);
     });
 
-    describe('fetchData', () => {
-      it('forwards all fetch parameters in snake_case', async () => {
-        vi.spyOn(client, 'callTool').mockResolvedValue({
-          content: [{ type: 'text', text: '{"data":{}}' }],
-        });
-        await client.fetchData({
-          databaseId: 'WEO',
-          startYear: 2020,
-          endYear: 2030,
-          filters: { country: ['DEU'], indicator: ['NGDP_RPCH'] },
-        });
-        expect(client.callTool).toHaveBeenCalledWith('imf-fetch-data', {
-          database_id: 'WEO',
-          start_year: 2020,
-          end_year: 2030,
-          filters: { country: ['DEU'], indicator: ['NGDP_RPCH'] },
-        });
-      });
-
-      it('rejects an empty filters map', async () => {
-        const spy = vi.spyOn(client, 'callTool');
-        const result = await client.fetchData({
-          databaseId: 'WEO',
-          startYear: 2020,
-          endYear: 2025,
-          filters: {},
-        });
-        expect(spy).not.toHaveBeenCalled();
-        expect(result.content[0].text).toBe('');
-      });
-
-      it('rejects an inverted year range', async () => {
-        const spy = vi.spyOn(client, 'callTool');
-        const result = await client.fetchData({
-          databaseId: 'WEO',
-          startYear: 2030,
-          endYear: 2020,
-          filters: { country: ['DEU'] },
-        });
-        expect(spy).not.toHaveBeenCalled();
-        expect(result.content[0].text).toBe('');
-      });
-
-      it('rejects non-finite year inputs', async () => {
-        const spy = vi.spyOn(client, 'callTool');
-        const result = await client.fetchData({
-          databaseId: 'WEO',
-          startYear: Number.NaN,
-          endYear: 2025,
-          filters: { country: ['DEU'] },
-        });
-        expect(spy).not.toHaveBeenCalled();
-        expect(result.content[0].text).toBe('');
-      });
-
-      it('returns empty fallback when the transport fails', async () => {
-        vi.spyOn(client, 'callTool').mockRejectedValue(new Error('upstream-5xx'));
-        const result = await client.fetchData({
-          databaseId: 'WEO',
-          startYear: 2020,
-          endYear: 2025,
-          filters: { country: ['DEU'] },
-        });
-        expect(result.content[0].text).toBe('');
-      });
+    it('connect() accepts a valid base URL and disconnect() clears it', async () => {
+      const c = new IMFMCPClient({ apiBaseUrl: 'https://dataservices.imf.org/REST/SDMX_3.0' });
+      await c.connect();
+      expect(c.isConnected()).toBe(true);
+      c.disconnect();
+      expect(c.isConnected()).toBe(false);
     });
 
-    describe('env var configuration', () => {
-      const originalEnv = { ...process.env };
+    it('connect() rejects a malformed base URL', async () => {
+      const c = new IMFMCPClient({ apiBaseUrl: 'not a url' });
+      await expect(c.connect()).rejects.toThrow(/Invalid IMF_API_BASE_URL/);
+    });
+  });
 
-      afterEach(() => {
-        for (const key of Object.keys(process.env)) {
-          if (!(key in originalEnv)) {
-            delete process.env[key];
-          }
-        }
-        for (const [key, value] of Object.entries(originalEnv)) {
-          process.env[key] = value;
-        }
+  describe('listDatabases', () => {
+    let consoleOutput;
+    beforeEach(() => {
+      consoleOutput = mockConsole();
+    });
+    afterEach(() => consoleOutput.restore());
+
+    it('requests the /dataflow/IMF endpoint and normalises the payload', async () => {
+      const fetchImpl = vi.fn().mockResolvedValue(
+        mockFetchResponse(
+          JSON.stringify({
+            data: {
+              dataflows: [
+                { id: 'WEO', name: { en: 'World Economic Outlook' }, description: 'Forecasts' },
+                { id: 'IFS', name: 'International Financial Statistics' },
+              ],
+            },
+          })
+        )
+      );
+      const client = new IMFMCPClient({
+        apiBaseUrl: 'https://dataservices.imf.org/REST/SDMX_3.0',
+        fetchImpl,
+      });
+      const result = await client.listDatabases();
+
+      expect(fetchImpl).toHaveBeenCalledTimes(1);
+      const calledUrl = fetchImpl.mock.calls[0][0];
+      expect(calledUrl).toBe('https://dataservices.imf.org/REST/SDMX_3.0/dataflow/IMF');
+
+      const parsed = JSON.parse(result.content[0].text);
+      expect(parsed).toEqual([
+        { id: 'WEO', name: 'World Economic Outlook', description: 'Forecasts' },
+        { id: 'IFS', name: 'International Financial Statistics', description: '' },
+      ]);
+    });
+
+    it('returns empty fallback on HTTP error', async () => {
+      const fetchImpl = vi
+        .fn()
+        .mockResolvedValue(mockFetchResponse('gateway error', { status: 502, statusText: 'Bad Gateway' }));
+      const client = new IMFMCPClient({ fetchImpl });
+      const result = await client.listDatabases();
+      expect(result.content[0].text).toBe('');
+    });
+
+    it('returns empty fallback on network/abort error', async () => {
+      const fetchImpl = vi.fn().mockRejectedValue(new Error('ECONNREFUSED'));
+      const client = new IMFMCPClient({ fetchImpl });
+      const result = await client.listDatabases();
+      expect(result.content[0].text).toBe('');
+    });
+  });
+
+  describe('searchDatabases', () => {
+    let consoleOutput;
+    beforeEach(() => {
+      consoleOutput = mockConsole();
+    });
+    afterEach(() => consoleOutput.restore());
+
+    it('filters the dataflow list by case-insensitive substring', async () => {
+      const fetchImpl = vi.fn().mockResolvedValue(
+        mockFetchResponse(
+          JSON.stringify({
+            data: {
+              dataflows: [
+                { id: 'CPI', name: 'Consumer Price Index', description: 'Inflation series' },
+                { id: 'WEO', name: 'World Economic Outlook', description: '' },
+                { id: 'BOP_AGG', name: 'Balance of Payments', description: '' },
+              ],
+            },
+          })
+        )
+      );
+      const client = new IMFMCPClient({ fetchImpl });
+      const result = await client.searchDatabases('Inflation');
+      const rows = JSON.parse(result.content[0].text);
+      expect(rows).toHaveLength(1);
+      expect(rows[0].id).toBe('CPI');
+    });
+
+    it('returns empty fallback without calling fetch when keyword is blank', async () => {
+      const fetchImpl = vi.fn();
+      const client = new IMFMCPClient({ fetchImpl });
+      const result = await client.searchDatabases('');
+      expect(fetchImpl).not.toHaveBeenCalled();
+      expect(result.content[0].text).toBe('');
+    });
+  });
+
+  describe('getParameterDefs', () => {
+    let consoleOutput;
+    beforeEach(() => {
+      consoleOutput = mockConsole();
+    });
+    afterEach(() => consoleOutput.restore());
+
+    it('requests /datastructure/{id} and extracts the dimension list', async () => {
+      const fetchImpl = vi.fn().mockResolvedValue(
+        mockFetchResponse(
+          JSON.stringify({
+            data: {
+              dataStructures: [
+                {
+                  id: 'WEO',
+                  dataStructureComponents: {
+                    dimensionList: {
+                      dimensions: [
+                        { id: 'country', name: { en: 'Country' } },
+                        { id: 'indicator', name: 'Indicator' },
+                        { id: 'frequency' },
+                      ],
+                    },
+                  },
+                },
+              ],
+            },
+          })
+        )
+      );
+      const client = new IMFMCPClient({
+        apiBaseUrl: 'https://dataservices.imf.org/REST/SDMX_3.0',
+        fetchImpl,
+      });
+      const result = await client.getParameterDefs('WEO');
+
+      const url = fetchImpl.mock.calls[0][0];
+      expect(url).toBe('https://dataservices.imf.org/REST/SDMX_3.0/datastructure/WEO');
+
+      const rows = JSON.parse(result.content[0].text);
+      expect(rows).toEqual([
+        { id: 'country', name: 'Country' },
+        { id: 'indicator', name: 'Indicator' },
+        { id: 'frequency', name: '' },
+      ]);
+    });
+
+    it('validates the databaseId argument', async () => {
+      const fetchImpl = vi.fn();
+      const client = new IMFMCPClient({ fetchImpl });
+      const result = await client.getParameterDefs('');
+      expect(fetchImpl).not.toHaveBeenCalled();
+      expect(result.content[0].text).toBe('');
+    });
+
+    it('URI-encodes the databaseId', async () => {
+      const fetchImpl = vi
+        .fn()
+        .mockResolvedValue(mockFetchResponse(JSON.stringify({ data: { dataStructures: [] } })));
+      const client = new IMFMCPClient({
+        apiBaseUrl: 'https://example.com',
+        fetchImpl,
+      });
+      await client.getParameterDefs('DB/ID WITH SPACES');
+      const url = fetchImpl.mock.calls[0][0];
+      expect(url).toContain('/datastructure/DB%2FID%20WITH%20SPACES');
+    });
+  });
+
+  describe('getParameterCodes', () => {
+    let consoleOutput;
+    beforeEach(() => {
+      consoleOutput = mockConsole();
+    });
+    afterEach(() => consoleOutput.restore());
+
+    it('requires databaseId and parameter', async () => {
+      const fetchImpl = vi.fn();
+      const client = new IMFMCPClient({ fetchImpl });
+      const result = await client.getParameterCodes('', 'country');
+      expect(fetchImpl).not.toHaveBeenCalled();
+      expect(result.content[0].text).toBe('');
+    });
+
+    it('returns codes from an inlined `values` array when present', async () => {
+      const fetchImpl = vi.fn().mockResolvedValue(
+        mockFetchResponse(
+          JSON.stringify({
+            data: {
+              dataStructures: [
+                {
+                  id: 'WEO',
+                  dataStructureComponents: {
+                    dimensionList: {
+                      dimensions: [
+                        {
+                          id: 'indicator',
+                          name: 'Indicator',
+                          values: [
+                            { id: 'NGDP_RPCH', name: { en: 'Real GDP growth' } },
+                            { id: 'PCPIPCH', name: 'CPI inflation' },
+                          ],
+                        },
+                      ],
+                    },
+                  },
+                },
+              ],
+            },
+          })
+        )
+      );
+      const client = new IMFMCPClient({ fetchImpl });
+      const result = await client.getParameterCodes('WEO', 'indicator');
+      const rows = JSON.parse(result.content[0].text);
+      expect(rows).toEqual([
+        { id: 'NGDP_RPCH', name: 'Real GDP growth' },
+        { id: 'PCPIPCH', name: 'CPI inflation' },
+      ]);
+    });
+
+    it('resolves codes from a referenced codelist when inline values are empty', async () => {
+      const fetchImpl = vi.fn().mockResolvedValue(
+        mockFetchResponse(
+          JSON.stringify({
+            data: {
+              dataStructures: [
+                {
+                  id: 'WEO',
+                  dataStructureComponents: {
+                    dimensionList: {
+                      dimensions: [
+                        {
+                          id: 'country',
+                          localRepresentation: {
+                            enumeration: 'urn:sdmx:infomodel.codelist.Codelist=IMF:CL_AREA(1.0)',
+                          },
+                        },
+                      ],
+                    },
+                  },
+                },
+              ],
+              codelists: [
+                {
+                  id: 'CL_AREA',
+                  codes: [
+                    { id: 'DEU', name: 'Germany' },
+                    { id: 'FRA', name: 'France' },
+                  ],
+                },
+              ],
+            },
+          })
+        )
+      );
+      const client = new IMFMCPClient({ fetchImpl });
+      const result = await client.getParameterCodes('WEO', 'country');
+      const rows = JSON.parse(result.content[0].text);
+      expect(rows).toEqual([
+        { id: 'DEU', name: 'Germany' },
+        { id: 'FRA', name: 'France' },
+      ]);
+    });
+
+    it('applies the search filter as a case-insensitive substring', async () => {
+      const fetchImpl = vi.fn().mockResolvedValue(
+        mockFetchResponse(
+          JSON.stringify({
+            data: {
+              dataStructures: [
+                {
+                  id: 'WEO',
+                  dataStructureComponents: {
+                    dimensionList: {
+                      dimensions: [
+                        {
+                          id: 'indicator',
+                          values: [
+                            { id: 'NGDP', name: 'Nominal GDP' },
+                            { id: 'NGDP_RPCH', name: 'Real GDP growth' },
+                            { id: 'PCPIPCH', name: 'CPI inflation' },
+                          ],
+                        },
+                      ],
+                    },
+                  },
+                },
+              ],
+            },
+          })
+        )
+      );
+      const client = new IMFMCPClient({ fetchImpl });
+      const result = await client.getParameterCodes('WEO', 'indicator', 'ngdp');
+      const rows = JSON.parse(result.content[0].text);
+      expect(rows.map((r) => r.id)).toEqual(['NGDP', 'NGDP_RPCH']);
+    });
+
+    it('returns an empty list when the requested dimension is not declared', async () => {
+      const fetchImpl = vi.fn().mockResolvedValue(
+        mockFetchResponse(
+          JSON.stringify({
+            data: {
+              dataStructures: [
+                {
+                  id: 'WEO',
+                  dataStructureComponents: {
+                    dimensionList: { dimensions: [{ id: 'country' }] },
+                  },
+                },
+              ],
+            },
+          })
+        )
+      );
+      const client = new IMFMCPClient({ fetchImpl });
+      const result = await client.getParameterCodes('WEO', 'no-such-dim');
+      expect(result.content[0].text).toBe('[]');
+    });
+  });
+
+  describe('fetchData', () => {
+    let consoleOutput;
+    beforeEach(() => {
+      consoleOutput = mockConsole();
+    });
+    afterEach(() => consoleOutput.restore());
+
+    it('builds the SDMX URL using the default dimension order for WEO', async () => {
+      const sdmxPayload = JSON.stringify({ data: { dataSets: [{ series: {} }], structure: {} } });
+      const fetchImpl = vi.fn().mockResolvedValue(mockFetchResponse(sdmxPayload));
+      const client = new IMFMCPClient({
+        apiBaseUrl: 'https://dataservices.imf.org/REST/SDMX_3.0',
+        fetchImpl,
+      });
+      const result = await client.fetchData({
+        databaseId: 'WEO',
+        startYear: 2020,
+        endYear: 2030,
+        filters: { country: ['DEU', 'FRA'], indicator: ['NGDP_RPCH'] },
       });
 
-      it('honours IMF_MCP_GATEWAY_URL', () => {
-        process.env['IMF_MCP_GATEWAY_URL'] = 'https://gateway.example.com/mcp/imf-data';
-        const c = new IMFMCPClient();
-        expect(c.isGatewayMode()).toBe(true);
-        expect(c.getGatewayUrl()).toBe('https://gateway.example.com/mcp/imf-data');
-      });
+      expect(fetchImpl).toHaveBeenCalledTimes(1);
+      const url = fetchImpl.mock.calls[0][0];
+      // WEO order is country.indicator.frequency; `country` carries a
+      // union of two codes joined with SDMX's `+` separator (each code
+      // URI-encoded first — idempotent for alphanumeric), `frequency`
+      // is omitted so the slot becomes the empty-string wildcard.
+      expect(url).toContain('/data/WEO/DEU+FRA.NGDP_RPCH.?');
+      expect(url).toContain('startPeriod=2020');
+      expect(url).toContain('endPeriod=2030');
+      expect(url).toContain('format=jsondata');
+      expect(result.content[0].text).toBe(sdmxPayload);
+    });
 
-      it('falls back to EP_MCP_GATEWAY_API_KEY when IMF-specific key missing', () => {
-        process.env['IMF_MCP_GATEWAY_URL'] = 'https://gateway.example.com/mcp/imf-data';
-        delete process.env['IMF_MCP_GATEWAY_API_KEY'];
-        process.env['EP_MCP_GATEWAY_API_KEY'] = 'ep-shared-key';
-        const c = new IMFMCPClient();
-        expect(c.getGatewayApiKey()).toBe('ep-shared-key');
+    it('honours a caller-supplied dimensionOrder override', async () => {
+      const fetchImpl = vi.fn().mockResolvedValue(mockFetchResponse('{}'));
+      const client = new IMFMCPClient({
+        apiBaseUrl: 'https://example.com',
+        fetchImpl,
       });
+      await client.fetchData({
+        databaseId: 'IFS',
+        startYear: 2024,
+        endYear: 2025,
+        filters: { frequency: ['M'], country: ['DEU'], indicator: ['FPOLM_PA'] },
+        dimensionOrder: ['frequency', 'country', 'indicator'],
+      });
+      const url = fetchImpl.mock.calls[0][0];
+      expect(url).toContain('/data/IFS/M.DEU.FPOLM_PA?');
+    });
 
-      it('prefers IMF-specific key when both are set', () => {
-        process.env['IMF_MCP_GATEWAY_URL'] = 'https://gateway.example.com/mcp/imf-data';
-        process.env['IMF_MCP_GATEWAY_API_KEY'] = 'imf-specific';
-        process.env['EP_MCP_GATEWAY_API_KEY'] = 'ep-shared-key';
-        const c = new IMFMCPClient();
-        expect(c.getGatewayApiKey()).toBe('imf-specific');
+    it('rejects an empty filters map', async () => {
+      const fetchImpl = vi.fn();
+      const client = new IMFMCPClient({ fetchImpl });
+      const result = await client.fetchData({
+        databaseId: 'WEO',
+        startYear: 2020,
+        endYear: 2025,
+        filters: {},
       });
+      expect(fetchImpl).not.toHaveBeenCalled();
+      expect(result.content[0].text).toBe('');
+    });
 
-      it('prefers explicit options over env vars', () => {
-        process.env['IMF_MCP_GATEWAY_URL'] = 'https://env-gateway.example.com';
-        const c = new IMFMCPClient({ gatewayUrl: 'https://explicit.example.com' });
-        expect(c.getGatewayUrl()).toBe('https://explicit.example.com');
+    it('rejects an inverted year range', async () => {
+      const fetchImpl = vi.fn();
+      const client = new IMFMCPClient({ fetchImpl });
+      const result = await client.fetchData({
+        databaseId: 'WEO',
+        startYear: 2030,
+        endYear: 2020,
+        filters: { country: ['DEU'] },
       });
+      expect(fetchImpl).not.toHaveBeenCalled();
+      expect(result.content[0].text).toBe('');
+    });
+
+    it('rejects non-finite year inputs', async () => {
+      const fetchImpl = vi.fn();
+      const client = new IMFMCPClient({ fetchImpl });
+      const result = await client.fetchData({
+        databaseId: 'WEO',
+        startYear: Number.NaN,
+        endYear: 2025,
+        filters: { country: ['DEU'] },
+      });
+      expect(fetchImpl).not.toHaveBeenCalled();
+      expect(result.content[0].text).toBe('');
+    });
+
+    it('returns empty fallback when the transport fails', async () => {
+      const fetchImpl = vi.fn().mockRejectedValue(new Error('upstream-5xx'));
+      const client = new IMFMCPClient({ fetchImpl });
+      const result = await client.fetchData({
+        databaseId: 'WEO',
+        startYear: 2020,
+        endYear: 2025,
+        filters: { country: ['DEU'], indicator: ['NGDP_RPCH'] },
+      });
+      expect(result.content[0].text).toBe('');
+    });
+
+    it('URI-encodes dimension codes containing reserved characters', async () => {
+      const fetchImpl = vi.fn().mockResolvedValue(mockFetchResponse('{}'));
+      const client = new IMFMCPClient({
+        apiBaseUrl: 'https://example.com',
+        fetchImpl,
+      });
+      await client.fetchData({
+        databaseId: 'WEO',
+        startYear: 2024,
+        endYear: 2024,
+        filters: { country: ['DEU+FRA'], indicator: ['NGDP_RPCH'] },
+      });
+      const url = fetchImpl.mock.calls[0][0];
+      // `+` inside a single country code must be %-encoded so SDMX does
+      // not interpret it as the "union-of-codes" separator.
+      expect(url).toContain('/data/WEO/DEU%2BFRA.NGDP_RPCH.?');
     });
   });
 
@@ -266,14 +578,29 @@ describe('imf-mcp-client', () => {
       await closeIMFMCPClient();
     });
 
-    it('closeIMFMCPClient should be safe to call when no instance exists', async () => {
+    it('closeIMFMCPClient is safe to call when no instance exists', async () => {
       await closeIMFMCPClient();
     });
 
-    it('closeIMFMCPClient should be idempotent', async () => {
+    it('closeIMFMCPClient is idempotent', async () => {
       await closeIMFMCPClient();
       await closeIMFMCPClient();
       await closeIMFMCPClient();
+    });
+
+    it('getIMFMCPClient returns a connected singleton', async () => {
+      const c = await getIMFMCPClient({
+        apiBaseUrl: 'https://dataservices.imf.org/REST/SDMX_3.0',
+      });
+      expect(c).toBeInstanceOf(IMFMCPClient);
+      expect(c.isConnected()).toBe(true);
+
+      const c2 = await getIMFMCPClient();
+      expect(c2).toBe(c);
+    });
+
+    it('getIMFMCPClient rejects a malformed base URL', async () => {
+      await expect(getIMFMCPClient({ apiBaseUrl: 'not a url' })).rejects.toThrow(/Invalid IMF_API_BASE_URL/);
     });
   });
 });
