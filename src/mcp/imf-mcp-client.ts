@@ -274,7 +274,13 @@ export class IMFMCPClient {
     const parsedEnvTimeout =
       envTimeout !== undefined && envTimeout !== '' ? Number.parseInt(envTimeout, 10) : Number.NaN;
     const base = options.apiBaseUrl ?? (envBase && envBase !== '' ? envBase : DEFAULT_IMF_API_BASE_URL);
-    this._apiBaseUrl = base.replace(/\/+$/u, '');
+    // Strip trailing slashes without a regex so the CodeQL polynomial-ReDoS
+    // detector has nothing to flag. Single linear pass from the right.
+    let end = base.length;
+    while (end > 0 && base.charCodeAt(end - 1) === 47 /* '/' */) {
+      end -= 1;
+    }
+    this._apiBaseUrl = end === base.length ? base : base.slice(0, end);
     this._timeoutMs =
       options.timeoutMs !== undefined && Number.isFinite(options.timeoutMs) && options.timeoutMs > 0
         ? options.timeoutMs
