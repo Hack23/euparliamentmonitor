@@ -171,11 +171,36 @@ You are the **Translation Agent**. Your ONLY job: take existing English articles
 > **📚 Reference**: [SHARED_PROMPT_PATTERNS.md](../prompts/SHARED_PROMPT_PATTERNS.md) for EP MCP tools and safe outputs.
 > **📈 World Bank pass-through**: Translation workflows inherit World Bank + chart structure from the source English article. Do not add, remove, or alter `<canvas data-chart-config>` blocks or World Bank citations; the validator (`npx tsx src/utils/validate-articles.ts --date=$TODAY --quality --strict`) treats the translated file as a pass-through and expects the same Chart.js + indicator evidence as the source. See [`analysis/methodologies/worldbank-indicator-mapping.md`](../../analysis/methodologies/worldbank-indicator-mapping.md) for reference only.
 
+## 📞 Bash Tool Call Contract (CRITICAL)
+
+> **⚠️ NON-NEGOTIABLE**: Every time you invoke the `bash` / shell tool, you MUST provide BOTH required fields: `command` AND `description`. Calls that omit either field fail with `Multiple validation errors: - "command": Required, - "description": Required`, waste a tool-call turn, and can stall the workflow.
+>
+> ✅ Correct format:
+> ```json
+> {"command": "echo hello", "description": "Print hello to verify shell works"}
+> ```
+>
+> ❌ Wrong — missing `description`:
+> ```json
+> {"command": "echo hello"}
+> ```
+>
+> ❌ Wrong — missing `command`:
+> ```json
+> {"description": "Print hello"}
+> ```
+>
+> Additionally, to avoid AWF sandbox shell-expansion rejections:
+> - Do NOT nest `$(...)` inside `$(( ... ))` arithmetic — assign command output to a variable on its own line first, then reference the variable.
+> - Do NOT combine `${VAR:-$(cmd || cmd2)}` default-with-fallback — use explicit `if/else` blocks.
+> - Do NOT use adjacent `${RANDOM}${RANDOM}` — use `$$` (PID) and `$(date +%s)` on separate assignment lines.
+> - Avoid putting multiple `$(...)` substitutions inside a single double-quoted string — split onto separate variable assignments.
+
 ## 🚫 Scope Restriction
 
 **ALLOWED:** ✅ Create `news/*.html` translations (non-English) | ✅ Read `news/*-en.html` sources | ✅ Write to `analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}/`
 
-**FORBIDDEN:** ❌ Modify English articles, `.github/`, `index*.html`, `package.json` | ❌ Modify `test/` or `e2e/` unless required by an accompanying `src/`/`scripts/` fix (see [SHARED_PROMPT_PATTERNS.md](../prompts/SHARED_PROMPT_PATTERNS.md#minor-typescriptscript-corrections-conditional-allow)) | ❌ Write scripts, translation dictionaries, or batch tools | ❌ Use `sed`/`awk`/regex for translating narrative content | ❌ Use `git commit`/`git push` during translation — stay in working-dir-only mode. **Safe rule**: avoid committing entirely; if a commit is ever made, call `safeoutputs___create_pull_request` **immediately** (before any `git reset --mixed` or other reset), because a later reset can remove unflushed commits from subsequent snapshots. One narrow exception: the very first checkpoint may use `git add` + `git commit` on the baseline `summary.md` to force the initial snapshot to succeed — flush immediately before any reset | ❌ Call `safeoutputs___noop` — always produce translations | ❌ Exit with analysis-only PR without attempting translation | ❌ Produce a PR with only 1 translated file — minimum is 5 | ❌ Skip the periodic flush in Step 3b — that is the #1 cause of data loss
+**FORBIDDEN:** ❌ Modify English articles, `.github/`, `index*.html`, `package.json` | ❌ Modify `test/` or `e2e/` unless required by an accompanying `src/`/`scripts/` fix (see [SHARED_PROMPT_PATTERNS.md](../prompts/SHARED_PROMPT_PATTERNS.md#minor-typescriptscript-corrections-conditional-allow)) | ❌ Write scripts, translation dictionaries, or batch tools | ❌ Use `sed`/`awk`/regex for translating narrative content | ❌ Dangerous shell expansion patterns — NEVER use `${var@P}`, `${!var}`, `eval`, nested command substitutions `$($(..))`, nested parameter expansions like `${var:+...${#other}...}`, `${VAR:-$(cmd)}` default-with-command-substitution, or input redirection inside command substitution `$(cmd < file)`. Use `if/else` blocks instead. These will be blocked by the sandbox | ❌ Use `git commit`/`git push` during translation — stay in working-dir-only mode. **Safe rule**: avoid committing entirely; if a commit is ever made, call `safeoutputs___create_pull_request` **immediately** (before any `git reset --mixed` or other reset), because a later reset can remove unflushed commits from subsequent snapshots. One narrow exception: the very first checkpoint may use `git add` + `git commit` on the baseline `summary.md` to force the initial snapshot to succeed — flush immediately before any reset | ❌ Call `safeoutputs___noop` — always produce translations | ❌ Exit with analysis-only PR without attempting translation | ❌ Produce a PR with only 1 translated file — minimum is 5 | ❌ Skip the periodic flush in Step 3b — that is the #1 cause of data loss
 
 > **Minor TypeScript fixes** (max 20 lines in `src/`/`scripts/`) allowed ONLY to unblock translation generation.
 
@@ -417,12 +442,21 @@ Call `safeoutputs___create_pull_request` NOW (if not already called) with title=
 > # Note: the Date Context block uses `${{ github.event.inputs.article_date }}` — the
 > # only way to access the workflow_dispatch input is via that literal expression,
 > # because there is no `INPUT_ARTICLE_DATE` env var set by this workflow.
+> # Sandbox-safe: avoid `${VAR:-$(cmd)}` default-with-command-substitution (AWF rejects).
+> # Assign $() outputs to plain variables on their own lines, then use explicit if/else.
 > ARTICLE_DATE="${{ github.event.inputs.article_date || '' }}"
-> if [ -z "$ARTICLE_DATE" ]; then ARTICLE_DATE="${EP_ARTICLE_DATE:-$(date -u +%Y-%m-%d)}"; fi
+> if [ -z "$ARTICLE_DATE" ]; then
+>   if [ -n "${EP_ARTICLE_DATE:-}" ]; then
+>     ARTICLE_DATE="$EP_ARTICLE_DATE"
+>   else
+>     ARTICLE_DATE=$(date -u +%Y-%m-%d)
+>   fi
+> fi
 > RUN_ID=${GITHUB_RUN_NUMBER:-0}
 > DIR=analysis/daily/$ARTICLE_DATE/translate-run$RUN_ID
 > mkdir -p "$DIR"
-> SEQ=$$-$(date +%s)
+> NOW_EPOCH=$(date +%s)
+> SEQ="$$-$NOW_EPOCH"
 > echo "retry-marker seq=$SEQ" >> "$DIR/summary.md"
 > sync 2>/dev/null || true
 > git status --short -- "$DIR/"
@@ -435,8 +469,16 @@ Call `safeoutputs___create_pull_request` NOW (if not already called) with title=
 >
 > ```bash
 > cd "${GITHUB_WORKSPACE:-$PWD}"
+> # Sandbox-safe: avoid `${VAR:-$(cmd)}` default-with-command-substitution (AWF rejects).
+> # Assign $() outputs to plain variables on their own lines, then use explicit if/else.
 > ARTICLE_DATE="${{ github.event.inputs.article_date || '' }}"
-> if [ -z "$ARTICLE_DATE" ]; then ARTICLE_DATE="${EP_ARTICLE_DATE:-$(date -u +%Y-%m-%d)}"; fi
+> if [ -z "$ARTICLE_DATE" ]; then
+>   if [ -n "${EP_ARTICLE_DATE:-}" ]; then
+>     ARTICLE_DATE="$EP_ARTICLE_DATE"
+>   else
+>     ARTICLE_DATE=$(date -u +%Y-%m-%d)
+>   fi
+> fi
 > RUN_ID=${GITHUB_RUN_NUMBER:-0}
 > DIR=analysis/daily/$ARTICLE_DATE/translate-run$RUN_ID
 > mkdir -p "$DIR"
