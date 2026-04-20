@@ -71,6 +71,29 @@ describe('content-validator — IMF fingerprints', () => {
     it('returns false on empty input', () => {
       expect(hasIMFEvidence('')).toBe(false);
     });
+
+    it('matches the phrase "International Monetary Fund" case-insensitively', () => {
+      expect(hasIMFEvidence('international monetary fund')).toBe(true);
+      expect(hasIMFEvidence('The International Monetary Fund forecasts ...')).toBe(true);
+      expect(hasIMFEvidence('imf world economic outlook (weo) 2026 projections')).toBe(true);
+    });
+
+    it('matches tool identifiers and the data host case-insensitively', () => {
+      expect(hasIMFEvidence('tool-trace: IMF-Fetch-Data returned 200')).toBe(true);
+      expect(hasIMFEvidence('citation: DATA.IMF.ORG/WEO')).toBe(true);
+    });
+
+    it('does NOT match "IMF" inside a larger all-caps identifier', () => {
+      // Bare identifier `IMF_API_BASE_URL`: `IMF` is followed by `_` (identifier
+      // char → no word-boundary), and no other IMF fingerprint appears.
+      expect(hasIMFEvidence('export IMF_API_BASE_URL=https://example.invalid/')).toBe(false);
+      expect(hasIMFEvidence('IMFOON')).toBe(false);
+    });
+
+    it('does NOT match "WEO" inside a larger all-caps identifier', () => {
+      expect(hasIMFEvidence('WEO_VERSION_2026')).toBe(false);
+      expect(hasIMFEvidence('NWEOFFSET')).toBe(false);
+    });
   });
 
   describe('articlePolicyHasEconomicContext — OR-gate', () => {

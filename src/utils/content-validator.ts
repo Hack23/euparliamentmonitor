@@ -1267,9 +1267,20 @@ export function articlePolicyHasWorldBank(
 // ─── IMF Evidence (Wave 1 additive) ───────────────────────────────────────────
 
 /**
- * Strong IMF evidence tokens — substring-matched (case-insensitive
- * where appropriate). Any one of these is sufficient evidence that
- * the article or analysis file references IMF macro/fiscal context.
+ * Strong IMF evidence tokens. Any one of these is sufficient evidence
+ * that the article or analysis file references IMF macro/fiscal
+ * context.
+ *
+ * Matching rules applied by {@link hasIMFEvidence}:
+ * - Short all-caps tokens listed in {@link IMF_SHORT_ALLCAPS_TOKENS}
+ *   (`IMF`, `WEO`) are matched **word-bounded and case-sensitive** via
+ *   the same identifier-boundary rule used for indicator codes, so they
+ *   do not false-positive inside tokens like `IMF_API_BASE_URL` or
+ *   `WEO_VERSION`.
+ * - All other entries — multi-word phrases, URL hosts, and MCP tool
+ *   identifiers — are matched as **case-insensitive substrings**, so
+ *   variations like `imf`, `Imf`, or `international monetary fund` all
+ *   satisfy the gate.
  *
  * Kept aligned with `analysis/methodologies/imf-indicator-mapping.md`
  * and `IMF_MCP_TOOLS` in `src/mcp/imf-mcp-client.ts`.
@@ -1287,6 +1298,13 @@ export const IMF_STRONG_FINGERPRINTS: readonly string[] = [
   'imf-get-parameter-codes',
   'imf-fetch-data',
 ];
+
+/**
+ * Short all-caps IMF tokens that must be matched with identifier-style
+ * word boundaries. Keeps `IMF` from matching inside `IMF_API_BASE_URL`
+ * and `WEO` from matching inside `WEO_VERSION` or `NWEOF`.
+ */
+const IMF_SHORT_ALLCAPS_TOKENS: ReadonlySet<string> = new Set(['IMF', 'WEO']);
 
 /**
  * SDMX indicator codes published by IMF databases (WEO, IFS, FM, BOP,
@@ -1319,15 +1337,30 @@ export const IMF_INDICATOR_CODES: readonly string[] = [
 /**
  * Detect IMF sourcing in any piece of text (article body OR analysis
  * markdown). Returns `true` when the text contains either a strong
- * fingerprint (the phrase "IMF", a WEO/FM product name, or a tool
- * identifier) or an SDMX indicator code with clean word boundaries.
+ * fingerprint (word-bounded `IMF`/`WEO`, a case-insensitive match for
+ * `International Monetary Fund` / `World Economic Outlook` /
+ * `Fiscal Monitor` / `data.imf.org` / any IMF MCP tool id) or a word-
+ * bounded SDMX indicator code.
+ *
+ * Matching is delegated per-fingerprint via the rules documented on
+ * {@link IMF_STRONG_FINGERPRINTS}. In particular, short all-caps
+ * tokens use the same identifier-boundary rule as indicator codes so
+ * they do not leak into unrelated identifiers such as
+ * `IMF_API_BASE_URL`.
  *
  * @param text - Text to scan.
  * @returns `true` when at least one strong or word-bounded IMF fingerprint matches.
  */
 export function hasIMFEvidence(text: string): boolean {
+  if (text.length === 0) return false;
+  const lower = text.toLowerCase();
   for (const fp of IMF_STRONG_FINGERPRINTS) {
-    if (text.includes(fp)) return true;
+    if (IMF_SHORT_ALLCAPS_TOKENS.has(fp)) {
+      // All-caps short token — word-bounded, case-sensitive match.
+      if (textContainsIndicatorCode(text, fp)) return true;
+    } else if (lower.includes(fp.toLowerCase())) {
+      return true;
+    }
   }
   for (const code of IMF_INDICATOR_CODES) {
     if (textContainsIndicatorCode(text, code)) return true;
@@ -1336,16 +1369,12 @@ export function hasIMFEvidence(text: string): boolean {
 }
 
 /**
- * Wave-2-ready OR-gate: verify that a policy article (or its linked
- * analysis artefacts) cites **either** World Bank OR IMF evidence.
- *
- * During Wave 1 this helper is **available but not yet wired into the
- * strict validator**: `articlePolicyHasWorldBank` remains the blocking
- * quality gate. Callers that want to accept IMF-sourced context now
- * can call this helper directly. Wave 2 (see migration plan §5) will
- * flip `validate-articles.ts` to use this as the default gate and
- * rename `POLICY_SLUGS_REQUIRING_WORLD_BANK` to
- * `POLICY_SLUGS_REQUIRING_ECONOMIC_CONTEXT`.
+ * OR-gate: verify that a policy article (or its linked analysis
+ * artefacts) cites **either** World Bank OR IMF evidence. Wired into
+ * the strict CLI validator (`src/utils/validate-articles.ts`) as the
+ * default economic-context gate — an article satisfies the rule when
+ * {@link hasWorldBankEvidence} OR {@link hasIMFEvidence} returns
+ * `true`, or when `articleType` is not on the mandatory list.
  *
  * @param html - Article HTML or aggregated text including analysis files.
  * @param articleType - Slug of the article category (e.g. `"committee-reports"`).
