@@ -440,6 +440,7 @@ const MILLION = 1e6;
  *
  * @param value - Numeric value, or `null` for N/A.
  * @param mapping - Indicator mapping entry (from {@link IMF_POLICY_INDICATORS}).
+ * @returns A human-readable formatted string, or `'N/A'` for `null` / non-finite inputs.
  */
 export function formatIMFValue(value, mapping) {
     if (value === null || !Number.isFinite(value))
@@ -481,6 +482,7 @@ export function formatIMFValue(value, mapping) {
  * @param countryName - Country display name.
  * @param seriesByKey - Map of {@link IMFMacroIndicatorKey} to series.
  * @param vintage - IMF data vintage label (e.g. `WEO-April-2026`).
+ * @returns Populated {@link IMFEconomicContext} (may have an empty `indicators` array).
  */
 export function buildIMFEconomicContext(countryCode, countryName, seriesByKey, vintage) {
     const indicators = [];
@@ -535,6 +537,7 @@ export function buildIMFEconomicContext(countryCode, countryName, seriesByKey, v
  * available. Safe against XSS via `escapeHTML`.
  *
  * @param context - Economic context payload.
+ * @returns HTML string with the economic context section, or `''` when there are no indicators.
  */
 export function buildIMFEconomicContextHTML(context) {
     if (context.indicators.length === 0)
