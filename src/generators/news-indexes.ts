@@ -47,7 +47,12 @@ import {
 } from '../utils/file-utils.js';
 import { writeMetadataDatabase } from '../utils/news-metadata.js';
 import { detectCategory } from '../utils/article-category.js';
-import type { ParsedArticle, ArticleCategoryLabels, ArticleCategory, LanguageCode } from '../types/index.js';
+import type {
+  ParsedArticle,
+  ArticleCategoryLabels,
+  ArticleCategory,
+  LanguageCode,
+} from '../types/index.js';
 
 /**
  * Get the index filename for a given language code.

@@ -1806,7 +1806,7 @@ export const FOOTER_DISCLAIMER_LABELS = {
     no: 'Denne plattformen forbedres løpende.',
     fi: 'Tätä alustaa kehitetään jatkuvasti.',
     de: 'Diese Plattform wird laufend verbessert.',
-    fr: 'Cette plateforme fait l\'objet d\'améliorations continues.',
+    fr: "Cette plateforme fait l'objet d'améliorations continues.",
     es: 'Esta plataforma está en mejora continua.',
     nl: 'Dit platform wordt voortdurend verbeterd.',
     ar: 'هذه المنصة في تحسين مستمر.',

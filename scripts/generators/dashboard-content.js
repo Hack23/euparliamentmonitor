@@ -161,6 +161,7 @@ function buildChartFallbackTable(chart, strings) {
     })
         .join('\n                  ');
     return `<table class="chart-fallback-table" role="table">
+                <caption class="sr-only">${escapeHTML(chart.title ?? strings.chartLabel)}</caption>
                 <thead>${header}</thead>
                 <tbody>
                   ${rows}

@@ -441,7 +441,10 @@ export function generateArticleHTML(options: ArticleOptions): string {
   
   <!-- Hreflang alternates for SEO multi-language support -->
   ${(availableLanguages ?? ALL_LANGUAGES)
-    .map((code) => `<link rel="alternate" hreflang="${code}" href="${escapeHTML(`${date}-${slug}-${code}.html`)}">`)
+    .map(
+      (code) =>
+        `<link rel="alternate" hreflang="${code}" href="${escapeHTML(`${date}-${slug}-${code}.html`)}">`
+    )
     .join('\n  ')}
   <link rel="alternate" hreflang="x-default" href="${escapeHTML(`${date}-${slug}-en.html`)}">
   <link rel="canonical" href="${SITE_BASE_URL}/news/${date}-${slug}-${lang}.html">
