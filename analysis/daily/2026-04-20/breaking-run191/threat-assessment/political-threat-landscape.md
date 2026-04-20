@@ -5,7 +5,7 @@ date: 2026-04-20
 confidenceLevel: MEDIUM
 ---
 
-# 🛡️ Political Threat Landscape — Run 191 (Easter Tuesday)
+# 🛡️ Political Threat Landscape — Run 191 (Monday 2026-04-20, Easter Recess Day 8)
 
 ![Threat Level](https://img.shields.io/badge/Overall_Threat-LOW--MEDIUM-yellow)
 ![Stability](https://img.shields.io/badge/Parliament_Stability-84/100-brightgreen)
@@ -18,16 +18,16 @@ The political threat landscape for Run 191 is characterised by a shift from "pur
 ## Threat Classification Matrix
 
 ```mermaid
-%%{init: {"theme": "dark"}}%%
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
 flowchart TD
     A[🔴 CRITICAL THREATS] --> B[None identified at Run 191]
-    C[🟡 HIGH THREATS] --> D[API Content Blockage — Day 11]
-    C --> E[USTR Window Opens April 21]
-    F[🟢 MEDIUM THREATS] --> G[Coalition Post-Recess Cohesion Test]
-    F --> H[BRRD3/SRMR3 Council Ratification Timeline]
-    I[ℹ️ LOW THREATS] --> J[EPP-ECR Rapprochement Risk]
-    I --> K[Housing Initiative Content Gap]
-    I --> L[EP Data Infrastructure Accountability Gap]
+    C[🟡 HIGH THREATS] --> D[🚨 API Content Blockage — Day 11]
+    C --> E[🌍 USTR Window Opens April 21]
+    F[🟢 MEDIUM THREATS] --> G[🏛️ Coalition Post-Recess Cohesion Test]
+    F --> H[⚖️ BRRD3/SRMR3 Council Ratification Timeline]
+    I[ℹ️ LOW THREATS] --> J[🏛️ EPP-ECR Rapprochement Risk]
+    I --> K[📋 Housing Initiative Content Gap]
+    I --> L[📊 EP Data Infrastructure Accountability Gap]
 ```
 
 ## Primary Threat Analysis
@@ -95,9 +95,9 @@ The Grand Centre coalition's 10-day recess-induced dormancy creates an untested 
 ## Forward Threat Calendar (April 21-30)
 
 ```mermaid
-%%{init: {"theme": "dark"}}%%
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","noteBkgColor":"#FFC107","noteTextColor":"#000000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
 gantt
-    title EP Threat Calendar April 21-30, 2026
+    title 📅 EP Threat Calendar April 21-30, 2026
     dateFormat YYYY-MM-DD
     axisFormat %b %d
     section API Threats
@@ -112,3 +112,39 @@ gantt
     Parliament Returns :milestone, return1, 2026-04-27, 0d
     First Post-Recess Plenary :plen1, 2026-04-28, 3d
 ```
+
+## Threat Actor Profiles
+
+### 🌍 Threat Actor: USTR (United States Trade Representative)
+
+**Capability**: HIGH — Section 301 investigation authority under the Trade Act of 1974 grants USTR broad powers to investigate, negotiate, and impose retaliatory tariffs up to 100% ad valorem. The 2019 France DST Section 301 precedent demonstrated willingness to target digital regulation specifically.
+
+**Intent**: MEDIUM — US business advocacy (particularly Big Tech lobbying for AI Act relief) creates political incentive, but NATO solidarity and China containment cooperation create countervailing pressures. The 2026 US midterm election cycle may elevate trade enforcement visibility as a domestic political tool. USTR's intent is opaque: no confirmed open-source signals indicate imminent filing. 🟡 MEDIUM CONFIDENCE.
+
+**Opportunity**: HIGH — The April 21 filing window is a routine procedural opportunity that requires no special authorisation. The EU's March 26 Digital Omnibus AI (TA-10-2026-0098) provides a visible and timely target. The Easter recess means Parliament cannot respond immediately, creating a "first-mover advantage" for USTR.
+
+**Historical pattern**: USTR has filed Section 301 investigations against EU member states (France DST 2019), but never against the EU itself for the AI Act or DMA. Escalation from member state to EU-level action would be unprecedented and politically significant.
+
+### 🌍 Threat Actor: PRC (People's Republic of China)
+
+**Capability**: MEDIUM — China's primary instruments are diplomatic pressure (MOFCOM trade warnings), WTO dispute filings, and targeted trade retaliation (rare earth export restrictions, agricultural import restrictions). China's leverage on the EU is asymmetric: the EU trade deficit with China (~€200-250B) means EU imports are more dependent on China than China's imports from the EU.
+
+**Intent**: LOW (currently) — China's strategic preference is to maintain EU trade engagement while absorbing human rights criticism. The dual-track approach (condemn Jimmy Lai + maintain TRQs) serves Chinese interests by separating trade from human rights. China's incentive to disrupt the current arrangement is LOW unless TRQ modifications significantly increase EU protection levels.
+
+**Opportunity**: MEDIUM — The TRQ modification (TA-10-2026-0101) content blockade means China cannot publicly verify the quota changes — creating uncertainty that could be exploited diplomatically. A WTO filing against the TRQ modifications would need to wait for content publication. 🟡 MEDIUM CONFIDENCE.
+
+### 🌍 Threat Actor: Russia (Hybrid Warfare)
+
+**Capability**: HIGH — Russia maintains extensive hybrid warfare capabilities targeting EU institutions: cyber attacks (APT28/APT29), disinformation campaigns, energy supply manipulation, and military posturing near EU borders. The Easter recess reduces institutional monitoring and response capacity.
+
+**Intent**: MEDIUM — Russia's primary focus remains Ukraine, but opportunistic actions against EU institutions (including interference with EP digital infrastructure) align with broader destabilisation objectives. There is no confirmed intelligence linking the EP API outage to Russian activity (and such a link is highly unlikely), but the reduced institutional posture during recess creates a theoretical opportunity window.
+
+**Opportunity**: MEDIUM — The recess period reduces EP staff presence and monitoring capacity. NATO intelligence sharing continues but parliamentary-level response is delayed until April 28. 🔴 LOW CONFIDENCE.
+
+### 🏛️ Threat Actor: Domestic Populist Parties (PfE, ESN, Affiliated National Parties)
+
+**Capability**: LOW-MEDIUM — Within Parliament, PfE (84 seats) and ESN (27 seats) cannot form a blocking minority alone. Their capability is primarily rhetorical: agenda disruption, procedural delays, and public narrative challenges. At national level, affiliated parties (RN in France, Fidesz in Hungary, PVV in Netherlands) may influence domestic political environments during recess.
+
+**Intent**: MEDIUM — Populist parties have consistent interest in undermining Grand Centre legitimacy. The API content blockade provides ammunition for "Brussels opacity" narratives. If USTR files Section 301, populist parties would frame the EU's digital regulations as "job-killing bureaucracy" — aligning with USTR messaging.
+
+**Opportunity**: LOW — During recess, populist parties operate through national media rather than parliamentary channels. Their ability to directly influence EP proceedings is minimal until plenary returns April 28. 🟡 MEDIUM CONFIDENCE.

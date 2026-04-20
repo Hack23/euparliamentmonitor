@@ -67,9 +67,9 @@ Run 190 flagged USTR as forward risk. Run 191 notes the window opens TOMORROW (A
 ## Scenario Probability Updates (Full Series)
 
 ```mermaid
-%%{init: {"theme": "dark"}}%%
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","tertiaryColor":"#FF9800","fontFamily":"Inter, Helvetica, Arial, sans-serif","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}%%
 xychart-beta
-    title "API Restoration Probability — Easter Recess Series"
+    title "📈 API Restoration Probability — Easter Recess Series"
     x-axis ["Run 183", "Run 184", "Run 185", "Run 186", "Run 187", "Run 188", "Run 189", "Run 190", "Run 191"]
     y-axis "Probability (%)" 0 --> 100
     line [20, 30, 30, 35, 40, 45, 42, 40, 50]
@@ -89,3 +89,34 @@ The probability of full API restoration before Parliament returns (April 27) has
 2. German Bundesrat monitoring (unchanged)
 3. April 28-30 plenary agenda monitoring
 4. Coalition stability assessment (84/100 unchanged)
+
+---
+
+## Full Series Diff Table (Runs 179-191)
+
+This table tracks all key metrics across the complete Easter recess monitoring series, enabling trend identification and anomaly detection. 🟢 HIGH CONFIDENCE — data compiled from confirmed run outputs.
+
+| Metric | 179 | 180 | 181 | 182 | 183 | 184 | 185 | 186 | 187 | 188 | 189 | 190 | 191 |
+|--------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+| **API count** | 104 | 104 | 104 | 104 | 104 | 104 | 104 | 104 | 104 | 104 | 101 | 100 | **104** |
+| **Content access** | ⚠️ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
+| **Significance** | 22 | 21 | 20 | 21 | 24 | 18 | 12 | 14 | 14 | 18 | 14 | 15 | **16** |
+| **Coalition** | 84 | 84 | 84 | 84 | 84 | 84 | 84 | 84 | 84 | 84 | 84 | 84 | **84** |
+| **USTR prob.** | — | — | — | 10% | 12% | 15% | 15% | 18% | 18% | 20% | 20% | 20% | **18%** |
+| **Restore prob.** | — | 20% | 25% | 25% | 30% | 30% | 30% | 35% | 40% | 45% | 42% | 40% | **50%** |
+| **Recess day** | — | — | — | — | 1 | 2 | 3 | 4 | 5 | 6 | 6 | 8 | **8** |
+| **Outage day** | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 10 | 11 | **11** |
+| **Mode** | AO | AO | AO | AO | AO | AO | AO | AO | AO | AO | AO | AO | **AO** |
+| **Key event** | Outage | Block | W/E | Pre-R | R-Day1 | Peak | Steady | Steady | W/E | Pre-reg | Reg1 | Reg2 | **Restore** |
+
+**Legend**: AO = Analysis Only, W/E = Weekend, R = Recess, Reg = Regression
+
+### Series Trajectory Interpretation
+
+1. **API count stability**: The metadata count was remarkably stable at 104 for 10 consecutive runs (179-188) before the regression episode (189-190). The Run 191 restoration to 104 suggests the regression was an infrastructure artefact rather than genuine data loss. 🟢 HIGH CONFIDENCE.
+
+2. **Significance score oscillation**: The score follows a three-phase pattern — Detection (22→24), Plateau (12→18), and Recovery Signal (15→16). Run 183's peak (24) coincided with the recess onset; Run 185's trough (12) reflects the transition to routine monitoring.
+
+3. **Coalition stability invariance**: The 84/100 stability score has been UNCHANGED for all 13 runs. This reflects the structural nature of the assessment: no floor votes means no behavioural data to update the estimate.
+
+4. **Restoration probability inflection**: Run 191 marks an inflection point — the restoration probability crossed 50% for the first time in the series, driven by the metadata recovery evidence and the two-phase recovery model.

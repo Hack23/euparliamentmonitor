@@ -5,7 +5,7 @@ date: 2026-04-20
 confidenceLevel: MEDIUM
 ---
 
-# 🎯 Risk Matrix — Run 191 (Easter Tuesday, Day 11 API Outage)
+# 🎯 Risk Matrix — Run 191 (Monday 2026-04-20, Easter Recess Day 8, API Outage Day 11)
 
 ![Risk Level](https://img.shields.io/badge/Risk_Level-LOW--MEDIUM-yellow)
 ![Composite](https://img.shields.io/badge/Composite_Risk-16/50-yellow)
@@ -16,21 +16,43 @@ confidenceLevel: MEDIUM
 Run 191 represents the first positive directional shift in the API outage tracking series. The 4-day composite risk trajectory (15→15→15→16) obscures the qualitative shift: the metadata restoration signal is a **leading indicator of imminent content restoration**, which would materially alter the forward risk landscape.
 
 ```mermaid
-%%{init: {"theme": "dark", "themeVariables": {"primaryColor": "#003399", "secondaryColor": "#cc0000"}}}%%
+%%{init: {
+  "theme": "dark",
+  "themeVariables": {
+    "quadrant1Fill": "#1565C0",
+    "quadrant2Fill": "#2E7D32",
+    "quadrant3Fill": "#FF9800",
+    "quadrant4Fill": "#D32F2F",
+    "quadrantTitleFill": "#ffffff",
+    "quadrantPointFill": "#ffffff",
+    "quadrantPointTextFill": "#ffffff",
+    "quadrantXAxisTextFill": "#ffffff",
+    "quadrantYAxisTextFill": "#ffffff"
+  },
+  "quadrantChart": {
+    "chartWidth": 700,
+    "chartHeight": 700,
+    "pointLabelFontSize": 14,
+    "titleFontSize": 22,
+    "quadrantLabelFontSize": 18,
+    "xAxisLabelFontSize": 16,
+    "yAxisLabelFontSize": 16
+  }
+}}%%
 quadrantChart
-    title EP Parliament Risk Matrix (Run 191)
-    x-axis Low Impact --> High Impact
-    y-axis Low Probability --> High Probability
-    quadrant-1 Monitor Closely
-    quadrant-2 Critical Risks
-    quadrant-3 Low Priority
-    quadrant-4 Contingency Plans
-    USTR Section 301: [0.75, 0.22]
-    API Content Blockage: [0.7, 0.85]
-    Coalition Instability: [0.6, 0.15]
-    BRRD3 Council Delay: [0.55, 0.35]
-    Housing Initiative Gap: [0.45, 0.55]
-    EP Return Readiness: [0.3, 0.9]
+    title 🎯 EP Parliament Risk Matrix (Run 191)
+    x-axis "Low Impact" --> "High Impact"
+    y-axis "Low Probability" --> "High Probability"
+    quadrant-1 "🔵 Manage Closely"
+    quadrant-2 "🟢 Key Players"
+    quadrant-3 "🟠 Monitor"
+    quadrant-4 "🔴 Keep Informed"
+    "🚨 USTR Section 301": [0.75, 0.22]
+    "🚨 API Content Blockage": [0.70, 0.85]
+    "🏛️ Coalition Instability": [0.60, 0.15]
+    "⚖️ BRRD3 Council Delay": [0.55, 0.35]
+    "📋 Housing Initiative Gap": [0.45, 0.55]
+    "⏰ EP Return Readiness": [0.30, 0.90]
 ```
 
 ## Risk Register
@@ -89,9 +111,9 @@ The Grand Centre coalition (EPP + S&D + Renew) holds 490 seats against a 361-sea
 ## Risk Trend Analysis
 
 ```mermaid
-%%{init: {"theme": "dark"}}%%
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","fontFamily":"Inter, Helvetica, Arial, sans-serif","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}%%
 xychart-beta
-    title "Composite Risk Score — Runs 179-191 (Easter Recess Series)"
+    title "📊 Composite Risk Score — Runs 179-191 (Easter Recess Series)"
     x-axis [179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191]
     y-axis "Composite Risk /50" 0 --> 30
     line [22, 21, 20, 21, 24, 18, 12, 14, 14, 18, 14, 15, 16]
@@ -110,3 +132,75 @@ The Banking Union completion legislation (BRRD3 TA-10-2026-0091, SRMR3 TA-10-202
 3. **Timeline**: German Bundesrat sessions April 23-25 — if Drucksache (federal council bill) not tabled, ratification delays to May or June 2026
 
 **Risk probability: 35%** of meaningful Council ratification delay due to German constitutional process. Impact: MEDIUM — delays BRRD3/SRMR3 implementation by 4-8 weeks but does not affect Parliament's legislative record.
+
+---
+
+## Second-Order Risk Propagation Analysis
+
+Beyond the six primary risks enumerated above, this section analyses **cascade chains** — sequences where a primary risk event triggers secondary and tertiary consequences that amplify the overall impact. Second-order risk propagation is particularly relevant during the Easter recess because the reduced institutional capacity means cascade events receive slower response.
+
+### Cascade Chain 1: API Blockage → Civil Society Gap → Democratic Legitimacy Erosion
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
+flowchart LR
+    R1[🚨 R1: API Content Blocked] --> S1[📊 Civil Society Cannot Verify Text]
+    S1 --> S2[👥 Watchdog Reports Delayed/Incomplete]
+    S2 --> S3[🏛️ Public Cannot Hold MEPs Accountable]
+    S3 --> S4[⚖️ Democratic Legitimacy Gap]
+    S4 --> S5[🔴 Trust Erosion — Eurobarometer Impact]
+    R1 --> M1[📋 Media Coverage Relies on Summaries]
+    M1 --> M2[🌍 Misinformation Risk Increases]
+    M2 --> S4
+    style R1 fill:#D32F2F,stroke:#7F0000,color:#fff
+    style S4 fill:#FF9800,stroke:#7F4F00,color:#000
+    style S5 fill:#D32F2F,stroke:#7F0000,color:#fff
+```
+
+**Propagation assessment**: The primary API blockage risk (R1) has been active for 11 days. The first-order effect (civil society cannot access adopted text) is CONFIRMED — organisations like Transparency International cannot verify Anti-Corruption Directive provisions. The second-order effect (watchdog reports delayed) is PROBABLE — TI's normal practice is to publish analysis within 2 weeks of adoption; the content blockade has prevented this. The third-order effect (democratic legitimacy gap) is POSSIBLE but harder to measure — it would manifest as reduced public engagement with EP legislative decisions, measurable only through future Eurobarometer surveys. The fourth-order effect (trust erosion) is SPECULATIVE — the causal chain from API blockage to trust erosion involves too many intermediary variables for confident assessment. 🟡 MEDIUM CONFIDENCE on the chain structure; 🔴 LOW CONFIDENCE on terminal impact.
+
+### Cascade Chain 2: USTR Filing → Market Volatility → Banking Union Stress
+
+If USTR files Section 301 (R2, 18% probability), the market reaction could create secondary stress on European banking sector:
+- **First order**: EUR/USD depreciation (0.5-2%), European equity market sell-off (1-3%)
+- **Second order**: CDS spread widening on European bank subordinated debt (5-15bp)
+- **Third order**: If banking stress occurs before BRRD3 enters into force, resolution framework is tested under inferior pre-BRRD3 rules
+- **Fourth order**: Council pressure to accelerate BRRD3 ratification under crisis conditions (German Bundesrat expedited procedure)
+
+**Propagation probability**: 18% × 40% × 15% × 25% ≈ 0.3%. Very low but non-zero. 🔴 LOW CONFIDENCE.
+
+### Cascade Chain 3: Bundesrat Delay → Council Ratification Stuck → Presidency Legacy Failure
+
+If the German Bundesrat does not consent to SRMR3 at the April 23-25 session (R3, 35% probability), the cascade proceeds:
+- **First order**: Council formal adoption delayed by 4-8 weeks (pushed to June minimum)
+- **Second order**: Belgian Presidency cannot claim Banking Union completion as legacy achievement
+- **Third order**: Polish Presidency (July 2026) inherits Banking Union ratification — different political priorities may de-prioritise
+- **Fourth order**: BRRD3/SRMR3 implementation delayed to Q1 2027, increasing vulnerability to any banking stress event in H2 2026
+
+**Propagation probability**: 35% × 60% × 30% × 20% ≈ 1.3%. Low but non-trivial. 🟡 MEDIUM CONFIDENCE on the chain structure.
+
+### Second-Order Risk Summary
+
+| Primary Risk | Cascade Length | Terminal Impact | Terminal Probability | Confidence |
+|-------------|---------------|-----------------|---------------------|------------|
+| R1: API Blockage | 4 steps | Trust erosion | ~5% (conditional on blockade persisting >30 days) | 🔴 LOW |
+| R2: USTR Section 301 | 4 steps | Banking stress under inferior framework | ~0.3% | 🔴 LOW |
+| R3: Bundesrat Delay | 4 steps | H2 2026 banking vulnerability | ~1.3% | 🟡 MEDIUM |
+| R4: Housing Gap | 2 steps | Plenary agenda disruption | ~15% | 🟡 MEDIUM |
+| R5: Coalition Instability | 3 steps | Legislative paralysis | ~0.5% | 🔴 LOW |
+
+**Key insight**: The most policy-relevant cascade is Chain 3 (Bundesrat delay → Banking Union implementation gap). While the terminal probability is only 1.3%, the impact (delayed financial stability framework) is HIGH and the monitoring window (Bundesrat April 23-25) is narrow and observable. This cascade should be a forward monitoring priority for Run 192.
+
+## Residual Risk Assessment
+
+After accounting for primary risks and second-order cascades, the following residual risks remain:
+
+| Residual Risk | Source | Probability | Impact | Mitigation |
+|---------------|--------|-------------|--------|------------|
+| Undetected API architecture change | Infrastructure | 10% | MEDIUM | Monitor response schema version |
+| Commission housing paper triggering surprise plenary item | Political | 25% | LOW | Monitor Commission publications |
+| Bundesrat procedural delay (not political opposition) | Administrative | 15% | LOW | Monitor Bundesrat agenda |
+| EP Quaestors intervening on API infrastructure | Institutional | 5% | POSITIVE | Would accelerate content restoration |
+| EUR/USD volatility from USTR speculation | Market | 15% | LOW-MEDIUM | Monitor FX markets |
+
+**Residual risk total**: The aggregate residual risk is assessed as LOW, contributing an additional 1-2 points to the composite risk score. The current 16/50 composite risk score already implicitly accounts for most residual risks through the dimension-level scoring.
