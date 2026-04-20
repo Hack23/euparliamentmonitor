@@ -1085,6 +1085,32 @@ class UpstreamTimeoutError extends Error {
     }
 }
 /**
+ * Error thrown when the EP MCP server returns a response indicating the feed
+ * is unavailable (uniform `{status:"unavailable"}` envelope or the legacy raw
+ * upstream 404 envelope historically emitted pre-v1.2.10). Distinct from
+ * {@link UpstreamTimeoutError} so logs/diagnostics do not misattribute a
+ * 404/unavailable response to a timeout. Shares the same control-flow role —
+ * callers treat it as "stop the timeframe-widening retry loop and return the
+ * empty sentinel".
+ */
+class FeedUnavailableError extends Error {
+    constructor(toolName) {
+        super(`EP MCP feed unavailable for ${toolName} — treating as known-empty`);
+        this.name = 'FeedUnavailableError';
+    }
+}
+/**
+ * Type guard: returns `true` for either error type that should stop the
+ * timeframe-widening retry loop ({@link UpstreamTimeoutError} or
+ * {@link FeedUnavailableError}).
+ *
+ * @param error - Caught error value
+ * @returns `true` when the caller should stop retrying and return the empty sentinel
+ */
+function isStopRetryError(error) {
+    return error instanceof UpstreamTimeoutError || error instanceof FeedUnavailableError;
+}
+/**
  * Check whether a parsed MCP response envelope indicates an upstream timeout
  * and throw {@link UpstreamTimeoutError} if so.  The EP MCP server returns
  * `{ timedOut: true, status: "timeout" }` when the upstream EP API did not
@@ -1123,7 +1149,7 @@ function checkUpstreamTimeout(value) {
         errorField.includes('404')) {
         console.warn(`${WARN_PREFIX} EP MCP returned raw upstream 404 shape — treating feed as unavailable ` +
             '(upstream #378). This should have been caught earlier as a NOT_FOUND failure.');
-        throw new UpstreamTimeoutError('raw_404_envelope');
+        throw new FeedUnavailableError('raw_404_envelope');
     }
 }
 /**
@@ -1138,7 +1164,7 @@ function checkUpstreamTimeout(value) {
  * @returns A wider {@link FeedTimeframe} to retry, or `undefined` to stop
  */
 function handleFeedFetchError(error, tf, toolName) {
-    if (error instanceof UpstreamTimeoutError)
+    if (isStopRetryError(error))
         return undefined;
     const message = error instanceof Error ? error.message : String(error);
     const wider = getWiderTimeframe(tf);
@@ -1398,7 +1424,7 @@ export async function fetchMEPsFeedWithTotal(client, timeframe = 'one-week') {
         return { items, total };
     }
     catch (error) {
-        if (error instanceof UpstreamTimeoutError)
+        if (isStopRetryError(error))
             return { items: [], total: 0 };
         const message = error instanceof Error ? error.message : String(error);
         console.warn(`${WARN_PREFIX} get_meps_feed failed:`, message);
@@ -1412,10 +1438,12 @@ export async function fetchMEPsFeedWithTotal(client, timeframe = 'one-week') {
  * accept `timeframe`/`startDate`, fixed-window feeds (documents,
  * plenary_documents, committee_documents, plenary_session_documents,
  * parliamentary_questions, corporate_bodies, controlled_vocabularies) serve a
- * server-defined window and reject those params with `INVALID_PARAMS`
- * (Hack23/European-Parliament-MCP-Server#377). This helper issues a single RPC
- * — there is no point in timeframe-widening retry loops because the server
- * ignores the timeframe entirely.
+ * server-defined window. As of v1.2.10 the server silently ignores
+ * `timeframe`/`startDate` on fixed-window tools
+ * (Hack23/European-Parliament-MCP-Server#379); pre-v1.2.10 it rejected them
+ * with `INVALID_PARAMS` (#377). This helper issues a single RPC either way —
+ * there is no point in timeframe-widening retry loops because the server does
+ * not narrow/widen results based on timeframe.
  *
  * @param client - MCP client (null returns `[]`)
  * @param toolName - Tool name for log messages
@@ -1431,7 +1459,7 @@ async function fetchFixedWindowFeed(client, toolName, callFn) {
         return parseFeedResult(result).map((item) => mapFeedItemBase(item));
     }
     catch (error) {
-        if (error instanceof UpstreamTimeoutError)
+        if (isStopRetryError(error))
             return [];
         const message = error instanceof Error ? error.message : String(error);
         console.warn(`${WARN_PREFIX} ${toolName} failed:`, message);
@@ -1556,7 +1584,7 @@ export async function fetchDeclarationsFeed(client, timeframe = 'one-week') {
         return parseFeedResult(result).map((item) => mapFeedItemBase(item));
     }
     catch (error) {
-        if (error instanceof UpstreamTimeoutError)
+        if (isStopRetryError(error))
             return [];
         const message = error instanceof Error ? error.message : String(error);
         console.warn(`${WARN_PREFIX} get_mep_declarations_feed failed:`, message);
@@ -1566,20 +1594,28 @@ export async function fetchDeclarationsFeed(client, timeframe = 'one-week') {
 /**
  * Fetch corporate bodies feed from MCP.
  *
+ * `_timeframe` is retained only for signature compatibility with sliding-window
+ * fetchers (so the shared `fetchEPFeedData` orchestrator can dispatch uniformly);
+ * the EP MCP server serves a server-defined fixed window for this feed and
+ * ignores any timeframe input (as of v1.2.10; pre-v1.2.10 it rejected with
+ * `INVALID_PARAMS` — see Hack23/European-Parliament-MCP-Server#377).
+ *
  * @param client - MCP client or null
- * @param timeframe - How far back to look (default: 'one-week')
+ * @param _timeframe - Ignored by the server; kept for signature compatibility
  * @returns Array of corporate body feed items
  */
-export async function fetchCorporateBodiesFeed(client, timeframe = 'one-week') {
+export async function fetchCorporateBodiesFeed(client, 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+_timeframe = 'one-week') {
     if (!client)
         return [];
     try {
-        console.log(`${MCP_FETCH_PREFIX} Fetching corporate bodies feed (${timeframe})...`);
+        console.log(`${MCP_FETCH_PREFIX} Fetching corporate bodies feed (fixed window)...`);
         const result = await callMCP(() => client.getCorporateBodiesFeed({ limit: 20 }), undefined, 'get_corporate_bodies_feed');
         return parseFeedResult(result).map((item) => mapFeedItemBase(item));
     }
     catch (error) {
-        if (error instanceof UpstreamTimeoutError)
+        if (isStopRetryError(error))
             return [];
         const message = error instanceof Error ? error.message : String(error);
         console.warn(`${WARN_PREFIX} get_corporate_bodies_feed failed:`, message);

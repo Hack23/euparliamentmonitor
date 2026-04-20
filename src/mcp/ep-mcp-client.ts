@@ -191,11 +191,12 @@ function _parseResultPayload(
  *    Hack23/European-Parliament-MCP-Server#301 and extended to
  *    `get_events_feed`/`get_procedures_feed` by
  *    Hack23/European-Parliament-MCP-Server#380 (which closed #378).
- * 2. **Legacy raw upstream 404 shape** (pre-v1.2.10, still emitted by
- *    `get_events_feed` / `get_procedures_feed`) —
+ * 2. **Legacy raw upstream 404 shape** (historically emitted pre-v1.2.10 by
+ *    `get_events_feed` / `get_procedures_feed`, fixed upstream in PR #380) —
  *    `{"@id":"https://data.europarl.europa.eu/eli/dl/...","error":"404 N..."}`.
- *    Retained as defense-in-depth so older pinned server versions (or any
- *    future regression of #378) do not silently poison downstream analysis.
+ *    Retained purely as defense-in-depth for older pinned server versions or
+ *    any future regression of #378, so such payloads do not silently poison
+ *    downstream analysis.
  *
  * Returning `true` from this helper lets callers treat both shapes as
  * "known-empty" rather than "success with garbage payload".
@@ -210,7 +211,7 @@ export function isFeedUnavailable(result: MCPToolResult | undefined): boolean {
   // Shape 1 — uniform {status:"unavailable"} envelope (#301 / #380).
   if (envelope['status'] === 'unavailable') return true;
 
-  // Shape 2 — legacy raw upstream 404 leak (pre-v1.2.10, #378).
+  // Shape 2 — legacy raw upstream 404 leak (historically pre-v1.2.10, #378).
   const error = envelope['error'];
   const idField = envelope['@id'];
   if (
