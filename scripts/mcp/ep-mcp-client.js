@@ -77,6 +77,96 @@ function classifyToolError(message) {
     return 'UNKNOWN';
 }
 /**
+ * Parse the text payload of an {@link MCPToolResult} as JSON, returning
+ * `undefined` when the payload is missing or malformed. Small helper used by
+ * the unavailable-envelope detectors below.
+ *
+ * @param result - Raw MCP tool result
+ * @returns Parsed JSON object, or `undefined` if the payload is not a JSON object
+ */
+function _parseResultPayload(result) {
+    const text = result?.content?.[0]?.text;
+    if (typeof text !== 'string' || text.length === 0)
+        return undefined;
+    try {
+        const parsed = JSON.parse(text);
+        if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
+            return parsed;
+        }
+    }
+    catch {
+        return undefined;
+    }
+    return undefined;
+}
+/**
+ * Detect whether an MCP feed result represents an "unavailable" response,
+ * covering the two incompatible shapes emitted by
+ * `european-parliament-mcp-server@1.2.9`:
+ *
+ * 1. **Uniform envelope** (most feeds) —
+ *    `{status:"unavailable", items:[], generatedAt:"..."}`
+ *    established by Hack23/European-Parliament-MCP-Server#301.
+ * 2. **Raw upstream 404 shape** (still emitted by `get_events_feed` and
+ *    `get_procedures_feed`) —
+ *    `{"@id":"https://data.europarl.europa.eu/eli/dl/...","error":"404 N..."}`
+ *    — see upstream issue Hack23/European-Parliament-MCP-Server#378.
+ *
+ * Returning `true` from this helper lets callers treat both shapes as
+ * "known-empty" rather than "success with garbage payload", which was
+ * previously silently poisoning downstream analysis.
+ *
+ * @param result - Raw MCP tool result
+ * @returns `true` when the payload matches either unavailable envelope
+ */
+export function isFeedUnavailable(result) {
+    const envelope = _parseResultPayload(result);
+    if (!envelope)
+        return false;
+    // Shape 1 — uniform {status:"unavailable"} envelope from #301.
+    if (envelope['status'] === 'unavailable')
+        return true;
+    // Shape 2 — raw upstream 404 leaked through (events/procedures, #378).
+    const error = envelope['error'];
+    const idField = envelope['@id'];
+    if (typeof error === 'string' &&
+        typeof idField === 'string' &&
+        idField.startsWith('https://data.europarl.europa.eu/') &&
+        error.includes('404')) {
+        return true;
+    }
+    return false;
+}
+/**
+ * Detect the "all string fields empty" sentinel emitted by
+ * `get_adopted_texts({docId})` for documents that are indexed but whose
+ * content has not yet been populated by the EP Open Data Portal. The server
+ * returns a JSON-schema-valid response in which every string field is the
+ * empty string, which bypasses standard error handling — see upstream issue
+ * Hack23/European-Parliament-MCP-Server#369.
+ *
+ * Only treats a payload as a sentinel when it has at least three string
+ * fields (to avoid false positives on intentionally sparse payloads) AND
+ * all string fields are the empty string.
+ *
+ * @param payload - Parsed JSON payload object (or `undefined`)
+ * @returns `true` when the payload matches the CONTENT_PENDING sentinel
+ */
+function _isEmptyStringSentinel(payload) {
+    if (!payload)
+        return false;
+    let totalStringFields = 0;
+    let emptyStringFields = 0;
+    for (const value of Object.values(payload)) {
+        if (typeof value === 'string') {
+            totalStringFields++;
+            if (value.length === 0)
+                emptyStringFields++;
+        }
+    }
+    return totalStringFields >= 3 && totalStringFields === emptyStringFields;
+}
+/**
  * MCP Client for European Parliament data access.
  * Extends {@link MCPConnection} with EP-specific tool wrapper methods.
  */
@@ -132,6 +222,14 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
             // (e.g., INTERNAL_ERROR, UPSTREAM_500) instead of throwing an exception.
             if (result.isError === true) {
                 return this._recordToolFailure(toolName, result.content?.[0]?.text ?? '', fallbackText);
+            }
+            // Detect the raw upstream 404 shape still emitted by get_events_feed /
+            // get_procedures_feed (Hack23/European-Parliament-MCP-Server#378). The
+            // server returns HTTP 200 with a payload that bypasses isError — record
+            // it as a NOT_FOUND failure so it is visible in getFailedTools() and the
+            // error summary instead of silently passing through as garbage data.
+            if (isFeedUnavailable(result)) {
+                return this._recordToolFailure(toolName, `UPSTREAM_404: ${result.content?.[0]?.text?.slice(0, 200) ?? 'feed unavailable'}`, fallbackText);
             }
             // Clear from failed tools on success
             this._failedTools.delete(toolName);
@@ -191,6 +289,47 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
         }
         const checked = feedTools.length - unchecked;
         lines.push(`  Summary: ${operational}/${checked} checked feeds operational${unchecked > 0 ? `, ${unchecked} unchecked` : ''}`);
+        return lines.join('\n');
+    }
+    /**
+     * Get a per-error-code breakdown of tool-level rejections recorded during the
+     * current session. Designed for end-of-run observability so regressions like
+     * Hack23/European-Parliament-MCP-Server#378 (raw upstream 404 leaking
+     * through as "successful" feed calls) surface in agent-stdio without needing
+     * to hand-comb the MCP gateway logs.
+     *
+     * Each entry in `_failedTools` is stored as `"${errorCode}: ${message}"` by
+     * {@link _recordToolFailure}. This method splits on the first colon to
+     * group tool names by error code.
+     *
+     * @returns Formatted summary: one line per error code, with affected tools,
+     *   terminated by a final counts line. Returns a single "all operational"
+     *   line when no failures have been recorded.
+     */
+    getToolErrorSummary() {
+        if (this._failedTools.size === 0) {
+            return `EP MCP Tool Errors: 0 (all ${this._calledTools.size} invoked tools operational)`;
+        }
+        const byCode = new Map();
+        for (const [tool, entry] of this._failedTools.entries()) {
+            const sepIdx = entry.indexOf(':');
+            const code = sepIdx > 0 ? entry.slice(0, sepIdx) : 'UNKNOWN';
+            const existing = byCode.get(code);
+            if (existing) {
+                existing.push(tool);
+            }
+            else {
+                byCode.set(code, [tool]);
+            }
+        }
+        const lines = [
+            `EP MCP Tool Errors: ${this._failedTools.size} of ${this._calledTools.size} invoked tools rejected`,
+        ];
+        const sortedCodes = [...byCode.keys()].sort();
+        for (const code of sortedCodes) {
+            const tools = byCode.get(code) ?? [];
+            lines.push(`  ${code} (${tools.length}): ${tools.sort().join(', ')}`);
+        }
         return lines.join('\n');
     }
     /**
@@ -441,11 +580,26 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
     /**
      * Get adopted texts (legislative resolutions, positions, non-legislative resolutions)
      *
+     * When called with `options.docId` and the EP server returns a
+     * "CONTENT_PENDING sentinel" (every string field empty — upstream issue
+     * Hack23/European-Parliament-MCP-Server#369), this method records the tool as
+     * failed and returns the empty fallback so downstream consumers do not
+     * render blank title/reference/date fields.
+     *
      * @param options - Filter options including optional docId or year
      * @returns Adopted texts data
      */
     async getAdoptedTexts(options = {}) {
-        return this.safeCallTool('get_adopted_texts', options, '{"texts": []}');
+        const result = await this.safeCallTool('get_adopted_texts', options, '{"texts": []}');
+        // Only apply the sentinel guard to docId lookups — year-range list queries
+        // return `{texts: [...]}` which would never match the sentinel heuristic.
+        if (typeof options.docId === 'string' && options.docId.trim().length > 0) {
+            const payload = _parseResultPayload(result);
+            if (_isEmptyStringSentinel(payload)) {
+                return this._recordToolFailure('get_adopted_texts', `CONTENT_PENDING: docId=${options.docId} returned empty-string sentinel (upstream #369)`, '{"texts": []}');
+            }
+        }
+        return result;
     }
     /**
      * Get European Parliament events (hearings, conferences, seminars)

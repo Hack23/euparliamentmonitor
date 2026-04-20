@@ -1105,6 +1105,25 @@ function checkUpstreamTimeout(value) {
             'Consider using year-based endpoints as fallback.');
         throw new UpstreamTimeoutError(toolName);
     }
+    // Defensive detection of the raw upstream 404 shape still emitted by
+    // get_events_feed / get_procedures_feed (upstream issue
+    // Hack23/European-Parliament-MCP-Server#378). The shape looks like:
+    //   {"@id":"https://data.europarl.europa.eu/eli/dl/...", "error":"404 N..."}
+    // Treat it identically to the uniform `{status:"unavailable"}` envelope —
+    // i.e. stop timeframe-widening retry loops instead of silently returning [].
+    // This is a belt-and-braces guard: the EP MCP client's safeCallTool already
+    // records these as NOT_FOUND failures and substitutes the feed fallback,
+    // but parseFeedResult may also be called on raw results bypassing that path.
+    const idField = envelope['@id'];
+    const errorField = envelope['error'];
+    if (typeof idField === 'string' &&
+        idField.startsWith('https://data.europarl.europa.eu/') &&
+        typeof errorField === 'string' &&
+        errorField.includes('404')) {
+        console.warn(`${WARN_PREFIX} EP MCP returned raw upstream 404 shape — treating feed as unavailable ` +
+            '(upstream #378). This should have been caught earlier as a NOT_FOUND failure.');
+        throw new UpstreamTimeoutError('raw_404_envelope');
+    }
 }
 /**
  * Handle errors from feed-fetching functions with timeframe-widening logic.
@@ -1386,144 +1405,91 @@ export async function fetchMEPsFeedWithTotal(client, timeframe = 'one-week') {
     }
 }
 /**
- * Fetch documents feed from MCP.
- * Falls back to a wider timeframe when the initial timeframe returns no data.
+ * Fetch a fixed-window EP API v2 feed that ignores the `timeframe` parameter.
  *
- * @param client - MCP client or null
- * @param timeframe - How far back to look (default: 'one-week')
- * @returns Array of document feed items
+ * The EP MCP server splits feed tools into two groups — sliding-window feeds
+ * accept `timeframe`/`startDate`, fixed-window feeds (documents,
+ * plenary_documents, committee_documents, plenary_session_documents,
+ * parliamentary_questions, corporate_bodies, controlled_vocabularies) serve a
+ * server-defined window and reject those params with `INVALID_PARAMS`
+ * (Hack23/European-Parliament-MCP-Server#377). This helper issues a single RPC
+ * — there is no point in timeframe-widening retry loops because the server
+ * ignores the timeframe entirely.
+ *
+ * @param client - MCP client (null returns `[]`)
+ * @param toolName - Tool name for log messages
+ * @param callFn - Callback that issues the feed RPC
+ * @returns Array of mapped feed items (may be empty)
  */
-export async function fetchDocumentsFeed(client, timeframe = 'one-week') {
+async function fetchFixedWindowFeed(client, toolName, callFn) {
     if (!client)
         return [];
-    let currentTimeframe = timeframe;
-    while (currentTimeframe) {
-        const tf = currentTimeframe;
-        try {
-            console.log(`${MCP_FETCH_PREFIX} Fetching documents feed (${currentTimeframe})...`);
-            const result = await callMCP(() => client.getDocumentsFeed({ timeframe: tf, limit: 20 }), undefined, 'get_documents_feed');
-            const items = parseFeedResult(result).map((item) => mapFeedItemBase(item));
-            if (items.length > 0 || !getWiderTimeframe(currentTimeframe))
-                return items;
-            console.log(`${INFO_PREFIX} documents feed empty for ${currentTimeframe}, widening timeframe...`);
-            currentTimeframe = getWiderTimeframe(currentTimeframe);
-        }
-        catch (error) {
-            const wider = handleFeedFetchError(error, tf, 'get_documents_feed');
-            if (wider) {
-                currentTimeframe = wider;
-            }
-            else {
-                return [];
-            }
-        }
+    try {
+        console.log(`${MCP_FETCH_PREFIX} Fetching ${toolName}...`);
+        const result = await callMCP(callFn, undefined, toolName);
+        return parseFeedResult(result).map((item) => mapFeedItemBase(item));
     }
-    return [];
+    catch (error) {
+        if (error instanceof UpstreamTimeoutError)
+            return [];
+        const message = error instanceof Error ? error.message : String(error);
+        console.warn(`${WARN_PREFIX} ${toolName} failed:`, message);
+        return [];
+    }
+}
+/**
+ * Fetch documents feed from MCP.
+ * The underlying EP MCP `get_documents_feed` tool serves a server-defined
+ * fixed window and ignores any `timeframe` parameter; the parameter is kept
+ * on this function's signature for backwards compatibility with callers.
+ *
+ * @param client - MCP client or null
+ * @param _timeframe - Retained for signature compatibility (ignored by the server)
+ * @returns Array of document feed items
+ */
+export async function fetchDocumentsFeed(client, 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+_timeframe = 'one-week') {
+    return fetchFixedWindowFeed(client, 'get_documents_feed', () => client.getDocumentsFeed({ limit: 20 }));
 }
 /**
  * Fetch plenary documents feed from MCP.
- * Falls back to a wider timeframe when the initial timeframe returns no data.
+ * Fixed-window feed; `timeframe` is ignored by the server.
  *
  * @param client - MCP client or null
- * @param timeframe - How far back to look (default: 'one-week')
+ * @param _timeframe - Retained for signature compatibility (ignored by the server)
  * @returns Array of document feed items
  */
-export async function fetchPlenaryDocumentsFeed(client, timeframe = 'one-week') {
-    if (!client)
-        return [];
-    let currentTimeframe = timeframe;
-    while (currentTimeframe) {
-        const tf = currentTimeframe;
-        try {
-            console.log(`${MCP_FETCH_PREFIX} Fetching plenary documents feed (${currentTimeframe})...`);
-            const result = await callMCP(() => client.getPlenaryDocumentsFeed({ timeframe: tf, limit: 20 }), undefined, 'get_plenary_documents_feed');
-            const items = parseFeedResult(result).map((item) => mapFeedItemBase(item));
-            if (items.length > 0 || !getWiderTimeframe(currentTimeframe))
-                return items;
-            console.log(`${INFO_PREFIX} plenary documents feed empty for ${currentTimeframe}, widening timeframe...`);
-            currentTimeframe = getWiderTimeframe(currentTimeframe);
-        }
-        catch (error) {
-            const wider = handleFeedFetchError(error, tf, 'get_plenary_documents_feed');
-            if (wider) {
-                currentTimeframe = wider;
-            }
-            else {
-                return [];
-            }
-        }
-    }
-    return [];
+export async function fetchPlenaryDocumentsFeed(client, 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+_timeframe = 'one-week') {
+    return fetchFixedWindowFeed(client, 'get_plenary_documents_feed', () => client.getPlenaryDocumentsFeed({ limit: 20 }));
 }
 /**
  * Fetch committee documents feed from MCP.
- * Falls back to a wider timeframe when the initial timeframe returns no data.
+ * Fixed-window feed; `timeframe` is ignored by the server.
  *
  * @param client - MCP client or null
- * @param timeframe - How far back to look (default: 'one-week')
+ * @param _timeframe - Retained for signature compatibility (ignored by the server)
  * @returns Array of document feed items
  */
-export async function fetchCommitteeDocumentsFeed(client, timeframe = 'one-week') {
-    if (!client)
-        return [];
-    let currentTimeframe = timeframe;
-    while (currentTimeframe) {
-        const tf = currentTimeframe;
-        try {
-            console.log(`${MCP_FETCH_PREFIX} Fetching committee documents feed (${currentTimeframe})...`);
-            const result = await callMCP(() => client.getCommitteeDocumentsFeed({ timeframe: tf, limit: 20 }), undefined, 'get_committee_documents_feed');
-            const items = parseFeedResult(result).map((item) => mapFeedItemBase(item));
-            if (items.length > 0 || !getWiderTimeframe(currentTimeframe))
-                return items;
-            console.log(`${INFO_PREFIX} committee documents feed empty for ${currentTimeframe}, widening timeframe...`);
-            currentTimeframe = getWiderTimeframe(currentTimeframe);
-        }
-        catch (error) {
-            const wider = handleFeedFetchError(error, tf, 'get_committee_documents_feed');
-            if (wider) {
-                currentTimeframe = wider;
-            }
-            else {
-                return [];
-            }
-        }
-    }
-    return [];
+export async function fetchCommitteeDocumentsFeed(client, 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+_timeframe = 'one-week') {
+    return fetchFixedWindowFeed(client, 'get_committee_documents_feed', () => client.getCommitteeDocumentsFeed({ limit: 20 }));
 }
 /**
  * Fetch plenary session documents feed from MCP.
- * Falls back to a wider timeframe when the initial timeframe returns no data.
+ * Fixed-window feed; `timeframe` is ignored by the server.
  *
  * @param client - MCP client or null
- * @param timeframe - How far back to look (default: 'one-week')
+ * @param _timeframe - Retained for signature compatibility (ignored by the server)
  * @returns Array of document feed items
  */
-export async function fetchPlenarySessionDocumentsFeed(client, timeframe = 'one-week') {
-    if (!client)
-        return [];
-    let currentTimeframe = timeframe;
-    while (currentTimeframe) {
-        const tf = currentTimeframe;
-        try {
-            console.log(`${MCP_FETCH_PREFIX} Fetching plenary session documents feed (${currentTimeframe})...`);
-            const result = await callMCP(() => client.getPlenarySessionDocumentsFeed({ timeframe: tf, limit: 20 }), undefined, 'get_plenary_session_documents_feed');
-            const items = parseFeedResult(result).map((item) => mapFeedItemBase(item));
-            if (items.length > 0 || !getWiderTimeframe(currentTimeframe))
-                return items;
-            console.log(`${INFO_PREFIX} plenary session docs feed empty for ${currentTimeframe}, widening timeframe...`);
-            currentTimeframe = getWiderTimeframe(currentTimeframe);
-        }
-        catch (error) {
-            const wider = handleFeedFetchError(error, tf, 'get_plenary_session_documents_feed');
-            if (wider) {
-                currentTimeframe = wider;
-            }
-            else {
-                return [];
-            }
-        }
-    }
-    return [];
+export async function fetchPlenarySessionDocumentsFeed(client, 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+_timeframe = 'one-week') {
+    return fetchFixedWindowFeed(client, 'get_plenary_session_documents_feed', () => client.getPlenarySessionDocumentsFeed({ limit: 20 }));
 }
 /**
  * Fetch external documents feed from MCP.
@@ -1562,38 +1528,16 @@ export async function fetchExternalDocumentsFeed(client, timeframe = 'one-week')
 }
 /**
  * Fetch parliamentary questions feed from MCP.
- * Falls back to a wider timeframe when the initial timeframe returns no data.
+ * Fixed-window feed; `timeframe` is ignored by the server.
  *
  * @param client - MCP client or null
- * @param timeframe - How far back to look (default: 'one-week')
+ * @param _timeframe - Retained for signature compatibility (ignored by the server)
  * @returns Array of question feed items
  */
-export async function fetchQuestionsFeed(client, timeframe = 'one-week') {
-    if (!client)
-        return [];
-    let currentTimeframe = timeframe;
-    while (currentTimeframe) {
-        const tf = currentTimeframe;
-        try {
-            console.log(`${MCP_FETCH_PREFIX} Fetching parliamentary questions feed (${currentTimeframe})...`);
-            const result = await callMCP(() => client.getParliamentaryQuestionsFeed({ timeframe: tf, limit: 20 }), undefined, 'get_parliamentary_questions_feed');
-            const items = parseFeedResult(result).map((item) => mapFeedItemBase(item));
-            if (items.length > 0 || !getWiderTimeframe(currentTimeframe))
-                return items;
-            console.log(`${INFO_PREFIX} questions feed empty for ${currentTimeframe}, widening timeframe...`);
-            currentTimeframe = getWiderTimeframe(currentTimeframe);
-        }
-        catch (error) {
-            const wider = handleFeedFetchError(error, tf, 'get_parliamentary_questions_feed');
-            if (wider) {
-                currentTimeframe = wider;
-            }
-            else {
-                return [];
-            }
-        }
-    }
-    return [];
+export async function fetchQuestionsFeed(client, 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+_timeframe = 'one-week') {
+    return fetchFixedWindowFeed(client, 'get_parliamentary_questions_feed', () => client.getParliamentaryQuestionsFeed({ limit: 20 }));
 }
 /**
  * Fetch MEP declarations feed from MCP.
@@ -1630,7 +1574,7 @@ export async function fetchCorporateBodiesFeed(client, timeframe = 'one-week') {
         return [];
     try {
         console.log(`${MCP_FETCH_PREFIX} Fetching corporate bodies feed (${timeframe})...`);
-        const result = await callMCP(() => client.getCorporateBodiesFeed({ timeframe, limit: 20 }), undefined, 'get_corporate_bodies_feed');
+        const result = await callMCP(() => client.getCorporateBodiesFeed({ limit: 20 }), undefined, 'get_corporate_bodies_feed');
         return parseFeedResult(result).map((item) => mapFeedItemBase(item));
     }
     catch (error) {
