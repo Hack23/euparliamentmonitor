@@ -2,8 +2,9 @@
 
 **Purpose**: Canonical reference that maps European Parliament Monitor
 article types to the most-relevant IMF indicators sourced from WEO,
-Fiscal Monitor, IFS, BOP, ER, and PCPS via the
-[`c-cf/imf-data-mcp`](https://github.com/c-cf/imf-data-mcp) MCP server.
+Fiscal Monitor, IFS, BOP, ER, and PCPS via the native TypeScript IMF
+SDMX 3.0 REST client in [`src/mcp/imf-mcp-client.ts`](../../src/mcp/imf-mcp-client.ts)
+(base URL `https://dataservices.imf.org/REST/SDMX_3.0/`).
 
 **Scope**: Applies to the macro/fiscal/trade/monetary subset of policy
 article types. Social / health / education / environment / innovation

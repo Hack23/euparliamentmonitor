@@ -3,10 +3,16 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 # @module imf-mcp-probe
-# @description Transparent IMF MCP connectivity probe for agentic
-# workflows. Performs up to 2 cheap calls through the MCP gateway and
-# prints a one-line status flag that workflow prompts can read to
-# decide whether IMF data is available for article enrichment.
+# @description Connectivity probe for the IMF SDMX 3.0 REST API used by
+# the native TypeScript IMF client (`src/mcp/imf-mcp-client.ts`). No MCP
+# server is involved — the probe curls the IMF endpoint directly, in
+# the same way the TypeScript client does at runtime.
+#
+# The script keeps its historical "imf-mcp-probe" filename so the ten
+# agentic-workflow prompts that already `source scripts/imf-mcp-probe.sh`
+# (and read `IMF_MCP_OK` / `IMF_MCP_PROBE_ERROR` afterwards) do not
+# change contract. The only change is the transport: upstream is now
+# IMF REST, not MCP/JSON-RPC.
 #
 # Usage (in workflow .md bash blocks, AFTER `source scripts/mcp-setup.sh`):
 #
@@ -18,75 +24,45 @@
 #   IMF_MCP_OK — "true" on success, "false" when any probe call fails.
 #   IMF_MCP_PROBE_ERROR — free-form error string when IMF_MCP_OK=false.
 #
-# Budget: max 2 outbound HTTP calls (imf-list-databases, imf-fetch-data
-# for a tiny slice). The probe respects the `IMF_MCP_SERVER_URL`
-# variable exported by `mcp-setup.sh`. Authentication: sends the same
-# Authorization header used by `MCPConnection` in the TypeScript
-# client, reading `IMF_MCP_GATEWAY_API_KEY` first and falling back to
-# `EP_MCP_GATEWAY_API_KEY` (both gateways share the same auth in the
-# current deployment). The key is passed through a CLI arg rather than
-# an env-interpolated curl `-H` string so it never reaches the process
-# table in shared runners.
+# Budget: max 2 outbound HTTP calls (dataflow list + a 1-cell WEO
+# fetch). The probe honours `IMF_API_BASE_URL` exported by
+# `mcp-setup.sh`. IMF SDMX 3.0 is an unauthenticated public endpoint —
+# no API key is sent.
 
 export IMF_MCP_OK="false"
 export IMF_MCP_PROBE_ERROR=""
 
-if [ -z "${IMF_MCP_SERVER_URL:-}" ]; then
-  IMF_MCP_PROBE_ERROR="IMF_MCP_SERVER_URL is not set; did you source scripts/mcp-setup.sh?"
-  echo "IMF_MCP_OK=false  # $IMF_MCP_PROBE_ERROR"
-  # `return` works when sourced (typical workflow usage); `exit` fallback for direct execution.
-  return 0 2>/dev/null || exit 0
-fi
-
-# Resolve the gateway API key with the same precedence as the TypeScript
-# client: IMF-specific override wins, otherwise reuse the EP gateway key.
-_IMF_MCP_PROBE_KEY="${IMF_MCP_GATEWAY_API_KEY:-${EP_MCP_GATEWAY_API_KEY:-}}"
+IMF_API_BASE_URL="${IMF_API_BASE_URL:-https://dataservices.imf.org/REST/SDMX_3.0}"
 
 # Use curl with a short connect timeout so the probe cannot block the
-# workflow. Total per-call budget: 15 s. Two calls → max 30 s wall-clock.
+# workflow. Per-call budget: 15 s. Two calls → max 30 s wall-clock.
 _IMF_CURL_OPTS=(--silent --show-error --fail --max-time 15 --connect-timeout 5 \
-  -H 'Content-Type: application/json' -H 'Accept: application/json')
+  -H 'Accept: application/json')
 
-# Add the Authorization header only when a key is actually available.
-# Mirror `_buildAuthorizationHeader` in `mcp-connection.ts`: prepend
-# `Bearer ` only when the key is not already a complete auth value.
-if [ -n "$_IMF_MCP_PROBE_KEY" ]; then
-  case "$_IMF_MCP_PROBE_KEY" in
-    [Bb]earer\ *|[Bb]asic\ *) _IMF_AUTH_VALUE="$_IMF_MCP_PROBE_KEY" ;;
-    *) _IMF_AUTH_VALUE="Bearer $_IMF_MCP_PROBE_KEY" ;;
-  esac
-  _IMF_CURL_OPTS+=(-H "Authorization: $_IMF_AUTH_VALUE")
-fi
-
-# JSON-RPC 2.0 envelope expected by MCP servers. Both calls use
-# `tools/call`. Payloads are intentionally minimal so the probe is cheap.
-_imf_probe_call() {
-  local tool="$1" args_json="$2" stderr_log
-  stderr_log=$(curl "${_IMF_CURL_OPTS[@]}" \
-    -X POST "$IMF_MCP_SERVER_URL" \
-    -d "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"tools/call\",\"params\":{\"name\":\"$tool\",\"arguments\":$args_json}}" \
-    -o /dev/null 2>&1)
+_imf_probe_url() {
+  local url="$1" stderr_log
+  stderr_log=$(curl "${_IMF_CURL_OPTS[@]}" -X GET "$url" -o /dev/null 2>&1)
   local status=$?
   if [ $status -ne 0 ]; then
-    IMF_MCP_PROBE_ERROR="$tool probe failed (exit $status): ${stderr_log%%$'\n'*}"
+    IMF_MCP_PROBE_ERROR="GET $url failed (exit $status): ${stderr_log%%$'\n'*}"
     return $status
   fi
   return 0
 }
 
-# Probe 1: list databases (no arguments, very cheap)
-if ! _imf_probe_call "imf-list-databases" '{}'; then
-  [ -n "$IMF_MCP_PROBE_ERROR" ] || IMF_MCP_PROBE_ERROR="imf-list-databases probe failed"
+# Probe 1: dataflow list (cheap — under 20 KB).
+if ! _imf_probe_url "$IMF_API_BASE_URL/dataflow/IMF"; then
+  [ -n "$IMF_MCP_PROBE_ERROR" ] || IMF_MCP_PROBE_ERROR="dataflow/IMF probe failed"
   echo "IMF_MCP_OK=false  # $IMF_MCP_PROBE_ERROR"
   return 0 2>/dev/null || exit 0
 fi
 
-# Probe 2: fetch a single WEO real-GDP-growth observation for Germany,
-# 2025 only. A single-cell fetch exercises the full discovery → fetch
-# flow without stressing the SDMX rate limit (10 rps / 5 s).
-if ! _imf_probe_call "imf-fetch-data" \
-  '{"database_id":"WEO","start_year":2025,"end_year":2025,"filters":{"country":["DEU"],"indicator":["NGDP_RPCH"]}}'; then
-  [ -n "$IMF_MCP_PROBE_ERROR" ] || IMF_MCP_PROBE_ERROR="imf-fetch-data probe failed"
+# Probe 2: single WEO real-GDP-growth cell for Germany in 2025. A
+# single-cell fetch exercises the full URL / SDMX-JSON path without
+# stressing the IMF rate limiter.
+if ! _imf_probe_url \
+  "$IMF_API_BASE_URL/data/WEO/DEU.NGDP_RPCH.A?startPeriod=2025&endPeriod=2025&format=jsondata"; then
+  [ -n "$IMF_MCP_PROBE_ERROR" ] || IMF_MCP_PROBE_ERROR="WEO fetch probe failed"
   echo "IMF_MCP_OK=false  # $IMF_MCP_PROBE_ERROR"
   return 0 2>/dev/null || exit 0
 fi

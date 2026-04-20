@@ -4,8 +4,15 @@
 > Fund) data into EU Parliament intelligence analysis. This directory is the
 > IMF counterpart to `analysis/worldbank/` and is the source-of-truth for AI
 > workflows that enrich articles with **fresher macro/fiscal context and
-> native multi-year forecasts** sourced from the IMF SDMX 3.0 API via the
+> native multi-year forecasts** sourced from the IMF SDMX 3.0 REST API
+> (`https://dataservices.imf.org/REST/SDMX_3.0/`) via the native TypeScript
+> client in [`src/mcp/imf-mcp-client.ts`](../../src/mcp/imf-mcp-client.ts).
+>
+> **Transport note:** the first Wave 1 iteration proxied through the Python
 > [`c-cf/imf-data-mcp`](https://github.com/c-cf/imf-data-mcp) MCP server.
+> That dependency was replaced with a native TypeScript HTTP client so the
+> stack stays npm-pure and pinnable per ISMS §7. The five "tool" identifiers
+> are preserved verbatim as the content-validator fingerprint anchors.
 
 **📅 Last Updated:** 2026-04-20 | **🏷️ Classification:** Public | **🌀 Wave:** 1 (Additive dual-source; WB remains the validator's primary gate)
 
@@ -24,17 +31,22 @@
 
 ## 🔑 Quick Reference
 
-### IMF MCP Tools
+### IMF Virtual Tool Surface
 
-| Tool | Purpose | Typical arguments |
-|------|---------|-------------------|
-| `imf-list-databases` | Enumerate every IMF database on the server | — |
-| `imf-search-databases` | Free-text search databases by keyword | `keyword` |
-| `imf-get-parameter-defs` | List dimensions for a database (country / indicator / frequency / …) | `database_id` |
-| `imf-get-parameter-codes` | List valid codes for a single dimension (+ optional search) | `database_id`, `parameter`, `search` |
-| `imf-fetch-data` | Fetch a time series slice for given dimension codes | `database_id`, `start_year`, `end_year`, `filters` |
+The native TypeScript client exposes five semantic methods, each mapped
+to a single SDMX 3.0 REST endpoint. The historical "tool" identifiers
+are retained as virtual tool names for the content-validator
+fingerprint and the workflow probe.
 
-The canonical tool list is duplicated in `IMF_MCP_TOOLS` in
+| Virtual tool | Method | REST endpoint |
+|---|---|---|
+| `imf-list-databases` | `listDatabases()` | `GET /dataflow/IMF` |
+| `imf-search-databases` | `searchDatabases(keyword)` | `/dataflow/IMF` + client-side filter |
+| `imf-get-parameter-defs` | `getParameterDefs(databaseId)` | `GET /datastructure/{id}` |
+| `imf-get-parameter-codes` | `getParameterCodes(db, param, search?)` | `GET /datastructure/{id}?references=codelist` |
+| `imf-fetch-data` | `fetchData({ databaseId, startYear, endYear, filters })` | `GET /data/{dataflow}/{key}?startPeriod=…` |
+
+The canonical identifier list is duplicated in `IMF_MCP_TOOLS` in
 [`src/mcp/imf-mcp-client.ts`](../../src/mcp/imf-mcp-client.ts) and guarded by the
 integration test `test/integration/mcp/imf-mcp.test.js`.
 
@@ -80,12 +92,14 @@ for the WB-only indicator inventory.
   articles and analysis cite `IMF, World Economic Outlook, April 2026` (or
   the applicable FM/IFS vintage) per the attribution rules.
 - **GDPR**: No personal data is handled by IMF data flows.
-- **ISMS**: Supply-chain vetted per ISO 27001 A.5.23 and A.8.28;
-  `c-cf/imf-data-mcp` is pinned in `.github/copilot-mcp.json` (Wave 2+) and
-  scanned via `gh-advisory-database`.
-- **Firewall**: Only `data.imf.org` is added to the `network.allowed` block
-  in workflow frontmatter. The legacy `dataservices.imf.org` domain is **NOT**
-  added unless the MCP server explicitly requires it.
+- **ISMS**: Supply-chain vetted per ISO 27001 A.5.23 and A.8.28; the native
+  TypeScript IMF client has no third-party runtime dependencies beyond
+  Node's built-in `fetch`, side-stepping the pinning issue that blocked
+  the earlier Python `c-cf/imf-data-mcp` integration.
+- **Firewall**: Only `dataservices.imf.org` is added to the `network.allowed`
+  block in workflow frontmatter. The earlier iteration's `data.imf.org`
+  (DataMapper UI) is **NOT** added — the SDMX REST host is the only
+  endpoint the client actually hits.
 - **Forecast provenance**: Every article citing an IMF projection MUST label
   it as "forecast" or "projection" and cite the vintage (e.g.
   "WEO April 2026"). This is enforced prospectively by the

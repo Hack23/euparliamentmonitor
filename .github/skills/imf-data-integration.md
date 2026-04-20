@@ -1,11 +1,21 @@
 # IMF Data Integration Skill
 
 > **Skill**: Invoke IMF economic data in EU Parliament Monitor articles
-> and analysis via the `c-cf/imf-data-mcp` MCP server (SDMX 3.0 API at
-> `data.imf.org`). Provides fresher macro/fiscal context and native
-> multi-year forecasts relative to the World Bank WDI.
+> and analysis via the **native TypeScript SDMX 3.0 REST client**
+> (`src/mcp/imf-mcp-client.ts`), which calls
+> `https://dataservices.imf.org/REST/SDMX_3.0/` directly. Provides
+> fresher macro/fiscal context and native multi-year forecasts relative
+> to the World Bank WDI.
 
 **🌀 Wave:** 1 (Additive dual-source; World Bank remains the validator's primary gate)
+
+> **Transport note:** The first Wave 1 iteration proxied through the
+> Python `c-cf/imf-data-mcp` MCP server. That transport was replaced
+> with a native TypeScript HTTP client — the public API
+> (`IMFMCPClient`, five tool methods, `MCPToolResult`-shaped return
+> envelope) is identical, and the five tool identifiers remain the
+> content-validator fingerprint source and workflow-probe heartbeat
+> anchors.
 
 ---
 
@@ -27,21 +37,23 @@ innovation indicators — IMF does not cover them.
 
 ---
 
-## MCP Tool Surface
+## Virtual Tool Surface
 
-Five tools exposed by the upstream server:
+Five semantic methods on the native client, each mapped to a single
+SDMX 3.0 REST endpoint:
 
-| Tool | Purpose |
-|---|---|
-| `imf-list-databases` | Enumerate every IMF database |
-| `imf-search-databases` | Free-text keyword search across databases |
-| `imf-get-parameter-defs` | List the dimensions of a database |
-| `imf-get-parameter-codes` | List the valid code values for one dimension |
-| `imf-fetch-data` | Fetch a time-series slice for given dimension codes |
+| Method (virtual tool)                         | REST endpoint                                |
+|-----------------------------------------------|----------------------------------------------|
+| `listDatabases` (`imf-list-databases`)        | `GET /dataflow/IMF`                          |
+| `searchDatabases` (`imf-search-databases`)    | Reuses `/dataflow/IMF` + client-side filter  |
+| `getParameterDefs` (`imf-get-parameter-defs`) | `GET /datastructure/{id}`                    |
+| `getParameterCodes` (`imf-get-parameter-codes`)| `GET /datastructure/{id}?references=codelist`|
+| `fetchData` (`imf-fetch-data`)                | `GET /data/{dataflow}/{key}?startPeriod=…`   |
 
-All five are exported as `IMF_MCP_TOOLS` from `src/mcp/imf-mcp-client.ts`
-and wrapped with domain-safe helpers (`listDatabases`,
-`searchDatabases`, `getParameterDefs`, `getParameterCodes`, `fetchData`).
+All five identifiers are exported as `IMF_MCP_TOOLS` from
+`src/mcp/imf-mcp-client.ts` and wrapped with domain-safe helpers
+(`listDatabases`, `searchDatabases`, `getParameterDefs`,
+`getParameterCodes`, `fetchData`).
 
 ---
 
@@ -56,7 +68,8 @@ const client = await getIMFMCPClient();
 // 1. Confirm the database (optional — the mapping already knows WEO).
 const dbs = await client.searchDatabases('world economic outlook');
 
-// 2. Fetch a slice. IMF MCP requires snake_case keys on args.
+// 2. Fetch a slice. Options use camelCase; the client handles the
+//    SDMX key construction and URL-encoding internally.
 const mapping = IMF_POLICY_INDICATORS.gdpGrowth; // { database: 'WEO', indicator: 'NGDP_RPCH', ... }
 const response = await client.fetchData({
   databaseId: mapping.database,
@@ -100,26 +113,27 @@ When adding IMF to a gh-aw workflow (Wave 2+), add exactly:
 ```yaml
 network:
   allowed:
-    - data.imf.org
+    - dataservices.imf.org
 ```
 
-Do **NOT** add `dataservices.imf.org` unless the MCP server explicitly
-requires it for fallback — the principle of least surface applies per
-`.github/skills/gh-aw-firewall.md`.
+This is the SDMX 3.0 REST host the native TypeScript client calls. Do
+**NOT** add `data.imf.org` (DataMapper site) or `api.imf.org` unless
+those endpoints are actually being hit.
 
 ---
 
-## Gateway Configuration
+## Client Configuration
 
 `scripts/mcp-setup.sh` exports:
 
 ```bash
-export IMF_MCP_SERVER_URL="http://host.docker.internal:80/mcp/imf-data"
+export IMF_API_BASE_URL="https://dataservices.imf.org/REST/SDMX_3.0"
 ```
 
-Authentication falls back to `EP_MCP_GATEWAY_API_KEY` when the
-IMF-specific `IMF_MCP_GATEWAY_API_KEY` is not set; both envelopes route
-through the same gateway.
+Override via `IMF_API_BASE_URL` when mirroring. IMF SDMX 3.0 is an
+unauthenticated public endpoint — no API key is required.
+
+Per-request timeout: 30 s (override with `IMF_API_TIMEOUT_MS`).
 
 ---
 
@@ -135,7 +149,9 @@ else
 fi
 ```
 
-Max 2 HTTP calls, 30 s wall-clock ceiling.
+Max 2 HTTP calls, 30 s wall-clock ceiling. The probe keeps its historic
+filename and env-var names (`IMF_MCP_OK`, `IMF_MCP_PROBE_ERROR`) so
+existing workflow prompts do not need to change.
 
 ---
 

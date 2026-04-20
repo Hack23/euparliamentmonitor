@@ -4,7 +4,9 @@
 /**
  * @module Types/IMF
  * @description Types for IMF (International Monetary Fund) economic data
- * integration via the `c-cf/imf-data-mcp` MCP server (SDMX 3.0, `data.imf.org`).
+ * integration via the native TypeScript SDMX 3.0 REST client
+ * (`src/mcp/imf-mcp-client.ts`), which calls
+ * `https://dataservices.imf.org/REST/SDMX_3.0/` directly.
  *
  * Used to enrich EU Parliament articles with **fresher** macroeconomic context
  * than the World Bank WDI provides (IMF WEO ships 2025 actuals + 2026-2030
@@ -17,8 +19,16 @@
  * that IMF SDMX does not publish. IMF types cover the macro/fiscal/trade/
  * monetary subset plus native multi-year forecasts.
  *
- * @see {@link https://data.imf.org/sdmx/ | IMF SDMX 3.0 API}
- * @see {@link https://github.com/c-cf/imf-data-mcp | c-cf/imf-data-mcp}
+ * ## Transport history
+ *
+ * The first Wave 1 iteration proxied through the Python
+ * `c-cf/imf-data-mcp` MCP server. That transport was replaced with a
+ * native TypeScript HTTP client so the stack remains npm-pure and
+ * pinned per ISMS §7. The `IMF_MCP_TOOLS` identifier list is retained
+ * as a stable "virtual tool" surface for the content-validator
+ * fingerprint and workflow probes.
+ *
+ * @see {@link https://dataservices.imf.org/REST/SDMX_3.0 | IMF SDMX 3.0 REST API}
  * @see `analysis/methodologies/imf-indicator-mapping.md` for the committee →
  *   IMF indicator mapping enforced by the validator.
  */
@@ -226,12 +236,12 @@ export interface IMFEconomicContext {
 }
 
 /**
- * Canonical IMF MCP tool names as exposed by `c-cf/imf-data-mcp`.
- *
- * The tool identifiers use kebab-case on the server (`imf-list-databases`)
- * and are registered as snake-case when routed through the gh-aw MCP
- * gateway (`imf_data___imf_list_databases`). This mirrors the World Bank
- * pattern (`get-economic-data` → `world_bank___get_economic_data`).
+ * Canonical IMF "virtual tool" names used by the native TypeScript
+ * client. These identifiers are preserved from the earlier MCP-backed
+ * iteration so the content-validator fingerprint list and workflow
+ * probes (`scripts/imf-mcp-probe.sh`) remain stable across the
+ * transport swap. Each name maps to a semantic method on
+ * {@link IMFMCPClient} rather than to a remote MCP tool call.
  */
 export type IMFMCPToolName =
   | 'imf-list-databases'
