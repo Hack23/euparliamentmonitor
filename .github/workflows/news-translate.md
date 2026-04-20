@@ -171,6 +171,37 @@ You are the **Translation Agent**. Your ONLY job: take existing English articles
 > **📚 Reference**: [SHARED_PROMPT_PATTERNS.md](../prompts/SHARED_PROMPT_PATTERNS.md) for EP MCP tools and safe outputs.
 > **📈 World Bank pass-through**: Translation workflows inherit World Bank + chart structure from the source English article. Do not add, remove, or alter `<canvas data-chart-config>` blocks or World Bank citations; the validator (`npx tsx src/utils/validate-articles.ts --date=$TODAY --quality --strict`) treats the translated file as a pass-through and expects the same Chart.js + indicator evidence as the source. See [`analysis/methodologies/worldbank-indicator-mapping.md`](../../analysis/methodologies/worldbank-indicator-mapping.md) for reference only.
 
+## 🔁 Safe Outputs Session Keep-Alive (NON-NEGOTIABLE)
+
+> **⚠️ CRITICAL**: The safeoutputs MCP session can expire after ~10–20 minutes of inactivity. Once expired, every subsequent call returns `"session not found"` and there is NO recovery — any translations still in the working directory at that point are LOST. This workflow MUST keep the session alive throughout long discovery, analysis, and translation phases so that the final `safeoutputs___create_pull_request` call succeeds.
+
+**Mandatory heartbeat rule** (90-minute budget):
+- First keep-alive call by **minute 8** (independent of the minute-~2 checkpoint PR)
+- Then keep-alive at least every **8 minutes** until Step 5 final PR (approximate checkpoints: minutes **8, 16, 24, 32, 40, 48, 56, 64, 72, 80, and 88**, or sooner at phase transitions)
+- Two tool calls serve as keep-alives. Use whichever fits the current phase:
+
+```javascript
+// Preferred during pre-translation analysis / Step 1 discovery / Step 2 restore,
+// when no new files have been written yet (lighter-weight, does not consume PR quota):
+safeoutputs___push_repo_memory({ memory_id: "default" })
+```
+
+```javascript
+// Preferred during Step 3b translation and later, when the working directory already
+// contains new translated files — this simultaneously heartbeats AND snapshots files
+// into the PR patch (see §"Periodic Flush" in Step 3b for the detailed cadence):
+safeoutputs___create_pull_request({
+  title: "Translate articles checkpoint — ${ARTICLE_DATE} (run ${RUN_ID})",
+  body:  "Translation checkpoint — periodic flush",
+  base:  "main",
+  head:  "news/translate-${ARTICLE_DATE}-${RUN_ID}"
+})
+```
+
+> **Interaction with Step 3b Periodic Flush**: the "every 3 translated files" flush rule in Step 3b is the primary keep-alive during active translation. This heartbeat rule **supplements** it: between checkpoint PR (minute ~2) and first flush (after file 3, often minute ~15–20), the pre-translation diagnostic + discovery + restore phases can easily exceed the 10-min session idle timeout. Call `safeoutputs___push_repo_memory` in those gaps.
+>
+> **If a heartbeat returns `session not found`**: the session is GONE. Stop translating immediately, write a short note into `${ANALYSIS_DIR}/summary.md` listing which files were translated in the working directory but could not be flushed, and END the run. Do NOT keep translating — the scheduled next run (or reconciler workflow) will pick up the gap.
+
 ## 📞 Bash Tool Call Contract (CRITICAL)
 
 > **⚠️ NON-NEGOTIABLE**: Every time you invoke the `bash` / shell tool, you MUST provide BOTH required fields: `command` AND `description`. Calls that omit either field fail with `Multiple validation errors: - "command": Required, - "description": Required`, waste a tool-call turn, and can stall the workflow.
