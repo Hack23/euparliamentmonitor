@@ -3,7 +3,7 @@
 import { getLocalizedString, SWOT_BUILDER_STRINGS, DASHBOARD_BUILDER_STRINGS, } from '../../constants/languages.js';
 import { buildDefaultStakeholderPerspectives } from '../../utils/intelligence-analysis.js';
 import { AI_MARKER } from '../../constants/analysis-constants.js';
-import { buildOutcomeMatrix, buildAiMarkerImpactAssessment, buildStakeholderMetricsFromPipeline, buildStakeholderPanel, CIVIL_SOCIETY, } from './shared-builders.js';
+import { buildOutcomeMatrix, buildFallbackImpactAssessment, buildStakeholderMetricsFromPipeline, buildStakeholderPanel, applyAnalysisOverrides, CIVIL_SOCIETY, } from './shared-builders.js';
 const CONFERENCE_OF_PRESIDENTS_EN = 'Conference of Presidents';
 const CONFERENCE_OF_PRESIDENTS = {
     en: CONFERENCE_OF_PRESIDENTS_EN,
@@ -196,14 +196,16 @@ function buildPipelineFromPipelineData(pipelineData) {
  * @param date - Publication date
  * @param lang - Target display language (default: 'en')
  * @param adoptedTextsHtml - Adopted texts HTML (also used to detect content presence)
- * @returns Deep analysis object
+ * @param overrides - Optional AI-authored overrides (see Analysis-to-Article
+ *   Data Contract in `.github/prompts/SHARED_PROMPT_PATTERNS.md`).
+ * @returns Deep analysis object, with overrides applied when present.
  */
-export function buildPropositionsAnalysis(proposalsHtml, pipelineData, date, lang = 'en', adoptedTextsHtml = '') {
+export function buildPropositionsAnalysis(proposalsHtml, pipelineData, date, lang = 'en', adoptedTextsHtml = '', overrides) {
     const hasProposals = proposalsHtml.length > 0 || adoptedTextsHtml.length > 0;
     const healthScore = pipelineData?.healthScore ?? 0;
     const throughput = pipelineData?.throughput ?? 0;
     const pct = (healthScore * 100).toFixed(0);
-    return {
+    const base = {
         what: hasProposals
             ? `Legislative pipeline assessment as of ${date}: Active proposals under consideration.`
             : `Legislative pipeline assessment as of ${date}: No new proposals detected in this period.`,
@@ -216,7 +218,7 @@ export function buildPropositionsAnalysis(proposalsHtml, pipelineData, date, lan
         when: [`Assessment date: ${date}`, 'Pipeline health reflects cumulative legislative progress'],
         why: buildPropositionsWhy(),
         stakeholderOutcomes: [buildPropositionsStakeholderOutcome(healthScore, pct)],
-        impactAssessment: buildAiMarkerImpactAssessment(),
+        impactAssessment: buildFallbackImpactAssessment(),
         actionConsequences: buildPropositionsConsequences(pct, healthScore, throughput),
         mistakes: healthScore < 0.5
             ? [
@@ -244,6 +246,7 @@ export function buildPropositionsAnalysis(proposalsHtml, pipelineData, date, lan
             },
         ]),
     };
+    return applyAnalysisOverrides(base, overrides);
 }
 /**
  * Build SWOT analysis for propositions articles.

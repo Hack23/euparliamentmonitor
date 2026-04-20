@@ -48,6 +48,7 @@ import {
   buildAnalysisInsightsSection,
   extractAnalysisSummary,
 } from './article-strategy.js';
+import { deriveAnalysisOverrides } from '../../utils/parse-analysis-stakeholders.js';
 import { truncateTitle, MIN_MEANINGFUL_TITLE_LENGTH } from '../../utils/metadata-utils.js';
 
 /** Base keywords shared by all Breaking News articles */
@@ -393,7 +394,8 @@ export class BreakingNewsStrategy implements ArticleStrategy<BreakingNewsArticle
       data.feedData,
       data.anomalyRaw,
       data.coalitionRaw,
-      lang
+      lang,
+      deriveAnalysisOverrides(data.analysisContext)
     );
 
     // Enrich script-generated analysis with AI-produced content when available

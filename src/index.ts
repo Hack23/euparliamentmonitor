@@ -96,6 +96,17 @@ export {
   buildLegislativeVelocityReport,
 } from './utils/intelligence-analysis.js';
 
+// ─── Analysis-to-Article Data Contract ───────────────────────────────────────
+export {
+  parseStakeholderPerspectives,
+  parseStakeholderOutcomeMatrix,
+  parseImpactAssessment,
+  deriveAnalysisOverrides,
+  classifyStakeholder,
+  findFallbackTemplateLeaks,
+  FALLBACK_TEMPLATE_PATTERNS,
+} from './utils/parse-analysis-stakeholders.js';
+
 // ─── Intelligence Index ──────────────────────────────────────────────────────
 export {
   createEmptyIndex,

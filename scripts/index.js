@@ -46,6 +46,8 @@ export { CircuitBreaker, withRetry, } from './mcp/mcp-retry.js';
 export { MCPHealthMonitor } from './mcp/mcp-health.js';
 // ─── Intelligence Analysis ───────────────────────────────────────────────────
 export { scoreVotingAnomaly, analyzeCoalitionCohesion, scoreMEPInfluence, calculateLegislativeVelocity, rankBySignificance, buildIntelligenceSection, buildDefaultStakeholderPerspectives, scoreStakeholderInfluence, buildStakeholderOutcomeMatrix, rankStakeholdersByInfluence, computeVotingIntensity, detectCoalitionShifts, computePolarizationIndex, detectVotingTrends, computeCrossSessionCoalitionStability, rankMEPInfluenceByTopic, buildLegislativeVelocityReport, } from './utils/intelligence-analysis.js';
+// ─── Analysis-to-Article Data Contract ───────────────────────────────────────
+export { parseStakeholderPerspectives, parseStakeholderOutcomeMatrix, parseImpactAssessment, deriveAnalysisOverrides, classifyStakeholder, findFallbackTemplateLeaks, FALLBACK_TEMPLATE_PATTERNS, } from './utils/parse-analysis-stakeholders.js';
 // ─── Intelligence Index ──────────────────────────────────────────────────────
 export { createEmptyIndex, addArticleToIndex, buildIndexFromEntries, findRelatedArticles, generateCrossReferences, detectTrends, findOrCreateSeries, buildRelatedArticlesHTML, } from './utils/intelligence-index.js';
 // ─── Article Quality ─────────────────────────────────────────────────────────

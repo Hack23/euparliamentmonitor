@@ -3,7 +3,7 @@
 import { getLocalizedString, BREAKING_STRINGS, SWOT_BUILDER_STRINGS, DASHBOARD_BUILDER_STRINGS, } from '../../constants/languages.js';
 import { buildDefaultStakeholderPerspectives } from '../../utils/intelligence-analysis.js';
 import { AI_MARKER } from '../../constants/analysis-constants.js';
-import { buildOutcomeMatrix, buildCategoryDistributionPanel } from './shared-builders.js';
+import { buildOutcomeMatrix, buildCategoryDistributionPanel, applyAnalysisOverrides, } from './shared-builders.js';
 // ─── Constant ─────────────────────────────────────────────────────────────────
 /**
  * Build multi-stakeholder perspectives for a breaking news analysis.
@@ -30,15 +30,18 @@ function buildBreakingStakeholderPerspectives(adoptedCount, topic) {
  * @param anomalyRaw - Raw anomaly text
  * @param coalitionRaw - Raw coalition text
  * @param lang - Target display language (default: 'en')
- * @returns Deep analysis object
+ * @param overrides - Optional AI-authored overrides sourced from the run's
+ *   `stakeholder-map.md` / `stakeholder-impact.md` / `synthesis-summary.md`
+ *   via {@link module:Utils/ParseAnalysisStakeholders}.
+ * @returns Deep analysis object, with overrides applied when present.
  */
-export function buildBreakingAnalysis(date, feedData, anomalyRaw, coalitionRaw, lang = 'en') {
+export function buildBreakingAnalysis(date, feedData, anomalyRaw, coalitionRaw, lang = 'en', overrides) {
     const adoptedCount = feedData?.adoptedTexts.length ?? 0;
     const eventCount = feedData?.events.length ?? 0;
     const procCount = feedData?.procedures.length ?? 0;
     const mepCount = feedData?.mepUpdates.length ?? 0;
     const s = getLocalizedString(BREAKING_STRINGS, lang);
-    return {
+    const base = {
         what: s.breakingWhatFn(date, adoptedCount, eventCount, procCount, mepCount),
         who: [
             ...(feedData?.adoptedTexts
@@ -119,6 +122,7 @@ export function buildBreakingAnalysis(date, feedData, anomalyRaw, coalitionRaw, 
             },
         ]),
     };
+    return applyAnalysisOverrides(base, overrides);
 }
 /**
  * Build SWOT analysis for breaking news articles.

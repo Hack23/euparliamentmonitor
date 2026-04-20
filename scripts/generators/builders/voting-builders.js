@@ -4,7 +4,7 @@ import { getLocalizedString, SWOT_BUILDER_STRINGS, DASHBOARD_BUILDER_STRINGS, } 
 import { PLACEHOLDER_MARKER } from '../motions-content.js';
 import { buildDefaultStakeholderPerspectives, computeVotingIntensity, computePolarizationIndex, } from '../../utils/intelligence-analysis.js';
 import { AI_MARKER } from '../../constants/analysis-constants.js';
-import { buildOutcomeMatrix, buildAiMarkerImpactAssessment, buildCoalitionMetricsFromPatterns, buildStakeholderMetricsFromVoting, buildStakeholderPanel, EP_BLUE_TRANSPARENT, EP_BLUE_BORDER, CIVIL_SOCIETY, } from './shared-builders.js';
+import { buildOutcomeMatrix, buildFallbackImpactAssessment, buildCoalitionMetricsFromPatterns, buildStakeholderMetricsFromVoting, buildStakeholderPanel, applyAnalysisOverrides, EP_BLUE_TRANSPARENT, EP_BLUE_BORDER, CIVIL_SOCIETY, } from './shared-builders.js';
 /**
  * Derive stakeholder outcomes from voting records.
  * Groups with high cohesion (>0.8) and high participation (>0.7) are treated as
@@ -259,15 +259,26 @@ function buildVotingStakeholderPanel(d, patterns, anomalyCount) {
 /**
  * Build deep analysis for voting-based articles (motions, weekly/monthly review).
  *
+ * When the caller supplies {@link AnalysisOverrides} sourced from AI-authored
+ * analysis markdown (via {@link module:Utils/ParseAnalysisStakeholders}), the
+ * override values replace the template-derived stakeholder perspectives,
+ * outcome matrix, and impact assessment.  Without overrides, the default
+ * fallback template output is returned — this is the path that produced the
+ * regressed `2026-04-20-motions-run46-en.html` stakeholder cards before the
+ * Analysis-to-Article Data Contract was added.
+ *
  * @param dateFrom - Period start date
  * @param dateTo - Period end date
  * @param records - Voting records
  * @param patterns - Voting patterns
  * @param anomalies - Anomalies detected
  * @param questions - Parliamentary questions
- * @returns Deep analysis object
+ * @param overrides - Optional AI-authored overrides (stakeholder perspectives,
+ *   outcome matrix, impact assessment) — typically parsed from the run's
+ *   `stakeholder-map.md` / `stakeholder-impact.md` / `synthesis-summary.md`.
+ * @returns Deep analysis object, with overrides applied when present.
  */
-export function buildVotingAnalysis(dateFrom, dateTo, records, patterns, anomalies, questions) {
+export function buildVotingAnalysis(dateFrom, dateTo, records, patterns, anomalies, questions, overrides) {
     const realRecords = records.filter((r) => r.result !== PLACEHOLDER_MARKER);
     const realPatterns = patterns.filter((p) => !/placeholder/i.test(p.group));
     const realAnomalies = anomalies.filter((a) => !/placeholder/i.test(a.type));
@@ -278,7 +289,7 @@ export function buildVotingAnalysis(dateFrom, dateTo, records, patterns, anomali
     // ── Advanced political intelligence ────────────────────────────────────────
     const intensity = computeVotingIntensity(realRecords);
     const polarization = computePolarizationIndex(realPatterns);
-    return {
+    const base = {
         what: buildVotingWhatText(dateFrom, dateTo, realRecords.length, adoptedCount, rejectedCount, realAnomalies.length, realPatterns.length, realQuestions.length, intensity, polarization),
         who: [
             ...realPatterns.map((p) => `${p.group} — cohesion: ${(p.cohesion * 100).toFixed(0)}%, participation: ${(p.participation * 100).toFixed(0)}%`),
@@ -290,7 +301,7 @@ export function buildVotingAnalysis(dateFrom, dateTo, records, patterns, anomali
         ],
         why: buildVotingWhyText(),
         stakeholderOutcomes: deriveStakeholderOutcomesFromVoting(realRecords, realPatterns),
-        impactAssessment: buildAiMarkerImpactAssessment(),
+        impactAssessment: buildFallbackImpactAssessment(),
         actionConsequences: deriveConsequencesFromVoting(realRecords, realAnomalies),
         mistakes: deriveMistakesFromAnomalies(realAnomalies),
         outlook: buildVotingOutlook(),
@@ -310,6 +321,7 @@ export function buildVotingAnalysis(dateFrom, dateTo, records, patterns, anomali
             },
         ]),
     };
+    return applyAnalysisOverrides(base, overrides);
 }
 /**
  * Build SWOT analysis for voting-based articles (motions, weekly/monthly review).

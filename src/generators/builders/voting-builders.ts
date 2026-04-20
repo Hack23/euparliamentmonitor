@@ -45,13 +45,15 @@ import {
 import { AI_MARKER } from '../../constants/analysis-constants.js';
 import {
   buildOutcomeMatrix,
-  buildAiMarkerImpactAssessment,
+  buildFallbackImpactAssessment,
   buildCoalitionMetricsFromPatterns,
   buildStakeholderMetricsFromVoting,
   buildStakeholderPanel,
+  applyAnalysisOverrides,
   EP_BLUE_TRANSPARENT,
   EP_BLUE_BORDER,
   CIVIL_SOCIETY,
+  type AnalysisOverrides,
 } from './shared-builders.js';
 
 /**
@@ -349,13 +351,24 @@ function buildVotingStakeholderPanel(
 /**
  * Build deep analysis for voting-based articles (motions, weekly/monthly review).
  *
+ * When the caller supplies {@link AnalysisOverrides} sourced from AI-authored
+ * analysis markdown (via {@link module:Utils/ParseAnalysisStakeholders}), the
+ * override values replace the template-derived stakeholder perspectives,
+ * outcome matrix, and impact assessment.  Without overrides, the default
+ * fallback template output is returned — this is the path that produced the
+ * regressed `2026-04-20-motions-run46-en.html` stakeholder cards before the
+ * Analysis-to-Article Data Contract was added.
+ *
  * @param dateFrom - Period start date
  * @param dateTo - Period end date
  * @param records - Voting records
  * @param patterns - Voting patterns
  * @param anomalies - Anomalies detected
  * @param questions - Parliamentary questions
- * @returns Deep analysis object
+ * @param overrides - Optional AI-authored overrides (stakeholder perspectives,
+ *   outcome matrix, impact assessment) — typically parsed from the run's
+ *   `stakeholder-map.md` / `stakeholder-impact.md` / `synthesis-summary.md`.
+ * @returns Deep analysis object, with overrides applied when present.
  */
 export function buildVotingAnalysis(
   dateFrom: string,
@@ -363,7 +376,8 @@ export function buildVotingAnalysis(
   records: readonly VotingRecord[],
   patterns: readonly VotingPattern[],
   anomalies: readonly VotingAnomaly[],
-  questions: readonly MotionsQuestion[]
+  questions: readonly MotionsQuestion[],
+  overrides?: AnalysisOverrides
 ): DeepAnalysis {
   const realRecords = records.filter((r) => r.result !== PLACEHOLDER_MARKER);
   const realPatterns = patterns.filter((p) => !/placeholder/i.test(p.group));
@@ -380,7 +394,7 @@ export function buildVotingAnalysis(
   const intensity = computeVotingIntensity(realRecords);
   const polarization = computePolarizationIndex(realPatterns);
 
-  return {
+  const base: DeepAnalysis = {
     what: buildVotingWhatText(
       dateFrom,
       dateTo,
@@ -406,7 +420,7 @@ export function buildVotingAnalysis(
     ],
     why: buildVotingWhyText(),
     stakeholderOutcomes: deriveStakeholderOutcomesFromVoting(realRecords, realPatterns),
-    impactAssessment: buildAiMarkerImpactAssessment(),
+    impactAssessment: buildFallbackImpactAssessment(),
     actionConsequences: deriveConsequencesFromVoting(realRecords, realAnomalies),
     mistakes: deriveMistakesFromAnomalies(realAnomalies),
     outlook: buildVotingOutlook(),
@@ -430,6 +444,7 @@ export function buildVotingAnalysis(
       },
     ]),
   };
+  return applyAnalysisOverrides(base, overrides);
 }
 
 /**

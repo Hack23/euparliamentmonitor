@@ -11,6 +11,7 @@ import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import { loadAnalysisContext, buildAnalysisInsightsSection } from './article-strategy.js';
+import { deriveAnalysisOverrides } from '../../utils/parse-analysis-stakeholders.js';
 import { truncateTitle, MIN_MEANINGFUL_TITLE_LENGTH } from '../../utils/metadata-utils.js';
 /** European Parliament home-page URL used as source reference */
 const EP_SOURCE_URL = 'https://www.europarl.europa.eu';
@@ -376,7 +377,7 @@ export class CommitteeReportsStrategy {
     buildContent(data, lang) {
         const base = buildCommitteeReportsHTML(data.committeeDataList, lang);
         const feedSection = buildAdoptedTextsSection(data.feedData, lang);
-        const analysis = buildCommitteeAnalysis(data.committeeDataList, data.date, lang);
+        const analysis = buildCommitteeAnalysis(data.committeeDataList, data.date, lang, deriveAnalysisOverrides(data.analysisContext));
         const deepSection = buildDeepAnalysisSection(analysis, lang);
         const mindmapData = buildCommitteeMindmap(data.committeeDataList, lang);
         const mindmapSection = buildIntelligenceMindmapSection(mindmapData, lang);

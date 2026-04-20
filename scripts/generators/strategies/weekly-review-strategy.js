@@ -10,6 +10,7 @@ import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import { loadAnalysisContext, buildAnalysisInsightsSection } from './article-strategy.js';
+import { deriveAnalysisOverrides } from '../../utils/parse-analysis-stakeholders.js';
 import { pl } from '../../utils/metadata-utils.js';
 import { isPlaceholderText } from '../../constants/analysis-constants.js';
 /** Base keywords shared by all Weekly Review articles */
@@ -176,7 +177,7 @@ export class WeeklyReviewStrategy {
      */
     buildContent(data, lang) {
         const base = generateMotionsContent(data.dateRange.start, data.dateRange.end, [...data.votingRecords], [...data.votingPatterns], [...data.anomalies], [...data.questions], lang);
-        const analysis = buildVotingAnalysis(data.dateRange.start, data.dateRange.end, data.votingRecords, data.votingPatterns, data.anomalies, data.questions);
+        const analysis = buildVotingAnalysis(data.dateRange.start, data.dateRange.end, data.votingRecords, data.votingPatterns, data.anomalies, data.questions, deriveAnalysisOverrides(data.analysisContext));
         const deepSection = buildDeepAnalysisSection(analysis, lang);
         // Enrich with adopted texts from feed data when available
         const adoptedTextsHtml = data.feedData && data.feedData.adoptedTexts.length > 0

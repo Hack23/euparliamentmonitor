@@ -31,7 +31,12 @@ import {
 import { isPlaceholderCommitteeData } from '../committee-helpers.js';
 import { buildDefaultStakeholderPerspectives } from '../../utils/intelligence-analysis.js';
 import { AI_MARKER } from '../../constants/analysis-constants.js';
-import { buildOutcomeMatrix, buildCategoryDistributionPanel } from './shared-builders.js';
+import {
+  buildOutcomeMatrix,
+  buildCategoryDistributionPanel,
+  applyAnalysisOverrides,
+  type AnalysisOverrides,
+} from './shared-builders.js';
 
 // ─── Constant ─────────────────────────────────────────────────────────────────
 
@@ -64,12 +69,15 @@ function buildCommitteeStakeholderPerspectives(
  * @param committees - Committee data list
  * @param date - Publication date
  * @param lang - Target language code for localized content
+ * @param overrides - Optional AI-authored overrides (see Analysis-to-Article
+ *   Data Contract in `.github/prompts/SHARED_PROMPT_PATTERNS.md`).
  * @returns Deep analysis object, or `null` when all committee data is placeholder
  */
 export function buildCommitteeAnalysis(
   committees: readonly CommitteeData[],
   date: string,
-  lang: LanguageCode = 'en'
+  lang: LanguageCode = 'en',
+  overrides?: AnalysisOverrides
 ): DeepAnalysis | null {
   if (isPlaceholderCommitteeData(committees)) return null;
   const totalDocs = committees.reduce((sum, c) => sum + c.documents.length, 0);
@@ -77,7 +85,7 @@ export function buildCommitteeAnalysis(
   const s = getLocalizedString(COMMITTEE_ANALYSIS_CONTENT_STRINGS, lang);
   const activePct = (activeCommittees.length / Math.max(committees.length, 1)) * 100;
 
-  return {
+  const base: DeepAnalysis = {
     what:
       totalDocs === 0
         ? s.whatNoData.replace('{date}', date).replace('{total}', String(committees.length))
@@ -153,6 +161,7 @@ export function buildCommitteeAnalysis(
       },
     ]),
   };
+  return applyAnalysisOverrides(base, overrides);
 }
 
 /**

@@ -30,13 +30,29 @@ const ENV_ANALYSIS_DIR = 'EP_ANALYSIS_DIR';
  * directories are correctly resolved without hard-coding per-strategy slugs.
  */
 const ENV_ANALYSIS_SLUG = 'EP_ANALYSIS_SLUG';
-/** Analysis subdirectories to scan for markdown files */
+/**
+ * Analysis subdirectories to scan for markdown files.
+ *
+ * Includes the two richer-content conventions used by reference-quality runs:
+ * - `intelligence/` — used by breaking / month-ahead workflows (e.g. Run 190)
+ *   for stakeholder-map, scenario-forecast, pestle-analysis, mcp-reliability-audit
+ * - `synthesis/` — alternate location used by monthly-review runs for
+ *   synthesis-summary and stakeholder-impact
+ *
+ * Adding these here means `loadAnalysisContext` discovers the AI-authored
+ * markdown that the {@link module:Utils/ParseAnalysisStakeholders} parser
+ * consumes to produce structured `StakeholderPerspective[]` / outcome matrices
+ * for the article builders (Analysis-to-Article Data Contract).
+ */
 const ANALYSIS_SUBDIRS = [
     'classification',
     'threat-assessment',
     'risk-scoring',
     'existing',
     'documents',
+    'intelligence',
+    'synthesis',
+    'risk',
 ];
 /**
  * Load analysis context from the analysis pipeline output directory.

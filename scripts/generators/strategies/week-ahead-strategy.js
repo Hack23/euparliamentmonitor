@@ -10,6 +10,7 @@ import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import { loadAnalysisContext, buildAnalysisInsightsSection } from './article-strategy.js';
+import { deriveAnalysisOverrides } from '../../utils/parse-analysis-stakeholders.js';
 import { pl } from '../../utils/metadata-utils.js';
 // ─── Date-range helper ────────────────────────────────────────────────────────
 /**
@@ -134,7 +135,7 @@ export class WeekAheadStrategy {
     buildContent(data, lang) {
         const base = buildWeekAheadContent(data.weekData, data.dateRange, lang);
         const watchSection = buildWhatToWatchSection(data.weekData.pipeline, [], lang);
-        const analysis = buildProspectiveAnalysis(data.weekData, data.dateRange, 'week');
+        const analysis = buildProspectiveAnalysis(data.weekData, data.dateRange, 'week', deriveAnalysisOverrides(data.analysisContext));
         const analysisSection = buildDeepAnalysisSection(analysis, lang);
         const mindmapData = buildProspectiveMindmap(data.weekData, lang);
         const mindmapSection = buildIntelligenceMindmapSection(mindmapData, lang);

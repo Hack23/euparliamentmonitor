@@ -10,6 +10,7 @@ import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import { loadAnalysisContext, buildAnalysisInsightsSection, extractAnalysisSummary, } from './article-strategy.js';
+import { deriveAnalysisOverrides } from '../../utils/parse-analysis-stakeholders.js';
 import { truncateTitle, MIN_MEANINGFUL_TITLE_LENGTH } from '../../utils/metadata-utils.js';
 /** Base keywords shared by all Breaking News articles */
 const BREAKING_NEWS_BASE_KEYWORDS = [
@@ -272,7 +273,7 @@ export class BreakingNewsStrategy {
      */
     buildContent(data, lang) {
         const base = buildBreakingNewsContent(data.date, data.anomalyRaw, data.coalitionRaw, data.reportRaw, '', lang, [], [], [], data.feedData);
-        const analysis = buildBreakingAnalysis(data.date, data.feedData, data.anomalyRaw, data.coalitionRaw, lang);
+        const analysis = buildBreakingAnalysis(data.date, data.feedData, data.anomalyRaw, data.coalitionRaw, lang, deriveAnalysisOverrides(data.analysisContext));
         // Enrich script-generated analysis with AI-produced content when available
         const enriched = enrichAnalysisWithAIContent(analysis, data.analysisContext);
         const deepSection = buildDeepAnalysisSection(enriched, lang);

@@ -29,7 +29,12 @@ import {
 } from '../../constants/languages.js';
 import { buildDefaultStakeholderPerspectives } from '../../utils/intelligence-analysis.js';
 import { AI_MARKER } from '../../constants/analysis-constants.js';
-import { buildOutcomeMatrix, buildCategoryDistributionPanel } from './shared-builders.js';
+import {
+  buildOutcomeMatrix,
+  buildCategoryDistributionPanel,
+  applyAnalysisOverrides,
+  type AnalysisOverrides,
+} from './shared-builders.js';
 
 // ─── Constant ─────────────────────────────────────────────────────────────────
 
@@ -62,14 +67,18 @@ function buildBreakingStakeholderPerspectives(
  * @param anomalyRaw - Raw anomaly text
  * @param coalitionRaw - Raw coalition text
  * @param lang - Target display language (default: 'en')
- * @returns Deep analysis object
+ * @param overrides - Optional AI-authored overrides sourced from the run's
+ *   `stakeholder-map.md` / `stakeholder-impact.md` / `synthesis-summary.md`
+ *   via {@link module:Utils/ParseAnalysisStakeholders}.
+ * @returns Deep analysis object, with overrides applied when present.
  */
 export function buildBreakingAnalysis(
   date: string,
   feedData: BreakingNewsFeedData | undefined,
   anomalyRaw: string,
   coalitionRaw: string,
-  lang: LanguageCode = 'en'
+  lang: LanguageCode = 'en',
+  overrides?: AnalysisOverrides
 ): DeepAnalysis {
   const adoptedCount = feedData?.adoptedTexts.length ?? 0;
   const eventCount = feedData?.events.length ?? 0;
@@ -77,7 +86,7 @@ export function buildBreakingAnalysis(
   const mepCount = feedData?.mepUpdates.length ?? 0;
   const s = getLocalizedString(BREAKING_STRINGS, lang);
 
-  return {
+  const base: DeepAnalysis = {
     what: s.breakingWhatFn(date, adoptedCount, eventCount, procCount, mepCount),
     who: [
       ...(feedData?.adoptedTexts
@@ -161,6 +170,7 @@ export function buildBreakingAnalysis(
       },
     ]),
   };
+  return applyAnalysisOverrides(base, overrides);
 }
 
 /**

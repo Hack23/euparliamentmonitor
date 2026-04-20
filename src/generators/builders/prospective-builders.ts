@@ -33,6 +33,8 @@ import {
   buildOutcomeMatrix,
   buildPipelineFromWeekData,
   buildCategoryDistributionPanel,
+  applyAnalysisOverrides,
+  type AnalysisOverrides,
   CIVIL_SOCIETY,
 } from './shared-builders.js';
 
@@ -65,12 +67,15 @@ function buildProspectiveStakeholderPerspectives(
  * @param weekData - Aggregated week/month data
  * @param dateRange - Date range for the preview period
  * @param label - "week" or "month"
- * @returns Deep analysis object
+ * @param overrides - Optional AI-authored overrides (see Analysis-to-Article
+ *   Data Contract in `.github/prompts/SHARED_PROMPT_PATTERNS.md`).
+ * @returns Deep analysis object, with overrides applied when present.
  */
 export function buildProspectiveAnalysis(
   weekData: WeekAheadData,
   dateRange: DateRange,
-  label: 'week' | 'month'
+  label: 'week' | 'month',
+  overrides?: AnalysisOverrides
 ): DeepAnalysis {
   const eventCount = weekData.events.length;
   const committeeCount = weekData.committees.length;
@@ -79,7 +84,7 @@ export function buildProspectiveAnalysis(
   const questionCount = weekData.questions.length;
   const bottleneckProcedures = weekData.pipeline.filter((p) => p.bottleneck === true);
 
-  return {
+  const base: DeepAnalysis = {
     what: `European Parliament ${label} ahead (${dateRange.start} to ${dateRange.end}): ${eventCount} plenary events, ${committeeCount} committee meetings, ${docCount} legislative documents, ${pipelineCount} pipeline procedures, ${questionCount} parliamentary questions scheduled.`,
     who: [
       ...weekData.events.slice(0, 3).map((e) => `${e.type}: ${e.title}`),
@@ -157,6 +162,7 @@ export function buildProspectiveAnalysis(
       },
     ]),
   };
+  return applyAnalysisOverrides(base, overrides);
 }
 
 /**

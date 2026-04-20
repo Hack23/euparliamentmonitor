@@ -10,6 +10,7 @@ import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import { loadAnalysisContext, buildAnalysisInsightsSection } from './article-strategy.js';
+import { deriveAnalysisOverrides } from '../../utils/parse-analysis-stakeholders.js';
 import { pl } from '../../utils/metadata-utils.js';
 /** Keywords shared by all Month Ahead articles */
 const MONTH_AHEAD_KEYWORDS = [
@@ -145,7 +146,7 @@ export class MonthAheadStrategy {
      */
     buildContent(data, lang) {
         const base = buildWeekAheadContent(data.monthData, data.dateRange, lang);
-        const analysis = buildProspectiveAnalysis(data.monthData, data.dateRange, 'month');
+        const analysis = buildProspectiveAnalysis(data.monthData, data.dateRange, 'month', deriveAnalysisOverrides(data.analysisContext));
         const analysisSection = buildDeepAnalysisSection(analysis, lang);
         const mindmapData = buildProspectiveMindmap(data.monthData, lang, 'month');
         const mindmapSection = buildIntelligenceMindmapSection(mindmapData, lang);

@@ -11,6 +11,7 @@ import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import { loadAnalysisContext, buildAnalysisInsightsSection } from './article-strategy.js';
+import { deriveAnalysisOverrides } from '../../utils/parse-analysis-stakeholders.js';
 import { truncateTitle, MIN_MEANINGFUL_TITLE_LENGTH } from '../../utils/metadata-utils.js';
 /** Base keywords shared by all Propositions articles */
 const PROPOSITIONS_BASE_KEYWORDS = [
@@ -204,7 +205,7 @@ export class PropositionsStrategy {
     buildContent(data, lang) {
         const strings = getLocalizedString(PROPOSITIONS_STRINGS, lang);
         const base = buildPropositionsContent(data.proposalsHtml, data.adoptedTextsHtml, data.pipelineData, data.procedureHtml, strings, lang);
-        const analysis = buildPropositionsAnalysis(data.proposalsHtml, data.pipelineData, data.date, lang, data.adoptedTextsHtml);
+        const analysis = buildPropositionsAnalysis(data.proposalsHtml, data.pipelineData, data.date, lang, data.adoptedTextsHtml, deriveAnalysisOverrides(data.analysisContext));
         const deepSection = buildDeepAnalysisSection(analysis, lang);
         const mindmapData = buildPropositionsMindmap(data.pipelineData, lang);
         const mindmapSection = buildIntelligenceMindmapSection(mindmapData, lang);
