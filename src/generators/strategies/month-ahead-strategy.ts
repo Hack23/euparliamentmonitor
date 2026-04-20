@@ -27,7 +27,6 @@ import { buildDashboardSection } from '../dashboard-content.js';
 import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 import { loadAnalysisContext, buildAnalysisInsightsSection } from './article-strategy.js';
-import { deriveAnalysisOverrides } from '../../utils/parse-analysis-stakeholders.js';
 import { pl } from '../../utils/metadata-utils.js';
 
 // ─── Data payload ─────────────────────────────────────────────────────────────
@@ -200,12 +199,7 @@ export class MonthAheadStrategy implements ArticleStrategy<MonthAheadArticleData
    */
   buildContent(data: MonthAheadArticleData, lang: LanguageCode): string {
     const base = buildWeekAheadContent(data.monthData, data.dateRange, lang);
-    const analysis = buildProspectiveAnalysis(
-      data.monthData,
-      data.dateRange,
-      'month',
-      deriveAnalysisOverrides(data.analysisContext)
-    );
+    const analysis = buildProspectiveAnalysis(data.monthData, data.dateRange, 'month');
     const analysisSection = buildDeepAnalysisSection(analysis, lang);
     const mindmapData = buildProspectiveMindmap(data.monthData, lang, 'month');
     const mindmapSection = buildIntelligenceMindmapSection(mindmapData, lang);

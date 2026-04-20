@@ -40,7 +40,6 @@ import { buildDashboardSection } from '../dashboard-content.js';
 import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 import { loadAnalysisContext, buildAnalysisInsightsSection } from './article-strategy.js';
-import { deriveAnalysisOverrides } from '../../utils/parse-analysis-stakeholders.js';
 import type { ArticleSource } from '../../types/index.js';
 import { truncateTitle, MIN_MEANINGFUL_TITLE_LENGTH } from '../../utils/metadata-utils.js';
 
@@ -495,12 +494,7 @@ export class CommitteeReportsStrategy implements ArticleStrategy<CommitteeReport
   buildContent(data: CommitteeReportsArticleData, lang: LanguageCode): string {
     const base = buildCommitteeReportsHTML(data.committeeDataList, lang);
     const feedSection = buildAdoptedTextsSection(data.feedData, lang);
-    const analysis = buildCommitteeAnalysis(
-      data.committeeDataList,
-      data.date,
-      lang,
-      deriveAnalysisOverrides(data.analysisContext)
-    );
+    const analysis = buildCommitteeAnalysis(data.committeeDataList, data.date, lang);
     const deepSection = buildDeepAnalysisSection(analysis, lang);
     const mindmapData = buildCommitteeMindmap(data.committeeDataList, lang);
     const mindmapSection = buildIntelligenceMindmapSection(mindmapData, lang);

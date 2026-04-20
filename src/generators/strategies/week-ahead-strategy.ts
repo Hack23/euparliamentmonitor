@@ -30,7 +30,6 @@ import { buildDashboardSection } from '../dashboard-content.js';
 import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 import { loadAnalysisContext, buildAnalysisInsightsSection } from './article-strategy.js';
-import { deriveAnalysisOverrides } from '../../utils/parse-analysis-stakeholders.js';
 import { pl } from '../../utils/metadata-utils.js';
 
 // ─── Data payload ─────────────────────────────────────────────────────────────
@@ -193,12 +192,7 @@ export class WeekAheadStrategy implements ArticleStrategy<WeekAheadArticleData> 
   buildContent(data: WeekAheadArticleData, lang: LanguageCode): string {
     const base = buildWeekAheadContent(data.weekData, data.dateRange, lang);
     const watchSection = buildWhatToWatchSection(data.weekData.pipeline, [], lang);
-    const analysis = buildProspectiveAnalysis(
-      data.weekData,
-      data.dateRange,
-      'week',
-      deriveAnalysisOverrides(data.analysisContext)
-    );
+    const analysis = buildProspectiveAnalysis(data.weekData, data.dateRange, 'week');
     const analysisSection = buildDeepAnalysisSection(analysis, lang);
     const mindmapData = buildProspectiveMindmap(data.weekData, lang);
     const mindmapSection = buildIntelligenceMindmapSection(mindmapData, lang);

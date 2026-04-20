@@ -64,11 +64,8 @@ export function applyAnalysisOverrides(
   overrides?: AnalysisOverrides
 ): DeepAnalysis {
   if (!overrides) return base;
-  const next = {
-    ...base,
-  } as {
-    -readonly [K in keyof DeepAnalysis]: DeepAnalysis[K];
-  };
+  type Mutable = { -readonly [K in keyof DeepAnalysis]: DeepAnalysis[K] };
+  const next: Mutable = { ...base };
   if (
     overrides.stakeholderPerspectives &&
     overrides.stakeholderPerspectives.length > 0
@@ -96,7 +93,7 @@ export function applyAnalysisOverrides(
     }
     next.impactAssessment = merged;
   }
-  return next as DeepAnalysis;
+  return next;
 }
 
 // ─── Style constants ─────────────────────────────────────────────────────────

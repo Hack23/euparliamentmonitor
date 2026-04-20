@@ -7,6 +7,7 @@
  * safely handle malformed or missing MCP data. No side effects.
  */
 import { escapeHTML } from './file-utils.js';
+import { AI_MARKER } from '../constants/analysis-constants.js';
 import { ALL_STAKEHOLDER_TYPES } from '../types/index.js';
 // ─── Validation constants ─────────────────────────────────────────────────────
 /** Valid significance levels in descending priority order */
@@ -254,33 +255,39 @@ function severityFromScore(score) {
     return 'low';
 }
 /**
- * Derive a factual reasoning sentence for a stakeholder group based on
- * the topic context and importance score. This replaces the previous
- * AI_MARKER default with neutral, data-driven descriptions.
+ * Fallback stakeholder reasoning — returns the `AI_MARKER` sentinel.
  *
- * @param stakeholder - The stakeholder group identifier
- * @param topic - Short description of the parliamentary action
- * @param score - Importance score (0-1)
- * @returns Factual reasoning sentence
+ * **AI-First principle** (see `.github/skills/ai-first-quality.md`): all
+ * narrative/interpretive text — including per-stakeholder reasoning — is
+ * authored by the AI agent after it reads the run's analysis markdown as
+ * context.  This function deliberately returns the `AI_MARKER` so that:
+ *
+ * 1. The agentic workflow's article-rewriter step detects the slot and fills
+ *    it with AI-authored prose drawn from `intelligence/stakeholder-map.md`,
+ *    `existing/stakeholder-impact.md`, or equivalent AI-produced analysis.
+ * 2. {@link module:Utils/ValidateAnalysisCompleteness} refuses to publish any
+ *    article in which these markers leak through unreplaced, converting the
+ *    previous silent template-junk regression into a loud CI failure.
+ *
+ * Earlier revisions of this function returned plausible-looking template text
+ * (e.g. *"This parliamentary activity on 'voting period 2026-03-21–2026-04-20'
+ * has moderate implications for political group dynamics …"*).  That text
+ * read like AI-authored content but was entirely script-generated — the
+ * motions-run46 regression documented in the Analysis-to-Article Data Contract
+ * (`.github/prompts/SHARED_PROMPT_PATTERNS.md`).  Returning `AI_MARKER` fails
+ * loud instead of failing silent.
+ *
+ * Signature is preserved (stakeholder/topic/score inputs) for back-compat
+ * with any caller-constructed severity/impact scoring.  The marker output is
+ * independent of these inputs.
+ *
+ * @param _stakeholder - Stakeholder group identifier (unused — kept for API stability)
+ * @param _topic - Short topic description (unused — kept for API stability)
+ * @param _score - Importance score (unused — kept for API stability)
+ * @returns The `AI_MARKER` sentinel for AI-agent replacement.
  */
-function deriveStakeholderReasoning(stakeholder, topic, score) {
-    const impactLevel = score >= 0.7 ? 'significant' : score >= 0.4 ? 'moderate' : 'limited';
-    switch (stakeholder) {
-        case 'political_groups':
-            return `This parliamentary activity on "${topic}" has ${impactLevel} implications for political group dynamics, affecting coalition-building strategies and inter-group negotiation positions.`;
-        case 'civil_society':
-            return `Civil society organisations monitoring "${topic}" face ${impactLevel} impact on transparency, democratic participation, and citizens' rights advocacy.`;
-        case 'industry':
-            return `Industry and business stakeholders observe ${impactLevel} regulatory implications from "${topic}", affecting compliance requirements and market conditions.`;
-        case 'national_govts':
-            return `National governments assess ${impactLevel} impact from "${topic}" on subsidiarity, implementation requirements, and member state policy alignment.`;
-        case 'citizens':
-            return `EU citizens experience ${impactLevel} consequences from "${topic}" in terms of rights, services, and democratic representation.`;
-        case 'eu_institutions':
-            return `EU institutional dynamics show ${impactLevel} effects from "${topic}", influencing inter-institutional relations between Parliament, Commission, and Council.`;
-        default:
-            return `Stakeholder impact assessment for "${topic}" indicates ${impactLevel} relevance.`;
-    }
+function deriveStakeholderReasoning(_stakeholder, _topic, _score) {
+    return AI_MARKER;
 }
 /**
  * Build a default set of stakeholder perspectives for a parliamentary action.

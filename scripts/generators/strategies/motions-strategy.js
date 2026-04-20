@@ -10,7 +10,6 @@ import { buildSwotSection } from '../swot-content.js';
 import { buildDashboardSection } from '../dashboard-content.js';
 import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import { loadAnalysisContext, buildAnalysisInsightsSection } from './article-strategy.js';
-import { deriveAnalysisOverrides } from '../../utils/parse-analysis-stakeholders.js';
 import { pl, truncateTitle, MIN_MEANINGFUL_TITLE_LENGTH } from '../../utils/metadata-utils.js';
 import { isPlaceholderText } from '../../constants/analysis-constants.js';
 /** Base keywords shared by all Motions articles */
@@ -170,7 +169,7 @@ export class MotionsStrategy {
             ? buildAdoptedTextsSection(data.feedData.adoptedTexts, lang)
             : '';
         const alignmentSection = buildPoliticalAlignmentSection([...data.votingRecords], [], lang);
-        const analysis = buildVotingAnalysis(data.dateFromStr, data.date, data.votingRecords, data.votingPatterns, data.anomalies, data.questions, deriveAnalysisOverrides(data.analysisContext));
+        const analysis = buildVotingAnalysis(data.dateFromStr, data.date, data.votingRecords, data.votingPatterns, data.anomalies, data.questions);
         const deepSection = buildDeepAnalysisSection(analysis, lang);
         const mindmapData = buildVotingMindmap(data.votingRecords, data.votingPatterns, data.anomalies, lang);
         const mindmapSection = buildIntelligenceMindmapSection(mindmapData, lang);

@@ -17,9 +17,7 @@ import { AI_MARKER } from '../../constants/analysis-constants.js';
 export function applyAnalysisOverrides(base, overrides) {
     if (!overrides)
         return base;
-    const next = {
-        ...base,
-    };
+    const next = { ...base };
     if (overrides.stakeholderPerspectives &&
         overrides.stakeholderPerspectives.length > 0) {
         next.stakeholderPerspectives = [...overrides.stakeholderPerspectives];

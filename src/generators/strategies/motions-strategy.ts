@@ -38,7 +38,6 @@ import { buildDashboardSection } from '../dashboard-content.js';
 import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 import { loadAnalysisContext, buildAnalysisInsightsSection } from './article-strategy.js';
-import { deriveAnalysisOverrides } from '../../utils/parse-analysis-stakeholders.js';
 import { pl, truncateTitle, MIN_MEANINGFUL_TITLE_LENGTH } from '../../utils/metadata-utils.js';
 import { isPlaceholderText } from '../../constants/analysis-constants.js';
 
@@ -258,8 +257,7 @@ export class MotionsStrategy implements ArticleStrategy<MotionsArticleData> {
       data.votingRecords,
       data.votingPatterns,
       data.anomalies,
-      data.questions,
-      deriveAnalysisOverrides(data.analysisContext)
+      data.questions
     );
     const deepSection = buildDeepAnalysisSection(analysis, lang);
     const mindmapData = buildVotingMindmap(

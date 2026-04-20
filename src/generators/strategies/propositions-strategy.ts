@@ -38,7 +38,6 @@ import { buildIntelligenceMindmapSection } from '../mindmap-content.js';
 import type { PipelineData } from '../propositions-content.js';
 import type { ArticleStrategy, ArticleData, ArticleMetadata } from './article-strategy.js';
 import { loadAnalysisContext, buildAnalysisInsightsSection } from './article-strategy.js';
-import { deriveAnalysisOverrides } from '../../utils/parse-analysis-stakeholders.js';
 import { truncateTitle, MIN_MEANINGFUL_TITLE_LENGTH } from '../../utils/metadata-utils.js';
 
 /** Base keywords shared by all Propositions articles */
@@ -301,8 +300,7 @@ export class PropositionsStrategy implements ArticleStrategy<PropositionsArticle
       data.pipelineData,
       data.date,
       lang,
-      data.adoptedTextsHtml,
-      deriveAnalysisOverrides(data.analysisContext)
+      data.adoptedTextsHtml
     );
     const deepSection = buildDeepAnalysisSection(analysis, lang);
     const mindmapData = buildPropositionsMindmap(data.pipelineData, lang);
