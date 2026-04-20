@@ -179,6 +179,30 @@ You are the **Translation Agent**. Your ONLY job: take existing English articles
 
 > **Minor TypeScript fixes** (max 20 lines in `src/`/`scripts/`) allowed ONLY to unblock translation generation.
 
+## 🛡️ AI-First Pre-Translation Gate (MANDATORY)
+
+> **⚠️ REFUSE TO TRANSLATE CONTAMINATED SOURCES**: Per the [Analysis-to-Article Data Contract](../prompts/SHARED_PROMPT_PATTERNS.md#-analysis-to-article-data-contract-ai-first), English articles must have their stakeholder perspectives, outcome matrices, and impact assessments authored by the source workflow's AI — not by the generator's fallback scaffolding. If the English source contains the `[AI_ANALYSIS_REQUIRED]` sentinel, any of the six generic stakeholder-reasoning fallback sentences (e.g. *"This parliamentary activity on 'voting period …' has moderate implications…"*), or date-range topic placeholders (e.g. `"Voting outcomes <date>–<date>"`), translating it **propagates the defect across 13 languages**.
+
+**Run this gate BEFORE starting Step 1 (translation):**
+
+```bash
+# Scan every English source selected for translation. Any failing file
+# must be removed from the translation set; if the set drops below 5
+# files, switch to an earlier article_date with clean English sources.
+SOURCES=$(ls news/${ARTICLE_DATE}-*-en.html 2>/dev/null | tr '\n' ' ')
+if [ -n "$SOURCES" ]; then
+  VALIDATOR_ARGS=""
+  for S in $SOURCES; do
+    VALIDATOR_ARGS="$VALIDATOR_ARGS --article-html=$S"
+  done
+  # shellcheck disable=SC2086
+  node scripts/utils/validate-analysis-completeness.js $VALIDATOR_ARGS \
+    || { echo "❌ English source(s) contain AI-First fallback leaks — remove contaminated files from the translation set before proceeding."; CONTAMINATED=1; }
+fi
+```
+
+If `CONTAMINATED=1` for **all** candidate articles on `${ARTICLE_DATE}`, treat this as the "no articles today" fallback path and backfill an older clean date (minimum still 5 translated files) rather than translating contaminated English.
+
 ## 🎯 MINIMUM TRANSLATION REQUIREMENT
 
 > **⚠️ HARD REQUIREMENT**: Every run MUST produce at least **5 translated HTML files**. If today has no articles, backfill older dates. If all articles are translated, improve existing translations. There is ALWAYS work to do. NEVER produce an empty or analysis-only PR.

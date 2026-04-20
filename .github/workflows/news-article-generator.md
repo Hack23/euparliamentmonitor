@@ -187,6 +187,30 @@ The code does NOT provide quality analysis. The code builders (`buildCommitteeAn
 
 See [SHARED_PROMPT_PATTERNS.md Article Content Depth Gates](../prompts/SHARED_PROMPT_PATTERNS.md#-article-content-depth-gates-mandatory-for-all-workflows) for the complete set of content depth requirements including prose ratio, SWOT depth, stakeholder depth, World Bank integration, and chart generation mandates.
 
+> **⚠️ ANALYSIS-TO-ARTICLE DATA CONTRACT (AI-First)**: Per [SHARED_PROMPT_PATTERNS.md §Analysis-to-Article Data Contract](../prompts/SHARED_PROMPT_PATTERNS.md#-analysis-to-article-data-contract-ai-first), analysis markdown is **NEVER parsed by scripts**. For **each** requested article type, YOU read every `analysis/daily/<date>/<article-type>-run<id>/**/*.md` file as context and author each stakeholder card, outcome-matrix `reason` cell, impact-assessment dimension, `why` text, and `outlook` prose directly in the rendered English HTML. **FORBIDDEN** to ship the `[AI_ANALYSIS_REQUIRED]` sentinel, any of the six generic stakeholder-reasoning fallback sentences, or date-range topic placeholders. This orchestrator enforces a **per-type** pre-PR gate — the weakest article type fails the whole run.
+
+**Per-Type Validator Enforcement (MANDATORY before PR creation — runs for every type in `article_types`)**:
+
+```bash
+# For each requested type, resolve the newly rendered English article and
+# fail-fast on fallback-template leaks. Handles both suffixed (`-runNN-en.html`)
+# and plain (`-en.html`) filenames.
+GENERATOR_LEAKS=0
+for TYPE in $ARTICLE_TYPES; do
+  ARTICLE_HTML=$(ls -t "news/${TODAY}-${TYPE}"*"-en.html" 2>/dev/null | head -1)
+  if [ -n "$ARTICLE_HTML" ]; then
+    if ! node scripts/utils/validate-analysis-completeness.js --article-html="$ARTICLE_HTML"; then
+      echo "❌ ${TYPE}: AI did not author required slots in $ARTICLE_HTML"
+      GENERATOR_LEAKS=$((GENERATOR_LEAKS + 1))
+    fi
+  fi
+done
+if [ "$GENERATOR_LEAKS" -gt 0 ]; then
+  echo "❌ ${GENERATOR_LEAKS} article type(s) contaminated — orchestrator MUST run Pass 2 before PR."
+  exit 1
+fi
+```
+
 ## ⏰ HARD DEADLINE — Session Expiry Prevention (NON-NEGOTIABLE — READ FIRST)
 
 > **⚠️ ABSOLUTE RULE**: This workflow MUST produce a safe output (`safeoutputs___create_pull_request` or `safeoutputs___noop`) BEFORE the 120-minute session expires. A workflow that runs the full timeout without calling any safe output is a **TOTAL FAILURE** — worse than a noop. See [SHARED_PROMPT_PATTERNS.md Hard Deadline](../prompts/SHARED_PROMPT_PATTERNS.md#-hard-deadline--session-expiry-prevention-all-workflows--non-negotiable).

@@ -38,6 +38,8 @@
       "intelligence/scenario-forecast.md": 220,
       "intelligence/threat-model.md": 180,
       "intelligence/wildcards-blackswans.md": 200,
+      "intelligence/mcp-reliability-audit.md": 200,
+      "intelligence/reference-analysis-quality.md": 140,
       "risk-scoring/risk-matrix.md": 120,
       "risk-scoring/quantitative-swot.md": 120
     },
@@ -51,6 +53,8 @@
       "intelligence/scenario-forecast.md": 260,
       "intelligence/threat-model.md": 220,
       "intelligence/wildcards-blackswans.md": 240,
+      "intelligence/mcp-reliability-audit.md": 200,
+      "intelligence/reference-analysis-quality.md": 140,
       "risk-scoring/risk-matrix.md": 140,
       "risk-scoring/quantitative-swot.md": 140
     },
@@ -64,6 +68,8 @@
       "intelligence/scenario-forecast.md": 200,
       "intelligence/threat-model.md": 160,
       "intelligence/wildcards-blackswans.md": 180,
+      "intelligence/mcp-reliability-audit.md": 200,
+      "intelligence/reference-analysis-quality.md": 140,
       "risk-scoring/risk-matrix.md": 100,
       "risk-scoring/quantitative-swot.md": 100
     },
@@ -77,6 +83,8 @@
       "intelligence/scenario-forecast.md": 220,
       "intelligence/threat-model.md": 180,
       "intelligence/wildcards-blackswans.md": 200,
+      "intelligence/mcp-reliability-audit.md": 200,
+      "intelligence/reference-analysis-quality.md": 140,
       "risk-scoring/risk-matrix.md": 120,
       "risk-scoring/quantitative-swot.md": 120
     },
@@ -90,6 +98,8 @@
       "intelligence/scenario-forecast.md": 180,
       "intelligence/threat-model.md": 160,
       "intelligence/wildcards-blackswans.md": 180,
+      "intelligence/mcp-reliability-audit.md": 200,
+      "intelligence/reference-analysis-quality.md": 140,
       "risk-scoring/risk-matrix.md": 100,
       "risk-scoring/quantitative-swot.md": 100
     },
@@ -103,6 +113,8 @@
       "intelligence/scenario-forecast.md": 180,
       "intelligence/threat-model.md": 160,
       "intelligence/wildcards-blackswans.md": 180,
+      "intelligence/mcp-reliability-audit.md": 200,
+      "intelligence/reference-analysis-quality.md": 140,
       "risk-scoring/risk-matrix.md": 100,
       "risk-scoring/quantitative-swot.md": 100
     },
@@ -116,6 +128,8 @@
       "intelligence/scenario-forecast.md": 180,
       "intelligence/threat-model.md": 160,
       "intelligence/wildcards-blackswans.md": 180,
+      "intelligence/mcp-reliability-audit.md": 200,
+      "intelligence/reference-analysis-quality.md": 140,
       "risk-scoring/risk-matrix.md": 100,
       "risk-scoring/quantitative-swot.md": 100
     }

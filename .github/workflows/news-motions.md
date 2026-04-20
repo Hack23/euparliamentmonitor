@@ -160,8 +160,11 @@ You are the **News Journalist Agent** for EU Parliament Monitor generating **EU 
 
 ```bash
 # After rendering the English article, fail-fast on fallback-template leaks.
-npx tsx src/utils/validate-analysis-completeness.ts \
-  --article-html="docs/news/${DATE}-motions-run${RUN_ID}-en.html"
+# Handles both suffixed (`-runNN-en.html`) and plain (`-en.html`) filenames.
+ARTICLE_HTML=$(ls -t "news/${TODAY}-motions"*"-en.html" 2>/dev/null | head -1)
+if [ -n "$ARTICLE_HTML" ]; then
+  node scripts/utils/validate-analysis-completeness.js --article-html="$ARTICLE_HTML"
+fi
 # Exit 1 = AI did not author required slots. Re-run Pass 2 before any
 # translate/PR step.
 ```
