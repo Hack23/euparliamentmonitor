@@ -27,12 +27,12 @@ date: 2026-04-20
 
 ### Risk Scoring
 - [`risk-scoring/risk-matrix.md`](../risk-scoring/risk-matrix.md)
-  - 12-item risk register across 4 categories
+  - 6-item risk register across 4 categories
   - Quadrant visualisation
   - Trend indicators vs prior runs
 
 - [`risk-scoring/quantitative-swot.md`](../risk-scoring/quantitative-swot.md)
-  - Full SWOT with 4 items per quadrant
+  - Full SWOT with 5 items per quadrant (S1–S5, W1–W5, O1–O5, T1–T5) + TOWS strategic matrix
   - All items ≥80 words with evidence
   - Confidence levels documented
 
@@ -149,9 +149,9 @@ date: 2026-04-20
 
 | Run | Date | Score | Article | API Count | Key Finding |
 |-----|------|-------|---------|-----------|-------------|
-| 188 | 2026-04-18 | ~14 | NO | 104 | Recess begins |
-| 189 | 2026-04-19 | ~14 | NO | 101 | First regression |
-| 190 | 2026-04-20 | 15 | NO | 100 | Second regression, same day |
+| 188 | 2026-04-19 | ~14 | NO | 104 | Recess steady state; pre-regression |
+| 189 | 2026-04-19 | ~14 | NO | 101 | First regression (same day as 188) |
+| 190 | 2026-04-20 | 15 | NO | 100 | Second regression (same day as 191) |
 | **191** | **2026-04-20** | **16** | **NO** | **104** | **Metadata restored** |
 
 ## Quality Gates Status (Updated for 19 Artifacts)

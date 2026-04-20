@@ -60,7 +60,7 @@ quadrantChart
 | Risk | Category | Probability | Impact | Score | Trend |
 |------|----------|-------------|--------|-------|-------|
 | API Content Blockage (March 26 texts) | Operational | HIGH (85%) | HIGH | 7.1/10 | ↑ IMPROVING |
-| USTR Section 301 filing | External | LOW-MEDIUM (20%) | CRITICAL | 5.0/10 | → STABLE |
+| USTR Section 301 filing | External | LOW (18%) | CRITICAL | 4.5/10 | ↓ REVISED |
 | Coalition instability post-recess | Political | VERY LOW (5%) | HIGH | 1.5/10 | → STABLE |
 | BRRD3/SRMR3 Council ratification delay | Legislative | MEDIUM (35%) | MEDIUM | 3.5/10 | → STABLE |
 | Housing Initiative content gap | Legislative | MEDIUM (55%) | LOW-MEDIUM | 2.8/10 | ↑ NEW |
@@ -88,7 +88,7 @@ Historical EP API recovery patterns suggest Phase 2 typically follows Phase 1 by
 🟡 **Low Confidence** (limited open-source intelligence)
 
 The USTR Section 301 investigation filing window opens April 21. Based on prior monitoring:
-- Three independent analytical frameworks applied (trade policy precedents, current US-EU relations, digital regulation exposure) — all converge on 20% probability
+- Three independent analytical frameworks applied (trade policy precedents, current US-EU relations, digital regulation exposure) converged on 20% in Run 190; Run 191 revises this to **18%** (–2pp) based on the EU-China dual-track strategy observation (see `intelligence/scenario-forecast.md` Scenario B for full rationale)
 - The Digital Single Market legislative package (AI Act, DMA, DSA) remains the primary exposure vector
 - There is no reliable open-source signal confirming or denying USTR intent for this cycle
 - The EU's dual-track China strategy (TA-10-2026-0096 + TA-10-2026-0101) may actually REDUCE Section 301 probability by demonstrating EU strategic trade autonomy rather than dependence on WTO-challenged practices
@@ -99,7 +99,7 @@ The USTR Section 301 investigation filing window opens April 21. Based on prior 
 
 🟢 **High Confidence** (structural analysis)
 
-The Grand Centre coalition (EPP + S&D + Renew) holds 490 seats against a 361-seat majority requirement. Ten days without a floor vote is the longest coalition cohesion test gap in EP10 to date. However, structural analysis shows LOW probability of meaningful coalition fragmentation:
+The Grand Centre coalition (EPP + S&D + Renew) holds approximately 458 seats — a ~97-seat cushion above the 361-seat majority threshold (27% buffer, reconciled with `intelligence/coalition-dynamics.md` and `manifest.json`). Ten days without a floor vote is the longest coalition cohesion test gap in EP10 to date. However, structural analysis shows LOW probability of meaningful coalition fragmentation:
 
 1. **No disruptive agenda items**: April 28-30 plenary is expected to be procedural rather than contentious
 2. **Post-recess solidarity norm**: EP political groups historically return from recesses with renewed discipline

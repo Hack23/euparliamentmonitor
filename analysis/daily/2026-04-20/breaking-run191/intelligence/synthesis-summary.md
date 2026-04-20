@@ -12,7 +12,7 @@ confidenceLevel: MEDIUM
 ![Mode](https://img.shields.io/badge/Mode-Analysis_Only-blue)
 ![Quality](https://img.shields.io/badge/Quality-Reference_Grade-brightgreen)
 ![Articles](https://img.shields.io/badge/Articles-0_(No_Breaking_News)-orange)
-![Analysis](https://img.shields.io/badge/Analysis_Artifacts-17-blue)
+![Analysis](https://img.shields.io/badge/Analysis_Artifacts-19-blue)
 
 ## Run Overview
 
@@ -54,21 +54,33 @@ April 21 is the Commission's self-imposed deadline for the housing market compet
 - Parliament in Easter recess — no plenary or committee activity
 - All primary feeds (events, procedures, documents) in DEGRADED MODE
 
-**Per `ai-driven-analysis-guide.md` Rule 5**: No workflow run should be wasted. Analysis of quiet periods reveals patterns. An analysis-only PR with these 7 artifacts is the mandatory output.
+**Per `ai-driven-analysis-guide.md` Rule 5**: No workflow run should be wasted. Analysis of quiet periods reveals patterns. An analysis-only PR with the full 19-artifact reference set below is the mandatory output for this reference-grade run.
 
-## Analysis Artifacts Written (Run 191)
+## Analysis Artifacts Written (Run 191 — 19 Artifacts, Reference-Grade)
 
-| File | Category | Lines (est.) | Key Finding |
-|------|----------|-------------|-------------|
-| `classification/significance-scoring.md` | Classification | ~180 | 16/50 composite; metadata restored |
-| `risk-scoring/risk-matrix.md` | Risk | ~220 | API risk improving; USTR risk stable |
-| `risk-scoring/quantitative-swot.md` | SWOT | ~400 | Full 4-quadrant; ≥4 items per quadrant |
-| `threat-assessment/political-threat-landscape.md` | Threat | ~280 | API = HIGH threat; USTR = MEDIUM |
-| `intelligence/coalition-dynamics.md` | Intelligence | ~250 | Stability 84/100; post-recess vectors |
-| `documents/document-analysis-index.md` | Documents | ~180 | 22 texts documented; 0% content |
-| `intelligence/cross-run-diff.md` | Intelligence | ~200 | H1 refuted; H2 upgraded; probabilities revised |
+| File | Category | Key Finding |
+|------|----------|-------------|
+| `classification/significance-scoring.md` | Classification | 16/50 composite; metadata restored |
+| `risk-scoring/risk-matrix.md` | Risk | 6-item register; API risk improving; USTR revised to 18% |
+| `risk-scoring/quantitative-swot.md` | SWOT | Full 4-quadrant × 5 items + TOWS matrix |
+| `threat-assessment/political-threat-landscape.md` | Threat | API = HIGH threat; USTR = MEDIUM at 18% |
+| `intelligence/coalition-dynamics.md` | Intelligence | Stability 84/100; ~458 Grand Centre seats; post-recess vectors |
+| `intelligence/cross-run-diff.md` | Intelligence | H1 refuted; H2 upgraded; USTR revised 20%→18% |
+| `intelligence/analysis-index.md` | Intelligence | Master registry of all 19 artifacts; quality gates |
+| `intelligence/scenario-forecast.md` | Intelligence | A/B/C/D scenarios (45/18/25/12); observation-to-adjustment matrix |
+| `intelligence/stakeholder-map.md` | Intelligence | 20+ stakeholders; 5 coalition geometries |
+| `intelligence/threat-model.md` | Intelligence | STRIDE decomposition; 3 correlated threat clusters |
+| `intelligence/pestle-analysis.md` | Intelligence | 6 macro dimensions + cross-dimensional chains |
+| `intelligence/workflow-audit.md` | Intelligence | Rule 1–22 compliance scorecard |
+| `intelligence/reference-analysis-quality.md` | Intelligence | Per-artifact depth audit |
+| `intelligence/economic-context.md` | Intelligence | WB/IMF indicators; USTR exposure; BRRD3 macro |
+| `intelligence/mcp-reliability-audit.md` | Intelligence | 13-run MCP feed audit; two-phase recovery model |
+| `intelligence/historical-baseline.md` | Intelligence | 3-year Easter recess comparison |
+| `intelligence/wildcards-blackswans.md` | Intelligence | 6 wildcards + 3 black swans + playbooks |
+| `documents/document-analysis-index.md` | Documents | 22 texts; cross-document policy linkage graph |
+| `intelligence/synthesis-summary.md` | Intelligence | Master document (this file) |
 
-Total artifacts: 7 | Total estimated lines: ~1,710
+Total artifacts: **19** | Total lines: ~4,100 | Total Mermaid diagrams: 22
 
 ## Updated Probability Model
 
@@ -116,7 +128,7 @@ EU and non-EU businesses trading in the product categories covered by TA-10-2026
 
 **Workflow active time**: 48 minutes at workflow completion (final recorded value)
 **Analysis passes**: 2 (Pass 1: data collection + initial analysis; Pass 2: cross-run diff + synthesis + deep expansion)
-**Quality gates**: All 17 analysis files written, cross-run diff present, SWOT ≥4 items/quadrant (≥80 words each), ≥7 forward monitoring priorities, data quality delta documented, reference-analysis-quality + workflow-audit filed
+**Quality gates**: All 19 analysis files written, cross-run diff present, SWOT 5 items/quadrant (≥80 words each), ≥15 forward monitoring priorities across artifacts, data quality delta documented, reference-analysis-quality + workflow-audit filed
 **API call efficiency**: 10 MCP calls (within DEGRADED MODE budget of 9+coalition=10)
 **ELAPSED_MINUTES at synthesis**: 48 (≥45 threshold satisfied; final recorded active work time)
 

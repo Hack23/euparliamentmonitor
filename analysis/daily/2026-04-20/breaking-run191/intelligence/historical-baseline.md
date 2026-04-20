@@ -163,17 +163,17 @@ The March 26, 2026 session's 18 adopted texts represents one of the most product
 
 | Run | Date | Day | Score | API Count | Mode | Key Finding |
 |-----|------|-----|-------|-----------|------|-------------|
-| 179 | Apr 10 | Thu | ~22 | 104 | ANALYSIS | Initial outage detection |
-| 180 | Apr 11 | Fri | ~21 | 104 | ANALYSIS | Content blockade confirmed |
-| 181 | Apr 12 | Sat | ~20 | 104 | ANALYSIS | Weekend monitoring |
-| 182 | Apr 13 | Sun | ~21 | 104 | ANALYSIS | Pre-recess baseline |
-| 183 | Apr 14 | Mon | ~24 | 104 | ANALYSIS | Recess begins |
-| 184 | Apr 15 | Tue | ~18 | 104 | ANALYSIS | Peak risk score |
-| 185 | Apr 16 | Wed | ~12 | 104 | ANALYSIS | Steady-state begins |
-| 186 | Apr 17 | Thu | ~14 | 104 | ANALYSIS | Degraded-mode protocol |
-| 187 | Apr 18 | Fri | ~14 | 104 | ANALYSIS | Weekend approaching |
-| 188 | Apr 19 | Sat | ~18 | 104 | ANALYSIS | Pre-regression |
-| 189 | Apr 19 | Sat | ~14 | 101 | ANALYSIS | Regression 1 |
+| 179 | Apr 10 | Fri | ~22 | 104 | ANALYSIS | Initial outage detection |
+| 180 | Apr 11 | Sat | ~21 | 104 | ANALYSIS | Content blockade confirmed |
+| 181 | Apr 12 | Sun | ~20 | 104 | ANALYSIS | Weekend monitoring |
+| 182 | Apr 13 | Mon | ~21 | 104 | ANALYSIS | Pre-recess baseline |
+| 183 | Apr 14 | Tue | ~24 | 104 | ANALYSIS | Recess begins |
+| 184 | Apr 15 | Wed | ~18 | 104 | ANALYSIS | Peak risk score |
+| 185 | Apr 16 | Thu | ~12 | 104 | ANALYSIS | Steady-state begins |
+| 186 | Apr 17 | Fri | ~14 | 104 | ANALYSIS | Degraded-mode protocol |
+| 187 | Apr 18 | Sat | ~14 | 104 | ANALYSIS | Weekend approaching |
+| 188 | Apr 19 | Sun | ~18 | 104 | ANALYSIS | Pre-regression |
+| 189 | Apr 19 | Sun | ~14 | 101 | ANALYSIS | Regression 1 |
 | 190 | Apr 20 | Mon | 15 | 100 | ANALYSIS | Regression 2 |
 | 191 | Apr 20 | Mon | 16 | 104 | ANALYSIS | **RESTORED** |
 

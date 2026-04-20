@@ -44,11 +44,11 @@ The Jimmy Lai text creates a NEW analytical linkage not present in prior runs: t
 | Smooth Return (full restore by Apr 26) | 40% | **50%** | ↑ |
 | Partial Restore (index only by Apr 26) | 28% | **25%** | ↓ |
 | Prolonged Degradation (Apr 27+) | 32% | **25%** | ↓ |
-| USTR Section 301 action | 20% | **20%** | → |
+| USTR Section 301 action | 20% | **18%** | ↓ |
 
 ### CONFIRMED: USTR Window Proximity
 
-Run 190 flagged USTR as forward risk. Run 191 notes the window opens TOMORROW (April 21). This proximity does not change the probability but increases monitoring urgency. The USTR monitoring priority has been elevated from "next 8 days" to "tomorrow."
+Run 190 flagged USTR as forward risk at 20%. Run 191 revises the probability slightly downward to **18%** (–2pp) based on the EU-China dual-track strategy observation (TA-10-2026-0096 + TA-10-2026-0101 co-adoption demonstrating EU strategic trade autonomy, see `intelligence/scenario-forecast.md` Scenario B). The window opens TOMORROW (April 21), so monitoring urgency is elevated from "next 8 days" to "tomorrow" despite the probability revision.
 
 ## Hypotheses from Prior Runs — Updated
 
