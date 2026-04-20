@@ -1,0 +1,61 @@
+{
+  "runId": 191,
+  "date": "2026-04-20",
+  "articleType": "breaking",
+  "mode": "ANALYSIS_ONLY",
+  "degradedMode": true,
+  "significanceScore": 16,
+  "significanceThreshold": 20,
+  "articleGenerated": false,
+  "recessDay": 8,
+  "apiOutageDay": 11,
+  "apiMetadataCount": 104,
+  "apiMetadataCountPrior": 100,
+  "apiMetadataChange": "+4 (RESTORED)",
+  "contentAvailablePercent": 0,
+  "artifacts": [
+    "classification/significance-scoring.md",
+    "risk-scoring/risk-matrix.md",
+    "risk-scoring/quantitative-swot.md",
+    "threat-assessment/political-threat-landscape.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/cross-run-diff.md",
+    "intelligence/synthesis-summary.md",
+    "intelligence/analysis-index.md",
+    "documents/document-analysis-index.md"
+  ],
+  "feedStatus": {
+    "get_plenary_sessions": "ok",
+    "get_adopted_texts": "ok",
+    "get_adopted_texts_feed_today": "degraded_ep8_data",
+    "get_adopted_texts_feed_week": "ok",
+    "get_meps_feed": "ok",
+    "analyze_coalition_dynamics": "partial_epp_gap",
+    "get_events_feed": "skipped_tier2_outage",
+    "get_procedures_feed": "skipped_tier2_outage",
+    "get_parliamentary_questions_feed": "skipped_tier2_outage",
+    "get_all_generated_stats": "ok"
+  },
+  "keyFindings": [
+    "metadata_count_restored_100_to_104",
+    "four_texts_identified_at_offset_100",
+    "two_phase_recovery_model_confirmed",
+    "ustr_window_opens_tomorrow",
+    "coalition_stability_84_100"
+  ],
+  "probabilityUpdates": {
+    "smooth_restore_by_apr26": 0.50,
+    "partial_restore_by_apr26": 0.25,
+    "prolonged_degradation_to_apr27plus": 0.25,
+    "ustr_section_301_action": 0.20
+  },
+  "priorRunComparison": {
+    "priorRunId": 190,
+    "priorDate": "2026-04-20",
+    "countDelta": 4,
+    "hypothesesUpdated": 2,
+    "hypothesesRefuted": 1
+  },
+  "generatedAt": "2026-04-20T00:00:00Z",
+  "schemaVersion": "1.0"
+}
