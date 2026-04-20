@@ -837,21 +837,27 @@ When `monitor_legislative_pipeline` returns `health: 0%` and `throughput: 0`:
 
 ### 📈 Mandatory World Bank Economic Context (CONDITIONAL)
 
-> **RULE**: When the article covers ANY policy area with measurable economic impact (trade, employment, digital economy, health, environment, energy, agriculture, housing, migration), the AI MUST include World Bank economic context.
+> **RULE**: When the article covers ANY policy area with measurable economic impact (trade, employment, digital economy, health, environment, energy, agriculture, housing, migration), the AI MUST include World Bank **or** IMF economic context (either satisfies the Wave-2 OR-gate — see `.github/skills/imf-data-integration.md`).
 
-> **📘 Canonical indicator→article-type mapping**: See
-> [`analysis/methodologies/worldbank-indicator-mapping.md`](../../analysis/methodologies/worldbank-indicator-mapping.md).
-> That file is the single source of truth for which indicators to pick per
-> article type and per committee. Always cite it by relative path from
-> workflow prompts so the AI reads it at runtime.
+> **📘 Canonical indicator→article-type mappings**:
+> - World Bank (macro + social + env + health): [`analysis/methodologies/worldbank-indicator-mapping.md`](../../analysis/methodologies/worldbank-indicator-mapping.md)
+> - IMF (macro / fiscal / trade / monetary — incl. WEO forecasts +5y): [`analysis/methodologies/imf-indicator-mapping.md`](../../analysis/methodologies/imf-indicator-mapping.md)
+>
+> These are the single sources of truth for which indicators to pick per
+> article type and per committee. Always cite them by relative path from
+> workflow prompts so the AI reads them at runtime. Prefer IMF WEO for
+> macro/fiscal/trade/monetary indicators (fresher, includes forecasts) and
+> World Bank for social / health / education / environment / innovation
+> indicators that IMF does not cover.
 
 > **🔌 Connectivity probe**: Workflows SHOULD source
 > `scripts/wb-mcp-probe.sh` immediately after `scripts/mcp-setup.sh` and
 > branch on `$WB_MCP_OK`:
 >   - `WB_MCP_OK=true`  → World Bank gate is **mandatory** (full rule below).
 >   - `WB_MCP_OK=false` → World Bank gate degrades to **best-effort**: still
->     include the phrase "World Bank" + a one-sentence degradation note in
->     the article footer so the validator's evidence check passes.
+>     include the phrase "World Bank" **or** "IMF" + a one-sentence
+>     degradation note in the article footer so the validator's evidence
+>     check passes. The Wave-2 OR-gate accepts either source.
 
 **When World Bank data is MANDATORY** (not optional — see the mapping file for the full list):
 - Articles about employment/labour legislation → `UNEMPLOYMENT`, `GDP_GROWTH` for affected countries
@@ -990,7 +996,7 @@ Today's workflow runs complete in 24-30 minutes out of 60-minute budgets. The AI
 | Step | Action | Time |
 |------|--------|------|
 | **Pass 1: Initial Article Generation** | Run the TypeScript generator, replace all `[AI_ANALYSIS_REQUIRED]` markers with substantive AI analysis. Write all sections with proper prose (≥60% paragraph ratio). | ~50% of article time |
-| **Pass 2: Complete Article Read-Back & Improvement** | Read the ENTIRE generated article — every section, every paragraph, every SWOT item, every stakeholder perspective. For each section: (1) is it ≥3 analytical paragraphs of ≥50 words? (2) does it cite specific EP data? (3) does it name specific actors/MEPs? (4) does it explain WHY not just WHAT? (5) is it prose, not a bullet list? Rewrite any section that fails. Add World Bank economic context if missing. Verify ≥1 Chart.js visualization exists. Run the prose ratio validation script. | ~50% of article time |
+| **Pass 2: Complete Article Read-Back & Improvement** | Read the ENTIRE generated article — every section, every paragraph, every SWOT item, every stakeholder perspective. For each section: (1) is it ≥3 analytical paragraphs of ≥50 words? (2) does it cite specific EP data? (3) does it name specific actors/MEPs? (4) does it explain WHY not just WHAT? (5) is it prose, not a bullet list? Rewrite any section that fails. Add World Bank **or** IMF economic context if missing. Verify ≥1 Chart.js visualization exists. Run the prose ratio validation script. | ~50% of article time |
 
 > **⚠️ Pass 2 article verification checklist** (MUST complete ALL before PR creation):
 > - [ ] Read entire article from top to bottom
@@ -998,7 +1004,7 @@ Today's workflow runs complete in 24-30 minutes out of 60-minute budgets. The AI
 > - [ ] Every SWOT item has ≥80 words with evidence and confidence level
 > - [ ] Every stakeholder perspective has ≥150 words with evidence chain
 > - [ ] Risk outlook is ≥200 words with probability-labelled scenarios
-> - [ ] World Bank economic data included where policy has economic dimension — rendered in ≥1 `<canvas data-chart-config="…">` block AND discussed in ≥1 analytical paragraph of ≥60 words. Indicator selection MUST follow [`analysis/methodologies/worldbank-indicator-mapping.md`](../../analysis/methodologies/worldbank-indicator-mapping.md)
+> - [ ] World Bank **or** IMF economic data included where policy has economic dimension — rendered in ≥1 `<canvas data-chart-config="…">` block AND discussed in ≥1 analytical paragraph of ≥60 words. Indicator selection MUST follow [`analysis/methodologies/worldbank-indicator-mapping.md`](../../analysis/methodologies/worldbank-indicator-mapping.md) (social/health/env/innovation) or [`analysis/methodologies/imf-indicator-mapping.md`](../../analysis/methodologies/imf-indicator-mapping.md) (macro/fiscal/trade/monetary + WEO forecasts). Either source satisfies the Wave-2 OR-gate.
 > - [ ] ≥1 Chart.js canvas with supported type (`bar`/`line`/`pie`/`doughnut`/`radar`/`polarArea`/`scatter`/`bubble`) and ≥3 data points — the validator's `articleHasChart()` rejects single-point canvases
 > - [ ] Standard language switcher emits all 14 `.lang-link` entries (hand-written HTML that skips the template is blocked by `countLanguageSwitcherLinks`)
 > - [ ] Footer includes BOTH `.footer-content` and `.footer-bottom` blocks (ditto)

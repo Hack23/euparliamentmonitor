@@ -78,7 +78,7 @@ This project uses **10 gh-aw markdown workflows** in `.github/workflows/*.md` fo
 - 120-minute workflows → ≥90 minutes active work
 - If you finish early, go back and improve. There is ALWAYS more depth to add.
 
-**Quality Gates**: ≥80 words/SWOT item, ≥150 words/stakeholder perspective, ≥60% prose ratio, ≥1 Chart.js visualization, zero `[AI_ANALYSIS_REQUIRED]` markers, World Bank data for policy articles.
+**Quality Gates**: ≥80 words/SWOT item, ≥150 words/stakeholder perspective, ≥60% prose ratio, ≥1 Chart.js visualization, zero `[AI_ANALYSIS_REQUIRED]` markers, World Bank **or** IMF economic context data for policy articles (Wave-2 OR-gate — see `.github/skills/imf-data-integration.md`).
 
 ## 🚨 Critical Rules
 
@@ -185,7 +185,7 @@ const pr2 = create_pull_request_with_copilot({
 | Security | `security-by-design`, `threat-modeling` |
 | Testing | `testing-strategy` |
 | Quality | `code-quality-excellence`, `accessibility-excellence`, `ai-first-quality` |
-| Data | `european-parliament-data`, `mcp-server-integration` |
+| Data | `european-parliament-data`, `mcp-server-integration`, `imf-data-integration` |
 | Integration | `mcp-gateway-configuration`, `mcp-gateway-security`, `mcp-gateway-troubleshooting` |
 
 ## 🔗 Hack23 Organization

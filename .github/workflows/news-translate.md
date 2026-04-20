@@ -50,6 +50,7 @@ network:
     - api.github.com
     - data.europarl.europa.eu
     - api.worldbank.org
+    - dataservices.imf.org
     - "*.europa.eu"
     - hack23.com
     - www.hack23.com

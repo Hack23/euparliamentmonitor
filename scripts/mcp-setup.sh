@@ -26,6 +26,18 @@ export EP_MCP_GATEWAY_URL="http://host.docker.internal:80/mcp/european-parliamen
 # World Bank MCP server also available through gateway
 export WORLD_BANK_MCP_SERVER_URL="http://host.docker.internal:80/mcp/world-bank"
 
+# IMF Data — native TypeScript SDMX 3.0 REST client.
+# No MCP server / gateway required — the client in
+# src/mcp/imf-mcp-client.ts calls https://dataservices.imf.org/ directly.
+# Export the base URL so `scripts/imf-mcp-probe.sh` and any ad-hoc curl
+# calls in workflow bash blocks target the same endpoint the client
+# resolves at runtime. Override via `IMF_API_BASE_URL` if mirroring.
+# Introduced in Wave 1 of the IMF migration (see
+# analysis/methodologies/imf-indicator-mapping.md). Historical
+# gateway-style `IMF_MCP_SERVER_URL` is intentionally no longer exported
+# — the Python upstream is not used anywhere in the stack.
+export IMF_API_BASE_URL="${IMF_API_BASE_URL:-https://dataservices.imf.org/REST/SDMX_3.0}"
+
 # Extract auth token using node (repo runtime — no python3 dependency)
 _MCP_CONFIG_PATH="${GH_AW_MCP_CONFIG:-/home/runner/.copilot/mcp-config.json}"
 if [ -f "$_MCP_CONFIG_PATH" ]; then

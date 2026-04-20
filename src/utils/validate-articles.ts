@@ -23,8 +23,9 @@ import path from 'node:path';
 import { NEWS_DIR, ARTICLE_FILENAME_PATTERN, PROJECT_ROOT } from '../constants/config.js';
 import {
   validateArticleContent,
-  articlePolicyHasWorldBank,
+  articlePolicyHasEconomicContext,
   hasWorldBankEvidence,
+  hasIMFEvidence,
 } from './content-validator.js';
 import { scoreArticleQuality } from './article-quality-scorer.js';
 import type { ArticleQualityReport, ArticleGrade } from '../types/quality.js';
@@ -104,9 +105,15 @@ function slugToArticleType(slug: string): string {
 // ─── Main validation logic ────────────────────────────────────────────────────
 
 /**
- * For policy article types, verify World Bank evidence in either the article
- * body OR any `.md` file under the article's `analysis/daily/{date}/{slug}*`
- * directory. Non-policy article types are always considered satisfied.
+ * For policy article types, verify that either **World Bank** or **IMF**
+ * economic context is cited in the article body OR in any `.md` file under
+ * the article's `analysis/daily/{date}/{slug}*` directory. Non-policy article
+ * types are always considered satisfied.
+ *
+ * This is the Wave-2 OR-gate (see IMF migration plan §5 Wave 2) that
+ * replaces the prior World-Bank-only strict gate. WB-only articles remain
+ * green (backward compatible); IMF-only or dual-sourced articles are now
+ * also accepted.
  *
  * @param html - Full HTML of the article being validated
  * @param articleType - Article category slug (e.g. `"committee-reports"`)
@@ -114,19 +121,20 @@ function slugToArticleType(slug: string): string {
  * @param slug - Article slug used to locate the matching analysis directory
  * @returns Warning string when the gate fails, or `null` when satisfied.
  */
-function checkWorldBankEvidence(
+function checkEconomicContextEvidence(
   html: string,
   articleType: string,
   date: string,
   slug: string
 ): string | null {
-  // Short-circuit for non-policy article types.
-  if (articlePolicyHasWorldBank(html, articleType)) return null;
+  // Short-circuit for non-policy article types or when article body already
+  // cites either World Bank or IMF evidence.
+  if (articlePolicyHasEconomicContext(html, articleType)) return null;
 
   // Sweep sibling analysis directories: analysis/daily/{date}/{slug}*
   const analysisRoot = path.join(PROJECT_ROOT, 'analysis', 'daily', date);
   if (!fs.existsSync(analysisRoot)) {
-    return `Missing required World Bank economic context for "${articleType}" article; analysis directory ${analysisRoot} does not exist`;
+    return `Missing required economic context (World Bank or IMF) for "${articleType}" article; analysis directory ${analysisRoot} does not exist`;
   }
 
   const candidates = safeReaddir(analysisRoot).filter(
@@ -134,12 +142,12 @@ function checkWorldBankEvidence(
   );
 
   for (const dirName of candidates) {
-    if (directoryContainsWorldBankFingerprint(path.join(analysisRoot, dirName))) {
+    if (directoryContainsEconomicContextFingerprint(path.join(analysisRoot, dirName))) {
       return null;
     }
   }
 
-  return `Missing required World Bank economic context for "${articleType}" article; neither article body nor analysis files under ${analysisRoot} reference any World Bank indicator`;
+  return `Missing required economic context (World Bank or IMF) for "${articleType}" article; neither article body nor analysis files under ${analysisRoot} reference any World Bank or IMF indicator`;
 }
 
 /**
@@ -157,28 +165,29 @@ function safeReaddir(dir: string): string[] {
 }
 
 /**
- * Maximum recursion depth when searching an analysis directory for World Bank
- * fingerprints. The starting directory is depth 0; the guard
- * `depth >= ANALYSIS_SEARCH_MAX_DEPTH` stops recursion once it would exceed
- * this depth. With `ANALYSIS_SEARCH_MAX_DEPTH = 3` the scanner reads files at
- * depths 0, 1, 2 and 3 — enough to cover the expected layout
- * `analysis/daily/{date}/{slug}/<subdir>/<file>.md` (depth 2) with one level
- * of tolerance for deeper run artefacts. Trees deeper than this are truncated
- * to guarantee bounded I/O during validator runs.
+ * Maximum recursion depth when searching an analysis directory for economic
+ * context fingerprints (World Bank OR IMF). The starting directory is
+ * depth 0; the guard `depth > ANALYSIS_SEARCH_MAX_DEPTH` stops recursion
+ * once it would exceed this depth. With `ANALYSIS_SEARCH_MAX_DEPTH = 3` the
+ * scanner reads files at depths 0, 1, 2 and 3 — enough to cover the expected
+ * layout `analysis/daily/{date}/{slug}/<subdir>/<file>.md` (depth 2) with one
+ * level of tolerance for deeper run artefacts. Trees deeper than this are
+ * truncated to guarantee bounded I/O during validator runs.
  */
 const ANALYSIS_SEARCH_MAX_DEPTH = 3;
 
 /**
- * Depth-limited recursive search for any World Bank fingerprint in `.md` files.
- * Uses {@link hasWorldBankEvidence} so the gate enforces the same
- * strong-phrase / word-bounded-indicator rule used on article bodies.
+ * Depth-limited recursive search for any World Bank OR IMF fingerprint in
+ * `.md` files. Uses {@link hasWorldBankEvidence} and {@link hasIMFEvidence}
+ * so the gate enforces the same strong-phrase / word-bounded-indicator rule
+ * used on article bodies, for either economic-data provider.
  *
  * @param dir - Directory to scan
  * @param depth - Current recursion depth (callers should omit; max is
  *   {@link ANALYSIS_SEARCH_MAX_DEPTH}, inclusive)
- * @returns `true` when at least one `.md` file contains a World Bank fingerprint
+ * @returns `true` when at least one `.md` file contains a WB or IMF fingerprint
  */
-function directoryContainsWorldBankFingerprint(dir: string, depth = 0): boolean {
+function directoryContainsEconomicContextFingerprint(dir: string, depth = 0): boolean {
   if (depth > ANALYSIS_SEARCH_MAX_DEPTH) return false;
   let entries: fs.Dirent[];
   try {
@@ -187,24 +196,28 @@ function directoryContainsWorldBankFingerprint(dir: string, depth = 0): boolean 
     return false;
   }
   for (const entry of entries) {
-    if (entryContainsWorldBankFingerprint(dir, entry, depth)) return true;
+    if (entryContainsEconomicContextFingerprint(dir, entry, depth)) return true;
   }
   return false;
 }
 
 /**
- * Test a single directory entry for World Bank fingerprints, recursing into
- * subdirectories up to the shared depth cap.
+ * Test a single directory entry for World Bank OR IMF fingerprints, recursing
+ * into subdirectories up to the shared depth cap.
  *
  * @param dir - Parent directory of `entry`
  * @param entry - Directory entry to test
  * @param depth - Current recursion depth of the caller
  * @returns `true` when this entry (or any descendant) matches a fingerprint
  */
-function entryContainsWorldBankFingerprint(dir: string, entry: fs.Dirent, depth: number): boolean {
+function entryContainsEconomicContextFingerprint(
+  dir: string,
+  entry: fs.Dirent,
+  depth: number
+): boolean {
   const full = path.join(dir, entry.name);
   if (entry.isDirectory()) {
-    return directoryContainsWorldBankFingerprint(full, depth + 1);
+    return directoryContainsEconomicContextFingerprint(full, depth + 1);
   }
   if (!entry.isFile() || !entry.name.endsWith('.md')) return false;
   let content: string;
@@ -213,7 +226,7 @@ function entryContainsWorldBankFingerprint(dir: string, entry: fs.Dirent, depth:
   } catch {
     return false;
   }
-  return hasWorldBankEvidence(content);
+  return hasWorldBankEvidence(content) || hasIMFEvidence(content);
 }
 
 /**
@@ -235,10 +248,11 @@ function validateSingleFile(filename: string): ArticleValidationSummary | null {
 
   const result = validateArticleContent(html, lang, articleType);
 
-  // World Bank gate — extend search to linked analysis markdown files
-  const wbWarning = checkWorldBankEvidence(html, articleType, date, slug);
-  if (wbWarning) {
-    result.warnings.push(wbWarning);
+  // Economic context gate — accepts World Bank OR IMF evidence (Wave 2 OR-gate);
+  // extends search to linked analysis markdown files.
+  const econWarning = checkEconomicContextEvidence(html, articleType, date, slug);
+  if (econWarning) {
+    result.warnings.push(econWarning);
   }
 
   const summary: ArticleValidationSummary = {
