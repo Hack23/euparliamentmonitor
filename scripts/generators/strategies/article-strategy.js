@@ -39,10 +39,13 @@ const ENV_ANALYSIS_SLUG = 'EP_ANALYSIS_SLUG';
  * - `synthesis/` — alternate location used by monthly-review runs for
  *   synthesis-summary and stakeholder-impact
  *
- * Adding these here means `loadAnalysisContext` discovers the AI-authored
- * markdown that the {@link module:Utils/ParseAnalysisStakeholders} parser
- * consumes to produce structured `StakeholderPerspective[]` / outcome matrices
- * for the article builders (Analysis-to-Article Data Contract).
+ * Adding these here means `loadAnalysisContext` surfaces the AI-authored
+ * markdown to the article-rewriter AI pass as raw context.  Per the AI-First
+ * Analysis-to-Article Data Contract
+ * (`.github/prompts/SHARED_PROMPT_PATTERNS.md#-analysis-to-article-data-contract-ai-first`),
+ * **scripts never parse this markdown into structured data**; the AI reads
+ * every file here as context and authors all stakeholder / outcome / impact
+ * content directly in the rendered HTML.
  */
 const ANALYSIS_SUBDIRS = [
     'classification',
