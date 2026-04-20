@@ -18,12 +18,10 @@ export function applyAnalysisOverrides(base, overrides) {
     if (!overrides)
         return base;
     const next = { ...base };
-    if (overrides.stakeholderPerspectives &&
-        overrides.stakeholderPerspectives.length > 0) {
+    if (overrides.stakeholderPerspectives && overrides.stakeholderPerspectives.length > 0) {
         next.stakeholderPerspectives = [...overrides.stakeholderPerspectives];
     }
-    if (overrides.stakeholderOutcomeMatrix &&
-        overrides.stakeholderOutcomeMatrix.length > 0) {
+    if (overrides.stakeholderOutcomeMatrix && overrides.stakeholderOutcomeMatrix.length > 0) {
         next.stakeholderOutcomeMatrix = [...overrides.stakeholderOutcomeMatrix];
     }
     if (overrides.impactAssessment) {

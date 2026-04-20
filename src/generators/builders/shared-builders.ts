@@ -66,16 +66,10 @@ export function applyAnalysisOverrides(
   if (!overrides) return base;
   type Mutable = { -readonly [K in keyof DeepAnalysis]: DeepAnalysis[K] };
   const next: Mutable = { ...base };
-  if (
-    overrides.stakeholderPerspectives &&
-    overrides.stakeholderPerspectives.length > 0
-  ) {
+  if (overrides.stakeholderPerspectives && overrides.stakeholderPerspectives.length > 0) {
     next.stakeholderPerspectives = [...overrides.stakeholderPerspectives];
   }
-  if (
-    overrides.stakeholderOutcomeMatrix &&
-    overrides.stakeholderOutcomeMatrix.length > 0
-  ) {
+  if (overrides.stakeholderOutcomeMatrix && overrides.stakeholderOutcomeMatrix.length > 0) {
     next.stakeholderOutcomeMatrix = [...overrides.stakeholderOutcomeMatrix];
   }
   if (overrides.impactAssessment) {

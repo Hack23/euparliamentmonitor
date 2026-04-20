@@ -1205,8 +1205,8 @@ That text **looked** AI-authored but was produced entirely by `deriveStakeholder
 After article generation, the workflow **must** invoke:
 
 ```bash
-npx tsx src/utils/validate-analysis-completeness.ts \
-  --article-html=docs/news/<date>-<type>-en.html
+node scripts/utils/validate-analysis-completeness.js \
+  --article-html=news/<date>-<type>-en.html
 ```
 
 If any `FALLBACK_TEMPLATE_PATTERNS` sentinel matches, exit code 1 fails the run before the `create-pull-request` safe-output fires. Adding a new fallback sentinel to the generator code REQUIRES adding its pattern to `FALLBACK_TEMPLATE_PATTERNS` and a matching test in `test/unit/validate-html-fallback.test.js` in the same commit.

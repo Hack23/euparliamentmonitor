@@ -293,9 +293,7 @@ function parseArgs(argv: readonly string[]): CliOptions {
   }
 
   if (!opts.analysisDir && opts.articleHtmlPaths.length === 0) {
-    console.error(
-      '❌ Missing required argument: --analysis-dir=<path> or --article-html=<path>'
-    );
+    console.error('❌ Missing required argument: --analysis-dir=<path> or --article-html=<path>');
     printHelp();
     process.exit(2);
   }
@@ -817,7 +815,14 @@ function renderTextReport(result: ValidationResult, minLines: number): void {
  * - *"Stakeholder impact assessment for ... indicates ... relevance."* —
  *   the legacy `default` branch of `deriveStakeholderReasoning`.
  *
- * All patterns are case-insensitive and whitespace-tolerant.
+ * The sentinel patterns `[AI_ANALYSIS_REQUIRED]`, `[REQUIRED]`, and
+ * `AI_ANALYSIS_PENDING` are matched with their exact casing — the generators
+ * emit these literal strings and we do NOT want to match user-authored prose
+ * that happens to mention them in a different case. The prose and date-range
+ * patterns are case-insensitive (`i` flag). All patterns are evaluated against
+ * a whitespace-normalised copy of the HTML (see `normalizeHtmlForScan`), so
+ * they are tolerant of HTML reflow, newlines, and inter-tag whitespace
+ * without needing dotAll.
  *
  * Update this list whenever a new fallback-sentinel is introduced in the
  * generators; the test suite asserts that every new sentinel is added here
@@ -841,6 +846,24 @@ export const FALLBACK_TEMPLATE_PATTERNS: readonly RegExp[] = [
 ] as const;
 
 /**
+ * Normalise HTML for fallback-pattern scanning.
+ *
+ * Collapses all whitespace (including newlines, tabs, and runs of spaces) to
+ * a single space so that sentence-level patterns like
+ * *"This parliamentary activity on … has moderate implications …"*
+ * still match when the rendered HTML wraps the prose across multiple lines or
+ * inserts inter-tag whitespace. Keeps the transformation purely lexical — we
+ * do not strip tags, because several sentinels (e.g. `[AI_ANALYSIS_REQUIRED]`)
+ * can legitimately appear inside attribute text.
+ *
+ * @param html - Raw HTML document or fragment.
+ * @returns Whitespace-normalised copy suitable for regex scanning.
+ */
+function normalizeHtmlForScan(html: string): string {
+  return html.replace(/\s+/g, ' ');
+}
+
+/**
  * A single leak detected by {@link scanHtmlForFallbackLeaks}.
  */
 export interface FallbackLeak {
@@ -848,7 +871,7 @@ export interface FallbackLeak {
   readonly patternIndex: number;
   /** The matching substring, truncated to 240 characters for display */
   readonly match: string;
-  /** Byte offset of the match within the scanned HTML */
+  /** Match start index within the scanned HTML string (JavaScript UTF-16 code units, measured on the whitespace-normalised copy) */
   readonly offset: number;
 }
 
@@ -862,10 +885,15 @@ export interface FallbackLeak {
  * If any {@link FALLBACK_TEMPLATE_PATTERNS} pattern matches, the AI did not
  * do its job and publication must fail.
  *
+ * The HTML is whitespace-normalised (all runs of whitespace collapsed to a
+ * single space) before scanning so that sentence-level patterns still match
+ * across HTML reflow and newline boundaries.
+ *
  * @param html - Full HTML document or `.article-content` fragment.
  * @returns Array of leak records (empty when clean).
  */
 export function scanHtmlForFallbackLeaks(html: string): readonly FallbackLeak[] {
+  const normalized = normalizeHtmlForScan(html);
   const leaks: FallbackLeak[] = [];
   for (let i = 0; i < FALLBACK_TEMPLATE_PATTERNS.length; i++) {
     const pattern = FALLBACK_TEMPLATE_PATTERNS[i];
@@ -876,7 +904,7 @@ export function scanHtmlForFallbackLeaks(html: string): readonly FallbackLeak[] 
       pattern.flags.includes('g') ? pattern.flags : pattern.flags + 'g'
     );
     let m: RegExpExecArray | null;
-    while ((m = global.exec(html)) !== null) {
+    while ((m = global.exec(normalized)) !== null) {
       leaks.push({
         patternIndex: i,
         match: m[0].length > 240 ? m[0].slice(0, 237) + '…' : m[0],
@@ -891,7 +919,10 @@ export function scanHtmlForFallbackLeaks(html: string): readonly FallbackLeak[] 
 /**
  * Scan one or more article HTML files for fallback-template leaks.
  *
- * @param paths - File paths (absolute or relative to CWD) to scan.
+ * @param paths - File paths. Absolute paths are used as-is; relative paths
+ *   are resolved against the repository root (`PROJECT_ROOT`), matching the
+ *   repo-relative invocations emitted by the news workflows (e.g.
+ *   `news/2026-04-20-breaking-en.html`).
  * @returns Map of `path → leaks`.  Paths that do not exist or cannot be read
  *   yield a synthetic leak describing the read error.
  */
@@ -947,9 +978,7 @@ function runAnalysisValidation(options: CliOptions): ValidationResult | null {
  *
  * @param htmlScan - Map of scanned HTML paths to detected leaks.
  */
-function renderHtmlScanReport(
-  htmlScan: ReadonlyMap<string, readonly FallbackLeak[]>
-): void {
+function renderHtmlScanReport(htmlScan: ReadonlyMap<string, readonly FallbackLeak[]>): void {
   console.log('');
   console.log('🔍 Article HTML fallback-template scan');
   for (const [p, leaks] of htmlScan.entries()) {
@@ -1006,9 +1035,7 @@ function main(): void {
 
   // HTML-only mode: skip analysis-dir validation, just scan rendered articles.
   const htmlScan =
-    options.articleHtmlPaths.length > 0
-      ? scanArticleHtmlFiles(options.articleHtmlPaths)
-      : null;
+    options.articleHtmlPaths.length > 0 ? scanArticleHtmlFiles(options.articleHtmlPaths) : null;
 
   const result = runAnalysisValidation(options);
   renderCombinedReport(options, result, htmlScan);
@@ -1024,9 +1051,6 @@ function main(): void {
 // Only run the CLI when this file is executed directly (not when imported by
 // tests or other modules).  Matches the conventional guard used by sibling
 // CLI utilities in `src/utils/` (e.g. `validate-ep-api.ts`).
-if (
-  process.argv[1] &&
-  import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href
-) {
+if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {
   main();
 }
