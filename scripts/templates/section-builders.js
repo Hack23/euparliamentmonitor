@@ -7,7 +7,8 @@
  * timeline sections, comparison tables, and key figures bars.
  */
 import { escapeHTML } from '../utils/file-utils.js';
-import { getLocalizedString, TOC_ARIA_LABELS, TIMELINE_HEADINGS, COMPARISON_BEFORE_LABELS, COMPARISON_AFTER_LABELS, KEY_FIGURES_HEADINGS, } from '../constants/languages.js';
+import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, getLocalizedString, TOC_ARIA_LABELS, TIMELINE_HEADINGS, COMPARISON_BEFORE_LABELS, COMPARISON_AFTER_LABELS, KEY_FIGURES_HEADINGS, FOOTER_ABOUT_HEADING_LABELS, FOOTER_ABOUT_TEXT_LABELS, FOOTER_QUICK_LINKS_LABELS, FOOTER_BUILT_BY_LABELS, FOOTER_LANGUAGES_LABELS, FOOTER_HOME_LABELS, FOOTER_SITEMAP_LABELS, FOOTER_RSS_LABELS, FOOTER_GITHUB_REPO_LABELS, FOOTER_LICENSE_LABELS, FOOTER_EUROPARL_LABELS, FOOTER_LINKEDIN_LABELS, FOOTER_SECURITY_POLICY_LABELS, FOOTER_CONTACT_LABELS, FOOTER_DISCLAIMER_LABELS, FOOTER_REPORT_ISSUES_LABELS, FOOTER_ARTICLES_AVAILABLE_LABELS, } from '../constants/languages.js';
+import { APP_VERSION } from '../constants/config.js';
 import { stripScriptBlocks, stripHtmlTags } from '../utils/html-sanitize.js';
 /**
  * Count occurrences of a regex pattern in a string.
@@ -255,5 +256,93 @@ export function buildKeyFiguresBar(figures, lang) {
       ${cards}
   </div>
 </section>`;
+}
+/**
+ * Build the language grid links used inside the footer Languages section.
+ *
+ * @param currentLang - The currently active language code.
+ * @param pathPrefix - Path prefix for index page hrefs ('' or '../').
+ * @returns HTML string of anchor elements.
+ */
+function buildFooterLangGrid(currentLang, pathPrefix) {
+    return ALL_LANGUAGES.map((code) => {
+        const flag = getLocalizedString(LANGUAGE_FLAGS, code);
+        const safeName = escapeHTML(getLocalizedString(LANGUAGE_NAMES, code));
+        const href = code === 'en' ? `${pathPrefix}index.html` : `${pathPrefix}index-${code}.html`;
+        const active = code === currentLang ? ' class="active"' : '';
+        return `<a href="${escapeHTML(href)}"${active} hreflang="${code}">${flag} ${safeName}</a>`;
+    }).join('\n            ');
+}
+/**
+ * Build the shared site footer HTML used by both article pages and index pages.
+ *
+ * Renders four sections (About, Quick Links, Built by Hack23, Languages) plus a
+ * footer-bottom bar with copyright, version, and a localized disclaimer.
+ *
+ * @param options - {@link SiteFooterOptions} controlling lang, pathPrefix, and articleCount.
+ * @returns HTML string for `<footer class="site-footer">…</footer>`.
+ */
+export function buildSiteFooter(options) {
+    const { lang, pathPrefix, articleCount } = options;
+    const year = new Date().getFullYear();
+    const aboutHeading = escapeHTML(getLocalizedString(FOOTER_ABOUT_HEADING_LABELS, lang));
+    const aboutText = escapeHTML(getLocalizedString(FOOTER_ABOUT_TEXT_LABELS, lang));
+    const quickLinksHeading = escapeHTML(getLocalizedString(FOOTER_QUICK_LINKS_LABELS, lang));
+    const builtByHeading = escapeHTML(getLocalizedString(FOOTER_BUILT_BY_LABELS, lang));
+    const languagesHeading = escapeHTML(getLocalizedString(FOOTER_LANGUAGES_LABELS, lang));
+    const homeLabel = escapeHTML(getLocalizedString(FOOTER_HOME_LABELS, lang));
+    const sitemapLabel = escapeHTML(getLocalizedString(FOOTER_SITEMAP_LABELS, lang));
+    const rssLabel = escapeHTML(getLocalizedString(FOOTER_RSS_LABELS, lang));
+    const githubLabel = escapeHTML(getLocalizedString(FOOTER_GITHUB_REPO_LABELS, lang));
+    const licenseLabel = escapeHTML(getLocalizedString(FOOTER_LICENSE_LABELS, lang));
+    const europarlLabel = escapeHTML(getLocalizedString(FOOTER_EUROPARL_LABELS, lang));
+    const linkedinLabel = escapeHTML(getLocalizedString(FOOTER_LINKEDIN_LABELS, lang));
+    // Security & Privacy Policy label already contains safe &amp; entities — do not double-escape
+    const securityLabel = getLocalizedString(FOOTER_SECURITY_POLICY_LABELS, lang);
+    const contactLabel = escapeHTML(getLocalizedString(FOOTER_CONTACT_LABELS, lang));
+    const disclaimerText = escapeHTML(getLocalizedString(FOOTER_DISCLAIMER_LABELS, lang));
+    const reportIssuesLabel = escapeHTML(getLocalizedString(FOOTER_REPORT_ISSUES_LABELS, lang));
+    const articlesLine = typeof articleCount === 'number'
+        ? `\n        <p class="footer-stats">${escapeHTML(getLocalizedString(FOOTER_ARTICLES_AVAILABLE_LABELS, lang).replace('{count}', String(articleCount)))}</p>`
+        : '';
+    const langGrid = buildFooterLangGrid(lang, pathPrefix);
+    return `<footer class="site-footer" role="contentinfo">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>${aboutHeading}</h3>
+        <p>${aboutText}</p>${articlesLine}
+      </div>
+      <div class="footer-section">
+        <h3>${quickLinksHeading}</h3>
+        <ul>
+          <li><a href="${pathPrefix}index.html">${homeLabel}</a></li>
+          <li><a href="${pathPrefix}sitemap.html">${sitemapLabel}</a></li>
+          <li><a href="${pathPrefix}rss.xml">${rssLabel}</a></li>
+          <li><a href="https://github.com/Hack23/euparliamentmonitor">${githubLabel}</a></li>
+          <li><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/LICENSE">${licenseLabel}</a></li>
+          <li><a href="https://www.europarl.europa.eu/">${europarlLabel}</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>${builtByHeading}</h3>
+        <ul>
+          <li><a href="https://hack23.com">hack23.com</a></li>
+          <li><a href="https://www.linkedin.com/company/hack23">${linkedinLabel}</a></li>
+          <li><a href="https://github.com/Hack23/ISMS-PUBLIC">${securityLabel}</a></li>
+          <li><a href="mailto:james@hack23.com">${contactLabel}</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>${languagesHeading}</h3>
+        <div class="language-grid">
+          ${langGrid}
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2008-${year} <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden | v${escapeHTML(APP_VERSION)}</p>
+      <p class="footer-disclaimer"><span aria-hidden="true">⚠️</span> ${disclaimerText} <a href="https://github.com/Hack23/euparliamentmonitor/issues">${reportIssuesLabel}</a>.</p>
+    </div>
+  </footer>`;
 }
 //# sourceMappingURL=section-builders.js.map

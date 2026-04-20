@@ -1,9 +1,10 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
-import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, ARTICLE_TYPE_LABELS, READ_TIME_LABELS, BACK_TO_NEWS_LABELS, ARTICLE_NAV_LABELS, RELATED_ARTICLES_NAV_LABELS, BREADCRUMB_HOME_LABELS, BREADCRUMB_NEWS_LABELS, SKIP_LINK_TEXTS, SOURCES_HEADING_LABELS, HEADER_SUBTITLE_LABELS, THEME_TOGGLE_LABELS, FOOTER_ABOUT_HEADING_LABELS, FOOTER_ABOUT_TEXT_LABELS, FOOTER_QUICK_LINKS_LABELS, FOOTER_BUILT_BY_LABELS, FOOTER_LANGUAGES_LABELS, ANALYSIS_TRANSPARENCY_LABELS, ANALYSIS_SUMMARY_LABELS, METHODOLOGY_LABELS, TRANSPARENCY_DISCLOSURE_LABELS, CLASSIFICATION_ANALYSIS_LABELS, THREAT_ASSESSMENT_LABELS, RISK_SCORING_LABELS, DEEP_ANALYSIS_LABELS, VIEW_SOURCE_LABELS, OPEN_SOURCE_NOTE_LABELS, AI_ANALYSIS_GUIDE_LABELS, SWOT_FRAMEWORK_LABELS, RISK_METHODOLOGY_LABELS, THREAT_FRAMEWORK_LABELS, CLASSIFICATION_GUIDE_LABELS, STYLE_GUIDE_LABELS, SIGNIFICANCE_CLASSIFICATION_LABELS, ACTOR_MAPPING_LABELS, FORCES_ANALYSIS_LABELS, IMPACT_MATRIX_LABELS, POLITICAL_THREAT_LANDSCAPE_LABELS, ACTOR_THREAT_PROFILING_LABELS, CONSEQUENCE_TREES_LABELS, LEGISLATIVE_DISRUPTION_LABELS, RISK_MATRIX_LABELS, QUANTITATIVE_SWOT_LABELS, POLITICAL_CAPITAL_RISK_LABELS, LEGISLATIVE_VELOCITY_RISK_LABELS, AGENT_RISK_WORKFLOW_LABELS, STAKEHOLDER_IMPACT_LABELS, COALITION_DYNAMICS_LABELS, VOTING_PATTERNS_LABELS, CROSS_SESSION_INTELLIGENCE_LABELS, SYNTHESIS_SUMMARY_LABELS, DOCUMENT_ANALYSIS_LABELS, SIGNIFICANCE_SCORING_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
+import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, ARTICLE_TYPE_LABELS, READ_TIME_LABELS, BACK_TO_NEWS_LABELS, ARTICLE_NAV_LABELS, RELATED_ARTICLES_NAV_LABELS, BREADCRUMB_HOME_LABELS, BREADCRUMB_NEWS_LABELS, SKIP_LINK_TEXTS, SOURCES_HEADING_LABELS, HEADER_SUBTITLE_LABELS, THEME_TOGGLE_LABELS, ANALYSIS_TRANSPARENCY_LABELS, ANALYSIS_SUMMARY_LABELS, METHODOLOGY_LABELS, TRANSPARENCY_DISCLOSURE_LABELS, CLASSIFICATION_ANALYSIS_LABELS, THREAT_ASSESSMENT_LABELS, RISK_SCORING_LABELS, DEEP_ANALYSIS_LABELS, VIEW_SOURCE_LABELS, OPEN_SOURCE_NOTE_LABELS, AI_ANALYSIS_GUIDE_LABELS, SWOT_FRAMEWORK_LABELS, RISK_METHODOLOGY_LABELS, THREAT_FRAMEWORK_LABELS, CLASSIFICATION_GUIDE_LABELS, STYLE_GUIDE_LABELS, SIGNIFICANCE_CLASSIFICATION_LABELS, ACTOR_MAPPING_LABELS, FORCES_ANALYSIS_LABELS, IMPACT_MATRIX_LABELS, POLITICAL_THREAT_LANDSCAPE_LABELS, ACTOR_THREAT_PROFILING_LABELS, CONSEQUENCE_TREES_LABELS, LEGISLATIVE_DISRUPTION_LABELS, RISK_MATRIX_LABELS, QUANTITATIVE_SWOT_LABELS, POLITICAL_CAPITAL_RISK_LABELS, LEGISLATIVE_VELOCITY_RISK_LABELS, AGENT_RISK_WORKFLOW_LABELS, STAKEHOLDER_IMPACT_LABELS, COALITION_DYNAMICS_LABELS, VOTING_PATTERNS_LABELS, CROSS_SESSION_INTELLIGENCE_LABELS, SYNTHESIS_SUMMARY_LABELS, DOCUMENT_ANALYSIS_LABELS, SIGNIFICANCE_SCORING_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
 import { escapeHTML, isSafeURL } from '../utils/file-utils.js';
 import { stripHtmlTags } from '../utils/html-sanitize.js';
-import { APP_VERSION, createThemeToggleButton } from '../constants/config.js';
+import { createThemeToggleButton, APP_VERSION } from '../constants/config.js';
+import { buildSiteFooter } from './section-builders.js';
 /** Pattern for valid article dates (YYYY-MM-DD) */
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/u;
 /** Pattern for valid article slugs (lowercase letters, digits, hyphens) */
@@ -83,34 +84,6 @@ function buildArticleLangSwitcher(date, slug, currentLang, availableLanguages) {
         .join('\n        ');
 }
 /**
- * Build a single footer section with title and content.
- *
- * @param title - Section heading text
- * @param content - Inner HTML content
- * @returns HTML string for one footer section
- */
-function buildFooterSection(title, content) {
-    return `<div class="footer-section">
-        <h3>${title}</h3>
-        ${content}
-      </div>`;
-}
-/**
- * Build the language grid for the article footer.
- *
- * @param currentLang - Active language code
- * @returns HTML string for the language grid
- */
-function buildArticleFooterLanguageGrid(currentLang) {
-    return ALL_LANGUAGES.map((code) => {
-        const flag = getLocalizedString(LANGUAGE_FLAGS, code);
-        const safeName = escapeHTML(getLocalizedString(LANGUAGE_NAMES, code));
-        const href = code === 'en' ? '../index.html' : `../index-${code}.html`;
-        const active = code === currentLang ? ' class="active"' : '';
-        return `<a href="${href}"${active} hreflang="${code}">${flag} ${safeName}</a>`;
-    }).join('\n            ');
-}
-/**
  * Build the related articles navigation section at the bottom of an article.
  *
  * Renders a `<nav>` element with links to same-day articles of different types.
@@ -160,7 +133,6 @@ function buildRelatedArticlesNav(articles, lang) {
 export function generateArticleHTML(options) {
     const { slug, title, subtitle, date, category, readTime, lang, content, keywords = [], sources = [], stylesHash, availableLanguages, analysisDir, relatedArticles = [], analysisFiles, } = options;
     const dir = getTextDirection(lang);
-    const year = new Date().getFullYear();
     // Format date for display
     const displayDate = new Date(date).toLocaleDateString(lang, {
         year: 'numeric',
@@ -180,11 +152,6 @@ export function generateArticleHTML(options) {
     const articleNavLabel = getLocalizedString(ARTICLE_NAV_LABELS, lang);
     const skipLinkText = getLocalizedString(SKIP_LINK_TEXTS, lang);
     const headerSubtitle = escapeHTML(getLocalizedString(HEADER_SUBTITLE_LABELS, lang));
-    const footerAboutHeading = escapeHTML(getLocalizedString(FOOTER_ABOUT_HEADING_LABELS, lang));
-    const footerAboutText = escapeHTML(getLocalizedString(FOOTER_ABOUT_TEXT_LABELS, lang));
-    const footerQuickLinksHeading = escapeHTML(getLocalizedString(FOOTER_QUICK_LINKS_LABELS, lang));
-    const footerBuiltByHeading = escapeHTML(getLocalizedString(FOOTER_BUILT_BY_LABELS, lang));
-    const footerLanguagesHeading = escapeHTML(getLocalizedString(FOOTER_LANGUAGES_LABELS, lang));
     const indexHref = lang === 'en' ? '../index.html' : `../index-${lang}.html`;
     // Escape values for safe HTML embedding
     const safeTitle = escapeHTML(title);
@@ -345,6 +312,11 @@ export function generateArticleHTML(options) {
   <meta name="twitter:image" content="${SITE_BASE_URL}/images/og-image.jpg">
   <meta name="twitter:image:alt" content="EU Parliament Monitor — AI-Disrupted Parliamentary Intelligence">
   
+  <!-- Hreflang alternates for SEO multi-language support -->
+  ${(availableLanguages ?? ALL_LANGUAGES)
+        .map((code) => `<link rel="alternate" hreflang="${code}" href="${escapeHTML(`${date}-${slug}-${code}.html`)}">`)
+        .join('\n  ')}
+  <link rel="alternate" hreflang="x-default" href="${escapeHTML(`${date}-${slug}-en.html`)}">
   <link rel="canonical" href="${SITE_BASE_URL}/news/${date}-${slug}-${lang}.html">
   <link rel="stylesheet" href="../styles.css"${safeSriAttrs}>
   
@@ -365,8 +337,8 @@ export function generateArticleHTML(options) {
     <div class="site-header__inner">
       <a href="${indexHref}" class="site-header__brand" aria-label="EU Parliament Monitor">
         <picture class="site-header__logo-picture">
-          <source srcset="../images/favicon-96x96.webp" type="image/webp">
-          <img class="site-header__logo" src="../images/favicon-96x96.png" alt="" width="36" height="36" aria-hidden="true">
+          <source srcset="../images/header-logo.webp" type="image/webp">
+          <img class="site-header__logo site-header__logo--header" src="../images/header-logo.png" alt="" width="72" height="48" aria-hidden="true">
         </picture>
         <span>
           <span class="site-header__title">EU Parliament Monitor</span>
@@ -411,32 +383,7 @@ export function generateArticleHTML(options) {
   </article>
   </main>
 
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-content">
-      ${buildFooterSection(footerAboutHeading, `<p>${footerAboutText}</p>`)}
-      ${buildFooterSection(footerQuickLinksHeading, `<ul>
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="../sitemap.html">Sitemap</a></li>
-          <li><a href="../rss.xml">RSS Feed</a></li>
-          <li><a href="https://github.com/Hack23/euparliamentmonitor">GitHub Repository</a></li>
-          <li><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/LICENSE">Apache-2.0 License</a></li>
-          <li><a href="https://www.europarl.europa.eu/">European Parliament</a></li>
-        </ul>`)}
-      ${buildFooterSection(footerBuiltByHeading, `<ul>
-          <li><a href="https://hack23.com">hack23.com</a></li>
-          <li><a href="https://www.linkedin.com/company/hack23">LinkedIn</a></li>
-          <li><a href="https://github.com/Hack23/ISMS-PUBLIC">Security &amp; Privacy Policy</a></li>
-          <li><a href="mailto:james@hack23.com">Contact</a></li>
-        </ul>`)}
-      ${buildFooterSection(footerLanguagesHeading, `<div class="language-grid">
-          ${buildArticleFooterLanguageGrid(lang)}
-        </div>`)}
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2008-${year} <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden | v${escapeHTML(APP_VERSION)}</p>
-      <p class="footer-disclaimer"><span aria-hidden="true">⚠️</span> This platform is under ongoing improvement. Please <a href="https://github.com/Hack23/euparliamentmonitor/issues">report any issues on GitHub</a>.</p>
-    </div>
-  </footer>
+  ${buildSiteFooter({ lang, pathPrefix: '../' })}
 
   <script src="../js/article-runtime.js" defer></script>${content.includes('data-chart-config')
         ? `
@@ -464,20 +411,18 @@ function renderSourcesSection(sources, lang) {
     }
     const sourcesHeading = escapeHTML(getLocalizedString(SOURCES_HEADING_LABELS, lang));
     return `
-    <footer class="article-footer">
-      <section class="article-sources">
-        <h2>${sourcesHeading}</h2>
-        <ul>
-          ${sources
+    <section class="article-sources">
+      <h2>${sourcesHeading}</h2>
+      <ul>
+        ${sources
         .map((source) => {
         const safeSourceTitle = escapeHTML(source.title);
         const href = isSafeURL(source.url) ? escapeHTML(source.url) : '#';
         return `<li><a href="${href}" target="_blank" rel="noopener noreferrer">${safeSourceTitle}</a></li>`;
     })
         .join('\n          ')}
-        </ul>
-      </section>
-    </footer>
+      </ul>
+    </section>
     `;
 }
 /**

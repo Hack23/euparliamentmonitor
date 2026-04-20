@@ -31,18 +31,43 @@
     '#A8DADC', // light teal
   ];
 
-  const GRID_COLOR = 'rgba(0, 0, 0, 0.06)';
-  const TICK_COLOR = '#6c757d';
   const FONT_FAMILY = "'Segoe UI', system-ui, -apple-system, sans-serif";
+
+  /* ── Theme-aware colour helper ───────────────────────────────────── */
+
+  /**
+   * Returns grid and tick colours that are legible in the current colour
+   * scheme.  Reads `document.documentElement.dataset.theme` first, then
+   * falls back to the `prefers-color-scheme` media query.
+   *
+   * @returns {{ gridColor: string, tickColor: string }}
+   */
+  function getThemeColors() {
+    var isDark = false;
+    var themeAttr = document.documentElement.dataset
+      ? document.documentElement.dataset.theme
+      : undefined;
+    if (themeAttr === 'dark') {
+      isDark = true;
+    } else if (themeAttr !== 'light' && typeof window !== 'undefined' &&
+               window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      isDark = true;
+    }
+    return isDark
+      ? { gridColor: 'rgba(255, 255, 255, 0.10)', tickColor: '#adb5bd' }
+      : { gridColor: 'rgba(0, 0, 0, 0.08)',       tickColor: '#6c757d' };
+  }
 
   /* ── Chart.js global defaults ────────────────────────────────────── */
 
   function applyGlobalDefaults() {
     if (typeof Chart === 'undefined') return;
 
+    var colors = getThemeColors();
+
     Chart.defaults.font.family = FONT_FAMILY;
     Chart.defaults.font.size = 12;
-    Chart.defaults.color = TICK_COLOR;
+    Chart.defaults.color = colors.tickColor;
     Chart.defaults.responsive = true;
     Chart.defaults.maintainAspectRatio = true;
     Chart.defaults.animation = { duration: 600, easing: 'easeOutQuart' };
@@ -84,6 +109,9 @@
   }
 
   function buildOptions(type, userOpts) {
+    var colors = getThemeColors();
+    var gridColor = colors.gridColor;
+    var tickColor = colors.tickColor;
     const opts = Object.assign({}, userOpts || {});
 
     /* Scale defaults for cartesian charts */
@@ -92,19 +120,19 @@
       if (!opts.scales.x) opts.scales.x = {};
       if (!opts.scales.y) opts.scales.y = {};
       opts.scales.x.grid = Object.assign(
-        { color: GRID_COLOR },
+        { color: gridColor },
         opts.scales.x.grid
       );
       opts.scales.y.grid = Object.assign(
-        { color: GRID_COLOR },
+        { color: gridColor },
         opts.scales.y.grid
       );
       opts.scales.x.ticks = Object.assign(
-        { color: TICK_COLOR, font: { size: 11 } },
+        { color: tickColor, font: { size: 11 } },
         opts.scales.x.ticks
       );
       opts.scales.y.ticks = Object.assign(
-        { color: TICK_COLOR, font: { size: 11 } },
+        { color: tickColor, font: { size: 11 } },
         opts.scales.y.ticks
       );
       if (type === 'bar') {
@@ -200,15 +228,62 @@
     }
   }
 
+  /* ── Theme-change observer ───────────────────────────────────────── */
+
+  /**
+   * Re-apply scale/tick colours to every existing Chart instance when the
+   * `data-theme` attribute changes on <html>.
+   */
+  function onThemeChange() {
+    applyGlobalDefaults();
+    if (typeof Chart === 'undefined' || !Chart.instances) return;
+    var colors = getThemeColors();
+    var instances = Object.values(Chart.instances);
+    for (var i = 0; i < instances.length; i++) {
+      var chart = instances[i];
+      if (!chart || !chart.options) continue;
+      var scales = chart.options.scales;
+      if (scales) {
+        var scaleKeys = Object.keys(scales);
+        for (var k = 0; k < scaleKeys.length; k++) {
+          var scale = scales[scaleKeys[k]];
+          if (scale.grid) scale.grid.color = colors.gridColor;
+          if (scale.ticks) scale.ticks.color = colors.tickColor;
+        }
+      }
+      chart.update('none');
+    }
+  }
+
   /* ── Bootstrap ───────────────────────────────────────────────────── */
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function () {
       applyGlobalDefaults();
       hydrateCharts();
+      if (typeof MutationObserver !== 'undefined') {
+        new MutationObserver(function (mutations) {
+          for (var i = 0; i < mutations.length; i++) {
+            if (mutations[i].attributeName === 'data-theme') {
+              onThemeChange();
+              break;
+            }
+          }
+        }).observe(document.documentElement, { attributes: true });
+      }
     });
   } else {
     applyGlobalDefaults();
     hydrateCharts();
+    if (typeof MutationObserver !== 'undefined') {
+      new MutationObserver(function (mutations) {
+        for (var i = 0; i < mutations.length; i++) {
+          if (mutations[i].attributeName === 'data-theme') {
+            onThemeChange();
+            break;
+          }
+        }
+      }).observe(document.documentElement, { attributes: true });
+    }
   }
 })();

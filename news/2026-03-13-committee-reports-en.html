@@ -76,18 +76,31 @@
     <div class="site-header__inner">
       <a href="../index.html" class="site-header__brand" aria-label="EU Parliament Monitor">
         <picture class="site-header__logo-picture">
-          <source srcset="../images/favicon-96x96.webp" type="image/webp">
-          <img class="site-header__logo" src="../images/favicon-96x96.png" alt="" width="36" height="36" aria-hidden="true">
+          <source srcset="../images/header-logo.webp" type="image/webp">
+          <img class="site-header__logo site-header__logo--header" src="../images/header-logo.png" alt="" width="72" height="48" aria-hidden="true">
         </picture>
         <span>
           <span class="site-header__title">EU Parliament Monitor</span>
           <span class="site-header__subtitle">European Parliament Intelligence</span>
         </span>
       </a>
+      <button type="button" class="theme-toggle" aria-label="Toggle dark/light theme"><span class="theme-toggle__icon--light" aria-hidden="true">🌙</span><span class="theme-toggle__icon--dark" aria-hidden="true">☀️</span></button>
       <nav class="site-header__langs" role="navigation" aria-label="Language selection">
         <a href="2026-03-13-committee-reports-en.html" class="lang-link active" hreflang="en" lang="en" title="English">🇬🇧 EN</a>
+        <a href="2026-03-13-committee-reports-sv.html" class="lang-link" hreflang="sv" lang="sv" title="Svenska">🇸🇪 SV</a>
+        <a href="2026-03-13-committee-reports-da.html" class="lang-link" hreflang="da" lang="da" title="Dansk">🇩🇰 DA</a>
+        <a href="2026-03-13-committee-reports-no.html" class="lang-link" hreflang="no" lang="no" title="Norsk">🇳🇴 NO</a>
+        <a href="2026-03-13-committee-reports-fi.html" class="lang-link" hreflang="fi" lang="fi" title="Suomi">🇫🇮 FI</a>
+        <a href="2026-03-13-committee-reports-de.html" class="lang-link" hreflang="de" lang="de" title="Deutsch">🇩🇪 DE</a>
+        <a href="2026-03-13-committee-reports-fr.html" class="lang-link" hreflang="fr" lang="fr" title="Français">🇫🇷 FR</a>
+        <a href="2026-03-13-committee-reports-es.html" class="lang-link" hreflang="es" lang="es" title="Español">🇪🇸 ES</a>
+        <a href="2026-03-13-committee-reports-nl.html" class="lang-link" hreflang="nl" lang="nl" title="Nederlands">🇳🇱 NL</a>
+        <a href="2026-03-13-committee-reports-ar.html" class="lang-link" hreflang="ar" lang="ar" title="العربية">🇸🇦 AR</a>
+        <a href="2026-03-13-committee-reports-he.html" class="lang-link" hreflang="he" lang="he" title="עברית">🇮🇱 HE</a>
+        <a href="2026-03-13-committee-reports-ja.html" class="lang-link" hreflang="ja" lang="ja" title="日本語">🇯🇵 JA</a>
+        <a href="2026-03-13-committee-reports-ko.html" class="lang-link" hreflang="ko" lang="ko" title="한국어">🇰🇷 KO</a>
+        <a href="2026-03-13-committee-reports-zh.html" class="lang-link" hreflang="zh" lang="zh" title="中文">🇨🇳 ZH</a>
       </nav>
-      <button type="button" class="theme-toggle" aria-label="Toggle dark/light theme"><span class="theme-toggle__icon--light" aria-hidden="true">🌙</span><span class="theme-toggle__icon--dark" aria-hidden="true">☀️</span></button>
     </div>
   </header>
 
@@ -254,46 +267,11 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2008-2026 <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden | v0.7.14</p>
-      <p class="footer-disclaimer"><span aria-hidden="true">⚠️</span> This platform is under ongoing improvement. Please <a href="https://github.com/Hack23/euparliamentmonitor/issues">report any issues on GitHub</a>.</p>
+      <p>&copy; 2008-2026 <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden | v0.8.39</p>
+      <p class="footer-disclaimer"><span aria-hidden="true">⚠️</span> This platform is under ongoing improvement. <a href="https://github.com/Hack23/euparliamentmonitor/issues">report any issues on GitHub</a>.</p>
     </div>
   </footer>
 
-  <script>
-  (function(){
-    var bar=document.querySelector('.reading-progress');
-    if(!bar)return;
-    bar.style.display='block';
-    window.addEventListener('scroll',function(){
-      var h=document.documentElement;
-      var scrollTop=h.scrollTop||document.body.scrollTop;
-      var scrollHeight=h.scrollHeight-h.clientHeight;
-      bar.style.width=scrollHeight>0?((scrollTop/scrollHeight)*100)+'%':'0%';
-    },{passive:true});
-  })();
-  </script>
-<script>
-  (function(){
-    var docEl=document.documentElement;
-    var t=localStorage.getItem('ep-theme');
-    var storedTheme=t==='light'?'light':t==='dark'?'dark':null;
-    if(storedTheme){
-      docEl.setAttribute('data-theme',storedTheme);
-    }else if(t){
-      localStorage.removeItem('ep-theme');
-    }
-    var btn=document.querySelector('.theme-toggle');
-    if(!btn)return;
-    btn.addEventListener('click',function(){
-      var cur=docEl.getAttribute('data-theme');
-      if(!cur){
-        cur=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';
-      }
-      var next=cur==='dark'?'light':'dark';
-      docEl.setAttribute('data-theme',next);
-      localStorage.setItem('ep-theme',next);
-    });
-  })();
-  </script>
+    <script src="../js/article-runtime.js" defer></script>
 </body>
 </html>

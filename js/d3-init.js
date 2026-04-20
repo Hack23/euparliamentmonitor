@@ -117,6 +117,8 @@
     var data = extractMindmapData(container);
     if (!data.children || data.children.length === 0) return;
 
+    if (container.querySelector('svg.d3-treemap')) return;
+
     var width = Math.min(container.clientWidth || 600, 800);
     var height = Math.round(width * 0.6);
 
@@ -248,6 +250,8 @@
     var data = extractNetworkData(container);
     if (data.nodes.length < 2) return;
 
+    if (container.querySelector('.d3-network-wrapper')) return;
+
     var width = Math.min(container.clientWidth || 600, 800);
     var height = Math.round(width * 0.65);
 
@@ -370,6 +374,8 @@
 
     var section = matrix.closest('.swot-analysis');
     if (!section) return;
+
+    if (matrix.querySelector('.d3-swot-chart-wrapper')) return;
 
     var width = Math.min(section.clientWidth || 500, 600);
     var height = 180;
