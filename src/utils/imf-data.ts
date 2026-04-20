@@ -128,7 +128,13 @@ export const IMF_AGGREGATE_LABELS: Readonly<Record<string, string>> = {
 export const IMF_POLICY_INDICATORS: Readonly<
   Record<IMFMacroIndicatorKey, IMFPolicyIndicatorMapping>
 > = {
-  gdp: { database: 'WEO', indicator: 'NGDPD', frequency: 'A', label: 'GDP (current USD)', hasForecast: true },
+  gdp: {
+    database: 'WEO',
+    indicator: 'NGDPD',
+    frequency: 'A',
+    label: 'GDP (current USD)',
+    hasForecast: true,
+  },
   gdpGrowth: {
     database: 'WEO',
     indicator: 'NGDP_RPCH',
@@ -563,13 +569,15 @@ const MILLION = 1e6;
  * @param mapping - Indicator mapping entry (from {@link IMF_POLICY_INDICATORS}).
  * @returns A human-readable formatted string, or `'N/A'` for `null` / non-finite inputs.
  */
-export function formatIMFValue(
-  value: number | null,
-  mapping: IMFPolicyIndicatorMapping
-): string {
+export function formatIMFValue(value: number | null, mapping: IMFPolicyIndicatorMapping): string {
   if (value === null || !Number.isFinite(value)) return 'N/A';
   const label = mapping.label.toLowerCase();
-  if (label.includes('% of gdp') || label.includes('growth') || label.includes('inflation') || label.includes('unemployment')) {
+  if (
+    label.includes('% of gdp') ||
+    label.includes('growth') ||
+    label.includes('inflation') ||
+    label.includes('unemployment')
+  ) {
     return `${value.toFixed(1)}%`;
   }
   if (label.includes('gdp') && !label.includes('per capita')) {
