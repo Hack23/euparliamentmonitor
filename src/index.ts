@@ -59,6 +59,13 @@ export {
 export { WorldBankMCPClient, getWBMCPClient, closeWBMCPClient } from './mcp/wb-mcp-client.js';
 
 export {
+  IMFMCPClient,
+  IMF_MCP_TOOLS,
+  getIMFMCPClient,
+  closeIMFMCPClient,
+} from './mcp/imf-mcp-client.js';
+
+export {
   type CircuitState,
   type CircuitBreakerOptions,
   CircuitBreaker,
@@ -147,6 +154,19 @@ export {
   validateTranslationCompleteness,
 } from './utils/content-validator.js';
 
+// ─── Economic-context evidence helpers (Wave 1 dual-source) ──────────────────
+export {
+  WORLD_BANK_STRONG_FINGERPRINTS,
+  WORLD_BANK_INDICATOR_CODES,
+  WORLD_BANK_FINGERPRINTS,
+  hasWorldBankEvidence,
+  articlePolicyHasWorldBank,
+  IMF_STRONG_FINGERPRINTS,
+  IMF_INDICATOR_CODES,
+  hasIMFEvidence,
+  articlePolicyHasEconomicContext,
+} from './utils/content-validator.js';
+
 // ─── Content Metadata ────────────────────────────────────────────────────────
 export { enrichMetadataFromContent } from './utils/content-metadata.js';
 
@@ -203,6 +223,24 @@ export {
   isEUMemberState,
   buildEconomicContextHTML,
 } from './utils/world-bank-data.js';
+
+// ─── IMF Data Utilities ──────────────────────────────────────────────────────
+export {
+  IMF_EU_COUNTRY_CODES,
+  IMF_COUNTRY_CODE_OVERRIDES,
+  IMF_EURO_AREA_CODE,
+  IMF_AGGREGATE_LABELS,
+  IMF_POLICY_INDICATORS,
+  IMF_INDICATOR_SDMX_CODES,
+  getIMFCountryCode,
+  isIMFEUMemberState,
+  parseSDMXJSON,
+  getMostRecentObservation,
+  getForecastPoints,
+  formatIMFValue,
+  buildIMFEconomicContext,
+  buildIMFEconomicContextHTML,
+} from './utils/imf-data.js';
 
 // ─── Templates ───────────────────────────────────────────────────────────────
 export { generateArticleHTML } from './templates/article-template.js';

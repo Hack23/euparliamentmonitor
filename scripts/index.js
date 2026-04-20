@@ -41,6 +41,7 @@ export * from './types/index.js';
 export { MCPConnection, MCPSessionExpiredError, MCPRateLimitError, isRetriableError, formatRetryAfter, parseSSEResponse, } from './mcp/mcp-connection.js';
 export { EuropeanParliamentMCPClient, getEPMCPClient, closeEPMCPClient, } from './mcp/ep-mcp-client.js';
 export { WorldBankMCPClient, getWBMCPClient, closeWBMCPClient } from './mcp/wb-mcp-client.js';
+export { IMFMCPClient, IMF_MCP_TOOLS, getIMFMCPClient, closeIMFMCPClient, } from './mcp/imf-mcp-client.js';
 export { CircuitBreaker, withRetry, } from './mcp/mcp-retry.js';
 export { MCPHealthMonitor } from './mcp/mcp-health.js';
 // ─── Intelligence Analysis ───────────────────────────────────────────────────
@@ -55,6 +56,8 @@ export { scoreSignificance, scoreBatch, clampScore, deriveDecision, formatScoreM
 export { parseFrontmatter, aggregateSWOT, aggregateRisks, extractSummaryLine, aggregateConfidence, findMarkdownFiles, generateEditorialRecommendations, buildSynthesisSummary, formatSynthesisMarkdown, } from './generators/synthesis-summary.js';
 // ─── Content Validation ──────────────────────────────────────────────────────
 export { validateArticleContent, validateTranslationCompleteness, } from './utils/content-validator.js';
+// ─── Economic-context evidence helpers (Wave 1 dual-source) ──────────────────
+export { WORLD_BANK_STRONG_FINGERPRINTS, WORLD_BANK_INDICATOR_CODES, WORLD_BANK_FINGERPRINTS, hasWorldBankEvidence, articlePolicyHasWorldBank, IMF_STRONG_FINGERPRINTS, IMF_INDICATOR_CODES, hasIMFEvidence, articlePolicyHasEconomicContext, } from './utils/content-validator.js';
 // ─── Content Metadata ────────────────────────────────────────────────────────
 export { enrichMetadataFromContent } from './utils/content-metadata.js';
 // ─── News Metadata ───────────────────────────────────────────────────────────
@@ -70,6 +73,8 @@ export { parseArticleFilename, formatSlug, calculateReadTime, escapeHTML, isSafe
 export { detectCategory } from './utils/article-category.js';
 // ─── World Bank Data Utilities ───────────────────────────────────────────────
 export { EU_COUNTRY_CODES, EU_AGGREGATE_CODE, COMPARISON_COUNTRIES, WB_AGGREGATE_LABELS, POLICY_INDICATORS, parseWorldBankCSV, formatIndicatorValue, getMostRecentValue, buildEconomicContext, getWorldBankCountryCode, isEUMemberState, buildEconomicContextHTML, } from './utils/world-bank-data.js';
+// ─── IMF Data Utilities ──────────────────────────────────────────────────────
+export { IMF_EU_COUNTRY_CODES, IMF_COUNTRY_CODE_OVERRIDES, IMF_EURO_AREA_CODE, IMF_AGGREGATE_LABELS, IMF_POLICY_INDICATORS, IMF_INDICATOR_SDMX_CODES, getIMFCountryCode, isIMFEUMemberState, parseSDMXJSON, getMostRecentObservation, getForecastPoints, formatIMFValue, buildIMFEconomicContext, buildIMFEconomicContextHTML, } from './utils/imf-data.js';
 // ─── Templates ───────────────────────────────────────────────────────────────
 export { generateArticleHTML } from './templates/article-template.js';
 export { computeArticleQualityScore, buildTableOfContents, buildQualityScoreBadge, } from './templates/section-builders.js';

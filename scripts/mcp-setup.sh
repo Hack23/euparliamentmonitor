@@ -26,6 +26,13 @@ export EP_MCP_GATEWAY_URL="http://host.docker.internal:80/mcp/european-parliamen
 # World Bank MCP server also available through gateway
 export WORLD_BANK_MCP_SERVER_URL="http://host.docker.internal:80/mcp/world-bank"
 
+# IMF Data MCP server (c-cf/imf-data-mcp) exposed through the same gateway.
+# Introduced in Wave 1 of the IMF migration (see
+# analysis/methodologies/imf-indicator-mapping.md). The upstream Python
+# server is not yet registered in .github/copilot-mcp.json — this URL is
+# reserved so workflow scripts can probe it once the gateway is populated.
+export IMF_MCP_SERVER_URL="http://host.docker.internal:80/mcp/imf-data"
+
 # Extract auth token using node (repo runtime — no python3 dependency)
 _MCP_CONFIG_PATH="${GH_AW_MCP_CONFIG:-/home/runner/.copilot/mcp-config.json}"
 if [ -f "$_MCP_CONFIG_PATH" ]; then

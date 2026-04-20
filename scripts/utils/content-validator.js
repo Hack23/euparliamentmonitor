@@ -1092,6 +1092,97 @@ export function articlePolicyHasWorldBank(html, articleType, _analysisDir) {
         return true;
     return hasWorldBankEvidence(html);
 }
+// ─── IMF Evidence (Wave 1 additive) ───────────────────────────────────────────
+/**
+ * Strong IMF evidence tokens — substring-matched (case-insensitive
+ * where appropriate). Any one of these is sufficient evidence that
+ * the article or analysis file references IMF macro/fiscal context.
+ *
+ * Kept aligned with `analysis/methodologies/imf-indicator-mapping.md`
+ * and `IMF_MCP_TOOLS` in `src/mcp/imf-mcp-client.ts`.
+ */
+export const IMF_STRONG_FINGERPRINTS = [
+    'IMF',
+    'International Monetary Fund',
+    'World Economic Outlook',
+    'WEO',
+    'Fiscal Monitor',
+    'data.imf.org',
+    'imf-list-databases',
+    'imf-search-databases',
+    'imf-get-parameter-defs',
+    'imf-get-parameter-codes',
+    'imf-fetch-data',
+];
+/**
+ * SDMX indicator codes published by IMF databases (WEO, IFS, FM, BOP,
+ * ER) that the EU Parliament Monitor cites. Matched with the same
+ * word-boundary rule as World Bank codes so English prose like "debt
+ * is high" does not accidentally satisfy the IMF gate.
+ *
+ * Kept in sync with `IMF_POLICY_INDICATORS` in `src/utils/imf-data.ts`
+ * via the `IMF_INDICATOR_SDMX_CODES` re-export — duplicated here as a
+ * literal array so the content-validator module has zero runtime deps
+ * on `imf-data.ts` (prevents circular imports through `file-utils`).
+ */
+export const IMF_INDICATOR_CODES = [
+    'NGDPD',
+    'NGDP_RPCH',
+    'NGDPDPC',
+    'PCPIPCH',
+    'LUR',
+    'LP',
+    'BCA_NGDPD',
+    'TX_RPCH',
+    'GGXWDG_NGDP',
+    'GGXONLB_NGDP',
+    'GGSB_NPGDP',
+    'BFD_BP6_USD',
+    'EREER_IX',
+    'FPOLM_PA',
+];
+/**
+ * Detect IMF sourcing in any piece of text (article body OR analysis
+ * markdown). Returns `true` when the text contains either a strong
+ * fingerprint (the phrase "IMF", a WEO/FM product name, or a tool
+ * identifier) or an SDMX indicator code with clean word boundaries.
+ *
+ * @param text - Text to scan.
+ * @returns `true` when at least one strong or word-bounded IMF fingerprint matches.
+ */
+export function hasIMFEvidence(text) {
+    for (const fp of IMF_STRONG_FINGERPRINTS) {
+        if (text.includes(fp))
+            return true;
+    }
+    for (const code of IMF_INDICATOR_CODES) {
+        if (textContainsIndicatorCode(text, code))
+            return true;
+    }
+    return false;
+}
+/**
+ * Wave-2-ready OR-gate: verify that a policy article (or its linked
+ * analysis artefacts) cites **either** World Bank OR IMF evidence.
+ *
+ * During Wave 1 this helper is **available but not yet wired into the
+ * strict validator**: `articlePolicyHasWorldBank` remains the blocking
+ * quality gate. Callers that want to accept IMF-sourced context now
+ * can call this helper directly. Wave 2 (see migration plan §5) will
+ * flip `validate-articles.ts` to use this as the default gate and
+ * rename `POLICY_SLUGS_REQUIRING_WORLD_BANK` to
+ * `POLICY_SLUGS_REQUIRING_ECONOMIC_CONTEXT`.
+ *
+ * @param html - Article HTML or aggregated text including analysis files.
+ * @param articleType - Slug of the article category (e.g. `"committee-reports"`).
+ * @returns `true` when at least one of WB or IMF evidence is present,
+ *   or when the article type is not on the mandatory list.
+ */
+export function articlePolicyHasEconomicContext(html, articleType) {
+    if (!POLICY_SLUGS_REQUIRING_WORLD_BANK.has(articleType))
+        return true;
+    return hasWorldBankEvidence(html) || hasIMFEvidence(html);
+}
 /**
  * Validate the quality of a generated article.
  *

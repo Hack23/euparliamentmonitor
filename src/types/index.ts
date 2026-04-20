@@ -183,6 +183,21 @@ export type {
 } from './world-bank.js';
 
 export type {
+  IMFMCPClientOptions,
+  IMFDatabaseId,
+  IMFFrequency,
+  IMFObservation,
+  IMFSeries,
+  IMFDatabase,
+  IMFForecastPoint,
+  IMFMacroIndicatorKey,
+  IMFPolicyIndicatorMapping,
+  IMFEconomicIndicatorSummary,
+  IMFEconomicContext,
+  IMFMCPToolName,
+} from './imf.js';
+
+export type {
   SwotItem,
   SwotAnalysis,
   SwotStrings,
