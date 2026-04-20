@@ -585,7 +585,7 @@ export const generateCommitteeReport = async (committee, language, mcpData) => {
    - Prose ratio ≥60% (paragraphs, not bullet lists)
    - ≥1 Chart.js canvas with real EP data
    - Zero `[AI_ANALYSIS_REQUIRED]` markers in final output
-   - World Bank economic data included where policy has economic dimension
+   - World Bank **or** IMF economic data included where policy has economic dimension (either satisfies the Wave-2 economic-context gate)
 
 4. **No Early Completion**: If the time budget says 15 minutes for article generation, use ALL 15 minutes. If you finish Pass 2 early, do Pass 3. Rushing produces shallow articles that fail the Economist Test.
 

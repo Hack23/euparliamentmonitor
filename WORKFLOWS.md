@@ -294,9 +294,9 @@ graph TD
 | **Concurrency group** | `gh-aw-${{ github.workflow }}` |
 | **Node.js version** | 25 |
 | **EP MCP Server** | `european-parliament-mcp-server` (globally installed) |
-| **Data sources** | European Parliament MCP Server (primary), World Bank MCP (optional) |
+| **Data sources** | European Parliament MCP Server (primary), World Bank MCP (macro + social/env/health), IMF MCP (macro/fiscal/trade/monetary with WEO forecasts — Wave-1 dual-source, see `.github/skills/imf-data-integration.md`) |
 | **Analysis stage** | `--analysis` flag enables 18-method political intelligence pipeline before article generation |
-| **Analysis output** | `analysis/daily/{date}/` for cross-article artifacts (for example shared synthesis outputs), plus `analysis/daily/{date}/{article-type}/` for article-type-scoped classification, threat-assessment, risk-scoring, and data (EP feeds, World Bank, OSINT) artifacts committed to PR. Article-type scoping prevents merge conflicts between concurrent workflows. |
+| **Analysis output** | `analysis/daily/{date}/` for cross-article artifacts (for example shared synthesis outputs), plus `analysis/daily/{date}/{article-type}/` for article-type-scoped classification, threat-assessment, risk-scoring, and data (EP feeds, World Bank, IMF, OSINT) artifacts committed to PR. Article-type scoping prevents merge conflicts between concurrent workflows. |
 
 #### Compilation Process
 
