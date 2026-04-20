@@ -30,8 +30,8 @@
 
 ### Core Governing Bloc (EPP + S&D + Renew)
 - **Combined seats:** ~394 (54.7% of 720 total)
-- **Majority threshold:** 360 (simple majority) / 360+ (procedural)
-- **Structural surplus:** ~34 seats above threshold
+- **Majority threshold:** 361 seats (simple majority in a 720-seat Parliament)
+- **Structural surplus:** ~33 seats above majority
 - **Cohesion assessment:** 🟡 Estimated 85-90% on mainstream legislative texts
 
 The Grand Centre coalition is the primary engine of EP10 legislative productivity. Its slim structural majority means that:

@@ -1,3 +1,6 @@
+<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+
 # Session Baseline — EP10 Q1 2026 Comprehensive Record
 
 ## Run Context

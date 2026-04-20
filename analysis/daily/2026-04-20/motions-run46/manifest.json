@@ -6,7 +6,8 @@
   "status": "analysis-complete",
   "degradedMode": true,
   "degradedModeReason": "EP API individual text content unavailable (HTTP 404 for TA-0083+) - Day 10+ outage",
-  "analysisConfidence": "HIGH",
+  "analysisConfidence": "MEDIUM",
+  "analysisConfidenceRationale": "Overall confidence is MEDIUM because individual text content is unavailable from EP API (textContentAvailable=0) and per-MEP voting data is not exposed by EP Open Data Portal. Metadata-level confidence (adopted text identification, group composition, aggregate RCV counts) is HIGH, but deep per-text political analysis relies on inference from subject codes, procedural references, and editorial context rather than primary text content.",
   "created": "2026-04-20T00:00:00Z",
   "dataRetrieval": {
     "adoptedTextsFromFeed": 203,

@@ -143,6 +143,7 @@ Scores are justified with specific evidence. The composite score (max 30) determ
 ## Aggregate Impact Rankings
 
 ```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","fontFamily":"Inter, Helvetica, Arial, sans-serif","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
 xychart-beta
     title "EP10 Q1 2026 — Adopted Text Impact Scores (max 30)"
     x-axis ["TA-0096<br>US Tariffs", "TA-0079<br>Defence", "TA-0092<br>Banking", "TA-0094<br>Anti-Corrupt", "TA-0064<br>Housing", "TA-0066<br>Copyright/AI", "TA-0077<br>Enlargement", "TA-0058<br>Talent Pool", "TA-0006<br>Electoral", "TA-0086<br>WTO MC14"]
