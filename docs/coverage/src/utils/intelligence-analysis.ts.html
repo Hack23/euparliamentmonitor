@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">97.07% </span>
+                <span class="strong">97.23% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>465/479</span>
+                <span class='fraction'>458/471</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">91.45% </span>
+                <span class="strong">91.46% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>353/386</span>
+                <span class='fraction'>343/375</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">98.45% </span>
+                <span class="strong">98.68% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>382/388</span>
+                <span class='fraction'>375/380</span>
             </div>
         
             
@@ -1469,7 +1469,15 @@
 <a name='L1404'></a><a href='#L1404'>1404</a>
 <a name='L1405'></a><a href='#L1405'>1405</a>
 <a name='L1406'></a><a href='#L1406'>1406</a>
-<a name='L1407'></a><a href='#L1407'>1407</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L1407'></a><a href='#L1407'>1407</a>
+<a name='L1408'></a><a href='#L1408'>1408</a>
+<a name='L1409'></a><a href='#L1409'>1409</a>
+<a name='L1410'></a><a href='#L1410'>1410</a>
+<a name='L1411'></a><a href='#L1411'>1411</a>
+<a name='L1412'></a><a href='#L1412'>1412</a>
+<a name='L1413'></a><a href='#L1413'>1413</a>
+<a name='L1414'></a><a href='#L1414'>1414</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1787,23 +1795,29 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1056x</span>
-<span class="cline-any cline-yes">1056x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">176x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">176x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">176x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">176x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">176x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">176x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -2886,6 +2900,7 @@
  */
 &nbsp;
 import { escapeHTML } from './file-utils.js';
+import { AI_MARKER } from '../constants/analysis-constants.js';
 import type {
   VotingAnomalyIntelligence,
   CoalitionIntelligence,
@@ -3179,37 +3194,43 @@ function severityFromScore(score: number): StakeholderPerspective['severity'] {
 }
 &nbsp;
 /**
- * Derive a factual reasoning sentence for a stakeholder group based on
- * the topic context and importance score. This replaces the previous
- * AI_MARKER default with neutral, data-driven descriptions.
+ * Fallback stakeholder reasoning — returns the `AI_MARKER` sentinel.
  *
- * @param stakeholder - The stakeholder group identifier
- * @param topic - Short description of the parliamentary action
- * @param score - Importance score (0-1)
- * @returns Factual reasoning sentence
+ * **AI-First principle** (see `.github/skills/ai-first-quality.md`): all
+ * narrative/interpretive text — including per-stakeholder reasoning — is
+ * authored by the AI agent after it reads the run's analysis markdown as
+ * context.  This function deliberately returns the `AI_MARKER` so that:
+ *
+ * 1. The agentic workflow's article-rewriter step detects the slot and fills
+ *    it with AI-authored prose drawn from `intelligence/stakeholder-map.md`,
+ *    `existing/stakeholder-impact.md`, or equivalent AI-produced analysis.
+ * 2. {@link module:Utils/ValidateAnalysisCompleteness} refuses to publish any
+ *    article in which these markers leak through unreplaced, converting the
+ *    previous silent template-junk regression into a loud CI failure.
+ *
+ * Earlier revisions of this function returned plausible-looking template text
+ * (e.g. *"This parliamentary activity on 'voting period 2026-03-21–2026-04-20'
+ * has moderate implications for political group dynamics …"*).  That text
+ * read like AI-authored content but was entirely script-generated — the
+ * motions-run46 regression documented in the Analysis-to-Article Data Contract
+ * (`.github/prompts/SHARED_PROMPT_PATTERNS.md`).  Returning `AI_MARKER` fails
+ * loud instead of failing silent.
+ *
+ * Signature is preserved (stakeholder/topic/score inputs) for back-compat
+ * with any caller-constructed severity/impact scoring.  The marker output is
+ * independent of these inputs.
+ *
+ * @param _stakeholder - Stakeholder group identifier (unused — kept for API stability)
+ * @param _topic - Short topic description (unused — kept for API stability)
+ * @param _score - Importance score (unused — kept for API stability)
+ * @returns The `AI_MARKER` sentinel for AI-agent replacement.
  */
 function deriveStakeholderReasoning(
-  stakeholder: AnalysisStakeholderType,
-  topic: string,
-  score: number
+  _stakeholder: AnalysisStakeholderType,
+  _topic: string,
+  _score: number
 ): string {
-  const impactLevel = score &gt;= 0.7 ? 'significant' : score &gt;= 0.4 ? 'moderate' : 'limited';
-  switch (stakeholder) {
-    case 'political_groups':
-      return `This parliamentary activity on "${topic}" has ${impactLevel} implications for political group dynamics, affecting coalition-building strategies and inter-group negotiation positions.`;
-    case 'civil_society':
-      return `Civil society organisations monitoring "${topic}" face ${impactLevel} impact on transparency, democratic participation, and citizens' rights advocacy.`;
-    case 'industry':
-      return `Industry and business stakeholders observe ${impactLevel} regulatory implications from "${topic}", affecting compliance requirements and market conditions.`;
-    case 'national_govts':
-      return `National governments assess ${impactLevel} impact from "${topic}" on subsidiarity, implementation requirements, and member state policy alignment.`;
-    case 'citizens':
-      return `EU citizens experience ${impactLevel} consequences from "${topic}" in terms of rights, services, and democratic representation.`;
-    case 'eu_institutions':
-      return `EU institutional dynamics show ${impactLevel} effects from "${topic}", influencing inter-institutional relations between Parliament, Commission, and Council.`;
-<span class="branch-6 cbranch-no" title="branch not covered" >    default:</span>
-<span class="cstat-no" title="statement not covered" >      return `Stakeholder impact assessment for "${topic}" indicates ${impactLevel} relevance.`;</span>
-  }
+  return AI_MARKER;
 }
 &nbsp;
 /**
@@ -4288,7 +4309,7 @@ export function computeStakeholderInfluenceTrajectory(
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-20T15:51:09.244Z
+                at 2026-04-20T22:21:00.143Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

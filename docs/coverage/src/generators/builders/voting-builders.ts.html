@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">98.49% </span>
+                <span class="strong">98.5% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>131/133</span>
+                <span class='fraction'>132/134</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>104/104</span>
+                <span class='fraction'>105/105</span>
             </div>
         
             
@@ -772,7 +772,24 @@
 <a name='L707'></a><a href='#L707'>707</a>
 <a name='L708'></a><a href='#L708'>708</a>
 <a name='L709'></a><a href='#L709'>709</a>
-<a name='L710'></a><a href='#L710'>710</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L710'></a><a href='#L710'>710</a>
+<a name='L711'></a><a href='#L711'>711</a>
+<a name='L712'></a><a href='#L712'>712</a>
+<a name='L713'></a><a href='#L713'>713</a>
+<a name='L714'></a><a href='#L714'>714</a>
+<a name='L715'></a><a href='#L715'>715</a>
+<a name='L716'></a><a href='#L716'>716</a>
+<a name='L717'></a><a href='#L717'>717</a>
+<a name='L718'></a><a href='#L718'>718</a>
+<a name='L719'></a><a href='#L719'>719</a>
+<a name='L720'></a><a href='#L720'>720</a>
+<a name='L721'></a><a href='#L721'>721</a>
+<a name='L722'></a><a href='#L722'>722</a>
+<a name='L723'></a><a href='#L723'>723</a>
+<a name='L724'></a><a href='#L724'>724</a>
+<a name='L725'></a><a href='#L725'>725</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1139,6 +1156,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">77x</span>
 <span class="cline-any cline-yes">94x</span>
 <span class="cline-any cline-yes">74x</span>
@@ -1204,6 +1233,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">60x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1528,13 +1558,15 @@ import {
 import { AI_MARKER } from '../../constants/analysis-constants.js';
 import {
   buildOutcomeMatrix,
-  buildAiMarkerImpactAssessment,
+  buildFallbackImpactAssessment,
   buildCoalitionMetricsFromPatterns,
   buildStakeholderMetricsFromVoting,
   buildStakeholderPanel,
+  applyAnalysisOverrides,
   EP_BLUE_TRANSPARENT,
   EP_BLUE_BORDER,
   CIVIL_SOCIETY,
+  type AnalysisOverrides,
 } from './shared-builders.js';
 &nbsp;
 /**
@@ -1832,13 +1864,24 @@ function buildVotingStakeholderPanel(
 /**
  * Build deep analysis for voting-based articles (motions, weekly/monthly review).
  *
+ * When the caller supplies {@link AnalysisOverrides} sourced from AI-authored
+ * analysis markdown (via {@link module:Utils/ParseAnalysisStakeholders}), the
+ * override values replace the template-derived stakeholder perspectives,
+ * outcome matrix, and impact assessment.  Without overrides, the default
+ * fallback template output is returned — this is the path that produced the
+ * regressed `2026-04-20-motions-run46-en.html` stakeholder cards before the
+ * Analysis-to-Article Data Contract was added.
+ *
  * @param dateFrom - Period start date
  * @param dateTo - Period end date
  * @param records - Voting records
  * @param patterns - Voting patterns
  * @param anomalies - Anomalies detected
  * @param questions - Parliamentary questions
- * @returns Deep analysis object
+ * @param overrides - Optional AI-authored overrides (stakeholder perspectives,
+ *   outcome matrix, impact assessment) — typically parsed from the run's
+ *   `stakeholder-map.md` / `stakeholder-impact.md` / `synthesis-summary.md`.
+ * @returns Deep analysis object, with overrides applied when present.
  */
 export function buildVotingAnalysis(
   dateFrom: string,
@@ -1846,7 +1889,8 @@ export function buildVotingAnalysis(
   records: readonly VotingRecord[],
   patterns: readonly VotingPattern[],
   anomalies: readonly VotingAnomaly[],
-  questions: readonly MotionsQuestion[]
+  questions: readonly MotionsQuestion[],
+  overrides?: AnalysisOverrides
 ): DeepAnalysis {
   const realRecords = records.filter((r) =&gt; r.result !== PLACEHOLDER_MARKER);
   const realPatterns = patterns.filter((p) =&gt; !/placeholder/i.test(p.group));
@@ -1863,7 +1907,7 @@ export function buildVotingAnalysis(
   const intensity = computeVotingIntensity(realRecords);
   const polarization = computePolarizationIndex(realPatterns);
 &nbsp;
-  return {
+  const base: DeepAnalysis = {
     what: buildVotingWhatText(
       dateFrom,
       dateTo,
@@ -1889,7 +1933,7 @@ export function buildVotingAnalysis(
     ],
     why: buildVotingWhyText(),
     stakeholderOutcomes: deriveStakeholderOutcomesFromVoting(realRecords, realPatterns),
-    impactAssessment: buildAiMarkerImpactAssessment(),
+    impactAssessment: buildFallbackImpactAssessment(),
     actionConsequences: deriveConsequencesFromVoting(realRecords, realAnomalies),
     mistakes: deriveMistakesFromAnomalies(realAnomalies),
     outlook: buildVotingOutlook(),
@@ -1913,6 +1957,7 @@ export function buildVotingAnalysis(
       },
     ]),
   };
+  return applyAnalysisOverrides(base, overrides);
 }
 &nbsp;
 /**
@@ -2197,7 +2242,7 @@ export function buildVotingMindmap(
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-20T15:51:09.244Z
+                at 2026-04-20T22:21:00.143Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

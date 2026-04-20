@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">96.55% </span>
+                <span class="strong">96.61% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>56/58</span>
+                <span class='fraction'>57/59</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>53/53</span>
+                <span class='fraction'>54/54</span>
             </div>
         
             
@@ -686,7 +686,15 @@
 <a name='L621'></a><a href='#L621'>621</a>
 <a name='L622'></a><a href='#L622'>622</a>
 <a name='L623'></a><a href='#L623'>623</a>
-<a name='L624'></a><a href='#L624'>624</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L624'></a><a href='#L624'>624</a>
+<a name='L625'></a><a href='#L625'>625</a>
+<a name='L626'></a><a href='#L626'>626</a>
+<a name='L627'></a><a href='#L627'>627</a>
+<a name='L628'></a><a href='#L628'>628</a>
+<a name='L629'></a><a href='#L629'>629</a>
+<a name='L630'></a><a href='#L630'>630</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -948,6 +956,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">23x</span>
 <span class="cline-any cline-yes">23x</span>
 <span class="cline-any cline-yes">23x</span>
@@ -998,6 +1009,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1345,9 +1357,11 @@ import { buildDefaultStakeholderPerspectives } from '../../utils/intelligence-an
 import { AI_MARKER } from '../../constants/analysis-constants.js';
 import {
   buildOutcomeMatrix,
-  buildAiMarkerImpactAssessment,
+  buildFallbackImpactAssessment,
   buildStakeholderMetricsFromPipeline,
   buildStakeholderPanel,
+  applyAnalysisOverrides,
+  type AnalysisOverrides,
   CIVIL_SOCIETY,
 } from './shared-builders.js';
 &nbsp;
@@ -1562,21 +1576,24 @@ function buildPipelineFromPipelineData(
  * @param date - Publication date
  * @param lang - Target display language (default: 'en')
  * @param adoptedTextsHtml - Adopted texts HTML (also used to detect content presence)
- * @returns Deep analysis object
+ * @param overrides - Optional AI-authored overrides (see Analysis-to-Article
+ *   Data Contract in `.github/prompts/SHARED_PROMPT_PATTERNS.md`).
+ * @returns Deep analysis object, with overrides applied when present.
  */
 export function buildPropositionsAnalysis(
   proposalsHtml: string,
   pipelineData: PipelineData | null,
   date: string,
   lang: LanguageCode = 'en',
-  adoptedTextsHtml: string = ''
+  adoptedTextsHtml: string = '',
+  overrides?: AnalysisOverrides
 ): DeepAnalysis {
   const hasProposals = proposalsHtml.length &gt; 0 || adoptedTextsHtml.length &gt; 0;
   const healthScore = pipelineData?.healthScore ?? 0;
   const throughput = pipelineData?.throughput ?? 0;
   const pct = (healthScore * 100).toFixed(0);
 &nbsp;
-  return {
+  const base: DeepAnalysis = {
     what: hasProposals
       ? `Legislative pipeline assessment as of ${date}: Active proposals under consideration.`
       : `Legislative pipeline assessment as of ${date}: No new proposals detected in this period.`,
@@ -1589,7 +1606,7 @@ export function buildPropositionsAnalysis(
     when: [`Assessment date: ${date}`, 'Pipeline health reflects cumulative legislative progress'],
     why: buildPropositionsWhy(),
     stakeholderOutcomes: [buildPropositionsStakeholderOutcome(healthScore, pct)],
-    impactAssessment: buildAiMarkerImpactAssessment(),
+    impactAssessment: buildFallbackImpactAssessment(),
     actionConsequences: buildPropositionsConsequences(pct, healthScore, throughput),
     mistakes:
       healthScore &lt; 0.5
@@ -1621,6 +1638,7 @@ export function buildPropositionsAnalysis(
       },
     ]),
   };
+  return applyAnalysisOverrides(base, overrides);
 }
 &nbsp;
 /**
@@ -1939,7 +1957,7 @@ export function buildPropositionsMindmap(
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-20T15:51:09.351Z
+                at 2026-04-20T22:21:00.254Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>49/49</span>
+                <span class='fraction'>50/50</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>49/49</span>
+                <span class='fraction'>50/50</span>
             </div>
         
             
@@ -532,7 +532,22 @@
 <a name='L467'></a><a href='#L467'>467</a>
 <a name='L468'></a><a href='#L468'>468</a>
 <a name='L469'></a><a href='#L469'>469</a>
-<a name='L470'></a><a href='#L470'>470</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L470'></a><a href='#L470'>470</a>
+<a name='L471'></a><a href='#L471'>471</a>
+<a name='L472'></a><a href='#L472'>472</a>
+<a name='L473'></a><a href='#L473'>473</a>
+<a name='L474'></a><a href='#L474'>474</a>
+<a name='L475'></a><a href='#L475'>475</a>
+<a name='L476'></a><a href='#L476'>476</a>
+<a name='L477'></a><a href='#L477'>477</a>
+<a name='L478'></a><a href='#L478'>478</a>
+<a name='L479'></a><a href='#L479'>479</a>
+<a name='L480'></a><a href='#L480'>480</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -579,6 +594,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">22x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -695,6 +714,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1032,7 +1052,12 @@ import {
 } from '../../constants/languages.js';
 import { buildDefaultStakeholderPerspectives } from '../../utils/intelligence-analysis.js';
 import { AI_MARKER } from '../../constants/analysis-constants.js';
-import { buildOutcomeMatrix, buildCategoryDistributionPanel } from './shared-builders.js';
+import {
+  buildOutcomeMatrix,
+  buildCategoryDistributionPanel,
+  applyAnalysisOverrides,
+  type AnalysisOverrides,
+} from './shared-builders.js';
 &nbsp;
 // ─── Constant ─────────────────────────────────────────────────────────────────
 &nbsp;
@@ -1065,14 +1090,18 @@ function buildBreakingStakeholderPerspectives(
  * @param anomalyRaw - Raw anomaly text
  * @param coalitionRaw - Raw coalition text
  * @param lang - Target display language (default: 'en')
- * @returns Deep analysis object
+ * @param overrides - Optional AI-authored overrides sourced from the run's
+ *   `stakeholder-map.md` / `stakeholder-impact.md` / `synthesis-summary.md`
+ *   via {@link module:Utils/ParseAnalysisStakeholders}.
+ * @returns Deep analysis object, with overrides applied when present.
  */
 export function buildBreakingAnalysis(
   date: string,
   feedData: BreakingNewsFeedData | undefined,
   anomalyRaw: string,
   coalitionRaw: string,
-  lang: LanguageCode = 'en'
+  lang: LanguageCode = 'en',
+  overrides?: AnalysisOverrides
 ): DeepAnalysis {
   const adoptedCount = feedData?.adoptedTexts.length ?? 0;
   const eventCount = feedData?.events.length ?? 0;
@@ -1080,7 +1109,7 @@ export function buildBreakingAnalysis(
   const mepCount = feedData?.mepUpdates.length ?? 0;
   const s = getLocalizedString(BREAKING_STRINGS, lang);
 &nbsp;
-  return {
+  const base: DeepAnalysis = {
     what: s.breakingWhatFn(date, adoptedCount, eventCount, procCount, mepCount),
     who: [
       ...(feedData?.adoptedTexts
@@ -1164,6 +1193,7 @@ export function buildBreakingAnalysis(
       },
     ]),
   };
+  return applyAnalysisOverrides(base, overrides);
 }
 &nbsp;
 /**
@@ -1477,7 +1507,7 @@ export function buildBreakingMindmap(
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-20T15:51:09.244Z
+                at 2026-04-20T22:21:00.143Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
