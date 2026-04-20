@@ -15,7 +15,11 @@
 
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import path from 'path';
-import { EuropeanParliamentMCPClient, getEPMCPClient, closeEPMCPClient } from '../../scripts/mcp/ep-mcp-client.js';
+import {
+  EuropeanParliamentMCPClient,
+  getEPMCPClient,
+  closeEPMCPClient,
+} from '../../scripts/mcp/ep-mcp-client.js';
 import { mockConsole } from '../helpers/test-utils.js';
 
 describe('ep-mcp-client', () => {
@@ -116,7 +120,7 @@ describe('ep-mcp-client', () => {
       it('should handle connection behavior consistently', async () => {
         // Set an invalid server path
         client.serverPath = '/nonexistent/path/to/server.js';
-        
+
         // The behavior depends on the system:
         // - Some systems: spawn fails immediately (throws error)
         // - Other systems: spawn succeeds, process starts then exits (connected=true briefly)
@@ -164,7 +168,7 @@ describe('ep-mcp-client', () => {
       it('should handle valid JSON response messages', () => {
         const mockResolve = vi.fn();
         const mockReject = vi.fn();
-        
+
         client.pendingRequests.set(1, { resolve: mockResolve, reject: mockReject });
 
         const message = JSON.stringify({
@@ -183,7 +187,7 @@ describe('ep-mcp-client', () => {
       it('should handle error response messages', () => {
         const mockResolve = vi.fn();
         const mockReject = vi.fn();
-        
+
         client.pendingRequests.set(1, { resolve: mockResolve, reject: mockReject });
 
         const message = JSON.stringify({
@@ -232,7 +236,9 @@ describe('ep-mcp-client', () => {
 
     describe('Request Sending', () => {
       it('should throw error when not connected', async () => {
-        await expect(client.sendRequest('test_method')).rejects.toThrow('Not connected to MCP server');
+        await expect(client.sendRequest('test_method')).rejects.toThrow(
+          'Not connected to MCP server'
+        );
       });
 
       it('should increment request ID', () => {
@@ -248,7 +254,7 @@ describe('ep-mcp-client', () => {
 
         // Just start the request, don't await
         client.sendRequest('test_method', {});
-        
+
         // Request ID should increment immediately
         expect(client.requestId).toBe(initialId + 1);
 
@@ -298,7 +304,7 @@ describe('ep-mcp-client', () => {
       it('should call tool with arguments', async () => {
         const args = { param: 'value' };
         await client.callTool('test_tool', args);
-        
+
         expect(client.sendRequest).toHaveBeenCalledWith('tools/call', {
           name: 'test_tool',
           arguments: args,
@@ -363,7 +369,11 @@ describe('ep-mcp-client', () => {
           content: [{ type: 'text', text: '{"sessions": []}' }],
         });
 
-        await client.getPlenarySessions({ dateFrom: '2025-01-01', dateTo: '2025-01-31', limit: 50 });
+        await client.getPlenarySessions({
+          dateFrom: '2025-01-01',
+          dateTo: '2025-01-31',
+          limit: 50,
+        });
 
         expect(client.callTool).toHaveBeenCalledWith('get_plenary_sessions', {
           dateFrom: '2025-01-01',
@@ -654,7 +664,11 @@ describe('ep-mcp-client', () => {
           content: [{ type: 'text', text: '{"report": {}}' }],
         });
 
-        const options = { reportType: 'MEP_ACTIVITY', subjectId: 'MEP-123', dateFrom: '2025-01-01' };
+        const options = {
+          reportType: 'MEP_ACTIVITY',
+          subjectId: 'MEP-123',
+          dateFrom: '2025-01-01',
+        };
         await client.generateReport(options);
 
         expect(client.callTool).toHaveBeenCalledWith('generate_report', options);
@@ -772,7 +786,11 @@ describe('ep-mcp-client', () => {
           content: [{ type: 'text', text: '{"comparison": {}}' }],
         });
 
-        const options = { groupIds: ['EPP', 'S&D'], dimensions: ['attendance'], dateFrom: '2024-01-01' };
+        const options = {
+          groupIds: ['EPP', 'S&D'],
+          dimensions: ['attendance'],
+          dateFrom: '2024-01-01',
+        };
         await client.comparePoliticalGroups(options);
 
         expect(client.callTool).toHaveBeenCalledWith('compare_political_groups', options);
@@ -811,7 +829,10 @@ describe('ep-mcp-client', () => {
       it('should handle missing analyze legislative effectiveness tool gracefully', async () => {
         client.callTool.mockRejectedValue(new Error('Tool not available'));
 
-        const result = await client.analyzeLegislativeEffectiveness({ subjectId: 'MEP-123', subjectType: 'MEP' });
+        const result = await client.analyzeLegislativeEffectiveness({
+          subjectId: 'MEP-123',
+          subjectType: 'MEP',
+        });
 
         expect(result).toEqual({
           content: [{ type: 'text', text: '{"effectiveness": null}' }],
@@ -819,7 +840,10 @@ describe('ep-mcp-client', () => {
       });
 
       it('should return fallback for analyzeLegislativeEffectiveness with blank subjectId', async () => {
-        const result = await client.analyzeLegislativeEffectiveness({ subjectId: '', subjectType: 'MEP' });
+        const result = await client.analyzeLegislativeEffectiveness({
+          subjectId: '',
+          subjectType: 'MEP',
+        });
 
         expect(client.callTool).not.toHaveBeenCalled();
         expect(result).toEqual({
@@ -1406,7 +1430,10 @@ describe('ep-mcp-client', () => {
         const options = { sittingId: 'SITTING-456' };
         await client.getMeetingPlenarySessionDocuments(options);
 
-        expect(client.callTool).toHaveBeenCalledWith('get_meeting_plenary_session_documents', options);
+        expect(client.callTool).toHaveBeenCalledWith(
+          'get_meeting_plenary_session_documents',
+          options
+        );
       });
 
       it('should handle missing get_meeting_plenary_session_documents tool gracefully', async () => {
@@ -1445,13 +1472,18 @@ describe('ep-mcp-client', () => {
         const options = { sittingId: 'SITTING-789' };
         await client.getMeetingPlenarySessionDocumentItems(options);
 
-        expect(client.callTool).toHaveBeenCalledWith('get_meeting_plenary_session_document_items', options);
+        expect(client.callTool).toHaveBeenCalledWith(
+          'get_meeting_plenary_session_document_items',
+          options
+        );
       });
 
       it('should handle missing get_meeting_plenary_session_document_items tool gracefully', async () => {
         client.callTool.mockRejectedValue(new Error('Tool not available'));
 
-        const result = await client.getMeetingPlenarySessionDocumentItems({ sittingId: 'SITTING-789' });
+        const result = await client.getMeetingPlenarySessionDocumentItems({
+          sittingId: 'SITTING-789',
+        });
 
         expect(result).toEqual({
           content: [{ type: 'text', text: '{"items": []}' }],
@@ -1614,7 +1646,12 @@ describe('ep-mcp-client', () => {
 
       it('should get all generated stats with default options', async () => {
         client.callTool.mockResolvedValue({
-          content: [{ type: 'text', text: '{"yearlyStats": {}, "coveragePeriod": {"from": 2004, "to": 2025}}' }],
+          content: [
+            {
+              type: 'text',
+              text: '{"yearlyStats": {}, "coveragePeriod": {"from": 2004, "to": 2025}}',
+            },
+          ],
         });
 
         await client.getAllGeneratedStats();
@@ -1627,7 +1664,13 @@ describe('ep-mcp-client', () => {
           content: [{ type: 'text', text: '{"yearlyStats": {}}' }],
         });
 
-        const options = { yearFrom: 2019, yearTo: 2023, category: 'plenary_sessions', includePredictions: true, includeRankings: true };
+        const options = {
+          yearFrom: 2019,
+          yearTo: 2023,
+          category: 'plenary_sessions',
+          includePredictions: true,
+          includeRankings: true,
+        };
         await client.getAllGeneratedStats(options);
 
         expect(client.callTool).toHaveBeenCalledWith('get_all_generated_stats', options);
@@ -1824,12 +1867,12 @@ describe('ep-mcp-client', () => {
           maxConnectionAttempts: 2,
           connectionRetryDelay: 10,
         });
-        
+
         // Verify retry configuration is set
         expect(failingClient.maxConnectionAttempts).toBe(2);
         expect(failingClient.connectionRetryDelay).toBe(10);
         expect(failingClient.connectionAttempts).toBe(0);
-        
+
         // Connection attempt tracking is internal and may not increment
         // if spawn succeeds immediately on some systems
         // The important thing is the client doesn't crash
@@ -1866,9 +1909,11 @@ describe('ep-mcp-client', () => {
     it('should close singleton client', async () => {
       const mockConnect = vi.fn().mockResolvedValue();
       const mockDisconnect = vi.fn();
-      
+
       vi.spyOn(EuropeanParliamentMCPClient.prototype, 'connect').mockImplementation(mockConnect);
-      vi.spyOn(EuropeanParliamentMCPClient.prototype, 'disconnect').mockImplementation(mockDisconnect);
+      vi.spyOn(EuropeanParliamentMCPClient.prototype, 'disconnect').mockImplementation(
+        mockDisconnect
+      );
 
       await getEPMCPClient();
       await closeEPMCPClient();
@@ -2008,13 +2053,15 @@ describe('ep-mcp-client', () => {
       const copy = client.getFailedTools();
       expect(copy).toBeInstanceOf(Map);
       // Mutating the returned copy should not affect the client's internal map
-      /** @type {Map<string,string>} */(copy).set('fake_tool', 'FAKE');
+      /** @type {Map<string,string>} */ (copy).set('fake_tool', 'FAKE');
       expect(client.getFailedTools().has('fake_tool')).toBe(false);
     });
 
     it('should record a timeout failure after safeCallTool catches a timeout error', async () => {
       // Mock callToolWithRetry to throw a timeout error
-      vi.spyOn(client, 'callToolWithRetry').mockRejectedValueOnce(new Error('Request timeout after 180000ms'));
+      vi.spyOn(client, 'callToolWithRetry').mockRejectedValueOnce(
+        new Error('Request timeout after 180000ms')
+      );
       await client.getMEPs();
       const failed = client.getFailedTools();
       expect(failed.size).toBe(1);
@@ -2022,7 +2069,9 @@ describe('ep-mcp-client', () => {
     });
 
     it('should record a NOT_FOUND failure for 404 errors', async () => {
-      vi.spyOn(client, 'callToolWithRetry').mockRejectedValueOnce(new Error('Gateway error 404: Not Found'));
+      vi.spyOn(client, 'callToolWithRetry').mockRejectedValueOnce(
+        new Error('Gateway error 404: Not Found')
+      );
       await client.getEventsFeed();
       const failed = client.getFailedTools();
       expect(failed.size).toBe(1);
@@ -2030,14 +2079,18 @@ describe('ep-mcp-client', () => {
     });
 
     it('should record a SERVER_ERROR failure for 502 errors', async () => {
-      vi.spyOn(client, 'callToolWithRetry').mockRejectedValueOnce(new Error('Gateway error 502: Bad Gateway'));
+      vi.spyOn(client, 'callToolWithRetry').mockRejectedValueOnce(
+        new Error('Gateway error 502: Bad Gateway')
+      );
       await client.getProceduresFeed();
       const failed = client.getFailedTools();
       expect(failed.get('get_procedures_feed')).toContain('SERVER_ERROR');
     });
 
     it('should classify "Gateway Timeout" (504) as SERVER_ERROR not TIMEOUT', async () => {
-      vi.spyOn(client, 'callToolWithRetry').mockRejectedValueOnce(new Error('Gateway error 504: Gateway Timeout'));
+      vi.spyOn(client, 'callToolWithRetry').mockRejectedValueOnce(
+        new Error('Gateway error 504: Gateway Timeout')
+      );
       await client.getDocumentsFeed();
       const failed = client.getFailedTools();
       const entry = failed.get('get_documents_feed');
@@ -2046,7 +2099,9 @@ describe('ep-mcp-client', () => {
     });
 
     it('should classify rate limit (429) errors as RATE_LIMIT', async () => {
-      vi.spyOn(client, 'callToolWithRetry').mockRejectedValueOnce(new Error('429 Too Many Requests'));
+      vi.spyOn(client, 'callToolWithRetry').mockRejectedValueOnce(
+        new Error('429 Too Many Requests')
+      );
       await client.getDocumentsFeed();
       const failed = client.getFailedTools();
       const entry = failed.get('get_documents_feed');
@@ -2069,7 +2124,9 @@ describe('ep-mcp-client', () => {
     it('should record an INTERNAL_ERROR failure when isError is true with INTERNAL_ERROR content', async () => {
       vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
         isError: true,
-        content: [{ type: 'text', text: '{"errorCode":"INTERNAL_ERROR","message":"ECONNREFUSED"}' }],
+        content: [
+          { type: 'text', text: '{"errorCode":"INTERNAL_ERROR","message":"ECONNREFUSED"}' },
+        ],
       });
       const result = await client.getMEPs();
       const failed = client.getFailedTools();
@@ -2082,7 +2139,9 @@ describe('ep-mcp-client', () => {
     it('should record a SERVER_ERROR failure when isError is true with UPSTREAM_500 content', async () => {
       vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
         isError: true,
-        content: [{ type: 'text', text: '{"errorCode":"UPSTREAM_500","message":"Internal Server Error"}' }],
+        content: [
+          { type: 'text', text: '{"errorCode":"UPSTREAM_500","message":"Internal Server Error"}' },
+        ],
       });
       const result = await client.getEventsFeed();
       const failed = client.getFailedTools();
@@ -2154,6 +2213,199 @@ describe('ep-mcp-client', () => {
       expect(summary).toContain('❌ get_procedures_feed: TIMEOUT');
       expect(summary).toContain('✅ get_meps_feed');
       expect(summary).toContain('⚪ get_adopted_texts_feed (not checked)');
+    });
+  });
+
+  describe('isFeedUnavailable and raw-404 detection (upstream #378)', () => {
+    /** @type {EPMCPClient} */
+    let client;
+    /** @type {MockConsoleResult} */
+    let consoleOutput;
+
+    beforeEach(() => {
+      consoleOutput = mockConsole();
+      client = new EuropeanParliamentMCPClient();
+    });
+
+    afterEach(() => {
+      consoleOutput.restore();
+    });
+
+    it('should record raw upstream 404 envelope as NOT_FOUND failure for get_events_feed', async () => {
+      const rawEnvelope = {
+        '@id': 'https://data.europarl.europa.eu/eli/dl/event/ITRE-AM-786788-DEPOT-2026',
+        error: '404 Not Found',
+      };
+      vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
+        content: [{ type: 'text', text: JSON.stringify(rawEnvelope) }],
+      });
+      const result = await client.getEventsFeed({ timeframe: 'one-week' });
+
+      const failed = client.getFailedTools();
+      expect(failed.has('get_events_feed')).toBe(true);
+      expect(failed.get('get_events_feed')).toMatch(/^NOT_FOUND:/);
+      // Should return fallback, not the raw 404 payload
+      expect(result.content[0].text).toBe('{"feed": []}');
+    });
+
+    it('should record uniform {status:"unavailable"} envelope as NOT_FOUND failure', async () => {
+      const uniformEnvelope = {
+        status: 'unavailable',
+        generatedAt: '2026-04-20T01:24:33.400Z',
+        items: [],
+        dataQualityWarning: 'EP Open Data Portal returned 404',
+      };
+      vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
+        content: [{ type: 'text', text: JSON.stringify(uniformEnvelope) }],
+      });
+      await client.getParliamentaryQuestionsFeed();
+
+      const failed = client.getFailedTools();
+      expect(failed.has('get_parliamentary_questions_feed')).toBe(true);
+      expect(failed.get('get_parliamentary_questions_feed')).toMatch(/^NOT_FOUND:/);
+    });
+
+    it('should not flag well-formed feed results with {"data": [...]} as unavailable', async () => {
+      vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
+        content: [
+          { type: 'text', text: '{"data": [{"id": "1", "title": "foo"}], "@context": []}' },
+        ],
+      });
+      const result = await client.getAdoptedTextsFeed();
+      const failed = client.getFailedTools();
+      expect(failed.has('get_adopted_texts_feed')).toBe(false);
+      expect(result.content[0].text).toContain('"data"');
+    });
+
+    it('should not flag results with malformed JSON text as unavailable', async () => {
+      vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
+        content: [{ type: 'text', text: 'not json' }],
+      });
+      await client.getEventsFeed();
+      expect(client.getFailedTools().has('get_events_feed')).toBe(false);
+    });
+  });
+
+  describe('getAdoptedTexts empty-string sentinel (upstream #369)', () => {
+    /** @type {EPMCPClient} */
+    let client;
+    /** @type {MockConsoleResult} */
+    let consoleOutput;
+
+    beforeEach(() => {
+      consoleOutput = mockConsole();
+      client = new EuropeanParliamentMCPClient();
+    });
+
+    afterEach(() => {
+      consoleOutput.restore();
+    });
+
+    it('should record CONTENT_PENDING failure when docId lookup returns all-empty-string sentinel', async () => {
+      const sentinelPayload = {
+        id: '',
+        title: '',
+        reference: '',
+        type: '',
+        dateAdopted: '',
+        procedureReference: '',
+        subjectMatter: '',
+      };
+      vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
+        content: [{ type: 'text', text: JSON.stringify(sentinelPayload) }],
+      });
+      const result = await client.getAdoptedTexts({ docId: 'TA-10-2026-0099' });
+
+      const failed = client.getFailedTools();
+      expect(failed.has('get_adopted_texts')).toBe(true);
+      expect(failed.get('get_adopted_texts')).toMatch(/^UNKNOWN: CONTENT_PENDING/);
+      expect(result.content[0].text).toBe('{"texts": []}');
+    });
+
+    it('should NOT record failure for a year-range list query (no docId)', async () => {
+      vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
+        content: [{ type: 'text', text: '{"texts": [{"id": "TA-10-2026-0001", "title": "x"}]}' }],
+      });
+      await client.getAdoptedTexts({ year: 2026 });
+      expect(client.getFailedTools().has('get_adopted_texts')).toBe(false);
+    });
+
+    it('should NOT record failure when docId lookup returns populated fields', async () => {
+      vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
+        content: [
+          {
+            type: 'text',
+            text: JSON.stringify({
+              id: 'TA-10-2026-0099',
+              title: 'Resolution on X',
+              reference: 'P10_TA(2026)0099',
+              type: 'RESOLUTION',
+              dateAdopted: '2026-04-10',
+            }),
+          },
+        ],
+      });
+      const result = await client.getAdoptedTexts({ docId: 'TA-10-2026-0099' });
+      expect(client.getFailedTools().has('get_adopted_texts')).toBe(false);
+      expect(result.content[0].text).toContain('Resolution on X');
+    });
+
+    it('should NOT flag sparse payloads with fewer than 3 string fields (avoid false positives)', async () => {
+      vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
+        content: [{ type: 'text', text: JSON.stringify({ id: '', title: '' }) }],
+      });
+      await client.getAdoptedTexts({ docId: 'TA-10-2026-0099' });
+      expect(client.getFailedTools().has('get_adopted_texts')).toBe(false);
+    });
+  });
+
+  describe('getToolErrorSummary', () => {
+    /** @type {EPMCPClient} */
+    let client;
+    /** @type {MockConsoleResult} */
+    let consoleOutput;
+
+    beforeEach(() => {
+      consoleOutput = mockConsole();
+      client = new EuropeanParliamentMCPClient();
+    });
+
+    afterEach(() => {
+      consoleOutput.restore();
+    });
+
+    it('should report "all operational" when no failures recorded', async () => {
+      const spy = vi.spyOn(client, 'callToolWithRetry');
+      spy.mockResolvedValueOnce({ content: [{ type: 'text', text: '{"meps": []}' }] });
+      await client.getMEPsFeed();
+      expect(client.getToolErrorSummary()).toMatch(/all 1 invoked tools operational/);
+    });
+
+    it('should group failures by error code', async () => {
+      const spy = vi.spyOn(client, 'callToolWithRetry');
+      spy.mockRejectedValueOnce(new Error('Gateway error 404: Not Found'));
+      await client.getEventsFeed();
+      spy.mockRejectedValueOnce(new Error('Gateway error 404: Not Found'));
+      await client.getProceduresFeed();
+      spy.mockRejectedValueOnce(new Error('Request timeout'));
+      await client.getDocumentsFeed();
+
+      const summary = client.getToolErrorSummary();
+      expect(summary).toContain('3 of 3 invoked tools rejected');
+      expect(summary).toMatch(/NOT_FOUND \(2\): get_events_feed, get_procedures_feed/);
+      expect(summary).toMatch(/TIMEOUT \(1\): get_documents_feed/);
+    });
+
+    it('should expose the raw-404 envelope as NOT_FOUND in the summary', async () => {
+      const rawEnvelope = {
+        '@id': 'https://data.europarl.europa.eu/eli/dl/proc/2026-2033',
+        error: '404 Not Found',
+      };
+      vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
+        content: [{ type: 'text', text: JSON.stringify(rawEnvelope) }],
+      });
+      await client.getProceduresFeed();
+      expect(client.getToolErrorSummary()).toMatch(/NOT_FOUND \(1\): get_procedures_feed/);
     });
   });
 

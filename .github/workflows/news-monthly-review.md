@@ -51,7 +51,7 @@ mcp-servers:
   european-parliament:
     container: "node:25-alpine"
     entrypoint: "npx"
-    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.9", "--timeout", "120000"]
+    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.10", "--timeout", "120000"]
     env:
       EP_REQUEST_TIMEOUT_MS: "120000"
   world-bank:
@@ -732,7 +732,7 @@ fi
 3. NEVER skip analysis because some feeds failed — run analysis with whatever data was collected
 4. **TIMEOUT FALLBACK**: When a feed endpoint times out (e.g. `get_procedures_feed`, `get_events_feed`), do **NOT** retry the same feed endpoint; use the corresponding non-feed endpoint with year filter instead:
    - `get_procedures_feed` timeout → call `european_parliament___get_procedures({ limit: 20 })` instead
-   - `get_events_feed` timeout → call `european_parliament___get_events({ limit: 20 })` instead (v1.2.9: no date filtering for events)
+   - `get_events_feed` timeout → call `european_parliament___get_events({ limit: 20 })` instead (v1.2.10: no date filtering for events)
    - `get_plenary_documents_feed` timeout → call `european_parliament___get_plenary_documents({ year: CURRENT_YEAR, limit: 20 })` instead
 
 **NOOP PREVENTION — Data Must Exist for Noop:**
@@ -1068,7 +1068,7 @@ if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
     echo "✅ EP MCP server binary found for stdio mode"
   else
     echo "⚠️ No gateway URL set, installing EP MCP server for stdio mode..."
-    npm install --no-save european-parliament-mcp-server@1.2.9
+    npm install --no-save european-parliament-mcp-server@1.2.10
   fi
 fi
 
