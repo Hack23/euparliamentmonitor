@@ -9,8 +9,9 @@
  */
 import path, { resolve } from 'path';
 import { pathToFileURL } from 'url';
-import { PROJECT_ROOT, APP_VERSION, NEWS_DIR, createThemeToggleButton, THEME_TOGGLE_SCRIPT, } from '../constants/config.js';
-import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, PAGE_DESCRIPTIONS, SECTION_HEADINGS, NO_ARTICLES_MESSAGES, SKIP_LINK_TEXTS, AI_SECTION_CONTENT, FILTER_LABELS, ARTICLE_TYPE_LABELS, HEADER_SUBTITLE_LABELS, THEME_TOGGLE_LABELS, FOOTER_ABOUT_HEADING_LABELS, FOOTER_ABOUT_TEXT_LABELS, FOOTER_QUICK_LINKS_LABELS, FOOTER_BUILT_BY_LABELS, FOOTER_LANGUAGES_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
+import { PROJECT_ROOT, APP_VERSION, NEWS_DIR, createThemeToggleButton, } from '../constants/config.js';
+import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, PAGE_DESCRIPTIONS, SECTION_HEADINGS, NO_ARTICLES_MESSAGES, SKIP_LINK_TEXTS, AI_SECTION_CONTENT, FILTER_LABELS, ARTICLE_TYPE_LABELS, HEADER_SUBTITLE_LABELS, THEME_TOGGLE_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
+import { buildSiteFooter } from '../templates/section-builders.js';
 import { getNewsArticles, groupArticlesByLanguage, formatSlug, parseArticleFilename, extractArticleMeta, escapeHTML, atomicWrite, } from '../utils/file-utils.js';
 import { writeMetadataDatabase } from '../utils/news-metadata.js';
 import { detectCategory } from '../utils/article-category.js';
@@ -43,24 +44,6 @@ function buildLangSwitcher(currentLang) {
         const safeName = escapeHTML(name);
         return `<a href="${safeHref}" class="lang-link${active}" hreflang="${safeCode}" lang="${safeCode}" title="${safeName}" aria-label="${safeName}"${current}>${flag} ${code.toUpperCase()}</a>`;
     }).join('\n        ');
-}
-/**
- * Build the language grid for the footer.
- *
- * @param currentLang - Active language code
- * @returns HTML string for the language grid
- */
-function buildFooterLanguageGrid(currentLang) {
-    return ALL_LANGUAGES.map((code) => {
-        const flag = getLocalizedString(LANGUAGE_FLAGS, code);
-        const name = getLocalizedString(LANGUAGE_NAMES, code);
-        const href = getIndexFilename(code);
-        const active = code === currentLang ? ' class="active"' : '';
-        const safeHref = escapeHTML(href);
-        const safeCode = escapeHTML(code);
-        const safeName = escapeHTML(name);
-        return `<a href="${safeHref}"${active} hreflang="${safeCode}">${flag} ${safeName}</a>`;
-    }).join('\n            ');
 }
 /**
  * Render a single news card element.
@@ -131,7 +114,6 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
     const noArticlesText = getLocalizedString(NO_ARTICLES_MESSAGES, lang);
     const skipLinkText = getLocalizedString(SKIP_LINK_TEXTS, lang);
     const dir = getTextDirection(lang);
-    const year = new Date().getFullYear();
     const selfHref = getIndexFilename(lang);
     const heroTitle = title.split(' - ')[0];
     const filterLabels = getLocalizedString(FILTER_LABELS, lang);
@@ -172,11 +154,6 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
             .join('\n          ')
         : '';
     const headerSubtitle = escapeHTML(getLocalizedString(HEADER_SUBTITLE_LABELS, lang));
-    const footerAboutHeading = escapeHTML(getLocalizedString(FOOTER_ABOUT_HEADING_LABELS, lang));
-    const footerAboutText = escapeHTML(getLocalizedString(FOOTER_ABOUT_TEXT_LABELS, lang));
-    const footerQuickLinksHeading = escapeHTML(getLocalizedString(FOOTER_QUICK_LINKS_LABELS, lang));
-    const footerBuiltByHeading = escapeHTML(getLocalizedString(FOOTER_BUILT_BY_LABELS, lang));
-    const footerLanguagesHeading = escapeHTML(getLocalizedString(FOOTER_LANGUAGES_LABELS, lang));
     const themeToggleLabel = escapeHTML(getLocalizedString(THEME_TOGGLE_LABELS, lang));
     const canonicalUrl = `https://hack23.github.io/euparliamentmonitor/${selfHref}`;
     return `<!DOCTYPE html>
@@ -224,7 +201,7 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
       <a href="${selfHref}" class="site-header__brand" aria-label="${heroTitle}">
         <picture class="site-header__logo-picture">
           <source srcset="images/header-logo.webp" type="image/webp">
-          <img class="site-header__logo site-header__logo--header" src="images/header-logo.png" alt="" width="48" height="32" aria-hidden="true">
+          <img class="site-header__logo site-header__logo--header" src="images/header-logo.png" alt="" width="72" height="48" aria-hidden="true">
         </picture>
         <span>
           <span class="site-header__title">${heroTitle}</span>
@@ -279,79 +256,9 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
     </ul>
   </section>
 
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h3>${footerAboutHeading}</h3>
-        <p>${footerAboutText}</p>
-        <p class="footer-stats">${articles.length} articles available</p>
-      </div>
-      <div class="footer-section">
-        <h3>${footerQuickLinksHeading}</h3>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="sitemap.html">Sitemap</a></li>
-          <li><a href="rss.xml">RSS Feed</a></li>
-          <li><a href="https://github.com/Hack23/euparliamentmonitor">GitHub Repository</a></li>
-          <li><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/LICENSE">Apache-2.0 License</a></li>
-          <li><a href="https://www.europarl.europa.eu/">European Parliament</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h3>${footerBuiltByHeading}</h3>
-        <ul>
-          <li><a href="https://hack23.com">hack23.com</a></li>
-          <li><a href="https://www.linkedin.com/company/hack23">LinkedIn</a></li>
-          <li><a href="https://github.com/Hack23/ISMS-PUBLIC">Security &amp; Privacy Policy</a></li>
-          <li><a href="mailto:james@hack23.com">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h3>${footerLanguagesHeading}</h3>
-        <div class="language-grid">
-          ${buildFooterLanguageGrid(lang)}
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2008-${year} <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden | v${escapeHTML(APP_VERSION)}</p>
-      <p class="footer-disclaimer"><span aria-hidden="true">⚠️</span> This platform is under ongoing improvement. Please <a href="https://github.com/Hack23/euparliamentmonitor/issues">report any issues on GitHub</a>.</p>
-    </div>
-  </footer>
+  ${buildSiteFooter({ lang: lang, pathPrefix: '', articleCount: articles.length })}
 
-  <script>
-  (function(){
-    var toolbar=document.querySelector('.filter-toolbar');
-    if(!toolbar)return;
-    var buttons=toolbar.querySelectorAll('.filter-btn');
-    var search=toolbar.querySelector('.filter-search__input');
-    var cards=document.querySelectorAll('.news-card');
-    function filterCards(){
-      var cat=toolbar.querySelector('.filter-btn.active');
-      var activeCat=cat?cat.getAttribute('data-category'):'all';
-      var query=search?search.value.toLowerCase():'';
-      cards.forEach(function(card){
-        var badge=card.querySelector('.news-card__badge');
-        var cardCat=badge?badge.className.replace(/.*news-card__badge--/,''):'';
-        var title=card.querySelector('.news-card__title');
-        var text=(title?title.textContent:'').toLowerCase();
-        var excerpt=card.querySelector('.news-card__excerpt');
-        var excerptText=(excerpt?excerpt.textContent:'').toLowerCase();
-        var matchCat=activeCat==='all'||cardCat===activeCat;
-        var matchSearch=!query||text.indexOf(query)!==-1||excerptText.indexOf(query)!==-1;
-        card.style.display=matchCat&&matchSearch?'':'none';
-      });
-    }
-    buttons.forEach(function(btn){
-      btn.addEventListener('click',function(){
-        buttons.forEach(function(b){b.classList.remove('active')});
-        btn.classList.add('active');
-        filterCards();
-      });
-    });
-    if(search){search.addEventListener('input',filterCards);}
-  })();
-  </script>${THEME_TOGGLE_SCRIPT}
+  <script src="js/index-runtime.js" defer></script>
 </body>
 </html>`;
 }

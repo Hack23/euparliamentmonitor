@@ -563,7 +563,7 @@ describe('article-template', () => {
 
         expect(html).toContain('<article class="news-article"');
         expect(html).toContain('<header class="article-header">');
-        expect(html).toContain('<footer class="article-footer">');
+        expect(html).toContain('<section class="article-sources">');
         expect(html).toContain('<nav class="article-nav" aria-label="Article navigation">');
       });
 
