@@ -1,0 +1,155 @@
+{
+  "runId": 191,
+  "date": "2026-04-20",
+  "dayOfWeek": "Monday",
+  "articleType": "breaking",
+  "mode": "ANALYSIS_ONLY",
+  "degradedMode": true,
+  "significanceScore": 16,
+  "significanceThreshold": 20,
+  "articleGenerated": false,
+  "articlePublished": false,
+  "recessDay": 8,
+  "recessPeriod": {
+    "start": "2026-04-14",
+    "end": "2026-04-26",
+    "parliamentReturns": "2026-04-27"
+  },
+  "apiOutageDay": 11,
+  "apiMetadataCount": 104,
+  "apiMetadataCountPrior": 100,
+  "apiMetadataChange": "+4 (RESTORED)",
+  "contentAvailablePercent": 0,
+  "seriesRun": 13,
+  "seriesRange": "runs-179-191",
+  "parliamentStatus": "Easter Recess (April 14-26, 2026)",
+  "files": {
+    "classification/significance-scoring.md": "Composite significance scoring (16/50), newsworthiness gate decision, and forward monitoring priorities.",
+    "risk-scoring/risk-matrix.md": "Six-item risk register with quadrant visualization and trend indicators vs Runs 179-190.",
+    "risk-scoring/quantitative-swot.md": "Full four-quadrant SWOT with four items each (≥80 words, confidence-labeled).",
+    "threat-assessment/political-threat-landscape.md": "Threat classification matrix, USTR Section 301 deep dive, coalition risk vectors, Gantt calendar.",
+    "intelligence/coalition-dynamics.md": "Grand Centre stability (84/100), alliance signals, five post-recess risk vectors.",
+    "intelligence/cross-run-diff.md": "Run 190 to Run 191 delta, hypothesis status updates (H1-H4), probability revisions.",
+    "intelligence/synthesis-summary.md": "Master synthesis: five intelligence signals, probability model, stakeholder assessment, forward calendar.",
+    "intelligence/analysis-index.md": "Registry of all artifacts with quality gate status and feed endpoint table.",
+    "intelligence/scenario-forecast.md": "Four-scenario probability model (A/B/C/D) with sub-scenarios, decision trees, and triggers.",
+    "intelligence/stakeholder-map.md": "Power/interest quadrant with 20+ stakeholders across institutions, groups, industry, civil society, third countries.",
+    "intelligence/threat-model.md": "STRIDE-style threat decomposition, attack trees for coalition / API / trade threats.",
+    "intelligence/pestle-analysis.md": "Political, Economic, Social, Technological, Legal, Environmental macro-environment scan.",
+    "intelligence/workflow-audit.md": "Rule 1-22 compliance checklist, prompt adherence scoring, lessons for Run 192.",
+    "intelligence/reference-analysis-quality.md": "Per-artifact depth audit, ai-first quality gates, pass 1/pass 2 evidence.",
+    "intelligence/economic-context.md": "World Bank and IMF indicators for EU27, US, China; USTR exposure model; banking sector macro.",
+    "intelligence/mcp-reliability-audit.md": "13-run MCP feed health audit (Runs 179-191); per-tool error profile; defensive guard inventory.",
+    "intelligence/historical-baseline.md": "Three-year Easter recess comparison (EP9 2023, EP10 2024-2025, current 2026).",
+    "intelligence/wildcards-blackswans.md": "Low-probability/high-impact scenarios: geopolitical shocks, institutional ruptures, tech black swans.",
+    "documents/document-analysis-index.md": "Full corpus: 22 texts documented (18 from March 26 + 4 restored), content availability table, linkage analysis."
+  },
+  "feedStatus": {
+    "tier1": {
+      "get_plenary_sessions": "OPERATIONAL",
+      "get_adopted_texts": "OPERATIONAL",
+      "get_meps_feed": "OPERATIONAL",
+      "get_all_generated_stats": "OPERATIONAL",
+      "get_adopted_texts_feed_week": "OPERATIONAL"
+    },
+    "tier2": {
+      "get_events_feed": "OFFLINE_DAY11",
+      "get_procedures_feed": "OFFLINE_DAY11",
+      "get_adopted_texts_feed_today": "DEGRADED_EP8_DATA"
+    },
+    "tier3": {
+      "get_parliamentary_questions_feed": "SKIPPED_TIER2_OUTAGE",
+      "get_documents_feed": "SKIPPED_TIER2_OUTAGE",
+      "get_plenary_documents_feed": "SKIPPED_TIER2_OUTAGE",
+      "get_committee_documents_feed": "SKIPPED_TIER2_OUTAGE"
+    },
+    "analytics": {
+      "analyze_coalition_dynamics": "PARTIAL_EPP_GAP",
+      "generate_political_landscape": "SKIPPED_DEGRADED_MODE",
+      "detect_voting_anomalies": "SKIPPED_DEGRADED_MODE",
+      "early_warning_system": "SKIPPED_DEGRADED_MODE"
+    }
+  },
+  "keyFindings": [
+    "metadata_count_restored_100_to_104_first_positive_api_signal_since_april_11",
+    "four_texts_identified_at_offset_100_including_jimmy_lai_and_ukraine_facility",
+    "two_phase_recovery_model_empirically_confirmed_phase1_complete",
+    "ustr_section_301_window_opens_tomorrow_april_21",
+    "coalition_stability_84_100_unchanged_10_days_untested",
+    "march_26_content_blockade_continues_day_11_all_18_texts_404"
+  ],
+  "probabilityUpdates": {
+    "smooth_restore_by_apr26": 0.50,
+    "partial_restore_by_apr26": 0.25,
+    "prolonged_degradation_to_apr27plus": 0.25,
+    "ustr_section_301_action": 0.18,
+    "coalition_fracture_april28": 0.05
+  },
+  "priorRunComparison": {
+    "priorRunId": 190,
+    "priorDate": "2026-04-20",
+    "countDelta": 4,
+    "hypothesesUpdated": 2,
+    "hypothesesRefuted": 1,
+    "hypothesesUnchanged": 1
+  },
+  "topRisks": [
+    { "id": "R1", "label": "API Content Blockage", "probability": 0.85, "impact": "HIGH", "trend": "IMPROVING" },
+    { "id": "R2", "label": "USTR Section 301 Filing", "probability": 0.18, "impact": "CRITICAL", "trend": "REVISED_DOWN" },
+    { "id": "R3", "label": "BRRD3/SRMR3 Council Delay", "probability": 0.35, "impact": "MEDIUM", "trend": "STABLE" },
+    { "id": "R4", "label": "Housing Initiative Content Gap", "probability": 0.55, "impact": "LOW-MEDIUM", "trend": "NEW" },
+    { "id": "R5", "label": "Coalition Instability Post-Recess", "probability": 0.05, "impact": "HIGH", "trend": "STABLE" },
+    { "id": "R6", "label": "EPP Data Gap (memberCount:0)", "probability": 0.95, "impact": "LOW", "trend": "PERSISTENT" }
+  ],
+  "scenarios": {
+    "A": { "label": "Normal return April 27, API restored before plenary", "probability": 0.45 },
+    "B": { "label": "USTR Section 301 emergency response", "probability": 0.18 },
+    "C": { "label": "API degraded through Parliament return", "probability": 0.25 },
+    "D": { "label": "Compound crisis (USTR + prolonged API)", "probability": 0.12 }
+  },
+  "coalitionStability": {
+    "score": 84,
+    "maxScore": 100,
+    "label": "STABLE",
+    "grandCentreSeats": 458,
+    "totalSeats": 720,
+    "grandCentrePercent": 63.6,
+    "majorityThreshold": 361,
+    "bufferSeats": 97,
+    "bufferPercent": 27
+  },
+  "dataQuality": {
+    "adoptedTextsIndexed": 104,
+    "adoptedTextsAccessible": 0,
+    "adoptedTextsContentBlocked": 18,
+    "mepsReturned": 738,
+    "regressionObserved": false,
+    "recoveryObserved": true,
+    "recoveryTexts": ["TA-10-2026-0011", "TA-10-2026-0014", "TA-10-2026-0018", "TA-10-2026-0036"],
+    "apiOutageDays": 11
+  },
+  "qualityGates": {
+    "artifactsCount": 19,
+    "swotItemsPerQuadrant": 5,
+    "swotMinWordsPerItem": 80,
+    "forwardMonitoringItems": 15,
+    "crossRunDiffPresent": true,
+    "dataQualityDeltaPresent": true,
+    "aiAnalysisRequiredMarkers": 0,
+    "elapsedMinutesAtSynthesis": 48,
+    "elapsedMinutesThreshold": 45,
+    "elapsedThresholdSatisfied": true,
+    "mermaidInitBlocksStandardised": true,
+    "manifestFilesObjectPresent": true
+  },
+  "generatedAt": "2026-04-20T00:00:00Z",
+  "workflowVersion": "breaking-news-v4",
+  "schemaVersion": "1.1",
+  "nextPriorityRun": {
+    "runId": 192,
+    "date": "2026-04-21",
+    "firstAction": "ep_api_content_probe_ta_10_2026_0092",
+    "secondAction": "ustr_section_301_filing_monitor",
+    "thirdAction": "commission_housing_initiative_publication_check"
+  }
+}
