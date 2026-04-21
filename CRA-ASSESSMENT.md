@@ -79,7 +79,7 @@ As a static site generating multi-language news articles from European Parliamen
 | **Homepage** | [euparliamentmonitor.com](https://euparliamentmonitor.com) |
 | **Security Contact** | security@hack23.com |
 | **License** | Apache-2.0 |
-| **Purpose** | Multi-language European Parliament transparency platform — 1894 HTML articles / 14 languages / 7 article types / 10 gh-aw workflows / 3061+ tests / 52 test files |
+| **Purpose** | Multi-language European Parliament transparency platform — 1894 HTML articles / 14 languages / 8 article types / 10 gh-aw workflows / 3061+ tests / 52 test files |
 | **Technology Stack** | Node.js 25, TypeScript 6.0.3, ESM, HTML5/CSS3, Vitest, Playwright |
 | **Deployment Model** | npm (provenance + SLSA L3), AWS S3 + CloudFront primary, GitHub Pages fallback |
 | **Data Sources** | European Parliament MCP Server 1.2.10 (public open data) |
@@ -288,13 +288,13 @@ Supplementary evidence map aligning each Annex I Part I essential cybersecurity 
 - **No known exploitable vulns at release** ← CodeQL + Dependabot + gh-advisory-database gate (blocks PRs with new advisories)
 - **Authenticated / integrity-verified updates** ← npm provenance statements + SLSA L3 build attestations + signed commits via CODEOWNERS
 - **Confidentiality** ← TLS 1.2+/1.3 on all outbound HTTPS (WB, IMF, GitHub, npm, AWS); no user PII collected, stored, or transmitted
-- **Integrity** ← `src/utils/html-sanitize.ts` on every MCP string; canonical tool-list drift tests (IMF + WB asserted in `test/integration/mcp/*`); validator gate in `scripts/validate-analysis-completeness.ts`
+- **Integrity** ← `src/utils/html-sanitize.ts` on every MCP string; canonical tool-list drift tests (IMF + WB asserted in `test/integration/mcp/*`); validator gate in `scripts/utils/validate-analysis-completeness.js` (compiled from `src/utils/validate-analysis-completeness.ts`)
 - **Data minimization** ← no accounts, no tracking, no analytics; theme preference only in `localStorage` (no cross-site tracking)
 - **Availability** ← BCP per-asset RTO/RPO targets; gh-aw engine-switch (Copilot ↔ Claude ↔ Codex); WB-OR-IMF OR-gate (`articlePolicyHasEconomicContext`)
 - **Attack surface minimization** ← static content only; AWF Squid firewall egress allowlist; Docker sandbox for agentic workflows
 - **Impact mitigation** ← OIDC federation (no long-lived keys on GitHub→AWS or GitHub→npm); `max-patch-size` caps; safe-outputs scoped to PR only
 - **Logging** ← JSONL agent stdio audit trail; AWS CloudTrail; GitHub audit log; CodeQL findings persisted as security alerts
-- **Remediation** ← Dependabot auto-PRs for vulnerable deps; pinned `GH_AW_VERSION=v0.68.7` with documented bump procedure; rollback via git revert (BCP Scenario 11)
+- **Remediation** ← Dependabot auto-PRs for vulnerable deps; pinned `GH_AW_VERSION=v0.69.0` with documented bump procedure; rollback via git revert (BCP Scenario 11)
 
 ### Part II: Vulnerability Handling Requirements
 

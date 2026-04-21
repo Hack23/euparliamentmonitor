@@ -156,7 +156,7 @@ mindmap
       IMF SDMX 3.0 REST
         Native fetch client
         Monthly WEO+FM forecasts
-      gh-aw v0.68.7
+      gh-aw v0.69.0
         Pinned in compile workflow
       News Generation
         5-stage pipeline
@@ -180,7 +180,7 @@ mindmap
 | **🇪🇺 EP MCP Server**   | 1.2.10 (pinned, 2026-04-20) | Hack23-maintained; tracks EP Open Data API | Active development | [![Medium](https://img.shields.io/badge/Complexity-Medium-yellow?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
 | **🌍 World Bank MCP**   | 1.0.1 (optional dep)     | Biannual WDI refresh            | Active             | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
 | **💱 IMF SDMX 3.0 REST**| Native fetch client      | IMF-managed public API          | N/A (External API) | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
-| **🤖 gh-aw CLI**        | v0.68.7 (pinned `GH_AW_VERSION`) | Active development        | Active             | [![Medium](https://img.shields.io/badge/Complexity-Medium-yellow?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
+| **🤖 gh-aw CLI**        | v0.69.0 (pinned `GH_AW_VERSION`) | Active development        | Active             | [![Medium](https://img.shields.io/badge/Complexity-Medium-yellow?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
 | **☁️ AWS S3**           | Platform (Primary hosting)| Ongoing                         | N/A (Platform)     | [![None](https://img.shields.io/badge/Complexity-None-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)  |
 | **🌐 AWS CloudFront**   | Platform (Primary CDN)    | Ongoing                         | N/A (Platform)     | [![None](https://img.shields.io/badge/Complexity-None-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)  |
 | **📦 GitHub Pages**     | Alternative platform (fallback) | Ongoing                    | N/A (Platform)     | [![None](https://img.shields.io/badge/Complexity-None-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)  |
@@ -343,7 +343,7 @@ flowchart TB
 | **EP MCP Server** | EU Parliament data (pinned 1.2.10) | 🟡 Moderate | Monitor Hack23/european-parliament-mcp releases; 1.2.10 (2026-04-20) fixes #377/#378 (fixed-window feed options + uniform unavailable envelope) |
 | **World Bank MCP** | Optional macro/WDI data (1.0.1) | 🟢 Low | Biannual WDI refresh cadence; optionalDependency |
 | **IMF SDMX 3.0 REST** | Native fetch client (WEO/FM forecasts) | 🟡 Moderate | No npm dep — depends on IMF API contract stability; monitored via integration tests |
-| **gh-aw CLI** | Agentic workflow compiler (pinned v0.68.7) | 🟡 Moderate | Review pin per workflow change; changes require re-compile of all .lock.yml |
+| **gh-aw CLI** | Agentic workflow compiler (pinned v0.69.0) | 🟡 Moderate | Review pin per workflow change; changes require re-compile of all .lock.yml |
 | **Prettier** | Code formatting (3.8.3) | 🟢 Low | Dependabot auto-updates |
 | **Husky** | Git hooks (9.1.7) | 🟢 Low | Dependabot auto-updates |
 | **jscpd** | Duplicate detection (4.0.9) | 🟢 Low | Dependabot auto-updates |
@@ -576,7 +576,7 @@ Each agentic workflow emits analysis artifacts (classification, threat-assessmen
 
 ### 🤖 gh-aw Agentic Workflow EOL
 
-Agentic workflows in `.github/workflows/news-*.md` are compiled to `.lock.yml` via `gh aw compile --validate` with pinned `GH_AW_VERSION: v0.68.7`. Workflow EOL triggers:
+Agentic workflows in `.github/workflows/news-*.md` are compiled to `.lock.yml` via `gh aw compile --validate` with pinned `GH_AW_VERSION: v0.69.0`. Workflow EOL triggers:
 
 | Trigger | Response |
 |---------|---------|
@@ -590,7 +590,7 @@ Agentic workflows in `.github/workflows/news-*.md` are compiled to `.lock.yml` v
 
 All actions are SHA-pinned (100%). Deprecation notices from GitHub are tracked weekly; notable current pins:
 
-- `step-security/harden-runner@fa2e9d605c4eeb9fcad4c99c224cee0c6c7f3594 # v2.16.0`
+- `step-security/harden-runner@8d3c67de8e2fe68ef647c8db1e6a09f647780f40 # v2.19.0`
 - Action update cadence: Dependabot weekly group (`github-actions`) with auto-merge on passing CI
 
 ---

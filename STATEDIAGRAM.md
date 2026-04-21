@@ -349,7 +349,7 @@ stateDiagram-v2
     ArticleAbandoned --> [*]: Generation Failed
 
     note right of ArticlePending
-        7 article types:
+        8 article types:
         - Breaking News
         - Week Ahead
         - Week in Review
@@ -358,8 +358,10 @@ stateDiagram-v2
         - Committee Reports
         - Motions
         - Propositions
-        Driven by 8 strategies in
+        Driven by 9 strategy modules in
         src/generators/strategies/
+        (1 generic article-strategy +
+         8 type-specific strategies)
     end note
 
     note right of ContentGeneration
@@ -1071,7 +1073,7 @@ stateDiagram-v2
 
 ## ✅ Validator-Gate State Machine
 
-`scripts/validate-analysis-completeness.js --article-html=...` runs as a pre-translation and pre-PR gate. Implemented via `scanHtmlForFallbackLeaks` + `FALLBACK_TEMPLATE_PATTERNS`.
+`node scripts/utils/validate-analysis-completeness.js --article-html=...` runs as a pre-translation and pre-PR gate. Implemented via `scanHtmlForFallbackLeaks` + `FALLBACK_TEMPLATE_PATTERNS`.
 
 ```mermaid
 stateDiagram-v2
@@ -1373,7 +1375,7 @@ Per
 
 **Document Classification**: Public  
 **ISMS Compliance**: ISO 27001:2022, NIST CSF 2.0, CIS Controls v8.1, GDPR, NIS2, EU CRA aligned  
-**Technology Stack**: Node.js 25, TypeScript 6.0.3, gh-aw v0.68.7, AWS S3 + CloudFront, GitHub Pages (fallback), EP MCP 1.2.10, WB MCP 1.0.1, IMF REST SDMX 3.0  
+**Technology Stack**: Node.js 25, TypeScript 6.0.3, gh-aw v0.69.0, AWS S3 + CloudFront, GitHub Pages (fallback), EP MCP 1.2.10, WB MCP 1.0.1, IMF REST SDMX 3.0  
 **Architecture Pattern**: Static Site Generator with Agentic AI-First Authoring and Zero Runtime Dependencies  
 **Review Status**: Active, next review 2026-07-20
 

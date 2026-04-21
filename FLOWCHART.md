@@ -110,9 +110,7 @@ The end-to-end agentic news generation flow for v0.8.40 spans gh-aw runtime, 5-s
 
 ```mermaid
 flowchart TD
-    Start["🚀 Schedule / workflow_dispatch\nnews-{breaking,weekly,monthly,\nweek-ahead,month-ahead,\ncommittee-reports,motions,propositions}"] --> Compile["🔒 gh aw compile --validate\nGH_AW_VERSION v0.68.7\n.md → .lock.yml"]
-
-    Compile --> Sandbox["🛡️ Sandboxed Docker runner\nubuntu-latest 2-core\n120-min hard timeout"]
+    Start["🚀 Schedule / workflow_dispatch\nnews-{breaking,weekly,monthly,\nweek-ahead,month-ahead,\ncommittee-reports,motions,propositions}"] --> Sandbox["🛡️ Sandboxed Docker runner\nubuntu-latest 2-core\n120-min hard timeout\n(executes pre-compiled .lock.yml)"]
 
     Sandbox --> MCPSetup["📡 scripts/mcp-setup.sh\nEP_MCP_GATEWAY_URL=\nhttp://host.docker.internal:80\n/mcp/european-parliament"]
 
@@ -178,12 +176,14 @@ flowchart TD
     class SafeOutput,PR,Merge,Deploy outputNode
 ```
 
+> **Note — gh-aw compile is out-of-band:** The `.lock.yml` artifacts executed above are pre-compiled and committed to the repository. Compilation (`gh aw compile --validate` pinned to `GH_AW_VERSION: v0.69.0`) runs in the **separate `.github/workflows/compile-agentic-workflows.yml` workflow** (manual `workflow_dispatch` only) and is **not** part of any scheduled news-generation run. Scheduled news workflows invoke only the already-committed lock files; agent-authored `.md` edits require a dedicated compile PR before they take effect.
+
 **Workflow & Pipeline References:**
 - Agentic `.md` sources: [`.github/workflows/news-*.md`](.github/workflows/)
 - Compiled lock files: `.github/workflows/news-*.lock.yml`
 - Pipeline stages: [`src/generators/pipeline/`](src/generators/pipeline/)
 - Strategies: [`src/generators/strategies/`](src/generators/strategies/)
-- Validator: [`scripts/validate-analysis-completeness.js`](scripts/)
+- Validator: [`scripts/utils/validate-analysis-completeness.js`](scripts/utils/validate-analysis-completeness.js)
 - Quality thresholds: [`analysis/methodologies/reference-quality-thresholds.json`](analysis/methodologies/reference-quality-thresholds.json)
 - Content validator: [`src/utils/content-validator.ts`](src/utils/content-validator.ts)
 

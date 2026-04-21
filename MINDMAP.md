@@ -128,12 +128,12 @@ mindmap
         Cultural Adaptation
       AI-First Intelligence
         2-Pass Quality Gate
-        Agentic Workflows (gh-aw v0.68.7)
+        Agentic Workflows (gh-aw v0.69.0)
         AI Writes All Analysis
         Validator Gate Pre-Publish
 
     Core Capabilities
-      7 Article Types
+      8 Article Types
         Breaking News
         Week Ahead
         Week in Review
@@ -142,7 +142,7 @@ mindmap
         Committee Reports
         Motions
         Propositions
-      8 Strategies
+      9 Strategies (1 generic + 8 type-specific)
         article-strategy (base)
         breaking-news-strategy
         committee-reports-strategy
@@ -461,7 +461,7 @@ mindmap
             setup-labels
             test-and-report
           gh aw compile --validate
-          GH_AW_VERSION v0.68.7 (pinned)
+          GH_AW_VERSION v0.69.0 (pinned)
         Hosting (fallback)
           GitHub Pages
           HTTPS/SSL
@@ -1187,7 +1187,7 @@ graph LR
 | **TypeScript**    | Version          | Latest stable   | ✅ 6.0.3         |
 | **Vitest**        | Version          | Latest stable   | ✅ 4.1.4         |
 | **Playwright**    | Version          | Latest stable   | ✅ 1.59.1        |
-| **gh-aw**         | Pinned runtime   | Known-good      | ✅ v0.68.7       |
+| **gh-aw**         | Pinned runtime   | Known-good      | ✅ v0.69.0       |
 | **EP MCP Server** | Version          | Latest release  | ✅ 1.2.10        |
 | **Dependencies**  | Vulnerabilities  | 0 critical/high | ✅ 0             |
 | **Test Coverage** | Tests / files    | 3,000+ / 50+    | ✅ 3,061+ / 52   |
@@ -1265,7 +1265,7 @@ graph TB
 
 | Version | Date       | Author | Changes                                                           |
 | ------- | ---------- | ------ | ----------------------------------------------------------------- |
-| 1.2     | 2026-04-20 | CEO    | Refreshed for v0.8.40: 7 article types, 8 strategies, 5-stage pipeline, 10 agentic + 14 infra workflows, dual economic data (EP MCP 1.2.10 + WB MCP 1.0.1 + IMF REST SDMX 3.0), AI-First quality gates, 3061+ tests, AWS S3 + CloudFront primary hosting, gh-aw v0.68.7 pinned |
+| 1.2     | 2026-04-20 | CEO    | Refreshed for v0.8.40: 8 article types, 9 strategies (1 generic + 8 type-specific), 5-stage pipeline, 10 agentic + 14 infra workflows, dual economic data (EP MCP 1.2.10 + WB MCP 1.0.1 + IMF REST SDMX 3.0), AI-First quality gates, 3061+ tests, AWS S3 + CloudFront primary hosting, gh-aw v0.69.0 pinned |
 | 1.1     | 2026-02-24 | CEO    | Updated review date and verified current state accuracy            |
 | 1.0     | 2025-02-17 | CEO    | Initial mindmap documentation with comprehensive conceptual views |
 
@@ -1275,7 +1275,7 @@ graph TB
 
 **Document Classification**: Public  
 **ISMS Compliance**: ISO 27001:2022, NIST CSF 2.0, CIS Controls v8.1, GDPR, NIS2, EU CRA aligned  
-**Technology Stack**: Node.js 25, TypeScript 6.0.3, Vitest 4.1.4, Playwright 1.59.1, gh-aw v0.68.7, AWS S3 + CloudFront, GitHub Pages (fallback), EP MCP 1.2.10, WB MCP 1.0.1, IMF REST SDMX 3.0  
+**Technology Stack**: Node.js 25, TypeScript 6.0.3, Vitest 4.1.4, Playwright 1.59.1, gh-aw v0.69.0, AWS S3 + CloudFront, GitHub Pages (fallback), EP MCP 1.2.10, WB MCP 1.0.1, IMF REST SDMX 3.0  
 **Architecture Pattern**: Static Site Generator with Agentic AI-First Authoring and Zero Runtime Dependencies  
 **Review Status**: Active, next review 2026-07-20
 

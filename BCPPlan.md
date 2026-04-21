@@ -362,7 +362,7 @@ flowchart TD
 | **Impact** | All 10 agentic news workflows blocked (breaking, weekly/monthly reviews, week/month-ahead, committee-reports, motions, propositions, article-generator multi-type, translate fan-out); deployment paused |
 | **Probability** | Low |
 | **Recovery** | Manual local runs possible via `npm run generate-news` + `npm run generate-news-indexes`; push generated artifacts directly to `main` for `deploy-s3.yml` to pick up when runners recover |
-| **Mitigation** | 10 agentic workflows compiled into deterministic `.lock.yml` via `gh aw compile --validate` (pinned `GH_AW_VERSION: v0.68.7`) — locally reproducible; static build fully scriptable |
+| **Mitigation** | 10 agentic workflows compiled into deterministic `.lock.yml` via `gh aw compile --validate` (pinned `GH_AW_VERSION: v0.69.0`) — locally reproducible; static build fully scriptable |
 
 ### Scenario 9: Copilot / Claude / Codex Quota Exhaustion
 
@@ -382,7 +382,7 @@ flowchart TD
 | **Recovery** | Activate GitHub Pages fallback per [`runbooks/github-pages-failover.md`](runbooks/github-pages-failover.md); repoint DNS CNAME if extended |
 | **Mitigation** | Static artifacts in `main` are host-agnostic; GitHub Pages deploy path preserved; identical content served |
 
-### Scenario 11: gh-aw Toolchain Break (v0.68.7 Incompatibility)
+### Scenario 11: gh-aw Toolchain Break (v0.69.0 Incompatibility)
 
 | 📋 **Aspect** | 📊 **Detail** |
 |---------------|--------------|
@@ -485,7 +485,7 @@ For **critical static-site availability (primary S3/CloudFront or GitHub Pages f
 | **World Bank MCP (`worldbank-mcp@1.0.1`)** | Biannual WDI data | Medium | OR-gate via `articlePolicyHasEconomicContext` (IMF fallback) | N/A (graceful degrade) |
 | **IMF REST (SDMX 3.0, native `IMFMCPClient`)** | WEO + FM forecasts | Medium | OR-gate via `articlePolicyHasEconomicContext` (WB fallback); `IMF_API_TIMEOUT_MS` configurable | N/A (graceful degrade) |
 | **npm Registry**            | Dependency + Publish  | High            | GitHub Packages mirror; npm cache + `npm ci`; SLSA 3 attestations verifiable | 2 hours |
-| **gh-aw toolchain (v0.68.7)** | Agentic workflow compiler | High         | Pinned version; rollback via git; sibling repos as cross-reference | 4 hours |
+| **gh-aw toolchain (v0.69.0)** | Agentic workflow compiler | High         | Pinned version; rollback via git; sibling repos as cross-reference | 4 hours |
 | **GitHub Dependabot**       | Security Scanning     | Medium          | Manual `npm audit`; CodeQL          | Low priority |
 | **GitHub CodeQL**           | SAST Scanning         | Medium          | ESLint security plugin fallback    | Low priority |
 

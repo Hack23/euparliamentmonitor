@@ -137,8 +137,8 @@ architecture.
   execution; one pinned production dependency (`european-parliament-mcp-server@1.2.10`) plus one optional dependency (`worldbank-mcp@1.0.1`) used only at build time
 - **TypeScript Source**: All source in `src/` written in TypeScript 6.0.3 (strict, ESM, `"type": "module"`), compiled via `tsc` — `rootDir: ./src`, `outDir: ./scripts`, `target: ES2025`, `module: NodeNext`
 - **Multi-Language Support**: Generates content in 14 languages (`en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh`), defined in `src/constants/language-core.ts::ALL_LANGUAGES`
-- **Article Types**: 7 production article types driven by 8 strategy modules (`article`, `breaking-news`, `committee-reports`, `month-ahead`, `monthly-review`, `motions`, `propositions`, `week-ahead`, `weekly-review`)
-- **Agentic Workflows**: 10 gh-aw markdown workflows (9 content generators + 1 translation fan-out) compiled to `.lock.yml` via `gh aw compile --validate` (pinned `GH_AW_VERSION: v0.68.7`)
+- **Article Types**: 8 production content types (`breaking-news`, `committee-reports`, `month-ahead`, `monthly-review`, `motions`, `propositions`, `week-ahead`, `weekly-review`) driven by 9 strategy modules in `src/generators/strategies/` — the 8 type-specific strategies plus `article-strategy` (generic/on-demand, used by `news-article-generator.md` manual dispatch, not an additional production content type)
+- **Agentic Workflows**: 10 gh-aw markdown workflows (9 content generators + 1 translation fan-out) compiled to `.lock.yml` via `gh aw compile --validate` (pinned `GH_AW_VERSION: v0.69.0`)
 - **Dual Economic Data (Wave 1)**: World Bank MCP AND IMF REST provide complementary macro context; validator gate `articlePolicyHasEconomicContext` in `src/utils/content-validator.ts` accepts either source
 - **AI-First Quality Principle**: Mandatory 2-pass iterative improvement (~60% pass 1, ~40% pass 2); ≥80 words/SWOT item, ≥150 words/stakeholder perspective, ≥60% prose ratio, ≥1 Chart.js visualization, 0 `[AI_ANALYSIS_REQUIRED]` sentinel markers
 - **MCP Integration**: Spawned as local child processes via stdio JSON-RPC at build time
@@ -280,7 +280,7 @@ C4Container
     Person(contributor, "Contributor", "Maintains system")
 
     Container_Boundary(epmonitor, "EU Parliament Monitor") {
-        Container(aw_orchestrator, "gh-aw Orchestrator", "Agentic Workflows (Claude Opus 4.7)", "10 agentic workflows (.md → .lock.yml via gh-aw v0.68.7): 9 content + 1 translate")
+        Container(aw_orchestrator, "gh-aw Orchestrator", "Agentic Workflows (Claude Opus 4.7)", "10 agentic workflows (.md → .lock.yml via gh-aw v0.69.0): 9 content + 1 translate")
         Container(pipeline, "Analysis Pipeline", "TypeScript", "5-stage pipeline: fetch → transform → analysis → generate → output (src/generators/pipeline/)")
         Container(strategies, "Strategies (×8)", "TypeScript", "article, breaking-news, committee-reports, month-ahead, monthly-review, motions, propositions, week-ahead, weekly-review (src/generators/strategies/)")
         Container(builders, "Section Builders", "TypeScript", "breaking, committee, propositions, prospective, shared, voting (src/generators/builders/)")
@@ -440,7 +440,7 @@ C4Component
     }
 
     Container_Boundary(support_c, "Support Modules") {
-        Component(mcp_ep, "ep-mcp-client.ts", "TS", "Exports EP_MCP_TOOLS canonical list; FeedBaseOptions + FixedWindowFeedOptions")
+        Component(mcp_ep, "ep-mcp-client.ts", "TS", "EP MCP stdio client; FeedBaseOptions + FixedWindowFeedOptions (no canonical EP_MCP_TOOLS export yet)")
         Component(mcp_wb, "wb-mcp-client.ts", "TS", "Exports WORLD_BANK_MCP_TOOLS canonical list")
         Component(mcp_imf, "imf-mcp-client.ts", "TS", "class IMFMCPClient; exports IMF_MCP_TOOLS; env IMF_API_BASE_URL, IMF_API_TIMEOUT_MS")
         Component(mcp_health, "mcp-health.ts / mcp-retry.ts / mcp-connection.ts", "TS", "Health probes, retry with backoff, connection lifecycle")
@@ -480,13 +480,13 @@ C4Component
 | **Pipeline Stages** (5)  | Ordered: fetch → transform → analysis → generate → output | MCP clients, analysis utils, strategies | `src/generators/pipeline/*.ts`            |
 | **Strategies** (8)       | Per-article-type orchestration   | Builders, templates, section-builders | `src/generators/strategies/*.ts`          |
 | **Builders** (6)         | Section composition (breaking, committee, propositions, prospective, shared, voting) | Types, analysis utils | `src/generators/builders/*.ts`            |
-| **EP MCP Client**        | Fetch EP feeds via stdio JSON-RPC; `EP_MCP_TOOLS` canonical tool list; enforces `FeedBaseOptions` vs `FixedWindowFeedOptions` | `european-parliament-mcp-server@1.2.10` | `src/mcp/ep-mcp-client.ts`                |
+| **EP MCP Client**        | Fetch EP feeds via stdio JSON-RPC; enforces `FeedBaseOptions` vs `FixedWindowFeedOptions` (no canonical `EP_MCP_TOOLS` export yet — gap tracked in CRA-ASSESSMENT §5ᵇ row 13) | `european-parliament-mcp-server@1.2.10` | `src/mcp/ep-mcp-client.ts`                |
 | **World Bank MCP Client**| Fetch WDI biannual indicators; `WORLD_BANK_MCP_TOOLS` | `worldbank-mcp@1.0.1` (optional) | `src/mcp/wb-mcp-client.ts`                |
 | **IMF MCP Client**       | Native TS fetch to IMF SDMX 3.0; `class IMFMCPClient`; `IMF_MCP_TOOLS` (NOT an MCP server) | `fetch` (Node 25+) | `src/mcp/imf-mcp-client.ts`               |
 | **MCP Health/Retry**     | Health probes, retry with exponential backoff, lifecycle | — | `src/mcp/mcp-health.ts`, `mcp-retry.ts`, `mcp-connection.ts` |
 | **Templates**            | HTML5 article shell, 14-language localised `buildSiteFooter()`, stakeholder perspective grid, structured data (JSON-LD/Open Graph) | Types | `src/templates/article-template.ts`, `section-builders.ts` |
 | **Content Validator**    | `articlePolicyHasWorldBank`, `articlePolicyHasEconomicContext` (OR-gate accepts WB OR IMF), `scanHtmlForFallbackLeaks`, `FALLBACK_TEMPLATE_PATTERNS` | — | `src/utils/content-validator.ts`          |
-| **Analysis Completeness**| Pre-PR validator gate; invoked by gh-aw workflows as `npx tsx src/utils/validate-analysis-completeness.ts` | Types | `src/utils/validate-analysis-completeness.ts` |
+| **Analysis Completeness**| Pre-PR validator gate; invoked by gh-aw workflows as `node scripts/utils/validate-analysis-completeness.js` | Types | `src/utils/validate-analysis-completeness.ts` |
 | **Intelligence Utils**   | `political-classification`, `political-threat-assessment`, `political-risk-assessment`, `significance-scoring`, `article-quality-scorer` | Types | `src/utils/*.ts` |
 | **News Indexes**         | Per-language index pages                | Metadata, languages | `src/generators/news-indexes.ts` |
 | **Sitemap**              | XML sitemap across 14 languages       | Metadata, file-utils | `src/generators/sitemap.ts` |
@@ -597,7 +597,7 @@ C4Deployment
 
 ### Article Types & Strategies
 
-7 production article types are driven by 8 strategy modules (strategies 1:1 with types, except `article-strategy.ts` which is a generic fallback used by the on-demand generator):
+8 production article types are driven by 9 strategy modules (strategies 1:1 with types, plus `article-strategy.ts` which is a generic fallback used by the on-demand generator — not an additional production content type):
 
 | Article Type        | Strategy Module                      | gh-aw Workflow                      | Cadence                       |
 |---------------------|--------------------------------------|-------------------------------------|-------------------------------|
@@ -614,7 +614,7 @@ Plus: `article-strategy.ts` (generic, used by manual `news-article-generator.md`
 
 ### Agentic Workflows (gh-aw)
 
-All 10 news workflows are **markdown source files compiled to YAML** (`.md` → `.lock.yml`) via the GitHub Agentic Workflows CLI (`gh aw compile --validate`) with pinned `GH_AW_VERSION: v0.68.7` in `.github/workflows/compile-agentic-workflows.yml`. See [WORKFLOWS.md](WORKFLOWS.md) for the full surface.
+All 10 news workflows are **markdown source files compiled to YAML** (`.md` → `.lock.yml`) via the GitHub Agentic Workflows CLI (`gh aw compile --validate`) with pinned `GH_AW_VERSION: v0.69.0` in `.github/workflows/compile-agentic-workflows.yml`. See [WORKFLOWS.md](WORKFLOWS.md) for the full surface.
 
 **5-layer security model**:
 1. **AWF Squid firewall allowlist** — egress HTTP allowlist per workflow
@@ -667,7 +667,7 @@ All 10 news workflows are **markdown source files compiled to YAML** (`.md` → 
 | **TypeDoc** | 0.28.19 | 0.28.0 | N/A | Major within 60 days |
 | **european-parliament-mcp-server** | 1.2.10 (pinned) | 1.2.10 | Per upstream | Track releases; 1.2.10 (2026-04-20) fixes #377/#378 (fixed-window feeds, uniform unavailable envelope) |
 | **worldbank-mcp** | 1.0.1 (optional) | 1.0.0 | Per upstream | Biannual WDI refresh cadence |
-| **gh-aw CLI** | v0.68.7 (pinned `GH_AW_VERSION`) | v0.68.7 | Per upstream | Workflow-level pin in `compile-agentic-workflows.yml` |
+| **gh-aw CLI** | v0.69.0 (pinned `GH_AW_VERSION`) | v0.69.0 | Per upstream | Workflow-level pin in `compile-agentic-workflows.yml` |
 
 ### Dependency Management
 
@@ -738,7 +738,7 @@ src/                                   → scripts/                          (ts
 │   ├── language-ui.ts                 Per-language UI strings
 │   └── languages.ts                   Language metadata (name, flag, direction)
 ├── mcp/                               → mcp/
-│   ├── ep-mcp-client.ts               EP MCP stdio client; exports EP_MCP_TOOLS; feed option types
+│   ├── ep-mcp-client.ts               EP MCP stdio client; feed option types (no canonical EP_MCP_TOOLS export yet)
 │   ├── wb-mcp-client.ts               World Bank MCP client; exports WORLD_BANK_MCP_TOOLS
 │   ├── imf-mcp-client.ts              IMFMCPClient class (native fetch/SDMX 3.0); exports IMF_MCP_TOOLS
 │   ├── mcp-connection.ts              Connection lifecycle

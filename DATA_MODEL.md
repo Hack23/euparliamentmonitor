@@ -326,7 +326,7 @@ erDiagram
 
 **File Location**: `src/types/index.ts` (`ArticleCategory` enum + `ARTICLE_TYPES` catalogue in `src/constants/language-articles.ts`)
 
-EU Parliament Monitor ships **7 production article types** driven by **8 strategy modules** (`src/generators/strategies/`):
+EU Parliament Monitor ships **8 production article types** driven by **9 strategy modules** (`src/generators/strategies/` — 1 generic `article-strategy` + 8 type-specific strategies):
 
 | Code | Perspective | Strategy Module | Source gh-aw Workflow |
 |------|-------------|-----------------|-----------------------|
@@ -510,7 +510,7 @@ Every MCP client exports a canonical tool list asserted by an integration contra
 
 | Client | Canonical list | Contract test |
 |--------|----------------|---------------|
-| `src/mcp/ep-mcp-client.ts` | `EP_MCP_TOOLS` | `test/integration/mcp/ep-mcp.test.js` |
+| `src/mcp/ep-mcp-client.ts` | *(no `EP_MCP_TOOLS` export yet — gap)* | `test/integration/mcp-integration.test.js` |
 | `src/mcp/imf-mcp-client.ts` (class `IMFMCPClient`) | `IMF_MCP_TOOLS` | `test/integration/mcp/imf-mcp.test.js` |
 | `src/mcp/wb-mcp-client.ts` | `WORLD_BANK_MCP_TOOLS` | `test/integration/mcp/worldbank-mcp.test.js` |
 
@@ -553,7 +553,7 @@ export interface AnalysisManifest {
   generatedAt: string;                  // ISO 8601 UTC
   sourceCommit: string;                 // Git SHA of source code
   epMcpVersion: "1.2.10";               // Pinned EP MCP Server version
-  ghAwVersion: "v0.68.7";               // Pinned gh-aw CLI
+  ghAwVersion: "v0.69.0";               // Pinned gh-aw CLI
   files: AnalysisRunFiles;              // Emitted artifact catalogue
   qualityReport: QualityReport;         // AI-First 2-pass metrics
   dataSourcesUsed: Array<"EP" | "WB" | "IMF">;
@@ -1460,7 +1460,7 @@ timeline
 |---------|--------------|-------------|----------------|
 | **v1.0** | 2026-02-01 | Initial release, basic article generation | 1 (Main ER diagram) |
 | **v1.1** | 2026-03-19 | Multi-language support, MCP integration, ISMS alignment | 4 (MEP, MCP, Multi-language, Sitemap models) + 1 (EP data flow) |
-| **v1.2** | 2026-04-20 | TypeScript type system coverage, FeedBaseOptions vs FixedWindowFeedOptions split (EP MCP v1.2.10), IMF/WB dual economic context, AnalysisManifest schema, 7 article types correctly enumerated, 14 languages from `language-core.ts::ALL_LANGUAGES`, `buildSiteFooter()` single source of truth, reference quality thresholds | Same set — content updates |
+| **v1.2** | 2026-04-20 | TypeScript type system coverage, FeedBaseOptions vs FixedWindowFeedOptions split (EP MCP v1.2.10), IMF/WB dual economic context, AnalysisManifest schema, 8 article types correctly enumerated, 14 languages from `language-core.ts::ALL_LANGUAGES`, `buildSiteFooter()` single source of truth, reference quality thresholds | Same set — content updates |
 | **v2.0** | 2026-Q4 (Planned) | Real-time updates, expanded intelligence types | TBD |
 
 ### Breaking Changes Log

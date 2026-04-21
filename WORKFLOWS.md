@@ -124,14 +124,14 @@ EU Parliament Monitor employs a comprehensive suite of **24 GitHub Actions workf
 | 8 | **Deploy S3** | Production deployment to AWS S3 + CloudFront (OIDC, egress: block) | Push to main | Infrastructure as Code |
 | 9 | **REUSE Compliance** | License and copyright verification (REUSE 3.3) | On PR/push + weekly Monday | Open Source Policy |
 | 10 | **SLSA Provenance** | Build provenance attestation (integrated in release.yml) | On release + manual | Supply chain security (SLSA L3) |
-| 11 | **Compile Agentic Workflows** | Compile `.md` → `.lock.yml` via gh-aw CLI (pinned `GH_AW_VERSION: v0.68.7`) | Manual dispatch | Automation governance |
+| 11 | **Compile Agentic Workflows** | Compile `.md` → `.lock.yml` via gh-aw CLI (pinned `GH_AW_VERSION: v0.69.0`) | Manual dispatch | Automation governance |
 | 12 | **Agentics Maintenance** | Housekeeping for agentic workflows (stale lock cleanup, health probes) | Scheduled | Automation governance |
 | 13 | **Labeler** | Automatic PR labeling | On pull_request_target | Workflow governance |
 | 14 | **Setup Labels** | Repository label management | Manual dispatch | Repository governance |
 | 15 | **Copilot Setup Steps** | GitHub Copilot agent environment setup | Push/PR to itself + manual | Agent infrastructure |
 | 16 | **news-translate-reconciler** | Reconcile missing translation artifacts across 14 languages | Scheduled | Translation consistency |
 
-**🔒 Security Posture:** All 14 standard workflows use SHA-pinned actions (100%), Harden Runner (`step-security/harden-runner@fa2e9d605c4eeb9fcad4c99c224cee0c6c7f3594 # v2.16.0`), and minimal permissions following least privilege principle. Agentic workflows add a 5-layer security model: AWF Squid firewall allowlist, sandboxed Docker with restricted shell, safe-output constraints (`create-pull-request` with `max-patch-size`), JSONL audit trail, and lock-file compilation.
+**🔒 Security Posture:** All 14 standard workflows use SHA-pinned actions (100%), Harden Runner (`step-security/harden-runner@8d3c67de8e2fe68ef647c8db1e6a09f647780f40 # v2.19.0`), and minimal permissions following least privilege principle. Agentic workflows add a 5-layer security model: AWF Squid firewall allowlist, sandboxed Docker with restricted shell, safe-output constraints (`create-pull-request` with `max-patch-size`), JSONL audit trail, and lock-file compilation.
 
 ### 🏗️ Pipeline Architecture
 
@@ -543,7 +543,7 @@ The translation workflow has its own fidelity module:
 | Test Type | Framework | Coverage Target | Current Status |
 |-----------|-----------|----------------|----------------|
 | **Unit Tests** | Vitest 4.1.4 (happy-dom) | 52 test files | ✅ 3061+ passing |
-| **Integration Tests** | Vitest + MCP contract suites (`test/integration/mcp/{ep,imf,worldbank}-mcp.test.js`) | EP/IMF/WB canonical tool lists asserted | ✅ All passing |
+| **Integration Tests** | Vitest + MCP contract suites (`test/integration/mcp-integration.test.js`, `test/integration/mcp/imf-mcp.test.js`, `test/integration/mcp/worldbank-mcp.test.js`) | IMF/WB canonical tool lists asserted via drift-guard tests; EP MCP covered by `mcp-integration.test.js` (no canonical `EP_MCP_TOOLS` export yet) | ✅ All passing |
 | **Line Coverage** | Vitest (V8) | ≥80% | ✅ 82%+ |
 | **Branch Coverage** | Vitest (V8) | ≥75% | ✅ 83%+ |
 | **Function Coverage** | Vitest (V8) | ≥80% | ✅ 89%+ |
@@ -937,18 +937,18 @@ created during the build step and attached to the immutable GitHub Release in a 
 ### 11. Compile Agentic Workflows
 
 **📄 File:** `.github/workflows/compile-agentic-workflows.yml`  
-**🎯 Purpose:** Compile agentic workflow markdown source files (`.md`) into executable lock files (`.lock.yml`) using the `gh-aw` CLI (pinned `GH_AW_VERSION: v0.68.7`)  
+**🎯 Purpose:** Compile agentic workflow markdown source files (`.md`) into executable lock files (`.lock.yml`) using the `gh-aw` CLI (pinned `GH_AW_VERSION: v0.69.0`)  
 **⏰ Trigger:** Manual dispatch only (`workflow_dispatch`)  
 **📊 Status:** [![Compile Agentic Workflows](https://github.com/Hack23/euparliamentmonitor/actions/workflows/compile-agentic-workflows.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/compile-agentic-workflows.yml)
 
-> **Version pin contract**: `GH_AW_VERSION: v0.68.7` is a repository-level environment pin in `compile-agentic-workflows.yml`. Bumping this pin requires re-compilation of all 10 `.lock.yml` files, a full PR review, and successful `gh aw compile --validate` across the workflow set. Any `.md` → `.lock.yml` drift is detected by `agentics-maintenance.yml`.
+> **Version pin contract**: `GH_AW_VERSION: v0.69.0` is a repository-level environment pin in `compile-agentic-workflows.yml`. Bumping this pin requires re-compilation of all 10 `.lock.yml` files, a full PR review, and successful `gh aw compile --validate` across the workflow set. Any `.md` → `.lock.yml` drift is detected by `agentics-maintenance.yml`.
 
 #### Compilation Pipeline
 
 ```mermaid
 graph LR
     A[Manual Trigger] --> B[Checkout Repository]
-    B --> C["Install gh-aw CLI<br/>(pinned v0.68.7)"]
+    B --> C["Install gh-aw CLI<br/>(pinned v0.69.0)"]
     C --> D["Run gh aw compile --validate<br/>Validates frontmatter + safe-outputs"]
     D --> E["Commit & Push<br/>.lock.yml Files"]
 
@@ -975,7 +975,7 @@ graph LR
 | Control | Implementation | ISMS Reference |
 |---------|----------------|----------------|
 | **Manual Trigger Only** | `workflow_dispatch` — no automatic runs | Change control |
-| **Version Pin** | `GH_AW_VERSION: v0.68.7` pinned at workflow env | Supply chain integrity |
+| **Version Pin** | `GH_AW_VERSION: v0.69.0` pinned at workflow env | Supply chain integrity |
 | **Token Fallback** | `COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN` with `GITHUB_TOKEN` fallback | Credential management |
 | **Write Permissions** | `contents: write`, `pull-requests: write`, `actions: write`, `issues: write` | Least privilege for compilation |
 
@@ -1037,7 +1037,7 @@ graph LR
 ### 15. Agentics Maintenance
 
 **📄 File:** `.github/workflows/agentics-maintenance.yml`  
-**🎯 Purpose:** Housekeeping for the agentic workflow fleet — detect `.md` ↔ `.lock.yml` drift, probe MCP gateway health, prune stale analysis artifacts, verify `GH_AW_VERSION: v0.68.7` is in effect.  
+**🎯 Purpose:** Housekeeping for the agentic workflow fleet — detect `.md` ↔ `.lock.yml` drift, probe MCP gateway health, prune stale analysis artifacts, verify `GH_AW_VERSION: v0.69.0` is in effect.  
 **⏰ Trigger:** Scheduled (weekly) + manual dispatch  
 
 #### Security Controls
@@ -1107,7 +1107,7 @@ The AI-First Quality Principle (`.github/skills/ai-first-quality.md`, non-negoti
 Before PR creation, the agentic workflow MUST run:
 
 ```bash
-npx tsx src/utils/validate-analysis-completeness.ts --article-html="$(ls -t news/${TODAY}-${TYPE}*-en.html | head -1)"
+node scripts/utils/validate-analysis-completeness.js --article-html="$(ls -t news/${TODAY}-${TYPE}*-en.html | head -1)"
 ```
 
 which asserts:
@@ -1202,7 +1202,7 @@ The project's workflows collectively implement the following security measures (
 
 1. **🔒 Permissions Restriction**: Explicit least-privilege permissions with `read-all` or empty `{}` top-level
 2. **📌 SHA Pinning**: 100% of actions pinned to specific SHA hashes — zero tag references
-3. **🛡️ Runner Hardening**: StepSecurity `harden-runner@fa2e9d605c4eeb9fcad4c99c224cee0c6c7f3594 # v2.16.0` for audit logging
+3. **🛡️ Runner Hardening**: StepSecurity `harden-runner@8d3c67de8e2fe68ef647c8db1e6a09f647780f40 # v2.19.0` for audit logging
 4. **📄 SBOM Generation**: The release workflow generates a Software Bill of Materials in SPDX format via `anchore/sbom-action`
 5. **🔏 Build Attestations**: The release workflow creates SLSA Level 3 provenance via `actions/attest-build-provenance`
 6. **⏱️ Timeout Limits**: Critical workflows (e.g., E2E and agentic `*.lock.yml` pipelines) use explicit `timeout-minutes` to prevent resource exhaustion; remaining workflows rely on GitHub's default job timeouts and are monitored for anomalies
