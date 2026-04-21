@@ -11,14 +11,14 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.1-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--19-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.2-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--20-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Last Updated:**
-2026-03-19 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-19
+**📋 Document Owner:** CEO | **📄 Version:** 1.2 | **📅 Last Updated:**
+2026-04-20 (UTC) | **🏷️ Platform Release:** v0.8.40  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-20
 
 ---
 
@@ -106,6 +106,196 @@ This document aligns with Hack23's Information Security Management System (ISMS)
 
 ## 🔐 News Generation Security Flow
 
+The end-to-end agentic news generation flow for v0.8.40 spans gh-aw runtime, 5-stage pipeline, AI-First 2-pass analysis, validator gate, and safe-output PR creation. The 10 news workflows (`news-breaking`, `news-weekly-review`, `news-monthly-review`, `news-week-ahead`, `news-month-ahead`, `news-committee-reports`, `news-motions`, `news-propositions`, `news-article-generator`, `news-translate`) all share this spine.
+
+```mermaid
+flowchart TD
+    Start["🚀 Schedule / workflow_dispatch\nnews-{breaking,weekly,monthly,\nweek-ahead,month-ahead,\ncommittee-reports,motions,propositions}"] --> Compile["🔒 gh aw compile --validate\nGH_AW_VERSION v0.68.7\n.md → .lock.yml"]
+
+    Compile --> Sandbox["🛡️ Sandboxed Docker runner\nubuntu-latest 2-core\n120-min hard timeout"]
+
+    Sandbox --> MCPSetup["📡 scripts/mcp-setup.sh\nEP_MCP_GATEWAY_URL=\nhttp://host.docker.internal:80\n/mcp/european-parliament"]
+
+    MCPSetup --> Firewall["🔥 AWF Squid firewall\nAllowlist-only egress"]
+
+    Firewall --> FetchStage["📥 fetch-stage\nEP MCP 1.2.10 + WB MCP 1.0.1 + IMF REST"]
+
+    FetchStage --> EPAvail{"EP available?"}
+    EPAvail -->|"status:unavailable"| MCPRetry["🔄 mcp-retry.ts\nExponential backoff"]
+    MCPRetry -->|Max retries| DegradeFetch["⚠️ Continue with cached evidence"]
+    MCPRetry -->|Recovered| FetchStage
+    EPAvail -->|✅ items| EconomicGate{"OR-gate: WB OR IMF?"}
+    DegradeFetch --> EconomicGate
+
+    EconomicGate -->|Either OK| Transform["🔄 transform-stage\nNormalize + unify schemas"]
+    EconomicGate -->|Both fail + default gate| AbortEcon["❌ articlePolicyHasWorldBank fail\nAbort PR"]
+
+    Transform --> Analysis["🤖 analysis-stage\nAI-First 2-pass"]
+
+    Analysis --> Pass1["📝 Pass 1 (~60% budget)\nInitial analysis"]
+    Pass1 --> Pass2["🔁 Pass 2 (~40% budget)\nRead-back + improve\n≥80w/SWOT, ≥150w/stakeholder,\n≥60% prose, ≥1 Chart.js"]
+
+    Pass2 --> Intel["📄 Emit intelligence files\nstakeholder-map.md\nimpact-matrix.md\nmcp-reliability-audit.md\nreference-analysis-quality.md"]
+
+    Intel --> Generate["🏗️ generate-stage\nStrategy-specific builder\nbuildDefaultStakeholderPerspectives\n(AI_MARKER sentinels)"]
+
+    Generate --> Output["💾 output-stage\nHTML writes to news/\nChart.js + JSON-LD + SEO"]
+
+    Output --> Validator["✅ validate-analysis-completeness.js\n--article-html=..."]
+
+    Validator --> LeakScan{"scanHtmlForFallbackLeaks\nvs FALLBACK_TEMPLATE_PATTERNS"}
+    LeakScan -->|❌ Leak detected| AbortLeak["❌ Abort PR\nAI_ANALYSIS_REQUIRED / AI_MARKER present"]
+
+    LeakScan -->|✅ Clean| ThresholdCheck{"Reference thresholds\n(≥200/385, ≥140/190)"}
+    ThresholdCheck -->|❌ Below| AbortThresh["❌ Abort PR\nInsufficient references"]
+
+    ThresholdCheck -->|✅ Pass| SafeOutput["📦 safe-outputs create-pull-request\nmax-patch-size: 1024 KB (default)"]
+
+    SafeOutput --> PR["🔀 PR for human review"]
+    PR --> Merge["✅ Merge to main"]
+
+    AbortEcon --> End["🚨 Workflow failed"]
+    AbortLeak --> End
+    AbortThresh --> End
+    Merge --> Deploy["🚀 See Deployment Flow"]
+
+    classDef startNode fill:#4CAF50,stroke:#2E7D32,stroke-width:2px,color:#000000
+    classDef compileNode fill:#F48FB1,stroke:#AD1457,stroke-width:2px,color:#000000
+    classDef sandboxNode fill:#CE93D8,stroke:#6A1B9A,stroke-width:2px,color:#000000
+    classDef checkNode fill:#FFE082,stroke:#F57C00,stroke-width:2px,color:#000000
+    classDef analyzeNode fill:#90CAF9,stroke:#1565C0,stroke-width:2px,color:#000000
+    classDef errorNode fill:#EF9A9A,stroke:#D32F2F,stroke-width:2px,color:#000000
+    classDef validateNode fill:#A5D6A7,stroke:#2E7D32,stroke-width:2px,color:#000000
+    classDef outputNode fill:#81C784,stroke:#2E7D32,stroke-width:2px,color:#000000
+
+    class Start startNode
+    class Compile,Sandbox compileNode
+    class MCPSetup,Firewall sandboxNode
+    class EPAvail,EconomicGate,LeakScan,ThresholdCheck checkNode
+    class Pass1,Pass2,Intel,Generate analyzeNode
+    class AbortEcon,AbortLeak,AbortThresh,End errorNode
+    class Validator,Output validateNode
+    class SafeOutput,PR,Merge,Deploy outputNode
+```
+
+**Workflow & Pipeline References:**
+- Agentic `.md` sources: [`.github/workflows/news-*.md`](.github/workflows/)
+- Compiled lock files: `.github/workflows/news-*.lock.yml`
+- Pipeline stages: [`src/generators/pipeline/`](src/generators/pipeline/)
+- Strategies: [`src/generators/strategies/`](src/generators/strategies/)
+- Validator: [`scripts/validate-analysis-completeness.js`](scripts/)
+- Quality thresholds: [`analysis/methodologies/reference-quality-thresholds.json`](analysis/methodologies/reference-quality-thresholds.json)
+- Content validator: [`src/utils/content-validator.ts`](src/utils/content-validator.ts)
+
+---
+
+## 🌍 Translation Fan-Out Flow (`news-translate`)
+
+The `news-translate` workflow fans one EN source to 13 non-EN languages (`sv da no fi de fr es nl ar he ja ko zh`) with an elevated `max-patch-size: 10240` KB to accommodate the multi-language PR diff.
+
+```mermaid
+flowchart LR
+    Trigger["🔔 news-translate trigger\nafter EN article PR merged"] --> PreGate["🛡️ Pre-translation gate\nvalidate-analysis-completeness.js\nScans ALL EN sources"]
+
+    PreGate -->|"❌ Any EN source fails"| Abort["🚫 Abort fan-out"]
+    PreGate -->|"✅ All EN pass"| Fanout{"🌐 Per-language fan-out\n13 targets"}
+
+    Fanout --> SV[🇸🇪 sv]
+    Fanout --> DA[🇩🇰 da]
+    Fanout --> NO[🇳🇴 no]
+    Fanout --> FI[🇫🇮 fi]
+    Fanout --> DE[🇩🇪 de]
+    Fanout --> FR[🇫🇷 fr]
+    Fanout --> ES[🇪🇸 es]
+    Fanout --> NL[🇳🇱 nl]
+    Fanout --> AR[🇸🇦 ar — RTL]
+    Fanout --> HE[🇮🇱 he — RTL]
+    Fanout --> JA[🇯🇵 ja]
+    Fanout --> KO[🇰🇷 ko]
+    Fanout --> ZH[🇨🇳 zh]
+
+    SV & DA & NO & FI & DE & FR & ES & NL & AR & HE & JA & KO & ZH --> Validate["✅ axe-core + HTMLHint\nper language"]
+
+    Validate --> Commit["💾 Commit per-language HTML\nbuildSiteFooter() localized"]
+
+    Commit --> PR["📦 safe-outputs create-pull-request\nmax-patch-size: 10240 KB"]
+
+    PR --> Reconciler["🧹 news-translate-reconciler.yml\nCleanup + consolidation"]
+
+    Reconciler --> Done["✅ Multi-language PR ready"]
+
+    style Trigger fill:#4CAF50,stroke:#2E7D32
+    style PreGate fill:#90CAF9,stroke:#1565C0
+    style Fanout fill:#FFE082,stroke:#F57C00
+    style Validate fill:#A5D6A7,stroke:#2E7D32
+    style PR fill:#81C784,stroke:#2E7D32
+    style Abort fill:#EF9A9A,stroke:#D32F2F
+```
+
+---
+
+## 🚀 AWS S3 + CloudFront Deployment Flow
+
+Post-merge, `deploy-s3.yml` uses GitHub OIDC to assume an AWS role (no long-lived keys) and syncs to S3 with CloudFront invalidation.
+
+```mermaid
+flowchart TD
+    Merge["🔀 Merge to main"] --> Trigger["🔔 deploy-s3.yml triggered"]
+
+    Trigger --> Prebuild["⚙️ npm run prebuild\n→ generate-news-indexes\n→ generate-sitemap"]
+
+    Prebuild --> Build["🔨 npm run build (tsc)\nTypeScript 6.0.3 compilation"]
+
+    Build --> OIDC["🔐 GitHub OIDC → AWS STS\nAssume S3 deploy role"]
+
+    OIDC --> Sync["📤 aws s3 sync\nUpload changed files only\nVersioned bucket"]
+
+    Sync --> Invalidate["🌐 aws cloudfront create-invalidation\nOnly changed paths\n(minimize billable requests)"]
+
+    Invalidate --> Health["🏥 Health check\nHTTPS + 14-language spot-check"]
+
+    Health -->|"✅ Healthy"| Complete["✅ Deployment complete\neuparliamentmonitor.com live"]
+    Health -->|"❌ Failed"| Fallback["🔙 GitHub Pages fallback\nper runbooks/github-pages-failover.md"]
+
+    Fallback --> Alert["📧 Incident created"]
+
+    style Merge fill:#4CAF50,stroke:#2E7D32
+    style OIDC fill:#FFE082,stroke:#F57C00
+    style Sync fill:#90CAF9,stroke:#1565C0
+    style Invalidate fill:#90CAF9,stroke:#1565C0
+    style Complete fill:#81C784,stroke:#2E7D32
+    style Fallback fill:#FF9800,stroke:#F57C00
+```
+
+---
+
+## 📦 npm Publish Flow (Provenance + SLSA 3)
+
+```mermaid
+flowchart LR
+    Tag["🏷️ git tag v0.8.x"] --> Release["🚀 release.yml"]
+    Release --> Semantic["📋 semantic-release\nChangelog + version bump"]
+    Semantic --> Build["🔨 npm run build"]
+    Build --> SBOM["📄 SPDX SBOM"]
+    SBOM --> Attest["🔏 SLSA Level 3 attestation\nGitHub Attestations API"]
+    Attest --> Sign["🔐 Sigstore signing"]
+    Sign --> Publish["📦 npm publish --provenance"]
+    Publish --> Verify["✅ gh attestation verify"]
+    Verify --> Done["✅ Published with provenance"]
+
+    style Tag fill:#4CAF50,stroke:#2E7D32
+    style Attest fill:#F48FB1,stroke:#AD1457
+    style Sign fill:#F48FB1,stroke:#AD1457
+    style Publish fill:#81C784,stroke:#2E7D32
+    style Done fill:#81C784,stroke:#2E7D32
+```
+
+---
+
+## 🔐 Legacy Reference: News Generation Security Flow (pre-agentic)
+
+*Preserved for reference. The legacy path below was superseded by the agentic flow above on platform v0.8.x. Kept to document historical control genealogy.*
+
 ```mermaid
 flowchart TD
     Start["🚀 GitHub Actions Trigger\nSchedule: 06:00 UTC\nManual: workflow_dispatch"] --> CheckMCP{"🔌 MCP Server\nAvailable?"}
@@ -122,64 +312,19 @@ flowchart TD
     RetryCheck -->|"✅ Yes"| FetchData["📥 Fetch Parliamentary Data\nPlenary Sessions\nCommittee Meetings\nDocuments, Voting Records"]
 
     FetchData --> ValidateSchema{"✅ Validate\nJSON Schema?"}
-    ValidateSchema -->|"❌ Invalid"| LogError1["📝 Log Validation Error\nError Type\nField Name"] --> Fallback
-    ValidateSchema -->|"✅ Valid"| ValidateType{"✅ Type Check\nData Types?"}
-
-    ValidateType -->|"❌ Invalid"| LogError2["📝 Log Type Error\nExpected vs Actual"] --> Fallback
-    ValidateType -->|"✅ Valid"| ValidateRange{"✅ Range Check\nDates, Lengths?"}
-
-    ValidateRange -->|"❌ Invalid"| LogError3["📝 Log Range Error\nOut of Bounds"] --> Fallback
-    ValidateRange -->|"✅ Valid"| SanitizeHTML["🧹 Sanitize HTML\nStrip Script Tags\nRemove Event Handlers"]
+    ValidateSchema -->|"❌ Invalid"| LogError1["📝 Log Validation Error"] --> Fallback
+    ValidateSchema -->|"✅ Valid"| SanitizeHTML["🧹 Sanitize HTML"]
 
     Fallback --> AgentContext
-    SanitizeHTML --> EncodeHTML["🔒 HTML Entity Encoding\nConvert special characters"]
+    SanitizeHTML --> AgentContext["🤖 Copilot/LLM Agent\n5 legacy article types"]
 
-    EncodeHTML --> AgentContext["🤖 Copilot/LLM Agent\nReceives Article Type Context\n5 Types: week-ahead, motions,\npropositions, committee-reports,\nbreaking-news"]
-
-    AgentContext --> GenerateEN["📝 Generate English Content\nAgent Calls MCP Tools\nPlenary, Committees,\nDocuments, Voting Records"]
-
-    GenerateEN --> Translate["🌍 Translate Content\nEnglish to 13 Languages\n14 Total Languages"]
-
-    Translate --> GenHTML["📄 Generate Article HTML\nPer Language\nSEO, JSON-LD, Open Graph"]
-
-    GenHTML --> HTMLValidate{"✅ Validate HTML\nhtmlhint Rules\nStandards Compliance"}
-
-    HTMLValidate -->|"❌ Fail"| FixHTML["🔧 Fix HTML Issues\nAuto-correct\nReport Issues"]
-    FixHTML --> HTMLValidate
-
-    HTMLValidate -->|"✅ Pass"| GenerateIndex["📋 Generate Language Indexes\nindex-LANG.html\nSort by Date"]
-
-    GenerateIndex --> GenerateSitemap["🗺️ Generate Sitemap\nsitemap.xml\nSEO Optimization"]
-
-    GenerateSitemap --> CreateBranch["🌿 Create Branch\nnews/TYPE-YYYY-MM-DD"]
-
-    CreateBranch --> CommitPR["📦 Commit and Create PR\nArticle HTML Files\nUpdated Indexes and Sitemap"]
-
-    CommitPR --> MergePR["🔀 Merge PR to Main"]
-
-    MergePR --> DeployPages["🚀 Deploy to GitHub Pages\nUpdated Static Site"]
-
-    DeployPages --> Complete["✅ Generation Complete\nArticles Published\nSite Updated"]
-    Complete --> End["🎉 Workflow Success"]
-
-    classDef startNode fill:#4CAF50,stroke:#2E7D32,stroke-width:2px,color:#000000
-    classDef checkNode fill:#FFE082,stroke:#F57C00,stroke-width:2px,color:#000000
-    classDef connectNode fill:#90CAF9,stroke:#1565C0,stroke-width:2px,color:#000000
-    classDef errorNode fill:#EF9A9A,stroke:#D32F2F,stroke-width:2px,color:#000000
-    classDef validateNode fill:#90CAF9,stroke:#1565C0,stroke-width:2px,color:#000000
-    classDef sanitizeNode fill:#A5D6A7,stroke:#2E7D32,stroke-width:2px,color:#000000
-    classDef generateNode fill:#A5D6A7,stroke:#2E7D32,stroke-width:2px,color:#000000
-    classDef deployNode fill:#81C784,stroke:#2E7D32,stroke-width:2px,color:#000000
-
-    class Start startNode
-    class CheckMCP checkNode
-    class ConnectMCP,AgentContext connectNode
-    class Fallback errorNode
-    class ValidateSchema,ValidateType,ValidateRange,HTMLValidate validateNode
-    class SanitizeHTML,EncodeHTML sanitizeNode
-    class GenerateEN,Translate,GenHTML,CommitPR,MergePR generateNode
-    class CreateBranch connectNode
-    class DeployPages,Complete,End deployNode
+    AgentContext --> GenerateEN["📝 Generate English Content"]
+    GenerateEN --> Translate["🌍 Translate to 13 languages"]
+    Translate --> GenHTML["📄 Generate Article HTML"]
+    GenHTML --> CommitPR["📦 Commit and Create PR"]
+    CommitPR --> MergePR["🔀 Merge PR"]
+    MergePR --> DeployPages["🚀 Deploy to GitHub Pages"]
+    DeployPages --> Complete["✅ Generation Complete"]
 ```
 
 ---
@@ -1160,7 +1305,7 @@ flowchart TD
 ---
 
 **Document Status**: Active  
-**Next Review**: 2026-05-24  
+**Next Review**: 2026-07-20  
 **Owner**: Development Team, Hack23 AB  
 **Classification**: Public  
-**Version**: 1.1
+**Version**: 1.2

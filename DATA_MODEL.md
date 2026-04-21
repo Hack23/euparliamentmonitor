@@ -11,14 +11,14 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.1-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--19-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.2-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--20-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Last Updated:**
-2026-03-19 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-19
+**📋 Document Owner:** CEO | **📄 Version:** 1.2 | **📅 Last Updated:**
+2026-04-20 (UTC) | **📦 Release:** v0.8.40  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-20
 
 ---
 
@@ -324,9 +324,24 @@ erDiagram
 
 ### 3. Article Type Definitions
 
-**File Location**: `src/types/index.ts` (ArticleCategory enum)
+**File Location**: `src/types/index.ts` (`ArticleCategory` enum + `ARTICLE_TYPES` catalogue in `src/constants/language-articles.ts`)
 
-```json
+EU Parliament Monitor ships **7 production article types** driven by **8 strategy modules** (`src/generators/strategies/`):
+
+| Code | Perspective | Strategy Module | Source gh-aw Workflow |
+|------|-------------|-----------------|-----------------------|
+| `breaking` | real-time | `breaking-news-strategy.ts` | `news-breaking.md` (every 6h) |
+| `week-ahead` | prospective | `week-ahead-strategy.ts` | `news-week-ahead.md` (Fri 07:00) |
+| `week-in-review` | retrospective | `weekly-review-strategy.ts` | `news-weekly-review.md` (Sat 09:00) |
+| `month-ahead` | prospective | `month-ahead-strategy.ts` | `news-month-ahead.md` (1st 08:00) |
+| `month-in-review` | retrospective | `monthly-review-strategy.ts` | `news-monthly-review.md` (28th 10:00) |
+| `committee-reports` | analytical | `committee-reports-strategy.ts` | `news-committee-reports.md` (Mon–Fri 04:00) |
+| `motions` | analytical | `motions-strategy.ts` | `news-motions.md` (Mon–Fri 06:00) |
+| `propositions` | analytical | `propositions-strategy.ts` | `news-propositions.md` (Mon–Fri 05:00) |
+
+Plus the generic `article-strategy.ts` used by manual `news-article-generator.md` dispatches, and `news-translate.md` for EN → 13-language fan-out.
+
+```jsonc
 {
   "article_types": [
     {
@@ -351,34 +366,39 @@ erDiagram
       "description": "Preview of upcoming parliamentary events and committee meetings"
     },
     {
-      "code": "committee-reports",
+      "code": "week-in-review",
       "perspective": "retrospective",
-      "labels": {
-        "en": "Committee Reports",
-        "de": "Ausschussberichte",
-        "fr": "Rapports de Commission"
-      },
-      "description": "Analysis of committee activities and decisions"
+      "description": "Weekly retrospective — voting, coalition dynamics, policy deliveries"
+    },
+    {
+      "code": "month-ahead",
+      "perspective": "prospective",
+      "description": "Monthly strategic outlook — legislative calendar, policy momentum"
+    },
+    {
+      "code": "month-in-review",
+      "perspective": "retrospective",
+      "description": "Comprehensive monthly trends and synthesis"
+    },
+    {
+      "code": "committee-reports",
+      "perspective": "analytical",
+      "description": "Per-committee deep analysis (rapporteur influence, amendments, trilogue)"
+    },
+    {
+      "code": "motions",
+      "perspective": "analytical",
+      "description": "Per-resolution voting breakdown, abstention analysis"
+    },
+    {
+      "code": "propositions",
+      "perspective": "analytical",
+      "description": "Legislative pipeline tracking (procedure stages, timeline forecast)"
     },
     {
       "code": "breaking",
       "perspective": "real-time",
-      "labels": {
-        "en": "Breaking News",
-        "de": "Eilmeldung",
-        "fr": "Dernières Nouvelles"
-      },
-      "description": "Rapid-response coverage of significant developments"
-    },
-    {
-      "code": "deep-analysis",
-      "perspective": "analytical",
-      "labels": {
-        "en": "Deep Analysis",
-        "de": "Tiefenanalyse",
-        "fr": "Analyse Approfondie"
-      },
-      "description": "Multi-perspective deep dive analysis"
+      "description": "Rapid-response coverage of significant developments — TODAY-only items, 6h cadence"
     }
   ]
 }
@@ -386,65 +406,229 @@ erDiagram
 
 ### 4. Language Configuration
 
-**File Location**: `src/constants/languages.ts`
+**File Location**: `src/constants/language-core.ts` (defines `ALL_LANGUAGES` and `LANGUAGE_PRESETS`)
 
-```json
+14 supported languages (LTR + RTL), defined in `src/constants/language-core.ts::ALL_LANGUAGES`. Per-language UI strings live in `src/constants/language-ui.ts`; per-article-type localized labels live in `src/constants/language-articles.ts`.
+
+```jsonc
 {
   "languages": [
-    {
-      "code": "en",
-      "name": "English",
-      "native_name": "English",
-      "direction": "ltr",
-      "flag": "🇬🇧"
-    },
-    {
-      "code": "sv",
-      "name": "Swedish",
-      "native_name": "Svenska",
-      "direction": "ltr",
-      "flag": "🇸🇪"
-    },
-    {
-      "code": "de",
-      "name": "German",
-      "native_name": "Deutsch",
-      "direction": "ltr",
-      "flag": "🇩🇪"
-    },
-    {
-      "code": "fr",
-      "name": "French",
-      "native_name": "Français",
-      "direction": "ltr",
-      "flag": "🇫🇷"
-    },
-    {
-      "code": "ar",
-      "name": "Arabic",
-      "native_name": "العربية",
-      "direction": "rtl",
-      "flag": "🇸🇦"
-    },
-    {
-      "code": "he",
-      "name": "Hebrew",
-      "native_name": "עברית",
-      "direction": "rtl",
-      "flag": "🇮🇱"
-    }
+    { "code": "en", "name": "English",   "native_name": "English",    "direction": "ltr", "flag": "🇬🇧" },
+    { "code": "sv", "name": "Swedish",   "native_name": "Svenska",    "direction": "ltr", "flag": "🇸🇪" },
+    { "code": "da", "name": "Danish",    "native_name": "Dansk",      "direction": "ltr", "flag": "🇩🇰" },
+    { "code": "no", "name": "Norwegian", "native_name": "Norsk",      "direction": "ltr", "flag": "🇳🇴" },
+    { "code": "fi", "name": "Finnish",   "native_name": "Suomi",      "direction": "ltr", "flag": "🇫🇮" },
+    { "code": "de", "name": "German",    "native_name": "Deutsch",    "direction": "ltr", "flag": "🇩🇪" },
+    { "code": "fr", "name": "French",    "native_name": "Français",   "direction": "ltr", "flag": "🇫🇷" },
+    { "code": "es", "name": "Spanish",   "native_name": "Español",    "direction": "ltr", "flag": "🇪🇸" },
+    { "code": "nl", "name": "Dutch",     "native_name": "Nederlands", "direction": "ltr", "flag": "🇳🇱" },
+    { "code": "ar", "name": "Arabic",    "native_name": "العربية",     "direction": "rtl", "flag": "🇸🇦" },
+    { "code": "he", "name": "Hebrew",    "native_name": "עברית",      "direction": "rtl", "flag": "🇮🇱" },
+    { "code": "ja", "name": "Japanese",  "native_name": "日本語",       "direction": "ltr", "flag": "🇯🇵" },
+    { "code": "ko", "name": "Korean",    "native_name": "한국어",       "direction": "ltr", "flag": "🇰🇷" },
+    { "code": "zh", "name": "Chinese",   "native_name": "中文",         "direction": "ltr", "flag": "🇨🇳" }
   ],
-  "language_groups": {
+  "language_presets": {
+    "all":     ["en", "sv", "da", "no", "fi", "de", "fr", "es", "nl", "ar", "he", "ja", "ko", "zh"],
     "eu-core": ["en", "de", "fr", "es", "nl"],
-    "nordic": ["en", "sv", "da", "no", "fi"],
-    "all": [
-      "en", "sv", "da", "no", "fi",
-      "de", "fr", "es", "nl",
-      "ar", "he", "ja", "ko", "zh"
-    ]
+    "nordic":  ["en", "sv", "da", "no", "fi"]
   }
 }
 ```
+
+> **Footer source-of-truth**: All 14 language variants of the site footer are rendered by `buildSiteFooter()` in `src/templates/section-builders.ts`. This is the single source of truth — no article template or generator should render footer markup inline.
+
+---
+
+## 📘 TypeScript Type System (`src/types/`)
+
+All domain types are strongly typed in `src/types/*.ts` (strict mode, ESM). 15 type modules organised by bounded context:
+
+| Module | Purpose | Key exports |
+|--------|---------|-------------|
+| `common.ts` | Shared primitives | `LanguageCode`, `ISODate`, `ConfidenceLevel` (🟢/🟡/🔴), `Probability` (likely/possible/unlikely), `Significance` |
+| `parliament.ts` | EP domain entities | `MEP`, `PlenarySession`, `Committee`, `Procedure`, `Vote`, `VotingRecord`, `AdoptedText`, `CommitteeMeeting`, `ParliamentaryQuestion`, `Document` |
+| `mcp.ts` | MCP transport contracts | `FeedBaseOptions` (sliding-window: `timeframe`, optional `startDate`), `FixedWindowFeedOptions` (fixed-window: `limit`, `offset`), `MCPResponse<T>`, `MCPUnavailableEnvelope` |
+| `imf.ts` | IMF SDMX types | `IMFDataflow`, `IMFObservation`, `IMFSeriesKey`, `IMFWEOForecast`, `IMFFMForecast` |
+| `world-bank.ts` | World Bank WDI types | `WBIndicator`, `WBObservation`, `WBCountry` |
+| `generation.ts` | Generation pipeline | `ArticleContext`, `PipelineStageInput/Output`, `StrategyResult`, `RenderContext` |
+| `analysis.ts` | Analysis pipeline | `AnalysisContext`, `AnalysisManifest`, `AnalysisRunFiles`, `ClassificationResult`, `RiskScoring` |
+| `intelligence.ts` | Intelligence synthesis | `IntelligenceArtifact`, `CrossArticleSynthesis`, `ReferenceThresholds` |
+| `political-classification.ts` | 7-dimension taxonomy | `PoliticalClassification`, `Actor`, `Force`, `ImpactMatrix` |
+| `political-risk.ts` | Risk matrix 5×5 | `RiskMatrix`, `LikelihoodLevel`, `ImpactLevel`, `CapitalAtRisk`, `Velocity` |
+| `political-threats.ts` | 6-dimension threat landscape | `ThreatLandscape`, `ThreatDimension` (coalition/transparency/reversal/institutional/obstruction/erosion), `ActorThreat`, `DisruptionVector` |
+| `quality.ts` | AI-First quality gates | `QualityReport`, `SWOTItem`, `StakeholderPerspective`, `ProseRatio` |
+| `significance.ts` | Publication priority | `SignificanceScore`, `SignificanceFactors` |
+| `stakeholder.ts` | 6 stakeholder perspectives | `StakeholderPerspective`, `ImpactDirection` (`positive`/`negative`/`neutral`/`mixed`), `ImpactSeverity` (`high`/`medium`/`low`) |
+| `visualization.ts` | Chart.js + Mermaid types | `ChartDataset`, `DashboardConfig`, `MindmapNode` |
+| `index.ts` | Re-exports barrel | All of the above |
+
+### MCP Data Contracts
+
+The EP MCP Server `v1.2.10` exposes two distinct feed-option schemas. This split was finalised in the 2026-04-20 release (fixes [Hack23/european-parliament-mcp#377](https://github.com/Hack23/european-parliament-mcp/issues/377) / [#378](https://github.com/Hack23/european-parliament-mcp/issues/378)) and is reflected in `src/types/mcp.ts`:
+
+```typescript
+// Sliding-window feeds (6 tools)
+// Applied to: adopted_texts_feed, events_feed, procedures_feed, meps_feed,
+//             questions_feed, mep_declarations_feed
+export interface FeedBaseOptions {
+  timeframe: "today" | "one-day" | "one-week" | "one-month" | "custom";
+  startDate?: string;    // ISO 8601 — REQUIRED when timeframe === "custom"
+  workType?: string;     // optional filter (adopted_texts, external_documents)
+  processType?: string;  // procedures feed only
+  activityType?: string; // events feed only
+}
+
+// Fixed-window feeds (7 tools)
+// Applied to: documents, plenary_documents, committee_documents,
+//             plenary_session_documents, parliamentary_questions,
+//             corporate_bodies, controlled_vocabularies
+export interface FixedWindowFeedOptions {
+  limit?: number;   // default 50, max 100
+  offset?: number;  // default 0
+  // NO timeframe/startDate — these feeds ignore those parameters
+}
+
+// Uniform unavailable envelope — EP v1.2.10
+export interface MCPUnavailableEnvelope<T> {
+  status: "unavailable";
+  items: T[];           // ALWAYS empty array — never null or undefined
+  reason?: string;      // optional diagnostic string
+  retryAfterSeconds?: number;
+}
+
+export type MCPResponse<T> =
+  | { status: "ok"; items: T[] }
+  | MCPUnavailableEnvelope<T>;
+```
+
+> **Breaking-change note**: Prior to v1.2.10, fixed-window feeds silently accepted (and ignored) `timeframe`/`startDate`. As of v1.2.10 those parameters are rejected at the schema level. The `FALLBACK_TEMPLATE_PATTERNS` detector scans article HTML for fragments like `"unavailable"` leaking into prose — any detection blocks PR creation via `scanHtmlForFallbackLeaks()` in `src/utils/content-validator.ts`.
+
+### Canonical MCP Tool Lists
+
+Every MCP client exports a canonical tool list asserted by an integration contract test:
+
+| Client | Canonical list | Contract test |
+|--------|----------------|---------------|
+| `src/mcp/ep-mcp-client.ts` | `EP_MCP_TOOLS` | `test/integration/mcp/ep-mcp.test.js` |
+| `src/mcp/imf-mcp-client.ts` (class `IMFMCPClient`) | `IMF_MCP_TOOLS` | `test/integration/mcp/imf-mcp.test.js` |
+| `src/mcp/wb-mcp-client.ts` | `WORLD_BANK_MCP_TOOLS` | `test/integration/mcp/worldbank-mcp.test.js` |
+
+`IMFMCPClient` is a **native TypeScript fetch client against IMF SDMX 3.0** — NOT an MCP server. Env configuration: `IMF_API_BASE_URL` (defaults to `https://dataservices.imf.org/REST/SDMX_3.0/`), `IMF_API_TIMEOUT_MS`. Provides monthly World Economic Outlook (WEO) and Fiscal Monitor (FM) forecasts up to five years ahead.
+
+### Dual Economic Context Gate (Wave-2 OR-gate)
+
+`src/utils/content-validator.ts` exports two content-policy gates used by the validator:
+
+```typescript
+// Original single-source gate (kept for backward compatibility)
+export function articlePolicyHasWorldBank(articleHtml: string): boolean;
+
+// Wave-2 OR-gate: accepts World Bank OR IMF evidence
+export function articlePolicyHasEconomicContext(articleHtml: string): boolean;
+```
+
+Policy articles (motions, propositions, committee-reports, month-ahead, month-in-review) MUST pass `articlePolicyHasEconomicContext`. Breaking news and week-ahead have lighter economic-context requirements — configured per strategy in `src/generators/strategies/`.
+
+### Reference Quality Thresholds
+
+Authoritative thresholds live in `analysis/methodologies/reference-quality-thresholds.json`:
+
+| Artifact | Minimum words | Breaking-news threshold |
+|----------|---------------|-------------------------|
+| `intelligence/mcp-reliability-audit.md` | 200 | 385 |
+| `intelligence/reference-analysis-quality.md` | 140 | 190 |
+
+---
+
+## 📂 Analysis Run Manifest
+
+Every agentic workflow emits an `analysis/daily/YYYY-MM-DD/{article-type}/manifest.json` that acts as the **generation provenance record**:
+
+```typescript
+// src/types/analysis.ts
+export interface AnalysisManifest {
+  articleType: ArticleCategory;        // "breaking" | "week-ahead" | ...
+  runId: string;                        // gh-aw run identifier
+  generatedAt: string;                  // ISO 8601 UTC
+  sourceCommit: string;                 // Git SHA of source code
+  epMcpVersion: "1.2.10";               // Pinned EP MCP Server version
+  ghAwVersion: "v0.68.7";               // Pinned gh-aw CLI
+  files: AnalysisRunFiles;              // Emitted artifact catalogue
+  qualityReport: QualityReport;         // AI-First 2-pass metrics
+  dataSourcesUsed: Array<"EP" | "WB" | "IMF">;
+  languagesProduced: LanguageCode[];    // e.g. ["en"] for content runs, ["sv","de",...] for translate
+}
+
+export interface AnalysisRunFiles {
+  classification?: string[];            // paths relative to manifest
+  threatAssessment?: string[];
+  riskScoring?: string[];
+  data?: {
+    epFeeds?: string[];                 // raw EP MCP payloads
+    worldBank?: string[];
+    imf?: string[];
+    osint?: string[];
+  };
+  articleHtml?: string[];               // generated article paths (news/*.html)
+}
+```
+
+### Manifest Directory Structure
+
+```
+analysis/daily/2026-04-20/
+├── ai-daily-synthesis.md              ← Cross-article synthesis (date root)
+├── breaking/
+│   ├── manifest.json                   ← Generation provenance
+│   ├── classification/
+│   ├── threat-assessment/
+│   ├── risk-scoring/
+│   └── data/
+├── committee-reports/
+│   ├── manifest.json
+│   ├── classification/
+│   └── data/
+├── motions/{manifest.json, data/}
+├── propositions/{manifest.json, data/}
+├── week-ahead/{manifest.json, data/}   ← Fridays only
+├── weekly-review/                      ← Saturdays only
+├── month-ahead/                        ← 1st of month only
+└── monthly-review/                     ← 28th of month only
+```
+
+> **🚨 Isolation Rule**: Each workflow writes ONLY to its own `{article-type-slug}/` subdirectory. Cross-workflow overwrites are prohibited. The `ai-*.md` synthesis files at the date root aggregate across all workflows and are authored by the `news-weekly-review.md` / `news-monthly-review.md` workflows.
+
+---
+
+## 🗄️ Language-Indexed Article Metadata
+
+`articles-metadata.json` (maintained by `src/utils/news-metadata.ts`) is the language-indexed metadata layer powering per-language index pages and the sitemap:
+
+```typescript
+interface NewsMetadataDatabase {
+  lastUpdated: string;                  // ISO 8601 UTC
+  articles: ArticleMetadata[];
+}
+
+interface ArticleMetadata {
+  filename: string;                     // e.g. "2026-04-20-week-ahead-en.html"
+  date: string;                         // "2026-04-20"
+  slug: string;                         // "week-ahead"
+  lang: LanguageCode;                   // 14 possible values
+  title: string;                        // localised title
+  type: ArticleCategory;                // 7 production types
+  articleRunId?: string;                // cross-reference to analysis manifest
+  correction?: {                        // immutability exception
+    correctsArticle: string;            // filename of article being corrected
+    correctionReason: string;
+  };
+}
+```
+
+As of 2026-04-20: **1,894 HTML articles** live under `news/` (~135 article runs × 14 languages).
+
+---
 
 ---
 
@@ -1275,9 +1459,9 @@ timeline
 | Version | Release Date | Key Changes | Diagrams Added |
 |---------|--------------|-------------|----------------|
 | **v1.0** | 2026-02-01 | Initial release, basic article generation | 1 (Main ER diagram) |
-| **v1.1** | 2026-02-15 | Multi-language support, MCP integration | 2 (Article & Index generation flows) |
-| **v1.2** | 2026-02-20 | Enhanced diagrams, ISMS alignment, data security | 4 (MEP, MCP, Multi-language, Sitemap models) + 1 (EP data flow) |
-| **v2.0** | 2026-Q3 (Planned) | Real-time updates, database backend | TBD (Real-time state diagrams, DB schema) |
+| **v1.1** | 2026-03-19 | Multi-language support, MCP integration, ISMS alignment | 4 (MEP, MCP, Multi-language, Sitemap models) + 1 (EP data flow) |
+| **v1.2** | 2026-04-20 | TypeScript type system coverage, FeedBaseOptions vs FixedWindowFeedOptions split (EP MCP v1.2.10), IMF/WB dual economic context, AnalysisManifest schema, 7 article types correctly enumerated, 14 languages from `language-core.ts::ALL_LANGUAGES`, `buildSiteFooter()` single source of truth, reference quality thresholds | Same set — content updates |
+| **v2.0** | 2026-Q4 (Planned) | Real-time updates, expanded intelligence types | TBD |
 
 ### Breaking Changes Log
 
@@ -1437,7 +1621,7 @@ const sourceHash = crypto.createHash('sha256')
 ```json
 {
   "generator": {
-    "version": "1.0.0",
+    "version": "0.8.40",
     "commit_sha": "abc123def456...",
     "workflow_run_id": "12345678",
     "workflow_url": "https://github.com/Hack23/euparliamentmonitor/actions/runs/12345678"
@@ -1464,5 +1648,6 @@ const sourceHash = crypto.createHash('sha256')
 ---
 
 **Document Status**: Active  
-**Next Review**: 2026-05-24  
+**Last Updated**: 2026-04-20 (EU Parliament Monitor v0.8.40)  
+**Next Review**: 2026-07-20  
 **Owner**: Development Team, Hack23 AB

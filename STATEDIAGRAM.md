@@ -11,14 +11,14 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.0-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--19-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.2-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--20-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.0 | **📅 Last Updated:**
-2026-03-19 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-19  
+**📋 Document Owner:** CEO | **📄 Version:** 1.2 | **📅 Last Updated:**
+2026-04-20 (UTC) | **🏷️ Platform Release:** v0.8.40  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-20  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring
 Platform)
 
@@ -349,12 +349,17 @@ stateDiagram-v2
     ArticleAbandoned --> [*]: Generation Failed
 
     note right of ArticlePending
-        Article types:
-        - Week Ahead
-        - Committee Report
-        - Proposition Analysis
-        - Motion Analysis
+        7 article types:
         - Breaking News
+        - Week Ahead
+        - Week in Review
+        - Month Ahead
+        - Month in Review
+        - Committee Reports
+        - Motions
+        - Propositions
+        Driven by 8 strategies in
+        src/generators/strategies/
     end note
 
     note right of ContentGeneration
@@ -968,6 +973,214 @@ stateDiagram-v2
 
 ---
 
+## 🔁 Pipeline-Stage State Machine
+
+The 5-stage pipeline in `src/generators/pipeline/` is the canonical execution spine invoked by every strategy in `src/generators/strategies/`. Each stage has explicit entry/exit states and retry semantics.
+
+```mermaid
+stateDiagram-v2
+    [*] --> FetchStage: Strategy.run() invoked
+
+    state FetchStage {
+        [*] --> FetchingEP
+        FetchingEP --> FetchingWB: EP OK
+        FetchingEP --> FetchingEPRetry: Unavailable envelope
+        FetchingEPRetry --> FetchingEP: Backoff (mcp-retry.ts)
+        FetchingEPRetry --> FetchingWB: Max retries (degrade)
+        FetchingWB --> FetchingIMF: WB OK or OR-gate allows
+        FetchingWB --> FetchingIMF: WB Skip (optional)
+        FetchingIMF --> FetchComplete: IMF OK
+        FetchingIMF --> FetchComplete: IMF skip (WB satisfies OR-gate)
+        FetchingIMF --> FetchFailed: Both WB+IMF failed
+        FetchComplete --> [*]
+        FetchFailed --> [*]
+    }
+
+    FetchStage --> TransformStage: Fetch complete
+    FetchStage --> PipelineAborted: Fetch failed (economic OR-gate blocked)
+
+    state TransformStage {
+        [*] --> NormalizingEP
+        NormalizingEP --> NormalizingEconomic: EP normalized
+        NormalizingEconomic --> Unifying: Economic normalized
+        Unifying --> TransformComplete: Schema unified
+        TransformComplete --> [*]
+    }
+
+    TransformStage --> AnalysisStage: Unified data ready
+
+    state AnalysisStage {
+        [*] --> Pass1Writing
+        Pass1Writing --> Pass1Complete: Pass 1 done (60% budget)
+        Pass1Complete --> Pass2Improving: Read-back + improve
+        Pass2Improving --> Pass2Complete: Pass 2 done (40% budget)
+        Pass2Complete --> IntelligenceFiles: Emit analysis files
+        IntelligenceFiles --> AnalysisComplete: stakeholder-map.md<br/>impact-matrix.md<br/>mcp-reliability-audit.md<br/>reference-analysis-quality.md
+        AnalysisComplete --> [*]
+        Pass1Writing --> AnalysisFailed: Time budget exhausted
+        AnalysisFailed --> [*]
+    }
+
+    AnalysisStage --> GenerateStage: Analysis complete
+    AnalysisStage --> PipelineAborted: Analysis failed
+
+    state GenerateStage {
+        [*] --> StrategyBuilder
+        StrategyBuilder --> StakeholderSlots: buildDefaultStakeholderPerspectives
+        StakeholderSlots --> ChartEmbedding: AI_MARKER sentinels
+        ChartEmbedding --> RenderHTML: Chart.js embedded
+        RenderHTML --> GenerateComplete: HTML rendered
+        GenerateComplete --> [*]
+    }
+
+    GenerateStage --> OutputStage: HTML ready
+
+    state OutputStage {
+        [*] --> WritingFiles
+        WritingFiles --> UpdatingIndexes: news/ updated
+        UpdatingIndexes --> OutputComplete: Indexes + sitemap
+        OutputComplete --> [*]
+    }
+
+    OutputStage --> ValidatorGate: Ready for gate
+    ValidatorGate --> [*]: Pass → PR created
+    ValidatorGate --> PipelineAborted: Fail
+    PipelineAborted --> [*]: Abort workflow
+
+    note right of FetchStage
+        EP MCP 1.2.10 uniform
+        unavailable envelope:
+        { status:"unavailable",
+          items:[] }
+        WB-or-IMF OR-gate via
+        articlePolicyHasEconomicContext
+    end note
+
+    note right of AnalysisStage
+        AI-First quality gates:
+        ≥80 words/SWOT item
+        ≥150 words/stakeholder
+        ≥60% prose ratio
+        ≥1 Chart.js
+        0 AI_ANALYSIS_REQUIRED
+        60-min ≥45m; 120-min ≥90m
+    end note
+```
+
+---
+
+## ✅ Validator-Gate State Machine
+
+`scripts/validate-analysis-completeness.js --article-html=...` runs as a pre-translation and pre-PR gate. Implemented via `scanHtmlForFallbackLeaks` + `FALLBACK_TEMPLATE_PATTERNS`.
+
+```mermaid
+stateDiagram-v2
+    [*] --> Scanning: Invoked with --article-html
+
+    Scanning --> AnalysisPresent: Analysis files exist
+    Scanning --> MissingManifest: Missing analysis files
+
+    AnalysisPresent --> ManifestValid: Reference thresholds met
+    AnalysisPresent --> InsufficientReferences: Below threshold
+
+    ManifestValid --> ArticleClean: No fallback template patterns
+    ManifestValid --> FallbackLeak: AI_ANALYSIS_REQUIRED or AI_MARKER leak
+
+    ArticleClean --> EconomicContextOK: articlePolicyHasEconomicContext passes
+    ArticleClean --> MissingEconomicContext: No WB and no IMF
+
+    EconomicContextOK --> Pass: All gates OK
+    Pass --> [*]: PR creation allowed
+
+    MissingManifest --> Fail
+    InsufficientReferences --> Fail
+    FallbackLeak --> Fail
+    MissingEconomicContext --> Fail
+    Fail --> [*]: Abort PR
+
+    note right of ManifestValid
+        intelligence/mcp-reliability-audit.md
+          ≥200 words (breaking ≥385)
+        intelligence/reference-analysis-quality.md
+          ≥140 words (breaking ≥190)
+        Configured in
+        analysis/methodologies/
+        reference-quality-thresholds.json
+    end note
+
+    note right of ArticleClean
+        scanHtmlForFallbackLeaks
+        checks rendered HTML against
+        FALLBACK_TEMPLATE_PATTERNS
+    end note
+```
+
+### Validator Failure Categories
+
+| Category | Trigger | Remediation |
+|----------|---------|-------------|
+| **MissingManifest** | Analysis stage did not emit required intelligence files | Re-run analysis stage with longer time budget |
+| **InsufficientReferences** | Word-count thresholds not met | Extend AI reasoning; verify Pass-2 improvement actually ran |
+| **FallbackLeak** | `AI_ANALYSIS_REQUIRED` / `AI_MARKER` sentinels present in rendered HTML | Agent author must fill slots directly; re-run generate stage |
+| **MissingEconomicContext** | Both WB and IMF unavailable | Wait for one economic source to recover, or relax default gate to `articlePolicyHasEconomicContext` |
+
+---
+
+## 🌍 Translation State Machine (`news-translate`)
+
+The `news-translate` agentic workflow fans out one EN source article to 13 non-EN languages. A pre-gate scan validates analysis completeness before fan-out to prevent replicating broken EN content across languages.
+
+```mermaid
+stateDiagram-v2
+    [*] --> PreGate: news-translate triggered
+
+    state PreGate {
+        [*] --> ScanAllEnglishSources
+        ScanAllEnglishSources --> PreGatePass: All pass validator
+        ScanAllEnglishSources --> PreGateFail: Any EN source fails
+        PreGatePass --> [*]
+        PreGateFail --> [*]
+    }
+
+    PreGate --> Fanout: Pre-gate pass
+    PreGate --> [*]: Pre-gate fail (abort)
+
+    state Fanout {
+        [*] --> Queued13
+        Queued13 --> InProgress: Per-language job starts
+        InProgress --> Validated: axe-core + htmlhint pass
+        Validated --> Committed: Language HTML committed
+        Committed --> Reconciled: news-translate-reconciler cleanup
+        Reconciled --> [*]
+
+        InProgress --> LanguageFailed: Translation / validation failed
+        LanguageFailed --> Requeue: Within max-patch-size 10240 KB
+        Requeue --> InProgress: Retry
+        LanguageFailed --> SkipLanguage: Max retries
+        SkipLanguage --> [*]: Partial fan-out
+    }
+
+    Fanout --> PRCreated: All languages processed
+    PRCreated --> [*]: safe-outputs create-pull-request
+
+    note right of PreGate
+        validate-analysis-completeness.js
+        runs against every EN HTML
+        source before fan-out —
+        prevents fan-out of broken
+        analysis across 13 languages
+    end note
+
+    note right of Fanout
+        Languages: sv, da, no, fi, de,
+        fr, es, nl, ar, he, ja, ko, zh
+        max-patch-size: 10240 KB
+        (vs default 1024 KB)
+    end note
+```
+
+---
+
 ## 🎨 Color Legend & Styling
 
 State diagrams use consistent colors to indicate state categories:
@@ -1150,6 +1363,7 @@ Per
 
 | Version | Date       | Author | Changes                                                               |
 | ------- | ---------- | ------ | --------------------------------------------------------------------- |
+| 1.2     | 2026-04-20 | CEO    | Added Pipeline-Stage, Validator-Gate, and Translation state machines for v0.8.40 (5-stage pipeline, validator gate with fallback-leak scan, news-translate fan-out across 13 languages with 10240 KB max-patch-size); refreshed article-types note to 7 types; updated review cadence |
 | 1.1     | 2026-02-24 | CEO    | Updated review date and verified current state accuracy                |
 | 1.0     | 2025-02-17 | CEO    | Initial state diagram documentation with comprehensive state machines |
 
@@ -1158,11 +1372,10 @@ Per
 ## 📝 Footer
 
 **Document Classification**: Public  
-**ISMS Compliance**: ISO 27001:2022 compliant, GDPR compliant, NIS2 aligned  
-**Technology Stack**: Node.js 25, GitHub Actions, GitHub Pages, European
-Parliament MCP Server  
-**Architecture Pattern**: Static Site Generator with Zero Runtime Dependencies  
-**Review Status**: Active, next review 2026-05-24
+**ISMS Compliance**: ISO 27001:2022, NIST CSF 2.0, CIS Controls v8.1, GDPR, NIS2, EU CRA aligned  
+**Technology Stack**: Node.js 25, TypeScript 6.0.3, gh-aw v0.68.7, AWS S3 + CloudFront, GitHub Pages (fallback), EP MCP 1.2.10, WB MCP 1.0.1, IMF REST SDMX 3.0  
+**Architecture Pattern**: Static Site Generator with Agentic AI-First Authoring and Zero Runtime Dependencies  
+**Review Status**: Active, next review 2026-07-20
 
 ---
 

@@ -11,13 +11,13 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-2.0-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--12-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-2.1-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--20-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Annual-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.0 | **📅 Last Updated:** 2026-03-12 (UTC)  
-**🔄 Review Cycle:** Annual | **⏰ Next Review:** 2027-03-12  
+**📋 Document Owner:** CEO | **📄 Version:** 2.1 | **📅 Last Updated:** 2026-04-20 (UTC) | **🏷️ Platform Release:** v0.8.40  
+**🔄 Review Cycle:** Annual | **⏰ Next Review:** 2027-04-20  
 **🏷️ Classification:** Public (Open Source European Parliament Intelligence Platform)
 
 ---
@@ -46,7 +46,7 @@
 
 ## 🎯 Financial Strategy Overview
 
-EU Parliament Monitor achieves **maximum democratic transparency value at near-zero infrastructure cost** through a fully open-source architecture deployed to **AWS S3 + CloudFront** (per [ADR-002](ARCHITECTURE.md)) with GitHub-hosted CI/CD and security tooling. This Financial Security Plan demonstrates how strategic use of free-tier and low-cost platform services and automated tooling minimizes operational cost while maintaining enterprise-grade security posture aligned with [Hack23 AB ISMS](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md).
+EU Parliament Monitor (v0.8.40) achieves **maximum democratic transparency value at near-zero infrastructure cost** through a fully open-source architecture deployed to **AWS S3 + CloudFront** (per [ADR-002](ARCHITECTURE.md)) with GitHub-hosted CI/CD, GitHub Copilot-metered AI inference (`gh aw`), and security tooling. The platform produces 1,894 HTML articles across 14 languages and 7 article types (breaking, week-ahead, week-in-review, month-ahead, month-in-review, committee-reports, motions, propositions) with roughly 3,061 automated tests on each PR. This Financial Security Plan demonstrates how strategic use of free-tier, low-cost platform services, and AI-metered workflow minutes keeps total operating cost below $30/yr while maintaining enterprise-grade security posture aligned with [Hack23 AB ISMS](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md).
 
 ### 🏷️ Business Impact Classification
 
@@ -82,21 +82,25 @@ pie title EU Parliament Monitor Annual Cost Distribution
 
 | 💰 **Cost Category** | 📊 **Monthly** | 📅 **Annual** | 📋 **Notes** |
 |----------------------|---------------|--------------|-------------|
-| **🌐 AWS S3 + CloudFront Hosting** | <$1 | <$5 | Low-traffic static site within AWS free tier; S3 storage + request charges negligible (~$0.02/GB). CloudFront free tier: 1TB transfer/mo. *ACM certificate free. Costs scale only with significant traffic growth |
-| **⚙️ GitHub Actions CI/CD** | $0 | $0 | GitHub-hosted runners: unlimited for public repos; 2,000 min/month for private repos on Free plan |
+| **🌐 AWS S3 + CloudFront Hosting** | <$1 | <$5 | Low-traffic static site within AWS free tier; S3 storage + request charges negligible (~$0.02/GB, ~1 GB articles + assets = <$1/mo). CloudFront free tier: 1 TB transfer/mo. ACM certificate free. Costs scale only with significant traffic growth |
+| **⚙️ GitHub Actions CI/CD** | $0 | $0 | GitHub-hosted `ubuntu-latest` runners: unlimited for public repos. Typical monthly burn: ~1,000–2,000 min across 10 agentic news workflows + 14 infra workflows |
+| **🤖 GitHub Copilot Business (AI inference via `gh aw`)** | ~$19/user | ~$228/user | Metered Copilot minutes power the 2-pass AI-First analysis + article authorship. Engines switchable (Copilot / Claude / Codex) in workflow frontmatter. 1 seat covers maintainer today |
 | **📦 GitHub Repository** | $0 | $0 | Free for public open-source repositories |
 | **🔒 CodeQL SAST Scanning** | $0 | $0 | Free for public repos (GitHub Advanced Security) |
 | **🤖 Dependabot Security** | $0 | $0 | Free, built into GitHub |
 | **🛡️ OpenSSF Scorecard** | $0 | $0 | Free service for open-source projects |
 | **📊 SonarCloud (Planned)** | $0 | $0 | Planned optional integration; not yet configured in CI |
-| **🧪 Vitest Testing** | $0 | $0 | Open-source testing framework |
-| **🔧 Playwright E2E** | $0 | $0 | Open-source E2E framework |
-| **🇪🇺 EP MCP Server** | $0 | $0 | Hack23-maintained open-source data source |
-| **🌍 Domain Name** | ~$1 | ~$12 | Annual domain registration (if custom domain) |
+| **🧪 Vitest + Playwright + axe-core Testing** | $0 | $0 | 3,061+ automated tests across 52 files; open-source frameworks |
+| **🇪🇺 EP MCP Server (`european-parliament-mcp-server@1.2.10`)** | $0 | $0 | Hack23-maintained open-source data source |
+| **🌍 World Bank MCP (`worldbank-mcp@1.0.1`, optional)** | $0 | $0 | Optional biannual WDI source for economic context OR-gate |
+| **💹 IMF REST (native `IMFMCPClient`)** | $0 | $0 | Public SDMX 3.0 endpoint (WEO + FM forecasts +5y); no MCP server required |
+| **🌐 Domain Name** | ~$1 | ~$12 | Annual domain registration (`euparliamentmonitor.com`) |
 | **👨‍💻 Development Labor** | Volunteer | $0 | Open-source volunteer contributions |
-| **📚 Documentation** | Volunteer | $0 | Copilot-assisted documentation generation |
+| **📚 Documentation** | Volunteer | $0 | Copilot-assisted + agentic workflow documentation generation |
+| **📦 npm Publishing (provenance + SLSA 3)** | $0 | $0 | Free on npmjs.com with GitHub OIDC-signed attestations |
 | | | | |
-| **📊 Total Annual Cost** | **~$1.50/mo** | **~$17/yr** | **AWS hosting (≤ $5) + Domain (~$12, optional)** |
+| **📊 Total Annual Cost (infra-only)** | **~$1.50/mo** | **~$17/yr** | **AWS hosting (≤ $5) + Domain (~$12)** |
+| **📊 Total Annual Cost (with 1 Copilot seat)** | **~$20/mo** | **~$245/yr** | **Infra + Copilot Business seat ($228/yr)** |
 
 ### 💵 Cost Comparison: Static Site vs. Dynamic Architecture
 
@@ -215,6 +219,54 @@ quadrantChart
 
 ---
 
+## 🛡️ Quota Safeguards & Budget Alarms
+
+The platform enforces cost bounds at multiple layers to prevent runaway spend from misconfigured agentic workflows, hostile MCP responses, or abusive traffic.
+
+### Workflow-Level Safeguards (gh-aw runtime)
+
+| Safeguard | Mechanism | Bound | Purpose |
+|-----------|-----------|-------|---------|
+| **Workflow timeout** | `timeout-minutes: 120` hard cap on every agentic workflow | ≤120 min/run | Prevent runaway AI reasoning loops |
+| **Max patch size (news)** | `safe-outputs.create-pull-request.max-patch-size: 1024` (KB) default | ≤1 MB PR diff | Bound write bloat + review cost |
+| **Max patch size (translate)** | `safe-outputs.create-pull-request.max-patch-size: 10240` (KB) in `news-translate.md` | ≤10 MB PR diff | 13-language fan-out requires larger envelope |
+| **AWF Squid firewall allowlist** | Egress proxy restricts outbound HTTP to known hosts | Closed-world network | Prevents data exfil + unbounded API spend |
+| **Docker sandbox** | Each agentic step runs in an isolated rootless container | No host escape | Contains supply-chain compromise blast radius |
+| **Compile-gate** | `.lock.yml` files compiled by `gh aw compile --validate` with pinned `GH_AW_VERSION: v0.68.7` | Reviewed lock file per workflow | Prevents frontmatter drift at runtime |
+| **Concurrency limits** | Per-workflow `concurrency` groups in `.github/workflows/` | One active run per type | Blocks parallel duplicate spend |
+
+### Infrastructure-Level Safeguards (AWS)
+
+| Safeguard | Mechanism | Alarm Threshold | Response |
+|-----------|-----------|-----------------|----------|
+| **CloudWatch billing alarm** | AWS account-level spend alarm on S3+CloudFront | $10/month (2× expected) | Email owner, investigate traffic anomaly |
+| **CloudFront origin shield** | Reduces S3 GET fan-out | — | Cost stability during traffic spike |
+| **AWS Shield Standard** | Free DDoS mitigation at edge | — | Protects CloudFront budget against volumetric attacks |
+| **S3 bucket versioning + lifecycle** | Expire non-current versions after 30 days | — | Prevents storage cost growth |
+| **CloudFront cache TTL** | 1 day for HTML, 30 days for static assets | — | Minimizes egress billable requests |
+| **Invalidation minimization** | `deploy-s3.yml` invalidates only changed paths | — | CloudFront invalidation costs are metered beyond 1,000/mo free tier |
+
+### GitHub-Level Safeguards
+
+| Safeguard | Mechanism | Response |
+|-----------|-----------|----------|
+| **Actions usage email alerts** | Owner-configured email on quota usage | Email to owner when >75% of private-repo budget used (informational for public repo) |
+| **Dependabot cost-free by policy** | Dependabot runs inside GitHub-hosted compute, not metered | Continuous |
+| **Copilot seat billing audit** | Monthly invoice review in GitHub billing portal | Adjust seats if team grows |
+| **Branch protection + required review** | Prevents unreviewed workflow edits that could inflate cost | Supply-chain + budget control |
+
+### Financial Incident Playbook
+
+| Incident | Detection | Immediate Action | Cost Cap |
+|----------|-----------|------------------|----------|
+| **Workflow runaway (infinite loop)** | GitHub Actions timeout | 120-min hard cap aborts job | ≤$0 on public repo |
+| **DDoS against CloudFront** | CloudWatch alarm + Shield metrics | Shield Standard absorbs; enable per-IP rate-limit via CloudFront function | Absorbed by Shield; egress capped by 1 TB free tier |
+| **Hostile MCP response (oversized)** | `validate-analysis-completeness.js` gate + `max-patch-size` | PR rejected pre-commit | $0 write cost |
+| **Copilot quota exhaustion** | Copilot billing page | Switch engine to Claude/Codex in workflow frontmatter; or human-author fallback | Degrades to manual mode, no overage |
+| **Unexpected AWS spend spike** | Billing alarm | Investigate CloudFront logs; block abusive prefix via CloudFront function | Capped by alarm + Shield |
+
+---
+
 ## 🛡️ Financial Risk Management
 
 ### Financial Risks
@@ -291,11 +343,11 @@ pie title Security Budget Allocation (All Free)
 ## 📅 Financial Planning Timeline
 
 ```
-2025-2026    ~$17/yr   — Domain (~$12) + AWS S3 + CloudFront hosting (~$5), all security tools free
-2026-2027    ~$17/yr   — Same architecture (domain + AWS hosting), Node.js 27 migration (no cost impact)
-2027-2028    ~$17/yr   — Continued operations on domain + AWS hosting baseline, evaluate scaling needs
-2028-2029    ~$17-55   — Potential custom domain SSL or enhanced CDN if growth warrants
-2029-2030    ~$17-255  — Evaluate enterprise features if contributor team grows
+2025-2026    ~$17/yr           — Domain (~$12) + AWS S3 + CloudFront hosting (~$5), all infra security tools free
+2026-2027    ~$17 + $228/yr    — Same infra + 1 GitHub Copilot Business seat (~$228) for `gh aw` AI inference (v0.8.x platform)
+2027-2028    ~$17 + $228/yr    — Continued operations on domain + AWS hosting baseline; Node.js 27 migration (no cost impact)
+2028-2029    ~$17-55 + seats   — Potential custom domain SSL, enhanced CDN, or second Copilot seat if growth warrants
+2029-2030    ~$17-255 + seats  — Evaluate enterprise features if contributor team grows
 ```
 
 ---
@@ -305,10 +357,12 @@ pie title Security Budget Allocation (All Free)
 | 📅 **Activity** | 🔄 **Frequency** | 💰 **Cost** | 📋 **Notes** |
 |-----------------|------------------|------------|--------------|
 | Domain + AWS S3/CloudFront hosting renewal | Annual | ~$17 | Primary recurring infrastructure cost (domain ~$12 + AWS hosting ~$5) |
+| GitHub Copilot Business seat (AI inference via `gh aw`) | Monthly | ~$19 | Single maintainer seat powers 10 agentic news workflows + translate fan-out |
+| Agentic workflow minutes budget | Monthly | $0 (free tier) | Breaking ~30 min/run, weekly/monthly ~60–120 min/run, translate ~60–90 min/run; total ~1,000–2,000 min/month on `ubuntu-latest` (public-repo free tier) |
 | Dependency updates | Daily (automated) | $0 | Dependabot handles automatically |
 | Security patching | As needed | $0 | Automated via CI/CD pipeline |
 | Documentation updates | Monthly | $0 | Copilot-assisted generation |
-| Test suite maintenance | Per change | $0 | 1400+ tests maintained in CI |
+| Test suite maintenance | Per change | $0 | 3,061+ tests (Vitest unit/integration + Playwright+axe-core E2E) across 52 test files, maintained in CI |
 | Node.js version upgrade | Annual | $0 | Developer time only (volunteer) |
 | BCP/EOL plan review | Semi-annual/Annual | $0 | Internal review process |
 
