@@ -50,6 +50,18 @@ Each section is self-contained and describes a single analysis artifact. Use it 
 | Metadata / pending / note | `#FFC107` yellow |
 | Reference / read-only | `#0288D1` light blue |
 
+### 🕵️ Cross-Cutting Tradecraft Reference
+
+Every artifact in this document applies the professional standards defined in [`osint-tradecraft-standards.md`](osint-tradecraft-standards.md):
+
+- **Source grading** — every citation carries an Admiralty grade (A1–F6); grade → 🟢/🟡/🔴 mapping per §2.3.
+- **Estimative language** — every probabilistic claim uses a Words-of-Estimative-Probability band (§3.1) with an explicit time horizon (§3.4). Banned ambiguous terms (§3.2) do not appear in analytic conclusions.
+- **Structured Analytic Techniques** — the run's `methodology-reflection.md` attests ≥10 SATs drawn from §4; individual artifacts specify their primary SAT in the *Quality signals* row below.
+- **ICD 203 standards** — the nine ODNI analytic standards (§1) map onto the sections of each artifact and are self-audited in `methodology-reflection.md` §12.
+- **OSINT scope** — sources outside §5.2 (personal-life data, doxing, covert collection, unverified leaks) are never cited.
+
+Artifacts marked below with **"Source grade × WEP discipline (tradecraft)"** make probabilistic claims and therefore apply the full §2 + §3 discipline.
+
 ---
 
 ## 🧠 intelligence/

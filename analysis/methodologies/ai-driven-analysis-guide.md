@@ -255,29 +255,31 @@ The final gate is machine-enforced; pass it before the PR.
 
 3. Run `npx tsx src/utils/validate-articles.ts --date=$TODAY --quality --strict`. A non-zero exit blocks PR creation — fix the article and re-run.
 
-4. Write `intelligence/workflow-audit.md` (see [workflow-audit template](../templates/workflow-audit.md)) — 6-phase execution table, MCP call log, 10 Core Principles scorecard, time-budget breakdown, issues and deviations, recommendations for the next same-type run. This is the run's transparency record; downstream reviewers and the next run read it first.
+4. **Tradecraft self-check.** Before writing the reflection artifact, verify [`osint-tradecraft-standards.md`](osint-tradecraft-standards.md) §Quick-Reference Checklist end-to-end: every headline judgement uses a WEP band (§3.1) with a time horizon (§3.4); every source citation carries an Admiralty grade (§2.1–2.2); no artifact uses the banned ambiguous terms in §3.2 inside analytic conclusions; ≥1 alternative hypothesis (ACH or Red-Team) is surfaced for every headline judgement; no personal-life data on MEPs appears anywhere. Failures at this step are fixed before Step 5 (not deferred to the next run).
 
-5. Write `intelligence/methodology-reflection.md` as the **final** intelligence artifact (see [methodology-reflection template](../templates/methodology-reflection.md)) — closes the continuous-improvement loop with: pipeline diagram, data-source provenance, ≥10 SATs applied, AI-FIRST iteration log (Pass 1 / Pass 2 / optional Pass 3), ≥5 strengths, ≥5 limitations, ≥5 lessons-for-next-run, ≥6 biases with mitigations, peer-review status, and update plan. Distinct from `workflow-audit` (mechanical compliance) — this file reflects on the **analytic quality** and the SATs used.
+5. Write `intelligence/workflow-audit.md` (see [workflow-audit template](../templates/workflow-audit.md)) — 6-phase execution table, MCP call log, 10 Core Principles scorecard, time-budget breakdown, issues and deviations, recommendations for the next same-type run. This is the run's transparency record; downstream reviewers and the next run read it first.
 
-6. Emit a pre-flight attestation line in the log:
+6. Write `intelligence/methodology-reflection.md` as the **final** intelligence artifact (see [methodology-reflection template](../templates/methodology-reflection.md)) — closes the continuous-improvement loop with: pipeline diagram, data-source provenance, ≥10 SATs applied (drawn from [`osint-tradecraft-standards.md`](osint-tradecraft-standards.md) §4), AI-FIRST iteration log (Pass 1 / Pass 2 / optional Pass 3), ≥5 strengths, ≥5 limitations, ≥5 lessons-for-next-run, ≥6 biases with mitigations, peer-review status, ICD 203 compliance table (§12 of the template), and update plan. Distinct from `workflow-audit` (mechanical compliance) — this file reflects on the **analytic quality** and the SATs used.
+
+7. Emit a pre-flight attestation line in the log:
 
     ```
     PREFLIGHT_ATTESTATION: read N/N artifacts from ${ANALYSIS_DIR} (L lines)
     ```
 
-7. `git add "${ANALYSIS_DIR}"` plus the emitted `news/` HTML files. Commit with an analytical message naming the run's headline finding. The commit message never includes generic phrases — it names the specific political event.
+8. `git add "${ANALYSIS_DIR}"` plus the emitted `news/` HTML files. Commit with an analytical message naming the run's headline finding. The commit message never includes generic phrases — it names the specific political event.
 
-8. Call `safeoutputs___create_pull_request` **exactly once, at the very end of the run, after every file is written**. The safe-output handler takes a synchronous git-patch snapshot at call time; any file written after the call is not in the PR.
+9. Call `safeoutputs___create_pull_request` **exactly once, at the very end of the run, after every file is written**. The safe-output handler takes a synchronous git-patch snapshot at call time; any file written after the call is not in the PR.
 
-9. If Step 7 concluded the period did not produce a publishable event, still call `safeoutputs___create_pull_request` — an analysis-only PR. No workflow run is wasted: quiet-period analysis reveals patterns too.
+10. If Step 7 concluded the period did not produce a publishable event, still call `safeoutputs___create_pull_request` — an analysis-only PR. No workflow run is wasted: quiet-period analysis reveals patterns too.
 
 **Product of Step 10:** a PR with the full analysis directory + (optionally) the published article, attested complete and validated.
 
 ---
 
-## 🧭 Core Principles (the 10 rules that replace Rules 1–22)
+## 🧭 Core Principles (the 11 rules that replace Rules 1–22)
 
-These principles are the positive restatement of the v4.5 rule list. Workflow files still reference Rules 5, 6–8, 19, 22 etc. by number; the mapping below is explicit so those references stay valid.
+These principles are the positive restatement of the v4.5 rule list. Workflow files still reference Rules 5, 6–8, 19, 22 etc. by number; the mapping below is explicit so those references stay valid. Principle 11 is new in v5.1 and operationalises the OSINT / INTOP tradecraft discipline.
 
 | # | Core principle (positive) | Legacy rule(s) |
 |---|---|---|
@@ -291,6 +293,7 @@ These principles are the positive restatement of the v4.5 rule list. Workflow fi
 | 8 | **AI-authored headlines and descriptions** — title and description come from the analysis after significance scoring; never from code or count-based templates. | Rule 9 |
 | 9 | **Complete data + historical baseline** — every metric is anchored to its 30-day / 90-day comparable baseline, every coalition claim attempts `get_voting_records`, every feed failure falls back to the direct endpoint. | Rules 14, 15, 17 |
 | 10 | **Read-before-article + footer + ratio + floors** — the pre-flight validator reads every artifact (≥30 lines flat + per-artifact floors from [`reference-quality-thresholds.json`](reference-quality-thresholds.json)), the article carries the manifest-driven Analysis Sources footer, and the article's analysis-citation ratio (≥1 artifact per 150 words; ≥1 per 100 for article-generator long-form) is met. | Rules 10, 16, 18, 19, 20, 21, 22 |
+| 11 | **OSINT / INTOP tradecraft discipline** — every probabilistic judgement uses a Words-of-Estimative-Probability band, every source citation carries an Admiralty grade (A1–F6 → 🟢/🟡/🔴), every run attests ≥10 SATs in `methodology-reflection.md`, and the OSINT scope in [`osint-tradecraft-standards.md`](osint-tradecraft-standards.md) §5 is respected. | New in v5.1 — cross-cutting layer applied by every framework. |
 
 ---
 
