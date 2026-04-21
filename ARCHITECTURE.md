@@ -11,15 +11,15 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.1-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--19-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.2-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--20-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
   <a href="https://www.bestpractices.dev/projects/12068"><img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Last Updated:**
-2026-03-19 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-19
+**📋 Document Owner:** CEO | **📄 Version:** 1.2 | **📅 Last Updated:**
+2026-04-20 (UTC) | **📦 Release:** v0.8.40  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-20
 
 ---
 
@@ -117,9 +117,13 @@ Evidence of ISMS compliance is maintained through:
 
 ## 🎯 System Overview
 
-EU Parliament Monitor is a static site generator that creates multi-language
-news articles about European Parliament activities, leveraging the European
-Parliament MCP Server for data access and LLM-based content generation.
+EU Parliament Monitor is a **TypeScript-first static site generator and political intelligence platform** that creates multi-language news articles about European Parliament activities. Content is produced by a fleet of **10 agentic GitHub Workflows** (gh-aw) that drive AI agents (Claude Opus 4.7 via GitHub Copilot) through a 5-stage analysis pipeline, consuming structured data from **three data surfaces**:
+
+- **European Parliament MCP Server** `v1.2.10` (primary — plenary, MEPs, votes, committees, procedures, adopted texts, 6 sliding-window + 7 fixed-window feeds)
+- **World Bank MCP** `v1.0.1` (optional, biannual — WDI macro/social/environment/health indicators)
+- **IMF REST (SDMX 3.0)** (native TypeScript fetch client — monthly WEO+FM fiscal forecasts)
+
+TypeScript code handles data acquisition, analysis orchestration, HTML structure, and validation; AI agents author all narrative content under a strict two-pass AI-First Quality regime.
 
 ### Mission Statement
 
@@ -130,12 +134,16 @@ architecture.
 ### Key Characteristics
 
 - **Minimal Runtime Dependencies**: Pure static HTML/CSS output with no server-side
-  execution; single production dependency (`european-parliament-mcp-server`) used at build time
-- **TypeScript Source**: All source code in `src/` written in TypeScript (strict mode), compiled via `tsc` to `scripts/` (ES2025 target)
-- **Multi-Language Support**: Generates content in 14 languages
-- **MCP Integration**: Uses European Parliament MCP Server for data access
-- **Security by Design**: Minimal attack surface through static architecture
-- **AWS Hosted**: Leverages AWS S3 + CloudFront for zero-infrastructure static hosting
+  execution; one pinned production dependency (`european-parliament-mcp-server@1.2.10`) plus one optional dependency (`worldbank-mcp@1.0.1`) used only at build time
+- **TypeScript Source**: All source in `src/` written in TypeScript 6.0.3 (strict, ESM, `"type": "module"`), compiled via `tsc` — `rootDir: ./src`, `outDir: ./scripts`, `target: ES2025`, `module: NodeNext`
+- **Multi-Language Support**: Generates content in 14 languages (`en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh`), defined in `src/constants/language-core.ts::ALL_LANGUAGES`
+- **Article Types**: 8 production content types (`breaking-news`, `committee-reports`, `month-ahead`, `monthly-review`, `motions`, `propositions`, `week-ahead`, `weekly-review`) driven by 9 strategy modules in `src/generators/strategies/` — the 8 type-specific strategies plus `article-strategy` (generic/on-demand, used by `news-article-generator.md` manual dispatch, not an additional production content type)
+- **Agentic Workflows**: 10 gh-aw markdown workflows (9 content generators + 1 translation fan-out) compiled to `.lock.yml` via `gh aw compile --validate` (pinned `GH_AW_VERSION: v0.69.0`)
+- **Dual Economic Data (Wave 1)**: World Bank MCP AND IMF REST provide complementary macro context; validator gate `articlePolicyHasEconomicContext` in `src/utils/content-validator.ts` accepts either source
+- **AI-First Quality Principle**: Mandatory 2-pass iterative improvement (~60% pass 1, ~40% pass 2); ≥80 words/SWOT item, ≥150 words/stakeholder perspective, ≥60% prose ratio, ≥1 Chart.js visualization, 0 `[AI_ANALYSIS_REQUIRED]` sentinel markers
+- **MCP Integration**: Spawned as local child processes via stdio JSON-RPC at build time
+- **Security by Design**: Minimal attack surface through static architecture; 5-layer gh-aw security (AWF Squid firewall allowlist, sandboxed Docker, safe-output constraints, JSONL audit trail, lock file compilation)
+- **AWS Hosted**: AWS S3 + CloudFront (primary, via `deploy-s3.yml` with OIDC auth); GitHub Pages retained as documented fallback; npm package published to `registry.npmjs.org/euparliamentmonitor` with SLSA Level 3 provenance
 
 ---
 
@@ -272,39 +280,54 @@ C4Container
     Person(contributor, "Contributor", "Maintains system")
 
     Container_Boundary(epmonitor, "EU Parliament Monitor") {
-        Container(news_generator, "News Generation Scripts", "Node.js/TypeScript", "Generates multilingual news articles from EP data")
-        Container(index_generator, "Index Page Generator", "Node.js/TypeScript", "Creates language-specific index pages")
-        Container(sitemap_generator, "Sitemap Generator", "Node.js/TypeScript", "Generates sitemap.xml for SEO")
-        Container(mcp_client, "MCP Client", "TypeScript", "Communicates with EP MCP Server for data access")
-        Container(template_engine, "Article Template Engine", "TypeScript", "Generates HTML from article data")
-        ContainerDb(static_files, "Static Files", "HTML/CSS", "Generated news articles and indexes")
+        Container(aw_orchestrator, "gh-aw Orchestrator", "Agentic Workflows (Claude Opus 4.7)", "10 agentic workflows (.md → .lock.yml via gh-aw v0.69.0): 9 content + 1 translate")
+        Container(pipeline, "Analysis Pipeline", "TypeScript", "5-stage pipeline: fetch → transform → analysis → generate → output (src/generators/pipeline/)")
+        Container(strategies, "Strategies (×8)", "TypeScript", "article, breaking-news, committee-reports, month-ahead, monthly-review, motions, propositions, week-ahead, weekly-review (src/generators/strategies/)")
+        Container(builders, "Section Builders", "TypeScript", "breaking, committee, propositions, prospective, shared, voting (src/generators/builders/)")
+        Container(templates, "Article Templates", "TypeScript", "HTML5 article template, section-builders, single-source-of-truth buildSiteFooter() (src/templates/)")
+        Container(ep_client, "EP MCP Client", "TypeScript", "Stdio JSON-RPC to european-parliament-mcp-server@1.2.10; sliding + fixed-window feed surfaces (src/mcp/ep-mcp-client.ts)")
+        Container(wb_client, "World Bank MCP Client", "TypeScript", "Optional worldbank-mcp@1.0.1 — WDI indicators (src/mcp/wb-mcp-client.ts)")
+        Container(imf_client, "IMF REST Client", "TypeScript", "Native fetch SDMX 3.0 — WEO+FM monthly forecasts (src/mcp/imf-mcp-client.ts)")
+        Container(validator, "Content Validator", "TypeScript", "articlePolicyHas* gates, fallback-leak scanner, validate-analysis-completeness (src/utils/content-validator.ts)")
+        Container(news_indexes, "News Indexes", "TypeScript", "Per-language index pages (src/generators/news-indexes.ts)")
+        Container(sitemap_generator, "Sitemap Generator", "TypeScript", "XML sitemap across 14 languages (src/generators/sitemap.ts)")
+        ContainerDb(static_files, "Static Files", "HTML/CSS/JS/JSON", "news/*.html (~1894 files), analysis/daily/YYYY-MM-DD/, articles-metadata.json, sitemap.xml, styles.css (133 KB)")
     }
 
     Container_Boundary(github_infra, "GitHub Infrastructure") {
-        Container(actions, "GitHub Actions", "CI/CD", "Automated news generation workflow")
-        ContainerDb(repo, "Git Repository", "Version Control", "Source code and generated content")
+        Container(actions, "GitHub Actions", "CI/CD + gh-aw runtime", "10 agentic workflows + 14 standard workflows")
+        ContainerDb(repo, "Git Repository", "Version Control", "Source + generated content; articles-metadata.json")
     }
 
     Container_Boundary(aws_infra, "AWS Infrastructure") {
-        Container(pages, "Amazon CloudFront + S3", "CDN / Object Storage", "Serves static site globally via HTTPS")
+        Container(cf_s3, "CloudFront + S3", "CDN / Object Storage", "Primary hosting — HTTPS via ACM, deploy-s3.yml OIDC")
     }
 
-    System_Ext(ep_mcp, "European Parliament MCP Server", "Structured EP data access")
-    System_Ext(llm, "LLM Service", "Article content generation")
+    System_Ext(ep_mcp, "European Parliament MCP Server v1.2.10", "6 sliding-window + 7 fixed-window feed tools; {status:\"unavailable\", items:[]} envelope")
+    System_Ext(wb_mcp, "World Bank MCP Server v1.0.1", "WDI indicators (optional)")
+    System_Ext(imf_api, "IMF SDMX 3.0 REST", "https://dataservices.imf.org/REST/SDMX_3.0/")
+    System_Ext(copilot, "GitHub Copilot / Claude Opus 4.7", "AI agent authoring all narrative content under AI-First 2-pass regime")
 
-    Rel(user, pages, "Reads news", "HTTPS")
+    Rel(user, cf_s3, "Reads news", "HTTPS")
     Rel(contributor, repo, "Commits code", "Git/HTTPS")
-    Rel(actions, news_generator, "Triggers daily", "Node.js exec")
-    Rel(news_generator, mcp_client, "Requests EP data", "MCP calls")
-    Rel(news_generator, llm, "Generates content", "API calls")
-    Rel(news_generator, template_engine, "Creates HTML", "Function calls")
-    Rel(template_engine, static_files, "Writes files", "fs.writeFileSync")
-    Rel(index_generator, static_files, "Generates indexes", "fs.writeFileSync")
-    Rel(sitemap_generator, static_files, "Creates sitemap", "fs.writeFileSync")
-    Rel(mcp_client, ep_mcp, "Queries data", "MCP Protocol")
-    Rel(static_files, repo, "Committed by Actions", "Git commit/push")
-    Rel(actions, pages, "Deploys via", "S3 sync + CloudFront invalidation")
-    Rel(pages, static_files, "Serves from S3", "CloudFront edge")
+    Rel(actions, aw_orchestrator, "Triggers on schedule", "gh-aw engine")
+    Rel(aw_orchestrator, copilot, "Delegates authoring", "Copilot CLI")
+    Rel(aw_orchestrator, pipeline, "Invokes via npx tsx", "CLI")
+    Rel(pipeline, ep_client, "Fetch stage", "Function calls")
+    Rel(pipeline, wb_client, "Fetch stage (optional)", "Function calls")
+    Rel(pipeline, imf_client, "Fetch stage", "Function calls")
+    Rel(pipeline, strategies, "Generate stage", "Strategy dispatch")
+    Rel(strategies, builders, "Compose sections", "Function calls")
+    Rel(strategies, templates, "Render HTML", "Function calls")
+    Rel(pipeline, validator, "Output stage gate", "Function calls")
+    Rel(templates, static_files, "Write articles", "fs.writeFileSync")
+    Rel(news_indexes, static_files, "Generate indexes", "fs.writeFileSync")
+    Rel(sitemap_generator, static_files, "Create sitemap", "fs.writeFileSync")
+    Rel(ep_client, ep_mcp, "stdio JSON-RPC", "MCP")
+    Rel(wb_client, wb_mcp, "stdio JSON-RPC", "MCP")
+    Rel(imf_client, imf_api, "HTTPS/SDMX", "REST")
+    Rel(static_files, repo, "Committed by workflow", "Git")
+    Rel(actions, cf_s3, "Deploy via OIDC", "S3 sync + CloudFront invalidation")
 
     UpdateLayoutConfig($c4ShapeInRow="3", $c4BoundaryInRow="2")
 ```
@@ -394,37 +417,58 @@ generate multilingual news articles.
 
 ```mermaid
 C4Component
-    title EU Parliament Monitor - News Generation Components
+    title EU Parliament Monitor - Generator & Pipeline Components
 
-    Container_Boundary(news_gen, "News Generation Container") {
-        Component(cli, "CLI Interface", "TypeScript", "Parses command-line arguments for generation parameters")
-        Component(article_gen, "Article Generator", "TypeScript", "Coordinates article creation for specified types/languages")
-        Component(mcp_client, "MCP Client", "TypeScript", "Fetches EP data via MCP protocol")
-        Component(llm_client, "LLM Client", "TypeScript", "Generates article content from EP data")
-        Component(translator, "Translation Handler", "TypeScript", "Manages multi-language content generation")
-        Component(template, "HTML Template Engine", "TypeScript", "Renders articles as semantic HTML5")
-        Component(file_writer, "File System Writer", "TypeScript", "Writes generated articles to disk")
-        Component(metadata, "Metadata Manager", "TypeScript", "Tracks generation metadata and timestamps")
-        Component(validator, "Content Validator", "TypeScript", "Validates generated HTML and content")
+    Container_Boundary(pipeline_c, "Analysis Pipeline (src/generators/pipeline/)") {
+        Component(fetch_stage, "fetch-stage.ts", "TypeScript", "Pulls EP MCP feeds (sliding + fixed window), IMF SDMX monthly, optional WB WDI")
+        Component(transform_stage, "transform-stage.ts", "TypeScript", "Normalises feed payloads, applies unavailable-envelope fallbacks")
+        Component(analysis_stage, "analysis-stage.ts", "TypeScript", "Runs classification, threat assessment, risk scoring, significance")
+        Component(generate_stage, "generate-stage.ts", "TypeScript", "Dispatches to strategy module based on article type")
+        Component(output_stage, "output-stage.ts", "TypeScript", "Writes HTML article + analysis manifest.json, runs validator gates")
     }
 
-    System_Ext(ep_mcp, "EP MCP Server", "EP data access")
-    System_Ext(llm, "LLM Service", "Content generation")
-    ContainerDb(output, "Static Files", "HTML files")
+    Container_Boundary(strategies_c, "Strategies (src/generators/strategies/)") {
+        Component(s_article, "article-strategy.ts", "TS", "Generic article composition")
+        Component(s_breaking, "breaking-news-strategy.ts", "TS", "6-hour cadence, TODAY-only feed items")
+        Component(s_committee, "committee-reports-strategy.ts", "TS", "Per-committee deep analysis")
+        Component(s_month_ahead, "month-ahead-strategy.ts", "TS", "Strategic monthly outlook")
+        Component(s_monthly_review, "monthly-review-strategy.ts", "TS", "Monthly retrospective + trend synthesis")
+        Component(s_motions, "motions-strategy.ts", "TS", "Per-resolution voting breakdown")
+        Component(s_propositions, "propositions-strategy.ts", "TS", "Legislative pipeline tracking")
+        Component(s_week_ahead, "week-ahead-strategy.ts", "TS", "Prospective weekly agenda")
+        Component(s_weekly_review, "weekly-review-strategy.ts", "TS", "Weekly retrospective")
+    }
 
-    Rel(cli, article_gen, "Invokes with params", "Function call")
-    Rel(article_gen, mcp_client, "Requests EP data", "Async calls")
-    Rel(article_gen, llm_client, "Generates content", "Async calls")
-    Rel(article_gen, translator, "Processes languages", "Function call")
-    Rel(translator, llm_client, "Language-specific generation", "Async calls")
-    Rel(article_gen, template, "Renders HTML", "Function call")
-    Rel(template, validator, "Validates output", "Function call")
-    Rel(article_gen, file_writer, "Writes articles", "Function call")
-    Rel(article_gen, metadata, "Tracks generation", "Function call")
-    Rel(mcp_client, ep_mcp, "Queries data", "MCP Protocol")
-    Rel(llm_client, llm, "API calls", "HTTPS/JSON")
-    Rel(file_writer, output, "Writes files", "fs.writeFileSync")
-    Rel(metadata, output, "Writes JSON", "fs.writeFileSync")
+    Container_Boundary(support_c, "Support Modules") {
+        Component(mcp_ep, "ep-mcp-client.ts", "TS", "EP MCP stdio client; FeedBaseOptions + FixedWindowFeedOptions (no canonical EP_MCP_TOOLS export yet)")
+        Component(mcp_wb, "wb-mcp-client.ts", "TS", "Exports WORLD_BANK_MCP_TOOLS canonical list")
+        Component(mcp_imf, "imf-mcp-client.ts", "TS", "class IMFMCPClient; exports IMF_MCP_TOOLS; env IMF_API_BASE_URL, IMF_API_TIMEOUT_MS")
+        Component(mcp_health, "mcp-health.ts / mcp-retry.ts / mcp-connection.ts", "TS", "Health probes, retry with backoff, connection lifecycle")
+        Component(templates_mod, "templates/section-builders.ts", "TS", "buildSiteFooter (14-language, single source of truth), stakeholder perspectives grid")
+        Component(validator_c, "utils/content-validator.ts", "TS", "articlePolicyHasWorldBank, articlePolicyHasEconomicContext (OR-gate), scanHtmlForFallbackLeaks")
+        Component(significance, "utils/significance-scoring.ts", "TS", "Publication priority score")
+        Component(classification, "utils/political-classification.ts + utils/political-threat-assessment.ts + utils/political-risk-assessment.ts", "TS", "Intelligence analysis family")
+    }
+
+    System_Ext(ep_mcp, "EP MCP Server v1.2.10", "6 sliding + 7 fixed-window feeds")
+    System_Ext(wb_mcp, "World Bank MCP v1.0.1", "WDI indicators")
+    System_Ext(imf_api, "IMF SDMX 3.0", "Monthly WEO/FM forecasts")
+    ContainerDb(output, "news/*.html + analysis/daily/YYYY-MM-DD/", "HTML + JSON artifacts")
+
+    Rel(fetch_stage, mcp_ep, "ep feeds", "stdio JSON-RPC")
+    Rel(fetch_stage, mcp_wb, "wb indicators", "stdio JSON-RPC")
+    Rel(fetch_stage, mcp_imf, "imf SDMX", "HTTPS")
+    Rel(fetch_stage, transform_stage, "raw payloads", "fn")
+    Rel(transform_stage, analysis_stage, "normalised data", "fn")
+    Rel(analysis_stage, classification, "uses", "fn")
+    Rel(analysis_stage, significance, "uses", "fn")
+    Rel(analysis_stage, generate_stage, "analysis context", "fn")
+    Rel(generate_stage, strategies_c, "dispatch by type", "strategy pattern")
+    Rel(strategies_c, templates_mod, "compose sections", "fn")
+    Rel(generate_stage, output_stage, "rendered HTML", "fn")
+    Rel(output_stage, validator_c, "gate", "fn")
+    Rel(output_stage, output, "write", "fs.writeFileSync")
+    Rel(mcp_ep, mcp_health, "health probe", "fn")
 
     UpdateLayoutConfig($c4ShapeInRow="3", $c4BoundaryInRow="1")
 ```
@@ -433,15 +477,20 @@ C4Component
 
 | Component                | Responsibility                   | Dependencies                     | File Location                             |
 | ------------------------ | -------------------------------- | -------------------------------- | ----------------------------------------- |
-| **CLI Interface**        | Parse command-line arguments     | Node.js process.argv             | src/generators/news-enhanced.ts           |
-| **Article Generator**    | Orchestrate article creation     | MCP Client, LLM Client, Template | src/generators/news-enhanced.ts           |
-| **MCP Client**           | Fetch EP data via MCP            | EP MCP Server                    | src/mcp/ep-mcp-client.ts                  |
-| **LLM Client**           | Generate article text            | LLM Service API                  | Integrated in article generator           |
-| **Translation Handler**  | Manage multi-language generation | LLM Client                       | src/generators/news-enhanced.ts           |
-| **HTML Template Engine** | Render semantic HTML5            | Article data                     | src/templates/article-template.ts         |
-| **File System Writer**   | Write files to disk              | Node.js fs module                | src/generators/news-enhanced.ts           |
-| **Metadata Manager**     | Track generation metadata        | Article data                     | src/generators/news-enhanced.ts           |
-| **Content Validator**    | Validate HTML output             | HTML validator                   | Integrated in template                    |
+| **Pipeline Stages** (5)  | Ordered: fetch → transform → analysis → generate → output | MCP clients, analysis utils, strategies | `src/generators/pipeline/*.ts`            |
+| **Strategies** (8)       | Per-article-type orchestration   | Builders, templates, section-builders | `src/generators/strategies/*.ts`          |
+| **Builders** (6)         | Section composition (breaking, committee, propositions, prospective, shared, voting) | Types, analysis utils | `src/generators/builders/*.ts`            |
+| **EP MCP Client**        | Fetch EP feeds via stdio JSON-RPC; enforces `FeedBaseOptions` vs `FixedWindowFeedOptions` (no canonical `EP_MCP_TOOLS` export yet — gap tracked in CRA-ASSESSMENT §5ᵇ row 13) | `european-parliament-mcp-server@1.2.10` | `src/mcp/ep-mcp-client.ts`                |
+| **World Bank MCP Client**| Fetch WDI biannual indicators; `WORLD_BANK_MCP_TOOLS` | `worldbank-mcp@1.0.1` (optional) | `src/mcp/wb-mcp-client.ts`                |
+| **IMF MCP Client**       | Native TS fetch to IMF SDMX 3.0; `class IMFMCPClient`; `IMF_MCP_TOOLS` (NOT an MCP server) | `fetch` (Node 25+) | `src/mcp/imf-mcp-client.ts`               |
+| **MCP Health/Retry**     | Health probes, retry with exponential backoff, lifecycle | — | `src/mcp/mcp-health.ts`, `mcp-retry.ts`, `mcp-connection.ts` |
+| **Templates**            | HTML5 article shell, 14-language localised `buildSiteFooter()`, stakeholder perspective grid, structured data (JSON-LD/Open Graph) | Types | `src/templates/article-template.ts`, `section-builders.ts` |
+| **Content Validator**    | `articlePolicyHasWorldBank`, `articlePolicyHasEconomicContext` (OR-gate accepts WB OR IMF), `scanHtmlForFallbackLeaks`, `FALLBACK_TEMPLATE_PATTERNS` | — | `src/utils/content-validator.ts`          |
+| **Analysis Completeness**| Pre-PR validator gate; invoked by gh-aw workflows as `node scripts/utils/validate-analysis-completeness.js` | Types | `src/utils/validate-analysis-completeness.ts` |
+| **Intelligence Utils**   | `political-classification`, `political-threat-assessment`, `political-risk-assessment`, `significance-scoring`, `article-quality-scorer` | Types | `src/utils/*.ts` |
+| **News Indexes**         | Per-language index pages                | Metadata, languages | `src/generators/news-indexes.ts` |
+| **Sitemap**              | XML sitemap across 14 languages       | Metadata, file-utils | `src/generators/sitemap.ts` |
+| **Constants**            | `ALL_LANGUAGES` (14), `LANGUAGE_PRESETS` (`all`, `eu-core`, `nordic`), article constants, committee indicator map, config | — | `src/constants/*.ts` |
 
 ### Component Interaction Patterns
 
@@ -546,6 +595,41 @@ C4Deployment
 | **EP MCP Server**         | Local Node process       | EP data access                    | Spawned locally via stdio JSON-RPC     |
 | **LLM Service**           | External API             | Content generation                | API key authentication                 |
 
+### Article Types & Strategies
+
+8 production article types are driven by 9 strategy modules (strategies 1:1 with types, plus `article-strategy.ts` which is a generic fallback used by the on-demand generator — not an additional production content type):
+
+| Article Type        | Strategy Module                      | gh-aw Workflow                      | Cadence                       |
+|---------------------|--------------------------------------|-------------------------------------|-------------------------------|
+| `breaking`          | `breaking-news-strategy.ts`          | `news-breaking.md`                  | Every 6 hours                 |
+| `week-ahead`        | `week-ahead-strategy.ts`             | `news-week-ahead.md`                | Fri 07:00 UTC                 |
+| `week-in-review`    | `weekly-review-strategy.ts`          | `news-weekly-review.md`             | Sat 09:00 UTC                 |
+| `month-ahead`       | `month-ahead-strategy.ts`            | `news-month-ahead.md`               | 1st of month 08:00 UTC        |
+| `month-in-review`   | `monthly-review-strategy.ts`         | `news-monthly-review.md`            | 28th of month 10:00 UTC       |
+| `committee-reports` | `committee-reports-strategy.ts`      | `news-committee-reports.md`         | Mon–Fri 04:00 UTC             |
+| `motions`           | `motions-strategy.ts`                | `news-motions.md`                   | Mon–Fri 06:00 UTC             |
+| `propositions`      | `propositions-strategy.ts`           | `news-propositions.md`              | Mon–Fri 05:00 UTC             |
+
+Plus: `article-strategy.ts` (generic, used by manual `news-article-generator.md`) and `news-translate.md` (14-language translation fan-out).
+
+### Agentic Workflows (gh-aw)
+
+All 10 news workflows are **markdown source files compiled to YAML** (`.md` → `.lock.yml`) via the GitHub Agentic Workflows CLI (`gh aw compile --validate`) with pinned `GH_AW_VERSION: v0.69.0` in `.github/workflows/compile-agentic-workflows.yml`. See [WORKFLOWS.md](WORKFLOWS.md) for the full surface.
+
+**5-layer security model**:
+1. **AWF Squid firewall allowlist** — egress HTTP allowlist per workflow
+2. **Sandboxed Docker with restricted shell** — `bash tool-call contract` (every call requires `command` + `description`); shell expansion restrictions
+3. **Safe-output constraints** — `create-pull-request` with `max-patch-size` (default 1024 KB; `news-translate.md` sets 10240 KB at top level for 14-language fan-out)
+4. **JSONL audit trail** — per-step structured logs
+5. **Lock file compilation** — `.lock.yml` is the immutable executed artifact; `.md` is the human source under review
+
+**MCP gateway** (containerised): `EP_MCP_GATEWAY_URL=http://host.docker.internal:80/mcp/european-parliament`, provisioned by `scripts/mcp-setup.sh`.
+
+**Validator gates** (before PR creation):
+- `scripts/utils/validate-analysis-completeness.js --article-html=...` — rejects articles with missing SWOT, stakeholder perspectives, economic context, or `[AI_ANALYSIS_REQUIRED]` markers
+- `scanHtmlForFallbackLeaks()` in `content-validator.ts` — matches against `FALLBACK_TEMPLATE_PATTERNS`
+- Dynamic file resolution pattern (must not hallucinate file names): `ls -t "news/${TODAY}-${TYPE}"*"-en.html" | head -1`
+
 ---
 
 ## 📊 Technology Stack
@@ -554,41 +638,46 @@ C4Deployment
 
 | Layer               | Technology | Version | Purpose                          | Rationale |
 | ------------------- | ---------- | ------- | -------------------------------- | --------- |
-| **Runtime**         | Node.js    | 25.x Current | JavaScript execution environment | Current release for latest features, performance improvements; upgrade to Node.js 26 LTS planned April 2026 |
-| **Language**        | TypeScript | 6.x     | Primary development language     | Strict type safety, compile-time error detection; compiles from `src/` to `scripts/` targeting ES2025 |
+| **Runtime**         | Node.js    | 25.x (`engines: >=25`); Node.js 26 LTS migration scheduled upon release (~Apr 2026) | JavaScript execution environment | Current release for latest features, performance improvements; ESM-native (`"type": "module"`) |
+| **Language**        | TypeScript | 6.0.3   | Primary development language     | Strict type safety; compiles from `src/` → `scripts/` targeting ES2025, `module: NodeNext` |
 | **Package Manager** | npm        | 10.x    | Dependency management            | Native Node.js package manager, security audit integration |
-| **Testing**         | Vitest     | 4.x     | Unit and integration testing     | Fast, modern, ESM-native test runner with great DX |
-| **E2E Testing**     | Playwright | 1.58.x  | End-to-end browser testing       | Cross-browser support, reliable selectors, parallel execution |
-| **Linting**         | ESLint     | 9.x     | Code quality and security        | Flat config support, security plugins, TypeScript rules via @typescript-eslint |
-| **Formatting**      | Prettier   | 3.x     | Code formatting                  | Zero-config, opinionated formatter, consistent code style |
+| **Testing**         | Vitest     | 4.1.4   | Unit and integration testing     | Fast, ESM-native; happy-dom env; `happy-dom@20.9.0` |
+| **E2E Testing**     | Playwright | 1.59.1  | End-to-end browser testing       | `@axe-core/playwright@4.11.2` for WCAG 2.1 AA |
+| **Linting**         | ESLint     | 10.2.1  | Code quality and security        | Flat config; plugins: `eslint-plugin-sonarjs@4.0.3`, `eslint-plugin-security@4.0.0`, `eslint-plugin-jsdoc@62.9.0` |
+| **Formatting**      | Prettier   | 3.8.3   | Code formatting                  | Opinionated formatter, consistent code style |
+| **Visualization**   | Chart.js   | 4.5.1   | Dashboard charts in articles     | Vendored into `js/vendor/` via `npm run copy-vendor` |
+| **Visualization**   | D3         | 7.9.0   | Advanced visualizations          | Used for specific intelligence views |
+| **Documentation**   | TypeDoc    | 0.28.19 | API documentation generation     | Generates `docs/` pages from TypeScript sources |
+| **HTML Validation** | HTMLHint   | 1.9.2   | HTML5 validation                 | Pre-commit + CI |
+| **Duplicate Check** | jscpd      | 4.0.9   | Copy-paste detection             | Scheduled quality audits |
 
 ### Technology Version Matrix
 
 | Technology | Current Version | Minimum Version | End-of-Life | Update Policy |
 |------------|----------------|-----------------|-------------|---------------|
-| **Node.js** | 25.x (current) | 25.0.0 | ~Apr 2026 (Current EOL; upgrading to Node.js 26 LTS) | Update to Node.js 26 LTS within days of release (~Apr 2026) |
+| **Node.js** | 25.x (current) | 25.0.0 (`engines: >=25`) | ~Apr 2026 (Current EOL; upgrading to Node.js 26 LTS) | Update to Node.js 26 LTS within days of release (~Apr 2026) |
 | **npm** | 10.x (latest) | 10.0.0 | Follows Node.js lifecycle | Auto-updated with Node.js |
-| **TypeScript** | 6.0.x | 5.0.0 | N/A | Update to latest minor within 14 days, major within 90 days |
-| **Vitest** | 4.0.18 | 4.0.0 | N/A | Update to latest minor within 14 days, major within 60 days |
-| **Playwright** | 1.58.2 | 1.50.0 | N/A | Update to latest minor within 14 days, major within 60 days |
-| **ESLint** | 9.39.2 | 9.0.0 | N/A | Update to latest minor within 14 days, major within 90 days |
-| **Prettier** | 3.8.1 | 3.0.0 | N/A | Update to latest minor within 14 days, major within 90 days |
+| **TypeScript** | 6.0.3 | 6.0.0 | N/A | Update to latest minor within 14 days, major within 90 days |
+| **Vitest** | 4.1.4 | 4.0.0 | N/A | Update to latest minor within 14 days, major within 60 days |
+| **Playwright** | 1.59.1 | 1.55.0 | N/A | Update to latest minor within 14 days, major within 60 days |
+| **ESLint** | 10.2.1 | 10.0.0 | N/A | Update to latest minor within 14 days, major within 90 days |
+| **Prettier** | 3.8.3 | 3.0.0 | N/A | Update to latest minor within 14 days, major within 90 days |
+| **Chart.js** | 4.5.1 | 4.0.0 | N/A | Vendored; update with copy-vendor script |
+| **D3** | 7.9.0 | 7.0.0 | N/A | Vendored; update with copy-vendor script |
+| **TypeDoc** | 0.28.19 | 0.28.0 | N/A | Major within 60 days |
+| **european-parliament-mcp-server** | 1.2.10 (pinned) | 1.2.10 | Per upstream | Track releases; 1.2.10 (2026-04-20) fixes #377/#378 (fixed-window feeds, uniform unavailable envelope) |
+| **worldbank-mcp** | 1.0.1 (optional) | 1.0.0 | Per upstream | Biannual WDI refresh cadence |
+| **gh-aw CLI** | v0.69.0 (pinned `GH_AW_VERSION`) | v0.69.0 | Per upstream | Workflow-level pin in `compile-agentic-workflows.yml` |
 
 ### Dependency Management
 
-**Production Dependencies (1):**
-- **`european-parliament-mcp-server`** (`@latest`) - Provides European Parliament data access at build time via MCP protocol (stdio JSON-RPC)
+**Production Dependencies (1 required + 1 optional):**
+- **`european-parliament-mcp-server@1.2.10`** — Primary data surface; 6 sliding-window feed tools (`timeframe` + `startDate` when `custom`) and 7 fixed-window feed tools (`limit`/`offset` only — `documents`, `plenary_documents`, `committee_documents`, `plenary_session_documents`, `parliamentary_questions`, `corporate_bodies`, `controlled_vocabularies`); returns uniform `{status:"unavailable", items:[]}` envelope on upstream failure.
+- **`worldbank-mcp@1.0.1`** (`optionalDependencies`) — WDI macro/social/environment/health indicators.
 
-**Development Dependencies (28 total):**
+**IMF REST** is integrated via native TypeScript fetch in `src/mcp/imf-mcp-client.ts` (`class IMFMCPClient`) — this is NOT an MCP server; calls go directly to `https://dataservices.imf.org/REST/SDMX_3.0/`. Env: `IMF_API_BASE_URL`, `IMF_API_TIMEOUT_MS`. Supplies WEO + FM monthly forecasts up to five years ahead.
 
-| Category | Dependencies | Purpose |
-|----------|-------------|---------|
-| **Testing** | `vitest`, `@vitest/ui`, `@vitest/coverage-v8`, `@playwright/test`, `@axe-core/playwright`, `happy-dom` | Unit, integration, E2E testing, accessibility testing, coverage reporting |
-| **TypeScript** | `typescript`, `@typescript-eslint/eslint-plugin`, `@typescript-eslint/parser`, `@types/node`, `ts-api-utils`, `tsx` | TypeScript compiler, ESLint TypeScript rules, type definitions, dev runner |
-| **Code Quality** | `eslint`, `@eslint/js`, `prettier`, `eslint-config-prettier`, `eslint-plugin-security`, `eslint-plugin-import`, `eslint-plugin-jsdoc`, `eslint-plugin-sonarjs`, `jscpd` | Linting, formatting, security checks, duplicate detection |
-| **Git Hooks** | `husky`, `lint-staged` | Pre-commit hooks for quality gates |
-| **HTML Validation** | `htmlhint` | HTML5 validation |
-| **Documentation** | `typedoc`, `jsdoc`, `docdash`, `jsdoc-to-markdown` | API documentation generation |
+**Dev dependencies** (notable): `vitest@4.1.4`, `@vitest/ui`, `@vitest/coverage-v8`, `happy-dom@20.9.0`, `@playwright/test@1.59.1`, `@axe-core/playwright@4.11.2`, `typescript@6.0.3`, `eslint@10.2.1`, `eslint-plugin-sonarjs@4.0.3`, `eslint-plugin-security@4.0.0`, `eslint-plugin-jsdoc@62.9.0`, `prettier@3.8.3`, `htmlhint@1.9.2`, `typedoc@0.28.19`, `chart.js@4.5.1`, `d3@7.9.0`, `papaparse@5.5.3`, `husky@9.1.7`, `jscpd@4.0.9`.
 
 ### Security & Quality
 
@@ -635,29 +724,82 @@ C4Deployment
 
 ### Build Process
 
-TypeScript source in `src/` is compiled to JavaScript in `scripts/` via `tsc`. The generated JavaScript files are executed by Node.js during news generation.
+TypeScript source in `src/` is compiled to JavaScript in `scripts/` via `tsc`. The generated JavaScript files are executed by Node.js during news generation. The public npm entry point is `src/index.ts` (published as `euparliamentmonitor` with SLSA Level 3 provenance attestations).
 
 ```
-src/                          → scripts/             (tsc compilation)
-├── types/index.ts            → types/index.js       Type definitions (ArticleCategory, LanguageCode, interfaces)
-├── constants/config.ts       → constants/config.js   Project paths, BASE_URL, article filename pattern
-├── constants/languages.ts    → constants/languages.js 14-language translations, presets, flags
-├── mcp/ep-mcp-client.ts      → mcp/ep-mcp-client.js  MCP client (JSON-RPC 2.0, retry, singleton)
-├── templates/article-template.ts → templates/article-template.js  HTML5 article generation (SEO, JSON-LD, Open Graph)
-├── generators/news-enhanced.ts   → generators/news-enhanced.js    Core article generation engine
-├── generators/news-indexes.ts    → generators/news-indexes.js     Multi-language index generator
-├── generators/sitemap.ts         → generators/sitemap.js          XML sitemap generator
-├── utils/file-utils.ts           → utils/file-utils.js            File operations, escapeHTML, isSafeURL
-├── utils/news-metadata.ts        → utils/news-metadata.js         articles-metadata.json management
-├── utils/copy-test-reports.ts     → utils/copy-test-reports.js     Test report archiver
-└── utils/generate-docs-index.ts   → utils/generate-docs-index.js   Docs hub generator
+src/                                   → scripts/                          (tsc compilation)
+├── index.ts                           → index.js                          npm package entry point
+├── constants/                         → constants/
+│   ├── config.ts                      Project paths, BASE_URL, filename patterns
+│   ├── analysis-constants.ts          Shared analysis thresholds
+│   ├── committee-indicator-map.ts     Committee → indicator mapping
+│   ├── language-core.ts               ALL_LANGUAGES (14), LANGUAGE_PRESETS
+│   ├── language-articles.ts           Per-language article-type labels
+│   ├── language-ui.ts                 Per-language UI strings
+│   └── languages.ts                   Language metadata (name, flag, direction)
+├── mcp/                               → mcp/
+│   ├── ep-mcp-client.ts               EP MCP stdio client; feed option types (no canonical EP_MCP_TOOLS export yet)
+│   ├── wb-mcp-client.ts               World Bank MCP client; exports WORLD_BANK_MCP_TOOLS
+│   ├── imf-mcp-client.ts              IMFMCPClient class (native fetch/SDMX 3.0); exports IMF_MCP_TOOLS
+│   ├── mcp-connection.ts              Connection lifecycle
+│   ├── mcp-health.ts                  Health probes
+│   └── mcp-retry.ts                   Exponential backoff retry
+├── templates/                         → templates/
+│   ├── article-template.ts            HTML5 article shell (SEO, JSON-LD, Open Graph)
+│   └── section-builders.ts            buildSiteFooter (single source of truth, 14-lang), stakeholder grid
+├── generators/
+│   ├── pipeline/                      → generators/pipeline/   5 stages (fetch/transform/analysis/generate/output)
+│   ├── strategies/                    → generators/strategies/ 8 strategy modules
+│   ├── builders/                      → generators/builders/   6 section builders + index
+│   ├── analysis-builders.ts           Analysis section composition
+│   ├── breaking-content.ts            Breaking-news content
+│   ├── committee-helpers.ts           Committee utilities
+│   ├── dashboard-content.ts           Dashboard charts (Chart.js)
+│   ├── deep-analysis-content.ts       Deep analysis composition
+│   ├── mindmap-content.ts             Mermaid mindmap embedding
+│   ├── motions-content.ts             Motions composition
+│   ├── news-enhanced.ts               Legacy entry (delegates to pipeline)
+│   ├── news-indexes.ts                Per-language index pages
+│   ├── propositions-content.ts        Propositions composition
+│   ├── sitemap.ts                     XML sitemap generator
+│   ├── swot-content.ts                SWOT section composition
+│   ├── synthesis-summary.ts           Cross-article synthesis
+│   └── week-ahead-content.ts          Week-ahead composition
+├── types/                             → types/
+│   ├── analysis.ts, common.ts, generation.ts, imf.ts, intelligence.ts, mcp.ts,
+│   │   parliament.ts, political-classification.ts, political-risk.ts,
+│   │   political-threats.ts, quality.ts, significance.ts, stakeholder.ts,
+│   │   visualization.ts, world-bank.ts, index.ts
+└── utils/                             → utils/
+    ├── article-category.ts, article-quality-scorer.ts, content-metadata.ts,
+    ├── content-validator.ts (articlePolicyHas* gates, fallback-leak scanner),
+    ├── copy-test-reports.ts, file-utils.ts, fix-articles.ts,
+    ├── generate-docs-index.ts, html-sanitize.ts, imf-data.ts,
+    ├── intelligence-analysis.ts, intelligence-index.ts, metadata-utils.ts,
+    ├── news-metadata.ts, political-classification.ts,
+    ├── political-risk-assessment.ts, political-threat-assessment.ts,
+    ├── retrofit-analysis-links.ts, significance-scoring.ts,
+    ├── validate-analysis-completeness.ts (pre-PR gate for agentic workflows),
+    ├── validate-articles.ts, validate-ep-api.ts, world-bank-data.ts
 ```
 
-**Key build commands:**
-- `npm run build` — Runs `tsc` (TypeScript compilation)
-- `npm run lint` — ESLint on `src/` TypeScript files
-- `npm run generate-news` — Executes compiled `scripts/generators/news-enhanced.js`
-- `npm run generate-news-indexes` — Executes compiled `scripts/generators/news-indexes.js`
+**Key build / generation commands:**
+- `npm run build` — Runs `tsc` (TypeScript compilation `src/` → `scripts/`)
+- `npm run lint` — ESLint on `src/`
+- `npm run generate-news` — Orchestrates strategies via the pipeline
+- `npm run generate-news-indexes` — Executes `scripts/generators/news-indexes.js` (prebuild hook)
+- `npm run generate-sitemap` — Executes `scripts/generators/sitemap.js` (prebuild hook)
+- `npm run copy-vendor` — Vendors `chart.js` and `d3` assets into `js/vendor/`
+- `npm run test` / `test:unit` / `test:integration` / `test:e2e` / `test:coverage` — Test suite (52 test files, 3061+ passing tests)
+
+**TypeScript configuration** (`tsconfig.json`):
+- `target: ES2025`, `module: NodeNext`, `strict: true`, `rootDir: ./src`, `outDir: ./scripts`, `"type": "module"` in package.json
+
+**Runtime JS (browser)**:
+- `js/index-runtime.js` — Index page filter + theme toggle
+- `js/article-runtime.js` — Reading progress + theme toggle
+- External scripts only (no inline scripts — CSP-ready)
+- `js/vendor/` — Vendored Chart.js (4.5.1) and D3 (7.9.0)
 
 **TypeScript configuration** (`tsconfig.json`):
 - `target: ES2025` — Modern JavaScript output
@@ -1265,9 +1407,9 @@ Non-functional requirements define system qualities that are not directly relate
 **Maintainability Practices:**
 - **Code Review**: All PRs require approval
 - **Documentation**: Architecture, security, process docs maintained
-- **Testing**: Unit (Vitest), E2E (Playwright), manual accessibility
-- **Linting**: ESLint with security plugin, Prettier formatting
-- **Dependencies**: Minimal (1 production, 28 dev), regularly updated
+- **Testing**: Unit (Vitest 4.1.4), Integration (incl. MCP contract tests), E2E (Playwright 1.59.1 + axe-core)
+- **Linting**: ESLint 10.2.1 with `eslint-plugin-sonarjs@4.0.3`, `eslint-plugin-security@4.0.0`, `eslint-plugin-jsdoc@62.9.0`; Prettier 3.8.3 formatting
+- **Dependencies**: Minimal (1 required production, 1 optional, ~40 dev), weekly Dependabot updates
 
 ---
 
@@ -1335,10 +1477,10 @@ Non-functional requirements define system qualities that are not directly relate
 
 ### Maintainability
 
-- **Code Complexity**: Low (TypeScript scripts, no frameworks)
-- **Test Coverage**: 82%+ lines, 83%+ branches
-- **Documentation**: Comprehensive (10+ architecture docs)
-- **Dependencies**: 1 production (`european-parliament-mcp-server`), 28 dev dependencies
+- **Code Complexity**: Moderate (5-stage pipeline + 8 strategies + 6 builders; no SPA framework)
+- **Test Coverage**: 82%+ lines, 83%+ branches across 52 test files; **3061+ passing tests** (unit, integration incl. EP/IMF/WB MCP contract tests, E2E Playwright)
+- **Documentation**: Comprehensive (25+ architecture & ISMS docs — see Architecture Documentation Map)
+- **Dependencies**: 1 pinned production (`european-parliament-mcp-server@1.2.10`), 1 optional (`worldbank-mcp@1.0.1`), ~40 dev dependencies
 
 ---
 
@@ -1348,7 +1490,9 @@ Non-functional requirements define system qualities that are not directly relate
   implementation and threat model
 - **[Future Architecture](FUTURE_ARCHITECTURE.md)** - Architectural evolution
   roadmap
-- **[Data Model](DATA_MODEL.md)** - Data structures and EP API integration
+- **[Data Model](DATA_MODEL.md)** - Data structures and EP/IMF/WB contracts
+- **[Workflows](WORKFLOWS.md)** - All 10 gh-aw + 14 standard workflows, AI-First 2-pass enforcement
+- **[End-of-Life Strategy](End-of-Life-Strategy.md)** - Technology lifecycle & EOL planning
 - **[Flowcharts](FLOWCHART.md)** - Detailed process workflows
 - **[State Diagrams](STATEDIAGRAM.md)** - System state transitions
 - **[Mindmaps](MINDMAP.md)** - Conceptual system relationships
@@ -1360,8 +1504,9 @@ Non-functional requirements define system qualities that are not directly relate
 <div class="architecture-footer">
 
 **Document Status:** Living Document  
-**Last Updated:** 2026-03-19  
-**Next Review:** 2026-06-19  
+**Last Updated:** 2026-04-20  
+**Next Review:** 2026-07-20  
+**Project Release:** v0.8.40  
 **Owner:** CEO
 
 This architecture documentation follows the [C4 model](https://c4model.com/)

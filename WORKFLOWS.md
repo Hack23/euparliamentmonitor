@@ -11,13 +11,13 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-4.0-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--31-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-4.1-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--20-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 4.0 | **📅 Last Updated:** 2026-03-31 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
+**📋 Document Owner:** CEO | **📄 Version:** 4.1 | **📅 Last Updated:** 2026-04-20 (UTC) | **📦 Release:** v0.8.40  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-20
 
 ---
 
@@ -108,28 +108,30 @@ EU Parliament Monitor's CI/CD workflows implement security controls mandated by 
 
 ## 📋 Executive Summary
 
-EU Parliament Monitor employs a comprehensive suite of **22 GitHub Actions workflows** (12 standard + 10 agentic) for automated intelligence operations, quality assurance, security scanning, and release management. All workflows follow [Hack23 ISMS Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) standards.
+EU Parliament Monitor employs a comprehensive suite of **24 GitHub Actions workflows** (14 standard + 10 agentic) for automated intelligence operations, quality assurance, security scanning, and release management. All workflows follow [Hack23 ISMS Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) standards.
 
 ### Workflow Portfolio
 
 | # | Workflow | Purpose | Schedule / Trigger | ISMS Alignment |
 |---|---------|---------|-------------------|----------------|
-| 1 | **Agentic News Workflows** (×10) | AI-generated multi-language news articles | Varied schedules (see §1) | Integrity controls (Medium) |
-| 2 | **Test & Report** | Unit tests, integration tests, coverage, performance | On PR/push to main | Quality assurance (ISO 27001 A.12.1.4) |
+| 1 | **Agentic News Workflows** (×10) | AI-generated multi-language news articles (9 content + `news-translate`) | Varied schedules (see §1) | Integrity controls (Medium) |
+| 2 | **Test & Report** | Unit + integration tests, 3061+ tests, coverage, performance | On PR/push to main | Quality assurance (ISO 27001 A.12.1.4) |
 | 3 | **CodeQL** | SAST security scanning (JS/TS + GitHub Actions) | On PR/push + weekly Saturday | Vulnerability management (ISO 27001 A.12.6) |
-| 4 | **E2E Tests** | End-to-end Playwright tests | On PR/push + daily midnight UTC | Functional validation |
-| 5 | **Release** | Build, attest, document, release | Manual/tag push | SLSA L3, Documentation-as-code |
+| 4 | **E2E Tests** | End-to-end Playwright tests (Chromium) + axe-core | On PR/push + daily midnight UTC | Functional validation + WCAG 2.1 AA |
+| 5 | **Release** | Build, attest (SLSA L3), document, publish to npm (provenance) | Manual/tag push | SLSA L3, Documentation-as-code, npm provenance |
 | 6 | **Dependency Review** | Supply chain security scanning | On PR | Supply chain security (NIST CSF ID.SC) |
 | 7 | **OpenSSF Scorecard** | Security posture assessment | Weekly Tuesday 07:20 UTC | Continuous improvement |
-| 8 | **Deploy S3** | Production deployment to AWS | Push to main | Infrastructure as Code |
-| 9 | **REUSE Compliance** | License and copyright verification | On PR/push + weekly Monday | Open Source Policy |
-| 10 | **SLSA Provenance** | Build provenance attestation | On release + manual | Supply chain security (SLSA L3) |
-| 11 | **Compile Agentic Workflows** | Compile .md → .lock.yml via gh-aw CLI | Manual dispatch | Automation governance |
-| 12 | **Labeler** | Automatic PR labeling | On pull_request_target | Workflow governance |
-| 13 | **Setup Labels** | Repository label management | Manual dispatch | Repository governance |
-| 14 | **Copilot Setup Steps** | GitHub Copilot agent environment setup | Push/PR to itself + manual | Agent infrastructure |
+| 8 | **Deploy S3** | Production deployment to AWS S3 + CloudFront (OIDC, egress: block) | Push to main | Infrastructure as Code |
+| 9 | **REUSE Compliance** | License and copyright verification (REUSE 3.3) | On PR/push + weekly Monday | Open Source Policy |
+| 10 | **SLSA Provenance** | Build provenance attestation (integrated in release.yml) | On release + manual | Supply chain security (SLSA L3) |
+| 11 | **Compile Agentic Workflows** | Compile `.md` → `.lock.yml` via gh-aw CLI (pinned `GH_AW_VERSION: v0.69.0`) | Manual dispatch | Automation governance |
+| 12 | **Agentics Maintenance** | Housekeeping for agentic workflows (stale lock cleanup, health probes) | Scheduled | Automation governance |
+| 13 | **Labeler** | Automatic PR labeling | On pull_request_target | Workflow governance |
+| 14 | **Setup Labels** | Repository label management | Manual dispatch | Repository governance |
+| 15 | **Copilot Setup Steps** | GitHub Copilot agent environment setup | Push/PR to itself + manual | Agent infrastructure |
+| 16 | **news-translate-reconciler** | Reconcile missing translation artifacts across 14 languages | Scheduled | Translation consistency |
 
-**🔒 Security Posture:** All 12 standard workflows use SHA-pinned actions (100%), Harden Runner (`step-security/harden-runner@fa2e9d605c4eeb9fcad4c99c224cee0c6c7f3594 # v2.16.0`), and minimal permissions following least privilege principle.
+**🔒 Security Posture:** All 14 standard workflows use SHA-pinned actions (100%), Harden Runner (`step-security/harden-runner@8d3c67de8e2fe68ef647c8db1e6a09f647780f40 # v2.19.0`), and minimal permissions following least privilege principle. Agentic workflows add a 5-layer security model: AWF Squid firewall allowlist, sandboxed Docker with restricted shell, safe-output constraints (`create-pull-request` with `max-patch-size`), JSONL audit trail, and lock-file compilation.
 
 ### 🏗️ Pipeline Architecture
 
@@ -293,8 +295,8 @@ graph TD
 | **Agent job permissions** | `contents: write`, `pull-requests: write`, `issues: write`, `models: read` |
 | **Concurrency group** | `gh-aw-${{ github.workflow }}` |
 | **Node.js version** | 25 |
-| **EP MCP Server** | `european-parliament-mcp-server` (globally installed) |
-| **Data sources** | European Parliament MCP Server (primary), World Bank MCP (macro + social/env/health), IMF MCP (macro/fiscal/trade/monetary with WEO forecasts — Wave-1 dual-source, see `.github/skills/imf-data-integration.md`) |
+| **EP MCP Server** | `european-parliament-mcp-server@1.2.10` (globally installed via `scripts/mcp-setup.sh`, MCP gateway `EP_MCP_GATEWAY_URL=http://host.docker.internal:80/mcp/european-parliament`) |
+| **Data sources** | European Parliament MCP Server (primary, 6 sliding-window + 7 fixed-window feeds), World Bank MCP `1.0.1` (optional, WDI macro/social/env/health), IMF REST SDMX 3.0 (native fetch in `src/mcp/imf-mcp-client.ts`, WEO+FM monthly forecasts). Dual-gate: `articlePolicyHasEconomicContext` (Wave-2 OR-gate WB OR IMF) in `src/utils/content-validator.ts` |
 | **Analysis stage** | `--analysis` flag enables 18-method political intelligence pipeline before article generation |
 | **Analysis output** | `analysis/daily/{date}/` for cross-article artifacts (for example shared synthesis outputs), plus `analysis/daily/{date}/{article-type}/` for article-type-scoped classification, threat-assessment, risk-scoring, and data (EP feeds, World Bank, IMF, OSINT) artifacts committed to PR. Article-type scoping prevents merge conflicts between concurrent workflows. |
 
@@ -540,11 +542,12 @@ The translation workflow has its own fidelity module:
 
 | Test Type | Framework | Coverage Target | Current Status |
 |-----------|-----------|----------------|----------------|
-| **Unit Tests** | Vitest | 169 tests | ✅ 169/169 passing |
-| **Integration Tests** | Vitest | N/A | ✅ All passing |
+| **Unit Tests** | Vitest 4.1.4 (happy-dom) | 52 test files | ✅ 3061+ passing |
+| **Integration Tests** | Vitest + MCP contract suites (`test/integration/mcp-integration.test.js`, `test/integration/mcp/imf-mcp.test.js`, `test/integration/mcp/worldbank-mcp.test.js`) | IMF/WB canonical tool lists asserted via drift-guard tests; EP MCP covered by `mcp-integration.test.js` (no canonical `EP_MCP_TOOLS` export yet) | ✅ All passing |
 | **Line Coverage** | Vitest (V8) | ≥80% | ✅ 82%+ |
 | **Branch Coverage** | Vitest (V8) | ≥75% | ✅ 83%+ |
 | **Function Coverage** | Vitest (V8) | ≥80% | ✅ 89%+ |
+| **E2E** | Playwright 1.59.1 + @axe-core/playwright 4.11.2 | WCAG 2.1 AA | ✅ Passing |
 
 #### Workflow Jobs (6 Jobs)
 
@@ -740,11 +743,12 @@ Every release automatically generates:
 
 | Control | Implementation | ISMS Reference |
 |---------|----------------|----------------|
-| **SLSA Level 3** | Build provenance attestation | Supply chain security |
-| **SBOM Generation** | SPDX JSON format | NTIA SBOM minimum elements |
-| **Artifact Signing** | GitHub Attestations API | Integrity verification |
+| **SLSA Level 3** | Build provenance attestation + npm provenance (`--provenance` flag on publish) | Supply chain security |
+| **SBOM Generation** | SPDX JSON format via `anchore/sbom-action` | NTIA SBOM minimum elements |
+| **Artifact Signing** | GitHub Attestations API (Sigstore, OIDC keyless) | Integrity verification |
+| **npm Registry** | Published to `registry.npmjs.org/euparliamentmonitor` with Sigstore provenance | Supply chain transparency |
 | **Documentation Audit Trail** | Committed to main branch | Evidence trail |
-| **Test Validation** | 169 unit tests + E2E | Quality gates |
+| **Test Validation** | 3061+ unit/integration tests + E2E Playwright | Quality gates |
 
 #### ISMS Evidence
 
@@ -933,18 +937,20 @@ created during the build step and attached to the immutable GitHub Release in a 
 ### 11. Compile Agentic Workflows
 
 **📄 File:** `.github/workflows/compile-agentic-workflows.yml`  
-**🎯 Purpose:** Compile agentic workflow markdown source files (`.md`) into executable lock files (`.lock.yml`) using the `gh-aw` CLI  
+**🎯 Purpose:** Compile agentic workflow markdown source files (`.md`) into executable lock files (`.lock.yml`) using the `gh-aw` CLI (pinned `GH_AW_VERSION: v0.69.0`)  
 **⏰ Trigger:** Manual dispatch only (`workflow_dispatch`)  
 **📊 Status:** [![Compile Agentic Workflows](https://github.com/Hack23/euparliamentmonitor/actions/workflows/compile-agentic-workflows.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/compile-agentic-workflows.yml)
+
+> **Version pin contract**: `GH_AW_VERSION: v0.69.0` is a repository-level environment pin in `compile-agentic-workflows.yml`. Bumping this pin requires re-compilation of all 10 `.lock.yml` files, a full PR review, and successful `gh aw compile --validate` across the workflow set. Any `.md` → `.lock.yml` drift is detected by `agentics-maintenance.yml`.
 
 #### Compilation Pipeline
 
 ```mermaid
 graph LR
     A[Manual Trigger] --> B[Checkout Repository]
-    B --> C[Install gh-aw CLI]
-    C --> D[Compile .md → .lock.yml]
-    D --> E[Commit & Push Lock Files]
+    B --> C["Install gh-aw CLI<br/>(pinned v0.69.0)"]
+    C --> D["Run gh aw compile --validate<br/>Validates frontmatter + safe-outputs"]
+    D --> E["Commit & Push<br/>.lock.yml Files"]
 
     classDef trigger fill:#3498db,stroke:#2980b9,stroke-width:2px,color:white
     classDef process fill:#9b59b6,stroke:#8e44ad,stroke-width:1.5px,color:white
@@ -955,11 +961,21 @@ graph LR
     class E output
 ```
 
+#### gh-aw Architecture Gotchas (AI-First Quality Principle)
+
+| Gotcha | Impact | Mitigation |
+|--------|--------|-----------|
+| **Bash Tool Call Contract** | Every `bash` tool call in an agentic workflow MUST specify BOTH `command` and `description` parameters — omitting `description` causes silent tool-call rejection | Validator in `gh aw compile --validate` + agent system prompt enforcement |
+| **AWF Sandbox Expansion Restrictions** | Dangerous shell expansions (`${var@P}`, chained variable assignments building command substitutions, `${!var}`, `eval`-like constructs) are refused by the sandbox | Agents must not attempt prompt-injection patterns; sandbox logs refused attempts |
+| **max-patch-size Tuning** | Default `create-pull-request` `max-patch-size` is **1024 KB**; `news-translate.md` overrides to **10240 KB at top level** to accommodate 14-language fan-out patches | Top-level YAML frontmatter in `news-translate.md` sets the elevated limit |
+| **Dynamic file resolution** | Agents must not hallucinate filenames; use `ls -t "news/${TODAY}-${TYPE}"*"-en.html" \| head -1` pattern to resolve latest English source for translation | Pattern documented in workflow system prompts |
+
 #### Security Controls
 
 | Control | Implementation | ISMS Reference |
 |---------|----------------|----------------|
 | **Manual Trigger Only** | `workflow_dispatch` — no automatic runs | Change control |
+| **Version Pin** | `GH_AW_VERSION: v0.69.0` pinned at workflow env | Supply chain integrity |
 | **Token Fallback** | `COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN` with `GITHUB_TOKEN` fallback | Credential management |
 | **Write Permissions** | `contents: write`, `pull-requests: write`, `actions: write`, `issues: write` | Least privilege for compilation |
 
@@ -1017,6 +1033,107 @@ graph LR
 | **Broad Read Permissions** | Multiple read scopes for agent access | Copilot agent requirement |
 | **Write Limited** | Only `pull-requests: write`, `issues: write` | Least privilege for agents |
 | **Token Management** | `COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN` | Credential management |
+
+### 15. Agentics Maintenance
+
+**📄 File:** `.github/workflows/agentics-maintenance.yml`  
+**🎯 Purpose:** Housekeeping for the agentic workflow fleet — detect `.md` ↔ `.lock.yml` drift, probe MCP gateway health, prune stale analysis artifacts, verify `GH_AW_VERSION: v0.69.0` is in effect.  
+**⏰ Trigger:** Scheduled (weekly) + manual dispatch  
+
+#### Security Controls
+
+| Control | Implementation |
+|---------|----------------|
+| **Read-only probes** | Health checks write no state to the repo |
+| **Drift detection** | Compares `gh aw compile --validate` output against committed `.lock.yml` |
+| **PR on drift** | Opens a PR via safe-outputs when lock drift is detected |
+
+---
+
+### 16. News Translate Reconciler
+
+**📄 File:** `.github/workflows/news-translate-reconciler.yml`  
+**🎯 Purpose:** Sweep `news/` for English articles that are missing translations in one or more of the 13 target languages (`sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh`) and enqueue backfill runs for `news-translate.md`.  
+**⏰ Trigger:** Scheduled (multiple times daily) + manual dispatch  
+
+#### Reconciliation Logic
+
+```mermaid
+flowchart LR
+    A[Scan news/*.html] --> B{English article exists<br/>without all 13 translations?}
+    B -- Yes --> C[Enqueue news-translate<br/>with article slug + date]
+    B -- No --> D[Log reconciled]
+    C --> E[news-translate produces<br/>missing languages]
+
+    classDef scan fill:#3498db,stroke:#2980b9,stroke-width:1.5px,color:white
+    classDef decision fill:#f39c12,stroke:#e67e22,stroke-width:1.5px,color:black
+    classDef action fill:#27ae60,stroke:#1e8449,stroke-width:1.5px,color:white
+
+    class A scan
+    class B decision
+    class C,E action
+```
+
+#### Security Controls
+
+| Control | Implementation |
+|---------|----------------|
+| **Scoped dispatch** | Only calls `news-translate.md` with a specific `{slug,date}` input — no arbitrary workflow chaining |
+| **max-patch-size coordination** | Translation runs use `news-translate.md`'s top-level 10240 KB max-patch-size for fan-out |
+| **Idempotency** | Skips slugs already at 14/14 language coverage |
+
+---
+
+## 🧠 AI-First Quality Principle Enforcement
+
+The AI-First Quality Principle (`.github/skills/ai-first-quality.md`, non-negotiable) governs all agentic content generation. Workflow-level enforcement:
+
+### Mandatory 2-Pass Iterative Improvement
+
+| Pass | Time Budget | Mandatory Outputs |
+|------|-------------|-------------------|
+| **Pass 1 (~60%)** | First 60% of workflow timeout | Initial narrative draft; full MCP data fetch; first stakeholder perspective pass |
+| **Pass 2 (~40%)** | Remaining 40% of workflow timeout | Read-back of entire draft; evidence cross-validation; gap filling; scenario elaboration |
+
+### Time Budget Enforcement
+
+| Workflow timeout | Minimum active time (no early exit) |
+|------------------|-------------------------------------|
+| 60-minute workflow | ≥45 minutes actively engaged |
+| 120-minute workflow (article-generator) | ≥90 minutes actively engaged |
+
+### Quality Gates (Validator — `validate-analysis-completeness`)
+
+Before PR creation, the agentic workflow MUST run:
+
+```bash
+node scripts/utils/validate-analysis-completeness.js --article-html="$(ls -t news/${TODAY}-${TYPE}*-en.html | head -1)"
+```
+
+which asserts:
+
+- ≥80 words per SWOT item
+- ≥150 words per stakeholder perspective
+- ≥60% prose ratio (non-HTML text content)
+- ≥1 Chart.js visualization embedded
+- **0** `[AI_ANALYSIS_REQUIRED]` sentinel markers remaining
+- Economic context present: **World Bank OR IMF** (Wave-2 OR-gate via `articlePolicyHasEconomicContext` in `src/utils/content-validator.ts`)
+- `scanHtmlForFallbackLeaks()` returns empty — no `FALLBACK_TEMPLATE_PATTERNS` in output
+
+Reference thresholds (`analysis/methodologies/reference-quality-thresholds.json`):
+
+| Artifact | Min words | Breaking threshold |
+|----------|-----------|--------------------|
+| `intelligence/mcp-reliability-audit.md` | 200 | 385 |
+| `intelligence/reference-analysis-quality.md` | 140 | 190 |
+
+### Pre-Translation Validator Gate
+
+`news-translate.md` runs the validator against **all English source articles** before fan-out to the 13 target languages. A single failing English source blocks the entire translation run, preserving translation fidelity.
+
+### Analysis-to-Article Data Contract
+
+`buildDefaultStakeholderPerspectives` in `src/templates/section-builders.ts` emits `AI_MARKER` sentinels into the HTML template. Agents author the stakeholder/impact slots **directly in rendered HTML** — the generator emits markup shells (`analysis-stakeholder-perspectives` / `stakeholder-perspectives-grid`) and the agent fills the semantic content. Agents MUST NOT write raw HTML for this section structure but MUST author the perspective text.
 
 ---
 
@@ -1085,7 +1202,7 @@ The project's workflows collectively implement the following security measures (
 
 1. **🔒 Permissions Restriction**: Explicit least-privilege permissions with `read-all` or empty `{}` top-level
 2. **📌 SHA Pinning**: 100% of actions pinned to specific SHA hashes — zero tag references
-3. **🛡️ Runner Hardening**: StepSecurity `harden-runner@fa2e9d605c4eeb9fcad4c99c224cee0c6c7f3594 # v2.16.0` for audit logging
+3. **🛡️ Runner Hardening**: StepSecurity `harden-runner@8d3c67de8e2fe68ef647c8db1e6a09f647780f40 # v2.19.0` for audit logging
 4. **📄 SBOM Generation**: The release workflow generates a Software Bill of Materials in SPDX format via `anchore/sbom-action`
 5. **🔏 Build Attestations**: The release workflow creates SLSA Level 3 provenance via `actions/attest-build-provenance`
 6. **⏱️ Timeout Limits**: Critical workflows (e.g., E2E and agentic `*.lock.yml` pipelines) use explicit `timeout-minutes` to prevent resource exhaustion; remaining workflows rely on GitHub's default job timeouts and are monitored for anomalies
@@ -1581,7 +1698,7 @@ The following tools integrate with the GitHub Security Dashboard via SARIF or na
 
 | **ISMS Policy** | **Workflows Implementing Controls** | **Evidence** |
 | --- | --- | --- |
-| [🛠️ Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | All 22 workflows | This document |
+| [🛠️ Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | All 24 workflows | This document |
 | [🔐 Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md) | CodeQL, OpenSSF Scorecard | [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md) |
 | [🔑 Access Control Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Access_Control_Policy.md) | deploy-s3 (OIDC), release (minimal permissions) | Workflow files |
 | [🔒 Cryptography Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md) | deploy-s3 (TLS), release (Sigstore/SLSA) | [Attestations](https://github.com/Hack23/euparliamentmonitor/attestations) |
@@ -1595,11 +1712,11 @@ The following tools integrate with the GitHub Security Dashboard via SARIF or na
 | **Policy Section** | **Implementation** | **Evidence** |
 | --- | --- | --- |
 | **§3.2 Architecture Documentation** | Documentation-as-code in release workflow | [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md) |
-| **§3.3 Testing Requirements** | 169 unit tests, E2E tests, 82%+ coverage | [Test & Report Workflow](.github/workflows/test-and-report.yml) |
+| **§3.3 Testing Requirements** | 3061+ unit/integration tests, E2E tests, 82%+ coverage | [Test & Report Workflow](.github/workflows/test-and-report.yml) |
 | **§4.1 CI/CD Security** | All workflows with security controls | This document |
 | **§4.3 Security Scanning** | CodeQL, npm audit, Dependabot | [CodeQL Workflow](.github/workflows/codeql.yml) |
-| **§4.4 Supply Chain Security** | SLSA L3, SBOM, Dependency Review, REUSE | [Release Workflow](.github/workflows/release.yml) |
-| **§10.1 CI/CD Workflow Excellence** | 22 automated workflows, 100% SHA-pinned | This document |
+| **§4.4 Supply Chain Security** | SLSA L3, SBOM, Dependency Review, REUSE, npm provenance | [Release Workflow](.github/workflows/release.yml) |
+| **§10.1 CI/CD Workflow Excellence** | 24 automated workflows, 100% SHA-pinned | This document |
 
 ### Compliance Frameworks
 
@@ -1752,7 +1869,7 @@ flowchart LR
     end
 
     subgraph "🔌 MCP Layer"
-        MCP["EP MCP Server<br/>v1.2.1<br/>(120s timeout)"]
+        MCP["EP MCP Server<br/>v1.2.10<br/>(120s timeout;<br/>6 sliding + 7 fixed-window feeds)"]
     end
 
     subgraph "🤖 Agent Layer"
@@ -1852,4 +1969,4 @@ See [FUTURE_WORKFLOWS.md](FUTURE_WORKFLOWS.md) for:
 
 ---
 
-*Last updated: 2026-03-10 by Documentation Architect / DevOps Engineer*
+*Last updated: 2026-04-20 by Documentation Architect / DevOps Engineer (EU Parliament Monitor v0.8.40)*
