@@ -1,0 +1,81 @@
+<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+
+# 09 — Troubleshooting
+
+**Summary:** AWF firewall diagnostic block, error → root-cause table, and
+recovery steps. The diagnostic bash lives in `scripts/awf-firewall-diagnostic.sh`
+so prompts reference it rather than duplicating the script.
+
+## 1 · When to Consult This File
+
+- Any MCP tool returns a connection error, DNS failure, or timeout
+- Before calling `safeoutputs___noop` (the diagnostic output is part of the
+  noop message — see [`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md) §5)
+
+## 2 · AWF Firewall Diagnostic Script
+
+Run:
+
+```bash
+bash scripts/awf-firewall-diagnostic.sh
+```
+
+The script checks:
+1. DNS resolution of `data.europarl.europa.eu`
+2. MCP gateway connectivity (`initialize` call via `curl` to
+   `$EP_MCP_GATEWAY_URL`)
+3. Direct EP API HTTP reachability
+4. MCP server binary presence (`european-parliament-mcp-server`)
+5. TCP reachability of `data.europarl.europa.eu:443`, `github.com:443`,
+   `api.github.com:443`
+6. Relevant env vars (`EP_REQUEST_TIMEOUT_MS`, `NODE_ENV`)
+
+Pipe its output into the noop diagnostic message; do not inline the block
+inside the workflow `.md`.
+
+## 3 · `curl` exit-code → root cause
+
+| curl exit | Meaning | Likely fix |
+|----------:|---------|-----------|
+| 0 | Success — check HTTP status code |
+| 6 | DNS resolution failed | Add `data.europarl.europa.eu` / `"*.europa.eu"` to `network.allowed` |
+| 7 | Connection refused | AWF blocking HTTPS — verify `network.allowed` and `node` entry |
+| 28 | Operation timed out | EP API slow (not a firewall issue) — use direct endpoints + raise `EP_REQUEST_TIMEOUT_MS` |
+| other | Transport/TLS error | Re-check `network.allowed`, TLS chain |
+
+## 4 · Error-Category → Resolution Hints
+
+| Category | Hints |
+|----------|-------|
+| `TIMEOUT` | EP API slow — use direct endpoint fallbacks (see [`07-mcp-reference.md`](07-mcp-reference.md) §6); raise `EP_REQUEST_TIMEOUT_MS` to `"120000"`; try `timeframe: "one-week"` instead of `"today"`. |
+| `SERVER_ERROR` | EP API returning 5xx — retry in 1–2 hours. Verify with direct probe `https://data.europarl.europa.eu/api/v2/meps?format=application%2Fld%2Bjson&offset=0&limit=1`. |
+| `INTERNAL_ERROR` | MCP server internal failure — verify `european-parliament-mcp-server@1.2.11` installed; check DNS for `data.europarl.europa.eu`. |
+| `RATE_LIMIT` | Back off 5+ min; reduce call frequency. |
+| `NOT_FOUND` | Tool name/params mismatch — see [`07-mcp-reference.md`](07-mcp-reference.md) §5. |
+| `DNS_FAILURE` | Add `data.europarl.europa.eu` + `"*.europa.eu"` to `network.allowed`. |
+| `CONNECTION_REFUSED` | AWF blocking HTTPS — verify `network.allowed` + `node` entry. |
+| `UNKNOWN` | Run the full AWF diagnostic; attach output to noop. |
+
+## 5 · Error-Pattern → Root-Cause Mapping
+
+| Symptom | Root cause | Fix |
+|---------|-----------|-----|
+| `tool call failed: session not found` | safeoutputs MCP session idled out | You cannot recover mid-run — was caused by a banned heartbeat/keep-alive pattern. Remove the pattern; the single-PR rule at end-of-run avoids this entirely. |
+| `container awf-api-proxy is unhealthy` | Transient AWF sandbox infra flake | Re-run the workflow; not a config bug. |
+| `Expected ',' or '}' after property value in JSON` in Copilot `edit` | `old_str`/`new_str` > ~30 lines / ~5 KB | Regenerate via TS generator, split into ≤ 20-line edits, or use bash heredoc. |
+| `Base branch override is not allowed` | Missing `allowed-base-branches: ["main"]` in safe-outputs | Add to frontmatter (see [`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md) §6). |
+| `create_pull_request: No changes to commit - no commits found` | The working tree has nothing to snapshot at call time | You called the tool too early — one PR at end-of-run, after files are written. |
+
+## 6 · Recovery Before Calling Noop
+
+1. Run `bash scripts/awf-firewall-diagnostic.sh`.
+2. Call `get_server_health({})`.
+3. Call `get_all_generated_stats({ category: "all" })` — precomputed, no
+   live EP API.
+4. If step 3 succeeds, the MCP server works → **ship an analysis-only PR**
+   (Rule 5) instead of noop.
+5. Call at least 2 other reliable tools (`get_current_meps({ limit:1 })`,
+   `get_adopted_texts({ year, limit:3 })`). If ANY succeeds, avoid noop.
+
+Only when every probe fails is `safeoutputs___noop` justified.

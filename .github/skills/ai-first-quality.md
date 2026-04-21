@@ -95,11 +95,11 @@ Every paragraph must pass this test:
 | Multi-article generator | 120 min | ≥90 min | ≥15 min × types (2-pass) | ≥15 min × types (2-pass) |
 | **Analysis-only run** (no article) | 60 min | **≥45 min** | ≥20 min Pass 1+2 **+ ≥5 min Pass 3 (cross-run diff) + ≥5 min Pass 4 (forward monitoring)** (4-pass) | N/A |
 
-> **Analysis-only runs MUST NOT short-circuit**. When the newsworthiness gate fails, the time saved by skipping article generation MUST be reinvested into Pass 3 (cross-run diff) and Pass 4 (forward monitoring extension). See `SHARED_PROMPT_PATTERNS.md § Mandatory Analysis-Only 4-Pass Protocol`. Early exit before minute 45 is a VIOLATION. Reference incident: PR #1223 / run 24541203743 (19-minute agent run).
+> **Analysis-only runs MUST NOT short-circuit**. When the newsworthiness gate fails, the time saved by skipping article generation MUST be reinvested into Pass 3 (cross-run diff) and Pass 4 (forward monitoring extension). See `README.md (prompts library index) § Mandatory Analysis-Only 4-Pass Protocol`. Early exit before minute 45 is a VIOLATION. Reference incident: PR #1223 / run 24541203743 (19-minute agent run).
 
 ## Tests Policy Alignment (v1.1)
 
-Under the v1.1 scope policy, agentic workflows MAY update `test/` and `e2e/` tests **only when required by an accompanying `src/`/`scripts/` fix**. Both `npm run build` AND `npm run test` MUST pass before PR creation, and both results MUST be reported in the PR body. Standalone test edits, refactors, or weakened assertions remain FORBIDDEN. See `SHARED_PROMPT_PATTERNS.md § Minor TypeScript/Script Corrections (CONDITIONAL ALLOW)` for the full policy.
+Under the v1.1 scope policy, agentic workflows MAY update `test/` and `e2e/` tests **only when required by an accompanying `src/`/`scripts/` fix**. Both `npm run build` AND `npm run test` MUST pass before PR creation, and both results MUST be reported in the PR body. Standalone test edits, refactors, or weakened assertions remain FORBIDDEN. See `README.md (prompts library index) § Minor TypeScript/Script Corrections (CONDITIONAL ALLOW)` for the full policy.
 
 ## Application Per Agent Role
 
@@ -127,9 +127,9 @@ Under the v1.1 scope policy, agentic workflows MAY update `test/` and `e2e/` tes
 - Apply the 2-pass minimum to ANY content output
 - No agent is exempt from the iterative improvement requirement
 
-## Integration with SHARED_PROMPT_PATTERNS.md
+## Integration with README.md (prompts library index)
 
-This skill codifies the Iterative Improvement Protocol from `SHARED_PROMPT_PATTERNS.md` (§ Mandatory Iterative Improvement Protocol). All workflow `.md` files reference these time budgets and quality gates. This skill ensures consistency across all agents.
+This skill codifies the Iterative Improvement Protocol from `README.md (prompts library index)` (§ Mandatory Iterative Improvement Protocol). All workflow `.md` files reference these time budgets and quality gates. This skill ensures consistency across all agents.
 
 ## ISMS Compliance
 

@@ -1,0 +1,122 @@
+<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+
+# 04 — Article Generation (Stage D)
+
+**Summary:** Stage D starts only after Stage C exits 0. Write prose-first,
+synthesize analysis into the narrative, include ≥ 1 real chart and economic
+context where policy dictates. Run all validators. Then — and only then — call
+`safeoutputs___create_pull_request` exactly once (see
+[`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md)).
+
+## 1 · Precondition
+
+> **Do not start Stage D before Stage C exits 0.** If you are reading this
+> before a green completeness gate, return to Stage B and run Pass 2 on the
+> artifacts the validator flagged.
+
+## 2 · Generator Command
+
+```bash
+source scripts/mcp-setup.sh
+export USE_EP_MCP=true
+npx tsx src/generators/news-enhanced.ts \
+  --types={article-type-slug} \
+  --title="AI-generated headline" \
+  --description="AI-generated meta description" \
+  --analysis \
+  --analysis-methods=all \
+  --analysis-dir="${ANALYSIS_DIR}"
+```
+
+Article-type slugs: `breaking`, `committee-reports`, `propositions`, `motions`,
+`week-ahead`, `month-ahead`, `week-in-review`, `month-in-review`.
+
+## 3 · Mandatory 2-Pass (Pass 1 + Pass 2)
+
+| Pass | Action | Time |
+|------|--------|:----:|
+| **1 · Initial draft** | Generate HTML, replace every `[AI_ANALYSIS_REQUIRED]` marker with substantive prose. All sections present, prose-first. | ~50% |
+| **2 · Read-back & rewrite** | Read the full HTML. For every section verify: ≥ 3 prose paragraphs of ≥ 50 words; cites specific EP data; names specific MEPs/groups; explains WHY not just WHAT. Rewrite anything that fails. | ~50% |
+
+## 4 · Depth Floors (hard rules)
+
+| Gate | Floor |
+|------|-------|
+| Prose ratio (`<p>` chars vs. `<li>` chars) | ≥ 60 % |
+| Paragraphs per analytical section | ≥ 3, each ≥ 50 words |
+| Lede paragraph | ≥ 80 words |
+| SWOT items per quadrant | ≥ 3, each ≥ 80 words, with evidence and 🟢/🟡/🔴 |
+| Stakeholder perspectives | ≥ 4 of 6, each ≥ 150 words |
+| Risk outlook | ≥ 200 words, 2–3 probability-labelled scenarios |
+| Charts | ≥ 1 `<canvas data-chart-config>` with a Chart.js type + ≥ 3 data points |
+| Language switcher | All 14 `.lang-link` entries |
+| Footer | Both `.footer-content` and `.footer-bottom` |
+| Inline `<script>` in body | ❌ Banned (CSP `script-src 'self'`) |
+| `[AI_ANALYSIS_REQUIRED]` markers | ❌ Zero |
+
+## 5 · Economic Context (Wave-2 OR-gate)
+
+Articles with measurable economic impact include **World Bank or IMF** data.
+Either source satisfies the gate. Follow the indicator-mapping files:
+[`worldbank-indicator-mapping.md`](../../analysis/methodologies/worldbank-indicator-mapping.md)
+and [`imf-indicator-mapping.md`](../../analysis/methodologies/imf-indicator-mapping.md).
+Render ≥ 1 Chart.js canvas AND ≥ 1 analytical paragraph (≥ 60 words) that
+interprets the data.
+
+## 6 · Title · Description · Keywords
+
+- **`<title>` / `<h1>`**: AI-generated from analysis, active voice, ≤ 70 chars,
+  names actors. Never contains raw metrics, article-type labels, or date-centric
+  formats.
+- **`<meta name="description">`**: 150–160 chars, names most significant item +
+  outcome + coalition dynamics. Never boilerplate; never repeats the title.
+- **`<meta name="keywords">`**: policy terms, committee names, document IDs,
+  group names only. ❌ Never section headings or navigation labels.
+
+Pass title and description via CLI flags; never let the generator invent them.
+
+## 7 · Analysis-to-Article Synthesis
+
+Every analysis artifact referenced in `manifest.json` must appear in the
+article prose. The `renderAnalysisTransparencySection(...)` helper renders the
+footer section listing each artifact — pass the full `AnalysisFileEntry[]` so
+every artifact links.
+
+Full contract (AI_MARKER sentinels, per-article-type inputs):
+[`05-analysis-to-article-contract.md`](05-analysis-to-article-contract.md).
+
+## 8 · Validators (run in order, all must exit 0)
+
+```bash
+# 1. Fallback-leak scan on rendered HTML
+node scripts/utils/validate-analysis-completeness.js \
+  --article-html="news/${TODAY}-${TYPE}-en.html"
+
+# 2. Quality / structural validator
+npx tsx src/utils/validate-articles.ts --date="$TODAY" --quality --strict
+```
+
+Non-zero exit from either blocks PR creation. Do NOT skip, do NOT `--warn-only`.
+
+## 9 · No-Publish Rule
+
+Do NOT publish an article when:
+- Every feed returned empty/error AND no adopted texts exist
+- Analysis contains only precomputed stats, zero feed-sourced data
+- Article body would be entirely historical context with no news
+
+Instead: ship analysis-only via the same single PR
+([`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md) §3).
+
+## 10 · Dashboard Rendering
+
+If `monitor_legislative_pipeline` returns `health: 0%, throughput: 0`, that
+means NO DATA, not "pipeline scored 0". Omit the dashboard panel or show
+"Data unavailable for this period". Any metric that equals exactly 0 from an
+analytical tool should be verified against feed data before rendering.
+
+## 11 · Exit to Stage E (PR)
+
+After all validators exit 0, read [`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md)
+and emit the PR **exactly once**.

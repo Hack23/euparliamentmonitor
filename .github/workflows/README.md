@@ -122,9 +122,9 @@ The project uses **10 agentic workflow markdown files** (`.md`) that are compile
 - HTML validation and quality checks before PR creation
 - Never commits generated files (sitemap, rss, index files)
 - Uses `safeoutputs___create_pull_request` for PR creation
-- References [SHARED_PROMPT_PATTERNS.md](../prompts/SHARED_PROMPT_PATTERNS.md) for shared rules, EP MCP tool reference, and analysis pipeline
+- References [README.md (prompts library index)](../prompts/README.md (prompts library index)) for shared rules, EP MCP tool reference, and analysis pipeline
 - References [ai-driven-analysis-guide.md](../../analysis/methodologies/ai-driven-analysis-guide.md) for analysis protocol (Rules 1-12)
-- May apply minor TypeScript/script corrections (max 20 lines) to unblock generation — see SHARED_PROMPT_PATTERNS.md
+- May apply minor TypeScript/script corrections (max 20 lines) to unblock generation — see README.md (prompts library index)
 
 **Security**: Read-only permissions by default, MCP data only from official EU Parliament sources
 

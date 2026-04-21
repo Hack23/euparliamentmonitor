@@ -1,0 +1,108 @@
+<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+
+# 02 — Analysis Protocol (Stage B)
+
+**Summary:** Read every methodology and template. Apply them to the data from
+Stage A. Write all mandatory artifacts. **Mandatory 2-pass improvement.** No
+article drafting until Stage C (completeness gate) exits 0.
+
+## 1 · Authoritative References
+
+- **Protocol:** [`analysis/methodologies/ai-driven-analysis-guide.md`](../../analysis/methodologies/ai-driven-analysis-guide.md) (Rules 1–22)
+- **Reference run:** `analysis/daily/2026-04-18/breaking-run184/` — 17 artifacts, 3600+ lines, 13 frameworks
+- **Methodology guides:** [`analysis/methodologies/`](../../analysis/methodologies/) (6 files)
+- **Templates:** [`analysis/templates/`](../../analysis/templates/) (8 files)
+- **Per-artifact budgets:** [`analysis/methodologies/reference-quality-thresholds.json`](../../analysis/methodologies/reference-quality-thresholds.json) (keyed by `articleType × relativePath`)
+
+## 2 · Analysis Directory Structure
+
+```
+analysis/daily/{YYYY-MM-DD}/{article-type-slug}-run{NN}/
+├── classification/    (significance-classification, actor-mapping, forces-analysis, impact-matrix)
+├── threat-assessment/ (political-threat-landscape, actor-threat-profiling, consequence-trees, legislative-disruption)
+├── risk-scoring/      (risk-matrix, quantitative-swot, political-capital-risk, legislative-velocity-risk, agent-risk-workflow)
+├── intelligence/      (pestle-analysis, stakeholder-map, scenario-forecast, threat-model, historical-baseline, economic-context, wildcards-blackswans, synthesis-summary, analysis-index, coalition-dynamics, mcp-reliability-audit)
+├── existing/          (deep-analysis, stakeholder-impact, coalition-dynamics, voting-patterns, cross-session-intelligence, synthesis-summary)
+├── documents/         (document-analysis-index)
+├── data/              (raw MCP data — may be excluded from PR)
+└── manifest.json      (top-level articleType, files.*, artifactStats)
+```
+
+## 3 · Minimum Analysis Time
+
+| Workflow | Minimum Total | Pass 1 | Pass 2 |
+|----------|:-------------:|:------:|:------:|
+| Breaking / committee-reports / propositions / motions / week-ahead / month-ahead | 20 min | 12 min | 8 min |
+| Weekly / monthly review | 25 min | 15 min | 10 min |
+| Article generator | 15 min per type | 9 min | 6 min |
+
+## 4 · Mandatory 2-Pass Improvement (NON-NEGOTIABLE)
+
+| Pass | Action | Time |
+|------|--------|:----:|
+| **1 · Initial Analysis** | Apply every methodology + template to every Stage A data file. Write every mandatory artifact. | ~60% |
+| **2 · Read-back & Improve** | Read every file you wrote, end to end. Expand shallow sections, add evidence citations, add confidence levels, add cross-refs between files. Rewrite anything that fails the Economist Test. | ~40% |
+
+**Quality gates (Pass 2 exit criteria):**
+- Every mandatory artifact ≥ 30 lines and above its threshold in
+  `reference-quality-thresholds.json`.
+- No `[AI_ANALYSIS_REQUIRED]`, `AI_ANALYSIS_PENDING`, `[TBD]`, `TODO:` markers.
+- Evidence citations in ≥ 80 % of paragraphs.
+- Confidence level (🟢/🟡/🔴) on every aggregate finding.
+- Cross-references between artifacts.
+
+## 5 · Reference-Quality Depth (seven deep-intelligence artifacts)
+
+Compare Pass 2 output to Run 184. These seven artifacts distinguish
+reference-quality:
+
+1. `intelligence/pestle-analysis.md`
+2. `intelligence/stakeholder-map.md`
+3. `intelligence/scenario-forecast.md`
+4. `intelligence/threat-model.md`
+5. `intelligence/historical-baseline.md` (mandatory for weekly/monthly review)
+6. `intelligence/economic-context.md`
+7. `intelligence/wildcards-blackswans.md`
+
+## 6 · Per-Artifact Budget Enforcement (Rule 22)
+
+`npm run validate-analysis` applies per-artifact floors from
+[`reference-quality-thresholds.json`](../../analysis/methodologies/reference-quality-thresholds.json).
+When a file is SHORT, run a targeted Pass 2 on THAT file — do not pad, write
+substantive prose with evidence anchors. Line counting must match the
+validator's `text.split('\n').length` (not `wc -l`).
+
+## 7 · Analytical Frameworks
+
+| Framework | Use for |
+|-----------|---------|
+| ACH (Analysis of Competing Hypotheses) | Alternative explanations for voting shifts |
+| SWOT | Political group strategic positions |
+| PESTLE | Political / Economic / Social / Technological / Legal / Environmental |
+| Stakeholder mapping (Mendelow power × interest) | Interest + influence on legislation |
+| Red team / devil's advocacy | Stress-test consensus narratives |
+
+## 8 · Stakeholder 6-Lens Model
+
+Every major parliamentary action gets analysed from ≥ 4 of these, ≥ 150 words
+per perspective:
+
+1. EP Political Groups
+2. Civil Society & NGOs
+3. Industry & Business
+4. National Governments
+5. EU Citizens (make concrete — e.g. "a Polish nurse seeking work in Germany")
+6. EU Institutions (Commission / Council / ECB / CJEU)
+
+Each perspective must state: (1) mechanism of impact, (2) EP-data evidence,
+(3) likely response.
+
+## 9 · Exit Criteria (hand-off to Stage C)
+
+- Every mandatory file listed in manifest `files.*`.
+- No orphan files on disk.
+- `manifest.json` carries top-level `articleType`.
+- Pass 2 verification complete.
+- Now run the completeness gate:
+  [`03-analysis-completeness-gate.md`](03-analysis-completeness-gate.md).
