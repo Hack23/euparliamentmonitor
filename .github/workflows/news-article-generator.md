@@ -29,6 +29,10 @@ permissions:
 
 timeout-minutes: 120
 
+imports:
+  - .github/agents/news-generation.agent.md
+  - shared/mcp/news-mcp-servers.md
+
 runtimes:
   node:
     version: "25"
@@ -49,26 +53,6 @@ network:
     - euparliamentmonitor.com
     - www.euparliamentmonitor.com
     - defaults
-
-mcp-servers:
-  european-parliament:
-    container: "node:25-alpine"
-    entrypoint: "npx"
-    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.11", "--timeout", "120000"]
-    env:
-      EP_REQUEST_TIMEOUT_MS: "120000"
-  world-bank:
-    container: "node:25-alpine"
-    entrypoint: "npx"
-    entrypointArgs: ["-y", "worldbank-mcp@1.0.1"]
-  memory:
-    container: "node:25-alpine"
-    entrypoint: "npx"
-    entrypointArgs: ["-y", "@modelcontextprotocol/server-memory"]
-  sequential-thinking:
-    container: "node:25-alpine"
-    entrypoint: "npx"
-    entrypointArgs: ["-y", "@modelcontextprotocol/server-sequential-thinking"]
 
 tools:
   github:
