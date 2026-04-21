@@ -97,6 +97,7 @@ safe-outputs:
     labels: [agentic-news, analysis-data]
     draft: false
     expires: 14d
+    allowed-base-branches: ["main"]
   add-comment:
     max: 1
   dispatch-workflow:
