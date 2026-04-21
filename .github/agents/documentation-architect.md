@@ -1,7 +1,6 @@
 ---
 name: documentation-architect
 description: Technical documentation specialist for architecture diagrams, C4 models, API docs, and ISMS documentation
-tools: ["*"]
 ---
 
 # Documentation Architect - Technical Documentation and Architecture Specialist

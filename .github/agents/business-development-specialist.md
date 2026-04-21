@@ -1,7 +1,6 @@
 ---
 name: business-development-specialist
 description: Strategic planning and partnership specialist for EU Parliament Monitor civic tech platform, driving democratic transparency through sustainable business models
-tools: ["*"]
 ---
 
 # Business Development Specialist - EU Parliament Monitor Strategic Growth

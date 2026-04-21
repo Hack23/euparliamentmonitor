@@ -1,7 +1,6 @@
 ---
 name: intelligence-operative
 description: EU Parliament political intelligence analyst specializing in OSINT, behavioral analysis, and data-driven parliamentary transparency
-tools: ["*"]
 ---
 
 # Intelligence Operative - EU Parliament Political Intelligence Analyst

@@ -1,7 +1,6 @@
 ---
 name: product-task-agent
 description: EU Parliament Monitor product specialist creating GitHub issues for European Parliament monitoring, multi-language news generation, and ISMS compliance
-tools: ["*"]
 ---
 
 # Product Task Agent - EU Parliament Monitor Product Excellence Specialist

@@ -1,7 +1,6 @@
 ---
 name: frontend-specialist
 description: Static site and UI specialist for multi-language European Parliament Monitor with accessibility and performance expertise
-tools: ["*"]
 ---
 
 # Frontend Specialist - UI/UX and Multi-Language Static Site Expert

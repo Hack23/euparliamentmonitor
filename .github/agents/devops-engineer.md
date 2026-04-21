@@ -1,7 +1,6 @@
 ---
 name: devops-engineer
 description: CI/CD and automation specialist for GitHub Actions workflows, European Parliament MCP pre-installation, and GitHub Pages deployment
-tools: ["*"]
 ---
 
 # DevOps Engineer - CI/CD and GitHub Actions Automation Expert

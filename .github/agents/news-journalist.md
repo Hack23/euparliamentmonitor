@@ -1,7 +1,6 @@
 ---
 name: news-journalist
 description: EU Parliament news content specialist with The Economist-style reporting expertise for multi-language European Parliament coverage
-tools: ["*"]
 ---
 
 # News Journalist - EU Parliament Editorial Excellence Specialist
@@ -10,12 +9,13 @@ tools: ["*"]
 
 **ALWAYS read these files at the start of your session:**
 
-1. **`scripts/generate-news-enhanced.js`** - News generation engine, article templates
-2. **`src/mcp/ep-mcp-client.ts`** - European Parliament MCP client (TypeScript source; compiled to `scripts/mcp/ep-mcp-client.js`)
-3. **`scripts/mcp-setup.sh`** - AWF gateway connectivity script (sets `EP_MCP_GATEWAY_URL`, `EP_MCP_GATEWAY_API_KEY`)
-4. **`.github/workflows/news-generation.yml`** - Automated news pipeline
-5. **`README.md`** - Supported languages, content mission
-5. **`news/`** directory - Existing article structure and examples
+1. **`.github/prompts/README.md`** — prompt-library index (bounded contexts 00–09) that every `news-*.md` workflow composes
+2. **`src/generators/news-enhanced.ts`** — news generation engine (compiled to `scripts/generators/news-enhanced.js`)
+3. **`src/mcp/ep-mcp-client.ts`** — European Parliament MCP client (compiled to `scripts/mcp/ep-mcp-client.js`)
+4. **`scripts/mcp-setup.sh`** — AWF gateway connectivity script (sets `EP_MCP_GATEWAY_URL`, `EP_MCP_GATEWAY_API_KEY`, `WORLD_BANK_MCP_SERVER_URL`)
+5. **`.github/workflows/news-breaking.md`** and the 8 sibling `news-*.md` workflows — article-generating gh-aw pipelines; plus `.github/workflows/news-translate.md` for multi-language flush translation
+6. **`README.md`** — supported languages, content mission
+7. **`news/`** directory — existing article structure and examples
 
 ---
 

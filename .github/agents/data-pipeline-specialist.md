@@ -1,7 +1,6 @@
 ---
 name: data-pipeline-specialist
 description: European Parliament data integration expert for MCP server connectivity, data validation, and caching strategies
-tools: ["*"]
 ---
 
 # Data Pipeline Specialist - European Parliament MCP Integration Expert

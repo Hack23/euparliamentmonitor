@@ -1,7 +1,6 @@
 ---
 name: marketing-specialist
 description: Digital marketing specialist for multi-language EU Parliament transparency platform with GDPR-compliant, privacy-first engagement strategies
-tools: ["*"]
 ---
 
 # Marketing Specialist - EU Parliament Monitor Digital Engagement

@@ -47,8 +47,20 @@ Timeframes: `"today"`, `"one-day"`, `"one-week"`, `"one-month"`, `"custom"`
 | `search_documents` | `keyword`, `documentType`, `committee`, `dateFrom/dateTo` | — |
 | `track_legislation` | `procedureId` (e.g., `"2024/0001(COD)"`) | — |
 | `get_procedure_events` | `processId` | — |
+| `get_procedure_event_by_id` | `processId`, `eventId` | — |
 | `get_meeting_decisions` | `sittingId` | — |
 | `get_meeting_activities` | `sittingId` | — |
+| `get_meeting_foreseen_activities` | `sittingId` | — |
+| `get_meeting_plenary_session_documents` | `sittingId` | — |
+| `get_meeting_plenary_session_document_items` | `sittingId` | — |
+| `get_plenary_session_documents` | `docId`, `limit` | `get_plenary_session_documents_feed` |
+| `get_plenary_session_document_items` | `limit`, `offset` | — |
+| `get_external_documents` | `docId`, `limit` | `get_external_documents_feed` |
+| `get_controlled_vocabularies` | `vocId`, `limit` | `get_controlled_vocabularies_feed` |
+| `get_current_meps` | `limit`, `offset` | — |
+| `get_incoming_meps` | `limit`, `offset` | — |
+| `get_outgoing_meps` | `limit`, `offset` | — |
+| `get_homonym_meps` | `limit`, `offset` | — |
 
 ## 3 · EP Analytical Tools (AI-powered)
 
@@ -69,7 +81,8 @@ Timeframes: `"today"`, `"one-day"`, `"one-week"`, `"one-month"`, `"custom"`
 
 `analyze_country_delegation`, `track_mep_attendance`, `analyze_committee_activity`,
 `monitor_legislative_pipeline`, `network_analysis`, `correlate_intelligence`,
-`sentiment_tracker`, `comparative_intelligence`.
+`sentiment_tracker`, `comparative_intelligence`, `generate_report`
+(MEP activity / committee performance / voting / legislation reports).
 
 ## 5 · Common Parameter Mistakes (v1.2.11)
 

@@ -72,6 +72,82 @@ import type {
   GetProcedureEventByIdOptions,
 } from '../types/index.js';
 
+/**
+ * Canonical list of tools exposed by the European Parliament MCP gateway
+ * (`european-parliament-mcp-server@1.2.11`). The news workflows, prompt
+ * library (`.github/prompts/07-mcp-reference.md`), and the integration test
+ * suite all reference this list so a regression that adds/removes a tool
+ * fails a single drift guard
+ * (`test/integration/mcp/ep-mcp.test.js`) instead of silently breaking
+ * prompt/validator/probe coverage.
+ *
+ * Kept in sync with every `this.safeCallTool('<name>', ...)` call below.
+ */
+export const EP_MCP_TOOLS: readonly string[] = [
+  'analyze_coalition_dynamics',
+  'analyze_committee_activity',
+  'analyze_country_delegation',
+  'analyze_legislative_effectiveness',
+  'analyze_voting_patterns',
+  'assess_mep_influence',
+  'comparative_intelligence',
+  'compare_political_groups',
+  'correlate_intelligence',
+  'detect_voting_anomalies',
+  'early_warning_system',
+  'generate_political_landscape',
+  'generate_report',
+  'get_adopted_texts',
+  'get_adopted_texts_feed',
+  'get_all_generated_stats',
+  'get_committee_documents',
+  'get_committee_documents_feed',
+  'get_committee_info',
+  'get_controlled_vocabularies',
+  'get_controlled_vocabularies_feed',
+  'get_corporate_bodies_feed',
+  'get_current_meps',
+  'get_documents_feed',
+  'get_events',
+  'get_events_feed',
+  'get_external_documents',
+  'get_external_documents_feed',
+  'get_homonym_meps',
+  'get_incoming_meps',
+  'get_meeting_activities',
+  'get_meeting_decisions',
+  'get_meeting_foreseen_activities',
+  'get_meeting_plenary_session_document_items',
+  'get_meeting_plenary_session_documents',
+  'get_mep_declarations',
+  'get_mep_declarations_feed',
+  'get_mep_details',
+  'get_meps',
+  'get_meps_feed',
+  'get_outgoing_meps',
+  'get_parliamentary_questions',
+  'get_parliamentary_questions_feed',
+  'get_plenary_documents',
+  'get_plenary_documents_feed',
+  'get_plenary_session_document_items',
+  'get_plenary_session_documents',
+  'get_plenary_session_documents_feed',
+  'get_plenary_sessions',
+  'get_procedure_event_by_id',
+  'get_procedure_events',
+  'get_procedures',
+  'get_procedures_feed',
+  'get_server_health',
+  'get_speeches',
+  'get_voting_records',
+  'monitor_legislative_pipeline',
+  'network_analysis',
+  'search_documents',
+  'sentiment_tracker',
+  'track_legislation',
+  'track_mep_attendance',
+];
+
 /** Fallback payload for analyze_legislative_effectiveness when validation fails or tool is unavailable */
 const EFFECTIVENESS_FALLBACK = '{"effectiveness": null}';
 

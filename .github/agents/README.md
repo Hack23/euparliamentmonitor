@@ -13,9 +13,10 @@ Each agent profile is a Markdown file with YAML frontmatter that defines special
 All agents follow the **2026 GitHub Copilot Coding Agent Standard** with:
 
 - **GitHub MCP Insiders API** integration for experimental features
-- **Complete toolset support** (`--toolsets all --tools *`)
+- **Toolset policy** — omit the `tools` frontmatter field so that Copilot CLI allows all tools by default. **Never** write `tools: ["*"]` inside an `mcp-servers` block: the gh-aw MCP gateway (`awmg`) treats `*` as a literal tool name and exposes 0 tools. See [`.github/prompts/08-infrastructure.md`](../prompts/08-infrastructure.md) §2 for the canonical rule.
 - **Organization-wide access** via PAT token (Hack23 repositories)
 - **Modern Copilot features**: `assign_copilot_to_issue`, `create_pull_request_with_copilot`, stacked PRs, job tracking
+- **gh-aw agent imports** — workflows can import a single agent file via the `imports:` frontmatter field (see [gh-aw Copilot Custom Agents](https://github.github.com/gh-aw/reference/copilot-custom-agents/)). Agent files merge `name`, `description`, `tools`, and `mcp-servers` into the workflow frontmatter.
 - **Cross-repository patterns** for accessing European-Parliament-MCP-Server, riksdagsmonitor, cia, ISMS-PUBLIC
 - **ISMS compliance** mapped to ISO 27001, NIST CSF 2.0, CIS Controls v8.1, GDPR, NIS2, EU CRA
 
@@ -924,7 +925,8 @@ When creating new agents, follow this structure:
 ---
 name: agent-name
 description: Brief description (max 200 chars)
-tools: ["*"]
+# tools: omit this field — Copilot CLI treats omission as equivalent to all tools.
+# Never set tools: ["*"] inside an mcp-servers entry (awmg treats "*" as a literal tool name).
 ---
 
 # Agent Title

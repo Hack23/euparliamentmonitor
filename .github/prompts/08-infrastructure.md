@@ -114,8 +114,19 @@ if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
 fi
 
 export USE_EP_MCP=true
-npx tsx src/generators/news-enhanced.ts --types=breaking ...
+npx tsx src/generators/news-enhanced.ts \
+  --types="${ARTICLE_TYPE_SLUG}" \
+  --title="AI-generated headline" \
+  --description="AI-generated meta description" \
+  --analysis \
+  --analysis-methods=all \
+  --analysis-dir="${ANALYSIS_DIR}"
 ```
+
+`${ARTICLE_TYPE_SLUG}`, `${ANALYSIS_DIR}`, and `${TODAY}` are set by the
+workflow's own Date Context Establishment block (see each `news-*.md` §Date
+Context). `--title` / `--description` must be AI-generated per
+[`04-article-generation.md`](04-article-generation.md) §Keywords/Title rules.
 
 ## 5 · EP MCP TypeScript Client
 
