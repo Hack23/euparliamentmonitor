@@ -151,6 +151,32 @@ As a non-commercial open-source project (CRA Recital 18), it benefits from reduc
 
 ---
 
+### 🏛️ Article 24 OSS Steward — 2026-04-20 Position
+
+The CRA introduces a dedicated **Article 24 "Open-Source Software Steward"** regime offering **reduced obligations** (versus the full manufacturer duties in Articles 13–15) for legal entities that systematically and sustainedly support non-commercial open-source projects. EU Parliament Monitor adopts this regime as its primary CRA position.
+
+**Dual-surface interpretation:**
+
+- **(a) npm package `euparliamentmonitor@0.8.40`** — as a "product with digital elements" that can be consumed by downstream commercial users, it is likely classified as **Important Class I** library (Annex III), subject to standard conformity assessment (Module A).
+- **(b) Static website (euparliamentmonitor.com)** — as a free public civic-transparency service that is *not marketed as a product* and has no runtime compute surface, it is likely **non-critical (Standard / Default)** and outside CRA's "product with digital elements" scope.
+
+**Adopted stance:** **Article 24 OSS Steward regime + Important Class I** for the npm package. The static website benefits from the same controls as defense-in-depth but is treated as out-of-scope.
+
+**Responsible legal entity:** **Hack23 AB (Sweden)** — as the upstream legal entity registered in the EU, Hack23 AB acts as the OSS Steward for all CRA cooperation with ENISA and national market-surveillance authorities.
+
+### Article 24 OSS Steward Duties — Evidence Map
+
+| Article 24 Duty | Evidence | Status |
+|---|---|---|
+| **Cybersecurity policy** | [`SECURITY.md`](SECURITY.md) + [Hack23 ISMS-PUBLIC Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md) | ✅ |
+| **Vulnerability handling process** | [`SECURITY.md`](SECURITY.md) + [`.github/workflows/codeql.yml`](.github/workflows/codeql.yml) + Dependabot + [`.github/workflows/scorecards.yml`](.github/workflows/scorecards.yml) + gh-advisory-database gate | ✅ |
+| **Coordinated disclosure policy** | [`SECURITY.md`](SECURITY.md) disclosure section (GitHub private vulnerability reporting enabled) | ✅ |
+| **SBOM** | CycloneDX from `package-lock.json` + [`tool-schemas.json`](tool-schemas.json); npm provenance statements; SLSA L3 attestations | ⚠️ SBOM auto-publish gap (see §Gap Table) |
+| **Cooperation with market surveillance** | Hack23 AB (Sweden) as responsible legal entity; contact via [`SECURITY.md`](SECURITY.md) | ✅ |
+| **Documentation of security risks** | [`THREAT_MODEL.md`](THREAT_MODEL.md) + [`SECURITY_ARCHITECTURE.md`](SECURITY_ARCHITECTURE.md) + this document | ✅ |
+
+---
+
 ## 2️⃣ᵃ EU CRA Enforcement Timeline
 
 Understanding CRA's phased enforcement timeline is essential for compliance planning. EU Parliament Monitor monitors these milestones to ensure timely readiness.
@@ -254,6 +280,22 @@ EU Parliament Monitor generates a comprehensive Software Bill of Materials (SBOM
 | 12 | **Provide ability to remove data by users** | ✅ N/A | No user data collected, stored, or processed; no user accounts; no forms; no cookies; no local storage usage; GDPR data subject rights not applicable | [CLASSIFICATION.md](CLASSIFICATION.md) |
 | 13 | **Security updates shall be made available** | ✅ Met | Automated CI/CD pipeline for rapid deployment; Dependabot auto-generates PRs for vulnerable dependencies; release workflow generates SBOM and provenance attestation; severity-based remediation SLAs documented | [SECURITY.md](SECURITY.md), [release.yml](https://github.com/Hack23/euparliamentmonitor/blob/main/.github/workflows/release.yml) |
 
+#### 🔄 Annex I Part I — 2026-04-20 Evidence Map Refresh
+
+Supplementary evidence map aligning each Annex I Part I essential cybersecurity requirement to current implementation artefacts. Complements the table above.
+
+- **Secure-by-default** ← static site, no auth, HSTS + CSP `<meta http-equiv>` in every article (`src/templates/article-template.ts:377-399`)
+- **No known exploitable vulns at release** ← CodeQL + Dependabot + gh-advisory-database gate (blocks PRs with new advisories)
+- **Authenticated / integrity-verified updates** ← npm provenance statements + SLSA L3 build attestations + signed commits via CODEOWNERS
+- **Confidentiality** ← TLS 1.2+/1.3 on all outbound HTTPS (WB, IMF, GitHub, npm, AWS); no user PII collected, stored, or transmitted
+- **Integrity** ← `src/utils/html-sanitize.ts` on every MCP string; canonical tool-list drift tests (IMF + WB asserted in `test/integration/mcp/*`); validator gate in `scripts/validate-analysis-completeness.ts`
+- **Data minimization** ← no accounts, no tracking, no analytics; theme preference only in `localStorage` (no cross-site tracking)
+- **Availability** ← BCP per-asset RTO/RPO targets; gh-aw engine-switch (Copilot ↔ Claude ↔ Codex); WB-OR-IMF OR-gate (`articlePolicyHasEconomicContext`)
+- **Attack surface minimization** ← static content only; AWF Squid firewall egress allowlist; Docker sandbox for agentic workflows
+- **Impact mitigation** ← OIDC federation (no long-lived keys on GitHub→AWS or GitHub→npm); `max-patch-size` caps; safe-outputs scoped to PR only
+- **Logging** ← JSONL agent stdio audit trail; AWS CloudTrail; GitHub audit log; CodeQL findings persisted as security alerts
+- **Remediation** ← Dependabot auto-PRs for vulnerable deps; pinned `GH_AW_VERSION=v0.68.7` with documented bump procedure; rollback via git revert (BCP Scenario 11)
+
 ### Part II: Vulnerability Handling Requirements
 
 | # | 📋 **CRA Requirement** | ✅ **Status** | 🔧 **Implementation** | 🔗 **Evidence** |
@@ -266,6 +308,53 @@ EU Parliament Monitor generates a comprehensive Software Bill of Materials (SBOM
 | 6 | **Share vulnerability information in a timely manner** | ✅ Met | Public SECURITY.md with clear reporting instructions; GitHub Security Advisories with CVE assignment capability; coordinated disclosure timeline (acknowledge 48h, validate 7d, remediate per SLA); public security metrics | [SECURITY.md](SECURITY.md) |
 | 7 | **Provide a machine-readable SBOM** | ✅ Met | CycloneDX SBOM generated in release workflow; npm `package-lock.json` provides exact dependency versions; SLSA provenance attestation links SBOM to build; REUSE compliance for license metadata | [release.yml](https://github.com/Hack23/euparliamentmonitor/blob/main/.github/workflows/release.yml), [REUSE.toml](https://github.com/Hack23/euparliamentmonitor/blob/main/REUSE.toml) |
 | 8 | **Define security support period** | ✅ Met | End-of-Life Strategy documents technology lifecycle and support timeline; Node.js 25 Current tracked (Node.js 26 LTS upgrade planned Apr 2026); dependency EOL monitoring; proactive migration planning documented | [End-of-Life-Strategy.md](End-of-Life-Strategy.md), [SECURITY.md](SECURITY.md) |
+
+#### 🔄 Annex I Part II — 2026-04-20 Vulnerability Handling Evidence Map
+
+Supplementary evidence map mapping each Annex I Part II vulnerability-handling duty to current implementation artefacts.
+
+- **Identify & document vulnerabilities** ← GitHub Security Advisories + private vulnerability reporting + CodeQL + Dependabot alerts
+- **Address without delay (free security updates)** ← npm patch releases distributed via automated release workflow; severity SLAs (Critical 7d / High 30d / Medium 90d)
+- **Public disclosure** ← coordinated disclosure via [`SECURITY.md`](SECURITY.md); CVE assignment through GitHub Security Advisories
+- **Secure distribution of updates** ← npm provenance statements + SLSA L3 build attestations; signed release commits
+- **24h CVE reporting to ENISA** ← process documented in [`SECURITY.md`](SECURITY.md); responsible party **Hack23 AB CEO** (not yet exercised — see §Gap Table for ENISA runbook)
+
+---
+
+## 5️⃣ᵃ Substantial Compliance Overlap
+
+The platform's existing compliance programme — **OpenSSF Scorecard**, [**OpenSSF Best Practices #12068**](https://www.bestpractices.dev/projects/12068), **SLSA Level 3** build attestations, **SPDX** license metadata (REUSE.toml), **CodeQL SAST**, **Dependabot** SCA, **gh-advisory-database** publish-gate, **npm provenance**, and the **ISMS-PUBLIC** policy framework — together deliver substantial CRA compliance today. The residual delta between current coverage and the **December 2027** full-compliance deadline is tracked in the gap table below and is dominated by (a) CycloneDX SBOM auto-publish per release, (b) ENISA 24-hour CVE reporting runbook, and (c) EP MCP canonical tool-list drift test. None of these are technically blocking; they are procedural hardening items scheduled across 2026–2027.
+
+---
+
+## 5️⃣ᵇ Compliance Gap Table — December 2027 Readiness
+
+Tracking delta to **CRA full-compliance deadline (2027-12-11)**. All Article 24 OSS Steward duties and Annex I Parts I + II essential requirements are mapped. Items marked ✅ Complete require no further action; ⚠️/Gap items have owners and target dates.
+
+| # | CRA Requirement | Current Status | Evidence | Gap | Target Date |
+|---|-----------------|----------------|----------|-----|-------------|
+| 1 | Article 24 OSS Steward self-declaration | Draft | This doc §2 | Need Hack23 AB signed legal declaration | 2026-Q3 |
+| 2 | CycloneDX SBOM auto-publish per release | Gap | Manual generation only | Add CycloneDX generation step to [`release.yml`](https://github.com/Hack23/euparliamentmonitor/blob/main/.github/workflows/release.yml) with release-asset upload | 2026-Q4 |
+| 3 | CVE 24h ENISA reporting runbook | Gap | None | Draft runbook + test ENISA Single Point of Contact (SPOC) form submission path | 2027-Q1 |
+| 4 | Vulnerability handling process docs | ✅ Complete | [`SECURITY.md`](SECURITY.md) | — | — |
+| 5 | Coordinated disclosure policy | ✅ Complete | [`SECURITY.md`](SECURITY.md) | — | — |
+| 6 | npm provenance + SLSA L3 | ✅ Complete | [`release.yml`](https://github.com/Hack23/euparliamentmonitor/blob/main/.github/workflows/release.yml) | — | — |
+| 7 | Branch protection + required reviews | ✅ Complete | GitHub repository settings | — | — |
+| 8 | CodeQL + Dependabot + Scorecards + gh-advisory-database | ✅ Complete | [`.github/workflows/`](https://github.com/Hack23/euparliamentmonitor/tree/main/.github/workflows) | — | — |
+| 9 | CSP + HSTS + security headers (per-article meta tag) | ✅ Complete | `src/templates/article-template.ts:377-399` | Consider CloudFront response-headers policy as defense-in-depth layer | 2027-Q2 |
+| 10 | Threat Model + Risk Assessment | ✅ Complete | [`THREAT_MODEL.md`](THREAT_MODEL.md) v2.1 | — | — |
+| 11 | BCP + incident response | ✅ Complete | [`BCPPlan.md`](BCPPlan.md) v2.1 | — | — |
+| 12 | SPDX licensing | ✅ Complete | [`REUSE.toml`](REUSE.toml) + [`.github/workflows/reuse.yml`](https://github.com/Hack23/euparliamentmonitor/blob/main/.github/workflows/reuse.yml) | — | — |
+| 13 | EP MCP canonical tool-list drift test | Gap | IMF + WB only — EP MCP client does not yet export `EP_MCP_TOOLS` | Add `EP_MCP_TOOLS` export + integration test in `test/integration/mcp/` | 2026-Q3 |
+| 14 | Security advisories auto-subscribe monitoring | Partial | Dependabot monitors npm advisories | Extend monitoring to upstream EP MCP repository (`european-parliament-mcp-server`) via repo watching + advisory feed | 2026-Q4 |
+
+---
+
+## 5️⃣ᶜ CE Marking Position
+
+CE marking under CRA Article 13(3) applies to commercial manufacturers of products with digital elements. For open-source software distributed under the **Article 24 OSS Steward** regime, CE marking is **not clearly required** — open-source stewardship is a distinct regulatory regime from CE marking of commercial products, and the current draft ENISA guidance treats the two regimes separately.
+
+Hack23 AB is **monitoring EU Commission implementing acts and ENISA guidance** for any determination that would extend CE marking obligations to OSS stewards or to npm packages distributed free-of-charge. The CE marking determination will be **revisited Q4 2027** as the December 2027 full-compliance deadline approaches, or sooner if the Commission publishes clarifying implementing acts. Until then, no CE marking is affixed to any EU Parliament Monitor artefact.
 
 ---
 
