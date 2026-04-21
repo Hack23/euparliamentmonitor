@@ -466,7 +466,7 @@ Every generated article MUST include the Analysis & Transparency section that li
 
 > **⚠️ NO EARLY COMPLETION**: You MUST spend at least 45 minutes on active work. Completing in under 45 minutes means you rushed and produced low-quality output. See [SHARED_PROMPT_PATTERNS.md Iterative Improvement Protocol](../prompts/SHARED_PROMPT_PATTERNS.md#-mandatory-iterative-improvement-protocol-all-workflows) for full rules.
 
-- **Minutes 0–3**: Date check, create baseline file in `${ANALYSIS_DIR}/existing/session-baseline.md`, then call **🛡️ CHECKPOINT** `safeoutputs___create_pull_request` (crash-resilience PR — do this as the last step of minute ~3, after the baseline file exists). MCP warm-up with EP MCP tools follows.
+- **Minutes 0–3**: Date check, MCP warm-up with EP MCP tools, then create baseline file in `${ANALYSIS_DIR}/existing/session-baseline.md` and call **🛡️ CHECKPOINT** `safeoutputs___create_pull_request` (crash-resilience PR — this MUST be the last action of minute ~3, after the baseline file exists).
 - **Minutes 3–13**: 📡 **DATA RETRIEVAL PHASE (≤10 minutes)** — EP MCP data fetch, analysis directory setup, query EP MCP tools for COMPLETE committee reports data — **⚠️ Download FULL document content, not just metadata. Store complete adopted texts, procedure details, and committee document content in `${ANALYSIS_DIR}/data/`**. Complete all feed + deep-fetch calls (up to 10 total). Most EP MCP tools respond in <10s; allow up to 120s for slow feed endpoints. **Data retrieval MUST complete before analysis starts.**
 - **Minutes 13–35**: 🔬🔬🔬 **MANDATORY DEEP POLITICAL ANALYSIS PHASE (22 MINUTES — 2 PASSES)**
   - **Pass 1 (Minutes 13–26, ~13 min)**: Read ALL methodology guides and templates, apply them to EVERY downloaded MCP data file, write substantive analysis markdown, use `sequentialthinking` for complex reasoning, cross-reference documents via knowledge graph, complete 4-pass refinement cycle. **⚠️ Per Rule 7, spend ≥20 minutes total on AI-driven analysis.** Article topic and angle MUST be decided ONLY from completed significance scoring results, not predetermined.
@@ -629,7 +629,7 @@ export TODAY CURRENT_YEAR CURRENT_MONTH CURRENT_MONTH_NAME CURRENT_DAY DAY_OF_WE
 
 ## 🛡️ CHECKPOINT: Immediate Safe Output (minute ~3)
 
-> **⚡ MANDATORY — DO THIS NOW, BEFORE THE MCP HEALTH GATE**: Write the baseline file below, then call `safeoutputs___create_pull_request` **immediately**. Do NOT wait until after MCP health checks, data gathering, or article generation. The framework captures ALL files in the working directory when the agent job ends — analysis artifacts and the final article written AFTER this call are included in the PR automatically.
+> **⚡ MANDATORY — DO THIS NOW, BEFORE THE MCP HEALTH GATE (which appears immediately after this section)**: Write the baseline file below, then call `safeoutputs___create_pull_request` **immediately**. Do NOT wait until after MCP health checks, data gathering, or article generation. The framework captures ALL files in the working directory when the agent job ends — analysis artifacts and the final article written AFTER this call are included in the PR automatically.
 
 **Why so early?** Run 24705896422 (issue #1300) demonstrated that the safeoutputs MCP session expires after ~20 minutes of inactivity during the deep analysis phase. By the time the agent tried to call `safeoutputs___create_pull_request` at minute ~55, three retries all failed with `session not found` and 1528 lines of analysis + the enhanced English article were discarded. Calling safeoutputs at minute ~3 registers the PR session while it is still fresh and guarantees that whatever the agent produces ships to GitHub.
 
@@ -662,7 +662,7 @@ Immediately after the baseline file exists, call safeoutputs with:
 
 > **After calling safeoutputs**: continue immediately with the MCP Health Gate, EP data gathering, deep analysis, and article generation. Do NOT stop. All subsequent file changes are captured automatically in this PR.
 
-> **⚠️ MAX 1 PR PER RUN**: Do NOT call `safeoutputs___create_pull_request` again anywhere in the workflow after this checkpoint — the checkpoint PR captures all your work automatically. At minutes 55–60, complete your work and stop — do NOT call safeoutputs again.
+> **⚠️ MAX 1 PR PER RUN**: Do NOT call `safeoutputs___create_pull_request` again anywhere in the workflow after this checkpoint — the checkpoint PR captures all your work automatically. At minutes 48–50 (hard deadline), complete your work and stop — do NOT call safeoutputs again.
 
 
 ## MANDATORY MCP Health Gate
@@ -1538,7 +1538,7 @@ echo "Branch: $BRANCH_NAME"
 
 > **🚫 DO NOT re-invoke `safeoutputs___create_pull_request` after the minute-~3 checkpoint.** The framework automatically captures every file change between the checkpoint call and the end of the agent job in a single patch. A second call risks failing with `session not found` and — critically — does NOT add any files that the checkpoint PR would miss.
 
-If — and only if — the checkpoint PR at minute ~3 failed (i.e., you received an error instead of a success), you MAY fall back to calling `safeoutputs___create_pull_request` once here with `head: BRANCH_NAME` and `base: "main"` as a recovery attempt. Otherwise, stop and let the agent job end.
+If the checkpoint PR at minute ~3 failed (i.e., you received an error instead of a success), do NOT retry `safeoutputs___create_pull_request` — the `create_pull_request` quota is `max:1` and a retry will either be rejected or contradict that constraint. Instead, write a diagnostic note to `${ANALYSIS_DIR}/existing/checkpoint-failure-diagnostic.md` describing the original error (exact error message, tool-call turn number, timestamp) and stop. The workflow run will end as a failure with the diagnostic preserved in `${ANALYSIS_DIR}/` for post-mortem review.
 
 ## Available Visualization Sections
 
