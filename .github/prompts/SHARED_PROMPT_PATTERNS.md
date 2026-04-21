@@ -1235,14 +1235,16 @@ All agentic workflows that run generation scripts use `scripts/mcp-setup.sh` to 
 ```bash
 # Route through MCP gateway (direct HTTPS fails in AWF sandbox)
 source scripts/mcp-setup.sh
-# Sets:
-#   EP_MCP_GATEWAY_URL=http://host.docker.internal:80/mcp/european-parliament
+# Sets (port/domain are read dynamically from the gh-aw MCP config JSON;
+# defaults shown are for gh-aw v0.69.0+ which uses port 8080 — older
+# gh-aw versions used port 80 and the script transparently follows that):
+#   EP_MCP_GATEWAY_URL=http://host.docker.internal:8080/mcp/european-parliament
 #   EP_MCP_GATEWAY_API_KEY=<extracted from MCP config JSON via node -e>
-#   WORLD_BANK_MCP_SERVER_URL=http://host.docker.internal:80/mcp/world-bank
+#   WORLD_BANK_MCP_SERVER_URL=http://host.docker.internal:8080/mcp/world-bank
 #   MCP_CLIENT_TIMEOUT_MS=120000
 ```
 
-The script extracts auth tokens from `/home/runner/.copilot/mcp-config.json` using `node -e` (no `jq` dependency). Token priority: `gateway.apiKey` → `mcpServers['european-parliament'].headers.Authorization`.
+The script extracts auth tokens **and** `gateway.port` / `gateway.domain` from `/home/runner/.copilot/mcp-config.json` using `node -e` (no `jq` dependency). Token priority: `gateway.apiKey` → `mcpServers['european-parliament'].headers.Authorization`. Gateway URL priority: dynamic `gateway.{port,domain}` from config → default `host.docker.internal:8080`. This matches the AWF `--allow-host-ports 80,443,8080` allowlist.
 
 ### Canonical Gateway + Generation Block Pattern
 
@@ -1279,8 +1281,10 @@ The TypeScript source for the EP MCP client lives at `src/mcp/ep-mcp-client.ts` 
 ### Gateway Mode Activation
 
 ```typescript
-// Automatic via env var (set by scripts/mcp-setup.sh):
-//   EP_MCP_GATEWAY_URL=http://host.docker.internal:80/mcp/european-parliament
+// Automatic via env var (set by scripts/mcp-setup.sh — port/domain read
+// dynamically from gh-aw MCP config JSON; default port is 8080 on gh-aw
+// v0.69.0+, 80 on older versions):
+//   EP_MCP_GATEWAY_URL=http://host.docker.internal:8080/mcp/european-parliament
 //   EP_MCP_GATEWAY_API_KEY=<raw-api-key>
 import { EuropeanParliamentMCPClient } from './mcp/ep-mcp-client.js';
 const client = new EuropeanParliamentMCPClient(); // reads env vars automatically
@@ -1730,6 +1734,45 @@ echo "NODE_ENV=${NODE_ENV:-not set}"
 | Timeout after 120s | EP API exceptionally slow (feed endpoints) | Use direct endpoint fallback (see Reliability Matrix) |
 | `get_server_health` fails | MCP server process didn't start | Check `npx` output, verify Node.js version ≥18 |
 | All tools fail with "connection closed" | MCP stdio transport broken | Restart workflow, check process limits |
+| Gateway connect refused on `host.docker.internal:80` | gh-aw ≥ v0.69.0 moved the gateway to port 8080 | `source scripts/mcp-setup.sh` (dynamically reads `gateway.port` + `gateway.domain` from MCP config JSON — do not hardcode `:80`) |
+
+---
+
+## 🛠️ Engine `edit` Tool — Large-Block JSON Failure Mode (All Workflows — NON-NEGOTIABLE)
+
+> **⚠️ ROOT CAUSE**: The Copilot CLI passes `edit` tool arguments (`old_str`, `new_str`) as a single-line JSON string. Large HTML replacements with embedded quotes, backticks, backslashes, or multi-byte characters can overflow the tool-call JSON parser. Observed failure: *"Expected ',' or '}' after property value in JSON at position 7511 (line 1 column 7512)"* — the engine terminates unexpectedly after this error, killing the whole run (see issue #1263 / run `24727454951` on `news-committee-reports`).
+
+### 🚫 Hard Limits on `edit` Tool Calls Against Rendered HTML
+
+| Attribute | Hard limit | Why |
+|-----------|-----------|-----|
+| `old_str` / `new_str` line count | **≤ 30 lines** each | Above this, tool-argument JSON regularly crosses the parser limit |
+| `old_str` / `new_str` byte size | **≤ 5 KB** each | Combined payload ≥ 10 KB is where the `Expected ',' or '}'` failure has been reproduced |
+| Special characters | Avoid embedded `` ` ``, `${...}`, `"""`, raw `<script>` tags | Each requires extra JSON escaping and compounds parser risk |
+| Target file type | Avoid `edit` on `news/*.html` generated articles | These are 40–90 KB of dense HTML; a single replacement often breaks the limit |
+
+### ✅ Safe Replacement Strategies (use these instead — in order of preference)
+
+1. **Regenerate from the TypeScript generator** (PREFERRED) — if the article scaffolding is wrong, fix the prompt/analysis data and re-run `npx tsx src/generators/news-enhanced.ts --types=<type> ...`. The generator replaces the file atomically, sidesteps the `edit` tool entirely, and guarantees consistent structure.
+2. **Multiple small targeted `edit` calls** — split the replacement into ≤ 20-line chunks, each with unique `old_str` anchors (e.g., one section header + surrounding paragraph). Never batch one giant edit.
+3. **Full-file rewrite via `bash` heredoc** — when all else fails:
+   ```bash
+   cat > "news/${TODAY}-${TYPE}-en.html" <<'ARTICLE_EOF'
+   <!doctype html>
+   ... full new content ...
+   ARTICLE_EOF
+   ```
+   The single-quoted `'ARTICLE_EOF'` prevents any shell expansion and the heredoc has no JSON escaping, so backticks/quotes/backslashes pass through verbatim.
+4. **`write_file` / file-write tool** — if the engine exposes a direct file-write tool, use it for ≥ 5 KB payloads in preference to `edit`.
+
+### 🛑 If `edit` Returns `Expected ',' or '}' after property value in JSON`
+
+**STOP immediately — do NOT retry the same edit.** The engine terminates on the next tool call after this error. Recovery:
+1. Note the `old_str`/`new_str` size you attempted.
+2. Switch to strategy 1 (regenerate) or strategy 3 (heredoc rewrite).
+3. Before attempting any further `edit`, verify each new call stays within the hard limits above.
+
+> **Rationale**: This is a Copilot-CLI-engine-level tool-argument-serialization bug, not a gh-aw or workflow bug. It cannot be caught by a validator; it can only be prevented by using the replacement strategies above.
 
 ---
 

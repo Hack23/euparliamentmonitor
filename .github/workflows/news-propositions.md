@@ -1237,6 +1237,8 @@ npx tsx src/generators/news-enhanced.ts \
 
 ### Step 4.5: MANDATORY AI Enrichment — Replace Analysis Placeholders
 
+> **🛠️ Safe HTML Editing (prevents engine crash)**: When replacing `[AI_ANALYSIS_REQUIRED]` markers in generated HTML, keep every `edit` tool call ≤ 30 lines / ≤ 5 KB per `old_str`/`new_str`. A single large replacement has crashed the Copilot engine with `Expected ',' or '}' after property value in JSON at position N` (issue #1263 / run 24727454951, `news-committee-reports`). For bulk rewrites prefer: (1) regenerate via the TypeScript generator, (2) multiple small targeted edits, or (3) full-file `cat > file <<'ARTICLE_EOF' ... ARTICLE_EOF` heredoc. See [SHARED_PROMPT_PATTERNS.md §Engine `edit` Tool — Large-Block JSON Failure Mode](../prompts/SHARED_PROMPT_PATTERNS.md#%EF%B8%8F-engine-edit-tool--large-block-json-failure-mode-all-workflows--non-negotiable).
+
 > **⚠️ CRITICAL**: The TypeScript generator outputs `[AI_ANALYSIS_REQUIRED]` markers in the deep-analysis section for fields that require AI-written political intelligence. These markers appear in the "why", impact assessment cards (Political, Economic, Social, Legal, Geopolitical), stakeholder outcome reasoning, action-consequence analysis, outlook scenarios, and political mistake alternative assessments.
 
 **You MUST replace every `[AI_ANALYSIS_REQUIRED]` marker** in each generated article with substantive political analysis based on the EP MCP data you collected. This is what distinguishes real journalism from template filler.
