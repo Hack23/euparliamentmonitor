@@ -1076,7 +1076,6 @@ Today's workflow runs complete in 24-30 minutes out of 60-minute budgets. The AI
 2. **If article files exist in `news/`**: Call `safeoutputs___create_pull_request` with whatever content you have — partial content in a PR is infinitely better than no PR at all
 3. **If no article files exist but analysis files exist**: Call `safeoutputs___create_pull_request` with analysis artifacts only (per Rule 5: no workflow run should be wasted)
 4. **If no files of any kind exist**: Call `safeoutputs___noop` with full diagnostics
-5. **If a checkpoint PR was already created** (e.g., news-motions creates one at minute ~3): The hard deadline is already satisfied — finalize remaining work without calling safeoutputs again
 
 > **⚠️ OVERRIDE RULE**: This hard deadline **supersedes** any later time-budget or minute-by-minute plan entries that schedule PR creation after the deadline (e.g., "Minutes 57–60: Create PR"). Those later schedule entries must be treated as compressed into the deadline window. After the deadline, the only valid actions are immediate `safeoutputs___create_pull_request` or `safeoutputs___noop`.
 
@@ -1142,7 +1141,7 @@ To prevent session expiry from losing all work:
 2. **Create PR with partial content at the hard deadline** — even a single English article is valuable
 3. **Never delay PR creation for "one more improvement"** after the hard deadline — the risk of losing everything outweighs the benefit of marginal improvement
 
-> **⚠️ CHECKPOINT PR PATTERN** (used by news-motions): If a workflow creates a checkpoint PR early (~minute 3), all subsequent file changes are automatically captured. In this case, the hard deadline requirement is already satisfied — do NOT call safeoutputs again. Just finalize work and stop.
+> **⚠️ SAFE-OUTPUTS PATCH SNAPSHOT SEMANTICS**: `safeoutputs___create_pull_request` takes a **synchronous snapshot** of the git diff at the moment it is called (the gh-aw handler runs `git format-patch` / `git bundle create` against the base branch). Files written, commits made, or changes staged **after** the call are **NOT** part of the PR. Early "checkpoint PR" patterns that call the tool at minute ~3 and claim the framework captures later changes are **incorrect** and will lose all analysis + article content. Only news-translate uses a correct multi-call flush pattern (via `max-patch-size: 10240` plus periodic re-calls); every other news-*.md workflow uses `create-pull-request.max: 1` and MUST call `safeoutputs___create_pull_request` exactly once at the END of the run, after every file has been written.
 
 ### World Bank MCP Timeout Handling
 
