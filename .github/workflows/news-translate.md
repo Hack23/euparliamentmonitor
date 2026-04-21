@@ -178,6 +178,7 @@ You are the **Translation Agent**. Your ONLY job: take existing English articles
 **Mandatory heartbeat rule** (90-minute budget):
 - First keep-alive call by **minute 8** (independent of the minute-~2 checkpoint PR)
 - Then keep-alive at least every **8 minutes** until Step 5 final PR (approximate checkpoints: minutes **8, 16, 24, 32, 40, 48, 56, 64, 72, 80, and 88**, or sooner at phase transitions)
+- **`sequential-thinking` turns do NOT reset the session idle timer.** If any reasoning/analysis phase (`sequential-thinking`, long internal planning, extended document reading) runs for 5+ minutes without a safeoutputs call or a non-thinking tool call, the safeoutputs session may silently idle-out. Interleave an explicit `safeoutputs___push_repo_memory` call **inside** every multi-turn analysis phase. **This is the #1 cause of `session not found` at PR time** (see run [24707284072](https://github.com/Hack23/euparliamentmonitor/actions/runs/24707284072): 45-minute uninterrupted `sequential-thinking` starved the session, and the minute-55 PR call failed with `session not found`).
 - Two tool calls serve as keep-alives. Use whichever fits the current phase:
 
 ```javascript
