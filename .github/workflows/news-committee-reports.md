@@ -191,22 +191,22 @@ if [ "$ELAPSED_MINUTES" -ge 50 ]; then
 fi
 ```
 
-**⚡ Progressive safe output strategy**: If article generation hasn't started by minute 35, create an analysis-only PR to preserve work. If articles exist at minute 50, create PR immediately with partial content. Never delay PR creation past minute 50 for "one more improvement." **This minute-50 hard deadline supersedes any later time-budget guidance in this workflow that schedules PR creation after minute 50; those steps must be compressed into the deadline window.**
+**⚡ Progressive safe output strategy**: This workflow creates a checkpoint PR at minute ~3 that automatically captures all subsequent file changes. The hard deadline is therefore already satisfied. At minute 50, finalize remaining work and stop — do NOT call `safeoutputs___create_pull_request` again. **This minute-50 hard deadline supersedes any later time-budget guidance in this workflow that schedules PR creation after minute 50; those steps must be compressed into the deadline window.**
 
 ## 🔁 Safe Outputs Session Keep-Alive (NON-NEGOTIABLE)
 
-> **⚠️ CRITICAL**: The safeoutputs MCP session can expire after ~10–20 minutes of inactivity. This workflow MUST keep the session alive throughout long analysis phases so that the final `safeoutputs___create_pull_request` call succeeds.
+> **⚠️ CRITICAL**: Even after the checkpoint PR is created at minute ~3, the safeoutputs MCP session can still expire after ~10–20 minutes of inactivity. If the session expires, the final patch snapshot (which is what ships to the PR) may be stale. This workflow MUST keep the session alive throughout long analysis phases.
 
 **Mandatory heartbeat rule**:
-- First keep-alive call by **minute 8**
-- Then keep-alive at least every **8 minutes** until final PR/noop (at approximately minutes **8, 16, 24, 32, 40, and 48**, or sooner at phase transitions)
+- First keep-alive call by **minute 8** (after the checkpoint PR call at minute ~3)
+- Then keep-alive at least every **8 minutes** until the workflow ends (at approximately minutes **8, 16, 24, 32, 40, and 48**, or sooner at phase transitions)
 - Use this tool call for heartbeat (does not consume PR quota):
 
 ```javascript
 safeoutputs___push_repo_memory({ memory_id: "default" })
 ```
 
-If a heartbeat fails with `session not found`, immediately stop further analysis and attempt final safe output with the current working directory state.
+If a heartbeat fails with `session not found`, stop further analysis immediately — the checkpoint PR will ship with whatever files are already in the working directory, which is still a valid output.
 
 ## 📞 Bash Tool Call Contract (CRITICAL)
 
@@ -466,7 +466,7 @@ Every generated article MUST include the Analysis & Transparency section that li
 
 > **⚠️ NO EARLY COMPLETION**: You MUST spend at least 45 minutes on active work. Completing in under 45 minutes means you rushed and produced low-quality output. See [SHARED_PROMPT_PATTERNS.md Iterative Improvement Protocol](../prompts/SHARED_PROMPT_PATTERNS.md#-mandatory-iterative-improvement-protocol-all-workflows) for full rules.
 
-- **Minutes 0–3**: Date check, MCP warm-up with EP MCP tools
+- **Minutes 0–3**: Date check, create baseline file in `${ANALYSIS_DIR}/existing/session-baseline.md`, then call **🛡️ CHECKPOINT** `safeoutputs___create_pull_request` (crash-resilience PR — do this as the last step of minute ~3, after the baseline file exists). MCP warm-up with EP MCP tools follows.
 - **Minutes 3–13**: 📡 **DATA RETRIEVAL PHASE (≤10 minutes)** — EP MCP data fetch, analysis directory setup, query EP MCP tools for COMPLETE committee reports data — **⚠️ Download FULL document content, not just metadata. Store complete adopted texts, procedure details, and committee document content in `${ANALYSIS_DIR}/data/`**. Complete all feed + deep-fetch calls (up to 10 total). Most EP MCP tools respond in <10s; allow up to 120s for slow feed endpoints. **Data retrieval MUST complete before analysis starts.**
 - **Minutes 13–35**: 🔬🔬🔬 **MANDATORY DEEP POLITICAL ANALYSIS PHASE (22 MINUTES — 2 PASSES)**
   - **Pass 1 (Minutes 13–26, ~13 min)**: Read ALL methodology guides and templates, apply them to EVERY downloaded MCP data file, write substantive analysis markdown, use `sequentialthinking` for complex reasoning, cross-reference documents via knowledge graph, complete 4-pass refinement cycle. **⚠️ Per Rule 7, spend ≥20 minutes total on AI-driven analysis.** Article topic and angle MUST be decided ONLY from completed significance scoring results, not predetermined.
@@ -474,16 +474,16 @@ Every generated article MUST include the Analysis & Transparency section that li
 - **Minutes 35–45**: 📰 **ARTICLE GENERATION PHASE (10 MINUTES — 2 PASSES)** — **Analysis MUST be complete before generation starts.**
   - **Pass 1 (Minutes 35–40, ~5 min)**: Generate English article with deep political intelligence informed by completed analysis artifacts. Replace ALL `[AI_ANALYSIS_REQUIRED]` markers. Ensure ≥60% prose ratio.
   - **Pass 2 (Minutes 40–45, ~5 min)**: 🔁 **MANDATORY ARTICLE READ-BACK & IMPROVEMENT** — Read the ENTIRE generated article from top to bottom. Verify every section has ≥3 analytical paragraphs, specific EP data citations, named actors/MEPs, prose not bullet lists. Add World Bank economic context if missing. Rewrite any section that fails the Economist Test. **DO NOT skip this pass.**
-- **Minutes 45–48**: Validate and finalize output — run HTML and WCAG checks, verify metadata, prose ratio check, verify zero markers remain. **🚨 PR MUST be created by minute 50 (HARD DEADLINE).**
-- **Minutes 48–50**: Create PR with `safeoutputs___create_pull_request`
+- **Minutes 45–48**: Validate HTML. **The checkpoint PR at minute ~3 captures all artifacts automatically.**
+- **Minutes 48–50**: Complete all remaining work; the checkpoint PR captures everything — do NOT call `safeoutputs___create_pull_request` again
 
-> **🚨 HARD DEADLINE — MINUTE 50**: If you reach minute 50 and the PR has not been created, **STOP ALL WORK IMMEDIATELY**. Do not write one more line. Call `safeoutputs___create_pull_request` with whatever files exist. Partial content in a PR is infinitely better than a timeout with ZERO output. If no files exist, call `safeoutputs___noop` with diagnostics. **A workflow that times out without calling any safe output is the worst possible outcome.**
+> **🚨 HARD DEADLINE — MINUTE 50**: The checkpoint PR was already created at minute ~3, so the hard-deadline requirement is satisfied by construction. If you reach minute 50, **STOP ALL WORK IMMEDIATELY** — do not write one more line. The checkpoint PR will ship with whatever files are currently in the working directory. Do NOT call `safeoutputs___create_pull_request` a second time. **A workflow that ships the checkpoint PR is always better than one that retries safeoutputs and fails with session expiry.**
 
-> **🛑 EARLY COMPLETION CHECK**: If you reach the PR creation step before minute 45, STOP. Go back and improve your analysis and articles. Read everything again. Add more depth.
+> **🛑 EARLY COMPLETION CHECK**: If you reach the final step before minute 45, STOP. Go back and improve your analysis and articles. Read everything again. Add more depth.
 
 > **🔑 ENGLISH-ONLY FOCUS**: This workflow generates English content only. Use the extra time (vs. translating to 13 languages) to produce deeper political analysis, richer context, and more comprehensive intelligence. Translations to other languages are handled by the separate `news-translate` workflow.
 
-**If you reach minute 50 and the PR has not yet been created**: STOP IMMEDIATELY. Do not generate more content. Finalize your current file edits and call `safeoutputs___create_pull_request`. Partial content in a PR is better than a timeout with no PR. **This is a NON-NEGOTIABLE HARD DEADLINE — see SHARED_PROMPT_PATTERNS.md.**
+**If you reach minute 50**: STOP IMMEDIATELY. The checkpoint PR exists with analysis artifacts and (if generation reached Pass 2) the English article. Finalize any remaining file edits — the PR captures everything automatically. This is a NON-NEGOTIABLE HARD DEADLINE — see [SHARED_PROMPT_PATTERNS.md](../prompts/SHARED_PROMPT_PATTERNS.md#-hard-deadline--session-expiry-prevention-all-workflows--non-negotiable).
 
 
 ## 🔬 Political Intelligence Analysis Stage
@@ -626,6 +626,43 @@ export TODAY CURRENT_YEAR CURRENT_MONTH CURRENT_MONTH_NAME CURRENT_DAY DAY_OF_WE
 ```
 
 **⚠️ DATE GUARD**: When passing `dateFrom`/`dateTo` to ANY MCP tool, ALWAYS derive dates from `$TODAY` (set above). NEVER hardcode a year (e.g. 2024, 2025). Use `date -u -d "$TODAY - 7 days" +%Y-%m-%d` for offsets.
+
+## 🛡️ CHECKPOINT: Immediate Safe Output (minute ~3)
+
+> **⚡ MANDATORY — DO THIS NOW, BEFORE THE MCP HEALTH GATE**: Write the baseline file below, then call `safeoutputs___create_pull_request` **immediately**. Do NOT wait until after MCP health checks, data gathering, or article generation. The framework captures ALL files in the working directory when the agent job ends — analysis artifacts and the final article written AFTER this call are included in the PR automatically.
+
+**Why so early?** Run 24705896422 (issue #1300) demonstrated that the safeoutputs MCP session expires after ~20 minutes of inactivity during the deep analysis phase. By the time the agent tried to call `safeoutputs___create_pull_request` at minute ~55, three retries all failed with `session not found` and 1528 lines of analysis + the enhanced English article were discarded. Calling safeoutputs at minute ~3 registers the PR session while it is still fresh and guarantees that whatever the agent produces ships to GitHub.
+
+```bash
+echo "=== CHECKPOINT: Baseline analysis file ==="
+mkdir -p "${ANALYSIS_DIR}/existing"
+cat > "${ANALYSIS_DIR}/existing/session-baseline.md" <<EOF
+# Committee Reports Session Baseline — ${TODAY} (run ${RUN_ID})
+
+**Status**: Checkpoint PR created at minute ~3 for crash-resilience.
+
+This baseline file ensures the checkpoint PR always contains at least one artifact.
+All subsequent EP MCP data, deep political analysis markdown files, and the final
+English article will be added automatically as the agent continues working.
+
+- Article type: committee-reports
+- Run ID: ${RUN_ID}
+- Workflow: news-committee-reports
+- Analysis directory: ${ANALYSIS_DIR}
+EOF
+echo "Wrote ${ANALYSIS_DIR}/existing/session-baseline.md"
+```
+
+Immediately after the baseline file exists, call safeoutputs with:
+
+- **title**: `Committee reports analysis checkpoint — ${TODAY} (run ${RUN_ID})` (the `[news] ` prefix is added automatically)
+- **body**: `Baseline committee-reports analysis checkpoint for ${TODAY}. Engine crash-resilience PR — EP MCP data, deep political analysis artifacts, and the final article will be added automatically as the agent continues working.`
+- **base**: `main`
+- **head**: `news/committee-reports-${TODAY}` (use `TODAY` from the Date Context Establishment block above)
+
+> **After calling safeoutputs**: continue immediately with the MCP Health Gate, EP data gathering, deep analysis, and article generation. Do NOT stop. All subsequent file changes are captured automatically in this PR.
+
+> **⚠️ MAX 1 PR PER RUN**: Do NOT call `safeoutputs___create_pull_request` again anywhere in the workflow after this checkpoint — the checkpoint PR captures all your work automatically. At minutes 55–60, complete your work and stop — do NOT call safeoutputs again.
 
 
 ## MANDATORY MCP Health Gate
@@ -1487,11 +1524,11 @@ fi
 echo "🧹 Cleaned raw MCP data payloads for ${TODAY}/committee-reports; analysis markdown artifacts PRESERVED for commit"
 ```
 
-### Step 6: Create PR (ONE call — ALL files at once)
+### Step 6: Final Cleanup (the Checkpoint PR captures everything)
 
-> **🚨 ATOMIC PR CREATION**: Call `safeoutputs___create_pull_request` exactly **ONCE** after ALL language files have been written. The framework captures all working directory changes as a single patch. Do NOT call it multiple times for individual files — that causes incomplete PRs with only partial languages (as seen in PR #293 where only 4 of 14 files were committed).
+> **✅ CHECKPOINT PR ALREADY CREATED**: The checkpoint PR was created at minute ~3 (see **🛡️ CHECKPOINT** block above). All file changes in the working directory — analysis artifacts, the English article, metadata, and this cleanup — are captured automatically as a single patch when the agent job ends. **DO NOT call `safeoutputs___create_pull_request` again here.** Doing so risks `session not found` if the MCP session has expired after long analysis phases (see issue #1300 / run 24705896422).
 
-Set the deterministic branch name for the PR.
+Set the deterministic branch name for reference (already used as the `head` parameter in the checkpoint PR call at minute ~3).
 
 ```bash
 # Reuse $TODAY from Date Context Establishment — do NOT recompute to avoid midnight drift
@@ -1499,17 +1536,9 @@ BRANCH_NAME="news/committee-reports-$TODAY"
 echo "Branch: $BRANCH_NAME"
 ```
 
-Pass `$BRANCH_NAME` (e.g., `news/committee-reports-2026-02-24`) as the `head` parameter when calling `safeoutputs___create_pull_request`. The framework automatically captures all file changes — do NOT pass a `files` parameter:
+> **🚫 DO NOT re-invoke `safeoutputs___create_pull_request` after the minute-~3 checkpoint.** The framework automatically captures every file change between the checkpoint call and the end of the agent job in a single patch. A second call risks failing with `session not found` and — critically — does NOT add any files that the checkpoint PR would miss.
 
-```javascript
-// All file changes in the working directory are captured automatically
-safeoutputs___create_pull_request({
-  title: `chore: EU Parliament committee-reports articles ${TODAY}`,
-  body: `## 🏛️ EU Parliament Committee Activity — ${TODAY}\n\n### Summary\nGenerated committee activity analysis articles covering European Parliament committee work.\n\n### Content Details\n- **Article type**: Committee reports / activity analysis\n- **Languages**: ${LANG_ARG}\n- **Date**: ${TODAY}\n- **Data source**: European Parliament MCP Server\n\n### Coverage Areas\n- Committee meeting summaries and outcomes\n- Rapporteur assignments and legislative progress\n- Cross-committee policy coordination\n- Committee-level political dynamics\n\n### Analysis Artifacts\n- Committee activity analysis in \`analysis/${TODAY}/committee-reports/\`\n- Per-document EP analysis framework applied\n\n---\n> Generated by the \`news-committee-reports\` agentic workflow using European Parliament Open Data.`,
-  base: "main",
-  head: BRANCH_NAME
-})
-```
+If — and only if — the checkpoint PR at minute ~3 failed (i.e., you received an error instead of a success), you MAY fall back to calling `safeoutputs___create_pull_request` once here with `head: BRANCH_NAME` and `base: "main"` as a recovery attempt. Otherwise, stop and let the agent job end.
 
 ## Available Visualization Sections
 
