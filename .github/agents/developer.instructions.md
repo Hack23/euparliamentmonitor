@@ -127,6 +127,26 @@ engine:
 - Agent produces JSONL artifacts, never writes to GitHub directly
 - Guardrails are enforced via the compiled `.lock.yml` (e.g. `max_patch_size`, protected file lists, and network/output restrictions)
 - Title prefixes and label allowlists are optional gh-aw capabilities and are not currently configured for this repo
+- **Single-PR rule (lint-enforced)**: every article-generating `news-*.md` workflow calls `safeoutputs___create_pull_request` **exactly once**, at the end of the run, after all files are written. `news-translate.md` is exempt (uses `max-patch-size` flush). See `.github/prompts/06-pr-and-safe-outputs.md` and `scripts/lint-prompts.js`.
+
+### Prompt Library (bounded contexts)
+
+All behaviour shared across news workflows lives in [`.github/prompts/`](../prompts/README.md):
+
+| File | Bounded context |
+|------|-----------------|
+| `00-scope-and-ground-rules.md` | Workspace scope, forbidden edits, neutrality |
+| `01-data-collection.md` | EP MCP feeds + direct fallbacks, WB/IMF, deep-fetch |
+| `02-analysis-protocol.md` | 2-pass analysis, methodologies/templates |
+| `03-analysis-completeness-gate.md` | Blocking `validate-analysis` gate |
+| `04-article-generation.md` | Prose/SWOT/stakeholder depth floors, charts |
+| `05-analysis-to-article-contract.md` | AI-First contract, AI_MARKER sentinels |
+| `06-pr-and-safe-outputs.md` | **Single-PR rule**, noop diagnostics |
+| `07-mcp-reference.md` | Canonical EP/WB/IMF tool tables |
+| `08-infrastructure.md` | Frontmatter, `mcp-setup.sh`, client env vars |
+| `09-troubleshooting.md` | AWF firewall diagnostic, error → root-cause |
+
+Workflow `.md` files reference these by relative path — never duplicate. Running `npm run lint:prompts` validates the single-PR rule and banned-phrase list before `gh aw compile`.
 
 ## Testing Strategy
 
