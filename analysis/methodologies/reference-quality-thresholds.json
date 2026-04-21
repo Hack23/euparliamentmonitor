@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "description": "Per-artifact minimum line-count floors used by src/utils/validate-analysis-completeness.ts to enforce Rule 22 (Per-Artifact Depth Floors) of analysis/methodologies/ai-driven-analysis-guide.md. Values are derived from the Run 184 reference benchmark (analysis/daily/2026-04-18/breaking-run184/) minus a 10% tolerance, rounded down to the nearest 5 lines. A file below its threshold MUST trigger Pass 2; it MUST NOT be shipped with a note. When an articleType × relativePath entry is absent the validator falls back to the CLI --min-lines flag (DEFAULT_MIN_LINES = 30). When a per-artifact entry is present the effective floor is max(perArtifact, --min-lines), so --min-lines can raise but never lower a configured floor.",
+  "description": "Per-artifact minimum line-count floors used by src/utils/validate-analysis-completeness.ts to enforce Rule 22 (Per-Artifact Depth Floors) of analysis/methodologies/ai-driven-analysis-guide.md. Values are derived from the Run 184 reference benchmark (analysis/daily/2026-04-18/breaking-run184/) minus a 10% tolerance, rounded down to the nearest 5 lines. A file below its threshold MUST trigger Pass 2; it MUST NOT be shipped with a note. When an articleType \u00d7 relativePath entry is absent the validator falls back to the CLI --min-lines flag (DEFAULT_MIN_LINES = 30). When a per-artifact entry is present the effective floor is max(perArtifact, --min-lines), so --min-lines can raise but never lower a configured floor.",
   "referenceBenchmark": {
     "runDir": "analysis/daily/2026-04-18/breaking-run184/",
     "runId": "184",
@@ -29,7 +29,8 @@
       "classification/significance-classification.md": 105,
       "intelligence/voting-patterns.md": 150,
       "intelligence/workflow-audit.md": 100,
-      "intelligence/cross-session-intelligence.md": 150
+      "intelligence/cross-session-intelligence.md": 150,
+      "intelligence/methodology-reflection.md": 220
     },
     "week-in-review": {
       "intelligence/analysis-index.md": 120,
@@ -47,7 +48,8 @@
       "intelligence/workflow-audit.md": 100,
       "intelligence/cross-session-intelligence.md": 150,
       "risk-scoring/risk-matrix.md": 120,
-      "risk-scoring/quantitative-swot.md": 120
+      "risk-scoring/quantitative-swot.md": 120,
+      "intelligence/methodology-reflection.md": 180
     },
     "month-in-review": {
       "intelligence/analysis-index.md": 140,
@@ -67,7 +69,8 @@
       "existing/deep-analysis.md": 300,
       "existing/session-baseline.md": 180,
       "risk-scoring/risk-matrix.md": 140,
-      "risk-scoring/quantitative-swot.md": 140
+      "risk-scoring/quantitative-swot.md": 140,
+      "intelligence/methodology-reflection.md": 200
     },
     "week-ahead": {
       "intelligence/analysis-index.md": 100,
@@ -82,7 +85,8 @@
       "intelligence/mcp-reliability-audit.md": 200,
       "intelligence/reference-analysis-quality.md": 140,
       "risk-scoring/risk-matrix.md": 100,
-      "risk-scoring/quantitative-swot.md": 100
+      "risk-scoring/quantitative-swot.md": 100,
+      "intelligence/methodology-reflection.md": 180
     },
     "month-ahead": {
       "intelligence/analysis-index.md": 120,
@@ -97,7 +101,8 @@
       "intelligence/mcp-reliability-audit.md": 200,
       "intelligence/reference-analysis-quality.md": 140,
       "risk-scoring/risk-matrix.md": 120,
-      "risk-scoring/quantitative-swot.md": 120
+      "risk-scoring/quantitative-swot.md": 120,
+      "intelligence/methodology-reflection.md": 180
     },
     "committee-reports": {
       "intelligence/analysis-index.md": 100,
@@ -112,7 +117,8 @@
       "intelligence/mcp-reliability-audit.md": 200,
       "intelligence/reference-analysis-quality.md": 140,
       "risk-scoring/risk-matrix.md": 100,
-      "risk-scoring/quantitative-swot.md": 100
+      "risk-scoring/quantitative-swot.md": 100,
+      "intelligence/methodology-reflection.md": 180
     },
     "motions": {
       "intelligence/analysis-index.md": 100,
@@ -132,7 +138,8 @@
       "existing/deep-analysis.md": 400,
       "existing/session-baseline.md": 200,
       "risk-scoring/risk-matrix.md": 100,
-      "risk-scoring/quantitative-swot.md": 100
+      "risk-scoring/quantitative-swot.md": 100,
+      "intelligence/methodology-reflection.md": 200
     },
     "propositions": {
       "intelligence/analysis-index.md": 100,
@@ -147,7 +154,8 @@
       "intelligence/mcp-reliability-audit.md": 200,
       "intelligence/reference-analysis-quality.md": 140,
       "risk-scoring/risk-matrix.md": 100,
-      "risk-scoring/quantitative-swot.md": 100
+      "risk-scoring/quantitative-swot.md": 100,
+      "intelligence/methodology-reflection.md": 180
     }
   }
 }

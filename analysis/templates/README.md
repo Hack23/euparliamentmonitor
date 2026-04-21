@@ -8,8 +8,8 @@
 <h1 align="center">📋 EU Parliament Monitor — Analysis Templates</h1>
 
 <p align="center">
-  <strong>📊 Eight Structured Intelligence Templates for AI-Driven Political Analysis</strong><br>
-  <em>🎯 Classification · Risk · Threat · SWOT · Stakeholder · Significance · Synthesis · Per-File</em>
+  <strong>📊 39 Structured Intelligence Templates for AI-Driven Political Analysis</strong><br>
+  <em>🎯 6 Framework Templates + 14 Agentic-Workflow Templates + 25 Per-Artifact Templates — covering every unique <code>.md</code> file produced under <code>analysis/daily/</code></em>
 </p>
 
 <p align="center">
@@ -273,6 +273,23 @@ graph LR
 | 11 | [🔄 Cross-Session Intelligence](cross-session-intelligence.md) | Session-over-session narrative across plenary sessions within a period — themes, crystallisation moment, momentum indicators, next-session outlook | Session Overview, Progression Timeline, Session-by-Session Progression (≥200 words each), Cross-Session Themes (≥4), Crystallisation Moment (≥250 words), Momentum Indicators, Next-Session Outlook | `get_plenary_sessions`, `get_meeting_decisions`, `get_meeting_activities`, `get_adopted_texts`, `get_voting_records` | Mermaid timeline + session narratives + momentum table | 🔴 HIGH |
 | 12 | [📜 Deep Analysis](deep-analysis.md) | Long-form (4 000–10 000 word) Economist-style political intelligence prose — the 30-minute read complement to synthesis-summary | Executive Summary, Structural Thesis, Crystallisation Moment, Coalition Dynamics, Policy Dimensions (≥4 sub-sections), Institutional Dynamics, Geopolitical Context, Forward Trajectory, Confidence & Method | Consumes run's `session-baseline`, `voting-patterns`, `cross-session-intelligence`, `coalition-dynamics`, `stakeholder-map` | ≥3 diagrams + named text / RCV citations inline + ≥15 named procedures | 🔴 HIGH |
 | 13 | [📆 Session Baseline](session-baseline.md) | Structured calendar + adopted-texts roster for every plenary session in scope — the data-dense reference other artifacts cite | Run Context, Plenary Session Calendar (per session), Session Calendar Diagram, Period Totals, Adopted Texts Roster, Committee Activity Map, Procedure-Code Distribution, Historical Anchor, Data-Source Ledger | `get_plenary_sessions`, `get_adopted_texts`, `get_procedures`, `get_committee_info`, `track_mep_attendance` | Gantt calendar + adopted-texts tables + committee activity map | 🟡 MEDIUM |
+| 14 | [🪞 Methodology Reflection](methodology-reflection.md) | Continuous-improvement retrospective — pipeline, data provenance, SATs applied, AI-FIRST iteration log, strengths, limitations, lessons, biases, update plan. **Final** artifact of every run. | Pipeline Diagram, Data Sources & Provenance, SATs Applied (≥10), AI-FIRST Iteration Log (Pass 1 / 2 / optional 3), Strengths (≥5), Limitations (≥5), Lessons (≥5), Biases & Mitigations (≥6), Peer Review, Update Plan, References | None directly (reads completed run + workflow-audit + MCP log) | Colour-coded `graph TD` pipeline + data-provenance table + SATs table + biases table | 🔴 HIGH |
+
+### 🧩 Per-Artifact Templates (25 additional — one per unique methodology section)
+
+Every artifact under `analysis/daily/*/` has a 1:1 template in `analysis/templates/`. These compact fill-in skeletons (60–200 lines each) mirror their section in [`per-artifact-methodologies.md`](../methodologies/per-artifact-methodologies.md):
+
+| Folder | Templates |
+|---|---|
+| `intelligence/` | [analysis-index](analysis-index.md) · [stakeholder-map](stakeholder-map.md) · [scenario-forecast](scenario-forecast.md) · [pestle-analysis](pestle-analysis.md) · [threat-model](threat-model.md) · [coalition-dynamics](coalition-dynamics.md) · [cross-run-diff](cross-run-diff.md) · [economic-context](economic-context.md) · [historical-baseline](historical-baseline.md) · [mcp-reliability-audit](mcp-reliability-audit.md) · [political-threat-landscape](political-threat-landscape.md) · [wildcards-blackswans](wildcards-blackswans.md) · [reference-analysis-quality](reference-analysis-quality.md) |
+| `classification/` | [significance-classification](significance-classification.md) · [actor-mapping](actor-mapping.md) · [forces-analysis](forces-analysis.md) · [impact-matrix](impact-matrix.md) |
+| `risk-scoring/` | [risk-matrix](risk-matrix.md) · [quantitative-swot](quantitative-swot.md) · [political-capital-risk](political-capital-risk.md) · [legislative-velocity-risk](legislative-velocity-risk.md) |
+| `threat-assessment/` | [consequence-trees](consequence-trees.md) · [legislative-disruption](legislative-disruption.md) · [actor-threat-profiles](actor-threat-profiles.md) · [political-stride-assessment](political-stride-assessment.md) |
+
+### 🧱 Framework Templates (6 reusable)
+
+| # | Template | Role |
+|---|----------|------|
 
 ---
 

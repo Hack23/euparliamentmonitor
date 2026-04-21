@@ -408,6 +408,35 @@ Each section is self-contained and describes a single analysis artifact. Use it 
 
 ---
 
+### methodology-reflection
+
+**Purpose.** Analytic-quality retrospective that closes the continuous-improvement loop. Distinct from [`workflow-audit`](#workflow-audit) (which checks mechanical phase-by-phase compliance): `methodology-reflection.md` reflects on **which Structured Analytic Techniques (SATs) were applied, where biases were mitigated, what the evidence would not support, and what the next same-type run must do differently**. Modelled on the [Hack23 riksdagsmonitor interpellations reflection](https://github.com/Hack23/riksdagsmonitor/blob/main/analysis/daily/2026-04-20/interpellations/methodology-reflection.md).
+
+**EP MCP inputs.** None directly — built from the completed run artifacts, the `workflow-audit.md`, the MCP tool call log, and the editorial-review outcome (if any).
+
+**Required sections.**
+1. Pipeline overview — colour-coded Mermaid `graph TD` from trigger → MCP pulls → Pass 1 → Pass 2 → significance gate → validation → PR → human editorial review → optional Pass 3.
+2. Data sources and provenance — ≥6 rows (tool, purpose, status ✅/⚠️/❌, confidence grade 🟢/🟡/🔴). Null-response signals ("returned 0 results, confirming no activity") captured explicitly.
+3. Structured Analytic Techniques applied — ≥10 SATs named (Classification, Significance scoring, SWOT, Risk matrix, Threat analysis, Stakeholder mapping, PESTLE, Scenario analysis, ACH, Key Assumptions Check, Red Team, Historical baseline, Bayesian cross-run delta, Comparative international, Per-document deep dives). Every SAT linked to an artifact.
+4. AI-FIRST iteration log — Pass 1 (count of artifacts, coverage gaps, depth gaps, SATs missing) + Pass 2 (concrete changes, word/citation counts added, remaining gaps) + optional Pass 3 (trigger + actions taken).
+5. Strengths — ≥5 with ≥1 specific citation each (evidence class, quantitative anchoring, pattern detection, SATs breadth, comparative context, confidence grading discipline).
+6. Limitations and caveats — ≥5 with honest specificity (MCP endpoint failures, data-freshness limits, single-run inference constraints, polling data unavailable, language / cultural bias).
+7. Lessons for future same-type runs — ≥5 concrete enough that the next run can execute them (data-collection lesson, SAT-timing lesson, comparative-context lesson, methodology-artifact lesson, iteration-time lesson).
+8. Known biases and mitigations — ≥6-row table (Confirmation · Availability · Mirror-imaging · Narrative fallacy · Recency · Selection · Anchoring), each with risk level, mitigation applied, and residual risk.
+9. Peer review / editorial oversight — per [AI_Policy.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Policy.md); name reviewer or state "pending editorial queue".
+10. Update plan — ≥5 triggers mapped to specific artifacts with frequency.
+11. References — Heuer (1999), Heuer & Pherson (2020), UK MoD Red Teaming Handbook, NATO AJP-2.1, Hack23 AI_Policy, `.github/skills/ai-first-quality.md`, plus run-specific references.
+
+**Mandatory Mermaid.** `graph TD` pipeline diagram in §1 with the seven-colour Hack23 palette applied to node states (blue=input, green=safe-pass, orange=degraded-fallback, red=failed, purple=synthesis, yellow=gate, light-blue=human-review).
+
+**Depth floor (breaking):** 220 lines. Other article types: 180 lines.
+
+**Quality signals.** Every SAT row cites an artifact that actually exists in this run (or states "not-applicable because …"); every limitation is specific enough that a reader knows *what could be wrong* with the analysis; every lesson is actionable by the next run without re-derivation; bias mitigations reference named artifacts; peer-review status is honestly reported (never marked "reviewed" when it is pending).
+
+**Workflow placement.** Produced as the **final** artifact of every run, after `workflow-audit.md` and after the PR patch is otherwise complete. Every news-*.md workflow (except `news-translate.md`) must write this file before calling `safeoutputs___create_pull_request`.
+
+---
+
 ### cross-session-intelligence
 
 **Purpose.** Session-over-session narrative of parliamentary politics *across plenary sessions* within a period. Distinct from [`cross-run-diff`](#cross-run-diff) (which is cross-run of the same article type) — this file tells the story of *how the political programme matured across sessions*.

@@ -255,19 +255,21 @@ The final gate is machine-enforced; pass it before the PR.
 
 3. Run `npx tsx src/utils/validate-articles.ts --date=$TODAY --quality --strict`. A non-zero exit blocks PR creation — fix the article and re-run.
 
-4. Write `intelligence/workflow-audit.md` as the last intelligence artifact (see [workflow-audit template](../templates/workflow-audit.md)) — 6-phase execution table, MCP call log, 10 Core Principles scorecard, time-budget breakdown, issues and deviations, recommendations for the next same-type run. This is the run's transparency record; downstream reviewers and the next run read it first.
+4. Write `intelligence/workflow-audit.md` (see [workflow-audit template](../templates/workflow-audit.md)) — 6-phase execution table, MCP call log, 10 Core Principles scorecard, time-budget breakdown, issues and deviations, recommendations for the next same-type run. This is the run's transparency record; downstream reviewers and the next run read it first.
 
-5. Emit a pre-flight attestation line in the log:
+5. Write `intelligence/methodology-reflection.md` as the **final** intelligence artifact (see [methodology-reflection template](../templates/methodology-reflection.md)) — closes the continuous-improvement loop with: pipeline diagram, data-source provenance, ≥10 SATs applied, AI-FIRST iteration log (Pass 1 / Pass 2 / optional Pass 3), ≥5 strengths, ≥5 limitations, ≥5 lessons-for-next-run, ≥6 biases with mitigations, peer-review status, and update plan. Distinct from `workflow-audit` (mechanical compliance) — this file reflects on the **analytic quality** and the SATs used.
+
+6. Emit a pre-flight attestation line in the log:
 
     ```
     PREFLIGHT_ATTESTATION: read N/N artifacts from ${ANALYSIS_DIR} (L lines)
     ```
 
-6. `git add "${ANALYSIS_DIR}"` plus the emitted `news/` HTML files. Commit with an analytical message naming the run's headline finding. The commit message never includes generic phrases — it names the specific political event.
+7. `git add "${ANALYSIS_DIR}"` plus the emitted `news/` HTML files. Commit with an analytical message naming the run's headline finding. The commit message never includes generic phrases — it names the specific political event.
 
-7. Call `safeoutputs___create_pull_request` **exactly once, at the very end of the run, after every file is written**. The safe-output handler takes a synchronous git-patch snapshot at call time; any file written after the call is not in the PR.
+8. Call `safeoutputs___create_pull_request` **exactly once, at the very end of the run, after every file is written**. The safe-output handler takes a synchronous git-patch snapshot at call time; any file written after the call is not in the PR.
 
-8. If Step 7 concluded the period did not produce a publishable event, still call `safeoutputs___create_pull_request` — an analysis-only PR. No workflow run is wasted: quiet-period analysis reveals patterns too.
+9. If Step 7 concluded the period did not produce a publishable event, still call `safeoutputs___create_pull_request` — an analysis-only PR. No workflow run is wasted: quiet-period analysis reveals patterns too.
 
 **Product of Step 10:** a PR with the full analysis directory + (optionally) the published article, attested complete and validated.
 
