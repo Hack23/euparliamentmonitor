@@ -19,9 +19,9 @@ date: 2026-04-21
 - **Mitigation**: March 26 texts (TA-0097, TA-0096) provide Commission the legal toolkit to respond without emergency legislative procedure. The tariff non-application instrument is already in force.
 
 ### T2: EP API Outage Extending Beyond Parliament Return (April 27)
-- **Likelihood**: 2/5 (Unlikely, 5-20%; now 28% probability from Run 193 update)
+- **Likelihood**: 3/5 (Possible, 21-40%; now 28% probability from Run 193 update)
 - **Impact**: 3/5 (Significant — delayed public access to legislative records)
-- **Score**: 6/25 (LOW-MEDIUM)
+- **Score**: 9/25 (MEDIUM)
 - **Evidence**: Phase 2 began today but bodies still 404. If restoration extends beyond April 27, the first post-recess plenary votes will be conducted without the standard public roll-call publication accompanying them. This creates a transparency deficit at a politically sensitive moment. 🟢 HIGH confidence.
 - **Mitigation**: EP Communications team has existing protocols for delayed publication. Offline access via EU Monitor (external service) remains available.
 
