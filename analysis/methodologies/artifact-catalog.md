@@ -47,14 +47,16 @@ flowchart LR
     subgraph INPUT["📥 Run Root"]
         R["analysis/daily/{date}/{type}-run{N}/"]
     end
-    subgraph INTEL["🧠 intelligence/ — 15 artifacts"]
+    subgraph INTEL["🧠 intelligence/ — 18 artifacts"]
         I1["synthesis-summary"]
         I2["stakeholder-map"]
         I3["scenario-forecast"]
         I4["pestle-analysis"]
         I5["threat-model"]
-        I6["coalition-dynamics"]
-        I7["+9 more"]
+        I6["voting-patterns"]
+        I7["workflow-audit"]
+        I8["cross-session-intel"]
+        I9["+10 more"]
     end
     subgraph CLASS["🏷️ classification/ — 4 artifacts"]
         C1["significance-classification"]
@@ -78,6 +80,10 @@ flowchart LR
     subgraph DOCS["📄 documents/ — 1 artifact"]
         D1["document-analysis-index"]
     end
+    subgraph LEG["📜 existing/ — 2 long-form + mirrors"]
+        L1["deep-analysis"]
+        L2["session-baseline"]
+    end
     subgraph META["📒 manifest"]
         M1["manifest.json"]
     end
@@ -87,6 +93,7 @@ flowchart LR
     R --> RISK
     R --> THREAT
     R --> DOCS
+    R --> LEG
     R --> META
 
     style INPUT fill:#1565C0,color:#ffffff
@@ -94,6 +101,7 @@ flowchart LR
     style CLASS fill:#2E7D32,color:#ffffff
     style RISK fill:#FF9800,color:#000000
     style THREAT fill:#D32F2F,color:#ffffff
+    style LEG fill:#FFC107,color:#000000
     style DOCS fill:#0288D1,color:#ffffff
     style META fill:#FFC107,color:#000000
 ```
@@ -127,7 +135,7 @@ Every row in the catalog below answers these six questions about one artifact:
 
 ---
 
-## 🧠 `intelligence/` — 15 Artifacts
+## 🧠 `intelligence/` — 18 Artifacts
 
 The analytical core. Every run produces these; longer-form article types require all 15, breaking news requires the full 15 too.
 
@@ -148,6 +156,9 @@ The analytical core. Every run produces these; longer-form article types require
 | `intelligence/political-threat-landscape.md` | Threat Landscape view of the period — 6 purpose-built dimensions for EP democracy. | [political-threat-framework.md §Landscape](political-threat-framework.md) | [threat-analysis.md](../templates/threat-analysis.md) | 90 | graph TD (landscape) |
 | `intelligence/wildcards-blackswans.md` | Low-probability / high-impact reserve watchlist with trigger conditions. | [per-artifact-methodologies.md §wildcards-blackswans](per-artifact-methodologies.md#wildcards-blackswans) | [risk-assessment.md](../templates/risk-assessment.md) | 275 | quadrantChart (prob × impact) |
 | `intelligence/reference-analysis-quality.md` | Self-score of this run against the reference benchmark + gaps + Pass-2 plan. | [per-artifact-methodologies.md §reference-analysis-quality](per-artifact-methodologies.md#reference-analysis-quality) | [per-file-political-intelligence.md](../templates/per-file-political-intelligence.md) | 190 | flowchart (pass1 → pass2) |
+| `intelligence/voting-patterns.md` | Group-by-group bloc behaviour for the period: cohesion per group, observed coalitions, win-rate per bloc, outlier votes, forward-vote forecasts. | [per-artifact-methodologies.md §voting-patterns](per-artifact-methodologies.md#voting-patterns) | [voting-patterns.md](../templates/voting-patterns.md) | 150 | graph LR (group agreement network) |
+| `intelligence/workflow-audit.md` | End-of-run self-audit — phases completed, MCP tools called, Core Principles compliance, time budget, issues and next-run recommendations. | [per-artifact-methodologies.md §workflow-audit](per-artifact-methodologies.md#workflow-audit) | [workflow-audit.md](../templates/workflow-audit.md) | 100 | flowchart LR (6-phase execution) |
+| `intelligence/cross-session-intelligence.md` | Session-over-session narrative across plenary sessions within a period — crystallisation moment, momentum indicators, cross-session themes. | [per-artifact-methodologies.md §cross-session-intelligence](per-artifact-methodologies.md#cross-session-intelligence) | [cross-session-intelligence.md](../templates/cross-session-intelligence.md) | 220 (motions quarterly) / 150 (week- & month-in-review) | timeline + flowchart |
 
 ---
 
@@ -199,9 +210,29 @@ Produced for runs that emphasise democratic-threat or integrity-threat angles (t
 
 ---
 
+## 📜 `existing/` — Legacy Long-Form Layout (2 Artifacts + Mirrors)
+
+Used by `motions`, `propositions`, and long-form quarter / month-in-review workflows when the content does not fit any of the 5 standard folders. Newer runs may place the same content under `intelligence/` — both locations are valid.
+
+| Artifact | Purpose (1 line) | Methodology | Template | Min lines (motions) | Mermaid type |
+|---|---|---|---|:---:|---|
+| `existing/deep-analysis.md` | Long-form (4 000–10 000 word) Economist-style political intelligence prose — the 30-minute read. | [per-artifact-methodologies.md §deep-analysis](per-artifact-methodologies.md#deep-analysis) | [deep-analysis.md](../templates/deep-analysis.md) | 400 | ≥3 diagrams (structural thesis + coalition + forward trajectory) |
+| `existing/session-baseline.md` | Structured calendar + adopted-texts roster for every plenary session in scope. | [per-artifact-methodologies.md §session-baseline](per-artifact-methodologies.md#session-baseline) | [session-baseline.md](../templates/session-baseline.md) | 200 | gantt (Strasbourg / Brussels timeline) |
+
+**Mirror artifacts** — older `motions-*` runs also mirror `intelligence/coalition-dynamics.md`, `intelligence/stakeholder-impact.md`, and `intelligence/synthesis-summary.md` into `existing/` alongside the two artifacts above. Construction rules are identical to the `intelligence/` counterparts.
+
+### Folder Variants
+
+| Canonical folder | Historical variant | Treatment |
+|------------------|--------------------|-----------|
+| `risk-scoring/` | `risk/` | Both accepted. New runs **must** write to `risk-scoring/`. |
+| `intelligence/` | `existing/` (for long-form + mirrors) | Both accepted. New runs may use either; `intelligence/` is preferred. |
+
+---
+
 ## 📒 `manifest.json`
 
-Machine-readable index of everything above. Generated by the workflow before PR creation. Every AI agent **must** append its artifact paths to `manifest.files.{group}[]` (`intelligence`, `classification`, `risk_scoring`, `threat_assessment`, `documents`). The article-generation footer (`renderAnalysisTransparencySection`) reads this manifest to produce the Analysis Sources section in every published article. See [ai-driven-analysis-guide.md §Step 10](ai-driven-analysis-guide.md) for the exact schema.
+Machine-readable index of everything above. Generated by the workflow before PR creation. Every AI agent **must** append its artifact paths to `manifest.files.{group}[]` (`intelligence`, `classification`, `risk_scoring`, `threat_assessment`, `documents`, `existing`). The article-generation footer (`renderAnalysisTransparencySection`) reads this manifest to produce the Analysis Sources section in every published article. See [ai-driven-analysis-guide.md §Step 10](ai-driven-analysis-guide.md) for the exact schema.
 
 ---
 
@@ -213,7 +244,7 @@ An agent starting a run reads this catalog, then proceeds through the 10-step pr
 2. [`ai-driven-analysis-guide.md`](ai-driven-analysis-guide.md) → know *how* to produce it.
 3. [`per-artifact-methodologies.md`](per-artifact-methodologies.md) → look up *per-artifact* construction rules as needed.
 4. The five framework methodologies ([SWOT](political-swot-framework.md), [Risk](political-risk-methodology.md), [Threat](political-threat-framework.md), [Classification](political-classification-guide.md), [Style](political-style-guide.md)) → apply the relevant framework when the protocol step calls for it.
-5. The nine templates under [`../templates/`](../templates/README.md) → copy the shape into the artifact file and fill it with analysis.
+5. The thirteen templates under [`../templates/`](../templates/README.md) → copy the shape into the artifact file and fill it with analysis.
 
 ---
 

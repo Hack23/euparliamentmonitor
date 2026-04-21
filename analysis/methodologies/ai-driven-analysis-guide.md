@@ -176,10 +176,13 @@ Consolidate everything into the two files readers reach for first.
 1. Write `intelligence/synthesis-summary.md` — executive finding, Top-5 findings table, parliament-status dashboard, stakeholder snapshot, ≥6 forward monitors, confidence ledger. Anchor each Top-5 finding to the specific artifact it came from.
 2. Write `intelligence/significance-scoring.md` — 5-dimension composite per candidate item with publish decision, top-item narrative, 30-day median comparison.
 3. Write `intelligence/cross-run-diff.md` — Bayesian delta vs. the previous same-type run: what changed in data, what changed in assessment, confidence migration. Emit a "carry-forward vs. superseded" table.
-4. Write `intelligence/mcp-reliability-audit.md` from the Step 3 endpoint ledger — endpoint scoreboard, per-endpoint findings, upstream issues filed on `Hack23/European-Parliament-MCP-Server`, alternative-source bridge.
-5. Write `intelligence/reference-analysis-quality.md` — self-score of this run against the reference benchmark ([Run 184](../daily/2026-04-18/breaking-run184/)) with a Pass-2 action list.
-6. Write `intelligence/analysis-index.md` — read-me-first index of every artifact with reading priority (P1 / P2 / P3), line count, and status.
-7. Finalize `manifest.json.files.intelligence[]`.
+4. Write `intelligence/voting-patterns.md` — group-by-group coalition arithmetic for the period (see [voting-patterns template](../templates/voting-patterns.md)). Required whenever ≥1 plenary session is in scope.
+5. Write `intelligence/cross-session-intelligence.md` — session-over-session narrative across ≥2 plenary sessions (weekly / monthly / quarterly / motions runs only; see [cross-session-intelligence template](../templates/cross-session-intelligence.md)).
+6. For long-form runs (`motions`, `month-in-review`, `propositions`), write `existing/session-baseline.md` and `existing/deep-analysis.md` (see [session-baseline template](../templates/session-baseline.md) and [deep-analysis template](../templates/deep-analysis.md)).
+7. Write `intelligence/mcp-reliability-audit.md` from the Step 3 endpoint ledger — endpoint scoreboard, per-endpoint findings, upstream issues filed on `Hack23/European-Parliament-MCP-Server`, alternative-source bridge.
+8. Write `intelligence/reference-analysis-quality.md` — self-score of this run against the reference benchmark ([Run 184](../daily/2026-04-18/breaking-run184/)) with a Pass-2 action list.
+9. Write `intelligence/analysis-index.md` — read-me-first index of every artifact with reading priority (P1 / P2 / P3), line count, and status.
+10. Finalize `manifest.json.files.intelligence[]` (and `manifest.json.files.existing[]` for long-form runs).
 
 **Product of Step 7:** a run a reader can enter through `analysis-index.md`, spend 5 minutes in `synthesis-summary.md`, and still leave with a defensible political-intelligence picture.
 
@@ -252,17 +255,19 @@ The final gate is machine-enforced; pass it before the PR.
 
 3. Run `npx tsx src/utils/validate-articles.ts --date=$TODAY --quality --strict`. A non-zero exit blocks PR creation — fix the article and re-run.
 
-4. Emit a pre-flight attestation line in the log:
+4. Write `intelligence/workflow-audit.md` as the last intelligence artifact (see [workflow-audit template](../templates/workflow-audit.md)) — 6-phase execution table, MCP call log, 10 Core Principles scorecard, time-budget breakdown, issues and deviations, recommendations for the next same-type run. This is the run's transparency record; downstream reviewers and the next run read it first.
+
+5. Emit a pre-flight attestation line in the log:
 
     ```
     PREFLIGHT_ATTESTATION: read N/N artifacts from ${ANALYSIS_DIR} (L lines)
     ```
 
-5. `git add "${ANALYSIS_DIR}"` plus the emitted `news/` HTML files. Commit with an analytical message naming the run's headline finding. The commit message never includes generic phrases — it names the specific political event.
+6. `git add "${ANALYSIS_DIR}"` plus the emitted `news/` HTML files. Commit with an analytical message naming the run's headline finding. The commit message never includes generic phrases — it names the specific political event.
 
-6. Call `safeoutputs___create_pull_request` **exactly once, at the very end of the run, after every file is written**. The safe-output handler takes a synchronous git-patch snapshot at call time; any file written after the call is not in the PR.
+7. Call `safeoutputs___create_pull_request` **exactly once, at the very end of the run, after every file is written**. The safe-output handler takes a synchronous git-patch snapshot at call time; any file written after the call is not in the PR.
 
-7. If Step 7 concluded the period did not produce a publishable event, still call `safeoutputs___create_pull_request` — an analysis-only PR. No workflow run is wasted: quiet-period analysis reveals patterns too.
+8. If Step 7 concluded the period did not produce a publishable event, still call `safeoutputs___create_pull_request` — an analysis-only PR. No workflow run is wasted: quiet-period analysis reveals patterns too.
 
 **Product of Step 10:** a PR with the full analysis directory + (optionally) the published article, attested complete and validated.
 

@@ -26,7 +26,10 @@
       "risk-scoring/risk-matrix.md": 150,
       "risk-scoring/quantitative-swot.md": 140,
       "documents/document-analysis-index.md": 95,
-      "classification/significance-classification.md": 105
+      "classification/significance-classification.md": 105,
+      "intelligence/voting-patterns.md": 150,
+      "intelligence/workflow-audit.md": 100,
+      "intelligence/cross-session-intelligence.md": 150
     },
     "week-in-review": {
       "intelligence/analysis-index.md": 120,
@@ -40,6 +43,9 @@
       "intelligence/wildcards-blackswans.md": 200,
       "intelligence/mcp-reliability-audit.md": 200,
       "intelligence/reference-analysis-quality.md": 140,
+      "intelligence/voting-patterns.md": 150,
+      "intelligence/workflow-audit.md": 100,
+      "intelligence/cross-session-intelligence.md": 150,
       "risk-scoring/risk-matrix.md": 120,
       "risk-scoring/quantitative-swot.md": 120
     },
@@ -55,6 +61,11 @@
       "intelligence/wildcards-blackswans.md": 240,
       "intelligence/mcp-reliability-audit.md": 200,
       "intelligence/reference-analysis-quality.md": 140,
+      "intelligence/voting-patterns.md": 180,
+      "intelligence/workflow-audit.md": 100,
+      "intelligence/cross-session-intelligence.md": 220,
+      "existing/deep-analysis.md": 300,
+      "existing/session-baseline.md": 180,
       "risk-scoring/risk-matrix.md": 140,
       "risk-scoring/quantitative-swot.md": 140
     },
@@ -115,6 +126,11 @@
       "intelligence/wildcards-blackswans.md": 180,
       "intelligence/mcp-reliability-audit.md": 200,
       "intelligence/reference-analysis-quality.md": 140,
+      "intelligence/voting-patterns.md": 200,
+      "intelligence/workflow-audit.md": 100,
+      "intelligence/cross-session-intelligence.md": 220,
+      "existing/deep-analysis.md": 400,
+      "existing/session-baseline.md": 200,
       "risk-scoring/risk-matrix.md": 100,
       "risk-scoring/quantitative-swot.md": 100
     },

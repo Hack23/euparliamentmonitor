@@ -14,12 +14,12 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.1-555?style=for-the-badge" alt="Version"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--21-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.0 | **📅 Last Updated:** 2026-04-21 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Last Updated:** 2026-04-21 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
 
 ---
@@ -362,6 +362,75 @@ Each section is self-contained and describes a single analysis artifact. Use it 
 
 ---
 
+### voting-patterns
+
+**Purpose.** Group-by-group bloc-behaviour analysis for the period — cohesion per group, observed coalitions, bloc win-rate, outlier votes, forward-vote forecasts. Distinct from [`coalition-dynamics`](#coalition-dynamics) (which is alliance-pair focused): voting-patterns answers *"how did each of the 8 groups behave?"*
+
+**EP MCP inputs.** `get_voting_records` per plenary session covered, `analyze_voting_patterns`, `analyze_coalition_dynamics`, `compare_political_groups`, `track_mep_attendance` (for attendance-weighted cohesion).
+
+**Required sections.**
+1. Group size & theoretical coalition arithmetic — ≥8 groups with seat counts, % of 720, one-line strategic role.
+2. Observed coalition patterns — table of ≥4 coalitions (Grand Centre, Progressive-Centrist, Conservative-Right, Opposition) with typical majority size, use-case policy domains, cohesion %, ≥1 RCV citation per row.
+3. Per-group behaviour — ≥7 groups each with internal cohesion %, dominant position, notable defections (named MEPs + RCV IDs), cross-group alliances.
+4. Bloc-behaviour index — per-bloc win-rate with trend vs. prior period.
+5. Stress points & outlier votes — ≥3 named RCVs where coalitions flipped, with ≥30-word explanation.
+6. Forward implications — ≥3 upcoming votes with expected coalition, confidence level, flip-conditions.
+
+**Mandatory Mermaid.** `graph LR` of groups linked by agreement-rate edges; EPP blue, S&D red, Renew orange, Greens green, ECR light-blue (party colours aligned with the Hack23 semantic palette where possible).
+
+**Depth floor (breaking):** 150 lines (weekly / other: 120 lines).
+
+**Quality signals.** ≥5 RCV IDs cited; every cohesion % has a vote-count backing; aggregate-only claims explicitly flagged LOW confidence where EP roll-call data has not yet published.
+
+---
+
+### workflow-audit
+
+**Purpose.** End-of-run self-audit of workflow execution — phases completed, MCP tools called, Core Principles compliance, time budget, issues and deviations. Produced at Step 10 of the 10-step protocol by every news-* workflow.
+
+**EP MCP inputs.** None directly. Reads the workflow log, the run's `data/` directory, the run's artifact filesystem, and `manifest.json`.
+
+**Required sections.**
+1. Metadata YAML block — `articleType`, `runId`, `date`, `confidenceLevel`, `rulesAudited`, `complianceRate`.
+2. Workflow execution summary — 6-phase table with status per phase (Health gate → Data collection → Editorial context → Analysis → Significance gate → Validation → PR creation).
+3. MCP tool call log — one row per MCP call with tool, args (truncated), result, record count, latency.
+4. Core Principles compliance — 10-row scorecard against [`ai-driven-analysis-guide.md §Core Principles`](ai-driven-analysis-guide.md#-core-principles-the-10-rules-that-replace-rules-122), with evidence cell per row.
+5. Artifact production — folder-by-folder table (planned / produced / short-of-floor).
+6. Time budget — step-by-step target vs. actual.
+7. Issues & deviations — per-issue narrative (symptom / root cause / workaround / next-run recommendation).
+8. Recommendations for the next same-type run — ≥3 concrete items.
+
+**Mandatory Mermaid.** `flowchart LR` of the 6 phases colour-coded by status (green=ok, orange=degraded, red=failed).
+
+**Depth floor (breaking):** 100 lines (same across article types — this is a run-transparency artifact, not a content artifact).
+
+**Quality signals.** Every ❌ or ⚠️ status has a named symptom; every next-run recommendation is specific enough that the next run can execute it without re-deriving it.
+
+---
+
+### cross-session-intelligence
+
+**Purpose.** Session-over-session narrative of parliamentary politics *across plenary sessions* within a period. Distinct from [`cross-run-diff`](#cross-run-diff) (which is cross-run of the same article type) — this file tells the story of *how the political programme matured across sessions*.
+
+**EP MCP inputs.** `get_plenary_sessions` (year-filtered), `get_meeting_decisions` per session ID, `get_meeting_activities`, `get_adopted_texts` (period), `get_voting_records` per session.
+
+**Required sections.**
+1. Session overview — table with ≥2 sessions covering dates, sitting days, location, texts adopted, theme.
+2. Progression diagram — Mermaid `timeline` showing the period's sessions as a horizontal sequence with key themes.
+3. Session-by-session progression — ≥200 words per session covering character, political arc, ≥3 adopted-text IDs, rapporteurs.
+4. Cross-session themes — ≥4 themes with "sessions touched" columns and trajectory narrative (≥30 words each).
+5. Crystallisation moment — identify the period's single most strategically concentrated session with ≥250-word analysis.
+6. Momentum indicators — multi-metric table (texts/day, cohesion %, RCVs/day, attendance %) across all sessions with trend arrows.
+7. Forward outlook for next session — ≥3 topic forecasts with confidence levels.
+
+**Mandatory Mermaid.** `timeline` of the period's sessions. Optional secondary `flowchart LR` showing cross-session theme threads.
+
+**Depth floor (breaking):** 220 lines (motions quarterly-scope runs), 150 lines (week-in-review / month-in-review).
+
+**Quality signals.** Sessions reference specific part-session IDs or date ranges; the crystallisation-moment section stands on its own as analysis (not a bullet list).
+
+---
+
 ## 🏷️ classification/
 
 ### significance-classification
@@ -598,6 +667,79 @@ Each section is self-contained and describes a single analysis artifact. Use it 
 
 ---
 
+## 📜 existing/ (legacy long-form layout)
+
+The `existing/` folder is the canonical location for long-form prose artifacts used by `motions`, `propositions`, and quarter / month-in-review workflows. It is a **layout convention**, not a new artifact group — files here co-exist with the 5 standard folders (`intelligence/`, `classification/`, `risk-scoring/`, `threat-assessment/`, `documents/`) and carry content the standard folders cannot accommodate (10 000-word political prose; multi-session fact rosters). Newer runs may place the same content under `intelligence/` instead; both locations are valid.
+
+### deep-analysis
+
+**Purpose.** Long-form (4 000–10 000 word) Economist-style political intelligence prose — the 30-minute read complement to the 5-minute `synthesis-summary.md`. Primary output of `motions-run*` workflows, secondary output of `month-in-review` and `propositions` workflows.
+
+**EP MCP inputs.** Consumes the run's `session-baseline.md`, `voting-patterns.md`, `cross-session-intelligence.md`, `coalition-dynamics.md`, `stakeholder-map.md`. Pulls named adopted-text IDs directly from `get_adopted_texts` results in `data/`.
+
+**Required sections.**
+1. Executive summary — ≥200 words stating the political thesis of the period.
+2. Structural thesis — ≥400 words identifying ≥3 named policy clusters with ≥2 named texts per cluster, coalition footprint, historical comparison.
+3. Crystallisation moment — ≥500 words on the period's defining session with architectural, procedural, and coalition angles; ≥3 adopted-text IDs and ≥2 RCV IDs cited inline.
+4. Coalition dynamics — ≥500 words on the Grand Centre (or dominant coalition) performance with ≥2 named MEPs whose defections mattered.
+5. Policy dimensions — ≥4 sub-sections, ≥300 words each (Trade / Defence / Digital / Environment / etc.), each with committee, rapporteur, adopted texts, coalition behaviour.
+6. Institutional dynamics — ≥400 words on the EP ↔ Commission ↔ Council triangle.
+7. Geopolitical context — ≥400 words grounding the period in external events and macro indicators.
+8. Forward trajectory — ≥400 words with ≥5 forward monitors and ≥2 probability-weighted scenarios.
+9. Confidence & method note — ≥150 words explaining data-source bridges, gaps, and what would change the assessment.
+
+**Mandatory Mermaid.** ≥3 diagrams across the file (structural thesis diagram + coalition network + forward trajectory flowchart are typical).
+
+**Depth floor (breaking):** 400 lines (motions / month-in-review), 200 lines (week-in-review).
+
+**Quality signals.** ≥15 named procedures / adopted texts / RCVs cited inline; ≥2 historical comparisons (prior term / prior year); named coalitions with explicit cohesion percentages; no partisan conclusions.
+
+---
+
+### session-baseline
+
+**Purpose.** Structured calendar + adopted-texts roster for every plenary session in scope. The data-dense reference that other artifacts cite ("see session-baseline §4.2"). Distinct from [`historical-baseline`](#historical-baseline) (metric trending) — session-baseline is the **calendar**.
+
+**EP MCP inputs.** `get_plenary_sessions` (year-filtered), `get_adopted_texts` (period), `get_procedures`, `get_committee_info`, `track_mep_attendance` for attendance means.
+
+**Required sections.**
+1. Run context — date, run ID, analysis directory, article type, parliament term, period covered.
+2. Plenary session calendar — one sub-section per session in scope with dates, location, sitting days, texts adopted, RCVs, key theme, EP session ID.
+3. Session calendar diagram — Mermaid `gantt` with Strasbourg vs. Brussels sections and each session as a bar.
+4. Period totals — sitting days, texts, RCVs, resolutions (non-binding), legislative acts (binding), mean attendance.
+5. Adopted texts roster — per-session table (≥1 row per adopted text in scope) with adopted-text ID, title (first 80 chars), procedure code, committee, domain.
+6. Committee activity map — ≥5 committees with texts reported, rapporteurships, shadow rapporteurships, dominant group.
+7. Procedure-code distribution — count and % per procedure type (COD / CNS / APP / INI / Budget / Other).
+8. Historical anchor — current period vs. same-quarter-prior-year vs. prior-quarter vs. term-to-date average with ≥100-word narrative.
+9. Data-source ledger — ≥5 MCP tools with records fetched, status, notes.
+
+**Mandatory Mermaid.** `gantt` of the session calendar.
+
+**Depth floor (breaking):** 200 lines (motions / month-in-review), 150 lines (weekly / breaking).
+
+**Quality signals.** Every session row has an explicit EP session ID or an explicit "session ID unavailable via MCP this run" note; every adopted text has a `TA-YY-YYYY-NNNN` ID.
+
+---
+
+### Mirror artifacts in `existing/`
+
+Older `motions-*` runs mirror `intelligence/coalition-dynamics.md`, `intelligence/stakeholder-impact.md`, and `intelligence/synthesis-summary.md` into `existing/` alongside `deep-analysis.md` and `session-baseline.md`. **Construction rules for these mirrors are identical to their `intelligence/` counterparts** — follow the `intelligence/` sections above. The duplication is a legacy layout side-effect; newer runs write only to the `intelligence/` location.
+
+---
+
+## 🧭 Folder Variants
+
+Two folder-name variants appear in historical runs and are treated as equivalent by the validator:
+
+| Canonical folder | Historical variant | Treatment |
+|------------------|--------------------|-----------|
+| `risk-scoring/` | `risk/` | Both accepted. New runs **must** write to `risk-scoring/`. The validator resolves `risk/` reads for backward compatibility. |
+| `intelligence/` | `existing/` (for long-form) | Both accepted for `deep-analysis.md`, `session-baseline.md`, and mirror artifacts. New runs may use either; `intelligence/` is preferred. |
+
+When authoring a run from scratch, always use the canonical folder names; when reading prior runs for cross-run-diff or historical-baseline, resolve both variants.
+
+---
+
 ## 🔗 Related Documents
 
 - [`ai-driven-analysis-guide.md`](ai-driven-analysis-guide.md) — 10-step analysis protocol (how to construct a run end-to-end)
@@ -614,5 +756,5 @@ Each section is self-contained and describes a single analysis artifact. Use it 
 **Document Control:**
 - **Path:** `/analysis/methodologies/per-artifact-methodologies.md`
 - **Classification:** Public
-- **Version:** 1.0 — Initial per-artifact construction rules extracted from Run 184 reference benchmark and daily runs 2026-04-20 / 2026-04-21.
+- **Version:** 1.1 — Initial per-artifact construction rules extracted from Run 184 reference benchmark and daily runs 2026-04-20 / 2026-04-21. v1.1 adds voting-patterns, workflow-audit, cross-session-intelligence, deep-analysis, session-baseline and documents the `existing/` legacy folder + `risk/` folder variant.
 - **Next Review:** 2026-06-30
