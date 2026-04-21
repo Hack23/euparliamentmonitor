@@ -227,7 +227,7 @@ Each section is self-contained and describes a single analysis artifact. Use it 
 
 **Purpose.** Anchor the period's policy topics in World Bank / IMF macro, fiscal, trade, monetary and sectoral data.
 
-**EP MCP inputs.** World Bank MCP (`worldbank-get-economic-data`, `worldbank-get-social-data`) and / or IMF native client (`scripts/imf-mcp-probe.sh`). See the [Wave-2 OR-gate](../.github/skills/imf-data-integration.md): either source is acceptable.
+**EP MCP inputs.** World Bank MCP (`worldbank-get-economic-data`, `worldbank-get-social-data`) and / or IMF native client (`scripts/imf-mcp-probe.sh`). See the [Wave-2 OR-gate](../../.github/skills/imf-data-integration.md): either source is acceptable.
 
 **Required sections.**
 1. Topic-to-indicator mapping — table linking each EP policy topic discussed this period to ≥1 World Bank indicator or IMF series (see [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md), [`imf-indicator-mapping.md`](imf-indicator-mapping.md)).
