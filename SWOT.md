@@ -11,14 +11,14 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.0-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--19-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.1-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--20-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.0 | **📅 Last Updated:**
-2026-03-19 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-19  
+**📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Last Updated:**
+2026-04-20 (UTC)  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-20  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring
 Platform)
 
@@ -90,8 +90,19 @@ planning and resource allocation.
 - **Market**: European civic technology, political transparency platforms
 - **Competitive Position**: Open source, automated news generation,
   multi-language support
-- **Timeline**: Current state as of Q1 2026
+- **Timeline**: Current state as of v0.8.40 (2026-04-20)
 - **Scope**: Technical, operational, strategic, and compliance dimensions
+
+### Current State Snapshot (v0.8.40)
+
+- **1894 HTML articles** in **14 languages** (en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh)
+- **7 article types**: breaking, week-ahead, week-in-review, month-ahead, month-in-review, committee-reports, motions, propositions
+- **8 generation strategies**; **10 gh-aw workflows** (`.github/workflows/*.md` → `.lock.yml`)
+- **3061+ automated tests** across **52 test files** (Vitest 4.1.4 + Playwright 1.59.1 + @axe-core/playwright 4.11.2)
+- **Stack**: Node 25, TypeScript 6.0.3 strict mode, ESM-only, Apache-2.0 license
+- **Dual economic context**: `european-parliament-mcp-server@1.2.10` (primary EP data) + `worldbank-mcp@1.0.1` + IMF SDMX 3.0 REST (Wave-2 OR-gate for `articlePolicyHasEconomicContext`)
+- **Delivery**: AWS S3 + CloudFront (OIDC-based, no long-lived secrets) primary; GitHub Pages fallback
+- **Supply chain**: npm provenance + SLSA L3 + OpenSSF Scorecard + OpenSSF Best Practices badge #12068
 
 ### Key Findings Summary
 
@@ -1420,7 +1431,7 @@ Comprehensive view of strategic position.
 
 | Version | Date       | Author | Changes                                                       |
 | ------- | ---------- | ------ | ------------------------------------------------------------- |
-| 1.1     | 2026-02-24 | CEO    | Updated strategic priority dates to 2026, verified current state |
+| 1.1     | 2026-04-20 | CEO    | v0.8.40 state refresh: 1894 articles / 14 languages / 7 article types / 3061+ tests / 52 test files / dual economic context (WB+IMF) / AWS S3+CloudFront primary delivery / SLSA L3 + npm provenance / gh-aw 5-layer security model |
 | 1.0     | 2025-02-17 | CEO    | Initial SWOT analysis with comprehensive strategic assessment |
 
 ---
@@ -1432,7 +1443,7 @@ Comprehensive view of strategic position.
 **Technology Stack**: Node.js 25, GitHub Actions, GitHub Pages, European
 Parliament MCP Server  
 **Architecture Pattern**: Static Site Generator with Zero Runtime Dependencies  
-**Review Status**: Active, next review 2026-05-24
+**Review Status**: Active, next review 2026-07-20
 
 ---
 

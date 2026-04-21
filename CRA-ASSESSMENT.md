@@ -11,13 +11,13 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-2.0-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--19-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-2.1-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--20-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.0 | **📅 Last Updated:** 2026-03-19 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-19  
+**📋 Document Owner:** CEO | **📄 Version:** 2.1 | **📅 Last Updated:** 2026-04-20 (UTC)  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-20  
 **🏛️ Process Reference:** [CRA Conformity Assessment Process](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CRA_Conformity_Assessment_Process.md)
 
 ---
@@ -73,16 +73,16 @@ As a static site generating multi-language news articles from European Parliamen
 
 | 📋 **Attribute** | 📊 **Value** |
 |------------------|-------------|
-| **Product Name** | EU Parliament Monitor |
-| **Version** | 0.5.1 |
+| **Product Name** | euparliamentmonitor (npm package + static site) |
+| **Version** | v0.8.40 (2026-04-20) |
 | **Repository** | [github.com/Hack23/euparliamentmonitor](https://github.com/Hack23/euparliamentmonitor) |
 | **Homepage** | [euparliamentmonitor.com](https://euparliamentmonitor.com) |
 | **Security Contact** | security@hack23.com |
 | **License** | Apache-2.0 |
-| **Purpose** | Multi-language European Parliament transparency platform — automated static site generating news articles in 14 languages from EU Parliament open data |
-| **Technology Stack** | Node.js 25, TypeScript, HTML5/CSS3, GitHub Actions, GitHub Pages |
-| **Deployment Model** | Static site served via GitHub Pages CDN |
-| **Data Sources** | European Parliament MCP Server (public open data) |
+| **Purpose** | Multi-language European Parliament transparency platform — 1894 HTML articles / 14 languages / 7 article types / 10 gh-aw workflows / 3061+ tests / 52 test files |
+| **Technology Stack** | Node.js 25, TypeScript 6.0.3, ESM, HTML5/CSS3, Vitest, Playwright |
+| **Deployment Model** | npm (provenance + SLSA L3), AWS S3 + CloudFront primary, GitHub Pages fallback |
+| **Data Sources** | European Parliament MCP Server 1.2.10 (public open data) |
 
 ### 📎 Evidence Links
 
@@ -704,7 +704,7 @@ CRA assessment updated when changes constitute "substantial modification" under 
 **✅ Approved by:** James Pether Sörling, CEO  
 **📤 Distribution:** Public  
 **🏷️ Classification:** [![Confidentiality: Public](https://img.shields.io/badge/C-Public-lightgrey?style=flat-square&logo=shield&logoColor=black)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md#confidentiality-levels) [![Integrity: Moderate](https://img.shields.io/badge/I-Moderate-yellow?style=flat-square&logo=check-circle&logoColor=black)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md#integrity-levels) [![Availability: Standard](https://img.shields.io/badge/A-Standard-lightgreen?style=flat-square&logo=server&logoColor=white)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md#availability-levels)  
-**📅 Effective Date:** 2026-03-19  
+**📅 Effective Date:** 2026-04-20  
 **🔄 CRA Alignment:** Self-assessment per CRA Module A — supports CRA Annex V technical documentation and Annex I essential requirements  
 **🏛️ ISMS Integration:** Comprehensive alignment with [Hack23 ISMS Public Framework](https://github.com/Hack23/ISMS-PUBLIC)  
 **🏛️ Process Reference:** [CRA Conformity Assessment Process](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CRA_Conformity_Assessment_Process.md)  

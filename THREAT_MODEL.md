@@ -11,15 +11,15 @@
 
 <p align="center">
   <a><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a><img src="https://img.shields.io/badge/Version-2.0-555?style=for-the-badge" alt="Version"/></a>
-  <a><img src="https://img.shields.io/badge/Effective-2026--03--19-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a><img src="https://img.shields.io/badge/Version-2.1-555?style=for-the-badge" alt="Version"/></a>
+  <a><img src="https://img.shields.io/badge/Effective-2026--04--20-success?style=for-the-badge" alt="Effective Date"/></a>
   <a><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
   <a href="https://www.bestpractices.dev/projects/12068"><img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.0 | **📅 Last Updated:**
-2026-03-19 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-19  
+**📋 Document Owner:** CEO | **📄 Version:** 2.1 | **📅 Last Updated:**
+2026-04-20 (UTC)  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-20  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring
 Platform)
 
@@ -2269,8 +2269,8 @@ requirements (5-strategy integration, ENISA TL 2024, Kill Chain, Quantitative Ri
 
 1. **Q3 2026:** Implement T-003, T-007, T-013 mitigations (automated fact-checking, API monitoring, cross-reference validation)
 2. **Q3 2026:** Advance to Maturity Level 3 (Democratic Analysis Excellence)
-3. **2026-05-26:** Conduct next quarterly threat model review
-4. **2027-02-26:** Annual comprehensive threat model update
+3. **2026-07-20:** Conduct next quarterly threat model review
+4. **2027-04-20:** Annual comprehensive threat model update
 
 ---
 
