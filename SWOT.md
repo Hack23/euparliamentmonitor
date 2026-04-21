@@ -11,14 +11,14 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.0-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--19-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.1-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--20-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.0 | **📅 Last Updated:**
-2026-03-19 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-19  
+**📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Last Updated:**
+2026-04-20 (UTC)  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-20  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring
 Platform)
 
@@ -90,8 +90,19 @@ planning and resource allocation.
 - **Market**: European civic technology, political transparency platforms
 - **Competitive Position**: Open source, automated news generation,
   multi-language support
-- **Timeline**: Current state as of Q1 2026
+- **Timeline**: Current state as of v0.8.40 (2026-04-20)
 - **Scope**: Technical, operational, strategic, and compliance dimensions
+
+### Current State Snapshot (v0.8.40)
+
+- **1894 HTML articles** in **14 languages** (en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh)
+- **8 article types**: breaking, week-ahead, week-in-review, month-ahead, month-in-review, committee-reports, motions, propositions
+- **9 generation strategies** (1 generic `article-strategy` + 8 type-specific); **10 gh-aw workflows** (`.github/workflows/*.md` → `.lock.yml`)
+- **3061+ automated tests** across **52 test files** (Vitest 4.1.4 + Playwright 1.59.1 + @axe-core/playwright 4.11.2)
+- **Stack**: Node 25, TypeScript 6.0.3 strict mode, ESM-only, Apache-2.0 license
+- **Dual economic context**: `european-parliament-mcp-server@1.2.10` (primary EP data) + `worldbank-mcp@1.0.1` + IMF SDMX 3.0 REST (Wave-2 OR-gate for `articlePolicyHasEconomicContext`)
+- **Delivery**: AWS S3 + CloudFront (OIDC-based, no long-lived secrets) primary; GitHub Pages fallback
+- **Supply chain**: npm provenance + SLSA L3 + OpenSSF Scorecard + OpenSSF Best Practices badge #12068
 
 ### Key Findings Summary
 
@@ -399,6 +410,21 @@ public security evidence.
 
 ---
 
+### 🆕 2026-04-20 Refresh — Strengths S8–S17
+
+- **S8: Industrial-Scale Multilingual Output** — 1,894 HTML articles generated across 14 languages with zero manual editorial overhead via the gh-aw agentic pipeline; demonstrates throughput far beyond human editorial capacity. *Impact: 9/10.*
+- **S9: AI-First 2-Pass Quality Regime** — enforced gates: ≥80 words/SWOT item, ≥150 words/stakeholder perspective, ≥60% prose ratio, ≥1 Chart.js visualization, zero `[AI_ANALYSIS_REQUIRED]` markers at merge. *Impact: 8/10.*
+- **S10: Article-Type-Specific Reference Thresholds** — `mcp-reliability-audit` ≥200 words (breaking ≥385); `reference-analysis-quality` ≥140 (breaking ≥190); enforced per article type in `scripts/utils/validate-analysis-completeness.js` (compiled from `src/utils/validate-analysis-completeness.ts`). *Impact: 8/10.*
+- **S11: Triple Supply-Chain Attestation** — SLSA Level 3 build attestations + npm provenance + OpenSSF Scorecard + [OpenSSF Best Practices #12068](https://www.bestpractices.dev/projects/12068). *Impact: 9/10.*
+- **S12: Test Depth** — 3,061+ tests across 52 files: Vitest 4.1.4 (unit+integration), Playwright 1.59.1 + @axe-core/playwright (WCAG 2.1 AA E2E), HTMLHint, ESLint 10.2.1 + sonarjs + security + jsdoc plugins. *Impact: 8/10.*
+- **S13: Dual Economic-Context Surfaces** — World Bank MCP 1.0.1 + IMF REST SDMX 3.0, with Wave-2 OR-gate `articlePolicyHasEconomicContext` ensuring the article policy succeeds if either source is available. *Impact: 7/10.*
+- **S14: Hardened Agentic Pipeline** — 10 gh-aw agentic workflows with 5-layer security: AWF Squid firewall egress allowlist, Docker sandbox, safe-outputs caps, JSONL stdio audit, lock-file compile-gate pinned to `v0.69.0`. *Impact: 9/10.*
+- **S15: Typed Public npm API** — `scripts/**/*.d.ts` declarations enable downstream reuse by other civic-tech projects; positions the package as reusable infrastructure. *Impact: 6/10.*
+- **S16: AWS Primary + GitHub Pages Fallback** — AWS S3+CloudFront primary distribution with OIDC federation (no long-lived keys) + documented GitHub Pages fallback runbook for BCP. *Impact: 8/10.*
+- **S17: Canonical MCP Tool-List Drift Tests** — `IMF_MCP_TOOLS` and `WORLD_BANK_MCP_TOOLS` asserted in `test/integration/mcp/*` detect upstream API drift at CI time. *Residual gap: EP MCP client lacks canonical `EP_MCP_TOOLS` list (tracked in Weaknesses).* *Impact: 7/10.*
+
+---
+
 ## ⚠️ Weaknesses
 
 Internal limitations and areas requiring improvement or resource allocation.
@@ -641,6 +667,20 @@ builds | 50-70% |
 **Risk Level**: 🟢 Low (nice-to-have)
 
 **Remediation Priority**: Low
+
+---
+
+### 🆕 2026-04-20 Refresh — Weaknesses W7–W15
+
+- **W7: Sole LLM-Provider Dependency** — full pipeline relies on Copilot/Claude/Codex availability; the engine-switch feature mitigates single-vendor outage but still requires at least one functioning LLM provider. *Risk: 🟡 Medium.*
+- **W8: EP MCP Single Technical Source** — the EP MCP server is the sole upstream for European Parliament data; it is Hack23-owned (reducing third-party risk) but remains a single technical source with no redundant parliamentary data surface. *Risk: 🟡 Medium.*
+- **W9: IMF+WB Indicator Curation Burden** — indicator mapping between committee topics and WB/IMF indicators requires ongoing curation in `analysis/methodologies/imf-indicator-mapping.md` and `src/constants/committee-indicator-map.ts`. *Risk: 🟢 Low.*
+- **W10: gh-aw v0.69.0 Pin Fragility** — upstream breaking changes to gh-aw require a manual bump plus recompilation of 10 `.lock.yml` files; centralized compile job helps but the pin itself is a fragility point. *Risk: 🟡 Medium.*
+- **W11: Deliberately Minimal Engagement Surface** — the static site intentionally omits search, personalization, and comments; this reduces attack surface and GDPR exposure but also limits user engagement metrics and retention. *Risk: 🟢 Low (by design).*
+- **W12: Bus Factor 1–2 at Hack23** — no external community contributors yet; knowledge concentration remains in a small Hack23 team. *Risk: 🔴 High (long-term).*
+- **W13: Monolingual Source-of-Truth** — English is the sole authoritative source; 13 translation targets pass the pre-translation validator gate but are not line-by-line human reviewed, creating potential for drift across locales. *Risk: 🟡 Medium.*
+- **W14: EP Fixed-Window Feed Limitations** — EP MCP fixed-window feeds (7 tools) offer no timeframe filtering — pagination only; constrains historical-query precision. *Risk: 🟢 Low.*
+- **W15: Missing EP MCP Canonical Tool-List Export** — the EP MCP client does not yet export a canonical `EP_MCP_TOOLS` list, so the drift-test coverage available for IMF+WB is not yet available for EP. *Risk: 🟡 Medium — tracked in CRA gap table row 13.*
 
 ---
 
@@ -933,6 +973,19 @@ Low |
 **Resource Requirements**: Medium-High (multi-platform)
 
 **Impact Potential**: 🌟🌟🌟🌟 High
+
+---
+
+### 🆕 2026-04-20 Refresh — Opportunities O7–O14
+
+- **O7: Expand MCP Data Surface** — extend beyond EP/WB/IMF to Council of EU, OECD, Eurostat, and UN data for richer cross-referenced civic intelligence. *Impact: 🌟🌟🌟🌟.*
+- **O8: Cross-Parliament Coverage** — riksdagsmonitor already covers the Swedish Riksdag; natural expansion to Bundestag, Assemblée Nationale, Cortes Generales builds a pan-European parliamentary transparency network. *Impact: 🌟🌟🌟🌟🌟.*
+- **O9: Federated Distribution** — RSS/Atom feeds + ActivityPub/Mastodon distribution reaches journalism communities that actively avoid centralized platforms. *Impact: 🌟🌟🌟.*
+- **O10: Progressive Web App Mobile Experience** — PWA layer atop the existing static site delivers a near-native mobile experience without abandoning the static-site security model. *Impact: 🌟🌟🌟.*
+- **O11: Civic-Tech Partnership Ecosystem** — align with Transparency International, Access Info Europe, and similar NGOs for joint advocacy and shared data surfaces. *Impact: 🌟🌟🌟🌟.*
+- **O12: Academic Research Partnerships** — the parliamentary-analytics dataset is publishable for peer-reviewed research in political science, democratic-transparency studies, and computational civic tech. *Impact: 🌟🌟🌟.*
+- **O13: CRA Article 24 Reference Implementation** — position EU Parliament Monitor as an exemplar Article 24 OSS-Steward compliance reference for other civic-tech OSS projects facing the December 2027 deadline. *Impact: 🌟🌟🌟🌟.*
+- **O14: Wave-2 OR-Gate Roll-Out** — extend `articlePolicyHasEconomicContext` OR-gate pattern across all policy-adjacent article types (environment, security, digital, social) to increase robustness against single-source outages. *Impact: 🌟🌟🌟.*
 
 ---
 
@@ -1268,6 +1321,20 @@ Funding** | €0 | €10-20k | 🔴 Critical |
 
 ---
 
+### 🆕 2026-04-20 Refresh — Threats T7–T15
+
+- **T7: EU CRA Scope Interpretation** — the December 2027 full-compliance deadline approaches and Article 24 applicability to static-site+npm-package OSS stewards remains unclear; see [`CRA-ASSESSMENT.md`](CRA-ASSESSMENT.md) §5ᵇ gap table. *Risk: 🟡 Medium.*
+- **T8: LLM Economics** — Copilot/Claude/Codex pricing, rate-limit, or access-model changes could degrade pipeline throughput or increase operational cost; mitigated by engine-switch. *Risk: 🟡 Medium.*
+- **T9: Upstream EP Open Data Portal Schema Drift** — precedent: issues #377/#378 shipped breaking schema changes that were fixed in EP MCP 1.2.10; future drift is a recurring risk absorbed by the EP MCP layer but still a pipeline risk. *Risk: 🟡 Medium.*
+- **T10: Political-Bias Allegations** — any transparency platform covering parliamentary activity faces reputational risk around perceived bias; mitigated by source transparency, open methodology, and public SWOT/THREAT_MODEL documentation. *Risk: 🟡 Medium.*
+- **T11: Supply-Chain Attack Vectors** — npm, GitHub, and AWS remain attack surfaces; SLSA L3 + OIDC federation + npm provenance mitigate but do not eliminate exposure. See THREAT_MODEL.md T-002, T-011, T-012, T-026. *Risk: 🟡 Medium.*
+- **T12: Prompt Injection via Adversarial EP Debate Content** — mitigated by validator gate + `FALLBACK_TEMPLATE_PATTERNS` scan + 2-pass AI review; see THREAT_MODEL.md T-021. *Risk: 🟡 Medium.*
+- **T13: Translation-Pipeline Disinformation Weaponization** — the 13-language fan-out could propagate plausible falsehoods at scale if the pre-translation validator is bypassed; mitigated by 2-pass review and `news-translate-reconciler.yml`; see THREAT_MODEL.md T-027. *Risk: 🟠 Medium–High.*
+- **T14: GDPR / DSA / Content-Moderation Regulatory Drift** — civic-tech publishing faces evolving EU content regulation; monitored but creates compliance risk for news-generation workflows. *Risk: 🟡 Medium.*
+- **T15: AWF Firewall Allowlist Maintenance Burden** — as new legitimate upstream domains become necessary (new MCP surfaces, new LLM providers), allowlist maintenance grows; drift risk if allowlist updates lag operational need. *Risk: 🟢 Low.*
+
+---
+
 ## 🎯 Strategic Priorities Matrix
 
 Prioritize initiatives based on impact and effort.
@@ -1360,10 +1427,10 @@ Comprehensive view of strategic position.
 
 | Category          | Count | Severity   | Strategic Focus                                 |
 | ----------------- | ----- | ---------- | ----------------------------------------------- |
-| **Strengths**     | 7     | 8.1/10 avg | Leverage for growth and differentiation         |
-| **Weaknesses**    | 6     | 6.5/10 avg | Prioritize MCP development and quality controls |
-| **Opportunities** | 6     | 8.3/10 avg | Pursue AI advancement and partnerships actively |
-| **Threats**       | 6     | 6.7/10 avg | Mitigate LLM reliability and compliance risks   |
+| **Strengths**     | 17    | 8.1/10 avg | Leverage for growth and differentiation (S1–S7 + S8–S17 2026-04-20 refresh) |
+| **Weaknesses**    | 15    | 6.5/10 avg | Prioritize MCP development and quality controls (W1–W6 + W7–W15 2026-04-20 refresh) |
+| **Opportunities** | 14    | 8.3/10 avg | Pursue AI advancement and partnerships actively (O1–O6 + O7–O14 2026-04-20 refresh) |
+| **Threats**       | 15    | 6.7/10 avg | Mitigate LLM reliability and compliance risks (T1–T6 + T7–T15 2026-04-20 refresh) |
 
 ### Key Strategic Insights
 
@@ -1420,7 +1487,7 @@ Comprehensive view of strategic position.
 
 | Version | Date       | Author | Changes                                                       |
 | ------- | ---------- | ------ | ------------------------------------------------------------- |
-| 1.1     | 2026-02-24 | CEO    | Updated strategic priority dates to 2026, verified current state |
+| 1.1     | 2026-04-20 | CEO    | v0.8.40 state refresh: 1894 articles / 14 languages / 8 article types / 3061+ tests / 52 test files / dual economic context (WB+IMF) / AWS S3+CloudFront primary delivery / SLSA L3 + npm provenance / gh-aw 5-layer security model |
 | 1.0     | 2025-02-17 | CEO    | Initial SWOT analysis with comprehensive strategic assessment |
 
 ---
@@ -1432,7 +1499,7 @@ Comprehensive view of strategic position.
 **Technology Stack**: Node.js 25, GitHub Actions, GitHub Pages, European
 Parliament MCP Server  
 **Architecture Pattern**: Static Site Generator with Zero Runtime Dependencies  
-**Review Status**: Active, next review 2026-05-24
+**Review Status**: Active, next review 2026-07-20
 
 ---
 

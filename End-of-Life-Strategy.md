@@ -11,13 +11,13 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-2.0-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--12-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-2.2-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--20-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Annual-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.1 | **📅 Last Updated:** 2026-03-18 (UTC)  
-**🔄 Review Cycle:** Annual | **⏰ Next Review:** 2027-03-18  
+**📋 Document Owner:** CEO | **📄 Version:** 2.2 | **📅 Last Updated:** 2026-04-20 (UTC) | **📦 Release:** v0.8.40  
+**🔄 Review Cycle:** Annual (with quarterly delta scans) | **⏰ Next Review:** 2027-04-20
 **🏷️ Classification:** Public (Static Site European Parliament Intelligence Platform)
 
 ---
@@ -112,35 +112,55 @@ mindmap
         No EOL
         Progressive Enhancement
     Build and Tooling
-      TypeScript 6.x
+      TypeScript 6.0.3
         Current Latest
         12-month major cycles
         Strict Mode Enabled
-      ESLint 9.x
+      ESLint 10.2.1
         Current Latest
         Active
         Flat Config System
-      HTMLHint
+        sonarjs + security + jsdoc plugins
+      HTMLHint 1.9.2
         Current Stable
         Active
         HTML Validation
+      Prettier 3.8.3
+        Active
+      TypeDoc 0.28.19
+        API documentation
     Testing and Quality
-      Vitest
+      Vitest 4.1.4
         Current Latest
         Active
         Native ESM Support
-      Playwright
+        happy-dom 20.9.0
+      Playwright 1.59.1
         Current Latest
         Active
         E2E Testing
+        axe-core 4.11.2 (WCAG 2.1 AA)
+    Visualization
+      Chart.js 4.5.1
+        Vendored via copy-vendor
+      D3 7.9.0
+        Vendored via copy-vendor
     Data and Integration
-      EP MCP Server
+      EP MCP Server 1.2.10
         Active Development
         Hack23-maintained
-        European Parliament API
+        6 sliding + 7 fixed-window feeds
+      World Bank MCP 1.0.1
+        Optional dependency
+        Biannual WDI refresh
+      IMF SDMX 3.0 REST
+        Native fetch client
+        Monthly WEO+FM forecasts
+      gh-aw v0.69.0
+        Pinned in compile workflow
       News Generation
-        Custom Pipeline
-        Internal
+        5-stage pipeline
+        8 strategies
         14-Language Output
 ```
 
@@ -148,16 +168,23 @@ mindmap
 
 | **Technology Category** | **Current Version**       | **Release Model**               | **EOL Timeline**   | **Migration Complexity**                                                                                                                                |
 | ----------------------- | ------------------------- | ------------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **☕ Node.js Runtime**  | 25.x (Current)            | Annual release (odd = Current, even = LTS) | **~Apr 2026** ⚠️ | [![High](https://img.shields.io/badge/Complexity-High-orange?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)     |
-| **📝 TypeScript**       | 6.x (Latest)             | Major every ~12 months          | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
+| **☕ Node.js Runtime**  | 25.x (Current, `engines: >=25`) | Annual release (odd = Current, even = LTS) | **~Apr 2026** ⚠️ | [![High](https://img.shields.io/badge/Complexity-High-orange?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)     |
+| **📝 TypeScript**       | 6.0.3                    | Major every ~12 months          | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
 | **📄 HTML5/CSS3**       | Living Standard           | Evergreen                       | N/A (Perpetual)    | [![None](https://img.shields.io/badge/Complexity-None-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)  |
-| **⚡ ESLint**           | 9.x (Latest)             | Major annually                  | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
-| **🧪 Vitest**           | Latest                    | Major annually                  | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
-| **🔧 Playwright**       | Latest                    | Monthly releases                | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
-| **🇪🇺 EP MCP Server**   | Latest                    | Hack23-maintained               | Active development | [![Medium](https://img.shields.io/badge/Complexity-Medium-yellow?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
+| **⚡ ESLint**           | 10.2.1                   | Major annually                  | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
+| **🧪 Vitest**           | 4.1.4                    | Major annually                  | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
+| **🔧 Playwright**       | 1.59.1                   | Monthly releases                | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
+| **📊 Chart.js**         | 4.5.1 (vendored)         | Annual majors                   | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
+| **📐 D3**               | 7.9.0 (vendored)         | Annual majors                   | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
+| **📚 TypeDoc**          | 0.28.19                  | Monthly minors                  | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
+| **🇪🇺 EP MCP Server**   | 1.2.10 (pinned, 2026-04-20) | Hack23-maintained; tracks EP Open Data API | Active development | [![Medium](https://img.shields.io/badge/Complexity-Medium-yellow?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
+| **🌍 World Bank MCP**   | 1.0.1 (optional dep)     | Biannual WDI refresh            | Active             | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
+| **💱 IMF SDMX 3.0 REST**| Native fetch client      | IMF-managed public API          | N/A (External API) | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
+| **🤖 gh-aw CLI**        | v0.69.0 (pinned `GH_AW_VERSION`) | Active development        | Active             | [![Medium](https://img.shields.io/badge/Complexity-Medium-yellow?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
 | **☁️ AWS S3**           | Platform (Primary hosting)| Ongoing                         | N/A (Platform)     | [![None](https://img.shields.io/badge/Complexity-None-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)  |
 | **🌐 AWS CloudFront**   | Platform (Primary CDN)    | Ongoing                         | N/A (Platform)     | [![None](https://img.shields.io/badge/Complexity-None-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)  |
 | **📦 GitHub Pages**     | Alternative platform (fallback) | Ongoing                    | N/A (Platform)     | [![None](https://img.shields.io/badge/Complexity-None-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)  |
+| **📦 npm registry**     | Published package `euparliamentmonitor@0.8.40` | SemVer + SLSA L3 attestations | N/A (Registry) | [![None](https://img.shields.io/badge/Complexity-None-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)  |
 | **⚙️ GitHub Actions**   | Platform                  | Ongoing                         | N/A (Platform)     | [![None](https://img.shields.io/badge/Complexity-None-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)  |
 
 ---
@@ -265,8 +292,8 @@ flowchart TB
     end
 
     subgraph CURRENT["✅ Current Phase Validation (Apr 2027 – Oct 2027)"]
-        FULL_TEST["🧪 Full Test Suite<br/>• Unit tests (1400+ tests)<br/>• E2E tests (Playwright)<br/>• HTML validation (HTMLHint)<br/>• Security scanning (CodeQL)"]
-        NEWS_GEN["📰 News Generation Pipeline<br/>• Multi-language generation (14 langs)<br/>• EP MCP data fetching<br/>• Article template rendering<br/>• Sitemap generation"]
+        FULL_TEST["🧪 Full Test Suite<br/>• Unit + integration (3061+ tests)<br/>• E2E tests (Playwright 1.59.1)<br/>• HTML validation (HTMLHint)<br/>• Security scanning (CodeQL)<br/>• MCP contract tests (EP/IMF/WB)"]
+        NEWS_GEN["📰 News Generation Pipeline<br/>• 5-stage pipeline (fetch/transform/analysis/generate/output)<br/>• 8 strategies × 14 languages<br/>• EP/IMF/WB data fetching<br/>• AI-First 2-pass quality validation"]
         PERF_BENCH["📊 Performance Benchmarks<br/>• Build time comparison<br/>• News generation timing<br/>• Memory usage analysis<br/>• Bundle output validation"]
     end
 
@@ -305,15 +332,21 @@ flowchart TB
 
 | 📋 **Dependency** | 🔧 **Purpose** | 📊 **Risk Level** | 🔄 **Update Strategy** |
 |-------------------|---------------|-------------------|----------------------|
-| **Vitest** | Unit testing (1400+ tests) | 🟢 Low | Dependabot auto-updates |
-| **Playwright** | E2E testing | 🟢 Low | Dependabot auto-updates |
-| **ESLint** | Code quality & security | 🟢 Low | Dependabot auto-updates |
-| **TypeScript** | Type-safe development | 🟢 Low | Dependabot auto-updates |
-| **HTMLHint** | HTML validation | 🟢 Low | Dependabot auto-updates |
-| **JSDoc/TypeDoc** | API documentation | 🟢 Low | Manual major version review |
-| **EP MCP Server** | EU Parliament data | 🟡 Moderate | Monitor for API changes |
-| **@axe-core/playwright** | Accessibility testing | 🟢 Low | Dependabot auto-updates |
-| **Prettier** | Code formatting | 🟢 Low | Dependabot auto-updates |
+| **Vitest** | Unit + integration testing (3061+ tests) | 🟢 Low | Dependabot auto-updates; pinned 4.1.4 |
+| **Playwright** | E2E + accessibility (1.59.1 + @axe-core/playwright 4.11.2) | 🟢 Low | Dependabot auto-updates |
+| **ESLint** | Code quality & security (10.2.1 + sonarjs 4.0.3 + security 4.0.0 + jsdoc 62.9.0) | 🟢 Low | Dependabot auto-updates |
+| **TypeScript** | Type-safe development (6.0.3, strict, ESM) | 🟢 Low | Dependabot auto-updates |
+| **HTMLHint** | HTML validation (1.9.2) | 🟢 Low | Dependabot auto-updates |
+| **TypeDoc** | API documentation (0.28.19) | 🟢 Low | Manual major version review |
+| **Chart.js** | Dashboard visualizations (4.5.1, vendored) | 🟢 Low | Manual version bump + `npm run copy-vendor` |
+| **D3** | Advanced visualizations (7.9.0, vendored) | 🟢 Low | Manual version bump + `npm run copy-vendor` |
+| **EP MCP Server** | EU Parliament data (pinned 1.2.10) | 🟡 Moderate | Monitor Hack23/european-parliament-mcp releases; 1.2.10 (2026-04-20) fixes #377/#378 (fixed-window feed options + uniform unavailable envelope) |
+| **World Bank MCP** | Optional macro/WDI data (1.0.1) | 🟢 Low | Biannual WDI refresh cadence; optionalDependency |
+| **IMF SDMX 3.0 REST** | Native fetch client (WEO/FM forecasts) | 🟡 Moderate | No npm dep — depends on IMF API contract stability; monitored via integration tests |
+| **gh-aw CLI** | Agentic workflow compiler (pinned v0.69.0) | 🟡 Moderate | Review pin per workflow change; changes require re-compile of all .lock.yml |
+| **Prettier** | Code formatting (3.8.3) | 🟢 Low | Dependabot auto-updates |
+| **Husky** | Git hooks (9.1.7) | 🟢 Low | Dependabot auto-updates |
+| **jscpd** | Duplicate detection (4.0.9) | 🟢 Low | Dependabot auto-updates |
 
 ### 📦 Dependency Management Philosophy
 
@@ -322,7 +355,7 @@ Aligned with [Hack23 AB's "Living on the Edge" Strategy](https://github.com/Hack
 - **📦 Always Latest:** Accept Dependabot PRs for latest stable releases
 - **🛡️ Security Gates:** Automated testing and security validation before merge
 - **🔍 Dependency Review:** GitHub's Dependency Review Action with OpenSSF Scorecard
-- **✅ Test-Driven Confidence:** Trust comprehensive test suites (1400+ unit tests, E2E tests)
+- **✅ Test-Driven Confidence:** Trust comprehensive test suites (3061+ passing tests across 52 test files: unit, integration incl. `test/integration/mcp/{ep,imf,worldbank}-mcp.test.js`, E2E Playwright with @axe-core)
 - **🚨 Rapid Response:** <4 hours for critical security vulnerabilities
 
 ### 🔍 Automated Dependency Updates
@@ -335,7 +368,7 @@ flowchart LR
     end
 
     subgraph VALIDATION["✅ Automated Validation"]
-        QUALITY_GATES["🛡️ Quality Gates<br/>• Unit tests (1400+ tests)<br/>• E2E tests (Playwright)<br/>• ESLint + HTMLHint<br/>• TypeScript strict mode"]
+        QUALITY_GATES["🛡️ Quality Gates<br/>• 3061+ tests<br/>• E2E tests (Playwright 1.59.1)<br/>• ESLint 10 + HTMLHint 1.9 + axe-core<br/>• TypeScript 6 strict mode<br/>• MCP contract tests (EP/IMF/WB)"]
         REVIEW_ACTION["📋 Dependency Review<br/>• License compatibility<br/>• Vulnerability check<br/>• Supply chain security"]
     end
 
@@ -501,6 +534,79 @@ If sunset is triggered:
 
 ---
 
+## 📦 npm Package & Article Archival Lifecycle
+
+### 📦 npm Package (`euparliamentmonitor`)
+
+The project publishes the compiled package `euparliamentmonitor@0.8.40` (Apache-2.0) to [registry.npmjs.org](https://www.npmjs.com/package/euparliamentmonitor) via `.github/workflows/release.yml` with SLSA Level 3 provenance and SBOM attestation (SPDX).
+
+| Aspect | Policy |
+|--------|--------|
+| **Versioning** | SemVer; breaking API changes bump MAJOR |
+| **Deprecation path** | `npm deprecate` with min. 90-day notice for any minor/patch line; 180-day notice for MAJOR sunset |
+| **Supported line** | Only the latest MAJOR; previous MAJOR receives security patches for 90 days post-release |
+| **Provenance** | Every release carries `actions/attest-build-provenance` + SBOM attestation verifiable via `gh attestation verify --owner Hack23 <file>` |
+| **Sunset trigger** | EOL of Hack23 organization support, or 24 months of no releases |
+
+### 📰 Article Retention (`news/**/*.html`)
+
+As of 2026-04-20 the repository holds **1,894 published HTML articles** (~135 article runs × 14 languages) under `news/`. Retention is governed by:
+
+| Category | Retention | Action |
+|----------|-----------|--------|
+| **Breaking news** | Indefinite (source of record for democratic transparency) | Keep in `news/` |
+| **Week/month ahead** (prospective) | Indefinite (historical agenda record) | Keep in `news/` |
+| **Week/month in review** (retrospective) | Indefinite | Keep in `news/` |
+| **Committee reports / motions / propositions** | Indefinite | Keep in `news/` |
+| **Obsolete language article** | 24 months after last update | Migrate to Git history only (remove from `news/`) |
+
+Repository size limit (GitHub soft limit: 5 GB, current: ~150 MB) drives annual archival review. Articles are considered **immutable after publication** — errors are corrected via a new article with a `correction` frontmatter field rather than rewriting history.
+
+### 📁 Analysis Artifact Retention (`analysis/daily/YYYY-MM-DD/`)
+
+Each agentic workflow emits analysis artifacts (classification, threat-assessment, risk-scoring, data feeds, manifest.json) into `analysis/daily/{date}/{article-type}/`. Retention:
+
+| Artifact | Retention | Rationale |
+|----------|-----------|-----------|
+| `manifest.json` | Indefinite | Generation provenance; evidence trail |
+| `classification/**`, `threat-assessment/**`, `risk-scoring/**` | 12 months, then sampled (keep 1 per week) | Trend analysis |
+| `data/**` raw MCP payloads | 6 months, then delete | Can be re-fetched from EP/IMF/WB |
+| `intelligence/mcp-reliability-audit.md` | Indefinite | Reference quality threshold evidence (≥200 words; ≥385 for breaking) |
+| `intelligence/reference-analysis-quality.md` | Indefinite | Reference threshold evidence (≥140 words; ≥190 for breaking) |
+
+### 🤖 gh-aw Agentic Workflow EOL
+
+Agentic workflows in `.github/workflows/news-*.md` are compiled to `.lock.yml` via `gh aw compile --validate` with pinned `GH_AW_VERSION: v0.69.0`. Workflow EOL triggers:
+
+| Trigger | Response |
+|---------|---------|
+| `gh-aw` CLI MAJOR bump | Test in branch; update pin; re-compile all 10 lock files |
+| Claude Opus model EOL | Switch engine via `engine:` frontmatter; re-test AI-First 2-pass outputs |
+| EP MCP Server breaking change | Bump `european-parliament-mcp-server` pin; run `test/integration/mcp/ep-mcp.test.js` contract suite |
+| AWF Squid firewall rule change | Update allowlist per workflow; verify egress in dry-run |
+| Safe-output schema change | Update `max-patch-size` in affected workflows (current: 1024 KB default, 10240 KB for `news-translate.md`) |
+
+### 🔧 GitHub Actions Deprecation Tracking
+
+All actions are SHA-pinned (100%). Deprecation notices from GitHub are tracked weekly; notable current pins:
+
+- `step-security/harden-runner@8d3c67de8e2fe68ef647c8db1e6a09f647780f40 # v2.19.0`
+- Action update cadence: Dependabot weekly group (`github-actions`) with auto-merge on passing CI
+
+---
+
+## 🌐 Language Support Sunset Criteria
+
+The 14 supported languages (`en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh`) are considered a **core product commitment** and not subject to routine deprecation. A language is sunset only when ALL of the following hold:
+
+1. **Traffic floor**: <0.5% of monthly unique visitors for 3 consecutive quarters (measured via CloudFront logs)
+2. **Editorial quality failure**: AI-First 2-pass validator gate (`validate-analysis-completeness`) fails >30% of runs for that language across a 60-day window
+3. **EP institutional shift**: EP itself ceases publishing primary documentation in the language
+
+Sunset process: 180-day public deprecation notice, final archive run of all article types, redirect to `en` variant, retain historical articles under `news/` indefinitely.
+
+---
+
 ## 🔄 Technology Succession Planning
 
 ### 🚀 Future Platform Vision
@@ -535,7 +641,7 @@ Should EOL conditions trigger migration, the successor platform will maintain **
 ## 📅 EOL Action Timeline
 
 ```
-2026-03-18 (Now)    Node.js 25 Current ✅ Active Production (EOL imminent ~Apr 2026)
+2026-04-20 (Now)    Node.js 25 Current ✅ Active Production (EOL imminent ~Apr 2026)
 2026-04-22 (est.)   🆕 Node.js 26 Release — Upgrade immediately (within days of release)
 2026-04-30 (est.)   ⚠️  Node.js 25 EOL — Must be on Node.js 26 LTS by this date
 2026-10-01          🔄 Node.js 26 LTS Promotion — Active LTS phase begins
@@ -574,7 +680,8 @@ Should EOL conditions trigger migration, the successor platform will maintain **
 - **🛡️ Security Patch Availability:** Response time and availability tracking via Dependabot
 - **📦 Dependency Health Score:** OpenSSF Scorecard and vulnerability status
 - **⚡ Build Performance Tracking:** TypeScript compilation and news generation timing
-- **🧪 Test Pass Rate:** 1400+ unit tests + E2E test suite health
+- **🧪 Test Pass Rate:** 3061+ passing tests (52 test files) + E2E test suite health
+- **📡 MCP Contract Stability:** EP MCP Server 1.2.10 integration tests + IMF SDMX schema tests + optional WB MCP
 
 ### 🚨 Alerting Thresholds
 

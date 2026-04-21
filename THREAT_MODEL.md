@@ -11,15 +11,15 @@
 
 <p align="center">
   <a><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a><img src="https://img.shields.io/badge/Version-2.0-555?style=for-the-badge" alt="Version"/></a>
-  <a><img src="https://img.shields.io/badge/Effective-2026--03--19-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a><img src="https://img.shields.io/badge/Version-2.1-555?style=for-the-badge" alt="Version"/></a>
+  <a><img src="https://img.shields.io/badge/Effective-2026--04--20-success?style=for-the-badge" alt="Effective Date"/></a>
   <a><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
   <a href="https://www.bestpractices.dev/projects/12068"><img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.0 | **📅 Last Updated:**
-2026-03-19 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-19  
+**📋 Document Owner:** CEO | **📄 Version:** 2.1 | **📅 Last Updated:**
+2026-04-20 (UTC)  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-20  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring
 Platform)
 
@@ -311,13 +311,14 @@ classification ([CLASSIFICATION.md](CLASSIFICATION.md): Public/Medium/Medium).
 
 ### **📊 Key Findings**
 
-- **Total Threats Identified:** 20 (T-001 to T-020)
+- **Total Threats Identified:** 28 (T-001 to T-028)
 - **Risk Distribution:**
   - Critical: 0
   - High: 0
   - Medium: 3 (T-003, T-007, T-013 — P1 Priority)
   - Low-Medium: 10 (Monitored with existing controls)
   - Low: 7 (Managed with existing controls)
+  - 2026-04-20 refresh: 8 new threats (T-021…T-028) covering LLM/agentic, OIDC, and toolchain risks
 - **Primary Security Focus:** Data integrity, supply chain security, information manipulation
 - **Defense Posture:** Multi-layer defense-in-depth with 30+ security controls
 - **ENISA Alignment:** 7/7 ENISA TL 2024 threat categories mapped
@@ -332,6 +333,87 @@ classification ([CLASSIFICATION.md](CLASSIFICATION.md): Public/Medium/Medium).
 - **Availability:** Medium (Level 2) - Daily updates expected, 24h outage
   acceptable
 - **RTO/RPO:** 24 hours / 1 day
+
+---
+
+## 🔒 Trust Boundaries (2026-04-20 refresh)
+
+The platform's attack surface is decomposed into **8 trust boundaries** (TB-1 through TB-8) reflecting the full supply chain from citizen reader to release distribution. Each boundary enforces a distinct protocol/control stack, and threats are mapped to the boundary they cross.
+
+```mermaid
+graph TB
+    Citizen[👤 Citizen / Reader]
+    CF[🌐 AWS CloudFront<br/>euparliamentmonitor.com]
+    S3[🪣 AWS S3 Origin<br/>Versioned Private Bucket]
+    GHA[⚙️ GitHub Actions Runner<br/>ubuntu-latest]
+    AWF[🧱 AWF Squid Firewall<br/>Egress Allowlist]
+    INET[🌍 Internet<br/>WB + IMF + GitHub + npm + AWS]
+    GHAW[🤖 gh-aw Agentic Container<br/>Docker]
+    MCPGW[🔌 MCP Gateway<br/>EP + IMF + WB stdio JSON-RPC]
+    LLM[🧠 LLM API<br/>Copilot / Claude / Codex]
+    Maint[👩‍💻 Maintainer]
+    GH[🐙 GitHub Repository<br/>Hack23/euparliamentmonitor]
+    Release[🚀 Release Pipeline]
+    NPM[📦 npm Registry]
+    AWS[☁️ AWS S3+CloudFront]
+
+    Citizen -->|TB-1 HTTPS| CF
+    CF -->|TB-2 OAC| S3
+    GHA -->|TB-3 Allowlisted HTTPS| AWF
+    AWF --> INET
+    GHAW -->|TB-4 Docker bridge stdio| MCPGW
+    GHAW -->|TB-5 HTTPS tenant-scoped| LLM
+    Maint -->|TB-6 2FA + signed commits| GH
+    Release -->|TB-7 OIDC + provenance| NPM
+    Release -->|TB-8 OIDC role assumption| AWS
+
+    GHA -.hosts.-> GHAW
+    GH -.triggers.-> GHA
+    Release -.runs in.-> GHA
+    AWS -.serves.-> CF
+
+    style Citizen fill:#e3f2fd,stroke:#1565c0,color:#000
+    style CF fill:#fff3e0,stroke:#ef6c00,color:#000
+    style S3 fill:#fff3e0,stroke:#ef6c00,color:#000
+    style GHA fill:#f3e5f5,stroke:#6a1b9a,color:#000
+    style AWF fill:#ffebee,stroke:#c62828,color:#000
+    style GHAW fill:#e8f5e9,stroke:#2e7d32,color:#000
+    style MCPGW fill:#e8f5e9,stroke:#2e7d32,color:#000
+    style LLM fill:#fce4ec,stroke:#ad1457,color:#000
+    style Maint fill:#e1f5fe,stroke:#0277bd,color:#000
+    style GH fill:#f3e5f5,stroke:#6a1b9a,color:#000
+    style Release fill:#fff9c4,stroke:#f57f17,color:#000
+    style NPM fill:#fff9c4,stroke:#f57f17,color:#000
+    style AWS fill:#fff3e0,stroke:#ef6c00,color:#000
+```
+
+| ID | Boundary | Protocol / Control | Key Risks |
+|----|----------|--------------------|-----------|
+| **TB-1** | Citizen/reader ↔ CloudFront | HTTPS (TLS 1.2+/1.3), static content, no PII, HSTS + CSP | DDoS, TLS downgrade |
+| **TB-2** | CloudFront ↔ S3 origin | Origin Access Control (OAC), versioned bucket, private S3, no public reads | Origin bypass, S3 bucket misconfiguration |
+| **TB-3** | GitHub Actions runner ↔ AWF Squid firewall ↔ Internet | Allowlisted egress (WB, IMF, GitHub, npm, AWS); all other domains denied | Allowlist drift, DNS rebinding, egress exfiltration |
+| **TB-4** | gh-aw agentic container ↔ MCP gateway | Docker bridge network, local stdio JSON-RPC only (no network exposure) | Container escape, MCP tool-list drift |
+| **TB-5** | gh-aw agentic container ↔ LLM API | HTTPS to Copilot/Claude/Codex, tenant-scoped tokens, engine-switch | Prompt injection, token leakage, data exfiltration |
+| **TB-6** | Maintainer ↔ GitHub repository | 2FA required, signed commits, required PR reviews, branch protection | Credential theft, social engineering |
+| **TB-7** | Release pipeline ↔ npm registry | OIDC federation (no long-lived tokens), npm provenance statements, SLSA L3 attestations | OIDC trust policy bypass, registry compromise |
+| **TB-8** | Release pipeline ↔ AWS | OIDC federation (no long-lived keys), S3+CloudFront-scoped IAM role, branch + repo subject claims | OIDC trust policy drift, IAM over-permission |
+
+---
+
+## 📋 STRIDE × Trust Boundary Matrix
+
+Each row identifies the most-relevant threat IDs (current catalog T-001…T-028) for each STRIDE category at each trust boundary, with a one-line mitigation summary.
+
+| Boundary | **S**poofing | **T**ampering | **R**epudiation | **I**nfo Disclosure | **D**enial of Service | **E**levation of Privilege |
+|----------|--------------|---------------|------------------|---------------------|-----------------------|-----------------------------|
+| **TB-1** Reader↔CloudFront | — · TLS server cert | T-009 · integrity via Git-backed deploy | — · CloudFront + GitHub audit logs | — · no PII, public content | T-004 · CloudFront edge + failover | — · static content, no auth |
+| **TB-2** CloudFront↔S3 | T-011 · OAC signed requests | T-020 · S3 versioning + object lock | — · S3 access logs | — · private bucket, no listing | T-004 · S3 regional redundancy | — · least-privilege IAM |
+| **TB-3** Runner↔AWF↔Internet | T-007 · TLS pinning via allowlist | T-013, T-023 · schema validation + sanitize | — · JSONL stdio audit | T-010 · no secrets in egress | T-007, T-023 · OR-gate + fallback envelope | T-023 · Docker sandbox |
+| **TB-4** Container↔MCP | T-006 · localhost stdio only | T-023 · tool-list drift tests (IMF+WB) | — · JSONL stdio audit | — · local-only, no network | T-006 · MCP restart + fallback | T-024, T-028 · compile-gate + v0.69.0 pin |
+| **TB-5** Container↔LLM | — · tenant-scoped tokens | T-021, T-022 · validator gate + 2-pass review | — · JSONL prompt/response log | T-010, T-021 · prompt-scrub + AWF | T-028 · engine-switch fallback | T-021, T-025 · safe-outputs + patch-size cap |
+| **TB-6** Maintainer↔GitHub | T-015 · 2FA + signed commits | T-005 · required reviews + branch protection | — · GitHub audit log | T-010 · GitHub secret scanning | — · GitHub SOC 2 | T-005, T-015 · CODEOWNERS |
+| **TB-7** Release↔npm | T-011 · OIDC subject claims | T-002, T-012 · provenance + gh-advisory gate | — · npm audit log | — · public package | T-019 · npm registry redundancy | T-026 · least-privilege publish scope |
+| **TB-8** Release↔AWS | T-011 · OIDC subject claims | T-020 · S3 object versioning | — · CloudTrail | — · no PII in buckets | T-020 · multi-AZ S3+CF | T-026 · scoped IAM role |
 
 ---
 
@@ -777,14 +859,22 @@ Following [Hack23 AB Risk-Centric Threat Modeling](https://github.com/Hack23/ISM
 | **T-018** | Information Manipulation Campaign | 1 | 5 | 5 | 🟡 Low-Medium | Monitor |
 | **T-019** | Node.js Runtime Vulnerability | 1 | 3 | 3 | 🟢 Low | Accept |
 | **T-020** | GitHub Pages CDN Compromise | 1 | 3 | 3 | 🟢 Low | Accept |
+| **T-021** | Prompt Injection via EP Debate Content | 2 | 3 | 6 | 🟡 Low-Medium | Monitor |
+| **T-022** | Reference Hallucination | 2 | 3 | 6 | 🟡 Low-Medium | Monitor |
+| **T-023** | MCP Data Poisoning (EP/WB/IMF) | 2 | 3 | 6 | 🟡 Low-Medium | Monitor |
+| **T-024** | Workflow Compile Drift | 2 | 3 | 6 | 🟡 Low-Medium | Monitor |
+| **T-025** | Max-Patch-Size Bypass | 1 | 3 | 3 | 🟢 Low | Accept |
+| **T-026** | AWS / npm OIDC Policy Bypass | 1 | 4 | 4 | 🟡 Low-Medium | Monitor |
+| **T-027** | Translation Pipeline Weaponization | 2 | 4 | **8** | 🟠 **Medium** | Reduce |
+| **T-028** | gh-aw Toolchain Break (v0.69.0 pin) | 2 | 2 | 4 | 🟡 Low-Medium | Monitor |
 
 ### **🎯 Risk Distribution Summary**
 
 | Risk Level | Count | Threats | Treatment Strategy |
 |---|---|---|---|
-| 🟠 **Medium (6-9)** | 3 | T-003, T-007, T-013 | **Active reduction** — implement additional controls |
-| 🟡 **Low-Medium (4-6)** | 10 | T-002, T-005, T-008, T-009, T-011, T-012, T-014, T-015, T-017, T-018 | **Monitor** — quarterly review and trending |
-| 🟢 **Low (1-3)** | 7 | T-001, T-004, T-006, T-010, T-016, T-019, T-020 | **Accept** — existing controls sufficient |
+| 🟠 **Medium (6-9)** | 4 | T-003, T-007, T-013, T-027 | **Active reduction** — implement additional controls |
+| 🟡 **Low-Medium (4-6)** | 16 | T-002, T-005, T-008, T-009, T-011, T-012, T-014, T-015, T-017, T-018, T-021, T-022, T-023, T-024, T-026, T-028 | **Monitor** — quarterly review and trending |
+| 🟢 **Low (1-3)** | 8 | T-001, T-004, T-006, T-010, T-016, T-019, T-020, T-025 | **Accept** — existing controls sufficient |
 
 ---
 
@@ -1326,6 +1416,242 @@ already secured)
 **Residual Risk:** Very Low - GitHub infrastructure security
 
 **Risk Treatment:** Accept - Risk transferred to GitHub infrastructure
+
+---
+
+### Threat T-021: Prompt Injection via EP Debate Content
+
+| Attribute           | Value                                                              |
+| ------------------- | ------------------------------------------------------------------ |
+| **Threat ID**       | T-021                                                              |
+| **STRIDE Category** | Elevation of Privilege, Tampering                                  |
+| **MITRE ATT&CK**    | T1059 (Command/Script Interpreter), T1565 (Data Manipulation)      |
+| **Threat Agent**    | Nation-State Actor, Disinformation Campaign                        |
+| **Likelihood**      | Low-Medium (2/5)                                                   |
+| **Impact**          | Medium (3/5) — Generated content steered by adversarial text       |
+| **Risk Score**      | Low-Medium (6/25)                                                  |
+| **Priority**        | P2                                                                 |
+
+**Description:** Adversarial text embedded in MCP-fetched EP debates, plenary transcripts, or MEP-authored documents contains instructions intended to steer downstream LLM generation (bypass safety, rewrite facts, inject URLs, or exfiltrate system prompts) during the gh-aw agentic news pipeline.
+
+**Existing Controls:**
+
+- ✅ `scripts/utils/validate-analysis-completeness.js` scans `FALLBACK_TEMPLATE_PATTERNS` and `AI_MARKER` sentinels
+- ✅ Reference thresholds enforced: `mcp-reliability-audit` ≥200 words (breaking ≥385) and `reference-analysis-quality` ≥140 (breaking ≥190)
+- ✅ Sandboxed Docker execution + AWF Squid firewall egress allowlist
+- ✅ gh-aw safe-outputs limits scope to PR-only (no direct push to `main`)
+- ✅ Mandatory 2-pass iterative AI review before safe-outputs emission
+- ✅ Human PR review required before merge
+
+**Residual Risk:** Low-Medium — Validator gate + 2-pass review reduce but do not eliminate sophisticated injection
+
+**Risk Treatment:** Monitor — Extend validator corpus when new attack patterns are observed
+
+---
+
+### Threat T-022: Reference Hallucination
+
+| Attribute           | Value                                                              |
+| ------------------- | ------------------------------------------------------------------ |
+| **Threat ID**       | T-022                                                              |
+| **STRIDE Category** | Tampering, Information Disclosure                                  |
+| **MITRE ATT&CK**    | T1565.001 (Stored Data Manipulation)                               |
+| **Threat Agent**    | LLM Stochasticity, Insufficient Grounding                          |
+| **Likelihood**      | Low-Medium (2/5)                                                   |
+| **Impact**          | Medium (3/5) — Fabricated citations erode credibility              |
+| **Risk Score**      | Low-Medium (6/25)                                                  |
+| **Priority**        | P2                                                                 |
+
+**Description:** The LLM fabricates citations (EP document references, MEP names, voting dates, procedure IDs) that do not exist, producing plausible-looking but false parliamentary references in generated articles.
+
+**Existing Controls:**
+
+- ✅ `analysis/methodologies/reference-analysis-quality.md` word-count gate (≥140, breaking ≥190)
+- ✅ Cross-reference validation in `src/utils/validate-analysis-completeness.ts` (compiled to `scripts/utils/validate-analysis-completeness.js`)
+- ✅ Mandatory 2-pass AI review (Pass 2 re-verifies every citation against MCP-retrieved evidence)
+- ✅ Human PR review catches remaining fabrications before merge
+- ✅ MCP fetches return canonical IDs which can be grep-verified against source output
+
+**Residual Risk:** Low-Medium — Automated validator + human review catches most, but not all, hallucinations
+
+**Risk Treatment:** Monitor — Extend `validate-analysis-completeness.ts` with reference-existence checks against MCP cache
+
+---
+
+### Threat T-023: MCP Data Poisoning (EP/WB/IMF Upstream)
+
+| Attribute           | Value                                                              |
+| ------------------- | ------------------------------------------------------------------ |
+| **Threat ID**       | T-023                                                              |
+| **STRIDE Category** | Tampering, Spoofing                                                |
+| **MITRE ATT&CK**    | T1584 (Compromise Infrastructure), T1565 (Data Manipulation)       |
+| **Threat Agent**    | Nation-State Actor, Advanced Persistent Threat                     |
+| **Likelihood**      | Low-Medium (2/5)                                                   |
+| **Impact**          | Medium (3/5) — Poisoned data propagates to all 14 languages        |
+| **Risk Score**      | Low-Medium (6/25)                                                  |
+| **Priority**        | P2                                                                 |
+
+**Description:** Compromise of an upstream MCP data source (EP Open Data Portal, World Bank MCP, or IMF REST/SDMX 3.0) causes poisoned MEP records, voting data, or economic indicators to flow into generated articles. Extends T-013 to cover the expanded MCP surface after Wave-2 OR-gate introduction.
+
+**Existing Controls:**
+
+- ✅ TLS 1.2+/1.3 on all outbound HTTPS to WB and IMF
+- ✅ Local EP MCP via Docker bridge (trust boundary is Docker bridge, not public internet)
+- ✅ Tool-list drift tests: `IMF_MCP_TOOLS` and `WORLD_BANK_MCP_TOOLS` asserted in `test/integration/mcp/*`
+- ✅ WB-or-IMF OR-gate via `articlePolicyHasEconomicContext` — if one source fails, the other satisfies the policy
+- ✅ `{status:"unavailable"}` envelope handling degrades gracefully when a source is unreachable
+- ✅ `src/utils/html-sanitize.ts` sanitizes every MCP string before rendering
+
+**Residual Gap:** EP MCP client does NOT yet export a canonical `EP_MCP_TOOLS` list → no drift test parity with IMF+WB.
+
+**Residual Risk:** Low-Medium — OR-gate + sanitization limits impact; EP tool-list drift test pending
+
+**Risk Treatment:** Monitor — Close EP tool-list gap (tracked in CRA gap table)
+
+---
+
+### Threat T-024: Workflow Compile Drift
+
+| Attribute           | Value                                                              |
+| ------------------- | ------------------------------------------------------------------ |
+| **Threat ID**       | T-024                                                              |
+| **STRIDE Category** | Tampering, Elevation of Privilege                                  |
+| **MITRE ATT&CK**    | T1195 (Supply Chain Compromise), T1554 (Compromise Client Binary)  |
+| **Threat Agent**    | Malicious Contributor, Compromised Maintainer                      |
+| **Likelihood**      | Low-Medium (2/5)                                                   |
+| **Impact**          | Medium (3/5) — Agent bypasses policy encoded in lock-file          |
+| **Risk Score**      | Low-Medium (6/25)                                                  |
+| **Priority**        | P2                                                                 |
+
+**Description:** An agent workflow bypasses its compiled `.lock.yml` by shipping only the `.md` source without recompiling, causing the runtime executor to load a stale lock file while maintainers believe the new policy is active.
+
+**Existing Controls:**
+
+- ✅ `.github/workflows/compile-agentic-workflows.yml` validates `GH_AW_VERSION=v0.69.0` pin on every PR
+- ✅ Compile job is a required status check on `main` via branch protection
+- ✅ `.lock.yml` MUST match `{{#runtime-import}}` directive in the source `.md`
+- ✅ Branch protection prevents merge when compile check fails
+- ✅ `actions-lock.json` tracked in VCS for supply-chain auditability
+
+**Residual Risk:** Low-Medium — Compile gate is strong but depends on branch-protection enforcement
+
+**Risk Treatment:** Monitor — Quarterly review of branch-protection settings
+
+---
+
+### Threat T-025: Max-Patch-Size Bypass
+
+| Attribute           | Value                                                              |
+| ------------------- | ------------------------------------------------------------------ |
+| **Threat ID**       | T-025                                                              |
+| **STRIDE Category** | Elevation of Privilege, Tampering                                  |
+| **MITRE ATT&CK**    | T1566 (Phishing), T1195 (Supply Chain Compromise)                  |
+| **Threat Agent**    | Malicious Agent, Compromised LLM Session                           |
+| **Likelihood**      | Low (1/5)                                                          |
+| **Impact**          | Medium (3/5) — Large unreviewable patch in safe-outputs            |
+| **Risk Score**      | Low (3/25)                                                         |
+| **Priority**        | P3                                                                 |
+
+**Description:** A malicious or runaway agent emits a very large patch via safe-outputs that overwhelms human review capacity, hiding malicious edits within bulk legitimate-looking content.
+
+**Existing Controls:**
+
+- ✅ `max-patch-size: 1024 KB` default applied to all gh-aw workflows
+- ✅ Elevated cap of `10240 KB` ONLY at the `news-translate` top level, with documented justification (13 languages × ~1 MB each = ~13 MB fan-out)
+- ✅ Safe-outputs schema validation during gh-aw compile
+- ✅ PR review required for merge (no direct push)
+- ✅ GitHub diff UI renders large PRs as "load diff" — reviewers are explicitly prompted
+
+**Residual Risk:** Low — Caps + PR review are strong; `news-translate` exception is auditable
+
+**Risk Treatment:** Accept — Revisit cap values quarterly
+
+---
+
+### Threat T-026: AWS / npm OIDC Policy Bypass
+
+| Attribute           | Value                                                              |
+| ------------------- | ------------------------------------------------------------------ |
+| **Threat ID**       | T-026                                                              |
+| **STRIDE Category** | Elevation of Privilege, Spoofing                                   |
+| **MITRE ATT&CK**    | T1078 (Valid Accounts), T1550 (Use Alternate Authentication)       |
+| **Threat Agent**    | Nation-State Actor, Advanced Persistent Threat                     |
+| **Likelihood**      | Low (1/5)                                                          |
+| **Impact**          | High (4/5) — Unauthorized npm publish or S3 deploy                 |
+| **Risk Score**      | Low-Medium (4/25)                                                  |
+| **Priority**        | P2                                                                 |
+
+**Description:** An overly broad OIDC trust policy on AWS IAM or npm allows a workflow from a different repository, branch, or environment to assume the release role and publish/deploy unauthorized artifacts.
+
+**Existing Controls:**
+
+- ✅ OIDC trust policies scoped to branch + repo subject claims (`repo:Hack23/euparliamentmonitor:ref:refs/heads/main`)
+- ✅ Least-privilege IAM role: S3 PutObject + CloudFront CreateInvalidation only
+- ✅ Least-privilege npm publish scope limited to `euparliamentmonitor` package
+- ✅ CloudTrail audit of all role assumptions
+- ✅ npm audit logs for every publish
+
+**Residual Risk:** Low-Medium — Trust-policy drift is the primary residual concern
+
+**Risk Treatment:** Monitor — Quarterly IAM policy + npm publish scope review
+
+---
+
+### Threat T-027: Translation Pipeline Weaponization
+
+| Attribute           | Value                                                              |
+| ------------------- | ------------------------------------------------------------------ |
+| **Threat ID**       | T-027                                                              |
+| **STRIDE Category** | Tampering, Elevation of Privilege                                  |
+| **MITRE ATT&CK**    | T1565 (Data Manipulation), T1204 (User Execution)                  |
+| **Threat Agent**    | Nation-State Actor, Disinformation Campaign                        |
+| **Likelihood**      | Low-Medium (2/5)                                                   |
+| **Impact**          | High (4/5) — 13-language fan-out amplifies bad content             |
+| **Risk Score**      | Medium (8/25) ⚠️ P1                                                |
+| **Priority**        | P1                                                                 |
+
+**Description:** A bad actor uses the 13-language translation fan-out to scale disinformation: contaminated English source → 13 translations → published across all locales simultaneously, amplifying reach beyond what single-language manipulation could achieve.
+
+**Existing Controls:**
+
+- ✅ `news-translate.md` §"AI-First Pre-Translation Gate" blocks contaminated English sources before fan-out
+- ✅ Reference thresholds (mcp-reliability-audit ≥200/385, reference-analysis-quality ≥140/190) apply to source English before translation
+- ✅ Human PR review required for merge (catches translation of contaminated source)
+- ✅ `news-translate-reconciler.yml` sweeps orphaned translations (one locale without matching source)
+- ✅ Pre-translation validator gate documented and enforced in lock file
+
+**Residual Risk:** Medium — Pre-translation gate is the single point that must hold; if bypassed, all 13 locales are impacted simultaneously
+
+**Risk Treatment:** Reduce — Harden pre-translation validator with additional sentinels; add per-locale post-translation spot-check
+
+---
+
+### Threat T-028: gh-aw Toolchain Break (v0.69.0 pin)
+
+| Attribute           | Value                                                              |
+| ------------------- | ------------------------------------------------------------------ |
+| **Threat ID**       | T-028                                                              |
+| **STRIDE Category** | Denial of Service, Tampering                                       |
+| **MITRE ATT&CK**    | T1195 (Supply Chain Compromise)                                    |
+| **Threat Agent**    | Upstream Project Breakage, Dependency Drift                        |
+| **Likelihood**      | Low-Medium (2/5)                                                   |
+| **Impact**          | Low-Medium (2/5) — Pipeline halts until recompile                  |
+| **Risk Score**      | Low-Medium (4/25)                                                  |
+| **Priority**        | P3                                                                 |
+
+**Description:** An upstream breaking change to gh-aw renders the compiled `.lock.yml` artifacts unexecutable (e.g., schema change, runtime-import signature change, executor removal), halting the 10 agentic workflows until recompile + manual bump.
+
+**Existing Controls:**
+
+- ✅ `GH_AW_VERSION: v0.69.0` pinned in `.github/workflows/compile-agentic-workflows.yml`
+- ✅ `actions-lock.json` tracked in VCS
+- ✅ BCP Scenario 11 documents git-revert rollback procedure if bump fails
+- ✅ Drift detection via CI compile job on every PR (catches incompatible bumps early)
+- ✅ 10 `.lock.yml` files centrally recompiled when pin is changed
+
+**Residual Risk:** Low-Medium — Pin + rollback procedure limits outage window to <24h RTO
+
+**Risk Treatment:** Monitor — Watch gh-aw release notes for v0.69.x and test-bump in fork before production
 
 ---
 
@@ -2269,8 +2595,8 @@ requirements (5-strategy integration, ENISA TL 2024, Kill Chain, Quantitative Ri
 
 1. **Q3 2026:** Implement T-003, T-007, T-013 mitigations (automated fact-checking, API monitoring, cross-reference validation)
 2. **Q3 2026:** Advance to Maturity Level 3 (Democratic Analysis Excellence)
-3. **2026-05-26:** Conduct next quarterly threat model review
-4. **2027-02-26:** Annual comprehensive threat model update
+3. **2026-07-20:** Conduct next quarterly threat model review
+4. **2027-04-20:** Annual comprehensive threat model update
 
 ---
 

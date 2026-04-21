@@ -11,14 +11,14 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.0-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--19-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.2-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--20-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.0 | **📅 Last Updated:**
-2026-03-19 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-19  
+**📋 Document Owner:** CEO | **📄 Version:** 1.2 | **📅 Last Updated:**
+2026-04-20 (UTC) | **🏷️ Platform Release:** v0.8.40  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-20  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring
 Platform)
 
@@ -112,7 +112,7 @@ capabilities.
 
 ```mermaid
 mindmap
-  root((EU Parliament<br/>Monitor))
+  root((EU Parliament<br/>Monitor v0.8.40))
     Mission
       Democratic Transparency
         Public Information
@@ -126,31 +126,43 @@ mindmap
           KO, ZH
         Native Speakers
         Cultural Adaptation
-      Automated Intelligence
-        AI-Powered Analysis
-        Continuous Monitoring
-        Real-Time Updates
+      AI-First Intelligence
+        2-Pass Quality Gate
+        Agentic Workflows (gh-aw v0.69.0)
+        AI Writes All Analysis
+        Validator Gate Pre-Publish
 
     Core Capabilities
-      News Generation
-        Week Ahead
-        Committee Reports
-        Propositions
-        Motions
+      8 Article Types
         Breaking News
-      Content Types
-        Prospective Articles
-        Retrospective Analysis
-        Event Summaries
-        Trend Reports
-      Multi-Language Publishing
-        Simultaneous Generation
-        Language-Specific Content
-        SEO Optimization
+        Week Ahead
+        Week in Review
+        Month Ahead
+        Month in Review
+        Committee Reports
+        Motions
+        Propositions
+      9 Strategies (1 generic + 8 type-specific)
+        article-strategy (base)
+        breaking-news-strategy
+        committee-reports-strategy
+        month-ahead-strategy
+        monthly-review-strategy
+        motions-strategy
+        propositions-strategy
+        week-ahead-strategy
+        weekly-review-strategy
+      5-Stage Pipeline
+        fetch-stage
+        transform-stage
+        analysis-stage
+        generate-stage
+        output-stage
       Static Site Delivery
-        GitHub Pages
-        Zero Infrastructure
+        AWS S3 + CloudFront (primary)
+        GitHub Pages (fallback)
         Global CDN
+        1,894 HTML articles
 
     Key Stakeholders
       European Citizens
@@ -161,12 +173,15 @@ mindmap
         Research Source
         Story Development
         Fact Checking
-      Political Researchers
+      Policy Analysts / Researchers
         Academic Studies
         Policy Analysis
         Trend Analysis
+      MEPs
+        Cross-Party Visibility
+        Committee Activity Index
       Developers
-        Open Source Contributors
+        Open-Source Contributors
         Platform Maintainers
         Security Auditors
 
@@ -178,19 +193,18 @@ mindmap
         Zero Database
       GitHub Infrastructure
         Actions for CI/CD
-        Pages for Hosting
+        gh-aw Agentic Runtime
+        Pages (fallback)
         Security Scanning
         Dependabot Updates
-      MCP Integration
-        European Parliament Server
-        Structured Data Access
-        Type-Safe Communication
-        Retry & Fallback
-      LLM Processing
-        Content Generation
-        Multi-Language Translation
-        Fact Synthesis
-        Style Consistency
+      Dual-Economic Data
+        EP MCP 1.2.10
+        World Bank MCP 1.0.1 (optional)
+        IMF REST SDMX 3.0
+      AI Engines (Switchable)
+        GitHub Copilot
+        Claude
+        Codex
 ```
 
 ### System Overview Hierarchy
@@ -213,14 +227,14 @@ pipeline.
 mindmap
   root((Data<br/>Ecosystem))
     Data Sources
-      European Parliament APIs
+      European Parliament MCP 1.2.10
         Plenary Sessions
           Session Schedule
           Agenda Items
           Voting Records
           Attendance Data
         Committee Meetings
-          Committee Names
+          Committee Info
           Meeting Schedule
           Topics Discussed
           Decisions Made
@@ -234,50 +248,72 @@ mindmap
           Oral Questions
           Answers
           Follow-ups
-      MCP Server
-        Data Abstraction
-        Query Interface
-        Response Caching
-        Error Handling
+        Sliding-Window Feeds
+          Accept timeframe/startDate
+        Fixed-Window Feeds (7)
+          documents
+          plenary_documents
+          committee_documents
+          plenary_session_documents
+          parliamentary_questions
+          corporate_bodies
+          controlled_vocabularies
+        Unavailable Envelope
+          status: unavailable
+          items: []
+      World Bank MCP 1.0.1 (optional)
+        Biannual WDI
+        Economic Indicators
+      IMF REST (native TS client)
+        IMFMCPClient class
+        SDMX 3.0
+        WEO + FM forecasts (+5y)
+        IMF_API_BASE_URL
+        IMF_API_TIMEOUT_MS
+      Intelligence Files (AI-authored)
+        stakeholder-map.md
+        impact-matrix.md
+        mcp-reliability-audit.md
+        reference-analysis-quality.md
       Fallback Data
-        Placeholder Content
-        Historical Data
-        Demo Content
-        Error Messages
+        Last-known envelope cache
+        Historical articles (1894)
 
     Data Transformations
-      Data Acquisition
-        API Requests
-        JSON Parsing
-        Schema Validation
-        Type Checking
-      Data Validation
-        Structure Checks
-        Required Fields
-        Value Constraints
-        Range Validation
-      Data Sanitization
-        HTML Encoding
-        Script Removal
-        Event Handler Removal
-        Link Validation
-      Data Enrichment
-        Metadata Addition
-        Timestamp Recording
-        Source Attribution
-        Provenance Tracking
-      Content Generation
-        LLM Prompting
-        Template Application
-        Multi-Language Translation
-        SEO Optimization
+      fetch-stage
+        Concurrent MCP calls
+        Unavailable-envelope handling
+        mcp-retry.ts backoff
+      transform-stage
+        Normalize EP + WB + IMF
+        Schema unification
+      analysis-stage
+        2-Pass AI-First
+        ≥80 words / SWOT item
+        ≥150 words / stakeholder perspective
+        ≥60% prose ratio
+        0 AI_ANALYSIS_REQUIRED
+      generate-stage
+        Strategy-specific builder
+        Chart.js embedding (≥1)
+        buildDefaultStakeholderPerspectives
+          AI_MARKER sentinels
+      output-stage
+        Rendered HTML writes
+        Language-indexed folders
+      Validator Gate
+        validate-analysis-completeness.js
+        scanHtmlForFallbackLeaks
+        FALLBACK_TEMPLATE_PATTERNS
+        Reference thresholds (≥200/385, ≥140/190)
 
     Data Storage
       File System
-        HTML Files
-        JSON Metadata
+        news/ (1894 HTML articles)
+        14 language subtrees
+        JSON-LD metadata
         Static Assets
-        Index Files
+        Index Files per language
       Git Repository
         Version Control
         Change History
@@ -287,29 +323,33 @@ mindmap
         Compiled HTML
         Sitemap XML
         Language Indexes
-        Asset Manifests
+        Asset Manifests (js/vendor/)
 
     Data Outputs
       HTML Articles
-        Multi-Language
+        Multi-Language (14)
         Semantic Markup
-        Accessibility Features
-        SEO Tags
+        WCAG 2.1 AA
+        SEO + OpenGraph
+        JSON-LD structured data
       Index Pages
-        Language-Specific
-        Date-Sorted
-        Category Filtered
-        Search Enabled
+        index.html + index-{lang}.html
+        Date-sorted
+        Runtime filter (js/index-runtime.js)
       Sitemap
         URL Listing
-        Priority Setting
-        Change Frequency
+        hreflang per language
         Last Modified
-      Metadata Files
-        Generation Info
-        Source Attribution
-        Version Tracking
-        Quality Metrics
+      Runtime JS
+        js/index-runtime.js (filter+theme)
+        js/article-runtime.js (reading progress+theme)
+      Vendored libs
+        chart.js UMD
+        chartjs-plugin-annotation
+        d3 7.9
+      npm Package
+        SLSA 3 attestation
+        Provenance
 ```
 
 ### Data Flow Stages
@@ -345,86 +385,116 @@ Technology stack, infrastructure, and development practices.
 
 ```mermaid
 mindmap
-  root((Technical<br/>Architecture))
+  root((Technical<br/>Architecture v0.8.40))
     Runtime Environment
       Node.js 25
-        LTS Support
-        Performance
         ES Modules
+        Performance
         Latest Features
-      TypeScript
+      TypeScript 6.0.3
         Strict Mode
         Type Safety
         Async/Await
         Error Handling
       GitHub-Hosted Runners
-        Ubuntu Latest
+        ubuntu-latest (2-core default)
         Ephemeral Execution
         Security Isolation
-        Resource Limits
+        120-min timeout hard cap
 
     Development Stack
       Build Tools
-        npm/package.json
-        ESLint
+        npm + package.json
+        ESLint 10.2.1
         Prettier
-        Husky Git Hooks
-      Testing Framework
-        Vitest
-        Unit Tests
-        Integration Tests
-        E2E with Playwright
+        Husky git hooks
+        typedoc 0.28.19
+      Testing (3,061+ tests / 52 files)
+        Vitest 4.1.4 (unit + integration)
+        Playwright 1.59.1 (E2E)
+        axe-core (WCAG 2.1 AA)
+        HTMLHint
       Code Quality
-        SonarCloud
-        CodeQL
-        Dependency Scanning
-        License Compliance
+        SonarCloud (planned)
+        CodeQL SAST
+        Dependabot SCA
+        REUSE/SPDX license compliance
       Documentation
-        Markdown
-        Mermaid Diagrams
-        JSDoc Comments
-        Architecture Docs
+        Markdown + Mermaid
+        JSDoc → typedoc
+        Architecture suite (C4/ERD/FLOW/STATE)
+        ISMS alignment
 
     Infrastructure
       GitHub Platform
         Source Control
           Git Repository
           Branch Protection
-          Pull Requests
-          Code Review
+          Required Reviews
+          SHA-pinned Actions
         CI/CD
           GitHub Actions
-          Workflow Automation
-          Secret Management
-          Environment Variables
-        Hosting
+          10 agentic news workflows
+            news-breaking
+            news-weekly-review
+            news-monthly-review
+            news-week-ahead
+            news-month-ahead
+            news-committee-reports
+            news-motions
+            news-propositions
+            news-article-generator
+            news-translate
+          14 infra workflows
+            compile-agentic-workflows
+            agentics-maintenance
+            codeql
+            copilot-setup-steps
+            dependency-review
+            deploy-s3
+            e2e
+            labeler
+            news-translate-reconciler
+            release
+            reuse
+            scorecards
+            setup-labels
+            test-and-report
+          gh aw compile --validate
+          GH_AW_VERSION v0.69.0 (pinned)
+        Hosting (fallback)
           GitHub Pages
-          Custom Domain
           HTTPS/SSL
           Global CDN
         Security
           Dependabot
           Secret Scanning
-          Code Scanning
-          SLSA Attestations
-      MCP Communication
-        Protocol
-          JSON-RPC 2.0
-          Stdin/Stdout
-          Type-Safe
-          Versioned
-        Tools
-          get_meps
-          get_plenary_sessions
-          search_documents
-          get_parliamentary_questions
-          get_committee_info
-          get_voting_records
-        Error Handling
-          Retry Logic
-          Exponential Backoff
-          Fallback Mode
-          Error Logging
+          CodeQL
+          SLSA 3 Attestations
+          Scorecards
+      AWS (Primary hosting)
+        S3 (versioned bucket)
+        CloudFront (CDN)
+        ACM (TLS cert)
+        OIDC deploy role (deploy-s3.yml)
+      MCP Runtime
+        EP MCP Gateway
+          host.docker.internal:80
+          /mcp/european-parliament
+          mcp-setup.sh
+        JSON-RPC 2.0 over stdio/HTTP
+        european-parliament-mcp-server 1.2.10
+        worldbank-mcp 1.0.1 (optional)
+        IMFMCPClient native fetch
+      gh-aw 5-Layer Security
+        AWF Squid firewall allowlist
+        Sandboxed Docker
+        Safe-output constraints
+          create-pull-request
+          max-patch-size: 1024 KB (default)
+          max-patch-size: 10240 KB (translate)
+        JSONL audit trail
+        Lock-file compilation
 
     Security Architecture
       Defense in Depth
@@ -436,7 +506,7 @@ mindmap
         Input Validation
           Schema Validation
           Type Checking
-          Range Validation
+          Content Validator
           Sanitization
         Output Encoding
           HTML Entity Encoding
@@ -446,24 +516,23 @@ mindmap
         Supply Chain Security
           SHA-Pinned Actions
           SBOM Generation
-          Vulnerability Scanning
-          License Compliance
+          npm provenance
+          SLSA 3 attestations
+          REUSE 3.3 license compliance
+      Frontend
+        Static HTML5 + CSS3
+        styles.css (133 KB, hand-written)
+        No SPA framework
+        Runtime JS modules
+        buildSiteFooter() single source
+        14-language localized footer
       Compliance Framework
-        ISO 27001
-          Security Controls
-          Risk Management
-          Audit Trail
-          Documentation
+        ISO 27001:2022
+        NIST CSF 2.0
+        CIS Controls v8.1
         GDPR
-          No PII Collection
-          Data Minimization
-          Privacy by Design
-          User Rights
         NIS2
-          Incident Response
-          Security Monitoring
-          Vulnerability Management
-          Supply Chain Security
+        EU Cyber Resilience Act
 ```
 
 ### Technology Stack Layers
@@ -1097,24 +1166,32 @@ graph LR
 
 ### System Capability Metrics
 
-| Capability               | Measurement                  | Target | Current |
+| Capability               | Measurement                  | Target | Current (v0.8.40) |
 | ------------------------ | ---------------------------- | ------ | ------- |
-| **Article Types**        | Number of types supported    | 5+     | 5       |
+| **Article Types**        | Number of types supported    | 7+     | 7       |
+| **Strategies**           | Number of strategy modules   | 8+     | 8       |
+| **Pipeline Stages**      | Stages in src/generators/pipeline/ | 5 | 5 |
 | **Languages**            | Number of languages          | 14     | 14      |
-| **Data Sources**         | Number of EP MCP tools       | 6+     | 6       |
+| **Published Articles**   | HTML files in news/          | 1,500+ | 1,894   |
+| **Agentic News Workflows** | gh-aw `.md` → `.lock.yml`  | 10     | 10      |
+| **Data Sources**         | EP MCP + WB MCP + IMF REST   | 3      | 3       |
 | **Generation Time**      | Average time per article set | <5 min | ~3 min  |
-| **Validation Pass Rate** | Articles passing validation  | >98%   | 99.2%   |
+| **Validator Pass Rate**  | Articles passing validator gate | >98% | 99.2% |
 | **Deployment Success**   | Successful deployments       | >99%   | 99.5%   |
 
 ### Technical Stack Health
 
 | Component         | Metric           | Target          | Status           |
 | ----------------- | ---------------- | --------------- | ---------------- |
-| **Node.js**       | Version currency | Latest LTS      | ✅ 25.x          |
+| **Node.js**       | Version          | Latest LTS      | ✅ 25.x          |
+| **TypeScript**    | Version          | Latest stable   | ✅ 6.0.3         |
+| **Vitest**        | Version          | Latest stable   | ✅ 4.1.4         |
+| **Playwright**    | Version          | Latest stable   | ✅ 1.59.1        |
+| **gh-aw**         | Pinned runtime   | Known-good      | ✅ v0.69.0       |
+| **EP MCP Server** | Version          | Latest release  | ✅ 1.2.10        |
 | **Dependencies**  | Vulnerabilities  | 0 critical/high | ✅ 0             |
-| **Test Coverage** | Code coverage    | >80%            | ✅ 85%           |
+| **Test Coverage** | Tests / files    | 3,000+ / 50+    | ✅ 3,061+ / 52   |
 | **Build Time**    | CI/CD duration   | <10 min         | ✅ 6 min         |
-| **Code Quality**  | SonarCloud score | A               | 🔄 Setup pending |
 
 ---
 
@@ -1188,6 +1265,7 @@ graph TB
 
 | Version | Date       | Author | Changes                                                           |
 | ------- | ---------- | ------ | ----------------------------------------------------------------- |
+| 1.2     | 2026-04-20 | CEO    | Refreshed for v0.8.40: 8 article types, 9 strategies (1 generic + 8 type-specific), 5-stage pipeline, 10 agentic + 14 infra workflows, dual economic data (EP MCP 1.2.10 + WB MCP 1.0.1 + IMF REST SDMX 3.0), AI-First quality gates, 3061+ tests, AWS S3 + CloudFront primary hosting, gh-aw v0.69.0 pinned |
 | 1.1     | 2026-02-24 | CEO    | Updated review date and verified current state accuracy            |
 | 1.0     | 2025-02-17 | CEO    | Initial mindmap documentation with comprehensive conceptual views |
 
@@ -1196,11 +1274,10 @@ graph TB
 ## 📝 Footer
 
 **Document Classification**: Public  
-**ISMS Compliance**: ISO 27001:2022 compliant, GDPR compliant, NIS2 aligned  
-**Technology Stack**: Node.js 25, GitHub Actions, GitHub Pages, European
-Parliament MCP Server  
-**Architecture Pattern**: Static Site Generator with Zero Runtime Dependencies  
-**Review Status**: Active, next review 2026-05-24
+**ISMS Compliance**: ISO 27001:2022, NIST CSF 2.0, CIS Controls v8.1, GDPR, NIS2, EU CRA aligned  
+**Technology Stack**: Node.js 25, TypeScript 6.0.3, Vitest 4.1.4, Playwright 1.59.1, gh-aw v0.69.0, AWS S3 + CloudFront, GitHub Pages (fallback), EP MCP 1.2.10, WB MCP 1.0.1, IMF REST SDMX 3.0  
+**Architecture Pattern**: Static Site Generator with Agentic AI-First Authoring and Zero Runtime Dependencies  
+**Review Status**: Active, next review 2026-07-20
 
 ---
 
