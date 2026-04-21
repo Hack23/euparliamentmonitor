@@ -123,17 +123,17 @@ test.describe('News Browsing', () => {
       const href = await firstLink.getAttribute('href');
 
       if (href) {
-        await firstLink.click();
-        await page.waitForLoadState('domcontentloaded');
+        // Navigate directly so we can inspect the HTTP response status.
+        // Substring-matching body text for "404" / "Not Found" produces false
+        // positives because article content legitimately mentions these terms
+        // (e.g. EP API status discussions).
+        const response = await page.goto(href);
+        expect(response).not.toBeNull();
+        expect(response.status(), `Navigation to ${href} returned HTTP ${response.status()}`).toBeLessThan(400);
 
         // Verify navigation occurred
         const currentUrl = page.url();
         expect(currentUrl).toBeTruthy();
-
-        // Verify page loaded successfully (no 404)
-        const bodyText = await page.locator('body').textContent();
-        expect(bodyText).not.toContain('404');
-        expect(bodyText).not.toContain('Not Found');
       }
     }
   });
