@@ -189,7 +189,7 @@ if [ "$ELAPSED_MINUTES" -ge 50 ]; then
 fi
 ```
 
-**⚡ Progressive safe output strategy**: This workflow creates a checkpoint PR at minute ~3 that automatically captures all subsequent file changes. The hard deadline is therefore already satisfied. At minute 50, finalize remaining work and stop — do NOT call `safeoutputs___create_pull_request` again. **This minute-50 hard deadline supersedes any later time-budget guidance in this workflow that schedules PR creation after minute 50; those steps must be compressed into the deadline window.**
+**⚡ Progressive safe output strategy**: If article generation hasn't started by minute 35, create an analysis-only PR to preserve work. If articles exist at minute 50, create PR immediately with partial content. Never delay PR creation past minute 50 for "one more improvement." **This minute-50 hard deadline supersedes any later time-budget guidance in this workflow that schedules PR creation after minute 50; those steps must be compressed into the deadline window.**
 
 ## 🔁 Safe Outputs Session Keep-Alive (NON-NEGOTIABLE)
 
@@ -340,7 +340,6 @@ This is a **prospective** article providing a 30-day forward-looking strategic o
 >
 > **🔑 Keyword, title, description quality**: See [SHARED_PROMPT_PATTERNS.md Article Quality Gates](../prompts/SHARED_PROMPT_PATTERNS.md#-article-quality-gates-all-workflows--mandatory). NEVER use "Month Ahead: DATE — N Event" as a title. NEVER include section headings as keywords.
 
-
 ## 🔬 MANDATORY DEEP POLITICAL ANALYSIS PHASE (≥20 MINUTES — 2 PASSES)
 
 > **⚠️ ABSOLUTE REQUIREMENT — NON-NEGOTIABLE**: You MUST spend a dedicated ≥20 minutes (2 complete passes) on deep political intelligence analysis BEFORE making ANY decisions about article content, angle, or topic. This is the single most important phase of the entire workflow. Pass 1 writes initial analysis; Pass 2 reads it ALL back and improves every section. One pass is NEVER enough.
@@ -453,7 +452,7 @@ Connect this month's agenda to longer parliamentary trajectories:
 
 > **⚠️ NO EARLY COMPLETION**: You MUST spend at least 45 minutes on active work. Completing in under 45 minutes means you rushed and produced low-quality output. See [SHARED_PROMPT_PATTERNS.md Iterative Improvement Protocol](../prompts/SHARED_PROMPT_PATTERNS.md#-mandatory-iterative-improvement-protocol-all-workflows) for full rules.
 
-- **Minutes 0–3**: Date validation, MCP warm-up with `get_plenary_sessions`, then create baseline file in `${ANALYSIS_DIR}/existing/session-baseline.md` and call **🛡️ CHECKPOINT** `safeoutputs___create_pull_request` (crash-resilience PR — this MUST be the last action of minute ~3, after the baseline file exists).
+- **Minutes 0–3**: Date validation, MCP warm-up with `get_plenary_sessions`
 - **Minutes 3–13**: 📡 **DATA RETRIEVAL PHASE (≤10 minutes)** — EP MCP data fetch, analysis directory setup, query plenary sessions, committees, and legislative pipeline for next 30 days. Complete all feed + deep-fetch calls (up to 10 total). Most EP MCP tools respond in <10s; allow up to 120s for slow feed endpoints. **Data retrieval MUST complete before analysis starts.**
 - **Minutes 13–35**: 🔬🔬🔬 **MANDATORY DEEP POLITICAL ANALYSIS PHASE (22 MINUTES — 2 PASSES)**
   - **Pass 1 (Minutes 13–26, ~13 min)**: Read ALL methodology guides and templates, apply them to EVERY downloaded MCP data file, write substantive analysis markdown, use `sequentialthinking` for complex reasoning, cross-reference documents via knowledge graph, complete 4-pass refinement cycle. **⚠️ Per Rule 7, spend ≥20 minutes total on AI-driven analysis.** Article topic and angle MUST be decided ONLY from completed significance scoring results.
@@ -462,12 +461,11 @@ Connect this month's agenda to longer parliamentary trajectories:
   - **Pass 1 (Minutes 35–40, ~5 min)**: Generate English article with deep political intelligence informed by completed analysis artifacts. Replace ALL `[AI_ANALYSIS_REQUIRED]` markers. Ensure ≥60% prose ratio.
   - **Pass 2 (Minutes 40–45, ~5 min)**: 🔁 **MANDATORY ARTICLE READ-BACK & IMPROVEMENT** — Read the ENTIRE generated article from top to bottom. Verify every section has ≥3 analytical paragraphs, specific EP data citations, named actors/MEPs, prose not bullet lists. Add World Bank economic context if missing. Rewrite any section that fails the Economist Test. **DO NOT skip this pass.**
 - **Minutes 45–48**: Validate generated HTML. **🚨 PR MUST be created by minute 50 (HARD DEADLINE).**
-- **Minutes 48–50**: Complete all remaining work; the checkpoint PR captures everything — do NOT call `safeoutputs___create_pull_request` again
+- **Minutes 48–50**: Create PR with `safeoutputs___create_pull_request` — include both articles (if generated) AND analysis artifacts. **🚨 PR MUST be created by minute 50 (HARD DEADLINE).**
 
 > **🛑 EARLY COMPLETION CHECK**: If you reach the PR creation step before minute 45, STOP. Go back and improve your analysis and articles. Read everything again. Add more depth.
 
 **If you reach minute 50 and the PR has not yet been created**: STOP IMMEDIATELY. Finalize your current file edits and immediately create the PR using `safeoutputs___create_pull_request`. Partial content in a PR is better than a timeout with no PR. This is a NON-NEGOTIABLE HARD DEADLINE — see [SHARED_PROMPT_PATTERNS.md](../prompts/SHARED_PROMPT_PATTERNS.md#-hard-deadline--session-expiry-prevention-all-workflows--non-negotiable).
-
 
 ## 🔬 Political Intelligence Analysis Stage
 
@@ -611,45 +609,6 @@ export TODAY CURRENT_YEAR CURRENT_MONTH CURRENT_MONTH_NAME CURRENT_DAY DAY_OF_WE
 ```
 
 **⚠️ DATE GUARD**: When passing `dateFrom`/`dateTo` to ANY MCP tool, ALWAYS derive dates from `$TODAY` and `$NEXT_MONTH` (set above). NEVER hardcode a year (e.g. 2024, 2025). Use `date -u -d` for offsets.
-
-
-## 🛡️ CHECKPOINT: Immediate Safe Output (minute ~3)
-
-> **⚡ MANDATORY — DO THIS NOW, BEFORE THE MCP HEALTH GATE (which appears immediately after this section)**: Write the baseline file below, then call `safeoutputs___create_pull_request` **immediately**. Do NOT wait until after MCP health checks, data gathering, or article generation. The framework captures ALL files in the working directory when the agent job ends — analysis artifacts and the final article written AFTER this call are included in the PR automatically.
-
-**Why so early?** The Copilot engine can terminate unexpectedly or stall on slow bash/MCP calls between minute 15 and 60 (see run 24722723230 / issue #1300). If that happens before a safeoutputs call is made, ALL work is lost and NO PR is created. Calling safeoutputs at minute ~3 registers the PR session while it is still fresh and guarantees that whatever the agent produces — baseline, analysis artifacts, and the final English article — ships to GitHub as a single patch.
-
-```bash
-echo "=== CHECKPOINT: Baseline analysis file ==="
-mkdir -p "${ANALYSIS_DIR}/existing"
-cat > "${ANALYSIS_DIR}/existing/session-baseline.md" <<EOF
-# Month Ahead Session Baseline — ${TODAY} (run ${RUN_ID})
-
-**Status**: Checkpoint PR created at minute ~3 for crash-resilience.
-
-This baseline file ensures the checkpoint PR always contains at least one artifact.
-All subsequent EP MCP data, deep political analysis markdown files, and the final
-English article will be added automatically as the agent continues working.
-
-- Article type: month-ahead
-- Run ID: ${RUN_ID}
-- Workflow: news-month-ahead
-- Analysis directory: ${ANALYSIS_DIR}
-EOF
-echo "Wrote ${ANALYSIS_DIR}/existing/session-baseline.md"
-```
-
-Immediately after the baseline file exists, call safeoutputs with:
-
-- **title**: `Month ahead analysis checkpoint — ${TODAY} (run ${RUN_ID})` (the `[news] ` prefix is added automatically)
-- **body**: `Baseline month-ahead analysis checkpoint for ${TODAY}. Engine crash-resilience PR — EP MCP data, deep political analysis artifacts, and the final article will be added automatically as the agent continues working.`
-- **base**: `main`
-- **head**: `news/month-ahead-${TODAY}` (use `TODAY` from the Date Context Establishment block above)
-
-> **After calling safeoutputs**: continue immediately with the MCP Health Gate, EP data gathering, deep analysis, and article generation. Do NOT stop. All subsequent file changes are captured automatically in this PR.
-
-> **⚠️ MAX 1 PR PER RUN**: Do NOT call `safeoutputs___create_pull_request` again anywhere in the workflow after this checkpoint — the checkpoint PR captures all your work automatically. At minutes 48–50 (hard deadline), complete your work and stop — do NOT call safeoutputs again.
-
 
 ## MANDATORY MCP Health Gate
 
@@ -969,8 +928,6 @@ european_parliament___get_speeches({ dateFrom: "<30-days-ago>", dateTo: "<today>
 
 > **🔴 VOTING EVIDENCE REQUIREMENT**: Any analysis predicting voting outcomes based on recent political group positions MUST cite actual `get_voting_records` data. If unavailable, mark predictions as LOW confidence.
 
-
-
 ## 🌍 World Bank Economic Context — Active Indicator Discovery
 
 **IMPORTANT**: Do NOT rely only on pre-mapped indicators. The World Bank has **thousands** of indicators. Use `search-indicators` to find the best match for the specific policy topic of this article.
@@ -1073,8 +1030,6 @@ The TypeScript generator (`generateArticleHTML` in `src/templates/article-templa
 npx tsx src/utils/fix-articles.ts --dry-run  # preview first
 npx tsx src/utils/fix-articles.ts            # apply fixes
 ```
-
-
 
 ## Generation Steps
 
@@ -1181,8 +1136,6 @@ npx tsx src/generators/news-enhanced.ts \
 > AI_DESCRIPTION="European Parliament returns from Easter recess facing April 15 tariff deadline as Banking Union and anti-corruption reforms await implementation"
 > ```
 
-
-
 **If the generator exits with a non-zero code, the workflow MUST FAIL. Do NOT attempt manual HTML generation as a fallback.**
 
 ### MANDATORY AI Enrichment — Replace Analysis Placeholders
@@ -1233,7 +1186,6 @@ if [ "$MISSING_SWITCHER" -gt 0 ] || [ "$MISSING_TOPNAV" -gt 0 ] || [ "$MISSING_H
   exit 1
 fi
 ```
-
 
 ## ✅ ANALYSIS QUALITY GATES (ENHANCED)
 

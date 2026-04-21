@@ -198,15 +198,15 @@ if [ "$ELAPSED_MINUTES" -ge 50 ]; then
 fi
 ```
 
-**⚡ Progressive safe output strategy**: This workflow creates a checkpoint PR at minute ~3 that automatically captures all subsequent file changes. The hard deadline is therefore already satisfied. At minute 50, finalize remaining work and stop — do NOT call `safeoutputs___create_pull_request` again. **This minute-50 hard deadline supersedes any later time-budget guidance.**
+**⚡ Progressive safe output strategy**: If article generation hasn't started by minute 35, create an analysis-only PR to preserve work. If articles exist at minute 50, create PR immediately with partial content. Never delay PR creation past minute 50 for "one more improvement." **This minute-50 hard deadline supersedes any later time-budget guidance in this workflow that schedules PR creation after minute 50; those steps must be compressed into the deadline window.**
 
 ## 🔁 Safe Outputs Session Keep-Alive (NON-NEGOTIABLE)
 
-> **⚠️ CRITICAL**: Even after the checkpoint PR is created at minute ~3, the safeoutputs MCP session can still expire after ~10–20 minutes of inactivity. If the session expires before minute 50, the final patch snapshot (which is what ships to the PR) will be stale or incomplete. This workflow MUST keep the session alive throughout long analysis phases.
+> **⚠️ CRITICAL**: The safeoutputs MCP session can expire after ~10–20 minutes of inactivity. If the session expires before minute 50, the final `safeoutputs___create_pull_request` call will fail with `session not found` and the run will produce no PR. This workflow MUST keep the session alive throughout long analysis phases.
 
 **Mandatory heartbeat rule**:
-- First keep-alive call by **minute 8** (after the checkpoint PR call at minute ~3)
-- Then keep-alive at least every **8 minutes** until final work completes (at approximately minutes **8, 16, 24, 32, 40, and 48**, or sooner at phase transitions)
+- First keep-alive call by **minute 8**
+- Then keep-alive at least every **8 minutes** until the final PR call (at approximately minutes **8, 16, 24, 32, 40**, or sooner at phase transitions)
 - **`sequential-thinking` turns do NOT reset the session idle timer.** If any reasoning/analysis phase (`sequential-thinking`, long internal planning, extended document reading) runs for 5+ minutes without a safeoutputs call or a non-thinking tool call, the safeoutputs session may silently idle-out. Interleave an explicit `safeoutputs___push_repo_memory` call **inside** every multi-turn analysis phase. **This is the #1 cause of `session not found` at PR time** (see run [24707284072](https://github.com/Hack23/euparliamentmonitor/actions/runs/24707284072): 45-minute uninterrupted `sequential-thinking` starved the session, and the minute-55 PR call failed with `session not found`).
 - Use this tool call for heartbeat (does not consume PR quota):
 
@@ -214,9 +214,9 @@ fi
 safeoutputs___push_repo_memory({ memory_id: "default" })
 ```
 
-> **⚠️ IMPORTANT — heartbeat vs PR snapshot are different mechanisms**: `safeoutputs___push_repo_memory` only keeps the MCP session alive; it does **NOT** refresh the checkpoint PR's patch contents. The PR patch is a snapshot taken by each `safeoutputs___create_pull_request` call (see news-translate.md periodic-flush doctrine). Because this workflow uses the minute-~3 checkpoint-PR pattern, you MUST also re-call `safeoutputs___create_pull_request` with the same branch name before minute 50 to replace the checkpoint snapshot with the final analysis/article files; otherwise the PR will ship with only the near-empty minute-3 baseline. Heartbeats keep the session alive long enough to let that final re-snapshot succeed.
+> **⚠️ HEARTBEAT vs PR SNAPSHOT**: `safeoutputs___push_repo_memory` only keeps the MCP session alive; it does **NOT** create or refresh a PR. The PR patch is a synchronous snapshot taken by the one `safeoutputs___create_pull_request` call at minutes 48–50 — `git format-patch` runs at that moment against the current working directory, so ALL analysis artifacts and the English article MUST be written to disk BEFORE you call it. Any file written afterwards is NOT in the PR.
 
-If a heartbeat fails with `session not found`, stop further analysis immediately — the checkpoint PR will ship with whatever was in the last successful `safeoutputs___create_pull_request` snapshot, which may be the near-empty minute-3 baseline.
+If a heartbeat fails with `session not found`, call `safeoutputs___create_pull_request` immediately with whatever files are in the working directory — a partial PR is still a valid output.
 
 ## 📞 Bash Tool Call Contract (CRITICAL)
 
@@ -351,7 +351,6 @@ If **force_generation** is `true`, generate articles even if recent ones exist. 
 >
 > **🔑 Keyword, title, description quality**: See [SHARED_PROMPT_PATTERNS.md Article Quality Gates](../prompts/SHARED_PROMPT_PATTERNS.md#-article-quality-gates-all-workflows--mandatory). NEVER use "Plenary Votes & Resolutions: DATE — N Votes" as a title. NEVER include section headings as keywords. NEVER use "Example motion (placeholder)" in keywords.
 
-
 ## 🔬 MANDATORY DEEP POLITICAL ANALYSIS PHASE (≥20 MINUTES — 2 PASSES)
 
 > **⚠️ ABSOLUTE REQUIREMENT — NON-NEGOTIABLE**: You MUST spend a dedicated ≥20 minutes (2 complete passes) on deep political intelligence analysis BEFORE making ANY decisions about article content, angle, or topic. This is the single most important phase of the entire workflow. Pass 1 writes initial analysis; Pass 2 reads it ALL back and improves every section. One pass is NEVER enough.
@@ -469,7 +468,7 @@ Every generated article MUST link to ALL analysis files. Verify the Analysis & T
 
 > **⚠️ NO EARLY COMPLETION**: You MUST spend at least 45 minutes on active work. Completing in under 45 minutes means you rushed and produced low-quality output. See [SHARED_PROMPT_PATTERNS.md Iterative Improvement Protocol](../prompts/SHARED_PROMPT_PATTERNS.md#-mandatory-iterative-improvement-protocol-all-workflows) for full rules.
 
-- **Minutes 0–3**: Date context setup, create baseline analysis file in `${ANALYSIS_DIR}/existing/session-baseline.md`, then call **🛡️ CHECKPOINT** `safeoutputs___create_pull_request` (crash-resilience PR — do this as the last step of minute ~3, after the baseline file exists)
+- **Minutes 0–3**: Date context setup, MCP warm-up.
 - **Minutes 3–13**: 📡 **DATA RETRIEVAL PHASE (≤10 minutes)** — MCP warm-up, health gate, analysis directory setup. EP MCP data fetch — ALL feed endpoints + supplementary tools (parallel where possible) — **⚠️ Download FULL document content. Store complete adopted texts, procedure details, and voting records in `${ANALYSIS_DIR}/data/`**. Complete all feed + deep-fetch calls (up to 10 total). Most EP MCP tools respond in <10s; allow up to 120s for slow feed endpoints. **Data retrieval MUST complete before analysis starts.**
 - **Minutes 13–35**: 🔬🔬🔬 **MANDATORY DEEP POLITICAL ANALYSIS PHASE (22 MINUTES — 2 PASSES)**
   - **Pass 1 (Minutes 13–26, ~13 min)**: Read ALL methodology guides and templates, apply them to EVERY downloaded MCP data file, write substantive analysis markdown, use `sequentialthinking` for complex reasoning, cross-reference documents via knowledge graph, complete 4-pass refinement cycle. **⚠️ Per Rule 7, spend ≥20 minutes total on AI-driven analysis.** Article topic and angle MUST be decided ONLY from completed significance scoring results, not predetermined.
@@ -477,15 +476,14 @@ Every generated article MUST link to ALL analysis files. Verify the Analysis & T
 - **Minutes 35–45**: 📰 **ARTICLE GENERATION PHASE (10 MINUTES — 2 PASSES)** — **Analysis MUST be complete before generation starts.**
   - **Pass 1 (Minutes 35–40, ~5 min)**: Generate English article with deep political intelligence informed by completed analysis artifacts. Replace ALL `[AI_ANALYSIS_REQUIRED]` markers. Ensure ≥60% prose ratio.
   - **Pass 2 (Minutes 40–45, ~5 min)**: 🔁 **MANDATORY ARTICLE READ-BACK & IMPROVEMENT** — Read the ENTIRE generated article from top to bottom. Verify every section has ≥3 analytical paragraphs, specific EP data citations, named actors/MEPs, prose not bullet lists. Add World Bank economic context if missing. Rewrite any section that fails the Economist Test. **DO NOT skip this pass.**
-- **Minutes 45–48**: Validate HTML. **The checkpoint PR at minute ~3 captures all artifacts automatically.**
-- **Minutes 48–50**: Complete all remaining work; the checkpoint PR captures everything — do NOT call `safeoutputs___create_pull_request` again
+- **Minutes 45–48**: Validate HTML, run prose ratio check, verify zero markers remain.
+- **Minutes 48–50**: Create PR with `safeoutputs___create_pull_request` — include both articles (if generated) AND analysis artifacts. **🚨 PR MUST be created by minute 50 (HARD DEADLINE).**
 
 > **🛑 EARLY COMPLETION CHECK**: If you reach the final step before minute 45, STOP. Go back and improve your analysis and articles. Read everything again. Add more depth.
 
 > **🔑 ENGLISH-ONLY FOCUS**: This workflow generates English content only. Use the extra time (vs. translating to 13 languages) to produce deeper political analysis, richer context, and more comprehensive intelligence. Translations to other languages are handled by the separate `news-translate` workflow.
 
-**If you reach minute 50 without generating articles**: STOP IMMEDIATELY. The checkpoint PR exists with analysis artifacts. Finalize any remaining file edits — the PR captures everything automatically. This is a NON-NEGOTIABLE HARD DEADLINE — see [SHARED_PROMPT_PATTERNS.md](../prompts/SHARED_PROMPT_PATTERNS.md#-hard-deadline--session-expiry-prevention-all-workflows--non-negotiable).
-
+**If you reach minute 50 without a PR**: call `safeoutputs___create_pull_request` IMMEDIATELY with whatever state exists. The snapshot is taken at the moment of the call, so anything written afterwards is lost. This is a NON-NEGOTIABLE HARD DEADLINE — see [SHARED_PROMPT_PATTERNS.md](../prompts/SHARED_PROMPT_PATTERNS.md#-hard-deadline--session-expiry-prevention-all-workflows--non-negotiable).
 
 ## 📂 Analysis File Consolidation (MANDATORY)
 
@@ -640,9 +638,10 @@ echo "Analysis Dir: $ANALYSIS_DIR"
 echo "==================================="
 export TODAY CURRENT_YEAR CURRENT_MONTH CURRENT_MONTH_NAME CURRENT_DAY DAY_OF_WEEK DAY_NUM LAST_WEEK RUN_ID ANALYSIS_DIR
 
-# ⚠️ MANDATORY: Create baseline analysis directory and session file BEFORE any noop exits.
+# ⚠️ MANDATORY: Create baseline analysis directory and session file.
 # Per ai-driven-analysis-guide.md Rule 5, no workflow run should be wasted.
-# This baseline file ensures the checkpoint PR always contains at least one artifact.
+# This baseline file guarantees the final PR at minute 48–50 contains at least one artifact
+# even if EP MCP is unreachable for the full run.
 mkdir -p "${ANALYSIS_DIR}/existing"
 BASELINE_FILE="${ANALYSIS_DIR}/existing/session-baseline.md"
 if [ ! -f "${BASELINE_FILE}" ]; then
@@ -673,22 +672,6 @@ fi
 ```
 
 **⚠️ DATE GUARD**: When passing `dateFrom`/`dateTo` to ANY MCP tool, ALWAYS derive dates from `$TODAY` and `$LAST_WEEK` (set above). NEVER hardcode a year (e.g. 2024, 2025). Use `date -u -d` for offsets.
-
-## 🛡️ CHECKPOINT: Immediate Safe Output (minute ~3)
-
-> **⚡ MANDATORY — DO THIS NOW, BEFORE ANY OTHER STEP**: Call `safeoutputs___create_pull_request` **immediately** after the Date Context Establishment block above creates the baseline session file. Do NOT wait until after MCP health checks, data gathering, or article generation. The framework captures ALL files in the working directory when the agent job ends — analysis artifacts and the final article written AFTER this call are included in the PR automatically.
-
-**Why so early?** The Copilot engine may run out of context or encounter transient failures at minute 15–35 during the deep analysis phase. If that happens before a safeoutputs call is made, ALL work is lost and no PR is created. By calling it at minute ~3 (when the baseline session file already exists), you guarantee that at minimum the analysis artifact is preserved, and all subsequent data, analysis markdown files, and the final article are automatically captured in the same PR.
-
-Call safeoutputs now with:
-- **title**: `Motions analysis checkpoint — ${TODAY} (run ${RUN_ID})` (the `[news] ` prefix is added automatically)
-- **body**: `Baseline motions analysis checkpoint for ${TODAY}. Engine crash-resilience PR — EP MCP data, deep political analysis artifacts, and the final article will be added automatically as the agent continues working.`
-- **base**: `main`
-- **head**: `news/motions-${TODAY}` (use TODAY from the bash block above)
-
-> **After calling safeoutputs**: continue immediately with the MCP Health Gate, EP data gathering, deep analysis, and article generation. Do NOT stop. All subsequent file changes are captured automatically in this PR.
-
-> **⚠️ MAX 1 PR PER RUN**: Do NOT call `safeoutputs___create_pull_request` again anywhere in the workflow after this checkpoint — the checkpoint PR captures all your work automatically. At minutes 55–60, complete your work and stop — do NOT call safeoutputs again.
 
 ## MANDATORY MCP Health Gate
 
@@ -823,8 +806,8 @@ fi
    - Call `european_parliament___get_server_health({})` for diagnostic context
    - Call `european_parliament___get_all_generated_stats({ category: "all" })` to verify MCP server is running (precomputed data, no live EP API needed)
    - Write a diagnostic file to `${ANALYSIS_DIR}/existing/api-outage-diagnostic.md` with the error messages, server health output, and curl pre-check results
-   - If `get_all_generated_stats` succeeds, continue with analysis using precomputed data only (do NOT call noop — the checkpoint PR already exists)
-   - If truly no data can be collected: write the diagnostic file, then return without calling any safeoutputs functions — do NOT call `safeoutputs___noop` because the checkpoint PR was already created at minute ~3. The checkpoint PR will contain the baseline file + diagnostic file, which is a valid output.
+   - If `get_all_generated_stats` succeeds, continue with analysis using precomputed data only (the later PR call at minute 48–50 will still produce a PR with the analysis artifacts + diagnostic)
+   - If truly no data can be collected: write the diagnostic file, then call `safeoutputs___create_pull_request` once with the diagnostic + baseline files as the only content — a diagnostic PR is still a valid output
    - DO NOT analyze existing articles in the repository
    - DO NOT fabricate or recycle content
 
@@ -837,10 +820,9 @@ fi
 
 ## MANDATORY PR Creation
 
-- ✅ `safeoutputs___create_pull_request` at minute ~3 (CHECKPOINT — immediately after Date Context Establishment)
-- ✅ The checkpoint PR captures ALL subsequent file changes automatically
-- ✅ On quiet days with no new motions: the checkpoint PR with analysis artifacts is still created — do NOT call noop
-- ❌ NEVER call `safeoutputs___create_pull_request` a second time after the checkpoint
+- ✅ `safeoutputs___create_pull_request` at minutes 55–60 (after article HTML + analysis artifacts are finalized and validated)
+- ✅ On quiet days with no new motions: still create the PR with analysis artifacts — do NOT call noop
+- ❌ NEVER call `safeoutputs___create_pull_request` before analysis and article generation are complete — the PR snapshot is taken at the moment of the call, so any file written AFTER the call is discarded
 
 ### 🔑 How Safe Pull Request Works (READ FIRST)
 
@@ -864,12 +846,10 @@ The gh-aw framework **automatically captures all file changes** you make in the 
 
 ## Error Handling
 
-> **⚠️ CHECKPOINT PR ALREADY CREATED**: Because `safeoutputs___create_pull_request` was called at minute ~3 (CHECKPOINT), the PR already exists. Do NOT call safeoutputs again for any error scenario below. Instead, write diagnostic information to `${ANALYSIS_DIR}/existing/` and return without calling any safeoutputs functions — the checkpoint PR captures everything automatically.
-
 **If EP MCP server unavailable (3 retries failed):**
 1. Call `get_server_health` and `get_all_generated_stats` for diagnostics
 2. Write full diagnostic message to `${ANALYSIS_DIR}/existing/api-outage-diagnostic.md` (EP API HTTP status, all attempt errors, error categories, server health, resolution hints)
-3. Return without calling any safeoutputs functions — the checkpoint PR already captures the baseline + diagnostic files.
+3. Call `safeoutputs___create_pull_request` once with the baseline + diagnostic files as the only content — a diagnostic PR is still a valid output.
 
 **If ≥3 consecutive feed endpoints return INTERNAL_ERROR (total EP API outage):**
 1. This indicates the entire EP API (`data.europarl.europa.eu`) is down — do NOT continue burning MCP call budget
@@ -880,22 +860,21 @@ The gh-aw framework **automatically captures all file changes** you make in the 
    - The `get_server_health` output
    - The curl connectivity pre-check result (if available from the bash block)
    - Timestamp and run ID
-5. Return without calling any safeoutputs functions — the checkpoint PR already captures the baseline + diagnostic files
+5. Call `safeoutputs___create_pull_request` once with the baseline + diagnostic + precomputed-stats files
 
 **If no significant data found (genuinely empty — only after ALL feeds were queried in the standard collection pass):**
 1. Verify ALL feed endpoints were queried once according to the data-gathering rules
 2. Write ALL analysis `.md` files based on collected data to `${ANALYSIS_DIR}/`
-3. Return without calling any safeoutputs functions — the checkpoint PR already captures all analysis artifacts. Per `ai-driven-analysis-guide.md` Rule 5, no workflow run is wasted.
+3. Call `safeoutputs___create_pull_request` once to ship the analysis artifacts. Per `ai-driven-analysis-guide.md` Rule 5, no workflow run is wasted.
 
 **If article generation fails AFTER starting work:**
 1. Log the specific failure
-2. Return without calling any safeoutputs functions — the checkpoint PR exists with analysis artifacts; the failure is visible in the run summary
-3. Do NOT call noop, do NOT retry generation with alternative approaches
+2. Call `safeoutputs___create_pull_request` once to ship whatever analysis artifacts + partial article exist
+3. Do NOT retry generation with alternative approaches
 
 **If PR creation fails AFTER generating articles:**
-1. This scenario only applies if the checkpoint was NOT called at minute ~3 (extremely rare)
-2. Retry `safeoutputs___create_pull_request` once
-3. If still fails: ❌ workflow MUST FAIL — do NOT try alternative git commands or API calls
+1. Retry `safeoutputs___create_pull_request` once
+2. If still fails: ❌ workflow MUST FAIL — do NOT try alternative git commands or API calls
 
 ## EP MCP Tools for Motions
 
@@ -1027,7 +1006,6 @@ EU Parliament API slow feed endpoints (events, procedures, documents) can take 3
 3. Continue with available data if some queries time out
 4. Log warnings for failed queries but generate articles with whatever data is available
 
-
 ## 🌍 World Bank Economic Context — Active Indicator Discovery
 
 **IMPORTANT**: Do NOT rely only on pre-mapped indicators. The World Bank has **thousands** of indicators. Use `search-indicators` to find the best match for the specific policy topic of this article.
@@ -1131,8 +1109,6 @@ npx tsx src/utils/fix-articles.ts --dry-run  # preview first
 npx tsx src/utils/fix-articles.ts            # apply fixes
 ```
 
-
-
 ## Generation Steps
 
 ### Step 0: Check for Existing Open PRs
@@ -1151,8 +1127,7 @@ If `EXISTING_PR` is non-empty **and** **force_generation** is `false`:
 
 ```bash
 if [ -n "$EXISTING_PR" ] && [ "${EP_FORCE_GENERATION:-true}" != "true" ]; then
-  echo "PR #$EXISTING_PR already exists for motions on $TODAY. Skipping generation — checkpoint PR already captures baseline."
-  # Do NOT call safeoutputs___noop — the checkpoint PR was already created at minute ~3
+  echo "PR #$EXISTING_PR already exists for motions on $TODAY. Skipping generation."
   exit 0
 fi
 
@@ -1161,8 +1136,7 @@ fi
 # when the base content changes between the agent checkout and safe_outputs checkout.
 EXISTING_ARTICLE=$(find news/ -name "${TODAY}-motions-en.html" 2>/dev/null | head -1)
 if [ -n "$EXISTING_ARTICLE" ] && [ "${EP_FORCE_GENERATION:-true}" != "true" ]; then
-  echo "Article $EXISTING_ARTICLE already exists in repo for $TODAY. Skipping — checkpoint PR already captures baseline."
-  # Do NOT call safeoutputs___noop — the checkpoint PR was already created at minute ~3
+  echo "Article $EXISTING_ARTICLE already exists in repo for $TODAY. Skipping."
   exit 0
 fi
 ```
@@ -1414,7 +1388,6 @@ fi
 
 **Note**: If the stakeholder perspective analysis is incomplete or incorrect, regenerate the article with corrected analysis content in the prompt — the generator renders the card grid from the structured perspective data you supply during article creation. Do NOT manually edit the rendered stakeholder card grid HTML.
 
-
 ## ✅ ANALYSIS QUALITY GATES (ENHANCED)
 
 > **⚠️ MANDATORY**: Per `ai-driven-analysis-guide.md` Rules 6–8, all quality gates below must pass before PR creation. Article type: `motions`.
@@ -1484,7 +1457,7 @@ fi
 - ✅ **Historical context**: Reference comparable past EP actions where relevant
 - ✅ **Multi-framework analysis**: At least 2 analytical frameworks applied (e.g., SWOT + Risk, or Attack Tree + Kill Chain)
 
-> **🚨 CHECKPOINT PATTERN**: The `safeoutputs___create_pull_request` was called at minute ~3 (CHECKPOINT). Do NOT call it again here. Generate ALL language files — the framework automatically captures all working directory changes in the checkpoint PR.
+> **🚨 PR SNAPSHOT SEMANTICS**: `safeoutputs___create_pull_request` is called exactly ONCE at minutes 48–50 (see `## MANDATORY PR Creation` and the Time Budget). Do NOT call it here. The single PR call takes a `git format-patch` snapshot of the working directory at that moment and ships every file written before it as one PR. Generate ALL required files to disk first — only then call safeoutputs.
 
 #### MANDATORY File Count Validation
 
@@ -1673,7 +1646,7 @@ if [ "$TOTAL_FILES" -gt 90 ]; then
 fi
 ```
 
-Set the deterministic branch name for the PR (same as the checkpoint branch).
+Set the deterministic branch name for the PR.
 
 ```bash
 # Reuse $TODAY from Date Context Establishment
@@ -1681,17 +1654,11 @@ BRANCH_NAME="news/motions-$TODAY"
 echo "Branch: $BRANCH_NAME"
 ```
 
-> **🛡️ CHECKPOINT ALREADY CALLED?** In the normal workflow, `safeoutputs___create_pull_request` was called at minute ~3 (CHECKPOINT). If it was, DO NOT call it again here — max 1 PR per run. The checkpoint PR already captures ALL analysis artifacts and the generated article. Proceed directly to updating repo memory and finishing.
+## Final PR Creation
 
-**EMERGENCY FALLBACK** — only if the checkpoint was NOT called. This can happen if:
-- The Date Context Establishment bash block failed to run (e.g., missing environment variable causing an early `exit 1`)
-- The agent was forcibly terminated before reaching the CHECKPOINT section
-
-If and only if `safeoutputs___create_pull_request` was never called during this run:
+Call `safeoutputs___create_pull_request` EXACTLY ONCE. All analysis artifacts, the English article HTML, and any metadata updates MUST already be written to the working directory — the handler takes a synchronous `git format-patch` snapshot at this moment and any file written AFTER this call is NOT in the PR.
 
 ```javascript
-// EMERGENCY FALLBACK: Only call if safeoutputs was never called during this run
-// All file changes in the working directory are captured automatically
 safeoutputs___create_pull_request({
   title: `chore: EU Parliament motions articles ${TODAY}`,
   body: `## 🗳️ EU Parliament Plenary Votes & Resolutions — ${TODAY}\n\n### Summary\nGenerated plenary votes and resolutions analysis articles covering European Parliament motions.\n\n### Content Details\n- **Article type**: Motions / plenary votes / resolutions\n- **Languages**: ${LANG_ARG}\n- **Date**: ${TODAY}\n- **Data source**: European Parliament MCP Server\n\n### Coverage Areas\n- Roll-call vote results and political group positions\n- Adopted texts and resolutions analysis\n- Voting pattern anomalies and coalition dynamics\n- Per-document political intelligence analysis\n\n### Analysis Artifacts\n- Motions analysis in \`analysis/${TODAY}/motions/\`\n- Per-document analysis index for featured legislation\n\n---\n> Generated by the \`news-motions\` agentic workflow using European Parliament Open Data.`,

@@ -401,7 +401,7 @@ Call `sequentialthinking` with structured thought chains — each step builds on
   - **Pass 1 (~50% of article time per type)**: Generate article, replace ALL `[AI_ANALYSIS_REQUIRED]` markers. Ensure ≥60% prose ratio.
   - **Pass 2 (~50% of article time per type)**: 🔁 **MANDATORY ARTICLE READ-BACK & IMPROVEMENT** — Read the ENTIRE generated article from top to bottom. Verify every section has ≥3 analytical paragraphs, specific EP data citations, named actors/MEPs, prose not bullet lists. Add World Bank economic context if missing. Rewrite any section that fails the Economist Test. **DO NOT skip this pass.**
 - **Minutes 95–98**: Validate generated HTML, run prose ratio validation, verify zero markers remain. **🚨 PR MUST be created by minute 100 (HARD DEADLINE).**
-- **Minutes 98–100**: Create PR with `safeoutputs___create_pull_request`
+- **Minutes 98–100**: Create PR with `safeoutputs___create_pull_request` (once per article type — the safe-outputs frontmatter `max: 8` permits one PR per type)
 
 > **🛑 EARLY COMPLETION CHECK**: If you reach the PR creation step before minute 90, STOP. Go back and improve your analysis and articles. Read everything again. Add more depth, more evidence, more stakeholder perspectives.
 
@@ -411,46 +411,6 @@ Call `sequentialthinking` with structured thought chains — each step builds on
 
 
 ## 🔬 Political Intelligence Analysis Stage
-
-### Per-type Checkpoint (call inside the article_types loop, before analysis)
-
-> **🛡️ MANDATORY — CRASH-RESILIENCE CHECKPOINT PER ARTICLE TYPE**: This orchestrator iterates over multiple article types in `$ARTICLE_TYPES`. Because the Copilot engine can terminate unexpectedly or stall on slow bash/MCP calls between minute 15 and 100 (see run 24722723230 / issue #1300), a single crash in the middle of the loop would discard ALL work for ALL later types. To prevent that, call `safeoutputs___create_pull_request` **once per article type, as the FIRST action inside the loop** — immediately after `ARTICLE_TYPE_SLUG` and `ANALYSIS_DIR` are resolved for that iteration, and BEFORE any EP MCP data gathering or deep analysis for that type.
-
-**Why per-type and not once up-front?** `ANALYSIS_DIR` is computed per iteration (`analysis/daily/${TODAY}/${ARTICLE_TYPE_SLUG}-run${RUN_ID}`, see line ~1271). Each article type ships on its own branch (`news/${ARTICLE_TYPE_SLUG}-${TODAY}`), produces its own article HTML, and has its own analysis subtree. One safeoutputs call per type means each type gets its own PR, and even if the engine dies midway through the loop, every **completed iteration up to that point** has already shipped a checkpoint PR that captures whatever that type produced.
-
-**Per-type checkpoint body (run this at the TOP of each loop iteration, after `ARTICLE_TYPE_SLUG` + `ANALYSIS_DIR` are set for the current type)**:
-
-```bash
-echo "=== CHECKPOINT: Baseline analysis file for ${ARTICLE_TYPE_SLUG} ==="
-mkdir -p "${ANALYSIS_DIR}/existing"
-cat > "${ANALYSIS_DIR}/existing/session-baseline.md" <<EOF
-# ${ARTICLE_TYPE_SLUG} Session Baseline — ${TODAY} (run ${RUN_ID})
-
-**Status**: Per-type checkpoint PR created for crash-resilience.
-
-This baseline file ensures the checkpoint PR for this article type always
-contains at least one artifact. All subsequent EP MCP data, deep political
-analysis markdown files, and the final English article for ${ARTICLE_TYPE_SLUG}
-will be added automatically as the agent continues working on this type.
-
-- Article type: ${ARTICLE_TYPE_SLUG}
-- Run ID: ${RUN_ID}
-- Workflow: news-article-generator
-- Analysis directory: ${ANALYSIS_DIR}
-EOF
-echo "Wrote ${ANALYSIS_DIR}/existing/session-baseline.md"
-```
-
-Immediately after the baseline file exists for this type, call safeoutputs **once per type** with:
-
-- **title**: `${ARTICLE_TYPE_SLUG} analysis checkpoint — ${TODAY} (run ${RUN_ID})` (the `[news] ` prefix is added automatically)
-- **body**: `Baseline ${ARTICLE_TYPE_SLUG} analysis checkpoint for ${TODAY}. Engine crash-resilience PR — EP MCP data, deep political analysis artifacts, and the final article will be added automatically as the agent continues working on this type.`
-- **base**: `main`
-- **head**: `news/${ARTICLE_TYPE_SLUG}-${TODAY}` (use the current iteration's slug, NOT a shared branch)
-
-> **⚠️ MAX 1 PR PER TYPE**: Call `safeoutputs___create_pull_request` EXACTLY ONCE per article type — at the top of that type's loop iteration. The safe-outputs frontmatter `max: 8` permits up to 8 types per run (breaking, motions, propositions, committee-reports, week-ahead, month-ahead, weekly-review, monthly-review). Do NOT call safeoutputs again for the same type after the checkpoint — the framework captures all subsequent file changes (analysis artifacts, the final article HTML, metadata cleanup) automatically into each type's PR snapshot.
-
-> **After calling the per-type checkpoint**: continue immediately with the EP data gathering, deep analysis, and article generation for that type. Do NOT stop. All subsequent file changes for that type's `${ANALYSIS_DIR}` and its `news/${TODAY}-${ARTICLE_TYPE_SLUG}-*-en.html` artifact are captured automatically in that type's PR.
 
 The `--analysis` flag activates analysis discovery **before** article generation. The `--analysis` flag fetches EP data and then discovers the analysis `.md` files YOU wrote to `${ANALYSIS_DIR}/`. This stage:
 
