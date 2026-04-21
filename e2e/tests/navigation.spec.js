@@ -240,14 +240,13 @@ test.describe('Navigation', () => {
       const href = await link.getAttribute('href');
 
       if (href && !href.startsWith('http')) {
-        await link.click();
-        await page.waitForLoadState('domcontentloaded');
-
-        // Verify no 404 error
-        const bodyText = await page.locator('body').textContent();
-        expect(bodyText).not.toContain('404');
-        expect(bodyText).not.toContain('Not Found');
-        expect(bodyText).not.toContain('Page not found');
+        // Navigate directly to the href so we can capture the HTTP response
+        // status. Clicking the link and substring-matching body text produces
+        // false positives when article content legitimately mentions "404" or
+        // "Not Found" (e.g. EP API status discussions).
+        const response = await page.goto(href);
+        expect(response).not.toBeNull();
+        expect(response.status(), `Navigation to ${href} returned HTTP ${response.status()}`).toBeLessThan(400);
       }
     }
   });
