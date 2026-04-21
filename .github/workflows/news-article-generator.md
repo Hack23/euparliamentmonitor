@@ -99,6 +99,7 @@ safe-outputs:
     labels: [agentic-news, analysis-data]
     draft: false
     expires: 14d
+    max: 8
     allowed-base-branches: ["main"]
   add-comment:
     max: 1
@@ -128,7 +129,7 @@ You are the **News Journalist Agent** for EU Parliament Monitor. This is the **h
 > **📚 Shared patterns reference**: See [SHARED_PROMPT_PATTERNS.md](../prompts/SHARED_PROMPT_PATTERNS.md) for EP MCP tool reference, analysis pipeline, safe outputs, MCP Data-Quality Rules, Reference-Quality Depth Requirements, **§Per-Artifact Budgets (Rule 22 — machine-enforced)**, **Article Generation Pre-Flight Checklist**, and all shared rules. See [ai-driven-analysis-guide.md](../../analysis/methodologies/ai-driven-analysis-guide.md) (v4.6+) for the authoritative analysis protocol (Rules 1-22) including the Mandatory Analytical Dimension Matrix, Rules 19–21 (mandatory pre-flight analysis reading + Analysis-Sources footer + Read Ratio), and Rule 22 (per-artifact depth floors in [`reference-quality-thresholds.json`](../../analysis/methodologies/reference-quality-thresholds.json)).
 > **🚦 MANDATORY PRE-FLIGHT**: Before drafting any article sentence, read **every** artifact in `${ANALYSIS_DIR}/` starting with `intelligence/analysis-index.md`, then consume the entire mandatory-read set per `manifest.json.files.*`. Emit `PREFLIGHT_ATTESTATION:` in stdout before article generation. **BLOCKING GATE (Step 3.5):** run `npm run validate-analysis -- --analysis-dir="${ANALYSIS_DIR}" --article-type="${ARTICLE_TYPE_SLUG}"` — a non-zero exit MUST abort article generation and trigger an analysis Pass 2 to fill missing / short / placeholder-infested artifacts. See SHARED_PROMPT_PATTERNS.md §Article Generation Pre-Flight Checklist.
 > **⭐ Depth exemplar**: [`analysis/daily/2026-04-18/breaking-run184/`](../../analysis/daily/2026-04-18/breaking-run184/) — 17 artifacts · 3600+ lines · 13 analytical frameworks. Target output depth for reference-quality claim: comparable to Run 184. See [`intelligence/reference-analysis-quality.md`](../../analysis/daily/2026-04-18/breaking-run184/intelligence/reference-analysis-quality.md) for quality gates and per-artifact line-count floors.
-> **📈 World Bank + validator reference**: Indicator selection MUST follow [`analysis/methodologies/worldbank-indicator-mapping.md`](../../analysis/methodologies/worldbank-indicator-mapping.md). Source `scripts/wb-mcp-probe.sh` after `scripts/mcp-setup.sh` and branch on `$WB_MCP_OK` (see [SHARED_PROMPT_PATTERNS.md — Mandatory World Bank Economic Context](../prompts/SHARED_PROMPT_PATTERNS.md#-mandatory-world-bank-economic-context-conditional)). Before the safe output, run `npx tsx src/utils/validate-articles.ts --date=$TODAY --quality --strict` — non-zero exit MUST block PR creation.
+> **📈 Economic context (World Bank + IMF) + validator reference**: Indicator selection MUST follow [`analysis/methodologies/worldbank-indicator-mapping.md`](../../analysis/methodologies/worldbank-indicator-mapping.md) (social / health / environment / education / innovation) **and / or** [`analysis/methodologies/imf-indicator-mapping.md`](../../analysis/methodologies/imf-indicator-mapping.md) (macro / fiscal / trade / monetary — incl. WEO forecasts +5y). After `scripts/mcp-setup.sh`, source **both** `scripts/wb-mcp-probe.sh` and `scripts/imf-mcp-probe.sh`, then branch on `$WB_MCP_OK` / `$IMF_MCP_OK` — the Wave-2 OR-gate accepts either source (see [SHARED_PROMPT_PATTERNS.md — Mandatory World Bank Economic Context](../prompts/SHARED_PROMPT_PATTERNS.md#-mandatory-world-bank-economic-context-conditional) and [`.github/skills/imf-data-integration.md`](../skills/imf-data-integration.md)). Before the safe output, run `npx tsx src/utils/validate-articles.ts --date=$TODAY --quality --strict` — non-zero exit MUST block PR creation.
 
 ## 🧠 AI-FIRST CONTENT ARCHITECTURE (NON-NEGOTIABLE)
 
@@ -410,6 +411,46 @@ Call `sequentialthinking` with structured thought chains — each step builds on
 
 
 ## 🔬 Political Intelligence Analysis Stage
+
+### Per-type Checkpoint (call inside the article_types loop, before analysis)
+
+> **🛡️ MANDATORY — CRASH-RESILIENCE CHECKPOINT PER ARTICLE TYPE**: This orchestrator iterates over multiple article types in `$ARTICLE_TYPES`. Because the Copilot engine can terminate unexpectedly or stall on slow bash/MCP calls between minute 15 and 100 (see run 24722723230 / issue #1300), a single crash in the middle of the loop would discard ALL work for ALL later types. To prevent that, call `safeoutputs___create_pull_request` **once per article type, as the FIRST action inside the loop** — immediately after `ARTICLE_TYPE_SLUG` and `ANALYSIS_DIR` are resolved for that iteration, and BEFORE any EP MCP data gathering or deep analysis for that type.
+
+**Why per-type and not once up-front?** `ANALYSIS_DIR` is computed per iteration (`analysis/daily/${TODAY}/${ARTICLE_TYPE_SLUG}-run${RUN_ID}`, see line ~1271). Each article type ships on its own branch (`news/${ARTICLE_TYPE_SLUG}-${TODAY}`), produces its own article HTML, and has its own analysis subtree. One safeoutputs call per type means each type gets its own PR, and even if the engine dies midway through the loop, every **completed iteration up to that point** has already shipped a checkpoint PR that captures whatever that type produced.
+
+**Per-type checkpoint body (run this at the TOP of each loop iteration, after `ARTICLE_TYPE_SLUG` + `ANALYSIS_DIR` are set for the current type)**:
+
+```bash
+echo "=== CHECKPOINT: Baseline analysis file for ${ARTICLE_TYPE_SLUG} ==="
+mkdir -p "${ANALYSIS_DIR}/existing"
+cat > "${ANALYSIS_DIR}/existing/session-baseline.md" <<EOF
+# ${ARTICLE_TYPE_SLUG} Session Baseline — ${TODAY} (run ${RUN_ID})
+
+**Status**: Per-type checkpoint PR created for crash-resilience.
+
+This baseline file ensures the checkpoint PR for this article type always
+contains at least one artifact. All subsequent EP MCP data, deep political
+analysis markdown files, and the final English article for ${ARTICLE_TYPE_SLUG}
+will be added automatically as the agent continues working on this type.
+
+- Article type: ${ARTICLE_TYPE_SLUG}
+- Run ID: ${RUN_ID}
+- Workflow: news-article-generator
+- Analysis directory: ${ANALYSIS_DIR}
+EOF
+echo "Wrote ${ANALYSIS_DIR}/existing/session-baseline.md"
+```
+
+Immediately after the baseline file exists for this type, call safeoutputs **once per type** with:
+
+- **title**: `${ARTICLE_TYPE_SLUG} analysis checkpoint — ${TODAY} (run ${RUN_ID})` (the `[news] ` prefix is added automatically)
+- **body**: `Baseline ${ARTICLE_TYPE_SLUG} analysis checkpoint for ${TODAY}. Engine crash-resilience PR — EP MCP data, deep political analysis artifacts, and the final article will be added automatically as the agent continues working on this type.`
+- **base**: `main`
+- **head**: `news/${ARTICLE_TYPE_SLUG}-${TODAY}` (use the current iteration's slug, NOT a shared branch)
+
+> **⚠️ MAX 1 PR PER TYPE**: Call `safeoutputs___create_pull_request` EXACTLY ONCE per article type — at the top of that type's loop iteration. The safe-outputs frontmatter `max: 8` permits up to 8 types per run (breaking, motions, propositions, committee-reports, week-ahead, month-ahead, weekly-review, monthly-review). Do NOT call safeoutputs again for the same type after the checkpoint — the framework captures all subsequent file changes (analysis artifacts, the final article HTML, metadata cleanup) automatically into each type's PR snapshot.
+
+> **After calling the per-type checkpoint**: continue immediately with the EP data gathering, deep analysis, and article generation for that type. Do NOT stop. All subsequent file changes for that type's `${ANALYSIS_DIR}` and its `news/${TODAY}-${ARTICLE_TYPE_SLUG}-*-en.html` artifact are captured automatically in that type's PR.
 
 The `--analysis` flag activates analysis discovery **before** article generation. The `--analysis` flag fetches EP data and then discovers the analysis `.md` files YOU wrote to `${ANALYSIS_DIR}/`. This stage:
 
