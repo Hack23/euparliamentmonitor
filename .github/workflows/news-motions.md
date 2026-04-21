@@ -100,6 +100,7 @@ safe-outputs:
     labels: [agentic-news, analysis-data]
     draft: false
     expires: 14d
+    allowed-base-branches: ["main"]
     excluded-files:
       - "analysis/daily/**/data/**"
       - "analysis/daily/**/documents/raw-data/**"
