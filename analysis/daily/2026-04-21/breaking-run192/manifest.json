@@ -1,0 +1,67 @@
+{
+  "articleType": "breaking",
+  "runId": 192,
+  "date": "2026-04-21",
+  "priorRunId": 191,
+  "priorRunDate": "2026-04-20",
+  "publishingDecision": "ANALYSIS_ONLY",
+  "degradedMode": true,
+  "degradedReason": "EP Tier-2 content API outage Day 12; Easter recess active; no breaking events",
+  "newsworthinessScore": 3.67,
+  "newsworthinessThreshold": 6.5,
+  "analysisDir": "analysis/daily/2026-04-21/breaking-run192/",
+  "files": {
+    "intelligence/analysis-index.md": "Navigation index listing all 10 analysis files and data sources",
+    "intelligence/synthesis-summary.md": "Main intelligence synthesis: 5 core findings, forward monitoring priorities",
+    "intelligence/cross-run-diff.md": "Run 191→192 differential: hypothesis updates, scenario probability adjustments",
+    "intelligence/stakeholder-map.md": "6 stakeholder perspectives: EPP, S&D, ECR, Greens/Left, PfE, Commission",
+    "intelligence/scenario-forecast.md": "4 scenarios (Alpha/Beta/Gamma/Delta) with probabilities and triggers",
+    "risk-scoring/quantitative-swot.md": "Full SWOT: 4 strengths, 4 weaknesses, 4 opportunities, 4 threats with scores",
+    "risk-scoring/risk-matrix.md": "6 active risks on 5×5 matrix with mitigations and trend analysis",
+    "classification/significance-scoring.md": "6 items scored on composite metric; publishing decision: ANALYSIS_ONLY",
+    "existing/coalition-dynamics.md": "Coalition composition, stability index 87/100, vote outcome scenarios"
+  },
+  "mcpToolsUsed": [
+    "get_server_health",
+    "get_plenary_sessions",
+    "get_all_generated_stats",
+    "get_adopted_texts_feed",
+    "get_events_feed",
+    "get_procedures_feed",
+    "get_meps_feed",
+    "get_adopted_texts",
+    "get_meeting_decisions",
+    "get_speeches",
+    "get_voting_records",
+    "get_documents_feed",
+    "get_committee_documents_feed",
+    "get_parliamentary_questions_feed",
+    "analyze_coalition_dynamics"
+  ],
+  "keyFindings": [
+    "EP API Tier-2 content outage Day 12 — Phase 2 not triggered on Day 1 post-Easter",
+    "Metadata count stable at 104 (unchanged from Run 191) — plateau confirmed",
+    "USTR Section 301 window opened April 21 — no action detected; 20% probability within April 21-24",
+    "Roll-call votes T+26 days overdue — publication expected April 22-24",
+    "April 27-30 plenary confirmed; agenda items not yet published (expected April 22-23)",
+    "Grand coalition stability 87/100 — EPP+S&D+Renew 397 seats, +36 surplus above threshold"
+  ],
+  "probabilityUpdates": {
+    "smoothRestore_Apr22-24": "40% (was 50% in Run 191)",
+    "partialRestoreRolling": "25% (unchanged)",
+    "extendedOutage_beyondApr26": "35% (was 25% in Run 191)",
+    "ustrSection301_Apr21-24": "20% (unchanged)",
+    "rollCallPublicationThisWeek": "60% (was 55% in Run 191)",
+    "aprilAgendaPublishedThisWeek": "95% (was 90% in Run 191)"
+  },
+  "nextRunMonitoringPriorities": [
+    "TA-0087/0090/0097 content endpoints — any 200 response ends outage",
+    "US Federal Register for Section 301 notice",
+    "EP voting records API for March 26 roll-call data",
+    "EP website for April 27-30 agenda items",
+    "Commission press for Housing Initiative communication"
+  ],
+  "generatedAt": "2026-04-21T00:00:00Z",
+  "agentVersion": "breaking-news-v2.0",
+  "runSeries": 14
+}
