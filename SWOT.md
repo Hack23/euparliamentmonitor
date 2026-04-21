@@ -100,7 +100,7 @@ planning and resource allocation.
 - **9 generation strategies** (1 generic `article-strategy` + 8 type-specific); **10 gh-aw workflows** (`.github/workflows/*.md` → `.lock.yml`)
 - **3061+ automated tests** across **52 test files** (Vitest 4.1.4 + Playwright 1.59.1 + @axe-core/playwright 4.11.2)
 - **Stack**: Node 25, TypeScript 6.0.3 strict mode, ESM-only, Apache-2.0 license
-- **Dual economic context**: `european-parliament-mcp-server@1.2.10` (primary EP data) + `worldbank-mcp@1.0.1` + IMF SDMX 3.0 REST (Wave-2 OR-gate for `articlePolicyHasEconomicContext`)
+- **Dual economic context**: `european-parliament-mcp-server@1.2.11` (primary EP data) + `worldbank-mcp@1.0.1` + IMF SDMX 3.0 REST (Wave-2 OR-gate for `articlePolicyHasEconomicContext`)
 - **Delivery**: AWS S3 + CloudFront (OIDC-based, no long-lived secrets) primary; GitHub Pages fallback
 - **Supply chain**: npm provenance + SLSA L3 + OpenSSF Scorecard + OpenSSF Best Practices badge #12068
 
@@ -1325,7 +1325,7 @@ Funding** | €0 | €10-20k | 🔴 Critical |
 
 - **T7: EU CRA Scope Interpretation** — the December 2027 full-compliance deadline approaches and Article 24 applicability to static-site+npm-package OSS stewards remains unclear; see [`CRA-ASSESSMENT.md`](CRA-ASSESSMENT.md) §5ᵇ gap table. *Risk: 🟡 Medium.*
 - **T8: LLM Economics** — Copilot/Claude/Codex pricing, rate-limit, or access-model changes could degrade pipeline throughput or increase operational cost; mitigated by engine-switch. *Risk: 🟡 Medium.*
-- **T9: Upstream EP Open Data Portal Schema Drift** — precedent: issues #377/#378 shipped breaking schema changes that were fixed in EP MCP 1.2.10; future drift is a recurring risk absorbed by the EP MCP layer but still a pipeline risk. *Risk: 🟡 Medium.*
+- **T9: Upstream EP Open Data Portal Schema Drift** — precedent: issues #377/#378 shipped breaking schema changes that were fixed in EP MCP 1.2.11; future drift is a recurring risk absorbed by the EP MCP layer but still a pipeline risk. *Risk: 🟡 Medium.*
 - **T10: Political-Bias Allegations** — any transparency platform covering parliamentary activity faces reputational risk around perceived bias; mitigated by source transparency, open methodology, and public SWOT/THREAT_MODEL documentation. *Risk: 🟡 Medium.*
 - **T11: Supply-Chain Attack Vectors** — npm, GitHub, and AWS remain attack surfaces; SLSA L3 + OIDC federation + npm provenance mitigate but do not eliminate exposure. See THREAT_MODEL.md T-002, T-011, T-012, T-026. *Risk: 🟡 Medium.*
 - **T12: Prompt Injection via Adversarial EP Debate Content** — mitigated by validator gate + `FALLBACK_TEMPLATE_PATTERNS` scan + 2-pass AI review; see THREAT_MODEL.md T-021. *Risk: 🟡 Medium.*
