@@ -6,28 +6,24 @@
       "headers": {
         "Authorization": "Bearer ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN }}",
         "X-MCP-Toolsets": "all"
-      },
-      "tools": ["*"]
+      }
     },
     "filesystem": {
       "type": "local",
       "command": "mcp-server-filesystem",
       "args": [
         "/home/runner/work/euparliamentmonitor/euparliamentmonitor"
-      ],
-      "tools": ["*"]
+      ]
     },
     "memory": {
       "type": "local",
       "command": "mcp-server-memory",
-      "args": [],
-      "tools": ["*"]
+      "args": []
     },
     "sequential-thinking": {
       "type": "local",
       "command": "mcp-server-sequential-thinking",
-      "args": [],
-      "tools": ["*"]
+      "args": []
     },
     "playwright": {
       "type": "local",
@@ -39,8 +35,7 @@
       ],
       "env": {
         "DISPLAY": ":99"
-      },
-      "tools": ["*"]
+      }
     },
     "european-parliament": {
       "type": "local",
@@ -53,8 +48,7 @@
       ],
       "env": {
         "EP_REQUEST_TIMEOUT_MS": "90000"
-      },
-      "tools": ["*"]
+      }
     },
     "world-bank": {
       "type": "local",
@@ -62,8 +56,7 @@
       "args": [
         "-y",
         "worldbank-mcp@1.0.1"
-      ],
-      "tools": ["*"]
+      ]
     }
   }
 }
