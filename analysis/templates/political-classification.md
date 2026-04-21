@@ -59,6 +59,31 @@
 
 ---
 
+## 🗺️ Classification Overview Diagram
+
+Every classification file includes a color-coded overview diagram that places this event on the four classification axes. Use the Hack23 theme palette (blue=input, green=safe, orange=caution, red=critical, purple=synthesis).
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","errorBkgColor":"#D32F2F","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
+flowchart LR
+    E["🏷️ Event<br/>[REQUIRED: short name]"] --> S["Sensitivity<br/>[🟢 PUBLIC / 🟡 SENSITIVE / 🔴 RESTRICTED]"]
+    E --> D["Policy Domain<br/>[REQUIRED: primary committee]"]
+    E --> U["Urgency<br/>[⚪ / 🔵 / 🟠 / 🔴]"]
+    E --> I["Impact Scope<br/>[🏘️ / 🇪🇺 / 🌍]"]
+    E --> C["Composite Risk<br/>[max L×I from matrix]"]
+
+    style E fill:#1565C0,color:#ffffff
+    style S fill:#2E7D32,color:#ffffff
+    style D fill:#0288D1,color:#ffffff
+    style U fill:#FF9800,color:#000000
+    style I fill:#7B1FA2,color:#ffffff
+    style C fill:#D32F2F,color:#ffffff
+```
+
+> Colour the Sensitivity, Urgency, and Composite-Risk nodes to match the level you selected above (green/orange/red), so a reader scanning the diagram alone can read the classification at a glance.
+
+---
+
 ## 📊 Impact Analysis Matrix
 
 Score likelihood and impact on 1–5 scale. Risk Score = Likelihood × Impact.

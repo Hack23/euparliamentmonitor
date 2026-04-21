@@ -194,14 +194,16 @@ graph TB
 ```
 analysis/
 ├── README.md                          ← This file (CRITICAL RULES — read first)
-├── methodologies/                     ← 6 detailed methodology guides
+├── methodologies/                     ← 8 methodology guides (6 frameworks + 2 catalogs)
 │   ├── README.md                      ← Methodology catalog and pipeline overview
+│   ├── ai-driven-analysis-guide.md        ← 10-step analysis protocol (authoritative, read FIRST)
+│   ├── artifact-catalog.md                ← Master map of every analysis artifact by folder group
+│   ├── per-artifact-methodologies.md      ← Per-artifact construction rules (purpose + inputs + structure + Mermaid + floor)
 │   ├── political-classification-guide.md  ← 7-dimension EP event classification
 │   ├── political-risk-methodology.md      ← Likelihood × Impact scoring for EP
 │   ├── political-threat-framework.md      ← Political Threat Landscape (6 dims) + 5 frameworks
 │   ├── political-swot-framework.md        ← Evidence-based SWOT for EP landscape
-│   ├── political-style-guide.md           ← Writing standards, depth levels, anti-patterns
-│   └── ai-driven-analysis-guide.md        ← Per-file AI analysis protocol and quality gates
+│   └── political-style-guide.md           ← Writing standards, depth levels, evidence density
 ├── templates/                         ← 8 reusable analysis templates (AI fills these)
 │   ├── README.md                      ← Template catalog and selection guide
 │   ├── political-classification.md    ← Event classification template

@@ -1,22 +1,25 @@
+<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+
 <p align="center">
   <img src="https://hack23.com/icon-192.png" alt="Hack23 Logo" width="192" height="192">
 </p>
 
-<h1 align="center">🤖 AI-Driven Per-File Analysis Guide — European Parliament</h1>
+<h1 align="center">🤖 AI-Driven Analysis Guide</h1>
 
 <p align="center">
-  <strong>📊 Comprehensive Methodology for Agentic Political Intelligence Analysis</strong><br>
-  <em>🎯 Per-File Protocol · Quality Gates · Anti-Patterns · Document-Type Focus</em>
+  <strong>📊 The 10-Step Protocol Every Agentic Workflow Follows to Produce Reference-Quality Political Intelligence</strong><br>
+  <em>🎯 Clear · Step-by-Step · Positive · Color-Coded Mermaid · Deep Political Intelligence</em>
 </p>
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-4.5-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--18-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-5.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--21-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 4.5 | **📅 Last Updated:** 2026-04-18 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 5.0 | **📅 Last Updated:** 2026-04-21 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
@@ -24,1496 +27,361 @@
 
 ## 🎯 Purpose
 
-This guide defines the **per-file AI analysis protocol** — the primary analysis mode for EU Parliament Monitor. For every downloaded EP MCP data file, the AI agent produces a deep analysis markdown file stored alongside it. This replaces batch summaries with systematic, per-document intelligence production.
+This guide is the **single authoritative protocol** every agentic workflow (`news-breaking`, `news-weekly-review`, `news-monthly-review`, `news-week-ahead`, `news-month-ahead`, `news-committee-reports`, `news-motions`, `news-propositions`, `news-article-generator`, `news-translate`) follows to turn European Parliament MCP data into reference-quality political intelligence.
 
-**Critical mandate:** AI agents must READ all methodology documents, ANALYSE the specific data file using those methodologies, and PRODUCE original intelligence — never scripted or templated boilerplate.
+The guide is **positive and step-by-step**: each step describes exactly what to produce. Detailed per-artifact construction rules live in [`per-artifact-methodologies.md`](per-artifact-methodologies.md); the master map of every artifact lives in [`artifact-catalog.md`](artifact-catalog.md).
 
 ---
 
-## 🔴 ABSOLUTE RULES (Violations = Rejected Output)
+## 🗺️ The 10-Step Protocol at a Glance
 
-### Rule 1: Folder Isolation — NEVER Overwrite Another Workflow's Analysis
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","errorBkgColor":"#D32F2F","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
+flowchart LR
+    S1["1️⃣ Prepare<br/>run scope"] --> S2["2️⃣ Read<br/>methodologies"]
+    S2 --> S3["3️⃣ Collect<br/>EP MCP data"]
+    S3 --> S4["4️⃣ Classify<br/>+ actor-map"]
+    S4 --> S5["5️⃣ Score risk<br/>+ SWOT"]
+    S5 --> S6["6️⃣ Model threats<br/>+ scenarios"]
+    S6 --> S7["7️⃣ Synthesize<br/>+ cross-run"]
+    S7 --> S8["8️⃣ Decide article<br/>title + desc"]
+    S8 --> S9["9️⃣ Pass 2<br/>improve everything"]
+    S9 --> S10["🔟 Validate<br/>+ commit + PR"]
 
-Each agentic workflow writes ONLY to its own isolated folder:
-
+    style S1 fill:#1565C0,color:#ffffff
+    style S2 fill:#0288D1,color:#ffffff
+    style S3 fill:#2E7D32,color:#ffffff
+    style S4 fill:#2E7D32,color:#ffffff
+    style S5 fill:#FF9800,color:#000000
+    style S6 fill:#D32F2F,color:#ffffff
+    style S7 fill:#7B1FA2,color:#ffffff
+    style S8 fill:#7B1FA2,color:#ffffff
+    style S9 fill:#FFC107,color:#000000
+    style S10 fill:#2E7D32,color:#ffffff
 ```
-analysis/{YYYY-MM-DD}/{article-type-slug}/
-```
 
-**Automatic suffix deduplication (v3.0):** When a workflow runs and a prior completed analysis already exists at the target path (indicated by an existing `manifest.json`), the system automatically appends a numeric suffix to create a new directory:
+Colour key (used in every diagram in the analysis library):
 
-```
-analysis/daily/2026-04-02/breaking/       ← first run
-analysis/daily/2026-04-02/breaking-2/     ← second run (same day)
-analysis/daily/2026-04-02/breaking-3/     ← third run (same day)
-```
+| Colour | Role |
+|---|---|
+| 🔵 Blue `#1565C0` | Input / scope / primary |
+| 🔷 Light-blue `#0288D1` | Reference material / reading |
+| 🟢 Green `#2E7D32` | Safe / approved / completed |
+| 🟠 Orange `#FF9800` | Risk / caution |
+| 🔴 Red `#D32F2F` | Threat / critical |
+| 🟣 Purple `#7B1FA2` | Synthesis / higher-order intelligence |
+| 🟡 Yellow `#FFC107` | Pending / pass-2 / note |
 
-Similarly, news article files include the suffix as part of the slug:
+---
 
-```
-news/2026-04-02-breaking-en.html       ← first run
-news/2026-04-02-breaking-2-en.html     ← second run (suffix in slug, before lang code)
-```
+## 1️⃣ Step 1 — Prepare the Run Scope
 
-This ensures that repeated or scheduled workflow runs (e.g. breaking news every 6 hours) NEVER overwrite previously committed analysis or articles. Each run produces its own unique output.
+Establish where this run writes and what it produces.
 
-**Enforcement checklist:**
-- [ ] My workflow writes ONLY to `analysis/${ARTICLE_DATE}/${ARTICLE_TYPE_SLUG}/` (or its suffixed variant)
-- [ ] My `git add` is scoped: `git add "analysis/${ARTICLE_DATE}/${ARTICLE_TYPE_SLUG}*/"` (includes suffixed dirs)
-- [ ] I do NOT touch files in any other workflow's folder
-- [ ] Breaking workflows use the `breaking/` slug (automatic suffixing handles repeats)
-- [ ] I do NOT manually delete or overwrite any existing analysis or article files
+1. Resolve `ARTICLE_TYPE_SLUG` from the workflow (e.g. `breaking`, `week-ahead`). Valid slugs are the `ArticleCategory` values in `src/types/common.ts`.
+2. Resolve `ANALYSIS_DIR = analysis/daily/${ARTICLE_DATE}/${ARTICLE_TYPE_SLUG}-run${RUN_ID}/`. The run-id suffix is set by the workflow so parallel and repeat runs each get their own folder.
+3. Create the five sub-folders: `intelligence/`, `classification/`, `risk-scoring/`, `threat-assessment/`, `documents/`.
+4. Initialize `manifest.json` with `{ articleType, articleDate, runId, files: { intelligence: [], classification: [], risk_scoring: [], threat_assessment: [], documents: [] }, startedAt }`.
+5. Scope the run's `git add` to `${ANALYSIS_DIR}` (plus the `news/` file the article generator will later emit). This keeps every workflow in its own lane.
 
-### Rule 2: AI Performs ALL Analysis — Scripts ONLY Download Data
+**Product of Step 1:** an empty, isolated run root with a valid manifest stub.
 
-| ✅ Scripts MAY | 🚫 Scripts MUST NEVER |
-|---------------|----------------------|
-| Download EP MCP data files | Generate analysis prose, SWOT entries, risk scores |
-| Catalog pending files | Fill template sections with content |
-| Run quality gate validation | Create "placeholder" text that looks like real analysis |
-| Create directory structure | Produce significance scores or classifications |
+---
 
-**Test:** If you can replace the "analysis" content with Lorem Ipsum and nobody notices, it's scripted crap — not genuine analysis.
+## 2️⃣ Step 2 — Read the Methodology Library
 
-### Rule 3: Read ALL Methodologies Before Analyzing
+Before any analysis, read these documents in order. This is expected to take 4–6 minutes of active reading.
 
-Before analyzing ANY document, the AI MUST read:
-1. `analysis/methodologies/political-swot-framework.md` — Cross-SWOT interference, TOWS matrix, scenario generation
-2. `analysis/methodologies/political-risk-methodology.md` — Cascading risk, Bayesian updating, risk interconnection
-3. `analysis/methodologies/political-threat-framework.md` — Political Threat Landscape, Attack Trees, Diamond Model, Kill Chain, PESTLE
-4. `analysis/methodologies/political-classification-guide.md` — Political Temperature, strategic significance, coalition impact vector
-5. `analysis/methodologies/political-style-guide.md` — Evidence density, attribution, intelligence writing depth levels
-6. ALL 8 templates in `analysis/templates/`
+| Priority | Document | What it gives you |
+|:---:|---|---|
+| P1 | [`artifact-catalog.md`](artifact-catalog.md) | Master map of every artifact this run will produce |
+| P1 | [`per-artifact-methodologies.md`](per-artifact-methodologies.md) | Construction rules for each artifact |
+| P1 | [`political-swot-framework.md`](political-swot-framework.md) | Evidence hierarchy, confidence levels, TOWS |
+| P1 | [`political-risk-methodology.md`](political-risk-methodology.md) | 5×5 Likelihood × Impact, Bayesian update |
+| P1 | [`political-threat-framework.md`](political-threat-framework.md) | Threat Landscape, Diamond, Attack Trees, Kill Chain |
+| P1 | [`political-classification-guide.md`](political-classification-guide.md) | 7-dimension event classification, significance rubric |
+| P2 | [`political-style-guide.md`](political-style-guide.md) | Writing standards, evidence density, depth levels |
+| P2 | [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md) + [`imf-indicator-mapping.md`](imf-indicator-mapping.md) | Economic-context indicator selection |
+| P2 | All nine templates in [`../templates/`](../templates/README.md) | Output shapes to fill with analysis |
 
-### Rule 4: Multi-Framework Depth Required
+**Product of Step 2:** the mental model of the analytical pipeline. Emit the line `METHODOLOGIES_READ: ok` in the workflow log before proceeding.
 
-Every analysis file MUST demonstrate:
-- **≥ 3 evidence-backed claims** per analytical section (with EP document citations)
-- **≥ 1 colour-coded Mermaid diagram** with real data (not placeholders)
-- **Multi-perspective analysis** (Grand Coalition, opposition, citizens, EU institutions, international)
-- **Cross-document pattern identification** (how this relates to other recent EP activity)
-- **Forward-looking indicators** (what to watch next, with specific triggers)
-- **At least 2 analytical frameworks** applied (e.g., SWOT + Risk, or Attack Tree + Kill Chain)
+---
 
-### Rule 5: ALWAYS Commit Analysis — No Workflow Run Wasted
+## 3️⃣ Step 3 — Collect Complete EP MCP Data
 
-Every agentic workflow run MUST produce and commit analysis artifacts to the `analysis/` folder. **No workflow run should ever be wasted** — even when no article is generated, the analysis work must be persisted.
+Download the complete data your article type needs — not metadata, not counts.
 
-| Scenario | Required Action |
-|----------|----------------|
-| Article generated | Include analysis artifacts in the article PR alongside `news/` files |
-| No article (quiet period) | Create an **analysis-only PR** with collected data analysis artifacts instead of discarding work |
-| Existing analysis found | **Improve, extend, correct, or complete** the existing analysis — never skip or overwrite blindly |
-| Translation workflow | Perform translation coverage and terminology quality analysis |
-| MCP server unavailable | Document the connection failure and any partial data in analysis; commit what was gathered |
+1. Source `scripts/mcp-setup.sh` to configure the gateway. Source `scripts/wb-mcp-probe.sh` and `scripts/imf-mcp-probe.sh` when economic context is required.
+2. For each feed your article type uses (per the SHARED_PROMPT_PATTERNS workflow table), attempt the feed endpoint first (e.g. `get_adopted_texts_feed`), then fall back to the dated endpoint (`get_adopted_texts({year, limit})`) if the feed returns 4xx/5xx/timeout.
+3. Persist every raw response under `${ANALYSIS_DIR}/data/` (JSON / NDJSON / CSV / XML). Store complete documents — title, procedure reference, adoption date, document ID, committees, related procedures, full body where available.
+4. For any coalition claim, fetch the corresponding `get_voting_records` for the cited plenary session. Where EP roll-call data has not yet been published, mark the claim LOW confidence and note the publication delay.
+5. Record every endpoint attempt (success, degraded, failed, data-age) — this feeds `intelligence/mcp-reliability-audit.md` in Step 7.
 
-**Enforcement checklist:**
-- [ ] Analysis artifacts are included in `git add` alongside article files — never deleted before PR creation
-- [ ] Raw MCP data payload files (e.g. `data/**/*.json`, `*.ndjson`, `*.csv`, `*.xml`) may be cleaned to control PR size, but **never delete `*.analysis.md` or other markdown artifacts** under `data/`; analysis markdown is ALWAYS committed
-- [ ] On noop scenarios, create an analysis-only PR (`safeoutputs___create_pull_request`) instead of discarding analysis with `safeoutputs___noop`
-- [ ] Before producing new analysis, check for existing analysis in `analysis/${ARTICLE_DATE}/${ARTICLE_TYPE_SLUG}/` and **improve/extend** it rather than replacing from scratch
-- [ ] Every workflow references this guide (`analysis/methodologies/ai-driven-analysis-guide.md`) as the authoritative analysis protocol
+**Product of Step 3:** a populated `data/` directory and an endpoint ledger.
 
-**Anti-patterns (REJECTED):**
-- ❌ `rm -rf analysis/` before PR creation — this destroys valuable intelligence
-- ❌ `safeoutputs___noop` when analysis artifacts have been produced — use `safeoutputs___create_pull_request` for analysis-only PRs instead
-- ❌ Ignoring existing analysis files — always read, evaluate, and improve them
-- ❌ Skipping analysis because "there's no news" — analysis of quiet periods reveals patterns too
+---
 
-### Rule 6: Article Type Identification — Analysis Must Include Article Type Context
+## 4️⃣ Step 4 — Classify Events and Map Actors
 
-Every analysis artifact and news article MUST clearly identify which article type (category) it belongs to. This prevents cross-contamination when multiple workflows produce analysis for the same date.
+Turn raw data into a labelled fact layer.
 
-**Mandatory identification in analysis artifacts:**
-- [ ] Every `manifest.json` includes `"articleType": "<slug>"` (e.g., `"articleType": "breaking"`)
-- [ ] Every `.analysis.md` file includes YAML frontmatter with `articleType: <slug>`
-- [ ] Analysis file paths always include the article type slug: `analysis/daily/{date}/{article-type-slug}/`
-- [ ] The article HTML includes the article type in its metadata: `<meta name="article-type" content="<slug>">`
+1. For every candidate event / document: apply [`political-classification-guide.md`](political-classification-guide.md) and write a row in `classification/significance-classification.md` (5-dimension rubric + publish / hold decision).
+2. Build `classification/actor-mapping.md` — ≥12 named actors with influence weights (see [`per-artifact-methodologies.md §actor-mapping`](per-artifact-methodologies.md#actor-mapping)).
+3. Build `classification/forces-analysis.md` — Lewin force-field on the period's dominant issue.
+4. Build `classification/impact-matrix.md` — event × stakeholder grid with 🟢/🟡/🔴/⚪ cells.
+5. Build `documents/document-analysis-index.md` — one row per downloaded document with its per-file analysis path and status.
+6. Register every artifact in `manifest.files.classification[]` and `manifest.files.documents[]`.
 
-**Valid article type slugs** (from `ArticleCategory` enum in `src/types/common.ts`):
+**Product of Step 4:** a complete fact layer — the reader can tell *what happened, who acted, and who is affected* from these four files alone.
 
-| Article Type | Slug | Perspective |
-|-------------|------|-------------|
-| Breaking News | `breaking` | Real-time |
-| Committee Reports | `committee-reports` | Domain-specific |
-| Motions | `motions` | Domain-specific |
-| Propositions | `propositions` | Domain-specific |
-| Week Ahead | `week-ahead` | Prospective |
-| Month Ahead | `month-ahead` | Prospective |
-| Week in Review | `week-in-review` | Retrospective |
-| Month in Review | `month-in-review` | Retrospective |
-| Year Ahead | `year-ahead` | Prospective |
-| Year in Review | `year-in-review` | Retrospective |
-| Deep Analysis | `deep-analysis` | Analytical |
+---
 
-**Anti-patterns (REJECTED):**
-- ❌ Analysis artifacts without article type identification — makes it impossible to trace analysis provenance
-- ❌ One article type's workflow writing analysis to another type's directory
-- ❌ Generic analysis that could belong to any article type — every analysis must be contextualised for its specific article perspective
+## 5️⃣ Step 5 — Score Risk and SWOT
 
-### Rule 7: Minimum 20-Minute AI Analysis Time — 2-Pass Deep Political Intelligence Required
+Turn facts into quantified political risk.
 
-Every workflow MUST allocate a **minimum of 20 minutes** to AI-driven political intelligence analysis, structured as **2 mandatory passes**. This is the analysis time where the AI agent reads methodology documents, queries MCP tools, and produces original analytical content. This does NOT include data download time or HTML formatting time.
+1. Write `risk-scoring/risk-matrix.md` — 5×5 Likelihood × Impact with ≥5 named political risks, trend vs. prior run, Accept/Prepare/Monitor decisions (per [`political-risk-methodology.md`](political-risk-methodology.md)).
+2. Write `risk-scoring/quantitative-swot.md` — 3+3+3+3 SWOT with numeric weights + TOWS cross-quadrant strategies (per [`political-swot-framework.md`](political-swot-framework.md)). Every item gets ≥80 words of evidence and a severity badge.
+3. Write `risk-scoring/political-capital-risk.md` when the run touches named rapporteur / chair / group-leader positions.
+4. Write `risk-scoring/legislative-velocity-risk.md` when the run covers pipeline throughput (weekly / monthly reviews, week / month ahead).
+5. Register artifacts in `manifest.files.risk_scoring[]`.
 
-> **⚠️ ONE PASS IS NEVER SUFFICIENT**: Pass 1 writes initial analysis. Pass 2 reads ALL analysis back completely and improves every section. The AI MUST spend the full allocated time — completing early with shallow content is a VIOLATION.
+**Product of Step 5:** every qualitative claim from Step 4 is now anchored in numbers.
 
-**Minimum analysis time budgets (updated):**
+---
 
-| Workflow | Minimum AI Analysis Time | Pass 1 (Write) | Pass 2 (Read-Back & Improve) | What the AI Must Produce |
-|----------|:------------------------:|:---------------:|:----------------------------:|--------------------------|
-| Breaking news | 20 minutes | ~12 min | ~8 min | Per-event significance scoring, coalition impact, threat assessment |
-| Committee reports | 20 minutes | ~12 min | ~8 min | Committee power analysis, rapporteur dynamics, amendment landscape |
-| Propositions | 20 minutes | ~12 min | ~8 min | Legislative pipeline risk, passage probability, institutional tension |
-| Motions | 20 minutes | ~12 min | ~8 min | Voting coalition analysis, group cohesion, cross-party patterns |
-| Week ahead | 20 minutes | ~12 min | ~8 min | Strategic outlook, scenario planning, risk forecasting |
-| Month ahead | 20 minutes | ~12 min | ~8 min | Political landscape analysis, coalition evolution, policy momentum |
-| Week in review | 25 minutes | ~15 min | ~10 min | Comprehensive weekly intelligence synthesis, trend detection |
-| Month in review | 25 minutes | ~15 min | ~10 min | Deep monthly analytical assessment, pattern identification |
-| Article generator | 15 min × types | ~60% | ~40% | Full analysis per article type with iterative improvement |
+## 6️⃣ Step 6 — Model Threats, Scenarios, and Economic Context
 
-**What counts as AI analysis time:**
-- ✅ Reading and applying methodology documents
-- ✅ Querying EP MCP tools for cross-referencing data
-- ✅ Writing original analytical prose with evidence citations
-- ✅ Producing Mermaid diagrams with real data
-- ✅ Conducting multi-framework analysis (SWOT + Risk + Threat)
-- ✅ Iterating through the mandatory 2-pass improvement cycle (Pass 1: write, Pass 2: read-back & improve)
-- ✅ **Pass 2: Reading back ALL analysis files and improving every section**
-- ✅ **Pass 2: Expanding shallow sections, adding evidence, adding cross-references**
+Turn quantified risk into forward-looking intelligence.
 
-**What does NOT count:**
-- ❌ Running `npx tsx` scripts (data preparation, not analysis)
-- ❌ Waiting for MCP feed responses
-- ❌ HTML template formatting and rendering
-- ❌ Git operations (commit, PR creation)
+1. Write `intelligence/threat-model.md` — Diamond Model + Attack Trees + Kill Chain on the period's top democratic threats (per [`political-threat-framework.md`](political-threat-framework.md)). Political threats only, never software-centric.
+2. Write `intelligence/political-threat-landscape.md` (the 6-dimension Threat Landscape view). For threat-heavy article types, also expand into `threat-assessment/actor-threat-profiles.md`, `threat-assessment/consequence-trees.md`, `threat-assessment/legislative-disruption.md`, and `threat-assessment/political-stride-assessment.md`.
+3. Write `intelligence/scenario-forecast.md` — ≥3 probability-weighted scenarios (baseline → branching `flowchart TD` in green / orange / red) with early-warning indicators and date-bounded triggers.
+4. Write `intelligence/pestle-analysis.md` — six-dimension (P·E·S·T·L·E) scan with pressure ratings.
+5. Write `intelligence/economic-context.md` using World Bank and / or IMF data (Wave-2 OR-gate — either source satisfies the requirement; see [`.github/skills/imf-data-integration.md`](../../.github/skills/imf-data-integration.md)). Bridge every indicator to a named EP policy topic from the run.
+6. Write `intelligence/coalition-dynamics.md` — group cohesion + alliance pairs using `get_voting_records` / `analyze_coalition_dynamics` / `compare_political_groups`.
+7. Write `intelligence/wildcards-blackswans.md` — ≥5 low-probability, high-impact wildcards on a Probability × Impact `quadrantChart`.
+8. Write `intelligence/historical-baseline.md` — anchor every current score / metric in 30-day and 90-day baselines; mark "first occurrence", "highest since", "return to baseline" findings.
+9. Register artifacts in `manifest.files.intelligence[]` and `manifest.files.threat_assessment[]`.
 
-**Mandatory 2-pass article generation (ALSO applies after analysis):**
+**Product of Step 6:** the forward-looking intelligence layer. The reader can now see *where the period is heading, what forces are shaping it, and what could flip the trajectory*.
 
-After article generation, the AI MUST read the ENTIRE generated article and improve every section. This includes:
-- ✅ Verifying every section has ≥3 analytical paragraphs (not bullet lists)
-- ✅ Verifying SWOT items have ≥80 words with evidence
-- ✅ Verifying stakeholder perspectives have ≥150 words with evidence chains
-- ✅ Adding World Bank economic context where missing
-- ✅ Rewriting any section that fails the Economist Test
+---
 
-### Rule 8: Scripts Format, AI Analyses — Clear Separation of Concerns
+## 7️⃣ Step 7 — Synthesize and Cross-Run Diff
 
-> **⚠️ FUNDAMENTAL PRINCIPLE**: AI writes ALL analysis and ALL article content. Code is ONLY for correct HTML output.
+Consolidate everything into the two files readers reach for first.
 
-The separation between script-generated structure and AI-generated analysis MUST be strictly maintained:
+1. Write `intelligence/synthesis-summary.md` — executive finding, Top-5 findings table, parliament-status dashboard, stakeholder snapshot, ≥6 forward monitors, confidence ledger. Anchor each Top-5 finding to the specific artifact it came from.
+2. Write `intelligence/significance-scoring.md` — 5-dimension composite per candidate item with publish decision, top-item narrative, 30-day median comparison.
+3. Write `intelligence/cross-run-diff.md` — Bayesian delta vs. the previous same-type run: what changed in data, what changed in assessment, confidence migration. Emit a "carry-forward vs. superseded" table.
+4. Write `intelligence/mcp-reliability-audit.md` from the Step 3 endpoint ledger — endpoint scoreboard, per-endpoint findings, upstream issues filed on `Hack23/European-Parliament-MCP-Server`, alternative-source bridge.
+5. Write `intelligence/reference-analysis-quality.md` — self-score of this run against the reference benchmark ([Run 184](../daily/2026-04-18/breaking-run184/)) with a Pass-2 action list.
+6. Write `intelligence/analysis-index.md` — read-me-first index of every artifact with reading priority (P1 / P2 / P3), line count, and status.
+7. Finalize `manifest.json.files.intelligence[]`.
 
-| Layer | Responsibility | Examples |
-|-------|---------------|----------|
-| **Scripts** (TypeScript) | HTML rendering, template structure, metadata, CSP headers, language switcher, Chart.js scaffolding | `article-template.ts`, `section-builders.ts`, `dashboard-content.ts` |
-| **AI Agent** | ALL political analysis, ALL narrative prose, ALL SWOT content, ALL stakeholder reasoning, ALL risk assessment, ALL coalition dynamics, World Bank data interpretation, chart data selection | Analysis .md files, every `AI_MARKER` field, article body prose |
+**Product of Step 7:** a run a reader can enter through `analysis-index.md`, spend 5 minutes in `synthesis-summary.md`, and still leave with a defensible political-intelligence picture.
 
-**Scripts produce the HTML container** — correct document structure, metadata, chart canvas elements, accessibility features. Scripts do NOT produce analysis or journalism.
+---
 
-**AI produces ALL intelligence content** — the actual political analysis that fills those containers. This includes:
-- ≥60% prose paragraphs (not bullet lists) in article body
-- ≥80 words per SWOT item with evidence and confidence levels
-- ≥150 words per stakeholder perspective with evidence chains
-- ≥200 words risk outlook with probability-labelled scenarios
-- Named MEPs, specific vote counts, coalition shift analysis
-- World Bank economic data contextualized in analytical paragraphs
-- Chart data selection (what to visualize and why)
+## 8️⃣ Step 8 — Decide Article Title and Description (AI-Only)
 
-**The Economist Test:** Remove all AI-written content from an article. If the remaining shell still looks like a complete article, the AI did too little work. The article should be visually rich but intellectually empty without AI analysis. Conversely, if the article reads like a shallow code-generated summary with bullet lists, the AI has failed its primary responsibility.
+Article title, description, and SEO keywords are decided **after** Step 7, from the run's analysis — never by TypeScript code, template strings, or count-based formatters.
 
-**Anti-patterns (REJECTED):**
-- ❌ Scripts generating `[AI_ANALYSIS_REQUIRED]` placeholders that survive to the final article — all placeholders must be filled by the AI agent
-- ❌ SWOT quadrants with generic one-liners instead of ≥80 words of evidence-based analysis per item
-- ❌ Stakeholder matrices with "Winner/Loser/Neutral" labels but no supporting rationale (≥150 words required per perspective)
-- ❌ Article sections dominated by bullet lists with brief descriptions — write analytical paragraphs instead
-- ❌ Coalition analysis that merely names groups without explaining motivations, strategy, and named MEP positions
-- ❌ Articles with zero World Bank economic data when the topic has economic/policy relevance
-- ❌ Articles with zero chart visualizations — every article needs ≥1 Chart.js canvas with real data
-- ❌ Analysis artifacts (SWOT, risk, stakeholder) created but not synthesized INTO article prose
-- ❌ Scripts producing political narrative text — this is the AI agent's exclusive domain
-- ❌ Generic template text like "this shapes the legislative trajectory" or "carries potential regulatory implications" — write specific political intelligence instead
-- ❌ Metric-as-prose text like "Pipeline health at X% with throughput of Y reflects moderate legislative processing capacity" — data metrics belong in dashboard visualizations, not in analytical prose
+1. Read `intelligence/synthesis-summary.md` and `intelligence/significance-scoring.md`. Identify the single most politically significant item.
+2. Write a title that names that item and its political impact. Aim for ≤70 characters, active voice, specific legislation / committee / actors, no raw dates.
+3. Write a meta description of 150–160 characters that explains political significance and names at least one stakeholder impact.
+4. Write SEO keywords derived from the actual content (committee names, legislation titles, political-group abbreviations, procedure codes).
+5. Pass them as CLI flags to the generator:
 
-**AI_MARKER fields the AI agent MUST fill (post-generation):**
-The TypeScript generators output `[AI_ANALYSIS_REQUIRED]` for: `why` (political drivers), `impactAssessment` (5 dimensions × ≥60 words each), `stakeholderOutcomes[].reason` (≥150 words each), `actionConsequences[].consequence`, `mistakes[].alternative`, and `outlook` (≥200 words with named scenarios and probabilities). The AI agent must replace every marker with substantive, specific, evidence-backed political intelligence.
-
-### Rule 9: AI-Driven Headlines and Descriptions — NEVER Code-Generated
-
-**🔴 ABSOLUTE PROHIBITION: Titles and descriptions MUST NEVER be generated by TypeScript code, template strings, count-based formatters, or any scripted logic.**
-
-The AI agent MUST:
-1. Complete ALL analysis methods first
-2. Read the completed analysis artifacts
-3. Identify the most politically significant finding
-4. Write a headline and description based on that analysis
-5. Pass them via `--title="..."` and `--description="..."` CLI flags to the generator
-
-**How it works technically:**
 ```bash
-# AI agent analyses content, then writes the title and description:
-AI_TITLE="Parliament Advances Anti-Corruption Directive as ECR Dissents"
-AI_DESCRIPTION="European Parliament plenary breakthrough on anti-corruption legislation reveals shifting alliance dynamics as ECR breaks with EPP on trade response"
+AI_TITLE="ECR Breaks Ranks on Digital Markets Act as Grand Coalition Splits"
+AI_DESCRIPTION="ECR defection on DMA enforcement reveals new cross-group dynamics; EPP-S&D cohesion drops to 61%, lowest reading in Q1 2026."
 
 npx tsx src/generators/news-enhanced.ts \
-  --types=motions \
+  --types=${ARTICLE_TYPE_SLUG} \
   --title="$AI_TITLE" \
   --description="$AI_DESCRIPTION" \
   --analysis \
-  ...
+  --analysis-dir="$ANALYSIS_DIR"
 ```
 
-**What the AI agent MUST produce:**
-- A title that names the specific legislation, action, or political event (not "19 Adopted Texts")
-- A description that explains the political significance (not "EP voting analysis: 5 votes analysed")
-- SEO keywords derived from the actual content (committee names, legislation titles, political groups involved)
-
-| ❌ REJECTED (code-generated) | ✅ REQUIRED (AI-analysed) |
-|---|---|
-| `Plenary Votes & Resolutions: 2026-04-08 — 5 Votes, 2 Anomalies` | `ECR Breaks Ranks on Digital Markets Act as Grand Coalition Splits` |
-| `EU Parliament Committee Activity: ENVI, ECON — 19 Adopted Texts` | `Five Committees Reshape EU Policy: Banking Reform and Climate Regulation Advance` |
-| `Legislative Procedures: Pipeline 0%` | `EU Legislative Tracker: Banking Resolution Reforms Clear Committee` |
-| `Week Ahead: 2026-04-08 to 2026-04-15` | `Critical Defence Vote Looms as Parliament Prepares Climate Package Debate` |
-
-**Title requirements:**
-- Lead with the political story, not data metrics (no "Pipeline 0%", "2 Votes", "19 Adopted Texts")
-- Maximum 70 characters for SEO (Google typically displays 50-60 characters)
-- Include the most newsworthy development from the analysis results
-- Name specific legislation, committees, or political actors when possible
-- Use active verbs: "advances", "divides", "reshapes", "signals", "breaks", "blocks"
-- NEVER include raw dates in the title (no "2026-04-08")
-
-**Meta description requirements:**
-- 150-160 characters summarizing the political significance
-- Reference specific EP actions and outcomes
-- Include at least one stakeholder impact statement
-- Never use generic descriptions like "European Parliament committee activity and legislative effectiveness analysis"
-
-**AI prompt for title generation:**
-> You have completed all analysis. Read your significance-scoring and deep-analysis results. Identify the single most politically significant item. Generate: (1) a headline that names this item and its political impact, max 70 chars, active voice; (2) a description that explains the significance to EU citizens, 150-160 chars. Pass these as `--title` and `--description` CLI flags.
-
-### Rule 10: Comprehensive Analysis-to-Article Linkage
-
-News articles MUST link to ALL individual analysis files, not just directory-level links. The Analysis & Transparency section MUST enumerate specific analysis artifacts that informed the article.
-
-**Required links per article (in addition to existing directory links):**
-- [ ] Link to `manifest.json` (analysis provenance)
-- [ ] Links to each individual analysis `.md` file produced by the analysis stage
-- [ ] Links to specific methodology documents that were applied
-- [ ] Link to the raw EP data directory if available
-
-**Article HTML template MUST include:**
-```html
-<!-- Individual analysis file links -->
-<li><a href="{analysisDir}/classification/significance-classification.md">Significance Classification</a></li>
-<li><a href="{analysisDir}/classification/actor-mapping.md">Actor Mapping</a></li>
-<li><a href="{analysisDir}/classification/forces-analysis.md">Forces Analysis</a></li>
-<li><a href="{analysisDir}/classification/impact-matrix.md">Impact Matrix</a></li>
-<li><a href="{analysisDir}/threat-assessment/political-threat-landscape.md">Political Threat Landscape</a></li>
-<li><a href="{analysisDir}/threat-assessment/actor-threat-profiling.md">Actor Threat Profiling</a></li>
-<li><a href="{analysisDir}/threat-assessment/consequence-trees.md">Consequence Trees</a></li>
-<li><a href="{analysisDir}/threat-assessment/legislative-disruption.md">Legislative Disruption</a></li>
-<li><a href="{analysisDir}/risk-scoring/risk-matrix.md">Risk Matrix</a></li>
-<li><a href="{analysisDir}/risk-scoring/quantitative-swot.md">Quantitative SWOT</a></li>
-<li><a href="{analysisDir}/risk-scoring/political-capital-risk.md">Political Capital Risk</a></li>
-<li><a href="{analysisDir}/risk-scoring/legislative-velocity-risk.md">Legislative Velocity Risk</a></li>
-<li><a href="{analysisDir}/risk-scoring/agent-risk-workflow.md">Agent Risk Workflow</a></li>
-<li><a href="{analysisDir}/existing/deep-analysis.md">Deep Analysis</a></li>
-<li><a href="{analysisDir}/existing/stakeholder-impact.md">Stakeholder Impact</a></li>
-<li><a href="{analysisDir}/existing/coalition-dynamics.md">Coalition Dynamics</a></li>
-<li><a href="{analysisDir}/existing/voting-patterns.md">Voting Patterns</a></li>
-<li><a href="{analysisDir}/existing/cross-session-intelligence.md">Cross-Session Intelligence</a></li>
-```
-
-### Rule 11: Script-Generated Analysis Must Be AI Prompt Placeholders, Not Content
-
-The `existing/` analysis category methods (deep-analysis, stakeholder-analysis, coalition-analysis, voting-patterns, cross-session-intelligence) currently produce **script-generated data inventory tables** that are NOT analysis. These MUST be redesigned as AI prompt placeholders.
-
-**Current problem (observed in 2026-04-02 analysis):**
-```markdown
-# Coalition Cohesion Analysis
-## Coalition Metrics
-- **Overall Stability**: 0.0%
-- **Forecast**: volatile
-- **Patterns Analysed**: 0
-```
-This is a script printing raw metrics — it is NOT intelligence analysis. The AI agent produces the actual analysis in the agentic workflow but the script-generated file is what gets committed to the repository.
-
-**Required change — scripts MUST produce analysis prompt templates:**
-```markdown
----
-method: coalition-analysis
-date: 2026-04-02
-status: AI_ANALYSIS_PENDING
-dataPointsAvailable:
-  adoptedTexts: 30
-  votingRecords: 0
-  coalitionData: 0
----
-
-# Coalition Cohesion Analysis — AI Analysis Required
-
-## Data Inventory (Script-Generated)
-[Raw data counts for AI context]
-
-## AI Analysis Prompt
-Analyze coalition dynamics using the political-risk-methodology.md framework:
-1. Which political groups show the strongest/weakest internal cohesion based on available voting data?
-2. What coalition patterns emerge from the adopted texts voting records?
-3. Identify any cross-party voting alignments or defections
-4. Rate overall coalition stability with confidence level (🟢/🟡/🔴)
-5. Provide 2-3 forward-looking scenarios for coalition evolution
-
-## AI-Produced Analysis
-[TO BE FILLED BY AI AGENT IN AGENTIC WORKFLOW]
-```
-
-**Enforcement:** The agentic workflow AI agent MUST read these prompt-placeholder files, execute the analysis prompt, and replace the `[TO BE FILLED BY AI AGENT]` section with substantive intelligence. The quality gate rejects any file still containing `AI_ANALYSIS_PENDING` status after the workflow completes.
-
-### Rule 12: AI Must Generate ALL Article Narrative Text — Zero Script-Generated Prose
-
-No TypeScript code should generate political narrative text, analytical conclusions, or descriptive prose for news articles. Scripts produce HTML structure, data tables, and visual components. ALL textual content in articles that describes, analyses, or interprets EP data MUST come from AI prompts.
-
-**Separation of concerns:**
-
-| Component | Produced By | Examples |
-|-----------|------------|---------|
-| HTML structure, CSS, metadata | Scripts (TypeScript) | `<article>`, `<section>`, meta tags, JSON-LD |
-| Data tables, charts, SWOT grids | Scripts (TypeScript) | Vote count tables, pipeline health bars, mindmap SVGs |
-| Article title, lede, body narrative | AI Agent (Workflow LLM) | Headlines, analytical paragraphs, stakeholder impact text |
-| Stakeholder reasoning, risk justification | AI Agent (Workflow LLM) | "The EPP group's support signals..." |
-| Forward-looking scenarios, predictions | AI Agent (Workflow LLM) | "Three scenarios emerge: (1) likely..." |
-| Confidence assessments on claims | AI Agent (Workflow LLM) | "🟢 High confidence based on EP vote TA-10-2026-0091" |
-
-**AI prompt template for article narrative:**
-> You are writing a news article for EU Parliament Monitor. Based on the analysis artifacts in `analysis/daily/{date}/{slug}/` and the EP MCP feed data, write the following sections:
-> 1. **Headline**: Newsworthy, 50-70 characters, names specific legislation/actors
-> 2. **Meta description**: 150-160 characters, political significance summary
-> 3. **Lede paragraph**: 50-75 words, hook + context + significance
-> 4. **Body sections**: Inverted pyramid structure, active voice, evidence-cited
-> 5. **Stakeholder analysis**: From ≥3 of 6 perspectives, with impact/severity ratings
-> 6. **Forward-looking analysis**: 2-3 scenarios with probability indicators
-> All claims must cite specific EP document IDs or MCP tool data.
+**Product of Step 8:** an article HTML stub in `news/${TODAY}-${ARTICLE_TYPE_SLUG}-run${RUN_ID}-en.html` containing the AI-authored title, description, and the analytical prose the agent writes in the HTML body during generation.
 
 ---
 
-## 🏗️ Architecture: Per-File vs. Per-Day Analysis
+## 9️⃣ Step 9 — Pass 2: Read Everything Back and Improve
 
-### Why Per-File?
+One pass is never sufficient. Pass 2 is where reference quality is achieved.
 
-```mermaid
-%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
-graph LR
-    subgraph "❌ Old: Per-Day Batch Analysis"
-        A1["Download 50 files"] --> A2["Script runs batch analysis"]
-        A2 --> A3["Generic daily summary<br/>⚠️ Shallow, empty tables"]
-        A3 --> A4["Merge conflicts<br/>when multiple workflows run"]
-    end
+1. Read every file listed in `manifest.files.*` from top to bottom — not a sample.
+2. For each artifact, compare to the per-artifact quality signals in [`per-artifact-methodologies.md`](per-artifact-methodologies.md). Expand any section that is thin, missing citations, or lacks a confidence level.
+3. Expand any `[AI_ANALYSIS_REQUIRED]` markers the generator emitted in the article HTML — every marker gets replaced with substantive, evidence-based political intelligence (the exact AI_MARKER fields are enumerated in `src/utils/intelligence-analysis.ts`).
+4. Read the generated article HTML end-to-end. Every section must have ≥3 analytical paragraphs (not bullet lists), SWOT items with ≥80 words + severity badge, stakeholder perspectives with ≥150 words + evidence chain, a ≥200-word forward-outlook, and at least one Chart.js visualization with real data.
+5. Add Analysis Sources footer links from `manifest.files.*` via `renderAnalysisTransparencySection` in `src/templates/article-template.ts` (already applied by the template helper; confirm it rendered).
+6. Re-check color-coded Mermaid diagrams — every intelligence / classification / risk-scoring / threat-assessment artifact carries ≥1 diagram using the Hack23 colour palette from Step 2.
+7. Budget time: breaking / committee-reports / motions / propositions / week-ahead / month-ahead = ≥20 active minutes in Pass 1 + Pass 2 combined (≥12 Pass 1 + ≥8 Pass 2); week-in-review / month-in-review = ≥25 minutes (≥15 + ≥10); article-generator = 15 minutes × number of types. Finish the budget — there is always more depth to add.
 
-    subgraph "✅ New: Per-File AI Analysis"
-        B1["Download file X.json"] --> B2["AI reads methodology docs"]
-        B2 --> B3["AI produces X.analysis.md<br/>✅ Deep, evidence-based"]
-        B3 --> B4["No merge conflicts<br/>each file = independent"]
-    end
-
-    style A3 fill:#dc3545,color:#fff
-    style A4 fill:#dc3545,color:#fff
-    style B3 fill:#28a745,color:#fff
-    style B4 fill:#28a745,color:#fff
-```
-
-| Dimension | Per-Day (Old) | Per-File (New) |
-|-----------|:------------:|:--------------:|
-| **Analysis depth** | Shallow (script-generated) | Deep (AI-driven, methodology-guided) |
-| **Output quality** | Empty tables, generic text | SWOT.md-quality with Mermaid diagrams |
-| **Merge conflicts** | Frequent (shared daily files) | None (each file independent) |
-| **Coverage** | Session-based (misses files) | 100% (every downloaded file) |
-| **Reusability** | Daily snapshot only | Persistent per-document intelligence |
-| **Incremental** | Must re-run entire day | Only analyse new/changed files |
+**Product of Step 9:** every artifact meets its per-artifact depth floor and passes the quality signals in `per-artifact-methodologies.md`.
 
 ---
 
-## 🔄 Analysis Pipeline
+## 🔟 Step 10 — Validate, Commit, Create PR
 
-```mermaid
-%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
-flowchart LR
-    A["📥 EP MCP Download"] --> B["📋 Catalog<br/>pending files"]
-    B --> C["📖 AI reads ALL<br/>methodology docs"]
-    C --> D["🔍 Per-file deep analysis<br/>following template"]
-    D --> E["💾 Save analysis<br/>alongside data"]
-    E --> F["📊 Compose<br/>daily synthesis"]
-    F --> G["📅 Weekly / Monthly<br/>aggregation"]
+The final gate is machine-enforced; pass it before the PR.
 
-    style A fill:#0d6efd,color:#fff
-    style C fill:#6f42c1,color:#fff
-    style D fill:#28a745,color:#fff
-    style F fill:#fd7e14,color:#fff
-```
+1. Run the pre-flight validator:
 
-### Step-by-Step Protocol
+    ```bash
+    npm run validate-analysis -- \
+      --analysis-dir="${ANALYSIS_DIR}" \
+      --article-type="${ARTICLE_TYPE_SLUG}"
+    ```
 
-| Step | Action | Reference | Output |
-|:----:|--------|-----------|--------|
-| 1 | **Read ALL methodology docs** before any analysis | `analysis/methodologies/*.md` (6 files) | Mental model of analytical framework |
-| 2 | **Load data file** and extract key fields | Downloaded EP MCP JSON/response | Structured data extract |
-| 3 | **Classify** — Sensitivity, domain, urgency | [political-classification-guide.md](political-classification-guide.md) | PUBLIC/SENSITIVE/RESTRICTED + domain code |
-| 4 | **SWOT analysis** — Evidence-based quadrant assessment | [political-swot-framework.md](political-swot-framework.md) | 4-quadrant impact with citations |
-| 5 | **Risk assessment** — 5×5 Likelihood × Impact | [political-risk-methodology.md](political-risk-methodology.md) | Risk scores per category |
-| 6 | **Threat analysis** — Multi-framework (Threat Landscape + Attack Trees + Diamond Model) | [political-threat-framework.md](political-threat-framework.md) | Threat inventory |
-| 7 | **Stakeholder impact** — 6-lens assessment | Template: [stakeholder-impact.md](../templates/stakeholder-impact.md) | Impact by stakeholder group |
-| 8 | **Significance scoring** — 5-dimension composite | Template: [significance-scoring.md](../templates/significance-scoring.md) | Score 0–10 with publish decision |
-| 9 | **Write per-file analysis** using template | [per-file-political-intelligence.md](../templates/per-file-political-intelligence.md) | `{id}.analysis.md` |
-| 10 | **Quality gate** — Self-assess against checklist | Quality checklist below | Pass/Fail |
+    The validator (`src/utils/validate-analysis-completeness.ts`) enforces the per-artifact line-count floors from [`reference-quality-thresholds.json`](reference-quality-thresholds.json), confirms every mandatory artifact is present in `manifest.files.*`, and rejects any residual placeholder markers. A non-zero exit returns you to Step 9 Pass 2.
 
----
+2. Run the article-HTML fallback-leak scan on every generated HTML file:
 
-## 📋 Document-Type Analysis Focus
+    ```bash
+    node scripts/utils/validate-analysis-completeness.js \
+      --article-html="news/${TODAY}-${ARTICLE_TYPE_SLUG}-*-en.html"
+    ```
 
-Different EP document types require different analytical emphasis. The AI agent must adapt its analysis based on the document type:
+    A non-zero exit means the article still carries fallback template prose; expand those sections in the HTML.
 
-### EP Document Type → Primary Analysis Templates
+3. Run `npx tsx src/utils/validate-articles.ts --date=$TODAY --quality --strict`. A non-zero exit blocks PR creation — fix the article and re-run.
 
-| Document Type | MCP Data Category | Primary Templates | Key MCP Cross-Reference Tools |
-|--------------|------------------|-------------------|-------------------------------|
-| **Adopted texts** (legislative resolutions) | `adopted-texts/` | Political Classification + Risk Assessment | `get_voting_records`, `get_plenary_sessions` |
-| **Committee documents** (reports, opinions) | `committee-documents/` | Stakeholder Impact + Risk Assessment | `get_committee_info`, `search_documents` |
-| **Legislative procedures** | `procedures/` | Risk Assessment + SWOT Analysis | `track_legislation`, `get_procedure_events` |
-| **Plenary votes** (roll-call) | `votes/` | Political Classification + SWOT + Threat Analysis | `get_voting_records`, `analyze_voting_patterns` |
-| **Speeches** (plenary debates) | `speeches/` | Stakeholder Impact + Significance Scoring | `get_speeches`, `get_mep_details` |
-| **Parliamentary questions** | `questions/` | Political Classification + Significance Scoring | `get_parliamentary_questions` |
-| **Events** (hearings, conferences) | `events/` | Significance Scoring + Risk Assessment | `get_events`, `get_plenary_sessions` |
-| **MEP profiles** | `meps/` | Stakeholder Impact + Political Classification | `get_mep_details`, `assess_mep_influence` |
-| **MEP declarations** | `declarations/` | Threat Analysis (Disclosure) + Risk Assessment | `get_mep_declarations` |
-| **Plenary documents** | `plenary-documents/` | All templates (comprehensive) | `get_plenary_documents`, `get_plenary_sessions` |
-| **External documents** (Commission, Council) | `external-documents/` | SWOT + Risk Assessment | `get_external_documents` |
-| **World Bank data** | `world-bank/` | Risk Assessment (economic) + SWOT | World Bank MCP tools |
+4. Emit a pre-flight attestation line in the log:
 
-### Document-Specific Analysis Depth
+    ```
+    PREFLIGHT_ATTESTATION: read N/N artifacts from ${ANALYSIS_DIR} (L lines)
+    ```
 
-```mermaid
-%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
-graph TD
-    subgraph "📊 Analysis Depth by Document Type"
-        direction TB
-        L3["Level 3: Intelligence<br/>Adopted texts, Procedures,<br/>Committee reports"]
-        L2["Level 2: Strategic<br/>Votes, Speeches,<br/>Questions, Events"]
-        L1["Level 1: Surface<br/>Declarations, External docs,<br/>World Bank data"]
-    end
+5. `git add "${ANALYSIS_DIR}"` plus the emitted `news/` HTML files. Commit with an analytical message naming the run's headline finding. The commit message never includes generic phrases — it names the specific political event.
 
-    L3 --> Q3["Full 6-template analysis<br/>2000–5000 words<br/>≥10 citations"]
-    L2 --> Q2["3–4 template analysis<br/>800–2000 words<br/>≥5 citations"]
-    L1 --> Q1["2 template analysis<br/>200–800 words<br/>≥3 citations"]
+6. Call `safeoutputs___create_pull_request` **exactly once, at the very end of the run, after every file is written**. The safe-output handler takes a synchronous git-patch snapshot at call time; any file written after the call is not in the PR.
 
-    style L3 fill:#dc3545,color:#fff
-    style L2 fill:#fd7e14,color:#fff
-    style L1 fill:#28a745,color:#fff
-```
+7. If Step 7 concluded the period did not produce a publishable event, still call `safeoutputs___create_pull_request` — an analysis-only PR. No workflow run is wasted: quiet-period analysis reveals patterns too.
+
+**Product of Step 10:** a PR with the full analysis directory + (optionally) the published article, attested complete and validated.
 
 ---
 
-## ⏱️ Time Budget & Prioritisation Protocol
+## 🧭 Core Principles (the 10 rules that replace Rules 1–22)
 
-### Time Budget Per File
+These principles are the positive restatement of the v4.5 rule list. Workflow files still reference Rules 5, 6–8, 19, 22 etc. by number; the mapping below is explicit so those references stay valid.
 
-Not all EP documents need the same analysis depth. Prioritise by document type:
-
-| Document Type | Analysis Time Budget | Analysis Depth | Sections Required |
-|--------------|:--------------------:|:--------------:|------------------|
-| **Adopted texts** | 3–5 minutes | Full (all sections) | Classification + SWOT + Risk + Threat + Stakeholder + Forward |
-| **Plenary votes** | 2–4 minutes | Full (all sections) | Classification + SWOT + Risk + Stakeholder + Forward |
-| **Committee documents** | 2–3 minutes | Standard | Classification + SWOT + Risk + Forward |
-| **Legislative procedures** | 2–3 minutes | Standard | Classification + Risk + Stakeholder + Forward |
-| **Speeches** | 1–2 minutes | Quick | Classification + Stakeholder + Forward |
-| **Parliamentary questions** | 1–2 minutes | Quick | Classification + Significance + Forward |
-| **Events** | 1–2 minutes | Quick | Classification + Significance + Forward |
-| **MEP profiles/declarations** | 1–2 minutes | Context | Classification + Stakeholder + Significance |
-| **External documents** | 1–2 minutes | Context | Classification + Risk + SWOT |
-| **World Bank data** | 1–2 minutes | Context | Classification + Economic context note |
-
-### Prioritisation When Time-Constrained
-
-When the workflow time budget is limited:
-
-1. **Sort pending files by expected significance** — Adopted texts and votes first, then committee reports, then everything else
-2. **Analyse highest-priority files first** — Complete full analysis for top-priority documents
-3. **Quick-classify remaining files** — At minimum, assign classification level and significance score
-4. **Stop at time limit** — Whatever is analysed is committed; remaining files are flagged as "pending" for next run
-
-### Maximum Files Per Workflow Run
-
-| Workflow | Typical Download | Analysis Target | Minimum AI Analysis Time |
-|----------|:----------------:|:---------------:|:------------------------:|
-| Breaking news | 1–5 files | All files (full depth) | 20 minutes |
-| Committee reports | 5–20 files | All files (single type) | 20 minutes |
-| Propositions | 5–15 files | All files (full depth) | 20 minutes |
-| Motions | 10–30 files | Top 10 full + rest quick-classified | 20 minutes |
-| Week in review | 50–200 files | Top 20 full + rest aggregated | 25 minutes |
-| Month in review | 200–500 files | Top 30 full + rest aggregated | 25 minutes |
-| Week ahead | 10–30 files | All files (forward-looking) | 20 minutes |
-| Month ahead | 20–50 files | All files (strategic) | 20 minutes |
-
-> **⚠️ MINIMUM 20 MINUTES (2 PASSES)**: Per Rule 7, every workflow must spend at least 20 minutes on AI-driven political intelligence analysis with mandatory 2-pass improvement cycle. This is the time spent reading methodologies, querying MCP tools, and writing original analytical prose — not data download or HTML formatting time.
+| # | Core principle (positive) | Legacy rule(s) |
+|---|---|---|
+| 1 | **Folder isolation** — each workflow writes only under its own `${ANALYSIS_DIR}`; the run-id suffix protects parallel and repeat runs. | Rule 1 |
+| 2 | **AI does analysis, scripts do HTML** — scripts download data, render HTML containers, and emit `AI_MARKER` fields; the AI fills every marker with substantive political intelligence. | Rules 2, 8, 11, 12 |
+| 3 | **Methodologies before analysis** — read the methodology library at Step 2 and the artifact catalog at Step 2 before writing anything. | Rule 3 |
+| 4 | **Multi-framework depth** — every artifact applies ≥2 analytical frameworks, carries ≥1 colour-coded Mermaid diagram, and cites ≥3 EP MCP sources. | Rule 4 |
+| 5 | **Always commit analysis** — every run produces `${ANALYSIS_DIR}` artifacts and a PR (analysis-only when no event warrants an article). Raw `data/*.json` may be pruned; `*.md` and `*.analysis.md` files are always committed. | Rule 5 |
+| 6 | **Article type everywhere** — `manifest.json.articleType`, YAML frontmatter `articleType:`, and `<meta name="article-type">` carry the slug; analysis files always live under `${ARTICLE_TYPE_SLUG}-run${RUN_ID}/`. | Rule 6 |
+| 7 | **Two passes, full time budget** — Pass 1 writes, Pass 2 reads everything back and expands; the full minimum time budget (20 min / 25 min / 15 × N) is used. | Rules 7, 22 (Pass 2) |
+| 8 | **AI-authored headlines and descriptions** — title and description come from the analysis after significance scoring; never from code or count-based templates. | Rule 9 |
+| 9 | **Complete data + historical baseline** — every metric is anchored to its 30-day / 90-day comparable baseline, every coalition claim attempts `get_voting_records`, every feed failure falls back to the direct endpoint. | Rules 14, 15, 17 |
+| 10 | **Read-before-article + footer + ratio + floors** — the pre-flight validator reads every artifact (≥30 lines flat + per-artifact floors from [`reference-quality-thresholds.json`](reference-quality-thresholds.json)), the article carries the manifest-driven Analysis Sources footer, and the article's analysis-citation ratio (≥1 artifact per 150 words; ≥1 per 100 for article-generator long-form) is met. | Rules 10, 16, 18, 19, 20, 21, 22 |
 
 ---
 
-## 📄 Document-Type-Specific Analysis Focus Areas
+## ⭐ Reference-Quality Depth
 
-### Adopted Texts (Legislative Resolutions, Positions)
+**Section anchor for `src/utils/validate-analysis-completeness.ts` (`§Reference-Quality Depth`).**
 
-Focus areas:
-- **Coalition dynamics**: How did the political groups vote? Any surprising alliances?
-- **Policy impact**: What changes for EU citizens, businesses, member states?
-- **Trilogue outcome**: Did the EP position survive? What concessions were made?
-- **Implementation timeline**: Transposition deadlines, phased implementation
+Reference quality is measured, not subjective:
 
-### Committee Documents (Reports, Opinions)
+1. **Per-artifact line floors** — set per article type in [`reference-quality-thresholds.json`](reference-quality-thresholds.json); enforced at build time by the validator (Rule 22 equivalent).
+2. **Artifact presence** — every mandatory artifact for the run's article type appears in `manifest.files.*`; the validator rejects missing files.
+3. **No placeholder markers** — `[AI_ANALYSIS_REQUIRED]`, `AI_ANALYSIS_PENDING`, `[TO BE FILLED BY AI AGENT]`, `[TBD]`, `TODO:` never appear in committed artifacts (outside meta-documentation tables like this one).
+4. **Mermaid coverage** — every artifact in `intelligence/`, `classification/`, `risk-scoring/`, `threat-assessment/` carries ≥1 Hack23-themed colour-coded Mermaid diagram of the type specified in [`per-artifact-methodologies.md`](per-artifact-methodologies.md).
+5. **Evidence density** — ≥3 EP MCP citations per analytical section, confidence level (🟢/🟡/🔴) on every non-factual claim.
+6. **Reference benchmark** — [Run 184 (2026-04-18)](../daily/2026-04-18/breaking-run184/) is the depth exemplar: 17 artifacts, 3600+ lines, 13 analytical frameworks, zero placeholders. New runs thinner than this trigger Pass 2.
 
-Focus areas:
-- **Committee vote splits**: Which political groups supported/opposed?
-- **Rapporteur strategy**: How did the rapporteur build a majority?
-- **Shadow rapporteur dynamics**: Cross-group negotiation patterns
-- **Amendment adoption rate**: How many amendments survived?
-
-### Legislative Procedures
-
-Focus areas:
-- **Pipeline stage**: Where is this in the EU legislative process?
-- **Trilogue status**: Has trilogue started? How many rounds?
-- **Timeline risk**: Is the procedure at risk of expiring before term ends?
-- **Institutional tension**: EP vs. Council vs. Commission positions
-
-### Plenary Votes (Roll-Call)
-
-Focus areas:
-- **Grand Coalition discipline**: Did EPP-S&D-Renew vote together?
-- **ECR/PfE behavior**: Support, opposition, or abstention pattern?
-- **Cross-party voting**: Unexpected alliances or defections?
-- **Margin analysis**: Close vote = instability indicator
-
-### Speeches (Plenary Debates)
-
-Focus areas:
-- **Rhetorical signals**: New policy positions announced? Tone shifts?
-- **Accountability probes**: Commissioners challenged on record?
-- **Consensus vs. confrontation**: Cross-group appeals or partisan rhetoric?
-- **Media potential**: Quotable statements for news coverage?
-
-### Parliamentary Questions
-
-Focus areas:
-- **Accountability pressure**: What are MEPs demanding answers on?
-- **Commission responsiveness**: Timely and substantive responses?
-- **Policy gaps**: Issues the Commission hasn't addressed?
-- **Pattern detection**: Coordinated questioning campaigns across political groups?
+The canonical reference-quality self-check lives in `intelligence/reference-analysis-quality.md` of every run (see [`per-artifact-methodologies.md §reference-analysis-quality`](per-artifact-methodologies.md#reference-analysis-quality)).
 
 ---
 
-## 🚫 Anti-Pattern Gallery
+## 📐 Analytical Dimension Matrix (per article type)
 
-### ❌ Pattern 1: Scripted Boilerplate
+Which artifacts are mandatory (🟥 M), recommended (🟨 R), or optional (⬜ O) per article type. Mandatory means present — with an explicit `data_not_available` note when the required input is unreachable.
 
-```markdown
-## Analysis
-This document contains important legislative content. The European Parliament has
-taken significant action. Further monitoring is recommended.
-```
-
-**Why rejected:** Zero analytical content. No evidence. No classification. No risk scoring. This is "scripted crap content" — the AI did not actually analyse the document.
-
-**Additional rejected boilerplate phrases (as of v4.2 — do not produce these):**
-
-| Rejected Phrase | Why It's Boilerplate | Required Alternative |
-|----------------|---------------------|---------------------|
-| "This shapes the legislative trajectory" | Generic; applies to any document | "This advances the CBAM procedure to trilogue (2024/0018(COD)) by forcing a Council position before the June 2026 plenary recess" |
-| "Carries potential regulatory implications" | Vague; zero informational content | "Triggers a 24-month national transposition deadline under Art. 288 TFEU, with non-conforming member states facing CJEU infringement proceedings" |
-| "The political situation is complex" | Analyst filler; tells reader nothing | "EPP internal split (7 of 31 EPP ENVI members voted against group line, RCV-2026-0342) creates a potential grand coalition realignment on environmental policy" |
-| "Further monitoring is recommended" | Adds no assessment | "Watch the ECR amendment vote on Art. 12 scheduled for 2026-04-18 plenary — if it passes with S&D support, it signals a new cross-group dynamic on climate enforcement" |
-| "Various stakeholders are impacted" | Names no one, quantifies nothing | "Digital platforms with >45M EU users face new gatekeeper obligations under Art. 3(1)(b) DMA; estimated compliance cost €2–8M per firm (Commission Impact Assessment SEC(2020)0363)" |
-| "Pipeline health at X% with throughput of Y reflects moderate legislative processing capacity" | Metric-as-prose; belongs in dashboards | Remove from analytical prose; place in dashboard table only |
-
-### ✅ Correct Approach
-
-```markdown
-## 🎯 Executive Summary
-
-The ENVI committee's adoption of the revised ETS extension report (PE-745.123/2026)
-marks a critical inflection point in EU climate policy [HIGH confidence]. The 38–22
-committee vote reveals a fracture in the EPP group (7 EPP members voted against their
-group's official position per EP MCP voting data), creating a potential grand coalition
-realignment on environmental legislation. Risk score: Coalition Stability L=3 × I=4 = 12
-(🟠 HIGH) based on vote margin analysis and EPP internal dynamics.
-```
-
-### ❌ Pattern 2: Summary Without Structure
-
-```markdown
-Several things happened in the European Parliament this week. There were votes
-on trade, environment, and defence matters. The political groups showed mixed
-levels of unity.
-```
-
-**Why rejected:** No tables. No Mermaid diagrams. No evidence citations. No risk scores. No significance assessment.
-
-### ✅ Correct Approach
-
-Use the structured template with tables, Mermaid diagrams, evidence columns, and confidence labels for every section.
-
-### ❌ Pattern 3: Overwriting Previous Analysis
-
-A workflow running on Tuesday overwrites Monday's analysis file in the same location.
-
-**Why rejected:** Destroys audit trail. Loses temporal context needed for trend detection. Violates isolation mandate.
-
-### ✅ Correct Approach
-
-Each workflow writes to its own directory: `analysis/daily/{date}/{article-type-slug}/`. Monday's `news-breaking` writes to `analysis/daily/2026-03-30/breaking/`, Tuesday's `news-committee-reports` writes to `analysis/daily/2026-03-31/committee-reports/`. Never overwrite.
+| Artifact | Breaking | Weekly | Monthly | Week-Ahead | Month-Ahead | Committee-Reports | Motions | Propositions | Article-Generator |
+|---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| Newsworthiness + significance-scoring | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 |
+| 5×5 risk-matrix (≥5 vectors) | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 |
+| 3+3+3+3 quantitative-swot | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 |
+| Coalition-dynamics pair analysis | 🟥 | 🟥 | 🟥 | 🟨 | 🟨 | 🟨 | 🟨 | 🟨 | 🟥 |
+| Cross-run-diff (Bayesian) | 🟥 | 🟥 | 🟥 | 🟨 | 🟨 | 🟨 | 🟨 | 🟨 | 🟨 |
+| Synthesis-summary + ≥6 forward monitors | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 |
+| PESTLE 6-dimension | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 | 🟨 | 🟨 | 🟥 | 🟥 |
+| Stakeholder-map (≥12) | 🟥 | 🟨 | 🟥 | 🟨 | 🟥 | 🟨 | 🟥 | 🟥 | 🟥 |
+| Scenario-forecast (≥3) | 🟥 | 🟨 | 🟥 | 🟥 | 🟥 | 🟨 | 🟨 | 🟥 | 🟥 |
+| Threat-model (Diamond / Attack / Kill-chain) | 🟥 | 🟨 | 🟥 | 🟨 | 🟨 | 🟨 | 🟨 | 🟨 | 🟥 |
+| Historical-baseline | 🟨 | 🟥 | 🟥 | 🟨 | 🟨 | 🟨 | 🟨 | 🟨 | 🟥 |
+| Economic-context (WB or IMF) | 🟨 | 🟨 | 🟥 | 🟨 | 🟥 | 🟨 | 🟨 | 🟥 | 🟥 |
+| Wildcards-blackswans | 🟨 | 🟨 | 🟥 | 🟨 | 🟥 | ⬜ | ⬜ | 🟨 | 🟥 |
+| Document-analysis-index | 🟥 | 🟥 | 🟥 | ⬜ | ⬜ | 🟥 | 🟥 | 🟥 | 🟥 |
+| MCP-reliability-audit | 🟨 when API degraded | 🟨 same | 🟨 same | 🟨 | 🟨 | 🟨 | 🟨 | 🟨 | 🟨 |
 
 ---
 
-## 🔍 Known Article Quality Issues — Workflow Anti-Patterns to Prevent
+## 🔄 Cross-Session Intelligence (same-day repeat runs)
 
-The following quality issues have been observed in generated news articles and MUST be prevented by all agentic workflows. Each issue traces to insufficient AI analysis time or depth.
+When a later same-day run exists (`breaking-run2`, `breaking-run3`, …), Step 6 of that run includes a Bayesian update against the prior run:
 
-### Top 15 Quality Issues (Ranked by Severity)
+1. **Prior** — read the prior run's synthesis and risk-matrix scores.
+2. **New evidence** — catalog what EP MCP files / voting records / documents are new or changed.
+3. **Direction** — classify new evidence as supporting / contradicting / orthogonal.
+4. **Posterior** — update likelihood / impact per [`political-risk-methodology.md §Bayesian Update`](political-risk-methodology.md); log the update chain explicitly.
+5. **Confidence migration** — two consecutive independent runs agreeing upgrade confidence by one level; contradiction downgrades by one level.
+6. **Stasis protocol** — if the new run sees zero delta, carry forward prior assessments with an explicit "no new EP MCP data since {timestamp}" note, and degrade confidence by one level every 24 hours of stasis.
 
-| Rank | Issue | Severity | Root Cause | Prevention |
-|:----:|-------|:--------:|-----------|-----------|
-| 1 | **`[AI_ANALYSIS_REQUIRED]` placeholders remain in final HTML** | 🔴 CRITICAL | AI analysis stage incomplete; script templates not filled | Rule 8: AI must fill ALL placeholders before HTML generation. Quality gate MUST reject articles with any `[AI_ANALYSIS_REQUIRED]` text |
-| 2 | **Placeholder text in meta keywords** (e.g. "Example motion (placeholder)") | 🔴 CRITICAL | Fallback data titles leak into SEO keywords | AI MUST review all `<meta name="keywords">` content — no "placeholder", "example", "data unavailable" in any keyword |
-| 3 | **SWOT quadrants contain empty `—` entries** | 🔴 HIGH | AI did not produce SWOT analysis; script fallback used | Rule 7: Minimum 20 min analysis (2 passes). Every SWOT quadrant needs ≥3 substantive entries with evidence |
-| 4 | **Mindmap visualizations show `data-connections="0"`** | 🔴 HIGH | No real policy connections mapped; template-only structure | AI must identify ≥3 cross-domain policy connections per mindmap |
-| 5 | **Missing statistical depth in political analysis** | 🔴 HIGH | No rapporteur/voting data integration; surface-level facts only | Rule 4: Multi-framework depth. Must include vote counts, margins, coalition breakdowns |
-| 6 | **Stakeholder outcome matrices lack justification** | 🔴 HIGH | Winner/Loser labels assigned without reasoning | Rule 8: Every stakeholder outcome MUST have AI-written rationale (not `[AI_ANALYSIS_REQUIRED]`) |
-| 7 | **Dashboard charts display 0% / zero metrics** | 🔴 HIGH | MCP data unavailable but template renders zeros | AI must provide contextual explanation when data is unavailable — never render silent zeros |
-| 8 | **No confidence levels stated on analytical claims** | 🟠 MEDIUM | AI agent did not apply methodology style guide | Rule 3: Read political-style-guide.md. Every non-factual claim needs confidence labels |
-| 9 | **Formulaic writing without Economist-style narrative** | 🟠 MEDIUM | AI used list format instead of analytical prose | Rule 3: Read political-style-guide.md depth levels. Lead with lede + analysis, not bullet lists |
-| 10 | **Missing multi-framework analysis** | 🟠 MEDIUM | Only one analytical framework applied (usually basic SWOT) | Rule 4: At least 2 frameworks required (SWOT + Risk, or Attack Tree + Kill Chain) |
-| 11 | **Chart.js dashboards with no real data** | 🟠 MEDIUM | Script generates canvas elements but AI doesn't populate chart data | AI must provide specific numeric data for chart datasets from MCP analysis |
-| 12 | **Analysis transparency links point to empty files** | 🟠 MEDIUM | Analysis workflow skipped or produced placeholder files | AI must verify linked analysis files contain substantive content (≥200 words) |
-| 13 | **Incomplete semantic HTML with missing section hierarchy** | 🟠 MEDIUM | Scripts generating structure without proper nesting | Article template must enforce `article > header > article-content > sections` hierarchy |
-| 14 | **Generic "European Parliament" source with no specifics** | 🟡 LOW | No MCP API citations, generic link only | Every article must cite ≥3 specific EP data sources (document IDs, MCP tool names, procedure references) |
-| 15 | **Mindmap stakeholder panels contain no analytical text** | 🟡 LOW | Structure rendered but perspectives not filled by AI | AI must write ≥2 sentences per stakeholder perspective panel |
-
-### Workflow Enforcement Points
-
-Each workflow MUST verify these quality gates **before** creating the PR:
-
-```bash
-# Quality gate: No AI_ANALYSIS_REQUIRED placeholders in final HTML
-if grep -r "AI_ANALYSIS_REQUIRED" news/${TODAY}-${ARTICLE_TYPE}-*.html 2>/dev/null; then
-  echo "❌ QUALITY GATE FAILED: Unfilled AI analysis placeholders found"
-  echo "The AI agent must fill ALL analysis sections before article generation."
-  exit 1
-fi
-
-# Quality gate: No placeholder keywords in meta tags
-KEYWORDS_META_LINE=$(grep -i -m 1 '<meta[^>]*name=["'"'"']keywords["'"'"'][^>]*content=' news/${TODAY}-${ARTICLE_TYPE}-en.html 2>/dev/null)
-KEYWORDS_CONTENT=$(printf '%s\n' "$KEYWORDS_META_LINE" | sed -n 's/.*content=["'"'"']\([^"'"'"']*\)["'"'"'].*/\1/p')
-if [ -n "$KEYWORDS_CONTENT" ] && printf '%s\n' "$KEYWORDS_CONTENT" | grep -Ei "placeholder|data[._-]unavailable|example motion|example amendment" >/dev/null; then
-  echo "❌ QUALITY GATE FAILED: Placeholder text in article metadata keywords"
-  echo "The AI agent must provide real keywords — never 'Example motion (placeholder)'"
-  exit 1
-fi
-
-# Quality gate: No empty SWOT entries (em-dash only)
-if grep -c 'swot-empty' news/${TODAY}-${ARTICLE_TYPE}-en.html 2>/dev/null | grep -v '^0$'; then
-  echo "⚠️ WARNING: Empty SWOT entries detected — AI must provide substantive analysis"
-fi
-
-# Quality gate: All analysis files referenced in transparency section exist
-for file in $(grep -oP 'href="[^"]*analysis/[^"]*\.md"' news/${TODAY}-${ARTICLE_TYPE}-en.html | sed 's/href="//;s/"$//'); do
-  if [ ! -f "$file" ]; then
-    echo "⚠️ WARNING: Referenced analysis file missing: $file"
-  fi
-done
-```
+This content lives in `intelligence/cross-run-diff.md` (see [`per-artifact-methodologies.md §cross-run-diff`](per-artifact-methodologies.md#cross-run-diff)).
 
 ---
 
-## 📊 Visualization Data Generation Rules
-
-### Rule 13: AI Must Generate Rich Chart Data (Not Zero Metrics)
-
-When the article template includes Chart.js dashboards or D3 visualizations, the AI agent MUST:
-
-1. **Provide specific numeric data** from EP MCP analysis — never leave charts at 0/0%
-2. **Generate Chart.js config objects** with real datasets when building dashboard panels
-3. **Populate all SWOT quadrants** with ≥2 evidence-backed entries each (no empty `—` quadrants)
-4. **Fill mindmap stakeholder panels** with ≥2 sentences of analytical perspective per stakeholder
-5. **Supply Mermaid diagram data** with real committee names, procedure IDs, and coalition labels
-
-### Chart.js Data Requirements for Dashboard Sections
-
-When generating dashboard content, the AI agent must provide these data structures:
-
-```json
-{
-  "type": "bar",
-  "title": "Committee Legislative Output (March 2026)",
-  "data": {
-    "labels": ["ENVI", "ECON", "AFET", "LIBE", "AGRI"],
-    "datasets": [{
-      "label": "Reports Adopted",
-      "data": [8, 5, 3, 6, 2],
-      "backgroundColor": ["#28a745", "#0d6efd", "#dc3545", "#6f42c1", "#fd7e14"]
-    }]
-  }
-}
-```
-
-**Forbidden patterns:**
-- ❌ `"data": [0, 0, 0, 0, 0]` — Never render all-zero datasets
-- ❌ `"labels": []` — Never render empty label arrays
-- ❌ `"healthScore": 0` without explanation — Always explain why metric is zero
-
-### D3 Visualization Requirements
-
-For mindmaps and SWOT matrices enhanced by D3:
-- **Mindmap nodes** must have `data-connections > 0` — AI must identify real policy connections
-- **Influence percentages** must reflect actual parliamentary power dynamics (not arbitrary 0%/100%)
-- **Actor network edges** must connect named political groups with evidence-based relationship labels
-
-### SWOT Completeness Enforcement
-
-Every SWOT analysis section MUST contain:
-
-| Quadrant | Minimum Items | Evidence Required |
-|----------|:------------:|:-----------------:|
-| Strengths | ≥ 2 | Each must cite specific EP data (committee name, vote count, document ID) |
-| Weaknesses | ≥ 2 | Each must explain specific institutional or political limitation |
-| Opportunities | ≥ 2 | Each must propose specific actionable path with probability indicator |
-| Threats | ≥ 2 | Each must identify specific risk with likelihood assessment |
-
-**Severity badges** are required on every SWOT item:
-- `high` — Immediate parliamentary impact within current session
-- `medium` — Impact within next 2–3 sessions
-- `low` — Long-term structural impact
-
-### Rule 14: Complete Data Download — No Metadata-Only Analysis
-
-**Metadata-only analysis is unacceptable.** The analysis pipeline MUST download and store COMPLETE EP document data, not just document IDs and counts.
-
-**Required data for each EP item:**
-| Data Type | Minimum Fields Required | Primary MCP Tool | Fallback Tool |
-|-----------|------------------------|------------------|---------------|
-| Adopted Texts | Full title, work type, procedure reference, adoption date, document ID, committee(s), related procedures | `get_adopted_texts_feed` | `get_adopted_texts({ year: YYYY, limit: 100 })` |
-| Procedures | Full title, procedure type (COD/NLE/APP), current stage, committee(s), rapporteur, timeline events | `get_procedures_feed` | `get_procedures({ year: YYYY, limit: 50 })` + `track_legislation({ procedureId: "..." })` per cited procedure |
-| Events | Full title, date, location, type, participating committees, agenda items | `get_events_feed` | `get_events({ dateFrom: "...", dateTo: "...", limit: 50 })` |
-| Documents | Full title, document type, committee, date, reference number, related procedures | `get_documents_feed` | `get_committee_documents({ year: YYYY })` + `get_plenary_documents({ year: YYYY })` |
-| MEP Updates | Full name, political group, country, mandate changes, committee assignments | `get_meps_feed` | `get_current_meps({ limit: 100 })` |
-| Voting Records | For/against/abstain counts per political group for cited sessions | *(no feed)* | `get_voting_records({ sessionId: "...", limit: 50 })` |
-| Meeting Decisions | Adopted decisions and voting outcomes for cited plenary sittings | *(no feed)* | `get_meeting_decisions({ sittingId: "..." })` |
-| Speeches | Key debate contributions for context and direct quotes | *(no feed)* | `get_speeches({ dateFrom: "...", dateTo: "...", limit: 20 })` |
-
-**🔴 CRITICAL: Feed Failure Does NOT Excuse Missing Data**
-
-When feed endpoints return 404 or timeout, the agent MUST attempt the corresponding direct endpoint fallback. Reporting "0 procedures" because `get_procedures_feed` returned 404 — without trying `get_procedures({ year: 2026, limit: 50 })` — is a quality failure.
-
-**🔴 CRITICAL: Voting Records Are Mandatory for Coalition Claims**
-
-Any analysis that asserts political group voting behavior (e.g., "ECR split on trade vote", "broad cross-party support") MUST attempt `get_voting_records` for the relevant plenary session. If voting records are unavailable (EP API publishes roll-call data with a delay), the analysis MUST:
-1. State "voting records not yet available for this session"
-2. Mark coalition claims as LOW confidence
-3. Use `analyze_coalition_dynamics` for structural analysis only (not behavioral claims)
-
-**The `document-analysis` method is now enabled by default** — it stores per-document analysis markdown AND complete raw JSON data in `documents/raw-data/`. This ensures that:
-1. Every EP document downloaded via MCP is preserved in full
-2. AI agents can read the complete document data during analysis
-3. Analysis quality is based on actual content, not just metadata summaries
-
-**Anti-patterns (REJECTED):**
-- ❌ `"Events: 42"` — must include full event titles and details
-- ❌ `"Adopted Texts: 19"` — must include each text's title, procedure type, and significance
-- ❌ `"0 procedures tracked"` without checking direct endpoint fallback — must explain data gaps AND confirm fallback was attempted
-- ❌ Asserting "ECR split on Banking Union" without citing `get_voting_records` data — must attempt voting record fetch first
-- ❌ Using different seat counts across analysis files in the same run — use one canonical source
-
-### Rule 15: Analysis-First Article Decisions — Topic Chosen After Scoring
-
-Article titles, topics, and angles MUST be decided **after** all analysis methods complete — never before.
-
-**Required workflow sequence:**
-1. **Fetch** complete EP data via MCP tools
-2. **Run** all 21 analysis methods (including document-analysis and significance scoring)
-3. **Read** the completed significance-scoring results to identify highest-scored items
-4. **Decide** the article topic based on the items scored as "publish" (≥5.5 composite)
-5. **Generate** the article with title, description, and SEO metadata derived from analysis
-
-**If no items score ≥5.5:** Still create an analysis-only PR with all analysis artifacts. Do not generate an article with a generic title.
-
-**Article title generation sequence:**
-```
-significance-scoring.md → identify top items → derive headline from top item's political significance → generate SEO metadata
-```
-
-### Rule 16: No Custom Scripts — Use Existing Toolchain
-
-AI agents MUST NOT write custom Python, Ruby, Perl, or ad-hoc scripts during workflow execution. All data processing MUST use the existing Node.js/TypeScript toolchain.
-
-**Allowed commands:**
-- ✅ `npm run build` — TypeScript compilation
-- ✅ `node scripts/generate-news-enhanced.js` — News generation pipeline
-- ✅ `npx tsx src/...` — Direct TypeScript execution
-- ✅ Standard shell commands for file operations (`cat`, `ls`, `wc`, `grep`)
-
-**Forbidden commands:**
-- ❌ `python3 -c "..."` or `python3 script.py` — No Python scripts
-- ❌ Writing temporary `.py`, `.rb`, `.pl` scripts — Use existing tools
-- ❌ `pip install` or `gem install` — No installing new runtimes
-- ❌ Reimplementing existing TypeScript functionality in another language
-
----
-
-### Rule 17: Comparative Analysis Against Historical Baselines — New in v4.2
-
-**Every quantitative claim MUST be compared to a historical baseline.** A score or metric without comparison to prior periods has no analytical value — it cannot reveal whether the situation is improving, worsening, or stable.
-
-#### Mandatory Baseline Comparisons
-
-| Metric Type | Baseline Source | Required Comparison |
-|-------------|----------------|---------------------|
-| Significance score | Prior 30-day or 90-day score range from `analysis/` folder | State whether current score is above/below/at average; cite highest comparable event |
-| Risk score | Same risk category's 30-day trend from synthesis summaries | State trajectory: rising / stable / declining |
-| Coalition cohesion | Prior session coalition/group cohesion data from `analyze_coalition_dynamics` or `compare_political_groups` (or aggregated `get_voting_records`) | Report change in percentage points vs. last plenary week |
-| Committee output | Same committee's 90-day output from `analyze_committee_activity` | Compare to committee's quarterly average |
-| Legislative pipeline velocity | `monitor_legislative_pipeline` throughput from prior month | Flag if current throughput is ≥10% above or below prior month |
-
-#### Good vs. Bad — Comparative Analysis
-
-**❌ BAD (no baseline, no context):**
-```markdown
-## Risk Assessment
-Grand Coalition stability risk score: L=3 × I=4 = 12 (🟠 HIGH).
-EPP-S&D cohesion at 61%.
-```
-
-**✅ GOOD (baseline-anchored, contextualised):**
-```markdown
-## Risk Assessment
-Grand Coalition stability risk score: L=3 × I=4 = 12 (🟠 HIGH) — this is the **highest
-coalition risk score in 8 weeks**, up from L=2×I=3=6 (🟡 MEDIUM) in the prior analysis
-cycle (2026-03-22 synthesis, SYN-2026-03-22-A1B2). EPP-S&D cohesion at 61%,
-down from 68% in Q1 2026 average (`compare_political_groups`, groups: [EPP, S&D],
-period: Q1-2026).
-This is the lowest cohesion reading since the October 2024 farm subsidy vote.
-```
-
-**❌ BAD (generic significance without history):**
-```markdown
-The AI Act amendment scored 7.8/10 — Priority publication.
-```
-
-**✅ GOOD (significance anchored to historical comparable):**
-```markdown
-The AI Act amendment scored 7.8/10 — Priority publication. This is the **highest
-digital/tech-related score since EP10 inauguration** (prior high: 7.6 for Digital Markets Act
-enforcement trigger, SIG-2025-11-14-003). The elevated score reflects the unusual
-cross-group coalition pattern: ECR breaking from PfE on a digital regulation vote
-has occurred only twice in EP10 (roll-call RCV-2026-0298, RCV-2025-0511).
-```
-
-#### Baseline Lookup Protocol
-
-Before assigning any significance score or risk level, the AI agent MUST:
-
-1. **Search `analysis/` folder** for comparable prior scores on the same topic domain
-2. **Query EP MCP** `get_all_generated_stats` for historical baselines across EP6–EP10
-3. **Cite the baseline explicitly**: "Current score 8.4 vs. 30-day average of 6.2"
-4. **Characterise the trajectory**: Is this a new high? A return to baseline? An anomaly?
-5. **If no baseline exists**, explicitly state: "First occurrence in EP10 — no prior baseline available"
-
-**Anti-patterns (REJECTED):**
-- ❌ Assigning a significance score without stating whether it is above/below historical average
-- ❌ Reporting a risk level without comparing to the same category's recent trend
-- ❌ "The risk is HIGH" — instead write "The risk is HIGH (score 12), up from MEDIUM (score 6) last week, consistent with ECR defection pattern observed twice in Q1 2026"
-
----
-
-### Rule 18: Cross-Article-Type Correlation — New in v4.2
-
-When a workflow produces analysis for one article type (e.g., `breaking`), it MUST cross-reference findings against analysis already committed for other article types on the same or adjacent dates. This prevents each article type from operating in an analytical silo.
-
-#### When Cross-Article-Type Correlation Is Required
-
-| Trigger | Action Required |
-|---------|----------------|
-| Breaking news detects coalition risk ≥ HIGH | Check latest `week-ahead` or `committee-reports` analysis for corroborating signals |
-| Committee report documents stalled legislative procedure | Check latest `propositions` analysis — does the same procedure appear as at-risk? |
-| Week-in-review finds significance trend reversal | Check `breaking` analyses for what drove the reversal |
-| Month-ahead identifies upcoming high-risk vote | Check `motions` history for precedent — how did similar votes play out? |
-
-#### Cross-Article Correlation Section (Required in Synthesis Summaries)
-
-Every `synthesis-summary.md` MUST include a **Cross-Article Intelligence** block:
-
-```markdown
-## 🔗 Cross-Article-Type Intelligence (Rule 18)
-
-| Other Article Type | Date | Corroborating Signal | Contradiction? |
-|-------------------|------|---------------------|----------------|
-| `breaking` (2026-04-02) | SYN-2026-04-02-A1B2 | ECR defection on migration vote — consistent with today's coalition risk score | No |
-| `committee-reports` (2026-04-01) | SYN-2026-04-01-C3D4 | ENVI committee output 40% below 90-day average — explains delayed pipeline | No |
-| `week-ahead` (2026-04-01) | SYN-2026-04-01-E5F6 | Flagged same plenary vote as HIGH risk — this analysis confirms and raises to CRITICAL | Upgraded |
-```
-
-**Correlation strength rating:**
-- **Convergence** — Multiple article types independently reach same conclusion → upgrade confidence level
-- **Divergence** — Article types contradict each other → flag for review; do not automatically accept current analysis
-- **Gap** — No prior analysis exists for related topics → mark as "First observation"
-
-**Anti-patterns (REJECTED):**
-- ❌ Breaking news analysis that ignores what the week-ahead workflow already identified about the same plenary session
-- ❌ Committee report analysis that does not reference whether propositions workflow identified the same procedure as stalled
-- ❌ Month-in-review that treats each week's events as independent rather than connecting them into a narrative arc
-
----
-
-### Rule 19: Mandatory Pre-Flight Analysis Reading — New in v4.5
-
-**Before any article content is drafted**, the article-generation workflow MUST read
-every artifact in the current run's analysis directory in full. Skim-reading, header-only
-reading, or consuming only the `synthesis-summary.md` is a **violation**.
-
-#### Pre-Flight Reading Protocol
-
-1. **Read the index first**: `<run_dir>/intelligence/analysis-index.md` — the
-   read-me-first entry point that names every artifact and prescribes reading order.
-   When an analysis directory lacks `analysis-index.md`, the workflow MUST generate it
-   before article drafting (or fail loudly).
-2. **Read `manifest.json`** — list of all artifacts, applied analytical frameworks,
-   composite scores, forward-monitoring triggers.
-3. **Read every file listed under `manifest.files.*`** in the order given by
-   `analysis-index.md` (Stage 1 → 2 → 3 → 4). Expected active reading time: 15–20
-   minutes minimum.
-4. **Run the blocking validator** (hard enforcement of this rule):
-   ```bash
-   npm run validate-analysis -- \
-     --analysis-dir="${ANALYSIS_DIR}" \
-     --article-type="${ARTICLE_TYPE_SLUG}"
-   ```
-   Implemented by `src/utils/validate-analysis-completeness.ts` and wired into every
-   `.github/workflows/news-*.md` pre-flight banner. Exit code 1 MUST abort article
-   generation and trigger an analysis Pass 2 to fill missing / short /
-   placeholder-infested artifacts. The validator checks:
-   the seven reference-quality intelligence artifacts exist, each is ≥ 30 lines,
-   none contain `[AI_ANALYSIS_REQUIRED]` / `AI_ANALYSIS_PENDING` / `[TO BE FILLED
-   BY AI AGENT]` / `[TBD]` / `TODO:` outside meta-documentation rows, the manifest
-   carries a top-level `articleType`, and every mandatory artifact is listed under
-   `manifest.files.*`.
-5. **Emit a pre-flight attestation line** in the workflow's stdout log before any
-   article draft is produced, in the format:
-   ```
-   PREFLIGHT_ATTESTATION: read 17/17 artifacts from analysis/daily/2026-04-18/breaking-run184/ (3632 lines)
-   ```
-6. **If any artifact is <30 lines** or contains `[AI_ANALYSIS_REQUIRED]` / `TBD` /
-   placeholder markers, **abort article drafting** and execute an analysis Pass 2
-   to fill the gap first. (This is the same class of failure the validator blocks
-   on — step 4 makes the check machine-enforced rather than honour-system.)
-
-#### Why this rule exists
-
-Previous runs produced articles that cited only the synthesis summary while ignoring
-the stakeholder map, scenario forecast, threat model, or economic context. The
-resulting prose had correct headlines but missed the depth signals that the full
-analysis pipeline produces. Rule 19 closes this gap by making "read every artifact"
-an explicit step that workflows must cross.
-
----
-
-### Rule 20: Mandatory Analysis-Citation Footer in All Articles — New in v4.5
-
-**Every article of every type** must render a structured *Analysis Sources* footer
-that links to every artifact consumed during generation. The canonical mechanism is
-`renderAnalysisTransparencySection` in `src/templates/article-template.ts`, which
-accepts an `analysisFiles` parameter typed as `ReadonlyArray<AnalysisFileEntry>`
-(each entry `{ method: string; outputFile: string }`, defined in
-`src/types/generation.ts`). When this array is omitted, the helper falls back to a
-hardcoded set of standard analysis links. Workflows MUST build the array from the
-run's `manifest.json` — collect every `outputFile` path under `manifest.files.*` and
-pair it with its canonical `method` name (e.g. `significance-classification`,
-`risk-matrix`, `pestle-analysis`) so one link is rendered per artifact.
-
-#### What the footer MUST include
-
-| Component | Source | Example |
-|-----------|--------|---------|
-| Run directory link | `analysis/daily/{date}/{type}-run{id}/` | `breaking-run184/` |
-| `manifest.json` link | `{run_dir}/manifest.json` | machine-readable metadata |
-| Every classification artifact | `manifest.files.classification[]` | `significance-scoring.md` |
-| Every risk-scoring artifact | `manifest.files.risk_scoring[]` | `risk-matrix.md`, `quantitative-swot.md` |
-| Every intelligence artifact | `manifest.files.intelligence[]` | all 13 intelligence files for reference-quality runs |
-| Every documents artifact | `manifest.files.documents[]` | `document-analysis-index.md` |
-| Methodology references | `analysis/methodologies/*.md` | guide, SWOT framework, risk methodology, threat framework |
-
-#### What the footer MUST NOT do
-
-- ❌ Omit the footer to shorten article length
-- ❌ Link to only a subset of artifacts ("synthesis only", "SWOT only")
-- ❌ Use stale/fallback hardcoded links when manifest-derived links are available
-- ❌ Use internal relative links (`./intelligence/foo.md`) — always use absolute GitHub
-  repository URLs so readers can verify sources from any article-hosting location
-
-#### Enforcement
-
-- **Current state (v4.5):** `renderAnalysisTransparencySection` in
-  `src/templates/article-template.ts` emits the `<section class="analysis-transparency">`
-  block with one `<li><a href="…">` per `manifest.files.*` entry, and
-  `src/utils/retrofit-analysis-links.ts` repairs any article missing the section.
-  Workflows call these helpers during article generation — **omitting the footer
-  requires actively bypassing the template helper, which is a workflow violation**.
-- **Planned (follow-up code PR, tracked for v4.6):** extend
-  `src/utils/validate-articles.ts` to fail articles that lack a
-  `<section class="analysis-transparency">` block with ≥3 `<li><a href="…">` entries
-  in its analysis-links nav; wire the validator as a blocking final step before PR
-  creation. Until that validator lands, the footer is enforced by the template helper
-  contract and by PR review.
-
----
-
-### Rule 21: Analysis-Article Read Ratio (Quality Signal) — New in v4.5
-
-Reference-quality article generation produces an observable ratio:
-
-- **≥ 1 analysis artifact cited per 150 article words** (breaking, weekly, monthly)
-- **≥ 1 analysis artifact cited per 100 article words** (article-generator long form)
-
-Below this ratio, the article is likely under-sourced and should trigger a Pass 2
-that adds specific artifact citations inline (footnote references in prose to back
-specific claims).
-
----
-
-### Rule 22: Per-Artifact Depth Floors — New in v4.6
-
-Reference-quality analysis is not a subjective judgement. Every article type has a
-machine-readable **per-artifact depth floor** that represents the minimum line count
-below which an artifact is considered a stub. These floors are stored in
-`analysis/methodologies/reference-quality-thresholds.json`, keyed by
-`articleType × relativePath`, and enforced by the pre-flight validator
-`src/utils/validate-analysis-completeness.ts`.
-
-#### Why this rule exists
-
-Before v4.6, `validate-analysis-completeness.ts` enforced only a flat floor of 30 lines
-per artifact. This permitted a 50-line `pestle-analysis.md` to pass validation despite
-the reference benchmark being 284 lines. The predictable result: PRs landed the
-machine gate only to fail human review — see Run 188 (`analysis/daily/2026-04-19/breaking-run188/`)
-for the canonical example of that failure mode, and the rejection review comment
-[PR #1266 review #4136205799](https://github.com/Hack23/euparliamentmonitor/pull/1266#pullrequestreview-4136205799) that forced the durable fix rather than a patch-in-place.
-
-Rule 22 codifies a file-level expectation that closes the gap **at build time**, not
-at review time.
-
-#### Threshold derivation
-
-Every threshold in `reference-quality-thresholds.json` is derived from the **Run 184
-reference benchmark** (`analysis/daily/2026-04-18/breaking-run184/`) minus a **10%
-tolerance**, rounded down to the nearest 5 lines. The 10% tolerance accounts for
-legitimate drift in how a given day's facts split across sections; anything below
-that allowance is a structural shortfall, not style.
-
-When an article type has not yet been benchmarked against a specific reference run,
-its thresholds are set conservatively to ~75–85% of the `breaking` floor on the
-assumption that shorter-cycle article types (`week-ahead`, `committee-reports`,
-`motions`) do not require the same depth as the flagship breaking analysis.
-
-#### Enforcement
-
-When the validator resolves an article's type, it loads the
-`thresholds.<articleType>` entry from the JSON catalogue. For each required
-artifact, it looks up the relative path; if an entry exists, that line count is
-the effective floor. If no entry exists, the validator falls back to the flat
-`--min-lines` value (default 30). This means:
-
-- **New article types** continue to work unchanged until thresholds are added.
-- **New artifacts** under an existing article type enforce only the flat floor
-  until a threshold is added — a soft on-ramp that invites but does not force
-  calibration.
-- **Adjusting a threshold** is a single JSON edit — no code change, no deploy.
-
-A file below its threshold MUST trigger a Pass 2 rewrite. Shipping with a
-"note explaining the shortfall" is a violation; either the artifact is deep
-enough, or Pass 2 happens. The only legitimate path to a lower number is to
-edit the JSON catalogue, which is a separate commit and a separate review
-(because calibrating thresholds downward is itself a significant decision).
-
-#### CLI output
-
-Post-v4.6 validator output displays both observed and required lines per artifact:
-
-```
-❌ SHORT (52 < 250 lines)        intelligence/pestle-analysis.md (52/250 lines)
-✅ ok                            intelligence/historical-baseline.md (286/190 lines)
-```
-
-This makes triage immediate: the failed line and the target are next to each other
-on the same row.
-
-#### Workflow integration
-
-Article-generation workflows (`news-breaking.md`, `news-weekly-review.md`,
-`news-article-generator.md`, and peers) MUST continue to call
-`npm run validate-analysis -- --analysis-dir=<dir> --article-type=<slug>` as the
-first post-analysis gate. No CLI flag change is required: the per-artifact
-thresholds are activated automatically by the presence of the JSON catalogue.
-Workflows SHOULD also display the relevant threshold table (extracted from the
-JSON catalogue) in their preamble so the generating agent has an explicit
-budget per file. See `.github/prompts/SHARED_PROMPT_PATTERNS.md` §Per-Artifact
-Budgets for the integration contract.
-
-#### Test coverage
-
-Unit coverage for Rule 22 resides in `test/unit/validate-analysis-completeness.test.js`
-and must at minimum assert:
-
-1. A file below its per-article threshold fails the gate.
-2. The same file above its per-article threshold passes.
-3. A missing `thresholds.<articleType>` entry falls back to the flat floor.
-4. A missing JSON catalogue file falls back to the flat floor (no crash).
-
----
-
-## 🔗 AI-Driven Article Content Generation Protocol
-
-### The AI-First Content Rule (Rule 12 Extended)
-
-The article generation pipeline follows a strict separation:
-
-| Layer | Responsibility | Examples |
-|-------|---------------|----------|
-| **Scripts** | HTML structure, templates, CSS, navigation, language switching | `generateArticleHTML()`, `buildSwotSection()`, `buildDashboardSection()` |
-| **AI Agent** | ALL analytical text, interpretive content, political intelligence | Why analysis, impact assessments, stakeholder reasoning, outlook, SWOT entries, chart data |
-
-### Field-by-Field AI Content Requirements
-
-The following fields are marked with `[AI_ANALYSIS_REQUIRED]` by the script layer. The AI agent **MUST** replace every single marker with original analytical content:
-
-| Field | Minimum Length | Content Requirements |
-|-------|:-------------:|---------------------|
-| **Why (Root Causes)** | 80 words | Explain political motivations, institutional dynamics, historical context |
-| **Impact: Political** | 40 words | Assess effect on political group dynamics, coalition stability |
-| **Impact: Economic** | 40 words | Assess effect on EU economic policy, market implications |
-| **Impact: Social** | 40 words | Assess effect on EU citizens, civil society, public opinion |
-| **Impact: Legal** | 40 words | Assess treaty implications, legal basis, precedent effects |
-| **Impact: Geopolitical** | 40 words | Assess EU global positioning, foreign policy implications |
-| **Action → Consequence** | 30 words | Describe specific causal chain from parliamentary action to outcome |
-| **Stakeholder Reasoning** | 25 words | Explain why each stakeholder wins/loses from this action |
-| **Mistake Alternative** | 30 words | Describe what the political actor should have done differently |
-| **Strategic Outlook** | 60 words | Forward-looking analysis with probability indicators (likely/possible/unlikely) |
-| **Stakeholder Perspectives** | 40 words each | Analytical perspective for each of 6 stakeholder groups |
-
-### Article-Analysis Cross-Reference Requirements
-
-Every news article MUST link to its analysis artifacts in the Analysis Transparency section. The AI agent must:
-
-1. **Verify each linked analysis file exists** and contains substantive content (≥200 words)
-2. **If an analysis file is empty or placeholder**, the AI must either:
-   - Fill the analysis file with real content during the analysis stage, OR
-   - Remove the broken link from the article transparency section
-3. **Analysis files MUST use the GitHub repository URL format**:
-   ```
-   https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/{date}/{type}/{category}/{file}.md
-   ```
-
----
-
-## ✅ Quality Gate Checklist
-
-Before finalising any analysis artifact, the AI agent must verify:
-
-### Structural Quality
-- [ ] Hack23 header with logo and badge row present
-- [ ] Document metadata complete (date, classification, workflow, confidence)
-- [ ] At least 1 colour-coded Mermaid diagram included
-- [ ] All sections use structured tables with evidence columns
-- [ ] No placeholder text remains (`[REQUIRED]`, `[?]`, `{N}` all replaced)
-
-### Analytical Quality
-- [ ] Classification complete (sensitivity + domain + urgency)
-- [ ] SWOT analysis has ≥ 2 entries per quadrant with evidence
-- [ ] Risk assessment uses 5×5 matrix with specific scores (not generic "medium")
-- [ ] Threat analysis uses multiple frameworks — includes attack trees, Diamond Model, or scenario planning
-- [ ] Stakeholder impact covers all 6 lenses with specific assessments
-- [ ] Significance score calculated with 5-dimension breakdown
-
-### Evidence Quality
-- [ ] Every factual claim has a source citation (EP document ID, MCP tool, or named source)
-- [ ] Confidence levels stated for all non-factual claims
-- [ ] No opinion-only entries in SWOT or risk tables
-- [ ] Cross-references to related EP documents included
-- [ ] MCP Data Files Used section present with specific file paths
-
-### Writing Quality
-- [ ] Written at appropriate depth level (1/2/3) per document type
-- [ ] Active voice throughout
-- [ ] EP-specific terminology used correctly
-- [ ] No generic filler ("significant", "important", "various" without specifics)
-- [ ] Multi-language friendly (no idioms, abbreviations spelled out)
-
-### Score the Analysis (1–10)
-
-| Dimension | Weight | Score |
-|-----------|:------:|:-----:|
-| Evidence density (absolute count of evidence references) | 0.25 | `[1-10]` |
-| Analytical depth (beyond surface observation) | 0.25 | `[1-10]` |
-| Structural compliance (tables, Mermaid, template adherence) | 0.20 | `[1-10]` |
-| Actionable intelligence (forward indicators, probability assessments) | 0.15 | `[1-10]` |
-| Political neutrality (no partisan conclusions) | 0.15 | `[1-10]` |
-
-**Weighted Score Formula:** `Final = (Evidence × 0.25) + (Depth × 0.25) + (Structural × 0.20) + (Actionable × 0.15) + (Neutrality × 0.15)`
-
-**Minimum passing score: 7.0/10.** Analysis scoring below 7.0 must be revised before consumption by downstream workflows.
-
-### Quality Dimension Mapping: Methodology ↔ TypeScript Scorer
-
-The five methodology dimensions map to the TypeScript `article-quality-scorer.ts` implementation as follows:
-
-| Methodology Dimension | Weight | TypeScript Constant | TypeScript Measurement | Notes |
-|----------------------|:------:|---------------------|------------------------|-------|
-| Evidence density | 0.25 | `WEIGHT_EVIDENCE` | Absolute count of evidence references: `<li>` items inside `<ul class="perspective-evidence">` containers, `<li>` items inside `<ul class="evidence-refs">` containers, `class="swot-ref-evidence"` SWOT cross-reference markers, `class="evidence"` generic/legacy markers, `data-reference` attributes, and unique EP document codes matching patterns `TA-…` (e.g., `TA-10-2026-0123`), `PE-…` (e.g., `PE-123.456`), `A9/B9/C9-…` (e.g., `A9-0123`), and `P9_TA(YYYY)…` (e.g., `P9_TA(2024)0001`). Capped at `EVIDENCE_MAX` (10). Not normalized per word count. | Direct alignment |
-| Analytical depth (beyond surface observation) | 0.25 | `WEIGHT_ANALYSIS_DEPTH` | Boolean keyword detection across 6 sub-dimensions: political context, coalition dynamics, historical context, evidence-based conclusions, scenario planning, confidence levels | Keyword heuristic approximation |
-| Structural compliance (tables, Mermaid, template adherence) | 0.20 | `WEIGHT_VISUALIZATION` | Presence and depth of SWOT sections, dashboard metrics, mindmap branches, deep-analysis sections | Structural element detection |
-| Actionable intelligence (forward indicators, probability assessments) | 0.15 | `WEIGHT_WORD_COUNT` | Article word count scaled linearly from `WORD_COUNT_MIN` (0) to `WORD_COUNT_MAX` (1500) | Proxy: longer articles typically contain more actionable content |
-| Political neutrality (no partisan conclusions) | 0.15 | `WEIGHT_STAKEHOLDER` | Stakeholder perspective breadth (MEPs, Commission, Council, member states, civil society, industry, citizens, media) and balance score | Perspective diversity as neutrality proxy |
-
-**Key alignment notes:**
-
-- **Quality gate threshold:** Methodology mandates 7.0/10 → TypeScript enforces `QUALITY_GATE_THRESHOLD = 70` (0–100 scale)
-- **Grade boundaries:** A ≥ 90, B ≥ 80, C ≥ 70 (quality gate), D ≥ 50, F < 50
-- **Types:** `ArticleQualityReport` (src/types/quality.ts) captures all five dimensions with sub-scores
-- **Actionable intelligence → Word count:** The methodology dimension "Actionable intelligence" is approximated by word count in the scorer because longer, substantive articles demonstrate forward indicators and probability assessments more reliably than short summaries. This is a deliberate proxy, not a bug.
-
----
-
-## 🔄 Cross-Session Intelligence Methodology (New in v4.1)
-
-When multiple agentic workflow runs execute on the **same day** (e.g., breaking news every 6 hours, or manual re-runs), the later run has access to earlier run outputs via the suffix deduplication system (`breaking/`, `breaking-2/`, `breaking-3/`). Cross-session intelligence formalises how to exploit this temporal advantage.
-
-### When to Apply Cross-Session Intelligence
-
-| Condition | Action |
-|-----------|--------|
-| Same-day sequential run (suffix ≥ 2) | **MANDATORY** — Compare datasets with prior run, apply Bayesian updating |
-| Multi-workflow same-day (e.g., breaking + weekly-review) | **RECOMMENDED** — Cross-reference shared EP MCP data files |
-| Single run, no prior analysis exists | **NOT APPLICABLE** — Use standard single-run analysis protocol |
-
-### Cross-Session Correlation Protocol
-
-```mermaid
-%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
-flowchart TD
-    START["🔄 New Workflow Run<br/>(suffix ≥ 2)"] --> READ["📂 Read prior run output<br/>analysis/daily/{date}/{type}/"]
-    READ --> DELTA["📊 Compute Data Delta<br/>New files vs. prior files"]
-    DELTA --> ZERO{Delta = 0?<br/>No new data?}
-    ZERO -->|Yes| STASIS["⏸️ Data Stasis Protocol<br/>(see below)"]
-    ZERO -->|No| COMPARE["🔍 Compare datasets:<br/>• New MCP files added<br/>• Voting record changes<br/>• Status updates"]
-    COMPARE --> BAYES["📐 Bayesian Update<br/>Prior → Evidence → Posterior"]
-    BAYES --> CONF["🎯 Update Confidence Levels<br/>based on cross-session consistency"]
-    CONF --> OUTPUT["📝 Produce cross-session<br/>intelligence analysis"]
-
-    style START fill:#0d6efd,color:#fff
-    style STASIS fill:#ffc107,color:#000
-    style BAYES fill:#6f42c1,color:#fff
-    style OUTPUT fill:#28a745,color:#fff
-```
-
-### Bayesian Updating Protocol for Cross-Session Runs
-
-When a later run (e.g., `breaking-2`) has access to a prior run's analysis (`breaking/`), apply Bayesian updating to key assessments:
-
-| Step | Action | Example |
-|:----:|--------|---------|
-| 1 | **Identify prior assessment** — read the prior run's risk scores, SWOT entries, and confidence levels | Prior run assessed "Grand Coalition stability risk: L=2, I=4, Score=8 [MEDIUM confidence]" |
-| 2 | **Identify new evidence** — what EP MCP data files are new or changed since the prior run? | New adopted text AT-2026-0156 shows ECR supported EPP amendment |
-| 3 | **Assess evidence direction** — does new evidence support, contradict, or neutral to prior assessment? | Supports stability → likelihood decreases |
-| 4 | **Update score** — adjust likelihood/impact per [political-risk-methodology.md](political-risk-methodology.md) Advanced Technique 2 Bayesian update protocol and evidence strength table | "Grand Coalition stability risk: L=1, I=4, Score=4 (posterior)" |
-| 5 | **Update confidence** — cross-session consistency changes confidence level | Two consecutive runs agree → upgrade MEDIUM to HIGH |
-| 6 | **Document the update chain** | "Run 1 prior: Score=8 [MEDIUM] → Run 2 evidence: ECR support → Posterior: Score=4 [HIGH]" |
-
-### Confidence Level Changes from Cross-Session Consistency
-
-| Cross-Session Pattern | Confidence Adjustment | Rationale |
-|----------------------|:---------------------:|-----------|
-| Two consecutive runs reach same assessment | Upgrade by one level (e.g., LOW→MEDIUM) | Independent analysis convergence increases reliability |
-| Three consecutive runs reach same assessment | Upgrade to HIGH (maximum) | Strong analytical convergence |
-| New run contradicts prior run | Downgrade by one level; flag for review | Contradictory evidence requires reassessment |
-| New run finds no relevant new data | Maintain prior confidence; do not upgrade | Absence of new evidence is not confirming evidence |
-
-### Data Stasis Detection Protocol
-
-When a subsequent run detects **zero delta** (no new EP MCP data files, no changed voting records, no new documents):
-
-| Data Stasis Response | Action |
-|---------------------|--------|
-| **Acknowledge stasis** | Explicitly state: "No new EP MCP data since prior run at [timestamp]" |
-| **Carry forward prior analysis** | Reference prior run's assessments as still-current baseline |
-| **Shift focus to structural analysis** | Use the time for deeper analysis of existing data: historical trending, cross-document correlation, scenario modelling |
-| **Do NOT fabricate novelty** | Never claim new developments when data has not changed. This is an absolute rule. |
-| **Update temporal context** | Note that assessments are now N hours older; if the carried-forward assessment is 18–23 hours old, downgrade confidence by one level (HIGH→MEDIUM, MEDIUM→LOW, LOW→LOW). If it is 24 hours or older, downgrade by one additional level, never below LOW. This decay applies only to carried-forward confidence during confirmed data stasis. |
-
----
-
-## 🔄 Conflict Resolution for Parallel Workflows
-
-When multiple agentic workflows run simultaneously:
-
-### Isolation Rules
-
-| Artifact Type | Isolation Strategy | Location |
-|--------------|-------------------|----------|
-| Per-file analysis | Inherently conflict-free (one file per document) | `analysis/daily/{date}/{article-type-slug}/data/{id}.analysis.md` |
-| Workflow-specific analysis | Per-workflow directory | `analysis/daily/{date}/{article-type-slug}/` |
-| Daily synthesis | Last-write-wins (later workflows produce better synthesis) | `analysis/daily/{date}/synthesis-summary.md` |
-| AI-driven cross-article analysis | Date root (shared across workflows) | `analysis/daily/{date}/ai-*.md` |
-| Weekly aggregation | Composed from daily analyses, not workflow outputs | `analysis/weekly/YYYY-WNN/` |
-
-### Critical Rule: Never Overwrite Another Workflow's Analysis
-
-```
-✅ news-breaking   → analysis/daily/2026-03-30/breaking/
-✅ news-weekly-review → analysis/daily/2026-03-30/weekly-review/
-✅ news-committee-reports → analysis/daily/2026-03-30/committee-reports/
-❌ news-breaking overwrites news-weekly-review output → PROHIBITED
-```
-
----
-
-## 🌍 Multi-Language Content Quality Standards
-
-### Translation Quality Dimensions (14 Languages)
-
-EU Parliament Monitor publishes in 14 languages: **en** (source), **sv**, **da**, **no**, **fi**, **de**, **fr**, **es**, **nl**, **ar** (RTL), **he** (RTL), **ja** (CJK), **ko** (CJK), **zh** (CJK).
-
-Every translated article must score well on these 5 dimensions:
-
-| Dimension | Weight | Requirement |
-|-----------|:------:|-------------|
-| **Accuracy** | 40% | Zero additions, zero omissions of substantive claims vs. English source |
-| **Fluency** | 20% | Reads naturally in the target language — not "translationese" |
-| **Terminology** | 20% | Uses official EP/EU institutional vocabulary from [IATE](https://iate.europa.eu/) |
-| **Completeness** | 10% | Every section, SWOT entry, stakeholder perspective, and confidence marker present |
-| **Formatting** | 10% | RTL/CJK layout correct, locale-appropriate number formatting, emoji markers preserved |
-
-### Translation Fidelity Rules
-
-1. **NEVER translate**: EP document IDs, political group abbreviations (EPP, S&D, Renew, Greens/EFA, ECR, PfE, ESN), committee codes (ENVI, AGRI, ECON), MEP names, procedure codes (COD, CNS, APP), session location names
-2. **ALWAYS translate**: Narrative text, event descriptions, policy impact, stakeholder positions, editorial content, confidence label text (High→Hoch/Haute/Alto etc.)
-3. **ALWAYS preserve**: Emoji confidence markers (🟢/🟡/🔴), vote counts (numerically identical, locale-formatted), probability categories (map to target language equivalents — do not upgrade/downgrade certainty)
-4. **Cultural adaptation**: Adapt existing examples for local context but NEVER introduce new facts, examples, or analysis not in the English source
-
-### Language-Specific EP Terminology Standards
-
-Use official terminology from the EP Multilingual Termbase and IATE for each target language. Core terms:
-
-| English | sv | de | fr | es | ja | ar |
-|---|---|---|---|---|---|---|
-| European Parliament | Europaparlamentet | Europäisches Parlament | Parlement européen | Parlamento Europeo | 欧州議会 | البرلمان الأوروبي |
-| plenary session | plenarsammanträde | Plenarsitzung | séance plénière | sesión plenaria | 本会議 | الجلسة العامة |
-| rapporteur | föredragande | Berichterstatter | rapporteur | ponente | 報告者 | المقرر |
-| adopted text | antagen text | angenommener Text | texte adopté | texto aprobado | 採択文 | النص المعتمد |
-| trilogue | trilog | Trilog | trilogue | trílogo | 三者協議 | الحوار الثلاثي |
-| roll-call vote | omröstning med namnupprop | namentliche Abstimmung | vote par appel nominal | votación nominal | 記名投票 | تصويت بنداء الأسماء |
-
----
-
-## 🔗 Hack23 Ecosystem Cross-References
-
-Articles may link to related content from the Hack23 parliamentary monitoring ecosystem:
-
-| Site | Domain | Content |
-|------|--------|---------|
-| **Hack23** | `hack23.com` / `www.hack23.com` | Organization hub, project portfolio, ISMS documentation |
-| **Riksdagsmonitor** | `riksdagsmonitor.com` / `www.riksdagsmonitor.com` | Swedish Parliament monitoring — comparable methodology |
-| **EU Parliament Monitor** | `euparliamentmonitor.com` / `www.euparliamentmonitor.com` | EU Parliament news, analysis, and intelligence in 14 languages |
-| **CIA Platform** | `github.com/Hack23/cia` | Swedish Parliament intelligence — Java/Spring backend |
-| **EU Parliament Monitor (source)** | `github.com/Hack23/euparliamentmonitor` | This project's source code and documentation |
-
-When cross-referencing:
-- Link to specific methodology comparisons (e.g., "This SWOT framework is adapted from [Riksdagsmonitor risk methodology](https://github.com/Hack23/riksdagsmonitor/blob/main/analysis/methodologies/political-risk-methodology.md)")
-- Reference shared ISMS policies where relevant (e.g., [Hack23 ISMS-PUBLIC](https://github.com/Hack23/ISMS-PUBLIC))
-- Maintain consistent branding (Hack23 AB logo, badge styling)
-
----
-
-## 📚 Methodology Documents (AI Must Read Before Analysing)
-
-| Priority | Document | Key Content |
-|:--------:|----------|-------------|
-| 🔴 1 | [political-swot-framework.md](political-swot-framework.md) | Evidence hierarchy, confidence levels, temporal decay, aggregation |
-| 🔴 2 | [political-risk-methodology.md](political-risk-methodology.md) | 5×5 Likelihood × Impact matrix, coalition risk index |
-| 🔴 3 | [political-threat-framework.md](political-threat-framework.md) | Multi-framework threat analysis: Threat Landscape + Attack Trees + Diamond Model + PESTLE |
-| 🟠 4 | [political-classification-guide.md](political-classification-guide.md) | Sensitivity levels, domain taxonomy, urgency matrix |
-| 🟠 5 | [political-style-guide.md](political-style-guide.md) | Writing standards, evidence density, depth levels, attribution |
-| 🟠 6 | This document | Per-file protocol, quality gates, anti-patterns |
-
----
-
-## ⭐ Reference Analyses (Gold-Standard Exemplars)
-
-When a workflow is uncertain what "good enough" analytical depth looks like, consult the
-designated reference runs below. A reference run's artifacts are the illustrative
-depth-and-structure benchmark for the relevant article type; a new output thinner than
-the reference should trigger an additional improvement pass before submission.
-
-| Article Type | Reference Run | Artifact Directory | Designation Document |
-|--------------|--------------|--------------------|----------------------|
-| Breaking (analysis-only, API-degraded mode) | **Run 184** (2026-04-18) | [`analysis/daily/2026-04-18/breaking-run184/`](../daily/2026-04-18/breaking-run184/) | [`reference-analysis-quality.md`](../daily/2026-04-18/breaking-run184/intelligence/reference-analysis-quality.md) |
-
-**Run 184 at a glance (reference bar):** 17 artifacts · 3600+ lines · 13 analytical
-frameworks applied in a single run · zero placeholder markers · 5 upstream data-source
-issues filed (Hack23/European-Parliament-MCP-Server #366–#370).
-
-### Mandatory Analytical Dimension Matrix (New in v4.4)
-
-The following matrix specifies, per article type, which analytical dimensions are
-**mandatory** (must be present), **recommended** (present when relevant data available),
-and **optional** (value-adding but not required). Article types not listed inherit from
-the closest listed row.
-
-| Dimension / Artifact | Breaking | Weekly Review | Monthly Review | Week Ahead | Month Ahead | Committee Reports | Motions | Propositions | Article Generator |
-|----------------------|:--------:|:-------------:|:--------------:|:----------:|:-----------:|:-----------------:|:-------:|:------------:|:-----------------:|
-| Newsworthiness gate + significance scoring | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M |
-| 5×5 Risk matrix (≥5 vectors) | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M |
-| 3+3+3+3 Quantitative SWOT | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M |
-| Coalition dynamics pair analysis | 🟥 M | 🟥 M | 🟥 M | 🟨 R | 🟨 R | 🟨 R | 🟨 R | 🟨 R | 🟥 M |
-| Cross-run hypothesis diff | 🟥 M | 🟥 M | 🟥 M | 🟨 R | 🟨 R | 🟨 R | 🟨 R | 🟨 R | 🟨 R |
-| Synthesis summary + forward monitoring ≥6 | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M |
-| PESTLE 6-dimension scan | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟥 M | 🟨 R | 🟨 R | 🟥 M | 🟥 M |
-| Stakeholder power × interest map (≥12) | 🟥 M | 🟨 R | 🟥 M | 🟨 R | 🟥 M | 🟨 R | 🟥 M | 🟥 M | 🟥 M |
-| Scenario forecast (≥3 scenarios) | 🟥 M | 🟨 R | 🟥 M | 🟥 M | 🟥 M | 🟨 R | 🟨 R | 🟥 M | 🟥 M |
-| Threat model (Diamond / Attack Trees / Kill Chain — top severity-4+ threats) | 🟥 M | 🟨 R | 🟥 M | 🟨 R | 🟨 R | 🟨 R | 🟨 R | 🟨 R | 🟥 M |
-| Historical baseline (Rule 17) | 🟨 R | 🟥 M | 🟥 M | 🟨 R | 🟨 R | 🟨 R | 🟨 R | 🟨 R | 🟥 M |
-| Economic context (World Bank) | 🟨 R | 🟨 R | 🟥 M | 🟨 R | 🟥 M | 🟨 R | 🟨 R | 🟥 M | 🟥 M |
-| Wildcards + Black Swan reserve | 🟨 R | 🟨 R | 🟥 M | 🟨 R | 🟥 M | ⬜ O | ⬜ O | 🟨 R | 🟥 M |
-| Document-analysis index (per-text status) | 🟥 M | 🟥 M | 🟥 M | ⬜ O | ⬜ O | 🟥 M | 🟥 M | 🟥 M | 🟥 M |
-| MCP reliability audit | 🟨 R when API degraded | 🟨 R when API degraded | 🟨 R when API degraded | 🟨 R | 🟨 R | 🟨 R | 🟨 R | 🟨 R | 🟨 R |
-
-**Legend**: 🟥 **M** = mandatory · 🟨 **R** = recommended · ⬜ **O** = optional.
-
-**Rule of thumb**: a reference-quality output produces every mandatory artifact for its
-article type. "Mandatory" is subject to data availability — if the required input is
-unavailable (e.g., World Bank MCP unreachable), the artifact must still be present with
-an explicit `data_not_available` note explaining why, rather than being silently omitted.
-
-**Run 184 also ships the canonical** [MCP reliability audit](../daily/2026-04-18/breaking-run184/intelligence/mcp-reliability-audit.md)
-— the enumeration of 7 EP MCP server data-reliability defects observed across Runs 179–184
-and the 5 upstream issues filed on `Hack23/European-Parliament-MCP-Server`. Future
-analysis-only runs operating under API-degraded conditions should produce a comparable
-`intelligence/mcp-reliability-audit.md` file whenever new defects are observed.
+## 🌍 Multi-Language Content Standards
+
+The `news-translate` workflow translates English source articles into 13 additional languages (sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh). Every translated article scores on five weighted dimensions:
+
+| Dimension | Weight | What to produce |
+|---|:-:|---|
+| **Accuracy** | 40% | Zero additions, zero omissions of substantive claims vs. the English source |
+| **Fluency** | 20% | Reads naturally in the target language |
+| **Terminology** | 20% | Uses official EP / EU institutional vocabulary from [IATE](https://iate.europa.eu/) |
+| **Completeness** | 10% | Every section, SWOT entry, stakeholder perspective, confidence marker present |
+| **Formatting** | 10% | RTL / CJK layout correct, locale-appropriate number formatting, emoji markers preserved |
+
+Translation fidelity rules:
+
+1. **Preserve verbatim**: EP document IDs, political-group abbreviations (EPP, S&D, Renew, Greens/EFA, ECR, PfE, ESN), committee codes (ENVI, AGRI, ECON), MEP names, procedure codes (COD, CNS, APP), session location names, emoji confidence markers (🟢/🟡/🔴).
+2. **Translate**: narrative text, event descriptions, policy impact, stakeholder positions, editorial content, confidence label text (High → Hoch / Haute / Alto).
+3. **Adapt culturally**: examples and analogies only where present in the English source — never introduce new facts or analysis.
+4. **Pre-translate gate**: run the analysis-completeness validator on the English source before translation; contaminated sources are excluded from the translation set.
 
 ---
 
 ## 🔗 Related Documents
 
-- [templates/per-file-political-intelligence.md](../templates/per-file-political-intelligence.md) — Per-file output template
-- [templates/synthesis-summary.md](../templates/synthesis-summary.md) — Daily synthesis template
-- [SWOT.md](../../SWOT.md) — Platform SWOT (**formatting exemplar**)
-- [THREAT_MODEL.md](../../THREAT_MODEL.md) — Platform threat model (**formatting exemplar**)
-- [Run 184 reference analysis](../daily/2026-04-18/breaking-run184/) — **depth exemplar**
+- [`artifact-catalog.md`](artifact-catalog.md) — master map of every artifact this guide produces
+- [`per-artifact-methodologies.md`](per-artifact-methodologies.md) — per-artifact construction rules
+- [`political-swot-framework.md`](political-swot-framework.md) — evidence-based SWOT
+- [`political-risk-methodology.md`](political-risk-methodology.md) — 5×5 matrix + Bayesian update
+- [`political-threat-framework.md`](political-threat-framework.md) — Diamond / Attack Trees / Kill Chain / PESTLE
+- [`political-classification-guide.md`](political-classification-guide.md) — 7-dimension classification
+- [`political-style-guide.md`](political-style-guide.md) — writing standards
+- [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md) / [`imf-indicator-mapping.md`](imf-indicator-mapping.md) — economic context
+- [`reference-quality-thresholds.json`](reference-quality-thresholds.json) — machine-enforced depth floors
+- [`../templates/README.md`](../templates/README.md) — template catalog
+- [Run 184 reference benchmark](../daily/2026-04-18/breaking-run184/) — depth exemplar
 
 ---
 
 **Document Control:**
 - **Path:** `/analysis/methodologies/ai-driven-analysis-guide.md`
 - **Classification:** Public
-- **Version:** 4.5 — Added Rules 19–21: mandatory pre-flight analysis reading (every artifact in full before drafting), mandatory Analysis-Sources footer in every article of every type (currently enforced by the `renderAnalysisTransparencySection` template helper and `retrofit-analysis-links.ts`, with a `validate-articles.ts` blocking check planned for v4.6), and minimum Analysis-Article Read Ratio quality signal. v4.4 added Mandatory Analytical Dimension Matrix; v4.3 added Reference Analyses section.
+- **Version:** 5.0 — Simplified from v4.5 (1 519 lines, Rules 1–22, extensive anti-pattern galleries) to a positive 10-step protocol that delegates artifact detail to [`artifact-catalog.md`](artifact-catalog.md) and [`per-artifact-methodologies.md`](per-artifact-methodologies.md). Legacy Rule 1–22 numbers remain traceable via the Core Principles mapping table.
 - **Next Review:** 2026-06-30
