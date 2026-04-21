@@ -207,6 +207,7 @@ fi
 **Mandatory heartbeat rule**:
 - First keep-alive call by **minute 8** (after the checkpoint PR call at minute ~3)
 - Then keep-alive at least every **8 minutes** until final work completes (at approximately minutes **8, 16, 24, 32, 40, and 48**, or sooner at phase transitions)
+- **`sequential-thinking` turns do NOT reset the session idle timer.** If any reasoning/analysis phase (`sequential-thinking`, long internal planning, extended document reading) runs for 5+ minutes without a safeoutputs call or a non-thinking tool call, the safeoutputs session may silently idle-out. Interleave an explicit `safeoutputs___push_repo_memory` call **inside** every multi-turn analysis phase. **This is the #1 cause of `session not found` at PR time** (see run [24707284072](https://github.com/Hack23/euparliamentmonitor/actions/runs/24707284072): 45-minute uninterrupted `sequential-thinking` starved the session, and the minute-55 PR call failed with `session not found`).
 - Use this tool call for heartbeat (does not consume PR quota):
 
 ```javascript
