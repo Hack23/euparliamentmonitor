@@ -27,106 +27,102 @@ This directory contains GitHub Actions workflows for the EU Parliament Monitor p
 
 ### 📰 News Generation (Agentic Workflows)
 
-The project uses **10 agentic workflow markdown files** (`.md`) that are compiled to `.lock.yml` files. Each workflow generates a specific type of EU Parliament news article using the European Parliament MCP server as the primary data source, with optional World Bank MCP enrichment for economic context.
+The project uses **10 agentic workflow markdown files** (`.md`) that are compiled to `.lock.yml` files via `gh aw compile --validate`. Each `news-*.md` generates a specific type of EU Parliament article using the European Parliament MCP server as the primary data source, with optional World Bank / IMF MCP enrichment for economic context.
 
-#### `news-article-generator.md`
-**Purpose**: Manual dispatch workflow to generate any combination of article types
+| Workflow (`.md`) | Purpose | Trigger |
+|---|---|---|
+| [`news-breaking.md`](news-breaking.md) | Rapid breaking-news coverage of unfolding EP events (overrides cadence) | Workflow dispatch |
+| [`news-week-ahead.md`](news-week-ahead.md) | Prospective week-ahead preview of the upcoming plenary week | Fridays 07:00 UTC + manual |
+| [`news-month-ahead.md`](news-month-ahead.md) | Strategic month-ahead outlook with macroeconomic context | 1st of month 08:00 UTC + manual |
+| [`news-weekly-review.md`](news-weekly-review.md) | Retrospective review of the past 7 days in the EP | Saturdays 09:00 UTC + manual |
+| [`news-monthly-review.md`](news-monthly-review.md) | Retrospective monthly review with World Bank / IMF context | 28th of month 10:00 UTC + manual |
+| [`news-committee-reports.md`](news-committee-reports.md) | Analysis of activity across the 20 EP standing committees | Mon–Fri 04:00 UTC + manual |
+| [`news-motions.md`](news-motions.md) | Motions and resolutions analysis with voting records and party dynamics | Mon–Fri 06:00 UTC + manual |
+| [`news-propositions.md`](news-propositions.md) | Legislative propositions analysis with economic context | Mon–Fri 05:00 UTC + manual |
+| [`news-article-generator.md`](news-article-generator.md) | Manual multi-type backfill runner (documented `create-pull-request.max: 8` exception) | Workflow dispatch |
+| [`news-translate.md`](news-translate.md) | 14-language translation with multi-call flush pattern (exempt from single-PR rule) | Workflow dispatch / PR hook |
 
-**Trigger**: Workflow dispatch (manual)
+A helper workflow — [`news-translate-reconciler.yml`](news-translate-reconciler.yml) — reconciles translation PRs produced by `news-translate.md`.
 
-**Inputs**:
-- `article_types`: Comma-separated article types (default: `committee-reports,propositions,motions`)
-- `languages`: Languages to generate (default: `all`)
-- `force_generation`: Force generation even if recent articles exist (default: `false`)
+#### Shared-import pattern
 
-**What it does**:
-1. Establishes date context with `date -u` command
-2. Queries European Parliament MCP server for data
-3. Optionally enriches with World Bank economic indicators
-4. Generates articles using `npx tsx src/generators/news-enhanced.ts`
-5. Creates PR with generated article HTML files
+Every article-generating `news-*.md` imports two shared files to keep the
+workflow frontmatter and prompt body DRY:
 
-**Timeout**: 120 minutes
+```yaml
+imports:
+  - shared/mcp/news-mcp-servers.md        # merges `mcp-servers:` frontmatter
+  - ../agents/news-generation.agent.md    # appends the canonical Required Reading + Stage Contract body
+```
 
----
+- [`shared/mcp/news-mcp-servers.md`](shared/mcp/news-mcp-servers.md) is a
+  **frontmatter-only** workflow component; its `mcp-servers:` block is merged
+  into the importing workflow's frontmatter (dedupes the EP / WB / IMF / MCP
+  Gateway mounts across 9 workflows).
+- [`.github/agents/news-generation.agent.md`](../agents/news-generation.agent.md)
+  is **body-only** (gh-aw v0.69.3 does not merge agent-file frontmatter); the
+  body is appended to every importing workflow's prompt.
+- `news-translate.md` explicitly does **not** import either file — it ships
+  its own MCP block and its own prompt body tuned for the multi-call flush
+  pattern.
 
-#### `news-committee-reports.md`
-**Purpose**: Generates EU Parliament committee reports analysis articles
+See [`.github/agents/news-generation.agent.md`](../agents/news-generation.agent.md)
+§ "Why an imported agent?" for the tested behaviour notes, and the
+[prompts library](../prompts/README.md) for the canonical Stage A → E flow.
 
-**Trigger**: Scheduled daily at 04:00 UTC (Mon-Fri), workflow dispatch
+#### Lock-file compile flow
 
-**What it does**: Analyzes activity across 20 EU standing committees (ENVI, ECON, AFET, LIBE, AGRI, etc.)
+1. Author or edit a `news-*.md` / `shared/mcp/*.md` / imported agent file.
+2. Locally run `gh aw compile --validate` (the repo does **not** commit lock
+   files directly from agents — see `copilot/cleanup-agentic-workflows`
+   guidance).
+3. CI job [`compile-agentic-workflows.yml`](compile-agentic-workflows.yml)
+   re-compiles every `.md`, validates that the committed `.lock.yml` matches
+   the recompile output, and runs `npm run lint:prompts` (see
+   [`.github/prompts/README.md` § Drift-guard Lint](../prompts/README.md#drift-guard-lint-npm-run-lintprompts)).
+4. The pinned gh-aw version lives inside `compile-agentic-workflows.yml`
+   (currently v0.69.3).
 
-**Timeout**: 60 minutes
+Only `.lock.yml` files are executed at runtime; `.md` files are source.
 
----
+#### `safeoutputs` semantics
 
-#### `news-week-ahead.md`
-**Purpose**: Generates week-ahead prospective articles previewing upcoming parliamentary week
+All article-generating workflows declare:
 
-**Trigger**: Scheduled Fridays at 07:00 UTC, workflow dispatch
+```yaml
+safe-outputs:
+  create-pull-request:
+    max: 1                 # default for every news-*.md
+    # news-article-generator.md is the documented `max: 8` exception
+    # news-translate.md uses `excluded-files:` + multi-call flush, exempt from single-PR rule
+```
 
-**Timeout**: 60 minutes
+Key rules (enforced by [`scripts/lint-prompts.js`](../../scripts/lint-prompts.js)):
 
----
+- **`safeoutputs___create_pull_request` takes a synchronous git format-patch
+  snapshot AT CALL TIME.** It must therefore be called exactly once, at the
+  very end of the run, after all files are written. Calling it earlier
+  produces a PR with a partial working tree.
+- `news-translate.md` is the single exempt workflow (multi-call flush with
+  `max-patch-size` + re-calls).
+- Banned phrases CI-lint-enforced: `checkpoint pr`, `keep-alive`, `heartbeat`,
+  `progressive safe output`, `push_repo_memory`.
 
-#### `news-weekly-review.md`
-**Purpose**: Generates weekly review retrospective articles analyzing past 7 days
+Rationale and exceptions: [`06-pr-and-safe-outputs.md`](../prompts/06-pr-and-safe-outputs.md).
 
-**Trigger**: Scheduled Saturdays at 09:00 UTC, workflow dispatch
-
-**Timeout**: 60 minutes
-
----
-
-#### `news-month-ahead.md`
-**Purpose**: Generates strategic month-ahead outlook articles with World Bank economic context
-
-**Trigger**: Scheduled 1st of each month at 08:00 UTC, workflow dispatch
-
-**Timeout**: 60 minutes
-
----
-
-#### `news-monthly-review.md`
-**Purpose**: Generates monthly review retrospective articles with World Bank economic context
-
-**Trigger**: Scheduled 28th of each month at 10:00 UTC, workflow dispatch
-
-**Timeout**: 60 minutes
-
----
-
-#### `news-motions.md`
-**Purpose**: Generates motions and resolutions analysis with voting records and party dynamics
-
-**Trigger**: Scheduled daily at 06:00 UTC (Mon-Fri), workflow dispatch
-
-**Timeout**: 60 minutes
-
----
-
-#### `news-propositions.md`
-**Purpose**: Generates legislative propositions analysis with World Bank economic context
-
-**Trigger**: Scheduled daily at 05:00 UTC (Mon-Fri), workflow dispatch
-
-**Timeout**: 60 minutes
-
----
-
-**Common features across all news workflows**:
+#### Common features across all news workflows
 - Uses `european-parliament-mcp-server@1.2.11` as primary data source
 - Mandatory date context establishment via `date -u` command
 - Supports 14 languages: en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh
 - HTML validation and quality checks before PR creation
 - Never commits generated files (sitemap, rss, index files)
-- Uses `safeoutputs___create_pull_request` for PR creation
-- References [SHARED_PROMPT_PATTERNS.md](../prompts/SHARED_PROMPT_PATTERNS.md) for shared rules, EP MCP tool reference, and analysis pipeline
-- References [ai-driven-analysis-guide.md](../../analysis/methodologies/ai-driven-analysis-guide.md) for analysis protocol (Rules 1-12)
-- May apply minor TypeScript/script corrections (max 20 lines) to unblock generation — see SHARED_PROMPT_PATTERNS.md
+- Uses `safeoutputs___create_pull_request` (called exactly once) for PR creation
+- References the [prompts library index](../prompts/README.md) for shared rules, EP MCP tool reference, and the 5-stage analysis pipeline
+- References [`ai-driven-analysis-guide.md`](../../analysis/methodologies/ai-driven-analysis-guide.md) for the analysis protocol (10 steps, Rules 1–22)
+- References [`analysis/templates/README.md`](../../analysis/templates/README.md) for the 39-template artifact catalog
+- May apply minor TypeScript/script corrections (max 20 lines) to unblock generation
 
-**Security**: Read-only permissions by default, MCP data only from official EU Parliament sources
+**Security**: Read-only permissions by default, MCP data only from official EU Parliament / World Bank / IMF sources. Firewall policy via [`gh-aw-firewall` skill](../skills/gh-aw-firewall.md).
 
 ---
 
@@ -317,6 +313,58 @@ The project uses **10 agentic workflow markdown files** (`.md`) that are compile
 - Write PRs for comments
 - Write security-events for audit results
 
+#### `e2e.yml`
+**Purpose**: Playwright end-to-end browser tests (14 languages, accessibility,
+visual regression) against the built static site.
+
+**Trigger**: Push + PR to `main`; manual dispatch.
+
+#### `reuse.yml`
+**Purpose**: REUSE 3.3 compliance check (every file declares an SPDX licence
+header or has a matching `.license` companion).
+
+**Trigger**: Push + PR to `main`.
+
+#### `scorecards.yml`
+**Purpose**: OSSF Scorecard weekly supply-chain security scan — publishes
+results to GitHub Security and the OSSF dashboard.
+
+**Trigger**: Weekly schedule + push to `main`.
+
+#### `dependency-review.yml`
+**Purpose**: GitHub dependency-review action — blocks PRs that introduce
+vulnerable or disallowed-licence dependencies.
+
+**Trigger**: Pull requests.
+
+#### `compile-agentic-workflows.yml`
+**Purpose**: Recompiles every `news-*.md` → `.lock.yml` with the pinned gh-aw
+version and fails the build if any committed lock file is stale. Also runs
+`node scripts/lint-prompts.js` to enforce the four drift-guard rules
+documented in [`.github/prompts/README.md`](../prompts/README.md).
+
+**Trigger**: Push + PR that touches any `.github/workflows/*.md`,
+`.github/agents/*.md`, `.github/prompts/*.md`, or `scripts/lint-prompts.js`.
+
+#### `agentics-maintenance.yml`
+**Purpose**: Scheduled maintenance workflow for gh-aw housekeeping (token
+rotation checks, cache cleanup, upstream-version drift diagnostics).
+
+**Trigger**: Schedule.
+
+---
+
+### 🚀 Deployment
+
+#### `deploy-s3.yml`
+**Purpose**: Deploy the built static site (HTML, CSS, JS, 14-language news
+articles) to the production S3 / CloudFront origin.
+
+**Trigger**: Push to `main` + manual dispatch.
+
+**Security**: OIDC-assumed AWS role (no long-lived keys); harden-runner with
+strict egress; pinned action versions.
+
 ---
 
 ## Security Standards
@@ -446,6 +494,7 @@ jobs:
 |----------|------|----|---------:|-------:|
 | copilot-setup-steps | ✅ | ✅ | ❌ | ✅ |
 | news-article-generator | ❌ | ❌ | ❌ | ✅ |
+| news-breaking | ❌ | ❌ | ❌ | ✅ |
 | news-committee-reports | ❌ | ❌ | ✅ Mon-Fri 04:00 | ✅ |
 | news-week-ahead | ❌ | ❌ | ✅ Fri 07:00 | ✅ |
 | news-weekly-review | ❌ | ❌ | ✅ Sat 09:00 | ✅ |
@@ -453,11 +502,20 @@ jobs:
 | news-monthly-review | ❌ | ❌ | ✅ 28th 10:00 | ✅ |
 | news-motions | ❌ | ❌ | ✅ Mon-Fri 06:00 | ✅ |
 | news-propositions | ❌ | ❌ | ✅ Mon-Fri 05:00 | ✅ |
+| news-translate | ❌ | ✅ | ❌ | ✅ |
+| news-translate-reconciler | ❌ | ✅ | ❌ | ✅ |
 | labeler | ❌ | ✅ | ❌ | ❌ |
 | setup-labels | ❌ | ❌ | ❌ | ✅ |
 | release | ✅ Tags | ❌ | ❌ | ✅ |
 | codeql | ✅ main | ✅ | ✅ Weekly | ❌ |
 | test-and-report | ✅ main | ✅ | ❌ | ❌ |
+| e2e | ✅ main | ✅ | ❌ | ✅ |
+| reuse | ✅ main | ✅ | ❌ | ❌ |
+| scorecards | ✅ main | ❌ | ✅ Weekly | ❌ |
+| dependency-review | ❌ | ✅ | ❌ | ❌ |
+| compile-agentic-workflows | ✅ (path-scoped) | ✅ (path-scoped) | ❌ | ✅ |
+| agentics-maintenance | ❌ | ❌ | ✅ | ✅ |
+| deploy-s3 | ✅ main | ❌ | ❌ | ✅ |
 
 ---
 

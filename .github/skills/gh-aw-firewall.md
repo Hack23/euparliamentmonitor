@@ -6,6 +6,14 @@ tools: []
 
 # Skill: Agent Workflow Firewall (AWF)
 
+## 📚 Upstream Documentation (authoritative)
+
+Derived from / abridged from the gh-aw upstream docs:
+
+- **Abridged:** https://github.github.com/gh-aw/llms-small.txt
+- **Full:** https://github.github.com/gh-aw/llms-full.txt
+- **Blog series:** https://github.github.com/gh-aw/_llms-txt/agentic-workflows.txt
+
 ## Overview
 
 The **Agent Workflow Firewall (AWF)** is the network security layer in GitHub Agentic Workflows. It routes all agent-initiated outbound traffic through a **Squid proxy** enforcing an explicit domain allowlist. Traffic to any destination not on the allowlist is **dropped at the kernel level**.

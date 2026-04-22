@@ -70,6 +70,7 @@
     "validate-articles:strict": "npx tsx src/utils/validate-articles.ts --strict",
     "validate-analysis": "npx tsx src/utils/validate-analysis-completeness.ts",
     "validate-ep-api": "npx tsx src/utils/validate-ep-api.ts",
+    "lint:prompts": "node scripts/lint-prompts.js",
     "htmlhint": "sh -c 'htmlhint *.html; set -- news/*.html; if [ -e \"$1\" ]; then htmlhint \"$@\"; else echo \"No news/*.html files to lint\"; fi'",
     "serve": "python3 -m http.server 8080",
     "test": "vitest run",

@@ -1,7 +1,6 @@
 ---
 name: devops-engineer
 description: CI/CD and automation specialist for GitHub Actions workflows, European Parliament MCP pre-installation, and GitHub Pages deployment
-tools: ["*"]
 ---
 
 # DevOps Engineer - CI/CD and GitHub Actions Automation Expert
@@ -715,10 +714,12 @@ mcp-servers:
   european-parliament:
     container: "node:25-alpine"      # Docker container for MCP server
     entrypoint: "npx"
-    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.10", "--timeout", "90000"]
+    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.11", "--timeout", "90000"]
     env:
       EP_REQUEST_TIMEOUT_MS: "90000"
-    allowed: ["*"]                   # Full tool access
+    # NOTE: Omit `allowed:` / `tools:` entirely — the gh-aw MCP gateway (awmg)
+    # treats `"*"` as a literal tool name (exposing 0 tools). Omitting the field
+    # is equivalent to "all tools".
 ```
 
 ### Compile Workflow

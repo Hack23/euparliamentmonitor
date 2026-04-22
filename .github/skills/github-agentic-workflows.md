@@ -1,5 +1,18 @@
 # 🤖 GitHub Agentic Workflows Skill
 
+## 📚 Upstream Documentation (authoritative source of truth)
+
+This skill is **derived from / abridged** from the upstream gh-aw doc set.
+Always consult the upstream docs for the current behaviour:
+
+- **Abridged:** https://github.github.com/gh-aw/llms-small.txt
+- **Full:** https://github.github.com/gh-aw/llms-full.txt
+- **Blog series:** https://github.github.com/gh-aw/_llms-txt/agentic-workflows.txt
+- **Site:** https://github.github.com/gh-aw/
+- **Repo:** https://github.com/github/gh-aw
+
+Pinned gh-aw version: see [`.github/workflows/compile-agentic-workflows.yml`](../workflows/compile-agentic-workflows.yml).
+
 ## Purpose
 
 Enable effective use of GitHub Agentic Workflows (gh-aw) for automated development — markdown-based workflow definitions, safe outputs, sandboxed execution, and multi-engine AI agent orchestration within GitHub Actions.

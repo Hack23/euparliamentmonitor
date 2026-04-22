@@ -271,6 +271,46 @@ graph LR
 
 > ✅ **Cross-cutting layer.** Unlike the six domain frameworks above (which each own a specific analytic task), this framework defines the professional standards every framework applies — source grading, estimative language, structured analytic techniques, and OSINT ethics. It is attested in each run's `methodology-reflection.md`.
 
+### 🗺️ Artifact Catalog — `artifact-catalog.md`
+
+| Attribute | Value |
+|-----------|-------|
+| **Purpose** | Master map between the 39 templates in [`analysis/templates/`](../templates/README.md) and the methodologies above; names the canonical run-relative path for every artifact |
+| **Used by** | [`02-analysis-protocol.md`](../../.github/prompts/02-analysis-protocol.md) (Stage B) and [`03-analysis-completeness-gate.md`](../../.github/prompts/03-analysis-completeness-gate.md) (Stage C) |
+| **Enforcement** | The validator `scripts/utils/validate-analysis-completeness.js` locks every artifact to the path in this file |
+
+### 🧪 Per-Artifact Methodologies — `per-artifact-methodologies.md`
+
+| Attribute | Value |
+|-----------|-------|
+| **Purpose** | Normative per-artifact rules — one `###` section per artifact, 34 in total, describing required sections, minimum depth, source-grading demand, and estimative-language expectations |
+| **Paired with** | `artifact-catalog.md` (what → where) + `reference-quality-thresholds.json` (how much) |
+| **Step 10.5** | `ai-driven-analysis-guide.md` § Step 10.5 requires each run's `methodology-reflection.md` to reflect on the per-artifact methodologies actually applied |
+
+### 🔢 Quality Thresholds — `reference-quality-thresholds.json`
+
+| Attribute | Value |
+|-----------|-------|
+| **Purpose** | Machine-readable per-artifact line-floor and depth-floor thresholds |
+| **Consumed by** | `npm run validate-analysis` at Stage C (Completeness Gate) — failures block PR creation |
+| **Update cadence** | Bumped whenever `per-artifact-methodologies.md` tightens or loosens a floor; the two files must stay in lock-step |
+
+### 🌍 World Bank Indicator Mapping — `worldbank-indicator-mapping.md`
+
+| Attribute | Value |
+|-----------|-------|
+| **Purpose** | Canonical mapping of World Bank WDI indicator codes to EP analysis use cases (`economic-context.md`, PESTLE economic dimension, quantitative-swot evidence) |
+| **Paired MCP** | World Bank MCP (`world-bank-*` tools) |
+
+### 💱 IMF Indicator Mapping — `imf-indicator-mapping.md`
+
+| Attribute | Value |
+|-----------|-------|
+| **Purpose** | Canonical mapping of IMF WEO / FM / SDR indicator codes to EP analysis use cases — covers sovereign risk, fiscal forecasts, reserve-asset signals |
+| **Paired MCP** | IMF REST SDMX 3.0 client in `src/mcp/imf-mcp-client.ts` |
+
+> ✅ Together, `artifact-catalog.md` (**what**), `per-artifact-methodologies.md` (**how**), and `reference-quality-thresholds.json` (**how much**) form the Stage B / Stage C contract enforced by `validate-analysis-completeness`. The two indicator-mapping files provide the Stage A economic-context inputs that the Wave-2 OR-gate in `articlePolicyHasEconomicContext` checks.
+
 ---
 
 ## 🏷️ 1. Political Classification Guide
@@ -856,7 +896,7 @@ The analysis methodologies are adapted from Hack23's ISO 27001/NIST CSF/CIS Cont
 
 ## 📰 Workflow-Specific Analytical Approach
 
-Each agentic workflow applies the 6 methodologies with **unique emphasis** tailored to its article type. The following shows which methodologies are primary vs. supporting for each workflow:
+Each agentic workflow applies the methodologies with **unique emphasis** tailored to its article type. The following shows which methodologies are primary vs. supporting for each workflow:
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%

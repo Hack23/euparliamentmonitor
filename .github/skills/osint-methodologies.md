@@ -10,6 +10,23 @@ license: Apache-2.0
 
 Define structured approaches for collecting, validating, and analyzing open source intelligence from European Parliament data sources. Focuses on MCP server integration, data verification techniques, and GDPR-compliant processing of EU public official information for multi-language journalism.
 
+## 🧠 Produced / Consumed Analysis Artifacts
+
+This skill feeds the following per-run artifacts under
+`analysis/daily/<run>/` (templates in
+[`analysis/templates/`](../../analysis/templates/), rules in
+[`per-artifact-methodologies.md`](../../analysis/methodologies/per-artifact-methodologies.md)):
+
+- `documents/document-analysis-index.md` — OSINT document index
+- `intelligence/mcp-reliability-audit.md` — source reliability & Admiralty grading
+- Source-grade inputs to `synthesis-summary.md`, `deep-analysis.md`, `per-file-political-intelligence.md`
+
+Canonical tradecraft standard:
+[`analysis/methodologies/osint-tradecraft-standards.md`](../../analysis/methodologies/osint-tradecraft-standards.md)
+(ICD 203 · Admiralty source grades · Kent/WEP probability bands · SAT catalog ·
+OSINT ethics). 10-step protocol:
+[`ai-driven-analysis-guide.md`](../../analysis/methodologies/ai-driven-analysis-guide.md).
+
 ## When to Use
 
 ✅ Collecting MEP activity data from European Parliament MCP server

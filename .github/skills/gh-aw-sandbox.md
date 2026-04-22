@@ -6,6 +6,14 @@ tools: []
 
 # Skill: Sandbox Execution for Agentic Workflows
 
+## 📚 Upstream Documentation (authoritative)
+
+Derived from / abridged from the gh-aw upstream docs:
+
+- **Abridged:** https://github.github.com/gh-aw/llms-small.txt
+- **Full:** https://github.github.com/gh-aw/llms-full.txt
+- **Blog series:** https://github.github.com/gh-aw/_llms-txt/agentic-workflows.txt
+
 ## Overview
 
 Every gh-aw workflow runs inside an **isolated container** within GitHub Actions. The sandbox provides resource isolation, a read-only GitHub token, and controlled tool execution — the agent can read and write files in the ephemeral workspace to generate patches and artifacts, but cannot push changes or use write permissions against the repository directly.

@@ -95,11 +95,22 @@ Every paragraph must pass this test:
 | Multi-article generator | 120 min | ≥90 min | ≥15 min × types (2-pass) | ≥15 min × types (2-pass) |
 | **Analysis-only run** (no article) | 60 min | **≥45 min** | ≥20 min Pass 1+2 **+ ≥5 min Pass 3 (cross-run diff) + ≥5 min Pass 4 (forward monitoring)** (4-pass) | N/A |
 
-> **Analysis-only runs MUST NOT short-circuit**. When the newsworthiness gate fails, the time saved by skipping article generation MUST be reinvested into Pass 3 (cross-run diff) and Pass 4 (forward monitoring extension). See `SHARED_PROMPT_PATTERNS.md § Mandatory Analysis-Only 4-Pass Protocol`. Early exit before minute 45 is a VIOLATION. Reference incident: PR #1223 / run 24541203743 (19-minute agent run).
+> **Analysis-only runs MUST NOT short-circuit**. When the newsworthiness gate fails, the time saved by skipping article generation MUST be reinvested into Pass 3 (cross-run diff) and Pass 4 (forward monitoring extension). See § Mandatory Analysis-Only 4-Pass Protocol in this skill. Early exit before minute 45 is a VIOLATION. Reference incident: PR #1223 / run 24541203743 (19-minute agent run).
+
+## Mandatory Analysis-Only 4-Pass Protocol
+
+When a workflow determines that no publishable article should be produced, the run does **not** end after the normal 2-pass analysis cycle. The saved article-writing time MUST be redirected into two additional analysis passes so the output still meets the minimum active-work requirement and produces durable intelligence value.
+
+- **Pass 1 — Initial analysis draft**: collect the evidence, explain why the newsworthiness threshold was not met, and document the core analytical judgment with clear supporting facts.
+- **Pass 2 — Full read-through and rewrite**: read the entire analysis word-by-word, strengthen weak sections, add missing context, and remove shallow or placeholder language.
+- **Pass 3 — Cross-run diff**: compare the current output with recent related runs, identify what has changed, what has not changed, and whether the signal is strengthening, weakening, or remaining stable.
+- **Pass 4 — Forward monitoring extension**: define what to watch next — which upcoming meetings, votes, amendments, speeches, or data releases could change the assessment, and when the topic should be revisited.
+
+Analysis-only runs are compliant only when all four passes are completed and the total active work still reaches the required minimum. Skipping article generation is never a reason for an early exit.
 
 ## Tests Policy Alignment (v1.1)
 
-Under the v1.1 scope policy, agentic workflows MAY update `test/` and `e2e/` tests **only when required by an accompanying `src/`/`scripts/` fix**. Both `npm run build` AND `npm run test` MUST pass before PR creation, and both results MUST be reported in the PR body. Standalone test edits, refactors, or weakened assertions remain FORBIDDEN. See `SHARED_PROMPT_PATTERNS.md § Minor TypeScript/Script Corrections (CONDITIONAL ALLOW)` for the full policy.
+Under the v1.1 scope policy, agentic workflows MAY update `test/` and `e2e/` tests **only when required by an accompanying `src/`/`scripts/` fix**. Both `npm run build` AND `npm run test` MUST pass before PR creation, and both results MUST be reported in the PR body. Standalone test edits, refactors, or weakened assertions remain FORBIDDEN. See [`.github/prompts/00-scope-and-ground-rules.md` § 3 — Conditional Allow — Minor `src/`/`scripts/` Fixes](../prompts/00-scope-and-ground-rules.md#3--conditional-allow--minor-srcscripts-fixes) for the full policy.
 
 ## Application Per Agent Role
 
@@ -127,9 +138,11 @@ Under the v1.1 scope policy, agentic workflows MAY update `test/` and `e2e/` tes
 - Apply the 2-pass minimum to ANY content output
 - No agent is exempt from the iterative improvement requirement
 
-## Integration with SHARED_PROMPT_PATTERNS.md
+## Integration with the Prompt Library
 
-This skill codifies the Iterative Improvement Protocol from `SHARED_PROMPT_PATTERNS.md` (§ Mandatory Iterative Improvement Protocol). All workflow `.md` files reference these time budgets and quality gates. This skill ensures consistency across all agents.
+This skill is the authoritative source for the Iterative Improvement Protocol (see §§ *Mandatory Rules* — Rules 1–6 — and *Time Budget Enforcement* above). Workflow `.md` files and the prompt library under [`.github/prompts/`](../prompts/README.md) reference these time budgets and quality gates rather than redefining them. This skill ensures consistency across all agents.
+
+The 2-pass / 4-pass protocols in this skill are the agentic-workflow realisation of the **10-step AI-Driven Analysis Guide** ([`analysis/methodologies/ai-driven-analysis-guide.md`](../../analysis/methodologies/ai-driven-analysis-guide.md), Step 9 = *Pass 2 improve everything*). Pass 1 produces the baseline artifact set catalogued in [`analysis/methodologies/artifact-catalog.md`](../../analysis/methodologies/artifact-catalog.md) and backed by the 39 templates in [`analysis/templates/`](../../analysis/templates/); Pass 2 rewrites every one of those artifacts against the per-artifact line floors in [`reference-quality-thresholds.json`](../../analysis/methodologies/reference-quality-thresholds.json) and the `### section` rules in [`per-artifact-methodologies.md`](../../analysis/methodologies/per-artifact-methodologies.md). `methodology-reflection.md` is the final artifact of every run (Step 10.5).
 
 ## ISMS Compliance
 

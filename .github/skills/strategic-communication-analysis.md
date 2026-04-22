@@ -24,6 +24,15 @@ Provide frameworks for analyzing communication strategies within the European Pa
 ❌ Analyzing classified or non-public communications
 ❌ Personal social media monitoring of MEPs beyond official capacity
 
+## 🧠 Produced / Consumed Analysis Artifacts
+
+- `classification/actor-mapping.md` — messenger mapping
+- `intelligence/stakeholder-map.md`, `stakeholder-impact.md` — discourse stakeholders
+- `existing/deep-analysis.md` — narrative framing prose
+- Inputs to `synthesis-summary.md`, `per-file-political-intelligence.md`
+
+Protocol: [`ai-driven-analysis-guide.md`](../../analysis/methodologies/ai-driven-analysis-guide.md). Catalog: [`artifact-catalog.md`](../../analysis/methodologies/artifact-catalog.md).
+
 ## Core Framework
 
 ### Narrative Framing Analysis

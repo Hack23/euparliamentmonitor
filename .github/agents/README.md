@@ -13,13 +13,36 @@ Each agent profile is a Markdown file with YAML frontmatter that defines special
 All agents follow the **2026 GitHub Copilot Coding Agent Standard** with:
 
 - **GitHub MCP Insiders API** integration for experimental features
-- **Complete toolset support** (`--toolsets all --tools *`)
+- **Toolset policy** — omit the `tools` frontmatter field so that Copilot CLI allows all tools by default. **Never** write `tools: ["*"]` inside an `mcp-servers` block: the gh-aw MCP gateway (`awmg`) treats `*` as a literal tool name and exposes 0 tools. See [`.github/prompts/08-infrastructure.md`](../prompts/08-infrastructure.md) §2 for the canonical rule.
 - **Organization-wide access** via PAT token (Hack23 repositories)
 - **Modern Copilot features**: `assign_copilot_to_issue`, `create_pull_request_with_copilot`, stacked PRs, job tracking
+- **gh-aw agent imports** — workflows can import a single agent file via the `imports:` frontmatter field (see [gh-aw Copilot Custom Agents](https://github.github.com/gh-aw/reference/copilot-custom-agents/)). In this repository's gh-aw usage (tested against gh-aw v0.69.3, 2026-04-21), imported agent files contribute **body-only** content: the agent body is appended to the workflow prompt, but agent frontmatter — including `mcp-servers:` — is **not** merged into the workflow frontmatter. Therefore `mcp-servers:` must live in the workflow itself or in a shared frontmatter-only workflow component (e.g. [`.github/workflows/shared/mcp/news-mcp-servers.md`](../workflows/shared/mcp/news-mcp-servers.md)). See [`.github/agents/news-generation.agent.md`](./news-generation.agent.md) for the canonical split-imports pattern used by every article-generating `news-*.md` workflow.
 - **Cross-repository patterns** for accessing European-Parliament-MCP-Server, riksdagsmonitor, cia, ISMS-PUBLIC
 - **ISMS compliance** mapped to ISO 27001, NIST CSF 2.0, CIS Controls v8.1, GDPR, NIS2, EU CRA
 
 ---
+
+## 🗂️ Role Index (analysis-producer / analysis-consumer / gh-aw-infrastructure)
+
+Group the catalog by their role in the news critical path. See
+[`.github/prompts/README.md`](../prompts/README.md) § *Analysis Artifact
+Integration* for the chain they support.
+
+| Role | Agents |
+|---|---|
+| **Analysis producers** (write artifacts under `analysis/daily/<run>/`) | `intelligence-operative`, `news-generation.agent` |
+| **Analysis consumers** (read artifacts, render to content) | `news-journalist`, `marketing-specialist`, `business-development-specialist` |
+| **Data / pipeline suppliers** (Stage A inputs) | `data-pipeline-specialist` |
+| **gh-aw infrastructure** (workflow authoring / CI) | `agentic-workflows.agent`, `devops-engineer`, `ci-cleaner.agent`, `create-safe-output-type.agent`, `custom-engine-implementation.agent`, `interactive-agent-designer.agent` |
+| **Quality / review / docs** | `quality-engineer`, `grumpy-reviewer.agent`, `contribution-checker`, `documentation-architect`, `technical-doc-writer.agent`, `w3c-specification-writer.agent` |
+| **Product / frontend** | `product-task-agent`, `frontend-specialist`, `developer.instructions` |
+
+Canonical analysis anchors every agent on the news critical path should read:
+[`ai-driven-analysis-guide.md`](../../analysis/methodologies/ai-driven-analysis-guide.md),
+[`artifact-catalog.md`](../../analysis/methodologies/artifact-catalog.md),
+[`per-artifact-methodologies.md`](../../analysis/methodologies/per-artifact-methodologies.md),
+[`analysis/templates/README.md`](../../analysis/templates/README.md),
+[`reference-quality-thresholds.json`](../../analysis/methodologies/reference-quality-thresholds.json).
 
 ## 🎯 Available Agents
 
@@ -151,7 +174,7 @@ All agents follow the **2026 GitHub Copilot Coding Agent Standard** with:
 - GitHub Actions workflow authoring
 - Daily news generation automation
 - Playwright browser testing in CI
-- Node.js 24 environment setup
+- Node.js 25 environment setup
 - MCP server pre-installation and caching
 - GitHub Pages deployment strategies
 - Security scanning integration (Dependabot, CodeQL)
@@ -163,35 +186,24 @@ All agents follow the **2026 GitHub Copilot Coding Agent Standard** with:
 
 ---
 
-### 6. 🔒 Security Architect (`security-architect`)
-
-**Expertise**: ISMS compliance, threat modeling, security hardening, GDPR/NIS2
-
-**When to Use**:
-- Implementing security controls and hardening
-- Conducting threat modeling and risk assessments
-- Ensuring ISMS policy compliance
-- Implementing GDPR and NIS2 requirements
-- Configuring security headers and TLS
-- Reviewing code for security vulnerabilities
-
-**Key Capabilities**:
-- ISO 27001:2022 control implementation
-- NIST CSF 2.0 function mapping
-- CIS Controls v8.1 application
-- GDPR, NIS2, EU CRA compliance
-- Input validation and XSS prevention
-- Security header configuration (CSP, HSTS, X-Frame-Options)
-- Threat modeling and risk assessment
-
-**Example Use**:
-```bash
-@security-architect review the article generation pipeline for potential XSS vulnerabilities and GDPR compliance
-```
+> **🔒 Security note — no standalone `security-architect` agent.** Security
+> responsibilities are distributed across every agent via the shared skills
+> catalogue. See [`.github/skills/README.md`](../skills/README.md) § Security
+> Skills and § Compliance Skills for the authoritative entry points:
+> [`security-by-design`](../skills/security-by-design.md),
+> [`sdlc-security-integration`](../skills/sdlc-security-integration.md),
+> [`threat-modeling`](../skills/threat-modeling.md),
+> [`isms-compliance`](../skills/isms-compliance.md),
+> [`compliance-frameworks`](../skills/compliance-frameworks.md),
+> [`data-protection`](../skills/data-protection.md), and the full Hack23
+> ISMS-PUBLIC policy → skill map in
+> [`ISMS_SKILLS_COMPREHENSIVE.md`](./ISMS_SKILLS_COMPREHENSIVE.md).
+> Security review is an explicit responsibility of `grumpy-reviewer.agent`
+> and `contribution-checker`.
 
 ---
 
-### 7. 📚 Documentation Architect (`documentation-architect`)
+### 6. 📚 Documentation Architect (`documentation-architect`)
 
 **Expertise**: C4 models, Mermaid diagrams, API documentation, architecture documentation
 
@@ -219,7 +231,7 @@ All agents follow the **2026 GitHub Copilot Coding Agent Standard** with:
 
 ---
 
-### 8. ✅ Quality Engineer (`quality-engineer`)
+### 7. ✅ Quality Engineer (`quality-engineer`)
 
 **Expertise**: Testing, validation, accessibility testing, performance benchmarking
 
@@ -248,7 +260,7 @@ All agents follow the **2026 GitHub Copilot Coding Agent Standard** with:
 
 ---
 
-### 9. 🔍 Intelligence Operative (`intelligence-operative`)
+### 8. 🔍 Intelligence Operative (`intelligence-operative`)
 
 **Expertise**: Political science, intelligence analysis, OSINT, behavioral analysis, EU Parliament transparency
 
@@ -277,7 +289,7 @@ All agents follow the **2026 GitHub Copilot Coding Agent Standard** with:
 
 ---
 
-### 10. 💼 Business Development Specialist (`business-development-specialist`)
+### 9. 💼 Business Development Specialist (`business-development-specialist`)
 
 **Expertise**: Strategic planning, partnership development, revenue models, civic tech sustainability
 
@@ -306,7 +318,7 @@ All agents follow the **2026 GitHub Copilot Coding Agent Standard** with:
 
 ---
 
-### 11. 📢 Marketing Specialist (`marketing-specialist`)
+### 10. 📢 Marketing Specialist (`marketing-specialist`)
 
 **Expertise**: Digital marketing, content strategy, SEO, community building, multi-language outreach
 
@@ -340,7 +352,7 @@ All agents follow the **2026 GitHub Copilot Coding Agent Standard** with:
 
 The following agents are sourced from [github/gh-aw](https://github.com/github/gh-aw) and provide GitHub Agentic Workflows capabilities:
 
-### 12. 🤖 Agentic Workflows (`agentic-workflows.agent`)
+### 11. 🤖 Agentic Workflows (`agentic-workflows.agent`)
 
 **Expertise**: GitHub Agentic Workflows (gh-aw) — Create, debug, and upgrade AI-powered workflows
 
@@ -354,7 +366,7 @@ The following agents are sourced from [github/gh-aw](https://github.com/github/g
 
 ---
 
-### 13. 🧹 CI Cleaner (`ci-cleaner.agent`)
+### 12. 🧹 CI Cleaner (`ci-cleaner.agent`)
 
 **Expertise**: Repository CI state cleanup — formatting, linting, testing, and workflow recompilation
 
@@ -367,7 +379,7 @@ The following agents are sourced from [github/gh-aw](https://github.com/github/g
 
 ---
 
-### 14. ✅ Contribution Checker (`contribution-checker.agent`)
+### 13. ✅ Contribution Checker (`contribution-checker.agent`)
 
 **Expertise**: PR evaluation against CONTRIBUTING.md guidelines
 
@@ -378,7 +390,7 @@ The following agents are sourced from [github/gh-aw](https://github.com/github/g
 
 ---
 
-### 15. 🔌 Create Safe Output Type (`create-safe-output-type.agent`)
+### 14. 🔌 Create Safe Output Type (`create-safe-output-type.agent`)
 
 **Expertise**: Adding new safe output types to GitHub Agentic Workflows
 
@@ -389,7 +401,7 @@ The following agents are sourced from [github/gh-aw](https://github.com/github/g
 
 ---
 
-### 16. ⚙️ Custom Engine Implementation (`custom-engine-implementation.agent`)
+### 15. ⚙️ Custom Engine Implementation (`custom-engine-implementation.agent`)
 
 **Expertise**: Implementing custom agentic engines in gh-aw
 
@@ -400,7 +412,7 @@ The following agents are sourced from [github/gh-aw](https://github.com/github/g
 
 ---
 
-### 17. 📖 Developer Instructions (`developer.instructions`)
+### 16. 📖 Developer Instructions (`developer.instructions`)
 
 **Expertise**: Development guidelines and standards for GitHub Agentic Workflows
 
@@ -412,7 +424,7 @@ The following agents are sourced from [github/gh-aw](https://github.com/github/g
 
 ---
 
-### 18. 🔥 Grumpy Reviewer (`grumpy-reviewer.agent`)
+### 17. 🔥 Grumpy Reviewer (`grumpy-reviewer.agent`)
 
 **Expertise**: Thorough code review with a grumpy, sarcastic senior developer persona
 
@@ -423,7 +435,7 @@ The following agents are sourced from [github/gh-aw](https://github.com/github/g
 
 ---
 
-### 19. 🎯 Interactive Agent Designer (`interactive-agent-designer.agent`)
+### 18. 🎯 Interactive Agent Designer (`interactive-agent-designer.agent`)
 
 **Expertise**: Interactive wizard for creating and optimizing agent prompts and workflow descriptions
 
@@ -435,7 +447,7 @@ The following agents are sourced from [github/gh-aw](https://github.com/github/g
 
 ---
 
-### 20. 📝 Technical Doc Writer (`technical-doc-writer.agent`)
+### 19. 📝 Technical Doc Writer (`technical-doc-writer.agent`)
 
 **Expertise**: Technical documentation using GitHub Docs voice and Diátaxis structure
 
@@ -446,7 +458,7 @@ The following agents are sourced from [github/gh-aw](https://github.com/github/g
 
 ---
 
-### 21. 📋 W3C Specification Writer (`w3c-specification-writer.agent`)
+### 20. 📋 W3C Specification Writer (`w3c-specification-writer.agent`)
 
 **Expertise**: Formal W3C-style specifications with RFC 2119 keywords
 
@@ -455,6 +467,29 @@ The following agents are sourced from [github/gh-aw](https://github.com/github/g
 - Creating protocol, API, or data format specifications
 - Applying RFC 2119 requirement levels (MUST, SHALL, SHOULD, MAY)
 - Defining conformance classes and compliance testing
+
+---
+
+### 21. 📥 News Generation (imported) (`news-generation.agent`)
+
+**Type**: gh-aw _imported_ agent — body is appended to every
+article-generating `news-*.md` workflow prompt via the `imports:` field.
+Not invokable directly via `@news-generation`.
+
+**Purpose**: Contributes the canonical Required Reading order and 5-stage
+Stage Contract (Data → Analysis → Completeness Gate → Article → Single PR)
+to every importing workflow. Paired with
+[`.github/workflows/shared/mcp/news-mcp-servers.md`](../workflows/shared/mcp/news-mcp-servers.md)
+(separate import that merges the `mcp-servers:` frontmatter block).
+
+**Importers**: `news-breaking`, `news-weekly-review`, `news-monthly-review`,
+`news-week-ahead`, `news-month-ahead`, `news-committee-reports`,
+`news-motions`, `news-propositions`, `news-article-generator`. Explicitly
+**not** imported by `news-translate` (multi-call flush pattern, exempt from
+single-PR rule).
+
+See [`.github/workflows/README.md`](../workflows/README.md) for the full
+shared-import pattern.
 
 ---
 
@@ -667,7 +702,7 @@ graph TD
     B -->|UI/UX Work| E[frontend-specialist]
     B -->|Data Integration| F[data-pipeline-specialist]
     B -->|CI/CD| G[devops-engineer]
-    B -->|Security| H[security-architect]
+    B -->|Security| H[skills: security-by-design, threat-modeling, sdlc-security-integration]
     B -->|Documentation| I[documentation-architect]
     B -->|Testing/QA| J[quality-engineer]
     B -->|Intelligence Analysis| K2[intelligence-operative]
@@ -695,8 +730,8 @@ graph TD
 | Write news articles | news-journalist | data-pipeline-specialist, intelligence-operative |
 | Fix accessibility | frontend-specialist | quality-engineer |
 | Add MEP data | data-pipeline-specialist | frontend-specialist |
-| Setup CI/CD | devops-engineer | security-architect |
-| Security audit | security-architect | quality-engineer |
+| Setup CI/CD | devops-engineer | _skills: security-by-design, sdlc-security-integration_ |
+| Security audit | _skills: security-by-design, threat-modeling_ | quality-engineer, grumpy-reviewer.agent |
 | Architecture docs | documentation-architect | - |
 | Run tests | quality-engineer | frontend-specialist |
 | Political analysis | intelligence-operative | news-journalist, data-pipeline-specialist |
@@ -924,7 +959,8 @@ When creating new agents, follow this structure:
 ---
 name: agent-name
 description: Brief description (max 200 chars)
-tools: ["*"]
+# tools: omit this field — Copilot CLI treats omission as equivalent to all tools.
+# Never set tools: ["*"] inside an mcp-servers entry (awmg treats "*" as a literal tool name).
 ---
 
 # Agent Title

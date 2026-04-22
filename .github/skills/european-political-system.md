@@ -24,6 +24,17 @@ Provide comprehensive knowledge of the European Parliament's institutional struc
 ❌ EU foreign policy and CFSP (limited EP role)
 ❌ ECB monetary policy decisions
 
+## 📥 Data-Collection Chain
+
+EP institutional data is gathered in Stage A via EP MCP feeds (see
+[`.github/prompts/01-data-collection.md`](../prompts/01-data-collection.md)
+and [`07-mcp-reference.md`](../prompts/07-mcp-reference.md)) and feeds the
+Stage-B analysis artifacts catalogued in
+[`analysis/methodologies/artifact-catalog.md`](../../analysis/methodologies/artifact-catalog.md).
+Economic-context artifacts use WB/IMF data per
+[`worldbank-indicator-mapping.md`](../../analysis/methodologies/worldbank-indicator-mapping.md)
+and [`imf-indicator-mapping.md`](../../analysis/methodologies/imf-indicator-mapping.md).
+
 ## Core Framework
 
 ### EU Parliament Structure

@@ -1,7 +1,6 @@
 ---
 name: quality-engineer
 description: Testing and code quality specialist for HTML/CSS validation, accessibility testing, performance benchmarking, and multi-language QA
-tools: ["*"]
 ---
 
 # Quality Engineer - Testing and Code Quality Specialist

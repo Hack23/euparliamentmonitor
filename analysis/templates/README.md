@@ -303,8 +303,18 @@ Every artifact under `analysis/daily/*/` has a 1:1 template in `analysis/templat
 
 ### 🧱 Framework Templates (6 reusable)
 
+These six templates codify the reusable EP-domain methodologies — every downloaded MCP data file receives one or more of them (especially `per-file-political-intelligence.md`), and the other templates compose their fragments.
+
 | # | Template | Role |
 |---|----------|------|
+| F1 | [🏷️ political-classification](political-classification.md) | 7-dimension event classification (sensitivity, domain, urgency, scope, actors, impact, temporal) — the foundation every other template cites. |
+| F2 | [⚠️ risk-assessment](risk-assessment.md) | 5×5 Likelihood × Impact matrix across 6 risk categories; produces the `risk-scoring/` artifacts. |
+| F3 | [🎭 threat-analysis](threat-analysis.md) | Multi-framework threat assessment (Political Threat Landscape 6D + Diamond + Attack Trees + PESTLE + Scenarios + Kill Chain); produces the `threat-assessment/` artifacts. |
+| F4 | [💼 swot-analysis](swot-analysis.md) | Evidence-based political SWOT with TOWS cross-quadrant strategies; reusable inside `deep-analysis`, `synthesis-summary`, `quantitative-swot`. |
+| F5 | [👥 stakeholder-impact](stakeholder-impact.md) | 7-lens institutional-actor + civil-society impact lens; reusable inside `stakeholder-map`, `deep-analysis`, article stakeholder sections. |
+| F6 | [🔍 per-file-political-intelligence](per-file-political-intelligence.md) | The **most-used** template: every downloaded EP data file receives a per-file `.analysis.md` applying classification + SWOT + risk + threat + significance in one pass. |
+
+> Artifact catalogue: [`../methodologies/artifact-catalog.md`](../methodologies/artifact-catalog.md) maps every `analysis/daily/<run>/…` path to one of these six framework templates **or** one of the 25 per-artifact templates below **or** one of the 14 agentic-workflow templates listed in the master catalogue above. The README + `analysis-index.md` are the only two `.md` files in this directory not subject to the drift-guard test `test/unit/analysis-templates-referenced.test.js`, which enforces that every other template is referenced by basename under `.github/prompts/` or `.github/agents/`.
 
 ---
 
@@ -834,7 +844,7 @@ flowchart TD
 | **Week Ahead** | SWOT + Risk + Significance + Per-File | 📅 Forward-looking SWOT for upcoming agenda; vote risk pre-assessment |
 | **Weekly Review** | Classification + SWOT + Significance + Synthesis + Per-File | 📊 Outcome classification; week-level SWOT synthesis; performance metrics |
 | **Month Ahead** | SWOT + Threat + Stakeholder + Per-File | 📆 Strategic SWOT outlook; emerging threat landscape; institutional stakeholder analysis |
-| **Monthly Review** | ALL templates | 📈 Comprehensive analysis across all 8 templates; inter-temporal trend synthesis |
+| **Monthly Review** | ALL templates | 📈 Comprehensive analysis applying every template in the catalog; inter-temporal trend synthesis |
 
 > **Per-File Intelligence** (`per-file-political-intelligence.md`) is applied to **every workflow** because every downloaded MCP data file receives individual deep analysis.
 
@@ -842,7 +852,7 @@ flowchart TD
 
 ## 🎯 Article-Type-Specific Template Customisation
 
-While all 8 templates apply to every document, certain templates produce **richer, more unique output** depending on the document type. The AI agent should allocate proportionally more depth to the highlighted templates:
+While every template in the catalog applies to every document, certain templates produce **richer, more unique output** depending on the document type. The AI agent should allocate proportionally more depth to the highlighted templates:
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%

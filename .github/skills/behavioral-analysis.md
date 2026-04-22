@@ -24,6 +24,15 @@ Apply behavioral analysis frameworks to understand MEP decision-making patterns,
 ❌ Predicting individual behavior without evidence
 ❌ Violating GDPR through excessive personal data processing
 
+## 🧠 Produced / Consumed Analysis Artifacts
+
+- `existing/voting-patterns.md` — behavioral voting analysis
+- `intelligence/coalition-dynamics.md` — cross-group alignment
+- `classification/actor-mapping.md` / `actor-threat-profiles.md` — leadership profiling
+- Inputs to `synthesis-summary.md`, `deep-analysis.md`
+
+Protocol: [`ai-driven-analysis-guide.md`](../../analysis/methodologies/ai-driven-analysis-guide.md). Catalog: [`artifact-catalog.md`](../../analysis/methodologies/artifact-catalog.md).
+
 ## Core Framework
 
 ### MEP Voting Behavior Analysis

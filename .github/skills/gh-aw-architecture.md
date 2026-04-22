@@ -6,6 +6,16 @@ tools: []
 
 # Skill: GitHub Agentic Workflows Architecture
 
+## 📚 Upstream Documentation (authoritative)
+
+This skill is derived from / abridged from the gh-aw upstream docs:
+
+- **Abridged:** https://github.github.com/gh-aw/llms-small.txt
+- **Full:** https://github.github.com/gh-aw/llms-full.txt
+- **Blog series:** https://github.github.com/gh-aw/_llms-txt/agentic-workflows.txt
+
+Pinned version: [`.github/workflows/compile-agentic-workflows.yml`](../workflows/compile-agentic-workflows.yml).
+
 ## Overview
 
 **Documentation**: https://github.github.com/gh-aw/  

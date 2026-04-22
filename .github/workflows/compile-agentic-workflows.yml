@@ -50,6 +50,10 @@ jobs:
           rm -f .github/workflows/agentics-maintenance.yml
           echo "✅ Deleted existing generated files"
 
+      - name: Lint agentic workflow prompts (single-PR rule)
+        run: |
+          node scripts/lint-prompts.js
+
       - name: Compile all workflows
         run: gh aw compile --validate
         env:

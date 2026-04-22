@@ -7,6 +7,24 @@ disable-model-invocation: true
 
 This agent helps you work with **GitHub Agentic Workflows (gh-aw)**, a CLI extension for creating AI-powered workflows in natural language using markdown files.
 
+## 📚 Upstream Documentation (authoritative — always consult first)
+
+The single source of truth for gh-aw behavior is the upstream doc set. Before
+making any non-trivial change to `.github/workflows/*.md` (workflow bodies),
+`.github/agents/*.md` (imported agents), or `.github/workflows/shared/**`, open
+one of these:
+
+- **Abridged** (compact, fast reference): https://github.github.com/gh-aw/llms-small.txt
+- **Full** (complete documentation): https://github.github.com/gh-aw/llms-full.txt
+- **Blog series** (workflow patterns + real-world examples): https://github.github.com/gh-aw/_llms-txt/agentic-workflows.txt
+- **Browsable site:** https://github.github.com/gh-aw/
+- **Repository:** https://github.com/github/gh-aw
+- **GitHub CLI docs:** https://cli.github.com/manual/
+
+The pinned gh-aw version for this repo lives in
+[`.github/workflows/compile-agentic-workflows.yml`](../workflows/compile-agentic-workflows.yml)
+— treat that file as authoritative for the version string, not this agent body.
+
 ## What This Agent Does
 
 This is a **dispatcher agent** that routes your request to the appropriate specialized prompt based on your task:
@@ -191,8 +209,8 @@ gh aw compile --poutine                   # Supply chain risks
 - **Single-file output**: When creating a workflow, produce exactly **one** workflow `.md` file. Do not create separate documentation files (architecture docs, runbooks, usage guides, etc.). If documentation is needed, add a brief `## Usage` section inside the workflow file itself.
 - **Always include `runtimes: node: version: "25"`** in all workflow .md files for Node.js 25 runtime
 - **Use `defaults` (not `default`)** as the network ecosystem identifier for basic infrastructure
-- **MCP servers use `container/entrypoint/entrypointArgs/allowed` format** in gh-aw workflows (not `command/args` which is for copilot-mcp.json)
-- **Use `allowed: ["*"]`** on all MCP servers to grant full tool access
+- **MCP servers use `container/entrypoint/entrypointArgs` format** in gh-aw workflows (not `command/args` which is for copilot-mcp.json)
+- **Omit the `tools` / `allowed` field entirely** on MCP servers — the gh-aw MCP gateway (awmg) treats `"*"` as a literal tool name (exposing 0 tools), and omitting the field is equivalent to "all tools". **Never** write `allowed: ["*"]` or `tools: ["*"]`.
 
 ---
 
@@ -204,6 +222,6 @@ gh aw compile --poutine                   # Supply chain risks
 
 1. **Mandatory 2-Pass Iterative Improvement**: Every workflow file MUST go through at least 2 complete passes. Pass 1 creates the initial workflow. Pass 2 reviews the ENTIRE workflow — verify time budgets enforce ≥45 min active work (60-min workflows), verify 2-pass analysis/article phases are specified, verify quality gates are present, verify security settings.
 
-2. **Time Budget Enforcement**: All news workflows MUST specify time budgets that enforce the Iterative Improvement Protocol from `SHARED_PROMPT_PATTERNS.md`. Analysis phase: ≥20 min (2-pass). Article phase: ≥15 min (2-pass). Total active work: ≥45 min.
+2. **Time Budget Enforcement**: All news workflows MUST specify time budgets that enforce the Iterative Improvement Protocol from [`.github/prompts/README.md`](../prompts/README.md) (prompts library index). Analysis phase: ≥20 min (2-pass). Article phase: ≥15 min (2-pass). Total active work: ≥45 min.
 
 3. **No Early Completion**: When creating or debugging workflows, use the FULL allocated time to verify every aspect — security, permissions, time budgets, quality gates, MCP integration, safe outputs.

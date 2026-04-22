@@ -24,6 +24,18 @@ Apply structured analytic techniques to European Parliament data for producing r
 ❌ Classified intelligence operations
 ❌ Analysis outside EU Parliament scope
 
+## 🧠 Produced / Consumed Analysis Artifacts
+
+SAT outputs (ACH, SWOT, devil's advocacy, red-team) feed these per-run
+artifacts under `analysis/daily/<run>/`:
+
+- `risk-scoring/quantitative-swot.md` — SWOT template
+- `intelligence/pestle-analysis.md`, `scenario-forecast.md`, `wildcards-blackswans.md`
+- `intelligence/synthesis-summary.md`, `threat-model.md`, `historical-baseline.md`
+- `existing/deep-analysis.md`, `cross-session-intelligence.md`
+
+Canonical 10-step protocol: [`ai-driven-analysis-guide.md`](../../analysis/methodologies/ai-driven-analysis-guide.md). Master map: [`artifact-catalog.md`](../../analysis/methodologies/artifact-catalog.md). Framework docs: [`political-swot-framework.md`](../../analysis/methodologies/political-swot-framework.md), [`political-threat-framework.md`](../../analysis/methodologies/political-threat-framework.md).
+
 ## Core Framework
 
 ### Structured Analytic Techniques (SATs) for EU Parliament

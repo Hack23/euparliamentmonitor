@@ -24,6 +24,16 @@ Provide comprehensive frameworks for monitoring EU Parliament legislative proced
 ❌ Analyzing international treaty negotiations outside EP scope
 ❌ Tracking Commission internal decision-making
 
+## 📥 Analysis Chain Context
+
+Legislative data feeds the following per-run artifacts:
+- `risk-scoring/legislative-velocity-risk.md`, `threat-assessment/legislative-disruption.md`
+- `existing/voting-patterns.md`, `cross-session-intelligence.md`, `cross-run-diff.md`
+- `documents/document-analysis-index.md`
+- Inputs to `synthesis-summary.md`, `deep-analysis.md`, `scenario-forecast.md`
+
+Stage-A contract: [`.github/prompts/01-data-collection.md`](../prompts/01-data-collection.md) + [`07-mcp-reference.md`](../prompts/07-mcp-reference.md). Master artifact map: [`artifact-catalog.md`](../../analysis/methodologies/artifact-catalog.md). Protocol: [`ai-driven-analysis-guide.md`](../../analysis/methodologies/ai-driven-analysis-guide.md).
+
 ## Core Framework
 
 ### Ordinary Legislative Procedure (OLP) Stages
