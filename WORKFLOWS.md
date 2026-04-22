@@ -230,16 +230,30 @@ flowchart TB
 
 | Workflow | File | Schedule | Timeout |
 |----------|------|----------|---------|
-| **EU Parliament Week Ahead** | `news-week-ahead.lock.yml` | Friday 07:00 UTC | 60 min |
-| **EU Parliament Weekly Review** | `news-weekly-review.lock.yml` | Saturday 09:00 UTC | 60 min |
-| **EU Parliament Plenary Votes & Resolutions** | `news-motions.lock.yml` | Weekdays (Mon–Fri) 06:00 UTC | 60 min |
-| **EU Parliament Legislative Procedures** | `news-propositions.lock.yml` | Weekdays (Mon–Fri) 05:00 UTC | 60 min |
-| **EU Parliament Committee Activity** | `news-committee-reports.lock.yml` | Weekdays (Mon–Fri) 04:00 UTC | 60 min |
-| **EU Parliament Month Ahead** | `news-month-ahead.lock.yml` | 1st of month 08:00 UTC | 60 min |
-| **EU Parliament Monthly Review** | `news-monthly-review.lock.yml` | 28th of month 10:00 UTC | 60 min |
-| **EU Parliament Breaking News** | `news-breaking.lock.yml` | Every 6 hours (`0 */6 * * *`) | 60 min |
+| **EU Parliament Week Ahead — Analysis** | `news-week-ahead-analysis.lock.yml` | Friday 07:00 UTC | 45 min |
+| **EU Parliament Week Ahead — Article** | `news-week-ahead-article.lock.yml` | On merged analysis PR | 45 min |
+| **EU Parliament Weekly Review — Analysis** | `news-weekly-review-analysis.lock.yml` | Saturday 09:00 UTC | 45 min |
+| **EU Parliament Weekly Review — Article** | `news-weekly-review-article.lock.yml` | On merged analysis PR | 45 min |
+| **EU Parliament Plenary Votes & Resolutions — Analysis** | `news-motions-analysis.lock.yml` | Weekdays (Mon–Fri) 06:00 UTC | 45 min |
+| **EU Parliament Plenary Votes & Resolutions — Article** | `news-motions-article.lock.yml` | On merged analysis PR | 45 min |
+| **EU Parliament Legislative Procedures — Analysis** | `news-propositions-analysis.lock.yml` | Weekdays (Mon–Fri) 05:00 UTC | 45 min |
+| **EU Parliament Legislative Procedures — Article** | `news-propositions-article.lock.yml` | On merged analysis PR | 45 min |
+| **EU Parliament Committee Activity — Analysis** | `news-committee-reports-analysis.lock.yml` | Weekdays (Mon–Fri) 04:00 UTC | 45 min |
+| **EU Parliament Committee Activity — Article** | `news-committee-reports-article.lock.yml` | On merged analysis PR | 45 min |
+| **EU Parliament Month Ahead — Analysis** | `news-month-ahead-analysis.lock.yml` | 1st of month 08:00 UTC | 45 min |
+| **EU Parliament Month Ahead — Article** | `news-month-ahead-article.lock.yml` | On merged analysis PR | 45 min |
+| **EU Parliament Monthly Review — Analysis** | `news-monthly-review-analysis.lock.yml` | 28th of month 10:00 UTC | 45 min |
+| **EU Parliament Monthly Review — Article** | `news-monthly-review-article.lock.yml` | On merged analysis PR | 45 min |
+| **EU Parliament Breaking News — Analysis** | `news-breaking-analysis.lock.yml` | Every 6 hours (`0 */6 * * *`) | 45 min |
+| **EU Parliament Breaking News — Article** | `news-breaking-article.lock.yml` | On merged analysis PR | 45 min |
 | **EU Parliament Article Generator** | `news-article-generator.lock.yml` | Manual dispatch only | 120 min |
 | **Translate Articles** | `news-translate.lock.yml` | Weekdays 09:00/12:00/15:00 UTC; Sat 15:00; 1st & 28th 15:00 | 60 min |
+
+> Each article type is served by a **split pair** of workflows: `news-<type>-analysis.md`
+> produces a single analysis-only PR (Stages A+B+C, 45-min timeout). When that PR
+> merges to `main`, `news-<type>-article.md` runs Stage D and produces a single
+> article PR (45-min timeout). The legacy monolithic `news-<type>.md` workflows
+> are `disabled_manually` and retained only for rollback during the rollout.
 
 #### Agentic Workflow Architecture
 

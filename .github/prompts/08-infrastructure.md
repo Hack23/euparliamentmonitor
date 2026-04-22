@@ -148,6 +148,47 @@ workflow's own Date Context Establishment block (see each `news-*.md` §Date
 Context). `--title` / `--description` must be AI-generated per
 [`04-article-generation.md`](04-article-generation.md) §Keywords/Title rules.
 
+## 4b · Stable Same-Day Folder Layout
+
+All split-family analysis runs write to the canonical stable folder:
+
+```
+analysis/daily/${DATE}/${ARTICLE_TYPE_SLUG}/
+```
+
+Use the `scripts/resolve-analysis-dir.sh` helper to echo this path and create
+the standard subdirectories (no nested parameter expansion, AWF-safe):
+
+```bash
+TODAY=$(date -u +%Y-%m-%d)
+ANALYSIS_DIR=$(scripts/resolve-analysis-dir.sh "$TODAY" "$ARTICLE_TYPE_SLUG")
+echo "ANALYSIS_DIR=$ANALYSIS_DIR" >> "$GITHUB_ENV"
+```
+
+`news-<type>-analysis.md` passes this path verbatim to `news-enhanced.ts
+--analysis-dir`, which auto-detects `outputDirIsResolved` via
+`isResolvedAnalysisDir()` and appends a new entry to
+`manifest.json.history[]` instead of triggering the `-2` suffix.
+
+`news-<type>-article.md` resolves the same path from PR metadata (labels
+encode `type`; date is parsed from the PR title or branch name) and consumes
+the committed artifacts.
+
+## 4c · `--analysis-only` Flag (split family)
+
+The `news-enhanced.ts` generator accepts `--analysis-only`, which exits after
+Stage C and skips HTML generation. The analysis workflow uses this flag; the
+article workflow does not. Example:
+
+```bash
+npx tsx src/generators/news-enhanced.ts \
+  --types="${ARTICLE_TYPE_SLUG}" \
+  --analysis \
+  --analysis-methods=all \
+  --analysis-dir="${ANALYSIS_DIR}" \
+  --analysis-only
+```
+
 ## 5 · EP MCP TypeScript Client
 
 Source: [`src/mcp/ep-mcp-client.ts`](../../src/mcp/ep-mcp-client.ts) → compiled

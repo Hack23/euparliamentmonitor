@@ -137,4 +137,55 @@ describe('scripts/lint-prompts.js', () => {
     const result = runLint(tmpDir);
     expect(result.code).toBe(0);
   });
+
+  it('applies the single-PR rule to news-*-analysis.md', () => {
+    writeWorkflow(
+      'news-breaking-analysis.md',
+      '# Title\n' +
+        'imports:\n  - .github/agents/news-generation.agent.md\n' +
+        'Call safeoutputs___create_pull_request at end.\n' +
+        'Call safeoutputs___create_pull_request a second time.\n',
+    );
+    const result = runLint(tmpDir);
+    expect(result.code).toBe(1);
+    expect(result.stderr).toContain('must appear at most once');
+  });
+
+  it('applies the single-PR rule to news-*-article.md', () => {
+    writeWorkflow(
+      'news-breaking-article.md',
+      '# Title\n' +
+        'imports:\n  - .github/agents/news-generation.agent.md\n' +
+        'Call safeoutputs___create_pull_request at end.\n' +
+        'Call safeoutputs___create_pull_request a second time.\n',
+    );
+    const result = runLint(tmpDir);
+    expect(result.code).toBe(1);
+    expect(result.stderr).toContain('must appear at most once');
+  });
+
+  it('accepts a news-*-article.md that anchors only the completeness gate (no analysis guide)', () => {
+    // Article workflows consume an already-produced analysis folder; they
+    // do not run Stage B and therefore are not required to anchor the full
+    // Stage-B guide. The completeness-gate anchor (or the shared agent
+    // import) is still required so Stage-C hand-off is explicit.
+    writeWorkflow(
+      'news-breaking-article.md',
+      '# Title\n' +
+        'Reads analysis from main; checks 03-analysis-completeness-gate.md result.\n' +
+        'Call safeoutputs___create_pull_request once.\n',
+    );
+    const result = runLint(tmpDir);
+    expect(result.code).toBe(0);
+  });
+
+  it('flags a news-*-article.md that anchors neither agent nor gate', () => {
+    writeWorkflow(
+      'news-breaking-article.md',
+      '# Title\nCall safeoutputs___create_pull_request once.\n',
+    );
+    const result = runLint(tmpDir);
+    expect(result.code).toBe(1);
+    expect(result.stderr).toContain('completeness-gate');
+  });
 });

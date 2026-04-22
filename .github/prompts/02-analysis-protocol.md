@@ -35,8 +35,10 @@ Every run produces the per-run subset of these 39 templates. The **article-type-
 
 ## 2 · Analysis Directory Structure
 
+Every analysis run writes to the **canonical stable same-day folder**:
+
 ```
-analysis/daily/{YYYY-MM-DD}/{article-type-slug}-run{NN}/
+analysis/daily/{YYYY-MM-DD}/{article-type-slug}/
 ├── classification/    (significance-classification, actor-mapping, forces-analysis, impact-matrix)
 ├── threat-assessment/ (political-threat-landscape, actor-threat-profiling, consequence-trees, legislative-disruption)
 ├── risk-scoring/      (risk-matrix, quantitative-swot, political-capital-risk, legislative-velocity-risk, agent-risk-workflow)
@@ -44,8 +46,41 @@ analysis/daily/{YYYY-MM-DD}/{article-type-slug}-run{NN}/
 ├── existing/          (deep-analysis, stakeholder-impact, coalition-dynamics, voting-patterns, cross-session-intelligence, synthesis-summary)
 ├── documents/         (document-analysis-index)
 ├── data/              (raw MCP data — may be excluded from PR)
-└── manifest.json      (top-level articleType, files.*, artifactStats)
+├── runs/              (per-attempt diagnostics: prompt, preflight log, pass-3 notes)
+└── manifest.json      (top-level articleType, files.*, artifactStats, history[])
 ```
+
+**No `-run<NN>` suffix.** Repeated analysis runs on the same date+type reuse
+this folder and append to `manifest.json.history[]`. The article workflow
+reads this exact path from `HEAD` of `main` after the analysis PR merges.
+
+**`manifest.json.history[]` — per-attempt audit entry (see
+[`src/utils/file-utils.ts`](../../src/utils/file-utils.ts)
+`AnalysisManifestHistoryEntry`):**
+
+```json
+{
+  "runId": "breaking-run-100-1729876543",
+  "startedAt": "2026-04-22T10:00:00Z",
+  "finishedAt": "2026-04-22T10:42:00Z",
+  "commit": "a1b2c3d",
+  "gateResult": "GREEN",
+  "filesWritten": ["intelligence/synthesis-summary.md", "..."]
+}
+```
+
+**Re-run merge rule (§1 of the plan):**
+
+1. Load existing `manifest.json` — if present, treat the folder as a resume
+   candidate, not a conflict.
+2. Run Stage-B Pass 1 + Pass 2 producing every mandatory artifact.
+3. For each artifact already at or above its
+   `reference-quality-thresholds.json` floor, **carry forward** the existing
+   content unless Stage A produced new substantive data that changes its
+   conclusions.
+4. For artifacts below threshold, write a stronger version (overwriting the
+   prior file).
+5. Run Stage C — if GREEN, append a history entry with `gateResult: "GREEN"`.
 
 > **Canonical paths:** `synthesis-summary.md` lives under `intelligence/` (the
 > canonical location, as enforced by `reference-quality-thresholds.json`).
@@ -57,11 +92,16 @@ analysis/daily/{YYYY-MM-DD}/{article-type-slug}-run{NN}/
 
 ## 3 · Minimum Analysis Time
 
-| Workflow | Minimum Total | Pass 1 | Pass 2 |
-|----------|:-------------:|:------:|:------:|
-| Breaking / committee-reports / propositions / motions / week-ahead / month-ahead | 20 min | 12 min | 8 min |
-| Weekly / monthly review | 25 min | 15 min | 10 min |
-| Article generator | 15 min per type | 9 min | 6 min |
+| Workflow family | Total | Pass 1 | Pass 2 | Stage C |
+|----------|:-------------:|:------:|:------:|:------:|
+| `news-<type>-analysis.md` — all article types | 30–40 min | 18 min | 12 min | 5 min |
+| Legacy monolithic `news-<type>.md` (pre-split) | 20 min | 12 min | 8 min | included |
+| Weekly / monthly review (legacy monolithic) | 25 min | 15 min | 10 min | included |
+| `news-article-generator.md` | 15 min per type | 9 min | 6 min | included |
+
+The article workflow (`news-<type>-article.md`) does **not** run Stage B and
+therefore has no analysis time budget. Its entire budget (≤ 30 min active
+work) goes to Stage D (2 passes + validators + single PR call).
 
 ## 4 · Mandatory 2-Pass Improvement (NON-NEGOTIABLE)
 
@@ -129,68 +169,25 @@ Each perspective must state: (1) mechanism of impact, (2) EP-data evidence,
 - Every mandatory file listed in manifest `files.*`.
 - No orphan files on disk.
 - `manifest.json` carries top-level `articleType`.
+- For shared-folder re-runs: `manifest.json.history[]` has an entry for this
+  run (started, not yet finished).
 - Pass 2 verification complete.
-- **Analysis checkpoint persisted to repo-memory** after Pass 2 (see §10).
 - Now run the completeness gate:
   [`03-analysis-completeness-gate.md`](03-analysis-completeness-gate.md).
 
-## 10 · Repo-Memory Checkpoint Protocol (MANDATORY — per-phase, NEVER LOSE WORK)
+After Stage C exits 0 in the `news-<type>-analysis.md` workflow: **ship a
+single analysis-only PR** (see
+[`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md) §3). The paired
+`news-<type>-article.md` workflow will run Stage D automatically when the
+analysis PR merges to `main`.
 
-Every agentic news workflow MUST persist a compact checkpoint to the
-`memory/news-generation` repo-memory workspace **after each completed phase**
-so the work survives a late-stage failure, a validator rejection, a safe-output
-rejection, or the 60-minute engine timeout. The existing `push_repo_memory`
-job (wired into every news-*.md lock file) pushes these files to the
-`memory/news-generation` branch unconditionally at the end of the run — so a
-checkpoint written at the end of Stage A survives even if Stage B crashes.
+## 10 · Persistence & Session Reliability
 
-### 10.1 · Invocation (one line per phase)
-
-Call the repo-hosted helper, which is the **only** supported form:
-
-```bash
-scripts/checkpoint-analysis-to-memory.sh \
-  "${ANALYSIS_DIR}" "${RUN_ID}" "<phase>" "${ARTICLE_TYPE_SLUG}"
-```
-
-`<phase>` MUST be one of: `data` · `analysis` · `gate` · `article` · `final`.
-
-The script is idempotent: re-running it overwrites the per-phase checkpoint
-file. It writes **plain files** into the repo-memory workspace and does NOT
-invoke any `safe-outputs` tool, so it is exempt from the single-PR rule.
-
-### 10.2 · Required Call Sites (every news-*.md except news-translate)
-
-| When | Command | What lands in repo-memory |
-|------|---------|---------------------------|
-| **End of Stage A** (Data Collection) | `scripts/checkpoint-analysis-to-memory.sh "${ANALYSIS_DIR}" "${RUN_ID}" data "${ARTICLE_TYPE_SLUG}"` | Early-stage snapshot: empty manifest placeholder + raw-data artifact index |
-| **End of Stage B Pass 2** (Analysis) — BEFORE calling the Stage C validator | `scripts/checkpoint-analysis-to-memory.sh "${ANALYSIS_DIR}" "${RUN_ID}" analysis "${ARTICLE_TYPE_SLUG}"` | Full `manifest.json` + 39-template artifact index |
-| **After Stage C** (green gate OR analysis-only exit) | `scripts/checkpoint-analysis-to-memory.sh "${ANALYSIS_DIR}" "${RUN_ID}" gate "${ARTICLE_TYPE_SLUG}"` | Validator-approved artifact list (proves what Stage C saw) |
-| **After Stage D Pass 2** (article drafted, before the single PR call) | `scripts/checkpoint-analysis-to-memory.sh "${ANALYSIS_DIR}" "${RUN_ID}" article "${ARTICLE_TYPE_SLUG}"` | Final analysis set + article file list (if article co-located) |
-| **Immediately before `safeoutputs___create_pull_request`** | `scripts/checkpoint-analysis-to-memory.sh "${ANALYSIS_DIR}" "${RUN_ID}" final "${ARTICLE_TYPE_SLUG}"` | End-of-run attestation identical to what the PR carries |
-
-Skipping any of these is a process violation — the run is considered
-**unsafe** because a later crash would lose everything since the previous
-checkpoint. If a phase ends unexpectedly (e.g. Stage B validator fails after
-Pass 3), still write that phase's checkpoint before routing to the
-analysis-only exit in [`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md) §3.
-
-### 10.3 · Safety Constraints (why a helper script, not inline bash)
-
-The helper exists because inline alternatives trip the agent's shell-safety
-filter and have been observed to cause 60-minute timeouts (see failed run
-#24773038606). Do **NOT** attempt any of the following inline:
-
-- Nested parameter expansion such as `${f#${ANALYSIS_DIR}/}` — use
-  the helper, which performs the prefix strip with `awk`.
-- Nested command substitution such as `$(wc -l < "$(...)" )` — the helper
-  uses single-level `$()` only.
-- `eval`, `${!var}` indirect expansion, or `${var@P}` transformation.
-
-All paths written by the helper are under
-`/tmp/gh-aw/repo-memory/default/memory/news-generation/analysis-runs/` which
-is always allowed by the `repo-memory` tool config on news workflows
-(allowed-extensions: `.md` + `.json`, max-file-size: 50 KB, max-file-count:
-50 — see the workflow `tools.repo-memory` block).
-
+- Treat `${ANALYSIS_DIR}` as the canonical durable workspace for Stages A–D.
+- Keep every analysis artifact and manifest update on disk in real time; do not
+  defer writes until stage end.
+- Do **not** use per-phase repo-memory checkpoint or heartbeat patterns.
+- Rely on workflow-level MCP gateway keepalive (`sandbox.mcp.keepalive-interval`)
+  plus the single end-of-run PR snapshot in
+  [`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md).
 

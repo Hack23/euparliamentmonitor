@@ -18,6 +18,8 @@ import {
   getModifiedDate,
   formatDateForSlug,
   calculateReadTime,
+  mergeManifestHistory,
+  readLatestGateResult,
 } from '../../scripts/utils/file-utils.js';
 
 describe('utils/file-utils', () => {
@@ -624,6 +626,111 @@ describe('utils/file-utils', () => {
         method: 'document-analysis',
         outputFile: 'documents/document-analysis-index.md',
       });
+    });
+  });
+
+  describe('mergeManifestHistory', () => {
+    it('creates a manifest with a history array when file does not exist', () => {
+      const manifestPath = path.join(tempDir, 'manifest.json');
+      mergeManifestHistory(manifestPath, {
+        runId: 'run-1',
+        startedAt: '2026-04-22T10:00:00Z',
+        finishedAt: '2026-04-22T10:30:00Z',
+        gateResult: 'GREEN',
+        filesWritten: ['intelligence/synthesis-summary.md'],
+      });
+      const parsed = JSON.parse(fs.readFileSync(manifestPath, 'utf-8'));
+      expect(parsed.history).toHaveLength(1);
+      expect(parsed.history[0].runId).toBe('run-1');
+      expect(parsed.updatedAt).toBe('2026-04-22T10:30:00Z');
+    });
+
+    it('appends to an existing history array without clobbering top-level fields', () => {
+      const manifestPath = path.join(tempDir, 'manifest.json');
+      fs.writeFileSync(
+        manifestPath,
+        JSON.stringify({
+          date: '2026-04-22',
+          articleType: 'breaking',
+          history: [
+            {
+              runId: 'run-1',
+              startedAt: '2026-04-22T10:00:00Z',
+              finishedAt: '2026-04-22T10:30:00Z',
+              gateResult: 'PENDING',
+              filesWritten: [],
+            },
+          ],
+        })
+      );
+      mergeManifestHistory(manifestPath, {
+        runId: 'run-2',
+        startedAt: '2026-04-22T14:00:00Z',
+        finishedAt: '2026-04-22T14:25:00Z',
+        gateResult: 'GREEN',
+        filesWritten: ['intelligence/pestle-analysis.md'],
+      });
+      const parsed = JSON.parse(fs.readFileSync(manifestPath, 'utf-8'));
+      expect(parsed.date).toBe('2026-04-22');
+      expect(parsed.articleType).toBe('breaking');
+      expect(parsed.history).toHaveLength(2);
+      expect(parsed.history[0].runId).toBe('run-1');
+      expect(parsed.history[1].runId).toBe('run-2');
+      expect(parsed.history[1].gateResult).toBe('GREEN');
+    });
+
+    it('recovers from a corrupt manifest by starting fresh', () => {
+      const manifestPath = path.join(tempDir, 'manifest.json');
+      fs.writeFileSync(manifestPath, 'not-json{{{');
+      mergeManifestHistory(manifestPath, {
+        runId: 'run-1',
+        startedAt: '2026-04-22T10:00:00Z',
+        finishedAt: '2026-04-22T10:30:00Z',
+        gateResult: 'ANALYSIS_ONLY',
+        filesWritten: [],
+      });
+      const parsed = JSON.parse(fs.readFileSync(manifestPath, 'utf-8'));
+      expect(parsed.history).toHaveLength(1);
+      expect(parsed.corruptManifestRecoveredAt).toBeTruthy();
+    });
+  });
+
+  describe('readLatestGateResult', () => {
+    it('returns PENDING when the manifest does not exist', () => {
+      expect(readLatestGateResult(path.join(tempDir, 'missing.json'))).toBe('PENDING');
+    });
+
+    it('returns the gateResult from the last history entry', () => {
+      const manifestPath = path.join(tempDir, 'manifest.json');
+      fs.writeFileSync(
+        manifestPath,
+        JSON.stringify({
+          history: [
+            { runId: 'a', gateResult: 'PENDING', startedAt: '', finishedAt: '', filesWritten: [] },
+            { runId: 'b', gateResult: 'GREEN', startedAt: '', finishedAt: '', filesWritten: [] },
+          ],
+        })
+      );
+      expect(readLatestGateResult(manifestPath)).toBe('GREEN');
+    });
+
+    it('falls back to a top-level gateResult when history is missing (back-compat)', () => {
+      const manifestPath = path.join(tempDir, 'manifest.json');
+      fs.writeFileSync(manifestPath, JSON.stringify({ gateResult: 'ANALYSIS_ONLY' }));
+      expect(readLatestGateResult(manifestPath)).toBe('ANALYSIS_ONLY');
+    });
+
+    it('returns PENDING for an invalid/unknown gateResult', () => {
+      const manifestPath = path.join(tempDir, 'manifest.json');
+      fs.writeFileSync(
+        manifestPath,
+        JSON.stringify({
+          history: [
+            { runId: 'a', gateResult: 'NOT_A_STATUS', startedAt: '', finishedAt: '', filesWritten: [] },
+          ],
+        })
+      );
+      expect(readLatestGateResult(manifestPath)).toBe('PENDING');
     });
   });
 });

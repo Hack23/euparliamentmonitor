@@ -276,6 +276,60 @@ describe('runAnalysisStage', () => {
     expect(path.basename(ctx.outputDir)).not.toMatch(/-2$/u);
     expect(ctx.manifest.methods.length).toBeGreaterThan(0);
   });
+
+  it('should accumulate manifest.history[] across repeated runs on a shared same-day folder', async () => {
+    // Simulates the new stable-folder layout: analysis/daily/${DATE}/${TYPE}/
+    // where the analysis workflow may run multiple times against the same dir
+    // (to upgrade sub-threshold artifacts) and each run appends a history entry
+    // rather than triggering the `-2` suffix.
+    const sharedDir = path.join(tempDir, '2026-04-22', 'breaking');
+    fs.mkdirSync(path.join(sharedDir, 'intelligence'), { recursive: true });
+    fs.writeFileSync(
+      path.join(sharedDir, 'intelligence', 'synthesis-summary.md'),
+      '# Synthesis\n\nPass 1.\n'
+    );
+
+    const firstCtx = await runAnalysisStage(buildTestFetchedData(), {
+      articleTypes: ['breaking'],
+      date: '2026-04-22',
+      outputDir: sharedDir,
+      articleTypeSlug: 'breaking',
+      outputDirIsResolved: true,
+      runId: 'breaking-run-100',
+      gateResult: 'PENDING',
+    });
+    expect(firstCtx.manifest.runId).toBe('breaking-run-100');
+
+    // Second run against the same folder, with an upgraded artifact.
+    fs.writeFileSync(
+      path.join(sharedDir, 'intelligence', 'synthesis-summary.md'),
+      '# Synthesis\n\nPass 2 — deeper analysis with evidence citations.\n'
+    );
+
+    const secondCtx = await runAnalysisStage(buildTestFetchedData(), {
+      articleTypes: ['breaking'],
+      date: '2026-04-22',
+      outputDir: sharedDir,
+      articleTypeSlug: 'breaking',
+      outputDirIsResolved: true,
+      runId: 'breaking-run-200',
+      gateResult: 'GREEN',
+    });
+
+    expect(path.resolve(secondCtx.outputDir)).toBe(path.resolve(sharedDir));
+    expect(path.basename(secondCtx.outputDir)).not.toMatch(/-2$/u);
+
+    const manifestJson = JSON.parse(
+      fs.readFileSync(path.join(sharedDir, 'manifest.json'), 'utf-8')
+    );
+    expect(Array.isArray(manifestJson.history)).toBe(true);
+    expect(manifestJson.history.length).toBe(2);
+    expect(manifestJson.history[0].runId).toBe('breaking-run-100');
+    expect(manifestJson.history[0].gateResult).toBe('PENDING');
+    expect(manifestJson.history[1].runId).toBe('breaking-run-200');
+    expect(manifestJson.history[1].gateResult).toBe('GREEN');
+    expect(manifestJson.updatedAt).toBeTruthy();
+  });
 });
 
 // ─── isResolvedAnalysisDir tests ──────────────────────────────────────────────

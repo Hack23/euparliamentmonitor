@@ -91,18 +91,38 @@ monitoring, and data-quality delta go into the same PR. See
 
 ## 6 · After a Green Gate
 
-Next file to read: [`04-article-generation.md`](04-article-generation.md).
-Article drafting begins only after this gate exits 0.
+**In a `news-<type>-analysis.md` workflow** (split family): Stage C green is
+the **hand-off to the paired article workflow**, not an inline Stage D.
+Proceed to ship a single analysis-only PR (see
+[`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md) §3). When that PR is
+merged to `main`, the `news-<type>-article.md` workflow will automatically
+run Stage D against the committed `analysis/daily/${DATE}/${TYPE}/` folder.
 
-## 7 · Repo-Memory Checkpoint (MANDATORY, both outcomes)
+**In a legacy monolithic workflow** (pre-split): next file to read is
+[`04-article-generation.md`](04-article-generation.md); article drafting
+begins inline.
 
-Whether the gate exits 0 or routes to the analysis-only exit, **checkpoint
-Stage C state to repo-memory** so a later crash in Stage D or the PR call
-does not lose the validated artifact set:
+## 6b · Resuming a Same-Day Folder (repeated analysis runs)
 
-```bash
-scripts/checkpoint-analysis-to-memory.sh \
-  "${ANALYSIS_DIR}" "${RUN_ID}" gate "${ARTICLE_TYPE_SLUG}"
-```
+When the canonical folder `analysis/daily/${DATE}/${TYPE}/` already contains
+a `manifest.json` from a prior run today:
 
-Full per-phase protocol in [`02-analysis-protocol.md`](02-analysis-protocol.md) §10.
+1. **Do not** trigger a `-run<NN>` or `-2` suffix — the shared folder is the
+   single source of truth.
+2. Load prior `manifest.json` and inspect every artifact's line count vs.
+   `reference-quality-thresholds.json` floors.
+3. Artifacts at/above floor: **carry forward** (do not rewrite) unless new
+   Stage-A data materially changes their conclusions.
+4. Artifacts below floor or missing: write a stronger version (overwrite).
+5. Append a new entry to `manifest.json.history[]` with this run's `runId`,
+   timestamps, and `gateResult`.
+6. Run the validator as normal. GREEN → single analysis PR; the paired
+   article workflow consumes whatever is at `HEAD` of `main` after merge.
+
+See `02-analysis-protocol.md` §2 for the full re-run merge rule.
+
+## 7 · Stage-C Output Discipline (both outcomes)
+
+Whether the gate exits 0 or routes to analysis-only, ensure the validated
+artifact set remains complete in `${ANALYSIS_DIR}` and `manifest.json` is
+current before moving on. Do not run per-phase repo-memory checkpoint commands.

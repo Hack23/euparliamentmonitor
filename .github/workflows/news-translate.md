@@ -36,6 +36,15 @@ permissions:
 
 timeout-minutes: 90
 
+features:
+  mcp-gateway: true
+
+sandbox:
+  agent: awf
+  mcp:
+    port: 8080
+    keepalive-interval: 300
+
 imports:
   - shared/mcp/news-mcp-servers.md
 
@@ -139,9 +148,9 @@ You are the **Translation Agent**. Your ONLY job: take existing English articles
 >
 > This means interim `git commit` usage does **not** make changes disappear from safeoutputs by itself: committed-since-base changes are still included in the next successful snapshot. The real risk is waiting too long between successful calls, because the PR only contains whatever was captured by the **latest** successful snapshot. Note also that a subsequent `git reset` (e.g. `git reset --mixed`) can remove commits from future snapshots — so if you ever commit, always **flush first, reset second**.
 >
-> The MCP session also expires after ~10–20 min of inactivity. If the session expires, every subsequent call returns `"session not found"` and there is NO recovery.
+> MCP gateway keepalive is enabled in frontmatter (`sandbox.mcp.keepalive-interval: 300`) to prevent idle session expiry during long runs.
 >
-> ⇒ **You MUST call `safeoutputs___create_pull_request` repeatedly throughout the run** — once at min ~2 as the checkpoint, then AGAIN after **every 3 translated files** (see Step 3b "Periodic Flush"), then once more in Step 5 with the final title/body. **Step 5 follows the same snapshot model above; it is not limited to uncommitted working-directory changes only.** This simultaneously (a) refreshes the session so it never idle-times-out and (b) updates the PR patch to include the latest uncommitted and committed-since-base changes.
+> ⇒ **You MUST call `safeoutputs___create_pull_request` repeatedly throughout the run** — once at min ~2 as the checkpoint, then AGAIN after **every 3 translated files** (see Step 3b "Periodic Flush"), then once more in Step 5 with the final title/body. **Step 5 follows the same snapshot model above; it is not limited to uncommitted working-directory changes only.** This guarantees the PR patch continuously includes the latest uncommitted and committed-since-base changes.
 >
 > **Past failures** (keep in mind): run #107 called it only at the end → 13 translations lost. Run #126 called it once at min 2 then `git commit`-ted for 44 min → final call returned "session not found" → 17 translations lost. Run #128 tried to retry the checkpoint after 40 min of translating → 21 translations lost. Run #131 (PR #1254) made only ONE successful call at min ~5 (snapshot = baseline only) then translated for 45 min → final call returned "session not found" → 13 translations lost.
 
@@ -150,42 +159,24 @@ You are the **Translation Agent**. Your ONLY job: take existing English articles
 3. **Then proceed to Step 1 → Step 3 → Step 3b.** While translating, **call `safeoutputs___create_pull_request` again after every 3 completed files** (see "Periodic Flush" in Step 3b). This is the single most important rule for avoiding data loss.
 4. **In Step 5, call `safeoutputs___create_pull_request` one final time** with the quality-scored title and body.
 
-> **Why periodic flushing matters**: each call is both a snapshot (captures files written since the last call) AND a keep-alive (resets the session idle timer). 3 files ≈ 5–10 minutes of translation work, which is well inside the 10–20 min session window. If one flush fails with `"session not found"` the remaining files are already captured in the previous flush's patch — bounded data loss, not catastrophic.
+> **Why periodic flushing matters**: each call captures files written since the last call and keeps the PR patch current throughout the run. If a later safeoutputs call fails, files already flushed remain in the PR patch — bounded data loss, not catastrophic.
 
 > **📚 Reference**: [README.md](../prompts/README.md) for EP MCP tools and safe outputs.
 > **📈 World Bank pass-through**: Translation workflows inherit World Bank + chart structure from the source English article. Do not add, remove, or alter `<canvas data-chart-config>` blocks or World Bank citations; the validator (`npx tsx src/utils/validate-articles.ts --date=$TODAY --quality --strict`) treats the translated file as a pass-through and expects the same Chart.js + indicator evidence as the source. See [`analysis/methodologies/worldbank-indicator-mapping.md`](../../analysis/methodologies/worldbank-indicator-mapping.md) for reference only.
 
-## 🔁 Safe Outputs Session Keep-Alive (NON-NEGOTIABLE)
+## 🔁 MCP Gateway Keepalive + Flush Policy (NON-NEGOTIABLE)
 
-> **⚠️ CRITICAL**: The safeoutputs MCP session can expire after ~10–20 minutes of inactivity. Once expired, every subsequent call returns `"session not found"` and there is NO recovery — any translations still in the working directory at that point are LOST. This workflow MUST keep the session alive throughout long discovery, analysis, and translation phases so that the final `safeoutputs___create_pull_request` call succeeds.
+> **⚠️ CRITICAL**: Session reliability is now handled at workflow level with
+> `sandbox.mcp.keepalive-interval: 300`. Do **not** use
+> `safeoutputs___push_repo_memory` heartbeat patterns.
 
-**Mandatory heartbeat rule** (90-minute budget):
-- First keep-alive call by **minute 8** (independent of the minute-~2 checkpoint PR)
-- Then keep-alive at least every **8 minutes** until Step 5 final PR (approximate checkpoints: minutes **8, 16, 24, 32, 40, 48, 56, 64, 72, 80, and 88**, or sooner at phase transitions)
-- **`sequential-thinking` turns do NOT reset the session idle timer.** If any reasoning/analysis phase (`sequential-thinking`, long internal planning, extended document reading) runs for 5+ minutes without a safeoutputs call or a non-thinking tool call, the safeoutputs session may silently idle-out. Interleave an explicit `safeoutputs___push_repo_memory` call **inside** every multi-turn analysis phase. **This is the #1 cause of `session not found` at PR time** (see run [24707284072](https://github.com/Hack23/euparliamentmonitor/actions/runs/24707284072): 45-minute uninterrupted `sequential-thinking` starved the session, and the minute-55 PR call failed with `session not found`).
-- Two tool calls serve as keep-alives. Use whichever fits the current phase:
-
-```javascript
-// Preferred during pre-translation analysis / Step 1 discovery / Step 2 restore,
-// when no new files have been written yet (lighter-weight, does not consume PR quota):
-safeoutputs___push_repo_memory({ memory_id: "default" })
-```
-
-```javascript
-// Preferred during Step 3b translation and later, when the working directory already
-// contains new translated files — this simultaneously heartbeats AND snapshots files
-// into the PR patch (see §"Periodic Flush" in Step 3b for the detailed cadence):
-safeoutputs___create_pull_request({
-  title: "Translate articles checkpoint — ${ARTICLE_DATE} (run ${RUN_ID})",
-  body:  "Translation checkpoint — periodic flush",
-  base:  "main",
-  head:  "news/translate-${ARTICLE_DATE}-${RUN_ID}"
-})
-```
-
-> **Interaction with Step 3b Periodic Flush**: the "every 3 translated files" flush rule in Step 3b is the primary keep-alive during active translation. This heartbeat rule **supplements** it: between checkpoint PR (minute ~2) and first flush (after file 3, often minute ~15–20), the pre-translation diagnostic + discovery + restore phases can easily exceed the 10-min session idle timeout. Call `safeoutputs___push_repo_memory` in those gaps.
->
-> **If a heartbeat returns `session not found`**: the session is GONE. Stop translating immediately, write a short note into `${ANALYSIS_DIR}/summary.md` listing which files were translated in the working directory but could not be flushed, and END the run. Do NOT keep translating — the scheduled next run (or reconciler workflow) will pick up the gap.
+**Mandatory policy (90-minute budget):**
+- Keep the existing checkpoint + periodic `safeoutputs___create_pull_request`
+  cadence (first call by minute ~2, then every 3 translated files, then final Step 5 call).
+- Do not introduce extra heartbeat-only tool calls between flushes.
+- If any `safeoutputs___create_pull_request` call returns `"session not found"`,
+  stop translating, note lost unflushed files in `${ANALYSIS_DIR}/summary.md`,
+  and end the run.
 
 ## 📞 Bash Tool Call Contract (CRITICAL)
 

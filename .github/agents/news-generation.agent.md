@@ -84,6 +84,27 @@ Per-artifact line floors live in [`reference-quality-thresholds.json`](../../ana
 
 ## Shared Stage Contract (inherited by every importing workflow)
 
+**Split-workflow families** (`news-<type>-analysis.md` + `news-<type>-article.md`,
+recommended, timeout-minutes: 45 each):
+
+```
+── news-<type>-analysis.md (one analysis PR) ──
+Stage A · Data Collection (≤ 10 min)
+  → Stage B · Analysis (Pass 1 + Pass 2, ≥ 20 min)
+    → Stage C · Completeness Gate (validate-analysis) — BLOCKING
+      → Single analysis PR (exactly once; title `[analysis] …`)
+
+── news-<type>-article.md (one article PR, triggered on merged analysis PR) ──
+Gate check (readLatestGateResult → GREEN required)
+  → Optional Stage-A freshness top-up (≤ 5 min)
+    → Stage D · Article Generation (Pass 1 + Pass 2)
+      → Validators (validate-analysis-completeness + validate-articles)
+        → Single news PR (exactly once; title `[news] …`)
+```
+
+**Legacy monolithic `news-<type>.md`** (pre-split, may still run while rollout
+is in progress, timeout-minutes: 60–90):
+
 ```
 Stage A · Data Collection (≤ 10 min)
   → Stage B · Analysis (Pass 1 + Pass 2, ≥ 20 min)
