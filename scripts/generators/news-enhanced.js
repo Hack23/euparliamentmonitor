@@ -209,6 +209,56 @@ function parseAnalysisMethods() {
     return methods;
 }
 /**
+ * Fetch EP feed data (month-level timeframe for month-level article types,
+ * one-week otherwise), populate `fetchedData` with the result, and enforce
+ * the "substantive data required" check.
+ *
+ * Extracted from {@link maybeRunAnalysis} to keep that function's cognitive
+ * complexity under the repo's SonarJS limit. Mutates `fetchedData` in place
+ * and throws when no substantive EP data is available.
+ *
+ * @param fetchedData - Target record to populate (mutated)
+ * @param client - Connected MCP client or null
+ * @param articleTypes - Requested article types (drives timeframe selection)
+ */
+async function fetchAndValidateEPData(fetchedData, client, articleTypes) {
+    const MONTH_LEVEL_TYPES = ['month-ahead', 'month-in-review', 'committee-reports', 'motions'];
+    const needsMonthData = articleTypes
+        .map((t) => t.trim())
+        .some((t) => MONTH_LEVEL_TYPES.includes(t));
+    const feedTimeframe = needsMonthData ? 'one-month' : 'one-week';
+    // fetchEPFeedData handles a null client gracefully (returns undefined) and
+    // also loads from EP_FEED_DATA_FILE when set, so we call it unconditionally.
+    const feedData = await fetchEPFeedData(client, feedTimeframe);
+    if (feedData) {
+        fetchedData['events'] = feedData.events ?? [];
+        fetchedData['documents'] = feedData.documents ?? [];
+        fetchedData['adoptedTexts'] = feedData.adoptedTexts ?? [];
+        fetchedData['procedures'] = feedData.procedures ?? [];
+        fetchedData['mepUpdates'] = feedData.mepUpdates ?? [];
+        fetchedData['plenaryDocuments'] = feedData.plenaryDocuments ?? [];
+        fetchedData['committeeDocuments'] = feedData.committeeDocuments ?? [];
+        fetchedData['plenarySessionDocuments'] = feedData.plenarySessionDocuments ?? [];
+        fetchedData['externalDocuments'] = feedData.externalDocuments ?? [];
+        fetchedData['questions'] = feedData.questions ?? [];
+        fetchedData['declarations'] = feedData.declarations ?? [];
+        fetchedData['corporateBodies'] = feedData.corporateBodies ?? [];
+    }
+    if (!fetchedData['events']) {
+        // No MCP or feed-data file available — populate empty arrays so builders don't fail
+        fetchedData['events'] = [];
+        fetchedData['sessions'] = [];
+        fetchedData['documents'] = [];
+    }
+    // Agentic workflows must not proceed with empty data — analysis on empty
+    // data produces hollow output that should never feed article generation.
+    if (!hasSubstantiveData(fetchedData)) {
+        throw new Error('❌ Analysis aborted: no substantive EP data was fetched. ' +
+            'MCP data fetch must succeed before analysis can run. ' +
+            'Check MCP connection, feed data file, or EP API availability.');
+    }
+}
+/**
  * Run the analysis discovery stage (Fetch → Discover) before article generation.
  *
  * This function fetches EP feed data and then discovers the analysis `.md`
@@ -248,16 +298,24 @@ async function maybeRunAnalysis(date, client) {
     console.log(`   Output dir: ${analysisDirBase}/${date}`);
     console.log(`   Methods: ${enabledMethods.length} enabled`);
     console.log('');
-    // Derive the feed timeframe from the requested article types so the analysis
-    // window matches the generation window.  Month-level types need 'one-month'.
-    const MONTH_LEVEL_TYPES = ['month-ahead', 'month-in-review', 'committee-reports', 'motions'];
-    const normalizedArticleTypes = articleTypes.map((t) => t.trim());
-    const needsMonthData = normalizedArticleTypes.some((t) => MONTH_LEVEL_TYPES.includes(t));
-    const feedTimeframe = needsMonthData ? 'one-month' : 'one-week';
-    // Fetch comprehensive EP feed data.  fetchEPFeedData handles a null client
-    // gracefully (returns undefined) and also loads from EP_FEED_DATA_FILE when
-    // set, so we call it unconditionally.
-    //
+    // Detect whether `--analysis-dir` already points at a fully-resolved
+    // per-run analysis directory (agentic workflows pre-populate
+    // `analysis/daily/<date>/<slug>-run<N>` with AI-authored artifacts and
+    // pass it verbatim).  When so, honour the path as-is; otherwise treat it
+    // as a base and compose `<base>/<date>/<slug>` below.
+    const analysisDirIsResolved = isResolvedAnalysisDir(analysisDirBase);
+    if (analysisDirIsResolved) {
+        console.log(`   Analysis dir treated as pre-resolved run directory`);
+    }
+    // Short-circuit for `--analysis-only` wrap-up on a pre-resolved dir:
+    // the agent has already completed Stage A (data collection) and Stage B
+    // (artifact authoring); runAnalysisStage with outputDirIsResolved=true
+    // performs pure filesystem discovery and does not need EP data.  Skip
+    // the expensive fetchEPFeedData call — a slow one-month feed pull here
+    // can hang the pipeline wrap-up long enough for the safeoutputs MCP
+    // session to expire, which then blocks PR creation (see failed run
+    // #24802174815 for the cascade).
+    const skipDataFetch = analysisOnlyArg && analysisDirIsResolved;
     // Always initialise voting-derived keys (`patterns`, `votingRecords`) to
     // empty arrays so coalition/voting/cross-session analyses never receive
     // undefined.  These feeds are not yet exposed by fetchEPFeedData, so they
@@ -267,37 +325,19 @@ async function maybeRunAnalysis(date, client) {
         patterns: [],
         votingRecords: [],
     };
-    const feedData = await fetchEPFeedData(client, feedTimeframe);
-    if (feedData) {
-        fetchedData['events'] = feedData.events ?? [];
-        fetchedData['documents'] = feedData.documents ?? [];
-        fetchedData['adoptedTexts'] = feedData.adoptedTexts ?? [];
-        fetchedData['procedures'] = feedData.procedures ?? [];
-        fetchedData['mepUpdates'] = feedData.mepUpdates ?? [];
-        fetchedData['plenaryDocuments'] = feedData.plenaryDocuments ?? [];
-        fetchedData['committeeDocuments'] = feedData.committeeDocuments ?? [];
-        fetchedData['plenarySessionDocuments'] = feedData.plenarySessionDocuments ?? [];
-        fetchedData['externalDocuments'] = feedData.externalDocuments ?? [];
-        fetchedData['questions'] = feedData.questions ?? [];
-        fetchedData['declarations'] = feedData.declarations ?? [];
-        fetchedData['corporateBodies'] = feedData.corporateBodies ?? [];
-    }
-    if (!fetchedData['events']) {
-        // No MCP or feed-data file available — populate empty arrays so builders don't fail
+    if (skipDataFetch) {
+        console.log(`   Skipping EP data fetch — --analysis-only wrap-up on pre-resolved dir (agent owns Stage A/B)`);
+        // Populate empty arrays so downstream builders don't trip on undefined.
         fetchedData['events'] = [];
         fetchedData['sessions'] = [];
         fetchedData['documents'] = [];
     }
-    // Validate that substantive EP data was actually fetched.
-    // Agentic workflows must not proceed with empty data — analysis on empty
-    // data produces hollow output that should never feed article generation.
-    if (!hasSubstantiveData(fetchedData)) {
-        const msg = '❌ Analysis aborted: no substantive EP data was fetched. ' +
-            'MCP data fetch must succeed before analysis can run. ' +
-            'Check MCP connection, feed data file, or EP API availability.';
-        throw new Error(msg);
+    else {
+        await fetchAndValidateEPData(fetchedData, client, articleTypes);
     }
-    const validArticleTypes = normalizedArticleTypes.filter((t) => VALID_ARTICLE_CATEGORIES.includes(t));
+    const validArticleTypes = articleTypes
+        .map((t) => t.trim())
+        .filter((t) => VALID_ARTICLE_CATEGORIES.includes(t));
     // Derive a slug from the article types to scope analysis output per workflow,
     // preventing merge conflicts when multiple workflows run on the same date.
     // When a run ID is provided (e.g. GITHUB_RUN_NUMBER), append it to the slug
@@ -308,17 +348,8 @@ async function maybeRunAnalysis(date, client) {
     console.log(`   Article type slug: ${slug}`);
     if (runId)
         console.log(`   Run ID: ${runId}`);
-    // Detect whether `--analysis-dir` already points at a fully-resolved
-    // per-run analysis directory (agentic workflows pre-populate
-    // `analysis/daily/<date>/<slug>-run<N>` with AI-authored artifacts and
-    // pass it verbatim).  When so, honour the path as-is; otherwise treat it
-    // as a base and compose `<base>/<date>/<slug>` below.
-    const analysisDirIsResolved = isResolvedAnalysisDir(analysisDirBase);
-    if (analysisDirIsResolved) {
-        console.log(`   Analysis dir treated as pre-resolved run directory`);
-    }
-    // Pass requireData=true so runAnalysisStage enforces data availability
-    // and aborts when no substantive data is available — discovery on empty data produces no artifacts.
+    // Require data only when we actually fetched it.  The pre-resolved
+    // --analysis-only wrap-up path performs discovery-only and needs no data.
     const ctx = await runAnalysisStage(fetchedData, {
         articleTypes: validArticleTypes,
         date,
@@ -327,7 +358,7 @@ async function maybeRunAnalysis(date, client) {
         enabledMethods,
         skipCompleted: true,
         verbose: analysisVerboseArg,
-        requireData: true,
+        requireData: !skipDataFetch,
         outputDirIsResolved: analysisDirIsResolved,
     });
     const totalMethods = ctx.manifest.methods.length;
