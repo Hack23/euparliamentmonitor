@@ -33,9 +33,10 @@ const REPO_ROOT = path.resolve(THIS_DIR, '..', '..', '..');
 
 /**
  * Extract every tool name passed as the first argument to
- * `this.safeCallTool(...)` in the compiled EP MCP client. Handles both the
- * inline form (`safeCallTool('name', options, FALLBACK)`) and the
- * multi-line form where the tool name is on the next line.
+ * `this.safeCallTool(...)` in the EP MCP client TypeScript source
+ * (`src/mcp/ep-mcp-client.ts`). Handles both the inline form
+ * (`safeCallTool('name', options, FALLBACK)`) and the multi-line form
+ * where the tool name is on the next line.
  *
  * @param {string} source - Full file contents
  * @returns {Set<string>} unique tool names
