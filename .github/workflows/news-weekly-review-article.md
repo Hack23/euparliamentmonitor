@@ -15,6 +15,31 @@ on:
         description: 'Article type slug. Fixed to "week-in-review" for this workflow.'
         required: false
         default: week-in-review
+  steps:
+    - name: Check analysis PR trigger gate
+      id: gate
+      env:
+        EVENT: ${{ github.event_name }}
+        MERGED: ${{ github.event.pull_request.merged }}
+        LABELS: ${{ toJSON(github.event.pull_request.labels.*.name) }}
+      run: |
+        if [ "$EVENT" = "workflow_dispatch" ]; then
+          exit 0
+        fi
+        if [ "$MERGED" != "true" ]; then
+          echo "PR not merged — skipping article workflow"
+          exit 1
+        fi
+        if ! echo "$LABELS" | grep -q '"agentic-analysis"'; then
+          echo "PR missing 'agentic-analysis' label — skipping article workflow"
+          exit 1
+        fi
+        if ! echo "$LABELS" | grep -q '"type:week-in-review"'; then
+          echo "PR missing 'type:week-in-review' label — skipping article workflow"
+          exit 1
+        fi
+
+if: needs.pre_activation.outputs.gate_result == 'success'
 
 permissions:
   contents: read
