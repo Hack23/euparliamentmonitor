@@ -107,6 +107,20 @@ safe-outputs:
     - euparliamentmonitor.com
     - www.euparliamentmonitor.com
   create-pull-request:
+    # The translation workflow follows a Periodic Flush pattern (see prompt
+    # lines 153–162): one checkpoint call at minute ~2, then one flush every
+    # 3 translated files, plus a final call with the quality-scored title
+    # and body. For a single article type this is ~6 calls (1 checkpoint +
+    # 4 periodic flushes for 13 languages + 1 final); `max: 10` is the
+    # gh-aw schema maximum and provides comfortable headroom. Without
+    # `max` set here, gh-aw defaults to 1, which silently rejects every
+    # flush after the baseline checkpoint and causes total translation
+    # loss (see PR #1346 / run 188 `agent_output.json` — 5× "Too many
+    # items of type 'create_pull_request'. Maximum allowed: 1."). All
+    # flushes target the same branch `news/translate-${DATE}-${RUN_ID}`,
+    # so raising `max` does NOT create multiple PRs — it just lets the
+    # single PR's patch be refreshed as translations land.
+    max: 10
     title-prefix: "[news] "
     labels: [agentic-news, analysis-data]
     draft: false
