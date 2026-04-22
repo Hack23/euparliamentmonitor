@@ -229,6 +229,25 @@ Per [Hack23 AI_Policy.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Pol
 
 ---
 
+## 1️⃣2️⃣ ICD 203 Tradecraft Compliance
+
+> **Purpose:** Verify that every probabilistic claim in this run meets the professional estimative-language and source-grading standards codified in [`osint-tradecraft-standards.md`](../methodologies/osint-tradecraft-standards.md).
+
+| Compliance Dimension | Standard | Status | Evidence / Notes |
+|---------------------|----------|:------:|-----------------|
+| **WEP band usage** | Every uncertain judgement uses a WEP band (ICD 203 / Kent §3.1) | `[✅ / ⚠️ / ❌]` | `[REQUIRED: how many headline judgements carry a WEP band?]` |
+| **Time horizon** | Every WEP band has an explicit time horizon (§3.4) | `[✅ / ⚠️ / ❌]` | `[REQUIRED: any bands without a time horizon?]` |
+| **Admiralty source grades** | Every external source carries an A1–F6 Admiralty grade (§2) | `[✅ / ⚠️ / ❌]` | `[REQUIRED: note any un-graded sources]` |
+| **Confidence vs. probability separation** | Confidence-in-evidence (H/M/L) tracked separately from WEP probability (§3.3) | `[✅ / ⚠️ / ❌]` | `[REQUIRED: any conflated markers?]` |
+| **ICD 203 BLUF verb usage** | "assess" / "judge" used for analytic positions (not "think"/"believe") | `[✅ / ⚠️ / ❌]` | `[REQUIRED: note any non-standard verbs in BLUF sentences]` |
+| **SAT application** | ≥1 named SAT ([§4](../methodologies/osint-tradecraft-standards.md)) documented in this run | `[✅ / ⚠️ / ❌]` | `[REQUIRED: list SATs applied — e.g. ACH, Key Assumptions Check, Pre-Mortem]` |
+| **Single-source flag** | Claims driven by a source ≤C3 with no A–B corroboration are flagged | `[✅ / ⚠️ / N/A]` | `[REQUIRED: note any un-corroborated D-F grade sources driving headline findings]` |
+
+**ICD 203 overall verdict:** `[REQUIRED: COMPLIANT / PARTIALLY COMPLIANT / NON-COMPLIANT]`  
+**Remediation required for next run:** `[REQUIRED: list gaps or state "none"]`
+
+---
+
 ## ✅ Quality Gate (self-check before commit)
 
 - [ ] Pipeline diagram reflects THIS run (not template boilerplate)
@@ -239,6 +258,7 @@ Per [Hack23 AI_Policy.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Pol
 - [ ] Peer-review section names the reviewer OR states "pending editorial queue"
 - [ ] Update plan has ≥5 triggers mapped to specific artifacts
 - [ ] References include Hack23 AI_Policy + SATs canonical sources
+- [ ] §12 ICD 203 compliance table filled — WEP bands, Admiralty grades, SATs all confirmed ✅ or remediated
 - [ ] Every `[REQUIRED]` placeholder replaced with run-specific content
 
 ---

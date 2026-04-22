@@ -43,8 +43,23 @@
 | **[SWOT Framework](../methodologies/political-swot-framework.md)** | 💼 Methodology | Evidence-based political SWOT quadrants | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md) |
 | **[Classification Guide](../methodologies/political-classification-guide.md)** | 🏷️ Methodology | 7-dimension EP event classification | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-classification-guide.md) |
 | **[Style Guide](../methodologies/political-style-guide.md)** | ✍️ Methodology | Editorial and analytical style standards | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md) |
+| **[OSINT Tradecraft Standards](../methodologies/osint-tradecraft-standards.md)** | 🕵️ Methodology | ICD 203 · Admiralty source grades · Kent/WEP probability bands · SAT catalog · OSINT ethics | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/osint-tradecraft-standards.md) |
 
 </div>
+
+---
+
+## 🕵️ OSINT Tradecraft Quick Reference
+
+All templates in this library implement professional intelligence-community discipline. The normative contract is [`osint-tradecraft-standards.md`](../methodologies/osint-tradecraft-standards.md). The style contract is [`political-style-guide.md` §Estimative Language & Source Grading](../methodologies/political-style-guide.md).
+
+| Discipline | Standard | Where Applied in Templates |
+|-----------|----------|---------------------------|
+| **Estimative Language (WEP)** | Kent / ICD 203 probability bands (*Almost Certain* → *Almost No Chance*) + explicit time horizon | `synthesis-summary.md` Top Findings, `deep-analysis.md` Executive Summary, `methodology-reflection.md` §12 |
+| **Source Grading (Admiralty)** | A–F reliability × 1–6 credibility (e.g. `A1` = EP plenary record, `C3` = press) | `synthesis-summary.md` Top Findings, all probabilistic artifacts |
+| **Confidence Separation** | Confidence-in-evidence (HIGH / MEDIUM / LOW) tracked separately from WEP probability | All 🟢/🟡/🔴 confidence markers across templates |
+| **Structured Analytic Techniques** | ≥1 named SAT per run (ACH, Key Assumptions Check, Pre-Mortem, Scenario Analysis, Red-Team, Indicators) | `methodology-reflection.md` §12, `per-artifact-methodologies.md` SAT entries |
+| **ICD 203 BLUF** | Executive Summary opens with BLUF + WEP band + confidence + rationale | `deep-analysis.md` Executive Summary |
 
 ---
 

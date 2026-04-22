@@ -30,12 +30,13 @@
 A single paragraph of **≥200 words** that states the political thesis of the period and names the evidence base. The paragraph:
 
 - Names the institution (European Parliament) and the period.
-- States the single most important political claim the analysis makes.
-- Cites two or three numeric anchors (seat share, RCV count, resolution count).
+- States the single most important political claim the analysis makes — expressed as a **WEP estimative-probability band** with an explicit time horizon (per [`osint-tradecraft-standards.md` §3.1](../methodologies/osint-tradecraft-standards.md)) — e.g. *"The grand coalition is **Likely** (55–80%) to hold through the June plenary…"*
+- Opens with an ICD 203 BLUF sentence in the form: `[analytic judgement] [WEP band] [time horizon] [confidence: HIGH/MEDIUM/LOW] because [one-clause rationale].`
+- Cites two or three numeric anchors (seat share, RCV count, resolution count) with Admiralty-grade source references (§2) — e.g. `[A1]` for EP roll-call records.
 - Names the dominant coalition and its approximate cohesion.
 - Signals the forward implication.
 
-Example opening: *"The European Parliament's first quarter of 2026 produced an unprecedented 567 roll-call votes and 180 resolutions — both records that, when set against the corresponding 2025 figures, reveal a parliamentary body operating at roughly triple its prior-year cadence…"*
+Example opening: *"The European Parliament's first quarter of 2026 produced an unprecedented 567 roll-call votes and 180 resolutions — both records that, when set against the corresponding 2025 figures [A1], reveal a parliamentary body operating at roughly triple its prior-year cadence; the grand coalition is **Likely** to sustain this pace through Q2 (HIGH confidence)…"*
 
 ---
 

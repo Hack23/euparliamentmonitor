@@ -99,13 +99,13 @@ graph TD
 
 ## 🏆 Top Findings by Significance
 
-| Rank | EP Reference | Title | Significance | Risk Tier | SWOT Impact | Recommendation |
-|:----:|-------------|-------|:-----------:|:---------:|:-----------:|----------------|
-| 1 | `[REQUIRED: e.g. P9_TA(2026)XXXX]` | `[REQUIRED]` | `[#.#]` | `[🟢/🟡/🟠/🔴]` | `[S/W/O/T dominant]` | `[Breaking/Priority/Publish/Monitor]` |
-| 2 | `[REQUIRED]` | `[REQUIRED]` | `[#.#]` | `[tier]` | `[quadrant]` | `[action]` |
-| 3 | `[REQUIRED]` | `[REQUIRED]` | `[#.#]` | `[tier]` | `[quadrant]` | `[action]` |
-| 4 | `[OPTIONAL]` | `[OPTIONAL]` | `[#.#]` | `[tier]` | `[quadrant]` | `[action]` |
-| 5 | `[OPTIONAL]` | `[OPTIONAL]` | `[#.#]` | `[tier]` | `[quadrant]` | `[action]` |
+| Rank | EP Reference | Title | Significance | Risk Tier | SWOT Impact | WEP Band | Admiralty Grade | Recommendation |
+|:----:|-------------|-------|:-----------:|:---------:|:-----------:|:--------:|:---------------:|----------------|
+| 1 | `[REQUIRED: e.g. P9_TA(2026)XXXX]` | `[REQUIRED]` | `[#.#]` | `[🟢/🟡/🟠/🔴]` | `[S/W/O/T dominant]` | `[Likely / Very Likely / …]` | `[A1–F6]` | `[Breaking/Priority/Publish/Monitor]` |
+| 2 | `[REQUIRED]` | `[REQUIRED]` | `[#.#]` | `[tier]` | `[quadrant]` | `[WEP]` | `[A–F grade]` | `[action]` |
+| 3 | `[REQUIRED]` | `[REQUIRED]` | `[#.#]` | `[tier]` | `[quadrant]` | `[WEP]` | `[A–F grade]` | `[action]` |
+| 4 | `[OPTIONAL]` | `[OPTIONAL]` | `[#.#]` | `[tier]` | `[quadrant]` | `[WEP]` | `[A–F grade]` | `[action]` |
+| 5 | `[OPTIONAL]` | `[OPTIONAL]` | `[#.#]` | `[tier]` | `[quadrant]` | `[WEP]` | `[A–F grade]` | `[action]` |
 
 ---
 
@@ -461,7 +461,8 @@ flowchart LR
 
 **Document Control:**
 - **Template Path:** `/analysis/templates/synthesis-summary.md`
-- **Version:** 1.3
+- **Version:** 1.4
+- **What's New in 1.4:** Top-Findings table gains WEP Band + Admiralty Grade columns (per [`osint-tradecraft-standards.md`](../methodologies/osint-tradecraft-standards.md) §2 + §3.1). Every synthesis headline judgement must now express probability as a WEP band and cite the primary source with an Admiralty grade.
 - **What's New in 1.3:** Cross-Method Intelligence Correlation section with integrated intelligence nuggets, framework signal summary, convergence/contradiction assessment; Cross-Article-Type Intelligence / Rule 18 compliance section
 - **What's New in 1.2:** AI-Generated Article Metadata section (mandatory --title and --description for article generator)
 - **Consumed By:** All news article generator workflows
