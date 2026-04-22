@@ -42,6 +42,7 @@ Timeframes: `"today"`, `"one-day"`, `"one-week"`, `"one-month"`, `"custom"`
 | `get_speeches` | `dateFrom/dateTo`, `speechId`, `limit` | (no feed) |
 | `get_parliamentary_questions` | `type`, `dateFrom/dateTo`, `author`, `topic`, `status`, `docId`, `limit` | `get_parliamentary_questions_feed` |
 | `get_mep_details` | `id` (e.g., `"MEP-124810"`) | — |
+| `get_meps` | `country`, `group`, `committee`, `active`, `limit`, `offset` | `get_meps_feed` |
 | `get_mep_declarations` | `year`, `docId` | `get_mep_declarations_feed` |
 | `get_committee_info` | `abbreviation`, `id`, `showCurrent` | — |
 | `search_documents` | `keyword`, `documentType`, `committee`, `dateFrom/dateTo` | — |

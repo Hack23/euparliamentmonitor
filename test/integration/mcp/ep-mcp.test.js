@@ -82,7 +82,12 @@ describe('EP MCP tool surface (drift guard)', () => {
       'utf8'
     );
 
-    const undocumented = EP_MCP_TOOLS.filter((tool) => !referenceDoc.includes(tool)).sort();
+    // Use word-boundary regex to avoid false positives where one tool name is
+    // a substring of another (e.g. `get_events` vs `get_events_feed`).
+    const undocumented = EP_MCP_TOOLS.filter((tool) => {
+      const pattern = new RegExp(`\\b${tool}\\b`);
+      return !pattern.test(referenceDoc);
+    }).sort();
 
     expect(
       undocumented,

@@ -130,12 +130,14 @@ function main() {
   }
 
   let totalViolations = 0;
+  let filesWithViolations = 0;
   const report = [];
   for (const fileName of files) {
     const filePath = path.join(ABS_DIR, fileName);
     const violations = lintFile(filePath, fileName);
     if (violations.length > 0) {
       totalViolations += violations.length;
+      filesWithViolations += 1;
       report.push(`\n❌ ${fileName}`);
       for (const v of violations) {
         report.push(`   - ${v}`);
@@ -148,7 +150,9 @@ function main() {
     process.exit(0);
   }
 
-  console.error(`lint-prompts: ❌ ${totalViolations} violation(s) across ${report.length} file(s)`);
+  console.error(
+    `lint-prompts: ❌ ${totalViolations} violation(s) across ${filesWithViolations} file(s)`,
+  );
   for (const line of report) {
     console.error(line);
   }
