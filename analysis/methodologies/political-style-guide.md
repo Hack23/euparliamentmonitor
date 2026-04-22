@@ -481,6 +481,45 @@ graph LR
 
 ---
 
+## 🎯 Estimative Language & Source Grading (New in v2.5)
+
+All probabilistic judgements produced in EU Parliament Monitor analysis follow the professional intelligence-community discipline codified in [`osint-tradecraft-standards.md`](osint-tradecraft-standards.md). This section is the *style* contract; the standards document is the *normative* contract.
+
+### Estimative Language (Kent / WEP Bands)
+
+- Every uncertain judgement MUST use a Words of Estimative Probability (WEP) band — not bare percentages or vague adverbs ("likely", "possible") without a band attached. The canonical mapping (see [`osint-tradecraft-standards.md` §3.1](osint-tradecraft-standards.md)) is:
+  - *Almost no chance* (1–5%) · *Very unlikely* (5–20%) · *Unlikely* (20–45%) · *Roughly even chance* (45–55%) · *Likely* (55–80%) · *Very likely* (80–95%) · *Almost certain* (95–99%)
+- Every WEP band MUST carry an explicit **time horizon** (e.g. "*Likely* by the next plenary", "*Very Likely* within the 2026 mandate"). Bands without a horizon are rejected by the Pass-2 reviewer.
+- Confidence in the **quality of the evidence** (High / Medium / Low, per [`osint-tradecraft-standards.md` §3.3](osint-tradecraft-standards.md)) is tracked **separately** from WEP probability — the two are never merged into a single marker.
+- Legacy markers 🟢 / 🟡 / 🔴 remain valid and map onto High / Medium / Low confidence respectively; they are a visual overlay on the WEP + confidence pair, not a replacement.
+
+### Source Grading (Admiralty)
+
+- Every cited external source MUST carry an Admiralty grade of the form `A1`–`F6` (see [`osint-tradecraft-standards.md` §2](osint-tradecraft-standards.md)):
+  - Letter `A–F` grades **source reliability** (A = completely reliable primary, F = cannot be judged).
+  - Digit `1–6` grades **information credibility** (1 = confirmed by independent sources, 6 = cannot be judged).
+- EP primary sources (Plenary minutes, adopted texts, roll-call records, ECA reports) are normally `A1`–`A2`. Commission and Council primary documents are normally `A1`–`B2`. Reputable press (FT, POLITICO Europe, Reuters, AFP, Euractiv) is normally `B2`–`C3`. Social-media / unverified blogs start at `E5` and require corroboration before use.
+- Single-source judgements with grades worse than `C3` MUST be flagged explicitly and MUST NOT drive a headline finding without a corroborating `A`–`B` source.
+
+### Style Rules for Prose
+
+- Open every Executive Summary / Executive Finding / Bottom-Line-Up-Front paragraph with **one** sentence in the ICD 203 "BLUF + analytic-confidence" form: a headline judgement expressed as a WEP band + time horizon + confidence level (High / Medium / Low) + one-clause rationale.
+- Never hide probabilistic language in footnotes. If the claim matters enough to make, it matters enough to grade inline.
+- Prefer "judge" / "assess" (ICD-203 verbs) over "think" / "believe" / "feel" when stating analytic positions.
+- Any claim that uses a number (%, count, Euro, seat share) MUST either (a) cite an EP / Eurostat / ECB / WB / IMF source with Admiralty grade, or (b) be flagged as an estimate with the confidence level and the estimation basis.
+
+### Pass-2 Reviewer Checklist
+
+Before a Pass-2 reviewer signs off an article or analysis artifact, they MUST confirm — in addition to the existing evidence-density and attribution checks:
+
+1. Every headline judgement carries a WEP band + explicit time horizon.
+2. Every cited external source carries an Admiralty grade.
+3. Confidence-in-evidence (High / Medium / Low) is tracked separately from probability.
+4. At least one Structured Analytic Technique ([`osint-tradecraft-standards.md` §4](osint-tradecraft-standards.md)) is named in the artifact (typical: Key Assumptions Check, ACH, Pre-Mortem, Red-Team, Scenario Analysis, Indicators).
+5. No claim blends probability and confidence into a single "35% likely with high confidence" sentence without separating the two dimensions.
+
+---
+
 ## 🚫 Anti-Patterns (Prohibited)
 
 The following patterns are **REJECTED** in all analysis output:
@@ -557,6 +596,7 @@ All analysis produced in English serves as the source for 13 additional language
 - [political-risk-methodology.md](political-risk-methodology.md) — Risk scoring
 - [political-swot-framework.md](political-swot-framework.md) — SWOT methodology
 - [political-threat-framework.md](political-threat-framework.md) — Threat analysis
+- [osint-tradecraft-standards.md](osint-tradecraft-standards.md) — ICD 203 · Admiralty · Kent/WEP · SATs · OSINT ethics
 - [ai-driven-analysis-guide.md](ai-driven-analysis-guide.md) — Per-file AI analysis protocol
 - [reference/isms-style-guide-adaptation.md](../reference/isms-style-guide-adaptation.md) — ISMS mapping
 
@@ -566,6 +606,7 @@ All analysis produced in English serves as the source for 13 additional language
 - **Path:** `/analysis/methodologies/political-style-guide.md`
 - **ISMS Reference:** [STYLE_GUIDE.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/STYLE_GUIDE.md)
 - **Classification:** Public
+- **Version:** 2.5 — Added §Estimative Language & Source Grading codifying ICD 203 BLUF/confidence format, Kent/WEP probability bands with mandatory time horizons, Admiralty source grading (A1–F6), and Pass-2 reviewer checklist. Cross-links `osint-tradecraft-standards.md` as the normative contract; this guide is the style contract.
 - **Version:** 2.4 — Added universal mermaid init block (mandatory for all `graph`/`flowchart`/`mindmap`/`pie`/`gantt`/`timeline`/`sequenceDiagram`/`stateDiagram`/`classDiagram`/`erDiagram`/`gitGraph`/`xychart-beta`/`C4Context`/`block-beta` diagrams) covering `pie1`–`pie12`, `git0`–`git3`, `cScale0`–`cScale7`, `noteBkgColor`, `errorBkgColor`, and xyChart `plotColorPalette` so every diagram inherits the canonical ISMS palette without per-diagram styling. Added node-icon authoring rule.
 - **Version:** 2.3 — Added classification-aligned Mermaid colour palette, mandatory `quadrantChart` init block (per ISMS STYLE_GUIDE.md stakeholder-mapping format), `classDef` snippet for graph/flowchart diagrams, and quadrant-icon labelling rules
 - **Next Review:** 2026-06-30

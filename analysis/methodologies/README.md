@@ -5,8 +5,8 @@
 <h1 align="center">📐 EU Parliament Monitor — Analysis Methodologies</h1>
 
 <p align="center">
-  <strong>📊 Six Comprehensive Political Intelligence Frameworks for European Parliament Analysis</strong><br>
-  <em>🎯 Classification · Risk · Threat Landscape · SWOT · Style · AI Quality</em>
+  <strong>📊 Seven Comprehensive Political Intelligence Frameworks for European Parliament Analysis</strong><br>
+  <em>🎯 Classification · Risk · Threat Landscape · SWOT · Style · AI Quality · OSINT / INTOP Tradecraft</em>
 </p>
 
 <p align="center">
@@ -61,11 +61,11 @@
 
 ## 🎯 Purpose
 
-This directory contains six interconnected political intelligence analysis methodologies that govern how EU Parliament Monitor's agentic workflows produce, classify, assess, and publish European Parliament analysis. These frameworks transform raw European Parliament MCP data into structured, evidence-based political intelligence.
+This directory contains seven interconnected political intelligence analysis methodologies that govern how EU Parliament Monitor's agentic workflows produce, classify, assess, and publish European Parliament analysis. These frameworks transform raw European Parliament MCP data into structured, evidence-based political intelligence.
 
-**Core Principle:** Every analytical claim requires verifiable evidence sourced from European Parliament open data. Opinion-based analysis, boilerplate summaries, and software-centric threat models (such as STRIDE, DREAD, or PASTA) are explicitly rejected.
+**Core Principle:** Every analytical claim requires verifiable evidence sourced from European Parliament open data. Opinion-based analysis, boilerplate summaries, and the unmodified use of software-centric threat models (such as STRIDE, DREAD, or PASTA) are explicitly rejected. Where a methodology borrows terminology from those frameworks (e.g., the `political-stride-assessment` template), only a clearly documented political adaptation tailored to European Parliament analysis is allowed.
 
-**Design Philosophy:** The six methodologies form a layered analytical pipeline — classification provides the foundation, risk and threat assessments build the analytical core, SWOT synthesizes strategic implications, style standards enforce writing quality, and the AI guide orchestrates the entire pipeline with quality gates.
+**Design Philosophy:** Six EP-domain methodologies form a layered analytical pipeline — classification provides the foundation, risk and threat assessments build the analytical core, SWOT synthesizes strategic implications, style standards enforce writing quality, and the AI guide orchestrates the entire pipeline with quality gates. The seventh framework — [`osint-tradecraft-standards.md`](osint-tradecraft-standards.md) — is the cross-cutting professional-tradecraft layer (ICD 203 · Admiralty Code · Words of Estimative Probability · SAT catalog · OSINT ethics) that every artifact applies.
 
 ---
 
@@ -154,7 +154,7 @@ graph TB
 
 ## 📊 Methodology Relationship Map
 
-This diagram shows how the six methodology documents relate to each other and feed into the final analysis output:
+This diagram shows how the seven methodology/framework documents relate to each other and feed into the final analysis output:
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
@@ -189,7 +189,10 @@ graph LR
 | **3** | **[Political Threat Framework](political-threat-framework.md)** | Multi-framework threat analysis: Political Threat Landscape + 5 supporting frameworks | Coalition Shifts, Transparency Deficit, Policy Reversal, Institutional Pressure, Legislative Obstruction, Democratic Erosion | **Third** — apply threat analysis using political frameworks (never STRIDE/DREAD/PASTA) |
 | **4** | **[Political SWOT Framework](political-swot-framework.md)** | Evidence-based SWOT, confidence levels, 180-day decay, group-to-landscape aggregation | Strengths, Weaknesses, Opportunities, Threats — each with confidence (HIGH/MEDIUM/LOW) | **Fourth** — synthesize classification + risk + threat into strategic SWOT assessment |
 | **5** | **[Political Style Guide](political-style-guide.md)** | Writing standards, 3 depth levels, evidence density requirements, anti-patterns | Level 1 Surface (200–500 words), Level 2 Strategic (800–2,000 words), Level 3 Intelligence (2,000–5,000 words) | **Fifth** — apply writing standards when drafting the analysis document |
-| **6** | **[AI-Driven Analysis Guide](ai-driven-analysis-guide.md)** | Per-file AI protocol, quality gates, weighted scoring (7.0/10 minimum), conflict resolution | Evidence (25%), Depth (25%), Structural (20%), Actionable (15%), Neutrality (15%) | **Always** — orchestrates the entire pipeline; AI agents must read this first |
+| **6** | **[AI-Driven Analysis Guide](ai-driven-analysis-guide.md)** | 10-step analysis protocol, mandatory 2-pass improvement, reference-quality depth floors | Evidence (25%), Depth (25%), Structural (20%), Actionable (15%), Neutrality (15%) | **Always** — orchestrates the entire pipeline; AI agents read this first |
+| **7** | **[OSINT / INTOP Tradecraft Standards](osint-tradecraft-standards.md)** | ICD 203 analytic standards, Admiralty source × info grading, Kent / WEP estimative bands, canonical SAT catalog, OSINT sourcing ethics | 9 ICD standards · 6×6 Admiralty grid · 7 WEP bands · 10 SATs · 5 ethical limits | **Cross-cutting** — applied by every framework to every artifact; attested in `methodology-reflection.md` |
+| **8** | **[Artifact Catalog](artifact-catalog.md)** | Master map of every analysis markdown file produced under `analysis/daily/*/` — grouped by folder with methodology + template + depth floor + Mermaid type per artifact | 6 folder groups (intelligence 18 · classification 4 · risk-scoring 4 · threat-assessment 5 · documents 1 · existing legacy long-form 2+mirrors) | **Step 2** — after reading the AI guide, agents consult this catalog to know *what* to produce |
+| **9** | **[Per-Artifact Methodologies](per-artifact-methodologies.md)** | One section per artifact type with purpose, EP MCP inputs, required sections, mandatory Mermaid, depth floor, quality signals | ~29 artifacts across 6 folder groups (including `existing/` legacy long-form layout) | **Step 2** — construction lookup; read the relevant section when writing each artifact |
 
 ---
 
@@ -256,6 +259,17 @@ graph LR
 | **Scope** | Article tone, evidence citation standards, Mermaid diagram requirements, confidence labelling |
 | **Key Standards** | Evidence tables (not prose) · EP procedure citations · Colour-coded diagrams · Multi-language terminology · Recess-period guidance |
 | **Version** | 2.1 |
+
+### 🕵️ OSINT / INTOP Tradecraft Standards — `osint-tradecraft-standards.md`
+
+| Attribute | Value |
+|-----------|-------|
+| **Purpose** | Cross-cutting professional analytic discipline applied by every framework to every artifact |
+| **Pillars** | 5: ICD 203 (9 analytic standards) · Admiralty Code (source × info grading) · Words of Estimative Probability (7 bands) · SAT catalog (10 techniques) · OSINT sourcing ethics |
+| **Key Standards** | Grade every source (A1–F6 → 🟢/🟡/🔴) · Calibrated estimative vocabulary · Banned ambiguous terms · ≥10 SATs attested per run · No personal-life data on MEPs |
+| **Version** | 1.0 |
+
+> ✅ **Cross-cutting layer.** Unlike the six domain frameworks above (which each own a specific analytic task), this framework defines the professional standards every framework applies — source grading, estimative language, structured analytic techniques, and OSINT ethics. It is attested in each run's `methodology-reflection.md`.
 
 ---
 
@@ -565,7 +579,7 @@ Defines the comprehensive per-file AI analysis protocol. This is the **orchestra
 | **Quality Score Formula** | Weighted multi-criteria self-assessment | Evidence (25%) + Depth (25%) + Structural (20%) + Actionable (15%) + Neutrality (15%) |
 | **Minimum Score** | Hard quality gate for publication | **7.0/10 weighted score** — below threshold requires revision |
 | **Conflict Resolution** | Rules for parallel workflow outputs | Deduplication, merge strategy, timestamp-based precedence |
-| **Methodology Reading Order** | Agents must internalize all 6 methodology docs | This guide → Classification → Risk → Threat → SWOT → Style |
+| **Methodology Reading Order** | Agents must internalize all 7 methodology/framework docs | This guide → Classification → Risk → Threat → SWOT → Style → OSINT/INTOP Tradecraft |
 
 ### AI Quality Gate Process
 
