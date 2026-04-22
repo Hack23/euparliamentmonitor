@@ -27,18 +27,47 @@ This directory contains GitHub Actions workflows for the EU Parliament Monitor p
 
 ### 📰 News Generation (Agentic Workflows)
 
-The project uses **10 agentic workflow markdown files** (`.md`) that are compiled to `.lock.yml` files via `gh aw compile --validate`. Each `news-*.md` generates a specific type of EU Parliament article using the European Parliament MCP server as the primary data source, with optional World Bank MCP enrichment and native IMF REST-client enrichment for economic context. (The World Bank is mounted as an MCP server; IMF data is fetched via a native TypeScript REST client — there is no IMF MCP mount in the workflow frontmatter.)
+The project uses **agentic workflow markdown files** (`.md`) that are compiled to `.lock.yml` files via `gh aw compile --validate`. Each news workflow generates a specific type of EU Parliament article using the European Parliament MCP server as the primary data source, with optional World Bank MCP enrichment and native IMF REST-client enrichment for economic context. (The World Bank is mounted as an MCP server; IMF data is fetched via a native TypeScript REST client — there is no IMF MCP mount in the workflow frontmatter.)
+
+> **Split-workflow families (new canonical pattern):** each article type is
+> served by **two** short workflows that each finish inside the model session
+> budget. `news-<type>-analysis.md` (45-min timeout) produces a single
+> analysis-only PR; when that PR merges to `main`, `news-<type>-article.md`
+> (45-min timeout) runs Stage D and produces a single article PR. Analysis
+> artifacts live in the deterministic folder `analysis/daily/${DATE}/${TYPE}/`
+> with per-attempt history recorded in `manifest.json.history[]`. See
+> [`.github/prompts/02-analysis-protocol.md`](../prompts/02-analysis-protocol.md) §2.
+
+#### Split-family workflows (canonical, 16 files — 8 pairs)
+
+| Analysis (`[analysis] …` PR) | Article (`[news] …` PR) | Schedule (analysis) | Trigger (article) |
+|---|---|---|---|
+| [`news-breaking-analysis.md`](news-breaking-analysis.md) | [`news-breaking-article.md`](news-breaking-article.md) | every 6h | merged analysis PR + manual |
+| [`news-week-ahead-analysis.md`](news-week-ahead-analysis.md) | [`news-week-ahead-article.md`](news-week-ahead-article.md) | Fridays 07:00 UTC | merged analysis PR + manual |
+| [`news-month-ahead-analysis.md`](news-month-ahead-analysis.md) | [`news-month-ahead-article.md`](news-month-ahead-article.md) | 1st of month 08:00 UTC | merged analysis PR + manual |
+| [`news-weekly-review-analysis.md`](news-weekly-review-analysis.md) | [`news-weekly-review-article.md`](news-weekly-review-article.md) | Saturdays 09:00 UTC | merged analysis PR + manual |
+| [`news-monthly-review-analysis.md`](news-monthly-review-analysis.md) | [`news-monthly-review-article.md`](news-monthly-review-article.md) | 28th of month 10:00 UTC | merged analysis PR + manual |
+| [`news-committee-reports-analysis.md`](news-committee-reports-analysis.md) | [`news-committee-reports-article.md`](news-committee-reports-article.md) | Mon–Fri 04:00 UTC | merged analysis PR + manual |
+| [`news-motions-analysis.md`](news-motions-analysis.md) | [`news-motions-article.md`](news-motions-article.md) | Mon–Fri 06:00 UTC | merged analysis PR + manual |
+| [`news-propositions-analysis.md`](news-propositions-analysis.md) | [`news-propositions-article.md`](news-propositions-article.md) | Mon–Fri 05:00 UTC | merged analysis PR + manual |
+
+#### Legacy monolithic workflows (pre-split; scheduled for removal after rollout)
+
+| Workflow (`.md`) | Purpose | Status |
+|---|---|---|
+| [`news-breaking.md`](news-breaking.md) | Rapid breaking-news coverage (60-min monolith) | `disabled_manually` — replaced by the split pair |
+| [`news-week-ahead.md`](news-week-ahead.md) | Week-ahead preview (90-min monolith) | `disabled_manually` |
+| [`news-month-ahead.md`](news-month-ahead.md) | Month-ahead outlook (90-min monolith) | `disabled_manually` |
+| [`news-weekly-review.md`](news-weekly-review.md) | Weekly review (90-min monolith) | `disabled_manually` |
+| [`news-monthly-review.md`](news-monthly-review.md) | Monthly review (90-min monolith) | `disabled_manually` |
+| [`news-committee-reports.md`](news-committee-reports.md) | Committee activity (90-min monolith) | `disabled_manually` |
+| [`news-motions.md`](news-motions.md) | Motions and resolutions (90-min monolith) | `disabled_manually` |
+| [`news-propositions.md`](news-propositions.md) | Legislative propositions (90-min monolith) | `disabled_manually` |
+
+#### Multi-type + translation (unchanged)
 
 | Workflow (`.md`) | Purpose | Trigger |
 |---|---|---|
-| [`news-breaking.md`](news-breaking.md) | Rapid breaking-news coverage of unfolding EP events (overrides cadence) | Workflow dispatch |
-| [`news-week-ahead.md`](news-week-ahead.md) | Prospective week-ahead preview of the upcoming plenary week | Fridays 07:00 UTC + manual |
-| [`news-month-ahead.md`](news-month-ahead.md) | Strategic month-ahead outlook with macroeconomic context | 1st of month 08:00 UTC + manual |
-| [`news-weekly-review.md`](news-weekly-review.md) | Retrospective review of the past 7 days in the EP | Saturdays 09:00 UTC + manual |
-| [`news-monthly-review.md`](news-monthly-review.md) | Retrospective monthly review with World Bank / IMF context | 28th of month 10:00 UTC + manual |
-| [`news-committee-reports.md`](news-committee-reports.md) | Analysis of activity across the 20 EP standing committees | Mon–Fri 04:00 UTC + manual |
-| [`news-motions.md`](news-motions.md) | Motions and resolutions analysis with voting records and party dynamics | Mon–Fri 06:00 UTC + manual |
-| [`news-propositions.md`](news-propositions.md) | Legislative propositions analysis with economic context | Mon–Fri 05:00 UTC + manual |
 | [`news-article-generator.md`](news-article-generator.md) | Manual multi-type backfill runner (documented `create-pull-request.max: 8` exception) | Workflow dispatch |
 | [`news-translate.md`](news-translate.md) | 14-language translation with multi-call flush pattern (exempt from single-PR rule) | Workflow dispatch / PR hook |
 
