@@ -102,10 +102,10 @@ graph TD
 | Rank | EP Reference | Title | Significance | Risk Tier | SWOT Impact | WEP Band | Time Horizon | Admiralty Grade | Recommendation |
 |:----:|-------------|-------|:-----------:|:---------:|:-----------:|:--------:|:------------:|:---------------:|----------------|
 | 1 | `[REQUIRED: e.g. P9_TA(2026)XXXX]` | `[REQUIRED]` | `[#.#]` | `[🟢/🟡/🟠/🔴]` | `[S/W/O/T dominant]` | `[Likely / Very Likely / …]` | `[e.g. next plenary / by Q3 2026 / within mandate]` | `[A1–F6]` | `[Breaking/Priority/Publish/Monitor]` |
-| 2 | `[REQUIRED]` | `[REQUIRED]` | `[#.#]` | `[tier]` | `[quadrant]` | `[WEP]` | `[horizon]` | `[A–F grade]` | `[action]` |
-| 3 | `[REQUIRED]` | `[REQUIRED]` | `[#.#]` | `[tier]` | `[quadrant]` | `[WEP]` | `[horizon]` | `[A–F grade]` | `[action]` |
-| 4 | `[OPTIONAL]` | `[OPTIONAL]` | `[#.#]` | `[tier]` | `[quadrant]` | `[WEP]` | `[horizon]` | `[A–F grade]` | `[action]` |
-| 5 | `[OPTIONAL]` | `[OPTIONAL]` | `[#.#]` | `[tier]` | `[quadrant]` | `[WEP]` | `[horizon]` | `[A–F grade]` | `[action]` |
+| 2 | `[REQUIRED]` | `[REQUIRED]` | `[#.#]` | `[tier]` | `[quadrant]` | `[WEP]` | `[horizon]` | `[A1–F6]` | `[action]` |
+| 3 | `[REQUIRED]` | `[REQUIRED]` | `[#.#]` | `[tier]` | `[quadrant]` | `[WEP]` | `[horizon]` | `[A1–F6]` | `[action]` |
+| 4 | `[OPTIONAL]` | `[OPTIONAL]` | `[#.#]` | `[tier]` | `[quadrant]` | `[WEP]` | `[horizon]` | `[A1–F6]` | `[action]` |
+| 5 | `[OPTIONAL]` | `[OPTIONAL]` | `[#.#]` | `[tier]` | `[quadrant]` | `[WEP]` | `[horizon]` | `[A1–F6]` | `[action]` |
 
 ---
 
