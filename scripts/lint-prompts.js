@@ -18,6 +18,11 @@
  *      "keep-alive", "keepalive", "keep alive", "heartbeat",
  *      "progressive safe output".
  *   3. No `safeoutputs___push_repo_memory` references.
+ *   4. Analysis-awareness: news-*.md must either directly reference
+ *      `analysis/methodologies/ai-driven-analysis-guide.md` and
+ *      `03-analysis-completeness-gate.md`, OR import
+ *      `.github/agents/news-generation.agent.md` (which provides both).
+ *      news-translate.md is exempt.
  *
  * Usage:
  *   node scripts/lint-prompts.js
@@ -48,6 +53,15 @@ const EXEMPT_FROM_PUSH_MEMORY = new Set(['news-translate.md']);
 // is allowed to reference "checkpoint", "keep-alive", "heartbeat" etc. in
 // documentation form. The single-PR rule does not apply to it.
 const EXEMPT_FROM_PHRASE_CHECK = new Set(['news-translate.md']);
+// news-translate does not need the analysis chain (it is a translation-only
+// flush pattern with no Stage B/C/D analysis).
+const EXEMPT_FROM_ANALYSIS_AWARENESS = new Set(['news-translate.md']);
+
+// Workflows either reference these anchors directly, OR import the shared
+// news-generation agent which brings them in transitively.
+const ANALYSIS_ANCHOR_GUIDE = 'analysis/methodologies/ai-driven-analysis-guide.md';
+const ANALYSIS_ANCHOR_GATE = '03-analysis-completeness-gate.md';
+const NEWS_GENERATION_IMPORT = '.github/agents/news-generation.agent.md';
 
 const FORBIDDEN_PHRASES = [
   /\bcheckpoint\s+pr\b/i,
@@ -116,6 +130,29 @@ function lintFile(filePath, fileName) {
       violations.push(
         `line ${lineNumber}: 'safeoutputs___push_repo_memory' is banned (heartbeat pattern). Remove the reference.`,
       );
+    }
+  }
+
+  // Rule 4: analysis-awareness.
+  // Each news-*.md (except news-translate) must either directly reference the
+  // analysis anchors or import the shared news-generation agent which carries
+  // them transitively. This prevents a workflow from drifting out of the
+  // Data → Analysis Artifacts → Completeness Gate → Article → PR chain.
+  if (!EXEMPT_FROM_ANALYSIS_AWARENESS.has(fileName)) {
+    const importsNewsGen = content.includes(NEWS_GENERATION_IMPORT);
+    const refsGuide = content.includes(ANALYSIS_ANCHOR_GUIDE);
+    const refsGate = content.includes(ANALYSIS_ANCHOR_GATE);
+    if (!importsNewsGen) {
+      if (!refsGuide) {
+        violations.push(
+          `missing analysis-awareness anchor: must either import '${NEWS_GENERATION_IMPORT}' or reference '${ANALYSIS_ANCHOR_GUIDE}'. See .github/prompts/README.md § Analysis Artifact Integration.`,
+        );
+      }
+      if (!refsGate) {
+        violations.push(
+          `missing completeness-gate anchor: must either import '${NEWS_GENERATION_IMPORT}' or reference '${ANALYSIS_ANCHOR_GATE}'. See .github/prompts/README.md § Analysis Artifact Integration.`,
+        );
+      }
     }
   }
 

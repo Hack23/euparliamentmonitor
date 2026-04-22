@@ -48,7 +48,9 @@ describe('scripts/lint-prompts.js', () => {
   it('exits 0 when every workflow follows the single-PR rule', () => {
     writeWorkflow(
       'news-example.md',
-      '# Title\n\nCall safeoutputs___create_pull_request at the end.\n',
+      '# Title\n\n' +
+        'imports:\n  - .github/agents/news-generation.agent.md\n\n' +
+        'Call safeoutputs___create_pull_request at the end.\n',
     );
     const result = runLint(tmpDir);
     expect(result.code).toBe(0);
@@ -97,6 +99,40 @@ describe('scripts/lint-prompts.js', () => {
         'Call safeoutputs___create_pull_request at min 2 as the checkpoint PR.\n' +
         'Then periodic keep-alive heartbeat via safeoutputs___push_repo_memory.\n' +
         'Final safeoutputs___create_pull_request at min 88.\n',
+    );
+    const result = runLint(tmpDir);
+    expect(result.code).toBe(0);
+  });
+
+  it('flags missing analysis-awareness anchor in a news-*.md', () => {
+    writeWorkflow(
+      'news-no-analysis.md',
+      '# Title\nCall safeoutputs___create_pull_request once.\n',
+    );
+    const result = runLint(tmpDir);
+    expect(result.code).toBe(1);
+    expect(result.stderr).toContain('analysis-awareness');
+    expect(result.stderr).toContain('completeness-gate');
+  });
+
+  it('accepts workflows that import news-generation.agent.md (transitive anchors)', () => {
+    writeWorkflow(
+      'news-via-import.md',
+      '# Title\n' +
+        'imports:\n' +
+        '  - .github/agents/news-generation.agent.md\n' +
+        'Call safeoutputs___create_pull_request once.\n',
+    );
+    const result = runLint(tmpDir);
+    expect(result.code).toBe(0);
+  });
+
+  it('accepts workflows that directly reference both analysis anchors', () => {
+    writeWorkflow(
+      'news-direct-refs.md',
+      '# Title\n' +
+        'See analysis/methodologies/ai-driven-analysis-guide.md and 03-analysis-completeness-gate.md.\n' +
+        'Call safeoutputs___create_pull_request once.\n',
     );
     const result = runLint(tmpDir);
     expect(result.code).toBe(0);
