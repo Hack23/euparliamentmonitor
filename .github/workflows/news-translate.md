@@ -5,8 +5,10 @@ strict: false
 on:
   # Manual trigger ONLY. The cron schedule was removed because scheduled runs
   # were wasting AI budget and hitting rate limits — user explicitly requires
-  # manual invocation. Invoke via `gh workflow run news-translate.md` or the
-  # "Run workflow" button in the Actions UI.
+  # manual invocation. GitHub Actions runs the compiled `news-translate.lock.yml`
+  # (the `.md` source is ignored by the runner), so invoke via
+  # `gh workflow run "News: Translate Articles"` or `gh workflow run news-translate.lock.yml`,
+  # or use the "Run workflow" button in the Actions UI.
   workflow_dispatch:
     inputs:
       article_types:
@@ -108,19 +110,23 @@ safe-outputs:
     - euparliamentmonitor.com
     - www.euparliamentmonitor.com
   create-pull-request:
-    # The translation workflow follows a Periodic Flush pattern (see prompt
-    # lines 153–162): one checkpoint call at minute ~2, then one flush every
-    # 3 translated files, plus a final call with the quality-scored title
-    # and body. For a single article type this is ~6 calls (1 checkpoint +
-    # 4 periodic flushes for 13 languages + 1 final); `max: 10` is the
-    # gh-aw schema maximum and provides comfortable headroom. Without
-    # `max` set here, gh-aw defaults to 1, which silently rejects every
-    # flush after the baseline checkpoint and causes total translation
-    # loss (see PR #1346 / run 188 `agent_output.json` — 5× "Too many
-    # items of type 'create_pull_request'. Maximum allowed: 1."). All
-    # flushes target the same branch `news/translate-${DATE}`,
-    # so raising `max` does NOT create multiple PRs — it just lets the
-    # single PR's patch be refreshed as translations land.
+    # The translation workflow follows a "first productive flush" pattern
+    # (see prompt "🚫 NEVER CREATE A ZERO-TRANSLATION PR" section): there is
+    # NO checkpoint/baseline call at minute ~2. The first safeoutputs call
+    # is intentionally deferred until at least 3 real translations are
+    # complete and HTMLHint-clean (typically minute ~18–25). After that
+    # first flush, the workflow flushes again every additional 3 translated
+    # files, plus a final call with the quality-scored title and body. For a
+    # single article type this is ~5 calls (1 first flush after 3
+    # translations + 3 more periodic flushes to cover 13 languages + 1
+    # final); `max: 10` is the gh-aw schema maximum and provides comfortable
+    # headroom. Without `max` set here, gh-aw defaults to 1, which silently
+    # rejects every flush after the first and causes total translation loss
+    # (see PR #1346 / run 188 `agent_output.json` — 5× "Too many items of
+    # type 'create_pull_request'. Maximum allowed: 1."). All flushes target
+    # the same branch `news/translate-${DATE}`, so raising `max` does NOT
+    # create multiple PRs — it just lets the single PR's patch be refreshed
+    # as translations land.
     max: 10
     title-prefix: "[news] "
     labels: [agentic-news, analysis-data]
@@ -208,7 +214,7 @@ Mandatory ordering contract:
 **Mandatory policy (90-minute budget):**
 - **Do NOT call `safeoutputs___create_pull_request` before at least 3 translated HTML files are on disk and lint-clean.** Placeholder baselines create empty PRs (PR #1346).
 - First productive flush = minute ~18–25 (after the first 3 translations). Subsequent flushes every 3 completed files. Final flush at end of Step 5 with the quality-scored title/body.
-- Budget: ~5–6 calls for a single-article 13-language run (well below the `safe-outputs.create-pull-request.max: 10` schema cap).
+- Budget: ~5 calls for a single-article 13-language run (flushes #1–#5: first at 3 files, then at 6/9/12, then final at 13) — well below the `safe-outputs.create-pull-request.max: 10` schema cap.
 - Do not introduce extra heartbeat-only tool calls between flushes. Keepalive is already configured.
 - If any `safeoutputs___create_pull_request` call returns `"session not found"`,
   stop translating, note lost unflushed files in `${ANALYSIS_DIR}/summary.md`,
@@ -244,7 +250,7 @@ Mandatory ordering contract:
 
 **ALLOWED:** ✅ Create `news/*.html` translations (non-English) | ✅ Read `news/*-en.html` sources | ✅ Write to `analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}/`
 
-**FORBIDDEN:** ❌ Modify English articles, `.github/`, `index*.html`, `package.json` | ❌ Modify `test/` or `e2e/` unless required by an accompanying `src/`/`scripts/` fix (see [00-scope-and-ground-rules.md § 3](../prompts/00-scope-and-ground-rules.md#3--conditional-allow--minor-srcscripts-fixes)) | ❌ Write scripts, translation dictionaries, or batch tools | ❌ Use `sed`/`awk`/regex for translating narrative content | ❌ Dangerous shell expansion patterns — NEVER use `${var@P}`, `${!var}`, `eval`, nested command substitutions `$($(..))`, nested parameter expansions like `${var:+...${#other}...}`, `${VAR:-$(cmd)}` default-with-command-substitution, or input redirection inside command substitution `$(cmd < file)`. Use `if/else` blocks instead. These will be blocked by the sandbox | ❌ Use `git commit`/`git push` during translation — stay in working-dir-only mode. **Safe rule**: avoid committing entirely; if a commit is ever made, call `safeoutputs___create_pull_request` **immediately** (before any `git reset --mixed` or other reset), because a later reset can remove unflushed commits from subsequent snapshots | ❌ Call `safeoutputs___noop` — always produce translations | ❌ Call `safeoutputs___create_pull_request` **before at least 3 translated HTML files exist in `news/` and are lint-clean** — zero-translation placeholder PRs are the #1 failure mode (PR #1346). If the run dies before 3 translations complete, it MUST end without opening a PR — that is the correct resource-conserving outcome | ❌ Exit with analysis-only PR without attempting translation | ❌ Produce a PR with only 1 translated file — minimum is 5 | ❌ Skip the periodic flush in Step 3b — that is the #1 cause of bounded data loss after the first flush
+**FORBIDDEN:** ❌ Modify English articles, `.github/`, `index*.html`, `package.json` | ❌ Modify `test/` or `e2e/` unless required by an accompanying `src/`/`scripts/` fix (see [00-scope-and-ground-rules.md § 3](../prompts/00-scope-and-ground-rules.md#3--conditional-allow--minor-srcscripts-fixes)) | ❌ Write scripts, translation dictionaries, or batch tools | ❌ Use `sed`/`awk`/regex for translating narrative content | ❌ Dangerous shell expansion patterns — NEVER use `${var@P}`, `${!var}`, `eval`, nested command substitutions `$($(..))`, nested parameter expansions like `${var:+...${#other}...}`, `${VAR:-$(cmd)}` default-with-command-substitution, or input redirection inside command substitution `$(cmd < file)`. Use `if/else` blocks instead. These will be blocked by the sandbox | ❌ Use `git commit`/`git push` during translation — stay in working-dir-only mode. **Safe rule**: avoid committing entirely; if a commit is ever made, call `safeoutputs___create_pull_request` **immediately** (before any `git reset --mixed` or other reset), because a later reset can remove unflushed commits from subsequent snapshots | ❌ Call `safeoutputs___noop` — always produce translations | ❌ Call `safeoutputs___create_pull_request` **before at least 3 translated HTML files exist in `news/` and are lint-clean** — zero-translation placeholder PRs are the #1 failure mode (PR #1346). If the run dies before 3 translations complete, it MUST end without opening a PR — that is the correct resource-conserving outcome | ❌ Exit with analysis-only PR without attempting translation | ❌ End a normally-completing run with fewer than 5 translated files in the PR. The **first** productive flush MAY open the PR at **3 translated files** (this is by design — see "first productive flush" contract); the **final state** of a normally-completing run MUST contain **at least 5** translated files | ❌ Skip the periodic flush in Step 3b — that is the #1 cause of bounded data loss after the first flush
 
 > **Minor TypeScript fixes** (max 20 lines in `src/`/`scripts/`) allowed ONLY to unblock translation generation.
 
@@ -973,23 +979,23 @@ echo "💾 Generation state persisted to $GEN_STATE_FILE"
 
 > **⚠️ LANGUAGE CORRECTNESS**: When translating a file like `news/DATE-TYPE-es.html`, you MUST translate to SPANISH (not German, not French). The filename suffix (`-es`, `-de`, `-fr`) tells you the target language. The `<html lang="es">` attribute MUST match the filename. **PR #1186 was caused by writing German content into a Spanish-labeled file — this is unacceptable.**
 
-### 🔁 Periodic Flush (CRITICAL — the #1 data-loss prevention rule)
+### 🔁 Periodic Flush (CRITICAL — the #1 data-loss prevention rule after the first flush)
 
-> **After every 3 completed translations**, and again whenever you are about to spend more than ~8 minutes on a single file, you MUST call `safeoutputs___create_pull_request` with the SAME title/body/base/head as the initial checkpoint. Each call:
+> **Flush numbering starts AT the first productive flush (3 translations complete).** There is no earlier checkpoint to count — call #1 IS the first-productive-flush call that creates the PR. After that, call `safeoutputs___create_pull_request` again after every additional 3 completed translations, using the SAME `base`/`head` so the SAME PR's patch is refreshed. Each call:
 >
 > 1. **Snapshots the current working directory** into the PR patch — every translated file you have finished since the last call lands in the PR.
 > 2. **Refreshes the safeoutputs session idle timer** — without this, the session expires after ~10–20 min of inactivity and every subsequent call returns `"session not found"` (total data loss past the last successful flush).
 >
 > **Flush schedule for a 13-language single-article run**:
-> - After files 1–3 translated and lint-clean → flush #2
-> - After files 4–6 → flush #3
-> - After files 7–9 → flush #4
-> - After files 10–12 → flush #5
-> - After file 13 → flush #6 (this is the final Step 5 flush with the quality-scored title/body)
+> - After files 1–3 translated and lint-clean → flush #1 (PR is CREATED here — see "🛡️ FIRST PRODUCTIVE FLUSH" section)
+> - After files 4–6 → flush #2
+> - After files 7–9 → flush #3
+> - After files 10–12 → flush #4
+> - After file 13 → flush #5 (this is the final Step 5 flush with the quality-scored title/body)
 >
-> **If a flush returns `"session not found"`**: the session is gone and your remaining files for this run will not be saved. Stop translating, write a short note into `${ANALYSIS_DIR}/summary.md` explaining which files were translated in the working directory but could not be flushed, and END the run. Do NOT keep translating — every additional minute is wasted work. The next manual run will pick up the gap (re-triggered via `gh workflow run news-translate.md`).
+> **If a flush returns `"session not found"`**: the session is gone and your remaining files for this run will not be saved. Stop translating, write a short note into `${ANALYSIS_DIR}/summary.md` explaining which files were translated in the working directory but could not be flushed, and END the run. Do NOT keep translating — every additional minute is wasted work. The next manual run (via `gh workflow run "News: Translate Articles"` or `gh workflow run news-translate.lock.yml`) will pick up the gap.
 
-Use this exact javascript pattern for each periodic flush. **Only `base` and `head` MUST be identical to the initial checkpoint** (that is what causes the PR to be updated instead of a new one being created). `title` and `body` may vary per call — a differing body is fine and actually helps debugging by recording which flush this was:
+Use this exact javascript pattern for each subsequent periodic flush (calls #2–#5). **Only `base` and `head` MUST be identical to the first-productive-flush call** (that is what causes the SAME PR to be updated instead of a new one being created). `title` and `body` may vary per call — a differing body is fine and actually helps debugging by recording which flush this was:
 
 ```javascript
 safeoutputs___create_pull_request({
