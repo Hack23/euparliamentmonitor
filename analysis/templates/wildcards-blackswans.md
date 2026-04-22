@@ -47,7 +47,7 @@ quadrantChart
     quadrant-1 "🔴 Monitor Zone (Higher Prob, Severe Impact)"
     quadrant-2 "🟢 Black Swan Zone (Low Prob, Severe Impact)"
     quadrant-3 "🟠 Noise Zone (Low Prob, Low Impact)"
-    quadrant-4 "🔵 Risk Zone (Higher Prob, High Impact)"
+    quadrant-4 "🔵 Recurring Zone (Higher Prob, Low Impact)"
     "Wildcard 1": [0.05, 0.9]
     "Wildcard 2": [0.03, 0.95]
     "Wildcard 3": [0.08, 0.85]
