@@ -148,7 +148,7 @@ What the next period brings, which procedures are entering critical phases, wher
 
 Requirements:
 - ≥5 specific forward monitors (date + event + indicator).
-- ≥2 probability-weighted scenarios (reuse weights from the run's [`scenario-forecast.md`](../methodologies/per-artifact-methodologies.md#scenario-forecast)).
+- ≥2 probability-weighted scenarios (reuse weights from the run's sibling [`../intelligence/scenario-forecast.md`](../intelligence/scenario-forecast.md); methodology: [per-artifact-methodologies.md §scenario-forecast](../methodologies/per-artifact-methodologies.md#scenario-forecast)).
 - Named vulnerabilities in the dominant coalition.
 
 ---
@@ -157,7 +157,7 @@ Requirements:
 
 **Section length**: ≥150 words.
 
-Close by explaining how the analysis was built: which EP MCP endpoints succeeded, which failed, how the data-source bridge was constructed, what would change the assessment. Link to the run's [`mcp-reliability-audit.md`](../methodologies/per-artifact-methodologies.md#mcp-reliability-audit).
+Close by explaining how the analysis was built: which EP MCP endpoints succeeded, which failed, how the data-source bridge was constructed, what would change the assessment. Link to the run's sibling [`../intelligence/mcp-reliability-audit.md`](../intelligence/mcp-reliability-audit.md) (methodology: [per-artifact-methodologies.md §mcp-reliability-audit](../methodologies/per-artifact-methodologies.md#mcp-reliability-audit)).
 
 ---
 
