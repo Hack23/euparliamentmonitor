@@ -1,0 +1,124 @@
+name: Compile Agentic Workflows
+
+# Recompile all gh-aw markdown workflows to .lock.yml, agentics-maintenance.yml,
+# and actions-lock.json, then commit all generated files.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+  issues: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  GH_AW_VERSION: "v0.69.3"
+
+jobs:
+  compile:
+    name: Compile Agentic Workflows
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@8d3c67de8e2fe68ef647c8db1e6a09f647780f40 # v2.19.0
+        with:
+          egress-policy: audit
+
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          token: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: '25'
+
+      - name: Install gh-aw CLI
+        run: |
+          gh extension install github/gh-aw --pin "$GH_AW_VERSION"
+          echo "✅ Installed gh-aw $GH_AW_VERSION"
+        env:
+          GH_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
+
+      - name: Delete existing generated files
+        run: |
+          find .github/workflows -name "*.lock.yml" -type f -delete
+          rm -f .github/workflows/agentics-maintenance.yml
+          echo "✅ Deleted existing generated files"
+
+      - name: Lint agentic workflow prompts (single-PR rule)
+        run: |
+          node scripts/lint-prompts.js
+
+      - name: Compile all workflows
+        run: gh aw compile --validate
+        env:
+          GH_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
+
+      - name: Normalize and validate generated lock files
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+          import re
+          import sys
+
+          lock_files = sorted(Path(".github/workflows").glob("*.lock.yml"))
+          if not lock_files:
+              print("❌ No generated lock files found")
+              sys.exit(1)
+
+          updated_files = []
+          invalid_files = []
+
+          for lock_file in lock_files:
+              original = lock_file.read_text(encoding="utf-8")
+              normalized = original.replace("node:lts-alpine", "node:25-alpine")
+              normalized = re.sub(r'(?m)^[ \t]*"tools":\s*\[\s*\n\s*"\*"\s*\n\s*\],?\s*\n', "", normalized)
+
+              if normalized != original:
+                  lock_file.write_text(normalized, encoding="utf-8")
+                  updated_files.append(str(lock_file))
+
+              if 'node:lts-alpine' in normalized or re.search(r'"tools":\s*\[', normalized):
+                  invalid_files.append(str(lock_file))
+
+          if updated_files:
+              print("✅ Normalized generated lock files:")
+              for path in updated_files:
+                  print(f" - {path}")
+          else:
+              print("ℹ️ No lock file normalization changes were required")
+
+          if invalid_files:
+              print("❌ Generated lock files still contain unsupported patterns:")
+              for path in invalid_files:
+                  print(f" - {path}")
+              sys.exit(1)
+
+          print("✅ Generated lock files validated successfully")
+          PY
+
+      - name: Commit all generated files
+        run: |
+          # Add all files that gh-aw compile generates:
+          # - .lock.yml workflow files
+          # - agentics-maintenance.yml (auto-generated maintenance workflow)
+          # - actions-lock.json (action version pins)
+          git add .github/workflows/*.lock.yml \
+                  .github/workflows/agentics-maintenance.yml \
+                  .github/aw/actions-lock.json
+
+          if git diff --cached --quiet; then
+            echo "ℹ️ No changes to commit"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git diff --cached --stat
+            git commit -m "chore: recompile agentic workflow lock files"
+            git push
+            echo "✅ Committed and pushed all generated files"
+          fi

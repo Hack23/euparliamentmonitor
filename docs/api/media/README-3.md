@@ -1,718 +1,552 @@
-<p align="center">
-  <img src="https://hack23.com/icon-192.png" alt="Hack23 Logo" width="192" height="192">
-</p>
+# GitHub Workflows Documentation
 
-<h1 align="center">🔬 EU Parliament Monitor — Analysis Directory</h1>
+This directory contains GitHub Actions workflows for the EU Parliament Monitor project. All workflows follow Hack23 security standards with pinned action versions and harden-runner integration.
 
-<p align="center">
-  <strong>📊 Political Intelligence Analysis Framework for European Parliament Agentic Workflows</strong><br>
-  <em>🎯 Evidence-Based · Multi-Framework · Per-Document · Temporal Aggregation</em>
-</p>
+## Workflows Overview
 
-<p align="center">
-  <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-3.0-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--31-success?style=for-the-badge" alt="Effective Date"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
-</p>
+### 🏗️ Infrastructure & Setup
 
-**📋 Document Owner:** CEO | **📄 Version:** 3.0 | **📅 Last Updated:**
-2026-03-31 (UTC) | **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
-**🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
+#### `copilot-setup-steps.yml`
+**Purpose**: Environment setup for GitHub Copilot operations
 
----
+**Trigger**: 
+- Workflow dispatch (manual)
+- Push to `.github/workflows/copilot-setup-steps.yml`
+- PR to `.github/workflows/copilot-setup-steps.yml`
 
-## 📚 Architecture Documentation Map
+**What it does**:
+- Sets up Node.js 25
+- Installs MCP server packages globally
+- Configures Xvfb for browser-based operations
+- Installs Playwright browsers
+- Verifies MCP server installations
 
-<div class="documentation-map">
-
-| Document                                                 | Focus           | Description                                    | Documentation Link                                                                                      |
-| -------------------------------------------------------- | --------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| **[Architecture](../ARCHITECTURE.md)**                   | 🏛️ Architecture | C4 model showing current system structure      | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/ARCHITECTURE.md)                  |
-| **[Security Architecture](../SECURITY_ARCHITECTURE.md)** | 🛡️ Security     | Security controls and compliance mapping       | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY_ARCHITECTURE.md)         |
-| **[Threat Model](../THREAT_MODEL.md)**                   | 🎯 Security     | Political Threat Landscape analysis            | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/THREAT_MODEL.md)                  |
-| **[SWOT Analysis](../SWOT.md)**                          | 💼 Business     | Strategic assessment (**formatting exemplar**) | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/SWOT.md)                          |
-| **[Workflows](../WORKFLOWS.md)**                         | ⚙️ DevOps       | CI/CD and agentic workflow documentation       | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/WORKFLOWS.md)                     |
-| **[Analysis Methodologies](methodologies/README.md)**    | 📐 Methodology  | 6 political intelligence analysis frameworks   | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/README.md) |
-| **[Analysis Templates](templates/README.md)**            | 📋 Templates    | 8 structured analysis output templates         | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/README.md)     |
-
-</div>
+**Security**: Read-only permissions by default, escalated only when needed
 
 ---
 
-## 🔐 ISMS Policy Alignment
+### 📰 News Generation (Agentic Workflows)
 
-| **ISMS Policy**                                                                                              | **Analysis Implementation**                                                                         |
-| ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------- |
-| [🛠️ Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | Quality gates enforce evidence-based analysis; anti-pattern rejection prevents low-quality output   |
-| [🤖 AI Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Policy.md)                                 | AI agents MUST read methodology docs before analysis; per-file protocol ensures reproducibility     |
-| [📝 Classification Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Classification_Policy.md)         | 7-dimension classification adapted from ISMS for EP political events (see [reference/](reference/)) |
-| [🔍 Vulnerability Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md)   | Political threat analysis uses 6 purpose-built dimensions, NOT software-centric models              |
-| [🔓 Open Source Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md)               | All methodology documents published under project license for transparency                          |
+The project uses **10 agentic workflow markdown files** (`.md`) that are compiled to `.lock.yml` files via `gh aw compile --validate`. Each `news-*.md` generates a specific type of EU Parliament article using the European Parliament MCP server as the primary data source, with optional World Bank MCP enrichment and native IMF REST-client enrichment for economic context. (The World Bank is mounted as an MCP server; IMF data is fetched via a native TypeScript REST client — there is no IMF MCP mount in the workflow frontmatter.)
 
----
+| Workflow (`.md`) | Purpose | Trigger |
+|---|---|---|
+| [`news-breaking.md`](news-breaking.md) | Rapid breaking-news coverage of unfolding EP events (overrides cadence) | Workflow dispatch |
+| [`news-week-ahead.md`](news-week-ahead.md) | Prospective week-ahead preview of the upcoming plenary week | Fridays 07:00 UTC + manual |
+| [`news-month-ahead.md`](news-month-ahead.md) | Strategic month-ahead outlook with macroeconomic context | 1st of month 08:00 UTC + manual |
+| [`news-weekly-review.md`](news-weekly-review.md) | Retrospective review of the past 7 days in the EP | Saturdays 09:00 UTC + manual |
+| [`news-monthly-review.md`](news-monthly-review.md) | Retrospective monthly review with World Bank / IMF context | 28th of month 10:00 UTC + manual |
+| [`news-committee-reports.md`](news-committee-reports.md) | Analysis of activity across the 20 EP standing committees | Mon–Fri 04:00 UTC + manual |
+| [`news-motions.md`](news-motions.md) | Motions and resolutions analysis with voting records and party dynamics | Mon–Fri 06:00 UTC + manual |
+| [`news-propositions.md`](news-propositions.md) | Legislative propositions analysis with economic context | Mon–Fri 05:00 UTC + manual |
+| [`news-article-generator.md`](news-article-generator.md) | Manual multi-type backfill runner (documented `create-pull-request.max: 8` exception) | Workflow dispatch |
+| [`news-translate.md`](news-translate.md) | 14-language translation with multi-call flush pattern (exempt from single-PR rule) | Workflow dispatch / PR hook |
 
-## 🎯 Purpose
+A helper workflow — [`news-translate-reconciler.yml`](news-translate-reconciler.yml) — reconciles translation PRs produced by `news-translate.md`.
 
-The `analysis/` directory stores **intermediate political intelligence
-artifacts** produced and consumed by EU Parliament Monitor's 10 agentic
-workflows. These artifacts bridge raw European Parliament data (sourced via the
-**European Parliament MCP Server v1.2.1**) and the final published political
-intelligence articles across 14 languages.
+#### Shared-import pattern
 
-```mermaid
-%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
-flowchart LR
-    subgraph "📡 Data Collection"
-        EP["🏛️ EP MCP Server\nv1.2.1"]
-    end
+Every article-generating `news-*.md` imports two shared files to keep the
+workflow frontmatter and prompt body DRY:
 
-    subgraph "🔬 Analysis Pipeline"
-        DL["📥 Download\nFeed Data"]
-        AI["🤖 Per-File\nAI Analysis"]
-        QG["✅ Quality\nGate ≥7.0"]
-    end
-
-    subgraph "📰 Article Generation"
-        GEN["📝 Generate\nEN Article"]
-        TR["🌐 Translate\n13 Languages"]
-    end
-
-    EP --> DL --> AI --> QG --> GEN --> TR
-
-    style EP fill:#003399,stroke:#002266,color:#fff
-    style DL fill:#0d6efd,stroke:#0a58ca,color:#fff
-    style AI fill:#6f42c1,stroke:#59359a,color:#fff
-    style QG fill:#198754,stroke:#146c43,color:#fff
-    style GEN fill:#fd7e14,stroke:#ca6510,color:#fff
-    style TR fill:#dc3545,stroke:#b02a37,color:#fff
+```yaml
+imports:
+  - shared/mcp/news-mcp-servers.md        # merges `mcp-servers:` frontmatter
+  - ../agents/news-generation.agent.md    # appends the canonical Required Reading + Stage Contract body
 ```
 
-Analysis artifacts are **not** final content — they are structured intermediate
-products that enable:
+- [`shared/mcp/news-mcp-servers.md`](shared/mcp/news-mcp-servers.md) is a
+  **frontmatter-only** workflow component; its `mcp-servers:` block is merged
+  into the importing workflow's frontmatter (dedupes the EP / WB / IMF / MCP
+  Gateway mounts across 9 workflows).
+- [`.github/agents/news-generation.agent.md`](../agents/news-generation.agent.md)
+  is **body-only** (gh-aw v0.69.3 does not merge agent-file frontmatter); the
+  body is appended to every importing workflow's prompt.
+- `news-translate.md` imports `shared/mcp/news-mcp-servers.md` (so its
+  `mcp-servers:` frontmatter stays in lockstep with the article workflows),
+  but it **does not** import `news-generation.agent.md` — it ships its own
+  prompt body tuned for the 14-language multi-call flush pattern.
 
-- 🔄 **Workflow composition**: Upstream agents deposit analysis; downstream
-  agents consume it
-- 📐 **Consistent methodology**: 6 frameworks + 8 templates enforce analytical
-  rigor
-- 📊 **Full data analysis**: Every downloaded MCP file receives per-file deep
-  analysis
-- 🧠 **Reusable intelligence**: Cross-workflow pattern sharing and knowledge
-  accumulation
-- 🎯 **Quality assurance**: Minimum 7.0/10 quality gate before article
-  generation
-- 🔀 **Collision-free design**: Per-workflow directories prevent merge conflicts
-- 📅 **Temporal aggregation**: Daily → Weekly → Monthly intelligence roll-ups
+See [`.github/agents/news-generation.agent.md`](../agents/news-generation.agent.md)
+§ "Why an imported agent?" for the tested behaviour notes, and the
+[prompts library](../prompts/README.md) for the canonical Stage A → E flow.
 
----
+#### Lock-file compile flow
 
-## 🏗️ Analysis System Architecture
+1. Author or edit a `news-*.md` / `shared/mcp/*.md` / imported agent file.
+2. Locally run `gh aw compile --validate` (the repo does **not** commit lock
+   files directly from agents — see `copilot/cleanup-agentic-workflows`
+   guidance).
+3. CI job [`compile-agentic-workflows.yml`](compile-agentic-workflows.yml)
+   re-compiles every `.md`, validates that the committed `.lock.yml` matches
+   the recompile output, and runs `npm run lint:prompts` (see
+   [`.github/prompts/README.md` § Drift-guard Lint](../prompts/README.md#drift-guard-lint-npm-run-lintprompts)).
+4. The pinned gh-aw version lives inside `compile-agentic-workflows.yml`
+   (currently v0.69.3).
 
-```mermaid
-%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
-graph TB
-    subgraph "🌐 Data Sources"
-        EP["🏛️ European Parliament\nOpen Data Portal"]
-        WB["🌍 World Bank\nEconomic Data"]
-    end
+Only `.lock.yml` files are executed at runtime; `.md` files are source.
 
-    subgraph "📥 Data Ingestion Layer"
-        MCP["🔌 EP MCP Server\nv1.2.1"]
-        PRE["📥 Agentic Workflow\nData Download Stage"]
-    end
+#### `safeoutputs` semantics
 
-    subgraph "📚 Methodology Framework (v3.0)"
-        direction TB
-        GUIDE["🤖 AI-Driven Guide\n<i>Master Protocol</i>"]
-        M1["🏷️ Classification"]
-        M2["⚠️ Risk"]
-        M3["🎭 Threat"]
-        M4["💼 SWOT"]
-        M5["✍️ Style"]
-    end
+All article-generating workflows declare:
 
-    subgraph "📋 Template Library (8 Templates)"
-        T1["🔍 Per-File Intel"]
-        T2["🏷️ Classification"]
-        T3["⚠️ Risk"]
-        T4["💼 SWOT"]
-        T5["🎭 Threat"]
-        T6["📈 Significance"]
-        T7["👥 Stakeholder"]
-        T8["🧩 Synthesis"]
-    end
-
-    subgraph "🤖 AI Analysis Engine"
-        AI["🧠 GitHub Copilot\nCoding Agent\n<i>All analysis performed here</i>"]
-    end
-
-    subgraph "✅ Quality Assurance"
-        QG["✅ Quality Gate\n<i>Checklist + 5D score</i>"]
-    end
-
-    subgraph "📰 Output"
-        ART["📰 News Articles\n<i>14 languages</i>"]
-        DASH["📊 Analysis Artifacts\n<i>Political intelligence</i>"]
-    end
-
-    EP & WB --> MCP
-    MCP --> PRE
-    PRE -->|"raw data only"| AI
-    GUIDE & M1 & M2 & M3 & M4 & M5 -->|"frameworks"| AI
-    T1 & T2 & T3 & T4 & T5 & T6 & T7 & T8 -->|"templates"| AI
-    AI -->|"analysis artifacts"| QG
-    QG -->|"approved"| ART & DASH
-
-    style EP fill:#003399,color:#fff,stroke:#002266,stroke-width:2px
-    style WB fill:#003399,color:#fff,stroke:#002266,stroke-width:2px
-    style MCP fill:#6610f2,color:#fff,stroke:#520dc2,stroke-width:2px
-    style PRE fill:#6610f2,color:#fff,stroke:#520dc2,stroke-width:2px
-    style GUIDE fill:#dc3545,color:#fff,stroke:#b02a37,stroke-width:2px
-    style AI fill:#198754,color:#fff,stroke:#146c43,stroke-width:3px
-    style QG fill:#fd7e14,color:#fff,stroke:#ca6510,stroke-width:2px
-    style ART fill:#ffc107,color:#000,stroke:#cc9a06,stroke-width:2px
-    style DASH fill:#ffc107,color:#000,stroke:#cc9a06,stroke-width:2px
-    style M1 fill:#e9ecef,color:#212529,stroke:#adb5bd
-    style M2 fill:#e9ecef,color:#212529,stroke:#adb5bd
-    style M3 fill:#e9ecef,color:#212529,stroke:#adb5bd
-    style M4 fill:#e9ecef,color:#212529,stroke:#adb5bd
-    style M5 fill:#e9ecef,color:#212529,stroke:#adb5bd
-    style T1 fill:#cfe2ff,color:#084298,stroke:#9ec5fe
-    style T2 fill:#cfe2ff,color:#084298,stroke:#9ec5fe
-    style T3 fill:#cfe2ff,color:#084298,stroke:#9ec5fe
-    style T4 fill:#cfe2ff,color:#084298,stroke:#9ec5fe
-    style T5 fill:#cfe2ff,color:#084298,stroke:#9ec5fe
-    style T6 fill:#cfe2ff,color:#084298,stroke:#9ec5fe
-    style T7 fill:#cfe2ff,color:#084298,stroke:#9ec5fe
-    style T8 fill:#cfe2ff,color:#084298,stroke:#9ec5fe
+```yaml
+safe-outputs:
+  create-pull-request:
+    max: 1                 # default for every news-*.md
+    # news-article-generator.md is the documented `max: 8` exception
+    # news-translate.md uses `excluded-files:` + multi-call flush, exempt from single-PR rule
 ```
 
----
+Key rules (enforced by [`scripts/lint-prompts.js`](../../scripts/lint-prompts.js)):
 
-## 📁 Directory Structure
+- **`safeoutputs___create_pull_request` takes a synchronous git format-patch
+  snapshot AT CALL TIME.** It must therefore be called exactly once, at the
+  very end of the run, after all files are written. Calling it earlier
+  produces a PR with a partial working tree.
+- `news-translate.md` is the single exempt workflow (multi-call flush with
+  `max-patch-size` + re-calls).
+- Banned phrases CI-lint-enforced: `checkpoint pr`, `keep-alive`, `heartbeat`,
+  `progressive safe output`, `push_repo_memory`.
 
-```
-analysis/
-├── README.md                          ← This file (CRITICAL RULES — read first)
-├── methodologies/                     ← 6 detailed methodology guides
-│   ├── README.md                      ← Methodology catalog and pipeline overview
-│   ├── political-classification-guide.md  ← 7-dimension EP event classification
-│   ├── political-risk-methodology.md      ← Likelihood × Impact scoring for EP
-│   ├── political-threat-framework.md      ← Political Threat Landscape (6 dims) + 5 frameworks
-│   ├── political-swot-framework.md        ← Evidence-based SWOT for EP landscape
-│   ├── political-style-guide.md           ← Writing standards, depth levels, anti-patterns
-│   └── ai-driven-analysis-guide.md        ← Per-file AI analysis protocol and quality gates
-├── templates/                         ← 8 reusable analysis templates (AI fills these)
-│   ├── README.md                      ← Template catalog and selection guide
-│   ├── political-classification.md    ← Event classification template
-│   ├── risk-assessment.md             ← Political risk template
-│   ├── threat-analysis.md             ← Multi-framework threat template
-│   ├── swot-analysis.md               ← SWOT quadrant template
-│   ├── stakeholder-impact.md          ← Stakeholder impact template
-│   ├── significance-scoring.md        ← Significance scoring template
-│   ├── synthesis-summary.md           ← Daily synthesis template (aggregates all above)
-│   └── per-file-political-intelligence.md ← Per-file AI analysis template
-├── reference/                         ← 4 ISMS adaptation mappings
-│   ├── isms-classification-adaptation.md  ← ISMS → Political classification mapping
-│   ├── isms-risk-assessment-adaptation.md ← ISMS → Political risk mapping
-│   ├── isms-threat-modeling-adaptation.md ← ISMS → Political threat mapping
-│   └── isms-style-guide-adaptation.md     ← ISMS → Political writing standards mapping
-├── daily/                             ← Per-day analysis artifacts
-│   └── README.md                      ← Daily directory conventions
-├── weekly/                            ← Per-week aggregations
-│   └── README.md                      ← Weekly directory conventions
-├── monthly/                           ← Per-month strategic briefs
-│   └── README.md                      ← Monthly directory conventions
-└── YYYY-MM-DD/                        ← Date-stamped output directory
-    └── {article-type-slug}/           ← Per-workflow subdirectory
-        ├── manifest.json              ← Run metadata
-        ├── classification/            ← Political classification results
-        ├── threat-assessment/         ← Political Threat Landscape results
-        ├── risk-scoring/              ← Risk assessment results
-        ├── existing/                  ← Core analysis results
-        ├── documents/                 ← Per-document intelligence analysis
-        └── data/                      ← MCP data for this workflow
-```
+Rationale and exceptions: [`06-pr-and-safe-outputs.md`](../prompts/06-pr-and-safe-outputs.md).
+
+#### Common features across all news workflows
+- Uses `european-parliament-mcp-server@1.2.11` as primary data source
+- Mandatory date context establishment via `date -u` command
+- Supports 14 languages: en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh
+- HTML validation and quality checks before PR creation
+- Never commits generated files (sitemap, rss, index files)
+- Uses `safeoutputs___create_pull_request` (called exactly once) for PR creation
+- References the [prompts library index](../prompts/README.md) for shared rules, EP MCP tool reference, and the 5-stage analysis pipeline
+- References [`ai-driven-analysis-guide.md`](../../analysis/methodologies/ai-driven-analysis-guide.md) for the analysis protocol (10 steps, Rules 1–22)
+- References [`analysis/templates/README.md`](../../analysis/templates/README.md) for the 39-template artifact catalog
+- May apply minor TypeScript/script corrections (max 20 lines) to unblock generation
+
+**Security**: Read-only permissions by default, MCP data only from official EU Parliament / World Bank / IMF sources. Firewall policy via [`gh-aw-firewall` skill](../skills/gh-aw-firewall.md).
 
 ---
 
-## 📛 Canonical Artifact Naming Convention
+### 🏷️ Labeling & PR Automation
 
-All analysis pipeline methods produce files with **canonical filenames** defined
-in `ANALYSIS_METHOD_FILENAMES` (exported from
-`src/generators/pipeline/analysis-stage.ts`). Agentic workflows and TypeScript
-pipeline **MUST** use these exact names to ensure cross-session intelligence
-correlation is reliable.
+#### `labeler.yml`
+**Purpose**: Automatically label PRs based on file changes
 
-### Pipeline Method → Canonical Filename Mapping
+**Trigger**: 
+- `pull_request_target` events (opened, synchronize, reopened, edited)
 
-> The **Source Template** column identifies the corresponding template file in
-> `analysis/templates/` when a pipeline method has a direct template
-> counterpart. A dash (`—`) means the method has no direct template counterpart.
->
-> **Note:** The source template filename may differ from the canonical artifact
-> filename. Template files retain their original names in `analysis/templates/`;
-> the canonical filename reflects the method/output concept used by the
-> pipeline.
+**What it does**:
+1. Checks if required labels exist
+2. Applies labels based on `.github/labeler.yml` configuration
+3. Provides guidance if labels are missing
 
-| Analysis Method                | Subdirectory         | Canonical Filename               | Source Template                      |
-| ------------------------------ | -------------------- | -------------------------------- | ------------------------------------ |
-| `significance-classification`  | `classification/`    | `significance-classification.md` | `significance-scoring.md` ¹          |
-| `impact-matrix`                | `classification/`    | `impact-matrix.md`               | —                                    |
-| `actor-mapping`                | `classification/`    | `actor-mapping.md`               | —                                    |
-| `forces-analysis`              | `classification/`    | `forces-analysis.md`             | —                                    |
-| `political-threat-landscape`   | `threat-assessment/` | `political-threat-landscape.md`  | `threat-analysis.md`                 |
-| `actor-threat-profiling`       | `threat-assessment/` | `actor-threat-profiling.md`      | —                                    |
-| `consequence-trees`            | `threat-assessment/` | `consequence-trees.md`           | —                                    |
-| `legislative-disruption`       | `threat-assessment/` | `legislative-disruption.md`      | —                                    |
-| `risk-matrix`                  | `risk-scoring/`      | `risk-matrix.md`                 | `risk-assessment.md`                 |
-| `political-capital-risk`       | `risk-scoring/`      | `political-capital-risk.md`      | —                                    |
-| `quantitative-swot`            | `risk-scoring/`      | `quantitative-swot.md`           | `swot-analysis.md`                   |
-| `legislative-velocity-risk`    | `risk-scoring/`      | `legislative-velocity-risk.md`   | —                                    |
-| `agent-risk-workflow`          | `risk-scoring/`      | `agent-risk-workflow.md`         | —                                    |
-| `deep-analysis`                | `existing/`          | `deep-analysis.md`               | —                                    |
-| `stakeholder-analysis`         | `existing/`          | `stakeholder-impact.md`          | `stakeholder-impact.md`              |
-| `coalition-analysis`           | `existing/`          | `coalition-dynamics.md`          | —                                    |
-| `voting-patterns`              | `existing/`          | `voting-patterns.md`             | —                                    |
-| `cross-session-intelligence`   | `existing/`          | `cross-session-intelligence.md`  | —                                    |
-| `document-analysis` _(default)_ | `documents/`         | `document-analysis-index.md`     | `per-file-political-intelligence.md` |
+**Configuration**: `.github/labeler.yml` - defines label patterns
 
-> ¹ Template filenames are legacy and may not match the canonical artifact name.
-> The pipeline always produces the canonical filename listed in the table.
+**Security**: 
+- Uses `pull_request_target` for secure token access
+- Harden-runner with egress audit
+- Minimal permissions (read contents, write PRs)
 
-### Agentic Workflow Canonical Names
+**Labels Categories**:
+- Features & Enhancements
+- News & Content
+- Multi-language
+- UI/UX
+- Infrastructure
+- Code Quality
+- Security
+- Documentation
+- Dependencies
+- Testing
+- Custom Agents
 
-For high-level analysis artifacts produced by agentic workflows (AI-generated,
-not pipeline methods):
+#### `setup-labels.yml`
+**Purpose**: One-time workflow to create all repository labels
 
-| Analysis Type            | Canonical Filename            |
-| ------------------------ | ----------------------------- |
-| Intelligence Brief       | `intelligence-brief.md`       |
-| Political Landscape      | `political-landscape.md`      |
-| Risk Assessment          | `risk-assessment.md`          |
-| SWOT Analysis            | `swot-analysis.md`            |
-| Threat Assessment        | `threat-assessment.md`        |
-| Coalition Dynamics       | `coalition-dynamics.md`       |
-| Stakeholder Impact       | `stakeholder-impact.md`       |
-| Significance Scoring     | `significance-scoring.md`     |
-| Synthesis Summary        | `synthesis-summary.md`        |
-| Political Classification | `political-classification.md` |
+**Trigger**: Workflow dispatch (manual)
 
-### Naming Rules
+**Inputs**:
+- `recreate_all`: Delete existing labels and recreate (default: `false`)
 
-1. **No `ai-` prefix** — Older runs used `ai-deep-analysis.md`,
-   `ai-coalition-dynamics.md` etc. This is **deprecated**. Use the canonical
-   names above.
-2. **Kebab-case only** — All filenames are lowercase, hyphen-separated with
-   `.md` extension.
-3. **Align with the output concept** — Where a matching template exists in
-   `analysis/templates/`, use the template name only when the generated content
-   is intended to match that same template concept. Otherwise, use the canonical
-   filename for the analysis method/output concept.
-4. **Method name ≠ filename** — The `AnalysisMethod` identifier (e.g.
-   `stakeholder-analysis`) may differ from its canonical filename (e.g.
-   `stakeholder-impact.md`). Always use the `ANALYSIS_METHOD_FILENAMES`
-   constant.
+**What it does**:
+1. Creates or updates all project labels
+2. Sets consistent colors and descriptions
+3. Verifies labeler configuration
+4. Validates key labels exist
 
-### Legacy runs
+**Usage**: Run once when setting up the repository, or when adding new labels
 
-Historical analysis directories in older commits may retain previous filenames
-and structures. For example, some legacy runs use names such as
-`significance-assessment.md` or older `ai-*` prefixes instead of the canonical
-filenames listed above.
-
-Treat the canonical naming rules in this section as the standard for runs
-generated on or after the effective date of this document (`2026-03-31`), unless
-a later generator/version note states otherwise. When reviewing older date-based
-directories, check for legacy equivalents before concluding that an expected
-output is missing.
+**Security**: Issues and PRs write permission for label management
 
 ---
 
-## 🚨 Critical Rules for Agentic Workflows
+### 📦 Release Management
 
-### Rule 1: Mandatory Data Download — ALWAYS Before Analysis
+#### `release.yml`
+**Purpose**: Automated release creation with SBOM and attestations
 
-**Every agentic workflow MUST download EP data before deciding whether to
-produce an article.** Data collection is NEVER optional:
+**Trigger**: 
+- Workflow dispatch (manual)
+- Push to tags matching `v*`
 
-```mermaid
-%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
-flowchart TD
-    Start(["🚀 Workflow Triggered"]) --> Health["🏥 MCP Health Gate\nget_plenary_sessions"]
-    Health -->|"✅ Healthy"| Feeds["📡 Download ALL\nFeed Endpoints"]
-    Health -->|"❌ Failed 3x"| Abort(["⛔ Abort Run"])
-    Feeds --> Advisory["📋 Download Advisory\nFeeds MANDATORY"]
-    Advisory --> Analytics["🔬 Run Analytical\nContext Tools"]
-    Analytics --> Gate{"📰 Newsworthy\nItems Found?"}
-    Gate -->|"✅ Yes"| Analyze["🤖 Per-File Analysis\n+ Article Generation"]
-    Gate -->|"❌ No"| Noop["📝 noop\nwith analysis summary"]
+**Inputs**:
+- `version`: Version to release (vX.Y.Z format)
+- `prerelease`: Is this a pre-release? (default: `false`)
 
-    style Start fill:#0d6efd,stroke:#0a58ca,color:#fff
-    style Health fill:#6c757d,stroke:#565e64,color:#fff
-    style Feeds fill:#198754,stroke:#146c43,color:#fff
-    style Advisory fill:#20c997,stroke:#1aa179,color:#fff
-    style Analytics fill:#6f42c1,stroke:#59359a,color:#fff
-    style Gate fill:#ffc107,stroke:#cc9a06,color:#000
-    style Analyze fill:#fd7e14,stroke:#ca6510,color:#fff
-    style Noop fill:#adb5bd,stroke:#6c757d,color:#000
-    style Abort fill:#dc3545,stroke:#b02a37,color:#fff
-```
+**Jobs**:
+1. **Prepare**: Version management, validation, tagging
+2. **Build**: Create release artifacts, generate SBOM, create attestations
+3. **Release**: Draft release notes, create GitHub release
 
-**Key rules:**
+**Artifacts**:
+- `euparliamentmonitor-{version}.zip` - Full project archive
+- `euparliamentmonitor-{version}.spdx.json` - SBOM
+- `*.intoto.jsonl` - Build and SBOM attestations
 
-- `timeframe: "today"` first, fallback to `"one-week"` for empty/error/timeout
-  feeds
-- EP API can take 30–90+ seconds per call — NEVER abort slow responses
-- Partial data is better than no data — continue with other feeds on individual
-  failures
-- Even on `noop`, all data collection and analysis MUST complete first
+**Security**:
+- SLSA Build Level 3 compliance via attestations
+- SBOM generation with Anchore
+- Pinned action versions
+- Minimal permissions per job
 
-### Rule 2: Per-Workflow Directory Isolation — Never Overwrite
+**Configuration**: `.github/release-drafter.yml` - release notes template
 
-Every agentic workflow **MUST** write to its own separate directory:
+#### `release-drafter.yml` (Configuration)
+**Purpose**: Automated release notes generation
 
-```
-✅ news-breaking         → analysis/daily/2026-03-31/breaking/
-✅ news-weekly-review     → analysis/daily/2026-03-31/week-in-review/
-✅ news-committee-reports → analysis/daily/2026-03-31/committee-reports/
-✅ news-motions           → analysis/daily/2026-03-31/motions/
-❌ news-breaking overwrites news-weekly-review output → PROHIBITED
-```
+**Categories**:
+- 🚀 New Features
+- 🌍 EU Parliament Integration
+- 🌐 Multi-language Support
+- 🎨 UI/UX Improvements
+- 🏗️ Infrastructure & Performance
+- 🔄 Code Quality & Refactoring
+- 🔒 Security & Compliance
+- 📝 Documentation
+- 📦 Dependencies
+- 🐛 Bug Fixes
+- 🧪 Test Coverage Improvements
+- 🤖 Custom Agent Updates
+- ⚙️ Component Updates
 
-**An agentic workflow MUST NEVER overwrite analysis produced by another
-workflow.** Each workflow run creates new files in its own scope. If a file
-already exists, the workflow MUST skip it or create an addendum, never replace.
-
-```mermaid
-%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
-flowchart LR
-    A["Workflow starts"] --> B{"Does target folder<br/>already contain<br/>analysis files?"}
-    B -->|"No"| C["✅ Create analysis<br/>in own folder"]
-    B -->|"Yes — from SAME workflow"| D["✅ Update/append<br/>to own files only"]
-    B -->|"Yes — from DIFFERENT workflow"| E["🚫 NEVER touch<br/>other workflow's files"]
-
-    style C fill:#28a745,color:#fff
-    style D fill:#ffc107,color:#000
-    style E fill:#dc3545,color:#fff
-```
-
-### Rule 3: AI Must Read Methodology Then Analyse — Never Script
-
-**Scripts download data. AI performs ALL analysis.** This is a fundamental
-architectural principle.
-
-| ✅ Scripts MAY                                       | 🚫 Scripts MUST NEVER                                   |
-| ---------------------------------------------------- | ------------------------------------------------------- |
-| Download MCP data to workflow's `data/` subdirectory | Generate analysis prose, tables, or conclusions         |
-| Catalog pending files                                | Create SWOT entries, risk scores, or threat assessments |
-| Validate output format (quality gate)                | Fill template sections with generated content           |
-| Move/rename files                                    | Produce "placeholder" analysis that looks real          |
-
-AI agents must:
-
-1. **Read ALL 6 methodology documents** in `analysis/methodologies/` before any
-   analysis
-2. **Read ALL 8 templates** in `analysis/templates/` to understand output format
-3. **Analyse the actual data** — produce original intelligence, not scripted
-   boilerplate
-4. **Follow the templates exactly** — structured tables, Mermaid diagrams,
-   evidence citations, confidence labels
-
-> **🚫 "Scripted crap content" is REJECTED.** Generic summaries or templates
-> filled with placeholder text are unacceptable.
-
-**Fallback mechanism:** If AI analysis fails or produces unusable output
-(detected by the quality gate), the workflow should:
-
-1. Commit a minimal `data-download-manifest.md` documenting what was downloaded
-2. Flag the analysis as `pending` for the next workflow run
-3. Never commit placeholder or stub content that masquerades as genuine analysis
-
-### Rule 4: Political Threat Landscape — NOT STRIDE
-
-Software-centric threat models (STRIDE, DREAD, PASTA) are **explicitly
-rejected**. Use the **Political Threat Landscape** (6 dimensions):
-
-| Dimension                      | Monitors                                        | Example                            |
-| ------------------------------ | ----------------------------------------------- | ---------------------------------- |
-| 🔄 **Coalition Shifts**        | Political group realignment, defection patterns | EPP–S&D grand coalition weakening  |
-| 🔍 **Transparency Deficit**    | Access-to-information gaps, lobbying opacity    | Committee meeting minutes delayed  |
-| ⏪ **Policy Reversal**         | Legislative rollback, position changes          | Green Deal implementation weakened |
-| 🏛️ **Institutional Pressure**  | Inter-institutional friction, mandate conflicts | Council blocking EP amendments     |
-| 🚧 **Legislative Obstruction** | Procedure stalling, amendment flooding          | 1000+ amendments on AI Act         |
-| 🗳️ **Democratic Erosion**      | Participation decline, representation gaps      | EP election turnout decreasing     |
-
-Layer **Diamond Model**, **Attack Trees**, **PESTLE**, **Scenario Planning**,
-and **Kill Chain** for threats rated MODERATE or above.
-
-### Rule 5: Evidence-Based Only
-
-Every factual claim must have a source citation. Every non-factual assessment
-must have a confidence level (HIGH/MEDIUM/LOW). Opinion-only entries are
-REJECTED.
-
-### Rule 6: Deep Analysis — Not Shallow Summaries
-
-Every analysis file must demonstrate **genuine political intelligence depth**.
-The quality standard is [SWOT.md](../SWOT.md) and
-[Political Threat Framework](methodologies/political-threat-framework.md) — not
-brief summaries.
-
-**Minimum depth indicators:**
-
-- ≥ 3 evidence-backed claims per SWOT quadrant (with EP procedure ID or adopted
-  text citations)
-- ≥ 1 colour-coded Mermaid diagram per analysis file (with real data, not
-  placeholders)
-- Multi-perspective analysis (Grand Coalition, Opposition, Citizens, Industry,
-  International)
-- Explicit confidence labels on every analytical claim (HIGH/MEDIUM/LOW)
-- Forward-looking indicators (what to watch next, with specific triggers and
-  timelines)
-- Cross-document pattern identification (how this document relates to other
-  recent EP activity)
-
-### Rule 7: ALWAYS Commit Analysis — No Workflow Run Wasted
-
-Per
-[`ai-driven-analysis-guide.md` Rule 5](methodologies/ai-driven-analysis-guide.md),
-every agentic workflow run MUST produce and commit analysis artifacts. **No
-workflow run should ever be wasted.**
-
-- Analysis artifacts MUST be included in PRs — never deleted before PR creation
-- On quiet days with no article, create an **analysis-only PR** instead of
-  discarding analysis via noop
-- Before producing new analysis, check for existing analysis and
-  **improve/extend/correct/complete** it
-- Even the translation workflow must perform translation coverage and quality
-  analysis
-- Raw MCP data payloads (e.g. large JSON/XML responses) may be cleaned to
-  control PR size, but the `data/` directory itself MUST NOT be deleted
-  wholesale — all per-file analysis markdown (`*.analysis.md` and other `.md`
-  files stored alongside the data) MUST ALWAYS be preserved and committed
+**Version Resolution**:
+- `major`: Breaking changes
+- `minor`: Features, enhancements, new integrations
+- `patch`: Bugs, security, dependencies, docs (default)
 
 ---
 
-## 🤖 Workflow-Specific Data Requirements
+### 🔒 Security & Compliance
 
-Each agentic workflow downloads **unique data** tailored to its article type:
+#### `codeql.yml`
+**Purpose**: Automated security vulnerability scanning
 
-```mermaid
-%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
-flowchart TD
-    subgraph "📡 EP MCP Server v1.2.10"
-        F1["get_adopted_texts_feed"]
-        F2["get_events_feed"]
-        F3["get_procedures_feed"]
-        F4["get_meps_feed"]
-        F5["get_documents_feed"]
-        F6["get_committee_documents_feed"]
-        F7["get_plenary_documents_feed"]
-        F8["get_parliamentary_questions_feed"]
-        F9["get_plenary_session_documents_feed"]
-    end
+**Trigger**: 
+- Push to main branch
+- Pull requests to main
+- Schedule: Weekly on Mondays at 00:00 UTC
 
-    subgraph "📰 Agentic Workflows"
-        W1["🔴 Breaking News"]
-        W2["📋 Motions"]
-        W3["📜 Propositions"]
-        W4["🏛️ Committee Reports"]
-        W5["📅 Week Ahead"]
-        W6["📊 Weekly Review"]
-        W7["📆 Month Ahead"]
-        W8["📈 Monthly Review"]
-    end
+**What it does**:
+1. Initializes CodeQL with security-extended queries
+2. Analyzes JavaScript/TypeScript code
+3. Uploads SARIF results to GitHub Security
+4. Generates security alerts for vulnerabilities
 
-    F1 --> W1 & W2 & W3 & W6 & W8
-    F2 --> W1 & W5 & W7
-    F3 --> W1 & W2 & W3 & W5 & W6 & W7 & W8
-    F4 --> W1 & W2
-    F5 --> W1 & W3 & W4
-    F6 --> W4
-    F7 --> W4 & W5 & W6
-    F8 --> W1 & W2 & W6
-    F9 --> W5
+**Configuration**:
+- **Languages**: javascript-typescript
+- **Build Mode**: none (interpreted language)
+- **Queries**: security-extended, security-and-quality
+- **Ignored Paths**: news/, node_modules/, test files
 
-    style W1 fill:#dc3545,stroke:#b02a37,color:#fff
-    style W2 fill:#fd7e14,stroke:#ca6510,color:#fff
-    style W3 fill:#ffc107,stroke:#cc9a06,color:#000
-    style W4 fill:#198754,stroke:#146c43,color:#fff
-    style W5 fill:#0d6efd,stroke:#0a58ca,color:#fff
-    style W6 fill:#6f42c1,stroke:#59359a,color:#fff
-    style W7 fill:#d63384,stroke:#ab296a,color:#fff
-    style W8 fill:#0dcaf0,stroke:#0aa2c0,color:#000
+**Security**:
+- Security-events write permission
+- Results uploaded to GitHub Security tab
+- Integration with Dependabot alerts
+
+#### `dependabot.yml` (Configuration)
+**Purpose**: Automated dependency updates
+
+**Update Schedule**:
+- **npm**: Weekly on Mondays at 06:00
+- **GitHub Actions**: Weekly on Mondays at 07:00
+
+**Configuration**:
+- Open up to 10 PRs at once
+- Groups minor/patch updates
+- Automatic labeling with `dependencies`, `javascript`, `github_actions`
+- Commit message format: `build(deps): ...`
+- Reviewers/Assignees: Hack23
+
+**Security**: Enables automated security updates for vulnerabilities
+
+---
+
+### ✅ Test & Validation
+
+#### `test-and-report.yml`
+**Purpose**: Comprehensive PR validation and testing
+
+**Trigger**: 
+- Push to main branch
+- Pull requests to main
+
+**Jobs**:
+
+1. **Prepare**: Environment setup, dependency installation
+2. **Validation**: 
+   - HTML validation with htmlhint
+   - JavaScript syntax checking
+   - package.json script verification
+3. **Functional Tests**:
+   - News generation test
+   - Index generation test
+   - Sitemap generation test
+   - Generated HTML validation
+4. **Security Check**:
+   - npm audit for vulnerabilities
+   - Outdated dependency check
+5. **Report**: Generate summary of all test results
+
+**Artifacts**: Test output (news/, indexes, sitemap)
+
+**Security**: 
+- Read-only permissions by default
+- Write PRs for comments
+- Write security-events for audit results
+
+#### `e2e.yml`
+**Purpose**: Playwright end-to-end browser tests (14 languages, accessibility,
+visual regression) against the built static site.
+
+**Trigger**: Push + PR to `main`; manual dispatch.
+
+#### `reuse.yml`
+**Purpose**: REUSE 3.3 compliance check (every file declares an SPDX licence
+header or has a matching `.license` companion).
+
+**Trigger**: Push + PR to `main`.
+
+#### `scorecards.yml`
+**Purpose**: OSSF Scorecard weekly supply-chain security scan — publishes
+results to GitHub Security and the OSSF dashboard.
+
+**Trigger**: Weekly schedule + push to `main`.
+
+#### `dependency-review.yml`
+**Purpose**: GitHub dependency-review action — blocks PRs that introduce
+vulnerable or disallowed-licence dependencies.
+
+**Trigger**: Pull requests.
+
+#### `compile-agentic-workflows.yml`
+**Purpose**: Recompiles every `news-*.md` → `.lock.yml` with the pinned gh-aw
+version and fails the build if any committed lock file is stale. Also runs
+`node scripts/lint-prompts.js` to enforce the four drift-guard rules
+documented in [`.github/prompts/README.md`](../prompts/README.md).
+
+**Trigger**: Push + PR that touches any `.github/workflows/*.md`,
+`.github/agents/*.md`, `.github/prompts/*.md`, or `scripts/lint-prompts.js`.
+
+#### `agentics-maintenance.yml`
+**Purpose**: Scheduled maintenance workflow for gh-aw housekeeping (token
+rotation checks, cache cleanup, upstream-version drift diagnostics).
+
+**Trigger**: Schedule.
+
+---
+
+### 🚀 Deployment
+
+#### `deploy-s3.yml`
+**Purpose**: Deploy the built static site (HTML, CSS, JS, 14-language news
+articles) to the production S3 / CloudFront origin.
+
+**Trigger**: Push to `main` + manual dispatch.
+
+**Security**: OIDC-assumed AWS role (no long-lived keys); harden-runner with
+strict egress; pinned action versions.
+
+---
+
+## Security Standards
+
+All workflows follow Hack23 ISMS security requirements:
+
+### Pinned Action Versions
+Every action uses SHA256 pinning for security:
+```yaml
+uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 ```
 
-### Detailed Workflow Data Matrix
-
-| Workflow                   | Slug                | Primary Feeds                                                                                              | Analytical Tools                                                                                                                                           | Unique Focus                                                                              |
-| -------------------------- | ------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| **news-breaking**          | `breaking`          | adopted_texts, events, procedures, meps (today→one-week fallback)                                          | detect_voting_anomalies, analyze_coalition_dynamics, early_warning_system, generate_political_landscape                                                    | **⚡ Real-time events**: Items published TODAY only; 6-hour cycle                         |
-| **news-motions**           | `motions`           | adopted_texts, parliamentary_questions, meps, procedures                                                   | detect_voting_anomalies, analyze_coalition_dynamics, get_voting_records, compare_political_groups                                                          | **🗳️ Specific resolutions**: Individual motion IDs, vote breakdowns by group              |
-| **news-propositions**      | `propositions`      | procedures, documents, adopted_texts, plenary_documents                                                    | search_documents, monitor_legislative_pipeline, track_legislation, analyze_legislative_effectiveness                                                       | **📜 Legislative tracking**: Procedure stages, committee assignments, rapporteur analysis |
-| **news-committee-reports** | `committee-reports` | committee_documents, plenary_documents, adopted_texts, procedures                                          | get_committee_info, monitor_legislative_pipeline, analyze_legislative_effectiveness                                                                        | **🏛️ Committee deep-dive**: Per-committee output, meeting agendas, document analysis      |
-| **news-week-ahead**        | `week-ahead`        | events, procedures, plenary_documents, plenary_session_documents                                           | get_plenary_sessions (future), get_committee_info, monitor_legislative_pipeline, generate_political_landscape                                              | **📅 Prospective**: Next week's agenda, scheduled votes, upcoming hearings                |
-| **news-weekly-review**     | `week-in-review`    | adopted_texts, procedures, plenary_documents, parliamentary_questions                                      | get_voting_records, detect_voting_anomalies, generate_political_landscape                                                                                  | **📊 Retrospective**: Week's accomplishments, vote outcomes, legislative progress         |
-| **news-month-ahead**       | `month-ahead`       | events, procedures, plenary_documents, committee_documents, adopted_texts, plenary_session_documents, meps | get_plenary_sessions, get_committee_info, monitor_legislative_pipeline, generate_political_landscape, compare_political_groups, analyze_country_delegation | **📆 Strategic outlook**: Upcoming legislative calendar, committee programming            |
-| **news-monthly-review**    | `month-in-review`   | adopted_texts, procedures, plenary_documents, parliamentary_questions                                      | get_voting_records, detect_voting_anomalies, generate_political_landscape, compare_political_groups, analyze_legislative_effectiveness                     | **📈 Comprehensive review**: Month's legislative output, political trends                 |
-| **news-translate**         | (n/a)               | —                                                                                                          | —                                                                                                                                                          | **🌐 Translation only**: Translates EN articles to 13 languages                           |
-
-### Per-Document Unique Intelligence
-
-For **high-significance documents** (significance score ≥ 7.0), workflows
-produce **document-specific deep dives** that only that workflow type can
-generate:
-
-| Workflow              | EP Data Type                         | Unique Deep-Dive Analysis                                                                                                             |
-| --------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------- |
-| **Breaking News**     | Adopted texts, Emergency events      | Real-time significance assessment, political temperature spike detection, urgency classification with 6-hour refresh                  |
-| **Motions**           | Legislative resolutions, Positions   | Per-resolution vote breakdown by political group, defection pattern analysis, cross-party alignment maps                              |
-| **Propositions**      | Legislative procedures               | Pipeline stage tracking (committee → plenary → trilogue → adoption), rapporteur influence mapping, amendment success rate analysis    |
-| **Committee Reports** | Committee documents, Opinions        | Committee-level productivity metrics, cross-committee workload comparison, meeting frequency analysis, rapporteur assignment patterns |
-| **Week Ahead**        | Calendar events, Upcoming sessions   | Scheduled vote significance pre-assessment, debate intensity forecast, committee hearing preview                                      |
-| **Weekly Review**     | Aggregated weekly output             | Week-over-week trend delta, cross-workflow pattern detection, political narrative arc tracking                                        |
-| **Month Ahead**       | Forward calendar, Procedure pipeline | Strategic legislative calendar, major policy decision forecast, committee programming analysis                                        |
-| **Monthly Review**    | Comprehensive monthly data           | Legislative throughput metrics, political group productivity rankings, Grand Coalition scorecard, inter-temporal trend synthesis      |
-
----
-
-## 📊 Per-File AI Analysis (Primary Analysis Mode)
-
-The primary analysis mode is **per-file AI analysis**: for every downloaded EP
-MCP data file, the AI agent produces a deep analysis markdown file stored
-alongside it.
-
-```mermaid
-%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
-flowchart LR
-    A["📥 EP MCP\nDownload"] --> B["📋 Catalog\npending files"]
-    B --> C["📖 Read ALL 6\nmethodology docs"]
-    C --> D["🔍 Per-file\ndeep analysis"]
-    D --> E["💾 Save\nid.analysis.md"]
-    E --> F["📊 Compose\ndaily synthesis"]
-    F --> G["📅 Weekly/Monthly\naggregation"]
-
-    style A fill:#003399,stroke:#002266,color:#fff
-    style B fill:#0d6efd,stroke:#0a58ca,color:#fff
-    style C fill:#6f42c1,stroke:#59359a,color:#fff
-    style D fill:#198754,stroke:#146c43,color:#fff
-    style E fill:#20c997,stroke:#1aa179,color:#fff
-    style F fill:#fd7e14,stroke:#ca6510,color:#fff
-    style G fill:#dc3545,stroke:#b02a37,color:#fff
+### Harden Runner
+All workflows include StepSecurity Harden Runner:
+```yaml
+- name: Harden Runner
+  uses: step-security/harden-runner@5ef0c079ce82195b2a36a210272d6b661572d83e # v2.14.2
+  with:
+    egress-policy: audit
 ```
 
-| Step | Action                                       | Quality Check                                        |
-| :--: | -------------------------------------------- | ---------------------------------------------------- |
-|  1   | Download EP MCP data to `data/` subdirectory | All mandatory feeds queried                          |
-|  2   | Catalog files needing analysis               | No file missed                                       |
-|  3   | AI reads ALL 6 methodology docs              | Evidence: methodology citations in output            |
-|  4   | Per-file deep analysis following template    | Mermaid diagrams, evidence tables, confidence labels |
-|  5   | Save analysis alongside data file            | `{id}.analysis.md` next to `{id}.json`               |
-|  6   | Compose daily synthesis                      | Aggregates all per-file analyses                     |
-|  7   | Weekly/monthly aggregation                   | Temporal pattern detection                           |
+### Minimal Permissions
+Workflows follow principle of least privilege:
+```yaml
+permissions: read-all  # Default
 
-### Quality Gate
-
-Every per-file analysis must score **≥ 7.0/10** across 5 weighted dimensions:
-
-| Dimension                   | Weight | Minimum | Description                                            |
-| --------------------------- | ------ | ------- | ------------------------------------------------------ |
-| **Evidence density**        | 30%    | 6/10    | Citations per claim, source variety                    |
-| **Analytical depth**        | 25%    | 6/10    | Multi-framework application, insight quality           |
-| **Structural completeness** | 20%    | 7/10    | All template sections filled, Mermaid diagrams present |
-| **Political relevance**     | 15%    | 6/10    | EP-specific insights, stakeholder identification       |
-| **Writing quality**         | 10%    | 7/10    | Style guide compliance, clarity, no boilerplate        |
-
----
-
-## 📐 Methodology & Template Cross-Reference
-
-### Methodology Documents (AI Must Read Before Analysing)
-
-| Priority | Document                                                                             | Key Content                                                                                                        |
-| :------: | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
-|   🔴 1   | [political-swot-framework.md](methodologies/political-swot-framework.md)             | Evidence hierarchy, confidence levels, temporal decay, aggregation                                                 |
-|   🔴 2   | [political-risk-methodology.md](methodologies/political-risk-methodology.md)         | 5×5 Likelihood × Impact matrix, EU calibration examples                                                            |
-|   🔴 3   | [political-threat-framework.md](methodologies/political-threat-framework.md)         | Political Threat Landscape (6 dimensions) + Diamond Model + Attack Trees + PESTLE + Scenario Planning + Kill Chain |
-|   🟠 4   | [political-classification-guide.md](methodologies/political-classification-guide.md) | Sensitivity levels, EP domain taxonomy, urgency matrix                                                             |
-|   🟠 5   | [political-style-guide.md](methodologies/political-style-guide.md)                   | Writing standards, 3 depth levels, evidence density, anti-patterns                                                 |
-|   🟠 6   | [ai-driven-analysis-guide.md](methodologies/ai-driven-analysis-guide.md)             | Per-file protocol, quality gates, document-type focus, conflict resolution                                         |
-
-### Template Selection by Data Category
-
-| MCP Data Category      | Primary Templates                                 | Supporting Templates     |
-| ---------------------- | ------------------------------------------------- | ------------------------ |
-| `adopted-texts/`       | Political Classification + Risk Assessment        | Significance Scoring     |
-| `committee-documents/` | Stakeholder Impact + Risk Assessment              | Political Classification |
-| `procedures/`          | Risk Assessment + SWOT Analysis                   | Significance Scoring     |
-| `votes/`               | Political Classification + SWOT + Threat Analysis | Risk Assessment          |
-| `speeches/`            | Stakeholder Impact + Significance Scoring         | Political Classification |
-| `questions/`           | Political Classification + Significance Scoring   | Stakeholder Impact       |
-| `events/`              | Significance Scoring + Risk Assessment            | Stakeholder Impact       |
-| `meps/`                | Stakeholder Impact + Political Classification     | Significance Scoring     |
-| `plenary-documents/`   | Political Classification + Risk Assessment        | All templates            |
-
----
-
-## 📅 Temporal Aggregation
-
-```mermaid
-%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
-flowchart TD
-    D["📅 Daily per-workflow analysis\nanalysis/YYYY-MM-DD/slug/"] --> W["📅 Weekly aggregation\nanalysis/weekly/YYYY-WNN/"]
-    W --> M["📅 Monthly strategic brief\nanalysis/monthly/YYYY-MM/"]
-    D --> SYN["🤖 Cross-article synthesis\nanalysis/YYYY-MM-DD/*.md"]
-    SYN --> W
-
-    style D fill:#198754,stroke:#146c43,color:#fff
-    style W fill:#0d6efd,stroke:#0a58ca,color:#fff
-    style M fill:#6f42c1,stroke:#59359a,color:#fff
-    style SYN fill:#fd7e14,stroke:#ca6510,color:#fff
+jobs:
+  specific-job:
+    permissions:
+      contents: read
+      pull-requests: write  # Only when needed
 ```
 
-| Scope         | Format       | Example              | Cadence                           |
-| ------------- | ------------ | -------------------- | --------------------------------- |
-| Daily         | `YYYY-MM-DD` | `2026-03-31/`        | Every workflow run                |
-| Weekly        | `YYYY-WNN`   | `2026-W14/`          | `news-weekly-review` aggregation  |
-| Monthly       | `YYYY-MM`    | `2026-03/`           | `news-monthly-review` aggregation |
-| Cross-article | `*.md`       | `daily-synthesis.md` | Date root synthesis               |
+### Dependency Management
+- Dependabot enabled for automated updates
+- Weekly schedule to minimize disruption
+- Grouped updates to reduce PR volume
+- Automated security updates prioritized
 
 ---
 
-## 🔒 ISMS Adaptation Reference
+## Workflow Maintenance
 
-The `reference/` directory maps ISMS security frameworks to political
-intelligence:
+### Adding New Workflows
 
-| Reference Document                                                                 | Source ISMS Document                                                                                             | Political Adaptation                                                                 |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| [isms-classification-adaptation.md](reference/isms-classification-adaptation.md)   | [CLASSIFICATION.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)                           | Confidentiality → Sensitivity, Integrity → Accuracy, Availability → Urgency          |
-| [isms-risk-assessment-adaptation.md](reference/isms-risk-assessment-adaptation.md) | [Risk_Assessment_Methodology.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Risk_Assessment_Methodology.md) | CIA Triad → Political Triad (Accountability, Policy Fidelity, Democratic Continuity) |
-| [isms-threat-modeling-adaptation.md](reference/isms-threat-modeling-adaptation.md) | [Threat_Modeling.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md)                         | Political Threat Landscape + Attack Trees + Diamond Model                            |
-| [isms-style-guide-adaptation.md](reference/isms-style-guide-adaptation.md)         | [STYLE_GUIDE.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/STYLE_GUIDE.md)                                 | ISMS writing standards → Political intelligence writing standards                    |
+1. Create workflow file in `.github/workflows/`
+2. Pin all action versions (use SHA + tag comment)
+3. Include harden-runner as first step
+4. Set minimal permissions
+5. Add to this README with documentation
+6. Test with workflow dispatch or PR
+
+### Updating Workflows
+
+1. Test changes in feature branch
+2. Use Dependabot or manual SHA updates
+3. Verify action compatibility
+4. Update documentation in this README
+5. Ensure ISMS compliance maintained
+
+### Workflow Best Practices
+
+- **Use caching**: npm dependencies, build artifacts
+- **Fail fast**: Set `fail-fast: false` only when needed
+- **Timeout**: Set reasonable timeouts (360 minutes max)
+- **Artifacts**: Upload test results and build outputs
+- **Summaries**: Use `$GITHUB_STEP_SUMMARY` for results
+- **Secrets**: Never log or expose secrets
+- **Permissions**: Request only what's needed
 
 ---
 
-## 📚 Related Documentation
+## Troubleshooting
 
-| Document                      | Focus                               | Link                                                    |
-| ----------------------------- | ----------------------------------- | ------------------------------------------------------- |
-| 📐 **Analysis Methodologies** | 6 political intelligence frameworks | [methodologies/README.md](methodologies/README.md)      |
-| 📋 **Analysis Templates**     | 8 structured analysis templates     | [templates/README.md](templates/README.md)              |
-| 🏛️ **Architecture**           | C4 system architecture              | [ARCHITECTURE.md](../ARCHITECTURE.md)                   |
-| ⚙️ **Workflows**              | CI/CD and agentic workflows         | [WORKFLOWS.md](../WORKFLOWS.md)                         |
-| 🚀 **Future Workflows**       | Workflow evolution roadmap          | [FUTURE_WORKFLOWS.md](../FUTURE_WORKFLOWS.md)           |
-| 🛡️ **Threat Model**           | Platform threat analysis            | [THREAT_MODEL.md](../THREAT_MODEL.md)                   |
-| 💼 **SWOT Analysis**          | Strategic assessment                | [SWOT.md](../SWOT.md)                                   |
-| 🔐 **Security Architecture**  | Security controls                   | [SECURITY_ARCHITECTURE.md](../SECURITY_ARCHITECTURE.md) |
+### Labeler Not Working
+**Problem**: Labels not being applied to PRs
+
+**Solution**:
+1. Run `setup-labels.yml` workflow first
+2. Check `.github/labeler.yml` syntax
+3. Verify label names match in both files
+4. Check workflow permissions include `pull-requests: write`
+
+### Release Workflow Failing
+**Problem**: Release creation fails
+
+**Solution**:
+1. Ensure semantic version format: `vX.Y.Z`
+2. Check if tag already exists
+3. Verify npm version command compatibility
+4. Check artifact generation succeeds
+
+### News Generation Issues
+**Problem**: News articles not generated or PR not created
+
+**Solution**:
+1. Check MCP server connectivity (European Parliament API availability)
+2. Verify `date -u` returns correct date context
+3. Ensure `npm ci && npm run build` succeeds
+4. Check `safeoutputs___create_pull_request` was called (not raw git commands)
+5. Review workflow logs for MCP health gate failures
+6. Never commit generated files (sitemap, rss, index files) — only article HTML
+
+### CodeQL Analysis Failing
+**Problem**: CodeQL analysis encounters errors
+
+**Solution**:
+1. Check JavaScript syntax in all .js files
+2. Verify no build step required (build-mode: none)
+3. Review ignored paths configuration
+4. Check CodeQL query compatibility
+
+### Dependabot PRs Not Created
+**Problem**: No Dependabot PRs appearing
+
+**Solution**:
+1. Verify `.github/dependabot.yml` syntax
+2. Check repository settings have Dependabot enabled
+3. Ensure `package-lock.json` exists and is committed
+4. Verify schedule configuration
 
 ---
 
-**Document Control:**
+## Workflow Triggers Reference
 
-- **Repository:** https://github.com/Hack23/euparliamentmonitor
-- **Path:** `/analysis/README.md`
-- **Format:** Markdown
-- **Classification:** Public
-- **Next Review:** 2026-06-30
+| Workflow | Push | PR | Schedule | Manual |
+|----------|------|----|---------:|-------:|
+| copilot-setup-steps | ✅ | ✅ | ❌ | ✅ |
+| news-article-generator | ❌ | ❌ | ❌ | ✅ |
+| news-breaking | ❌ | ❌ | ❌ | ✅ |
+| news-committee-reports | ❌ | ❌ | ✅ Mon-Fri 04:00 | ✅ |
+| news-week-ahead | ❌ | ❌ | ✅ Fri 07:00 | ✅ |
+| news-weekly-review | ❌ | ❌ | ✅ Sat 09:00 | ✅ |
+| news-month-ahead | ❌ | ❌ | ✅ 1st 08:00 | ✅ |
+| news-monthly-review | ❌ | ❌ | ✅ 28th 10:00 | ✅ |
+| news-motions | ❌ | ❌ | ✅ Mon-Fri 06:00 | ✅ |
+| news-propositions | ❌ | ❌ | ✅ Mon-Fri 05:00 | ✅ |
+| news-translate | ❌ | ✅ | ❌ | ✅ |
+| news-translate-reconciler | ❌ | ✅ | ❌ | ✅ |
+| labeler | ❌ | ✅ | ❌ | ❌ |
+| setup-labels | ❌ | ❌ | ❌ | ✅ |
+| release | ✅ Tags | ❌ | ❌ | ✅ |
+| codeql | ✅ main | ✅ | ✅ Weekly | ❌ |
+| test-and-report | ✅ main | ✅ | ❌ | ❌ |
+| e2e | ✅ main | ✅ | ❌ | ✅ |
+| reuse | ✅ main | ✅ | ❌ | ❌ |
+| scorecards | ✅ main | ❌ | ✅ Weekly | ❌ |
+| dependency-review | ❌ | ✅ | ❌ | ❌ |
+| compile-agentic-workflows | ✅ (path-scoped) | ✅ (path-scoped) | ❌ | ✅ |
+| agentics-maintenance | ❌ | ❌ | ✅ | ✅ |
+| deploy-s3 | ✅ main | ❌ | ❌ | ✅ |
+
+---
+
+## ISMS Compliance
+
+### ISO 27001 Controls
+- **A.14.2.5** - Secure System Development Principles
+- **A.14.2.8** - System Security Testing
+- **A.14.2.9** - System Acceptance Testing
+
+### NIST CSF
+- **PR.DS-6** - Integrity Checking Mechanisms
+- **DE.CM-4** - Malicious Code Detection
+- **DE.CM-8** - Vulnerability Scans
+
+### CIS Controls
+- **16.3** - Establish a Process for Software Updates
+- **16.4** - Automated Software Patch Management
+- **16.11** - Leverage Vetted Modules or Services
+
+---
+
+## Support
+
+For workflow issues or questions:
+- **GitHub Issues**: https://github.com/Hack23/euparliamentmonitor/issues
+- **Workflow Runs**: https://github.com/Hack23/euparliamentmonitor/actions
+- **Security Alerts**: https://github.com/Hack23/euparliamentmonitor/security
+
+---
+
+**Last Updated**: 2026-03-02  
+**Maintained By**: Hack23 DevOps Team

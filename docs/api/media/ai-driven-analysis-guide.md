@@ -1,0 +1,397 @@
+<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+
+<p align="center">
+  <img src="https://hack23.com/icon-192.png" alt="Hack23 Logo" width="192" height="192">
+</p>
+
+<h1 align="center">🤖 AI-Driven Analysis Guide</h1>
+
+<p align="center">
+  <strong>📊 The 10-Step Protocol Every Agentic Workflow Follows to Produce Reference-Quality Political Intelligence</strong><br>
+  <em>🎯 Clear · Step-by-Step · Positive · Color-Coded Mermaid · Deep Political Intelligence</em>
+</p>
+
+<p align="center">
+  <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-5.0-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--21-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
+</p>
+
+**📋 Document Owner:** CEO | **📄 Version:** 5.0 | **📅 Last Updated:** 2026-04-21 (UTC)
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
+**🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
+
+---
+
+## 🎯 Purpose
+
+This guide is the **single authoritative protocol** every agentic workflow (`news-breaking`, `news-weekly-review`, `news-monthly-review`, `news-week-ahead`, `news-month-ahead`, `news-committee-reports`, `news-motions`, `news-propositions`, `news-article-generator`, `news-translate`) follows to turn European Parliament MCP data into reference-quality political intelligence.
+
+The guide is **positive and step-by-step**: each step describes exactly what to produce. Detailed per-artifact construction rules live in [`per-artifact-methodologies.md`](per-artifact-methodologies.md); the master map of every artifact lives in [`artifact-catalog.md`](artifact-catalog.md).
+
+---
+
+## 🗺️ The 10-Step Protocol at a Glance
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","errorBkgColor":"#D32F2F","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
+flowchart LR
+    S1["1️⃣ Prepare<br/>run scope"] --> S2["2️⃣ Read<br/>methodologies"]
+    S2 --> S3["3️⃣ Collect<br/>EP MCP data"]
+    S3 --> S4["4️⃣ Classify<br/>+ actor-map"]
+    S4 --> S5["5️⃣ Score risk<br/>+ SWOT"]
+    S5 --> S6["6️⃣ Model threats<br/>+ scenarios"]
+    S6 --> S7["7️⃣ Synthesize<br/>+ cross-run"]
+    S7 --> S8["8️⃣ Decide article<br/>title + desc"]
+    S8 --> S9["9️⃣ Pass 2<br/>improve everything"]
+    S9 --> S10["🔟 Validate<br/>+ commit + PR"]
+
+    style S1 fill:#1565C0,color:#ffffff
+    style S2 fill:#0288D1,color:#ffffff
+    style S3 fill:#2E7D32,color:#ffffff
+    style S4 fill:#2E7D32,color:#ffffff
+    style S5 fill:#FF9800,color:#000000
+    style S6 fill:#D32F2F,color:#ffffff
+    style S7 fill:#7B1FA2,color:#ffffff
+    style S8 fill:#7B1FA2,color:#ffffff
+    style S9 fill:#FFC107,color:#000000
+    style S10 fill:#2E7D32,color:#ffffff
+```
+
+Colour key (used in every diagram in the analysis library):
+
+| Colour | Role |
+|---|---|
+| 🔵 Blue `#1565C0` | Input / scope / primary |
+| 🔷 Light-blue `#0288D1` | Reference material / reading |
+| 🟢 Green `#2E7D32` | Safe / approved / completed |
+| 🟠 Orange `#FF9800` | Risk / caution |
+| 🔴 Red `#D32F2F` | Threat / critical |
+| 🟣 Purple `#7B1FA2` | Synthesis / higher-order intelligence |
+| 🟡 Yellow `#FFC107` | Pending / pass-2 / note |
+
+---
+
+## 1️⃣ Step 1 — Prepare the Run Scope
+
+Establish where this run writes and what it produces.
+
+1. Resolve `ARTICLE_TYPE_SLUG` from the workflow (e.g. `breaking`, `week-ahead`). Valid slugs are the `ArticleCategory` values in `src/types/common.ts`.
+2. Resolve `ANALYSIS_DIR = analysis/daily/${ARTICLE_DATE}/${ARTICLE_TYPE_SLUG}-run${RUN_ID}/`. The run-id suffix is set by the workflow so parallel and repeat runs each get their own folder.
+3. Create the five sub-folders: `intelligence/`, `classification/`, `risk-scoring/`, `threat-assessment/`, `documents/`.
+4. Initialize `manifest.json` with `{ articleType, articleDate, runId, files: { intelligence: [], classification: [], risk_scoring: [], threat_assessment: [], documents: [] }, startedAt }`.
+5. Scope the run's `git add` to `${ANALYSIS_DIR}` (plus the `news/` file the article generator will later emit). This keeps every workflow in its own lane.
+
+**Product of Step 1:** an empty, isolated run root with a valid manifest stub.
+
+---
+
+## 2️⃣ Step 2 — Read the Methodology Library
+
+Before any analysis, read these documents in order. This is expected to take 4–6 minutes of active reading.
+
+| Priority | Document | What it gives you |
+|:---:|---|---|
+| P1 | [`artifact-catalog.md`](artifact-catalog.md) | Master map of every artifact this run will produce |
+| P1 | [`per-artifact-methodologies.md`](per-artifact-methodologies.md) | Construction rules for each artifact |
+| P1 | [`political-swot-framework.md`](political-swot-framework.md) | Evidence hierarchy, confidence levels, TOWS |
+| P1 | [`political-risk-methodology.md`](political-risk-methodology.md) | 5×5 Likelihood × Impact, Bayesian update |
+| P1 | [`political-threat-framework.md`](political-threat-framework.md) | Threat Landscape, Diamond, Attack Trees, Kill Chain |
+| P1 | [`political-classification-guide.md`](political-classification-guide.md) | 7-dimension event classification, significance rubric |
+| P2 | [`political-style-guide.md`](political-style-guide.md) | Writing standards, evidence density, depth levels |
+| P2 | [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md) + [`imf-indicator-mapping.md`](imf-indicator-mapping.md) | Economic-context indicator selection |
+| P2 | All nine templates in [`../templates/`](../templates/README.md) | Output shapes to fill with analysis |
+
+**Product of Step 2:** the mental model of the analytical pipeline. Emit the line `METHODOLOGIES_READ: ok` in the workflow log before proceeding.
+
+---
+
+## 3️⃣ Step 3 — Collect Complete EP MCP Data
+
+Download the complete data your article type needs — not metadata, not counts.
+
+1. Source `scripts/mcp-setup.sh` to configure the gateway. Source `scripts/wb-mcp-probe.sh` and `scripts/imf-mcp-probe.sh` when economic context is required.
+2. For each feed your article type uses (per the SHARED_PROMPT_PATTERNS workflow table), attempt the feed endpoint first (e.g. `get_adopted_texts_feed`), then fall back to the dated endpoint (`get_adopted_texts({year, limit})`) if the feed returns 4xx/5xx/timeout.
+3. Persist every raw response under `${ANALYSIS_DIR}/data/` (JSON / NDJSON / CSV / XML). Store complete documents — title, procedure reference, adoption date, document ID, committees, related procedures, full body where available.
+4. For any coalition claim, fetch the corresponding `get_voting_records` for the cited plenary session. Where EP roll-call data has not yet been published, mark the claim LOW confidence and note the publication delay.
+5. Record every endpoint attempt (success, degraded, failed, data-age) — this feeds `intelligence/mcp-reliability-audit.md` in Step 7.
+
+**Product of Step 3:** a populated `data/` directory and an endpoint ledger.
+
+---
+
+## 4️⃣ Step 4 — Classify Events and Map Actors
+
+Turn raw data into a labelled fact layer.
+
+1. For every candidate event / document: apply [`political-classification-guide.md`](political-classification-guide.md) and write a row in `classification/significance-classification.md` (5-dimension rubric + publish / hold decision).
+2. Build `classification/actor-mapping.md` — ≥12 named actors with influence weights (see [`per-artifact-methodologies.md §actor-mapping`](per-artifact-methodologies.md#actor-mapping)).
+3. Build `classification/forces-analysis.md` — Lewin force-field on the period's dominant issue.
+4. Build `classification/impact-matrix.md` — event × stakeholder grid with 🟢/🟡/🔴/⚪ cells.
+5. Build `documents/document-analysis-index.md` — one row per downloaded document with its per-file analysis path and status.
+6. Register every artifact in `manifest.files.classification[]` and `manifest.files.documents[]`.
+
+**Product of Step 4:** a complete fact layer — the reader can tell *what happened, who acted, and who is affected* from these four files alone.
+
+---
+
+## 5️⃣ Step 5 — Score Risk and SWOT
+
+Turn facts into quantified political risk.
+
+1. Write `risk-scoring/risk-matrix.md` — 5×5 Likelihood × Impact with ≥5 named political risks, trend vs. prior run, Accept/Prepare/Monitor decisions (per [`political-risk-methodology.md`](political-risk-methodology.md)).
+2. Write `risk-scoring/quantitative-swot.md` — 3+3+3+3 SWOT with numeric weights + TOWS cross-quadrant strategies (per [`political-swot-framework.md`](political-swot-framework.md)). Every item gets ≥80 words of evidence and a severity badge.
+3. Write `risk-scoring/political-capital-risk.md` when the run touches named rapporteur / chair / group-leader positions.
+4. Write `risk-scoring/legislative-velocity-risk.md` when the run covers pipeline throughput (weekly / monthly reviews, week / month ahead).
+5. Register artifacts in `manifest.files.risk_scoring[]`.
+
+**Product of Step 5:** every qualitative claim from Step 4 is now anchored in numbers.
+
+---
+
+## 6️⃣ Step 6 — Model Threats, Scenarios, and Economic Context
+
+Turn quantified risk into forward-looking intelligence.
+
+1. Write `intelligence/threat-model.md` — Diamond Model + Attack Trees + Kill Chain on the period's top democratic threats (per [`political-threat-framework.md`](political-threat-framework.md)). Political threats only, never software-centric.
+2. Write `intelligence/political-threat-landscape.md` (the 6-dimension Threat Landscape view). For threat-heavy article types, also expand into `threat-assessment/actor-threat-profiles.md`, `threat-assessment/consequence-trees.md`, `threat-assessment/legislative-disruption.md`, and `threat-assessment/political-stride-assessment.md`.
+3. Write `intelligence/scenario-forecast.md` — ≥3 probability-weighted scenarios (baseline → branching `flowchart TD` in green / orange / red) with early-warning indicators and date-bounded triggers.
+4. Write `intelligence/pestle-analysis.md` — six-dimension (P·E·S·T·L·E) scan with pressure ratings.
+5. Write `intelligence/economic-context.md` using World Bank and / or IMF data (Wave-2 OR-gate — either source satisfies the requirement; see [`.github/skills/imf-data-integration.md`](../../.github/skills/imf-data-integration.md)). Bridge every indicator to a named EP policy topic from the run.
+6. Write `intelligence/coalition-dynamics.md` — group cohesion + alliance pairs using `get_voting_records` / `analyze_coalition_dynamics` / `compare_political_groups`.
+7. Write `intelligence/wildcards-blackswans.md` — ≥5 low-probability, high-impact wildcards on a Probability × Impact `quadrantChart`.
+8. Write `intelligence/historical-baseline.md` — anchor every current score / metric in 30-day and 90-day baselines; mark "first occurrence", "highest since", "return to baseline" findings.
+9. Register artifacts in `manifest.files.intelligence[]` and `manifest.files.threat_assessment[]`.
+
+**Product of Step 6:** the forward-looking intelligence layer. The reader can now see *where the period is heading, what forces are shaping it, and what could flip the trajectory*.
+
+---
+
+## 7️⃣ Step 7 — Synthesize and Cross-Run Diff
+
+Consolidate everything into the two files readers reach for first.
+
+1. Write `intelligence/synthesis-summary.md` — executive finding, Top-5 findings table, parliament-status dashboard, stakeholder snapshot, ≥6 forward monitors, confidence ledger. Anchor each Top-5 finding to the specific artifact it came from.
+2. Write `intelligence/significance-scoring.md` — 5-dimension composite per candidate item with publish decision, top-item narrative, 30-day median comparison.
+3. Write `intelligence/cross-run-diff.md` — Bayesian delta vs. the previous same-type run: what changed in data, what changed in assessment, confidence migration. Emit a "carry-forward vs. superseded" table.
+4. Write `intelligence/voting-patterns.md` — group-by-group coalition arithmetic for the period (see [voting-patterns template](../templates/voting-patterns.md)). Required whenever ≥1 plenary session is in scope.
+5. Write `intelligence/cross-session-intelligence.md` — session-over-session narrative across ≥2 plenary sessions (weekly / monthly / quarterly / motions runs only; see [cross-session-intelligence template](../templates/cross-session-intelligence.md)).
+6. For long-form runs (`motions`, `month-in-review`, `propositions`), write `existing/session-baseline.md` and `existing/deep-analysis.md` (see [session-baseline template](../templates/session-baseline.md) and [deep-analysis template](../templates/deep-analysis.md)).
+7. Write `intelligence/mcp-reliability-audit.md` from the Step 3 endpoint ledger — endpoint scoreboard, per-endpoint findings, upstream issues filed on `Hack23/European-Parliament-MCP-Server`, alternative-source bridge.
+8. Write `intelligence/reference-analysis-quality.md` — self-score of this run against the reference benchmark ([Run 184](../daily/2026-04-18/breaking-run184/)) with a Pass-2 action list.
+9. Write `intelligence/analysis-index.md` — read-me-first index of every artifact with reading priority (P1 / P2 / P3), line count, and status.
+10. Finalize `manifest.json.files.intelligence[]` (and `manifest.json.files.existing[]` for long-form runs).
+
+**Product of Step 7:** a run a reader can enter through `analysis-index.md`, spend 5 minutes in `synthesis-summary.md`, and still leave with a defensible political-intelligence picture.
+
+---
+
+## 8️⃣ Step 8 — Decide Article Title and Description (AI-Only)
+
+Article title, description, and SEO keywords are decided **after** Step 7, from the run's analysis — never by TypeScript code, template strings, or count-based formatters.
+
+1. Read `intelligence/synthesis-summary.md` and `intelligence/significance-scoring.md`. Identify the single most politically significant item.
+2. Write a title that names that item and its political impact. Aim for ≤70 characters, active voice, specific legislation / committee / actors, no raw dates.
+3. Write a meta description of 150–160 characters that explains political significance and names at least one stakeholder impact.
+4. Write SEO keywords derived from the actual content (committee names, legislation titles, political-group abbreviations, procedure codes).
+5. Pass them as CLI flags to the generator:
+
+```bash
+AI_TITLE="ECR Breaks Ranks on Digital Markets Act as Grand Coalition Splits"
+AI_DESCRIPTION="ECR defection on DMA enforcement reveals new cross-group dynamics; EPP-S&D cohesion drops to 61%, lowest reading in Q1 2026."
+
+npx tsx src/generators/news-enhanced.ts \
+  --types=${ARTICLE_TYPE_SLUG} \
+  --title="$AI_TITLE" \
+  --description="$AI_DESCRIPTION" \
+  --analysis \
+  --analysis-dir="$ANALYSIS_DIR"
+```
+
+**Product of Step 8:** an article HTML stub in `news/${TODAY}-${ARTICLE_TYPE_SLUG}-run${RUN_ID}-en.html` containing the AI-authored title, description, and the analytical prose the agent writes in the HTML body during generation.
+
+---
+
+## 9️⃣ Step 9 — Pass 2: Read Everything Back and Improve
+
+One pass is never sufficient. Pass 2 is where reference quality is achieved.
+
+1. Read every file listed in `manifest.files.*` from top to bottom — not a sample.
+2. For each artifact, compare to the per-artifact quality signals in [`per-artifact-methodologies.md`](per-artifact-methodologies.md). Expand any section that is thin, missing citations, or lacks a confidence level.
+3. Expand any `[AI_ANALYSIS_REQUIRED]` markers the generator emitted in the article HTML — every marker gets replaced with substantive, evidence-based political intelligence (the exact AI_MARKER fields are enumerated in `src/utils/intelligence-analysis.ts`).
+4. Read the generated article HTML end-to-end. Every section must have ≥3 analytical paragraphs (not bullet lists), SWOT items with ≥80 words + severity badge, stakeholder perspectives with ≥150 words + evidence chain, a ≥200-word forward-outlook, and at least one Chart.js visualization with real data.
+5. Add Analysis Sources footer links from `manifest.files.*` via `renderAnalysisTransparencySection` in `src/templates/article-template.ts` (already applied by the template helper; confirm it rendered).
+6. Re-check color-coded Mermaid diagrams — every intelligence / classification / risk-scoring / threat-assessment artifact carries ≥1 diagram using the Hack23 colour palette from Step 2.
+7. Budget time: breaking / committee-reports / motions / propositions / week-ahead / month-ahead = ≥20 active minutes in Pass 1 + Pass 2 combined (≥12 Pass 1 + ≥8 Pass 2); week-in-review / month-in-review = ≥25 minutes (≥15 + ≥10); article-generator = 15 minutes × number of types. Finish the budget — there is always more depth to add.
+
+**Product of Step 9:** every artifact meets its per-artifact depth floor and passes the quality signals in `per-artifact-methodologies.md`.
+
+---
+
+## 🔟 Step 10 — Validate, Commit, Create PR
+
+The final gate is machine-enforced; pass it before the PR.
+
+1. Run the pre-flight validator:
+
+    ```bash
+    npm run validate-analysis -- \
+      --analysis-dir="${ANALYSIS_DIR}" \
+      --article-type="${ARTICLE_TYPE_SLUG}"
+    ```
+
+    The validator (`src/utils/validate-analysis-completeness.ts`) enforces the per-artifact line-count floors from [`reference-quality-thresholds.json`](reference-quality-thresholds.json), confirms every mandatory artifact is present in `manifest.files.*`, and rejects any residual placeholder markers. A non-zero exit returns you to Step 9 Pass 2.
+
+2. Run the article-HTML fallback-leak scan on every generated HTML file:
+
+    ```bash
+    node scripts/utils/validate-analysis-completeness.js \
+      --article-html="news/${TODAY}-${ARTICLE_TYPE_SLUG}-*-en.html"
+    ```
+
+    A non-zero exit means the article still carries fallback template prose; expand those sections in the HTML.
+
+3. Run `npx tsx src/utils/validate-articles.ts --date=$TODAY --quality --strict`. A non-zero exit blocks PR creation — fix the article and re-run.
+
+4. **Tradecraft self-check.** Before writing the reflection artifact, verify [`osint-tradecraft-standards.md`](osint-tradecraft-standards.md) §Quick-Reference Checklist end-to-end: every headline judgement uses a WEP band (§3.1) with a time horizon (§3.4); every source citation carries an Admiralty grade (§2.1–2.2); no artifact uses the banned ambiguous terms in §3.2 inside analytic conclusions; ≥1 alternative hypothesis (ACH or Red-Team) is surfaced for every headline judgement; no personal-life data on MEPs appears anywhere. Failures at this step are fixed before Step 5 (not deferred to the next run).
+
+5. Write `intelligence/workflow-audit.md` (see [workflow-audit template](../templates/workflow-audit.md)) — 6-phase execution table, MCP call log, 11 Core Principles scorecard, time-budget breakdown, issues and deviations, recommendations for the next same-type run. This is the run's transparency record; downstream reviewers and the next run read it first.
+
+6. Write `intelligence/methodology-reflection.md` as the **final** intelligence artifact (see [methodology-reflection template](../templates/methodology-reflection.md)) — closes the continuous-improvement loop with: pipeline diagram, data-source provenance, ≥10 SATs applied (drawn from [`osint-tradecraft-standards.md`](osint-tradecraft-standards.md) §4), AI-FIRST iteration log (Pass 1 / Pass 2 / optional Pass 3), ≥5 strengths, ≥5 limitations, ≥5 lessons-for-next-run, ≥6 biases with mitigations, peer-review status, ICD 203 compliance table (§12 of the template), and update plan. Distinct from `workflow-audit` (mechanical compliance) — this file reflects on the **analytic quality** and the SATs used.
+
+7. Emit a pre-flight attestation line in the log:
+
+    ```
+    PREFLIGHT_ATTESTATION: read N/N artifacts from ${ANALYSIS_DIR} (L lines)
+    ```
+
+8. `git add "${ANALYSIS_DIR}"` plus the emitted `news/` HTML files. Commit with an analytical message naming the run's headline finding. The commit message never includes generic phrases — it names the specific political event.
+
+9. Call `safeoutputs___create_pull_request` **exactly once, at the very end of the run, after every file is written**. The safe-output handler takes a synchronous git-patch snapshot at call time; any file written after the call is not in the PR.
+
+10. If Step 7 concluded the period did not produce a publishable event, still call `safeoutputs___create_pull_request` — an analysis-only PR. No workflow run is wasted: quiet-period analysis reveals patterns too.
+
+**Product of Step 10:** a PR with the full analysis directory + (optionally) the published article, attested complete and validated.
+
+---
+
+## 🧭 Core Principles (the 11 rules that replace Rules 1–22)
+
+These principles are the positive restatement of the v4.5 rule list. Workflow files still reference Rules 5, 6–8, 19, 22 etc. by number; the mapping below is explicit so those references stay valid. Principle 11 is new in v5.1 and operationalises the OSINT / INTOP tradecraft discipline.
+
+| # | Core principle (positive) | Legacy rule(s) |
+|---|---|---|
+| 1 | **Folder isolation** — each workflow writes only under its own `${ANALYSIS_DIR}`; the run-id suffix protects parallel and repeat runs. | Rule 1 |
+| 2 | **AI does analysis, scripts do HTML** — scripts download data, render HTML containers, and emit `AI_MARKER` fields; the AI fills every marker with substantive political intelligence. | Rules 2, 8, 11, 12 |
+| 3 | **Methodologies before analysis** — read the methodology library at Step 2 and the artifact catalog at Step 2 before writing anything. | Rule 3 |
+| 4 | **Multi-framework depth** — every artifact applies ≥2 analytical frameworks, carries ≥1 colour-coded Mermaid diagram, and cites ≥3 EP MCP sources. | Rule 4 |
+| 5 | **Always commit analysis** — every run produces `${ANALYSIS_DIR}` artifacts and a PR (analysis-only when no event warrants an article). Raw `data/*.json` may be pruned; `*.md` and `*.analysis.md` files are always committed. | Rule 5 |
+| 6 | **Article type everywhere** — `manifest.json.articleType`, YAML frontmatter `articleType:`, and `<meta name="article-type">` carry the slug; analysis files always live under `${ARTICLE_TYPE_SLUG}-run${RUN_ID}/`. | Rule 6 |
+| 7 | **Two passes, full time budget** — Pass 1 writes, Pass 2 reads everything back and expands; the full minimum time budget (20 min / 25 min / 15 × N) is used. | Rules 7, 22 (Pass 2) |
+| 8 | **AI-authored headlines and descriptions** — title and description come from the analysis after significance scoring; never from code or count-based templates. | Rule 9 |
+| 9 | **Complete data + historical baseline** — every metric is anchored to its 30-day / 90-day comparable baseline, every coalition claim attempts `get_voting_records`, every feed failure falls back to the direct endpoint. | Rules 14, 15, 17 |
+| 10 | **Read-before-article + footer + ratio + floors** — the pre-flight validator reads every artifact (≥30 lines flat + per-artifact floors from [`reference-quality-thresholds.json`](reference-quality-thresholds.json)), the article carries the manifest-driven Analysis Sources footer, and the article's analysis-citation ratio (≥1 artifact per 150 words; ≥1 per 100 for article-generator long-form) is met. | Rules 10, 16, 18, 19, 20, 21, 22 |
+| 11 | **OSINT / INTOP tradecraft discipline** — every probabilistic judgement uses a Words-of-Estimative-Probability band, every source citation carries an Admiralty grade (A1–F6 → 🟢/🟡/🔴), every run attests ≥10 SATs in `methodology-reflection.md`, and the OSINT scope in [`osint-tradecraft-standards.md`](osint-tradecraft-standards.md) §5 is respected. | New in v5.1 — cross-cutting layer applied by every framework. |
+
+---
+
+## ⭐ Reference-Quality Depth
+
+**Section anchor for `src/utils/validate-analysis-completeness.ts` (`§Reference-Quality Depth`).**
+
+Reference quality is measured, not subjective:
+
+1. **Per-artifact line floors** — set per article type in [`reference-quality-thresholds.json`](reference-quality-thresholds.json); enforced at build time by the validator (Rule 22 equivalent).
+2. **Artifact presence** — every mandatory artifact for the run's article type appears in `manifest.files.*`; the validator rejects missing files.
+3. **No placeholder markers** — `[AI_ANALYSIS_REQUIRED]`, `AI_ANALYSIS_PENDING`, `[TO BE FILLED BY AI AGENT]`, `[TBD]`, `TODO:` never appear in committed artifacts (outside meta-documentation tables like this one).
+4. **Mermaid coverage** — every artifact in `intelligence/`, `classification/`, `risk-scoring/`, `threat-assessment/` carries ≥1 Hack23-themed colour-coded Mermaid diagram of the type specified in [`per-artifact-methodologies.md`](per-artifact-methodologies.md).
+5. **Evidence density** — ≥3 EP MCP citations per analytical section, confidence level (🟢/🟡/🔴) on every non-factual claim.
+6. **Reference benchmark** — [Run 184 (2026-04-18)](../daily/2026-04-18/breaking-run184/) is the depth exemplar: 17 artifacts, 3600+ lines, 13 analytical frameworks, zero placeholders. New runs thinner than this trigger Pass 2.
+
+The canonical reference-quality self-check lives in `intelligence/reference-analysis-quality.md` of every run (see [`per-artifact-methodologies.md §reference-analysis-quality`](per-artifact-methodologies.md#reference-analysis-quality)).
+
+---
+
+## 📐 Analytical Dimension Matrix (per article type)
+
+Which artifacts are mandatory (🟥 M), recommended (🟨 R), or optional (⬜ O) per article type. Mandatory means present — with an explicit `data_not_available` note when the required input is unreachable.
+
+| Artifact | Breaking | Weekly | Monthly | Week-Ahead | Month-Ahead | Committee-Reports | Motions | Propositions | Article-Generator |
+|---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| Newsworthiness + significance-scoring | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 |
+| 5×5 risk-matrix (≥5 vectors) | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 |
+| 3+3+3+3 quantitative-swot | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 |
+| Coalition-dynamics pair analysis | 🟥 | 🟥 | 🟥 | 🟨 | 🟨 | 🟨 | 🟨 | 🟨 | 🟥 |
+| Cross-run-diff (Bayesian) | 🟥 | 🟥 | 🟥 | 🟨 | 🟨 | 🟨 | 🟨 | 🟨 | 🟨 |
+| Synthesis-summary + ≥6 forward monitors | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 |
+| PESTLE 6-dimension | 🟥 | 🟥 | 🟥 | 🟥 | 🟥 | 🟨 | 🟨 | 🟥 | 🟥 |
+| Stakeholder-map (≥12) | 🟥 | 🟨 | 🟥 | 🟨 | 🟥 | 🟨 | 🟥 | 🟥 | 🟥 |
+| Scenario-forecast (≥3) | 🟥 | 🟨 | 🟥 | 🟥 | 🟥 | 🟨 | 🟨 | 🟥 | 🟥 |
+| Threat-model (Diamond / Attack / Kill-chain) | 🟥 | 🟨 | 🟥 | 🟨 | 🟨 | 🟨 | 🟨 | 🟨 | 🟥 |
+| Historical-baseline | 🟨 | 🟥 | 🟥 | 🟨 | 🟨 | 🟨 | 🟨 | 🟨 | 🟥 |
+| Economic-context (WB or IMF) | 🟨 | 🟨 | 🟥 | 🟨 | 🟥 | 🟨 | 🟨 | 🟥 | 🟥 |
+| Wildcards-blackswans | 🟨 | 🟨 | 🟥 | 🟨 | 🟥 | ⬜ | ⬜ | 🟨 | 🟥 |
+| Document-analysis-index | 🟥 | 🟥 | 🟥 | ⬜ | ⬜ | 🟥 | 🟥 | 🟥 | 🟥 |
+| MCP-reliability-audit | 🟨 when API degraded | 🟨 same | 🟨 same | 🟨 | 🟨 | 🟨 | 🟨 | 🟨 | 🟨 |
+
+---
+
+## 🔄 Cross-Session Intelligence (same-day repeat runs)
+
+When a later same-day run exists (`breaking-run2`, `breaking-run3`, …), Step 6 of that run includes a Bayesian update against the prior run:
+
+1. **Prior** — read the prior run's synthesis and risk-matrix scores.
+2. **New evidence** — catalog what EP MCP files / voting records / documents are new or changed.
+3. **Direction** — classify new evidence as supporting / contradicting / orthogonal.
+4. **Posterior** — update likelihood / impact per [`political-risk-methodology.md §Bayesian Update`](political-risk-methodology.md); log the update chain explicitly.
+5. **Confidence migration** — two consecutive independent runs agreeing upgrade confidence by one level; contradiction downgrades by one level.
+6. **Stasis protocol** — if the new run sees zero delta, carry forward prior assessments with an explicit "no new EP MCP data since {timestamp}" note, and degrade confidence by one level every 24 hours of stasis.
+
+This content lives in `intelligence/cross-run-diff.md` (see [`per-artifact-methodologies.md §cross-run-diff`](per-artifact-methodologies.md#cross-run-diff)).
+
+---
+
+## 🌍 Multi-Language Content Standards
+
+The `news-translate` workflow translates English source articles into 13 additional languages (sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh). Every translated article scores on five weighted dimensions:
+
+| Dimension | Weight | What to produce |
+|---|:-:|---|
+| **Accuracy** | 40% | Zero additions, zero omissions of substantive claims vs. the English source |
+| **Fluency** | 20% | Reads naturally in the target language |
+| **Terminology** | 20% | Uses official EP / EU institutional vocabulary from [IATE](https://iate.europa.eu/) |
+| **Completeness** | 10% | Every section, SWOT entry, stakeholder perspective, confidence marker present |
+| **Formatting** | 10% | RTL / CJK layout correct, locale-appropriate number formatting, emoji markers preserved |
+
+Translation fidelity rules:
+
+1. **Preserve verbatim**: EP document IDs, political-group abbreviations (EPP, S&D, Renew, Greens/EFA, ECR, PfE, ESN), committee codes (ENVI, AGRI, ECON), MEP names, procedure codes (COD, CNS, APP), session location names, emoji confidence markers (🟢/🟡/🔴).
+2. **Translate**: narrative text, event descriptions, policy impact, stakeholder positions, editorial content, confidence label text (High → Hoch / Haute / Alto).
+3. **Adapt culturally**: examples and analogies only where present in the English source — never introduce new facts or analysis.
+4. **Pre-translate gate**: run the analysis-completeness validator on the English source before translation; contaminated sources are excluded from the translation set.
+
+---
+
+## 🔗 Related Documents
+
+- [`artifact-catalog.md`](artifact-catalog.md) — master map of every artifact this guide produces
+- [`per-artifact-methodologies.md`](per-artifact-methodologies.md) — per-artifact construction rules
+- [`political-swot-framework.md`](political-swot-framework.md) — evidence-based SWOT
+- [`political-risk-methodology.md`](political-risk-methodology.md) — 5×5 matrix + Bayesian update
+- [`political-threat-framework.md`](political-threat-framework.md) — Diamond / Attack Trees / Kill Chain / PESTLE
+- [`political-classification-guide.md`](political-classification-guide.md) — 7-dimension classification
+- [`political-style-guide.md`](political-style-guide.md) — writing standards
+- [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md) / [`imf-indicator-mapping.md`](imf-indicator-mapping.md) — economic context
+- [`reference-quality-thresholds.json`](reference-quality-thresholds.json) — machine-enforced depth floors
+- [`../templates/README.md`](../templates/README.md) — template catalog
+- [Run 184 reference benchmark](../daily/2026-04-18/breaking-run184/) — depth exemplar
+
+---
+
+**Document Control:**
+- **Path:** `/analysis/methodologies/ai-driven-analysis-guide.md`
+- **Classification:** Public
+- **Version:** 5.0 — Simplified from v4.5 (1 519 lines, Rules 1–22, extensive anti-pattern galleries) to a positive 10-step protocol that delegates artifact detail to [`artifact-catalog.md`](artifact-catalog.md) and [`per-artifact-methodologies.md`](per-artifact-methodologies.md). Legacy Rule 1–22 numbers remain traceable via the Core Principles mapping table.
+- **Next Review:** 2026-06-30

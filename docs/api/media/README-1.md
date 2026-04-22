@@ -1,501 +1,137 @@
-# E2E Testing Guide
+# EU Parliament Monitor - Skills Library
 
-End-to-end (E2E) testing for EU Parliament Monitor using Playwright.
+## Purpose
 
-## Overview
+Skills are reusable knowledge units that encode Hack23's security policies, architecture patterns, quality standards, intelligence analysis methodologies, business strategy, and compliance requirements. Each skill provides explicit, actionable rules that GitHub Copilot applies during development.
+
+**Skills auto-load via GitHub Copilot.** Reference specific skills when working in relevant areas.
+
+## 🗂️ Role Index (analysis-producer / analysis-consumer / gh-aw-infrastructure)
+
+| Role | Skills |
+|---|---|
+| **Analysis producers** (own artifacts under `analysis/daily/<run>/`) | `intelligence-analysis-techniques`, `political-science-analysis`, `osint-methodologies`, `behavioral-analysis`, `electoral-analysis`, `strategic-communication-analysis`, `risk-assessment-frameworks`, `data-science-for-intelligence` |
+| **Analysis consumers** (read artifacts, render to content) | `ai-first-quality` (contract owner), `seo-best-practices`, `accessibility-excellence`, `business-model-canvas` |
+| **Data / pipeline** (Stage A inputs) | `european-parliament-data`, `european-political-system`, `legislative-monitoring`, `mcp-server-integration`, `imf-data-integration` |
+| **gh-aw infrastructure** (authoritative upstream docs pinned at top of each file) | `github-agentic-workflows`, `gh-aw-architecture`, `gh-aw-firewall`, `gh-aw-sandbox`, `mcp-gateway-configuration`, `mcp-gateway-security`, `mcp-gateway-troubleshooting` |
+| **Compliance / security** | `compliance-frameworks`, `isms-compliance`, `sdlc-security-integration`, `security-by-design`, `threat-modeling`, `data-protection`, `open-source-governance`, `ai-governance` |
+| **Quality / docs** | `testing-strategy`, `code-quality-excellence`, `documentation-standards`, `performance-optimization`, `c4-architecture-documentation` |
 
-The E2E test suite validates the complete user experience from a browser perspective, ensuring:
+Canonical analysis anchors — every skill on the news critical path points to these:
+[`ai-driven-analysis-guide.md`](../../analysis/methodologies/ai-driven-analysis-guide.md),
+[`artifact-catalog.md`](../../analysis/methodologies/artifact-catalog.md),
+[`per-artifact-methodologies.md`](../../analysis/methodologies/per-artifact-methodologies.md),
+[`analysis/templates/README.md`](../../analysis/templates/README.md),
+[`reference-quality-thresholds.json`](../../analysis/methodologies/reference-quality-thresholds.json).
+
+## Skills Catalog
 
-- **User Journeys**: Critical user paths work correctly
-- **Cross-Browser**: Tests run on Chromium, Firefox, and WebKit
-- **Mobile Support**: Tests cover mobile and tablet viewports
-- **Accessibility**: WCAG 2.1 AA compliance validation
-- **Responsive Design**: Layout adapts to different screen sizes
+### 🏛️ Architecture Skills
+- **[C4 Architecture Documentation](c4-architecture-documentation.md)** — C4 models, Mermaid diagrams, documentation portfolio requirements
 
-## Test Suite Structure
+### 🔒 Security Skills
+- **[Security by Design](security-by-design.md)** — Defense-in-depth, CSP headers, input validation, STRIDE, SSDLC phase activities
+- **[Threat Modeling](threat-modeling.md)** — STRIDE analysis, risk assessment, attack surface analysis
+- **[Data Protection](data-protection.md)** — GDPR compliance, data classification, sanitization
 
-```
-e2e/
-├── tests/
-│   ├── homepage.spec.js           # Homepage functionality tests
-│   ├── news-browsing.spec.js      # Article browsing and reading
-│   ├── navigation.spec.js         # Site navigation tests
-│   ├── multi-language.spec.js     # Multi-language support tests (all 14 languages)
-│   ├── accessibility.spec.js      # WCAG 2.1 AA compliance tests
-│   ├── responsive.spec.js         # Responsive design tests
-│   ├── rss-feed.spec.js           # RSS 2.0 feed validation tests
-│   ├── sitemap.spec.js            # Sitemap XML and HTML validation tests
-│   └── seo-metadata.spec.js       # SEO meta tags and Open Graph validation
-├── fixtures/                      # Test data (future)
-├── helpers/                       # Test utilities (future)
-└── README.md                      # This file
-```
+### ✅ Compliance Skills
+- **[Compliance Frameworks](compliance-frameworks.md)** — ISO 27001, NIST CSF 2.0, CIS Controls, GDPR, NIS2, EU CRA, Info Security Policy alignment
+- **[ISMS Compliance](isms-compliance.md)** — ISMS policy references, CIA triad, evidence requirements, framework mapping
+- **[SDLC Security Integration](sdlc-security-integration.md)** — Information Security Policy + Secure Development Policy + Open Source Policy consolidated into per-phase SSDLC gates, vulnerability SLA, dependency intake, contribution workflow, PR checklist
 
-## Running E2E Tests
+### 🧪 Quality Skills
+- **[Testing Strategy](testing-strategy.md)** — Vitest unit tests, Playwright E2E, coverage requirements
+- **[Code Quality Excellence](code-quality-excellence.md)** — ESLint, HTMLHint, JavaScript/HTML/CSS standards
+- **[Accessibility Excellence](accessibility-excellence.md)** — WCAG 2.1 AA, keyboard navigation, screen readers
+- **[AI-First Quality](ai-first-quality.md)** — Mandatory 2-pass iterative improvement for all AI-generated content, time-budget enforcement, quality gates
 
-### Prerequisites
+### ⚡ Performance Skills
+- **[Performance Optimization](performance-optimization.md)** — Core Web Vitals, caching, asset optimization
 
-1. **Install Dependencies**:
+### 📚 Documentation Skills
+- **[Documentation Standards](documentation-standards.md)** — Document control, JSDoc, REUSE compliance
 
-   ```bash
-   npm install
-   ```
+### 📜 Governance Skills
+- **[Open Source Governance](open-source-governance.md)** — Apache-2.0, REUSE 3.3, SBOM, SLSA, OpenSSF
 
-2. **Install Playwright Browsers**:
-   ```bash
-   npx playwright install --with-deps
-   ```
+### 🇪🇺 Data Integration Skills
+- **[European Parliament Data](european-parliament-data.md)** — EP MCP server tools, data validation, caching, fallback
+- **[Legislative Monitoring](legislative-monitoring.md)** — OLP tracking, trilogue analysis, amendment patterns, plenary voting
+- **[IMF Data Integration](imf-data-integration.md)** — IMF macroeconomic indicators, SDR/quota data, sovereign-risk signals for economic-context analysis
 
-### Run Tests
+### 🔍 Intelligence & OSINT Skills
+- **[Political Science Analysis](political-science-analysis.md)** — Comparative politics, MEP behavior, EU legislative procedures, democratic accountability
+- **[OSINT Methodologies](osint-methodologies.md)** — OSINT collection, source evaluation, data integration, verification for EU Parliament data
+- **[Intelligence Analysis Techniques](intelligence-analysis-techniques.md)** — ACH, SWOT, Devil's Advocacy, Red Team, structured analytics for EU analysis
+- **[European Political System](european-political-system.md)** — EU Parliament structure, political groups, OLP, trilogue, committee system
+- **[Data Science for Intelligence](data-science-for-intelligence.md)** — Statistical analysis, ML, NLP, time series, network analysis for political data
+- **[Electoral Analysis](electoral-analysis.md)** — EU Parliament elections, seat distribution, political group formation, Spitzenkandidaten
+- **[Behavioral Analysis](behavioral-analysis.md)** — MEP voting loyalty, cognitive biases, leadership profiling, cross-group collaboration
+- **[Strategic Communication Analysis](strategic-communication-analysis.md)** — Narrative framing, media bias detection, discourse analysis, multi-language messaging
+- **[Risk Assessment Frameworks](risk-assessment-frameworks.md)** — Democratic health, cohesion risk, legislative bottlenecks, early warning systems
 
-```bash
-# Run all E2E tests (headless)
-npm run test:e2e
+### 💼 Business Strategy
+- **[Business Model Canvas](business-model-canvas.md)** — Value proposition, customer segments, revenue streams, mission-aligned business model design
 
-# Run tests in UI mode (interactive)
-npm run test:e2e:ui
+### 📢 Marketing & Growth
+- **[SEO Best Practices](seo-best-practices.md)** — On-page SEO, technical SEO, keyword research, multi-language content optimization
 
-# Run tests in headed mode (see browser)
-npm run test:e2e:headed
+### 🤖 AI & MCP Skills
+- **[AI Governance](ai-governance.md)** — EU AI Act compliance, OWASP LLM security, responsible AI practices for content generation
+- **[GitHub Agentic Workflows](github-agentic-workflows.md)** — Copilot coding agent, stacked PRs, agent selection
+- **[MCP Server Integration](mcp-server-integration.md)** — MCP protocol, multi-server orchestration
 
-# Run tests in debug mode
-npm run test:e2e:debug
+### 🛡️ Infrastructure Skills
+- **[GH AW Architecture](gh-aw-architecture.md)** — Layered security model (Sandbox → Gateway → Firewall)
+- **[GH AW Firewall](gh-aw-firewall.md)** — Domain filtering, request sanitization, compliance
+- **[GH AW Sandbox](gh-aw-sandbox.md)** — Resource isolation, secrets injection
+- **[MCP Gateway Configuration](mcp-gateway-configuration.md)** — TOML/JSON config patterns
 
-# Run specific test file
-npx playwright test e2e/tests/homepage.spec.js
+### 🔧 Operations Skills
+- **[MCP Gateway Security](mcp-gateway-security.md)** — Authentication, container isolation
+- **[MCP Gateway Troubleshooting](mcp-gateway-troubleshooting.md)** — Debug logging, issue resolution
 
-# Run tests in specific browser
-npx playwright test --project=chromium
-npx playwright test --project=firefox
-npx playwright test --project=webkit
+## Skills Statistics
 
-# Run tests in mobile viewports
-npx playwright test --project=mobile-chrome
-npx playwright test --project=mobile-safari
-```
-
-### View Test Reports
-
-```bash
-# Open HTML report
-npm run test:e2e:report
+For the authoritative list, `ls .github/skills/*.md` is the source of truth. Categories above group every file currently in the directory.
 
-# Or manually
-npx playwright show-report
-```
-
-## Test Categories
-
-### 1. Homepage Tests (`homepage.spec.js`)
-
-Tests homepage loading and structure:
-
-- ✅ Page loads successfully
-- ✅ Navigation menu displays
-- ✅ Recent articles display
-- ✅ Sitemap link works
-- ✅ Proper HTML structure
-- ✅ SEO meta tags present
-
-### 2. News Browsing Tests (`news-browsing.spec.js`)
-
-Tests article browsing experience:
-
-- ✅ Open and display articles
-- ✅ Navigate back to homepage
-- ✅ Article metadata displays
-- ✅ Internal links work
-- ✅ Article content displays
-
-### 3. Navigation Tests (`navigation.spec.js`)
-
-Tests site navigation:
-
-- ✅ Navigation menu functions
-- ✅ Navigate to different sections
-- ✅ Navigation state maintained
-- ✅ Home link works
-- ✅ Browser back/forward buttons
-- ✅ Skip navigation links
-- ✅ Keyboard focus states
-- ✅ External links security
-
-### 4. Multi-Language Tests (`multi-language.spec.js`)
-
-Tests multi-language functionality:
-
-- ✅ Load language-specific versions (14 languages)
-- ✅ Switch between languages
-- ✅ Consistent structure across languages
-- ✅ Language-specific meta tags
-- ✅ Maintain language in navigation
-- ✅ Proper charset encoding
-- ✅ Alternate language links
-
-**Supported Languages**:
-
-- EN (English), SV (Swedish), DA (Danish), NO (Norwegian)
-- FI (Finnish), DE (German), FR (French), ES (Spanish)
-- NL (Dutch), AR (Arabic), HE (Hebrew), JA (Japanese)
-- KO (Korean), ZH (Chinese)
-
-### 5. Accessibility Tests (`accessibility.spec.js`)
-
-Tests WCAG 2.1 AA compliance:
-
-- ✅ Automated accessibility scanning (axe-core)
-- ✅ Proper heading hierarchy
-- ✅ Alt text for images
-- ✅ Keyboard navigation
-- ✅ Link activation with Enter key
-- ✅ Sufficient color contrast
-- ✅ ARIA landmarks
-- ✅ Proper link text
-- ✅ Skip navigation link
-- ✅ Page title
-- ✅ Language attribute
-- ✅ Text zoom support
-- ✅ Form labels (if forms exist)
-
-### 6. Responsive Design Tests (`responsive.spec.js`)
-
-Tests responsive design:
-
-- ✅ Mobile portrait (375x667)
-- ✅ Mobile landscape (667x375)
-- ✅ Tablet portrait (768x1024)
-- ✅ Tablet landscape (1024x768)
-- ✅ Desktop (1920x1080)
-- ✅ Viewport meta tag
-- ✅ Adaptive layout
-- ✅ Touch-friendly tap targets
-- ✅ No horizontal scroll on mobile
-- ✅ Readable text on mobile
-- ✅ Content stacking on mobile
-- ✅ Responsive images
-- ✅ Text resizing support
-
-### 7. RSS Feed Tests (`rss-feed.spec.js`)
-
-Tests RSS 2.0 feed validity:
-
-- ✅ Feed loads successfully (HTTP 200)
-- ✅ Valid RSS 2.0 root element with version attribute
-- ✅ Required channel elements (title, link, description)
-- ✅ Dublin Core namespace for per-item language tags
-- ✅ Items present with required elements (title, pubDate, guid)
-- ✅ dc:language tags on items
-- ✅ Multi-language article coverage
-- ✅ Atom self-link for feed discovery
-- ✅ lastBuildDate element
-
-### 8. Sitemap Tests (`sitemap.spec.js`)
-
-Tests sitemap completeness and validity:
-
-- ✅ sitemap.xml loads when available (graceful skip if not generated)
-- ✅ Valid XML urlset structure with sitemaps.org namespace
-- ✅ Article URLs present in sitemap
-- ✅ More than 50 URL entries
-- ✅ RSS feed URL listed in sitemap
-- ✅ All 14 language HTML sitemap pages load successfully
-- ✅ Correct lang attribute on each language sitemap page
-- ✅ RTL direction for Arabic and Hebrew sitemap pages
-- ✅ Language navigation in HTML sitemaps
-
-### 9. SEO Metadata Tests (`seo-metadata.spec.js`)
-
-Tests SEO metadata completeness on articles:
-
-- ✅ Open Graph title, description, type (article), locale, site_name
-- ✅ Twitter Card meta tags (card, title, description)
-- ✅ Standard meta tags (description, keywords, author)
-- ✅ Schema.org JSON-LD structured data (valid JSON)
-- ✅ Page title includes site name
-- ✅ Charset UTF-8
-- ✅ Viewport meta tag
-- ✅ Multi-language og:locale correctness
-- ✅ RTL direction for Arabic and Hebrew articles
-
-## Writing E2E Tests
-
-### Test Structure
-
-```javascript
-import { test, expect } from '@playwright/test';
-
-test.describe('Feature Name', () => {
-  test('should do something specific', async ({ page }) => {
-    // Navigate to page
-    await page.goto('/');
-
-    // Interact with elements
-    const button = page.locator('button');
-    await button.click();
-
-    // Assert expectations
-    await expect(page.locator('.result')).toBeVisible();
-  });
-});
-```
-
-### Best Practices
-
-1. **Use Locators Wisely**:
+## Agent Cross-Reference
 
-   ```javascript
-   // Good: Specific and stable
-   page.locator('[data-testid="submit-button"]');
-   page.locator('button:has-text("Submit")');
+Each custom agent in [`.github/agents/README.md`](../agents/README.md) § *Available Agents* references the skills it leverages in its own "Skills Reference" section — that is the authoritative per-agent mapping. The matrix below shows the skills most-referenced by each **role group** (see [`.github/agents/README.md`](../agents/README.md) § Role Index):
 
-   // Avoid: Fragile CSS classes
-   page.locator('.btn-primary-123');
-   ```
+| Role group | Most-referenced skills |
+|---|---|
+| **Analysis producers** (intelligence-operative, news-generation.agent) | `ai-first-quality`, `intelligence-analysis-techniques`, `political-science-analysis`, `osint-methodologies`, `risk-assessment-frameworks` |
+| **Analysis consumers** (news-journalist, marketing-specialist, business-development-specialist) | `ai-first-quality`, `european-parliament-data`, `seo-best-practices`, `strategic-communication-analysis`, `data-protection` |
+| **Data / pipeline** (data-pipeline-specialist) | `european-parliament-data`, `mcp-server-integration`, `legislative-monitoring`, `testing-strategy`, `security-by-design` |
+| **gh-aw infrastructure** (agentic-workflows.agent, devops-engineer, ci-cleaner, create-safe-output-type, custom-engine-implementation, interactive-agent-designer) | `github-agentic-workflows`, `gh-aw-architecture`, `gh-aw-firewall`, `gh-aw-sandbox`, `mcp-gateway-configuration` |
+| **Quality / review / docs** (quality-engineer, grumpy-reviewer, contribution-checker, documentation-architect, technical-doc-writer, w3c-specification-writer) | `testing-strategy`, `code-quality-excellence`, `accessibility-excellence`, `documentation-standards`, `c4-architecture-documentation` |
+| **Product / frontend** (product-task-agent, frontend-specialist, developer.instructions) | `ai-first-quality`, `accessibility-excellence`, `compliance-frameworks`, `isms-compliance`, `business-model-canvas` |
+| **Security (distributed — no standalone agent)** | `security-by-design`, `threat-modeling`, `sdlc-security-integration`, `isms-compliance`, `compliance-frameworks`, `data-protection`, `ai-governance`, `open-source-governance` |
 
-2. **Wait for State Changes**:
+Every agent additionally honours the security / compliance skills row — see the security-note callout in [`.github/agents/README.md`](../agents/README.md).
 
-   ```javascript
-   // Good: Wait for navigation
-   await page.waitForLoadState('domcontentloaded');
+## How to Use Skills
 
-   // Good: Wait for element
-   await expect(element).toBeVisible();
-   ```
+### For GitHub Copilot
+Skills auto-load when working in Hack23 repositories. Copilot references these skills to generate secure, compliant, accessible code.
 
-3. **Handle Dynamic Content**:
+### For Developers
+1. **Reference skills** before starting new work
+2. **Follow MUST rules** — these are non-negotiable
+3. **Apply patterns** from examples in each skill
+4. **Update skills** when policies or standards change
 
-   ```javascript
-   // Check if element exists before interacting
-   const count = await page.locator('.article').count();
-   if (count > 0) {
-     // Interact with element
-   }
-   ```
+### For Custom Agents
+Agents document which skills they leverage. See each agent's "Skills Reference" section.
 
-4. **Test Independence**:
+## Related Resources
 
-   ```javascript
-   // Each test should be independent
-   test.beforeEach(async ({ page }) => {
-     await page.goto('/');
-   });
-   ```
+- **[Copilot Instructions](../copilot-instructions.md)** — Project-wide Copilot configuration
+- **[Agent Catalog](../agents/README.md)** — specialized custom agents
+- **[ISMS-PUBLIC](https://github.com/Hack23/ISMS-PUBLIC)** — Hack23 security policies
+- **[Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md)** — SDLC security requirements
 
-5. **Meaningful Assertions**:
-   ```javascript
-   // Good: Clear assertion
-   await expect(page.locator('h1')).toContainText('EU Parliament Monitor');
-   // Avoid: Vague assertion
-   await expect(element).toBeTruthy();
-   ```
+## License
 
-## Debugging Tests
-
-### Visual Debugging
-
-```bash
-# UI Mode - Interactive debugging
-npm run test:e2e:ui
-
-# Headed Mode - See browser
-npm run test:e2e:headed
-
-# Debug Mode - Step through
-npm run test:e2e:debug
-```
-
-### Screenshots and Videos
-
-Playwright automatically captures:
-
-- **Screenshots**: On failure
-- **Videos**: On failure
-- **Traces**: On first retry
-
-Find these in:
-
-- `test-results/` - Screenshots and videos
-- `playwright-report/` - HTML report with artifacts
-
-### Console Debugging
-
-```javascript
-// Add console.log in tests
-test('debug test', async ({ page }) => {
-  const text = await page.locator('h1').textContent();
-  console.log('Heading text:', text);
-});
-
-// Pause execution
-await page.pause();
-```
-
-### Test Selector
-
-```bash
-# Open Playwright Inspector
-npx playwright inspector
-```
-
-## CI/CD Integration
-
-E2E tests run automatically in GitHub Actions on:
-
-- **Pull Requests**: All tests must pass
-- **Push to Main**: Full test suite
-- **Daily Schedule**: Regression testing
-
-See `.github/workflows/e2e.yml` for configuration.
-
-## Configuration
-
-### Playwright Config (`playwright.config.js`)
-
-Key settings:
-
-- **Base URL**: `http://localhost:8080`
-- **Browsers**: Chromium, Firefox, WebKit, Mobile Chrome, Mobile Safari
-- **Retries**: 2 retries in CI, 0 locally
-- **Timeouts**: 30s test timeout, 120s server startup
-- **Web Server**: Auto-starts `npm run serve`
-
-### Modifying Configuration
-
-```javascript
-// playwright.config.js
-export default defineConfig({
-  // Add test timeout
-  timeout: 60000, // 60 seconds
-
-  // Add global setup
-  globalSetup: './e2e/global-setup.js',
-
-  // Add more browsers
-  projects: [
-    {
-      name: 'chromium-desktop',
-      use: { ...devices['Desktop Chrome'] },
-    },
-  ],
-});
-```
-
-## Accessibility Testing
-
-### Using Axe-Core
-
-```javascript
-import AxeBuilder from '@axe-core/playwright';
-
-test('accessibility test', async ({ page }) => {
-  await page.goto('/');
-
-  const results = await new AxeBuilder({ page })
-    .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
-    .analyze();
-
-  expect(results.violations).toEqual([]);
-});
-```
-
-### WCAG Compliance Levels
-
-- **A**: Basic accessibility
-- **AA**: Recommended compliance (our target)
-- **AAA**: Enhanced accessibility
-
-## Performance Considerations
-
-### Test Speed
-
-- **Unit Tests**: < 1s per test
-- **Integration Tests**: < 10s per test
-- **E2E Tests**: < 30s per test
-
-### Optimization Tips
-
-1. **Parallel Execution**: Tests run in parallel by default
-2. **Reuse Server**: `reuseExistingServer: !process.env.CI`
-3. **Selective Testing**: Run specific tests during development
-4. **Fast Selectors**: Use data-testid attributes
-
-## Troubleshooting
-
-### Tests Fail Locally
-
-```bash
-# Clear Playwright cache
-npx playwright install --force
-
-# Update browsers
-npx playwright install
-
-# Check server is running
-npm run serve
-```
-
-### Tests Pass Locally but Fail in CI
-
-- Check if content is generated in CI
-- Verify server starts correctly
-- Check for race conditions
-- Review CI logs and screenshots
-
-### Flaky Tests
-
-```javascript
-// Add explicit waits
-await page.waitForLoadState('networkidle');
-
-// Increase timeout for specific test
-test('slow test', async ({ page }) => {
-  test.setTimeout(60000);
-  // test code
-});
-
-// Add retry logic
-test('flaky test', async ({ page }) => {
-  test.retry(2);
-  // test code
-});
-```
-
-### Element Not Found
-
-```javascript
-// Wait for element
-await page.waitForSelector('.element');
-
-// Use timeout
-await expect(page.locator('.element')).toBeVisible({ timeout: 10000 });
-
-// Check if exists first
-const count = await page.locator('.element').count();
-if (count > 0) {
-  // interact with element
-}
-```
-
-## Contributing
-
-When adding new features:
-
-1. **Write E2E tests** for user-facing changes
-2. **Test accessibility** with axe-core
-3. **Test responsive design** on multiple viewports
-4. **Test cross-browser** (at least Chromium + Firefox)
-5. **Update documentation** if adding new test patterns
-
-## Resources
-
-- [Playwright Documentation](https://playwright.dev/)
-- [Playwright Best Practices](https://playwright.dev/docs/best-practices)
-- [Axe-Core Rules](https://github.com/dequelabs/axe-core/blob/develop/doc/rule-descriptions.md)
-- [WCAG 2.1 Guidelines](https://www.w3.org/WAI/WCAG21/quickref/)
-
----
-
-**Last Updated**: March 2026  
-**Framework**: Playwright 1.58+  
-**Test Count**: 90+ E2E tests  
-**Coverage**: Homepage, Navigation, Multi-language (14 languages), Accessibility, Responsive, RSS Feed, Sitemap, SEO Metadata
+All skills are licensed under Apache-2.0, consistent with Hack23's open-source commitment.

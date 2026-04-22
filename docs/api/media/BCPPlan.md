@@ -11,13 +11,13 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-2.0-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--03--12-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-2.1-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--20-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Semi_Annual-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.0 | **📅 Last Updated:** 2026-03-12 (UTC)  
-**🔄 Review Cycle:** Semi-Annual | **⏰ Next Review:** 2026-09-12
+**📋 Document Owner:** CEO | **📄 Version:** 2.1 | **📅 Last Updated:** 2026-04-20 (UTC) | **🏷️ Platform Release:** v0.8.40  
+**🔄 Review Cycle:** Semi-Annual | **⏰ Next Review:** 2026-10-20
 
 ---
 
@@ -134,14 +134,26 @@ Based on [CLASSIFICATION.md](CLASSIFICATION.md) analysis:
 
 ### ⏱️ Recovery Targets
 
+Recovery targets are defined per **asset class** since the platform decomposes cleanly into independent static/publish assets.
+
+| 🎯 **Asset** | **RTO** | **RPO** | 📋 **Rationale** |
+|--------------|---------|---------|-------------------|
+| **Static site (AWS S3 + CloudFront)** | 1 hour | 0 (versioned S3 bucket) | `deploy-s3.yml` re-run from `main` rebuilds the site; versioned bucket preserves point-in-time content |
+| **npm package (`@hack23/euparliamentmonitor`)** | 4 hours | 0 (immutable publish) | Republishable from git tag via `release` workflow; npm provenance + SLSA 3 attestations are re-generatable |
+| **News generation pipeline** | 24 hours | 24 hours | Next scheduled agentic run (breaking / week / month / committee / motions / propositions) recovers output; stale analysis replaced on next cadence |
+| **Source repository (GitHub)** | 15 minutes | 0 (distributed VCS) | GitHub-native availability + mirrors on every contributor clone |
+| **GitHub Pages fallback path** | 2 hours | 0 | Documented failover runbook; `main` already serves the identical static artifacts |
+
+### ⏱️ Aggregate Platform Targets
+
 | 🎯 **Metric** | 📊 **Target** | 📋 **Rationale** |
 |---------------|--------------|-------------------|
-| **RTO (Recovery Time Objective)** | 2 hours | AWS S3 + CloudFront rebuild from repository via deploy-s3 workflow within critical BIA threshold |
-| **RPO (Recovery Point Objective)** | 0 minutes | Git repository provides full history |
-| **MTTR (Mean Time to Repair)** | 2 hours | Automated CI/CD pipeline rebuild |
+| **RTO (aggregate platform)** | 2 hours | Primary static-serving restoration bound — critical BIA threshold |
+| **RPO (aggregate platform)** | 0 minutes | Git repository + versioned S3 preserve full history |
+| **MTTR (Mean Time to Repair)** | 2 hours | Automated CI/CD pipeline rebuild via `deploy-s3.yml` |
 | **MTPD (Max Tolerable Period of Disruption)** | 72 hours | After 3 days, democratic monitoring impact becomes significant |
 | **SDO (Service Delivery Objective)** | 95% availability | Monthly target for AWS S3 + CloudFront service |
-| **WRT (Work Recovery Time)** | 30 minutes | Time to validate restored content integrity |
+| **WRT (Work Recovery Time)** | 30 minutes | Time to validate restored content integrity across 14 languages |
 | **NBD (Normal Business Day)** | N/A (24/7 operations) | No business-day distinction; recovery procedures identical at all times |
 
 ---
@@ -331,8 +343,80 @@ flowchart TD
 |---------------|--------------|
 | **Impact** | News generation produces errors or empty content |
 | **Probability** | Low (Hack23-maintained) |
-| **Recovery** | Update EP MCP client code to match new API |
-| **Mitigation** | MCP abstraction layer; graceful fallback to cached data |
+| **Recovery** | Update EP MCP client code to match new API; server reports uniform `{status:"unavailable", items:[]}` envelope allowing graceful skip |
+| **Mitigation** | MCP abstraction layer (`src/mcp/ep-mcp-client.ts`); `mcp-retry.ts` exponential backoff; uniform unavailable envelope |
+
+### Scenario 7: IMF / World Bank Economic Data Outage
+
+| 📋 **Aspect** | 📊 **Detail** |
+|---------------|--------------|
+| **Impact** | One economic data source unavailable; OR-gate in `articlePolicyHasEconomicContext` (`src/utils/content-validator.ts`) lets pipeline continue on the surviving source |
+| **Probability** | Low–Medium |
+| **Recovery** | Automatic via OR-gate (WB-or-IMF); if both fail, `articlePolicyHasWorldBank` default gate blocks article — regenerate once a source recovers |
+| **Mitigation** | Dual economic data surface (WB MCP `worldbank-mcp@1.0.1` biannual + IMF REST native `IMFMCPClient` SDMX 3.0 with WEO+FM forecasts +5y); per-source `IMF_API_BASE_URL`/`IMF_API_TIMEOUT_MS` overrides |
+
+### Scenario 8: GitHub Actions / Agentic Runner Outage
+
+| 📋 **Aspect** | 📊 **Detail** |
+|---------------|--------------|
+| **Impact** | All 10 agentic news workflows blocked (breaking, weekly/monthly reviews, week/month-ahead, committee-reports, motions, propositions, article-generator multi-type, translate fan-out); deployment paused |
+| **Probability** | Low |
+| **Recovery** | Manual local runs possible via `npm run generate-news` + `npm run generate-news-indexes`; push generated artifacts directly to `main` for `deploy-s3.yml` to pick up when runners recover |
+| **Mitigation** | 10 agentic workflows compiled into deterministic `.lock.yml` via `gh aw compile --validate` (pinned `GH_AW_VERSION: v0.69.0`) — locally reproducible; static build fully scriptable |
+
+### Scenario 9: Copilot / Claude / Codex Quota Exhaustion
+
+| 📋 **Aspect** | 📊 **Detail** |
+|---------------|--------------|
+| **Impact** | AI-First 2-pass analysis + article authorship stalls; pre-translation gate (`validate-analysis-completeness.js`) blocks fan-out |
+| **Probability** | Medium (metered Copilot billing) |
+| **Recovery** | Swap `engine:` field in workflow frontmatter (Copilot ↔ Claude ↔ Codex); if all AI engines unavailable, human-author English source and trigger `news-translate` directly |
+| **Mitigation** | Engine-agnostic gh-aw frontmatter; quality thresholds in `analysis/methodologies/reference-quality-thresholds.json` enforce minimums regardless of engine |
+
+### Scenario 10: AWS S3 / CloudFront Extended Outage (Primary Hosting)
+
+| 📋 **Aspect** | 📊 **Detail** |
+|---------------|--------------|
+| **Impact** | Primary euparliamentmonitor.com CDN unavailable |
+| **Probability** | Very Low (99.9% AWS SLA) |
+| **Recovery** | Activate GitHub Pages fallback per [`runbooks/github-pages-failover.md`](runbooks/github-pages-failover.md); repoint DNS CNAME if extended |
+| **Mitigation** | Static artifacts in `main` are host-agnostic; GitHub Pages deploy path preserved; identical content served |
+
+### Scenario 11: gh-aw Toolchain Break (v0.69.0 Incompatibility)
+
+| 📋 **Aspect** | 📊 **Detail** |
+|---------------|--------------|
+| **Impact** | `.lock.yml` compilation fails or produces incorrect runtime; agentic workflows error during compile-gate |
+| **Probability** | Low |
+| **Recovery** | Pin to known-good `GH_AW_VERSION` in `.github/workflows/compile-agentic-workflows.yml`; rollback via git revert; if rollback insufficient, convert affected workflow to traditional YAML with human-author mode |
+| **Mitigation** | Pinned version in infra workflow; `.lock.yml` artifacts versioned in git; sibling repos (`Hack23/cia`, `Hack23/homepage`) provide cross-reference for upgrade regression |
+
+### Scenario 12: npm Registry Outage or Package Tampering
+
+| 📋 **Aspect** | 📊 **Detail** |
+|---------------|--------------|
+| **Impact** | Consumers of `@hack23/euparliamentmonitor` npm package blocked; or dependency install fails in CI |
+| **Probability** | Very Low |
+| **Recovery** | GitHub Packages mirror available via package namespace; verify SLSA Level 3 provenance attestation via `gh attestation verify`; if tampering suspected, rotate publishing OIDC identity and republish from tag |
+| **Mitigation** | Published with provenance + SLSA 3 attestations; `npm ci` + `package-lock.json` locks dependency graph; Dependabot surfaces supply-chain alerts |
+
+### Scenario 13: Compromised Maintainer Credential
+
+| 📋 **Aspect** | 📊 **Detail** |
+|---------------|--------------|
+| **Impact** | Potential unauthorized push, workflow edit, or release |
+| **Probability** | Low |
+| **Recovery** | Revoke compromised token; review audit log; rotate OIDC trust relationships (AWS S3 deploy role); revert any suspicious commits |
+| **Mitigation** | Branch protection + required reviews on `main`; OIDC federation (no long-lived AWS keys); GitHub 2FA mandatory; SHA-pinned actions |
+
+### Scenario 14: MCP-Borne Data Poisoning
+
+| 📋 **Aspect** | 📊 **Detail** |
+|---------------|--------------|
+| **Impact** | Hostile EP MCP response injects misleading content or tries to bypass validator gates |
+| **Probability** | Very Low (Hack23-maintained) |
+| **Recovery** | `scanHtmlForFallbackLeaks` + `FALLBACK_TEMPLATE_PATTERNS` gate in `validate-analysis-completeness.js` aborts the PR; reference thresholds (`intelligence/mcp-reliability-audit.md` ≥200 words / breaking ≥385) catch low-signal content; human review on every agentic PR |
+| **Mitigation** | Pre-translation validator gate scans all EN sources before fan-out; reference quality thresholds in `analysis/methodologies/reference-quality-thresholds.json`; 5-layer gh-aw security (AWF firewall, Docker sandbox, safe-output constraints, JSONL audit, lock file compilation) |
 
 ---
 
@@ -372,10 +456,10 @@ For **critical static-site availability (primary S3/CloudFront or GitHub Pages f
 ### Phase 3: Full Recovery (4-24 hours)
 
 **Sustained Operations:**
-1. ✅ Verify all 14 language versions are serving correctly
-2. 🧪 Run full test suite (`npm run lint && npm run test`)
-3. 📰 Run full content pipeline to regenerate news, indexes, and sitemap (`npm run build`)
-4. 🔍 Validate E2E tests pass (`npm run test:e2e`)
+1. ✅ Verify all 14 language versions are serving correctly (1,894 HTML articles in `news/`)
+2. 🧪 Run full test suite (`npm run lint && npm run test`) — 3,061+ Vitest tests across 52 test files
+3. 📰 Re-run affected agentic workflows to regenerate news + indexes + sitemap (`npm run build` / `npm run generate-news` / `npm run generate-news-indexes`)
+4. 🔍 Validate E2E tests pass (`npm run test:e2e`) — Playwright + axe-core WCAG 2.1 AA
 5. 📋 Document incident and lessons learned in GitHub Issue
 
 ### Phase 4: Recovery Normalization (24-72 hours)
@@ -391,15 +475,19 @@ For **critical static-site availability (primary S3/CloudFront or GitHub Pages f
 
 ## 🛡️ Supplier Dependency Matrix
 
-| Supplier/Service            | Service Type          | Criticality | Backup Strategy                    | Recovery Time |
-| --------------------------- | --------------------- | ----------- | ---------------------------------- | ------------- |
-| **AWS S3 + CloudFront**     | Static Site Hosting   | Critical    | GitHub Pages fallback; alternative CDN (Cloudflare/Netlify) | 2 hours |
-| **GitHub Repository**       | Source Code Storage   | Critical    | Local clones, contributor forks    | 30 minutes |
-| **GitHub Actions**          | CI/CD Pipeline        | High        | Manual local build + deploy        | 4 hours |
-| **EP MCP Server**           | EU Parliament Data    | High        | Cached content; existing articles  | N/A (graceful degrade) |
-| **npm Registry**            | Dependency Delivery   | High        | npm cache (package tarballs) in CI; lockfile + `npm ci` | 2 hours |
-| **GitHub Dependabot**       | Security Scanning     | Medium      | Manual npm audit; CodeQL           | Low priority |
-| **GitHub CodeQL**           | SAST Scanning         | Medium      | ESLint security plugin fallback    | Low priority |
+| **Supplier/Service**        | **Service Type**      | **Criticality** | **Backup Strategy**                | **Recovery Time** |
+| --------------------------- | --------------------- | --------------- | ---------------------------------- | ----------------- |
+| **AWS S3 + CloudFront**     | Static Site Hosting   | Critical        | GitHub Pages fallback; alternative CDN (Cloudflare/Netlify) | 1–2 hours |
+| **GitHub Repository**       | Source Code Storage   | Critical        | Local clones, contributor forks    | 15 minutes |
+| **GitHub Actions**          | CI/CD + gh-aw Runtime | High            | Manual local build + deploy        | 4 hours |
+| **GitHub Copilot Business** | AI inference via `gh aw` | High         | Engine switch (Claude / Codex) in workflow frontmatter; human fallback | 30 minutes |
+| **EP MCP Server (`european-parliament-mcp-server@1.2.11`)** | EU Parliament Data | High | Uniform unavailable envelope + `mcp-retry.ts` backoff; existing articles continue to serve | N/A (graceful degrade) |
+| **World Bank MCP (`worldbank-mcp@1.0.1`)** | Biannual WDI data | Medium | OR-gate via `articlePolicyHasEconomicContext` (IMF fallback) | N/A (graceful degrade) |
+| **IMF REST (SDMX 3.0, native `IMFMCPClient`)** | WEO + FM forecasts | Medium | OR-gate via `articlePolicyHasEconomicContext` (WB fallback); `IMF_API_TIMEOUT_MS` configurable | N/A (graceful degrade) |
+| **npm Registry**            | Dependency + Publish  | High            | GitHub Packages mirror; npm cache + `npm ci`; SLSA 3 attestations verifiable | 2 hours |
+| **gh-aw toolchain (v0.69.0)** | Agentic workflow compiler | High         | Pinned version; rollback via git; sibling repos as cross-reference | 4 hours |
+| **GitHub Dependabot**       | Security Scanning     | Medium          | Manual `npm audit`; CodeQL          | Low priority |
+| **GitHub CodeQL**           | SAST Scanning         | Medium          | ESLint security plugin fallback    | Low priority |
 
 ---
 
@@ -433,6 +521,42 @@ For **critical static-site availability (primary S3/CloudFront or GitHub Pages f
 
 ---
 
+## 🧪 DR Testing & Runbooks
+
+### Recovery Runbook Index
+
+Runbooks live in [`runbooks/`](runbooks/) and are invoked by the Incident Response Procedures above. All runbooks are version-controlled, Markdown-only, and executable by any maintainer with standard repository push + AWS OIDC access.
+
+| Runbook | Trigger | Target Asset |
+|---------|---------|--------------|
+| `runbooks/github-pages-failover.md` | AWS S3/CloudFront outage >30 min (Scenario 10) | Static site |
+| `runbooks/agentic-workflow-rollback.md` *(planned)* | gh-aw toolchain break (Scenario 11) | Workflow runtime |
+| `runbooks/ai-engine-switch.md` *(planned)* | Copilot/Claude/Codex quota exhaustion (Scenario 9) | AI inference |
+| `runbooks/mcp-degraded-mode.md` *(planned)* | EP / WB / IMF outage (Scenarios 3, 6, 7) | Data pipeline |
+| `runbooks/npm-republish.md` *(planned)* | npm tampering or attestation failure (Scenario 12) | Package supply chain |
+
+### DR Drill Schedule
+
+Quarterly exercises validate recovery procedures without production impact:
+
+| Quarter | Drill | Success Criterion |
+|---------|-------|-------------------|
+| **Q1 each year** | GitHub Pages failover dry-run (Scenario 10) | Fallback site live within 2 h; all 14 languages verified |
+| **Q2 each year** | Local build + deploy without GitHub Actions (Scenarios 8 + 11) | Full site rebuilt locally; artifacts match CI output |
+| **Q3 each year** | MCP degraded-mode test (Scenarios 3 + 6 + 7) | Agentic workflow completes with fallback economic context via WB↔IMF OR-gate |
+| **Q4 each year** | npm republish + provenance verification (Scenario 12) | `gh attestation verify` succeeds; SLSA 3 attestation validated |
+
+### Responsibility & Escalation
+
+| Role | Primary | Backup | Escalation |
+|------|---------|--------|------------|
+| **Incident Commander** | Maintainer on-call | CEO (James Pether Sörling) | Hack23 AB CEO |
+| **Recovery Executor** | Maintainer with AWS OIDC + GitHub write | CEO | — |
+| **Communications** | CEO | Maintainer | Public GitHub Status / Issues |
+| **Post-Mortem Owner** | Incident Commander | CEO | Security reviews documented in ISMS |
+
+---
+
 ## 📣 Communication Plan
 
 | Stakeholder         | Notification Method            | Timeframe         |
@@ -452,7 +576,7 @@ For **critical static-site availability (primary S3/CloudFront or GitHub Pages f
 | **Recovery Validation** | Monthly | GitHub Actions pipeline validates full rebuild |
 | **Backup Verification** | Monthly | Verify `git clone` produces working site |
 | **Contact Verification** | Quarterly | Verify all contact information current |
-| **Test Suite Health** | Per commit | Automated via CI (1400+ unit tests + E2E) |
+| **Test Suite Health** | Per commit | Automated via CI (3,061+ Vitest unit/integration tests across 52 files + Playwright+axe-core E2E) |
 | **Dependency Security** | Daily | Automated via Dependabot + CodeQL |
 
 ---
@@ -526,20 +650,22 @@ gantt
     AWS S3 + CloudFront Pilot Setup (pre-ADR eval) :done, 2025-01, 2025-02
     Automated CI/CD Pipeline            :done, 2025-02, 2025-03
     
-    section Phase 2: Enhancement (Current)
+    section Phase 2: Enhancement (Complete)
     Multi-Language Content (14 langs)  :done, 2025-03, 2025-06
-    Comprehensive Test Suite (1400+)   :done, 2025-06, 2026-01
+    Comprehensive Test Suite (3061+ tests) :done, 2025-06, 2026-01
     Security Scanning Integration      :done, 2025-09, 2026-01
-    Enhanced BCP v2.0                  :active, 2026-02, 2026-04
+    Enhanced BCP v2.0                  :done, 2026-02, 2026-04
     
-    section Phase 3: Optimization
+    section Phase 3: Optimization (Current)
     Alternative Hosting Runbook        :done, 2026-02, 2026-03
+    gh-aw Agentic Workflows (10 news)  :done, 2026-02, 2026-04
+    Dual Economic Data (WB + IMF)      :done, 2026-03, 2026-04
+    Quarterly DR Drills                :active, 2026-04, 2026-12
     Automated Recovery Testing         :2026-06, 2026-09
-    Quarterly BCP Exercises            :2026-06, 2026-12
     
     section Phase 4: Maturity
     Multi-CDN Failover Configuration   :2026-10, 2027-01
-    Continuous Resilience Monitoring    :2027-01, 2027-06
+    Continuous Resilience Monitoring   :2027-01, 2027-06
     Annual BCP Audit & Improvement     :2027-06, 2027-09
 ```
 
