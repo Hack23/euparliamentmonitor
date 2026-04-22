@@ -27,11 +27,13 @@ gh-aw v0.69.3, 2026-04-21). So EU Parliament Monitor splits the concerns:
 - `.github/agents/news-generation.agent.md` (this file) — body-only.
   Contributes the shared Required Reading order and Stage Contract to
   every article-generating workflow prompt.
-- `.github/workflows/shared/mcp/news-mcp-servers.md` — frontmatter-only.
-  Carries the four `mcp-servers:` mounts (European Parliament, World
-  Bank, memory, sequential-thinking). Imported as a shared component
-  (no `on:` field), so gh-aw merges its `mcp-servers:` into the
-  workflow frontmatter.
+- `.github/workflows/shared/mcp/news-mcp-servers.md` — shared MCP
+  component. Carries the four `mcp-servers:` mounts (European
+  Parliament, World Bank, memory, sequential-thinking) in frontmatter.
+  Imported as a shared component (no `on:` field), so gh-aw merges its
+  `mcp-servers:` into the workflow frontmatter; any Markdown body in
+  that file is also appended to the workflow prompt and is kept
+  intentionally minimal.
 
 Every article-generating news workflow imports **both**:
 

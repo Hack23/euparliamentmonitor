@@ -9,8 +9,9 @@
  * `european-parliament-mcp-server@1.2.11`. This test asserts:
  *
  *   1. `EP_MCP_TOOLS` is in sync with the actual `this.safeCallTool(...)`
- *      invocations found in the compiled client source (so a method that
- *      wraps a new tool can never ship without updating the exported list).
+ *      invocations found in the TypeScript client source at
+ *      `src/mcp/ep-mcp-client.ts` (so a method that wraps a new tool can
+ *      never ship without updating the exported list).
  *   2. Every entry in `EP_MCP_TOOLS` is documented in
  *      `.github/prompts/07-mcp-reference.md` (prompt-library tables), which
  *      is the canonical reference cited by all news workflows.
