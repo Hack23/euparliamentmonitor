@@ -191,8 +191,8 @@ gh aw compile --poutine                   # Supply chain risks
 - **Single-file output**: When creating a workflow, produce exactly **one** workflow `.md` file. Do not create separate documentation files (architecture docs, runbooks, usage guides, etc.). If documentation is needed, add a brief `## Usage` section inside the workflow file itself.
 - **Always include `runtimes: node: version: "25"`** in all workflow .md files for Node.js 25 runtime
 - **Use `defaults` (not `default`)** as the network ecosystem identifier for basic infrastructure
-- **MCP servers use `container/entrypoint/entrypointArgs/allowed` format** in gh-aw workflows (not `command/args` which is for copilot-mcp.json)
-- **Use `allowed: ["*"]`** on all MCP servers to grant full tool access
+- **MCP servers use `container/entrypoint/entrypointArgs` format** in gh-aw workflows (not `command/args` which is for copilot-mcp.json)
+- **Omit the `tools` / `allowed` field entirely** on MCP servers — the gh-aw MCP gateway (awmg) treats `"*"` as a literal tool name (exposing 0 tools), and omitting the field is equivalent to "all tools". **Never** write `allowed: ["*"]` or `tools: ["*"]`.
 
 ---
 
