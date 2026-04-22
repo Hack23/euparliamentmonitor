@@ -17,7 +17,7 @@
 import fs from 'fs';
 import path from 'path';
 import { randomUUID } from 'crypto';
-import { ensureDirectoryExists, resolveUniqueAnalysisDir, discoverAnalysisFileEntries, } from '../../utils/file-utils.js';
+import { ensureDirectoryExists, resolveUniqueAnalysisDir, discoverAnalysisFileEntries, mergeManifestHistory, } from '../../utils/file-utils.js';
 /**
  * Default set of analysis methods (all methods).
  */
@@ -198,7 +198,7 @@ function computePreferredAnalysisDir(outputDir, date, articleTypeSlug, outputDir
  * @returns Analysis context with discovered methods
  */
 export async function runAnalysisStage(fetchedData, options) {
-    const { articleTypes, date, outputDir, articleTypeSlug, verbose = false, requireData = false, outputDirIsResolved = false, } = options;
+    const { articleTypes, date, outputDir, articleTypeSlug, verbose = false, requireData = false, outputDirIsResolved = false, runId: optionRunId, gateResult = 'PENDING', } = options;
     if (!/^\d{4}-\d{2}-\d{2}$/u.test(date)) {
         throw new Error(`Invalid analysis date "${date}": must match YYYY-MM-DD format`);
     }
@@ -213,7 +213,7 @@ export async function runAnalysisStage(fetchedData, options) {
         }
     }
     const startTime = new Date().toISOString();
-    const runId = randomUUID();
+    const runId = optionRunId && optionRunId.length > 0 ? optionRunId : randomUUID();
     // When the caller passes a fully-resolved analysis directory (e.g. an
     // agentic workflow's per-run dir `analysis/daily/<date>/<slug>-run<N>`),
     // honour it verbatim — including any existing `manifest.json` from Stage B.
@@ -263,6 +263,24 @@ export async function runAnalysisStage(fetchedData, options) {
         }
         catch {
             // Non-fatal: manifest is informational
+        }
+    }
+    // When running against a resolved (shared same-day) folder, append a
+    // history entry so repeated runs accumulate an audit trail instead of
+    // triggering the `-2` suffix. Artifact files are already on disk; this
+    // only records the run metadata.
+    if (outputDirIsResolved) {
+        try {
+            mergeManifestHistory(manifestPath, {
+                runId,
+                startedAt: startTime,
+                finishedAt: endTime,
+                gateResult,
+                filesWritten: discoveredEntries.map((e) => e.outputFile),
+            });
+        }
+        catch {
+            // Non-fatal: the history entry is additive metadata.
         }
     }
     if (verbose) {

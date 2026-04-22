@@ -215,6 +215,129 @@ export function resolveUniqueAnalysisDir(baseDir: string): string {
   return candidate;
 }
 
+// ─── Manifest history (shared same-day folder support) ──────────────────────
+
+/**
+ * Single entry in `manifest.json.history[]` recording one run that wrote
+ * artifacts into a shared same-day analysis folder.
+ *
+ * When the analysis workflow re-runs against the same
+ * `analysis/daily/${DATE}/${TYPE}/` directory, it appends a new entry
+ * instead of triggering the `-2` suffix in {@link resolveUniqueAnalysisDir}.
+ * The article workflow reads this history to decide whether to consume or
+ * skip the folder.
+ */
+export interface AnalysisManifestHistoryEntry {
+  /** Stable identifier for this attempt (e.g. `breaking-run60-1729876543`) */
+  readonly runId: string;
+  /** ISO-8601 UTC timestamp when the run started */
+  readonly startedAt: string;
+  /** ISO-8601 UTC timestamp when the run finished (or last wrote) */
+  readonly finishedAt: string;
+  /** Short git SHA of the commit the run was produced against (optional) */
+  readonly commit?: string | undefined;
+  /** Stage-C result: GREEN | GREEN_WITH_WARNINGS | ANALYSIS_ONLY | PENDING */
+  readonly gateResult: 'GREEN' | 'GREEN_WITH_WARNINGS' | 'ANALYSIS_ONLY' | 'PENDING';
+  /** Relative-path list of analysis files written or refreshed during the run */
+  readonly filesWritten: readonly string[];
+}
+
+/**
+ * Merge a new run entry into the `history[]` array of the manifest file at
+ * `manifestPath`, creating the file if it doesn't exist.
+ *
+ * The merge is additive: existing history entries are preserved, and the new
+ * entry is appended. When `manifestPath` already has a manifest with
+ * top-level fields (runId, date, articleType, etc.), those fields are left
+ * untouched — only `history[]` is appended to and the top-level
+ * `updatedAt` timestamp is refreshed.
+ *
+ * This supports the stable same-day analysis folder layout
+ * (`analysis/daily/${DATE}/${TYPE}/`) where repeated analysis runs
+ * overwrite/upgrade artifacts but each attempt adds a history entry.
+ *
+ * @param manifestPath - Absolute path to the run's manifest.json.
+ * @param entry - History entry describing this run.
+ */
+export function mergeManifestHistory(
+  manifestPath: string,
+  entry: AnalysisManifestHistoryEntry
+): void {
+  ensureDirectoryExists(path.dirname(manifestPath));
+  let manifest: Record<string, unknown> = {};
+  if (fs.existsSync(manifestPath)) {
+    try {
+      const raw = fs.readFileSync(manifestPath, 'utf-8');
+      const parsed: unknown = JSON.parse(raw);
+      if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
+        manifest = parsed as Record<string, unknown>;
+      }
+    } catch {
+      // Corrupt manifest — start fresh but keep a diagnostic field.
+      manifest = { corruptManifestRecoveredAt: new Date().toISOString() };
+    }
+  }
+
+  const existingHistory = Array.isArray(manifest['history'])
+    ? (manifest['history'] as AnalysisManifestHistoryEntry[])
+    : [];
+
+  manifest['history'] = [...existingHistory, entry];
+  manifest['updatedAt'] = entry.finishedAt;
+
+  fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`, 'utf-8');
+}
+
+/**
+ * Read the `gateResult` from the most recent entry in the manifest's
+ * `history[]` array.
+ *
+ * Used by the article workflow to decide whether to consume a committed
+ * analysis folder: `GREEN` proceeds to Stage D, everything else exits noop.
+ *
+ * @param manifestPath - Absolute path to the run's manifest.json.
+ * @returns The latest `gateResult`, or `'PENDING'` when the manifest is
+ *          missing, unreadable, or contains no history entries.
+ */
+export function readLatestGateResult(
+  manifestPath: string
+): AnalysisManifestHistoryEntry['gateResult'] {
+  if (!fs.existsSync(manifestPath)) return 'PENDING';
+  try {
+    const raw = fs.readFileSync(manifestPath, 'utf-8');
+    const parsed: unknown = JSON.parse(raw);
+    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return 'PENDING';
+    const history = (parsed as Record<string, unknown>)['history'];
+    if (!Array.isArray(history) || history.length === 0) {
+      // Back-compat: a manifest without a history[] might carry gateResult
+      // directly at the top level during the transition.
+      const direct = (parsed as Record<string, unknown>)['gateResult'];
+      if (
+        direct === 'GREEN' ||
+        direct === 'GREEN_WITH_WARNINGS' ||
+        direct === 'ANALYSIS_ONLY' ||
+        direct === 'PENDING'
+      ) {
+        return direct;
+      }
+      return 'PENDING';
+    }
+    const last = history[history.length - 1] as AnalysisManifestHistoryEntry | undefined;
+    const gate = last?.gateResult;
+    if (
+      gate === 'GREEN' ||
+      gate === 'GREEN_WITH_WARNINGS' ||
+      gate === 'ANALYSIS_ONLY' ||
+      gate === 'PENDING'
+    ) {
+      return gate;
+    }
+    return 'PENDING';
+  } catch {
+    return 'PENDING';
+  }
+}
+
 /**
  * Resolve a unique filename by appending a numeric suffix (-2, -3, …) before
  * the file extension when the file already exists.

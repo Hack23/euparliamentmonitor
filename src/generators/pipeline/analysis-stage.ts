@@ -25,6 +25,8 @@ import {
   ensureDirectoryExists,
   resolveUniqueAnalysisDir,
   discoverAnalysisFileEntries,
+  mergeManifestHistory,
+  type AnalysisManifestHistoryEntry,
 } from '../../utils/file-utils.js';
 
 // ─── Analysis method constants ────────────────────────────────────────────────
@@ -123,6 +125,20 @@ export interface AnalysisStageOptions {
    * discovery + article-generation phase.
    */
   readonly outputDirIsResolved?: boolean;
+  /**
+   * Optional stable run identifier used to record a history entry in the
+   * manifest when `outputDirIsResolved` is true. Enables repeated analysis
+   * runs against the same `analysis/daily/${DATE}/${TYPE}/` folder to
+   * accumulate an audit trail via `manifest.json.history[]` instead of
+   * triggering the `-2` suffix. When unset, a UUID-based run id is used.
+   */
+  readonly runId?: string;
+  /**
+   * Optional Stage-C gate result recorded in the manifest history entry
+   * written after discovery. Defaults to `'PENDING'` — the Stage-C
+   * validator or the caller updates this later.
+   */
+  readonly gateResult?: AnalysisManifestHistoryEntry['gateResult'];
 }
 
 // ─── Pre-resolved analysis directory heuristic ───────────────────────────────
@@ -327,6 +343,8 @@ export async function runAnalysisStage(
     verbose = false,
     requireData = false,
     outputDirIsResolved = false,
+    runId: optionRunId,
+    gateResult = 'PENDING',
   } = options;
 
   if (!/^\d{4}-\d{2}-\d{2}$/u.test(date)) {
@@ -347,7 +365,7 @@ export async function runAnalysisStage(
   }
 
   const startTime = new Date().toISOString();
-  const runId = randomUUID();
+  const runId = optionRunId && optionRunId.length > 0 ? optionRunId : randomUUID();
 
   // When the caller passes a fully-resolved analysis directory (e.g. an
   // agentic workflow's per-run dir `analysis/daily/<date>/<slug>-run<N>`),
@@ -408,6 +426,24 @@ export async function runAnalysisStage(
       fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2), 'utf-8');
     } catch {
       // Non-fatal: manifest is informational
+    }
+  }
+
+  // When running against a resolved (shared same-day) folder, append a
+  // history entry so repeated runs accumulate an audit trail instead of
+  // triggering the `-2` suffix. Artifact files are already on disk; this
+  // only records the run metadata.
+  if (outputDirIsResolved) {
+    try {
+      mergeManifestHistory(manifestPath, {
+        runId,
+        startedAt: startTime,
+        finishedAt: endTime,
+        gateResult,
+        filesWritten: discoveredEntries.map((e) => e.outputFile),
+      });
+    } catch {
+      // Non-fatal: the history entry is additive metadata.
     }
   }
 
