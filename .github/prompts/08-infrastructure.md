@@ -9,7 +9,18 @@ not behaviour.
 
 ## 1 · Required Frontmatter Fields
 
-Every `news-*.md` workflow has:
+Every `news-*.md` workflow defines `runtimes:`, `network:`, `tools:`, and its
+own `safe-outputs:` block directly in the workflow frontmatter. The
+`mcp-servers:` block is **not** inlined per workflow — it is provided via a
+shared gh-aw import so the four MCP mounts (European Parliament, World Bank,
+memory, sequential-thinking) stay in lockstep across all workflows:
+
+```yaml
+imports:
+  - shared/mcp/news-mcp-servers.md    # provides mcp-servers: (all four mounts)
+```
+
+The workflow frontmatter then adds the non-MCP configuration:
 
 ```yaml
 runtimes:
@@ -33,6 +44,23 @@ network:
     - www.euparliamentmonitor.com
     - defaults                # GitHub Actions runtime
 
+tools:
+  github:
+    toolsets: [all]
+  bash: true
+  agentic-workflows: true
+  repo-memory:
+    branch-name: memory/news-generation
+    allowed-extensions: [".md", ".json"]
+    max-file-size: 51200
+    max-file-count: 50
+    max-patch-size: 51200
+```
+
+The current shared `mcp-servers:` block (imported via
+`shared/mcp/news-mcp-servers.md`) is:
+
+```yaml
 mcp-servers:
   european-parliament:
     container: "node:25-alpine"
@@ -52,19 +80,11 @@ mcp-servers:
     container: "node:25-alpine"
     entrypoint: "npx"
     entrypointArgs: ["-y", "@modelcontextprotocol/server-sequential-thinking"]
-
-tools:
-  github:
-    toolsets: [all]
-  bash: true
-  agentic-workflows: true
-  repo-memory:
-    branch-name: memory/news-generation
-    allowed-extensions: [".md", ".json"]
-    max-file-size: 51200
-    max-file-count: 50
-    max-patch-size: 51200
 ```
+
+Do **not** duplicate this block back into individual workflows — edit the
+shared component (`.github/workflows/shared/mcp/news-mcp-servers.md`) and
+recompile.
 
 Safe-outputs block: see [`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md) §6.
 

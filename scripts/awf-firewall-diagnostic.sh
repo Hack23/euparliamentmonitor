@@ -40,7 +40,28 @@ fi
 if [ -n "${EP_MCP_GATEWAY_URL:-}" ]; then
   AUTH_HEADER=()
   if [ -n "${EP_MCP_GATEWAY_API_KEY:-}" ]; then
-    AUTH_HEADER=(-H "Authorization: ${EP_MCP_GATEWAY_API_KEY}")
+    # Mirror the auth-header behavior of src/mcp/mcp-connection.ts
+    # (_buildAuthorizationHeader): pass pre-prefixed keys (e.g. "Bearer …")
+    # through unchanged, otherwise prepend EP_MCP_GATEWAY_AUTH_SCHEME if set
+    # to a valid RFC 7235 token, else send the raw key.
+    _auth_key="${EP_MCP_GATEWAY_API_KEY}"
+    # Strip leading/trailing whitespace
+    _auth_key="${_auth_key#"${_auth_key%%[![:space:]]*}"}"
+    _auth_key="${_auth_key%"${_auth_key##*[![:space:]]}"}"
+    _auth_value="${_auth_key}"
+    if [ -n "${_auth_key}" ]; then
+      _first_token="${_auth_key%% *}"
+      if [ "${_first_token}" != "${_auth_key}" ] && \
+         printf '%s' "${_first_token}" | grep -Eq "^[!#\$%&'*+.^_\`|~0-9A-Za-z-]+$"; then
+        # Already scheme-prefixed (e.g. "Bearer xyz") — pass through unchanged
+        _auth_value="${_auth_key}"
+      elif [ -n "${EP_MCP_GATEWAY_AUTH_SCHEME:-}" ] && \
+           printf '%s' "${EP_MCP_GATEWAY_AUTH_SCHEME}" | \
+           grep -Eq "^[!#\$%&'*+.^_\`|~0-9A-Za-z-]+$"; then
+        _auth_value="${EP_MCP_GATEWAY_AUTH_SCHEME} ${_auth_key}"
+      fi
+    fi
+    AUTH_HEADER=(-H "Authorization: ${_auth_value}")
   fi
   GW_STATUS=$(curl -sS -o /dev/null -w "%{http_code}" --connect-timeout 10 --max-time 30 \
     -H "Content-Type: application/json" \
