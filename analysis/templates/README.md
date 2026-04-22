@@ -8,8 +8,8 @@
 <h1 align="center">📋 EU Parliament Monitor — Analysis Templates</h1>
 
 <p align="center">
-  <strong>📊 Eight Structured Intelligence Templates for AI-Driven Political Analysis</strong><br>
-  <em>🎯 Classification · Risk · Threat · SWOT · Stakeholder · Significance · Synthesis · Per-File</em>
+  <strong>📊 39 Structured Intelligence Templates for AI-Driven Political Analysis</strong><br>
+  <em>🎯 14 Agentic-Workflow Templates (incl. 6 reusable framework templates) + 25 Per-Artifact Templates — covering every unique <code>.md</code> file produced under <code>analysis/daily/</code></em>
 </p>
 
 <p align="center">
@@ -35,14 +35,31 @@
 | **[Security Architecture](../../SECURITY_ARCHITECTURE.md)** | 🛡️ Security | Security controls and compliance mapping | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY_ARCHITECTURE.md) |
 | **[Workflows](../../WORKFLOWS.md)** | ⚙️ DevOps | CI/CD pipeline documentation | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/WORKFLOWS.md) |
 | **[Analysis Directory](../README.md)** | 🔬 Analysis | Analysis directory overview and structure | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/README.md) |
-| **[AI Analysis Guide](../methodologies/ai-driven-analysis-guide.md)** | 🤖 Methodology | Per-file analysis protocol and quality gates | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md) |
+| **[AI Analysis Guide](../methodologies/ai-driven-analysis-guide.md)** | 🤖 Methodology | 10-step analysis protocol — the authoritative guide every workflow follows | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md) |
+| **[Artifact Catalog](../methodologies/artifact-catalog.md)** | 🗂️ Methodology | Master map of every analysis artifact → methodology + template + depth floor + Mermaid type | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md) |
+| **[Per-Artifact Methodologies](../methodologies/per-artifact-methodologies.md)** | 🧩 Methodology | One section per artifact type with construction rules, required sections, and quality signals | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/per-artifact-methodologies.md) |
 | **[Threat Framework](../methodologies/political-threat-framework.md)** | 🎭 Methodology | Political Threat Landscape (6 dimensions) | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md) |
 | **[Risk Methodology](../methodologies/political-risk-methodology.md)** | ⚠️ Methodology | Likelihood × Impact scoring for EP events | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-risk-methodology.md) |
 | **[SWOT Framework](../methodologies/political-swot-framework.md)** | 💼 Methodology | Evidence-based political SWOT quadrants | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md) |
 | **[Classification Guide](../methodologies/political-classification-guide.md)** | 🏷️ Methodology | 7-dimension EP event classification | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-classification-guide.md) |
 | **[Style Guide](../methodologies/political-style-guide.md)** | ✍️ Methodology | Editorial and analytical style standards | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md) |
+| **[OSINT Tradecraft Standards](../methodologies/osint-tradecraft-standards.md)** | 🕵️ Methodology | ICD 203 · Admiralty source grades · Kent/WEP probability bands · SAT catalog · OSINT ethics | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/osint-tradecraft-standards.md) |
 
 </div>
+
+---
+
+## 🕵️ OSINT Tradecraft Quick Reference
+
+All templates in this library implement professional intelligence-community discipline. The normative contract is [`osint-tradecraft-standards.md`](../methodologies/osint-tradecraft-standards.md). The style contract is [`political-style-guide.md` §Estimative Language & Source Grading](../methodologies/political-style-guide.md).
+
+| Discipline | Standard | Where Applied in Templates |
+|-----------|----------|---------------------------|
+| **Estimative Language (WEP)** | Kent / ICD 203 probability bands (*Almost Certain* → *Almost No Chance*) + explicit time horizon | `synthesis-summary.md` Top Findings, `deep-analysis.md` Executive Summary, `methodology-reflection.md` §12 |
+| **Source Grading (Admiralty)** | A–F reliability × 1–6 credibility (e.g. `A1` = EP plenary record, `C3` = press) | `synthesis-summary.md` Top Findings, all probabilistic artifacts |
+| **Confidence Separation** | Confidence-in-evidence (HIGH / MEDIUM / LOW) tracked separately from WEP probability | All 🟢/🟡/🔴 confidence markers across templates |
+| **Structured Analytic Techniques** | ≥10 SATs applied per run (e.g. ACH, Key Assumptions Check, Pre-Mortem, Scenario Analysis, Red-Team, Indicators) | `methodology-reflection.md` §12, `per-artifact-methodologies.md` SAT entries |
+| **ICD 203 BLUF** | Executive Summary opens with BLUF + WEP band + confidence + rationale | `deep-analysis.md` Executive Summary |
 
 ---
 
@@ -72,7 +89,7 @@ These analysis templates implement structured intelligence production mandated b
 
 ## 🎯 Purpose
 
-This directory contains **eight reusable analysis templates** that AI agents fill when analysing European Parliament data. Each template enforces a specific analytical framework, requires evidence citations from EP MCP data, and produces structured intelligence that feeds into downstream article generation.
+This directory contains **39 analysis templates** that AI agents fill when analysing European Parliament data — **6 reusable framework templates** + **8 workflow-specific templates** + **25 per-artifact templates** covering every unique `.md` file produced under `analysis/daily/`. Each template enforces a specific analytical framework, requires evidence citations from EP MCP data, and produces structured intelligence that feeds into downstream article generation.
 
 Templates are **not** standalone outputs. They form a **composable intelligence pipeline** — individual templates feed into the daily synthesis, which aggregates into weekly and monthly intelligence reports. The per-file analysis template is the most frequently used: every downloaded EP MCP data file receives a comprehensive analysis using this template.
 
@@ -212,7 +229,7 @@ sequenceDiagram
 
 ## 🗺️ Template Interconnection Map
 
-All eight templates form an integrated intelligence network. The per-file analysis template consumes outputs from the six specialist templates, and the synthesis template aggregates all per-file analyses:
+The framework and workflow-specific templates form an integrated intelligence network. The per-file analysis template consumes outputs from the specialist templates, and the synthesis template aggregates all per-file analyses:
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
@@ -266,6 +283,28 @@ graph LR
 | 6 | [📈 Significance Scoring](significance-scoring.md) | 5-dimension composite score (0–10) for publication prioritisation decisions | Event Context, 5 Scoring Dimensions (Parliamentary Significance, Policy Impact, Institutional Relevance, Public Interest, Temporal Urgency), Composite Score, Publish Decision | `get_adopted_texts`, `get_plenary_sessions`, `get_procedures`, `get_events` | Scoring table (5 dimensions) + weighted composite + publish/hold/skip decision | 🔴 HIGH |
 | 7 | [🧩 Synthesis Summary](synthesis-summary.md) | Daily intelligence synthesis aggregating all per-file analyses into editorial direction | Synthesis Context, Headline Intelligence, SWOT Summary, Risk Overview, Threat Dashboard, Stakeholder Map, Forward Indicators, Editorial Recommendations | All MCP tools (aggregated from per-file outputs) | Dashboard tables + Mermaid intelligence overview + 3 editorial decision points | 🔴 HIGH |
 | 8 | [🔍 Per-File Intelligence](per-file-political-intelligence.md) | Deep per-document AI analysis — the **most used template** (every downloaded EP data file receives this) | Document Identity, Executive Summary, Political Classification, SWOT (Grand Coalition + Opposition), Risk Matrix, Threat Landscape, Stakeholder Assessment, Significance Score, Forward Indicators | Depends on document type (see [Document-Type Matrix](#-template-selection-by-mcp-data-category)) | Comprehensive `.analysis.md` file stored alongside data file | 🔴 CRITICAL |
+| 9 | [🗳️ Voting Patterns](voting-patterns.md) | Group-by-group coalition arithmetic for the period — cohesion per group, observed coalitions, bloc win-rate, outlier votes, forward-vote forecasts | Group Size Arithmetic, Observed Coalitions, Per-Group Behaviour (≥7 groups), Bloc Win Rate, Outlier Votes, Forward Implications, Confidence Ledger | `get_voting_records`, `analyze_voting_patterns`, `analyze_coalition_dynamics`, `compare_political_groups`, `track_mep_attendance` | Group roster + coalition table + per-group narratives + Mermaid agreement network | 🔴 HIGH |
+| 10 | [⚙️ Workflow Audit](workflow-audit.md) | End-of-run self-audit of workflow execution — phases completed, MCP tools called, Core Principles compliance, time budget, issues and recommendations | YAML metadata, 6-Phase Execution, MCP Tool Call Log, 11 Core Principles Scorecard, Artifact Production, Time Budget, Issues & Deviations, Next-Run Recommendations | None (reads workflow log and filesystem) | 6-phase Mermaid flowchart + compliance scorecard + MCP call table | 🟡 MEDIUM |
+| 11 | [🔄 Cross-Session Intelligence](cross-session-intelligence.md) | Session-over-session narrative across plenary sessions within a period — themes, crystallisation moment, momentum indicators, next-session outlook | Session Overview, Progression Timeline, Session-by-Session Progression (≥200 words each), Cross-Session Themes (≥4), Crystallisation Moment (≥250 words), Momentum Indicators, Next-Session Outlook | `get_plenary_sessions`, `get_meeting_decisions`, `get_meeting_activities`, `get_adopted_texts`, `get_voting_records` | Mermaid timeline + session narratives + momentum table | 🔴 HIGH |
+| 12 | [📜 Deep Analysis](deep-analysis.md) | Long-form (4 000–10 000 word) Economist-style political intelligence prose — the 30-minute read complement to synthesis-summary | Executive Summary, Structural Thesis, Crystallisation Moment, Coalition Dynamics, Policy Dimensions (≥4 sub-sections), Institutional Dynamics, Geopolitical Context, Forward Trajectory, Confidence & Method | Consumes run's `session-baseline`, `voting-patterns`, `cross-session-intelligence`, `coalition-dynamics`, `stakeholder-map` | ≥3 diagrams + named text / RCV citations inline + ≥15 named procedures | 🔴 HIGH |
+| 13 | [📆 Session Baseline](session-baseline.md) | Structured calendar + adopted-texts roster for every plenary session in scope — the data-dense reference other artifacts cite | Run Context, Plenary Session Calendar (per session), Session Calendar Diagram, Period Totals, Adopted Texts Roster, Committee Activity Map, Procedure-Code Distribution, Historical Anchor, Data-Source Ledger | `get_plenary_sessions`, `get_adopted_texts`, `get_procedures`, `get_committee_info`, `track_mep_attendance` | Gantt calendar + adopted-texts tables + committee activity map | 🟡 MEDIUM |
+| 14 | [🪞 Methodology Reflection](methodology-reflection.md) | Continuous-improvement retrospective — pipeline, data provenance, SATs applied, AI-FIRST iteration log, strengths, limitations, lessons, biases, update plan. **Final** artifact of every run. | Pipeline Diagram, Data Sources & Provenance, SATs Applied (≥10), AI-FIRST Iteration Log (Pass 1 / 2 / optional 3), Strengths (≥5), Limitations (≥5), Lessons (≥5), Biases & Mitigations (≥6), Peer Review, Update Plan, References | None directly (reads completed run + workflow-audit + MCP log) | Colour-coded `graph TD` pipeline + data-provenance table + SATs table + biases table | 🔴 HIGH |
+
+### 🧩 Per-Artifact Templates (25 additional — one per unique methodology section)
+
+Every artifact under `analysis/daily/*/` has a 1:1 template in `analysis/templates/`. These compact fill-in skeletons (60–200 lines each) mirror their section in [`per-artifact-methodologies.md`](../methodologies/per-artifact-methodologies.md):
+
+| Folder | Templates |
+|---|---|
+| `intelligence/` | [analysis-index](analysis-index.md) · [stakeholder-map](stakeholder-map.md) · [scenario-forecast](scenario-forecast.md) · [pestle-analysis](pestle-analysis.md) · [threat-model](threat-model.md) · [coalition-dynamics](coalition-dynamics.md) · [cross-run-diff](cross-run-diff.md) · [economic-context](economic-context.md) · [historical-baseline](historical-baseline.md) · [mcp-reliability-audit](mcp-reliability-audit.md) · [political-threat-landscape](political-threat-landscape.md) · [wildcards-blackswans](wildcards-blackswans.md) · [reference-analysis-quality](reference-analysis-quality.md) · [voting-patterns](voting-patterns.md) · [workflow-audit](workflow-audit.md) · [cross-session-intelligence](cross-session-intelligence.md) · [methodology-reflection](methodology-reflection.md) *(last four also listed in the Agentic-Workflow table above)* |
+| `classification/` | [significance-classification](significance-classification.md) · [actor-mapping](actor-mapping.md) · [forces-analysis](forces-analysis.md) · [impact-matrix](impact-matrix.md) |
+| `risk-scoring/` | [risk-matrix](risk-matrix.md) · [quantitative-swot](quantitative-swot.md) · [political-capital-risk](political-capital-risk.md) · [legislative-velocity-risk](legislative-velocity-risk.md) |
+| `threat-assessment/` | [consequence-trees](consequence-trees.md) · [legislative-disruption](legislative-disruption.md) · [actor-threat-profiles](actor-threat-profiles.md) · [political-stride-assessment](political-stride-assessment.md) |
+
+### 🧱 Framework Templates (6 reusable)
+
+| # | Template | Role |
+|---|----------|------|
 
 ---
 

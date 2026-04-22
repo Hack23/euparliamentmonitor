@@ -59,6 +59,34 @@
 
 ---
 
+## 🗺️ Classification Overview Diagram
+
+Every classification file includes a color-coded overview diagram that places this event on the four classification axes. Use the Hack23 theme palette (blue=input, green=safe, orange=caution, red=critical, purple=synthesis).
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","errorBkgColor":"#D32F2F","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
+flowchart LR
+    E["🏷️ Event<br/>[REQUIRED: short name]"] --> S["Sensitivity<br/>[🟢 PUBLIC / 🟡 SENSITIVE / 🔴 RESTRICTED]"]
+    E --> D["Policy Domain<br/>[REQUIRED: primary committee]"]
+    E --> U["Urgency<br/>[⚪ / 🔵 / 🟠 / 🔴]"]
+    E --> I["Impact Scope<br/>[🏘️ / 🇪🇺 / 🌍]"]
+    E --> C["Composite Risk<br/>[max L×I from matrix]"]
+
+    style E fill:#1565C0,color:#ffffff
+    style D fill:#0288D1,color:#ffffff
+    style I fill:#7B1FA2,color:#ffffff
+    %% [REQUIRED: Set S (Sensitivity) fill to match selected level — 🟢 #2E7D32 / 🟡 #FFC107 / 🔴 #D32F2F]
+    %% [REQUIRED: Set U (Urgency) fill to match selected level — ⚪ #90A4AE / 🔵 #0288D1 / 🟠 #FF9800 / 🔴 #D32F2F]
+    %% [REQUIRED: Set C (Composite Risk) fill to match max L×I band — 🟢 #2E7D32 (1–4) / 🟡 #FFC107 (5–9) / 🟠 #FF9800 (10–14) / 🔴 #D32F2F (15–25)]
+    style S fill:#2E7D32,color:#ffffff
+    style U fill:#FF9800,color:#000000
+    style C fill:#D32F2F,color:#ffffff
+```
+
+> The `style S / U / C` lines above are placeholders showing example default colours only. **Replace each fill value to match the level you selected above, using the canonical palette from [political-style-guide.md](../methodologies/political-style-guide.md):** 🟢 `#2E7D32` / 🟡 `#FFC107` / 🟠 `#FF9800` / 🔴 `#D32F2F` / ⚪ `#90A4AE` / 🔵 `#0288D1`. In this template, 🟡 is always `#FFC107` and 🟠 is always `#FF9800`, so a reader scanning the diagram alone can read the classification at a glance.
+
+---
+
 ## 📊 Impact Analysis Matrix
 
 Score likelihood and impact on 1–5 scale. Risk Score = Likelihood × Impact.
