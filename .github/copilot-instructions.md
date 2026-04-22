@@ -185,8 +185,12 @@ rel=$(printf '%s\n' "$f" | awk -v p="$ANALYSIS_DIR/" '
 **7. Input redirection inside `$()` — `$(cmd < file)`**
 
 ```bash
-cmd "$file"              # preferred — most tools accept a path argument
-# or, if cmd truly only reads stdin, use a pipe (no redirection inside $()):
+cmd "$file"              # PREFERRED — most tools accept a path argument
+# Only if cmd truly only reads stdin, use a pipe (no redirection inside $()).
+# `cat | cmd` is technically UUOC, but correctness beats optimization here:
+# `$(cmd <"$file")` is blocked by the sandbox filter even though the `<` is
+# outside the substitution token visually, because the filter scans the full
+# `$(...)` span for redirection operators.
 result=$(cat "$file" | cmd)
 ```
 

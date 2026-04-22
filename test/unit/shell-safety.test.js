@@ -44,10 +44,16 @@ function listShellScripts(dir) {
 
 /**
  * Strip whole-line bash comments (lines whose first non-whitespace character
- * is `#`) so that the RULES regexes only run against executable code. Inline
- * comments (e.g. `cmd; # note`) and characters inside string literals are
- * intentionally NOT stripped — any pattern in those contexts is still
- * executable or user-visible and should fail the guard.
+ * is `#`) so that the RULES regexes only run against executable code.
+ *
+ * What is NOT stripped (intentionally):
+ *   - Inline comments like `cmd; # note` — the `cmd` before the `#` is live.
+ *   - `#` characters inside string literals — patterns in quoted strings
+ *     remain executable (command substitution still evaluates them) or at
+ *     minimum user-visible, so the guard must still flag them.
+ *
+ * In other words: the only `#` characters scrubbed from the scanned source
+ * are those opening a whole-line comment. Every other `#` is preserved.
  */
 function stripCommentLines(source) {
   return source
@@ -86,10 +92,19 @@ const RULES = [
   {
     id: 'redirection-in-command-substitution',
     description: 'Input/output redirection inside `$()` — e.g. `$(cmd < file)` or `$(cmd <"$file")`',
-    // Matches a `$(` … `<` … `)` sequence on a single line where the `<` is
-    // a redirection operator (not a here-doc `<<`, not `<(` process
-    // substitution, not a shell comparison `<=`/`<<`). Covers the variants
-    // `$(cmd < file)`, `$(cmd <"$file")`, `$(cmd 2< file)`.
+    // Matches a `$(` … `<` … sequence on a single line where the `<` is a
+    // SINGLE-char redirection operator.
+    //
+    // Intentionally excluded via negative lookahead `(?![<(=])`:
+    //   - `<<` / `<<<`  here-doc and here-string (safe; no runtime eval of
+    //     redirection target against untrusted input)
+    //   - `<(...)`      process substitution (not a redirection operator)
+    //   - `<=`          numeric/test comparison (bash `[[ a < b ]]` is safe)
+    //
+    // FD-prefixed redirections like `2<`, `3<`, `2<<` are covered by the
+    // `(?:^|\s|[0-9])<` prefix — for `2<<` the trailing `<` is caught by the
+    // lookahead and rejected (correct: `<<` here-doc is safe). For `2< f`
+    // the rule matches (correct: this is a true file redirection).
     regex: /\$\([^()]*(?:^|\s|[0-9])<(?![<(=])/u,
   },
   {
