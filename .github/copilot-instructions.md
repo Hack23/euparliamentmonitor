@@ -185,9 +185,9 @@ rel=$(printf '%s\n' "$f" | awk -v p="$ANALYSIS_DIR/" '
 **7. Input redirection inside `$()` — `$(cmd < file)`**
 
 ```bash
-cmd "$file"              # most tools accept a path argument
-# or, if cmd truly only reads stdin:
-result=$(cmd <"$file")   # redirection OUTSIDE the substitution token
+cmd "$file"              # preferred — most tools accept a path argument
+# or, if cmd truly only reads stdin, use a pipe (no redirection inside $()):
+result=$(cat "$file" | cmd)
 ```
 
 ### Allowed patterns (safe, idiomatic bash)

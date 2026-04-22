@@ -362,9 +362,7 @@ export async function runAnalysisStage(
     articleTypeSlug,
     outputDirIsResolved
   );
-  const dateOutputDir = outputDirIsResolved
-    ? preferredDir
-    : resolveUniqueAnalysisDir(preferredDir);
+  const dateOutputDir = outputDirIsResolved ? preferredDir : resolveUniqueAnalysisDir(preferredDir);
 
   if (verbose) {
     console.log(`🔬 [analysis] Discovering existing analysis (runId: ${runId})`);

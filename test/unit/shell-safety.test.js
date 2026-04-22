@@ -43,9 +43,11 @@ function listShellScripts(dir) {
 }
 
 /**
- * Strip comments and string-literal content that only describes patterns.
- * We keep executable code (anything outside `# …` comment lines) because
- * backtick/quoted text inside a live bash command is still evaluated.
+ * Strip whole-line bash comments (lines whose first non-whitespace character
+ * is `#`) so that the RULES regexes only run against executable code. Inline
+ * comments (e.g. `cmd; # note`) and characters inside string literals are
+ * intentionally NOT stripped — any pattern in those contexts is still
+ * executable or user-visible and should fail the guard.
  */
 function stripCommentLines(source) {
   return source
@@ -80,6 +82,20 @@ const RULES = [
     id: 'default-with-command-substitution',
     description: 'Default-with-command-substitution `${VAR:-$(cmd)}`',
     regex: /\$\{[A-Za-z_][A-Za-z_0-9]*:[-=+?]\$\(/u,
+  },
+  {
+    id: 'redirection-in-command-substitution',
+    description: 'Input/output redirection inside `$()` — e.g. `$(cmd < file)` or `$(cmd <"$file")`',
+    // Matches a `$(` … `<` … `)` sequence on a single line where the `<` is
+    // a redirection operator (not a here-doc `<<`, not `<(` process
+    // substitution, not a shell comparison `<=`/`<<`). Covers the variants
+    // `$(cmd < file)`, `$(cmd <"$file")`, `$(cmd 2< file)`.
+    regex: /\$\([^()]*(?:^|\s|[0-9])<(?![<(=])/u,
+  },
+  {
+    id: 'adjacent-random',
+    description: 'Adjacent `${RANDOM}${RANDOM}` — adjacency heuristic trips nested-expansion detection',
+    regex: /\$\{RANDOM\}\$\{RANDOM\}/u,
   },
   {
     id: 'eval',

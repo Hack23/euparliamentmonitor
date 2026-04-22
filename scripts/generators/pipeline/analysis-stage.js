@@ -222,9 +222,7 @@ export async function runAnalysisStage(fetchedData, options) {
     // compose the conventional per-article-type per-date path and let the
     // uniqueness helper avoid clobbering completed runs.
     const preferredDir = computePreferredAnalysisDir(outputDir, date, articleTypeSlug, outputDirIsResolved);
-    const dateOutputDir = outputDirIsResolved
-        ? preferredDir
-        : resolveUniqueAnalysisDir(preferredDir);
+    const dateOutputDir = outputDirIsResolved ? preferredDir : resolveUniqueAnalysisDir(preferredDir);
     if (verbose) {
         console.log(`🔬 [analysis] Discovering existing analysis (runId: ${runId})`);
         console.log(`   Date: ${date}`);

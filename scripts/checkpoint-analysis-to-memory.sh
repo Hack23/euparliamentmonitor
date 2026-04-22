@@ -53,10 +53,10 @@ case "$PHASE" in
     ;;
 esac
 
-# Validate run-id: disallow path separators and control characters so the file
-# names stay anchored to the intended directory.
+# Validate run-id: disallow path separators and whitespace (including spaces)
+# so the file names stay anchored to the intended directory.
 case "$RUN_ID" in
-  */*|*"\\"*|*$'\n'*|*$'\r'*|*$'\t'*|"")
+  */*|*"\\"*|*[[:space:]]*|"")
     echo "error: run-id must not contain path separators, whitespace, or be empty" >&2
     exit 2
     ;;
@@ -91,7 +91,8 @@ TODAY=$(date -u +%Y-%m-%d)
 # Build the compact artifact index. Use `awk` to strip the leading
 # "<analysis-dir>/" prefix from each path — this avoids the
 # ${f#${ANALYSIS_DIR}/} nested-expansion pattern that the shell-safety filter
-# rejects. Line counts come from `wc -l | awk '{print $1}'`, not nested $( ).
+# rejects. Line counts come from `wc -l <path> | awk '{print $1}'` — no input
+# redirection inside command substitution (which is also a blocked pattern).
 {
   printf '# %s (phase: %s)\n\n' "$RUN_ID" "$PHASE"
   printf -- '- article-type: %s\n' "$ARTICLE_TYPE_SLUG"
@@ -112,7 +113,7 @@ TODAY=$(date -u +%Y-%m-%d)
             else                        { print $0 }
           }
         ')
-        lines=$(wc -l < "$artifact_path" | awk '{print $1}')
+        lines=$(wc -l "$artifact_path" | awk '{print $1}')
         printf -- '- %s (%s lines)\n' "$rel" "$lines"
       done
 } > "$INDEX_DST"
