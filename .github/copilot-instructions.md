@@ -114,6 +114,104 @@ Every article-generating workflow produces a **39-template analysis artifact set
 3. **Never** skip testing before committing
 4. **Never** use deprecated crypto (MD5, SHA-1, DES, 3DES)
 5. **Never** merge Dependabot PRs that modify compiled `.lock.yml` files directly — recompile with `gh aw compile` instead
+6. **Never** use dangerous shell expansion patterns in agentic workflows, prompts, or `scripts/**.sh` (see **Shell-Safety** section below — the sandbox shell-safety filter blocks them and the run fails, sometimes after wasting the 60-min budget)
+
+## 🛡️ Shell-Safety for Agentic Workflows, Prompts, and Scripts
+
+The sandbox shell-safety filter **blocks** commands that contain certain bash expansion patterns on the grounds that they can enable arbitrary code execution. When a block hits mid-run, the agent spends the remaining budget on workarounds and often times out (see failed run #24773038606).
+
+Apply these rules to **every** executable bash block — inside `.github/workflows/*.md` agentic workflows, the prompts they import (`.github/prompts/*.md`), `.github/agents/*.md`, and `scripts/**.sh`.
+
+### ❌ Forbidden patterns (the filter blocks these)
+
+| Pattern | Example (DO NOT USE) | Why it's blocked |
+|---------|----------------------|------------------|
+| **Nested parameter expansion** | `${var#${other}}`, `${A:-${B:-}}`, `${var:+...${#other}...}` | Inner expansion result becomes part of the outer pattern — classic prompt-injection vector |
+| **Indirect expansion** | `${!var}`, `${!prefix*}`, `${!prefix@}` | Reads arbitrary variables by name |
+| **Parameter transformation** | `${var@P}`, `${var@Q}`, `${var@E}`, `${var@A}`, `${var@K}`, `${var@a}` | `@P` re-evaluates the string as a prompt; the others leak state |
+| **Nested command substitution** | `$(cmd $(inner))`, `$(wc -l < "$(...)")` | Inner `$()` executes under the outer |
+| **Default-with-command-substitution** | `${VAR:-$(cmd)}`, `${VAR:+$(cmd)}` | Same as nested `$()` — the default expression is a live command |
+| **Input redirection inside `$()`** | `$(cmd < file)`, `$(cmd 2< file)` | Redirection inside substitution — often used to smuggle arbitrary reads |
+| **`eval`** | `eval "$str"`, `eval $cmd` | Explicit arbitrary-code execution |
+| **Adjacent `${RANDOM}${RANDOM}`** | `suffix="${RANDOM}${RANDOM}"` | Adjacency heuristic trips nested-expansion detection |
+
+### ✅ Safe replacements
+
+The following code blocks can be copy-pasted verbatim. Pipes and redirections in table cells cause markdown-escaping ambiguity, so multi-token commands are shown as fenced code blocks below each rule.
+
+**1. Nested default expansion — `${A:-${B:-}}`**
+
+```bash
+if [ -n "${A:-}" ]; then
+  X="$A"
+elif [ -n "${B:-}" ]; then
+  X="$B"
+else
+  X=""
+fi
+```
+
+**2. Whitespace-trim idiom — `${var#"${var%%[![:space:]]*}"}`**
+
+```bash
+var=$(printf '%s' "$var" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
+```
+
+**3. Default-with-command-substitution — `${VAR:-$(date +%s)}`**
+
+```bash
+if [ -z "${VAR:-}" ]; then
+  VAR=$(date +%s)
+fi
+```
+
+**4. Nested command substitution — `$(wc -l < "$(find … | head -1)")`**
+
+```bash
+first=$(find … | head -1)
+lines=$(wc -l < "$first" | awk '{print $1}')
+```
+
+**5. Prefix strip with non-literal inner — `${f#${ANALYSIS_DIR}/}`**
+
+```bash
+rel=$(printf '%s\n' "$f" | awk -v p="$ANALYSIS_DIR/" '
+  { if (index($0, p) == 1) print substr($0, length(p) + 1); else print $0 }
+')
+```
+
+**6. `eval "$cmd"`** — replace with explicit `case` or `if` dispatch. Never construct commands from variables.
+
+**7. Input redirection inside `$()` — `$(cmd < file)`**
+
+```bash
+cmd "$file"              # most tools accept a path argument
+# or, if cmd truly only reads stdin:
+result=$(cmd <"$file")   # redirection OUTSIDE the substitution token
+```
+
+### Allowed patterns (safe, idiomatic bash)
+
+- Single-level `$(cmd)` with no inner `$()` and no `<` redirection
+- Simple parameter expansion: `${var}`, `${var:-default}`, `${var:=default}`, `${var:?err}`, `${var:+alt}`, `${#var}`, `${var:offset:length}`, `${var/pat/sub}`, `${var%suffix}`, `${var#prefix}` — as long as the inner operand is a **literal**, not another expansion or substitution
+- `if`/`elif`/`else`/`case` dispatch — the preferred way to express defaults and fall-backs
+- Shell arrays: `arr=("$a" "$b")`, `"${arr[@]}"`, `"${arr[0]}"`
+- Process substitution `<(cmd)` / `>(cmd)` — **not** a substitution target for expansion, safe
+- `heredoc` input: `cmd <<EOF … EOF` or `cmd <<'EOF'` (quoted form disables expansion)
+
+### Enforcement
+
+- `test/unit/shell-safety.test.js` — drift-guard that greps every `scripts/**.sh` against the forbidden patterns above. Fails the build on a match.
+- `.github/prompts/00-scope-and-ground-rules.md` §47 — authoritative short-form list (linked from every news workflow via the shared prompt import).
+- `.github/prompts/08-infrastructure.md` §177-181 — long-form explanations with examples.
+- `.github/prompts/02-analysis-protocol.md` §10 — mandates that bash in agentic workflows delegates to `scripts/checkpoint-analysis-to-memory.sh` (repo-hosted, pre-audited) rather than inlining expansion-heavy commands.
+
+### When writing a **new** agentic workflow or prompt
+
+1. Prefer calling a repo-hosted `scripts/*.sh` helper over inlining bash in the workflow body. Helpers are audited once and reused 10× by the news workflows.
+2. If you must inline bash, keep expansions single-level and use `if`/`case` for defaults.
+3. Never write a bash construct inside a prompt that an agent would copy-paste verbatim. The agent is the one that hits the filter.
+4. Run `npm run test -- test/unit/shell-safety.test.js` after adding any new `scripts/*.sh` file.
 
 ## 📐 Architecture Documentation (C4 Model)
 
