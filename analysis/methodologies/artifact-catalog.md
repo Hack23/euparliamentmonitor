@@ -137,7 +137,7 @@ Every row in the catalog below answers these six questions about one artifact:
 
 ## 🧠 `intelligence/` — 19 Artifacts
 
-The analytical core. Every run produces these; longer-form article types require all 19, breaking news requires the full 19 too.
+The analytical core. This section catalogs the full set of `intelligence/` artifacts that may be produced across EU Parliament Monitor workflows. The required subset varies by article type and scope; follow [`ai-driven-analysis-guide.md`](ai-driven-analysis-guide.md) for per-workflow requirements, including cases where `cross-session-intelligence.md` is only required for weekly/monthly/quarterly scopes (not for breaking news). Per-artifact depth floors are keyed by article type in [`reference-quality-thresholds.json`](reference-quality-thresholds.json).
 
 | Artifact | Purpose (1 line) | Methodology | Template | Min lines (breaking) | Mermaid type |
 |---|---|---|---|:---:|---|
@@ -159,7 +159,7 @@ The analytical core. Every run produces these; longer-form article types require
 | `intelligence/voting-patterns.md` | Group-by-group bloc behaviour for the period: cohesion per group, observed coalitions, win-rate per bloc, outlier votes, forward-vote forecasts. | [per-artifact-methodologies.md §voting-patterns](per-artifact-methodologies.md#voting-patterns) | [voting-patterns.md](../templates/voting-patterns.md) | 150 | graph LR (group agreement network) |
 | `intelligence/workflow-audit.md` | End-of-run self-audit — phases completed, MCP tools called, Core Principles compliance, time budget, issues and next-run recommendations. | [per-artifact-methodologies.md §workflow-audit](per-artifact-methodologies.md#workflow-audit) | [workflow-audit.md](../templates/workflow-audit.md) | 100 | flowchart LR (6-phase execution) |
 | `intelligence/methodology-reflection.md` | Analytic-quality retrospective — SATs applied, AI-FIRST iteration log, strengths, limitations, lessons, biases and mitigations, update plan. Produced as the **final** artifact of every run. | [per-artifact-methodologies.md §methodology-reflection](per-artifact-methodologies.md#methodology-reflection) | [methodology-reflection.md](../templates/methodology-reflection.md) | 220 (breaking) / 180 (other) | graph TD (pipeline) |
-| `intelligence/cross-session-intelligence.md` | Session-over-session narrative across plenary sessions within a period — crystallisation moment, momentum indicators, cross-session themes. | [per-artifact-methodologies.md §cross-session-intelligence](per-artifact-methodologies.md#cross-session-intelligence) | [cross-session-intelligence.md](../templates/cross-session-intelligence.md) | 220 (motions quarterly) / 150 (week- & month-in-review) | timeline + flowchart |
+| `intelligence/cross-session-intelligence.md` | Session-over-session narrative across plenary sessions within a period — crystallisation moment, momentum indicators, cross-session themes. | [per-artifact-methodologies.md §cross-session-intelligence](per-artifact-methodologies.md#cross-session-intelligence) | [cross-session-intelligence.md](../templates/cross-session-intelligence.md) | See `reference-quality-thresholds.json` (per article type; not required for breaking) | timeline + flowchart |
 
 ---
 

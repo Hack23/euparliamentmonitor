@@ -23,23 +23,25 @@
 
 ## 1️⃣ Per-Artifact Line Count vs. Depth Floor
 
-| Artifact | Depth Floor | Actual Lines | Delta | Status |
-|----------|:-----------:|:------------:|:-----:|:------:|
-| `synthesis-summary.md` | 205 | `[#]` | `[±#]` | `[✅/⚠️/❌]` |
-| `analysis-index.md` | 160 | `[#]` | `[±#]` | `[✅/⚠️/❌]` |
-| `voting-patterns.md` | 150 | `[#]` | `[±#]` | `[✅/⚠️/❌]` |
-| `coalition-dynamics.md` | 135 | `[#]` | `[±#]` | `[✅/⚠️/❌]` |
-| `stakeholder-map.md` | 305 | `[#]` | `[±#]` | `[✅/⚠️/❌]` |
-| `scenario-forecast.md` | 280 | `[#]` | `[±#]` | `[✅/⚠️/❌]` |
-| `pestle-analysis.md` | 250 | `[#]` | `[±#]` | `[✅/⚠️/❌]` |
-| `threat-model.md` | 250 | `[#]` | `[±#]` | `[✅/⚠️/❌]` |
-| `economic-context.md` | 185 | `[#]` | `[±#]` | `[✅/⚠️/❌]` |
-| `historical-baseline.md` | 190 | `[#]` | `[±#]` | `[✅/⚠️/❌]` |
-| `mcp-reliability-audit.md` | 385 | `[#]` | `[±#]` | `[✅/⚠️/❌]` |
-| `risk-matrix.md` | 150 | `[#]` | `[±#]` | `[✅/⚠️/❌]` |
-| `quantitative-swot.md` | 140 | `[#]` | `[±#]` | `[✅/⚠️/❌]` |
-| `cross-run-diff.md` | 100 | `[#]` | `[±#]` | `[✅/⚠️/❌]` |
-| `workflow-audit.md` | 100 | `[#]` | `[±#]` | `[✅/⚠️/❌]` |
+| Artifact (run-relative path) | Depth Floor | Actual Lines | Delta | Status |
+|------------------------------|:-----------:|:------------:|:-----:|:------:|
+| `intelligence/synthesis-summary.md` | 205 | `[#]` | `[±#]` | `[✅/⚠️/❌]` |
+| `intelligence/analysis-index.md` | 160 | `[#]` | `[±#]` | `[✅/⚠️/❌]` |
+| `intelligence/voting-patterns.md` | 150 | `[#]` | `[±#]` | `[✅/⚠️/❌]` |
+| `intelligence/coalition-dynamics.md` | 135 | `[#]` | `[±#]` | `[✅/⚠️/❌]` |
+| `intelligence/stakeholder-map.md` | 305 | `[#]` | `[±#]` | `[✅/⚠️/❌]` |
+| `intelligence/scenario-forecast.md` | 280 | `[#]` | `[±#]` | `[✅/⚠️/❌]` |
+| `intelligence/pestle-analysis.md` | 250 | `[#]` | `[±#]` | `[✅/⚠️/❌]` |
+| `intelligence/threat-model.md` | 250 | `[#]` | `[±#]` | `[✅/⚠️/❌]` |
+| `intelligence/economic-context.md` | 185 | `[#]` | `[±#]` | `[✅/⚠️/❌]` |
+| `intelligence/historical-baseline.md` | 190 | `[#]` | `[±#]` | `[✅/⚠️/❌]` |
+| `intelligence/mcp-reliability-audit.md` | 385 | `[#]` | `[±#]` | `[✅/⚠️/❌]` |
+| `risk-scoring/risk-matrix.md` | 150 | `[#]` | `[±#]` | `[✅/⚠️/❌]` |
+| `risk-scoring/quantitative-swot.md` | 140 | `[#]` | `[±#]` | `[✅/⚠️/❌]` |
+| `intelligence/cross-run-diff.md` | 100 | `[#]` | `[±#]` | `[✅/⚠️/❌]` |
+| `intelligence/workflow-audit.md` | 100 | `[#]` | `[±#]` | `[✅/⚠️/❌]` |
+
+> **Note:** Floors above are the `breaking` defaults. For other article types, consult `analysis/methodologies/reference-quality-thresholds.json` — the validator keys floors by run-relative path (e.g. `intelligence/synthesis-summary.md`, `risk-scoring/risk-matrix.md`).
 
 **Status definitions:**
 - ✅ At or above floor

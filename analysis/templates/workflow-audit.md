@@ -17,7 +17,7 @@ runId: [REQUIRED]
 date: [REQUIRED: YYYY-MM-DD]
 analysisPhase: workflow-audit
 confidenceLevel: [REQUIRED: HIGH / MEDIUM / LOW]
-rulesAudited: [REQUIRED: integer, typically 10]
+rulesAudited: [REQUIRED: integer — 11 Core Principles, see §3 below]
 complianceRate: [REQUIRED: 0–100]
 ```
 

@@ -55,11 +55,11 @@ quadrantChart
 
 **Note:** Scale L and I scores (1-5) to (0.2-1.0) for plotting. Per [political-style-guide.md §Standard quadrantChart init block](../methodologies/political-style-guide.md), quadrant charts **MUST** use the dedicated quadrant init block above (not the universal init block).
 
-**Zone colors:**
-- 🔴 Critical (L≥4, I≥4): Immediate mitigation required
-- 🟠 Elevated (L<4, I≥4 OR L≥4, I<4): Prepare contingency
-- 🟢 Monitored (L<3, I<3): Watch only
-- 🟡 Managed (L≥3, I<3): Accept and monitor
+**Zone colors** (aligned with quadrant labels above):
+- 🔴 Critical (High L, High I): Immediate mitigation required
+- 🟢 Elevated (Low L, High I): Prepare contingency
+- 🟠 Monitored (Low L, Low I): Watch only
+- 🔵 Managed (High L, Low I): Accept and monitor
 
 ---
 

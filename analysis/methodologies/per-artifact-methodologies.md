@@ -406,7 +406,7 @@ Artifacts marked below with **"Source grade × WEP discipline (tradecraft)"** ma
 1. Metadata YAML block — `articleType`, `runId`, `date`, `confidenceLevel`, `rulesAudited`, `complianceRate`.
 2. Workflow execution summary — 6-phase table with status per phase (Health gate → Data collection → Editorial context → Analysis → Significance gate → Validation → PR creation).
 3. MCP tool call log — one row per MCP call with tool, args (truncated), result, record count, latency.
-4. Core Principles compliance — 10-row scorecard against [`ai-driven-analysis-guide.md §Core Principles`](ai-driven-analysis-guide.md#-core-principles-the-10-rules-that-replace-rules-122), with evidence cell per row.
+4. Core Principles compliance — 11-row scorecard against [`ai-driven-analysis-guide.md §Core Principles`](ai-driven-analysis-guide.md#-core-principles-the-11-rules-that-replace-rules-122), with evidence cell per row.
 5. Artifact production — folder-by-folder table (planned / produced / short-of-floor).
 6. Time budget — step-by-step target vs. actual.
 7. Issues & deviations — per-issue narrative (symptom / root cause / workaround / next-run recommendation).

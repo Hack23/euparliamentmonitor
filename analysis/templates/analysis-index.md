@@ -55,7 +55,7 @@ flowchart LR
 | **Stage 1: Facts** | Classification and document collection | `classification/`, `documents/` |
 | **Stage 2: Quantification** | Risk scoring and SWOT analysis | `risk-scoring/` |
 | **Stage 3: Intelligence** | Political analysis and pattern detection | `intelligence/` |
-| **Stage 4: Decision** | Executive synthesis | `synthesis-summary.md` |
+| **Stage 4: Decision** | Executive synthesis | `intelligence/synthesis-summary.md` |
 
 ---
 
@@ -63,7 +63,7 @@ flowchart LR
 
 | Path | Purpose | Priority | Lines | Status |
 |------|---------|:--------:|:-----:|:------:|
-| `synthesis-summary.md` | `[REQUIRED: one-line purpose]` | P1 | `[#]` | `[✅/⚠️/❌]` |
+| `intelligence/synthesis-summary.md` | `[REQUIRED: one-line purpose]` | P1 | `[#]` | `[✅/⚠️/❌]` |
 | `intelligence/analysis-index.md` | `[REQUIRED]` | P1 | `[#]` | `[✅/⚠️/❌]` |
 | `intelligence/voting-patterns.md` | `[REQUIRED]` | P1 | `[#]` | `[✅/⚠️/❌]` |
 | `intelligence/coalition-dynamics.md` | `[REQUIRED]` | P2 | `[#]` | `[✅/⚠️/❌]` |
@@ -84,7 +84,7 @@ flowchart LR
 ## 4️⃣ Recommended Reading Order
 
 **Priority 1 (5-minute scan):**
-1. `synthesis-summary.md` — executive findings
+1. `intelligence/synthesis-summary.md` — executive findings
 2. `[REQUIRED: next highest-priority artifact]`
 3. `[REQUIRED: next]`
 
