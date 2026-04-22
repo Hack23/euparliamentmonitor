@@ -11,8 +11,8 @@ article drafting until Stage C (completeness gate) exits 0.
 
 - **Protocol:** [`analysis/methodologies/ai-driven-analysis-guide.md`](../../analysis/methodologies/ai-driven-analysis-guide.md) (Rules 1–22)
 - **Reference run:** `analysis/daily/2026-04-18/breaking-run184/` — 17 artifacts, 3600+ lines, 13 frameworks
-- **Methodology guides:** [`analysis/methodologies/`](../../analysis/methodologies/) (6 files)
-- **Templates:** [`analysis/templates/`](../../analysis/templates/) (8 files)
+- **Methodology guides:** [`analysis/methodologies/`](../../analysis/methodologies/)
+- **Templates:** [`analysis/templates/`](../../analysis/templates/)
 - **Per-artifact budgets:** [`analysis/methodologies/reference-quality-thresholds.json`](../../analysis/methodologies/reference-quality-thresholds.json) (keyed by `articleType × relativePath`)
 
 ## 2 · Analysis Directory Structure
