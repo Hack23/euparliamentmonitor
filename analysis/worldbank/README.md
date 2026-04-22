@@ -2,7 +2,18 @@
 
 > **Purpose**: Central reference for integrating World Bank economic data into EU Parliament intelligence analysis. This directory contains the complete indicator inventory, country mappings, chart templates, and use case analysis for AI workflows generating news articles and analysis documents.
 
-**📅 Last Updated:** 2026-04-12 | **🏷️ Classification:** Public
+**📅 Last Updated:** 2026-04-22 | **🏷️ Classification:** Public
+
+> ### ⚡ Scope (Wave 2, April 2026)
+>
+> **World Bank is the source for non-economic indicators only** — health,
+> education, social, environment, demographics, defence, agriculture,
+> innovation, governance. **Economic/monetary/fiscal context (GDP,
+> inflation, unemployment, FDI, trade, fiscal balance, debt, monetary,
+> exchange rates) is sourced from IMF** — see [`analysis/imf/`](../imf/).
+> Enforced prospectively by `articlePolicyHasEconomicContext` in
+> `src/utils/content-validator.ts` (OR-gate: IMF preferred; WB accepted
+> for backwards compatibility).
 
 ---
 
@@ -10,10 +21,10 @@
 
 | Document | Description | Audience |
 |----------|------------|----------|
-| [`indicator-catalog.md`](indicator-catalog.md) | **200+ indicators** organized by 10 EP policy domains with WB IDs, tools, and priorities | AI workflows, developers |
-| [`eu-country-mapping.md`](eu-country-mapping.md) | EU-27 + comparison groups (G7, BRICS, candidates, trade partners) with WB codes | AI workflows, analysis |
+| [`indicator-catalog.md`](indicator-catalog.md) | **200+ indicators** organized by 10 EP policy domains with WB IDs, tools, and priorities (§1 "Economic" redirects to IMF) | AI workflows, developers |
+| [`eu-country-mapping.md`](eu-country-mapping.md) | EU-27 + comparison groups (G7, BRICS, candidates, trade partners) with WB codes; aggregate codes **not supported** by MCP | AI workflows, analysis |
 | [`chart-integration-guide.md`](chart-integration-guide.md) | Chart.js templates (6) + Mermaid templates (7) for WB data visualization | AI workflows, frontend |
-| [`use-cases.md`](use-cases.md) | When each indicator type adds value, ranked by priority | AI workflows, product |
+| [`use-cases.md`](use-cases.md) | When each **non-economic** indicator type adds value, ranked by priority | AI workflows, product |
 
 ---
 
@@ -23,13 +34,18 @@
 
 | Tool | # Indicators | Data Type | Key Use |
 |------|:-----------:|-----------|---------|
-| `get-economic-data` | 9 | GDP, inflation, unemployment, trade | **Core**: most articles |
+| `get-economic-data` | 9 | GDP, inflation, unemployment, trade | **⚠️ Deprecated for new articles — use IMF `imf-fetch-data`** ([`src/mcp/imf-mcp-client.ts`](../../src/mcp/imf-mcp-client.ts)) |
 | `get-social-data` | 5 | Population, life expectancy, internet | Demographics, social policy |
 | `get-health-data` | 7 | Health spending, physicians, disease | Health policy, pandemic |
 | `get-education-data` | 5 | Education spending, enrollment | Education, skills agenda |
 | `get-country-info` | — | Metadata (region, income, capital) | Country context |
 | `get-countries` | — | Country listing by filters | Comparison groups |
-| `search-indicators` | — | Keyword search | Discover new indicators |
+| `search-indicators` | — | Keyword search | Discover new indicators (including non-catalogued ones) |
+
+> **⚠️ Country code guard**: `worldbank-mcp@1.0.1` rejects aggregate
+> codes (`EUU`, `EMU`, `ECS`, `OED`, `WLD`, `NAC`, `EAS`, `SSF`) and the
+> informal `UK` alias. Call `isMCPSupportedWBCountryCode(code)` from
+> `src/utils/world-bank-data.ts` before any MCP invocation.
 
 ### Total Indicator Coverage
 
@@ -59,15 +75,15 @@ All 22 EP committees are mapped to relevant World Bank indicators in `src/consta
 
 | Committee | Policy Domain | Primary Indicators |
 |-----------|-------------|-------------------|
-| **ECON** | Economic & Monetary | GDP Growth, Inflation, Unemployment, Tax Revenue, Gov Debt |
-| **BUDG** | Budgets | GDP, GNI, Tax Revenue, Gov Expenditure |
-| **EMPL** | Employment & Social | Unemployment, Youth Unemployment, GINI, Labor Participation |
+| **ECON** | Economic & Monetary | *→ IMF WEO/FM (`NGDP_RPCH`, `PCPIPCH`, `LUR`, `GGXWDG_NGDP`)* — see [`analysis/imf/`](../imf/) |
+| **BUDG** | Budgets | *→ IMF FM (`GGR_NGDP`, `GGXCNL_NGDP`)* + WB own-resources metadata |
+| **EMPL** | Employment & Social | Youth Unemployment (WB `SL.UEM.1524.ZS`), GINI, Labor Participation; macro unemployment → IMF `LUR` |
 | **ENVI** | Environment & Health | CO₂ Emissions, Renewable Energy, Health Expenditure |
 | **ITRE** | Industry & Energy | R&D Expenditure, Energy Use, High-tech Exports |
-| **AFET** | Foreign Affairs | Military Expenditure, Net ODA, FDI |
-| **SEDE** | Security & Defence | Military Expenditure, Armed Forces, GDP Growth |
+| **AFET** | Foreign Affairs | Military Expenditure, Net ODA; FDI → IMF BOP |
+| **SEDE** | Security & Defence | Military Expenditure, Armed Forces |
 | **AGRI** | Agriculture | Agriculture % GDP, Cereal Yield, Arable Land |
-| **DEVE** | Development | GNI per Capita, Net ODA, Life Expectancy |
+| **DEVE** | Development | GNI per Capita (IMF), Net ODA (WB), Life Expectancy (WB) |
 | **FEMM** | Women's Rights | Female Labor Participation, Women in Parliament |
 
 ---
@@ -113,10 +129,11 @@ All 9 content workflow `.md` files include:
 
 ### Analysis Template Integration
 
-Three analysis templates now include WB data sections:
-- `analysis/templates/per-file-political-intelligence.md` — Economic Context section with Mermaid chart template
-- `analysis/templates/stakeholder-impact.md` — WB indicators per stakeholder group
-- `analysis/templates/synthesis-summary.md` — Period Economic Snapshot with top/bottom movers
+Three analysis templates include data sections; note the Wave-2 split:
+
+- `analysis/templates/per-file-political-intelligence.md` — Economic Context section sourced from **IMF** (WEO vintage); non-economic context (health/edu/env) from WB
+- `analysis/templates/stakeholder-impact.md` — WB indicators per stakeholder group (non-economic); macro-economic stakeholder framing via IMF
+- `analysis/templates/synthesis-summary.md` — Period Economic Snapshot sourced from **IMF** (moved from WB in Wave 2); non-economic movers remain on WB
 
 ---
 

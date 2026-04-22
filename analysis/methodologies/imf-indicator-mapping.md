@@ -6,18 +6,30 @@ Fiscal Monitor, IFS, BOP, ER, and PCPS via the native TypeScript IMF
 SDMX 3.0 REST client in [`src/mcp/imf-mcp-client.ts`](../../src/mcp/imf-mcp-client.ts)
 (base URL `https://dataservices.imf.org/REST/SDMX_3.0/`).
 
-**Scope**: Applies to the macro/fiscal/trade/monetary subset of policy
-article types. Social / health / education / environment / innovation
+**Scope**: The **authoritative source** for all economic context —
+macro / fiscal / trade / monetary / exchange-rate / debt — under the
+Wave-2 WB↔IMF split (April 2026). Social / health / education /
+environment / defence / agriculture / innovation / governance
 indicators remain on World Bank — see
 [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md).
 
-**Enforcement (current)**: `articlePolicyHasEconomicContext` is the
-default gate in `src/utils/validate-articles.ts`. A policy-required
-article satisfies the rule when **either** `hasWorldBankEvidence()` or
-`hasIMFEvidence()` in `src/utils/content-validator.ts` matches — so IMF
-citations alone are now sufficient to pass the strict validator.
-`articlePolicyHasWorldBank` is retained as a legacy helper for the
-non-breaking transition.
+**Cross-reference**: IMF is preferred over WB for any economic /
+fiscal / monetary metric because (a) IMF WEO publishes April + October
+each year with full actuals + 5-year forecasts, (b) IMF aggregate
+codes `EU`, `EA`, `G7`, `G20` are accepted by the IMF API whereas the
+equivalent `EUU`, `EMU` are rejected by `worldbank-mcp@1.0.1`, and (c)
+IMF provides a single `"IMF, World Economic Outlook, April 2026"`
+provenance line with no vintage patching.
+
+**Enforcement (current, Wave 2)**: `articlePolicyHasEconomicContext`
+is the default **enforced** gate in
+`src/utils/validate-articles.ts`. A policy-required article satisfies
+the rule when **either** `hasWorldBankEvidence()` or
+`hasIMFEvidence()` in `src/utils/content-validator.ts` matches — so
+IMF citations alone are sufficient to pass the strict validator, and
+IMF is the preferred source for new articles.
+`articlePolicyHasWorldBank` is retained as a legacy soft-check helper
+for the non-breaking transition.
 
 **Deferred (Wave 3 / 4)**: Wave 3 deprecates the WB macro subset after
 two weeks of green Wave 2 runs; Wave 4 removes the WB macro path

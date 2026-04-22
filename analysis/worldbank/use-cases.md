@@ -2,7 +2,15 @@
 
 > **Purpose**: Detailed analysis of when and how each World Bank indicator category adds maximum value to EU Parliament news articles, with priority rankings and integration guidance for AI workflows.
 
-**📅 Last Updated:** 2026-04-11 | **🏷️ Classification:** Public
+**📅 Last Updated:** 2026-04-22 | **🏷️ Classification:** Public
+
+> ### ⚡ Wave-2 policy (April 2026)
+>
+> **World Bank is used only for non-economic indicators**: health,
+> education, social, environment, demographics, defence, agriculture,
+> innovation, governance. **Economic context (GDP, inflation,
+> unemployment, fiscal, trade, FDI, monetary) is sourced from IMF** —
+> see [`analysis/imf/use-cases.md`](../imf/use-cases.md).
 
 ---
 
@@ -10,42 +18,31 @@
 
 | Use Case | Article Types | Indicators | Value Rating | Chart Type |
 |----------|--------------|------------|-------------|------------|
-| **Economic backdrop** | ALL | GDP Growth, Inflation, Unemployment | ⭐⭐⭐⭐⭐ | Line chart (trend) |
+| **Economic backdrop** | ALL | *→ see [IMF use-cases](../imf/use-cases.md)* | — | — |
 | **Defence spending** | AFET/SEDE motions, breaking | Military Expenditure | ⭐⭐⭐⭐⭐ | Bar chart (comparison) |
-| **Tax & fiscal** | ECON/BUDG propositions | Tax Revenue, Gov Expenditure | ⭐⭐⭐⭐ | Grouped bar chart |
 | **Climate progress** | ENVI reports, Green Deal | CO₂, Renewable Energy | ⭐⭐⭐⭐ | Dual-axis line chart |
-| **Employment crisis** | EMPL motions, social policy | Unemployment, Youth Unemployment, GINI | ⭐⭐⭐⭐ | Stacked bar chart |
-| **Trade policy impact** | INTA propositions, trade | Trade, Exports, FDI | ⭐⭐⭐⭐ | Line chart |
+| **Employment crisis** | EMPL motions, social policy | Youth Unemployment, GINI, Labour participation (labour-social; macro unemployment → IMF) | ⭐⭐⭐⭐ | Stacked bar chart |
 | **Health preparedness** | ENVI reports, pandemic | Health Expenditure, Hospital Beds, Physicians | ⭐⭐⭐ | Bar chart |
-| **Digital divide** | ITRE/IMCO reports | Internet Users, High-tech Exports | ⭐⭐⭐ | Bar chart |
+| **Digital divide** | ITRE/IMCO reports | Internet Users, High-tech Exports (innovation) | ⭐⭐⭐ | Bar chart |
 | **Education investment** | CULT propositions | Education Expenditure, Tertiary Enrollment | ⭐⭐⭐ | Scatter plot |
 | **Migration context** | LIBE motions | Net Migration, Population | ⭐⭐⭐ | Area chart |
 | **Agricultural reform** | AGRI reports | Agriculture GDP, Cereal Yield | ⭐⭐ | Bar chart |
 | **Demographic trends** | AFCO, social policy | Population, Birth Rate, Death Rate, Life Expectancy | ⭐⭐ | Line chart (multi) |
-| **Regional convergence** | REGI reports | GDP per Capita (cross-country) | ⭐⭐⭐ | Divergence bar |
+| **Regional convergence** | REGI reports | Social/health indicators (GDP per Capita → IMF) | ⭐⭐⭐ | Divergence bar |
 
 ---
 
 ## 🔴 Critical Use Cases — Always Include
 
-### 1. Economic Backdrop for Any Legislative Activity
+### 1. Economic Backdrop — Moved to IMF
 
-**When**: Every article that covers legislative proposals, votes, or committee decisions
-**Why**: Economic context answers "why this matters now" for citizens
-**Indicators**: GDP Growth (EU aggregate + key member states), Inflation, Unemployment
-**Chart**: Line chart showing 5-year trends for EU-27
-
-```
-Recommended Chart.js config:
-- Type: line
-- Datasets: GDP Growth (EU), Inflation (EU), Unemployment (EU)
-- X-axis: Years (5-year range)
-- Y-axis: Percentage (%)
-- Title: "EU Economic Context"
-```
-
-**AI Prompt Pattern**:
-> "Use `get-economic-data` with countryCode 'DE' (ISO2 code — the tool accepts both ISO2 and alpha-3) and indicator keys GDP_GROWTH, INFLATION, UNEMPLOYMENT for 5 years. WB indicator IDs: NY.GDP.MKTP.KD.ZG, FP.CPI.TOTL.ZG, SL.UEM.TOTL.ZS. Include a line chart showing trends. Use this data to explain WHY the current legislative agenda matters in economic context."
+> **⚡ Wave-2 flip**: economic backdrop is no longer sourced from World
+> Bank. See [`analysis/imf/use-cases.md § 1`](../imf/use-cases.md) for
+> the IMF-sourced equivalent — including the AI prompt pattern using
+> `imf-fetch-data` with WEO indicators `NGDP_RPCH` (GDP growth),
+> `PCPIPCH` (inflation), and `LUR` (unemployment). Aggregate codes `EU`
+> and `EA` are accepted by the IMF API (unlike WB MCP which rejects
+> `EUU`/`EMU`).
 
 ---
 
@@ -66,27 +63,19 @@ Recommended Chart.js config:
 ```
 
 **AI Prompt Pattern**:
-> "For defence-related articles, first use `search-indicators` to confirm the World Bank indicator `MS.MIL.XPND.GD.ZS` (Military expenditure, % of GDP). Do not use `get-economic-data` for this API-ID-based indicator. Then fetch the data for DE, FR, PL, IT, ES, and the EU aggregate (EUU) using the documented indicator fetch path, e.g. `get_indicator_for_country` with indicatorId `MS.MIL.XPND.GD.ZS`. Create a bar chart comparing spending vs the NATO 2% GDP target. Highlight which states meet/exceed the target."
+> "For defence-related articles, first use `search-indicators` to confirm the World Bank indicator `MS.MIL.XPND.GD.ZS` (Military expenditure, % of GDP). Do not use `get-economic-data` for this API-ID-based indicator. Then fetch the data for individual member states (DE, FR, PL, IT, ES) using the documented indicator fetch path, e.g. `get_indicator_for_country` with indicatorId `MS.MIL.XPND.GD.ZS`. **Do NOT pass the `EUU` aggregate** — `worldbank-mcp@1.0.1` rejects it; build an EU-aggregate by summing individual member-state expenditures, or cite the IMF `EU` aggregate where macro framing is required. Create a bar chart comparing spending vs the NATO 2% GDP target. Highlight which states meet/exceed the target."
 
 ---
 
-### 3. Tax Revenue Analysis
+### 3. Tax Revenue Analysis — Moved to IMF
 
-**When**: ECON/BUDG committee work, EU budget debates, tax harmonization proposals, Pillar Two/minimum tax discussions
-**Why**: Tax capacity differences across EU drive fiscal governance debates
-**Indicators**: Tax Revenue (% of GDP), Government Expenditure (% of GDP)
-**Chart**: Grouped bar chart comparing tax revenue across EU member states
-
-```
-Recommended Chart.js config:
-- Type: bar (grouped)
-- Datasets: Tax Revenue, Government Expenditure per country
-- Title: "Fiscal Capacity: Tax Revenue & Government Spending"
-- Sort: By tax revenue descending
-```
-
-**AI Prompt Pattern**:
-> "For fiscal policy articles, compare tax revenue and government expenditure for the Big Four (DE, FR, IT, ES) plus NL and PL. First use `search-indicators` to find the relevant World Bank indicators and confirm the supported fetch route. Note that `GC.TAX.TOTL.GD.ZS` (tax revenue % of GDP) and `NE.CON.GOVT.ZS` (government expenditure % of GDP) are World Bank API indicator IDs, not valid `get-economic-data` indicator keys. After discovery, fetch the series via the documented World Bank API/legacy path for those indicator IDs, then create a grouped bar chart showing fiscal capacity differences."
+> **⚡ Wave-2 flip**: tax-revenue / fiscal-capacity analysis is now
+> sourced from **IMF Fiscal Monitor** (`FM` dataflow) and **WEO**. See
+> [`analysis/imf/use-cases.md`](../imf/use-cases.md) for the IMF
+> counterpart — including WEO indicators `GGR_NGDP` (gov revenue % GDP)
+> and `GGXCNL_NGDP` (gov net lending/borrowing % GDP). The WB raw-REST
+> IDs `GC.TAX.TOTL.GD.ZS` / `NE.CON.GOVT.ZS` remain valid for
+> backward-compatibility searches but new articles **must** cite IMF.
 
 ---
 
@@ -99,22 +88,23 @@ Recommended Chart.js config:
 **Chart**: Dual-axis line chart (CO₂ declining, Renewable increasing)
 
 **AI Prompt Pattern**:
-> "For Green Deal/climate articles, compare CO₂ emissions (EN.ATM.CO2E.PC) and renewable energy share (EG.FEC.RNEW.ZS) for EU aggregate and 3 key member states. Show convergence toward climate targets."
+> "For Green Deal/climate articles, compare CO₂ emissions (EN.ATM.CO2E.PC) and renewable energy share (EG.FEC.RNEW.ZS) for 3 key member states (DE, FR, PL). **Do not use the `EUU` aggregate** — it is rejected by the MCP; build a member-state list or cite the IMF `EU` aggregate for the macro framing and overlay the WB environmental indicator on top. Show convergence toward climate targets."
 
 ### 5. Youth Unemployment Crisis
 
 **When**: EMPL committee, Youth Guarantee debates, education-employment transition
-**Indicators**: Youth Unemployment, overall Unemployment, GINI index
+**Indicators**: Youth Unemployment, Labour participation (WB labour-social); **macro unemployment → IMF `LUR`**, GINI index
 **Chart**: Stacked bar chart showing youth vs. total unemployment by country
 
 **AI Prompt Pattern**:
-> "For employment articles, compare youth unemployment (SL.UEM.1524.ZS) vs total unemployment (SL.UEM.TOTL.ZS) for Southern European states (ES, GR, IT, PT) plus EU average. Include GINI index (SI.POV.GINI) for inequality context."
+> "For employment articles, combine WB youth unemployment (`SL.UEM.1524.ZS`) with IMF `LUR` (overall unemployment, WEO) for Southern European states (ES, GR, IT, PT). Overall unemployment is macro-economic and comes from IMF per Wave-2 policy; youth unemployment is a labour-social breakdown and remains on WB. Include GINI index (`SI.POV.GINI`) for inequality context."
 
-### 6. Trade & Investment Analysis
+### 6. Trade & Investment Analysis — Moved to IMF
 
-**When**: INTA trade agreements, investment screening, sanctions impact
-**Indicators**: Trade (% GDP), Exports (% GDP), FDI net inflows
-**Chart**: Line chart showing trade openness trends
+> **⚡ Wave-2 flip**: trade-volume + FDI + current-account analysis
+> comes from **IMF BOP / WEO** — see
+> [`analysis/imf/use-cases.md`](../imf/use-cases.md). WB export/import
+> indicators remain valid raw-REST IDs but not the preferred source.
 
 ### 7. Health System Capacity
 
@@ -168,22 +158,28 @@ Recommended Chart.js config:
 
 | Article Type | Critical Indicators | High-Value | Optional |
 |-------------|-------------------|------------|---------|
-| **Breaking News** | GDP Growth (if economic) | — | — |
-| **Week Ahead** | GDP Growth | Unemployment | Topic-specific |
-| **Weekly Review** | GDP Growth | Trade (if relevant) | — |
-| **Month Ahead** | GDP Growth, Inflation | Unemployment | R&D, CO₂ |
-| **Monthly Review** | GDP Growth, Unemployment | Inflation, FDI | — |
-| **Propositions** | GDP Growth, Unemployment | Inflation, Trade, CO₂ | Topic-specific |
-| **Committee Reports** | Per-committee primary | Per-committee secondary | — |
+| **Breaking News** | Topic-specific WB (if health/edu/env) | — | — |
+| **Week Ahead** | Per-topic non-economic WB | — | Topic-specific |
+| **Weekly Review** | Non-economic WB | — | — |
+| **Month Ahead** | Non-economic WB (R&D, CO₂) | — | Topic-specific |
+| **Monthly Review** | Non-economic WB | — | — |
+| **Propositions** | Topic-specific non-economic WB | — | Topic-specific |
+| **Committee Reports** | Per-committee primary (non-economic) | Per-committee secondary | — |
 | **Motions** | Topic-specific only | — | — |
-| **Deep Analysis** | GDP Growth, Unemployment, CO₂ | GINI, Trade | Full committee set |
+| **Deep Analysis** | Non-economic WB (CO₂, GINI, health, edu) | Environmental, R&D | Full non-economic set |
+
+> Economic/macro rows (GDP, inflation, unemployment, trade, FDI,
+> fiscal) removed from the WB priority matrix in Wave 2 and relocated
+> to [`analysis/imf/use-cases.md § 5`](../imf/use-cases.md).
 
 ---
 
 ## ⚠️ Anti-Patterns: When NOT to Use World Bank Data
 
 1. **Translation workflow** — Never fetch WB data during translation; preserve existing data
-2. **Breaking news with no economic angle** — Don't force economic context on procedural/rights-focused stories
-3. **Outdated data caveat** — Always note the data year; don't present 2022 data as "current"
-4. **Over-enrichment** — Do not exceed the workflow's maxWBCalls; don't drown political analysis in charts
-5. **Misleading comparisons** — Don't compare Luxembourg GDP per capita with Romania without noting population differences
+2. **Economic context** — ⚡ Wave 2: **use IMF, not WB**, for GDP/inflation/unemployment/FDI/trade/fiscal/monetary
+3. **Aggregate codes (`EUU`, `EMU`, `ECS`, `OED`, `WLD`, ...)** — Rejected by `worldbank-mcp@1.0.1`; call `isMCPSupportedWBCountryCode()` first, or cite IMF `EU`/`EA` aggregates
+4. **Breaking news with no policy angle** — Don't force context on procedural/rights-focused stories
+5. **Outdated data caveat** — Always note the data year; don't present 2022 data as "current"
+6. **Over-enrichment** — Do not exceed the workflow's maxWBCalls; don't drown political analysis in charts
+7. **Misleading comparisons** — Don't compare Luxembourg demographics with Romania without noting population differences

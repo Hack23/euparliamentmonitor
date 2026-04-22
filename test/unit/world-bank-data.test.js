@@ -17,6 +17,7 @@ import {
   buildEconomicContext,
   getWorldBankCountryCode,
   isEUMemberState,
+  isMCPSupportedWBCountryCode,
   buildEconomicContextHTML,
 } from '../../scripts/utils/world-bank-data.js';
 
@@ -369,6 +370,59 @@ DEU,"He said ""hi""",FP.CPI.TOTL.ZG,Inflation,2023,5.7`;
       const html = buildEconomicContextHTML(context);
       expect(html).not.toContain('<script>');
       expect(html).toContain('&lt;script&gt;');
+    });
+  });
+
+  describe('isMCPSupportedWBCountryCode', () => {
+    it('should accept ISO2 codes for EU-27 member states', () => {
+      for (const iso2 of Object.keys(EU_COUNTRY_CODES)) {
+        expect(isMCPSupportedWBCountryCode(iso2)).toBe(true);
+      }
+    });
+
+    it('should accept alpha-3 codes for EU-27 member states', () => {
+      for (const alpha3 of Object.values(EU_COUNTRY_CODES)) {
+        expect(isMCPSupportedWBCountryCode(alpha3)).toBe(true);
+      }
+    });
+
+    it('should accept valid comparison country codes', () => {
+      for (const code of ['US', 'USA', 'GB', 'GBR', 'JP', 'CN', 'BR', 'UA', 'XK', 'XKX']) {
+        expect(isMCPSupportedWBCountryCode(code)).toBe(true);
+      }
+    });
+
+    it('should reject the 8 WB aggregate codes rejected by worldbank-mcp@1.0.1', () => {
+      for (const code of ['EUU', 'EMU', 'OED', 'WLD', 'ECS', 'NAC', 'EAS', 'SSF']) {
+        expect(isMCPSupportedWBCountryCode(code)).toBe(false);
+      }
+    });
+
+    it('should reject informal UK alias (use GB instead)', () => {
+      expect(isMCPSupportedWBCountryCode('UK')).toBe(false);
+      expect(isMCPSupportedWBCountryCode('GB')).toBe(true);
+    });
+
+    it('should be case-insensitive for both accept and reject', () => {
+      expect(isMCPSupportedWBCountryCode('de')).toBe(true);
+      expect(isMCPSupportedWBCountryCode('De')).toBe(true);
+      expect(isMCPSupportedWBCountryCode('euu')).toBe(false);
+      expect(isMCPSupportedWBCountryCode('uk')).toBe(false);
+    });
+
+    it('should reject empty, non-string, and malformed inputs', () => {
+      expect(isMCPSupportedWBCountryCode('')).toBe(false);
+      expect(isMCPSupportedWBCountryCode(' ')).toBe(false);
+      expect(isMCPSupportedWBCountryCode('D')).toBe(false);
+      expect(isMCPSupportedWBCountryCode('DEUT')).toBe(false);
+      expect(isMCPSupportedWBCountryCode('D1')).toBe(false);
+      expect(isMCPSupportedWBCountryCode(null)).toBe(false);
+      expect(isMCPSupportedWBCountryCode(undefined)).toBe(false);
+      expect(isMCPSupportedWBCountryCode(42)).toBe(false);
+    });
+
+    it('should reject EU_AGGREGATE_CODE constant (guard consistency)', () => {
+      expect(isMCPSupportedWBCountryCode(EU_AGGREGATE_CODE)).toBe(false);
     });
   });
 });

@@ -72,7 +72,7 @@ export { parseArticleFilename, formatSlug, calculateReadTime, escapeHTML, isSafe
 // ─── Article Category Detection ──────────────────────────────────────────────
 export { detectCategory } from './utils/article-category.js';
 // ─── World Bank Data Utilities ───────────────────────────────────────────────
-export { EU_COUNTRY_CODES, EU_AGGREGATE_CODE, COMPARISON_COUNTRIES, WB_AGGREGATE_LABELS, POLICY_INDICATORS, parseWorldBankCSV, formatIndicatorValue, getMostRecentValue, buildEconomicContext, getWorldBankCountryCode, isEUMemberState, buildEconomicContextHTML, } from './utils/world-bank-data.js';
+export { EU_COUNTRY_CODES, EU_AGGREGATE_CODE, COMPARISON_COUNTRIES, WB_AGGREGATE_LABELS, POLICY_INDICATORS, parseWorldBankCSV, formatIndicatorValue, getMostRecentValue, buildEconomicContext, getWorldBankCountryCode, isEUMemberState, isMCPSupportedWBCountryCode, buildEconomicContextHTML, } from './utils/world-bank-data.js';
 // ─── IMF Data Utilities ──────────────────────────────────────────────────────
 export { IMF_EU_COUNTRY_CODES, IMF_COUNTRY_CODE_OVERRIDES, IMF_EURO_AREA_CODE, IMF_AGGREGATE_LABELS, IMF_POLICY_INDICATORS, IMF_INDICATOR_SDMX_CODES, getIMFCountryCode, isIMFEUMemberState, parseSDMXJSON, getMostRecentObservation, getForecastPoints, formatIMFValue, buildIMFEconomicContext, buildIMFEconomicContextHTML, } from './utils/imf-data.js';
 // ─── Templates ───────────────────────────────────────────────────────────────

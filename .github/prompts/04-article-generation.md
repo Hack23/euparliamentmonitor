@@ -83,14 +83,24 @@ Article-type slugs: `breaking`, `committee-reports`, `propositions`, `motions`,
 | Inline `<script>` in body | ❌ Banned (CSP `script-src 'self'`) |
 | `[AI_ANALYSIS_REQUIRED]` markers | ❌ Zero |
 
-## 5 · Economic Context (Wave-2 OR-gate)
+## 5 · Economic & Non-Economic Context (Wave-2 policy)
 
-Articles with measurable economic impact include **World Bank or IMF** data.
-Either source satisfies the gate. Follow the indicator-mapping files:
+Articles with measurable policy impact include **IMF (economic / fiscal
+/ monetary / trade) or World Bank (non-economic: health, education,
+social, environment, demographics, defence, agriculture, innovation,
+governance)** data. Either source satisfies the validator OR-gate
+(`articlePolicyHasEconomicContext`); **IMF is the preferred source for
+economic context**, WB accepted for backward compatibility.
+
+Follow the indicator-mapping files:
 [`worldbank-indicator-mapping.md`](../../analysis/methodologies/worldbank-indicator-mapping.md)
-and [`imf-indicator-mapping.md`](../../analysis/methodologies/imf-indicator-mapping.md).
-Render ≥ 1 Chart.js canvas AND ≥ 1 analytical paragraph (≥ 60 words) that
-interprets the data.
+(non-economic domains only) and
+[`imf-indicator-mapping.md`](../../analysis/methodologies/imf-indicator-mapping.md)
+(macro / fiscal / trade / monetary + WEO forecasts). **Do not** pass WB
+aggregate codes (`EUU`, `EMU`, `ECS`, `OED`, `WLD`, `NAC`, `EAS`, `SSF`)
+to WB MCP tools — the server rejects them; cite IMF `EU`/`EA`
+aggregates for EU-level framing instead. Render ≥ 1 Chart.js canvas AND
+≥ 1 analytical paragraph (≥ 60 words) that interprets the data.
 
 ## 6 · Title · Description · Keywords
 

@@ -8,10 +8,17 @@
 
 ## 🤖 AI Agent / Agentic Workflow Instructions
 
+**Scope (Wave 2):** World Bank is the source for **non-economic**
+indicators only — health, education, social, environment, demographics,
+defence, agriculture, innovation, governance. **Economic context (GDP,
+inflation, unemployment, fiscal, trade, FDI, monetary) comes from
+IMF** — see [`analysis/imf/indicator-catalog.md`](../imf/indicator-catalog.md). Enforced prospectively by
+`articlePolicyHasEconomicContext` in `src/utils/content-validator.ts`.
+
 **This catalog is a reference document, NOT a hard limit.** The World Bank has **thousands** of indicators. Follow this process for every article or analysis:
 
 ### Step 1: Determine Relevance
-Does the article topic involve economic policy, employment, health, environment, defence, trade, education, agriculture, demographics, or governance? If YES → add World Bank context.
+Does the article topic involve **health, education, environment, defence, agriculture, demographics, innovation, or governance**? If YES → add World Bank context. If the topic is **economic/monetary/fiscal**, go to `analysis/imf/indicator-catalog.md` instead.
 
 ### Step 2: Discover Indicators On Demand
 **Always use `search-indicators` first** to find the best match for the specific policy topic:
@@ -26,11 +33,12 @@ This returns indicators NOT in this catalog — the WB API has thousands more. U
 After searching, check this catalog for:
 - **Priority ranking** (🔴🟡🟢⚪) — which indicators are most impactful
 - **EP committee relevance** — which committee's mandate the indicator maps to
-- **Comparison country groups** — see `eu-country-mapping.md`
+- **Comparison country groups** — see `eu-country-mapping.md` (⚠️ aggregate codes like `EUU` / `EMU` are **rejected by the MCP server** — validate with `isMCPSupportedWBCountryCode()` before calling)
 
 ### Step 4: Fetch Data (Within Budget)
 Each workflow has a `maxWBCalls` limit (1-3 calls). Pick the highest-impact indicators.
-- Use `get-economic-data`, `get-social-data`, `get-health-data`, `get-education-data` for named keys
+- Use `get-social-data`, `get-health-data`, `get-education-data` for named keys
+- ⚠️ `get-economic-data` is **deprecated for new articles** — use IMF `imf-fetch-data` instead
 - Use `years: 5` for articles, `years: 10` for trend analysis
 
 ### Step 5: Visualize
@@ -55,13 +63,10 @@ Each workflow has a `maxWBCalls` limit (1-3 calls). Pick the highest-impact indi
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
 mindmap
-  root((World Bank<br/>Indicators))
-    Economic & Monetary
-      GDP & Growth
-      Inflation & Prices
-      Employment
-      Trade & Investment
-      Fiscal Policy
+  root((World Bank<br/>Indicators<br/>Non-economic only))
+    Economic & Monetary [→ IMF]
+      Moved to IMF in Wave 2
+      See analysis/imf/
     Social & Demographic
       Population
       Labor Market
@@ -95,93 +100,98 @@ mindmap
 
 ---
 
-## 1️⃣ ECONOMIC & MONETARY POLICY (ECON/BUDG/CONT)
+## 1️⃣ ECONOMIC & MONETARY — ⚡ Moved to IMF (Wave 2)
 
-### 1.1 GDP & National Accounts
+> ### ⛔ Do NOT use World Bank for economic context
+>
+> Since **Wave 2 (April 2026)**, **all economic & monetary context**
+> (GDP, inflation, unemployment, fiscal balance, debt, trade, FDI,
+> monetary aggregates, exchange rates) for EU Parliament articles and
+> analysis artefacts is sourced from **IMF** via the native TypeScript
+> client in [`src/mcp/imf-mcp-client.ts`](../../src/mcp/imf-mcp-client.ts).
+>
+> **Authoritative sources:**
+>
+> - [`analysis/imf/indicator-catalog.md`](../imf/indicator-catalog.md) —
+>   ~80 IMF indicators across WEO / IFS / FM / BOP / ER / PCPS with
+>   SDMX codes, frequency, and forecast horizon
+> - [`analysis/imf/eu-country-mapping.md`](../imf/eu-country-mapping.md) —
+>   IMF EU-27 + `EU`, `EA`, `G7`, `G20` aggregates (**all accepted**
+>   by the IMF API, unlike the WB MCP aggregates which are rejected)
+> - [`analysis/methodologies/imf-indicator-mapping.md`](../methodologies/imf-indicator-mapping.md) —
+>   committee-level mapping and migration sequence
+>
+> **Why IMF, not WB, for economic context:**
+>
+> 1. **Fresher cadence** — IMF WEO publishes April + October each year
+>    with full actuals + 5-year forecasts for every EU-27 country;
+>    the WB WDI biannual batch still shows `null` for most recent
+>    years at publication time.
+> 2. **Aggregate codes work** — IMF `EU` / `EA` return real data;
+>    `worldbank-mcp@1.0.1` rejects `EUU` / `EMU` with
+>    `Error: Country not found`.
+> 3. **Native forecasts** — WEO ships 2026–2030 projections; WB WDI
+>    is actuals-only.
+> 4. **Single provenance line** — *"IMF, World Economic Outlook,
+>    April 2026"* is sufficient for attribution; no vintage patching.
+>
+> **Enforced by** `articlePolicyHasEconomicContext` in
+> `src/utils/content-validator.ts` (Wave 2 OR-gate — see
+> `validate-articles.ts`).
 
-| Tool | Key | WB ID | Full Name | Unit | EP Relevance | Priority |
-|------|-----|-------|-----------|------|-------------|----------|
-| `get-economic-data` | `GDP` | NY.GDP.MKTP.CD | GDP (current US$) | US$ | EU budget contributions; economic weight in Council | 🔴 |
-| `get-economic-data` | `GDP_GROWTH` | NY.GDP.MKTP.KD.ZG | GDP growth (annual %) | % | Stability & Growth Pact; recession indicators | 🔴 |
-| `get-economic-data` | `GDP_PER_CAPITA` | NY.GDP.PCAP.CD | GDP per capita (current US$) | US$ | Cohesion fund eligibility (75% EU avg); convergence | 🟡 |
-| `get-economic-data` | `GNI` | NY.GNP.MKTP.CD | GNI (current US$) | US$ | EU budget own resources calculation | 🟡 |
-| `get-economic-data` | `GNI_PER_CAPITA` | NY.GNP.PCAP.CD | GNI per capita, Atlas (US$) | US$ | ODA commitment (0.7% GNI target) | 🟡 |
-| API | — | NY.GDP.MKTP.KD | GDP (constant 2015 US$) | US$ | Real growth comparison across states | 🟢 |
-| API | — | NY.GDP.MKTP.PP.CD | GDP, PPP (current intl $) | Intl$ | Purchasing power comparison | 🟢 |
-| API | — | NY.GDP.PCAP.PP.CD | GDP per capita, PPP | Intl$ | Living standard comparison | 🟢 |
-| API | — | NY.GDP.DEFL.KD.ZG | GDP deflator (annual %) | % | Price level changes; real vs. nominal | 🟢 |
-| API | — | NE.GDI.TOTL.ZS | Gross capital formation (% GDP) | % | Investment activity indicator | 🟢 |
-| API | — | NE.DAB.TOTL.ZS | Gross national expenditure (% GDP) | % | Domestic demand strength | ⚪ |
+### ⚠️ Legacy WB economic IDs (use IMF instead)
 
-### 1.2 Inflation & Prices
+> **Retained for reverse-compatibility only.** The indicator IDs below
+> are valid raw-WB-REST identifiers and may appear in historical
+> articles written before the Wave-2 flip. **Do not cite them in new
+> articles.** Use the IMF counterpart from
+> [`analysis/imf/indicator-catalog.md`](../imf/indicator-catalog.md).
 
-| Tool | Key | WB ID | Full Name | Unit | EP Relevance | Priority |
-|------|-----|-------|-----------|------|-------------|----------|
-| `get-economic-data` | `INFLATION` | FP.CPI.TOTL.ZG | Inflation, consumer prices (annual %) | % | ECB policy; cost-of-living legislation | 🔴 |
-| API | — | FP.CPI.TOTL | Consumer price index (2010 = 100) | Index | Price level comparison over time | 🟢 |
-| API | — | NY.GDP.DEFL.KD.ZG | GDP deflator (annual %) | % | Broad price changes | 🟢 |
-| API | — | FP.WPI.TOTL | Wholesale price index | Index | Producer cost pressure | ⚪ |
+<details>
+<summary><b>Legacy WB GDP &amp; National Accounts</b> (expand)</summary>
 
-### 1.3 Employment & Labor Market
+| Tool | Key | WB ID | Full Name | Unit | IMF replacement |
+|------|-----|-------|-----------|------|-----------------|
+| `get-economic-data` ⚠️ | `GDP` | NY.GDP.MKTP.CD | GDP (current US$) | US$ | WEO `NGDPD` |
+| `get-economic-data` ⚠️ | `GDP_GROWTH` | NY.GDP.MKTP.KD.ZG | GDP growth (annual %) | % | WEO `NGDP_RPCH` |
+| `get-economic-data` ⚠️ | `GDP_PER_CAPITA` | NY.GDP.PCAP.CD | GDP per capita (current US$) | US$ | WEO `NGDPDPC` |
+| `get-economic-data` ⚠️ | `GNI` | NY.GNP.MKTP.CD | GNI (current US$) | US$ | WEO / IFS |
+| `get-economic-data` ⚠️ | `GNI_PER_CAPITA` | NY.GNP.PCAP.CD | GNI per capita, Atlas (US$) | US$ | WEO |
+| raw-REST | — | NY.GDP.MKTP.KD | GDP (constant 2015 US$) | US$ | WEO |
+| raw-REST | — | NY.GDP.MKTP.PP.CD | GDP, PPP (current intl $) | Intl$ | WEO `PPPGDP` |
+| raw-REST | — | NY.GDP.PCAP.PP.CD | GDP per capita, PPP | Intl$ | WEO `PPPPC` |
+| raw-REST | — | NY.GDP.DEFL.KD.ZG | GDP deflator (annual %) | % | WEO `NGDP_D` |
 
-| Tool | Key | WB ID | Full Name | Unit | EP Relevance | Priority |
-|------|-----|-------|-----------|------|-------------|----------|
-| `get-economic-data` | `UNEMPLOYMENT` | SL.UEM.TOTL.ZS | Unemployment (% of total labor force) | % | Employment policy; European Pillar of Social Rights | 🔴 |
-| API | — | SL.UEM.1524.ZS | Youth unemployment (% ages 15-24) | % | Youth Guarantee; skills mismatch; EMPL committee | 🔴 |
-| API | — | SL.UEM.LTRM.ZS | Long-term unemployment (% total) | % | Structural employment challenges | 🟡 |
-| API | — | SL.TLF.CACT.ZS | Labor force participation (% pop 15+) | % | Workforce engagement; gender gaps | 🟡 |
-| API | — | SL.TLF.CACT.FE.ZS | Female labor force participation (%) | % | Gender equality; FEMM committee | 🟡 |
-| API | — | SL.TLF.CACT.MA.ZS | Male labor force participation (%) | % | Gender gap benchmark | 🟢 |
-| API | — | SL.EMP.TOTL.SP.ZS | Employment to population ratio, 15+ | % | Broad employment health | 🟢 |
-| API | — | SL.EMP.VULN.ZS | Vulnerable employment (% total) | % | Precarious work; gig economy | 🟢 |
-| API | — | SL.EMP.WORK.ZS | Wage and salaried workers (% total) | % | Formal employment structure | ⚪ |
-| API | — | SL.EMP.SELF.ZS | Self-employed (% total employment) | % | Entrepreneurship; platform work | ⚪ |
-| API | — | SL.TLF.TOTL.IN | Labor force, total | Count | Workforce size comparison | ⚪ |
-| API | — | SL.UEM.TOTL.NE.ZS | Unemployment (% national estimate) | % | National vs. ILO methodology | ⚪ |
+</details>
 
-### 1.4 Trade & Investment
+<details>
+<summary><b>Legacy WB Inflation / Employment / Trade / Fiscal / Monetary</b> (expand)</summary>
 
-| Tool | Key | WB ID | Full Name | Unit | EP Relevance | Priority |
-|------|-----|-------|-----------|------|-------------|----------|
-| `get-economic-data` | `EXPORTS_GDP` | NE.EXP.GNFS.ZS | Exports (% of GDP) | % | Trade policy; export dependency | 🟡 |
-| `get-economic-data` | `FDI_NET` | BN.KLT.DINV.CD | FDI net inflows (BoP, current US$) | US$ | Investment screening; sovereignty | 🟡 |
-| API | — | NE.TRD.GNFS.ZS | Trade (% of GDP) | % | Single market openness | 🟡 |
-| API | — | NE.IMP.GNFS.ZS | Imports (% of GDP) | % | Trade balance; dependency | 🟢 |
-| API | — | BN.CAB.XOKA.GD.ZS | Current account balance (% GDP) | % | External sustainability | 🟢 |
-| API | — | BX.KLT.DINV.WD.GD.ZS | FDI net inflows (% of GDP) | % | Investment attractiveness | 🟢 |
-| API | — | TX.VAL.TECH.MF.ZS | High-tech exports (% manufactured) | % | Strategic autonomy; tech sovereignty | 🟡 |
-| API | — | TX.VAL.MRCH.CD.WT | Merchandise exports (current US$) | US$ | Trade volume | ⚪ |
-| API | — | TM.VAL.MRCH.CD.WT | Merchandise imports (current US$) | US$ | Import dependency | ⚪ |
-| API | — | BX.TRF.PWKR.CD.DT | Personal remittances received (US$) | US$ | Migration economics | ⚪ |
-| API | — | IC.BUS.EASE.XQ | Ease of doing business score | Score | Regulatory environment | 🟢 |
+| Tool | Key | WB ID | Full Name | IMF replacement |
+|------|-----|-------|-----------|-----------------|
+| `get-economic-data` ⚠️ | `INFLATION` | FP.CPI.TOTL.ZG | Inflation (annual %) | WEO `PCPIPCH` |
+| `get-economic-data` ⚠️ | `UNEMPLOYMENT` | SL.UEM.TOTL.ZS | Unemployment (%) | WEO `LUR` |
+| `get-economic-data` ⚠️ | `EXPORTS_GDP` | NE.EXP.GNFS.ZS | Exports (% GDP) | WEO / BOP |
+| `get-economic-data` ⚠️ | `FDI_NET` | BN.KLT.DINV.CD | FDI net inflows | BOP `BFD_BP6_USD` |
+| raw-REST | — | GC.TAX.TOTL.GD.ZS | Tax revenue (% GDP) | FM `GGR_NGDP` |
+| raw-REST | — | NE.CON.GOVT.ZS | Gov consumption (% GDP) | FM / WEO |
+| raw-REST | — | GC.DOD.TOTL.GD.ZS | Central gov debt (% GDP) | WEO `GGXWDG_NGDP` |
+| raw-REST | — | GC.BAL.CASH.GD.ZS | Cash surplus/deficit (% GDP) | WEO `GGXONLB_NGDP` |
+| raw-REST | — | FP.CPI.TOTL | CPI (2010 = 100) | IFS `PCPI_IX` |
+| raw-REST | — | PA.NUS.FCRF | Official exchange rate | ER `ENDA_XDC_USD_RATE` |
+| raw-REST | — | PA.NUS.PPP | PPP conversion factor | WEO `PPPEX` |
+| raw-REST | — | FI.RES.TOTL.CD | Total reserves | IFS |
 
-### 1.5 Fiscal & Public Finance
+*Note*: Word-boundary-matched WB indicator codes still satisfy
+`hasWorldBankEvidence()` in `content-validator.ts` so pre-Wave-2
+articles remain green — but **new articles must cite the IMF
+replacement** per the `articlePolicyHasEconomicContext` OR-gate.
 
-| Tool | Key | WB ID | Full Name | Unit | EP Relevance | Priority |
-|------|-----|-------|-----------|------|-------------|----------|
-| API | — | GC.TAX.TOTL.GD.ZS | Tax revenue (% of GDP) | % | EU tax harmonization; Pillar Two | 🔴 |
-| API | — | NE.CON.GOVT.ZS | Gov final consumption (% GDP) | % | Fiscal discipline; Stability Pact | 🔴 |
-| API | — | GC.DOD.TOTL.GD.ZS | Central gov debt (% of GDP) | % | Maastricht 60% criterion | 🔴 |
-| API | — | GC.BAL.CASH.GD.ZS | Cash surplus/deficit (% GDP) | % | Maastricht 3% deficit criterion | 🟡 |
-| API | — | GC.REV.XGRT.GD.ZS | Revenue excl. grants (% GDP) | % | Tax capacity; fiscal space | 🟡 |
-| API | — | GC.XPN.TOTL.GD.ZS | Expense (% of GDP) | % | Public spending level | 🟢 |
-| API | — | GC.NFN.TOTL.GD.ZS | Net investment (% GDP) | % | Public infrastructure investment | ⚪ |
-| API | — | DT.DOD.DECT.GD.ZS | External debt stocks (% GNI) | % | External vulnerability | 🟢 |
-| API | — | DT.TDS.DECT.GD.ZS | Total debt service (% GNI) | % | Debt sustainability | ⚪ |
-| API | — | FM.LBL.BMNY.GD.ZS | Broad money (% of GDP) | % | Monetary conditions | ⚪ |
-| API | — | FR.INR.RINR | Real interest rate (%) | % | Borrowing costs; monetary transmission | ⚪ |
-| API | — | FR.INR.LEND | Lending interest rate (%) | % | Credit conditions | ⚪ |
-| API | — | CM.MKT.LCAP.GD.ZS | Market capitalization (% GDP) | % | Financial market depth | ⚪ |
+</details>
 
-### 1.6 Monetary & Financial
-
-| Tool | Key | WB ID | Full Name | Unit | EP Relevance | Priority |
-|------|-----|-------|-----------|------|-------------|----------|
-| API | — | PA.NUS.FCRF | Official exchange rate (LCU/$) | Rate | Currency competitiveness | ⚪ |
-| API | — | PA.NUS.PPP | PPP conversion factor | Factor | Price level comparison | ⚪ |
-| API | — | FI.RES.TOTL.CD | Total reserves (incl. gold, US$) | US$ | Financial resilience | ⚪ |
-| API | — | FD.AST.PRVT.GD.ZS | Domestic credit to private sector (% GDP) | % | Financial sector depth | 🟢 |
-| API | — | FB.CBK.BRCH.P5 | Commercial bank branches (per 100k adults) | Per 100k | Financial inclusion | ⚪ |
+**Youth Unemployment (`SL.UEM.1524.ZS`)** and related labour-market
+breakdowns remain in § 2 (Social Policy) since they are
+labour/social indicators, not macro-economic. See § 2.3 below.
 
 ---
 
