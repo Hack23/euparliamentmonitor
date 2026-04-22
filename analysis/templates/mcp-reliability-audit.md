@@ -131,10 +131,12 @@ flowchart LR
 ```
 Reliability Score = (
   (Successful calls / Total calls) × 50 +
-  (1 - (Avg latency / 30s)) × 25 +
+  max(0, min(1, 1 - (Avg latency / 30s))) × 25 +
   (Data freshness score) × 25
 )
 ```
+
+> **Latency clamp:** the latency term is bounded to `[0, 1]` before weighting — a call slower than 30 s contributes `0` (never negative), and an instant call contributes `1`. This prevents pathological MCP latencies from driving the total reliability score below 0 when success-rate and freshness are reasonable.
 
 **Component scores:**
 

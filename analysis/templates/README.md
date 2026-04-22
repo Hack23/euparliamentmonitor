@@ -9,7 +9,7 @@
 
 <p align="center">
   <strong>📊 39 Structured Intelligence Templates for AI-Driven Political Analysis</strong><br>
-  <em>🎯 6 Framework Templates + 14 Agentic-Workflow Templates + 25 Per-Artifact Templates — covering every unique <code>.md</code> file produced under <code>analysis/daily/</code></em>
+  <em>🎯 14 Agentic-Workflow Templates (incl. 6 reusable framework templates) + 25 Per-Artifact Templates — covering every unique <code>.md</code> file produced under <code>analysis/daily/</code></em>
 </p>
 
 <p align="center">

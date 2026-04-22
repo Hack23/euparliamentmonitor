@@ -73,14 +73,17 @@ flowchart LR
     E --> C["Composite Risk<br/>[max L×I from matrix]"]
 
     style E fill:#1565C0,color:#ffffff
-    style S fill:#2E7D32,color:#ffffff
     style D fill:#0288D1,color:#ffffff
-    style U fill:#FF9800,color:#000000
     style I fill:#7B1FA2,color:#ffffff
+    %% [REQUIRED: Set S (Sensitivity) fill to match selected level — 🟢 #2E7D32 / 🟡 #FF9800 / 🔴 #D32F2F]
+    %% [REQUIRED: Set U (Urgency) fill to match selected level — ⚪ #90A4AE / 🔵 #0288D1 / 🟠 #FF9800 / 🔴 #D32F2F]
+    %% [REQUIRED: Set C (Composite Risk) fill to match max L×I band — 🟢 #2E7D32 (1–4) / 🟡 #FF9800 (5–14) / 🔴 #D32F2F (15–25)]
+    style S fill:#2E7D32,color:#ffffff
+    style U fill:#FF9800,color:#000000
     style C fill:#D32F2F,color:#ffffff
 ```
 
-> Colour the Sensitivity, Urgency, and Composite-Risk nodes to match the level you selected above (green/orange/red), so a reader scanning the diagram alone can read the classification at a glance.
+> The `style S / U / C` lines above are placeholders showing the default 🟢/🟠/🔴 palette. **Replace each fill value to match the level you selected above** (🟢 `#2E7D32` / 🟡 `#FFC107` / 🟠 `#FF9800` / 🔴 `#D32F2F` / ⚪ `#90A4AE` / 🔵 `#0288D1`) so a reader scanning the diagram alone can read the classification at a glance.
 
 ---
 
