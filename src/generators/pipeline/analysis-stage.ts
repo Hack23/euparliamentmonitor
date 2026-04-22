@@ -269,22 +269,6 @@ export function deriveArticleTypeSlug(articleTypes: readonly (ArticleCategory | 
 // ─── Analysis discovery ───────────────────────────────────────────────────────
 
 /**
- * Discover existing analysis files produced by AI agentic workflows and
- * return an {@link AnalysisContext} compatible with downstream consumers.
- *
- * This replaces the former `runAnalysisStage` which generated analysis
- * from scratch.  The AI agentic workflows now produce higher-quality
- * analysis directly, so this function merely discovers what exists on disk.
- *
- * When analysis files exist, a minimal `manifest.json` is written to disk
- * (if one doesn't already exist) so downstream consumers that check for
- * the manifest continue to work.
- *
- * @param fetchedData - Raw EP data (used only for the requireData check)
- * @param options - Analysis stage configuration
- * @returns Analysis context with discovered methods
- */
-/**
  * Resolve the preferred analysis directory for a run.
  *
  * When `outputDirIsResolved` is true, honour `outputDir` verbatim — this
@@ -309,6 +293,28 @@ function computePreferredAnalysisDir(
   return path.resolve(outputDir, date);
 }
 
+/**
+ * Discover existing analysis files produced by AI agentic workflows and
+ * return an {@link AnalysisContext} compatible with downstream consumers.
+ *
+ * This replaces the former `runAnalysisStage` which generated analysis
+ * from scratch.  The AI agentic workflows now produce higher-quality
+ * analysis directly, so this function merely discovers what exists on disk.
+ *
+ * When analysis files exist, a minimal `manifest.json` is written to disk
+ * (if one doesn't already exist) so downstream consumers that check for
+ * the manifest continue to work.
+ *
+ * When `options.outputDirIsResolved` is true, `outputDir` is honoured
+ * verbatim and the uniqueness-suffix step is bypassed — agentic workflows
+ * pre-populate `analysis/daily/<date>/<slug>-run<N>/` with `manifest.json`
+ * plus artifacts during Stage B, and discovery must consume that exact
+ * path rather than being redirected to a `-2` suffix.
+ *
+ * @param fetchedData - Raw EP data (used only for the requireData check)
+ * @param options - Analysis stage configuration
+ * @returns Analysis context with discovered methods
+ */
 export async function runAnalysisStage(
   fetchedData: Record<string, unknown>,
   options: AnalysisStageOptions
@@ -345,15 +351,20 @@ export async function runAnalysisStage(
 
   // When the caller passes a fully-resolved analysis directory (e.g. an
   // agentic workflow's per-run dir `analysis/daily/<date>/<slug>-run<N>`),
-  // honour it verbatim instead of composing `<outputDir>/<date>/<slug>`.
-  // Otherwise compose the conventional per-article-type per-date path.
+  // honour it verbatim — including any existing `manifest.json` from Stage B.
+  // Passing through `resolveUniqueAnalysisDir` in that case would suffix to
+  // a `-2` empty directory and discovery would find 0 artifacts. Otherwise
+  // compose the conventional per-article-type per-date path and let the
+  // uniqueness helper avoid clobbering completed runs.
   const preferredDir = computePreferredAnalysisDir(
     outputDir,
     date,
     articleTypeSlug,
     outputDirIsResolved
   );
-  const dateOutputDir = resolveUniqueAnalysisDir(preferredDir);
+  const dateOutputDir = outputDirIsResolved
+    ? preferredDir
+    : resolveUniqueAnalysisDir(preferredDir);
 
   if (verbose) {
     console.log(`🔬 [analysis] Discovering existing analysis (runId: ${runId})`);

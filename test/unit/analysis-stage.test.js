@@ -236,6 +236,46 @@ describe('runAnalysisStage', () => {
     expect(fs.existsSync(path.join(ctx.outputDir, 'manifest.json'))).toBe(true);
     expect(ctx.manifest.methods.length).toBeGreaterThan(0);
   });
+
+  it('should honour outputDirIsResolved when resolvedRunDir already contains manifest.json', async () => {
+    // Regression guard for PR #1336 review #1: Stage B typically writes
+    // manifest.json BEFORE discovery runs. Without the
+    // outputDirIsResolved→bypass, resolveUniqueAnalysisDir would see the
+    // manifest, declare the dir "occupied", and redirect to an empty `-2`
+    // suffix — yielding 0 discovered artifacts and an empty PR.
+    const resolvedRunDir = path.join(tempDir, '2026-04-22', 'committee-reports-run-1776853275');
+    const intelligenceDir = path.join(resolvedRunDir, 'intelligence');
+    fs.mkdirSync(intelligenceDir, { recursive: true });
+    fs.writeFileSync(
+      path.join(intelligenceDir, 'synthesis-summary.md'),
+      '# Synthesis Summary\n\nAI-authored content.\n'
+    );
+    fs.writeFileSync(
+      path.join(resolvedRunDir, 'manifest.json'),
+      JSON.stringify({
+        runId: 'pre-existing-run-id',
+        date: '2026-04-22',
+        articleType: 'committee-reports',
+        methods: [],
+      })
+    );
+    // Also pre-create the `-2` suffixed sibling to prove discovery does NOT
+    // fall through to it when the resolved flag is set.
+    fs.mkdirSync(`${resolvedRunDir}-2`, { recursive: true });
+
+    const ctx = await runAnalysisStage(buildTestFetchedData(), {
+      articleTypes: ['committee-reports'],
+      date: '2026-04-22',
+      outputDir: resolvedRunDir,
+      articleTypeSlug: 'committee-reports-run60',
+      outputDirIsResolved: true,
+    });
+
+    expect(path.resolve(ctx.outputDir)).toBe(path.resolve(resolvedRunDir));
+    expect(path.basename(ctx.outputDir)).toBe('committee-reports-run-1776853275');
+    expect(path.basename(ctx.outputDir)).not.toMatch(/-2$/u);
+    expect(ctx.manifest.methods.length).toBeGreaterThan(0);
+  });
 });
 
 // ─── isResolvedAnalysisDir tests ──────────────────────────────────────────────
