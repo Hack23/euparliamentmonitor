@@ -48,6 +48,50 @@ export const ALL_ANALYSIS_METHODS = [
  * flags (e.g. `--analysis-methods`).
  */
 export const VALID_ANALYSIS_METHODS = Array.from(new Set([...ALL_ANALYSIS_METHODS, 'document-analysis']));
+// ─── Pre-resolved analysis directory heuristic ───────────────────────────────
+/**
+ * Canonical per-run analysis subdirectories created by agentic workflows.
+ * Used to auto-detect when `--analysis-dir` already points at a fully
+ * resolved analysis directory (instead of a base like `analysis/daily`).
+ */
+const RESOLVED_ANALYSIS_SUBDIRS = [
+    'classification',
+    'threat-assessment',
+    'risk-scoring',
+    'intelligence',
+    'existing',
+    'documents',
+    'data',
+];
+/**
+ * Detect whether `candidate` looks like a pre-populated, fully-resolved
+ * analysis run directory.
+ *
+ * Returns `true` when the directory exists AND either contains a
+ * `manifest.json` from a prior run or at least one of the canonical
+ * analysis subdirectories in {@link RESOLVED_ANALYSIS_SUBDIRS}.
+ *
+ * @param candidate - Directory path to inspect.
+ * @returns `true` when the directory is a resolved analysis run dir.
+ */
+export function isResolvedAnalysisDir(candidate) {
+    if (!candidate || !fs.existsSync(candidate))
+        return false;
+    try {
+        if (!fs.statSync(candidate).isDirectory())
+            return false;
+    }
+    catch {
+        return false;
+    }
+    if (fs.existsSync(path.join(candidate, 'manifest.json')))
+        return true;
+    for (const sub of RESOLVED_ANALYSIS_SUBDIRS) {
+        if (fs.existsSync(path.join(candidate, sub)))
+            return true;
+    }
+    return false;
+}
 // ─── Data checks ──────────────────────────────────────────────────────────────
 /** Keys in fetchedData that count as substantive EP data */
 const SUBSTANTIVE_DATA_KEYS = [
@@ -126,8 +170,29 @@ export function deriveArticleTypeSlug(articleTypes) {
  * @param options - Analysis stage configuration
  * @returns Analysis context with discovered methods
  */
+/**
+ * Resolve the preferred analysis directory for a run.
+ *
+ * When `outputDirIsResolved` is true, honour `outputDir` verbatim — this
+ * supports agentic workflows that pass a pre-populated
+ * `analysis/daily/<date>/<slug>-run<N>` path directly. Otherwise compose
+ * the conventional `<outputDir>/<date>[/<slug>]` layout.
+ *
+ * @param outputDir - Base directory or a pre-resolved per-run dir.
+ * @param date - ISO `YYYY-MM-DD` date segment.
+ * @param articleTypeSlug - Optional slug segment appended under `date`.
+ * @param outputDirIsResolved - When true, skip all composition.
+ * @returns Absolute path to the preferred analysis directory.
+ */
+function computePreferredAnalysisDir(outputDir, date, articleTypeSlug, outputDirIsResolved) {
+    if (outputDirIsResolved)
+        return path.resolve(outputDir);
+    if (articleTypeSlug)
+        return path.resolve(outputDir, date, articleTypeSlug);
+    return path.resolve(outputDir, date);
+}
 export async function runAnalysisStage(fetchedData, options) {
-    const { articleTypes, date, outputDir, articleTypeSlug, verbose = false, requireData = false, } = options;
+    const { articleTypes, date, outputDir, articleTypeSlug, verbose = false, requireData = false, outputDirIsResolved = false, } = options;
     if (!/^\d{4}-\d{2}-\d{2}$/u.test(date)) {
         throw new Error(`Invalid analysis date "${date}": must match YYYY-MM-DD format`);
     }
@@ -143,9 +208,11 @@ export async function runAnalysisStage(fetchedData, options) {
     }
     const startTime = new Date().toISOString();
     const runId = randomUUID();
-    const preferredDir = articleTypeSlug
-        ? path.resolve(outputDir, date, articleTypeSlug)
-        : path.resolve(outputDir, date);
+    // When the caller passes a fully-resolved analysis directory (e.g. an
+    // agentic workflow's per-run dir `analysis/daily/<date>/<slug>-run<N>`),
+    // honour it verbatim instead of composing `<outputDir>/<date>/<slug>`.
+    // Otherwise compose the conventional per-article-type per-date path.
+    const preferredDir = computePreferredAnalysisDir(outputDir, date, articleTypeSlug, outputDirIsResolved);
     const dateOutputDir = resolveUniqueAnalysisDir(preferredDir);
     if (verbose) {
         console.log(`🔬 [analysis] Discovering existing analysis (runId: ${runId})`);

@@ -112,6 +112,59 @@ export interface AnalysisStageOptions {
    * Retained for backward compatibility with agentic workflow invocations.
    */
   readonly requireData?: boolean;
+  /**
+   * When true, treat {@link AnalysisStageOptions.outputDir} as a fully
+   * resolved analysis directory and skip the `<outputDir>/<date>/<slug>`
+   * composition.
+   *
+   * This supports agentic workflows that pre-populate a per-run directory
+   * (e.g. `analysis/daily/<date>/<slug>-run<N>`) with AI-authored artifacts
+   * and then invoke `news-enhanced.ts --analysis-dir=<that dir>` for the
+   * discovery + article-generation phase.
+   */
+  readonly outputDirIsResolved?: boolean;
+}
+
+// ─── Pre-resolved analysis directory heuristic ───────────────────────────────
+
+/**
+ * Canonical per-run analysis subdirectories created by agentic workflows.
+ * Used to auto-detect when `--analysis-dir` already points at a fully
+ * resolved analysis directory (instead of a base like `analysis/daily`).
+ */
+const RESOLVED_ANALYSIS_SUBDIRS: readonly string[] = [
+  'classification',
+  'threat-assessment',
+  'risk-scoring',
+  'intelligence',
+  'existing',
+  'documents',
+  'data',
+] as const;
+
+/**
+ * Detect whether `candidate` looks like a pre-populated, fully-resolved
+ * analysis run directory.
+ *
+ * Returns `true` when the directory exists AND either contains a
+ * `manifest.json` from a prior run or at least one of the canonical
+ * analysis subdirectories in {@link RESOLVED_ANALYSIS_SUBDIRS}.
+ *
+ * @param candidate - Directory path to inspect.
+ * @returns `true` when the directory is a resolved analysis run dir.
+ */
+export function isResolvedAnalysisDir(candidate: string): boolean {
+  if (!candidate || !fs.existsSync(candidate)) return false;
+  try {
+    if (!fs.statSync(candidate).isDirectory()) return false;
+  } catch {
+    return false;
+  }
+  if (fs.existsSync(path.join(candidate, 'manifest.json'))) return true;
+  for (const sub of RESOLVED_ANALYSIS_SUBDIRS) {
+    if (fs.existsSync(path.join(candidate, sub))) return true;
+  }
+  return false;
 }
 
 /** Status record written into the manifest for each method */
@@ -231,6 +284,31 @@ export function deriveArticleTypeSlug(articleTypes: readonly (ArticleCategory | 
  * @param options - Analysis stage configuration
  * @returns Analysis context with discovered methods
  */
+/**
+ * Resolve the preferred analysis directory for a run.
+ *
+ * When `outputDirIsResolved` is true, honour `outputDir` verbatim — this
+ * supports agentic workflows that pass a pre-populated
+ * `analysis/daily/<date>/<slug>-run<N>` path directly. Otherwise compose
+ * the conventional `<outputDir>/<date>[/<slug>]` layout.
+ *
+ * @param outputDir - Base directory or a pre-resolved per-run dir.
+ * @param date - ISO `YYYY-MM-DD` date segment.
+ * @param articleTypeSlug - Optional slug segment appended under `date`.
+ * @param outputDirIsResolved - When true, skip all composition.
+ * @returns Absolute path to the preferred analysis directory.
+ */
+function computePreferredAnalysisDir(
+  outputDir: string,
+  date: string,
+  articleTypeSlug: string | undefined,
+  outputDirIsResolved: boolean
+): string {
+  if (outputDirIsResolved) return path.resolve(outputDir);
+  if (articleTypeSlug) return path.resolve(outputDir, date, articleTypeSlug);
+  return path.resolve(outputDir, date);
+}
+
 export async function runAnalysisStage(
   fetchedData: Record<string, unknown>,
   options: AnalysisStageOptions
@@ -242,6 +320,7 @@ export async function runAnalysisStage(
     articleTypeSlug,
     verbose = false,
     requireData = false,
+    outputDirIsResolved = false,
   } = options;
 
   if (!/^\d{4}-\d{2}-\d{2}$/u.test(date)) {
@@ -264,9 +343,16 @@ export async function runAnalysisStage(
   const startTime = new Date().toISOString();
   const runId = randomUUID();
 
-  const preferredDir = articleTypeSlug
-    ? path.resolve(outputDir, date, articleTypeSlug)
-    : path.resolve(outputDir, date);
+  // When the caller passes a fully-resolved analysis directory (e.g. an
+  // agentic workflow's per-run dir `analysis/daily/<date>/<slug>-run<N>`),
+  // honour it verbatim instead of composing `<outputDir>/<date>/<slug>`.
+  // Otherwise compose the conventional per-article-type per-date path.
+  const preferredDir = computePreferredAnalysisDir(
+    outputDir,
+    date,
+    articleTypeSlug,
+    outputDirIsResolved
+  );
   const dateOutputDir = resolveUniqueAnalysisDir(preferredDir);
 
   if (verbose) {

@@ -130,5 +130,49 @@ Each perspective must state: (1) mechanism of impact, (2) EP-data evidence,
 - No orphan files on disk.
 - `manifest.json` carries top-level `articleType`.
 - Pass 2 verification complete.
+- **Analysis checkpoint persisted to repo-memory** (see §10 below) so the
+  work survives a late-stage failure or timeout.
 - Now run the completeness gate:
   [`03-analysis-completeness-gate.md`](03-analysis-completeness-gate.md).
+
+## 10 · Analysis Checkpoint to repo-memory (MANDATORY, NEVER LOSE WORK)
+
+Immediately after Pass 2 completes and `manifest.json` is written — **before**
+running the Stage C validator — persist a compact analysis summary to
+`/tmp/gh-aw/repo-memory/default/memory/news-generation/analysis-runs/` so the
+work is preserved on the `memory/news-generation` branch by the
+`push_repo_memory` job even if Stage C / Stage D / the final PR call fails or
+the workflow hits the 60-minute hard timeout.
+
+```bash
+MEM_RUNS_DIR="/tmp/gh-aw/repo-memory/default/memory/news-generation/analysis-runs"
+mkdir -p "${MEM_RUNS_DIR}"
+# Copy the run manifest verbatim (≤ 50 KB — safe under repo-memory limits)
+cp "${ANALYSIS_DIR}/manifest.json" "${MEM_RUNS_DIR}/${RUN_ID}.manifest.json"
+# Write a one-page index (article type, artifact count, per-artifact line counts,
+# date, git SHA) so the branch stays human-browsable without the full artifacts.
+{
+  echo "# ${RUN_ID}"
+  echo ""
+  echo "- article-type: ${ARTICLE_TYPE_SLUG}"
+  echo "- date: ${TODAY}"
+  echo "- analysis-dir: ${ANALYSIS_DIR}"
+  echo "- git-sha: $(git rev-parse --short HEAD 2>/dev/null || echo unknown)"
+  echo ""
+  echo "## Artifacts"
+  echo ""
+  find "${ANALYSIS_DIR}" -type f -name '*.md' -print | sort | while IFS= read -r f; do
+    rel="${f#${ANALYSIS_DIR}/}"
+    lines="$(wc -l < "$f" | tr -d ' ')"
+    echo "- ${rel} (${lines} lines)"
+  done
+} > "${MEM_RUNS_DIR}/${RUN_ID}.index.md"
+ls -la "${MEM_RUNS_DIR}/${RUN_ID}".*
+```
+
+The repo-memory workspace is **not** subject to the `news/` + `analysis/`
+scope rule. Updating it is always allowed (see
+[`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md) §5 / workflow
+`repo-memory` config for size limits: `.md` + `.json`, ≤ 50 KB/file,
+≤ 50 files/run).
+

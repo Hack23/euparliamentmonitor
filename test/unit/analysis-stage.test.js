@@ -23,6 +23,7 @@ import {
   VALID_ANALYSIS_METHODS,
   hasSubstantiveData,
   deriveArticleTypeSlug,
+  isResolvedAnalysisDir,
 } from '../../scripts/generators/pipeline/analysis-stage.js';
 
 // ─── Test helpers ─────────────────────────────────────────────────────────────
@@ -202,6 +203,93 @@ describe('runAnalysisStage', () => {
       articleTypeSlug: 'propositions',
     });
     expect(ctx.outputDir).toContain('propositions');
+  });
+
+  it('should honour outputDirIsResolved and skip <date>/<slug> composition', async () => {
+    // Pre-populate a fully-qualified agentic-workflow run directory with
+    // an `intelligence/` subdir and one AI-authored artifact, then invoke
+    // runAnalysisStage with that exact path — the discovery function must
+    // use it as-is instead of appending `/<date>/<slug>`.
+    //
+    // The directory name (`-run-1776853275`) and the slug
+    // (`committee-reports-run60`) deliberately differ to model the real
+    // failure in run #24773038606: the workflow created the dir from
+    // `$$-$(date +%s)` while news-enhanced.ts composes its slug from
+    // `GITHUB_RUN_NUMBER`. With outputDirIsResolved=true the dir name must
+    // be honoured verbatim regardless of the computed slug.
+    const resolvedRunDir = path.join(tempDir, '2026-04-22', 'committee-reports-run-1776853275');
+    fs.mkdirSync(path.join(resolvedRunDir, 'intelligence'), { recursive: true });
+    fs.writeFileSync(
+      path.join(resolvedRunDir, 'intelligence', 'synthesis-summary.md'),
+      '# Synthesis Summary\n\nAI-authored content.\n'
+    );
+
+    const ctx = await runAnalysisStage(buildTestFetchedData(), {
+      articleTypes: ['committee-reports'],
+      date: '2026-04-22',
+      outputDir: resolvedRunDir,
+      articleTypeSlug: 'committee-reports-run60',
+      outputDirIsResolved: true,
+    });
+
+    expect(path.resolve(ctx.outputDir)).toBe(path.resolve(resolvedRunDir));
+    expect(fs.existsSync(path.join(ctx.outputDir, 'manifest.json'))).toBe(true);
+    expect(ctx.manifest.methods.length).toBeGreaterThan(0);
+  });
+});
+
+// ─── isResolvedAnalysisDir tests ──────────────────────────────────────────────
+
+describe('isResolvedAnalysisDir', () => {
+  let tempDir;
+
+  beforeEach(() => {
+    tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'resolved-dir-test-'));
+  });
+
+  afterEach(() => {
+    fs.rmSync(tempDir, { recursive: true, force: true });
+  });
+
+  it('should return false for non-existent path', () => {
+    expect(isResolvedAnalysisDir(path.join(tempDir, 'does-not-exist'))).toBe(false);
+  });
+
+  it('should return false for empty directory', () => {
+    expect(isResolvedAnalysisDir(tempDir)).toBe(false);
+  });
+
+  it('should return true when directory contains manifest.json', () => {
+    fs.writeFileSync(path.join(tempDir, 'manifest.json'), '{}');
+    expect(isResolvedAnalysisDir(tempDir)).toBe(true);
+  });
+
+  it('should return true when directory contains an intelligence/ subdir', () => {
+    fs.mkdirSync(path.join(tempDir, 'intelligence'));
+    expect(isResolvedAnalysisDir(tempDir)).toBe(true);
+  });
+
+  it('should return true for any canonical analysis subdir', () => {
+    const subdirs = [
+      'classification',
+      'threat-assessment',
+      'risk-scoring',
+      'existing',
+      'documents',
+      'data',
+    ];
+    for (const sub of subdirs) {
+      const dir = fs.mkdtempSync(path.join(os.tmpdir(), `resolved-${sub}-`));
+      fs.mkdirSync(path.join(dir, sub));
+      expect(isResolvedAnalysisDir(dir)).toBe(true);
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('should return false for a path pointing to a regular file', () => {
+    const file = path.join(tempDir, 'file.txt');
+    fs.writeFileSync(file, 'hello');
+    expect(isResolvedAnalysisDir(file)).toBe(false);
   });
 });
 
