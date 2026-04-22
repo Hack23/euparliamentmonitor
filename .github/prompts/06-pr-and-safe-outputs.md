@@ -23,22 +23,11 @@ called the tool at minute ~3 as a "checkpoint".
 
 ## 2 · Pre-PR Attestation (MANDATORY log line)
 
-Immediately before the single call, **write the final repo-memory checkpoint**
-and then emit to stdout:
-
-```bash
-scripts/checkpoint-analysis-to-memory.sh \
-  "${ANALYSIS_DIR}" "${RUN_ID}" final "${ARTICLE_TYPE_SLUG}"
-```
+Immediately before the single call, emit to stdout:
 
 ```
 SINGLE_PR_ATTESTATION: about to call safeoutputs___create_pull_request for the first and only time at elapsed=<N>m with <X> analysis files + <Y> article files staged
 ```
-
-The `final` checkpoint mirrors what the PR will carry, so a PR-call failure
-still leaves a full record of the run on the `memory/news-generation` branch.
-See [`02-analysis-protocol.md`](02-analysis-protocol.md) §10 for the full
-per-phase protocol.
 
 ## 3 · Outcomes — Exactly One of These
 

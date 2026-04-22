@@ -113,16 +113,9 @@ Your new run MUST reference ≥ 3 prior-run forward-looking statements.
   deadline — see [`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md).
 - ✅ Log every tool failure; the noop diagnostic depends on it.
 
-## 10 · Exit to Stage B (with repo-memory checkpoint)
+## 10 · Exit to Stage B
 
-Before handing off to Stage B, **checkpoint the Stage A state to repo-memory**
-so that a crash during analysis does not lose the collected data context:
-
-```bash
-scripts/checkpoint-analysis-to-memory.sh \
-  "${ANALYSIS_DIR}" "${RUN_ID}" data "${ARTICLE_TYPE_SLUG}"
-```
-
-See [`02-analysis-protocol.md`](02-analysis-protocol.md) §10 for the full
-per-phase checkpoint protocol (data · analysis · gate · article · final).
-Skipping checkpoints is a process violation.
+Before handing off to Stage B, verify all Stage A raw outputs are written under
+`${ANALYSIS_DIR}` and referenced in `manifest.json` / `data/artifact-index.json`.
+Do not run per-phase repo-memory checkpoint commands; continue directly to
+[`02-analysis-protocol.md`](02-analysis-protocol.md).

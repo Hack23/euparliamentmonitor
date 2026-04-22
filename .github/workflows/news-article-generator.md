@@ -29,6 +29,15 @@ permissions:
 
 timeout-minutes: 120
 
+features:
+  mcp-gateway: true
+
+sandbox:
+  agent: awf
+  mcp:
+    port: 8080
+    keepalive-interval: 300
+
 imports:
   - .github/agents/news-generation.agent.md
   - shared/mcp/news-mcp-servers.md

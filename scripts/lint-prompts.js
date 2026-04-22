@@ -67,7 +67,7 @@ const FORBIDDEN_PHRASES = [
   /\bcheckpoint\s+pr\b/i,
   /\bcheckpoint-pr\b/i,
   /\bkeep-alive\b/i,
-  /\bkeepalive\b/i,
+  /\bkeepalive\b(?!-interval)/i,
   /\bkeep\s+alive\b/i,
   /\bheartbeat\b/i,
   /\bprogressive\s+safe\s+output\b/i,

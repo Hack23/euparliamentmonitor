@@ -130,67 +130,16 @@ Each perspective must state: (1) mechanism of impact, (2) EP-data evidence,
 - No orphan files on disk.
 - `manifest.json` carries top-level `articleType`.
 - Pass 2 verification complete.
-- **Analysis checkpoint persisted to repo-memory** after Pass 2 (see §10).
 - Now run the completeness gate:
   [`03-analysis-completeness-gate.md`](03-analysis-completeness-gate.md).
 
-## 10 · Repo-Memory Checkpoint Protocol (MANDATORY — per-phase, NEVER LOSE WORK)
+## 10 · Persistence & Session Reliability
 
-Every agentic news workflow MUST persist a compact checkpoint to the
-`memory/news-generation` repo-memory workspace **after each completed phase**
-so the work survives a late-stage failure, a validator rejection, a safe-output
-rejection, or the 60-minute engine timeout. The existing `push_repo_memory`
-job (wired into every news-*.md lock file) pushes these files to the
-`memory/news-generation` branch unconditionally at the end of the run — so a
-checkpoint written at the end of Stage A survives even if Stage B crashes.
-
-### 10.1 · Invocation (one line per phase)
-
-Call the repo-hosted helper, which is the **only** supported form:
-
-```bash
-scripts/checkpoint-analysis-to-memory.sh \
-  "${ANALYSIS_DIR}" "${RUN_ID}" "<phase>" "${ARTICLE_TYPE_SLUG}"
-```
-
-`<phase>` MUST be one of: `data` · `analysis` · `gate` · `article` · `final`.
-
-The script is idempotent: re-running it overwrites the per-phase checkpoint
-file. It writes **plain files** into the repo-memory workspace and does NOT
-invoke any `safe-outputs` tool, so it is exempt from the single-PR rule.
-
-### 10.2 · Required Call Sites (every news-*.md except news-translate)
-
-| When | Command | What lands in repo-memory |
-|------|---------|---------------------------|
-| **End of Stage A** (Data Collection) | `scripts/checkpoint-analysis-to-memory.sh "${ANALYSIS_DIR}" "${RUN_ID}" data "${ARTICLE_TYPE_SLUG}"` | Early-stage snapshot: empty manifest placeholder + raw-data artifact index |
-| **End of Stage B Pass 2** (Analysis) — BEFORE calling the Stage C validator | `scripts/checkpoint-analysis-to-memory.sh "${ANALYSIS_DIR}" "${RUN_ID}" analysis "${ARTICLE_TYPE_SLUG}"` | Full `manifest.json` + 39-template artifact index |
-| **After Stage C** (green gate OR analysis-only exit) | `scripts/checkpoint-analysis-to-memory.sh "${ANALYSIS_DIR}" "${RUN_ID}" gate "${ARTICLE_TYPE_SLUG}"` | Validator-approved artifact list (proves what Stage C saw) |
-| **After Stage D Pass 2** (article drafted, before the single PR call) | `scripts/checkpoint-analysis-to-memory.sh "${ANALYSIS_DIR}" "${RUN_ID}" article "${ARTICLE_TYPE_SLUG}"` | Final analysis set + article file list (if article co-located) |
-| **Immediately before `safeoutputs___create_pull_request`** | `scripts/checkpoint-analysis-to-memory.sh "${ANALYSIS_DIR}" "${RUN_ID}" final "${ARTICLE_TYPE_SLUG}"` | End-of-run attestation identical to what the PR carries |
-
-Skipping any of these is a process violation — the run is considered
-**unsafe** because a later crash would lose everything since the previous
-checkpoint. If a phase ends unexpectedly (e.g. Stage B validator fails after
-Pass 3), still write that phase's checkpoint before routing to the
-analysis-only exit in [`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md) §3.
-
-### 10.3 · Safety Constraints (why a helper script, not inline bash)
-
-The helper exists because inline alternatives trip the agent's shell-safety
-filter and have been observed to cause 60-minute timeouts (see failed run
-#24773038606). Do **NOT** attempt any of the following inline:
-
-- Nested parameter expansion such as `${f#${ANALYSIS_DIR}/}` — use
-  the helper, which performs the prefix strip with `awk`.
-- Nested command substitution such as `$(wc -l < "$(...)" )` — the helper
-  uses single-level `$()` only.
-- `eval`, `${!var}` indirect expansion, or `${var@P}` transformation.
-
-All paths written by the helper are under
-`/tmp/gh-aw/repo-memory/default/memory/news-generation/analysis-runs/` which
-is always allowed by the `repo-memory` tool config on news workflows
-(allowed-extensions: `.md` + `.json`, max-file-size: 50 KB, max-file-count:
-50 — see the workflow `tools.repo-memory` block).
-
+- Treat `${ANALYSIS_DIR}` as the canonical durable workspace for Stages A–D.
+- Keep every analysis artifact and manifest update on disk in real time; do not
+  defer writes until stage end.
+- Do **not** use per-phase repo-memory checkpoint or heartbeat patterns.
+- Rely on workflow-level MCP gateway keepalive (`sandbox.mcp.keepalive-interval`)
+  plus the single end-of-run PR snapshot in
+  [`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md).
 

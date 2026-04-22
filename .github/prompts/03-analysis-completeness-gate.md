@@ -94,15 +94,8 @@ monitoring, and data-quality delta go into the same PR. See
 Next file to read: [`04-article-generation.md`](04-article-generation.md).
 Article drafting begins only after this gate exits 0.
 
-## 7 · Repo-Memory Checkpoint (MANDATORY, both outcomes)
+## 7 · Stage-C Output Discipline (both outcomes)
 
-Whether the gate exits 0 or routes to the analysis-only exit, **checkpoint
-Stage C state to repo-memory** so a later crash in Stage D or the PR call
-does not lose the validated artifact set:
-
-```bash
-scripts/checkpoint-analysis-to-memory.sh \
-  "${ANALYSIS_DIR}" "${RUN_ID}" gate "${ARTICLE_TYPE_SLUG}"
-```
-
-Full per-phase protocol in [`02-analysis-protocol.md`](02-analysis-protocol.md) §10.
+Whether the gate exits 0 or routes to analysis-only, ensure the validated
+artifact set remains complete in `${ANALYSIS_DIR}` and `manifest.json` is
+current before moving on. Do not run per-phase repo-memory checkpoint commands.
