@@ -105,7 +105,7 @@ Artifacts marked below with **"Source grade × WEP discipline (tradecraft)"** ma
 
 **Depth floor (breaking):** 205 lines.
 
-**Quality signals.** Every claim in the Executive Finding paragraph links to at least one other artifact in the run; the Top-5 table has ≥3 numeric citations (score, margin, %); no paragraph exceeds 150 words without structure.
+**Quality signals.** Every claim in the Executive Finding paragraph links to at least one other artifact in the run; the Top-5 table has ≥3 numeric citations (score, margin, %); no paragraph exceeds 150 words without structure. **Source-grade × Estimative-language discipline (tradecraft):** every headline judgement uses a WEP band (see [`osint-tradecraft-standards.md` §3.1](osint-tradecraft-standards.md)) with explicit time horizon (§3.4); every Top-5 finding carries an Admiralty source grade (§2) and a 🟢/🟡/🔴 confidence marker consistent with §2.3.
 
 ---
 
@@ -148,7 +148,7 @@ Artifacts marked below with **"Source grade × WEP discipline (tradecraft)"** ma
 
 **Depth floor (breaking):** 280 lines.
 
-**Quality signals.** Probabilities sum to 100%; each scenario names at least one procedure ID, date, or named actor; no scenario is described in bullet points alone.
+**Quality signals.** Probabilities sum to 100%; each scenario names at least one procedure ID, date, or named actor; no scenario is described in bullet points alone. **Source-grade × Estimative-language discipline (tradecraft):** each scenario's probability is expressed as a WEP band ([`osint-tradecraft-standards.md` §3.1](osint-tradecraft-standards.md)) with explicit time horizon (§3.4); primary SAT is Scenario Analysis with a mandatory Pre-Mortem (§4 techniques 9 + 8); every indicator cites its source with an Admiralty grade (§2).
 
 ---
 
@@ -189,7 +189,7 @@ Artifacts marked below with **"Source grade × WEP discipline (tradecraft)"** ma
 
 **Depth floor (breaking):** 250 lines.
 
-**Quality signals.** Each threat is named, not generic; mitigation posture references at least one EP rule, treaty article, or institutional practice.
+**Quality signals.** Each threat is named, not generic; mitigation posture references at least one EP rule, treaty article, or institutional practice. **Source-grade × Estimative-language discipline (tradecraft):** every threat likelihood and impact uses a WEP band ([`osint-tradecraft-standards.md` §3.1](osint-tradecraft-standards.md)); every cited intent / capability claim carries an Admiralty grade (§2); ≥1 alternative-hypothesis position (ACH or Red-Team, §4) is surfaced for any headline threat judgement.
 
 ---
 
@@ -231,7 +231,7 @@ Artifacts marked below with **"Source grade × WEP discipline (tradecraft)"** ma
 
 **Depth floor (breaking):** 100 lines.
 
-**Quality signals.** Prior-run artifact paths are valid; posterior assessments state the evidence class (supporting / contradicting / orthogonal) per [`political-risk-methodology.md` §Bayesian Update](political-risk-methodology.md).
+**Quality signals.** Prior-run artifact paths are valid; posterior assessments state the evidence class (supporting / contradicting / orthogonal) per [`political-risk-methodology.md` §Bayesian Update](political-risk-methodology.md). **Source-grade × Estimative-language discipline (tradecraft):** every posterior claim is expressed as a WEP band ([`osint-tradecraft-standards.md` §3.1](osint-tradecraft-standards.md)); evidence updating the prior carries an Admiralty grade (§2); primary SATs are Bayesian Update (§4.2) and Quality of Information Check (§4 technique 3).
 
 ---
 
