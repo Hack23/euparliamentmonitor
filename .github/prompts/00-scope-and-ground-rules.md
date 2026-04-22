@@ -10,11 +10,32 @@ The single-PR rule. No shortcuts.
 
 News-generating workflows write ONLY to these directories:
 
-| Directory | Purpose |
-|-----------|---------|
-| `news/` | Article HTML files |
-| `analysis/daily/` | Analysis artifacts (`.md`, `manifest.json`) |
-| `/tmp/gh-aw/repo-memory/default/memory/news-generation/` | Cross-run editorial memory |
+| Directory | Purpose | Which workflow family |
+|-----------|---------|------------------------|
+| `news/` | Article HTML files | `news-<type>-article.md` only |
+| `analysis/daily/` | Analysis artifacts (`.md`, `manifest.json`) | `news-<type>-analysis.md` (writes) + `news-<type>-article.md` (reads, optional top-up) |
+| `/tmp/gh-aw/repo-memory/default/memory/news-generation/` | Cross-run editorial memory | both |
+
+**Split-workflow scope guardrails:**
+
+- `news-<type>-analysis.md` MUST edit only `analysis/**`. It may not touch `news/**`.
+- `news-<type>-article.md` MUST edit only `news/**`, plus append-only updates to `analysis/daily/${DATE}/${TYPE}/manifest.json.history[]` and `analysis/daily/${DATE}/${TYPE}/data/` (Stage-A top-up).
+
+## 1b · Stable Same-Day Analysis Folder (canonical path)
+
+Every analysis workflow writes to the deterministic path:
+
+```
+analysis/daily/${DATE}/${ARTICLE_TYPE_SLUG}/
+```
+
+No `run*` suffix. Repeated runs against the same folder:
+
+- **Upgrade** artifacts still below their `reference-quality-thresholds.json` floor.
+- **Carry forward** every artifact that already passed.
+- **Append** a new entry to `manifest.json.history[]` (never clobber prior runs).
+
+See `02-analysis-protocol.md` §2 and `08-infrastructure.md` § Stable Folder Layout.
 
 ## 2 · Forbidden Modifications
 
@@ -74,12 +95,22 @@ dependencies, no standalone test-only edits.
 
 ## 8 · Stage Order (non-negotiable)
 
+Split-workflow families run the stages across **two** workflows, each of which
+calls `safeoutputs___create_pull_request` exactly once:
+
 ```
+── Workflow 1: news-<type>-analysis.md (timeout-minutes: 45) ──
 Stage A · Data Collection → Stage B · Analysis (2 passes) →
-Stage C · Completeness Gate → Stage D · Article (2 passes) → PR
+Stage C · Completeness Gate → Analysis PR (single)
+
+── Workflow 2: news-<type>-article.md (timeout-minutes: 45) ──
+(triggered by merged analysis PR)
+Optional Stage-A top-up → Stage D · Article (2 passes) → Validators → Article PR (single)
 ```
 
-No article drafting before Stage C exits 0. No PR before every file is staged.
+No article drafting before Stage C exits 0. No PR before every file is staged
+for that workflow. The article workflow reads the analysis folder from `HEAD`
+of `main` after the analysis PR merges.
 
 ## 9 · ISMS Compliance (short)
 

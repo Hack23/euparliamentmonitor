@@ -35,8 +35,10 @@ Every run produces the per-run subset of these 39 templates. The **article-type-
 
 ## 2 · Analysis Directory Structure
 
+Every analysis run writes to the **canonical stable same-day folder**:
+
 ```
-analysis/daily/{YYYY-MM-DD}/{article-type-slug}-run{NN}/
+analysis/daily/{YYYY-MM-DD}/{article-type-slug}/
 ├── classification/    (significance-classification, actor-mapping, forces-analysis, impact-matrix)
 ├── threat-assessment/ (political-threat-landscape, actor-threat-profiling, consequence-trees, legislative-disruption)
 ├── risk-scoring/      (risk-matrix, quantitative-swot, political-capital-risk, legislative-velocity-risk, agent-risk-workflow)
@@ -44,8 +46,41 @@ analysis/daily/{YYYY-MM-DD}/{article-type-slug}-run{NN}/
 ├── existing/          (deep-analysis, stakeholder-impact, coalition-dynamics, voting-patterns, cross-session-intelligence, synthesis-summary)
 ├── documents/         (document-analysis-index)
 ├── data/              (raw MCP data — may be excluded from PR)
-└── manifest.json      (top-level articleType, files.*, artifactStats)
+├── runs/              (per-attempt diagnostics: prompt, preflight log, pass-3 notes)
+└── manifest.json      (top-level articleType, files.*, artifactStats, history[])
 ```
+
+**No `-run<NN>` suffix.** Repeated analysis runs on the same date+type reuse
+this folder and append to `manifest.json.history[]`. The article workflow
+reads this exact path from `HEAD` of `main` after the analysis PR merges.
+
+**`manifest.json.history[]` — per-attempt audit entry (see
+[`src/utils/file-utils.ts`](../../src/utils/file-utils.ts)
+`AnalysisManifestHistoryEntry`):**
+
+```json
+{
+  "runId": "breaking-run-100-1729876543",
+  "startedAt": "2026-04-22T10:00:00Z",
+  "finishedAt": "2026-04-22T10:42:00Z",
+  "commit": "a1b2c3d",
+  "gateResult": "GREEN",
+  "filesWritten": ["intelligence/synthesis-summary.md", "..."]
+}
+```
+
+**Re-run merge rule (§1 of the plan):**
+
+1. Load existing `manifest.json` — if present, treat the folder as a resume
+   candidate, not a conflict.
+2. Run Stage-B Pass 1 + Pass 2 producing every mandatory artifact.
+3. For each artifact already at or above its
+   `reference-quality-thresholds.json` floor, **carry forward** the existing
+   content unless Stage A produced new substantive data that changes its
+   conclusions.
+4. For artifacts below threshold, write a stronger version (overwriting the
+   prior file).
+5. Run Stage C — if GREEN, append a history entry with `gateResult: "GREEN"`.
 
 > **Canonical paths:** `synthesis-summary.md` lives under `intelligence/` (the
 > canonical location, as enforced by `reference-quality-thresholds.json`).
@@ -57,11 +92,16 @@ analysis/daily/{YYYY-MM-DD}/{article-type-slug}-run{NN}/
 
 ## 3 · Minimum Analysis Time
 
-| Workflow | Minimum Total | Pass 1 | Pass 2 |
-|----------|:-------------:|:------:|:------:|
-| Breaking / committee-reports / propositions / motions / week-ahead / month-ahead | 20 min | 12 min | 8 min |
-| Weekly / monthly review | 25 min | 15 min | 10 min |
-| Article generator | 15 min per type | 9 min | 6 min |
+| Workflow family | Total | Pass 1 | Pass 2 | Stage C |
+|----------|:-------------:|:------:|:------:|:------:|
+| `news-<type>-analysis.md` — all article types | 30–40 min | 18 min | 12 min | 5 min |
+| Legacy monolithic `news-<type>.md` (pre-split) | 20 min | 12 min | 8 min | included |
+| Weekly / monthly review (legacy monolithic) | 25 min | 15 min | 10 min | included |
+| `news-article-generator.md` | 15 min per type | 9 min | 6 min | included |
+
+The article workflow (`news-<type>-article.md`) does **not** run Stage B and
+therefore has no analysis time budget. Its entire budget (≤ 30 min active
+work) goes to Stage D (2 passes + validators + single PR call).
 
 ## 4 · Mandatory 2-Pass Improvement (NON-NEGOTIABLE)
 
@@ -129,9 +169,17 @@ Each perspective must state: (1) mechanism of impact, (2) EP-data evidence,
 - Every mandatory file listed in manifest `files.*`.
 - No orphan files on disk.
 - `manifest.json` carries top-level `articleType`.
+- For shared-folder re-runs: `manifest.json.history[]` has an entry for this
+  run (started, not yet finished).
 - Pass 2 verification complete.
 - Now run the completeness gate:
   [`03-analysis-completeness-gate.md`](03-analysis-completeness-gate.md).
+
+After Stage C exits 0 in the `news-<type>-analysis.md` workflow: **ship a
+single analysis-only PR** (see
+[`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md) §3). The paired
+`news-<type>-article.md` workflow will run Stage D automatically when the
+analysis PR merges to `main`.
 
 ## 10 · Persistence & Session Reliability
 

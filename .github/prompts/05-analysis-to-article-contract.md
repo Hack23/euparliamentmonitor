@@ -8,6 +8,29 @@ agent reads every analysis `.md` in the run directory and authors all narrative
 content directly in the HTML. The validator refuses to publish any article
 where a fallback-template sentence leaks through.
 
+## 0 · Cross-Workflow Contract (split-family)
+
+When Stage D runs in a `news-<type>-article.md` workflow (not inline in a
+monolithic workflow):
+
+- The **producer** is the paired `news-<type>-analysis.md` workflow.
+- The **consumer** (this article workflow) reads the producer's committed
+  artifacts at `analysis/daily/${DATE}/${TYPE}/` from `HEAD` of `main`.
+- The consumer **never re-runs Stage B**. It may run a bounded Stage-A
+  freshness top-up (≤ 5 min, skipped if the analysis PR is < 6 hours old) to
+  add new substantive data to `${ANALYSIS_DIR}/data/`, but it does not
+  rewrite analysis artifacts.
+- The consumer **never produces a second analysis PR**. It opens exactly one
+  article PR and links back to the merged analysis PR in the PR body.
+
+This contract guarantees:
+- `news/*.html` articles always cite a specific, committed, reviewable
+  analysis set.
+- Analysis work is never lost if Stage D fails — the analysis PR is already
+  merged.
+- Repeated analysis runs sharpen a single canonical folder via
+  `manifest.json.history[]` rather than scattering across `-run<NN>` dirs.
+
 ## 1 · Why This Contract Exists
 
 The `2026-04-20-motions-run46-en.html` regression shipped six stakeholder cards

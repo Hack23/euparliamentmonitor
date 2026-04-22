@@ -15,6 +15,34 @@ context where policy dictates. Run all validators. Then — and only then — ca
 > before a green completeness gate, return to Stage B and run Pass 2 on the
 > artifacts the validator flagged.
 
+**In a `news-<type>-article.md` workflow (split family):** Stage D is the
+**only** stage that runs. The analysis has already been produced by the
+paired `news-<type>-analysis.md` workflow and committed to `main` via a
+merged analysis PR. The article workflow's first action is to read the
+committed analysis folder:
+
+```
+ANALYSIS_DIR=analysis/daily/${DATE}/${TYPE}/
+```
+
+Then verify the Stage-C gate-result recorded in
+`${ANALYSIS_DIR}/manifest.json.history[]` — the **last** entry's
+`gateResult`:
+
+| gate-result | action |
+|-------------|--------|
+| `GREEN` | Proceed with Stage D. |
+| `GREEN_WITH_WARNINGS` | Exit cleanly (noop). Analysis wasn't strong enough to warrant an article; the analysis PR still contains valuable intelligence. |
+| `ANALYSIS_ONLY` | Exit cleanly (noop) — analysis-only outcome, no article. |
+| `PENDING` / missing | Exit cleanly (noop) — the paired analysis PR hasn't merged yet. |
+
+Use `readLatestGateResult(manifestPath)` from
+[`src/utils/file-utils.ts`](../../src/utils/file-utils.ts) to parse this
+defensively.
+
+**In a legacy monolithic workflow (pre-split):** Stages A–D run inline as
+described below. Same 2-pass + validator rules apply.
+
 ## 2 · Generator Command
 
 ```bash
