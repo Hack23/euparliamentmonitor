@@ -27,7 +27,7 @@ This directory contains GitHub Actions workflows for the EU Parliament Monitor p
 
 ### 📰 News Generation (Agentic Workflows)
 
-The project uses **10 agentic workflow markdown files** (`.md`) that are compiled to `.lock.yml` files via `gh aw compile --validate`. Each `news-*.md` generates a specific type of EU Parliament article using the European Parliament MCP server as the primary data source, with optional World Bank / IMF MCP enrichment for economic context.
+The project uses **10 agentic workflow markdown files** (`.md`) that are compiled to `.lock.yml` files via `gh aw compile --validate`. Each `news-*.md` generates a specific type of EU Parliament article using the European Parliament MCP server as the primary data source, with optional World Bank MCP enrichment and native IMF REST-client enrichment for economic context. (The World Bank is mounted as an MCP server; IMF data is fetched via a native TypeScript REST client — there is no IMF MCP mount in the workflow frontmatter.)
 
 | Workflow (`.md`) | Purpose | Trigger |
 |---|---|---|
@@ -62,9 +62,10 @@ imports:
 - [`.github/agents/news-generation.agent.md`](../agents/news-generation.agent.md)
   is **body-only** (gh-aw v0.69.3 does not merge agent-file frontmatter); the
   body is appended to every importing workflow's prompt.
-- `news-translate.md` explicitly does **not** import either file — it ships
-  its own MCP block and its own prompt body tuned for the multi-call flush
-  pattern.
+- `news-translate.md` imports `shared/mcp/news-mcp-servers.md` (so its
+  `mcp-servers:` frontmatter stays in lockstep with the article workflows),
+  but it **does not** import `news-generation.agent.md` — it ships its own
+  prompt body tuned for the 14-language multi-call flush pattern.
 
 See [`.github/agents/news-generation.agent.md`](../agents/news-generation.agent.md)
 § "Why an imported agent?" for the tested behaviour notes, and the
