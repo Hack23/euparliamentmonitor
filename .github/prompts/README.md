@@ -47,7 +47,7 @@ Stage A · Data Collection (01-data-collection.md + 07-mcp-reference.md)
         authoritative protocol: analysis/methodologies/ai-driven-analysis-guide.md (10 steps)
         master artifact map:    analysis/methodologies/artifact-catalog.md
         per-artifact rules:     analysis/methodologies/per-artifact-methodologies.md
-        39 templates:           analysis/templates/  (6 framework + 14 agentic-workflow + 25 per-artifact)
+        39 templates:           analysis/templates/  (14 agentic-workflow [incl. 6 reusable framework] + 25 per-artifact)
     → Stage C · Completeness Gate (03-analysis-completeness-gate.md)
           per-artifact floors:  analysis/methodologies/reference-quality-thresholds.json
       → Stage D · Article (04-article-generation.md + 05-analysis-to-article-contract.md)

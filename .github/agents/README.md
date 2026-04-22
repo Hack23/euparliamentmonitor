@@ -174,7 +174,7 @@ Canonical analysis anchors every agent on the news critical path should read:
 - GitHub Actions workflow authoring
 - Daily news generation automation
 - Playwright browser testing in CI
-- Node.js 24 environment setup
+- Node.js 25 environment setup
 - MCP server pre-installation and caching
 - GitHub Pages deployment strategies
 - Security scanning integration (Dependabot, CodeQL)
@@ -186,31 +186,24 @@ Canonical analysis anchors every agent on the news critical path should read:
 
 ---
 
-### 6. 🔒 Security Expertise (distributed via skills)
-
-There is no standalone `security-architect` agent in this repository. Security
-responsibilities are distributed across all agents via the shared skills
-catalogue:
-
-- [`security-by-design`](../skills/security-by-design.md) — threat modelling
-  and STRIDE application
-- [`sdlc-security-integration`](../skills/sdlc-security-integration.md) — the
-  consolidated SSDLC phase-gate checklist
-- [`threat-modeling`](../skills/threat-modeling.md) — STRIDE methodology
-- [`isms-compliance`](../skills/isms-compliance.md) — ISO 27001 / NIST CSF /
-  CIS Controls mapping
-- [`compliance-frameworks`](../skills/compliance-frameworks.md) — GDPR, NIS2,
-  EU CRA evidence
-- [`data-protection`](../skills/data-protection.md) — GDPR-by-design patterns
-- [`ISMS_SKILLS_COMPREHENSIVE.md`](./ISMS_SKILLS_COMPREHENSIVE.md) — full
-  Hack23 ISMS-PUBLIC policy → skill map
-
-Every agent is expected to honour these skills; security review is an
-explicit responsibility of `grumpy-reviewer.agent` and `contribution-checker`.
+> **🔒 Security note — no standalone `security-architect` agent.** Security
+> responsibilities are distributed across every agent via the shared skills
+> catalogue. See [`.github/skills/README.md`](../skills/README.md) § Security
+> Skills and § Compliance Skills for the authoritative entry points:
+> [`security-by-design`](../skills/security-by-design.md),
+> [`sdlc-security-integration`](../skills/sdlc-security-integration.md),
+> [`threat-modeling`](../skills/threat-modeling.md),
+> [`isms-compliance`](../skills/isms-compliance.md),
+> [`compliance-frameworks`](../skills/compliance-frameworks.md),
+> [`data-protection`](../skills/data-protection.md), and the full Hack23
+> ISMS-PUBLIC policy → skill map in
+> [`ISMS_SKILLS_COMPREHENSIVE.md`](./ISMS_SKILLS_COMPREHENSIVE.md).
+> Security review is an explicit responsibility of `grumpy-reviewer.agent`
+> and `contribution-checker`.
 
 ---
 
-### 7. 📚 Documentation Architect (`documentation-architect`)
+### 6. 📚 Documentation Architect (`documentation-architect`)
 
 **Expertise**: C4 models, Mermaid diagrams, API documentation, architecture documentation
 
@@ -238,7 +231,7 @@ explicit responsibility of `grumpy-reviewer.agent` and `contribution-checker`.
 
 ---
 
-### 8. ✅ Quality Engineer (`quality-engineer`)
+### 7. ✅ Quality Engineer (`quality-engineer`)
 
 **Expertise**: Testing, validation, accessibility testing, performance benchmarking
 
@@ -267,7 +260,7 @@ explicit responsibility of `grumpy-reviewer.agent` and `contribution-checker`.
 
 ---
 
-### 9. 🔍 Intelligence Operative (`intelligence-operative`)
+### 8. 🔍 Intelligence Operative (`intelligence-operative`)
 
 **Expertise**: Political science, intelligence analysis, OSINT, behavioral analysis, EU Parliament transparency
 
@@ -296,7 +289,7 @@ explicit responsibility of `grumpy-reviewer.agent` and `contribution-checker`.
 
 ---
 
-### 10. 💼 Business Development Specialist (`business-development-specialist`)
+### 9. 💼 Business Development Specialist (`business-development-specialist`)
 
 **Expertise**: Strategic planning, partnership development, revenue models, civic tech sustainability
 
@@ -325,7 +318,7 @@ explicit responsibility of `grumpy-reviewer.agent` and `contribution-checker`.
 
 ---
 
-### 11. 📢 Marketing Specialist (`marketing-specialist`)
+### 10. 📢 Marketing Specialist (`marketing-specialist`)
 
 **Expertise**: Digital marketing, content strategy, SEO, community building, multi-language outreach
 
@@ -359,7 +352,7 @@ explicit responsibility of `grumpy-reviewer.agent` and `contribution-checker`.
 
 The following agents are sourced from [github/gh-aw](https://github.com/github/gh-aw) and provide GitHub Agentic Workflows capabilities:
 
-### 12. 🤖 Agentic Workflows (`agentic-workflows.agent`)
+### 11. 🤖 Agentic Workflows (`agentic-workflows.agent`)
 
 **Expertise**: GitHub Agentic Workflows (gh-aw) — Create, debug, and upgrade AI-powered workflows
 
@@ -373,7 +366,7 @@ The following agents are sourced from [github/gh-aw](https://github.com/github/g
 
 ---
 
-### 13. 🧹 CI Cleaner (`ci-cleaner.agent`)
+### 12. 🧹 CI Cleaner (`ci-cleaner.agent`)
 
 **Expertise**: Repository CI state cleanup — formatting, linting, testing, and workflow recompilation
 
@@ -386,7 +379,7 @@ The following agents are sourced from [github/gh-aw](https://github.com/github/g
 
 ---
 
-### 14. ✅ Contribution Checker (`contribution-checker.agent`)
+### 13. ✅ Contribution Checker (`contribution-checker.agent`)
 
 **Expertise**: PR evaluation against CONTRIBUTING.md guidelines
 
@@ -397,7 +390,7 @@ The following agents are sourced from [github/gh-aw](https://github.com/github/g
 
 ---
 
-### 15. 🔌 Create Safe Output Type (`create-safe-output-type.agent`)
+### 14. 🔌 Create Safe Output Type (`create-safe-output-type.agent`)
 
 **Expertise**: Adding new safe output types to GitHub Agentic Workflows
 
@@ -408,7 +401,7 @@ The following agents are sourced from [github/gh-aw](https://github.com/github/g
 
 ---
 
-### 16. ⚙️ Custom Engine Implementation (`custom-engine-implementation.agent`)
+### 15. ⚙️ Custom Engine Implementation (`custom-engine-implementation.agent`)
 
 **Expertise**: Implementing custom agentic engines in gh-aw
 
@@ -419,7 +412,7 @@ The following agents are sourced from [github/gh-aw](https://github.com/github/g
 
 ---
 
-### 17. 📖 Developer Instructions (`developer.instructions`)
+### 16. 📖 Developer Instructions (`developer.instructions`)
 
 **Expertise**: Development guidelines and standards for GitHub Agentic Workflows
 
@@ -431,7 +424,7 @@ The following agents are sourced from [github/gh-aw](https://github.com/github/g
 
 ---
 
-### 18. 🔥 Grumpy Reviewer (`grumpy-reviewer.agent`)
+### 17. 🔥 Grumpy Reviewer (`grumpy-reviewer.agent`)
 
 **Expertise**: Thorough code review with a grumpy, sarcastic senior developer persona
 
@@ -442,7 +435,7 @@ The following agents are sourced from [github/gh-aw](https://github.com/github/g
 
 ---
 
-### 19. 🎯 Interactive Agent Designer (`interactive-agent-designer.agent`)
+### 18. 🎯 Interactive Agent Designer (`interactive-agent-designer.agent`)
 
 **Expertise**: Interactive wizard for creating and optimizing agent prompts and workflow descriptions
 
@@ -454,7 +447,7 @@ The following agents are sourced from [github/gh-aw](https://github.com/github/g
 
 ---
 
-### 20. 📝 Technical Doc Writer (`technical-doc-writer.agent`)
+### 19. 📝 Technical Doc Writer (`technical-doc-writer.agent`)
 
 **Expertise**: Technical documentation using GitHub Docs voice and Diátaxis structure
 
@@ -465,7 +458,7 @@ The following agents are sourced from [github/gh-aw](https://github.com/github/g
 
 ---
 
-### 21. 📋 W3C Specification Writer (`w3c-specification-writer.agent`)
+### 20. 📋 W3C Specification Writer (`w3c-specification-writer.agent`)
 
 **Expertise**: Formal W3C-style specifications with RFC 2119 keywords
 
@@ -477,7 +470,7 @@ The following agents are sourced from [github/gh-aw](https://github.com/github/g
 
 ---
 
-### 22. 📥 News Generation (imported) (`news-generation.agent`)
+### 21. 📥 News Generation (imported) (`news-generation.agent`)
 
 **Type**: gh-aw _imported_ agent — body is appended to every
 article-generating `news-*.md` workflow prompt via the `imports:` field.

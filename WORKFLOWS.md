@@ -304,7 +304,7 @@ graph TD
 
 Every article-generating `news-*.md` (all except `news-translate.md`) executes
 the same five bounded stages. This is the canonical flow; it aligns 1-to-1
-with the ten-file prompt library in [`.github/prompts/`](../.github/prompts/README.md):
+with the ten-file prompt library in [`.github/prompts/`](.github/prompts/README.md):
 
 | Stage | Name | Prompt file(s) | Output location |
 |-------|------|----------------|-----------------|
@@ -317,8 +317,9 @@ with the ten-file prompt library in [`.github/prompts/`](../.github/prompts/READ
 Stage D's Read-Before-Write rule requires the agent to consult every artifact
 produced in Stage B before drafting prose; the artifact → article-section
 map lives in [`04-article-generation.md` § 7.1](.github/prompts/04-article-generation.md).
-The 39-template artifact catalogue (6 framework + 14 agentic-workflow +
-25 per-artifact, plus `analysis-index.md` + `README.md`) is enumerated in
+The 39-template artifact catalogue (14 agentic-workflow templates — which
+include 6 reusable framework templates — plus 25 per-artifact templates, and
+the `analysis-index.md` + `README.md` catalogue files) is enumerated in
 [`analysis/templates/README.md`](analysis/templates/README.md) and mapped to
 methodologies in [`analysis/methodologies/artifact-catalog.md`](analysis/methodologies/artifact-catalog.md).
 
@@ -1229,7 +1230,7 @@ Reference thresholds (`analysis/methodologies/reference-quality-thresholds.json`
 |--------|--------|---------|--------|
 | **Critical Vulnerabilities** | 0 | 0 | ✅ Secure |
 | **High Vulnerabilities** | 0 | 0 | ✅ Secure |
-| **Code Coverage** | ≥80% | 82%+ | ✅ Above target |
+| **Code Coverage** | ≥80% lines/functions/statements, ≥75% branches | Enforced by vitest config | ✅ CI-gated |
 | **SHA-Pinned Actions** | 100% | 100% | ✅ Complete |
 | **OpenSSF Score** | ≥8.0 | TBD | 🔄 Monitoring |
 
@@ -1948,7 +1949,7 @@ flowchart LR
 
     subgraph "🤖 Agent Layer"
         Agent["GitHub Copilot<br/>claude-opus-4.7"]
-        Analyze["Analysis Pipeline<br/>6 methodologies<br/>8 templates"]
+        Analyze["Analysis Pipeline<br/>11 methodology assets<br/>39 templates"]
     end
 
     subgraph "📰 Output Layer"

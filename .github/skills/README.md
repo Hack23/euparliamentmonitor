@@ -97,21 +97,19 @@ For the authoritative list, `ls .github/skills/*.md` is the source of truth. Cat
 
 ## Agent Cross-Reference
 
-The skills library supports the [custom agent catalogue](../agents/README.md). Each agent references relevant skills for their domain:
+Each custom agent in [`.github/agents/README.md`](../agents/README.md) § *Available Agents* references the skills it leverages in its own "Skills Reference" section — that is the authoritative per-agent mapping. The matrix below shows the skills most-referenced by each **role group** (see [`.github/agents/README.md`](../agents/README.md) § Role Index):
 
-| Agent | Primary Skills | Supporting Skills |
-|-------|---------------|-------------------|
-| **news-journalist** | **ai-first-quality**, european-parliament-data, strategic-communication-analysis, political-science-analysis | behavioral-analysis, risk-assessment-frameworks, seo-best-practices, data-protection, sdlc-security-integration |
-| **intelligence-operative** | **ai-first-quality**, political-science-analysis, osint-methodologies, intelligence-analysis-techniques, european-political-system, data-science-for-intelligence | electoral-analysis, behavioral-analysis, strategic-communication-analysis, legislative-monitoring, risk-assessment-frameworks, imf-data-integration, sdlc-security-integration |
-| **business-development-specialist** | **ai-first-quality**, business-model-canvas, european-parliament-data, seo-best-practices | compliance-frameworks, data-protection, isms-compliance, sdlc-security-integration |
-| **marketing-specialist** | **ai-first-quality**, seo-best-practices, strategic-communication-analysis, business-model-canvas | data-protection, european-parliament-data, accessibility-excellence, sdlc-security-integration |
-| **data-pipeline-specialist** | **ai-first-quality**, european-parliament-data, legislative-monitoring, mcp-server-integration, sdlc-security-integration | performance-optimization, testing-strategy, data-science-for-intelligence, imf-data-integration, security-by-design |
-| **frontend-specialist** | **ai-first-quality**, accessibility-excellence, code-quality-excellence, seo-best-practices, sdlc-security-integration | performance-optimization, security-by-design |
-| **quality-engineer** | **ai-first-quality**, testing-strategy, code-quality-excellence, sdlc-security-integration | accessibility-excellence, performance-optimization, security-by-design |
-| **documentation-architect** | **ai-first-quality**, c4-architecture-documentation, documentation-standards, sdlc-security-integration | isms-compliance, compliance-frameworks, european-political-system, security-by-design |
-| **devops-engineer** | **ai-first-quality**, github-agentic-workflows, open-source-governance, sdlc-security-integration | gh-aw-architecture, gh-aw-firewall, gh-aw-sandbox, mcp-gateway-configuration, mcp-gateway-security, mcp-gateway-troubleshooting, security-by-design |
-| **product-task-agent** | **ai-first-quality**, compliance-frameworks, isms-compliance, business-model-canvas, sdlc-security-integration | github-agentic-workflows, testing-strategy, risk-assessment-frameworks |
-| _Security expertise_ (distributed — no standalone agent) | **security-by-design**, threat-modeling, isms-compliance, ai-governance, sdlc-security-integration | compliance-frameworks, data-protection, open-source-governance |
+| Role group | Most-referenced skills |
+|---|---|
+| **Analysis producers** (intelligence-operative, news-generation.agent) | `ai-first-quality`, `intelligence-analysis-techniques`, `political-science-analysis`, `osint-methodologies`, `risk-assessment-frameworks` |
+| **Analysis consumers** (news-journalist, marketing-specialist, business-development-specialist) | `ai-first-quality`, `european-parliament-data`, `seo-best-practices`, `strategic-communication-analysis`, `data-protection` |
+| **Data / pipeline** (data-pipeline-specialist) | `european-parliament-data`, `mcp-server-integration`, `legislative-monitoring`, `testing-strategy`, `security-by-design` |
+| **gh-aw infrastructure** (agentic-workflows.agent, devops-engineer, ci-cleaner, create-safe-output-type, custom-engine-implementation, interactive-agent-designer) | `github-agentic-workflows`, `gh-aw-architecture`, `gh-aw-firewall`, `gh-aw-sandbox`, `mcp-gateway-configuration` |
+| **Quality / review / docs** (quality-engineer, grumpy-reviewer, contribution-checker, documentation-architect, technical-doc-writer, w3c-specification-writer) | `testing-strategy`, `code-quality-excellence`, `accessibility-excellence`, `documentation-standards`, `c4-architecture-documentation` |
+| **Product / frontend** (product-task-agent, frontend-specialist, developer.instructions) | `ai-first-quality`, `accessibility-excellence`, `compliance-frameworks`, `isms-compliance`, `business-model-canvas` |
+| **Security (distributed — no standalone agent)** | `security-by-design`, `threat-modeling`, `sdlc-security-integration`, `isms-compliance`, `compliance-frameworks`, `data-protection`, `ai-governance`, `open-source-governance` |
+
+Every agent additionally honours the security / compliance skills row — see the security-note callout in [`.github/agents/README.md`](../agents/README.md).
 
 ## How to Use Skills
 

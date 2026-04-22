@@ -33,8 +33,8 @@
 | **[Threat Model](../THREAT_MODEL.md)**                   | 🎯 Security     | Political Threat Landscape analysis            | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/THREAT_MODEL.md)                  |
 | **[SWOT Analysis](../SWOT.md)**                          | 💼 Business     | Strategic assessment (**formatting exemplar**) | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/SWOT.md)                          |
 | **[Workflows](../WORKFLOWS.md)**                         | ⚙️ DevOps       | CI/CD and agentic workflow documentation       | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/WORKFLOWS.md)                     |
-| **[Analysis Methodologies](methodologies/README.md)**    | 📐 Methodology  | 6 political intelligence analysis frameworks   | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/README.md) |
-| **[Analysis Templates](templates/README.md)**            | 📋 Templates    | 8 structured analysis output templates         | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/README.md)     |
+| **[Analysis Methodologies](methodologies/README.md)**    | 📐 Methodology  | Political intelligence analysis frameworks     | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/README.md) |
+| **[Analysis Templates](templates/README.md)**            | 📋 Templates    | Structured analysis output templates           | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/README.md)     |
 
 </div>
 
@@ -93,8 +93,9 @@ products that enable:
 
 - 🔄 **Workflow composition**: Upstream agents deposit analysis; downstream
   agents consume it
-- 📐 **Consistent methodology**: 6 frameworks + 8 templates enforce analytical
-  rigor
+- 📐 **Consistent methodology**: Methodology frameworks + template catalog
+  enforce analytical rigor (see [methodologies/](methodologies/) and
+  [templates/](templates/))
 - 📊 **Full data analysis**: Every downloaded MCP file receives per-file deep
   analysis
 - 🧠 **Reusable intelligence**: Cross-workflow pattern sharing and knowledge
@@ -210,7 +211,7 @@ analysis/
 │   └── reference-quality-thresholds.json  ← Machine-readable per-artifact line-floor thresholds (Stage C gate)
 ├── templates/                         ← 39 structured templates (+ README + analysis-index) — see templates/README.md
 │   ├── README.md                          ← Template catalog and selection guide
-│   └── …                                  ← 6 framework + 14 agentic-workflow + 25 per-artifact templates
+│   └── …                                  ← 14 agentic-workflow (incl. 6 reusable framework) + 25 per-artifact templates
 ├── reference/                         ← 4 ISMS adaptation mappings
 │   ├── isms-classification-adaptation.md  ← ISMS → Political classification mapping
 │   ├── isms-risk-assessment-adaptation.md ← ISMS → Political risk mapping
@@ -425,9 +426,11 @@ architectural principle.
 
 AI agents must:
 
-1. **Read ALL 6 methodology documents** in `analysis/methodologies/` before any
+1. **Read every methodology document** in `analysis/methodologies/` before any
    analysis
-2. **Read ALL 8 templates** in `analysis/templates/` to understand output format
+2. **Read the relevant templates** in `analysis/templates/` to understand the
+   expected output format (see the per-artifact map in
+   [`per-artifact-methodologies.md`](methodologies/per-artifact-methodologies.md))
 3. **Analyse the actual data** — produce original intelligence, not scripted
    boilerplate
 4. **Follow the templates exactly** — structured tables, Mermaid diagrams,
@@ -601,7 +604,7 @@ alongside it.
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
 flowchart LR
     A["📥 EP MCP\nDownload"] --> B["📋 Catalog\npending files"]
-    B --> C["📖 Read ALL 6\nmethodology docs"]
+    B --> C["📖 Read every\nmethodology doc"]
     C --> D["🔍 Per-file\ndeep analysis"]
     D --> E["💾 Save\nid.analysis.md"]
     E --> F["📊 Compose\ndaily synthesis"]
@@ -620,7 +623,7 @@ flowchart LR
 | :--: | -------------------------------------------- | ---------------------------------------------------- |
 |  1   | Download EP MCP data to `data/` subdirectory | All mandatory feeds queried                          |
 |  2   | Catalog files needing analysis               | No file missed                                       |
-|  3   | AI reads ALL 6 methodology docs              | Evidence: methodology citations in output            |
+|  3   | AI reads every methodology doc               | Evidence: methodology citations in output            |
 |  4   | Per-file deep analysis following template    | Mermaid diagrams, evidence tables, confidence labels |
 |  5   | Save analysis alongside data file            | `{id}.analysis.md` next to `{id}.json`               |
 |  6   | Compose daily synthesis                      | Aggregates all per-file analyses                     |
@@ -712,8 +715,8 @@ intelligence:
 
 | Document                      | Focus                               | Link                                                    |
 | ----------------------------- | ----------------------------------- | ------------------------------------------------------- |
-| 📐 **Analysis Methodologies** | 6 political intelligence frameworks | [methodologies/README.md](methodologies/README.md)      |
-| 📋 **Analysis Templates**     | 8 structured analysis templates     | [templates/README.md](templates/README.md)              |
+| 📐 **Analysis Methodologies** | Political intelligence frameworks   | [methodologies/README.md](methodologies/README.md)      |
+| 📋 **Analysis Templates**     | Structured analysis templates       | [templates/README.md](templates/README.md)              |
 | 🏛️ **Architecture**           | C4 system architecture              | [ARCHITECTURE.md](../ARCHITECTURE.md)                   |
 | ⚙️ **Workflows**              | CI/CD and agentic workflows         | [WORKFLOWS.md](../WORKFLOWS.md)                         |
 | 🚀 **Future Workflows**       | Workflow evolution roadmap          | [FUTURE_WORKFLOWS.md](../FUTURE_WORKFLOWS.md)           |
