@@ -235,7 +235,7 @@ export interface AnalysisManifestHistoryEntry {
   /** ISO-8601 UTC timestamp when the run finished (or last wrote) */
   readonly finishedAt: string;
   /** Short git SHA of the commit the run was produced against (optional) */
-  readonly commit?: string | undefined;
+  readonly commit?: string;
   /** Stage-C result: GREEN | GREEN_WITH_WARNINGS | ANALYSIS_ONLY | PENDING */
   readonly gateResult: 'GREEN' | 'GREEN_WITH_WARNINGS' | 'ANALYSIS_ONLY' | 'PENDING';
   /** Relative-path list of analysis files written or refreshed during the run */

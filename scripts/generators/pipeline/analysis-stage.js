@@ -176,6 +176,59 @@ function computePreferredAnalysisDir(outputDir, date, articleTypeSlug, outputDir
     return path.resolve(outputDir, date);
 }
 /**
+ * Validate caller inputs and emit a warning when no substantive data is
+ * available but `requireData` is false. Separating this from
+ * {@link runAnalysisStage} keeps that function's cognitive complexity
+ * inside the repo's SonarJS limit.
+ *
+ * @param fetchedData - Raw EP data (used only for the substantive-data check)
+ * @param options - Subset of {@link AnalysisStageOptions} needed for validation
+ */
+function validateAnalysisInputs(fetchedData, options) {
+    const { date, requireData = false, verbose = false } = options;
+    if (!/^\d{4}-\d{2}-\d{2}$/u.test(date)) {
+        throw new Error(`Invalid analysis date "${date}": must match YYYY-MM-DD format`);
+    }
+    if (hasSubstantiveData(fetchedData))
+        return;
+    if (requireData) {
+        throw new Error('Analysis aborted: no substantive EP data available. ' +
+            'MCP data fetch must succeed before analysis can run. ' +
+            'Check MCP connection and feed data source.');
+    }
+    if (verbose) {
+        console.warn('⚠️  [analysis] No substantive EP data — analysis will be data-sparse.');
+    }
+}
+/**
+ * Persist `manifest.json` (when absent) and append a `history[]` entry for
+ * shared same-day folders. Kept separate so {@link runAnalysisStage} stays
+ * under the cognitive-complexity limit.
+ *
+ * @param manifestPath - Absolute path to the run's `manifest.json`
+ * @param manifest - Manifest object to write when the file is absent
+ * @param outputDirIsResolved - True when the caller passes a shared same-day folder; gates the history append
+ * @param historyEntry - Entry to append to `manifest.json.history[]`
+ */
+function persistAnalysisArtifacts(manifestPath, manifest, outputDirIsResolved, historyEntry) {
+    if (!fs.existsSync(manifestPath)) {
+        try {
+            fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2), 'utf-8');
+        }
+        catch {
+            // Non-fatal: manifest is informational
+        }
+    }
+    if (!outputDirIsResolved)
+        return;
+    try {
+        mergeManifestHistory(manifestPath, historyEntry);
+    }
+    catch {
+        // Non-fatal: the history entry is additive metadata.
+    }
+}
+/**
  * Discover existing analysis files produced by AI agentic workflows and
  * return an {@link AnalysisContext} compatible with downstream consumers.
  *
@@ -198,20 +251,8 @@ function computePreferredAnalysisDir(outputDir, date, articleTypeSlug, outputDir
  * @returns Analysis context with discovered methods
  */
 export async function runAnalysisStage(fetchedData, options) {
-    const { articleTypes, date, outputDir, articleTypeSlug, verbose = false, requireData = false, outputDirIsResolved = false, runId: optionRunId, gateResult = 'PENDING', } = options;
-    if (!/^\d{4}-\d{2}-\d{2}$/u.test(date)) {
-        throw new Error(`Invalid analysis date "${date}": must match YYYY-MM-DD format`);
-    }
-    if (!hasSubstantiveData(fetchedData)) {
-        if (requireData) {
-            throw new Error('Analysis aborted: no substantive EP data available. ' +
-                'MCP data fetch must succeed before analysis can run. ' +
-                'Check MCP connection and feed data source.');
-        }
-        if (verbose) {
-            console.warn('⚠️  [analysis] No substantive EP data — analysis will be data-sparse.');
-        }
-    }
+    const { articleTypes, date, outputDir, articleTypeSlug, verbose = false, outputDirIsResolved = false, runId: optionRunId, gateResult = 'PENDING', } = options;
+    validateAnalysisInputs(fetchedData, options);
     const startTime = new Date().toISOString();
     const runId = optionRunId && optionRunId.length > 0 ? optionRunId : randomUUID();
     // When the caller passes a fully-resolved analysis directory (e.g. an
@@ -255,34 +296,15 @@ export async function runAnalysisStage(fetchedData, options) {
         overallConfidence: methods.length > 0 ? 'medium' : 'low',
         dataSourcesUsed: ['ai-agentic-workflow', 'filesystem-discovery'],
     };
-    // Write manifest.json if one doesn't already exist
+    // Write manifest.json (when absent) and append shared-folder history.
     const manifestPath = path.join(dateOutputDir, 'manifest.json');
-    if (!fs.existsSync(manifestPath)) {
-        try {
-            fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2), 'utf-8');
-        }
-        catch {
-            // Non-fatal: manifest is informational
-        }
-    }
-    // When running against a resolved (shared same-day) folder, append a
-    // history entry so repeated runs accumulate an audit trail instead of
-    // triggering the `-2` suffix. Artifact files are already on disk; this
-    // only records the run metadata.
-    if (outputDirIsResolved) {
-        try {
-            mergeManifestHistory(manifestPath, {
-                runId,
-                startedAt: startTime,
-                finishedAt: endTime,
-                gateResult,
-                filesWritten: discoveredEntries.map((e) => e.outputFile),
-            });
-        }
-        catch {
-            // Non-fatal: the history entry is additive metadata.
-        }
-    }
+    persistAnalysisArtifacts(manifestPath, manifest, outputDirIsResolved, {
+        runId,
+        startedAt: startTime,
+        finishedAt: endTime,
+        gateResult,
+        filesWritten: discoveredEntries.map((e) => e.outputFile),
+    });
     if (verbose) {
         console.log(`🔬 Analysis discovery complete: ${methods.length} files found`);
     }

@@ -53,6 +53,20 @@ The project uses **agentic workflow markdown files** (`.md`) that are compiled t
 
 #### Legacy monolithic workflows (pre-split; scheduled for removal after rollout)
 
+#### Legacy monolithic workflows (pre-split; scheduled for removal after rollout)
+
+> **Disabling mechanism**: these workflows remain on disk with their original
+> `schedule:` triggers intact so the compiled `.lock.yml` can be restored
+> quickly during rollback, but they are **disabled at the GitHub Actions
+> runtime layer** via the repo Settings → Actions → Workflows UI (state
+> `disabled_manually` — visible in the Actions tab as a "Disabled by user"
+> badge). GitHub does not evaluate the `schedule:` cron of a workflow in
+> that state, so there is no double-run risk while the split-family pair
+> is live. Re-enabling is a one-click operation from the same UI if a
+> rollback is needed. After 2–3 successful cycles of the split pair per
+> type, the corresponding legacy `.md` + `.lock.yml` are deleted in a
+> follow-up PR.
+
 | Workflow (`.md`) | Purpose | Status |
 |---|---|---|
 | [`news-breaking.md`](news-breaking.md) | Rapid breaking-news coverage (60-min monolith) | `disabled_manually` — replaced by the split pair |

@@ -60,10 +60,23 @@ week-ahead|month-ahead|week-in-review|month-in-review) : ;;
     ;;
 esac
 
-# Resolve repository root. Callers typically run from the repo root in CI,
-# but we also support being sourced from scripts/.  No nested command
-# substitution.
+# Resolve repository root:
+#   1. GITHUB_WORKSPACE when set (the canonical path in GitHub Actions).
+#   2. Otherwise compute repo root as the parent of the directory holding
+#      this script. This guarantees correctness when the script is invoked
+#      from a subdirectory (e.g. `cd scripts && ./resolve-analysis-dir.sh`).
+#   3. Fall back to $(pwd) only if the script path heuristic fails.
+#
+# NOTE: two single-level $() calls — AWF shell-safety filter forbids
+# nested `$(cmd $(inner))`.
 REPO_ROOT="${GITHUB_WORKSPACE:-}"
+if [ -z "$REPO_ROOT" ]; then
+  SCRIPT_PATH_DIR=$(dirname -- "$0")
+  SCRIPT_DIR=$(cd -- "$SCRIPT_PATH_DIR" >/dev/null 2>&1 && pwd)
+  if [ -n "$SCRIPT_DIR" ] && [ -d "$SCRIPT_DIR/.." ]; then
+    REPO_ROOT=$(cd -- "$SCRIPT_DIR/.." >/dev/null 2>&1 && pwd)
+  fi
+fi
 if [ -z "$REPO_ROOT" ]; then
   REPO_ROOT=$(pwd)
 fi

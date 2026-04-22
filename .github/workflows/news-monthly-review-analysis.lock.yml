@@ -727,9 +727,6 @@ jobs:
                   "--timeout",
                   "120000"
                 ],
-                "tools": [
-                  "*"
-                ],
                 "env": {
                   "EP_REQUEST_TIMEOUT_MS": "120000"
                 },
@@ -765,9 +762,6 @@ jobs:
                   "-y",
                   "@modelcontextprotocol/server-memory"
                 ],
-                "tools": [
-                  "*"
-                ],
                 "guard-policies": {
                   "write-sink": {
                     "accept": [
@@ -798,9 +792,6 @@ jobs:
                   "-y",
                   "@modelcontextprotocol/server-sequential-thinking"
                 ],
-                "tools": [
-                  "*"
-                ],
                 "guard-policies": {
                   "write-sink": {
                     "accept": [
@@ -816,9 +807,6 @@ jobs:
                 "entrypointArgs": [
                   "-y",
                   "worldbank-mcp@1.0.1"
-                ],
-                "tools": [
-                  "*"
                 ],
                 "guard-policies": {
                   "write-sink": {
