@@ -23,8 +23,8 @@ Every run produces the per-run subset of these 39 templates. The **article-type-
 
 | Group | Templates | Owner skills / methodologies |
 |-------|-----------|------------------------------|
-| **Classification** (4) | `significance-classification`, `significance-scoring`, `actor-mapping`, `forces-analysis`, `impact-matrix`, `political-classification` | `political-classification-guide.md`, intelligence-analysis-techniques |
-| **Threat assessment** (5) | `political-threat-landscape`, `actor-threat-profiles`, `consequence-trees`, `legislative-disruption`, `threat-analysis`, `political-stride-assessment` | `political-threat-framework.md`, threat-modeling |
+| **Classification** (6) | `significance-classification`, `significance-scoring`, `actor-mapping`, `forces-analysis`, `impact-matrix`, `political-classification` | `political-classification-guide.md`, intelligence-analysis-techniques |
+| **Threat assessment** (6) | `political-threat-landscape`, `actor-threat-profiles`, `consequence-trees`, `legislative-disruption`, `threat-analysis`, `political-stride-assessment` | `political-threat-framework.md`, threat-modeling |
 | **Risk scoring** (5) | `risk-matrix`, `risk-assessment`, `quantitative-swot`, `political-capital-risk`, `legislative-velocity-risk` | `political-risk-methodology.md`, `political-swot-framework.md`, risk-assessment-frameworks |
 | **Intelligence** (reference-quality 7 + extended) | `pestle-analysis`, `stakeholder-map`, `scenario-forecast`, `threat-model`, `historical-baseline`, `economic-context`, `wildcards-blackswans`, `synthesis-summary`, `analysis-index`, `coalition-dynamics`, `mcp-reliability-audit`, `per-file-political-intelligence`, `reference-analysis-quality` | OSINT, political-science, intelligence-analysis-techniques, electoral-analysis, behavioral-analysis |
 | **Existing / cross-run** | `deep-analysis`, `stakeholder-impact`, `voting-patterns`, `cross-session-intelligence`, `cross-run-diff`, `session-baseline` | legislative-monitoring, behavioral-analysis |
@@ -46,6 +46,14 @@ analysis/daily/{YYYY-MM-DD}/{article-type-slug}-run{NN}/
 ├── data/              (raw MCP data — may be excluded from PR)
 └── manifest.json      (top-level articleType, files.*, artifactStats)
 ```
+
+> **Canonical paths:** `synthesis-summary.md` lives under `intelligence/` (the
+> canonical location, as enforced by `reference-quality-thresholds.json`).
+> Older `motions-*` and review runs may additionally **mirror** it (and a few
+> other intelligence artifacts) into `existing/` — see
+> [`artifact-catalog.md` "Mirror artifacts"](../../analysis/methodologies/artifact-catalog.md).
+> There is no top-level `synthesis/` or `risk/` directory; use
+> `intelligence/synthesis-summary.md` and `risk-scoring/risk-matrix.md`.
 
 ## 3 · Minimum Analysis Time
 

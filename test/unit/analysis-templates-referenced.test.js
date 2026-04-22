@@ -4,9 +4,9 @@
 /**
  * Drift-guard test: every `analysis/templates/*.md` template (except the
  * README / index) must be referenced somewhere under `.github/prompts/` or
- * `.github/agents/news-*` — by basename (without extension) or by full
- * relative path. This prevents orphan templates and ensures every artifact
- * is discoverable by the agents that produce or consume it.
+ * `.github/agents/` — by basename (without extension) or by full relative
+ * path. This prevents orphan templates and ensures every artifact is
+ * discoverable by the agents that produce or consume it.
  */
 
 import { describe, it, expect } from 'vitest';

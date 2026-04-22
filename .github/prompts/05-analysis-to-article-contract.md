@@ -21,7 +21,7 @@ markdown was orphaned. This contract both prevents (at author time) and catches
 | Layer | Owns | Does NOT do |
 |---|---|---|
 | **Generator scripts** (`src/generators/**`) | Structural HTML scaffold, data-derived counts/IDs/dates, Mermaid charts, `AI_MARKER` sentinels for narrative slots | Parse analysis markdown; author stakeholder reasoning; invent topics from date ranges |
-| **AI agent** (news-* workflows) | Read every `analysis/daily/<date>/<run>/**/*.md`; author every stakeholder / outcome / impact slot; honour ≥ 150 words per perspective | Fabricate data the MCP did not return; skip reading intelligence/, synthesis/, classification/, risk/, existing/, documents/ |
+| **AI agent** (news-* workflows) | Read every `analysis/daily/<date>/<run>/**/*.md`; author every stakeholder / outcome / impact slot; honour ≥ 150 words per perspective | Fabricate data the MCP did not return; skip reading `intelligence/`, `classification/`, `risk-scoring/`, `threat-assessment/`, `existing/`, `documents/` |
 | **Validator** (`src/utils/validate-analysis-completeness.ts`) | Refuse any article where `AI_MARKER` or a `FALLBACK_TEMPLATE_PATTERNS` sentence leaks | Render content; judge prose quality beyond depth floors |
 
 ## 3 · What the AI Agent MUST Do Before Drafting (Read-Before-Write)
@@ -41,17 +41,21 @@ completeness gate (see [`03-analysis-completeness-gate.md`](03-analysis-complete
    - `threat-assessment/political-threat-landscape.md`
    - `intelligence/scenario-forecast.md`, `pestle-analysis.md`, `threat-model.md`, `historical-baseline.md`, `economic-context.md`, `wildcards-blackswans.md`
    - `existing/deep-analysis.md` (where present)
-3. Also read files in `intelligence/`, `synthesis/`, `classification/`, `risk/`,
-   `existing/`, `documents/` subdirectories (reference-quality runs place
-   stakeholder-map, stakeholder-impact, pestle-analysis, impact-matrix,
-   synthesis-summary here).
+3. Also read every file under the canonical run subdirectories
+   `intelligence/`, `classification/`, `risk-scoring/`, `threat-assessment/`,
+   `existing/`, `documents/`. Older `motions-*` runs may additionally mirror
+   `stakeholder-map`, `stakeholder-impact`, `pestle-analysis`, `impact-matrix`,
+   and `synthesis-summary` into `existing/` — read those mirrors when
+   present, but the canonical location enforced by
+   `reference-quality-thresholds.json` is `intelligence/`.
 4. Author, in the rendered English HTML:
    - `reasoning` prose for each of the 6 stakeholder perspective cards
      (≥ 150 words), grounded in `stakeholder-map.md` / `stakeholder-impact.md`.
    - Every row `reason` cell of the stakeholder outcome matrix, drawing from
      `impact-matrix.md`.
    - The `political / economic / social / legal / geopolitical` dimensions of
-     the Impact Assessment block, from `synthesis-summary.md` / `deep-analysis.md`.
+     the Impact Assessment block, from `intelligence/synthesis-summary.md` /
+     `existing/deep-analysis.md`.
    - Every `[AI_ANALYSIS_REQUIRED]` sentinel remaining in the document.
 5. Never ship date-range topic strings (e.g. *"voting period 2026-03-21–2026-04-20"*)
    into stakeholder prose. Substitute the substantive policy topic.
@@ -63,12 +67,12 @@ completeness gate (see [`03-analysis-completeness-gate.md`](03-analysis-complete
 
 | Article type | Required analysis inputs | AI-authored sections |
 |---|---|---|
-| `motions` | `existing/stakeholder-impact.md`, `classification/impact-matrix.md`, `synthesis/synthesis-summary.md`, `intelligence/stakeholder-map.md` | Stakeholder Perspectives, Stakeholder Outcome Matrix, Impact Assessment |
-| `breaking` | `intelligence/stakeholder-map.md`, `intelligence/coalition-dynamics.md`, `intelligence/mcp-reliability-audit.md`, `synthesis-summary.md` | Stakeholder Perspectives, Impact Assessment, Coalition-shift narrative |
-| `week-in-review` / `month-in-review` | `synthesis/synthesis-summary.md`, `intelligence/stakeholder-map.md`, `risk/risk-matrix.md` | Stakeholder Perspectives, Stakeholder Outcome Matrix, Outlook |
-| `week-ahead` / `month-ahead` | `intelligence/scenario-forecast.md`, `intelligence/stakeholder-map.md`, `synthesis-summary.md` | Scenario cards, Stakeholder Perspectives, Impact Assessment |
+| `motions` | `existing/stakeholder-impact.md`, `classification/impact-matrix.md`, `intelligence/synthesis-summary.md`, `intelligence/stakeholder-map.md` | Stakeholder Perspectives, Stakeholder Outcome Matrix, Impact Assessment |
+| `breaking` | `intelligence/stakeholder-map.md`, `intelligence/coalition-dynamics.md`, `intelligence/mcp-reliability-audit.md`, `intelligence/synthesis-summary.md` | Stakeholder Perspectives, Impact Assessment, Coalition-shift narrative |
+| `week-in-review` / `month-in-review` | `intelligence/synthesis-summary.md`, `intelligence/stakeholder-map.md`, `risk-scoring/risk-matrix.md` | Stakeholder Perspectives, Stakeholder Outcome Matrix, Outlook |
+| `week-ahead` / `month-ahead` | `intelligence/scenario-forecast.md`, `intelligence/stakeholder-map.md`, `intelligence/synthesis-summary.md` | Scenario cards, Stakeholder Perspectives, Impact Assessment |
 | `committee-reports` | `existing/committee-productivity.md`, `classification/`, `risk-scoring/` | Stakeholder Perspectives, Outlook |
-| `propositions` | `existing/pipeline-health.md`, `classification/`, `synthesis-summary.md` | Stakeholder Perspectives, Action → Consequence table |
+| `propositions` | `existing/pipeline-health.md`, `classification/`, `intelligence/synthesis-summary.md` | Stakeholder Perspectives, Action → Consequence table |
 
 Shipping an article of a given type without having read and authored from its
 listed inputs is a contract violation.
