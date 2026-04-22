@@ -333,7 +333,7 @@ Artifacts marked below with **"Source grade × WEP discipline (tradecraft)"** ma
 
 **Depth floor (breaking):** 90 lines (minimum); threat-heavy runs will routinely exceed this.
 
-**Quality signals.** Every named threat resolves to specific EP activity (procedure, MEP, group manoeuvre); no software-centric models are used.
+**Quality signals.** Every named threat resolves to specific EP activity (procedure, MEP, group manoeuvre); no software-centric models are used. **Source-grade × Estimative-language discipline (tradecraft):** every dimension score (0–5) is accompanied by a WEP band for the underlying judgement ([`osint-tradecraft-standards.md` §3.1](osint-tradecraft-standards.md)); every cited threat actor claim carries an Admiralty grade (§2); primary SAT is Key Assumptions Check (§4 technique 1) with a Red-Team alternative (§4 technique 11).
 
 ---
 
@@ -351,7 +351,7 @@ Artifacts marked below with **"Source grade × WEP discipline (tradecraft)"** ma
 
 **Depth floor (breaking):** 275 lines.
 
-**Quality signals.** No wildcard is boilerplate ("economic crisis"); each is named to a plausible EP / EU trigger.
+**Quality signals.** No wildcard is boilerplate ("economic crisis"); each is named to a plausible EP / EU trigger. **Source-grade × Estimative-language discipline (tradecraft):** wildcard probability is expressed as a WEP band (typically *Very Unlikely* / *Remote Chance*, [`osint-tradecraft-standards.md` §3.1](osint-tradecraft-standards.md)) with explicit time horizon (§3.4); trigger-signal sources carry Admiralty grades (§2); primary SATs are High-Impact / Low-Probability Analysis (§4 technique 10) and Indicators / Signposts (§4 technique 7).
 
 ---
 
@@ -556,7 +556,7 @@ Artifacts marked below with **"Source grade × WEP discipline (tradecraft)"** ma
 
 **Depth floor (breaking):** 150 lines.
 
-**Quality signals.** Every score matches `L × I`; every monitoring trigger is time-bounded.
+**Quality signals.** Every score matches `L × I`; every monitoring trigger is time-bounded. **Source-grade × Estimative-language discipline (tradecraft):** each risk narrative reports the residual likelihood as a WEP band ([`osint-tradecraft-standards.md` §3.1](osint-tradecraft-standards.md)) with time horizon (§3.4); evidence backing the L and I scores carries an Admiralty grade (§2); ACH (§4 technique 6) is used when multiple competing risks share the same monitoring triggers.
 
 ---
 
