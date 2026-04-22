@@ -1,25 +1,56 @@
 # World Bank Indicator → Article Type Mapping
 
 **Purpose**: Canonical reference that maps European Parliament Monitor article
-types to the most-relevant World Bank Open Data indicators. Every news
-workflow cites this file so the AI agent selects indicators consistently and
-the validator's World Bank quality gate remains enforceable.
+types to the most-relevant **non-economic** World Bank Open Data indicators.
+Every news workflow cites this file so the AI agent selects indicators
+consistently and the validator's quality gate remains enforceable.
+
+**⚡ Wave-2 scope (April 2026)**: World Bank is the source for **health,
+education, social, environment, demographics, defence, agriculture,
+innovation, and governance** indicators only. **All economic / monetary /
+fiscal / trade context (GDP, inflation, unemployment, FDI, fiscal balance,
+debt, monetary, exchange rates) is sourced from IMF** — see
+[`imf-indicator-mapping.md`](imf-indicator-mapping.md) and
+[`analysis/imf/`](../imf/). The legacy WB economic indicator codes listed in
+§ 1 remain valid raw-REST identifiers (some pre-Wave-2 articles cite them
+and remain green), but new articles **must** use the IMF counterpart.
+
+**Retained WB domains**:
+
+| Domain | Covered by WB | Primary MCP tool |
+|---|---|---|
+| Social / demographics | POPULATION, LIFE_EXPECTANCY, BIRTH_RATE, DEATH_RATE, migration, dependency ratios | `get-social-data` + raw-REST `SP.POP.*` |
+| Health | Health expenditure, physicians, hospital beds, immunisation, disease prevalence | `get-health-data` |
+| Education | Literacy, school enrolment, completion, teachers, education expenditure | `get-education-data` |
+| Environment | CO₂ emissions, renewable energy, forest area, water stress | raw-REST `EN.*`, `EG.FEC.RNEW.ZS` |
+| Defence | Military expenditure (% GDP), armed-forces personnel | raw-REST `MS.MIL.*` |
+| Agriculture | Agriculture % GDP, cereal yield, arable land | raw-REST `AG.*`, `NV.AGR.TOTL.ZS` |
+| Innovation | R&D expenditure, high-tech exports, internet users, patents | raw-REST `GB.XPD.RSDV.GD.ZS`, `IT.NET.USER.ZS` |
+| Governance | Women in Parliament, gender parity, business environment | raw-REST `SG.*`, `IC.*` |
 
 **Scope**: Applies to article types where EU legislation intersects with
-measurable economic/social outcomes. Article types without a direct policy
+measurable non-economic outcomes. Article types without a direct policy
 nexus (e.g. `breaking` for institutional news) remain opt-in.
 
-**Enforcement**: `src/utils/validate-articles.ts` fails any article whose
-slug appears in **Section 2 — Mandatory** unless at least one indicator code
-(or the phrase "World Bank") is present in the article body **or** in any
-`.md` file under the linked `analysis/daily/{date}/{slug}*/` directory.
+**Enforcement**: `src/utils/validate-articles.ts` calls
+`articlePolicyHasEconomicContext` (the OR-gate — see
+[`src/utils/content-validator.ts`](../../src/utils/content-validator.ts))
+which accepts **either** WB OR IMF evidence. Pre-Wave-2 articles citing
+only WB indicators remain green.
+
+**Country-code guard**: `worldbank-mcp@1.0.1` rejects the aggregate codes
+`EUU`, `EMU`, `ECS`, `OED`, `WLD`, `NAC`, `EAS`, `SSF` and the informal `UK`
+alias. Call `isMCPSupportedWBCountryCode()` from
+`src/utils/world-bank-data.ts` before every MCP invocation. For EU-level
+economic context use IMF `EU`/`EA` aggregates (accepted by the IMF API).
 
 ---
 
 ## 1. Indicator Codes (reference)
 
-The MCP tool `get-economic-data` (and siblings `get-social-data`,
-`get-education-data`, `get-health-data`) accept these stable codes:
+The MCP tool `get-economic-data` ⚠️ (deprecated for new articles — use IMF
+`imf-fetch-data` instead) and siblings `get-social-data`,
+`get-education-data`, `get-health-data` accept these stable codes:
 
 | Code                    | Description                                    | Tool            |
 | ----------------------- | ---------------------------------------------- | --------------- |

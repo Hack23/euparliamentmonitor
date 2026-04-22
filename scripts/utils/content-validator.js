@@ -1081,6 +1081,14 @@ export function hasWorldBankEvidence(text) {
  * tool-trace token, or the phrase "World Bank" itself. Returns `true` if the
  * gate is satisfied OR the article type is not on the mandatory list.
  *
+ * **⚠️ Wave-2 status (April 2026): legacy / soft check.** The strict gate
+ * enforced by `validate-articles.ts` is
+ * {@link articlePolicyHasEconomicContext} (IMF OR WB, IMF preferred).
+ * This WB-only function is retained for backward-compatibility call
+ * sites (e.g., unit tests, migration scripts) and for diagnostic
+ * reporting — it must NOT be used as the primary validator gate for
+ * new call sites. Use `articlePolicyHasEconomicContext` instead.
+ *
  * @param html - Article HTML
  * @param articleType - Slug of the article category (e.g. `"committee-reports"`)
  * @param _analysisDir - Reserved for API symmetry; filesystem recursion is
@@ -1207,9 +1215,17 @@ export function hasIMFEvidence(text) {
  * OR-gate: verify that a policy article (or its linked analysis
  * artefacts) cites **either** World Bank OR IMF evidence. Wired into
  * the strict CLI validator (`src/utils/validate-articles.ts`) as the
- * default economic-context gate — an article satisfies the rule when
- * {@link hasWorldBankEvidence} OR {@link hasIMFEvidence} returns
- * `true`, or when `articleType` is not on the mandatory list.
+ * **primary enforced** economic-context gate (Wave 2, April 2026): an
+ * article satisfies the rule when {@link hasWorldBankEvidence} OR
+ * {@link hasIMFEvidence} returns `true`, or when `articleType` is not
+ * on the mandatory list.
+ *
+ * **IMF is the preferred source** for new articles per the WB↔IMF
+ * Wave-2 split (WB = non-economic only; IMF = economic / fiscal /
+ * monetary / trade). WB-only articles remain green for
+ * backward-compatibility with pre-Wave-2 content. See
+ * [`analysis/imf/README.md`](../../analysis/imf/README.md) and
+ * [`analysis/worldbank/README.md`](../../analysis/worldbank/README.md).
  *
  * @param html - Article HTML or aggregated text including analysis files.
  * @param articleType - Slug of the article category (e.g. `"committee-reports"`).
