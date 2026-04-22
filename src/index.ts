@@ -221,6 +221,7 @@ export {
   buildEconomicContext,
   getWorldBankCountryCode,
   isEUMemberState,
+  isMCPSupportedWBCountryCode,
   buildEconomicContextHTML,
 } from './utils/world-bank-data.js';
 

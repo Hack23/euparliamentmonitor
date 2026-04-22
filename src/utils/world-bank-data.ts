@@ -74,7 +74,24 @@ export const EU_COUNTRY_CODES: Readonly<Record<string, string>> = {
   SE: 'SWE', // Sweden
 } as const;
 
-/** EU aggregate code in World Bank (European Union) */
+/**
+ * EU aggregate code in World Bank (European Union).
+ *
+ * ⚠️ **Not accepted by `worldbank-mcp@1.0.1`** — the MCP server returns
+ * `Error: Country not found` when this code is passed to any of
+ * `get-country-info`, `get-economic-data`, `get-social-data`,
+ * `get-health-data`, or `get-education-data`. The code is valid only
+ * against the raw World Bank REST API.
+ *
+ * For EU-wide **economic** context (GDP, inflation, unemployment,
+ * fiscal, trade), use the IMF client
+ * (`src/mcp/imf-mcp-client.ts`) with IMF aggregate `EU` or `EA` — see
+ * {@link IMF_AGGREGATE_LABELS} in `src/utils/imf-data.ts`.
+ *
+ * Retained as a constant for back-compatibility with raw-REST call paths
+ * (e.g., `committee-indicator-map.ts`). Guard every MCP invocation with
+ * {@link isMCPSupportedWBCountryCode} to avoid silent empty responses.
+ */
 export const EU_AGGREGATE_CODE = 'EUU';
 
 /**
@@ -112,7 +129,22 @@ export const COMPARISON_COUNTRIES: Readonly<Record<string, string>> = {
 } as const;
 
 /**
- * Aggregate/region codes useful for EU benchmarking.
+ * Aggregate/region codes useful for EU benchmarking via the raw World
+ * Bank REST API.
+ *
+ * ⚠️ **Not accepted by `worldbank-mcp@1.0.1`** — every code in this
+ * table is rejected by the MCP server with `Error: Country not found`.
+ * The codes are valid only against the raw WB REST API
+ * (`https://api.worldbank.org/v2/country/{code}/indicator/...`).
+ *
+ * For EU-aggregate **economic** queries, use the IMF client instead
+ * (see `src/mcp/imf-mcp-client.ts` and `IMF_AGGREGATE_LABELS` in
+ * `src/utils/imf-data.ts`). For non-economic EU-level context, build an
+ * explicit country list (e.g., Big Four `DE`+`FR`+`IT`+`ES` as an
+ * EU-GDP proxy) and query the MCP per-country.
+ *
+ * Always gate MCP calls with {@link isMCPSupportedWBCountryCode}.
+ *
  * Keys are World Bank group codes; values are human-readable labels.
  */
 export const WB_AGGREGATE_LABELS: Readonly<Record<string, string>> = {
@@ -125,6 +157,75 @@ export const WB_AGGREGATE_LABELS: Readonly<Record<string, string>> = {
   EAS: 'East Asia & Pacific',
   SSF: 'Sub-Saharan Africa',
 } as const;
+
+/**
+ * Set of aggregate codes that the `worldbank-mcp@1.0.1` server rejects.
+ * Used by {@link isMCPSupportedWBCountryCode} as the primary denylist.
+ *
+ * Kept in sync with {@link WB_AGGREGATE_LABELS}; `as const` preserves the
+ * literal-string type so consumers can narrow against known values.
+ */
+const WB_UNSUPPORTED_MCP_AGGREGATES: ReadonlySet<string> = new Set([
+  'EUU',
+  'EMU',
+  'OED',
+  'WLD',
+  'ECS',
+  'NAC',
+  'EAS',
+  'SSF',
+]);
+
+/**
+ * Set of informal country aliases that the `worldbank-mcp@1.0.1` server
+ * rejects even though the underlying country is available under a
+ * different code. E.g., the informal `UK` alias is rejected; use the
+ * ISO 3166-1 alpha-2 code `GB` instead.
+ */
+const WB_UNSUPPORTED_MCP_ALIASES: ReadonlySet<string> = new Set(['UK']);
+
+/**
+ * Guard: returns `true` if `code` is safe to pass to any
+ * `worldbank-mcp@1.0.1` tool (`get-country-info`, `get-economic-data`,
+ * `get-social-data`, `get-health-data`, `get-education-data`), and
+ * `false` if the code would cause the MCP server to return
+ * `Error: Country not found` — which is handled as an empty-data
+ * fallback upstream and therefore fails silently.
+ *
+ * The guard accepts any 2-letter (ISO 3166-1 alpha-2) or 3-letter
+ * (alpha-3) country code and rejects:
+ *
+ * - The 8 aggregate codes listed in {@link WB_AGGREGATE_LABELS}
+ *   (`EUU`, `EMU`, `OED`, `WLD`, `ECS`, `NAC`, `EAS`, `SSF`). These
+ *   work only against the raw WB REST API — use the IMF client for
+ *   EU-aggregate economic context.
+ * - The informal alias `UK` — use `GB` instead.
+ * - Empty, non-string, or malformed inputs.
+ *
+ * The guard is case-insensitive: `'euu'` and `'EUU'` both return
+ * `false`, `'de'` and `'DE'` both return `true`.
+ *
+ * @param code - Country code candidate
+ * @returns `true` when the code is a per-country identifier accepted by the
+ *   MCP server, `false` when it is an aggregate, an informal alias, or invalid
+ *
+ * @example
+ * isMCPSupportedWBCountryCode('DE');   // → true
+ * isMCPSupportedWBCountryCode('DEU');  // → true
+ * isMCPSupportedWBCountryCode('EUU');  // → false (aggregate)
+ * isMCPSupportedWBCountryCode('UK');   // → false (use 'GB')
+ * isMCPSupportedWBCountryCode('');     // → false
+ */
+export function isMCPSupportedWBCountryCode(code: unknown): boolean {
+  if (typeof code !== 'string') return false;
+  const trimmed = code.trim();
+  if (trimmed.length !== 2 && trimmed.length !== 3) return false;
+  if (!/^[A-Za-z]+$/u.test(trimmed)) return false;
+  const upper = trimmed.toUpperCase();
+  if (WB_UNSUPPORTED_MCP_AGGREGATES.has(upper)) return false;
+  if (WB_UNSUPPORTED_MCP_ALIASES.has(upper)) return false;
+  return true;
+}
 
 /**
  * World Bank indicator IDs relevant to EU Parliament policy analysis.
