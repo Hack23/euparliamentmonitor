@@ -271,6 +271,46 @@ graph LR
 
 > ✅ **Cross-cutting layer.** Unlike the six domain frameworks above (which each own a specific analytic task), this framework defines the professional standards every framework applies — source grading, estimative language, structured analytic techniques, and OSINT ethics. It is attested in each run's `methodology-reflection.md`.
 
+### 🗺️ Artifact Catalog — `artifact-catalog.md`
+
+| Attribute | Value |
+|-----------|-------|
+| **Purpose** | Master map between the 39 templates in [`analysis/templates/`](../templates/README.md) and the methodologies above; names the canonical run-relative path for every artifact |
+| **Used by** | [`02-analysis-protocol.md`](../../.github/prompts/02-analysis-protocol.md) (Stage B) and [`03-analysis-completeness-gate.md`](../../.github/prompts/03-analysis-completeness-gate.md) (Stage C) |
+| **Enforcement** | The validator `scripts/utils/validate-analysis-completeness.js` locks every artifact to the path in this file |
+
+### 🧪 Per-Artifact Methodologies — `per-artifact-methodologies.md`
+
+| Attribute | Value |
+|-----------|-------|
+| **Purpose** | Normative per-artifact rules — one `###` section per artifact, 34 in total, describing required sections, minimum depth, source-grading demand, and estimative-language expectations |
+| **Paired with** | `artifact-catalog.md` (what → where) + `reference-quality-thresholds.json` (how much) |
+| **Step 10.5** | `ai-driven-analysis-guide.md` § Step 10.5 requires each run's `methodology-reflection.md` to reflect on the per-artifact methodologies actually applied |
+
+### 🔢 Quality Thresholds — `reference-quality-thresholds.json`
+
+| Attribute | Value |
+|-----------|-------|
+| **Purpose** | Machine-readable per-artifact line-floor and depth-floor thresholds |
+| **Consumed by** | `npm run validate-analysis` at Stage C (Completeness Gate) — failures block PR creation |
+| **Update cadence** | Bumped whenever `per-artifact-methodologies.md` tightens or loosens a floor; the two files must stay in lock-step |
+
+### 🌍 World Bank Indicator Mapping — `worldbank-indicator-mapping.md`
+
+| Attribute | Value |
+|-----------|-------|
+| **Purpose** | Canonical mapping of World Bank WDI indicator codes to EP analysis use cases (`economic-context.md`, PESTLE economic dimension, quantitative-swot evidence) |
+| **Paired MCP** | World Bank MCP (`world-bank-*` tools) |
+
+### 💱 IMF Indicator Mapping — `imf-indicator-mapping.md`
+
+| Attribute | Value |
+|-----------|-------|
+| **Purpose** | Canonical mapping of IMF WEO / FM / SDR indicator codes to EP analysis use cases — covers sovereign risk, fiscal forecasts, reserve-asset signals |
+| **Paired MCP** | IMF REST SDMX 3.0 client in `src/mcp/imf-mcp-client.ts` |
+
+> ✅ Together, `artifact-catalog.md` (**what**), `per-artifact-methodologies.md` (**how**), and `reference-quality-thresholds.json` (**how much**) form the Stage B / Stage C contract enforced by `validate-analysis-completeness`. The two indicator-mapping files provide the Stage A economic-context inputs that the Wave-2 OR-gate in `articlePolicyHasEconomicContext` checks.
+
 ---
 
 ## 🏷️ 1. Political Classification Guide

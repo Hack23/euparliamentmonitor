@@ -124,7 +124,7 @@ EU Parliament Monitor employs a comprehensive suite of **24 GitHub Actions workf
 | 8 | **Deploy S3** | Production deployment to AWS S3 + CloudFront (OIDC, egress: block) | Push to main | Infrastructure as Code |
 | 9 | **REUSE Compliance** | License and copyright verification (REUSE 3.3) | On PR/push + weekly Monday | Open Source Policy |
 | 10 | **SLSA Provenance** | Build provenance attestation (integrated in release.yml) | On release + manual | Supply chain security (SLSA L3) |
-| 11 | **Compile Agentic Workflows** | Compile `.md` → `.lock.yml` via gh-aw CLI (pinned `GH_AW_VERSION: v0.69.0`) | Manual dispatch | Automation governance |
+| 11 | **Compile Agentic Workflows** | Compile `.md` → `.lock.yml` via gh-aw CLI (pinned `GH_AW_VERSION: v0.69.3`) | Manual dispatch | Automation governance |
 | 12 | **Agentics Maintenance** | Housekeeping for agentic workflows (stale lock cleanup, health probes) | Scheduled | Automation governance |
 | 13 | **Labeler** | Automatic PR labeling | On pull_request_target | Workflow governance |
 | 14 | **Setup Labels** | Repository label management | Manual dispatch | Repository governance |
@@ -299,6 +299,80 @@ graph TD
 | **Data sources** | European Parliament MCP Server (primary, 6 sliding-window + 7 fixed-window feeds), World Bank MCP `1.0.1` (optional, WDI macro/social/env/health), IMF REST SDMX 3.0 (native fetch in `src/mcp/imf-mcp-client.ts`, WEO+FM monthly forecasts). Dual-gate: `articlePolicyHasEconomicContext` (Wave-2 OR-gate WB OR IMF) in `src/utils/content-validator.ts` |
 | **Analysis stage** | `--analysis` flag enables 18-method political intelligence pipeline before article generation |
 | **Analysis output** | `analysis/daily/{date}/` for cross-article artifacts (for example shared synthesis outputs), plus `analysis/daily/{date}/{article-type}/` for article-type-scoped classification, threat-assessment, risk-scoring, and data (EP feeds, World Bank, IMF, OSINT) artifacts committed to PR. Article-type scoping prevents merge conflicts between concurrent workflows. |
+
+#### 5-Stage Pipeline (matches the prompt library `00`→`09`)
+
+Every article-generating `news-*.md` (all except `news-translate.md`) executes
+the same five bounded stages. This is the canonical flow; it aligns 1-to-1
+with the ten-file prompt library in [`.github/prompts/`](../.github/prompts/README.md):
+
+| Stage | Name | Prompt file(s) | Output location |
+|-------|------|----------------|-----------------|
+| **A** | Data collection | [`01-data-collection.md`](.github/prompts/01-data-collection.md) + [`07-mcp-reference.md`](.github/prompts/07-mcp-reference.md) | `analysis/daily/<YYYY-MM-DD>/<type>-run<NN>/intelligence/*` |
+| **B** | Analysis (**2-pass mandatory**) | [`02-analysis-protocol.md`](.github/prompts/02-analysis-protocol.md) → `analysis/methodologies/ai-driven-analysis-guide.md` (10 steps, Rules 1–22) | classification / threat / risk / synthesis artifacts under the same run dir |
+| **C** | Completeness gate | [`03-analysis-completeness-gate.md`](.github/prompts/03-analysis-completeness-gate.md) → `npm run validate-analysis` vs `analysis/methodologies/reference-quality-thresholds.json` | **blocks** PR if any floor is missed |
+| **D** | Article (**2-pass mandatory**) | [`04-article-generation.md`](.github/prompts/04-article-generation.md) + [`05-analysis-to-article-contract.md`](.github/prompts/05-analysis-to-article-contract.md) with Read-Before-Write against every artifact from Stage B | `news/<date>-<type>-<lang>.html` |
+| **E** | Single PR | [`06-pr-and-safe-outputs.md`](.github/prompts/06-pr-and-safe-outputs.md) → one `safeoutputs___create_pull_request` call at end of run | GitHub PR (max 1 per run; `news-article-generator` is the documented `max: 8` exception) |
+
+Stage D's Read-Before-Write rule requires the agent to consult every artifact
+produced in Stage B before drafting prose; the artifact → article-section
+map lives in [`04-article-generation.md` § 7.1](.github/prompts/04-article-generation.md).
+The 39-template artifact catalogue (6 framework + 14 agentic-workflow +
+25 per-artifact, plus `analysis-index.md` + `README.md`) is enumerated in
+[`analysis/templates/README.md`](analysis/templates/README.md) and mapped to
+methodologies in [`analysis/methodologies/artifact-catalog.md`](analysis/methodologies/artifact-catalog.md).
+
+#### Imports structure (shared component + runtime-import + lock-file)
+
+Each `news-*.md` (except `news-translate.md`) uses gh-aw's `imports:` field
+twice:
+
+```yaml
+imports:
+  - shared/mcp/news-mcp-servers.md        # frontmatter-only: MCP servers merged into frontmatter
+  - ../agents/news-generation.agent.md    # body-only: Required Reading + Stage Contract appended to prompt
+```
+
+- `shared/mcp/news-mcp-servers.md` is the single source of truth for the
+  `mcp-servers:` block (EP, World Bank, IMF, MCP Gateway mounts). Editing it
+  propagates to every importing workflow on next compile.
+- `.github/agents/news-generation.agent.md` contributes **body-only** content
+  (confirmed against gh-aw v0.69.3, 2026-04-21: imported agent frontmatter is
+  not merged into workflow frontmatter). It appends the canonical Required
+  Reading order and the 5-stage Stage Contract to every importing prompt.
+- Both files are tracked; any change triggers a recompile of every importing
+  `.lock.yml` by [`compile-agentic-workflows.yml`](.github/workflows/compile-agentic-workflows.yml).
+
+#### safeoutputs semantics (gh-aw v0.69.3)
+
+Every `news-*.md` declares:
+
+```yaml
+safe-outputs:
+  create-pull-request:
+    max: 1                # default for every news-*.md
+```
+
+Documented exceptions:
+
+- **`news-article-generator.md`** sets `max: 8` (manual backfill runner that
+  may produce up to eight per-type PRs in one dispatch).
+- **`news-translate.md`** uses `excluded-files:` and a multi-call flush
+  pattern with `max-patch-size`; it is **exempt from the single-PR rule** and
+  is the only workflow that calls `safeoutputs___create_pull_request` more
+  than once.
+
+**Critical semantic:** `safeoutputs___create_pull_request` takes a
+**synchronous git format-patch snapshot AT CALL TIME** of the agent's working
+tree. Calling it before all files are written produces a partial PR. It must
+therefore be invoked **exactly once at the very end of the run**, after every
+article, analysis artifact, and manifest has been written to disk. The
+banned alternatives — checkpoint PRs, keep-alive heartbeats, progressive safe
+outputs, and `safeoutputs___push_repo_memory` — are CI-lint-enforced by
+[`scripts/lint-prompts.js`](scripts/lint-prompts.js) / `npm run lint:prompts`.
+See [`.github/prompts/README.md` § Drift-guard Lint](.github/prompts/README.md#drift-guard-lint-npm-run-lintprompts)
+for the full rule set.
+
 
 #### Compilation Process
 
@@ -937,18 +1011,18 @@ created during the build step and attached to the immutable GitHub Release in a 
 ### 11. Compile Agentic Workflows
 
 **📄 File:** `.github/workflows/compile-agentic-workflows.yml`  
-**🎯 Purpose:** Compile agentic workflow markdown source files (`.md`) into executable lock files (`.lock.yml`) using the `gh-aw` CLI (pinned `GH_AW_VERSION: v0.69.0`)  
+**🎯 Purpose:** Compile agentic workflow markdown source files (`.md`) into executable lock files (`.lock.yml`) using the `gh-aw` CLI (pinned `GH_AW_VERSION: v0.69.3`)  
 **⏰ Trigger:** Manual dispatch only (`workflow_dispatch`)  
 **📊 Status:** [![Compile Agentic Workflows](https://github.com/Hack23/euparliamentmonitor/actions/workflows/compile-agentic-workflows.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/compile-agentic-workflows.yml)
 
-> **Version pin contract**: `GH_AW_VERSION: v0.69.0` is a repository-level environment pin in `compile-agentic-workflows.yml`. Bumping this pin requires re-compilation of all 10 `.lock.yml` files, a full PR review, and successful `gh aw compile --validate` across the workflow set. Any `.md` → `.lock.yml` drift is detected by `agentics-maintenance.yml`.
+> **Version pin contract**: `GH_AW_VERSION: v0.69.3` is a repository-level environment pin in `compile-agentic-workflows.yml`. Bumping this pin requires re-compilation of all 10 `.lock.yml` files, a full PR review, and successful `gh aw compile --validate` across the workflow set. Any `.md` → `.lock.yml` drift is detected by `agentics-maintenance.yml`.
 
 #### Compilation Pipeline
 
 ```mermaid
 graph LR
     A[Manual Trigger] --> B[Checkout Repository]
-    B --> C["Install gh-aw CLI<br/>(pinned v0.69.0)"]
+    B --> C["Install gh-aw CLI<br/>(pinned v0.69.3)"]
     C --> D["Run gh aw compile --validate<br/>Validates frontmatter + safe-outputs"]
     D --> E["Commit & Push<br/>.lock.yml Files"]
 
@@ -975,7 +1049,7 @@ graph LR
 | Control | Implementation | ISMS Reference |
 |---------|----------------|----------------|
 | **Manual Trigger Only** | `workflow_dispatch` — no automatic runs | Change control |
-| **Version Pin** | `GH_AW_VERSION: v0.69.0` pinned at workflow env | Supply chain integrity |
+| **Version Pin** | `GH_AW_VERSION: v0.69.3` pinned at workflow env | Supply chain integrity |
 | **Token Fallback** | `COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN` with `GITHUB_TOKEN` fallback | Credential management |
 | **Write Permissions** | `contents: write`, `pull-requests: write`, `actions: write`, `issues: write` | Least privilege for compilation |
 
@@ -1037,7 +1111,7 @@ graph LR
 ### 15. Agentics Maintenance
 
 **📄 File:** `.github/workflows/agentics-maintenance.yml`  
-**🎯 Purpose:** Housekeeping for the agentic workflow fleet — detect `.md` ↔ `.lock.yml` drift, probe MCP gateway health, prune stale analysis artifacts, verify `GH_AW_VERSION: v0.69.0` is in effect.  
+**🎯 Purpose:** Housekeeping for the agentic workflow fleet — detect `.md` ↔ `.lock.yml` drift, probe MCP gateway health, prune stale analysis artifacts, verify `GH_AW_VERSION: v0.69.3` is in effect.  
 **⏰ Trigger:** Scheduled (weekly) + manual dispatch  
 
 #### Security Controls

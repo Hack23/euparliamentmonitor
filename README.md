@@ -115,6 +115,13 @@ import {
 - [📔 API Documentation](https://euparliamentmonitor.com/docs/api/index.html) - TypeDoc-generated API reference
 - [📓 Test Coverage](https://euparliamentmonitor.com/docs/coverage/index.html) - Interactive coverage report
 
+**🤖 Agentic Pipeline:**
+- [Agent Catalog](.github/agents/README.md) — custom Copilot agents (analysis producers / consumers / gh-aw infrastructure)
+- [Skills Library](.github/skills/README.md) — shared skills (security, compliance, intelligence, gh-aw)
+- [Prompt Library](.github/prompts/README.md) — 10-file bounded-context prompt set (`00`→`09`) + `npm run lint:prompts` drift-guard
+- [Workflows](.github/workflows/README.md) + [WORKFLOWS.md](WORKFLOWS.md) — 10 `news-*.md` agentic workflows + CI workflows
+- [Analysis Chain](analysis/README.md) — 5-stage pipeline (Data → Analysis → Completeness Gate → Article → Single PR), methodologies, 39 templates, quality thresholds
+
 **🔒 ISMS Compliance:**
 - [🛡️ Hack23 ISMS Framework](https://github.com/Hack23/ISMS-PUBLIC) - Information Security Management System
 - [🔐 Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) - Development standards
@@ -128,8 +135,13 @@ v1.2.11 for accessing real EU Parliament data via the Model Context Protocol.
 
 - **MCP Server Status**: ✅ Fully operational — 60+ EP data tools available
   (feeds, direct lookups, analytical tools, intelligence correlation)
-- **Agentic Workflows**: 10 gh-aw markdown workflows for automated news
-  generation with AI-driven political intelligence analysis
+- **Agentic Workflows**: 10 gh-aw markdown workflows (compiled with
+  `gh-aw v0.69.3`) for automated news generation with AI-driven political
+  intelligence analysis. See [`.github/workflows/README.md`](.github/workflows/README.md).
+- **Analysis Chain**: 5-stage pipeline (Data → Analysis → Completeness Gate →
+  Article → Single PR) producing 39 structured analysis templates per run.
+  See [`analysis/README.md`](analysis/README.md) and
+  [`analysis/methodologies/ai-driven-analysis-guide.md`](analysis/methodologies/ai-driven-analysis-guide.md).
 - **Fallback Mode**: News generation can work with reduced data when EP API
   endpoints are temporarily unavailable
 - **Environment Variable**: Set `USE_EP_MCP=false` to disable MCP client

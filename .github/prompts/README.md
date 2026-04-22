@@ -76,9 +76,42 @@ The pinned gh-aw version for this repo lives in `.github/workflows/compile-agent
 > The only exception is `news-translate.md`, which uses multi-call flush with
 > `max-patch-size` + re-calls. Checkpoint PRs, keep-alive heartbeats, and
 > progressive safe outputs are **banned** and CI-lint-enforced by
-> `scripts/lint-prompts.js`.
+> [`scripts/lint-prompts.js`](../../scripts/lint-prompts.js).
 
 Full rationale: [`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md).
+
+## Drift-guard Lint (`npm run lint:prompts`)
+
+[`scripts/lint-prompts.js`](../../scripts/lint-prompts.js) enforces four
+rules across every `.github/workflows/news-*.md` file (news-translate.md is
+the single, fully-exempt workflow):
+
+1. `safeoutputs___create_pull_request` appears **at most once** per workflow.
+2. None of the banned phrases appear: `checkpoint pr`, `checkpoint-pr`,
+   `keep-alive`, `keepalive`, `keep alive`, `heartbeat`,
+   `progressive safe output` (case-insensitive).
+3. No `safeoutputs___push_repo_memory` references.
+4. **Analysis-awareness** — every news-*.md must either directly reference
+   both `analysis/methodologies/ai-driven-analysis-guide.md` and
+   `03-analysis-completeness-gate.md`, **or** import
+   [`.github/agents/news-generation.agent.md`](../agents/news-generation.agent.md)
+   (which provides both anchors).
+
+**Execution surface:**
+
+- Local: `npm run lint:prompts`
+- CI: job `compile-agentic-workflows.yml` runs `node scripts/lint-prompts.js`
+  before compiling `.md` → `.lock.yml`.
+- Unit test: `test/unit/lint-prompts.test.js` locks the rule set against
+  regressions.
+
+## `SHARED_PROMPT_PATTERNS.md` — redirect stub
+
+The former 1,789-line monolith has been decomposed into this 10-file library.
+[`SHARED_PROMPT_PATTERNS.md`](SHARED_PROMPT_PATTERNS.md) now exists **only as
+a redirect stub** mapping old sections → new files. New contributions must
+land in the appropriately-numbered file above; do **not** re-expand the
+monolith.
 
 ## Token Discipline
 

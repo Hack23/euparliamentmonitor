@@ -186,31 +186,27 @@ Canonical analysis anchors every agent on the news critical path should read:
 
 ---
 
-### 6. 🔒 Security Architect (`security-architect`)
+### 6. 🔒 Security Expertise (distributed via skills)
 
-**Expertise**: ISMS compliance, threat modeling, security hardening, GDPR/NIS2
+There is no standalone `security-architect` agent in this repository. Security
+responsibilities are distributed across all agents via the shared skills
+catalogue:
 
-**When to Use**:
-- Implementing security controls and hardening
-- Conducting threat modeling and risk assessments
-- Ensuring ISMS policy compliance
-- Implementing GDPR and NIS2 requirements
-- Configuring security headers and TLS
-- Reviewing code for security vulnerabilities
+- [`security-by-design`](../skills/security-by-design.md) — threat modelling
+  and STRIDE application
+- [`sdlc-security-integration`](../skills/sdlc-security-integration.md) — the
+  consolidated SSDLC phase-gate checklist
+- [`threat-modeling`](../skills/threat-modeling.md) — STRIDE methodology
+- [`isms-compliance`](../skills/isms-compliance.md) — ISO 27001 / NIST CSF /
+  CIS Controls mapping
+- [`compliance-frameworks`](../skills/compliance-frameworks.md) — GDPR, NIS2,
+  EU CRA evidence
+- [`data-protection`](../skills/data-protection.md) — GDPR-by-design patterns
+- [`ISMS_SKILLS_COMPREHENSIVE.md`](./ISMS_SKILLS_COMPREHENSIVE.md) — full
+  Hack23 ISMS-PUBLIC policy → skill map
 
-**Key Capabilities**:
-- ISO 27001:2022 control implementation
-- NIST CSF 2.0 function mapping
-- CIS Controls v8.1 application
-- GDPR, NIS2, EU CRA compliance
-- Input validation and XSS prevention
-- Security header configuration (CSP, HSTS, X-Frame-Options)
-- Threat modeling and risk assessment
-
-**Example Use**:
-```bash
-@security-architect review the article generation pipeline for potential XSS vulnerabilities and GDPR compliance
-```
+Every agent is expected to honour these skills; security review is an
+explicit responsibility of `grumpy-reviewer.agent` and `contribution-checker`.
 
 ---
 
@@ -481,6 +477,29 @@ The following agents are sourced from [github/gh-aw](https://github.com/github/g
 
 ---
 
+### 22. 📥 News Generation (imported) (`news-generation.agent`)
+
+**Type**: gh-aw _imported_ agent — body is appended to every
+article-generating `news-*.md` workflow prompt via the `imports:` field.
+Not invokable directly via `@news-generation`.
+
+**Purpose**: Contributes the canonical Required Reading order and 5-stage
+Stage Contract (Data → Analysis → Completeness Gate → Article → Single PR)
+to every importing workflow. Paired with
+[`.github/workflows/shared/mcp/news-mcp-servers.md`](../workflows/shared/mcp/news-mcp-servers.md)
+(separate import that merges the `mcp-servers:` frontmatter block).
+
+**Importers**: `news-breaking`, `news-weekly-review`, `news-monthly-review`,
+`news-week-ahead`, `news-month-ahead`, `news-committee-reports`,
+`news-motions`, `news-propositions`, `news-article-generator`. Explicitly
+**not** imported by `news-translate` (multi-call flush pattern, exempt from
+single-PR rule).
+
+See [`.github/workflows/README.md`](../workflows/README.md) for the full
+shared-import pattern.
+
+---
+
 ## 🌍 European Parliament Context
 
 All agents are configured with expertise in:
@@ -690,7 +709,7 @@ graph TD
     B -->|UI/UX Work| E[frontend-specialist]
     B -->|Data Integration| F[data-pipeline-specialist]
     B -->|CI/CD| G[devops-engineer]
-    B -->|Security| H[security-architect]
+    B -->|Security| H[skills: security-by-design, threat-modeling, sdlc-security-integration]
     B -->|Documentation| I[documentation-architect]
     B -->|Testing/QA| J[quality-engineer]
     B -->|Intelligence Analysis| K2[intelligence-operative]
@@ -718,8 +737,8 @@ graph TD
 | Write news articles | news-journalist | data-pipeline-specialist, intelligence-operative |
 | Fix accessibility | frontend-specialist | quality-engineer |
 | Add MEP data | data-pipeline-specialist | frontend-specialist |
-| Setup CI/CD | devops-engineer | security-architect |
-| Security audit | security-architect | quality-engineer |
+| Setup CI/CD | devops-engineer | _skills: security-by-design, sdlc-security-integration_ |
+| Security audit | _skills: security-by-design, threat-modeling_ | quality-engineer, grumpy-reviewer.agent |
 | Architecture docs | documentation-architect | - |
 | Run tests | quality-engineer | frontend-specialist |
 | Political analysis | intelligence-operative | news-journalist, data-pipeline-specialist |

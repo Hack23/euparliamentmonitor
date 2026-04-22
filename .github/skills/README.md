@@ -26,39 +26,40 @@ Canonical analysis anchors — every skill on the news critical path points to t
 
 ## Skills Catalog
 
-### 🏛️ Architecture Skills (1 skill)
+### 🏛️ Architecture Skills
 - **[C4 Architecture Documentation](c4-architecture-documentation.md)** — C4 models, Mermaid diagrams, documentation portfolio requirements
 
-### 🔒 Security Skills (3 skills)
+### 🔒 Security Skills
 - **[Security by Design](security-by-design.md)** — Defense-in-depth, CSP headers, input validation, STRIDE, SSDLC phase activities
 - **[Threat Modeling](threat-modeling.md)** — STRIDE analysis, risk assessment, attack surface analysis
 - **[Data Protection](data-protection.md)** — GDPR compliance, data classification, sanitization
 
-### ✅ Compliance Skills (3 skills)
+### ✅ Compliance Skills
 - **[Compliance Frameworks](compliance-frameworks.md)** — ISO 27001, NIST CSF 2.0, CIS Controls, GDPR, NIS2, EU CRA, Info Security Policy alignment
 - **[ISMS Compliance](isms-compliance.md)** — ISMS policy references, CIA triad, evidence requirements, framework mapping
 - **[SDLC Security Integration](sdlc-security-integration.md)** — Information Security Policy + Secure Development Policy + Open Source Policy consolidated into per-phase SSDLC gates, vulnerability SLA, dependency intake, contribution workflow, PR checklist
 
-### 🧪 Quality Skills (4 skills)
+### 🧪 Quality Skills
 - **[Testing Strategy](testing-strategy.md)** — Vitest unit tests, Playwright E2E, coverage requirements
 - **[Code Quality Excellence](code-quality-excellence.md)** — ESLint, HTMLHint, JavaScript/HTML/CSS standards
 - **[Accessibility Excellence](accessibility-excellence.md)** — WCAG 2.1 AA, keyboard navigation, screen readers
 - **[AI-First Quality](ai-first-quality.md)** — Mandatory 2-pass iterative improvement for all AI-generated content, time-budget enforcement, quality gates
 
-### ⚡ Performance Skills (1 skill)
+### ⚡ Performance Skills
 - **[Performance Optimization](performance-optimization.md)** — Core Web Vitals, caching, asset optimization
 
-### 📚 Documentation Skills (1 skill)
+### 📚 Documentation Skills
 - **[Documentation Standards](documentation-standards.md)** — Document control, JSDoc, REUSE compliance
 
-### 📜 Governance Skills (1 skill)
+### 📜 Governance Skills
 - **[Open Source Governance](open-source-governance.md)** — Apache-2.0, REUSE 3.3, SBOM, SLSA, OpenSSF
 
-### 🇪🇺 Data Integration Skills (2 skills)
+### 🇪🇺 Data Integration Skills
 - **[European Parliament Data](european-parliament-data.md)** — EP MCP server tools, data validation, caching, fallback
 - **[Legislative Monitoring](legislative-monitoring.md)** — OLP tracking, trilogue analysis, amendment patterns, plenary voting
+- **[IMF Data Integration](imf-data-integration.md)** — IMF macroeconomic indicators, SDR/quota data, sovereign-risk signals for economic-context analysis
 
-### 🔍 Intelligence & OSINT Skills (10 skills)
+### 🔍 Intelligence & OSINT Skills
 - **[Political Science Analysis](political-science-analysis.md)** — Comparative politics, MEP behavior, EU legislative procedures, democratic accountability
 - **[OSINT Methodologies](osint-methodologies.md)** — OSINT collection, source evaluation, data integration, verification for EU Parliament data
 - **[Intelligence Analysis Techniques](intelligence-analysis-techniques.md)** — ACH, SWOT, Devil's Advocacy, Red Team, structured analytics for EU analysis
@@ -69,65 +70,48 @@ Canonical analysis anchors — every skill on the news critical path points to t
 - **[Strategic Communication Analysis](strategic-communication-analysis.md)** — Narrative framing, media bias detection, discourse analysis, multi-language messaging
 - **[Risk Assessment Frameworks](risk-assessment-frameworks.md)** — Democratic health, cohesion risk, legislative bottlenecks, early warning systems
 
-### 💼 Business Strategy (1 skill)
+### 💼 Business Strategy
 - **[Business Model Canvas](business-model-canvas.md)** — Value proposition, customer segments, revenue streams, mission-aligned business model design
 
-### 📢 Marketing & Growth (1 skill)
+### 📢 Marketing & Growth
 - **[SEO Best Practices](seo-best-practices.md)** — On-page SEO, technical SEO, keyword research, multi-language content optimization
 
-### 🤖 AI & MCP Skills (3 skills)
+### 🤖 AI & MCP Skills
 - **[AI Governance](ai-governance.md)** — EU AI Act compliance, OWASP LLM security, responsible AI practices for content generation
 - **[GitHub Agentic Workflows](github-agentic-workflows.md)** — Copilot coding agent, stacked PRs, agent selection
 - **[MCP Server Integration](mcp-server-integration.md)** — MCP protocol, multi-server orchestration
 
-### 🛡️ Infrastructure Skills (4 skills)
+### 🛡️ Infrastructure Skills
 - **[GH AW Architecture](gh-aw-architecture.md)** — Layered security model (Sandbox → Gateway → Firewall)
 - **[GH AW Firewall](gh-aw-firewall.md)** — Domain filtering, request sanitization, compliance
 - **[GH AW Sandbox](gh-aw-sandbox.md)** — Resource isolation, secrets injection
 - **[MCP Gateway Configuration](mcp-gateway-configuration.md)** — TOML/JSON config patterns
 
-### 🔧 Operations Skills (2 skills)
+### 🔧 Operations Skills
 - **[MCP Gateway Security](mcp-gateway-security.md)** — Authentication, container isolation
 - **[MCP Gateway Troubleshooting](mcp-gateway-troubleshooting.md)** — Debug logging, issue resolution
 
 ## Skills Statistics
 
-**Total Skills**: 36 skills across 14 categories
-
-| Category | Count | Focus |
-|----------|-------|-------|
-| Architecture | 1 | C4 models, documentation portfolio |
-| Security | 3 | Defense-in-depth, threat modeling, data protection |
-| Compliance | 3 | ISO 27001, NIST CSF, CIS, GDPR, NIS2, Info Security Policy, Secure Dev Policy, Open Source Policy SSDLC gates |
-| Quality | 4 | Testing, code quality, accessibility, AI-first quality |
-| Performance | 1 | Core Web Vitals, caching |
-| Documentation | 1 | Standards, REUSE compliance |
-| Governance | 1 | Open source, supply chain |
-| Data Integration | 2 | European Parliament MCP, legislative monitoring |
-| Intelligence & OSINT | 10 | Political science, OSINT, intelligence analysis, electoral, behavioral, communication, risk |
-| Business Strategy | 1 | Business model canvas, revenue streams |
-| Marketing & Growth | 1 | SEO, multi-language content optimization |
-| AI & MCP | 3 | AI governance, agentic workflows, MCP protocol |
-| Infrastructure | 4 | AW architecture, firewall, sandbox, gateway |
-| Operations | 2 | Gateway security, troubleshooting |
+For the authoritative list, `ls .github/skills/*.md` is the source of truth. Categories above group every file currently in the directory.
 
 ## Agent Cross-Reference
 
-The skills library supports 11 specialized agents. Each agent references relevant skills for their domain:
+The skills library supports the [custom agent catalogue](../agents/README.md). Each agent references relevant skills for their domain:
 
 | Agent | Primary Skills | Supporting Skills |
 |-------|---------------|-------------------|
 | **news-journalist** | **ai-first-quality**, european-parliament-data, strategic-communication-analysis, political-science-analysis | behavioral-analysis, risk-assessment-frameworks, seo-best-practices, data-protection, sdlc-security-integration |
-| **intelligence-operative** | **ai-first-quality**, political-science-analysis, osint-methodologies, intelligence-analysis-techniques, european-political-system, data-science-for-intelligence | electoral-analysis, behavioral-analysis, strategic-communication-analysis, legislative-monitoring, risk-assessment-frameworks, sdlc-security-integration |
+| **intelligence-operative** | **ai-first-quality**, political-science-analysis, osint-methodologies, intelligence-analysis-techniques, european-political-system, data-science-for-intelligence | electoral-analysis, behavioral-analysis, strategic-communication-analysis, legislative-monitoring, risk-assessment-frameworks, imf-data-integration, sdlc-security-integration |
 | **business-development-specialist** | **ai-first-quality**, business-model-canvas, european-parliament-data, seo-best-practices | compliance-frameworks, data-protection, isms-compliance, sdlc-security-integration |
 | **marketing-specialist** | **ai-first-quality**, seo-best-practices, strategic-communication-analysis, business-model-canvas | data-protection, european-parliament-data, accessibility-excellence, sdlc-security-integration |
-| **data-pipeline-specialist** | **ai-first-quality**, european-parliament-data, legislative-monitoring, mcp-server-integration, sdlc-security-integration | performance-optimization, testing-strategy, data-science-for-intelligence, security-by-design |
+| **data-pipeline-specialist** | **ai-first-quality**, european-parliament-data, legislative-monitoring, mcp-server-integration, sdlc-security-integration | performance-optimization, testing-strategy, data-science-for-intelligence, imf-data-integration, security-by-design |
 | **frontend-specialist** | **ai-first-quality**, accessibility-excellence, code-quality-excellence, seo-best-practices, sdlc-security-integration | performance-optimization, security-by-design |
 | **quality-engineer** | **ai-first-quality**, testing-strategy, code-quality-excellence, sdlc-security-integration | accessibility-excellence, performance-optimization, security-by-design |
-| **security-architect** | **ai-first-quality**, security-by-design, threat-modeling, isms-compliance, ai-governance, sdlc-security-integration | compliance-frameworks, data-protection, open-source-governance |
 | **documentation-architect** | **ai-first-quality**, c4-architecture-documentation, documentation-standards, sdlc-security-integration | isms-compliance, compliance-frameworks, european-political-system, security-by-design |
-| **devops-engineer** | **ai-first-quality**, github-agentic-workflows, open-source-governance, sdlc-security-integration | gh-aw-architecture, mcp-gateway-security, security-by-design |
+| **devops-engineer** | **ai-first-quality**, github-agentic-workflows, open-source-governance, sdlc-security-integration | gh-aw-architecture, gh-aw-firewall, gh-aw-sandbox, mcp-gateway-configuration, mcp-gateway-security, mcp-gateway-troubleshooting, security-by-design |
 | **product-task-agent** | **ai-first-quality**, compliance-frameworks, isms-compliance, business-model-canvas, sdlc-security-integration | github-agentic-workflows, testing-strategy, risk-assessment-frameworks |
+| _Security expertise_ (distributed — no standalone agent) | **security-by-design**, threat-modeling, isms-compliance, ai-governance, sdlc-security-integration | compliance-frameworks, data-protection, open-source-governance |
 
 ## How to Use Skills
 
@@ -145,8 +129,8 @@ Agents document which skills they leverage. See each agent's "Skills Reference" 
 
 ## Related Resources
 
-- **[Copilot Instructions](../.github/copilot-instructions.md)** — Project-wide Copilot configuration
-- **[Agent Catalog](../agents/README.md)** — 11 specialized custom agents
+- **[Copilot Instructions](../copilot-instructions.md)** — Project-wide Copilot configuration
+- **[Agent Catalog](../agents/README.md)** — specialized custom agents
 - **[ISMS-PUBLIC](https://github.com/Hack23/ISMS-PUBLIC)** — Hack23 security policies
 - **[Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md)** — SDLC security requirements
 

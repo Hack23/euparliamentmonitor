@@ -303,8 +303,18 @@ Every artifact under `analysis/daily/*/` has a 1:1 template in `analysis/templat
 
 ### 🧱 Framework Templates (6 reusable)
 
+These six templates codify the reusable EP-domain methodologies — every downloaded MCP data file receives one or more of them (especially `per-file-political-intelligence.md`), and the other templates compose their fragments.
+
 | # | Template | Role |
 |---|----------|------|
+| F1 | [🏷️ political-classification](political-classification.md) | 7-dimension event classification (sensitivity, domain, urgency, scope, actors, impact, temporal) — the foundation every other template cites. |
+| F2 | [⚠️ risk-assessment](risk-assessment.md) | 5×5 Likelihood × Impact matrix across 6 risk categories; produces the `risk-scoring/` artifacts. |
+| F3 | [🎭 threat-analysis](threat-analysis.md) | Multi-framework threat assessment (Political Threat Landscape 6D + Diamond + Attack Trees + PESTLE + Scenarios + Kill Chain); produces the `threat-assessment/` artifacts. |
+| F4 | [💼 swot-analysis](swot-analysis.md) | Evidence-based political SWOT with TOWS cross-quadrant strategies; reusable inside `deep-analysis`, `synthesis-summary`, `quantitative-swot`. |
+| F5 | [👥 stakeholder-impact](stakeholder-impact.md) | 7-lens institutional-actor + civil-society impact lens; reusable inside `stakeholder-map`, `deep-analysis`, article stakeholder sections. |
+| F6 | [🔍 per-file-political-intelligence](per-file-political-intelligence.md) | The **most-used** template: every downloaded EP data file receives a per-file `.analysis.md` applying classification + SWOT + risk + threat + significance in one pass. |
+
+> Artifact catalogue: [`../methodologies/artifact-catalog.md`](../methodologies/artifact-catalog.md) maps every `analysis/daily/<run>/…` path to one of these six framework templates **or** one of the 25 per-artifact templates below **or** one of the 14 agentic-workflow templates listed in the master catalogue above. The README + `analysis-index.md` are the only two `.md` files in this directory not subject to the drift-guard test `test/unit/analysis-templates-referenced.test.js`, which enforces that every other template is referenced by basename under `.github/prompts/` or `.github/agents/`.
 
 ---
 

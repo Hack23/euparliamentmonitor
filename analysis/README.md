@@ -194,8 +194,8 @@ graph TB
 ```
 analysis/
 ├── README.md                          ← This file (CRITICAL RULES — read first)
-├── methodologies/                     ← 11 methodology guides (6 frameworks + 2 catalogs + 1 tradecraft standard + 2 indicator mappings)
-│   ├── README.md                      ← Methodology catalog and pipeline overview
+├── methodologies/                     ← Methodology guides, tradecraft standards, indicator mappings, quality thresholds
+│   ├── README.md                          ← Methodology catalog and pipeline overview
 │   ├── ai-driven-analysis-guide.md        ← 10-step analysis protocol (authoritative, read FIRST)
 │   ├── artifact-catalog.md                ← Master map of every analysis artifact by folder group
 │   ├── per-artifact-methodologies.md      ← Per-artifact construction rules (purpose + inputs + structure + Mermaid + floor)
@@ -206,38 +206,47 @@ analysis/
 │   ├── political-swot-framework.md        ← Evidence-based SWOT for EP landscape
 │   ├── political-style-guide.md           ← Writing standards, depth levels, evidence density
 │   ├── imf-indicator-mapping.md           ← IMF indicator mapping for economic context
-│   └── worldbank-indicator-mapping.md     ← World Bank indicator mapping for economic context
-├── templates/                         ← 8 reusable analysis templates (AI fills these)
-│   ├── README.md                      ← Template catalog and selection guide
-│   ├── political-classification.md    ← Event classification template
-│   ├── risk-assessment.md             ← Political risk template
-│   ├── threat-analysis.md             ← Multi-framework threat template
-│   ├── swot-analysis.md               ← SWOT quadrant template
-│   ├── stakeholder-impact.md          ← Stakeholder impact template
-│   ├── significance-scoring.md        ← Significance scoring template
-│   ├── synthesis-summary.md           ← Daily synthesis template (aggregates all above)
-│   └── per-file-political-intelligence.md ← Per-file AI analysis template
+│   ├── worldbank-indicator-mapping.md     ← World Bank indicator mapping for economic context
+│   └── reference-quality-thresholds.json  ← Machine-readable per-artifact line-floor thresholds (Stage C gate)
+├── templates/                         ← 39 structured templates (+ README + analysis-index) — see templates/README.md
+│   ├── README.md                          ← Template catalog and selection guide
+│   └── …                                  ← 6 framework + 14 agentic-workflow + 25 per-artifact templates
 ├── reference/                         ← 4 ISMS adaptation mappings
 │   ├── isms-classification-adaptation.md  ← ISMS → Political classification mapping
 │   ├── isms-risk-assessment-adaptation.md ← ISMS → Political risk mapping
 │   ├── isms-threat-modeling-adaptation.md ← ISMS → Political threat mapping
 │   └── isms-style-guide-adaptation.md     ← ISMS → Political writing standards mapping
-├── daily/                             ← Per-day analysis artifacts
-│   └── README.md                      ← Daily directory conventions
+├── daily/                             ← Per-day analysis artifacts (see "Run-relative structure" below)
+│   └── README.md
 ├── weekly/                            ← Per-week aggregations
-│   └── README.md                      ← Weekly directory conventions
+│   └── README.md
 ├── monthly/                           ← Per-month strategic briefs
-│   └── README.md                      ← Monthly directory conventions
-└── YYYY-MM-DD/                        ← Date-stamped output directory
-    └── {article-type-slug}/           ← Per-workflow subdirectory
-        ├── manifest.json              ← Run metadata
-        ├── classification/            ← Political classification results
-        ├── threat-assessment/         ← Political Threat Landscape results
-        ├── risk-scoring/              ← Risk assessment results
-        ├── existing/                  ← Core analysis results
-        ├── documents/                 ← Per-document intelligence analysis
-        └── data/                      ← MCP data for this workflow
+│   └── README.md
+├── imf/                               ← Cached IMF dataset snapshots
+├── worldbank/                         ← Cached World Bank dataset snapshots
+└── daily/YYYY-MM-DD/                  ← Run-relative output root
+    └── <article-type-slug>-run<NN>/   ← Per-workflow, per-run isolation (e.g. week-ahead-run01)
+        ├── manifest.json              ← Run metadata (start/end, MCP tools called, hashes)
+        ├── intelligence/              ← 19 intelligence artifacts (analysis-index, synthesis-summary, stakeholder-map, …)
+        ├── classification/            ← 4 classification artifacts (significance, actor-mapping, forces, impact-matrix)
+        ├── risk-scoring/              ← 4 risk artifacts (risk-matrix, quantitative-swot, capital-risk, velocity-risk)
+        ├── threat-assessment/         ← 5 threat artifacts (political-stride-assessment, consequence-trees, actor-threat-profiles, …)
+        └── data/                      ← Raw MCP payloads for this run
 ```
+
+> **Canonical run-relative path:** `analysis/daily/<YYYY-MM-DD>/<article-type-slug>-run<NN>/`
+> is the single location Stage C's validator (`npm run validate-analysis`) checks.
+> All per-artifact file names and depth floors are defined in
+> [`methodologies/artifact-catalog.md`](methodologies/artifact-catalog.md) +
+> [`methodologies/per-artifact-methodologies.md`](methodologies/per-artifact-methodologies.md) +
+> [`methodologies/reference-quality-thresholds.json`](methodologies/reference-quality-thresholds.json).
+
+Prompt-library entry points that own each stage:
+- **Stage A (Data)**: [`.github/prompts/01-data-collection.md`](../.github/prompts/01-data-collection.md)
+- **Stage B (Analysis)**: [`.github/prompts/02-analysis-protocol.md`](../.github/prompts/02-analysis-protocol.md)
+- **Stage C (Completeness Gate)**: [`.github/prompts/03-analysis-completeness-gate.md`](../.github/prompts/03-analysis-completeness-gate.md)
+- **Stage D (Article)**: [`.github/prompts/04-article-generation.md`](../.github/prompts/04-article-generation.md) + [`05-analysis-to-article-contract.md`](../.github/prompts/05-analysis-to-article-contract.md)
+- **Stage E (Single PR)**: [`.github/prompts/06-pr-and-safe-outputs.md`](../.github/prompts/06-pr-and-safe-outputs.md)
 
 ---
 
