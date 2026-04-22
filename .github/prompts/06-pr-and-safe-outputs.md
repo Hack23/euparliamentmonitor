@@ -106,8 +106,11 @@ safe-outputs:
     max: 1
 ```
 
-`create-pull-request.max` defaults to 1 — leave it default. `news-translate.md`
-sets `excluded-files` + uses the flush pattern; nothing else does.
+For single-article workflows, `create-pull-request.max` defaults to 1 — leave
+it at the default. `news-article-generator.md` is the documented exception for
+multi-article generation and may set `safe-outputs.create-pull-request.max: 8`.
+Separately, `news-translate.md` sets `excluded-files` and uses the flush
+pattern; no other workflow does.
 
 ## 7 · Exception — `news-translate.md`
 
