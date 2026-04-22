@@ -488,7 +488,7 @@ All probabilistic judgements produced in EU Parliament Monitor analysis follow t
 ### Estimative Language (Kent / WEP Bands)
 
 - Every uncertain judgement MUST use a Words of Estimative Probability (WEP) band — not bare percentages or vague adverbs ("likely", "possible") without a band attached. The canonical mapping (see [`osint-tradecraft-standards.md` §3.1](osint-tradecraft-standards.md)) is:
-  - *Almost No Chance* (≤5%) · *Very Unlikely* (5–20%) · *Unlikely* (20–45%) · *Roughly Even Chance* (45–55%) · *Likely* (55–80%) · *Very Likely* (80–95%) · *Almost Certain(ly)* (≥95%)
+  - *Almost no chance* (1–5%) · *Very unlikely* (5–20%) · *Unlikely* (20–45%) · *Roughly even chance* (45–55%) · *Likely* (55–80%) · *Very likely* (80–95%) · *Almost certain* (95–99%)
 - Every WEP band MUST carry an explicit **time horizon** (e.g. "*Likely* by the next plenary", "*Very Likely* within the 2026 mandate"). Bands without a horizon are rejected by the Pass-2 reviewer.
 - Confidence in the **quality of the evidence** (High / Medium / Low, per [`osint-tradecraft-standards.md` §3.3](osint-tradecraft-standards.md)) is tracked **separately** from WEP probability — the two are never merged into a single marker.
 - Legacy markers 🟢 / 🟡 / 🔴 remain valid and map onto High / Medium / Low confidence respectively; they are a visual overlay on the WEP + confidence pair, not a replacement.
