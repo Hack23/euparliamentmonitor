@@ -79,6 +79,7 @@ import {
   VALID_ANALYSIS_METHODS,
   hasSubstantiveData,
   deriveArticleTypeSlug,
+  isResolvedAnalysisDir,
 } from './pipeline/analysis-stage.js';
 import type { AnalysisMethod, AnalysisContext } from './pipeline/analysis-stage.js';
 import type { AnalysisFileEntry } from '../types/index.js';
@@ -440,6 +441,16 @@ async function maybeRunAnalysis(
   console.log(`   Article type slug: ${slug}`);
   if (runId) console.log(`   Run ID: ${runId}`);
 
+  // Detect whether `--analysis-dir` already points at a fully-resolved
+  // per-run analysis directory (agentic workflows pre-populate
+  // `analysis/daily/<date>/<slug>-run<N>` with AI-authored artifacts and
+  // pass it verbatim).  When so, honour the path as-is; otherwise treat it
+  // as a base and compose `<base>/<date>/<slug>` below.
+  const analysisDirIsResolved = isResolvedAnalysisDir(analysisDirBase);
+  if (analysisDirIsResolved) {
+    console.log(`   Analysis dir treated as pre-resolved run directory`);
+  }
+
   // Pass requireData=true so runAnalysisStage enforces data availability
   // and aborts when no substantive data is available — discovery on empty data produces no artifacts.
   const ctx = await runAnalysisStage(fetchedData, {
@@ -451,6 +462,7 @@ async function maybeRunAnalysis(
     skipCompleted: true,
     verbose: analysisVerboseArg,
     requireData: true,
+    outputDirIsResolved: analysisDirIsResolved,
   });
 
   const totalMethods = ctx.manifest.methods.length;

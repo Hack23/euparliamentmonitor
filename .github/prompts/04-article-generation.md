@@ -140,5 +140,13 @@ analytical tool should be verified against feed data before rendering.
 
 ## 11 · Exit to Stage E (PR)
 
-After all validators exit 0, read [`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md)
-and emit the PR **exactly once**.
+After all validators exit 0, **checkpoint the Stage D state to repo-memory**
+— then read [`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md) and emit
+the PR **exactly once**:
+
+```bash
+scripts/checkpoint-analysis-to-memory.sh \
+  "${ANALYSIS_DIR}" "${RUN_ID}" article "${ARTICLE_TYPE_SLUG}"
+```
+
+Full per-phase protocol in [`02-analysis-protocol.md`](02-analysis-protocol.md) §10.

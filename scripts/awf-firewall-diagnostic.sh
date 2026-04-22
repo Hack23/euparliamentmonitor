@@ -45,9 +45,11 @@ if [ -n "${EP_MCP_GATEWAY_URL:-}" ]; then
     # through unchanged, otherwise prepend EP_MCP_GATEWAY_AUTH_SCHEME if set
     # to a valid RFC 7235 token, else send the raw key.
     _auth_key="${EP_MCP_GATEWAY_API_KEY}"
-    # Strip leading/trailing whitespace
-    _auth_key="${_auth_key#"${_auth_key%%[![:space:]]*}"}"
-    _auth_key="${_auth_key%"${_auth_key##*[![:space:]]}"}"
+    # Strip leading/trailing whitespace without nested parameter expansion
+    # (the bash trim idiom `${var#"${var%%[![:space:]]*}"}` is a nested
+    # parameter expansion and is rejected by the shell-safety filter — see
+    # .github/prompts/08-infrastructure.md §178).
+    _auth_key=$(printf '%s' "$_auth_key" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')
     _auth_value="${_auth_key}"
     if [ -n "${_auth_key}" ]; then
       _first_token="${_auth_key%% *}"

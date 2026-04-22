@@ -42,7 +42,16 @@ fi
 # Resolve the gateway API key with the same precedence as the TypeScript
 # client: WB-specific override wins, otherwise reuse the EP gateway key
 # (both route through the same gateway in the default deployment).
-_WB_MCP_PROBE_KEY="${WB_MCP_GATEWAY_API_KEY:-${EP_MCP_GATEWAY_API_KEY:-}}"
+# Use an explicit if/else instead of nested default expansion
+# `${A:-${B:-}}` — that pattern is rejected by the shell-safety filter
+# (see .github/prompts/00-scope-and-ground-rules.md §47).
+if [ -n "${WB_MCP_GATEWAY_API_KEY:-}" ]; then
+  _WB_MCP_PROBE_KEY="$WB_MCP_GATEWAY_API_KEY"
+elif [ -n "${EP_MCP_GATEWAY_API_KEY:-}" ]; then
+  _WB_MCP_PROBE_KEY="$EP_MCP_GATEWAY_API_KEY"
+else
+  _WB_MCP_PROBE_KEY=""
+fi
 
 # Use curl with a short connect timeout so the probe cannot block the
 # workflow. Total per-call budget: 15 s. Three calls → max 45 s wall-clock.
