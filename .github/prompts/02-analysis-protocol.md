@@ -90,6 +90,17 @@ reads this exact path from `HEAD` of `main` after the analysis PR merges.
 > There is no top-level `synthesis/` or `risk/` directory; use
 > `intelligence/synthesis-summary.md` and `risk-scoring/risk-matrix.md`.
 
+### 2a · How to Write Analysis Artifacts (use the native file tool)
+
+**Always use the Copilot CLI native `create` / `Write` file tool** (the one that appears as `● Create <path> +N` in the run log, not prefixed with `(shell)`) to write every analysis artifact and every article `.md` file. It bypasses the bash safety filter and is the pattern used by the reference-quality [run 24805100070](https://github.com/Hack23/euparliamentmonitor/actions/runs/24805100070) that produced 10 artifacts in ~10 minutes.
+
+**Never use `cat > file << 'EOF' … EOF` heredocs to write analysis prose or SWOT/stakeholder/risk content.** The Copilot CLI bash-safety filter scans the heredoc body and rejects writes whose content contains bare-command tokens — most notably the word *"kill"*, which is endemic in political analysis (*"motion to kill the bill"*, *"amendment killed in committee"*, *"kill switch clause"*). The rejection surfaces as the misleading error `"Command not executed. The 'kill' command must specify at least one numeric PID."` and costs ~60 seconds per attempt. See [`09-troubleshooting.md` §5](09-troubleshooting.md) for the full failure mode.
+
+`cat > file` and `cat > file << EOF` **are** still safe for:
+- Short housekeeping files without natural-language content (`manifest.json` via `jq`, SPDX-only stubs, short configs)
+- `cp` / mirror copies of already-written artifacts into `existing/`
+- Files written from a shell variable whose content was produced by a tool, not by the agent
+
 ## 3 · Minimum Analysis Time
 
 | Workflow family | Total | Pass 1 | Pass 2 | Stage C |
