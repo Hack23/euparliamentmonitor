@@ -96,5 +96,5 @@ done
 
 # 6. Environment
 echo "--- MCP Environment ---"
-echo "EP_REQUEST_TIMEOUT_MS=${EP_REQUEST_TIMEOUT_MS:-NOT SET (default 60000)}"
+echo "EP_REQUEST_TIMEOUT_MS=${EP_REQUEST_TIMEOUT_MS:-NOT SET (default 180000; see src/mcp/mcp-connection.ts DEFAULT_REQUEST_TIMEOUT_MS)}"
 echo "NODE_ENV=${NODE_ENV:-not set}"
