@@ -62,7 +62,20 @@ This project uses **10 gh-aw markdown workflows** in `.github/workflows/*.md` fo
 
 **MCP Gateway**: All workflows use `source scripts/mcp-setup.sh` to configure `EP_MCP_GATEWAY_URL`, which defaults to `http://host.docker.internal:8080/mcp/european-parliament` (port/domain can be overridden dynamically from `/home/runner/.copilot/mcp-config.json`), and to extract auth tokens (no `jq` dependency). The EP MCP TypeScript client is in `src/mcp/ep-mcp-client.ts` (compiled to `scripts/mcp/ep-mcp-client.js`) and reads these env vars automatically.
 
-**gh-aw docs**: https://github.github.com/gh-aw/ | [Abridged](https://github.github.com/gh-aw/llms-small.txt) | [Full](https://github.github.com/gh-aw/llms-full.txt)
+**gh-aw docs**: https://github.github.com/gh-aw/ | [Abridged](https://github.github.com/gh-aw/llms-small.txt) | [Full](https://github.github.com/gh-aw/llms-full.txt) | [Blog series](https://github.github.com/gh-aw/_llms-txt/agentic-workflows.txt) | [Repo](https://github.com/github/gh-aw)
+
+## 📊 Analysis Artifacts (Deep Political Analysis)
+
+Every article-generating workflow produces a **39-template analysis artifact set** under `analysis/daily/<YYYY-MM-DD>/<article-type-slug>-run<NN>/` **before** drafting any prose. The chain is: **Data → Analysis Artifacts → Completeness Gate → Article → PR**.
+
+**Canonical references** (read by every agent on the news critical path):
+- [`analysis/methodologies/ai-driven-analysis-guide.md`](./../analysis/methodologies/ai-driven-analysis-guide.md) — the **10-step protocol** (Rules 1–22, Step 10.5 = `methodology-reflection.md` as final artifact)
+- [`analysis/methodologies/artifact-catalog.md`](./../analysis/methodologies/artifact-catalog.md) — master map: every artifact → methodology + template + depth floor + Mermaid type
+- [`analysis/methodologies/per-artifact-methodologies.md`](./../analysis/methodologies/per-artifact-methodologies.md) — 34 `### sections`, one per artifact type, construction rules + quality signals
+- [`analysis/templates/README.md`](./../analysis/templates/README.md) — index of the **39 templates** (6 framework + 14 agentic-workflow + 25 per-artifact)
+- [`analysis/methodologies/reference-quality-thresholds.json`](./../analysis/methodologies/reference-quality-thresholds.json) — per-artifact line floors enforced at Stage C by `npm run validate-analysis`
+
+**Read-Before-Write rule**: The article agent MUST read every artifact produced in Stage B **before** writing any prose. Article sections must cite specific `analysis/daily/<run>/…` files per the map in [`.github/prompts/04-article-generation.md`](./prompts/04-article-generation.md) § 7.1. An article that doesn't cite per-section artifacts fails Stage C and is blocked from PR creation.
 
 ## 🧠 AI-FIRST QUALITY PRINCIPLE (NON-NEGOTIABLE)
 

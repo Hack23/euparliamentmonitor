@@ -14,6 +14,15 @@ description: Technical documentation specialist for architecture diagrams, C4 mo
 3. **`SECURITY_ARCHITECTURE.md`** - Security architecture (if exists)
 4. **`scripts/`** directory - Code requiring documentation
 5. **`.github/workflows/`** - CI/CD workflows requiring documentation
+6. **`analysis/methodologies/ai-driven-analysis-guide.md`** + **`artifact-catalog.md`** — analysis pipeline reference (for documenting the intelligence chain)
+7. **`analysis/templates/README.md`** — 39-template index for analysis-artifact documentation
+
+## 🔗 Analysis Artifact Chain
+
+When documenting data flows or architecture, the analysis pipeline is:
+Data → Analysis Artifacts (39 templates) → Completeness Gate → Article → PR.
+See [`.github/prompts/README.md`](../prompts/README.md) § *Analysis Artifact
+Integration* for the canonical chain.
 
 ---
 

@@ -9,11 +9,29 @@ article drafting until Stage C (completeness gate) exits 0.
 
 ## 1 · Authoritative References
 
-- **Protocol:** [`analysis/methodologies/ai-driven-analysis-guide.md`](../../analysis/methodologies/ai-driven-analysis-guide.md) (Rules 1–22)
+- **Protocol:** [`analysis/methodologies/ai-driven-analysis-guide.md`](../../analysis/methodologies/ai-driven-analysis-guide.md) (10-step protocol, Rules 1–22) — **canonical guide**, read in full every run
+- **Master artifact map:** [`analysis/methodologies/artifact-catalog.md`](../../analysis/methodologies/artifact-catalog.md) — every artifact → methodology + template + depth floor + Mermaid type
+- **Per-artifact construction rules:** [`analysis/methodologies/per-artifact-methodologies.md`](../../analysis/methodologies/per-artifact-methodologies.md) — one `### section` per artifact type
 - **Reference run:** `analysis/daily/2026-04-18/breaking-run184/` — 17 artifacts, 3600+ lines, 13 frameworks
-- **Methodology guides:** [`analysis/methodologies/`](../../analysis/methodologies/)
-- **Templates:** [`analysis/templates/`](../../analysis/templates/)
-- **Per-artifact budgets:** [`analysis/methodologies/reference-quality-thresholds.json`](../../analysis/methodologies/reference-quality-thresholds.json) (keyed by `articleType × relativePath`)
+- **Methodology guides:** [`analysis/methodologies/`](../../analysis/methodologies/) (classification, threat, SWOT, risk, style, OSINT tradecraft, WB/IMF indicator mappings)
+- **Templates (39 total):** [`analysis/templates/`](../../analysis/templates/) — 6 framework + 14 agentic-workflow + 25 per-artifact templates, indexed in [`analysis/templates/README.md`](../../analysis/templates/README.md)
+- **Per-artifact line floors:** [`analysis/methodologies/reference-quality-thresholds.json`](../../analysis/methodologies/reference-quality-thresholds.json) (keyed by `articleType × relativePath`) — enforced by `npm run validate-analysis`
+
+## 1b · Analysis Artifacts to Produce (39-template catalog)
+
+Every run produces the per-run subset of these 39 templates. The **article-type-specific required set** is defined by `reference-quality-thresholds.json` and enforced at Stage C. Group by artifact catalog:
+
+| Group | Templates | Owner skills / methodologies |
+|-------|-----------|------------------------------|
+| **Classification** (4) | `significance-classification`, `significance-scoring`, `actor-mapping`, `forces-analysis`, `impact-matrix`, `political-classification` | `political-classification-guide.md`, intelligence-analysis-techniques |
+| **Threat assessment** (5) | `political-threat-landscape`, `actor-threat-profiles`, `consequence-trees`, `legislative-disruption`, `threat-analysis`, `political-stride-assessment` | `political-threat-framework.md`, threat-modeling |
+| **Risk scoring** (5) | `risk-matrix`, `risk-assessment`, `quantitative-swot`, `political-capital-risk`, `legislative-velocity-risk` | `political-risk-methodology.md`, `political-swot-framework.md`, risk-assessment-frameworks |
+| **Intelligence** (reference-quality 7 + extended) | `pestle-analysis`, `stakeholder-map`, `scenario-forecast`, `threat-model`, `historical-baseline`, `economic-context`, `wildcards-blackswans`, `synthesis-summary`, `analysis-index`, `coalition-dynamics`, `mcp-reliability-audit`, `per-file-political-intelligence`, `reference-analysis-quality` | OSINT, political-science, intelligence-analysis-techniques, electoral-analysis, behavioral-analysis |
+| **Existing / cross-run** | `deep-analysis`, `stakeholder-impact`, `voting-patterns`, `cross-session-intelligence`, `cross-run-diff`, `session-baseline` | legislative-monitoring, behavioral-analysis |
+| **Documents** | `document-analysis-index` | OSINT |
+| **Workflow self-audit (last)** | `workflow-audit`, `methodology-reflection` | ai-first-quality, process hygiene |
+
+`methodology-reflection.md` is the **final** artifact of every run (after `workflow-audit.md`) — see `ai-driven-analysis-guide.md` Step 10.5.
 
 ## 2 · Analysis Directory Structure
 

@@ -10,6 +10,24 @@ license: Apache-2.0
 
 Provide structured political science frameworks for analyzing European Parliament activity, MEP behavior, political group dynamics, and legislative outcomes. Enables data-driven journalism across 14 languages using European Parliament MCP server data.
 
+## 🧠 Produced / Consumed Analysis Artifacts
+
+This skill feeds the following analysis artifacts produced under
+`analysis/daily/<run>/`. Templates live in
+[`analysis/templates/`](../../analysis/templates/) and construction rules in
+[`analysis/methodologies/per-artifact-methodologies.md`](../../analysis/methodologies/per-artifact-methodologies.md):
+
+| Artifact | Template | Methodology |
+|---|---|---|
+| `actor-mapping.md` | `actor-mapping` | political-classification-guide |
+| `significance-classification.md` / `significance-scoring.md` | `significance-classification` / `significance-scoring` | political-classification-guide |
+| `forces-analysis.md` | `forces-analysis` | political-science-analysis |
+| `coalition-dynamics.md` | `coalition-dynamics` | political-science-analysis |
+| `voting-patterns.md` | `voting-patterns` | political-science-analysis |
+| `deep-analysis.md` | `deep-analysis` | political-science-analysis |
+
+Canonical protocol: [`analysis/methodologies/ai-driven-analysis-guide.md`](../../analysis/methodologies/ai-driven-analysis-guide.md) (10 steps). Master map: [`artifact-catalog.md`](../../analysis/methodologies/artifact-catalog.md).
+
 ## When to Use
 
 ✅ Analyzing MEP voting patterns and political group cohesion

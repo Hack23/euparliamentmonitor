@@ -24,6 +24,26 @@ Provide structured risk assessment frameworks tailored to the European Parliamen
 ❌ Assessing risks outside EU Parliament institutional scope
 ❌ Making normative judgments about democratic legitimacy
 
+## 🧠 Produced / Consumed Analysis Artifacts
+
+This skill is the canonical source for the per-run **risk-scoring** artifact
+group:
+
+- `risk-scoring/risk-matrix.md` — Likelihood × Impact
+- `risk-scoring/risk-assessment.md` — narrative risk prose
+- `risk-scoring/quantitative-swot.md` — SWOT with scoring
+- `risk-scoring/political-capital-risk.md`
+- `risk-scoring/legislative-velocity-risk.md`
+- `threat-assessment/political-threat-landscape.md`, `actor-threat-profiles.md`, `consequence-trees.md`, `legislative-disruption.md`
+- `intelligence/scenario-forecast.md`, `wildcards-blackswans.md`, `threat-model.md`
+
+Canonical methodology:
+[`political-risk-methodology.md`](../../analysis/methodologies/political-risk-methodology.md),
+[`political-threat-framework.md`](../../analysis/methodologies/political-threat-framework.md),
+[`political-swot-framework.md`](../../analysis/methodologies/political-swot-framework.md).
+Protocol: [`ai-driven-analysis-guide.md`](../../analysis/methodologies/ai-driven-analysis-guide.md).
+Catalog: [`artifact-catalog.md`](../../analysis/methodologies/artifact-catalog.md).
+
 ## Core Framework
 
 ### Democratic Health Assessment

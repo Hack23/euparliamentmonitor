@@ -14,7 +14,18 @@ description: European Parliament data integration expert for MCP server connecti
 3. **`scripts/generate-news-enhanced.js`** - News generation with MCP integration
 4. **`.github/copilot-mcp.json`** - MCP server configuration
 5. **`package.json`** - Dependencies (undici, lru-cache)
-5. **`.github/workflows/news-generation.yml`** - MCP pre-installation workflow
+6. **`.github/workflows/news-generation.yml`** - MCP pre-installation workflow
+7. **`analysis/methodologies/worldbank-indicator-mapping.md`** + **`imf-indicator-mapping.md`** — the WB/IMF indicators consumed by Stage A (data collection) for the economic-context artifact
+8. **`.github/prompts/01-data-collection.md`** — Stage A data-collection contract (feed-first, deep-fetch, WB/IMF context)
+9. **`.github/prompts/07-mcp-reference.md`** — canonical EP / WB / IMF tool tables + reliability matrix
+
+## 🔗 Analysis Artifact Chain
+
+Data collected by this pipeline feeds directly into the Stage-B analysis
+artifacts. See [`.github/prompts/README.md`](../prompts/README.md) §
+*Analysis Artifact Integration* for the full chain
+(Data → Analysis → Completeness Gate → Article → PR). The master artifact map
+is in [`analysis/methodologies/artifact-catalog.md`](../../analysis/methodologies/artifact-catalog.md).
 
 ---
 

@@ -142,6 +142,8 @@ Under the v1.1 scope policy, agentic workflows MAY update `test/` and `e2e/` tes
 
 This skill is the authoritative source for the Iterative Improvement Protocol (see §§ *Mandatory Rules* — Rules 1–6 — and *Time Budget Enforcement* above). Workflow `.md` files and the prompt library under [`.github/prompts/`](../prompts/README.md) reference these time budgets and quality gates rather than redefining them. This skill ensures consistency across all agents.
 
+The 2-pass / 4-pass protocols in this skill are the agentic-workflow realisation of the **10-step AI-Driven Analysis Guide** ([`analysis/methodologies/ai-driven-analysis-guide.md`](../../analysis/methodologies/ai-driven-analysis-guide.md), Step 9 = *Pass 2 improve everything*). Pass 1 produces the baseline artifact set catalogued in [`analysis/methodologies/artifact-catalog.md`](../../analysis/methodologies/artifact-catalog.md) and backed by the 39 templates in [`analysis/templates/`](../../analysis/templates/); Pass 2 rewrites every one of those artifacts against the per-artifact line floors in [`reference-quality-thresholds.json`](../../analysis/methodologies/reference-quality-thresholds.json) and the `### section` rules in [`per-artifact-methodologies.md`](../../analysis/methodologies/per-artifact-methodologies.md). `methodology-reflection.md` is the final artifact of every run (Step 10.5).
+
 ## ISMS Compliance
 
 | Framework | Control | Application |

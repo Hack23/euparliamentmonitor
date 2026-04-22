@@ -23,13 +23,21 @@ is disallowed in any workflow invocation.
 
 ## 2 · What the Validator Enforces
 
+The **authoritative per-article-type required-artifact list** lives in
+[`analysis/methodologies/reference-quality-thresholds.json`](../../analysis/methodologies/reference-quality-thresholds.json)
+(keyed by `articleType × relativePath`) and the master map in
+[`analysis/methodologies/artifact-catalog.md`](../../analysis/methodologies/artifact-catalog.md).
+Do **not** hard-code artifact lists in workflow bodies — consult the JSON and
+catalog. The validator enforces:
+
 1. `intelligence/analysis-index.md` exists (Rule 19 read-me-first entry).
 2. The seven reference-quality intelligence artifacts exist:
    `pestle-analysis`, `stakeholder-map`, `scenario-forecast`, `threat-model`,
    `historical-baseline`, `economic-context`, `wildcards-blackswans`.
 3. `intelligence/synthesis-summary.md` composes the artifacts above.
-4. Article-type-specific extras (e.g. `coalition-dynamics.md` for breaking).
-5. Every mandatory artifact ≥ 30 lines.
+4. Article-type-specific extras per `reference-quality-thresholds.json`
+   (e.g. `coalition-dynamics.md` for breaking).
+5. Every mandatory artifact ≥ its per-artifact line floor in the JSON (fallback ≥ 30 lines).
 6. No `[AI_ANALYSIS_REQUIRED]`, `AI_ANALYSIS_PENDING`, `[TO BE FILLED]`,
    `[TBD]`, `TODO:` markers outside meta-documentation contexts.
 7. Every mandatory artifact listed under `manifest.files.*` (no orphans).
@@ -37,6 +45,8 @@ is disallowed in any workflow invocation.
 9. Per-artifact line floors from
    [`reference-quality-thresholds.json`](../../analysis/methodologies/reference-quality-thresholds.json)
    (keyed by `articleType × relativePath`).
+10. `workflow-audit.md` and `methodology-reflection.md` are present as the
+    final two artifacts of the run (see `ai-driven-analysis-guide.md` Step 10.5).
 
 ## 3 · Pre-Flight Checklist (one-shot)
 

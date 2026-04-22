@@ -67,6 +67,21 @@ Read these files in order, once per run:
 9. [`.github/prompts/06-pr-and-safe-outputs.md`](../prompts/06-pr-and-safe-outputs.md) — **single-PR rule**
 10. On error → [`.github/prompts/09-troubleshooting.md`](../prompts/09-troubleshooting.md)
 
+## Analysis Artifacts — Canonical References (Stage B anchor)
+
+Before Stage B begins, read these four canonical analysis docs in full. They
+are the single source of truth for every artifact produced under
+`analysis/daily/<YYYY-MM-DD>/<article-type-slug>-run<NN>/`:
+
+1. [`analysis/methodologies/ai-driven-analysis-guide.md`](../../analysis/methodologies/ai-driven-analysis-guide.md) — the **10-step protocol** every workflow follows (Rules 1–22, Step 10.5 = `methodology-reflection.md` as final artifact)
+2. [`analysis/methodologies/artifact-catalog.md`](../../analysis/methodologies/artifact-catalog.md) — master map: every artifact → methodology + template + depth floor + Mermaid type
+3. [`analysis/methodologies/per-artifact-methodologies.md`](../../analysis/methodologies/per-artifact-methodologies.md) — 34 `### sections`, one per artifact type, with construction rules and quality signals
+4. [`analysis/templates/README.md`](../../analysis/templates/README.md) — index of the **39 templates** (6 framework + 14 agentic-workflow + 25 per-artifact)
+
+Per-artifact line floors live in [`reference-quality-thresholds.json`](../../analysis/methodologies/reference-quality-thresholds.json) and are enforced at Stage C by `npm run validate-analysis`.
+
+**Every article PR body MUST cite the run's `analysis/daily/<date>/<slug>-run<NN>/manifest.json` path** so reviewers can audit the produced artifact set.
+
 ## Shared Stage Contract (inherited by every importing workflow)
 
 ```

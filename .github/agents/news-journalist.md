@@ -10,12 +10,34 @@ description: EU Parliament news content specialist with The Economist-style repo
 **ALWAYS read these files at the start of your session:**
 
 1. **`.github/prompts/README.md`** — prompt-library index (bounded contexts 00–09) that every `news-*.md` workflow composes
-2. **`src/generators/news-enhanced.ts`** — news generation engine (compiled to `scripts/generators/news-enhanced.js`)
-3. **`src/mcp/ep-mcp-client.ts`** — European Parliament MCP client (compiled to `scripts/mcp/ep-mcp-client.js`)
-4. **`scripts/mcp-setup.sh`** — AWF gateway connectivity script (sets `EP_MCP_GATEWAY_URL`, `EP_MCP_GATEWAY_API_KEY`, `WORLD_BANK_MCP_SERVER_URL`)
-5. **`.github/workflows/news-breaking.md`** and the 8 sibling `news-*.md` workflows — article-generating gh-aw pipelines; plus `.github/workflows/news-translate.md` for multi-language flush translation
-6. **`README.md`** — supported languages, content mission
-7. **`news/`** directory — existing article structure and examples
+2. **`analysis/methodologies/ai-driven-analysis-guide.md`** — the **10-step protocol** every article-generating workflow follows (Rules 1–22)
+3. **`analysis/methodologies/artifact-catalog.md`** — master map: every analysis artifact → methodology + template + depth floor
+4. **`analysis/methodologies/per-artifact-methodologies.md`** — per-artifact construction rules (one `### section` per artifact)
+5. **`analysis/templates/README.md`** — index of the 39 analysis templates (6 framework + 14 agentic-workflow + 25 per-artifact)
+6. **`analysis/methodologies/reference-quality-thresholds.json`** — per-artifact line floors enforced at Stage C
+7. **`src/generators/news-enhanced.ts`** — news generation engine (compiled to `scripts/generators/news-enhanced.js`)
+8. **`src/mcp/ep-mcp-client.ts`** — European Parliament MCP client (compiled to `scripts/mcp/ep-mcp-client.js`)
+9. **`scripts/mcp-setup.sh`** — AWF gateway connectivity script (sets `EP_MCP_GATEWAY_URL`, `EP_MCP_GATEWAY_API_KEY`, `WORLD_BANK_MCP_SERVER_URL`)
+10. **`.github/workflows/news-breaking.md`** and the 8 sibling `news-*.md` workflows — article-generating gh-aw pipelines; plus `.github/workflows/news-translate.md` for multi-language flush translation
+11. **`README.md`** — supported languages, content mission
+12. **`news/`** directory — existing article structure and examples
+
+## 📥 Analysis-Input Contract (Read-Before-Write)
+
+Article content MUST derive from the current run's `analysis/daily/<YYYY-MM-DD>/<slug>-run<NN>/` artifacts. Before writing any prose, open and cite:
+
+| Article section | Required artifact(s) |
+|---|---|
+| Lede / headline | `intelligence/synthesis-summary.md` + `classification/significance-classification.md` |
+| SWOT | `risk-scoring/quantitative-swot.md` + `existing/deep-analysis.md` |
+| Stakeholder perspectives (6-lens) | `intelligence/stakeholder-map.md` + `existing/stakeholder-impact.md` |
+| Stakeholder outcome matrix | `classification/impact-matrix.md` |
+| Risk / threat outlook | `risk-scoring/risk-matrix.md` + `threat-assessment/political-threat-landscape.md` |
+| Forecast / scenarios | `intelligence/scenario-forecast.md` + `intelligence/wildcards-blackswans.md` |
+| Economic context (Wave-2) | `intelligence/economic-context.md` + WB/IMF indicator mapping |
+| Transparency footer | every `manifest.files.*` entry |
+
+Full artifact → section map: [`.github/prompts/04-article-generation.md`](../prompts/04-article-generation.md) § 7.1. Read-Before-Write contract: [`.github/prompts/05-analysis-to-article-contract.md`](../prompts/05-analysis-to-article-contract.md) § 3. An article that doesn't cite a specific artifact per section fails Stage C and is blocked.
 
 ---
 

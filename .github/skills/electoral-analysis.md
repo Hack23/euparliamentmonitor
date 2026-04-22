@@ -24,6 +24,15 @@ Provide structured frameworks for analyzing European Parliament elections, inclu
 ❌ Partisan advocacy or campaigning
 ❌ Analysis outside EU Parliament electoral scope
 
+## 🧠 Produced / Consumed Analysis Artifacts
+
+- `existing/voting-patterns.md` — plenary vote outcomes
+- `intelligence/historical-baseline.md` — cross-term electoral comparisons
+- `classification/forces-analysis.md` — group seat balance
+- Inputs to `synthesis-summary.md`
+
+Protocol: [`ai-driven-analysis-guide.md`](../../analysis/methodologies/ai-driven-analysis-guide.md). Catalog: [`artifact-catalog.md`](../../analysis/methodologies/artifact-catalog.md).
+
 ## Core Framework
 
 ### EU Parliament Electoral System

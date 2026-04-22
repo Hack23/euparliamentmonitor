@@ -37,6 +37,38 @@ Every `news-*.md` except `news-translate.md` reads prompts in this order:
 6. **Stage D — Article (2 passes) → PR** → [`04-article-generation.md`](04-article-generation.md) + [`05-analysis-to-article-contract.md`](05-analysis-to-article-contract.md) → [`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md)
 7. **On error** → [`09-troubleshooting.md`](09-troubleshooting.md)
 
+## Analysis Artifact Integration
+
+Every article-generating workflow produces deep political analysis **before** drafting prose. The chain is:
+
+```
+Stage A · Data Collection (01-data-collection.md + 07-mcp-reference.md)
+  → Stage B · Analysis Artifacts (02-analysis-protocol.md)
+        authoritative protocol: analysis/methodologies/ai-driven-analysis-guide.md (10 steps)
+        master artifact map:    analysis/methodologies/artifact-catalog.md
+        per-artifact rules:     analysis/methodologies/per-artifact-methodologies.md
+        39 templates:           analysis/templates/  (6 framework + 14 agentic-workflow + 25 per-artifact)
+    → Stage C · Completeness Gate (03-analysis-completeness-gate.md)
+          per-artifact floors:  analysis/methodologies/reference-quality-thresholds.json
+      → Stage D · Article (04-article-generation.md + 05-analysis-to-article-contract.md)
+            Read-Before-Write: agent MUST read every artifact in analysis/daily/<run>/ before drafting prose
+            artifact → section map: 04-article-generation.md § 7.1
+        → Stage E · Single PR (06-pr-and-safe-outputs.md) — one safeoutputs___create_pull_request call
+```
+
+An article that does not cite a specific `analysis/daily/<run>/…` artifact for each analytical section fails Stage C and is blocked from PR creation. `methodology-reflection.md` is the final artifact of every run (after `workflow-audit.md`).
+
+## Upstream gh-aw documentation (authoritative)
+
+Every change to `.github/workflows/*.md`, `.github/agents/*.md`, or `.github/prompts/*.md` should be anchored against the upstream gh-aw doc sets:
+
+- **Abridged:** https://github.github.com/gh-aw/llms-small.txt
+- **Full:** https://github.github.com/gh-aw/llms-full.txt
+- **Blog series:** https://github.github.com/gh-aw/_llms-txt/agentic-workflows.txt
+- **Repository:** https://github.com/github/gh-aw
+
+The pinned gh-aw version for this repo lives in `.github/workflows/compile-agentic-workflows.yml`.
+
 ## The Single-PR Rule (summary)
 
 > Every article-generating workflow calls `safeoutputs___create_pull_request`

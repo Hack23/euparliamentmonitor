@@ -24,14 +24,28 @@ markdown was orphaned. This contract both prevents (at author time) and catches
 | **AI agent** (news-* workflows) | Read every `analysis/daily/<date>/<run>/**/*.md`; author every stakeholder / outcome / impact slot; honour ≥ 150 words per perspective | Fabricate data the MCP did not return; skip reading intelligence/, synthesis/, classification/, risk/, existing/, documents/ |
 | **Validator** (`src/utils/validate-analysis-completeness.ts`) | Refuse any article where `AI_MARKER` or a `FALLBACK_TEMPLATE_PATTERNS` sentence leaks | Render content; judge prose quality beyond depth floors |
 
-## 3 · What the AI Agent MUST Do Before Drafting
+## 3 · What the AI Agent MUST Do Before Drafting (Read-Before-Write)
 
-1. Read every file under `files.*` in the run's `manifest.json`.
-2. Also read files in `intelligence/`, `synthesis/`, `classification/`, `risk/`,
+**Rule:** The article agent MUST read every artifact produced in Stage B
+before writing any prose. An article that does not cite a specific
+`analysis/daily/<run>/…` artifact file for each analytical section fails the
+completeness gate (see [`03-analysis-completeness-gate.md`](03-analysis-completeness-gate.md)).
+
+1. Open [`analysis/methodologies/ai-driven-analysis-guide.md`](../../analysis/methodologies/ai-driven-analysis-guide.md) §§ 8–9 (synthesis + Pass 2) and [`analysis/methodologies/artifact-catalog.md`](../../analysis/methodologies/artifact-catalog.md) for the master artifact map.
+2. Read every file under `files.*` in the run's `manifest.json`. At minimum the following must be read in full:
+   - `intelligence/synthesis-summary.md` — composes the seven reference-quality artifacts
+   - `intelligence/analysis-index.md` — read-me-first entry (Rule 19)
+   - `intelligence/stakeholder-map.md` + `existing/stakeholder-impact.md`
+   - `classification/significance-classification.md`, `significance-scoring.md`, `impact-matrix.md`, `actor-mapping.md`
+   - `risk-scoring/risk-matrix.md`, `quantitative-swot.md`
+   - `threat-assessment/political-threat-landscape.md`
+   - `intelligence/scenario-forecast.md`, `pestle-analysis.md`, `threat-model.md`, `historical-baseline.md`, `economic-context.md`, `wildcards-blackswans.md`
+   - `existing/deep-analysis.md` (where present)
+3. Also read files in `intelligence/`, `synthesis/`, `classification/`, `risk/`,
    `existing/`, `documents/` subdirectories (reference-quality runs place
    stakeholder-map, stakeholder-impact, pestle-analysis, impact-matrix,
    synthesis-summary here).
-3. Author, in the rendered English HTML:
+4. Author, in the rendered English HTML:
    - `reasoning` prose for each of the 6 stakeholder perspective cards
      (≥ 150 words), grounded in `stakeholder-map.md` / `stakeholder-impact.md`.
    - Every row `reason` cell of the stakeholder outcome matrix, drawing from
@@ -39,8 +53,11 @@ markdown was orphaned. This contract both prevents (at author time) and catches
    - The `political / economic / social / legal / geopolitical` dimensions of
      the Impact Assessment block, from `synthesis-summary.md` / `deep-analysis.md`.
    - Every `[AI_ANALYSIS_REQUIRED]` sentinel remaining in the document.
-4. Never ship date-range topic strings (e.g. *"voting period 2026-03-21–2026-04-20"*)
+5. Never ship date-range topic strings (e.g. *"voting period 2026-03-21–2026-04-20"*)
    into stakeholder prose. Substitute the substantive policy topic.
+6. See the artifact → article-section map in
+   [`04-article-generation.md`](04-article-generation.md) § 7.1 for per-section
+   artifact citation requirements.
 
 ## 4 · Per-Article-Type Required Inputs
 

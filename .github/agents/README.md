@@ -22,6 +22,28 @@ All agents follow the **2026 GitHub Copilot Coding Agent Standard** with:
 
 ---
 
+## 🗂️ Role Index (analysis-producer / analysis-consumer / gh-aw-infrastructure)
+
+Group the catalog by their role in the news critical path. See
+[`.github/prompts/README.md`](../prompts/README.md) § *Analysis Artifact
+Integration* for the chain they support.
+
+| Role | Agents |
+|---|---|
+| **Analysis producers** (write artifacts under `analysis/daily/<run>/`) | `intelligence-operative`, `news-generation.agent` |
+| **Analysis consumers** (read artifacts, render to content) | `news-journalist`, `marketing-specialist`, `business-development-specialist` |
+| **Data / pipeline suppliers** (Stage A inputs) | `data-pipeline-specialist` |
+| **gh-aw infrastructure** (workflow authoring / CI) | `agentic-workflows.agent`, `devops-engineer`, `ci-cleaner.agent`, `create-safe-output-type.agent`, `custom-engine-implementation.agent`, `interactive-agent-designer.agent` |
+| **Quality / review / docs** | `quality-engineer`, `grumpy-reviewer.agent`, `contribution-checker`, `documentation-architect`, `technical-doc-writer.agent`, `w3c-specification-writer.agent` |
+| **Product / frontend** | `product-task-agent`, `frontend-specialist`, `developer.instructions` |
+
+Canonical analysis anchors every agent on the news critical path should read:
+[`ai-driven-analysis-guide.md`](../../analysis/methodologies/ai-driven-analysis-guide.md),
+[`artifact-catalog.md`](../../analysis/methodologies/artifact-catalog.md),
+[`per-artifact-methodologies.md`](../../analysis/methodologies/per-artifact-methodologies.md),
+[`analysis/templates/README.md`](../../analysis/templates/README.md),
+[`reference-quality-thresholds.json`](../../analysis/methodologies/reference-quality-thresholds.json).
+
 ## 🎯 Available Agents
 
 ### 1. 📊 Product Task Agent (`product-task-agent`)

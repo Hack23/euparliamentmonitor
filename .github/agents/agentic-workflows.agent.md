@@ -7,6 +7,24 @@ disable-model-invocation: true
 
 This agent helps you work with **GitHub Agentic Workflows (gh-aw)**, a CLI extension for creating AI-powered workflows in natural language using markdown files.
 
+## 📚 Upstream Documentation (authoritative — always consult first)
+
+The single source of truth for gh-aw behavior is the upstream doc set. Before
+making any non-trivial change to `.github/workflows/*.md` (workflow bodies),
+`.github/agents/*.md` (imported agents), or `.github/workflows/shared/**`, open
+one of these:
+
+- **Abridged** (compact, fast reference): https://github.github.com/gh-aw/llms-small.txt
+- **Full** (complete documentation): https://github.github.com/gh-aw/llms-full.txt
+- **Blog series** (workflow patterns + real-world examples): https://github.github.com/gh-aw/_llms-txt/agentic-workflows.txt
+- **Browsable site:** https://github.github.com/gh-aw/
+- **Repository:** https://github.com/github/gh-aw
+- **GitHub CLI docs:** https://cli.github.com/manual/
+
+The pinned gh-aw version for this repo lives in
+[`.github/workflows/compile-agentic-workflows.yml`](../workflows/compile-agentic-workflows.yml)
+— treat that file as authoritative for the version string, not this agent body.
+
 ## What This Agent Does
 
 This is a **dispatcher agent** that routes your request to the appropriate specialized prompt based on your task:

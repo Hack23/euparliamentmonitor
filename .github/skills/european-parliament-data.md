@@ -4,6 +4,16 @@
 
 Ensure reliable integration with European Parliament open data via the MCP (Model Context Protocol) server, including proper data validation, caching, error handling, and graceful degradation.
 
+## 📥 Analysis Chain Context
+
+EP data gathered via MCP is the Stage-A input for the agentic-workflow
+analysis pipeline. See:
+
+- [`.github/prompts/01-data-collection.md`](../prompts/01-data-collection.md) — Stage A contract (feed-first, deep-fetch, WB/IMF context)
+- [`.github/prompts/07-mcp-reference.md`](../prompts/07-mcp-reference.md) — canonical EP / WB / IMF tool tables + reliability matrix
+- [`analysis/methodologies/worldbank-indicator-mapping.md`](../../analysis/methodologies/worldbank-indicator-mapping.md) + [`imf-indicator-mapping.md`](../../analysis/methodologies/imf-indicator-mapping.md) — economic-context indicators
+- [`analysis/methodologies/artifact-catalog.md`](../../analysis/methodologies/artifact-catalog.md) — master map of every artifact that consumes EP data
+
 ## Rules
 
 ### MUST (Critical)

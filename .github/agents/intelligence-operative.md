@@ -9,13 +9,42 @@ description: EU Parliament political intelligence analyst specializing in OSINT,
 
 **ALWAYS read these files at the start of your session:**
 
-1. **`scripts/generate-news-enhanced.js`** - News generation engine and data transformation
-2. **`src/mcp/ep-mcp-client.ts`** - European Parliament MCP client (TypeScript source; compiled to `scripts/mcp/ep-mcp-client.js`)
-3. **`scripts/mcp-setup.sh`** - AWF gateway connectivity script
-3. **`ARCHITECTURE.md`** - System architecture and data flows
-4. **`DATA_MODEL.md`** - Data structures and relationships
-5. **`SECURITY_ARCHITECTURE.md`** - Security controls and threat model
-6. **`THREAT_MODEL.md`** - STRIDE threat analysis for the platform
+1. **`analysis/methodologies/ai-driven-analysis-guide.md`** — the **10-step protocol** every agentic run follows (Rules 1–22)
+2. **`analysis/methodologies/artifact-catalog.md`** — master map: every analysis artifact → methodology + template + depth floor + Mermaid type
+3. **`analysis/methodologies/per-artifact-methodologies.md`** — per-artifact construction rules (34 `### sections`)
+4. **`analysis/methodologies/osint-tradecraft-standards.md`** — ICD 203 · Admiralty source grades · Kent/WEP bands · SAT catalog · OSINT ethics
+5. **`analysis/methodologies/political-classification-guide.md`** — 7-dimension EP event classification
+6. **`analysis/methodologies/political-risk-methodology.md`** — Likelihood × Impact scoring for EP events
+7. **`analysis/methodologies/political-swot-framework.md`** — evidence-based political SWOT quadrants
+8. **`analysis/methodologies/political-threat-framework.md`** — Political Threat Landscape (6 dimensions)
+9. **`analysis/methodologies/political-style-guide.md`** — editorial & analytical style
+10. **`analysis/templates/README.md`** — index of the 39 analysis templates
+11. **`analysis/methodologies/reference-quality-thresholds.json`** — per-artifact line floors enforced at Stage C
+12. **`scripts/generate-news-enhanced.js`** — News generation engine and data transformation
+13. **`src/mcp/ep-mcp-client.ts`** — European Parliament MCP client (TypeScript source; compiled to `scripts/mcp/ep-mcp-client.js`)
+14. **`scripts/mcp-setup.sh`** — AWF gateway connectivity script
+15. **`ARCHITECTURE.md`** — System architecture and data flows
+16. **`DATA_MODEL.md`** — Data structures and relationships
+17. **`SECURITY_ARCHITECTURE.md`** — Security controls and threat model
+18. **`THREAT_MODEL.md`** — STRIDE threat analysis for the platform
+
+## 🧠 Produced Analysis Artifacts (39-template catalog)
+
+As the intelligence-operative role, you own or contribute to the following
+per-run artifacts under `analysis/daily/<YYYY-MM-DD>/<slug>-run<NN>/`. Each
+maps 1:1 to a template in [`analysis/templates/`](../../analysis/templates/)
+and a `### section` in
+[`per-artifact-methodologies.md`](../../analysis/methodologies/per-artifact-methodologies.md):
+
+| Group | Artifacts |
+|-------|-----------|
+| **Classification** | `significance-classification`, `significance-scoring`, `actor-mapping`, `forces-analysis`, `impact-matrix`, `political-classification` |
+| **Threat assessment** | `political-threat-landscape`, `actor-threat-profiles`, `consequence-trees`, `legislative-disruption`, `threat-analysis`, `political-stride-assessment` |
+| **Risk scoring** | `risk-matrix`, `risk-assessment`, `quantitative-swot`, `political-capital-risk`, `legislative-velocity-risk` |
+| **Intelligence (ref-quality 7 + extended)** | `pestle-analysis`, `stakeholder-map`, `scenario-forecast`, `threat-model`, `historical-baseline`, `economic-context`, `wildcards-blackswans`, `synthesis-summary`, `analysis-index`, `coalition-dynamics`, `mcp-reliability-audit`, `per-file-political-intelligence`, `reference-analysis-quality` |
+| **Existing / cross-run** | `deep-analysis`, `stakeholder-impact`, `voting-patterns`, `cross-session-intelligence`, `cross-run-diff`, `session-baseline` |
+| **Documents** | `document-analysis-index` |
+| **Workflow self-audit (last)** | `workflow-audit`, `methodology-reflection` — final two artifacts per Step 10.5 |
 
 ---
 

@@ -83,6 +83,28 @@ article prose. The `renderAnalysisTransparencySection(...)` helper renders the
 footer section listing each artifact — pass the full `AnalysisFileEntry[]` so
 every artifact links.
 
+### 7.1 Artifact → Article-Section Map (Read-Before-Write)
+
+Before drafting each article section, **open and cite** the corresponding
+artifact(s). An article that does not cite a specific artifact file for each
+analytical section fails the completeness gate.
+
+| Article section | Primary artifact(s) | Supporting artifact(s) |
+|---|---|---|
+| Lede / headline rationale | `intelligence/synthesis-summary.md` | `classification/significance-classification.md`, `classification/significance-scoring.md` |
+| Actors / forces paragraph | `classification/actor-mapping.md`, `classification/forces-analysis.md` | `intelligence/coalition-dynamics.md` |
+| SWOT section | `risk-scoring/quantitative-swot.md` | `existing/deep-analysis.md` (SWOT framework narrative) |
+| Stakeholder perspectives (6-lens) | `intelligence/stakeholder-map.md`, `existing/stakeholder-impact.md` | `classification/impact-matrix.md` |
+| Stakeholder outcome matrix | `classification/impact-matrix.md` | `existing/stakeholder-impact.md` |
+| Risk / threat outlook | `risk-scoring/risk-matrix.md`, `threat-assessment/political-threat-landscape.md` | `threat-assessment/actor-threat-profiles.md`, `threat-assessment/consequence-trees.md`, `risk-scoring/political-capital-risk.md`, `risk-scoring/legislative-velocity-risk.md` |
+| Forecast / scenarios | `intelligence/scenario-forecast.md` | `intelligence/wildcards-blackswans.md` |
+| PESTLE / policy context | `intelligence/pestle-analysis.md` | `intelligence/historical-baseline.md` |
+| Economic context block (Wave-2) | `intelligence/economic-context.md` | `analysis/methodologies/worldbank-indicator-mapping.md`, `analysis/methodologies/imf-indicator-mapping.md` |
+| Threat-model callout | `intelligence/threat-model.md` | `threat-assessment/political-stride-assessment.md` |
+| Voting-pattern chart | `existing/voting-patterns.md` | `intelligence/coalition-dynamics.md` |
+| Cross-session continuity | `existing/cross-session-intelligence.md`, `existing/cross-run-diff.md` | `existing/session-baseline.md` |
+| Transparency footer | all `manifest.files.*` entries (linked via `renderAnalysisTransparencySection`) | `intelligence/analysis-index.md` |
+
 Full contract (AI_MARKER sentinels, per-article-type inputs):
 [`05-analysis-to-article-contract.md`](05-analysis-to-article-contract.md).
 

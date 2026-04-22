@@ -6,6 +6,24 @@ Skills are reusable knowledge units that encode Hack23's security policies, arch
 
 **Skills auto-load via GitHub Copilot.** Reference specific skills when working in relevant areas.
 
+## 🗂️ Role Index (analysis-producer / analysis-consumer / gh-aw-infrastructure)
+
+| Role | Skills |
+|---|---|
+| **Analysis producers** (own artifacts under `analysis/daily/<run>/`) | `intelligence-analysis-techniques`, `political-science-analysis`, `osint-methodologies`, `behavioral-analysis`, `electoral-analysis`, `strategic-communication-analysis`, `risk-assessment-frameworks`, `data-science-for-intelligence` |
+| **Analysis consumers** (read artifacts, render to content) | `ai-first-quality` (contract owner), `seo-best-practices`, `accessibility-excellence`, `business-model-canvas` |
+| **Data / pipeline** (Stage A inputs) | `european-parliament-data`, `european-political-system`, `legislative-monitoring`, `mcp-server-integration`, `imf-data-integration` |
+| **gh-aw infrastructure** (authoritative upstream docs pinned at top of each file) | `github-agentic-workflows`, `gh-aw-architecture`, `gh-aw-firewall`, `gh-aw-sandbox`, `mcp-gateway-configuration`, `mcp-gateway-security`, `mcp-gateway-troubleshooting` |
+| **Compliance / security** | `compliance-frameworks`, `isms-compliance`, `sdlc-security-integration`, `security-by-design`, `threat-modeling`, `data-protection`, `open-source-governance`, `ai-governance` |
+| **Quality / docs** | `testing-strategy`, `code-quality-excellence`, `documentation-standards`, `performance-optimization`, `c4-architecture-documentation` |
+
+Canonical analysis anchors — every skill on the news critical path points to these:
+[`ai-driven-analysis-guide.md`](../../analysis/methodologies/ai-driven-analysis-guide.md),
+[`artifact-catalog.md`](../../analysis/methodologies/artifact-catalog.md),
+[`per-artifact-methodologies.md`](../../analysis/methodologies/per-artifact-methodologies.md),
+[`analysis/templates/README.md`](../../analysis/templates/README.md),
+[`reference-quality-thresholds.json`](../../analysis/methodologies/reference-quality-thresholds.json).
+
 ## Skills Catalog
 
 ### 🏛️ Architecture Skills (1 skill)
