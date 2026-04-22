@@ -47,7 +47,7 @@ flowchart LR
     subgraph INPUT["📥 Run Root"]
         R["analysis/daily/{date}/{type}-run{N}/"]
     end
-    subgraph INTEL["🧠 intelligence/ — 18 artifacts"]
+    subgraph INTEL["🧠 intelligence/ — 19 artifacts"]
         I1["synthesis-summary"]
         I2["stakeholder-map"]
         I3["scenario-forecast"]
@@ -56,7 +56,7 @@ flowchart LR
         I6["voting-patterns"]
         I7["workflow-audit"]
         I8["cross-session-intel"]
-        I9["+10 more"]
+        I9["+11 more"]
     end
     subgraph CLASS["🏷️ classification/ — 4 artifacts"]
         C1["significance-classification"]
@@ -137,7 +137,7 @@ Every row in the catalog below answers these six questions about one artifact:
 
 ## 🧠 `intelligence/` — 19 Artifacts
 
-The analytical core. Every run produces these; longer-form article types require all 15, breaking news requires the full 15 too.
+The analytical core. Every run produces these; longer-form article types require all 19, breaking news requires the full 19 too.
 
 | Artifact | Purpose (1 line) | Methodology | Template | Min lines (breaking) | Mermaid type |
 |---|---|---|---|:---:|---|

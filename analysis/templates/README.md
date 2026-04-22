@@ -58,7 +58,7 @@ All templates in this library implement professional intelligence-community disc
 | **Estimative Language (WEP)** | Kent / ICD 203 probability bands (*Almost Certain* → *Almost No Chance*) + explicit time horizon | `synthesis-summary.md` Top Findings, `deep-analysis.md` Executive Summary, `methodology-reflection.md` §12 |
 | **Source Grading (Admiralty)** | A–F reliability × 1–6 credibility (e.g. `A1` = EP plenary record, `C3` = press) | `synthesis-summary.md` Top Findings, all probabilistic artifacts |
 | **Confidence Separation** | Confidence-in-evidence (HIGH / MEDIUM / LOW) tracked separately from WEP probability | All 🟢/🟡/🔴 confidence markers across templates |
-| **Structured Analytic Techniques** | ≥1 named SAT per run (ACH, Key Assumptions Check, Pre-Mortem, Scenario Analysis, Red-Team, Indicators) | `methodology-reflection.md` §12, `per-artifact-methodologies.md` SAT entries |
+| **Structured Analytic Techniques** | ≥10 SATs applied per run (e.g. ACH, Key Assumptions Check, Pre-Mortem, Scenario Analysis, Red-Team, Indicators) | `methodology-reflection.md` §12, `per-artifact-methodologies.md` SAT entries |
 | **ICD 203 BLUF** | Executive Summary opens with BLUF + WEP band + confidence + rationale | `deep-analysis.md` Executive Summary |
 
 ---

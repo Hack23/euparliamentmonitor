@@ -37,23 +37,23 @@
 ## 2️⃣ 5×5 Risk Matrix
 
 ```mermaid
-%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","errorBkgColor":"#D32F2F","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
+%%{init: {"theme":"dark","themeVariables":{"quadrant1Fill":"#1565C0","quadrant2Fill":"#2E7D32","quadrant3Fill":"#FF9800","quadrant4Fill":"#D32F2F","quadrantTitleFill":"#ffffff","quadrantPointFill":"#ffffff","quadrantPointTextFill":"#ffffff","quadrantXAxisTextFill":"#ffffff","quadrantYAxisTextFill":"#ffffff"},"quadrantChart":{"chartWidth":700,"chartHeight":700,"pointLabelFontSize":14,"titleFontSize":22,"quadrantLabelFontSize":18,"xAxisLabelFontSize":16,"yAxisLabelFontSize":16}}}%%
 quadrantChart
     title Risk Matrix — Likelihood × Impact
-    x-axis Low Likelihood --> High Likelihood
-    y-axis Low Impact --> High Impact
-    quadrant-1 Critical Zone (High L, High I)
-    quadrant-2 Elevated Zone (Low L, High I)
-    quadrant-3 Monitored Zone (Low L, Low I)
-    quadrant-4 Managed Zone (High L, Low I)
-    [Risk1]: [0.2, 0.8]
-    [Risk2]: [0.7, 0.9]
-    [Risk3]: [0.5, 0.4]
-    [Risk4]: [0.1, 0.9]
-    [Risk5]: [0.8, 0.6]
+    x-axis "Low Likelihood" --> "High Likelihood"
+    y-axis "Low Impact" --> "High Impact"
+    quadrant-1 "🔴 Critical Zone (High L, High I)"
+    quadrant-2 "🟢 Elevated Zone (Low L, High I)"
+    quadrant-3 "🟠 Monitored Zone (Low L, Low I)"
+    quadrant-4 "🔵 Managed Zone (High L, Low I)"
+    "Risk 1": [0.2, 0.8]
+    "Risk 2": [0.7, 0.9]
+    "Risk 3": [0.5, 0.4]
+    "Risk 4": [0.1, 0.9]
+    "Risk 5": [0.8, 0.6]
 ```
 
-**Note:** Scale L and I scores (1-5) to (0.2-1.0) for plotting.
+**Note:** Scale L and I scores (1-5) to (0.2-1.0) for plotting. Per [political-style-guide.md §Standard quadrantChart init block](../methodologies/political-style-guide.md), quadrant charts **MUST** use the dedicated quadrant init block above (not the universal init block).
 
 **Zone colors:**
 - 🔴 Critical (L≥4, I≥4): Immediate mitigation required

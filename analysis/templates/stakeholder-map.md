@@ -55,28 +55,30 @@
 ## 3️⃣ Power × Alignment Grid
 
 ```mermaid
-%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","errorBkgColor":"#D32F2F","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
+%%{init: {"theme":"dark","themeVariables":{"quadrant1Fill":"#1565C0","quadrant2Fill":"#2E7D32","quadrant3Fill":"#FF9800","quadrant4Fill":"#D32F2F","quadrantTitleFill":"#ffffff","quadrantPointFill":"#ffffff","quadrantPointTextFill":"#ffffff","quadrantXAxisTextFill":"#ffffff","quadrantYAxisTextFill":"#ffffff"},"quadrantChart":{"chartWidth":700,"chartHeight":700,"pointLabelFontSize":14,"titleFontSize":22,"quadrantLabelFontSize":18,"xAxisLabelFontSize":16,"yAxisLabelFontSize":16}}}%%
 quadrantChart
     title Stakeholder Power × Alignment
-    x-axis Strongly Opposed --> Strongly Supportive
-    y-axis Low Power --> High Power
-    quadrant-1 Champions (High Power, Supportive)
-    quadrant-2 Defenders (High Power, Opposed)
-    quadrant-3 Critics (Low Power, Opposed)
-    quadrant-4 Sceptics (Low Power, Neutral/Supportive)
-    [Actor1]: [0.2, 0.8]
-    [Actor2]: [0.7, 0.9]
-    [Actor3]: [0.5, 0.3]
-    [Actor4]: [0.1, 0.4]
-    [Actor5]: [0.8, 0.6]
-    [Actor6]: [0.4, 0.7]
-    [Actor7]: [0.3, 0.2]
-    [Actor8]: [0.9, 0.5]
-    [Actor9]: [0.6, 0.4]
-    [Actor10]: [0.2, 0.9]
-    [Actor11]: [0.7, 0.3]
-    [Actor12]: [0.5, 0.8]
+    x-axis "Strongly Opposed" --> "Strongly Supportive"
+    y-axis "Low Power" --> "High Power"
+    quadrant-1 "🔵 Champions (High Power, Supportive)"
+    quadrant-2 "🟢 Defenders (High Power, Opposed)"
+    quadrant-3 "🟠 Critics (Low Power, Opposed)"
+    quadrant-4 "🔴 Sceptics (Low Power, Neutral/Supportive)"
+    "Actor 1": [0.2, 0.8]
+    "Actor 2": [0.7, 0.9]
+    "Actor 3": [0.5, 0.3]
+    "Actor 4": [0.1, 0.4]
+    "Actor 5": [0.8, 0.6]
+    "Actor 6": [0.4, 0.7]
+    "Actor 7": [0.3, 0.2]
+    "Actor 8": [0.9, 0.5]
+    "Actor 9": [0.6, 0.4]
+    "Actor 10": [0.2, 0.9]
+    "Actor 11": [0.7, 0.3]
+    "Actor 12": [0.5, 0.8]
 ```
+
+> Per [political-style-guide.md §Standard quadrantChart init block](../methodologies/political-style-guide.md), quadrant charts **MUST** use the dedicated quadrant init block above (not the universal init block). Replace `Actor N` with actual stakeholder names.
 
 **Note:** Replace `[ActorN]` labels and coordinates with actual actor names and scaled positions derived from roster table.
 

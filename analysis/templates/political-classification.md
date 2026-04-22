@@ -75,15 +75,15 @@ flowchart LR
     style E fill:#1565C0,color:#ffffff
     style D fill:#0288D1,color:#ffffff
     style I fill:#7B1FA2,color:#ffffff
-    %% [REQUIRED: Set S (Sensitivity) fill to match selected level — 🟢 #2E7D32 / 🟡 #FF9800 / 🔴 #D32F2F]
+    %% [REQUIRED: Set S (Sensitivity) fill to match selected level — 🟢 #2E7D32 / 🟡 #FFC107 / 🔴 #D32F2F]
     %% [REQUIRED: Set U (Urgency) fill to match selected level — ⚪ #90A4AE / 🔵 #0288D1 / 🟠 #FF9800 / 🔴 #D32F2F]
-    %% [REQUIRED: Set C (Composite Risk) fill to match max L×I band — 🟢 #2E7D32 (1–4) / 🟡 #FF9800 (5–14) / 🔴 #D32F2F (15–25)]
+    %% [REQUIRED: Set C (Composite Risk) fill to match max L×I band — 🟢 #2E7D32 (1–4) / 🟡 #FFC107 (5–9) / 🟠 #FF9800 (10–14) / 🔴 #D32F2F (15–25)]
     style S fill:#2E7D32,color:#ffffff
     style U fill:#FF9800,color:#000000
     style C fill:#D32F2F,color:#ffffff
 ```
 
-> The `style S / U / C` lines above are placeholders showing the default 🟢/🟠/🔴 palette. **Replace each fill value to match the level you selected above** (🟢 `#2E7D32` / 🟡 `#FFC107` / 🟠 `#FF9800` / 🔴 `#D32F2F` / ⚪ `#90A4AE` / 🔵 `#0288D1`) so a reader scanning the diagram alone can read the classification at a glance.
+> The `style S / U / C` lines above are placeholders showing example default colours only. **Replace each fill value to match the level you selected above, using the canonical palette from [political-style-guide.md](../methodologies/political-style-guide.md):** 🟢 `#2E7D32` / 🟡 `#FFC107` / 🟠 `#FF9800` / 🔴 `#D32F2F` / ⚪ `#90A4AE` / 🔵 `#0288D1`. In this template, 🟡 is always `#FFC107` and 🟠 is always `#FF9800`, so a reader scanning the diagram alone can read the classification at a glance.
 
 ---
 

@@ -71,9 +71,9 @@ Total MCP calls: `[REQUIRED]` · Successful: `[#]` · Degraded: `[#]` · Failed:
 
 ---
 
-## 3️⃣ Core Principles Compliance (10-step protocol)
+## 3️⃣ Core Principles Compliance (11-principle protocol)
 
-See [ai-driven-analysis-guide.md §Core Principles](../methodologies/ai-driven-analysis-guide.md#-core-principles-the-10-rules-that-replace-rules-122).
+See [ai-driven-analysis-guide.md §Core Principles](../methodologies/ai-driven-analysis-guide.md#-core-principles-the-11-rules-that-replace-rules-122).
 
 | # | Principle | Status | Evidence in run |
 |:-:|-----------|:------:|-----------------|
@@ -87,8 +87,9 @@ See [ai-driven-analysis-guide.md §Core Principles](../methodologies/ai-driven-a
 | 8 | AI-authored headlines + descriptions | `[✅/❌/ N/A]` | `[REQUIRED]` |
 | 9 | Complete data + historical baseline | `[✅/⚠️/❌]` | `[REQUIRED]` |
 | 10 | Read-before-article + footer + ratio + floors | `[✅/⚠️/❌]` | `[REQUIRED: validator output]` |
+| 11 | OSINT / INTOP tradecraft discipline (WEP bands, Admiralty grades, ≥10 SATs in methodology-reflection) | `[✅/⚠️/❌]` | `[REQUIRED: link to methodology-reflection.md §12 SATs applied + Admiralty-graded source list]` |
 
-**Compliance rate**: `[# principles ✅] / 10` = **`[%]`**
+**Compliance rate**: `[# principles ✅] / 11` = **`[%]`**
 
 ---
 

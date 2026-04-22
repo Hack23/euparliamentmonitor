@@ -58,15 +58,15 @@
 ## 2️⃣ SWOT Quadrant Chart
 
 ```mermaid
-%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","errorBkgColor":"#D32F2F","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
+%%{init: {"theme":"dark","themeVariables":{"quadrant1Fill":"#1565C0","quadrant2Fill":"#2E7D32","quadrant3Fill":"#FF9800","quadrant4Fill":"#D32F2F","quadrantTitleFill":"#ffffff","quadrantPointFill":"#ffffff","quadrantPointTextFill":"#ffffff","quadrantXAxisTextFill":"#ffffff","quadrantYAxisTextFill":"#ffffff"},"quadrantChart":{"chartWidth":700,"chartHeight":700,"pointLabelFontSize":14,"titleFontSize":22,"quadrantLabelFontSize":18,"xAxisLabelFontSize":16,"yAxisLabelFontSize":16}}}%%
 quadrantChart
     title SWOT Analysis
-    x-axis Internal --> External
-    y-axis Negative --> Positive
-    quadrant-1 Opportunities (External, Positive)
-    quadrant-2 Strengths (Internal, Positive)
-    quadrant-3 Weaknesses (Internal, Negative)
-    quadrant-4 Threats (External, Negative)
+    x-axis "Internal" --> "External"
+    y-axis "Negative" --> "Positive"
+    quadrant-1 "🔵 Opportunities (External, Positive)"
+    quadrant-2 "🟢 Strengths (Internal, Positive)"
+    quadrant-3 "🟠 Weaknesses (Internal, Negative)"
+    quadrant-4 "🔴 Threats (External, Negative)"
 ```
 
 ---

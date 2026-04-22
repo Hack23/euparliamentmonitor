@@ -39,23 +39,23 @@
 ## 2️⃣ Probability × Impact Quadrant Chart
 
 ```mermaid
-%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","errorBkgColor":"#D32F2F","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
+%%{init: {"theme":"dark","themeVariables":{"quadrant1Fill":"#1565C0","quadrant2Fill":"#2E7D32","quadrant3Fill":"#FF9800","quadrant4Fill":"#D32F2F","quadrantTitleFill":"#ffffff","quadrantPointFill":"#ffffff","quadrantPointTextFill":"#ffffff","quadrantXAxisTextFill":"#ffffff","quadrantYAxisTextFill":"#ffffff"},"quadrantChart":{"chartWidth":700,"chartHeight":700,"pointLabelFontSize":14,"titleFontSize":22,"quadrantLabelFontSize":18,"xAxisLabelFontSize":16,"yAxisLabelFontSize":16}}}%%
 quadrantChart
     title Wildcards & Black Swans — Probability × Impact
-    x-axis Low Probability --> High Probability
-    y-axis Low Impact --> Severe Impact
-    quadrant-1 Monitor Zone (Higher Probability, Severe Impact)
-    quadrant-2 Black Swan Zone (Low Probability, Severe Impact)
-    quadrant-3 Noise Zone (Low Probability, Low Impact)
-    quadrant-4 Risk Zone (Higher Probability, High Impact)
-    [Wildcard1]: [0.05, 0.9]
-    [Wildcard2]: [0.03, 0.95]
-    [Wildcard3]: [0.08, 0.85]
-    [Wildcard4]: [0.02, 0.98]
-    [Wildcard5]: [0.06, 0.88]
+    x-axis "Low Probability" --> "High Probability"
+    y-axis "Low Impact" --> "Severe Impact"
+    quadrant-1 "🔴 Monitor Zone (Higher Prob, Severe Impact)"
+    quadrant-2 "🟢 Black Swan Zone (Low Prob, Severe Impact)"
+    quadrant-3 "🟠 Noise Zone (Low Prob, Low Impact)"
+    quadrant-4 "🔵 Risk Zone (Higher Prob, High Impact)"
+    "Wildcard 1": [0.05, 0.9]
+    "Wildcard 2": [0.03, 0.95]
+    "Wildcard 3": [0.08, 0.85]
+    "Wildcard 4": [0.02, 0.98]
+    "Wildcard 5": [0.06, 0.88]
 ```
 
-**Note:** Replace `[WildcardN]` with actual names and plot probabilities (0-0.1 = 0-10%) on x-axis, impact severity (0.7-1.0) on y-axis.
+**Note:** Replace `Wildcard N` with actual names and plot probabilities (0-0.1 = 0-10%) on x-axis, impact severity (0.7-1.0) on y-axis. Per [political-style-guide.md §Standard quadrantChart init block](../methodologies/political-style-guide.md), quadrant charts **MUST** use the dedicated quadrant init block above (not the universal init block).
 
 **Black Swan Zone (low prob, severe impact):** `[REQUIRED: list which wildcards fall here]`
 
