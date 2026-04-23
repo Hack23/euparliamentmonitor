@@ -1087,7 +1087,7 @@ class UpstreamTimeoutError extends Error {
 /**
  * Error thrown when the EP MCP server returns a response indicating the feed
  * is unavailable (uniform `{status:"unavailable"}` envelope or the legacy raw
- * upstream 404 envelope historically emitted pre-v1.2.11). Distinct from
+ * upstream 404 envelope historically emitted pre-v1.2.13). Distinct from
  * {@link UpstreamTimeoutError} so logs/diagnostics do not misattribute a
  * 404/unavailable response to a timeout. Shares the same control-flow role —
  * callers treat it as "stop the timeframe-widening retry loop and return the
@@ -1131,10 +1131,10 @@ function checkUpstreamTimeout(value) {
             'Consider using year-based endpoints as fallback.');
         throw new UpstreamTimeoutError(toolName);
     }
-    // Defensive detection of the legacy raw upstream 404 shape that pre-v1.2.11
+    // Defensive detection of the legacy raw upstream 404 shape that pre-v1.2.13
     // get_events_feed / get_procedures_feed emitted
     // (Hack23/European-Parliament-MCP-Server#378, closed by PR #380 in
-    // v1.2.11). Shape:
+    // v1.2.13). Shape:
     //   {"@id":"https://data.europarl.europa.eu/eli/dl/...", "error":"404 N..."}
     // Treated identically to the uniform `{status:"unavailable"}` envelope —
     // i.e. stop timeframe-widening retry loops instead of silently returning [].
@@ -1438,9 +1438,9 @@ export async function fetchMEPsFeedWithTotal(client, timeframe = 'one-week') {
  * accept `timeframe`/`startDate`, fixed-window feeds (documents,
  * plenary_documents, committee_documents, plenary_session_documents,
  * parliamentary_questions, corporate_bodies, controlled_vocabularies) serve a
- * server-defined window. As of v1.2.11 the server silently ignores
+ * server-defined window. As of v1.2.13 the server silently ignores
  * `timeframe`/`startDate` on fixed-window tools
- * (Hack23/European-Parliament-MCP-Server#379); pre-v1.2.11 it rejected them
+ * (Hack23/European-Parliament-MCP-Server#379); pre-v1.2.13 it rejected them
  * with `INVALID_PARAMS` (#377). This helper issues a single RPC either way —
  * there is no point in timeframe-widening retry loops because the server does
  * not narrow/widen results based on timeframe.
@@ -1597,7 +1597,7 @@ export async function fetchDeclarationsFeed(client, timeframe = 'one-week') {
  * `_timeframe` is retained only for signature compatibility with sliding-window
  * fetchers (so the shared `fetchEPFeedData` orchestrator can dispatch uniformly);
  * the EP MCP server serves a server-defined fixed window for this feed and
- * ignores any timeframe input (as of v1.2.11; pre-v1.2.11 it rejected with
+ * ignores any timeframe input (as of v1.2.13; pre-v1.2.13 it rejected with
  * `INVALID_PARAMS` — see Hack23/European-Parliament-MCP-Server#377).
  *
  * @param client - MCP client or null

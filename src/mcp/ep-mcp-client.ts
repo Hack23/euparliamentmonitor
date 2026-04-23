@@ -74,7 +74,7 @@ import type {
 
 /**
  * Canonical list of tools exposed by the European Parliament MCP gateway
- * (`european-parliament-mcp-server@1.2.11`). The news workflows, prompt
+ * (`european-parliament-mcp-server@1.2.13`). The news workflows, prompt
  * library (`.github/prompts/07-mcp-reference.md`), and the integration test
  * suite all reference this list so a regression that adds/removes a tool
  * fails a single drift guard
@@ -181,7 +181,7 @@ const SERVER_HEALTH_FALLBACK = '{"server": null, "feeds": []}';
 /**
  * Classify an error message into a diagnostic error category.
  *
- * Maps EP MCP Server v1.2.11 structured error codes and generic HTTP/network
+ * Maps EP MCP Server v1.2.13 structured error codes and generic HTTP/network
  * errors into one of six broad categories used for logging and retry decisions:
  *
  * Returned categories (priority order):
@@ -197,7 +197,7 @@ const SERVER_HEALTH_FALLBACK = '{"server": null, "feeds": []}';
  */
 function classifyToolError(message: string): string {
   const lowerMsg = message.toLowerCase();
-  // EP MCP Server v1.2.11 structured error codes (matched case-insensitively)
+  // EP MCP Server v1.2.13 structured error codes (matched case-insensitively)
   if (lowerMsg.includes('internal_error')) {
     return 'INTERNAL_ERROR';
   }
@@ -262,12 +262,12 @@ function _parseResultPayload(
  * covering the two shapes historically emitted by the EP MCP server.
  *
  * 1. **Uniform envelope** (all feeds as of
- *    `european-parliament-mcp-server@1.2.11`) —
+ *    `european-parliament-mcp-server@1.2.13`) —
  *    `{status:"unavailable", items:[], generatedAt:"..."}` established by
  *    Hack23/European-Parliament-MCP-Server#301 and extended to
  *    `get_events_feed`/`get_procedures_feed` by
  *    Hack23/European-Parliament-MCP-Server#380 (which closed #378).
- * 2. **Legacy raw upstream 404 shape** (historically emitted pre-v1.2.11 by
+ * 2. **Legacy raw upstream 404 shape** (historically emitted pre-v1.2.13 by
  *    `get_events_feed` / `get_procedures_feed`, fixed upstream in PR #380) —
  *    `{"@id":"https://data.europarl.europa.eu/eli/dl/...","error":"404 N..."}`.
  *    Retained purely as defense-in-depth for older pinned server versions or
@@ -287,7 +287,7 @@ export function isFeedUnavailable(result: MCPToolResult | undefined): boolean {
   // Shape 1 — uniform {status:"unavailable"} envelope (#301 / #380).
   if (envelope['status'] === 'unavailable') return true;
 
-  // Shape 2 — legacy raw upstream 404 leak (historically pre-v1.2.11, #378).
+  // Shape 2 — legacy raw upstream 404 leak (historically pre-v1.2.13, #378).
   const error = envelope['error'];
   const idField = envelope['@id'];
   if (
@@ -400,8 +400,8 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
       }
 
       // Detect the unavailable-feed envelope — uniform `{status:"unavailable"}`
-      // (all feeds as of v1.2.11, #301/#380) as well as the legacy raw upstream
-      // 404 shape `{"@id":..., "error":"404 ..."}` that pre-v1.2.11
+      // (all feeds as of v1.2.13, #301/#380) as well as the legacy raw upstream
+      // 404 shape `{"@id":..., "error":"404 ..."}` that pre-v1.2.13
       // get_events_feed / get_procedures_feed emitted
       // (Hack23/European-Parliament-MCP-Server#378, closed by PR #380). The
       // server returns HTTP 200 with a payload that bypasses isError — record
@@ -542,7 +542,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
   /**
    * Search legislative documents
    *
-   * @param options - Search options using v1.2.11 parameters: keyword, documentType, docId, etc.
+   * @param options - Search options using v1.2.13 parameters: keyword, documentType, docId, etc.
    * @returns Search results
    */
   async searchDocuments(options: SearchDocumentsOptions = {}): Promise<MCPToolResult> {
@@ -820,7 +820,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
   /**
    * Get plenary speeches and debate contributions
    *
-   * @param options - Filter options including optional speechId, dateFrom/dateTo (v1.2.11: year removed)
+   * @param options - Filter options including optional speechId, dateFrom/dateTo (v1.2.13: year removed)
    * @returns Speeches data
    */
   async getSpeeches(options: GetSpeechesOptions = {}): Promise<MCPToolResult> {
@@ -830,7 +830,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
   /**
    * Get legislative procedures
    *
-   * @param options - Filter options including optional processId (v1.2.11: year removed)
+   * @param options - Filter options including optional processId (v1.2.13: year removed)
    * @returns Procedures data
    */
   async getProcedures(options: GetProceduresOptions = {}): Promise<MCPToolResult> {
@@ -869,7 +869,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
   /**
    * Get European Parliament events (hearings, conferences, seminars)
    *
-   * @param options - Filter options including optional eventId, pagination only (v1.2.11: year/dateFrom/dateTo removed — EP API /events has no date filtering)
+   * @param options - Filter options including optional eventId, pagination only (v1.2.13: year/dateFrom/dateTo removed — EP API /events has no date filtering)
    * @returns Events data
    */
   async getEvents(options: GetEventsOptions = {}): Promise<MCPToolResult> {
@@ -969,7 +969,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
   /**
    * Get committee documents
    *
-   * @param options - Filter options including optional docId (v1.2.11: year removed)
+   * @param options - Filter options including optional docId (v1.2.13: year removed)
    * @returns Committee documents data
    */
   async getCommitteeDocuments(options: GetCommitteeDocumentsOptions = {}): Promise<MCPToolResult> {
@@ -1015,7 +1015,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
   /**
    * Get external documents (non-EP documents such as Council positions)
    *
-   * @param options - Filter options including optional docId (v1.2.11: year removed)
+   * @param options - Filter options including optional docId (v1.2.13: year removed)
    * @returns External documents data
    */
   async getExternalDocuments(options: GetExternalDocumentsOptions = {}): Promise<MCPToolResult> {

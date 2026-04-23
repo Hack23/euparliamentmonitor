@@ -82,7 +82,7 @@ As a static site generating multi-language news articles from European Parliamen
 | **Purpose** | Multi-language European Parliament transparency platform — 1894 HTML articles / 14 languages / 8 article types / 18 gh-aw workflows (8 split-pair + generator + translator) / 3061+ tests / 52 test files |
 | **Technology Stack** | Node.js 25, TypeScript 6.0.3, ESM, HTML5/CSS3, Vitest, Playwright |
 | **Deployment Model** | npm (provenance + SLSA L3), AWS S3 + CloudFront primary, GitHub Pages fallback |
-| **Data Sources** | European Parliament MCP Server 1.2.11 (public open data) |
+| **Data Sources** | European Parliament MCP Server 1.2.13 (public open data) |
 
 ### 📎 Evidence Links
 

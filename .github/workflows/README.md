@@ -161,7 +161,7 @@ Key rules (enforced by [`scripts/lint-prompts.js`](../../scripts/lint-prompts.js
 Rationale and exceptions: [`06-pr-and-safe-outputs.md`](../prompts/06-pr-and-safe-outputs.md).
 
 #### Common features across all news workflows
-- Uses `european-parliament-mcp-server@1.2.11` as primary data source
+- Uses `european-parliament-mcp-server@1.2.13` as primary data source
 - Mandatory date context establishment via `date -u` command
 - Supports 14 languages: en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh
 - HTML validation and quality checks before PR creation

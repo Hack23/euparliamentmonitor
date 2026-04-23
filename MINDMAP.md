@@ -198,7 +198,7 @@ mindmap
         Security Scanning
         Dependabot Updates
       Dual-Economic Data
-        EP MCP 1.2.11
+        EP MCP 1.2.13
         World Bank MCP 1.0.1 (optional)
         IMF REST SDMX 3.0
       AI Engines (Switchable)
@@ -227,7 +227,7 @@ pipeline.
 mindmap
   root((Data<br/>Ecosystem))
     Data Sources
-      European Parliament MCP 1.2.11
+      European Parliament MCP 1.2.13
         Plenary Sessions
           Session Schedule
           Agenda Items
@@ -483,7 +483,7 @@ mindmap
           /mcp/european-parliament
           mcp-setup.sh
         JSON-RPC 2.0 over stdio/HTTP
-        european-parliament-mcp-server 1.2.11
+        european-parliament-mcp-server 1.2.13
         worldbank-mcp 1.0.1 (optional)
         IMFMCPClient native fetch
       gh-aw 5-Layer Security
@@ -1188,7 +1188,7 @@ graph LR
 | **Vitest**        | Version          | Latest stable   | ✅ 4.1.4         |
 | **Playwright**    | Version          | Latest stable   | ✅ 1.59.1        |
 | **gh-aw**         | Pinned runtime   | Known-good      | ✅ v0.69.0       |
-| **EP MCP Server** | Version          | Latest release  | ✅ 1.2.11        |
+| **EP MCP Server** | Version          | Latest release  | ✅ 1.2.13        |
 | **Dependencies**  | Vulnerabilities  | 0 critical/high | ✅ 0             |
 | **Test Coverage** | Tests / files    | 3,000+ / 50+    | ✅ 3,061+ / 52   |
 | **Build Time**    | CI/CD duration   | <10 min         | ✅ 6 min         |
@@ -1265,7 +1265,7 @@ graph TB
 
 | Version | Date       | Author | Changes                                                           |
 | ------- | ---------- | ------ | ----------------------------------------------------------------- |
-| 1.2     | 2026-04-20 | CEO    | Refreshed for v0.8.40: 8 article types, 9 strategies (1 generic + 8 type-specific), 5-stage pipeline, 10 agentic + 14 infra workflows, dual economic data (EP MCP 1.2.11 + WB MCP 1.0.1 + IMF REST SDMX 3.0), AI-First quality gates, 3061+ tests, AWS S3 + CloudFront primary hosting, gh-aw v0.69.0 pinned |
+| 1.2     | 2026-04-20 | CEO    | Refreshed for v0.8.40: 8 article types, 9 strategies (1 generic + 8 type-specific), 5-stage pipeline, 10 agentic + 14 infra workflows, dual economic data (EP MCP 1.2.13 + WB MCP 1.0.1 + IMF REST SDMX 3.0), AI-First quality gates, 3061+ tests, AWS S3 + CloudFront primary hosting, gh-aw v0.69.0 pinned |
 | 1.1     | 2026-02-24 | CEO    | Updated review date and verified current state accuracy            |
 | 1.0     | 2025-02-17 | CEO    | Initial mindmap documentation with comprehensive conceptual views |
 
@@ -1275,7 +1275,7 @@ graph TB
 
 **Document Classification**: Public  
 **ISMS Compliance**: ISO 27001:2022, NIST CSF 2.0, CIS Controls v8.1, GDPR, NIS2, EU CRA aligned  
-**Technology Stack**: Node.js 25, TypeScript 6.0.3, Vitest 4.1.4, Playwright 1.59.1, gh-aw v0.69.0, AWS S3 + CloudFront, GitHub Pages (fallback), EP MCP 1.2.11, WB MCP 1.0.1, IMF REST SDMX 3.0  
+**Technology Stack**: Node.js 25, TypeScript 6.0.3, Vitest 4.1.4, Playwright 1.59.1, gh-aw v0.69.0, AWS S3 + CloudFront, GitHub Pages (fallback), EP MCP 1.2.13, WB MCP 1.0.1, IMF REST SDMX 3.0  
 **Architecture Pattern**: Static Site Generator with Agentic AI-First Authoring and Zero Runtime Dependencies  
 **Review Status**: Active, next review 2026-07-20
 

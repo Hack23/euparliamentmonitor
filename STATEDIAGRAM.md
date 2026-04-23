@@ -1050,7 +1050,7 @@ stateDiagram-v2
     PipelineAborted --> [*]: Abort workflow
 
     note right of FetchStage
-        EP MCP 1.2.11 uniform
+        EP MCP 1.2.13 uniform
         unavailable envelope:
         { status:"unavailable",
           items:[] }
@@ -1375,7 +1375,7 @@ Per
 
 **Document Classification**: Public  
 **ISMS Compliance**: ISO 27001:2022, NIST CSF 2.0, CIS Controls v8.1, GDPR, NIS2, EU CRA aligned  
-**Technology Stack**: Node.js 25, TypeScript 6.0.3, gh-aw v0.69.0, AWS S3 + CloudFront, GitHub Pages (fallback), EP MCP 1.2.11, WB MCP 1.0.1, IMF REST SDMX 3.0  
+**Technology Stack**: Node.js 25, TypeScript 6.0.3, gh-aw v0.69.0, AWS S3 + CloudFront, GitHub Pages (fallback), EP MCP 1.2.13, WB MCP 1.0.1, IMF REST SDMX 3.0  
 **Architecture Pattern**: Static Site Generator with Agentic AI-First Authoring and Zero Runtime Dependencies  
 **Review Status**: Active, next review 2026-07-20
 

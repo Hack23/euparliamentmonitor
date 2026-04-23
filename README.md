@@ -131,7 +131,7 @@ import {
 
 **MCP Server Integration**: The project uses the
 [European-Parliament-MCP-Server](https://github.com/Hack23/European-Parliament-MCP-Server)
-v1.2.11 for accessing real EU Parliament data via the Model Context Protocol.
+v1.2.13 for accessing real EU Parliament data via the Model Context Protocol.
 
 - **MCP Server Status**: ✅ Fully operational — 60+ EP data tools available
   (feeds, direct lookups, analytical tools, intelligence correlation)
