@@ -102,6 +102,16 @@ export interface PIDailyRun {
   relPath: string;
   /** Emoji/icon derived from the run slug */
   icon: string;
+  /** Individual Markdown artifacts inside the run, sorted by path */
+  artifacts: PIDailyArtifact[];
+}
+
+/** A single Markdown artifact file inside a daily run directory */
+export interface PIDailyArtifact {
+  /** Path relative to the repo root (e.g. "analysis/daily/2026-04-22/breaking-run1/intelligence/swot.md") */
+  relPath: string;
+  /** Path relative to the run directory (e.g. "intelligence/swot.md") */
+  shortPath: string;
 }
 
 /** Input payload used by {@link generatePoliticalIntelligenceHTML} */
@@ -148,6 +158,14 @@ interface PICopy {
   artifactCountLabel: string;
   /** "{count} runs" label in the date-group header */
   runsCountLabel: string;
+  /** Label for the expandable artifact-file list inside each run (e.g. "Show all {count} artifact files") */
+  artifactsToggleLabel: string;
+  /**
+   * Localized note shown at the top of the methodology/template/reference
+   * sections on non-English pages, explaining that the source tradecraft
+   * materials themselves are in English. Empty string on English pages.
+   */
+  sourceInEnglishNote: string;
 }
 
 const DEFAULT_COPY: PICopy = {
@@ -178,6 +196,8 @@ const DEFAULT_COPY: PICopy = {
   viewOnGitHub: 'View on GitHub',
   artifactCountLabel: '{count} artifacts',
   runsCountLabel: '{count} runs',
+  artifactsToggleLabel: 'Show all {count} artifact files',
+  sourceInEnglishNote: '',
 };
 
 /** Per-language overrides; fall back to English for any missing key */
@@ -215,6 +235,9 @@ const PI_COPY: Partial<Record<string, Partial<PICopy>>> = (() => {
       viewOnGitHub: 'Visa på GitHub',
       artifactCountLabel: ARTEFAKTER_COUNT,
       runsCountLabel: '{count} körningar',
+      artifactsToggleLabel: 'Visa alla {count} artefaktfiler',
+      sourceInEnglishNote:
+        'Källmaterialet (metodologier, mallar och dagliga analysartefakter) publiceras på engelska. Titlar och filvägar är därför på engelska — endast sidans navigation och beskrivningar är översatta.',
     },
     da: {
       title: 'Politisk efterretning',
@@ -244,6 +267,9 @@ const PI_COPY: Partial<Record<string, Partial<PICopy>>> = (() => {
       viewOnGitHub: 'Vis på GitHub',
       artifactCountLabel: ARTEFAKTER_COUNT,
       runsCountLabel: '{count} kørsler',
+      artifactsToggleLabel: 'Vis alle {count} artefaktfiler',
+      sourceInEnglishNote:
+        'Kildematerialet (metoder, skabeloner og daglige analyseartefakter) udgives på engelsk. Titler og filstier er derfor på engelsk — kun sidens navigation og beskrivelser er oversat.',
     },
     no: {
       title: 'Politisk etterretning',
@@ -273,6 +299,9 @@ const PI_COPY: Partial<Record<string, Partial<PICopy>>> = (() => {
       viewOnGitHub: 'Vis på GitHub',
       artifactCountLabel: ARTEFAKTER_COUNT,
       runsCountLabel: '{count} kjøringer',
+      artifactsToggleLabel: 'Vis alle {count} artefaktfiler',
+      sourceInEnglishNote:
+        'Kildematerialet (metodologier, maler og daglige analyseartefakter) publiseres på engelsk. Titler og filstier er derfor på engelsk — bare sidens navigasjon og beskrivelser er oversatt.',
     },
     fi: {
       title: 'Poliittinen tiedustelu',
@@ -302,6 +331,9 @@ const PI_COPY: Partial<Record<string, Partial<PICopy>>> = (() => {
       viewOnGitHub: 'Näytä GitHubissa',
       artifactCountLabel: '{count} artefaktia',
       runsCountLabel: '{count} ajoa',
+      artifactsToggleLabel: 'Näytä kaikki {count} artefaktitiedostoa',
+      sourceInEnglishNote:
+        'Lähdemateriaali (metodologiat, pohjat ja päivittäiset analyysiartefaktit) julkaistaan englanniksi. Otsikot ja tiedostopolut ovat siksi englanniksi — vain sivun navigointi ja kuvaukset on käännetty.',
     },
     de: {
       title: 'Politische Aufklärung',
@@ -331,6 +363,9 @@ const PI_COPY: Partial<Record<string, Partial<PICopy>>> = (() => {
       viewOnGitHub: 'Auf GitHub ansehen',
       artifactCountLabel: '{count} Artefakte',
       runsCountLabel: '{count} Läufe',
+      artifactsToggleLabel: 'Alle {count} Artefaktdateien anzeigen',
+      sourceInEnglishNote:
+        'Die Quellmaterialien (Methodologien, Vorlagen und tägliche Analyseartefakte) werden auf Englisch veröffentlicht. Titel und Dateipfade sind daher auf Englisch — nur die Seitennavigation und Beschreibungen sind übersetzt.',
     },
     fr: {
       title: 'Intelligence politique',
@@ -360,6 +395,9 @@ const PI_COPY: Partial<Record<string, Partial<PICopy>>> = (() => {
       viewOnGitHub: 'Voir sur GitHub',
       artifactCountLabel: '{count} artefacts',
       runsCountLabel: '{count} exécutions',
+      artifactsToggleLabel: 'Afficher les {count} fichiers d\u2019artefacts',
+      sourceInEnglishNote:
+        "Les documents sources (méthodologies, modèles et artefacts d'analyse quotidiens) sont publiés en anglais. Les titres et chemins de fichiers sont donc en anglais — seuls la navigation et les descriptions de la page sont traduits.",
     },
     es: {
       title: 'Inteligencia política',
@@ -389,6 +427,9 @@ const PI_COPY: Partial<Record<string, Partial<PICopy>>> = (() => {
       viewOnGitHub: 'Ver en GitHub',
       artifactCountLabel: '{count} artefactos',
       runsCountLabel: '{count} ejecuciones',
+      artifactsToggleLabel: 'Mostrar los {count} archivos de artefactos',
+      sourceInEnglishNote:
+        'Los materiales fuente (metodologías, plantillas y artefactos de análisis diarios) se publican en inglés. Los títulos y las rutas de archivo están, por tanto, en inglés — solo la navegación y las descripciones de la página están traducidas.',
     },
     nl: {
       title: 'Politieke intelligentie',
@@ -418,6 +459,9 @@ const PI_COPY: Partial<Record<string, Partial<PICopy>>> = (() => {
       viewOnGitHub: 'Op GitHub bekijken',
       artifactCountLabel: '{count} artefacten',
       runsCountLabel: '{count} uitvoeringen',
+      artifactsToggleLabel: 'Alle {count} artefactbestanden tonen',
+      sourceInEnglishNote:
+        'De bronmaterialen (methodologieën, sjablonen en dagelijkse analyse-artefacten) worden in het Engels gepubliceerd. Titels en bestandspaden staan daarom in het Engels — alleen de paginanavigatie en beschrijvingen zijn vertaald.',
     },
     ar: {
       title: 'الاستخبارات السياسية',
@@ -447,6 +491,9 @@ const PI_COPY: Partial<Record<string, Partial<PICopy>>> = (() => {
       viewOnGitHub: 'عرض على GitHub',
       artifactCountLabel: '{count} قطعة أثرية',
       runsCountLabel: '{count} عمليات',
+      artifactsToggleLabel: 'عرض جميع ملفات القطع الأثرية ({count})',
+      sourceInEnglishNote:
+        'تُنشر المواد المصدر (المنهجيات والقوالب والقطع الأثرية للتحليل اليومي) باللغة الإنجليزية. لذلك تظهر العناوين ومسارات الملفات بالإنجليزية — فقط تنقل الصفحة والأوصاف مترجمة.',
     },
     he: {
       title: 'מודיעין פוליטי',
@@ -476,6 +523,9 @@ const PI_COPY: Partial<Record<string, Partial<PICopy>>> = (() => {
       viewOnGitHub: 'הצג ב-GitHub',
       artifactCountLabel: '{count} ארטיפקטים',
       runsCountLabel: '{count} ריצות',
+      artifactsToggleLabel: 'הצג את כל {count} קבצי הארטיפקטים',
+      sourceInEnglishNote:
+        'חומרי המקור (מתודולוגיות, תבניות וארטיפקטי ניתוח יומיים) מתפרסמים באנגלית. הכותרות ונתיבי הקבצים מופיעים אפוא באנגלית — רק הניווט והתיאורים בדף תורגמו.',
     },
     ja: {
       title: '政治インテリジェンス',
@@ -505,6 +555,9 @@ const PI_COPY: Partial<Record<string, Partial<PICopy>>> = (() => {
       viewOnGitHub: 'GitHub で表示',
       artifactCountLabel: '{count} 件の成果物',
       runsCountLabel: '{count} 件の実行',
+      artifactsToggleLabel: '{count} 件のすべての成果物ファイルを表示',
+      sourceInEnglishNote:
+        'ソース資料(方法論・テンプレート・日次分析成果物)は英語で公開されています。そのためタイトルとファイルパスは英語で表示されます。ページのナビゲーションと説明のみが翻訳されています。',
     },
     ko: {
       title: '정치 정보',
@@ -534,6 +587,9 @@ const PI_COPY: Partial<Record<string, Partial<PICopy>>> = (() => {
       viewOnGitHub: 'GitHub에서 보기',
       artifactCountLabel: '{count}개 산출물',
       runsCountLabel: '{count}회 실행',
+      artifactsToggleLabel: '{count}개 산출물 파일 모두 보기',
+      sourceInEnglishNote:
+        '원본 자료(방법론, 템플릿, 일일 분석 산출물)는 영어로 게시됩니다. 따라서 제목과 파일 경로는 영어로 표시되며, 페이지 탐색 및 설명만 번역되어 있습니다.',
     },
     zh: {
       title: '政治情报',
@@ -563,6 +619,9 @@ const PI_COPY: Partial<Record<string, Partial<PICopy>>> = (() => {
       viewOnGitHub: '在 GitHub 上查看',
       artifactCountLabel: '{count} 个工件',
       runsCountLabel: '{count} 次运行',
+      artifactsToggleLabel: '显示全部 {count} 个工件文件',
+      sourceInEnglishNote:
+        '源材料(方法论、模板和每日分析工件)以英文发布。因此标题和文件路径以英文显示 — 仅页面导航和描述进行了翻译。',
     },
   };
 })();
@@ -713,6 +772,7 @@ const SKIP_LINE_PATTERNS: readonly RegExp[] = [
   /^(-|\*|\d+\.)\s/, // list item
   /^```/, // code fence
   /^<!/, // stray HTML comment / DOCTYPE-style line
+  /^</, // raw HTML block (e.g. <p align="center">, <img …>, </p>, <h1>)
 ];
 
 /**
@@ -794,6 +854,28 @@ function cleanAndTruncate(raw: string): string {
   text = text.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
   text = text.replace(/`([^`]+)`/g, '$1');
   text = text.replace(/\*\*(.+?)\*\*/g, '$1').replace(/\*(.+?)\*/g, '$1');
+  // Strip any inline HTML tags (e.g. <br>, <a href=…>, <img …>) that may have
+  // slipped through the line-level skip filter. Keep the tag *contents* so
+  // that `<a href="x">link text</a>` still yields "link text".
+  //
+  // The strip is applied in a loop because removing one match can expose a
+  // *new* tag-shaped sequence in the surrounding text — e.g.
+  // `<<script>script>` collapses to `<script>` after one pass and would
+  // remain unsanitized without a re-scan. Looping until a fixed point is
+  // reached closes the CodeQL "incomplete multi-character sanitization"
+  // class. The loop is bounded by string length monotonically decreasing
+  // each iteration, so it cannot run forever.
+  let prev = '';
+  while (prev !== text) {
+    prev = text;
+    text = text.replace(/<[^>]*>/g, '');
+  }
+  // Final defense: any stray `<` or `>` left over (unbalanced tags such as
+  // `< 5` or a trailing `<` with no closing bracket on the same input) gets
+  // dropped so the rendered description can never contain raw angle
+  // brackets that an HTML escaper would otherwise re-encode and surface as
+  // `&lt;` / `&gt;` glyphs.
+  text = text.replace(/[<>]/g, '');
   // Collapse any whitespace runs introduced by the strips, then truncate.
   text = text.replace(/\s+/g, ' ').trim();
   if (text.length > 240) {
@@ -956,14 +1038,15 @@ function collectDailyGroups(dailyDir: string, rootDir: string): PIDailyDateGroup
     const runs: PIDailyRun[] = [];
     for (const slug of runDirs) {
       const runDir = path.join(dateDir, slug);
-      const artifactCount = countMarkdownFiles(runDir);
-      if (artifactCount === 0) continue;
+      const artifacts = collectRunArtifacts(runDir, rootDir);
+      if (artifacts.length === 0) continue;
       const relPath = path.relative(rootDir, runDir).split(path.sep).join('/');
       runs.push({
         slug,
-        artifactCount,
+        artifactCount: artifacts.length,
         relPath,
         icon: pickRunIcon(slug),
+        artifacts,
       });
     }
     if (runs.length > 0) {
@@ -974,28 +1057,53 @@ function collectDailyGroups(dailyDir: string, rootDir: string): PIDailyDateGroup
 }
 
 /**
- * Count `.md` files recursively under `dir`, safely ignoring unreadable subtrees.
+ * Recursively collect every Markdown artifact file under a run directory,
+ * returning both the repo-relative path (used to build GitHub blob URLs)
+ * and the run-relative short path (used for compact display).
  *
- * @param dir - Absolute directory path
- * @returns Number of Markdown files found
+ * The caller guarantees `runDir` is a run directory such as
+ * `analysis/daily/2026-04-22/breaking-run1`. Unreadable subtrees are
+ * silently skipped so a single permission error can't blow up the page
+ * generation for an entire date group.
+ *
+ * @param runDir - Absolute path to the run directory
+ * @param rootDir - Repository root used to build relative paths
+ * @returns Artifact entries sorted alphabetically by short path
  */
-function countMarkdownFiles(dir: string): number {
-  let count = 0;
+function collectRunArtifacts(runDir: string, rootDir: string): PIDailyArtifact[] {
+  const artifacts: PIDailyArtifact[] = [];
+  walkMarkdownFiles(runDir, (full) => {
+    const relPath = path.relative(rootDir, full).split(path.sep).join('/');
+    const shortPath = path.relative(runDir, full).split(path.sep).join('/');
+    artifacts.push({ relPath, shortPath });
+  });
+  artifacts.sort((a, b) => a.shortPath.localeCompare(b.shortPath));
+  return artifacts;
+}
+
+/**
+ * Walk `dir` recursively and invoke `visit` for every `.md` file found.
+ * Shared traversal used by {@link collectRunArtifacts}. Unreadable subtrees
+ * are silently skipped.
+ *
+ * @param dir - Absolute directory path to walk
+ * @param visit - Callback invoked with each Markdown file's absolute path
+ */
+function walkMarkdownFiles(dir: string, visit: (fullPath: string) => void): void {
   let entries: fs.Dirent[];
   try {
     entries = fs.readdirSync(dir, { withFileTypes: true });
   } catch {
-    return 0;
+    return;
   }
   for (const entry of entries) {
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) {
-      count += countMarkdownFiles(full);
+      walkMarkdownFiles(full, visit);
     } else if (entry.isFile() && entry.name.endsWith('.md')) {
-      count += 1;
+      visit(full);
     }
   }
-  return count;
 }
 
 /**
@@ -1003,11 +1111,20 @@ function countMarkdownFiles(dir: string): number {
  *
  * @param doc - The document to render
  * @param viewOnGitHub - Localized call-to-action label
+ * @param includeDescription - When `false`, the English source description
+ *   is omitted (used on non-English pages to keep the UI fully localized)
  * @returns HTML string for the card `<li>` element
  */
-function renderDocumentCard(doc: PIDocument, viewOnGitHub: string): string {
+function renderDocumentCard(
+  doc: PIDocument,
+  viewOnGitHub: string,
+  includeDescription: boolean
+): string {
   const url = githubBlobUrl(doc.relPath);
-  const desc = doc.description ? `<p class="pi-card__desc">${escapeHTML(doc.description)}</p>` : '';
+  const desc =
+    includeDescription && doc.description
+      ? `<span class="pi-card__desc">${escapeHTML(doc.description)}</span>`
+      : '';
   return `          <li class="pi-card">
             <a class="pi-card__link" href="${escapeHTML(url)}" rel="noopener external" target="_blank">
               <span class="pi-card__icon" aria-hidden="true">${doc.icon}</span>
@@ -1024,28 +1141,18 @@ function renderDocumentCard(doc: PIDocument, viewOnGitHub: string): string {
 /**
  * Render one daily date group (header + run cards).
  *
+ * Each run card is a flex row that links to the run folder on GitHub; below
+ * it a collapsed `<details>` lists every individual artifact file with a
+ * direct blob URL, so readers can deep-link to a single artifact without
+ * first navigating the folder tree.
+ *
  * @param group - The date group to render
  * @param copy - Localized copy for labels inside the group
  * @returns HTML string for the `<section>` containing all runs for the date
  */
 function renderDailyGroup(group: PIDailyDateGroup, copy: PICopy): string {
   const runsCountText = copy.runsCountLabel.replace('{count}', String(group.runs.length));
-  const runCards = group.runs
-    .map((run) => {
-      const url = githubTreeUrl(run.relPath);
-      const countLabel = copy.artifactCountLabel.replace('{count}', String(run.artifactCount));
-      return `            <li class="pi-run">
-              <a class="pi-run__link" href="${escapeHTML(url)}" rel="noopener external" target="_blank">
-                <span class="pi-run__icon" aria-hidden="true">${run.icon}</span>
-                <span class="pi-run__body">
-                  <span class="pi-run__slug">${escapeHTML(run.slug)}</span>
-                  <span class="pi-run__meta">${escapeHTML(countLabel)}</span>
-                </span>
-                <span class="pi-run__cta" aria-hidden="true">↗</span>
-              </a>
-            </li>`;
-    })
-    .join('\n');
+  const runCards = group.runs.map((run) => renderDailyRun(run, copy)).join('\n');
   return `        <section class="pi-date-group" aria-labelledby="date-${escapeHTML(group.date)}">
           <h3 id="date-${escapeHTML(group.date)}" class="pi-date-group__heading">
             <time datetime="${escapeHTML(group.date)}">${escapeHTML(group.date)}</time>
@@ -1055,6 +1162,46 @@ function renderDailyGroup(group: PIDailyDateGroup, copy: PICopy): string {
 ${runCards}
           </ul>
         </section>`;
+}
+
+/**
+ * Render a single daily-run entry: the run-folder link plus a collapsed
+ * `<details>` list of every Markdown artifact inside the run, each linking
+ * to its GitHub blob URL.
+ *
+ * @param run - Run descriptor produced by {@link collectDailyGroups}
+ * @param copy - Localized copy for artifact-count and toggle labels
+ * @returns HTML string for the `<li>` element
+ */
+function renderDailyRun(run: PIDailyRun, copy: PICopy): string {
+  const url = githubTreeUrl(run.relPath);
+  const countLabel = copy.artifactCountLabel.replace('{count}', String(run.artifactCount));
+  const toggleLabel = copy.artifactsToggleLabel.replace('{count}', String(run.artifactCount));
+  const artifactLinks = run.artifacts
+    .map(
+      (art) =>
+        `                    <li><a href="${escapeHTML(githubBlobUrl(art.relPath))}" rel="noopener external" target="_blank"><code>${escapeHTML(art.shortPath)}</code></a></li>`
+    )
+    .join('\n');
+  // The artifact <details> is rendered OUTSIDE the top-level <a> so the
+  // disclosure triangle remains independently keyboard-focusable and the
+  // run-link click target stays unambiguous.
+  return `            <li class="pi-run">
+              <a class="pi-run__link" href="${escapeHTML(url)}" rel="noopener external" target="_blank">
+                <span class="pi-run__icon" aria-hidden="true">${run.icon}</span>
+                <span class="pi-run__body">
+                  <span class="pi-run__slug">${escapeHTML(run.slug)}</span>
+                  <span class="pi-run__meta">${escapeHTML(countLabel)}</span>
+                </span>
+                <span class="pi-run__cta" aria-hidden="true">↗</span>
+              </a>
+              <details class="pi-run__artifacts">
+                <summary class="pi-run__artifacts-toggle">${escapeHTML(toggleLabel)}</summary>
+                <ul class="pi-run__artifacts-list">
+${artifactLinks}
+                </ul>
+              </details>
+            </li>`;
 }
 
 /**
@@ -1105,22 +1252,37 @@ export function generatePoliticalIntelligenceHTML(lang: string, data: PIPageData
     return `<a href="${href}" class="lang-link${active}" hreflang="${code}" title="${escapeHTML(name)}"${ariaCurrent}>${flag} ${code.toUpperCase()}</a>`;
   }).join('\n        ');
 
-  // Methodologies & templates cards
+  // Methodologies & templates cards.
+  // Non-English pages hide the per-card English description (the source
+  // markdown is authored in English) so the page reads as fully localized;
+  // the title and path remain visible because they are the canonical
+  // identifiers readers need to inspect the tradecraft on GitHub.
+  const includeDescription = lang === 'en';
   const methodologiesList = data.methodologies
-    .map((d) => renderDocumentCard(d, copy.viewOnGitHub))
+    .map((d) => renderDocumentCard(d, copy.viewOnGitHub, includeDescription))
     .join('\n');
   const templatesList = data.templates
-    .map((d) => renderDocumentCard(d, copy.viewOnGitHub))
+    .map((d) => renderDocumentCard(d, copy.viewOnGitHub, includeDescription))
     .join('\n');
   const referenceList = data.referenceDocs
-    .map((d) => renderDocumentCard(d, copy.viewOnGitHub))
+    .map((d) => renderDocumentCard(d, copy.viewOnGitHub, includeDescription))
     .join('\n');
   const dailyBody =
     data.dailyGroups.length === 0
       ? ''
       : data.dailyGroups.map((g) => renderDailyGroup(g, copy)).join('\n');
 
-  // JSON-LD structured data (CollectionPage with BreadcrumbList)
+  // Localized source-in-English note (non-English pages only)
+  const sourceNote = copy.sourceInEnglishNote
+    ? `      <p class="pi-source-note" role="note">${escapeHTML(copy.sourceInEnglishNote)}</p>`
+    : '';
+
+  // JSON-LD structured data (CollectionPage with BreadcrumbList + publisher)
+  const publisher = {
+    '@type': 'Organization',
+    name: 'Hack23 AB',
+    url: 'https://hack23.com',
+  };
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
@@ -1128,10 +1290,13 @@ export function generatePoliticalIntelligenceHTML(lang: string, data: PIPageData
     url: canonicalUrl,
     description: copy.intro,
     inLanguage: lang,
+    author: publisher,
+    publisher,
     isPartOf: {
       '@type': 'WebSite',
       name: 'EU Parliament Monitor',
       url: BASE_URL,
+      publisher,
     },
     breadcrumb: {
       '@type': 'BreadcrumbList',
@@ -1142,8 +1307,37 @@ export function generatePoliticalIntelligenceHTML(lang: string, data: PIPageData
     },
     mainEntity: {
       '@type': 'ItemList',
-      numberOfItems: data.methodologies.length + data.templates.length + data.referenceDocs.length,
+      // numberOfItems must match the number of `itemListElement` entries
+      // we actually emit (one per top-level page section), not the document
+      // total — otherwise structured-data validators flag the mismatch.
+      numberOfItems: 4,
       name: copy.title,
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: copy.methodologiesHeading,
+          item: `${canonicalUrl}#pi-methodologies`,
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: copy.templatesHeading,
+          item: `${canonicalUrl}#pi-templates`,
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: copy.referenceHeading,
+          item: `${canonicalUrl}#pi-reference`,
+        },
+        {
+          '@type': 'ListItem',
+          position: 4,
+          name: copy.dailyHeading,
+          item: `${canonicalUrl}#pi-daily`,
+        },
+      ],
     },
   };
   const jsonLdString = JSON.stringify(jsonLd).replace(/</g, '\\u003c');
@@ -1154,11 +1348,14 @@ export function generatePoliticalIntelligenceHTML(lang: string, data: PIPageData
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Content-Language" content="${lang}">
   <meta name="referrer" content="no-referrer">
   <title>${escapeHTML(pageTitle)}</title>
   <meta name="description" content="${escapeHTML(description)}">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="keywords" content="European Parliament, political intelligence, OSINT, SWOT, PESTLE, methodology, artifact templates, transparency, EU">
+  <meta name="author" content="Hack23 AB">
+  <meta name="publisher" content="Hack23 AB">
   <link rel="canonical" href="${canonicalUrl}">
 ${hreflangLinks}
   <meta property="og:type" content="website">
@@ -1168,11 +1365,14 @@ ${hreflangLinks}
   <meta property="og:site_name" content="EU Parliament Monitor">
   <meta property="og:locale" content="${lang}">
   <meta property="og:image" content="https://hack23.github.io/euparliamentmonitor/images/og-image.jpg">
+  <meta property="og:image:alt" content="${escapeHTML(copy.title)} — EU Parliament Monitor">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${escapeHTML(copy.title)}">
   <meta name="twitter:description" content="${escapeHTML(description)}">
+  <meta name="twitter:image" content="https://hack23.github.io/euparliamentmonitor/images/og-image.jpg">
+  <meta name="twitter:image:alt" content="${escapeHTML(copy.title)} — EU Parliament Monitor">
   <!-- Favicons -->
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
@@ -1242,7 +1442,7 @@ ${hreflangLinks}
         <li aria-current="page">${escapeHTML(copy.breadcrumbCurrent)}</li>
       </ol>
     </nav>
-
+${sourceNote}
     <section class="sitemap-section pi-section" aria-labelledby="pi-methodologies">
       <h2 id="pi-methodologies"><span aria-hidden="true">🧭</span> ${escapeHTML(copy.methodologiesHeading)}</h2>
       <p class="section-description">${escapeHTML(copy.methodologiesDescription)}</p>
