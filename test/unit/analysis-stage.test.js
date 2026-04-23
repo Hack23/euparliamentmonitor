@@ -196,6 +196,38 @@ describe('runAnalysisStage', () => {
     expect(manifest.files.classification).toEqual(['classification/actor-mapping.md']);
   });
 
+  // Regression: subdirs literally named `__proto__`, `constructor`, or
+  // `prototype` must NOT pollute Object.prototype or appear as keys on
+  // `manifest.files` (defence-in-depth — the validator + Object.create(null)
+  // backing object already block this, but we assert behaviour in case the
+  // implementation regresses).
+  it('should drop reserved-key subdirs and not pollute Object.prototype', async () => {
+    const analysisDir = path.join(tempDir, '2026-04-23', 'reserved-keys');
+    fs.mkdirSync(path.join(analysisDir, 'intelligence'), { recursive: true });
+    fs.mkdirSync(path.join(analysisDir, '__proto__'), { recursive: true });
+    fs.mkdirSync(path.join(analysisDir, 'constructor'), { recursive: true });
+    fs.writeFileSync(path.join(analysisDir, 'intelligence', 'ok.md'), '# OK');
+    fs.writeFileSync(path.join(analysisDir, '__proto__', 'evil.md'), 'polluted: true');
+    fs.writeFileSync(path.join(analysisDir, 'constructor', 'evil.md'), 'polluted: true');
+
+    await runAnalysisStage(buildTestFetchedData(), {
+      articleTypes: ['reserved-keys'],
+      date: '2026-04-23',
+      outputDir: tempDir,
+      articleTypeSlug: 'reserved-keys',
+    });
+
+    const manifest = JSON.parse(fs.readFileSync(path.join(analysisDir, 'manifest.json'), 'utf-8'));
+    expect(manifest.files.intelligence).toEqual(['intelligence/ok.md']);
+    // Reserved keys must not appear as own properties on manifest.files
+    // (after JSON roundtrip the object has Object.prototype, so we check ownership).
+    expect(Object.prototype.hasOwnProperty.call(manifest.files, '__proto__')).toBe(false);
+    expect(Object.prototype.hasOwnProperty.call(manifest.files, 'constructor')).toBe(false);
+    expect(Object.prototype.hasOwnProperty.call(manifest.files, 'prototype')).toBe(false);
+    // Object.prototype must NOT have been mutated by the evil payloads.
+    expect({}.polluted).toBeUndefined();
+  });
+
   // Regression: when an agent pre-creates a partial manifest (e.g. one with
   // only runId + history[]), the pipeline wrap-up MUST augment it with
   // articleType + files rather than leaving it incomplete. Uses

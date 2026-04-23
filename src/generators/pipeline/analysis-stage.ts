@@ -389,17 +389,28 @@ function validateAnalysisInputs(
  * would otherwise bucket every artifact under `root` and break the gate.
  *
  * A {@link Map} is used internally to sidestep generic object-injection
- * lint warnings; the returned plain object is the validator's contract.
+ * lint warnings; the returned object is created via `Object.create(null)`
+ * so reserved keys (`__proto__`, `constructor`, `prototype`) cannot mutate
+ * `Object.prototype` even if a malicious or buggy subdir name appears on
+ * disk. As a defence-in-depth measure such names are also dropped before
+ * assignment.
  *
  * @param relativePaths - Artifact paths relative to the analysis dir.
  * @returns `{ [subdir]: relativePath[] }` map, sorted alphabetically.
  */
+const RESERVED_OBJECT_KEYS: ReadonlySet<string> = new Set([
+  '__proto__',
+  'constructor',
+  'prototype',
+]);
+
 function groupFilesBySubdir(relativePaths: readonly string[]): AnalysisManifestFiles {
   const groups = new Map<string, string[]>();
   for (const rel of relativePaths) {
     const normalizedRel = rel.replaceAll('\\', '/');
     const slashIdx = normalizedRel.indexOf('/');
     const key = slashIdx === -1 ? 'root' : normalizedRel.slice(0, slashIdx);
+    if (RESERVED_OBJECT_KEYS.has(key)) continue;
     const list = groups.get(key);
     if (list) {
       list.push(normalizedRel);
@@ -407,10 +418,13 @@ function groupFilesBySubdir(relativePaths: readonly string[]): AnalysisManifestF
       groups.set(key, [normalizedRel]);
     }
   }
-  const out: Record<string, readonly string[]> = {};
+  const out: Record<string, readonly string[]> = Object.create(null) as Record<
+    string,
+    readonly string[]
+  >;
   for (const key of [...groups.keys()].sort()) {
     const list = groups.get(key);
-    if (list) out[key] = [...list].sort(); // eslint-disable-line security/detect-object-injection
+    if (list) out[key] = [...list].sort();
   }
   return out as AnalysisManifestFiles;
 }
