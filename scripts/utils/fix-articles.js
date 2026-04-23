@@ -18,6 +18,7 @@ import path from 'node:path';
 import { NEWS_DIR, ARTICLE_FILENAME_PATTERN, APP_VERSION } from '../constants/config.js';
 import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, BACK_TO_NEWS_LABELS, ARTICLE_NAV_LABELS, SKIP_LINK_TEXTS, HEADER_SUBTITLE_LABELS, FOOTER_ABOUT_HEADING_LABELS, FOOTER_ABOUT_TEXT_LABELS, FOOTER_QUICK_LINKS_LABELS, FOOTER_BUILT_BY_LABELS, FOOTER_LANGUAGES_LABELS, getLocalizedString, } from '../constants/languages.js';
 import { escapeHTML } from './file-utils.js';
+import { buildSiteFooter as buildSharedSiteFooter } from '../templates/section-builders.js';
 /** CSS class selector for the NEW language switcher nav element (inside header) */
 const LANG_SWITCHER_NEW_CLASS = 'class="site-header__langs"';
 /** CSS class selector for the LEGACY language switcher nav element (standalone) */
@@ -63,68 +64,17 @@ function buildArticleTopNav(indexHref, lang) {
   </nav>`;
 }
 /**
- * Build the language grid for the article footer.
- *
- * @param currentLang - Active language code
- * @returns HTML string for the language grid
- */
-function buildFooterLanguageGrid(currentLang) {
-    return ALL_LANGUAGES.map((code) => {
-        const flag = getLocalizedString(LANGUAGE_FLAGS, code);
-        const safeName = escapeHTML(getLocalizedString(LANGUAGE_NAMES, code));
-        const href = code === 'en' ? '../index.html' : `../index-${code}.html`;
-        const active = code === currentLang ? ' class="active"' : '';
-        return `<a href="${href}"${active} hreflang="${code}">${flag} ${safeName}</a>`;
-    }).join('\n            ');
-}
-/**
- * Build the site footer HTML with localized section headings and text.
+ * Build the site footer HTML with localized section headings, quick-link
+ * labels, and language grid. Delegates to the shared
+ * {@link buildSharedSiteFooter} in `src/templates/section-builders.ts` so the
+ * footer produced by this fallback tool stays in lockstep with newly-generated
+ * articles (same markup, same localized labels, same disclaimer and version).
  *
  * @param lang - Language code for all localized footer content
  * @returns HTML string for the site footer
  */
 function buildSiteFooter(lang) {
-    const year = new Date().getFullYear();
-    const aboutHeading = escapeHTML(getLocalizedString(FOOTER_ABOUT_HEADING_LABELS, lang));
-    const aboutText = escapeHTML(getLocalizedString(FOOTER_ABOUT_TEXT_LABELS, lang));
-    const quickLinksHeading = escapeHTML(getLocalizedString(FOOTER_QUICK_LINKS_LABELS, lang));
-    const builtByHeading = escapeHTML(getLocalizedString(FOOTER_BUILT_BY_LABELS, lang));
-    const languagesHeading = escapeHTML(getLocalizedString(FOOTER_LANGUAGES_LABELS, lang));
-    return `<footer class="site-footer" role="contentinfo">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h3>${aboutHeading}</h3>
-        <p>${aboutText}</p>
-      </div>
-      <div class="footer-section">
-        <h3>${quickLinksHeading}</h3>
-        <ul>
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="https://github.com/Hack23/euparliamentmonitor">GitHub Repository</a></li>
-          <li><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/LICENSE">Apache-2.0 License</a></li>
-          <li><a href="https://www.europarl.europa.eu/">European Parliament</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h3>${builtByHeading}</h3>
-        <ul>
-          <li><a href="https://hack23.com">hack23.com</a></li>
-          <li><a href="https://www.linkedin.com/company/hack23">LinkedIn</a></li>
-          <li><a href="https://github.com/Hack23/ISMS-PUBLIC">Security &amp; Privacy Policy</a></li>
-          <li><a href="mailto:james@hack23.com">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h3>${languagesHeading}</h3>
-        <div class="language-grid">
-          ${buildFooterLanguageGrid(lang)}
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2008-${year} <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden</p>
-    </div>
-  </footer>`;
+    return buildSharedSiteFooter({ lang: lang, pathPrefix: '../' });
 }
 /**
  * Inject full structural elements for articles with no site-header (Type A).

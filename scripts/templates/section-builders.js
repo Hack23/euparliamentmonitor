@@ -7,7 +7,7 @@
  * timeline sections, comparison tables, and key figures bars.
  */
 import { escapeHTML } from '../utils/file-utils.js';
-import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, getLocalizedString, TOC_ARIA_LABELS, TIMELINE_HEADINGS, COMPARISON_BEFORE_LABELS, COMPARISON_AFTER_LABELS, KEY_FIGURES_HEADINGS, FOOTER_ABOUT_HEADING_LABELS, FOOTER_ABOUT_TEXT_LABELS, FOOTER_QUICK_LINKS_LABELS, FOOTER_BUILT_BY_LABELS, FOOTER_LANGUAGES_LABELS, FOOTER_HOME_LABELS, FOOTER_SITEMAP_LABELS, FOOTER_RSS_LABELS, FOOTER_GITHUB_REPO_LABELS, FOOTER_LICENSE_LABELS, FOOTER_EUROPARL_LABELS, FOOTER_LINKEDIN_LABELS, FOOTER_SECURITY_POLICY_LABELS, FOOTER_CONTACT_LABELS, FOOTER_DISCLAIMER_LABELS, FOOTER_REPORT_ISSUES_LABELS, FOOTER_ARTICLES_AVAILABLE_LABELS, } from '../constants/languages.js';
+import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, getLocalizedString, TOC_ARIA_LABELS, TIMELINE_HEADINGS, COMPARISON_BEFORE_LABELS, COMPARISON_AFTER_LABELS, KEY_FIGURES_HEADINGS, FOOTER_ABOUT_HEADING_LABELS, FOOTER_ABOUT_TEXT_LABELS, FOOTER_QUICK_LINKS_LABELS, FOOTER_BUILT_BY_LABELS, FOOTER_LANGUAGES_LABELS, FOOTER_HOME_LABELS, FOOTER_SITEMAP_LABELS, FOOTER_RSS_LABELS, FOOTER_GITHUB_REPO_LABELS, FOOTER_LICENSE_LABELS, FOOTER_EUROPARL_LABELS, FOOTER_LINKEDIN_LABELS, FOOTER_SECURITY_POLICY_LABELS, FOOTER_CONTACT_LABELS, FOOTER_DISCLAIMER_LABELS, FOOTER_REPORT_ISSUES_LABELS, FOOTER_ARTICLES_AVAILABLE_LABELS, FOOTER_POLITICAL_INTELLIGENCE_LABELS, } from '../constants/languages.js';
 import { APP_VERSION } from '../constants/config.js';
 import { stripScriptBlocks, stripHtmlTags } from '../utils/html-sanitize.js';
 /**
@@ -293,6 +293,7 @@ export function buildSiteFooter(options) {
     const homeLabel = escapeHTML(getLocalizedString(FOOTER_HOME_LABELS, lang));
     const sitemapLabel = escapeHTML(getLocalizedString(FOOTER_SITEMAP_LABELS, lang));
     const rssLabel = escapeHTML(getLocalizedString(FOOTER_RSS_LABELS, lang));
+    const politicalIntelligenceLabel = escapeHTML(getLocalizedString(FOOTER_POLITICAL_INTELLIGENCE_LABELS, lang));
     const githubLabel = escapeHTML(getLocalizedString(FOOTER_GITHUB_REPO_LABELS, lang));
     const licenseLabel = escapeHTML(getLocalizedString(FOOTER_LICENSE_LABELS, lang));
     const europarlLabel = escapeHTML(getLocalizedString(FOOTER_EUROPARL_LABELS, lang));
@@ -315,8 +316,9 @@ export function buildSiteFooter(options) {
       <div class="footer-section">
         <h3>${quickLinksHeading}</h3>
         <ul>
-          <li><a href="${pathPrefix}index.html">${homeLabel}</a></li>
-          <li><a href="${pathPrefix}sitemap.html">${sitemapLabel}</a></li>
+          <li><a href="${pathPrefix}${lang === 'en' ? 'index.html' : `index-${lang}.html`}">${homeLabel}</a></li>
+          <li><a href="${pathPrefix}${lang === 'en' ? 'sitemap.html' : `sitemap_${lang}.html`}">${sitemapLabel}</a></li>
+          <li><a href="${pathPrefix}${lang === 'en' ? 'political-intelligence.html' : `political-intelligence_${lang}.html`}">${politicalIntelligenceLabel}</a></li>
           <li><a href="${pathPrefix}rss.xml">${rssLabel}</a></li>
           <li><a href="https://github.com/Hack23/euparliamentmonitor">${githubLabel}</a></li>
           <li><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/LICENSE">${licenseLabel}</a></li>
