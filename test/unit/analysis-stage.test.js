@@ -158,10 +158,164 @@ describe('runAnalysisStage', () => {
       articleTypeSlug: 'keep-manifest',
     });
 
-    const manifest = JSON.parse(
-      fs.readFileSync(path.join(analysisDir, 'manifest.json'), 'utf-8')
-    );
+    const manifest = JSON.parse(fs.readFileSync(path.join(analysisDir, 'manifest.json'), 'utf-8'));
     expect(manifest.custom).toBe('data');
+  });
+
+  // Regression: committee-reports analysis run 24817014873 failed with
+  // "manifest.json is missing 'articleType'" + "missing 'files' object"
+  // because the pipeline wrote a manifest that lacked both fields. The
+  // gate then forced a Pass-3 repair loop that exhausted the 45 min timeout.
+  it('should include top-level articleType and files grouped by subdir in manifest', async () => {
+    const analysisDir = path.join(tempDir, '2026-04-23', 'committee-reports');
+    fs.mkdirSync(path.join(analysisDir, 'intelligence'), { recursive: true });
+    fs.mkdirSync(path.join(analysisDir, 'classification'), { recursive: true });
+    fs.writeFileSync(path.join(analysisDir, 'intelligence', 'pestle-analysis.md'), '# Pestle');
+    fs.writeFileSync(path.join(analysisDir, 'intelligence', 'threat-model.md'), '# Threat');
+    fs.writeFileSync(path.join(analysisDir, 'classification', 'actor-mapping.md'), '# Actors');
+
+    await runAnalysisStage(buildTestFetchedData(), {
+      articleTypes: ['committee-reports'],
+      date: '2026-04-23',
+      outputDir: tempDir,
+      articleTypeSlug: 'committee-reports',
+    });
+
+    const manifest = JSON.parse(fs.readFileSync(path.join(analysisDir, 'manifest.json'), 'utf-8'));
+    // Validator (validate-analysis-completeness.ts:loadManifest) requires both.
+    // NOTE: `manifest.articleType` is sourced from the `articleTypeSlug` option
+    // (not `articleTypes`) — this is the validator-facing top-level field that
+    // matches the `--article-type` CLI argument, not the internal article-types
+    // array used for data fetching.
+    expect(manifest.articleType).toBe('committee-reports');
+    expect(manifest.files).toBeDefined();
+    expect(manifest.files.intelligence).toEqual([
+      'intelligence/pestle-analysis.md',
+      'intelligence/threat-model.md',
+    ]);
+    expect(manifest.files.classification).toEqual(['classification/actor-mapping.md']);
+  });
+
+  // Regression: subdirs literally named `__proto__`, `constructor`, or
+  // `prototype` must NOT pollute Object.prototype or appear as keys on
+  // `manifest.files` (defence-in-depth — the validator + Object.create(null)
+  // backing object already block this, but we assert behaviour in case the
+  // implementation regresses).
+  it('should drop reserved-key subdirs and not pollute Object.prototype', async () => {
+    const analysisDir = path.join(tempDir, '2026-04-23', 'reserved-keys');
+    fs.mkdirSync(path.join(analysisDir, 'intelligence'), { recursive: true });
+    fs.mkdirSync(path.join(analysisDir, '__proto__'), { recursive: true });
+    fs.mkdirSync(path.join(analysisDir, 'constructor'), { recursive: true });
+    fs.writeFileSync(path.join(analysisDir, 'intelligence', 'ok.md'), '# OK');
+    fs.writeFileSync(path.join(analysisDir, '__proto__', 'evil.md'), 'polluted: true');
+    fs.writeFileSync(path.join(analysisDir, 'constructor', 'evil.md'), 'polluted: true');
+
+    await runAnalysisStage(buildTestFetchedData(), {
+      articleTypes: ['reserved-keys'],
+      date: '2026-04-23',
+      outputDir: tempDir,
+      articleTypeSlug: 'reserved-keys',
+    });
+
+    const manifest = JSON.parse(fs.readFileSync(path.join(analysisDir, 'manifest.json'), 'utf-8'));
+    expect(manifest.files.intelligence).toEqual(['intelligence/ok.md']);
+    // Reserved keys must not appear as own properties on manifest.files
+    // (after JSON roundtrip the object has Object.prototype, so we check ownership).
+    expect(Object.prototype.hasOwnProperty.call(manifest.files, '__proto__')).toBe(false);
+    expect(Object.prototype.hasOwnProperty.call(manifest.files, 'constructor')).toBe(false);
+    expect(Object.prototype.hasOwnProperty.call(manifest.files, 'prototype')).toBe(false);
+    // Object.prototype must NOT have been mutated by the evil payloads.
+    expect({}.polluted).toBeUndefined();
+  });
+
+  // Regression: when an agent pre-creates a partial manifest (e.g. one with
+  // only runId + history[]), the pipeline wrap-up MUST augment it with
+  // articleType + files rather than leaving it incomplete. Uses
+  // outputDirIsResolved=true to match the real `--analysis-only` wrap-up
+  // invocation in news-enhanced.ts (committee-reports failed run
+  // #24817014873).
+  it('should augment an existing manifest missing articleType and files', async () => {
+    const analysisDir = path.join(tempDir, '2026-04-23', 'augment-me');
+    fs.mkdirSync(path.join(analysisDir, 'intelligence'), { recursive: true });
+    fs.writeFileSync(path.join(analysisDir, 'intelligence', 'synthesis-summary.md'), '# Synthesis');
+    // Agent-written skeleton manifest without articleType or files.
+    fs.writeFileSync(
+      path.join(analysisDir, 'manifest.json'),
+      JSON.stringify({ custom: 'preserve-me', existingField: 42 })
+    );
+
+    await runAnalysisStage(buildTestFetchedData(), {
+      articleTypes: ['week-ahead'],
+      date: '2026-04-23',
+      outputDir: analysisDir,
+      articleTypeSlug: 'augment-me',
+      outputDirIsResolved: true,
+    });
+
+    const manifest = JSON.parse(fs.readFileSync(path.join(analysisDir, 'manifest.json'), 'utf-8'));
+    // Added fields satisfy the gate. `manifest.articleType` derives from
+    // `articleTypeSlug` (NOT `articleTypes[0]`) — using different values here
+    // (`articleTypes: ['week-ahead']` vs `articleTypeSlug: 'augment-me'`)
+    // asserts that the slug is the authoritative source.
+    expect(manifest.articleType).toBe('augment-me');
+    expect(manifest.files).toBeDefined();
+    expect(manifest.files.intelligence).toEqual(['intelligence/synthesis-summary.md']);
+    // Pre-existing fields preserved
+    expect(manifest.custom).toBe('preserve-me');
+    expect(manifest.existingField).toBe(42);
+  });
+
+  // Regression: when the existing manifest already has a valid articleType,
+  // the augmenter must not clobber it (even if a different slug would be
+  // derived this run).
+  it('should preserve existing articleType and files in a complete manifest', async () => {
+    const analysisDir = path.join(tempDir, '2026-04-23', 'complete-manifest');
+    fs.mkdirSync(path.join(analysisDir, 'intelligence'), { recursive: true });
+    fs.writeFileSync(path.join(analysisDir, 'intelligence', 'new-file.md'), '# New');
+    const preExisting = {
+      articleType: 'breaking',
+      files: { intelligence: ['intelligence/kept.md'] },
+      custom: 'keep',
+    };
+    fs.writeFileSync(path.join(analysisDir, 'manifest.json'), JSON.stringify(preExisting));
+
+    await runAnalysisStage(buildTestFetchedData(), {
+      articleTypes: ['week-ahead'],
+      date: '2026-04-23',
+      outputDir: analysisDir,
+      articleTypeSlug: 'complete-manifest',
+      outputDirIsResolved: true,
+    });
+
+    const manifest = JSON.parse(fs.readFileSync(path.join(analysisDir, 'manifest.json'), 'utf-8'));
+    // Existing articleType + files are preserved verbatim.
+    expect(manifest.articleType).toBe('breaking');
+    expect(manifest.files.intelligence).toEqual(['intelligence/kept.md']);
+    expect(manifest.custom).toBe('keep');
+  });
+
+  // Regression: when articleTypeSlug is omitted, manifest.articleType must
+  // still be populated (Stage-C gate Rule 6) by deriving from articleTypes[].
+  it('should derive articleType from articleTypes[] when articleTypeSlug omitted', async () => {
+    // When articleTypeSlug is omitted, computePreferredAnalysisDir uses
+    // `<outputDir>/<date>` (no slug subdir). resolveUniqueAnalysisDir only
+    // suffixes when a completed-run manifest.json already exists in that
+    // dir (see file-utils.ts:191-197), so here the manifest is written
+    // directly to `<tempDir>/<date>/manifest.json`.
+    const analysisDir = path.join(tempDir, '2026-04-23');
+    fs.mkdirSync(path.join(analysisDir, 'intelligence'), { recursive: true });
+    fs.writeFileSync(path.join(analysisDir, 'intelligence', 'a.md'), '# A');
+
+    await runAnalysisStage(buildTestFetchedData(), {
+      articleTypes: ['week-ahead'],
+      date: '2026-04-23',
+      outputDir: tempDir,
+      // articleTypeSlug intentionally omitted
+    });
+
+    const manifest = JSON.parse(fs.readFileSync(path.join(analysisDir, 'manifest.json'), 'utf-8'));
+    expect(manifest.articleType).toBe('week-ahead');
+    expect(manifest.files).toBeDefined();
   });
 
   it('should throw on invalid date format', async () => {
@@ -176,22 +330,28 @@ describe('runAnalysisStage', () => {
 
   it('should throw when requireData is true and no data', async () => {
     await expect(
-      runAnalysisStage({}, {
-        articleTypes: ['week-ahead'],
-        date: '2026-04-01',
-        outputDir: tempDir,
-        requireData: true,
-      })
+      runAnalysisStage(
+        {},
+        {
+          articleTypes: ['week-ahead'],
+          date: '2026-04-01',
+          outputDir: tempDir,
+          requireData: true,
+        }
+      )
     ).rejects.toThrow('no substantive EP data');
   });
 
   it('should succeed without data when requireData is false', async () => {
-    const ctx = await runAnalysisStage({}, {
-      articleTypes: ['week-ahead'],
-      date: '2026-04-01',
-      outputDir: tempDir,
-      requireData: false,
-    });
+    const ctx = await runAnalysisStage(
+      {},
+      {
+        articleTypes: ['week-ahead'],
+        date: '2026-04-01',
+        outputDir: tempDir,
+        requireData: false,
+      }
+    );
     expect(ctx.completedMethods.length).toBe(0);
   });
 

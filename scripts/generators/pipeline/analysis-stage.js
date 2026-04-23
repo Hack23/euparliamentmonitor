@@ -201,9 +201,66 @@ function validateAnalysisInputs(fetchedData, options) {
     }
 }
 /**
+ * Group discovered artifact relative paths by their first path segment.
+ *
+ * Produces the shape expected by
+ * `src/utils/validate-analysis-completeness.ts` — keys are subdirectory
+ * names (`intelligence`, `classification`, `risk-scoring`, `documents`,
+ * `threat-assessment`, `existing`, …) and values are the full relative
+ * paths. Root-level files (no `/`) are collected under the `root` key.
+ *
+ * Paths are normalised to POSIX separators (`/`) so that manifests are
+ * portable across OSes — on Windows, `path.relative` may emit `\` which
+ * would otherwise bucket every artifact under `root` and break the gate.
+ *
+ * A {@link Map} is used internally to sidestep generic object-injection
+ * lint warnings; the returned object is created via `Object.create(null)`
+ * so reserved keys (`__proto__`, `constructor`, `prototype`) cannot mutate
+ * `Object.prototype` even if a malicious or buggy subdir name appears on
+ * disk. As a defence-in-depth measure such names are also dropped before
+ * assignment.
+ *
+ * @param relativePaths - Artifact paths relative to the analysis dir.
+ * @returns `{ [subdir]: relativePath[] }` map, sorted alphabetically.
+ */
+const RESERVED_OBJECT_KEYS = new Set([
+    '__proto__',
+    'constructor',
+    'prototype',
+]);
+function groupFilesBySubdir(relativePaths) {
+    const groups = new Map();
+    for (const rel of relativePaths) {
+        const normalizedRel = rel.replaceAll('\\', '/');
+        const slashIdx = normalizedRel.indexOf('/');
+        const key = slashIdx === -1 ? 'root' : normalizedRel.slice(0, slashIdx);
+        if (RESERVED_OBJECT_KEYS.has(key))
+            continue;
+        const list = groups.get(key);
+        if (list) {
+            list.push(normalizedRel);
+        }
+        else {
+            groups.set(key, [normalizedRel]);
+        }
+    }
+    const out = Object.create(null);
+    for (const key of [...groups.keys()].sort()) {
+        const list = groups.get(key);
+        if (list)
+            out[key] = [...list].sort();
+    }
+    return out;
+}
+/**
  * Persist `manifest.json` (when absent) and append a `history[]` entry for
  * shared same-day folders. Kept separate so {@link runAnalysisStage} stays
  * under the cognitive-complexity limit.
+ *
+ * When the manifest already exists but is missing Stage-C-gate-required
+ * top-level fields (`articleType`, `files`), those fields are additively
+ * merged in — this completes a skeleton manifest written by an agent
+ * without clobbering any existing keys.
  *
  * @param manifestPath - Absolute path to the run's `manifest.json`
  * @param manifest - Manifest object to write when the file is absent
@@ -219,6 +276,9 @@ function persistAnalysisArtifacts(manifestPath, manifest, outputDirIsResolved, h
             // Non-fatal: manifest is informational
         }
     }
+    else {
+        augmentExistingManifest(manifestPath, manifest);
+    }
     if (!outputDirIsResolved)
         return;
     try {
@@ -226,6 +286,47 @@ function persistAnalysisArtifacts(manifestPath, manifest, outputDirIsResolved, h
     }
     catch {
         // Non-fatal: the history entry is additive metadata.
+    }
+}
+/**
+ * Additively fill in Stage-C-gate-required top-level fields (`articleType`,
+ * `files`) on an already-present manifest, leaving every other key
+ * untouched. This completes a skeleton manifest that an agent may have
+ * written with only partial metadata, so the completeness gate does not
+ * fail on "missing articleType" / "missing files".
+ *
+ * @param manifestPath - Absolute path to an existing `manifest.json`.
+ * @param manifest - Fully-populated manifest object used as the source of
+ *                   the missing fields.
+ */
+function augmentExistingManifest(manifestPath, manifest) {
+    try {
+        const raw = fs.readFileSync(manifestPath, 'utf-8');
+        const parsed = JSON.parse(raw);
+        if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed))
+            return;
+        const existing = parsed;
+        let changed = false;
+        if (manifest.articleType &&
+            (typeof existing['articleType'] !== 'string' || existing['articleType'].length === 0)) {
+            existing['articleType'] = manifest.articleType;
+            changed = true;
+        }
+        if (manifest.files &&
+            (!existing['files'] ||
+                typeof existing['files'] !== 'object' ||
+                Array.isArray(existing['files']))) {
+            existing['files'] = manifest.files;
+            changed = true;
+        }
+        if (changed) {
+            fs.writeFileSync(manifestPath, JSON.stringify(existing, null, 2), 'utf-8');
+        }
+    }
+    catch {
+        // Non-fatal: the existing manifest is unreadable/corrupt. Leave it
+        // alone — downstream validation will surface the error with full
+        // diagnostics rather than silently overwriting user data.
     }
 }
 /**
@@ -285,14 +386,26 @@ export async function runAnalysisStage(fetchedData, options) {
     }));
     const completedMethods = methods.map((m) => m.method);
     const endTime = new Date().toISOString();
+    const discoveredPaths = discoveredEntries.map((e) => e.outputFile);
+    const files = groupFilesBySubdir(discoveredPaths);
+    // Stage-C completeness gate (see `validate-analysis-completeness.ts:loadManifest`)
+    // requires top-level `articleType`. Fall back to a slug derived from
+    // `articleTypes[]` when the caller omitted `articleTypeSlug` so the gate
+    // is always green by default — matches the directory-resolution fallback
+    // performed by `computePreferredAnalysisDir` / `deriveArticleTypeSlug`.
+    const resolvedArticleType = articleTypeSlug && articleTypeSlug.length > 0
+        ? articleTypeSlug
+        : deriveArticleTypeSlug(articleTypes);
     const manifest = {
         runId,
         date,
-        articleTypeSlug,
+        articleType: resolvedArticleType,
+        articleTypeSlug: resolvedArticleType,
         startTime,
         endTime,
         articleTypes,
         methods,
+        files,
         overallConfidence: methods.length > 0 ? 'medium' : 'low',
         dataSourcesUsed: ['ai-agentic-workflow', 'filesystem-discovery'],
     };
@@ -303,7 +416,7 @@ export async function runAnalysisStage(fetchedData, options) {
         startedAt: startTime,
         finishedAt: endTime,
         gateResult,
-        filesWritten: discoveredEntries.map((e) => e.outputFile),
+        filesWritten: discoveredPaths,
     });
     if (verbose) {
         console.log(`🔬 Analysis discovery complete: ${methods.length} files found`);
