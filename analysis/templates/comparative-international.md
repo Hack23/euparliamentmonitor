@@ -194,11 +194,13 @@ xychart-beta
     title "Indicator Comparison (2019-2024)"
     x-axis [2019, 2020, 2021, 2022, 2023, 2024]
     y-axis "Indicator Value" 0 --> 100
-    line [65, 67, 70, 72, 75, 78] "EU Average"
-    line [70, 72, 75, 78, 80, 82] "Germany"
-    line [55, 58, 60, 63, 65, 68] "Poland"
-    line [75, 76, 78, 79, 80, 81] "United States"
+    line [65, 67, 70, 72, 75, 78]
+    line [70, 72, 75, 78, 80, 82]
+    line [55, 58, 60, 63, 65, 68]
+    line [75, 76, 78, 79, 80, 81]
 ```
+
+*Series order (top→bottom): EU Average · Germany · Poland · United States. Annotate the four series in surrounding prose or the Data Table below — `xychart-beta` does not render per-series labels.*
 
 ```markdown
 ### Data Table

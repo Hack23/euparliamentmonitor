@@ -380,6 +380,8 @@ Every article-generating workflow produces **every mandatory artifact in every m
 
 > **Note on optional `extended/` artifacts.** The 12 artifacts under `extended/` (executive-brief, devils-advocate-analysis, historical-parallels, coalition-mathematics, forward-indicators, intelligence-assessment, implementation-feasibility, media-framing-analysis, comparative-international, cross-reference-map, data-download-manifest, voter-segmentation) are **optional**, produced only after every mandatory artifact above has passed the completeness gate and recommended for long-form review / crisis / breaking deep runs — see [`../../.github/prompts/03-analysis-completeness-gate.md`](../../.github/prompts/03-analysis-completeness-gate.md) and [`artifact-catalog.md`](artifact-catalog.md#extended). They are **not gated by default** — but when registered in `manifest.files.extended[]` and present in [`reference-quality-thresholds.json`](reference-quality-thresholds.json), their line-floor thresholds and tradecraft signals are enforced.
 
+> **⚠️ This diagram is a category / count overview, not a canonical filename manifest.** The node labels below (`data-summary.md`, `network-analysis.md`, `temporal-analysis.md`, `sentiment-tracker.md`, `diamond-model.md`, `attack-tree.md`, `kill-chain-analysis.md`, `risk-register.md`, `political-temperature.md`, `stakeholder-perspectives.md`, `qualitygate-audit.md`, etc.) are the upstream riksdagsmonitor-origin category names; **several do not map 1:1 to files in [`../templates/`](../templates/)**. The authoritative per-artifact path → template mapping for the EU Parliament Monitor pipeline lives in [`artifact-catalog.md`](./artifact-catalog.md) and [`../templates/README.md`](../templates/README.md); consult those for the canonical filenames, and `per-artifact-methodologies.md` for construction rules.
+
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","errorBkgColor":"#D32F2F","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
 graph TB
@@ -551,46 +553,46 @@ Score your artifacts against this rubric before committing. Composite score **�
 
 ## 📘 Template-to-Artifact Index
 
-Every artifact this guide produces has a dedicated template in [`../templates/`](../templates/). Template names map 1:1 to artifact filenames.
+Artifacts produced by this guide are defined through the materials in [`../templates/`](../templates/). Where a dedicated per-artifact template file exists it is linked directly below; where no standalone file exists in this repository the artifact is **derived from shared / framework templates** (see [`../templates/README.md`](../templates/README.md) § Framework Templates) and the row is annotated accordingly rather than linked. The canonical path → template mapping for the EU pipeline is [`artifact-catalog.md`](./artifact-catalog.md).
 
 | Artifact Filename | Template | Family |
 |-------------------|----------|:------:|
-| `data-summary.md` | [`data-summary.md`](../templates/data-summary.md) | Intelligence |
+| `data-summary.md` | `data-summary.md` *(derived from framework templates; see `../templates/` index)* | Intelligence |
 | `cross-reference-map.md` | [`cross-reference-map.md`](../templates/cross-reference-map.md) | Intelligence |
-| `network-analysis.md` | [`network-analysis.md`](../templates/network-analysis.md) | Intelligence |
-| `temporal-analysis.md` | [`temporal-analysis.md`](../templates/temporal-analysis.md) | Intelligence |
+| `network-analysis.md` | `network-analysis.md` *(derived from framework templates)* | Intelligence |
+| `temporal-analysis.md` | `temporal-analysis.md` *(derived from framework templates)* | Intelligence |
 | `coalition-dynamics.md` | [`coalition-dynamics.md`](../templates/coalition-dynamics.md) | Intelligence |
-| `sentiment-tracker.md` | [`sentiment-tracker.md`](../templates/sentiment-tracker.md) | Intelligence |
+| `sentiment-tracker.md` | `sentiment-tracker.md` *(derived from framework templates)* | Intelligence |
 | `classification-results.md` | [`political-classification.md`](../templates/political-classification.md) | Classification |
 | `significance-scoring.md` | [`significance-scoring.md`](../templates/significance-scoring.md) | Classification |
-| `political-temperature.md` | [`political-temperature.md`](../templates/political-temperature.md) | Classification |
-| `strategic-significance.md` | [`strategic-significance.md`](../templates/strategic-significance.md) | Classification |
-| `coalition-impact-vector.md` | [`coalition-impact-vector.md`](../templates/coalition-impact-vector.md) | Classification |
+| `political-temperature.md` | `political-temperature.md` *(derived from framework templates)* | Classification |
+| `strategic-significance.md` | `strategic-significance.md` *(derived from framework templates)* | Classification |
+| `coalition-impact-vector.md` | `coalition-impact-vector.md` *(derived from framework templates)* | Classification |
 | `risk-assessment.md` | [`risk-assessment.md`](../templates/risk-assessment.md) | Risk-Scoring |
-| `risk-register.md` | [`risk-register.md`](../templates/risk-register.md) | Risk-Scoring |
-| `cascading-risk-analysis.md` | [`cascading-risk-analysis.md`](../templates/cascading-risk-analysis.md) | Risk-Scoring |
-| `risk-trajectory-tracking.md` | [`risk-trajectory-tracking.md`](../templates/risk-trajectory-tracking.md) | Risk-Scoring |
-| `risk-interconnection-map.md` | [`risk-interconnection-map.md`](../templates/risk-interconnection-map.md) | Risk-Scoring |
+| `risk-register.md` | `risk-register.md` *(derived from framework templates)* | Risk-Scoring |
+| `cascading-risk-analysis.md` | `cascading-risk-analysis.md` *(derived from framework templates)* | Risk-Scoring |
+| `risk-trajectory-tracking.md` | `risk-trajectory-tracking.md` *(derived from framework templates)* | Risk-Scoring |
+| `risk-interconnection-map.md` | `risk-interconnection-map.md` *(derived from framework templates)* | Risk-Scoring |
 | `swot-analysis.md` | [`swot-analysis.md`](../templates/swot-analysis.md) | Risk-Scoring |
 | `quantitative-swot.md` | [`quantitative-swot.md`](../templates/quantitative-swot.md) | Risk-Scoring |
-| `tows-strategies.md` | [`tows-strategies.md`](../templates/tows-strategies.md) | Risk-Scoring |
-| `power-interest-map.md` | [`power-interest-map.md`](../templates/power-interest-map.md) | Risk-Scoring |
+| `tows-strategies.md` | `tows-strategies.md` *(derived from framework templates)* | Risk-Scoring |
+| `power-interest-map.md` | `power-interest-map.md` *(derived from framework templates)* | Risk-Scoring |
 | `threat-analysis.md` | [`threat-analysis.md`](../templates/threat-analysis.md) | Threat-Assessment |
-| `diamond-model.md` | [`diamond-model.md`](../templates/diamond-model.md) | Threat-Assessment |
-| `kill-chain-analysis.md` | [`kill-chain-analysis.md`](../templates/kill-chain-analysis.md) | Threat-Assessment |
-| `attack-tree.md` | [`attack-tree.md`](../templates/attack-tree.md) | Threat-Assessment |
+| `diamond-model.md` | `diamond-model.md` *(derived from framework templates)* | Threat-Assessment |
+| `kill-chain-analysis.md` | `kill-chain-analysis.md` *(derived from framework templates)* | Threat-Assessment |
+| `attack-tree.md` | `attack-tree.md` *(derived from framework templates)* | Threat-Assessment |
 | `pestle-analysis.md` | [`pestle-analysis.md`](../templates/pestle-analysis.md) | Threat-Assessment |
-| `scenario-analysis.md` | [`scenario-analysis.md`](../templates/scenario-analysis.md) | Threat-Assessment |
+| `scenario-analysis.md` | [`scenario-forecast.md`](../templates/scenario-forecast.md) | Threat-Assessment |
 | `economic-context.md` | [`economic-context.md`](../templates/economic-context.md) | Threat-Assessment |
 | `stakeholder-perspectives.md` | [`stakeholder-impact.md`](../templates/stakeholder-impact.md) | Documents |
-| `legislative-timeline.md` | [`legislative-timeline.md`](../templates/legislative-timeline.md) | Documents |
+| `legislative-timeline.md` | `legislative-timeline.md` *(derived from framework templates)* | Documents |
 | `forward-indicators.md` | [`forward-indicators.md`](../templates/forward-indicators.md) | Documents |
 | `comparative-international.md` | [`comparative-international.md`](../templates/comparative-international.md) | Documents |
 | `historical-parallels.md` | [`historical-parallels.md`](../templates/historical-parallels.md) | Documents |
-| `devils-advocate.md` | [`devils-advocate.md`](../templates/devils-advocate.md) | Documents |
+| `devils-advocate.md` | [`devils-advocate-analysis.md`](../templates/devils-advocate-analysis.md) | Documents |
 | `intelligence-assessment.md` | [`intelligence-assessment.md`](../templates/intelligence-assessment.md) | Documents |
 | `methodology-reflection.md` | [`methodology-reflection.md`](../templates/methodology-reflection.md) | Documents |
-| `qualitygate-audit.md` | [`qualitygate-audit.md`](../templates/qualitygate-audit.md) | Documents |
+| `qualitygate-audit.md` | [`reference-analysis-quality.md`](../templates/reference-analysis-quality.md) | Documents |
 | `analysis-index.md` | [`analysis-index.md`](../templates/analysis-index.md) | Documents |
 | `executive-brief.md` | [`executive-brief.md`](../templates/executive-brief.md) | Documents |
 | `synthesis-summary.md` | [`synthesis-summary.md`](../templates/synthesis-summary.md) | Documents |

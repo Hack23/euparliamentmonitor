@@ -71,7 +71,7 @@ pie showData
 
 ### Coalition Scenario Template (repeat for each scenario)
 
-```markdown
+````markdown
 ### Scenario {N}: {Coalition Name}
 
 **Formula:** {Group 1} + {Group 2} + {Group 3} = {Total} seats
@@ -100,7 +100,7 @@ Margin: {sum - 361} seats (±{percentage}%)
 | {Group A} ↔ {Group B} | {Policy difference} | HIGH/MED/LOW |
 
 **Historical Precedent:** {Reference to when this coalition has/hasn't worked}
-```
+````
 
 ### Standard Coalition Scenarios
 

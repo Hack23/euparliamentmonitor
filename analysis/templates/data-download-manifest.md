@@ -214,7 +214,7 @@ This manifest documents all data collection activities for GDPR Article 30 compl
 
 **Required:** How to reproduce this data collection.
 
-```markdown
+````markdown
 ## Reproducibility Instructions
 
 To reproduce this data collection:
@@ -245,7 +245,7 @@ for (const country of ['DE', 'FR', 'IT', 'ES', 'PL']) {
 - Compare content hashes against inventory above
 - Expected data volume: {size}
 - Expected item count: {count}
-```
+````
 
 ## ✅ Quality Checklist
 
