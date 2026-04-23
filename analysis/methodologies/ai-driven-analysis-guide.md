@@ -19,7 +19,7 @@
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 5.0 | **📅 Last Updated:** 2026-04-21 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 6.0 | **📅 Last Updated:** 2026-04-21 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
@@ -156,7 +156,7 @@ Turn facts into quantified political risk.
 Turn quantified risk into forward-looking intelligence.
 
 1. Write `intelligence/threat-model.md` — Diamond Model + Attack Trees + Kill Chain on the period's top democratic threats (per [`political-threat-framework.md`](political-threat-framework.md)). Political threats only, never software-centric.
-2. Write `intelligence/political-threat-landscape.md` (the 6-dimension Threat Landscape view). For threat-heavy article types, also expand into `threat-assessment/actor-threat-profiles.md`, `threat-assessment/consequence-trees.md`, `threat-assessment/legislative-disruption.md`, and `threat-assessment/political-stride-assessment.md`.
+2. Write `intelligence/political-threat-landscape.md` (the 6-dimension Threat Landscape view using the 5-framework integrated methodology from `political-threat-framework.md`). For threat-heavy article types, also expand into `threat-assessment/actor-threat-profiles.md`, `threat-assessment/consequence-trees.md`, and `threat-assessment/legislative-disruption.md`.
 3. Write `intelligence/scenario-forecast.md` — ≥3 probability-weighted scenarios (baseline → branching `flowchart TD` in green / orange / red) with early-warning indicators and date-bounded triggers.
 4. Write `intelligence/pestle-analysis.md` — six-dimension (P·E·S·T·L·E) scan with pressure ratings.
 5. Write `intelligence/economic-context.md` using World Bank and / or IMF data (Wave-2 OR-gate — either source satisfies the requirement; see [`.github/skills/imf-data-integration.md`](../../.github/skills/imf-data-integration.md)). Bridge every indicator to a named EP policy topic from the run.
@@ -374,6 +374,269 @@ Translation fidelity rules:
 
 ---
 
+## 📂 The 39-Artifact Output Matrix
+
+Every article-generating workflow produces **every mandatory artifact in every mandatory family** — a stable 39-file output set plus per-document analyses. Mandatory artifacts are not trigger-driven; what varies is depth per item (based on DIW tier in `significance-scoring.md`), not which files exist.
+
+> **Note on optional `extended/` artifacts.** The 12 artifacts under `extended/` (executive-brief, devils-advocate-analysis, historical-parallels, coalition-mathematics, forward-indicators, intelligence-assessment, implementation-feasibility, media-framing-analysis, comparative-international, cross-reference-map, data-download-manifest, voter-segmentation) are **optional**, produced only after every mandatory artifact above has passed the completeness gate and recommended for long-form review / crisis / breaking deep runs — see [`../../.github/prompts/03-analysis-completeness-gate.md`](../../.github/prompts/03-analysis-completeness-gate.md) and [`artifact-catalog.md`](artifact-catalog.md#extended). They are **not gated by default** — but when registered in `manifest.files.extended[]` and present in [`reference-quality-thresholds.json`](reference-quality-thresholds.json), their line-floor thresholds and tradecraft signals are enforced.
+
+> **⚠️ This diagram is a category / count overview, not a canonical filename manifest.** The node labels below (`data-summary.md`, `network-analysis.md`, `temporal-analysis.md`, `sentiment-tracker.md`, `diamond-model.md`, `attack-tree.md`, `kill-chain-analysis.md`, `risk-register.md`, `political-temperature.md`, `stakeholder-perspectives.md`, `qualitygate-audit.md`, etc.) are the upstream riksdagsmonitor-origin category names; **several do not map 1:1 to files in [`../templates/`](../templates/)**. The authoritative per-artifact path → template mapping for the EU Parliament Monitor pipeline lives in [`artifact-catalog.md`](./artifact-catalog.md) and [`../templates/README.md`](../templates/README.md); consult those for the canonical filenames, and `per-artifact-methodologies.md` for construction rules.
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","errorBkgColor":"#D32F2F","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
+graph TB
+    subgraph Intelligence["📘 Intelligence (6 artifacts)"]
+        I1[data-summary.md]
+        I2[cross-reference-map.md]
+        I3[network-analysis.md]
+        I4[temporal-analysis.md]
+        I5[coalition-dynamics.md]
+        I6[sentiment-tracker.md]
+    end
+    
+    subgraph Classification["📗 Classification (5 artifacts)"]
+        C1[classification-results.md]
+        C2[significance-scoring.md]
+        C3[political-temperature.md]
+        C4[strategic-significance.md]
+        C5[coalition-impact-vector.md]
+    end
+    
+    subgraph RiskScoring["📙 Risk-Scoring (9 artifacts)"]
+        R1[risk-assessment.md]
+        R2[risk-register.md]
+        R3[cascading-risk-analysis.md]
+        R4[risk-trajectory-tracking.md]
+        R5[risk-interconnection-map.md]
+        R6[swot-analysis.md]
+        R7[quantitative-swot.md]
+        R8[tows-strategies.md]
+        R9[power-interest-map.md]
+    end
+    
+    subgraph ThreatAssessment["📕 Threat-Assessment (7 artifacts)"]
+        T1[threat-analysis.md]
+        T2[diamond-model.md]
+        T3[kill-chain-analysis.md]
+        T4[attack-tree.md]
+        T5[pestle-analysis.md]
+        T6[scenario-analysis.md]
+        T7[economic-context.md]
+    end
+    
+    subgraph Documents["📒 Documents (12 artifacts)"]
+        D1[stakeholder-perspectives.md]
+        D2[legislative-timeline.md]
+        D3[forward-indicators.md]
+        D4[comparative-international.md]
+        D5[historical-parallels.md]
+        D6[devils-advocate.md]
+        D7[intelligence-assessment.md]
+        D8[methodology-reflection.md ⭐]
+        D9[qualitygate-audit.md]
+        D10[analysis-index.md]
+        D11[executive-brief.md]
+        D12[synthesis-summary.md]
+    end
+    
+    style Intelligence fill:#1565C0,color:#FFFFFF
+    style Classification fill:#2E7D32,color:#FFFFFF
+    style RiskScoring fill:#FF9800,color:#000000
+    style ThreatAssessment fill:#D32F2F,color:#FFFFFF
+    style Documents fill:#7B1FA2,color:#FFFFFF
+```
+
+The **complete 39-artifact catalog** with templates, methodologies, and minimum-depth requirements lives in [`artifact-catalog.md`](artifact-catalog.md). Per-artifact construction rules live in [`per-artifact-methodologies.md`](per-artifact-methodologies.md).
+
+### ⭐ methodology-reflection.md — the vital run-audit file
+
+Of the 39 artifacts, `methodology-reflection.md` is the **critical run-audit gate**: it assesses evidence sufficiency, confidence distribution, source diversity, political-group neutrality, ICD 203 compliance, and names three concrete methodology improvements for the next cycle. A workflow that skips this artifact has no internal self-correction mechanism — treat its absence as a broken run.
+
+---
+
+## 🎨 Color-Coded Mermaid — Single Source of Truth
+
+**Every** Mermaid diagram in analysis artifacts uses this Hack23 7-color palette. No greyscale, no ad-hoc colors. Diagrams without color-coding fail the quality gate.
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","errorBkgColor":"#D32F2F","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
+graph LR
+    A["🔴 CRITICAL / RESTRICTED<br/>#D32F2F"] --> B["🟠 HIGH / URGENT<br/>#FF9800"]
+    B --> C["🟡 MEDIUM / ELEVATED<br/>#FFC107"]
+    C --> D["🟢 LOW / ROUTINE<br/>#2E7D32"]
+    D --> E["🔵 INFORMATIONAL<br/>#1565C0"]
+    E --> F["🟣 STRATEGIC / SPECIAL<br/>#7B1FA2"]
+    F --> G["⚫ CARRY-FORWARD / STALE<br/>#9E9E9E"]
+
+    style A fill:#D32F2F,color:#FFFFFF
+    style B fill:#FF9800,color:#FFFFFF
+    style C fill:#FFC107,color:#000000
+    style D fill:#2E7D32,color:#FFFFFF
+    style E fill:#1565C0,color:#FFFFFF
+    style F fill:#7B1FA2,color:#FFFFFF
+    style G fill:#9E9E9E,color:#FFFFFF
+```
+
+| Semantic Role | Hex | Text Color | Use For |
+|--------------|-----|:----------:|---------|
+| **Critical / Restricted** | `#D32F2F` | `#FFFFFF` | Top-risk nodes, grand-coalition fractures, Article 7 proceedings, Treaty crises |
+| **High / Urgent** | `#FF9800` | `#FFFFFF` | High L×I risks, P1 documents, time-sensitive triggers, emergency debates |
+| **Medium / Elevated** | `#FFC107` | `#000000` | P2 documents, elevated scrutiny, significant abstentions, trilogue breakdowns |
+| **Low / Routine** | `#2E7D32` | `#FFFFFF` | P3 documents, coalition strengths, resolved risks, consensus votes |
+| **Informational** | `#1565C0` | `#FFFFFF` | Inputs, data sources, neutral events, published reports |
+| **Strategic / Special** | `#7B1FA2` | `#FFFFFF` | Synthesis nodes, cross-links, opportunity nodes, long-term strategic implications |
+| **Carry-forward / Stale** | `#9E9E9E` | `#FFFFFF` | Carry-forward items, expired evidence (>180 days), empty-day placeholders |
+
+**SWOT quadrant charts** additionally use: **Strengths** `#2E7D32` · **Weaknesses** `#D32F2F` · **Opportunities** `#1565C0` · **Threats** `#FF9800` (aligned with [ISMS SWOT.md](../../SWOT.md)).
+
+**Accessibility note:** All Mermaid diagrams must pass WCAG 2.1 AA contrast requirements (4.5:1 for normal text, 3:1 for large text). The palette above meets this when text colors are correctly set.
+
+---
+
+## 🎯 5-Level Confidence Scale
+
+Every analytical claim in every artifact carries one of these confidence labels. Use the **highest** level whose evidence threshold is fully met. Unlabeled claims fail the quality gate.
+
+| Level | Label | Evidence Required | Applies To |
+|:-----:|-------|-------------------|------------|
+| ⬛ 1 | **VERY LOW** | 0–1 source, no corroboration | Speculation, pattern hypotheses, emerging signals |
+| 🟥 2 | **LOW** | 2 sources, indirect evidence | Circumstantial claims, emerging patterns, unconfirmed reports |
+| 🟧 3 | **MEDIUM** | ≥ 3 sources with moderate agreement | Partial records, reported intent, committee deliberations |
+| 🟩 4 | **HIGH** | Official records (EP Open Data, voting records, committee reports, adopted texts) | Documented facts from primary EP sources |
+| 🟦 5 | **VERY HIGH** | Multiple official sources + cross-validation + expert consensus | Verified, cross-corroborated statements with full documentation |
+
+### Confidence Ceilings by Data Depth
+
+The confidence ceiling is determined by the **data depth** field recorded in `data-summary.md` during Step 3:
+
+- **FULL-TEXT** document (complete text available via EP MCP) → up to **VERY HIGH** (🟦 5)
+- **SUMMARY-only** document (metadata + abstract only) → cap at **MEDIUM** (🟧 3)
+- **METADATA-only** document (title + date + sponsor only) → cap at **LOW** (🟥 2)
+
+### Admiralty Code Integration
+
+Confidence labels pair with **Admiralty Code** source grading `[A–F][1–6]` per [`osint-tradecraft-standards.md`](osint-tradecraft-standards.md). Example notation: **HIGH [B2]** = high-confidence claim, source reliability B (usually reliable), information credibility 2 (probably true).
+
+---
+
+## ✅ Quality Gate Checklist (run before every commit)
+
+Score your artifacts against this rubric before committing. Composite score **≥ 7.0 required** to pass. Any single dimension below its floor triggers revision regardless of composite score.
+
+| # | Check | What Passes |
+|:-:|-------|-------------|
+| 1 | **Header block** present on every `.md` | Hack23 logo + title + owner/version/date/classification badges |
+| 2 | **≥ 1 color-coded Mermaid** per artifact, ≥ 2 for synthesis files | Uses the 7-color palette above with `style` directives; passes WCAG 2.1 AA contrast |
+| 3 | **≥ 1 evidence table** with `Evidence`, `Confidence`, `Impact` columns | Evidence column cites EP document ID, voting record, or primary URL |
+| 4 | **Every claim labeled** with confidence from 5-level scale | No unlabeled assertions; confidence ceiling respected per data depth |
+| 5 | **All templates followed** | Template section order preserved; metadata block + document-control footer present |
+| 6 | **No placeholder tokens** | All `[REQUIRED]`, `[OPTIONAL]`, `TODO`, `TBD`, `[AI_ANALYSIS_REQUIRED]` replaced with real content |
+| 7 | **Politicians named with group** on first mention | `Ursula von der Leyen (EPP)`, `Roberta Metsola (EPP)`, `Iratxe García (S&D)` |
+| 8 | **Forward indicators dated** | Specific plenary dates, committee votes, trilogue rounds — not "1–2 weeks" |
+| 9 | **Folder isolation** respected | `git status` shows only `analysis/daily/${DATE}/${ARTICLE_TYPE_SLUG}-run${RUN_ID}/` paths |
+| 10 | **Pass-2 rewrite applied** | Every section measurably improved vs. first pass (Step 9 protocol) |
+
+### Rubric Dimensions (for composite scoring)
+
+| Dimension | Weight | Minimum Pass | What to Check |
+|-----------|:------:|:------------:|---------------|
+| 📎 **Evidence** | 25% | 7.0 | Every claim cites EP doc-ID, vote count, named MEP, or primary URL; Admiralty annotation on evidence rows |
+| 📐 **Depth** | 25% | 7.0 | Depth tier met (per [`reference-quality-thresholds.json`](reference-quality-thresholds.json)); frameworks applied; forward indicators present |
+| 📋 **Structural** | 20% | 7.0 | Templates followed; Mermaid color-coded; metadata + document-control blocks |
+| 🎯 **Actionable** | 15% | 6.0 | Dated triggers, thresholds, explicit "what to watch next" |
+| ⚖️ **Neutrality** | 15% | 6.0 | Balanced coverage across political groups; every assessment labeled by group |
+| 📐 **ICD 203 Compliance** | — | Pass | All 9 ICD 203 standards met (audited in `methodology-reflection.md`) |
+
+**ICD 203 compliance is a hard pass/fail gate.** The 9 standards are detailed in [`osint-tradecraft-standards.md`](osint-tradecraft-standards.md) § ICD 203.
+
+---
+
+## 📘 Template-to-Artifact Index
+
+Artifacts produced by this guide are defined through the materials in [`../templates/`](../templates/). Where a dedicated per-artifact template file exists it is linked directly below; where no standalone file exists in this repository the artifact is **derived from shared / framework templates** (see [`../templates/README.md`](../templates/README.md) § Framework Templates) and the row is annotated accordingly rather than linked. The canonical path → template mapping for the EU pipeline is [`artifact-catalog.md`](./artifact-catalog.md).
+
+| Artifact Filename | Template | Family |
+|-------------------|----------|:------:|
+| `data-summary.md` | `data-summary.md` *(derived from framework templates; see `../templates/` index)* | Intelligence |
+| `cross-reference-map.md` | [`cross-reference-map.md`](../templates/cross-reference-map.md) | Intelligence |
+| `network-analysis.md` | `network-analysis.md` *(derived from framework templates)* | Intelligence |
+| `temporal-analysis.md` | `temporal-analysis.md` *(derived from framework templates)* | Intelligence |
+| `coalition-dynamics.md` | [`coalition-dynamics.md`](../templates/coalition-dynamics.md) | Intelligence |
+| `sentiment-tracker.md` | `sentiment-tracker.md` *(derived from framework templates)* | Intelligence |
+| `classification-results.md` | [`political-classification.md`](../templates/political-classification.md) | Classification |
+| `significance-scoring.md` | [`significance-scoring.md`](../templates/significance-scoring.md) | Classification |
+| `political-temperature.md` | `political-temperature.md` *(derived from framework templates)* | Classification |
+| `strategic-significance.md` | `strategic-significance.md` *(derived from framework templates)* | Classification |
+| `coalition-impact-vector.md` | `coalition-impact-vector.md` *(derived from framework templates)* | Classification |
+| `risk-assessment.md` | [`risk-assessment.md`](../templates/risk-assessment.md) | Risk-Scoring |
+| `risk-register.md` | `risk-register.md` *(derived from framework templates)* | Risk-Scoring |
+| `cascading-risk-analysis.md` | `cascading-risk-analysis.md` *(derived from framework templates)* | Risk-Scoring |
+| `risk-trajectory-tracking.md` | `risk-trajectory-tracking.md` *(derived from framework templates)* | Risk-Scoring |
+| `risk-interconnection-map.md` | `risk-interconnection-map.md` *(derived from framework templates)* | Risk-Scoring |
+| `swot-analysis.md` | [`swot-analysis.md`](../templates/swot-analysis.md) | Risk-Scoring |
+| `quantitative-swot.md` | [`quantitative-swot.md`](../templates/quantitative-swot.md) | Risk-Scoring |
+| `tows-strategies.md` | `tows-strategies.md` *(derived from framework templates)* | Risk-Scoring |
+| `power-interest-map.md` | `power-interest-map.md` *(derived from framework templates)* | Risk-Scoring |
+| `threat-analysis.md` | [`threat-analysis.md`](../templates/threat-analysis.md) | Threat-Assessment |
+| `diamond-model.md` | `diamond-model.md` *(derived from framework templates)* | Threat-Assessment |
+| `kill-chain-analysis.md` | `kill-chain-analysis.md` *(derived from framework templates)* | Threat-Assessment |
+| `attack-tree.md` | `attack-tree.md` *(derived from framework templates)* | Threat-Assessment |
+| `pestle-analysis.md` | [`pestle-analysis.md`](../templates/pestle-analysis.md) | Threat-Assessment |
+| `scenario-analysis.md` | [`scenario-forecast.md`](../templates/scenario-forecast.md) | Threat-Assessment |
+| `economic-context.md` | [`economic-context.md`](../templates/economic-context.md) | Threat-Assessment |
+| `stakeholder-perspectives.md` | [`stakeholder-impact.md`](../templates/stakeholder-impact.md) | Documents |
+| `legislative-timeline.md` | `legislative-timeline.md` *(derived from framework templates)* | Documents |
+| `forward-indicators.md` | [`forward-indicators.md`](../templates/forward-indicators.md) | Documents |
+| `comparative-international.md` | [`comparative-international.md`](../templates/comparative-international.md) | Documents |
+| `historical-parallels.md` | [`historical-parallels.md`](../templates/historical-parallels.md) | Documents |
+| `devils-advocate.md` | [`devils-advocate-analysis.md`](../templates/devils-advocate-analysis.md) | Documents |
+| `intelligence-assessment.md` | [`intelligence-assessment.md`](../templates/intelligence-assessment.md) | Documents |
+| `methodology-reflection.md` | [`methodology-reflection.md`](../templates/methodology-reflection.md) | Documents |
+| `qualitygate-audit.md` | [`reference-analysis-quality.md`](../templates/reference-analysis-quality.md) | Documents |
+| `analysis-index.md` | [`analysis-index.md`](../templates/analysis-index.md) | Documents |
+| `executive-brief.md` | [`executive-brief.md`](../templates/executive-brief.md) | Documents |
+| `synthesis-summary.md` | [`synthesis-summary.md`](../templates/synthesis-summary.md) | Documents |
+
+Full template catalog with usage notes: [`../templates/README.md`](../templates/README.md).
+
+---
+
+## 📎 EP Document-Type → Primary Analytical Frameworks
+
+Use this mapping to determine which frameworks receive the most depth for each EP document type. All document types pass through all 39 artifacts; this matrix indicates where to allocate Pass-2 enhancement time.
+
+| EP Document Type | MCP Source Tool | Primary Frameworks | Key MCP Cross-Reference Tools |
+|-----------------|-----------------|--------------------|-----------------------------|
+| 🏛️ **Committee Reports** | `get_committee_documents` | Classification + Risk + SWOT + Threat | `get_committee_documents`, `get_voting_records`, `get_mep_details` |
+| 📜 **Legislative Proposals** (Commission) | `search_documents` (type=PROPOSAL) | Risk + Stakeholder + Economic-Context | `search_documents`, `get_procedures`, `get_adopted_texts` |
+| ✊ **MEP Questions** (oral/written) | `get_parliamentary_questions` | Classification + SWOT + Coalition-Dynamics | `get_parliamentary_questions`, `get_mep_details`, `get_speeches` |
+| 🗳️ **Plenary Votes** (roll-call) | `get_voting_records` | Classification + SWOT + Coalition-Dynamics + Threat | `get_voting_records`, `analyze_voting_patterns`, `detect_voting_anomalies` |
+| 🎤 **Plenary Speeches** | `get_speeches` | Stakeholder + Sentiment-Tracker + Significance | `get_speeches`, `get_mep_details`, `analyze_coalition_dynamics` |
+| 📅 **Plenary Sessions** | `get_plenary_sessions` | Significance + Forward-Indicators | `get_plenary_sessions`, `get_meeting_activities`, `get_meeting_decisions` |
+| 💰 **Budget / MFF** | `search_documents` (type=BUDGET) | Risk + Economic-Context + Scenario-Analysis + EP-2029-Lens | `search_documents`, World Bank, IMF, Eurostat |
+| 🛡️ **CFSP / Security** | Mixed (AFET/SEDE documents) | Threat + Comparative-International + Scenario-Analysis | `search_documents`, `get_committee_info`, World Bank |
+| 📋 **Adopted Texts** | `get_adopted_texts` | Classification + Significance + Legislative-Timeline | `get_adopted_texts`, `get_procedures`, `track_legislation` |
+| 🔄 **Legislative Procedures** | `get_procedures` | Risk + Legislative-Timeline + Forward-Indicators | `get_procedures`, `get_procedure_events`, `track_legislation` |
+
+---
+
+## 🔐 ISMS Alignment
+
+This 10-step protocol operates under [Hack23 ISMS-PUBLIC](https://github.com/Hack23/ISMS-PUBLIC):
+
+| ISMS Policy | How This Guide Applies It |
+|-------------|--------------------------|
+| [Information_Security_Policy.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md) | Scope, roles, accountability for all analysis outputs; classification per CLASSIFICATION.md |
+| [AI_Policy.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Policy.md) | AI-driven content with human-in-the-loop editorial review; AI limitations documented in `methodology-reflection.md` |
+| [CLASSIFICATION.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) | All outputs classified Public; sensitive-inference analyses routed per policy; political-group-neutrality enforced |
+| [Threat_Modeling.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md) | `threat-analysis.md` applies the political adaptation with EP-specific threat taxonomy |
+| [Secure_Development_Policy.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | Script/AI separation: scripts download & render, AI produces analysis; no secrets in analysis artifacts |
+| [STYLE_GUIDE.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/STYLE_GUIDE.md) | SWOT quadrant palette, evidence-table conventions, Mermaid color standards, emoji usage |
+
+Every security-relevant control maps to **ISO 27001:2022**, **NIST CSF 2.0**, **CIS Controls v8.1**, **GDPR Article 6(1)(f) + Article 9(2)(g)**, **NIS2 Directive**, and **EU Cyber Resilience Act (CRA)**.
+
+---
+
 ## 🔗 Related Documents
 
 - [`artifact-catalog.md`](artifact-catalog.md) — master map of every artifact this guide produces
@@ -393,5 +656,5 @@ Translation fidelity rules:
 **Document Control:**
 - **Path:** `/analysis/methodologies/ai-driven-analysis-guide.md`
 - **Classification:** Public
-- **Version:** 5.0 — Simplified from v4.5 (1 519 lines, Rules 1–22, extensive anti-pattern galleries) to a positive 10-step protocol that delegates artifact detail to [`artifact-catalog.md`](artifact-catalog.md) and [`per-artifact-methodologies.md`](per-artifact-methodologies.md). Legacy Rule 1–22 numbers remain traceable via the Core Principles mapping table.
+- **Version:** 6.0 — Enhanced from v5.0 with riksdagsmonitor methodology improvements: added 39-artifact Output Matrix, Color-Coded Mermaid palette (Hack23 7-color), 5-Level Confidence Scale with Admiralty integration, Quality Gate Checklist with ICD 203 compliance gate, Template-to-Artifact Index (39 templates mapped), EP Document-Type → Primary Frameworks mapping, and ISMS Alignment section. Ported and adapted from [riksdagsmonitor ai-driven-analysis-guide v6.4](https://github.com/Hack23/riksdagsmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md).
 - **Next Review:** 2026-06-30

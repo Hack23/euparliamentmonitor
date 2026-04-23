@@ -48,6 +48,30 @@ catalog. The validator enforces:
 10. `workflow-audit.md` and `methodology-reflection.md` are present as the
     final two artifacts of the run (see `ai-driven-analysis-guide.md` Step 10.5).
 
+### Optional — `extended/` artifacts (not required by default)
+
+Artifacts written to `${ANALYSIS_DIR}/extended/` are **not required** for a
+green gate by default. They are recommended for long-form review workflows and
+crisis / breaking deep runs. Produce them only after every mandatory artifact
+above has passed. If you register them in `manifest.files.extended[]` and they
+have entries in
+[`reference-quality-thresholds.json`](../../analysis/methodologies/reference-quality-thresholds.json),
+the validator may enforce the corresponding checks (including per-artifact line
+floors).
+
+The 12 extended artifacts are: `executive-brief`, `devils-advocate-analysis`,
+`historical-parallels`, `coalition-mathematics`, `forward-indicators`,
+`intelligence-assessment`, `implementation-feasibility`, `media-framing-analysis`,
+`comparative-international`, `cross-reference-map`, `data-download-manifest`,
+`voter-segmentation`. Construction rules: see
+[`per-artifact-methodologies.md §extended`](../../analysis/methodologies/per-artifact-methodologies.md)
+and the dedicated methodologies
+([synthesis](../../analysis/methodologies/synthesis-methodology.md),
+[strategic-extensions](../../analysis/methodologies/strategic-extensions-methodology.md),
+[per-document](../../analysis/methodologies/per-document-methodology.md),
+[structural-metadata](../../analysis/methodologies/structural-metadata-methodology.md),
+[electoral-domain](../../analysis/methodologies/electoral-domain-methodology.md)).
+
 ## 3 · Pre-Flight Checklist (one-shot)
 
 Before calling the validator:
