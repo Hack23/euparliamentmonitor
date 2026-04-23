@@ -32,12 +32,22 @@ import { escapeHTML } from '../utils/file-utils.js';
 /** GitHub repository slug used to build blob/tree links for analysis artifacts */
 const GITHUB_REPO = 'Hack23/euparliamentmonitor';
 
-/** GitHub blob URL for a file within the main branch */
+/**
+ * Build a GitHub blob URL (single file) on the main branch.
+ *
+ * @param relPath - Path relative to the repository root
+ * @returns Absolute GitHub blob URL
+ */
 function githubBlobUrl(relPath: string): string {
   return `https://github.com/${GITHUB_REPO}/blob/main/${relPath.replace(/\\/g, '/')}`;
 }
 
-/** GitHub tree URL for a directory within the main branch */
+/**
+ * Build a GitHub tree URL (directory) on the main branch.
+ *
+ * @param relPath - Path relative to the repository root
+ * @returns Absolute GitHub tree URL
+ */
 function githubTreeUrl(relPath: string): string {
   return `https://github.com/${GITHUB_REPO}/tree/main/${relPath.replace(/\\/g, '/')}`;
 }
@@ -148,17 +158,21 @@ const DEFAULT_COPY: PICopy = {
 };
 
 /** Per-language overrides; fall back to English for any missing key */
-const PI_COPY: Partial<Record<string, Partial<PICopy>>> = {
+const PI_COPY: Partial<Record<string, Partial<PICopy>>> = (() => {
+  const SV_METHODOLOGIES = 'Metodologier';
+  const NO_METHODOLOGIES = 'Metodologier';
+  const ARTEFAKTER_COUNT = '{count} artefakter';
+  return {
   en: {},
   sv: {
     title: 'Politisk underrättelse',
     intro:
       'Varje politisk analys som publiceras på denna webbplats stöds av en transparent kedja av metodologier, artefaktmallar och analysdata på körningsnivå. Denna sida ger dig ett enda, fullt länkat index till all tradecraft som används för att producera nyheterna. Alla källor öppnas i GitHub så att du kan granska analysen bakom texten.',
-    heroSubtitle: 'Metodologier, mallar och daglig analysöppenhet',
+    heroSubtitle: `${SV_METHODOLOGIES}, mallar och daglig analysöppenhet`,
     home: 'Hem',
     breadcrumbCurrent: 'Politisk underrättelse',
     breadcrumbLabel: 'Brödsmulor',
-    methodologiesHeading: 'Metodologier',
+    methodologiesHeading: SV_METHODOLOGIES,
     methodologiesDescription:
       'Auktoritativa tradecraft-guider — riskramverk, stilstandarder och det 10-stegs AI-drivna analysprotokollet som varje artikel följer.',
     templatesHeading: 'Analysmallar',
@@ -167,12 +181,12 @@ const PI_COPY: Partial<Record<string, Partial<PICopy>>> = {
     dailyHeading: 'Dagliga analyskörningar',
     dailyDescription:
       'Varje publicerad analyskörning, grupperad efter datum och ordnad med nyaste först. Varje körning länkar till hela GitHub-trädet så att du kan granska varje artefaktfil som matade motsvarande artikel.',
-    statMethodologiesLabel: 'Metodologier',
+    statMethodologiesLabel: SV_METHODOLOGIES,
     statTemplatesLabel: 'Mallar',
     statRunsLabel: 'Analyskörningar',
     statArtifactsLabel: 'Artefakter',
     viewOnGitHub: 'Visa på GitHub',
-    artifactCountLabel: '{count} artefakter',
+    artifactCountLabel: ARTEFAKTER_COUNT,
     runsCountLabel: '{count} körningar',
   },
   da: {
@@ -197,18 +211,18 @@ const PI_COPY: Partial<Record<string, Partial<PICopy>>> = {
     statRunsLabel: 'Analysekørsler',
     statArtifactsLabel: 'Artefakter',
     viewOnGitHub: 'Vis på GitHub',
-    artifactCountLabel: '{count} artefakter',
+    artifactCountLabel: ARTEFAKTER_COUNT,
     runsCountLabel: '{count} kørsler',
   },
   no: {
     title: 'Politisk etterretning',
     intro:
       'Hver politiske analyse som publiseres på dette nettstedet støttes av en transparent kjede av metodologier, artefaktmaler og kjøringsnivå-analysedata. Denne siden gir deg en enkelt, fullt lenket indeks til alt håndverket som brukes for å produsere nyhetene.',
-    heroSubtitle: 'Metodologier, maler og daglig analyseåpenhet',
+    heroSubtitle: `${NO_METHODOLOGIES}, maler og daglig analyseåpenhet`,
     home: 'Hjem',
     breadcrumbCurrent: 'Politisk etterretning',
     breadcrumbLabel: 'Brødsmuler',
-    methodologiesHeading: 'Metodologier',
+    methodologiesHeading: NO_METHODOLOGIES,
     methodologiesDescription:
       'Autoritative tradecraft-guider — risikorammer, stilstandarder og den 10-stegs AI-drevne analyseprotokollen som hver artikkel følger.',
     templatesHeading: 'Analysemaler',
@@ -217,12 +231,12 @@ const PI_COPY: Partial<Record<string, Partial<PICopy>>> = {
     dailyHeading: 'Daglige analysekjøringer',
     dailyDescription:
       'Hver publiserte analysekjøring, gruppert etter dato og sortert nyeste først. Hver kjøring lenker til hele GitHub-treet.',
-    statMethodologiesLabel: 'Metodologier',
+    statMethodologiesLabel: NO_METHODOLOGIES,
     statTemplatesLabel: 'Maler',
     statRunsLabel: 'Analysekjøringer',
     statArtifactsLabel: 'Artefakter',
     viewOnGitHub: 'Vis på GitHub',
-    artifactCountLabel: '{count} artefakter',
+    artifactCountLabel: ARTEFAKTER_COUNT,
     runsCountLabel: '{count} kjøringer',
   },
   fi: {
@@ -475,7 +489,8 @@ const PI_COPY: Partial<Record<string, Partial<PICopy>>> = {
     artifactCountLabel: '{count} 个工件',
     runsCountLabel: '{count} 次运行',
   },
-};
+  };
+})();
 
 /**
  * Resolve the localized copy for the political-intelligence page, merging
@@ -485,134 +500,260 @@ const PI_COPY: Partial<Record<string, Partial<PICopy>>> = {
  * @returns Fully-populated {@link PICopy}
  */
 function getPICopy(lang: string): PICopy {
+  // eslint-disable-next-line security/detect-object-injection
   const overrides = PI_COPY[lang] ?? {};
   return { ...DEFAULT_COPY, ...overrides };
 }
+
+/**
+ * Ordered icon-matching table for analysis documents. Each entry maps a list
+ * of lowercase substring hints to a single emoji; the first hint that matches
+ * the stem wins. Kept as data so complexity stays low.
+ */
+const DOCUMENT_ICON_RULES: readonly [readonly string[], string][] = [
+  [['readme'], '📘'],
+  [['swot'], '🧭'],
+  [['pestle'], '🌍'],
+  [['threat'], '⚠️'],
+  [['risk'], '📊'],
+  [['coalition'], '🤝'],
+  [['actor'], '👥'],
+  [['impact'], '💥'],
+  [['economic', 'imf', 'worldbank'], '💶'],
+  [['timeline', 'historical'], '🕰️'],
+  [['methodology', 'guide', 'style'], '🧭'],
+  [['classification'], '🏷️'],
+  [['intelligence'], '🔍'],
+  [['network'], '🕸️'],
+  [['velocity', 'legislative'], '⚖️'],
+  [['consequence'], '🌿'],
+  [['disruption'], '🌀'],
+  [['reflection'], '🪞'],
+  [['reliability', 'audit'], '✅'],
+  [['forces'], '⚔️'],
+  [['osint', 'tradecraft'], '🕵️'],
+  [['catalog'], '📚'],
+  [['capital'], '💼'],
+  [['cross-session', 'cross-run'], '🔁'],
+  [['per-file', 'per-artifact'], '🗂️'],
+  [['artifact'], '📋'],
+];
 
 /**
  * Heuristically pick an icon for an analysis document/slug. The icons are
  * chosen to visually differentiate the most common artifact types without
  * depending on a heavy icon library.
  *
- * @param stem - File/directory name stem in lowercase
+ * @param stem - File/directory name stem (will be lowercased internally)
  * @returns A single emoji character
  */
 export function pickDocumentIcon(stem: string): string {
   const s = stem.toLowerCase();
-  if (s.includes('readme')) return '📘';
-  if (s.includes('swot')) return '🧭';
-  if (s.includes('pestle')) return '🌍';
-  if (s.includes('threat')) return '⚠️';
-  if (s.includes('risk')) return '📊';
-  if (s.includes('coalition')) return '🤝';
-  if (s.includes('actor')) return '👥';
-  if (s.includes('impact')) return '💥';
-  if (s.includes('economic') || s.includes('imf') || s.includes('worldbank')) return '💶';
-  if (s.includes('timeline') || s.includes('historical')) return '🕰️';
-  if (s.includes('methodology') || s.includes('guide') || s.includes('style')) return '🧭';
-  if (s.includes('classification')) return '🏷️';
-  if (s.includes('intelligence')) return '🔍';
-  if (s.includes('network')) return '🕸️';
-  if (s.includes('velocity') || s.includes('legislative')) return '⚖️';
-  if (s.includes('consequence')) return '🌿';
-  if (s.includes('disruption')) return '🌀';
-  if (s.includes('reflection')) return '🪞';
-  if (s.includes('reliability') || s.includes('audit')) return '✅';
-  if (s.includes('forces')) return '⚔️';
-  if (s.includes('artifact')) return '📋';
-  if (s.includes('osint') || s.includes('tradecraft')) return '🕵️';
-  if (s.includes('catalog')) return '📚';
-  if (s.includes('capital')) return '💼';
-  if (s.includes('cross-session') || s.includes('cross-run')) return '🔁';
-  if (s.includes('per-file') || s.includes('per-artifact')) return '🗂️';
+  for (const [hints, icon] of DOCUMENT_ICON_RULES) {
+    if (hints.some((h) => s.includes(h))) {
+      return icon;
+    }
+  }
   return '📄';
 }
 
-/** Pick an icon for a daily run based on its slug prefix (e.g. breaking, motions) */
+/** Ordered slug-prefix → icon rules for daily runs. */
+const RUN_ICON_RULES: readonly [readonly string[], string][] = [
+  [['breaking'], '🚨'],
+  [['week-ahead', 'month-ahead', 'year-ahead'], '🔭'],
+  [['week-in-review', 'weekly-review'], '📅'],
+  [['month-in-review', 'monthly-review'], '🗓️'],
+  [['year-in-review'], '📜'],
+  [['motions'], '🗳️'],
+  [['propositions'], '⚖️'],
+  [['committee-reports', 'committee'], '🏛️'],
+  [['translate'], '🌐'],
+  [['deep'], '🔬'],
+];
+
+/**
+ * Pick an icon for a daily run based on its slug prefix.
+ *
+ * @param slug - Run slug such as `breaking-run190` or `motions-run46`
+ * @returns A single emoji character
+ */
 export function pickRunIcon(slug: string): string {
   const s = slug.toLowerCase();
-  if (s.startsWith('breaking')) return '🚨';
-  if (s.startsWith('week-ahead') || s.startsWith('month-ahead') || s.startsWith('year-ahead')) return '🔭';
-  if (s.startsWith('week-in-review') || s.startsWith('weekly-review')) return '📅';
-  if (s.startsWith('month-in-review') || s.startsWith('monthly-review')) return '🗓️';
-  if (s.startsWith('year-in-review')) return '📜';
-  if (s.startsWith('motions')) return '🗳️';
-  if (s.startsWith('propositions')) return '⚖️';
-  if (s.startsWith('committee-reports') || s.startsWith('committee')) return '🏛️';
-  if (s.startsWith('translate')) return '🌐';
-  if (s.startsWith('deep')) return '🔬';
+  for (const [prefixes, icon] of RUN_ICON_RULES) {
+    if (prefixes.some((p) => s.startsWith(p))) {
+      return icon;
+    }
+  }
   return '📂';
+}
+
+/**
+ * Strip a leading emoji token (and trailing whitespace) from a heading line,
+ * repeatedly, so headings like `🚀 ⚠️ Risk Scoring` become `Risk Scoring`.
+ *
+ * The implementation peels the string character-by-character via
+ * `String.prototype[Symbol.iterator]` to correctly handle astral-plane
+ * pictographics, VS-16 (`\uFE0F`), and ZWJ sequences — without the nested
+ * quantifier patterns that would trigger `security/detect-unsafe-regex`.
+ *
+ * @param text - Heading text (without the leading `# `)
+ * @returns Trimmed text with any leading emoji tokens removed
+ */
+function stripLeadingEmoji(text: string): string {
+  const isPictographic = /\p{Extended_Pictographic}/u;
+  const isModifier = /[\uFE0F\u200D]/u;
+  const chars = [...text]; // iterates by Unicode code point
+  let i = 0;
+  for (const ch of chars) {
+    if (isPictographic.test(ch) || isModifier.test(ch) || /\s/.test(ch)) {
+      i++;
+      continue;
+    }
+    break;
+  }
+  return chars.slice(i).join('').trim();
+}
+
+/**
+ * Extract the first `# H1` heading from a list of lines.
+ *
+ * @param lines - Markdown source split on newlines
+ * @param fallback - Value returned when no H1 is found
+ * @returns Extracted heading text or the fallback
+ */
+function extractH1Title(lines: string[], fallback: string): string {
+  for (const line of lines) {
+    const h1 = /^#\s+(.+?)\s*$/.exec(line);
+    if (h1?.[1]) {
+      return stripLeadingEmoji(h1[1]);
+    }
+  }
+  return fallback;
+}
+
+/** Lines that the first-paragraph scanner should skip outright. */
+const SKIP_LINE_PATTERNS: readonly RegExp[] = [
+  /^#/, // ATX heading
+  /^(>|\|)/, // blockquote or table
+  /^(-|\*|\d+\.)\s/, // list item
+  /^```/, // code fence
+  /^<!/, // stray HTML comment / DOCTYPE-style line
+];
+
+/**
+ * Decide whether the given line should be skipped when collecting a paragraph.
+ *
+ * @param trimmed - The trimmed line content
+ * @returns `true` if the line is a heading / list / code-fence / comment
+ */
+function shouldSkipParagraphLine(trimmed: string): boolean {
+  return SKIP_LINE_PATTERNS.some((re) => re.test(trimmed));
+}
+
+/**
+ * State tracker for multi-line HTML/SPDX comment blocks. Encapsulating the
+ * "in-comment?" toggle keeps {@link extractFirstParagraph} flat enough to
+ * satisfy the cognitive-complexity lint rule.
+ */
+class CommentTracker {
+  private inComment = false;
+
+  /**
+   * Feed one trimmed line to the tracker and report whether the line should
+   * be skipped (i.e. it's either inside a comment or is a comment delimiter).
+   *
+   * @param trimmed - Trimmed line content
+   * @returns `true` if the line should be skipped entirely
+   */
+  consume(trimmed: string): boolean {
+    if (this.inComment) {
+      if (/-->/.test(trimmed)) this.inComment = false;
+      return true;
+    }
+    if (/^<!--/.test(trimmed)) {
+      if (!/-->/.test(trimmed)) this.inComment = true;
+      return true;
+    }
+    return false;
+  }
+}
+
+/**
+ * Extract the first non-heading, non-list paragraph from a Markdown file,
+ * skipping SPDX/HTML comment blocks.
+ *
+ * @param lines - Markdown source split on newlines
+ * @returns Raw paragraph text, not yet truncated or cleaned
+ */
+function extractFirstParagraph(lines: string[]): string {
+  const paragraph: string[] = [];
+  const comments = new CommentTracker();
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (comments.consume(trimmed)) continue;
+    if (!trimmed) {
+      if (paragraph.length > 0) break;
+      continue;
+    }
+    if (shouldSkipParagraphLine(trimmed)) continue;
+    paragraph.push(trimmed);
+    if (paragraph.join(' ').length > 240) break;
+  }
+  return paragraph.join(' ');
+}
+
+/**
+ * Clean up markdown inline syntax (links, code, bold/italic), collapse
+ * whitespace, and truncate to ~240 characters on a word boundary.
+ *
+ * @param raw - Raw paragraph text
+ * @returns Cleaned and length-capped description
+ */
+function cleanAndTruncate(raw: string): string {
+  let text = raw.replace(/\s+/g, ' ').trim();
+  if (text.length > 240) {
+    text = text.slice(0, 237).replace(/\s+\S*$/, '') + '…';
+  }
+  text = text.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
+  text = text.replace(/`([^`]+)`/g, '$1');
+  text = text.replace(/\*\*(.+?)\*\*/g, '$1').replace(/\*(.+?)\*/g, '$1');
+  return text;
 }
 
 /**
  * Extract a title and short description from the top of a Markdown file.
  * Uses the first H1 (`# …`) line as title (falling back to a humanized stem)
- * and the first non-heading paragraph as the description.
+ * and the first non-heading paragraph as the description. SPDX/HTML comments
+ * at the top of the file are skipped.
  *
  * @param fullPath - Absolute path to a Markdown file
  * @param stem - Filename stem used as title fallback
- * @returns `{ title, description }` — never null
+ * @returns `{ title, description }` — never null; description may be empty
  */
 export function parseMarkdownMeta(
   fullPath: string,
   stem: string
 ): { title: string; description: string } {
-  let title = humanize(stem);
-  let description = '';
+  const fallbackTitle = humanize(stem);
+  let content: string;
   try {
-    const content = fs.readFileSync(fullPath, 'utf-8');
-    const lines = content.split(/\r?\n/);
-    // Find first H1
-    for (const line of lines) {
-      const h1 = /^#\s+(.+?)\s*$/.exec(line);
-      if (h1 && h1[1]) {
-        title = h1[1].replace(/^[🌟📘📊⚠️🧭🔍💶⚔️🏷️🕸️🕰️🌍🤝👥💥🗂️✅📋📚🗳️⚖️🏛️🌐🔬📂📄🚨🔭📅🗓️📜🪞🌿🌀🔁💼🕵️]\s*/u, '').trim();
-        break;
-      }
-    }
-    // Find first non-empty, non-heading, non-list paragraph for description
-    let paragraph: string[] = [];
-    let inHtmlComment = false;
-    for (const line of lines) {
-      const trimmed = line.trim();
-      // Track multi-line HTML/SPDX comment blocks and skip them entirely
-      if (inHtmlComment) {
-        if (/-->/.test(trimmed)) inHtmlComment = false;
-        continue;
-      }
-      if (/^<!--/.test(trimmed)) {
-        if (!/-->/.test(trimmed)) inHtmlComment = true;
-        continue;
-      }
-      if (!trimmed) {
-        if (paragraph.length > 0) break;
-        continue;
-      }
-      if (/^#/.test(trimmed)) continue;
-      if (/^(>|\|)/.test(trimmed)) continue;
-      if (/^(-|\*|\d+\.)\s/.test(trimmed)) continue;
-      if (/^```/.test(trimmed)) continue;
-      if (/^<!/.test(trimmed)) continue; // stray comment/DOCTYPE-style line
-      paragraph.push(trimmed);
-      if (paragraph.join(' ').length > 240) break;
-    }
-    description = paragraph.join(' ').replace(/\s+/g, ' ').trim();
-    if (description.length > 240) {
-      description = description.slice(0, 237).replace(/\s+\S*$/, '') + '…';
-    }
-    // Strip markdown link syntax for the card description
-    description = description.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
-    // Strip inline code backticks
-    description = description.replace(/`([^`]+)`/g, '$1');
-    // Strip bold/italic markers
-    description = description.replace(/\*\*(.+?)\*\*/g, '$1').replace(/\*(.+?)\*/g, '$1');
+    content = fs.readFileSync(fullPath, 'utf-8');
   } catch {
-    // fallthrough to defaults
+    return { title: fallbackTitle, description: '' };
   }
+  const lines = content.split(/\r?\n/);
+  const title = extractH1Title(lines, fallbackTitle);
+  const description = cleanAndTruncate(extractFirstParagraph(lines));
   return { title, description };
 }
 
-/** Humanize a filename stem like "per-artifact-methodologies" → "Per Artifact Methodologies" */
+/**
+ * Humanize a filename stem (e.g. `per-artifact-methodologies` →
+ * `Per Artifact Methodologies`).
+ *
+ * @param stem - Filename stem to humanize
+ * @returns Title-cased stem with dashes/underscores replaced by spaces
+ */
 function humanize(stem: string): string {
   return stem
     .replace(/[-_]+/g, ' ')
@@ -635,6 +776,10 @@ export function collectPoliticalIntelligenceData(rootDir: string = PROJECT_ROOT)
 
 /**
  * Collect every `.md` file in `dir` (non-recursive) and build PIDocument entries.
+ *
+ * @param dir - Absolute directory path to scan
+ * @param rootDir - Repository root used to build relative paths
+ * @returns Array of PIDocument entries sorted with README first, then alphabetical
  */
 function collectDocumentList(dir: string, rootDir: string): PIDocument[] {
   if (!fs.existsSync(dir)) return [];
@@ -669,6 +814,10 @@ function collectDocumentList(dir: string, rootDir: string): PIDocument[] {
  * Collect daily analysis runs grouped by date, newest date first.
  * Only directories that look like a run (contain at least one Markdown artifact)
  * are listed.
+ *
+ * @param dailyDir - Absolute path to the `analysis/daily` directory
+ * @param rootDir - Repository root used to build relative paths
+ * @returns Array of date-grouped runs, newest date first
  */
 function collectDailyGroups(dailyDir: string, rootDir: string): PIDailyDateGroup[] {
   if (!fs.existsSync(dailyDir)) return [];
@@ -711,7 +860,12 @@ function collectDailyGroups(dailyDir: string, rootDir: string): PIDailyDateGroup
   return groups;
 }
 
-/** Count `.md` files recursively under `dir`, safely ignoring unreadable subtrees */
+/**
+ * Count `.md` files recursively under `dir`, safely ignoring unreadable subtrees.
+ *
+ * @param dir - Absolute directory path
+ * @returns Number of Markdown files found
+ */
 function countMarkdownFiles(dir: string): number {
   let count = 0;
   let entries: fs.Dirent[];
@@ -733,6 +887,10 @@ function countMarkdownFiles(dir: string): number {
 
 /**
  * Render a single document card (used for methodologies and templates).
+ *
+ * @param doc - The document to render
+ * @param viewOnGitHub - Localized call-to-action label
+ * @returns HTML string for the card `<li>` element
  */
 function renderDocumentCard(doc: PIDocument, viewOnGitHub: string): string {
   const url = githubBlobUrl(doc.relPath);
@@ -754,6 +912,10 @@ function renderDocumentCard(doc: PIDocument, viewOnGitHub: string): string {
 
 /**
  * Render one daily date group (header + run cards).
+ *
+ * @param group - The date group to render
+ * @param copy - Localized copy for labels inside the group
+ * @returns HTML string for the `<section>` containing all runs for the date
  */
 function renderDailyGroup(group: PIDailyDateGroup, copy: PICopy): string {
   const runsCountText = copy.runsCountLabel.replace('{count}', String(group.runs.length));
