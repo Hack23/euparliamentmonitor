@@ -62,6 +62,15 @@ above and disabled at the Actions UI layer (`disabled_manually`) for several
 successful split-pair cycles. They are preserved in git history if a rollback
 is ever required.
 
+> **Migration note:** Some older in-repo documentation may still reference the
+> deleted `news-<type>.md` monoliths (for example
+> `.github/skills/github-agentic-workflows.md`,
+> `.github/agents/news-journalist.md`, and
+> `.github/agents/developer.instructions.md`). Treat those references as stale
+> and use the split `*-analysis.md` + `*-article.md` workflow pairs listed in
+> the table above as the canonical workflow entry points until the remaining
+> docs are updated.
+
 Rationale: a residual monolith (`news-motions.lock.yml`) was inadvertently
 re-enabled and fired on `2026-04-23T07:10:53Z`, killing the Copilot CLI at the
 90-min `timeout-minutes` while mid Pass‑2 of the article rewrite
