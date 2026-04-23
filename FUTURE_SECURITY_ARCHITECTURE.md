@@ -498,7 +498,7 @@ jq -r 'select(.source_data_hash == "abc123") | .article_id' \
   </ul>
   <p>
     <small>
-      Generated: 2026-03-01T06:15:32Z | MCP Version: 1.2.11 | Commit:
+      Generated: 2026-03-01T06:15:32Z | MCP Version: 1.2.13 | Commit:
       <a href="https://github.com/Hack23/euparliamentmonitor/commit/..."
         >abc123d</a
       >
@@ -673,7 +673,7 @@ flowchart TD
   "article_id": "2026-week-28-plenary",
   "type": "plenary-preview",
   "languages": ["en", "de", "fr", "es", "it", "nl", "sv", "da", "fi", "pl", "ro", "hu", "pt", "el"],
-  "mcp_version": "1.2.11",
+  "mcp_version": "1.2.13",
   "generator_version": "2.0.0",
   "source_data": {
     "plenary_session": {

@@ -268,7 +268,7 @@ graph TD
     D --> F[📥 Checkout Repository]
     F --> G[⚙️ Setup Node.js 25]
     G --> H[📦 Install Dependencies]
-    H --> I[🔗 Install EP MCP Server v1.2.11]
+    H --> I[🔗 Install EP MCP Server v1.2.13]
     I --> J1[🔬 Analysis Stage<br/>Political Intelligence Pipeline<br/>--analysis flag]
     J1 --> J1a[📊 Classification: significance, impact-matrix, actors, forces]
     J1 --> J1b[🛡️ Threat Assessment: Political Threat Landscape,<br/>actor-threats, disruption]
@@ -309,7 +309,7 @@ graph TD
 | **Agent job permissions** | `contents: write`, `pull-requests: write`, `issues: write`, `models: read` |
 | **Concurrency group** | `gh-aw-${{ github.workflow }}` |
 | **Node.js version** | 25 |
-| **EP MCP Server** | `european-parliament-mcp-server@1.2.11` (globally installed via `scripts/mcp-setup.sh`, MCP gateway `EP_MCP_GATEWAY_URL=http://host.docker.internal:80/mcp/european-parliament`) |
+| **EP MCP Server** | `european-parliament-mcp-server@1.2.13` (globally installed via `scripts/mcp-setup.sh`, MCP gateway `EP_MCP_GATEWAY_URL=http://host.docker.internal:80/mcp/european-parliament`) |
 | **Data sources** | European Parliament MCP Server (primary, 6 sliding-window + 7 fixed-window feeds), World Bank MCP `1.0.1` (optional, WDI macro/social/env/health), IMF REST SDMX 3.0 (native fetch in `src/mcp/imf-mcp-client.ts`, WEO+FM monthly forecasts). Dual-gate: `articlePolicyHasEconomicContext` (Wave-2 OR-gate WB OR IMF) in `src/utils/content-validator.ts` |
 | **Analysis stage** | `--analysis` flag enables 18-method political intelligence pipeline before article generation |
 | **Analysis output** | `analysis/daily/{date}/` for cross-article artifacts (for example shared synthesis outputs), plus `analysis/daily/{date}/{article-type}/` for article-type-scoped classification, threat-assessment, risk-scoring, and data (EP feeds, World Bank, IMF, OSINT) artifacts committed to PR. Article-type scoping prevents merge conflicts between concurrent workflows. |
@@ -1832,7 +1832,7 @@ The following diagram shows the complete intelligence cycle from EP data collect
 
 ```mermaid
 flowchart TD
-    subgraph Collection["📡 COLLECTION<br/>(EP MCP Server v1.2.11)"]
+    subgraph Collection["📡 COLLECTION<br/>(EP MCP Server v1.2.13)"]
         direction TB
         C1["🗳️ Votes &<br/>Adopted Texts"]
         C2["📜 Legislative<br/>Procedures"]
@@ -1960,7 +1960,7 @@ flowchart LR
     end
 
     subgraph "🔌 MCP Layer"
-        MCP["EP MCP Server<br/>v1.2.11<br/>(120s timeout;<br/>6 sliding + 7 fixed-window feeds)"]
+        MCP["EP MCP Server<br/>v1.2.13<br/>(120s timeout;<br/>6 sliding + 7 fixed-window feeds)"]
     end
 
     subgraph "🤖 Agent Layer"

@@ -7,7 +7,7 @@
 parameter corrections, reliability matrix, and timeout strategy. Workflows
 **link** here; they never copy these tables.
 
-**Server:** `european-parliament-mcp-server@1.2.11`
+**Server:** `european-parliament-mcp-server@1.2.13`
 
 ## 1 · EP Feed Endpoints
 
@@ -85,7 +85,7 @@ Timeframes: `"today"`, `"one-day"`, `"one-week"`, `"one-month"`, `"custom"`
 `sentiment_tracker`, `comparative_intelligence`, `generate_report`
 (MEP activity / committee performance / voting / legislation reports).
 
-## 5 · Common Parameter Mistakes (v1.2.11)
+## 5 · Common Parameter Mistakes (v1.2.13)
 
 | ❌ Wrong | ✅ Correct |
 |---------|-----------|

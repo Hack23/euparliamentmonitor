@@ -91,7 +91,7 @@ pie title EU Parliament Monitor Annual Cost Distribution
 | **🛡️ OpenSSF Scorecard** | $0 | $0 | Free service for open-source projects |
 | **📊 SonarCloud (Planned)** | $0 | $0 | Planned optional integration; not yet configured in CI |
 | **🧪 Vitest + Playwright + axe-core Testing** | $0 | $0 | 3,061+ automated tests across 52 files; open-source frameworks |
-| **🇪🇺 EP MCP Server (`european-parliament-mcp-server@1.2.11`)** | $0 | $0 | Hack23-maintained open-source data source |
+| **🇪🇺 EP MCP Server (`european-parliament-mcp-server@1.2.13`)** | $0 | $0 | Hack23-maintained open-source data source |
 | **🌍 World Bank MCP (`worldbank-mcp@1.0.1`, optional)** | $0 | $0 | Optional biannual WDI source for economic context OR-gate |
 | **💹 IMF REST (native `IMFMCPClient`)** | $0 | $0 | Public SDMX 3.0 endpoint (WEO + FM forecasts +5y); no MCP server required |
 | **🌐 Domain Name** | ~$1 | ~$12 | Annual domain registration (`euparliamentmonitor.com`) |

@@ -252,7 +252,7 @@ export interface GetCurrentMEPsOptions {
   offset?: number | undefined;
 }
 
-/** Options for getSpeeches — v1.2.11 removed `year` (EP API ignores it for /speeches) */
+/** Options for getSpeeches — v1.2.13 removed `year` (EP API ignores it for /speeches) */
 export interface GetSpeechesOptions {
   speechId?: string | undefined;
   /** Filter by sitting date start (maps to sitting-date in EP API) */
@@ -263,7 +263,7 @@ export interface GetSpeechesOptions {
   offset?: number | undefined;
 }
 
-/** Options for getProcedures — v1.2.11 removed `year` (EP API ignores it for /procedures) */
+/** Options for getProcedures — v1.2.13 removed `year` (EP API ignores it for /procedures) */
 export interface GetProceduresOptions {
   processId?: string | undefined;
   limit?: number | undefined;
@@ -278,7 +278,7 @@ export interface GetAdoptedTextsOptions {
   offset?: number | undefined;
 }
 
-/** Options for getEvents — v1.2.11 removed `year`, `dateFrom`, `dateTo` (EP API /events has no date filtering) */
+/** Options for getEvents — v1.2.13 removed `year`, `dateFrom`, `dateTo` (EP API /events has no date filtering) */
 export interface GetEventsOptions {
   eventId?: string | undefined;
   limit?: number | undefined;
@@ -333,7 +333,7 @@ export interface GetPlenaryDocumentsOptions {
   offset?: number | undefined;
 }
 
-/** Options for getCommitteeDocuments — v1.2.11 removed `year` (EP API ignores it for /committee-documents) */
+/** Options for getCommitteeDocuments — v1.2.13 removed `year` (EP API ignores it for /committee-documents) */
 export interface GetCommitteeDocumentsOptions {
   docId?: string | undefined;
   limit?: number | undefined;
@@ -360,7 +360,7 @@ export interface GetControlledVocabulariesOptions {
   offset?: number | undefined;
 }
 
-/** Options for getExternalDocuments — v1.2.11 removed `year` (EP API ignores it for /external-documents) */
+/** Options for getExternalDocuments — v1.2.13 removed `year` (EP API ignores it for /external-documents) */
 export interface GetExternalDocumentsOptions {
   docId?: string | undefined;
   limit?: number | undefined;
@@ -474,10 +474,10 @@ export type FeedTimeframe = 'today' | 'one-day' | 'one-week' | 'one-month' | 'cu
  * `plenary_session_documents`, `parliamentary_questions`,
  * `corporate_bodies`, `controlled_vocabularies`).
  *
- * These feeds serve a server-defined window. Historically (pre-v1.2.11) they
+ * These feeds serve a server-defined window. Historically (pre-v1.2.13) they
  * rejected `timeframe`/`startDate` with `INVALID_PARAMS`
  * (Hack23/European-Parliament-MCP-Server#377); as of
- * `european-parliament-mcp-server@1.2.11` (PR #379) the server silently
+ * `european-parliament-mcp-server@1.2.13` (PR #379) the server silently
  * ignores those params on fixed-window tools. The client continues to omit
  * them so intent matches behaviour and so we remain compatible with any
  * older pinned server version in downstream environments.
@@ -529,16 +529,16 @@ export interface GetMEPDeclarationsFeedOptions extends FeedBaseOptions {
   workType?: string | undefined;
 }
 
-/** Options for getDocumentsFeed (fixed-window — server ignores `timeframe` as of v1.2.11) */
+/** Options for getDocumentsFeed (fixed-window — server ignores `timeframe` as of v1.2.13) */
 export interface GetDocumentsFeedOptions extends FixedWindowFeedOptions {}
 
-/** Options for getPlenaryDocumentsFeed (fixed-window — server ignores `timeframe` as of v1.2.11) */
+/** Options for getPlenaryDocumentsFeed (fixed-window — server ignores `timeframe` as of v1.2.13) */
 export interface GetPlenaryDocumentsFeedOptions extends FixedWindowFeedOptions {}
 
-/** Options for getCommitteeDocumentsFeed (fixed-window — server ignores `timeframe` as of v1.2.11) */
+/** Options for getCommitteeDocumentsFeed (fixed-window — server ignores `timeframe` as of v1.2.13) */
 export interface GetCommitteeDocumentsFeedOptions extends FixedWindowFeedOptions {}
 
-/** Options for getPlenarySessionDocumentsFeed (fixed-window — server ignores `timeframe` as of v1.2.11) */
+/** Options for getPlenarySessionDocumentsFeed (fixed-window — server ignores `timeframe` as of v1.2.13) */
 export interface GetPlenarySessionDocumentsFeedOptions extends FixedWindowFeedOptions {}
 
 /** Options for getExternalDocumentsFeed */
@@ -547,13 +547,13 @@ export interface GetExternalDocumentsFeedOptions extends FeedBaseOptions {
   workType?: string | undefined;
 }
 
-/** Options for getParliamentaryQuestionsFeed (fixed-window — server ignores `timeframe` as of v1.2.11) */
+/** Options for getParliamentaryQuestionsFeed (fixed-window — server ignores `timeframe` as of v1.2.13) */
 export interface GetParliamentaryQuestionsFeedOptions extends FixedWindowFeedOptions {}
 
-/** Options for getCorporateBodiesFeed (fixed-window — server ignores `timeframe` as of v1.2.11) */
+/** Options for getCorporateBodiesFeed (fixed-window — server ignores `timeframe` as of v1.2.13) */
 export interface GetCorporateBodiesFeedOptions extends FixedWindowFeedOptions {}
 
-/** Options for getControlledVocabulariesFeed (fixed-window — server ignores `timeframe` as of v1.2.11) */
+/** Options for getControlledVocabulariesFeed (fixed-window — server ignores `timeframe` as of v1.2.13) */
 export interface GetControlledVocabulariesFeedOptions extends FixedWindowFeedOptions {}
 
 /** Options for getProcedureEventById */
