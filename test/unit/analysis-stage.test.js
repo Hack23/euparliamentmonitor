@@ -298,7 +298,10 @@ describe('runAnalysisStage', () => {
   // still be populated (Stage-C gate Rule 6) by deriving from articleTypes[].
   it('should derive articleType from articleTypes[] when articleTypeSlug omitted', async () => {
     // When articleTypeSlug is omitted, computePreferredAnalysisDir uses
-    // `<outputDir>/<date>` (no slug subdir) — see analysis-stage.ts.
+    // `<outputDir>/<date>` (no slug subdir). resolveUniqueAnalysisDir only
+    // suffixes when a completed-run manifest.json already exists in that
+    // dir (see file-utils.ts:191-197), so here the manifest is written
+    // directly to `<tempDir>/<date>/manifest.json`.
     const analysisDir = path.join(tempDir, '2026-04-23');
     fs.mkdirSync(path.join(analysisDir, 'intelligence'), { recursive: true });
     fs.writeFileSync(path.join(analysisDir, 'intelligence', 'a.md'), '# A');
@@ -310,17 +313,7 @@ describe('runAnalysisStage', () => {
       // articleTypeSlug intentionally omitted
     });
 
-    // resolveUniqueAnalysisDir suffixes a `-2` since the dir already contains
-    // content but no manifest. Discover the actual created dir.
-    const candidates = fs
-      .readdirSync(tempDir, { withFileTypes: true })
-      .filter((d) => d.isDirectory() && d.name.startsWith('2026-04-23'))
-      .map((d) => path.join(tempDir, d.name))
-      .filter((d) => fs.existsSync(path.join(d, 'manifest.json')));
-    expect(candidates.length).toBeGreaterThan(0);
-    const manifest = JSON.parse(
-      fs.readFileSync(path.join(candidates[0], 'manifest.json'), 'utf-8')
-    );
+    const manifest = JSON.parse(fs.readFileSync(path.join(analysisDir, 'manifest.json'), 'utf-8'));
     expect(manifest.articleType).toBe('week-ahead');
     expect(manifest.files).toBeDefined();
   });
