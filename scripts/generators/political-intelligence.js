@@ -18,6 +18,7 @@ import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, PAGE_TITLES, SKIP_LINK_T
 import { escapeHTML } from '../utils/file-utils.js';
 import { FOOTER_SITEMAP_LABELS } from '../constants/language-ui.js';
 import { buildSiteFooter } from '../templates/section-builders.js';
+import { getCuratedDescription } from './political-intelligence-descriptions.js';
 /** GitHub repository slug used to build blob/tree links for analysis artifacts */
 const GITHUB_REPO = 'Hack23/euparliamentmonitor';
 /**
@@ -552,134 +553,21 @@ function extractH1Title(lines, fallback) {
     }
     return fallback;
 }
-/** Lines that the first-paragraph scanner should skip outright. */
-const SKIP_LINE_PATTERNS = [
-    /^#/, // ATX heading
-    /^(>|\|)/, // blockquote or table
-    /^(-|\*|\d+\.)\s/, // list item
-    /^```/, // code fence
-    /^<!/, // stray HTML comment / DOCTYPE-style line
-    /^</, // raw HTML block (e.g. <p align="center">, <img …>, </p>, <h1>)
-];
-/**
- * Decide whether the given line should be skipped when collecting a paragraph.
- *
- * @param trimmed - The trimmed line content
- * @returns `true` if the line is a heading / list / code-fence / comment
- */
-function shouldSkipParagraphLine(trimmed) {
-    return SKIP_LINE_PATTERNS.some((re) => re.test(trimmed));
-}
-/**
- * State tracker for multi-line HTML/SPDX comment blocks. Encapsulating the
- * "in-comment?" toggle keeps {@link extractFirstParagraph} flat enough to
- * satisfy the cognitive-complexity lint rule.
- */
-class CommentTracker {
-    inComment = false;
-    /**
-     * Feed one trimmed line to the tracker and report whether the line should
-     * be skipped (i.e. it's either inside a comment or is a comment delimiter).
-     *
-     * @param trimmed - Trimmed line content
-     * @returns `true` if the line should be skipped entirely
-     */
-    consume(trimmed) {
-        if (this.inComment) {
-            if (/--!?>/.test(trimmed))
-                this.inComment = false;
-            return true;
-        }
-        if (/^<!--/.test(trimmed)) {
-            if (!/--!?>/.test(trimmed))
-                this.inComment = true;
-            return true;
-        }
-        return false;
-    }
-}
-/**
- * Extract the first non-heading, non-list paragraph from a Markdown file,
- * skipping SPDX/HTML comment blocks.
- *
- * @param lines - Markdown source split on newlines
- * @returns Raw paragraph text, not yet truncated or cleaned
- */
-function extractFirstParagraph(lines) {
-    const paragraph = [];
-    let runningLength = 0;
-    const comments = new CommentTracker();
-    for (const line of lines) {
-        const trimmed = line.trim();
-        if (comments.consume(trimmed))
-            continue;
-        if (!trimmed) {
-            if (paragraph.length > 0)
-                break;
-            continue;
-        }
-        if (shouldSkipParagraphLine(trimmed))
-            continue;
-        paragraph.push(trimmed);
-        runningLength += (paragraph.length > 1 ? 1 : 0) + trimmed.length;
-        if (runningLength > 240)
-            break;
-    }
-    return paragraph.join(' ');
-}
-/**
- * Clean up markdown inline syntax (links, code, bold/italic), collapse
- * whitespace, and truncate to ~240 characters on a word boundary.
- *
- * @param raw - Raw paragraph text
- * @returns Cleaned and length-capped description
- */
-function cleanAndTruncate(raw) {
-    // Strip Markdown inline syntax FIRST, before truncating, so that a
-    // length-based cut can't land mid-link/mid-code/mid-emphasis and leave
-    // orphaned `[`/`]`/`(`/`)`/backtick/`*` characters in the description.
-    let text = raw.replace(/\s+/g, ' ').trim();
-    text = text.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
-    text = text.replace(/`([^`]+)`/g, '$1');
-    text = text.replace(/\*\*(.+?)\*\*/g, '$1').replace(/\*(.+?)\*/g, '$1');
-    // Strip any inline HTML tags (e.g. <br>, <a href=…>, <img …>) that may have
-    // slipped through the line-level skip filter. Keep the tag *contents* so
-    // that `<a href="x">link text</a>` still yields "link text".
-    //
-    // The strip is applied in a loop because removing one match can expose a
-    // *new* tag-shaped sequence in the surrounding text — e.g.
-    // `<<script>script>` collapses to `<script>` after one pass and would
-    // remain unsanitized without a re-scan. Looping until a fixed point is
-    // reached closes the CodeQL "incomplete multi-character sanitization"
-    // class. The loop is bounded by string length monotonically decreasing
-    // each iteration, so it cannot run forever.
-    let prev = '';
-    while (prev !== text) {
-        prev = text;
-        text = text.replace(/<[^>]*>/g, '');
-    }
-    // Final defense: any stray `<` or `>` left over (unbalanced tags such as
-    // `< 5` or a trailing `<` with no closing bracket on the same input) gets
-    // dropped so the rendered description can never contain raw angle
-    // brackets that an HTML escaper would otherwise re-encode and surface as
-    // `&lt;` / `&gt;` glyphs.
-    text = text.replace(/[<>]/g, '');
-    // Collapse any whitespace runs introduced by the strips, then truncate.
-    text = text.replace(/\s+/g, ' ').trim();
-    if (text.length > 240) {
-        text = text.slice(0, 237).replace(/\s+\S*$/, '') + '…';
-    }
-    return text;
-}
 /**
  * Extract a title and short description from the top of a Markdown file.
- * Uses the first H1 (`# …`) line as title (falling back to a humanized stem)
- * and the first non-heading paragraph as the description. SPDX/HTML comments
- * at the top of the file are skipped.
+ * Uses the first H1 (`# …`) line as title (falling back to a humanized stem).
+ *
+ * The `description` field is intentionally left **empty**: for the
+ * political-intelligence index we use a curated per-file, per-language
+ * description table ({@link getCuratedDescription}) instead of scraping the
+ * first paragraph of each Markdown file. Scraping proved fragile — it leaked
+ * document-metadata headers (`📋 Document Owner: CEO | 📄 Version…`) and
+ * template separators (`---`) into the rendered cards. Leaving it empty here
+ * forces the renderer to go through the curated table.
  *
  * @param fullPath - Absolute path to a Markdown file
  * @param stem - Filename stem used as title fallback
- * @returns `{ title, description }` — never null; description may be empty
+ * @returns `{ title, description }` — description is always `''`
  */
 export function parseMarkdownMeta(fullPath, stem) {
     const fallbackTitle = humanize(stem);
@@ -692,8 +580,7 @@ export function parseMarkdownMeta(fullPath, stem) {
     }
     const lines = content.split(/\r?\n/);
     const title = extractH1Title(lines, fallbackTitle);
-    const description = cleanAndTruncate(extractFirstParagraph(lines));
-    return { title, description };
+    return { title, description: '' };
 }
 /**
  * Humanize a filename stem (e.g. `per-artifact-methodologies` →
@@ -889,18 +776,22 @@ function walkMarkdownFiles(dir, visit) {
     }
 }
 /**
- * Render a single document card (used for methodologies and templates).
+ * Render a single document card (used for methodologies, templates, references).
+ *
+ * The description comes from the curated per-file, per-language table
+ * ({@link getCuratedDescription}) — not from the Markdown source file —
+ * so every language page carries a meaningful, hand-written summary.
  *
  * @param doc - The document to render
+ * @param lang - Target language code (drives per-language description lookup)
  * @param viewOnGitHub - Localized call-to-action label
- * @param includeDescription - When `false`, the English source description
- *   is omitted (used on non-English pages to keep the UI fully localized)
  * @returns HTML string for the card `<li>` element
  */
-function renderDocumentCard(doc, viewOnGitHub, includeDescription) {
+function renderDocumentCard(doc, lang, viewOnGitHub) {
     const url = githubBlobUrl(doc.relPath);
-    const desc = includeDescription && doc.description
-        ? `<span class="pi-card__desc">${escapeHTML(doc.description)}</span>`
+    const description = getCuratedDescription(doc.relPath, lang);
+    const desc = description
+        ? `<span class="pi-card__desc">${escapeHTML(description)}</span>`
         : '';
     return `          <li class="pi-card">
             <a class="pi-card__link" href="${escapeHTML(url)}" rel="noopener external" target="_blank">
@@ -1012,20 +903,19 @@ export function generatePoliticalIntelligenceHTML(lang, data) {
         const href = getPoliticalIntelligenceFilename(code);
         return `<a href="${href}" class="lang-link${active}" hreflang="${code}" title="${escapeHTML(name)}"${ariaCurrent}>${flag} ${code.toUpperCase()}</a>`;
     }).join('\n        ');
-    // Methodologies & templates cards.
-    // Non-English pages hide the per-card English description (the source
-    // markdown is authored in English) so the page reads as fully localized;
-    // the title and path remain visible because they are the canonical
-    // identifiers readers need to inspect the tradecraft on GitHub.
-    const includeDescription = lang === 'en';
+    // Methodologies, templates & reference cards.
+    // Descriptions are sourced from the curated per-file, per-language table
+    // ({@link getCuratedDescription}) — every language page renders a
+    // meaningful, hand-written summary, not scraped Markdown metadata.
+    const langCode = lang;
     const methodologiesList = data.methodologies
-        .map((d) => renderDocumentCard(d, copy.viewOnGitHub, includeDescription))
+        .map((d) => renderDocumentCard(d, langCode, copy.viewOnGitHub))
         .join('\n');
     const templatesList = data.templates
-        .map((d) => renderDocumentCard(d, copy.viewOnGitHub, includeDescription))
+        .map((d) => renderDocumentCard(d, langCode, copy.viewOnGitHub))
         .join('\n');
     const referenceList = data.referenceDocs
-        .map((d) => renderDocumentCard(d, copy.viewOnGitHub, includeDescription))
+        .map((d) => renderDocumentCard(d, langCode, copy.viewOnGitHub))
         .join('\n');
     const dailyBody = data.dailyGroups.length === 0
         ? ''
