@@ -51,32 +51,18 @@ The project uses **agentic workflow markdown files** (`.md`) that are compiled t
 | [`news-motions-analysis.md`](news-motions-analysis.md) | [`news-motions-article.md`](news-motions-article.md) | Mon–Fri 06:00 UTC | merged analysis PR + manual |
 | [`news-propositions-analysis.md`](news-propositions-analysis.md) | [`news-propositions-article.md`](news-propositions-article.md) | Mon–Fri 05:00 UTC | merged analysis PR + manual |
 
-#### Legacy monolithic workflows (pre-split; scheduled for removal after rollout)
-
-#### Legacy monolithic workflows (pre-split; scheduled for removal after rollout)
-
-> **Disabling mechanism**: these workflows remain on disk with their original
-> `schedule:` triggers intact so the compiled `.lock.yml` can be restored
-> quickly during rollback, but they are **disabled at the GitHub Actions
-> runtime layer** via the repo Settings → Actions → Workflows UI (state
-> `disabled_manually` — visible in the Actions tab as a "Disabled by user"
-> badge). GitHub does not evaluate the `schedule:` cron of a workflow in
-> that state, so there is no double-run risk while the split-family pair
-> is live. Re-enabling is a one-click operation from the same UI if a
-> rollback is needed. After 2–3 successful cycles of the split pair per
-> type, the corresponding legacy `.md` + `.lock.yml` are deleted in a
-> follow-up PR.
-
-| Workflow (`.md`) | Purpose | Status |
-|---|---|---|
-| [`news-breaking.md`](news-breaking.md) | Rapid breaking-news coverage (60-min monolith) | `disabled_manually` — replaced by the split pair |
-| [`news-week-ahead.md`](news-week-ahead.md) | Week-ahead preview (90-min monolith) | `disabled_manually` |
-| [`news-month-ahead.md`](news-month-ahead.md) | Month-ahead outlook (90-min monolith) | `disabled_manually` |
-| [`news-weekly-review.md`](news-weekly-review.md) | Weekly review (90-min monolith) | `disabled_manually` |
-| [`news-monthly-review.md`](news-monthly-review.md) | Monthly review (90-min monolith) | `disabled_manually` |
-| [`news-committee-reports.md`](news-committee-reports.md) | Committee activity (90-min monolith) | `disabled_manually` |
-| [`news-motions.md`](news-motions.md) | Motions and resolutions (90-min monolith) | `disabled_manually` |
-| [`news-propositions.md`](news-propositions.md) | Legislative propositions (90-min monolith) | `disabled_manually` |
+> **Legacy monolithic workflows removed.** The eight pre-split monolithic
+> `news-<type>.md` files (`news-breaking`, `news-week-ahead`, `news-month-ahead`,
+> `news-weekly-review`, `news-monthly-review`, `news-committee-reports`,
+> `news-motions`, `news-propositions`) were deleted in April 2026 once the
+> split-pair rollout completed ≥2 successful cycles per type. They ran Stages
+> A+B+C+D in a single 60–90-minute agent session and reliably exceeded the
+> safeoutputs MCP session TTL (~30 min), which caused end-of-run
+> `create_pull_request` calls to return *"session not found"*. The split
+> pairs above finish each stage inside the session budget and are the only
+> supported article-generation pattern. History lives in git — run
+> `git log --diff-filter=D -- .github/workflows/news-breaking.md` to see the
+> deletion commit if a rollback is ever needed.
 
 #### Multi-type + translation (unchanged)
 

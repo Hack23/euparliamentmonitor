@@ -328,16 +328,16 @@ erDiagram
 
 EU Parliament Monitor ships **8 production article types** driven by **9 strategy modules** (`src/generators/strategies/` — 1 generic `article-strategy` + 8 type-specific strategies):
 
-| Code | Perspective | Strategy Module | Source gh-aw Workflow |
-|------|-------------|-----------------|-----------------------|
-| `breaking` | real-time | `breaking-news-strategy.ts` | `news-breaking.md` (every 6h) |
-| `week-ahead` | prospective | `week-ahead-strategy.ts` | `news-week-ahead.md` (Fri 07:00) |
-| `week-in-review` | retrospective | `weekly-review-strategy.ts` | `news-weekly-review.md` (Sat 09:00) |
-| `month-ahead` | prospective | `month-ahead-strategy.ts` | `news-month-ahead.md` (1st 08:00) |
-| `month-in-review` | retrospective | `monthly-review-strategy.ts` | `news-monthly-review.md` (28th 10:00) |
-| `committee-reports` | analytical | `committee-reports-strategy.ts` | `news-committee-reports.md` (Mon–Fri 04:00) |
-| `motions` | analytical | `motions-strategy.ts` | `news-motions.md` (Mon–Fri 06:00) |
-| `propositions` | analytical | `propositions-strategy.ts` | `news-propositions.md` (Mon–Fri 05:00) |
+| Code | Perspective | Strategy Module | Source gh-aw Workflow Pair (analysis schedule) |
+|------|-------------|-----------------|------------------------------------------------|
+| `breaking` | real-time | `breaking-news-strategy.ts` | `news-breaking-analysis.md` + `news-breaking-article.md` (every 6h) |
+| `week-ahead` | prospective | `week-ahead-strategy.ts` | `news-week-ahead-analysis.md` + `news-week-ahead-article.md` (Fri 07:00) |
+| `week-in-review` | retrospective | `weekly-review-strategy.ts` | `news-weekly-review-analysis.md` + `news-weekly-review-article.md` (Sat 09:00) |
+| `month-ahead` | prospective | `month-ahead-strategy.ts` | `news-month-ahead-analysis.md` + `news-month-ahead-article.md` (1st 08:00) |
+| `month-in-review` | retrospective | `monthly-review-strategy.ts` | `news-monthly-review-analysis.md` + `news-monthly-review-article.md` (28th 10:00) |
+| `committee-reports` | analytical | `committee-reports-strategy.ts` | `news-committee-reports-analysis.md` + `news-committee-reports-article.md` (Mon–Fri 04:00) |
+| `motions` | analytical | `motions-strategy.ts` | `news-motions-analysis.md` + `news-motions-article.md` (Mon–Fri 06:00) |
+| `propositions` | analytical | `propositions-strategy.ts` | `news-propositions-analysis.md` + `news-propositions-article.md` (Mon–Fri 05:00) |
 
 Plus the generic `article-strategy.ts` used by manual `news-article-generator.md` dispatches, and `news-translate.md` for EN → 13-language fan-out.
 
@@ -597,7 +597,7 @@ analysis/daily/2026-04-20/
 └── monthly-review/                     ← 28th of month only
 ```
 
-> **🚨 Isolation Rule**: Each workflow writes ONLY to its own `{article-type-slug}/` subdirectory. Cross-workflow overwrites are prohibited. The `ai-*.md` synthesis files at the date root aggregate across all workflows and are authored by the `news-weekly-review.md` / `news-monthly-review.md` workflows.
+> **🚨 Isolation Rule**: Each workflow writes ONLY to its own `{article-type-slug}/` subdirectory. Cross-workflow overwrites are prohibited. The `ai-*.md` synthesis files at the date root aggregate across all workflows and are authored by the `news-weekly-review-analysis.md` / `news-monthly-review-analysis.md` workflows.
 
 ---
 

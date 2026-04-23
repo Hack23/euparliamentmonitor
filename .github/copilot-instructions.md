@@ -18,7 +18,7 @@
 - **License**: Apache-2.0 | **Deployment**: AWS S3/CloudFront (primary) with GitHub Pages as fallback/runbook
 - **Data**: European Parliament MCP Server (`european-parliament-mcp-server@1.2.11`)
 - **Languages**: EN, SV, DA, NO, FI, DE, FR, ES, NL, AR, HE, JA, KO, ZH
-- **Agentic Workflows**: 10 gh-aw markdown workflows for automated news generation
+- **Agentic Workflows**: 18 gh-aw markdown workflows for automated news generation (8 split-pair `news-<type>-analysis.md` + `news-<type>-article.md` + `news-article-generator.md` + `news-translate.md`)
 - **Security**: ISO 27001, NIST CSF 2.0, CIS Controls v8.1, GDPR, NIS2, EU CRA
 
 ## 🤖 Available Agents
@@ -52,9 +52,9 @@ npm run build         # TypeScript compilation
 
 ## 🔄 GitHub Agentic Workflows (gh-aw)
 
-This project uses **10 gh-aw markdown workflows** in `.github/workflows/*.md` for automated news generation. These are compiled to `.lock.yml` files and run AI agents (Copilot/Claude/Codex) in sandboxed GitHub Actions with safe outputs.
+This project uses **18 gh-aw markdown workflows** in `.github/workflows/*.md` for automated news generation. These are compiled to `.lock.yml` files and run AI agents (Copilot/Claude/Codex) in sandboxed GitHub Actions with safe outputs.
 
-**Workflow files**: `news-breaking.md`, `news-weekly-review.md`, `news-monthly-review.md`, `news-week-ahead.md`, `news-month-ahead.md`, `news-committee-reports.md`, `news-motions.md`, `news-propositions.md`, `news-article-generator.md`, `news-translate.md`
+**Workflow files (split-pair pattern — 8 pairs):** `news-<type>-analysis.md` (Stages A+B+C, 45-min, scheduled) produces an analysis PR; on merge, `news-<type>-article.md` (Stage D, 45-min) produces the article PR. The 8 types are: `breaking`, `weekly-review`, `monthly-review`, `week-ahead`, `month-ahead`, `committee-reports`, `motions`, `propositions`. Plus `news-article-generator.md` (manual multi-type backfill) and `news-translate.md` (14-language flush translator). The legacy monolithic `news-<type>.md` files were removed in April 2026 — see [`.github/workflows/README.md`](./workflows/README.md#split-family-workflows-canonical-16-files--8-pairs).
 
 **Key concepts**: Safe outputs (create-pull-request with constraints), AWF firewall (Squid proxy allowlist), 5-layer security model, JSONL artifacts, lock file compilation.
 

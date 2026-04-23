@@ -505,17 +505,19 @@ graph TD
 
 #### Content Workflow Schedule
 
-| Workflow | Article Type | Schedule | Focus |
-|----------|-------------|----------|-------|
-| `news-committee-reports.md` | Committee reports | Mon–Fri 04:00 UTC | Committee activity analysis |
-| `news-propositions.md` | Legislative procedures | Mon–Fri 05:00 UTC | Legislative pipeline tracking |
-| `news-motions.md` | Plenary votes | Mon–Fri 06:00 UTC | Voting patterns & resolutions |
-| `news-week-ahead.md` | Week ahead | Fri 07:00 UTC | Upcoming parliamentary agenda |
-| `news-month-ahead.md` | Month ahead | 1st of month 08:00 UTC | Monthly strategic outlook |
-| `news-weekly-review.md` | Weekly review | Sat 09:00 UTC | Week in review |
-| `news-monthly-review.md` | Monthly review | 28th of month 10:00 UTC | Monthly retrospective |
-| `news-breaking.md` | Breaking news | Every 6 hours | Real-time EP feed events |
+| Workflow Pair (analysis + article) | Article Type | Analysis Schedule | Focus |
+|------------------------------------|--------------|-------------------|-------|
+| `news-committee-reports-analysis.md` + `news-committee-reports-article.md` | Committee reports | Mon–Fri 04:00 UTC | Committee activity analysis |
+| `news-propositions-analysis.md` + `news-propositions-article.md` | Legislative procedures | Mon–Fri 05:00 UTC | Legislative pipeline tracking |
+| `news-motions-analysis.md` + `news-motions-article.md` | Plenary votes | Mon–Fri 06:00 UTC | Voting patterns & resolutions |
+| `news-week-ahead-analysis.md` + `news-week-ahead-article.md` | Week ahead | Fri 07:00 UTC | Upcoming parliamentary agenda |
+| `news-month-ahead-analysis.md` + `news-month-ahead-article.md` | Month ahead | 1st of month 08:00 UTC | Monthly strategic outlook |
+| `news-weekly-review-analysis.md` + `news-weekly-review-article.md` | Weekly review | Sat 09:00 UTC | Week in review |
+| `news-monthly-review-analysis.md` + `news-monthly-review-article.md` | Monthly review | 28th of month 10:00 UTC | Monthly retrospective |
+| `news-breaking-analysis.md` + `news-breaking-article.md` | Breaking news | Every 6 hours | Real-time EP feed events |
 | `news-article-generator.md` | Multi-type | Manual dispatch | On-demand article generation |
+
+> Each split-pair runs `news-<type>-analysis.md` (Stages A+B+C, ~45 min) on the schedule above; on analysis-PR merge, `news-<type>-article.md` (Stage D, ~45 min) is triggered via `pull_request:closed` gated on `agentic-analysis` + `type:<slug>` labels. The legacy single-job `news-<type>.md` workflows were removed in April 2026 because their >30-min runtime exceeded the safeoutputs MCP session TTL.
 
 #### Translation Workflow
 
@@ -542,7 +544,7 @@ graph TD
 
 #### Enhanced Analysis Features (v2)
 
-The following 8 scheduled article-generation workflows have been upgraded with mandatory analytical enhancements: `news-week-ahead.md`, `news-month-ahead.md`, `news-breaking.md`, `news-committee-reports.md`, `news-propositions.md`, `news-motions.md`, `news-weekly-review.md`, `news-monthly-review.md`. The on-demand `news-article-generator.md` workflow is not included in this upgrade as it dispatches to the above workflows. The `news-translate.md` workflow has complementary analysis-fidelity requirements for preserving these elements in translation.
+The following 8 scheduled article-generation split-pair workflow families have been upgraded with mandatory analytical enhancements: `news-week-ahead-{analysis,article}.md`, `news-month-ahead-{analysis,article}.md`, `news-breaking-{analysis,article}.md`, `news-committee-reports-{analysis,article}.md`, `news-propositions-{analysis,article}.md`, `news-motions-{analysis,article}.md`, `news-weekly-review-{analysis,article}.md`, `news-monthly-review-{analysis,article}.md`. The on-demand `news-article-generator.md` workflow is not included in this upgrade as it dispatches to the above workflows. The `news-translate.md` workflow has complementary analysis-fidelity requirements for preserving these elements in translation.
 
 ##### 🎭 Multi-Stakeholder Perspective Requirements
 
@@ -603,16 +605,16 @@ Every key EP document featured in the deep-analysis section must include structu
 
 Each scheduled content workflow includes a tailored intelligence module beyond the shared framework:
 
-| Workflow | Module | Focus |
-|----------|--------|-------|
-| `news-week-ahead.md` | 🔭 Strategic Preview Analysis | What to watch, coalitions under stress, legislative inflection points, geopolitical triggers |
-| `news-month-ahead.md` | 📈 Long-Term Trend Context | Term trajectory, policy momentum, coalition evolution, EU external context |
-| `news-breaking.md` | ⚡ Rapid Stakeholder Impact Assessment | Immediate winners/losers, market/policy signals, next 24–48 hour tracking |
-| `news-committee-reports.md` | 🏛️ Committee Power Dynamics Analysis | Rapporteur influence, shadow rapporteur positions, amendment landscape, trilogue implications |
-| `news-propositions.md` | 🗓️ Legislative Pipeline Intelligence | Passage probability, amendment expectations, timeline forecast, blocking coalitions |
-| `news-motions.md` | 🗳️ Voting Pattern Intelligence | Coalition map, abstention analysis, cross-party defections, margin analysis |
-| `news-weekly-review.md` | 📊 Week-in-Context Analysis | Parliamentary landscape shift, promises vs. delivery, surprise developments |
-| `news-monthly-review.md` | 🗺️ Monthly Trend Synthesis | Legislative productivity, coalition stability index, policy trajectory, emerging themes |
+| Workflow Pair | Module | Focus |
+|---------------|--------|-------|
+| `news-week-ahead-{analysis,article}.md` | 🔭 Strategic Preview Analysis | What to watch, coalitions under stress, legislative inflection points, geopolitical triggers |
+| `news-month-ahead-{analysis,article}.md` | 📈 Long-Term Trend Context | Term trajectory, policy momentum, coalition evolution, EU external context |
+| `news-breaking-{analysis,article}.md` | ⚡ Rapid Stakeholder Impact Assessment | Immediate winners/losers, market/policy signals, next 24–48 hour tracking |
+| `news-committee-reports-{analysis,article}.md` | 🏛️ Committee Power Dynamics Analysis | Rapporteur influence, shadow rapporteur positions, amendment landscape, trilogue implications |
+| `news-propositions-{analysis,article}.md` | 🗓️ Legislative Pipeline Intelligence | Passage probability, amendment expectations, timeline forecast, blocking coalitions |
+| `news-motions-{analysis,article}.md` | 🗳️ Voting Pattern Intelligence | Coalition map, abstention analysis, cross-party defections, margin analysis |
+| `news-weekly-review-{analysis,article}.md` | 📊 Week-in-Context Analysis | Parliamentary landscape shift, promises vs. delivery, surprise developments |
+| `news-monthly-review-{analysis,article}.md` | 🗺️ Monthly Trend Synthesis | Legislative productivity, coalition stability index, policy trajectory, emerging themes |
 
 The translation workflow has its own fidelity module:
 

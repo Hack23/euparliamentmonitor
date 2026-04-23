@@ -97,7 +97,7 @@ planning and resource allocation.
 
 - **1894 HTML articles** in **14 languages** (en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh)
 - **8 article types**: breaking, week-ahead, week-in-review, month-ahead, month-in-review, committee-reports, motions, propositions
-- **9 generation strategies** (1 generic `article-strategy` + 8 type-specific); **10 gh-aw workflows** (`.github/workflows/*.md` → `.lock.yml`)
+- **9 generation strategies** (1 generic `article-strategy` + 8 type-specific); **18 gh-aw workflows** (`.github/workflows/*.md` → `.lock.yml` — 8 split-pair `news-<type>-analysis.md` + `news-<type>-article.md` + `news-article-generator.md` + `news-translate.md`)
 - **3061+ automated tests** across **52 test files** (Vitest 4.1.4 + Playwright 1.59.1 + @axe-core/playwright 4.11.2)
 - **Stack**: Node 25, TypeScript 6.0.3 strict mode, ESM-only, Apache-2.0 license
 - **Dual economic context**: `european-parliament-mcp-server@1.2.11` (primary EP data) + `worldbank-mcp@1.0.1` + IMF SDMX 3.0 REST (Wave-2 OR-gate for `articlePolicyHasEconomicContext`)
@@ -418,7 +418,7 @@ public security evidence.
 - **S11: Triple Supply-Chain Attestation** — SLSA Level 3 build attestations + npm provenance + OpenSSF Scorecard + [OpenSSF Best Practices #12068](https://www.bestpractices.dev/projects/12068). *Impact: 9/10.*
 - **S12: Test Depth** — 3,061+ tests across 52 files: Vitest 4.1.4 (unit+integration), Playwright 1.59.1 + @axe-core/playwright (WCAG 2.1 AA E2E), HTMLHint, ESLint 10.2.1 + sonarjs + security + jsdoc plugins. *Impact: 8/10.*
 - **S13: Dual Economic-Context Surfaces** — World Bank MCP 1.0.1 + IMF REST SDMX 3.0, with Wave-2 OR-gate `articlePolicyHasEconomicContext` ensuring the article policy succeeds if either source is available. *Impact: 7/10.*
-- **S14: Hardened Agentic Pipeline** — 10 gh-aw agentic workflows with 5-layer security: AWF Squid firewall egress allowlist, Docker sandbox, safe-outputs caps, JSONL stdio audit, lock-file compile-gate pinned to `v0.69.0`. *Impact: 9/10.*
+- **S14: Hardened Agentic Pipeline** — 18 gh-aw agentic workflows (8 split-pair article types + manual generator + translator) with 5-layer security: AWF Squid firewall egress allowlist, Docker sandbox, safe-outputs caps, JSONL stdio audit, lock-file compile-gate pinned to `v0.69.0`. *Impact: 9/10.*
 - **S15: Typed Public npm API** — `scripts/**/*.d.ts` declarations enable downstream reuse by other civic-tech projects; positions the package as reusable infrastructure. *Impact: 6/10.*
 - **S16: AWS Primary + GitHub Pages Fallback** — AWS S3+CloudFront primary distribution with OIDC federation (no long-lived keys) + documented GitHub Pages fallback runbook for BCP. *Impact: 8/10.*
 - **S17: Canonical MCP Tool-List Drift Tests** — `IMF_MCP_TOOLS` and `WORLD_BANK_MCP_TOOLS` asserted in `test/integration/mcp/*` detect upstream API drift at CI time. *Residual gap: EP MCP client lacks canonical `EP_MCP_TOOLS` list (tracked in Weaknesses).* *Impact: 7/10.*
