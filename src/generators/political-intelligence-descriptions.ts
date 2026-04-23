@@ -1945,20 +1945,20 @@ export const CURATED_TITLES: Readonly<Record<string, TextI18n>> = {
  * pages.
  */
 const GENERIC_FALLBACK_I18N: Record<LanguageCode, string> = {
-  en: '{title} — reference {kind} in the EU Parliament Monitor analysis library.',
-  sv: '{title} — referens­{kind} i EU Parliament Monitors analysbibliotek.',
-  da: '{title} — reference­{kind} i EU Parliament Monitors analysebibliotek.',
-  no: '{title} — referanse­{kind} i EU Parliament Monitors analysebibliotek.',
-  fi: '{title} — viite{kind} EU Parliament Monitorin analyysikirjastossa.',
-  de: '{title} — Referenz-{kind} in der EU-Parliament-Monitor-Analysebibliothek.',
-  fr: '{title} — {kind} de référence dans la bibliothèque d’analyse EU Parliament Monitor.',
-  es: '{title} — {kind} de referencia en la biblioteca de análisis EU Parliament Monitor.',
-  nl: '{title} — referentie-{kind} in de analysebibliotheek van EU Parliament Monitor.',
-  ar: '{title} — {kind} مرجعية في مكتبة تحليل EU Parliament Monitor.',
-  he: '{title} — {kind} ייחוס בספריית הניתוחים של EU Parliament Monitor.',
-  ja: '{title} — EU Parliament Monitor 分析ライブラリの参照{kind}。',
-  ko: '{title} — EU Parliament Monitor 분석 라이브러리의 참조 {kind}.',
-  zh: '{title} — EU Parliament Monitor 分析库中的参考{kind}。',
+  en: '{title} — {kind} in the EU Parliament Monitor analysis library.',
+  sv: '{title} — {kind} i EU Parliament Monitors analysbibliotek.',
+  da: '{title} — {kind} i EU Parliament Monitors analysebibliotek.',
+  no: '{title} — {kind} i EU Parliament Monitors analysebibliotek.',
+  fi: '{title} — {kind} EU Parliament Monitorin analyysikirjastossa.',
+  de: '{title} — {kind} in der EU-Parliament-Monitor-Analysebibliothek.',
+  fr: '{title} — {kind} dans la bibliothèque d’analyse EU Parliament Monitor.',
+  es: '{title} — {kind} en la biblioteca de análisis EU Parliament Monitor.',
+  nl: '{title} — {kind} in de analysebibliotheek van EU Parliament Monitor.',
+  ar: '{title} — {kind} في مكتبة تحليل EU Parliament Monitor.',
+  he: '{title} — {kind} בספריית הניתוחים של EU Parliament Monitor.',
+  ja: '{title} — EU Parliament Monitor 分析ライブラリの{kind}。',
+  ko: '{title} — EU Parliament Monitor 분석 라이브러리의 {kind}.',
+  zh: '{title} — EU Parliament Monitor 分析库中的{kind}。',
 };
 
 /** Per-language word for "methodology". */
@@ -2026,12 +2026,13 @@ const KIND_WORDS_REFERENCE: Record<LanguageCode, string> = {
 function stripEmojiAndPunct(keyOrTitle: string): string {
   // Take only the basename (without the extension) as the seed so a raw
   // path like "analysis/templates/foo-bar.md" yields a readable "Foo Bar".
-  const seed = keyOrTitle
-    .split('/')
-    .pop()
-    ?.replace(/\.[^.]+$/, '')
-    ?.replace(/[-_]+/g, ' ')
-    ?.trim() ?? keyOrTitle;
+  const seed =
+    keyOrTitle
+      .split('/')
+      .pop()
+      ?.replace(/\.[^.]+$/, '')
+      ?.replace(/[-_]+/g, ' ')
+      ?.trim() ?? keyOrTitle;
   return seed.replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
@@ -2072,7 +2073,10 @@ function kindWord(relPath: string, lang: LanguageCode): string {
  * @param lang   - Language code to resolve (or `'en'` fallback)
  * @returns The resolved string (never empty for well-formed records)
  */
-function getFromRecord<T extends Record<LanguageCode, string>>(record: T, lang: LanguageCode): string {
+function getFromRecord<T extends Record<LanguageCode, string>>(
+  record: T,
+  lang: LanguageCode
+): string {
   // eslint-disable-next-line security/detect-object-injection
   return record[lang] ?? record.en;
 }
@@ -2090,11 +2094,7 @@ function getFromRecord<T extends Record<LanguageCode, string>>(record: T, lang: 
  *                  exists
  * @returns Fully localized description sentence
  */
-function buildGenericFallback(
-  relPath: string,
-  lang: LanguageCode,
-  title: string
-): string {
+function buildGenericFallback(relPath: string, lang: LanguageCode, title: string): string {
   // eslint-disable-next-line security/detect-object-injection
   const template = GENERIC_FALLBACK_I18N[lang] ?? GENERIC_FALLBACK_I18N.en;
   const kind = kindWord(relPath, lang);
@@ -2121,11 +2121,7 @@ function buildGenericFallback(
  *                   English); used as the title seed for tier 3
  * @returns A non-empty description string
  */
-export function getCuratedDescription(
-  relPath: string,
-  lang: LanguageCode,
-  fallback = ''
-): string {
+export function getCuratedDescription(relPath: string, lang: LanguageCode, fallback = ''): string {
   // Normalise path separators so Windows callers don't silently miss entries.
   const key = relPath.replace(/\\/g, '/');
   // eslint-disable-next-line security/detect-object-injection
@@ -2193,11 +2189,7 @@ export function hasCuratedTitle(relPath: string): boolean {
  * @param fallback - H1-extracted title from the source Markdown (English)
  * @returns A non-empty display title
  */
-export function getCuratedTitle(
-  relPath: string,
-  lang: LanguageCode,
-  fallback: string
-): string {
+export function getCuratedTitle(relPath: string, lang: LanguageCode, fallback: string): string {
   const key = relPath.replace(/\\/g, '/');
   // 1 + 2: curated title overlay
   // eslint-disable-next-line security/detect-object-injection

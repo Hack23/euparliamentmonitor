@@ -805,9 +805,7 @@ function renderDocumentCard(doc, lang, viewOnGitHub) {
     const url = githubBlobUrl(doc.relPath);
     const title = getCuratedTitle(doc.relPath, lang, doc.title);
     const description = getCuratedDescription(doc.relPath, lang, doc.title);
-    const desc = description
-        ? `<span class="pi-card__desc">${escapeHTML(description)}</span>`
-        : '';
+    const desc = description ? `<span class="pi-card__desc">${escapeHTML(description)}</span>` : '';
     return `          <li class="pi-card">
             <a class="pi-card__link" href="${escapeHTML(url)}" rel="noopener external" target="_blank">
               <span class="pi-card__icon" aria-hidden="true">${doc.icon}</span>
