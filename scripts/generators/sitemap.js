@@ -13,8 +13,9 @@ import { NEWS_DIR, BASE_URL, PROJECT_ROOT, createThemeToggleButton, THEME_TOGGLE
 import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, PAGE_DESCRIPTIONS, SKIP_LINK_TEXTS, HEADER_SUBTITLE_LABELS, THEME_TOGGLE_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
 import { getNewsArticles, getModifiedDate, parseArticleFilename, formatSlug, extractArticleMeta, escapeHTML, } from '../utils/file-utils.js';
 import { detectCategory } from '../utils/article-category.js';
-import { ARTICLE_TYPE_LABELS } from '../constants/language-ui.js';
+import { ARTICLE_TYPE_LABELS, FOOTER_POLITICAL_INTELLIGENCE_LABELS } from '../constants/language-ui.js';
 import { ArticleCategory } from '../types/index.js';
+import { getPoliticalIntelligenceFilename, collectPoliticalIntelligenceData, generatePoliticalIntelligenceHTML, } from './political-intelligence.js';
 /** Absolute docs directory under project root */
 const DOCS_DIR = path.join(PROJECT_ROOT, 'docs');
 /**
@@ -60,6 +61,7 @@ export function generateSitemap(articles, docsFiles = []) {
     const urls = [
         ...buildIndexUrls(today),
         ...buildSitemapHtmlUrls(today),
+        ...buildPoliticalIntelligenceUrls(today),
         {
             loc: `${BASE_URL}/rss.xml`,
             lastmod: today,
@@ -136,6 +138,36 @@ function buildIndexUrls(today) {
         lastmod: today,
         changefreq: 'daily',
         priority: '1.0',
+        alternates: full,
+    }));
+}
+/**
+ * Build the absolute URL for a language-specific political-intelligence HTML page.
+ *
+ * @param lang - Language code
+ * @returns Absolute URL
+ */
+function politicalIntelligenceUrlFor(lang) {
+    return `${BASE_URL}/${getPoliticalIntelligenceFilename(lang)}`;
+}
+/**
+ * Build the 14 `<url>` entries for political-intelligence HTML pages with
+ * hreflang alternates covering every supported language.
+ *
+ * @param today - ISO date string for lastmod
+ * @returns Sitemap URL entries
+ */
+function buildPoliticalIntelligenceUrls(today) {
+    const alternates = {};
+    for (const lang of ALL_LANGUAGES) {
+        alternates[lang] = politicalIntelligenceUrlFor(lang);
+    }
+    const full = withXDefault(alternates);
+    return ALL_LANGUAGES.map((lang) => ({
+        loc: politicalIntelligenceUrlFor(lang),
+        lastmod: today,
+        changefreq: 'weekly',
+        priority: '0.6',
         alternates: full,
     }));
 }
@@ -378,6 +410,7 @@ const SITEMAP_COPY = {
         statLanguagesLabel: 'Languages',
         statLastUpdatedLabel: 'Last updated',
         statCategoriesLabel: 'Categories',
+        politicalIntelligenceLinkDescription: 'Index of every methodology, template, and daily analysis run — the transparent tradecraft behind every article.',
     },
     sv: {
         intro: 'Komplett översikt över alla sidor på EU Parliament Monitor — startsidor, nyhetsartiklar och teknisk dokumentation. Använd sidan för att upptäcka innehåll och navigera direkt till valfri artikel på alla 14 språk.',
@@ -392,6 +425,7 @@ const SITEMAP_COPY = {
         statLanguagesLabel: 'Språk',
         statLastUpdatedLabel: 'Senast uppdaterad',
         statCategoriesLabel: 'Kategorier',
+        politicalIntelligenceLinkDescription: 'Index över varje metodik, mall och daglig analyskörning — det transparenta hantverket bakom varje artikel.',
     },
     da: {
         intro: 'Komplet oversigt over alle sider på EU Parliament Monitor — startsider, nyhedsartikler og teknisk dokumentation. Brug siden til at opdage indhold og navigere direkte til enhver artikel på alle 14 sprog.',
@@ -406,6 +440,7 @@ const SITEMAP_COPY = {
         statLanguagesLabel: 'Sprog',
         statLastUpdatedLabel: 'Sidst opdateret',
         statCategoriesLabel: 'Kategorier',
+        politicalIntelligenceLinkDescription: 'Indeks over hver metode, skabelon og daglig analysekørsel — det gennemsigtige håndværk bag hver artikel.',
     },
     no: {
         intro: 'Komplett oversikt over alle sider på EU Parliament Monitor — startsider, nyhetsartikler og teknisk dokumentasjon. Bruk siden for å oppdage innhold og navigere direkte til enhver artikkel på alle 14 språk.',
@@ -420,6 +455,7 @@ const SITEMAP_COPY = {
         statLanguagesLabel: 'Språk',
         statLastUpdatedLabel: 'Sist oppdatert',
         statCategoriesLabel: 'Kategorier',
+        politicalIntelligenceLinkDescription: 'Indeks over hver metodologi, mal og daglige analysekjøring — det gjennomsiktige håndverket bak hver artikkel.',
     },
     fi: {
         intro: 'Täydellinen yleiskatsaus kaikkiin EU Parliament Monitor -sivuston sivuihin — etusivuihin, uutisartikkeleihin ja tekniseen dokumentaatioon. Käytä tätä sivua löytääksesi sisältöä ja siirtyäksesi suoraan mihin tahansa artikkeliin kaikilla 14 kielellä.',
@@ -434,6 +470,7 @@ const SITEMAP_COPY = {
         statLanguagesLabel: 'Kielet',
         statLastUpdatedLabel: 'Viimeksi päivitetty',
         statCategoriesLabel: 'Luokat',
+        politicalIntelligenceLinkDescription: 'Hakemisto jokaisesta metodologiasta, pohjasta ja päivittäisestä analyysiajoista — läpinäkyvä käsityötaito jokaisen artikkelin takana.',
     },
     de: {
         intro: 'Vollständige Übersicht über alle Seiten von EU Parliament Monitor — Startseiten, Nachrichtenartikel und technische Dokumentation. Nutzen Sie diese Seite, um Inhalte zu entdecken und direkt zu jedem Artikel in allen 14 Sprachen zu navigieren.',
@@ -448,6 +485,7 @@ const SITEMAP_COPY = {
         statLanguagesLabel: 'Sprachen',
         statLastUpdatedLabel: 'Zuletzt aktualisiert',
         statCategoriesLabel: 'Kategorien',
+        politicalIntelligenceLinkDescription: 'Index jeder Methodologie, Vorlage und täglichen Analysedurchführung — die transparente Handwerkskunst hinter jedem Artikel.',
     },
     fr: {
         intro: 'Vue d\u2019ensemble complète de toutes les pages d\u2019EU Parliament Monitor — pages d\u2019accueil, articles d\u2019actualité et documentation technique. Utilisez cette page pour découvrir du contenu et naviguer directement vers n\u2019importe quel article dans les 14 langues.',
@@ -462,6 +500,7 @@ const SITEMAP_COPY = {
         statLanguagesLabel: 'Langues',
         statLastUpdatedLabel: 'Dernière mise à jour',
         statCategoriesLabel: 'Catégories',
+        politicalIntelligenceLinkDescription: "Index de chaque méthodologie, modèle et exécution d'analyse quotidienne — le savoir-faire transparent derrière chaque article.",
     },
     es: {
         intro: 'Vista general completa de todas las páginas de EU Parliament Monitor — páginas principales, artículos de noticias y documentación técnica. Usa esta página para descubrir contenido y navegar directamente a cualquier artículo en los 14 idiomas.',
@@ -476,6 +515,7 @@ const SITEMAP_COPY = {
         statLanguagesLabel: 'Idiomas',
         statLastUpdatedLabel: 'Última actualización',
         statCategoriesLabel: 'Categorías',
+        politicalIntelligenceLinkDescription: 'Índice de cada metodología, plantilla y ejecución de análisis diario — el oficio transparente detrás de cada artículo.',
     },
     nl: {
         intro: 'Volledig overzicht van elke pagina op EU Parliament Monitor — landingspagina\u2019s, nieuwsartikelen en technische documentatie. Gebruik deze pagina om inhoud te ontdekken en direct naar elk artikel in alle 14 talen te navigeren.',
@@ -490,6 +530,7 @@ const SITEMAP_COPY = {
         statLanguagesLabel: 'Talen',
         statLastUpdatedLabel: 'Laatst bijgewerkt',
         statCategoriesLabel: 'Categorieën',
+        politicalIntelligenceLinkDescription: 'Index van elke methodologie, sjabloon en dagelijkse analyse-uitvoering — het transparante vakmanschap achter elk artikel.',
     },
     ar: {
         intro: 'نظرة عامة كاملة على كل صفحة في EU Parliament Monitor — الصفحات الرئيسية والمقالات الإخبارية والوثائق التقنية. استخدم هذه الصفحة لاكتشاف المحتوى والانتقال مباشرة إلى أي مقال بجميع اللغات الـ14.',
@@ -504,6 +545,7 @@ const SITEMAP_COPY = {
         statLanguagesLabel: 'اللغات',
         statLastUpdatedLabel: 'آخر تحديث',
         statCategoriesLabel: 'الفئات',
+        politicalIntelligenceLinkDescription: 'فهرس لكل منهجية وقالب وتشغيل تحليل يومي — الحرفة الشفافة وراء كل مقال.',
     },
     he: {
         intro: 'סקירה מלאה של כל עמוד ב-EU Parliament Monitor — עמודי בית, מאמרי חדשות ותיעוד טכני. השתמשו בעמוד זה כדי לגלות תוכן ולנווט ישירות לכל מאמר בכל 14 השפות.',
@@ -518,6 +560,7 @@ const SITEMAP_COPY = {
         statLanguagesLabel: 'שפות',
         statLastUpdatedLabel: 'עודכן לאחרונה',
         statCategoriesLabel: 'קטגוריות',
+        politicalIntelligenceLinkDescription: 'אינדקס של כל מתודולוגיה, תבנית וריצת ניתוח יומית — המלאכה השקופה שמאחורי כל מאמר.',
     },
     ja: {
         intro: 'EU Parliament Monitor の全ページの完全な一覧です — トップページ、ニュース記事、技術ドキュメント。このページを使って、14 言語すべての任意の記事を発見・直接閲覧できます。',
@@ -532,6 +575,7 @@ const SITEMAP_COPY = {
         statLanguagesLabel: '言語',
         statLastUpdatedLabel: '最終更新',
         statCategoriesLabel: 'カテゴリ',
+        politicalIntelligenceLinkDescription: 'すべての方法論、テンプレート、日次分析実行のインデックス — 各記事の背後にある透明な手法。',
     },
     ko: {
         intro: 'EU Parliament Monitor의 모든 페이지 전체 개요 — 홈 페이지, 뉴스 기사 및 기술 문서를 포함합니다. 이 페이지를 통해 14개 언어 전체의 어떤 기사든 직접 찾아 이동할 수 있습니다.',
@@ -546,6 +590,7 @@ const SITEMAP_COPY = {
         statLanguagesLabel: '언어',
         statLastUpdatedLabel: '마지막 업데이트',
         statCategoriesLabel: '카테고리',
+        politicalIntelligenceLinkDescription: '모든 방법론, 템플릿 및 일일 분석 실행의 색인 — 각 기사 뒤에 있는 투명한 기술.',
     },
     zh: {
         intro: '欧洲议会监测(EU Parliament Monitor)所有页面的完整概览 — 包括首页、新闻文章和技术文档。通过此页面可以发现内容并直接访问 14 种语言的任何文章。',
@@ -560,6 +605,7 @@ const SITEMAP_COPY = {
         statLanguagesLabel: '语言',
         statLastUpdatedLabel: '最近更新',
         statCategoriesLabel: '分类',
+        politicalIntelligenceLinkDescription: '所有方法论、模板和每日分析运行的索引 — 每篇文章背后透明的工艺。',
     },
 };
 /**
@@ -860,6 +906,10 @@ ${hreflangLinks}
         <p class="section-description">${escapeHTML(copy.pagesDescription)}</p>
         <ul class="sitemap-list">
 ${pagesSection}
+          <li>
+            <a href="${getPoliticalIntelligenceFilename(lang)}" hreflang="${lang}">🧭 ${escapeHTML(getLocalizedString(FOOTER_POLITICAL_INTELLIGENCE_LABELS, lang))}</a>
+            <span class="link-description">${escapeHTML(copy.politicalIntelligenceLinkDescription)}</span>
+          </li>
         </ul>
       </section>
 ${docsSection}
@@ -881,6 +931,7 @@ ${articlesSection}
         <h3>Quick Links</h3>
         <ul>
           <li><a href="${getIndexFilename(lang)}">Home</a></li>
+          <li><a href="${getPoliticalIntelligenceFilename(lang)}">Political Intelligence</a></li>
           <li><a href="rss.xml">RSS Feed</a></li>
           <li><a href="sitemap.xml">XML Sitemap</a></li>
           <li><a href="https://github.com/Hack23/euparliamentmonitor">GitHub Repository</a></li>
@@ -972,8 +1023,24 @@ function main() {
     const sitemap = generateSitemap(articles, docsFiles);
     const filepath = path.join(PROJECT_ROOT, 'sitemap.xml');
     fs.writeFileSync(filepath, sitemap, 'utf-8');
-    const totalUrls = articles.length + ALL_LANGUAGES.length + ALL_LANGUAGES.length + docsFiles.length + 1;
+    const totalUrls = articles.length +
+        ALL_LANGUAGES.length * 3 + // index pages + sitemap HTML + political-intelligence HTML
+        docsFiles.length +
+        1; // rss.xml
     console.log(`✅ Generated sitemap.xml with ${totalUrls} URLs`);
+    // Generate political-intelligence pages (one per language)
+    const piData = collectPoliticalIntelligenceData(PROJECT_ROOT);
+    console.log(`🧭 Scanned analysis tradecraft: ${piData.methodologies.length} methodologies, ${piData.templates.length} templates, ${piData.dailyGroups.length} daily groups`);
+    let piGenerated = 0;
+    for (const lang of ALL_LANGUAGES) {
+        const piHtml = generatePoliticalIntelligenceHTML(lang, piData);
+        const piFilename = getPoliticalIntelligenceFilename(lang);
+        const piPath = path.join(PROJECT_ROOT, piFilename);
+        fs.writeFileSync(piPath, piHtml, 'utf-8');
+        console.log(`  ✅ Generated ${piFilename}`);
+        piGenerated++;
+    }
+    console.log(`✅ Generated ${piGenerated} political-intelligence HTML files`);
     // Build article metadata map for sitemap HTML pages and RSS,
     // pre-grouped by language for O(N) iteration
     const articlesByLang = new Map();

@@ -699,12 +699,12 @@ describe('generate-sitemap', () => {
       }
     });
 
-    it('should have exactly 14 index pages, 14 sitemap pages, 1 rss.xml with no articles', () => {
+    it('should have exactly 14 index pages, 14 sitemap pages, 14 political-intelligence pages, 1 rss.xml with no articles', () => {
       const xml = generateSitemap([]);
       const urlCount = (xml.match(/<url>/g) || []).length;
 
-      // 14 index + 14 sitemap HTML + 1 rss.xml = 29
-      expect(urlCount).toBe(29);
+      // 14 index + 14 sitemap HTML + 14 political-intelligence HTML + 1 rss.xml = 43
+      expect(urlCount).toBe(43);
     });
 
     it('should have correct total URL count with articles and docs', () => {
@@ -713,8 +713,8 @@ describe('generate-sitemap', () => {
       const xml = generateSitemap(articles, docsFiles);
       const urlCount = (xml.match(/<url>/g) || []).length;
 
-      // 14 index + 14 sitemap + 1 rss + 2 articles + 1 docs = 32
-      expect(urlCount).toBe(32);
+      // 14 index + 14 sitemap + 14 political-intelligence + 1 rss + 2 articles + 1 docs = 46
+      expect(urlCount).toBe(46);
     });
 
     it('should set correct priorities for all page types', () => {
@@ -804,6 +804,29 @@ describe('generate-sitemap', () => {
       expect(block).not.toContain('<xhtml:link');
     });
 
+    it('should emit hreflang alternates for political-intelligence HTML pages', () => {
+      const xml = generateSitemap([]);
+      const piBlock = xml.match(/<url>[\s\S]*?\/political-intelligence\.html<\/loc>[\s\S]*?<\/url>/);
+      expect(piBlock).toBeTruthy();
+      expect(piBlock[0]).toContain(
+        '<xhtml:link rel="alternate" hreflang="en" href="https://euparliamentmonitor.com/political-intelligence.html"/>'
+      );
+      expect(piBlock[0]).toContain(
+        '<xhtml:link rel="alternate" hreflang="de" href="https://euparliamentmonitor.com/political-intelligence_de.html"/>'
+      );
+      expect(piBlock[0]).toContain('hreflang="x-default"');
+    });
+
+    it('should list all 14 political-intelligence language variants as <loc> entries', () => {
+      const xml = generateSitemap([]);
+      const languages = ['en', 'sv', 'da', 'no', 'fi', 'de', 'fr', 'es', 'nl', 'ar', 'he', 'ja', 'ko', 'zh'];
+      for (const lang of languages) {
+        const piFilename =
+          lang === 'en' ? 'political-intelligence.html' : `political-intelligence_${lang}.html`;
+        expect(xml).toContain(`<loc>https://euparliamentmonitor.com/${piFilename}</loc>`);
+      }
+    });
+
     it('should keep URL count stable (alternates do not add <url> elements)', () => {
       const articles = [
         '2026-02-24-propositions-en.html',
@@ -811,8 +834,8 @@ describe('generate-sitemap', () => {
       ];
       const xml = generateSitemap(articles);
       const urlCount = (xml.match(/<url>/g) || []).length;
-      // 14 index + 14 sitemap + 1 rss + 2 articles = 31
-      expect(urlCount).toBe(31);
+      // 14 index + 14 sitemap + 14 political-intelligence + 1 rss + 2 articles = 45
+      expect(urlCount).toBe(45);
     });
   });
 

@@ -40,9 +40,14 @@ import {
   escapeHTML,
 } from '../utils/file-utils.js';
 import { detectCategory } from '../utils/article-category.js';
-import { ARTICLE_TYPE_LABELS } from '../constants/language-ui.js';
+import { ARTICLE_TYPE_LABELS, FOOTER_POLITICAL_INTELLIGENCE_LABELS } from '../constants/language-ui.js';
 import { ArticleCategory } from '../types/index.js';
 import type { SitemapUrl } from '../types/index.js';
+import {
+  getPoliticalIntelligenceFilename,
+  collectPoliticalIntelligenceData,
+  generatePoliticalIntelligenceHTML,
+} from './political-intelligence.js';
 
 /**
  * Extended sitemap URL with optional xhtml:link alternate language entries.
@@ -100,6 +105,7 @@ export function generateSitemap(articles: string[], docsFiles: string[] = []): s
   const urls: SitemapUrlWithAlternates[] = [
     ...buildIndexUrls(today),
     ...buildSitemapHtmlUrls(today),
+    ...buildPoliticalIntelligenceUrls(today),
     {
       loc: `${BASE_URL}/rss.xml`,
       lastmod: today,
@@ -180,6 +186,38 @@ function buildIndexUrls(today: string): SitemapUrlWithAlternates[] {
     lastmod: today,
     changefreq: 'daily',
     priority: '1.0',
+    alternates: full,
+  }));
+}
+
+/**
+ * Build the absolute URL for a language-specific political-intelligence HTML page.
+ *
+ * @param lang - Language code
+ * @returns Absolute URL
+ */
+function politicalIntelligenceUrlFor(lang: string): string {
+  return `${BASE_URL}/${getPoliticalIntelligenceFilename(lang)}`;
+}
+
+/**
+ * Build the 14 `<url>` entries for political-intelligence HTML pages with
+ * hreflang alternates covering every supported language.
+ *
+ * @param today - ISO date string for lastmod
+ * @returns Sitemap URL entries
+ */
+function buildPoliticalIntelligenceUrls(today: string): SitemapUrlWithAlternates[] {
+  const alternates: Record<string, string> = {};
+  for (const lang of ALL_LANGUAGES) {
+    alternates[lang] = politicalIntelligenceUrlFor(lang);
+  }
+  const full = withXDefault(alternates);
+  return ALL_LANGUAGES.map((lang) => ({
+    loc: politicalIntelligenceUrlFor(lang),
+    lastmod: today,
+    changefreq: 'weekly',
+    priority: '0.6',
     alternates: full,
   }));
 }
@@ -448,6 +486,8 @@ interface SitemapCopy {
   statLastUpdatedLabel: string;
   /** Stats: "Categories" label */
   statCategoriesLabel: string;
+  /** One-line description for the link to the Political Intelligence page */
+  politicalIntelligenceLinkDescription: string;
 }
 
 /** Per-language copy for the sitemap hero, breadcrumb, and section intros */
@@ -469,6 +509,8 @@ const SITEMAP_COPY: Record<string, SitemapCopy> = {
     statLanguagesLabel: 'Languages',
     statLastUpdatedLabel: 'Last updated',
     statCategoriesLabel: 'Categories',
+    politicalIntelligenceLinkDescription:
+      'Index of every methodology, template, and daily analysis run — the transparent tradecraft behind every article.',
   },
   sv: {
     intro:
@@ -486,6 +528,8 @@ const SITEMAP_COPY: Record<string, SitemapCopy> = {
     statLanguagesLabel: 'Språk',
     statLastUpdatedLabel: 'Senast uppdaterad',
     statCategoriesLabel: 'Kategorier',
+    politicalIntelligenceLinkDescription:
+      'Index över varje metodik, mall och daglig analyskörning — det transparenta hantverket bakom varje artikel.',
   },
   da: {
     intro:
@@ -503,6 +547,8 @@ const SITEMAP_COPY: Record<string, SitemapCopy> = {
     statLanguagesLabel: 'Sprog',
     statLastUpdatedLabel: 'Sidst opdateret',
     statCategoriesLabel: 'Kategorier',
+    politicalIntelligenceLinkDescription:
+      'Indeks over hver metode, skabelon og daglig analysekørsel — det gennemsigtige håndværk bag hver artikel.',
   },
   no: {
     intro:
@@ -520,6 +566,8 @@ const SITEMAP_COPY: Record<string, SitemapCopy> = {
     statLanguagesLabel: 'Språk',
     statLastUpdatedLabel: 'Sist oppdatert',
     statCategoriesLabel: 'Kategorier',
+    politicalIntelligenceLinkDescription:
+      'Indeks over hver metodologi, mal og daglige analysekjøring — det gjennomsiktige håndverket bak hver artikkel.',
   },
   fi: {
     intro:
@@ -537,6 +585,8 @@ const SITEMAP_COPY: Record<string, SitemapCopy> = {
     statLanguagesLabel: 'Kielet',
     statLastUpdatedLabel: 'Viimeksi päivitetty',
     statCategoriesLabel: 'Luokat',
+    politicalIntelligenceLinkDescription:
+      'Hakemisto jokaisesta metodologiasta, pohjasta ja päivittäisestä analyysiajoista — läpinäkyvä käsityötaito jokaisen artikkelin takana.',
   },
   de: {
     intro:
@@ -554,6 +604,8 @@ const SITEMAP_COPY: Record<string, SitemapCopy> = {
     statLanguagesLabel: 'Sprachen',
     statLastUpdatedLabel: 'Zuletzt aktualisiert',
     statCategoriesLabel: 'Kategorien',
+    politicalIntelligenceLinkDescription:
+      'Index jeder Methodologie, Vorlage und täglichen Analysedurchführung — die transparente Handwerkskunst hinter jedem Artikel.',
   },
   fr: {
     intro:
@@ -572,6 +624,8 @@ const SITEMAP_COPY: Record<string, SitemapCopy> = {
     statLanguagesLabel: 'Langues',
     statLastUpdatedLabel: 'Dernière mise à jour',
     statCategoriesLabel: 'Catégories',
+    politicalIntelligenceLinkDescription:
+      "Index de chaque méthodologie, modèle et exécution d'analyse quotidienne — le savoir-faire transparent derrière chaque article.",
   },
   es: {
     intro:
@@ -590,6 +644,8 @@ const SITEMAP_COPY: Record<string, SitemapCopy> = {
     statLanguagesLabel: 'Idiomas',
     statLastUpdatedLabel: 'Última actualización',
     statCategoriesLabel: 'Categorías',
+    politicalIntelligenceLinkDescription:
+      'Índice de cada metodología, plantilla y ejecución de análisis diario — el oficio transparente detrás de cada artículo.',
   },
   nl: {
     intro:
@@ -608,6 +664,8 @@ const SITEMAP_COPY: Record<string, SitemapCopy> = {
     statLanguagesLabel: 'Talen',
     statLastUpdatedLabel: 'Laatst bijgewerkt',
     statCategoriesLabel: 'Categorieën',
+    politicalIntelligenceLinkDescription:
+      'Index van elke methodologie, sjabloon en dagelijkse analyse-uitvoering — het transparante vakmanschap achter elk artikel.',
   },
   ar: {
     intro:
@@ -624,6 +682,8 @@ const SITEMAP_COPY: Record<string, SitemapCopy> = {
     statLanguagesLabel: 'اللغات',
     statLastUpdatedLabel: 'آخر تحديث',
     statCategoriesLabel: 'الفئات',
+    politicalIntelligenceLinkDescription:
+      'فهرس لكل منهجية وقالب وتشغيل تحليل يومي — الحرفة الشفافة وراء كل مقال.',
   },
   he: {
     intro:
@@ -640,6 +700,8 @@ const SITEMAP_COPY: Record<string, SitemapCopy> = {
     statLanguagesLabel: 'שפות',
     statLastUpdatedLabel: 'עודכן לאחרונה',
     statCategoriesLabel: 'קטגוריות',
+    politicalIntelligenceLinkDescription:
+      'אינדקס של כל מתודולוגיה, תבנית וריצת ניתוח יומית — המלאכה השקופה שמאחורי כל מאמר.',
   },
   ja: {
     intro:
@@ -655,6 +717,8 @@ const SITEMAP_COPY: Record<string, SitemapCopy> = {
     statLanguagesLabel: '言語',
     statLastUpdatedLabel: '最終更新',
     statCategoriesLabel: 'カテゴリ',
+    politicalIntelligenceLinkDescription:
+      'すべての方法論、テンプレート、日次分析実行のインデックス — 各記事の背後にある透明な手法。',
   },
   ko: {
     intro:
@@ -670,6 +734,8 @@ const SITEMAP_COPY: Record<string, SitemapCopy> = {
     statLanguagesLabel: '언어',
     statLastUpdatedLabel: '마지막 업데이트',
     statCategoriesLabel: '카테고리',
+    politicalIntelligenceLinkDescription:
+      '모든 방법론, 템플릿 및 일일 분석 실행의 색인 — 각 기사 뒤에 있는 투명한 기술.',
   },
   zh: {
     intro:
@@ -685,6 +751,7 @@ const SITEMAP_COPY: Record<string, SitemapCopy> = {
     statLanguagesLabel: '语言',
     statLastUpdatedLabel: '最近更新',
     statCategoriesLabel: '分类',
+    politicalIntelligenceLinkDescription: '所有方法论、模板和每日分析运行的索引 — 每篇文章背后透明的工艺。',
   },
 };
 
@@ -1031,6 +1098,10 @@ ${hreflangLinks}
         <p class="section-description">${escapeHTML(copy.pagesDescription)}</p>
         <ul class="sitemap-list">
 ${pagesSection}
+          <li>
+            <a href="${getPoliticalIntelligenceFilename(lang)}" hreflang="${lang}">🧭 ${escapeHTML(getLocalizedString(FOOTER_POLITICAL_INTELLIGENCE_LABELS, lang))}</a>
+            <span class="link-description">${escapeHTML(copy.politicalIntelligenceLinkDescription)}</span>
+          </li>
         </ul>
       </section>
 ${docsSection}
@@ -1052,6 +1123,7 @@ ${articlesSection}
         <h3>Quick Links</h3>
         <ul>
           <li><a href="${getIndexFilename(lang)}">Home</a></li>
+          <li><a href="${getPoliticalIntelligenceFilename(lang)}">Political Intelligence</a></li>
           <li><a href="rss.xml">RSS Feed</a></li>
           <li><a href="sitemap.xml">XML Sitemap</a></li>
           <li><a href="https://github.com/Hack23/euparliamentmonitor">GitHub Repository</a></li>
@@ -1166,8 +1238,27 @@ function main(): void {
 
   fs.writeFileSync(filepath, sitemap, 'utf-8');
   const totalUrls =
-    articles.length + ALL_LANGUAGES.length + ALL_LANGUAGES.length + docsFiles.length + 1;
+    articles.length +
+    ALL_LANGUAGES.length * 3 + // index pages + sitemap HTML + political-intelligence HTML
+    docsFiles.length +
+    1; // rss.xml
   console.log(`✅ Generated sitemap.xml with ${totalUrls} URLs`);
+
+  // Generate political-intelligence pages (one per language)
+  const piData = collectPoliticalIntelligenceData(PROJECT_ROOT);
+  console.log(
+    `🧭 Scanned analysis tradecraft: ${piData.methodologies.length} methodologies, ${piData.templates.length} templates, ${piData.dailyGroups.length} daily groups`
+  );
+  let piGenerated = 0;
+  for (const lang of ALL_LANGUAGES) {
+    const piHtml = generatePoliticalIntelligenceHTML(lang, piData);
+    const piFilename = getPoliticalIntelligenceFilename(lang);
+    const piPath = path.join(PROJECT_ROOT, piFilename);
+    fs.writeFileSync(piPath, piHtml, 'utf-8');
+    console.log(`  ✅ Generated ${piFilename}`);
+    piGenerated++;
+  }
+  console.log(`✅ Generated ${piGenerated} political-intelligence HTML files`);
 
   // Build article metadata map for sitemap HTML pages and RSS,
   // pre-grouped by language for O(N) iteration

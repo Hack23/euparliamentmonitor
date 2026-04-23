@@ -3600,6 +3600,207 @@ html[data-theme='dark'] [dir='rtl'] .news-card {
   margin-right: 0.75rem;
 }
 
+/* ─── Political Intelligence page (political-intelligence_*.html) ───── */
+
+.pi-hero h1 {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pi-card-grid {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.pi-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.pi-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  border-color: var(--primary);
+}
+
+.pi-card__link {
+  display: flex;
+  gap: 0.85rem;
+  padding: 0.95rem 1rem;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
+}
+
+.pi-card__link:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: 10px;
+}
+
+.pi-card__icon {
+  flex: 0 0 auto;
+  font-size: 1.6rem;
+  line-height: 1.2;
+  width: 2.3rem;
+  height: 2.3rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  border-radius: 8px;
+}
+
+.pi-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.pi-card__title {
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.35;
+}
+
+.pi-card__path {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  overflow-wrap: anywhere;
+}
+
+.pi-card__path code {
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+}
+
+.pi-card__desc {
+  margin: 0.15rem 0 0;
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.pi-card__cta {
+  margin-top: 0.35rem;
+  font-size: 0.82rem;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* Date-grouped daily-analysis section */
+
+.pi-date-group {
+  margin: 1.2rem 0;
+  padding: 0.9rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+}
+
+.pi-date-group__heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin: 0 0 0.6rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px dashed var(--border-light);
+  font-variant-numeric: tabular-nums;
+}
+
+.pi-date-group__count {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+  background: var(--primary-light);
+  padding: 0.1rem 0.55rem;
+  border-radius: 999px;
+}
+
+.pi-run-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+.pi-run__link {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  background: var(--bg);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.pi-run__link:hover {
+  border-color: var(--primary);
+  background: var(--primary-light);
+}
+
+.pi-run__link:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+.pi-run__icon {
+  flex: 0 0 auto;
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+
+.pi-run__body {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.pi-run__slug {
+  font-family: var(--font-mono, ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace);
+  font-size: 0.85rem;
+  color: var(--text);
+  overflow-wrap: anywhere;
+}
+
+.pi-run__meta {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.pi-run__cta {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* RTL flip: icon sits on the right, CTA arrow on the left */
+[dir='rtl'] .pi-card__link,
+[dir='rtl'] .pi-run__link {
+  flex-direction: row-reverse;
+}
+
 /* ─── High Contrast Mode (prefers-contrast: more) ───────────────── */
 @media (prefers-contrast: more) {
   :root {
