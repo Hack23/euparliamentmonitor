@@ -465,7 +465,7 @@ All domain types are strongly typed in `src/types/*.ts` (strict mode, ESM). 15 t
 
 ### MCP Data Contracts
 
-The EP MCP Server `v1.2.11` exposes two distinct feed-option schemas. This split was finalised in the 2026-04-20 release (fixes [Hack23/european-parliament-mcp#377](https://github.com/Hack23/european-parliament-mcp/issues/377) / [#378](https://github.com/Hack23/european-parliament-mcp/issues/378)) and is reflected in `src/types/mcp.ts`:
+The EP MCP Server `v1.2.13` exposes two distinct feed-option schemas. This split was finalised in the 2026-04-20 release (fixes [Hack23/european-parliament-mcp#377](https://github.com/Hack23/european-parliament-mcp/issues/377) / [#378](https://github.com/Hack23/european-parliament-mcp/issues/378)) and is reflected in `src/types/mcp.ts`:
 
 ```typescript
 // Sliding-window feeds (6 tools)
@@ -489,7 +489,7 @@ export interface FixedWindowFeedOptions {
   // NO timeframe/startDate — these feeds ignore those parameters
 }
 
-// Uniform unavailable envelope — EP v1.2.11
+// Uniform unavailable envelope — EP v1.2.13
 export interface MCPUnavailableEnvelope<T> {
   status: "unavailable";
   items: T[];           // ALWAYS empty array — never null or undefined
@@ -502,7 +502,7 @@ export type MCPResponse<T> =
   | MCPUnavailableEnvelope<T>;
 ```
 
-> **Breaking-change note**: Prior to v1.2.11, fixed-window feeds silently accepted (and ignored) `timeframe`/`startDate`. As of v1.2.11 those parameters are rejected at the schema level. The `FALLBACK_TEMPLATE_PATTERNS` detector scans article HTML for fragments like `"unavailable"` leaking into prose — any detection blocks PR creation via `scanHtmlForFallbackLeaks()` in `src/utils/content-validator.ts`.
+> **Breaking-change note**: Prior to v1.2.13, fixed-window feeds silently accepted (and ignored) `timeframe`/`startDate`. As of v1.2.13 those parameters are rejected at the schema level. The `FALLBACK_TEMPLATE_PATTERNS` detector scans article HTML for fragments like `"unavailable"` leaking into prose — any detection blocks PR creation via `scanHtmlForFallbackLeaks()` in `src/utils/content-validator.ts`.
 
 ### Canonical MCP Tool Lists
 
@@ -552,7 +552,7 @@ export interface AnalysisManifest {
   runId: string;                        // gh-aw run identifier
   generatedAt: string;                  // ISO 8601 UTC
   sourceCommit: string;                 // Git SHA of source code
-  epMcpVersion: "1.2.11";               // Pinned EP MCP Server version
+  epMcpVersion: "1.2.13";               // Pinned EP MCP Server version
   ghAwVersion: "v0.69.0";               // Pinned gh-aw CLI
   files: AnalysisRunFiles;              // Emitted artifact catalogue
   qualityReport: QualityReport;         // AI-First 2-pass metrics
@@ -847,7 +847,7 @@ erDiagram
     MCP_CLIENT ||--o{ RESPONSE_VALIDATOR : "validates with"
 
     MCP_SERVER {
-        string version "1.2.11"
+        string version "1.2.13"
         string connectionType "stdio, SSE"
         string status "running, stopped"
         datetime lastHealthCheck
@@ -1460,7 +1460,7 @@ timeline
 |---------|--------------|-------------|----------------|
 | **v1.0** | 2026-02-01 | Initial release, basic article generation | 1 (Main ER diagram) |
 | **v1.1** | 2026-03-19 | Multi-language support, MCP integration, ISMS alignment | 4 (MEP, MCP, Multi-language, Sitemap models) + 1 (EP data flow) |
-| **v1.2** | 2026-04-20 | TypeScript type system coverage, FeedBaseOptions vs FixedWindowFeedOptions split (EP MCP v1.2.11), IMF/WB dual economic context, AnalysisManifest schema, 8 article types correctly enumerated, 14 languages from `language-core.ts::ALL_LANGUAGES`, `buildSiteFooter()` single source of truth, reference quality thresholds | Same set — content updates |
+| **v1.2** | 2026-04-20 | TypeScript type system coverage, FeedBaseOptions vs FixedWindowFeedOptions split (EP MCP v1.2.13), IMF/WB dual economic context, AnalysisManifest schema, 8 article types correctly enumerated, 14 languages from `language-core.ts::ALL_LANGUAGES`, `buildSiteFooter()` single source of truth, reference quality thresholds | Same set — content updates |
 | **v2.0** | 2026-Q4 (Planned) | Real-time updates, expanded intelligence types | TBD |
 
 ### Breaking Changes Log

@@ -119,7 +119,7 @@ Evidence of ISMS compliance is maintained through:
 
 EU Parliament Monitor is a **TypeScript-first static site generator and political intelligence platform** that creates multi-language news articles about European Parliament activities. Content is produced by a fleet of **10 agentic GitHub Workflows** (gh-aw) that drive AI agents (Claude Opus 4.7 via GitHub Copilot) through a 5-stage analysis pipeline, consuming structured data from **three data surfaces**:
 
-- **European Parliament MCP Server** `v1.2.11` (primary — plenary, MEPs, votes, committees, procedures, adopted texts, 6 sliding-window + 7 fixed-window feeds)
+- **European Parliament MCP Server** `v1.2.13` (primary — plenary, MEPs, votes, committees, procedures, adopted texts, 6 sliding-window + 7 fixed-window feeds)
 - **World Bank MCP** `v1.0.1` (optional, biannual — WDI macro/social/environment/health indicators)
 - **IMF REST (SDMX 3.0)** (native TypeScript fetch client — monthly WEO+FM fiscal forecasts)
 
@@ -134,7 +134,7 @@ architecture.
 ### Key Characteristics
 
 - **Minimal Runtime Dependencies**: Pure static HTML/CSS output with no server-side
-  execution; one pinned production dependency (`european-parliament-mcp-server@1.2.11`) plus one optional dependency (`worldbank-mcp@1.0.1`) used only at build time
+  execution; one pinned production dependency (`european-parliament-mcp-server@1.2.13`) plus one optional dependency (`worldbank-mcp@1.0.1`) used only at build time
 - **TypeScript Source**: All source in `src/` written in TypeScript 6.0.3 (strict, ESM, `"type": "module"`), compiled via `tsc` — `rootDir: ./src`, `outDir: ./scripts`, `target: ES2025`, `module: NodeNext`
 - **Multi-Language Support**: Generates content in 14 languages (`en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh`), defined in `src/constants/language-core.ts::ALL_LANGUAGES`
 - **Article Types**: 8 production content types (`breaking-news`, `committee-reports`, `month-ahead`, `monthly-review`, `motions`, `propositions`, `week-ahead`, `weekly-review`) driven by 9 strategy modules in `src/generators/strategies/` — the 8 type-specific strategies plus `article-strategy` (generic/on-demand, used by `news-article-generator.md` manual dispatch, not an additional production content type)
@@ -285,7 +285,7 @@ C4Container
         Container(strategies, "Strategies (×8)", "TypeScript", "article, breaking-news, committee-reports, month-ahead, monthly-review, motions, propositions, week-ahead, weekly-review (src/generators/strategies/)")
         Container(builders, "Section Builders", "TypeScript", "breaking, committee, propositions, prospective, shared, voting (src/generators/builders/)")
         Container(templates, "Article Templates", "TypeScript", "HTML5 article template, section-builders, single-source-of-truth buildSiteFooter() (src/templates/)")
-        Container(ep_client, "EP MCP Client", "TypeScript", "Stdio JSON-RPC to european-parliament-mcp-server@1.2.11; sliding + fixed-window feed surfaces (src/mcp/ep-mcp-client.ts)")
+        Container(ep_client, "EP MCP Client", "TypeScript", "Stdio JSON-RPC to european-parliament-mcp-server@1.2.13; sliding + fixed-window feed surfaces (src/mcp/ep-mcp-client.ts)")
         Container(wb_client, "World Bank MCP Client", "TypeScript", "Optional worldbank-mcp@1.0.1 — WDI indicators (src/mcp/wb-mcp-client.ts)")
         Container(imf_client, "IMF REST Client", "TypeScript", "Native fetch SDMX 3.0 — WEO+FM monthly forecasts (src/mcp/imf-mcp-client.ts)")
         Container(validator, "Content Validator", "TypeScript", "articlePolicyHas* gates, fallback-leak scanner, validate-analysis-completeness (src/utils/content-validator.ts)")
@@ -303,7 +303,7 @@ C4Container
         Container(cf_s3, "CloudFront + S3", "CDN / Object Storage", "Primary hosting — HTTPS via ACM, deploy-s3.yml OIDC")
     }
 
-    System_Ext(ep_mcp, "European Parliament MCP Server v1.2.11", "6 sliding-window + 7 fixed-window feed tools; {status:\"unavailable\", items:[]} envelope")
+    System_Ext(ep_mcp, "European Parliament MCP Server v1.2.13", "6 sliding-window + 7 fixed-window feed tools; {status:\"unavailable\", items:[]} envelope")
     System_Ext(wb_mcp, "World Bank MCP Server v1.0.1", "WDI indicators (optional)")
     System_Ext(imf_api, "IMF SDMX 3.0 REST", "https://dataservices.imf.org/REST/SDMX_3.0/")
     System_Ext(copilot, "GitHub Copilot / Claude Opus 4.7", "AI agent authoring all narrative content under AI-First 2-pass regime")
@@ -450,7 +450,7 @@ C4Component
         Component(classification, "utils/political-classification.ts + utils/political-threat-assessment.ts + utils/political-risk-assessment.ts", "TS", "Intelligence analysis family")
     }
 
-    System_Ext(ep_mcp, "EP MCP Server v1.2.11", "6 sliding + 7 fixed-window feeds")
+    System_Ext(ep_mcp, "EP MCP Server v1.2.13", "6 sliding + 7 fixed-window feeds")
     System_Ext(wb_mcp, "World Bank MCP v1.0.1", "WDI indicators")
     System_Ext(imf_api, "IMF SDMX 3.0", "Monthly WEO/FM forecasts")
     ContainerDb(output, "news/*.html + analysis/daily/YYYY-MM-DD/", "HTML + JSON artifacts")
@@ -480,7 +480,7 @@ C4Component
 | **Pipeline Stages** (5)  | Ordered: fetch → transform → analysis → generate → output | MCP clients, analysis utils, strategies | `src/generators/pipeline/*.ts`            |
 | **Strategies** (8)       | Per-article-type orchestration   | Builders, templates, section-builders | `src/generators/strategies/*.ts`          |
 | **Builders** (6)         | Section composition (breaking, committee, propositions, prospective, shared, voting) | Types, analysis utils | `src/generators/builders/*.ts`            |
-| **EP MCP Client**        | Fetch EP feeds via stdio JSON-RPC; enforces `FeedBaseOptions` vs `FixedWindowFeedOptions` (no canonical `EP_MCP_TOOLS` export yet — gap tracked in CRA-ASSESSMENT §5ᵇ row 13) | `european-parliament-mcp-server@1.2.11` | `src/mcp/ep-mcp-client.ts`                |
+| **EP MCP Client**        | Fetch EP feeds via stdio JSON-RPC; enforces `FeedBaseOptions` vs `FixedWindowFeedOptions` (no canonical `EP_MCP_TOOLS` export yet — gap tracked in CRA-ASSESSMENT §5ᵇ row 13) | `european-parliament-mcp-server@1.2.13` | `src/mcp/ep-mcp-client.ts`                |
 | **World Bank MCP Client**| Fetch WDI biannual indicators; `WORLD_BANK_MCP_TOOLS` | `worldbank-mcp@1.0.1` (optional) | `src/mcp/wb-mcp-client.ts`                |
 | **IMF MCP Client**       | Native TS fetch to IMF SDMX 3.0; `class IMFMCPClient`; `IMF_MCP_TOOLS` (NOT an MCP server) | `fetch` (Node 25+) | `src/mcp/imf-mcp-client.ts`               |
 | **MCP Health/Retry**     | Health probes, retry with exponential backoff, lifecycle | — | `src/mcp/mcp-health.ts`, `mcp-retry.ts`, `mcp-connection.ts` |
@@ -667,14 +667,14 @@ All 18 news workflows are **markdown source files compiled to YAML** (`.md` → 
 | **Chart.js** | 4.5.1 | 4.0.0 | N/A | Vendored; update with copy-vendor script |
 | **D3** | 7.9.0 | 7.0.0 | N/A | Vendored; update with copy-vendor script |
 | **TypeDoc** | 0.28.19 | 0.28.0 | N/A | Major within 60 days |
-| **european-parliament-mcp-server** | 1.2.11 (pinned) | 1.2.11 | Per upstream | Track releases; 1.2.11 (2026-04-20) fixes #377/#378 (fixed-window feeds, uniform unavailable envelope) |
+| **european-parliament-mcp-server** | 1.2.13 (pinned) | 1.2.13 | Per upstream | Track releases; 1.2.11 (2026-04-20) fixes #377/#378 (fixed-window feeds, uniform unavailable envelope); 1.2.13 (2026-04-23) adds non-retryable UPSTREAM_404 for get_procedures, fixes search_documents envelope, enriches track_legislation timeline, improves get_procedures_feed error classification |
 | **worldbank-mcp** | 1.0.1 (optional) | 1.0.0 | Per upstream | Biannual WDI refresh cadence |
 | **gh-aw CLI** | v0.69.0 (pinned `GH_AW_VERSION`) | v0.69.0 | Per upstream | Workflow-level pin in `compile-agentic-workflows.yml` |
 
 ### Dependency Management
 
 **Production Dependencies (1 required + 1 optional):**
-- **`european-parliament-mcp-server@1.2.11`** — Primary data surface; 6 sliding-window feed tools (`timeframe` + `startDate` when `custom`) and 7 fixed-window feed tools (`limit`/`offset` only — `documents`, `plenary_documents`, `committee_documents`, `plenary_session_documents`, `parliamentary_questions`, `corporate_bodies`, `controlled_vocabularies`); returns uniform `{status:"unavailable", items:[]}` envelope on upstream failure.
+- **`european-parliament-mcp-server@1.2.13`** — Primary data surface; 6 sliding-window feed tools (`timeframe` + `startDate` when `custom`) and 7 fixed-window feed tools (`limit`/`offset` only — `documents`, `plenary_documents`, `committee_documents`, `plenary_session_documents`, `parliamentary_questions`, `corporate_bodies`, `controlled_vocabularies`); returns uniform `{status:"unavailable", items:[]}` envelope on upstream failure.
 - **`worldbank-mcp@1.0.1`** (`optionalDependencies`) — WDI macro/social/environment/health indicators.
 
 **IMF REST** is integrated via native TypeScript fetch in `src/mcp/imf-mcp-client.ts` (`class IMFMCPClient`) — this is NOT an MCP server; calls go directly to `https://dataservices.imf.org/REST/SDMX_3.0/`. Env: `IMF_API_BASE_URL`, `IMF_API_TIMEOUT_MS`. Supplies WEO + FM monthly forecasts up to five years ahead.
@@ -1482,7 +1482,7 @@ Non-functional requirements define system qualities that are not directly relate
 - **Code Complexity**: Moderate (5-stage pipeline + 8 strategies + 6 builders; no SPA framework)
 - **Test Coverage**: 82%+ lines, 83%+ branches across 52 test files; **3061+ passing tests** (unit, integration incl. EP/IMF/WB MCP contract tests, E2E Playwright)
 - **Documentation**: Comprehensive (25+ architecture & ISMS docs — see Architecture Documentation Map)
-- **Dependencies**: 1 pinned production (`european-parliament-mcp-server@1.2.11`), 1 optional (`worldbank-mcp@1.0.1`), ~40 dev dependencies
+- **Dependencies**: 1 pinned production (`european-parliament-mcp-server@1.2.13`), 1 optional (`worldbank-mcp@1.0.1`), ~40 dev dependencies
 
 ---
 

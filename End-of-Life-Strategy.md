@@ -146,7 +146,7 @@ mindmap
       D3 7.9.0
         Vendored via copy-vendor
     Data and Integration
-      EP MCP Server 1.2.11
+      EP MCP Server 1.2.13
         Active Development
         Hack23-maintained
         6 sliding + 7 fixed-window feeds
@@ -177,7 +177,7 @@ mindmap
 | **📊 Chart.js**         | 4.5.1 (vendored)         | Annual majors                   | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
 | **📐 D3**               | 7.9.0 (vendored)         | Annual majors                   | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
 | **📚 TypeDoc**          | 0.28.19                  | Monthly minors                  | Active development | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
-| **🇪🇺 EP MCP Server**   | 1.2.11 (pinned, 2026-04-20) | Hack23-maintained; tracks EP Open Data API | Active development | [![Medium](https://img.shields.io/badge/Complexity-Medium-yellow?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
+| **🇪🇺 EP MCP Server**   | 1.2.13 (pinned, 2026-04-23) | Hack23-maintained; tracks EP Open Data API | Active development | [![Medium](https://img.shields.io/badge/Complexity-Medium-yellow?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
 | **🌍 World Bank MCP**   | 1.0.1 (optional dep)     | Biannual WDI refresh            | Active             | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
 | **💱 IMF SDMX 3.0 REST**| Native fetch client      | IMF-managed public API          | N/A (External API) | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
 | **🤖 gh-aw CLI**        | v0.69.0 (pinned `GH_AW_VERSION`) | Active development        | Active             | [![Medium](https://img.shields.io/badge/Complexity-Medium-yellow?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
@@ -340,7 +340,7 @@ flowchart TB
 | **TypeDoc** | API documentation (0.28.19) | 🟢 Low | Manual major version review |
 | **Chart.js** | Dashboard visualizations (4.5.1, vendored) | 🟢 Low | Manual version bump + `npm run copy-vendor` |
 | **D3** | Advanced visualizations (7.9.0, vendored) | 🟢 Low | Manual version bump + `npm run copy-vendor` |
-| **EP MCP Server** | EU Parliament data (pinned 1.2.11) | 🟡 Moderate | Monitor Hack23/european-parliament-mcp releases; 1.2.11 (2026-04-20) fixes #377/#378 (fixed-window feed options + uniform unavailable envelope) |
+| **EP MCP Server** | EU Parliament data (pinned 1.2.13) | 🟡 Moderate | Monitor Hack23/european-parliament-mcp releases; 1.2.11 (2026-04-20) fixes #377/#378 (fixed-window feed options + uniform unavailable envelope); 1.2.13 (2026-04-23) adds non-retryable UPSTREAM_404 for get_procedures, fixes search_documents envelope, enriches track_legislation timeline, improves get_procedures_feed error classification |
 | **World Bank MCP** | Optional macro/WDI data (1.0.1) | 🟢 Low | Biannual WDI refresh cadence; optionalDependency |
 | **IMF SDMX 3.0 REST** | Native fetch client (WEO/FM forecasts) | 🟡 Moderate | No npm dep — depends on IMF API contract stability; monitored via integration tests |
 | **gh-aw CLI** | Agentic workflow compiler (pinned v0.69.0) | 🟡 Moderate | Review pin per workflow change; changes require re-compile of all .lock.yml |
@@ -681,7 +681,7 @@ Should EOL conditions trigger migration, the successor platform will maintain **
 - **📦 Dependency Health Score:** OpenSSF Scorecard and vulnerability status
 - **⚡ Build Performance Tracking:** TypeScript compilation and news generation timing
 - **🧪 Test Pass Rate:** 3061+ passing tests (52 test files) + E2E test suite health
-- **📡 MCP Contract Stability:** EP MCP Server 1.2.11 integration tests + IMF SDMX schema tests + optional WB MCP
+- **📡 MCP Contract Stability:** EP MCP Server 1.2.13 integration tests + IMF SDMX schema tests + optional WB MCP
 
 ### 🚨 Alerting Thresholds
 

@@ -116,7 +116,7 @@ flowchart TD
 
     MCPSetup --> Firewall["🔥 AWF Squid firewall\nAllowlist-only egress"]
 
-    Firewall --> FetchStage["📥 fetch-stage\nEP MCP 1.2.11 + WB MCP 1.0.1 + IMF REST"]
+    Firewall --> FetchStage["📥 fetch-stage\nEP MCP 1.2.13 + WB MCP 1.0.1 + IMF REST"]
 
     FetchStage --> EPAvail{"EP available?"}
     EPAvail -->|"status:unavailable"| MCPRetry["🔄 mcp-retry.ts\nExponential backoff"]
