@@ -18,7 +18,7 @@ import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, PAGE_TITLES, SKIP_LINK_T
 import { escapeHTML } from '../utils/file-utils.js';
 import { FOOTER_SITEMAP_LABELS } from '../constants/language-ui.js';
 import { buildSiteFooter } from '../templates/section-builders.js';
-import { getCuratedDescription } from './political-intelligence-descriptions.js';
+import { getCuratedDescription, getCuratedTitle } from './political-intelligence-descriptions.js';
 /** GitHub repository slug used to build blob/tree links for analysis artifacts */
 const GITHUB_REPO = 'Hack23/euparliamentmonitor';
 /**
@@ -73,6 +73,7 @@ const DEFAULT_COPY = {
     runsCountLabel: '{count} runs',
     artifactsToggleLabel: 'Show all {count} artifact files',
     sourceInEnglishNote: '',
+    seoKeywords: 'European Parliament, political intelligence, OSINT, SWOT, PESTLE, TOWS, STRIDE, methodology, artifact templates, coalition mathematics, risk assessment, threat model, transparency, EU',
 };
 /** Per-language overrides; fall back to English for any missing key */
 const PI_COPY = (() => {
@@ -106,6 +107,7 @@ const PI_COPY = (() => {
             runsCountLabel: '{count} körningar',
             artifactsToggleLabel: 'Visa alla {count} artefaktfiler',
             sourceInEnglishNote: 'Källmaterialet (metodologier, mallar och dagliga analysartefakter) publiceras på engelska. Titlar och filvägar är därför på engelska — endast sidans navigation och beskrivningar är översatta.',
+            seoKeywords: 'Europaparlamentet, politisk underrättelse, OSINT, SWOT-analys, PESTLE-analys, metodologi, artefaktmallar, koalitionsmatematik, riskbedömning, hotmodell, öppenhet, EU',
         },
         da: {
             title: 'Politisk efterretning',
@@ -132,6 +134,7 @@ const PI_COPY = (() => {
             runsCountLabel: '{count} kørsler',
             artifactsToggleLabel: 'Vis alle {count} artefaktfiler',
             sourceInEnglishNote: 'Kildematerialet (metoder, skabeloner og daglige analyseartefakter) udgives på engelsk. Titler og filstier er derfor på engelsk — kun sidens navigation og beskrivelser er oversat.',
+            seoKeywords: 'Europa-Parlamentet, politisk efterretning, OSINT, SWOT-analyse, PESTLE-analyse, metode, artefaktskabeloner, koalitionsmatematik, risikovurdering, trusselmodel, åbenhed, EU',
         },
         no: {
             title: 'Politisk etterretning',
@@ -158,6 +161,7 @@ const PI_COPY = (() => {
             runsCountLabel: '{count} kjøringer',
             artifactsToggleLabel: 'Vis alle {count} artefaktfiler',
             sourceInEnglishNote: 'Kildematerialet (metodologier, maler og daglige analyseartefakter) publiseres på engelsk. Titler og filstier er derfor på engelsk — bare sidens navigasjon og beskrivelser er oversatt.',
+            seoKeywords: 'Europaparlamentet, politisk etterretning, OSINT, SWOT-analyse, PESTLE-analyse, metodologi, artefaktmaler, koalisjonsmatematikk, risikovurdering, trusselmodell, åpenhet, EU',
         },
         fi: {
             title: 'Poliittinen tiedustelu',
@@ -184,6 +188,7 @@ const PI_COPY = (() => {
             runsCountLabel: '{count} ajoa',
             artifactsToggleLabel: 'Näytä kaikki {count} artefaktitiedostoa',
             sourceInEnglishNote: 'Lähdemateriaali (metodologiat, pohjat ja päivittäiset analyysiartefaktit) julkaistaan englanniksi. Otsikot ja tiedostopolut ovat siksi englanniksi — vain sivun navigointi ja kuvaukset on käännetty.',
+            seoKeywords: 'Euroopan parlamentti, poliittinen tiedustelu, OSINT, SWOT-analyysi, PESTLE-analyysi, metodologia, artefaktipohjat, koalitiomatematiikka, riskiarviointi, uhkamalli, avoimuus, EU',
         },
         de: {
             title: 'Politische Aufklärung',
@@ -210,6 +215,7 @@ const PI_COPY = (() => {
             runsCountLabel: '{count} Läufe',
             artifactsToggleLabel: 'Alle {count} Artefaktdateien anzeigen',
             sourceInEnglishNote: 'Die Quellmaterialien (Methodologien, Vorlagen und tägliche Analyseartefakte) werden auf Englisch veröffentlicht. Titel und Dateipfade sind daher auf Englisch — nur die Seitennavigation und Beschreibungen sind übersetzt.',
+            seoKeywords: 'Europäisches Parlament, politische Aufklärung, OSINT, SWOT-Analyse, PESTLE-Analyse, Methodologie, Artefaktvorlagen, Koalitionsmathematik, Risikobewertung, Bedrohungsmodell, Transparenz, EU',
         },
         fr: {
             title: 'Intelligence politique',
@@ -236,6 +242,7 @@ const PI_COPY = (() => {
             runsCountLabel: '{count} exécutions',
             artifactsToggleLabel: 'Afficher les {count} fichiers d\u2019artefacts',
             sourceInEnglishNote: "Les documents sources (méthodologies, modèles et artefacts d'analyse quotidiens) sont publiés en anglais. Les titres et chemins de fichiers sont donc en anglais — seuls la navigation et les descriptions de la page sont traduits.",
+            seoKeywords: 'Parlement européen, renseignement politique, OSINT, analyse SWOT, analyse PESTLE, méthodologie, modèles d’artefacts, mathématiques de coalition, évaluation des risques, modèle de menace, transparence, UE',
         },
         es: {
             title: 'Inteligencia política',
@@ -262,6 +269,7 @@ const PI_COPY = (() => {
             runsCountLabel: '{count} ejecuciones',
             artifactsToggleLabel: 'Mostrar los {count} archivos de artefactos',
             sourceInEnglishNote: 'Los materiales fuente (metodologías, plantillas y artefactos de análisis diarios) se publican en inglés. Los títulos y las rutas de archivo están, por tanto, en inglés — solo la navegación y las descripciones de la página están traducidas.',
+            seoKeywords: 'Parlamento Europeo, inteligencia política, OSINT, análisis SWOT, análisis PESTLE, metodología, plantillas de artefactos, matemáticas de coaliciones, evaluación de riesgos, modelo de amenazas, transparencia, UE',
         },
         nl: {
             title: 'Politieke intelligentie',
@@ -288,6 +296,7 @@ const PI_COPY = (() => {
             runsCountLabel: '{count} uitvoeringen',
             artifactsToggleLabel: 'Alle {count} artefactbestanden tonen',
             sourceInEnglishNote: 'De bronmaterialen (methodologieën, sjablonen en dagelijkse analyse-artefacten) worden in het Engels gepubliceerd. Titels en bestandspaden staan daarom in het Engels — alleen de paginanavigatie en beschrijvingen zijn vertaald.',
+            seoKeywords: 'Europees Parlement, politieke inlichtingen, OSINT, SWOT-analyse, PESTLE-analyse, methodologie, artefactsjablonen, coalitiewiskunde, risicobeoordeling, dreigingsmodel, transparantie, EU',
         },
         ar: {
             title: 'الاستخبارات السياسية',
@@ -314,6 +323,7 @@ const PI_COPY = (() => {
             runsCountLabel: '{count} عمليات',
             artifactsToggleLabel: 'عرض جميع ملفات القطع الأثرية ({count})',
             sourceInEnglishNote: 'تُنشر المواد المصدر (المنهجيات والقوالب والقطع الأثرية للتحليل اليومي) باللغة الإنجليزية. لذلك تظهر العناوين ومسارات الملفات بالإنجليزية — فقط تنقل الصفحة والأوصاف مترجمة.',
+            seoKeywords: 'البرلمان الأوروبي, الاستخبارات السياسية, OSINT, تحليل SWOT, تحليل PESTLE, منهجية, قوالب الأدلة, رياضيات التحالف, تقييم المخاطر, نموذج التهديد, الشفافية, الاتحاد الأوروبي',
         },
         he: {
             title: 'מודיעין פוליטי',
@@ -340,6 +350,7 @@ const PI_COPY = (() => {
             runsCountLabel: '{count} ריצות',
             artifactsToggleLabel: 'הצג את כל {count} קבצי הארטיפקטים',
             sourceInEnglishNote: 'חומרי המקור (מתודולוגיות, תבניות וארטיפקטי ניתוח יומיים) מתפרסמים באנגלית. הכותרות ונתיבי הקבצים מופיעים אפוא באנגלית — רק הניווט והתיאורים בדף תורגמו.',
+            seoKeywords: 'הפרלמנט האירופי, מודיעין פוליטי, OSINT, ניתוח SWOT, ניתוח PESTLE, מתודולוגיה, תבניות ארטיפקט, מתמטיקה של קואליציות, הערכת סיכונים, מודל איום, שקיפות, האיחוד האירופי',
         },
         ja: {
             title: '政治インテリジェンス',
@@ -366,6 +377,7 @@ const PI_COPY = (() => {
             runsCountLabel: '{count} 件の実行',
             artifactsToggleLabel: '{count} 件のすべての成果物ファイルを表示',
             sourceInEnglishNote: 'ソース資料(方法論・テンプレート・日次分析成果物)は英語で公開されています。そのためタイトルとファイルパスは英語で表示されます。ページのナビゲーションと説明のみが翻訳されています。',
+            seoKeywords: '欧州議会, 政治インテリジェンス, OSINT, SWOT分析, PESTLE分析, 方法論, 成果物テンプレート, 連立数学, リスク評価, 脅威モデル, 透明性, EU',
         },
         ko: {
             title: '정치 정보',
@@ -392,6 +404,7 @@ const PI_COPY = (() => {
             runsCountLabel: '{count}회 실행',
             artifactsToggleLabel: '{count}개 산출물 파일 모두 보기',
             sourceInEnglishNote: '원본 자료(방법론, 템플릿, 일일 분석 산출물)는 영어로 게시됩니다. 따라서 제목과 파일 경로는 영어로 표시되며, 페이지 탐색 및 설명만 번역되어 있습니다.',
+            seoKeywords: '유럽의회, 정치 정보, OSINT, SWOT 분석, PESTLE 분석, 방법론, 산출물 템플릿, 연정 수학, 위험 평가, 위협 모델, 투명성, EU',
         },
         zh: {
             title: '政治情报',
@@ -418,6 +431,7 @@ const PI_COPY = (() => {
             runsCountLabel: '{count} 次运行',
             artifactsToggleLabel: '显示全部 {count} 个工件文件',
             sourceInEnglishNote: '源材料(方法论、模板和每日分析工件)以英文发布。因此标题和文件路径以英文显示 — 仅页面导航和描述进行了翻译。',
+            seoKeywords: '欧洲议会, 政治情报, OSINT, SWOT 分析, PESTLE 分析, 方法论, 工件模板, 联盟数学, 风险评估, 威胁模型, 透明度, 欧盟',
         },
     };
 })();
@@ -789,7 +803,8 @@ function walkMarkdownFiles(dir, visit) {
  */
 function renderDocumentCard(doc, lang, viewOnGitHub) {
     const url = githubBlobUrl(doc.relPath);
-    const description = getCuratedDescription(doc.relPath, lang);
+    const title = getCuratedTitle(doc.relPath, lang, doc.title);
+    const description = getCuratedDescription(doc.relPath, lang, doc.title);
     const desc = description
         ? `<span class="pi-card__desc">${escapeHTML(description)}</span>`
         : '';
@@ -797,7 +812,7 @@ function renderDocumentCard(doc, lang, viewOnGitHub) {
             <a class="pi-card__link" href="${escapeHTML(url)}" rel="noopener external" target="_blank">
               <span class="pi-card__icon" aria-hidden="true">${doc.icon}</span>
               <span class="pi-card__body">
-                <span class="pi-card__title">${escapeHTML(doc.title)}</span>
+                <span class="pi-card__title">${escapeHTML(title)}</span>
                 <span class="pi-card__path"><code>${escapeHTML(doc.relPath)}</code></span>
                 ${desc}
                 <span class="pi-card__cta">${escapeHTML(viewOnGitHub)} <span aria-hidden="true">↗</span></span>
@@ -999,7 +1014,7 @@ export function generatePoliticalIntelligenceHTML(lang, data) {
   <title>${escapeHTML(pageTitle)}</title>
   <meta name="description" content="${escapeHTML(description)}">
   <meta name="robots" content="index, follow, max-image-preview:large">
-  <meta name="keywords" content="European Parliament, political intelligence, OSINT, SWOT, PESTLE, methodology, artifact templates, transparency, EU">
+  <meta name="keywords" content="${escapeHTML(copy.seoKeywords)}">
   <meta name="author" content="Hack23 AB">
   <meta name="publisher" content="Hack23 AB">
   <link rel="canonical" href="${canonicalUrl}">

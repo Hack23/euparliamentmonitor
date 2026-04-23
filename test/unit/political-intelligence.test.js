@@ -259,6 +259,11 @@ describe('political-intelligence generator', () => {
       expect(html).toContain('og:image:alt');
       expect(html).toContain('<meta name="twitter:image"');
       expect(html).toContain('<meta http-equiv="Content-Language" content="sv">');
+      // SEO: per-language keywords (Swedish page must ship Swedish terms,
+      // not a hard-coded English list). This is the fix that replaces the
+      // previous English-only `<meta name="keywords">` on every page.
+      expect(html).toMatch(/<meta name="keywords" content="[^"]*SWOT-analys[^"]*">/);
+      expect(html).toMatch(/<meta name="keywords" content="[^"]*Europaparlamentet[^"]*">/);
       expect(html).toContain('"publisher":{');
       expect(html).toContain('"author":{');
       // JSON-LD ListItem must use schema.org `item` (matches sitemap/breadcrumb
@@ -280,6 +285,34 @@ describe('political-intelligence generator', () => {
       // Footer must point at language-specific sitemap variant with localized label
       expect(html).toContain('<a href="sitemap_sv.html">Webbplatskarta</a>');
       expect(html).toContain('<a href="index-sv.html">Hem</a>');
+    });
+
+    it('ships distinct localized SEO keywords for all 14 language pages', () => {
+      // Regression guard: the initial implementation hard-coded English
+      // keywords on every `political-intelligence_<lang>.html` page — a
+      // significant SEO miss because search engines could not index the
+      // page under native-language terms. Every language must now ship
+      // keywords written in its own script/vocabulary.
+      const data = collectPoliticalIntelligenceData(tempDir);
+      const langs = ['en', 'sv', 'da', 'no', 'fi', 'de', 'fr', 'es', 'nl', 'ar', 'he', 'ja', 'ko', 'zh'];
+      const keywordsByLang = new Map();
+      for (const lang of langs) {
+        const html = generatePoliticalIntelligenceHTML(lang, data);
+        const m = html.match(/<meta name="keywords" content="([^"]+)">/);
+        expect(m, `${lang} page must carry a keywords meta tag`).not.toBeNull();
+        keywordsByLang.set(lang, m[1]);
+      }
+      // All 14 languages produce a distinct keyword list.
+      const unique = new Set(keywordsByLang.values());
+      expect(unique.size).toBe(14);
+      // Spot-check native-script terms that prove real localization.
+      expect(keywordsByLang.get('ja')).toContain('欧州議会');
+      expect(keywordsByLang.get('ko')).toContain('유럽의회');
+      expect(keywordsByLang.get('zh')).toContain('欧洲议会');
+      expect(keywordsByLang.get('ar')).toContain('البرلمان الأوروبي');
+      expect(keywordsByLang.get('he')).toContain('הפרלמנט האירופי');
+      expect(keywordsByLang.get('de')).toContain('Europäisches Parlament');
+      expect(keywordsByLang.get('fr')).toContain('Parlement européen');
     });
 
     it('emits a valid English variant with the bare filename in canonical + JSON-LD urls', () => {
@@ -339,19 +372,66 @@ describe('political-intelligence generator', () => {
       expect(ko).toMatch(/[\uac00-\ud7af]/);
     });
 
-    it('falls back to the canonical English description when a language overlay is missing', async () => {
+    it('falls back to a localized sentence (not raw English) when a non-English language overlay is missing', async () => {
       const { getCuratedDescription } = await import(
         '../../scripts/generators/political-intelligence-descriptions.js'
       );
-      // Template entries are intentionally English-only in the curated table
-      // (translation grows incrementally). The lookup must not produce the
-      // generic fallback for a KNOWN file just because `nl` lacks an overlay.
+      // Template entries intentionally ship English-only descriptions (the
+      // per-file description catalog is English; per-file TITLES are fully
+      // localized). On non-English pages we therefore must NEVER return the
+      // raw English description — the lookup must synthesize a localized
+      // sentence built from the localized title + kind word. This keeps the
+      // page fully localized without requiring 49 × 14 hand-written
+      // description translations.
       const nl = getCuratedDescription(
         'analysis/templates/swot-analysis.md',
-        'nl'
+        'nl',
+        'SWOT Analysis Template'
       );
-      expect(nl).toContain('SWOT');
-      expect(nl).toContain('Strengths');
+      // Localized kind word ('sjabloon' in Dutch) must appear.
+      expect(nl.toLowerCase()).toContain('sjabloon');
+      // Raw English description tokens must NOT leak through.
+      expect(nl).not.toContain('Strengths');
+      // English callers still receive the curated canonical description.
+      const en = getCuratedDescription(
+        'analysis/templates/swot-analysis.md',
+        'en'
+      );
+      expect(en).toContain('SWOT');
+      expect(en).toContain('Strengths');
+    });
+
+    it('returns a fully-localized card title for every curated methodology across all 14 languages', async () => {
+      const { getCuratedTitle, hasCuratedTitle } = await import(
+        '../../scripts/generators/political-intelligence-descriptions.js'
+      );
+      const langs = ['en', 'sv', 'da', 'no', 'fi', 'de', 'fr', 'es', 'nl', 'ar', 'he', 'ja', 'ko', 'zh'];
+      const path = 'analysis/methodologies/ai-driven-analysis-guide.md';
+      expect(hasCuratedTitle(path)).toBe(true);
+      const titles = new Set();
+      for (const lang of langs) {
+        const t = getCuratedTitle(path, lang, 'H1 fallback');
+        expect(typeof t).toBe('string');
+        expect(t.trim().length).toBeGreaterThan(0);
+        // Guard: the fallback must never surface — curated entry exists
+        expect(t).not.toBe('H1 fallback');
+        titles.add(t);
+      }
+      // We expect at least 10 distinct titles across the 14 languages
+      // (scripts diverge: Latin, Arabic, Hebrew, CJK, Hangul).
+      expect(titles.size).toBeGreaterThanOrEqual(10);
+    });
+
+    it('falls back to the H1 title when neither the curated title overlay nor description entry has a localized title', async () => {
+      const { getCuratedTitle } = await import(
+        '../../scripts/generators/political-intelligence-descriptions.js'
+      );
+      const t = getCuratedTitle(
+        'analysis/templates/brand-new-unknown-file.md',
+        'sv',
+        'Brand New Unknown File'
+      );
+      expect(t).toBe('Brand New Unknown File');
     });
 
     it('returns a localized generic fallback for unmapped methodology / template files', async () => {
