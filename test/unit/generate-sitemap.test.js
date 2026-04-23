@@ -499,12 +499,21 @@ describe('generate-sitemap', () => {
       expect(html).toContain('&lt;script&gt;');
       // The only <script> tags should be (1) the JSON-LD structured data and
       // (2) the theme toggle — never from the untrusted article title.
-      const scriptTags = html.match(/<script[^>]*>/gi) || [];
+      const scriptTags = html.match(/<script\b[^>]*>/gi) || [];
       expect(scriptTags.length).toBe(2);
-      // Both allowed <script> openings must be safe types
-      for (const tag of scriptTags) {
-        expect(/type="application\/ld\+json"|type="text\/javascript"|<script>/.test(tag)).toBe(true);
-      }
+
+      const jsonLdScripts = scriptTags.filter((tag) =>
+        /\btype="application\/ld\+json"/i.test(tag)
+      );
+      expect(jsonLdScripts.length).toBe(1);
+
+      const nonJsonLdScripts = scriptTags.filter(
+        (tag) => !/\btype="application\/ld\+json"/i.test(tag)
+      );
+      expect(nonJsonLdScripts.length).toBe(1);
+      // The non-JSON-LD script must be a safe inline script (no src= attribute)
+      expect(/^<script\b/i.test(nonJsonLdScripts[0])).toBe(true);
+      expect(/\bsrc=/i.test(nonJsonLdScripts[0])).toBe(false);
     });
 
     it('should link news articles correctly', () => {

@@ -62,6 +62,22 @@ interface SitemapUrlWithAlternates extends SitemapUrl {
   alternates?: Record<string, string>;
 }
 
+/**
+ * Escape a string for safe use as XML text content or attribute value.
+ * Replaces the five predefined XML entities (`&`, `<`, `>`, `"`, `'`).
+ *
+ * @param str - Raw string
+ * @returns XML-safe string
+ */
+function escapeXML(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
+
 /** Absolute docs directory under project root */
 const DOCS_DIR: string = path.join(PROJECT_ROOT, 'docs');
 
@@ -328,15 +344,15 @@ function renderSitemapUrl(url: SitemapUrlWithAlternates): string {
     ? Object.entries(url.alternates)
         .map(
           ([hreflang, href]) =>
-            `    <xhtml:link rel="alternate" hreflang="${hreflang}" href="${href}"/>`
+            `    <xhtml:link rel="alternate" hreflang="${escapeXML(hreflang)}" href="${escapeXML(href)}"/>`
         )
         .join('\n')
     : '';
   return `  <url>
-    <loc>${url.loc}</loc>
-    <lastmod>${url.lastmod}</lastmod>
-    <changefreq>${url.changefreq}</changefreq>
-    <priority>${url.priority}</priority>${altLinks ? `\n${altLinks}` : ''}
+    <loc>${escapeXML(url.loc)}</loc>
+    <lastmod>${escapeXML(url.lastmod)}</lastmod>
+    <changefreq>${escapeXML(url.changefreq)}</changefreq>
+    <priority>${escapeXML(url.priority)}</priority>${altLinks ? `\n${altLinks}` : ''}
   </url>`;
 }
 
@@ -1175,21 +1191,6 @@ interface RssItem {
   description: string;
   pubDate: string;
   lang: string;
-}
-
-/**
- * Escape special XML characters in text content.
- *
- * @param str - Raw string to escape for XML
- * @returns XML-safe string
- */
-function escapeXML(str: string): string {
-  return str
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&apos;');
 }
 
 /**

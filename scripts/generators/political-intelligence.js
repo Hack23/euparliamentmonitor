@@ -13,9 +13,10 @@
  */
 import fs from 'fs';
 import path from 'path';
-import { PROJECT_ROOT, BASE_URL, createThemeToggleButton, THEME_TOGGLE_SCRIPT } from '../constants/config.js';
+import { PROJECT_ROOT, BASE_URL, createThemeToggleButton, THEME_TOGGLE_SCRIPT, } from '../constants/config.js';
 import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, PAGE_TITLES, SKIP_LINK_TEXTS, HEADER_SUBTITLE_LABELS, THEME_TOGGLE_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
 import { escapeHTML } from '../utils/file-utils.js';
+import { FOOTER_SITEMAP_LABELS } from '../constants/language-ui.js';
 /** GitHub repository slug used to build blob/tree links for analysis artifacts */
 const GITHUB_REPO = 'Hack23/euparliamentmonitor';
 /**
@@ -513,12 +514,12 @@ class CommentTracker {
      */
     consume(trimmed) {
         if (this.inComment) {
-            if (/-->/.test(trimmed))
+            if (/--!?>/.test(trimmed))
                 this.inComment = false;
             return true;
         }
         if (/^<!--/.test(trimmed)) {
-            if (!/-->/.test(trimmed))
+            if (!/--!?>/.test(trimmed))
                 this.inComment = true;
             return true;
         }
@@ -534,6 +535,7 @@ class CommentTracker {
  */
 function extractFirstParagraph(lines) {
     const paragraph = [];
+    let runningLength = 0;
     const comments = new CommentTracker();
     for (const line of lines) {
         const trimmed = line.trim();
@@ -547,7 +549,8 @@ function extractFirstParagraph(lines) {
         if (shouldSkipParagraphLine(trimmed))
             continue;
         paragraph.push(trimmed);
-        if (paragraph.join(' ').length > 240)
+        runningLength += (paragraph.length > 1 ? 1 : 0) + trimmed.length;
+        if (runningLength > 240)
             break;
     }
     return paragraph.join(' ');
@@ -601,9 +604,7 @@ export function parseMarkdownMeta(fullPath, stem) {
  * @returns Title-cased stem with dashes/underscores replaced by spaces
  */
 function humanize(stem) {
-    return stem
-        .replace(/[-_]+/g, ' ')
-        .replace(/\b\w/g, (c) => c.toUpperCase());
+    return stem.replace(/[-_]+/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
 }
 /**
  * Scan the repository for all methodology and template Markdown files and
@@ -690,10 +691,7 @@ function collectDailyGroups(dailyDir, rootDir) {
             const artifactCount = countMarkdownFiles(runDir);
             if (artifactCount === 0)
                 continue;
-            const relPath = path
-                .relative(rootDir, runDir)
-                .split(path.sep)
-                .join('/');
+            const relPath = path.relative(rootDir, runDir).split(path.sep).join('/');
             runs.push({
                 slug,
                 artifactCount,
@@ -742,9 +740,7 @@ function countMarkdownFiles(dir) {
  */
 function renderDocumentCard(doc, viewOnGitHub) {
     const url = githubBlobUrl(doc.relPath);
-    const desc = doc.description
-        ? `<p class="pi-card__desc">${escapeHTML(doc.description)}</p>`
-        : '';
+    const desc = doc.description ? `<p class="pi-card__desc">${escapeHTML(doc.description)}</p>` : '';
     return `          <li class="pi-card">
             <a class="pi-card__link" href="${escapeHTML(url)}" rel="noopener external" target="_blank">
               <span class="pi-card__icon" aria-hidden="true">${doc.icon}</span>
@@ -960,7 +956,7 @@ ${hreflangLinks}
     <nav class="breadcrumb" aria-label="${escapeHTML(copy.breadcrumbLabel)}">
       <ol>
         <li><a href="${indexHref}">${escapeHTML(copy.home)}</a></li>
-        <li><a href="${sitemapHref}">${escapeHTML(lang === 'en' ? 'Sitemap' : copy.breadcrumbCurrent === 'Site Map' ? 'Sitemap' : 'Sitemap')}</a></li>
+        <li><a href="${sitemapHref}">${escapeHTML(getLocalizedString(FOOTER_SITEMAP_LABELS, lang))}</a></li>
         <li aria-current="page">${escapeHTML(copy.breadcrumbCurrent)}</li>
       </ol>
     </nav>

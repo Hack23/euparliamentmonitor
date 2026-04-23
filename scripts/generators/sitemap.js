@@ -13,9 +13,24 @@ import { NEWS_DIR, BASE_URL, PROJECT_ROOT, createThemeToggleButton, THEME_TOGGLE
 import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, PAGE_DESCRIPTIONS, SKIP_LINK_TEXTS, HEADER_SUBTITLE_LABELS, THEME_TOGGLE_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
 import { getNewsArticles, getModifiedDate, parseArticleFilename, formatSlug, extractArticleMeta, escapeHTML, } from '../utils/file-utils.js';
 import { detectCategory } from '../utils/article-category.js';
-import { ARTICLE_TYPE_LABELS, FOOTER_POLITICAL_INTELLIGENCE_LABELS } from '../constants/language-ui.js';
+import { ARTICLE_TYPE_LABELS, FOOTER_POLITICAL_INTELLIGENCE_LABELS, } from '../constants/language-ui.js';
 import { ArticleCategory } from '../types/index.js';
 import { getPoliticalIntelligenceFilename, collectPoliticalIntelligenceData, generatePoliticalIntelligenceHTML, } from './political-intelligence.js';
+/**
+ * Escape a string for safe use as XML text content or attribute value.
+ * Replaces the five predefined XML entities (`&`, `<`, `>`, `"`, `'`).
+ *
+ * @param str - Raw string
+ * @returns XML-safe string
+ */
+function escapeXML(str) {
+    return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&apos;');
+}
 /** Absolute docs directory under project root */
 const DOCS_DIR = path.join(PROJECT_ROOT, 'docs');
 /**
@@ -222,7 +237,9 @@ function buildArticleUrls(articles) {
         const bucket = stem ? byStem.get(stem) : undefined;
         // Only emit alternates when the stem has multiple language variants
         const hasMultipleLocales = bucket && Object.keys(bucket).length > 1;
-        const alternates = hasMultipleLocales ? withXDefault(bucket) : undefined;
+        const alternates = hasMultipleLocales
+            ? withXDefault(bucket)
+            : undefined;
         return {
             loc: `${BASE_URL}/news/${article}`,
             lastmod,
@@ -267,14 +284,14 @@ function buildDocsUrls(docsFiles, today) {
 function renderSitemapUrl(url) {
     const altLinks = url.alternates
         ? Object.entries(url.alternates)
-            .map(([hreflang, href]) => `    <xhtml:link rel="alternate" hreflang="${hreflang}" href="${href}"/>`)
+            .map(([hreflang, href]) => `    <xhtml:link rel="alternate" hreflang="${escapeXML(hreflang)}" href="${escapeXML(href)}"/>`)
             .join('\n')
         : '';
     return `  <url>
-    <loc>${url.loc}</loc>
-    <lastmod>${url.lastmod}</lastmod>
-    <changefreq>${url.changefreq}</changefreq>
-    <priority>${url.priority}</priority>${altLinks ? `\n${altLinks}` : ''}
+    <loc>${escapeXML(url.loc)}</loc>
+    <lastmod>${escapeXML(url.lastmod)}</lastmod>
+    <changefreq>${escapeXML(url.changefreq)}</changefreq>
+    <priority>${escapeXML(url.priority)}</priority>${altLinks ? `\n${altLinks}` : ''}
   </url>`;
 }
 /** Default sitemap title used as English fallback */
@@ -961,20 +978,6 @@ ${articlesSection}
   </footer>${THEME_TOGGLE_SCRIPT}
 </body>
 </html>`;
-}
-/**
- * Escape special XML characters in text content.
- *
- * @param str - Raw string to escape for XML
- * @returns XML-safe string
- */
-function escapeXML(str) {
-    return str
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&apos;');
 }
 /**
  * Generate RSS 2.0 XML feed with all news articles across all languages.
