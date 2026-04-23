@@ -63,7 +63,7 @@
 
 This directory contains seven interconnected political intelligence analysis methodologies that govern how EU Parliament Monitor's agentic workflows produce, classify, assess, and publish European Parliament analysis. These frameworks transform raw European Parliament MCP data into structured, evidence-based political intelligence.
 
-**Core Principle:** Every analytical claim requires verifiable evidence sourced from European Parliament open data. Opinion-based analysis, boilerplate summaries, and the unmodified use of software-centric threat models (such as STRIDE, DREAD, or PASTA) are explicitly rejected. Where a methodology borrows terminology from those frameworks (e.g., the `political-stride-assessment` template), only a clearly documented political adaptation tailored to European Parliament analysis is allowed.
+**Core Principle:** Every analytical claim requires verifiable evidence sourced from European Parliament open data. Opinion-based analysis, boilerplate summaries, and the unmodified use of software-centric threat models (such as STRIDE, DREAD, or PASTA) are explicitly rejected. Political threat analysis uses purpose-built frameworks (Political Threat Landscape, Attack Trees, Kill Chain, Diamond Model, ICO Profiling) designed specifically for democratic process analysis.
 
 **Design Philosophy:** Six EP-domain methodologies form a layered analytical pipeline — classification provides the foundation, risk and threat assessments build the analytical core, SWOT synthesizes strategic implications, style standards enforce writing quality, and the AI guide orchestrates the entire pipeline with quality gates. The seventh framework — [`osint-tradecraft-standards.md`](osint-tradecraft-standards.md) — is the cross-cutting professional-tradecraft layer (ICD 203 · Admiralty Code · Words of Estimative Probability · SAT catalog · OSINT ethics) that every artifact applies.
 
@@ -186,13 +186,18 @@ graph LR
 |----------|----------|-------------|-------------------------|---------------|
 | **1** | **[Political Classification Guide](political-classification-guide.md)** | 7-dimension event classification, sensitivity levels, policy domain taxonomy, urgency matrix | Sensitivity (4 levels), Democratic Integrity, Policy Urgency, Economic Impact, Governance Impact, Political Capital, Legislative Impact | **First** — every incoming EP event/document must be classified before any analysis begins |
 | **2** | **[Political Risk Methodology](political-risk-methodology.md)** | Likelihood × Impact scoring, 6 EP risk categories, 5×5 matrix, Grand Coalition stability risk | Coalition Stability, Policy Implementation, Institutional Integrity, Economic Governance, Social Cohesion, Geopolitical Standing | **Second** — after classification, assess political risk using calibrated scoring |
-| **3** | **[Political Threat Framework](political-threat-framework.md)** | Multi-framework threat analysis: Political Threat Landscape + 5 supporting frameworks | Coalition Shifts, Transparency Deficit, Policy Reversal, Institutional Pressure, Legislative Obstruction, Democratic Erosion | **Third** — apply threat analysis using political frameworks (never STRIDE/DREAD/PASTA) |
+| **3** | **[Political Threat Framework](political-threat-framework.md)** | 5-framework integrated threat analysis: Political Threat Landscape (6D) + Attack Trees + Kill Chain + Diamond Model + ICO Profiling | Coalition Shifts, Transparency Deficit, Policy Reversal, Institutional Pressure, Legislative Obstruction, Democratic Erosion | **Third** — apply threat analysis using purpose-built political frameworks (STRIDE explicitly rejected) |
 | **4** | **[Political SWOT Framework](political-swot-framework.md)** | Evidence-based SWOT, confidence levels, 180-day decay, group-to-landscape aggregation | Strengths, Weaknesses, Opportunities, Threats — each with confidence (HIGH/MEDIUM/LOW) | **Fourth** — synthesize classification + risk + threat into strategic SWOT assessment |
 | **5** | **[Political Style Guide](political-style-guide.md)** | Writing standards, 3 depth levels, evidence density requirements, anti-patterns | Level 1 Surface (200–500 words), Level 2 Strategic (800–2,000 words), Level 3 Intelligence (2,000–5,000 words) | **Fifth** — apply writing standards when drafting the analysis document |
 | **6** | **[AI-Driven Analysis Guide](ai-driven-analysis-guide.md)** | 10-step analysis protocol, mandatory 2-pass improvement, reference-quality depth floors | Evidence (25%), Depth (25%), Structural (20%), Actionable (15%), Neutrality (15%) | **Always** — orchestrates the entire pipeline; AI agents read this first |
 | **7** | **[OSINT / INTOP Tradecraft Standards](osint-tradecraft-standards.md)** | ICD 203 analytic standards, Admiralty source × info grading, Kent / WEP estimative bands, canonical SAT catalog, OSINT sourcing ethics | 9 ICD standards · 6×6 Admiralty grid · 7 WEP bands · 10 SATs · 5 ethical limits | **Cross-cutting** — applied by every framework to every artifact; attested in `methodology-reflection.md` |
-| **8** | **[Artifact Catalog](artifact-catalog.md)** | Master map of every analysis markdown file produced under `analysis/daily/*/` — grouped by folder with methodology + template + depth floor + Mermaid type per artifact | 6 folder groups (intelligence 18 · classification 4 · risk-scoring 4 · threat-assessment 5 · documents 1 · existing legacy long-form 2+mirrors) | **Step 2** — after reading the AI guide, agents consult this catalog to know *what* to produce |
-| **9** | **[Per-Artifact Methodologies](per-artifact-methodologies.md)** | One section per artifact type with purpose, EP MCP inputs, required sections, mandatory Mermaid, depth floor, quality signals | ~29 artifacts across 6 folder groups (including `existing/` legacy long-form layout) | **Step 2** — construction lookup; read the relevant section when writing each artifact |
+| **8** | **[Artifact Catalog](artifact-catalog.md)** | Master map of every analysis markdown file produced under `analysis/daily/*/` — grouped by folder with methodology + template + depth floor + Mermaid type per artifact | 7 folder groups (intelligence 18 · classification 4 · risk-scoring 4 · threat-assessment 5 · documents 1 · existing legacy 2+mirrors · extended 12 optional) | **Step 2** — after reading the AI guide, agents consult this catalog to know *what* to produce |
+| **9** | **[Per-Artifact Methodologies](per-artifact-methodologies.md)** | One section per artifact type with purpose, EP MCP inputs, required sections, mandatory Mermaid, depth floor, quality signals | ~41 artifacts across 7 folder groups (29 mandatory + 12 optional extended) | **Step 2** — construction lookup; read the relevant section when writing each artifact |
+| **10** | **[Synthesis Methodology](synthesis-methodology.md)** | Stage B.7 synthesis layer — significance-scoring → synthesis-summary → stakeholder-perspectives → coalition-dynamics → executive-brief | F3EAD Analyze→Disseminate; EP PIRs; WEP bands; ICD 203 Standards 5/6/8 | **Stage B.7** — applied after classification + risk + threat + SWOT to produce decision-ready intelligence |
+| **11** | **[Strategic Extensions Methodology](strategic-extensions-methodology.md)** | Construction rules for strategic-depth artifacts: scenario-forecast, wildcards-blackswans, historical-baseline, stakeholder-map, pestle-analysis, economic-context, threat-model | 7 strategic artifacts; WEP bands; Admiralty ≥B2; cross-artifact anchoring | **Stage B.6** — deep analytical extensions beyond the core synthesis layer |
+| **12** | **[Per-Document Methodology](per-document-methodology.md)** | Construction rules for `per-file-political-intelligence` — atomic evidence extraction per EP document (COM, A-*, B-*, RC, reports, opinions, motions) | 8 evidence layers; Admiralty per-claim; provenance URL required | **Stage A.3** — produced for every downloaded EP document before synthesis |
+| **13** | **[Structural Metadata Methodology](structural-metadata-methodology.md)** | Construction rules for provenance layer — `analysis-index.md`, `document-analysis-index.md`, `manifest.json`, and the `extended/cross-reference-map.md` + `extended/data-download-manifest.md` artifacts | Manifest schema; MCP call inventory; citation graph | **Stage A.1 / E.1** — produced at run start (index scaffolding) and run end (full manifest) |
+| **14** | **[Electoral Domain Methodology](electoral-domain-methodology.md)** | EP election analysis — 2024 retrospective + 2029 forecast; national-delegation seat projections; Spitzenkandidaten; cross-MS party family analysis | 27 MS; 720 seats; D'Hondt variants; Europhile/Euroskeptic segmentation | **Electoral runs** — produced for election-focused workflows and for `extended/voter-segmentation.md` |
 
 ---
 
@@ -245,11 +250,11 @@ graph LR
 | Attribute | Value |
 |-----------|-------|
 | **Purpose** | Multi-framework threat modeling for democratic process threats |
-| **Frameworks** | 6: Political Threat Landscape (6D) + Diamond Model + Attack Trees + PESTLE + Scenario Planning + Kill Chain |
+| **Frameworks** | 5 Integrated: Political Threat Landscape (6D) + Attack Trees + Political Kill Chain + Diamond Model + ICO Profiling |
 | **Threat Taxonomy** | 6 Dimensions: Coalition Shifts · Transparency Deficit · Policy Reversal · Institutional Pressure · Legislative Obstruction · Democratic Erosion |
-| **Version** | 3.1 |
+| **Version** | 4.0 (2026-04-23) — STRIDE removed, riksdagsmonitor multi-framework approach integrated |
 
-> ⚠️ **STRIDE is NOT used.** The Political Threat Landscape replaces STRIDE with politically-native dimensions designed for democratic function analysis.
+> ⚠️ **STRIDE is NOT used.** This methodology uses 5 purpose-built political intelligence frameworks. STRIDE (Spoofing/Tampering/Repudiation/Information Disclosure/Denial of Service/Elevation of Privilege) was designed for software security threat modeling and does not meaningfully transfer to political analysis. See [political-threat-framework.md §Why NOT STRIDE](political-threat-framework.md#️-why-not-stride) for full rationale.
 
 ### ✍️ Political Intelligence Style Guide — `political-style-guide.md`
 
@@ -571,7 +576,7 @@ Establishes mandatory writing standards for all political intelligence analysis 
 | **Level 2 — Strategic** | Analysis article for weekly/committee briefs | 800–2,000 words, min. 5 citations, policy recommendations |
 | **Level 3 — Intelligence** | Deep analysis for monthly reports and MEP scorecards | 2,000–5,000 words, min. 10 citations, scenario projections |
 | **Evidence Density** | Minimum citations per artifact type | Varies by depth level: EP document refs + MCP data points |
-| **Anti-Patterns** | Prohibited writing behaviors | No tables-only, no uncited claims, no opinions without evidence, no STRIDE |
+| **Anti-Patterns** | Prohibited writing behaviors | No tables-only, no uncited claims, no opinions without evidence |
 | **Multi-Language** | Standards for 14-language output | Consistent analytical structure across all supported languages |
 
 ### Writing Depth Selection
@@ -821,7 +826,7 @@ All analysis produced under these methodologies must meet the following minimum 
 - [ ] Classification completed across all 7 dimensions
 - [ ] SWOT with ≥2 evidence-based entries per quadrant
 - [ ] Risk score calculated using 5×5 Likelihood × Impact matrix
-- [ ] Threat analysis using Political Threat Landscape (not STRIDE/DREAD/PASTA)
+- [ ] Threat analysis using Political Threat Landscape (5-framework integrated methodology)
 - [ ] Appropriate depth level selected and word/citation counts met
 - [ ] Significance score (1–10) with justification
 
