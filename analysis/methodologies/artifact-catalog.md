@@ -19,7 +19,7 @@
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.0 | **📅 Last Updated:** 2026-04-21 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Last Updated:** 2026-04-23 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
@@ -70,12 +70,11 @@ flowchart LR
         K3["political-capital-risk"]
         K4["legislative-velocity-risk"]
     end
-    subgraph THREAT["🎭 threat-assessment/ — 5 artifacts"]
+    subgraph THREAT["🎭 threat-assessment/ — 4 artifacts"]
         T1["political-threat-landscape"]
         T2["actor-threat-profiles"]
         T3["consequence-trees"]
         T4["legislative-disruption"]
-        T5["political-stride-assessment"]
     end
     subgraph DOCS["📄 documents/ — 1 artifact"]
         D1["document-analysis-index"]
@@ -199,7 +198,6 @@ Produced for runs that emphasise democratic-threat or integrity-threat angles (t
 | `threat-assessment/actor-threat-profiles.md` | Per-actor threat profile: intent, capability, opportunity, attack surface. | [per-artifact-methodologies.md §actor-threat-profiles](per-artifact-methodologies.md#actor-threat-profiles) + [political-threat-framework.md §Diamond](political-threat-framework.md) | [actor-threat-profiles.md](../templates/actor-threat-profiles.md) | *flat 30* | graph LR (actor × asset) |
 | `threat-assessment/consequence-trees.md` | Consequence tree per threat: action → first-order → second-order → democratic outcome. | [per-artifact-methodologies.md §consequence-trees](per-artifact-methodologies.md#consequence-trees) | [consequence-trees.md](../templates/consequence-trees.md) | *flat 30* | graph TD (tree) |
 | `threat-assessment/legislative-disruption.md` | How adversarial pressure could stall, redirect, or capture specific procedures. | [per-artifact-methodologies.md §legislative-disruption](per-artifact-methodologies.md#legislative-disruption) | [legislative-disruption.md](../templates/legislative-disruption.md) | *flat 30* | flowchart LR (procedure + disruptor) |
-| `threat-assessment/political-stride-assessment.md` | STRIDE mapped onto political actors (Spoofing → identity manipulation, etc.). | [per-artifact-methodologies.md §political-stride-assessment](per-artifact-methodologies.md#political-stride-assessment) | [political-stride-assessment.md](../templates/political-stride-assessment.md) | *flat 30* | graph LR (STRIDE × actor) |
 
 ---
 
@@ -228,6 +226,29 @@ Used by `motions`, `propositions`, and long-form quarter / month-in-review workf
 |------------------|--------------------|-----------|
 | `risk-scoring/` | `risk/` | Both accepted. New runs **must** write to `risk-scoring/`. |
 | `intelligence/` | `existing/` (for long-form + mirrors) | Both accepted. New runs may use either; `intelligence/` is preferred. |
+
+---
+
+## 🧭 `extended/` — Optional Deep-Intelligence Artifacts (12 Artifacts)
+
+Optional artifacts introduced by the riksdagsmonitor port (2026-04-23). These artifacts are **not mandatory** for completeness-gate passing but are **strongly recommended** for long-form workflows (month-in-review, quarter-in-review, propositions, trilogue-endgame). An agent that produces any of these must register the artifact in `manifest.files.extended[]`. Back-compat note: these are additive — no existing workflow is required to produce them.
+
+| Artifact | Purpose (1 line) | Methodology | Template | Min lines (reco) | Mermaid type |
+|---|---|---|---|:---:|---|
+| `extended/executive-brief.md` | ≤90-second decision brief for senior readers (BLUF + key judgments + 3 actions). | [synthesis-methodology.md §executive-brief](synthesis-methodology.md) | [executive-brief.md](../templates/executive-brief.md) | 150 | flowchart LR (BLUF → judgments → actions) |
+| `extended/devils-advocate-analysis.md` | Adversarial challenge to the run's consensus view (ACH + Red Team). | [osint-tradecraft-standards.md §Red Team + ACH](osint-tradecraft-standards.md) | [devils-advocate-analysis.md](../templates/devils-advocate-analysis.md) | 240 | graph TD (hypothesis × evidence) |
+| `extended/historical-parallels.md` | ≥3 EU historical precedents with parallel mechanisms + divergence points. | [strategic-extensions-methodology.md §historical-parallels](strategic-extensions-methodology.md) | [historical-parallels.md](../templates/historical-parallels.md) | 230 | timeline |
+| `extended/coalition-mathematics.md` | Vote-math for the period's contested files — 361-seat threshold analysis. | [synthesis-methodology.md §coalition + 720-seat math](synthesis-methodology.md) | [coalition-mathematics.md](../templates/coalition-mathematics.md) | 280 | graph LR (group arithmetic) |
+| `extended/forward-indicators.md` | Early-warning signposts with WEP bands and monitoring cadence. | [osint-tradecraft-standards.md §Indicators & Signposts SAT](osint-tradecraft-standards.md) | [forward-indicators.md](../templates/forward-indicators.md) | 250 | flowchart LR (signpost → alert → action) |
+| `extended/intelligence-assessment.md` | ICD 203 compliant IC-style assessment (BLUF + key judgments + confidence). | [osint-tradecraft-standards.md §ICD 203 Mapping](osint-tradecraft-standards.md) | [intelligence-assessment.md](../templates/intelligence-assessment.md) | 270 | flowchart LR (evidence → judgment → confidence) |
+| `extended/implementation-feasibility.md` | 27-MS implementation feasibility of proposed legislation (legal / admin / fiscal). | [strategic-extensions-methodology.md §feasibility](strategic-extensions-methodology.md) | [implementation-feasibility.md](../templates/implementation-feasibility.md) | 290 | heatmap (MS × dimension) |
+| `extended/media-framing-analysis.md` | Dominant narrative frames across EU-wide + national press (Politico, Euractiv, FT, etc.). | [strategic-extensions-methodology.md §media-framing](strategic-extensions-methodology.md) | [media-framing-analysis.md](../templates/media-framing-analysis.md) | 270 | graph LR (outlet × frame) |
+| `extended/comparative-international.md` | Cross-jurisdictional comparison (EP vs US / UK / G7 / Council of Europe). | [strategic-extensions-methodology.md §comparative-international](strategic-extensions-methodology.md) | [comparative-international.md](../templates/comparative-international.md) | 270 | heatmap (jurisdiction × mechanism) |
+| `extended/cross-reference-map.md` | Inter-artifact citation map for this run (who cites whom, evidence provenance). | [structural-metadata-methodology.md §cross-reference-map](structural-metadata-methodology.md) | [cross-reference-map.md](../templates/cross-reference-map.md) | 260 | graph LR (citation network) |
+| `extended/data-download-manifest.md` | Stage-A inventory of every EP MCP call made + raw artifact paths + Admiralty grades. | [structural-metadata-methodology.md §data-download-manifest](structural-metadata-methodology.md) | [data-download-manifest.md](../templates/data-download-manifest.md) | 250 | flowchart LR (MCP call → artifact) |
+| `extended/voter-segmentation.md` | EU electorate segmentation across 27 MS (Europhile / Euroskeptic / regional blocs). | [electoral-domain-methodology.md §voter-segmentation](electoral-domain-methodology.md) | [voter-segmentation.md](../templates/voter-segmentation.md) | 300 | quadrantChart (engagement × trust) |
+
+**When to produce these**: Long-form review workflows (`month-in-review`, `quarter-in-review`, `propositions`), crisis / breaking-news depth runs, and any run where a decision-maker briefing (`executive-brief`) adds value. Short-form runs (`breaking`, `weekly-digest`) typically skip this folder.
 
 ---
 
@@ -263,5 +284,5 @@ An agent starting a run reads this catalog, then proceeds through the 10-step pr
 **Document Control:**
 - **Path:** `/analysis/methodologies/artifact-catalog.md`
 - **Classification:** Public
-- **Version:** 1.0 — Initial extraction from Run 184 reference benchmark and 2026-04-20 / 2026-04-21 daily runs.
+- **Version:** 1.1 — Added `extended/` folder (12 optional deep-intelligence artifacts) from riksdagsmonitor port (2026-04-23); v1.0 was initial extraction from Run 184 benchmark and 2026-04-20 / 2026-04-21 daily runs.
 - **Next Review:** 2026-06-30

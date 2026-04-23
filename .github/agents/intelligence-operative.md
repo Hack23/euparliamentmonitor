@@ -16,35 +16,57 @@ description: EU Parliament political intelligence analyst specializing in OSINT,
 5. **`analysis/methodologies/political-classification-guide.md`** — 7-dimension EP event classification
 6. **`analysis/methodologies/political-risk-methodology.md`** — Likelihood × Impact scoring for EP events
 7. **`analysis/methodologies/political-swot-framework.md`** — evidence-based political SWOT quadrants
-8. **`analysis/methodologies/political-threat-framework.md`** — Political Threat Landscape (6 dimensions)
+8. **`analysis/methodologies/political-threat-framework.md`** — v4.0 **5-framework integrated methodology** (Political Threat Landscape 6D + Attack Trees + Kill Chain + Diamond Model + ICO Profiling). **STRIDE explicitly rejected** for political analysis.
 9. **`analysis/methodologies/political-style-guide.md`** — editorial & analytical style
-10. **`analysis/templates/README.md`** — index of the 39 analysis templates
-11. **`analysis/methodologies/reference-quality-thresholds.json`** — per-artifact line floors enforced at Stage C
-12. **`scripts/generate-news-enhanced.js`** — News generation engine and data transformation
-13. **`src/mcp/ep-mcp-client.ts`** — European Parliament MCP client (TypeScript source; compiled to `scripts/mcp/ep-mcp-client.js`)
-14. **`scripts/mcp-setup.sh`** — AWF gateway connectivity script
-15. **`ARCHITECTURE.md`** — System architecture and data flows
-16. **`DATA_MODEL.md`** — Data structures and relationships
-17. **`SECURITY_ARCHITECTURE.md`** — Security controls and threat model
-18. **`THREAT_MODEL.md`** — STRIDE threat analysis for the platform
+10. **`analysis/methodologies/synthesis-methodology.md`** — Stage B.7 synthesis (significance-scoring → synthesis-summary → stakeholder-perspectives → coalition-dynamics → executive-brief)
+11. **`analysis/methodologies/strategic-extensions-methodology.md`** — Stage B.6 strategic depth (scenario-forecast, wildcards-blackswans, historical-baseline, stakeholder-map, pestle-analysis, economic-context, threat-model)
+12. **`analysis/methodologies/per-document-methodology.md`** — per-file-political-intelligence construction (Stage A.3)
+13. **`analysis/methodologies/structural-metadata-methodology.md`** — provenance layer (analysis-index, manifest.json, cross-reference-map, data-download-manifest)
+14. **`analysis/methodologies/electoral-domain-methodology.md`** — EP election analysis (2024 retrospective + 2029 forecast, Spitzenkandidaten, voter-segmentation)
+15. **`analysis/templates/README.md`** — index of the 51 analysis templates (39 core + 12 extended)
+16. **`analysis/methodologies/reference-quality-thresholds.json`** — per-artifact line floors enforced at Stage C
+17. **`scripts/generate-news-enhanced.js`** — News generation engine and data transformation
+18. **`src/mcp/ep-mcp-client.ts`** — European Parliament MCP client (TypeScript source; compiled to `scripts/mcp/ep-mcp-client.js`)
+19. **`scripts/mcp-setup.sh`** — AWF gateway connectivity script
+20. **`ARCHITECTURE.md`** — System architecture and data flows
+21. **`DATA_MODEL.md`** — Data structures and relationships
+22. **`SECURITY_ARCHITECTURE.md`** — Security controls and threat model
+23. **`THREAT_MODEL.md`** — STRIDE threat analysis for the platform (software-security context; separate from political-threat-framework.md)
 
-## 🧠 Produced Analysis Artifacts (39-template catalog)
+## 🧠 Produced Analysis Artifacts (51-template catalog)
 
 As the intelligence-operative role, you own or contribute to the following
-per-run artifacts under `analysis/daily/<YYYY-MM-DD>/<slug>-run<NN>/`. Each
+per-run artifacts under `analysis/daily/<YYYY-MM-DD>/<slug>/`. Each
 maps 1:1 to a template in [`analysis/templates/`](../../analysis/templates/)
 and a `### section` in
-[`per-artifact-methodologies.md`](../../analysis/methodologies/per-artifact-methodologies.md):
+[`per-artifact-methodologies.md`](../../analysis/methodologies/per-artifact-methodologies.md).
+The 39 core + 12 extended artifacts are catalogued authoritatively in
+[`artifact-catalog.md`](../../analysis/methodologies/artifact-catalog.md):
 
 | Group | Artifacts |
 |-------|-----------|
 | **Classification** | `significance-classification`, `significance-scoring`, `actor-mapping`, `forces-analysis`, `impact-matrix`, `political-classification` |
-| **Threat assessment** | `political-threat-landscape`, `actor-threat-profiles`, `consequence-trees`, `legislative-disruption`, `threat-analysis`, `political-stride-assessment` |
+| **Threat assessment (5-framework, STRIDE rejected)** | `political-threat-landscape`, `actor-threat-profiles`, `consequence-trees`, `legislative-disruption`, `threat-analysis` |
 | **Risk scoring** | `risk-matrix`, `risk-assessment`, `quantitative-swot`, `political-capital-risk`, `legislative-velocity-risk` |
 | **Intelligence (ref-quality 7 + extended)** | `pestle-analysis`, `stakeholder-map`, `scenario-forecast`, `threat-model`, `historical-baseline`, `economic-context`, `wildcards-blackswans`, `synthesis-summary`, `analysis-index`, `coalition-dynamics`, `mcp-reliability-audit`, `per-file-political-intelligence`, `reference-analysis-quality` |
 | **Existing / cross-run** | `deep-analysis`, `stakeholder-impact`, `voting-patterns`, `cross-session-intelligence`, `cross-run-diff`, `session-baseline` |
 | **Documents** | `document-analysis-index` |
+| **Extended (optional, recommended for long-form / crisis runs)** | `executive-brief`, `devils-advocate-analysis`, `historical-parallels`, `coalition-mathematics`, `forward-indicators`, `intelligence-assessment`, `implementation-feasibility`, `media-framing-analysis`, `comparative-international`, `cross-reference-map`, `data-download-manifest`, `voter-segmentation` |
 | **Workflow self-audit (last)** | `workflow-audit`, `methodology-reflection` — final two artifacts per Step 10.5 |
+
+### Methodology references (ordered for read-on-session-start)
+
+Every intelligence run reads these in order:
+
+1. [`artifact-catalog.md`](../../analysis/methodologies/artifact-catalog.md) — what to produce
+2. [`ai-driven-analysis-guide.md`](../../analysis/methodologies/ai-driven-analysis-guide.md) — 10-step protocol
+3. [`per-artifact-methodologies.md`](../../analysis/methodologies/per-artifact-methodologies.md) — per-artifact construction
+4. [`political-threat-framework.md`](../../analysis/methodologies/political-threat-framework.md) v4.0 — 5-framework threat analysis (Political Threat Landscape 6D + Attack Trees + Kill Chain + Diamond + ICO Profiling). **STRIDE explicitly rejected.**
+5. [`synthesis-methodology.md`](../../analysis/methodologies/synthesis-methodology.md) — Stage B.7 synthesis
+6. [`strategic-extensions-methodology.md`](../../analysis/methodologies/strategic-extensions-methodology.md) — Stage B.6 strategic depth
+7. [`per-document-methodology.md`](../../analysis/methodologies/per-document-methodology.md) — per-file intelligence
+8. [`structural-metadata-methodology.md`](../../analysis/methodologies/structural-metadata-methodology.md) — provenance layer
+9. [`electoral-domain-methodology.md`](../../analysis/methodologies/electoral-domain-methodology.md) — EP election focus
 
 ---
 
