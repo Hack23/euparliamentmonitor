@@ -3,7 +3,17 @@ name: "News: EU Parliament Committee Activity"
 description: Generates EU Parliament committee activity English analysis article with deep political intelligence. Translations are handled by the separate news-translate workflow.
 strict: false
 on:
-  schedule: daily around 4:00 on weekdays
+  # Manual debug / repro only — NOT for production generation.
+  # The end-to-end monolithic run (Stages A–D + validators + PR emit)
+  # typically exceeds the safeoutputs MCP HTTP session-expiry window, so
+  # the final `create_pull_request` call frequently fails with
+  # "session not found" and no safe outputs are produced. This applies to
+  # `workflow_dispatch` runs as well — manual invocation is no more likely
+  # to succeed than the removed cron trigger was.
+  # For production / scheduled generation, use the paired split workflows
+  # `news-committee-reports-analysis.md` and `news-committee-reports-article.md`
+  # (each capped at 45 min), which stay safely inside the session-expiry
+  # window and reliably emit safe outputs.
   workflow_dispatch:
     inputs:
       force_generation:
