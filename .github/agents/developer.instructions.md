@@ -81,7 +81,7 @@ gh aw audit <run-id>        # Audit a run
 
 ### Workflow Frontmatter
 
-This repo's gh-aw workflows use the following format (see `news-breaking.md`):
+This repo's gh-aw workflows use the following format (see `news-breaking-analysis.md`):
 
 ```markdown
 ---

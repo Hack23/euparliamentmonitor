@@ -71,12 +71,18 @@ is ever required.
 > the table above as the canonical workflow entry points until the remaining
 > docs are updated.
 
-Rationale: a residual monolith (`news-motions.lock.yml`) was inadvertently
-re-enabled and fired on `2026-04-23T07:10:53Z`, killing the Copilot CLI at the
-90-min `timeout-minutes` while mid Pass‑2 of the article rewrite
+Rationale: the monoliths ran Stages A+B+C+D in a single 60–90-minute agent
+session and reliably exceeded the safeoutputs MCP session TTL (~30 min),
+causing end-of-run `create_pull_request` calls to return *"session not
+found"*. In addition, a residual monolith (`news-motions.lock.yml`) was
+inadvertently re-enabled and fired on `2026-04-23T07:10:53Z`, killing the
+Copilot CLI at the 90-min `timeout-minutes` while mid Pass‑2 of the article
+rewrite
 ([run 24822033271](https://github.com/Hack23/euparliamentmonitor/actions/runs/24822033271)).
 Removing the files eliminates the re-enable risk and is the documented
-follow-up to the split-family rollout.
+follow-up to the split-family rollout. History lives in git — run
+`git log --diff-filter=D -- .github/workflows/news-breaking.md` to see the
+deletion commit if a rollback is ever needed.
 
 #### Multi-type + translation (unchanged)
 

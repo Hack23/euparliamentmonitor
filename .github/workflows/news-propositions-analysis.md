@@ -138,9 +138,26 @@ You do **not** read `04-article-generation.md` or `05-analysis-to-article-contra
 | Family | Split: **analysis-only** (paired with `news-propositions-article.md`) |
 | Data window | Per article type; derive from `$TODAY` / `$LAST_WEEK` / `$LAST_MONTH` |
 | Primary feeds | EP feeds via `get_*_feed` with appropriate timeframe; fall back per endpoint if empty/error. |
-| Minimum analysis time (Stage B, 2 passes) | ≥ 20 minutes |
-| Total active-work budget | 30–40 minutes (well below the 45-minute timeout) |
+| Minimum analysis time (Stage B, 2 passes) | ≥ 18 minutes |
+| Total wall-clock budget | **aim ≤ 25 minutes**, **hard limit < 28 minutes** (see safeoutputs TTL note below) |
 | PR rule | **Exactly one** `[analysis]` PR at end of run (see `06-pr-and-safe-outputs.md` §3a) |
+
+> **⚠️ safeoutputs Session TTL**: The safeoutputs MCP HTTP session on
+> `localhost:3001` has been observed to fail after roughly **28–30
+> minutes** with no safeoutputs tool calls (agent activity on other
+> tools does **not** refresh it). [Run
+> 24818921747](https://github.com/Hack23/euparliamentmonitor/actions/runs/24818921747)
+> failed with `Streamable HTTP error: session not found` after Stage B
+> ran ~28 min with zero safeoutputs calls. **Hard limit: keep total
+> wall-clock from agent start to the single end-of-run PR call under
+> 28 minutes; aim for ≤ 25 minutes** to leave a 3–5 min safety margin
+> below the observed failure window. The Stage A (≤ 5 min) + Stage B
+> (≥ 18 min) + Stage C + PR sequence above is sized to fit this aim.
+> As soon as Stage C is GREEN, run the required `--analysis-only`
+> wrap-up immediately, then commit the branch and call the single PR
+> without delay — do not append any extra post-gate manifest edits
+> beyond that mandatory wrap-up. See
+> [`09-troubleshooting.md`](../prompts/09-troubleshooting.md) §5.
 
 ## 🎯 Article-Type Specifics
 
@@ -174,7 +191,7 @@ echo "WORKFLOW_START_EPOCH=$WORKFLOW_START_EPOCH" >> "$GITHUB_ENV"
 
 ```
 Stage A · Data Collection
-  → Stage B · Analysis (Pass 1 + Pass 2, ≥ 20 min)
+  → Stage B · Analysis (Pass 1 + Pass 2, ≥ 18 min)
     → Stage C · Completeness Gate (validate-analysis) — BLOCKING
       → Single analysis PR (exactly once)
 ```
@@ -187,7 +204,9 @@ Run the canonical gateway block from `08-infrastructure.md` §4. Source
 `scripts/mcp-setup.sh`, then `scripts/wb-mcp-probe.sh` and
 `scripts/imf-mcp-probe.sh`. Collect EP feed data first; fall back to direct
 endpoints on failure. Deep-fetch up to 10 procedures / voting records /
-meeting decisions into `${ANALYSIS_DIR}/data/`. Target: ≤ 10 min.
+meeting decisions into `${ANALYSIS_DIR}/data/`. Target: ≤ 5 min (tightened
+from 10 min to fit the ≤ 25 min total wall-clock aim — see Workflow
+Parameters table above).
 
 ### Stage B — Analysis (Ref: 02 §2 re-run merge rule)
 
