@@ -11,12 +11,18 @@
  *
  * Each entry ships with:
  * - a **canonical English description** (`description`) used as the fallback
- *   for every language that has no override;
+ *   only when the caller requests English (`lang === 'en'`);
  * - an optional **per-language overlay** (`i18n`) mapping a subset of the 14
  *   supported language codes to a localized rendering of the same meaning.
  *
+ * Non-English callers never receive the raw English `description` as a
+ * fallback — {@link getCuratedDescription} synthesizes a localized sentence
+ * from the localized title and the localized "kind" word (methodology,
+ * template, reference, …) so every card on a non-English page reads
+ * naturally in that language.
+ *
  * Unmapped files fall back to a generic localized phrase built from the
- * file's display title — see {@link getGenericFallback}.
+ * file's display title — see {@link buildGenericFallback}.
  */
 
 import type { LanguageCode } from '../types/index.js';

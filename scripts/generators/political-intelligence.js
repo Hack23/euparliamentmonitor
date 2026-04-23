@@ -888,17 +888,24 @@ ${artifactLinks}
  * @returns Complete HTML document string
  */
 export function generatePoliticalIntelligenceHTML(lang, data) {
-    const copy = getPICopy(lang);
-    const siteTitle = getLocalizedString(PAGE_TITLES, lang).split(' - ')[0] ?? 'EU Parliament Monitor';
+    // Validate lang against the supported language list. Unsupported values
+    // (including prototype-pollution payloads like `__proto__` or user input)
+    // fall back to English so curated-title / description lookups always
+    // receive a known-safe key.
+    const safeLang = ALL_LANGUAGES.includes(lang)
+        ? lang
+        : 'en';
+    const copy = getPICopy(safeLang);
+    const siteTitle = getLocalizedString(PAGE_TITLES, safeLang).split(' - ')[0] ?? 'EU Parliament Monitor';
     const pageTitle = `${siteTitle} - ${copy.title}`;
     const description = copy.intro;
-    const skipLinkText = getLocalizedString(SKIP_LINK_TEXTS, lang);
-    const headerSubtitle = escapeHTML(getLocalizedString(HEADER_SUBTITLE_LABELS, lang));
-    const themeToggleLabel = escapeHTML(getLocalizedString(THEME_TOGGLE_LABELS, lang));
-    const dir = getTextDirection(lang);
-    const canonicalUrl = `${BASE_URL}/${getPoliticalIntelligenceFilename(lang)}`;
-    const indexHref = lang === 'en' ? 'index.html' : `index-${lang}.html`;
-    const sitemapHref = lang === 'en' ? 'sitemap.html' : `sitemap_${lang}.html`;
+    const skipLinkText = getLocalizedString(SKIP_LINK_TEXTS, safeLang);
+    const headerSubtitle = escapeHTML(getLocalizedString(HEADER_SUBTITLE_LABELS, safeLang));
+    const themeToggleLabel = escapeHTML(getLocalizedString(THEME_TOGGLE_LABELS, safeLang));
+    const dir = getTextDirection(safeLang);
+    const canonicalUrl = `${BASE_URL}/${getPoliticalIntelligenceFilename(safeLang)}`;
+    const indexHref = safeLang === 'en' ? 'index.html' : `index-${safeLang}.html`;
+    const sitemapHref = safeLang === 'en' ? 'sitemap.html' : `sitemap_${safeLang}.html`;
     // Cross-language <link rel="alternate"> block
     const hreflangLinks = [
         ...ALL_LANGUAGES.map((code) => `  <link rel="alternate" hreflang="${code}" href="${BASE_URL}/${getPoliticalIntelligenceFilename(code)}">`),
@@ -911,8 +918,8 @@ export function generatePoliticalIntelligenceHTML(lang, data) {
     const langSwitcher = ALL_LANGUAGES.map((code) => {
         const flag = getLocalizedString(LANGUAGE_FLAGS, code);
         const name = getLocalizedString(LANGUAGE_NAMES, code);
-        const active = code === lang ? ' active' : '';
-        const ariaCurrent = code === lang ? ' aria-current="page"' : '';
+        const active = code === safeLang ? ' active' : '';
+        const ariaCurrent = code === safeLang ? ' aria-current="page"' : '';
         const href = getPoliticalIntelligenceFilename(code);
         return `<a href="${href}" class="lang-link${active}" hreflang="${code}" title="${escapeHTML(name)}"${ariaCurrent}>${flag} ${code.toUpperCase()}</a>`;
     }).join('\n        ');
@@ -920,15 +927,14 @@ export function generatePoliticalIntelligenceHTML(lang, data) {
     // Descriptions are sourced from the curated per-file, per-language table
     // ({@link getCuratedDescription}) — every language page renders a
     // meaningful, hand-written summary, not scraped Markdown metadata.
-    const langCode = lang;
     const methodologiesList = data.methodologies
-        .map((d) => renderDocumentCard(d, langCode, copy.viewOnGitHub))
+        .map((d) => renderDocumentCard(d, safeLang, copy.viewOnGitHub))
         .join('\n');
     const templatesList = data.templates
-        .map((d) => renderDocumentCard(d, langCode, copy.viewOnGitHub))
+        .map((d) => renderDocumentCard(d, safeLang, copy.viewOnGitHub))
         .join('\n');
     const referenceList = data.referenceDocs
-        .map((d) => renderDocumentCard(d, langCode, copy.viewOnGitHub))
+        .map((d) => renderDocumentCard(d, safeLang, copy.viewOnGitHub))
         .join('\n');
     const dailyBody = data.dailyGroups.length === 0
         ? ''
@@ -949,7 +955,7 @@ export function generatePoliticalIntelligenceHTML(lang, data) {
         name: copy.title,
         url: canonicalUrl,
         description: copy.intro,
-        inLanguage: lang,
+        inLanguage: safeLang,
         author: publisher,
         publisher,
         isPartOf: {
@@ -1002,12 +1008,12 @@ export function generatePoliticalIntelligenceHTML(lang, data) {
     };
     const jsonLdString = JSON.stringify(jsonLd).replace(/</g, '\\u003c');
     return `<!DOCTYPE html>
-<html lang="${lang}" dir="${dir}">
+<html lang="${safeLang}" dir="${dir}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta http-equiv="Content-Language" content="${lang}">
+  <meta http-equiv="Content-Language" content="${safeLang}">
   <meta name="referrer" content="no-referrer">
   <title>${escapeHTML(pageTitle)}</title>
   <meta name="description" content="${escapeHTML(description)}">
@@ -1022,7 +1028,7 @@ ${hreflangLinks}
   <meta property="og:description" content="${escapeHTML(description)}">
   <meta property="og:url" content="${canonicalUrl}">
   <meta property="og:site_name" content="EU Parliament Monitor">
-  <meta property="og:locale" content="${lang}">
+  <meta property="og:locale" content="${safeLang}">
   <meta property="og:image" content="https://hack23.github.io/euparliamentmonitor/images/og-image.jpg">
   <meta property="og:image:alt" content="${escapeHTML(copy.title)} — EU Parliament Monitor">
   <meta property="og:image:width" content="1200">
@@ -1097,7 +1103,7 @@ ${hreflangLinks}
     <nav class="breadcrumb" aria-label="${escapeHTML(copy.breadcrumbLabel)}">
       <ol>
         <li><a href="${indexHref}">${escapeHTML(copy.home)}</a></li>
-        <li><a href="${sitemapHref}">${escapeHTML(getLocalizedString(FOOTER_SITEMAP_LABELS, lang))}</a></li>
+        <li><a href="${sitemapHref}">${escapeHTML(getLocalizedString(FOOTER_SITEMAP_LABELS, safeLang))}</a></li>
         <li aria-current="page">${escapeHTML(copy.breadcrumbCurrent)}</li>
       </ol>
     </nav>
@@ -1133,7 +1139,7 @@ ${dailyBody}
     </section>
   </main>
 
-  ${buildSiteFooter({ lang: lang, pathPrefix: '' })}${THEME_TOGGLE_SCRIPT}
+  ${buildSiteFooter({ lang: safeLang, pathPrefix: '' })}${THEME_TOGGLE_SCRIPT}
 </body>
 </html>`;
 }
