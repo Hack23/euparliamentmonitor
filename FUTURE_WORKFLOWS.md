@@ -105,7 +105,7 @@ This document outlines planned enhancements to the EU Parliament Monitor CI/CD w
 
 | Phase | Timeline | Focus | Key Deliverables | Status |
 |-------|----------|-------|------------------|--------|
-| **Phase 0** | ✅ Completed | Agentic Workflows | 10 gh-aw news workflows, Copilot agent setup, 100% SHA-pinning | ✅ Done |
+| **Phase 0** | ✅ Completed | Agentic Workflows | 18 gh-aw news workflows (8 split-pair + generator + translator), Copilot agent setup, 100% SHA-pinning | ✅ Done |
 | **Phase 1** | Q2 2026 | Security Hardening | FOSSA, knip, advanced scanning | 🔄 In Progress |
 | **Phase 2** | Q3 2026 | Performance & Quality | Load testing, mutation testing, E2E expansion | 📋 Planned |
 | **Phase 3** | Q4 2026 | Advanced Automation | Multi-environment, canary deployments | 📋 Planned |

@@ -138,7 +138,7 @@ architecture.
 - **TypeScript Source**: All source in `src/` written in TypeScript 6.0.3 (strict, ESM, `"type": "module"`), compiled via `tsc` — `rootDir: ./src`, `outDir: ./scripts`, `target: ES2025`, `module: NodeNext`
 - **Multi-Language Support**: Generates content in 14 languages (`en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh`), defined in `src/constants/language-core.ts::ALL_LANGUAGES`
 - **Article Types**: 8 production content types (`breaking-news`, `committee-reports`, `month-ahead`, `monthly-review`, `motions`, `propositions`, `week-ahead`, `weekly-review`) driven by 9 strategy modules in `src/generators/strategies/` — the 8 type-specific strategies plus `article-strategy` (generic/on-demand, used by `news-article-generator.md` manual dispatch, not an additional production content type)
-- **Agentic Workflows**: 10 gh-aw markdown workflows (9 content generators + 1 translation fan-out) compiled to `.lock.yml` via `gh aw compile --validate` (pinned `GH_AW_VERSION: v0.69.0`)
+- **Agentic Workflows**: 18 gh-aw markdown workflows — 8 split-pair article types (each with `news-<type>-analysis.md` for Stages A+B+C and `news-<type>-article.md` for Stage D) + `news-article-generator.md` (manual) + `news-translate.md` (translation fan-out) — compiled to `.lock.yml` via `gh aw compile --validate` (pinned `GH_AW_VERSION: v0.69.0`)
 - **Dual Economic Data (Wave 1)**: World Bank MCP AND IMF REST provide complementary macro context; validator gate `articlePolicyHasEconomicContext` in `src/utils/content-validator.ts` accepts either source
 - **AI-First Quality Principle**: Mandatory 2-pass iterative improvement (~60% pass 1, ~40% pass 2); ≥80 words/SWOT item, ≥150 words/stakeholder perspective, ≥60% prose ratio, ≥1 Chart.js visualization, 0 `[AI_ANALYSIS_REQUIRED]` sentinel markers
 - **MCP Integration**: Spawned as local child processes via stdio JSON-RPC at build time
@@ -599,22 +599,24 @@ C4Deployment
 
 8 production article types are driven by 9 strategy modules (strategies 1:1 with types, plus `article-strategy.ts` which is a generic fallback used by the on-demand generator — not an additional production content type):
 
-| Article Type        | Strategy Module                      | gh-aw Workflow                      | Cadence                       |
-|---------------------|--------------------------------------|-------------------------------------|-------------------------------|
-| `breaking`          | `breaking-news-strategy.ts`          | `news-breaking.md`                  | Every 6 hours                 |
-| `week-ahead`        | `week-ahead-strategy.ts`             | `news-week-ahead.md`                | Fri 07:00 UTC                 |
-| `week-in-review`    | `weekly-review-strategy.ts`          | `news-weekly-review.md`             | Sat 09:00 UTC                 |
-| `month-ahead`       | `month-ahead-strategy.ts`            | `news-month-ahead.md`               | 1st of month 08:00 UTC        |
-| `month-in-review`   | `monthly-review-strategy.ts`         | `news-monthly-review.md`            | 28th of month 10:00 UTC       |
-| `committee-reports` | `committee-reports-strategy.ts`      | `news-committee-reports.md`         | Mon–Fri 04:00 UTC             |
-| `motions`           | `motions-strategy.ts`                | `news-motions.md`                   | Mon–Fri 06:00 UTC             |
-| `propositions`      | `propositions-strategy.ts`           | `news-propositions.md`              | Mon–Fri 05:00 UTC             |
+| Article Type        | Strategy Module                      | gh-aw Workflow Pair (analysis + article)                                       | Cadence (analysis schedule)   |
+|---------------------|--------------------------------------|--------------------------------------------------------------------------------|-------------------------------|
+| `breaking`          | `breaking-news-strategy.ts`          | `news-breaking-analysis.md` + `news-breaking-article.md`                       | Every 6 hours                 |
+| `week-ahead`        | `week-ahead-strategy.ts`             | `news-week-ahead-analysis.md` + `news-week-ahead-article.md`                   | Fri 07:00 UTC                 |
+| `week-in-review`    | `weekly-review-strategy.ts`          | `news-weekly-review-analysis.md` + `news-weekly-review-article.md`             | Sat 09:00 UTC                 |
+| `month-ahead`       | `month-ahead-strategy.ts`            | `news-month-ahead-analysis.md` + `news-month-ahead-article.md`                 | 1st of month 08:00 UTC        |
+| `month-in-review`   | `monthly-review-strategy.ts`         | `news-monthly-review-analysis.md` + `news-monthly-review-article.md`           | 28th of month 10:00 UTC       |
+| `committee-reports` | `committee-reports-strategy.ts`      | `news-committee-reports-analysis.md` + `news-committee-reports-article.md`     | Mon–Fri 04:00 UTC             |
+| `motions`           | `motions-strategy.ts`                | `news-motions-analysis.md` + `news-motions-article.md`                         | Mon–Fri 06:00 UTC             |
+| `propositions`      | `propositions-strategy.ts`           | `news-propositions-analysis.md` + `news-propositions-article.md`               | Mon–Fri 05:00 UTC             |
+
+Each pair runs as: `news-<type>-analysis.md` (Stages A+B+C, ~45 min, scheduled cadence above) → on analysis-PR merge → `news-<type>-article.md` (Stage D, ~45 min, `pull_request:closed` trigger gated on `agentic-analysis` + `type:<slug>` labels).
 
 Plus: `article-strategy.ts` (generic, used by manual `news-article-generator.md`) and `news-translate.md` (14-language translation fan-out).
 
 ### Agentic Workflows (gh-aw)
 
-All 10 news workflows are **markdown source files compiled to YAML** (`.md` → `.lock.yml`) via the GitHub Agentic Workflows CLI (`gh aw compile --validate`) with pinned `GH_AW_VERSION: v0.69.0` in `.github/workflows/compile-agentic-workflows.yml`. See [WORKFLOWS.md](WORKFLOWS.md) for the full surface.
+All 18 news workflows are **markdown source files compiled to YAML** (`.md` → `.lock.yml`) via the GitHub Agentic Workflows CLI (`gh aw compile --validate`) with pinned `GH_AW_VERSION: v0.69.0` in `.github/workflows/compile-agentic-workflows.yml`. See [WORKFLOWS.md](WORKFLOWS.md) for the full surface. (`.md` → `.lock.yml`) via the GitHub Agentic Workflows CLI (`gh aw compile --validate`) with pinned `GH_AW_VERSION: v0.69.0` in `.github/workflows/compile-agentic-workflows.yml`. See [WORKFLOWS.md](WORKFLOWS.md) for the full surface.
 
 **5-layer security model**:
 1. **AWF Squid firewall allowlist** — egress HTTP allowlist per workflow
@@ -1491,7 +1493,7 @@ Non-functional requirements define system qualities that are not directly relate
 - **[Future Architecture](FUTURE_ARCHITECTURE.md)** - Architectural evolution
   roadmap
 - **[Data Model](DATA_MODEL.md)** - Data structures and EP/IMF/WB contracts
-- **[Workflows](WORKFLOWS.md)** - All 10 gh-aw + 14 standard workflows, AI-First 2-pass enforcement
+- **[Workflows](WORKFLOWS.md)** - All 18 gh-aw + 14 standard workflows, AI-First 2-pass enforcement
 - **[End-of-Life Strategy](End-of-Life-Strategy.md)** - Technology lifecycle & EOL planning
 - **[Flowcharts](FLOWCHART.md)** - Detailed process workflows
 - **[State Diagrams](STATEDIAGRAM.md)** - System state transitions
