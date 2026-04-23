@@ -51,18 +51,38 @@ The project uses **agentic workflow markdown files** (`.md`) that are compiled t
 | [`news-motions-analysis.md`](news-motions-analysis.md) | [`news-motions-article.md`](news-motions-article.md) | Mon–Fri 06:00 UTC | merged analysis PR + manual |
 | [`news-propositions-analysis.md`](news-propositions-analysis.md) | [`news-propositions-article.md`](news-propositions-article.md) | Mon–Fri 05:00 UTC | merged analysis PR + manual |
 
-> **Legacy monolithic workflows removed.** The eight pre-split monolithic
-> `news-<type>.md` files (`news-breaking`, `news-week-ahead`, `news-month-ahead`,
-> `news-weekly-review`, `news-monthly-review`, `news-committee-reports`,
-> `news-motions`, `news-propositions`) were deleted in April 2026 once the
-> split-pair rollout completed ≥2 successful cycles per type. They ran Stages
-> A+B+C+D in a single 60–90-minute agent session and reliably exceeded the
-> safeoutputs MCP session TTL (~30 min), which caused end-of-run
-> `create_pull_request` calls to return *"session not found"*. The split
-> pairs above finish each stage inside the session budget and are the only
-> supported article-generation pattern. History lives in git — run
-> `git log --diff-filter=D -- .github/workflows/news-breaking.md` to see the
-> deletion commit if a rollback is ever needed.
+#### Legacy monolithic workflows — removed
+
+The eight pre-split monolithic workflows (`news-breaking.md`,
+`news-week-ahead.md`, `news-month-ahead.md`, `news-weekly-review.md`,
+`news-monthly-review.md`, `news-committee-reports.md`, `news-motions.md`,
+`news-propositions.md`) and their `.lock.yml` files have been **deleted** from
+the repository. They were superseded by the split-family pair in the table
+above and disabled at the Actions UI layer (`disabled_manually`) for several
+successful split-pair cycles. They are preserved in git history if a rollback
+is ever required.
+
+> **Migration note:** Some older in-repo documentation may still reference the
+> deleted `news-<type>.md` monoliths (for example
+> `.github/skills/github-agentic-workflows.md`,
+> `.github/agents/news-journalist.md`, and
+> `.github/agents/developer.instructions.md`). Treat those references as stale
+> and use the split `*-analysis.md` + `*-article.md` workflow pairs listed in
+> the table above as the canonical workflow entry points until the remaining
+> docs are updated.
+
+Rationale: the monoliths ran Stages A+B+C+D in a single 60–90-minute agent
+session and reliably exceeded the safeoutputs MCP session TTL (~30 min),
+causing end-of-run `create_pull_request` calls to return *"session not
+found"*. In addition, a residual monolith (`news-motions.lock.yml`) was
+inadvertently re-enabled and fired on `2026-04-23T07:10:53Z`, killing the
+Copilot CLI at the 90-min `timeout-minutes` while mid Pass‑2 of the article
+rewrite
+([run 24822033271](https://github.com/Hack23/euparliamentmonitor/actions/runs/24822033271)).
+Removing the files eliminates the re-enable risk and is the documented
+follow-up to the split-family rollout. History lives in git — run
+`git log --diff-filter=D -- .github/workflows/news-breaking.md` to see the
+deletion commit if a rollback is ever needed.
 
 #### Multi-type + translation (unchanged)
 

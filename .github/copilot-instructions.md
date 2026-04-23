@@ -18,7 +18,7 @@
 - **License**: Apache-2.0 | **Deployment**: AWS S3/CloudFront (primary) with GitHub Pages as fallback/runbook
 - **Data**: European Parliament MCP Server (`european-parliament-mcp-server@1.2.11`)
 - **Languages**: EN, SV, DA, NO, FI, DE, FR, ES, NL, AR, HE, JA, KO, ZH
-- **Agentic Workflows**: 18 gh-aw markdown workflows for automated news generation (8 split-pair `news-<type>-analysis.md` + `news-<type>-article.md` + `news-article-generator.md` + `news-translate.md`)
+- **Agentic Workflows**: 18 gh-aw markdown workflows for automated news generation — 8 split-family pairs (`news-<type>-analysis.md` + `news-<type>-article.md`) plus 2 helpers (`news-article-generator.md`, `news-translate.md`)
 - **Security**: ISO 27001, NIST CSF 2.0, CIS Controls v8.1, GDPR, NIS2, EU CRA
 
 ## 🤖 Available Agents
@@ -52,9 +52,9 @@ npm run build         # TypeScript compilation
 
 ## 🔄 GitHub Agentic Workflows (gh-aw)
 
-This project uses **18 gh-aw markdown workflows** in `.github/workflows/*.md` for automated news generation. These are compiled to `.lock.yml` files and run AI agents (Copilot/Claude/Codex) in sandboxed GitHub Actions with safe outputs.
+This project uses **gh-aw markdown workflows** in `.github/workflows/*.md` for automated news generation. These are compiled to `.lock.yml` files and run AI agents (Copilot/Claude/Codex) in sandboxed GitHub Actions with safe outputs.
 
-**Workflow files (split-pair pattern — 8 pairs):** `news-<type>-analysis.md` (Stages A+B+C, 45-min, scheduled) produces an analysis PR; on merge, `news-<type>-article.md` (Stage D, 45-min) produces the article PR. The 8 types are: `breaking`, `weekly-review`, `monthly-review`, `week-ahead`, `month-ahead`, `committee-reports`, `motions`, `propositions`. Plus `news-article-generator.md` (manual multi-type backfill) and `news-translate.md` (14-language flush translator). The legacy monolithic `news-<type>.md` files were removed in April 2026 — see [`.github/workflows/README.md`](./workflows/README.md#split-family-workflows-canonical-16-files--8-pairs).
+**Workflow files** (split-family pairs — 8 types × 2 stages + 2 helpers = 18 files): for each news type / canonical `ARTICLE_TYPE_SLUG` (`breaking`, `week-in-review`, `month-in-review`, `week-ahead`, `month-ahead`, `committee-reports`, `motions`, `propositions`) there is a paired `news-<type>-analysis.md` (45-min Stages A–C, produces analysis PR) and `news-<type>-article.md` (45-min Stage D, triggered on merged analysis PR, produces article PR). For the review families, workflow filenames still use the aliases `news-weekly-review-*` and `news-monthly-review-*`, but the canonical slugs used by scripts/workflows are `week-in-review` and `month-in-review`. Helper workflows: `news-article-generator.md` (manual multi-type backfill), `news-translate.md` (14-language translation). The pre-split monolithic `news-<type>.md` files have been removed — see [`.github/workflows/README.md`](./workflows/README.md#split-family-workflows-canonical-16-files--8-pairs).
 
 **Key concepts**: Safe outputs (create-pull-request with constraints), AWF firewall (Squid proxy allowlist), 5-layer security model, JSONL artifacts, lock file compilation.
 
