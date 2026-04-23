@@ -153,8 +153,10 @@ You do **not** read `04-article-generation.md` or `05-analysis-to-article-contra
 > 28 minutes; aim for ≤ 25 minutes** to leave a 3–5 min safety margin
 > below the observed failure window. The Stage A (≤ 5 min) + Stage B
 > (≥ 18 min) + Stage C + PR sequence above is sized to fit this aim.
-> Commit the branch and call the single PR as soon as Stage C is
-> GREEN — do not append further manifest edits. See
+> As soon as Stage C is GREEN, run the required `--analysis-only`
+> wrap-up immediately, then commit the branch and call the single PR
+> without delay — do not append any extra post-gate manifest edits
+> beyond that mandatory wrap-up. See
 > [`09-troubleshooting.md`](../prompts/09-troubleshooting.md) §5.
 
 ## 🎯 Article-Type Specifics

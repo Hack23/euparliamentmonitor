@@ -78,9 +78,11 @@ context separated out to keep the table scannable:
 - **(a) Banned keep-alive / heartbeat pattern** — the sandbox eventually
   kills the session. Heartbeats are lint-banned (`scripts/lint-prompts.js`);
   do not reintroduce them.
-- **(b) Pure idle** — no safeoutputs tool calls issued for ≈ 25–30 minutes.
-  Agent activity on any other tool (EP MCP, bash, `create`, `edit`) does
-  **not** refresh the safeoutputs session.
+- **(b) Pure idle** — no safeoutputs tool calls issued for long enough that
+  the session is reaped: typically ~28–30 minutes in observed failures, but
+  treat anything approaching 25 minutes of pure idle as unsafe. Agent
+  activity on any other tool (EP MCP, bash, `create`, `edit`) does **not**
+  refresh the safeoutputs session.
 
 **Forensic evidence**
 
@@ -110,9 +112,12 @@ visible in the agent artifact).
 
 1. Keep **total wall-clock** from agent start to the single PR call under
    the **hard limit of 28 minutes**, and aim for **≤ 25 minutes**; that
-   target stays safely below the observed ~28–30 minute failure window
-   while remaining stricter than the 30–40 minute budgets documented in
-   some other workflows.
+   target stays safely below the observed ~28–30 minute failure window.
+   Treat the 30–40 minute budgets in the canonical shared prompts/skills as
+   the general baseline, but for workflows that end with a single
+   `safeoutputs___create_pull_request` call this troubleshooting guidance is
+   the effective source of truth because the safeoutputs session TTL is
+   stricter.
 2. Trim redundant Stage B Pass-2 file-re-reads.
 3. Commit + emit `SINGLE_PR_ATTESTATION` as soon as Stage C is GREEN — do
    **not** append further post-gate manifest edits that push the call past
