@@ -1,0 +1,106 @@
+{
+  "articleType": "breaking",
+  "runId": "breaking-run-1776928781",
+  "date": "2026-04-23",
+  "stage": "stage-b-complete",
+  "analysisDir": "analysis/daily/2026-04-23/breaking-run-1776928781",
+  "createdAt": "2026-04-23T00:00:00Z",
+  "history": [
+    {
+      "stage": "stage-a",
+      "completedAt": "2026-04-23T00:10:00Z",
+      "summary": "Data collection complete; 101 EP texts retrieved; API feeds HTTP 500 (Day 12 outage); World Bank DE/FR data confirmed"
+    },
+    {
+      "stage": "stage-b",
+      "completedAt": "2026-04-23T00:35:00Z",
+      "summary": "18 intelligence + 4 classification + 4 risk-scoring + 3 threat-assessment artifacts written; methodology-reflection complete"
+    },
+    {
+      "runId": "18050905-3171-40d6-ab42-6b5c9aff7131",
+      "startedAt": "2026-04-23T08:20:29.066Z",
+      "finishedAt": "2026-04-23T08:20:29.067Z",
+      "gateResult": "PENDING",
+      "filesWritten": [
+        "classification/actor-mapping.md",
+        "classification/forces-analysis.md",
+        "classification/impact-matrix.md",
+        "classification/significance-classification.md",
+        "threat-assessment/actor-threat-profile.md",
+        "threat-assessment/attack-surface-map.md",
+        "threat-assessment/threat-assessment.md",
+        "risk-scoring/legislative-velocity-risk.md",
+        "risk-scoring/political-capital-risk.md",
+        "risk-scoring/quantitative-swot.md",
+        "risk-scoring/risk-matrix.md",
+        "intelligence/analysis-index.md",
+        "intelligence/coalition-dynamics.md",
+        "intelligence/cross-run-diff.md",
+        "intelligence/economic-context.md",
+        "intelligence/historical-baseline.md",
+        "intelligence/mcp-reliability-audit.md",
+        "intelligence/methodology-reflection.md",
+        "intelligence/pestle-analysis.md",
+        "intelligence/political-threat-landscape.md",
+        "intelligence/reference-analysis-quality.md",
+        "intelligence/scenario-forecast.md",
+        "intelligence/significance-scoring.md",
+        "intelligence/stakeholder-map.md",
+        "intelligence/synthesis-summary.md",
+        "intelligence/threat-model.md",
+        "intelligence/voting-patterns.md",
+        "intelligence/wildcards-blackswans.md",
+        "intelligence/workflow-audit.md"
+      ]
+    }
+  ],
+  "files": {
+    "intelligence": [
+      "intelligence/analysis-index.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/coalition-dynamics.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/threat-model.md",
+      "intelligence/wildcards-blackswans.md",
+      "intelligence/economic-context.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/voting-patterns.md",
+      "intelligence/significance-scoring.md",
+      "intelligence/political-threat-landscape.md",
+      "intelligence/reference-analysis-quality.md",
+      "intelligence/cross-run-diff.md",
+      "intelligence/workflow-audit.md",
+      "intelligence/methodology-reflection.md"
+    ],
+    "classification": [
+      "classification/significance-classification.md",
+      "classification/actor-mapping.md",
+      "classification/forces-analysis.md",
+      "classification/impact-matrix.md"
+    ],
+    "riskScoring": [
+      "risk-scoring/risk-matrix.md",
+      "risk-scoring/quantitative-swot.md",
+      "risk-scoring/political-capital-risk.md",
+      "risk-scoring/legislative-velocity-risk.md"
+    ],
+    "threatAssessment": [
+      "threat-assessment/threat-assessment.md",
+      "threat-assessment/actor-threat-profile.md",
+      "threat-assessment/attack-surface-map.md"
+    ]
+  },
+  "keySummary": {
+    "primaryStory": "EP pre-positioned trade defence on March 26 — one week before Trump Liberation Day tariffs; returning April 27 with tools now operative",
+    "secondaryStory": "Banking union completed (BRRD3/SRMR3/DGSD2); Anti-Corruption criminal law breakthrough; Digital Omnibus AI simplification",
+    "activeRisk": "US tariff 90-day truce expires July 7-8; May 25 delegated acts deadline critical",
+    "dataGaps": "EP API outage Day 12; Roll-call T+28 gap; document bodies HTTP 404",
+    "stabilityScore": 87,
+    "scenarioBaseCaseProbability": 0.47,
+    "scenarioBaseCaseLabel": "B: Managed Divergence"
+  },
+  "updatedAt": "2026-04-23T08:20:29.067Z"
+}
