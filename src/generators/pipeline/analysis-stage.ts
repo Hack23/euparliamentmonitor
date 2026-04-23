@@ -200,14 +200,24 @@ export interface AnalysisMethodStatus {
  * `src/utils/validate-analysis-completeness.ts:extractListedPaths` (nested
  * `{ category: string[] }` variant). Each key is the first path segment of
  * an artifact's relative path (e.g. `intelligence`, `classification`,
- * `risk_scoring`), and the value is the list of relative paths under that
+ * `risk-scoring`), and the value is the list of relative paths under that
  * subdir.
+ *
+ * Hyphenated keys (e.g. `risk-scoring`, `threat-assessment`) match the
+ * canonical on-disk subdirectory names defined in
+ * `scripts/resolve-analysis-dir.sh` and `DISCOVERY_SUBDIRS` /
+ * `RESOLVED_ANALYSIS_SUBDIRS`. They must be quoted in TypeScript because
+ * `-` is not a valid identifier character.
  */
 export interface AnalysisManifestFiles {
   readonly classification?: readonly string[];
-  readonly risk_scoring?: readonly string[];
+  readonly 'risk-scoring'?: readonly string[];
+  readonly 'threat-assessment'?: readonly string[];
   readonly intelligence?: readonly string[];
   readonly documents?: readonly string[];
+  readonly existing?: readonly string[];
+  readonly data?: readonly string[];
+  readonly runs?: readonly string[];
   readonly [key: string]: readonly string[] | undefined;
 }
 
@@ -380,7 +390,7 @@ function validateAnalysisInputs(
  *
  * Produces the shape expected by
  * `src/utils/validate-analysis-completeness.ts` — keys are subdirectory
- * names (`intelligence`, `classification`, `risk_scoring`, `documents`,
+ * names (`intelligence`, `classification`, `risk-scoring`, `documents`,
  * `threat-assessment`, `existing`, …) and values are the full relative
  * paths. Root-level files (no `/`) are collected under the `root` key.
  *
@@ -595,11 +605,20 @@ export async function runAnalysisStage(
   const endTime = new Date().toISOString();
   const discoveredPaths = discoveredEntries.map((e) => e.outputFile);
   const files = groupFilesBySubdir(discoveredPaths);
+  // Stage-C completeness gate (see `validate-analysis-completeness.ts:loadManifest`)
+  // requires top-level `articleType`. Fall back to a slug derived from
+  // `articleTypes[]` when the caller omitted `articleTypeSlug` so the gate
+  // is always green by default — matches the directory-resolution fallback
+  // performed by `computePreferredAnalysisDir` / `deriveArticleTypeSlug`.
+  const resolvedArticleType =
+    articleTypeSlug && articleTypeSlug.length > 0
+      ? articleTypeSlug
+      : deriveArticleTypeSlug(articleTypes);
   const manifest: AnalysisManifest = {
     runId,
     date,
-    articleType: articleTypeSlug,
-    articleTypeSlug,
+    articleType: resolvedArticleType,
+    articleTypeSlug: resolvedArticleType,
     startTime,
     endTime,
     articleTypes,

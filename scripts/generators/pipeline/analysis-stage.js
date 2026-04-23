@@ -205,7 +205,7 @@ function validateAnalysisInputs(fetchedData, options) {
  *
  * Produces the shape expected by
  * `src/utils/validate-analysis-completeness.ts` — keys are subdirectory
- * names (`intelligence`, `classification`, `risk_scoring`, `documents`,
+ * names (`intelligence`, `classification`, `risk-scoring`, `documents`,
  * `threat-assessment`, `existing`, …) and values are the full relative
  * paths. Root-level files (no `/`) are collected under the `root` key.
  *
@@ -388,11 +388,19 @@ export async function runAnalysisStage(fetchedData, options) {
     const endTime = new Date().toISOString();
     const discoveredPaths = discoveredEntries.map((e) => e.outputFile);
     const files = groupFilesBySubdir(discoveredPaths);
+    // Stage-C completeness gate (see `validate-analysis-completeness.ts:loadManifest`)
+    // requires top-level `articleType`. Fall back to a slug derived from
+    // `articleTypes[]` when the caller omitted `articleTypeSlug` so the gate
+    // is always green by default — matches the directory-resolution fallback
+    // performed by `computePreferredAnalysisDir` / `deriveArticleTypeSlug`.
+    const resolvedArticleType = articleTypeSlug && articleTypeSlug.length > 0
+        ? articleTypeSlug
+        : deriveArticleTypeSlug(articleTypes);
     const manifest = {
         runId,
         date,
-        articleType: articleTypeSlug,
-        articleTypeSlug,
+        articleType: resolvedArticleType,
+        articleTypeSlug: resolvedArticleType,
         startTime,
         endTime,
         articleTypes,
