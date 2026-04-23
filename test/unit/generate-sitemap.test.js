@@ -383,13 +383,13 @@ describe('generate-sitemap', () => {
 
     it('should include sitemap title in target language', () => {
       const htmlEn = generateSitemapHTML('en', []);
-      expect(htmlEn).toContain('<h1>Sitemap</h1>');
+      expect(htmlEn).toContain('Sitemap</h1>');
 
       const htmlSv = generateSitemapHTML('sv', []);
-      expect(htmlSv).toContain('<h1>Webbplatskarta</h1>');
+      expect(htmlSv).toContain('Webbplatskarta</h1>');
 
       const htmlDe = generateSitemapHTML('de', []);
-      expect(htmlDe).toContain('<h1>Seitenübersicht</h1>');
+      expect(htmlDe).toContain('Seitenübersicht</h1>');
     });
 
     it('should include all language index page links', () => {
@@ -497,9 +497,14 @@ describe('generate-sitemap', () => {
 
       // Malicious title must be escaped in the sitemap article list
       expect(html).toContain('&lt;script&gt;');
-      // The only <script> tag should be the theme toggle, not the article title
-      const scriptTags = (html.match(/<script[^>]*>/gi) || []);
-      expect(scriptTags.length).toBe(1); // theme toggle only
+      // The only <script> tags should be (1) the JSON-LD structured data and
+      // (2) the theme toggle — never from the untrusted article title.
+      const scriptTags = html.match(/<script[^>]*>/gi) || [];
+      expect(scriptTags.length).toBe(2);
+      // Both allowed <script> openings must be safe types
+      for (const tag of scriptTags) {
+        expect(/type="application\/ld\+json"|type="text\/javascript"|<script>/.test(tag)).toBe(true);
+      }
     });
 
     it('should link news articles correctly', () => {
@@ -736,6 +741,157 @@ describe('generate-sitemap', () => {
       // Docs: 0.3
       const docsBlock = xml.match(/<url>[\s\S]*?docs\/[\s\S]*?<\/url>/);
       expect(docsBlock[0]).toContain('<priority>0.3</priority>');
+    });
+  });
+
+  describe('Hreflang / xhtml:link Alternates', () => {
+    it('should declare the xhtml namespace on urlset', () => {
+      const xml = generateSitemap([]);
+      expect(xml).toContain('xmlns:xhtml="http://www.w3.org/1999/xhtml"');
+    });
+
+    it('should emit hreflang alternates for all 14 index pages', () => {
+      const xml = generateSitemap([]);
+      const indexBlock = xml.match(/<url>[\s\S]*?https:\/\/euparliamentmonitor\.com\/index\.html<\/loc>[\s\S]*?<\/url>/);
+      expect(indexBlock).toBeTruthy();
+      const languages = ['en', 'sv', 'da', 'no', 'fi', 'de', 'fr', 'es', 'nl', 'ar', 'he', 'ja', 'ko', 'zh'];
+      for (const lang of languages) {
+        expect(indexBlock[0]).toContain(`<xhtml:link rel="alternate" hreflang="${lang}"`);
+      }
+      expect(indexBlock[0]).toContain('hreflang="x-default"');
+    });
+
+    it('should emit hreflang alternates for sitemap HTML pages', () => {
+      const xml = generateSitemap([]);
+      const sitemapBlock = xml.match(/<url>[\s\S]*?\/sitemap\.html<\/loc>[\s\S]*?<\/url>/);
+      expect(sitemapBlock).toBeTruthy();
+      expect(sitemapBlock[0]).toContain('<xhtml:link rel="alternate" hreflang="en" href="https://euparliamentmonitor.com/sitemap.html"/>');
+      expect(sitemapBlock[0]).toContain('<xhtml:link rel="alternate" hreflang="de" href="https://euparliamentmonitor.com/sitemap_de.html"/>');
+      expect(sitemapBlock[0]).toContain('hreflang="x-default"');
+    });
+
+    it('should group multi-language article variants with hreflang alternates', () => {
+      const articles = [
+        '2026-02-24-propositions-en.html',
+        '2026-02-24-propositions-sv.html',
+        '2026-02-24-propositions-de.html',
+      ];
+      const xml = generateSitemap(articles);
+      const enBlock = xml.match(/<url>[\s\S]*?2026-02-24-propositions-en\.html<\/loc>[\s\S]*?<\/url>/);
+      expect(enBlock).toBeTruthy();
+      expect(enBlock[0]).toContain('<xhtml:link rel="alternate" hreflang="en"');
+      expect(enBlock[0]).toContain('<xhtml:link rel="alternate" hreflang="sv"');
+      expect(enBlock[0]).toContain('<xhtml:link rel="alternate" hreflang="de"');
+      expect(enBlock[0]).toContain('hreflang="x-default"');
+    });
+
+    it('should NOT emit alternates for single-locale articles', () => {
+      // Real single-locale article (breaking news that only exists in English)
+      const articles = ['2026-04-23-breaking-run-1776928781-en.html'];
+      const xml = generateSitemap(articles);
+      // Find the specific URL block containing this article
+      const block = xml
+        .split('<url>')
+        .find((p) => p.includes('2026-04-23-breaking-run-1776928781-en.html<'));
+      expect(block).toBeTruthy();
+      expect(block).not.toContain('<xhtml:link');
+    });
+
+    it('should NOT emit alternates for docs files', () => {
+      const xml = generateSitemap([], ['docs/index.html']);
+      const block = xml.split('<url>').find((p) => p.includes('docs/index.html<'));
+      expect(block).toBeTruthy();
+      expect(block).not.toContain('<xhtml:link');
+    });
+
+    it('should keep URL count stable (alternates do not add <url> elements)', () => {
+      const articles = [
+        '2026-02-24-propositions-en.html',
+        '2026-02-24-propositions-sv.html',
+      ];
+      const xml = generateSitemap(articles);
+      const urlCount = (xml.match(/<url>/g) || []).length;
+      // 14 index + 14 sitemap + 1 rss + 2 articles = 31
+      expect(urlCount).toBe(31);
+    });
+  });
+
+  describe('Sitemap HTML Enhancements', () => {
+    it('should include a canonical link in the HTML head', () => {
+      const html = generateSitemapHTML('en', []);
+      expect(html).toContain('<link rel="canonical" href="https://euparliamentmonitor.com/sitemap.html">');
+    });
+
+    it('should include hreflang alternates in the HTML head for all 14 languages', () => {
+      const html = generateSitemapHTML('en', []);
+      const languages = ['en', 'sv', 'da', 'no', 'fi', 'de', 'fr', 'es', 'nl', 'ar', 'he', 'ja', 'ko', 'zh'];
+      for (const lang of languages) {
+        expect(html).toContain(`<link rel="alternate" hreflang="${lang}"`);
+      }
+      expect(html).toContain('hreflang="x-default"');
+    });
+
+    it('should include JSON-LD CollectionPage structured data', () => {
+      const html = generateSitemapHTML('en', []);
+      expect(html).toContain('<script type="application/ld+json">');
+      expect(html).toContain('"@type":"CollectionPage"');
+      expect(html).toContain('"BreadcrumbList"');
+    });
+
+    it('should render a hero section with intro text', () => {
+      const html = generateSitemapHTML('en', []);
+      expect(html).toContain('class="sitemap-hero"');
+      expect(html).toContain('sitemap-hero__intro');
+    });
+
+    it('should render a breadcrumb navigation', () => {
+      const html = generateSitemapHTML('en', []);
+      expect(html).toContain('class="breadcrumb"');
+      expect(html).toContain('aria-current="page"');
+    });
+
+    it('should render stats with article counts', () => {
+      const articles = [
+        { filename: '2025-01-15-week-ahead-en.html', date: '2025-01-15', title: 'W1', description: '', slug: 'week-ahead' },
+        { filename: '2025-01-22-week-ahead-en.html', date: '2025-01-22', title: 'W2', description: '', slug: 'week-ahead' },
+      ];
+      const html = generateSitemapHTML('en', articles);
+      expect(html).toContain('class="sitemap-stats"');
+      expect(html).toContain('<dd>2</dd>'); // articles count
+      expect(html).toContain('<dd>14</dd>'); // languages count
+    });
+
+    it('should group News Articles by editorial category', () => {
+      const articles = [
+        { filename: '2025-01-15-breaking-run1-en.html', date: '2025-01-15', title: 'B1', description: '', slug: 'breaking-run1' },
+        { filename: '2025-01-16-week-ahead-en.html', date: '2025-01-16', title: 'W1', description: '', slug: 'week-ahead' },
+        { filename: '2025-01-17-committee-reports-en.html', date: '2025-01-17', title: 'C1', description: '', slug: 'committee-reports' },
+      ];
+      const html = generateSitemapHTML('en', articles);
+      expect(html).toContain('class="sitemap-category"');
+      expect(html).toContain('Breaking News');
+      expect(html).toContain('Week Ahead');
+      expect(html).toContain('Committee Activity');
+      // Count badges
+      expect(html).toContain('sitemap-category__count');
+    });
+
+    it('should include section descriptions for Pages, Docs, and News', () => {
+      const html = generateSitemapHTML('en', [], true);
+      expect(html).toContain('class="section-description"');
+      // Three section descriptions expected (pages + docs + news)
+      const matches = html.match(/class="section-description"/g) || [];
+      expect(matches.length).toBe(3);
+    });
+
+    it('should render localized hero intro in Swedish', () => {
+      const html = generateSitemapHTML('sv', []);
+      expect(html).toContain('Komplett översikt');
+    });
+
+    it('should set canonical URL to the language-specific sitemap page', () => {
+      const htmlSv = generateSitemapHTML('sv', []);
+      expect(htmlSv).toContain('<link rel="canonical" href="https://euparliamentmonitor.com/sitemap_sv.html">');
     });
   });
 });

@@ -3390,25 +3390,176 @@ html[data-theme='dark'] [dir='rtl'] .news-card {
 }
 
 /* ─── Sitemap Pages ──────────────────────────────────────────────── */
+/* Hero block rendered at the top of every sitemap.html / sitemap_<lang>.html */
+.sitemap-hero {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: #fff;
+  padding: 2.5rem 2rem;
+  border-radius: var(--radius-lg);
+  margin: 1.5rem 0 2rem;
+  box-shadow: var(--shadow-md);
+}
+
+.sitemap-hero h1 {
+  color: #fff;
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+}
+
+.sitemap-hero__subtitle {
+  margin: 0 0 1rem;
+  font-size: 1.1rem;
+  opacity: 0.92;
+  font-weight: 500;
+}
+
+.sitemap-hero__intro {
+  margin: 0 0 1.5rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 70ch;
+  opacity: 0.95;
+}
+
+/* Stats panel inside the hero */
+.sitemap-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(4px);
+}
+
+.sitemap-stats__item {
+  margin: 0;
+  text-align: center;
+}
+
+.sitemap-stats__item dt {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.85;
+  margin-bottom: 0.25rem;
+}
+
+.sitemap-stats__item dd {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Breadcrumb navigation */
+.breadcrumb {
+  margin: 0 0 1.5rem;
+  font-size: 0.9rem;
+}
+
+.breadcrumb ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.5rem;
+}
+
+.breadcrumb li + li::before {
+  content: '›';
+  margin-right: 0.5rem;
+  color: var(--text-muted);
+}
+
+[dir='rtl'] .breadcrumb li + li::before {
+  content: '‹';
+  margin-right: 0;
+  margin-left: 0.5rem;
+}
+
+.breadcrumb [aria-current='page'] {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Responsive two-column grid for sitemap sections on wider viewports */
+.sitemap-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 900px) {
+  .sitemap-grid {
+    grid-template-columns: minmax(280px, 1fr) minmax(0, 2fr);
+    align-items: start;
+  }
+  .sitemap-section--news {
+    grid-column: 1 / -1;
+  }
+}
+
 .sitemap-section {
   margin: 2rem 0;
+  background: var(--bg-card);
+  padding: 1.5rem 1.75rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
 }
 
 .sitemap-section h2 {
   font-size: 1.4rem;
   color: var(--primary);
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   padding-bottom: 0.5rem;
   border-bottom: 2px solid var(--border-light);
+}
+
+.section-description {
+  margin: 0 0 1.25rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+/* Category sub-groups inside the News Articles section */
+.sitemap-category {
+  margin: 1.5rem 0;
+  padding-top: 0.25rem;
+}
+
+.sitemap-category__heading {
+  font-size: 1.1rem;
+  color: var(--primary-dark);
+  margin: 0 0 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px dashed var(--border-light);
+}
+
+.sitemap-category__count {
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.1rem 0.55rem;
+  border-radius: 999px;
+  font-variant-numeric: tabular-nums;
 }
 
 .sitemap-list {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .sitemap-list li {
-  padding: 0.5rem 0;
+  padding: 0.6rem 0;
   border-bottom: 1px solid var(--border-light);
 }
 
@@ -3420,11 +3571,21 @@ html[data-theme='dark'] [dir='rtl'] .news-card {
   font-weight: 500;
 }
 
+/* Inline description for page links (e.g. language-specific landing pages) */
+.link-description {
+  display: block;
+  margin-top: 0.15rem;
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
 .sitemap-date {
   display: inline-block;
   margin-left: 0.75rem;
   color: var(--text-muted);
   font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
 }
 
 .sitemap-desc {
