@@ -48,12 +48,16 @@ catalog. The validator enforces:
 10. `workflow-audit.md` and `methodology-reflection.md` are present as the
     final two artifacts of the run (see `ai-driven-analysis-guide.md` Step 10.5).
 
-### Optional — `extended/` artifacts (NOT gated)
+### Optional — `extended/` artifacts (not required by default)
 
-Artifacts written to `${ANALYSIS_DIR}/extended/` are **not** enforced by the
-validator. They are recommended for long-form review workflows and crisis /
-breaking deep runs. Produce them only after every mandatory artifact above has
-passed. Register them in `manifest.files.extended[]`.
+Artifacts written to `${ANALYSIS_DIR}/extended/` are **not required** for a
+green gate by default. They are recommended for long-form review workflows and
+crisis / breaking deep runs. Produce them only after every mandatory artifact
+above has passed. If you register them in `manifest.files.extended[]` and they
+have entries in
+[`reference-quality-thresholds.json`](../../analysis/methodologies/reference-quality-thresholds.json),
+the validator may enforce the corresponding checks (including per-artifact line
+floors).
 
 The 12 extended artifacts are: `executive-brief`, `devils-advocate-analysis`,
 `historical-parallels`, `coalition-mathematics`, `forward-indicators`,

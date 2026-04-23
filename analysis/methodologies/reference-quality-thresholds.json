@@ -75,8 +75,8 @@
       "intelligence/media-framing-analysis.md": 180,
       "intelligence/comparative-international.md": 200,
       "intelligence/voter-segmentation.md": 200,
-      "provenance/cross-reference-map.md": 150,
-      "provenance/data-download-manifest.md": 160
+      "extended/cross-reference-map.md": 150,
+      "extended/data-download-manifest.md": 160
     },
     "week-in-review": {
       "intelligence/analysis-index.md": 120,
