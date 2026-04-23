@@ -52,9 +52,9 @@ npm run build         # TypeScript compilation
 
 ## 🔄 GitHub Agentic Workflows (gh-aw)
 
-This project uses **10 gh-aw markdown workflows** in `.github/workflows/*.md` for automated news generation. These are compiled to `.lock.yml` files and run AI agents (Copilot/Claude/Codex) in sandboxed GitHub Actions with safe outputs.
+This project uses **gh-aw markdown workflows** in `.github/workflows/*.md` for automated news generation. These are compiled to `.lock.yml` files and run AI agents (Copilot/Claude/Codex) in sandboxed GitHub Actions with safe outputs.
 
-**Workflow files**: `news-breaking.md`, `news-weekly-review.md`, `news-monthly-review.md`, `news-week-ahead.md`, `news-month-ahead.md`, `news-committee-reports.md`, `news-motions.md`, `news-propositions.md`, `news-article-generator.md`, `news-translate.md`
+**Workflow files** (split-family pairs — 8 types × 2 stages + 2 helpers = 18 files): for each news type (`breaking`, `weekly-review`, `monthly-review`, `week-ahead`, `month-ahead`, `committee-reports`, `motions`, `propositions`) there is a paired `news-<type>-analysis.md` (45-min Stages A–C, produces analysis PR) and `news-<type>-article.md` (45-min Stage D, triggered on merged analysis PR, produces article PR). Helper workflows: `news-article-generator.md` (manual multi-type backfill), `news-translate.md` (14-language translation). The pre-split monolithic `news-<type>.md` files have been removed — see `.github/workflows/README.md`.
 
 **Key concepts**: Safe outputs (create-pull-request with constraints), AWF firewall (Squid proxy allowlist), 5-layer security model, JSONL artifacts, lock file compilation.
 

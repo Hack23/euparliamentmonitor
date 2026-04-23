@@ -51,32 +51,23 @@ The project uses **agentic workflow markdown files** (`.md`) that are compiled t
 | [`news-motions-analysis.md`](news-motions-analysis.md) | [`news-motions-article.md`](news-motions-article.md) | Mon–Fri 06:00 UTC | merged analysis PR + manual |
 | [`news-propositions-analysis.md`](news-propositions-analysis.md) | [`news-propositions-article.md`](news-propositions-article.md) | Mon–Fri 05:00 UTC | merged analysis PR + manual |
 
-#### Legacy monolithic workflows (pre-split; scheduled for removal after rollout)
+#### Legacy monolithic workflows — removed
 
-#### Legacy monolithic workflows (pre-split; scheduled for removal after rollout)
+The eight pre-split monolithic workflows (`news-breaking.md`,
+`news-week-ahead.md`, `news-month-ahead.md`, `news-weekly-review.md`,
+`news-monthly-review.md`, `news-committee-reports.md`, `news-motions.md`,
+`news-propositions.md`) and their `.lock.yml` files have been **deleted** from
+the repository. They were superseded by the split-family pair in the table
+above and disabled at the Actions UI layer (`disabled_manually`) for several
+successful split-pair cycles. They are preserved in git history if a rollback
+is ever required.
 
-> **Disabling mechanism**: these workflows remain on disk with their original
-> `schedule:` triggers intact so the compiled `.lock.yml` can be restored
-> quickly during rollback, but they are **disabled at the GitHub Actions
-> runtime layer** via the repo Settings → Actions → Workflows UI (state
-> `disabled_manually` — visible in the Actions tab as a "Disabled by user"
-> badge). GitHub does not evaluate the `schedule:` cron of a workflow in
-> that state, so there is no double-run risk while the split-family pair
-> is live. Re-enabling is a one-click operation from the same UI if a
-> rollback is needed. After 2–3 successful cycles of the split pair per
-> type, the corresponding legacy `.md` + `.lock.yml` are deleted in a
-> follow-up PR.
-
-| Workflow (`.md`) | Purpose | Status |
-|---|---|---|
-| [`news-breaking.md`](news-breaking.md) | Rapid breaking-news coverage (60-min monolith) | `disabled_manually` — replaced by the split pair |
-| [`news-week-ahead.md`](news-week-ahead.md) | Week-ahead preview (90-min monolith) | `disabled_manually` |
-| [`news-month-ahead.md`](news-month-ahead.md) | Month-ahead outlook (90-min monolith) | `disabled_manually` |
-| [`news-weekly-review.md`](news-weekly-review.md) | Weekly review (90-min monolith) | `disabled_manually` |
-| [`news-monthly-review.md`](news-monthly-review.md) | Monthly review (90-min monolith) | `disabled_manually` |
-| [`news-committee-reports.md`](news-committee-reports.md) | Committee activity (90-min monolith) | `disabled_manually` |
-| [`news-motions.md`](news-motions.md) | Motions and resolutions (90-min monolith) | `disabled_manually` |
-| [`news-propositions.md`](news-propositions.md) | Legislative propositions (90-min monolith) | `disabled_manually` |
+Rationale: a residual monolith (`news-motions.lock.yml`) was inadvertently
+re-enabled and fired on `2026-04-23T07:10:53Z`, killing the Copilot CLI at the
+90-min `timeout-minutes` while mid Pass‑2 of the article rewrite
+([run 24822033271](https://github.com/Hack23/euparliamentmonitor/actions/runs/24822033271)).
+Removing the files eliminates the re-enable risk and is the documented
+follow-up to the split-family rollout.
 
 #### Multi-type + translation (unchanged)
 
