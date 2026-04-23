@@ -61,23 +61,72 @@ inside the workflow `.md`.
 
 | Symptom | Root cause | Fix |
 |---------|-----------|-----|
-| `tool call failed: session not found` (status 404 from `routed:safeoutputs`) | safeoutputs HTTP backend idle-reaped its own session (~25–30 min TTL). **Not** caused by a keep-alive pattern. See [§5a](#5a--session-not-found-forensic-detail) for evidence. | You cannot recover mid-run. Do NOT add a banned keep-alive pattern. Keep Stage B ≤ ~22 min; surface `SINGLE_PR_ATTESTATION` early; escalate to gh-aw upstream if it recurs. |
+| `Streamable HTTP error: session not found` / `tool call failed: session not found` (HTTP 404 from `routed:safeoutputs`) on `safeoutputs___create_pull_request` at end-of-run | safeoutputs MCP HTTP session (`localhost:3001`) reaped after ~28–30 min of no safeoutputs calls, OR killed earlier by a banned keep-alive pattern. See [§5a](#5a--safeoutputs-session-not-found--extended-context) for evidence and levers. | You cannot recover mid-run. **Hard limit: total wall-clock from agent start to the single PR call < 28 minutes; aim ≤ 25 minutes.** Surface `SINGLE_PR_ATTESTATION` early. Do NOT add a keep-alive pattern. |
 | `container awf-api-proxy is unhealthy` | Transient AWF sandbox infra flake | Re-run the workflow; not a config bug. |
 | `Expected ',' or '}' after property value in JSON` in Copilot `edit` | `old_str`/`new_str` > ~30 lines / ~5 KB | Regenerate via TS generator, split into ≤ 20-line edits. **Do NOT fall back to `cat > file << EOF` heredocs** — see next row. Prefer the native `create` / `Write` file tool (e.g. the Copilot CLI `Create <path>` action that successfully wrote artifacts in [run 24805100070](https://github.com/Hack23/euparliamentmonitor/actions/runs/24805100070)). |
 | `Command not executed. The 'kill' command must specify at least one numeric PID. Usage: kill <PID> or kill -9 <PID>` in response to a `cat > file << 'EOF'` heredoc | **Copilot CLI bash-safety filter false-positive** — the filter scans the entire heredoc body for dangerous-command tokens. Political-analysis content routinely contains the literal word *"kill"* (e.g. *"motion to kill the bill"*, *"amendment killed in committee"*), which matches the bare-`kill`-no-PID pattern and rejects the entire write. Observed in cancelled [run 24805100070](https://github.com/Hack23/euparliamentmonitor/actions/runs/24805100070#step:27:20) at Stage B. | **Never use `cat > file << 'EOF'` to write analysis artifacts or article prose.** Use the native `create` / `Write` file tool available in the Copilot CLI — it bypasses the bash filter entirely. `cat > file` is still safe for short, keyword-free files (e.g. copying one artifact to `existing/`, writing `manifest.json` via `jq`). |
 | `Base branch override is not allowed` | Missing `allowed-base-branches: ["main"]` in safe-outputs | Add to frontmatter (see [`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md) §6). |
 | `create_pull_request: No changes to commit - no commits found` | The working tree has nothing to snapshot at call time | You called the tool too early — one PR at end-of-run, after files are written. |
 
-### 5a · `session not found` — forensic detail
+## 5a · safeoutputs `session not found` — extended context
 
-Evidence from [run 24819497608](https://github.com/Hack23/euparliamentmonitor/actions/runs/24819497608) (news-motions-analysis):
+The `session not found` row above is the most load-bearing entry in §5. Full
+context separated out to keep the table scannable:
 
-- Agent connected to safeoutputs at `06:01:36`; last successful interaction `06:06:41` (SSE GET closed).
-- Worked silently on Stage A+B+C for ~29 min (no safeoutputs traffic in that window).
-- Final `create_pull_request` at `06:35:09` → HTTP 404 `session not found` on every retry.
-- `mcp-gateway.log` shows exactly **one** ping to `/mcp/safeoutputs` (at connect time).
-- `sandbox.mcp.keepalive-interval: 300` does **not** proxy periodic pings to HTTP MCP backends — it only keeps the gateway↔client transport alive, not the gateway↔backend session.
-- The analysis work was committed to the local branch but the branch was never pushed (gh-aw uses `git format-patch` via safeoutputs, not `git push`), so it is lost to the next run and only visible in the agent artifact.
+**Two known triggers**
+
+- **(a) Banned keep-alive / heartbeat pattern** — the sandbox eventually
+  kills the session. Heartbeats are lint-banned (`scripts/lint-prompts.js`);
+  do not reintroduce them.
+- **(b) Pure idle** — no safeoutputs tool calls issued for long enough that
+  the session is reaped: typically ~28–30 minutes in observed failures, but
+  treat anything approaching 25 minutes of pure idle as unsafe. Agent
+  activity on any other tool (EP MCP, bash, `create`, `edit`) does **not**
+  refresh the safeoutputs session.
+
+**Forensic evidence**
+
+- [Run 24818921747](https://github.com/Hack23/euparliamentmonitor/actions/runs/24818921747)
+  (news-propositions-analysis): Stage B ran ~28 min of pure model output +
+  file `create`; the single end-of-run PR call failed with session-not-found.
+- [Run 24819497608](https://github.com/Hack23/euparliamentmonitor/actions/runs/24819497608)
+  (news-motions-analysis): agent connected to safeoutputs at `06:01:36`;
+  last successful interaction `06:06:41` (SSE GET closed); worked silently
+  for ~29 min; final `create_pull_request` at `06:35:09` → HTTP 404 on every
+  retry. `mcp-gateway.log` shows exactly **one** ping to `/mcp/safeoutputs`
+  (at connect time).
+- `sandbox.mcp.keepalive-interval: 300` does **not** proxy periodic pings to
+  HTTP MCP backends — it only keeps the gateway↔client transport alive, not
+  the gateway↔backend session.
+
+**Why you can't recover mid-run**
+
+The server's Streamable HTTP session GC is not configurable from the workflow
+side. Once the session is gone, the analysis branch is already committed
+locally but cannot be pushed via safeoutputs (gh-aw uses `git format-patch`
+via safeoutputs, not `git push`) — the run ends with zero safe outputs even
+though the agent exited 0, and the work is lost to the next run (only
+visible in the agent artifact).
+
+**Prevention levers (in order of impact)**
+
+1. Keep **total wall-clock** from agent start to the single PR call under
+   the **hard limit of 28 minutes**, and aim for **≤ 25 minutes**; that
+   target stays safely below the observed ~28–30 minute failure window.
+   Treat the 30–40 minute budgets in the canonical shared prompts/skills as
+   the general baseline, but for workflows that end with a single
+   `safeoutputs___create_pull_request` call this troubleshooting guidance is
+   the effective source of truth because the safeoutputs session TTL is
+   stricter.
+2. Trim redundant Stage B Pass-2 file-re-reads.
+3. Commit + emit `SINGLE_PR_ATTESTATION` as soon as Stage C is GREEN — do
+   **not** append further post-gate manifest edits that push the call past
+   the TTL.
+4. If Stage B naturally runs long for an article type, narrow
+   `--analysis-methods=all` to the subset that article type actually uses
+   in the wrap-up invocation.
+5. **Never** add a heartbeat / keep-alive workaround — it triggers (a)
+   faster than pure idle triggers (b).
 
 **Where to find these logs for your own run:**
 
