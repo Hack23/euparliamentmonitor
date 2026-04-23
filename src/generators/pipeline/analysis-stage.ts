@@ -384,24 +384,32 @@ function validateAnalysisInputs(
  * `threat-assessment`, `existing`, …) and values are the full relative
  * paths. Root-level files (no `/`) are collected under the `root` key.
  *
+ * Paths are normalised to POSIX separators (`/`) so that manifests are
+ * portable across OSes — on Windows, `path.relative` may emit `\` which
+ * would otherwise bucket every artifact under `root` and break the gate.
+ *
+ * A {@link Map} is used internally to sidestep generic object-injection
+ * lint warnings; the returned plain object is the validator's contract.
+ *
  * @param relativePaths - Artifact paths relative to the analysis dir.
  * @returns `{ [subdir]: relativePath[] }` map, sorted alphabetically.
  */
 function groupFilesBySubdir(relativePaths: readonly string[]): AnalysisManifestFiles {
-  const groups: Record<string, string[]> = {};
+  const groups = new Map<string, string[]>();
   for (const rel of relativePaths) {
-    const slashIdx = rel.indexOf('/');
-    const key = slashIdx === -1 ? 'root' : rel.slice(0, slashIdx);
-    const list = Object.prototype.hasOwnProperty.call(groups, key) ? groups[key] : undefined; // eslint-disable-line security/detect-object-injection
+    const normalizedRel = rel.replaceAll('\\', '/');
+    const slashIdx = normalizedRel.indexOf('/');
+    const key = slashIdx === -1 ? 'root' : normalizedRel.slice(0, slashIdx);
+    const list = groups.get(key);
     if (list) {
-      list.push(rel);
+      list.push(normalizedRel);
     } else {
-      groups[key] = [rel]; // eslint-disable-line security/detect-object-injection
+      groups.set(key, [normalizedRel]);
     }
   }
   const out: Record<string, readonly string[]> = {};
-  for (const key of Object.keys(groups).sort()) {
-    const list = groups[key]; // eslint-disable-line security/detect-object-injection
+  for (const key of [...groups.keys()].sort()) {
+    const list = groups.get(key);
     if (list) out[key] = [...list].sort(); // eslint-disable-line security/detect-object-injection
   }
   return out as AnalysisManifestFiles;
@@ -472,7 +480,9 @@ function augmentExistingManifest(manifestPath: string, manifest: AnalysisManifes
     }
     if (
       manifest.files &&
-      (!existing['files'] || typeof existing['files'] !== 'object' || Array.isArray(existing['files']))
+      (!existing['files'] ||
+        typeof existing['files'] !== 'object' ||
+        Array.isArray(existing['files']))
     ) {
       existing['files'] = manifest.files;
       changed = true;

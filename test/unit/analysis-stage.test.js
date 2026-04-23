@@ -158,9 +158,7 @@ describe('runAnalysisStage', () => {
       articleTypeSlug: 'keep-manifest',
     });
 
-    const manifest = JSON.parse(
-      fs.readFileSync(path.join(analysisDir, 'manifest.json'), 'utf-8')
-    );
+    const manifest = JSON.parse(fs.readFileSync(path.join(analysisDir, 'manifest.json'), 'utf-8'));
     expect(manifest.custom).toBe('data');
   });
 
@@ -172,18 +170,9 @@ describe('runAnalysisStage', () => {
     const analysisDir = path.join(tempDir, '2026-04-23', 'committee-reports');
     fs.mkdirSync(path.join(analysisDir, 'intelligence'), { recursive: true });
     fs.mkdirSync(path.join(analysisDir, 'classification'), { recursive: true });
-    fs.writeFileSync(
-      path.join(analysisDir, 'intelligence', 'pestle-analysis.md'),
-      '# Pestle'
-    );
-    fs.writeFileSync(
-      path.join(analysisDir, 'intelligence', 'threat-model.md'),
-      '# Threat'
-    );
-    fs.writeFileSync(
-      path.join(analysisDir, 'classification', 'actor-mapping.md'),
-      '# Actors'
-    );
+    fs.writeFileSync(path.join(analysisDir, 'intelligence', 'pestle-analysis.md'), '# Pestle');
+    fs.writeFileSync(path.join(analysisDir, 'intelligence', 'threat-model.md'), '# Threat');
+    fs.writeFileSync(path.join(analysisDir, 'classification', 'actor-mapping.md'), '# Actors');
 
     await runAnalysisStage(buildTestFetchedData(), {
       articleTypes: ['committee-reports'],
@@ -192,9 +181,7 @@ describe('runAnalysisStage', () => {
       articleTypeSlug: 'committee-reports',
     });
 
-    const manifest = JSON.parse(
-      fs.readFileSync(path.join(analysisDir, 'manifest.json'), 'utf-8')
-    );
+    const manifest = JSON.parse(fs.readFileSync(path.join(analysisDir, 'manifest.json'), 'utf-8'));
     // Validator (validate-analysis-completeness.ts:loadManifest) requires both.
     // NOTE: `manifest.articleType` is sourced from the `articleTypeSlug` option
     // (not `articleTypes`) — this is the validator-facing top-level field that
@@ -206,9 +193,7 @@ describe('runAnalysisStage', () => {
       'intelligence/pestle-analysis.md',
       'intelligence/threat-model.md',
     ]);
-    expect(manifest.files.classification).toEqual([
-      'classification/actor-mapping.md',
-    ]);
+    expect(manifest.files.classification).toEqual(['classification/actor-mapping.md']);
   });
 
   // Regression: when an agent pre-creates a partial manifest (e.g. one with
@@ -220,10 +205,7 @@ describe('runAnalysisStage', () => {
   it('should augment an existing manifest missing articleType and files', async () => {
     const analysisDir = path.join(tempDir, '2026-04-23', 'augment-me');
     fs.mkdirSync(path.join(analysisDir, 'intelligence'), { recursive: true });
-    fs.writeFileSync(
-      path.join(analysisDir, 'intelligence', 'synthesis-summary.md'),
-      '# Synthesis'
-    );
+    fs.writeFileSync(path.join(analysisDir, 'intelligence', 'synthesis-summary.md'), '# Synthesis');
     // Agent-written skeleton manifest without articleType or files.
     fs.writeFileSync(
       path.join(analysisDir, 'manifest.json'),
@@ -238,9 +220,7 @@ describe('runAnalysisStage', () => {
       outputDirIsResolved: true,
     });
 
-    const manifest = JSON.parse(
-      fs.readFileSync(path.join(analysisDir, 'manifest.json'), 'utf-8')
-    );
+    const manifest = JSON.parse(fs.readFileSync(path.join(analysisDir, 'manifest.json'), 'utf-8'));
     // Added fields satisfy the gate. `manifest.articleType` derives from
     // `articleTypeSlug` (NOT `articleTypes[0]`) — using different values here
     // (`articleTypes: ['week-ahead']` vs `articleTypeSlug: 'augment-me'`)
@@ -259,19 +239,13 @@ describe('runAnalysisStage', () => {
   it('should preserve existing articleType and files in a complete manifest', async () => {
     const analysisDir = path.join(tempDir, '2026-04-23', 'complete-manifest');
     fs.mkdirSync(path.join(analysisDir, 'intelligence'), { recursive: true });
-    fs.writeFileSync(
-      path.join(analysisDir, 'intelligence', 'new-file.md'),
-      '# New'
-    );
+    fs.writeFileSync(path.join(analysisDir, 'intelligence', 'new-file.md'), '# New');
     const preExisting = {
       articleType: 'breaking',
       files: { intelligence: ['intelligence/kept.md'] },
       custom: 'keep',
     };
-    fs.writeFileSync(
-      path.join(analysisDir, 'manifest.json'),
-      JSON.stringify(preExisting)
-    );
+    fs.writeFileSync(path.join(analysisDir, 'manifest.json'), JSON.stringify(preExisting));
 
     await runAnalysisStage(buildTestFetchedData(), {
       articleTypes: ['week-ahead'],
@@ -281,9 +255,7 @@ describe('runAnalysisStage', () => {
       outputDirIsResolved: true,
     });
 
-    const manifest = JSON.parse(
-      fs.readFileSync(path.join(analysisDir, 'manifest.json'), 'utf-8')
-    );
+    const manifest = JSON.parse(fs.readFileSync(path.join(analysisDir, 'manifest.json'), 'utf-8'));
     // Existing articleType + files are preserved verbatim.
     expect(manifest.articleType).toBe('breaking');
     expect(manifest.files.intelligence).toEqual(['intelligence/kept.md']);
@@ -302,22 +274,28 @@ describe('runAnalysisStage', () => {
 
   it('should throw when requireData is true and no data', async () => {
     await expect(
-      runAnalysisStage({}, {
-        articleTypes: ['week-ahead'],
-        date: '2026-04-01',
-        outputDir: tempDir,
-        requireData: true,
-      })
+      runAnalysisStage(
+        {},
+        {
+          articleTypes: ['week-ahead'],
+          date: '2026-04-01',
+          outputDir: tempDir,
+          requireData: true,
+        }
+      )
     ).rejects.toThrow('no substantive EP data');
   });
 
   it('should succeed without data when requireData is false', async () => {
-    const ctx = await runAnalysisStage({}, {
-      articleTypes: ['week-ahead'],
-      date: '2026-04-01',
-      outputDir: tempDir,
-      requireData: false,
-    });
+    const ctx = await runAnalysisStage(
+      {},
+      {
+        articleTypes: ['week-ahead'],
+        date: '2026-04-01',
+        outputDir: tempDir,
+        requireData: false,
+      }
+    );
     expect(ctx.completedMethods.length).toBe(0);
   });
 
