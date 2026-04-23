@@ -106,6 +106,23 @@ describe('political-intelligence generator', () => {
       expect(meta.description).toContain('Plain paragraph follows here');
     });
 
+    it('strips nested/recursive tag-shaped sequences (CodeQL incomplete-sanitization regression)', () => {
+      // Simulates the case where stripping one tag exposes a *new* tag-shaped
+      // sequence in the surrounding text. The fixed-point loop in
+      // cleanAndTruncate must keep stripping until none remain, so neither
+      // angle-bracket character can survive in the rendered description.
+      const file = path.join(tempDir, 'nested.md');
+      fs.writeFileSync(
+        file,
+        '# Title\n\nKeep <img <onerror=x>src=y> and < > stray brackets.\n',
+        'utf-8'
+      );
+      const meta = parseMarkdownMeta(file, 'nested');
+      expect(meta.description).not.toContain('<');
+      expect(meta.description).not.toContain('>');
+      expect(meta.description).not.toContain('onerror');
+    });
+
     it('falls back to a humanized stem if no H1 is present', () => {
       const file = path.join(tempDir, 'per-artifact-catalog.md');
       fs.writeFileSync(file, 'Just some text with no heading at all.\n', 'utf-8');
@@ -195,9 +212,10 @@ describe('political-intelligence generator', () => {
       expect(data.dailyGroups[0].runs[0].icon).toBe('🚨');
       // Every artifact is collected so the UI can deep-link to each .md file
       expect(data.dailyGroups[0].runs[0].artifacts).toHaveLength(2);
-      expect(
-        data.dailyGroups[0].runs[0].artifacts.map((a) => a.shortPath).sort()
-      ).toEqual(['data/agent-pre-work.md', 'intelligence/swot.md']);
+      expect(data.dailyGroups[0].runs[0].artifacts.map((a) => a.shortPath).sort()).toEqual([
+        'data/agent-pre-work.md',
+        'intelligence/swot.md',
+      ]);
       expect(data.dailyGroups[0].runs[0].artifacts[0].relPath).toContain(
         'analysis/daily/2026-04-22/breaking-run1/'
       );
@@ -276,6 +294,17 @@ describe('political-intelligence generator', () => {
       expect(html).toContain('<meta http-equiv="Content-Language" content="sv">');
       expect(html).toContain('"publisher":{');
       expect(html).toContain('"author":{');
+      // JSON-LD ListItem must use schema.org `item` (matches sitemap/breadcrumb
+      // convention) and numberOfItems must equal the number of itemListElement
+      // entries (4 sections), not the document total.
+      expect(html).toContain(
+        '"item":"https://euparliamentmonitor.com/political-intelligence_sv.html#pi-methodologies"'
+      );
+      expect(html).toContain(
+        '"item":"https://euparliamentmonitor.com/political-intelligence_sv.html#pi-daily"'
+      );
+      expect(html).not.toMatch(/"url":"[^"]*#pi-methodologies"/);
+      expect(html).toContain('"numberOfItems":4');
 
       // Stats
       expect(html).toContain('<dd>2</dd>'); // methodologies count

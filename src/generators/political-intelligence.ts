@@ -857,7 +857,25 @@ function cleanAndTruncate(raw: string): string {
   // Strip any inline HTML tags (e.g. <br>, <a href=…>, <img …>) that may have
   // slipped through the line-level skip filter. Keep the tag *contents* so
   // that `<a href="x">link text</a>` still yields "link text".
-  text = text.replace(/<[^>]*>/g, '');
+  //
+  // The strip is applied in a loop because removing one match can expose a
+  // *new* tag-shaped sequence in the surrounding text — e.g.
+  // `<<script>script>` collapses to `<script>` after one pass and would
+  // remain unsanitized without a re-scan. Looping until a fixed point is
+  // reached closes the CodeQL "incomplete multi-character sanitization"
+  // class. The loop is bounded by string length monotonically decreasing
+  // each iteration, so it cannot run forever.
+  let prev = '';
+  while (prev !== text) {
+    prev = text;
+    text = text.replace(/<[^>]*>/g, '');
+  }
+  // Final defense: any stray `<` or `>` left over (unbalanced tags such as
+  // `< 5` or a trailing `<` with no closing bracket on the same input) gets
+  // dropped so the rendered description can never contain raw angle
+  // brackets that an HTML escaper would otherwise re-encode and surface as
+  // `&lt;` / `&gt;` glyphs.
+  text = text.replace(/[<>]/g, '');
   // Collapse any whitespace runs introduced by the strips, then truncate.
   text = text.replace(/\s+/g, ' ').trim();
   if (text.length > 240) {
@@ -1158,10 +1176,7 @@ ${runCards}
 function renderDailyRun(run: PIDailyRun, copy: PICopy): string {
   const url = githubTreeUrl(run.relPath);
   const countLabel = copy.artifactCountLabel.replace('{count}', String(run.artifactCount));
-  const toggleLabel = copy.artifactsToggleLabel.replace(
-    '{count}',
-    String(run.artifactCount)
-  );
+  const toggleLabel = copy.artifactsToggleLabel.replace('{count}', String(run.artifactCount));
   const artifactLinks = run.artifacts
     .map(
       (art) =>
@@ -1292,32 +1307,35 @@ export function generatePoliticalIntelligenceHTML(lang: string, data: PIPageData
     },
     mainEntity: {
       '@type': 'ItemList',
-      numberOfItems: data.methodologies.length + data.templates.length + data.referenceDocs.length,
+      // numberOfItems must match the number of `itemListElement` entries
+      // we actually emit (one per top-level page section), not the document
+      // total — otherwise structured-data validators flag the mismatch.
+      numberOfItems: 4,
       name: copy.title,
       itemListElement: [
         {
           '@type': 'ListItem',
           position: 1,
           name: copy.methodologiesHeading,
-          url: `${canonicalUrl}#pi-methodologies`,
+          item: `${canonicalUrl}#pi-methodologies`,
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: copy.templatesHeading,
-          url: `${canonicalUrl}#pi-templates`,
+          item: `${canonicalUrl}#pi-templates`,
         },
         {
           '@type': 'ListItem',
           position: 3,
           name: copy.referenceHeading,
-          url: `${canonicalUrl}#pi-reference`,
+          item: `${canonicalUrl}#pi-reference`,
         },
         {
           '@type': 'ListItem',
           position: 4,
           name: copy.dailyHeading,
-          url: `${canonicalUrl}#pi-daily`,
+          item: `${canonicalUrl}#pi-daily`,
         },
       ],
     },
