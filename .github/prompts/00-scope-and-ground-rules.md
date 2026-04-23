@@ -119,3 +119,36 @@ of `main` after the analysis PR merges.
 - **NIST CSF 2.0** Identify / Protect / Detect / Respond / Recover
 
 Full policies: [ISMS-PUBLIC](https://github.com/Hack23/ISMS-PUBLIC).
+
+## 10 · Artifact Catalog (authoritative index)
+
+The **single source of truth** for what a run produces is [`analysis/methodologies/artifact-catalog.md`](../../analysis/methodologies/artifact-catalog.md). It enumerates every artifact across 7 folder groups:
+
+| Folder | Count | Gated by completeness-gate? |
+|---|:---:|:---:|
+| `intelligence/` | 18 | ✅ core artifacts mandatory |
+| `classification/` | 4 | ✅ when classification applies |
+| `risk-scoring/` | 4 | ✅ when risk framework applies |
+| `threat-assessment/` | 5 | ✅ when threat framework applies |
+| `documents/` | 1 | ✅ when documents downloaded |
+| `existing/` (legacy) | 2 + mirrors | ⚪ legacy layout, accepted for back-compat |
+| `extended/` (optional) | 12 | ⚪ optional — adds depth for long-form / crisis / breaking runs; not gated |
+
+**Extended artifacts** (`executive-brief`, `devils-advocate-analysis`, `historical-parallels`, `coalition-mathematics`, `forward-indicators`, `intelligence-assessment`, `implementation-feasibility`, `media-framing-analysis`, `comparative-international`, `cross-reference-map`, `data-download-manifest`, `voter-segmentation`) are **recommended** for:
+- long-form review workflows (`month-in-review`, `quarter-in-review`, `propositions`, `committee-reports`)
+- crisis / breaking deep runs where decision-maker briefings add value
+- any run where the agent has budget after core artifacts are complete
+
+These were ported from Hack23/riksdagsmonitor on 2026-04-23 and follow the same 2-pass AI-First construction pattern as the mandatory artifacts.
+
+## 11 · Threat Methodology (STRIDE explicitly rejected)
+
+Political threat analysis MUST use [`analysis/methodologies/political-threat-framework.md`](../../analysis/methodologies/political-threat-framework.md) v4.0 — the integrated 5-framework approach:
+
+1. **Political Threat Landscape (6-dimension model)** — Coalition Shifts, Transparency Deficit, Policy Reversal, Institutional Pressure, Legislative Obstruction, Democratic Erosion
+2. **Attack Trees** — goal decomposition (how a threat succeeds)
+3. **Political Kill Chain** — 7-stage threat progression (Reconnaissance → Actions on Objective)
+4. **Diamond Model** — Adversary / Capability / Infrastructure / Victim relational mapping
+5. **Threat Actor Profiling (ICO)** — Intent × Capability × Opportunity
+
+**STRIDE, DREAD, and PASTA are software-security frameworks and are rejected for political analysis.** See `political-threat-framework.md §Why NOT STRIDE` for the full rationale.
