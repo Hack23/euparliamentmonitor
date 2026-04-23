@@ -10,6 +10,9 @@
       "intelligence/cross-run-diff.md",
       "intelligence/political-threat-landscape.md",
       "intelligence/wildcards-blackswans.md",
+      "intelligence/intelligence-assessment.md",
+      "intelligence/devils-advocate-analysis.md",
+      "intelligence/forward-indicators.md",
       "risk-scoring/risk-matrix.md"
     ],
     "admiraltyGradeRequired": [
@@ -19,6 +22,10 @@
       "intelligence/cross-run-diff.md",
       "intelligence/political-threat-landscape.md",
       "intelligence/wildcards-blackswans.md",
+      "intelligence/intelligence-assessment.md",
+      "intelligence/devils-advocate-analysis.md",
+      "intelligence/comparative-international.md",
+      "intelligence/historical-parallels.md",
       "risk-scoring/risk-matrix.md"
     ],
     "icd203BlufRequired": [
@@ -57,7 +64,19 @@
       "intelligence/voting-patterns.md": 150,
       "intelligence/workflow-audit.md": 100,
       "intelligence/cross-session-intelligence.md": 150,
-      "intelligence/methodology-reflection.md": 220
+      "intelligence/methodology-reflection.md": 220,
+      "intelligence/executive-brief.md": 180,
+      "intelligence/devils-advocate-analysis.md": 250,
+      "intelligence/historical-parallels.md": 220,
+      "intelligence/coalition-mathematics.md": 200,
+      "intelligence/forward-indicators.md": 180,
+      "intelligence/intelligence-assessment.md": 220,
+      "intelligence/implementation-feasibility.md": 200,
+      "intelligence/media-framing-analysis.md": 180,
+      "intelligence/comparative-international.md": 200,
+      "intelligence/voter-segmentation.md": 200,
+      "provenance/cross-reference-map.md": 150,
+      "provenance/data-download-manifest.md": 160
     },
     "week-in-review": {
       "intelligence/analysis-index.md": 120,
