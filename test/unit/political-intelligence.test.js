@@ -77,7 +77,12 @@ describe('political-intelligence generator', () => {
       cleanupTempDir(tempDir);
     });
 
-    it('extracts H1 title and first paragraph, skipping SPDX/HTML comments', () => {
+    it('extracts H1 title and leaves description empty (curated-table drives description)', () => {
+      // Rationale: first-paragraph extraction proved fragile and leaked
+      // document-metadata headers + template separators into the rendered
+      // cards. The generator now sources descriptions from
+      // political-intelligence-descriptions.ts instead; parseMarkdownMeta
+      // only needs to resolve the H1 title.
       const file = path.join(tempDir, 'sample.md');
       fs.writeFileSync(
         file,
@@ -86,41 +91,7 @@ describe('political-intelligence generator', () => {
       );
       const meta = parseMarkdownMeta(file, 'sample');
       expect(meta.title).toBe('Risk Scoring Methodology');
-      expect(meta.description).toBe('Risk scores combine likelihood and impact on a 1-5 scale.');
-    });
-
-    it('skips HTML block lines and strips inline HTML tags from the description', () => {
-      // Mirrors the `analysis/methodologies/README.md` shape that was
-      // leaking raw `<p align="center"><img …></p>` text into the UI.
-      const file = path.join(tempDir, 'html-heavy.md');
-      fs.writeFileSync(
-        file,
-        `<p align="center">\n  <img src="https://hack23.com/icon-192.png" alt="Logo" width="192" height="192">\n</p>\n\n<h1 align="center">📐 Title</h1>\n\n<p align="center"><strong>Real summary of the document.</strong></p>\n\nPlain paragraph follows here.\n`,
-        'utf-8'
-      );
-      const meta = parseMarkdownMeta(file, 'html-heavy');
-      // HTML block lines must not leak into the description
-      expect(meta.description).not.toContain('<');
-      expect(meta.description).not.toContain('&lt;');
-      expect(meta.description).not.toContain('img');
-      expect(meta.description).toContain('Plain paragraph follows here');
-    });
-
-    it('strips nested/recursive tag-shaped sequences (CodeQL incomplete-sanitization regression)', () => {
-      // Simulates the case where stripping one tag exposes a *new* tag-shaped
-      // sequence in the surrounding text. The fixed-point loop in
-      // cleanAndTruncate must keep stripping until none remain, so neither
-      // angle-bracket character can survive in the rendered description.
-      const file = path.join(tempDir, 'nested.md');
-      fs.writeFileSync(
-        file,
-        '# Title\n\nKeep <img <onerror=x>src=y> and < > stray brackets.\n',
-        'utf-8'
-      );
-      const meta = parseMarkdownMeta(file, 'nested');
-      expect(meta.description).not.toContain('<');
-      expect(meta.description).not.toContain('>');
-      expect(meta.description).not.toContain('onerror');
+      expect(meta.description).toBe('');
     });
 
     it('falls back to a humanized stem if no H1 is present', () => {
@@ -128,15 +99,6 @@ describe('political-intelligence generator', () => {
       fs.writeFileSync(file, 'Just some text with no heading at all.\n', 'utf-8');
       const meta = parseMarkdownMeta(file, 'per-artifact-catalog');
       expect(meta.title).toBe('Per Artifact Catalog');
-    });
-
-    it('truncates overlong descriptions cleanly at a word boundary', () => {
-      const longWords = 'word '.repeat(80);
-      const file = path.join(tempDir, 'long.md');
-      fs.writeFileSync(file, `# Long\n\n${longWords}\n`, 'utf-8');
-      const meta = parseMarkdownMeta(file, 'long');
-      expect(meta.description.length).toBeLessThanOrEqual(241);
-      expect(meta.description.endsWith('…')).toBe(true);
     });
 
     it('returns safe defaults when the file cannot be read', () => {
@@ -280,9 +242,14 @@ describe('political-intelligence generator', () => {
       // Swedish toggle label (count-interpolated)
       expect(html).toContain('Visa alla 2 artefaktfiler');
 
-      // Non-English pages hide English source-paragraph descriptions and
-      // show a localized "source materials are in English" note instead
-      expect(html).not.toContain('pi-card__desc');
+      // All language pages now carry curated descriptions (generic
+      // localized fallback applies for files not in the curated table,
+      // which includes the test fixture files). The English-only
+      // suppression was removed so every reader — in any language — gets
+      // a meaningful summary next to each methodology/template/reference.
+      expect(html).toContain('pi-card__desc');
+      // The "source materials in English" note still applies because the
+      // underlying MD source files and artifact paths remain in English.
       expect(html).toContain('pi-source-note');
       expect(html).toContain('Källmaterialet');
 
@@ -292,6 +259,11 @@ describe('political-intelligence generator', () => {
       expect(html).toContain('og:image:alt');
       expect(html).toContain('<meta name="twitter:image"');
       expect(html).toContain('<meta http-equiv="Content-Language" content="sv">');
+      // SEO: per-language keywords (Swedish page must ship Swedish terms,
+      // not a hard-coded English list). This is the fix that replaces the
+      // previous English-only `<meta name="keywords">` on every page.
+      expect(html).toMatch(/<meta name="keywords" content="[^"]*SWOT-analys[^"]*">/);
+      expect(html).toMatch(/<meta name="keywords" content="[^"]*Europaparlamentet[^"]*">/);
       expect(html).toContain('"publisher":{');
       expect(html).toContain('"author":{');
       // JSON-LD ListItem must use schema.org `item` (matches sitemap/breadcrumb
@@ -315,6 +287,34 @@ describe('political-intelligence generator', () => {
       expect(html).toContain('<a href="index-sv.html">Hem</a>');
     });
 
+    it('ships distinct localized SEO keywords for all 14 language pages', () => {
+      // Regression guard: the initial implementation hard-coded English
+      // keywords on every `political-intelligence_<lang>.html` page — a
+      // significant SEO miss because search engines could not index the
+      // page under native-language terms. Every language must now ship
+      // keywords written in its own script/vocabulary.
+      const data = collectPoliticalIntelligenceData(tempDir);
+      const langs = ['en', 'sv', 'da', 'no', 'fi', 'de', 'fr', 'es', 'nl', 'ar', 'he', 'ja', 'ko', 'zh'];
+      const keywordsByLang = new Map();
+      for (const lang of langs) {
+        const html = generatePoliticalIntelligenceHTML(lang, data);
+        const m = html.match(/<meta name="keywords" content="([^"]+)">/);
+        expect(m, `${lang} page must carry a keywords meta tag`).not.toBeNull();
+        keywordsByLang.set(lang, m[1]);
+      }
+      // All 14 languages produce a distinct keyword list.
+      const unique = new Set(keywordsByLang.values());
+      expect(unique.size).toBe(14);
+      // Spot-check native-script terms that prove real localization.
+      expect(keywordsByLang.get('ja')).toContain('欧州議会');
+      expect(keywordsByLang.get('ko')).toContain('유럽의회');
+      expect(keywordsByLang.get('zh')).toContain('欧洲议会');
+      expect(keywordsByLang.get('ar')).toContain('البرلمان الأوروبي');
+      expect(keywordsByLang.get('he')).toContain('הפרלמנט האירופי');
+      expect(keywordsByLang.get('de')).toContain('Europäisches Parlament');
+      expect(keywordsByLang.get('fr')).toContain('Parlement européen');
+    });
+
     it('emits a valid English variant with the bare filename in canonical + JSON-LD urls', () => {
       const data = collectPoliticalIntelligenceData(tempDir);
       const html = generatePoliticalIntelligenceHTML('en', data);
@@ -323,8 +323,9 @@ describe('political-intelligence generator', () => {
       );
       expect(html).toContain('"url":"https://euparliamentmonitor.com/political-intelligence.html"');
       expect(html).toContain('<a href="sitemap.html">Sitemap</a>');
-      // English page keeps the per-card description (source is English) and
-      // does NOT render the localized "source in English" note.
+      // English page still renders the per-card description (now from
+      // the curated localized table, not scraped Markdown) and does NOT
+      // render the localized "source in English" note.
       expect(html).toContain('pi-card__desc');
       expect(html).not.toContain('pi-source-note');
       // Card description is a <span> (phrasing content) — NOT <p>, which
@@ -338,6 +339,145 @@ describe('political-intelligence generator', () => {
       expect(generatePoliticalIntelligenceHTML('ar', data)).toContain('dir="rtl"');
       expect(generatePoliticalIntelligenceHTML('he', data)).toContain('dir="rtl"');
       expect(generatePoliticalIntelligenceHTML('en', data)).toContain('dir="ltr"');
+    });
+  });
+
+  describe('getCuratedDescription (curated per-file, per-language descriptions)', () => {
+    it('returns the curated English description for a known methodology path', async () => {
+      const { getCuratedDescription } = await import(
+        '../../scripts/generators/political-intelligence-descriptions.js'
+      );
+      const desc = getCuratedDescription(
+        'analysis/methodologies/ai-driven-analysis-guide.md',
+        'en'
+      );
+      expect(desc).toContain('10-step AI-driven analysis protocol');
+    });
+
+    it('returns the localized description when a per-language overlay exists', async () => {
+      const { getCuratedDescription } = await import(
+        '../../scripts/generators/political-intelligence-descriptions.js'
+      );
+      const sv = getCuratedDescription(
+        'analysis/methodologies/ai-driven-analysis-guide.md',
+        'sv'
+      );
+      const ko = getCuratedDescription(
+        'analysis/methodologies/ai-driven-analysis-guide.md',
+        'ko'
+      );
+      // Swedish overlay uses distinctive Scandinavian tokens
+      expect(sv).toMatch(/[åäö]/);
+      // Korean overlay uses Hangul codepoints
+      expect(ko).toMatch(/[\uac00-\ud7af]/);
+    });
+
+    it('falls back to a localized sentence (not raw English) when a non-English language overlay is missing', async () => {
+      const { getCuratedDescription } = await import(
+        '../../scripts/generators/political-intelligence-descriptions.js'
+      );
+      // Template entries intentionally ship English-only descriptions (the
+      // per-file description catalog is English; per-file TITLES are fully
+      // localized). On non-English pages we therefore must NEVER return the
+      // raw English description — the lookup must synthesize a localized
+      // sentence built from the localized title + kind word. This keeps the
+      // page fully localized without requiring 49 × 14 hand-written
+      // description translations.
+      const nl = getCuratedDescription(
+        'analysis/templates/swot-analysis.md',
+        'nl',
+        'SWOT Analysis Template'
+      );
+      // Localized kind word ('sjabloon' in Dutch) must appear.
+      expect(nl.toLowerCase()).toContain('sjabloon');
+      // Raw English description tokens must NOT leak through.
+      expect(nl).not.toContain('Strengths');
+      // English callers still receive the curated canonical description.
+      const en = getCuratedDescription(
+        'analysis/templates/swot-analysis.md',
+        'en'
+      );
+      expect(en).toContain('SWOT');
+      expect(en).toContain('Strengths');
+    });
+
+    it('returns a fully-localized card title for every curated methodology across all 14 languages', async () => {
+      const { getCuratedTitle, hasCuratedTitle } = await import(
+        '../../scripts/generators/political-intelligence-descriptions.js'
+      );
+      const langs = ['en', 'sv', 'da', 'no', 'fi', 'de', 'fr', 'es', 'nl', 'ar', 'he', 'ja', 'ko', 'zh'];
+      const path = 'analysis/methodologies/ai-driven-analysis-guide.md';
+      expect(hasCuratedTitle(path)).toBe(true);
+      const titles = new Set();
+      for (const lang of langs) {
+        const t = getCuratedTitle(path, lang, 'H1 fallback');
+        expect(typeof t).toBe('string');
+        expect(t.trim().length).toBeGreaterThan(0);
+        // Guard: the fallback must never surface — curated entry exists
+        expect(t).not.toBe('H1 fallback');
+        titles.add(t);
+      }
+      // We expect at least 10 distinct titles across the 14 languages
+      // (scripts diverge: Latin, Arabic, Hebrew, CJK, Hangul).
+      expect(titles.size).toBeGreaterThanOrEqual(10);
+    });
+
+    it('falls back to the H1 title when neither the curated title overlay nor description entry has a localized title', async () => {
+      const { getCuratedTitle } = await import(
+        '../../scripts/generators/political-intelligence-descriptions.js'
+      );
+      const t = getCuratedTitle(
+        'analysis/templates/brand-new-unknown-file.md',
+        'sv',
+        'Brand New Unknown File'
+      );
+      expect(t).toBe('Brand New Unknown File');
+    });
+
+    it('returns a localized generic fallback for unmapped methodology / template files', async () => {
+      const { getCuratedDescription } = await import(
+        '../../scripts/generators/political-intelligence-descriptions.js'
+      );
+      const enFallback = getCuratedDescription(
+        'analysis/methodologies/brand-new-unknown-file.md',
+        'en'
+      );
+      expect(enFallback).toContain('methodology');
+      expect(enFallback).toContain('EU Parliament Monitor');
+
+      const svFallback = getCuratedDescription(
+        'analysis/templates/brand-new-unknown-file.md',
+        'sv'
+      );
+      expect(svFallback).toContain('mall');
+
+      const jaFallback = getCuratedDescription(
+        'analysis/reference/brand-new-unknown-file.md',
+        'ja'
+      );
+      expect(jaFallback).toContain('参照資料');
+    });
+
+    it('never returns an empty string — every file+lang combo yields a renderable description', async () => {
+      const { getCuratedDescription } = await import(
+        '../../scripts/generators/political-intelligence-descriptions.js'
+      );
+      const langs = ['en', 'sv', 'da', 'no', 'fi', 'de', 'fr', 'es', 'nl', 'ar', 'he', 'ja', 'ko', 'zh'];
+      const probe = [
+        'analysis/methodologies/political-risk-methodology.md',
+        'analysis/templates/risk-assessment.md',
+        'analysis/reference/isms-classification-adaptation.md',
+        'analysis/imf/README.md',
+        'analysis/worldbank/indicator-catalog.md',
+        'analysis/templates/no-such-file.md', // unmapped — must hit localized fallback
+      ];
+      for (const lang of langs) {
+        for (const path of probe) {
+          const desc = getCuratedDescription(path, lang);
+          expect(desc, `${path} (${lang}) should not be empty`).toBeTruthy();
+          expect(desc.length, `${path} (${lang}) should be non-trivial`).toBeGreaterThan(15);
+        }
+      }
     });
   });
 });

@@ -18,6 +18,7 @@ import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, PAGE_TITLES, SKIP_LINK_T
 import { escapeHTML } from '../utils/file-utils.js';
 import { FOOTER_SITEMAP_LABELS } from '../constants/language-ui.js';
 import { buildSiteFooter } from '../templates/section-builders.js';
+import { getCuratedDescription, getCuratedTitle } from './political-intelligence-descriptions.js';
 /** GitHub repository slug used to build blob/tree links for analysis artifacts */
 const GITHUB_REPO = 'Hack23/euparliamentmonitor';
 /**
@@ -72,6 +73,7 @@ const DEFAULT_COPY = {
     runsCountLabel: '{count} runs',
     artifactsToggleLabel: 'Show all {count} artifact files',
     sourceInEnglishNote: '',
+    seoKeywords: 'European Parliament, political intelligence, OSINT, SWOT, PESTLE, TOWS, STRIDE, methodology, artifact templates, coalition mathematics, risk assessment, threat model, transparency, EU',
 };
 /** Per-language overrides; fall back to English for any missing key */
 const PI_COPY = (() => {
@@ -105,6 +107,7 @@ const PI_COPY = (() => {
             runsCountLabel: '{count} körningar',
             artifactsToggleLabel: 'Visa alla {count} artefaktfiler',
             sourceInEnglishNote: 'Källmaterialet (metodologier, mallar och dagliga analysartefakter) publiceras på engelska. Titlar och filvägar är därför på engelska — endast sidans navigation och beskrivningar är översatta.',
+            seoKeywords: 'Europaparlamentet, politisk underrättelse, OSINT, SWOT-analys, PESTLE-analys, metodologi, artefaktmallar, koalitionsmatematik, riskbedömning, hotmodell, öppenhet, EU',
         },
         da: {
             title: 'Politisk efterretning',
@@ -131,6 +134,7 @@ const PI_COPY = (() => {
             runsCountLabel: '{count} kørsler',
             artifactsToggleLabel: 'Vis alle {count} artefaktfiler',
             sourceInEnglishNote: 'Kildematerialet (metoder, skabeloner og daglige analyseartefakter) udgives på engelsk. Titler og filstier er derfor på engelsk — kun sidens navigation og beskrivelser er oversat.',
+            seoKeywords: 'Europa-Parlamentet, politisk efterretning, OSINT, SWOT-analyse, PESTLE-analyse, metode, artefaktskabeloner, koalitionsmatematik, risikovurdering, trusselmodel, åbenhed, EU',
         },
         no: {
             title: 'Politisk etterretning',
@@ -157,6 +161,7 @@ const PI_COPY = (() => {
             runsCountLabel: '{count} kjøringer',
             artifactsToggleLabel: 'Vis alle {count} artefaktfiler',
             sourceInEnglishNote: 'Kildematerialet (metodologier, maler og daglige analyseartefakter) publiseres på engelsk. Titler og filstier er derfor på engelsk — bare sidens navigasjon og beskrivelser er oversatt.',
+            seoKeywords: 'Europaparlamentet, politisk etterretning, OSINT, SWOT-analyse, PESTLE-analyse, metodologi, artefaktmaler, koalisjonsmatematikk, risikovurdering, trusselmodell, åpenhet, EU',
         },
         fi: {
             title: 'Poliittinen tiedustelu',
@@ -183,6 +188,7 @@ const PI_COPY = (() => {
             runsCountLabel: '{count} ajoa',
             artifactsToggleLabel: 'Näytä kaikki {count} artefaktitiedostoa',
             sourceInEnglishNote: 'Lähdemateriaali (metodologiat, pohjat ja päivittäiset analyysiartefaktit) julkaistaan englanniksi. Otsikot ja tiedostopolut ovat siksi englanniksi — vain sivun navigointi ja kuvaukset on käännetty.',
+            seoKeywords: 'Euroopan parlamentti, poliittinen tiedustelu, OSINT, SWOT-analyysi, PESTLE-analyysi, metodologia, artefaktipohjat, koalitiomatematiikka, riskiarviointi, uhkamalli, avoimuus, EU',
         },
         de: {
             title: 'Politische Aufklärung',
@@ -209,6 +215,7 @@ const PI_COPY = (() => {
             runsCountLabel: '{count} Läufe',
             artifactsToggleLabel: 'Alle {count} Artefaktdateien anzeigen',
             sourceInEnglishNote: 'Die Quellmaterialien (Methodologien, Vorlagen und tägliche Analyseartefakte) werden auf Englisch veröffentlicht. Titel und Dateipfade sind daher auf Englisch — nur die Seitennavigation und Beschreibungen sind übersetzt.',
+            seoKeywords: 'Europäisches Parlament, politische Aufklärung, OSINT, SWOT-Analyse, PESTLE-Analyse, Methodologie, Artefaktvorlagen, Koalitionsmathematik, Risikobewertung, Bedrohungsmodell, Transparenz, EU',
         },
         fr: {
             title: 'Intelligence politique',
@@ -235,6 +242,7 @@ const PI_COPY = (() => {
             runsCountLabel: '{count} exécutions',
             artifactsToggleLabel: 'Afficher les {count} fichiers d\u2019artefacts',
             sourceInEnglishNote: "Les documents sources (méthodologies, modèles et artefacts d'analyse quotidiens) sont publiés en anglais. Les titres et chemins de fichiers sont donc en anglais — seuls la navigation et les descriptions de la page sont traduits.",
+            seoKeywords: 'Parlement européen, renseignement politique, OSINT, analyse SWOT, analyse PESTLE, méthodologie, modèles d’artefacts, mathématiques de coalition, évaluation des risques, modèle de menace, transparence, UE',
         },
         es: {
             title: 'Inteligencia política',
@@ -261,6 +269,7 @@ const PI_COPY = (() => {
             runsCountLabel: '{count} ejecuciones',
             artifactsToggleLabel: 'Mostrar los {count} archivos de artefactos',
             sourceInEnglishNote: 'Los materiales fuente (metodologías, plantillas y artefactos de análisis diarios) se publican en inglés. Los títulos y las rutas de archivo están, por tanto, en inglés — solo la navegación y las descripciones de la página están traducidas.',
+            seoKeywords: 'Parlamento Europeo, inteligencia política, OSINT, análisis SWOT, análisis PESTLE, metodología, plantillas de artefactos, matemáticas de coaliciones, evaluación de riesgos, modelo de amenazas, transparencia, UE',
         },
         nl: {
             title: 'Politieke intelligentie',
@@ -287,6 +296,7 @@ const PI_COPY = (() => {
             runsCountLabel: '{count} uitvoeringen',
             artifactsToggleLabel: 'Alle {count} artefactbestanden tonen',
             sourceInEnglishNote: 'De bronmaterialen (methodologieën, sjablonen en dagelijkse analyse-artefacten) worden in het Engels gepubliceerd. Titels en bestandspaden staan daarom in het Engels — alleen de paginanavigatie en beschrijvingen zijn vertaald.',
+            seoKeywords: 'Europees Parlement, politieke inlichtingen, OSINT, SWOT-analyse, PESTLE-analyse, methodologie, artefactsjablonen, coalitiewiskunde, risicobeoordeling, dreigingsmodel, transparantie, EU',
         },
         ar: {
             title: 'الاستخبارات السياسية',
@@ -313,6 +323,7 @@ const PI_COPY = (() => {
             runsCountLabel: '{count} عمليات',
             artifactsToggleLabel: 'عرض جميع ملفات القطع الأثرية ({count})',
             sourceInEnglishNote: 'تُنشر المواد المصدر (المنهجيات والقوالب والقطع الأثرية للتحليل اليومي) باللغة الإنجليزية. لذلك تظهر العناوين ومسارات الملفات بالإنجليزية — فقط تنقل الصفحة والأوصاف مترجمة.',
+            seoKeywords: 'البرلمان الأوروبي, الاستخبارات السياسية, OSINT, تحليل SWOT, تحليل PESTLE, منهجية, قوالب الأدلة, رياضيات التحالف, تقييم المخاطر, نموذج التهديد, الشفافية, الاتحاد الأوروبي',
         },
         he: {
             title: 'מודיעין פוליטי',
@@ -339,6 +350,7 @@ const PI_COPY = (() => {
             runsCountLabel: '{count} ריצות',
             artifactsToggleLabel: 'הצג את כל {count} קבצי הארטיפקטים',
             sourceInEnglishNote: 'חומרי המקור (מתודולוגיות, תבניות וארטיפקטי ניתוח יומיים) מתפרסמים באנגלית. הכותרות ונתיבי הקבצים מופיעים אפוא באנגלית — רק הניווט והתיאורים בדף תורגמו.',
+            seoKeywords: 'הפרלמנט האירופי, מודיעין פוליטי, OSINT, ניתוח SWOT, ניתוח PESTLE, מתודולוגיה, תבניות ארטיפקט, מתמטיקה של קואליציות, הערכת סיכונים, מודל איום, שקיפות, האיחוד האירופי',
         },
         ja: {
             title: '政治インテリジェンス',
@@ -365,6 +377,7 @@ const PI_COPY = (() => {
             runsCountLabel: '{count} 件の実行',
             artifactsToggleLabel: '{count} 件のすべての成果物ファイルを表示',
             sourceInEnglishNote: 'ソース資料(方法論・テンプレート・日次分析成果物)は英語で公開されています。そのためタイトルとファイルパスは英語で表示されます。ページのナビゲーションと説明のみが翻訳されています。',
+            seoKeywords: '欧州議会, 政治インテリジェンス, OSINT, SWOT分析, PESTLE分析, 方法論, 成果物テンプレート, 連立数学, リスク評価, 脅威モデル, 透明性, EU',
         },
         ko: {
             title: '정치 정보',
@@ -391,6 +404,7 @@ const PI_COPY = (() => {
             runsCountLabel: '{count}회 실행',
             artifactsToggleLabel: '{count}개 산출물 파일 모두 보기',
             sourceInEnglishNote: '원본 자료(방법론, 템플릿, 일일 분석 산출물)는 영어로 게시됩니다. 따라서 제목과 파일 경로는 영어로 표시되며, 페이지 탐색 및 설명만 번역되어 있습니다.',
+            seoKeywords: '유럽의회, 정치 정보, OSINT, SWOT 분석, PESTLE 분석, 방법론, 산출물 템플릿, 연정 수학, 위험 평가, 위협 모델, 투명성, EU',
         },
         zh: {
             title: '政治情报',
@@ -417,6 +431,7 @@ const PI_COPY = (() => {
             runsCountLabel: '{count} 次运行',
             artifactsToggleLabel: '显示全部 {count} 个工件文件',
             sourceInEnglishNote: '源材料(方法论、模板和每日分析工件)以英文发布。因此标题和文件路径以英文显示 — 仅页面导航和描述进行了翻译。',
+            seoKeywords: '欧洲议会, 政治情报, OSINT, SWOT 分析, PESTLE 分析, 方法论, 工件模板, 联盟数学, 风险评估, 威胁模型, 透明度, 欧盟',
         },
     };
 })();
@@ -552,134 +567,21 @@ function extractH1Title(lines, fallback) {
     }
     return fallback;
 }
-/** Lines that the first-paragraph scanner should skip outright. */
-const SKIP_LINE_PATTERNS = [
-    /^#/, // ATX heading
-    /^(>|\|)/, // blockquote or table
-    /^(-|\*|\d+\.)\s/, // list item
-    /^```/, // code fence
-    /^<!/, // stray HTML comment / DOCTYPE-style line
-    /^</, // raw HTML block (e.g. <p align="center">, <img …>, </p>, <h1>)
-];
-/**
- * Decide whether the given line should be skipped when collecting a paragraph.
- *
- * @param trimmed - The trimmed line content
- * @returns `true` if the line is a heading / list / code-fence / comment
- */
-function shouldSkipParagraphLine(trimmed) {
-    return SKIP_LINE_PATTERNS.some((re) => re.test(trimmed));
-}
-/**
- * State tracker for multi-line HTML/SPDX comment blocks. Encapsulating the
- * "in-comment?" toggle keeps {@link extractFirstParagraph} flat enough to
- * satisfy the cognitive-complexity lint rule.
- */
-class CommentTracker {
-    inComment = false;
-    /**
-     * Feed one trimmed line to the tracker and report whether the line should
-     * be skipped (i.e. it's either inside a comment or is a comment delimiter).
-     *
-     * @param trimmed - Trimmed line content
-     * @returns `true` if the line should be skipped entirely
-     */
-    consume(trimmed) {
-        if (this.inComment) {
-            if (/--!?>/.test(trimmed))
-                this.inComment = false;
-            return true;
-        }
-        if (/^<!--/.test(trimmed)) {
-            if (!/--!?>/.test(trimmed))
-                this.inComment = true;
-            return true;
-        }
-        return false;
-    }
-}
-/**
- * Extract the first non-heading, non-list paragraph from a Markdown file,
- * skipping SPDX/HTML comment blocks.
- *
- * @param lines - Markdown source split on newlines
- * @returns Raw paragraph text, not yet truncated or cleaned
- */
-function extractFirstParagraph(lines) {
-    const paragraph = [];
-    let runningLength = 0;
-    const comments = new CommentTracker();
-    for (const line of lines) {
-        const trimmed = line.trim();
-        if (comments.consume(trimmed))
-            continue;
-        if (!trimmed) {
-            if (paragraph.length > 0)
-                break;
-            continue;
-        }
-        if (shouldSkipParagraphLine(trimmed))
-            continue;
-        paragraph.push(trimmed);
-        runningLength += (paragraph.length > 1 ? 1 : 0) + trimmed.length;
-        if (runningLength > 240)
-            break;
-    }
-    return paragraph.join(' ');
-}
-/**
- * Clean up markdown inline syntax (links, code, bold/italic), collapse
- * whitespace, and truncate to ~240 characters on a word boundary.
- *
- * @param raw - Raw paragraph text
- * @returns Cleaned and length-capped description
- */
-function cleanAndTruncate(raw) {
-    // Strip Markdown inline syntax FIRST, before truncating, so that a
-    // length-based cut can't land mid-link/mid-code/mid-emphasis and leave
-    // orphaned `[`/`]`/`(`/`)`/backtick/`*` characters in the description.
-    let text = raw.replace(/\s+/g, ' ').trim();
-    text = text.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
-    text = text.replace(/`([^`]+)`/g, '$1');
-    text = text.replace(/\*\*(.+?)\*\*/g, '$1').replace(/\*(.+?)\*/g, '$1');
-    // Strip any inline HTML tags (e.g. <br>, <a href=…>, <img …>) that may have
-    // slipped through the line-level skip filter. Keep the tag *contents* so
-    // that `<a href="x">link text</a>` still yields "link text".
-    //
-    // The strip is applied in a loop because removing one match can expose a
-    // *new* tag-shaped sequence in the surrounding text — e.g.
-    // `<<script>script>` collapses to `<script>` after one pass and would
-    // remain unsanitized without a re-scan. Looping until a fixed point is
-    // reached closes the CodeQL "incomplete multi-character sanitization"
-    // class. The loop is bounded by string length monotonically decreasing
-    // each iteration, so it cannot run forever.
-    let prev = '';
-    while (prev !== text) {
-        prev = text;
-        text = text.replace(/<[^>]*>/g, '');
-    }
-    // Final defense: any stray `<` or `>` left over (unbalanced tags such as
-    // `< 5` or a trailing `<` with no closing bracket on the same input) gets
-    // dropped so the rendered description can never contain raw angle
-    // brackets that an HTML escaper would otherwise re-encode and surface as
-    // `&lt;` / `&gt;` glyphs.
-    text = text.replace(/[<>]/g, '');
-    // Collapse any whitespace runs introduced by the strips, then truncate.
-    text = text.replace(/\s+/g, ' ').trim();
-    if (text.length > 240) {
-        text = text.slice(0, 237).replace(/\s+\S*$/, '') + '…';
-    }
-    return text;
-}
 /**
  * Extract a title and short description from the top of a Markdown file.
- * Uses the first H1 (`# …`) line as title (falling back to a humanized stem)
- * and the first non-heading paragraph as the description. SPDX/HTML comments
- * at the top of the file are skipped.
+ * Uses the first H1 (`# …`) line as title (falling back to a humanized stem).
+ *
+ * The `description` field is intentionally left **empty**: for the
+ * political-intelligence index we use a curated per-file, per-language
+ * description table ({@link getCuratedDescription}) instead of scraping the
+ * first paragraph of each Markdown file. Scraping proved fragile — it leaked
+ * document-metadata headers (`📋 Document Owner: CEO | 📄 Version…`) and
+ * template separators (`---`) into the rendered cards. Leaving it empty here
+ * forces the renderer to go through the curated table.
  *
  * @param fullPath - Absolute path to a Markdown file
  * @param stem - Filename stem used as title fallback
- * @returns `{ title, description }` — never null; description may be empty
+ * @returns `{ title, description }` — description is always `''`
  */
 export function parseMarkdownMeta(fullPath, stem) {
     const fallbackTitle = humanize(stem);
@@ -692,8 +594,7 @@ export function parseMarkdownMeta(fullPath, stem) {
     }
     const lines = content.split(/\r?\n/);
     const title = extractH1Title(lines, fallbackTitle);
-    const description = cleanAndTruncate(extractFirstParagraph(lines));
-    return { title, description };
+    return { title, description: '' };
 }
 /**
  * Humanize a filename stem (e.g. `per-artifact-methodologies` →
@@ -889,24 +790,27 @@ function walkMarkdownFiles(dir, visit) {
     }
 }
 /**
- * Render a single document card (used for methodologies and templates).
+ * Render a single document card (used for methodologies, templates, references).
+ *
+ * The description comes from the curated per-file, per-language table
+ * ({@link getCuratedDescription}) — not from the Markdown source file —
+ * so every language page carries a meaningful, hand-written summary.
  *
  * @param doc - The document to render
+ * @param lang - Target language code (drives per-language description lookup)
  * @param viewOnGitHub - Localized call-to-action label
- * @param includeDescription - When `false`, the English source description
- *   is omitted (used on non-English pages to keep the UI fully localized)
  * @returns HTML string for the card `<li>` element
  */
-function renderDocumentCard(doc, viewOnGitHub, includeDescription) {
+function renderDocumentCard(doc, lang, viewOnGitHub) {
     const url = githubBlobUrl(doc.relPath);
-    const desc = includeDescription && doc.description
-        ? `<span class="pi-card__desc">${escapeHTML(doc.description)}</span>`
-        : '';
+    const title = getCuratedTitle(doc.relPath, lang, doc.title);
+    const description = getCuratedDescription(doc.relPath, lang, doc.title);
+    const desc = description ? `<span class="pi-card__desc">${escapeHTML(description)}</span>` : '';
     return `          <li class="pi-card">
             <a class="pi-card__link" href="${escapeHTML(url)}" rel="noopener external" target="_blank">
               <span class="pi-card__icon" aria-hidden="true">${doc.icon}</span>
               <span class="pi-card__body">
-                <span class="pi-card__title">${escapeHTML(doc.title)}</span>
+                <span class="pi-card__title">${escapeHTML(title)}</span>
                 <span class="pi-card__path"><code>${escapeHTML(doc.relPath)}</code></span>
                 ${desc}
                 <span class="pi-card__cta">${escapeHTML(viewOnGitHub)} <span aria-hidden="true">↗</span></span>
@@ -984,17 +888,24 @@ ${artifactLinks}
  * @returns Complete HTML document string
  */
 export function generatePoliticalIntelligenceHTML(lang, data) {
-    const copy = getPICopy(lang);
-    const siteTitle = getLocalizedString(PAGE_TITLES, lang).split(' - ')[0] ?? 'EU Parliament Monitor';
+    // Validate lang against the supported language list. Unsupported values
+    // (including prototype-pollution payloads like `__proto__` or user input)
+    // fall back to English so curated-title / description lookups always
+    // receive a known-safe key.
+    const safeLang = ALL_LANGUAGES.includes(lang)
+        ? lang
+        : 'en';
+    const copy = getPICopy(safeLang);
+    const siteTitle = getLocalizedString(PAGE_TITLES, safeLang).split(' - ')[0] ?? 'EU Parliament Monitor';
     const pageTitle = `${siteTitle} - ${copy.title}`;
     const description = copy.intro;
-    const skipLinkText = getLocalizedString(SKIP_LINK_TEXTS, lang);
-    const headerSubtitle = escapeHTML(getLocalizedString(HEADER_SUBTITLE_LABELS, lang));
-    const themeToggleLabel = escapeHTML(getLocalizedString(THEME_TOGGLE_LABELS, lang));
-    const dir = getTextDirection(lang);
-    const canonicalUrl = `${BASE_URL}/${getPoliticalIntelligenceFilename(lang)}`;
-    const indexHref = lang === 'en' ? 'index.html' : `index-${lang}.html`;
-    const sitemapHref = lang === 'en' ? 'sitemap.html' : `sitemap_${lang}.html`;
+    const skipLinkText = getLocalizedString(SKIP_LINK_TEXTS, safeLang);
+    const headerSubtitle = escapeHTML(getLocalizedString(HEADER_SUBTITLE_LABELS, safeLang));
+    const themeToggleLabel = escapeHTML(getLocalizedString(THEME_TOGGLE_LABELS, safeLang));
+    const dir = getTextDirection(safeLang);
+    const canonicalUrl = `${BASE_URL}/${getPoliticalIntelligenceFilename(safeLang)}`;
+    const indexHref = safeLang === 'en' ? 'index.html' : `index-${safeLang}.html`;
+    const sitemapHref = safeLang === 'en' ? 'sitemap.html' : `sitemap_${safeLang}.html`;
     // Cross-language <link rel="alternate"> block
     const hreflangLinks = [
         ...ALL_LANGUAGES.map((code) => `  <link rel="alternate" hreflang="${code}" href="${BASE_URL}/${getPoliticalIntelligenceFilename(code)}">`),
@@ -1007,25 +918,23 @@ export function generatePoliticalIntelligenceHTML(lang, data) {
     const langSwitcher = ALL_LANGUAGES.map((code) => {
         const flag = getLocalizedString(LANGUAGE_FLAGS, code);
         const name = getLocalizedString(LANGUAGE_NAMES, code);
-        const active = code === lang ? ' active' : '';
-        const ariaCurrent = code === lang ? ' aria-current="page"' : '';
+        const active = code === safeLang ? ' active' : '';
+        const ariaCurrent = code === safeLang ? ' aria-current="page"' : '';
         const href = getPoliticalIntelligenceFilename(code);
         return `<a href="${href}" class="lang-link${active}" hreflang="${code}" title="${escapeHTML(name)}"${ariaCurrent}>${flag} ${code.toUpperCase()}</a>`;
     }).join('\n        ');
-    // Methodologies & templates cards.
-    // Non-English pages hide the per-card English description (the source
-    // markdown is authored in English) so the page reads as fully localized;
-    // the title and path remain visible because they are the canonical
-    // identifiers readers need to inspect the tradecraft on GitHub.
-    const includeDescription = lang === 'en';
+    // Methodologies, templates & reference cards.
+    // Descriptions are sourced from the curated per-file, per-language table
+    // ({@link getCuratedDescription}) — every language page renders a
+    // meaningful, hand-written summary, not scraped Markdown metadata.
     const methodologiesList = data.methodologies
-        .map((d) => renderDocumentCard(d, copy.viewOnGitHub, includeDescription))
+        .map((d) => renderDocumentCard(d, safeLang, copy.viewOnGitHub))
         .join('\n');
     const templatesList = data.templates
-        .map((d) => renderDocumentCard(d, copy.viewOnGitHub, includeDescription))
+        .map((d) => renderDocumentCard(d, safeLang, copy.viewOnGitHub))
         .join('\n');
     const referenceList = data.referenceDocs
-        .map((d) => renderDocumentCard(d, copy.viewOnGitHub, includeDescription))
+        .map((d) => renderDocumentCard(d, safeLang, copy.viewOnGitHub))
         .join('\n');
     const dailyBody = data.dailyGroups.length === 0
         ? ''
@@ -1046,7 +955,7 @@ export function generatePoliticalIntelligenceHTML(lang, data) {
         name: copy.title,
         url: canonicalUrl,
         description: copy.intro,
-        inLanguage: lang,
+        inLanguage: safeLang,
         author: publisher,
         publisher,
         isPartOf: {
@@ -1099,17 +1008,17 @@ export function generatePoliticalIntelligenceHTML(lang, data) {
     };
     const jsonLdString = JSON.stringify(jsonLd).replace(/</g, '\\u003c');
     return `<!DOCTYPE html>
-<html lang="${lang}" dir="${dir}">
+<html lang="${safeLang}" dir="${dir}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta http-equiv="Content-Language" content="${lang}">
+  <meta http-equiv="Content-Language" content="${safeLang}">
   <meta name="referrer" content="no-referrer">
   <title>${escapeHTML(pageTitle)}</title>
   <meta name="description" content="${escapeHTML(description)}">
   <meta name="robots" content="index, follow, max-image-preview:large">
-  <meta name="keywords" content="European Parliament, political intelligence, OSINT, SWOT, PESTLE, methodology, artifact templates, transparency, EU">
+  <meta name="keywords" content="${escapeHTML(copy.seoKeywords)}">
   <meta name="author" content="Hack23 AB">
   <meta name="publisher" content="Hack23 AB">
   <link rel="canonical" href="${canonicalUrl}">
@@ -1119,7 +1028,7 @@ ${hreflangLinks}
   <meta property="og:description" content="${escapeHTML(description)}">
   <meta property="og:url" content="${canonicalUrl}">
   <meta property="og:site_name" content="EU Parliament Monitor">
-  <meta property="og:locale" content="${lang}">
+  <meta property="og:locale" content="${safeLang}">
   <meta property="og:image" content="https://hack23.github.io/euparliamentmonitor/images/og-image.jpg">
   <meta property="og:image:alt" content="${escapeHTML(copy.title)} — EU Parliament Monitor">
   <meta property="og:image:width" content="1200">
@@ -1194,7 +1103,7 @@ ${hreflangLinks}
     <nav class="breadcrumb" aria-label="${escapeHTML(copy.breadcrumbLabel)}">
       <ol>
         <li><a href="${indexHref}">${escapeHTML(copy.home)}</a></li>
-        <li><a href="${sitemapHref}">${escapeHTML(getLocalizedString(FOOTER_SITEMAP_LABELS, lang))}</a></li>
+        <li><a href="${sitemapHref}">${escapeHTML(getLocalizedString(FOOTER_SITEMAP_LABELS, safeLang))}</a></li>
         <li aria-current="page">${escapeHTML(copy.breadcrumbCurrent)}</li>
       </ol>
     </nav>
@@ -1230,7 +1139,7 @@ ${dailyBody}
     </section>
   </main>
 
-  ${buildSiteFooter({ lang: lang, pathPrefix: '' })}${THEME_TOGGLE_SCRIPT}
+  ${buildSiteFooter({ lang: safeLang, pathPrefix: '' })}${THEME_TOGGLE_SCRIPT}
 </body>
 </html>`;
 }
