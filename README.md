@@ -479,7 +479,9 @@ npm run generate-news -- --types=week-ahead --languages=all
 # Generate language-specific index pages
 npm run generate-news-indexes
 
-# Generate sitemap.xml
+# Generate sitemap.xml, sitemap_<lang>.html, and political-intelligence_<lang>.html
+# (14 language-specific sitemap pages + 14 language-specific Political Intelligence
+#  pages that index every methodology, template, and daily analysis run)
 npm run generate-sitemap
 ```
 
@@ -523,7 +525,11 @@ euparliamentmonitor/
 ├── index-{lang}.html                # Language-specific index pages
 ├── typedoc.json                     # TypeDoc configuration
 ├── tsconfig.json                    # TypeScript configuration
-├── sitemap.xml                      # SEO sitemap
+├── sitemap.xml                      # SEO sitemap with hreflang alternates
+├── sitemap.html                     # Human-readable sitemap (English)
+├── sitemap_{lang}.html              # Per-language human-readable sitemaps
+├── political-intelligence.html      # Index of every methodology + template + daily analysis run
+├── political-intelligence_{lang}.html # Localized political-intelligence pages
 └── package.json                     # Project dependencies
 ```
 

@@ -2053,3 +2053,21 @@ export const FOOTER_ARTICLES_AVAILABLE_LABELS: LanguageMap = {
   ko: '{count}개 기사 이용 가능',
   zh: '{count}篇文章可用',
 };
+
+/** Localized "Political Intelligence" link label used in footer Quick Links section */
+export const FOOTER_POLITICAL_INTELLIGENCE_LABELS: LanguageMap = {
+  en: 'Political Intelligence',
+  sv: 'Politisk underrättelse',
+  da: 'Politisk efterretning',
+  no: 'Politisk etterretning',
+  fi: 'Poliittinen tiedustelu',
+  de: 'Politische Aufklärung',
+  fr: 'Intelligence politique',
+  es: 'Inteligencia política',
+  nl: 'Politieke intelligentie',
+  ar: 'الاستخبارات السياسية',
+  he: 'מודיעין פוליטי',
+  ja: '政治インテリジェンス',
+  ko: '정치 정보',
+  zh: '政治情报',
+};
