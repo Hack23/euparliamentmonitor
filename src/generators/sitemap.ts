@@ -40,7 +40,10 @@ import {
   escapeHTML,
 } from '../utils/file-utils.js';
 import { detectCategory } from '../utils/article-category.js';
-import { ARTICLE_TYPE_LABELS, FOOTER_POLITICAL_INTELLIGENCE_LABELS } from '../constants/language-ui.js';
+import {
+  ARTICLE_TYPE_LABELS,
+  FOOTER_POLITICAL_INTELLIGENCE_LABELS,
+} from '../constants/language-ui.js';
 import { ArticleCategory } from '../types/index.js';
 import type { SitemapUrl } from '../types/index.js';
 import {
@@ -274,7 +277,9 @@ function buildArticleUrls(articles: string[]): SitemapUrlWithAlternates[] {
     const bucket = stem ? byStem.get(stem) : undefined;
     // Only emit alternates when the stem has multiple language variants
     const hasMultipleLocales = bucket && Object.keys(bucket).length > 1;
-    const alternates = hasMultipleLocales ? withXDefault(bucket as Record<string, string>) : undefined;
+    const alternates = hasMultipleLocales
+      ? withXDefault(bucket as Record<string, string>)
+      : undefined;
 
     return {
       loc: `${BASE_URL}/news/${article}`,
@@ -540,7 +545,8 @@ const SITEMAP_COPY: Record<string, SitemapCopy> = {
     breadcrumbLabel: 'Brødkrummer',
     pagesDescription:
       'Primære startsider på hvert understøttet sprog — det bedste udgangspunkt for hver målgruppe.',
-    docsDescription: 'Teknisk dokumentation inklusive API-reference, kodedækning og testresultater.',
+    docsDescription:
+      'Teknisk dokumentation inklusive API-reference, kodedækning og testresultater.',
     newsDescription:
       'Alle offentliggjorte nyhedsartikler på dette sprog, sorteret nyeste først og grupperet efter redaktionelt format.',
     statArticlesLabel: 'Artikler',
@@ -559,7 +565,8 @@ const SITEMAP_COPY: Record<string, SitemapCopy> = {
     breadcrumbLabel: 'Brødsmuler',
     pagesDescription:
       'Primære startsider på hvert støttet språk — det beste utgangspunktet for hver målgruppe.',
-    docsDescription: 'Teknisk dokumentasjon inkludert API-referanse, kodedekning og testresultater.',
+    docsDescription:
+      'Teknisk dokumentasjon inkludert API-referanse, kodedekning og testresultater.',
     newsDescription:
       'Alle publiserte nyhetsartikler på dette språket, sortert med nyeste først og gruppert etter redaksjonelt format.',
     statArticlesLabel: 'Artikler',
@@ -578,7 +585,8 @@ const SITEMAP_COPY: Record<string, SitemapCopy> = {
     breadcrumbLabel: 'Navigointipolku',
     pagesDescription:
       'Ensisijaiset aloitussivut jokaisella tuetulla kielellä — paras lähtökohta kullekin yleisölle.',
-    docsDescription: 'Tekninen dokumentaatio, mukaan lukien API-viite, koodikattavuus ja testitulokset.',
+    docsDescription:
+      'Tekninen dokumentaatio, mukaan lukien API-viite, koodikattavuus ja testitulokset.',
     newsDescription:
       'Kaikki julkaistut uutisartikkelit tällä kielellä, uusimmat ensin ja ryhmitellyt toimituksellisen muodon mukaan.',
     statArticlesLabel: 'Artikkelit',
@@ -597,7 +605,8 @@ const SITEMAP_COPY: Record<string, SitemapCopy> = {
     breadcrumbLabel: 'Breadcrumb',
     pagesDescription:
       'Primäre Startseiten in jeder unterstützten Sprache — der beste Ausgangspunkt für jede Zielgruppe.',
-    docsDescription: 'Technische Dokumentation einschließlich API-Referenz, Codeabdeckung und Testergebnissen.',
+    docsDescription:
+      'Technische Dokumentation einschließlich API-Referenz, Codeabdeckung und Testergebnissen.',
     newsDescription:
       'Alle veröffentlichten Nachrichtenartikel in dieser Sprache, nach Datum absteigend sortiert und nach redaktionellem Format gruppiert.',
     statArticlesLabel: 'Artikel',
@@ -712,7 +721,8 @@ const SITEMAP_COPY: Record<string, SitemapCopy> = {
     breadcrumbLabel: 'パンくずリスト',
     pagesDescription: '各対応言語のメインランディングページ — 各読者に最適な入り口。',
     docsDescription: 'API リファレンス、コードカバレッジ、テスト結果を含む技術ドキュメント。',
-    newsDescription: 'この言語で公開された全ニュース記事を、新しい順に掲載し編集フォーマット別にグループ化しています。',
+    newsDescription:
+      'この言語で公開された全ニュース記事を、新しい順に掲載し編集フォーマット別にグループ化しています。',
     statArticlesLabel: '記事',
     statLanguagesLabel: '言語',
     statLastUpdatedLabel: '最終更新',
@@ -751,7 +761,8 @@ const SITEMAP_COPY: Record<string, SitemapCopy> = {
     statLanguagesLabel: '语言',
     statLastUpdatedLabel: '最近更新',
     statCategoriesLabel: '分类',
-    politicalIntelligenceLinkDescription: '所有方法论、模板和每日分析运行的索引 — 每篇文章背后透明的工艺。',
+    politicalIntelligenceLinkDescription:
+      '所有方法论、模板和每日分析运行的索引 — 每篇文章背后透明的工艺。',
   },
 };
 

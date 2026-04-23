@@ -15,7 +15,12 @@
 
 import fs from 'fs';
 import path from 'path';
-import { PROJECT_ROOT, BASE_URL, createThemeToggleButton, THEME_TOGGLE_SCRIPT } from '../constants/config.js';
+import {
+  PROJECT_ROOT,
+  BASE_URL,
+  createThemeToggleButton,
+  THEME_TOGGLE_SCRIPT,
+} from '../constants/config.js';
 import {
   ALL_LANGUAGES,
   LANGUAGE_FLAGS,
@@ -163,332 +168,332 @@ const PI_COPY: Partial<Record<string, Partial<PICopy>>> = (() => {
   const NO_METHODOLOGIES = 'Metodologier';
   const ARTEFAKTER_COUNT = '{count} artefakter';
   return {
-  en: {},
-  sv: {
-    title: 'Politisk underrättelse',
-    intro:
-      'Varje politisk analys som publiceras på denna webbplats stöds av en transparent kedja av metodologier, artefaktmallar och analysdata på körningsnivå. Denna sida ger dig ett enda, fullt länkat index till all tradecraft som används för att producera nyheterna. Alla källor öppnas i GitHub så att du kan granska analysen bakom texten.',
-    heroSubtitle: `${SV_METHODOLOGIES}, mallar och daglig analysöppenhet`,
-    home: 'Hem',
-    breadcrumbCurrent: 'Politisk underrättelse',
-    breadcrumbLabel: 'Brödsmulor',
-    methodologiesHeading: SV_METHODOLOGIES,
-    methodologiesDescription:
-      'Auktoritativa tradecraft-guider — riskramverk, stilstandarder och det 10-stegs AI-drivna analysprotokollet som varje artikel följer.',
-    templatesHeading: 'Analysmallar',
-    templatesDescription:
-      'Katalogen över artefaktmallar som produceras i varje daglig analyskörning — SWOT, PESTLE, hotmatriser, koalitionsdynamik, konsekvensträd med mera.',
-    dailyHeading: 'Dagliga analyskörningar',
-    dailyDescription:
-      'Varje publicerad analyskörning, grupperad efter datum och ordnad med nyaste först. Varje körning länkar till hela GitHub-trädet så att du kan granska varje artefaktfil som matade motsvarande artikel.',
-    statMethodologiesLabel: SV_METHODOLOGIES,
-    statTemplatesLabel: 'Mallar',
-    statRunsLabel: 'Analyskörningar',
-    statArtifactsLabel: 'Artefakter',
-    viewOnGitHub: 'Visa på GitHub',
-    artifactCountLabel: ARTEFAKTER_COUNT,
-    runsCountLabel: '{count} körningar',
-  },
-  da: {
-    title: 'Politisk efterretning',
-    intro:
-      'Hver politisk analyse, der udgives på denne side, understøttes af en gennemsigtig kæde af metoder, artefaktskabeloner og kørselsspecifikke analysedata. Denne side giver dig et enkelt, fuldt linket indeks til hele det håndværk, der bruges til at producere nyhederne.',
-    heroSubtitle: 'Metoder, skabeloner og daglig analyseåbenhed',
-    home: 'Hjem',
-    breadcrumbCurrent: 'Politisk efterretning',
-    breadcrumbLabel: 'Brødkrummer',
-    methodologiesHeading: 'Metoder',
-    methodologiesDescription:
-      'Autoritative tradecraft-guider — risikorammer, stilstandarder og den 10-trins AI-drevne analyseprotokol, som hver artikel følger.',
-    templatesHeading: 'Analyseskabeloner',
-    templatesDescription:
-      'Kataloget over artefaktskabeloner, der produceres i hver daglig analysekørsel — SWOT, PESTLE, trusselsmatricer, koalitionsdynamikker, konsekvenstræer med mere.',
-    dailyHeading: 'Daglige analysekørsler',
-    dailyDescription:
-      'Hver udgivet analysekørsel, grupperet efter dato og ordnet nyeste først. Hver kørsel linker til hele GitHub-træet.',
-    statMethodologiesLabel: 'Metoder',
-    statTemplatesLabel: 'Skabeloner',
-    statRunsLabel: 'Analysekørsler',
-    statArtifactsLabel: 'Artefakter',
-    viewOnGitHub: 'Vis på GitHub',
-    artifactCountLabel: ARTEFAKTER_COUNT,
-    runsCountLabel: '{count} kørsler',
-  },
-  no: {
-    title: 'Politisk etterretning',
-    intro:
-      'Hver politiske analyse som publiseres på dette nettstedet støttes av en transparent kjede av metodologier, artefaktmaler og kjøringsnivå-analysedata. Denne siden gir deg en enkelt, fullt lenket indeks til alt håndverket som brukes for å produsere nyhetene.',
-    heroSubtitle: `${NO_METHODOLOGIES}, maler og daglig analyseåpenhet`,
-    home: 'Hjem',
-    breadcrumbCurrent: 'Politisk etterretning',
-    breadcrumbLabel: 'Brødsmuler',
-    methodologiesHeading: NO_METHODOLOGIES,
-    methodologiesDescription:
-      'Autoritative tradecraft-guider — risikorammer, stilstandarder og den 10-stegs AI-drevne analyseprotokollen som hver artikkel følger.',
-    templatesHeading: 'Analysemaler',
-    templatesDescription:
-      'Katalogen over artefaktmaler som produseres i hver daglige analysekjøring — SWOT, PESTLE, trusselmatriser, koalisjonsdynamikk, konsekvenstrær og mer.',
-    dailyHeading: 'Daglige analysekjøringer',
-    dailyDescription:
-      'Hver publiserte analysekjøring, gruppert etter dato og sortert nyeste først. Hver kjøring lenker til hele GitHub-treet.',
-    statMethodologiesLabel: NO_METHODOLOGIES,
-    statTemplatesLabel: 'Maler',
-    statRunsLabel: 'Analysekjøringer',
-    statArtifactsLabel: 'Artefakter',
-    viewOnGitHub: 'Vis på GitHub',
-    artifactCountLabel: ARTEFAKTER_COUNT,
-    runsCountLabel: '{count} kjøringer',
-  },
-  fi: {
-    title: 'Poliittinen tiedustelu',
-    intro:
-      'Jokainen sivustolla julkaistava poliittinen analyysi perustuu läpinäkyvään metodologioiden, artefaktipohjien ja ajokohtaisten analyysidataiden ketjuun. Tämä sivu tarjoaa yhden, täysin linkitetyn indeksin kaikkeen uutisten tuottamisessa käytettyyn käsityötaitoon.',
-    heroSubtitle: 'Metodologiat, mallit ja päivittäinen analyysin läpinäkyvyys',
-    home: 'Etusivu',
-    breadcrumbCurrent: 'Poliittinen tiedustelu',
-    breadcrumbLabel: 'Navigointipolku',
-    methodologiesHeading: 'Metodologiat',
-    methodologiesDescription:
-      'Arvovaltaiset tradecraft-oppaat — riskinarviointikehykset, tyylistandardit ja 10-vaiheinen tekoälypohjainen analyysiprotokolla.',
-    templatesHeading: 'Analyysipohjat',
-    templatesDescription:
-      'Jokaisessa päivittäisessä analyysiajossa tuotettujen artefaktipohjien luettelo — SWOT, PESTLE, uhkamatriisit, koalitiodynamiikka ja konsekvenssipuut.',
-    dailyHeading: 'Päivittäiset analyysiajot',
-    dailyDescription:
-      'Jokainen julkaistu analyysiajo, ryhmiteltynä päivämäärän mukaan uusimmasta vanhimpaan. Jokainen ajo linkitetään GitHub-puuhun.',
-    statMethodologiesLabel: 'Metodologiat',
-    statTemplatesLabel: 'Pohjat',
-    statRunsLabel: 'Analyysiajot',
-    statArtifactsLabel: 'Artefaktit',
-    viewOnGitHub: 'Näytä GitHubissa',
-    artifactCountLabel: '{count} artefaktia',
-    runsCountLabel: '{count} ajoa',
-  },
-  de: {
-    title: 'Politische Aufklärung',
-    intro:
-      'Jede auf dieser Website veröffentlichte politische Analyse wird durch eine transparente Kette von Methodologien, Artefaktvorlagen und laufbezogenen Analysedaten gestützt. Diese Seite bietet einen einzigen, vollständig verlinkten Index aller Handwerkskunst, die zur Produktion der Nachrichten verwendet wird.',
-    heroSubtitle: 'Methodologien, Vorlagen und tägliche Analyse-Transparenz',
-    home: 'Startseite',
-    breadcrumbCurrent: 'Politische Aufklärung',
-    breadcrumbLabel: 'Breadcrumb',
-    methodologiesHeading: 'Methodologien',
-    methodologiesDescription:
-      'Autoritative Tradecraft-Leitfäden — Risikorahmen, Stilstandards und das 10-Schritte-KI-gestützte Analyseprotokoll.',
-    templatesHeading: 'Analysevorlagen',
-    templatesDescription:
-      'Der Katalog der Artefaktvorlagen, die in jedem täglichen Analyselauf erstellt werden — SWOT, PESTLE, Bedrohungsmatrizen, Koalitionsdynamik und Konsequenzbäume.',
-    dailyHeading: 'Tägliche Analyseläufe',
-    dailyDescription:
-      'Jeder veröffentlichte Analyselauf, nach Datum gruppiert und neueste zuerst sortiert. Jeder Lauf verlinkt auf den vollständigen GitHub-Baum.',
-    statMethodologiesLabel: 'Methodologien',
-    statTemplatesLabel: 'Vorlagen',
-    statRunsLabel: 'Analyseläufe',
-    statArtifactsLabel: 'Artefakte',
-    viewOnGitHub: 'Auf GitHub ansehen',
-    artifactCountLabel: '{count} Artefakte',
-    runsCountLabel: '{count} Läufe',
-  },
-  fr: {
-    title: 'Intelligence politique',
-    intro:
-      "Chaque analyse politique publiée sur ce site s'appuie sur une chaîne transparente de méthodologies, de modèles d'artefacts et de données d'analyse par exécution. Cette page vous offre un index unique, entièrement lié, vers tout le savoir-faire utilisé pour produire les actualités.",
-    heroSubtitle: 'Méthodologies, modèles et transparence des analyses quotidiennes',
-    home: 'Accueil',
-    breadcrumbCurrent: 'Intelligence politique',
-    breadcrumbLabel: "Fil d'Ariane",
-    methodologiesHeading: 'Méthodologies',
-    methodologiesDescription:
-      "Guides de savoir-faire faisant autorité — cadres de risque, normes de style et le protocole d'analyse en 10 étapes piloté par IA.",
-    templatesHeading: "Modèles d'analyse",
-    templatesDescription:
-      "Catalogue des modèles d'artefacts produits dans chaque exécution d'analyse quotidienne — SWOT, PESTLE, matrices de menaces, dynamiques de coalition et arbres de conséquences.",
-    dailyHeading: 'Exécutions d\u2019analyse quotidiennes',
-    dailyDescription:
-      "Chaque exécution d'analyse publiée, regroupée par date et triée du plus récent au plus ancien. Chaque exécution renvoie à l'arbre GitHub complet.",
-    statMethodologiesLabel: 'Méthodologies',
-    statTemplatesLabel: 'Modèles',
-    statRunsLabel: 'Analyses',
-    statArtifactsLabel: 'Artefacts',
-    viewOnGitHub: 'Voir sur GitHub',
-    artifactCountLabel: '{count} artefacts',
-    runsCountLabel: '{count} exécutions',
-  },
-  es: {
-    title: 'Inteligencia política',
-    intro:
-      'Cada análisis político publicado en este sitio se respalda con una cadena transparente de metodologías, plantillas de artefactos y datos de análisis por ejecución. Esta página proporciona un único índice totalmente enlazado con todo el oficio empleado para producir las noticias.',
-    heroSubtitle: 'Metodologías, plantillas y transparencia del análisis diario',
-    home: 'Inicio',
-    breadcrumbCurrent: 'Inteligencia política',
-    breadcrumbLabel: 'Ruta de navegación',
-    methodologiesHeading: 'Metodologías',
-    methodologiesDescription:
-      'Guías autorizadas de oficio — marcos de riesgo, estándares de estilo y el protocolo de análisis impulsado por IA de 10 pasos.',
-    templatesHeading: 'Plantillas de análisis',
-    templatesDescription:
-      'Catálogo de plantillas de artefactos producidas en cada ejecución diaria — SWOT, PESTLE, matrices de amenazas, dinámicas de coalición y árboles de consecuencias.',
-    dailyHeading: 'Ejecuciones de análisis diarias',
-    dailyDescription:
-      'Cada ejecución de análisis publicada, agrupada por fecha y ordenada de más reciente a más antigua. Cada ejecución enlaza al árbol completo de GitHub.',
-    statMethodologiesLabel: 'Metodologías',
-    statTemplatesLabel: 'Plantillas',
-    statRunsLabel: 'Ejecuciones',
-    statArtifactsLabel: 'Artefactos',
-    viewOnGitHub: 'Ver en GitHub',
-    artifactCountLabel: '{count} artefactos',
-    runsCountLabel: '{count} ejecuciones',
-  },
-  nl: {
-    title: 'Politieke intelligentie',
-    intro:
-      'Elke politieke analyse op deze website wordt ondersteund door een transparante keten van methodologieën, artefactsjablonen en analysegegevens per uitvoering. Deze pagina biedt een enkele, volledig gekoppelde index naar al het vakmanschap dat wordt gebruikt om het nieuws te produceren.',
-    heroSubtitle: 'Methodologieën, sjablonen en dagelijkse analysetransparantie',
-    home: 'Home',
-    breadcrumbCurrent: 'Politieke intelligentie',
-    breadcrumbLabel: 'Broodkruimelpad',
-    methodologiesHeading: 'Methodologieën',
-    methodologiesDescription:
-      'Gezaghebbende vakhandboeken — risicoframeworks, stijlstandaarden en het 10-staps AI-gedreven analyseprotocol.',
-    templatesHeading: 'Analysesjablonen',
-    templatesDescription:
-      'De catalogus met artefactsjablonen die in elke dagelijkse analyse-uitvoering worden geproduceerd — SWOT, PESTLE, dreigingsmatrices, coalitiedynamiek en consequentiebomen.',
-    dailyHeading: 'Dagelijkse analyse-uitvoeringen',
-    dailyDescription:
-      'Elke gepubliceerde analyse-uitvoering, gegroepeerd op datum en gesorteerd van nieuwste naar oudste. Elke uitvoering linkt naar de volledige GitHub-boom.',
-    statMethodologiesLabel: 'Methodologieën',
-    statTemplatesLabel: 'Sjablonen',
-    statRunsLabel: 'Uitvoeringen',
-    statArtifactsLabel: 'Artefacten',
-    viewOnGitHub: 'Op GitHub bekijken',
-    artifactCountLabel: '{count} artefacten',
-    runsCountLabel: '{count} uitvoeringen',
-  },
-  ar: {
-    title: 'الاستخبارات السياسية',
-    intro:
-      'كل تحليل سياسي يُنشر على هذا الموقع مدعوم بسلسلة شفافة من المنهجيات وقوالب القطع الأثرية وبيانات التحليل على مستوى التشغيل. توفر هذه الصفحة فهرسًا واحدًا مرتبطًا بالكامل بكل المهارة المستخدمة لإنتاج الأخبار.',
-    heroSubtitle: 'المنهجيات والقوالب وشفافية التحليل اليومي',
-    home: 'الرئيسية',
-    breadcrumbCurrent: 'الاستخبارات السياسية',
-    breadcrumbLabel: 'مسار التنقل',
-    methodologiesHeading: 'المنهجيات',
-    methodologiesDescription:
-      'أدلة احترافية موثوقة — أطر المخاطر ومعايير الأسلوب وبروتوكول التحليل المدعوم بالذكاء الاصطناعي المكون من 10 خطوات.',
-    templatesHeading: 'قوالب التحليل',
-    templatesDescription:
-      'كتالوج قوالب القطع الأثرية المنتجة في كل تشغيل تحليل يومي — SWOT و PESTLE ومصفوفات التهديد وديناميكيات التحالف وأشجار العواقب.',
-    dailyHeading: 'عمليات التحليل اليومية',
-    dailyDescription:
-      'كل عملية تحليل منشورة، مجمعة حسب التاريخ ومرتبة من الأحدث إلى الأقدم. يربط كل تشغيل بشجرة GitHub الكاملة.',
-    statMethodologiesLabel: 'المنهجيات',
-    statTemplatesLabel: 'القوالب',
-    statRunsLabel: 'عمليات التحليل',
-    statArtifactsLabel: 'القطع الأثرية',
-    viewOnGitHub: 'عرض على GitHub',
-    artifactCountLabel: '{count} قطعة أثرية',
-    runsCountLabel: '{count} عمليات',
-  },
-  he: {
-    title: 'מודיעין פוליטי',
-    intro:
-      'כל ניתוח פוליטי המתפרסם באתר זה נתמך בשרשרת שקופה של מתודולוגיות, תבניות ארטיפקטים ונתוני ניתוח ברמת ריצה. עמוד זה מספק אינדקס יחיד ומקושר במלואו לכל המלאכה המשמשת להפקת החדשות.',
-    heroSubtitle: 'מתודולוגיות, תבניות ושקיפות ניתוח יומי',
-    home: 'בית',
-    breadcrumbCurrent: 'מודיעין פוליטי',
-    breadcrumbLabel: 'נתיב ניווט',
-    methodologiesHeading: 'מתודולוגיות',
-    methodologiesDescription:
-      'מדריכי מלאכה מוסמכים — מסגרות סיכון, סטנדרטי סגנון ופרוטוקול ניתוח מונחה בינה מלאכותית בן 10 שלבים.',
-    templatesHeading: 'תבניות ניתוח',
-    templatesDescription:
-      'קטלוג תבניות ארטיפקטים המיוצרות בכל ריצת ניתוח יומית — SWOT, PESTLE, מטריצות איום, דינמיקות קואליציה ועצי השלכות.',
-    dailyHeading: 'ריצות ניתוח יומיות',
-    dailyDescription:
-      'כל ריצת ניתוח שפורסמה, מקובצת לפי תאריך ומסודרת מהחדש ביותר. כל ריצה מקושרת לעץ GitHub המלא.',
-    statMethodologiesLabel: 'מתודולוגיות',
-    statTemplatesLabel: 'תבניות',
-    statRunsLabel: 'ריצות ניתוח',
-    statArtifactsLabel: 'ארטיפקטים',
-    viewOnGitHub: 'הצג ב-GitHub',
-    artifactCountLabel: '{count} ארטיפקטים',
-    runsCountLabel: '{count} ריצות',
-  },
-  ja: {
-    title: '政治インテリジェンス',
-    intro:
-      '当サイトで公開されるすべての政治分析は、透明な方法論・成果物テンプレート・実行レベルの分析データの連鎖に裏付けられています。このページは、ニュースを生み出すために使用されるすべてのトレードクラフトへの単一の、完全にリンクされたインデックスを提供します。',
-    heroSubtitle: '方法論、テンプレート、日次分析の透明性',
-    home: 'ホーム',
-    breadcrumbCurrent: '政治インテリジェンス',
-    breadcrumbLabel: 'パンくずリスト',
-    methodologiesHeading: '方法論',
-    methodologiesDescription:
-      '権威あるトレードクラフトガイド — リスクフレームワーク、スタイル基準、10 ステップの AI 駆動分析プロトコル。',
-    templatesHeading: '分析テンプレート',
-    templatesDescription:
-      '毎日の分析実行で生成される成果物テンプレートのカタログ — SWOT、PESTLE、脅威マトリックス、連携ダイナミクス、結果ツリーなど。',
-    dailyHeading: '日次分析実行',
-    dailyDescription:
-      '公開されたすべての分析実行を日付でグループ化し、新しい順に並べています。各実行は完全な GitHub ツリーにリンクします。',
-    statMethodologiesLabel: '方法論',
-    statTemplatesLabel: 'テンプレート',
-    statRunsLabel: '分析実行',
-    statArtifactsLabel: '成果物',
-    viewOnGitHub: 'GitHub で表示',
-    artifactCountLabel: '{count} 件の成果物',
-    runsCountLabel: '{count} 件の実行',
-  },
-  ko: {
-    title: '정치 정보',
-    intro:
-      '본 사이트에 게시되는 모든 정치 분석은 방법론, 산출물 템플릿, 실행 수준 분석 데이터의 투명한 사슬에 의해 뒷받침됩니다. 이 페이지는 뉴스를 제작하는 데 사용된 모든 기술을 단일하고 완전히 링크된 인덱스로 제공합니다.',
-    heroSubtitle: '방법론, 템플릿 및 일일 분석 투명성',
-    home: '홈',
-    breadcrumbCurrent: '정치 정보',
-    breadcrumbLabel: '이동 경로',
-    methodologiesHeading: '방법론',
-    methodologiesDescription:
-      '권위 있는 트레이드크래프트 가이드 — 위험 프레임워크, 스타일 표준, 10단계 AI 기반 분석 프로토콜.',
-    templatesHeading: '분석 템플릿',
-    templatesDescription:
-      '매일 분석 실행에서 생성되는 산출물 템플릿 카탈로그 — SWOT, PESTLE, 위협 매트릭스, 연합 역학, 결과 트리.',
-    dailyHeading: '일일 분석 실행',
-    dailyDescription:
-      '게시된 모든 분석 실행을 날짜별로 그룹화하여 최신순으로 정렬합니다. 각 실행은 전체 GitHub 트리로 연결됩니다.',
-    statMethodologiesLabel: '방법론',
-    statTemplatesLabel: '템플릿',
-    statRunsLabel: '분석 실행',
-    statArtifactsLabel: '산출물',
-    viewOnGitHub: 'GitHub에서 보기',
-    artifactCountLabel: '{count}개 산출물',
-    runsCountLabel: '{count}회 실행',
-  },
-  zh: {
-    title: '政治情报',
-    intro:
-      '本网站上发布的每一篇政治分析都由方法论、工件模板和运行级分析数据的透明链条所支撑。本页面提供了一个单一、完全链接的索引,指向用于生成新闻的所有工艺。',
-    heroSubtitle: '方法论、模板和每日分析透明度',
-    home: '首页',
-    breadcrumbCurrent: '政治情报',
-    breadcrumbLabel: '面包屑导航',
-    methodologiesHeading: '方法论',
-    methodologiesDescription:
-      '权威的工艺指南 — 风险框架、风格标准,以及每篇文章遵循的 10 步 AI 驱动分析协议。',
-    templatesHeading: '分析模板',
-    templatesDescription:
-      '每次日常分析运行中产生的工件模板目录 — SWOT、PESTLE、威胁矩阵、联盟动态和后果树。',
-    dailyHeading: '每日分析运行',
-    dailyDescription:
-      '每次发布的分析运行,按日期分组并按最新优先排序。每次运行都链接到完整的 GitHub 树。',
-    statMethodologiesLabel: '方法论',
-    statTemplatesLabel: '模板',
-    statRunsLabel: '分析运行',
-    statArtifactsLabel: '工件',
-    viewOnGitHub: '在 GitHub 上查看',
-    artifactCountLabel: '{count} 个工件',
-    runsCountLabel: '{count} 次运行',
-  },
+    en: {},
+    sv: {
+      title: 'Politisk underrättelse',
+      intro:
+        'Varje politisk analys som publiceras på denna webbplats stöds av en transparent kedja av metodologier, artefaktmallar och analysdata på körningsnivå. Denna sida ger dig ett enda, fullt länkat index till all tradecraft som används för att producera nyheterna. Alla källor öppnas i GitHub så att du kan granska analysen bakom texten.',
+      heroSubtitle: `${SV_METHODOLOGIES}, mallar och daglig analysöppenhet`,
+      home: 'Hem',
+      breadcrumbCurrent: 'Politisk underrättelse',
+      breadcrumbLabel: 'Brödsmulor',
+      methodologiesHeading: SV_METHODOLOGIES,
+      methodologiesDescription:
+        'Auktoritativa tradecraft-guider — riskramverk, stilstandarder och det 10-stegs AI-drivna analysprotokollet som varje artikel följer.',
+      templatesHeading: 'Analysmallar',
+      templatesDescription:
+        'Katalogen över artefaktmallar som produceras i varje daglig analyskörning — SWOT, PESTLE, hotmatriser, koalitionsdynamik, konsekvensträd med mera.',
+      dailyHeading: 'Dagliga analyskörningar',
+      dailyDescription:
+        'Varje publicerad analyskörning, grupperad efter datum och ordnad med nyaste först. Varje körning länkar till hela GitHub-trädet så att du kan granska varje artefaktfil som matade motsvarande artikel.',
+      statMethodologiesLabel: SV_METHODOLOGIES,
+      statTemplatesLabel: 'Mallar',
+      statRunsLabel: 'Analyskörningar',
+      statArtifactsLabel: 'Artefakter',
+      viewOnGitHub: 'Visa på GitHub',
+      artifactCountLabel: ARTEFAKTER_COUNT,
+      runsCountLabel: '{count} körningar',
+    },
+    da: {
+      title: 'Politisk efterretning',
+      intro:
+        'Hver politisk analyse, der udgives på denne side, understøttes af en gennemsigtig kæde af metoder, artefaktskabeloner og kørselsspecifikke analysedata. Denne side giver dig et enkelt, fuldt linket indeks til hele det håndværk, der bruges til at producere nyhederne.',
+      heroSubtitle: 'Metoder, skabeloner og daglig analyseåbenhed',
+      home: 'Hjem',
+      breadcrumbCurrent: 'Politisk efterretning',
+      breadcrumbLabel: 'Brødkrummer',
+      methodologiesHeading: 'Metoder',
+      methodologiesDescription:
+        'Autoritative tradecraft-guider — risikorammer, stilstandarder og den 10-trins AI-drevne analyseprotokol, som hver artikel følger.',
+      templatesHeading: 'Analyseskabeloner',
+      templatesDescription:
+        'Kataloget over artefaktskabeloner, der produceres i hver daglig analysekørsel — SWOT, PESTLE, trusselsmatricer, koalitionsdynamikker, konsekvenstræer med mere.',
+      dailyHeading: 'Daglige analysekørsler',
+      dailyDescription:
+        'Hver udgivet analysekørsel, grupperet efter dato og ordnet nyeste først. Hver kørsel linker til hele GitHub-træet.',
+      statMethodologiesLabel: 'Metoder',
+      statTemplatesLabel: 'Skabeloner',
+      statRunsLabel: 'Analysekørsler',
+      statArtifactsLabel: 'Artefakter',
+      viewOnGitHub: 'Vis på GitHub',
+      artifactCountLabel: ARTEFAKTER_COUNT,
+      runsCountLabel: '{count} kørsler',
+    },
+    no: {
+      title: 'Politisk etterretning',
+      intro:
+        'Hver politiske analyse som publiseres på dette nettstedet støttes av en transparent kjede av metodologier, artefaktmaler og kjøringsnivå-analysedata. Denne siden gir deg en enkelt, fullt lenket indeks til alt håndverket som brukes for å produsere nyhetene.',
+      heroSubtitle: `${NO_METHODOLOGIES}, maler og daglig analyseåpenhet`,
+      home: 'Hjem',
+      breadcrumbCurrent: 'Politisk etterretning',
+      breadcrumbLabel: 'Brødsmuler',
+      methodologiesHeading: NO_METHODOLOGIES,
+      methodologiesDescription:
+        'Autoritative tradecraft-guider — risikorammer, stilstandarder og den 10-stegs AI-drevne analyseprotokollen som hver artikkel følger.',
+      templatesHeading: 'Analysemaler',
+      templatesDescription:
+        'Katalogen over artefaktmaler som produseres i hver daglige analysekjøring — SWOT, PESTLE, trusselmatriser, koalisjonsdynamikk, konsekvenstrær og mer.',
+      dailyHeading: 'Daglige analysekjøringer',
+      dailyDescription:
+        'Hver publiserte analysekjøring, gruppert etter dato og sortert nyeste først. Hver kjøring lenker til hele GitHub-treet.',
+      statMethodologiesLabel: NO_METHODOLOGIES,
+      statTemplatesLabel: 'Maler',
+      statRunsLabel: 'Analysekjøringer',
+      statArtifactsLabel: 'Artefakter',
+      viewOnGitHub: 'Vis på GitHub',
+      artifactCountLabel: ARTEFAKTER_COUNT,
+      runsCountLabel: '{count} kjøringer',
+    },
+    fi: {
+      title: 'Poliittinen tiedustelu',
+      intro:
+        'Jokainen sivustolla julkaistava poliittinen analyysi perustuu läpinäkyvään metodologioiden, artefaktipohjien ja ajokohtaisten analyysidataiden ketjuun. Tämä sivu tarjoaa yhden, täysin linkitetyn indeksin kaikkeen uutisten tuottamisessa käytettyyn käsityötaitoon.',
+      heroSubtitle: 'Metodologiat, mallit ja päivittäinen analyysin läpinäkyvyys',
+      home: 'Etusivu',
+      breadcrumbCurrent: 'Poliittinen tiedustelu',
+      breadcrumbLabel: 'Navigointipolku',
+      methodologiesHeading: 'Metodologiat',
+      methodologiesDescription:
+        'Arvovaltaiset tradecraft-oppaat — riskinarviointikehykset, tyylistandardit ja 10-vaiheinen tekoälypohjainen analyysiprotokolla.',
+      templatesHeading: 'Analyysipohjat',
+      templatesDescription:
+        'Jokaisessa päivittäisessä analyysiajossa tuotettujen artefaktipohjien luettelo — SWOT, PESTLE, uhkamatriisit, koalitiodynamiikka ja konsekvenssipuut.',
+      dailyHeading: 'Päivittäiset analyysiajot',
+      dailyDescription:
+        'Jokainen julkaistu analyysiajo, ryhmiteltynä päivämäärän mukaan uusimmasta vanhimpaan. Jokainen ajo linkitetään GitHub-puuhun.',
+      statMethodologiesLabel: 'Metodologiat',
+      statTemplatesLabel: 'Pohjat',
+      statRunsLabel: 'Analyysiajot',
+      statArtifactsLabel: 'Artefaktit',
+      viewOnGitHub: 'Näytä GitHubissa',
+      artifactCountLabel: '{count} artefaktia',
+      runsCountLabel: '{count} ajoa',
+    },
+    de: {
+      title: 'Politische Aufklärung',
+      intro:
+        'Jede auf dieser Website veröffentlichte politische Analyse wird durch eine transparente Kette von Methodologien, Artefaktvorlagen und laufbezogenen Analysedaten gestützt. Diese Seite bietet einen einzigen, vollständig verlinkten Index aller Handwerkskunst, die zur Produktion der Nachrichten verwendet wird.',
+      heroSubtitle: 'Methodologien, Vorlagen und tägliche Analyse-Transparenz',
+      home: 'Startseite',
+      breadcrumbCurrent: 'Politische Aufklärung',
+      breadcrumbLabel: 'Breadcrumb',
+      methodologiesHeading: 'Methodologien',
+      methodologiesDescription:
+        'Autoritative Tradecraft-Leitfäden — Risikorahmen, Stilstandards und das 10-Schritte-KI-gestützte Analyseprotokoll.',
+      templatesHeading: 'Analysevorlagen',
+      templatesDescription:
+        'Der Katalog der Artefaktvorlagen, die in jedem täglichen Analyselauf erstellt werden — SWOT, PESTLE, Bedrohungsmatrizen, Koalitionsdynamik und Konsequenzbäume.',
+      dailyHeading: 'Tägliche Analyseläufe',
+      dailyDescription:
+        'Jeder veröffentlichte Analyselauf, nach Datum gruppiert und neueste zuerst sortiert. Jeder Lauf verlinkt auf den vollständigen GitHub-Baum.',
+      statMethodologiesLabel: 'Methodologien',
+      statTemplatesLabel: 'Vorlagen',
+      statRunsLabel: 'Analyseläufe',
+      statArtifactsLabel: 'Artefakte',
+      viewOnGitHub: 'Auf GitHub ansehen',
+      artifactCountLabel: '{count} Artefakte',
+      runsCountLabel: '{count} Läufe',
+    },
+    fr: {
+      title: 'Intelligence politique',
+      intro:
+        "Chaque analyse politique publiée sur ce site s'appuie sur une chaîne transparente de méthodologies, de modèles d'artefacts et de données d'analyse par exécution. Cette page vous offre un index unique, entièrement lié, vers tout le savoir-faire utilisé pour produire les actualités.",
+      heroSubtitle: 'Méthodologies, modèles et transparence des analyses quotidiennes',
+      home: 'Accueil',
+      breadcrumbCurrent: 'Intelligence politique',
+      breadcrumbLabel: "Fil d'Ariane",
+      methodologiesHeading: 'Méthodologies',
+      methodologiesDescription:
+        "Guides de savoir-faire faisant autorité — cadres de risque, normes de style et le protocole d'analyse en 10 étapes piloté par IA.",
+      templatesHeading: "Modèles d'analyse",
+      templatesDescription:
+        "Catalogue des modèles d'artefacts produits dans chaque exécution d'analyse quotidienne — SWOT, PESTLE, matrices de menaces, dynamiques de coalition et arbres de conséquences.",
+      dailyHeading: 'Exécutions d\u2019analyse quotidiennes',
+      dailyDescription:
+        "Chaque exécution d'analyse publiée, regroupée par date et triée du plus récent au plus ancien. Chaque exécution renvoie à l'arbre GitHub complet.",
+      statMethodologiesLabel: 'Méthodologies',
+      statTemplatesLabel: 'Modèles',
+      statRunsLabel: 'Analyses',
+      statArtifactsLabel: 'Artefacts',
+      viewOnGitHub: 'Voir sur GitHub',
+      artifactCountLabel: '{count} artefacts',
+      runsCountLabel: '{count} exécutions',
+    },
+    es: {
+      title: 'Inteligencia política',
+      intro:
+        'Cada análisis político publicado en este sitio se respalda con una cadena transparente de metodologías, plantillas de artefactos y datos de análisis por ejecución. Esta página proporciona un único índice totalmente enlazado con todo el oficio empleado para producir las noticias.',
+      heroSubtitle: 'Metodologías, plantillas y transparencia del análisis diario',
+      home: 'Inicio',
+      breadcrumbCurrent: 'Inteligencia política',
+      breadcrumbLabel: 'Ruta de navegación',
+      methodologiesHeading: 'Metodologías',
+      methodologiesDescription:
+        'Guías autorizadas de oficio — marcos de riesgo, estándares de estilo y el protocolo de análisis impulsado por IA de 10 pasos.',
+      templatesHeading: 'Plantillas de análisis',
+      templatesDescription:
+        'Catálogo de plantillas de artefactos producidas en cada ejecución diaria — SWOT, PESTLE, matrices de amenazas, dinámicas de coalición y árboles de consecuencias.',
+      dailyHeading: 'Ejecuciones de análisis diarias',
+      dailyDescription:
+        'Cada ejecución de análisis publicada, agrupada por fecha y ordenada de más reciente a más antigua. Cada ejecución enlaza al árbol completo de GitHub.',
+      statMethodologiesLabel: 'Metodologías',
+      statTemplatesLabel: 'Plantillas',
+      statRunsLabel: 'Ejecuciones',
+      statArtifactsLabel: 'Artefactos',
+      viewOnGitHub: 'Ver en GitHub',
+      artifactCountLabel: '{count} artefactos',
+      runsCountLabel: '{count} ejecuciones',
+    },
+    nl: {
+      title: 'Politieke intelligentie',
+      intro:
+        'Elke politieke analyse op deze website wordt ondersteund door een transparante keten van methodologieën, artefactsjablonen en analysegegevens per uitvoering. Deze pagina biedt een enkele, volledig gekoppelde index naar al het vakmanschap dat wordt gebruikt om het nieuws te produceren.',
+      heroSubtitle: 'Methodologieën, sjablonen en dagelijkse analysetransparantie',
+      home: 'Home',
+      breadcrumbCurrent: 'Politieke intelligentie',
+      breadcrumbLabel: 'Broodkruimelpad',
+      methodologiesHeading: 'Methodologieën',
+      methodologiesDescription:
+        'Gezaghebbende vakhandboeken — risicoframeworks, stijlstandaarden en het 10-staps AI-gedreven analyseprotocol.',
+      templatesHeading: 'Analysesjablonen',
+      templatesDescription:
+        'De catalogus met artefactsjablonen die in elke dagelijkse analyse-uitvoering worden geproduceerd — SWOT, PESTLE, dreigingsmatrices, coalitiedynamiek en consequentiebomen.',
+      dailyHeading: 'Dagelijkse analyse-uitvoeringen',
+      dailyDescription:
+        'Elke gepubliceerde analyse-uitvoering, gegroepeerd op datum en gesorteerd van nieuwste naar oudste. Elke uitvoering linkt naar de volledige GitHub-boom.',
+      statMethodologiesLabel: 'Methodologieën',
+      statTemplatesLabel: 'Sjablonen',
+      statRunsLabel: 'Uitvoeringen',
+      statArtifactsLabel: 'Artefacten',
+      viewOnGitHub: 'Op GitHub bekijken',
+      artifactCountLabel: '{count} artefacten',
+      runsCountLabel: '{count} uitvoeringen',
+    },
+    ar: {
+      title: 'الاستخبارات السياسية',
+      intro:
+        'كل تحليل سياسي يُنشر على هذا الموقع مدعوم بسلسلة شفافة من المنهجيات وقوالب القطع الأثرية وبيانات التحليل على مستوى التشغيل. توفر هذه الصفحة فهرسًا واحدًا مرتبطًا بالكامل بكل المهارة المستخدمة لإنتاج الأخبار.',
+      heroSubtitle: 'المنهجيات والقوالب وشفافية التحليل اليومي',
+      home: 'الرئيسية',
+      breadcrumbCurrent: 'الاستخبارات السياسية',
+      breadcrumbLabel: 'مسار التنقل',
+      methodologiesHeading: 'المنهجيات',
+      methodologiesDescription:
+        'أدلة احترافية موثوقة — أطر المخاطر ومعايير الأسلوب وبروتوكول التحليل المدعوم بالذكاء الاصطناعي المكون من 10 خطوات.',
+      templatesHeading: 'قوالب التحليل',
+      templatesDescription:
+        'كتالوج قوالب القطع الأثرية المنتجة في كل تشغيل تحليل يومي — SWOT و PESTLE ومصفوفات التهديد وديناميكيات التحالف وأشجار العواقب.',
+      dailyHeading: 'عمليات التحليل اليومية',
+      dailyDescription:
+        'كل عملية تحليل منشورة، مجمعة حسب التاريخ ومرتبة من الأحدث إلى الأقدم. يربط كل تشغيل بشجرة GitHub الكاملة.',
+      statMethodologiesLabel: 'المنهجيات',
+      statTemplatesLabel: 'القوالب',
+      statRunsLabel: 'عمليات التحليل',
+      statArtifactsLabel: 'القطع الأثرية',
+      viewOnGitHub: 'عرض على GitHub',
+      artifactCountLabel: '{count} قطعة أثرية',
+      runsCountLabel: '{count} عمليات',
+    },
+    he: {
+      title: 'מודיעין פוליטי',
+      intro:
+        'כל ניתוח פוליטי המתפרסם באתר זה נתמך בשרשרת שקופה של מתודולוגיות, תבניות ארטיפקטים ונתוני ניתוח ברמת ריצה. עמוד זה מספק אינדקס יחיד ומקושר במלואו לכל המלאכה המשמשת להפקת החדשות.',
+      heroSubtitle: 'מתודולוגיות, תבניות ושקיפות ניתוח יומי',
+      home: 'בית',
+      breadcrumbCurrent: 'מודיעין פוליטי',
+      breadcrumbLabel: 'נתיב ניווט',
+      methodologiesHeading: 'מתודולוגיות',
+      methodologiesDescription:
+        'מדריכי מלאכה מוסמכים — מסגרות סיכון, סטנדרטי סגנון ופרוטוקול ניתוח מונחה בינה מלאכותית בן 10 שלבים.',
+      templatesHeading: 'תבניות ניתוח',
+      templatesDescription:
+        'קטלוג תבניות ארטיפקטים המיוצרות בכל ריצת ניתוח יומית — SWOT, PESTLE, מטריצות איום, דינמיקות קואליציה ועצי השלכות.',
+      dailyHeading: 'ריצות ניתוח יומיות',
+      dailyDescription:
+        'כל ריצת ניתוח שפורסמה, מקובצת לפי תאריך ומסודרת מהחדש ביותר. כל ריצה מקושרת לעץ GitHub המלא.',
+      statMethodologiesLabel: 'מתודולוגיות',
+      statTemplatesLabel: 'תבניות',
+      statRunsLabel: 'ריצות ניתוח',
+      statArtifactsLabel: 'ארטיפקטים',
+      viewOnGitHub: 'הצג ב-GitHub',
+      artifactCountLabel: '{count} ארטיפקטים',
+      runsCountLabel: '{count} ריצות',
+    },
+    ja: {
+      title: '政治インテリジェンス',
+      intro:
+        '当サイトで公開されるすべての政治分析は、透明な方法論・成果物テンプレート・実行レベルの分析データの連鎖に裏付けられています。このページは、ニュースを生み出すために使用されるすべてのトレードクラフトへの単一の、完全にリンクされたインデックスを提供します。',
+      heroSubtitle: '方法論、テンプレート、日次分析の透明性',
+      home: 'ホーム',
+      breadcrumbCurrent: '政治インテリジェンス',
+      breadcrumbLabel: 'パンくずリスト',
+      methodologiesHeading: '方法論',
+      methodologiesDescription:
+        '権威あるトレードクラフトガイド — リスクフレームワーク、スタイル基準、10 ステップの AI 駆動分析プロトコル。',
+      templatesHeading: '分析テンプレート',
+      templatesDescription:
+        '毎日の分析実行で生成される成果物テンプレートのカタログ — SWOT、PESTLE、脅威マトリックス、連携ダイナミクス、結果ツリーなど。',
+      dailyHeading: '日次分析実行',
+      dailyDescription:
+        '公開されたすべての分析実行を日付でグループ化し、新しい順に並べています。各実行は完全な GitHub ツリーにリンクします。',
+      statMethodologiesLabel: '方法論',
+      statTemplatesLabel: 'テンプレート',
+      statRunsLabel: '分析実行',
+      statArtifactsLabel: '成果物',
+      viewOnGitHub: 'GitHub で表示',
+      artifactCountLabel: '{count} 件の成果物',
+      runsCountLabel: '{count} 件の実行',
+    },
+    ko: {
+      title: '정치 정보',
+      intro:
+        '본 사이트에 게시되는 모든 정치 분석은 방법론, 산출물 템플릿, 실행 수준 분석 데이터의 투명한 사슬에 의해 뒷받침됩니다. 이 페이지는 뉴스를 제작하는 데 사용된 모든 기술을 단일하고 완전히 링크된 인덱스로 제공합니다.',
+      heroSubtitle: '방법론, 템플릿 및 일일 분석 투명성',
+      home: '홈',
+      breadcrumbCurrent: '정치 정보',
+      breadcrumbLabel: '이동 경로',
+      methodologiesHeading: '방법론',
+      methodologiesDescription:
+        '권위 있는 트레이드크래프트 가이드 — 위험 프레임워크, 스타일 표준, 10단계 AI 기반 분석 프로토콜.',
+      templatesHeading: '분석 템플릿',
+      templatesDescription:
+        '매일 분석 실행에서 생성되는 산출물 템플릿 카탈로그 — SWOT, PESTLE, 위협 매트릭스, 연합 역학, 결과 트리.',
+      dailyHeading: '일일 분석 실행',
+      dailyDescription:
+        '게시된 모든 분석 실행을 날짜별로 그룹화하여 최신순으로 정렬합니다. 각 실행은 전체 GitHub 트리로 연결됩니다.',
+      statMethodologiesLabel: '방법론',
+      statTemplatesLabel: '템플릿',
+      statRunsLabel: '분석 실행',
+      statArtifactsLabel: '산출물',
+      viewOnGitHub: 'GitHub에서 보기',
+      artifactCountLabel: '{count}개 산출물',
+      runsCountLabel: '{count}회 실행',
+    },
+    zh: {
+      title: '政治情报',
+      intro:
+        '本网站上发布的每一篇政治分析都由方法论、工件模板和运行级分析数据的透明链条所支撑。本页面提供了一个单一、完全链接的索引,指向用于生成新闻的所有工艺。',
+      heroSubtitle: '方法论、模板和每日分析透明度',
+      home: '首页',
+      breadcrumbCurrent: '政治情报',
+      breadcrumbLabel: '面包屑导航',
+      methodologiesHeading: '方法论',
+      methodologiesDescription:
+        '权威的工艺指南 — 风险框架、风格标准,以及每篇文章遵循的 10 步 AI 驱动分析协议。',
+      templatesHeading: '分析模板',
+      templatesDescription:
+        '每次日常分析运行中产生的工件模板目录 — SWOT、PESTLE、威胁矩阵、联盟动态和后果树。',
+      dailyHeading: '每日分析运行',
+      dailyDescription:
+        '每次发布的分析运行,按日期分组并按最新优先排序。每次运行都链接到完整的 GitHub 树。',
+      statMethodologiesLabel: '方法论',
+      statTemplatesLabel: '模板',
+      statRunsLabel: '分析运行',
+      statArtifactsLabel: '工件',
+      viewOnGitHub: '在 GitHub 上查看',
+      artifactCountLabel: '{count} 个工件',
+      runsCountLabel: '{count} 次运行',
+    },
   };
 })();
 
@@ -755,9 +760,7 @@ export function parseMarkdownMeta(
  * @returns Title-cased stem with dashes/underscores replaced by spaces
  */
 function humanize(stem: string): string {
-  return stem
-    .replace(/[-_]+/g, ' ')
-    .replace(/\b\w/g, (c) => c.toUpperCase());
+  return stem.replace(/[-_]+/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
 /**
@@ -768,7 +771,10 @@ function humanize(stem: string): string {
  * @returns Fully-populated {@link PIPageData}
  */
 export function collectPoliticalIntelligenceData(rootDir: string = PROJECT_ROOT): PIPageData {
-  const methodologies = collectDocumentList(path.join(rootDir, 'analysis', 'methodologies'), rootDir);
+  const methodologies = collectDocumentList(
+    path.join(rootDir, 'analysis', 'methodologies'),
+    rootDir
+  );
   const templates = collectDocumentList(path.join(rootDir, 'analysis', 'templates'), rootDir);
   const dailyGroups = collectDailyGroups(path.join(rootDir, 'analysis', 'daily'), rootDir);
   return { methodologies, templates, dailyGroups };
@@ -842,10 +848,7 @@ function collectDailyGroups(dailyDir: string, rootDir: string): PIDailyDateGroup
       const runDir = path.join(dateDir, slug);
       const artifactCount = countMarkdownFiles(runDir);
       if (artifactCount === 0) continue;
-      const relPath = path
-        .relative(rootDir, runDir)
-        .split(path.sep)
-        .join('/');
+      const relPath = path.relative(rootDir, runDir).split(path.sep).join('/');
       runs.push({
         slug,
         artifactCount,
@@ -894,9 +897,7 @@ function countMarkdownFiles(dir: string): number {
  */
 function renderDocumentCard(doc: PIDocument, viewOnGitHub: string): string {
   const url = githubBlobUrl(doc.relPath);
-  const desc = doc.description
-    ? `<p class="pi-card__desc">${escapeHTML(doc.description)}</p>`
-    : '';
+  const desc = doc.description ? `<p class="pi-card__desc">${escapeHTML(doc.description)}</p>` : '';
   return `          <li class="pi-card">
             <a class="pi-card__link" href="${escapeHTML(url)}" rel="noopener external" target="_blank">
               <span class="pi-card__icon" aria-hidden="true">${doc.icon}</span>
@@ -956,7 +957,8 @@ ${runCards}
  */
 export function generatePoliticalIntelligenceHTML(lang: string, data: PIPageData): string {
   const copy = getPICopy(lang);
-  const siteTitle = getLocalizedString(PAGE_TITLES, lang).split(' - ')[0] ?? 'EU Parliament Monitor';
+  const siteTitle =
+    getLocalizedString(PAGE_TITLES, lang).split(' - ')[0] ?? 'EU Parliament Monitor';
   const pageTitle = `${siteTitle} - ${copy.title}`;
   const description = copy.intro;
   const skipLinkText = getLocalizedString(SKIP_LINK_TEXTS, lang);
