@@ -138,7 +138,7 @@ analytical section fails the completeness gate.
 | Forecast / scenarios | `intelligence/scenario-forecast.md` | `intelligence/wildcards-blackswans.md` |
 | PESTLE / policy context | `intelligence/pestle-analysis.md` | `intelligence/historical-baseline.md` |
 | Economic context block (Wave-2) | `intelligence/economic-context.md` | `analysis/methodologies/worldbank-indicator-mapping.md`, `analysis/methodologies/imf-indicator-mapping.md` |
-| Threat-model callout | `intelligence/threat-model.md` | `threat-assessment/political-stride-assessment.md` |
+| Threat-model callout | `intelligence/threat-model.md` OR `intelligence/political-threat-landscape.md` | `threat-assessment/actor-threat-profiles.md` |
 | Voting-pattern chart | `existing/voting-patterns.md` | `intelligence/coalition-dynamics.md` |
 | Cross-session continuity | `existing/cross-session-intelligence.md`, `existing/cross-run-diff.md` | `existing/session-baseline.md` |
 | Transparency footer | all `manifest.files.*` entries (linked via `renderAnalysisTransparencySection`) | `intelligence/analysis-index.md` |
