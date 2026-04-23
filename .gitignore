@@ -163,3 +163,4 @@ final-index-redesign.png
 # Generated per-run by the Analysis-First Pipeline Stage (Issue 4).
 # Committed to analysis/{date}/ so artifacts can be reviewed, compared, and refined.
 builds/
+tmp-work/

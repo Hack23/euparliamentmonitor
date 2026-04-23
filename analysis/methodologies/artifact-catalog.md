@@ -70,12 +70,11 @@ flowchart LR
         K3["political-capital-risk"]
         K4["legislative-velocity-risk"]
     end
-    subgraph THREAT["🎭 threat-assessment/ — 5 artifacts"]
+    subgraph THREAT["🎭 threat-assessment/ — 4 artifacts"]
         T1["political-threat-landscape"]
         T2["actor-threat-profiles"]
         T3["consequence-trees"]
         T4["legislative-disruption"]
-        T5["political-stride-assessment"]
     end
     subgraph DOCS["📄 documents/ — 1 artifact"]
         D1["document-analysis-index"]
@@ -199,7 +198,6 @@ Produced for runs that emphasise democratic-threat or integrity-threat angles (t
 | `threat-assessment/actor-threat-profiles.md` | Per-actor threat profile: intent, capability, opportunity, attack surface. | [per-artifact-methodologies.md §actor-threat-profiles](per-artifact-methodologies.md#actor-threat-profiles) + [political-threat-framework.md §Diamond](political-threat-framework.md) | [actor-threat-profiles.md](../templates/actor-threat-profiles.md) | *flat 30* | graph LR (actor × asset) |
 | `threat-assessment/consequence-trees.md` | Consequence tree per threat: action → first-order → second-order → democratic outcome. | [per-artifact-methodologies.md §consequence-trees](per-artifact-methodologies.md#consequence-trees) | [consequence-trees.md](../templates/consequence-trees.md) | *flat 30* | graph TD (tree) |
 | `threat-assessment/legislative-disruption.md` | How adversarial pressure could stall, redirect, or capture specific procedures. | [per-artifact-methodologies.md §legislative-disruption](per-artifact-methodologies.md#legislative-disruption) | [legislative-disruption.md](../templates/legislative-disruption.md) | *flat 30* | flowchart LR (procedure + disruptor) |
-| `threat-assessment/political-stride-assessment.md` | STRIDE mapped onto political actors (Spoofing → identity manipulation, etc.). | [per-artifact-methodologies.md §political-stride-assessment](per-artifact-methodologies.md#political-stride-assessment) | [political-stride-assessment.md](../templates/political-stride-assessment.md) | *flat 30* | graph LR (STRIDE × actor) |
 
 ---
 

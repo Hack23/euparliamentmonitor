@@ -670,24 +670,6 @@ Artifacts marked below with **"Source grade × WEP discipline (tradecraft)"** ma
 
 ---
 
-### political-stride-assessment
-
-**Purpose.** STRIDE reinterpreted for political actors — Spoofing (identity manipulation) / Tampering (procedural tampering) / Repudiation / Information disclosure / Denial of service (obstruction) / Elevation of privilege (rule gaming).
-
-**Required sections.**
-1. STRIDE × Actor matrix — each STRIDE letter × each named actor category.
-2. Per-cell threat narrative — ≥50 words per non-empty cell.
-3. Residual risk after existing EP safeguards.
-4. Priority of mitigations.
-
-**Mandatory Mermaid.** `graph LR` STRIDE node × actor nodes with edges showing exposure.
-
-**Depth floor (breaking):** flat 30 lines.
-
-**Quality signals.** Political STRIDE letters are defined in this file (not copy-pasted from software STRIDE) — the threats stay institutional.
-
----
-
 ## 📄 documents/
 
 ### document-analysis-index

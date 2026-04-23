@@ -156,7 +156,7 @@ Turn facts into quantified political risk.
 Turn quantified risk into forward-looking intelligence.
 
 1. Write `intelligence/threat-model.md` — Diamond Model + Attack Trees + Kill Chain on the period's top democratic threats (per [`political-threat-framework.md`](political-threat-framework.md)). Political threats only, never software-centric.
-2. Write `intelligence/political-threat-landscape.md` (the 6-dimension Threat Landscape view). For threat-heavy article types, also expand into `threat-assessment/actor-threat-profiles.md`, `threat-assessment/consequence-trees.md`, `threat-assessment/legislative-disruption.md`, and `threat-assessment/political-stride-assessment.md`.
+2. Write `intelligence/political-threat-landscape.md` (the 6-dimension Threat Landscape view using the 5-framework integrated methodology from `political-threat-framework.md`). For threat-heavy article types, also expand into `threat-assessment/actor-threat-profiles.md`, `threat-assessment/consequence-trees.md`, and `threat-assessment/legislative-disruption.md`.
 3. Write `intelligence/scenario-forecast.md` — ≥3 probability-weighted scenarios (baseline → branching `flowchart TD` in green / orange / red) with early-warning indicators and date-bounded triggers.
 4. Write `intelligence/pestle-analysis.md` — six-dimension (P·E·S·T·L·E) scan with pressure ratings.
 5. Write `intelligence/economic-context.md` using World Bank and / or IMF data (Wave-2 OR-gate — either source satisfies the requirement; see [`.github/skills/imf-data-integration.md`](../../.github/skills/imf-data-integration.md)). Bridge every indicator to a named EP policy topic from the run.
