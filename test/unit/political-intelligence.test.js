@@ -136,17 +136,17 @@ describe('political-intelligence generator', () => {
       // Templates
       mk('analysis/templates/README.md', '# Template Catalog\n\nAll artifact templates.\n');
       mk('analysis/templates/swot-template.md', '# SWOT Template\n\nQuantitative SWOT.\n');
-      mk('analysis/templates/pestle-template.md', '# PESTLE Template\n\nPolitical/economic analysis.\n');
+      mk(
+        'analysis/templates/pestle-template.md',
+        '# PESTLE Template\n\nPolitical/economic analysis.\n'
+      );
 
       // Daily runs — two dates, newest first
       mk(
         'analysis/daily/2026-04-22/breaking-run1/data/agent-pre-work.md',
         '# Agent Pre-Work\n\nNotes.\n'
       );
-      mk(
-        'analysis/daily/2026-04-22/breaking-run1/intelligence/swot.md',
-        '# SWOT\n\nData.\n'
-      );
+      mk('analysis/daily/2026-04-22/breaking-run1/intelligence/swot.md', '# SWOT\n\nData.\n');
       mk(
         'analysis/daily/2026-04-21/motions-run7/intelligence/summary.md',
         '# Summary\n\nPolitical motion summary.\n'
@@ -215,17 +215,23 @@ describe('political-intelligence generator', () => {
 
       // Content sections
       expect(html).toContain('Politisk underrättelse'); // Swedish title
-      expect(html).toContain('href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/risk-scoring.md"');
-      expect(html).toContain('href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/swot-template.md"');
-      expect(html).toContain('href="https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-22/breaking-run1"');
+      expect(html).toContain(
+        'href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/risk-scoring.md"'
+      );
+      expect(html).toContain(
+        'href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/swot-template.md"'
+      );
+      expect(html).toContain(
+        'href="https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-22/breaking-run1"'
+      );
 
       // Stats
       expect(html).toContain('<dd>2</dd>'); // methodologies count
       expect(html).toContain('<dd>3</dd>'); // templates count
 
-      // Footer must point at language-specific sitemap variant
-      expect(html).toContain('<a href="sitemap_sv.html">Sitemap</a>');
-      expect(html).toContain('<a href="index-sv.html">');
+      // Footer must point at language-specific sitemap variant with localized label
+      expect(html).toContain('<a href="sitemap_sv.html">Webbplatskarta</a>');
+      expect(html).toContain('<a href="index-sv.html">Hem</a>');
     });
 
     it('emits a valid English variant with the bare filename in canonical + JSON-LD urls', () => {

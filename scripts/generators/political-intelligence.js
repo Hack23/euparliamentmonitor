@@ -58,6 +58,9 @@ const DEFAULT_COPY = {
     methodologiesDescription: 'Authoritative tradecraft guides — risk frameworks, style standards, and the 10-step AI-driven analysis protocol that every article follows.',
     templatesHeading: 'Analysis Templates',
     templatesDescription: 'The catalog of artifact templates produced in every daily analysis run — SWOT, PESTLE, threat matrices, coalition dynamics, consequence trees, and more.',
+    referenceHeading: 'Reference & Data Sources',
+    referenceDescription: 'ISMS reference adaptations, indicator catalogs, EU country mappings, chart-integration guides, and use-cases from the IMF and World Bank data pipelines — the authoritative sources behind every economic, governance, and risk chart.',
+    statReferenceLabel: 'References',
     dailyHeading: 'Daily Analysis Runs',
     dailyDescription: 'Every published analysis run, grouped by date and ordered newest first. Each run links to the full GitHub tree so you can inspect every artifact file that fed the corresponding article.',
     statMethodologiesLabel: 'Methodologies',
@@ -86,6 +89,9 @@ const PI_COPY = (() => {
             methodologiesDescription: 'Auktoritativa tradecraft-guider — riskramverk, stilstandarder och det 10-stegs AI-drivna analysprotokollet som varje artikel följer.',
             templatesHeading: 'Analysmallar',
             templatesDescription: 'Katalogen över artefaktmallar som produceras i varje daglig analyskörning — SWOT, PESTLE, hotmatriser, koalitionsdynamik, konsekvensträd med mera.',
+            referenceHeading: 'Referenser och datakällor',
+            referenceDescription: 'ISMS-referensanpassningar, indikatorkataloger, EU-landkartläggningar och diagramguider bakom varje IMF- och Världsbanken-källa.',
+            statReferenceLabel: 'Referenser',
             dailyHeading: 'Dagliga analyskörningar',
             dailyDescription: 'Varje publicerad analyskörning, grupperad efter datum och ordnad med nyaste först. Varje körning länkar till hela GitHub-trädet så att du kan granska varje artefaktfil som matade motsvarande artikel.',
             statMethodologiesLabel: SV_METHODOLOGIES,
@@ -107,6 +113,9 @@ const PI_COPY = (() => {
             methodologiesDescription: 'Autoritative tradecraft-guider — risikorammer, stilstandarder og den 10-trins AI-drevne analyseprotokol, som hver artikel følger.',
             templatesHeading: 'Analyseskabeloner',
             templatesDescription: 'Kataloget over artefaktskabeloner, der produceres i hver daglig analysekørsel — SWOT, PESTLE, trusselsmatricer, koalitionsdynamikker, konsekvenstræer med mere.',
+            referenceHeading: 'Referencer og datakilder',
+            referenceDescription: 'ISMS-referencetilpasninger, indikatorkataloger, EU-landkortlægninger og diagramguider bag hver IMF- og Verdensbanken-kilde.',
+            statReferenceLabel: 'Referencer',
             dailyHeading: 'Daglige analysekørsler',
             dailyDescription: 'Hver udgivet analysekørsel, grupperet efter dato og ordnet nyeste først. Hver kørsel linker til hele GitHub-træet.',
             statMethodologiesLabel: 'Metoder',
@@ -128,6 +137,9 @@ const PI_COPY = (() => {
             methodologiesDescription: 'Autoritative tradecraft-guider — risikorammer, stilstandarder og den 10-stegs AI-drevne analyseprotokollen som hver artikkel følger.',
             templatesHeading: 'Analysemaler',
             templatesDescription: 'Katalogen over artefaktmaler som produseres i hver daglige analysekjøring — SWOT, PESTLE, trusselmatriser, koalisjonsdynamikk, konsekvenstrær og mer.',
+            referenceHeading: 'Referanser og datakilder',
+            referenceDescription: 'ISMS-referansetilpasninger, indikatorkataloger, EU-landkartlegginger og diagramveiledere bak hver IMF- og Verdensbanken-kilde.',
+            statReferenceLabel: 'Referanser',
             dailyHeading: 'Daglige analysekjøringer',
             dailyDescription: 'Hver publiserte analysekjøring, gruppert etter dato og sortert nyeste først. Hver kjøring lenker til hele GitHub-treet.',
             statMethodologiesLabel: NO_METHODOLOGIES,
@@ -149,6 +161,9 @@ const PI_COPY = (() => {
             methodologiesDescription: 'Arvovaltaiset tradecraft-oppaat — riskinarviointikehykset, tyylistandardit ja 10-vaiheinen tekoälypohjainen analyysiprotokolla.',
             templatesHeading: 'Analyysipohjat',
             templatesDescription: 'Jokaisessa päivittäisessä analyysiajossa tuotettujen artefaktipohjien luettelo — SWOT, PESTLE, uhkamatriisit, koalitiodynamiikka ja konsekvenssipuut.',
+            referenceHeading: 'Viitteet ja tietolähteet',
+            referenceDescription: 'ISMS-viiteadaptaatiot, indikaattoriluettelot, EU-maakartoitukset ja kaavio-integraatio-oppaat jokaisen IMF- ja Maailmanpankki-lähteen takana.',
+            statReferenceLabel: 'Viitteet',
             dailyHeading: 'Päivittäiset analyysiajot',
             dailyDescription: 'Jokainen julkaistu analyysiajo, ryhmiteltynä päivämäärän mukaan uusimmasta vanhimpaan. Jokainen ajo linkitetään GitHub-puuhun.',
             statMethodologiesLabel: 'Metodologiat',
@@ -170,6 +185,9 @@ const PI_COPY = (() => {
             methodologiesDescription: 'Autoritative Tradecraft-Leitfäden — Risikorahmen, Stilstandards und das 10-Schritte-KI-gestützte Analyseprotokoll.',
             templatesHeading: 'Analysevorlagen',
             templatesDescription: 'Der Katalog der Artefaktvorlagen, die in jedem täglichen Analyselauf erstellt werden — SWOT, PESTLE, Bedrohungsmatrizen, Koalitionsdynamik und Konsequenzbäume.',
+            referenceHeading: 'Referenzen und Datenquellen',
+            referenceDescription: 'ISMS-Referenzanpassungen, Indikatorkataloge, EU-Länderzuordnungen und Diagramm-Integrationsleitfäden hinter jeder IMF- und Weltbank-Quelle.',
+            statReferenceLabel: 'Referenzen',
             dailyHeading: 'Tägliche Analyseläufe',
             dailyDescription: 'Jeder veröffentlichte Analyselauf, nach Datum gruppiert und neueste zuerst sortiert. Jeder Lauf verlinkt auf den vollständigen GitHub-Baum.',
             statMethodologiesLabel: 'Methodologien',
@@ -191,6 +209,9 @@ const PI_COPY = (() => {
             methodologiesDescription: "Guides de savoir-faire faisant autorité — cadres de risque, normes de style et le protocole d'analyse en 10 étapes piloté par IA.",
             templatesHeading: "Modèles d'analyse",
             templatesDescription: "Catalogue des modèles d'artefacts produits dans chaque exécution d'analyse quotidienne — SWOT, PESTLE, matrices de menaces, dynamiques de coalition et arbres de conséquences.",
+            referenceHeading: 'Références et sources de données',
+            referenceDescription: "Adaptations de référence ISMS, catalogues d'indicateurs, mappages des pays de l'UE et guides d'intégration de graphiques derrière chaque source FMI et Banque mondiale.",
+            statReferenceLabel: 'Références',
             dailyHeading: 'Exécutions d\u2019analyse quotidiennes',
             dailyDescription: "Chaque exécution d'analyse publiée, regroupée par date et triée du plus récent au plus ancien. Chaque exécution renvoie à l'arbre GitHub complet.",
             statMethodologiesLabel: 'Méthodologies',
@@ -212,6 +233,9 @@ const PI_COPY = (() => {
             methodologiesDescription: 'Guías autorizadas de oficio — marcos de riesgo, estándares de estilo y el protocolo de análisis impulsado por IA de 10 pasos.',
             templatesHeading: 'Plantillas de análisis',
             templatesDescription: 'Catálogo de plantillas de artefactos producidas en cada ejecución diaria — SWOT, PESTLE, matrices de amenazas, dinámicas de coalición y árboles de consecuencias.',
+            referenceHeading: 'Referencias y fuentes de datos',
+            referenceDescription: 'Adaptaciones de referencia ISMS, catálogos de indicadores, mapeos de países de la UE y guías de integración de gráficos detrás de cada fuente del FMI y del Banco Mundial.',
+            statReferenceLabel: 'Referencias',
             dailyHeading: 'Ejecuciones de análisis diarias',
             dailyDescription: 'Cada ejecución de análisis publicada, agrupada por fecha y ordenada de más reciente a más antigua. Cada ejecución enlaza al árbol completo de GitHub.',
             statMethodologiesLabel: 'Metodologías',
@@ -233,6 +257,9 @@ const PI_COPY = (() => {
             methodologiesDescription: 'Gezaghebbende vakhandboeken — risicoframeworks, stijlstandaarden en het 10-staps AI-gedreven analyseprotocol.',
             templatesHeading: 'Analysesjablonen',
             templatesDescription: 'De catalogus met artefactsjablonen die in elke dagelijkse analyse-uitvoering worden geproduceerd — SWOT, PESTLE, dreigingsmatrices, coalitiedynamiek en consequentiebomen.',
+            referenceHeading: 'Referenties en gegevensbronnen',
+            referenceDescription: 'ISMS-referentieadaptaties, indicatorcatalogi, EU-landmappings en grafiekintegratiegidsen achter elke IMF- en Wereldbank-bron.',
+            statReferenceLabel: 'Referenties',
             dailyHeading: 'Dagelijkse analyse-uitvoeringen',
             dailyDescription: 'Elke gepubliceerde analyse-uitvoering, gegroepeerd op datum en gesorteerd van nieuwste naar oudste. Elke uitvoering linkt naar de volledige GitHub-boom.',
             statMethodologiesLabel: 'Methodologieën',
@@ -254,6 +281,9 @@ const PI_COPY = (() => {
             methodologiesDescription: 'أدلة احترافية موثوقة — أطر المخاطر ومعايير الأسلوب وبروتوكول التحليل المدعوم بالذكاء الاصطناعي المكون من 10 خطوات.',
             templatesHeading: 'قوالب التحليل',
             templatesDescription: 'كتالوج قوالب القطع الأثرية المنتجة في كل تشغيل تحليل يومي — SWOT و PESTLE ومصفوفات التهديد وديناميكيات التحالف وأشجار العواقب.',
+            referenceHeading: 'المراجع ومصادر البيانات',
+            referenceDescription: 'تكييفات مرجعية ISMS وكتالوجات المؤشرات وخرائط دول الاتحاد الأوروبي وأدلة دمج المخططات خلف كل مصدر من صندوق النقد الدولي والبنك الدولي.',
+            statReferenceLabel: 'المراجع',
             dailyHeading: 'عمليات التحليل اليومية',
             dailyDescription: 'كل عملية تحليل منشورة، مجمعة حسب التاريخ ومرتبة من الأحدث إلى الأقدم. يربط كل تشغيل بشجرة GitHub الكاملة.',
             statMethodologiesLabel: 'المنهجيات',
@@ -275,6 +305,9 @@ const PI_COPY = (() => {
             methodologiesDescription: 'מדריכי מלאכה מוסמכים — מסגרות סיכון, סטנדרטי סגנון ופרוטוקול ניתוח מונחה בינה מלאכותית בן 10 שלבים.',
             templatesHeading: 'תבניות ניתוח',
             templatesDescription: 'קטלוג תבניות ארטיפקטים המיוצרות בכל ריצת ניתוח יומית — SWOT, PESTLE, מטריצות איום, דינמיקות קואליציה ועצי השלכות.',
+            referenceHeading: 'הפניות ומקורות נתונים',
+            referenceDescription: 'התאמות ייחוס ISMS, קטלוגי אינדיקטורים, מיפויי מדינות האיחוד האירופי ומדריכי שילוב תרשימים מאחורי כל מקור של קרן המטבע הבינלאומית והבנק העולמי.',
+            statReferenceLabel: 'הפניות',
             dailyHeading: 'ריצות ניתוח יומיות',
             dailyDescription: 'כל ריצת ניתוח שפורסמה, מקובצת לפי תאריך ומסודרת מהחדש ביותר. כל ריצה מקושרת לעץ GitHub המלא.',
             statMethodologiesLabel: 'מתודולוגיות',
@@ -296,6 +329,9 @@ const PI_COPY = (() => {
             methodologiesDescription: '権威あるトレードクラフトガイド — リスクフレームワーク、スタイル基準、10 ステップの AI 駆動分析プロトコル。',
             templatesHeading: '分析テンプレート',
             templatesDescription: '毎日の分析実行で生成される成果物テンプレートのカタログ — SWOT、PESTLE、脅威マトリックス、連携ダイナミクス、結果ツリーなど。',
+            referenceHeading: '参照とデータソース',
+            referenceDescription: 'ISMS参照適応、指標カタログ、EU各国マッピング、および IMF と世界銀行のデータパイプラインの背後にあるチャート統合ガイド。',
+            statReferenceLabel: '参照',
             dailyHeading: '日次分析実行',
             dailyDescription: '公開されたすべての分析実行を日付でグループ化し、新しい順に並べています。各実行は完全な GitHub ツリーにリンクします。',
             statMethodologiesLabel: '方法論',
@@ -317,6 +353,9 @@ const PI_COPY = (() => {
             methodologiesDescription: '권위 있는 트레이드크래프트 가이드 — 위험 프레임워크, 스타일 표준, 10단계 AI 기반 분석 프로토콜.',
             templatesHeading: '분석 템플릿',
             templatesDescription: '매일 분석 실행에서 생성되는 산출물 템플릿 카탈로그 — SWOT, PESTLE, 위협 매트릭스, 연합 역학, 결과 트리.',
+            referenceHeading: '참조 및 데이터 출처',
+            referenceDescription: 'ISMS 참조 적응, 지표 카탈로그, EU 국가 매핑, IMF 및 세계은행 데이터 파이프라인의 차트 통합 가이드.',
+            statReferenceLabel: '참조',
             dailyHeading: '일일 분석 실행',
             dailyDescription: '게시된 모든 분석 실행을 날짜별로 그룹화하여 최신순으로 정렬합니다. 각 실행은 전체 GitHub 트리로 연결됩니다.',
             statMethodologiesLabel: '방법론',
@@ -338,6 +377,9 @@ const PI_COPY = (() => {
             methodologiesDescription: '权威的工艺指南 — 风险框架、风格标准,以及每篇文章遵循的 10 步 AI 驱动分析协议。',
             templatesHeading: '分析模板',
             templatesDescription: '每次日常分析运行中产生的工件模板目录 — SWOT、PESTLE、威胁矩阵、联盟动态和后果树。',
+            referenceHeading: '参考与数据源',
+            referenceDescription: 'ISMS 参考适配、指标目录、欧盟国家映射以及 IMF 和世界银行数据管道背后的图表集成指南。',
+            statReferenceLabel: '参考',
             dailyHeading: '每日分析运行',
             dailyDescription: '每次发布的分析运行,按日期分组并按最新优先排序。每次运行都链接到完整的 GitHub 树。',
             statMethodologiesLabel: '方法论',
@@ -622,8 +664,41 @@ function humanize(stem) {
 export function collectPoliticalIntelligenceData(rootDir = PROJECT_ROOT) {
     const methodologies = collectDocumentList(path.join(rootDir, 'analysis', 'methodologies'), rootDir);
     const templates = collectDocumentList(path.join(rootDir, 'analysis', 'templates'), rootDir);
+    const referenceDocs = collectReferenceDocs(rootDir);
     const dailyGroups = collectDailyGroups(path.join(rootDir, 'analysis', 'daily'), rootDir);
-    return { methodologies, templates, dailyGroups };
+    return { methodologies, templates, referenceDocs, dailyGroups };
+}
+/**
+ * Collect documentation from the auxiliary reference directories:
+ * `analysis/reference/`, `analysis/imf/`, and `analysis/worldbank/`.
+ *
+ * Each collected file's stem is prefixed with the source directory name
+ * (e.g. `imf/indicator-catalog`) so the icon picker can disambiguate and
+ * readers can see the source in the PIDocument listing.
+ *
+ * @param rootDir - Repository root
+ * @returns Merged list of reference PIDocument entries, sorted by source then name
+ */
+function collectReferenceDocs(rootDir) {
+    const sources = ['reference', 'imf', 'worldbank'];
+    const result = [];
+    for (const source of sources) {
+        const dir = path.join(rootDir, 'analysis', source);
+        if (!fs.existsSync(dir))
+            continue;
+        const docs = collectDocumentList(dir, rootDir);
+        // Tag the stem with source so duplicates (e.g. `indicator-catalog` exists
+        // in both `imf/` and `worldbank/`) sort and render distinctly.
+        for (const doc of docs) {
+            result.push({
+                ...doc,
+                stem: `${source}/${doc.stem}`,
+            });
+        }
+    }
+    // Source-group ordering: reference, imf, worldbank (preserve insertion order)
+    // and within each group keep README-first alphabetical from collectDocumentList.
+    return result;
 }
 /**
  * Collect every `.md` file in `dir` (non-recursive) and build PIDocument entries.
@@ -838,6 +913,9 @@ export function generatePoliticalIntelligenceHTML(lang, data) {
     const templatesList = data.templates
         .map((d) => renderDocumentCard(d, copy.viewOnGitHub))
         .join('\n');
+    const referenceList = data.referenceDocs
+        .map((d) => renderDocumentCard(d, copy.viewOnGitHub))
+        .join('\n');
     const dailyBody = data.dailyGroups.length === 0
         ? ''
         : data.dailyGroups.map((g) => renderDailyGroup(g, copy)).join('\n');
@@ -863,7 +941,7 @@ export function generatePoliticalIntelligenceHTML(lang, data) {
         },
         mainEntity: {
             '@type': 'ItemList',
-            numberOfItems: data.methodologies.length + data.templates.length,
+            numberOfItems: data.methodologies.length + data.templates.length + data.referenceDocs.length,
             name: copy.title,
         },
     };
@@ -941,6 +1019,10 @@ ${hreflangLinks}
           <dd>${data.templates.length}</dd>
         </div>
         <div class="sitemap-stats__item">
+          <dt>${escapeHTML(copy.statReferenceLabel)}</dt>
+          <dd>${data.referenceDocs.length}</dd>
+        </div>
+        <div class="sitemap-stats__item">
           <dt>${escapeHTML(copy.statRunsLabel)}</dt>
           <dd>${totalRuns}</dd>
         </div>
@@ -972,6 +1054,14 @@ ${methodologiesList}
       <p class="section-description">${escapeHTML(copy.templatesDescription)}</p>
       <ul class="pi-card-grid">
 ${templatesList}
+      </ul>
+    </section>
+
+    <section class="sitemap-section pi-section" aria-labelledby="pi-reference">
+      <h2 id="pi-reference"><span aria-hidden="true">📚</span> ${escapeHTML(copy.referenceHeading)}</h2>
+      <p class="section-description">${escapeHTML(copy.referenceDescription)}</p>
+      <ul class="pi-card-grid">
+${referenceList}
       </ul>
     </section>
 
