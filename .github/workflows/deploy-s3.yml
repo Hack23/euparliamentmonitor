@@ -91,12 +91,12 @@ jobs:
           node-version: '25'
           cache: 'npm'
 
-      - name: Generate derived files (indexes, metadata, sitemap)
+      - name: Generate derived files (indexes, metadata, sitemap, political-intelligence)
         run: |
           npm ci
           npm run prebuild
           rm -rf node_modules
-          echo "✅ Generated index files, articles-metadata.json, and sitemap.xml"
+          echo "✅ Generated index files, articles-metadata.json, sitemap.xml, sitemap_*.html, and political-intelligence_*.html"
 
       - name: Normalise CSP in legacy news articles
         run: |
