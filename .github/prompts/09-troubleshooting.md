@@ -61,12 +61,51 @@ inside the workflow `.md`.
 
 | Symptom | Root cause | Fix |
 |---------|-----------|-----|
-| `Streamable HTTP error: Error POSTing to endpoint: session not found` on `safeoutputs___create_pull_request` at end-of-run | safeoutputs MCP HTTP session (`http://localhost:3001/`) idled out. **Two known triggers:** (a) a banned heartbeat/keep-alive pattern that the sandbox eventually kills, OR (b) no safeoutputs tool calls issued for ≳ 30 minutes — agent activity on other tools does **not** refresh it. Observed in [run 24818921747](https://github.com/Hack23/euparliamentmonitor/actions/runs/24818921747): Stage B took ~28 min of pure model output + file `create`, then the single end-of-run PR call failed with session-not-found. The server's Streamable HTTP session GC is not configurable from the workflow side. | You cannot recover mid-run — the analysis branch is already committed locally but cannot be pushed via safeoutputs. **Prevention**: keep total agent wall-clock from start to the single PR call **under 28 minutes** (matching the 22–27 min active-work budget in the workflow table). Practical levers: (1) trim redundant Stage B Pass-2 file-re-reads; (2) commit + `SINGLE_PR_ATTESTATION` as soon as Stage C gate is GREEN — do **not** append further post-gate manifest edits that push the call past the TTL; (3) if Stage B naturally runs long for an article type, reduce `--analysis-methods=all` scope in the wrap-up invocation. Do **not** add heartbeats — those are lint-banned and kill the session faster. |
+| `Streamable HTTP error: Error POSTing to endpoint: session not found` on `safeoutputs___create_pull_request` at end-of-run | safeoutputs MCP HTTP session (`localhost:3001`) reaped after ~28–30 min of no safeoutputs calls, OR killed earlier by a banned heartbeat pattern. See §5a below for full context. | Keep total wall-clock from agent start to the single PR call **under 28 minutes**. See §5a for levers. |
 | `container awf-api-proxy is unhealthy` | Transient AWF sandbox infra flake | Re-run the workflow; not a config bug. |
 | `Expected ',' or '}' after property value in JSON` in Copilot `edit` | `old_str`/`new_str` > ~30 lines / ~5 KB | Regenerate via TS generator, split into ≤ 20-line edits. **Do NOT fall back to `cat > file << EOF` heredocs** — see next row. Prefer the native `create` / `Write` file tool (e.g. the Copilot CLI `Create <path>` action that successfully wrote artifacts in [run 24805100070](https://github.com/Hack23/euparliamentmonitor/actions/runs/24805100070)). |
 | `Command not executed. The 'kill' command must specify at least one numeric PID. Usage: kill <PID> or kill -9 <PID>` in response to a `cat > file << 'EOF'` heredoc | **Copilot CLI bash-safety filter false-positive** — the filter scans the entire heredoc body for dangerous-command tokens. Political-analysis content routinely contains the literal word *"kill"* (e.g. *"motion to kill the bill"*, *"amendment killed in committee"*), which matches the bare-`kill`-no-PID pattern and rejects the entire write. Observed in cancelled [run 24805100070](https://github.com/Hack23/euparliamentmonitor/actions/runs/24805100070#step:27:20) at Stage B. | **Never use `cat > file << 'EOF'` to write analysis artifacts or article prose.** Use the native `create` / `Write` file tool available in the Copilot CLI — it bypasses the bash filter entirely. `cat > file` is still safe for short, keyword-free files (e.g. copying one artifact to `existing/`, writing `manifest.json` via `jq`). |
 | `Base branch override is not allowed` | Missing `allowed-base-branches: ["main"]` in safe-outputs | Add to frontmatter (see [`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md) §6). |
 | `create_pull_request: No changes to commit - no commits found` | The working tree has nothing to snapshot at call time | You called the tool too early — one PR at end-of-run, after files are written. |
+
+## 5a · safeoutputs session-TTL — extended context
+
+The `session not found` row above is the most load-bearing entry in §5. Full
+context separated out to keep the table scannable:
+
+**Two known triggers**
+
+- **(a) Banned heartbeat / keep-alive pattern** — the sandbox eventually
+  kills the session. Heartbeats are lint-banned (`scripts/lint-prompts.js`);
+  do not reintroduce them.
+- **(b) Pure idle** — no safeoutputs tool calls issued for ≈ 28–30 minutes.
+  Agent activity on any other tool (EP MCP, bash, `create`, `edit`) does
+  **not** refresh the safeoutputs session. Observed in
+  [run 24818921747](https://github.com/Hack23/euparliamentmonitor/actions/runs/24818921747):
+  Stage B ran ~28 min of pure model output + file `create`, then the single
+  end-of-run PR call failed with session-not-found.
+
+**Why you can't recover mid-run**
+
+The server's Streamable HTTP session GC is not configurable from the workflow
+side. Once the session is gone, the analysis branch is already committed
+locally but cannot be pushed via safeoutputs — the run ends with zero safe
+outputs even though the agent exited 0.
+
+**Prevention levers (in order of impact)**
+
+1. Keep **total wall-clock** from agent start to the single PR call under
+   **28 minutes** (matches the 22–27 min wall-clock budget in each
+   `news-*-analysis.md` workflow).
+2. Trim redundant Stage B Pass-2 file-re-reads.
+3. Commit + emit `SINGLE_PR_ATTESTATION` as soon as Stage C is GREEN — do
+   **not** append further post-gate manifest edits that push the call past
+   the TTL.
+4. If Stage B naturally runs long for an article type, narrow
+   `--analysis-methods=all` to the subset that article type actually uses
+   in the wrap-up invocation.
+5. **Never** add a heartbeat / keep-alive workaround — it triggers trigger (a)
+   faster than pure idle triggers (b).
 
 ## 6 · Recovery Before Calling Noop
 
