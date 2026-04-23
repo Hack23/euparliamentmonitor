@@ -718,13 +718,18 @@ function extractFirstParagraph(lines: string[]): string {
  * @returns Cleaned and length-capped description
  */
 function cleanAndTruncate(raw: string): string {
+  // Strip Markdown inline syntax FIRST, before truncating, so that a
+  // length-based cut can't land mid-link/mid-code/mid-emphasis and leave
+  // orphaned `[`/`]`/`(`/`)`/backtick/`*` characters in the description.
   let text = raw.replace(/\s+/g, ' ').trim();
-  if (text.length > 240) {
-    text = text.slice(0, 237).replace(/\s+\S*$/, '') + '…';
-  }
   text = text.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
   text = text.replace(/`([^`]+)`/g, '$1');
   text = text.replace(/\*\*(.+?)\*\*/g, '$1').replace(/\*(.+?)\*/g, '$1');
+  // Collapse any whitespace runs introduced by the strips, then truncate.
+  text = text.replace(/\s+/g, ' ').trim();
+  if (text.length > 240) {
+    text = text.slice(0, 237).replace(/\s+\S*$/, '') + '…';
+  }
   return text;
 }
 

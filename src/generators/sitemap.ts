@@ -972,7 +972,7 @@ export function generateSitemapHTML(
               )
               .join('\n');
             return `        <section class="sitemap-category" aria-labelledby="cat-${category}">
-          <h3 id="cat-${category}" class="sitemap-category__heading">${escapeHTML(label)} <span class="sitemap-category__count" aria-label="${bucket.length} articles">${bucket.length}</span></h3>
+          <h3 id="cat-${category}" class="sitemap-category__heading">${escapeHTML(label)} <span class="sitemap-category__count" aria-label="${bucket.length} ${escapeHTML(copy.statArticlesLabel)}">${bucket.length}</span></h3>
           <ul class="sitemap-list">
 ${items}
           </ul>
