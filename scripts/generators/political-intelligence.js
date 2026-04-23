@@ -17,6 +17,7 @@ import { PROJECT_ROOT, BASE_URL, createThemeToggleButton, THEME_TOGGLE_SCRIPT, }
 import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, PAGE_TITLES, SKIP_LINK_TEXTS, HEADER_SUBTITLE_LABELS, THEME_TOGGLE_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
 import { escapeHTML } from '../utils/file-utils.js';
 import { FOOTER_SITEMAP_LABELS } from '../constants/language-ui.js';
+import { buildSiteFooter } from '../templates/section-builders.js';
 /** GitHub repository slug used to build blob/tree links for analysis artifacts */
 const GITHUB_REPO = 'Hack23/euparliamentmonitor';
 /**
@@ -810,7 +811,6 @@ export function generatePoliticalIntelligenceHTML(lang, data) {
     const headerSubtitle = escapeHTML(getLocalizedString(HEADER_SUBTITLE_LABELS, lang));
     const themeToggleLabel = escapeHTML(getLocalizedString(THEME_TOGGLE_LABELS, lang));
     const dir = getTextDirection(lang);
-    const today = new Date().toISOString().slice(0, 10);
     const canonicalUrl = `${BASE_URL}/${getPoliticalIntelligenceFilename(lang)}`;
     const indexHref = lang === 'en' ? 'index.html' : `index-${lang}.html`;
     const sitemapHref = lang === 'en' ? 'sitemap.html' : `sitemap_${lang}.html`;
@@ -831,13 +831,6 @@ export function generatePoliticalIntelligenceHTML(lang, data) {
         const href = getPoliticalIntelligenceFilename(code);
         return `<a href="${href}" class="lang-link${active}" hreflang="${code}" title="${escapeHTML(name)}"${ariaCurrent}>${flag} ${code.toUpperCase()}</a>`;
     }).join('\n        ');
-    const footerLangGrid = ALL_LANGUAGES.map((code) => {
-        const flag = getLocalizedString(LANGUAGE_FLAGS, code);
-        const name = getLocalizedString(LANGUAGE_NAMES, code);
-        const href = code === 'en' ? 'index.html' : `index-${code}.html`;
-        const active = code === lang ? ' class="active"' : '';
-        return `<a href="${href}"${active} hreflang="${code}">${flag} ${escapeHTML(name)}</a>`;
-    }).join('\n            ');
     // Methodologies & templates cards
     const methodologiesList = data.methodologies
         .map((d) => renderDocumentCard(d, copy.viewOnGitHub))
@@ -989,45 +982,7 @@ ${dailyBody}
     </section>
   </main>
 
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h3>About EU Parliament Monitor</h3>
-        <p>European Parliament Intelligence Platform — monitoring political activity with systematic transparency. Powered by European Parliament open data.</p>
-      </div>
-      <div class="footer-section">
-        <h3>Quick Links</h3>
-        <ul>
-          <li><a href="${indexHref}">${escapeHTML(copy.home)}</a></li>
-          <li><a href="${sitemapHref}">Sitemap</a></li>
-          <li><a href="rss.xml">RSS Feed</a></li>
-          <li><a href="sitemap.xml">XML Sitemap</a></li>
-          <li><a href="https://github.com/Hack23/euparliamentmonitor">GitHub Repository</a></li>
-          <li><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/LICENSE">Apache-2.0 License</a></li>
-          <li><a href="https://www.europarl.europa.eu/">European Parliament</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h3>Built by Hack23 AB</h3>
-        <ul>
-          <li><a href="https://hack23.com">hack23.com</a></li>
-          <li><a href="https://www.linkedin.com/company/hack23">LinkedIn</a></li>
-          <li><a href="https://github.com/Hack23/ISMS-PUBLIC">Security &amp; Privacy Policy</a></li>
-          <li><a href="mailto:james@hack23.com">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h3>Languages</h3>
-        <div class="language-grid">
-          ${footerLangGrid}
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2008-${new Date().getFullYear()} <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden</p>
-      <p><time datetime="${today}">${today}</time></p>
-    </div>
-  </footer>${THEME_TOGGLE_SCRIPT}
+  ${buildSiteFooter({ lang: lang, pathPrefix: '' })}${THEME_TOGGLE_SCRIPT}
 </body>
 </html>`;
 }

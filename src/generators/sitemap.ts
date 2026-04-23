@@ -45,12 +45,13 @@ import {
   FOOTER_POLITICAL_INTELLIGENCE_LABELS,
 } from '../constants/language-ui.js';
 import { ArticleCategory } from '../types/index.js';
-import type { SitemapUrl } from '../types/index.js';
+import type { SitemapUrl, LanguageCode } from '../types/index.js';
 import {
   getPoliticalIntelligenceFilename,
   collectPoliticalIntelligenceData,
   generatePoliticalIntelligenceHTML,
 } from './political-intelligence.js';
+import { buildSiteFooter } from '../templates/section-builders.js';
 
 /**
  * Extended sitemap URL with optional xhtml:link alternate language entries.
@@ -848,20 +849,11 @@ function buildSitemapLangSwitcher(currentLang: string): string {
 }
 
 /**
- * Build the footer language grid for sitemap pages.
- *
- * @param currentLang - Active language code
- * @returns HTML string
+ * NOTE: The footer in the sitemap HTML page is rendered via the shared
+ * `buildSiteFooter()` in `src/templates/section-builders.ts`, which already
+ * emits a localized Languages grid. This helper and its caller below were
+ * removed together when switching to the shared footer.
  */
-function buildSitemapFooterLanguageGrid(currentLang: string): string {
-  return ALL_LANGUAGES.map((code) => {
-    const flag = getLocalizedString(LANGUAGE_FLAGS, code);
-    const name = getLocalizedString(LANGUAGE_NAMES, code);
-    const href = getSitemapFilename(code);
-    const active = code === currentLang ? ' class="active"' : '';
-    return `<a href="${href}"${active} hreflang="${code}">${flag} ${escapeHTML(name)}</a>`;
-  }).join('\n            ');
-}
 
 /**
  * Article info extracted for sitemap HTML display
@@ -895,7 +887,6 @@ export function generateSitemapHTML(
   const description = getLocalizedString(PAGE_DESCRIPTIONS, lang);
   const skipLinkText = getLocalizedString(SKIP_LINK_TEXTS, lang);
   const dir = getTextDirection(lang);
-  const year = new Date().getFullYear();
   const today = new Date().toISOString().slice(0, 10);
   const sections = (SITEMAP_SECTIONS[lang] ?? SITEMAP_SECTIONS['en']) as {
     news: string;
@@ -1140,44 +1131,7 @@ ${articlesSection}
     </div>
   </main>
 
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h3>About EU Parliament Monitor</h3>
-        <p>European Parliament Intelligence Platform — monitoring political activity with systematic transparency. Powered by European Parliament open data.</p>
-      </div>
-      <div class="footer-section">
-        <h3>Quick Links</h3>
-        <ul>
-          <li><a href="${getIndexFilename(lang)}">Home</a></li>
-          <li><a href="${getPoliticalIntelligenceFilename(lang)}">Political Intelligence</a></li>
-          <li><a href="rss.xml">RSS Feed</a></li>
-          <li><a href="sitemap.xml">XML Sitemap</a></li>
-          <li><a href="https://github.com/Hack23/euparliamentmonitor">GitHub Repository</a></li>
-          <li><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/LICENSE">Apache-2.0 License</a></li>
-          <li><a href="https://www.europarl.europa.eu/">European Parliament</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h3>Built by Hack23 AB</h3>
-        <ul>
-          <li><a href="https://hack23.com">hack23.com</a></li>
-          <li><a href="https://www.linkedin.com/company/hack23">LinkedIn</a></li>
-          <li><a href="https://github.com/Hack23/ISMS-PUBLIC">Security &amp; Privacy Policy</a></li>
-          <li><a href="mailto:james@hack23.com">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h3>Languages</h3>
-        <div class="language-grid">
-          ${buildSitemapFooterLanguageGrid(lang)}
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2008-${year} <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden</p>
-    </div>
-  </footer>${THEME_TOGGLE_SCRIPT}
+  ${buildSiteFooter({ lang: lang as LanguageCode, pathPrefix: '', articleCount: articleInfos.length })}${THEME_TOGGLE_SCRIPT}
 </body>
 </html>`;
 }
