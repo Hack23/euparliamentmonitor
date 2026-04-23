@@ -5,7 +5,7 @@
 
 **Template Purpose:** Apply historical precedent analysis to current European Parliament dynamics, identifying patterns and lessons from previous parliamentary terms and institutional events.
 
-**Methodology:** [electoral-domain-methodology.md §Part 3](../methodologies/electoral-domain-methodology.md#-part-3--historical-parallels-historical-parallelsmd)
+**Methodology:** [electoral-domain-methodology.md §Part 3](../methodologies/electoral-domain-methodology.md#part-3--historical-parallels-historical-parallelsmd)
 
 **Min Lines:** 220
 

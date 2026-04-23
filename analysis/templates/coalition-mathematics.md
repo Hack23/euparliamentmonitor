@@ -5,7 +5,7 @@
 
 **Template Purpose:** Model majority-building arithmetic for the European Parliament, analyzing which political group coalitions can reach the 361-seat threshold and their policy implications.
 
-**Methodology:** [electoral-domain-methodology.md §Part 1](../methodologies/electoral-domain-methodology.md#-part-1--coalition-mathematics-coalition-mathematicsmd)
+**Methodology:** [electoral-domain-methodology.md §Part 1](../methodologies/electoral-domain-methodology.md#part-1--coalition-mathematics-coalition-mathematicsmd)
 
 **Min Lines:** 200
 

@@ -5,7 +5,7 @@
 
 **Template Purpose:** Comprehensive log of all EP MCP tool calls and external data retrievals during a workflow run — enables reproducibility, debugging, and GDPR Article 30 compliance.
 
-**Methodology:** [structural-metadata-methodology.md §Part 3](../methodologies/structural-metadata-methodology.md#-part-3--data-download-manifestmd-structure)
+**Methodology:** [structural-metadata-methodology.md §Part 3](../methodologies/structural-metadata-methodology.md#part-3--data-download-manifestmd-structure)
 
 **Min Lines:** 160
 

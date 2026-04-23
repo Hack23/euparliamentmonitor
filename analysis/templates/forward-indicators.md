@@ -5,7 +5,7 @@
 
 **Template Purpose:** Define observable leading indicators that signal trajectory changes for European Parliament dynamics, enabling early warning and scenario validation.
 
-**Methodology:** [electoral-domain-methodology.md §Part 6](../methodologies/electoral-domain-methodology.md#-part-6--forward-indicators-forward-indicatorsmd)
+**Methodology:** [electoral-domain-methodology.md §Part 6](../methodologies/electoral-domain-methodology.md#part-6--forward-indicators-forward-indicatorsmd)
 
 **Min Lines:** 180
 

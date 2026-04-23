@@ -5,7 +5,7 @@
 
 **Template Purpose:** Structured analysis of competing hypotheses (ACH) to stress-test dominant interpretations and surface alternative explanations.
 
-**Methodology:** [strategic-extensions-methodology.md §Part 3](../methodologies/strategic-extensions-methodology.md#-part-3--devils-advocate-devils-advocate-analysismd)
+**Methodology:** [strategic-extensions-methodology.md §Part 3](../methodologies/strategic-extensions-methodology.md#part-3--devils-advocate-devils-advocate-analysismd)
 
 **Min Lines:** 250
 

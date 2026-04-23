@@ -5,7 +5,7 @@
 
 **Template Purpose:** Place European Parliament political events in international context, comparing EU policy positions with peer jurisdictions including member states, US, UK, and global comparators.
 
-**Methodology:** [strategic-extensions-methodology.md §Part 2](../methodologies/strategic-extensions-methodology.md#-part-2--comparative-international-comparative-internationalmd)
+**Methodology:** [strategic-extensions-methodology.md §Part 2](../methodologies/strategic-extensions-methodology.md#part-2--comparative-international-comparative-internationalmd)
 
 **Min Lines:** 200
 

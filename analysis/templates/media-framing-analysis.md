@@ -5,7 +5,7 @@
 
 **Template Purpose:** Analyze how media coverage shapes and reflects European Parliament political dynamics, understanding public perception, agenda-setting, and political pressure vectors.
 
-**Methodology:** [electoral-domain-methodology.md §Part 4](../methodologies/electoral-domain-methodology.md#-part-4--media-framing-analysis-media-framing-analysismd)
+**Methodology:** [electoral-domain-methodology.md §Part 4](../methodologies/electoral-domain-methodology.md#part-4--media-framing-analysis-media-framing-analysismd)
 
 **Min Lines:** 180
 

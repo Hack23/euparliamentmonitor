@@ -5,7 +5,7 @@
 
 **Template Purpose:** Assess whether European Parliament legislative outputs are practically implementable — considering member state capacity, institutional constraints, and political will.
 
-**Methodology:** [electoral-domain-methodology.md §Part 5](../methodologies/electoral-domain-methodology.md#-part-5--implementation-feasibility-implementation-feasibilitymd)
+**Methodology:** [electoral-domain-methodology.md §Part 5](../methodologies/electoral-domain-methodology.md#part-5--implementation-feasibility-implementation-feasibilitymd)
 
 **Min Lines:** 200
 

@@ -5,7 +5,7 @@
 
 **Template Purpose:** Document-to-document relationship mapping and claim provenance tracking — human-readable link graph showing how evidence flows through the analysis.
 
-**Methodology:** [structural-metadata-methodology.md §Part 2](../methodologies/structural-metadata-methodology.md#-part-2--cross-reference-mapmd-structure)
+**Methodology:** [structural-metadata-methodology.md §Part 2](../methodologies/structural-metadata-methodology.md#part-2--cross-reference-mapmd-structure)
 
 **Min Lines:** 150
 

@@ -5,7 +5,7 @@
 
 **Template Purpose:** Single-page strategic summary for decision-makers — distilled intelligence from a full analysis run.
 
-**Methodology:** [strategic-extensions-methodology.md §Intelligence Assessment](../methodologies/strategic-extensions-methodology.md#-part-4--intelligence-assessment-intelligence-assessmentmd)
+**Methodology:** [strategic-extensions-methodology.md §Intelligence Assessment](../methodologies/strategic-extensions-methodology.md#part-4--intelligence-assessment-intelligence-assessmentmd)
 
 **Min Lines:** 180
 

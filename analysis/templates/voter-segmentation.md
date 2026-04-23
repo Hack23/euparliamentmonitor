@@ -5,7 +5,7 @@
 
 **Template Purpose:** Analyze the 27-member-state European electorate that produces the European Parliament composition, understanding mandate origins and forecasting future EP dynamics.
 
-**Methodology:** [electoral-domain-methodology.md §Part 2](../methodologies/electoral-domain-methodology.md#-part-2--voter-segmentation-voter-segmentationmd)
+**Methodology:** [electoral-domain-methodology.md §Part 2](../methodologies/electoral-domain-methodology.md#part-2--voter-segmentation-voter-segmentationmd)
 
 **Min Lines:** 200
 

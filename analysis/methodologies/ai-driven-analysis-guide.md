@@ -376,7 +376,9 @@ Translation fidelity rules:
 
 ## 📂 The 39-Artifact Output Matrix
 
-Every article-generating workflow produces **every artifact in every family** — a stable 39-file output set plus per-document analyses. No artifact is trigger-driven; what varies is depth per item (based on DIW tier in `significance-scoring.md`), not which files exist.
+Every article-generating workflow produces **every mandatory artifact in every mandatory family** — a stable 39-file output set plus per-document analyses. Mandatory artifacts are not trigger-driven; what varies is depth per item (based on DIW tier in `significance-scoring.md`), not which files exist.
+
+> **Note on optional `extended/` artifacts.** The 12 artifacts under `extended/` (executive-brief, devils-advocate-analysis, historical-parallels, coalition-mathematics, forward-indicators, intelligence-assessment, implementation-feasibility, media-framing-analysis, comparative-international, cross-reference-map, data-download-manifest, voter-segmentation) are **optional**, produced only after every mandatory artifact above has passed the completeness gate and recommended for long-form review / crisis / breaking deep runs — see [`../../.github/prompts/03-analysis-completeness-gate.md`](../../.github/prompts/03-analysis-completeness-gate.md) and [`artifact-catalog.md`](artifact-catalog.md#extended). They are **not gated by default** — but when registered in `manifest.files.extended[]` and present in [`reference-quality-thresholds.json`](reference-quality-thresholds.json), their line-floor thresholds and tradecraft signals are enforced.
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","errorBkgColor":"#D32F2F","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%

@@ -5,7 +5,7 @@
 
 **Template Purpose:** Deliver strategic bottom-line intelligence at IC quality — single assessment paragraph per question, confidence label, alternative view, and collection gap. ICD 203 compliant.
 
-**Methodology:** [strategic-extensions-methodology.md §Part 4](../methodologies/strategic-extensions-methodology.md#-part-4--intelligence-assessment-intelligence-assessmentmd)
+**Methodology:** [strategic-extensions-methodology.md §Part 4](../methodologies/strategic-extensions-methodology.md#part-4--intelligence-assessment-intelligence-assessmentmd)
 
 **Min Lines:** 220
 
