@@ -670,24 +670,6 @@ Artifacts marked below with **"Source grade × WEP discipline (tradecraft)"** ma
 
 ---
 
-### political-stride-assessment
-
-**Purpose.** STRIDE reinterpreted for political actors — Spoofing (identity manipulation) / Tampering (procedural tampering) / Repudiation / Information disclosure / Denial of service (obstruction) / Elevation of privilege (rule gaming).
-
-**Required sections.**
-1. STRIDE × Actor matrix — each STRIDE letter × each named actor category.
-2. Per-cell threat narrative — ≥50 words per non-empty cell.
-3. Residual risk after existing EP safeguards.
-4. Priority of mitigations.
-
-**Mandatory Mermaid.** `graph LR` STRIDE node × actor nodes with edges showing exposure.
-
-**Depth floor (breaking):** flat 30 lines.
-
-**Quality signals.** Political STRIDE letters are defined in this file (not copy-pasted from software STRIDE) — the threats stay institutional.
-
----
-
 ## 📄 documents/
 
 ### document-analysis-index
@@ -768,6 +750,156 @@ Older `motions-*` runs mirror `intelligence/coalition-dynamics.md`, `intelligenc
 
 ---
 
+## 🧭 `extended/` — Optional Deep-Intelligence Artifacts
+
+**Scope.** The 12 artifacts below were introduced by the riksdagsmonitor port (2026-04-23). They are **optional** (not gated by the completeness-gate) but **recommended** for long-form review workflows and crisis / breaking deep runs. Construction rules follow the same 2-pass AI-First pattern (Pass 1 draft → Pass 2 read-back and improve) as the mandatory artifacts.
+
+### executive-brief
+
+**Purpose.** ≤90-second decision brief for senior readers: BLUF + 3–5 key judgments (each with confidence label and source Admiralty grade) + 3 recommended actions with monitoring windows. Derived from `synthesis-summary.md` and the top-ranked `significance-scoring.md` items.
+
+**Required sources.** `intelligence/synthesis-summary.md` (read entirely), `intelligence/significance-scoring.md` (top 3 items), `extended/intelligence-assessment.md` if present.
+
+**Construction steps.** (1) Extract top-3 significance items. (2) Write BLUF (25–50 words). (3) Derive 3–5 key judgments with WEP bands and confidence levels. (4) Specify 3 actions with named owners and monitoring dates. (5) Admiralty grade every claim.
+
+**Quality signals.** ≥150 lines. ≥5 Admiralty-graded evidence cells. All judgments WEP-labelled. Every action has an owner + monitoring date.
+
+**Cross-refs.** → `intelligence-assessment.md` · → `synthesis-summary.md`.
+
+### devils-advocate-analysis
+
+**Purpose.** Adversarial challenge to the run's consensus view. Applies ACH (Analysis of Competing Hypotheses) and Red Team SAT.
+
+**Required sources.** `intelligence/synthesis-summary.md`, `intelligence/scenario-forecast.md`, plus the primary MCP evidence. `analyze_coalition_dynamics`, `detect_voting_anomalies`, `get_voting_records`.
+
+**Construction steps.** (1) State the consensus view. (2) List 2–4 competing hypotheses. (3) Build an ACH matrix (hypothesis × evidence, consistency markings ++/+/0/−/−−). (4) Red Team attack each consensus assumption. (5) Conclude with confidence-updated assessment.
+
+**Quality signals.** ≥240 lines. ACH matrix with ≥8 evidence rows. ≥3 competing hypotheses. WEP band per hypothesis. Explicit "what would change my mind" section.
+
+**Cross-refs.** → `osint-tradecraft-standards.md §ACH` · → `scenario-forecast.md`.
+
+### historical-parallels
+
+**Purpose.** Map ≥3 EU historical precedents with parallel mechanisms and divergence points. EU-specific precedents: Santer Commission resignation (1999), Article 7 TEU proceedings vs Poland (2017–) and Hungary (2018–), Brexit triggering (2017), MFF 2014–2020 negotiations, eurozone crisis (2010–2012), Constitutional Treaty referendum failures (2005), Commission-censure motions.
+
+**Required sources.** EP Open Data historical document registry, `get_adopted_texts` (historical years), `search_documents`, externally verified historical facts.
+
+**Construction steps.** (1) Name 3–5 precedents. (2) For each: mechanism, outcome, timeline. (3) Map parallels to current situation (≥3 mechanism matches per precedent). (4) Identify divergence points. (5) Base-rate calculation.
+
+**Quality signals.** ≥230 lines. ≥3 precedents with ≥5 mechanism-match cells each. Explicit base-rate estimates with CI. Divergence section ≥100 words.
+
+**Cross-refs.** → `historical-baseline.md` · → `scenario-forecast.md`.
+
+### coalition-mathematics
+
+**Purpose.** Vote-math analysis for the period's contested files. Uses post-2024 EP10 seat counts: **720 seats total, 361 absolute majority**. Grand coalition (EPP 188 + S&D 136 + Renew 77 = 401); Left-of-centre (S&D 136 + Renew 77 + Greens 53 + Left 46 = 312); Right-of-centre (EPP 188 + ECR 78 + PfE 84 = 350).
+
+**Required sources.** `get_voting_records`, `analyze_voting_patterns`, `analyze_coalition_dynamics`, `compare_political_groups`, `analyze_country_delegation`.
+
+**Construction steps.** (1) List contested files. (2) For each, compute pass/fail margins across standard coalitions. (3) Identify swing groups. (4) Model national-delegation defection scenarios (top 5: DE 96, FR 81, IT 76, ES 61, PL 53). (5) Project forward votes with WEP bands.
+
+**Quality signals.** ≥280 lines. ≥3 coalition permutations per file. Swing-group identified. National-delegation defection modelled for ≥2 scenarios. Mermaid flowchart showing arithmetic.
+
+**Cross-refs.** → `coalition-dynamics.md` · → `voting-patterns.md` · → `synthesis-methodology.md`.
+
+### forward-indicators
+
+**Purpose.** Leading-indicator watchlist with WEP bands and monitoring cadence. Applies Indicators & Signposts SAT.
+
+**Required sources.** `monitor_legislative_pipeline`, `track_mep_attendance`, `get_plenary_sessions`, `get_events`, `detect_voting_anomalies`, Eurobarometer.
+
+**Construction steps.** (1) Enumerate 8–15 indicators across coalition stability, legislative throughput, institutional integrity, electoral signals. (2) Per indicator: trigger + detection + cadence + threshold. (3) Dashboard table. (4) Mermaid flowchart of alerting pipeline.
+
+**Quality signals.** ≥250 lines. ≥8 indicators. Every indicator has a specific MCP tool or external source. Escalation thresholds numeric.
+
+**Cross-refs.** → `osint-tradecraft-standards.md §Indicators & Signposts SAT` · → `scenario-forecast.md` · → `significance-scoring.md`.
+
+### intelligence-assessment
+
+**Purpose.** ICD 203 compliant IC-style assessment. BLUF, Key Judgments (with confidence + WEP), Discussion, Outlook, Alternative Hypotheses, Gaps / Caveats, Sources.
+
+**Required sources.** Every artifact in `intelligence/` and `classification/` for the run.
+
+**Construction steps.** (1) BLUF (40–80 words). (2) 3–7 Key Judgments with ICD 203 Standard 8 confidence labels. (3) Discussion with evidence citations (Standard 6). (4) Outlook — WEP-labelled 30/90-day projection. (5) Alt hypotheses. (6) Information gaps. (7) Source Admiralty table.
+
+**Quality signals.** ≥270 lines. ≥3 key judgments. ICD 203 Standards 2/4/6/8 demonstrably present. Source table with ≥10 graded sources.
+
+**Cross-refs.** → `executive-brief.md` · → `osint-tradecraft-standards.md §ICD 203 Mapping`.
+
+### implementation-feasibility
+
+**Purpose.** 27 Member State implementation feasibility across 5 dimensions: legal transposition complexity, administrative capacity, fiscal cost, compliance monitoring, enforcement risk. Heatmap + MS-by-MS risk register.
+
+**Required sources.** `track_legislation`, `get_procedures`, `get_external_documents` (Council + Commission IA), World Bank governance indicators, IMF fiscal data.
+
+**Construction steps.** (1) Extract concrete obligations from proposal. (2) Score each MS × 5 dimensions (1–5). (3) Heatmap. (4) Flag high-risk MS (≥3 dimensions scoring ≥4). (5) Identify mitigations and flexibility mechanisms.
+
+**Quality signals.** ≥290 lines. 27 MS × 5 dimensions = 135 cells filled. High-risk MS register with specific mitigations.
+
+**Cross-refs.** → `legislative-velocity-risk.md` · → `economic-context.md`.
+
+### media-framing-analysis
+
+**Purpose.** Dominant narrative frames across EU-wide and national press. Covers Politico Europe, Euractiv, FT, Euronews, Reuters Europe, DPA, AFP + ≥5 national outlets.
+
+**Required sources.** External media (Europresse, LexisNexis EU). External-only, analyst-curated.
+
+**Construction steps.** (1) Identify dominant event. (2) Sample ≥20 articles across ≥15 outlets. (3) Code for frame (thematic / episodic / strategic-game / conflict / human-impact / economic-consequence). (4) Outlet × frame matrix. (5) EU-wide vs national divergence commentary.
+
+**Quality signals.** ≥270 lines. ≥20 coded articles. Outlet × frame matrix fully filled. Divergence commentary ≥200 words.
+
+**Cross-refs.** → `synthesis-summary.md` · → `political-style-guide.md §Narrative Integrity`.
+
+### comparative-international
+
+**Purpose.** Cross-jurisdictional comparison: EP vs US Congress / UK Parliament / G7 legislatures / Council of Europe.
+
+**Required sources.** External authoritative: US Congress.gov, UK Hansard, G7 communiqués, CoE Parliamentary Assembly. Cite with Admiralty grades.
+
+**Construction steps.** (1) Identify comparable mechanism/procedure. (2) Side-by-side table: institutional design + typical outcome + duration + transparency. (3) Takeaways: what EP could learn + what's EU-unique.
+
+**Quality signals.** ≥270 lines. ≥3 jurisdictions. Side-by-side matrix ≥15 rows. Takeaways with named recommendations.
+
+**Cross-refs.** → `implementation-feasibility.md` · → `historical-parallels.md`.
+
+### cross-reference-map
+
+**Purpose.** Inter-artifact citation map for this run. Documents citation edges and identifies orphan / over-cited artifacts.
+
+**Required sources.** All artifacts in this run.
+
+**Construction steps.** (1) Parse every artifact for `[[link]]` / `]()` references. (2) Build citation-edge list. (3) Mermaid graph. (4) Identify orphans and over-cites. (5) Flag evidence-terminal vs synthesis-terminal nodes.
+
+**Quality signals.** ≥260 lines. Citation graph ≥30 edges. Orphan / over-cite flags. Evidence-terminal nodes identified.
+
+**Cross-refs.** → `structural-metadata-methodology.md` · → `analysis-index.md`.
+
+### data-download-manifest
+
+**Purpose.** Stage-A inventory of every EP MCP call + raw artifact paths + Admiralty grades. Provenance-first companion to `mcp-reliability-audit.md`.
+
+**Required sources.** All MCP calls made during the run.
+
+**Construction steps.** (1) One row per MCP call: tool, params, timestamp, artifact path, status, Admiralty grade. (2) Summary statistics. (3) Raw-artifact inventory. (4) Gaps section.
+
+**Quality signals.** ≥250 lines. ≥20 MCP-call rows. Freshness stats. Gaps explicitly enumerated.
+
+**Cross-refs.** → `mcp-reliability-audit.md` · → `structural-metadata-methodology.md`.
+
+### voter-segmentation
+
+**Purpose.** EU electorate segmentation across 27 MS + 14 EUPM languages. Segments by Europhile/Euroskeptic, North/South/V4/Baltic/Nordic blocs, urban/rural, age cohort, education.
+
+**Required sources.** Eurobarometer standard + special reports, World Bank demographics, EP 2024 election turnout by MS.
+
+**Construction steps.** (1) Enumerate 6–10 segments. (2) Per segment: size, geographic density, issue salience. (3) Map segments to political-group support. (4) Identify swing segments for 2029 EP election. (5) 14-language accessibility note.
+
+**Quality signals.** ≥300 lines. ≥6 segments fully profiled. Swing-segment register. 14-language accessibility note.
+
+**Cross-refs.** → `electoral-domain-methodology.md` · → `stakeholder-map.md`.
+
+---
+
 ## 🧭 Folder Variants
 
 Two folder-name variants appear in historical runs and are treated as equivalent by the validator:
@@ -797,5 +929,5 @@ When authoring a run from scratch, always use the canonical folder names; when r
 **Document Control:**
 - **Path:** `/analysis/methodologies/per-artifact-methodologies.md`
 - **Classification:** Public
-- **Version:** 1.1 — Initial per-artifact construction rules extracted from Run 184 reference benchmark and daily runs 2026-04-20 / 2026-04-21. v1.1 adds voting-patterns, workflow-audit, cross-session-intelligence, deep-analysis, session-baseline and documents the `existing/` legacy folder + `risk/` folder variant.
+- **Version:** 1.2 — v1.2 (2026-04-23) adds `extended/` folder with 12 optional deep-intelligence artifacts (executive-brief, devils-advocate-analysis, historical-parallels, coalition-mathematics, forward-indicators, intelligence-assessment, implementation-feasibility, media-framing-analysis, comparative-international, cross-reference-map, data-download-manifest, voter-segmentation) from the riksdagsmonitor port. v1.1 added voting-patterns, workflow-audit, cross-session-intelligence, deep-analysis, session-baseline and documented the `existing/` legacy folder + `risk/` folder variant. v1.0 was initial per-artifact construction rules extracted from Run 184 reference benchmark.
 - **Next Review:** 2026-06-30

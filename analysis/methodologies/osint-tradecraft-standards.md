@@ -344,7 +344,13 @@ Before a run's PR is created, verify each line:
 - [`political-style-guide.md`](political-style-guide.md) — §Estimative Language & Source Grading cross-references this document.
 - [`political-risk-methodology.md`](political-risk-methodology.md) — Likelihood × Impact; likelihoods use §3 bands.
 - [`political-threat-framework.md`](political-threat-framework.md) — 6 threat dimensions; claims about intent / capability use §3 bands.
+- [`synthesis-methodology.md`](synthesis-methodology.md) — synthesis layer; Key Judgments use this document's WEP bands + confidence labels.
+- [`strategic-extensions-methodology.md`](strategic-extensions-methodology.md) — strategic depth layer; scenario-forecast / wildcards use WEP bands.
 - [`../templates/methodology-reflection.md`](../templates/methodology-reflection.md) — the run's tradecraft attestation artifact.
+- [`../templates/intelligence-assessment.md`](../templates/intelligence-assessment.md) — ICD 203 compliant template for `extended/intelligence-assessment.md`.
+- [`../templates/executive-brief.md`](../templates/executive-brief.md) — BLUF + Key Judgments template for `extended/executive-brief.md`.
+- [`../templates/devils-advocate-analysis.md`](../templates/devils-advocate-analysis.md) — ACH + Red Team template for `extended/devils-advocate-analysis.md`.
+- [`../templates/forward-indicators.md`](../templates/forward-indicators.md) — Indicators & Signposts SAT template for `extended/forward-indicators.md`.
 - [Hack23 AI_Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Policy.md) — responsible-AI governance.
 
 ## 📚 External References
@@ -358,4 +364,4 @@ Before a run's PR is created, verify each line:
 
 ---
 
-**Document Control:** `/analysis/methodologies/osint-tradecraft-standards.md` · v1.0 · Applies to every workflow and every artifact under `analysis/daily/*/`.
+**Document Control:** `/analysis/methodologies/osint-tradecraft-standards.md` · v1.1 · Applies to every workflow and every artifact under `analysis/daily/*/`. v1.1 (2026-04-23) — added cross-references to the new ported methodologies (synthesis, strategic-extensions) and the extended `intelligence-assessment`, `executive-brief`, `devils-advocate-analysis`, `forward-indicators` templates so ICD 203 / Admiralty / WEP contracts are explicit for those artifacts.
