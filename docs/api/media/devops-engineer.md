@@ -681,7 +681,7 @@ Configuration:
 
 ## GitHub Agentic Workflows (gh-aw)
 
-This repository uses **10 gh-aw markdown workflows** in `.github/workflows/*.md` for automated news generation. These compile to `.lock.yml` files.
+This repository uses **18 gh-aw markdown workflows** in `.github/workflows/*.md` for automated news generation (8 split-pair `news-<type>-analysis.md` + `news-<type>-article.md` workflows + `news-article-generator.md` + `news-translate.md`). These compile to `.lock.yml` files.
 
 ### Key gh-aw Commands
 

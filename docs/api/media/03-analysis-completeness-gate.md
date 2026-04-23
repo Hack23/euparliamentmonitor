@@ -48,6 +48,30 @@ catalog. The validator enforces:
 10. `workflow-audit.md` and `methodology-reflection.md` are present as the
     final two artifacts of the run (see `ai-driven-analysis-guide.md` Step 10.5).
 
+### Optional — `extended/` artifacts (not required by default)
+
+Artifacts written to `${ANALYSIS_DIR}/extended/` are **not required** for a
+green gate by default. They are recommended for long-form review workflows and
+crisis / breaking deep runs. Produce them only after every mandatory artifact
+above has passed. If you register them in `manifest.files.extended[]` and they
+have entries in
+[`reference-quality-thresholds.json`](../../analysis/methodologies/reference-quality-thresholds.json),
+the validator may enforce the corresponding checks (including per-artifact line
+floors).
+
+The 12 extended artifacts are: `executive-brief`, `devils-advocate-analysis`,
+`historical-parallels`, `coalition-mathematics`, `forward-indicators`,
+`intelligence-assessment`, `implementation-feasibility`, `media-framing-analysis`,
+`comparative-international`, `cross-reference-map`, `data-download-manifest`,
+`voter-segmentation`. Construction rules: see
+[`per-artifact-methodologies.md §extended`](../../analysis/methodologies/per-artifact-methodologies.md)
+and the dedicated methodologies
+([synthesis](../../analysis/methodologies/synthesis-methodology.md),
+[strategic-extensions](../../analysis/methodologies/strategic-extensions-methodology.md),
+[per-document](../../analysis/methodologies/per-document-methodology.md),
+[structural-metadata](../../analysis/methodologies/structural-metadata-methodology.md),
+[electoral-domain](../../analysis/methodologies/electoral-domain-methodology.md)).
+
 ## 3 · Pre-Flight Checklist (one-shot)
 
 Before calling the validator:
@@ -91,5 +115,38 @@ monitoring, and data-quality delta go into the same PR. See
 
 ## 6 · After a Green Gate
 
-Next file to read: [`04-article-generation.md`](04-article-generation.md).
-Article drafting begins only after this gate exits 0.
+**In a `news-<type>-analysis.md` workflow** (split family): Stage C green is
+the **hand-off to the paired article workflow**, not an inline Stage D.
+Proceed to ship a single analysis-only PR (see
+[`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md) §3). When that PR is
+merged to `main`, the `news-<type>-article.md` workflow will automatically
+run Stage D against the committed `analysis/daily/${DATE}/${TYPE}/` folder.
+
+**In a legacy monolithic workflow** (pre-split): next file to read is
+[`04-article-generation.md`](04-article-generation.md); article drafting
+begins inline.
+
+## 6b · Resuming a Same-Day Folder (repeated analysis runs)
+
+When the canonical folder `analysis/daily/${DATE}/${TYPE}/` already contains
+a `manifest.json` from a prior run today:
+
+1. **Do not** trigger a `-run<NN>` or `-2` suffix — the shared folder is the
+   single source of truth.
+2. Load prior `manifest.json` and inspect every artifact's line count vs.
+   `reference-quality-thresholds.json` floors.
+3. Artifacts at/above floor: **carry forward** (do not rewrite) unless new
+   Stage-A data materially changes their conclusions.
+4. Artifacts below floor or missing: write a stronger version (overwrite).
+5. Append a new entry to `manifest.json.history[]` with this run's `runId`,
+   timestamps, and `gateResult`.
+6. Run the validator as normal. GREEN → single analysis PR; the paired
+   article workflow consumes whatever is at `HEAD` of `main` after merge.
+
+See `02-analysis-protocol.md` §2 for the full re-run merge rule.
+
+## 7 · Stage-C Output Discipline (both outcomes)
+
+Whether the gate exits 0 or routes to analysis-only, ensure the validated
+artifact set remains complete in `${ANALYSIS_DIR}` and `manifest.json` is
+current before moving on. Do not run per-phase repo-memory checkpoint commands.

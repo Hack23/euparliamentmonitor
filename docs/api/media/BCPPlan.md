@@ -481,7 +481,7 @@ For **critical static-site availability (primary S3/CloudFront or GitHub Pages f
 | **GitHub Repository**       | Source Code Storage   | Critical        | Local clones, contributor forks    | 15 minutes |
 | **GitHub Actions**          | CI/CD + gh-aw Runtime | High            | Manual local build + deploy        | 4 hours |
 | **GitHub Copilot Business** | AI inference via `gh aw` | High         | Engine switch (Claude / Codex) in workflow frontmatter; human fallback | 30 minutes |
-| **EP MCP Server (`european-parliament-mcp-server@1.2.11`)** | EU Parliament Data | High | Uniform unavailable envelope + `mcp-retry.ts` backoff; existing articles continue to serve | N/A (graceful degrade) |
+| **EP MCP Server (`european-parliament-mcp-server@1.2.13`)** | EU Parliament Data | High | Uniform unavailable envelope + `mcp-retry.ts` backoff; existing articles continue to serve | N/A (graceful degrade) |
 | **World Bank MCP (`worldbank-mcp@1.0.1`)** | Biannual WDI data | Medium | OR-gate via `articlePolicyHasEconomicContext` (IMF fallback) | N/A (graceful degrade) |
 | **IMF REST (SDMX 3.0, native `IMFMCPClient`)** | WEO + FM forecasts | Medium | OR-gate via `articlePolicyHasEconomicContext` (WB fallback); `IMF_API_TIMEOUT_MS` configurable | N/A (graceful degrade) |
 | **npm Registry**            | Dependency + Publish  | High            | GitHub Packages mirror; npm cache + `npm ci`; SLSA 3 attestations verifiable | 2 hours |

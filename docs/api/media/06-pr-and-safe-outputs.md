@@ -11,8 +11,12 @@ pattern with `max-patch-size`.
 
 ## 1 · The Single-PR Rule (ABSOLUTE)
 
-> Every article-generating workflow calls `safeoutputs___create_pull_request`
-> **exactly once**, at the end of the run, after every file has been written.
+> Every workflow in the `news-*` family calls
+> `safeoutputs___create_pull_request` **exactly once**, at the end of the run,
+> after every file has been written. Applies uniformly to:
+> - `news-<type>-analysis.md` (split family) — one analysis-only PR
+> - `news-<type>-article.md` (split family)  — one article PR
+> - Legacy monolithic `news-<type>.md` (pre-split) — one combined PR
 
 Why: `safeoutputs___create_pull_request` takes a **synchronous** `git format-patch`
 snapshot at call time (gh-aw v0.69 `createPullRequestHandler`). Files written or
@@ -31,13 +35,40 @@ SINGLE_PR_ATTESTATION: about to call safeoutputs___create_pull_request for the f
 
 ## 3 · Outcomes — Exactly One of These
 
+### 3a · Split-family: `news-<type>-analysis.md` (analysis PR)
+
+| Outcome | When | What the single PR contains |
+|---------|------|----------------------------|
+| **Analysis PR (GREEN)** | Stage C exits 0 first or second attempt | `analysis/daily/${DATE}/${TYPE}/**` — manifest with `history[].gateResult=GREEN`, all mandatory artifacts. PR body includes diff vs. prior same-day run if any. |
+| **Analysis PR (ANALYSIS_ONLY)** | Stage C ultimately fails after Pass 3 | Same folder, manifest `history[].gateResult=ANALYSIS_ONLY`. PR body explains which artifacts fell short. The paired article workflow will exit noop on merge. |
+| **`safeoutputs___noop`** | MCP unreachable AND zero data AND `get_all_generated_stats` fails | Full diagnostic per §5. |
+
+Title: `"[analysis] <type> — <YYYY-MM-DD> (run <run-id>)"`.
+Labels: `[agentic-analysis, analysis-data, type:<type>]`.
+Head: `analysis/<YYYY-MM-DD>-<type>-<run-id>`.
+
+### 3b · Split-family: `news-<type>-article.md` (article PR)
+
+| Outcome | When | What the single PR contains |
+|---------|------|----------------------------|
+| **Article PR** | Analysis manifest latest `gateResult=GREEN` AND Stage D validators exit 0 | `news/${DATE}-${TYPE}-en.html` + optional Stage-A top-up under `analysis/daily/${DATE}/${TYPE}/data/` + `manifest.json.history[]` entry for the article run. |
+| **`safeoutputs___noop`** | Analysis `gateResult` is not `GREEN` (i.e. `GREEN_WITH_WARNINGS` / `ANALYSIS_ONLY` / `PENDING`) | Short diagnostic referencing the analysis PR. |
+
+Title: `"[news] <AI-generated headline>"`.
+Labels: `[agentic-news, type:<type>]`.
+Head: `news/<YYYY-MM-DD>-<type>`.
+Body: links back to the merged analysis PR.
+
+### 3c · Legacy monolithic `news-<type>.md` (combined PR)
+
 | Outcome | When | What the single PR contains |
 |---------|------|----------------------------|
 | **Article + analysis PR** | Stage C green AND Stage D validators exit 0 | `news/${DATE}-${TYPE}-en.html` + `analysis/daily/${DATE}/${TYPE}-run${NN}/**` |
-| **Analysis-only PR** | Stage C ultimately fails (after Pass 3) OR No-Publish rule triggers | `analysis/daily/${DATE}/${TYPE}-run${NN}/**` only, with a PR body that states the reason |
-| **`safeoutputs___noop`** | MCP server unreachable AND zero data collected AND `get_all_generated_stats` also fails | Full diagnostic message per §5 |
+| **Analysis-only PR** | Stage C ultimately fails (after Pass 3) OR No-Publish rule triggers | `analysis/daily/${DATE}/${TYPE}-run${NN}/**` only |
+| **`safeoutputs___noop`** | MCP server unreachable AND zero data AND stats fail | Full diagnostic per §5 |
 
-Exactly one of the three is called per run.
+Exactly one of the outcomes in §3a, §3b, or §3c is emitted per run of each
+workflow.
 
 ## 4 · Deadline Discipline (short)
 
@@ -69,7 +100,7 @@ unavailable" message is rejected. Include the output of
 ```
 MCP CONNECTIVITY DIAGNOSTIC — {workflow-name}
 Timestamp: {ISO-8601 UTC}
-MCP Server: european-parliament-mcp-server@1.2.11
+MCP Server: european-parliament-mcp-server@1.2.13
 AWF Firewall Check: {stdout from scripts/awf-firewall-diagnostic.sh}
 MCP Health Gate:
   get_server_health: {PASS/FAIL}

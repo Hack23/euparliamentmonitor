@@ -7,7 +7,7 @@
 parameter corrections, reliability matrix, and timeout strategy. Workflows
 **link** here; they never copy these tables.
 
-**Server:** `european-parliament-mcp-server@1.2.11`
+**Server:** `european-parliament-mcp-server@1.2.13`
 
 ## 1 · EP Feed Endpoints
 
@@ -85,7 +85,7 @@ Timeframes: `"today"`, `"one-day"`, `"one-week"`, `"one-month"`, `"custom"`
 `sentiment_tracker`, `comparative_intelligence`, `generate_report`
 (MEP activity / committee performance / voting / legislation reports).
 
-## 5 · Common Parameter Mistakes (v1.2.11)
+## 5 · Common Parameter Mistakes (v1.2.13)
 
 | ❌ Wrong | ✅ Correct |
 |---------|-----------|
@@ -137,26 +137,46 @@ Rate limit: 500 req / 5 min. Cached responses < 200 ms.
 
 All tools respond in < 5 s; 10 s HTTP timeout per call.
 
+> ### ⚡ Scope (Wave 2)
+>
+> WB serves **non-economic** indicators only: health, education, social,
+> environment, demographics, defence, agriculture, innovation,
+> governance. **Economic context → IMF (§9 below).** Enforced by
+> `articlePolicyHasEconomicContext` in `src/utils/content-validator.ts`.
+
 | Tool | Parameters |
 |------|-----------|
 | `search-indicators` | `keyword` |
 | `get-countries` | `region`, `incomeLevel` |
-| `get-country-info` | `countryCode` (ISO2) |
-| `get-economic-data` | `countryCode`, `indicator`, `years` (GDP, GDP_GROWTH, GDP_PER_CAPITA, GNI, GNI_PER_CAPITA, EXPORTS_GDP, FDI_NET, INFLATION, UNEMPLOYMENT) |
+| `get-country-info` | `countryCode` (ISO2/alpha-3, **individual countries only** — aggregates rejected) |
+| `get-economic-data` ⚠️ | `countryCode`, `indicator`, `years` (GDP, GDP_GROWTH, GDP_PER_CAPITA, GNI, GNI_PER_CAPITA, EXPORTS_GDP, FDI_NET, INFLATION, UNEMPLOYMENT) — **⚠️ Economic context moved to IMF (§9). Retained for legacy mode only.** |
 | `get-social-data` | `countryCode`, `indicator`, `years` (POPULATION, LIFE_EXPECTANCY, BIRTH_RATE, DEATH_RATE, INTERNET_USERS) |
 | `get-education-data` | `countryCode`, `indicator`, `years` (LITERACY_RATE, SCHOOL_ENROLLMENT, SCHOOL_COMPLETION, TEACHERS_PRIMARY, EDUCATION_EXPENDITURE) |
 | `get-health-data` | `countryCode`, `indicator`, `years` (HEALTH_EXPENDITURE, PHYSICIANS, HOSPITAL_BEDS, IMMUNIZATION, HIV_PREVALENCE, MALNUTRITION, TUBERCULOSIS) |
+
+**⚠️ Country-code guard:** WB MCP rejects aggregate codes (`EUU`,
+`EMU`, `ECS`, `OED`, `WLD`, `NAC`, `EAS`, `SSF`) and the informal `UK`
+alias. Call `isMCPSupportedWBCountryCode()` from
+`src/utils/world-bank-data.ts` before every MCP invocation — see
+[`analysis/worldbank/eu-country-mapping.md`](../../analysis/worldbank/eu-country-mapping.md).
+For EU-level economic context, use IMF `EU`/`EA` aggregates (§9 below).
 
 Max 3 data calls per 60-min workflow (search-indicators exempt). Failures are
 skipped, not retried.
 
 ## 9 · IMF (native TypeScript client, not MCP)
 
+**Scope:** the authoritative source for all **economic** context —
+GDP, inflation, unemployment, fiscal balance, debt, trade, FDI,
+monetary, exchange rates — per the Wave-2 WB↔IMF split (see §8).
+
 Client: `src/mcp/imf-mcp-client.ts` (class `IMFMCPClient` kept for compat).
 Transport: direct REST to `https://dataservices.imf.org/REST/SDMX_3.0/` via
 `fetch`. Env vars: `IMF_API_BASE_URL`, `IMF_API_TIMEOUT_MS`. Probe:
 `scripts/imf-mcp-probe.sh`. Indicator map:
 [`imf-indicator-mapping.md`](../../analysis/methodologies/imf-indicator-mapping.md).
+Country codes: [`analysis/imf/eu-country-mapping.md`](../../analysis/imf/eu-country-mapping.md)
+(aggregates `EU`, `EA`, `G7`, `G20` all accepted, unlike WB MCP).
 
 ## 10 · Health Gate (standard sequence)
 

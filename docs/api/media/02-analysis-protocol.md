@@ -19,14 +19,17 @@ article drafting until Stage C (completeness gate) exits 0.
 
 ## 1b · Analysis Artifacts to Produce (39-template catalog)
 
-Every run produces the per-run subset of these 39 templates. The **article-type-specific required set** is defined by `reference-quality-thresholds.json` and enforced at Stage C. Group by artifact catalog:
+Every run produces the per-run subset of these 39+ templates. The **article-type-specific required set** is defined by `reference-quality-thresholds.json` and enforced at Stage C. Group by artifact catalog:
 
 | Group | Templates | Owner skills / methodologies |
 |-------|-----------|------------------------------|
 | **Classification** (6) | `significance-classification`, `significance-scoring`, `actor-mapping`, `forces-analysis`, `impact-matrix`, `political-classification` | `political-classification-guide.md`, intelligence-analysis-techniques |
-| **Threat assessment** (6) | `political-threat-landscape`, `actor-threat-profiles`, `consequence-trees`, `legislative-disruption`, `threat-analysis`, `political-stride-assessment` | `political-threat-framework.md`, threat-modeling |
+| **Threat assessment** (5) | `political-threat-landscape`, `actor-threat-profiles`, `consequence-trees`, `legislative-disruption`, `threat-analysis` | `political-threat-framework.md` (5-framework integrated), threat-modeling |
 | **Risk scoring** (5) | `risk-matrix`, `risk-assessment`, `quantitative-swot`, `political-capital-risk`, `legislative-velocity-risk` | `political-risk-methodology.md`, `political-swot-framework.md`, risk-assessment-frameworks |
 | **Intelligence** (reference-quality 7 + extended) | `pestle-analysis`, `stakeholder-map`, `scenario-forecast`, `threat-model`, `historical-baseline`, `economic-context`, `wildcards-blackswans`, `synthesis-summary`, `analysis-index`, `coalition-dynamics`, `mcp-reliability-audit`, `per-file-political-intelligence`, `reference-analysis-quality` | OSINT, political-science, intelligence-analysis-techniques, electoral-analysis, behavioral-analysis |
+| **Strategic extensions** (Family C) | `executive-brief`, `devils-advocate-analysis`, `historical-parallels`, `forward-indicators`, `intelligence-assessment`, `comparative-international` | `strategic-extensions-methodology.md`, ACH, ICF/ODNI standards |
+| **Domain-specific** (Family D) | `coalition-mathematics`, `implementation-feasibility`, `media-framing-analysis`, `voter-segmentation` | `electoral-domain-methodology.md`, coalition analysis, electoral forecasting |
+| **Provenance** (Family B) | `cross-reference-map`, `data-download-manifest` | `structural-metadata-methodology.md`, GDPR audit, citation provenance |
 | **Existing / cross-run** | `deep-analysis`, `stakeholder-impact`, `voting-patterns`, `cross-session-intelligence`, `cross-run-diff`, `session-baseline` | legislative-monitoring, behavioral-analysis |
 | **Documents** | `document-analysis-index` | OSINT |
 | **Workflow self-audit (last)** | `workflow-audit`, `methodology-reflection` | ai-first-quality, process hygiene |
@@ -35,8 +38,10 @@ Every run produces the per-run subset of these 39 templates. The **article-type-
 
 ## 2 · Analysis Directory Structure
 
+Every analysis run writes to the **canonical stable same-day folder**:
+
 ```
-analysis/daily/{YYYY-MM-DD}/{article-type-slug}-run{NN}/
+analysis/daily/{YYYY-MM-DD}/{article-type-slug}/
 ├── classification/    (significance-classification, actor-mapping, forces-analysis, impact-matrix)
 ├── threat-assessment/ (political-threat-landscape, actor-threat-profiling, consequence-trees, legislative-disruption)
 ├── risk-scoring/      (risk-matrix, quantitative-swot, political-capital-risk, legislative-velocity-risk, agent-risk-workflow)
@@ -44,8 +49,41 @@ analysis/daily/{YYYY-MM-DD}/{article-type-slug}-run{NN}/
 ├── existing/          (deep-analysis, stakeholder-impact, coalition-dynamics, voting-patterns, cross-session-intelligence, synthesis-summary)
 ├── documents/         (document-analysis-index)
 ├── data/              (raw MCP data — may be excluded from PR)
-└── manifest.json      (top-level articleType, files.*, artifactStats)
+├── runs/              (per-attempt diagnostics: prompt, preflight log, pass-3 notes)
+└── manifest.json      (top-level articleType, files.*, artifactStats, history[])
 ```
+
+**No `-run<NN>` suffix.** Repeated analysis runs on the same date+type reuse
+this folder and append to `manifest.json.history[]`. The article workflow
+reads this exact path from `HEAD` of `main` after the analysis PR merges.
+
+**`manifest.json.history[]` — per-attempt audit entry (see
+[`src/utils/file-utils.ts`](../../src/utils/file-utils.ts)
+`AnalysisManifestHistoryEntry`):**
+
+```json
+{
+  "runId": "breaking-run-100-1729876543",
+  "startedAt": "2026-04-22T10:00:00Z",
+  "finishedAt": "2026-04-22T10:42:00Z",
+  "commit": "a1b2c3d",
+  "gateResult": "GREEN",
+  "filesWritten": ["intelligence/synthesis-summary.md", "..."]
+}
+```
+
+**Re-run merge rule (§1 of the plan):**
+
+1. Load existing `manifest.json` — if present, treat the folder as a resume
+   candidate, not a conflict.
+2. Run Stage-B Pass 1 + Pass 2 producing every mandatory artifact.
+3. For each artifact already at or above its
+   `reference-quality-thresholds.json` floor, **carry forward** the existing
+   content unless Stage A produced new substantive data that changes its
+   conclusions.
+4. For artifacts below threshold, write a stronger version (overwriting the
+   prior file).
+5. Run Stage C — if GREEN, append a history entry with `gateResult: "GREEN"`.
 
 > **Canonical paths:** `synthesis-summary.md` lives under `intelligence/` (the
 > canonical location, as enforced by `reference-quality-thresholds.json`).
@@ -55,13 +93,29 @@ analysis/daily/{YYYY-MM-DD}/{article-type-slug}-run{NN}/
 > There is no top-level `synthesis/` or `risk/` directory; use
 > `intelligence/synthesis-summary.md` and `risk-scoring/risk-matrix.md`.
 
+### 2a · How to Write Analysis Artifacts (use the native file tool)
+
+**Always use the Copilot CLI native `create` / `Write` file tool** (the one that appears as `● Create <path> +N` in the run log, not prefixed with `(shell)`) to write every analysis artifact and every article `.md` file. It bypasses the bash safety filter and is the pattern used by the reference-quality [run 24805100070](https://github.com/Hack23/euparliamentmonitor/actions/runs/24805100070) that produced 10 artifacts in ~10 minutes.
+
+**Never use `cat > file << 'EOF' … EOF` heredocs to write analysis prose or SWOT/stakeholder/risk content.** The Copilot CLI bash-safety filter scans the heredoc body and rejects writes whose content contains bare-command tokens — most notably the word *"kill"*, which is endemic in political analysis (*"motion to kill the bill"*, *"amendment killed in committee"*, *"kill switch clause"*). The rejection surfaces as the misleading error `"Command not executed. The 'kill' command must specify at least one numeric PID."` and costs ~60 seconds per attempt. See [`09-troubleshooting.md` §5](09-troubleshooting.md) for the full failure mode.
+
+`cat > file` and `cat > file << EOF` **are** still safe for:
+- Short housekeeping files without natural-language content (`manifest.json` via `jq`, SPDX-only stubs, short configs)
+- `cp` / mirror copies of already-written artifacts into `existing/`
+- Files written from a shell variable whose content was produced by a tool, not by the agent
+
 ## 3 · Minimum Analysis Time
 
-| Workflow | Minimum Total | Pass 1 | Pass 2 |
-|----------|:-------------:|:------:|:------:|
-| Breaking / committee-reports / propositions / motions / week-ahead / month-ahead | 20 min | 12 min | 8 min |
-| Weekly / monthly review | 25 min | 15 min | 10 min |
-| Article generator | 15 min per type | 9 min | 6 min |
+| Workflow family | Total | Pass 1 | Pass 2 | Stage C |
+|----------|:-------------:|:------:|:------:|:------:|
+| `news-<type>-analysis.md` — all article types | 30–40 min | 18 min | 12 min | 5 min |
+| Legacy monolithic `news-<type>.md` (pre-split) | 20 min | 12 min | 8 min | included |
+| Weekly / monthly review (legacy monolithic) | 25 min | 15 min | 10 min | included |
+| `news-article-generator.md` | 15 min per type | 9 min | 6 min | included |
+
+The article workflow (`news-<type>-article.md`) does **not** run Stage B and
+therefore has no analysis time budget. Its entire budget (≤ 30 min active
+work) goes to Stage D (2 passes + validators + single PR call).
 
 ## 4 · Mandatory 2-Pass Improvement (NON-NEGOTIABLE)
 
@@ -129,6 +183,25 @@ Each perspective must state: (1) mechanism of impact, (2) EP-data evidence,
 - Every mandatory file listed in manifest `files.*`.
 - No orphan files on disk.
 - `manifest.json` carries top-level `articleType`.
+- For shared-folder re-runs: `manifest.json.history[]` has an entry for this
+  run (started, not yet finished).
 - Pass 2 verification complete.
 - Now run the completeness gate:
   [`03-analysis-completeness-gate.md`](03-analysis-completeness-gate.md).
+
+After Stage C exits 0 in the `news-<type>-analysis.md` workflow: **ship a
+single analysis-only PR** (see
+[`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md) §3). The paired
+`news-<type>-article.md` workflow will run Stage D automatically when the
+analysis PR merges to `main`.
+
+## 10 · Persistence & Session Reliability
+
+- Treat `${ANALYSIS_DIR}` as the canonical durable workspace for Stages A–D.
+- Keep every analysis artifact and manifest update on disk in real time; do not
+  defer writes until stage end.
+- Do **not** use per-phase repo-memory checkpoint or heartbeat patterns.
+- Rely on workflow-level MCP gateway keepalive (`sandbox.mcp.keepalive-interval`)
+  plus the single end-of-run PR snapshot in
+  [`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md).
+

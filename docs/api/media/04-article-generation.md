@@ -15,6 +15,34 @@ context where policy dictates. Run all validators. Then — and only then — ca
 > before a green completeness gate, return to Stage B and run Pass 2 on the
 > artifacts the validator flagged.
 
+**In a `news-<type>-article.md` workflow (split family):** Stage D is the
+**only** stage that runs. The analysis has already been produced by the
+paired `news-<type>-analysis.md` workflow and committed to `main` via a
+merged analysis PR. The article workflow's first action is to read the
+committed analysis folder:
+
+```
+ANALYSIS_DIR=analysis/daily/${DATE}/${TYPE}/
+```
+
+Then verify the Stage-C gate-result recorded in
+`${ANALYSIS_DIR}/manifest.json.history[]` — the **last** entry's
+`gateResult`:
+
+| gate-result | action |
+|-------------|--------|
+| `GREEN` | Proceed with Stage D. |
+| `GREEN_WITH_WARNINGS` | Exit cleanly (noop). Analysis wasn't strong enough to warrant an article; the analysis PR still contains valuable intelligence. |
+| `ANALYSIS_ONLY` | Exit cleanly (noop) — analysis-only outcome, no article. |
+| `PENDING` / missing | Exit cleanly (noop) — the paired analysis PR hasn't merged yet. |
+
+Use `readLatestGateResult(manifestPath)` from
+[`src/utils/file-utils.ts`](../../src/utils/file-utils.ts) to parse this
+defensively.
+
+**In a legacy monolithic workflow (pre-split):** Stages A–D run inline as
+described below. Same 2-pass + validator rules apply.
+
 ## 2 · Generator Command
 
 ```bash
@@ -55,14 +83,24 @@ Article-type slugs: `breaking`, `committee-reports`, `propositions`, `motions`,
 | Inline `<script>` in body | ❌ Banned (CSP `script-src 'self'`) |
 | `[AI_ANALYSIS_REQUIRED]` markers | ❌ Zero |
 
-## 5 · Economic Context (Wave-2 OR-gate)
+## 5 · Economic & Non-Economic Context (Wave-2 policy)
 
-Articles with measurable economic impact include **World Bank or IMF** data.
-Either source satisfies the gate. Follow the indicator-mapping files:
+Articles with measurable policy impact include **IMF (economic / fiscal
+/ monetary / trade) or World Bank (non-economic: health, education,
+social, environment, demographics, defence, agriculture, innovation,
+governance)** data. Either source satisfies the validator OR-gate
+(`articlePolicyHasEconomicContext`); **IMF is the preferred source for
+economic context**, WB accepted for backward compatibility.
+
+Follow the indicator-mapping files:
 [`worldbank-indicator-mapping.md`](../../analysis/methodologies/worldbank-indicator-mapping.md)
-and [`imf-indicator-mapping.md`](../../analysis/methodologies/imf-indicator-mapping.md).
-Render ≥ 1 Chart.js canvas AND ≥ 1 analytical paragraph (≥ 60 words) that
-interprets the data.
+(non-economic domains only) and
+[`imf-indicator-mapping.md`](../../analysis/methodologies/imf-indicator-mapping.md)
+(macro / fiscal / trade / monetary + WEO forecasts). **Do not** pass WB
+aggregate codes (`EUU`, `EMU`, `ECS`, `OED`, `WLD`, `NAC`, `EAS`, `SSF`)
+to WB MCP tools — the server rejects them; cite IMF `EU`/`EA`
+aggregates for EU-level framing instead. Render ≥ 1 Chart.js canvas AND
+≥ 1 analytical paragraph (≥ 60 words) that interprets the data.
 
 ## 6 · Title · Description · Keywords
 
@@ -100,7 +138,7 @@ analytical section fails the completeness gate.
 | Forecast / scenarios | `intelligence/scenario-forecast.md` | `intelligence/wildcards-blackswans.md` |
 | PESTLE / policy context | `intelligence/pestle-analysis.md` | `intelligence/historical-baseline.md` |
 | Economic context block (Wave-2) | `intelligence/economic-context.md` | `analysis/methodologies/worldbank-indicator-mapping.md`, `analysis/methodologies/imf-indicator-mapping.md` |
-| Threat-model callout | `intelligence/threat-model.md` | `threat-assessment/political-stride-assessment.md` |
+| Threat-model callout | `intelligence/threat-model.md` OR `intelligence/political-threat-landscape.md` | `threat-assessment/actor-threat-profiles.md` |
 | Voting-pattern chart | `existing/voting-patterns.md` | `intelligence/coalition-dynamics.md` |
 | Cross-session continuity | `existing/cross-session-intelligence.md`, `existing/cross-run-diff.md` | `existing/session-baseline.md` |
 | Transparency footer | all `manifest.files.*` entries (linked via `renderAnalysisTransparencySection`) | `intelligence/analysis-index.md` |
@@ -140,5 +178,6 @@ analytical tool should be verified against feed data before rendering.
 
 ## 11 · Exit to Stage E (PR)
 
-After all validators exit 0, read [`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md)
-and emit the PR **exactly once**.
+After all validators exit 0, read
+[`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md) and emit the PR
+**exactly once**.

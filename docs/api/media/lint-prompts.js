@@ -13,7 +13,12 @@
  *     fully exempt from all three rules.
  *
  * Rules (applied per workflow file):
- *   1. `safeoutputs___create_pull_request` appears AT MOST ONCE.
+ *   1. `safeoutputs___create_pull_request` appears AT MOST ONCE. This applies
+ *      uniformly to every news-*.md in the split-workflow family:
+ *        - `news-<type>-analysis.md` → one analysis-only PR.
+ *        - `news-<type>-article.md`  → one article PR.
+ *        - Legacy monolithic `news-<type>.md` (pre-split) → one PR.
+ *      `news-translate.md` is exempt.
  *   2. No forbidden phrases (case-insensitive): "checkpoint pr", "checkpoint-pr",
  *      "keep-alive", "keepalive", "keep alive", "heartbeat",
  *      "progressive safe output".
@@ -22,7 +27,11 @@
  *      `analysis/methodologies/ai-driven-analysis-guide.md` and
  *      `03-analysis-completeness-gate.md`, OR import
  *      `.github/agents/news-generation.agent.md` (which provides both).
- *      news-translate.md is exempt.
+ *      `news-translate.md` is exempt.  `news-*-article.md` files are exempt
+ *      from the *analysis-anchor* portion of this rule because they consume
+ *      an already-produced analysis folder rather than producing Stage B
+ *      artifacts themselves — they still must import the agent or reference
+ *      the completeness-gate anchor so Stage-C hand-off remains explicit.
  *
  * Usage:
  *   node scripts/lint-prompts.js
@@ -67,7 +76,7 @@ const FORBIDDEN_PHRASES = [
   /\bcheckpoint\s+pr\b/i,
   /\bcheckpoint-pr\b/i,
   /\bkeep-alive\b/i,
-  /\bkeepalive\b/i,
+  /\bkeepalive\b(?!-interval)/i,
   /\bkeep\s+alive\b/i,
   /\bheartbeat\b/i,
   /\bprogressive\s+safe\s+output\b/i,
@@ -138,12 +147,20 @@ function lintFile(filePath, fileName) {
   // analysis anchors or import the shared news-generation agent which carries
   // them transitively. This prevents a workflow from drifting out of the
   // Data → Analysis Artifacts → Completeness Gate → Article → PR chain.
+  //
+  // Refinement for split-workflow families:
+  //   - `news-<type>-article.md` consumes analysis artifacts produced by the
+  //     paired `news-<type>-analysis.md` workflow and does NOT run Stage B
+  //     itself. It is still required to anchor the hand-off, so either the
+  //     news-generation agent import OR a direct completeness-gate reference
+  //     is accepted; the full Stage-B guide anchor is NOT required for it.
   if (!EXEMPT_FROM_ANALYSIS_AWARENESS.has(fileName)) {
+    const isArticleWorkflow = /^news-[a-z0-9-]+-article\.md$/u.test(fileName);
     const importsNewsGen = content.includes(NEWS_GENERATION_IMPORT);
     const refsGuide = content.includes(ANALYSIS_ANCHOR_GUIDE);
     const refsGate = content.includes(ANALYSIS_ANCHOR_GATE);
     if (!importsNewsGen) {
-      if (!refsGuide) {
+      if (!isArticleWorkflow && !refsGuide) {
         violations.push(
           `missing analysis-awareness anchor: must either import '${NEWS_GENERATION_IMPORT}' or reference '${ANALYSIS_ANCHOR_GUIDE}'. See .github/prompts/README.md § Analysis Artifact Integration.`,
         );
