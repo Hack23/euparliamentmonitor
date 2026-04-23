@@ -89,6 +89,23 @@ describe('political-intelligence generator', () => {
       expect(meta.description).toBe('Risk scores combine likelihood and impact on a 1-5 scale.');
     });
 
+    it('skips HTML block lines and strips inline HTML tags from the description', () => {
+      // Mirrors the `analysis/methodologies/README.md` shape that was
+      // leaking raw `<p align="center"><img …></p>` text into the UI.
+      const file = path.join(tempDir, 'html-heavy.md');
+      fs.writeFileSync(
+        file,
+        `<p align="center">\n  <img src="https://hack23.com/icon-192.png" alt="Logo" width="192" height="192">\n</p>\n\n<h1 align="center">📐 Title</h1>\n\n<p align="center"><strong>Real summary of the document.</strong></p>\n\nPlain paragraph follows here.\n`,
+        'utf-8'
+      );
+      const meta = parseMarkdownMeta(file, 'html-heavy');
+      // HTML block lines must not leak into the description
+      expect(meta.description).not.toContain('<');
+      expect(meta.description).not.toContain('&lt;');
+      expect(meta.description).not.toContain('img');
+      expect(meta.description).toContain('Plain paragraph follows here');
+    });
+
     it('falls back to a humanized stem if no H1 is present', () => {
       const file = path.join(tempDir, 'per-artifact-catalog.md');
       fs.writeFileSync(file, 'Just some text with no heading at all.\n', 'utf-8');
@@ -176,6 +193,14 @@ describe('political-intelligence generator', () => {
       expect(data.dailyGroups[0].runs[0].slug).toBe('breaking-run1');
       expect(data.dailyGroups[0].runs[0].artifactCount).toBe(2);
       expect(data.dailyGroups[0].runs[0].icon).toBe('🚨');
+      // Every artifact is collected so the UI can deep-link to each .md file
+      expect(data.dailyGroups[0].runs[0].artifacts).toHaveLength(2);
+      expect(
+        data.dailyGroups[0].runs[0].artifacts.map((a) => a.shortPath).sort()
+      ).toEqual(['data/agent-pre-work.md', 'intelligence/swot.md']);
+      expect(data.dailyGroups[0].runs[0].artifacts[0].relPath).toContain(
+        'analysis/daily/2026-04-22/breaking-run1/'
+      );
     });
 
     it('prunes empty-run directories and non-date directories', () => {
@@ -224,6 +249,33 @@ describe('political-intelligence generator', () => {
       expect(html).toContain(
         'href="https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-22/breaking-run1"'
       );
+      // Per-artifact file links — every .md file in the run surfaces as a
+      // deep link, so readers don't have to navigate the folder tree first.
+      expect(html).toContain(
+        'href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-22/breaking-run1/data/agent-pre-work.md"'
+      );
+      expect(html).toContain(
+        'href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-22/breaking-run1/intelligence/swot.md"'
+      );
+      expect(html).toContain('<details class="pi-run__artifacts">');
+      expect(html).toContain('pi-run__artifacts-toggle');
+      // Swedish toggle label (count-interpolated)
+      expect(html).toContain('Visa alla 2 artefaktfiler');
+
+      // Non-English pages hide English source-paragraph descriptions and
+      // show a localized "source materials are in English" note instead
+      expect(html).not.toContain('pi-card__desc');
+      expect(html).toContain('pi-source-note');
+      expect(html).toContain('Källmaterialet');
+
+      // SEO: author + publisher + og:image:alt + twitter:image
+      expect(html).toContain('<meta name="author" content="Hack23 AB">');
+      expect(html).toContain('<meta name="publisher" content="Hack23 AB">');
+      expect(html).toContain('og:image:alt');
+      expect(html).toContain('<meta name="twitter:image"');
+      expect(html).toContain('<meta http-equiv="Content-Language" content="sv">');
+      expect(html).toContain('"publisher":{');
+      expect(html).toContain('"author":{');
 
       // Stats
       expect(html).toContain('<dd>2</dd>'); // methodologies count
@@ -242,6 +294,14 @@ describe('political-intelligence generator', () => {
       );
       expect(html).toContain('"url":"https://euparliamentmonitor.com/political-intelligence.html"');
       expect(html).toContain('<a href="sitemap.html">Sitemap</a>');
+      // English page keeps the per-card description (source is English) and
+      // does NOT render the localized "source in English" note.
+      expect(html).toContain('pi-card__desc');
+      expect(html).not.toContain('pi-source-note');
+      // Card description is a <span> (phrasing content) — NOT <p>, which
+      // would be invalid nested inside <span class="pi-card__body">.
+      expect(html).not.toMatch(/<p class="pi-card__desc"/);
+      expect(html).toMatch(/<span class="pi-card__desc"/);
     });
 
     it('sets dir="rtl" for Arabic and Hebrew', () => {

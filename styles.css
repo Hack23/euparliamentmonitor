@@ -3795,6 +3795,81 @@ html[data-theme='dark'] [dir='rtl'] .news-card {
   font-weight: 700;
 }
 
+/* Expandable per-artifact file list inside a daily run.
+   The <details> is rendered OUTSIDE the run <a> so the disclosure triangle
+   stays keyboard-focusable independently of the run-folder link. */
+.pi-run__artifacts {
+  margin-top: 0.35rem;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  background: var(--bg);
+  font-size: 0.8rem;
+}
+
+.pi-run__artifacts-toggle {
+  cursor: pointer;
+  color: var(--primary);
+  font-weight: 600;
+  list-style: revert;
+  padding: 0.15rem 0;
+}
+
+.pi-run__artifacts-toggle:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.pi-run__artifacts[open] .pi-run__artifacts-toggle {
+  margin-bottom: 0.35rem;
+}
+
+.pi-run__artifacts-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.2rem 0.6rem;
+}
+
+.pi-run__artifacts-list li {
+  overflow-wrap: anywhere;
+}
+
+.pi-run__artifacts-list a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.pi-run__artifacts-list a:hover,
+.pi-run__artifacts-list a:focus-visible {
+  text-decoration: underline;
+  color: var(--primary);
+}
+
+.pi-run__artifacts-list code {
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+}
+
+/* Localized "source materials are in English" notice shown on non-English
+   political-intelligence pages just above the methodology sections. */
+.pi-source-note {
+  margin: 0.6rem auto 1rem;
+  padding: 0.7rem 1rem;
+  max-width: 960px;
+  border: 1px dashed var(--border-light);
+  border-inline-start: 3px solid var(--primary);
+  border-radius: 8px;
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
 /* RTL flip: icon sits on the right, CTA arrow on the left */
 [dir='rtl'] .pi-card__link,
 [dir='rtl'] .pi-run__link {
