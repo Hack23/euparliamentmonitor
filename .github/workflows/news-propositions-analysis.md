@@ -139,8 +139,20 @@ You do **not** read `04-article-generation.md` or `05-analysis-to-article-contra
 | Data window | Per article type; derive from `$TODAY` / `$LAST_WEEK` / `$LAST_MONTH` |
 | Primary feeds | EP feeds via `get_*_feed` with appropriate timeframe; fall back per endpoint if empty/error. |
 | Minimum analysis time (Stage B, 2 passes) | ≥ 20 minutes |
-| Total active-work budget | 30–40 minutes (well below the 45-minute timeout) |
+| Total active-work budget | 22–27 minutes (well below the safeoutputs session TTL — see note below) |
 | PR rule | **Exactly one** `[analysis]` PR at end of run (see `06-pr-and-safe-outputs.md` §3a) |
+
+> **⚠️ safeoutputs Session TTL**: The safeoutputs MCP HTTP session on
+> `localhost:3001` is GC'd after ~30 minutes with no safeoutputs tool
+> calls (agent activity on other tools does **not** refresh it). [Run
+> 24818921747](https://github.com/Hack23/euparliamentmonitor/actions/runs/24818921747)
+> failed with `Streamable HTTP error: session not found` after Stage B
+> ran ~28 min with zero safeoutputs calls. Keep total wall-clock from
+> agent start to the single end-of-run PR call **under 28 minutes**
+> (the 22–27 min budget above leaves a 3–8 min safety margin below the
+> observed ~30 min TTL). Commit the branch and call the single PR as
+> soon as Stage C is GREEN — do not append further manifest edits.
+> See [`09-troubleshooting.md`](../prompts/09-troubleshooting.md) §5.
 
 ## 🎯 Article-Type Specifics
 
