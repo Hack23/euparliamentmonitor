@@ -3,7 +3,13 @@ name: "News: EU Parliament Committee Activity"
 description: Generates EU Parliament committee activity English analysis article with deep political intelligence. Translations are handled by the separate news-translate workflow.
 strict: false
 on:
-  schedule: daily around 4:00 on weekdays
+  # Scheduled runs are owned by the split pair
+  # `news-committee-reports-analysis.md` + `news-committee-reports-article.md`
+  # (each capped at 45 min), which stay well within the safeoutputs MCP HTTP
+  # session-expiry window. This monolithic workflow remains available as a
+  # manual fallback only; its ~56-min end-to-end run reliably expires the
+  # safeoutputs session before the final PR call (see run
+  # https://github.com/Hack23/euparliamentmonitor/actions/runs/24818751147).
   workflow_dispatch:
     inputs:
       force_generation:
