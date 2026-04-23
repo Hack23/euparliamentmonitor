@@ -1,0 +1,353 @@
+Content type text/plain; charset=utf-8 cannot be simplified to markdown. Here is the raw content:
+Contents of https://raw.githubusercontent.com/Hack23/riksdagsmonitor/main/analysis/methodologies/political-threat-framework.md:
+<p align="center">
+  <img src="https://hack23.com/icon-192.png" alt="Hack23 Logo" width="192" height="192">
+</p>
+
+<h1 align="center">🎭 Political Threat Analysis Framework</h1>
+
+<p align="center">
+  <strong>📊 Multi-Framework Methodology for Democratic Process Threat Analysis</strong><br>
+  <em>🎯 Attack Trees · Political Kill Chain · Diamond Model · Political Threat Taxonomy · Threat Actor Profiling</em>
+</p>
+
+<p align="center">
+  <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-3.3-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--06--01-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
+</p>
+
+**📋 Document Owner:** CEO | **📄 Version:** 3.3 | **📅 Last Updated:** 2026-06-01 (UTC)  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-09-01  
+**🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
+
+---
+
+## 🔄 Tradecraft Anchors
+
+| Element | Value | Reference |
+|---------|-------|-----------|
+| **F3EAD Stage** | **EXPLOIT → ANALYZE** | Threat analysis extracts adversarial intelligence and feeds scenario/intelligence products |
+| **PIRs Served** | Narrative Integrity threats → PIR-7; Legislative Integrity threats → PIR-2; Democratic Process threats → PIR-6, PIR-7; Power Balance threats → PIR-1 | See [`political-style-guide.md` §PIR/EEI Catalog](political-style-guide.md#-priority-intelligence-requirements-pir--essential-elements-of-information-eei) |
+| **Admiralty Floor** | Threat claims require ≥[B2] evidence; actor attribution requires ≥[A1] or multiple [B2] sources | See [`political-style-guide.md` §Admiralty Code](political-style-guide.md#-admiralty-source-reliability-code-nato-stanag-2022) |
+| **WEP Requirement** | Attack-tree probability branches use WEP; Kill-chain phase progression uses WEP for likelihood of advancement | See [`political-style-guide.md` §WEP + ODNI](political-style-guide.md#-words-of-estimative-probability-wep--odni-confidence-overlay) |
+| **ICD 203 Gate** | Standard 2 (uncertainties), 4 (alternative analysis — competing threat hypotheses), 9 (visual information — attack trees) | See [`political-style-guide.md` §ICD 203](political-style-guide.md#-icd-203-analytic-tradecraft-standards-mapping) |
+| **SAT(s)** | Red Team Analysis (adversary perspective), ACH (competing threat hypotheses), Indicators and Signposts (threat warning indicators) | See [`political-style-guide.md` §SATs](political-style-guide.md#-structured-analytic-techniques-sats-catalog) |
+
+---
+
+## 🎯 Purpose
+
+This framework establishes the authoritative **multi-framework methodology** for political threat analysis in Riksdagsmonitor. It integrates **four complementary threat modeling approaches** — each illuminating different aspects of political threats that the others miss.
+
+> **Why multiple frameworks?** Political intelligence requires understanding threat *mechanics* (HOW the threat succeeds — Attack Trees), threat *progression* (WHERE the threat IS in its lifecycle — Kill Chain), threat *relationships* (WHO is involved and what resources they use — Diamond Model), and threat *actor motivation* (WHY the actor is acting — ICO Profiling). Combining frameworks compensates for each framework's individual blind spots and produces actionable intelligence rather than superficial categorisation.
+>
+> **Note:** This framework deliberately avoids STRIDE and similar cybersecurity-origin categorisation models. STRIDE was designed for software security threat taxonomy and does not meaningfully transfer to political analysis. Political threats require understanding power dynamics, institutional leverage, coalition mathematics, and democratic process mechanics — none of which map to Spoofing/Tampering/Repudiation/Information Disclosure/Denial of Service/Elevation of Privilege.
+
+See [reference/isms-threat-modeling-adaptation.md](../reference/isms-threat-modeling-adaptation.md) for the ISMS-to-political mapping.
+
+---
+
+## 🗺️ Framework Selection Guide
+
+```mermaid
+flowchart TD
+    Q["🤔 What aspect of the<br/>political threat needs analysis?"]
+    Q --> A["🌳 Attack Trees<br/><em>How could this threat<br/>succeed step-by-step?</em>"]
+    Q --> B["⛓️ Political Kill Chain<br/><em>What stages must the<br/>threat actor complete?</em>"]
+    Q --> C["💎 Diamond Model<br/><em>Who is the adversary,<br/>what infrastructure and<br/>capabilities do they use?</em>"]
+    Q --> E["👤 Threat Actor Profiling<br/><em>What motivates and<br/>constrains this actor?</em>"]
+
+    A --> F["📊 Output: Attack tree diagram<br/>showing all paths to threat goal"]
+    B --> G["📊 Output: Kill chain stages<br/>showing progression & intervention points"]
+    C --> H["📊 Output: Diamond relationship<br/>mapping adversary-capability-infrastructure-victim"]
+    E --> J["📊 Output: Actor profile<br/>with intent/capability/opportunity assessment"]
+
+    style A fill:#D32F2F,color:#FFFFFF
+    style B fill:#FF9800,color:#FFFFFF
+    style C fill:#7B1FA2,color:#FFFFFF
+    style E fill:#FFC107,color:#000000
+```
+
+| Framework | Best For | Depth | Political Intelligence Value |
+|-----------|---------|:-----:|------------------------------|
+| **🌳 Attack Trees** | Decomposing HOW a threat succeeds | ★★★★★ | Shows all paths to a political goal; identifies cheapest/easiest attack paths |
+| **⛓️ Political Kill Chain** | Modelling threat PROGRESSION | ★★★★☆ | Reveals intervention points; early warning indicators at each stage |
+| **💎 Diamond Model** | Understanding ADVERSARY relationships | ★★★★☆ | Maps who, how, what infrastructure, and who's affected |
+| **👤 Threat Actor Profiling** | Assessing WHO and WHY | ★★★★★ | Intent-capability-opportunity analysis; predicts likely actions |
+
+**Mandatory minimum:** Every threat analysis MUST use at least **Attack Trees + one other framework**. Attack Trees are the mandatory primary tool because they answer the question most critical for political intelligence: "Through what specific sequence of steps could this threat succeed?" — enabling both early warning and strategic intervention.
+
+---
+
+## 🌳 Framework 1: Political Attack Trees
+
+Attack trees are the **primary threat modeling tool** for political intelligence because they answer the critical question: "How could this political goal be achieved?"
+
+### Attack Tree Structure
+
+```mermaid
+graph TD
+    ROOT["🎯 GOAL: Collapse Coalition<br/>(OR — any child suffices)"]
+    ROOT --> A["Path A: SD Withdraws Support<br/>(AND — all children required)"]
+    ROOT --> B["Path B: L Exits Coalition<br/>(AND — all children required)"]
+    ROOT --> C["Path C: No-Confidence Vote<br/>(AND — all children required)"]
+
+    A --> A1["A1: SD publicly demands<br/>policy concession"]
+    A --> A2["A2: Government refuses<br/>or delays response"]
+    A --> A3["A3: SD announces<br/>withdrawal of budget support"]
+
+    B --> B1["B1: Intra-coalition policy<br/>disagreement escalates"]
+    B --> B2["B2: L internal party<br/>pressure intensifies"]
+    B --> B3["B3: L leadership decides<br/>exit is electorally beneficial"]
+
+    C --> C1["C1: Opposition files<br/>misstroendeförklaring"]
+    C --> C2["C2: SD joins opposition<br/>or abstains"]
+    C --> C3["C3: Vote passes<br/>≥175 Nej votes"]
+
+    style ROOT fill:#D32F2F,color:#FFFFFF
+    style A fill:#FF9800,color:#FFFFFF
+    style B fill:#FF9800,color:#FFFFFF
+    style C fill:#FF9800,color:#FFFFFF
+    style A1 fill:#FFC107,color:#000000
+    style A2 fill:#FFC107,color:#000000
+    style A3 fill:#FFC107,color:#000000
+    style B1 fill:#FFC107,color:#000000
+    style B2 fill:#FFC107,color:#000000
+    style B3 fill:#FFC107,color:#000000
+    style C1 fill:#FFC107,color:#000000
+    style C2 fill:#FFC107,color:#000000
+    style C3 fill:#FFC107,color:#000000
+```
+
+### Attack Tree Construction Protocol
+
+1. **Define the goal** (root node): What political outcome is the threat aiming for?
+2. **Decompose with OR/AND gates:**
+   - **OR**: Any child path can achieve the goal independently
+   - **AND**: All child conditions must be met simultaneously
+3. **Assign leaf node attributes:**
+
+| Attribute | Description | Example |
+|-----------|-------------|---------|
+| **Feasibility** | How easily can this step occur? (1–5, 5=trivial) | SD public demand: 4 (frequent pattern) |
+| **Detectability** | How early can we detect this step? (1–5, 5=obvious) | Floor vote: 5 (public record) |
+| **Cost to actor** | Political cost of this action (1–5, 5=free) | L exit: 2 (high electoral risk) |
+| **Evidence** | MCP data supporting assessment | dok_id, vote record, speech reference |
+
+4. **Identify cheapest attack path**: The path with highest feasibility, highest detectability, and lowest cost is the most likely threat vector
+5. **Map early warning indicators**: For each leaf node, what MCP-detectable signal precedes it?
+
+### When to Use Attack Trees
+
+- **Always** for coalition stability threats (the most common and consequential threat type)
+- **Always** for budget/fiscal threats during Sep–Nov budget season
+- For any threat where you need to explain HOW something could happen, not just WHAT could happen
+- When analysing opposition strategy and possible escalation paths
+
+---
+
+## ⛓️ Framework 2: Political Kill Chain
+
+Adapted from Lockheed Martin's Cyber Kill Chain, the Political Kill Chain models the **stages** an adversary must complete to achieve a political objective. Each stage represents an intervention opportunity.
+
+### Political Kill Chain Stages
+
+```mermaid
+flowchart LR
+    R["1️⃣ Reconnaissance<br/>Issue identification<br/>& intelligence gathering"]
+    W["2️⃣ Weaponization<br/>Framing narratives<br/>& coalition building"]
+    D["3️⃣ Delivery<br/>Parliamentary instruments<br/>(motions, interpellations)"]
+    X["4️⃣ Exploitation<br/>Media amplification<br/>& public pressure"]
+    I["5️⃣ Installation<br/>Formal proceedings<br/>(KU, votes, debates)"]
+    C["6️⃣ Command & Control<br/>Coordinated political<br/>action across parties"]
+    A["7️⃣ Actions on Objective<br/>Policy change, resignation,<br/>no-confidence, election"]
+
+    R --> W --> D --> X --> I --> C --> A
+
+    style R fill:#4CAF50,color:#FFFFFF
+    style W fill:#FFC107,color:#000000
+    style D fill:#FF9800,color:#FFFFFF
+    style X fill:#FF9800,color:#FFFFFF
+    style I fill:#D32F2F,color:#FFFFFF
+    style C fill:#D32F2F,color:#FFFFFF
+    style A fill:#7B1FA2,color:#FFFFFF
+```
+
+### Kill Chain Stage Details
+
+| Stage | Political Manifestation | MCP Detection Tools | Early Warning Indicators |
+|:-----:|------------------------|--------------------|--------------------------| 
+| **1. Reconnaissance** | Opposition identifies government vulnerability (policy gap, scandal, economic data) | `search_dokument_fulltext`, `search_anforanden` | Uptick in written questions on specific topic |
+| **2. Weaponization** | Narrative framing, coalition-building for counter-position | `search_motioner` (clustered motions), `search_anforanden` (coordinated speeches) | Multiple opposition parties adopting same language |
+| **3. Delivery** | Formal parliamentary instruments filed (interpellations, motions, KU complaints) | `get_interpellationer`, `get_motioner`, `search_dokument` (organ=KU) | Coordinated filing on same day/week |
+| **4. Exploitation** | Media coverage, public opinion shift, pressure intensifies | `search_dokument_fulltext` (press references), MCP calendar events | Media narrative shift, polling changes |
+| **5. Installation** | Formal proceedings (KU hearing, committee vote, floor debate scheduled) | `get_calendar_events`, `search_voteringar` | Calendar items scheduled, debate notice |
+| **6. Command & Control** | Cross-party coordination for decisive action | `search_voteringar` (test votes), `search_anforanden` (coordinated floor statements) | Opposition bloc voting pattern changes |
+| **7. Actions on Objective** | Policy reversal, ministerial resignation, no-confidence vote, early election | `search_voteringar` (misstroendevotum), `search_dokument` | Constitutional procedures triggered |
+
+### Kill Chain Disruption Analysis
+
+For each threat, identify where the chain can be **disrupted** (defence) or where it has **already progressed** (assessment):
+
+| Chain Stage | Current Status | Disruption Opportunity |
+|:-----------:|:--------------:|----------------------|
+| 1. Reconnaissance | `[Active/Complete/Not started]` | `[e.g. "Proactive policy correction before opposition identifies gap"]` |
+| 2. Weaponization | `[Active/Complete/Not started]` | `[e.g. "Pre-emptive coalition alignment on narrative"]` |
+| ... | ... | ... |
+
+---
+
+## 💎 Framework 3: Diamond Model (Political Adaptation)
+
+The Diamond Model maps the **relationships** between adversary, capability, infrastructure, and victim — revealing the structural dynamics of political threats.
+
+```mermaid
+graph TD
+    ADV["👤 ADVERSARY<br/>(Political actor with intent)"]
+    CAP["⚡ CAPABILITY<br/>(Parliamentary instruments<br/>& political resources)"]
+    INF["🏗️ INFRASTRUCTURE<br/>(Media, alliances,<br/>institutional access)"]
+    VIC["🎯 VICTIM<br/>(Government, minister,<br/>policy, coalition)"]
+
+    ADV --> CAP
+    ADV --> INF
+    CAP --> VIC
+    INF --> VIC
+
+    style ADV fill:#D32F2F,color:#FFFFFF
+    style CAP fill:#FF9800,color:#FFFFFF
+    style INF fill:#FFC107,color:#000000
+    style VIC fill:#1565C0,color:#FFFFFF
+```
+
+### Diamond Model Analysis Table
+
+| Diamond Element | Description | Evidence |
+|----------------|-------------|---------|
+| **Adversary** | `[REQUIRED: Who is the threat actor? Name + party + role]` | `[dok_id / speech / motion reference]` |
+| **Capability** | `[REQUIRED: What parliamentary/political tools do they wield?]` | `[e.g. "175-seat opposition bloc, KU complaint mechanism, media access"]` |
+| **Infrastructure** | `[REQUIRED: What alliances, media channels, institutional access do they use?]` | `[e.g. "S-V-MP bloc coordination, SVT editorial access, EU Commission relationship"]` |
+| **Victim** | `[REQUIRED: Who/what is targeted? Minister, policy, coalition stability?]` | `[e.g. "Statsminister Kristersson (M), migration policy, Tidöavtal coalition agreement"]` |
+
+### Meta-Features (Context)
+
+| Meta-Feature | Assessment |
+|-------------|-----------|
+| **Timestamp** | `[When did threat activity begin?]` |
+| **Phase** | `[Kill chain stage 1-7]` |
+| **Direction** | `[Targeted or opportunistic?]` |
+| **Methodology** | `[Parliamentary (formal) or extra-parliamentary (media/public)?]` |
+| **Resources** | `[What political capital is being spent?]` |
+
+---
+
+## 🏷️ Framework 4: Political Threat Taxonomy (Systematic Coverage)
+
+> **Purpose:** The Political Threat Taxonomy ensures systematic coverage of all threat categories relevant to democratic governance. Unlike cybersecurity-origin models (which categorise by attack *type*), this taxonomy categorises by **democratic function threatened** — directly mapping to institutions, processes, and rights that AI analysts should examine.
+
+### Political Threat Category Overview
+
+```mermaid
+graph LR
+    subgraph "Democratic Function Threatened"
+        P1[🎭 Narrative Integrity<br/>Disinformation & False Framing]
+        P2[📝 Legislative Integrity<br/>Policy Corruption & Manipulation]
+        P3[🚫 Accountability<br/>Oversight Evasion & Obstruction]
+        P4[🔇 Transparency<br/>Information Suppression]
+        P5[⛔ Democratic Process<br/>Procedural Obstruction]
+        P6[👑 Power Balance<br/>Concentration & Overreach]
+    end
+
+    P1 --> D1["Detect via: anföranden cross-reference"]
+    P2 --> D2["Detect via: remiss vs. proposition delta"]
+    P3 --> D3["Detect via: KU investigations"]
+    P4 --> D4["Detect via: classified document volumes"]
+    P5 --> D5["Detect via: quorum patterns, filibuster duration"]
+    P6 --> D6["Detect via: constitutional boundary tests"]
+
+    style P1 fill:#E3F2FD
+    style P2 fill:#FCE4EC
+    style P3 fill:#FFF3E0
+    style P4 fill:#F3E5F5
+    style P5 fill:#E8F5E9
+    style P6 fill:#FFF8E1
+```
+
+### Threat Category Definitions
+
+| Category | Democratic Function | Threat Manifestation | Key MCP Detection Tool |
+|----------|:------------------:|---------------------|----------------------|
+| **Narrative Integrity** | Truthful public discourse | Disinformation, misleading framing, propaganda | `search_anforanden` + fact cross-reference |
+| **Legislative Integrity** | Fair lawmaking | Undisclosed lobbying, process manipulation, fast-tracking | `search_dokument` prop vs. remiss delta |
+| **Accountability** | Government answerability | KU evasion, record falsification, blame-shifting | `search_dokument` organ=KU |
+| **Transparency** | Public access to information | Classification abuse, delayed disclosure, FOI obstruction | Document release timing analysis |
+| **Democratic Process** | Fair parliamentary procedure | Filibustering, quorum manipulation, committee packing | `search_voteringar` patterns |
+| **Power Balance** | Constitutional separation | Executive overreach, judiciary pressure, opposition suppression | Constitutional boundary tests |
+
+---
+
+## 🎭 Threat Category 1: Democratic Process Threats
+
+*Threats that undermine the integrity of the Swedish democratic system itself.*
+
+### Threat Taxonomy
+
+```mermaid
+mindmap
+    root((Democratic<br/>Process Threats))
+        Electoral Integrity
+            Vote manipulation
+            Candidate suppression
+            Electoral law violations
+        Parliamentary Procedure
+            Filibustering
+            Quorum obstruction
+            Committee manipulation
+        Constitutional Compliance
+            Government overreach
+            KU granskning evasion
+            Legislative bypass
+        Public Discourse
+            Disinformation campaigns
+            Propaganda operations
+            Media capture
+```
+
+### Detection Indicators
+
+| Threat | Early Warning Signal | MCP Tool for Detection | Severity Baseline |
+|--------|---------------------|------------------------|:-----------------:|
+| Vote manipulation | Unexpected defection pattern | `search_voteringar` | 4 |
+| Filibustering | Abnormal debate length vs. content complexity | `search_anforanden` | 2 |
+| Constitutional overreach | Proposition bypasses normal remiss process | `search_dokument` | 5 |
+| Disinformation | Contradicting claims between official docs and politician statements | Cross-reference `anforanden` + `dokument` | 3 |
+
+---
+
+## 🏛️ Threat Category 2: Governance Integrity Threats
+
+*Threats to the proper, accountable exercise of governmental authority.*
+
+### Threat Taxonomy
+
+| Threat Type | Threat Category | Key Actors | Observable Evidence |
+|-------------|:---------------:|------------|---------------------|
+| Policy corruption (undisclosed lobbying) | Legislative Integrity | Industry sector, foreign governments | SOU remiss response vs. final proposition delta |
+| Accountability evasion | Accountability | Government ministers, party leadership | Anföranden contradicting voting record |
+| Regulatory capture | Power Balance | Regulatory agencies, sector incumbents | Appointment patterns + policy reversals |
+| Budget manipulation | Legislative Integrity | Finance ministry, budget committee | FiU reservationer vs. final budget text |
+| Oversight blocking | Transparency | Government secretariat | KU request delays, classified document volumes |
+
+### KU Granskning (Constitutional Committee Scrutiny) Monitoring
+
+The Konstitutionsutskottet (KU) is Sweden's primary governance integrity watchdog. Track:
+
+- **Open KU investigations** via `search_dokument` with `organ=KU` and `doktyp=bet`
+- **New KU complaints** (anmälningar) filed by opposition parties
+- **Government response delays** to KU information requests
+- **KU hearing transcripts** (förhörsprotokoll) for accountability signals
+
+**Threat Signal:** KU investigation into a sitting minister → automatic **High** governance 
+
+<note>Content truncated. Call the fetch tool with a start_index of 20000 to get more content.</note>
