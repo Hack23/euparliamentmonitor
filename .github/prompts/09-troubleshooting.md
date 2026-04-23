@@ -61,12 +61,32 @@ inside the workflow `.md`.
 
 | Symptom | Root cause | Fix |
 |---------|-----------|-----|
-| `tool call failed: session not found` | safeoutputs MCP session idled out | You cannot recover mid-run — was caused by a banned heartbeat/keep-alive pattern. Remove the pattern; the single-PR rule at end-of-run avoids this entirely. |
+| `tool call failed: session not found` (status 404 from `routed:safeoutputs`) | safeoutputs HTTP backend idle-reaped its own session (~25–30 min TTL). **Not** caused by a keep-alive pattern. See [§5a](#5a--session-not-found-forensic-detail) for evidence. | You cannot recover mid-run. Do NOT add a banned keep-alive pattern. Keep Stage B ≤ ~22 min; surface `SINGLE_PR_ATTESTATION` early; escalate to gh-aw upstream if it recurs. |
 | `container awf-api-proxy is unhealthy` | Transient AWF sandbox infra flake | Re-run the workflow; not a config bug. |
 | `Expected ',' or '}' after property value in JSON` in Copilot `edit` | `old_str`/`new_str` > ~30 lines / ~5 KB | Regenerate via TS generator, split into ≤ 20-line edits. **Do NOT fall back to `cat > file << EOF` heredocs** — see next row. Prefer the native `create` / `Write` file tool (e.g. the Copilot CLI `Create <path>` action that successfully wrote artifacts in [run 24805100070](https://github.com/Hack23/euparliamentmonitor/actions/runs/24805100070)). |
 | `Command not executed. The 'kill' command must specify at least one numeric PID. Usage: kill <PID> or kill -9 <PID>` in response to a `cat > file << 'EOF'` heredoc | **Copilot CLI bash-safety filter false-positive** — the filter scans the entire heredoc body for dangerous-command tokens. Political-analysis content routinely contains the literal word *"kill"* (e.g. *"motion to kill the bill"*, *"amendment killed in committee"*), which matches the bare-`kill`-no-PID pattern and rejects the entire write. Observed in cancelled [run 24805100070](https://github.com/Hack23/euparliamentmonitor/actions/runs/24805100070#step:27:20) at Stage B. | **Never use `cat > file << 'EOF'` to write analysis artifacts or article prose.** Use the native `create` / `Write` file tool available in the Copilot CLI — it bypasses the bash filter entirely. `cat > file` is still safe for short, keyword-free files (e.g. copying one artifact to `existing/`, writing `manifest.json` via `jq`). |
 | `Base branch override is not allowed` | Missing `allowed-base-branches: ["main"]` in safe-outputs | Add to frontmatter (see [`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md) §6). |
 | `create_pull_request: No changes to commit - no commits found` | The working tree has nothing to snapshot at call time | You called the tool too early — one PR at end-of-run, after files are written. |
+
+### 5a · `session not found` — forensic detail
+
+Evidence from [run 24819497608](https://github.com/Hack23/euparliamentmonitor/actions/runs/24819497608) (news-motions-analysis):
+
+- Agent connected to safeoutputs at `06:01:36`; last successful interaction `06:06:41` (SSE GET closed).
+- Worked silently on Stage A+B+C for ~29 min (no safeoutputs traffic in that window).
+- Final `create_pull_request` at `06:35:09` → HTTP 404 `session not found` on every retry.
+- `mcp-gateway.log` shows exactly **one** ping to `/mcp/safeoutputs` (at connect time).
+- `sandbox.mcp.keepalive-interval: 300` does **not** proxy periodic pings to HTTP MCP backends — it only keeps the gateway↔client transport alive, not the gateway↔backend session.
+- The analysis work was committed to the local branch but the branch was never pushed (gh-aw uses `git format-patch` via safeoutputs, not `git push`), so it is lost to the next run and only visible in the agent artifact.
+
+**Where to find these logs for your own run:**
+
+- Workflow run → Artifacts → `agent.zip`
+  - `agent-stdio.log` — Copilot CLI stdout (search for `safeoutputs___create_pull_request`, `SINGLE_PR_ATTESTATION`).
+  - `mcp-logs/mcp-gateway.log` — per-session MCP gateway trace (grep `routed:safeoutputs` to see every request/response and session connect/disconnect events).
+  - `mcp-logs/safeoutputs.log` — safeoutputs backend registration timing.
+
+**Related upstream tracker:** escalate to gh-aw upstream (see `.github/agents/agentic-workflows.agent.md`) if it recurs after Stage B is already bounded ≤ 22 min.
 
 ## 6 · Recovery Before Calling Noop
 
