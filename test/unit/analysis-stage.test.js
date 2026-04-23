@@ -195,7 +195,11 @@ describe('runAnalysisStage', () => {
     const manifest = JSON.parse(
       fs.readFileSync(path.join(analysisDir, 'manifest.json'), 'utf-8')
     );
-    // Validator (validate-analysis-completeness.ts:loadManifest) requires both
+    // Validator (validate-analysis-completeness.ts:loadManifest) requires both.
+    // NOTE: `manifest.articleType` is sourced from the `articleTypeSlug` option
+    // (not `articleTypes`) — this is the validator-facing top-level field that
+    // matches the `--article-type` CLI argument, not the internal article-types
+    // array used for data fetching.
     expect(manifest.articleType).toBe('committee-reports');
     expect(manifest.files).toBeDefined();
     expect(manifest.files.intelligence).toEqual([
@@ -237,7 +241,10 @@ describe('runAnalysisStage', () => {
     const manifest = JSON.parse(
       fs.readFileSync(path.join(analysisDir, 'manifest.json'), 'utf-8')
     );
-    // Added fields satisfy the gate
+    // Added fields satisfy the gate. `manifest.articleType` derives from
+    // `articleTypeSlug` (NOT `articleTypes[0]`) — using different values here
+    // (`articleTypes: ['week-ahead']` vs `articleTypeSlug: 'augment-me'`)
+    // asserts that the slug is the authoritative source.
     expect(manifest.articleType).toBe('augment-me');
     expect(manifest.files).toBeDefined();
     expect(manifest.files.intelligence).toEqual(['intelligence/synthesis-summary.md']);
