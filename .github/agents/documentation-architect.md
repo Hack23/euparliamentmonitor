@@ -313,7 +313,7 @@ cp .env.example .env
 # Edit .env with your EP_MCP_SERVER_URL
 
 # Generate news
-npm run generate-news
+npm run generate-article -- --run analysis/daily/<date>/<slug>-run<NN>/
 
 # Validate HTML
 npm run validate:html

@@ -64,7 +64,7 @@ npm run format         # Prettier formatting
 npm run test           # Vitest unit tests
 npm run test:coverage  # Tests with coverage
 npm run test:e2e       # Playwright E2E tests
-npm run generate-news  # Generate news articles
+npm run generate-article -- --run analysis/daily/<date>/<slug>-run<NN>/  # Render article from committed analysis artifacts
 npm run docs:generate  # Generate TypeDoc API docs
 ```
 
@@ -140,7 +140,7 @@ All behaviour shared across news workflows lives in [`.github/prompts/`](../prom
 | `02-analysis-protocol.md` | 2-pass analysis, methodologies/templates |
 | `03-analysis-completeness-gate.md` | Blocking `validate-analysis` gate |
 | `04-article-generation.md` | Prose/SWOT/stakeholder depth floors, charts |
-| `05-analysis-to-article-contract.md` | AI-First contract, AI_MARKER sentinels |
+| `05-analysis-to-article-contract.md` | Division of responsibility: agent owns Stage-B artifacts, aggregator owns HTML render, Stage-C reviews depth floors |
 | `06-pr-and-safe-outputs.md` | **Single-PR rule**, noop diagnostics |
 | `07-mcp-reference.md` | Canonical EP/WB/IMF tool tables |
 | `08-infrastructure.md` | Frontmatter, `mcp-setup.sh`, client env vars |

@@ -82,6 +82,56 @@ describe('scripts/lint-prompts.js', () => {
     expect(result.stderr.toLowerCase()).toContain('progressive safe output');
   });
 
+  it('flags references to modules purged in the April-2026 aggregator migration', () => {
+    writeWorkflow(
+      'news-bad-legacy.md',
+      '# Title\n' +
+        '```bash\n' +
+        'npx tsx src/generators/news-enhanced.ts\n' +
+        'node scripts/utils/validate-analysis-completeness.js --article-html=x\n' +
+        'echo src/utils/validate-articles.ts\n' +
+        'echo src/generators/strategies/motions.ts\n' +
+        '```\n' +
+        'The split family news-<type>-analysis.md + news-<type>-article.md is gone.\n' +
+        'npm run generate-news --legacy\n',
+    );
+    const result = runLint(tmpDir);
+    expect(result.code).toBe(1);
+    const stderr = result.stderr;
+    expect(stderr).toContain('news-enhanced.ts');
+    expect(stderr).toContain('validate-articles.ts');
+    expect(stderr).toContain('validate-analysis-completeness.js');
+    expect(stderr).toContain('src/generators/strategies/');
+    expect(stderr).toContain('news-<type>-analysis.md');
+    expect(stderr).toContain('news-<type>-article.md');
+    expect(stderr).toContain('generate-news');
+  });
+
+  it('accepts workflows that reference the aggregator entry point and CLI', () => {
+    writeWorkflow(
+      'news-ok-aggregator.md',
+      '# Title\nCall safeoutputs___create_pull_request once.\n' +
+        'Stage D: `npm run generate-article -- --run "${ANALYSIS_DIR}"`.\n' +
+        'The aggregator modules live under `src/aggregator/**` ' +
+        '(artifact-order, clean-artifact, analysis-aggregator, ' +
+        'markdown-renderer, article-html, article-generator).\n' +
+        'imports:\n  - .github/agents/news-generation.agent.md\n',
+    );
+    const result = runLint(tmpDir);
+    expect(result.code).toBe(0);
+  });
+
+  it('still allows generate-news-indexes (not a purged module)', () => {
+    writeWorkflow(
+      'news-ok-indexes.md',
+      '# Title\nCall safeoutputs___create_pull_request once.\n' +
+        'npm run generate-news-indexes is the prebuild hook.\n' +
+        'imports:\n  - .github/agents/news-generation.agent.md\n',
+    );
+    const result = runLint(tmpDir);
+    expect(result.code).toBe(0);
+  });
+
   it('flags push_repo_memory references', () => {
     writeWorkflow(
       'news-bad-memory.md',

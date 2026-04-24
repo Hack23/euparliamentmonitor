@@ -135,14 +135,16 @@ Rate limit: 500 req / 5 min. Cached responses < 200 ms.
 
 ## 8 · IMF (native TypeScript client — PRIMARY economic-context source, Wave-3)
 
-> ### ⚡ Scope (Wave-3)
+> ### ⚡ Scope (Wave-4 editorial)
 >
 > IMF is the **sole authoritative source** for all **economic** context
 > — GDP, inflation, unemployment, fiscal balance, debt, trade, FDI,
 > monetary, exchange rates, banking soundness. Enforcement is
-> editorial/agent-side (Stage-C completeness review); the legacy
-> runtime gate in `src/utils/content-validator.ts` was purged in the
-> April-2026 aggregator-pipeline migration.
+> editorial/agent-side at Stage-C completeness review — the legacy
+> runtime gates (`articlePolicyHasEconomicContext`,
+> `articlePolicyHasIMFEconomicEvidence`, `isWave3IMFStrictEnabled`) in
+> `src/utils/content-validator.ts` were purged in the April-2026
+> aggregator-pipeline migration.
 
 Client: `src/mcp/imf-mcp-client.ts` (class `IMFMCPClient`).
 Transport: direct REST to `https://dataservices.imf.org/REST/SDMX_3.0/`
