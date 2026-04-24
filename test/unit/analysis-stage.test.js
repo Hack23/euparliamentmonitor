@@ -490,6 +490,159 @@ describe('runAnalysisStage', () => {
     expect(manifestJson.history[1].gateResult).toBe('GREEN');
     expect(manifestJson.updatedAt).toBeTruthy();
   });
+
+  // Regression: the --analysis-only wrap-up always passed gateResult='PENDING'
+  // (the default), clobbering a GREEN entry the AI had written during Stage C.
+  // runAnalysisStage must now carry forward the latest resolved result when
+  // outputDirIsResolved=true and no explicit non-PENDING gateResult is given.
+  it('carry-forward: preserves GREEN written by AI when wrap-up passes default PENDING', async () => {
+    const sharedDir = path.join(tempDir, '2026-04-24', 'breaking-carry');
+    fs.mkdirSync(path.join(sharedDir, 'intelligence'), { recursive: true });
+    fs.writeFileSync(
+      path.join(sharedDir, 'intelligence', 'synthesis-summary.md'),
+      '# Synthesis\n\nAgent-authored.\n'
+    );
+    // Simulate the AI having written a GREEN stage-c entry before the wrap-up.
+    fs.writeFileSync(
+      path.join(sharedDir, 'manifest.json'),
+      JSON.stringify({
+        articleType: 'breaking',
+        history: [
+          {
+            stage: 'stage-c',
+            completedAt: '2026-04-24T06:14:27Z',
+            gateResult: 'GREEN',
+          },
+        ],
+      })
+    );
+
+    // Wrap-up call without explicit gateResult (default PENDING).
+    await runAnalysisStage(buildTestFetchedData(), {
+      articleTypes: ['breaking'],
+      date: '2026-04-24',
+      outputDir: sharedDir,
+      articleTypeSlug: 'breaking',
+      outputDirIsResolved: true,
+      runId: 'wrapup-run',
+      // gateResult intentionally omitted (defaults to PENDING inside the function)
+    });
+
+    const manifestJson = JSON.parse(
+      fs.readFileSync(path.join(sharedDir, 'manifest.json'), 'utf-8')
+    );
+    // The new history entry appended by the wrap-up must carry GREEN forward.
+    const wrapupEntry = manifestJson.history.find((e) => e.runId === 'wrapup-run');
+    expect(wrapupEntry).toBeDefined();
+    expect(wrapupEntry.gateResult).toBe('GREEN');
+  });
+
+  it('carry-forward: preserves ANALYSIS_ONLY written by AI when wrap-up passes default PENDING', async () => {
+    const sharedDir = path.join(tempDir, '2026-04-24', 'breaking-carry-ao');
+    fs.mkdirSync(path.join(sharedDir, 'intelligence'), { recursive: true });
+    fs.writeFileSync(
+      path.join(sharedDir, 'intelligence', 'synthesis-summary.md'),
+      '# Synthesis\n\nAgent-authored.\n'
+    );
+    fs.writeFileSync(
+      path.join(sharedDir, 'manifest.json'),
+      JSON.stringify({
+        articleType: 'breaking',
+        history: [
+          { stage: 'stage-c', gateResult: 'ANALYSIS_ONLY', completedAt: '2026-04-24T07:00:00Z' },
+        ],
+      })
+    );
+
+    await runAnalysisStage(buildTestFetchedData(), {
+      articleTypes: ['breaking'],
+      date: '2026-04-24',
+      outputDir: sharedDir,
+      articleTypeSlug: 'breaking',
+      outputDirIsResolved: true,
+      runId: 'wrapup-ao',
+    });
+
+    const manifestJson = JSON.parse(
+      fs.readFileSync(path.join(sharedDir, 'manifest.json'), 'utf-8')
+    );
+    const wrapupEntry = manifestJson.history.find((e) => e.runId === 'wrapup-ao');
+    expect(wrapupEntry).toBeDefined();
+    expect(wrapupEntry.gateResult).toBe('ANALYSIS_ONLY');
+  });
+
+  it('carry-forward: explicit gateResult takes precedence over existing manifest entry', async () => {
+    // If the caller explicitly passes gateResult='GREEN', that wins even if
+    // the existing manifest has ANALYSIS_ONLY.
+    const sharedDir = path.join(tempDir, '2026-04-24', 'breaking-explicit');
+    fs.mkdirSync(path.join(sharedDir, 'intelligence'), { recursive: true });
+    fs.writeFileSync(
+      path.join(sharedDir, 'intelligence', 'synthesis-summary.md'),
+      '# Synthesis\n\nAgent-authored.\n'
+    );
+    fs.writeFileSync(
+      path.join(sharedDir, 'manifest.json'),
+      JSON.stringify({
+        articleType: 'breaking',
+        history: [
+          { stage: 'stage-c', gateResult: 'ANALYSIS_ONLY', completedAt: '2026-04-24T07:00:00Z' },
+        ],
+      })
+    );
+
+    await runAnalysisStage(buildTestFetchedData(), {
+      articleTypes: ['breaking'],
+      date: '2026-04-24',
+      outputDir: sharedDir,
+      articleTypeSlug: 'breaking',
+      outputDirIsResolved: true,
+      runId: 'explicit-run',
+      gateResult: 'GREEN', // explicit override
+    });
+
+    const manifestJson = JSON.parse(
+      fs.readFileSync(path.join(sharedDir, 'manifest.json'), 'utf-8')
+    );
+    const entry = manifestJson.history.find((e) => e.runId === 'explicit-run');
+    expect(entry).toBeDefined();
+    expect(entry.gateResult).toBe('GREEN');
+  });
+
+  it('carry-forward: keeps PENDING when no resolved result exists in history', async () => {
+    // If the existing history has only PENDING entries, the wrap-up should
+    // also record PENDING (no false positive GREEN).
+    const sharedDir = path.join(tempDir, '2026-04-24', 'breaking-all-pending');
+    fs.mkdirSync(path.join(sharedDir, 'intelligence'), { recursive: true });
+    fs.writeFileSync(
+      path.join(sharedDir, 'intelligence', 'synthesis-summary.md'),
+      '# Synthesis\n\nAgent-authored.\n'
+    );
+    fs.writeFileSync(
+      path.join(sharedDir, 'manifest.json'),
+      JSON.stringify({
+        articleType: 'breaking',
+        history: [
+          { runId: 'stage-b', gateResult: 'PENDING', startedAt: '', finishedAt: '', filesWritten: [] },
+        ],
+      })
+    );
+
+    await runAnalysisStage(buildTestFetchedData(), {
+      articleTypes: ['breaking'],
+      date: '2026-04-24',
+      outputDir: sharedDir,
+      articleTypeSlug: 'breaking',
+      outputDirIsResolved: true,
+      runId: 'wrapup-still-pending',
+    });
+
+    const manifestJson = JSON.parse(
+      fs.readFileSync(path.join(sharedDir, 'manifest.json'), 'utf-8')
+    );
+    const wrapupEntry = manifestJson.history.find((e) => e.runId === 'wrapup-still-pending');
+    expect(wrapupEntry).toBeDefined();
+    expect(wrapupEntry.gateResult).toBe('PENDING');
+  });
 });
 
 // ─── isResolvedAnalysisDir tests ──────────────────────────────────────────────

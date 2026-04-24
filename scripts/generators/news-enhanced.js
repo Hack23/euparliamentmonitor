@@ -77,6 +77,7 @@ const analysisVerboseArg = args.includes('--analysis-verbose');
 const analysisDirArg = args.find((arg) => arg.startsWith('--analysis-dir='));
 const analysisMethodsArg = args.find((arg) => arg.startsWith('--analysis-methods='));
 const runIdArg = args.find((arg) => arg.startsWith('--run-id='));
+const gateResultArg = args.find((arg) => arg.startsWith('--gate-result='));
 const titleArg = args.find((arg) => arg.startsWith('--title='));
 const descriptionArg = args.find((arg) => arg.startsWith('--description='));
 /**
@@ -93,6 +94,27 @@ const descriptionArg = args.find((arg) => arg.startsWith('--description='));
 export const runId = (runIdArg?.slice('--run-id='.length).trim() ||
     process.env['GITHUB_RUN_NUMBER'] ||
     '').replace(/[^a-z0-9-]/giu, '');
+/**
+ * Explicit Stage-C gate result passed by the agentic workflow via
+ * `--gate-result=<value>`. When provided, it is forwarded to
+ * `runAnalysisStage` as the `gateResult` option so the discovery history
+ * entry records the correct result instead of the default `PENDING`.
+ *
+ * Valid values: `GREEN` | `GREEN_WITH_WARNINGS` | `ANALYSIS_ONLY` | `PENDING`.
+ * Unrecognised values are silently treated as absent (falls back to
+ * carry-forward logic in `runAnalysisStage`).
+ */
+const VALID_GATE_RESULTS = [
+    'GREEN',
+    'GREEN_WITH_WARNINGS',
+    'ANALYSIS_ONLY',
+    'PENDING',
+];
+const rawGateResult = gateResultArg?.slice('--gate-result='.length).trim().toUpperCase();
+export const cliGateResult = rawGateResult !== undefined &&
+    VALID_GATE_RESULTS.includes(rawGateResult)
+    ? rawGateResult
+    : undefined;
 /**
  * AI-generated article title passed by the agentic workflow.
  * When provided, this OVERRIDES any script-generated title.
@@ -360,6 +382,13 @@ async function maybeRunAnalysis(date, client) {
         verbose: analysisVerboseArg,
         requireData: !skipDataFetch,
         outputDirIsResolved: analysisDirIsResolved,
+        // Propagate the CLI run ID so manifest history entries carry the workflow
+        // run identifier rather than a random UUID, enabling audit-trail tracing.
+        ...(runId ? { runId } : {}),
+        // Forward the explicit --gate-result CLI value when provided; omit when
+        // absent so runAnalysisStage can carry forward the latest resolved result
+        // already committed by the AI agent during Stage C.
+        ...(cliGateResult !== undefined ? { gateResult: cliGateResult } : {}),
     });
     const totalMethods = ctx.manifest.methods.length;
     const completedCount = ctx.manifest.methods.filter((method) => method.status === 'completed').length;

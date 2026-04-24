@@ -733,4 +733,89 @@ describe('utils/file-utils', () => {
       expect(readLatestGateResult(manifestPath)).toBe('PENDING');
     });
   });
+
+  describe('readLatestResolvedGateResult', () => {
+    let readLatestResolvedGateResult;
+
+    beforeEach(async () => {
+      const mod = await import('../../scripts/utils/file-utils.js');
+      readLatestResolvedGateResult = mod.readLatestResolvedGateResult;
+    });
+
+    it('returns PENDING when the manifest does not exist', () => {
+      expect(readLatestResolvedGateResult(path.join(tempDir, 'missing.json'))).toBe('PENDING');
+    });
+
+    it('returns PENDING when all history entries are PENDING', () => {
+      const manifestPath = path.join(tempDir, 'manifest-all-pending.json');
+      fs.writeFileSync(
+        manifestPath,
+        JSON.stringify({
+          history: [
+            { runId: 'a', gateResult: 'PENDING', startedAt: '', finishedAt: '', filesWritten: [] },
+            { runId: 'b', gateResult: 'PENDING', startedAt: '', finishedAt: '', filesWritten: [] },
+          ],
+        })
+      );
+      expect(readLatestResolvedGateResult(manifestPath)).toBe('PENDING');
+    });
+
+    it('skips a trailing PENDING to return the last resolved result (GREEN)', () => {
+      // This is the key regression: the --analysis-only wrap-up appended a
+      // PENDING entry AFTER the AI had written a GREEN stage-c entry.
+      // readLatestResolvedGateResult must skip trailing PENDINGs.
+      const manifestPath = path.join(tempDir, 'manifest-trailing-pending.json');
+      fs.writeFileSync(
+        manifestPath,
+        JSON.stringify({
+          history: [
+            { runId: 'stage-a', gateResult: 'PENDING', startedAt: '', finishedAt: '', filesWritten: [] },
+            { runId: 'stage-c', gateResult: 'GREEN', startedAt: '', finishedAt: '', filesWritten: [] },
+            { runId: 'wrapup', gateResult: 'PENDING', startedAt: '', finishedAt: '', filesWritten: [] },
+          ],
+        })
+      );
+      expect(readLatestResolvedGateResult(manifestPath)).toBe('GREEN');
+    });
+
+    it('returns ANALYSIS_ONLY when that is the last resolved result', () => {
+      const manifestPath = path.join(tempDir, 'manifest-analysis-only.json');
+      fs.writeFileSync(
+        manifestPath,
+        JSON.stringify({
+          history: [
+            { runId: 'a', gateResult: 'ANALYSIS_ONLY', startedAt: '', finishedAt: '', filesWritten: [] },
+            { runId: 'b', gateResult: 'PENDING', startedAt: '', finishedAt: '', filesWritten: [] },
+          ],
+        })
+      );
+      expect(readLatestResolvedGateResult(manifestPath)).toBe('ANALYSIS_ONLY');
+    });
+
+    it('returns GREEN_WITH_WARNINGS when that is the last resolved result', () => {
+      const manifestPath = path.join(tempDir, 'manifest-green-warnings.json');
+      fs.writeFileSync(
+        manifestPath,
+        JSON.stringify({
+          history: [
+            { runId: 'a', gateResult: 'GREEN_WITH_WARNINGS', startedAt: '', finishedAt: '', filesWritten: [] },
+            { runId: 'b', gateResult: 'PENDING', startedAt: '', finishedAt: '', filesWritten: [] },
+          ],
+        })
+      );
+      expect(readLatestResolvedGateResult(manifestPath)).toBe('GREEN_WITH_WARNINGS');
+    });
+
+    it('returns PENDING for a missing or empty history', () => {
+      const manifestPath = path.join(tempDir, 'manifest-no-history.json');
+      fs.writeFileSync(manifestPath, JSON.stringify({ articleType: 'breaking' }));
+      expect(readLatestResolvedGateResult(manifestPath)).toBe('PENDING');
+    });
+
+    it('returns PENDING for corrupt JSON', () => {
+      const manifestPath = path.join(tempDir, 'manifest-corrupt.json');
+      fs.writeFileSync(manifestPath, 'not-json{{{');
+      expect(readLatestResolvedGateResult(manifestPath)).toBe('PENDING');
+    });
+  });
 });

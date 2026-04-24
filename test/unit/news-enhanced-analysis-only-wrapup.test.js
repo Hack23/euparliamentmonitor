@@ -117,4 +117,109 @@ describe('news-enhanced --analysis-only wrap-up on pre-resolved dir', () => {
     // And the process must have exited successfully.
     expect(result.status).toBe(0);
   });
+
+  // Regression: the wrap-up used to append gateResult:'PENDING' even when the
+  // existing manifest already had a GREEN stage-c entry, causing the paired
+  // article workflow to exit as a no-op. The carry-forward fix in
+  // runAnalysisStage must preserve GREEN through the wrap-up.
+  it('carry-forward: wrap-up without --gate-result preserves GREEN from existing manifest', () => {
+    // Manifest already has a GREEN stage-c entry (written by the AI).
+    const manifestPath = path.join(resolvedRunDir, 'manifest.json');
+    const initial = JSON.parse(fs.readFileSync(manifestPath, 'utf-8'));
+    // Ensure our pre-written history entry shows GREEN.
+    expect(initial.history[0].gateResult).toBe('GREEN');
+
+    const result = spawnSync(
+      process.execPath,
+      [
+        CLI,
+        '--types=committee-reports',
+        '--analysis',
+        '--analysis-methods=all',
+        `--analysis-dir=${resolvedRunDir}`,
+        '--analysis-only',
+        '--run-id=carry-forward-test',
+        // No --gate-result flag: the code must carry forward GREEN from manifest.
+      ],
+      {
+        cwd: REPO_ROOT,
+        encoding: 'utf-8',
+        env: { ...process.env, USE_EP_MCP: 'false', EP_FEED_DATA_FILE: '' },
+        timeout: 30_000,
+      }
+    );
+
+    expect(result.status).toBe(0);
+
+    // The new history entry appended by the wrap-up must carry GREEN forward.
+    const updated = JSON.parse(fs.readFileSync(manifestPath, 'utf-8'));
+    const wrapupEntry = updated.history.find((e) => e.runId === 'carry-forward-test');
+    expect(wrapupEntry).toBeDefined();
+    expect(wrapupEntry.gateResult).toBe('GREEN');
+  });
+
+  // Explicit --gate-result=GREEN forwarded from CLI must be recorded verbatim.
+  it('--gate-result=GREEN is recorded in the manifest history entry', () => {
+    const manifestPath = path.join(resolvedRunDir, 'manifest.json');
+
+    const result = spawnSync(
+      process.execPath,
+      [
+        CLI,
+        '--types=committee-reports',
+        '--analysis',
+        '--analysis-methods=all',
+        `--analysis-dir=${resolvedRunDir}`,
+        '--analysis-only',
+        '--gate-result=GREEN',
+        '--run-id=explicit-green-test',
+      ],
+      {
+        cwd: REPO_ROOT,
+        encoding: 'utf-8',
+        env: { ...process.env, USE_EP_MCP: 'false', EP_FEED_DATA_FILE: '' },
+        timeout: 30_000,
+      }
+    );
+
+    expect(result.status).toBe(0);
+
+    const updated = JSON.parse(fs.readFileSync(manifestPath, 'utf-8'));
+    const entry = updated.history.find((e) => e.runId === 'explicit-green-test');
+    expect(entry).toBeDefined();
+    expect(entry.gateResult).toBe('GREEN');
+  });
+
+  // Explicit --gate-result=ANALYSIS_ONLY must be recorded verbatim so the
+  // paired article workflow can correctly exit noop on merge.
+  it('--gate-result=ANALYSIS_ONLY is recorded in the manifest history entry', () => {
+    const manifestPath = path.join(resolvedRunDir, 'manifest.json');
+
+    const result = spawnSync(
+      process.execPath,
+      [
+        CLI,
+        '--types=committee-reports',
+        '--analysis',
+        '--analysis-methods=all',
+        `--analysis-dir=${resolvedRunDir}`,
+        '--analysis-only',
+        '--gate-result=ANALYSIS_ONLY',
+        '--run-id=explicit-ao-test',
+      ],
+      {
+        cwd: REPO_ROOT,
+        encoding: 'utf-8',
+        env: { ...process.env, USE_EP_MCP: 'false', EP_FEED_DATA_FILE: '' },
+        timeout: 30_000,
+      }
+    );
+
+    expect(result.status).toBe(0);
+
+    const updated = JSON.parse(fs.readFileSync(manifestPath, 'utf-8'));
+    const entry = updated.history.find((e) => e.runId === 'explicit-ao-test');
+    expect(entry).toBeDefined();
+    expect(entry.gateResult).toBe('ANALYSIS_ONLY');
+  });
 });

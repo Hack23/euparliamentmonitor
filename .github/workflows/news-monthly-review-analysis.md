@@ -227,9 +227,9 @@ npm run validate-analysis -- \
   --article-type="${ARTICLE_TYPE_SLUG}"
 ```
 
-- **Exit 0** → record `gateResult: "GREEN"` in the new history entry (use `--analysis-only` below, which writes this via `runAnalysisStage`) and proceed to Single PR.
+- **Exit 0** → set `GATE_RESULT=GREEN` and proceed to wrap-up.
 - **Exit 1 (first)** → run Pass 3 on the named artifacts, re-run validator.
-- **Exit 1 (second)** → record `gateResult: "ANALYSIS_ONLY"` and still ship the single analysis PR; the paired article workflow will exit noop on merge.
+- **Exit 1 (second)** → set `GATE_RESULT=ANALYSIS_ONLY` and proceed to wrap-up; the paired article workflow will exit noop on merge.
 
 Never use `--warn-only`.
 
@@ -244,12 +244,15 @@ npx tsx src/generators/news-enhanced.ts \
   --analysis-methods=all \
   --analysis-dir="${ANALYSIS_DIR}" \
   --analysis-only \
+  --gate-result="${GATE_RESULT}" \
   --run-id="${RUN_ID}"
 ```
 
-This invocation exits after Stage C without generating any HTML. It also
-writes the new `manifest.json.history[]` entry via `mergeManifestHistory`
-(see [`src/utils/file-utils.ts`](../../src/utils/file-utils.ts)).
+This invocation exits after Stage C without generating any HTML. It writes
+the new `manifest.json.history[]` entry via `mergeManifestHistory`
+(see [`src/utils/file-utils.ts`](../../src/utils/file-utils.ts)) with
+`gateResult` set to `$GATE_RESULT` so the paired article workflow can
+proceed to Stage D when the gate was `GREEN`.
 
 ### Single Analysis PR (Ref: 06 §3a)
 
