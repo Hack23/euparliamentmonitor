@@ -325,7 +325,8 @@ const METADATA_PROSE_PREFIX = new RegExp(
       'throughput rate',
       'gate result',
       'analysis date',
-      'classification date',
+      'classification\\s*(date)?\\s*:',
+      'confidence\\s*:',
       'analysis owner',
       'data sources',
       'parliamentary status',
@@ -407,24 +408,57 @@ function deriveMetadataForFile(file, html) {
   const bodyProse = extractBodyFirstProse(articleBody);
   const bodySecondaryProse = extractBodySecondProse(articleBody);
 
-  // Try the manifest-driven resolver first — only applies when an
-  // analysis run exists for this (date, articleType) pair. For legacy
-  // files there is no run, so we just use the body-derived highlight.
-  const syntheticMarkdown = buildSyntheticMarkdown(bodyH1, bodyProse);
+  // Try to extract committee codes from the body H1 so the template
+  // fallback for `committee-reports` renders realistic abbreviations
+  // (`ENVI, ECON, AFET, LIBE, AGRI`) instead of the placeholder
+  // `Main Committees`. This keeps the localized template consistent
+  // with the legacy format even when the manifest is missing.
+  const committee = extractCommitteeCodes(bodyH1) || extractCommitteeCodes(bodyProse);
+
   const resolved = resolveArticleMetadata({
     articleType: file.articleType,
     date: file.date,
-    markdown: syntheticMarkdown,
+    markdown: buildSyntheticMarkdown(bodyH1, bodyProse),
+    manifest: committee ? { committee } : undefined,
   });
   const templateEntry = pickLangEntry(resolved, file.lang);
 
-  // Pick title: non-generic body H1 > first sentence of prose > template.
-  const title = chooseTitle(bodyH1, bodyProse, templateEntry.title, file);
+  if (file.lang !== 'en') {
+    // NON-ENGLISH files: The article body may be in a different language
+    // than the file claims to be — legacy files have localized H1/chrome
+    // but English body prose; aggregator PR#1404 files have English H1
+    // AND English body in every language variant. We accept body content
+    // only when it is plausibly in the file's language, and fall back to
+    // the localized template otherwise. This guarantees every non-EN
+    // variant's `<title>` / `<meta description>` is in the correct locale.
+    const h1IsUsable =
+      bodyH1 &&
+      !isGenericBodyH1(bodyH1, file.articleType, file.date) &&
+      isTextPlausiblyInLang(bodyH1, file.lang);
+    const proseIsUsable = bodyProse && isTextPlausiblyInLang(bodyProse, file.lang);
+    const secondaryIsUsable =
+      bodySecondaryProse && isTextPlausiblyInLang(bodySecondaryProse, file.lang);
 
-  // Pick description: prefer a prose paragraph that is NOT the one the
-  // title was derived from, so title and description carry complementary
-  // information. Falls back to the first paragraph (or the template
-  // subtitle) when no second paragraph exists.
+    const title = h1IsUsable ? bodyH1 : templateEntry.title;
+    // Description: prefer a locale-matching prose paragraph; fall back
+    // to the localized template's subtitle. When the title came from
+    // the H1, try the first prose as description; otherwise use the
+    // complementary second paragraph.
+    const descSource = h1IsUsable ? (proseIsUsable ? bodyProse : '') : secondaryIsUsable
+      ? bodySecondaryProse
+      : proseIsUsable
+      ? bodyProse
+      : '';
+    const description = descSource || templateEntry.description;
+
+    return {
+      title: truncateUpto(title, TITLE_CAP),
+      description: truncateUpto(description, DESC_CAP),
+    };
+  }
+
+  // ENGLISH path — mine the body freely.
+  const title = chooseTitle(bodyH1, bodyProse, templateEntry.title, file);
   const titleCameFromProse =
     (!bodyH1 || isGenericBodyH1(bodyH1, file.articleType, file.date)) &&
     bodyProse &&
@@ -438,6 +472,141 @@ function deriveMetadataForFile(file, html) {
     title: truncateUpto(title, TITLE_CAP),
     description: truncateUpto(description, DESC_CAP),
   };
+}
+
+/** Unicode-range / substring signatures per language. */
+const LANG_SCRIPT_RE = Object.freeze({
+  ar: /[\u0600-\u06FF]/,
+  he: /[\u0590-\u05FF]/,
+  ja: /[\u3040-\u309F\u30A0-\u30FF]/,
+  ko: /[\uAC00-\uD7AF]/,
+  zh: /[\u4E00-\u9FFF]/,
+});
+
+/** Latin-script language signature characters that are uncommon in English. */
+const LANG_DIACRITIC_RE = Object.freeze({
+  sv: /[åäöÅÄÖ]/,
+  da: /[æøåÆØÅ]/,
+  no: /[æøåÆØÅ]/,
+  fi: /[äöÄÖ]/,
+  de: /[äöüßÄÖÜ]/,
+  fr: /[àâçéèêëîïôùûüÀÂÇÉÈÊËÎÏÔÙÛÜœŒ]/,
+  es: /[áéíñóúü¡¿ÁÉÍÑÓÚÜ]/,
+  nl: /[áéíóúëïöüÁÉÍÓÚËÏÖÜ]/,
+});
+
+/**
+ * Per-language short-word signatures that are strong enough by themselves
+ * to accept a headline or sentence as "plausibly in that language" even
+ * when the text has no diacritical marks.
+ *
+ * Matched case-insensitively with word boundaries. Values are deliberately
+ * SHORT lists of very-common function words / particles that either do
+ * not appear in English at all or would be vanishingly unusual. Words
+ * that mean something valid in English (e.g. "for", "med", "and",
+ * "with", "en", "in") are NOT included — they would false-positive on
+ * English prose that happens to be rendered under a non-EN filename.
+ */
+const LANG_WORD_RE = Object.freeze({
+  // Scandi/Germanic/Romance "parlament"/"parlement"/"parlamento" root is
+  // a RELIABLE non-English signature — English spells it "parliament"
+  // (with an `i` between `l` and `a`), which the regex below does NOT
+  // match. Compound forms (`parlamentets`, `europaparlamentet`,
+  // `parlamentarisch`) are captured by the trailing `\w*`.
+  sv: /\b(och|är|att|från|genom|också|eller|mellan|europaparlament\w*|parlament\w*|europeiska|sverige|svenska|utskott\w*)\b/i,
+  da: /\b(og|af|ikke|også|gennem|eller|europaparlament\w*|parlament\w*|danmark|dansk|udvalg\w*|valgperiode\w*)\b/i,
+  no: /\b(og|ikke|også|gjennom|eller|europaparlament\w*|parlament\w*|norge|norsk|komite\w*|valgperiode\w*)\b/i,
+  fi: /\b(ja|on|ovat|tai|mutta|myös|parlament\w*|valiokunt\w*|suomen|eurooppalainen|eurooppa|vaalikaude\w*)\b/i,
+  de: /\b(und|ist|nicht|auch|durch|über|für|parlament\w*|deutschland|deutsche|europäisch\w*|ausschuss\w*|woche|monat)\b/i,
+  fr: /\b(et|pour|avec|sur|dans|les|parlement\w*|européen\w*|française|france|comité|commission|semaine|mois)\b/i,
+  es: /\b(el|la|los|las|con|para|por|según|parlamento\w*|europeo|europea|española|españa|comisión|comité|semana|mes)\b/i,
+  nl: /\b(het|van|voor|met|door|naar|over|parlement\w*|europees|europese|nederland|commissie|comité|week|maand)\b/i,
+});
+
+/**
+ * Known EP committee abbreviations. Used by {@link extractCommitteeCodes}
+ * to pull the committee list out of a `committee-reports` body H1 so the
+ * localized template renders the real abbreviations rather than the
+ * English placeholder `Main Committees`.
+ */
+const COMMITTEE_CODES = new Set([
+  'AFET', 'AGRI', 'BUDG', 'CONT', 'CULT', 'DEVE', 'DROI', 'ECON', 'EMPL',
+  'ENVI', 'FEMM', 'IMCO', 'INTA', 'ITRE', 'JURI', 'LIBE', 'PECH', 'PETI',
+  'REGI', 'SEDE', 'TRAN', 'BECA', 'INGE', 'AIDA',
+]);
+
+/**
+ * Scan a chunk of text for a comma-separated sequence of 3–4 letter
+ * committee abbreviations. Returns the original comma-separated list
+ * when at least two valid codes appear in order, otherwise empty string.
+ *
+ * @param {string} text - Text (H1 or paragraph) to scan
+ * @returns {string} `ENVI, ECON, AFET, LIBE, AGRI`-style list or empty
+ */
+export function extractCommitteeCodes(text) {
+  if (!text) return '';
+  const tokens = text.match(/\b[A-Z]{3,4}\b/g);
+  if (!tokens) return '';
+  const valid = tokens.filter((t) => COMMITTEE_CODES.has(t));
+  if (valid.length < 2) return '';
+  // De-duplicate while preserving first-occurrence order.
+  const seen = new Set();
+  const ordered = [];
+  for (const v of valid) {
+    if (seen.has(v)) continue;
+    seen.add(v);
+    ordered.push(v);
+  }
+  return ordered.join(', ');
+}
+
+/**
+ * Decide whether a short text (headline or paragraph) is plausibly in
+ * {@link lang}. For non-Latin languages, requires at least one
+ * script-block character. For Latin non-English languages, requires
+ * either a locale-signature diacritic or a locale-typical function word
+ * (Swedish `och`, Danish `og`, German `und`, French `et`, …). English
+ * text is accepted when the input is largely ASCII without non-Latin
+ * script markers.
+ *
+ * The function is deliberately conservative — it exists only to keep
+ * wrong-language content out of `<title>` / `<meta description>` during
+ * backport, not to perform general language identification.
+ *
+ * @param {string} text - Candidate text
+ * @param {string} lang - Target language code
+ * @returns {boolean} Whether {@link text} is plausibly in {@link lang}
+ */
+export function isTextPlausiblyInLang(text, lang) {
+  if (!text) return false;
+  const trimmed = text.trim();
+  if (!trimmed) return false;
+
+  const scriptDesc = Object.getOwnPropertyDescriptor(LANG_SCRIPT_RE, lang);
+  if (scriptDesc?.value) {
+    // Non-Latin language — require its script.
+    return scriptDesc.value.test(trimmed);
+  }
+
+  // For English, reject text dominated by non-Latin scripts.
+  if (lang === 'en') {
+    for (const key of Object.keys(LANG_SCRIPT_RE)) {
+      const re = Object.getOwnPropertyDescriptor(LANG_SCRIPT_RE, key)?.value;
+      if (re?.test(trimmed)) return false;
+    }
+    return true;
+  }
+
+  // Latin non-English: require either a locale-signature diacritic OR a
+  // locale-typical function word. Both are deliberately built from words
+  // that do NOT appear in English, so English prose rendered under a
+  // non-EN filename (aggregator regression) fails both checks and is
+  // rejected — forcing the resolver back to the localized template tier.
+  const diacriticRe = Object.getOwnPropertyDescriptor(LANG_DIACRITIC_RE, lang)?.value;
+  if (diacriticRe?.test(trimmed)) return true;
+  const wordRe = Object.getOwnPropertyDescriptor(LANG_WORD_RE, lang)?.value;
+  if (wordRe?.test(trimmed)) return true;
+  return false;
 }
 
 /**

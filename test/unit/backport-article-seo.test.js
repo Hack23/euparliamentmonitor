@@ -226,6 +226,60 @@ describe('deriveMetadataForFile — full pipeline', () => {
     expect(meta.title.length).toBeGreaterThan(10);
     expect(meta.description.length).toBeGreaterThan(10);
   });
+
+  it('uses the localized template when body language does not match filename language', () => {
+    // Aggregator regression case — the file is `-sv.html` but the body
+    // is still rendered in English (known PR#1404 regression). The
+    // backport must NOT extract the English prose into the Swedish
+    // `<title>`; it must fall through to the localized template.
+    const englishBody =
+      '<h1>Banking Union Breakthrough and Anti-Corruption Landmark</h1>' +
+      '<p>The European Parliament this week closed the final gap in the banking union with a landmark resolution adopted by the plenary on Tuesday evening.</p>';
+    const html = buildHtml({
+      title: 'Banking Union Breakthrough and Anti-Corruption Landmark',
+      description: 'The European Parliament closed the final gap in the banking union.',
+      body: englishBody,
+    });
+    // Note: buildHtml hard-codes `<html lang="en">`. The file is `*-sv.html`.
+    const meta = deriveMetadataForFile(
+      { slug: '2026-04-14-breaking', articleType: 'breaking', date: '2026-04-14', lang: 'sv' },
+      html
+    );
+    // Must NOT contain the English editorial phrases.
+    expect(meta.title).not.toContain('Banking Union Breakthrough');
+    expect(meta.title).not.toContain('Anti-Corruption Landmark');
+    expect(meta.description).not.toContain('banking union with a landmark');
+    // Must be populated from the localized Swedish template.
+    expect(meta.title.length).toBeGreaterThan(5);
+    expect(meta.description.length).toBeGreaterThan(5);
+  });
+
+  it('mines the body when its `<html lang>` matches the filename language', () => {
+    // Legacy cohort — body is in Swedish so we SHOULD extract from it.
+    const svBody =
+      '<h1>Bankunion-genombrott och antikorruptions-milstolpe</h1>' +
+      '<p>Europaparlamentet slöt denna vecka den sista luckan i bankunionen med en historisk resolution antagen av plenum på tisdagskvällen.</p>';
+    const html = `<!DOCTYPE html>
+<html lang="sv" dir="ltr">
+<head>
+<title>Old title | EU Parliament Monitor</title>
+<meta name="description" content="old">
+<meta property="og:title" content="old">
+<meta property="og:description" content="old">
+<meta property="og:image:alt" content="old">
+<meta name="twitter:title" content="old">
+<meta name="twitter:description" content="old">
+<script type="application/ld+json">{"@type":"NewsArticle","headline":"old","description":"old"}</script>
+</head>
+<body><article class="news-article" lang="sv"><div class="article-content">${svBody}</div></article></body>
+</html>`;
+    const meta = deriveMetadataForFile(
+      { slug: '2026-02-24-breaking', articleType: 'breaking', date: '2026-02-24', lang: 'sv' },
+      html
+    );
+    expect(meta.title).toContain('Bankunion-genombrott');
+    expect(meta.description).toContain('Europaparlamentet');
+  });
 });
 
 describe('rewriteHtml — idempotency + surface coverage', () => {

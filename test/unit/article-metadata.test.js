@@ -365,8 +365,54 @@ describe('resolveArticleMetadata — priority ladder', () => {
     });
     expect(Object.getOwnPropertyDescriptor(result, 'en')?.value.title).toBe('EN TITLE');
     expect(Object.getOwnPropertyDescriptor(result, 'sv')?.value.title).toBe('SV TITEL');
-    // Other langs fall back to EN value from the object.
-    expect(Object.getOwnPropertyDescriptor(result, 'de')?.value.title).toBe('EN TITLE');
+    // Languages without an explicit override must NOT inherit the English
+    // value — they fall through to the localized template so every locale
+    // stays in its own language.
+    const de = Object.getOwnPropertyDescriptor(result, 'de')?.value.title;
+    expect(de).not.toBe('EN TITLE');
+    expect(de.length).toBeGreaterThan(5);
+  });
+
+  it('non-English languages never inherit the English editorial headline', () => {
+    // Simulate the aggregator case: English editorial H1 exists in the
+    // aggregated Markdown, but every non-EN variant must still surface a
+    // locale-appropriate title rather than the English headline.
+    const result = resolveArticleMetadata({
+      articleType: 'breaking',
+      date: '2026-04-20',
+      markdown:
+        '# Banking Union Breakthrough and Anti-Corruption Landmark\n\nThe European Parliament this week closed the final gap in the banking union with a landmark resolution.',
+    });
+    const en = Object.getOwnPropertyDescriptor(result, 'en')?.value;
+    expect(en.title).toBe('Banking Union Breakthrough and Anti-Corruption Landmark');
+    for (const lang of ALL_LANGUAGES) {
+      if (lang === 'en') continue;
+      const entry = Object.getOwnPropertyDescriptor(result, lang)?.value;
+      expect(entry.title).not.toContain('Banking Union Breakthrough');
+      expect(entry.title).not.toContain('Anti-Corruption Landmark');
+      expect(entry.description).not.toContain('banking union with a landmark');
+      expect(entry.title.length).toBeGreaterThan(5);
+      expect(entry.description.length).toBeGreaterThan(5);
+    }
+  });
+
+  it('non-English languages still honour an explicit per-language manifest override', () => {
+    const result = resolveArticleMetadata({
+      articleType: 'breaking',
+      date: '2026-04-20',
+      markdown:
+        '# Banking Union Breakthrough\n\nThe European Parliament this week closed the final gap in the banking union with a landmark resolution.',
+      manifest: {
+        title: { en: 'EN Banking Union Breakthrough', sv: 'SV Bankunion-genombrott' },
+        description: {
+          en: 'EN description goes here with enough length.',
+          sv: 'SV beskrivning kommer här med tillräcklig längd.',
+        },
+      },
+    });
+    const sv = Object.getOwnPropertyDescriptor(result, 'sv')?.value;
+    expect(sv.title).toBe('SV Bankunion-genombrott');
+    expect(sv.description).toBe('SV beskrivning kommer här med tillräcklig längd.');
   });
 
   it('Tier 2 — first non-generic artefact H1 wins over aggregated H1', () => {

@@ -34,11 +34,13 @@
  *    date (or derived values), so the title changes from run to run even
  *    when this last tier fires — but still the "boring repeated" option.
  *
- * English highlights (tiers 2–4) are reused across every language variant
- * because the rendered article body is English until per-language
- * `news/<slug>.<lang>.md` translations are produced. This keeps `<title>`
- * and `<meta description>` consistent with the document's actual language
- * of prose while guaranteeing each article has a unique headline.
+ * English highlights (tiers 2–4) are reserved for the `en` language
+ * variant; non-English variants skip them and drop to the localized
+ * template (tier 5) unless an explicit `manifest.title.<lang>` /
+ * `manifest.description.<lang>` override is present. This guarantees
+ * every variant's `<title>` and `<meta description>` are in the correct
+ * locale even while the article body itself is still rendered from an
+ * English source (until per-language body translations ship).
  */
 import fs from 'fs';
 import path from 'path';
@@ -182,15 +184,18 @@ export function shouldSkipDescriptionLine(line) {
  * @returns Plain-text variant
  */
 export function stripInlineMarkdown(raw) {
+    // All inner character classes are length-bounded to eliminate the
+    // polynomial-regex worst case that CodeQL flags on uncontrolled input —
+    // none of these decorations are legitimately longer than 500 chars.
     return raw
-        .replace(/!\[([^\]]*)\]\([^)]*\)/g, '$1') // ![alt](img)  — must precede [text](url)
-        .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1') // [text](url) → text
-        .replace(/`([^`]+)`/g, '$1') // inline code
-        .replace(/\*\*([^*]+)\*\*/g, '$1') // **bold**
-        .replace(/__([^_]+)__/g, '$1') // __bold__
-        .replace(/\*([^*]+)\*/g, '$1') // *italic*
-        .replace(/_([^_]+)_/g, '$1') // _italic_
-        .replace(/~~([^~]+)~~/g, '$1') // ~~strike~~
+        .replace(/!\[([^\]\n]{0,500})\]\(([^)\n]{0,500})\)/g, '$1') // ![alt](img) — must precede [text](url)
+        .replace(/\[([^\]\n]{1,500})\]\(([^)\n]{0,500})\)/g, '$1') // [text](url) → text
+        .replace(/`([^`\n]{1,500})`/g, '$1') // inline code
+        .replace(/\*\*([^*\n]{1,500})\*\*/g, '$1') // **bold**
+        .replace(/__([^_\n]{1,500})__/g, '$1') // __bold__
+        .replace(/\*([^*\n]{1,500})\*/g, '$1') // *italic*
+        .replace(/_([^_\n]{1,500})_/g, '$1') // _italic_
+        .replace(/~~([^~\n]{1,500})~~/g, '$1') // ~~strike~~
         .replace(/\s+/g, ' ')
         .trim();
 }
@@ -242,7 +247,12 @@ export function extractFirstH1(markdown) {
         // Accept `# Title` but not `## Sub-heading`.
         if (!/^#\s+/.test(line))
             continue;
-        const text = line.replace(/^#\s+/, '').replace(/\s*#+\s*$/, '').trim();
+        // Strip the leading `# ` marker, then trim trailing `#` characters
+        // without an unbounded `\s*#+\s*$` regex (CodeQL flags that form as
+        // polynomial on pathological repeated-`#` input).
+        let text = line.replace(/^#\s+/, '').trimEnd();
+        while (text.endsWith('#'))
+            text = text.slice(0, -1).trimEnd();
         return stripInlineMarkdown(text);
     }
     return '';
@@ -580,13 +590,19 @@ function formatIsoDate(d) {
  * @returns Override string, or empty string when absent
  */
 function manifestOverrideFor(value, lang) {
+    // A plain string is a blanket editorial override — the operator is
+    // telling the resolver "use this exact text for every language". This
+    // is the one path where a single string is applied cross-locale; the
+    // operator takes responsibility for its language.
     if (typeof value === 'string')
         return value.trim();
     if (!value)
         return '';
-    // Use `Map.prototype.get` semantics via a prototype-less shallow copy so
-    // the ESLint `security/detect-object-injection` rule is satisfied while
-    // still supporting the small fixed set of language codes.
+    // Per-language object: respect ONLY the explicit entry for `lang`. We
+    // deliberately do NOT fall back to the `en` entry for non-English
+    // variants — otherwise an EN-only override would leak English into
+    // every other locale's <title>. Missing languages fall through to the
+    // localized template tier.
     const map = new Map();
     for (const key of Object.keys(value)) {
         const v = value[key];
@@ -594,10 +610,7 @@ function manifestOverrideFor(value, lang) {
             map.set(key, v);
     }
     const entry = map.get(lang);
-    if (typeof entry === 'string' && entry.trim().length > 0)
-        return entry.trim();
-    const fallback = map.get('en');
-    return typeof fallback === 'string' ? fallback.trim() : '';
+    return typeof entry === 'string' ? entry.trim() : '';
 }
 /**
  * Internal: best editorial `{headline, summary}` pair available from the
@@ -650,8 +663,17 @@ export function resolveArticleMetadata(opts) {
         const manifestTitle = manifestOverrideFor(manifest.title, lang);
         const manifestDescription = manifestOverrideFor(manifest.description, lang);
         const fallback = template[lang];
-        const titleCandidates = [manifestTitle, editorial.headline, fallback.title];
-        const descCandidates = [manifestDescription, editorial.summary, fallback.subtitle];
+        // Non-English languages must not inherit the English editorial
+        // headline/summary — they would render a non-locale title in a
+        // localized chrome. We skip tiers 2–4 for non-EN and drop straight to
+        // the localized template (or explicit manifest override when provided).
+        const useEditorial = lang === 'en';
+        const titleCandidates = useEditorial
+            ? [manifestTitle, editorial.headline, fallback.title]
+            : [manifestTitle, fallback.title];
+        const descCandidates = useEditorial
+            ? [manifestDescription, editorial.summary, fallback.subtitle]
+            : [manifestDescription, fallback.subtitle];
         const title = pickFirstNonEmpty(titleCandidates) || fallback.title;
         const description = pickFirstNonEmpty(descCandidates) || fallback.subtitle;
         Object.defineProperty(result, lang, {
