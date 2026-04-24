@@ -265,10 +265,14 @@ export function renderAnalysisIndex(included, manifestRelPath) {
  * @param runDirRelPath - Repo-relative POSIX path of the run directory
  * @param seenMermaid - Shared mermaid-body hash set for dedup
  * @param sectionId - Identifier of the owning section (for the index)
+ * @param suppressHeader - When `true`, omit the `### {humanize(stem)}` heading
+ *        (used when the section has a single artifact whose name already
+ *        matches the section title, to avoid a redundant H3 immediately
+ *        under the section H2)
  * @returns `{ lines, included }` ready to be appended; `null` when the file
  *          doesn't exist on disk
  */
-function renderArtifactFragment(runDir, runRel, runDirRelPath, seenMermaid, sectionId) {
+function renderArtifactFragment(runDir, runRel, runDirRelPath, seenMermaid, sectionId, suppressHeader) {
     const abs = path.join(runDir, runRel);
     if (!fs.existsSync(abs))
         return null;
@@ -279,9 +283,9 @@ function renderArtifactFragment(runDir, runRel, runDirRelPath, seenMermaid, sect
         seenMermaidHashes: seenMermaid,
     });
     const stem = runRel.split('/').pop()?.replace(/\.md$/i, '') ?? runRel;
+    const headerLines = suppressHeader ? [] : ['', `### ${humanize(stem)}`];
     const lines = [
-        '',
-        `### ${humanize(stem)}`,
+        ...headerLines,
         '',
         `<p class="artifact-source"><a href="${githubBlobUrl(repoRel)}" rel="noopener">View source: <code>${runRel}</code></a></p>`,
         '',
@@ -293,6 +297,27 @@ function renderArtifactFragment(runDir, runRel, runDirRelPath, seenMermaid, sect
         sectionId,
     };
     return { lines, included };
+}
+/**
+ * Decide whether the `### {humanize(stem)}` sub-heading can be suppressed
+ * for a single-artifact section. The rule: when a section contains exactly
+ * one artifact AND the humanised stem matches the section title
+ * (case-insensitive), the sub-heading would restate the section H2 and is
+ * dropped. This fixes the visible `<h2>Synthesis Summary</h2><h3>Synthesis
+ * Summary</h3>` duplication seen in first-pass aggregates.
+ *
+ * @param paths - Run-relative artifact paths that belong to the section
+ * @param sectionTitle - Display title of the owning section
+ * @returns `true` when the single-artifact header should be suppressed
+ */
+function shouldSuppressFragmentHeader(paths, sectionTitle) {
+    if (paths.length !== 1)
+        return false;
+    const onlyPath = paths[0];
+    if (!onlyPath)
+        return false;
+    const stem = onlyPath.split('/').pop()?.replace(/\.md$/i, '') ?? onlyPath;
+    return humanize(stem).toLowerCase() === sectionTitle.toLowerCase();
 }
 /**
  * Append one canonical section to `sectionMarkdown`, reading every
@@ -312,8 +337,9 @@ function appendSection(runDir, runDirRelPath, sectionId, sectionTitle, paths, se
     if (paths.length === 0)
         return;
     sectionMarkdown.push(`<h2 id="${sectionId}">${sectionTitle}</h2>`);
+    const suppress = shouldSuppressFragmentHeader(paths, sectionTitle);
     for (const runRel of paths) {
-        const fragment = renderArtifactFragment(runDir, runRel, runDirRelPath, seenMermaid, sectionId);
+        const fragment = renderArtifactFragment(runDir, runRel, runDirRelPath, seenMermaid, sectionId, suppress);
         if (!fragment)
             continue;
         sectionMarkdown.push(...fragment.lines);
