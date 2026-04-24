@@ -229,6 +229,7 @@ const PI_COPY: Partial<Record<string, Partial<PICopy>>> = (() => {
   const SV_METHODOLOGIES = 'Metodologier';
   const NO_METHODOLOGIES = 'Metodologier';
   const ARTEFAKTER_COUNT = '{count} artefakter';
+  const ARTEFAKT_SINGULAR = '1 artefakt';
   return {
     en: {},
     sv: {
@@ -258,7 +259,7 @@ const PI_COPY: Partial<Record<string, Partial<PICopy>>> = (() => {
       statArtifactsLabel: 'Artefakter',
       viewOnGitHub: 'Visa på GitHub',
       artifactCountLabel: ARTEFAKTER_COUNT,
-      artifactCountLabelSingular: '1 artefakt',
+      artifactCountLabelSingular: ARTEFAKT_SINGULAR,
       runsCountLabel: '{count} körningar',
       runsCountLabelSingular: '1 körning',
       artifactsToggleLabel: 'Visa alla {count} artefaktfiler',
@@ -295,7 +296,7 @@ const PI_COPY: Partial<Record<string, Partial<PICopy>>> = (() => {
       statArtifactsLabel: 'Artefakter',
       viewOnGitHub: 'Vis på GitHub',
       artifactCountLabel: ARTEFAKTER_COUNT,
-      artifactCountLabelSingular: '1 artefakt',
+      artifactCountLabelSingular: ARTEFAKT_SINGULAR,
       runsCountLabel: '{count} kørsler',
       runsCountLabelSingular: '1 kørsel',
       artifactsToggleLabel: 'Vis alle {count} artefaktfiler',
@@ -332,7 +333,7 @@ const PI_COPY: Partial<Record<string, Partial<PICopy>>> = (() => {
       statArtifactsLabel: 'Artefakter',
       viewOnGitHub: 'Vis på GitHub',
       artifactCountLabel: ARTEFAKTER_COUNT,
-      artifactCountLabelSingular: '1 artefakt',
+      artifactCountLabelSingular: ARTEFAKT_SINGULAR,
       runsCountLabel: '{count} kjøringer',
       runsCountLabelSingular: '1 kjøring',
       artifactsToggleLabel: 'Vis alle {count} artefaktfiler',
