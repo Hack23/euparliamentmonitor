@@ -78,7 +78,7 @@ mindmap
 
 **Pressure rating:** `[REQUIRED: 🟢 Low / 🟡 Moderate / 🔴 High]`
 
-`[REQUIRED: ≥150 words analyzing economic pressures — GDP trends, fiscal constraints, trade flows, sectoral performance, monetary policy. Cite ≥2 evidence sources: World Bank indicators, IMF data, Eurostat, or ECB statements. Reference worldbank-indicator-mapping.md or imf-indicator-mapping.md.]`
+`[REQUIRED: ≥150 words analyzing economic pressures — GDP trends, fiscal constraints, trade flows, sectoral performance, monetary policy. Cite ≥2 evidence sources with **IMF as primary** (WEO / Fiscal Monitor / IFS / BOP), plus optional Eurostat or ECB for triangulation. World Bank only for non-economic cross-refs (health, education, social, environment, demographics, defence, agriculture, innovation, governance). Reference imf-indicator-mapping.md as the primary source of citation codes; worldbank-indicator-mapping.md only for non-economic.]`
 
 **Key drivers:**
 - `[REQUIRED: named driver 1 with indicator code]`
@@ -169,8 +169,9 @@ mindmap
 ## 5️⃣ Data Sources
 
 **EP MCP tools used:** `get_procedures`, `get_adopted_texts`, `search_documents`  
-**External data sources:** `[REQUIRED: list World Bank, IMF, Eurostat, EEA, or other sources consulted]`  
-**World Bank indicators cited:** `[REQUIRED: list codes or note "none"]`  
+**External data sources:** `[REQUIRED: list IMF (primary economic), Eurostat, ECB, EEA, and optionally World Bank (non-economic only) sources consulted]`  
+**IMF indicators cited:** `[REQUIRED: list SDMX codes and vintage e.g. "NGDP_RPCH (WEO April 2026)"]`  
+**World Bank indicators cited:** `[OPTIONAL — non-economic domains only; list codes or note "none"]`  
 **IMF indicators cited:** `[REQUIRED: list series or note "none"]`
 
 ---

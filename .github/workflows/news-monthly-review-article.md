@@ -78,8 +78,8 @@ network:
     - github.com
     - api.github.com
     - data.europarl.europa.eu
-    - api.worldbank.org
     - dataservices.imf.org
+    - api.worldbank.org
     - "*.europa.eu"
     - hack23.com
     - www.hack23.com
@@ -238,7 +238,7 @@ invoke the single-PR tool — exit cleanly.
 
 ## 🎯 Article-Type Specifics
 
-- Economic context (World Bank **or** IMF) is mandatory. Cross-reference prior month-ahead predictions; produce a confirmed/refuted tally. Include `intelligence/historical-baseline.md` in the analysis set.
+- Economic context (**IMF primary** for macro/fiscal/monetary/trade — Wave-3 policy; WB only for non-economic) is mandatory. Cross-reference prior month-ahead predictions; produce a confirmed/refuted tally. Include `intelligence/historical-baseline.md` in the analysis set.
 
 ## 🔁 Stage Order (absolute)
 

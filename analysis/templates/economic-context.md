@@ -1,11 +1,11 @@
 <!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
 <!-- SPDX-License-Identifier: Apache-2.0 -->
 
-# 💹 Economic Context Template — World Bank & IMF Data Anchors
+# 💹 Economic Context Template — IMF Primary Anchor + World Bank Non-Economic Cross-Refs
 
-> **📌 Template Instructions:** Copy to `analysis/daily/{date}/{article-type}-run{N}/intelligence/economic-context.md`. Anchor EP policy topics in World Bank and/or IMF macro, fiscal, trade, monetary, and sectoral data. See [methodologies/per-artifact-methodologies.md §economic-context](../methodologies/per-artifact-methodologies.md#economic-context).
+> **📌 Template Instructions:** Copy to `analysis/daily/{date}/{article-type}-run{N}/intelligence/economic-context.md`. Anchor EP policy topics in **IMF** macro/fiscal/trade/monetary data as the primary source (Wave-3 policy). Use **World Bank** only for non-economic cross-refs (health, education, social, environment, demographics). See [methodologies/per-artifact-methodologies.md §economic-context](../methodologies/per-artifact-methodologies.md#economic-context).
 
-> **🎯 Purpose:** Bridge EP legislative activity to real-economy fundamentals using World Bank and IMF indicators. Satisfies Wave-2 OR-gate: either World Bank MCP or IMF native client is acceptable.
+> **🎯 Purpose:** Bridge EP legislative activity to real-economy fundamentals using IMF indicators (WEO / Fiscal Monitor / IFS / BOP / ER / PCPS / GFSR / EREO / FSI / GFS / DOT). Satisfies the enforced `articlePolicyHasEconomicContext` gate; IMF is the **required primary source** under Wave-3, WB additive for non-economic context. The strict Wave-4 helper `articlePolicyHasIMFEconomicEvidence` is dark-launched behind the `WAVE3_IMF_STRICT` flag.
 
 ---
 
@@ -15,23 +15,26 @@
 |-------|-------|
 | **Report ID** | `[REQUIRED: EC-YYYY-MM-DD-runNN]` |
 | **Analysis Period** | `[REQUIRED: YYYY-MM-DD to YYYY-MM-DD]` |
-| **Data Source** | `[REQUIRED: World Bank MCP / IMF API / Both]` |
-| **Indicators Cited** | `[REQUIRED: count]` |
+| **Primary Data Source** | `IMF (vintage: [REQUIRED: e.g. WEO-April-2026])` |
+| **Secondary (non-economic)** | `[REQUIRED: World Bank or "None"]` |
+| **IMF Indicators Cited** | `[REQUIRED: count — must meet article-type floor from imf-indicator-mapping.md §8]` |
+| **Forecast Horizon** | `[REQUIRED: current / t+1 / t+3 / t+5 — sizes the optimism-bias caveat per forecast-accuracy-baseline.md]` |
+| **Triangulation Performed** | `[REQUIRED: Yes/No — required for Tier-1 + high-sensitivity indicators per cross-source-triangulation.md]` |
 | **Confidence** | `[REQUIRED: 🟢/🟡/🔴]` |
 
 ---
 
 ## 1️⃣ Topic-to-Indicator Mapping
 
-| EP Policy Topic | World Bank Indicator | IMF Series | Latest Value | Vintage Date |
-|-----------------|---------------------|------------|:------------:|:------------:|
-| `[REQUIRED: e.g. Green Deal / Digital Single Market]` | `[REQUIRED: indicator code + name OR "N/A"]` | `[REQUIRED: series code + name OR "N/A"]` | `[REQUIRED: value + unit]` | `[REQUIRED: YYYY-MM-DD]` |
-| `[REQUIRED]` | `[REQUIRED]` | `[REQUIRED]` | `[REQUIRED]` | `[REQUIRED]` |
-| `[REQUIRED]` | `[REQUIRED]` | `[REQUIRED]` | `[REQUIRED]` | `[REQUIRED]` |
+| EP Policy Topic | IMF Indicator (primary) | IMF Database | WB Indicator (non-economic cross-ref only) | Latest Value | Vintage Date |
+|-----------------|-------------------------|:-------------|--------------------------------------------|:------------:|:------------:|
+| `[REQUIRED: e.g. Green Deal / Digital Single Market]` | `[REQUIRED: SDMX code + name]` | `[REQUIRED: WEO/FM/IFS/etc.]` | `[OPTIONAL: WB code for non-economic only, or "N/A"]` | `[REQUIRED: value + unit]` | `[REQUIRED: YYYY-MM-DD]` |
+| `[REQUIRED]` | `[REQUIRED]` | `[REQUIRED]` | `[OPTIONAL]` | `[REQUIRED]` | `[REQUIRED]` |
+| `[REQUIRED]` | `[REQUIRED]` | `[REQUIRED]` | `[OPTIONAL]` | `[REQUIRED]` | `[REQUIRED]` |
 
 **Mapping rationale:**
 
-`[REQUIRED: ≥100 words explaining why these indicators were chosen for these policy topics. Cite worldbank-indicator-mapping.md or imf-indicator-mapping.md where relevant.]`
+`[REQUIRED: ≥100 words explaining why these IMF indicators were chosen for these policy topics. Cite imf-indicator-mapping.md per-type floors. Where a WB indicator appears, justify it is non-economic (health/education/social/env/demographics/defence/agriculture/innovation/governance only).]`
 
 ---
 
@@ -89,18 +92,22 @@ xychart-beta
 
 ## 4️⃣ Forward Outlook
 
-**IMF WEO or World Bank projections (+5 years):**
+**IMF WEO / Fiscal Monitor projections (+5 years):**
 
-| Indicator | 2025 | 2026 | 2027 | 2028 | 2029 | Trajectory |
-|-----------|:----:|:----:|:----:|:----:|:----:|:----------:|
-| `[REQUIRED: indicator 1]` | `[value]` | `[value]` | `[value]` | `[value]` | `[value]` | `[↑ / → / ↓]` |
-| `[REQUIRED: indicator 2]` | `[value]` | `[value]` | `[value]` | `[value]` | `[value]` | `[↑ / → / ↓]` |
+| Indicator | 2025 | 2026 | 2027 | 2028 | 2029 | Trajectory | Horizon confidence |
+|-----------|:----:|:----:|:----:|:----:|:----:|:----------:|:------------------:|
+| `[REQUIRED: indicator 1]` | `[value]` | `[value]` | `[value]` | `[value]` | `[value]` | `[↑ / → / ↓]` | `[🟢 t / 🟡 t+1-2 / 🔴 t+3+]` |
+| `[REQUIRED: indicator 2]` | `[value]` | `[value]` | `[value]` | `[value]` | `[value]` | `[↑ / → / ↓]` | `[🟢/🟡/🔴]` |
 
 **Projection narrative:**
 
 `[REQUIRED: ≥100 words interpreting forward projections. What do these forecasts imply for EP legislative timeline and priorities? Where are divergences vs. consensus?]`
 
-**Caveats:** `[REQUIRED: note projection vintage, methodology assumptions, or uncertainty ranges where available]`
+**Forecast marker:** `[REQUIRED: confirm each forecast number is within 30 words of "forecast"/"projection"/"projects"/"expects" — validator regex-enforced]`
+
+**Caveats:**
+
+`[REQUIRED: for horizons ≥3y, include optimism-bias acknowledgement sized per analysis/imf/forecast-accuracy-baseline.md — typical MAE 1.8–2.4pp for GDP at t+3, 4–6pp for debt/GDP at t+3. Cite the vintage explicitly.]`
 
 ---
 
@@ -119,20 +126,26 @@ Cite specific indicators and explain political mechanism.]`
 
 ## 6️⃣ Data-Source Bridge
 
-**Wave-2 OR-gate status:**
+**Wave-3 IMF-primary status:**
 
-| Source | Available? | Records Retrieved | Used in This Run? |
-|--------|:----------:|:-----------------:|:------------------:|
-| World Bank MCP | `[✅/❌]` | `[#]` | `[✅/❌]` |
-| IMF API | `[✅/❌]` | `[#]` | `[✅/❌]` |
+| Source | Available? | Records Retrieved | Used in This Run? | Role |
+|--------|:----------:|:-----------------:|:------------------:|------|
+| IMF SDMX REST (primary economic) | `[✅/❌]` | `[#]` | `[✅/❌]` | **Primary** — Wave-3 mandatory for economic context |
+| World Bank MCP (non-economic only) | `[✅/❌]` | `[#]` | `[✅/❌]` | Additive — health/edu/social/env/demographics/defence/agri/innov/gov only |
+
+**Cross-source triangulation** (required for Tier-1 articles citing high-sensitivity indicators):
+
+| Indicator | IMF value | Cross-source | Cross-source value | Delta (pp) | Decision | Reconciliation note |
+|-----------|:--------:|--------------|:------------------:|:----------:|----------|---------------------|
+| `[REQUIRED or "N/A — not Tier-1"]` | `[value]` | `[Eurostat/ECB/OECD/BIS]` | `[value]` | `[±value]` | `[consistent/material-delta]` | `[≥30 words when material]` |
 
 **Bridge narrative:**
 
-`[REQUIRED: If only one source was available, explain which and why. If both were available, explain preference. If neither was available, explain fallback (prior-run cache, Eurostat, manual sourcing).]`
+`[REQUIRED: explain the IMF source selection (vintage + database). If WB non-economic data is included, explain which non-economic domain and why. If triangulation was performed, cite the outcome. If neither source was available, explain fallback (prior-run cache, Eurostat, manual sourcing).]`
 
 **Indicator mapping references:**
-- `[REQUIRED: cite worldbank-indicator-mapping.md sections used]`
-- `[REQUIRED: cite imf-indicator-mapping.md sections used, or note "N/A"]`
+- `[REQUIRED: cite imf-indicator-mapping.md §2 per-type floor satisfaction]`
+- `[OPTIONAL: cite worldbank-indicator-mapping.md only for non-economic cross-refs, or note "N/A"]`
 
 ---
 

@@ -82,7 +82,7 @@ flowchart LR
 
 **Workaround used in this run:**
 
-`[REQUIRED: ≥60 words explaining how the run compensated. Examples: "Used prior-run cached data from run{N-1}", "Switched to direct EP API endpoint bypass", "Applied World Bank data as economic-context bridge", "Reduced query scope from year-filter to month-filter".]`
+`[REQUIRED: ≥60 words explaining how the run compensated. Examples: "Used prior-run cached data from run{N-1}", "Switched to direct EP API endpoint bypass", "Applied IMF (primary economic) data as context bridge per Wave-3 policy", "Reduced query scope from year-filter to month-filter".]`
 
 ---
 
@@ -114,13 +114,13 @@ flowchart LR
 
 | Failed EP MCP Tool | Alternative Source Used | Data Quality | Coverage |
 |-------------------|------------------------|:------------:|:--------:|
-| `[REQUIRED: tool name]` | `[REQUIRED: e.g. "Direct EP API endpoint", "World Bank MCP", "Prior-run cache"]` | `[🟢 Equal / 🟡 Reduced / 🔴 Insufficient]` | `[% of needed data recovered]` |
+| `[REQUIRED: tool name]` | `[REQUIRED: e.g. "Direct EP API endpoint", "IMF SDMX REST (primary economic)", "World Bank MCP (non-economic)", "Prior-run cache"]` | `[🟢 Equal / 🟡 Reduced / 🔴 Insufficient]` | `[% of needed data recovered]` |
 | `[REQUIRED]` | `[REQUIRED]` | `[...]` | `[...]` |
 | `[REQUIRED]` | `[REQUIRED]` | `[...]` | `[...]` |
 
 **Bridge narrative:**
 
-`[REQUIRED: ≥100 words explaining the overall data-source strategy when EP MCP was degraded. What was the fallback order? (EP MCP → direct EP API → World Bank/IMF → prior-run cache → degraded analysis with LOW confidence marker). Which artifacts were affected? Where are gaps acknowledged?]`
+`[REQUIRED: ≥100 words explaining the overall data-source strategy when EP MCP was degraded. What was the fallback order? (EP MCP → direct EP API → IMF SDMX REST (primary economic, Wave-3) → World Bank MCP (non-economic only) → prior-run cache → degraded analysis with LOW confidence marker). Which artifacts were affected? Where are gaps acknowledged?]`
 
 ---
 

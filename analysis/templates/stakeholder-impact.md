@@ -85,7 +85,7 @@
 | **Impact Timeline** | `[REQUIRED: IMMEDIATE / SHORT / MEDIUM / LONG]` |
 | **Most Affected Sectors** | `[REQUIRED: e.g. "Digital platforms, automotive, energy"]` |
 | **Economic Impact Type** | `[REQUIRED: COMPLIANCE COST / MARKET OPPORTUNITY / REGULATORY BURDEN / TAX CHANGE]` |
-| **Evidence Sources** | `[REQUIRED: MCP data + World Bank indicators]` |
+| **Evidence Sources** | `[REQUIRED: EP MCP data + IMF indicators (primary for economic impact — Wave-3) + optional WB non-economic indicators]` |
 | **Confidence Level** | `[REQUIRED: HIGH / MEDIUM / LOW]` |
 
 **Business Impact Narrative:**
@@ -315,24 +315,26 @@ flowchart TD
 
 ---
 
-## 📊 World Bank Economic Context for Stakeholder Impact
+## 📊 IMF Economic Context (primary) + WB Non-Economic Cross-Refs for Stakeholder Impact
 
-> **AI Instructions:** When stakeholder impacts have economic dimensions, quantify with World Bank data. Use `analysis/worldbank/indicator-catalog.md` as the full indicator reference (200+ indicators). Use `analysis/worldbank/eu-country-mapping.md` for comparison country groups. Only request indicators via MCP when they are documented for the relevant MCP tool; catalog entries marked as API-only must be fetched via another documented mechanism, not via MCP tool calls.
+> **AI Instructions (Wave-3):** When stakeholder impacts have economic dimensions, quantify with **IMF** data (WEO / FM / IFS / BOP / ER / PCPS / GFSR / EREO / FSI / GFS / DOT) as the primary source — Wave-3 policy. Use `analysis/imf/indicator-catalog.md` + `analysis/imf/database-directory.md` as the full indicator/database references. Use `analysis/imf/eu-country-mapping.md` for comparison country groups (aggregates `EU`, `EA`, `G7`, `G20` all accepted). For non-economic dimensions (health, education, social, environment, demographics), use World Bank via documented MCP tools — reference `analysis/worldbank/indicator-catalog.md`.
 
-### Key Economic Indicators for Stakeholder Assessment
+### Key Economic Indicators for Stakeholder Assessment (IMF primary)
 
-| Stakeholder Group | MCP-Fetchable WB Indicators | MCP Tool | Comparison Group |
-|-------------------|-----------------------------|----------|-----------------|
-| 🏘️ Citizens | Inflation, Unemployment, Health Expenditure | `get-economic-data`, `get-health-data` | Affected member states |
-| 🏭 Business | GDP Growth, FDI | `get-economic-data` | EU Big Four + competitors |
-| 🤝 Member States | GDP Growth, Inflation | `get-economic-data` | Eurozone Core vs Convergence |
-| 🌍 International | Exports (% GDP), FDI | `get-economic-data` | EU vs G7, EU vs BRICS |
+| Stakeholder Group | IMF Indicators (SDMX) | Database | Non-Economic WB Cross-Refs | Comparison Group |
+|-------------------|-----------------------|:--------:|----------------------------|------------------|
+| 🏘️ Citizens | `PCPIPCH` (inflation), `LUR` (unemployment) | WEO + IFS | `SH.XPD.CHEX.GD.ZS` (health) | Affected member states |
+| 🏭 Business | `NGDP_RPCH` (GDP growth), `BFD_BP6_USD` (FDI) | WEO + BOP_AGG | — | EU Big Four + competitors |
+| 🤝 Member States | `NGDP_RPCH`, `PCPIPCH`, `GGXWDG_NGDP` (debt) | WEO + FM | — | Eurozone Core vs Convergence |
+| 🌍 International | `TX_RPCH` (exports), `BFD_BP6_USD` (FDI), DOT bilateral | WEO + BOP + DOT | — | EU vs G7, EU vs BRICS |
 
-> **Note:** Some indicators from the World Bank catalog (e.g., GINI coefficient, Ease of Business, Tax Revenue, Gov Expenditure, Military Expenditure) are not among the documented MCP tool indicator keys for `get-economic-data`. If those indicators are needed, use `search-indicators` to verify availability and fetch them via the appropriate documented mechanism (for example, the legacy `get_indicator_for_country` path), not via `get-economic-data`.
+> **Note (Wave-3):** IMF is the required primary source for every economic citation in this section. Any projected number must include a forecast marker (`forecast`/`projection`/`projects`/`expects`) within 30 words, plus the vintage in prose (`IMF WEO April 2026`), plus `data-vintage="WEO-April-2026"` on the enclosing `<section>` element.
+>
+> **WB fallback note:** Some WB indicators (e.g. GINI, Ease of Business) are not accepted as direct indicator keys by `get-social-data`/`get-health-data`/etc. Call `search-indicators` first to verify; use documented fallback mechanisms (e.g. legacy `get_indicator_for_country`) when needed.
 
-### WB Data Mermaid Template for Stakeholder Impact
+### IMF Data Mermaid Template for Stakeholder Impact
 
-> Replace placeholder values with actual WB MCP data.
+> Replace placeholder values with actual IMF SDMX REST data.
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%

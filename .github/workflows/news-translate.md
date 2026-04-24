@@ -64,8 +64,8 @@ network:
     - github.com
     - api.github.com
     - data.europarl.europa.eu
-    - api.worldbank.org
     - dataservices.imf.org
+    - api.worldbank.org
     - "*.europa.eu"
     - hack23.com
     - www.hack23.com
@@ -203,7 +203,7 @@ Mandatory ordering contract:
 > - Run #188 (PR #1346): called safeoutputs 6× but `max:1` default rejected 5/6 → 13 lost + empty PR left behind. **Root cause**: two separate bugs — `max:1` default (fixed in previous commit, now `max:10`), and the "empty baseline" anti-pattern (fixed in this commit).
 
 > **📚 Reference**: [README.md](../prompts/README.md) for EP MCP tools and safe outputs.
-> **📈 World Bank pass-through**: Translation workflows inherit World Bank + chart structure from the source English article. Do not add, remove, or alter `<canvas data-chart-config>` blocks or World Bank citations; the validator (`npx tsx src/utils/validate-articles.ts --date=$TODAY --quality --strict`) treats the translated file as a pass-through and expects the same Chart.js + indicator evidence as the source. See [`analysis/methodologies/worldbank-indicator-mapping.md`](../../analysis/methodologies/worldbank-indicator-mapping.md) for reference only.
+> **📈 Economic context pass-through (Wave-3)**: Translation workflows inherit IMF (primary economic) + World Bank (non-economic) citations and chart structure from the source English article. Do not add, remove, or alter `<canvas data-chart-config>` blocks, IMF citations, WB citations, or vintage strings; the validator (`npx tsx src/utils/validate-articles.ts --date=$TODAY --quality --strict`) treats the translated file as a pass-through and expects the same Chart.js + indicator evidence as the source. **Preserve proper names untranslated**: `IMF`, `WEO`, `Fiscal Monitor`, `World Economic Outlook`, `data-vintage="WEO-April-2026"`. See [`analysis/methodologies/imf-indicator-mapping.md`](../../analysis/methodologies/imf-indicator-mapping.md) and [`analysis/methodologies/worldbank-indicator-mapping.md`](../../analysis/methodologies/worldbank-indicator-mapping.md) for reference only.
 
 ## 🔁 MCP Gateway Keepalive + Flush Policy (NON-NEGOTIABLE)
 

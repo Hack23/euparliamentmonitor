@@ -50,8 +50,8 @@ network:
     - github.com
     - api.github.com
     - data.europarl.europa.eu
-    - api.worldbank.org
     - dataservices.imf.org
+    - api.worldbank.org
     - "*.europa.eu"
     - hack23.com
     - www.hack23.com
@@ -145,7 +145,7 @@ You do **not** read `04-article-generation.md` or `05-analysis-to-article-contra
 
 ## 🎯 Article-Type Specifics
 
-- Economic context (World Bank **or** IMF) is mandatory — monthly articles always touch macro/policy. Mine prior-run forward statements (per `01-data-collection.md` §8).
+- Economic context (**IMF primary** for macro/fiscal/monetary/trade — Wave-3 policy; WB only for non-economic) is mandatory — monthly articles always touch macro/policy. Mine prior-run forward statements (per `01-data-collection.md` §8).
 
 ## 🗓️ Date Context + Stable Folder Resolution (MANDATORY — first bash block)
 

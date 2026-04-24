@@ -161,18 +161,20 @@ This manifest documents all data collection activities for GDPR Article 30 compl
 
 | Source | Tool/API | Parameters | Items | Admiralty |
 |--------|----------|------------|-------|-----------|
-| World Bank | `get_economic_data` | `indicator=GDP_GROWTH, countries=[DE,FR,IT]` | 30 | B2 |
-| World Bank | `get_social_data` | `indicator=POPULATION, countries=[EU27]` | 27 | B2 |
-| IMF WEO | Direct API | `2024 October forecast` | 1 | B2 |
-| Eurostat | Web fetch | `nama_10_gdp` | 27 | A2 |
+| IMF WEO | `imf-fetch-data` | `WEO/A/DEU+FRA+ITA/NGDP_RPCH+PCPIPCH` | 30 | A2 |
+| IMF Fiscal Monitor | `imf-fetch-data` | `FM/A/DEU+FRA+ITA/GGXWDG_NGDP+GGXONLB_NGDP` | 30 | A2 |
+| IMF IFS (monthly) | `imf-fetch-data` | `IFS/M/EA/FPOLM_PA` | 12 | A2 |
+| World Bank (non-economic) | `get_social_data` | `indicator=POPULATION, countries=[EU27]` | 27 | B2 |
+| World Bank (non-economic) | `get_health_data` | `indicator=HEALTH_EXPENDITURE, countries=[...]` | 30 | B2 |
+| Eurostat | Web fetch | `nama_10_gdp` (triangulation) | 27 | A2 |
 
 ### External Source Attribution
 
 | Source | Purpose | License | Retention |
 |--------|---------|---------|-----------|
-| World Bank | Economic context | CC-BY 4.0 | 30 days |
-| IMF | Fiscal forecasts | IMF Copyright | 30 days |
-| Eurostat | EU statistics | Eurostat terms | 30 days |
+| IMF (primary economic — Wave-3) | Macro / fiscal / monetary / trade context + forecasts | IMF Copyright | 30 days |
+| World Bank (non-economic only) | Health / education / social / env / demographics / governance | CC-BY 4.0 | 30 days |
+| Eurostat | EU statistics (Tier-1 triangulation) | Eurostat terms | 30 days |
 ```
 
 ## ⏱️ Section 7 — Timing Analysis
