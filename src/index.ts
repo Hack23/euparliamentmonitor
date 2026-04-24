@@ -125,7 +125,10 @@ export {
   generatePoliticalIntelligenceHTML,
 } from './generators/political-intelligence.js';
 
-export { CURATED_DESCRIPTIONS, CURATED_TITLES } from './generators/political-intelligence-descriptions.js';
+export {
+  CURATED_DESCRIPTIONS,
+  CURATED_TITLES,
+} from './generators/political-intelligence-descriptions.js';
 
 // ─── Aggregator ──────────────────────────────────────────────────────────────
 export {
@@ -146,4 +149,10 @@ export {
 export { generateArticle } from './aggregator/article-generator.js';
 
 // ─── Constants ───────────────────────────────────────────────────────────────
-export { PROJECT_ROOT, NEWS_DIR, METADATA_DIR, BASE_URL, ARTICLE_FILENAME_PATTERN } from './constants/config.js';
+export {
+  PROJECT_ROOT,
+  NEWS_DIR,
+  METADATA_DIR,
+  BASE_URL,
+  ARTICLE_FILENAME_PATTERN,
+} from './constants/config.js';

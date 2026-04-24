@@ -16,11 +16,7 @@
  * stays `script-src 'self'`.
  */
 
-import {
-  BASE_URL,
-  createThemeToggleButton,
-  THEME_TOGGLE_SCRIPT,
-} from '../constants/config.js';
+import { BASE_URL, createThemeToggleButton, THEME_TOGGLE_SCRIPT } from '../constants/config.js';
 import {
   ALL_LANGUAGES,
   LANGUAGE_NAMES,
@@ -121,9 +117,7 @@ function buildLanguageSwitcher(articleSlug: string, current: LanguageCode): stri
  * @returns Complete `<!DOCTYPE html>` document ready to be written to disk
  */
 export function wrapArticleHtml(options: WrapArticleOptions): string {
-  const safeLang = ALL_LANGUAGES.includes(options.lang)
-    ? options.lang
-    : ('en' as LanguageCode);
+  const safeLang = ALL_LANGUAGES.includes(options.lang) ? options.lang : ('en' as LanguageCode);
   const dir = getTextDirection(safeLang);
   const siteTitle =
     getLocalizedString(PAGE_TITLES, safeLang).split(' - ')[0] ?? 'EU Parliament Monitor';

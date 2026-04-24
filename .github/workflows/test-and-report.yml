@@ -104,7 +104,7 @@ jobs:
         run: |
           echo "🔍 Verifying package.json scripts..."
           # Verify required scripts exist
-          required_scripts="generate-news generate-news-indexes generate-sitemap htmlhint"
+          required_scripts="generate-article generate-news-indexes generate-sitemap htmlhint"
           for script in $required_scripts; do
             if node -p "require('./package.json').scripts['$script']" 2>/dev/null | grep -v "^undefined$" > /dev/null; then
               echo "✅ Script found: $script"

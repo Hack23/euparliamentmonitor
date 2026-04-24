@@ -169,7 +169,7 @@
   },
   "dependencies": {
     "european-parliament-mcp-server": "1.2.13",
-    "markdown-it": "^14.1.0",
+    "markdown-it": "^14.1.1",
     "markdown-it-anchor": "^9.2.0",
     "markdown-it-attrs": "^4.3.1",
     "markdown-it-deflist": "^3.0.0",

@@ -90,19 +90,21 @@ export function buildMarkdownIt(): MarkdownIt {
  * @returns Slug of up to 80 ASCII-ish characters, with dashes as separators
  */
 export function slugify(text: string): string {
-  return text
-    .toLowerCase()
-    .normalize('NFKD')
-    // Strip combining diacritical marks (Unicode range U+0300..U+036F)
-    .replace(/[\u0300-\u036F]/g, '')
-    // Strip general punctuation and supplemental punctuation
-    .replace(/[\u2000-\u206F]/g, '')
-    .replace(/[\u2E00-\u2E7F]/g, '')
-    .replace(/[^\p{L}\p{N}\s-]/gu, '')
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-')
-    .replace(/^-|-$/g, '')
-    .slice(0, 80);
+  return (
+    text
+      .toLowerCase()
+      .normalize('NFKD')
+      // Strip combining diacritical marks (Unicode range U+0300..U+036F)
+      .replace(/[\u0300-\u036F]/g, '')
+      // Strip general punctuation and supplemental punctuation
+      .replace(/[\u2000-\u206F]/g, '')
+      .replace(/[\u2E00-\u2E7F]/g, '')
+      .replace(/[^\p{L}\p{N}\s-]/gu, '')
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-|-$/g, '')
+      .slice(0, 80)
+  );
 }
 
 /**
@@ -115,8 +117,7 @@ export function slugify(text: string): string {
 function installMermaidFence(md: MarkdownIt): void {
   const defaultFence =
     md.renderer.rules.fence ??
-    ((tokens, idx, opts, _env, self) =>
-      self.renderToken(tokens, idx, opts));
+    ((tokens, idx, opts, _env, self) => self.renderToken(tokens, idx, opts));
   let mermaidIndex = 0;
   md.renderer.rules.fence = (tokens, idx, opts, env, self) => {
     const token = tokens[idx];
@@ -145,12 +146,10 @@ function installMermaidFence(md: MarkdownIt): void {
 function installTableWrapper(md: MarkdownIt): void {
   const defaultOpen =
     md.renderer.rules.table_open ??
-    ((tokens, idx, opts, _env, self) =>
-      self.renderToken(tokens, idx, opts));
+    ((tokens, idx, opts, _env, self) => self.renderToken(tokens, idx, opts));
   const defaultClose =
     md.renderer.rules.table_close ??
-    ((tokens, idx, opts, _env, self) =>
-      self.renderToken(tokens, idx, opts));
+    ((tokens, idx, opts, _env, self) => self.renderToken(tokens, idx, opts));
   md.renderer.rules.table_open = (tokens, idx, opts, env, self) =>
     `<div class="table-scroll" role="region" tabindex="0">${defaultOpen(tokens, idx, opts, env, self)}`;
   md.renderer.rules.table_close = (tokens, idx, opts, env, self) =>
@@ -164,10 +163,7 @@ function installTableWrapper(md: MarkdownIt): void {
  * @param options - Optional render hooks (e.g. custom mermaid aria-label)
  * @returns {@link RenderedMarkdown} with HTML, TOC, and mermaid count
  */
-export function renderMarkdown(
-  markdown: string,
-  options: RenderOptions = {}
-): RenderedMarkdown {
+export function renderMarkdown(markdown: string, options: RenderOptions = {}): RenderedMarkdown {
   const md = buildMarkdownIt();
   const env: { mermaidLabel?: RenderOptions['mermaidLabel'] } = {};
   if (options.mermaidLabel) env.mermaidLabel = options.mermaidLabel;

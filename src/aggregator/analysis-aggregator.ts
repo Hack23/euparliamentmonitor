@@ -36,8 +36,7 @@ export interface AnalysisManifest {
 }
 
 /** `manifest.files` can be nested category → paths or flat path → description. */
-export type ManifestFiles =
-  | Record<string, readonly string[] | Record<string, string>>;
+export type ManifestFiles = Record<string, readonly string[] | Record<string, string>>;
 
 /** One entry in `manifest.history[]`; only fields we read are typed. */
 export interface ManifestHistoryEntry {
@@ -423,13 +422,7 @@ function appendSection(
   if (paths.length === 0) return;
   sectionMarkdown.push(`<h2 id="${sectionId}">${sectionTitle}</h2>`);
   for (const runRel of paths) {
-    const fragment = renderArtifactFragment(
-      runDir,
-      runRel,
-      runDirRelPath,
-      seenMermaid,
-      sectionId
-    );
+    const fragment = renderArtifactFragment(runDir, runRel, runDirRelPath, seenMermaid, sectionId);
     if (!fragment) continue;
     sectionMarkdown.push(...fragment.lines);
     included.push(fragment.included);
@@ -469,10 +462,7 @@ export function aggregateAnalysisRun(options: AggregateOptions): AggregatedRun {
   const includedArtifacts: IncludedArtifact[] = [];
   const sectionMarkdown: string[] = [];
   const seenMermaid = new Set<string>();
-  const runDirRelPath = path
-    .relative(repoRoot, runDir)
-    .split(path.sep)
-    .join('/');
+  const runDirRelPath = path.relative(repoRoot, runDir).split(path.sep).join('/');
 
   for (const section of ARTIFACT_SECTIONS) {
     const paths = expandSectionArtifacts(section, new Set(available), consumed);
@@ -504,8 +494,7 @@ export function aggregateAnalysisRun(options: AggregateOptions): AggregatedRun {
     for (const p of leftovers) consumed.add(p);
   }
 
-  const tradecraftFiles =
-    options.tradecraftFiles ?? discoverTradecraftFiles(repoRoot);
+  const tradecraftFiles = options.tradecraftFiles ?? discoverTradecraftFiles(repoRoot);
   const articleType = manifest.articleType ?? 'unknown';
   const date = manifest.date ?? guessDateFromRunDir(runDirRelPath);
   const runId = manifest.runId ?? path.basename(runDir);

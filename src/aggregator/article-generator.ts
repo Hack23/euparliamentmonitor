@@ -66,10 +66,7 @@ export interface GenerateResult {
  * @param repoRoot - Absolute repo root used to resolve default output paths
  * @returns Fully-populated {@link CliOptions} ready for {@link generateArticle}
  */
-export function parseCliArgs(
-  argv: readonly string[],
-  repoRoot: string
-): CliOptions {
+export function parseCliArgs(argv: readonly string[], repoRoot: string): CliOptions {
   let runDir: string | null = null;
   const langs: LanguageCode[] = [];
   let outDir = path.join(repoRoot, 'news');
@@ -328,10 +325,7 @@ export function generateArticle(opts: CliOptions): GenerateResult {
   const sourceMdFilename = `${slug}.en.md`;
   const sourceMdAbs = path.join(opts.outDir, sourceMdFilename);
   fs.writeFileSync(sourceMdAbs, aggregated.markdown, 'utf8');
-  const sourceMdRelPath = path
-    .relative(opts.repoRoot, sourceMdAbs)
-    .split(path.sep)
-    .join('/');
+  const sourceMdRelPath = path.relative(opts.repoRoot, sourceMdAbs).split(path.sep).join('/');
 
   const written: string[] = [sourceMdFilename];
   if (!opts.markdownOnly) {
@@ -387,9 +381,7 @@ function ensureDir(dir: string): void {
  * @param argv - Argument list (defaults to `process.argv.slice(2)`)
  */
 export async function main(argv: readonly string[] = process.argv.slice(2)): Promise<void> {
-  const repoRoot = process.env.REPO_ROOT
-    ? path.resolve(process.env.REPO_ROOT)
-    : process.cwd();
+  const repoRoot = process.env.REPO_ROOT ? path.resolve(process.env.REPO_ROOT) : process.cwd();
   const opts = parseCliArgs(argv, repoRoot);
   const result = generateArticle(opts);
   process.stdout.write(

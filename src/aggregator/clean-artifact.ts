@@ -289,11 +289,7 @@ export function demoteHeadings(md: string): { md: string; h1Count: number } {
  * @param raw - When true, produce a raw.githubusercontent URL (for images)
  * @returns Absolute URL (or the original target for anchors/absolute links)
  */
-export function resolveLink(
-  target: string,
-  artifactRelPath: string,
-  raw: boolean
-): string {
+export function resolveLink(target: string, artifactRelPath: string, raw: boolean): string {
   // Preserve absolute URLs, anchors, mailto/tel, and protocol-relative
   if (
     /^[a-z][a-z0-9+.-]*:\/\//i.test(target) ||
@@ -396,8 +392,7 @@ function tryParseLinkAt(
   const rawTarget = line.slice(openParen + 1, closeParen).trim();
   const { target, title } = splitTargetAndTitle(rawTarget);
   const newTarget = resolveLink(target, artifactRelPath, isImage);
-  const replacement =
-    (isImage ? '!' : '') + label + '(' + newTarget + title + ')';
+  const replacement = (isImage ? '!' : '') + label + '(' + newTarget + title + ')';
   return { replacement, nextIndex: closeParen + 1 };
 }
 
@@ -552,10 +547,7 @@ function scanMermaidBody(
  * @param seen - Shared set of mermaid-body hashes (caller-owned)
  * @returns `{ md, deduped }` — cleaned Markdown and count of replacements
  */
-export function dedupMermaid(
-  md: string,
-  seen: Set<string>
-): { md: string; deduped: number } {
+export function dedupMermaid(md: string, seen: Set<string>): { md: string; deduped: number } {
   const lines = md.split('\n');
   const out: string[] = [];
   let deduped = 0;
@@ -610,10 +602,7 @@ function hashString(input: string): string {
  * @param options - Cleanup options (artifact path, shared mermaid dedup set)
  * @returns {@link CleanArtifactResult} with the normalised Markdown
  */
-export function cleanArtifact(
-  source: string,
-  options: CleanArtifactOptions
-): CleanArtifactResult {
+export function cleanArtifact(source: string, options: CleanArtifactOptions): CleanArtifactResult {
   const seen = options.seenMermaidHashes ?? new Set<string>();
   let md = stripFrontMatter(source);
   const { md: mdAfterBanners, lines: strippedBannerLines } = stripBanners(md);
