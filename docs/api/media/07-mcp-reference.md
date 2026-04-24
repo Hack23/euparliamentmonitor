@@ -3,7 +3,7 @@
 
 # 07 — MCP Reference
 
-**Summary:** Single source of truth for EP / World Bank / IMF tool signatures,
+**Summary:** Single source of truth for EP / IMF / World Bank tool signatures,
 parameter corrections, reliability matrix, and timeout strategy. Workflows
 **link** here; they never copy these tables.
 
@@ -133,23 +133,70 @@ Timeframes: `"today"`, `"one-day"`, `"one-week"`, `"one-month"`, `"custom"`
 
 Rate limit: 500 req / 5 min. Cached responses < 200 ms.
 
-## 8 · World Bank (`worldbank-mcp@1.0.1`)
+## 8 · IMF (native TypeScript client — PRIMARY economic-context source, Wave-3)
+
+> ### ⚡ Scope (Wave-4 editorial)
+>
+> IMF is the **sole authoritative source** for all **economic** context
+> — GDP, inflation, unemployment, fiscal balance, debt, trade, FDI,
+> monetary, exchange rates, banking soundness. Enforcement is
+> editorial/agent-side at Stage-C completeness review — the legacy
+> runtime gates (`articlePolicyHasEconomicContext`,
+> `articlePolicyHasIMFEconomicEvidence`, `isWave3IMFStrictEnabled`) in
+> `src/utils/content-validator.ts` were purged in the April-2026
+> aggregator-pipeline migration.
+
+Client: `src/mcp/imf-mcp-client.ts` (class `IMFMCPClient`).
+Transport: direct REST to `https://dataservices.imf.org/REST/SDMX_3.0/`
+via `fetch` (no Python MCP dependency). Env vars:
+`IMF_API_BASE_URL`, `IMF_API_TIMEOUT_MS`. Probe:
+`scripts/imf-mcp-probe.sh`.
+
+| Virtual tool | Method | REST endpoint | Purpose |
+|--------------|--------|---------------|---------|
+| `imf-list-databases` | `listDatabases()` | `GET /dataflow/IMF` | List ~155 SDMX dataflows |
+| `imf-search-databases` | `searchDatabases(keyword)` | dataflow list + filter | Find a database by keyword |
+| `imf-get-parameter-defs` | `getParameterDefs(dbId)` | `GET /datastructure/{id}` | SDMX data-structure definition |
+| `imf-get-parameter-codes` | `getParameterCodes(db, dim, search?)` | `GET /datastructure/{id}?references=codelist` | Codelist for a dimension |
+| `imf-fetch-data` | `fetchData({ databaseId, startYear, endYear, filters })` | `GET /data/{df}/{key}` | Fetch a time series |
+
+**Scope references:**
+- [`analysis/imf/database-directory.md`](../../analysis/imf/database-directory.md) — full 155-database relevance map
+- [`analysis/imf/indicator-catalog.md`](../../analysis/imf/indicator-catalog.md) — 80 indicators by domain
+- [`analysis/imf/sdmx-dimensions-reference.md`](../../analysis/imf/sdmx-dimensions-reference.md) — SDMX 3.0 dimensions
+- [`analysis/imf/release-calendar.md`](../../analysis/imf/release-calendar.md) — vintage SLAs
+- [`analysis/imf/forecast-accuracy-baseline.md`](../../analysis/imf/forecast-accuracy-baseline.md) — optimism-bias bands
+- [`analysis/imf/cross-source-triangulation.md`](../../analysis/imf/cross-source-triangulation.md) — ECB/Eurostat/OECD cross-checks
+- [`analysis/methodologies/imf-indicator-mapping.md`](../../analysis/methodologies/imf-indicator-mapping.md) — validator wiring, per-type indicator floors
+
+**Country codes**: aggregates `EU`, `EA`, `G7`, `G20` all accepted
+(unlike WB MCP). See
+[`analysis/imf/eu-country-mapping.md`](../../analysis/imf/eu-country-mapping.md).
+
+**Per-article-type indicator minimums** (editorial policy — Stage-C
+completeness review): committee-reports/ECON ≥ 4, /BUDG ≥ 3,
+/INTA ≥ 3; week-ahead/month-ahead/monthly-review ≥ 2; breaking /
+weekly-review / motions / propositions ≥ 1.
+
+## 9 · World Bank (`worldbank-mcp@1.0.1`) — NON-ECONOMIC only (Wave-3)
 
 All tools respond in < 5 s; 10 s HTTP timeout per call.
 
-> ### ⚡ Scope (Wave 2)
+> ### ⚡ Scope (Wave-3)
 >
-> WB serves **non-economic** indicators only: health, education, social,
-> environment, demographics, defence, agriculture, innovation,
-> governance. **Economic context → IMF (§9 below).** Enforced by
-> `articlePolicyHasEconomicContext` in `src/utils/content-validator.ts`.
+> WB serves **non-economic** indicators only: health, education,
+> social, environment, demographics, defence, agriculture, innovation,
+> governance. **Economic context → IMF (§9 below) is mandatory
+> primary.** Wave-3 retains the WB economic endpoints in MCP but marks
+> them legacy; Wave-4 will remove them from the policy-required
+> article code path.
 
 | Tool | Parameters |
 |------|-----------|
 | `search-indicators` | `keyword` |
 | `get-countries` | `region`, `incomeLevel` |
 | `get-country-info` | `countryCode` (ISO2/alpha-3, **individual countries only** — aggregates rejected) |
-| `get-economic-data` ⚠️ | `countryCode`, `indicator`, `years` (GDP, GDP_GROWTH, GDP_PER_CAPITA, GNI, GNI_PER_CAPITA, EXPORTS_GDP, FDI_NET, INFLATION, UNEMPLOYMENT) — **⚠️ Economic context moved to IMF (§9). Retained for legacy mode only.** |
+| `get-economic-data` ⚠️ | **Wave-3 legacy** — retained for test fixtures only; do NOT call from new article code paths (economic context → IMF). |
 | `get-social-data` | `countryCode`, `indicator`, `years` (POPULATION, LIFE_EXPECTANCY, BIRTH_RATE, DEATH_RATE, INTERNET_USERS) |
 | `get-education-data` | `countryCode`, `indicator`, `years` (LITERACY_RATE, SCHOOL_ENROLLMENT, SCHOOL_COMPLETION, TEACHERS_PRIMARY, EDUCATION_EXPENDITURE) |
 | `get-health-data` | `countryCode`, `indicator`, `years` (HEALTH_EXPENDITURE, PHYSICIANS, HOSPITAL_BEDS, IMMUNIZATION, HIV_PREVALENCE, MALNUTRITION, TUBERCULOSIS) |
@@ -159,24 +206,11 @@ All tools respond in < 5 s; 10 s HTTP timeout per call.
 alias. Call `isMCPSupportedWBCountryCode()` from
 `src/utils/world-bank-data.ts` before every MCP invocation — see
 [`analysis/worldbank/eu-country-mapping.md`](../../analysis/worldbank/eu-country-mapping.md).
-For EU-level economic context, use IMF `EU`/`EA` aggregates (§9 below).
+For EU-level economic context, use IMF `EU`/`EA` aggregates (§8
+above).
 
-Max 3 data calls per 60-min workflow (search-indicators exempt). Failures are
-skipped, not retried.
-
-## 9 · IMF (native TypeScript client, not MCP)
-
-**Scope:** the authoritative source for all **economic** context —
-GDP, inflation, unemployment, fiscal balance, debt, trade, FDI,
-monetary, exchange rates — per the Wave-2 WB↔IMF split (see §8).
-
-Client: `src/mcp/imf-mcp-client.ts` (class `IMFMCPClient` kept for compat).
-Transport: direct REST to `https://dataservices.imf.org/REST/SDMX_3.0/` via
-`fetch`. Env vars: `IMF_API_BASE_URL`, `IMF_API_TIMEOUT_MS`. Probe:
-`scripts/imf-mcp-probe.sh`. Indicator map:
-[`imf-indicator-mapping.md`](../../analysis/methodologies/imf-indicator-mapping.md).
-Country codes: [`analysis/imf/eu-country-mapping.md`](../../analysis/imf/eu-country-mapping.md)
-(aggregates `EU`, `EA`, `G7`, `G20` all accepted, unlike WB MCP).
+Max 3 data calls per 60-min workflow (search-indicators exempt).
+Failures are skipped, not retried.
 
 ## 10 · Health Gate (standard sequence)
 

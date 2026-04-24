@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">83.33% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/6</span>
+                <span class='fraction'>0/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/5</span>
+                <span class='fraction'>0/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>0/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>4/5</span>
+                <span class='fraction'>0/5</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -110,21 +110,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">119x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -135,8 +124,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">25x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-FileCopyrightText: 2024-2026 Hack23 AB
@@ -148,10 +148,10 @@
  */
 &nbsp;
 /** Maximum length for a title suffix before truncation */
-const MAX_SUFFIX_LENGTH = 60;
+const MAX_SUFFIX_LENGTH = <span class="cstat-no" title="statement not covered" >60;</span>
 &nbsp;
 /** Minimum title length to be considered meaningful (not placeholder) */
-export const MIN_MEANINGFUL_TITLE_LENGTH = 10;
+export const MIN_MEANINGFUL_TITLE_LENGTH = <span class="cstat-no" title="statement not covered" >10;</span>
 &nbsp;
 /**
  * Return singular or plural form based on count.
@@ -161,8 +161,8 @@ export const MIN_MEANINGFUL_TITLE_LENGTH = 10;
  * @param plural - Plural form
  * @returns `"N singular"` or `"N plural"`
  */
-export function pl(n: number, singular: string, plural: string): string {
-  return `${n} ${n === 1 ? singular : plural}`;
+export function <span class="fstat-no" title="function not covered" >pl(</span>n: number, singular: string, plural: string): string {
+<span class="cstat-no" title="statement not covered" >  return `${n} ${n === 1 ? singular : plural}`;</span>
 }
 &nbsp;
 /**
@@ -173,8 +173,8 @@ export function pl(n: number, singular: string, plural: string): string {
  * @param maxLength - Maximum length (default: {@link MAX_SUFFIX_LENGTH})
  * @returns Truncated title with `...` suffix if over limit, else unchanged
  */
-export function truncateTitle(title: string, maxLength: number = MAX_SUFFIX_LENGTH): string {
-  <span class="missing-if-branch" title="else path not taken" >E</span>if (title.length &lt;= maxLength) return title;
+export function <span class="fstat-no" title="function not covered" >truncateTitle(</span>title: string, maxLength: number = <span class="branch-0 cbranch-no" title="branch not covered" >MAX_SUFFIX_LENGTH)</span>: string {
+<span class="cstat-no" title="statement not covered" >  if (title.length &lt;= maxLength) <span class="cstat-no" title="statement not covered" >return title;</span></span>
 <span class="cstat-no" title="statement not covered" >  return title.slice(0, maxLength - 3) + '...';</span>
 }
 &nbsp;</pre></td></tr></table></pre>
@@ -184,7 +184,7 @@ export function truncateTitle(title: string, maxLength: number = MAX_SUFFIX_LENG
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-23T23:25:12.949Z
+                at 2026-04-24T18:55:02.490Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

@@ -116,16 +116,21 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install chromium --with-deps
       
-      # 7. Generate news articles
-      - name: Generate EU Parliament news
+      # 7. Render article HTML from committed analysis artifacts
+      #    (the agentic news-<type>.md workflows author & commit the artifacts
+      #     upstream; this step is the deterministic renderer the aggregator
+      #     exposes under src/aggregator/**)
+      - name: Render article from analysis artifacts
         run: |
           # Start Xvfb for headless browser
           Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
           export DISPLAY=:99
           
-          # Run news generation
-          npm run generate-news
+          # Deterministic render (replaces the removed `npm run generate-news`
+          # legacy pipeline as of April-2026):
+          npm run generate-article -- --run "${ANALYSIS_DIR}"
         env:
+          ANALYSIS_DIR: analysis/daily/${{ inputs.date }}/${{ inputs.slug }}-run${{ inputs.run }}/
           USE_EP_MCP: ${{ !inputs.skip_mcp }}
           EP_MCP_SERVER_URL: ${{ secrets.EP_MCP_SERVER_URL }}
           NODE_ENV: production

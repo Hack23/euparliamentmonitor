@@ -1,118 +1,501 @@
-# 🌐 IMF Data Integration — EU Parliament Monitor
+# E2E Testing Guide
 
-> **Purpose**: Central reference for integrating IMF (International Monetary
-> Fund) data into EU Parliament intelligence analysis. This directory is the
-> IMF counterpart to `analysis/worldbank/` and is the source-of-truth for AI
-> workflows that enrich articles with **fresher macro/fiscal context and
-> native multi-year forecasts** sourced from the IMF SDMX 3.0 REST API
-> (`https://dataservices.imf.org/REST/SDMX_3.0/`) via the native TypeScript
-> client in [`src/mcp/imf-mcp-client.ts`](../../src/mcp/imf-mcp-client.ts).
->
-> **Transport note:** the first Wave 1 iteration proxied through the Python
-> [`c-cf/imf-data-mcp`](https://github.com/c-cf/imf-data-mcp) MCP server.
-> That dependency was replaced with a native TypeScript HTTP client so the
-> stack stays npm-pure and pinnable per ISMS §7. The five "tool" identifiers
-> are preserved verbatim as the content-validator fingerprint anchors.
+End-to-end (E2E) testing for EU Parliament Monitor using Playwright.
 
-**📅 Last Updated:** 2026-04-20 | **🏷️ Classification:** Public | **🌀 Wave:** 1 IMF integration, with Wave-2 validation enforcement (`validate-articles` uses the WB-or-IMF OR-gate rather than a WB-only primary gate)
+## Overview
+
+The E2E test suite validates the complete user experience from a browser perspective, ensuring:
+
+- **User Journeys**: Critical user paths work correctly
+- **Cross-Browser**: Tests run on Chromium, Firefox, and WebKit
+- **Mobile Support**: Tests cover mobile and tablet viewports
+- **Accessibility**: WCAG 2.1 AA compliance validation
+- **Responsive Design**: Layout adapts to different screen sizes
+
+## Test Suite Structure
+
+```
+e2e/
+├── tests/
+│   ├── homepage.spec.js           # Homepage functionality tests
+│   ├── news-browsing.spec.js      # Article browsing and reading
+│   ├── navigation.spec.js         # Site navigation tests
+│   ├── multi-language.spec.js     # Multi-language support tests (all 14 languages)
+│   ├── accessibility.spec.js      # WCAG 2.1 AA compliance tests
+│   ├── responsive.spec.js         # Responsive design tests
+│   ├── rss-feed.spec.js           # RSS 2.0 feed validation tests
+│   ├── sitemap.spec.js            # Sitemap XML and HTML validation tests
+│   └── seo-metadata.spec.js       # SEO meta tags and Open Graph validation
+├── fixtures/                      # Test data (future)
+├── helpers/                       # Test utilities (future)
+└── README.md                      # This file
+```
+
+## Running E2E Tests
+
+### Prerequisites
+
+1. **Install Dependencies**:
+
+   ```bash
+   npm install
+   ```
+
+2. **Install Playwright Browsers**:
+   ```bash
+   npx playwright install --with-deps
+   ```
+
+### Run Tests
+
+```bash
+# Run all E2E tests (headless)
+npm run test:e2e
+
+# Run tests in UI mode (interactive)
+npm run test:e2e:ui
+
+# Run tests in headed mode (see browser)
+npm run test:e2e:headed
+
+# Run tests in debug mode
+npm run test:e2e:debug
+
+# Run specific test file
+npx playwright test e2e/tests/homepage.spec.js
+
+# Run tests in specific browser
+npx playwright test --project=chromium
+npx playwright test --project=firefox
+npx playwright test --project=webkit
+
+# Run tests in mobile viewports
+npx playwright test --project=mobile-chrome
+npx playwright test --project=mobile-safari
+```
+
+### View Test Reports
+
+```bash
+# Open HTML report
+npm run test:e2e:report
+
+# Or manually
+npx playwright show-report
+```
+
+## Test Categories
+
+### 1. Homepage Tests (`homepage.spec.js`)
+
+Tests homepage loading and structure:
+
+- ✅ Page loads successfully
+- ✅ Navigation menu displays
+- ✅ Recent articles display
+- ✅ Sitemap link works
+- ✅ Proper HTML structure
+- ✅ SEO meta tags present
+
+### 2. News Browsing Tests (`news-browsing.spec.js`)
+
+Tests article browsing experience:
+
+- ✅ Open and display articles
+- ✅ Navigate back to homepage
+- ✅ Article metadata displays
+- ✅ Internal links work
+- ✅ Article content displays
+
+### 3. Navigation Tests (`navigation.spec.js`)
+
+Tests site navigation:
+
+- ✅ Navigation menu functions
+- ✅ Navigate to different sections
+- ✅ Navigation state maintained
+- ✅ Home link works
+- ✅ Browser back/forward buttons
+- ✅ Skip navigation links
+- ✅ Keyboard focus states
+- ✅ External links security
+
+### 4. Multi-Language Tests (`multi-language.spec.js`)
+
+Tests multi-language functionality:
+
+- ✅ Load language-specific versions (14 languages)
+- ✅ Switch between languages
+- ✅ Consistent structure across languages
+- ✅ Language-specific meta tags
+- ✅ Maintain language in navigation
+- ✅ Proper charset encoding
+- ✅ Alternate language links
+
+**Supported Languages**:
+
+- EN (English), SV (Swedish), DA (Danish), NO (Norwegian)
+- FI (Finnish), DE (German), FR (French), ES (Spanish)
+- NL (Dutch), AR (Arabic), HE (Hebrew), JA (Japanese)
+- KO (Korean), ZH (Chinese)
+
+### 5. Accessibility Tests (`accessibility.spec.js`)
+
+Tests WCAG 2.1 AA compliance:
+
+- ✅ Automated accessibility scanning (axe-core)
+- ✅ Proper heading hierarchy
+- ✅ Alt text for images
+- ✅ Keyboard navigation
+- ✅ Link activation with Enter key
+- ✅ Sufficient color contrast
+- ✅ ARIA landmarks
+- ✅ Proper link text
+- ✅ Skip navigation link
+- ✅ Page title
+- ✅ Language attribute
+- ✅ Text zoom support
+- ✅ Form labels (if forms exist)
+
+### 6. Responsive Design Tests (`responsive.spec.js`)
+
+Tests responsive design:
+
+- ✅ Mobile portrait (375x667)
+- ✅ Mobile landscape (667x375)
+- ✅ Tablet portrait (768x1024)
+- ✅ Tablet landscape (1024x768)
+- ✅ Desktop (1920x1080)
+- ✅ Viewport meta tag
+- ✅ Adaptive layout
+- ✅ Touch-friendly tap targets
+- ✅ No horizontal scroll on mobile
+- ✅ Readable text on mobile
+- ✅ Content stacking on mobile
+- ✅ Responsive images
+- ✅ Text resizing support
+
+### 7. RSS Feed Tests (`rss-feed.spec.js`)
+
+Tests RSS 2.0 feed validity:
+
+- ✅ Feed loads successfully (HTTP 200)
+- ✅ Valid RSS 2.0 root element with version attribute
+- ✅ Required channel elements (title, link, description)
+- ✅ Dublin Core namespace for per-item language tags
+- ✅ Items present with required elements (title, pubDate, guid)
+- ✅ dc:language tags on items
+- ✅ Multi-language article coverage
+- ✅ Atom self-link for feed discovery
+- ✅ lastBuildDate element
+
+### 8. Sitemap Tests (`sitemap.spec.js`)
+
+Tests sitemap completeness and validity:
+
+- ✅ sitemap.xml loads when available (graceful skip if not generated)
+- ✅ Valid XML urlset structure with sitemaps.org namespace
+- ✅ Article URLs present in sitemap
+- ✅ More than 50 URL entries
+- ✅ RSS feed URL listed in sitemap
+- ✅ All 14 language HTML sitemap pages load successfully
+- ✅ Correct lang attribute on each language sitemap page
+- ✅ RTL direction for Arabic and Hebrew sitemap pages
+- ✅ Language navigation in HTML sitemaps
+
+### 9. SEO Metadata Tests (`seo-metadata.spec.js`)
+
+Tests SEO metadata completeness on articles:
+
+- ✅ Open Graph title, description, type (article), locale, site_name
+- ✅ Twitter Card meta tags (card, title, description)
+- ✅ Standard meta tags (description, keywords, author)
+- ✅ Schema.org JSON-LD structured data (valid JSON)
+- ✅ Page title includes site name
+- ✅ Charset UTF-8
+- ✅ Viewport meta tag
+- ✅ Multi-language og:locale correctness
+- ✅ RTL direction for Arabic and Hebrew articles
+
+## Writing E2E Tests
+
+### Test Structure
+
+```javascript
+import { test, expect } from '@playwright/test';
+
+test.describe('Feature Name', () => {
+  test('should do something specific', async ({ page }) => {
+    // Navigate to page
+    await page.goto('/');
+
+    // Interact with elements
+    const button = page.locator('button');
+    await button.click();
+
+    // Assert expectations
+    await expect(page.locator('.result')).toBeVisible();
+  });
+});
+```
+
+### Best Practices
+
+1. **Use Locators Wisely**:
+
+   ```javascript
+   // Good: Specific and stable
+   page.locator('[data-testid="submit-button"]');
+   page.locator('button:has-text("Submit")');
+
+   // Avoid: Fragile CSS classes
+   page.locator('.btn-primary-123');
+   ```
+
+2. **Wait for State Changes**:
+
+   ```javascript
+   // Good: Wait for navigation
+   await page.waitForLoadState('domcontentloaded');
+
+   // Good: Wait for element
+   await expect(element).toBeVisible();
+   ```
+
+3. **Handle Dynamic Content**:
+
+   ```javascript
+   // Check if element exists before interacting
+   const count = await page.locator('.article').count();
+   if (count > 0) {
+     // Interact with element
+   }
+   ```
+
+4. **Test Independence**:
+
+   ```javascript
+   // Each test should be independent
+   test.beforeEach(async ({ page }) => {
+     await page.goto('/');
+   });
+   ```
+
+5. **Meaningful Assertions**:
+   ```javascript
+   // Good: Clear assertion
+   await expect(page.locator('h1')).toContainText('EU Parliament Monitor');
+   // Avoid: Vague assertion
+   await expect(element).toBeTruthy();
+   ```
+
+## Debugging Tests
+
+### Visual Debugging
+
+```bash
+# UI Mode - Interactive debugging
+npm run test:e2e:ui
+
+# Headed Mode - See browser
+npm run test:e2e:headed
+
+# Debug Mode - Step through
+npm run test:e2e:debug
+```
+
+### Screenshots and Videos
+
+Playwright automatically captures:
+
+- **Screenshots**: On failure
+- **Videos**: On failure
+- **Traces**: On first retry
+
+Find these in:
+
+- `test-results/` - Screenshots and videos
+- `playwright-report/` - HTML report with artifacts
+
+### Console Debugging
+
+```javascript
+// Add console.log in tests
+test('debug test', async ({ page }) => {
+  const text = await page.locator('h1').textContent();
+  console.log('Heading text:', text);
+});
+
+// Pause execution
+await page.pause();
+```
+
+### Test Selector
+
+```bash
+# Open Playwright Inspector
+npx playwright inspector
+```
+
+## CI/CD Integration
+
+E2E tests run automatically in GitHub Actions on:
+
+- **Pull Requests**: All tests must pass
+- **Push to Main**: Full test suite
+- **Daily Schedule**: Regression testing
+
+See `.github/workflows/e2e.yml` for configuration.
+
+## Configuration
+
+### Playwright Config (`playwright.config.js`)
+
+Key settings:
+
+- **Base URL**: `http://localhost:8080`
+- **Browsers**: Chromium, Firefox, WebKit, Mobile Chrome, Mobile Safari
+- **Retries**: 2 retries in CI, 0 locally
+- **Timeouts**: 30s test timeout, 120s server startup
+- **Web Server**: Auto-starts `npm run serve`
+
+### Modifying Configuration
+
+```javascript
+// playwright.config.js
+export default defineConfig({
+  // Add test timeout
+  timeout: 60000, // 60 seconds
+
+  // Add global setup
+  globalSetup: './e2e/global-setup.js',
+
+  // Add more browsers
+  projects: [
+    {
+      name: 'chromium-desktop',
+      use: { ...devices['Desktop Chrome'] },
+    },
+  ],
+});
+```
+
+## Accessibility Testing
+
+### Using Axe-Core
+
+```javascript
+import AxeBuilder from '@axe-core/playwright';
+
+test('accessibility test', async ({ page }) => {
+  await page.goto('/');
+
+  const results = await new AxeBuilder({ page })
+    .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+    .analyze();
+
+  expect(results.violations).toEqual([]);
+});
+```
+
+### WCAG Compliance Levels
+
+- **A**: Basic accessibility
+- **AA**: Recommended compliance (our target)
+- **AAA**: Enhanced accessibility
+
+## Performance Considerations
+
+### Test Speed
+
+- **Unit Tests**: < 1s per test
+- **Integration Tests**: < 10s per test
+- **E2E Tests**: < 30s per test
+
+### Optimization Tips
+
+1. **Parallel Execution**: Tests run in parallel by default
+2. **Reuse Server**: `reuseExistingServer: !process.env.CI`
+3. **Selective Testing**: Run specific tests during development
+4. **Fast Selectors**: Use data-testid attributes
+
+## Troubleshooting
+
+### Tests Fail Locally
+
+```bash
+# Clear Playwright cache
+npx playwright install --force
+
+# Update browsers
+npx playwright install
+
+# Check server is running
+npm run serve
+```
+
+### Tests Pass Locally but Fail in CI
+
+- Check if content is generated in CI
+- Verify server starts correctly
+- Check for race conditions
+- Review CI logs and screenshots
+
+### Flaky Tests
+
+```javascript
+// Add explicit waits
+await page.waitForLoadState('networkidle');
+
+// Increase timeout for specific test
+test('slow test', async ({ page }) => {
+  test.setTimeout(60000);
+  // test code
+});
+
+// Add retry logic
+test('flaky test', async ({ page }) => {
+  test.retry(2);
+  // test code
+});
+```
+
+### Element Not Found
+
+```javascript
+// Wait for element
+await page.waitForSelector('.element');
+
+// Use timeout
+await expect(page.locator('.element')).toBeVisible({ timeout: 10000 });
+
+// Check if exists first
+const count = await page.locator('.element').count();
+if (count > 0) {
+  // interact with element
+}
+```
+
+## Contributing
+
+When adding new features:
+
+1. **Write E2E tests** for user-facing changes
+2. **Test accessibility** with axe-core
+3. **Test responsive design** on multiple viewports
+4. **Test cross-browser** (at least Chromium + Firefox)
+5. **Update documentation** if adding new test patterns
+
+## Resources
+
+- [Playwright Documentation](https://playwright.dev/)
+- [Playwright Best Practices](https://playwright.dev/docs/best-practices)
+- [Axe-Core Rules](https://github.com/dequelabs/axe-core/blob/develop/doc/rule-descriptions.md)
+- [WCAG 2.1 Guidelines](https://www.w3.org/WAI/WCAG21/quickref/)
 
 ---
 
-## 📂 Directory Contents
-
-| Document | Description | Audience |
-|----------|-------------|----------|
-| [`indicator-catalog.md`](indicator-catalog.md) | ~80 IMF indicators across WEO, IFS, FM, BOP, ER, PCPS, organised by 10 EP policy domains with SDMX codes, frequency, and forecast horizon | AI workflows, developers |
-| [`eu-country-mapping.md`](eu-country-mapping.md) | EU-27 + comparison groups with IMF country codes and aggregation codelists (`EA`, `EU`, `G7`, `G20`) | AI workflows, analysis |
-| [`chart-integration-guide.md`](chart-integration-guide.md) | Chart.js templates with forecast-shaded overlay + Mermaid `xychart-beta` patterns for IMF data visualisation | AI workflows, frontend |
-| [`use-cases.md`](use-cases.md) | When IMF WEO/IFS/FM adds value beyond World Bank WDI, ranked by article type | AI workflows, product |
-
----
-
-## 🔑 Quick Reference
-
-### IMF Virtual Tool Surface
-
-The native TypeScript client exposes five semantic methods, each mapped
-to a single SDMX 3.0 REST endpoint. The historical "tool" identifiers
-are retained as virtual tool names for the content-validator
-fingerprint and the workflow probe.
-
-| Virtual tool | Method | REST endpoint |
-|---|---|---|
-| `imf-list-databases` | `listDatabases()` | `GET /dataflow/IMF` |
-| `imf-search-databases` | `searchDatabases(keyword)` | `/dataflow/IMF` + client-side filter |
-| `imf-get-parameter-defs` | `getParameterDefs(databaseId)` | `GET /datastructure/{id}` |
-| `imf-get-parameter-codes` | `getParameterCodes(db, param, search?)` | `GET /datastructure/{id}?references=codelist` |
-| `imf-fetch-data` | `fetchData({ databaseId, startYear, endYear, filters })` | `GET /data/{dataflow}/{key}?startPeriod=…` |
-
-The canonical identifier list is duplicated in `IMF_MCP_TOOLS` in
-[`src/mcp/imf-mcp-client.ts`](../../src/mcp/imf-mcp-client.ts) and guarded by the
-integration test `test/integration/mcp/imf-mcp.test.js`.
-
-### Why IMF (and why now)
-
-The World Bank WDI publishes most EU macro indicators on a **biannual
-batch cadence** with substantial national-account reconciliation lag. As
-of April 2026 the WDI still surfaces `null` for most 2025 values. The
-IMF publishes the **WEO vintages in April and October** and ships, for
-every EU-27 country:
-
-- 2025 **actuals** for GDP, inflation, unemployment, gov debt, primary balance, current account
-- 2026–2030 **forecasts** for the same series
-- Quarterly IFS + monthly CPI/ER/PCPS data with ~4–8 weeks reference lag
-
-This directly fixes the "stale context" editorial problem for
-`news-breaking`, `news-weekly-review`, `news-monthly-review`,
-`news-week-ahead`, `news-month-ahead`, and the ECON/BUDG/AFET committee
-report articles.
-
-### Scope Boundaries
-
-IMF is the **primary source** for the macro/fiscal/trade/monetary
-subset. It does **not** cover:
-
-- Social: life expectancy, birth/death rates, internet users
-- Health: physicians, hospital beds, immunisation
-- Education: enrolment, literacy
-- Environment: CO₂, renewable energy
-- Innovation: R&D spending, high-tech exports
-
-World Bank WDI remains the authoritative source for those domains —
-see [`analysis/worldbank/`](../worldbank/) and
-[`analysis/methodologies/worldbank-indicator-mapping.md`](../methodologies/worldbank-indicator-mapping.md)
-for the WB-only indicator inventory.
-
----
-
-## 🔒 Compliance & Data Governance
-
-- **License**: IMF data is public and redistribution is permitted under the
-  [IMF Copyright and Usage terms](https://www.imf.org/external/terms.htm);
-  articles and analysis cite `IMF, World Economic Outlook, April 2026` (or
-  the applicable FM/IFS vintage) per the attribution rules.
-- **GDPR**: No personal data is handled by IMF data flows.
-- **ISMS**: Supply-chain vetted per ISO 27001 A.5.23 and A.8.28; the native
-  TypeScript IMF client has no third-party runtime dependencies beyond
-  Node's built-in `fetch`, side-stepping the pinning issue that blocked
-  the earlier Python `c-cf/imf-data-mcp` integration.
-- **Firewall**: Only `dataservices.imf.org` is added to the `network.allowed`
-  block in workflow frontmatter. The earlier iteration's `data.imf.org`
-  (DataMapper UI) is **NOT** added — the SDMX REST host is the only
-  endpoint the client actually hits.
-- **Forecast provenance**: Every article citing an IMF projection MUST label
-  it as "forecast" or "projection" and cite the vintage (e.g.
-  "WEO April 2026"). This is enforced prospectively by the
-  `articlePolicyHasEconomicContext` Wave 2 validator flip.
-
----
-
-## 🔁 Relationship to World Bank
-
-In Wave 1 (this release), the World Bank validator gate
-(`articlePolicyHasWorldBank`) remains the enforced quality gate.
-`articlePolicyHasEconomicContext` is **available** in the validator as
-an OR-gate helper so articles can satisfy the requirement via either
-source, but it is not yet the default. See
-[`analysis/methodologies/imf-indicator-mapping.md`](../methodologies/imf-indicator-mapping.md)
-for the committee-level mapping and migration sequence.
+**Last Updated**: March 2026  
+**Framework**: Playwright 1.58+  
+**Test Count**: 90+ E2E tests  
+**Coverage**: Homepage, Navigation, Multi-language (14 languages), Accessibility, Responsive, RSS Feed, Sitemap, SEO Metadata
