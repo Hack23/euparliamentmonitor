@@ -590,5 +590,36 @@ describe('political-intelligence generator', () => {
       expect(getArtifactInfo('data/agent-pre-work.md', 'de').title).toBe('Agenten-Vorarbeit');
       expect(getArtifactInfo('data/summary.md', 'ja').title).toBe('実行サマリー');
     });
+
+    it('falls back to the daily-artifact kind word (not "template") for unmapped stems', () => {
+      // Unmapped stem — no curated template entry, no orphan entry. The
+      // localized fallback sentence MUST describe the item as a daily-run
+      // artifact ("artifact" in EN, "artefakt" in SV, …) — NOT as a
+      // "template" — because we're rendering inside Daily Analysis Runs.
+      const enDesc = getArtifactInfo('intelligence/my-brand-new-artifact.md', 'en').description;
+      expect(enDesc).toMatch(/artifact/i);
+      expect(enDesc).not.toMatch(/template/i);
+
+      const svDesc = getArtifactInfo('intelligence/my-brand-new-artifact.md', 'sv').description;
+      // Swedish kind word for a daily artifact is "artefakt"; for a
+      // template it would be "mall". We want the former.
+      expect(svDesc).toMatch(/artefakt/i);
+      expect(svDesc).not.toMatch(/mall/i);
+    });
+
+    it('is immune to prototype-key lookups (__proto__, constructor)', () => {
+      // `Object.prototype.hasOwnProperty.call` guards every stem-derived
+      // lookup. A filename stem like `__proto__` or `constructor` must
+      // NOT pick up `Object.prototype` members — it has to flow through
+      // to the localized generic fallback.
+      for (const pollutant of ['__proto__', 'constructor', 'toString', 'hasOwnProperty']) {
+        const info = getArtifactInfo(`data/${pollutant}.md`, 'en');
+        expect(info.title.length, `${pollutant} title`).toBeGreaterThan(0);
+        expect(info.description.length, `${pollutant} desc`).toBeGreaterThan(30);
+        // Must flow through to the generic artifact sentence, not crash
+        // and not leak a JS built-in method body as a description.
+        expect(info.description).toMatch(/artifact|template/i);
+      }
+    });
   });
 });

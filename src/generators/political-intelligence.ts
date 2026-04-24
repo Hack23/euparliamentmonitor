@@ -36,7 +36,12 @@ import { escapeHTML } from '../utils/file-utils.js';
 import { FOOTER_SITEMAP_LABELS } from '../constants/language-ui.js';
 import { buildSiteFooter } from '../templates/section-builders.js';
 import type { LanguageCode } from '../types/index.js';
-import { getCuratedDescription, getCuratedTitle, getRunTypeInfo, getArtifactInfo } from './political-intelligence-descriptions.js';
+import {
+  getCuratedDescription,
+  getCuratedTitle,
+  getRunTypeInfo,
+  getArtifactInfo,
+} from './political-intelligence-descriptions.js';
 
 /** GitHub repository slug used to build blob/tree links for analysis artifacts */
 const GITHUB_REPO = 'Hack23/euparliamentmonitor';
@@ -1144,7 +1149,11 @@ function renderDailyRun(run: PIDailyRun, copy: PICopy, lang: LanguageCode): stri
     .map((art) => {
       const info = getArtifactInfo(art.shortPath, lang);
       const base = art.shortPath.split('/').pop() ?? art.shortPath;
-      const stem = base.replace(/\.[^.]+$/, '');
+      // Strip both the final extension (`.md`) and an optional `.analysis`
+      // compound suffix so `political-landscape.analysis.md` feeds
+      // `political-landscape` into `pickDocumentIcon()` — matching the
+      // stem canonicalization done by `getArtifactInfo`.
+      const stem = base.replace(/\.[^.]+$/, '').replace(/\.analysis$/, '');
       const icon = pickDocumentIcon(stem);
       const blobUrl = githubBlobUrl(art.relPath);
       return `                  <li class="pi-artifact">

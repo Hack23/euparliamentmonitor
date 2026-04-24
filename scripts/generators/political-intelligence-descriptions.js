@@ -2550,9 +2550,12 @@ export function parseRunSlug(slug) {
  *
  * @param slug - Run directory slug (e.g. `breaking-run192`)
  * @param lang - Target language code
- * @returns `{ title, description, runId }` — title & description are
- *   always non-empty; `runId` is the run-index tail (`'192'`) or the
- *   raw slug when no run-type prefix matched.
+ * @returns `{ title, description, runId }` — `title` is always non-empty
+ *   (falls back to a humanized slug when no run-type prefix matches);
+ *   `description` may be an empty string for unknown run-type slugs or
+ *   when the descriptions table has no entry for a recognized type.
+ *   `runId` is the run-index tail (`'192'`) or the raw slug when no
+ *   run-type prefix matched.
  */
 export function getRunTypeInfo(slug, lang) {
     const { type, runId } = parseRunSlug(slug);
@@ -2567,17 +2570,6 @@ export function getRunTypeInfo(slug, lang) {
     }
     return { title: stripEmojiAndPunct(slug), description: '', runId };
 }
-/**
- * Resolve a localized title + description for a single daily analysis
- * artifact Markdown file. The lookup first maps the artifact's filename
- * stem to its corresponding template path (`analysis/templates/<stem>.md`)
- * so shared 14-language curated entries apply automatically; missing
- * templates fall back to a humanized stem + localized generic sentence.
- *
- * @param shortPath - Run-relative path (e.g. `intelligence/swot-analysis.md`)
- * @param lang      - Target language code
- * @returns `{ title, description }` — both always non-empty
- */
 /**
  * Normalize an artifact stem by stripping well-known suffixes and mapping
  * synonyms to a canonical template name. Keeps the `getArtifactInfo`
@@ -2603,7 +2595,9 @@ export function getRunTypeInfo(slug, lang) {
 function canonicalizeArtifactStem(stem) {
     // Strip ".analysis" compound extension (e.g. "foo.analysis.md" → "foo")
     const s = stem.replace(/\.analysis$/, '');
-    // Exact synonym table — higher priority than prefix stripping
+    // Exact synonym table — higher priority than prefix stripping. The
+    // lookup uses `hasOwn` to avoid prototype-key surprises when a
+    // malformed filename produces a stem like `__proto__`.
     const SYNONYMS = {
         'coalition-analysis': 'coalition-dynamics',
         'coalition-intelligence': 'coalition-dynamics',
@@ -2666,10 +2660,12 @@ function canonicalizeArtifactStem(stem) {
         'ai-threat-assessment': 'threat-analysis',
         'ai-voting-patterns': 'voting-patterns',
     };
-    // eslint-disable-next-line security/detect-object-injection
-    const synonym = SYNONYMS[s];
-    if (typeof synonym === 'string')
-        return synonym;
+    if (Object.prototype.hasOwnProperty.call(SYNONYMS, s)) {
+        // eslint-disable-next-line security/detect-object-injection
+        const synonym = SYNONYMS[s];
+        if (typeof synonym === 'string')
+            return synonym;
+    }
     return s;
 }
 /**
@@ -2998,9 +2994,11 @@ function parseFeedPrefix(stem) {
 export function getArtifactInfo(shortPath, lang) {
     const base = shortPath.split('/').pop() ?? shortPath;
     const rawStem = base.replace(/\.[^.]+$/, '');
-    // 1. Feed prefix — single localized label
+    // 1. Feed prefix — single localized label. `parseFeedPrefix` already
+    //    restricts its return value to `Object.keys(FEED_PREFIX_LABELS)`,
+    //    and we still guard with `hasOwn` to block any prototype-key surprise.
     const feed = parseFeedPrefix(rawStem);
-    if (feed) {
+    if (feed && Object.prototype.hasOwnProperty.call(FEED_PREFIX_LABELS, feed.feed)) {
         // eslint-disable-next-line security/detect-object-injection
         const entry = FEED_PREFIX_LABELS[feed.feed];
         if (entry) {
@@ -3012,23 +3010,34 @@ export function getArtifactInfo(shortPath, lang) {
     }
     // 2. Canonicalize stem (strip `.analysis`, apply synonym map)
     const stem = canonicalizeArtifactStem(rawStem);
-    // 3. Template lookup via existing curated tables
+    // 3. Orphan-table lookup — stems with no template counterpart.
+    //    Checked before template lookup so orphan entries override the
+    //    localized generic fallback. `hasOwn` blocks prototype-key lookups
+    //    (e.g. a hypothetical `__proto__.md` file).
+    const stemLower = stem.toLowerCase();
+    if (Object.prototype.hasOwnProperty.call(ORPHAN_ARTIFACT_INFO, stemLower)) {
+        // eslint-disable-next-line security/detect-object-injection
+        const orphan = ORPHAN_ARTIFACT_INFO[stemLower];
+        if (orphan) {
+            return {
+                title: getFromRecord(orphan.title, lang),
+                description: getFromRecord(orphan.desc, lang),
+            };
+        }
+    }
+    // 4. Template lookup via existing curated tables. When no curated entry
+    //    exists the description falls through to the generic fallback — in
+    //    that case swap the lookup path from `analysis/templates/…` to
+    //    `analysis/daily/…` so `inferKind()` picks `KIND_WORDS_ARTIFACT`
+    //    ("artifact") instead of `KIND_WORDS_TEMPLATE` ("template"). This
+    //    keeps the fallback sentence accurate for daily-run artifacts.
     const templateKey = `analysis/templates/${stem}.md`;
     const humanized = stripEmojiAndPunct(stem);
     const title = getCuratedTitle(templateKey, lang, humanized);
-    const description = getCuratedDescription(templateKey, lang, humanized);
-    // 4. Orphan stem lookup — only when no curated template entry existed
-    //    (detected by the description falling back to the generic sentence).
-    const stemLower = stem.toLowerCase();
-    // eslint-disable-next-line security/detect-object-injection
-    const orphan = ORPHAN_ARTIFACT_INFO[stemLower];
-    if (orphan) {
-        // Always prefer the orphan localized title/desc when available
-        return {
-            title: getFromRecord(orphan.title, lang),
-            description: getFromRecord(orphan.desc, lang),
-        };
-    }
+    const descriptionKey = hasCuratedDescription(templateKey)
+        ? templateKey
+        : `analysis/daily/${stem}.md`;
+    const description = getCuratedDescription(descriptionKey, lang, humanized);
     return { title, description };
 }
 //# sourceMappingURL=political-intelligence-descriptions.js.map
