@@ -23,6 +23,10 @@ import {
   collectPoliticalIntelligenceData,
   generatePoliticalIntelligenceHTML,
 } from '../../scripts/generators/political-intelligence.js';
+import {
+  getArtifactInfo,
+  getRunTypeInfo,
+} from '../../scripts/generators/political-intelligence-descriptions.js';
 import { createTempDir, cleanupTempDir } from '../helpers/test-utils.js';
 
 describe('political-intelligence generator', () => {
@@ -287,6 +291,47 @@ describe('political-intelligence generator', () => {
       expect(html).toContain('<a href="index-sv.html">Hem</a>');
     });
 
+    it('renders rich, localized run cards + per-artifact cards (not bare filename links)', () => {
+      const data = collectPoliticalIntelligenceData(tempDir);
+      const htmlEn = generatePoliticalIntelligenceHTML('en', data);
+      const htmlSv = generatePoliticalIntelligenceHTML('sv', data);
+      const htmlDe = generatePoliticalIntelligenceHTML('de', data);
+
+      // Every run card exposes a localized run-type title + description +
+      // a run-id badge so the section is no longer a flat list of slugs.
+      expect(htmlEn).toContain('class="pi-run__title">Breaking Analysis');
+      expect(htmlEn).toContain('class="pi-run__runid"');
+      expect(htmlEn).toContain('#run1');
+      expect(htmlEn).toContain('class="pi-run__desc"');
+      expect(htmlSv).toContain('Analys av aktuella nyheter');
+      expect(htmlDe).toContain('Aktuelle Analyse');
+
+      // Raw slug is retained as an auditable sub-label inside the meta line,
+      // not as the primary heading.
+      expect(htmlEn).toContain('<code>breaking-run1</code>');
+
+      // Per-artifact cards — every .md file in the run surfaces as a
+      // rich card with an icon, localized title, description and
+      // filename pill (not a flat `<li><a><code>path</code></a></li>`).
+      expect(htmlEn).toContain('class="pi-artifact"');
+      expect(htmlEn).toContain('class="pi-artifact__link"');
+      expect(htmlEn).toContain('class="pi-artifact__icon"');
+      expect(htmlEn).toContain('class="pi-artifact__title"');
+      expect(htmlEn).toContain('class="pi-artifact__desc"');
+      expect(htmlEn).toContain('class="pi-artifact__path"');
+      expect(htmlEn).toContain('<code>intelligence/swot.md</code>');
+
+      // Non-English pages carry localized artifact titles/descriptions — no
+      // raw English leakage for known templates (SWOT template is curated).
+      // At minimum, each artifact card must carry non-empty pi-artifact__title
+      // and pi-artifact__desc spans in the page language.
+      expect(htmlSv).toContain('class="pi-artifact__title"');
+      expect(htmlSv).toContain('class="pi-artifact__desc"');
+      // Swedish run description from the curated RUN_TYPE_DESCRIPTIONS table
+      // must appear on the Swedish page (guards against raw-English leakage).
+      expect(htmlSv).toContain('Snabb analys av en enskild');
+    });
+
     it('ships distinct localized SEO keywords for all 14 language pages', () => {
       // Regression guard: the initial implementation hard-coded English
       // keywords on every `political-intelligence_<lang>.html` page — a
@@ -478,6 +523,72 @@ describe('political-intelligence generator', () => {
           expect(desc.length, `${path} (${lang}) should be non-trivial`).toBeGreaterThan(15);
         }
       }
+    });
+  });
+
+  describe('getArtifactInfo (feed-prefix + synonym + orphan coverage)', () => {
+    it('collapses every feed-prefixed artifact into a single localized per-item label', () => {
+      // All 5 EP-API feed prefixes must resolve to their canonical
+      // localized title in every language — so 200+ adopted-text / procedure
+      // / event artifact files no longer render with raw slug titles.
+      const langs = ['en', 'sv', 'de', 'fr', 'ar', 'ja', 'zh'];
+      const feeds = [
+        ['adoptedtexts-ta-10-2026-0001-analysis.md', /Adopted Text Analysis|Analys av antagen|angenommenen|adopté|معتمد|採択|已通过/],
+        ['procedures-2026-0008-cod-analysis.md', /Legislative Procedure|lagstiftnings|Gesetzgebungs|législative|تشريعي|立法手続|立法程序/],
+        ['documents-econ-working-document.md', /Committee Document|utskott|Ausschuss|commission|لجنة|委員会|委员会/],
+        ['events-plenary-session-restart.md', /Parliamentary Event|parlamentarisk|parlamentarisch|parlementaire|برلمان|議会イベント|议会活动/],
+        ['externaldocuments-eli-dl-doc.md', /External Document|externt|externen|externe|خارجية|外部文書|外部文件/],
+      ];
+      for (const [shortPath, pattern] of feeds) {
+        for (const lang of langs) {
+          const info = getArtifactInfo(shortPath, lang);
+          expect(info.title.length, `${shortPath} ${lang} title`).toBeGreaterThan(3);
+          expect(info.description.length, `${shortPath} ${lang} desc`).toBeGreaterThan(30);
+        }
+        // English must use the canonical English label
+        const en = getArtifactInfo(shortPath, 'en');
+        expect(en.title, `${shortPath} en`).toMatch(pattern);
+      }
+    });
+
+    it('applies synonyms so ai-/political- variants share the curated template entry', () => {
+      // `ai-swot-analysis.md` must resolve to the same curated SWOT title
+      // as `swot-analysis.md` (and never to the humanized "Ai Swot Analysis")
+      const aiSwot = getArtifactInfo('intelligence/ai-swot-analysis.md', 'en');
+      const swot = getArtifactInfo('intelligence/swot-analysis.md', 'en');
+      expect(aiSwot.title).toBe(swot.title);
+      expect(aiSwot.description).toBe(swot.description);
+
+      // `political-risk-assessment.md` must share the risk-assessment title
+      const polRisk = getArtifactInfo('risk/political-risk-assessment.md', 'en');
+      const risk = getArtifactInfo('risk/risk-assessment.md', 'en');
+      expect(polRisk.title).toBe(risk.title);
+
+      // `threat-landscape.md` must map to threat-analysis (not raw stem)
+      const landscape = getArtifactInfo('threat/threat-landscape.md', 'sv');
+      const analysis = getArtifactInfo('threat/threat-analysis.md', 'sv');
+      expect(landscape.title).toBe(analysis.title);
+
+      // `.analysis.md` compound extension must strip cleanly
+      const compound = getArtifactInfo('intelligence/political-landscape.analysis.md', 'en');
+      expect(compound.title).not.toMatch(/\.analysis/);
+    });
+
+    it('ships orphan artifact stems in all 14 languages', () => {
+      // `agent-pre-work`, `summary`, `readme` have no template file — they
+      // must still deliver non-English localized titles & descriptions.
+      const langs = ['en', 'sv', 'da', 'no', 'fi', 'de', 'fr', 'es', 'nl', 'ar', 'he', 'ja', 'ko', 'zh'];
+      for (const stem of ['agent-pre-work', 'summary', 'readme']) {
+        for (const lang of langs) {
+          const info = getArtifactInfo(`data/${stem}.md`, lang);
+          expect(info.title.length, `${stem} ${lang} title`).toBeGreaterThan(2);
+          expect(info.description.length, `${stem} ${lang} desc`).toBeGreaterThan(30);
+        }
+      }
+      // Specific localized spot-checks to guard against raw-English leakage
+      expect(getArtifactInfo('data/summary.md', 'sv').title).toBe('Körnings­sammanfattning');
+      expect(getArtifactInfo('data/agent-pre-work.md', 'de').title).toBe('Agenten-Vorarbeit');
+      expect(getArtifactInfo('data/summary.md', 'ja').title).toBe('実行サマリー');
     });
   });
 });

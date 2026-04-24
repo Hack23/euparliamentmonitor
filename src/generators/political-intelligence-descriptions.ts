@@ -2021,6 +2021,24 @@ const KIND_WORDS_REFERENCE: Record<LanguageCode, string> = {
   zh: '参考资料',
 };
 
+/** Per-language word for "analysis artifact" (for files under analysis/daily/). */
+const KIND_WORDS_ARTIFACT: Record<LanguageCode, string> = {
+  en: 'analysis artifact',
+  sv: 'analysartefakt',
+  da: 'analyseartefakt',
+  no: 'analyseartefakt',
+  fi: 'analyysiartefakti',
+  de: 'Analyseartefakt',
+  fr: 'artefact d’analyse',
+  es: 'artefacto de análisis',
+  nl: 'analyse-artefact',
+  ar: 'ناتج تحليل',
+  he: 'תוצר ניתוח',
+  ja: '分析アーティファクト',
+  ko: '분석 산출물',
+  zh: '分析产物',
+};
+
 /**
  * Strip leading emojis/punctuation from a display string and return a
  * title-cased humanized tail. Used only as a last-ditch fallback when no
@@ -2050,9 +2068,10 @@ function stripEmojiAndPunct(keyOrTitle: string): string {
  * @returns The inferred kind; falls back to `'reference'` when the path
  *   does not match a `/methodologies/` or `/templates/` directory
  */
-function inferKind(relPath: string): 'methodology' | 'template' | 'reference' {
+function inferKind(relPath: string): 'methodology' | 'template' | 'artifact' | 'reference' {
   if (relPath.includes('/methodologies/')) return 'methodology';
   if (relPath.includes('/templates/')) return 'template';
+  if (relPath.includes('/daily/')) return 'artifact';
   return 'reference';
 }
 
@@ -2067,6 +2086,7 @@ function kindWord(relPath: string, lang: LanguageCode): string {
   const kind = inferKind(relPath);
   if (kind === 'methodology') return getFromRecord(KIND_WORDS_METHODOLOGY, lang);
   if (kind === 'template') return getFromRecord(KIND_WORDS_TEMPLATE, lang);
+  if (kind === 'artifact') return getFromRecord(KIND_WORDS_ARTIFACT, lang);
   return getFromRecord(KIND_WORDS_REFERENCE, lang);
 }
 
@@ -2216,4 +2236,975 @@ export function getCuratedTitle(relPath: string, lang: LanguageCode, fallback: s
     if (descEntry.title) return descEntry.title;
   }
   return fallback;
+}
+
+// ============================================================================
+// Daily analysis run types (breaking, week-in-review, motions, …) — used by
+// the political-intelligence generator to render rich, localized run cards
+// in the "Daily Analysis Runs" section. Every supported run type carries a
+// 14-language title + description so readers in every locale see a
+// meaningful card, not just a raw slug.
+// ============================================================================
+
+/** Supported run-type slugs. Order drives the prefix-match order. */
+const RUN_TYPE_SLUGS = [
+  'breaking',
+  'week-in-review',
+  'weekly-review',
+  'month-in-review',
+  'monthly-review',
+  'week-ahead',
+  'month-ahead',
+  'year-ahead',
+  'year-in-review',
+  'committee-reports',
+  'committee',
+  'motions',
+  'propositions',
+  'translate',
+  'deep',
+] as const;
+
+type RunTypeSlug = (typeof RUN_TYPE_SLUGS)[number];
+
+/** Canonical run-type slugs mapped from aliases. */
+const RUN_TYPE_ALIASES: Readonly<Record<RunTypeSlug, RunTypeSlug>> = {
+  breaking: 'breaking',
+  'week-in-review': 'week-in-review',
+  'weekly-review': 'week-in-review',
+  'month-in-review': 'month-in-review',
+  'monthly-review': 'month-in-review',
+  'week-ahead': 'week-ahead',
+  'month-ahead': 'month-ahead',
+  'year-ahead': 'year-ahead',
+  'year-in-review': 'year-in-review',
+  'committee-reports': 'committee-reports',
+  committee: 'committee-reports',
+  motions: 'motions',
+  propositions: 'propositions',
+  translate: 'translate',
+  deep: 'deep',
+};
+
+/** Per-language titles for each canonical run type. */
+const RUN_TYPE_TITLES: Readonly<Record<string, Record<LanguageCode, string>>> = {
+  breaking: {
+    en: 'Breaking Analysis',
+    sv: 'Analys av aktuella nyheter',
+    da: 'Analyse af aktuelle nyheder',
+    no: 'Analyse av aktuelle nyheter',
+    fi: 'Ajankohtaisanalyysi',
+    de: 'Aktuelle Analyse',
+    fr: 'Analyse d’actualité',
+    es: 'Análisis de última hora',
+    nl: 'Analyse actueel nieuws',
+    ar: 'تحليل عاجل',
+    he: 'ניתוח מבזק',
+    ja: '速報分析',
+    ko: '속보 분석',
+    zh: '突发新闻分析',
+  },
+  'week-in-review': {
+    en: 'Week in Review',
+    sv: 'Veckan i återblick',
+    da: 'Ugen i tilbageblik',
+    no: 'Uken i tilbakeblikk',
+    fi: 'Viikko katsauksessa',
+    de: 'Wochenrückblick',
+    fr: 'La semaine en revue',
+    es: 'Semana en revisión',
+    nl: 'Week in terugblik',
+    ar: 'الأسبوع في مراجعة',
+    he: 'סיכום השבוע',
+    ja: '今週のまとめ',
+    ko: '주간 리뷰',
+    zh: '本周回顾',
+  },
+  'month-in-review': {
+    en: 'Month in Review',
+    sv: 'Månaden i återblick',
+    da: 'Måneden i tilbageblik',
+    no: 'Måneden i tilbakeblikk',
+    fi: 'Kuukausi katsauksessa',
+    de: 'Monatsrückblick',
+    fr: 'Le mois en revue',
+    es: 'Mes en revisión',
+    nl: 'Maand in terugblik',
+    ar: 'الشهر في مراجعة',
+    he: 'סיכום החודש',
+    ja: '今月のまとめ',
+    ko: '월간 리뷰',
+    zh: '本月回顾',
+  },
+  'week-ahead': {
+    en: 'Week Ahead',
+    sv: 'Veckan framöver',
+    da: 'Ugen forude',
+    no: 'Uken fremover',
+    fi: 'Tuleva viikko',
+    de: 'Kommende Woche',
+    fr: 'La semaine à venir',
+    es: 'Semana por delante',
+    nl: 'Komende week',
+    ar: 'الأسبوع القادم',
+    he: 'השבוע הקרוב',
+    ja: '来週の展望',
+    ko: '다가오는 주',
+    zh: '下周前瞻',
+  },
+  'month-ahead': {
+    en: 'Month Ahead',
+    sv: 'Månaden framöver',
+    da: 'Måneden forude',
+    no: 'Måneden fremover',
+    fi: 'Tuleva kuukausi',
+    de: 'Kommender Monat',
+    fr: 'Le mois à venir',
+    es: 'Mes por delante',
+    nl: 'Komende maand',
+    ar: 'الشهر القادم',
+    he: 'החודש הקרוב',
+    ja: '来月の展望',
+    ko: '다가오는 달',
+    zh: '下月前瞻',
+  },
+  'year-ahead': {
+    en: 'Year Ahead',
+    sv: 'Året framöver',
+    da: 'Året forude',
+    no: 'Året fremover',
+    fi: 'Tuleva vuosi',
+    de: 'Kommendes Jahr',
+    fr: 'L’année à venir',
+    es: 'Año por delante',
+    nl: 'Komend jaar',
+    ar: 'السنة القادمة',
+    he: 'השנה הקרובה',
+    ja: '来年の展望',
+    ko: '다가오는 해',
+    zh: '来年前瞻',
+  },
+  'year-in-review': {
+    en: 'Year in Review',
+    sv: 'Året i återblick',
+    da: 'Året i tilbageblik',
+    no: 'Året i tilbakeblikk',
+    fi: 'Vuosi katsauksessa',
+    de: 'Jahresrückblick',
+    fr: 'L’année en revue',
+    es: 'Año en revisión',
+    nl: 'Jaar in terugblik',
+    ar: 'السنة في مراجعة',
+    he: 'סיכום השנה',
+    ja: '年間総括',
+    ko: '연간 리뷰',
+    zh: '年度回顾',
+  },
+  'committee-reports': {
+    en: 'Committee Reports',
+    sv: 'Utskottsrapporter',
+    da: 'Udvalgsrapporter',
+    no: 'Komitérapporter',
+    fi: 'Valiokuntaraportit',
+    de: 'Ausschussberichte',
+    fr: 'Rapports de commission',
+    es: 'Informes de comisión',
+    nl: 'Commissieverslagen',
+    ar: 'تقارير اللجان',
+    he: 'דוחות ועדה',
+    ja: '委員会報告',
+    ko: '위원회 보고서',
+    zh: '委员会报告',
+  },
+  motions: {
+    en: 'Motions',
+    sv: 'Motioner',
+    da: 'Beslutningsforslag',
+    no: 'Forslag',
+    fi: 'Aloitteet',
+    de: 'Entschließungsanträge',
+    fr: 'Propositions de résolution',
+    es: 'Mociones',
+    nl: 'Moties',
+    ar: 'مقترحات',
+    he: 'הצעות החלטה',
+    ja: '動議',
+    ko: '동의안',
+    zh: '动议',
+  },
+  propositions: {
+    en: 'Propositions',
+    sv: 'Propositioner',
+    da: 'Lovforslag',
+    no: 'Lovforslag',
+    fi: 'Lakiehdotukset',
+    de: 'Gesetzesvorschläge',
+    fr: 'Propositions législatives',
+    es: 'Propuestas legislativas',
+    nl: 'Wetsvoorstellen',
+    ar: 'مقترحات تشريعية',
+    he: 'הצעות חקיקה',
+    ja: '法案',
+    ko: '법안',
+    zh: '立法提案',
+  },
+  translate: {
+    en: 'Translation Run',
+    sv: 'Översättningskörning',
+    da: 'Oversættelseskørsel',
+    no: 'Oversettelseskjøring',
+    fi: 'Käännösajo',
+    de: 'Übersetzungslauf',
+    fr: 'Exécution de traduction',
+    es: 'Ejecución de traducción',
+    nl: 'Vertaalronde',
+    ar: 'تشغيل الترجمة',
+    he: 'הרצת תרגום',
+    ja: '翻訳ラン',
+    ko: '번역 실행',
+    zh: '翻译运行',
+  },
+  deep: {
+    en: 'Deep Analysis',
+    sv: 'Djupanalys',
+    da: 'Dybdeanalyse',
+    no: 'Dybdeanalyse',
+    fi: 'Syväanalyysi',
+    de: 'Tiefenanalyse',
+    fr: 'Analyse approfondie',
+    es: 'Análisis profundo',
+    nl: 'Diepteanalyse',
+    ar: 'تحليل متعمق',
+    he: 'ניתוח מעמיק',
+    ja: '詳細分析',
+    ko: '심층 분석',
+    zh: '深度分析',
+  },
+};
+
+/** Per-language descriptions for each canonical run type. */
+const RUN_TYPE_DESCRIPTIONS: Readonly<Record<string, Record<LanguageCode, string>>> = {
+  breaking: {
+    en: 'Fast-turnaround breaking-news analysis of a single European Parliament event — classification, stakeholder map, SWOT, risk scoring and scenario forecast produced within hours.',
+    sv: 'Snabb analys av en enskild Europaparlamentshändelse — klassificering, intressentkarta, SWOT, riskpoängsättning och scenarioprognos producerad inom timmar.',
+    da: 'Hurtig analyse af en enkelt Europa-Parlament-hændelse — klassificering, interessentkort, SWOT, risikoscoring og scenarieprognose produceret inden for timer.',
+    no: 'Rask analyse av en enkelt EP-hendelse — klassifisering, interessentkart, SWOT, risikoscoring og scenarioprognose produsert innen timer.',
+    fi: 'Nopea analyysi yksittäisestä Euroopan parlamentin tapahtumasta — luokittelu, sidosryhmäkartta, SWOT, riskipisteytys ja skenaarioennuste muutamassa tunnissa.',
+    de: 'Schnellanalyse eines einzelnen EP-Ereignisses — Klassifikation, Stakeholder-Karte, SWOT, Risikobewertung und Szenario­prognose innerhalb weniger Stunden.',
+    fr: 'Analyse rapide d’un événement unique du Parlement européen — classification, cartographie des parties prenantes, SWOT, notation des risques et prévision de scénarios en quelques heures.',
+    es: 'Análisis rápido de un único evento del Parlamento Europeo — clasificación, mapa de partes interesadas, SWOT, puntuación de riesgo y pronóstico de escenarios en horas.',
+    nl: 'Snelle analyse van één enkele EP-gebeurtenis — classificatie, stakeholder-kaart, SWOT, risicoscoring en scenarioprognose binnen enkele uren.',
+    ar: 'تحليل سريع لحدث واحد في البرلمان الأوروبي — تصنيف، خريطة أصحاب المصلحة، SWOT، تسجيل المخاطر وتوقّع السيناريوهات خلال ساعات.',
+    he: 'ניתוח מהיר של אירוע יחיד בפרלמנט האירופי — סיווג, מפת בעלי עניין, SWOT, ציוני סיכון ותחזית תרחישים תוך שעות.',
+    ja: '欧州議会の単一事象に対する迅速分析 — 分類、ステークホルダー・マップ、SWOT、リスクスコア、シナリオ予測を数時間で提供。',
+    ko: '유럽의회 단일 사건에 대한 신속 분석 — 분류·이해관계자 지도·SWOT·위험 점수·시나리오 예측을 수 시간 내 제공.',
+    zh: '欧洲议会单一事件的快速分析 — 在数小时内产出分类、利益相关者图谱、SWOT、风险评分与情景预测。',
+  },
+  'week-in-review': {
+    en: 'Weekly retrospective: the past seven days of European Parliament activity distilled into coalition trends, vote tallies, SWOT synthesis and forward indicators.',
+    sv: 'Veckoretrospektiv: Europaparlamentets senaste sju dagar destillerade till koalitionstrender, röstsummor, SWOT-syntes och framåtriktade indikatorer.',
+    da: 'Ugentlig tilbageskuelse: syv dages Europa-Parlamentsaktivitet destilleret til koalitionstendenser, stemmetællinger, SWOT-syntese og fremadrettede indikatorer.',
+    no: 'Ukentlig tilbakeblikk: syv dager med EP-aktivitet destillert til koalisjonstrender, stemmesummer, SWOT-syntese og fremoverrettede indikatorer.',
+    fi: 'Viikkokatsaus: Euroopan parlamentin seitsemän päivän toiminta tiivistettynä koalitiotrendeiksi, äänitaulukoiksi, SWOT-synteesiksi ja ennakoiviksi indikaattoreiksi.',
+    de: 'Wochenrückblick: Sieben Tage EP-Aktivität destilliert zu Koalitionstrends, Abstimmungs­tableaus, SWOT-Synthese und vorausschauenden Indikatoren.',
+    fr: 'Rétrospective hebdomadaire : sept jours d’activité du Parlement européen distillés en tendances de coalition, décomptes de votes, synthèse SWOT et indicateurs prospectifs.',
+    es: 'Retrospectiva semanal: siete días de actividad del Parlamento Europeo destilados en tendencias de coalición, recuentos de votos, síntesis SWOT e indicadores prospectivos.',
+    nl: 'Wekelijkse terugblik: zeven dagen EP-activiteit samengevat in coalitietrends, stemtellingen, SWOT-synthese en vooruitblikkende indicatoren.',
+    ar: 'استعراض أسبوعي: سبعة أيام من نشاط البرلمان الأوروبي مركّزة في اتجاهات تحالف، إحصاءات تصويت، تركيب SWOT ومؤشرات استشرافية.',
+    he: 'סיכום שבועי: שבעה ימי פעילות בפרלמנט האירופי מזוקקים למגמות קואליציה, ספירת הצבעות, סינתזת SWOT ומדדים צופי־פני־עתיד.',
+    ja: '週次振り返り：欧州議会の直近7日間を連立傾向・投票集計・SWOT 統合・先行指標へ凝縮。',
+    ko: '주간 회고: 유럽의회의 지난 7일간 활동을 연정 동향·표결 집계·SWOT 종합·선행 지표로 압축.',
+    zh: '每周回顾：将欧洲议会过去七天的活动凝练为联盟趋势、投票统计、SWOT 综合与前瞻指标。',
+  },
+  'month-in-review': {
+    en: 'Monthly retrospective: a four-week synthesis of EP legislative flow, coalition stability, anomalous votes and cumulative political-risk delta versus the prior month.',
+    sv: 'Månadsretrospektiv: en fyraveckorssyntes av EP:s lagstiftningsflöde, koalitionsstabilitet, avvikande röster och kumulativ politisk-risk-delta jämfört med föregående månad.',
+    da: 'Månedlig tilbageskuelse: en fire-ugers syntese af EP’s lovgivningsflow, koalitionsstabilitet, afvigende stemmer og kumulativt politisk risikodelta mod forrige måned.',
+    no: 'Månedlig tilbakeblikk: en fire-ukers syntese av EPs lovgivningsflyt, koalisjonsstabilitet, avvikende stemmer og kumulativt politisk risikodelta mot forrige måned.',
+    fi: 'Kuukausikatsaus: EU-parlamentin neljän viikon lainsäädäntövirran, koalition vakauden, poikkeavien äänestysten ja kumulatiivisen poliittisen riskin delta edelliseen kuukauteen nähden.',
+    de: 'Monatsrückblick: vierwöchige Synthese des EP-Gesetzgebungsflusses, der Koalitionsstabilität, anomaler Abstimmungen und des kumulativen Politikrisiko-Deltas gegenüber dem Vormonat.',
+    fr: 'Rétrospective mensuelle : synthèse sur quatre semaines du flux législatif du PE, stabilité des coalitions, votes atypiques et delta cumulatif du risque politique par rapport au mois précédent.',
+    es: 'Retrospectiva mensual: síntesis de cuatro semanas del flujo legislativo del PE, estabilidad de coaliciones, votos anómalos y delta acumulado de riesgo político frente al mes anterior.',
+    nl: 'Maandelijks overzicht: een vierwekelijkse synthese van EP-wetgevingsstroom, coalitiestabiliteit, afwijkende stemmingen en cumulatieve politieke-risico-delta t.o.v. de vorige maand.',
+    ar: 'استعراض شهري: تركيب أربعة أسابيع من تدفّق التشريع في البرلمان الأوروبي، استقرار التحالفات، الأصوات الشاذّة، ودلتا المخاطر السياسية التراكمية مقابل الشهر السابق.',
+    he: 'סיכום חודשי: סינתזה של ארבעה שבועות מזרימה חקיקתית בפרלמנט האירופי, יציבות קואליציה, הצבעות חריגות ודלתת סיכון פוליטי מצטברת מול החודש הקודם.',
+    ja: '月次振り返り：欧州議会の 4 週間分の立法フロー・連立安定性・異常投票・前月比の累積政治リスク差分を統合。',
+    ko: '월간 회고: 유럽의회의 4주간 입법 흐름·연정 안정성·이상 표결·전월 대비 누적 정치 위험 델타를 종합.',
+    zh: '月度回顾：将欧洲议会四周的立法流、联盟稳定性、异常投票以及相对上月的累计政治风险增量整合为综合分析。',
+  },
+  'week-ahead': {
+    en: 'Forward-looking weekly brief: the next seven days of scheduled plenary, committee and trilogue activity, with risk scoring and coalition stress indicators.',
+    sv: 'Framåtblickande veckobrief: de kommande sju dagarnas plenar-, utskotts- och trilogaktiviteter, med riskpoängsättning och indikatorer på koalitionsstress.',
+    da: 'Fremadrettet ugebrief: de kommende syv dages plenar-, udvalgs- og trilog-aktiviteter med risikoscoring og indikatorer for koalitionspres.',
+    no: 'Fremoverrettet ukebrief: de neste syv dagers plenum-, komité- og trilogaktivitet med risikoscoring og indikatorer for koalisjonspress.',
+    fi: 'Ennakoiva viikkokatsaus: seuraavien seitsemän päivän täysistunto-, valiokunta- ja trilogiatoiminta, riskipisteytykset ja koalitiokuormaindikaattorit.',
+    de: 'Vorausschauende Wochenvorschau: die nächsten sieben Tage geplanter Plenar-, Ausschuss- und Trilog-Aktivität mit Risikobewertung und Koalitionsstress-Indikatoren.',
+    fr: 'Note hebdomadaire prospective : les sept prochains jours d’activité plénière, en commission et en trilogue, avec notation des risques et indicateurs de tension de coalition.',
+    es: 'Nota semanal prospectiva: los próximos siete días de actividad plenaria, de comisión y de trílogo, con puntuación de riesgo e indicadores de tensión de coalición.',
+    nl: 'Vooruitkijkend weekoverzicht: de komende zeven dagen plenaire, commissie- en trilo­og-activiteit, met risicoscoring en indicatoren voor coalitiedruk.',
+    ar: 'ملخص أسبوعي استشرافي: الأيام السبعة المقبلة من أنشطة الجلسة العامة واللجان والترايلوج، مع تسجيل المخاطر ومؤشرات إجهاد التحالف.',
+    he: 'תקציר שבועי צופה פני עתיד: שבעת הימים הקרובים של פעילות מליאה, ועדות וטרילוג, עם ציוני סיכון ומדדי מתח קואליציוני.',
+    ja: '先行週次ブリーフ：今後 7 日間の本会議・委員会・トリローグの予定を、リスクスコアと連立ストレス指標付きで提示。',
+    ko: '선행 주간 브리프: 향후 7일의 본회의·위원회·삼자협의 일정에 위험 점수와 연정 스트레스 지표를 결합.',
+    zh: '前瞻周报：未来七天的全体会议、委员会与三方谈判议程，附风险评分与联盟压力指标。',
+  },
+  'month-ahead': {
+    en: 'Forward-looking monthly brief: the next four weeks of EP scheduled activity, dossier pipeline, anticipated votes and strategic inflection points.',
+    sv: 'Framåtblickande månadsbrief: de kommande fyra veckornas schemalagda EP-aktiviteter, dossierflöde, förväntade röster och strategiska vändpunkter.',
+    da: 'Fremadrettet månedsbrief: de kommende fire ugers EP-aktiviteter, dossierpipeline, forventede afstemninger og strategiske vendepunkter.',
+    no: 'Fremoverrettet månedsbrief: de neste fire ukenes planlagte EP-aktivitet, dossierløp, forventede stemmer og strategiske vendepunkter.',
+    fi: 'Ennakoiva kuukausikatsaus: seuraavien neljän viikon EP-aktiviteetit, asiakokonaisuuksien putki, odotetut äänestykset ja strategiset taitepisteet.',
+    de: 'Vorausschauende Monatsvorschau: die nächsten vier Wochen geplanter EP-Aktivität, Dossier-Pipeline, erwartete Abstimmungen und strategische Wendepunkte.',
+    fr: 'Note mensuelle prospective : les quatre prochaines semaines d’activité programmée du PE, pipeline de dossiers, votes anticipés et points d’inflexion stratégiques.',
+    es: 'Nota mensual prospectiva: las próximas cuatro semanas de actividad programada del PE, cartera de expedientes, votaciones previstas y puntos de inflexión estratégicos.',
+    nl: 'Vooruitkijkend maandoverzicht: de komende vier weken geplande EP-activiteit, dossier­pipeline, verwachte stemmingen en strategische kantelpunten.',
+    ar: 'ملخص شهري استشرافي: الأسابيع الأربعة القادمة من نشاط البرلمان الأوروبي، خط سير الملفات، التصويتات المتوقعة ونقاط التحوّل الاستراتيجية.',
+    he: 'תקציר חודשי צופה פני עתיד: ארבעת השבועות הקרובים בפעילות הפרלמנט האירופי, קו תיקים, הצבעות צפויות ונקודות מפנה אסטרטגיות.',
+    ja: '先行月次ブリーフ：今後 4 週間の欧州議会予定、法案パイプライン、予定された投票、戦略的転換点を提示。',
+    ko: '선행 월간 브리프: 향후 4주간의 유럽의회 일정·법안 파이프라인·예정 표결·전략적 전환점을 제시.',
+    zh: '前瞻月报：欧洲议会未来四周的日程、议题流水线、预期投票与战略拐点。',
+  },
+  'year-ahead': {
+    en: 'Forward-looking annual brief: the next twelve months of EP agenda, legislative priorities and strategic risk surfaces.',
+    sv: 'Framåtblickande årsbrief: EP:s agenda, lagstiftnings­prioriteringar och strategiska riskytor de kommande tolv månaderna.',
+    da: 'Fremadrettet årsbrief: EP-dagsorden, lovgivnings­prioriteter og strategiske risikoflader de kommende tolv måneder.',
+    no: 'Fremoverrettet årsbrief: EPs agenda, lovgivnings­prioriteringer og strategiske risikoflater de neste tolv månedene.',
+    fi: 'Ennakoiva vuosikatsaus: EP:n asialista, lainsäädäntö­prioriteetit ja strategiset riskipinnat tulevina kahtenatoista kuukautena.',
+    de: 'Vorausschauende Jahres­vorschau: EP-Agenda, Gesetzgebungs­prioritäten und strategische Risikoflächen der nächsten zwölf Monate.',
+    fr: 'Note annuelle prospective : agenda du PE, priorités législatives et surfaces de risque stratégique des douze prochains mois.',
+    es: 'Nota anual prospectiva: agenda del PE, prioridades legislativas y superficies de riesgo estratégico de los próximos doce meses.',
+    nl: 'Vooruitkijkend jaaroverzicht: EP-agenda, wetgevings­prioriteiten en strategische risico­vlakken voor de komende twaalf maanden.',
+    ar: 'ملخص سنوي استشرافي: جدول أعمال البرلمان الأوروبي، الأولويات التشريعية وأسطح المخاطر الاستراتيجية للأشهر الاثني عشر المقبلة.',
+    he: 'תקציר שנתי צופה פני עתיד: סדר היום של הפרלמנט האירופי, סדרי עדיפויות חקיקתיים ומשטחי סיכון אסטרטגיים בשנה הקרובה.',
+    ja: '先行年次ブリーフ：今後 12 か月の欧州議会アジェンダ・立法優先事項・戦略リスク面を提示。',
+    ko: '선행 연간 브리프: 향후 12개월의 유럽의회 의제·입법 우선순위·전략적 위험 표면을 제시.',
+    zh: '前瞻年报：欧洲议会未来十二个月的议程、立法优先事项与战略风险面。',
+  },
+  'year-in-review': {
+    en: 'Annual retrospective: twelve months of EP activity synthesized into coalition maps, dossier throughput, major inflection points and cumulative political-risk trajectory.',
+    sv: 'Årsretrospektiv: tolv månaders EP-aktivitet sammanställd till koalitions­kartor, dossiergenomströmning, större vändpunkter och kumulativ politisk-risk-bana.',
+    da: 'Årlig tilbageskuelse: tolv måneders EP-aktivitet syntetiseret til koalitionskort, dossiergennemløb, større vendepunkter og kumulativt politisk risikoforløb.',
+    no: 'Årlig tilbakeblikk: tolv måneders EP-aktivitet syntetisert til koalisjonskart, dossiergjennomstrømning, store vendepunkter og kumulativ politisk risikobane.',
+    fi: 'Vuosikatsaus: kahdentoista kuukauden EP-toiminta tiivistettynä koalitio­kartoiksi, asiakokonaisuuksien läpivirtaukseksi, taitepisteiksi ja kumulatiiviseksi poliittiseksi riskipoluksi.',
+    de: 'Jahresrückblick: zwölf Monate EP-Aktivität synthetisiert zu Koalitions­karten, Dossier-Durchsatz, wichtigen Wendepunkten und kumulativer Politikrisiko-Trajektorie.',
+    fr: 'Rétrospective annuelle : douze mois d’activité du PE synthétisés en cartes de coalitions, débit des dossiers, principaux points d’inflexion et trajectoire cumulative du risque politique.',
+    es: 'Retrospectiva anual: doce meses de actividad del PE sintetizados en mapas de coaliciones, rendimiento de expedientes, principales puntos de inflexión y trayectoria acumulada de riesgo político.',
+    nl: 'Jaaroverzicht: twaalf maanden EP-activiteit samengevat in coalitie­kaarten, dossier­doorstroom, belangrijke kantelpunten en cumulatieve politieke-risico­traject.',
+    ar: 'استعراض سنوي: اثنا عشر شهرًا من نشاط البرلمان الأوروبي مركّزة في خرائط تحالف، إنتاجية ملفات، نقاط تحوّل كبرى ومسار مخاطر سياسية تراكمي.',
+    he: 'סיכום שנתי: שנים־עשר חודשי פעילות בפרלמנט האירופי בסינתזה של מפות קואליציה, תפוקת תיקים, נקודות מפנה מרכזיות ומסלול סיכון פוליטי מצטבר.',
+    ja: '年間振り返り：12 か月の欧州議会活動を連立マップ、法案スループット、主要転換点、累積政治リスク軌道に統合。',
+    ko: '연간 회고: 12개월간의 유럽의회 활동을 연정 지도·법안 처리량·주요 전환점·누적 정치 위험 궤적으로 종합.',
+    zh: '年度回顾：将欧洲议会十二个月的活动综合为联盟图谱、议题吞吐量、主要拐点和累计政治风险轨迹。',
+  },
+  'committee-reports': {
+    en: 'Dedicated analysis of EP committee reports — rapporteur attribution, amendment tracking, coalition mathematics and projected plenary outcome.',
+    sv: 'Dedikerad analys av EP-utskottsrapporter — föredragande­attribuering, ändringsförslags­spårning, koalitions­matematik och prognostiserat plenar­utfall.',
+    da: 'Dedikeret analyse af EP-udvalgs­rapporter — ordfører­attribution, ændrings­sporing, koalitions­matematik og forventet plenarresultat.',
+    no: 'Dedikert analyse av EP-komitérapporter — ordfører­attribusjon, endrings­sporing, koalisjons­matematikk og forventet plenumsresultat.',
+    fi: 'EP:n valiokunta­raporttien kohdennettu analyysi — esittelijän attribuointi, muutosehdotusten seuranta, koalitio­matematiikka ja ennustettu täysistunto­tulos.',
+    de: 'Gezielte Analyse der EP-Ausschussberichte — Berichterstatter­zuordnung, Änderungs­verfolgung, Koalitions­mathematik und prognostiziertes Plenar­ergebnis.',
+    fr: 'Analyse dédiée des rapports des commissions du PE — attribution du rapporteur, suivi des amendements, mathématiques de coalition et résultat plénier anticipé.',
+    es: 'Análisis dedicado de los informes de comisión del PE — atribución de ponente, seguimiento de enmiendas, matemáticas de coalición y resultado plenario previsto.',
+    nl: 'Toegewijde analyse van EP-commissieverslagen — rapporteur­attributie, amendements­opvolging, coalitie­wiskunde en verwachte plenaire uitkomst.',
+    ar: 'تحليل مكرّس لتقارير لجان البرلمان الأوروبي — إسناد المقرر، تتبع التعديلات، رياضيات التحالف، والنتيجة المتوقعة للجلسة العامة.',
+    he: 'ניתוח ייעודי של דוחות ועדות הפרלמנט האירופי — ייחוס דוברי הוועדה, מעקב תיקונים, מתמטיקת קואליציות ותוצאה צפויה במליאה.',
+    ja: '欧州議会委員会報告の専門分析 — 報告者の帰属、修正追跡、連立算術、本会議での予測結果。',
+    ko: '유럽의회 위원회 보고서에 대한 전용 분석 — 보고위원 귀속, 수정안 추적, 연정 산술, 본회의 예측 결과.',
+    zh: '欧洲议会委员会报告的专门分析 — 报告员归属、修正案追踪、联盟数学与全体会议预期结果。',
+  },
+  motions: {
+    en: 'Analysis of motions for resolution — sponsor coalition, signatory threshold, SWOT, amendment risk and comparative historical votes.',
+    sv: 'Analys av resolutions­motioner — sponsor­koalition, underskrifts­tröskel, SWOT, ändrings­risk och jämförande historiska röster.',
+    da: 'Analyse af beslutnings­forslag — sponsorkoalition, underskriftstærskel, SWOT, ændringsrisiko og sammenlignelige historiske afstemninger.',
+    no: 'Analyse av resolusjonsforslag — sponsorkoalisjon, underskriftsterskel, SWOT, endringsrisiko og sammenlignbare historiske stemmer.',
+    fi: 'Päätöslauselma­aloitteiden analyysi — esittäjäkoalitio, allekirjoitus­kynnys, SWOT, muutosriski ja vertailevat historialliset äänestykset.',
+    de: 'Analyse von Entschließungs­anträgen — Einreicher-Koalition, Unterschriften­schwelle, SWOT, Änderungs­risiko und vergleichbare historische Abstimmungen.',
+    fr: 'Analyse des propositions de résolution — coalition de signataires, seuil de signatures, SWOT, risque d’amendement et votes historiques comparables.',
+    es: 'Análisis de propuestas de resolución — coalición de proponentes, umbral de firmas, SWOT, riesgo de enmienda y votaciones históricas comparables.',
+    nl: 'Analyse van ontwerp­resoluties — coalitie van ondertekenaars, ondertekenings­drempel, SWOT, amendementrisico en vergelijkbare historische stemmingen.',
+    ar: 'تحليل مقترحات القرارات — تحالف المقدّمين، عتبة التوقيع، SWOT، مخاطر التعديلات والتصويتات التاريخية المقارنة.',
+    he: 'ניתוח הצעות החלטה — קואליציית יוזמים, סף חתימות, SWOT, סיכון תיקונים והצבעות היסטוריות משוות.',
+    ja: '決議動議の分析 — 提出者連立、署名閾値、SWOT、修正リスク、比較可能な歴史的投票。',
+    ko: '결의안 동의안 분석 — 발의자 연정, 서명 임계값, SWOT, 수정안 위험 및 비교 가능한 과거 표결.',
+    zh: '决议动议分析 — 提案联盟、联署门槛、SWOT、修正风险与可比的历史投票。',
+  },
+  propositions: {
+    en: 'Analysis of legislative propositions — rapporteur, co-decision pathway, impact assessment, industry stakeholder map and trilogue risk.',
+    sv: 'Analys av lagstiftnings­propositioner — föredragande, medbeslutande­väg, konsekvens­bedömning, branschens intressentkarta och trilogrisk.',
+    da: 'Analyse af lovforslag — ordfører, fælles­beslutnings­vej, konsekvens­vurdering, interessentkort for branchen og trilog-risiko.',
+    no: 'Analyse av lovforslag — ordfører, medbesluttende­løp, konsekvensvurdering, bransjens interessentkart og trilog-risiko.',
+    fi: 'Lakiehdotusten analyysi — esittelijä, yhteispäätös­menettelyn polku, vaikutus­arvio, toimialan sidosryhmä­kartta ja trilogia­riski.',
+    de: 'Analyse von Gesetzes­vorschlägen — Berichterstatter, Mitentscheidungs­weg, Folgen­abschätzung, Stakeholder-Karte der Industrie und Trilog-Risiko.',
+    fr: 'Analyse des propositions législatives — rapporteur, parcours de codécision, évaluation d’impact, cartographie des parties prenantes sectorielles et risque de trilogue.',
+    es: 'Análisis de propuestas legislativas — ponente, vía de codecisión, evaluación de impacto, mapa de partes interesadas del sector y riesgo de trílogo.',
+    nl: 'Analyse van wetsvoorstellen — rapporteur, medebeslissings­traject, impact­beoordeling, stakeholder-kaart van de sector en triloog­risico.',
+    ar: 'تحليل المقترحات التشريعية — المقرر، مسار التقرير المشترك، تقييم الأثر، خريطة أصحاب المصلحة القطاعيين ومخاطر الترايلوج.',
+    he: 'ניתוח הצעות חקיקה — דובר הוועדה, מסלול ההחלטה המשותפת, הערכת השפעה, מפת בעלי עניין ענפיים וסיכון טרילוג.',
+    ja: '立法提案の分析 — 報告者、共同決定経路、影響評価、業界ステークホルダー・マップ、トリローグリスク。',
+    ko: '입법 제안 분석 — 보고위원, 공동결정 경로, 영향 평가, 산업 이해관계자 지도 및 삼자협의 위험.',
+    zh: '立法提案分析 — 报告员、共同决定路径、影响评估、行业利益相关者图谱与三方谈判风险。',
+  },
+  translate: {
+    en: 'Translation run: one published article rendered into all 13 non-English supported languages with per-language quality gates.',
+    sv: 'Översättnings­körning: en publicerad artikel översatt till alla 13 icke-engelska språk med kvalitets­portar per språk.',
+    da: 'Oversættelses­kørsel: én udgivet artikel oversat til alle 13 ikke-engelske sprog med kvalitetsporte pr. sprog.',
+    no: 'Oversettelses­kjøring: én publisert artikkel oversatt til alle 13 ikke-engelske språk med kvalitetsporter per språk.',
+    fi: 'Käännösajo: yksi julkaistu artikkeli käännettynä kaikille 13 ei-englanninkieliselle tuetulle kielelle kielikohtaisin laatuportein.',
+    de: 'Übersetzungslauf: ein veröffentlichter Artikel in alle 13 nicht-englischen unterstützten Sprachen übertragen, mit sprach­spezifischen Qualitäts­gates.',
+    fr: 'Exécution de traduction : un article publié rendu dans les 13 langues prises en charge autres que l’anglais, avec des portes qualité par langue.',
+    es: 'Ejecución de traducción: un artículo publicado traducido a los 13 idiomas admitidos distintos del inglés, con puertas de calidad por idioma.',
+    nl: 'Vertaalronde: één gepubliceerd artikel weergegeven in alle 13 niet-Engelse ondersteunde talen met kwaliteitspoorten per taal.',
+    ar: 'تشغيل الترجمة: مقال منشور يُترجَم إلى جميع اللغات الـ 13 المدعومة غير الإنجليزية مع بوابات جودة لكل لغة.',
+    he: 'הרצת תרגום: מאמר אחד שפורסם מתורגם לכל 13 השפות הנתמכות שאינן אנגלית, עם שערי איכות לכל שפה.',
+    ja: '翻訳ラン：公開された 1 記事を、英語以外のサポート言語 13 種すべてに言語ごとの品質ゲート付きで翻訳。',
+    ko: '번역 실행: 게시된 기사 1건을 영어를 제외한 지원 언어 13개로 언어별 품질 게이트와 함께 번역.',
+    zh: '翻译运行：将一篇已发布的文章翻译为除英语外的全部 13 种受支持语言，按语言执行质量门。',
+  },
+  deep: {
+    en: 'Deep-dive multi-stage analysis: extended artifact set, cross-run synthesis and long-horizon scenario forecasting for a single strategic topic.',
+    sv: 'Fördjupad flerstegs­analys: utökad artefaktuppsättning, tvärkörnings­syntes och lång­horisonts­scenarioprognos för ett enskilt strategiskt ämne.',
+    da: 'Dybdegående analyse i flere trin: udvidet artefaktsæt, tværkørselssyntese og langhorisonts-scenarieprognose for et enkelt strategisk emne.',
+    no: 'Dyp flerstegsanalyse: utvidet artefaktsett, tverrkjøringssyntese og langhorisonts-scenarioprognose for ett enkelt strategisk tema.',
+    fi: 'Monivaiheinen syväanalyysi: laajennettu artefakti­setti, ajojen välinen synteesi ja pitkän aikavälin skenaario­ennuste yhdestä strategisesta aiheesta.',
+    de: 'Mehrstufige Tiefen­analyse: erweitertes Artefakt-Set, Cross-Run-Synthese und Langzeit-Szenario­prognose für ein einzelnes strategisches Thema.',
+    fr: 'Analyse approfondie multi-étapes : ensemble d’artefacts étendu, synthèse inter-exécutions et prévision de scénarios à long horizon pour un sujet stratégique unique.',
+    es: 'Análisis multietapa en profundidad: conjunto extendido de artefactos, síntesis entre ejecuciones y pronóstico de escenarios a largo horizonte para un único tema estratégico.',
+    nl: 'Meerfasige diepgaande analyse: uitgebreide artefactset, cross-run-synthese en scenarioprognose op lange horizon voor één strategisch onderwerp.',
+    ar: 'تحليل معمّق متعدد المراحل: مجموعة قطع موسّعة، تركيب عبر الجلسات وتوقّع سيناريوهات طويل الأمد لموضوع استراتيجي واحد.',
+    he: 'ניתוח מעמיק רב־שלבי: מערך ארטיפקטים מורחב, סינתזה בין־הרצות ותחזית תרחישים באופק ארוך לנושא אסטרטגי יחיד.',
+    ja: '多段階ディープダイブ分析：拡張成果物セット、ラン間シンセシス、単一戦略テーマの長期シナリオ予測。',
+    ko: '다단계 심층 분석: 확장 산출물 세트, 런 간 시너지스, 단일 전략 주제에 대한 장기 시나리오 예측.',
+    zh: '多阶段深度分析：扩展的产物集、跨运行综合以及针对单一战略主题的长视野情景预测。',
+  },
+};
+
+/**
+ * Parse a run slug such as `breaking-run192`, `week-in-review-run45` or
+ * `committee-reports-run07` into its canonical run-type slug (e.g.
+ * `breaking`, `week-in-review`, `committee-reports`) plus the run index
+ * (e.g. `192`, `45`, `07`). When the slug doesn't match any known prefix
+ * the caller receives `type: null` and the raw slug as `runId`.
+ *
+ * @param slug - Run directory slug
+ * @returns Object with the canonical type (or `null`) and run-id tail
+ */
+export function parseRunSlug(slug: string): { type: RunTypeSlug | null; runId: string } {
+  const lower = slug.toLowerCase();
+  // Longest-prefix match so `committee-reports-run07` matches `committee-reports`
+  // before `committee`, and `week-in-review-run45` matches `week-in-review`
+  // before `week`.
+  const sorted = [...RUN_TYPE_SLUGS].sort((a, b) => b.length - a.length);
+  for (const prefix of sorted) {
+    if (lower === prefix || lower.startsWith(`${prefix}-`) || lower.startsWith(`${prefix}_`)) {
+      // eslint-disable-next-line security/detect-object-injection
+      const canonical = RUN_TYPE_ALIASES[prefix];
+      const tail = slug.slice(prefix.length).replace(/^[-_]+/, '');
+      return { type: canonical, runId: tail };
+    }
+  }
+  return { type: null, runId: slug };
+}
+
+/**
+ * Resolve a localized title + description for a daily analysis run.
+ *
+ * @param slug - Run directory slug (e.g. `breaking-run192`)
+ * @param lang - Target language code
+ * @returns `{ title, description, runId }` — title & description are
+ *   always non-empty; `runId` is the run-index tail (`'192'`) or the
+ *   raw slug when no run-type prefix matched.
+ */
+export function getRunTypeInfo(
+  slug: string,
+  lang: LanguageCode
+): { title: string; description: string; runId: string } {
+  const { type, runId } = parseRunSlug(slug);
+  if (type) {
+    // eslint-disable-next-line security/detect-object-injection
+    const titleRecord = RUN_TYPE_TITLES[type];
+    // eslint-disable-next-line security/detect-object-injection
+    const descRecord = RUN_TYPE_DESCRIPTIONS[type];
+    const title = titleRecord ? getFromRecord(titleRecord, lang) : stripEmojiAndPunct(slug);
+    const description = descRecord ? getFromRecord(descRecord, lang) : '';
+    return { title, description, runId };
+  }
+  return { title: stripEmojiAndPunct(slug), description: '', runId };
+}
+
+/**
+ * Resolve a localized title + description for a single daily analysis
+ * artifact Markdown file. The lookup first maps the artifact's filename
+ * stem to its corresponding template path (`analysis/templates/<stem>.md`)
+ * so shared 14-language curated entries apply automatically; missing
+ * templates fall back to a humanized stem + localized generic sentence.
+ *
+ * @param shortPath - Run-relative path (e.g. `intelligence/swot-analysis.md`)
+ * @param lang      - Target language code
+ * @returns `{ title, description }` — both always non-empty
+ */
+/**
+ * Normalize an artifact stem by stripping well-known suffixes and mapping
+ * synonyms to a canonical template name. Keeps the `getArtifactInfo`
+ * lookup table small while still covering every variant we observe under
+ * `analysis/daily/**`.
+ *
+ * Stripped suffixes:
+ *   - `.analysis` (e.g. `political-landscape.analysis.md` → `political-landscape`)
+ *   - trailing `-analysis`, `-assessment`, `-context`, `-deep-dive`,
+ *     `-brief`, `-intelligence` when the stripped stem has a curated template
+ *
+ * Synonyms (non-exhaustive — extend as new stems appear):
+ *   - `coalition-analysis` / `coalition-intelligence` / `coalition-sentiment-analysis`
+ *       → `coalition-dynamics`
+ *   - `threat-landscape` / `political-threat-landscape` / `coalition-threat-assessment`
+ *       → `threat-analysis`
+ *   - `ai-<x>` / `political-<x>` → `<x>` when `<x>` has a template
+ *   - `actor-threat-profile` → `actor-threat-profiles`
+ *
+ * @param stem - Raw filename stem (extension already stripped)
+ * @returns Canonical template stem to feed into the curated tables
+ */
+function canonicalizeArtifactStem(stem: string): string {
+  // Strip ".analysis" compound extension (e.g. "foo.analysis.md" → "foo")
+  const s = stem.replace(/\.analysis$/, '');
+
+  // Exact synonym table — higher priority than prefix stripping
+  const SYNONYMS: Record<string, string> = {
+    'coalition-analysis': 'coalition-dynamics',
+    'coalition-intelligence': 'coalition-dynamics',
+    'coalition-sentiment-analysis': 'coalition-dynamics',
+    'coalition-threat-assessment': 'threat-analysis',
+    'coalition-dynamics-assessment': 'coalition-dynamics',
+    'threat-landscape': 'threat-analysis',
+    'threat-landscape-analysis': 'threat-analysis',
+    'political-threat-landscape': 'threat-analysis',
+    'threat-assessment': 'threat-analysis',
+    'political-risk-assessment': 'risk-assessment',
+    'formal-risk-assessment': 'risk-assessment',
+    'political-risk-matrix': 'risk-matrix',
+    'political-stride-assessment': 'threat-model',
+    'political-swot-analysis': 'swot-analysis',
+    'political-landscape': 'intelligence-assessment',
+    'political-landscape-analysis': 'intelligence-assessment',
+    'political-landscape-assessment': 'intelligence-assessment',
+    'political-landscape-context': 'intelligence-assessment',
+    'actor-threat-profile': 'actor-threat-profiles',
+    'actor-threat-profiling': 'actor-threat-profiles',
+    'stakeholder-analysis': 'stakeholder-impact',
+    'stakeholder-impact-assessment': 'stakeholder-impact',
+    'significance-assessment': 'significance-scoring',
+    'committee-power-analysis': 'intelligence-assessment',
+    'legislative-pipeline-analysis': 'legislative-velocity-risk',
+    'legislative-productivity-analysis': 'legislative-velocity-risk',
+    'recent-legislation-review': 'historical-baseline',
+    'trade-policy-assessment': 'pestle-analysis',
+    'trade-policy-deep-dive': 'deep-analysis',
+    'anti-corruption-reform-intelligence': 'intelligence-assessment',
+    'early-warning-deep-dive': 'wildcards-blackswans',
+    'recess-pattern-analysis': 'historical-baseline',
+    'strategic-recess-assessment': 'scenario-forecast',
+    'post-recess-preparedness': 'scenario-forecast',
+    'pre-restart-intelligence-brief': 'executive-brief',
+    'breaking-news-analysis': 'executive-brief',
+    'breaking-intelligence-brief': 'executive-brief',
+    'weekly-intelligence-brief': 'executive-brief',
+    'intelligence-brief': 'executive-brief',
+    'cross-daily-synthesis': 'synthesis-summary',
+    'cross-session-intelligence': 'cross-session-intelligence',
+    'document-analysis-index': 'analysis-index',
+    'attack-surface-map': 'threat-model',
+    'api-outage-diagnostic': 'mcp-reliability-audit',
+    'api-reliability-assessment': 'mcp-reliability-audit',
+    'agent-risk-workflow': 'workflow-audit',
+    forces: 'forces-analysis',
+    voting: 'voting-patterns',
+    // `ai-<x>` family: the artifact uses the same template as the non-AI variant
+    'ai-actor-mapping': 'actor-mapping',
+    'ai-coalition-dynamics': 'coalition-dynamics',
+    'ai-cross-session-intelligence': 'cross-session-intelligence',
+    'ai-deep-analysis': 'deep-analysis',
+    'ai-political-landscape': 'intelligence-assessment',
+    'ai-risk-assessment': 'risk-assessment',
+    'ai-significance-scoring': 'significance-scoring',
+    'ai-stakeholder-impact': 'stakeholder-impact',
+    'ai-swot-analysis': 'swot-analysis',
+    'ai-threat-assessment': 'threat-analysis',
+    'ai-voting-patterns': 'voting-patterns',
+  };
+  // eslint-disable-next-line security/detect-object-injection
+  const synonym = SYNONYMS[s];
+  if (typeof synonym === 'string') return synonym;
+  return s;
+}
+
+/**
+ * Feed-prefix label — when an artifact name starts with one of these
+ * canonical EP-API feed prefixes we surface a single localized "per-item
+ * analysis of an EP {feed} entry" label instead of a noisy raw stem.
+ */
+const FEED_PREFIX_LABELS: Record<
+  string,
+  { title: Record<LanguageCode, string>; desc: Record<LanguageCode, string> }
+> = {
+  adoptedtexts: {
+    title: {
+      en: 'Adopted Text Analysis',
+      sv: 'Analys av antagen text',
+      da: 'Analyse af vedtaget tekst',
+      no: 'Analyse av vedtatt tekst',
+      fi: 'Hyväksytyn tekstin analyysi',
+      de: 'Analyse eines angenommenen Textes',
+      fr: 'Analyse d’un texte adopté',
+      es: 'Análisis de texto adoptado',
+      nl: 'Analyse aangenomen tekst',
+      ar: 'تحليل نص معتمد',
+      he: 'ניתוח טקסט שאומץ',
+      ja: '採択文書の分析',
+      ko: '채택된 문서 분석',
+      zh: '已通过文本分析',
+    },
+    desc: {
+      en: 'Per-item analysis of one adopted European Parliament text (resolution, legislative position or non-legislative decision) — classification, stakeholder impact, SWOT and risk scoring.',
+      sv: 'Enskild analys av en antagen text från Europaparlamentet (resolution, lagstiftningsposition eller icke-lagstiftande beslut) — klassificering, intressentpåverkan, SWOT och riskpoäng.',
+      da: 'Analyse pr. element af én vedtaget tekst fra Europa-Parlamentet — klassificering, interessentpåvirkning, SWOT og risikoscoring.',
+      no: 'Analyse per element av én vedtatt tekst fra Europaparlamentet — klassifisering, interessent­påvirkning, SWOT og risikoscoring.',
+      fi: 'Yhden Euroopan parlamentin hyväksymän tekstin yksittäinen analyysi — luokittelu, sidosryhmä­vaikutus, SWOT ja riskipisteet.',
+      de: 'Einzelanalyse eines angenommenen Textes des Europäischen Parlaments — Klassifizierung, Stakeholder-Wirkung, SWOT und Risikobewertung.',
+      fr: 'Analyse individuelle d’un texte adopté du Parlement européen — classification, impact sur les parties prenantes, SWOT et score de risque.',
+      es: 'Análisis individual de un texto adoptado del Parlamento Europeo — clasificación, impacto en partes interesadas, SWOT y puntuación de riesgo.',
+      nl: 'Individuele analyse van één aangenomen tekst van het Europees Parlement — classificatie, stakeholderimpact, SWOT en risicoscoring.',
+      ar: 'تحليل فردي لنص معتمد في البرلمان الأوروبي — التصنيف وتأثير أصحاب المصلحة وSWOT وتقييم المخاطر.',
+      he: 'ניתוח פרטני של טקסט שאומץ בפרלמנט האירופי — סיווג, השפעה על בעלי עניין, SWOT וניקוד סיכון.',
+      ja: '欧州議会で採択された 1 件の文書の個別分析 — 分類、ステークホルダー影響、SWOT、リスクスコア。',
+      ko: '유럽의회에서 채택된 단일 문서 개별 분석 — 분류, 이해관계자 영향, SWOT 및 위험 점수.',
+      zh: '对欧洲议会一项已通过文本的逐件分析——分类、利益相关者影响、SWOT 及风险评分。',
+    },
+  },
+  procedures: {
+    title: {
+      en: 'Legislative Procedure Analysis',
+      sv: 'Analys av lagstiftningsförfarande',
+      da: 'Analyse af lovgivningsprocedure',
+      no: 'Analyse av lovgivningsprosedyre',
+      fi: 'Lainsäädäntö­menettelyn analyysi',
+      de: 'Analyse eines Gesetzgebungs­verfahrens',
+      fr: 'Analyse de procédure législative',
+      es: 'Análisis de procedimiento legislativo',
+      nl: 'Analyse wetgevingsprocedure',
+      ar: 'تحليل إجراء تشريعي',
+      he: 'ניתוח הליך חקיקה',
+      ja: '立法手続の分析',
+      ko: '입법 절차 분석',
+      zh: '立法程序分析',
+    },
+    desc: {
+      en: 'Per-item analysis of one European Parliament legislative procedure — rapporteur, co-decision path, committee assignments, trilogue risk and amendment map.',
+      sv: 'Enskild analys av ett lagstiftnings­förfarande i Europaparlamentet — föredragande, medbeslutande­väg, utskottstilldelningar, trilog­risk och ändringskarta.',
+      da: 'Analyse pr. element af én EP-lovgivnings­procedure — ordfører, fælles beslutningsforløb, udvalgs­tildelinger, trilog-risiko og ændringskort.',
+      no: 'Analyse per element av én EP-lovgivnings­prosedyre — saksordfører, medbestemmelses­løp, komité­tildelinger, trilog-risiko og endringskart.',
+      fi: 'Yhden EP:n lainsäädäntö­menettelyn yksittäinen analyysi — esittelijä, yhteispäätös­polku, valiokunta­tehtävät, trilogi­riski ja tarkistuskartta.',
+      de: 'Einzelanalyse eines EP-Gesetzgebungs­verfahrens — Berichterstatter, Mitentscheidungs­pfad, Ausschuss­zuweisungen, Trilog-Risiko und Änderungs­karte.',
+      fr: 'Analyse individuelle d’une procédure législative du PE — rapporteur, trajet de codécision, attributions de commissions, risque de trilogue et carte des amendements.',
+      es: 'Análisis individual de un procedimiento legislativo del PE — ponente, vía de codecisión, asignaciones de comisión, riesgo de trílogo y mapa de enmiendas.',
+      nl: 'Individuele analyse van één EP-wetgevings­procedure — rapporteur, medebeslissings­traject, commissie­toewijzingen, triloogrisico en amendementenkaart.',
+      ar: 'تحليل فردي لإجراء تشريعي واحد في البرلمان الأوروبي — المقرر، مسار التقرير المشترك، تكليفات اللجان، مخاطر الترايلوج وخريطة التعديلات.',
+      he: 'ניתוח פרטני של הליך חקיקה בפרלמנט האירופי — דובר הוועדה, מסלול החלטה משותפת, הקצאות ועדות, סיכון טרילוג ומפת תיקונים.',
+      ja: '欧州議会の 1 件の立法手続の個別分析 — 報告者、共同決定の経路、委員会割当、トリローグリスク、修正マップ。',
+      ko: 'EP 단일 입법 절차 개별 분석 — 보고위원, 공동결정 경로, 위원회 배정, 삼자협의 위험, 수정안 지도.',
+      zh: '对一项欧洲议会立法程序的逐件分析——报告员、共同决定路径、委员会分配、三方谈判风险和修正案图谱。',
+    },
+  },
+  documents: {
+    title: {
+      en: 'Committee Document Analysis',
+      sv: 'Analys av utskotts­dokument',
+      da: 'Analyse af udvalgs­dokument',
+      no: 'Analyse av komité­dokument',
+      fi: 'Valiokunta­asiakirjan analyysi',
+      de: 'Analyse eines Ausschuss­dokuments',
+      fr: 'Analyse d’un document de commission',
+      es: 'Análisis de documento de comisión',
+      nl: 'Analyse commissie­document',
+      ar: 'تحليل وثيقة لجنة',
+      he: 'ניתוח מסמך ועדה',
+      ja: '委員会文書の分析',
+      ko: '위원회 문서 분석',
+      zh: '委员会文件分析',
+    },
+    desc: {
+      en: 'Per-item analysis of one EP committee document — working document, draft report or opinion — with stakeholder map, amendment risk and trilogue readiness assessment.',
+      sv: 'Enskild analys av ett EP-utskottsdokument — arbets­dokument, utkast till betänkande eller yttrande — med intressentkarta, ändringsrisk och bedömning av trilog­beredskap.',
+      da: 'Analyse pr. element af ét EP-udvalgs­dokument — arbejds­dokument, udkast til betænkning eller udtalelse — med interessentkort, ændringsrisiko og trilog-paratheds­vurdering.',
+      no: 'Analyse per element av ett EP-komité­dokument — arbeids­dokument, rapportutkast eller uttalelse — med interessentkart, endringsrisiko og trilog-beredskaps­vurdering.',
+      fi: 'Yhden EP:n valiokunta-asiakirjan yksittäinen analyysi — työasiakirja, mietintö­luonnos tai lausunto — sidosryhmä­kartalla, tarkistus­riskillä ja trilogivalmius­arviolla.',
+      de: 'Einzelanalyse eines EP-Ausschuss­dokuments — Arbeitsdokument, Berichtsentwurf oder Stellungnahme — mit Stakeholder-Karte, Änderungsrisiko und Trilog-Bereitschaftsbewertung.',
+      fr: 'Analyse individuelle d’un document de commission PE — document de travail, projet de rapport ou avis — avec carte des parties prenantes, risque d’amendement et évaluation de la préparation au trilogue.',
+      es: 'Análisis individual de un documento de comisión PE — documento de trabajo, proyecto de informe u opinión — con mapa de partes interesadas, riesgo de enmienda y evaluación de preparación para trílogo.',
+      nl: 'Individuele analyse van één EP-commissie­document — werkdocument, ontwerpverslag of advies — met stakeholderkaart, amendement­risico en triloog­paraatheidsbeoordeling.',
+      ar: 'تحليل فردي لوثيقة لجنة في البرلمان الأوروبي — وثيقة عمل أو مسودة تقرير أو رأي — مع خريطة أصحاب المصلحة ومخاطر التعديل وتقييم جاهزية الترايلوج.',
+      he: 'ניתוח פרטני של מסמך ועדה בפרלמנט האירופי — מסמך עבודה, טיוטת דו״ח או חוות דעת — עם מפת בעלי עניין, סיכון תיקונים והערכת מוכנות לטרילוג.',
+      ja: 'EP 委員会文書 1 件の個別分析（作業文書／報告書草案／意見書）— ステークホルダーマップ、修正リスク、トリローグ準備度評価。',
+      ko: 'EP 위원회 문서 1건 개별 분석(작업 문서, 보고서 초안 또는 의견서) — 이해관계자 지도, 수정 위험 및 삼자협의 준비도 평가.',
+      zh: '对一份欧洲议会委员会文件（工作文件、报告草案或意见书）的逐件分析——利益相关者图谱、修正风险及三方谈判准备度评估。',
+    },
+  },
+  events: {
+    title: {
+      en: 'Parliamentary Event Analysis',
+      sv: 'Analys av parlamentariskt evenemang',
+      da: 'Analyse af parlamentarisk begivenhed',
+      no: 'Analyse av parlamentarisk hendelse',
+      fi: 'Parlamentaarisen tapahtuman analyysi',
+      de: 'Analyse einer parlamentarischen Veranstaltung',
+      fr: 'Analyse d’un événement parlementaire',
+      es: 'Análisis de evento parlamentario',
+      nl: 'Analyse parlementair evenement',
+      ar: 'تحليل فعالية برلمانية',
+      he: 'ניתוח אירוע פרלמנטרי',
+      ja: '議会イベントの分析',
+      ko: '의회 이벤트 분석',
+      zh: '议会活动分析',
+    },
+    desc: {
+      en: 'Per-item analysis of one EP event — plenary, committee meeting, hearing or conference — with agenda map, stakeholder participation and political significance scoring.',
+      sv: 'Enskild analys av ett EP-evenemang — plenum, utskottsmöte, utfrågning eller konferens — med dagordningskarta, intressentdeltagande och politisk signifikanspoäng.',
+      da: 'Analyse pr. element af én EP-begivenhed — plenarmøde, udvalgs­møde, høring eller konference — med dagsordens­kort, interessentdeltagelse og politisk signifikansscoring.',
+      no: 'Analyse per element av én EP-hendelse — plenum, komitémøte, høring eller konferanse — med agendakart, interessent­deltakelse og politisk signifikansscore.',
+      fi: 'Yhden EP-tapahtuman yksittäinen analyysi — täysistunto, valiokuntakokous, kuuleminen tai konferenssi — esityslista­kartalla, sidosryhmien osallistumisella ja poliittisella merkitys­pisteytyksellä.',
+      de: 'Einzelanalyse einer EP-Veranstaltung — Plenum, Ausschuss­sitzung, Anhörung oder Konferenz — mit Tagesordnungs­karte, Stakeholder-Teilnahme und politischer Signifikanzbewertung.',
+      fr: 'Analyse individuelle d’un événement PE — plénière, réunion de commission, audition ou conférence — avec carte de l’ordre du jour, participation des parties prenantes et score d’importance politique.',
+      es: 'Análisis individual de un evento PE — pleno, reunión de comisión, audiencia o conferencia — con mapa de orden del día, participación de interesados y puntuación de significancia política.',
+      nl: 'Individuele analyse van één EP-evenement — plenair, commissie­vergadering, hoorzitting of conferentie — met agendakaart, stakeholder­deelname en politieke significantiescore.',
+      ar: 'تحليل فردي لفعالية في البرلمان الأوروبي — جلسة عامة أو اجتماع لجنة أو جلسة استماع أو مؤتمر — مع خريطة جدول الأعمال ومشاركة أصحاب المصلحة وتقييم الأهمية السياسية.',
+      he: 'ניתוח פרטני של אירוע בפרלמנט האירופי — מליאה, ישיבת ועדה, שימוע או כנס — עם מפת סדר יום, השתתפות בעלי עניין ודירוג משמעות פוליטית.',
+      ja: 'EP イベント 1 件の個別分析（本会議／委員会／公聴会／会議）— 議題マップ、ステークホルダー参加、政治的重要度スコア。',
+      ko: 'EP 이벤트 1건 개별 분석(본회의, 위원회 회의, 공청회 또는 콘퍼런스) — 의제 지도, 이해관계자 참여 및 정치적 중요도 점수.',
+      zh: '对一次欧洲议会活动（全体会议、委员会会议、听证会或研讨会）的逐件分析——议程图、利益相关者参与度、政治重要性评分。',
+    },
+  },
+  externaldocuments: {
+    title: {
+      en: 'External Document Analysis',
+      sv: 'Analys av externt dokument',
+      da: 'Analyse af eksternt dokument',
+      no: 'Analyse av eksternt dokument',
+      fi: 'Ulkopuolisen asiakirjan analyysi',
+      de: 'Analyse eines externen Dokuments',
+      fr: 'Analyse d’un document externe',
+      es: 'Análisis de documento externo',
+      nl: 'Analyse extern document',
+      ar: 'تحليل وثيقة خارجية',
+      he: 'ניתוח מסמך חיצוני',
+      ja: '外部文書の分析',
+      ko: '외부 문서 분석',
+      zh: '外部文件分析',
+    },
+    desc: {
+      en: 'Per-item analysis of one external document referenced by the EP — Council position, Commission proposal or partner-institution input — with cross-institutional stakeholder map and risk score.',
+      sv: 'Enskild analys av ett externt dokument som EP hänvisar till — rådets ståndpunkt, kommissionens förslag eller bidrag från partner­institution — med institutionsövergripande intressentkarta och riskpoäng.',
+      da: 'Analyse pr. element af ét eksternt dokument, som EP henviser til — rådets holdning, Kommissionens forslag eller input fra partner­institution — med institutions­overskridende interessentkort og risikoscoring.',
+      no: 'Analyse per element av ett eksternt dokument EP refererer til — råds­posisjon, kommisjons­forslag eller partner­institusjons­innspill — med tverr­institusjonelt interessentkart og risikoscore.',
+      fi: 'Yhden EP:n viittaaman ulkopuolisen asiakirjan yksittäinen analyysi — neuvoston kanta, komission ehdotus tai yhteistyö­laitoksen kontribuutio — toimi­elinten väliseltä sidosryhmä­kartalta ja riskipisteillä.',
+      de: 'Einzelanalyse eines vom EP referenzierten externen Dokuments — Ratsposition, Kommissions­vorschlag oder Beitrag einer Partnerinstitution — mit institutionsübergreifender Stakeholder-Karte und Risikobewertung.',
+      fr: 'Analyse individuelle d’un document externe référencé par le PE — position du Conseil, proposition de la Commission ou apport d’une institution partenaire — avec carte des parties prenantes inter-institutions et score de risque.',
+      es: 'Análisis individual de un documento externo referenciado por el PE — posición del Consejo, propuesta de la Comisión o aportación de una institución socia — con mapa de interesados interinstitucional y puntuación de riesgo.',
+      nl: 'Individuele analyse van één extern document waarnaar het EP verwijst — Raads­standpunt, Commissie­voorstel of input van een partner­instelling — met inter-institutionele stakeholderkaart en risicoscoring.',
+      ar: 'تحليل فردي لوثيقة خارجية يشير إليها البرلمان الأوروبي — موقف المجلس أو اقتراح المفوضية أو مساهمة مؤسسة شريكة — مع خريطة أصحاب المصلحة بين المؤسسات وتقييم المخاطر.',
+      he: 'ניתוח פרטני של מסמך חיצוני שהפרלמנט האירופי מפנה אליו — עמדת המועצה, הצעת הנציבות או קלט ממוסד שותף — עם מפת בעלי עניין בין-מוסדית וניקוד סיכון.',
+      ja: 'EP が参照する外部文書 1 件の個別分析（理事会ポジション／欧州委提案／パートナー機関寄与）— 機関横断ステークホルダーマップ、リスクスコア。',
+      ko: 'EP이 참조하는 외부 문서 1건 개별 분석(이사회 입장, 집행위원회 제안 또는 파트너 기관 기여) — 기관 간 이해관계자 지도 및 위험 점수.',
+      zh: '对欧洲议会引用的一份外部文件（理事会立场、欧委会提案或合作机构意见）的逐件分析——跨机构利益相关者图谱与风险评分。',
+    },
+  },
+};
+
+/**
+ * Orphan artifact table — free-standing artifact stems that have no
+ * counterpart template under `analysis/templates/`. Every entry ships all
+ * 14 languages so non-English pages never show raw English.
+ */
+const ORPHAN_ARTIFACT_INFO: Record<
+  string,
+  { title: Record<LanguageCode, string>; desc: Record<LanguageCode, string> }
+> = {
+  'agent-pre-work': {
+    title: {
+      en: 'Agent Pre-Work',
+      sv: 'Agentens förberedelsearbete',
+      da: 'Agentens forarbejde',
+      no: 'Agentens forarbeid',
+      fi: 'Agentin ennakkotyö',
+      de: 'Agenten-Vorarbeit',
+      fr: 'Travail préparatoire de l’agent',
+      es: 'Trabajo previo del agente',
+      nl: 'Voorbereidend werk van de agent',
+      ar: 'أعمال تمهيدية للعميل',
+      he: 'עבודת הכנה של הסוכן',
+      ja: 'エージェント事前作業',
+      ko: '에이전트 사전 작업',
+      zh: '代理前期工作',
+    },
+    desc: {
+      en: 'Raw inputs the AI agent collected before starting analysis — data-pull logs, scope notes, tool inventory and methodology selection. Gives auditors full traceability of what went into the run.',
+      sv: 'Rådata som AI-agenten samlade in innan analysen — datahämtnings­loggar, omfattnings­anteckningar, verktygsinventering och metodval. Ger granskare full spårbarhet över vad som gick in i körningen.',
+      da: 'Rå input indsamlet af AI-agenten før analysen — datahentningslogfiler, scope-noter, værktøjs­inventar og metodeudvælgelse. Giver revisorer fuld sporbarhed.',
+      no: 'Rådata AI-agenten samlet inn før analysen — datauttrekkslogger, omfangs­notater, verktøy­inventar og metodevalg. Gir full sporbarhet for revisorer.',
+      fi: 'AI-agentin keräämät raakatiedot ennen analyysiä — tiedonhaku­lokit, rajaus­muistiinpanot, työkalu­luettelo ja metodi­valinta. Antaa auditoijille täyden jäljitettävyyden.',
+      de: 'Rohdaten, die der KI-Agent vor Analysebeginn gesammelt hat — Datenabruf­protokolle, Scope-Notizen, Werkzeug­inventar und Methoden­auswahl. Liefert Prüfern volle Nachvollziehbarkeit.',
+      fr: 'Données brutes collectées par l’agent IA avant l’analyse — journaux d’extraction, notes de cadrage, inventaire d’outils et sélection méthodologique. Traçabilité complète pour les auditeurs.',
+      es: 'Entradas en bruto que el agente de IA recopiló antes del análisis — registros de extracción, notas de alcance, inventario de herramientas y selección metodológica. Trazabilidad completa para auditores.',
+      nl: 'Ruwe input die de AI-agent vóór de analyse verzamelde — data-pull­logs, scope-notities, toolinventaris en methodologie­selectie. Volledige traceerbaarheid voor auditors.',
+      ar: 'المدخلات الخام التي جمعها وكيل الذكاء الاصطناعي قبل التحليل — سجلات سحب البيانات، ملاحظات النطاق، جرد الأدوات واختيار المنهجية. يضمن تتبعًا كاملاً.',
+      he: 'קלט גולמי שסוכן ה-AI אסף לפני הניתוח — יומני משיכת נתונים, הערות טווח, מלאי כלים ובחירת מתודולוגיה. עקיבות מלאה לבודקים.',
+      ja: 'AI エージェントが分析開始前に収集した生データ — データ取得ログ、スコープメモ、ツール一覧、方法論の選定。監査人が完全な追跡性を得られる。',
+      ko: 'AI 에이전트가 분석 시작 전 수집한 원시 입력 — 데이터 추출 로그, 범위 메모, 도구 목록, 방법론 선택. 감사자에게 완전한 추적성을 제공합니다.',
+      zh: 'AI 代理在开始分析前收集的原始输入——数据抽取日志、范围说明、工具清单与方法论选择，为审计者提供完整的可追溯性。',
+    },
+  },
+  summary: {
+    title: {
+      en: 'Run Summary',
+      sv: 'Körnings­sammanfattning',
+      da: 'Kørsels­opsummering',
+      no: 'Kjørings­oppsummering',
+      fi: 'Ajon yhteenveto',
+      de: 'Lauf-Zusammenfassung',
+      fr: 'Synthèse d’exécution',
+      es: 'Resumen de ejecución',
+      nl: 'Run-samenvatting',
+      ar: 'ملخص التشغيل',
+      he: 'סיכום ההרצה',
+      ja: '実行サマリー',
+      ko: '실행 요약',
+      zh: '运行摘要',
+    },
+    desc: {
+      en: 'Executive summary of the run — top-line findings, headline risk score, decisive artifacts and the key takeaways fed into the final article.',
+      sv: 'Sammanfattning av körningen — huvudfynd, riskpoäng i rubriken, avgörande artefakter och nyckelslutsatser som gick in i slutartikeln.',
+      da: 'Executive summary af kørslen — hovedfund, overskriftsrisiko­score, afgørende artefakter og nøglebudskaber til slutartiklen.',
+      no: 'Sammendrag av kjøringen — hovedfunn, overskrifts­risikoscore, avgjørende artefakter og nøkkelpunkter til sluttartikkelen.',
+      fi: 'Ajon tiivistelmä — päähavainnot, otsikkotason riskipisteet, ratkaisevat artefaktit ja lopulliseen artikkeliin vietävät avainviestit.',
+      de: 'Executive Summary des Laufs — Kernergebnisse, Kopfzeilen-Risiko, entscheidende Artefakte und Schlüsselaussagen für den Artikel.',
+      fr: 'Synthèse exécutive de l’exécution — conclusions principales, score de risque en une ligne, artefacts décisifs et messages-clés repris dans l’article final.',
+      es: 'Resumen ejecutivo de la ejecución — hallazgos principales, puntuación de riesgo de titular, artefactos decisivos y conclusiones clave que alimentan el artículo final.',
+      nl: 'Executive summary van de run — hoofdbevindingen, kop-risicoscore, beslissende artefacten en kernpunten voor het uiteindelijke artikel.',
+      ar: 'ملخص تنفيذي للتشغيل — أبرز النتائج، درجة المخاطر في العنوان، القطع الحاسمة والرسائل الرئيسية التي تغذي المقال النهائي.',
+      he: 'תקציר מנהלים של ההרצה — ממצאים מרכזיים, ציון סיכון לכותרת, ארטיפקטים מכריעים ומסקנות עיקריות שמזינות את המאמר הסופי.',
+      ja: '実行のエグゼクティブ・サマリー — 主要所見、ヘッドライン・リスクスコア、決定的アーティファクト、最終記事に反映される要点。',
+      ko: '실행 요약 — 핵심 발견, 헤드라인 위험 점수, 결정적 산출물 및 최종 기사에 반영되는 주요 시사점.',
+      zh: '运行的执行摘要——核心发现、头条风险评分、关键产物以及纳入最终文章的主要结论。',
+    },
+  },
+  readme: {
+    title: {
+      en: 'Run README',
+      sv: 'Körnings-README',
+      da: 'Kørsels-README',
+      no: 'Kjørings-README',
+      fi: 'Ajon README',
+      de: 'Lauf-README',
+      fr: 'README d’exécution',
+      es: 'README de ejecución',
+      nl: 'Run-README',
+      ar: 'قراءة أولى للتشغيل',
+      he: 'README של ההרצה',
+      ja: '実行 README',
+      ko: '실행 README',
+      zh: '运行 README',
+    },
+    desc: {
+      en: 'Orientation file for the run — article type, scope, methodology set applied, artifact inventory and how to read the folder.',
+      sv: 'Orienteringsfil för körningen — artikeltyp, omfattning, tillämpad metoduppsättning, artefaktförteckning och hur mappen ska läsas.',
+      da: 'Orienterings­fil for kørslen — artikeltype, scope, anvendt metodesæt, artefakt­oversigt og mappens læseguide.',
+      no: 'Orienterings­fil for kjøringen — artikkeltype, omfang, anvendt metodesett, artefakt­oversikt og mappeguide.',
+      fi: 'Ajon orientaatio­tiedosto — artikkelityyppi, laajuus, sovellettu metodiryhmä, artefakti­luettelo ja kansion luku­ohje.',
+      de: 'Orientierungs­datei für den Lauf — Artikeltyp, Scope, angewandtes Methoden­set, Artefakt­inventar und Lese­leitfaden des Ordners.',
+      fr: 'Fichier d’orientation de l’exécution — type d’article, périmètre, méthodologies appliquées, inventaire d’artefacts et guide de lecture du dossier.',
+      es: 'Archivo de orientación de la ejecución — tipo de artículo, alcance, metodologías aplicadas, inventario de artefactos y guía de lectura de la carpeta.',
+      nl: 'Oriëntatie­bestand voor de run — artikeltype, scope, toegepaste methodologieënset, artefactinventaris en leeswijzer van de map.',
+      ar: 'ملف توجيه للتشغيل — نوع المقال، النطاق، مجموعة المنهجيات المطبقة، جرد القطع وكيفية قراءة المجلد.',
+      he: 'קובץ התמצאות להרצה — סוג המאמר, טווח, ערכת מתודולוגיות שיושמה, מלאי ארטיפקטים ומדריך קריאה של התיקייה.',
+      ja: '実行のオリエンテーション・ファイル — 記事タイプ、スコープ、適用メソドロジーセット、アーティファクト一覧、フォルダ閲覧ガイド。',
+      ko: '실행 안내 파일 — 기사 유형, 범위, 적용된 방법론 세트, 산출물 목록 및 폴더 읽기 가이드.',
+      zh: '运行的指引文件——文章类型、范围、应用的方法论集、产物清单与目录阅读指南。',
+    },
+  },
+};
+
+/**
+ * Parse a feed-prefixed artifact stem (e.g. `adoptedtexts-foo-bar-analysis`)
+ * into its canonical feed key (`adoptedtexts`) and tail, if recognized.
+ *
+ * @param stem - Raw filename stem (extension stripped)
+ * @returns `{ feed, tail }` when recognized, else `null`
+ */
+function parseFeedPrefix(stem: string): { feed: string; tail: string } | null {
+  for (const feed of Object.keys(FEED_PREFIX_LABELS)) {
+    if (stem.startsWith(`${feed}-`)) {
+      return { feed, tail: stem.slice(feed.length + 1) };
+    }
+  }
+  return null;
+}
+
+/**
+ * Resolve a localized title + description for a single daily analysis
+ * artifact Markdown file.
+ *
+ * Resolution order:
+ *   1. Feed-prefix detection — files starting with `adoptedtexts-`,
+ *      `procedures-`, `documents-`, `events-`, `externaldocuments-` get a
+ *      single fully-localized per-item label irrespective of the slug tail.
+ *   2. Stem canonicalization — `ai-swot-analysis` → `swot-analysis`,
+ *      `political-risk-assessment` → `risk-assessment`, etc. — so shared
+ *      curated template entries apply to every variant.
+ *   3. Template lookup — `analysis/templates/<canonical>.md` in the
+ *      {@link getCuratedTitle} / {@link getCuratedDescription} tables.
+ *   4. Orphan table — for stems with no template we ship curated titles
+ *      and descriptions in all 14 languages.
+ *   5. Localized generic fallback — humanized stem + language-specific
+ *      "template in the EU Parliament Monitor analysis library" sentence.
+ *
+ * @param shortPath - Run-relative path (e.g. `intelligence/swot-analysis.md`)
+ * @param lang      - Target language code
+ * @returns `{ title, description }` — both always non-empty and localized
+ */
+export function getArtifactInfo(
+  shortPath: string,
+  lang: LanguageCode
+): { title: string; description: string } {
+  const base = shortPath.split('/').pop() ?? shortPath;
+  const rawStem = base.replace(/\.[^.]+$/, '');
+  // 1. Feed prefix — single localized label
+  const feed = parseFeedPrefix(rawStem);
+  if (feed) {
+    // eslint-disable-next-line security/detect-object-injection
+    const entry = FEED_PREFIX_LABELS[feed.feed];
+    if (entry) {
+      return {
+        title: getFromRecord(entry.title, lang),
+        description: getFromRecord(entry.desc, lang),
+      };
+    }
+  }
+  // 2. Canonicalize stem (strip `.analysis`, apply synonym map)
+  const stem = canonicalizeArtifactStem(rawStem);
+  // 3. Template lookup via existing curated tables
+  const templateKey = `analysis/templates/${stem}.md`;
+  const humanized = stripEmojiAndPunct(stem);
+  const title = getCuratedTitle(templateKey, lang, humanized);
+  const description = getCuratedDescription(templateKey, lang, humanized);
+  // 4. Orphan stem lookup — only when no curated template entry existed
+  //    (detected by the description falling back to the generic sentence).
+  const stemLower = stem.toLowerCase();
+  // eslint-disable-next-line security/detect-object-injection
+  const orphan = ORPHAN_ARTIFACT_INFO[stemLower];
+  if (orphan) {
+    // Always prefer the orphan localized title/desc when available
+    return {
+      title: getFromRecord(orphan.title, lang),
+      description: getFromRecord(orphan.desc, lang),
+    };
+  }
+  return { title, description };
 }
