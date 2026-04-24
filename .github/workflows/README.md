@@ -38,60 +38,28 @@ The project uses **agentic workflow markdown files** (`.md`) that are compiled t
 > with per-attempt history recorded in `manifest.json.history[]`. See
 > [`.github/prompts/02-analysis-protocol.md`](../prompts/02-analysis-protocol.md) §2.
 
-#### Split-family workflows (canonical, 16 files — 8 pairs)
+#### Unified workflows (8 article types)
 
-| Analysis (`[analysis] …` PR) | Article (`[news] …` PR) | Schedule (analysis) | Trigger (article) |
+The repository contains **8 unified agentic workflows** for automated news article generation. Each workflow follows the 5-stage pipeline (Data → Analysis → Completeness Gate → Article → Single PR) and produces one PR per run containing both analysis artifacts and rendered article HTML.
+
+| Workflow (`.md`) | Article Type Slug | Schedule | Trigger |
 |---|---|---|---|
-| [`news-breaking-analysis.md`](news-breaking-analysis.md) | [`news-breaking-article.md`](news-breaking-article.md) | every 6h | merged analysis PR + manual |
-| [`news-week-ahead-analysis.md`](news-week-ahead-analysis.md) | [`news-week-ahead-article.md`](news-week-ahead-article.md) | Fridays 07:00 UTC | merged analysis PR + manual |
-| [`news-month-ahead-analysis.md`](news-month-ahead-analysis.md) | [`news-month-ahead-article.md`](news-month-ahead-article.md) | 1st of month 08:00 UTC | merged analysis PR + manual |
-| [`news-weekly-review-analysis.md`](news-weekly-review-analysis.md) | [`news-weekly-review-article.md`](news-weekly-review-article.md) | Saturdays 09:00 UTC | merged analysis PR + manual |
-| [`news-monthly-review-analysis.md`](news-monthly-review-analysis.md) | [`news-monthly-review-article.md`](news-monthly-review-article.md) | 28th of month 10:00 UTC | merged analysis PR + manual |
-| [`news-committee-reports-analysis.md`](news-committee-reports-analysis.md) | [`news-committee-reports-article.md`](news-committee-reports-article.md) | Mon–Fri 04:00 UTC | merged analysis PR + manual |
-| [`news-motions-analysis.md`](news-motions-analysis.md) | [`news-motions-article.md`](news-motions-article.md) | Mon–Fri 06:00 UTC | merged analysis PR + manual |
-| [`news-propositions-analysis.md`](news-propositions-analysis.md) | [`news-propositions-article.md`](news-propositions-article.md) | Mon–Fri 05:00 UTC | merged analysis PR + manual |
+| [`news-breaking.md`](news-breaking.md) | `breaking` | Mon–Fri 08:00 UTC | Schedule + manual |
+| [`news-week-in-review.md`](news-week-in-review.md) | `week-in-review` | Weekly (Mon 03:00 UTC) | Schedule + manual |
+| [`news-month-in-review.md`](news-month-in-review.md) | `month-in-review` | Monthly (1st Mon 03:00 UTC) | Schedule + manual |
+| [`news-week-ahead.md`](news-week-ahead.md) | `week-ahead` | Weekly (Mon 02:00 UTC) | Schedule + manual |
+| [`news-month-ahead.md`](news-month-ahead.md) | `month-ahead` | Monthly (1st Mon 02:00 UTC) | Schedule + manual |
+| [`news-committee-reports.md`](news-committee-reports.md) | `committee-reports` | Mon–Fri 04:00 UTC | Schedule + manual |
+| [`news-motions.md`](news-motions.md) | `motions` | Mon–Fri 06:00 UTC | Schedule + manual |
+| [`news-propositions.md`](news-propositions.md) | `propositions` | Mon–Fri 05:00 UTC | Schedule + manual |
 
-#### Legacy monolithic workflows — removed
+Each workflow renders articles using `npm run generate-article -- --run "${ANALYSIS_DIR}"` (aggregator-driven pipeline from `src/aggregator/**`).
 
-The eight pre-split monolithic workflows (`news-breaking.md`,
-`news-week-ahead.md`, `news-month-ahead.md`, `news-weekly-review.md`,
-`news-monthly-review.md`, `news-committee-reports.md`, `news-motions.md`,
-`news-propositions.md`) and their `.lock.yml` files have been **deleted** from
-the repository. They were superseded by the split-family pair in the table
-above and disabled at the Actions UI layer (`disabled_manually`) for several
-successful split-pair cycles. They are preserved in git history if a rollback
-is ever required.
-
-> **Migration note:** Some older in-repo documentation may still reference the
-> deleted `news-<type>.md` monoliths (for example
-> `.github/skills/github-agentic-workflows.md`,
-> `.github/agents/news-journalist.md`, and
-> `.github/agents/developer.instructions.md`). Treat those references as stale
-> and use the split `*-analysis.md` + `*-article.md` workflow pairs listed in
-> the table above as the canonical workflow entry points until the remaining
-> docs are updated.
-
-Rationale: the monoliths ran Stages A+B+C+D in a single 60–90-minute agent
-session and reliably exceeded the safeoutputs MCP session TTL (~30 min),
-causing end-of-run `create_pull_request` calls to return *"session not
-found"*. In addition, a residual monolith (`news-motions.lock.yml`) was
-inadvertently re-enabled and fired on `2026-04-23T07:10:53Z`, killing the
-Copilot CLI at the 90-min `timeout-minutes` while mid Pass‑2 of the article
-rewrite
-([run 24822033271](https://github.com/Hack23/euparliamentmonitor/actions/runs/24822033271)).
-Removing the files eliminates the re-enable risk and is the documented
-follow-up to the split-family rollout. History lives in git — run
-`git log --diff-filter=D -- .github/workflows/news-breaking.md` to see the
-deletion commit if a rollback is ever needed.
-
-#### Multi-type + translation (unchanged)
+#### Multi-language translation
 
 | Workflow (`.md`) | Purpose | Trigger |
 |---|---|---|
-| [`news-article-generator.md`](news-article-generator.md) | Manual multi-type backfill runner (documented `create-pull-request.max: 8` exception) | Workflow dispatch |
 | [`news-translate.md`](news-translate.md) | 14-language translation with multi-call flush pattern (exempt from single-PR rule) | Workflow dispatch / PR hook |
-
-A helper workflow — [`news-translate-reconciler.yml`](news-translate-reconciler.yml) — reconciles translation PRs produced by `news-translate.md`.
 
 #### Shared-import pattern
 
@@ -553,7 +521,6 @@ jobs:
 | news-motions | ❌ | ❌ | ✅ Mon-Fri 06:00 | ✅ |
 | news-propositions | ❌ | ❌ | ✅ Mon-Fri 05:00 | ✅ |
 | news-translate | ❌ | ✅ | ❌ | ✅ |
-| news-translate-reconciler | ❌ | ✅ | ❌ | ✅ |
 | labeler | ❌ | ✅ | ❌ | ❌ |
 | setup-labels | ❌ | ❌ | ❌ | ✅ |
 | release | ✅ Tags | ❌ | ❌ | ✅ |

@@ -168,12 +168,13 @@ covering:
 - 🤖 **GitHub Actions Integration**: Automated daily news generation
 - 📊 **SEO Optimized**: Proper metadata, structured data, and sitemap generation
 - ✅ **Code Quality**: ESLint, Prettier, and automated quality gates
-- 🌐 **IMF-grade Economic Context**: Wave-4 strict gate (April 2026, default-on)
-  enforces IMF-primary citations on every policy article — see
+- 🌐 **IMF-grade Economic Context**: IMF-primary citations are the
+  editorial standard for every policy article — see
   [`analysis/imf/README.md`](analysis/imf/README.md) and
   [`analysis/methodologies/imf-indicator-mapping.md`](analysis/methodologies/imf-indicator-mapping.md).
-  Set `WAVE3_IMF_LEGACY=1` for the one-release exit ramp to the legacy
-  WB-or-IMF OR-gate.
+  World Bank is retained only for non-economic indicators (health,
+  education, social, environment, demographics, defence, agriculture,
+  innovation, governance).
 
 ## 🔒 Security Architecture
 
@@ -465,18 +466,13 @@ without it using placeholder content.
 
 ### Generate News Articles
 
+Agentic workflows generate articles automatically. For manual article generation from an analysis run:
+
 ```bash
-# Generate week ahead article in English
-npm run generate-news -- --types=week-ahead --languages=en
+# Render article from a specific analysis run directory
+npm run generate-article -- --run analysis/daily/2025-01-01/breaking
 
-# Generate multiple article types in multiple languages
-npm run generate-news -- --types=week-ahead,committee-reports --languages=en,de,fr
-
-# Generate in all eu-core preset languages
-npm run generate-news -- --types=week-ahead --languages=eu-core
-
-# Generate in all supported languages
-npm run generate-news -- --types=week-ahead --languages=all
+# The aggregator reads committed analysis artifacts and renders HTML
 ```
 
 ### Generate Indexes and Sitemap

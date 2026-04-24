@@ -23,6 +23,20 @@ export interface ArticleSource {
   url: string;
 }
 
+/** Article metadata (title, subtitle, keywords, category) */
+export interface ArticleMetadata {
+  /** Localized article title */
+  readonly title: string;
+  /** Localized article subtitle */
+  readonly subtitle: string;
+  /** SEO keywords */
+  readonly keywords: readonly string[];
+  /** Article category */
+  readonly category: ArticleCategory;
+  /** Optional source references */
+  readonly sources?: readonly ArticleSource[] | undefined;
+}
+
 /** Related article link for cross-article navigation */
 export interface RelatedArticleLink {
   /** Article slug (e.g. 'committee-reports') */

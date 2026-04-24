@@ -137,23 +137,18 @@ if [ -z "${EP_MCP_GATEWAY_URL:-}" ]; then
 fi
 
 export USE_EP_MCP=true
-npx tsx src/generators/news-enhanced.ts \
-  --types="${ARTICLE_TYPE_SLUG}" \
-  --title="AI-generated headline" \
-  --description="AI-generated meta description" \
-  --analysis \
-  --analysis-methods=all \
-  --analysis-dir="${ANALYSIS_DIR}"
+# No-op: Stage A data collection is handled within the workflow prompt body.
+# Stage D article rendering uses: npm run generate-article -- --run "${ANALYSIS_DIR}"
 ```
 
 `${ARTICLE_TYPE_SLUG}`, `${ANALYSIS_DIR}`, and `${TODAY}` are set by the
 workflow's own Date Context Establishment block (see each `news-*.md` §Date
-Context). `--title` / `--description` must be AI-generated per
+Context). Title/description are AI-generated per
 [`04-article-generation.md`](04-article-generation.md) §Keywords/Title rules.
 
 ## 4b · Stable Same-Day Folder Layout
 
-All split-family analysis runs write to the canonical stable folder:
+All unified workflow runs write to the canonical stable folder:
 
 ```
 analysis/daily/${DATE}/${ARTICLE_TYPE_SLUG}/
@@ -168,29 +163,8 @@ ANALYSIS_DIR=$(scripts/resolve-analysis-dir.sh "$TODAY" "$ARTICLE_TYPE_SLUG")
 echo "ANALYSIS_DIR=$ANALYSIS_DIR" >> "$GITHUB_ENV"
 ```
 
-`news-<type>-analysis.md` passes this path verbatim to `news-enhanced.ts
---analysis-dir`, which auto-detects `outputDirIsResolved` via
-`isResolvedAnalysisDir()` and appends a new entry to
-`manifest.json.history[]` instead of triggering the `-2` suffix.
-
-`news-<type>-article.md` resolves the same path from PR metadata (labels
-encode `type`; date is parsed from the PR title or branch name) and consumes
-the committed artifacts.
-
-## 4c · `--analysis-only` Flag (split family)
-
-The `news-enhanced.ts` generator accepts `--analysis-only`, which exits after
-Stage C and skips HTML generation. The analysis workflow uses this flag; the
-article workflow does not. Example:
-
-```bash
-npx tsx src/generators/news-enhanced.ts \
-  --types="${ARTICLE_TYPE_SLUG}" \
-  --analysis \
-  --analysis-methods=all \
-  --analysis-dir="${ANALYSIS_DIR}" \
-  --analysis-only
-```
+Workflows pass this path to `npm run generate-article -- --run "$ANALYSIS_DIR"`,
+which reads the committed analysis artifacts and renders the article HTML.
 
 ## 5 · EP MCP TypeScript Client
 

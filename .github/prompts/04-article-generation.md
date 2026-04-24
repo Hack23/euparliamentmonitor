@@ -48,13 +48,8 @@ described below. Same 2-pass + validator rules apply.
 ```bash
 source scripts/mcp-setup.sh
 export USE_EP_MCP=true
-npx tsx src/generators/news-enhanced.ts \
-  --types={article-type-slug} \
-  --title="AI-generated headline" \
-  --description="AI-generated meta description" \
-  --analysis \
-  --analysis-methods=all \
-  --analysis-dir="${ANALYSIS_DIR}"
+# Render article from committed analysis artifacts:
+npm run generate-article -- --run "${ANALYSIS_DIR}"
 ```
 
 Article-type slugs: `breaking`, `committee-reports`, `propositions`, `motions`,
@@ -175,9 +170,8 @@ node scripts/utils/validate-analysis-completeness.js \
 
 # 2. Quality / structural validator
 npx tsx src/utils/validate-articles.ts --date="$TODAY" --quality --strict
-```
 
-Non-zero exit from either blocks PR creation. Do NOT skip, do NOT `--warn-only`.
+Non-zero exit from validation blocks PR creation. Do NOT skip, do NOT `--warn-only`.
 
 ## 9 · No-Publish Rule
 

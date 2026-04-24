@@ -184,7 +184,7 @@ All tools respond in < 5 s; 10 s HTTP timeout per call.
 >
 > WB serves **non-economic** indicators only: health, education,
 > social, environment, demographics, defence, agriculture, innovation,
-> governance. **Economic context → IMF (§8 above) is mandatory
+> governance. **Economic context → IMF (§9 below) is mandatory
 > primary.** Wave-3 retains the WB economic endpoints in MCP but marks
 > them legacy; Wave-4 will remove them from the policy-required
 > article code path.
