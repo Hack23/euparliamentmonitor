@@ -18,7 +18,7 @@ import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, PAGE_TITLES, SKIP_LINK_T
 import { escapeHTML } from '../utils/file-utils.js';
 import { FOOTER_SITEMAP_LABELS } from '../constants/language-ui.js';
 import { buildSiteFooter } from '../templates/section-builders.js';
-import { getCuratedDescription, getCuratedTitle } from './political-intelligence-descriptions.js';
+import { getCuratedDescription, getCuratedTitle, getRunTypeInfo, getArtifactInfo, } from './political-intelligence-descriptions.js';
 /** GitHub repository slug used to build blob/tree links for analysis artifacts */
 const GITHUB_REPO = 'Hack23/euparliamentmonitor';
 /**
@@ -456,28 +456,55 @@ const DOCUMENT_ICON_RULES = [
     [['readme'], '📘'],
     [['swot'], '🧭'],
     [['pestle'], '🌍'],
+    [['stride'], '🛡️'],
     [['threat'], '⚠️'],
     [['risk'], '📊'],
     [['coalition'], '🤝'],
-    [['actor'], '👥'],
+    [['stakeholder'], '👥'],
+    [['actor'], '👤'],
     [['impact'], '💥'],
-    [['economic', 'imf', 'worldbank'], '💶'],
-    [['timeline', 'historical'], '🕰️'],
+    [['scenario', 'forecast', 'outlook', 'wildcard', 'blackswan'], '🔮'],
+    [['economic', 'imf', 'worldbank', 'fiscal', 'monetary'], '💶'],
+    [['trade', 'tariff'], '🛳️'],
+    [['timeline', 'historical', 'parallel'], '🕰️'],
     [['methodology', 'guide', 'style'], '🧭'],
     [['classification'], '🏷️'],
+    [['intelligence-brief', 'brief'], '🗞️'],
     [['intelligence'], '🔍'],
     [['network'], '🕸️'],
-    [['velocity', 'legislative'], '⚖️'],
+    [['velocity'], '⚡'],
+    [['productivity', 'pipeline', 'workflow-audit', 'workflow'], '🔧'],
+    [['legislative', 'legislation'], '⚖️'],
+    [['motion'], '🗳️'],
+    [['proposition', 'proposal'], '📜'],
+    [['committee'], '🏛️'],
+    [['vote', 'voting'], '🗳️'],
+    [['plenary', 'session', 'meeting'], '🏟️'],
+    [['procedure'], '📂'],
+    [['event', 'schedule', 'agenda'], '📅'],
+    [['mep', 'parliamentarian'], '🧑‍💼'],
     [['consequence'], '🌿'],
     [['disruption'], '🌀'],
     [['reflection'], '🪞'],
-    [['reliability', 'audit'], '✅'],
-    [['forces'], '⚔️'],
+    [['reliability', 'audit', 'quality'], '✅'],
+    [['attack-surface', 'attack'], '🛡️'],
+    [['diagnostic', 'outage'], '🚑'],
+    [['forces', 'influence'], '⚔️'],
     [['osint', 'tradecraft'], '🕵️'],
-    [['catalog'], '📚'],
+    [['catalog', 'index'], '📚'],
     [['capital'], '💼'],
+    [['synthesis', 'cross-daily', 'summary'], '🧩'],
     [['cross-session', 'cross-run'], '🔁'],
+    [['sentiment'], '💬'],
+    [['baseline', 'precomputed'], '📐'],
+    [['significance'], '🎯'],
+    [['devil', 'advocate'], '😈'],
+    [['media', 'framing'], '📺'],
+    [['reform', 'anti-corruption'], '🧹'],
+    [['recess'], '🌴'],
     [['per-file', 'per-artifact'], '🗂️'],
+    [['adopted'], '📜'],
+    [['document'], '📄'],
     [['artifact'], '📋'],
 ];
 /**
@@ -828,11 +855,12 @@ function renderDocumentCard(doc, lang, viewOnGitHub) {
  *
  * @param group - The date group to render
  * @param copy - Localized copy for labels inside the group
+ * @param lang - Target language code propagated to each run card
  * @returns HTML string for the `<section>` containing all runs for the date
  */
-function renderDailyGroup(group, copy) {
+function renderDailyGroup(group, copy, lang) {
     const runsCountText = copy.runsCountLabel.replace('{count}', String(group.runs.length));
-    const runCards = group.runs.map((run) => renderDailyRun(run, copy)).join('\n');
+    const runCards = group.runs.map((run) => renderDailyRun(run, copy, lang)).join('\n');
     return `        <section class="pi-date-group" aria-labelledby="date-${escapeHTML(group.date)}">
           <h3 id="date-${escapeHTML(group.date)}" class="pi-date-group__heading">
             <time datetime="${escapeHTML(group.date)}">${escapeHTML(group.date)}</time>
@@ -848,16 +876,52 @@ ${runCards}
  * `<details>` list of every Markdown artifact inside the run, each linking
  * to its GitHub blob URL.
  *
+ * Each run card surfaces a localized run-type title (e.g. "Breaking News
+ * Analysis") and description from {@link getRunTypeInfo}, and each artifact
+ * row inside the `<details>` is a rich card with:
+ *   - icon from {@link pickDocumentIcon}
+ *   - localized humanized title + description from {@link getArtifactInfo}
+ *   - filename code pill for auditability
+ *
  * @param run - Run descriptor produced by {@link collectDailyGroups}
  * @param copy - Localized copy for artifact-count and toggle labels
+ * @param lang - Target language code for run/artifact titles & descriptions
  * @returns HTML string for the `<li>` element
  */
-function renderDailyRun(run, copy) {
+function renderDailyRun(run, copy, lang) {
     const url = githubTreeUrl(run.relPath);
     const countLabel = copy.artifactCountLabel.replace('{count}', String(run.artifactCount));
     const toggleLabel = copy.artifactsToggleLabel.replace('{count}', String(run.artifactCount));
-    const artifactLinks = run.artifacts
-        .map((art) => `                    <li><a href="${escapeHTML(githubBlobUrl(art.relPath))}" rel="noopener external" target="_blank"><code>${escapeHTML(art.shortPath)}</code></a></li>`)
+    const runInfo = getRunTypeInfo(run.slug, lang);
+    const runIdBadge = runInfo.runId
+        ? `<span class="pi-run__runid" aria-hidden="true">#${escapeHTML(runInfo.runId)}</span>`
+        : '';
+    const runDescHtml = runInfo.description
+        ? `<span class="pi-run__desc">${escapeHTML(runInfo.description)}</span>`
+        : '';
+    const artifactCards = run.artifacts
+        .map((art) => {
+        const info = getArtifactInfo(art.shortPath, lang);
+        const base = art.shortPath.split('/').pop() ?? art.shortPath;
+        // Strip both the final extension (`.md`) and an optional `.analysis`
+        // compound suffix so `political-landscape.analysis.md` feeds
+        // `political-landscape` into `pickDocumentIcon()` — matching the
+        // stem canonicalization done by `getArtifactInfo`.
+        const stem = base.replace(/\.[^.]+$/, '').replace(/\.analysis$/, '');
+        const icon = pickDocumentIcon(stem);
+        const blobUrl = githubBlobUrl(art.relPath);
+        return `                  <li class="pi-artifact">
+                    <a class="pi-artifact__link" href="${escapeHTML(blobUrl)}" rel="noopener external" target="_blank">
+                      <span class="pi-artifact__icon" aria-hidden="true">${icon}</span>
+                      <span class="pi-artifact__body">
+                        <span class="pi-artifact__title">${escapeHTML(info.title)}</span>
+                        <span class="pi-artifact__desc">${escapeHTML(info.description)}</span>
+                        <span class="pi-artifact__path"><code>${escapeHTML(art.shortPath)}</code></span>
+                      </span>
+                      <span class="pi-artifact__cta" aria-hidden="true">↗</span>
+                    </a>
+                  </li>`;
+    })
         .join('\n');
     // The artifact <details> is rendered OUTSIDE the top-level <a> so the
     // disclosure triangle remains independently keyboard-focusable and the
@@ -866,15 +930,16 @@ function renderDailyRun(run, copy) {
               <a class="pi-run__link" href="${escapeHTML(url)}" rel="noopener external" target="_blank">
                 <span class="pi-run__icon" aria-hidden="true">${run.icon}</span>
                 <span class="pi-run__body">
-                  <span class="pi-run__slug">${escapeHTML(run.slug)}</span>
-                  <span class="pi-run__meta">${escapeHTML(countLabel)}</span>
+                  <span class="pi-run__title">${escapeHTML(runInfo.title)} ${runIdBadge}</span>
+                  ${runDescHtml}
+                  <span class="pi-run__meta"><span class="pi-run__slug"><code>${escapeHTML(run.slug)}</code></span> · ${escapeHTML(countLabel)}</span>
                 </span>
                 <span class="pi-run__cta" aria-hidden="true">↗</span>
               </a>
               <details class="pi-run__artifacts">
                 <summary class="pi-run__artifacts-toggle">${escapeHTML(toggleLabel)}</summary>
                 <ul class="pi-run__artifacts-list">
-${artifactLinks}
+${artifactCards}
                 </ul>
               </details>
             </li>`;
@@ -938,7 +1003,7 @@ export function generatePoliticalIntelligenceHTML(lang, data) {
         .join('\n');
     const dailyBody = data.dailyGroups.length === 0
         ? ''
-        : data.dailyGroups.map((g) => renderDailyGroup(g, copy)).join('\n');
+        : data.dailyGroups.map((g) => renderDailyGroup(g, copy, safeLang)).join('\n');
     // Localized source-in-English note (non-English pages only)
     const sourceNote = copy.sourceInEnglishNote
         ? `      <p class="pi-source-note" role="note">${escapeHTML(copy.sourceInEnglishNote)}</p>`
