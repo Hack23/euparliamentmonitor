@@ -1,7 +1,7 @@
 # Wildcards & Black Swans — March 2026 Motion Cluster
 
 <!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 
 **Definition**:
 * **Wildcard** — low-probability, high-impact event with a plausible

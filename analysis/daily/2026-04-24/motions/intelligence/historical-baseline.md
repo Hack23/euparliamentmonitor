@@ -1,7 +1,7 @@
 # Historical Baseline — Comparable EP Motion Clusters
 
 <!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 
 **Purpose**: anchor the 2026-03 motion cluster against comparable
 historical clusters to derive base rates for scenario forecasts and

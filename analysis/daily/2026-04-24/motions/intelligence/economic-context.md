@@ -1,7 +1,7 @@
 # Economic Context — March 2026 Motion Cluster
 
 <!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 
 **Source confidence note**: World Bank and IMF MCP probes timed out
 during this run (see `mcp-reliability-audit.md` when produced). All
