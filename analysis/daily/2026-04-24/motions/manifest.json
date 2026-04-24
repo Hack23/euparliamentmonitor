@@ -1,0 +1,123 @@
+{
+  "runId": "394ceb8d-0788-4530-b2ef-4489a56475b4",
+  "date": "2026-04-24",
+  "articleType": "motions-runmotions-run-1777010709",
+  "articleTypeSlug": "motions-runmotions-run-1777010709",
+  "startTime": "2026-04-24T06:19:27.525Z",
+  "endTime": "2026-04-24T06:19:27.526Z",
+  "articleTypes": [
+    "motions"
+  ],
+  "methods": [
+    {
+      "method": "analysis-index",
+      "status": "completed",
+      "outputFile": "intelligence/analysis-index.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: intelligence/analysis-index.md"
+    },
+    {
+      "method": "economic-context",
+      "status": "completed",
+      "outputFile": "intelligence/economic-context.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: intelligence/economic-context.md"
+    },
+    {
+      "method": "historical-baseline",
+      "status": "completed",
+      "outputFile": "intelligence/historical-baseline.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: intelligence/historical-baseline.md"
+    },
+    {
+      "method": "pestle-analysis",
+      "status": "completed",
+      "outputFile": "intelligence/pestle-analysis.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: intelligence/pestle-analysis.md"
+    },
+    {
+      "method": "scenario-forecast",
+      "status": "completed",
+      "outputFile": "intelligence/scenario-forecast.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: intelligence/scenario-forecast.md"
+    },
+    {
+      "method": "stakeholder-map",
+      "status": "completed",
+      "outputFile": "intelligence/stakeholder-map.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: intelligence/stakeholder-map.md"
+    },
+    {
+      "method": "synthesis-summary",
+      "status": "completed",
+      "outputFile": "intelligence/synthesis-summary.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: intelligence/synthesis-summary.md"
+    },
+    {
+      "method": "threat-model",
+      "status": "completed",
+      "outputFile": "intelligence/threat-model.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: intelligence/threat-model.md"
+    },
+    {
+      "method": "wildcards-blackswans",
+      "status": "completed",
+      "outputFile": "intelligence/wildcards-blackswans.md",
+      "confidence": "medium",
+      "duration": 0,
+      "summary": "Discovered from AI-generated analysis: intelligence/wildcards-blackswans.md"
+    }
+  ],
+  "files": {
+    "intelligence": [
+      "intelligence/analysis-index.md",
+      "intelligence/economic-context.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/threat-model.md",
+      "intelligence/wildcards-blackswans.md"
+    ]
+  },
+  "overallConfidence": "medium",
+  "dataSourcesUsed": [
+    "ai-agentic-workflow",
+    "filesystem-discovery"
+  ],
+  "history": [
+    {
+      "runId": "394ceb8d-0788-4530-b2ef-4489a56475b4",
+      "startedAt": "2026-04-24T06:19:27.525Z",
+      "finishedAt": "2026-04-24T06:19:27.526Z",
+      "gateResult": "PENDING",
+      "filesWritten": [
+        "intelligence/analysis-index.md",
+        "intelligence/economic-context.md",
+        "intelligence/historical-baseline.md",
+        "intelligence/pestle-analysis.md",
+        "intelligence/scenario-forecast.md",
+        "intelligence/stakeholder-map.md",
+        "intelligence/synthesis-summary.md",
+        "intelligence/threat-model.md",
+        "intelligence/wildcards-blackswans.md"
+      ]
+    }
+  ],
+  "updatedAt": "2026-04-24T06:19:27.526Z"
+}
