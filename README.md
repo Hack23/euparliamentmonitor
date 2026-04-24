@@ -459,18 +459,13 @@ without it using placeholder content.
 
 ### Generate News Articles
 
+Agentic workflows generate articles automatically. For manual article generation from an analysis run:
+
 ```bash
-# Generate week ahead article in English
-npm run generate-news -- --types=week-ahead --languages=en
+# Render article from a specific analysis run directory
+npm run generate-article -- --run analysis/daily/2025-01-01/breaking
 
-# Generate multiple article types in multiple languages
-npm run generate-news -- --types=week-ahead,committee-reports --languages=en,de,fr
-
-# Generate in all eu-core preset languages
-npm run generate-news -- --types=week-ahead --languages=eu-core
-
-# Generate in all supported languages
-npm run generate-news -- --types=week-ahead --languages=all
+# The aggregator reads committed analysis artifacts and renders HTML
 ```
 
 ### Generate Indexes and Sitemap
