@@ -1,4 +1,4 @@
-# gh-aw-metadata: {"schema_version":"v3","frontmatter_hash":"e957b80610ed45d4cbdbc39e845bae0cb4866f98287d4f29a2fede471ad14320","compiler_version":"v0.71.0","agent_id":"copilot","agent_model":"claude-opus-4.7"}
+# gh-aw-metadata: {"schema_version":"v3","frontmatter_hash":"4203e37f6f9897fe517cb003c3fbbb63f0703a579fdee187150203fd41dcd3f7","compiler_version":"v0.71.0","agent_id":"copilot","agent_model":"claude-opus-4.7"}
 # gh-aw-manifest: {"version":1,"secrets":["COPILOT_GITHUB_TOKEN","GH_AW_CI_TRIGGER_TOKEN","GH_AW_GITHUB_MCP_SERVER_TOKEN","GH_AW_GITHUB_TOKEN","GITHUB_TOKEN"],"actions":[{"repo":"actions/checkout","sha":"de0fac2e4500dabe0009e67214ff5f5447ce83dd","version":"v6.0.2"},{"repo":"actions/download-artifact","sha":"3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c","version":"v8.0.1"},{"repo":"actions/github-script","sha":"373c709c69115d41ff229c7e5df9f8788daa9553","version":"v9"},{"repo":"actions/setup-node","sha":"48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e","version":"v6.4.0"},{"repo":"actions/setup-node","sha":"53b83947a5a98c8d113130e565377fae1a50d02f","version":"v6.3.0"},{"repo":"actions/upload-artifact","sha":"043fb46d1a93c77aae656e7c1c64a875d1fc6a0a","version":"v7.0.1"},{"repo":"github/gh-aw-actions/setup","sha":"49157453228f9641824955e35cbeccbca74ee0fd","version":"v0.71.0"}],"containers":[{"image":"alpine:latest","digest":"sha256:5b10f432ef3da1b8d4c7eb6c487f2f5a8f096bc91145e68878dd4a5019afde11","pinned_image":"alpine:latest@sha256:5b10f432ef3da1b8d4c7eb6c487f2f5a8f096bc91145e68878dd4a5019afde11"},{"image":"ghcr.io/github/gh-aw-firewall/agent:0.25.28","digest":"sha256:a8834e285807654bf680154faa710d43fe4365a0868142f5c20e48c85e137a7a","pinned_image":"ghcr.io/github/gh-aw-firewall/agent:0.25.28@sha256:a8834e285807654bf680154faa710d43fe4365a0868142f5c20e48c85e137a7a"},{"image":"ghcr.io/github/gh-aw-firewall/api-proxy:0.25.28","digest":"sha256:93290f2393752252911bd7c39a047f776c0b53063575e7bde4e304962a9a61cb","pinned_image":"ghcr.io/github/gh-aw-firewall/api-proxy:0.25.28@sha256:93290f2393752252911bd7c39a047f776c0b53063575e7bde4e304962a9a61cb"},{"image":"ghcr.io/github/gh-aw-firewall/squid:0.25.28","digest":"sha256:844c18280f82cd1b06345eb2f4e91966b34185bfc51c9f237c3e022e848fb474","pinned_image":"ghcr.io/github/gh-aw-firewall/squid:0.25.28@sha256:844c18280f82cd1b06345eb2f4e91966b34185bfc51c9f237c3e022e848fb474"},{"image":"ghcr.io/github/gh-aw-mcpg:v0.2.30","digest":"sha256:e950e6d39f003862d33bfb8d4eb93e242d919cf6ca874b90728e5e0ea7434c6f","pinned_image":"ghcr.io/github/gh-aw-mcpg:v0.2.30@sha256:e950e6d39f003862d33bfb8d4eb93e242d919cf6ca874b90728e5e0ea7434c6f"},{"image":"ghcr.io/github/github-mcp-server:v1.0.0","digest":"sha256:d2550953f8050bc5a1c8f80d1678766f66f60bbfbcd953fdeaf661fe4269bd95","pinned_image":"ghcr.io/github/github-mcp-server:v1.0.0@sha256:d2550953f8050bc5a1c8f80d1678766f66f60bbfbcd953fdeaf661fe4269bd95"},{"image":"node:25-alpine"},{"image":"node:25-alpine","digest":"sha256:d1b3b4da11eefd5941e7f0b9cf17783fc99d9c6fc34884a665f40a06dbdfc94f","pinned_image":"node:25-alpine@sha256:d1b3b4da11eefd5941e7f0b9cf17783fc99d9c6fc34884a665f40a06dbdfc94f"}]}
 #    ___                   _   _      
 #   / _ \                 | | (_)     
@@ -22,10 +22,11 @@
 #
 # For more information: https://github.github.com/gh-aw/introduction/overview/
 #
-# Translates English EU Parliament news articles to 13 other languages. Runs after content workflows generate English articles, ensuring high-quality translations with full linguistic fidelity.
+# Generates a single PR containing analysis artifacts and the rendered week-in-review article (Stages A → B → C → D → E in one workflow).
 #
 # Resolved workflow manifest:
 #   Imports:
+#     - .github/agents/news-generation.agent.md
 #     - shared/mcp/news-mcp-servers.md
 #
 # Secrets used:
@@ -54,8 +55,10 @@
 #   - node:25-alpine
 #   - node:25-alpine@sha256:d1b3b4da11eefd5941e7f0b9cf17783fc99d9c6fc34884a665f40a06dbdfc94f
 
-name: "News: Translate Articles"
+name: "News: EU Parliament Week in Review — Unified"
 "on":
+  schedule:
+  - cron: "0 9 * * 6"
   workflow_dispatch:
     inputs:
       aw_context:
@@ -63,30 +66,19 @@ name: "News: Translate Articles"
         description: Agent caller context (used internally by Agentic Workflows).
         required: false
         type: string
-      article_date:
-        default: ""
-        description: "Date of articles to translate (YYYY-MM-DD, default: today)"
-        required: false
-      article_types:
-        default: ""
-        description: "Article types to translate (comma-separated: week-ahead,motions,propositions,committee-reports,breaking,week-in-review,month-in-review,month-ahead)"
-        required: false
-      force_translation:
+      force_generation:
         default: true
-        description: Force translation even if translations already exist
+        description: Force generation even if recent analysis exists
         required: false
         type: boolean
-      languages:
-        default: all-non-en
-        description: Target languages (all-non-en | eu-core | nordic | comma-separated)
-        required: false
 
 permissions: {}
 
 concurrency:
-  group: "gh-aw-${{ github.workflow }}"
+  cancel-in-progress: false
+  group: news-week-in-review
 
-run-name: "News: Translate Articles"
+run-name: "News: EU Parliament Week in Review — Unified"
 
 jobs:
   activation:
@@ -118,7 +110,7 @@ jobs:
           GH_AW_INFO_VERSION: "1.0.21"
           GH_AW_INFO_AGENT_VERSION: "1.0.21"
           GH_AW_INFO_CLI_VERSION: "v0.71.0"
-          GH_AW_INFO_WORKFLOW_NAME: "News: Translate Articles"
+          GH_AW_INFO_WORKFLOW_NAME: "News: EU Parliament Week in Review — Unified"
           GH_AW_INFO_EXPERIMENTAL: "false"
           GH_AW_INFO_SUPPORTS_TOOLS_ALLOWLIST: "true"
           GH_AW_INFO_STAGED: "false"
@@ -164,7 +156,7 @@ jobs:
         id: check-lock-file
         uses: actions/github-script@373c709c69115d41ff229c7e5df9f8788daa9553 # v9
         env:
-          GH_AW_WORKFLOW_FILE: "news-translate.lock.yml"
+          GH_AW_WORKFLOW_FILE: "news-week-in-review.lock.yml"
           GH_AW_CONTEXT_WORKFLOW_REF: "${{ github.workflow_ref }}"
         with:
           script: |
@@ -189,10 +181,6 @@ jobs:
           GH_AW_GITHUB_ACTOR: ${{ github.actor }}
           GH_AW_GITHUB_EVENT_COMMENT_ID: ${{ github.event.comment.id }}
           GH_AW_GITHUB_EVENT_DISCUSSION_NUMBER: ${{ github.event.discussion.number }}
-          GH_AW_GITHUB_EVENT_INPUTS_ARTICLE_DATE: ${{ github.event.inputs.article_date }}
-          GH_AW_GITHUB_EVENT_INPUTS_ARTICLE_TYPES: ${{ github.event.inputs.article_types }}
-          GH_AW_GITHUB_EVENT_INPUTS_FORCE_TRANSLATION: ${{ github.event.inputs.force_translation }}
-          GH_AW_GITHUB_EVENT_INPUTS_LANGUAGES: ${{ github.event.inputs.languages }}
           GH_AW_GITHUB_EVENT_ISSUE_NUMBER: ${{ github.event.issue.number }}
           GH_AW_GITHUB_EVENT_PULL_REQUEST_NUMBER: ${{ github.event.pull_request.number }}
           GH_AW_GITHUB_REPOSITORY: ${{ github.repository }}
@@ -203,21 +191,21 @@ jobs:
         run: |
           bash "${RUNNER_TEMP}/gh-aw/actions/create_prompt_first.sh"
           {
-          cat << 'GH_AW_PROMPT_ab9d5dea39bca86c_EOF'
+          cat << 'GH_AW_PROMPT_9f13d4985d5d95db_EOF'
           <system>
-          GH_AW_PROMPT_ab9d5dea39bca86c_EOF
+          GH_AW_PROMPT_9f13d4985d5d95db_EOF
           cat "${RUNNER_TEMP}/gh-aw/prompts/xpia.md"
           cat "${RUNNER_TEMP}/gh-aw/prompts/temp_folder_prompt.md"
           cat "${RUNNER_TEMP}/gh-aw/prompts/markdown.md"
           cat "${RUNNER_TEMP}/gh-aw/prompts/agentic_workflows_guide.md"
           cat "${RUNNER_TEMP}/gh-aw/prompts/repo_memory_prompt.md"
           cat "${RUNNER_TEMP}/gh-aw/prompts/safe_outputs_prompt.md"
-          cat << 'GH_AW_PROMPT_ab9d5dea39bca86c_EOF'
+          cat << 'GH_AW_PROMPT_9f13d4985d5d95db_EOF'
           <safe-output-tools>
-          Tools: add_comment, create_pull_request(max:10), missing_tool, missing_data, noop
-          GH_AW_PROMPT_ab9d5dea39bca86c_EOF
+          Tools: create_pull_request, dispatch_workflow, missing_tool, missing_data, noop
+          GH_AW_PROMPT_9f13d4985d5d95db_EOF
           cat "${RUNNER_TEMP}/gh-aw/prompts/safe_outputs_create_pull_request.md"
-          cat << 'GH_AW_PROMPT_ab9d5dea39bca86c_EOF'
+          cat << 'GH_AW_PROMPT_9f13d4985d5d95db_EOF'
           </safe-output-tools>
           <github-context>
           The following GitHub context information is available for this workflow:
@@ -247,22 +235,19 @@ jobs:
           {{/if}}
           </github-context>
           
-          GH_AW_PROMPT_ab9d5dea39bca86c_EOF
+          GH_AW_PROMPT_9f13d4985d5d95db_EOF
           cat "${RUNNER_TEMP}/gh-aw/prompts/github_mcp_tools_with_safeoutputs_prompt.md"
-          cat << 'GH_AW_PROMPT_ab9d5dea39bca86c_EOF'
+          cat << 'GH_AW_PROMPT_9f13d4985d5d95db_EOF'
           </system>
+          {{#runtime-import .github/agents/news-generation.agent.md}}
           {{#runtime-import .github/workflows/shared/mcp/news-mcp-servers.md}}
-          {{#runtime-import .github/workflows/news-translate.md}}
-          GH_AW_PROMPT_ab9d5dea39bca86c_EOF
+          {{#runtime-import .github/workflows/news-week-in-review.md}}
+          GH_AW_PROMPT_9f13d4985d5d95db_EOF
           } > "$GH_AW_PROMPT"
       - name: Interpolate variables and render templates
         uses: actions/github-script@373c709c69115d41ff229c7e5df9f8788daa9553 # v9
         env:
           GH_AW_PROMPT: /tmp/gh-aw/aw-prompts/prompt.txt
-          GH_AW_GITHUB_EVENT_INPUTS_ARTICLE_DATE: ${{ github.event.inputs.article_date }}
-          GH_AW_GITHUB_EVENT_INPUTS_ARTICLE_TYPES: ${{ github.event.inputs.article_types }}
-          GH_AW_GITHUB_EVENT_INPUTS_FORCE_TRANSLATION: ${{ github.event.inputs.force_translation }}
-          GH_AW_GITHUB_EVENT_INPUTS_LANGUAGES: ${{ github.event.inputs.languages }}
         with:
           script: |
             const { setupGlobals } = require('${{ runner.temp }}/gh-aw/actions/setup_globals.cjs');
@@ -276,10 +261,6 @@ jobs:
           GH_AW_GITHUB_ACTOR: ${{ github.actor }}
           GH_AW_GITHUB_EVENT_COMMENT_ID: ${{ github.event.comment.id }}
           GH_AW_GITHUB_EVENT_DISCUSSION_NUMBER: ${{ github.event.discussion.number }}
-          GH_AW_GITHUB_EVENT_INPUTS_ARTICLE_DATE: ${{ github.event.inputs.article_date }}
-          GH_AW_GITHUB_EVENT_INPUTS_ARTICLE_TYPES: ${{ github.event.inputs.article_types }}
-          GH_AW_GITHUB_EVENT_INPUTS_FORCE_TRANSLATION: ${{ github.event.inputs.force_translation }}
-          GH_AW_GITHUB_EVENT_INPUTS_LANGUAGES: ${{ github.event.inputs.languages }}
           GH_AW_GITHUB_EVENT_ISSUE_NUMBER: ${{ github.event.issue.number }}
           GH_AW_GITHUB_EVENT_PULL_REQUEST_NUMBER: ${{ github.event.pull_request.number }}
           GH_AW_GITHUB_REPOSITORY: ${{ github.repository }}
@@ -305,10 +286,6 @@ jobs:
                 GH_AW_GITHUB_ACTOR: process.env.GH_AW_GITHUB_ACTOR,
                 GH_AW_GITHUB_EVENT_COMMENT_ID: process.env.GH_AW_GITHUB_EVENT_COMMENT_ID,
                 GH_AW_GITHUB_EVENT_DISCUSSION_NUMBER: process.env.GH_AW_GITHUB_EVENT_DISCUSSION_NUMBER,
-                GH_AW_GITHUB_EVENT_INPUTS_ARTICLE_DATE: process.env.GH_AW_GITHUB_EVENT_INPUTS_ARTICLE_DATE,
-                GH_AW_GITHUB_EVENT_INPUTS_ARTICLE_TYPES: process.env.GH_AW_GITHUB_EVENT_INPUTS_ARTICLE_TYPES,
-                GH_AW_GITHUB_EVENT_INPUTS_FORCE_TRANSLATION: process.env.GH_AW_GITHUB_EVENT_INPUTS_FORCE_TRANSLATION,
-                GH_AW_GITHUB_EVENT_INPUTS_LANGUAGES: process.env.GH_AW_GITHUB_EVENT_INPUTS_LANGUAGES,
                 GH_AW_GITHUB_EVENT_ISSUE_NUMBER: process.env.GH_AW_GITHUB_EVENT_ISSUE_NUMBER,
                 GH_AW_GITHUB_EVENT_PULL_REQUEST_NUMBER: process.env.GH_AW_GITHUB_EVENT_PULL_REQUEST_NUMBER,
                 GH_AW_GITHUB_REPOSITORY: process.env.GH_AW_GITHUB_REPOSITORY,
@@ -355,13 +332,15 @@ jobs:
       issues: read
       pull-requests: read
       security-events: read
+    concurrency:
+      group: "gh-aw-copilot-${{ github.workflow }}"
     env:
       DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
       GH_AW_ASSETS_ALLOWED_EXTS: ""
       GH_AW_ASSETS_BRANCH: ""
       GH_AW_ASSETS_MAX_SIZE_KB: 0
       GH_AW_MCP_LOG_DIR: /tmp/gh-aw/mcp-logs/safeoutputs
-      GH_AW_WORKFLOW_ID_SANITIZED: newstranslate
+      GH_AW_WORKFLOW_ID_SANITIZED: newsweekinreview
     outputs:
       agentic_engine_timeout: ${{ steps.detect-copilot-errors.outputs.agentic_engine_timeout || 'false' }}
       checkout_pr_success: ${{ steps.checkout-pr.outputs.checkout_pr_success || 'true' }}
@@ -394,6 +373,17 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
+      - name: Merge remote .github folder
+        uses: actions/github-script@373c709c69115d41ff229c7e5df9f8788daa9553 # v9
+        env:
+          GH_AW_AGENT_FILE: ".github/agents/news-generation.agent.md"
+          GH_AW_AGENT_IMPORT_SPEC: ".github/agents/news-generation.agent.md"
+        with:
+          script: |
+            const { setupGlobals } = require('${{ runner.temp }}/gh-aw/actions/setup_globals.cjs');
+            setupGlobals(core, github, context, exec, io, getOctokit);
+            const { main } = require('${{ runner.temp }}/gh-aw/actions/merge_remote_agent_github_folder.cjs');
+            await main();
       - name: Create gh-aw temp directory
         run: bash "${RUNNER_TEMP}/gh-aw/actions/create_gh_aw_tmp_dir.sh"
       - name: Configure gh CLI for GitHub Enterprise
@@ -408,7 +398,10 @@ jobs:
         run: |
           npm ci --prefer-offline --no-audit
       - name: Build TypeScript
-        run: npm run build
+        run: |
+          npm run build
+      - name: Copy mermaid + chart vendor assets
+        run: npm run copy-vendor
 
       # Repo memory git-based storage configuration from frontmatter processed below
       - name: Clone repo-memory branch (default)
@@ -494,44 +487,58 @@ jobs:
           mkdir -p "${RUNNER_TEMP}/gh-aw/safeoutputs"
           mkdir -p /tmp/gh-aw/safeoutputs
           mkdir -p /tmp/gh-aw/mcp-logs/safeoutputs
-          cat > "${RUNNER_TEMP}/gh-aw/safeoutputs/config.json" << 'GH_AW_SAFE_OUTPUTS_CONFIG_d6bdd22a4e309072_EOF'
-          {"add_comment":{"max":1},"create_pull_request":{"allowed_base_branches":["main"],"draft":false,"excluded_files":["analysis/daily/**/data/**",".github/**"],"expires":336,"labels":["agentic-news","analysis-data"],"max":10,"max_patch_size":10240,"protected_files":["package.json","bun.lockb","bunfig.toml","deno.json","deno.jsonc","deno.lock","global.json","NuGet.Config","Directory.Packages.props","mix.exs","mix.lock","go.mod","go.sum","stack.yaml","stack.yaml.lock","pom.xml","build.gradle","build.gradle.kts","settings.gradle","settings.gradle.kts","gradle.properties","package-lock.json","yarn.lock","pnpm-lock.yaml","npm-shrinkwrap.json","requirements.txt","Pipfile","Pipfile.lock","pyproject.toml","setup.py","setup.cfg","Gemfile","Gemfile.lock","uv.lock","CODEOWNERS","DESIGN.md","AGENTS.md","CLAUDE.md","GEMINI.md"],"protected_path_prefixes":[".github/",".agents/",".githooks/",".husky/"],"title_prefix":"[news] "},"create_report_incomplete_issue":{},"missing_data":{},"missing_tool":{},"noop":{"max":1,"report-as-issue":"true"},"push_repo_memory":{"memories":[{"dir":"/tmp/gh-aw/repo-memory/default","id":"default","max_file_count":50,"max_file_size":51200,"max_patch_size":51200}]},"report_incomplete":{}}
-          GH_AW_SAFE_OUTPUTS_CONFIG_d6bdd22a4e309072_EOF
+          cat > "${RUNNER_TEMP}/gh-aw/safeoutputs/config.json" << 'GH_AW_SAFE_OUTPUTS_CONFIG_ccac4c6573d28d3b_EOF'
+          {"create_pull_request":{"allowed_base_branches":["main"],"draft":false,"expires":336,"labels":["agentic-news","analysis-data","type:week-in-review"],"max":1,"max_patch_size":1024,"protected_files":["package.json","bun.lockb","bunfig.toml","deno.json","deno.jsonc","deno.lock","global.json","NuGet.Config","Directory.Packages.props","mix.exs","mix.lock","go.mod","go.sum","stack.yaml","stack.yaml.lock","pom.xml","build.gradle","build.gradle.kts","settings.gradle","settings.gradle.kts","gradle.properties","package-lock.json","yarn.lock","pnpm-lock.yaml","npm-shrinkwrap.json","requirements.txt","Pipfile","Pipfile.lock","pyproject.toml","setup.py","setup.cfg","Gemfile","Gemfile.lock","uv.lock","CODEOWNERS","DESIGN.md","AGENTS.md","CLAUDE.md","GEMINI.md"],"protected_path_prefixes":[".github/",".agents/",".githooks/",".husky/"],"title_prefix":"[news] "},"create_report_incomplete_issue":{},"dispatch_workflow":{"aw_context_workflows":["news-translate"],"max":1,"workflow_files":{"news-translate":".lock.yml"},"workflows":["news-translate"]},"missing_data":{},"missing_tool":{},"noop":{"max":1,"report-as-issue":"true"},"push_repo_memory":{"memories":[{"dir":"/tmp/gh-aw/repo-memory/default","id":"default","max_file_count":50,"max_file_size":51200,"max_patch_size":51200}]},"report_incomplete":{}}
+          GH_AW_SAFE_OUTPUTS_CONFIG_ccac4c6573d28d3b_EOF
       - name: Write Safe Outputs Tools
         env:
           GH_AW_TOOLS_META_JSON: |
             {
               "description_suffixes": {
-                "add_comment": " CONSTRAINTS: Maximum 1 comment(s) can be added. Supports reply_to_id for discussion threading.",
-                "create_pull_request": " CONSTRAINTS: Maximum 10 pull request(s) can be created. Title will be prefixed with \"[news] \". Labels [\"agentic-news\" \"analysis-data\"] will be automatically added."
+                "create_pull_request": " CONSTRAINTS: Maximum 1 pull request(s) can be created. Title will be prefixed with \"[news] \". Labels [\"agentic-news\" \"analysis-data\" \"type:week-in-review\"] will be automatically added."
               },
               "repo_params": {},
-              "dynamic_tools": []
+              "dynamic_tools": [
+                {
+                  "_workflow_name": "news-translate",
+                  "description": "Dispatch the 'news-translate' workflow with workflow_dispatch trigger. This workflow must support workflow_dispatch and be in .github/workflows/ directory in the same repository.",
+                  "inputSchema": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "article_date": {
+                        "default": "",
+                        "description": "Date of articles to translate (YYYY-MM-DD, default: today)",
+                        "type": "string"
+                      },
+                      "article_types": {
+                        "default": "",
+                        "description": "Article types to translate (comma-separated: week-ahead,motions,propositions,committee-reports,breaking,week-in-review,month-in-review,month-ahead)",
+                        "type": "string"
+                      },
+                      "aw_context": {
+                        "default": "",
+                        "description": "Agent caller context (used internally by Agentic Workflows).",
+                        "type": "string"
+                      },
+                      "force_translation": {
+                        "default": true,
+                        "description": "Force translation even if translations already exist",
+                        "type": "boolean"
+                      },
+                      "languages": {
+                        "default": "all-non-en",
+                        "description": "Target languages (all-non-en | eu-core | nordic | comma-separated)",
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "name": "news_translate"
+                }
+              ]
             }
           GH_AW_VALIDATION_JSON: |
             {
-              "add_comment": {
-                "defaultMax": 1,
-                "fields": {
-                  "body": {
-                    "required": true,
-                    "type": "string",
-                    "sanitize": true,
-                    "maxLength": 65000
-                  },
-                  "item_number": {
-                    "issueOrPRNumber": true
-                  },
-                  "reply_to_id": {
-                    "type": "string",
-                    "maxLength": 256
-                  },
-                  "repo": {
-                    "type": "string",
-                    "maxLength": 256
-                  }
-                }
-              },
               "create_pull_request": {
                 "defaultMax": 1,
                 "fields": {
@@ -727,7 +734,7 @@ jobs:
           
           mkdir -p /home/runner/.copilot
           GH_AW_NODE=$(which node 2>/dev/null || command -v node 2>/dev/null || echo node)
-          cat << GH_AW_MCP_CONFIG_35b8e46713ebed96_EOF | "$GH_AW_NODE" "${RUNNER_TEMP}/gh-aw/actions/start_mcp_gateway.cjs"
+          cat << GH_AW_MCP_CONFIG_65f5398186a784db_EOF | "$GH_AW_NODE" "${RUNNER_TEMP}/gh-aw/actions/start_mcp_gateway.cjs"
           {
             "mcpServers": {
               "agenticworkflows": {
@@ -859,7 +866,7 @@ jobs:
               "keepaliveInterval": 300
             }
           }
-          GH_AW_MCP_CONFIG_35b8e46713ebed96_EOF
+          GH_AW_MCP_CONFIG_65f5398186a784db_EOF
       - name: Download activation artifact
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
@@ -877,7 +884,7 @@ jobs:
       - name: Execute GitHub Copilot CLI
         id: agentic_execution
         # Copilot CLI tool arguments (sorted):
-        timeout-minutes: 90
+        timeout-minutes: 75
         run: |
           set -o pipefail
           touch /tmp/gh-aw/agent-step-summary.md
@@ -1078,12 +1085,12 @@ jobs:
       needs.activation.outputs.stale_lock_file_failed == 'true')
     runs-on: ubuntu-slim
     permissions:
+      actions: write
       contents: write
-      discussions: write
       issues: write
       pull-requests: write
     concurrency:
-      group: "gh-aw-conclusion-news-translate-translate-${{ github.event.inputs.article_date || 'manual' }}"
+      group: "gh-aw-conclusion-news-week-in-review"
       cancel-in-progress: false
     outputs:
       incomplete_count: ${{ steps.report_incomplete.outputs.incomplete_count }}
@@ -1118,7 +1125,7 @@ jobs:
         env:
           GH_AW_AGENT_OUTPUT: ${{ steps.setup-agent-output-env.outputs.GH_AW_AGENT_OUTPUT }}
           GH_AW_NOOP_MAX: "1"
-          GH_AW_WORKFLOW_NAME: "News: Translate Articles"
+          GH_AW_WORKFLOW_NAME: "News: EU Parliament Week in Review — Unified"
           GH_AW_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           GH_AW_AGENT_CONCLUSION: ${{ needs.agent.result }}
           GH_AW_NOOP_REPORT_AS_ISSUE: "true"
@@ -1134,7 +1141,7 @@ jobs:
         uses: actions/github-script@373c709c69115d41ff229c7e5df9f8788daa9553 # v9
         env:
           GH_AW_AGENT_OUTPUT: ${{ steps.setup-agent-output-env.outputs.GH_AW_AGENT_OUTPUT }}
-          GH_AW_WORKFLOW_NAME: "News: Translate Articles"
+          GH_AW_WORKFLOW_NAME: "News: EU Parliament Week in Review — Unified"
           GH_AW_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           GH_AW_DETECTION_CONCLUSION: ${{ needs.detection.outputs.detection_conclusion }}
           GH_AW_DETECTION_REASON: ${{ needs.detection.outputs.detection_reason }}
@@ -1151,7 +1158,7 @@ jobs:
         env:
           GH_AW_AGENT_OUTPUT: ${{ steps.setup-agent-output-env.outputs.GH_AW_AGENT_OUTPUT }}
           GH_AW_MISSING_TOOL_CREATE_ISSUE: "true"
-          GH_AW_WORKFLOW_NAME: "News: Translate Articles"
+          GH_AW_WORKFLOW_NAME: "News: EU Parliament Week in Review — Unified"
         with:
           github-token: ${{ secrets.GH_AW_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
           script: |
@@ -1165,7 +1172,7 @@ jobs:
         env:
           GH_AW_AGENT_OUTPUT: ${{ steps.setup-agent-output-env.outputs.GH_AW_AGENT_OUTPUT }}
           GH_AW_REPORT_INCOMPLETE_CREATE_ISSUE: "true"
-          GH_AW_WORKFLOW_NAME: "News: Translate Articles"
+          GH_AW_WORKFLOW_NAME: "News: EU Parliament Week in Review — Unified"
         with:
           github-token: ${{ secrets.GH_AW_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
           script: |
@@ -1179,10 +1186,10 @@ jobs:
         uses: actions/github-script@373c709c69115d41ff229c7e5df9f8788daa9553 # v9
         env:
           GH_AW_AGENT_OUTPUT: ${{ steps.setup-agent-output-env.outputs.GH_AW_AGENT_OUTPUT }}
-          GH_AW_WORKFLOW_NAME: "News: Translate Articles"
+          GH_AW_WORKFLOW_NAME: "News: EU Parliament Week in Review — Unified"
           GH_AW_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           GH_AW_AGENT_CONCLUSION: ${{ needs.agent.result }}
-          GH_AW_WORKFLOW_ID: "news-translate"
+          GH_AW_WORKFLOW_ID: "news-week-in-review"
           GH_AW_ACTION_FAILURE_ISSUE_EXPIRES_HOURS: "168"
           GH_AW_ENGINE_ID: "copilot"
           GH_AW_SECRET_VERIFICATION_RESULT: ${{ needs.activation.outputs.secret_verification_result }}
@@ -1201,7 +1208,7 @@ jobs:
           GH_AW_REPO_MEMORY_PATCH_SIZE_EXCEEDED_default: ${{ needs.push_repo_memory.outputs.patch_size_exceeded_default }}
           GH_AW_GROUP_REPORTS: "false"
           GH_AW_FAILURE_REPORT_AS_ISSUE: "true"
-          GH_AW_TIMEOUT_MINUTES: "90"
+          GH_AW_TIMEOUT_MINUTES: "75"
         with:
           github-token: ${{ secrets.GH_AW_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
           script: |
@@ -1295,8 +1302,8 @@ jobs:
         if: always() && steps.detection_guard.outputs.run_detection == 'true'
         uses: actions/github-script@373c709c69115d41ff229c7e5df9f8788daa9553 # v9
         env:
-          WORKFLOW_NAME: "News: Translate Articles"
-          WORKFLOW_DESCRIPTION: "Translates English EU Parliament news articles to 13 other languages. Runs after content workflows generate English articles, ensuring high-quality translations with full linguistic fidelity."
+          WORKFLOW_NAME: "News: EU Parliament Week in Review — Unified"
+          WORKFLOW_DESCRIPTION: "Generates a single PR containing analysis artifacts and the rendered week-in-review article (Stages A → B → C → D → E in one workflow)."
           HAS_PATCH: ${{ needs.agent.outputs.has_patch }}
         with:
           script: |
@@ -1457,26 +1464,24 @@ jobs:
     if: (!cancelled()) && needs.agent.result != 'skipped' && needs.detection.result == 'success'
     runs-on: ubuntu-slim
     permissions:
+      actions: write
       contents: write
-      discussions: write
       issues: write
       pull-requests: write
     timeout-minutes: 15
     env:
-      GH_AW_CALLER_WORKFLOW_ID: "${{ github.repository }}/news-translate"
+      GH_AW_CALLER_WORKFLOW_ID: "${{ github.repository }}/news-week-in-review"
       GH_AW_DETECTION_CONCLUSION: ${{ needs.detection.outputs.detection_conclusion }}
       GH_AW_DETECTION_REASON: ${{ needs.detection.outputs.detection_reason }}
       GH_AW_EFFECTIVE_TOKENS: ${{ needs.agent.outputs.effective_tokens }}
       GH_AW_ENGINE_ID: "copilot"
       GH_AW_ENGINE_MODEL: "claude-opus-4.7"
       GH_AW_ENGINE_VERSION: "1.0.21"
-      GH_AW_WORKFLOW_ID: "news-translate"
-      GH_AW_WORKFLOW_NAME: "News: Translate Articles"
+      GH_AW_WORKFLOW_ID: "news-week-in-review"
+      GH_AW_WORKFLOW_NAME: "News: EU Parliament Week in Review — Unified"
     outputs:
       code_push_failure_count: ${{ steps.process_safe_outputs.outputs.code_push_failure_count }}
       code_push_failure_errors: ${{ steps.process_safe_outputs.outputs.code_push_failure_errors }}
-      comment_id: ${{ steps.process_safe_outputs.outputs.comment_id }}
-      comment_url: ${{ steps.process_safe_outputs.outputs.comment_url }}
       create_discussion_error_count: ${{ steps.process_safe_outputs.outputs.create_discussion_error_count }}
       create_discussion_errors: ${{ steps.process_safe_outputs.outputs.create_discussion_errors }}
       created_pr_number: ${{ steps.process_safe_outputs.outputs.created_pr_number }}
@@ -1550,7 +1555,7 @@ jobs:
           GH_AW_ALLOWED_DOMAINS: "*.europa.eu,api.business.githubcopilot.com,api.enterprise.githubcopilot.com,api.github.com,api.githubcopilot.com,api.individual.githubcopilot.com,api.npms.io,api.snapcraft.io,api.worldbank.org,archive.ubuntu.com,azure.archive.ubuntu.com,bun.sh,cdn.jsdelivr.net,crl.geotrust.com,crl.globalsign.com,crl.identrust.com,crl.sectigo.com,crl.thawte.com,crl.usertrust.com,crl.verisign.com,crl3.digicert.com,crl4.digicert.com,crls.ssl.com,data.europarl.europa.eu,dataservices.imf.org,deb.nodesource.com,deno.land,esm.sh,euparliamentmonitor.com,get.pnpm.io,github.com,googleapis.deno.dev,googlechromelabs.github.io,hack23.com,host.docker.internal,json-schema.org,json.schemastore.org,jsr.io,keyserver.ubuntu.com,localhost,nodejs.org,npm.pkg.github.com,npmjs.com,npmjs.org,ocsp.digicert.com,ocsp.geotrust.com,ocsp.globalsign.com,ocsp.identrust.com,ocsp.sectigo.com,ocsp.ssl.com,ocsp.thawte.com,ocsp.usertrust.com,ocsp.verisign.com,packagecloud.io,packages.cloud.google.com,packages.microsoft.com,ppa.launchpad.net,raw.githubusercontent.com,registry.bower.io,registry.npmjs.com,registry.npmjs.org,registry.yarnpkg.com,repo.yarnpkg.com,riksdagsmonitor.com,s.symcb.com,s.symcd.com,security.ubuntu.com,skimdb.npmjs.com,storage.googleapis.com,telemetry.enterprise.githubcopilot.com,telemetry.vercel.com,ts-crl.ws.symantec.com,ts-ocsp.ws.symantec.com,www.euparliamentmonitor.com,www.europarl.europa.eu,www.googleapis.com,www.hack23.com,www.npmjs.com,www.npmjs.org,www.riksdagsmonitor.com,yarnpkg.com"
           GITHUB_SERVER_URL: ${{ github.server_url }}
           GITHUB_API_URL: ${{ github.api_url }}
-          GH_AW_SAFE_OUTPUTS_HANDLER_CONFIG: "{\"add_comment\":{\"max\":1},\"create_pull_request\":{\"allowed_base_branches\":[\"main\"],\"draft\":false,\"excluded_files\":[\"analysis/daily/**/data/**\",\".github/**\"],\"expires\":336,\"labels\":[\"agentic-news\",\"analysis-data\"],\"max\":10,\"max_patch_size\":10240,\"protected_files\":[\"package.json\",\"bun.lockb\",\"bunfig.toml\",\"deno.json\",\"deno.jsonc\",\"deno.lock\",\"global.json\",\"NuGet.Config\",\"Directory.Packages.props\",\"mix.exs\",\"mix.lock\",\"go.mod\",\"go.sum\",\"stack.yaml\",\"stack.yaml.lock\",\"pom.xml\",\"build.gradle\",\"build.gradle.kts\",\"settings.gradle\",\"settings.gradle.kts\",\"gradle.properties\",\"package-lock.json\",\"yarn.lock\",\"pnpm-lock.yaml\",\"npm-shrinkwrap.json\",\"requirements.txt\",\"Pipfile\",\"Pipfile.lock\",\"pyproject.toml\",\"setup.py\",\"setup.cfg\",\"Gemfile\",\"Gemfile.lock\",\"uv.lock\",\"CODEOWNERS\",\"DESIGN.md\",\"AGENTS.md\",\"CLAUDE.md\",\"GEMINI.md\"],\"protected_path_prefixes\":[\".github/\",\".agents/\",\".githooks/\",\".husky/\"],\"title_prefix\":\"[news] \"},\"create_report_incomplete_issue\":{},\"missing_data\":{},\"missing_tool\":{},\"noop\":{\"max\":1,\"report-as-issue\":\"true\"},\"report_incomplete\":{}}"
+          GH_AW_SAFE_OUTPUTS_HANDLER_CONFIG: "{\"create_pull_request\":{\"allowed_base_branches\":[\"main\"],\"draft\":false,\"expires\":336,\"labels\":[\"agentic-news\",\"analysis-data\",\"type:week-in-review\"],\"max\":1,\"max_patch_size\":1024,\"protected_files\":[\"package.json\",\"bun.lockb\",\"bunfig.toml\",\"deno.json\",\"deno.jsonc\",\"deno.lock\",\"global.json\",\"NuGet.Config\",\"Directory.Packages.props\",\"mix.exs\",\"mix.lock\",\"go.mod\",\"go.sum\",\"stack.yaml\",\"stack.yaml.lock\",\"pom.xml\",\"build.gradle\",\"build.gradle.kts\",\"settings.gradle\",\"settings.gradle.kts\",\"gradle.properties\",\"package-lock.json\",\"yarn.lock\",\"pnpm-lock.yaml\",\"npm-shrinkwrap.json\",\"requirements.txt\",\"Pipfile\",\"Pipfile.lock\",\"pyproject.toml\",\"setup.py\",\"setup.cfg\",\"Gemfile\",\"Gemfile.lock\",\"uv.lock\",\"CODEOWNERS\",\"DESIGN.md\",\"AGENTS.md\",\"CLAUDE.md\",\"GEMINI.md\"],\"protected_path_prefixes\":[\".github/\",\".agents/\",\".githooks/\",\".husky/\"],\"title_prefix\":\"[news] \"},\"create_report_incomplete_issue\":{},\"dispatch_workflow\":{\"aw_context_workflows\":[\"news-translate\"],\"max\":1,\"workflow_files\":{\"news-translate\":\".lock.yml\"},\"workflows\":[\"news-translate\"]},\"missing_data\":{},\"missing_tool\":{},\"noop\":{\"max\":1,\"report-as-issue\":\"true\"},\"report_incomplete\":{}}"
           GH_AW_CI_TRIGGER_TOKEN: ${{ secrets.GH_AW_CI_TRIGGER_TOKEN }}
         with:
           github-token: ${{ secrets.GH_AW_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
