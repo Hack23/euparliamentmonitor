@@ -516,19 +516,25 @@ Every MCP client exports a canonical tool list asserted by an integration contra
 
 `IMFMCPClient` is a **native TypeScript fetch client against IMF SDMX 3.0** — NOT an MCP server. Env configuration: `IMF_API_BASE_URL` (defaults to `https://dataservices.imf.org/REST/SDMX_3.0/`), `IMF_API_TIMEOUT_MS`. Provides monthly World Economic Outlook (WEO) and Fiscal Monitor (FM) forecasts up to five years ahead.
 
-### Dual Economic Context Gate (Wave-2 OR-gate)
+### Dual Economic Context Gate (Wave-2 OR-gate + Wave-3 strict gate)
 
-`src/utils/content-validator.ts` exports two content-policy gates used by the validator:
+`src/utils/content-validator.ts` exports three content-policy gates used by the validator:
 
 ```typescript
-// Original single-source gate (kept for backward compatibility)
-export function articlePolicyHasWorldBank(articleHtml: string): boolean;
+// Original single-source gate (kept for backward compatibility, legacy soft check)
+export function articlePolicyHasWorldBank(articleHtml: string, articleType: string): boolean;
 
-// Wave-2 OR-gate: accepts World Bank OR IMF evidence
-export function articlePolicyHasEconomicContext(articleHtml: string): boolean;
+// Wave-2 OR-gate (default): accepts World Bank OR IMF evidence
+export function articlePolicyHasEconomicContext(articleHtml: string, articleType: string): boolean;
+
+// Wave-3 strict gate (dark-launched): IMF evidence only — World Bank does not satisfy
+export function articlePolicyHasIMFEconomicEvidence(articleHtml: string, articleType: string): boolean;
+
+// Flag parser — controls which gate is enforced at Stage-C
+export function isWave3IMFStrictEnabled(env?: Record<string, string | undefined>): boolean;
 ```
 
-Policy articles (motions, propositions, committee-reports, month-ahead, month-in-review) MUST pass `articlePolicyHasEconomicContext`. Breaking news and week-ahead have lighter economic-context requirements — configured per strategy in `src/generators/strategies/`.
+Policy articles (motions, propositions, committee-reports, month-ahead, month-in-review) MUST pass the active gate. Under default settings the OR-gate applies (Wave-2 back-compat). When `WAVE3_IMF_STRICT=true` is set in the environment, `validate-articles.ts` switches to `articlePolicyHasIMFEconomicEvidence` — World Bank citations alone no longer satisfy the gate. The strict gate is intended for opt-in dark-launch runs and dashboard telemetry; Wave-4 will flip the default. Breaking news and week-ahead have lighter economic-context requirements — configured per strategy in `src/generators/strategies/`.
 
 ### Reference Quality Thresholds
 

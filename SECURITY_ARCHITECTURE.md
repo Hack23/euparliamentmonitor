@@ -351,7 +351,7 @@ The EU Parliament Monitor integrates with **Model Context Protocol (MCP)** serve
 **Security Controls**:
 - **Certificate Validation**: Node.js built-in TLS certificate chain validation
 - **HTTPS-Only**: IMF requests target the fixed `https://dataservices.imf.org/REST/SDMX_3.0/` base URL (configurable via `IMF_API_BASE_URL`)
-- **Failure Handling**: Network failures, non-2xx responses, and timeouts return an empty fallback payload (not cached/sample data) so downstream content falls back to the OR-gate (World Bank)
+- **Failure Handling**: Network failures, non-2xx responses, and timeouts return an empty fallback payload (not cached/sample data) so downstream content falls back to the OR-gate (when `WAVE3_IMF_STRICT=false`) or fails Stage-C (when strict mode is on)
 - **Verification**: Integration tests in `test/integration/mcp/imf-mcp.test.js` exercise the client with an injected `fetchImpl` to cover success and failure paths
 
 ### World Bank MCP
@@ -398,25 +398,30 @@ The EU Parliament Monitor integrates with **Model Context Protocol (MCP)** serve
 - **Change Approval**: Enforce review for upstream schema changes
 - **Audit Trail**: Git history tracks when and why tool lists changed
 
-### Economic Context OR-Gate
+### Economic Context Gate (Wave-3 IMF-primary + Wave-2 OR-gate fallback)
 
-**Purpose**: Resilience through fallback data sources for economic context.
+**Purpose**: IMF as primary economic source under Wave-3 editorial policy with World Bank retained for non-economic resilience and pre-Wave-2 article back-compat.
 
 **Implementation**:
 
-- **Primary Strategy** (`articlePolicyHasWorldBank`):
-  - World Bank data as default source
-  - Covers most economic indicators (GDP, inflation, debt, etc.)
+- **Wave-3 strict (dark-launched)** (`articlePolicyHasIMFEconomicEvidence`):
+  - IMF SDMX 3.0 evidence required for every economic claim
+  - Activated by `WAVE3_IMF_STRICT=true` environment variable (parsed by `isWave3IMFStrictEnabled`)
+  - Will become the default in Wave-4
 
-- **Fallback Strategy** (`articlePolicyHasEconomicContext`):
-  - OR-gate: World Bank **OR** IMF data acceptable
-  - IMF SDMX 3.0 API provides alternative source
-  - Workflow succeeds if either source available
+- **Wave-2 OR-gate (default)** (`articlePolicyHasEconomicContext`):
+  - Accepts World Bank **OR** IMF evidence
+  - Pre-Wave-2 articles citing only World Bank remain green
+  - The default validator path until Wave-4 flips the strict gate on
+
+- **Legacy soft-check** (`articlePolicyHasWorldBank`):
+  - Retained as a non-breaking helper for diagnostic reporting and historical tests
+  - No longer the primary validator gate
 
 **Resilience Benefits**:
-- **High Availability**: Single data source outage doesn't block news generation
-- **Diverse Sources**: Multiple authoritative sources (both UN agencies)
-- **Graceful Degradation**: Workflows continue even if one data source unavailable
+- **Editorial discipline**: Wave-3 mandates IMF as the single authoritative economic source — eliminates ambiguity over which dataset takes precedence
+- **Graceful degradation**: When `WAVE3_IMF_STRICT` is `false` (default), workflows still succeed on WB-only evidence for back-compat
+- **Diverse sources for non-economic context**: WB retained for health, education, social, environment, demographics, defence, agriculture, innovation, governance — IMF does not cover these
 
 ### MCP Configuration Management
 
