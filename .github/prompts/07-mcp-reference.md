@@ -139,10 +139,10 @@ Rate limit: 500 req / 5 min. Cached responses < 200 ms.
 >
 > IMF is the **sole authoritative source** for all **economic** context
 > — GDP, inflation, unemployment, fiscal balance, debt, trade, FDI,
-> monetary, exchange rates, banking soundness. Enforced by
-> `articlePolicyHasEconomicContext` in
-> `src/utils/content-validator.ts` (Wave-3 OR-gate); Wave-4 will flip
-> to `articlePolicyHasIMFEconomicEvidence` (IMF-only).
+> monetary, exchange rates, banking soundness. Enforcement is
+> editorial/agent-side (Stage-C completeness review); the legacy
+> runtime gate in `src/utils/content-validator.ts` was purged in the
+> April-2026 aggregator-pipeline migration.
 
 Client: `src/mcp/imf-mcp-client.ts` (class `IMFMCPClient`).
 Transport: direct REST to `https://dataservices.imf.org/REST/SDMX_3.0/`
@@ -171,8 +171,8 @@ via `fetch` (no Python MCP dependency). Env vars:
 (unlike WB MCP). See
 [`analysis/imf/eu-country-mapping.md`](../../analysis/imf/eu-country-mapping.md).
 
-**Per-article-type indicator minimums** (Stage-C gate when
-`WAVE3_IMF_STRICT=true`): committee-reports/ECON ≥ 4, /BUDG ≥ 3,
+**Per-article-type indicator minimums** (editorial policy — Stage-C
+completeness review): committee-reports/ECON ≥ 4, /BUDG ≥ 3,
 /INTA ≥ 3; week-ahead/month-ahead/monthly-review ≥ 2; breaking /
 weekly-review / motions / propositions ≥ 1.
 

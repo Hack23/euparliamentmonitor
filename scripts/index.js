@@ -51,7 +51,7 @@ export { computeArticleQualityScore, buildTableOfContents, buildQualityScoreBadg
 export { getIndexFilename, generateIndexHTML } from './generators/news-indexes.js';
 export { collectDocsHtmlFiles, generateSitemap, getSitemapFilename, generateSitemapHTML, generateRssFeed, } from './generators/sitemap.js';
 export { getPoliticalIntelligenceFilename, generatePoliticalIntelligenceHTML, } from './generators/political-intelligence.js';
-export { CURATED_DESCRIPTIONS, CURATED_TITLES } from './generators/political-intelligence-descriptions.js';
+export { CURATED_DESCRIPTIONS, CURATED_TITLES, } from './generators/political-intelligence-descriptions.js';
 // ─── Aggregator ──────────────────────────────────────────────────────────────
 export { ARTIFACT_SECTIONS, SUPPLEMENTARY_SECTION_ID, SUPPLEMENTARY_SECTION_TITLE, TRADECRAFT_SECTION_ID, } from './aggregator/artifact-order.js';
 export { cleanArtifact } from './aggregator/clean-artifact.js';
@@ -60,5 +60,5 @@ export { renderMarkdown, slugify, buildMarkdownIt } from './aggregator/markdown-
 export { getArticleFilename, buildArticleHreflangLinks, wrapArticleHtml, } from './aggregator/article-html.js';
 export { generateArticle } from './aggregator/article-generator.js';
 // ─── Constants ───────────────────────────────────────────────────────────────
-export { PROJECT_ROOT, NEWS_DIR, METADATA_DIR, BASE_URL, ARTICLE_FILENAME_PATTERN } from './constants/config.js';
+export { PROJECT_ROOT, NEWS_DIR, METADATA_DIR, BASE_URL, ARTICLE_FILENAME_PATTERN, } from './constants/config.js';
 //# sourceMappingURL=index.js.map

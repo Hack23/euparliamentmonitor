@@ -11,11 +11,13 @@
 > for non-economic domains (health, education, social, environment,
 > demographics, defence, agriculture, innovation, governance).
 
-**🌀 Wave:** 3 — IMF-primary editorial policy enforced by
-`articlePolicyHasEconomicContext` (existing OR-gate retained for
-back-compat with pre-Wave-2 articles) and the dark-launched strict
-helper `articlePolicyHasIMFEconomicEvidence` (behind the
-`WAVE3_IMF_STRICT` environment flag). Every new article citing an
+**🌀 Wave:** 3 — IMF-primary editorial policy enforced at Stage-C
+completeness review. The legacy runtime gate helpers
+(`articlePolicyHasEconomicContext` OR-gate and
+`articlePolicyHasIMFEconomicEvidence` IMF-only gate) lived in
+`src/utils/content-validator.ts` and were purged in the April-2026
+aggregator-pipeline migration along with the rest of
+`src/utils/validate-articles.ts`. Every new article citing an
 economic indicator MUST cite IMF with SDMX code + vintage prose +
 HTML `data-vintage` attribute + forecast marker within 30 words of
 any projected number.
@@ -24,9 +26,7 @@ any projected number.
 > Python `c-cf/imf-data-mcp` MCP server. That transport was replaced
 > with a native TypeScript HTTP client — the public API
 > (`IMFMCPClient`, five tool methods, `MCPToolResult`-shaped return
-> envelope) is identical, and the five tool identifiers remain the
-> content-validator fingerprint source and workflow-probe heartbeat
-> anchors.
+> envelope) is identical.
 
 ---
 
@@ -54,9 +54,9 @@ environment / demographics / defence (WB military expenditure) /
 agriculture / innovation / governance (WGI) indicators — IMF does
 not cover those domains.
 
-**Per-article-type IMF indicator floor** (enforced at Stage C by
-`validate-analysis-completeness` when `WAVE3_IMF_STRICT=true`; soft
-warning otherwise): see [`analysis/methodologies/imf-indicator-mapping.md §8`](../../analysis/methodologies/imf-indicator-mapping.md) —
+**Per-article-type IMF indicator floor** (editorial policy, enforced
+at Stage C completeness review): see
+[`analysis/methodologies/imf-indicator-mapping.md §8`](../../analysis/methodologies/imf-indicator-mapping.md) —
 `committee-reports/ECON` ≥ 4, `/BUDG` ≥ 3, `/INTA` ≥ 3;
 `week-ahead` / `month-ahead` / `monthly-review` ≥ 2;
 `breaking` / `weekly-review` / `motions` / `propositions` ≥ 1.
@@ -121,16 +121,18 @@ cross-refs) when IMF is unreachable.
 
 ## Validator Hooks
 
-| Helper | Status | Purpose |
-|---|:---:|---|
-| `hasIMFEvidence(text)` | shipped | Detects IMF sourcing (tool names, product names, SDMX codes); case-insensitive on short tokens `IMF`/`WEO` |
-| `articlePolicyHasEconomicContext(html, type)` | **default gate (Wave-3)** | OR-gate: passes when WB **or** IMF evidence is present. Wired into `src/utils/validate-articles.ts`. Retained for pre-Wave-2 back-compat. |
-| `articlePolicyHasIMFEconomicEvidence(html, type)` | **strict, dark-launched (Wave-3)** | IMF-only gate: passes only when IMF fingerprints + SDMX codes + forecast markers + vintage attribute are present. Activated when `WAVE3_IMF_STRICT=true` environment flag is set. Will become the default in Wave-4. |
-| `articlePolicyHasWorldBank(html, type)` | legacy | Retained as a non-breaking helper for historical tests; no longer used by the default validator path |
-
-Fingerprint sources: `IMF_STRONG_FINGERPRINTS` and `IMF_INDICATOR_CODES`
-(`src/utils/content-validator.ts`), drift-guarded by
-`test/unit/content-validator-imf.test.js`.
+The runtime validator helpers that previously enforced IMF/WB
+fingerprint checks (`hasIMFEvidence`, `articlePolicyHasEconomicContext`,
+`articlePolicyHasIMFEconomicEvidence`, `articlePolicyHasWorldBank`,
+plus the `IMF_STRONG_FINGERPRINTS` / `IMF_INDICATOR_CODES` tables)
+lived in `src/utils/content-validator.ts` and were removed in the
+April-2026 aggregator-pipeline migration. The fingerprint content
+survives as editorial convention — see
+[`analysis/imf/indicator-catalog.md`](../../analysis/imf/indicator-catalog.md)
+for the canonical SDMX code list and
+[`analysis/methodologies/imf-indicator-mapping.md`](../../analysis/methodologies/imf-indicator-mapping.md)
+for the per-committee mapping. Agents must apply these during Stage-C
+completeness review.
 
 ---
 

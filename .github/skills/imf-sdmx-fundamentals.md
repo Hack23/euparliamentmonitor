@@ -174,11 +174,14 @@ discovery caches between runs — this is a Wave-5 enhancement target.
 
 ## 8. Validation hooks
 
-The content-validator's `IMF_STRONG_FINGERPRINTS` and
-`IMF_INDICATOR_CODES` tables (src/utils/content-validator.ts) are
-drift-guarded by `test/unit/content-validator-imf.test.js`. When this
-skill file changes, rerun `npm run test -- content-validator-imf` to
-confirm the fingerprint table still covers the documented dataflows.
+The runtime fingerprint tables (`IMF_STRONG_FINGERPRINTS`,
+`IMF_INDICATOR_CODES`) previously lived in
+`src/utils/content-validator.ts` and were drift-guarded by
+`test/unit/content-validator-imf.test.js`. Both were removed in the
+April-2026 aggregator-pipeline purge. The canonical fingerprint /
+indicator-code catalog is now
+[`../../analysis/imf/indicator-catalog.md`](../../analysis/imf/indicator-catalog.md),
+and enforcement is editorial (Stage-C completeness review).
 
 ---
 

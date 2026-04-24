@@ -405,19 +405,17 @@ import {
   // MCP Client for EU Parliament data
   EuropeanParliamentMCPClient,
   getEPMCPClient,
-  // Intelligence analysis
-  scoreVotingAnomaly,
-  analyzeCoalitionCohesion,
-  assessPoliticalThreats,
-  // Article generation
-  generateArticleHTML,
-  scoreArticleQuality,
+  // Intelligence index (cross-article relationships)
+  buildIndexFromEntries,
+  findRelatedArticles,
+  generateCrossReferences,
+  // Article generation (aggregator pipeline)
+  generateArticle,
+  aggregateAnalysisRun,
+  renderMarkdown,
   // Multi-language support (14 languages)
   ALL_LANGUAGES,
   LANGUAGE_NAMES,
-  // Content validation
-  validateArticleContent,
-  validateTranslationCompleteness,
 } from 'euparliamentmonitor';
 
 // Or import specific modules for tree-shaking

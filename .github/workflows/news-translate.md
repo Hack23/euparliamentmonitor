@@ -203,7 +203,7 @@ Mandatory ordering contract:
 > - Run #188 (PR #1346): called safeoutputs 6× but `max:1` default rejected 5/6 → 13 lost + empty PR left behind. **Root cause**: two separate bugs — `max:1` default (fixed in previous commit, now `max:10`), and the "empty baseline" anti-pattern (fixed in this commit).
 
 > **📚 Reference**: [README.md](../prompts/README.md) for EP MCP tools and safe outputs.
-> **📈 Economic context pass-through (Wave-3)**: Translation workflows inherit IMF (primary economic) + World Bank (non-economic) citations and chart structure from the source English article. Do not add, remove, or alter `<canvas data-chart-config>` blocks, IMF citations, WB citations, or vintage strings; the validator (`npx tsx src/utils/validate-articles.ts --date=$TODAY --quality --strict`) treats the translated file as a pass-through and expects the same Chart.js + indicator evidence as the source. **Preserve proper names untranslated**: `IMF`, `WEO`, `Fiscal Monitor`, `World Economic Outlook`, `data-vintage="WEO-April-2026"`. See [`analysis/methodologies/imf-indicator-mapping.md`](../../analysis/methodologies/imf-indicator-mapping.md) and [`analysis/methodologies/worldbank-indicator-mapping.md`](../../analysis/methodologies/worldbank-indicator-mapping.md) for reference only.
+> **📈 Economic context pass-through (Wave-3)**: Translation workflows inherit IMF (primary economic) + World Bank (non-economic) citations and chart structure from the source English article. Do not add, remove, or alter `<canvas data-chart-config>` blocks, IMF citations, WB citations, or vintage strings; translations are structural pass-throughs and must preserve the same Chart.js + indicator evidence as the source. **Preserve proper names untranslated**: `IMF`, `WEO`, `Fiscal Monitor`, `World Economic Outlook`, `data-vintage="WEO-April-2026"`. See [`analysis/methodologies/imf-indicator-mapping.md`](../../analysis/methodologies/imf-indicator-mapping.md) and [`analysis/methodologies/worldbank-indicator-mapping.md`](../../analysis/methodologies/worldbank-indicator-mapping.md) for reference only.
 
 ## 🔁 MCP Gateway Keepalive + Flush Policy (NON-NEGOTIABLE)
 
@@ -1163,17 +1163,14 @@ for ITEM in $(echo "$TRANSLATED_TYPES" | tr ',' ' '); do
       VALIDATION_FAILURES=$((VALIDATION_FAILURES + 1))
     fi
 
-    # ── Per-file quality score using validate-articles ──
+    # ── Per-file quality score (legacy validate-articles removed April 2026) ──
+    # The TS quality scorer was purged in the aggregator-pipeline migration.
+    # Translation QA now relies on the structural/linguistic checks above
+    # (word count, untranslated markers, broad-English pattern detection,
+    # CJK/RTL presence). Leave QUALITY_SCORE/QUALITY_GRADE unset → "n/a"
+    # in the per-language summary.
     QUALITY_SCORE=""
     QUALITY_GRADE=""
-    if command -v npx >/dev/null 2>&1; then
-      FILE_BASE=$(basename "$FILE")
-      QUALITY_OUTPUT=$(npx tsx src/utils/validate-articles.ts --quality --date="${ITEM_DATE}" 2>&1 | grep -F "$FILE_BASE" | head -1 || true)
-      if [ -n "$QUALITY_OUTPUT" ]; then
-        QUALITY_SCORE=$(echo "$QUALITY_OUTPUT" | grep -oP 'score[:\s]*\K[0-9]+' 2>/dev/null || true)
-        QUALITY_GRADE=$(echo "$QUALITY_OUTPUT" | grep -oP 'grade[:\s]*\K[A-F]' 2>/dev/null || true)
-      fi
-    fi
     # Persist per-file quality data for summary
     QUALITY_DATA="${QUALITY_DATA:-}"
     QUALITY_DATA="${QUALITY_DATA}${LANG}|${QUALITY_SCORE:-n/a}|${QUALITY_GRADE:-n/a}|${WORD_COUNT:-0}|${UNTRANSLATED_COUNT:-0}|${BROAD_ENGLISH:-0}

@@ -54,7 +54,7 @@ export function buildMarkdownIt() {
  * @returns Slug of up to 80 ASCII-ish characters, with dashes as separators
  */
 export function slugify(text) {
-    return text
+    return (text
         .toLowerCase()
         .normalize('NFKD')
         // Strip combining diacritical marks (Unicode range U+0300..U+036F)
@@ -66,7 +66,7 @@ export function slugify(text) {
         .replace(/\s+/g, '-')
         .replace(/-+/g, '-')
         .replace(/^-|-$/g, '')
-        .slice(0, 80);
+        .slice(0, 80));
 }
 /**
  * Override the `fence` renderer so fenced `mermaid` blocks emit a

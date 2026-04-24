@@ -87,11 +87,12 @@ retained for non-economic domains only (health, education, social,
 environment, demographics, defence, agriculture, innovation,
 governance).
 
-The enforced gate `articlePolicyHasEconomicContext` accepts either
-source (OR-gate, Wave-3); **IMF is the required primary source for
-economic claims**. Wave-4 flips the gate to
-`articlePolicyHasIMFEconomicEvidence` (IMF-only) — dark-launched now
-behind the `WAVE3_IMF_STRICT` flag.
+**IMF is the required primary source for economic claims.** The
+legacy runtime validator gates (`articlePolicyHasEconomicContext` /
+`articlePolicyHasIMFEconomicEvidence`) lived in
+`src/utils/content-validator.ts`, which was purged in the April-2026
+aggregator-pipeline migration; enforcement is now editorial and
+happens during Stage C completeness review.
 
 Follow the indicator-mapping files:
 [`imf-indicator-mapping.md`](../../analysis/methodologies/imf-indicator-mapping.md)
@@ -109,8 +110,7 @@ Every IMF citation MUST include:
 2. **Vintage HTML attribute** (`data-vintage="WEO-April-2026"` on the
    `<section class="economic-context imf-economic-context">` element).
 3. **Forecast marker** within 30 words of any projected number
-   (`forecast`, `projection`, `projects`, `expects`, etc. — validator
-   regex-enforced).
+   (`forecast`, `projection`, `projects`, `expects`, etc.).
 4. **Optimism-bias caveat** for horizons ≥3 years (editorial, sized
    per [`analysis/imf/forecast-accuracy-baseline.md`](../../analysis/imf/forecast-accuracy-baseline.md)).
 
@@ -161,17 +161,21 @@ analytical section fails the completeness gate.
 Full contract (AI_MARKER sentinels, per-article-type inputs):
 [`05-analysis-to-article-contract.md`](05-analysis-to-article-contract.md).
 
-## 8 · Validators (run in order, all must exit 0)
+## 8 · Rendering & Completeness Check
 
-```bash
-# 1. Fallback-leak scan on rendered HTML
-node scripts/utils/validate-analysis-completeness.js \
-  --article-html="news/${TODAY}-${TYPE}-en.html"
+The aggregator CLI (`npm run generate-article -- --run <analysis-run-dir>`)
+is the sole render step. It reads `manifest.json`, walks every artifact
+listed under `files`, normalises them through `src/aggregator/clean-artifact.ts`,
+and emits the final HTML via `src/aggregator/article-html.ts`.
+Completeness is enforced by manifest schema (Stage-C completeness gate
+— top-level `articleType` + `files` object) and by the per-artifact
+depth floors in `analysis/methodologies/reference-quality-thresholds.json`.
 
-# 2. Quality / structural validator
-npx tsx src/utils/validate-articles.ts --date="$TODAY" --quality --strict
-
-Non-zero exit from validation blocks PR creation. Do NOT skip, do NOT `--warn-only`.
+The legacy standalone validators (`scripts/utils/validate-analysis-completeness.js`
+and `src/utils/validate-articles.ts`) were removed in the April-2026
+aggregator-pipeline purge. Stage-C gating now runs agent-side during
+Pass 2 review and at manifest-write time — see
+[`02-analysis-protocol.md`](02-analysis-protocol.md) §9.
 
 ## 9 · No-Publish Rule
 

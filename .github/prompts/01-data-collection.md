@@ -72,19 +72,22 @@ economic context**:
   `NAC`, `EAS`, `SSF`) to the WB MCP — the server rejects them with
   `Error: Country not found`. Use individual member-state codes or cite
   IMF `EU`/`EA` for any EU-level framing.
-- **Per-article-type IMF minimums** (enforced at Stage-C completeness
-  gate when `WAVE3_IMF_STRICT=true`):
+- **Per-article-type IMF minimums** (editorial policy — enforced at
+  Stage-C completeness gate):
   committee-reports/ECON ≥ 4 indicators, /BUDG ≥ 3, /INTA ≥ 3;
   week-ahead / month-ahead / monthly-review ≥ 2;
   breaking / weekly-review / motions / propositions ≥ 1. Full table in
   [`analysis/methodologies/imf-indicator-mapping.md §8`](../../analysis/methodologies/imf-indicator-mapping.md).
 - Connectivity probes: `source scripts/wb-mcp-probe.sh` and
   `source scripts/imf-mcp-probe.sh` after `scripts/mcp-setup.sh`.
-- Validator gate (`articlePolicyHasEconomicContext`, Wave-3 enforced):
-  IMF **or** WB evidence satisfies the rule; **IMF is the required
-  primary source** for economic claims. Wave-4 flips the gate to
-  `articlePolicyHasIMFEconomicEvidence` (IMF-only) — dark-launched now
-  behind the `WAVE3_IMF_STRICT` flag.
+- Editorial rule (Wave-3+): **IMF is the required primary source** for
+  every economic claim; World Bank may be cited as corroborating
+  evidence for non-economic indicators (health, education, social,
+  environment, demographics, defence, agriculture, innovation,
+  governance). The legacy TypeScript validators that enforced this at
+  runtime were purged in April 2026 along with the rest of the
+  article-generation pipeline; enforcement is now agent-side during
+  Stage C completeness review.
 - Forecast labelling: every IMF projection prose MUST include
   "forecast"/"projection"/"projects"/"expects" within 30 words of the
   number (regex-enforced), AND the section MUST carry
