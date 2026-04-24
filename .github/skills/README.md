@@ -12,7 +12,7 @@ Skills are reusable knowledge units that encode Hack23's security policies, arch
 |---|---|
 | **Analysis producers** (own artifacts under `analysis/daily/<run>/`) | `intelligence-analysis-techniques`, `political-science-analysis`, `osint-methodologies`, `behavioral-analysis`, `electoral-analysis`, `strategic-communication-analysis`, `risk-assessment-frameworks`, `data-science-for-intelligence` |
 | **Analysis consumers** (read artifacts, render to content) | `ai-first-quality` (contract owner), `seo-best-practices`, `accessibility-excellence`, `business-model-canvas` |
-| **Data / pipeline** (Stage A inputs) | `european-parliament-data`, `european-political-system`, `legislative-monitoring`, `mcp-server-integration`, `imf-data-integration` |
+| **Data / pipeline** (Stage A inputs) | `european-parliament-data`, `european-political-system`, `legislative-monitoring`, `mcp-server-integration`, `imf-data-integration`, `imf-sdmx-fundamentals` |
 | **gh-aw infrastructure** (authoritative upstream docs pinned at top of each file) | `github-agentic-workflows`, `gh-aw-architecture`, `gh-aw-firewall`, `gh-aw-sandbox`, `mcp-gateway-configuration`, `mcp-gateway-security`, `mcp-gateway-troubleshooting` |
 | **Compliance / security** | `compliance-frameworks`, `isms-compliance`, `sdlc-security-integration`, `security-by-design`, `threat-modeling`, `data-protection`, `open-source-governance`, `ai-governance` |
 | **Quality / docs** | `testing-strategy`, `code-quality-excellence`, `documentation-standards`, `performance-optimization`, `c4-architecture-documentation` |
@@ -57,7 +57,8 @@ Canonical analysis anchors — every skill on the news critical path points to t
 ### 🇪🇺 Data Integration Skills
 - **[European Parliament Data](european-parliament-data.md)** — EP MCP server tools, data validation, caching, fallback
 - **[Legislative Monitoring](legislative-monitoring.md)** — OLP tracking, trilogue analysis, amendment patterns, plenary voting
-- **[IMF Data Integration](imf-data-integration.md)** — IMF macroeconomic indicators, SDR/quota data, sovereign-risk signals for economic-context analysis
+- **[IMF Data Integration](imf-data-integration.md)** — IMF macroeconomic indicators, SDR/quota data, sovereign-risk signals; **Wave-3 primary source for every economic claim**
+- **[IMF SDMX Fundamentals](imf-sdmx-fundamentals.md)** — SDMX 3.0 dimension grammar, codelists, vintage identifiers, error-code reference; companion to `imf-data-integration.md`
 
 ### 🔍 Intelligence & OSINT Skills
 - **[Political Science Analysis](political-science-analysis.md)** — Comparative politics, MEP behavior, EU legislative procedures, democratic accountability

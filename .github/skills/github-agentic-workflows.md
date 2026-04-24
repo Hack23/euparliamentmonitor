@@ -79,7 +79,8 @@ network:
     - api.github.com
     - data.europarl.europa.eu
     - "*.europa.eu"
-    - api.worldbank.org
+    - dataservices.imf.org   # IMF SDMX REST — primary economic (Wave-3)
+    - api.worldbank.org      # World Bank WDI — non-economic only (Wave-3)
     - hack23.com
     - www.hack23.com
     - riksdagsmonitor.com
@@ -192,7 +193,7 @@ network:
     - defaults                    # Basic infrastructure (certificates, DNS, etc.)
 ```
 
-**Example — EP + World Bank workflow:**
+**Example — EP + IMF + World Bank workflow (Wave-3):**
 ```yaml
 network:
   allowed:
@@ -200,7 +201,8 @@ network:
     - github.com
     - api.github.com
     - data.europarl.europa.eu
-    - api.worldbank.org           # World Bank API
+    - dataservices.imf.org        # IMF SDMX REST — primary economic (Wave-3)
+    - api.worldbank.org           # World Bank API — non-economic only (Wave-3)
     - "*.europa.eu"
     - hack23.com
     - www.hack23.com
