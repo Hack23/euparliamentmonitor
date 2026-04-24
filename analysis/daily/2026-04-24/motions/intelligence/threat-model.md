@@ -1,7 +1,7 @@
 # Threat Model — March 2026 Motion Cluster
 
 <!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 
 **Framework**: adapted STRIDE for political-process threats — each
 motion cluster is treated as a "process asset" whose confidentiality,

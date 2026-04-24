@@ -160,12 +160,18 @@ interface PICopy {
   statRunsLabel: string;
   statArtifactsLabel: string;
   viewOnGitHub: string;
-  /** "{count} artifacts" label for each run */
+  /** "{count} artifacts" label for each run (plural, count > 1) */
   artifactCountLabel: string;
-  /** "{count} runs" label in the date-group header */
+  /** Singular form used when artifactCount === 1 (e.g. "1 artifact") */
+  artifactCountLabelSingular: string;
+  /** "{count} runs" label in the date-group header (plural, count > 1) */
   runsCountLabel: string;
-  /** Label for the expandable artifact-file list inside each run (e.g. "Show all {count} artifact files") */
+  /** Singular form used when runs.length === 1 (e.g. "1 run") */
+  runsCountLabelSingular: string;
+  /** Label for the expandable artifact-file list inside each run (plural, count > 1) */
   artifactsToggleLabel: string;
+  /** Singular form of the toggle label used when artifactCount === 1 */
+  artifactsToggleLabelSingular: string;
   /**
    * Localized note shown at the top of the methodology/template/reference
    * sections on non-English pages, explaining that the source tradecraft
@@ -208,8 +214,11 @@ const DEFAULT_COPY: PICopy = {
   statArtifactsLabel: 'Artifacts',
   viewOnGitHub: 'View on GitHub',
   artifactCountLabel: '{count} artifacts',
+  artifactCountLabelSingular: '1 artifact',
   runsCountLabel: '{count} runs',
+  runsCountLabelSingular: '1 run',
   artifactsToggleLabel: 'Show all {count} artifact files',
+  artifactsToggleLabelSingular: 'Show the 1 artifact file',
   sourceInEnglishNote: '',
   seoKeywords:
     'European Parliament, political intelligence, OSINT, SWOT, PESTLE, TOWS, STRIDE, methodology, artifact templates, coalition mathematics, risk assessment, threat model, transparency, EU',
@@ -220,6 +229,7 @@ const PI_COPY: Partial<Record<string, Partial<PICopy>>> = (() => {
   const SV_METHODOLOGIES = 'Metodologier';
   const NO_METHODOLOGIES = 'Metodologier';
   const ARTEFAKTER_COUNT = '{count} artefakter';
+  const ARTEFAKT_SINGULAR = '1 artefakt';
   return {
     en: {},
     sv: {
@@ -249,8 +259,11 @@ const PI_COPY: Partial<Record<string, Partial<PICopy>>> = (() => {
       statArtifactsLabel: 'Artefakter',
       viewOnGitHub: 'Visa på GitHub',
       artifactCountLabel: ARTEFAKTER_COUNT,
+      artifactCountLabelSingular: ARTEFAKT_SINGULAR,
       runsCountLabel: '{count} körningar',
+      runsCountLabelSingular: '1 körning',
       artifactsToggleLabel: 'Visa alla {count} artefaktfiler',
+      artifactsToggleLabelSingular: 'Visa 1 artefaktfil',
       sourceInEnglishNote:
         'Källmaterialet (metodologier, mallar och dagliga analysartefakter) publiceras på engelska. Titlar och filvägar är därför på engelska — endast sidans navigation och beskrivningar är översatta.',
       seoKeywords:
@@ -283,8 +296,11 @@ const PI_COPY: Partial<Record<string, Partial<PICopy>>> = (() => {
       statArtifactsLabel: 'Artefakter',
       viewOnGitHub: 'Vis på GitHub',
       artifactCountLabel: ARTEFAKTER_COUNT,
+      artifactCountLabelSingular: ARTEFAKT_SINGULAR,
       runsCountLabel: '{count} kørsler',
+      runsCountLabelSingular: '1 kørsel',
       artifactsToggleLabel: 'Vis alle {count} artefaktfiler',
+      artifactsToggleLabelSingular: 'Vis 1 artefaktfil',
       sourceInEnglishNote:
         'Kildematerialet (metoder, skabeloner og daglige analyseartefakter) udgives på engelsk. Titler og filstier er derfor på engelsk — kun sidens navigation og beskrivelser er oversat.',
       seoKeywords:
@@ -317,8 +333,11 @@ const PI_COPY: Partial<Record<string, Partial<PICopy>>> = (() => {
       statArtifactsLabel: 'Artefakter',
       viewOnGitHub: 'Vis på GitHub',
       artifactCountLabel: ARTEFAKTER_COUNT,
+      artifactCountLabelSingular: ARTEFAKT_SINGULAR,
       runsCountLabel: '{count} kjøringer',
+      runsCountLabelSingular: '1 kjøring',
       artifactsToggleLabel: 'Vis alle {count} artefaktfiler',
+      artifactsToggleLabelSingular: 'Vis 1 artefaktfil',
       sourceInEnglishNote:
         'Kildematerialet (metodologier, maler og daglige analyseartefakter) publiseres på engelsk. Titler og filstier er derfor på engelsk — bare sidens navigasjon og beskrivelser er oversatt.',
       seoKeywords:
@@ -351,8 +370,11 @@ const PI_COPY: Partial<Record<string, Partial<PICopy>>> = (() => {
       statArtifactsLabel: 'Artefaktit',
       viewOnGitHub: 'Näytä GitHubissa',
       artifactCountLabel: '{count} artefaktia',
+      artifactCountLabelSingular: '1 artefakti',
       runsCountLabel: '{count} ajoa',
+      runsCountLabelSingular: '1 ajo',
       artifactsToggleLabel: 'Näytä kaikki {count} artefaktitiedostoa',
+      artifactsToggleLabelSingular: 'Näytä 1 artefaktitiedosto',
       sourceInEnglishNote:
         'Lähdemateriaali (metodologiat, pohjat ja päivittäiset analyysiartefaktit) julkaistaan englanniksi. Otsikot ja tiedostopolut ovat siksi englanniksi — vain sivun navigointi ja kuvaukset on käännetty.',
       seoKeywords:
@@ -385,8 +407,11 @@ const PI_COPY: Partial<Record<string, Partial<PICopy>>> = (() => {
       statArtifactsLabel: 'Artefakte',
       viewOnGitHub: 'Auf GitHub ansehen',
       artifactCountLabel: '{count} Artefakte',
+      artifactCountLabelSingular: '1 Artefakt',
       runsCountLabel: '{count} Läufe',
+      runsCountLabelSingular: '1 Lauf',
       artifactsToggleLabel: 'Alle {count} Artefaktdateien anzeigen',
+      artifactsToggleLabelSingular: '1 Artefaktdatei anzeigen',
       sourceInEnglishNote:
         'Die Quellmaterialien (Methodologien, Vorlagen und tägliche Analyseartefakte) werden auf Englisch veröffentlicht. Titel und Dateipfade sind daher auf Englisch — nur die Seitennavigation und Beschreibungen sind übersetzt.',
       seoKeywords:
@@ -419,8 +444,11 @@ const PI_COPY: Partial<Record<string, Partial<PICopy>>> = (() => {
       statArtifactsLabel: 'Artefacts',
       viewOnGitHub: 'Voir sur GitHub',
       artifactCountLabel: '{count} artefacts',
+      artifactCountLabelSingular: '1 artefact',
       runsCountLabel: '{count} exécutions',
+      runsCountLabelSingular: '1 exécution',
       artifactsToggleLabel: 'Afficher les {count} fichiers d\u2019artefacts',
+      artifactsToggleLabelSingular: 'Afficher le fichier d\u2019artefact',
       sourceInEnglishNote:
         "Les documents sources (méthodologies, modèles et artefacts d'analyse quotidiens) sont publiés en anglais. Les titres et chemins de fichiers sont donc en anglais — seuls la navigation et les descriptions de la page sont traduits.",
       seoKeywords:
@@ -453,8 +481,11 @@ const PI_COPY: Partial<Record<string, Partial<PICopy>>> = (() => {
       statArtifactsLabel: 'Artefactos',
       viewOnGitHub: 'Ver en GitHub',
       artifactCountLabel: '{count} artefactos',
+      artifactCountLabelSingular: '1 artefacto',
       runsCountLabel: '{count} ejecuciones',
+      runsCountLabelSingular: '1 ejecución',
       artifactsToggleLabel: 'Mostrar los {count} archivos de artefactos',
+      artifactsToggleLabelSingular: 'Mostrar el archivo de artefacto',
       sourceInEnglishNote:
         'Los materiales fuente (metodologías, plantillas y artefactos de análisis diarios) se publican en inglés. Los títulos y las rutas de archivo están, por tanto, en inglés — solo la navegación y las descripciones de la página están traducidas.',
       seoKeywords:
@@ -487,8 +518,11 @@ const PI_COPY: Partial<Record<string, Partial<PICopy>>> = (() => {
       statArtifactsLabel: 'Artefacten',
       viewOnGitHub: 'Op GitHub bekijken',
       artifactCountLabel: '{count} artefacten',
+      artifactCountLabelSingular: '1 artefact',
       runsCountLabel: '{count} uitvoeringen',
+      runsCountLabelSingular: '1 uitvoering',
       artifactsToggleLabel: 'Alle {count} artefactbestanden tonen',
+      artifactsToggleLabelSingular: '1 artefactbestand tonen',
       sourceInEnglishNote:
         'De bronmaterialen (methodologieën, sjablonen en dagelijkse analyse-artefacten) worden in het Engels gepubliceerd. Titels en bestandspaden staan daarom in het Engels — alleen de paginanavigatie en beschrijvingen zijn vertaald.',
       seoKeywords:
@@ -521,8 +555,11 @@ const PI_COPY: Partial<Record<string, Partial<PICopy>>> = (() => {
       statArtifactsLabel: 'القطع الأثرية',
       viewOnGitHub: 'عرض على GitHub',
       artifactCountLabel: '{count} قطعة أثرية',
+      artifactCountLabelSingular: 'قطعة أثرية واحدة',
       runsCountLabel: '{count} عمليات',
+      runsCountLabelSingular: 'عملية واحدة',
       artifactsToggleLabel: 'عرض جميع ملفات القطع الأثرية ({count})',
+      artifactsToggleLabelSingular: 'عرض ملف القطعة الأثرية',
       sourceInEnglishNote:
         'تُنشر المواد المصدر (المنهجيات والقوالب والقطع الأثرية للتحليل اليومي) باللغة الإنجليزية. لذلك تظهر العناوين ومسارات الملفات بالإنجليزية — فقط تنقل الصفحة والأوصاف مترجمة.',
       seoKeywords:
@@ -555,8 +592,11 @@ const PI_COPY: Partial<Record<string, Partial<PICopy>>> = (() => {
       statArtifactsLabel: 'ארטיפקטים',
       viewOnGitHub: 'הצג ב-GitHub',
       artifactCountLabel: '{count} ארטיפקטים',
+      artifactCountLabelSingular: 'ארטיפקט אחד',
       runsCountLabel: '{count} ריצות',
+      runsCountLabelSingular: 'ריצה אחת',
       artifactsToggleLabel: 'הצג את כל {count} קבצי הארטיפקטים',
+      artifactsToggleLabelSingular: 'הצג את קובץ הארטיפקט',
       sourceInEnglishNote:
         'חומרי המקור (מתודולוגיות, תבניות וארטיפקטי ניתוח יומיים) מתפרסמים באנגלית. הכותרות ונתיבי הקבצים מופיעים אפוא באנגלית — רק הניווט והתיאורים בדף תורגמו.',
       seoKeywords:
@@ -589,8 +629,11 @@ const PI_COPY: Partial<Record<string, Partial<PICopy>>> = (() => {
       statArtifactsLabel: '成果物',
       viewOnGitHub: 'GitHub で表示',
       artifactCountLabel: '{count} 件の成果物',
+      artifactCountLabelSingular: '1 件の成果物',
       runsCountLabel: '{count} 件の実行',
+      runsCountLabelSingular: '1 件の実行',
       artifactsToggleLabel: '{count} 件のすべての成果物ファイルを表示',
+      artifactsToggleLabelSingular: '1 件の成果物ファイルを表示',
       sourceInEnglishNote:
         'ソース資料(方法論・テンプレート・日次分析成果物)は英語で公開されています。そのためタイトルとファイルパスは英語で表示されます。ページのナビゲーションと説明のみが翻訳されています。',
       seoKeywords:
@@ -623,8 +666,11 @@ const PI_COPY: Partial<Record<string, Partial<PICopy>>> = (() => {
       statArtifactsLabel: '산출물',
       viewOnGitHub: 'GitHub에서 보기',
       artifactCountLabel: '{count}개 산출물',
+      artifactCountLabelSingular: '1개 산출물',
       runsCountLabel: '{count}회 실행',
+      runsCountLabelSingular: '1회 실행',
       artifactsToggleLabel: '{count}개 산출물 파일 모두 보기',
+      artifactsToggleLabelSingular: '1개 산출물 파일 보기',
       sourceInEnglishNote:
         '원본 자료(방법론, 템플릿, 일일 분석 산출물)는 영어로 게시됩니다. 따라서 제목과 파일 경로는 영어로 표시되며, 페이지 탐색 및 설명만 번역되어 있습니다.',
       seoKeywords:
@@ -657,8 +703,11 @@ const PI_COPY: Partial<Record<string, Partial<PICopy>>> = (() => {
       statArtifactsLabel: '工件',
       viewOnGitHub: '在 GitHub 上查看',
       artifactCountLabel: '{count} 个工件',
+      artifactCountLabelSingular: '1 个工件',
       runsCountLabel: '{count} 次运行',
+      runsCountLabelSingular: '1 次运行',
       artifactsToggleLabel: '显示全部 {count} 个工件文件',
+      artifactsToggleLabelSingular: '显示 1 个工件文件',
       sourceInEnglishNote:
         '源材料(方法论、模板和每日分析工件)以英文发布。因此标题和文件路径以英文显示 — 仅页面导航和描述进行了翻译。',
       seoKeywords:
@@ -1104,7 +1153,10 @@ function renderDocumentCard(doc: PIDocument, lang: LanguageCode, viewOnGitHub: s
  * @returns HTML string for the `<section>` containing all runs for the date
  */
 function renderDailyGroup(group: PIDailyDateGroup, copy: PICopy, lang: LanguageCode): string {
-  const runsCountText = copy.runsCountLabel.replace('{count}', String(group.runs.length));
+  const runsCountText =
+    group.runs.length === 1
+      ? copy.runsCountLabelSingular
+      : copy.runsCountLabel.replace('{count}', String(group.runs.length));
   const runCards = group.runs.map((run) => renderDailyRun(run, copy, lang)).join('\n');
   return `        <section class="pi-date-group" aria-labelledby="date-${escapeHTML(group.date)}">
           <h3 id="date-${escapeHTML(group.date)}" class="pi-date-group__heading">
@@ -1136,8 +1188,14 @@ ${runCards}
  */
 function renderDailyRun(run: PIDailyRun, copy: PICopy, lang: LanguageCode): string {
   const url = githubTreeUrl(run.relPath);
-  const countLabel = copy.artifactCountLabel.replace('{count}', String(run.artifactCount));
-  const toggleLabel = copy.artifactsToggleLabel.replace('{count}', String(run.artifactCount));
+  const countLabel =
+    run.artifactCount === 1
+      ? copy.artifactCountLabelSingular
+      : copy.artifactCountLabel.replace('{count}', String(run.artifactCount));
+  const toggleLabel =
+    run.artifactCount === 1
+      ? copy.artifactsToggleLabelSingular
+      : copy.artifactsToggleLabel.replace('{count}', String(run.artifactCount));
   const runInfo = getRunTypeInfo(run.slug, lang);
   const runIdBadge = runInfo.runId
     ? `<span class="pi-run__runid" aria-hidden="true">#${escapeHTML(runInfo.runId)}</span>`

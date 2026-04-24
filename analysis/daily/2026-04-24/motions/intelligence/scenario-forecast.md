@@ -1,7 +1,7 @@
 # Scenario Forecast — 6-18 Month Horizon
 
 <!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 
 **Methodology**: cone-of-plausibility + indicator-led scenario design.
 **Horizon**: T+6 months (2026-10) · T+12 months (2027-04) ·

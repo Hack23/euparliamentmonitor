@@ -1,7 +1,7 @@
 # Stakeholder Map — March 2026 Motion Cluster
 
 <!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 
 **Methodology**: actor-mapping + stakeholder-map templates merged.
 **Data basis**: EP Open Data committee memberships (current EP10),

@@ -276,6 +276,53 @@ export function readLatestGateResult(manifestPath) {
     }
 }
 /**
+ * Find the most-recent **resolved** (non-`PENDING`) `gateResult` in a
+ * manifest's `history[]` array by searching backward from the end.
+ *
+ * Used by the `--analysis-only` wrap-up path to carry forward the Stage-C
+ * result already written by the AI agent, so the discovery history entry
+ * produced by `runAnalysisStage` preserves `GREEN` / `ANALYSIS_ONLY` instead
+ * of clobbering it with the default `PENDING`.
+ *
+ * @param manifestPath - Absolute path to the run's manifest.json.
+ * @returns The latest non-PENDING `gateResult`, or `'PENDING'` when none
+ *          exists or the manifest is missing / unreadable.
+ */
+export function readLatestResolvedGateResult(manifestPath) {
+    if (!fs.existsSync(manifestPath))
+        return 'PENDING';
+    try {
+        const raw = fs.readFileSync(manifestPath, 'utf-8');
+        const parsed = JSON.parse(raw);
+        if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed))
+            return 'PENDING';
+        const history = parsed['history'];
+        if (!Array.isArray(history) || history.length === 0) {
+            // Back-compat: older manifests may carry a resolved gateResult directly
+            // at the top level without a history[] array.  Only honour non-PENDING
+            // values — a stale PENDING at the top level must not be treated as
+            // resolved, because that defeats the carry-forward purpose of this helper.
+            const direct = parsed['gateResult'];
+            if (direct === 'GREEN' || direct === 'GREEN_WITH_WARNINGS' || direct === 'ANALYSIS_ONLY') {
+                return direct;
+            }
+            return 'PENDING';
+        }
+        // Search from the end to find the most recent non-PENDING result.
+        for (let i = history.length - 1; i >= 0; i--) {
+            const entry = history[i];
+            const gate = entry?.gateResult;
+            if (gate === 'GREEN' || gate === 'GREEN_WITH_WARNINGS' || gate === 'ANALYSIS_ONLY') {
+                return gate;
+            }
+        }
+        return 'PENDING';
+    }
+    catch {
+        return 'PENDING';
+    }
+}
+/**
  * Resolve a unique filename by appending a numeric suffix (-2, -3, …) before
  * the file extension when the file already exists.
  *

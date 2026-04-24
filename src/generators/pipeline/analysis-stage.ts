@@ -26,6 +26,7 @@ import {
   resolveUniqueAnalysisDir,
   discoverAnalysisFileEntries,
   mergeManifestHistory,
+  readLatestResolvedGateResult,
   type AnalysisManifestHistoryEntry,
 } from '../../utils/file-utils.js';
 
@@ -630,11 +631,23 @@ export async function runAnalysisStage(
 
   // Write manifest.json (when absent) and append shared-folder history.
   const manifestPath = path.join(dateOutputDir, 'manifest.json');
+
+  // When doing an `--analysis-only` wrap-up on a pre-resolved directory, the
+  // caller has no channel to pass the Stage-C result; it defaults to `PENDING`.
+  // Carry forward the latest resolved gate result (GREEN / GREEN_WITH_WARNINGS
+  // / ANALYSIS_ONLY) already written by the AI agent so the discovery entry
+  // does not clobber a GREEN that the agent committed during Stage C.
+  // An explicit non-PENDING gateResult from the caller always takes precedence.
+  const effectiveGateResult: AnalysisManifestHistoryEntry['gateResult'] =
+    outputDirIsResolved && gateResult === 'PENDING'
+      ? readLatestResolvedGateResult(manifestPath)
+      : gateResult;
+
   persistAnalysisArtifacts(manifestPath, manifest, outputDirIsResolved, {
     runId,
     startedAt: startTime,
     finishedAt: endTime,
-    gateResult,
+    gateResult: effectiveGateResult,
     filesWritten: discoveredPaths,
   });
 

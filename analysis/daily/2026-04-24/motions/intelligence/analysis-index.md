@@ -1,7 +1,7 @@
 # Analysis Index — Motions (2026-04-24)
 
 <!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: CC-BY-4.0 -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 
 **Run**: `motions-run-1777010709` · **Generated**: 2026-04-24 (UTC) ·
 **Window**: 2026-03-25 → 2026-04-24 (30 days) · **Gate target**: GREEN ·
