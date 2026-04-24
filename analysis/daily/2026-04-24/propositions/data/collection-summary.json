@@ -1,0 +1,25 @@
+{
+  "runId": "propositions-run-1777009560",
+  "collectionTimestamp": "2026-04-24T05:49:22Z",
+  "window": {"from": "2026-03-25", "to": "2026-04-24", "type": "propositions-month"},
+  "feeds": {
+    "procedures_feed": {"items": 50, "withMetadata": 0, "status": "DATA_QUALITY_LOW", "note": "EP API returns legacy IDs 1972-onwards with empty fields"},
+    "adopted_texts_feed": {"items": 280, "ta10_2026": 104, "ta10_2025": "present", "status": "OK"},
+    "committee_documents_feed": {"items": 0, "status": "UNAVAILABLE", "reason": "EP API error-in-body"},
+    "plenary_sessions": {"items": 10, "note": "Returns historical 2014 sessions despite dateFrom filter — EP API known limitation"}
+  },
+  "deepFetch": {
+    "adopted_texts_probed": ["TA-10-2026-0104","TA-10-2026-0092","TA-10-2026-0089","TA-10-2026-0083","TA-10-2026-0075","TA-10-2026-0066","TA-10-2026-0065","TA-10-2026-0054","TA-10-2026-0044","TA-10-2026-0031","TA-10-2026-0021","TA-10-2025-0345","TA-10-2025-0336"],
+    "adopted_texts_retrieved": 0,
+    "adopted_texts_error": "All probed IDs returned UPSTREAM_404 'document indexed but content not yet available' (EP Open Data Portal indexing lag)",
+    "landscape_retrieved": true,
+    "coalition_dynamics_retrieved": true,
+    "coalition_has_vote_data": false,
+    "ep_stats_retrieved": true
+  },
+  "worldBank": {
+    "DE_GDP_GROWTH_2024": -0.496, "FR_GDP_GROWTH_2024": 1.19, "DE_INFLATION_2024": 2.256,
+    "EU_aggregate_supported": false, "probedCodes": ["EUU","EMU"]
+  },
+  "dataClassification": "SPARSE — no adopted-text bodies available; feeds confirm 104 TA-10-2026 items indexed; analysis proceeds on meta-level (procedure pipeline + fragmentation context)."
+}
