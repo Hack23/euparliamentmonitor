@@ -38,7 +38,10 @@
 > - **Render entry point**: `src/aggregator/article-generator.ts`
 >   (CLI: `npm run generate-article -- --run <analysis-run-dir>`)
 > - **Aggregator modules**: `artifact-order.ts`, `clean-artifact.ts`,
->   `analysis-aggregator.ts`, `markdown-renderer.ts`, `article-html.ts`
+>   `analysis-aggregator.ts`, `markdown-renderer.ts`, `article-html.ts`,
+>   `article-metadata.ts` (5-tier editorial-highlight resolver for
+>   `<title>` / `<meta description>` — manifest override → first artefact
+>   H1 → aggregated H1 → first strong prose → localized template)
 > - **Agentic workflows**: 9 unified `news-<type>.md` files (Stages A → B
 >   → C → D → E in one session) + `news-translate.md`; split-family
 >   workflows (`news-<type>-analysis.md` + `news-<type>-article.md`) and

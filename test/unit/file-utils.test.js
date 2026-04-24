@@ -268,6 +268,44 @@ describe('utils/file-utils', () => {
       expect(typeof meta.description).toBe('string');
     });
 
+    it('prefers <head><title> (suffix stripped) over body <h1>', async () => {
+      const { extractArticleMeta } = await import('../../scripts/utils/file-utils.js');
+      const filePath = path.join(tempDir, 'article-head-title.html');
+      fs.writeFileSync(
+        filePath,
+        '<head><title>Editorial Headline — EU Parliament Monitor</title><meta name="description" content="desc"></head><body><h1>Generic Body Header</h1></body>'
+      );
+      const meta = extractArticleMeta(filePath);
+      expect(meta.title).toBe('Editorial Headline');
+    });
+
+    it('strips both em-dash and pipe site-suffix variants from <title>', async () => {
+      const { extractArticleMeta } = await import('../../scripts/utils/file-utils.js');
+      const emdashPath = path.join(tempDir, 'title-emdash.html');
+      fs.writeFileSync(
+        emdashPath,
+        '<title>Aggregator Headline — EU Parliament Monitor</title><meta name="description" content="d"><h1>body</h1>'
+      );
+      expect(extractArticleMeta(emdashPath).title).toBe('Aggregator Headline');
+
+      const pipePath = path.join(tempDir, 'title-pipe.html');
+      fs.writeFileSync(
+        pipePath,
+        '<title>Legacy Headline | EU Parliament Monitor</title><meta name="description" content="d"><h1>body</h1>'
+      );
+      expect(extractArticleMeta(pipePath).title).toBe('Legacy Headline');
+    });
+
+    it('falls back to body <h1> when <title> is empty or absent', async () => {
+      const { extractArticleMeta } = await import('../../scripts/utils/file-utils.js');
+      const filePath = path.join(tempDir, 'article-no-title.html');
+      fs.writeFileSync(
+        filePath,
+        '<html><body><h1>Fallback Body Title</h1><meta name="description" content="d"></body>'
+      );
+      expect(extractArticleMeta(filePath).title).toBe('Fallback Body Title');
+    });
+
     it('should extract title when h1 has custom attributes', async () => {
       const { extractArticleMeta } = await import('../../scripts/utils/file-utils.js');
       const filePath = path.join(tempDir, 'article-h1-attr.html');

@@ -20,6 +20,7 @@ import fs from 'fs';
 import path from 'path';
 import { pathToFileURL } from 'url';
 import { aggregateAnalysisRun } from './analysis-aggregator.js';
+import { resolveArticleMetadata, extractStrongProseLine, } from './article-metadata.js';
 import { renderMarkdown } from './markdown-renderer.js';
 import { wrapArticleHtml, getArticleFilename } from './article-html.js';
 import { ALL_LANGUAGES } from '../constants/language-core.js';
@@ -219,8 +220,9 @@ export function sanitizeRunSuffix(runId) {
     return cleaned.slice(0, 32) || 'run';
 }
 /**
- * Return true when a line should be skipped when hunting for the default
- * description (provenance, HTML, headings, tables, comments, etc.).
+ * Return `true` when a line should be skipped when hunting for the default
+ * description. Thin wrapper preserved for back-compat — real logic lives
+ * in `src/aggregator/article-metadata.ts`'s `shouldSkipDescriptionLine`.
  *
  * @param line - Trimmed line from the aggregated Markdown source
  * @returns `true` when the line is not prose and should be skipped
@@ -238,30 +240,26 @@ function shouldSkipDescriptionLine(line) {
         return true;
     return false;
 }
+/** Description used when no prose paragraph qualifies. */
+const FALLBACK_DESCRIPTION = 'EU Parliament intelligence summary derived from committed analysis artifacts.';
 /**
  * Extract a short description from the first prose paragraph of the
  * aggregated Markdown — used as the default `<meta name="description">`.
- * Skips provenance blockquote, HTML wrappers, headings, and table rows.
+ * Uses the stricter `extractStrongProseLine` filter from
+ * `article-metadata.ts` so mermaid `%%{init}` blocks, `title …` directives,
+ * emoji-banner metadata rows, and `Analysis Date:` / `Run:` / `Window:`
+ * style banners no longer leak into `<meta description>`. Kept as an
+ * exported thin wrapper for back-compat with the existing test suite.
  *
  * @param markdown - Aggregated Markdown document
  * @returns Plain-text description, truncated to ≤300 characters
  */
 export function extractDefaultDescription(markdown) {
-    const lines = markdown.split('\n');
-    for (const raw of lines) {
-        const line = raw.trim();
-        if (shouldSkipDescriptionLine(line))
-            continue;
-        // Strip inline markdown
-        const text = line
-            .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
-            .replace(/[*_`]/g, '')
-            .trim();
-        if (text.length > 40) {
-            return text.length > 300 ? `${text.slice(0, 297)}...` : text;
-        }
-    }
-    return 'EU Parliament intelligence summary derived from committed analysis artifacts.';
+    // Suppress unused warning: keep `shouldSkipDescriptionLine` for any
+    // legacy consumer importing it transitively.
+    void shouldSkipDescriptionLine;
+    const strong = extractStrongProseLine(markdown);
+    return strong.length > 0 ? strong : FALLBACK_DESCRIPTION;
 }
 /**
  * Render a single language-variant article. Pulls from a pre-translated
@@ -273,9 +271,9 @@ export function extractDefaultDescription(markdown) {
  * @param slug - Article slug (`<date>-<type>`)
  * @param aggregated - Aggregated-run metadata
  * @param englishHtml - Pre-rendered HTML of the English aggregate
- * @param chromeOptions - Shared chrome options (title/description/source path)
- * @param chromeOptions.title - Article title
- * @param chromeOptions.description - Article meta description
+ * @param chromeOptions - Shared chrome options
+ * @param chromeOptions.metadata - Per-language `{title, description}` map
+ *        resolved by {@link resolveArticleMetadata}
  * @param chromeOptions.sourceMarkdownRelPath - Repo-relative path of the
  *        canonical English Markdown source written by the same run
  * @param chromeOptions.articleCount - Total article count surfaced in the
@@ -287,16 +285,26 @@ function writeLanguageVariant(lang, slug, aggregated, englishHtml, chromeOptions
     const langMdFilename = `${slug}.${lang}.md`;
     const langMdAbs = path.join(opts.outDir, langMdFilename);
     let bodyHtml = englishHtml;
+    let metaSource = aggregated.markdown;
     if (lang !== 'en' && fs.existsSync(langMdAbs)) {
-        const source = fs.readFileSync(langMdAbs, 'utf8');
-        bodyHtml = renderMarkdown(source).html;
+        metaSource = fs.readFileSync(langMdAbs, 'utf8');
+        bodyHtml = renderMarkdown(metaSource).html;
     }
+    // When a per-language translated source exists, prefer a summary derived
+    // from it so the `<meta description>` matches the visible prose. The
+    // editorial title still comes from the English resolver (per-language
+    // translations of the headline are a future enhancement tracked as
+    // out-of-scope).
+    const entry = getMetadataEntry(chromeOptions.metadata, lang);
+    const perLangDescription = lang !== 'en' && metaSource !== aggregated.markdown
+        ? extractStrongProseLine(metaSource) || entry.description
+        : entry.description;
     const html = wrapArticleHtml({
         lang,
         articleSlug: slug,
         body: bodyHtml,
-        title: chromeOptions.title,
-        description: chromeOptions.description,
+        title: entry.title,
+        description: perLangDescription,
         date: aggregated.date,
         articleType: aggregated.articleType,
         sourceMarkdownRelPath: chromeOptions.sourceMarkdownRelPath,
@@ -306,6 +314,25 @@ function writeLanguageVariant(lang, slug, aggregated, englishHtml, chromeOptions
     const filename = getArticleFilename(slug, lang);
     fs.writeFileSync(path.join(opts.outDir, filename), html, 'utf8');
     return filename;
+}
+/**
+ * Safely look up one language entry in a {@link ResolvedMetadata} map.
+ * The runtime shape is always complete (one entry per language), but the
+ * access goes via `Object.getOwnPropertyDescriptor` to satisfy ESLint's
+ * `security/detect-object-injection` rule.
+ *
+ * @param map - Resolved per-language metadata
+ * @param lang - Target language code
+ * @returns The entry for `lang` (always populated by
+ *          {@link resolveArticleMetadata})
+ */
+function getMetadataEntry(map, lang) {
+    const descriptor = Object.getOwnPropertyDescriptor(map, lang);
+    if (descriptor?.value) {
+        return descriptor.value;
+    }
+    const en = Object.getOwnPropertyDescriptor(map, 'en')?.value;
+    return en ?? { title: '', description: '' };
 }
 /**
  * Count the number of articles the site currently publishes, derived
@@ -351,8 +378,24 @@ export function generateArticle(opts, runSuffix, articleCountOverride) {
         repoRoot: opts.repoRoot,
     });
     const slug = buildArticleSlug(aggregated.date, aggregated.articleType, runSuffix);
-    const title = opts.title ?? defaultTitle(aggregated);
-    const description = opts.description ?? extractDefaultDescription(aggregated.markdown);
+    // Resolve per-language {title, description} from the real article
+    // content (manifest override → artefact H1 → aggregated H1 → strong
+    // prose → localized template). This replaces the previous
+    // `defaultTitle()` + `extractDefaultDescription()` approach which
+    // produced boring, repeated metadata.
+    const manifestMetadata = readManifestMetadata(opts.runDir);
+    const resolvedMetadata = resolveArticleMetadata({
+        articleType: aggregated.articleType,
+        date: aggregated.date,
+        markdown: aggregated.markdown,
+        manifest: manifestMetadata,
+        runDir: opts.runDir,
+    });
+    // CLI `--title` / `--description` overrides still win over everything
+    // (used by ad-hoc curator runs and by the existing test suite).
+    const effectiveMetadata = opts.title || opts.description
+        ? applyCliOverrides(resolvedMetadata, opts.title, opts.description)
+        : resolvedMetadata;
     // Write source Markdown under <outDir>/<slug>.en.md for transparency.
     ensureDir(opts.outDir);
     const sourceMdFilename = `${slug}.en.md`;
@@ -363,8 +406,7 @@ export function generateArticle(opts, runSuffix, articleCountOverride) {
     if (!opts.markdownOnly) {
         const rendered = renderMarkdown(aggregated.markdown);
         const chromeOptions = {
-            title,
-            description,
+            metadata: effectiveMetadata,
             sourceMarkdownRelPath: sourceMdRelPath,
             articleCount: articleCountOverride ?? countPublishedArticles(opts.repoRoot),
         };
@@ -491,7 +533,92 @@ export function generateAllArticles(opts) {
     return results;
 }
 /**
+ * Read the raw manifest.json from a run directory and return the subset
+ * of fields consumed by {@link resolveArticleMetadata}. Returns an empty
+ * object when the manifest is missing or unreadable so the resolver
+ * simply falls through to the artefact / aggregator tiers.
+ *
+ * @param runDir - Absolute run directory path
+ * @returns Metadata-relevant manifest fields (never `undefined`)
+ */
+function readManifestMetadata(runDir) {
+    const manifestPath = path.join(runDir, 'manifest.json');
+    if (!fs.existsSync(manifestPath))
+        return {};
+    try {
+        const parsed = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+        const manifest = {};
+        if (typeof parsed.articleType === 'string') {
+            Object.assign(manifest, { articleType: parsed.articleType });
+        }
+        if (typeof parsed.date === 'string') {
+            Object.assign(manifest, { date: parsed.date });
+        }
+        if (typeof parsed.runId === 'string') {
+            Object.assign(manifest, { runId: parsed.runId });
+        }
+        if (typeof parsed.title === 'string' || isLanguageMapLike(parsed.title)) {
+            Object.assign(manifest, { title: parsed.title });
+        }
+        if (typeof parsed.description === 'string' || isLanguageMapLike(parsed.description)) {
+            Object.assign(manifest, { description: parsed.description });
+        }
+        if (typeof parsed.committee === 'string') {
+            Object.assign(manifest, { committee: parsed.committee });
+        }
+        return manifest;
+    }
+    catch {
+        return {};
+    }
+}
+/**
+ * Shallow-check that a value looks like a `LanguageMap<string>` without
+ * pulling in the full `LanguageCode` list at the runtime import site.
+ *
+ * @param value - Arbitrary JSON value
+ * @returns `true` when `value` is a plain object with string values
+ */
+function isLanguageMapLike(value) {
+    if (!value || typeof value !== 'object' || Array.isArray(value))
+        return false;
+    for (const entry of Object.values(value)) {
+        if (typeof entry !== 'string')
+            return false;
+    }
+    return true;
+}
+/**
+ * Apply ad-hoc CLI `--title` / `--description` overrides on top of the
+ * resolver output. Overrides are applied to every language so the operator
+ * can hand-author a single headline for a one-off run without having to
+ * know which language variant they're working in.
+ *
+ * @param base - Resolver output
+ * @param titleOverride - CLI `--title` value, if any
+ * @param descriptionOverride - CLI `--description` value, if any
+ * @returns Metadata with overrides applied uniformly across languages
+ */
+function applyCliOverrides(base, titleOverride, descriptionOverride) {
+    const result = Object.create(null);
+    for (const lang of ALL_LANGUAGES) {
+        const entry = getMetadataEntry(base, lang);
+        Object.defineProperty(result, lang, {
+            value: {
+                title: titleOverride ?? entry.title,
+                description: descriptionOverride ?? entry.description,
+            },
+            enumerable: true,
+            writable: true,
+            configurable: true,
+        });
+    }
+    return result;
+}
+/**
  * Derive a default article title from the aggregated run metadata.
+ * Preserved as a thin back-compat wrapper — production callers now go
+ * through {@link resolveArticleMetadata}.
  *
  * @param run - Aggregated run metadata
  * @returns Human-readable title like `EU Parliament Breaking — 2026-01-15`
@@ -504,6 +631,11 @@ function defaultTitle(run) {
         .trim();
     return `EU Parliament ${typeLabel || 'Intelligence'} — ${run.date}`;
 }
+// Retain the back-compat export even though the in-module callers no
+// longer invoke it — some downstream curators import it via the bundled
+// `scripts/` output. The `void` reference keeps ESLint's
+// `no-unused-vars` happy without an explicit export.
+void defaultTitle;
 /**
  * Create `dir` recursively if it doesn't already exist.
  *

@@ -501,6 +501,81 @@ The aggregator lives under `src/aggregator/` — see the
 [aggregator pipeline](ARCHITECTURE.md#aggregator-pipeline) section of the
 architecture doc for the full data flow.
 
+#### Editorial-highlight metadata resolver
+
+The `<title>` / `<meta description>` / Open Graph / Twitter / JSON-LD
+`NewsArticle` fields for every article are resolved by
+`src/aggregator/article-metadata.ts` through a 5-tier priority ladder:
+
+1. **Manifest override** — the Stage-B agent writes one of these keys in
+   `manifest.json` when it has an editorial headline:
+
+   ```jsonc
+   {
+     "articleType": "breaking",
+     // String form — applied to all 14 language variants (recommended
+     // when only an English headline is available):
+     "title": "Banking Union Breakthrough and Anti-Corruption Landmark",
+     "description": "The plenary closes a six-year debate and triggers immediate criticism from two national delegations about implementation timelines.",
+     // OR per-language form when translations already exist:
+     "title": { "en": "…", "sv": "…", "de": "…" },
+     "description": { "en": "…", "sv": "…" }
+   }
+   ```
+
+2. **First artefact H1** — the aggregator walks the manifest's ordered
+   artefact list (`intelligence/synthesis-summary.md`,
+   `executive-summary.md`, `breaking-news-analysis.md`, …) and promotes
+   the first non-generic `# …` heading.
+3. **Aggregated-markdown H1** — any non-generic top-level heading in the
+   rendered Markdown.
+4. **First strong prose paragraph** — with a tightened leak filter that
+   blocks mermaid `%%{init}` blocks, `title …` directives, emoji-banner
+   metadata, and `Analysis Date:` / `Classification:` / `Run:` / `Window:`
+   / `Purpose:` / `BLUF (ICD-203):` style rows.
+5. **Localized template** — `*_TITLES(date)` from
+   `src/constants/language-articles.ts` — last resort when no editorial
+   content exists at all.
+
+Downstream generators (`news-indexes.ts`, `sitemap.ts`, political-intelligence
+cards, RSS) call `extractArticleMeta()` in `src/utils/file-utils.ts`, which
+reads the `<head><title>` value (with the ` — EU Parliament Monitor`
+suffix stripped) as the primary title, so the resolver's output
+propagates everywhere without separate code changes in each generator.
+
+#### Backport SEO metadata into existing articles
+
+`scripts/backport-article-seo.js` rewrites `<title>`, the meta
+description, Open Graph, Twitter, and JSON-LD `headline`/`description`
+for every already-rendered `news/*-<lang>.html` file by extracting the
+first editorial H1 and first strong prose paragraph from the article
+body itself. The rewrite is idempotent — re-running over a backported
+file is a byte-identical no-op — and the article body is never
+modified.
+
+```bash
+# Preview the change-set (dry-run is the default; prints a per-article-
+# type summary and up to 12 sample before/after diffs):
+node scripts/backport-article-seo.js
+
+# Write changes:
+node scripts/backport-article-seo.js --apply
+
+# Scope to a subset of article types:
+node scripts/backport-article-seo.js --apply --only breaking,motions
+
+# Use a non-default news directory:
+node scripts/backport-article-seo.js --apply --dir news
+```
+
+After backporting, regenerate the downstream surfaces that depend on
+article metadata:
+
+```bash
+node scripts/generators/news-indexes.js   # 14 language index pages
+node scripts/generators/sitemap.js        # 14 sitemap HTMLs + sitemap.xml + rss.xml
+```
+
 ### Generate Indexes and Sitemap
 
 ```bash
