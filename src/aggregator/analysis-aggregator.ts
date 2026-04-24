@@ -64,6 +64,22 @@ export interface AggregatedRun {
   readonly includedArtifacts: readonly IncludedArtifact[];
   /** Latest resolved gate result read from `manifest.history[]`. */
   readonly gateResult: string;
+  /**
+   * Ordered list of top-level (H2) sections that were actually emitted into
+   * the aggregate — used by the HTML renderer to build the article
+   * table-of-contents sidebar. Includes canonical sections, the
+   * supplementary-intelligence bucket, the tradecraft-references appendix,
+   * and the analysis-index appendix, in document order.
+   */
+  readonly sectionToc: readonly TocSection[];
+}
+
+/** One entry in the article-level table of contents (H2 level). */
+export interface TocSection {
+  /** Fragment identifier — matches the `id="…"` on the rendered H2. */
+  readonly id: string;
+  /** Display title shown in the sidebar nav. */
+  readonly title: string;
 }
 
 /** Metadata for one artifact included in the aggregate. */
@@ -436,6 +452,9 @@ function shouldSuppressFragmentHeader(
  * @param seenMermaid - Shared mermaid dedup set
  * @param sectionMarkdown - Mutable output buffer
  * @param included - Mutable list of included-artifact metadata
+ * @param emittedSections - Mutable list of `(id, title)` pairs for the
+ *        article-level TOC; a section is recorded only when at least one
+ *        of its artifacts was actually rendered
  */
 function appendSection(
   runDir: string,
@@ -445,11 +464,13 @@ function appendSection(
   paths: readonly string[],
   seenMermaid: Set<string>,
   sectionMarkdown: string[],
-  included: IncludedArtifact[]
+  included: IncludedArtifact[],
+  emittedSections: TocSection[]
 ): void {
   if (paths.length === 0) return;
   sectionMarkdown.push(`<h2 id="${sectionId}">${sectionTitle}</h2>`);
   const suppress = shouldSuppressFragmentHeader(paths, sectionTitle);
+  let anyFragmentRendered = false;
   for (const runRel of paths) {
     const fragment = renderArtifactFragment(
       runDir,
@@ -460,8 +481,12 @@ function appendSection(
       suppress
     );
     if (!fragment) continue;
+    anyFragmentRendered = true;
     sectionMarkdown.push(...fragment.lines);
     included.push(fragment.included);
+  }
+  if (anyFragmentRendered) {
+    emittedSections.push({ id: sectionId, title: sectionTitle });
   }
   sectionMarkdown.push('');
 }
@@ -496,6 +521,7 @@ export function aggregateAnalysisRun(options: AggregateOptions): AggregatedRun {
 
   const consumed = new Set<string>();
   const includedArtifacts: IncludedArtifact[] = [];
+  const emittedSections: TocSection[] = [];
   const sectionMarkdown: string[] = [];
   const seenMermaid = new Set<string>();
   const runDirRelPath = path.relative(repoRoot, runDir).split(path.sep).join('/');
@@ -510,7 +536,8 @@ export function aggregateAnalysisRun(options: AggregateOptions): AggregatedRun {
       paths,
       seenMermaid,
       sectionMarkdown,
-      includedArtifacts
+      includedArtifacts,
+      emittedSections
     );
   }
 
@@ -525,7 +552,8 @@ export function aggregateAnalysisRun(options: AggregateOptions): AggregatedRun {
       leftovers,
       seenMermaid,
       sectionMarkdown,
-      includedArtifacts
+      includedArtifacts,
+      emittedSections
     );
     for (const p of leftovers) consumed.add(p);
   }
@@ -549,6 +577,11 @@ export function aggregateAnalysisRun(options: AggregateOptions): AggregatedRun {
   const tradecraft = renderTradecraftAppendix(tradecraftFiles);
   const analysisIndex = renderAnalysisIndex(includedArtifacts, manifestRelPath);
 
+  // Both appendices emit their own <h2 id="…"> blocks — record them so the
+  // article TOC mirrors the rendered document in document order.
+  emittedSections.push({ id: TRADECRAFT_SECTION_ID, title: TRADECRAFT_SECTION_TITLE });
+  emittedSections.push({ id: MANIFEST_SECTION_ID, title: MANIFEST_SECTION_TITLE });
+
   const markdown = [
     `# ${documentTitle}`,
     '',
@@ -571,6 +604,7 @@ export function aggregateAnalysisRun(options: AggregateOptions): AggregatedRun {
     date,
     includedArtifacts,
     gateResult,
+    sectionToc: emittedSections,
   };
 }
 

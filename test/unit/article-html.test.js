@@ -9,6 +9,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   buildArticleHreflangLinks,
+  buildArticleToc,
   getArticleFilename,
   wrapArticleHtml,
 } from '../../scripts/aggregator/article-html.js';
@@ -117,5 +118,65 @@ describe('wrapArticleHtml', () => {
     });
     expect(html).toContain('news/2026-01-15-breaking.en.md');
     expect(html).toContain('type="text/markdown"');
+  });
+
+  it('renders the article TOC sidebar when toc entries are supplied', () => {
+    const html = wrapArticleHtml({
+      ...baseOptions,
+      toc: [
+        { id: 'executive-brief', title: 'Executive Brief' },
+        { id: 'synthesis', title: 'Synthesis Summary' },
+      ],
+    });
+    expect(html).toContain('class="article-toc-container"');
+    expect(html).toContain('href="#executive-brief"');
+    expect(html).toContain('href="#synthesis"');
+    expect(html).toContain('Synthesis Summary');
+  });
+
+  it('omits the sidebar entirely when toc is empty or absent', () => {
+    const html = wrapArticleHtml(baseOptions);
+    expect(html).not.toContain('article-toc-container');
+    const htmlEmpty = wrapArticleHtml({ ...baseOptions, toc: [] });
+    expect(htmlEmpty).not.toContain('article-toc-container');
+  });
+});
+
+describe('buildArticleToc', () => {
+  it('returns an empty string when there are no entries', () => {
+    expect(buildArticleToc([], 'en')).toBe('');
+  });
+
+  it('renders an <aside><details><nav><ol> tree with stable anchors', () => {
+    const html = buildArticleToc(
+      [
+        { id: 'synthesis', title: 'Synthesis Summary' },
+        { id: 'risk', title: 'Risk Assessment' },
+      ],
+      'en'
+    );
+    expect(html).toContain('<aside class="article-toc-container"');
+    expect(html).toContain('<details class="article-toc-details" open>');
+    expect(html).toContain('<nav class="article-toc">');
+    expect(html).toContain('<ol class="article-toc-list">');
+    expect(html).toMatch(/<li><a href="#synthesis">Synthesis Summary<\/a><\/li>/);
+    expect(html).toMatch(/<li><a href="#risk">Risk Assessment<\/a><\/li>/);
+  });
+
+  it('escapes HTML in entry titles and ids to prevent injection', () => {
+    const html = buildArticleToc(
+      [{ id: 'id"><script>alert(1)</script>', title: '<b>xss</b>' }],
+      'en'
+    );
+    expect(html).not.toContain('<script>');
+    expect(html).not.toContain('<b>xss</b>');
+    expect(html).toContain('&lt;b&gt;xss&lt;/b&gt;');
+  });
+
+  it('localises the nav label from TOC_ARIA_LABELS', () => {
+    const sv = buildArticleToc([{ id: 'x', title: 'X' }], 'sv');
+    expect(sv).toContain('Innehållsförteckning');
+    const de = buildArticleToc([{ id: 'x', title: 'X' }], 'de');
+    expect(de).toContain('Inhaltsverzeichnis');
   });
 });

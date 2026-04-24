@@ -15,7 +15,7 @@
  * stays `script-src 'self'`.
  */
 import { BASE_URL, createThemeToggleButton, THEME_TOGGLE_SCRIPT } from '../constants/config.js';
-import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, SKIP_LINK_TEXTS, HEADER_SUBTITLE_LABELS, THEME_TOGGLE_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
+import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, SKIP_LINK_TEXTS, HEADER_SUBTITLE_LABELS, THEME_TOGGLE_LABELS, TOC_ARIA_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
 import { escapeHTML } from '../utils/file-utils.js';
 import { buildSiteFooter } from '../templates/section-builders.js';
 /**
@@ -61,6 +61,41 @@ function buildLanguageSwitcher(articleSlug, current) {
     }).join('\n        ');
 }
 /**
+ * Build the article-level Table of Contents nav. Renders a labelled
+ * `<nav class="article-toc">` with one `<a>` per H2 section, keyed by the
+ * stable fragment ids produced by the aggregator. The containing `<aside>`
+ * is styled as a sticky sidebar on wide viewports and collapses into a
+ * `<details>` disclosure on narrow viewports via `styles.css`.
+ *
+ * Returns an empty string when `entries` is empty so low-signal
+ * `ANALYSIS_ONLY` articles (few sections, no value in a TOC) stay compact.
+ *
+ * @param entries - Ordered list of emitted H2 sections
+ * @param lang - Language code used to localise the nav label
+ * @returns HTML fragment for the sidebar, or `""` when no TOC is needed
+ */
+export function buildArticleToc(entries, lang) {
+    if (entries.length === 0)
+        return '';
+    const label = escapeHTML(getLocalizedString(TOC_ARIA_LABELS, lang));
+    const items = entries
+        .map((e) => `        <li><a href="#${escapeHTML(e.id)}">${escapeHTML(e.title)}</a></li>`)
+        .join('\n');
+    return [
+        `  <aside class="article-toc-container" aria-label="${label}">`,
+        `    <details class="article-toc-details" open>`,
+        `      <summary class="article-toc-summary">${label}</summary>`,
+        `      <nav class="article-toc">`,
+        `        <ol class="article-toc-list">`,
+        items,
+        `        </ol>`,
+        `      </nav>`,
+        `    </details>`,
+        `  </aside>`,
+        '',
+    ].join('\n');
+}
+/**
  * Render the full article HTML document with the shared chrome.
  *
  * @param options - {@link WrapArticleOptions} describing the article and its
@@ -81,6 +116,7 @@ export function wrapArticleHtml(options) {
     const sourceMdLink = options.sourceMarkdownRelPath
         ? `<p class="article-source-md"><a href="${BASE_URL}/${options.sourceMarkdownRelPath}" rel="alternate" type="text/markdown">View source Markdown</a></p>`
         : '';
+    const tocHtml = buildArticleToc(options.toc ?? [], safeLang);
     const jsonLd = {
         '@context': 'https://schema.org',
         '@type': 'NewsArticle',
@@ -166,7 +202,7 @@ ${hreflangLinks}
   </nav>
 
   <main id="main" class="site-main article-main">
-    <article class="article-body" lang="${safeLang}">
+${tocHtml}    <article class="article-body" lang="${safeLang}">
       ${sourceMdLink}
       ${options.body}
     </article>

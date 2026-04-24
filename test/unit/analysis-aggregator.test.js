@@ -218,4 +218,37 @@ describe('aggregateAnalysisRun (fixture)', () => {
       })
     ).toThrow(/does not exist/);
   });
+
+  it('returns a sectionToc that mirrors the emitted H2 sections in document order', () => {
+    const result = aggregateAnalysisRun({
+      runDir: FIXTURE_RUN_DIR,
+      repoRoot: FIXTURE_REPO,
+    });
+    const toc = result.sectionToc ?? [];
+    expect(toc.length).toBeGreaterThan(0);
+    // Every TOC entry must correspond to an <h2 id="…">Title</h2> in the output
+    for (const entry of toc) {
+      expect(typeof entry.id).toBe('string');
+      expect(entry.id.length).toBeGreaterThan(0);
+      expect(result.markdown).toContain(
+        `<h2 id="${entry.id}">${entry.title}</h2>`
+      );
+    }
+    // Tradecraft + analysis-index appendices should always be last, in order.
+    const lastTwo = toc.slice(-2).map((e) => e.id);
+    expect(lastTwo).toEqual(['tradecraft-references', 'analysis-index']);
+  });
+
+  it('suppresses the redundant ### artifact header when a section has one matching artifact', () => {
+    const result = aggregateAnalysisRun({
+      runDir: FIXTURE_RUN_DIR,
+      repoRoot: FIXTURE_REPO,
+    });
+    // The fixture's synthesis section contains a single artifact named
+    // synthesis-summary.md — the aggregator should emit <h2 id="synthesis">
+    // Synthesis Summary</h2> but NOT a follow-up "### Synthesis Summary"
+    // restating the same title.
+    const pattern = /<h2 id="synthesis">Synthesis Summary<\/h2>[\s\S]*?### Synthesis Summary/;
+    expect(pattern.test(result.markdown)).toBe(false);
+  });
 });

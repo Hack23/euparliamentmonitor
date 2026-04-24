@@ -402,6 +402,7 @@ function writeLanguageVariant(
     date: aggregated.date,
     articleType: aggregated.articleType,
     sourceMarkdownRelPath: chromeOptions.sourceMarkdownRelPath,
+    toc: aggregated.sectionToc,
   });
   const filename = getArticleFilename(slug, lang);
   fs.writeFileSync(path.join(opts.outDir, filename), html, 'utf8');
