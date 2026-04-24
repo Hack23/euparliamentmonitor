@@ -27,6 +27,87 @@
 This document defines the data structures and relationships used in the EU
 Parliament Monitor platform for news generation, storage, and delivery.
 
+> ### ⚠️ April-2026 Aggregator-Pipeline Migration
+>
+> The article data flow has shifted from *AI authors HTML* to *AI authors
+> markdown artifacts, aggregator renders HTML deterministically*. The
+> canonical on-disk schema is now:
+>
+> - `analysis/daily/<YYYY-MM-DD>/<article-type-slug>-run<NN>/` —
+>   the **authoritative unit of a news run**. Contains every artifact
+>   listed in the `manifest.json` (see § Manifest Schema below) plus the
+>   rendered `article.html` (produced by `npm run generate-article`).
+> - `manifest.json` at the root of each run directory — the aggregator's
+>   index: top-level `articleType` + `files` object listing every
+>   artifact. Stage-C enforces the schema at self-review time.
+> - `news/<YYYY-MM-DD>-<slug>-run<NN>-<lang>.html` — 14 language variants
+>   emitted by the aggregator + translation flush.
+>
+> The following sections still document the pre-migration entity model
+> (article HTML as the authoritative artifact, strategy-per-type render).
+> The `src/utils/content-validator.ts` gates documented in § Dual
+> Economic Context Gate and the `src/generators/strategies/` mapping
+> documented in § Article Type Definitions were **removed** in April
+> 2026. A follow-up PR rewrites those sections against the aggregator
+> data model. Until then, read them in conjunction with this banner and
+> with [`ARCHITECTURE.md`](ARCHITECTURE.md) § Key Characteristics.
+
+## 🗂️ Manifest Schema (authoritative, aggregator era)
+
+Every analysis run under `analysis/daily/<date>/<slug>-run<NN>/` carries a
+`manifest.json` that the aggregator reads to know what to render:
+
+```jsonc
+{
+  "articleType": "motions",               // one of the 8 canonical slugs
+  "runId": "motions-run46",               // <slug>-run<NN>
+  "date": "2026-04-20",                   // ISO date (run subdirectory)
+  "history": [                            // append-only gate history
+    { "at": "2026-04-20T06:00:00Z", "gateResult": "PENDING", "pass": 1 },
+    { "at": "2026-04-20T06:22:00Z", "gateResult": "GREEN",   "pass": 2 }
+  ],
+  "files": {                              // canonical artifact index
+    "intelligence": [
+      "intelligence/synthesis-summary.md",
+      "intelligence/analysis-index.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/economic-context.md"
+      // …
+    ],
+    "classification": [
+      "classification/significance-classification.md",
+      "classification/impact-matrix.md",
+      "classification/actor-mapping.md"
+    ],
+    "risk-scoring": [
+      "risk-scoring/risk-matrix.md",
+      "risk-scoring/quantitative-swot.md"
+    ],
+    "threat-assessment": [
+      "threat-assessment/political-threat-landscape.md"
+    ],
+    "existing": [
+      "existing/stakeholder-impact.md",
+      "existing/deep-analysis.md"
+    ],
+    "documents": []
+  }
+}
+```
+
+Validation rules (enforced by the Stage-C agent-side review):
+
+| Rule | Rationale |
+|---|---|
+| top-level `articleType` present and matches one of the 8 slugs | The aggregator uses this to pick the right shared-chrome variant |
+| `files` present as an object (nested category → string[] **or** flat path → description) | Walked in canonical order by `src/aggregator/artifact-order.ts` |
+| Every `files.*` entry resolves to an existing file under the run directory | Broken links fail the render |
+| Latest `history[]` entry with a non-PENDING `gateResult` is carried forward on re-runs | Preserves the last `GREEN` / `ANALYSIS_ONLY` stamp |
+| At least one of the per-type required artifacts from [`.github/prompts/05-analysis-to-article-contract.md`](.github/prompts/05-analysis-to-article-contract.md) § 4 present | Prevents a thin run from publishing |
+
+The aggregator reads the manifest via `src/aggregator/analysis-aggregator.ts`
+and walks artifacts in the order defined by `src/aggregator/artifact-order.ts`.
+
 ## 🎯 Data Model Principles
 
 1. **Simplicity**: Flat file structure, no databases

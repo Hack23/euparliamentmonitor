@@ -88,15 +88,20 @@ See [SECURITY_ARCHITECTURE.md - Security Testing](SECURITY_ARCHITECTURE.md#-secu
 ### Scope
 
 **In Scope**:
-- News generation scripts (scripts/)
+- News generation scripts (`scripts/`)
+- Analysis-artifact aggregator (`src/aggregator/**` — `artifact-order.ts`, `clean-artifact.ts`, `analysis-aggregator.ts`, `markdown-renderer.ts`, `article-html.ts`, `article-generator.ts` CLI)
+- HTML sanitiser (`src/utils/html-sanitize.ts`) and the `markdown-it` render pipeline with plugins (`markdown-it-anchor`, `markdown-it-footnote`, `markdown-it-attrs`, `markdown-it-deflist`)
+- MCP clients (`src/mcp/**` — European Parliament, IMF, World Bank)
+- Committed analysis artifacts under `analysis/daily/**` (as attack surface for aggregator rendering)
+- Vendored client-side diagram renderer (`js/mermaid.esm.min.mjs`) and its CSP `script-src 'self'` constraint
 - HTML templates and output
-- MCP client integration
-- GitHub Actions workflows
-- Dependencies and supply chain
+- GitHub Actions workflows and gh-aw agentic workflows (`.github/workflows/news-*.md`)
+- AWS S3 + CloudFront deployment pipeline (`deploy-s3.yml`)
+- Dependencies and supply chain (OpenSSF Scorecard + SLSA L3 provenance)
 
 **Out of Scope**:
-- Third-party services (GitHub, European Parliament APIs)
-- Infrastructure (GitHub Pages hosting)
+- Third-party services (GitHub, European Parliament APIs, IMF SDMX REST, World Bank MCP)
+- Infrastructure (AWS account-level, GitHub Pages hosting as fallback)
 - Client-side browser vulnerabilities (not controlled by this project)
 
 ### Recognition and Anonymity

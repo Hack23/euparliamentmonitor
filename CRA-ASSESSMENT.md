@@ -284,14 +284,14 @@ EU Parliament Monitor generates a comprehensive Software Bill of Materials (SBOM
 
 Supplementary evidence map aligning each Annex I Part I essential cybersecurity requirement to current implementation artefacts. Complements the table above.
 
-- **Secure-by-default** ← static site, no auth, HSTS + CSP `<meta http-equiv>` in every article (`src/templates/article-template.ts:377-399`)
-- **No known exploitable vulns at release** ← CodeQL + Dependabot + gh-advisory-database gate (blocks PRs with new advisories)
+- **Secure-by-default** ← static site, no auth, HSTS + CSP `<meta http-equiv>` emitted by `src/aggregator/article-html.ts` (shared chrome, applied uniformly to every rendered language variant); deterministic markdown render via `markdown-it` (raw HTML disabled by default) + `src/utils/html-sanitize.ts`
+- **No known exploitable vulns at release** ← CodeQL + Dependabot + gh-advisory-database gate (blocks PRs with new advisories); SBOM includes `markdown-it` and its audit-enabled plugin set (`markdown-it-anchor`, `markdown-it-footnote`, `markdown-it-attrs`, `markdown-it-deflist`)
 - **Authenticated / integrity-verified updates** ← npm provenance statements + SLSA L3 build attestations + signed commits via CODEOWNERS
 - **Confidentiality** ← TLS 1.2+/1.3 on all outbound HTTPS (WB, IMF, GitHub, npm, AWS); no user PII collected, stored, or transmitted
-- **Integrity** ← `src/utils/html-sanitize.ts` on every MCP string; canonical tool-list drift tests (IMF + WB asserted in `test/integration/mcp/*`); validator gate in `scripts/utils/validate-analysis-completeness.js` (compiled from `src/utils/validate-analysis-completeness.ts`)
+- **Integrity** ← `src/utils/html-sanitize.ts` on every MCP string; canonical tool-list drift tests (IMF + WB asserted in `test/integration/mcp/*`); Stage-C completeness review over the committed artifact set (agent-side; the runtime validator in `src/utils/validate-analysis-completeness.ts` was purged with the aggregator migration — see [`SECURITY_ARCHITECTURE.md`](SECURITY_ARCHITECTURE.md) § Aggregator Migration for the defence-in-depth rationale)
 - **Data minimization** ← no accounts, no tracking, no analytics; theme preference only in `localStorage` (no cross-site tracking)
-- **Availability** ← BCP per-asset RTO/RPO targets; gh-aw engine-switch (Copilot ↔ Claude ↔ Codex); WB-OR-IMF OR-gate (`articlePolicyHasEconomicContext`)
-- **Attack surface minimization** ← static content only; AWF Squid firewall egress allowlist; Docker sandbox for agentic workflows
+- **Availability** ← BCP per-asset RTO/RPO targets; gh-aw engine-switch (Copilot ↔ Claude ↔ Codex); editorial IMF-primary rule enforced at Stage-C review (the Wave-2 `articlePolicyHasEconomicContext` runtime OR-gate was purged with the aggregator migration — policy now lives in [`analysis/methodologies/imf-indicator-mapping.md`](analysis/methodologies/imf-indicator-mapping.md))
+- **Attack surface minimization** ← static content only; no AI-authored HTML step (aggregator eliminates the template-prose-leak class of defects); AWF Squid firewall egress allowlist; Docker sandbox for agentic workflows
 - **Impact mitigation** ← OIDC federation (no long-lived keys on GitHub→AWS or GitHub→npm); `max-patch-size` caps; safe-outputs scoped to PR only
 - **Logging** ← JSONL agent stdio audit trail; AWS CloudTrail; GitHub audit log; CodeQL findings persisted as security alerts
 - **Remediation** ← Dependabot auto-PRs for vulnerable deps; pinned `GH_AW_VERSION=v0.69.0` with documented bump procedure; rollback via git revert (BCP Scenario 11)

@@ -135,11 +135,17 @@ v1.2.13 for accessing real EU Parliament data via the Model Context Protocol.
 
 - **MCP Server Status**: ✅ Fully operational — 60+ EP data tools available
   (feeds, direct lookups, analytical tools, intelligence correlation)
-- **Agentic Workflows**: 18 gh-aw markdown workflows — 8 split-pair article types (`news-<type>-analysis.md` + `news-<type>-article.md`) + `news-article-generator.md` + `news-translate.md` (compiled with
-  `gh-aw v0.69.3`) for automated news generation with AI-driven political
+- **Agentic Workflows**: 9 unified gh-aw markdown workflows — 8 article types (`news-<type>.md`, Stages A → B → C → D → E in one session) + `news-translate.md` (14-language flush translation) — compiled with
+  `gh-aw v0.69.3` to `.lock.yml` for automated news generation with AI-driven political
   intelligence analysis. See [`.github/workflows/README.md`](.github/workflows/README.md).
-- **Analysis Chain**: 5-stage pipeline (Data → Analysis → Completeness Gate →
-  Article → Single PR) producing 39 structured analysis templates per run.
+- **Analysis-Artifact-Driven Article Pipeline**: Agents author the full
+  Stage-B analysis-artifact set (`analysis/daily/<date>/<slug>-run<NN>/`) and
+  commit it; the deterministic aggregator (`src/aggregator/**`, invoked via
+  `npm run generate-article -- --run <analysis-run-dir>`) then walks
+  `manifest.json`, cleans each artifact, and emits the final HTML with the
+  shared site chrome and 14-language `<link rel="alternate" hreflang>`
+  entries. There is no AI-authored HTML step; article quality is guaranteed
+  editorially at the Stage-C completeness review over the artifact markdown.
   See [`analysis/README.md`](analysis/README.md) and
   [`analysis/methodologies/ai-driven-analysis-guide.md`](analysis/methodologies/ai-driven-analysis-guide.md).
 - **Fallback Mode**: News generation can work with reduced data when EP API
@@ -476,7 +482,8 @@ npm run generate-article -- --run analysis/daily/2025-01-01/breaking
 ### Generate Indexes and Sitemap
 
 ```bash
-# Generate language-specific index pages
+# Generate per-run news index pages (consumed by the aggregator's
+# transparency footer and political-intelligence.html)
 npm run generate-news-indexes
 
 # Generate sitemap.xml, sitemap_<lang>.html, and political-intelligence_<lang>.html

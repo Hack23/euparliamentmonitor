@@ -23,6 +23,43 @@
 
 ---
 
+> ### ⚠️ April-2026 Aggregator-Pipeline Migration
+>
+> The April-2026 release migrated from an AI-authored-HTML pipeline to a
+> **deterministic aggregator pipeline**. Article HTML is now rendered by
+> `src/aggregator/**` from committed Stage-B analysis artifacts — there is
+> no AI-authored HTML step, no per-article-type strategies, no
+> AI_MARKER/FALLBACK_TEMPLATE sentinel contract, and no
+> `src/utils/content-validator.ts` / `validate-articles.ts` /
+> `validate-analysis-completeness.ts` runtime validators.
+>
+> The canonical references below are correct for the current release:
+>
+> - **Render entry point**: `src/aggregator/article-generator.ts`
+>   (CLI: `npm run generate-article -- --run <analysis-run-dir>`)
+> - **Aggregator modules**: `artifact-order.ts`, `clean-artifact.ts`,
+>   `analysis-aggregator.ts`, `markdown-renderer.ts`, `article-html.ts`
+> - **Agentic workflows**: 9 unified `news-<type>.md` files (Stages A → B
+>   → C → D → E in one session) + `news-translate.md`; split-family
+>   workflows (`news-<type>-analysis.md` + `news-<type>-article.md`) and
+>   the manual `news-article-generator.md` helper were deleted
+> - **Economic-context enforcement**: editorial at Stage-C agent-side
+>   review over `intelligence/economic-context.md` — the Wave-2 OR-gate
+>   and Wave-3/Wave-4 strict runtime gates in
+>   `src/utils/content-validator.ts` were purged with the rest of the
+>   validator layer; enforcement moved to the Stage-C completeness review
+>   protocol in [`.github/prompts/03-analysis-completeness-gate.md`](.github/prompts/03-analysis-completeness-gate.md)
+>   and the depth floors in
+>   [`analysis/methodologies/reference-quality-thresholds.json`](analysis/methodologies/reference-quality-thresholds.json)
+>
+> The C4 diagrams in §§ "Container View" and "Component Design" below
+> still reference the pre-migration strategy/builder/content-validator
+> stack. They are scheduled for replacement in a follow-up PR that
+> rewrites those two sections against the 5-module aggregator. Until
+> then, use this banner, the Key Characteristics section, and
+> [`DATA_MODEL.md`](DATA_MODEL.md) as the authoritative description of
+> the current pipeline.
+
 This document serves as the primary entry point for the EU Parliament Monitor's
 architectural documentation. It provides a comprehensive view of the system's
 design using the C4 model approach, starting from a high-level system context
@@ -134,15 +171,16 @@ architecture.
 ### Key Characteristics
 
 - **Minimal Runtime Dependencies**: Pure static HTML/CSS output with no server-side
-  execution; one pinned production dependency (`european-parliament-mcp-server@1.2.13`) plus one optional dependency (`worldbank-mcp@1.0.1`) used only at build time
+  execution; one pinned production dependency (`european-parliament-mcp-server@1.2.13`) plus one optional dependency (`worldbank-mcp@1.0.1`) used only at build time; `markdown-it` + plugins (`markdown-it-anchor`, `markdown-it-footnote`, `markdown-it-attrs`, `markdown-it-deflist`) vendored in the aggregator for deterministic artifact rendering
 - **TypeScript Source**: All source in `src/` written in TypeScript 6.0.3 (strict, ESM, `"type": "module"`), compiled via `tsc` — `rootDir: ./src`, `outDir: ./scripts`, `target: ES2025`, `module: NodeNext`
 - **Multi-Language Support**: Generates content in 14 languages (`en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh`), defined in `src/constants/language-core.ts::ALL_LANGUAGES`
-- **Article Types**: 8 production content types (`breaking-news`, `committee-reports`, `month-ahead`, `monthly-review`, `motions`, `propositions`, `week-ahead`, `weekly-review`) driven by 9 strategy modules in `src/generators/strategies/` — the 8 type-specific strategies plus `article-strategy` (generic/on-demand, used by `news-article-generator.md` manual dispatch, not an additional production content type)
-- **Agentic Workflows**: 18 gh-aw markdown workflows — 8 split-pair article types (each with `news-<type>-analysis.md` for Stages A+B+C and `news-<type>-article.md` for Stage D) + `news-article-generator.md` (manual) + `news-translate.md` (translation fan-out) — compiled to `.lock.yml` via `gh aw compile --validate` (pinned `GH_AW_VERSION: v0.69.0`)
-- **Dual Economic Data (Wave-3)**: IMF REST is the **primary** source for every economic claim; World Bank MCP provides complementary non-economic context (health, education, social, environment, demographics, defence, agriculture, innovation, governance). Validator gates: `articlePolicyHasEconomicContext` (Wave-2 OR-gate, default — accepts either source) and `articlePolicyHasIMFEconomicEvidence` (Wave-3 strict — IMF only, dark-launched behind `WAVE3_IMF_STRICT` env flag) in `src/utils/content-validator.ts`
-- **AI-First Quality Principle**: Mandatory 2-pass iterative improvement (~60% pass 1, ~40% pass 2); ≥80 words/SWOT item, ≥150 words/stakeholder perspective, ≥60% prose ratio, ≥1 Chart.js visualization, 0 `[AI_ANALYSIS_REQUIRED]` sentinel markers
-- **MCP Integration**: Spawned as local child processes via stdio JSON-RPC at build time
-- **Security by Design**: Minimal attack surface through static architecture; 5-layer gh-aw security (AWF Squid firewall allowlist, sandboxed Docker, safe-output constraints, JSONL audit trail, lock file compilation)
+- **Article Types**: 8 production content types (`breaking`, `committee-reports`, `month-ahead`, `month-in-review`, `motions`, `propositions`, `week-ahead`, `week-in-review`) — each type is a slug, not a strategy module; the aggregator renders the same canonical artifact order for every type and per-type content differences are carried by the Stage-B artifacts themselves
+- **Agentic Workflows**: 9 unified gh-aw markdown workflows — 8 `news-<type>.md` article types (Stages A → B → C → D → E in one session, active-work budget 22–27 min before the single safe-outputs `create_pull_request` call, 75-min hard timeout) + `news-translate.md` (14-language flush translation, exempt from the single-PR rule) — compiled to `.lock.yml` via `gh aw compile --validate` (pinned `GH_AW_VERSION: v0.69.0`)
+- **Analysis-Artifact-Driven Article Pipeline**: Agents author the full Stage-B artifact set under `analysis/daily/<date>/<slug>-run<NN>/` and commit it. The deterministic aggregator (`src/aggregator/**`, invoked via `npm run generate-article -- --run <analysis-run-dir>`) walks `manifest.json`, cleans each artifact, and emits the final HTML with the shared site chrome and 14-language hreflang entries. There is no AI-authored HTML step, no strategies, no builders, no section-builders
+- **Economic Data (IMF-primary, Wave-4 strict default editorial)**: IMF REST is the **primary** source for every economic claim in `intelligence/economic-context.md`; World Bank MCP provides complementary non-economic context only. Enforcement is editorial at the Stage-C completeness review — the legacy runtime gates (`articlePolicyHasEconomicContext`, `articlePolicyHasIMFEconomicEvidence`, `isWave3IMFStrictEnabled`) in `src/utils/content-validator.ts` were purged in April-2026; the Stage-C reviewer applies the IMF-required-for-policy rule directly over the committed artifact
+- **Quality-Through-Artifact Principle**: Mandatory 2-pass iterative improvement during Stage B (~60% pass 1, ~40% pass 2); ≥ 80 words/SWOT item, ≥ 150 words/stakeholder perspective, ≥ 1 Mermaid or Chart.js visualisation per core artifact, 0 `[AI_ANALYSIS_REQUIRED]` sentinel markers in any committed file (enforced at Stage-C agent-side review against `reference-quality-thresholds.json`)
+- **MCP Integration**: Spawned as local child processes via stdio JSON-RPC at build time; inside agentic workflows via the `awmg` gateway at `http://host.docker.internal:8080/mcp/european-parliament`
+- **Security by Design**: Minimal attack surface through static architecture; 5-layer gh-aw security (AWF Squid firewall allowlist, sandboxed Docker, safe-output constraints, JSONL audit trail, lock file compilation); agent prose-injection class of defects eliminated at the root by the aggregator migration (no AI-authored HTML step means no template-prose leak vector)
 - **AWS Hosted**: AWS S3 + CloudFront (primary, via `deploy-s3.yml` with OIDC auth); GitHub Pages retained as documented fallback; npm package published to `registry.npmjs.org/euparliamentmonitor` with SLSA Level 3 provenance
 
 ---

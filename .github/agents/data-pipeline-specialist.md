@@ -11,7 +11,7 @@ description: European Parliament data integration expert for MCP server connecti
 
 1. **`src/mcp/ep-mcp-client.ts`** - European Parliament MCP client (TypeScript source; compiled to `scripts/mcp/ep-mcp-client.js`)
 2. **`scripts/mcp-setup.sh`** - AWF gateway connectivity script (sets `EP_MCP_GATEWAY_URL`, `EP_MCP_GATEWAY_API_KEY`)
-3. **`scripts/generate-news-enhanced.js`** - News generation with MCP integration
+3. **`src/aggregator/article-generator.ts`** - Deterministic article renderer (reads committed analysis artifacts + manifest.json, emits HTML via `src/aggregator/**`)
 4. **`.github/copilot-mcp.json`** - MCP server configuration
 5. **`package.json`** - Dependencies (undici, lru-cache)
 6. **`.github/workflows/news-generation.yml`** - MCP pre-installation workflow

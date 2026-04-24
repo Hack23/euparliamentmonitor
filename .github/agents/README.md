@@ -676,7 +676,7 @@ All agents have access to the following Hack23 organization repositories:
 const riksdagPatterns = await github.get_file_contents({
   owner: "Hack23",
   repo: "riksdagsmonitor",
-  path: "scripts/generate-news-enhanced.js"
+  path: "src/aggregator/article-generator.ts"
 });
 
 // Check ISMS policies
