@@ -812,6 +812,24 @@ describe('utils/file-utils', () => {
       expect(readLatestResolvedGateResult(manifestPath)).toBe('PENDING');
     });
 
+    it('returns GREEN from top-level gateResult when history is absent (back-compat)', () => {
+      const manifestPath = path.join(tempDir, 'manifest-compat-green.json');
+      fs.writeFileSync(manifestPath, JSON.stringify({ gateResult: 'GREEN' }));
+      expect(readLatestResolvedGateResult(manifestPath)).toBe('GREEN');
+    });
+
+    it('returns ANALYSIS_ONLY from top-level gateResult when history is absent (back-compat)', () => {
+      const manifestPath = path.join(tempDir, 'manifest-compat-analysis-only.json');
+      fs.writeFileSync(manifestPath, JSON.stringify({ gateResult: 'ANALYSIS_ONLY' }));
+      expect(readLatestResolvedGateResult(manifestPath)).toBe('ANALYSIS_ONLY');
+    });
+
+    it('returns PENDING for top-level gateResult of PENDING (back-compat does not promote PENDING)', () => {
+      const manifestPath = path.join(tempDir, 'manifest-compat-pending.json');
+      fs.writeFileSync(manifestPath, JSON.stringify({ gateResult: 'PENDING' }));
+      expect(readLatestResolvedGateResult(manifestPath)).toBe('PENDING');
+    });
+
     it('returns PENDING for corrupt JSON', () => {
       const manifestPath = path.join(tempDir, 'manifest-corrupt.json');
       fs.writeFileSync(manifestPath, 'not-json{{{');
