@@ -14,7 +14,7 @@
 > stack stays npm-pure and pinnable per ISMS §7. The five "tool" identifiers
 > are preserved verbatim as the content-validator fingerprint anchors.
 
-**📅 Last Updated:** 2026-04-20 | **🏷️ Classification:** Public | **🌀 Wave:** 1 IMF integration, with Wave-2 validation enforcement (`validate-articles` uses the WB-or-IMF OR-gate rather than a WB-only primary gate)
+**📅 Last Updated:** 2026-04-24 | **🏷️ Classification:** Public | **🌀 Wave:** 3 — IMF is the **sole authoritative source** for economic context (macro / monetary / fiscal / trade / FDI / exchange-rate). World Bank retained **only** for non-economic domains (social, health, education, environment, demographics, defence, agriculture, innovation, governance).
 
 ---
 
@@ -22,10 +22,15 @@
 
 | Document | Description | Audience |
 |----------|-------------|----------|
+| [`database-directory.md`](database-directory.md) | Full SDMX dataflow inventory (~155 databases) grouped by IMF publisher unit, tagged 🟢/🟡/⚪ for EP editorial relevance | AI workflows, developers |
 | [`indicator-catalog.md`](indicator-catalog.md) | ~80 IMF indicators across WEO, IFS, FM, BOP, ER, PCPS, organised by 10 EP policy domains with SDMX codes, frequency, and forecast horizon | AI workflows, developers |
+| [`sdmx-dimensions-reference.md`](sdmx-dimensions-reference.md) | Canonical SDMX 3.0 dimensions (`FREQ`, `REF_AREA`, `INDICATOR`, `COUNTERPART_AREA`, `OBS_STATUS`, `SCALE`, `METHODOLOGY`) with EP handling rules | AI workflows, developers |
 | [`eu-country-mapping.md`](eu-country-mapping.md) | EU-27 + comparison groups with IMF country codes and aggregation codelists (`EA`, `EU`, `G7`, `G20`) | AI workflows, analysis |
+| [`release-calendar.md`](release-calendar.md) | Rolling 18-month calendar of WEO/FM/GFSR/EREO vintages + monthly IFS/CPI/ER/PCPS cadence with editorial-trigger SLAs | AI workflows, product |
+| [`forecast-accuracy-baseline.md`](forecast-accuracy-baseline.md) | Per-horizon MAE bands for WEO/FM forecasts driving the mandatory optimism-bias acknowledgement on horizons ≥3y | AI workflows, news-journalist |
+| [`cross-source-triangulation.md`](cross-source-triangulation.md) | When IMF figures must be cross-checked against ECB SDW / Eurostat / OECD / BIS, keyed to significance tier & indicator class | AI workflows, quality-engineer |
 | [`chart-integration-guide.md`](chart-integration-guide.md) | Chart.js templates with forecast-shaded overlay + Mermaid `xychart-beta` patterns for IMF data visualisation | AI workflows, frontend |
-| [`use-cases.md`](use-cases.md) | When IMF WEO/IFS/FM adds value beyond World Bank WDI, ranked by article type | AI workflows, product |
+| [`use-cases.md`](use-cases.md) | When IMF adds editorial value per article type (Wave-3 IMF-primary matrix) | AI workflows, product |
 
 ---
 
@@ -109,10 +114,18 @@ for the WB-only indicator inventory.
 
 ## 🔁 Relationship to World Bank
 
-In Wave 1 (this release), the World Bank validator gate
-(`articlePolicyHasWorldBank`) remains the enforced quality gate.
-`articlePolicyHasEconomicContext` is **available** in the validator as
-an OR-gate helper so articles can satisfy the requirement via either
-source, but it is not yet the default. See
-[`analysis/methodologies/imf-indicator-mapping.md`](../methodologies/imf-indicator-mapping.md)
-for the committee-level mapping and migration sequence.
+Under Wave-3 (April 2026) the WB↔IMF split is enforced at the
+editorial-surface level:
+
+| Domain class | Primary source | Notes |
+|-------------|:--------------:|-------|
+| Economic / macro / monetary / fiscal / trade / FDI / exchange-rate | **IMF** | Mandatory for policy-required article types |
+| Social / health / education / environment / demographics / defence / agriculture / innovation / governance | **World Bank** | IMF does not cover these domains |
+
+The Wave-2 OR-gate (`articlePolicyHasEconomicContext`) remains in
+`src/utils/validate-articles.ts` as the enforced gate for backward
+compatibility; the Wave-3 strict helper
+`articlePolicyHasIMFEconomicEvidence` is dark-launched behind the
+`WAVE3_IMF_STRICT` feature flag for data-driven promotion. See
+[`../methodologies/imf-indicator-mapping.md`](../methodologies/imf-indicator-mapping.md)
+for the committee-level mapping and the Wave-3/4 migration sequence.

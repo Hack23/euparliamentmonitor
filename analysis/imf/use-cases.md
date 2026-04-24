@@ -3,40 +3,53 @@
 > When IMF data adds material value beyond World Bank for each EU
 > Parliament Monitor article type, ranked by expected editorial lift.
 
-**📅 Last Updated:** 2026-04-20 | **🏷️ Classification:** Public
+**📅 Last Updated:** 2026-04-24 | **🏷️ Classification:** Public | **🌀 Wave:** 3
 
 ---
 
-## 1. Article-Type Quality Matrix
+## 1. Article-Type Quality Matrix (Wave-3 IMF-primary)
 
-| Article type | IMF contribution | Lift |
-|---|---|:---:|
-| `news-week-ahead` | Forward-looking forecasts populate the "Economic outlook" paragraph with actual IMF numbers instead of AI-speculation | ★★★★★ |
-| `news-month-ahead` | Same as above + quarterly IFS inflation/unemployment trajectory | ★★★★★ |
-| `news-committee-reports` (ECON, BUDG, AFET, SEDE, INTA) | Fiscal Monitor debt, primary balance, structural balance, current account, REER, FDI quarterly | ★★★★★ |
-| `news-weekly-review` | Period-over-period change from CPI/IFS; WEO-delta vs prior vintage | ★★★★ |
-| `news-monthly-review` | Same + monthly PCPS commodity and ER exchange-rate context | ★★★★ |
-| `news-breaking` | Eliminates "data to 2024" stale claim; cites Q4 2025 / Q1 2026 IFS inflation | ★★★★ |
-| `news-motions` | Macro backdrop for legislative risk-assessment SWOT | ★★★ |
-| `news-propositions` | As motions | ★★★ |
-| `news-article-generator` | Topic-dependent; matches the underlying article type | ★★★ |
-| `news-translate` | Terminology update only (glossary: "World Bank" → "IMF") | neutral |
+Under Wave-3 policy, **IMF is the sole authoritative source for
+economic context** for every article type below — World Bank is
+retained only for non-economic domains and is additive, not
+substitutable.
+
+| Article type | IMF contribution | Min IMF indicators | WB cross-ref allowed? |
+|---|---|:---:|:---:|
+| `news-week-ahead` | Forward-looking forecasts populate the "Economic outlook" paragraph with actual IMF numbers instead of AI-speculation | ≥ 2 | non-economic only |
+| `news-month-ahead` | Same as above + quarterly IFS inflation/unemployment trajectory | ≥ 2 | non-economic only |
+| `news-committee-reports` (ECON) | WEO+IFS+FSI core macro+monetary; GFSR for stability callouts | ≥ 4 | non-economic only |
+| `news-committee-reports` (BUDG) | FM debt, primary balance, structural balance | ≥ 3 | non-economic only |
+| `news-committee-reports` (AFET / SEDE) | WEO macro context, DOT bilateral flows, EREO Europe briefs | ≥ 2 | defence/military on WB |
+| `news-committee-reports` (INTA) | DOT + BOP_AGG + WEO trade volume | ≥ 3 | non-economic only |
+| `news-weekly-review` | Period-over-period change from CPI/IFS; WEO-delta vs prior vintage | ≥ 1 | non-economic only |
+| `news-monthly-review` | Same + monthly PCPS commodity and ER exchange-rate context | ≥ 2 | non-economic only |
+| `news-breaking` | Eliminates "data to 2024" stale claim; cites Q4 2025 / Q1 2026 IFS inflation | ≥ 1 | non-economic only |
+| `news-motions` | Macro backdrop for legislative risk-assessment SWOT | ≥ 1 | non-economic only |
+| `news-propositions` | As motions | ≥ 1 | non-economic only |
+| `news-article-generator` | Topic-dependent; matches the underlying article type | per underlying type | per underlying type |
+| `news-translate` | Terminology: preserve "IMF", "WEO", "Fiscal Monitor" proper names in non-Latin scripts | — | — |
 
 ---
 
-## 2. Decision Rule: When to prefer IMF over World Bank
+## 2. Decision Rule: When IMF is mandatory (Wave-3)
 
-Use IMF **first** when any of the following conditions holds:
+IMF is **mandatory** for any policy-required article type whose
+subject matter touches:
 
-1. The article period extends into the current year or **any future
-   year** — WDI will not have the data.
-2. The indicator is macro/fiscal/trade/monetary — IMF WEO/FM/IFS/BOP
-   are the authoritative sources.
-3. Quarterly or monthly granularity is required — WDI is annual.
-4. The article needs a forecast (any year beyond the latest actual) —
-   WEO/FM are the only viable source.
-5. The committee context is ECON, BUDG, AFET, SEDE, INTA — these
-   committees' statutory remit aligns with IMF's primary outputs.
+1. GDP / growth / output
+2. Inflation / prices / CPI / HICP
+3. Unemployment / labour
+4. Public debt / deficit / fiscal balance
+5. Current account / trade balance / export / import
+6. FDI / capital flows
+7. Exchange rate / monetary policy / interest rate
+8. Banking / financial-sector stability
+9. Commodity prices (where relevant to the policy topic)
+10. Any forward-looking or forecast-based claim
+
+WB may still be cited **additively** for non-economic context in the
+same article.
 
 Use **World Bank** (and do NOT substitute IMF) when:
 
@@ -101,18 +114,32 @@ attribution + data currency dates" checklist item in
 
 ---
 
-## 5. Dual-Source Citation Pattern
+## 5. Canonical Citation Pattern (Wave-3)
 
 ```
 <p>
   Germany's general government debt reached 62.4 % of GDP in 2024
-  (IMF Fiscal Monitor April 2026) and the IMF projects it to stay at
-  61 % through 2026. In parallel, the World Bank's social indicators
-  show health-expenditure intensity at 12.4 % of GDP (SH.XPD.CHEX.GD.ZS,
-  2023 latest), the highest in the EU-27.
+  (IMF <em>Fiscal Monitor</em>, April 2026) and the IMF projects it
+  to stay at 61 % through 2026. For context on the non-economic
+  side, the World Bank's health indicators show health-expenditure
+  intensity at 12.4 % of GDP (SH.XPD.CHEX.GD.ZS, 2023 latest), the
+  highest in the EU-27.
 </p>
 ```
 
-This pattern satisfies both gates (`articlePolicyHasWorldBank` and
-`articlePolicyHasEconomicContext`) and makes the source provenance
-transparent to readers.
+IMF is the primary citation for the fiscal claim; World Bank is
+additive for the non-economic health-expenditure framing. This
+pattern satisfies both the Wave-2 OR-gate and the Wave-3 strict
+helper (`articlePolicyHasIMFEconomicEvidence`) and makes the source
+provenance transparent to readers.
+
+---
+
+## 6. See also
+
+- [`database-directory.md`](database-directory.md) — full database list
+- [`indicator-catalog.md`](indicator-catalog.md) — per-database indicator codes
+- [`release-calendar.md`](release-calendar.md) — vintage SLAs
+- [`forecast-accuracy-baseline.md`](forecast-accuracy-baseline.md) — optimism-bias bands
+- [`cross-source-triangulation.md`](cross-source-triangulation.md) — ECB/Eurostat/OECD cross-checks
+- [`../methodologies/imf-indicator-mapping.md`](../methodologies/imf-indicator-mapping.md) — validator wiring
