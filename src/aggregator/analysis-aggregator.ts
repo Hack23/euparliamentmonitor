@@ -64,6 +64,22 @@ export interface AggregatedRun {
   readonly includedArtifacts: readonly IncludedArtifact[];
   /** Latest resolved gate result read from `manifest.history[]`. */
   readonly gateResult: string;
+  /**
+   * Ordered list of top-level (H2) sections that were actually emitted into
+   * the aggregate — used by the HTML renderer to build the article
+   * table-of-contents sidebar. Includes canonical sections, the
+   * supplementary-intelligence bucket, the tradecraft-references appendix,
+   * and the analysis-index appendix, in document order.
+   */
+  readonly sectionToc: readonly TocSection[];
+}
+
+/** One entry in the article-level table of contents (H2 level). */
+export interface TocSection {
+  /** Fragment identifier — matches the `id="…"` on the rendered H2. */
+  readonly id: string;
+  /** Display title shown in the sidebar nav. */
+  readonly title: string;
 }
 
 /** Metadata for one artifact included in the aggregate. */
@@ -360,6 +376,10 @@ export function renderAnalysisIndex(
  * @param runDirRelPath - Repo-relative POSIX path of the run directory
  * @param seenMermaid - Shared mermaid-body hash set for dedup
  * @param sectionId - Identifier of the owning section (for the index)
+ * @param suppressHeader - When `true`, omit the `### {humanize(stem)}` heading
+ *        (used when the section has a single artifact whose name already
+ *        matches the section title, to avoid a redundant H3 immediately
+ *        under the section H2)
  * @returns `{ lines, included }` ready to be appended; `null` when the file
  *          doesn't exist on disk
  */
@@ -368,7 +388,8 @@ function renderArtifactFragment(
   runRel: string,
   runDirRelPath: string,
   seenMermaid: Set<string>,
-  sectionId: string
+  sectionId: string,
+  suppressHeader: boolean
 ): { lines: string[]; included: IncludedArtifact } | null {
   const abs = path.join(runDir, runRel);
   if (!fs.existsSync(abs)) return null;
@@ -379,9 +400,9 @@ function renderArtifactFragment(
     seenMermaidHashes: seenMermaid,
   });
   const stem = runRel.split('/').pop()?.replace(/\.md$/i, '') ?? runRel;
+  const headerLines = suppressHeader ? [] : ['', `### ${humanize(stem)}`];
   const lines = [
-    '',
-    `### ${humanize(stem)}`,
+    ...headerLines,
     '',
     `<p class="artifact-source"><a href="${githubBlobUrl(repoRel)}" rel="noopener">View source: <code>${runRel}</code></a></p>`,
     '',
@@ -393,6 +414,26 @@ function renderArtifactFragment(
     sectionId,
   };
   return { lines, included };
+}
+
+/**
+ * Decide whether the `### {humanize(stem)}` sub-heading can be suppressed
+ * for a single-artifact section. The rule: when a section contains exactly
+ * one artifact AND the humanised stem matches the section title
+ * (case-insensitive), the sub-heading would restate the section H2 and is
+ * dropped. This fixes the visible `<h2>Synthesis Summary</h2><h3>Synthesis
+ * Summary</h3>` duplication seen in first-pass aggregates.
+ *
+ * @param paths - Run-relative artifact paths that belong to the section
+ * @param sectionTitle - Display title of the owning section
+ * @returns `true` when the single-artifact header should be suppressed
+ */
+function shouldSuppressFragmentHeader(paths: readonly string[], sectionTitle: string): boolean {
+  if (paths.length !== 1) return false;
+  const onlyPath = paths[0];
+  if (!onlyPath) return false;
+  const stem = onlyPath.split('/').pop()?.replace(/\.md$/i, '') ?? onlyPath;
+  return humanize(stem).toLowerCase() === sectionTitle.toLowerCase();
 }
 
 /**
@@ -408,7 +449,30 @@ function renderArtifactFragment(
  * @param seenMermaid - Shared mermaid dedup set
  * @param sectionMarkdown - Mutable output buffer
  * @param included - Mutable list of included-artifact metadata
+ * @param emittedSections - Mutable list of `(id, title)` pairs for the
+ *        article-level TOC; a section is recorded only when at least one
+ *        of its artifacts was actually rendered
  */
+/**
+ * Prefix applied to every article-level section id to avoid collisions
+ * with artifact-generated heading anchors. A section like `stakeholder-map`
+ * becomes `#section-stakeholder-map`, leaving the bare `#stakeholder-map`
+ * slug free for an artifact that happens to contain a `### Stakeholder
+ * Map` heading (which `markdown-it-anchor` will slug verbatim).
+ */
+const SECTION_ID_PREFIX = 'section-';
+
+/**
+ * Namespace a canonical section id so it cannot collide with an artifact
+ * heading slug produced downstream by markdown-it-anchor.
+ *
+ * @param sectionId - Raw section identifier from `ARTIFACT_SECTIONS`
+ * @returns Namespaced id like `section-stakeholder-map`
+ */
+function namespacedSectionId(sectionId: string): string {
+  return `${SECTION_ID_PREFIX}${sectionId}`;
+}
+
 function appendSection(
   runDir: string,
   runDirRelPath: string,
@@ -417,15 +481,30 @@ function appendSection(
   paths: readonly string[],
   seenMermaid: Set<string>,
   sectionMarkdown: string[],
-  included: IncludedArtifact[]
+  included: IncludedArtifact[],
+  emittedSections: TocSection[]
 ): void {
   if (paths.length === 0) return;
-  sectionMarkdown.push(`<h2 id="${sectionId}">${sectionTitle}</h2>`);
+  const emittedId = namespacedSectionId(sectionId);
+  sectionMarkdown.push(`<h2 id="${emittedId}">${sectionTitle}</h2>`);
+  const suppress = shouldSuppressFragmentHeader(paths, sectionTitle);
+  let anyFragmentRendered = false;
   for (const runRel of paths) {
-    const fragment = renderArtifactFragment(runDir, runRel, runDirRelPath, seenMermaid, sectionId);
+    const fragment = renderArtifactFragment(
+      runDir,
+      runRel,
+      runDirRelPath,
+      seenMermaid,
+      emittedId,
+      suppress
+    );
     if (!fragment) continue;
+    anyFragmentRendered = true;
     sectionMarkdown.push(...fragment.lines);
     included.push(fragment.included);
+  }
+  if (anyFragmentRendered) {
+    emittedSections.push({ id: emittedId, title: sectionTitle });
   }
   sectionMarkdown.push('');
 }
@@ -460,6 +539,7 @@ export function aggregateAnalysisRun(options: AggregateOptions): AggregatedRun {
 
   const consumed = new Set<string>();
   const includedArtifacts: IncludedArtifact[] = [];
+  const emittedSections: TocSection[] = [];
   const sectionMarkdown: string[] = [];
   const seenMermaid = new Set<string>();
   const runDirRelPath = path.relative(repoRoot, runDir).split(path.sep).join('/');
@@ -474,7 +554,8 @@ export function aggregateAnalysisRun(options: AggregateOptions): AggregatedRun {
       paths,
       seenMermaid,
       sectionMarkdown,
-      includedArtifacts
+      includedArtifacts,
+      emittedSections
     );
   }
 
@@ -489,7 +570,8 @@ export function aggregateAnalysisRun(options: AggregateOptions): AggregatedRun {
       leftovers,
       seenMermaid,
       sectionMarkdown,
-      includedArtifacts
+      includedArtifacts,
+      emittedSections
     );
     for (const p of leftovers) consumed.add(p);
   }
@@ -513,6 +595,11 @@ export function aggregateAnalysisRun(options: AggregateOptions): AggregatedRun {
   const tradecraft = renderTradecraftAppendix(tradecraftFiles);
   const analysisIndex = renderAnalysisIndex(includedArtifacts, manifestRelPath);
 
+  // Both appendices emit their own <h2 id="…"> blocks — record them so the
+  // article TOC mirrors the rendered document in document order.
+  emittedSections.push({ id: TRADECRAFT_SECTION_ID, title: TRADECRAFT_SECTION_TITLE });
+  emittedSections.push({ id: MANIFEST_SECTION_ID, title: MANIFEST_SECTION_TITLE });
+
   const markdown = [
     `# ${documentTitle}`,
     '',
@@ -535,6 +622,7 @@ export function aggregateAnalysisRun(options: AggregateOptions): AggregatedRun {
     date,
     includedArtifacts,
     gateResult,
+    sectionToc: emittedSections,
   };
 }
 

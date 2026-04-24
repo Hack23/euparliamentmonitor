@@ -6417,3 +6417,104 @@ html[data-theme='dark'] .d3-swot-chart-wrapper text,
 html[data-theme='dark'] .d3-network-wrapper text {
   fill: #c9d1d9 !important;
 }
+
+/* ─── Article Table of Contents (aggregator-driven articles) ─────── */
+/*
+ * Two-column article layout: TOC sidebar on the left, article body on
+ * the right. On narrow viewports the `<details>` collapses the TOC into
+ * a disclosure so the article body stays the primary focus.
+ */
+.article-main {
+  display: grid;
+  grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
+  gap: 32px;
+  align-items: start;
+}
+
+.article-toc-container {
+  position: sticky;
+  top: 24px;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  padding: 16px 18px;
+  background: var(--card-bg, #f6f8fa);
+  border: 1px solid var(--border, #d0d7de);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.article-toc-details[open] .article-toc-summary {
+  margin-bottom: 12px;
+}
+
+.article-toc-summary {
+  font-weight: 700;
+  color: var(--primary, #003399);
+  cursor: pointer;
+  list-style: none;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border, #d0d7de);
+}
+
+.article-toc-summary::-webkit-details-marker {
+  display: none;
+}
+
+.article-toc-list {
+  list-style: decimal inside;
+  margin: 0;
+  padding: 0;
+}
+
+.article-toc-list li {
+  margin: 6px 0;
+  padding-left: 4px;
+}
+
+.article-toc-list a {
+  color: var(--link, #0969da);
+  text-decoration: none;
+}
+
+.article-toc-list a:hover,
+.article-toc-list a:focus-visible {
+  text-decoration: underline;
+}
+
+.article-toc-list a:focus-visible {
+  outline: 2px solid var(--primary, #003399);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.article-body {
+  min-width: 0; /* prevent grid-child overflow on long code blocks */
+}
+
+/* Collapse to single column below wide-desktop breakpoint. */
+@media (max-width: 960px) {
+  .article-main {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+  .article-toc-container {
+    position: static;
+    max-height: none;
+  }
+  .article-toc-details:not([open]) .article-toc-list {
+    display: none;
+  }
+}
+
+/* Dark-mode overrides pick up palette tokens already defined upstream. */
+html[data-theme='dark'] .article-toc-container {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* RTL alignment for the numbered TOC list. */
+[dir='rtl'] .article-toc-list {
+  list-style-position: inside;
+  padding-right: 0;
+}

@@ -139,11 +139,14 @@ v1.2.13 for accessing real EU Parliament data via the Model Context Protocol.
   `gh-aw v0.69.3` to `.lock.yml` for automated news generation with AI-driven political
   intelligence analysis. See [`.github/workflows/README.md`](.github/workflows/README.md).
 - **Analysis-Artifact-Driven Article Pipeline**: Agents author the full
-  Stage-B analysis-artifact set (`analysis/daily/<date>/<slug>-run<NN>/`) and
-  commit it; the deterministic aggregator (`src/aggregator/**`, invoked via
-  `npm run generate-article -- --run <analysis-run-dir>`) then walks
-  `manifest.json`, cleans each artifact, and emits the final HTML with the
-  shared site chrome and 14-language `<link rel="alternate" hreflang>`
+  Stage-B analysis-artifact set (`analysis/daily/<date>/<slug>-run<NN>/`, 39
+  structured templates per run) and commit it; the deterministic aggregator
+  (`src/aggregator/**`, invoked via
+  `npm run generate-article -- --run <analysis-run-dir>` or
+  `npm run generate-article:all` for batch regen) then walks `manifest.json`,
+  cleans each artifact, and emits the final Markdown source + HTML with the
+  shared site chrome (stacked header + embedded 14-language switcher + TOC
+  sidebar + footer stats) and 14-language `<link rel="alternate" hreflang>`
   entries. There is no AI-authored HTML step; article quality is guaranteed
   editorially at the Stage-C completeness review over the artifact markdown.
   See [`analysis/README.md`](analysis/README.md) and
@@ -473,11 +476,30 @@ without it using placeholder content.
 Agentic workflows generate articles automatically. For manual article generation from an analysis run:
 
 ```bash
-# Render article from a specific analysis run directory
+# Render one article from a specific analysis run directory
 npm run generate-article -- --run analysis/daily/2025-01-01/breaking
 
-# The aggregator reads committed analysis artifacts and renders HTML
+# Regenerate EVERY committed analysis run in one pass (skips runs whose
+# manifest.json has no valid articleType; collision-suffixes same-date /
+# same-type runs with a sanitised runId)
+npm run generate-article:all
+
+# Only regenerate runs from a given date onward
+npm run generate-article -- --all --since 2026-04-01
 ```
+
+Each invocation writes:
+
+- `news/<slug>.en.md` — aggregated Markdown (provenance block + 19-section
+  ordered artifact set + Tradecraft References appendix + Analysis Index appendix)
+- `news/<slug>-<lang>.html` — 14 language variants, each wrapped in the
+  shared site chrome (stacked header with embedded language switcher,
+  article-level Table of Contents sidebar, shared footer with live
+  article-count stats)
+
+The aggregator lives under `src/aggregator/` — see the
+[aggregator pipeline](ARCHITECTURE.md#aggregator-pipeline) section of the
+architecture doc for the full data flow.
 
 ### Generate Indexes and Sitemap
 

@@ -62,6 +62,7 @@
     "build:check-tests": "tsc --project tsconfig.test.json --noEmit",
     "copy-vendor": "mkdir -p js/vendor && cp node_modules/chart.js/dist/chart.umd.min.js js/vendor/ && cp node_modules/chartjs-plugin-annotation/dist/chartjs-plugin-annotation.min.js js/vendor/ && cp node_modules/d3/dist/d3.min.js js/vendor/ && (test -f node_modules/mermaid/dist/mermaid.esm.min.mjs && cp node_modules/mermaid/dist/mermaid.esm.min.mjs js/vendor/ || echo 'mermaid vendor asset not installed; skipping')",
     "generate-article": "node scripts/aggregator/article-generator.js",
+    "generate-article:all": "node scripts/aggregator/article-generator.js --all",
     "generate-news-indexes": "node scripts/generators/news-indexes.js",
     "generate-sitemap": "node scripts/generators/sitemap.js",
     "validate-ep-api": "npx tsx src/utils/validate-ep-api.ts",

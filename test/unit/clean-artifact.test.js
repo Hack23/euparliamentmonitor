@@ -16,6 +16,7 @@ import {
   rewriteLinks,
   stripBanners,
   stripFrontMatter,
+  stripSpdxTags,
 } from '../../scripts/aggregator/clean-artifact.js';
 
 describe('stripFrontMatter', () => {
@@ -190,6 +191,46 @@ describe('dedupMermaid', () => {
   });
 });
 
+describe('stripSpdxTags', () => {
+  it('removes italicised SPDX footer lines (markdown-it would otherwise emit <em>…</em></p> and break REUSE)', () => {
+    const md = [
+      '# Heading',
+      '',
+      'Body.',
+      '',
+      '---',
+      '',
+      '*Generated: 2 April 2026 | Classification: PUBLIC*',
+      '*SPDX-License-Identifier: Apache-2.0*',
+    ].join('\n');
+    const { md: out, lines } = stripSpdxTags(md);
+    expect(lines).toBe(1);
+    expect(out).not.toContain('SPDX-License-Identifier');
+    expect(out).toContain('# Heading');
+    expect(out).toContain('Classification: PUBLIC');
+  });
+
+  it('strips HTML-comment SPDX headers and FileCopyrightText lines', () => {
+    const md = [
+      '<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->',
+      '<!-- SPDX-License-Identifier: Apache-2.0 -->',
+      '',
+      '# Heading',
+    ].join('\n');
+    const { md: out, lines } = stripSpdxTags(md);
+    expect(lines).toBe(2);
+    expect(out).not.toMatch(/SPDX-/);
+    expect(out).toContain('# Heading');
+  });
+
+  it('is a no-op when no SPDX tag is present', () => {
+    const md = '# Heading\n\nBody.\n';
+    const { md: out, lines } = stripSpdxTags(md);
+    expect(lines).toBe(0);
+    expect(out).toBe(md);
+  });
+});
+
 describe('cleanArtifact end-to-end', () => {
   it('applies every pass and returns deterministic output', () => {
     const md = [
@@ -226,6 +267,20 @@ describe('cleanArtifact end-to-end', () => {
       'https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-01-15/breaking/intelligence/other.md'
     );
     expect(result.markdown).toContain('```mermaid');
+  });
+
+  it('also strips SPDX footer lines via the cleanArtifact pipeline', () => {
+    const md = [
+      '# Heading',
+      '',
+      'Body.',
+      '',
+      '*SPDX-License-Identifier: Apache-2.0*',
+    ].join('\n');
+    const result = cleanArtifact(md, {
+      artifactRelPath: 'analysis/daily/2026-01-15/breaking/intelligence/x.md',
+    });
+    expect(result.markdown).not.toContain('SPDX-License-Identifier');
   });
 
   it('shares mermaid dedup state across two invocations', () => {

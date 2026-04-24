@@ -15,7 +15,7 @@
  * stays `script-src 'self'`.
  */
 import { BASE_URL, createThemeToggleButton, THEME_TOGGLE_SCRIPT } from '../constants/config.js';
-import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, SKIP_LINK_TEXTS, HEADER_SUBTITLE_LABELS, THEME_TOGGLE_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
+import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, SKIP_LINK_TEXTS, HEADER_SUBTITLE_LABELS, THEME_TOGGLE_LABELS, TOC_ARIA_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
 import { escapeHTML } from '../utils/file-utils.js';
 import { buildSiteFooter } from '../templates/section-builders.js';
 /**
@@ -54,11 +54,47 @@ function buildLanguageSwitcher(articleSlug, current) {
     return ALL_LANGUAGES.map((code) => {
         const flag = getLocalizedString(LANGUAGE_FLAGS, code);
         const name = getLocalizedString(LANGUAGE_NAMES, code);
+        const safeName = escapeHTML(name);
         const active = code === current ? ' active' : '';
         const ariaCurrent = code === current ? ' aria-current="page"' : '';
         const href = getArticleFilename(articleSlug, code);
-        return `<a href="${href}" class="lang-link${active}" hreflang="${code}" title="${escapeHTML(name)}"${ariaCurrent}>${flag} ${code.toUpperCase()}</a>`;
+        return `<a href="${href}" class="lang-link${active}" hreflang="${code}" lang="${code}" title="${safeName}" aria-label="${safeName}"${ariaCurrent}>${flag} ${code.toUpperCase()}</a>`;
     }).join('\n        ');
+}
+/**
+ * Build the article-level Table of Contents nav. Renders a labelled
+ * `<nav class="article-toc">` with one `<a>` per H2 section, keyed by the
+ * stable fragment ids produced by the aggregator. The containing `<aside>`
+ * is styled as a sticky sidebar on wide viewports and collapses into a
+ * `<details>` disclosure on narrow viewports via `styles.css`.
+ *
+ * Returns an empty string when `entries` is empty so low-signal
+ * `ANALYSIS_ONLY` articles (few sections, no value in a TOC) stay compact.
+ *
+ * @param entries - Ordered list of emitted H2 sections
+ * @param lang - Language code used to localise the nav label
+ * @returns HTML fragment for the sidebar, or `""` when no TOC is needed
+ */
+export function buildArticleToc(entries, lang) {
+    if (entries.length === 0)
+        return '';
+    const label = escapeHTML(getLocalizedString(TOC_ARIA_LABELS, lang));
+    const items = entries
+        .map((e) => `        <li><a href="#${escapeHTML(e.id)}">${escapeHTML(e.title)}</a></li>`)
+        .join('\n');
+    return [
+        `  <aside class="article-toc-container" aria-label="${label}">`,
+        `    <details class="article-toc-details" open>`,
+        `      <summary class="article-toc-summary">${label}</summary>`,
+        `      <nav class="article-toc">`,
+        `        <ol class="article-toc-list">`,
+        items,
+        `        </ol>`,
+        `      </nav>`,
+        `    </details>`,
+        `  </aside>`,
+        '',
+    ].join('\n');
 }
 /**
  * Render the full article HTML document with the shared chrome.
@@ -81,6 +117,7 @@ export function wrapArticleHtml(options) {
     const sourceMdLink = options.sourceMarkdownRelPath
         ? `<p class="article-source-md"><a href="${BASE_URL}/${options.sourceMarkdownRelPath}" rel="alternate" type="text/markdown">View source Markdown</a></p>`
         : '';
+    const tocHtml = buildArticleToc(options.toc ?? [], safeLang);
     const jsonLd = {
         '@context': 'https://schema.org',
         '@type': 'NewsArticle',
@@ -146,11 +183,11 @@ ${hreflangLinks}
   <a href="#main" class="skip-link">${escapeHTML(skipLinkText)}</a>
 
   <header class="site-header" role="banner">
-    <div class="site-header__inner">
+    <div class="site-header__inner site-header__inner--stacked">
       <a href="${indexHref}" class="site-header__brand" aria-label="${escapeHTML(siteTitle)}">
         <picture class="site-header__logo-picture">
-          <source srcset="../images/favicon-96x96.webp" type="image/webp">
-          <img class="site-header__logo" src="../images/favicon-96x96.png" alt="" width="36" height="36" aria-hidden="true">
+          <source srcset="../images/header-logo.webp" type="image/webp">
+          <img class="site-header__logo site-header__logo--header" src="../images/header-logo.png" alt="" width="72" height="48" aria-hidden="true">
         </picture>
         <span>
           <span class="site-header__title">${escapeHTML(siteTitle)}</span>
@@ -158,21 +195,20 @@ ${hreflangLinks}
         </span>
       </a>
       ${createThemeToggleButton(themeToggleLabel)}
+      <nav class="site-header__langs" role="navigation" aria-label="Language selection">
+        ${langSwitcher}
+      </nav>
     </div>
   </header>
 
-  <nav class="language-switcher" role="navigation" aria-label="Language selection">
-    ${langSwitcher}
-  </nav>
-
   <main id="main" class="site-main article-main">
-    <article class="article-body" lang="${safeLang}">
+${tocHtml}    <article class="article-body" lang="${safeLang}">
       ${sourceMdLink}
       ${options.body}
     </article>
   </main>
 
-  ${buildSiteFooter({ lang: safeLang, pathPrefix: '../' })}${THEME_TOGGLE_SCRIPT}
+  ${buildSiteFooter({ lang: safeLang, pathPrefix: '../', ...(typeof options.articleCount === 'number' ? { articleCount: options.articleCount } : {}) })}${THEME_TOGGLE_SCRIPT}
 </body>
 </html>`;
 }

@@ -134,6 +134,39 @@ export function stripBanners(md) {
     return { md: lines.slice(bannerEnd).join('\n').replace(/^\n+/, ''), lines: stripped };
 }
 /**
+ * Matches an SPDX tag anywhere on a line, whether wrapped in HTML comments
+ * (`<!-- SPDX-License-Identifier: Apache-2.0 -->`), inline markdown emphasis
+ * (`*SPDX-License-Identifier: Apache-2.0*`, `_SPDX-FileCopyrightText: …_`), or
+ * written bare. Used to purge artifact-level SPDX metadata before rendering so
+ * it doesn't leak into the aggregated HTML (where the REUSE tool would then
+ * parse the surrounding markup as part of the SPDX expression).
+ */
+const SPDX_TAG_LINE = /SPDX-(?:License-Identifier|FileCopyrightText|PackageName|PackageSupplier|PackageDownloadLocation)\b/;
+/**
+ * Remove every line containing an SPDX tag from the Markdown source. The
+ * aggregated article HTML carries its own file-level SPDX header via
+ * `REUSE.toml`; per-artifact tags would otherwise surface as visible footer
+ * text (`<em>SPDX-License-Identifier: Apache-2.0</em></p>`) and trip the
+ * REUSE compliance scanner with `Apache-2.0</em></p>` as an invalid SPDX
+ * expression.
+ *
+ * @param md - Raw Markdown source
+ * @returns `{ md, lines }` — stripped Markdown and count of removed lines
+ */
+export function stripSpdxTags(md) {
+    const lines = md.split('\n');
+    const kept = [];
+    let stripped = 0;
+    for (const line of lines) {
+        if (SPDX_TAG_LINE.test(line)) {
+            stripped++;
+            continue;
+        }
+        kept.push(line);
+    }
+    return { md: kept.join('\n'), lines: stripped };
+}
+/**
  * Remove every H1 (`^# ` and the setext H1 form) and demote every other
  * ATX heading by one level. Setext H2 (`----` underline) stays as H2 because
  * converting it to H3 would require replacing the underline form.
@@ -552,6 +585,7 @@ function hashString(input) {
 export function cleanArtifact(source, options) {
     const seen = options.seenMermaidHashes ?? new Set();
     let md = stripFrontMatter(source);
+    md = stripSpdxTags(md).md;
     const { md: mdAfterBanners, lines: strippedBannerLines } = stripBanners(md);
     md = mdAfterBanners;
     const { md: mdAfterHeadings, h1Count } = demoteHeadings(md);
