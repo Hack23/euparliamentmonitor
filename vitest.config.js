@@ -39,21 +39,35 @@ export default defineConfig({
         // Exclude CLI entry point scripts (tested via integration tests)
         'scripts/generators/news-indexes.js',
         'scripts/generators/sitemap.js',
+        // One-shot migration / pre-flight CLIs (library logic is covered via imports; CLI code paths are tested via integration runs)
+        'scripts/utils/migrate-legacy-articles.js',
+        'scripts/utils/validate-ep-api.js',
         // Exclude documentation generation scripts (utility scripts)
         'scripts/utils/generate-docs-index.js',
         'scripts/utils/copy-test-reports.js',
         // Exclude type definitions
         'scripts/**/*.d.ts',
         // Exclude TypeScript type-only stubs (interfaces/enums, no testable logic)
+        'scripts/types/analysis.js',
         'scripts/types/generation.js',
+        'scripts/types/imf.js',
         'scripts/types/index.js',
+        'scripts/types/intelligence.js',
         'scripts/types/mcp.js',
         'scripts/types/parliament.js',
-        'scripts/types/visualization.js',
+        'scripts/types/political-risk.js',
+        'scripts/types/political-threats.js',
         'scripts/types/quality.js',
+        'scripts/types/significance.js',
+        'scripts/types/visualization.js',
         'scripts/types/world-bank.js',
         // Exclude language string maps (pure data/config, 500+ arrow fns across 14 languages)
         'scripts/constants/language-articles.js',
+        'scripts/constants/languages.js',
+        // Exclude barrel re-export entry points (no testable logic)
+        'scripts/index.js',
+        // Orphaned pre-purge entry point (no corresponding .ts source; references deleted modules)
+        'scripts/index.old.js',
       ],
     },
     

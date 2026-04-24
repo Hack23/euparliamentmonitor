@@ -383,3 +383,288 @@ describe('rewriteHtml — idempotency + surface coverage', () => {
     );
   });
 });
+
+describe('parseArgs — CLI argument parsing branches', async () => {
+  const { parseArgs } = await import('../../scripts/backport-article-seo.js');
+
+  it('returns defaults when no arguments are supplied', () => {
+    const opts = parseArgs([]);
+    expect(opts).toEqual({ apply: false, dir: 'news', only: null });
+  });
+
+  it('--apply sets apply=true', () => {
+    expect(parseArgs(['--apply'])).toMatchObject({ apply: true });
+  });
+
+  it('--dry-run resets apply to false even after --apply', () => {
+    expect(parseArgs(['--apply', '--dry-run'])).toMatchObject({ apply: false });
+  });
+
+  it('--dir consumes the next positional as a path', () => {
+    expect(parseArgs(['--dir', 'other-news'])).toMatchObject({ dir: 'other-news' });
+  });
+
+  it('--dir without a value throws', () => {
+    expect(() => parseArgs(['--dir'])).toThrow(/--dir expects a path/);
+  });
+
+  it('--only splits comma lists into a Set and trims whitespace', () => {
+    const opts = parseArgs(['--only', 'breaking, motions , week-ahead']);
+    expect(opts.only).toBeInstanceOf(Set);
+    expect([...opts.only]).toEqual(['breaking', 'motions', 'week-ahead']);
+  });
+
+  it('--only without a value throws', () => {
+    expect(() => parseArgs(['--only'])).toThrow(/--only expects a comma-separated list/);
+  });
+
+  it('unknown flags throw with a helpful message', () => {
+    expect(() => parseArgs(['--nope'])).toThrow(/Unknown argument: --nope/);
+  });
+});
+
+describe('listArticleFiles — filesystem walk skip branches', async () => {
+  const { listArticleFiles } = await import('../../scripts/backport-article-seo.js');
+  let tmp;
+
+  beforeEach(() => {
+    tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'backport-list-'));
+  });
+
+  afterEach(() => {
+    fs.rmSync(tmp, { recursive: true, force: true });
+  });
+
+  it('returns the parsed entries for well-formed filenames only', () => {
+    fs.writeFileSync(path.join(tmp, '2026-01-15-breaking-en.html'), '');
+    fs.writeFileSync(path.join(tmp, '2026-01-15-breaking-sv.html'), '');
+    // Non-HTML → skipped
+    fs.writeFileSync(path.join(tmp, 'readme.md'), '');
+    // Unparseable — no ISO-date prefix → skipped
+    fs.writeFileSync(path.join(tmp, 'about-en.html'), '');
+    // Unknown language suffix → skipped
+    fs.writeFileSync(path.join(tmp, '2026-01-15-breaking-xx.html'), '');
+
+    const files = listArticleFiles(tmp);
+    const names = files.map((f) => f.name).sort();
+    expect(names).toEqual(['2026-01-15-breaking-en.html', '2026-01-15-breaking-sv.html']);
+    expect(files[0]).toMatchObject({
+      lang: 'en',
+      date: '2026-01-15',
+      articleType: 'breaking',
+    });
+    expect(files[1]).toMatchObject({ lang: 'sv' });
+  });
+});
+
+describe('chooseTitle — tier fallback branches', async () => {
+  const { chooseTitle } = await import('../../scripts/backport-article-seo.js');
+  const file = { articleType: 'breaking', date: '2026-04-20' };
+
+  it('returns the body H1 when it is non-generic', () => {
+    expect(chooseTitle('Banking Union Breakthrough', '', 'Template', file)).toBe(
+      'Banking Union Breakthrough'
+    );
+  });
+
+  it('falls back to prose first-sentence when the H1 is generic', () => {
+    const prose = 'The plenary adopted three landmark directives in a single sitting.';
+    const result = chooseTitle('Breaking — 2026-04-20', prose, 'Template', file);
+    expect(result).toContain('plenary adopted three landmark directives');
+  });
+
+  it('falls back to the template when neither H1 nor prose are usable', () => {
+    expect(chooseTitle('Breaking — 2026-04-20', '', 'Template Title', file)).toBe(
+      'Template Title'
+    );
+  });
+
+  it('skips a too-short first sentence and returns the template', () => {
+    // 'OK.' → sentence length < 20 → falls through to template
+    expect(chooseTitle('Breaking — 2026-04-20', 'OK.', 'Tpl', file)).toBe('Tpl');
+  });
+});
+
+describe('isGenericBodyH1 — legacy + date-suffix patterns', async () => {
+  const { isGenericBodyH1 } = await import('../../scripts/backport-article-seo.js');
+
+  it('flags each known legacy-era title verbatim', () => {
+    const legacy = [
+      'Legislative Procedures: European Parliament Monitor',
+      'EU Parliament Committee Activity Report',
+      'EU Parliament Breaking',
+      'EU Parliament Motions',
+      'Plenary Votes & Resolutions',
+      'Plenary Votes and Resolutions',
+    ];
+    for (const t of legacy) {
+      expect(isGenericBodyH1(t, 'breaking', '2026-04-20')).toBe(true);
+    }
+  });
+
+  it('flags legacy templates when they carry a suffix', () => {
+    expect(
+      isGenericBodyH1(
+        'Legislative Procedures: European Parliament Monitor — Follow-up',
+        'breaking',
+        '2026-04-20'
+      )
+    ).toBe(true);
+  });
+
+  it('flags the "<Short-Phrase> — <ISO-date>" form even for run-suffixed types', () => {
+    expect(isGenericBodyH1('Breaking — 2026-04-20', 'breaking-190', '2026-04-20')).toBe(
+      true
+    );
+    expect(isGenericBodyH1('Week In Review - 2026-04-20', 'week-in-review', '2026-04-20')).toBe(
+      true
+    );
+  });
+
+  it('returns false for a genuinely editorial headline', () => {
+    expect(
+      isGenericBodyH1(
+        'Banking Union Breakthrough and Anti-Corruption Landmark',
+        'breaking',
+        '2026-04-20'
+      )
+    ).toBe(false);
+  });
+});
+
+describe('extractFirstSentence — boundary + cap branches', async () => {
+  const { extractFirstSentence } = await import('../../scripts/backport-article-seo.js');
+
+  it('returns the first sentence up to the first terminator', () => {
+    expect(extractFirstSentence('Hello world. Another.')).toBe('Hello world.');
+  });
+
+  it('supports ! and ? as sentence terminators', () => {
+    expect(extractFirstSentence('What now? Then this.')).toBe('What now?');
+  });
+
+  it('returns the whole prose when no terminator is present and within cap', () => {
+    expect(extractFirstSentence('Short prose no terminator')).toBe(
+      'Short prose no terminator'
+    );
+  });
+
+  it('truncates long sentences with an ellipsis at word boundary', () => {
+    const long =
+      'The plenary adopted a comprehensive directive that reshapes banking supervision across the twenty seven member states of the European Union definitively.';
+    const out = extractFirstSentence(long);
+    expect(out.endsWith('…')).toBe(true);
+    expect(out.length).toBeLessThanOrEqual(120);
+  });
+});
+
+describe('truncateUpto — boundary branches', async () => {
+  const { truncateUpto } = await import('../../scripts/backport-article-seo.js');
+
+  it('returns unchanged text when within cap', () => {
+    expect(truncateUpto('short', 60)).toBe('short');
+  });
+
+  it('trims mid-word breaks to the last space', () => {
+    const out = truncateUpto('this is a long sentence that needs truncation', 20);
+    expect(out.endsWith('…')).toBe(true);
+    expect(out.length).toBeLessThanOrEqual(20);
+    // Must not end mid-word
+    expect(out).toMatch(/[A-Za-z]\S*…$|[A-Za-z]…$/);
+  });
+
+  it('falls through to raw slice when no word boundary is near the cap', () => {
+    // One long word: no space in range → raw slice up to cap-1 + …
+    const out = truncateUpto('abcdefghijklmnopqrstuvwxyz', 10);
+    expect(out.endsWith('…')).toBe(true);
+  });
+
+  it('strips trailing punctuation before the ellipsis', () => {
+    expect(truncateUpto('The plenary.', 8)).toMatch(/…$/);
+  });
+});
+
+describe('pickLangEntry — safe map lookup', async () => {
+  const { pickLangEntry } = await import('../../scripts/backport-article-seo.js');
+
+  it('returns the language-specific entry when present', () => {
+    const map = { en: { title: 'EN', description: 'ED' }, sv: { title: 'SV', description: 'SD' } };
+    expect(pickLangEntry(map, 'sv')).toEqual({ title: 'SV', description: 'SD' });
+  });
+
+  it('falls back to en when the requested language is absent', () => {
+    const map = { en: { title: 'EN', description: 'ED' } };
+    expect(pickLangEntry(map, 'fr')).toEqual({ title: 'EN', description: 'ED' });
+  });
+
+  it('returns empty strings when neither lang nor en is present', () => {
+    expect(pickLangEntry({}, 'sv')).toEqual({ title: '', description: '' });
+  });
+
+  it('is immune to prototype-pollution lookup keys', () => {
+    // Object.getOwnPropertyDescriptor doesn't see inherited __proto__
+    expect(pickLangEntry({ en: { title: 'EN', description: '' } }, '__proto__')).toEqual({
+      title: 'EN',
+      description: '',
+    });
+  });
+});
+
+describe('decodeEntities — named + numeric branches', async () => {
+  const { decodeEntities } = await import('../../scripts/backport-article-seo.js');
+
+  it('decodes common named entities', () => {
+    expect(decodeEntities('&amp;&lt;&gt;&quot;&apos;&nbsp;')).toBe('&<>"\' ');
+  });
+
+  it('decodes typographic named entities', () => {
+    expect(decodeEntities('&lsquo;a&rsquo; &ldquo;b&rdquo; &mdash;&ndash;&hellip;')).toBe(
+      '\u2018a\u2019 \u201Cb\u201D \u2014\u2013\u2026'
+    );
+  });
+
+  it('decodes diacritic named entities', () => {
+    expect(decodeEntities('caf&eacute; &uuml;ber &ntilde;oise')).toBe('café über ñoise');
+  });
+
+  it('decodes decimal numeric entities', () => {
+    expect(decodeEntities('A&#8212;B')).toBe('A\u2014B');
+  });
+
+  it('decodes hex numeric entities', () => {
+    expect(decodeEntities('&#x2014; and &#x2013;')).toBe('\u2014 and \u2013');
+  });
+
+  it('leaves unknown entities verbatim', () => {
+    expect(decodeEntities('&notAReal;')).toBe('&notAReal;');
+  });
+});
+
+describe('extractBodySecondProse — selection branches', async () => {
+  const { extractBodySecondProse } = await import('../../scripts/backport-article-seo.js');
+
+  it('returns the second paragraph of substantial prose', () => {
+    const html =
+      '<article><p>Short.</p>' +
+      '<p>First paragraph of substantial prose that well exceeds the eighty-character minimum length gate so it is selected.</p>' +
+      '<p>Second paragraph of substantial prose also well over the minimum length gate that will be returned.</p>' +
+      '</article>';
+    expect(extractBodySecondProse(html)).toMatch(/Second paragraph/);
+  });
+
+  it('returns empty string when fewer than two paragraphs qualify', () => {
+    const html = '<article><p>Too short.</p><p>Also short.</p></article>';
+    expect(extractBodySecondProse(html)).toBe('');
+  });
+
+  it('ignores paragraphs inside the article header and nav', () => {
+    const html =
+      '<header class="article-header"><p>Metadata banner paragraph that is definitely over eighty characters long to test the header strip.</p></header>' +
+      '<nav><p>Navigation paragraph that is also over eighty characters long to test the nav strip behaviour.</p></nav>' +
+      '<article>' +
+      '<p>Body paragraph one of substantial prose well over the eighty-character minimum gate for inclusion.</p>' +
+      '<p>Body paragraph two of substantial prose well over the eighty-character minimum gate for inclusion.</p>' +
+      '</article>';
+    expect(extractBodySecondProse(html)).toMatch(/Body paragraph two/);
+  });
+});

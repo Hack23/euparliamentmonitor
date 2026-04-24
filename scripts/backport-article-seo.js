@@ -1020,12 +1020,17 @@ if (invokedUrl === argv1Url) {
 }
 
 export {
+  chooseTitle,
+  decodeEntities,
   deriveMetadataForFile,
   extractBodyFirstProse,
   extractBodyH1,
   extractBodySecondProse,
+  extractFirstSentence,
   isGenericBodyH1,
   listArticleFiles,
+  parseArgs,
+  pickLangEntry,
   rewriteHtml,
   sliceArticleBody,
   truncateUpto,
