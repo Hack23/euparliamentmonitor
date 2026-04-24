@@ -1,0 +1,61 @@
+{
+  "articleType": "breaking",
+  "runId": "breaking-run-1777011267",
+  "date": "2026-04-24",
+  "stage": "stage-c-complete",
+  "analysisDir": "analysis/daily/2026-04-24/breaking",
+  "createdAt": "2026-04-24T06:14:27Z",
+  "history": [
+    {
+      "stage": "stage-a",
+      "completedAt": "2026-04-24T06:14:27Z",
+      "summary": "Stage A probes: get_adopted_texts_feed returned 18 mixed-vintage items (no 2026 items); get_events_feed DEGRADED; get_procedures_feed OVERSIZED historical-tail ordering; get_meps_feed OVERSIZED (33.6 MB census); get_server_health cold-cache Unknown."
+    },
+    {
+      "stage": "stage-b",
+      "completedAt": "2026-04-24T06:14:27Z",
+      "summary": "Stage B Pass 1 + Pass 2 complete; 11 intelligence artifacts written meeting per-artifact floor lines from reference-quality-thresholds.json."
+    },
+    {
+      "stage": "stage-c",
+      "completedAt": "2026-04-24T06:14:27Z",
+      "gateResult": "GREEN",
+      "summary": "Completeness gate GREEN; all mandatory artifacts present and above floor."
+    },
+    {
+      "runId": "d08a2265-ceac-4ebb-a420-86853f75fcf6",
+      "startedAt": "2026-04-24T06:14:37.987Z",
+      "finishedAt": "2026-04-24T06:14:37.988Z",
+      "gateResult": "PENDING",
+      "filesWritten": [
+        "intelligence/analysis-index.md",
+        "intelligence/coalition-dynamics.md",
+        "intelligence/economic-context.md",
+        "intelligence/historical-baseline.md",
+        "intelligence/mcp-reliability-audit.md",
+        "intelligence/pestle-analysis.md",
+        "intelligence/scenario-forecast.md",
+        "intelligence/stakeholder-map.md",
+        "intelligence/synthesis-summary.md",
+        "intelligence/threat-model.md",
+        "intelligence/wildcards-blackswans.md"
+      ]
+    }
+  ],
+  "files": {
+    "intelligence": [
+      "intelligence/analysis-index.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/threat-model.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/economic-context.md",
+      "intelligence/wildcards-blackswans.md",
+      "intelligence/coalition-dynamics.md",
+      "intelligence/mcp-reliability-audit.md"
+    ]
+  },
+  "updatedAt": "2026-04-24T06:14:37.988Z"
+}

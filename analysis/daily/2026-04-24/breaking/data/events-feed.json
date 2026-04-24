@@ -1,0 +1,1 @@
+{"source":"get_events_feed","timeframe":"today","fetchedAt":"2026-04-24T05:49Z","status":"unavailable","itemCount":0,"reason":"EP API returned error-in-body response; upstream enrichment step may have failed.","signal":"feed-degraded"}
