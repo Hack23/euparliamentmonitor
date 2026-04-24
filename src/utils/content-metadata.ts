@@ -18,7 +18,7 @@
  * - Section counts for a structural overview
  */
 
-import type { ArticleMetadata } from '../generators/strategies/article-strategy.js';
+import type { ArticleMetadata } from '../types/index.js';
 
 /** Maximum length for the enriched description */
 const MAX_DESCRIPTION_LENGTH = 200;

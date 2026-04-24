@@ -229,13 +229,10 @@ jobs:
 
       - name: Generate sample news (if needed)
         run: |
-          # Generate sample news for the release if news directory is empty
-          if [ ! -d "news" ] || [ -z "$(ls -A news 2>/dev/null)" ]; then
-            echo "📰 Generating sample news articles..."
-            npm run generate-news -- --types=week-ahead --languages=en || echo "News generation skipped"
-            npm run generate-news-indexes || echo "Index generation skipped"
-            npm run generate-sitemap || echo "Sitemap generation skipped"
-          fi
+          # Generate static content (sitemap, political-intelligence pages)
+          echo "📰 Generating static content..."
+          npm run prebuild || echo "Prebuild skipped"
+          npm run generate-news-indexes || echo "Index generation skipped"
 
       - name: Create release artifacts
         run: |

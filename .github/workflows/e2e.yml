@@ -45,9 +45,8 @@ jobs:
 
       - name: Generate test content
         run: |
-          npm run generate-news -- --types=week-ahead --languages=en,de,fr,es
+          npm run prebuild
           npm run generate-news-indexes
-          npm run generate-sitemap
 
       - name: Run E2E tests
         run: npm run test:e2e

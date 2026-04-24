@@ -141,8 +141,7 @@ All tools respond in < 5 s; 10 s HTTP timeout per call.
 >
 > WB serves **non-economic** indicators only: health, education, social,
 > environment, demographics, defence, agriculture, innovation,
-> governance. **Economic context → IMF (§9 below).** Enforced by
-> `articlePolicyHasEconomicContext` in `src/utils/content-validator.ts`.
+> governance. **Economic context → IMF (§9 below).**
 
 | Tool | Parameters |
 |------|-----------|

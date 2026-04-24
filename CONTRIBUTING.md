@@ -47,8 +47,8 @@ inclusive environment for all contributors.
 ### Running Locally
 
 ```bash
-# Generate news articles (with MCP disabled for testing)
-USE_EP_MCP=false npm run generate-news -- --types=week-ahead --languages=en
+# Render an article from analysis artifacts (manual testing)
+npm run generate-article -- --run analysis/daily/2025-01-01/week-ahead
 
 # Generate index pages
 npm run generate-news-indexes
@@ -284,8 +284,8 @@ git commit -m "test: increase coverage for MCP client"
 3. **Test your changes**:
 
    ```bash
-   # Generate news with your changes
-   USE_EP_MCP=false npm run generate-news -- --types=week-ahead --languages=en
+   # Render an article from analysis (if applicable)
+   npm run generate-article -- --run analysis/daily/YYYY-MM-DD/week-ahead
 
    # Verify output
    npm run generate-news-indexes
@@ -352,14 +352,19 @@ Your PR must pass these automated checks:
 ```
 euparliamentmonitor/
 ├── .github/              # GitHub workflows and configuration
-│   ├── workflows/        # CI/CD workflows
+│   ├── workflows/        # CI/CD workflows + agentic workflows (news-*.md)
 │   └── agents/          # Custom GitHub Copilot agents
-├── scripts/             # Core application scripts
-│   ├── generate-news-enhanced.js      # News generation
-│   ├── generate-news-indexes.js       # Index generation
-│   ├── generate-sitemap.js            # Sitemap generation
-│   ├── article-template.js            # HTML templates
-│   └── ep-mcp-client.js              # MCP client
+├── scripts/             # Compiled JavaScript from src/
+│   ├── aggregator/      # Article generation aggregator
+│   ├── generators/      # Index & sitemap generators
+│   └── mcp/             # MCP clients
+├── src/                 # TypeScript source
+│   ├── aggregator/      # Analysis aggregation + article rendering
+│   ├── generators/      # Sitemap, indexes, political intelligence
+│   ├── mcp/             # MCP client implementations
+│   ├── utils/           # Utilities (file, metadata, sanitize)
+│   ├── types/           # TypeScript type definitions
+│   └── constants/       # Configuration constants
 ├── test/                # Unit & integration tests
 │   ├── unit/            # Unit tests
 │   ├── integration/     # Integration tests
@@ -398,11 +403,11 @@ See [.github/agents/README.md](.github/agents/README.md) for usage.
 ### Debugging
 
 ```bash
-# Enable verbose logging
-DEBUG=* npm run generate-news
+# View TypeScript compilation
+npm run build:check
 
-# Generate with placeholder content (no MCP)
-USE_EP_MCP=false npm run generate-news
+# Test article generation (requires existing analysis artifacts)
+npm run generate-article -- --run analysis/daily/YYYY-MM-DD/article-type
 ```
 
 ### IDE Setup
