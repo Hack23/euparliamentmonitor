@@ -132,12 +132,17 @@ export const ARTIFACT_SECTIONS = [
 export const SUPPLEMENTARY_SECTION_ID = 'supplementary-intelligence';
 /** Display title for the catch-all bucket. */
 export const SUPPLEMENTARY_SECTION_TITLE = 'Supplementary Intelligence';
-/** Id of the tradecraft references appendix. */
-export const TRADECRAFT_SECTION_ID = 'tradecraft-references';
+/** Id of the tradecraft references appendix. Prefixed with `aggregator-`
+ * to avoid id collisions with artifact headings that happen to slug to
+ * `tradecraft-references`. */
+export const TRADECRAFT_SECTION_ID = 'aggregator-tradecraft-references';
 /** Display title for the tradecraft references appendix. */
 export const TRADECRAFT_SECTION_TITLE = 'Tradecraft References';
-/** Id of the analysis index / manifest appendix. */
-export const MANIFEST_SECTION_ID = 'analysis-index';
+/** Id of the analysis index / manifest appendix. Prefixed with `aggregator-`
+ * to avoid id collisions with artifact headings (e.g. an artifact literally
+ * named `analysis-index.md` that contains its own `### Analysis Index`
+ * heading, which markdown-it-anchor would slug to the same id). */
+export const MANIFEST_SECTION_ID = 'aggregator-analysis-index';
 /** Display title for the analysis index / manifest appendix. */
 export const MANIFEST_SECTION_TITLE = 'Analysis Index';
 //# sourceMappingURL=artifact-order.js.map

@@ -255,12 +255,12 @@ describe('generateArticle (end-to-end fixture)', () => {
       markdownOnly: false,
     });
     const html = fs.readFileSync(path.join(tmpOut, '2026-01-15-breaking-en.html'), 'utf8');
-    // The aggregator emits <h2 id="synthesis">Synthesis Summary</h2> — the
+    // The aggregator emits <h2 id="section-synthesis">Synthesis Summary</h2> — the
     // artifact's own "### Synthesis Summary" H3 must be suppressed so we do
     // not render two identically-titled headings in a row.
-    const synthH2Count = (html.match(/<h2 id="synthesis">Synthesis Summary<\/h2>/g) ?? []).length;
+    const synthH2Count = (html.match(/<h2 id="section-synthesis">Synthesis Summary<\/h2>/g) ?? []).length;
     expect(synthH2Count).toBe(1);
-    const duplicatePattern = /<h2 id="synthesis">Synthesis Summary<\/h2>\s*<h3[^>]*>[^<]*<a[^>]*><span>Synthesis Summary<\/span>/;
+    const duplicatePattern = /<h2 id="section-synthesis">Synthesis Summary<\/h2>\s*<h3[^>]*>[^<]*<a[^>]*><span>Synthesis Summary<\/span>/;
     expect(duplicatePattern.test(html)).toBe(false);
   });
 });

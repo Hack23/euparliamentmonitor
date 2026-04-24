@@ -236,7 +236,7 @@ describe('aggregateAnalysisRun (fixture)', () => {
     }
     // Tradecraft + analysis-index appendices should always be last, in order.
     const lastTwo = toc.slice(-2).map((e) => e.id);
-    expect(lastTwo).toEqual(['tradecraft-references', 'analysis-index']);
+    expect(lastTwo).toEqual(['aggregator-tradecraft-references', 'aggregator-analysis-index']);
   });
 
   it('suppresses the redundant ### artifact header when a section has one matching artifact', () => {
@@ -245,10 +245,10 @@ describe('aggregateAnalysisRun (fixture)', () => {
       repoRoot: FIXTURE_REPO,
     });
     // The fixture's synthesis section contains a single artifact named
-    // synthesis-summary.md — the aggregator should emit <h2 id="synthesis">
-    // Synthesis Summary</h2> but NOT a follow-up "### Synthesis Summary"
-    // restating the same title.
-    const pattern = /<h2 id="synthesis">Synthesis Summary<\/h2>[\s\S]*?### Synthesis Summary/;
+    // synthesis-summary.md — the aggregator should emit
+    // <h2 id="section-synthesis">Synthesis Summary</h2> but NOT a
+    // follow-up "### Synthesis Summary" restating the same title.
+    const pattern = /<h2 id="section-synthesis">Synthesis Summary<\/h2>[\s\S]*?### Synthesis Summary/;
     expect(pattern.test(result.markdown)).toBe(false);
   });
 });

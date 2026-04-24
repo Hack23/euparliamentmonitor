@@ -456,6 +456,26 @@ function shouldSuppressFragmentHeader(
  *        article-level TOC; a section is recorded only when at least one
  *        of its artifacts was actually rendered
  */
+/**
+ * Prefix applied to every article-level section id to avoid collisions
+ * with artifact-generated heading anchors. A section like `stakeholder-map`
+ * becomes `#section-stakeholder-map`, leaving the bare `#stakeholder-map`
+ * slug free for an artifact that happens to contain a `### Stakeholder
+ * Map` heading (which `markdown-it-anchor` will slug verbatim).
+ */
+const SECTION_ID_PREFIX = 'section-';
+
+/**
+ * Namespace a canonical section id so it cannot collide with an artifact
+ * heading slug produced downstream by markdown-it-anchor.
+ *
+ * @param sectionId - Raw section identifier from `ARTIFACT_SECTIONS`
+ * @returns Namespaced id like `section-stakeholder-map`
+ */
+function namespacedSectionId(sectionId: string): string {
+  return `${SECTION_ID_PREFIX}${sectionId}`;
+}
+
 function appendSection(
   runDir: string,
   runDirRelPath: string,
@@ -468,7 +488,8 @@ function appendSection(
   emittedSections: TocSection[]
 ): void {
   if (paths.length === 0) return;
-  sectionMarkdown.push(`<h2 id="${sectionId}">${sectionTitle}</h2>`);
+  const emittedId = namespacedSectionId(sectionId);
+  sectionMarkdown.push(`<h2 id="${emittedId}">${sectionTitle}</h2>`);
   const suppress = shouldSuppressFragmentHeader(paths, sectionTitle);
   let anyFragmentRendered = false;
   for (const runRel of paths) {
@@ -477,7 +498,7 @@ function appendSection(
       runRel,
       runDirRelPath,
       seenMermaid,
-      sectionId,
+      emittedId,
       suppress
     );
     if (!fragment) continue;
@@ -486,7 +507,7 @@ function appendSection(
     included.push(fragment.included);
   }
   if (anyFragmentRendered) {
-    emittedSections.push({ id: sectionId, title: sectionTitle });
+    emittedSections.push({ id: emittedId, title: sectionTitle });
   }
   sectionMarkdown.push('');
 }
