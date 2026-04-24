@@ -80,6 +80,27 @@ const FORBIDDEN_PHRASES = [
   /\bkeep\s+alive\b/i,
   /\bheartbeat\b/i,
   /\bprogressive\s+safe\s+output\b/i,
+  // April-2026 aggregator-pipeline migration: these modules were purged.
+  // Referencing them in a workflow prompt indicates the workflow is out of
+  // sync with the aggregator contract in .github/prompts/04-article-generation.md.
+  /\bnews-enhanced\.ts\b/i,
+  /\bvalidate-articles\.ts\b/i,
+  /\bcontent-validator\.ts\b/i,
+  /\bscripts\/utils\/validate-analysis-completeness\.js\b/i,
+  /\bsrc\/generators\/strategies\//i,
+  /\bsrc\/generators\/builders\//i,
+  /\bsrc\/generators\/pipeline\//i,
+  // The split analysis/article workflow families were deleted in the same
+  // migration. Prompt text that still instructs the agent in terms of
+  // "news-<type>-analysis.md + news-<type>-article.md" is stale.
+  /\bnews-<type>-analysis\.md\b/i,
+  /\bnews-<type>-article\.md\b/i,
+  /\bgenerate-news\b(?!-indexes)/i,
+  // Note: the AI_MARKER / [AI_ANALYSIS_REQUIRED] / FALLBACK_TEMPLATE_PATTERNS
+  // string tokens are NOT banned — workflow prompts legitimately instruct the
+  // agent "no [AI_ANALYSIS_REQUIRED] markers may remain in committed
+  // artifacts". The aggregator does not emit them; their absence is an
+  // agent-authoring requirement, not a forbidden phrase.
 ];
 
 function collectWorkflowFiles(dir) {

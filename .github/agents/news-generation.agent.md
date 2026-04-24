@@ -84,35 +84,27 @@ Per-artifact line floors live in [`reference-quality-thresholds.json`](../../ana
 
 ## Shared Stage Contract (inherited by every importing workflow)
 
-**Split-workflow families** (`news-<type>-analysis.md` + `news-<type>-article.md`,
-recommended, timeout-minutes: 45 each):
-
-```
-── news-<type>-analysis.md (one analysis PR) ──
-Stage A · Data Collection (≤ 10 min)
-  → Stage B · Analysis (Pass 1 + Pass 2, ≥ 20 min)
-    → Stage C · Completeness Gate (validate-analysis) — BLOCKING
-      → Single analysis PR (exactly once; title `[analysis] …`)
-
-── news-<type>-article.md (one article PR, triggered on merged analysis PR) ──
-Gate check (readLatestGateResult → GREEN required)
-  → Optional Stage-A freshness top-up (≤ 5 min)
-    → Stage D · Article Generation (Pass 1 + Pass 2)
-      → Validators (validate-analysis-completeness + validate-articles)
-        → Single news PR (exactly once; title `[news] …`)
-```
-
-**Legacy monolithic `news-<type>.md`** (pre-split, may still run while rollout
-is in progress, timeout-minutes: 60–90):
+Every article-generating workflow is a single unified `news-<type>.md` that
+runs Stages A → B → C → D → E in one session (`timeout-minutes: 75`,
+active-work budget 22–27 min before the single safe-outputs
+`create_pull_request` call):
 
 ```
 Stage A · Data Collection (≤ 10 min)
-  → Stage B · Analysis (Pass 1 + Pass 2, ≥ 20 min)
-    → Stage C · Completeness Gate (validate-analysis) — BLOCKING
-      → Stage D · Article Generation (Pass 1 + Pass 2)
-        → Validators (validate-analysis-completeness + validate-articles)
-          → Single PR call (exactly once, at end of run)
+  → Stage B · Analysis Artifacts (Pass 1 + Pass 2, ≥ 20 min)
+    → Stage C · Completeness Review — BLOCKING (agent-side, Pass 2)
+      → Stage D · Deterministic Article Render
+        (npm run generate-article -- --run "${ANALYSIS_DIR}")
+        → Stage E · Single PR call (safeoutputs___create_pull_request,
+          exactly once, at end of run)
 ```
+
+The split `news-<type>-analysis.md` + `news-<type>-article.md` families, the
+manual `news-article-generator.md` helper, and `news-translate-reconciler.yml`
+were removed in the April-2026 migration to the deterministic aggregator
+pipeline. The unified flow is the single supported pattern for every
+article-generating run; `news-translate.md` remains as the only multi-call
+flush workflow and is exempt from the single-PR rule.
 
 The workflow's own body supplies article-type-specific details: the
 `ARTICLE_TYPE_SLUG`, data window, primary feed list, per-type required
