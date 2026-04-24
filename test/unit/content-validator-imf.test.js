@@ -18,6 +18,8 @@ import {
   hasWorldBankEvidence,
   articlePolicyHasEconomicContext,
   articlePolicyHasWorldBank,
+  articlePolicyHasIMFEconomicEvidence,
+  isWave3IMFStrictEnabled,
 } from '../../scripts/utils/content-validator.js';
 
 describe('content-validator — IMF fingerprints', () => {
@@ -148,6 +150,57 @@ describe('content-validator — IMF fingerprints', () => {
 
     it('does not false-positive on IMF-only text', () => {
       expect(hasWorldBankEvidence('IMF WEO NGDP_RPCH 2026 forecast')).toBe(false);
+    });
+  });
+
+  describe('articlePolicyHasIMFEconomicEvidence — Wave-3 strict gate', () => {
+    const requiredType = 'committee-reports';
+    const unrequiredType = 'breaking';
+
+    it('fails when only World Bank evidence is present (strict is IMF-only)', () => {
+      const html = '<p>World Bank indicator GDP_GROWTH for DEU: 1.2 %.</p>';
+      expect(articlePolicyHasIMFEconomicEvidence(html, requiredType)).toBe(false);
+    });
+
+    it('passes when IMF evidence is present', () => {
+      const html = '<p>IMF WEO series NGDP_RPCH for DEU: 1.5 % (forecast).</p>';
+      expect(articlePolicyHasIMFEconomicEvidence(html, requiredType)).toBe(true);
+    });
+
+    it('passes for article types not on the required list even with no evidence', () => {
+      expect(articlePolicyHasIMFEconomicEvidence('<p>No evidence.</p>', unrequiredType)).toBe(
+        true
+      );
+    });
+
+    it('fails when neither source is cited for a required type', () => {
+      expect(articlePolicyHasIMFEconomicEvidence('<p>Germany economic mood improved.</p>', requiredType)).toBe(
+        false
+      );
+    });
+  });
+
+  describe('isWave3IMFStrictEnabled — flag parser', () => {
+    it('returns false when unset', () => {
+      expect(isWave3IMFStrictEnabled({})).toBe(false);
+      expect(isWave3IMFStrictEnabled({ WAVE3_IMF_STRICT: undefined })).toBe(false);
+    });
+
+    it('returns false for falsy values', () => {
+      expect(isWave3IMFStrictEnabled({ WAVE3_IMF_STRICT: '' })).toBe(false);
+      expect(isWave3IMFStrictEnabled({ WAVE3_IMF_STRICT: '0' })).toBe(false);
+      expect(isWave3IMFStrictEnabled({ WAVE3_IMF_STRICT: 'false' })).toBe(false);
+      expect(isWave3IMFStrictEnabled({ WAVE3_IMF_STRICT: 'no' })).toBe(false);
+      expect(isWave3IMFStrictEnabled({ WAVE3_IMF_STRICT: 'off' })).toBe(false);
+    });
+
+    it('returns true for every documented truthy value', () => {
+      expect(isWave3IMFStrictEnabled({ WAVE3_IMF_STRICT: '1' })).toBe(true);
+      expect(isWave3IMFStrictEnabled({ WAVE3_IMF_STRICT: 'true' })).toBe(true);
+      expect(isWave3IMFStrictEnabled({ WAVE3_IMF_STRICT: 'TRUE' })).toBe(true);
+      expect(isWave3IMFStrictEnabled({ WAVE3_IMF_STRICT: 'Yes' })).toBe(true);
+      expect(isWave3IMFStrictEnabled({ WAVE3_IMF_STRICT: 'on' })).toBe(true);
+      expect(isWave3IMFStrictEnabled({ WAVE3_IMF_STRICT: '  true  ' })).toBe(true);
     });
   });
 });

@@ -19,7 +19,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { NEWS_DIR, ARTICLE_FILENAME_PATTERN, PROJECT_ROOT } from '../constants/config.js';
-import { validateArticleContent, articlePolicyHasEconomicContext, hasWorldBankEvidence, hasIMFEvidence, } from './content-validator.js';
+import { validateArticleContent, articlePolicyHasEconomicContext, articlePolicyHasIMFEconomicEvidence, isWave3IMFStrictEnabled, hasWorldBankEvidence, hasIMFEvidence, } from './content-validator.js';
 import { scoreArticleQuality } from './article-quality-scorer.js';
 // ─── CLI argument parsing ─────────────────────────────────────────────────────
 const args = process.argv.slice(2);
@@ -81,22 +81,30 @@ function slugToArticleType(slug) {
  * @returns Warning string when the gate fails, or `null` when satisfied.
  */
 function checkEconomicContextEvidence(html, articleType, date, slug) {
-    // Short-circuit for non-policy article types or when article body already
-    // cites either World Bank or IMF evidence.
-    if (articlePolicyHasEconomicContext(html, articleType))
+    const strict = isWave3IMFStrictEnabled();
+    // Short-circuit for non-policy article types. For policy types, take the
+    // gate from the Wave-3 flag: when enabled, IMF alone is required; when
+    // disabled, the legacy OR-gate (WB OR IMF) applies.
+    const bodyGateSatisfied = strict
+        ? articlePolicyHasIMFEconomicEvidence(html, articleType)
+        : articlePolicyHasEconomicContext(html, articleType);
+    if (bodyGateSatisfied)
         return null;
+    const requiredDesc = strict
+        ? 'IMF economic context (Wave-3 strict)'
+        : 'economic context (World Bank or IMF)';
     // Sweep sibling analysis directories: analysis/daily/{date}/{slug}*
     const analysisRoot = path.join(PROJECT_ROOT, 'analysis', 'daily', date);
     if (!fs.existsSync(analysisRoot)) {
-        return `Missing required economic context (World Bank or IMF) for "${articleType}" article; analysis directory ${analysisRoot} does not exist`;
+        return `Missing required ${requiredDesc} for "${articleType}" article; analysis directory ${analysisRoot} does not exist`;
     }
     const candidates = safeReaddir(analysisRoot).filter((entry) => entry === slug || entry.startsWith(`${slug}-`) || entry.startsWith(`${slug}_`));
     for (const dirName of candidates) {
-        if (directoryContainsEconomicContextFingerprint(path.join(analysisRoot, dirName))) {
+        if (directoryContainsEconomicContextFingerprint(path.join(analysisRoot, dirName), 0, strict)) {
             return null;
         }
     }
-    return `Missing required economic context (World Bank or IMF) for "${articleType}" article; neither article body nor analysis files under ${analysisRoot} reference any World Bank or IMF indicator`;
+    return `Missing required ${requiredDesc} for "${articleType}" article; neither article body nor analysis files under ${analysisRoot} reference ${strict ? 'any IMF indicator or tool' : 'any World Bank or IMF indicator'}`;
 }
 /**
  * List directory entries, returning `[]` on any error (tolerate missing paths).
@@ -124,17 +132,21 @@ function safeReaddir(dir) {
  */
 const ANALYSIS_SEARCH_MAX_DEPTH = 3;
 /**
- * Depth-limited recursive search for any World Bank OR IMF fingerprint in
- * `.md` files. Uses {@link hasWorldBankEvidence} and {@link hasIMFEvidence}
- * so the gate enforces the same strong-phrase / word-bounded-indicator rule
- * used on article bodies, for either economic-data provider.
+ * Depth-limited recursive search for an economic-context fingerprint in
+ * `.md` files. Uses {@link hasIMFEvidence} (and, when `strict` is `false`,
+ * {@link hasWorldBankEvidence}) so the gate enforces the same strong-phrase
+ * / word-bounded-indicator rule used on article bodies.
  *
  * @param dir - Directory to scan
  * @param depth - Current recursion depth (callers should omit; max is
  *   {@link ANALYSIS_SEARCH_MAX_DEPTH}, inclusive)
- * @returns `true` when at least one `.md` file contains a WB or IMF fingerprint
+ * @param strict - When `true` (Wave-3 strict mode), only IMF fingerprints
+ *   satisfy the gate; World Bank citations are ignored for the purpose of
+ *   the economic-context check.
+ * @returns `true` when at least one `.md` file contains an IMF fingerprint
+ *   (or a WB fingerprint when `strict=false`).
  */
-function directoryContainsEconomicContextFingerprint(dir, depth = 0) {
+function directoryContainsEconomicContextFingerprint(dir, depth = 0, strict = false) {
     if (depth > ANALYSIS_SEARCH_MAX_DEPTH)
         return false;
     let entries;
@@ -145,24 +157,26 @@ function directoryContainsEconomicContextFingerprint(dir, depth = 0) {
         return false;
     }
     for (const entry of entries) {
-        if (entryContainsEconomicContextFingerprint(dir, entry, depth))
+        if (entryContainsEconomicContextFingerprint(dir, entry, depth, strict))
             return true;
     }
     return false;
 }
 /**
- * Test a single directory entry for World Bank OR IMF fingerprints, recursing
+ * Test a single directory entry for economic-context fingerprints, recursing
  * into subdirectories up to the shared depth cap.
  *
  * @param dir - Parent directory of `entry`
  * @param entry - Directory entry to test
  * @param depth - Current recursion depth of the caller
+ * @param strict - When `true` (Wave-3 strict mode), only IMF fingerprints
+ *   satisfy the gate; World Bank citations are ignored.
  * @returns `true` when this entry (or any descendant) matches a fingerprint
  */
-function entryContainsEconomicContextFingerprint(dir, entry, depth) {
+function entryContainsEconomicContextFingerprint(dir, entry, depth, strict = false) {
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) {
-        return directoryContainsEconomicContextFingerprint(full, depth + 1);
+        return directoryContainsEconomicContextFingerprint(full, depth + 1, strict);
     }
     if (!entry.isFile() || !entry.name.endsWith('.md'))
         return false;
@@ -173,7 +187,7 @@ function entryContainsEconomicContextFingerprint(dir, entry, depth) {
     catch {
         return false;
     }
-    return hasWorldBankEvidence(content) || hasIMFEvidence(content);
+    return strict ? hasIMFEvidence(content) : hasWorldBankEvidence(content) || hasIMFEvidence(content);
 }
 /**
  * Validate a single article file and return a summary.

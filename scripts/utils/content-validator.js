@@ -1238,6 +1238,61 @@ export function articlePolicyHasEconomicContext(html, articleType) {
     return hasWorldBankEvidence(html) || hasIMFEvidence(html);
 }
 /**
+ * Strict Wave-3 gate: verify that a policy article cites **IMF**
+ * economic evidence specifically. Returns `true` when {@link
+ * hasIMFEvidence} returns `true` for `html`, or when `articleType` is
+ * not on the mandatory list. World Bank evidence alone does NOT
+ * satisfy this gate.
+ *
+ * **🚦 Dark-launch status (Wave-3, April 2026):** this helper is
+ * shipped but NOT wired as the default validator gate. It activates
+ * only when the environment variable `WAVE3_IMF_STRICT=true` is set
+ * (read by `validate-articles.ts` at process start). When activated,
+ * a missing IMF citation on a policy article fails Stage-C and blocks
+ * PR creation. The intent is to allow opt-in dark-launch runs and
+ * dashboard telemetry before Wave-4 flips the default.
+ *
+ * See [`analysis/methodologies/imf-indicator-mapping.md §8`](../../analysis/methodologies/imf-indicator-mapping.md)
+ * for per-article-type IMF indicator floors and
+ * [`.github/skills/imf-data-integration.md`](../../.github/skills/imf-data-integration.md)
+ * for the Wave-3 editorial policy rationale.
+ *
+ * @param html - Article HTML or aggregated text including analysis files.
+ * @param articleType - Slug of the article category (e.g. `"committee-reports"`).
+ * @returns `true` when IMF evidence is present or the article type is
+ *   not on the mandatory list; `false` when the article is subject to
+ *   the policy and does NOT cite IMF.
+ */
+export function articlePolicyHasIMFEconomicEvidence(html, articleType) {
+    if (!POLICY_SLUGS_REQUIRING_WORLD_BANK.has(articleType))
+        return true;
+    return hasIMFEvidence(html);
+}
+/**
+ * Resolve whether the Wave-3 strict IMF-primary gate should be
+ * enforced for the current run. Reads the `WAVE3_IMF_STRICT`
+ * environment variable and interprets any of `1`, `true`, `yes`, `on`
+ * (case-insensitive) as enabled. The default (unset / any other
+ * value) keeps the existing OR-gate
+ * ({@link articlePolicyHasEconomicContext}) in effect so pre-Wave-2
+ * articles remain green.
+ *
+ * Exposed as a standalone helper so the CLI validator, the dev
+ * server, and unit tests can share a single interpretation of the
+ * flag without duplicating truthy-parsing logic.
+ *
+ * @param env - Environment map; defaults to `process.env`. Injected
+ *   for deterministic testing.
+ * @returns `true` when the strict Wave-3 IMF-primary gate is enabled.
+ */
+export function isWave3IMFStrictEnabled(env = process.env) {
+    const raw = env['WAVE3_IMF_STRICT'];
+    if (typeof raw !== 'string')
+        return false;
+    const normalised = raw.trim().toLowerCase();
+    return normalised === '1' || normalised === 'true' || normalised === 'yes' || normalised === 'on';
+}
+/**
  * Validate the quality of a generated article.
  *
  * Checks performed:
