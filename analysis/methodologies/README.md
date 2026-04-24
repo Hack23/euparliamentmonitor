@@ -311,10 +311,10 @@ graph LR
 
 | Attribute | Value |
 |-----------|-------|
-| **Purpose** | Canonical mapping of World Bank WDI indicator codes — **non-economic domains only** under Wave-3: health, education, social, environment, demographics, defence, agriculture, innovation, governance. The legacy WB economic codes are retained for backward compatibility but MUST NOT be used in new articles; economic context → IMF |
+| **Purpose** | Canonical mapping of World Bank WDI indicator codes — **non-economic domains only** under Wave-4: health, education, social, environment, demographics, defence, agriculture, innovation, governance. The legacy WB economic codes are retained for backward compatibility but MUST NOT be used in new articles; economic context → IMF |
 | **Paired MCP** | World Bank MCP (`world-bank-*` tools) |
 
-> ✅ Together, `artifact-catalog.md` (**what**), `per-artifact-methodologies.md` (**how**), and `reference-quality-thresholds.json` (**how much**) form the Stage B / Stage C contract enforced by `validate-analysis-completeness`. The two indicator-mapping files provide the Stage A economic-context inputs that the Wave-3 gate in `articlePolicyHasEconomicContext` checks — IMF primary, WB additive for non-economic. The strict Wave-4 helper `articlePolicyHasIMFEconomicEvidence` is dark-launched behind the `WAVE3_IMF_STRICT` flag.
+> ✅ Together, `artifact-catalog.md` (**what**), `per-artifact-methodologies.md` (**how**), and `reference-quality-thresholds.json` (**how much**) form the Stage B / Stage C contract enforced editorially at Stage-C completeness review. The two indicator-mapping files provide the Stage A economic-context inputs that Wave-4 editorial policy requires — IMF primary for economic/fiscal/monetary/trade claims, WB additive for non-economic domains. The legacy runtime gates (`articlePolicyHasEconomicContext`, `articlePolicyHasIMFEconomicEvidence`, `WAVE3_IMF_STRICT` flag, and the surrounding `validate-analysis-completeness` CLI) were purged in the April-2026 aggregator-pipeline migration; enforcement moved to Stage-C editorial review.
 
 ---
 

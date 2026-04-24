@@ -8,12 +8,14 @@
 
 ## 🤖 AI Agent / Agentic Workflow Instructions
 
-**Scope (Wave 2):** World Bank is the source for **non-economic**
+**Scope (Wave-4):** World Bank is the source for **non-economic**
 indicators only — health, education, social, environment, demographics,
 defence, agriculture, innovation, governance. **Economic context (GDP,
 inflation, unemployment, fiscal, trade, FDI, monetary) comes from
-IMF** — see [`analysis/imf/indicator-catalog.md`](../imf/indicator-catalog.md). Enforced prospectively by
-`articlePolicyHasEconomicContext` in `src/utils/content-validator.ts`.
+IMF** — see [`analysis/imf/indicator-catalog.md`](../imf/indicator-catalog.md).
+Enforced editorially at Stage-C review — the legacy runtime helper
+`articlePolicyHasEconomicContext` in `src/utils/content-validator.ts`
+was purged in the April-2026 aggregator-pipeline migration.
 
 **This catalog is a reference document, NOT a hard limit.** The World Bank has **thousands** of indicators. Follow this process for every article or analysis:
 
@@ -33,7 +35,7 @@ This returns indicators NOT in this catalog — the WB API has thousands more. U
 After searching, check this catalog for:
 - **Priority ranking** (🔴🟡🟢⚪) — which indicators are most impactful
 - **EP committee relevance** — which committee's mandate the indicator maps to
-- **Comparison country groups** — see `eu-country-mapping.md` (⚠️ aggregate codes like `EUU` / `EMU` are **rejected by the MCP server** — validate with `isMCPSupportedWBCountryCode()` before calling)
+- **Comparison country groups** — see `eu-country-mapping.md` (⚠️ aggregate codes like `EUU` / `EMU` are **rejected by the MCP server** — use only ISO-3166 country codes from `eu-country-mapping.md` at Stage A)
 
 ### Step 4: Fetch Data (Within Budget)
 Each workflow has a `maxWBCalls` limit (1-3 calls). Pick the highest-impact indicators.
@@ -135,9 +137,13 @@ mindmap
 > 4. **Single provenance line** — *"IMF, World Economic Outlook,
 >    April 2026"* is sufficient for attribution; no vintage patching.
 >
-> **Enforced by** `articlePolicyHasEconomicContext` in
-> `src/utils/content-validator.ts` (Wave 2 OR-gate — see
-> `validate-articles.ts`).
+> **Enforced by** the Stage-C editorial review of
+> `intelligence/economic-context.md` per
+> [`.github/prompts/04-article-generation.md §5`](../../.github/prompts/04-article-generation.md).
+> The legacy runtime helper `articlePolicyHasEconomicContext` in
+> `src/utils/content-validator.ts` (and the surrounding
+> `src/utils/validate-articles.ts` CLI) were purged in the April-2026
+> aggregator-pipeline migration.
 
 ### ⚠️ Legacy WB economic IDs (use IMF instead)
 
@@ -182,10 +188,10 @@ mindmap
 | raw-REST | — | PA.NUS.PPP | PPP conversion factor | WEO `PPPEX` |
 | raw-REST | — | FI.RES.TOTL.CD | Total reserves | IFS |
 
-*Note*: Word-boundary-matched WB indicator codes still satisfy
-`hasWorldBankEvidence()` in `content-validator.ts` so pre-Wave-2
-articles remain green — but **new articles must cite the IMF
-replacement** per the `articlePolicyHasEconomicContext` OR-gate.
+*Note*: Word-boundary-matched WB indicator codes still read as valid
+World Bank evidence to Stage-C reviewers, so pre-Wave-2 articles remain
+green — but **new articles must cite the IMF replacement** per the
+Wave-4 editorial IMF-primary policy.
 
 </details>
 

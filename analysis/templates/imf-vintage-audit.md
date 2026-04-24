@@ -63,8 +63,11 @@ the article before PR creation.
 ## 3️⃣ Forecast-Marker Compliance
 
 Every IMF forecast citation must include a forecast marker within 30
-words of the number (validator regex-enforced via
-`validateIMFForecastMarker()` in `src/utils/imf-data.ts`).
+words of the number, checked at Stage-C editorial review per
+[`../methodologies/imf-indicator-mapping.md §5`](../methodologies/imf-indicator-mapping.md#5-forecast-labelling-rule).
+The legacy regex helper `validateIMFForecastMarker()` in
+`src/utils/imf-data.ts` was purged in the April-2026 aggregator-pipeline
+migration.
 
 | Article section | Indicator cited | Forecast marker present? | Marker phrase |
 |-----------------|-----------------|:------------------------:|---------------|

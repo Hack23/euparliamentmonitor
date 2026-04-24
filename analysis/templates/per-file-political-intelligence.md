@@ -480,7 +480,7 @@ xychart-beta
 | Monetary policy | `FPOLM_PA` (policy rate), `EREER_IX` (REER) | — | Euro Area only |
 | Banking stability | `FSI/NPLR_PT` (NPL ratio), `FSI/CAPAR_PT` (capital adequacy) | — | Eurozone Core |
 
-> **Important IMF tool note (Wave-3):** Every IMF citation MUST include (a) the SDMX indicator code (e.g. `NGDP_RPCH`), (b) the vintage in prose (`IMF WEO April 2026`), (c) the `data-vintage="WEO-April-2026"` HTML attribute on the enclosing `<section class="economic-context imf-economic-context">` element, and (d) a forecast marker (`forecast`/`projection`/`projects`/`expects`) within 30 words of any projected number. Validator regex-enforced via `validateIMFForecastMarker()` in `src/utils/imf-data.ts`.
+> **Important IMF tool note (Wave-4):** Every IMF citation MUST include (a) the SDMX indicator code (e.g. `NGDP_RPCH`), (b) the vintage in prose (`IMF WEO April 2026`), (c) the `data-vintage="WEO-April-2026"` HTML attribute on the enclosing `<section class="economic-context imf-economic-context">` element, and (d) a forecast marker (`forecast`/`projection`/`projects`/`expects`) within 30 words of any projected number. Enforced at Stage-C editorial review per [`../methodologies/imf-indicator-mapping.md §5`](../methodologies/imf-indicator-mapping.md#5-forecast-labelling-rule); the legacy regex helper `validateIMFForecastMarker()` in `src/utils/imf-data.ts` was purged in the April-2026 aggregator-pipeline migration.
 >
 > **Important World Bank tool note:** Several non-economic indicator names are conceptual labels only and may be **API-only** or otherwise **not accepted as direct indicator keys** by standard WB MCP tools such as `get-social-data`/`get-health-data`/`get-education-data`.
 >

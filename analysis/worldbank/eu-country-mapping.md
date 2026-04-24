@@ -102,7 +102,7 @@ domains.
 | 🇲🇩 Moldova | `MD` | `MDA` | Candidate (2022) | Eastern Partnership; security |
 | 🇧🇦 Bosnia & Herzegovina | `BA` | `BIH` | Candidate (2022) | State-building; EU accession path |
 | 🇬🇪 Georgia | `GE` | `GEO` | Candidate (2023) | Democracy; Eastern Partnership |
-| 🇽🇰 Kosovo | `XK` | `XKX` | Potential candidate | Western Balkans; statehood recognition. **Note**: IMF uses `UVK` for Kosovo on some legacy datasets — see `IMF_COUNTRY_CODE_OVERRIDES` in `src/utils/imf-data.ts`. |
+| 🇽🇰 Kosovo | `XK` | `XKX` | Potential candidate | Western Balkans; statehood recognition. **Note**: IMF uses `UVK` for Kosovo on some legacy datasets — see [`../imf/eu-country-mapping.md §4`](../imf/eu-country-mapping.md#4-codelist-drift-vs-world-bank). |
 
 ### Key Trade Partners & Neighbours
 
@@ -260,5 +260,5 @@ graph TD
 5. **Russia (RU)**: Some indicators may have reduced availability post-2022
 6. **Candidate states**: Some indicators (GINI, health) have gaps
 7. **Annual data only**: All WB indicators are annual time series
-8. **Kosovo (XK/XKX)**: Valid in WB MCP; IMF legacy datasets use `UVK` — see `IMF_COUNTRY_CODE_OVERRIDES`
+8. **Kosovo (XK/XKX)**: Valid in WB MCP; IMF legacy datasets use `UVK` — see [`../imf/eu-country-mapping.md §4`](../imf/eu-country-mapping.md#4-codelist-drift-vs-world-bank)
 9. **UK**: Use ISO2 `GB` (WB MCP rejects the informal `UK` alias)

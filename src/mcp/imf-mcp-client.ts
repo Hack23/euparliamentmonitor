@@ -12,21 +12,25 @@
  * because the upstream project is a Python git-URL package (not npm) and
  * could not be pinned to an integrity hash per the ISMS Secure Development
  * Policy §7. This module replaces the Python transport with a direct,
- * typed HTTP client — the public API is preserved so callers
- * (`src/utils/imf-data.ts`, validator fingerprints, workflow probes) are
- * untouched.
+ * typed HTTP client. The public API (`IMFMCPClient`, five tool methods,
+ * `MCPToolResult`-shaped envelope) is stable across the migration. The
+ * earlier companion module `src/utils/imf-data.ts` (SDMX-JSON parser,
+ * indicator/country maps, HTML builders) was purged in the April-2026
+ * aggregator-pipeline migration — callers now consume the raw SDMX-JSON
+ * envelope returned by {@link IMFMCPClient.fetchData} directly.
  *
  * ## Public API (unchanged from the MCP-backed iteration)
  *
  * - {@link IMFMCPClient} — class with semantic wrappers for five "tools".
  * - {@link IMF_MCP_TOOLS} — stable virtual tool-name list used by the
- *   content-validator fingerprint and the workflow probe.
+ *   Stage-C editorial fingerprint and the workflow probe. Drift-guarded
+ *   by `test/integration/mcp/imf-mcp.test.js`.
  * - {@link getIMFMCPClient} / {@link closeIMFMCPClient} — singleton lifecycle.
  *
  * The return envelope of every method is {@link MCPToolResult}
- * (`{ content: [{ type: "text", text: "<json>" }] }`) so downstream code
- * that already calls `parseSDMXJSON(response.content[0]?.text)` continues
- * to work unmodified.
+ * (`{ content: [{ type: "text", text: "<json>" }] }`). The `text` payload
+ * is the raw SDMX-JSON document returned by the IMF REST endpoint;
+ * downstream code parses it with any standard SDMX-JSON reader.
  *
  * ## Transport
  *
@@ -68,7 +72,11 @@ const IMF_FALLBACK: MCPToolResult = {
  * longer talks to an MCP server, but the tool-name list is preserved so
  * it continues to serve as:
  *
- * 1. The content-validator fingerprint source (`IMF_STRONG_FINGERPRINTS`).
+ * 1. The Stage-C editorial fingerprint source for "IMF is cited" (see
+ *    `analysis/imf/indicator-catalog.md §6` — the earlier runtime
+ *    fingerprint table `IMF_STRONG_FINGERPRINTS` in
+ *    `src/utils/content-validator.ts` was purged in the April-2026
+ *    aggregator-pipeline migration).
  * 2. The workflow probe's heartbeat identifiers.
  * 3. A drift guard against method additions: if a new helper method lands
  *    here, `test/integration/mcp/imf-mcp.test.js` fails unless the list
@@ -512,8 +520,10 @@ export class IMFMCPClient {
    * Fetch a time-series slice from an IMF dataflow as SDMX-JSON.
    *
    * Virtual tool: `imf-fetch-data`. The response is already in SDMX-JSON
-   * format, so {@link parseSDMXJSON} (`src/utils/imf-data.ts`) can
-   * consume `response.content[0]?.text` directly without reshaping.
+   * format; callers read the series under `data.dataSets[0].series`
+   * using any standard SDMX-JSON reader. (The earlier helper
+   * `parseSDMXJSON` in `src/utils/imf-data.ts` was purged in the
+   * April-2026 aggregator-pipeline migration.)
    *
    * @param options - Fetch parameters.
    * @param options.databaseId - IMF dataflow ID (`"WEO"`, `"IFS"`, ...).

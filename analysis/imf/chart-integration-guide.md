@@ -199,9 +199,14 @@ quadrantChart
 
 ## 7. HTML Template Hook
 
-The `buildIMFEconomicContextHTML()` utility in `src/utils/imf-data.ts`
-emits a `<section class="economic-context imf-economic-context">` block
-with `<tr data-forecast="true">` on forecast rows. Style hook:
+Under the aggregator pipeline the agent writes Markdown into
+`intelligence/economic-context.md` and the aggregator (`src/aggregator/**`)
+renders it as a `<section class="economic-context imf-economic-context">`
+block in the final article, preserving the `data-vintage="…"` attribute
+declared in the markdown front-matter. Flag forecast rows in the source
+table by adding the markdown attribute `{data-forecast="true"}` to the
+`<tr>` (via `markdown-it-attrs`, already wired in the aggregator). Style
+hook:
 
 ```css
 .imf-economic-context tr[data-forecast="true"] td {

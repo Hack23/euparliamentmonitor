@@ -12,9 +12,11 @@
 > [`c-cf/imf-data-mcp`](https://github.com/c-cf/imf-data-mcp) MCP server.
 > That dependency was replaced with a native TypeScript HTTP client so the
 > stack stays npm-pure and pinnable per ISMS §7. The five "tool" identifiers
-> are preserved verbatim as the content-validator fingerprint anchors.
+> are preserved verbatim as the drift-guard fingerprint for
+> `test/integration/mcp/imf-mcp.test.js` and the editorial Stage-C completeness
+> review over `intelligence/economic-context.md`.
 
-**📅 Last Updated:** 2026-04-24 | **🏷️ Classification:** Public | **🌀 Wave:** 3 — IMF is the **sole authoritative source** for economic context (macro / monetary / fiscal / trade / FDI / exchange-rate). World Bank retained **only** for non-economic domains (social, health, education, environment, demographics, defence, agriculture, innovation, governance).
+**📅 Last Updated:** 2026-04-24 | **🏷️ Classification:** Public | **🌀 Wave:** 4 — IMF is the **sole authoritative source** for economic context (macro / monetary / fiscal / trade / FDI / exchange-rate). World Bank retained **only** for non-economic domains (social, health, education, environment, demographics, defence, agriculture, innovation, governance). Enforcement is editorial at **Stage C** of the agentic news workflows; the legacy runtime gate helpers were purged in the April-2026 aggregator-pipeline migration (see [`Compliance & Data Governance §4`](#-compliance--data-governance)).
 
 ---
 
@@ -40,8 +42,8 @@
 
 The native TypeScript client exposes five semantic methods, each mapped
 to a single SDMX 3.0 REST endpoint. The historical "tool" identifiers
-are retained as virtual tool names for the content-validator
-fingerprint and the workflow probe.
+are retained as virtual tool names for the Stage-C editorial fingerprint
+and the workflow probe.
 
 | Virtual tool | Method | REST endpoint |
 |---|---|---|
@@ -53,7 +55,11 @@ fingerprint and the workflow probe.
 
 The canonical identifier list is duplicated in `IMF_MCP_TOOLS` in
 [`src/mcp/imf-mcp-client.ts`](../../src/mcp/imf-mcp-client.ts) and guarded by the
-integration test `test/integration/mcp/imf-mcp.test.js`.
+integration test `test/integration/mcp/imf-mcp.test.js`. Stage-C editorial
+review treats the five tool names plus the product strings (`IMF`, `WEO`,
+`Fiscal Monitor`, `International Monetary Fund`, `data.imf.org`) and the
+SDMX indicator codes catalogued in [`indicator-catalog.md §2`](indicator-catalog.md#2-core-indicators)
+as the authoritative IMF-citation fingerprints.
 
 ### Why IMF (and why now)
 
@@ -88,6 +94,47 @@ see [`analysis/worldbank/`](../worldbank/) and
 [`analysis/methodologies/worldbank-indicator-mapping.md`](../methodologies/worldbank-indicator-mapping.md)
 for the WB-only indicator inventory.
 
+### Quick Start — Agentic Workflow Usage
+
+IMF data enters an agentic news workflow in three steps. This is the
+canonical happy-path flow; each step is covered in depth by the linked
+file.
+
+1. **Firewall allow-list.** Every `news-*.md` workflow that hits IMF
+   lists `dataservices.imf.org` in the frontmatter `network.allowed`
+   block. Do **not** add `data.imf.org` (DataMapper UI) or `api.imf.org`
+   — the SDMX 3.0 REST host is the only endpoint the client calls. See
+   [`.github/skills/imf-data-integration.md`](../../.github/skills/imf-data-integration.md).
+
+2. **Probe.** `scripts/imf-mcp-probe.sh` verifies the IMF API is
+   reachable in ≤ 2 HTTP calls / 30 s wall-clock, exporting
+   `IMF_MCP_OK` and `IMF_MCP_PROBE_ERROR`. Workflows source it after
+   `scripts/mcp-setup.sh`.
+
+3. **Fetch.** The agent calls the five virtual tools (via the native
+   client wrapper in `scripts/mcp/imf-mcp-client.js` or an inline `tsx`
+   call to `src/mcp/imf-mcp-client.ts`) to pull the indicators required
+   by [`indicator-catalog.md §2`](indicator-catalog.md#2-core-indicators)
+   for the article type, then writes the results into
+   `analysis/daily/<run>/intelligence/economic-context.md` following
+   the [`analysis/templates/economic-context.md`](../templates/economic-context.md)
+   shape.
+
+Stage-C editorial review then checks that the artifact satisfies:
+
+- Per-article-type indicator floor (see
+  [`../methodologies/imf-indicator-mapping.md §8`](../methodologies/imf-indicator-mapping.md#8-per-article-type-indicator-minimums)).
+- `data-vintage="WEO-April-2026"` (or the applicable FM/IFS vintage)
+  on the `<section class="economic-context imf-economic-context">`
+  block produced by the aggregator from the markdown artifact.
+- Forecast marker (`forecast` / `projection` / `projects` / `expects`)
+  within 30 words of every projected number.
+- Optimism-bias acknowledgement sentence for horizons ≥ 3 years, sized
+  per the MAE bands in [`forecast-accuracy-baseline.md`](forecast-accuracy-baseline.md).
+- Triangulation log in `manifest.crossSourceTriangulation[]` for
+  Tier-1 high-sensitivity indicators, per
+  [`cross-source-triangulation.md`](cross-source-triangulation.md).
+
 ---
 
 ## 🔒 Compliance & Data Governance
@@ -107,25 +154,37 @@ for the WB-only indicator inventory.
   endpoint the client actually hits.
 - **Forecast provenance**: Every article citing an IMF projection MUST label
   it as "forecast" or "projection" and cite the vintage (e.g.
-  "WEO April 2026"). This is enforced prospectively by the
-  `articlePolicyHasEconomicContext` Wave 2 validator flip.
+  "WEO April 2026"). This is enforced editorially at Stage-C of every
+  agentic news workflow — see
+  [`.github/prompts/04-article-generation.md §5`](../../.github/prompts/04-article-generation.md)
+  and [`.github/skills/imf-data-integration.md`](../../.github/skills/imf-data-integration.md)
+  for the reviewer checklist.
 
 ---
 
 ## 🔁 Relationship to World Bank
 
-Under Wave-3 (April 2026) the WB↔IMF split is enforced at the
-editorial-surface level:
+Under **Wave-4 (April 2026)** the WB↔IMF split is enforced editorially at
+Stage C:
 
 | Domain class | Primary source | Notes |
 |-------------|:--------------:|-------|
 | Economic / macro / monetary / fiscal / trade / FDI / exchange-rate | **IMF** | Mandatory for policy-required article types |
 | Social / health / education / environment / demographics / defence / agriculture / innovation / governance | **World Bank** | IMF does not cover these domains |
 
-The Wave-2 OR-gate (`articlePolicyHasEconomicContext`) remains in
-`src/utils/validate-articles.ts` as the enforced gate for backward
-compatibility; the Wave-3 strict helper
-`articlePolicyHasIMFEconomicEvidence` is dark-launched behind the
-`WAVE3_IMF_STRICT` feature flag for data-driven promotion. See
-[`../methodologies/imf-indicator-mapping.md`](../methodologies/imf-indicator-mapping.md)
-for the committee-level mapping and the Wave-3/4 migration sequence.
+The legacy runtime gate helpers (`articlePolicyHasEconomicContext`,
+`articlePolicyHasIMFEconomicEvidence`, `articlePolicyHasWorldBank`) lived
+in `src/utils/content-validator.ts` alongside the surrounding
+`src/utils/validate-articles.ts` CLI and the `src/utils/imf-data.ts`
+helpers (`parseSDMXJSON`, `buildIMFEconomicContextHTML`,
+`getIMFCountryCode`, `IMF_POLICY_INDICATORS`, `IMF_PER_ARTICLE_INDICATOR_FLOORS`,
+`IMF_STRONG_FINGERPRINTS`, …). All three files were **purged in the
+April-2026 aggregator-pipeline migration** — the aggregator renders the
+analysis artifacts as-is, so there is no HTML-authoring hook left for
+runtime validation. The editorial rules survive in the review checklist
+in [`.github/prompts/04-article-generation.md`](../../.github/prompts/04-article-generation.md)
+and in the per-committee mapping of
+[`../methodologies/imf-indicator-mapping.md`](../methodologies/imf-indicator-mapping.md).
+
+For the full migration sequence (Wave-3 dark-launch → Wave-4 editorial
+default), see [`../methodologies/imf-indicator-mapping.md §10`](../methodologies/imf-indicator-mapping.md#10-migration-plan-wave-2--wave-3--wave-4).

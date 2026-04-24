@@ -115,9 +115,13 @@ relevant to EU Parliament Monitor:
 | `B` | Break in series | Cite methodological footnote |
 | `P` | Provisional | Treated like `A` with "provisional" prose label |
 
-The TypeScript parser in `src/utils/imf-data.ts` (`parseSDMXJSON`)
-flags `F` values as `isForecast=true`; other codes are retained in the
-raw response but not currently consumed by the Wave-1 pipeline.
+The native TypeScript client in [`src/mcp/imf-mcp-client.ts`](../../src/mcp/imf-mcp-client.ts)
+returns the raw SDMX-JSON payload inside the `MCPToolResult` envelope
+(`response.content[0].text`). Agents parse it with any standard
+SDMX-JSON reader. The `F` (forecast) observation-status code should be
+propagated to the rendered HTML as `data-forecast="true"` on the
+corresponding table row, enabling the Chart.js and CSS hooks described
+in [`chart-integration-guide.md §7`](chart-integration-guide.md#7-html-template-hook).
 
 ---
 
@@ -134,19 +138,35 @@ raw response but not currently consumed by the Wave-1 pipeline.
   grew (Croatia joined in 2023); timeseries use the current membership,
   not the contemporaneous one. Cite "EA current membership" in charts.
 - **Country code drift**: Kosovo is `UVK` at IMF on some legacy datasets
-  vs. `XKX` at WB. See `IMF_COUNTRY_CODE_OVERRIDES` in
-  `src/utils/imf-data.ts`.
+  vs. `XKX` at WB. See [`eu-country-mapping.md §4`](eu-country-mapping.md#4-codelist-drift-vs-world-bank).
 
 ---
 
-## 6. Validator Wiring
+## 6. Fingerprint Convention
 
-- `IMF_STRONG_FINGERPRINTS` in `src/utils/content-validator.ts` includes
-  every tool identifier and the product names (`IMF`, `World Economic
-  Outlook`, `Fiscal Monitor`).
-- `IMF_INDICATOR_CODES` contains all SDMX codes listed in Section 2 and
-  is kept in lock-step with `IMF_INDICATOR_SDMX_CODES` in
-  `src/utils/imf-data.ts` (itself derived from `IMF_POLICY_INDICATORS`).
-- Drift guard: `test/integration/mcp/imf-mcp.test.js` and
-  `test/unit/imf-data.test.js` fail if the indicator list or tool list
-  changes without the corresponding documentation update.
+Stage-C editorial review uses the following SDMX-code and product-name
+strings as the authoritative fingerprints for an "IMF citation" in any
+article:
+
+- **Product names**: `IMF`, `International Monetary Fund`, `WEO`,
+  `World Economic Outlook`, `Fiscal Monitor`, `data.imf.org`,
+  `dataservices.imf.org`.
+- **Virtual tool names** (the five exposed by
+  [`src/mcp/imf-mcp-client.ts`](../../src/mcp/imf-mcp-client.ts)):
+  `imf-list-databases`, `imf-search-databases`, `imf-get-parameter-defs`,
+  `imf-get-parameter-codes`, `imf-fetch-data`.
+- **SDMX indicator codes**: every code in Section 2 above
+  (`NGDPD`, `NGDP_RPCH`, `PCPIPCH`, `LUR`, `GGXWDG_NGDP`,
+  `GGXONLB_NGDP`, `FPOLM_PA`, `BFD_BP6_USD`, `EREER_IX`, …).
+
+Drift guard: [`test/integration/mcp/imf-mcp.test.js`](../../test/integration/mcp/imf-mcp.test.js)
+fails if the five tool names in `IMF_MCP_TOOLS` (exported from
+[`src/mcp/imf-mcp-client.ts`](../../src/mcp/imf-mcp-client.ts)) diverge
+from the list above.
+
+> The earlier runtime fingerprint tables (`IMF_STRONG_FINGERPRINTS`,
+> `IMF_INDICATOR_CODES`, `IMF_INDICATOR_SDMX_CODES`, `IMF_POLICY_INDICATORS`)
+> lived in `src/utils/content-validator.ts` and `src/utils/imf-data.ts`
+> and were purged in the April-2026 aggregator-pipeline migration.
+> Fingerprinting is now an editorial responsibility enforced at Stage C
+> per [`.github/prompts/04-article-generation.md §5`](../../.github/prompts/04-article-generation.md).
