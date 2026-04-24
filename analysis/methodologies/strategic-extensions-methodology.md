@@ -171,7 +171,7 @@ Place the European Parliament political event in **international context** so re
 
 ### Input
 - synthesis-summary.md (current events)
-- World Bank WGI indicators, IMF fiscal/monetary data, Eurostat cross-country comparables
+- IMF (primary economic — Wave-3) WEO / FM / IFS + World Bank WGI indicators (non-economic), Eurostat cross-country comparables
 - Legislative databases from peer parliaments (where EU law or policy intersects)
 - Named peer countries (default set: DE, FR, IT, ES, PL, NL for large-MS benchmark; US, UK, JP for global comparators)
 
@@ -180,7 +180,7 @@ Place the European Parliament political event in **international context** so re
 - `compare_political_groups` — cross-group comparison data
 - `get_adopted_texts` — adopted legislation for comparison
 - `get_external_documents` — Commission/Council positions from third parties
-- World Bank MCP tools — economic and governance indicators
+- IMF MCP (primary economic — `imf-fetch-data` for WEO/FM/IFS/BOP/ER/PCPS/GFSR/EREO/FSI/GFS/DOT) + World Bank MCP tools (non-economic — governance WGI, social, health, education, environment, agriculture, innovation)
 - IMF MCP tools — fiscal forecasts
 
 ### Output — required structure
@@ -192,7 +192,7 @@ Place the European Parliament political event in **international context** so re
 4. **Incompatibility notes** — three elements that do not travel well, with reasons
 5. **EU-law intersection** — directives, regulations, and open infringement procedures that apply
 6. **Comparative Mermaid** — color-coded country grid on the chosen axis (e.g. policy permissiveness)
-7. **Benchmark trend chart** — quantitative time-series Mermaid where World Bank / IMF data exists
+7. **Benchmark trend chart** — quantitative time-series Mermaid where IMF data exists (primary economic, Wave-3); World Bank non-economic cross-ref optional
 
 ### Required Mermaid — peer grid
 
@@ -226,7 +226,7 @@ graph LR
 - [ ] Every peer row has a quantified outcome and a source URL
 - [ ] Applicability column distinguishes constitutional, institutional, and operational transferability
 - [ ] EU-law intersection lists specific directive/regulation numbers
-- [ ] Benchmark chart included when World Bank / IMF data exists
+- [ ] Benchmark chart included when IMF data exists (primary) or WB non-economic data is relevant
 
 ---
 

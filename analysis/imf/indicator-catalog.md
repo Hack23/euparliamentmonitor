@@ -5,7 +5,7 @@
 > `analysis/worldbank/indicator-catalog.md`; together they cover the full
 > economic/social/environmental surface required by policy article types.
 
-**📅 Last Updated:** 2026-04-20 | **🏷️ Classification:** Public | **🌀 Wave:** 1
+**📅 Last Updated:** 2026-04-24 | **🏷️ Classification:** Public | **🌀 Wave:** 3
 
 ---
 
@@ -14,19 +14,31 @@
 | Database | Name | Frequency | Forecasts | Typical EP use |
 |:--------:|------|:---------:|:---------:|----------------|
 | `WEO` | World Economic Outlook | Annual (+Q in some series) | ✅ +5y | ECON/BUDG/AFET macro/fiscal backdrop |
+| `FM` | Fiscal Monitor | Annual | ✅ +5y | BUDG debt/deficit, primary/structural balance |
+| `GFSR` | Global Financial Stability Report | Semi-annual (Apr + Oct) | — | ECON financial-stability commentary |
+| `EREO` | Regional Economic Outlook — Europe | Semi-annual (May + Nov) | ✅ +3y | ECON/AFET Europe-specific narrative |
 | `IFS` | International Financial Statistics | Monthly / Quarterly | — | ECON policy-rate tracking, quarterly growth context |
 | `CPI` | Consumer Price Index | Monthly | — | Breaking news inflation context |
-| `FM` | Fiscal Monitor | Annual | ✅ +5y | BUDG debt/deficit, primary/structural balance |
-| `BOP_AGG` | Balance of Payments | Quarterly | — | INTA trade balance, FDI flow monitoring |
+| `BOP_AGG` | Balance of Payments — Aggregates | Quarterly | — | INTA trade balance, FDI flow monitoring |
+| `BOP` | Balance of Payments — detailed components | Quarterly | — | INTA component drill-down |
+| `DOT` | Direction of Trade Statistics | Monthly / Quarterly | — | INTA bilateral trade flows EU ↔ RoW |
 | `ER` | Exchange Rates (REER / NEER) | Monthly | — | ECON FX-competitiveness framing |
 | `PCPS` | Primary Commodity Price System | Monthly | — | ITRE energy, AGRI food price context |
-| `GFS` | Government Finance Statistics | Annual | — | BUDG revenue structure, ECON fiscal stance |
+| `CDIS` | Coordinated Direct Investment Survey | Annual | — | INTA long-run bilateral FDI stock |
+| `CPIS` | Coordinated Portfolio Investment Survey | Semi-annual | — | ECON cross-border portfolio holdings |
+| `IRFCL` | International Reserves & FX Liquidity | Monthly | — | ECON monetary-policy & reserve commentary |
+| `SRF` | Standardized Report Forms (monetary) | Monthly | — | ECON central-bank balance sheet |
+| `GFS` | Government Finance Statistics | Annual (+Q subset) | — | BUDG revenue structure, ECON fiscal stance |
 | `FSI` | Financial Soundness Indicators | Quarterly | — | ECON banking-sector stability |
-| `SDG` | Sustainable Development Goals | Annual | — | ENVI / DEVE SDG monitoring |
+| `HSG` | Historical Spending Dataset | Episodic | — | Long-run fiscal context (historical-baseline) |
+| `HPDD` | Historical Public Debt Database | Episodic | — | Long-run debt-to-GDP comparisons |
+| `HISTINF` | Historical Inflation Dataset | Episodic | — | Long-run inflation context |
+| `SDG` | Sustainable Development Goals (IMF) | Annual | — | ENVI / DEVE SDG monitoring |
 
-The full upstream inventory includes ~155 databases; only those above are
-cited by EU Parliament Monitor today. Use `imf-search-databases` to
-discover others on demand.
+The full upstream inventory includes ~155 databases — see
+[`database-directory.md`](database-directory.md) for the complete
+editorial-relevance map. Use `imf-search-databases` to discover any
+database not pre-listed.
 
 ---
 

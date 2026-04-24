@@ -436,43 +436,53 @@ typical single-rapporteur load. This creates a risk of delayed committee amendme
 
 ---
 
-## 📊 World Bank Economic Context
+## 📊 IMF Economic Context (primary) + World Bank Non-Economic Cross-Refs
 
-> **AI Instructions:** Include World Bank data context when the policy subject has economic, social, or environmental implications. Use the WB MCP tools to fetch relevant indicators for affected EU member states and comparison countries. Reference `analysis/worldbank/indicator-catalog.md` for the full catalog of 200+ indicators.
+> **AI Instructions (Wave-3):** Include **IMF** data context for every policy subject with economic, fiscal, monetary, or trade implications — IMF is the mandatory primary source under Wave-3 policy. Use `imf-fetch-data` for WEO/FM/IFS/BOP/ER/PCPS/GFSR/EREO/FSI/GFS/DOT. Reference `analysis/imf/database-directory.md`, `analysis/imf/indicator-catalog.md`, and `analysis/methodologies/imf-indicator-mapping.md §2` for per-article-type indicator floors. Use **World Bank** only for non-economic cross-refs (health, education, social, environment, demographics, defence, agriculture, innovation, governance) — reference `analysis/worldbank/indicator-catalog.md`.
 
-### Economic Indicators for This Policy
+### Economic Indicators for This Policy (IMF primary)
 
-| Indicator | Country | Value | Year | Trend | Source |
-|-----------|---------|------:|-----:|-------|--------|
-| `[REQUIRED if economically relevant: e.g. GDP Growth]` | `[e.g. DE]` | `[e.g. -0.5%]` | `[e.g. 2024]` | `[↑↓→]` | WB MCP `get-economic-data` |
-| `[Optional: additional indicator]` | | | | | |
+| Indicator | SDMX code | Database | Country | Value | Year/Period | Trend | Vintage |
+|-----------|-----------|:--------:|---------|------:|:-----------:|-------|---------|
+| `[REQUIRED if economically relevant: e.g. Real GDP growth]` | `NGDP_RPCH` | `WEO` | `DEU` | `[value]` | `2025` | `[↑↓→]` | `WEO-April-2026` |
+| `[Optional: additional indicator]` | | | | | | | |
+
+### Non-Economic Cross-Refs (World Bank only)
+
+| Indicator | WB code | Country | Value | Year | Trend | Source |
+|-----------|---------|---------|------:|-----:|-------|--------|
+| `[OPTIONAL: only when relevant — e.g. Health expenditure % GDP]` | `SH.XPD.CHEX.GD.ZS` | `DE` | `12.4%` | 2023 | `[↑↓→]` | WB MCP `get-health-data` |
 
 ### Mermaid Economic Context Chart
 
-> Insert one of the Mermaid chart templates from `analysis/worldbank/chart-integration-guide.md` with real WB data. Example:
+> Insert one of the Mermaid chart templates from `analysis/imf/chart-integration-guide.md` (for economic series) or `analysis/worldbank/chart-integration-guide.md` (for non-economic series) with real data. Example:
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
 xychart-beta
-    title "[Policy Subject] — Economic Context"
+    title "[Policy Subject] — Economic Context (IMF WEO)"
     x-axis ["Country1", "Country2", "Country3"]
     y-axis "[Indicator Name] (%)" 0 --> 10
     bar [0, 0, 0]
 ```
 
-### Which Indicators to Use
+### Which Indicators to Use (Wave-3 split)
 
-| Policy Domain | Primary Indicators | Comparison Group |
-|--------------|-------------------|-----------------|
-| Fiscal governance | GDP Growth, Tax Revenue, Gov Debt | Big Four (DE, FR, IT, ES) |
-| Employment | Unemployment, Youth Unemployment, GINI | Mediterranean (IT, ES, GR, PT) |
-| Defence/security | Military Expenditure (% GDP) | NATO EU members vs US |
-| Climate/environment | CO₂ Emissions, Renewable Energy | Nordic (DK, FI, SE) vs EU avg |
-| Trade/investment | Exports (% GDP), FDI, High-tech Exports | EU vs G7, EU vs BRICS |
-| Health | Health Expenditure, Physicians, Hospital Beds | Eurozone Core |
-| Education | Education Expenditure, Tertiary Enrollment | Nordic vs Convergence states |
+| Policy Domain | Primary IMF Indicators (SDMX codes) | Non-Economic WB Indicators (if needed) | Comparison Group |
+|--------------|-------------------------------------|----------------------------------------|------------------|
+| Fiscal governance | `NGDP_RPCH` (growth), `GGXWDG_NGDP` (debt), `GGXONLB_NGDP` (primary balance) | — | Big Four (DE, FR, IT, ES) |
+| Employment | `LUR` (unemployment), `NGDP_RPCH` | Youth unemployment, GINI (WB) | Mediterranean (IT, ES, GR, PT) |
+| Defence/security | `GGX_NGDP` (gov expenditure % GDP) | `MS.MIL.XPND.GD.ZS` (mil expenditure — WB only) | NATO EU members vs US |
+| Climate/environment | `PCPIPCH` (energy-driven inflation) | `EN.ATM.CO2E.PC`, `EG.FEC.RNEW.ZS` (WB) | Nordic (DK, FI, SE) vs EU avg |
+| Trade/investment | `TX_RPCH` (export volume), `BFD_BP6_USD` (FDI), DOT bilateral | `TX.VAL.TECH.MF.ZS` (high-tech exports — WB) | EU vs G7, EU vs BRICS |
+| Health | — | `SH.XPD.CHEX.GD.ZS`, `SH.MED.PHYS.ZS`, `SH.MED.BEDS.ZS` (WB) | Eurozone Core |
+| Education | — | `SE.XPD.TOTL.GD.ZS`, `SE.TER.ENRR` (WB) | Nordic vs Convergence states |
+| Monetary policy | `FPOLM_PA` (policy rate), `EREER_IX` (REER) | — | Euro Area only |
+| Banking stability | `FSI/NPLR_PT` (NPL ratio), `FSI/CAPAR_PT` (capital adequacy) | — | Eurozone Core |
 
-> **Important World Bank tool note:** Several indicator names in the table above are conceptual labels only and may be **API-only** or otherwise **not accepted as direct indicator keys** by standard WB MCP tools such as `get-economic-data`.
+> **Important IMF tool note (Wave-3):** Every IMF citation MUST include (a) the SDMX indicator code (e.g. `NGDP_RPCH`), (b) the vintage in prose (`IMF WEO April 2026`), (c) the `data-vintage="WEO-April-2026"` HTML attribute on the enclosing `<section class="economic-context imf-economic-context">` element, and (d) a forecast marker (`forecast`/`projection`/`projects`/`expects`) within 30 words of any projected number. Validator regex-enforced via `validateIMFForecastMarker()` in `src/utils/imf-data.ts`.
+>
+> **Important World Bank tool note:** Several non-economic indicator names are conceptual labels only and may be **API-only** or otherwise **not accepted as direct indicator keys** by standard WB MCP tools such as `get-social-data`/`get-health-data`/`get-education-data`.
 >
 > Before calling any WB indicator tool, **always use `search-indicators` first** to find the exact supported indicator code. If the required indicator is not available through the standard WB MCP tool path, use the **documented fallback/API mechanism** (for example **legacy `get_indicator_for_country`**) instead of passing the display label directly.
 

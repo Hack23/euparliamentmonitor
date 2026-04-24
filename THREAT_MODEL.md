@@ -1491,7 +1491,7 @@ already secured)
 | **Risk Score**      | Low-Medium (6/25)                                                  |
 | **Priority**        | P2                                                                 |
 
-**Description:** Compromise of an upstream MCP data source (EP Open Data Portal, World Bank MCP, or IMF REST/SDMX 3.0) causes poisoned MEP records, voting data, or economic indicators to flow into generated articles. Extends T-013 to cover the expanded MCP surface after Wave-2 OR-gate introduction.
+**Description:** Compromise of an upstream MCP data source (EP Open Data Portal, World Bank MCP, or IMF REST/SDMX 3.0) causes poisoned MEP records, voting data, or economic indicators to flow into generated articles. Extends T-013 to cover the expanded MCP surface after the Wave-2 OR-gate / Wave-3 strict-gate introduction. Under Wave-3, IMF (`dataservices.imf.org`) is the primary economic source; a compromise of that single host has higher impact than under Wave-2 because no parallel WB economic citation is required.
 
 **Existing Controls:**
 

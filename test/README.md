@@ -196,14 +196,15 @@ excluded from coverage thresholds as they:
 
 **Excluded from coverage**:
 
-- `scripts/generate-news-enhanced.js` - News generation CLI
-- `scripts/generate-news-indexes.js` - Index generation CLI
-- `scripts/generate-sitemap.js` - Sitemap generation CLI
+- `scripts/generators/news-indexes.js` - Index generation CLI
+- `scripts/generators/sitemap.js` - Sitemap generation CLI
+- `scripts/utils/generate-docs-index.js` - Docs-index utility
+- `scripts/utils/copy-test-reports.js` - Test-report copy utility
 
 **Included in coverage** (library modules):
 
-- `scripts/article-template.js` - HTML generation functions
-- `scripts/ep-mcp-client.js` - MCP client library
+- `scripts/aggregator/*.js` - Analysis-artifact-driven article pipeline
+- `scripts/mcp/*.js` - MCP clients (EP, World Bank, IMF) + transport
 
 ### Critical Paths
 

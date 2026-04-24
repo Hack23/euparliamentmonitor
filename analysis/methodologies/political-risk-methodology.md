@@ -136,7 +136,7 @@ flowchart TD
 | Grand coalition stability | `analyze_voting_patterns`, `analyze_coalition_dynamics` | Track EPP-S&D-Renew voting cohesion |
 | Policy implementation | `get_procedures`, `track_legislation` | Monitor trilogue progress, committee votes |
 | Institutional integrity | `detect_voting_anomalies`, `get_parliamentary_questions` | Track Article 7 references, rule of law |
-| Economic governance | `get_adopted_texts`, World Bank data | MFF implementation, economic indicators |
+| Economic governance | `get_adopted_texts`, IMF data (primary — WEO/FM/GFS), World Bank WGI (governance only) | MFF implementation, economic indicators |
 | Social cohesion | `get_speeches`, `get_voting_records` | East-West vote splits, migration debates |
 | Geopolitical standing | `get_plenary_documents`, `search_documents` | Foreign affairs resolutions, trade votes |
 
@@ -152,7 +152,7 @@ The AI agent **MUST** follow this protocol when performing risk assessment:
    - `get_voting_records` + `analyze_voting_patterns` — recent vote margins and group alignment
    - `track_legislation` — legislative pipeline bottlenecks
    - `get_parliamentary_questions` — oversight activity patterns
-   - World Bank data — economic context for budget and electoral risk
+   - IMF data (primary — Wave-3) — economic context for budget and electoral risk; World Bank (non-economic governance / demographics / social)
 3. **Score each risk dimension** using the 5×5 matrix with evidence citations
 4. **Apply calibration** — compare against the calibration examples above
 5. **Assign overall risk level** — weighted: Grand Coalition 0.30, Policy 0.25, Budget 0.20, Electoral 0.15, External 0.10
@@ -235,7 +235,7 @@ Political risk scores should be **updated** as new evidence arrives, not just re
 | Named MEP or political group public statement | ±1 | EPP group leader demands concession |
 | Verified media report with named sources | ±1 | Politico reports trilogue stalled |
 | Single unnamed source | ±1 | "Sources say Commissioner may resign" |
-| Statistical data (Eurostat, World Bank) | ±1 | GDP growth data, unemployment change |
+| Statistical data (Eurostat, IMF primary, World Bank non-economic) | ±1 | GDP growth data, unemployment change |
 
 ---
 
@@ -354,7 +354,7 @@ graph TD
 | Grand-Coalition → Institutional | **Strong** | EU institutional functioning depends on EP coalition cooperation | `[committee composition via get_committee_info]` |
 | Policy → Social Cohesion | **Medium** | Policy success/failure affects citizen trust | `[Eurobarometer data]` |
 | Geopolitical → Policy | **Medium** | External pressures constrain legislative calendar | `[EU Council positions]` |
-| Geopolitical → Economic | **Medium** | Global shocks stress EU fiscal governance | `[World Bank economic data]` |
+| Geopolitical → Economic | **Medium** | Global shocks stress EU fiscal governance | `[IMF WEO/FM economic data + World Bank WGI governance]` |
 | Economic → Grand-Coalition | **Medium** | Budgetary constraints increase coalition posturing | `[MFF debates, budget votes]` |
 | Social Cohesion → Institutional | **Medium** | Social fragmentation undermines institutional legitimacy | `[EP participation data, speeches]` |
 

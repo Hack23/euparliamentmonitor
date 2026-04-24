@@ -267,10 +267,7 @@ export function generateArticle(opts) {
     const sourceMdFilename = `${slug}.en.md`;
     const sourceMdAbs = path.join(opts.outDir, sourceMdFilename);
     fs.writeFileSync(sourceMdAbs, aggregated.markdown, 'utf8');
-    const sourceMdRelPath = path
-        .relative(opts.repoRoot, sourceMdAbs)
-        .split(path.sep)
-        .join('/');
+    const sourceMdRelPath = path.relative(opts.repoRoot, sourceMdAbs).split(path.sep).join('/');
     const written = [sourceMdFilename];
     if (!opts.markdownOnly) {
         const rendered = renderMarkdown(aggregated.markdown);
@@ -316,9 +313,7 @@ function ensureDir(dir) {
  * @param argv - Argument list (defaults to `process.argv.slice(2)`)
  */
 export async function main(argv = process.argv.slice(2)) {
-    const repoRoot = process.env.REPO_ROOT
-        ? path.resolve(process.env.REPO_ROOT)
-        : process.cwd();
+    const repoRoot = process.env.REPO_ROOT ? path.resolve(process.env.REPO_ROOT) : process.cwd();
     const opts = parseCliArgs(argv, repoRoot);
     const result = generateArticle(opts);
     process.stdout.write(`Generated ${result.writtenFiles.length} file(s) from ${result.aggregated.includedArtifacts.length} artifact(s) — gate: ${result.aggregated.gateResult}\n`);

@@ -15,13 +15,13 @@ gh-aw workflow. This replaces the 1,789-line `SHARED_PROMPT_PATTERNS.md` monolit
 | # | File | Purpose |
 |---|------|---------|
 | 00 | [`00-scope-and-ground-rules.md`](00-scope-and-ground-rules.md) | Workspace scope, forbidden/allowed edits, neutrality, one-PR rule |
-| 01 | [`01-data-collection.md`](01-data-collection.md) | EP MCP feeds + direct fallbacks, deep-fetch, WB/IMF context |
+| 01 | [`01-data-collection.md`](01-data-collection.md) | EP MCP feeds + direct fallbacks, deep-fetch, IMF primary economic + WB non-economic |
 | 02 | [`02-analysis-protocol.md`](02-analysis-protocol.md) | Pipeline, methodologies/templates, mandatory 2-pass |
 | 03 | [`03-analysis-completeness-gate.md`](03-analysis-completeness-gate.md) | `validate-analysis-completeness` blocking gate |
 | 04 | [`04-article-generation.md`](04-article-generation.md) | Prose-first structure, depth floors, charts, keywords/title/description |
 | 05 | [`05-analysis-to-article-contract.md`](05-analysis-to-article-contract.md) | AI-First contract, AI_MARKER sentinels, per-type inputs |
 | 06 | [`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md) | **Single-PR rule**, analysis-only fallback, noop diagnostics |
-| 07 | [`07-mcp-reference.md`](07-mcp-reference.md) | EP/WB/IMF tool tables, parameter corrections, reliability matrix |
+| 07 | [`07-mcp-reference.md`](07-mcp-reference.md) | EP / IMF (primary economic) / WB (non-economic) tool tables, parameter corrections, reliability matrix |
 | 08 | [`08-infrastructure.md`](08-infrastructure.md) | Required frontmatter, `mcp-setup.sh`, client env vars |
 | 09 | [`09-troubleshooting.md`](09-troubleshooting.md) | AWF firewall diagnostic, error→root-cause table |
 

@@ -20,7 +20,7 @@
 **Date:** {ISO date}
 **Subject:** {EU/EP policy position being compared}
 **Peer Countries:** {List of comparator jurisdictions}
-**Data Sources:** EP MCP, World Bank, IMF
+**Data Sources:** EP MCP, IMF (primary economic), World Bank (non-economic only), Eurostat
 
 ---
 ```
@@ -183,7 +183,7 @@ graph LR
 ```markdown
 ## Quantitative Benchmark
 
-### World Bank / IMF Indicator Comparison
+### IMF / World Bank Indicator Comparison (IMF-primary, Wave-3)
 
 {Use xychart or other Mermaid for time-series comparison}
 ```
@@ -210,7 +210,7 @@ xychart-beta
 | 2024 | {val} | {val} | {val} | {val} | {val} | {val} | {val} |
 | 2023 | ... | ... | ... | ... | ... | ... | ... |
 
-*Source: World Bank WGI / IMF WEO / Eurostat*
+*Source: IMF WEO / Fiscal Monitor (primary economic) / Eurostat / World Bank WGI (non-economic only — governance, social, demographics)*
 ```
 
 ## 🔄 Section 8 — Policy Transfer Assessment
@@ -249,9 +249,10 @@ xychart-beta
 3. [{US federal source}]({URL}) — **B2**
 
 ### Quantitative Data
-1. World Bank WGI — indicator: {ID}
-2. IMF WEO — indicator: {ID}
-3. Eurostat — indicator: {ID}
+1. IMF WEO — indicator: {ID} (primary for any economic metric — Wave-3)
+2. IMF Fiscal Monitor — indicator: {ID}
+3. Eurostat — indicator: {ID} (triangulation for Tier-1)
+4. World Bank WGI — indicator: {ID} (non-economic only: governance, social, demographics)
 
 ### EP MCP Data
 - `analyze_country_delegation` — per-country MEP analysis
@@ -269,7 +270,7 @@ xychart-beta
 - [ ] 3 best practices extracted
 - [ ] 3 incompatibilities documented
 - [ ] EU-law intersection with specific legal references
-- [ ] Benchmark trend chart with World Bank/IMF data
+- [ ] Benchmark trend chart with IMF data (primary) + optional Eurostat/WB cross-ref
 - [ ] Policy transfer assessment matrix
 
 ---

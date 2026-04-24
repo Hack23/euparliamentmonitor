@@ -139,7 +139,7 @@ architecture.
 - **Multi-Language Support**: Generates content in 14 languages (`en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh`), defined in `src/constants/language-core.ts::ALL_LANGUAGES`
 - **Article Types**: 8 production content types (`breaking-news`, `committee-reports`, `month-ahead`, `monthly-review`, `motions`, `propositions`, `week-ahead`, `weekly-review`) driven by 9 strategy modules in `src/generators/strategies/` — the 8 type-specific strategies plus `article-strategy` (generic/on-demand, used by `news-article-generator.md` manual dispatch, not an additional production content type)
 - **Agentic Workflows**: 18 gh-aw markdown workflows — 8 split-pair article types (each with `news-<type>-analysis.md` for Stages A+B+C and `news-<type>-article.md` for Stage D) + `news-article-generator.md` (manual) + `news-translate.md` (translation fan-out) — compiled to `.lock.yml` via `gh aw compile --validate` (pinned `GH_AW_VERSION: v0.69.0`)
-- **Dual Economic Data (Wave 1)**: World Bank MCP AND IMF REST provide complementary macro context; validator gate `articlePolicyHasEconomicContext` in `src/utils/content-validator.ts` accepts either source
+- **Dual Economic Data (Wave-3)**: IMF REST is the **primary** source for every economic claim; World Bank MCP provides complementary non-economic context (health, education, social, environment, demographics, defence, agriculture, innovation, governance). Validator gates: `articlePolicyHasEconomicContext` (Wave-2 OR-gate, default — accepts either source) and `articlePolicyHasIMFEconomicEvidence` (Wave-3 strict — IMF only, dark-launched behind `WAVE3_IMF_STRICT` env flag) in `src/utils/content-validator.ts`
 - **AI-First Quality Principle**: Mandatory 2-pass iterative improvement (~60% pass 1, ~40% pass 2); ≥80 words/SWOT item, ≥150 words/stakeholder perspective, ≥60% prose ratio, ≥1 Chart.js visualization, 0 `[AI_ANALYSIS_REQUIRED]` sentinel markers
 - **MCP Integration**: Spawned as local child processes via stdio JSON-RPC at build time
 - **Security by Design**: Minimal attack surface through static architecture; 5-layer gh-aw security (AWF Squid firewall allowlist, sandboxed Docker, safe-output constraints, JSONL audit trail, lock file compilation)
@@ -445,7 +445,7 @@ C4Component
         Component(mcp_imf, "imf-mcp-client.ts", "TS", "class IMFMCPClient; exports IMF_MCP_TOOLS; env IMF_API_BASE_URL, IMF_API_TIMEOUT_MS")
         Component(mcp_health, "mcp-health.ts / mcp-retry.ts / mcp-connection.ts", "TS", "Health probes, retry with backoff, connection lifecycle")
         Component(templates_mod, "templates/section-builders.ts", "TS", "buildSiteFooter (14-language, single source of truth), stakeholder perspectives grid")
-        Component(validator_c, "utils/content-validator.ts", "TS", "articlePolicyHasWorldBank, articlePolicyHasEconomicContext (OR-gate), scanHtmlForFallbackLeaks")
+        Component(validator_c, "utils/content-validator.ts", "TS", "articlePolicyHasWorldBank (legacy), articlePolicyHasEconomicContext (Wave-2 OR-gate), articlePolicyHasIMFEconomicEvidence (Wave-3 strict, dark-launched), isWave3IMFStrictEnabled, scanHtmlForFallbackLeaks")
         Component(significance, "utils/significance-scoring.ts", "TS", "Publication priority score")
         Component(classification, "utils/political-classification.ts + utils/political-threat-assessment.ts + utils/political-risk-assessment.ts", "TS", "Intelligence analysis family")
     }
@@ -485,7 +485,7 @@ C4Component
 | **IMF MCP Client**       | Native TS fetch to IMF SDMX 3.0; `class IMFMCPClient`; `IMF_MCP_TOOLS` (NOT an MCP server) | `fetch` (Node 25+) | `src/mcp/imf-mcp-client.ts`               |
 | **MCP Health/Retry**     | Health probes, retry with exponential backoff, lifecycle | — | `src/mcp/mcp-health.ts`, `mcp-retry.ts`, `mcp-connection.ts` |
 | **Templates**            | HTML5 article shell, 14-language localised `buildSiteFooter()`, stakeholder perspective grid, structured data (JSON-LD/Open Graph) | Types | `src/templates/article-template.ts`, `section-builders.ts` |
-| **Content Validator**    | `articlePolicyHasWorldBank`, `articlePolicyHasEconomicContext` (OR-gate accepts WB OR IMF), `scanHtmlForFallbackLeaks`, `FALLBACK_TEMPLATE_PATTERNS` | — | `src/utils/content-validator.ts`          |
+| **Content Validator**    | `articlePolicyHasWorldBank` (legacy), `articlePolicyHasEconomicContext` (Wave-2 OR-gate WB OR IMF — default), `articlePolicyHasIMFEconomicEvidence` (Wave-3 strict IMF-only — `WAVE3_IMF_STRICT` flag), `isWave3IMFStrictEnabled`, `scanHtmlForFallbackLeaks`, `FALLBACK_TEMPLATE_PATTERNS` | — | `src/utils/content-validator.ts`          |
 | **Analysis Completeness**| Pre-PR validator gate; invoked by gh-aw workflows as `node scripts/utils/validate-analysis-completeness.js` | Types | `src/utils/validate-analysis-completeness.ts` |
 | **Intelligence Utils**   | `political-classification`, `political-threat-assessment`, `political-risk-assessment`, `significance-scoring`, `article-quality-scorer` | Types | `src/utils/*.ts` |
 | **News Indexes**         | Per-language index pages                | Metadata, languages | `src/generators/news-indexes.ts` |

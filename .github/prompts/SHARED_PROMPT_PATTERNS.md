@@ -11,7 +11,7 @@ files. See the new index:
 | Old section | New file |
 |---|---|
 | Scope restriction, forbidden practices, neutrality | [`00-scope-and-ground-rules.md`](00-scope-and-ground-rules.md) |
-| Data collection, feeds + direct fallbacks, deep-fetch, World Bank / IMF | [`01-data-collection.md`](01-data-collection.md) |
+| Data collection, feeds + direct fallbacks, deep-fetch, IMF (primary economic) / WB (non-economic) | [`01-data-collection.md`](01-data-collection.md) |
 | Analysis protocol, methodologies + templates, 2-pass rule | [`02-analysis-protocol.md`](02-analysis-protocol.md) |
 | Completeness-gate validator, pre-flight checklist | [`03-analysis-completeness-gate.md`](03-analysis-completeness-gate.md) |
 | Article depth gates, title/description/keywords rules | [`04-article-generation.md`](04-article-generation.md) |

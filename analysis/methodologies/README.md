@@ -300,21 +300,21 @@ graph LR
 | **Consumed by** | `npm run validate-analysis` at Stage C (Completeness Gate) — failures block PR creation |
 | **Update cadence** | Bumped whenever `per-artifact-methodologies.md` tightens or loosens a floor; the two files must stay in lock-step |
 
-### 🌍 World Bank Indicator Mapping — `worldbank-indicator-mapping.md`
+### 💱 IMF Indicator Mapping — `imf-indicator-mapping.md` (primary economic source — Wave-3)
 
 | Attribute | Value |
 |-----------|-------|
-| **Purpose** | Canonical mapping of World Bank WDI indicator codes to EP analysis use cases (`economic-context.md`, PESTLE economic dimension, quantitative-swot evidence) |
+| **Purpose** | Canonical mapping of IMF WEO / FM / IFS / BOP / ER / PCPS / GFSR / EREO / FSI / GFS / DOT indicator codes to EP analysis use cases — Wave-3 authoritative economic context for every policy-required article type |
+| **Paired MCP** | IMF REST SDMX 3.0 client in `src/mcp/imf-mcp-client.ts` (virtual tools `imf-list-databases`, `imf-search-databases`, `imf-get-parameter-defs`, `imf-get-parameter-codes`, `imf-fetch-data`) |
+
+### 🌍 World Bank Indicator Mapping — `worldbank-indicator-mapping.md` (non-economic only — Wave-3)
+
+| Attribute | Value |
+|-----------|-------|
+| **Purpose** | Canonical mapping of World Bank WDI indicator codes — **non-economic domains only** under Wave-3: health, education, social, environment, demographics, defence, agriculture, innovation, governance. The legacy WB economic codes are retained for backward compatibility but MUST NOT be used in new articles; economic context → IMF |
 | **Paired MCP** | World Bank MCP (`world-bank-*` tools) |
 
-### 💱 IMF Indicator Mapping — `imf-indicator-mapping.md`
-
-| Attribute | Value |
-|-----------|-------|
-| **Purpose** | Canonical mapping of IMF WEO / FM / SDR indicator codes to EP analysis use cases — covers sovereign risk, fiscal forecasts, reserve-asset signals |
-| **Paired MCP** | IMF REST SDMX 3.0 client in `src/mcp/imf-mcp-client.ts` |
-
-> ✅ Together, `artifact-catalog.md` (**what**), `per-artifact-methodologies.md` (**how**), and `reference-quality-thresholds.json` (**how much**) form the Stage B / Stage C contract enforced by `validate-analysis-completeness`. The two indicator-mapping files provide the Stage A economic-context inputs that the Wave-2 OR-gate in `articlePolicyHasEconomicContext` checks.
+> ✅ Together, `artifact-catalog.md` (**what**), `per-artifact-methodologies.md` (**how**), and `reference-quality-thresholds.json` (**how much**) form the Stage B / Stage C contract enforced by `validate-analysis-completeness`. The two indicator-mapping files provide the Stage A economic-context inputs that the Wave-3 gate in `articlePolicyHasEconomicContext` checks — IMF primary, WB additive for non-economic. The strict Wave-4 helper `articlePolicyHasIMFEconomicEvidence` is dark-launched behind the `WAVE3_IMF_STRICT` flag.
 
 ---
 

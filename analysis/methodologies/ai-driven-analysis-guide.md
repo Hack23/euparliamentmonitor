@@ -101,7 +101,7 @@ Before any analysis, read these documents in order. This is expected to take 4�
 | P1 | [`political-threat-framework.md`](political-threat-framework.md) | Threat Landscape, Diamond, Attack Trees, Kill Chain |
 | P1 | [`political-classification-guide.md`](political-classification-guide.md) | 7-dimension event classification, significance rubric |
 | P2 | [`political-style-guide.md`](political-style-guide.md) | Writing standards, evidence density, depth levels |
-| P2 | [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md) + [`imf-indicator-mapping.md`](imf-indicator-mapping.md) | Economic-context indicator selection |
+| P2 | [`imf-indicator-mapping.md`](imf-indicator-mapping.md) (primary economic) + [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md) (non-economic) | Economic-context indicator selection — Wave-3 IMF-primary |
 | P2 | All nine templates in [`../templates/`](../templates/README.md) | Output shapes to fill with analysis |
 
 **Product of Step 2:** the mental model of the analytical pipeline. Emit the line `METHODOLOGIES_READ: ok` in the workflow log before proceeding.
@@ -159,7 +159,7 @@ Turn quantified risk into forward-looking intelligence.
 2. Write `intelligence/political-threat-landscape.md` (the 6-dimension Threat Landscape view using the 5-framework integrated methodology from `political-threat-framework.md`). For threat-heavy article types, also expand into `threat-assessment/actor-threat-profiles.md`, `threat-assessment/consequence-trees.md`, and `threat-assessment/legislative-disruption.md`.
 3. Write `intelligence/scenario-forecast.md` — ≥3 probability-weighted scenarios (baseline → branching `flowchart TD` in green / orange / red) with early-warning indicators and date-bounded triggers.
 4. Write `intelligence/pestle-analysis.md` — six-dimension (P·E·S·T·L·E) scan with pressure ratings.
-5. Write `intelligence/economic-context.md` using World Bank and / or IMF data (Wave-2 OR-gate — either source satisfies the requirement; see [`.github/skills/imf-data-integration.md`](../../.github/skills/imf-data-integration.md)). Bridge every indicator to a named EP policy topic from the run.
+5. Write `intelligence/economic-context.md` using **IMF** data as the primary source for every economic claim (Wave-3 policy — see [`.github/skills/imf-data-integration.md`](../../.github/skills/imf-data-integration.md)); World Bank is additive for non-economic context only. Per-article-type IMF indicator floor MUST be satisfied (see [`imf-indicator-mapping.md §8`](imf-indicator-mapping.md)). Include `data-vintage` HTML attribute + forecast markers within 30 words of every projected number. Bridge every indicator to a named EP policy topic from the run.
 6. Write `intelligence/coalition-dynamics.md` — group cohesion + alliance pairs using `get_voting_records` / `analyze_coalition_dynamics` / `compare_political_groups`.
 7. Write `intelligence/wildcards-blackswans.md` — ≥5 low-probability, high-impact wildcards on a Probability × Impact `quadrantChart`.
 8. Write `intelligence/historical-baseline.md` — anchor every current score / metric in 30-day and 90-day baselines; mark "first occurrence", "highest since", "return to baseline" findings.
@@ -294,6 +294,7 @@ These principles are the positive restatement of the v4.5 rule list. Workflow fi
 | 9 | **Complete data + historical baseline** — every metric is anchored to its 30-day / 90-day comparable baseline, every coalition claim attempts `get_voting_records`, every feed failure falls back to the direct endpoint. | Rules 14, 15, 17 |
 | 10 | **Read-before-article + footer + ratio + floors** — the pre-flight validator reads every artifact (≥30 lines flat + per-artifact floors from [`reference-quality-thresholds.json`](reference-quality-thresholds.json)), the article carries the manifest-driven Analysis Sources footer, and the article's analysis-citation ratio (≥1 artifact per 150 words; ≥1 per 100 for article-generator long-form) is met. | Rules 10, 16, 18, 19, 20, 21, 22 |
 | 11 | **OSINT / INTOP tradecraft discipline** — every probabilistic judgement uses a Words-of-Estimative-Probability band, every source citation carries an Admiralty grade (A1–F6 → 🟢/🟡/🔴), every run attests ≥10 SATs in `methodology-reflection.md`, and the OSINT scope in [`osint-tradecraft-standards.md`](osint-tradecraft-standards.md) §5 is respected. | New in v5.1 — cross-cutting layer applied by every framework. |
+| 12 | **IMF-primary economic evidence (Wave-3)** — every economic / monetary / fiscal / trade / FDI / exchange-rate / banking claim in the article must cite **IMF** (SDMX code + vintage in prose + `data-vintage="..."` HTML attribute on the enclosing `<section>` + forecast marker within 30 words of any projected number); the per-article-type IMF indicator floor from [`imf-indicator-mapping.md §8`](imf-indicator-mapping.md) must be satisfied. World Bank is additive for non-economic domains only. The strict Wave-4 gate `articlePolicyHasIMFEconomicEvidence` is dark-launched behind the `WAVE3_IMF_STRICT` flag; when `true`, a missing IMF citation blocks Stage-C. | New in v5.2 — Wave-3 IMF-primary policy. |
 
 ---
 
@@ -613,8 +614,8 @@ Use this mapping to determine which frameworks receive the most depth for each E
 | 🗳️ **Plenary Votes** (roll-call) | `get_voting_records` | Classification + SWOT + Coalition-Dynamics + Threat | `get_voting_records`, `analyze_voting_patterns`, `detect_voting_anomalies` |
 | 🎤 **Plenary Speeches** | `get_speeches` | Stakeholder + Sentiment-Tracker + Significance | `get_speeches`, `get_mep_details`, `analyze_coalition_dynamics` |
 | 📅 **Plenary Sessions** | `get_plenary_sessions` | Significance + Forward-Indicators | `get_plenary_sessions`, `get_meeting_activities`, `get_meeting_decisions` |
-| 💰 **Budget / MFF** | `search_documents` (type=BUDGET) | Risk + Economic-Context + Scenario-Analysis + EP-2029-Lens | `search_documents`, World Bank, IMF, Eurostat |
-| 🛡️ **CFSP / Security** | Mixed (AFET/SEDE documents) | Threat + Comparative-International + Scenario-Analysis | `search_documents`, `get_committee_info`, World Bank |
+| 💰 **Budget / MFF** | `search_documents` (type=BUDGET) | Risk + Economic-Context + Scenario-Analysis + EP-2029-Lens | `search_documents`, IMF (primary — WEO+FM), Eurostat, World Bank (non-economic WGI governance only) |
+| 🛡️ **CFSP / Security** | Mixed (AFET/SEDE documents) | Threat + Comparative-International + Scenario-Analysis | `search_documents`, `get_committee_info`, IMF (GGX/GGXONLB for defence-spending fiscal impact), World Bank (MS.MIL.* military expenditure) |
 | 📋 **Adopted Texts** | `get_adopted_texts` | Classification + Significance + Legislative-Timeline | `get_adopted_texts`, `get_procedures`, `track_legislation` |
 | 🔄 **Legislative Procedures** | `get_procedures` | Risk + Legislative-Timeline + Forward-Indicators | `get_procedures`, `get_procedure_events`, `track_legislation` |
 
@@ -646,7 +647,7 @@ Every security-relevant control maps to **ISO 27001:2022**, **NIST CSF 2.0**, **
 - [`political-threat-framework.md`](political-threat-framework.md) — Diamond / Attack Trees / Kill Chain / PESTLE
 - [`political-classification-guide.md`](political-classification-guide.md) — 7-dimension classification
 - [`political-style-guide.md`](political-style-guide.md) — writing standards
-- [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md) / [`imf-indicator-mapping.md`](imf-indicator-mapping.md) — economic context
+- [`imf-indicator-mapping.md`](imf-indicator-mapping.md) — economic context (primary, Wave-3) / [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md) — non-economic only
 - [`reference-quality-thresholds.json`](reference-quality-thresholds.json) — machine-enforced depth floors
 - [`../templates/README.md`](../templates/README.md) — template catalog
 - [Run 184 reference benchmark](../daily/2026-04-18/breaking-run184/) — depth exemplar

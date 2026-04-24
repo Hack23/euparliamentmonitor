@@ -168,6 +168,13 @@ covering:
 - 🤖 **GitHub Actions Integration**: Automated daily news generation
 - 📊 **SEO Optimized**: Proper metadata, structured data, and sitemap generation
 - ✅ **Code Quality**: ESLint, Prettier, and automated quality gates
+- 🌐 **IMF-grade Economic Context**: IMF-primary citations are the
+  editorial standard for every policy article — see
+  [`analysis/imf/README.md`](analysis/imf/README.md) and
+  [`analysis/methodologies/imf-indicator-mapping.md`](analysis/methodologies/imf-indicator-mapping.md).
+  World Bank is retained only for non-economic indicators (health,
+  education, social, environment, demographics, defence, agriculture,
+  innovation, governance).
 
 ## 🔒 Security Architecture
 
@@ -398,19 +405,17 @@ import {
   // MCP Client for EU Parliament data
   EuropeanParliamentMCPClient,
   getEPMCPClient,
-  // Intelligence analysis
-  scoreVotingAnomaly,
-  analyzeCoalitionCohesion,
-  assessPoliticalThreats,
-  // Article generation
-  generateArticleHTML,
-  scoreArticleQuality,
+  // Intelligence index (cross-article relationships)
+  buildIndexFromEntries,
+  findRelatedArticles,
+  generateCrossReferences,
+  // Article generation (aggregator pipeline)
+  generateArticle,
+  aggregateAnalysisRun,
+  renderMarkdown,
   // Multi-language support (14 languages)
   ALL_LANGUAGES,
   LANGUAGE_NAMES,
-  // Content validation
-  validateArticleContent,
-  validateTranslationCompleteness,
 } from 'euparliamentmonitor';
 
 // Or import specific modules for tree-shaking

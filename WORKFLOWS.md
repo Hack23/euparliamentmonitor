@@ -310,7 +310,7 @@ graph TD
 | **Concurrency group** | `gh-aw-${{ github.workflow }}` |
 | **Node.js version** | 25 |
 | **EP MCP Server** | `european-parliament-mcp-server@1.2.13` (globally installed via `scripts/mcp-setup.sh`, MCP gateway `EP_MCP_GATEWAY_URL=http://host.docker.internal:80/mcp/european-parliament`) |
-| **Data sources** | European Parliament MCP Server (primary, 6 sliding-window + 7 fixed-window feeds), World Bank MCP `1.0.1` (optional, WDI macro/social/env/health), IMF REST SDMX 3.0 (native fetch in `src/mcp/imf-mcp-client.ts`, WEO+FM monthly forecasts). Dual-gate: `articlePolicyHasEconomicContext` (Wave-2 OR-gate WB OR IMF) in `src/utils/content-validator.ts` |
+| **Data sources** | European Parliament MCP Server (primary, 6 sliding-window + 7 fixed-window feeds), IMF REST SDMX 3.0 (native fetch in `src/mcp/imf-mcp-client.ts`, primary economic source under Wave-3 — WEO+FM+IFS+BOP+ER+PCPS+GFSR+EREO+FSI+GFS+DOT), World Bank MCP `1.0.1` (non-economic only under Wave-3 — WDI social/health/education/environment/governance). Active gate: `articlePolicyHasEconomicContext` (Wave-2 OR-gate, default) or `articlePolicyHasIMFEconomicEvidence` (Wave-3 strict, when `WAVE3_IMF_STRICT=true`) in `src/utils/content-validator.ts` |
 | **Analysis stage** | `--analysis` flag enables 18-method political intelligence pipeline before article generation |
 | **Analysis output** | `analysis/daily/{date}/` for cross-article artifacts (for example shared synthesis outputs), plus `analysis/daily/{date}/{article-type}/` for article-type-scoped classification, threat-assessment, risk-scoring, and data (EP feeds, World Bank, IMF, OSINT) artifacts committed to PR. Article-type scoping prevents merge conflicts between concurrent workflows. |
 
@@ -1208,7 +1208,7 @@ which asserts:
 - ≥60% prose ratio (non-HTML text content)
 - ≥1 Chart.js visualization embedded
 - **0** `[AI_ANALYSIS_REQUIRED]` sentinel markers remaining
-- Economic context present: **World Bank OR IMF** (Wave-2 OR-gate via `articlePolicyHasEconomicContext` in `src/utils/content-validator.ts`)
+- Economic context present: **IMF** (Wave-3 primary; mandatory when `WAVE3_IMF_STRICT=true`) or **World Bank OR IMF** (Wave-2 OR-gate, default) via `articlePolicyHasEconomicContext` / `articlePolicyHasIMFEconomicEvidence` in `src/utils/content-validator.ts`
 - `scanHtmlForFallbackLeaks()` returns empty — no `FALLBACK_TEMPLATE_PATTERNS` in output
 
 Reference thresholds (`analysis/methodologies/reference-quality-thresholds.json`):

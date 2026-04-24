@@ -66,7 +66,8 @@ After writing ANY content (analysis files, article sections, SWOT items, stakeho
 | Article sections | ≥3 analytical prose paragraphs (not bullet lists) |
 | Prose ratio | ≥60% paragraphs (not bullet lists) |
 | Chart.js visualizations | ≥1 per article with real EP data |
-| World Bank data | Mandatory for policy articles with economic dimensions |
+| IMF economic data (primary, Wave-3) | Mandatory for every economic dimension in policy articles — SDMX code + vintage + forecast marker |
+| World Bank data (non-economic only) | Optional/additive for health, education, social, environment, demographics, defence, agriculture, innovation, governance |
 
 ### Rule 5: The Economist Test
 
@@ -120,7 +121,7 @@ Under the v1.1 scope policy, agentic workflows MAY update `test/` and `e2e/` tes
 
 ### News Journalist
 - **Pass 1**: Generate article with AI analysis, replace all markers, write prose sections
-- **Pass 2**: Read entire article top-to-bottom, verify every section meets quality gates, add World Bank data, verify Chart.js visualization, ensure prose ratio ≥60%
+- **Pass 2**: Read entire article top-to-bottom, verify every section meets quality gates, add IMF economic evidence (primary, Wave-3) + optional World Bank non-economic cross-refs, verify Chart.js visualization, verify `data-vintage` HTML attribute + forecast markers on every projected number, ensure prose ratio ≥60%
 
 ### Intelligence Operative
 - **Pass 1**: Write all analysis markdown (SWOT, stakeholder, coalition, risk, significance scoring)

@@ -13,7 +13,10 @@ Every `news-*.md` workflow defines `runtimes:`, `network:`, `tools:`, and its
 own `safe-outputs:` block directly in the workflow frontmatter. The
 `mcp-servers:` block is **not** inlined per workflow — it is provided via a
 shared gh-aw import so the four MCP mounts (European Parliament, World Bank,
-memory, sequential-thinking) stay in lockstep across all workflows:
+memory, sequential-thinking) stay in lockstep across all workflows. The IMF
+integration uses a **native TypeScript client** (not an MCP server) and is
+invoked directly from workflow bash steps via `scripts/imf-mcp-probe.sh` and
+the `ep-mcp-client.js` / `imf-mcp-client.js` compiled modules.
 
 ```yaml
 imports:
@@ -34,8 +37,8 @@ network:
     - api.github.com
     - data.europarl.europa.eu
     - "*.europa.eu"
-    - api.worldbank.org
-    - dataservices.imf.org
+    - dataservices.imf.org    # IMF SDMX 3.0 REST — Wave-3 MANDATORY for policy-required article types
+    - api.worldbank.org       # WB MCP — non-economic domains only
     - hack23.com
     - www.hack23.com
     - riksdagsmonitor.com

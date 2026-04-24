@@ -14,7 +14,7 @@
  * `<script type="module" src="js/vendor/mermaid.esm.min.mjs">` so CSP
  * stays `script-src 'self'`.
  */
-import { BASE_URL, createThemeToggleButton, THEME_TOGGLE_SCRIPT, } from '../constants/config.js';
+import { BASE_URL, createThemeToggleButton, THEME_TOGGLE_SCRIPT } from '../constants/config.js';
 import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, SKIP_LINK_TEXTS, HEADER_SUBTITLE_LABELS, THEME_TOGGLE_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
 import { escapeHTML } from '../utils/file-utils.js';
 import { buildSiteFooter } from '../templates/section-builders.js';
@@ -68,9 +68,7 @@ function buildLanguageSwitcher(articleSlug, current) {
  * @returns Complete `<!DOCTYPE html>` document ready to be written to disk
  */
 export function wrapArticleHtml(options) {
-    const safeLang = ALL_LANGUAGES.includes(options.lang)
-        ? options.lang
-        : 'en';
+    const safeLang = ALL_LANGUAGES.includes(options.lang) ? options.lang : 'en';
     const dir = getTextDirection(safeLang);
     const siteTitle = getLocalizedString(PAGE_TITLES, safeLang).split(' - ')[0] ?? 'EU Parliament Monitor';
     const skipLinkText = getLocalizedString(SKIP_LINK_TEXTS, safeLang);

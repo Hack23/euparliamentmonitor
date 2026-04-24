@@ -352,10 +352,7 @@ export function aggregateAnalysisRun(options) {
     const includedArtifacts = [];
     const sectionMarkdown = [];
     const seenMermaid = new Set();
-    const runDirRelPath = path
-        .relative(repoRoot, runDir)
-        .split(path.sep)
-        .join('/');
+    const runDirRelPath = path.relative(repoRoot, runDir).split(path.sep).join('/');
     for (const section of ARTIFACT_SECTIONS) {
         const paths = expandSectionArtifacts(section, new Set(available), consumed);
         appendSection(runDir, runDirRelPath, section.id, section.title, paths, seenMermaid, sectionMarkdown, includedArtifacts);

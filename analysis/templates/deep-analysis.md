@@ -131,7 +131,7 @@ Requirements:
 
 **Section length**: ≥400 words.
 
-Ground the period's parliamentary politics in the geopolitical environment. World Bank / IMF macro indicators, transatlantic context, enlargement dynamics, energy posture.
+Ground the period's parliamentary politics in the geopolitical environment. **IMF** (primary source for macro / fiscal / monetary / trade indicators — Wave-3 policy) plus optional World Bank (non-economic domains only), transatlantic context, enlargement dynamics, energy posture.
 
 Requirements:
 - ≥2 external events that shaped EP behaviour in the period.

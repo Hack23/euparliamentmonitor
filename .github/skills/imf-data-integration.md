@@ -3,37 +3,63 @@
 > **Skill**: Invoke IMF economic data in EU Parliament Monitor articles
 > and analysis via the **native TypeScript SDMX 3.0 REST client**
 > (`src/mcp/imf-mcp-client.ts`), which calls
-> `https://dataservices.imf.org/REST/SDMX_3.0/` directly. Provides
-> fresher macro/fiscal context and native multi-year forecasts relative
-> to the World Bank WDI.
+> `https://dataservices.imf.org/REST/SDMX_3.0/` directly. Under
+> **Wave-3 editorial policy (April 2026)** IMF is the **sole
+> authoritative source for every economic claim** in EU Parliament
+> Monitor articles — macro, fiscal, monetary, trade, FDI,
+> exchange-rate, and banking-soundness. World Bank is retained only
+> for non-economic domains (health, education, social, environment,
+> demographics, defence, agriculture, innovation, governance).
 
-**🌀 Wave:** 1 IMF integration + Wave-2 validation enforcement (strict validator uses the WB-or-IMF OR-gate `articlePolicyHasEconomicContext`; IMF citations alone satisfy the policy gate)
+**🌀 Wave:** 3 — IMF-primary editorial policy enforced at Stage-C
+completeness review. The legacy runtime gate helpers
+(`articlePolicyHasEconomicContext` OR-gate and
+`articlePolicyHasIMFEconomicEvidence` IMF-only gate) lived in
+`src/utils/content-validator.ts` and were purged in the April-2026
+aggregator-pipeline migration along with the rest of
+`src/utils/validate-articles.ts`. Every new article citing an
+economic indicator MUST cite IMF with SDMX code + vintage prose +
+HTML `data-vintage` attribute + forecast marker within 30 words of
+any projected number.
 
 > **Transport note:** The first Wave 1 iteration proxied through the
 > Python `c-cf/imf-data-mcp` MCP server. That transport was replaced
 > with a native TypeScript HTTP client — the public API
 > (`IMFMCPClient`, five tool methods, `MCPToolResult`-shaped return
-> envelope) is identical, and the five tool identifiers remain the
-> content-validator fingerprint source and workflow-probe heartbeat
-> anchors.
+> envelope) is identical.
 
 ---
 
-## When to use IMF
+## When to use IMF (Wave-3: always for economic context)
 
-Choose IMF over World Bank when **any** of these is true:
+Under Wave-3, IMF is **mandatory** for every economic claim —
+specifically:
 
-- The article or analysis needs **2025 actuals** or **2026-2030
-  forecasts** for GDP, inflation, unemployment, gov debt, primary
-  balance, current account — WEO ships these; WDI does not.
-- Quarterly or monthly granularity is required (IFS, CPI, BOP, ER,
-  PCPS).
-- The committee context is ECON, BUDG, AFET, SEDE, or INTA.
-- The article is a look-ahead (`news-week-ahead`, `news-month-ahead`) —
-  these cannot be grounded in WDI's annual retrospective series.
+- Any mention of GDP (level, growth, per capita, potential, output gap),
+  inflation (CPI, core, energy, food), unemployment, current account,
+  trade balance, fiscal balance (primary or overall), government debt,
+  FDI, exchange rate (nominal or real effective), policy rate, reserve
+  assets, bank capital adequacy, or NPL ratio.
+- Any forecast with a horizon ≥1 year requires an IMF WEO or FM
+  citation (WB WDI does not publish multi-year forecasts).
+- Quarterly or monthly granularity is required — IFS, CPI monthly,
+  BOP, ER, PCPS.
+- The committee context is ECON, BUDG, AFET, SEDE, INTA, ITRE (for
+  energy-driven inflation), EMPL (for unemployment).
+- The article is a look-ahead (`news-week-ahead`,
+  `news-month-ahead`) — forecast anchor IMF-only.
 
-Retain **World Bank** for social / health / education / environment /
-innovation indicators — IMF does not cover them.
+**Retain World Bank for** social / health / education /
+environment / demographics / defence (WB military expenditure) /
+agriculture / innovation / governance (WGI) indicators — IMF does
+not cover those domains.
+
+**Per-article-type IMF indicator floor** (editorial policy, enforced
+at Stage C completeness review): see
+[`analysis/methodologies/imf-indicator-mapping.md §8`](../../analysis/methodologies/imf-indicator-mapping.md) —
+`committee-reports/ECON` ≥ 4, `/BUDG` ≥ 3, `/INTA` ≥ 3;
+`week-ahead` / `month-ahead` / `monthly-review` ≥ 2;
+`breaking` / `weekly-review` / `motions` / `propositions` ≥ 1.
 
 ---
 
@@ -87,28 +113,32 @@ const seriesMap = parseSDMXJSON(text);
 ```
 
 `parseSDMXJSON` is tolerant: malformed responses become an empty Map
-rather than throwing, so the article pipeline can fall back to World
-Bank when IMF is unreachable.
+rather than throwing, so the article pipeline can fall back to
+prior-run IMF cache (or — as last resort — World Bank non-economic
+cross-refs) when IMF is unreachable.
 
 ---
 
 ## Validator Hooks
 
-| Helper | Status | Purpose |
-|---|:---:|---|
-| `hasIMFEvidence(text)` | shipped | Detects IMF sourcing (tool names, product names, SDMX codes); case-insensitive on short tokens `IMF`/`WEO` |
-| `articlePolicyHasEconomicContext(html, type)` | **default gate** | OR-gate: passes when WB **or** IMF evidence is present. Wired into `src/utils/validate-articles.ts`. |
-| `articlePolicyHasWorldBank(html, type)` | legacy | Retained as a non-breaking helper for the transition; no longer the default validator gate |
-
-Fingerprint sources: `IMF_STRONG_FINGERPRINTS` and `IMF_INDICATOR_CODES`
-(`src/utils/content-validator.ts`), drift-guarded by
-`test/unit/content-validator-imf.test.js`.
+The runtime validator helpers that previously enforced IMF/WB
+fingerprint checks (`hasIMFEvidence`, `articlePolicyHasEconomicContext`,
+`articlePolicyHasIMFEconomicEvidence`, `articlePolicyHasWorldBank`,
+plus the `IMF_STRONG_FINGERPRINTS` / `IMF_INDICATOR_CODES` tables)
+lived in `src/utils/content-validator.ts` and were removed in the
+April-2026 aggregator-pipeline migration. The fingerprint content
+survives as editorial convention — see
+[`analysis/imf/indicator-catalog.md`](../../analysis/imf/indicator-catalog.md)
+for the canonical SDMX code list and
+[`analysis/methodologies/imf-indicator-mapping.md`](../../analysis/methodologies/imf-indicator-mapping.md)
+for the per-committee mapping. Agents must apply these during Stage-C
+completeness review.
 
 ---
 
 ## Firewall Allow-list
 
-When adding IMF to a gh-aw workflow (Wave 2+), add exactly:
+When adding IMF to a gh-aw workflow (Wave 2+, mandatory under Wave-3), add exactly:
 
 ```yaml
 network:
@@ -145,7 +175,7 @@ source scripts/imf-mcp-probe.sh
 if [ "$IMF_MCP_OK" = "true" ]; then
   echo "IMF data available — prefer IMF for macro context"
 else
-  echo "IMF offline ($IMF_MCP_PROBE_ERROR) — fall back to World Bank"
+  echo "IMF offline ($IMF_MCP_PROBE_ERROR) — escalate per Wave-3 policy: IMF is mandatory for economic context. Fall back to prior-run IMF cache first; only use World Bank non-economic cross-refs when no economic claim is being made."
 fi
 ```
 

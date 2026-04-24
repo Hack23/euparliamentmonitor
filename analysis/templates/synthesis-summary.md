@@ -431,25 +431,34 @@ flowchart LR
 
 ---
 
-## 📊 World Bank Economic Context Summary
+## 📊 IMF Economic Context Summary (primary, Wave-3)
 
-> **AI Instructions:** Include a summary of World Bank data context for the synthesis period. This provides economic backdrop for interpreting political developments. Reference `analysis/worldbank/indicator-catalog.md` for the full indicator catalog (200+ indicators).
+> **AI Instructions (Wave-3):** Include a summary of **IMF** data context for the synthesis period — IMF is the required primary source for every economic citation. World Bank is retained only for non-economic domains and is optional/additive. Reference `analysis/imf/indicator-catalog.md` + `analysis/imf/database-directory.md` as the full indicator/database references, and `analysis/methodologies/imf-indicator-mapping.md §8` for per-article-type indicator floors.
 
-### Period Economic Snapshot
+### Period Economic Snapshot (IMF primary)
 
-| Indicator | EU Aggregate (EUU) | Top Mover | Bottom Mover | Trend |
-|-----------|:------------------:|-----------|-------------|:-----:|
-| GDP Growth (%) | `[fetch from WB]` | `[e.g. PL +3.1%]` | `[e.g. DE -0.5%]` | ↑↓→ |
-| Inflation (%) | `[fetch from WB]` | | | ↑↓→ |
-| Unemployment (%) | `[fetch from WB]` | | | ↑↓→ |
+| Indicator (SDMX) | Database | EU / EA Aggregate | Top Mover | Bottom Mover | Trend |
+|------------------|:--------:|:-----------------:|-----------|-------------|:-----:|
+| `NGDP_RPCH` (real GDP growth %) | WEO | `[EU value]` | `[e.g. PL +3.1%]` | `[e.g. DE -0.5%]` | ↑↓→ |
+| `PCPIPCH` (CPI inflation %) | WEO | `[EA value]` | | | ↑↓→ |
+| `LUR` (unemployment %) | WEO | `[EA value]` | | | ↑↓→ |
+| `GGXWDG_NGDP` (gov debt % GDP) | FM | `[EA value]` | | | ↑↓→ |
 
-### Key WB Indicators for This Period
+**Vintage:** `[REQUIRED: e.g. WEO-April-2026]`
 
-`[REQUIRED: 2-3 sentences explaining which economic indicators are most relevant to the political developments summarized above, and why. E.g., "Rising inflation across Southern EU states explains ECON committee urgency on ECB oversight reform."]`
+### Non-Economic Period Snapshot (WB, optional)
+
+| Indicator (WB code) | EU average | Member-state movers | Trend |
+|---------------------|:----------:|---------------------|:-----:|
+| `[OPTIONAL: e.g. SH.XPD.CHEX.GD.ZS health]` | | | |
+
+### Key Indicators for This Period
+
+`[REQUIRED: 2-3 sentences explaining which IMF economic indicators are most relevant to the political developments summarized above, and why. E.g., "Rising inflation across Southern EU states (IMF IFS monthly CPI +0.4pp) explains ECON committee urgency on ECB oversight reform." Any forecast number MUST include a forecast marker within 30 words plus the vintage in prose.]`
 
 ### Recommended Chart for Article
 
-`[REQUIRED: Specify which Chart.js template from analysis/worldbank/chart-integration-guide.md should be used to visualize the economic context in the generated article.]`
+`[REQUIRED: Specify which Chart.js template from analysis/imf/chart-integration-guide.md (primary economic series) or analysis/worldbank/chart-integration-guide.md (non-economic) should be used to visualize the context in the generated article.]`
 
 ---
 

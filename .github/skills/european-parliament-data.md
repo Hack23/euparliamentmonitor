@@ -11,7 +11,7 @@ analysis pipeline. See:
 
 - [`.github/prompts/01-data-collection.md`](../prompts/01-data-collection.md) — Stage A contract (feed-first, deep-fetch, WB/IMF context)
 - [`.github/prompts/07-mcp-reference.md`](../prompts/07-mcp-reference.md) — canonical EP / WB / IMF tool tables + reliability matrix
-- [`analysis/methodologies/worldbank-indicator-mapping.md`](../../analysis/methodologies/worldbank-indicator-mapping.md) + [`imf-indicator-mapping.md`](../../analysis/methodologies/imf-indicator-mapping.md) — indicator maps. **Wave-2 policy (April 2026): Economic = IMF; WB = non-economic domains only** (health, education, social, environment, demographics, defence, agriculture, innovation, governance)
+- [`analysis/methodologies/imf-indicator-mapping.md`](../../analysis/methodologies/imf-indicator-mapping.md) (primary economic — Wave-3) + [`worldbank-indicator-mapping.md`](../../analysis/methodologies/worldbank-indicator-mapping.md) (non-economic only) — indicator maps. **Wave-3 policy (April 2026): Economic = IMF (mandatory primary); WB = non-economic domains only** (health, education, social, environment, demographics, defence, agriculture, innovation, governance)
 - [`analysis/methodologies/artifact-catalog.md`](../../analysis/methodologies/artifact-catalog.md) — master map of every artifact that consumes EP data
 
 ## Rules

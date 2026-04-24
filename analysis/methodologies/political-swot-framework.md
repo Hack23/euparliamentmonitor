@@ -46,7 +46,7 @@ graph LR
 |:----------:|-------------------|----------|
 | **HIGH** | Official EP adopted text, legislative resolution | `get_adopted_texts`, `get_procedures` |
 | **HIGH** | Verified roll-call voting record | `get_voting_records`, `analyze_voting_patterns` |
-| **HIGH** | Eurostat/World Bank official statistics | World Bank MCP tools |
+| **HIGH** | Eurostat/IMF (primary economic)/World Bank (non-economic) official statistics | IMF SDMX REST + World Bank MCP tools |
 | **MEDIUM** | Commission communication or proposal | `get_external_documents`, `search_documents` |
 | **MEDIUM** | Named MEP speech in plenary record | `get_speeches` |
 | **MEDIUM** | Verified major media outlet with named sources | External verification |
@@ -77,7 +77,7 @@ Strengths are demonstrated by **legislative achievements** and **institutional c
 | Legislative pipeline stalls | `monitor_legislative_pipeline` | Stalled procedures, bottleneck index |
 | Low MEP engagement | `track_mep_attendance` | Attendance rates below thresholds |
 | EP-Council deadlocks | `track_legislation` | Procedures stuck in trilogue >12 months |
-| Public trust deficit | Eurobarometer / World Bank data | Turnout trends, satisfaction metrics |
+| Public trust deficit | Eurobarometer / World Bank WGI governance data (non-economic) | Turnout trends, satisfaction metrics |
 
 ### 🚀 Opportunities — Optimal MCP Sources
 

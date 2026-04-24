@@ -156,7 +156,7 @@ Artifacts marked below with **"Source grade × WEP discipline (tradecraft)"** ma
 
 **Purpose.** Political / Economic / Social / Technological / Legal / Environmental scan of factors shaping the period's dominant issue.
 
-**EP MCP inputs.** `get_procedures`, `get_adopted_texts`, `search_documents`, plus World Bank / IMF macro data via [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md) and [`imf-indicator-mapping.md`](imf-indicator-mapping.md).
+**EP MCP inputs.** `get_procedures`, `get_adopted_texts`, `search_documents`, plus IMF economic context (primary, Wave-3) and World Bank non-economic context (additive) via [`imf-indicator-mapping.md`](imf-indicator-mapping.md) and [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md).
 
 **Required sections.**
 1. Issue frame — the question the scan answers.
@@ -168,7 +168,7 @@ Artifacts marked below with **"Source grade × WEP discipline (tradecraft)"** ma
 
 **Depth floor (breaking):** 250 lines.
 
-**Quality signals.** At least one World Bank or IMF indicator cited; legal dimension cites at least one treaty article or CJEU reference; each dimension's pressure rating has a written justification.
+**Quality signals.** At least one IMF indicator cited for any economic dimension (Wave-3 mandatory primary); WB non-economic indicator additionally cited for health/education/social/environment/defence dimensions; legal dimension cites at least one treaty article or CJEU reference; each dimension's pressure rating has a written justification.
 
 ---
 
@@ -237,22 +237,23 @@ Artifacts marked below with **"Source grade × WEP discipline (tradecraft)"** ma
 
 ### economic-context
 
-**Purpose.** Anchor the period's policy topics in World Bank / IMF macro, fiscal, trade, monetary and sectoral data.
+**Purpose.** Anchor the period's policy topics in **IMF** (primary — Wave-3) macro, fiscal, trade, monetary, exchange-rate, banking-soundness, and commodity data, plus optional World Bank cross-refs for non-economic context.
 
-**EP MCP inputs.** World Bank MCP (`worldbank-get-economic-data`, `worldbank-get-social-data`) and / or IMF native client (`scripts/imf-mcp-probe.sh`). See the [Wave-2 OR-gate](../../.github/skills/imf-data-integration.md): either source is acceptable.
+**EP MCP inputs.** IMF native client (`scripts/imf-mcp-probe.sh`, tools `imf-fetch-data` / `imf-search-databases` / `imf-get-parameter-defs` / `imf-get-parameter-codes`) is the **primary** source. World Bank MCP (`worldbank-get-social-data`, `worldbank-get-health-data`, `worldbank-get-education-data`) is additive for non-economic context only. See [Wave-3 IMF-primary policy](../../.github/skills/imf-data-integration.md): IMF is the required primary source; WB cannot substitute for economic context in new articles.
 
 **Required sections.**
-1. Topic-to-indicator mapping — table linking each EP policy topic discussed this period to ≥1 World Bank indicator or IMF series (see [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md), [`imf-indicator-mapping.md`](imf-indicator-mapping.md)).
-2. EU-27 headline indicators — latest values + 5-year trend + delta vs. EU average.
-3. Affected member-state focus — ≥3 member states most exposed to the period's dominant policy; compare indicators.
-4. Forward outlook — IMF WEO or World Bank projection data (+5y) where available.
+1. Topic-to-indicator mapping — table linking each EP policy topic discussed this period to ≥1 **IMF** SDMX series (required for economic topics) plus optional WB non-economic cross-refs. See [`imf-indicator-mapping.md`](imf-indicator-mapping.md) and (non-economic only) [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md).
+2. EU-27 headline indicators — IMF WEO latest values + 5-year trend + delta vs. EU average.
+3. Affected member-state focus — ≥3 member states most exposed to the period's dominant policy; compare IMF indicators.
+4. Forward outlook — IMF WEO / Fiscal Monitor projection data (+5y). Apply optimism-bias caveat sized per [`../imf/forecast-accuracy-baseline.md`](../imf/forecast-accuracy-baseline.md) for horizons ≥3y.
 5. Analytical bridge — how the data should shape the period's political reading.
+6. Data-source bridge — IMF vintage authoritative; WB non-economic cross-refs declared additive.
 
-**Mandatory Mermaid.** One `xyChart` showing the headline indicator over time, plus a `flowchart LR` mapping indicators to policy topics.
+**Mandatory Mermaid.** One `xyChart` showing the headline IMF indicator over time, plus a `flowchart LR` mapping indicators to policy topics.
 
 **Depth floor (breaking):** 185 lines.
 
-**Quality signals.** Every indicator cites its series code; every value cites its vintage date; data-source bridge is present when only one of WB/IMF is available.
+**Quality signals.** Every IMF indicator cites its SDMX code + vintage; the enclosing HTML `<section>` carries `data-vintage="WEO-April-2026"`; every forecast number is within 30 words of a forecast marker (`forecast`/`projection`/`projects`/`expects`). Per-article-type IMF indicator floor (see [`imf-indicator-mapping.md §8`](imf-indicator-mapping.md)) is satisfied. For Tier-1 articles citing high-sensitivity indicators, the cross-source triangulation outcome is logged per [`../imf/cross-source-triangulation.md`](../imf/cross-source-triangulation.md).
 
 ---
 
@@ -287,7 +288,7 @@ Artifacts marked below with **"Source grade × WEP discipline (tradecraft)"** ma
 1. Endpoint scoreboard — table: tool name, attempts, successes, 4xx/5xx/timeouts, data-age when available.
 2. Per-endpoint findings — one subsection per failing or degraded endpoint with: symptom, likely root cause, repro attempt, workaround used in this run.
 3. Upstream issues — list of linked issues on `Hack23/European-Parliament-MCP-Server` with title + URL.
-4. Data-source bridge — which alternative sources (direct endpoint fallback, prior-run cache, World Bank / IMF) compensated for failures.
+4. Data-source bridge — which alternative sources (direct endpoint fallback, prior-run cache, IMF primary economic, WB non-economic) compensated for failures.
 5. Reliability index — overall reliability score for this run (0–100) with breakdown.
 
 **Mandatory Mermaid.** `flowchart LR` of endpoints with green (ok), orange (degraded), red (failed) nodes.
@@ -830,7 +831,7 @@ Older `motions-*` runs mirror `intelligence/coalition-dynamics.md`, `intelligenc
 
 **Purpose.** 27 Member State implementation feasibility across 5 dimensions: legal transposition complexity, administrative capacity, fiscal cost, compliance monitoring, enforcement risk. Heatmap + MS-by-MS risk register.
 
-**Required sources.** `track_legislation`, `get_procedures`, `get_external_documents` (Council + Commission IA), World Bank governance indicators, IMF fiscal data.
+**Required sources.** `track_legislation`, `get_procedures`, `get_external_documents` (Council + Commission IA), IMF GFS + FM fiscal data (primary for any fiscal / budgetary feasibility claim), World Bank governance indicators (WGI — non-economic).
 
 **Construction steps.** (1) Extract concrete obligations from proposal. (2) Score each MS × 5 dimensions (1–5). (3) Heatmap. (4) Flag high-risk MS (≥3 dimensions scoring ≥4). (5) Identify mitigations and flexibility mechanisms.
 
@@ -890,7 +891,7 @@ Older `motions-*` runs mirror `intelligence/coalition-dynamics.md`, `intelligenc
 
 **Purpose.** EU electorate segmentation across 27 MS + 14 EUPM languages. Segments by Europhile/Euroskeptic, North/South/V4/Baltic/Nordic blocs, urban/rural, age cohort, education.
 
-**Required sources.** Eurobarometer standard + special reports, World Bank demographics, EP 2024 election turnout by MS.
+**Required sources.** Eurobarometer standard + special reports, World Bank demographics (non-economic), IMF WEO (economic context where relevant), EP 2024 election turnout by MS.
 
 **Construction steps.** (1) Enumerate 6–10 segments. (2) Per segment: size, geographic density, issue salience. (3) Map segments to political-group support. (4) Identify swing segments for 2029 EP election. (5) 14-language accessibility note.
 

@@ -52,7 +52,7 @@ This cross-reference map enables:
 |----------|-----------------|-------------------|--------------|-----------------|
 | `intelligence/synthesis-summary.md` | TA(2026)0123, A9-0045/2026 | QE-001234, COM(2025)456 | 8 | A1-B2 |
 | `intelligence/stakeholder-map.md` | get_meps(country=*), get_voting_records | MEP statements, press | 12 | A1-C2 |
-| `intelligence/scenario-forecast.md` | get_procedures, track_legislation | World Bank GDP | 6 | A1-B2 |
+| `intelligence/scenario-forecast.md` | get_procedures, track_legislation | IMF WEO GDP projections | 6 | A1-B2 |
 | `intelligence/pestle-analysis.md` | get_adopted_texts, get_external_documents | Eurostat, IMF | 10 | A1-B2 |
 | `intelligence/threat-model.md` | analyze_coalition_dynamics, detect_voting_anomalies | Expert analysis | 7 | A1-C2 |
 | `intelligence/coalition-dynamics.md` | compare_political_groups, get_voting_records | — | 5 | A1-A2 |
@@ -128,7 +128,8 @@ graph TB
     
     subgraph "External References"
         ECJ["C-123/24 ECJ"]:::ext
-        WB["World Bank Data"]:::ext
+        IMF["IMF Data (primary)"]:::ext
+        WB["World Bank Data (non-economic)"]:::ext
     end
     
     A9 -.cites.-> ECJ
@@ -250,9 +251,9 @@ graph TB
 
 | Source | Artifacts Fed | Admiralty Grade |
 |--------|---------------|-----------------|
-| World Bank WGI | comparative-international, pestle | B2 |
-| IMF WEO | implementation-feasibility | B2 |
-| Eurostat | comparative-international | A2 |
+| IMF WEO / FM / IFS (primary economic, Wave-3) | economic-context, pestle, scenario-forecast, implementation-feasibility | A2 |
+| Eurostat (Tier-1 triangulation) | comparative-international, economic-context | A2 |
+| World Bank WGI (non-economic only) | comparative-international, pestle | B2 |
 ```
 
 ## ✅ Quality Checklist
