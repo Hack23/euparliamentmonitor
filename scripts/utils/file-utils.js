@@ -501,29 +501,57 @@ function decodeHtmlEntities(str) {
 }
 /**
  * Extract title and description from a generated article HTML file.
- * Reads the predictable template structure produced by article-template.ts.
- * Falls back to empty strings when the file cannot be read.
- * HTML entities from the template are decoded to produce plain text.
+ * Reads the predictable template structure produced by the aggregator
+ * article generator. Falls back to empty strings when the file cannot
+ * be read. HTML entities from the template are decoded to produce
+ * plain text.
  *
- * NOTE: The meta description regex relies on the template's use of escapeHTML(),
- * which converts `"` to `&quot;`. Because descriptions are always stored with
- * double-quote delimiters and inner quotes are HTML-encoded, the `[^"]+` pattern
- * safely captures the full value. If the template ever changes its quoting
- * convention this regex must be updated accordingly.
+ * Title resolution order:
+ *   1. `<head><title>` value with the trailing ` — EU Parliament Monitor`
+ *      (or legacy ` | EU Parliament Monitor`) site-suffix stripped.
+ *      This is where the editorial-highlights resolver + SEO backport
+ *      script write their output, so using it as the primary source
+ *      surfaces the strongest headline on index cards and sitemaps.
+ *   2. First body `<h1>` — fallback for files whose `<title>` was never
+ *      refreshed.
+ *
+ * NOTE: The meta description regex relies on the template's use of
+ * escapeHTML(), which converts `"` to `&quot;`. Because descriptions are
+ * always stored with double-quote delimiters and inner quotes are
+ * HTML-encoded, the `[^"]+` pattern safely captures the full value.
  *
  * @param filepath - Path to the article HTML file
- * @returns Object with title (from first h1) and description (from meta description)
+ * @returns Object with title (from head-title, else first body h1) and
+ *          description (from meta description)
  */
 export function extractArticleMeta(filepath) {
     let title = '';
     let description = '';
     try {
         const content = fs.readFileSync(filepath, 'utf-8');
-        // Matches h1 with any attributes but only plain-text content (no nested tags).
-        // The template always writes plain escaped text in h1, so this is correct.
-        const titleMatch = content.match(/<h1[^>]*>([^<]+)<\/h1>/u);
-        if (titleMatch?.[1]) {
-            title = decodeHtmlEntities(titleMatch[1].trim());
+        // Prefer the <head><title> value (with the " — EU Parliament Monitor"
+        // or " | EU Parliament Monitor" site-suffix stripped) — that is where
+        // the SEO-facing editorial headline resolver writes its output. Fall
+        // back to the first body <h1> for older files where <title> was
+        // never refreshed.
+        const headTitleMatch = content.match(/<title[^>]*>([^<]+)<\/title>/u);
+        if (headTitleMatch?.[1]) {
+            const rawTitle = decodeHtmlEntities(headTitleMatch[1].trim());
+            const stripped = rawTitle
+                .replace(/\s*—\s*EU Parliament Monitor\s*$/u, '')
+                .replace(/\s*\|\s*EU Parliament Monitor\s*$/u, '')
+                .trim();
+            if (stripped.length > 0)
+                title = stripped;
+        }
+        if (!title) {
+            // Matches h1 with any attributes but only plain-text content (no
+            // nested tags). The template always writes plain escaped text in
+            // h1, so this is correct.
+            const titleMatch = content.match(/<h1[^>]*>([^<]+)<\/h1>/u);
+            if (titleMatch?.[1]) {
+                title = decodeHtmlEntities(titleMatch[1].trim());
+            }
         }
         const descMatch = content.match(/<meta name="description" content="([^"]+)"/u);
         if (descMatch?.[1]) {
