@@ -17,9 +17,6 @@
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run172/political-classification.md" rel="noopener">View source: <code>political-classification.md</code></a></p>
 
-<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
-
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=for-the-badge" alt="Confidence"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Article_Type-Breaking-red?style=for-the-badge" alt="Article Type"/></a>
@@ -168,9 +165,6 @@ flowchart LR
 ### Risk Assessment
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run172/risk-assessment.md" rel="noopener">View source: <code>risk-assessment.md</code></a></p>
-
-<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=for-the-badge" alt="Confidence"/></a>
@@ -342,9 +336,6 @@ Enlargement strategy (TA-10-2026-0077) adopted March 11 with EP support, but acc
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run172/significance-scoring.md" rel="noopener">View source: <code>significance-scoring.md</code></a></p>
 
-<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
-
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=for-the-badge" alt="Confidence"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Article_Type-Breaking-red?style=for-the-badge" alt="Article Type"/></a>
@@ -437,9 +428,6 @@ Each text is scored on a 1-10 scale integrating:
 ### Swot Analysis
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run172/swot-analysis.md" rel="noopener">View source: <code>swot-analysis.md</code></a></p>
-
-<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=for-the-badge" alt="Confidence"/></a>
@@ -622,9 +610,6 @@ quadrantChart
 ### Synthesis Summary
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run172/synthesis-summary.md" rel="noopener">View source: <code>synthesis-summary.md</code></a></p>
-
-<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=for-the-badge" alt="Confidence"/></a>
@@ -810,9 +795,6 @@ US responds aggressively to April 15 tariff activation. Emergency plenary debate
 ### Threat Analysis
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run172/threat-analysis.md" rel="noopener">View source: <code>threat-analysis.md</code></a></p>
-
-<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=for-the-badge" alt="Confidence"/></a>

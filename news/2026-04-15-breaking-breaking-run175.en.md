@@ -17,9 +17,6 @@
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run175/threat-assessment/threat-analysis.md" rel="noopener">View source: <code>threat-assessment/threat-analysis.md</code></a></p>
 
-<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
-
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/articleType-breaking-red?style=for-the-badge" alt="Article Type"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Run-175-blue?style=for-the-badge" alt="Run"/></a>
@@ -180,9 +177,6 @@ mindmap
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run175/classification/political-classification.md" rel="noopener">View source: <code>classification/political-classification.md</code></a></p>
 
-<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
-
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/articleType-breaking-red?style=for-the-badge" alt="Article Type"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Run-175-blue?style=for-the-badge" alt="Run"/></a>
@@ -307,9 +301,6 @@ mindmap
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run175/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
 
-<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
-
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/articleType-breaking-red?style=for-the-badge" alt="Article Type"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Run-175-blue?style=for-the-badge" alt="Run"/></a>
@@ -426,9 +417,6 @@ xychart-beta
 ### Swot Analysis
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run175/existing/swot-analysis.md" rel="noopener">View source: <code>existing/swot-analysis.md</code></a></p>
-
-<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/articleType-breaking-red?style=for-the-badge" alt="Article Type"/></a>
@@ -577,9 +565,6 @@ quadrantChart
 ### Synthesis Summary
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run175/existing/synthesis-summary.md" rel="noopener">View source: <code>existing/synthesis-summary.md</code></a></p>
-
-<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=for-the-badge" alt="Confidence"/></a>
@@ -815,9 +800,6 @@ quadrantChart
 ### Risk Assessment
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run175/risk-scoring/risk-assessment.md" rel="noopener">View source: <code>risk-scoring/risk-assessment.md</code></a></p>
-
-<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/articleType-breaking-red?style=for-the-badge" alt="Article Type"/></a>

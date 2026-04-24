@@ -293,11 +293,7 @@ function printHelp(): void {
  *        multiple runs share the same (date, articleType) pair
  * @returns Combined slug used as the file-stem for every language variant
  */
-export function buildArticleSlug(
-  date: string,
-  articleType: string,
-  runSuffix?: string
-): string {
+export function buildArticleSlug(date: string, articleType: string, runSuffix?: string): string {
   const base = `${date}-${articleType}`;
   return runSuffix ? `${base}-${runSuffix}` : base;
 }
@@ -535,8 +531,8 @@ export function discoverAnalysisRuns(repoRoot: string): DiscoveredRun[] {
     }
   };
   walk(root);
-  results.sort(
-    (a, b) => (a.date === b.date ? a.runDir.localeCompare(b.runDir) : a.date.localeCompare(b.date))
+  results.sort((a, b) =>
+    a.date === b.date ? a.runDir.localeCompare(b.runDir) : a.date.localeCompare(b.date)
   );
   return results;
 }
@@ -562,7 +558,8 @@ function readRunCandidate(runDir: string, manifestPath: string): DiscoveredRun |
   const date = /^\d{4}-\d{2}-\d{2}$/.test(dateFromManifest)
     ? dateFromManifest
     : dateFromRunPath(runDir);
-  const runId = typeof parsed.runId === 'string' && parsed.runId ? parsed.runId : path.basename(runDir);
+  const runId =
+    typeof parsed.runId === 'string' && parsed.runId ? parsed.runId : path.basename(runDir);
   return { runDir, articleType, date, runId };
 }
 
@@ -609,9 +606,7 @@ export function groupRunsForCollision(
  */
 export function generateAllArticles(opts: CliOptions): GenerateResult[] {
   const allRuns = discoverAnalysisRuns(opts.repoRoot);
-  const filtered = opts.since
-    ? allRuns.filter((r) => r.date >= (opts.since as string))
-    : allRuns;
+  const filtered = opts.since ? allRuns.filter((r) => r.date >= (opts.since as string)) : allRuns;
   const groups = groupRunsForCollision(filtered);
   const results: GenerateResult[] = [];
   // Pre-compute the total article count so every footer in the batch

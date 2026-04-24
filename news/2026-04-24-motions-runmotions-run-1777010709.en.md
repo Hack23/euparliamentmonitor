@@ -15,9 +15,6 @@
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/motions/intelligence/synthesis-summary.md" rel="noopener">View source: <code>intelligence/synthesis-summary.md</code></a></p>
 
-<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
-
 **Run**: `motions-run-1777010709` · **Window**: 2026-03-25 → 2026-04-24 ·
 **Data source**: European Parliament Open Data Portal (adopted texts feed
 + meeting decisions for MTG-PL-2026-03-26, -03-25, -03-12). Admiralty
@@ -201,9 +198,6 @@ historical base rates only.
 <h2 id="section-stakeholder-map">Stakeholder Map</h2>
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/motions/intelligence/stakeholder-map.md" rel="noopener">View source: <code>intelligence/stakeholder-map.md</code></a></p>
-
-<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
 
 **Methodology**: actor-mapping + stakeholder-map templates merged.
 **Data basis**: EP Open Data committee memberships (current EP10),
@@ -414,9 +408,6 @@ quantitative and narrative treatment. Cross-reference mandatory.
 ### Pestle Analysis
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/motions/intelligence/pestle-analysis.md" rel="noopener">View source: <code>intelligence/pestle-analysis.md</code></a></p>
-
-<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
 
 **Framework**: PESTLE (Political, Economic, Social, Technological,
 Legal, Environmental) applied at the cluster level with per-motion
@@ -658,9 +649,6 @@ implementation reports.
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/motions/intelligence/historical-baseline.md" rel="noopener">View source: <code>intelligence/historical-baseline.md</code></a></p>
 
-<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
-
 **Purpose**: anchor the 2026-03 motion cluster against comparable
 historical clusters to derive base rates for scenario forecasts and
 risk ratings. **Data basis**: EP9 (2019-2024) reference clusters
@@ -809,9 +797,6 @@ the historical record:
 <h2 id="section-economic-context">Economic Context</h2>
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/motions/intelligence/economic-context.md" rel="noopener">View source: <code>intelligence/economic-context.md</code></a></p>
-
-<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
 
 **Source confidence note**: World Bank and IMF MCP probes timed out
 during this run (see `mcp-reliability-audit.md` when produced). All
@@ -967,9 +952,6 @@ The 2026-03 cluster is coherent as a response to:
 ### Threat Model
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/motions/intelligence/threat-model.md" rel="noopener">View source: <code>intelligence/threat-model.md</code></a></p>
-
-<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
 
 **Framework**: adapted STRIDE for political-process threats — each
 motion cluster is treated as a "process asset" whose confidentiality,
@@ -1142,9 +1124,6 @@ treatment register; this threat model is the analytical source.
 ### Scenario Forecast
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/motions/intelligence/scenario-forecast.md" rel="noopener">View source: <code>intelligence/scenario-forecast.md</code></a></p>
-
-<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
 
 **Methodology**: cone-of-plausibility + indicator-led scenario design.
 **Horizon**: T+6 months (2026-10) · T+12 months (2027-04) ·
@@ -1328,9 +1307,6 @@ probability-weighted outcome over T+12 is:
 ### Wildcards Blackswans
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/motions/intelligence/wildcards-blackswans.md" rel="noopener">View source: <code>intelligence/wildcards-blackswans.md</code></a></p>
-
-<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
 
 **Definition**:
 * **Wildcard** — low-probability, high-impact event with a plausible
@@ -1546,9 +1522,6 @@ execution if the trigger fires. Fuller contingency planning sits in
 ### Analysis Index
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/motions/intelligence/analysis-index.md" rel="noopener">View source: <code>intelligence/analysis-index.md</code></a></p>
-
-<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
 
 **Run**: `motions-run-1777010709` · **Generated**: 2026-04-24 (UTC) ·
 **Window**: 2026-03-25 → 2026-04-24 (30 days) · **Gate target**: GREEN ·

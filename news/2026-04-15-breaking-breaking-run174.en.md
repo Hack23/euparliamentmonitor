@@ -17,9 +17,6 @@
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run174/political-classification.md" rel="noopener">View source: <code>political-classification.md</code></a></p>
 
-<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
-
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=for-the-badge" alt="Confidence"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Article_Type-Breaking-red?style=for-the-badge" alt="Article Type"/></a>
@@ -230,9 +227,6 @@ graph TD
 ### Risk Assessment
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run174/risk-assessment.md" rel="noopener">View source: <code>risk-assessment.md</code></a></p>
-
-<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=for-the-badge" alt="Confidence"/></a>
@@ -453,9 +447,6 @@ xychart-beta
 ### Significance Scoring
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run174/significance-scoring.md" rel="noopener">View source: <code>significance-scoring.md</code></a></p>
-
-<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=for-the-badge" alt="Confidence"/></a>
@@ -696,9 +687,6 @@ quadrantChart
 ### Swot Analysis
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run174/swot-analysis.md" rel="noopener">View source: <code>swot-analysis.md</code></a></p>
-
-<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=for-the-badge" alt="Confidence"/></a>
@@ -956,9 +944,6 @@ quadrantChart
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run174/synthesis-summary.md" rel="noopener">View source: <code>synthesis-summary.md</code></a></p>
 
-<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
-
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=for-the-badge" alt="Confidence"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Risk_Level-HIGH-orange?style=for-the-badge" alt="Risk"/></a>
@@ -1185,9 +1170,6 @@ Coalition arithmetic prevents majority on trade response. Banking Union trilogue
 ### Threat Analysis
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run174/threat-analysis.md" rel="noopener">View source: <code>threat-analysis.md</code></a></p>
-
-<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=for-the-badge" alt="Confidence"/></a>

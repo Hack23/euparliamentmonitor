@@ -146,17 +146,11 @@ function buildLanguageSwitcher(articleSlug: string, current: LanguageCode): stri
  * @param lang - Language code used to localise the nav label
  * @returns HTML fragment for the sidebar, or `""` when no TOC is needed
  */
-export function buildArticleToc(
-  entries: readonly ArticleTocEntry[],
-  lang: LanguageCode
-): string {
+export function buildArticleToc(entries: readonly ArticleTocEntry[], lang: LanguageCode): string {
   if (entries.length === 0) return '';
   const label = escapeHTML(getLocalizedString(TOC_ARIA_LABELS, lang));
   const items = entries
-    .map(
-      (e) =>
-        `        <li><a href="#${escapeHTML(e.id)}">${escapeHTML(e.title)}</a></li>`
-    )
+    .map((e) => `        <li><a href="#${escapeHTML(e.id)}">${escapeHTML(e.title)}</a></li>`)
     .join('\n');
   return [
     `  <aside class="article-toc-container" aria-label="${label}">`,

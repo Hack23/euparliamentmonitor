@@ -406,7 +406,7 @@ export function discoverAnalysisRuns(repoRoot) {
         }
     };
     walk(root);
-    results.sort((a, b) => (a.date === b.date ? a.runDir.localeCompare(b.runDir) : a.date.localeCompare(b.date)));
+    results.sort((a, b) => a.date === b.date ? a.runDir.localeCompare(b.runDir) : a.date.localeCompare(b.date));
     return results;
 }
 /**
@@ -474,9 +474,7 @@ export function groupRunsForCollision(runs) {
  */
 export function generateAllArticles(opts) {
     const allRuns = discoverAnalysisRuns(opts.repoRoot);
-    const filtered = opts.since
-        ? allRuns.filter((r) => r.date >= opts.since)
-        : allRuns;
+    const filtered = opts.since ? allRuns.filter((r) => r.date >= opts.since) : allRuns;
     const groups = groupRunsForCollision(filtered);
     const results = [];
     // Pre-compute the total article count so every footer in the batch

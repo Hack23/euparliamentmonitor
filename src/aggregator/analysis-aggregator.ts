@@ -428,10 +428,7 @@ function renderArtifactFragment(
  * @param sectionTitle - Display title of the owning section
  * @returns `true` when the single-artifact header should be suppressed
  */
-function shouldSuppressFragmentHeader(
-  paths: readonly string[],
-  sectionTitle: string
-): boolean {
+function shouldSuppressFragmentHeader(paths: readonly string[], sectionTitle: string): boolean {
   if (paths.length !== 1) return false;
   const onlyPath = paths[0];
   if (!onlyPath) return false;

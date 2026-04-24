@@ -17,9 +17,6 @@
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run171/political-classification.md" rel="noopener">View source: <code>political-classification.md</code></a></p>
 
-<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
-
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Temperature-ELEVATED-orange?style=for-the-badge" alt="Temperature"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-PUBLIC-green?style=for-the-badge" alt="Classification"/></a>
@@ -180,9 +177,6 @@ The tariff vote (TA-10-2026-0096) revealed a specific coalition pattern:
 ### Risk Assessment
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run171/risk-assessment.md" rel="noopener">View source: <code>risk-assessment.md</code></a></p>
-
-<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Overall_Risk-HIGH-orange?style=for-the-badge" alt="Risk Level"/></a>
@@ -385,9 +379,6 @@ The 13 pending COD procedures represent the largest post-recess backlog in EP10.
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run171/significance-scoring.md" rel="noopener">View source: <code>significance-scoring.md</code></a></p>
 
-<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
-
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=for-the-badge" alt="Confidence"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Top_Score-8.2/10-red?style=for-the-badge" alt="Top Score"/></a>
@@ -565,9 +556,6 @@ quadrantChart
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run171/swot-analysis.md" rel="noopener">View source: <code>swot-analysis.md</code></a></p>
 
-<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
-
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Framework-Evidence_Based_SWOT-blue?style=for-the-badge" alt="Framework"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=for-the-badge" alt="Confidence"/></a>
@@ -704,9 +692,6 @@ quadrantChart
 ### Synthesis Summary
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run171/synthesis-summary.md" rel="noopener">View source: <code>synthesis-summary.md</code></a></p>
-
-<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=for-the-badge" alt="Confidence"/></a>
@@ -989,9 +974,6 @@ Post-recess return reveals deepened fragmentation. The 13 pending COD procedures
 ### Threat Analysis
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run171/threat-analysis.md" rel="noopener">View source: <code>threat-analysis.md</code></a></p>
-
-<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Threat_Level-HIGH-orange?style=for-the-badge" alt="Threat Level"/></a>
