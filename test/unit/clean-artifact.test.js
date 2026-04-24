@@ -193,6 +193,7 @@ describe('dedupMermaid', () => {
 
 describe('stripSpdxTags', () => {
   it('removes italicised SPDX footer lines (markdown-it would otherwise emit <em>…</em></p> and break REUSE)', () => {
+    // REUSE-IgnoreStart
     const md = [
       '# Heading',
       '',
@@ -203,6 +204,7 @@ describe('stripSpdxTags', () => {
       '*Generated: 2 April 2026 | Classification: PUBLIC*',
       '*SPDX-License-Identifier: Apache-2.0*',
     ].join('\n');
+    // REUSE-IgnoreEnd
     const { md: out, lines } = stripSpdxTags(md);
     expect(lines).toBe(1);
     expect(out).not.toContain('SPDX-License-Identifier');
@@ -211,12 +213,14 @@ describe('stripSpdxTags', () => {
   });
 
   it('strips HTML-comment SPDX headers and FileCopyrightText lines', () => {
+    // REUSE-IgnoreStart
     const md = [
       '<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->',
       '<!-- SPDX-License-Identifier: Apache-2.0 -->',
       '',
       '# Heading',
     ].join('\n');
+    // REUSE-IgnoreEnd
     const { md: out, lines } = stripSpdxTags(md);
     expect(lines).toBe(2);
     expect(out).not.toMatch(/SPDX-/);
@@ -270,6 +274,7 @@ describe('cleanArtifact end-to-end', () => {
   });
 
   it('also strips SPDX footer lines via the cleanArtifact pipeline', () => {
+    // REUSE-IgnoreStart
     const md = [
       '# Heading',
       '',
@@ -277,6 +282,7 @@ describe('cleanArtifact end-to-end', () => {
       '',
       '*SPDX-License-Identifier: Apache-2.0*',
     ].join('\n');
+    // REUSE-IgnoreEnd
     const result = cleanArtifact(md, {
       artifactRelPath: 'analysis/daily/2026-01-15/breaking/intelligence/x.md',
     });

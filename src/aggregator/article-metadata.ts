@@ -220,11 +220,7 @@ export function shouldSkipDescriptionLine(line: string): boolean {
 
   // `Key: value` metadata banners. Match plain text, bold `**Key**`,
   // and italic `*Key*` variants.
-  const labelSource = line
-    .replace(/^\*+/, '')
-    .replace(/^\*\*/, '')
-    .replace(/^_+/, '')
-    .trim();
+  const labelSource = line.replace(/^\*+/, '').replace(/^\*\*/, '').replace(/^_+/, '').trim();
   for (const prefix of METADATA_LINE_PREFIXES) {
     const lower = labelSource.toLowerCase();
     const prefixLower = prefix.toLowerCase();
@@ -373,11 +369,7 @@ export function humanizeSlug(slug: string): string {
  * @param date - ISO date string
  * @returns `true` when the heading carries no editorial information
  */
-export function isGenericHeading(
-  heading: string,
-  articleType: string,
-  date: string
-): boolean {
+export function isGenericHeading(heading: string, articleType: string, date: string): boolean {
   const normalized = heading.trim().replace(/\s+/g, ' ');
   if (normalized === '') return true;
 
@@ -536,8 +528,7 @@ export function buildTemplateFallback(
   >;
   const weekRange = deriveWeekRange(date);
   const monthLabel = deriveMonthLabel(date);
-  const committeeLabel =
-    committee && committee.trim().length > 0 ? committee : 'Main Committees';
+  const committeeLabel = committee && committee.trim().length > 0 ? committee : 'Main Committees';
 
   for (const lang of ALL_LANGUAGES) {
     const entry = templateForType(lang, articleType, {

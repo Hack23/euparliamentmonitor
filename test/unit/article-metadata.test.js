@@ -518,6 +518,7 @@ describe('extractArtifactHighlight', () => {
   it('skips SPDX HTML-comment headers and picks the real H1', () => {
     const dir = path.join(tmpRun, 'intelligence');
     fs.mkdirSync(dir, { recursive: true });
+    // REUSE-IgnoreStart
     fs.writeFileSync(
       path.join(dir, 'synthesis-summary.md'),
       [
@@ -530,6 +531,7 @@ describe('extractArtifactHighlight', () => {
       ].join('\n'),
       'utf8'
     );
+    // REUSE-IgnoreEnd
     const result = extractArtifactHighlight(tmpRun, 'motions', '2026-04-20');
     expect(result).not.toBeNull();
     expect(result.headline).toBe('Master Intelligence Synthesis — EP10 Q1 2026');

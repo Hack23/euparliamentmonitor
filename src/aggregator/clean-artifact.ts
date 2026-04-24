@@ -169,28 +169,32 @@ export function stripBanners(md: string): { md: string; lines: number } {
   return { md: lines.slice(bannerEnd).join('\n').replace(/^\n+/, ''), lines: stripped };
 }
 
+// REUSE-IgnoreStart
 /**
  * Matches an SPDX tag anywhere on a line, whether wrapped in HTML comments
- * (`<!-- SPDX-License-Identifier: Apache-2.0 -->`), inline markdown emphasis
- * (`*SPDX-License-Identifier: Apache-2.0*`, `_SPDX-FileCopyrightText: …_`), or
- * written bare. Used to purge artifact-level SPDX metadata before rendering so
- * it doesn't leak into the aggregated HTML (where the REUSE tool would then
+ * (SPDX-License-Identifier line inside `<!-- ... -->`), inline markdown
+ * emphasis (italic-wrapped SPDX-License-Identifier / SPDX-FileCopyrightText),
+ * or written bare. Used to purge artifact-level SPDX metadata before rendering
+ * so it doesn't leak into the aggregated HTML (where the REUSE tool would then
  * parse the surrounding markup as part of the SPDX expression).
  */
+// REUSE-IgnoreEnd
 const SPDX_TAG_LINE =
   /SPDX-(?:License-Identifier|FileCopyrightText|PackageName|PackageSupplier|PackageDownloadLocation)\b/;
 
+// REUSE-IgnoreStart
 /**
  * Remove every line containing an SPDX tag from the Markdown source. The
  * aggregated article HTML carries its own file-level SPDX header via
  * `REUSE.toml`; per-artifact tags would otherwise surface as visible footer
- * text (`<em>SPDX-License-Identifier: Apache-2.0</em></p>`) and trip the
- * REUSE compliance scanner with `Apache-2.0</em></p>` as an invalid SPDX
- * expression.
+ * text (italic-wrapped SPDX tags rendered inside `<em>` / `</em></p>`) and
+ * trip the REUSE compliance scanner, which would parse the trailing markup
+ * as part of the SPDX expression.
  *
  * @param md - Raw Markdown source
  * @returns `{ md, lines }` — stripped Markdown and count of removed lines
  */
+// REUSE-IgnoreEnd
 export function stripSpdxTags(md: string): { md: string; lines: number } {
   const lines = md.split('\n');
   const kept: string[] = [];

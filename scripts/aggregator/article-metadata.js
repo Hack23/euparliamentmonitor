@@ -154,11 +154,7 @@ export function shouldSkipDescriptionLine(line) {
         return true;
     // `Key: value` metadata banners. Match plain text, bold `**Key**`,
     // and italic `*Key*` variants.
-    const labelSource = line
-        .replace(/^\*+/, '')
-        .replace(/^\*\*/, '')
-        .replace(/^_+/, '')
-        .trim();
+    const labelSource = line.replace(/^\*+/, '').replace(/^\*\*/, '').replace(/^_+/, '').trim();
     for (const prefix of METADATA_LINE_PREFIXES) {
         const lower = labelSource.toLowerCase();
         const prefixLower = prefix.toLowerCase();
