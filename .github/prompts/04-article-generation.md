@@ -119,16 +119,56 @@ paragraph (≥ 60 words) interpreting the data must be present in the artifact.
 
 ## 6 · Title · Description · Keywords
 
-The aggregator derives the article `<title>` / `<h1>` from the first heading
-of `intelligence/synthesis-summary.md` (or `intelligence/analysis-index.md`
-if the former is missing), the `<meta name="description">` from the lede
-paragraph, and `<meta name="keywords">` from the `classification/` artifact
-front matter. Agents MUST therefore ensure the synthesis-summary's first
-heading is a publishable title:
+The aggregator derives the article `<title>` / `<meta name="description">`
+through the 5-tier editorial-highlight resolver in
+`src/aggregator/article-metadata.ts`. Tier ordering:
+
+1. **Manifest override** (authored by you, Stage-B agent): when you have
+   an editorial headline, write it into `manifest.json` alongside
+   `articleType` + `files`:
+
+   ```jsonc
+   {
+     "articleType": "breaking",
+     "title": "Banking Union Breakthrough and Anti-Corruption Landmark",
+     "description": "The plenary closes a six-year debate and triggers immediate criticism from two national delegations about implementation timelines.",
+     "files": { /* … */ }
+   }
+   ```
+
+   Both fields accept either a string (applied to all 14 language
+   variants — recommended when only English prose exists) or a per-
+   language object (e.g. `"title": { "en": "…", "sv": "…" }`). Missing
+   languages transparently fall through to the lower tiers.
+2. **First artefact H1** — the resolver promotes the first non-generic
+   `# …` heading it finds by walking the manifest's file list in
+   canonical order. Your synthesis-summary's first heading is therefore
+   the de-facto headline when no manifest override is written.
+3. **Aggregated-markdown H1** — any non-generic top-level heading.
+4. **First strong prose paragraph** — with a tightened leak filter that
+   blocks mermaid `%%{init}` blocks, `title …` directives, emoji-banner
+   metadata, and `Analysis Date:` / `Classification:` / `Run:` /
+   `Window:` / `Purpose:` / `BLUF (ICD-203):` / `Composition layer:`
+   rows. Any paragraph beginning with such a prefix is skipped.
+5. **Localized template** — last-resort `*_TITLES(date)` fallback from
+   `src/constants/language-articles.ts`.
+
+**Rule for Stage-B agents**: write `manifest.title` and
+`manifest.description` **with the day's actual editorial highlight**
+whenever possible. Required qualities:
 
 - active voice, ≤ 70 chars, names actors
-- never contains raw metrics, article-type labels, or date-centric formats
-- never repeats the lede verbatim in the description
+- never contains raw metrics, article-type labels, or date-centric
+  formats like `EU Parliament Breaking — 2026-04-14`
+- never repeats the lede verbatim in the description — `description`
+  must complement `title`, not echo it
+- never leaks `Run:`, `Purpose:`, `BLUF`, or `Composition layer` prefixes
+  (these are filtered out of fallback tiers, but a manual override with
+  one of these prefixes would be used verbatim)
+
+When you DO NOT write a manifest override, make sure the first heading
+of `intelligence/synthesis-summary.md` meets the same rules, because the
+Tier-2 fallback will promote it into the `<title>`.
 
 ## 7 · Analysis-to-Article Artifact Map (authoritative)
 
