@@ -140,6 +140,44 @@ describe('wrapArticleHtml', () => {
     const htmlEmpty = wrapArticleHtml({ ...baseOptions, toc: [] });
     expect(htmlEmpty).not.toContain('article-toc-container');
   });
+
+  it('embeds the language switcher INSIDE the header using site-header__langs (matches index chrome)', () => {
+    const html = wrapArticleHtml(baseOptions);
+    // The stacked header variant matches index.html so the article and the
+    // landing page share the same top-of-page visual rhythm.
+    expect(html).toContain('site-header__inner--stacked');
+    // Language switcher must live inside the <header>, not as a standalone
+    // <nav class="language-switcher"> bar below it.
+    expect(html).not.toContain('class="language-switcher"');
+    expect(html).toContain('<nav class="site-header__langs"');
+    // All 14 languages must be present inside the header nav.
+    const headerMatch = html.match(/<header[\s\S]*?<\/header>/);
+    expect(headerMatch).not.toBeNull();
+    const header = headerMatch?.[0] ?? '';
+    for (const code of ALL_LANGUAGES) {
+      expect(header).toContain(`hreflang="${code}"`);
+      expect(header).toContain(`lang="${code}"`);
+    }
+  });
+
+  it('uses the larger 72×48 header-logo asset in the header (matches index chrome)', () => {
+    const html = wrapArticleHtml(baseOptions);
+    expect(html).toContain('../images/header-logo.webp');
+    expect(html).toContain('../images/header-logo.png');
+    expect(html).toContain('site-header__logo--header');
+    expect(html).toContain('width="72" height="48"');
+  });
+
+  it('surfaces the footer-stats line when articleCount is provided', () => {
+    const html = wrapArticleHtml({ ...baseOptions, articleCount: 197 });
+    expect(html).toContain('class="footer-stats"');
+    expect(html).toContain('197');
+  });
+
+  it('omits the footer-stats line when articleCount is absent', () => {
+    const html = wrapArticleHtml(baseOptions);
+    expect(html).not.toContain('class="footer-stats"');
+  });
 });
 
 describe('buildArticleToc', () => {

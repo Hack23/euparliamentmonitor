@@ -137,8 +137,8 @@ architecture.
   execution; one pinned production dependency (`european-parliament-mcp-server@1.2.13`) plus one optional dependency (`worldbank-mcp@1.0.1`) used only at build time
 - **TypeScript Source**: All source in `src/` written in TypeScript 6.0.3 (strict, ESM, `"type": "module"`), compiled via `tsc` — `rootDir: ./src`, `outDir: ./scripts`, `target: ES2025`, `module: NodeNext`
 - **Multi-Language Support**: Generates content in 14 languages (`en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh`), defined in `src/constants/language-core.ts::ALL_LANGUAGES`
-- **Article Types**: 8 production content types (`breaking-news`, `committee-reports`, `month-ahead`, `monthly-review`, `motions`, `propositions`, `week-ahead`, `weekly-review`) driven by 9 strategy modules in `src/generators/strategies/` — the 8 type-specific strategies plus `article-strategy` (generic/on-demand, used by `news-article-generator.md` manual dispatch, not an additional production content type)
-- **Agentic Workflows**: 18 gh-aw markdown workflows — 8 split-pair article types (each with `news-<type>-analysis.md` for Stages A+B+C and `news-<type>-article.md` for Stage D) + `news-article-generator.md` (manual) + `news-translate.md` (translation fan-out) — compiled to `.lock.yml` via `gh aw compile --validate` (pinned `GH_AW_VERSION: v0.69.0`)
+- **Article Types**: 8 production content types (`breaking`, `committee-reports`, `month-ahead`, `month-in-review`, `motions`, `propositions`, `week-ahead`, `week-in-review`) rendered by the aggregator pipeline in `src/aggregator/` (deterministic, analysis-artifact-driven — no per-type strategy modules since the April-2026 purge)
+- **Agentic Workflows**: 9 gh-aw markdown workflows — 8 unified `news-<type>.md` workflows (Stage A → D in one session, 75-min hard cap) + `news-translate.md` (14-language translation fan-out) — compiled to `.lock.yml` via `gh aw compile --validate` (pinned `GH_AW_VERSION: v0.69.0`). Stage D invokes `npm run generate-article -- --run "$ANALYSIS_DIR"`.
 - **Dual Economic Data (Wave-3)**: IMF REST is the **primary** source for every economic claim; World Bank MCP provides complementary non-economic context (health, education, social, environment, demographics, defence, agriculture, innovation, governance). Validator gates: `articlePolicyHasEconomicContext` (Wave-2 OR-gate, default — accepts either source) and `articlePolicyHasIMFEconomicEvidence` (Wave-3 strict — IMF only, dark-launched behind `WAVE3_IMF_STRICT` env flag) in `src/utils/content-validator.ts`
 - **AI-First Quality Principle**: Mandatory 2-pass iterative improvement (~60% pass 1, ~40% pass 2); ≥80 words/SWOT item, ≥150 words/stakeholder perspective, ≥60% prose ratio, ≥1 Chart.js visualization, 0 `[AI_ANALYSIS_REQUIRED]` sentinel markers
 - **MCP Integration**: Spawned as local child processes via stdio JSON-RPC at build time
@@ -475,16 +475,27 @@ C4Component
 
 ### Component Diagram - Key Elements
 
+> **⚠️ Documentation transition note (April 2026):** The legacy per-article-type
+> strategy / builder / pipeline-stage pipeline (`src/generators/strategies/`,
+> `src/generators/builders/`, `src/generators/pipeline/`) was **purged**
+> in favour of an analysis-artifact-driven aggregator under
+> `src/aggregator/` (see `src/aggregator/article-generator.ts` CLI and
+> `src/aggregator/analysis-aggregator.ts` / `markdown-renderer.ts` /
+> `article-html.ts`). Some Mermaid diagrams and the component table below
+> still reference the retired modules; those entries are historical and
+> are being rewritten in a follow-up PR. The prose, source-of-truth
+> file paths, and `src/mcp/` + `src/utils/` + `src/templates/` rows
+> remain accurate.
+
 | Component                | Responsibility                   | Dependencies                     | File Location                             |
 | ------------------------ | -------------------------------- | -------------------------------- | ----------------------------------------- |
-| **Pipeline Stages** (5)  | Ordered: fetch → transform → analysis → generate → output | MCP clients, analysis utils, strategies | `src/generators/pipeline/*.ts`            |
-| **Strategies** (8)       | Per-article-type orchestration   | Builders, templates, section-builders | `src/generators/strategies/*.ts`          |
-| **Builders** (6)         | Section composition (breaking, committee, propositions, prospective, shared, voting) | Types, analysis utils | `src/generators/builders/*.ts`            |
+| **Aggregator pipeline**  | Ordered: discover manifest → clean artifacts → aggregate (19-section order) → render Markdown → wrap HTML with TOC sidebar + shared chrome → write `<slug>.en.md` + 14 `<slug>-<lang>.html` | Markdown-it, markdown-it-anchor/footnote/attrs/deflist, shared site chrome | `src/aggregator/*.ts` (article-generator, analysis-aggregator, markdown-renderer, article-html, artifact-order, clean-artifact) |
+| **Analysis Artifacts**   | 39 templates per run (6 framework + 14 agentic-workflow + 25 per-artifact) committed to `analysis/daily/<date>/<type>/` with a `manifest.json` declaring `articleType` + `files` map | Methodology protocol (10 steps, Rules 1–22) | `analysis/methodologies/*.md`, `analysis/templates/**`    |
 | **EP MCP Client**        | Fetch EP feeds via stdio JSON-RPC; enforces `FeedBaseOptions` vs `FixedWindowFeedOptions` (no canonical `EP_MCP_TOOLS` export yet — gap tracked in CRA-ASSESSMENT §5ᵇ row 13) | `european-parliament-mcp-server@1.2.13` | `src/mcp/ep-mcp-client.ts`                |
 | **World Bank MCP Client**| Fetch WDI biannual indicators; `WORLD_BANK_MCP_TOOLS` | `worldbank-mcp@1.0.1` (optional) | `src/mcp/wb-mcp-client.ts`                |
 | **IMF MCP Client**       | Native TS fetch to IMF SDMX 3.0; `class IMFMCPClient`; `IMF_MCP_TOOLS` (NOT an MCP server) | `fetch` (Node 25+) | `src/mcp/imf-mcp-client.ts`               |
 | **MCP Health/Retry**     | Health probes, retry with exponential backoff, lifecycle | — | `src/mcp/mcp-health.ts`, `mcp-retry.ts`, `mcp-connection.ts` |
-| **Templates**            | HTML5 article shell, 14-language localised `buildSiteFooter()`, stakeholder perspective grid, structured data (JSON-LD/Open Graph) | Types | `src/templates/article-template.ts`, `section-builders.ts` |
+| **Templates**            | HTML5 article shell, 14-language localised `buildSiteFooter()` (with optional `articleCount` for the `<p class="footer-stats">` line), stakeholder perspective grid, structured data (JSON-LD/Open Graph). Article chrome now rendered by `src/aggregator/article-html.ts` (stacked header + embedded language switcher + article TOC sidebar + shared footer) using the same primitives. | Types | `src/templates/section-builders.ts`, `src/aggregator/article-html.ts` |
 | **Content Validator**    | `articlePolicyHasWorldBank` (legacy), `articlePolicyHasEconomicContext` (Wave-2 OR-gate WB OR IMF — default), `articlePolicyHasIMFEconomicEvidence` (Wave-3 strict IMF-only — `WAVE3_IMF_STRICT` flag), `isWave3IMFStrictEnabled`, `scanHtmlForFallbackLeaks`, `FALLBACK_TEMPLATE_PATTERNS` | — | `src/utils/content-validator.ts`          |
 | **Analysis Completeness**| Pre-PR validator gate; invoked by gh-aw workflows as `node scripts/utils/validate-analysis-completeness.js` | Types | `src/utils/validate-analysis-completeness.ts` |
 | **Intelligence Utils**   | `political-classification`, `political-threat-assessment`, `political-risk-assessment`, `significance-scoring`, `article-quality-scorer` | Types | `src/utils/*.ts` |

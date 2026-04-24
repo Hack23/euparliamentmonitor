@@ -371,6 +371,8 @@ export function extractDefaultDescription(markdown: string): string {
  * @param chromeOptions.description - Article meta description
  * @param chromeOptions.sourceMarkdownRelPath - Repo-relative path of the
  *        canonical English Markdown source written by the same run
+ * @param chromeOptions.articleCount - Total article count surfaced in the
+ *        site footer's `<p class="footer-stats">…</p>` line
  * @param opts - CLI options (needed for `outDir`)
  * @returns Relative filename of the HTML file written
  */
@@ -383,6 +385,7 @@ function writeLanguageVariant(
     title: string;
     description: string;
     sourceMarkdownRelPath: string;
+    articleCount: number;
   },
   opts: CliOptions
 ): string {
@@ -403,10 +406,32 @@ function writeLanguageVariant(
     articleType: aggregated.articleType,
     sourceMarkdownRelPath: chromeOptions.sourceMarkdownRelPath,
     toc: aggregated.sectionToc,
+    articleCount: chromeOptions.articleCount,
   });
   const filename = getArticleFilename(slug, lang);
   fs.writeFileSync(path.join(opts.outDir, filename), html, 'utf8');
   return filename;
+}
+
+/**
+ * Count the number of articles the site currently publishes, derived
+ * from `analysis/daily/**` runs with a valid `articleType` — the same
+ * set that `npm run generate-article:all` would materialise. Using the
+ * analysis-run catalogue (rather than the `<outDir>` filesystem) keeps
+ * the derived count stable across repeated invocations of
+ * {@link generateArticle}, preserving determinism for reproducible-build
+ * tests and preventing the footer from drifting as a batch run
+ * progresses.
+ *
+ * @param repoRoot - Absolute path to the repository root
+ * @returns Non-negative article count (zero when the analysis tree is empty)
+ */
+function countPublishedArticles(repoRoot: string): number {
+  try {
+    return discoverAnalysisRuns(repoRoot).length;
+  } catch {
+    return 0;
+  }
 }
 
 /**
@@ -416,9 +441,18 @@ function writeLanguageVariant(
  *               {@link parseCliArgs}) — must have a non-null `runDir`
  * @param runSuffix - Optional collision-suffix appended to the slug when
  *        multiple runs share the same (date, articleType) pair in batch mode
+ * @param articleCountOverride - Optional total article count to surface in
+ *        the footer's `<p class="footer-stats">…</p>`. When omitted the
+ *        count is derived from `<outDir>/*-en.html` — accurate for single
+ *        runs but misleading mid-batch, so {@link generateAllArticles}
+ *        passes the final total here.
  * @returns Summary of the generated artefacts ({@link GenerateResult})
  */
-export function generateArticle(opts: CliOptions, runSuffix?: string): GenerateResult {
+export function generateArticle(
+  opts: CliOptions,
+  runSuffix?: string,
+  articleCountOverride?: number
+): GenerateResult {
   if (!opts.runDir) {
     throw new Error('generateArticle: runDir is required');
   }
@@ -444,6 +478,7 @@ export function generateArticle(opts: CliOptions, runSuffix?: string): GenerateR
       title,
       description,
       sourceMarkdownRelPath: sourceMdRelPath,
+      articleCount: articleCountOverride ?? countPublishedArticles(opts.repoRoot),
     };
     for (const lang of opts.langs) {
       const filename = writeLanguageVariant(
@@ -579,12 +614,16 @@ export function generateAllArticles(opts: CliOptions): GenerateResult[] {
     : allRuns;
   const groups = groupRunsForCollision(filtered);
   const results: GenerateResult[] = [];
+  // Pre-compute the total article count so every footer in the batch
+  // surfaces a stable number rather than the directory size at the moment
+  // each run is rendered (which would grow from 0 → N during the batch).
+  const articleCountOverride = filtered.length;
   for (const run of filtered) {
     const key = `${run.date}|${run.articleType}`;
     const bucket = groups.get(key) ?? [];
     const suffix = bucket.length > 1 ? sanitizeRunSuffix(run.runId) : undefined;
     const runOpts: CliOptions = { ...opts, runDir: run.runDir };
-    results.push(generateArticle(runOpts, suffix));
+    results.push(generateArticle(runOpts, suffix, articleCountOverride));
   }
   return results;
 }

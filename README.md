@@ -135,9 +135,11 @@ v1.2.13 for accessing real EU Parliament data via the Model Context Protocol.
 
 - **MCP Server Status**: ✅ Fully operational — 60+ EP data tools available
   (feeds, direct lookups, analytical tools, intelligence correlation)
-- **Agentic Workflows**: 18 gh-aw markdown workflows — 8 split-pair article types (`news-<type>-analysis.md` + `news-<type>-article.md`) + `news-article-generator.md` + `news-translate.md` (compiled with
-  `gh-aw v0.69.3`) for automated news generation with AI-driven political
-  intelligence analysis. See [`.github/workflows/README.md`](.github/workflows/README.md).
+- **Agentic Workflows**: 9 gh-aw markdown workflows — 8 unified `news-<type>.md`
+  workflows (Stage A → D in one session: Data → Analysis → Completeness Gate →
+  Aggregator-driven Article) + `news-translate.md` (translation fan-out),
+  compiled with `gh-aw v0.69.3` for automated news generation with AI-driven
+  political intelligence analysis. See [`.github/workflows/README.md`](.github/workflows/README.md).
 - **Analysis Chain**: 5-stage pipeline (Data → Analysis → Completeness Gate →
   Article → Single PR) producing 39 structured analysis templates per run.
   See [`analysis/README.md`](analysis/README.md) and
@@ -467,11 +469,30 @@ without it using placeholder content.
 Agentic workflows generate articles automatically. For manual article generation from an analysis run:
 
 ```bash
-# Render article from a specific analysis run directory
+# Render one article from a specific analysis run directory
 npm run generate-article -- --run analysis/daily/2025-01-01/breaking
 
-# The aggregator reads committed analysis artifacts and renders HTML
+# Regenerate EVERY committed analysis run in one pass (skips runs whose
+# manifest.json has no valid articleType; collision-suffixes same-date /
+# same-type runs with a sanitised runId)
+npm run generate-article:all
+
+# Only regenerate runs from a given date onward
+npm run generate-article -- --all --since 2026-04-01
 ```
+
+Each invocation writes:
+
+- `news/<slug>.en.md` — aggregated Markdown (provenance block + 19-section
+  ordered artifact set + Tradecraft References appendix + Analysis Index appendix)
+- `news/<slug>-<lang>.html` — 14 language variants, each wrapped in the
+  shared site chrome (stacked header with embedded language switcher,
+  article-level Table of Contents sidebar, shared footer with live
+  article-count stats)
+
+The aggregator lives under `src/aggregator/` — see the
+[aggregator pipeline](ARCHITECTURE.md#aggregator-pipeline) section of the
+architecture doc for the full data flow.
 
 ### Generate Indexes and Sitemap
 

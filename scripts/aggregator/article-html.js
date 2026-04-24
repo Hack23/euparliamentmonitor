@@ -54,10 +54,11 @@ function buildLanguageSwitcher(articleSlug, current) {
     return ALL_LANGUAGES.map((code) => {
         const flag = getLocalizedString(LANGUAGE_FLAGS, code);
         const name = getLocalizedString(LANGUAGE_NAMES, code);
+        const safeName = escapeHTML(name);
         const active = code === current ? ' active' : '';
         const ariaCurrent = code === current ? ' aria-current="page"' : '';
         const href = getArticleFilename(articleSlug, code);
-        return `<a href="${href}" class="lang-link${active}" hreflang="${code}" title="${escapeHTML(name)}"${ariaCurrent}>${flag} ${code.toUpperCase()}</a>`;
+        return `<a href="${href}" class="lang-link${active}" hreflang="${code}" lang="${code}" title="${safeName}" aria-label="${safeName}"${ariaCurrent}>${flag} ${code.toUpperCase()}</a>`;
     }).join('\n        ');
 }
 /**
@@ -182,11 +183,11 @@ ${hreflangLinks}
   <a href="#main" class="skip-link">${escapeHTML(skipLinkText)}</a>
 
   <header class="site-header" role="banner">
-    <div class="site-header__inner">
+    <div class="site-header__inner site-header__inner--stacked">
       <a href="${indexHref}" class="site-header__brand" aria-label="${escapeHTML(siteTitle)}">
         <picture class="site-header__logo-picture">
-          <source srcset="../images/favicon-96x96.webp" type="image/webp">
-          <img class="site-header__logo" src="../images/favicon-96x96.png" alt="" width="36" height="36" aria-hidden="true">
+          <source srcset="../images/header-logo.webp" type="image/webp">
+          <img class="site-header__logo site-header__logo--header" src="../images/header-logo.png" alt="" width="72" height="48" aria-hidden="true">
         </picture>
         <span>
           <span class="site-header__title">${escapeHTML(siteTitle)}</span>
@@ -194,12 +195,11 @@ ${hreflangLinks}
         </span>
       </a>
       ${createThemeToggleButton(themeToggleLabel)}
+      <nav class="site-header__langs" role="navigation" aria-label="Language selection">
+        ${langSwitcher}
+      </nav>
     </div>
   </header>
-
-  <nav class="language-switcher" role="navigation" aria-label="Language selection">
-    ${langSwitcher}
-  </nav>
 
   <main id="main" class="site-main article-main">
 ${tocHtml}    <article class="article-body" lang="${safeLang}">
@@ -208,7 +208,7 @@ ${tocHtml}    <article class="article-body" lang="${safeLang}">
     </article>
   </main>
 
-  ${buildSiteFooter({ lang: safeLang, pathPrefix: '../' })}${THEME_TOGGLE_SCRIPT}
+  ${buildSiteFooter({ lang: safeLang, pathPrefix: '../', ...(typeof options.articleCount === 'number' ? { articleCount: options.articleCount } : {}) })}${THEME_TOGGLE_SCRIPT}
 </body>
 </html>`;
 }
