@@ -25,7 +25,7 @@ description: EU Parliament political intelligence analyst specializing in OSINT,
 14. **`analysis/methodologies/electoral-domain-methodology.md`** — EP election analysis (2024 retrospective + 2029 forecast, Spitzenkandidaten, voter-segmentation)
 15. **`analysis/templates/README.md`** — index of the 51 analysis templates (39 core + 12 extended)
 16. **`analysis/methodologies/reference-quality-thresholds.json`** — per-artifact line floors enforced at Stage C
-17. **`scripts/generate-news-enhanced.js`** — News generation engine and data transformation
+17. **`src/aggregator/article-generator.ts`** — Deterministic article renderer (walks committed analysis artifacts + manifest.json, emits HTML via `src/aggregator/**`)
 18. **`src/mcp/ep-mcp-client.ts`** — European Parliament MCP client (TypeScript source; compiled to `scripts/mcp/ep-mcp-client.js`)
 19. **`scripts/mcp-setup.sh`** — AWF gateway connectivity script
 20. **`ARCHITECTURE.md`** — System architecture and data flows
