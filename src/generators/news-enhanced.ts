@@ -205,7 +205,7 @@ const VALID_GATE_RESULTS: ReadonlyArray<AnalysisManifestHistoryEntry['gateResult
   'ANALYSIS_ONLY',
   'PENDING',
 ];
-const rawGateResult = gateResultArg?.slice('--gate-result='.length).trim().toUpperCase();
+const rawGateResult = gateResultArg?.slice('--gate-result='.length)?.trim()?.toUpperCase();
 export const cliGateResult: AnalysisManifestHistoryEntry['gateResult'] | undefined =
   rawGateResult !== undefined &&
   VALID_GATE_RESULTS.includes(rawGateResult as AnalysisManifestHistoryEntry['gateResult'])
