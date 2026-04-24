@@ -107,6 +107,20 @@ describe('scripts/lint-prompts.js', () => {
     expect(stderr).toContain('generate-news');
   });
 
+  it('accepts workflows that reference the aggregator entry point and CLI', () => {
+    writeWorkflow(
+      'news-ok-aggregator.md',
+      '# Title\nCall safeoutputs___create_pull_request once.\n' +
+        'Stage D: `npm run generate-article -- --run "${ANALYSIS_DIR}"`.\n' +
+        'The aggregator modules live under `src/aggregator/**` ' +
+        '(artifact-order, clean-artifact, analysis-aggregator, ' +
+        'markdown-renderer, article-html, article-generator).\n' +
+        'imports:\n  - .github/agents/news-generation.agent.md\n',
+    );
+    const result = runLint(tmpDir);
+    expect(result.code).toBe(0);
+  });
+
   it('still allows generate-news-indexes (not a purged module)', () => {
     writeWorkflow(
       'news-ok-indexes.md',

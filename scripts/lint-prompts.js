@@ -95,7 +95,7 @@ const FORBIDDEN_PHRASES = [
   // "news-<type>-analysis.md + news-<type>-article.md" is stale.
   /\bnews-<type>-analysis\.md\b/i,
   /\bnews-<type>-article\.md\b/i,
-  /\bgenerate-news\b(?!-indexes)/i,
+  /\bgenerate-news\b(?!-indexes\b)/i,
   // Note: the AI_MARKER / [AI_ANALYSIS_REQUIRED] / FALLBACK_TEMPLATE_PATTERNS
   // string tokens are NOT banned — workflow prompts legitimately instruct the
   // agent "no [AI_ANALYSIS_REQUIRED] markers may remain in committed
