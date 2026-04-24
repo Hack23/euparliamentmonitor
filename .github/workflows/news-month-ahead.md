@@ -274,19 +274,8 @@ markdown document, then renders it to localized HTML article(s).
 source scripts/mcp-setup.sh
 export USE_EP_MCP=true
 
-# 1. Persist the gate result + history entry via the existing analysis-stage
-#    wrap-up. This writes manifest.json.history[].gateResult and is required
-#    for downstream tooling (sitemap, political-intelligence index).
-npx tsx src/generators/news-enhanced.ts \
-  --types=month-ahead \
-  --analysis \
-  --analysis-methods=all \
-  --analysis-dir="${ANALYSIS_DIR}" \
-  --analysis-only \
-  --gate-result="${GATE_RESULT}" \
-  --run-id="${RUN_ID}"
 
-# 2. Deterministic article rendering from the committed analysis artifacts.
+# Deterministic article rendering from the committed analysis artifacts.
 #    Emits news/<TODAY>-month-ahead.en.md (canonical aggregated markdown) plus
 #    news/<TODAY>-month-ahead-en.html (rendered article). Idempotent — skips
 #    writes when target mtime ≥ all source artifacts.
