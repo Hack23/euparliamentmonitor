@@ -83,24 +83,44 @@ Article-type slugs: `breaking`, `committee-reports`, `propositions`, `motions`,
 | Inline `<script>` in body | ❌ Banned (CSP `script-src 'self'`) |
 | `[AI_ANALYSIS_REQUIRED]` markers | ❌ Zero |
 
-## 5 · Economic & Non-Economic Context (Wave-2 policy)
+## 5 · Economic & Non-Economic Context (Wave-3 policy)
 
-Articles with measurable policy impact include **IMF (economic / fiscal
-/ monetary / trade) or World Bank (non-economic: health, education,
-social, environment, demographics, defence, agriculture, innovation,
-governance)** data. Either source satisfies the validator OR-gate
-(`articlePolicyHasEconomicContext`); **IMF is the preferred source for
-economic context**, WB accepted for backward compatibility.
+Articles with measurable policy impact MUST include **IMF economic
+context** (GDP, inflation, unemployment, debt, deficit, trade, FDI,
+exchange rate, monetary policy) as the primary anchor. World Bank is
+retained for non-economic domains only (health, education, social,
+environment, demographics, defence, agriculture, innovation,
+governance).
+
+The enforced gate `articlePolicyHasEconomicContext` accepts either
+source (OR-gate, Wave-3); **IMF is the required primary source for
+economic claims**. Wave-4 flips the gate to
+`articlePolicyHasIMFEconomicEvidence` (IMF-only) — dark-launched now
+behind the `WAVE3_IMF_STRICT` flag.
 
 Follow the indicator-mapping files:
-[`worldbank-indicator-mapping.md`](../../analysis/methodologies/worldbank-indicator-mapping.md)
-(non-economic domains only) and
 [`imf-indicator-mapping.md`](../../analysis/methodologies/imf-indicator-mapping.md)
-(macro / fiscal / trade / monetary + WEO forecasts). **Do not** pass WB
-aggregate codes (`EUU`, `EMU`, `ECS`, `OED`, `WLD`, `NAC`, `EAS`, `SSF`)
-to WB MCP tools — the server rejects them; cite IMF `EU`/`EA`
-aggregates for EU-level framing instead. Render ≥ 1 Chart.js canvas AND
-≥ 1 analytical paragraph (≥ 60 words) that interprets the data.
+(macro / fiscal / trade / monetary + WEO forecasts + per-type indicator
+minimums — mandatory primary source) and
+[`worldbank-indicator-mapping.md`](../../analysis/methodologies/worldbank-indicator-mapping.md)
+(non-economic domains only). **Do not** pass WB aggregate codes
+(`EUU`, `EMU`, `ECS`, `OED`, `WLD`, `NAC`, `EAS`, `SSF`) to WB MCP
+tools — the server rejects them; cite IMF `EU`/`EA` aggregates for
+EU-level framing instead.
+
+Every IMF citation MUST include:
+1. **Vintage in prose** (`IMF WEO April 2026`, `IMF Fiscal Monitor
+   April 2026`).
+2. **Vintage HTML attribute** (`data-vintage="WEO-April-2026"` on the
+   `<section class="economic-context imf-economic-context">` element).
+3. **Forecast marker** within 30 words of any projected number
+   (`forecast`, `projection`, `projects`, `expects`, etc. — validator
+   regex-enforced).
+4. **Optimism-bias caveat** for horizons ≥3 years (editorial, sized
+   per [`analysis/imf/forecast-accuracy-baseline.md`](../../analysis/imf/forecast-accuracy-baseline.md)).
+
+Render ≥ 1 Chart.js canvas AND ≥ 1 analytical paragraph (≥ 60 words)
+that interprets the data.
 
 ## 6 · Title · Description · Keywords
 
@@ -137,7 +157,7 @@ analytical section fails the completeness gate.
 | Risk / threat outlook | `risk-scoring/risk-matrix.md`, `threat-assessment/political-threat-landscape.md` | `threat-assessment/actor-threat-profiles.md`, `threat-assessment/consequence-trees.md`, `risk-scoring/political-capital-risk.md`, `risk-scoring/legislative-velocity-risk.md` |
 | Forecast / scenarios | `intelligence/scenario-forecast.md` | `intelligence/wildcards-blackswans.md` |
 | PESTLE / policy context | `intelligence/pestle-analysis.md` | `intelligence/historical-baseline.md` |
-| Economic context block (Wave-2) | `intelligence/economic-context.md` | `analysis/methodologies/worldbank-indicator-mapping.md`, `analysis/methodologies/imf-indicator-mapping.md` |
+| Economic context block (Wave-3) | `intelligence/economic-context.md` | `analysis/methodologies/imf-indicator-mapping.md` (primary), `analysis/methodologies/worldbank-indicator-mapping.md` (non-economic only), `analysis/imf/forecast-accuracy-baseline.md` |
 | Threat-model callout | `intelligence/threat-model.md` OR `intelligence/political-threat-landscape.md` | `threat-assessment/actor-threat-profiles.md` |
 | Voting-pattern chart | `existing/voting-patterns.md` | `intelligence/coalition-dynamics.md` |
 | Cross-session continuity | `existing/cross-session-intelligence.md`, `existing/cross-run-diff.md` | `existing/session-baseline.md` |
