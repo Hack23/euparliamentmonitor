@@ -110,7 +110,7 @@ const VALID_GATE_RESULTS = [
     'ANALYSIS_ONLY',
     'PENDING',
 ];
-const rawGateResult = gateResultArg?.slice('--gate-result='.length).trim().toUpperCase();
+const rawGateResult = gateResultArg?.slice('--gate-result='.length)?.trim()?.toUpperCase();
 export const cliGateResult = rawGateResult !== undefined &&
     VALID_GATE_RESULTS.includes(rawGateResult)
     ? rawGateResult

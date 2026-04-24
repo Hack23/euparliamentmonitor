@@ -60,8 +60,9 @@
     "build": "tsc",
     "build:check": "tsc --noEmit",
     "build:check-tests": "tsc --project tsconfig.test.json --noEmit",
-    "copy-vendor": "mkdir -p js/vendor && cp node_modules/chart.js/dist/chart.umd.min.js js/vendor/ && cp node_modules/chartjs-plugin-annotation/dist/chartjs-plugin-annotation.min.js js/vendor/ && cp node_modules/d3/dist/d3.min.js js/vendor/",
+    "copy-vendor": "mkdir -p js/vendor && cp node_modules/chart.js/dist/chart.umd.min.js js/vendor/ && cp node_modules/chartjs-plugin-annotation/dist/chartjs-plugin-annotation.min.js js/vendor/ && cp node_modules/d3/dist/d3.min.js js/vendor/ && (test -f node_modules/mermaid/dist/mermaid.esm.min.mjs && cp node_modules/mermaid/dist/mermaid.esm.min.mjs js/vendor/ || echo 'mermaid vendor asset not installed; skipping')",
     "generate-news": "node scripts/generators/news-enhanced.js",
+    "generate-article": "node scripts/aggregator/article-generator.js",
     "generate-news-indexes": "node scripts/generators/news-indexes.js",
     "generate-sitemap": "node scripts/generators/sitemap.js",
     "fix-articles": "npx tsx src/utils/fix-articles.ts",
@@ -141,6 +142,7 @@
     "@eslint/js": "10.0.1",
     "@playwright/test": "1.59.1",
     "@types/d3": "7.4.3",
+    "@types/markdown-it": "^14.1.2",
     "@types/node": "25.6.0",
     "@types/papaparse": "5.5.2",
     "@typescript-eslint/eslint-plugin": "8.59.0",
@@ -172,7 +174,12 @@
     "node": ">=25"
   },
   "dependencies": {
-    "european-parliament-mcp-server": "1.2.13"
+    "european-parliament-mcp-server": "1.2.13",
+    "markdown-it": "^14.1.0",
+    "markdown-it-anchor": "^9.2.0",
+    "markdown-it-attrs": "^4.3.1",
+    "markdown-it-deflist": "^3.0.0",
+    "markdown-it-footnote": "^4.0.0"
   },
   "optionalDependencies": {
     "worldbank-mcp": "1.0.1"
