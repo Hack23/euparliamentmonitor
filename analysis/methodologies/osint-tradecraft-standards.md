@@ -119,7 +119,7 @@ The [US Office of the Director of National Intelligence](https://www.odni.gov/) 
 | **1** | **Objective** | Analysis reflects evidence, not the analyst's preferences. Political-group affiliations are described in terms of positions taken, not moral judgements. | Every artifact; specifically `synthesis-summary` Executive Finding. |
 | **2** | **Independent of political considerations** | The analysis is the same regardless of which coalition holds the majority. No deference to Parliament leadership, Commission, Council, or any Member State. | `coalition-dynamics`, `stakeholder-map`, `political-threat-landscape`. |
 | **3** | **Timely** | Breaking-news artifacts publish within the 6-hour refresh cadence; weekly, monthly, and ahead-looking workflows respect their schedule. | All workflows; enforced by the gh-aw schedule triggers. |
-| **4** | **Based on all available sources of intelligence** | Every claim is cross-checked against the EP MCP feeds available at run-time; World Bank / IMF where applicable; feed failures are logged and a direct-endpoint fallback attempted. | `mcp-reliability-audit`, `economic-context`, `historical-baseline`. |
+| **4** | **Based on all available sources of intelligence** | Every claim is cross-checked against the EP MCP feeds available at run-time; **IMF** (primary economic — Wave-3) and World Bank (non-economic) where applicable; feed failures are logged and a direct-endpoint fallback attempted. | `mcp-reliability-audit`, `economic-context`, `historical-baseline`. |
 | **5a** | **Tradecraft — describes quality and credibility of underlying sources** | Every source citation carries an Admiralty grade (see §2). Feed failures and degraded modes are explicit. | `mcp-reliability-audit`, `reference-analysis-quality`. |
 | **5b** | **Tradecraft — expresses and explains uncertainties** | Every probabilistic claim uses a WEP band (see §3) and carries a 🟢/🟡/🔴 confidence marker (see [`political-style-guide.md`](political-style-guide.md)). | Every artifact making probabilistic claims: `synthesis-summary`, `scenario-forecast`, `risk-matrix`, `wildcards-blackswans`, `threat-model`, `cross-run-diff`. |
 | **5c** | **Tradecraft — distinguishes assumptions from judgements** | Structural assumptions (e.g. "EPP + S&D + Renew hold a majority") are named in the run's Key Assumptions section (see §4). | `methodology-reflection` §3 SAT catalog row for *Key Assumptions Check*; `session-baseline`. |
@@ -146,7 +146,7 @@ The [NATO Admiralty Code (Admiralty System, STANAG 2511)](https://nsa.nato.int/)
 
 | Grade | Label | Meaning in the EU Parliament Monitor context |
 |:---:|---|---|
-| **A** | Completely reliable | Official EP feed, EUR-Lex, Commission register, Eurostat, IMF, World Bank, ECB, and any document reachable through the European Parliament MCP Server with a direct procedure / document ID. |
+| **A** | Completely reliable | Official EP feed, EUR-Lex, Commission register, Eurostat, IMF (primary economic — Wave-3), World Bank (non-economic), ECB, and any document reachable through the European Parliament MCP Server with a direct procedure / document ID. |
 | **B** | Usually reliable | EP-accredited press pool, verified Member State government publications, major wire services (Reuters, AFP, AP) covering institutional facts. |
 | **C** | Fairly reliable | Policy-institute briefings (Bruegel, CEPS, ECFR, Carnegie Europe), national public-service broadcasters covering EU affairs. |
 | **D** | Not usually reliable | General-interest press without Brussels accreditation, commentary / opinion pieces from partisan outlets. |
@@ -290,7 +290,7 @@ Political intelligence is a disciplined craft with hard ethical boundaries. The 
 ### 5.1 In Scope
 
 - **Public institutional records** — every EP document, procedure, vote, speech, report, question, declaration of interest, and adopted text retrievable through the European Parliament MCP Server.
-- **Official publications** — EUR-Lex, Council documents, Commission register, Eurostat, ECB, World Bank, IMF, and equivalent government open-data portals of EU Member States.
+- **Official publications** — EUR-Lex, Council documents, Commission register, Eurostat, ECB, IMF (primary economic — Wave-3), World Bank (non-economic), and equivalent government open-data portals of EU Member States.
 - **Public statements by MEPs and political groups** — press releases, recorded plenary speeches, committee interventions, signed amendments and joint-resolution lists.
 - **Reputable Brussels press** — EP-accredited press corps, verified wire services, policy-institute publications (Bruegel, CEPS, ECFR).
 - **Academic literature** — peer-reviewed political-science scholarship on EP dynamics.

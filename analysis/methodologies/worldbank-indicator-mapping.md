@@ -1,21 +1,25 @@
-# World Bank Indicator → Article Type Mapping
+# World Bank Indicator → Article Type Mapping (Non-Economic Only — Wave-3)
 
 **Purpose**: Canonical reference that maps European Parliament Monitor article
 types to the most-relevant **non-economic** World Bank Open Data indicators.
 Every news workflow cites this file so the AI agent selects indicators
 consistently and the validator's quality gate remains enforceable.
 
-**⚡ Wave-2 scope (April 2026)**: World Bank is the source for **health,
+**⚡ Wave-3 scope (April 2026)**: World Bank is the source for **health,
 education, social, environment, demographics, defence, agriculture,
 innovation, and governance** indicators only. **All economic / monetary /
-fiscal / trade context (GDP, inflation, unemployment, FDI, fiscal balance,
-debt, monetary, exchange rates) is sourced from IMF** — see
+fiscal / trade / FDI / exchange-rate / banking context (GDP, inflation,
+unemployment, current account, fiscal balance, debt, monetary, REER) is
+sourced from IMF** — see
 [`imf-indicator-mapping.md`](imf-indicator-mapping.md) and
-[`analysis/imf/`](../imf/). The legacy WB economic indicator codes listed in
-§ 1 remain valid raw-REST identifiers (some pre-Wave-2 articles cite them
-and remain green), but new articles **must** use the IMF counterpart.
+[`analysis/imf/`](../imf/). The legacy WB economic indicator codes listed
+in § 1 are retained as raw-REST identifiers for backward compatibility
+with pre-Wave-2 fixtures but **must not** be used in new articles — the
+new-article policy is **IMF-primary**. Wave-4 (target ~2 weeks after
+2026-04-24) will remove these WB economic codes from the production
+article generation code path entirely.
 
-**Retained WB domains**:
+**Retained WB domains (Wave-3)**:
 
 | Domain | Covered by WB | Primary MCP tool |
 |---|---|---|
@@ -26,17 +30,26 @@ and remain green), but new articles **must** use the IMF counterpart.
 | Defence | Military expenditure (% GDP), armed-forces personnel | raw-REST `MS.MIL.*` |
 | Agriculture | Agriculture % GDP, cereal yield, arable land | raw-REST `AG.*`, `NV.AGR.TOTL.ZS` |
 | Innovation | R&D expenditure, high-tech exports, internet users, patents | raw-REST `GB.XPD.RSDV.GD.ZS`, `IT.NET.USER.ZS` |
-| Governance | Women in Parliament, gender parity, business environment | raw-REST `SG.*`, `IC.*` |
+| Governance | Women in Parliament, gender parity, business environment, rule of law (WGI) | raw-REST `SG.*`, `IC.*`, `RL.*` |
+
+**Retired from WB (now IMF-primary under Wave-3)**: GDP, GDP_GROWTH,
+GDP_PER_CAPITA, GNI, GNI_PER_CAPITA, EXPORTS_GDP, FDI_NET, INFLATION,
+UNEMPLOYMENT — all redirected to `imf-fetch-data` with appropriate
+WEO/FM/IFS/BOP/ER/PCPS SDMX codes.
 
 **Scope**: Applies to article types where EU legislation intersects with
 measurable non-economic outcomes. Article types without a direct policy
 nexus (e.g. `breaking` for institutional news) remain opt-in.
 
-**Enforcement**: `src/utils/validate-articles.ts` calls
+**Enforcement (Wave-3)**: `src/utils/validate-articles.ts` calls
 `articlePolicyHasEconomicContext` (the OR-gate — see
 [`src/utils/content-validator.ts`](../../src/utils/content-validator.ts))
-which accepts **either** WB OR IMF evidence. Pre-Wave-2 articles citing
-only WB indicators remain green.
+which accepts **either** WB or IMF evidence. Under Wave-3 editorial policy,
+IMF is the **required primary source** for economic claims; pre-Wave-2
+articles citing only WB indicators remain green but new articles MUST cite
+IMF for economic context. The strict Wave-4 helper
+`articlePolicyHasIMFEconomicEvidence` is dark-launched behind the
+`WAVE3_IMF_STRICT` flag.
 
 **Country-code guard**: `worldbank-mcp@1.0.1` rejects the aggregate codes
 `EUU`, `EMU`, `ECS`, `OED`, `WLD`, `NAC`, `EAS`, `SSF` and the informal `UK`
@@ -81,67 +94,77 @@ The MCP tool `get-economic-data` ⚠️ (deprecated for new articles — use IMF
 | `MALNUTRITION`          | Prevalence of undernourishment (% of pop.)     | health          |
 | `TUBERCULOSIS`          | Incidence of tuberculosis (per 100,000)        | health          |
 
-## 2. Mandatory — policy article types
+## 2. Mandatory — policy article types (Wave-3 non-economic only)
 
-The validator **fails** when none of these indicators appears in the article
-body or its analysis artifacts.
+The validator **fails** when the article has an economic claim without IMF
+citation, or when a non-economic claim is missing its WB indicator. This
+table lists the **non-economic** WB indicators expected; for economic
+indicators, see [`imf-indicator-mapping.md §2`](imf-indicator-mapping.md).
 
-| Article type        | Primary indicators                                                | Typical stakeholders            |
+| Article type        | Non-economic WB indicators                                        | Typical stakeholders            |
 | ------------------- | ----------------------------------------------------------------- | ------------------------------- |
-| `committee-reports` | Committee-specific: EMPL→`UNEMPLOYMENT`, `EDUCATION_EXPENDITURE`; ECON→`GDP_GROWTH`, `INFLATION`, `FDI_NET`; ENVI→`HEALTH_EXPENDITURE`, `LIFE_EXPECTANCY`; LIBE→`INTERNET_USERS`, `LITERACY_RATE`; INTA→`EXPORTS_GDP`, `GDP` | Member states, sectoral lobbies |
-| `propositions`      | `GDP_GROWTH`, `UNEMPLOYMENT`, `INFLATION` (baseline) + topic-specific indicators | Council, Commission, MEPs      |
-| `motions`           | Same as `propositions`; emphasise distributional indicators: `GDP_PER_CAPITA`, `UNEMPLOYMENT` | Civil society, national parties |
-| `month-ahead`       | `GDP_GROWTH`, `UNEMPLOYMENT`, `INFLATION`, `EXPORTS_GDP` for EU27 context | Institutional actors           |
-| `weekly-review`     | At least one economic indicator per policy cluster discussed      | General public, researchers     |
+| `committee-reports` | Committee-specific: EMPL→`EDUCATION_EXPENDITURE`; ENVI→`HEALTH_EXPENDITURE`, `LIFE_EXPECTANCY`, `PHYSICIANS`; LIBE→`INTERNET_USERS`, `LITERACY_RATE`; CULT→`SCHOOL_ENROLLMENT`; DEVE→`MALNUTRITION`, `IMMUNIZATION`; FEMM→`SCHOOL_ENROLLMENT`; AGRI→`MALNUTRITION` | Member states, sectoral lobbies |
+| `propositions`      | Topic-specific non-economic indicators (health/education/environment/defence) | Council, Commission, MEPs      |
+| `motions`           | Same as `propositions`; distributional via WB Governance (non-economic only) | Civil society, national parties |
+| `month-ahead`       | Relevant non-economic context (health, education, environment) for EU27 | Institutional actors           |
+| `weekly-review`     | At least one non-economic indicator per policy cluster discussed  | General public, researchers     |
 | `monthly-review`    | Same as `weekly-review` plus `POPULATION`, `LIFE_EXPECTANCY` when relevant | Subscribers, press            |
+
+**Economic indicators for every article type above → IMF.** See
+[`imf-indicator-mapping.md §2,§8`](imf-indicator-mapping.md) for
+per-committee IMF indicator floors.
 
 ## 3. Optional — situational inclusion
 
-| Article type | When to include                                                    |
+| Article type | When to include a WB non-economic indicator                        |
 | ------------ | ------------------------------------------------------------------ |
-| `breaking`   | Only when the breaking event has direct economic consequence (market-moving decision, sanctions, trade disruption) |
-| `week-ahead` | When the week's agenda includes economic or social legislation     |
+| `breaking`   | Only when the breaking event has a direct non-economic consequence (public health emergency, migration, defence) |
+| `week-ahead` | When the week's agenda includes non-economic legislation (health, education, environment, defence) |
 
-## 4. Committee → indicator quick-lookup
+## 4. Committee → non-economic indicator quick-lookup (Wave-3)
 
-Used by the `news-committee-reports` workflow to pick defaults when the AI
-hasn't specified indicators for each featured committee:
+Used by the `news-committee-reports` workflow to pick defaults for
+**non-economic** context; the economic counterpart defaults live in
+[`imf-indicator-mapping.md §2`](imf-indicator-mapping.md).
 
-| Committee                                       | Indicators                                     |
+| Committee                                       | Non-economic WB indicators                     |
 | ----------------------------------------------- | ---------------------------------------------- |
-| AFET (Foreign Affairs)                          | `GDP`, `EXPORTS_GDP`, `FDI_NET`                |
-| AGRI (Agriculture & Rural Development)          | `GDP_PER_CAPITA`, `MALNUTRITION`               |
-| BUDG (Budgets)                                  | `GDP`, `GDP_GROWTH`, `INFLATION`               |
-| CONT (Budgetary Control)                        | `GDP`, `GDP_GROWTH`                            |
-| CULT (Culture & Education)                      | `EDUCATION_EXPENDITURE`, `LITERACY_RATE`       |
-| DEVE (Development)                              | `GNI_PER_CAPITA`, `MALNUTRITION`, `IMMUNIZATION` |
-| DROI (Human Rights subcommittee)                | `LIFE_EXPECTANCY`, `LITERACY_RATE`             |
-| ECON (Economic & Monetary Affairs)              | `GDP_GROWTH`, `INFLATION`, `UNEMPLOYMENT`, `FDI_NET` |
-| EMPL (Employment & Social Affairs)              | `UNEMPLOYMENT`, `EDUCATION_EXPENDITURE`        |
-| ENVI (Environment, Public Health & Food Safety) | `HEALTH_EXPENDITURE`, `LIFE_EXPECTANCY`, `PHYSICIANS` |
-| FEMM (Women's Rights & Gender Equality)         | `LIFE_EXPECTANCY`, `SCHOOL_ENROLLMENT`         |
-| IMCO (Internal Market & Consumer Protection)    | `GDP`, `EXPORTS_GDP`                           |
-| INTA (International Trade)                      | `EXPORTS_GDP`, `GDP`, `FDI_NET`                |
-| ITRE (Industry, Research & Energy)              | `GDP_GROWTH`, `INTERNET_USERS`                 |
-| JURI (Legal Affairs)                            | `INTERNET_USERS`                               |
-| LIBE (Civil Liberties, Justice & Home Affairs)  | `INTERNET_USERS`, `LITERACY_RATE`              |
-| PECH (Fisheries)                                | `GDP_PER_CAPITA`                               |
+| AFET (Foreign Affairs)                          | (economic → IMF)                               |
+| AGRI (Agriculture & Rural Development)          | `MALNUTRITION`, `NV.AGR.TOTL.ZS`               |
+| BUDG (Budgets)                                  | (economic → IMF)                               |
+| CONT (Budgetary Control)                        | (economic → IMF)                               |
+| CULT (Culture & Education)                      | `EDUCATION_EXPENDITURE`, `LITERACY_RATE`, `SCHOOL_ENROLLMENT` |
+| DEVE (Development)                              | `MALNUTRITION`, `IMMUNIZATION`, `LIFE_EXPECTANCY` |
+| DROI (Human Rights subcommittee)                | `LIFE_EXPECTANCY`, `LITERACY_RATE`, WGI `RL.*` |
+| ECON (Economic & Monetary Affairs)              | (economic → IMF)                               |
+| EMPL (Employment & Social Affairs)              | `EDUCATION_EXPENDITURE`                        |
+| ENVI (Environment, Public Health & Food Safety) | `HEALTH_EXPENDITURE`, `LIFE_EXPECTANCY`, `PHYSICIANS`, `EN.ATM.CO2E.PC`, `EG.FEC.RNEW.ZS` |
+| FEMM (Women's Rights & Gender Equality)         | `LIFE_EXPECTANCY`, `SCHOOL_ENROLLMENT`, `SG.*` |
+| IMCO (Internal Market & Consumer Protection)    | (economic → IMF)                               |
+| INTA (International Trade)                      | (economic → IMF)                               |
+| ITRE (Industry, Research & Energy)              | `INTERNET_USERS`, `GB.XPD.RSDV.GD.ZS`, `EG.FEC.RNEW.ZS` |
+| JURI (Legal Affairs)                            | `INTERNET_USERS`, WGI `RL.*`                   |
+| LIBE (Civil Liberties, Justice & Home Affairs)  | `INTERNET_USERS`, `LITERACY_RATE`, WGI `VA.*`  |
+| PECH (Fisheries)                                | (economic → IMF)                               |
 | PETI (Petitions)                                | None (procedural committee)                    |
-| REGI (Regional Development)                     | `GDP_PER_CAPITA`, `UNEMPLOYMENT`               |
-| SEDE (Security & Defence subcommittee)          | `GDP`, `EXPORTS_GDP`                           |
-| TAX3 (Tax rulings special committee)            | `GDP`, `FDI_NET`                               |
-| TRAN (Transport & Tourism)                      | `GDP_GROWTH`, `INFLATION`                      |
+| REGI (Regional Development)                     | (economic → IMF; non-economic convergence indicators as needed) |
+| SEDE (Security & Defence subcommittee)          | `MS.MIL.XPND.GD.ZS`, `MS.MIL.TOTL.P1` (WB military) |
+| TAX3 (Tax rulings special committee)            | (economic → IMF)                               |
+| TRAN (Transport & Tourism)                      | (economic → IMF)                               |
 
 ## 5. Degradation policy
 
 When `WB_MCP_OK=false` (see `scripts/wb-mcp-probe.sh`), workflows **must**:
 
 1. Log the probe error in the analysis manifest (`wbMcpDegraded: true`).
-2. Still satisfy the validator gate by including the phrase "World Bank"
-   plus a note explaining the degradation in the article's
+2. For articles with a non-economic policy claim, include the phrase
+   "World Bank" plus a note explaining the degradation in the article's
    *Data source* footer paragraph.
 3. Use precomputed statistics (`analysis/precomputed-stats/**`) as fallback
    context — never fabricate figures.
+4. Degradation of WB MCP does NOT degrade the mandatory IMF economic
+   context — IMF SDMX REST is an independent source with its own probe
+   (`scripts/imf-mcp-probe.sh`). Article gate still enforces IMF primary.
 
 ## 6. Visualisation pattern
 

@@ -72,7 +72,8 @@ flowchart TB
         MCP2[EP MCP get_procedures]:::input
         MCP3[EP MCP get_meps]:::input
         MCP4[EP MCP get_voting_records]:::input
-        MCP5[World Bank get_economic_data]:::input
+        MCP5[IMF imf-fetch-data<br/>primary economic]:::input
+        MCP6[World Bank get_social_data<br/>non-economic]:::input
     end
 
     subgraph FAMILY_B["Family B — Provenance Layer"]
@@ -143,14 +144,27 @@ flowchart TB
     "committees": [ ... ],
     "questions": [ ... ]
   },
-  "worldBank": {
+  "imf": {
+    "vintage": "WEO-April-2026",
     "economicIndicators": [
       {
-        "indicator": "GDP_GROWTH",
+        "databaseId": "WEO",
+        "indicator": "NGDP_RPCH",
+        "countries": ["DEU", "FRA", "ITA", "ESP", "POL"],
+        "years": 10,
+        "retrievedAt": "2026-04-21T14:01:12Z",
+        "endpoint": "imf-fetch-data"
+      }
+    ]
+  },
+  "worldBank": {
+    "nonEconomicIndicators": [
+      {
+        "indicator": "HEALTH_EXPENDITURE",
         "countries": ["DE", "FR", "IT", "ES", "PL"],
         "years": 10,
         "retrievedAt": "2026-04-21T14:01:12Z",
-        "endpoint": "get_economic_data"
+        "endpoint": "get_health_data"
       }
     ]
   },
@@ -248,7 +262,7 @@ Human-readable document that maps **which artifacts cite which data sources** an
 |----------|-----------------|-------------------|--------------|
 | synthesis-summary.md | TA(2026)0123, TA(2026)0124 | QE-001234, A9-0045/2026 | 8 |
 | stakeholder-map.md | get_meps(country=DE), get_voting_records | MEP press statements | 12 |
-| scenario-forecast.md | get_procedures, get_adopted_texts | World Bank GDP data | 6 |
+| scenario-forecast.md | get_procedures, get_adopted_texts | IMF WEO GDP projections (primary) | 6 |
 ```
 
 #### 2.2 Document → Document Links
