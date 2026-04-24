@@ -15,9 +15,13 @@
 name: "News: Translate Reconciler"
 
 on:
-  schedule:
-    # Quarter past every hour — cheap (no AI; sparse-checkout of news/ only to scan for gaps).
-    - cron: '15 * * * *'
+  # ⚠️ DISABLED — the split-family translate-coverage gap that this
+  # reconciler addressed no longer exists in the unified
+  # news-<type>.md workflows (PR #1278, analysis-artifact-driven
+  # pipeline). Translation now runs end-to-end inside a single
+  # news-translate.md invocation per article. The file is retained
+  # for a two-week regression window; final deletion happens in PR 7.
+  # Manual dispatch only — schedule removed.
   workflow_dispatch:
     inputs:
       window_days:

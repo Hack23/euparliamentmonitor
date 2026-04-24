@@ -837,27 +837,43 @@ for ITEM in $(echo "$NEEDS_TRANSLATION" | tr ',' ' '); do
 
   echo "📝 Languages to generate: $MISSING_LANGS"
 
-  # For today's items, use the generator; for backfill/improvement, copy English and prepare for AI translation
+  # For today's items, use the deterministic aggregator/renderer for the
+  # missing languages; for backfill/improvement (legacy HTML-only articles
+  # without committed analysis source markdown), fall back to the AI HTML
+  # translation path further below.
   if [ "$ITEM_DATE" = "$CURRENT_DATE_CACHED" ] && [ "$IMPROVEMENT_MODE" != "true" ]; then
-    # Today's articles: use the TypeScript generator
-    SKIP_FLAG=""
-    if [ "$FORCE_TRANSLATION" != "true" ]; then
-      SKIP_FLAG="--skip-existing"
-    fi
-
-    npx tsx src/generators/news-enhanced.ts \
-      --types="$TYPE" \
-      --languages="$MISSING_LANGS" \
-      $SKIP_FLAG
-
-    if [ $? -eq 0 ]; then
-      TRANSLATED_TYPES="${TRANSLATED_TYPES:+$TRANSLATED_TYPES,}${ITEM_DATE}:${TYPE}"
-      echo "✅ Generation completed for ${ITEM_DATE}/${TYPE}"
+    # Today's articles: resolve the canonical stable analysis folder for
+    # this (date, type) pair and call the deterministic renderer for each
+    # missing language. The aggregator skips writes when the target file's
+    # mtime ≥ all source artifacts (idempotent re-runs are cheap).
+    TYPE_ANALYSIS_DIR=$(scripts/resolve-analysis-dir.sh "$ITEM_DATE" "$TYPE" 2>/dev/null || echo "")
+    if [ -z "$TYPE_ANALYSIS_DIR" ] || [ ! -f "$TYPE_ANALYSIS_DIR/manifest.json" ]; then
+      echo "⚠️ No committed analysis at $TYPE_ANALYSIS_DIR for ${ITEM_DATE}/${TYPE} — falling through to HTML translation path"
     else
-      FAILED_TYPES="${FAILED_TYPES:+$FAILED_TYPES,}${ITEM_DATE}:${TYPE}"
-      echo "⚠️ Generation failed for ${ITEM_DATE}/${TYPE} — continuing with remaining types"
+      LANG_ARGS=""
+      for L in $(echo "$MISSING_LANGS" | tr ',' ' '); do
+        LANG_ARGS="$LANG_ARGS --lang $L"
+      done
+
+      # shellcheck disable=SC2086
+      npm run generate-article -- --run "$TYPE_ANALYSIS_DIR" $LANG_ARGS
+
+      if [ $? -eq 0 ]; then
+        TRANSLATED_TYPES="${TRANSLATED_TYPES:+$TRANSLATED_TYPES,}${ITEM_DATE}:${TYPE}"
+        echo "✅ Render completed for ${ITEM_DATE}/${TYPE} (${MISSING_LANGS})"
+        continue
+      else
+        FAILED_TYPES="${FAILED_TYPES:+$FAILED_TYPES,}${ITEM_DATE}:${TYPE}"
+        echo "⚠️ Render failed for ${ITEM_DATE}/${TYPE} — continuing with remaining types"
+        continue
+      fi
     fi
-  else
+    # fall through to HTML-translation path below if analysis-dir guard tripped
+  fi
+  # Backfill / improvement / today's-articles-without-committed-analysis path:
+  # copy the English HTML for each missing language and let the AI agent
+  # translate in Step 3b.
+  {
     # Backfill or improvement: copy English article for each missing language
     # The AI agent will translate the content in Step 3b
     EN_SOURCE="news/${ITEM_DATE}-${TYPE}-en.html"
@@ -946,7 +962,7 @@ fs.writeFileSync(filePath, c, "utf8");
       echo "📋 Marked $MARK_COUNT existing files for improvement/re-translation"
     fi
     TRANSLATED_TYPES="${TRANSLATED_TYPES:+$TRANSLATED_TYPES,}${ITEM_DATE}:${TYPE}"
-  fi
+  }
 done
 
 echo ""

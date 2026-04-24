@@ -3,15 +3,12 @@ name: "News: EU Parliament Weekly Review — Analysis"
 description: Produces a single analysis-only PR for EU Parliament weekly review. Stages A + B + C only. Paired with news-weekly-review-article.md, which runs Stage D when this PR merges.
 strict: false
 on:
-  schedule: weekly on saturday around 9:00
+  # ⚠️ DISABLED — this split workflow was superseded by the unified
+  # news-<type>.md workflow in PR #1278 (analysis-artifact-driven
+  # pipeline). The file is retained for two weeks as a regression
+  # safety net. Final deletion happens in PR 7. Manual dispatch only;
+  # no schedule, no PR-merge trigger.
   workflow_dispatch:
-    inputs:
-      force_generation:
-        description: Force generation even if recent analysis exists
-        type: boolean
-        required: false
-        default: true
-
 permissions:
   contents: read
   issues: read
@@ -111,6 +108,19 @@ engine:
   model: claude-opus-4.7
 ---
 # 🔬 EU Parliament Weekly Review — Analysis-Only Workflow
+
+> ## ⚠️ DISABLED — Superseded by the unified news-<type>.md workflow
+>
+> This split workflow has been **disabled** as part of the
+> analysis-artifact-driven pipeline migration. The unified
+> `news-<unified-slug>.md` workflow now runs Stages A → B → C → D → E
+> in a single agent session, producing one PR containing both
+> analysis artifacts and the deterministically-rendered article.
+>
+> The file is retained on disk for a two-week regression window;
+> final deletion happens in PR 7. **Manual dispatch only** — no
+> schedule, no PR-merge auto-trigger.
+
 
 You are the **Analysis Agent** for EU Parliament Monitor. This workflow is
 **Stages A + B + C only**. You produce a single analysis-only PR. Stage D

@@ -229,34 +229,47 @@ npm run validate-analysis -- \
 
 Never use `--warn-only`.
 
-### Stage D — Article Generation (Ref: 04, 05)
+### Stage D — Deterministic Article Render (Ref: 04-article-assembly)
 
-Only after Stage C exits 0:
+**Agents do not write article prose.** Stage D is a deterministic CLI
+that aggregates the committed `analysis/**` artifacts into one canonical
+markdown document, then renders it to localized HTML article(s). Only
+after Stage C exits 0:
 
 ```bash
 source scripts/mcp-setup.sh
 export USE_EP_MCP=true
+
+# 1. Persist the gate result + history entry via the existing analysis-stage
+#    wrap-up. This writes manifest.json.history[].gateResult and is required
+#    for downstream tooling (sitemap, political-intelligence index).
 npx tsx src/generators/news-enhanced.ts \
   --types=article-generator \
-  --title="AI-generated headline" \
-  --description="AI-generated meta description" \
   --analysis \
   --analysis-methods=all \
-  --analysis-dir="${ANALYSIS_DIR}"
+  --analysis-dir="${ANALYSIS_DIR}" \
+  --analysis-only \
+  --gate-result="${GATE_RESULT}" \
+  --run-id="${RUN_ID}"
+
+# 2. Deterministic article rendering from the committed analysis artifacts.
+#    For each (date, slug) pair this emits news/<date>-<slug>.en.md
+#    (canonical aggregated markdown) plus news/<date>-<slug>-en.html
+#    (rendered article). Idempotent — skips writes when target mtime ≥ all
+#    source artifacts.
+npm run generate-article -- --run "${ANALYSIS_DIR}"
 ```
 
-Do Pass 1 (initial draft + replace every `[AI_ANALYSIS_REQUIRED]`) then Pass 2
-(full read-back + rewrite shallow sections). Depth floors and quality rules
-live in `04-article-generation.md` §4. Per-type AI-authored sections live in
-`05-analysis-to-article-contract.md` §4.
+Stage D is bounded to ≤ 2 min per article on a typical run. If the gate
+result is `ANALYSIS_ONLY`, the renderer emits a short placeholder article
+documenting the missing artifacts rather than a full prose article.
 
-### Validators (both must exit 0)
+### Validators (must exit 0)
 
 ```bash
-ARTICLE_HTML=$(ls -t "news/${TODAY}-article-generator"*"-en.html" 2>/dev/null | head -1)
-[ -n "$ARTICLE_HTML" ] && \
-  node scripts/utils/validate-analysis-completeness.js --article-html="$ARTICLE_HTML"
-npx tsx src/utils/validate-articles.ts --date="$TODAY" --quality --strict
+npm run validate-analysis -- \
+  --analysis-dir="${ANALYSIS_DIR}" \
+  --article-type="${ARTICLE_TYPE_SLUG}"
 ```
 
 ### Single PR (Ref: 06)
@@ -267,11 +280,11 @@ Emit to stdout immediately before the call:
 SINGLE_PR_ATTESTATION: about to emit the only PR of this run at elapsed=<N>m with <X> analysis files + <Y> article files staged
 ```
 
-Then call `safeoutputs___create_pull_request` **exactly once** with:
+Then call the single-PR safe-output **exactly once** with:
 - `base: "main"`
 - `head: "news/${TODAY}-article-generator-${RUN_ID}"`
-- `title: "[news] <AI-generated headline>"`
-- `body: <PR body summarising analysis + article + any fixes per 00-scope §3>`
+- `title: "[news] backfill — ${TODAY} (run ${RUN_ID})"`
+- `body: <PR body summarising analysis + emitted news files; cite per-section artifact provenance from manifest.json>`
 
 > **Banned patterns**: see `06-pr-and-safe-outputs.md` §4. The repo CI
 > lint (`scripts/lint-prompts.js`) fails the build if any banned pattern

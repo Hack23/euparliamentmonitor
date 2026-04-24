@@ -3,43 +3,12 @@ name: "News: EU Parliament Breaking News — Article"
 description: Generates the EU Parliament breaking-news English article once the paired analysis PR is merged. Stage D only. Reads committed analysis from main, optional bounded Stage-A top-up, single article PR.
 strict: false
 on:
-  pull_request:
-    types: [closed]
-    branches: [main]
+  # ⚠️ DISABLED — this split workflow was superseded by the unified
+  # news-<type>.md workflow in PR #1278 (analysis-artifact-driven
+  # pipeline). The file is retained for two weeks as a regression
+  # safety net. Final deletion happens in PR 7. Manual dispatch only;
+  # no schedule, no PR-merge trigger.
   workflow_dispatch:
-    inputs:
-      analysis_date:
-        description: 'Analysis date (YYYY-MM-DD). Defaults to today.'
-        required: false
-      article_type:
-        description: 'Article type slug. Fixed to "breaking" for this workflow.'
-        required: false
-        default: breaking
-  steps:
-    - name: Check analysis PR trigger gate
-      id: gate
-      env:
-        EVENT: ${{ github.event_name }}
-        MERGED: ${{ github.event.pull_request.merged }}
-        LABELS: ${{ toJSON(github.event.pull_request.labels.*.name) }}
-      run: |
-        if [ "$EVENT" = "workflow_dispatch" ]; then
-          exit 0
-        fi
-        if [ "$MERGED" != "true" ]; then
-          echo "PR not merged — skipping article workflow"
-          exit 1
-        fi
-        if ! echo "$LABELS" | grep -q '"agentic-analysis"'; then
-          echo "PR missing 'agentic-analysis' label — skipping article workflow"
-          exit 1
-        fi
-        if ! echo "$LABELS" | grep -q '"type:breaking"'; then
-          echo "PR missing 'type:breaking' label — skipping article workflow"
-          exit 1
-        fi
-
-if: needs.pre_activation.outputs.gate_result == 'success'
 
 permissions:
   contents: read
@@ -143,6 +112,19 @@ engine:
   model: claude-opus-4.7
 ---
 # 📰 EU Parliament Breaking News — Article Workflow
+
+> ## ⚠️ DISABLED — Superseded by the unified news-<type>.md workflow
+>
+> This split workflow has been **disabled** as part of the
+> analysis-artifact-driven pipeline migration. The unified
+> `news-<unified-slug>.md` workflow now runs Stages A → B → C → D → E
+> in a single agent session, producing one PR containing both
+> analysis artifacts and the deterministically-rendered article.
+>
+> The file is retained on disk for a two-week regression window;
+> final deletion happens in PR 7. **Manual dispatch only** — no
+> schedule, no PR-merge auto-trigger.
+
 
 You are the **News Journalist Agent** for EU Parliament Monitor. This
 workflow runs **Stage D only** (article drafting + PR). The analysis has
