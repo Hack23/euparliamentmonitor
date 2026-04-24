@@ -180,27 +180,73 @@ describe('content-validator — IMF fingerprints', () => {
     });
   });
 
-  describe('isWave3IMFStrictEnabled — flag parser', () => {
-    it('returns false when unset', () => {
-      expect(isWave3IMFStrictEnabled({})).toBe(false);
-      expect(isWave3IMFStrictEnabled({ WAVE3_IMF_STRICT: undefined })).toBe(false);
+  describe('isWave3IMFStrictEnabled — flag parser (Wave-4 default-on)', () => {
+    it('returns true when no flag is set (Wave-4 default)', () => {
+      // Wave-4 (April 2026) flipped the default: absence of any override
+      // means the strict IMF-primary gate is enforced.
+      expect(isWave3IMFStrictEnabled({})).toBe(true);
+      expect(isWave3IMFStrictEnabled({ WAVE3_IMF_STRICT: undefined })).toBe(true);
     });
 
-    it('returns false for falsy values', () => {
-      expect(isWave3IMFStrictEnabled({ WAVE3_IMF_STRICT: '' })).toBe(false);
+    it('returns false only when WAVE3_IMF_STRICT is explicitly falsy', () => {
+      // Empty string and unrecognised literals must NOT silently disable
+      // the gate — only documented falsy literals do, so a typo never
+      // turns enforcement off by accident.
+      expect(isWave3IMFStrictEnabled({ WAVE3_IMF_STRICT: '' })).toBe(true);
+      expect(isWave3IMFStrictEnabled({ WAVE3_IMF_STRICT: 'maybe' })).toBe(true);
       expect(isWave3IMFStrictEnabled({ WAVE3_IMF_STRICT: '0' })).toBe(false);
       expect(isWave3IMFStrictEnabled({ WAVE3_IMF_STRICT: 'false' })).toBe(false);
-      expect(isWave3IMFStrictEnabled({ WAVE3_IMF_STRICT: 'no' })).toBe(false);
-      expect(isWave3IMFStrictEnabled({ WAVE3_IMF_STRICT: 'off' })).toBe(false);
+      expect(isWave3IMFStrictEnabled({ WAVE3_IMF_STRICT: 'No' })).toBe(false);
+      expect(isWave3IMFStrictEnabled({ WAVE3_IMF_STRICT: 'OFF' })).toBe(false);
+      expect(isWave3IMFStrictEnabled({ WAVE3_IMF_STRICT: '  false  ' })).toBe(false);
     });
 
-    it('returns true for every documented truthy value', () => {
+    it('returns true for every documented truthy value (back-compat)', () => {
       expect(isWave3IMFStrictEnabled({ WAVE3_IMF_STRICT: '1' })).toBe(true);
       expect(isWave3IMFStrictEnabled({ WAVE3_IMF_STRICT: 'true' })).toBe(true);
       expect(isWave3IMFStrictEnabled({ WAVE3_IMF_STRICT: 'TRUE' })).toBe(true);
       expect(isWave3IMFStrictEnabled({ WAVE3_IMF_STRICT: 'Yes' })).toBe(true);
       expect(isWave3IMFStrictEnabled({ WAVE3_IMF_STRICT: 'on' })).toBe(true);
       expect(isWave3IMFStrictEnabled({ WAVE3_IMF_STRICT: '  true  ' })).toBe(true);
+    });
+
+    describe('WAVE3_IMF_LEGACY escape hatch', () => {
+      it('disables strict mode when WAVE3_IMF_LEGACY is truthy', () => {
+        // The legacy flag is the supported one-release exit ramp for
+        // editorial regressions discovered after the Wave-4 default-flip.
+        for (const truthy of ['1', 'true', 'TRUE', 'Yes', 'on', '  true  ']) {
+          expect(isWave3IMFStrictEnabled({ WAVE3_IMF_LEGACY: truthy })).toBe(false);
+        }
+      });
+
+      it('takes precedence over WAVE3_IMF_STRICT when both are set', () => {
+        // LEGACY wins outright so operators have a single, unambiguous
+        // way to bring the OR-gate back without re-deriving the truth
+        // table for combined flag states.
+        expect(
+          isWave3IMFStrictEnabled({ WAVE3_IMF_LEGACY: '1', WAVE3_IMF_STRICT: 'true' })
+        ).toBe(false);
+        expect(
+          isWave3IMFStrictEnabled({ WAVE3_IMF_LEGACY: 'on', WAVE3_IMF_STRICT: '1' })
+        ).toBe(false);
+      });
+
+      it('does NOT disable strict mode for unrecognised or empty values', () => {
+        // Same anti-typo guard as WAVE3_IMF_STRICT — only documented
+        // truthy literals open the escape hatch.
+        expect(isWave3IMFStrictEnabled({ WAVE3_IMF_LEGACY: '' })).toBe(true);
+        expect(isWave3IMFStrictEnabled({ WAVE3_IMF_LEGACY: '0' })).toBe(true);
+        expect(isWave3IMFStrictEnabled({ WAVE3_IMF_LEGACY: 'false' })).toBe(true);
+        expect(isWave3IMFStrictEnabled({ WAVE3_IMF_LEGACY: 'maybe' })).toBe(true);
+      });
+
+      it('with both unset, default is strict (Wave-4 keystone behaviour)', () => {
+        // The single most important regression test: an empty environment
+        // must enforce IMF-primary economic context. If this assertion
+        // ever flips back, the Wave-4 default-flip has been silently
+        // reverted and operators will lose the gate.
+        expect(isWave3IMFStrictEnabled({})).toBe(true);
+      });
     });
   });
 });

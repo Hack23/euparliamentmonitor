@@ -45,6 +45,7 @@ import { NEWS_DIR, METADATA_DIR, VALID_ARTICLE_CATEGORIES, ARTICLE_TYPE_WEEK_AHE
 import { ALL_LANGUAGES, LANGUAGE_PRESETS, isSupportedLanguage } from '../constants/languages.js';
 import { closeEPMCPClient } from '../mcp/ep-mcp-client.js';
 import { ensureDirectoryExists } from '../utils/file-utils.js';
+import { isWave3IMFStrictEnabled } from '../utils/content-validator.js';
 // ─── Pipeline-stage imports ───────────────────────────────────────────────────
 import { initializeMCPClient, fetchEPFeedData } from './pipeline/fetch-stage.js';
 import { createStrategyRegistry, generateArticleForStrategy, setAIMetadata, } from './pipeline/generate-stage.js';
@@ -527,6 +528,15 @@ function resolveAnalysisFileEntries(analysisCtx) {
 async function main() {
     console.log('');
     console.log('🚀 Starting news generation...');
+    // Surface the resolved Wave-4 IMF strict-gate posture at startup so
+    // operators reading workflow logs can immediately see whether the
+    // canonical IMF-primary economic-context gate is active or whether
+    // the legacy OR-gate is in effect via the WAVE3_IMF_LEGACY escape
+    // hatch. Read once and reused by validate-articles.ts downstream.
+    const imfStrict = isWave3IMFStrictEnabled();
+    console.log(imfStrict
+        ? '🌐 IMF economic-context gate: STRICT (Wave-4 default; set WAVE3_IMF_LEGACY=1 to revert)'
+        : '🌐 IMF economic-context gate: LEGACY OR-gate (WAVE3_IMF_LEGACY active or WAVE3_IMF_STRICT=false)');
     console.log('');
     // Wire AI-provided title/description from CLI flags.
     wireAIMetadata();

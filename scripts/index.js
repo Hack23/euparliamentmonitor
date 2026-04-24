@@ -56,8 +56,8 @@ export { scoreSignificance, scoreBatch, clampScore, deriveDecision, formatScoreM
 export { parseFrontmatter, aggregateSWOT, aggregateRisks, extractSummaryLine, aggregateConfidence, findMarkdownFiles, generateEditorialRecommendations, buildSynthesisSummary, formatSynthesisMarkdown, } from './generators/synthesis-summary.js';
 // ─── Content Validation ──────────────────────────────────────────────────────
 export { validateArticleContent, validateTranslationCompleteness, } from './utils/content-validator.js';
-// ─── Economic-context evidence helpers (Wave 1 dual-source) ──────────────────
-export { WORLD_BANK_STRONG_FINGERPRINTS, WORLD_BANK_INDICATOR_CODES, WORLD_BANK_FINGERPRINTS, hasWorldBankEvidence, articlePolicyHasWorldBank, IMF_STRONG_FINGERPRINTS, IMF_INDICATOR_CODES, hasIMFEvidence, articlePolicyHasEconomicContext, } from './utils/content-validator.js';
+// ─── Economic-context evidence helpers (Wave 4: IMF strict default-on) ───────
+export { WORLD_BANK_STRONG_FINGERPRINTS, WORLD_BANK_INDICATOR_CODES, WORLD_BANK_FINGERPRINTS, hasWorldBankEvidence, articlePolicyHasWorldBank, IMF_STRONG_FINGERPRINTS, IMF_INDICATOR_CODES, hasIMFEvidence, articlePolicyHasEconomicContext, articlePolicyHasIMFEconomicEvidence, isWave3IMFStrictEnabled, } from './utils/content-validator.js';
 // ─── Content Metadata ────────────────────────────────────────────────────────
 export { enrichMetadataFromContent } from './utils/content-metadata.js';
 // ─── News Metadata ───────────────────────────────────────────────────────────

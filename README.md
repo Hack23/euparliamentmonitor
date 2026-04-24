@@ -168,6 +168,12 @@ covering:
 - 🤖 **GitHub Actions Integration**: Automated daily news generation
 - 📊 **SEO Optimized**: Proper metadata, structured data, and sitemap generation
 - ✅ **Code Quality**: ESLint, Prettier, and automated quality gates
+- 🌐 **IMF-grade Economic Context**: Wave-4 strict gate (April 2026, default-on)
+  enforces IMF-primary citations on every policy article — see
+  [`analysis/imf/README.md`](analysis/imf/README.md) and
+  [`analysis/methodologies/imf-indicator-mapping.md`](analysis/methodologies/imf-indicator-mapping.md).
+  Set `WAVE3_IMF_LEGACY=1` for the one-release exit ramp to the legacy
+  WB-or-IMF OR-gate.
 
 ## 🔒 Security Architecture
 

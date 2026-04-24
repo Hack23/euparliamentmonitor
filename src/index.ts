@@ -154,7 +154,7 @@ export {
   validateTranslationCompleteness,
 } from './utils/content-validator.js';
 
-// ─── Economic-context evidence helpers (Wave 1 dual-source) ──────────────────
+// ─── Economic-context evidence helpers (Wave 4: IMF strict default-on) ───────
 export {
   WORLD_BANK_STRONG_FINGERPRINTS,
   WORLD_BANK_INDICATOR_CODES,
@@ -165,6 +165,8 @@ export {
   IMF_INDICATOR_CODES,
   hasIMFEvidence,
   articlePolicyHasEconomicContext,
+  articlePolicyHasIMFEconomicEvidence,
+  isWave3IMFStrictEnabled,
 } from './utils/content-validator.js';
 
 // ─── Content Metadata ────────────────────────────────────────────────────────

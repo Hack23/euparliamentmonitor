@@ -107,15 +107,17 @@ function slugToArticleType(slug: string): string {
 // ─── Main validation logic ────────────────────────────────────────────────────
 
 /**
- * For policy article types, verify that either **World Bank** or **IMF**
- * economic context is cited in the article body OR in any `.md` file under
- * the article's `analysis/daily/{date}/{slug}*` directory. Non-policy article
- * types are always considered satisfied.
+ * For policy article types, verify that **IMF** economic context is cited
+ * in the article body OR in any `.md` file under the article's
+ * `analysis/daily/{date}/{slug}*` directory. Non-policy article types are
+ * always considered satisfied.
  *
- * This is the Wave-2 OR-gate (see IMF migration plan §5 Wave 2) that
- * replaces the prior World-Bank-only strict gate. WB-only articles remain
- * green (backward compatible); IMF-only or dual-sourced articles are now
- * also accepted.
+ * **Wave-4 default-on (April 2026):** the strict IMF-primary gate is
+ * enforced by default. Setting `WAVE3_IMF_LEGACY=1` reverts to the
+ * Wave-2 OR-gate (WB OR IMF) for one release, intended only as an
+ * exit ramp for editorial regressions discovered after the
+ * default-flip. See {@link isWave3IMFStrictEnabled} for the exact
+ * env-var precedence.
  *
  * @param html - Full HTML of the article being validated
  * @param articleType - Article category slug (e.g. `"committee-reports"`)
@@ -132,16 +134,17 @@ function checkEconomicContextEvidence(
   const strict = isWave3IMFStrictEnabled();
 
   // Short-circuit for non-policy article types. For policy types, take the
-  // gate from the Wave-3 flag: when enabled, IMF alone is required; when
-  // disabled, the legacy OR-gate (WB OR IMF) applies.
+  // gate from the resolved strict flag: when enabled (the Wave-4 default),
+  // IMF alone is required; when explicitly disabled via `WAVE3_IMF_LEGACY`,
+  // the legacy OR-gate (WB OR IMF) applies.
   const bodyGateSatisfied = strict
     ? articlePolicyHasIMFEconomicEvidence(html, articleType)
     : articlePolicyHasEconomicContext(html, articleType);
   if (bodyGateSatisfied) return null;
 
   const requiredDesc = strict
-    ? 'IMF economic context (Wave-3 strict)'
-    : 'economic context (World Bank or IMF)';
+    ? 'IMF economic context (Wave-4 strict, default-on; set WAVE3_IMF_LEGACY=1 to revert to OR-gate)'
+    : 'economic context (World Bank or IMF; legacy OR-gate via WAVE3_IMF_LEGACY)';
 
   // Sweep sibling analysis directories: analysis/daily/{date}/{slug}*
   const analysisRoot = path.join(PROJECT_ROOT, 'analysis', 'daily', date);

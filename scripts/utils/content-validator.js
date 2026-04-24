@@ -1081,14 +1081,22 @@ export function hasWorldBankEvidence(text) {
  * tool-trace token, or the phrase "World Bank" itself. Returns `true` if the
  * gate is satisfied OR the article type is not on the mandatory list.
  *
- * **⚠️ Wave-2 status (April 2026): legacy / soft check.** The strict gate
- * enforced by `validate-articles.ts` is
- * {@link articlePolicyHasEconomicContext} (IMF OR WB, IMF preferred).
- * This WB-only function is retained for backward-compatibility call
- * sites (e.g., unit tests, migration scripts) and for diagnostic
- * reporting — it must NOT be used as the primary validator gate for
- * new call sites. Use `articlePolicyHasEconomicContext` instead.
+ * **⚠️ Deprecated (Wave-4, April 2026):** the canonical economic-context
+ * validator gate is now {@link articlePolicyHasIMFEconomicEvidence}
+ * (IMF-primary, default-on). The OR-gate
+ * {@link articlePolicyHasEconomicContext} (IMF OR WB) is the legacy
+ * fallback selected only when the `WAVE3_IMF_LEGACY=1` escape hatch
+ * is set. This WB-only helper is retained for diagnostic reporting,
+ * backward-compatible unit tests, and the non-economic WB scope
+ * documented in `analysis/worldbank/README.md`. It must NOT be used
+ * as the primary validator gate for new call sites — prefer
+ * `articlePolicyHasIMFEconomicEvidence`.
  *
+ * @deprecated Wave-4 (April 2026): use
+ *   {@link articlePolicyHasIMFEconomicEvidence} for the strict
+ *   economic-context gate. WB-only helpers are retained for
+ *   non-economic scope and diagnostics. Will be removed once
+ *   downstream callers migrate.
  * @param html - Article HTML
  * @param articleType - Slug of the article category (e.g. `"committee-reports"`)
  * @param _analysisDir - Reserved for API symmetry; filesystem recursion is
@@ -1213,17 +1221,20 @@ export function hasIMFEvidence(text) {
 }
 /**
  * OR-gate: verify that a policy article (or its linked analysis
- * artefacts) cites **either** World Bank OR IMF evidence. Wired into
- * the strict CLI validator (`src/utils/validate-articles.ts`) as the
- * **primary enforced** economic-context gate (Wave 2, April 2026): an
- * article satisfies the rule when {@link hasWorldBankEvidence} OR
- * {@link hasIMFEvidence} returns `true`, or when `articleType` is not
- * on the mandatory list.
+ * artefacts) cites **either** World Bank OR IMF evidence. Returns
+ * `true` when {@link hasWorldBankEvidence} OR {@link hasIMFEvidence}
+ * is `true`, or when `articleType` is not on the mandatory list.
  *
- * **IMF is the preferred source** for new articles per the WB↔IMF
- * Wave-2 split (WB = non-economic only; IMF = economic / fiscal /
- * monetary / trade). WB-only articles remain green for
- * backward-compatibility with pre-Wave-2 content. See
+ * **⚠️ Legacy gate (Wave-4, April 2026).** The default validator gate
+ * is now {@link articlePolicyHasIMFEconomicEvidence} (IMF-primary,
+ * default-on). This OR-gate is selected by `validate-articles.ts`
+ * only when the `WAVE3_IMF_LEGACY=1` escape hatch is set — kept for
+ * one release so pre-Wave-3 articles can be re-validated without
+ * editorial regressions.
+ *
+ * **IMF is the authoritative source** for new articles per the
+ * WB↔IMF Wave-2 split (WB = non-economic only; IMF = economic /
+ * fiscal / monetary / trade). See
  * [`analysis/imf/README.md`](../../analysis/imf/README.md) and
  * [`analysis/worldbank/README.md`](../../analysis/worldbank/README.md).
  *
@@ -1238,24 +1249,23 @@ export function articlePolicyHasEconomicContext(html, articleType) {
     return hasWorldBankEvidence(html) || hasIMFEvidence(html);
 }
 /**
- * Strict Wave-3 gate: verify that a policy article cites **IMF**
- * economic evidence specifically. Returns `true` when {@link
+ * Strict Wave-3 / Wave-4 gate: verify that a policy article cites
+ * **IMF** economic evidence specifically. Returns `true` when {@link
  * hasIMFEvidence} returns `true` for `html`, or when `articleType` is
  * not on the mandatory list. World Bank evidence alone does NOT
  * satisfy this gate.
  *
- * **🚦 Dark-launch status (Wave-3, April 2026):** this helper is
- * shipped but NOT wired as the default validator gate. It activates
- * only when the environment variable `WAVE3_IMF_STRICT=true` is set
- * (read by `validate-articles.ts` at process start). When activated,
- * a missing IMF citation on a policy article fails Stage-C and blocks
- * PR creation. The intent is to allow opt-in dark-launch runs and
- * dashboard telemetry before Wave-4 flips the default.
+ * **🚦 Default-on (Wave-4, April 2026):** this helper is the
+ * canonical economic-context validator gate. `validate-articles.ts`
+ * routes through it for every policy article unless the
+ * `WAVE3_IMF_LEGACY=1` escape hatch is set (one-release exit ramp,
+ * see {@link isWave3IMFStrictEnabled}). A missing IMF citation on a
+ * policy article fails Stage-C and blocks PR creation.
  *
  * See [`analysis/methodologies/imf-indicator-mapping.md §8`](../../analysis/methodologies/imf-indicator-mapping.md)
  * for per-article-type IMF indicator floors and
  * [`.github/skills/imf-data-integration.md`](../../.github/skills/imf-data-integration.md)
- * for the Wave-3 editorial policy rationale.
+ * for the editorial policy rationale.
  *
  * @param html - Article HTML or aggregated text including analysis files.
  * @param articleType - Slug of the article category (e.g. `"committee-reports"`).
@@ -1269,28 +1279,75 @@ export function articlePolicyHasIMFEconomicEvidence(html, articleType) {
     return hasIMFEvidence(html);
 }
 /**
- * Resolve whether the Wave-3 strict IMF-primary gate should be
- * enforced for the current run. Reads the `WAVE3_IMF_STRICT`
- * environment variable and interprets any of `1`, `true`, `yes`, `on`
- * (case-insensitive) as enabled. The default (unset / any other
- * value) keeps the existing OR-gate
- * ({@link articlePolicyHasEconomicContext}) in effect so pre-Wave-2
- * articles remain green.
+ * Resolve whether the strict IMF-primary gate should be enforced for
+ * the current run. **Default is `true`** (Wave-4, April 2026): absence
+ * of any environment override means the strict gate is on.
+ *
+ * Override precedence (highest first):
+ * 1. `WAVE3_IMF_LEGACY` — when set to a truthy value (`1`, `true`,
+ *    `yes`, `on`; case-insensitive, whitespace-trimmed) the legacy
+ *    OR-gate ({@link articlePolicyHasEconomicContext}) is selected.
+ *    Reserved as a one-release exit ramp for editorial regressions
+ *    discovered after the Wave-4 default-flip.
+ * 2. `WAVE3_IMF_STRICT` — explicit strict-mode override; any falsy
+ *    value (`0`, `false`, `no`, `off`) forces the legacy OR-gate.
+ *    Truthy values keep strict mode on (the new default), so this
+ *    flag is now mostly informational and is retained for
+ *    backward-compatibility with Wave-3 dark-launch wiring.
+ * 3. Default: `true` (strict).
  *
  * Exposed as a standalone helper so the CLI validator, the dev
- * server, and unit tests can share a single interpretation of the
- * flag without duplicating truthy-parsing logic.
+ * server, and unit tests share a single interpretation of the
+ * flags without duplicating truthy-parsing logic.
  *
  * @param env - Environment map; defaults to `process.env`. Injected
  *   for deterministic testing.
- * @returns `true` when the strict Wave-3 IMF-primary gate is enabled.
+ * @returns `true` when the strict IMF-primary gate is enabled
+ *   (i.e. the legacy escape hatch is not set and strict mode has
+ *   not been explicitly disabled).
  */
 export function isWave3IMFStrictEnabled(env = process.env) {
-    const raw = env['WAVE3_IMF_STRICT'];
+    // Highest-precedence: legacy escape hatch wins outright.
+    if (parseTruthyFlag(env['WAVE3_IMF_LEGACY']))
+        return false;
+    // Explicit strict override: only a *falsy* value disables strict
+    // mode. Truthy / unset / unrecognised values keep the default-on
+    // posture so callers don't need to set anything in the common case.
+    const strictRaw = env['WAVE3_IMF_STRICT'];
+    if (typeof strictRaw === 'string' && isExplicitlyFalsy(strictRaw))
+        return false;
+    return true;
+}
+/**
+ * Parse a string env-var value as a truthy flag. Accepts `1`, `true`,
+ * `yes`, `on` (case-insensitive, whitespace-trimmed). Anything else
+ * — including `undefined`, the empty string, or unrecognised literals
+ * — returns `false`.
+ *
+ * @param raw - Raw env var value to interpret.
+ * @returns `true` when `raw` is a documented truthy literal.
+ */
+function parseTruthyFlag(raw) {
     if (typeof raw !== 'string')
         return false;
     const normalised = raw.trim().toLowerCase();
     return normalised === '1' || normalised === 'true' || normalised === 'yes' || normalised === 'on';
+}
+/**
+ * Test whether a string env-var value is one of the documented
+ * *explicitly falsy* literals (`0`, `false`, `no`, `off`,
+ * case-insensitive, whitespace-trimmed). Empty strings and
+ * unrecognised literals do NOT count as explicitly falsy — they fall
+ * through to the caller's default. Used by
+ * {@link isWave3IMFStrictEnabled} so a typo never silently turns the
+ * strict gate off.
+ *
+ * @param raw - Raw env var value to interpret.
+ * @returns `true` when `raw` is a documented falsy literal.
+ */
+function isExplicitlyFalsy(raw) {
+    const normalised = raw.trim().toLowerCase();
+    return normalised === '0' || normalised === 'false' || normalised === 'no' || normalised === 'off';
 }
 /**
  * Validate the quality of a generated article.
