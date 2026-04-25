@@ -112,7 +112,7 @@ attribution + data currency dates" checklist item in
   same year, use the actual. The agent applies this rule when
   constructing `intelligence/economic-context.md` (the `A` and `F`
   `OBS_STATUS` codes in the raw SDMX-JSON payload make the distinction
-  explicit — see [`indicator-catalog.md §4`](indicator-catalog.md#4-observation-status-codes)).
+  explicit — see [`indicator-catalog.md §4`](indicator-catalog.md#4-observation-attributes)).
 
 ---
 

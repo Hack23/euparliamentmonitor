@@ -120,7 +120,7 @@ standard SDMX-JSON reader (agents typically read the series under
 `data.structures[0].dimensions.observation`). The `OBS_STATUS=F`
 (forecast) attribute should be propagated to the rendered HTML as
 `data-forecast="true"` on the corresponding table row — see
-[`analysis/imf/indicator-catalog.md §4`](../../analysis/imf/indicator-catalog.md#4-observation-status-codes).
+[`analysis/imf/indicator-catalog.md §4`](../../analysis/imf/indicator-catalog.md#4-observation-attributes).
 
 > The earlier helper-module surface (`parseSDMXJSON`, `getIMFCountryCode`,
 > `isIMFEUMemberState`, `IMF_POLICY_INDICATORS`,
@@ -209,7 +209,7 @@ existing workflow prompts do not need to change.
 3. **Prefer actuals**: When both an actual and a forecast exist for
    the same year, use the actual (the raw SDMX-JSON response carries
    `OBS_STATUS=A` vs `F` on each observation — see
-   [`analysis/imf/indicator-catalog.md §4`](../../analysis/imf/indicator-catalog.md#4-observation-status-codes)).
+   [`analysis/imf/indicator-catalog.md §4`](../../analysis/imf/indicator-catalog.md#4-observation-attributes)).
 4. **Cite source**: `Source: IMF, World Economic Outlook, April 2026.`
 
 ---

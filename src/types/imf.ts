@@ -180,7 +180,7 @@ export interface IMFForecastPoint {
  * `src/utils/imf-data.ts` was purged in the April-2026
  * aggregator-pipeline migration.
  *
- * @see {@link https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/imf/indicator-catalog.md#2-core-indicators | IMF indicator catalog §2}
+ * @see {@link https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/imf/indicator-catalog.md#2-policy-domain--imf-indicator-mapping | IMF indicator catalog §2}
  * @see {@link https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/imf-indicator-mapping.md | IMF per-committee indicator mapping}
  */
 export type IMFMacroIndicatorKey =

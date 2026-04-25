@@ -154,7 +154,7 @@ cited" in an article is:
 |---|---|
 | IMF product names (`IMF`, `WEO`, `Fiscal Monitor`, `International Monetary Fund`, `data.imf.org`, `dataservices.imf.org`) | [`../imf/indicator-catalog.md §6`](../imf/indicator-catalog.md#6-fingerprint-convention) |
 | Virtual tool names (`imf-list-databases`, `imf-search-databases`, `imf-get-parameter-defs`, `imf-get-parameter-codes`, `imf-fetch-data`) | `IMF_MCP_TOOLS` in [`src/mcp/imf-mcp-client.ts`](../../src/mcp/imf-mcp-client.ts) (drift-guarded by `test/integration/mcp/imf-mcp.test.js`) |
-| SDMX indicator codes | Section 1 of this document + [`../imf/indicator-catalog.md §2`](../imf/indicator-catalog.md#2-core-indicators) |
+| SDMX indicator codes | Section 1 of this document + [`../imf/indicator-catalog.md §2`](../imf/indicator-catalog.md#2-policy-domain--imf-indicator-mapping) |
 | World Bank equivalents (for non-economic domains) | [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md) |
 
 Stage-C confirms the article contains ≥ 1 IMF product name **and** ≥ 1

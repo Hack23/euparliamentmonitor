@@ -146,7 +146,7 @@ Wave-4 editorial review requires that every IMF citation in a
 policy-required article carries:
 
 1. `INDICATOR` code (word-bounded SDMX code from
-   [`indicator-catalog.md §2`](indicator-catalog.md#2-core-indicators)).
+   [`indicator-catalog.md §2`](indicator-catalog.md#2-policy-domain--imf-indicator-mapping)).
 2. `REF_AREA` either as an ISO-3 country, `EU`/`EA`, or a named EU
    member state in prose.
 3. Vintage string when `OBS_STATUS` is `F` (forecast) — e.g.

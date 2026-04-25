@@ -58,7 +58,7 @@ The canonical identifier list is duplicated in `IMF_MCP_TOOLS` in
 integration test `test/integration/mcp/imf-mcp.test.js`. Stage-C editorial
 review treats the five tool names plus the product strings (`IMF`, `WEO`,
 `Fiscal Monitor`, `International Monetary Fund`, `data.imf.org`) and the
-SDMX indicator codes catalogued in [`indicator-catalog.md §2`](indicator-catalog.md#2-core-indicators)
+SDMX indicator codes catalogued in [`indicator-catalog.md §2`](indicator-catalog.md#2-policy-domain--imf-indicator-mapping)
 as the authoritative IMF-citation fingerprints.
 
 ### Why IMF (and why now)
@@ -114,7 +114,7 @@ file.
 3. **Fetch.** The agent calls the five virtual tools (via the native
    client wrapper in `scripts/mcp/imf-mcp-client.js` or an inline `tsx`
    call to `src/mcp/imf-mcp-client.ts`) to pull the indicators required
-   by [`indicator-catalog.md §2`](indicator-catalog.md#2-core-indicators)
+   by [`indicator-catalog.md §2`](indicator-catalog.md#2-policy-domain--imf-indicator-mapping)
    for the article type, then writes the results into
    `analysis/daily/<run>/intelligence/economic-context.md` following
    the [`analysis/templates/economic-context.md`](../templates/economic-context.md)
