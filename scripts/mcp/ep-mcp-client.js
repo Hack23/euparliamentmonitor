@@ -679,14 +679,15 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
     /**
      * Get adopted texts (legislative resolutions, positions, non-legislative resolutions)
      *
-     * When called with `options.docId` this method detects two CONTENT_PENDING
-     * conditions and handles both:
+     * When called with `options.docId` this method delegates to
+     * {@link _fetchAdoptedTextByDocId} which handles two CONTENT_PENDING conditions
+     * with the correct classification from the first log entry:
      *
      * 1. **UPSTREAM_404 indexing lag** (primary, v1.2.13+): The EP MCP Server
      *    throws `UPSTREAM_404: document indexed but content not yet available`
      *    when the EP Open Data Portal has indexed a document identifier but the
      *    content body has not yet been populated (typically 5–15-day lag).
-     *    The docId is recorded in `data/pending-documents.json` with exponential
+     *    The docId is recorded in the pending-documents sidecar with exponential
      *    back-off scheduling so subsequent runs can re-probe without over-reporting
      *    the lag as a reliability defect.
      *
@@ -697,41 +698,77 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * In both cases the method returns the empty `{"texts": []}` fallback so
      * downstream consumers do not render blank title/reference/date fields.
      *
+     * Year-range list queries (no `docId`) use the standard {@link safeCallTool}
+     * wrapper and are not affected by content-availability detection.
+     *
      * @param options - Filter options including optional docId or year
      * @returns Adopted texts data
      */
     async getAdoptedTexts(options = {}) {
-        const result = await this.safeCallTool('get_adopted_texts', options, ADOPTED_TEXTS_FALLBACK);
-        // Only apply special handling to docId lookups — year-range list queries
-        // return `{texts: [...]}` which would never match the sentinel heuristics.
+        // docId lookups use a contextual wrapper so the initial log category is
+        // CONTENT_PENDING, not NOT_FOUND followed by a post-hoc reclassification.
         if (typeof options.docId === 'string' && options.docId.trim().length > 0) {
-            const docId = options.docId.trim();
-            // ── Primary: UPSTREAM_404 "document indexed but content not yet available" ──
-            // The EP MCP Server v1.2.13+ translates the empty-payload sentinel into an
-            // explicit 404 with this message.  This is NOT a transport failure — it is
-            // the documented EP Open Data Portal indexing lag (5–15 days).  Do NOT
-            // classify it as a reliability defect; instead schedule a retry.
-            const failureEntry = this._failedTools.get('get_adopted_texts') ?? '';
-            if (failureEntry.toLowerCase().includes(CONTENT_NOT_YET_AVAILABLE_SUBSTRING)) {
-                // Reclassify: content-availability lag, not a permanent retrieval error
-                this._failedTools.set('get_adopted_texts', `CONTENT_PENDING: ${docId} EP indexing lag (tracked in pending-documents sidecar)`);
-                // Persist to retry sidecar for exponential back-off scheduling
-                await recordPendingDocument(docId, this._pendingDocumentsStorePath).catch((err) => {
-                    console.warn('⚠️ pending-documents: failed to record pending doc:', err.message);
-                });
-                return { content: [{ type: 'text', text: ADOPTED_TEXTS_FALLBACK }] };
+            return this._fetchAdoptedTextByDocId(options.docId.trim());
+        }
+        // Year-range list queries use the standard wrapper.
+        return this.safeCallTool('get_adopted_texts', options, ADOPTED_TEXTS_FALLBACK);
+    }
+    /**
+     * Contextual fetcher for single-document `get_adopted_texts` lookups.
+     *
+     * Wraps {@link callToolWithRetry} directly so content-availability lag is
+     * classified as `CONTENT_PENDING` from the first log entry — not reclassified
+     * from `NOT_FOUND` after the fact.  Two conditions are handled:
+     *
+     * 1. **UPSTREAM_404 indexing lag** (thrown exception or `isError:true` body):
+     *    message contains {@link CONTENT_NOT_YET_AVAILABLE_SUBSTRING}.
+     *
+     * 2. **Empty-string sentinel** (`isError:false`, pre-v1.2.13 defence-in-depth):
+     *    every string field is `""`.
+     *
+     * @param docId - Trimmed document identifier
+     * @returns Adopted texts data or `ADOPTED_TEXTS_FALLBACK`
+     */
+    async _fetchAdoptedTextByDocId(docId) {
+        this._calledTools.add('get_adopted_texts');
+        const persistPending = (label) => recordPendingDocument(docId, this._pendingDocumentsStorePath)
+            .then(() => undefined)
+            .catch((err) => {
+            console.warn(`⚠️ pending-documents: failed to record pending doc (${label}):`, err.message);
+        });
+        try {
+            const result = await this.callToolWithRetry('get_adopted_texts', { docId });
+            // ── isError structured response ──
+            if (result.isError === true) {
+                const text = result.content?.[0]?.text ?? '';
+                if (text.toLowerCase().includes(CONTENT_NOT_YET_AVAILABLE_SUBSTRING)) {
+                    this._failedTools.set('get_adopted_texts', `CONTENT_PENDING: ${docId} EP indexing lag (tracked in pending-documents sidecar)`);
+                    console.warn(`⚠️ get_adopted_texts [CONTENT_PENDING]: ${docId} EP indexing lag`);
+                    await persistPending('isError');
+                    return { content: [{ type: 'text', text: ADOPTED_TEXTS_FALLBACK }] };
+                }
+                return this._recordToolFailure('get_adopted_texts', text, ADOPTED_TEXTS_FALLBACK);
             }
-            // ── Secondary: empty-string sentinel (pre-v1.2.13 defence-in-depth) ──
+            // ── Empty-string sentinel (pre-v1.2.13 defence-in-depth) ──
             const payload = _parseResultPayload(result);
             if (_isEmptyStringSentinel(payload)) {
-                // Also persist to retry sidecar so sentinel-based lags get reprobed
-                await recordPendingDocument(docId, this._pendingDocumentsStorePath).catch((err) => {
-                    console.warn('⚠️ pending-documents: failed to record pending doc (sentinel):', err.message);
-                });
+                await persistPending('sentinel');
                 return this._recordToolFailure('get_adopted_texts', `CONTENT_PENDING: docId=${docId} returned empty-string sentinel (upstream #369)`, ADOPTED_TEXTS_FALLBACK);
             }
+            this._failedTools.delete('get_adopted_texts');
+            return result;
         }
-        return result;
+        catch (error) {
+            const message = error instanceof Error ? error.message : String(error);
+            // ── Primary: UPSTREAM_404 indexing lag (thrown exception) ──
+            if (message.toLowerCase().includes(CONTENT_NOT_YET_AVAILABLE_SUBSTRING)) {
+                this._failedTools.set('get_adopted_texts', `CONTENT_PENDING: ${docId} EP indexing lag (tracked in pending-documents sidecar)`);
+                console.warn(`⚠️ get_adopted_texts [CONTENT_PENDING]: ${docId} EP indexing lag`);
+                await persistPending('upstream_404');
+                return { content: [{ type: 'text', text: ADOPTED_TEXTS_FALLBACK }] };
+            }
+            return this._recordToolFailure('get_adopted_texts', message, ADOPTED_TEXTS_FALLBACK);
+        }
     }
     /**
      * Return the docIds of pending adopted texts that are due for a re-probe
