@@ -534,6 +534,17 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
    *
    * @param options - Filter options including dateFrom, dateTo, eventId, year, location
    * @returns Plenary sessions data
+   *
+   * @remarks
+   * **Date-filter contract (v1.2.14+):** The upstream EP-MCP server applies a client-side
+   * post-filter on `dateFrom`/`dateTo` before serialisation, because the EP Open Data Portal
+   * `/meetings` endpoint silently ignores its `date-from`/`date-to` query parameters (Defect #5).
+   * As a result:
+   * - `data[]` contains only sessions within the requested window.
+   * - `total` reflects the **filtered** count, not the raw upstream count.
+   * - Per-window session counts are reproducible; the EP-side regression is masked by the filter.
+   *
+   * No local post-filter is applied here — the upstream contract is the single source of truth.
    */
   async getPlenarySessions(options: GetPlenarySessionsOptions = {}): Promise<MCPToolResult> {
     return this.safeCallTool('get_plenary_sessions', options, '{"sessions": []}');

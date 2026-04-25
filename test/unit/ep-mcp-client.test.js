@@ -405,6 +405,63 @@ describe('ep-mcp-client', () => {
         });
       });
 
+      it('dateFrom contract: all returned sessions satisfy date >= dateFrom (Stage-B regression, Defect #5)', async () => {
+        // Simulate the upstream post-filter introduced in EP-MCP-Server v1.2.14+.
+        // The EP Open Data Portal /meetings endpoint silently ignores date-from/date-to,
+        // so the MCP server now post-filters client-side. `total` is the filtered count.
+        const mockPayload = {
+          data: [
+            { date: '2026-04-01', location: 'Strasbourg', eventId: 'PLN-2026-04-01' },
+            { date: '2026-04-10', location: 'Brussels', eventId: 'PLN-2026-04-10' },
+            { date: '2026-04-22', location: 'Strasbourg', eventId: 'PLN-2026-04-22' },
+          ],
+          total: 3,
+        };
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: JSON.stringify(mockPayload) }],
+        });
+
+        const result = await client.getPlenarySessions({ dateFrom: '2026-04-01' });
+
+        // The client must pass dateFrom through to the MCP tool unchanged.
+        expect(client.callTool).toHaveBeenCalledWith('get_plenary_sessions', {
+          dateFrom: '2026-04-01',
+        });
+
+        // All sessions in the response must satisfy the date constraint.
+        // This guards against the client re-introducing a local post-filter that could
+        // diverge from the upstream contract (and against regressions in the upstream filter).
+        const parsed = JSON.parse(result.content[0].text);
+        const sessions = parsed.data ?? [];
+        expect(sessions.length).toBeGreaterThan(0);
+        for (const s of sessions) {
+          expect(s.date >= '2026-04-01').toBe(true);
+        }
+      });
+
+      it('dateFrom contract: total reflects filtered count not raw upstream count (Defect #5)', async () => {
+        // v1.2.14+ upstream post-filter: total === data.length when all sessions are in-window.
+        const mockPayload = {
+          data: [
+            { date: '2026-04-05', location: 'Strasbourg', eventId: 'PLN-2026-04-05' },
+            { date: '2026-04-15', location: 'Brussels', eventId: 'PLN-2026-04-15' },
+          ],
+          total: 2,
+        };
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: JSON.stringify(mockPayload) }],
+        });
+
+        const result = await client.getPlenarySessions({
+          dateFrom: '2026-04-01',
+          dateTo: '2026-04-30',
+        });
+
+        const parsed = JSON.parse(result.content[0].text);
+        // total must equal the filtered data length, not an inflated upstream count.
+        expect(parsed.total).toBe(parsed.data.length);
+      });
+
       it('should search documents', async () => {
         client.callTool.mockResolvedValue({
           content: [{ type: 'text', text: '{"documents": []}' }],
