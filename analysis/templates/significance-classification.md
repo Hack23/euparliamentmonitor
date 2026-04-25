@@ -173,14 +173,14 @@ pie title Significance Score Dimension Weights
 
 ## 🛠️ Worked classification table — items in a hypothetical week
 
-| Item | Procedure | Total / 70 | Tier | Urgency | Sensitivity | Rationale |
-|---|---|:-:|:-:|:-:|:-:|---|
-| AI Act IA reg tabling | 2026/0142(COD) | 54 | Tier-1 | 🟠 URGENT | SENSITIVE | Cross-sectoral, 24-month implementation |
-| CRMA trilogue collapse | 2024/0123(COD) | 52 | Tier-1 | 🔴 CRITICAL | RESTRICTED | Window before recess; Council misalignment |
-| Cyber Resilience Package committee adoption | 2025/0017(COD) | 38 | Tier-2 | 🔵 ELEVATED | PUBLIC | Committee step, calendar normal |
-| ENVI minor F-gas update | 2026/0089(COD) | 17 | Tier-4 | ⚪ ROUTINE | PUBLIC | Technical update, consensus expected |
-| MEP open letter on UKR | n/a | 24 | Tier-3 | 🔵 ELEVATED | PUBLIC | Press signal, no procedural standing |
-| Trilogue informal contact (Council) | 2025/0089(COD) | 33 | Tier-2 | 🟠 URGENT | SENSITIVE | Negotiating leverage |
+| Item | Procedure | Total / 70 | Tier | Urgency | Sensitivity | Confidence | Rationale |
+|---|---|:-:|:-:|:-:|:-:|:-:|---|
+| AI Act IA reg tabling | 2026/0142(COD) | 54 | Tier-1 | 🟠 URGENT | SENSITIVE | 🟢 | Cross-sectoral, 24-month implementation |
+| CRMA trilogue collapse | 2024/0123(COD) | 52 | Tier-1 | 🔴 CRITICAL | RESTRICTED | 🟡 | Window before recess; Council misalignment |
+| Cyber Resilience Package committee adoption | 2025/0017(COD) | 38 | Tier-2 | 🔵 ELEVATED | PUBLIC | 🟢 | Committee step, calendar normal |
+| ENVI minor F-gas update | 2026/0089(COD) | 17 | Tier-4 | ⚪ ROUTINE | PUBLIC | 🟢 | Technical update, consensus expected |
+| MEP open letter on UKR | n/a | 24 | Tier-3 | 🔵 ELEVATED | PUBLIC | 🟡 | Press signal, no procedural standing |
+| Trilogue informal contact (Council) | 2025/0089(COD) | 33 | Tier-2 | 🟠 URGENT | SENSITIVE | 🔴 | Negotiating leverage |
 
 **Top-3 items**: 1, 2, 5 (significance × urgency); these are surfaced in
 the article body. Tier-3 and -4 items are summarised in a single

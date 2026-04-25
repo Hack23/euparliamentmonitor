@@ -3,7 +3,7 @@
 
 # World Bank Indicator → Article Type Mapping (Non-Economic Only — Wave-3)
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Last Updated:** 2026-04-25 (UTC)  
+**📋 Document Owner:** CEO | **📄 Version:** 1.2 | **📅 Last Updated:** 2026-04-25 (UTC)  
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-31  
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public  
 **🔗 Mirror file:** [`imf-indicator-mapping.md`](imf-indicator-mapping.md) (economic / fiscal / monetary / trade — Wave-4 partition)  

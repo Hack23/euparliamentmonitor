@@ -158,7 +158,7 @@ No "TBD" rows in inventory: `[REQUIRED: ✅ none / ⚠️ count]`
 
 ---
 
-## 9️⃣ Worked Pass-1 → Pass-2 Example (breaking-news run inventory)
+## 🔟 Worked Pass-1 → Pass-2 Example (breaking-news run inventory)
 
 **❌ Pass-1 (thin, 16 words):**
 > "All artifacts present. Index complete. No gaps detected. See per-artifact files for content. Validation OK."
@@ -168,7 +168,7 @@ No "TBD" rows in inventory: `[REQUIRED: ✅ none / ⚠️ count]`
 
 ---
 
-## 🔟 P1/P2/P3 Priority Rubric
+## 1️⃣1️⃣ P1/P2/P3 Priority Rubric
 
 | Priority | Definition | Read by | Worked artifact list (breaking-news run) |
 |:--------:|------------|---------|------------------------------------------|
@@ -178,7 +178,7 @@ No "TBD" rows in inventory: `[REQUIRED: ✅ none / ⚠️ count]`
 
 ---
 
-## 1️⃣1️⃣ Worked Inventory Listing (breaking-run184/ excerpt)
+## 1️⃣2️⃣ Worked Inventory Listing (breaking-run184/ excerpt)
 
 | Path | Lines | Reading time | Priority | Last-touched stage |
 |------|:-----:|:------------:|:--------:|--------------------|
@@ -197,7 +197,7 @@ No "TBD" rows in inventory: `[REQUIRED: ✅ none / ⚠️ count]`
 
 ---
 
-## 1️⃣2️⃣ Anti-patterns — REJECT on Pass-2 Review
+## 1️⃣3️⃣ Anti-patterns — REJECT on Pass-2 Review
 
 | # | Banned pattern | Why it fails |
 |:-:|---------------|--------------|
@@ -210,7 +210,7 @@ No "TBD" rows in inventory: `[REQUIRED: ✅ none / ⚠️ count]`
 
 ---
 
-## 1️⃣3️⃣ Cross-References — Controlling Methodology
+## 1️⃣4️⃣ Cross-References — Controlling Methodology
 
 - [`../methodologies/per-artifact-methodologies.md#analysis-index`](../methodologies/per-artifact-methodologies.md) — construction rules.
 - [`../methodologies/artifact-catalog.md`](../methodologies/artifact-catalog.md) — master list of artifact types this index covers.
@@ -220,7 +220,7 @@ No "TBD" rows in inventory: `[REQUIRED: ✅ none / ⚠️ count]`
 
 ---
 
-## 1️⃣4️⃣ Stage-C Completeness Signals
+## 1️⃣5️⃣ Stage-C Completeness Signals
 
 `scripts/validate-analysis-completeness.js` checks for this artifact:
 

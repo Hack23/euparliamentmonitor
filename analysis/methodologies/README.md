@@ -6,7 +6,7 @@
 
 <p align="center">
   <strong>📊 Fourteen Interlocking Political Intelligence Methodologies for European Parliament Analysis</strong><br>
-  <em>🎯 Seven core frameworks (Classification · Risk · Threat · SWOT · Style · AI Quality · OSINT) + seven supporting methodologies (Synthesis · Strategic Extensions · Per-Document · Structural Metadata · Electoral Domain · IMF + World Bank Indicator Mappings) governing all 51 analysis templates</em>
+  <em>🎯 Six core frameworks (Classification · Risk · Threat · SWOT · AI Quality · OSINT) + eight supporting methodologies (Style · Synthesis · Strategic Extensions · Per-Document · Structural Metadata · Electoral Domain · IMF Indicator Mappings · World Bank Indicator Mappings) governing all 51 analysis templates</em>
 </p>
 
 <p align="center">

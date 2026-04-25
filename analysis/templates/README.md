@@ -9,7 +9,7 @@
 
 <p align="center">
   <strong>📊 51 Structured Intelligence Templates for AI-Driven Political Analysis</strong><br>
-  <em>🎯 8 split-family workflow-anchor templates (incl. 6 reusable framework templates) + 31 per-artifact templates + 12 extended deep-intelligence templates — covering every unique <code>.md</code> file produced under <code>analysis/daily/</code></em>
+  <em>🎯 14 master-catalog templates (incl. 6 reusable framework templates) + 25 per-artifact templates + 12 extended deep-intelligence templates — covering every unique <code>.md</code> file produced under <code>analysis/daily/</code></em>
 </p>
 
 <p align="center">

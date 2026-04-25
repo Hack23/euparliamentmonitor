@@ -16,7 +16,7 @@
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.5 | **📅 Last Updated:** 2026-04-25 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 2.6 | **📅 Last Updated:** 2026-04-25 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-31
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
@@ -695,7 +695,7 @@ All analysis produced in English serves as the source for 13 additional language
 - **Path:** `/analysis/methodologies/political-style-guide.md`
 - **ISMS Reference:** [STYLE_GUIDE.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/STYLE_GUIDE.md)
 - **Classification:** Public
-- **Version:** 2.6 — Added §Estimative Language & Source Grading codifying ICD 203 BLUF/confidence format, Kent/WEP probability bands with mandatory time horizons, Admiralty source grading (A1–F6), and Pass-2 reviewer checklist. Cross-links `osint-tradecraft-standards.md` as the normative contract; this guide is the style contract.
+- **Version:** 2.6 — Added §Estimative Language & Source Grading codifying ICD 203 BLUF/confidence format, Kent/WEP probability bands with mandatory time horizons, Admiralty source grading (A1–F6), and Pass-2 reviewer checklist. Added §Reader-Engagement Standards to strengthen narrative discipline, scannability, and reader retention expectations for political-intelligence outputs. Cross-links `osint-tradecraft-standards.md` as the normative contract; this guide is the style contract.
 - **Version:** 2.5 — Added universal mermaid init block (mandatory for all `graph`/`flowchart`/`mindmap`/`pie`/`gantt`/`timeline`/`sequenceDiagram`/`stateDiagram`/`classDiagram`/`erDiagram`/`gitGraph`/`xychart-beta`/`C4Context`/`block-beta` diagrams) covering `pie1`–`pie12`, `git0`–`git3`, `cScale0`–`cScale7`, `noteBkgColor`, `errorBkgColor`, and xyChart `plotColorPalette` so every diagram inherits the canonical ISMS palette without per-diagram styling. Added node-icon authoring rule.
 - **Version:** 2.4 — Added classification-aligned Mermaid colour palette, mandatory `quadrantChart` init block (per ISMS STYLE_GUIDE.md stakeholder-mapping format), `classDef` snippet for graph/flowchart diagrams, and quadrant-icon labelling rules
 - **Next Review:** 2026-07-31

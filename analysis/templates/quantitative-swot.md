@@ -198,7 +198,7 @@ quadrantChart
 
 | Check | Threshold | Source |
 |-------|-----------|--------|
-| Line floor | ≥140 lines (default 30 if no override) | `reference-quality-thresholds.json` |
+| Line floor | ≥100–140 lines (per article type; see `reference-quality-thresholds.json`) | `reference-quality-thresholds.json` |
 | Required H2 substrings | "SWOT", "TOWS" | structural contract |
 | Mermaid block | ≥1 `quadrantChart` with ≥4 plotted points | template visual contract |
 | Tradecraft markers | Severity × Confidence weight in every SWOT cell; Admiralty grade on each evidence string | `osint-tradecraft-standards.md` |
@@ -220,4 +220,4 @@ quadrantChart
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/risk-scoring/quantitative-swot.md` · Template v1.2 · Depth floor: 220 lines.
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/risk-scoring/quantitative-swot.md` · Template v1.2 · Depth floor: 100–140 lines (per article type; authoritative source `reference-quality-thresholds.json`).
