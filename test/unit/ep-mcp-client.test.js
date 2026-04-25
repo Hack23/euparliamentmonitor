@@ -760,6 +760,42 @@ describe('ep-mcp-client', () => {
         });
       });
 
+      // Stage-B alias smoke-test (MCP server v1.2.14+ canonicalises PPE → EPP server-side).
+      // Verifies that analyzeCoalitionDynamics forwards groupIds unchanged — no local remapping —
+      // and that a v1.2.14+ shaped response is returned correctly:
+      //   groupMetrics includes EPP with memberCount > 0, and PPE is absent from
+      //   coverage.unrecognizedGroups.
+      it('should forward groupIds: ["PPE"] to the tool without local remapping (alias handled server-side)', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: JSON.stringify({ groupIds: ['PPE'] }) }],
+        });
+
+        const options = { groupIds: ['PPE'] };
+        await client.analyzeCoalitionDynamics(options);
+
+        // PPE must be forwarded as-is — no client-side canonicalisation to 'EPP'.
+        expect(client.callTool).toHaveBeenCalledWith('analyze_coalition_dynamics', options);
+      });
+
+      it('should return EPP group with non-zero memberCount when MCP server resolves PPE alias (v1.2.14+)', async () => {
+        // Simulate the v1.2.14+ response where PPE is canonicalised to EPP server-side.
+        const v1214Response = {
+          groupMetrics: [{ groupId: 'EPP', memberCount: 188 }],
+          coverage: { unrecognizedGroups: [] },
+        };
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: JSON.stringify(v1214Response) }],
+        });
+
+        const result = await client.analyzeCoalitionDynamics({ groupIds: ['PPE'] });
+
+        const parsed = JSON.parse(result.content[0].text);
+        const epp = parsed.groupMetrics.find((g) => g.groupId === 'EPP');
+        expect(epp).toBeDefined();
+        expect(epp.memberCount).toBeGreaterThan(0);
+        expect(parsed.coverage.unrecognizedGroups).not.toContain('PPE');
+      });
+
       it('should detect voting anomalies', async () => {
         client.callTool.mockResolvedValue({
           content: [{ type: 'text', text: '{"anomalies": []}' }],
