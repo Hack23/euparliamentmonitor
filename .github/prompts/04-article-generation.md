@@ -36,8 +36,13 @@ npm run generate-article -- --run "${ANALYSIS_DIR}"
 Article-type slugs: `breaking`, `committee-reports`, `propositions`, `motions`,
 `week-ahead`, `month-ahead`, `week-in-review`, `month-in-review`.
 
-The aggregator CLI is the **sole** render step. There are no more per-type
-strategies, section-builders, or AI-authored HTML slots. The AI's job is done
+The aggregator CLI is the **sole** render step. It:
+
+1. Writes `article.md` **into the analysis run directory** (`${ANALYSIS_DIR}/article.md`) — the canonical Markdown source co-located with the artifacts that produced it. This is excluded from future aggregation so the aggregator never recurses into its own output.
+2. Writes `news/<slug>.en.md` for backwards compatibility with the news-index scripts.
+3. Renders 14 language-variant HTML files under `news/` with the "View source Markdown" link pointing to `article.md` in the run directory.
+
+There are no more per-type strategies, section-builders, or AI-authored HTML slots. The AI's job is done
 when every mandatory artifact under
 [`analysis/methodologies/artifact-catalog.md`](../../analysis/methodologies/artifact-catalog.md)
 is present on disk and passes the Stage-C depth floors in

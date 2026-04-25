@@ -137,11 +137,20 @@ function collectRunArtifacts(runDir) {
             const full = path.join(dir, entry.name);
             const rel = prefix ? `${prefix}/${entry.name}` : entry.name;
             if (entry.isDirectory()) {
-                if (entry.name === 'data' || entry.name === 'runs')
+                // Skip raw payloads, legacy run snapshots, and Pass-1 work-in-progress
+                // snapshots so they are not rendered as supplementary artifacts.
+                if (entry.name === 'data' || entry.name === 'runs' || entry.name === 'pass1')
                     continue;
                 walk(full, rel);
             }
             else if (entry.isFile() && entry.name.endsWith('.md')) {
+                // Skip the generated article.md and any per-language translated variants
+                // (e.g. article.sv.md, article.en.md) — these are outputs of the
+                // aggregator, not inputs to it.  Picking them up would cause the
+                // aggregator to recurse into its own output on subsequent runs.
+                if (entry.name === 'article.md' ||
+                    /^article\.[a-z]{2}(-[a-z]+)?\.md$/.test(entry.name))
+                    continue;
                 result.push(rel);
             }
         }

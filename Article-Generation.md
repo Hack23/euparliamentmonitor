@@ -35,8 +35,9 @@ The current production model is the **April 2026 aggregator-era pipeline**:
 - There is **no AI-authored HTML step**.
 - The canonical render command is `npm run generate-article -- --run <analysis-run-dir>`.
 - Batch regeneration uses `npm run generate-article:all`.
+- Each run also receives a committed `article.md` inside its analysis directory (see [§ article.md in the run directory](#-articlemd-in-the-run-directory)).
 
-> **Example note:** current repository examples for 2026-04-24 are `analysis/daily/2026-04-24/motions/`, `analysis/daily/2026-04-24/propositions/`, and `analysis/daily/2026-04-24/breaking/`. The repository has no committed `analysis/**/article.md` files; the aggregator writes the public Markdown source to `news/<slug>.en.md`, for example `news/2026-04-24-motions-runmotions-run-1777010709.en.md`.
+> **Primary example:** `analysis/daily/2026-04-24/breaking/article.md` → `news/2026-04-24-breaking-en.html` / `news/2026-04-24-breaking-sv.html` (14 language variants).
 
 ---
 
@@ -260,8 +261,8 @@ Because `aggregateAnalysisRun()` merges manifest-declared files with discovered 
 
 | File | Responsibility |
 |---|---|
-| `src/aggregator/article-generator.ts` | CLI entry point; parses flags; runs aggregation; resolves metadata; writes `news/<slug>.en.md` and HTML variants. |
-| `src/aggregator/analysis-aggregator.ts` | Reads run directory and `manifest.json`; flattens manifest files; discovers additional Markdown; orders sections; adds provenance, tradecraft, and analysis-index appendices. |
+| `src/aggregator/article-generator.ts` | CLI entry point; parses flags; runs aggregation; resolves metadata; writes `article.md` to the run directory AND `news/<slug>.en.md`; renders 14 HTML variants. |
+| `src/aggregator/analysis-aggregator.ts` | Reads run directory and `manifest.json`; flattens manifest files; discovers additional Markdown (excluding `article.md`, translated variants, and `pass1/`); orders sections; adds provenance, tradecraft, and analysis-index appendices. |
 | `src/aggregator/artifact-order.ts` | Defines the canonical section order and artifact path claims. |
 | `src/aggregator/clean-artifact.ts` | Strips front matter, banners, H1s, SPDX tags; demotes headings; rewrites links; deduplicates Mermaid bodies. |
 | `src/aggregator/markdown-renderer.ts` | Configures `markdown-it`, headings, footnotes, attrs, definition lists, table wrappers, and Mermaid fence rendering. |
@@ -275,13 +276,13 @@ Because `aggregateAnalysisRun()` merges manifest-declared files with discovered 
 ### CLI contract
 
 ```bash
-# Single-run render: source Markdown plus all 14 HTML variants
+# Single-run render: article.md in run dir + source Markdown in news/ + all 14 HTML variants
 npm run generate-article -- --run analysis/daily/2026-04-24/propositions
 
 # Single-run render for selected languages
 npm run generate-article -- --run analysis/daily/2026-04-24/propositions --lang en --lang sv
 
-# Batch regeneration of every valid analysis run
+# Batch regeneration of every valid analysis run (backport / rebuild all article.md files)
 npm run generate-article:all
 
 # Batch regeneration from a date lower bound
@@ -295,11 +296,12 @@ npm run generate-article -- --run analysis/daily/2026-04-24/propositions --markd
 
 | Input | Output |
 |---|---|
-| `analysis/daily/2026-04-24/propositions/manifest.json` with `articleType: propositions` | `news/2026-04-24-propositions.en.md` |
+| `analysis/daily/2026-04-24/propositions/manifest.json` with `articleType: propositions` | **`analysis/daily/2026-04-24/propositions/article.md`** (canonical run-dir source) |
+| Same run | `news/2026-04-24-propositions.en.md` (backwards-compat / news-index copy) |
 | Same run, English | `news/2026-04-24-propositions-en.html` |
 | Same run, Swedish | `news/2026-04-24-propositions-sv.html` |
 | Same run, Arabic | `news/2026-04-24-propositions-ar.html` with RTL direction from language constants. |
-| `manifest.json` with `articleType: motions-runmotions-run-1777010709` | `news/2026-04-24-motions-runmotions-run-1777010709.en.md` |
+| `manifest.json` with `articleType: motions-runmotions-run-1777010709` | `analysis/daily/2026-04-24/motions-runmotions-run-1777010709/article.md` + `news/2026-04-24-motions-runmotions-run-1777010709.en.md` |
 | Batch collision during `--all` where two runs would otherwise produce the same slug | Sanitized extra suffix appended to the already-derived `YYYY-MM-DD-<manifest.articleType>` stem. |
 
 The generator builds the base slug from the manifest value as-is: `YYYY-MM-DD-<manifest.articleType>`. In other words, if `manifest.articleType` already contains a run-like suffix, that suffix will already appear in the output filename stem before any collision handling happens.
@@ -307,6 +309,27 @@ The generator builds the base slug from the manifest value as-is: `YYYY-MM-DD-<m
 The additional sanitized suffix is only a collision-avoidance step for batch generation (`--all`) when multiple runs would otherwise write the same output path.
 
 To keep filenames predictable, prefer keeping `manifest.articleType` to the canonical article-type set (for example `breaking`, `week-in-review`, `month-in-review`, `week-ahead`, `month-ahead`, `committee-reports`, `motions`, `propositions`) and place per-run uniqueness in `runId` instead.
+
+### 📄 `article.md` in the run directory
+
+Each `npm run generate-article` invocation writes `article.md` directly into the analysis run directory alongside the artifacts that produced it:
+
+```
+analysis/daily/2026-04-24/breaking/
+├── manifest.json
+├── intelligence/
+│   ├── synthesis-summary.md
+│   └── ...
+├── ...
+└── article.md          ← canonical aggregated Markdown (generated by the aggregator)
+```
+
+**Why `article.md` lives in the run directory:**
+- The Markdown source and the artifacts that produced it are co-located — readers can browse `analysis/daily/<date>/<type>/` on GitHub and immediately see both the evidence and the derived article.
+- The HTML "View source Markdown" link points to `analysis/daily/<date>/<type>/article.md` on the deployed site, giving a clear provenance trail from the public HTML back to the intelligence tree.
+- `npm run generate-article:all` regenerates every `article.md` across all historical runs in a single deterministic pass, making bulk rebuilds and backports straightforward.
+
+**Aggregator exclusion:** `collectRunArtifacts()` in `analysis-aggregator.ts` skips `article.md` and any per-language translated variants (e.g. `article.sv.md`) so the aggregator never recurses into its own output on subsequent runs. The `pass1/` snapshot directory is also excluded.
 
 ---
 
@@ -325,15 +348,16 @@ sequenceDiagram
 
     WF->>FS: Write manifest.json + artifacts
     WF->>AG: npm run generate-article -- --run $ANALYSIS_DIR
-    AG->>FS: Read manifest + discover Markdown
+    AG->>FS: Read manifest + discover Markdown (excludes article.md / pass1/)
     AG->>CL: Clean each artifact
     CL-->>AG: Normalized Markdown fragments
     AG->>AG: Add provenance + tradecraft + analysis index
-    AG->>OUT: Write canonical .en.md source
+    AG->>FS: Write article.md (canonical run-dir source)
+    AG->>OUT: Write <slug>.en.md (news-index / backwards-compat copy)
     AG->>MD: Render aggregate Markdown body
     MD-->>AG: HTML fragment + TOC + Mermaid count
     AG->>HTML: Wrap with metadata, chrome, language switcher
-    HTML-->>OUT: Write *-{lang}.html variants
+    HTML-->>OUT: Write *-{lang}.html variants (sourceMarkdownRelPath → article.md)
 ```
 
 ### Cleaning and normalization
