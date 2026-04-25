@@ -765,7 +765,7 @@ describe('ep-mcp-client', () => {
       // and that a v1.2.14+ shaped response is returned correctly:
       //   groupMetrics includes EPP with memberCount > 0, and PPE is absent from
       //   coverage.unrecognizedGroups.
-      it('should forward groupIds: ["PPE"] to the tool without local remapping (alias handled server-side)', async () => {
+      it('should pass PPE alias unchanged to server (v1.2.14+ canonicalization)', async () => {
         client.callTool.mockResolvedValue({
           content: [{ type: 'text', text: JSON.stringify({ groupIds: ['PPE'] }) }],
         });
