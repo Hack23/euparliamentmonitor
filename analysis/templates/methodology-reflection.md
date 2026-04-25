@@ -263,4 +263,4 @@ Per [Hack23 AI_Policy.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Pol
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/methodology-reflection.md` · Template v1.0 · Depth floor: per article-type minimum defined in [`reference-quality-thresholds.json`](../methodologies/reference-quality-thresholds.json) (authoritative) · Produced as the **last** artifact of each run, after `workflow-audit.md`.
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/methodology-reflection.md` · Template v1.1 · Depth floor: per article-type minimum defined in [`reference-quality-thresholds.json`](../methodologies/reference-quality-thresholds.json) (authoritative) · Produced as the **last** artifact of each run, after `workflow-audit.md`.

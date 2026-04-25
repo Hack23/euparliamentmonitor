@@ -194,4 +194,59 @@ flowchart LR
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/reference-analysis-quality.md` · Template v1.0 · Depth floor: 190 lines.
+## 🛠️ Worked example — reference-quality scoring for a hypothetical run
+
+| Quality dimension | Run score | Reference benchmark | Gap | Action |
+|---|:-:|:-:|:-:|---|
+| Word count vs floor | 6 200 / 5 000 | 124% | +24% | Pass |
+| Procedures cited inline | 18 | ≥15 | +3 | Pass |
+| Mermaid diagrams | 7 | ≥3 | +4 | Pass |
+| Historical comparisons | 2 | ≥2 | 0 | Pass |
+| Coalition-cohesion citations | 9 | ≥5 | +4 | Pass |
+| IMF + WB combined sources | 4 IMF + 2 WB | ≥3 IMF | +3 IMF, +2 WB | Pass |
+| Admiralty grades attached | 91% | ≥80% | +11 pp | Pass |
+| WEP bands on forecasts | 100% | 100% | 0 | Pass |
+| Pass-2 expansion ratio | 1.65× | ≥1.5× | +0.15× | Pass |
+| Pre/post HTML clean diff | 0 | 0 | 0 | Pass |
+
+**Aggregate**: 10/10 dimensions pass; reference quality met. **Gap area
+to monitor**: historical-comparison count is at floor — adding 1 more
+multi-year baseline would strengthen rigour.
+
+## 🚫 Anti-patterns — reference-quality-quality failures
+
+| Anti-pattern | Why it fails | Correct approach |
+|---|---|---|
+| Self-attestation only | Subjective | Each dimension has measurable threshold |
+| Score without comparison | No anchor | Compare to a named benchmark run |
+| Pass-2 ratio < 1.5× | Skipped iteration | Expand thin sections in genuine Pass-2 |
+| "Reference quality" without dimensions | Unverifiable | List all measurable dimensions |
+| Run validator failures hidden | Stage-C bypass | Acknowledge any validator output |
+| Pass without rationale | Audit trail gap | Each dimension cite the count |
+
+## 🎯 EP MCP tool inputs
+
+This artifact is **introspective** — it reports on the artifact set and
+article rather than calling additional MCP tools. Inputs:
+
+- The run's full artifact set + article
+- Prior reference-benchmark runs (e.g. Run 184)
+- Validator output (if any)
+
+## 🔗 Controlling methodology cross-references
+
+- [`../methodologies/ai-driven-analysis-guide.md §Step 10 / 10.5`](../methodologies/ai-driven-analysis-guide.md)
+- [`../methodologies/per-artifact-methodologies.md §reference-analysis-quality`](../methodologies/per-artifact-methodologies.md)
+- [`methodology-reflection.md`](methodology-reflection.md) — the 10.5 reflection artifact
+
+## ✅ Stage-C completeness signals
+
+- Line floor: 190 lines
+- ≥ 10 quality dimensions scored
+- Each dimension: actual / benchmark / gap / verdict
+- Reference benchmark run cited
+- Validator output acknowledged (or "no validator failures")
+
+---
+
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/reference-analysis-quality.md` · Template v1.2 · Depth floor: 190 lines.
