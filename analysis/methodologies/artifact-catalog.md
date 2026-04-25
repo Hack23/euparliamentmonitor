@@ -14,12 +14,12 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.2-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.3-555?style=for-the-badge" alt="Version"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--25-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.2 | **📅 Last Updated:** 2026-04-25 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 1.3 | **📅 Last Updated:** 2026-04-25 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-31
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
@@ -190,7 +190,7 @@ The quantification layer. Every qualitative finding in `intelligence/` must be a
 
 ## 🎭 `threat-assessment/` — 5 Artifacts
 
-Produced for runs that emphasise democratic-threat or integrity-threat angles (typically `motions`, `propositions`, and long-form reviews). For runs that consolidate threat content into `intelligence/threat-model.md`, this folder may be empty.
+Produced for runs that emphasise democratic-threat or integrity-threat angles (typically `motions`, `propositions`, and long-form reviews). For runs that consolidate threat content into `intelligence/threat-model.md`, this folder may be empty. The fifth artifact — `threat-analysis.md` — is the framework template's deployed instance for runs that need a per-actor / per-vector tabular view alongside the four landscape artifacts below.
 
 | Artifact | Purpose (1 line) | Methodology | Template | Min lines (breaking) | Mermaid type |
 |---|---|---|---|:---:|---|
@@ -198,6 +198,7 @@ Produced for runs that emphasise democratic-threat or integrity-threat angles (t
 | `threat-assessment/actor-threat-profiles.md` | Per-actor threat profile: intent, capability, opportunity, attack surface. | [per-artifact-methodologies.md §actor-threat-profiles](per-artifact-methodologies.md#actor-threat-profiles) + [political-threat-framework.md §Diamond](political-threat-framework.md) | [actor-threat-profiles.md](../templates/actor-threat-profiles.md) | *flat 30* | graph LR (actor × asset) |
 | `threat-assessment/consequence-trees.md` | Consequence tree per threat: action → first-order → second-order → democratic outcome. | [per-artifact-methodologies.md §consequence-trees](per-artifact-methodologies.md#consequence-trees) | [consequence-trees.md](../templates/consequence-trees.md) | *flat 30* | graph TD (tree) |
 | `threat-assessment/legislative-disruption.md` | How adversarial pressure could stall, redirect, or capture specific procedures. | [per-artifact-methodologies.md §legislative-disruption](per-artifact-methodologies.md#legislative-disruption) | [legislative-disruption.md](../templates/legislative-disruption.md) | *flat 30* | flowchart LR (procedure + disruptor) |
+| `threat-assessment/threat-analysis.md` | Tabular per-threat record (vector × likelihood × impact × mitigation) using the framework template; produced when the four landscape artifacts above need a structured roll-up. | [per-artifact-methodologies.md §threat-analysis](per-artifact-methodologies.md#threat-analysis) + [political-threat-framework.md](political-threat-framework.md) | [threat-analysis.md](../templates/threat-analysis.md) | *flat 30* | graph TD (vector × mitigation) |
 
 ---
 
@@ -229,7 +230,7 @@ Used by `motions`, `propositions`, and long-form quarter / month-in-review workf
 
 ---
 
-## 🧭 `extended/` — Optional Deep-Intelligence Artifacts (12 Artifacts)
+## 🧭 `extended/` — Optional Deep-Intelligence Artifacts (12 Artifacts + 1 Legacy Mirror)
 
 Optional artifacts introduced by the riksdagsmonitor port (2026-04-23). These artifacts are **not mandatory** for completeness-gate passing but are **strongly recommended** for long-form workflows (month-in-review, quarter-in-review, propositions, trilogue-endgame). An agent that produces any of these must register the artifact in `manifest.files.extended[]`. Back-compat note: these are additive — no existing workflow is required to produce them.
 
@@ -267,7 +268,7 @@ An agent starting a run reads this catalog, then proceeds through the 10-step pr
 2. [`ai-driven-analysis-guide.md`](ai-driven-analysis-guide.md) → know *how* to produce it.
 3. [`per-artifact-methodologies.md`](per-artifact-methodologies.md) → look up *per-artifact* construction rules as needed.
 4. The five framework methodologies ([SWOT](political-swot-framework.md), [Risk](political-risk-methodology.md), [Threat](political-threat-framework.md), [Classification](political-classification-guide.md), [Style](political-style-guide.md)) → apply the relevant framework when the protocol step calls for it.
-5. The 39 templates under [`../templates/`](../templates/README.md) — one per unique artifact, plus the six framework templates (political-classification, risk-assessment, swot-analysis, threat-analysis, stakeholder-impact, per-file-political-intelligence) → copy the shape into the artifact file and fill it with analysis.
+5. The 51 templates under [`../templates/`](../templates/README.md) — one per unique artifact, plus the six framework templates (political-classification, risk-assessment, swot-analysis, threat-analysis, stakeholder-impact, per-file-political-intelligence) → copy the shape into the artifact file and fill it with analysis.
 
 ---
 
@@ -285,5 +286,5 @@ An agent starting a run reads this catalog, then proceeds through the 10-step pr
 **Document Control:**
 - **Path:** `/analysis/methodologies/artifact-catalog.md`
 - **Classification:** Public
-- **Version:** 1.1 — Added `extended/` folder (12 optional deep-intelligence artifacts) from riksdagsmonitor port (2026-04-23); v1.0 was initial extraction from Run 184 benchmark and 2026-04-20 / 2026-04-21 daily runs.
-- **Next Review:** 2026-06-30
+- **Version:** 1.3 — v1.3 (2026-04-25) reconciles per-group counts with disk: `threat-assessment/` row added for `threat-analysis.md` (now 5/5), `extended/` heading clarified to “12 Artifacts + 1 Legacy Mirror”, and the read-order line bumped from “39 templates” to “51 templates”. v1.1 added `extended/` folder (12 optional deep-intelligence artifacts) from riksdagsmonitor port (2026-04-23); v1.0 was initial extraction from Run 184 benchmark and 2026-04-20 / 2026-04-21 daily runs.
+- **Next Review:** 2026-07-31

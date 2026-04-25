@@ -14,12 +14,12 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.2-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.4-555?style=for-the-badge" alt="Version"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--25-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.2 | **📅 Last Updated:** 2026-04-25 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 1.4 | **📅 Last Updated:** 2026-04-25 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-31
 
 ---
@@ -676,6 +676,31 @@ Artifacts marked below with **"Source grade × WEP discipline (tradecraft)"** ma
 
 ---
 
+### threat-analysis
+
+**Purpose.** Tabular per-threat record — one row per identified democratic-process threat with vector × likelihood (WEP) × impact × mitigation × owner. Produced when the four landscape artifacts (`political-threat-landscape`, `actor-threat-profiles`, `consequence-trees`, `legislative-disruption`) need a structured roll-up an executive can scan in 60 seconds. Uses the framework template `threat-analysis.md`.
+
+**Required sections.**
+1. **BLUF** — single-paragraph judgment of the period’s top threat by Likelihood×Impact, with WEP band and Admiralty grade on the underlying evidence.
+2. **Threat register** — one row per threat with columns: ID, vector, target dimension (one of the 6 Political Threat Landscape dimensions), Likelihood (WEP), Impact (1–5), composite score, mitigation, owner, evidence (Admiralty + procedure / RCV reference).
+3. **Top-3 threats deep-dive** — one paragraph each, naming the kill-chain stage at which the threat is interruptible.
+4. **Cross-references** — ≥1 link into `political-threat-landscape.md` and ≥1 link into `consequence-trees.md` so the reader can pivot from the table into the qualitative analysis.
+5. **Tradecraft footer** — ≥1 SAT named (e.g. *Indicators & Signposts*, *Pre-Mortem*); STRIDE explicitly NOT used.
+
+**Mandatory Mermaid.** `graph TD` — vector × mitigation matrix; or kill-chain phase × interruption point.
+
+**Depth floor.** Flat 30 lines (matches the four sister landscape artifacts).
+
+**Quality signals.**
+- Every Likelihood is a WEP band (not a bare number); every Impact is justified by one observable consequence.
+- Mitigation owners are named institutionally (e.g. “ENVI chair”, “EPP whip”), never by personal name unless the role is the relevant unit of analysis.
+- The table totals match the BLUF — if BLUF says “top threat is coalition fracture”, that row’s composite score must be the table maximum.
+
+**What good looks like.**
+> *BLUF: The dominant threat across the 21–25 April window is a Grand Coalition fracture on IED enforcement provisions — LIKELY to crystallise at the 12 May trilogue (WEP: LIKELY 65–85%, evidence A2 from RCV-2026-0412). Mitigation owner: EPP whip’s office. Kill-chain interruption point: pre-trilogue shadows meeting (8 May).*
+
+---
+
 ## 📄 documents/
 
 ### document-analysis-index
@@ -935,5 +960,5 @@ When authoring a run from scratch, always use the canonical folder names; when r
 **Document Control:**
 - **Path:** `/analysis/methodologies/per-artifact-methodologies.md`
 - **Classification:** Public
-- **Version:** 1.3 — v1.3 (2026-04-25) refreshes dates and tightens cross-references for the v3.2 methodology release; no `### artifact section` was added or removed. v1.2 (2026-04-23) added the `extended/` folder with 12 optional deep-intelligence artifacts (executive-brief, devils-advocate-analysis, historical-parallels, coalition-mathematics, forward-indicators, intelligence-assessment, implementation-feasibility, media-framing-analysis, comparative-international, cross-reference-map, data-download-manifest, voter-segmentation) from the riksdagsmonitor port. v1.1 added voting-patterns, workflow-audit, cross-session-intelligence, deep-analysis, session-baseline and documented the `existing/` legacy folder + `risk/` folder variant. v1.0 was the initial per-artifact construction rules extracted from Run 184 reference benchmark.
+- **Version:** 1.4 — v1.4 (2026-04-25, late) adds the `### threat-analysis` section to match the new `threat-assessment/threat-analysis.md` row in `artifact-catalog.md` (group now 5/5 reconciled). v1.3 (2026-04-25) refreshes dates and tightens cross-references for the v3.2 methodology release; no `### artifact section` was added or removed. v1.2 (2026-04-23) added the `extended/` folder with 12 optional deep-intelligence artifacts (executive-brief, devils-advocate-analysis, historical-parallels, coalition-mathematics, forward-indicators, intelligence-assessment, implementation-feasibility, media-framing-analysis, comparative-international, cross-reference-map, data-download-manifest, voter-segmentation) from the riksdagsmonitor port. v1.1 added voting-patterns, workflow-audit, cross-session-intelligence, deep-analysis, session-baseline and documented the `existing/` legacy folder + `risk/` folder variant. v1.0 was the initial per-artifact construction rules extracted from Run 184 reference benchmark.
 - **Next Review:** 2026-07-31
