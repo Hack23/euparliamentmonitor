@@ -175,4 +175,66 @@ flowchart LR
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/cross-run-diff.md` · Template v1.0 · Depth floor: 100 lines.
+## 🛠️ Worked example — diff between two breaking-news runs
+
+### Run baseline (2026-04-22 run 01) → current (2026-04-25 run 03)
+
+| Element | Prior | Current | Delta | Reason |
+|---|---|---|---|---|
+| Lead procedure | `2026/0142(COD)` AI Act IA | unchanged | — | — |
+| Coalition margin | 408 vs 360 (48-seat cushion) | 408 vs 360 | 0 | Stable |
+| EPP cohesion | 91% | 88% | -3 pp | 47-MEP defection on industry-pressure amendment |
+| Trilogue ETA | Q3 2026 | Q3 2026 (early) | -2 weeks | Council adopted position faster than expected |
+| Risk score (industry softening) | 4/10 | 6/10 | +2 | New trade-association letters surfaced |
+| Cross-coalition issue clusters | 2 (rule-of-law, fiscal rules) | 3 (added energy security) | +1 | Council winter-package response |
+
+**Bayesian update narrative**: prior-run forecast assigned 65% to
+"adoption Q3 in original scope"; current run reduces this to 50% on
+strength of new industry-letter evidence and EPP defection trend, with
+the residual 50% redistributed: 35% softened scope, 12% delayed, 3%
+failure.
+
+**What changed in confidence**: 🟡 → 🟡 (unchanged band), but rationale
+narrows: more evidence for softening pathway, less weight on adoption
+within-original-scope.
+
+## 🚫 Anti-patterns — cross-run-diff failures
+
+| Anti-pattern | Why it fails | Correct approach |
+|---|---|---|
+| Diff without prior-run version stamp | Cannot reconcile | Cite prior-run path explicitly |
+| Numerical change without unit | Ambiguity | "+3 pp" / "+2 percentage points" / "-2 weeks" |
+| Bayesian update without prior | Math doesn't compute | State prior probability + posterior |
+| New evidence not tagged | Evidence chain unclear | Mark "NEW since prior run" |
+| Diff that just restates current | Provides no comparison | Each row must show prior + current |
+| Confidence band re-stated without rationale | Stale Pass-1 leftover | Update rationale even if band unchanged |
+| Risk delta without driver | Cannot be acted on | Each delta has named driver |
+| Skipping unchanged elements | Loses audit trail | Stable items show "0 / unchanged" |
+
+## 🎯 EP MCP tool inputs
+
+| Tool | Used for |
+|---|---|
+| Re-query `analyze_coalition_dynamics` | Cohesion delta vs prior |
+| Re-query `get_voting_records` | New RCVs since prior run |
+| Re-query `track_legislation` | Stage / timeline shift |
+| Read prior-run `manifest.json` | Anchor for diff |
+| Read prior-run `risk-matrix.md` | Risk-score baseline |
+| Read prior-run `synthesis-summary.md` | Narrative baseline |
+
+## 🔗 Controlling methodology cross-references
+
+- [`../methodologies/per-artifact-methodologies.md §cross-run-diff`](../methodologies/per-artifact-methodologies.md)
+- [`cross-session-intelligence.md`](cross-session-intelligence.md) — companion (longer-window momentum)
+
+## ✅ Stage-C completeness signals
+
+- Line floor: 100 lines
+- Prior-run version-stamped (path + run number)
+- ≥ 5 element-level diffs (procedure / coalition / risk / etc.)
+- Bayesian update narrative present where forecasts revised
+- Confidence band + rationale present
+
+---
+
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/cross-run-diff.md` · Template v1.2 · Depth floor: 100 lines.
