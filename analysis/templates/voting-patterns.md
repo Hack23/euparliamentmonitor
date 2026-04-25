@@ -162,4 +162,93 @@ For each group: cohesion, defection highlights, sample votes.
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/voting-patterns.md` · Template v1.0 · Depth floor: per article-type minimum defined in [`../methodologies/reference-quality-thresholds.json`](../methodologies/reference-quality-thresholds.json) (authoritative — e.g. breaking 150, week-in-review 150, month-in-review 180, motions 200).
+## 8️⃣ EP MCP Tool Inputs
+
+| EP MCP tool | Used for which section | Notes |
+|-------------|------------------------|-------|
+| `get_voting_records` | §1 RCV-evidence column (every claim cites RCV ID) | Aggregate margins; flag LOW if <4 weeks. |
+| `analyze_voting_patterns` | §2 Per-MEP behaviour rubric | When per-MEP feed available; aggregate otherwise. |
+| `analyze_coalition_dynamics` | §3 Group-cohesion proxy | Two-window deltas. |
+| `compare_political_groups` | §4 Seat-share normalisation | Confirms majority arithmetic. |
+| `track_legislation` | §5 Procedure context | COD/CNS/APP per RCV. |
+| `get_meeting_decisions` | §6 Adopted-decision ↔ RCV cross-check | Verifies passage. |
+| `get_adopted_texts` | §7 Outcome confirmation | Adopted-text reflects RCV result. |
+| `correlate_intelligence` | §8 Anomaly alerts | Defection / abstention spikes. |
+| `detect_voting_anomalies` | §8 Outlier RCVs | Configurable sensitivity threshold. |
+
+---
+
+## 9️⃣ Worked Pass-1 → Pass-2 Example (Strasbourg-I 2025 voting digest)
+
+**❌ Pass-1 (thin, 22 words):**
+> "Several important votes happened. AI Act passed. CRA implementation was approved. Coalitions held. Some defections noted but minor."
+
+**✅ Pass-2 (compliant, 110 words, sourced):**
+> Top 5 RCVs (Strasbourg-I 2025-10-21/24): (1) **2024/0123(COD) Critical Raw Materials Act final** 412/189/68 — passage margin 178; (2) **2024/0145(COD) AI-Office implementing-act amendment** 392/214/41 — Renew lost 11 of 84 (Strack-Zimmermann + 10) per `analyze_voting_patterns`; (3) **2025/2014(RSP) Ukraine-aid 50bn extension** 487/126/52 — broadest cross-party majority of session; (4) **2024/0099(COD) CRA implementation amendment** 367/241/45 — closest passage of session; (5) **2025/2901(RSP) Iran-MEK delisting** 287/198/153 — high abstention signal (153 = 22 %). PfE+ESN+ECR cohesion on RCVs (1)+(4): 84 % per `analyze_coalition_dynamics` — right-flank consolidation continues.
+
+---
+
+## 🔟 Worked Top-5 RCV Table
+
+| # | Procedure code + short title | Date | For | Against | Abstain | Margin | Anchor group split |
+|:-:|------------------------------|------|:---:|:-------:|:-------:|:------:|--------------------|
+| 1 | 2024/0123(COD) Critical Raw Materials Act — final | 2025-10-22 | 412 | 189 | 68 | +178 | EPP 184/188 (98 %); S&D 134/136 (99 %); Renew 79/84 (94 %); ECR 41/78 (53 %); PfE 0/84; Greens/EFA 47/53 (89 %) |
+| 2 | 2024/0145(COD) AI-Office IA amendment | 2025-10-22 | 392 | 214 | 41 | +178 | EPP 184/188 (98 %); S&D 132/136 (97 %); Renew 73/84 (87 %, 11 defectors); ECR 22/78 (28 %); PfE 0/84 |
+| 3 | 2025/2014(RSP) Ukraine-aid 50 bn extension | 2025-10-23 | 487 | 126 | 52 | +361 | EPP 188/188; S&D 136/136; Renew 84/84; ECR 56/78; PfE 18/84; ESN 0/30 |
+| 4 | 2024/0099(COD) CRA implementation amendment | 2025-10-23 | 367 | 241 | 45 | +126 | EPP 181/188; S&D 121/136 (15 dissenters); Renew 81/84; Greens/EFA 12/53 (24 % only); ECR 39/78 |
+| 5 | 2025/2901(RSP) Iran-MEK delisting | 2025-10-24 | 287 | 198 | 153 | +89 | EPP 117/188; S&D 91/136; Renew 51/84; high abstention reflects free-vote on terrorism listing |
+
+---
+
+## 1️⃣1️⃣ Per-Group Behaviour Rubric (4 EP voting behaviours)
+
+| Behaviour | Definition | Worked observation (Strasbourg-I 2025) | Score 1-5 |
+|-----------|------------|----------------------------------------|:---------:|
+| **Discipline** | % of group voting with whip on top-5 RCVs | EPP 98 %, S&D 97 %, Renew 89 %, Greens/EFA 87 %, ECR 65 %, PfE 92 %, ESN 88 % | 4 (Grand Coalition); 3 (right-flank) |
+| **Defection** | named MEPs voting against own group ≥1 of top-5 | Strack-Zimmermann + 10 Renew on RCV 2; 15 S&D dissenters on RCV 4 | 2 (low — Grand Coalition); 4 (S&D fissure on CRA) |
+| **Abstention** | abstention rate on contested RCVs | RCV 5 (Iran-MEK) 22 % abstention — high signal | 5 on RCV 5; 1-2 elsewhere |
+| **No-show** | % of MEPs absent (not voting / not authorised substitute) | Top-5 average 8 % (515-pp turnout / 720 seats); rises to 14 % on Thursday RCV 5 | 2 (Tue/Wed); 4 (Thu) |
+
+---
+
+## 1️⃣2️⃣ Anti-patterns — REJECT on Pass-2 Review
+
+| # | Banned pattern | Why it fails |
+|:-:|---------------|--------------|
+| 1 | RCV cited without procedure code (e.g. "the AI Act vote") | Unindexed; reviewer cannot trace. |
+| 2 | Per-MEP defection claim while EP roll-call publication delay >4 weeks | Tradecraft violation. |
+| 3 | Top-5 RCV table without abstain column | Abstain is a signal, not noise. |
+| 4 | Group behaviour score without RCV citation | Score is judgment-only. |
+| 5 | "Coalition held" verdict on a vote where one anchor group ≤80 % cohesion | Definition mismatch. |
+| 6 | Defection narrative without naming defectors (where public-record permits) | Hides the political signal. |
+| 7 | Margin column missing or computed from only For-Against (ignores Abstain) | Margin = For - Against; absent column = unverifiable. |
+
+---
+
+## 1️⃣3️⃣ Cross-References — Controlling Methodology
+
+- [`../methodologies/per-artifact-methodologies.md#voting-patterns`](../methodologies/per-artifact-methodologies.md) — construction rules.
+- [`../methodologies/political-classification-guide.md`](../methodologies/political-classification-guide.md) — group taxonomy + procedure-code conventions.
+- [`../methodologies/osint-tradecraft-standards.md`](../methodologies/osint-tradecraft-standards.md) — Admiralty per RCV; LOW-confidence flag for <4-week-old votes.
+- [`./coalition-dynamics.md`](./coalition-dynamics.md) — group-pair aggregate view consumes per-RCV detail here.
+- [`./session-baseline.md`](./session-baseline.md) — RCV count baseline.
+- [`../methodologies/electoral-domain-methodology.md`](../methodologies/electoral-domain-methodology.md) — legislature voting tradecraft.
+
+---
+
+## 1️⃣4️⃣ Stage-C Completeness Signals
+
+`scripts/validate-analysis-completeness.js` checks for this artifact:
+
+| Check | Threshold | Source |
+|-------|-----------|--------|
+| Line floor | per article-type (breaking 150, week-in-review 150, month-in-review 180, motions 200) | `reference-quality-thresholds.json` |
+| Required H2 substrings | "Top RCVs" / "Roll-Call" / "Behaviour" / "Anomalies" | structural contract |
+| Mermaid block | ≥1 (xychart of For/Against/Abstain across top-5 preferred) | visual contract |
+| Tradecraft markers | Admiralty per RCV; LOW flag for <4-week-old votes; abstain column populated | `osint-tradecraft-standards.md` |
+| Source diversity | ≥3 EP MCP tools (must include `get_voting_records`) | per-artifact rule |
+| Top-5 coverage | 5 distinct RCVs cited with procedure codes | template logic |
+
+---
+
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/voting-patterns.md` · Template v1.2 · Depth floor: per article-type minimum defined in [`../methodologies/reference-quality-thresholds.json`](../methodologies/reference-quality-thresholds.json) (authoritative — e.g. breaking 150, week-in-review 150, month-in-review 180, motions 200).

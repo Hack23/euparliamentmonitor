@@ -213,4 +213,4 @@ Translate the matrix for a newsroom audience. Plain language, no acronyms withou
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/classification/impact-matrix.md` · Template v2.0 · Depth floor: 120 lines · Mermaid diagrams: ≥2 (heat‑map + cascade) · Reader briefing: required.
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/classification/impact-matrix.md` · Template v2.1 · Depth floor: 120 lines · Mermaid diagrams: ≥2 (heat‑map + cascade) · Reader briefing: required.
