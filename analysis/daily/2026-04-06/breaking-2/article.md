@@ -17,11 +17,6 @@
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/actor-mapping.md" rel="noopener">View source: <code>actor-mapping.md</code></a></p>
 
-**Date:** 6 April 2026 (Easter Monday) | **Recess Day:** 11/18 | **Confidence:** 🟡 MEDIUM
-**Data Sources:** MEPs feed (737 MEPs), political landscape (8 groups), early warning system, precomputed statistics
-
----
-
 ### Actor Landscape Overview
 
 #### Primary Actors: Political Groups
@@ -232,11 +227,6 @@ This count has been stable since at least 5 April, confirming no Easter recess r
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/coalition-analysis.md" rel="noopener">View source: <code>coalition-analysis.md</code></a></p>
 
-**Date:** 6 April 2026 (Easter Monday) | **Recess Day:** 11/18 | **Confidence:** 🟡 MEDIUM
-**Data Sources:** Political landscape, early warning, precomputed statistics, MEPs feed (737), cross-run memory
-
----
-
 ### Coalition Architecture Dashboard
 
 | Coalition Formula | Seats | Share | Viable? | Pre-Recess Usage | Post-Recess Likelihood |
@@ -388,12 +378,6 @@ Based on 17+ monitoring runs since 28 March 2026 (Easter recess start):
 ### Cross Session Intelligence
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/cross-session-intelligence.md" rel="noopener">View source: <code>cross-session-intelligence.md</code></a></p>
-
-**Date:** 6 April 2026 (Easter Monday) | **Recess Day:** 11/18 | **Confidence:** 🟡 MEDIUM
-**Scope:** Correlates findings across 21+ monitoring runs since 28 March 2026
-**Cross-Referenced Runs (6 April):** breaking (00:33 UTC), committee-reports (05:03 UTC), propositions (05:47 UTC), breaking-2 (current)
-
----
 
 ### Executive Intelligence Summary
 
@@ -562,12 +546,6 @@ The absolute stability during Easter recess confirms that MEP roster management 
 ### Deep Analysis
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/deep-analysis.md" rel="noopener">View source: <code>deep-analysis.md</code></a></p>
-
-**Date:** 6 April 2026 (Easter Monday — EU-wide public holiday) | **Confidence:** 🟡 MEDIUM
-**Recess Status:** Day 11 of 18 (27 March – 13 April 2026) | **T-8 to Committee Week | T-14 to Plenary**
-**Run:** breaking-2 | **Cross-References:** 3 prior runs on 6 April (breaking, committee-reports, propositions)
-
----
 
 ### I. Situation Overview
 
@@ -772,11 +750,6 @@ The ECB rate decision on 17 April falls on the final day of committee week. If t
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/forces-analysis.md" rel="noopener">View source: <code>forces-analysis.md</code></a></p>
 
-**Date:** 6 April 2026 (Easter Monday) | **Recess Day:** 11/18 | **Confidence:** 🟡 MEDIUM
-**Framework:** Force field analysis adapted for EU parliamentary dynamics
-
----
-
 ### Executive Summary
 
 | Force Category | Direction | Strength | Stability | Confidence |
@@ -956,11 +929,6 @@ S&D-Greens-Renew-Left alliance forms effective opposition. Forces S&D to offer P
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/impact-matrix.md" rel="noopener">View source: <code>impact-matrix.md</code></a></p>
 
-**Date:** 6 April 2026 (Monday — Easter Monday) | **Recess Day:** 11/18 | **Confidence:** 🟡 MEDIUM
-**Run:** breaking-2 (06:45 UTC) | **Cross-References:** breaking (00:33), committee-reports (05:03), propositions (05:47)
-
----
-
 ### Executive Summary
 
 | Dimension | Current Impact | Post-Recess Projection | Trend | Confidence |
@@ -1128,11 +1096,6 @@ graph TD
 ### Stakeholder Analysis
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/stakeholder-analysis.md" rel="noopener">View source: <code>stakeholder-analysis.md</code></a></p>
-
-**Date:** 6 April 2026 (Easter Monday) | **Recess Day:** 11/18 | **Confidence:** 🟡 MEDIUM
-**Framework:** 6-perspective stakeholder analysis (Political Groups, Civil Society, Industry, National Govts, Citizens, EU Institutions)
-
----
 
 ### Executive Summary
 
@@ -1325,12 +1288,6 @@ quadrantChart
 ### Synthesis Summary
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/synthesis-summary.md" rel="noopener">View source: <code>synthesis-summary.md</code></a></p>
-
-**Date:** 6 April 2026 (Easter Monday) | **Recess Day:** 11/18 | **Confidence:** 🟡 MEDIUM
-**Pipeline Stage:** Analysis complete — newsworthiness evaluation
-**Total Analysis Artifacts (this run):** 8 (impact-matrix, actor-mapping, forces-analysis, stakeholder-analysis, coalition-analysis, cross-session-intelligence, deep-analysis, synthesis-summary)
-
----
 
 ### Breaking News Evaluation
 

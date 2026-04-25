@@ -588,10 +588,6 @@ Identification of factors disrupting the normal legislative process.
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/threat-assessment/political-threat-landscape.md" rel="noopener">View source: <code>threat-assessment/political-threat-landscape.md</code></a></p>
 
-**Overall Threat Level**: 🟢 LOW  
-**Confidence**: low  
-**Date**: 2026-04-10
-
 ### Political Threat Landscape Analysis
 
 #### Coalition Shifts
@@ -2488,12 +2484,6 @@ No description available
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/risk-scoring/agent-risk-workflow.md" rel="noopener">View source: <code>risk-scoring/agent-risk-workflow.md</code></a></p>
 
-**Assessment ID**: ASSESS-2026-04-10  
-**Date**: 2026-04-10  
-**Article Type**: week-ahead  
-**Overall Risk Level**: MEDIUM (score: 1.5)  
-**Confidence**: medium
-
 ### Risk Heat Map
 
 | Impact ↓ / Likelihood → | Rare | Unlikely | Possible | Likely | Almost Certain |
@@ -2561,8 +2551,6 @@ Based on significance scoring, the article should lead with the convergence of t
 ### Weekly Intelligence Brief
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/weekly-intelligence-brief.md" rel="noopener">View source: <code>weekly-intelligence-brief.md</code></a></p>
-
-**Date:** 10 April 2026 | **Period:** 10-17 April 2026 | **Classification:** SENSITIVE | **Confidence:** Medium
 
 ### Situation Overview Dashboard
 

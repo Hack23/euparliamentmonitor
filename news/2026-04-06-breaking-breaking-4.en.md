@@ -17,11 +17,6 @@
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/coalition-analysis.md" rel="noopener">View source: <code>coalition-analysis.md</code></a></p>
 
-**Date:** 6 April 2026 | **Time:** 18:30 UTC | **Confidence:** 🟡 MEDIUM
-**Framework:** Dual-Track Coalition Model + Power Index Analysis
-
----
-
 ### Coalition Landscape Overview
 
 ```mermaid
@@ -184,12 +179,6 @@ During the Easter recess, coalition dynamics are in a frozen state — no votes 
 ### Cross Session Intelligence
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/cross-session-intelligence.md" rel="noopener">View source: <code>cross-session-intelligence.md</code></a></p>
-
-**Date:** 6 April 2026 | **Time:** 18:32 UTC | **Confidence:** 🟡 MEDIUM
-**Scope:** Correlation of all 4 breaking-news runs on 6 April (00:33, 06:45, 12:15, 18:18 UTC)
-**Framework:** Longitudinal Signal Analysis + Bayesian Updating
-
----
 
 ### Purpose
 
@@ -362,11 +351,6 @@ graph TD
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/political-swot-analysis.md" rel="noopener">View source: <code>political-swot-analysis.md</code></a></p>
 
-**Date:** 6 April 2026 | **Time:** 18:26 UTC | **Recess Day:** 11/18 | **Confidence:** 🟡 MEDIUM
-**Framework:** Cross-SWOT Interference Analysis + TOWS Strategic Matrix + PESTLE Integration
-
----
-
 ### SWOT Matrix
 
 #### 💪 Strengths (Internal — EP Institutional Capacity)
@@ -524,12 +508,6 @@ The balance between these forces will be determined in the 14-23 April window. T
 ### Political Threat Landscape
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/political-threat-landscape.md" rel="noopener">View source: <code>political-threat-landscape.md</code></a></p>
-
-**Date:** 6 April 2026 | **Time:** 18:22 UTC | **Assessment Period:** Easter Recess Day 11/18
-**Confidence:** 🟡 MEDIUM | **Previous Assessment:** 12:15 UTC (Run 3) | **Delta:** API oscillation confirmed
-**Framework:** 6-Dimension Threat Model + PESTLE Integration
-
----
 
 ### Threat Landscape Dashboard
 
@@ -714,11 +692,6 @@ API issues persist through committee week. Institutional transparency reduced. E
 ### Risk Matrix
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/risk-matrix.md" rel="noopener">View source: <code>risk-matrix.md</code></a></p>
-
-**Date:** 6 April 2026 | **Time:** 18:24 UTC | **Risk Level:** MEDIUM | **Stability Score:** 84/100
-**Previous Assessment:** 12:15 UTC (Run 3) | **Delta:** API continuity risk Bayesian update
-
----
 
 ### Risk Matrix Overview
 
@@ -922,12 +895,6 @@ graph TD
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/significance-classification.md" rel="noopener">View source: <code>significance-classification.md</code></a></p>
 
-**Date:** 6 April 2026 (Monday — Easter Monday) | **Time:** 18:18 UTC | **Classification:** PUBLIC
-**Confidence:** 🟡 MEDIUM | **Recess Status:** Day 11 of 18 | **T-8 to Committee Week**
-**Run Context:** 4th breaking-news scan of the day (00:33, 06:45, 12:15, 18:18 UTC)
-
----
-
 ### Executive Summary
 
 | Metric | Value | Trend | vs. Run 3 (12:15) |
@@ -1109,12 +1076,6 @@ These projections confirm EP10's record-breaking pace. The 114 legislative acts 
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/stakeholder-impact.md" rel="noopener">View source: <code>stakeholder-impact.md</code></a></p>
 
-**Date:** 6 April 2026 | **Time:** 18:34 UTC | **Confidence:** 🟡 MEDIUM
-**Focus:** Impact of 11-day API degradation on 6 stakeholder categories
-**Framework:** Multi-Perspective Stakeholder Analysis
-
----
-
 ### Overview
 
 This assessment analyses the impact of the Easter recess data transparency gap on 6 key stakeholder categories. While no parliamentary decisions occurred today (Easter Monday), the 11-day API degradation has differential effects on different stakeholders' ability to monitor, influence, and respond to parliamentary developments.
@@ -1285,12 +1246,6 @@ The primary institutional impact is reputational: the EP's API degradation durin
 ### Synthesis Summary
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/synthesis-summary.md" rel="noopener">View source: <code>synthesis-summary.md</code></a></p>
-
-**Date:** 6 April 2026 (Easter Monday) | **Recess Day:** 11/18 | **T-8 to Committee Week**
-**Confidence:** 🟡 MEDIUM | **Classification:** PUBLIC
-**Scope:** Consolidation of 4 breaking-news runs (00:33, 06:45, 12:15, 18:18 UTC) + committee-reports + propositions + 2 extended breaking runs
-
----
 
 ### Executive Dashboard
 

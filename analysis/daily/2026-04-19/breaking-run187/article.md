@@ -15,8 +15,6 @@
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/breaking-run187/intelligence/synthesis-summary.md" rel="noopener">View source: <code>intelligence/synthesis-summary.md</code></a></p>
 
-**Analysis Date:** 2026-04-19 | **Run:** 187 | **Series Run:** 9 (Easter Recess Series)
-
 ![Status](https://img.shields.io/badge/Parliament-Easter_Recess-orange?style=flat-square)
 ![Significance](https://img.shields.io/badge/Significance-14%2F50-red?style=flat-square)
 ![Mode](https://img.shields.io/badge/Mode-ANALYSIS_ONLY-blue?style=flat-square)
@@ -129,8 +127,6 @@ The analysis phase has been productive: 7 major artifacts written covering signi
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/breaking-run187/intelligence/significance-scoring.md" rel="noopener">View source: <code>intelligence/significance-scoring.md</code></a></p>
 
-**Analysis Date:** 2026-04-19 (Easter Sunday) | **Run:** 187 | **Series:** Run 9 of Easter Recess Monitoring
-
 ![Confidence](https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=flat-square)
 ![Status](https://img.shields.io/badge/Status-ANALYSIS_ONLY-orange?style=flat-square)
 ![Newsworthiness](https://img.shields.io/badge/Newsworthiness-FAIL-red?style=flat-square)
@@ -232,10 +228,6 @@ The single noteworthy intelligence increment from this run — the EU-China tari
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/breaking-run187/intelligence/coalition-dynamics.md" rel="noopener">View source: <code>intelligence/coalition-dynamics.md</code></a></p>
 
-**Analysis Date:** 2026-04-19 | **Run:** 187
-
----
-
 ### Parliamentary Composition (Run 187)
 
 | Group | Seats | % | Bloc | Trend |
@@ -314,8 +306,6 @@ The confirmation of TA-10-2026-0101 (EU-China TRQ modification) introduces a new
 ### Cross Run Diff
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/breaking-run187/intelligence/cross-run-diff.md" rel="noopener">View source: <code>intelligence/cross-run-diff.md</code></a></p>
-
-**Analysis Date:** 2026-04-19 | **Comparing:** Run 186 (2026-04-19, earlier) vs Run 187 (2026-04-19, current)
 
 > **Note:** Both runs 186 and 187 occurred on 2026-04-19. Run 186 was logged as the final prior run in editorial context. This diff compares the accumulated intelligence from Run 187 against Run 186's findings to document incremental value.
 
@@ -414,10 +404,6 @@ No feed degradation detected vs run 186. API restoration continues.
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/breaking-run187/documents/document-analysis-index.md" rel="noopener">View source: <code>documents/document-analysis-index.md</code></a></p>
 
-**Analysis Date:** 2026-04-19 | **Run:** 187 | **Total texts in 2026 feed: 61**
-
----
-
 ### NEW Documents Accessible in Run 187 (vs Run 186)
 
 Four documents became accessible for the first time in Run 187, revealing new intelligence about the March 26 Sprint II legislative output:
@@ -514,8 +500,6 @@ The trajectory shows accelerating restoration: +10, +5, +5, +6, +10 — suggesti
 ### Quantitative Swot
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/breaking-run187/risk/quantitative-swot.md" rel="noopener">View source: <code>risk/quantitative-swot.md</code></a></p>
-
-**Analysis Date:** 2026-04-19 | **Run:** 187 | **Confidence:** 🟡 MEDIUM
 
 ![Framework](https://img.shields.io/badge/Framework-Political_SWOT_v2.2-blue?style=flat-square)
 ![Evidence](https://img.shields.io/badge/Evidence-EP_MCP_Data-green?style=flat-square)
@@ -710,8 +694,6 @@ BRRD3 is particularly sensitive because it introduces new loss-absorbing require
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/breaking-run187/risk/risk-matrix.md" rel="noopener">View source: <code>risk/risk-matrix.md</code></a></p>
 
-**Analysis Date:** 2026-04-19 | **Run:** 187 | **Framework:** Political Risk Methodology v2.0
-
 ![Framework](https://img.shields.io/badge/Framework-5x5_Risk_Matrix-blue?style=flat-square)
 ![Confidence](https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=flat-square)
 
@@ -815,10 +797,6 @@ The next significant risk score movement is expected on April 21-24 depending on
 ### Political Threat Landscape
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/breaking-run187/threat/political-threat-landscape.md" rel="noopener">View source: <code>threat/political-threat-landscape.md</code></a></p>
-
-**Analysis Date:** 2026-04-19 | **Run:** 187 | **Framework:** Multi-framework Threat Analysis
-
----
 
 ### Threat Overview
 

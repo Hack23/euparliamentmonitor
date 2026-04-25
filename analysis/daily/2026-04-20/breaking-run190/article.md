@@ -15,8 +15,6 @@
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/intelligence/synthesis-summary.md" rel="noopener">View source: <code>intelligence/synthesis-summary.md</code></a></p>
 
-**Analysis Date:** 2026-04-20 | **Run:** 190 | **Series:** 12 (Easter Recess Series)
-
 ![Status](https://img.shields.io/badge/Parliament-Easter_Recess_Day_7-orange?style=flat-square)
 ![Significance](https://img.shields.io/badge/Significance-15%2F50-red?style=flat-square)
 ![Mode](https://img.shields.io/badge/Mode-ANALYSIS_ONLY-blue?style=flat-square)
@@ -307,10 +305,6 @@ the next.
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/classification/significance-classification.md" rel="noopener">View source: <code>classification/significance-classification.md</code></a></p>
 
-**Analysis Date:** 2026-04-20 | **Run:** 190 | **Score:** 15/50
-
----
-
 ### Classification Decision
 
 **Final Score:** 15/50  
@@ -429,8 +423,6 @@ article generation when the threshold is next exceeded.
 ### Significance Scoring
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/intelligence/significance-scoring.md" rel="noopener">View source: <code>intelligence/significance-scoring.md</code></a></p>
-
-**Analysis Date:** 2026-04-20 | **Run:** 190 | **Day:** Easter Monday — Recess Day 7 of 13
 
 ![Status](https://img.shields.io/badge/Parliament-Easter_Monday_Day_7-orange?style=flat-square)
 ![Significance](https://img.shields.io/badge/Significance-15%2F50-yellow?style=flat-square)
@@ -567,8 +559,6 @@ on April 21. Run 191 significance estimate: 20-28/50 depending on USTR outcome.
 ### Coalition Dynamics
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/intelligence/coalition-dynamics.md" rel="noopener">View source: <code>intelligence/coalition-dynamics.md</code></a></p>
-
-**Analysis Date:** 2026-04-20 | **Run:** 190 | **Day:** Easter Monday
 
 ![Stability](https://img.shields.io/badge/Grand_Centre-STABLE-green?style=flat-square)
 ![EPP](https://img.shields.io/badge/EPP-190%2B_seats-blue?style=flat-square)
@@ -780,10 +770,6 @@ runs, lower per-run depth.
 <h2 id="section-stakeholder-map">Stakeholder Map</h2>
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/intelligence/stakeholder-map.md" rel="noopener">View source: <code>intelligence/stakeholder-map.md</code></a></p>
-
-**Analysis Date:** 2026-04-20 | **Run:** 190 | **Framework:** Stakeholder Intelligence Mapping
-
----
 
 ### Stakeholder Landscape Overview
 
@@ -1090,10 +1076,6 @@ For each critical stakeholder, the specific monitoring source for Run 191:
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/intelligence/pestle-analysis.md" rel="noopener">View source: <code>intelligence/pestle-analysis.md</code></a></p>
 
-**Analysis Date:** 2026-04-20 | **Run:** 190 | **Framework:** Political, Economic, Social, Technical, Legal, Environmental
-
----
-
 ### PESTLE Overview
 
 The PESTLE analysis for Run 190 reflects the EU Parliament's operating environment during the
@@ -1340,10 +1322,6 @@ April 28-30 plenary preparation (EPP-Greens tension monitoring begins April 26-2
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/intelligence/historical-baseline.md" rel="noopener">View source: <code>intelligence/historical-baseline.md</code></a></p>
 
-**Analysis Date:** 2026-04-20 | **Run:** 190 | **Baseline Source:** EP precomputed stats 2004-2026
-
----
-
 ### Easter Recess Historical Context
 
 The 2026 Easter recess (April 14-26) is the first extended parliamentary break of the 10th
@@ -1585,8 +1563,6 @@ restore full functionality before 720 MEPs return to work.
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/intelligence/economic-context.md" rel="noopener">View source: <code>intelligence/economic-context.md</code></a></p>
 
-**Analysis Date:** 2026-04-20 | **Run:** 190 | **Economic Period:** Q1 2026 / Easter Monday
-
 ![GDP](https://img.shields.io/badge/EU_GDP_Growth-2.1%25_Q1_2026-green?style=flat-square)
 ![Inflation](https://img.shields.io/badge/Inflation-2.3%25-lightgreen?style=flat-square)
 ![Trade](https://img.shields.io/badge/Trade_Tension-ELEVATED-orange?style=flat-square)
@@ -1823,8 +1799,6 @@ session will reveal whether Germany's political alignment with the economic case
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
 
-**Analysis Date:** 2026-04-20 | **Run:** 190 | **Period:** Pre-Return 7 Days
-
 ![Risk](https://img.shields.io/badge/Risk_Level-ELEVATED-orange?style=flat-square)
 ![Top_Risk](https://img.shields.io/badge/Top_Risk-USTR_Section_301-red?style=flat-square)
 ![Stability](https://img.shields.io/badge/Coalition-STABLE_84%2F100-green?style=flat-square)
@@ -2036,8 +2010,6 @@ operational risk becomes the dominant concern rather than political risk.
 ### Quantitative Swot
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/risk-scoring/quantitative-swot.md" rel="noopener">View source: <code>risk-scoring/quantitative-swot.md</code></a></p>
-
-**Analysis Date:** 2026-04-20 | **Run:** 190 | **Parliament Status:** Easter Recess Day 7
 
 ![SWOT](https://img.shields.io/badge/SWOT-Full_4x3_Analysis-brightgreen?style=flat-square)
 ![Confidence](https://img.shields.io/badge/Overall_Confidence-MEDIUM-yellow?style=flat-square)
@@ -2429,8 +2401,6 @@ will resolve multiple uncertainties simultaneously.
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/intelligence/political-threat-landscape.md" rel="noopener">View source: <code>intelligence/political-threat-landscape.md</code></a></p>
 
-**Analysis Date:** 2026-04-20 | **Run:** 190 | **Framework:** Multi-Framework Threat Analysis
-
 ![Threat](https://img.shields.io/badge/Threat_Level-ELEVATED-orange?style=flat-square)
 ![Primary](https://img.shields.io/badge/Primary_Threat-USTR_301_Window-red?style=flat-square)
 ![Secondary](https://img.shields.io/badge/Secondary-API_Outage-yellow?style=flat-square)
@@ -2658,10 +2628,6 @@ fractures not detectable during a recess monitoring period.
 ### Threat Model
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/intelligence/threat-model.md" rel="noopener">View source: <code>intelligence/threat-model.md</code></a></p>
-
-**Analysis Date:** 2026-04-20 | **Run:** 190 | **Framework:** CIA Threat Intelligence Methodology
-
----
 
 ### Threat Model Overview
 
@@ -2921,10 +2887,6 @@ probabilities, same response frameworks.
 ### Scenario Forecast
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/intelligence/scenario-forecast.md" rel="noopener">View source: <code>intelligence/scenario-forecast.md</code></a></p>
-
-**Analysis Date:** 2026-04-20 | **Run:** 190 | **Forecast Horizon:** April 21 – May 15, 2026
-
----
 
 ### Scenario Framework
 
@@ -3198,10 +3160,6 @@ evidence quality and source reliability adjustments.*
 ### Wildcards Blackswans
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/intelligence/wildcards-blackswans.md" rel="noopener">View source: <code>intelligence/wildcards-blackswans.md</code></a></p>
-
-**Analysis Date:** 2026-04-20 | **Run:** 190 | **Framework:** Taleb-inspired tail-risk analysis
-
----
 
 ### Methodology
 
@@ -3477,8 +3435,6 @@ this is assessed as LOW probability cyber scenario vs. HIGH probability routine 
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/intelligence/cross-run-diff.md" rel="noopener">View source: <code>intelligence/cross-run-diff.md</code></a></p>
 
-**Analysis Date:** 2026-04-20 | **Baseline:** Run 188 (2026-04-19) | **Current:** Run 190 (2026-04-20)
-
 ![Diff](https://img.shields.io/badge/Change_Interval-1_day-blue?style=flat-square)
 ![Delta](https://img.shields.io/badge/Net_Delta-MINIMAL-yellow?style=flat-square)
 ![Mode](https://img.shields.io/badge/Mode-Easter_Recess-orange?style=flat-square)
@@ -3643,10 +3599,6 @@ and should be carried forward to Run 191 with the specific Run 190 updates incor
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/documents/document-analysis-index.md" rel="noopener">View source: <code>documents/document-analysis-index.md</code></a></p>
 
-**Analysis Date:** 2026-04-20 | **Run:** 190 | **API State:** Tier-2 Degraded Day 10
-
----
-
 ### Methodology
 
 Documents were analyzed via the dual-layer EP API architecture established in Run 188.
@@ -3782,10 +3734,6 @@ For each restoration check:
 <h2 id="section-mcp-reliability">MCP Reliability Audit</h2>
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/intelligence/mcp-reliability-audit.md" rel="noopener">View source: <code>intelligence/mcp-reliability-audit.md</code></a></p>
-
-**Analysis Date:** 2026-04-20 | **Run:** 190 | **Server:** European Parliament MCP v1.2.9
-
----
 
 ### Audit Summary
 
@@ -4177,10 +4125,6 @@ of the Tier-2 data limitations — those are upstream EP Open Data Portal issues
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/intelligence/reference-analysis-quality.md" rel="noopener">View source: <code>intelligence/reference-analysis-quality.md</code></a></p>
 
-**Analysis Date:** 2026-04-20 | **Run:** 190 | **Benchmark:** Run 188 + analysis/methodologies standards
-
----
-
 ### Quality Assessment Overview
 
 This document evaluates the quality of analysis produced in Run 190 against the standards
@@ -4413,10 +4357,6 @@ no claims exceed their evidential support.
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/intelligence/workflow-audit.md" rel="noopener">View source: <code>intelligence/workflow-audit.md</code></a></p>
 
-**Analysis Date:** 2026-04-20 | **Run:** 190 | **Workflow:** breaking-news-v4
-
----
-
 ### Workflow Execution Summary
 
 | Phase | Status | Notes |
@@ -4556,12 +4496,6 @@ ANALYSIS_ONLY run with 15/50 significance.
 ### Analysis Index
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/intelligence/analysis-index.md" rel="noopener">View source: <code>intelligence/analysis-index.md</code></a></p>
-
-**Total artifacts:** 9 markdown files + 3 data files
-**Analysis mode:** ANALYSIS_ONLY (significance 15/50)
-**Series:** Easter Recess Series, Run 12
-
----
 
 ### Intelligence Artifacts
 

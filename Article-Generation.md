@@ -261,12 +261,12 @@ Because `aggregateAnalysisRun()` merges manifest-declared files with discovered 
 
 | File | Responsibility |
 |---|---|
-| `src/aggregator/article-generator.ts` | CLI entry point; parses flags; runs aggregation; resolves metadata; writes `article.md` to the run directory AND `news/<slug>.en.md`; renders 14 HTML variants. |
-| `src/aggregator/analysis-aggregator.ts` | Reads run directory and `manifest.json`; flattens manifest files; discovers additional Markdown (excluding `article.md`, translated variants, and `pass1/`); orders sections; adds provenance, tradecraft, and analysis-index appendices. |
+| `src/aggregator/article-generator.ts` | CLI entry point; parses flags; runs aggregation; resolves metadata; writes `article.md` to the run directory AND `news/<slug>.en.md`; renders 14 HTML variants; passes `isBasedOn` source artifact URLs to the HTML chrome. |
+| `src/aggregator/analysis-aggregator.ts` | Reads run directory and `manifest.json`; flattens manifest files; discovers additional Markdown (excluding `article.md`, translated variants, `README.md`, and `pass1/`); orders sections; adds provenance, tradecraft, and analysis-index appendices. Exports `guessDateFromRunDir` for testability. |
 | `src/aggregator/artifact-order.ts` | Defines the canonical section order and artifact path claims. |
-| `src/aggregator/clean-artifact.ts` | Strips front matter, banners, H1s, SPDX tags; demotes headings; rewrites links; deduplicates Mermaid bodies. |
+| `src/aggregator/clean-artifact.ts` | Strips front matter, banners, H1s, SPDX tags, artifact-metadata preambles (`**Run:**`, `**Window:**`, etc.), demotes headings, rewrites links, deduplicates Mermaid bodies. |
 | `src/aggregator/markdown-renderer.ts` | Configures `markdown-it`, headings, footnotes, attrs, definition lists, table wrappers, and Mermaid fence rendering. |
-| `src/aggregator/article-html.ts` | Wraps rendered body in full HTML5 document, metadata, JSON-LD, hreflang links, header, language switcher, TOC, footer, theme toggle. |
+| `src/aggregator/article-html.ts` | Wraps rendered body in full HTML5 document, metadata, JSON-LD (with `isBasedOn` provenance list), hreflang links, header, language switcher, TOC, footer, theme toggle. |
 | `src/aggregator/article-metadata.ts` | Resolves title and description through the 5-tier editorial-highlight ladder. |
 | `src/mcp/ep-mcp-client.ts` | TypeScript wrappers for 60+ European Parliament MCP tools, with fallback payloads and error classification. |
 | `scripts/mcp-setup.sh` | Sourceable gateway configuration for EP MCP, World Bank MCP, and IMF REST base URL. |
@@ -362,14 +362,20 @@ sequenceDiagram
 
 ### Cleaning and normalization
 
-Before Markdown is rendered, each artifact is normalized so the final article remains coherent:
+Before Markdown is rendered, each artifact is normalized so the final article remains coherent (`clean-artifact.ts` applies passes in order):
 
-- YAML front matter is stripped.
-- Logo banners, owner metadata, and shield rows are removed.
-- Artifact H1 headings are removed; H2+ headings are demoted one level.
-- SPDX lines are removed from rendered bodies because file-level REUSE metadata already covers generated HTML.
-- Relative links and images are rewritten to absolute GitHub URLs for auditability.
-- Duplicate Mermaid blocks are replaced by reference comments.
+1. **YAML front matter** stripped — `---\n…\n---\n` at position 0.
+2. **SPDX tag lines** stripped — `SPDX-License-Identifier` / `SPDX-FileCopyrightText` lines removed before rendering to prevent REUSE scanner breakage.
+3. **Logo banners, owner metadata, shield rows** stripped — `<p align="center">`, `shields.io` badges, `**📋 Document Owner:**` etc.
+4. **Artifact H1 headings** removed; **H2+ headings demoted one level** (H2→H3, H3→H4, …).
+5. **Artifact metadata preamble** stripped — after H1 removal, agent-operational header lines like `**Run:** breaking-run-…`, `**Window:** …`, `**Methodology:** …`, `**Scope:** …`, `**Gate target:** …` followed by a `---` separator are removed. These are internal run metadata, not reader-relevant content.
+6. **Relative links and images** rewritten to absolute GitHub blob/raw URLs for portability and auditability.
+7. **Duplicate Mermaid blocks** replaced by cross-reference HTML comments.
+
+Additionally, `collectRunArtifacts()` skips:
+- `data/`, `runs/`, `pass1/` directories (raw payloads, legacy snapshots, Pass-1 work-in-progress)
+- `article.md` and `article.<lang>.md` (generated outputs — prevents aggregator recursing into itself)
+- `README.md` (case-insensitive) — required for the analysis gate but not for the published article
 
 ### Markdown rendering
 
@@ -391,7 +397,7 @@ Before Markdown is rendered, each artifact is normalized so the final article re
 - security metadata (`X-Content-Type-Options`, `referrer`).
 - canonical URL and 14 `hreflang` alternates plus `x-default`.
 - Open Graph and Twitter card metadata.
-- JSON-LD `NewsArticle`.
+- JSON-LD `NewsArticle` with `isBasedOn` listing every source artifact URL (provenance traceability).
 - shared stylesheet `../styles.css`.
 - vendored Mermaid bundle and Mermaid init script reference.
 - skip link, sticky header, brand logo, theme toggle, language switcher, article TOC, source Markdown link, article body, and shared footer.

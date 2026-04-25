@@ -17,11 +17,6 @@
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking/political-swot-analysis.md" rel="noopener">View source: <code>political-swot-analysis.md</code></a></p>
 
-**Date:** 6 April 2026 | **Recess Day:** 11/18 | **Confidence:** MEDIUM
-**Framework:** Cross-SWOT interference analysis with TOWS matrix
-
----
-
 ### SWOT Matrix
 
 #### Strengths (Internal — EP Institutional Capacity)
@@ -132,11 +127,6 @@ API degradation persists, limiting institutional transparency. Information asymm
 ### Political Threat Landscape
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking/political-threat-landscape.md" rel="noopener">View source: <code>political-threat-landscape.md</code></a></p>
-
-**Date:** 6 April 2026 | **Assessment Period:** Easter Recess Day 11/18 | **Confidence:** MEDIUM
-**Previous Assessment:** 5 April 2026 (4 runs completed) | **Delta:** Zero substantive change
-
----
 
 ### Threat Landscape Dashboard
 
@@ -281,11 +271,6 @@ API issues persist through committee week. Institutional transparency reduced. A
 ### Risk Matrix
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking/risk-matrix.md" rel="noopener">View source: <code>risk-matrix.md</code></a></p>
-
-**Date:** 6 April 2026 | **Risk Level:** MEDIUM | **Stability Score:** 84/100
-**Previous Assessment:** 5 April 2026 | **Delta:** All risks stable
-
----
 
 ### Risk Matrix Overview
 
@@ -451,11 +436,6 @@ quadrantChart
 ### Significance Classification
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking/significance-classification.md" rel="noopener">View source: <code>significance-classification.md</code></a></p>
-
-**Date:** 6 April 2026 (Monday) | **Classification:** PUBLIC | **Confidence:** MEDIUM
-**Recess Status:** Day 11 of 18 (Easter Monday — EU-wide public holiday) | **T-8 to resume**
-
----
 
 ### Executive Summary
 

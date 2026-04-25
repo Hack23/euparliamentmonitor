@@ -79,6 +79,11 @@ export interface WrapArticleOptions {
    * the line is omitted.
    */
   readonly articleCount?: number;
+  /**
+   * Optional: URLs of source artifacts included in the aggregated article.
+   * Emitted as `isBasedOn` in the JSON-LD `NewsArticle` schema for provenance.
+   */
+  readonly isBasedOn?: readonly string[];
 }
 
 /**
@@ -207,6 +212,11 @@ export function wrapArticleHtml(options: WrapArticleOptions): string {
       name: 'EU Parliament Monitor',
       url: BASE_URL,
     },
+    ...(options.isBasedOn && options.isBasedOn.length > 0
+      ? {
+          isBasedOn: options.isBasedOn.map((url) => ({ '@type': 'CreativeWork', url })),
+        }
+      : {}),
   };
   const jsonLdString = JSON.stringify(jsonLd).replace(/</g, '\\u003c');
 

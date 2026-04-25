@@ -15,8 +15,6 @@
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/motions/intelligence/synthesis-summary.md" rel="noopener">View source: <code>intelligence/synthesis-summary.md</code></a></p>
 
-**Run**: `motions-run-1777010709` · **Window**: 2026-03-25 → 2026-04-24 ·
-**Data source**: European Parliament Open Data Portal (adopted texts feed
 + meeting decisions for MTG-PL-2026-03-26, -03-25, -03-12). Admiralty
 grade of source feed: **A-2** (official, usually reliable). Per-MEP
 roll-call data not yet published (EP lag 6-10 weeks).
@@ -199,8 +197,6 @@ historical base rates only.
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/motions/intelligence/stakeholder-map.md" rel="noopener">View source: <code>intelligence/stakeholder-map.md</code></a></p>
 
-**Methodology**: actor-mapping + stakeholder-map templates merged.
-**Data basis**: EP Open Data committee memberships (current EP10),
 adopted-texts sample, public committee pages. Where the EP API does
 not expose per-motion rapporteur, the stakeholder-map uses
 standard-pattern inference (committee chair / coordinator / shadow
@@ -409,7 +405,6 @@ quantitative and narrative treatment. Cross-reference mandatory.
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/motions/intelligence/pestle-analysis.md" rel="noopener">View source: <code>intelligence/pestle-analysis.md</code></a></p>
 
-**Framework**: PESTLE (Political, Economic, Social, Technological,
 Legal, Environmental) applied at the cluster level with per-motion
 call-outs. **Data basis**: `data/adopted-texts-sample.json`,
 `data/political-landscape.json`, `data/decisions-2026-03-26.json`.
@@ -649,7 +644,6 @@ implementation reports.
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/motions/intelligence/historical-baseline.md" rel="noopener">View source: <code>intelligence/historical-baseline.md</code></a></p>
 
-**Purpose**: anchor the 2026-03 motion cluster against comparable
 historical clusters to derive base rates for scenario forecasts and
 risk ratings. **Data basis**: EP9 (2019-2024) reference clusters
 plus EP10 2024-2026 continuity.
@@ -798,7 +792,6 @@ the historical record:
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/motions/intelligence/economic-context.md" rel="noopener">View source: <code>intelligence/economic-context.md</code></a></p>
 
-**Source confidence note**: World Bank and IMF MCP probes timed out
 during this run (see `mcp-reliability-audit.md` when produced). All
 macroeconomic figures below are drawn from the most recent public
 releases available to this analysis — IMF World Economic Outlook
@@ -953,7 +946,6 @@ The 2026-03 cluster is coherent as a response to:
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/motions/intelligence/threat-model.md" rel="noopener">View source: <code>intelligence/threat-model.md</code></a></p>
 
-**Framework**: adapted STRIDE for political-process threats — each
 motion cluster is treated as a "process asset" whose confidentiality,
 integrity, and availability are subject to adversarial pressure from
 internal (EP-group) and external (Member State, third-country, private)
@@ -1125,8 +1117,6 @@ treatment register; this threat model is the analytical source.
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/motions/intelligence/scenario-forecast.md" rel="noopener">View source: <code>intelligence/scenario-forecast.md</code></a></p>
 
-**Methodology**: cone-of-plausibility + indicator-led scenario design.
-**Horizon**: T+6 months (2026-10) · T+12 months (2027-04) ·
 T+18 months (2027-10). Every scenario headline uses a WEP band and
 explicit time horizon per `osint-tradecraft-standards.md`.
 **Data basis**: `data/adopted-texts-sample.json`, prior-term base
@@ -1308,7 +1298,6 @@ probability-weighted outcome over T+12 is:
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/motions/intelligence/wildcards-blackswans.md" rel="noopener">View source: <code>intelligence/wildcards-blackswans.md</code></a></p>
 
-**Definition**:
 * **Wildcard** — low-probability, high-impact event with a plausible
   generative mechanism anchored in current conditions; WEP ≤ 25%.
 * **Black swan** — tail event whose generative mechanism is either
@@ -1523,9 +1512,6 @@ execution if the trigger fires. Fuller contingency planning sits in
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/motions/intelligence/analysis-index.md" rel="noopener">View source: <code>intelligence/analysis-index.md</code></a></p>
 
-**Run**: `motions-run-1777010709` · **Generated**: 2026-04-24 (UTC) ·
-**Window**: 2026-03-25 → 2026-04-24 (30 days) · **Gate target**: GREEN ·
-**Article type**: `motions` · **Stage contract**: A → B → C → analysis PR
 (Stage D runs in paired `news-motions-article.md` on merge).
 
 ### 1 · Scope

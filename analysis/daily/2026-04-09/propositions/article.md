@@ -2197,12 +2197,6 @@ The first plenary session of the spring session will likely include:
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/risk-scoring/agent-risk-workflow.md" rel="noopener">View source: <code>risk-scoring/agent-risk-workflow.md</code></a></p>
 
-**Assessment ID**: ASSESS-2026-04-09  
-**Date**: 2026-04-09  
-**Article Type**: week-ahead  
-**Overall Risk Level**: LOW (score: 0.2)  
-**Confidence**: low
-
 ### Risk Heat Map
 
 | Impact ↓ / Likelihood → | Rare | Unlikely | Possible | Likely | Almost Certain |

@@ -65,12 +65,6 @@ ELAPSED_MINUTES: 45
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/week-in-review-run12/intelligence/significance-scoring.md" rel="noopener">View source: <code>intelligence/significance-scoring.md</code></a></p>
 
-**Review Period:** 11 April 2026 – 18 April 2026 (Easter Recess Week)
-**Confidence:** 🟡 Medium (content API degradation limiting direct text verification)
-**Analysis Mode:** Cross-run synthesis with prior intelligence from runs 179–184
-
----
-
 ### Executive Significance Summary
 
 ```
@@ -2716,13 +2710,6 @@ Any updating author MUST sweep all entries in the row when revising a value.
 ### Deep Analysis
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/week-in-review-run12/intelligence/deep-analysis.md" rel="noopener">View source: <code>intelligence/deep-analysis.md</code></a></p>
-
-**Review Period:** 11 April 2026 – 18 April 2026
-**Analysis Date:** Saturday, 18 April 2026 (Easter Saturday)
-**Confidence Level:** 🟡 Medium (partial API data; enriched by 6-run recess intelligence series)
-**Frameworks Applied:** SWOT, Mendelow Stakeholder Grid, PESTLE, 5×5 Risk Matrix, Shell Scenarios
-
----
 
 ### 🎯 Executive Summary
 

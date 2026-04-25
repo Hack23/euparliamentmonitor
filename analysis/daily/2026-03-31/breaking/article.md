@@ -17,12 +17,6 @@
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-03-31/breaking/breaking-news-analysis.md" rel="noopener">View source: <code>breaking-news-analysis.md</code></a></p>
 
-**Classification**: PUBLIC | **Confidence**: High (data collection) / Medium (analytical assessment)
-**Analysis Date**: 2026-03-31 | **Analyst**: AI-Driven Analysis Pipeline
-**Article Type**: Breaking News | **Parliamentary Term**: EP10 (2024-2029)
-
----
-
 ### Executive Summary
 
 | Metric | Value | Trend |
@@ -229,11 +223,6 @@ A major geopolitical event (escalation in Ukraine, trade war escalation with US,
 ### Political Landscape Context
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-03-31/breaking/political-landscape-context.md" rel="noopener">View source: <code>political-landscape-context.md</code></a></p>
-
-**Classification**: PUBLIC | **Confidence**: Medium
-**Analysis Date**: 2026-03-31 | **Parliamentary Term**: EP10 (2024-2029)
-
----
 
 ### Current Political Group Composition
 

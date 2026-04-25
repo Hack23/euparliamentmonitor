@@ -17,12 +17,6 @@
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/committee-reports-run44/existing/api-outage-diagnostic.md" rel="noopener">View source: <code>existing/api-outage-diagnostic.md</code></a></p>
 
-**Date**: 2026-04-13 (Monday — Easter Recess Final Day, Day 18/18)
-**Run ID**: 44
-**Article Type**: committee-reports
-**Timestamp**: 2026-04-13T10:01:36Z
-**Confidence**: 🟢 High (pattern confirmed across 12+ consecutive runs)
-
 ### Executive Summary
 
 | Dimension | Status | Detail |

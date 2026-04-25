@@ -17,13 +17,6 @@
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-3/intelligence-brief.md" rel="noopener">View source: <code>intelligence-brief.md</code></a></p>
 
-**Date:** 5 April 2026 (Easter Sunday) | **Run:** 3 of 3 (12:09 UTC)
-**Overall Assessment:** 🟡 Routine — Easter Recess Day 10 of 18 (Midpoint)
-**Items Tracked:** 85 adopted texts | 0 events | 0 procedures | 737 active MEPs
-**Monitoring Window:** 12 hours (00:20 → 06:30 → 12:09 UTC)
-
----
-
 ### 12-Hour Longitudinal Validation Summary
 
 This third run completes the day's monitoring cycle with the strongest evidence base yet — three independent data collection runs over 12 hours. The zero-delta confirmation across all dimensions represents statistically significant evidence of complete EP data publication cessation during Easter recess.
@@ -230,11 +223,6 @@ PPE formalises operational cooperation with ECR on specific policy domains (migr
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-3/political-landscape-analysis.md" rel="noopener">View source: <code>political-landscape-analysis.md</code></a></p>
 
-**Date:** 5 April 2026 (Easter Sunday) | **Run:** 3 of 3 (12:09 UTC)
-**Period:** Easter Recess Day 10 of 18 | **Assessment:** 🟡 Stable, no change in 12 hours
-
----
-
 ### Current Parliament Composition
 
 ```mermaid
@@ -434,11 +422,6 @@ quadrantChart
 ### Risk Assessment
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-3/risk-assessment.md" rel="noopener">View source: <code>risk-assessment.md</code></a></p>
-
-**Date:** 5 April 2026 | **Period:** Easter Recess Day 10 of 18 | **Run:** 3 of 3 (12:09 UTC)
-**Overall Risk Level:** 🟡 MEDIUM | **Stability Score:** 84/100 | **Monitoring Window:** 12 hours
-
----
 
 ### Executive Risk Summary
 
@@ -681,11 +664,6 @@ gantt
 ### Swot Analysis
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-3/swot-analysis.md" rel="noopener">View source: <code>swot-analysis.md</code></a></p>
-
-**Date:** 5 April 2026 | **Period:** Easter Recess Day 10 of 18 (Midpoint) | **Run:** 3 of 3 (12:09 UTC)
-**Assessment:** 🟡 Routine recess with longitudinal validation — all prior findings confirmed
-
----
 
 ### SWOT Evolution Tracking (28 March – 5 April)
 

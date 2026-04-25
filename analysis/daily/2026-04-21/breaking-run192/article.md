@@ -15,8 +15,6 @@
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run192/intelligence/synthesis-summary.md" rel="noopener">View source: <code>intelligence/synthesis-summary.md</code></a></p>
 
-**Date**: 2026-04-21 | **Run**: 192 | **Mode**: ANALYSIS_ONLY | **Series Run**: 14
-
 ### Executive Summary
 
 Run 192 marks **Day 1 of the post-Easter work week** — the first day EU institutions are operational after the Easter Monday bank holiday. The European Parliament remains in Easter recess until April 27. No breaking news events occurred. The strategic significance of this run lies in five areas: (1) the opening of the USTR Section 301 review window; (2) continued EP API content outage entering Day 12; (3) increasing proximity to Parliament's April 27 return; (4) the roll-call vote overdue publication window; and (5) the Commission Housing Initiative soft deadline passing today.
@@ -105,8 +103,6 @@ Session started ~01:20 UTC. Analysis phase running from ~01:26 UTC.
 <h2 id="section-stakeholder-map">Stakeholder Map</h2>
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run192/intelligence/stakeholder-map.md" rel="noopener">View source: <code>intelligence/stakeholder-map.md</code></a></p>
-
-**Date**: 2026-04-21 | **Run**: 192 | **Context**: Easter Recess Series Day 8 / Return in 6 days
 
 ### Stakeholder Analysis Framework
 
@@ -214,9 +210,6 @@ Greens and The Left would demand that any EU trade response include Carbon Borde
 ### Risk Matrix
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run192/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
-
-**Date**: 2026-04-21 | **Run**: 192
-**Assessment horizon**: April 21 – May 15, 2026
 
 ### Risk Matrix Framework
 
@@ -334,11 +327,6 @@ Risks assessed on 5×5 matrix: **Likelihood** (1-5) × **Impact** (1-5) = **Risk
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run192/risk-scoring/quantitative-swot.md" rel="noopener">View source: <code>risk-scoring/quantitative-swot.md</code></a></p>
 
-**Date**: 2026-04-21 | **Run**: 192
-**Assessment horizon**: EP Parliament April 27-30 return through May 2026
-
----
-
 ### STRENGTHS
 
 #### S1: Banking Union Legislative Completion — Institutional Strength Peak (Confidence: HIGH)
@@ -422,9 +410,6 @@ The PPE/EPP acronym bug, the extended outage, and the delayed roll-call publicat
 ### Scenario Forecast
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run192/intelligence/scenario-forecast.md" rel="noopener">View source: <code>intelligence/scenario-forecast.md</code></a></p>
-
-**Date**: 2026-04-21 | **Run**: 192
-**Horizon**: April 21 – May 15, 2026
 
 ### Scenario Architecture
 
@@ -512,10 +497,6 @@ The 4-scenario model above accounts for ~82% of the probability mass. The remain
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run192/intelligence/cross-run-diff.md" rel="noopener">View source: <code>intelligence/cross-run-diff.md</code></a></p>
 
-**Date**: 2026-04-21 | **Run**: 192 | **Prior Run**: 191 (2026-04-20)
-**Analysis Dir**: `analysis/daily/2026-04-21/breaking-run192/`
-**Prior Analysis Dir**: `analysis/daily/2026-04-20/breaking-run191/`
-
 ### Differential Summary
 
 Run 191 (April 20, Easter Monday) marked a significant inflection point: metadata count restoration from 100 to 104. Run 192 (April 21, post-Easter Tuesday) tests whether that restoration continues into content (Phase 2). Answer: **NO — content still unavailable.**
@@ -599,9 +580,6 @@ The following conclusions from prior runs are CONFIRMED STABLE but not new:
 ### Significance Scoring
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run192/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
-
-**Date**: 2026-04-21 | **Run**: 192
-**Status**: ANALYSIS_ONLY (No Breaking Events Today)
 
 ### Classification Framework
 
@@ -723,9 +701,6 @@ Events are assessed on four dimensions:
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run192/existing/coalition-dynamics.md" rel="noopener">View source: <code>existing/coalition-dynamics.md</code></a></p>
 
-**Date**: 2026-04-21 | **Run**: 192
-**Source**: `analyze_coalition_dynamics` structural data + cross-run corrections
-
 ### Current EP10 Coalition Composition
 
 | Political Group | Seats | % of 720 | Bloc Alignment | Stability |
@@ -811,12 +786,6 @@ The EP10 grand coalition scores 87/100 on stability but the qualitative assessme
 ### Analysis Index
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run192/intelligence/analysis-index.md" rel="noopener">View source: <code>intelligence/analysis-index.md</code></a></p>
-
-**Generated**: 2026-04-21T01:26:00Z
-**Run ID**: 192
-**Analysis Dir**: `analysis/daily/2026-04-21/breaking-run192/`
-**Mode**: ANALYSIS_ONLY (newsworthiness gate FAILED — Parliament in Easter recess until April 27)
-**Series**: Run 14 of Easter Recess Intelligence Series (Runs 179–192)
 
 ### Key Context
 

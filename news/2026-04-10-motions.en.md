@@ -561,10 +561,6 @@ Identification of factors disrupting the normal legislative process.
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/motions/threat-assessment/political-threat-landscape.md" rel="noopener">View source: <code>threat-assessment/political-threat-landscape.md</code></a></p>
 
-**Overall Threat Level**: 🟢 LOW  
-**Confidence**: low  
-**Date**: 2026-04-10
-
 ### Political Threat Landscape Analysis
 
 #### Coalition Shifts
@@ -967,12 +963,6 @@ TA-10-2026-0094 is the EU's most significant anti-corruption measure in a decade
 ### Agent Risk Workflow
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/motions/risk-scoring/agent-risk-workflow.md" rel="noopener">View source: <code>risk-scoring/agent-risk-workflow.md</code></a></p>
-
-**Assessment ID**: ASSESS-2026-04-10  
-**Date**: 2026-04-10  
-**Article Type**: week-ahead  
-**Overall Risk Level**: LOW (score: 0.2)  
-**Confidence**: low
 
 ### Risk Heat Map
 

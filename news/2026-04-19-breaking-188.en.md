@@ -15,8 +15,6 @@
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/breaking-run188/intelligence/synthesis-summary.md" rel="noopener">View source: <code>intelligence/synthesis-summary.md</code></a></p>
 
-**Analysis Date:** 2026-04-19 | **Run:** 188 | **Series Run:** 10 (Easter Recess Series)
-
 ![Status](https://img.shields.io/badge/Parliament-Easter_Recess_Day_7-orange?style=flat-square)
 ![Significance](https://img.shields.io/badge/Significance-18%2F50-yellow?style=flat-square)
 ![Mode](https://img.shields.io/badge/Mode-ANALYSIS_ONLY-blue?style=flat-square)
@@ -233,10 +231,6 @@ as of this Pass 2 review.
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/breaking-run188/classification/significance-classification.md" rel="noopener">View source: <code>classification/significance-classification.md</code></a></p>
 
-**Classification Date:** 2026-04-19 | **Framework:** CIA Political Classification v2.1
-
----
-
 ### Classification Framework
 
 The CIA Political Classification framework assigns every text adopted by the
@@ -374,8 +368,6 @@ output limits direct legal-implementation consequence despite strategic salience
 ### Significance Scoring
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/breaking-run188/intelligence/significance-scoring.md" rel="noopener">View source: <code>intelligence/significance-scoring.md</code></a></p>
-
-**Analysis Date:** 2026-04-19 | **Run:** 188 | **Series Run:** 10 (Easter Recess Series)
 
 ![Status](https://img.shields.io/badge/Parliament-Easter_Recess_Day_7-orange?style=flat-square)
 ![Significance](https://img.shields.io/badge/Significance-18%2F50-yellow?style=flat-square)
@@ -598,8 +590,6 @@ feed data.*
 ### Coalition Dynamics
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/breaking-run188/intelligence/coalition-dynamics.md" rel="noopener">View source: <code>intelligence/coalition-dynamics.md</code></a></p>
-
-**Date:** 2026-04-19 | **Parliament status:** Easter recess Day 7 | **Returns:** April 27
 
 ### Current Parliamentary Composition
 
@@ -1996,8 +1986,6 @@ These five open items carry cumulative forward-monitoring weight equal to the ag
 ### Risk Matrix
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/breaking-run188/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
-
-**Updated composite risk: 25.3/50** (down from 26.0/50 in Run 187)
 
 ```mermaid
 %%{init: {
@@ -3964,12 +3952,6 @@ known-unknowns status. The 5% probability reserve exists to:
 ### Cross Run Diff
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/breaking-run188/intelligence/cross-run-diff.md" rel="noopener">View source: <code>intelligence/cross-run-diff.md</code></a></p>
-
-**Prior run**: analysis/daily/2026-04-19/breaking-run187
-**Current run**: analysis/daily/2026-04-19/breaking-run188
-**Elapsed between runs**: ~2 hours (same day, Easter Sunday April 19)
-
----
 
 ### What Changed (Net New Intelligence)
 

@@ -15,16 +15,6 @@
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/breaking/intelligence/synthesis-summary.md" rel="noopener">View source: <code>intelligence/synthesis-summary.md</code></a></p>
 
-**Run:** breaking-run-1777010646
-
-**Window:** 2026-04-24 00:00Z — 2026-04-24 05:49Z (≈ 6 hours)
-
-**Gate target:** GREEN or ANALYSIS_ONLY fallback
-
-**Composition layer:** This file pulls the threads from every other intelligence artifact into a single bottom-line-up-front judgement set, calibrated with WEP bands and Admiralty source grades.
-
----
-
 ### BLUF (Bottom Line Up Front)
 
 Within today's six-hour breaking-news probe window, **no material EP10 breaking event surfaced from the operational feed set.** The `get_adopted_texts_feed` returns an 18-item mixed-vintage backfill (oldest `TA-9-2024-0004` from EP9, newest `TA-10-2025-0314`), `get_events_feed` is **unavailable** on the upstream enrichment path, `get_procedures_feed` serves a historical tail-first ordering (preview leads with 1972/0003(COD)), and `get_meps_feed` returns a 33.6 MB static serialization with no delta markers.
@@ -234,16 +224,6 @@ End of methodology notes.
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/breaking/intelligence/coalition-dynamics.md" rel="noopener">View source: <code>intelligence/coalition-dynamics.md</code></a></p>
 
-**Run:** breaking-run-1777010760
-
-**Window:** 2026-04-24 00:00Z — 05:49Z
-
-**Methodology:** CIA Coalition Analysis via `analyze_coalition_dynamics` + group-size seat-share proxy.
-
-**Note on data scope:** The EP Open Data Portal does not yet expose per-MEP roll-call data. Cohesion and defection are therefore estimated via group-size similarity and historical prior (EP10 to date). Pair `sizeSimilarityScore` is used as the allianceSignal threshold in `analyze_coalition_dynamics` until per-MEP data becomes available.
-
----
-
 ### 1. EP10 Seat Geometry (baseline)
 
 | Group | Seats | Share of 720 |
@@ -380,8 +360,6 @@ End of methodology notes.
 <h2 id="section-stakeholder-map">Stakeholder Map</h2>
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/breaking/intelligence/stakeholder-map.md" rel="noopener">View source: <code>intelligence/stakeholder-map.md</code></a></p>
-
-**Run:** breaking-run-1777010510 · **Scope:** EP10 political-group and institutional-actor graph anchored to the 2026-04-24 breaking probe window.
 
 Stakeholder classes considered: (1) EP political groups, (2) Council presidency + rotating trio, (3) European Commission DGs most relevant to the breaking file-set, (4) Member State capitals with agenda weight, (5) civil-society / industry stakeholders visible in recent EP10 procedural files, (6) third-country diplomatic angle.
 
@@ -700,8 +678,6 @@ End of methodology notes.
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/breaking/intelligence/pestle-analysis.md" rel="noopener">View source: <code>intelligence/pestle-analysis.md</code></a></p>
 
-**Run:** breaking-run-1777010510 · **Framework:** PESTLE macro-environment scan · **Scope:** EP10 breaking window 2026-04-24 00:00Z — 05:49Z.
-
 PESTLE organises the macro environment into six orthogonal dimensions: **P**olitical, **E**conomic, **S**ocial, **T**echnological, **L**egal, **E**nvironmental. This scan anchors each dimension to evidence observed in the probe window plus forward-dated signals from prior-run artifacts. Every claim carries a WEP band and Admiralty grade per `osint-tradecraft-standards.md`.
 
 ---
@@ -963,14 +939,6 @@ End of methodology notes.
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/breaking/intelligence/historical-baseline.md" rel="noopener">View source: <code>intelligence/historical-baseline.md</code></a></p>
 
-**Run:** breaking-run-1777010760
-
-**Window:** 2026-04-24 00:00Z — 05:49Z
-
-**Scope:** 5-year comparability reference against prior EU Parliament breaking-day baselines (2021–2025) plus EP10-term-to-date prior-run comparison.
-
----
-
 ### 1. Five-Year EP Breaking-Day Baseline
 
 | Year | Approximate April cadence | Common pattern | Representative breaking event |
@@ -1166,18 +1134,6 @@ End of methodology notes.
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/breaking/intelligence/economic-context.md" rel="noopener">View source: <code>intelligence/economic-context.md</code></a></p>
 
-**Run:** breaking-run-1777010760
-
-**Window:** 2026-04-24 00:00Z — 05:49Z
-
-**Scope:** World Bank Open Data + IMF SDMX 3.0 baseline indicators anchored to the 2026-04-24 breaking window. Member-state focus: Germany (DE), France (FR), Italy (IT), Poland (PL), Spain (ES), Netherlands (NL).
-
-**Source grades:** World Bank (`NY.GDP.MKTP.CD`, `NY.GDP.MKTP.KD.ZG`, etc.) — Admiralty A2 (completely reliable, probably true). IMF WEO — A2.
-
-**Wave-2 OR-gate:** per `.github/skills/ai-first-quality.md`, policy articles require World Bank OR IMF economic context. This run does not draft an article, but still publishes the economic baseline for future use.
-
----
-
 ### 1. Eurozone Macroeconomic Snapshot
 
 | Indicator | Series | Latest value | Direction | Source |
@@ -1365,16 +1321,6 @@ End of methodology notes.
 ### Threat Model
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/breaking/intelligence/threat-model.md" rel="noopener">View source: <code>intelligence/threat-model.md</code></a></p>
-
-**Run:** breaking-run-1777010937
-
-**Window:** 2026-04-24 00:00Z — 05:49Z
-
-**Methodology:** STRIDE + MITRE ATT&CK mapping applied to the EU Parliament information pipeline, scoped to risks materializing in the breaking-news window.
-
-**Scope boundary:** Threats to (a) the EP Open Data Portal upstream, (b) the MCP gateway and tool surface, (c) our analysis pipeline, and (d) the downstream reader of the news artifact set. Threats to MEP personal safety or physical infrastructure are out of scope.
-
----
 
 ### 1. Asset Inventory
 
@@ -1630,16 +1576,6 @@ End of methodology notes.
 ### Scenario Forecast
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/breaking/intelligence/scenario-forecast.md" rel="noopener">View source: <code>intelligence/scenario-forecast.md</code></a></p>
-
-**Run:** breaking-run-1777010937
-
-**Window:** 2026-04-24 00:00Z — 05:49Z plus 7-day forward horizon.
-
-**Methodology:** Four-scenario matrix (A/B/C/D) × three time-horizons (24 h / 72 h / 7 d), with WEP (estimative probability), Admiralty grade, and trigger-to-confirm indicators. See `.github/prompts/02-analysis-protocol.md` §5 and Heuer ACH.
-
-**Baseline for scenario anchor:** 11+ day degraded MCP feed regime; no fresh breaking items detected in the window.
-
----
 
 ### 1. Scenario Matrix — 24-Hour Horizon
 
@@ -1923,14 +1859,6 @@ End of methodology notes.
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/breaking/intelligence/wildcards-blackswans.md" rel="noopener">View source: <code>intelligence/wildcards-blackswans.md</code></a></p>
 
-**Run:** breaking-run-1777010937
-
-**Window:** 2026-04-24 00:00Z — 05:49Z, with 7-day forward horizon for tail-event surfacing.
-
-**Methodology:** Low-probability, high-impact events that would materially re-shape the EU Parliament landscape within the breaking-news window or the immediate-forward horizon. Each entry has WEP (estimative probability), Admiralty grade, and trigger indicators.
-
----
-
 ### 1. Political Tail Events
 
 #### 1.1 Grand-coalition fracture (EPP–S&D–Renew)
@@ -2210,12 +2138,6 @@ End of methodology notes.
 <h2 id="section-mcp-reliability">MCP Reliability Audit</h2>
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/breaking/intelligence/mcp-reliability-audit.md" rel="noopener">View source: <code>intelligence/mcp-reliability-audit.md</code></a></p>
-
-**Run:** breaking-run-1777010937
-
-**Window:** 2026-04-24 00:00Z — 05:49Z
-
-**Scope:** Per-tool health assessment of every MCP server and tool touched during Stage A data collection for the 2026-04-24 breaking probe. Evidence is preserved in `data/server-health.json`, `data/adopted-texts-feed.json`, `data/events-feed.json`, and `data/procedures-feed-preview.json`.
 
 **Grading scale (custom, hybrid Admiralty + SRE):**
 
@@ -2609,28 +2531,6 @@ End of methodology notes.
 ### Analysis Index
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/breaking/intelligence/analysis-index.md" rel="noopener">View source: <code>intelligence/analysis-index.md</code></a></p>
-
-**Run:** breaking-run-1777010646
-
-**Article Type:** breaking
-
-**Analysis Directory:** `analysis/daily/2026-04-24/breaking/`
-
-**Gate Target:** GREEN or ANALYSIS_ONLY fallback
-
-**Probe Window:** 2026-04-24 00:00Z — 2026-04-24 05:49Z (approximately 6 hours)
-
-**Methodology Anchor:** `analysis/methodologies/ai-driven-analysis-guide.md` (10-step protocol, Rules 1–22)
-
-**Reference-Quality Benchmark:** `analysis/daily/2026-04-18/breaking-run184/`
-
-**Per-Artifact Floors:** `analysis/methodologies/reference-quality-thresholds.json`
-
-**WEP Convention:** CIA Words-of-Estimative-Probability bands (see §4 below)
-
-**Admiralty Grading:** A1–F6 (see §4 below)
-
----
 
 ### 1. Executive Read-Order (Rule 19 Pre-Flight)
 

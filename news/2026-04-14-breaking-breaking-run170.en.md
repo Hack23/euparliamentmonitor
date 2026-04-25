@@ -17,9 +17,6 @@
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run170/classification/significance-classification.md" rel="noopener">View source: <code>classification/significance-classification.md</code></a></p>
 
-**Analysis Date**: 14 April 2026 | **Parliamentary Status**: Easter Recess Day 18/18 (Final Day)
-**Confidence**: Medium — Based on precomputed stats (refreshed 2026-04-08) and one-week feed data
-
 ### Executive Summary
 
 | Dimension | Rating | Evidence |
@@ -154,9 +151,6 @@ The convergence of tariff deadline (T-1), record legislative backlog, and coalit
 ### Risk Matrix
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run170/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
-
-**Analysis Date**: 14 April 2026 | **Assessment Period**: April 15-30, 2026
-**Composite Risk Score**: 12.8/25 (ELEVATED) | **Confidence**: Medium
 
 ### Risk Scoring Methodology
 
@@ -378,9 +372,6 @@ Each group will need to spend political capital on trade response, Banking Union
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run170/threat-assessment/political-threat-landscape.md" rel="noopener">View source: <code>threat-assessment/political-threat-landscape.md</code></a></p>
 
-**Analysis Date**: 14 April 2026 | **Threat Period**: April 15-30, 2026
-**Overall Threat Level**: ELEVATED | **Confidence**: Medium
-
 ### Executive Summary
 
 The European Parliament faces a convergence of three independent threat vectors as it returns from Easter recess on April 15:
@@ -533,9 +524,6 @@ Post-recess positions hardened. Grand coalition deficit prevents progress on con
 ### Document Analysis Index
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run170/documents/document-analysis-index.md" rel="noopener">View source: <code>documents/document-analysis-index.md</code></a></p>
-
-**Analysis Date**: 14 April 2026 | **Documents**: 5 Tier-1 texts from March 26, 2026
-**Confidence**: Medium
 
 ### Overview
 
@@ -722,9 +710,6 @@ Broad support across EPP, S&D, Renew, ECR. ECR particularly supportive (defence 
 ### Synthesis Summary
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run170/existing/synthesis-summary.md" rel="noopener">View source: <code>existing/synthesis-summary.md</code></a></p>
-
-**Analysis Date**: 14 April 2026 | **Run**: 170 (Breaking News)
-**Cross-Session References**: Runs 169, 168, 163, 48 | **Confidence**: Medium
 
 ### Executive Summary
 

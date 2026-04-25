@@ -17,14 +17,6 @@
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/breaking/cross-session-intelligence.md" rel="noopener">View source: <code>cross-session-intelligence.md</code></a></p>
 
-**Analysis Date:** 2026-04-08 18:30 UTC (Enhanced Run)
-**Assessment Level:** ![Assessment](https://img.shields.io/badge/-Routine-28a745?style=for-the-badge)
-**Parliament Status:** Easter Recess (Day 13 of 18) - March 27 to April 13, 2026
-**articleType:** `breaking`
-**Analyst:** `news-breaking` workflow (Run 2)
-
----
-
 ### Executive Summary
 
 This cross-session intelligence brief analyses patterns across all three EP10 Q1 2026 plenary sessions (January 20-22, February 10-12, March 10-12/26) to identify strategic trends, thematic evolution, and coalition dynamics that inform the post-recess outlook. The analysis covers 30 adopted texts, representing the most productive Q1 in EP10's tenure. Key findings: (1) EPP's flexible coalition strategy is delivering accelerated legislative output; (2) external relations/trade policy has displaced climate as the dominant legislative theme; (3) the March 26 pre-recess sprint was historically anomalous in scale. Medium confidence - based on adopted texts data with full titles and procedure references.

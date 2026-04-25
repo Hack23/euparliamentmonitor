@@ -13,7 +13,9 @@ import {
   discoverTradecraftFiles,
   expandSectionArtifacts,
   flattenManifestFiles,
+  guessDateFromRunDir,
   latestGateResult,
+  renderAnalysisIndex,
   renderProvenanceBlock,
   renderTradecraftAppendix,
 } from '../../scripts/aggregator/analysis-aggregator.js';
@@ -250,5 +252,73 @@ describe('aggregateAnalysisRun (fixture)', () => {
     // follow-up "### Synthesis Summary" restating the same title.
     const pattern = /<h2 id="section-synthesis">Synthesis Summary<\/h2>[\s\S]*?### Synthesis Summary/;
     expect(pattern.test(result.markdown)).toBe(false);
+  });
+
+  it('does NOT include README.md in the aggregated output', () => {
+    const result = aggregateAnalysisRun({
+      runDir: FIXTURE_RUN_DIR,
+      repoRoot: FIXTURE_REPO,
+    });
+    // README.md should never appear as an included artifact
+    const readmePaths = result.includedArtifacts.filter((a) =>
+      a.runRelPath.toLowerCase() === 'readme.md'
+    );
+    expect(readmePaths).toHaveLength(0);
+  });
+});
+
+describe('guessDateFromRunDir', () => {
+  it('extracts YYYY-MM-DD from a path with an ISO date segment', () => {
+    expect(guessDateFromRunDir('analysis/daily/2026-04-24/breaking')).toBe('2026-04-24');
+  });
+
+  it('returns 1970-01-01 when no ISO date is present', () => {
+    expect(guessDateFromRunDir('some/path/without/date')).toBe('1970-01-01');
+  });
+
+  it('handles a path with only the date component', () => {
+    expect(guessDateFromRunDir('2025-12-31')).toBe('2025-12-31');
+  });
+});
+
+describe('renderAnalysisIndex', () => {
+  it('produces a table with section, artifact stem, and path columns', () => {
+    const included = [
+      {
+        runRelPath: 'intelligence/synthesis-summary.md',
+        repoRelPath: 'analysis/daily/2026-01-15/breaking/intelligence/synthesis-summary.md',
+        sectionId: 'synthesis',
+      },
+    ];
+    const out = renderAnalysisIndex(included, 'analysis/daily/2026-01-15/breaking/manifest.json');
+    expect(out).toContain('synthesis-summary');
+    expect(out).toContain('synthesis');
+    expect(out).toContain('manifest.json');
+    expect(out).toContain('| Section | Artifact | Path |');
+  });
+
+  it('lists the manifest.json link in the preamble', () => {
+    const out = renderAnalysisIndex([], 'analysis/daily/2026-01-15/breaking/manifest.json');
+    expect(out).toContain(
+      'https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-01-15/breaking/manifest.json'
+    );
+  });
+
+  it('renders a row for every included artifact', () => {
+    const included = [
+      {
+        runRelPath: 'extended/executive-brief.md',
+        repoRelPath: 'analysis/daily/2026-01-15/breaking/extended/executive-brief.md',
+        sectionId: 'executive-brief',
+      },
+      {
+        runRelPath: 'intelligence/synthesis-summary.md',
+        repoRelPath: 'analysis/daily/2026-01-15/breaking/intelligence/synthesis-summary.md',
+        sectionId: 'synthesis',
+      },
+    ];
+    const out = renderAnalysisIndex(included, 'analysis/daily/2026-01-15/breaking/manifest.json');
+    expect(out).toContain('executive-brief');
+    expect(out).toContain('synthesis-summary');
   });
 });

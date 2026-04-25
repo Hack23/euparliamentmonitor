@@ -288,10 +288,6 @@ The primary analytical risk is **confirmation bias** — the data is so consiste
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/classification/significance-classification.md" rel="noopener">View source: <code>classification/significance-classification.md</code></a></p>
 
-**Date:** 2026-04-20 | **Workflow:** motions-run46 | **Confidence:** 🟡 Medium
-
----
-
 ### Significance Scoring Methodology
 
 Scores based on five criteria (0-2 each, max 10):
@@ -1877,10 +1873,6 @@ graph LR
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/existing/stakeholder-impact.md" rel="noopener">View source: <code>existing/stakeholder-impact.md</code></a></p>
 
-**Date:** 2026-04-20 | **Workflow:** motions-run46 | **Confidence:** 🟡 Medium
-
----
-
 ### Stakeholder 1: European Commission (DG TRADE, DG EMPL, DG GROW, DG NEAR)
 
 **Role:** Legislative initiator and implementation authority
@@ -3084,10 +3076,6 @@ The 2.7x pace multiplier is not merely legislative activism — it is the instit
 ### Risk Matrix
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
-
-**Date:** 2026-04-20 | **Workflow:** motions-run46 | **Confidence:** 🟡 Medium
-
----
 
 ### Risk Scoring Methodology
 
@@ -6124,10 +6112,6 @@ The 2.7x legislative pace acceleration directly amplifies Tampering and Denial o
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/threat-assessment/political-threat-landscape.md" rel="noopener">View source: <code>threat-assessment/political-threat-landscape.md</code></a></p>
 
-**Date:** 2026-04-20 | **Workflow:** motions-run46 | **Confidence:** 🟡 Medium
-
----
-
 ### Threat Framework
 
 Threats are categorised across four domains:
@@ -7535,11 +7519,6 @@ This baseline provides the reference framework against which all subsequent quar
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/existing/deep-analysis.md" rel="noopener">View source: <code>existing/deep-analysis.md</code></a></p>
 
-**Date:** 2026-04-20 | **Workflow:** motions-run46 | **Confidence:** 🟡 Medium (EP API Degraded)
-**Analysis Period:** 2026-01-01 to 2026-04-16 | **Method:** DEGRADED MODE (individual text content unavailable)
-
----
-
 ### Executive Summary
 
 The European Parliament's first quarter of 2026 produced an unprecedented 567 roll-call votes and 180 resolutions — both records that, when set against the corresponding 2025 figures (420 RCVs and 135 resolutions in the full calendar year), reveal a parliamentary body operating at roughly triple its prior-year cadence. This acceleration is not mere statistical noise: it reflects a strategic clarity that EP10 has been building since its constitutive phase concluded in late 2024. The Parliament has found its political voice, and the record pace of its output in Q1 2026 is the most reliable leading indicator of that maturation.
@@ -7722,10 +7701,6 @@ This PfE-ECR divergence is one of the most important structural features of EP10
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/documents/document-analysis-index.md" rel="noopener">View source: <code>documents/document-analysis-index.md</code></a></p>
 
-**Date:** 2026-04-20 | **Workflow:** motions-run46 | **Data Mode:** DEGRADED (metadata only)
-
----
-
 ### Data Availability Summary
 
 | Category | Available | Notes |
@@ -7849,11 +7824,6 @@ This PfE-ECR divergence is one of the most important structural features of EP10
 ### Coalition Dynamics
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/existing/coalition-dynamics.md" rel="noopener">View source: <code>existing/coalition-dynamics.md</code></a></p>
-
-**Date:** 2026-04-20 | **Confidence:** 🟡 Medium (No per-MEP vote data available from EP API)
-**Data Source:** Group composition from coalition_dynamics tool, position inference from subject codes and historical patterns
-
----
 
 ### Political Group Composition (EP10, April 2026)
 
@@ -8022,12 +7992,6 @@ The governing zone commands a structural majority in all configuration variants.
 ### Synthesis Summary
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/existing/synthesis-summary.md" rel="noopener">View source: <code>existing/synthesis-summary.md</code></a></p>
-
-**Date:** 2026-04-20 | **Workflow:** motions-run46 | **Analysis Run:** motions-run46
-**Confidence:** 🟡 Medium (EP API Degraded — titles and metadata only for recent texts)
-**Article Recommendation:** PROCEED — sufficient intelligence for Tier 1 article production
-
----
 
 ### Article Concept
 

@@ -15,7 +15,6 @@
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/propositions/intelligence/synthesis-summary.md" rel="noopener">View source: <code>intelligence/synthesis-summary.md</code></a></p>
 
-**BLUF (ICD-203)**: Over the past 30 days the European Parliament has
 indexed **104 adopted-text records for 2026** (TA-10-2026-0001 …
 TA-10-2026-0104) on the Open Data Portal, but **zero body contents were
 retrievable** during this run. The propositions pipeline is therefore
@@ -201,7 +200,6 @@ When the paired `news-propositions-article.md` runs on merge, it should:
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/propositions/intelligence/stakeholder-map.md" rel="noopener">View source: <code>intelligence/stakeholder-map.md</code></a></p>
 
-**Methodology**: Power/interest (Mendelow) × coalition-arithmetic
 overlay. Each stakeholder gets (a) **influence score** 1–10,
 (b) **interest score** 1–10, (c) **propositions-track stance**,
 (d) **likely coalition behaviour H1 2026**, and (e) **counter-
@@ -615,7 +613,6 @@ bloc rebalancing.
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/propositions/intelligence/historical-baseline.md" rel="noopener">View source: <code>intelligence/historical-baseline.md</code></a></p>
 
-**Purpose**: establish a longitudinal baseline (2004–2026, 22 parliamentary
 years) against which this month's propositions pipeline is judged.
 
 ### 1 · Method
@@ -743,7 +740,6 @@ Most recent same-type run with the canonical folder layout is
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/propositions/intelligence/economic-context.md" rel="noopener">View source: <code>intelligence/economic-context.md</code></a></p>
 
-**OR-gate (Wave-2)**: This artifact uses **World Bank** indicators
 (Germany + France bilaterals) after attempted Eurozone aggregates
 (`EUU`, `EMU`) failed to resolve in the current World Bank MCP
 deployment (`worldbank-mcp@1.0.1`). The OR-gate requires either WB or
@@ -1104,7 +1100,6 @@ constrained by upstream-data opacity.
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/propositions/intelligence/threat-model.md" rel="noopener">View source: <code>intelligence/threat-model.md</code></a></p>
 
-**Framework**: STRIDE+ adapted for legislative intelligence. Assets =
 propositions-track data integrity, coalition-formation intelligence,
 rapporteur-identification intelligence, public-narrative trust. Threat
 vectors are ranked by likelihood × impact (1–5 each) = risk score.
@@ -1272,7 +1267,6 @@ compensating control.
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/propositions/intelligence/scenario-forecast.md" rel="noopener">View source: <code>intelligence/scenario-forecast.md</code></a></p>
 
-**Horizon**: 90 days (2026-04-24 → +90 days). **Methodology**:
 probability-banded scenarios per `osint-tradecraft-standards.md §2.3`.
 WEP bands: IMPOSSIBLE ( <5%), UNLIKELY (5–40%), EVEN (40–55%),
 LIKELY (55–80%), HIGHLY LIKELY (80–95%), CERTAIN (>95%).
@@ -1465,7 +1459,6 @@ For the paired article workflow to reassess these scenarios:
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/propositions/intelligence/wildcards-blackswans.md" rel="noopener">View source: <code>intelligence/wildcards-blackswans.md</code></a></p>
 
-**Purpose**: enumerate low-probability / high-impact events that
 could upend the 90-day propositions forecast. Methodology follows
 Taleb's grey/black-swan distinction: grey = foreseeable with
 near-zero probability; black = outside the model.
@@ -1658,7 +1651,6 @@ which would push Scenario A probability into HIGHLY LIKELY territory.
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/propositions/intelligence/mcp-reliability-audit.md" rel="noopener">View source: <code>intelligence/mcp-reliability-audit.md</code></a></p>
 
-**Scope**: audit of every MCP tool invocation during this run's
 Stage-A + Stage-B workflow. Defects are rated severity (HIGH/MED/LOW)
 and classified as client-side mitigatable vs upstream-only.
 
@@ -1874,7 +1866,6 @@ mitigation, (c) compared against benchmark `breaking-run184`,
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/propositions/intelligence/reference-analysis-quality.md" rel="noopener">View source: <code>intelligence/reference-analysis-quality.md</code></a></p>
 
-**Purpose**: self-assessment of the current run's analysis depth
 against the canonical reference benchmark
 `analysis/daily/2026-04-18/breaking-run184/`, using per-artifact
 line floors from
@@ -2028,7 +2019,6 @@ absent, and (b) vote-cohesion data remains upstream-blocked.
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/propositions/intelligence/methodology-reflection.md" rel="noopener">View source: <code>intelligence/methodology-reflection.md</code></a></p>
 
-**Purpose**: per `analysis/methodologies/ai-driven-analysis-guide.md
 Step 10.5`, this artifact attests the Structured Analytic Techniques
 (SATs) applied, the rules followed, the caveats carried, and the
 integrity of the run.
@@ -7622,12 +7612,6 @@ subset)**, subject to disclosed caveats §3.1–§3.5.
 ### Analysis Index
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/propositions/intelligence/analysis-index.md" rel="noopener">View source: <code>intelligence/analysis-index.md</code></a></p>
-
-**Classification**: PUBLIC · OSINT-only · EP Open Data Portal + World Bank
-**Article type**: `propositions`
-**Window**: 2026-03-25 → 2026-04-24 (30-day propositions horizon)
-**Run ID**: `propositions-run-1777009560`
-**Mode**: ANALYSIS_ONLY (Stages A + B + C only; article drafted in paired `news-propositions-article.md` when this PR merges)
 
 ### 1 · Purpose
 

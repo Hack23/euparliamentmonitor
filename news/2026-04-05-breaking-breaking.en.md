@@ -17,12 +17,6 @@
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking/intelligence-brief.md" rel="noopener">View source: <code>intelligence-brief.md</code></a></p>
 
-**Date:** 5 April 2026 (Easter Sunday)
-**Overall Assessment:** Routine
-**Items Tracked:** 85 adopted texts | 0 events | 0 procedures | 737 active MEPs
-
----
-
 ### Situation Overview
 
 | Domain | Activity Level | Key Signal | Alert Status |
@@ -258,12 +252,6 @@ Committee week overwhelmed by backlog from pre-recess push. Key legislative file
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking/political-landscape-analysis.md" rel="noopener">View source: <code>political-landscape-analysis.md</code></a></p>
 
-**Date:** 5 April 2026 | **Parliamentary Term:** EP10 (2024-2029)
-**Period:** Easter Recess Midpoint (Day 10 of 18)
-**Data Sources:** EP MEPs feed, political landscape, coalition dynamics, early warning system
-
----
-
 ### Current Political Configuration
 
 The 10th European Parliament (EP10) operates with 8 political groups spanning 23 member states. The current configuration, assessed at the midpoint of the Easter recess, shows a PPE-dominant landscape with high fragmentation requiring multi-party coalitions for every major vote.
@@ -432,11 +420,6 @@ The first post-Easter plenary is the critical test for coalition dynamics:
 ### Risk Assessment
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking/risk-assessment.md" rel="noopener">View source: <code>risk-assessment.md</code></a></p>
-
-**Date:** 5 April 2026 | **Period:** Easter Recess (27 March - 13 April 2026)
-**Overall Risk Level:** MEDIUM | **Stability Score:** 84/100
-
----
 
 ### Executive Risk Summary
 
@@ -634,11 +617,6 @@ quadrantChart
 ### Swot Analysis
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking/swot-analysis.md" rel="noopener">View source: <code>swot-analysis.md</code></a></p>
-
-**Date:** 5 April 2026 | **Period:** Easter Recess (27 March - 13 April 2026)
-**Assessment:** Routine recess period with structural monitoring insights
-
----
 
 ### SWOT Matrix
 

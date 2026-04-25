@@ -71,6 +71,8 @@ export interface CleanArtifactResult {
   readonly strippedH1s: number;
   /** Banner/metadata lines removed. */
   readonly strippedBannerLines: number;
+  /** Operational metadata preamble lines removed (e.g. **Run:** / **Window:** blocks). */
+  readonly strippedMetaLines: number;
   /** Mermaid blocks deduplicated as a reference to a previous occurrence. */
   readonly dedupedMermaidBlocks: number;
 }
@@ -635,6 +637,67 @@ function hashString(input: string): string {
 }
 
 /**
+ * Pattern matching an operational metadata line at the start of an artifact.
+ * Examples: `**Run:** breaking-run-123`, `**Window:** 2026-04-24 00:00Z — 05:49Z`.
+ * The pattern requires the line to start with `**<Word>**` followed by a colon
+ * or whitespace so ordinary bold prose is not mistakenly treated as metadata.
+ */
+const METADATA_LINE_PATTERN = /^\*\*[A-Za-z][^*\n]*\*\*[:\s]/;
+
+/**
+ * Strip the operational metadata preamble that agent pipelines prepend to
+ * artifacts. These are lines of the form `**Run:** …`, `**Window:** …`,
+ * `**Methodology:** …`, etc., followed optionally by a standalone `---`
+ * horizontal rule. They are agent-operational metadata that should not appear
+ * in the published article.
+ *
+ * Algorithm:
+ *  1. Skip leading blank lines (they don't count as metadata).
+ *  2. If the first non-blank line does NOT match the metadata pattern, return
+ *     the document unchanged (`lines: 0`).
+ *  3. Otherwise consume all metadata lines and interspersed blank lines.
+ *  4. If the next non-blank line is a standalone `---`, consume that too.
+ *  5. Return the stripped Markdown and the count of lines removed.
+ *
+ * @param md - Markdown source (after banner/heading passes)
+ * @returns `{ md, lines }` — stripped Markdown and number of lines removed
+ */
+export function stripArtifactMetadataPreamble(md: string): { md: string; lines: number } {
+  const lines = md.split('\n');
+  let i = 0;
+
+  // Skip purely blank lines at the very head
+  while (i < lines.length && (lines[i] ?? '').trim() === '') i++;
+
+  // If the first real line is not a metadata line, return unchanged
+  if (i >= lines.length || !METADATA_LINE_PATTERN.test(lines[i] ?? '')) {
+    return { md, lines: 0 };
+  }
+
+  // Consume the metadata block (metadata lines + interspersed blank lines)
+  let metaEnd = i;
+  while (metaEnd < lines.length) {
+    const line = lines[metaEnd] ?? '';
+    if (METADATA_LINE_PATTERN.test(line) || line.trim() === '') {
+      metaEnd++;
+    } else {
+      break;
+    }
+  }
+
+  // If the next non-blank line is a standalone HR, absorb it
+  let scanAhead = metaEnd;
+  while (scanAhead < lines.length && (lines[scanAhead] ?? '').trim() === '') scanAhead++;
+  if (scanAhead < lines.length && /^\s*---\s*$/.test(lines[scanAhead] ?? '')) {
+    metaEnd = scanAhead + 1;
+  }
+
+  const removed = metaEnd;
+  const stripped = lines.slice(removed).join('\n').replace(/^\n+/, '');
+  return { md: stripped, lines: removed };
+}
+
+/**
  * Apply all cleanup passes and return the normalised Markdown plus
  * simple counters for telemetry/tests.
  *
@@ -650,6 +713,8 @@ export function cleanArtifact(source: string, options: CleanArtifactOptions): Cl
   md = mdAfterBanners;
   const { md: mdAfterHeadings, h1Count } = demoteHeadings(md);
   md = mdAfterHeadings;
+  const { md: mdAfterMeta, lines: strippedMetaLines } = stripArtifactMetadataPreamble(md);
+  md = mdAfterMeta;
   md = rewriteLinks(md, options.artifactRelPath);
   const { md: mdAfterMermaid, deduped } = dedupMermaid(md, seen);
   md = mdAfterMermaid;
@@ -659,6 +724,7 @@ export function cleanArtifact(source: string, options: CleanArtifactOptions): Cl
     markdown: md,
     strippedH1s: h1Count,
     strippedBannerLines,
+    strippedMetaLines,
     dedupedMermaidBlocks: deduped,
   };
 }

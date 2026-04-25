@@ -425,6 +425,9 @@ function writeLanguageVariant(
     sourceMarkdownRelPath: chromeOptions.sourceMarkdownRelPath,
     toc: aggregated.sectionToc,
     articleCount: chromeOptions.articleCount,
+    isBasedOn: aggregated.includedArtifacts.map(
+      (a) => `https://github.com/Hack23/euparliamentmonitor/blob/main/${a.repoRelPath}`
+    ),
   });
   const filename = getArticleFilename(slug, lang);
   fs.writeFileSync(path.join(opts.outDir, filename), html, 'utf8');

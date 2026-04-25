@@ -219,6 +219,24 @@ export function discoverTradecraftFiles(repoRoot: string): string[] {
 }
 
 /**
+ * Return `true` when a `.md` filename should be excluded from the run
+ * artifact set. Keeps the walk closure under the cognitive-complexity limit.
+ *
+ * Excluded names:
+ *  - `article.md` and translated variants (`article.sv.md`, etc.) — these are
+ *    outputs of the aggregator, not inputs.
+ *  - `README.md` (case-insensitive) — required for the analysis gate but not
+ *    relevant to the published article.
+ *
+ * @param name - Bare filename (no directory prefix)
+ * @returns `true` when the file should be skipped
+ */
+function isExcludedArtifact(name: string): boolean {
+  if (name.toLowerCase() === 'readme.md') return true;
+  return name.startsWith('article.') && name.endsWith('.md');
+}
+
+/**
  * Walk the run directory and return every `.md` file as a run-relative
  * POSIX path, excluding files under `data/` (raw MCP payloads, not meant
  * to be rendered).
@@ -239,15 +257,7 @@ function collectRunArtifacts(runDir: string): string[] {
         // snapshots so they are not rendered as supplementary artifacts.
         if (entry.name === 'data' || entry.name === 'runs' || entry.name === 'pass1') continue;
         walk(full, rel);
-      } else if (entry.isFile() && entry.name.endsWith('.md')) {
-        // Skip the generated article.md and any per-language translated variants
-        // (e.g. article.sv.md, article.en.md) — these are outputs of the
-        // aggregator, not inputs to it.  Picking them up would cause the
-        // aggregator to recurse into its own output on subsequent runs.
-        // The check `startsWith('article.') && endsWith('.md')` catches both
-        // `article.md` itself and translated forms like `article.sv.md` without
-        // needing a complex regex.
-        if (entry.name.startsWith('article.') && entry.name.endsWith('.md')) continue;
+      } else if (entry.isFile() && entry.name.endsWith('.md') && !isExcludedArtifact(entry.name)) {
         result.push(rel);
       }
     }
@@ -644,7 +654,7 @@ export function aggregateAnalysisRun(options: AggregateOptions): AggregatedRun {
  * @param runDirRelPath - Repo-relative path of the run directory
  * @returns ISO date string in `YYYY-MM-DD` form
  */
-function guessDateFromRunDir(runDirRelPath: string): string {
+export function guessDateFromRunDir(runDirRelPath: string): string {
   const match = /(\d{4}-\d{2}-\d{2})/.exec(runDirRelPath);
   return match ? (match[1] ?? '1970-01-01') : '1970-01-01';
 }

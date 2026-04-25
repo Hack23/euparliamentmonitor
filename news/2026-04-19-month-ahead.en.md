@@ -15,8 +15,6 @@
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-ahead-run5/intelligence/synthesis-summary.md" rel="noopener">View source: <code>intelligence/synthesis-summary.md</code></a></p>
 
-**Analysis Date:** 2026-04-19 | **Run:** month-ahead-run5
-
 ### Executive Summary
 
 European Parliament returns from Easter recess on April 27, 2026 — Day 14 of the recess — to face the densest post-break legislative programme since the Parliament's first post-COVID return in September 2020. Eight texts adopted on March 26 in a single extraordinary session have created both momentum and obligation: the most consequential of these — SRMR3 (Banking Union), the Anti-Corruption Directive, US tariff counter-measures, and the Global Gateway orientation — now require either companion legislation (BRRD3), implementation monitoring, or immediate response to external developments.
@@ -118,8 +116,6 @@ Germany's unemployment paradox — structurally low at 3.4-3.7% despite two year
 ### Significance Scoring
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-ahead-run5/intelligence/significance-scoring.md" rel="noopener">View source: <code>intelligence/significance-scoring.md</code></a></p>
-
-**Analysis Date:** 2026-04-19 | **Run:** month-ahead-run5
 
 ### Scoring Methodology
 Each item scored on three dimensions (1-5 each): Immediacy × Impact × Coverage_Gap = Significance Score (max 125)
@@ -2264,8 +2260,6 @@ Run 5 applies the following editorial mitigations to defect impacts:
 ### Analysis Index
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-ahead-run5/intelligence/analysis-index.md" rel="noopener">View source: <code>intelligence/analysis-index.md</code></a></p>
-
-**Date:** 2026-04-19 | **Run:** month-ahead-run5 | **Confidence:** 🟡 Medium
 
 ### API Status
 - **Tier 1 (adopted texts, MEPs):** OPERATIONAL — 51 texts accessible for 2026 (through March 26)

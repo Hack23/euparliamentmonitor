@@ -167,11 +167,6 @@ With 30+ texts plus 13 new COD procedures awaiting committee consideration, the 
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/committee-reports/existing/deep-analysis.md" rel="noopener">View source: <code>existing/deep-analysis.md</code></a></p>
 
-**Analysis Date:** 2026-04-10 | **Confidence:** HIGH
-**Period:** January-March 2026 (EP10 Year 2) | **Committees Analyzed:** 20
-
----
-
 ### Executive Summary
 
 The European Parliament's Q1 2026 output of 104 adopted texts, 46.2% above the 2025 pace, reveals a significant concentration of legislative power in ECON and LIBE committees. ECON's unprecedented triple-package adoption of the Banking Union reform (SRMR3, BRRD3, DGSD2 on 26 March 2026) represents the most consequential committee output of EP10 to date. LIBE's delivery of the Anti-Corruption Directive (TA-10-2026-0094) establishes a new EU-wide criminal law framework. These achievements occurred despite EP10's historically high fragmentation index of 6.59, requiring 3+ group coalitions for every adoption.

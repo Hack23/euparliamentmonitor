@@ -17,11 +17,6 @@
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-3/agent-risk-workflow.md" rel="noopener">View source: <code>agent-risk-workflow.md</code></a></p>
 
-**Date:** 6 April 2026 (Easter Monday — Midday Update) | **Confidence:** 🟡 MEDIUM
-**Recess Day:** 11/18 | **Run:** breaking-3 (12:15 UTC) | **Article Type:** breaking
-
----
-
 ### Executive Summary
 
 | Risk Category | Count | Critical | High | Medium | Low |
@@ -205,12 +200,6 @@ Rationale: No critical risks, but 4 HIGH-severity risks (P1, P2, I1, E1) warrant
 ### Consequence Trees
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-3/consequence-trees.md" rel="noopener">View source: <code>consequence-trees.md</code></a></p>
-
-**Date:** 6 April 2026 (Easter Monday — Midday Update) | **Confidence:** 🟡 MEDIUM
-**Recess Day:** 11/18 | **T-8 to Committee Week** | **T-14 to Strasbourg Plenary**
-**Run:** breaking-3 (12:15 UTC) | **Article Type:** breaking
-
----
 
 ### Executive Summary
 
@@ -440,11 +429,6 @@ mindmap
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-3/legislative-disruption.md" rel="noopener">View source: <code>legislative-disruption.md</code></a></p>
 
-**Date:** 6 April 2026 (Easter Monday — Midday Update) | **Confidence:** 🟡 MEDIUM
-**Recess Day:** 11/18 | **Run:** breaking-3 (12:15 UTC) | **Article Type:** breaking
-
----
-
 ### Executive Summary
 
 | Disruption Vector | Severity | Probability | Timeline | Key Actor |
@@ -669,11 +653,6 @@ gantt
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-3/legislative-velocity-risk.md" rel="noopener">View source: <code>legislative-velocity-risk.md</code></a></p>
 
-**Date:** 6 April 2026 (Easter Monday — Midday Update) | **Confidence:** 🟡 MEDIUM
-**Recess Day:** 11/18 | **Run:** breaking-3 (12:15 UTC) | **Article Type:** breaking
-
----
-
 ### Executive Summary
 
 | Metric | 2024 (EP9/EP10) | 2025 (EP10 Y1) | 2026 (EP10 Y2 proj.) | Trend |
@@ -866,11 +845,6 @@ quadrantChart
 ### Political Capital Risk
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-3/political-capital-risk.md" rel="noopener">View source: <code>political-capital-risk.md</code></a></p>
-
-**Date:** 6 April 2026 (Easter Monday — Midday Update) | **Confidence:** 🟡 MEDIUM
-**Recess Day:** 11/18 | **Run:** breaking-3 (12:15 UTC) | **Article Type:** breaking
-
----
 
 ### Executive Summary
 
@@ -1088,12 +1062,6 @@ The dominant risk to EP10's political capital system is **concentration** — PP
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-3/synthesis-summary.md" rel="noopener">View source: <code>synthesis-summary.md</code></a></p>
 
-**Date:** 6 April 2026 (Easter Monday — Midday) | **Recess Day:** 11/18 | **Confidence:** 🟡 MEDIUM
-**Pipeline Stage:** Analysis complete — newsworthiness evaluation
-**Run:** breaking-3 (12:15 UTC) | **Total Artifacts (this run):** 7
-
----
-
 ### Breaking News Evaluation
 
 #### Decision: NO BREAKING NEWS
@@ -1216,11 +1184,6 @@ The most significant **monitoring signal** from this run: the adopted texts feed
 ### Voting Patterns
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-3/voting-patterns.md" rel="noopener">View source: <code>voting-patterns.md</code></a></p>
-
-**Date:** 6 April 2026 (Easter Monday — Midday Update) | **Confidence:** 🔴 LOW
-**Recess Day:** 11/18 | **Run:** breaking-3 (12:15 UTC) | **Article Type:** breaking
-
----
 
 ### Executive Summary
 

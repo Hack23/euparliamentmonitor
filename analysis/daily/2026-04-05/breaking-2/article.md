@@ -17,12 +17,6 @@
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-2/intelligence-brief.md" rel="noopener">View source: <code>intelligence-brief.md</code></a></p>
 
-**Date:** 5 April 2026 (Easter Sunday) | **Run:** 2 of 2 (06:30 UTC)
-**Overall Assessment:** 🟡 Routine — Easter Recess Day 10 of 18
-**Items Tracked:** 85 adopted texts | 0 events | 0 procedures | 737 active MEPs
-
----
-
 ### Cross-Session Intelligence Summary
 
 This second run of the day (06:30 UTC) extends the morning analysis (00:20 UTC) with cross-session correlation, Bayesian probability updates, and multi-framework analysis. The 6-hour data consistency confirms all findings from the first run and strengthens confidence in structural assessments.
@@ -251,12 +245,6 @@ graph LR
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-2/political-landscape-analysis.md" rel="noopener">View source: <code>political-landscape-analysis.md</code></a></p>
 
-**Date:** 5 April 2026 | **Parliamentary Term:** EP10 (2024–2029) Year 2
-**Period:** Easter Recess Day 10 of 18 | **Run:** 2 of 2 (06:30 UTC)
-**Data Sources:** EP MEPs feed (737), political landscape, coalition dynamics, early warning system, precomputed statistics (2024–2026)
-
----
-
 ### Current Political Configuration
 
 The 10th European Parliament operates with **8 political groups** across **23 member states** (as sampled from MEPs feed). Group composition remains stable through the Easter recess, with no MEP changes detected between the morning (00:20 UTC) and evening (06:30 UTC) data collection runs.
@@ -470,11 +458,6 @@ Internal PPE tensions on Green Deal or social policy create unexpected fractures
 ### Risk Assessment
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-2/risk-assessment.md" rel="noopener">View source: <code>risk-assessment.md</code></a></p>
-
-**Date:** 5 April 2026 | **Period:** Easter Recess Day 10 of 18 | **Run:** 2 of 2 (06:30 UTC)
-**Overall Risk Level:** 🟡 MEDIUM | **Stability Score:** 84/100
-
----
 
 ### Executive Risk Summary
 
@@ -711,11 +694,6 @@ graph LR
 ### Swot Analysis
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-2/swot-analysis.md" rel="noopener">View source: <code>swot-analysis.md</code></a></p>
-
-**Date:** 5 April 2026 | **Period:** Easter Recess Day 10 of 18 | **Run:** 2 of 2 (06:30 UTC)
-**Assessment:** Routine recess period with structural monitoring insights, enhanced by cross-session correlation
-
----
 
 ### SWOT Matrix
 
