@@ -238,7 +238,8 @@ describe('Week-Ahead Data Integration', () => {
 
       // Verify fallback structure
       const plenaryData = JSON.parse(plenarySessions.value.content[0].text);
-      expect(plenaryData.sessions).toEqual([]);
+      expect(plenaryData.data).toEqual([]);
+      expect(plenaryData.total).toBe(0);
 
       const committeeData = JSON.parse(committeeInfo.value.content[0].text);
       expect(committeeData.committees).toEqual([]);

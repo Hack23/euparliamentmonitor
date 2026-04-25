@@ -440,7 +440,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * No local post-filter is applied here — the upstream contract is the single source of truth.
      */
     async getPlenarySessions(options = {}) {
-        return this.safeCallTool('get_plenary_sessions', options, '{"sessions": []}');
+        return this.safeCallTool('get_plenary_sessions', options, '{"data": [], "total": 0}');
     }
     /**
      * Search legislative documents
