@@ -76,6 +76,7 @@ network:
     - defaults
 
 tools:
+  timeout: 300  # 5 min per-tool-call cap (bash, MCP, etc.) — guards against hung tool calls
   github:
     toolsets:
       - all
@@ -156,6 +157,10 @@ steps:
 engine:
   id: copilot
   model: claude-opus-4.7
+  # max-continuations: 3 enables autopilot mode (--autopilot --max-autopilot-continues 3
+  # in the compiled lock) so the agent can restart up to 3 times. Translate needs
+  # multiple passes to cover all 14 languages within the single job budget.
+  max-continuations: 3
 ---
 # 🌐 EU Parliament News Article Translation Workflow
 
