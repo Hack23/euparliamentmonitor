@@ -14,12 +14,12 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-5.1-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-6.2-555?style=for-the-badge" alt="Version"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--25-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 6.1 | **📅 Last Updated:** 2026-04-25 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 6.2 | **📅 Last Updated:** 2026-04-25 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-31
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
@@ -373,9 +373,9 @@ Translation fidelity rules:
 
 ---
 
-## 📂 The 39-Artifact Output Matrix
+## 📂 The Mandatory + Optional Artifact Output Matrix
 
-Every article-generating workflow produces **every mandatory artifact in every mandatory family** — a stable 39-file output set plus per-document analyses. Mandatory artifacts are not trigger-driven; what varies is depth per item (based on DIW tier in `significance-scoring.md`), not which files exist.
+Every article-generating workflow produces **every mandatory artifact in every mandatory family** plus per-document analyses. The mandatory set is stable across runs; what varies is depth per item (based on DIW tier in `significance-scoring.md`), not which files exist. The authoritative path → template → methodology mapping is [`artifact-catalog.md`](artifact-catalog.md) (which today reconciles to **47 unique artifact rows + 2 legacy mirrors + 1 documents row**, paired with **51 templates** — 8 master-catalog + 25 per-artifact + 12 optional `extended/` + 6 reusable framework templates that compose inside the others).
 
 > **Note on optional `extended/` artifacts.** The 12 artifacts under `extended/` (executive-brief, devils-advocate-analysis, historical-parallels, coalition-mathematics, forward-indicators, intelligence-assessment, implementation-feasibility, media-framing-analysis, comparative-international, cross-reference-map, data-download-manifest, voter-segmentation) are **optional**, produced only after every mandatory artifact above has passed the completeness gate and recommended for long-form review / crisis / breaking deep runs — see [`../../.github/prompts/03-analysis-completeness-gate.md`](../../.github/prompts/03-analysis-completeness-gate.md) and [`artifact-catalog.md`](artifact-catalog.md#extended). They are **not gated by default** — but when registered in `manifest.files.extended[]` and present in [`reference-quality-thresholds.json`](reference-quality-thresholds.json), their line-floor thresholds and tradecraft signals are enforced.
 
@@ -445,11 +445,11 @@ graph TB
     style Documents fill:#7B1FA2,color:#FFFFFF
 ```
 
-The **complete 39-artifact catalog** with templates, methodologies, and minimum-depth requirements lives in [`artifact-catalog.md`](artifact-catalog.md). Per-artifact construction rules live in [`per-artifact-methodologies.md`](per-artifact-methodologies.md).
+The **complete artifact catalog** — every path, its template, its methodology, its depth floor, and its required Mermaid type — lives in [`artifact-catalog.md`](artifact-catalog.md). Per-artifact construction rules live in [`per-artifact-methodologies.md`](per-artifact-methodologies.md). The diagram above is a category overview only; consult the catalog for the canonical filename list.
 
 ### ⭐ methodology-reflection.md — the vital run-audit file
 
-Of the 39 artifacts, `methodology-reflection.md` is the **critical run-audit gate**: it assesses evidence sufficiency, confidence distribution, source diversity, political-group neutrality, ICD 203 compliance, and names three concrete methodology improvements for the next cycle. A workflow that skips this artifact has no internal self-correction mechanism — treat its absence as a broken run.
+Of the mandatory artifacts, `methodology-reflection.md` is the **critical run-audit gate**: it assesses evidence sufficiency, confidence distribution, source diversity, political-group neutrality, ICD 203 compliance, and names three concrete methodology improvements for the next cycle. A workflow that skips this artifact has no internal self-correction mechanism — treat its absence as a broken run.
 
 ---
 
@@ -602,7 +602,7 @@ Full template catalog with usage notes: [`../templates/README.md`](../templates/
 
 ## 📎 EP Document-Type → Primary Analytical Frameworks
 
-Use this mapping to determine which frameworks receive the most depth for each EP document type. All document types pass through all 39 artifacts; this matrix indicates where to allocate Pass-2 enhancement time.
+Use this mapping to determine which frameworks receive the most depth for each EP document type. All document types pass through every mandatory artifact (the catalog is invariant per article type — see [`artifact-catalog.md`](artifact-catalog.md)); this matrix indicates where to allocate Pass-2 enhancement time.
 
 | EP Document Type | MCP Source Tool | Primary Frameworks | Key MCP Cross-Reference Tools |
 |-----------------|-----------------|--------------------|-----------------------------|
@@ -655,5 +655,5 @@ Every security-relevant control maps to **ISO 27001:2022**, **NIST CSF 2.0**, **
 **Document Control:**
 - **Path:** `/analysis/methodologies/ai-driven-analysis-guide.md`
 - **Classification:** Public
-- **Version:** 6.1 — Enhanced from v5.0 with riksdagsmonitor methodology improvements: added 39-artifact Output Matrix, Color-Coded Mermaid palette (Hack23 7-color), 5-Level Confidence Scale with Admiralty integration, Quality Gate Checklist with ICD 203 compliance gate, Template-to-Artifact Index (39 templates mapped), EP Document-Type → Primary Frameworks mapping, and ISMS Alignment section. Ported and adapted from [riksdagsmonitor ai-driven-analysis-guide v6.4](https://github.com/Hack23/riksdagsmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md).
+- **Version:** 6.2 — v6.2 (2026-04-25, late) reframes the “39-Artifact Output Matrix” heading and surrounding prose as the **Mandatory + Optional Artifact Output Matrix**, points readers at `artifact-catalog.md` as the authoritative file-list (51 templates total: 8 master + 25 per-artifact + 12 extended + 6 framework reusable inside the others), aligns the version-badge with the `Document Owner` line (was v5.1 vs v6.1), and refreshes the document control footer. v6.1 enhanced from v5.0 with riksdagsmonitor methodology improvements: added 39-artifact Output Matrix, Color-Coded Mermaid palette (Hack23 7-color), 5-Level Confidence Scale with Admiralty integration, Quality Gate Checklist with ICD 203 compliance gate, Template-to-Artifact Index, EP Document-Type → Primary Frameworks mapping, and ISMS Alignment section. Ported and adapted from [riksdagsmonitor ai-driven-analysis-guide v6.4](https://github.com/Hack23/riksdagsmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md).
 - **Next Review:** 2026-07-31
