@@ -521,8 +521,9 @@ describe('ep-mcp-client', () => {
         // pipeline; that is precisely why Stage-A prompts (01-data-collection.md
         // rule 6, 07-mcp-reference.md §4) require explicit dates until v1.2.14+
         // is confirmed installed.
-        const today = new Date().toISOString().slice(0, 10);
-        const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)
+        const now = Date.now();
+        const today = new Date(now).toISOString().slice(0, 10);
+        const thirtyDaysAgo = new Date(now - 30 * 24 * 60 * 60 * 1000)
           .toISOString()
           .slice(0, 10);
         // Mock simulates v1.2.14+ server response: last-30-days window

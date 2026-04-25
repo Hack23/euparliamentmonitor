@@ -97,7 +97,8 @@ Timeframes: `"today"`, `"one-day"`, `"one-week"`, `"one-month"`, `"custom"`
 >
 > For `week-ahead` / `month-ahead` workflows that need a forward-looking window,
 > use the next-week or next-month date span instead. The v1.2.14+ upstream fix
-> defaults to a rolling last-30-days window but is not yet released on npm.
+> defaults to a rolling last-30-days window but is not yet installed or
+> confirmed in this repo's MCP gateway configuration.
 
 ## 5 · Common Parameter Mistakes (v1.2.13)
 
