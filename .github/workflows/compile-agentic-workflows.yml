@@ -14,7 +14,7 @@ permissions:
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-  GH_AW_VERSION: "v0.71.1"
+  GH_AW_VERSION: "v0.68.3"
 
 jobs:
   compile:
