@@ -30,7 +30,7 @@
  *     skip it; we want the deploy to succeed without diagrams rather than fail.
  */
 
-import { copyFileSync, cpSync, existsSync, mkdirSync, readdirSync, writeFileSync } from 'node:fs';
+import { copyFileSync, cpSync, existsSync, mkdirSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
 
@@ -72,6 +72,13 @@ function copyMermaid() {
       '  ⚠ mermaid not installed (devDependency); skipping diagram bundle.\n',
     );
     return;
+  }
+  // Idempotency: wipe the existing mermaid tree before copying so stale
+  // chunks from a previous mermaid version (or a previous filter set) cannot
+  // leak into the deployed bundle. cpSync({force:true}) only overwrites
+  // matching paths; it does not remove orphans.
+  if (existsSync(target)) {
+    rmSync(target, { recursive: true, force: true });
   }
   ensureDir(target);
 

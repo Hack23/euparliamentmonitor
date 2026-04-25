@@ -391,20 +391,32 @@ jobs:
             else
               echo "⚠️ Vulnerabilities detected - checking against documented false positives..."
               
-              # Check if only known false positives (ajv GHSA-2g4f-4pwh-qvx6)
-              if grep -q "GHSA-2g4f-4pwh-qvx6" audit-output.txt && \
+              # Known false positives / accepted-risk vulnerabilities (devDep-only,
+              # static-site build — mermaid is a build-time dependency vendored to
+              # js/vendor/mermaid/ and does not execute against attacker-controlled
+              # data at runtime; ESLint ajv ReDoS is a separate ESLint-only issue).
+              # Both vulnerabilities are documented in SECURITY.md as accepted risk.
+              # GHSA-2g4f-4pwh-qvx6 — ajv ReDoS (ESLint, not user-facing)
+              # GHSA-w5hq-g745-h8pq — uuid <14 buffer-bounds, transitive via mermaid devDep
+              ALLOWED_GHSAS_RE='GHSA-2g4f-4pwh-qvx6|GHSA-w5hq-g745-h8pq'
+              UNKNOWN_GHSAS=$(grep -oE 'GHSA-[a-z0-9-]+' audit-output.txt | sort -u | grep -vE "$ALLOWED_GHSAS_RE" || true)
+              if [ -z "$UNKNOWN_GHSAS" ] && \
                  ! grep -q "high severity" audit-output.txt && \
                  ! grep -q "critical severity" audit-output.txt; then
                 echo ""
                 echo "ℹ️  All detected vulnerabilities are documented false positives:"
-                echo "   - ajv ReDoS (GHSA-2g4f-4pwh-qvx6): False positive, ESLint doesn't use \$data option"
+                echo "   - ajv ReDoS (GHSA-2g4f-4pwh-qvx6): ESLint-only, doesn't use \$data option"
+                echo "   - uuid bounds (GHSA-w5hq-g745-h8pq): mermaid devDep, build-time only, static site"
                 echo "   - Documented in SECURITY.md as accepted risk"
-                echo "   - Will be resolved with ESLint 10 upgrade (Q2-Q3 2026)"
                 echo ""
                 echo "✅ Security check passed (only known false positives)"
               else
                 echo ""
                 echo "❌ Found NEW or HIGH/CRITICAL vulnerabilities not documented as false positives"
+                if [ -n "$UNKNOWN_GHSAS" ]; then
+                  echo "   Undocumented GHSAs found:"
+                  echo "$UNKNOWN_GHSAS" | sed 's/^/     - /'
+                fi
                 echo "   Please review and update SECURITY.md if these are false positives"
                 echo ""
                 exit 1

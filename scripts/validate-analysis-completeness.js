@@ -87,8 +87,13 @@ const SAT_LIST_RE = /(?:^|\n)\s*(?:[-*+]|\d+\.)\s+[^\n]+/g; // crude bullet matc
 const MCP_TOOL_RE =
   /\b(get_(?:procedures|adopted_texts|plenary_sessions|voting_records|meps|parliamentary_questions|speeches|committee_documents)|search_(?:documents|code|issues|repositories)|analyze_(?:voting_patterns|coalition_dynamics|country_delegation)|semantic_(?:issues_search|issue_similarity_search)|monitor_legislative_pipeline|track_legislation|track_mep_attendance|generate_political_landscape|early_warning_system|correlate_intelligence)\b/;
 
+// Bypass placeholder scan only on template-instruction blocks themselves —
+// NOT on every artifact that happens to link to a methodology document.
+// Matching `methodology` here would suppress placeholder detection for any
+// artifact citing e.g. `political-risk-methodology.md` and let real
+// `[AI_ANALYSIS_REQUIRED]` markers slip through.
 const META_DOC_HINT_RE =
-  /(template-instructions|placeholder reference|methodology|TODO list of)/i;
+  /(template-instructions|placeholder reference|TODO list of)/i;
 
 /**
  * Default fallback rules. The threshold JSON may override per-artifact for
@@ -131,7 +136,8 @@ function parseArgs(argv) {
     else if (a === '--min-lines') {
       const n = parseInt(args[i + 1], 10);
       if (!Number.isFinite(n) || n < 1) usage(2);
-      opts.minLines = n;
+      // The flag may only RAISE the floor — never lower it below DEFAULT_MIN_LINES.
+      opts.minLines = Math.max(DEFAULT_MIN_LINES, n);
       i += 1;
     } else if (a === '--thresholds') {
       opts.thresholdsPath = args[i + 1];
@@ -287,7 +293,13 @@ function walkArtifacts(runDir) {
       if (!entry.isFile()) continue;
       if (!entry.name.endsWith('.md')) continue;
       // skip article.md / article.<lang>.md at root + README
-      if (rel === '' && /^article\./i.test(entry.name)) continue;
+      if (
+        rel === ''
+        && (
+          entry.name.toLowerCase() === 'article.md'
+          || /^article\./i.test(entry.name)
+        )
+      ) continue;
       if (entry.name.toLowerCase() === 'readme.md') continue;
       out.push(childRel);
     }
@@ -378,13 +390,43 @@ function validateArtifact({
   }
   if (
     rules.sourceDiversityRequired?.includes(relativePath) &&
-    !hasMcpToolReference(content)
+    !hasSourceDiversityEvidence(content)
   ) {
-    if (options.strict) result.issues.push('source-diversity:no-mcp-ref');
-    else result.warnings.push('source-diversity:no-mcp-ref');
+    if (options.strict) result.issues.push('source-diversity:no-evidence-or-mcp-ref');
+    else result.warnings.push('source-diversity:no-evidence-or-mcp-ref');
   }
 
   return result;
+}
+
+/**
+ * Detect a markdown table with a Source / Evidence / Reference header column.
+ * A v2.0 template's "Data Sources & Provenance" section satisfies this.
+ */
+function hasEvidenceTableRow(content) {
+  const lines = content.split(/\r?\n/);
+  const separatorPattern = /^\|?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)+\|?$/;
+  const headerPattern = /\|\s*(source|evidence|reference)\s*\|/i;
+
+  for (let i = 0; i < lines.length - 2; i += 1) {
+    const headerLine = lines[i].trim();
+    const separatorLine = lines[i + 1].trim();
+    const dataLine = lines[i + 2].trim();
+
+    if (
+      headerPattern.test(headerLine) &&
+      separatorPattern.test(separatorLine) &&
+      /^\|.*\|$/.test(dataLine)
+    ) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+function hasSourceDiversityEvidence(content) {
+  return hasEvidenceTableRow(content) || hasMcpToolReference(content);
 }
 
 function buildRules(thresholdsJson, articleType) {

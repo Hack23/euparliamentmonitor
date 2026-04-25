@@ -45,6 +45,12 @@ export default defineConfig({
         // Exclude documentation generation scripts (utility scripts)
         'scripts/utils/generate-docs-index.js',
         'scripts/utils/copy-test-reports.js',
+        // CLI-only tooling — exercised end-to-end via spawnSync from tests
+        // (which doesn't propagate v8 coverage), or invoked from CI workflows
+        // (copy-vendor / lint-prompts have no library surface to unit-test).
+        'scripts/copy-vendor.js',
+        'scripts/lint-prompts.js',
+        'scripts/validate-analysis-completeness.js',
         // Exclude type definitions
         'scripts/**/*.d.ts',
         // Exclude TypeScript type-only stubs (interfaces/enums, no testable logic)
