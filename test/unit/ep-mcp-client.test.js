@@ -2549,9 +2549,9 @@ describe('ep-mcp-client', () => {
     let client;
     /** @type {MockConsoleResult} */
     let consoleOutput;
-    /** @type {string} tmpDir */
+    /** @type {string} */
     let tmpDir;
-    /** @type {string} cachePath */
+    /** @type {string} */
     let cachePath;
 
     beforeEach(async () => {
