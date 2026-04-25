@@ -9,7 +9,7 @@ native TypeScript IMF SDMX 3.0 REST client in
 
 **Scope**: The **sole authoritative source** for all economic context —
 macro / fiscal / trade / monetary / exchange-rate / debt / FDI / banking
-— under the **Wave-3 policy (April 2026)**. Social / health / education /
+— under the **Wave-4 policy (April 2026)**. Social / health / education /
 environment / defence / agriculture / innovation / governance indicators
 remain on World Bank — see
 [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md).
@@ -185,8 +185,10 @@ Articles citing an IMF forecast MUST:
 2. **Vintage citation**: cite the vintage inline (`WEO April 2026`,
    `Fiscal Monitor April 2026`) **and** set
    `data-vintage="WEO-April-2026"` on the enclosing
-   `<section class="economic-context imf-economic-context">` block that
-   the aggregator emits from `intelligence/economic-context.md`.
+   `<section class="economic-context imf-economic-context">` block,
+   if that wrapper is authored explicitly in
+   `intelligence/economic-context.md`; otherwise set it on the
+   artifact's top-level section element.
 
 3. **Optimism-bias acknowledgement**: for horizons ≥3 years, include
    one sentence sized per the MAE bands in
@@ -225,10 +227,12 @@ metadata for auditability:
 </section>
 ```
 
-The aggregator (`src/aggregator/**`) preserves the
-`data-vintage="…"` attribute declared in the markdown front-matter of
-`intelligence/economic-context.md`. Stage-C review confirms its
-presence for any article matching the forecast-marker regex in §5.
+The aggregator (`src/aggregator/**`) strips YAML front-matter, so
+`data-vintage="…"` MUST be emitted in the Markdown body as explicit
+HTML on the rendered container in `intelligence/economic-context.md`
+(for example, the `<section>` shown above). Stage-C review confirms
+its presence for any article matching the forecast-marker regex in
+§5.
 
 > The earlier `buildIMFEconomicContextHTML()` utility and the
 > `validateIMFVintageMetadata(html)` check in `src/utils/imf-data.ts`

@@ -32,7 +32,7 @@ article generation code path entirely.
 | Innovation | R&D expenditure, high-tech exports, internet users, patents | raw-REST `GB.XPD.RSDV.GD.ZS`, `IT.NET.USER.ZS` |
 | Governance | Women in Parliament, gender parity, business environment, rule of law (WGI) | raw-REST `SG.*`, `IC.*`, `RL.*` |
 
-**Retired from WB (now IMF-primary under Wave-3)**: GDP, GDP_GROWTH,
+**Retired from WB (now IMF-primary under Wave-4)**: GDP, GDP_GROWTH,
 GDP_PER_CAPITA, GNI, GNI_PER_CAPITA, EXPORTS_GDP, FDI_NET, INFLATION,
 UNEMPLOYMENT — all redirected to `imf-fetch-data` with appropriate
 WEO/FM/IFS/BOP/ER/PCPS SDMX codes.

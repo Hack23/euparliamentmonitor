@@ -82,7 +82,7 @@ flowchart LR
 
 **Workaround used in this run:**
 
-`[REQUIRED: ≥60 words explaining how the run compensated. Examples: "Used prior-run cached data from run{N-1}", "Switched to direct EP API endpoint bypass", "Applied IMF (primary economic) data as context bridge per Wave-3 policy", "Reduced query scope from year-filter to month-filter".]`
+`[REQUIRED: ≥60 words explaining how the run compensated. Examples: "Used prior-run cached data from run{N-1}", "Switched to direct EP API endpoint bypass", "Applied IMF (primary economic) data as context bridge per Wave-4 policy", "Reduced query scope from year-filter to month-filter".]`
 
 ---
 

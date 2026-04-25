@@ -237,7 +237,7 @@ Artifacts marked below with **"Source grade × WEP discipline (tradecraft)"** ma
 
 ### economic-context
 
-**Purpose.** Anchor the period's policy topics in **IMF** (primary — Wave-3) macro, fiscal, trade, monetary, exchange-rate, banking-soundness, and commodity data, plus optional World Bank cross-refs for non-economic context.
+**Purpose.** Anchor the period's policy topics in **IMF** (primary — Wave-4) macro, fiscal, trade, monetary, exchange-rate, banking-soundness, and commodity data, plus optional World Bank cross-refs for non-economic context.
 
 **EP MCP inputs.** IMF native client (`scripts/imf-mcp-probe.sh`, tools `imf-fetch-data` / `imf-search-databases` / `imf-get-parameter-defs` / `imf-get-parameter-codes`) is the **primary** source. World Bank MCP (`worldbank-get-social-data`, `worldbank-get-health-data`, `worldbank-get-education-data`) is additive for non-economic context only. See [Wave-4 IMF-primary policy](../../.github/skills/imf-data-integration.md): IMF is the required primary source; WB cannot substitute for economic context in new articles.
 

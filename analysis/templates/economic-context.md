@@ -3,7 +3,7 @@
 
 # 💹 Economic Context Template — IMF Primary Anchor + World Bank Non-Economic Cross-Refs
 
-> **📌 Template Instructions:** Copy to `analysis/daily/{date}/{article-type}-run{N}/intelligence/economic-context.md`. Anchor EP policy topics in **IMF** macro/fiscal/trade/monetary data as the primary source (Wave-3 policy). Use **World Bank** only for non-economic cross-refs (health, education, social, environment, demographics). See [methodologies/per-artifact-methodologies.md §economic-context](../methodologies/per-artifact-methodologies.md#economic-context).
+> **📌 Template Instructions:** Copy to `analysis/daily/{date}/{article-type}-run{N}/intelligence/economic-context.md`. Anchor EP policy topics in **IMF** macro/fiscal/trade/monetary data as the primary source (Wave-4 policy). Use **World Bank** only for non-economic cross-refs (health, education, social, environment, demographics). See [methodologies/per-artifact-methodologies.md §economic-context](../methodologies/per-artifact-methodologies.md#economic-context).
 
 > **🎯 Purpose:** Bridge EP legislative activity to real-economy fundamentals using IMF indicators (WEO / Fiscal Monitor / IFS / BOP / ER / PCPS / GFSR / EREO / FSI / GFS / DOT). Under the **Wave-4 IMF-primary editorial policy** IMF is the required primary source for every economic claim; WB is additive for non-economic context only. Enforced at Stage-C editorial review per [`.github/prompts/04-article-generation.md §5`](../../.github/prompts/04-article-generation.md) — the legacy runtime gates (`articlePolicyHasEconomicContext` / `articlePolicyHasIMFEconomicEvidence` in `src/utils/content-validator.ts`, surrounded by `src/utils/validate-articles.ts`) were purged in the April-2026 aggregator-pipeline migration.
 
@@ -126,7 +126,7 @@ Cite specific indicators and explain political mechanism.]`
 
 ## 6️⃣ Data-Source Bridge
 
-**Wave-3 IMF-primary status:**
+**Wave-4 IMF-primary status:**
 
 | Source | Available? | Records Retrieved | Used in This Run? | Role |
 |--------|:----------:|:-----------------:|:------------------:|------|

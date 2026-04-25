@@ -201,12 +201,15 @@ quadrantChart
 
 Under the aggregator pipeline the agent writes Markdown into
 `intelligence/economic-context.md` and the aggregator (`src/aggregator/**`)
-renders it as a `<section class="economic-context imf-economic-context">`
-block in the final article, preserving the `data-vintage="…"` attribute
-declared in the markdown front-matter. Flag forecast rows in the source
-table by adding the markdown attribute `{data-forecast="true"}` to the
-`<tr>` (via `markdown-it-attrs`, already wired in the aggregator). Style
-hook:
+renders it into the final article. Do **not** rely on YAML front-matter
+for `data-vintage` metadata here, and do **not** rely on markdown
+attribute syntax such as `{data-forecast="true"}` on table rows. In the
+current pipeline, front-matter is stripped and only limited markdown
+attributes are preserved. Instead, emit literal HTML with the required
+attributes directly in the markdown body, for example a wrapper such as
+`<section class="economic-context imf-economic-context" data-vintage="WEO-April-2026">`
+and forecast rows written literally as `<tr data-forecast="true">`.
+Style hook:
 
 ```css
 .imf-economic-context tr[data-forecast="true"] td {

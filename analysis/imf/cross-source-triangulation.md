@@ -144,7 +144,7 @@ policy):
 ## 7. Anti-patterns (DO NOT)
 
 - ❌ Cite Eurostat as primary and relegate IMF to a footnote — the
-  Wave-3 policy is IMF-primary for economic context.
+  Wave-4 policy is IMF-primary for economic context.
 - ❌ Hide a material delta — always surface in prose or footnote.
 - ❌ Pick the "prettier" number — document the actual delta and
   explain the methodology difference.

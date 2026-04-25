@@ -171,17 +171,17 @@ export interface IMFForecastPoint {
 /**
  * Curated set of IMF indicator keys used across the EU Parliament Monitor.
  *
- * These map onto specific IMF database + SDMX dimension codes — see
- * the indicator catalogue in
- * [`analysis/imf/indicator-catalog.md §2`](../../analysis/imf/indicator-catalog.md#2-core-indicators)
- * and the per-committee mapping in
- * [`analysis/methodologies/imf-indicator-mapping.md §1`](../../analysis/methodologies/imf-indicator-mapping.md)
- * for the concrete mapping. (The earlier runtime constant
- * `IMF_POLICY_INDICATORS` in `src/utils/imf-data.ts` was purged in the
- * April-2026 aggregator-pipeline migration.) The key names are chosen
- * to parallel the World Bank `PolicyRelevantIndicators` keys where an
- * equivalent series exists, so article generators and templates can
- * migrate incrementally.
+ * These map onto specific IMF database + SDMX dimension codes. The key
+ * names are chosen to parallel the World Bank `PolicyRelevantIndicators`
+ * keys where an equivalent series exists, so article generators and
+ * templates can migrate incrementally.
+ *
+ * The earlier runtime constant `IMF_POLICY_INDICATORS` in
+ * `src/utils/imf-data.ts` was purged in the April-2026
+ * aggregator-pipeline migration.
+ *
+ * @see {@link https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/imf/indicator-catalog.md#2-core-indicators | IMF indicator catalog §2}
+ * @see {@link https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/imf-indicator-mapping.md | IMF per-committee indicator mapping}
  */
 export type IMFMacroIndicatorKey =
   // ── WEO (annual, with forecasts) ──

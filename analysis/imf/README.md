@@ -32,7 +32,7 @@
 | [`forecast-accuracy-baseline.md`](forecast-accuracy-baseline.md) | Per-horizon MAE bands for WEO/FM forecasts driving the mandatory optimism-bias acknowledgement on horizons ≥3y | AI workflows, news-journalist |
 | [`cross-source-triangulation.md`](cross-source-triangulation.md) | When IMF figures must be cross-checked against ECB SDW / Eurostat / OECD / BIS, keyed to significance tier & indicator class | AI workflows, quality-engineer |
 | [`chart-integration-guide.md`](chart-integration-guide.md) | Chart.js templates with forecast-shaded overlay + Mermaid `xychart-beta` patterns for IMF data visualisation | AI workflows, frontend |
-| [`use-cases.md`](use-cases.md) | When IMF adds editorial value per article type (Wave-3 IMF-primary matrix) | AI workflows, product |
+| [`use-cases.md`](use-cases.md) | When IMF adds editorial value per article type (Wave-4 IMF-primary matrix) | AI workflows, product |
 
 ---
 
@@ -125,8 +125,9 @@ Stage-C editorial review then checks that the artifact satisfies:
 - Per-article-type indicator floor (see
   [`../methodologies/imf-indicator-mapping.md §8`](../methodologies/imf-indicator-mapping.md#8-per-article-type-indicator-minimums)).
 - `data-vintage="WEO-April-2026"` (or the applicable FM/IFS vintage)
-  on the `<section class="economic-context imf-economic-context">`
-  block produced by the aggregator from the markdown artifact.
+  on an explicit
+  `<section class="economic-context imf-economic-context">` block in
+  the artifact body.
 - Forecast marker (`forecast` / `projection` / `projects` / `expects`)
   within 30 words of every projected number.
 - Optimism-bias acknowledgement sentence for horizons ≥ 3 years, sized

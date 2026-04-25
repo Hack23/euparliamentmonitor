@@ -118,10 +118,13 @@ relevant to EU Parliament Monitor:
 The native TypeScript client in [`src/mcp/imf-mcp-client.ts`](../../src/mcp/imf-mcp-client.ts)
 returns the raw SDMX-JSON payload inside the `MCPToolResult` envelope
 (`response.content[0].text`). Agents parse it with any standard
-SDMX-JSON reader. The `F` (forecast) observation-status code should be
-propagated to the rendered HTML as `data-forecast="true"` on the
-corresponding table row, enabling the Chart.js and CSS hooks described
-in [`chart-integration-guide.md §7`](chart-integration-guide.md#7-html-template-hook).
+SDMX-JSON reader. This catalog does **not** imply that the aggregator or
+client automatically propagates `OBS_STATUS` into rendered HTML. If a row
+represents an `F` (forecast) observation, the authoring/template layer
+MUST add `data-forecast="true"` explicitly to that table row after
+inspecting the source data. That explicit markup enables the Chart.js and
+CSS hooks described in
+[`chart-integration-guide.md §7`](chart-integration-guide.md#7-html-template-hook).
 
 ---
 

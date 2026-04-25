@@ -68,7 +68,7 @@ graph TD
 | `ep-mcp` — `[tool]` | `[REQUIRED]` | `[...]` | `[...]` |
 | `ep-mcp` — `[tool]` | `[REQUIRED]` | `[...]` | `[...]` |
 | `world-bank-mcp` — `[indicator]` | Macro context | `[✅/⚠️/❌]` | `[🟢/🟡/🔴]` |
-| `imf-native` (REST) — `[series]` | `[REQUIRED: primary economic source under Wave-3 policy + per-type indicator-floor satisfaction per imf-indicator-mapping.md §8]` | `[✅/⚠️/❌]` | `[🟢/🟡/🔴]` |
+| `imf-native` (REST) — `[series]` | `[REQUIRED: primary economic source under Wave-4 policy + per-type indicator-floor satisfaction per imf-indicator-mapping.md §8]` | `[✅/⚠️/❌]` | `[🟢/🟡/🔴]` |
 | External (e.g. EUR-Lex, Commission press) | `[REQUIRED]` | `[✅/⚠️/❌]` | `[🟧 MEDIUM if external]` |
 
 ≥6 rows required. Always note when a feed returned HTML instead of JSON, or returned 0 results where a non-zero response was expected (0 results can itself be high-signal intelligence data).

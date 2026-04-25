@@ -3,13 +3,13 @@
 > When IMF data adds material value beyond World Bank for each EU
 > Parliament Monitor article type, ranked by expected editorial lift.
 
-**📅 Last Updated:** 2026-04-24 | **🏷️ Classification:** Public | **🌀 Wave:** 3
+**📅 Last Updated:** 2026-04-24 | **🏷️ Classification:** Public | **🌀 Wave:** 4
 
 ---
 
-## 1. Article-Type Quality Matrix (Wave-3 IMF-primary)
+## 1. Article-Type Quality Matrix (Wave-4 IMF-primary)
 
-Under Wave-3 policy, **IMF is the sole authoritative source for
+Under Wave-4 policy, **IMF is the sole authoritative source for
 economic context** for every article type below — World Bank is
 retained only for non-economic domains and is additive, not
 substitutable.

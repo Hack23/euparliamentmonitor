@@ -101,7 +101,7 @@ Before any analysis, read these documents in order. This is expected to take 4�
 | P1 | [`political-threat-framework.md`](political-threat-framework.md) | Threat Landscape, Diamond, Attack Trees, Kill Chain |
 | P1 | [`political-classification-guide.md`](political-classification-guide.md) | 7-dimension event classification, significance rubric |
 | P2 | [`political-style-guide.md`](political-style-guide.md) | Writing standards, evidence density, depth levels |
-| P2 | [`imf-indicator-mapping.md`](imf-indicator-mapping.md) (primary economic) + [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md) (non-economic) | Economic-context indicator selection — Wave-3 IMF-primary |
+| P2 | [`imf-indicator-mapping.md`](imf-indicator-mapping.md) (primary economic) + [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md) (non-economic) | Economic-context indicator selection — Wave-4 IMF-primary |
 | P2 | All nine templates in [`../templates/`](../templates/README.md) | Output shapes to fill with analysis |
 
 **Product of Step 2:** the mental model of the analytical pipeline. Emit the line `METHODOLOGIES_READ: ok` in the workflow log before proceeding.

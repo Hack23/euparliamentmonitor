@@ -317,7 +317,7 @@ flowchart TD
 
 ## 📊 IMF Economic Context (primary) + WB Non-Economic Cross-Refs for Stakeholder Impact
 
-> **AI Instructions (Wave-3):** When stakeholder impacts have economic dimensions, quantify with **IMF** data (WEO / FM / IFS / BOP / ER / PCPS / GFSR / EREO / FSI / GFS / DOT) as the primary source — Wave-3 policy. Use `analysis/imf/indicator-catalog.md` + `analysis/imf/database-directory.md` as the full indicator/database references. Use `analysis/imf/eu-country-mapping.md` for comparison country groups (aggregates `EU`, `EA`, `G7`, `G20` all accepted). For non-economic dimensions (health, education, social, environment, demographics), use World Bank via documented MCP tools — reference `analysis/worldbank/indicator-catalog.md`.
+> **AI Instructions (Wave-4):** When stakeholder impacts have economic dimensions, quantify with **IMF** data (WEO / FM / IFS / BOP / ER / PCPS / GFSR / EREO / FSI / GFS / DOT) as the primary source — Wave-4 policy. Use `analysis/imf/indicator-catalog.md` + `analysis/imf/database-directory.md` as the full indicator/database references. Use `analysis/imf/eu-country-mapping.md` for comparison country groups (aggregates `EU`, `EA`, `G7`, `G20` all accepted). For non-economic dimensions (health, education, social, environment, demographics), use World Bank via documented MCP tools — reference `analysis/worldbank/indicator-catalog.md`.
 
 ### Key Economic Indicators for Stakeholder Assessment (IMF primary)
 
