@@ -184,4 +184,99 @@ graph TD
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/threat-model.md` · Template v1.0 · Depth floor: 250 lines.
+## 🛠️ Worked example — three-threat model on coalition-fracture risk
+
+### Threat 1: Cross-coalition defection on rule-of-law motions
+
+**Diamond Model summary:** Adversary: PfE-aligned MEPs in EPP rebellion |
+Capability: ~30 EPP MEPs willing to vote with PfE on rule-of-law-narrow
+issues | Infrastructure: WhatsApp coordination groups, member-state
+party press operations | Victim: rule-of-law motions requiring 361-seat
+majority.
+
+**Narrative**: PfE's strategic objective is to demonstrate Grand Coalition
+fragility on rule-of-law topics where Hungarian and Polish concerns align
+with conservative EPP-internal currents. The coalition-fracture vector
+exploits whip-discipline weakness in newer EPP MEPs from CEE member
+states (≤ 2 years in EP, lower personal political capital). Capability:
+~30 MEPs is sufficient to flip a 5-vote-margin outcome but not a 30+
+margin. Victim asset: any rule-of-law motion sponsored without prior
+PfE consultation. Mitigation: rapporteur should pre-poll EPP whip
+discipline before tabling close-margin motions.
+
+### Threat 2: Industry-driven scope softening during trilogue
+
+**Diamond Model summary:** Adversary: industry trade associations and
+their MEP allies | Capability: parallel public letter campaigns timed to
+trilogue rounds | Infrastructure: Brussels lobbying networks, friendly
+press, MEP question-channels | Victim: ambitious EP positions on
+regulatory files (digital, environmental, financial).
+
+**Narrative**: Industry pressure is a legitimate input to legislation but
+becomes a threat when it operates through opaque channels. Capability is
+exercised through coordinated letters, hearings, and amendment drafting
+support. Detection signals: ≥3 trade-association letters within 30 days
+of trilogue; "industry-friendly" amendments tabled by MEPs lacking
+sectoral expertise; press leaks favourable to one side. Mitigation:
+transparency-register cross-checks; mandatory disclosure of meetings
+with rapporteurs.
+
+### Threat 3: Disinformation amplification ahead of close votes
+
+**Diamond Model summary:** Adversary: state-aligned and
+disinformation-for-hire networks | Capability: synthetic-media generation,
+narrative seeding via low-trust news sites | Infrastructure: bot
+networks, alt-media ecosystem, identifiable patterns of artificial
+amplification | Victim: public discourse around close-margin EP votes,
+particularly enlargement, defence, energy.
+
+**Narrative**: Disinformation campaigns exploit the 4-7 day window before
+plenary votes when MEP positions are still being debated publicly.
+Capability has been documented in EP elections and is increasingly
+applied to legislative votes. Detection: spike in social-media mentions
+matched to bot-pattern signatures; coordinated push of anti-EP narratives
+across multiple outlets. Mitigation: collaboration with EEAS StratCom and
+DG COMM monitoring; rapid-rebuttal capacity in MEP communications staff.
+
+## 🚫 Anti-patterns — threat-model failures
+
+| Anti-pattern | Why it fails | Correct approach |
+|---|---|---|
+| Threat without an adversary | Risks ≠ threats | Diamond Model requires named adversary |
+| Adversary = "the public" | Wrong frame | Public ≠ adversary; it's a stakeholder |
+| Capability claim without evidence | Speculation | Cite seat counts, voting records, or external sources |
+| Narrative <80 words | Fails depth floor | ≥80 words per threat |
+| Three-identical-threats | No analytic value | Threats must be distinguishable |
+| "Coalition" framed as single threat | Coalition is an *actor* mapping | Threat is the *attack*, not the actor |
+| No mitigation hint | Threat unactionable | Each threat: at least one mitigation lever |
+| Confidence > A2 without primary source | Tradecraft fail | Default B2 for analytic threat assessments |
+| Dated threats without temporal anchor | Cannot be re-evaluated | Each threat: "active over Q2-Q3 2026" or similar |
+
+## 🎯 EP MCP tool inputs
+
+| Tool | Used for |
+|---|---|
+| `get_meps` + `get_mep_declarations` | Adversary actor identification |
+| `get_voting_records` | Capability — past defection patterns |
+| `analyze_coalition_dynamics` | Coalition-fracture capability |
+| `get_parliamentary_questions` | Capability — pressure-channel intensity |
+| `get_speeches` | Narrative-pattern detection |
+
+## 🔗 Controlling methodology cross-references
+
+- [`../methodologies/political-threat-framework.md`](../methodologies/political-threat-framework.md) — 6 threat dimensions
+- [`../methodologies/osint-tradecraft-standards.md §2 Admiralty grading`](../methodologies/osint-tradecraft-standards.md)
+- [`actor-threat-profiles.md`](actor-threat-profiles.md) — companion: actor-side threat profiles
+- [`threat-analysis.md`](threat-analysis.md) — broader threat-analysis artifact
+
+## ✅ Stage-C completeness signals
+
+- Line floor: 250 lines
+- ≥ 3 distinct threats (Diamond Model framed)
+- Each threat ≥ 80-word narrative + named mitigation
+- Adversary, capability, infrastructure, victim explicitly named per threat
+- Confidence assessment present per threat
+
+---
+
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/threat-model.md` · Template v1.2 · Depth floor: 250 lines.

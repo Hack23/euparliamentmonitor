@@ -184,4 +184,80 @@ For each top‑severity actor, how the EP / Commission / member states could det
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/threat-assessment/actor-threat-profiles.md` · Template v2.0 · Depth floor: 140 lines · Mermaid diagrams: ≥3 (quadrant + per‑actor diamond + relationship map) · Reader briefing: required.
+## 🛠️ Worked example — actor threat profile for a hypothetical PfE bridging MEP
+
+### Profile: MEP X (PfE, COUNTRY-Y, ENVI shadow rapporteur)
+
+**Position-on-axis**: capability HIGH (committee shadow + rapporteur
+network), intent MIXED (anti-Green Deal but pro-industry), opportunity
+MEDIUM (ENVI dossiers passing through their seat).
+
+**Diamond Model**: Adversary: anti-EU-regulatory faction within PfE |
+Capability: 8 PfE allies on ENVI; voting-bloc-discipline 92% per
+`analyze_coalition_dynamics` | Infrastructure: national-party press,
+CEE WhatsApp coordination groups, friendly Brussels media | Victim:
+Green-Deal-implementation files passing ENVI scrutiny (specifically:
+ETS extension, methane regulation, F-gas update).
+
+**Behavioural signature**:
+
+- Tabling pattern: amendments timed within 48h of trilogue rounds
+- Speech pattern: high frequency of "competitiveness" + "regulatory burden" framing
+- Voting pattern: aligned with EPP CEE bloc on industry-cost amendments,
+  diverges on rule-of-law motions
+- Question pattern: ≥3 written PQs/month on enforcement-cost issues
+
+**Counter-leverage**: ENVI majority can pre-poll PfE positions before
+tabling close-margin amendments; rapporteur can exclude PfE from
+shadow-rapporteur informal coordination if shadow declines to act in
+good faith; Article 4 rapporteur transparency rules invoked when needed.
+
+**Ethical guard-rail**: this profile is built from public roll-call,
+public statements, transparency-register entries, and published
+parliamentary questions only. No personal-life data. No speculation
+about non-public motivations beyond cited evidence.
+
+## 🚫 Anti-patterns — actor-threat-profile failures
+
+| Anti-pattern | Why it fails | Correct approach |
+|---|---|---|
+| Personal-life data on MEP | Violates §5.2 OSINT scope | Public political behaviour only |
+| Profile of a non-active actor | Wasted artifact slot | Restrict to actors with ≥10 RCV participations / quarter |
+| Single-source claim | Tradecraft fail | Cross-reference 2+ independent sources |
+| Speculation about motivation | "Ethical guard-rail" violation | Behaviour-based language |
+| No counter-leverage | Profile unactionable | Each profile: ≥1 counter-lever |
+| Defamatory framing | Legal + ethical risk | Neutral analytic tone |
+| No validity window | Profile may stale | "Valid 3 months; refresh on group-change events" |
+| Diamond Model fields blank | Incomplete framework | All 4 fields filled or "n/a" with rationale |
+| Conflating party-line with personal stance | Poor analytic granularity | Distinguish whip-aligned vs. independent positions |
+
+## 🎯 EP MCP tool inputs
+
+| Tool | Used for |
+|---|---|
+| `get_meps` + `get_mep_details` | Demographics, committees, group |
+| `analyze_voting_patterns` | Personal cohesion/defection signature |
+| `get_voting_records` | Specific RCV participation |
+| `get_speeches` | Rhetorical signature |
+| `get_parliamentary_questions` | Pressure-channel signature |
+| `get_mep_declarations` | Transparency-register / interests |
+| `assess_mep_influence` | Influence score |
+| `network_analysis` | Bridging position |
+
+## 🔗 Controlling methodology cross-references
+
+- [`../methodologies/political-threat-framework.md`](../methodologies/political-threat-framework.md)
+- [`../methodologies/osint-tradecraft-standards.md §5 Scope`](../methodologies/osint-tradecraft-standards.md)
+- [`actor-mapping.md`](actor-mapping.md) — companion (descriptive only)
+
+## ✅ Stage-C completeness signals
+
+- Line floor: 140 lines
+- ≥ 3 Mermaid diagrams (intent×capability quadrant + diamond + relationship map)
+- ≥ 3 actor profiles (or fewer with explicit "ranked top-3" framing)
+- Behavioural signature ≥ 4 dimensions per actor
+- Counter-leverage + ethical guard-rail present
+
+---
+
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/threat-assessment/actor-threat-profiles.md` · Template v2.2 · Depth floor: 140 lines · Mermaid diagrams: ≥3 (quadrant + per‑actor diamond + relationship map) · Reader briefing: required.

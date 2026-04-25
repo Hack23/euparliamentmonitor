@@ -288,8 +288,8 @@ graph TD
 
 **Document Control:**
 - **Template Path:** `/analysis/templates/threat-analysis.md`
-- **Version:** 2.1
+- **Version:** 2.2
 - **Advanced Features:** Attack Tree (AND/OR gates), Kill Chain (5-stage), Diamond Model + ICO Profile, Escalation Decision, Cross-Session Bayesian Update
 - **Framework Reference:** [methodologies/political-threat-framework.md](../methodologies/political-threat-framework.md)
 - **Classification:** Public
-- **Next Review:** 2026-06-30
+- **Next Review:** 2026-07-31

@@ -9,8 +9,8 @@
   <em>🎯 Coalition · Policy · Budget · Institutional · Geopolitical Risk Quantification</em>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.2 | **📅 Last Updated:** 2026-04-10 (UTC)
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
+**📋 Document Owner:** CEO | **📄 Version:** 2.3 | **📅 Last Updated:** 2026-04-25 (UTC)
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-31
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
 ---
@@ -495,4 +495,4 @@ During EP recess periods (Easter, summer, year-end), risk scores from the most r
 - **ISMS Reference:** [Risk_Assessment_Methodology.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Risk_Assessment_Methodology.md)
 - **Adapted from:** [Riksdagsmonitor risk methodology](https://github.com/Hack23/riksdagsmonitor/blob/main/analysis/methodologies/political-risk-methodology.md)
 - **Classification:** Public
-- **Version:** 2.2 — Added Advanced Technique 2b (Risk Trajectory Tracking), enhanced Advanced Technique 3 (Risk Interconnection Cascade Example with good vs. bad patterns)
+- **Version:** 2.3 — Added Advanced Technique 2b (Risk Trajectory Tracking), enhanced Advanced Technique 3 (Risk Interconnection Cascade Example with good vs. bad patterns)

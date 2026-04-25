@@ -193,4 +193,66 @@ mindmap
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/pestle-analysis.md` · Template v1.0 · Depth floor: 250 lines.
+## 🛠️ Worked PESTLE example — EU AI Act implementation 2026
+
+**Article context**: implementing-regulation tabling triggers a PESTLE
+scan to surface external factors influencing implementation feasibility.
+
+| Dim | Factor | Indicator | Direction | Confidence |
+|:--:|---|---|:-:|:-:|
+| **P** | Council-Commission alignment on enforcement strength | Council position vs Commission proposal margin | ↗ pro-implementation | 🟢 |
+| **P** | EPP-internal CEE rebellion on burden | EPP cohesion delta (latest 4 weeks) | ↘ implementation risk | 🟡 |
+| **E** | EU AI compute capacity (R&D, GPU access) | `GB.XPD.RSDV.GD.ZS` 2023, US-EU GPU export controls | → mixed | 🟡 |
+| **E** | Industry compliance cost | DG GROW impact assessment + €30bn industry letter estimates | ↘ pressure | 🟡 |
+| **S** | Public trust in AI | Eurobarometer Mar 2026: 47% trust EU regulators on AI | ↗ supportive | 🟡 |
+| **T** | Foundation-model concentration | 3 of 5 frontier models US-domiciled | → external dependency | 🟢 |
+| **L** | CJEU AI-related referrals pending | 2 referrals on Art 22 GDPR + AI; 1 on legal base | → uncertainty | 🟡 |
+| **E** | Energy footprint of compute | Industry-reported 1-3% EU electricity by 2027 | ↘ NIMBY pressure on data-centre siting | 🟡 |
+
+**Cross-dimensional cluster**: P/E (regulatory burden + industry cost)
+combined with T (US dependency) creates the dominant **strategic-autonomy
+risk vector** — implementation rigour competes with EU competitiveness.
+
+**Highest-leverage levers**: E (cost mitigation via SME exemptions),
+T (EU compute investment via Horizon Europe + Digital Europe).
+
+## 🚫 Anti-patterns — PESTLE failures
+
+| Anti-pattern | Why it fails | Correct approach |
+|---|---|---|
+| Each dimension as one paragraph | Loses analytic granularity | Indicator + direction + confidence per factor |
+| Same factor across multiple dims | Misuses framework | Each factor in its primary dimension; cross-link in narrative |
+| Direction without indicator | Unverifiable | Cite measurable indicator per factor |
+| All dimensions 🟢 | Pollyanna analysis | Real-world PESTLE shows mixed pressure |
+| Dimensions skipped | Incomplete framework | All 6 dimensions populated; "n/a" with rationale if truly empty |
+| No cross-dimensional cluster | Misses systemic interactions | Identify ≥1 cluster of 2-3 reinforcing factors |
+| Stale data citations | Dynamic environment | All citations within 12-month freshness floor |
+
+## 🎯 EP MCP tool inputs
+
+| Dim | Tools |
+|---|---|
+| **P**olitical | `analyze_coalition_dynamics`, `compare_political_groups`, `get_voting_records` |
+| **E**conomic | `imf-fetch-data`, `worldbank-mcp/get-economic-data` |
+| **S**ocial | `worldbank-mcp/get-social-data`, Eurobarometer (manual) |
+| **T**echnological | `get_committee_documents` (ITRE), industry reports (manual) |
+| **L**egal | `get_external_documents`, CJEU docket (manual) |
+| **E**nvironmental | `worldbank-mcp/get-health-data`, `EN.*` raw-rest |
+
+## 🔗 Controlling methodology cross-references
+
+- [`../methodologies/strategic-extensions-methodology.md §PESTLE`](../methodologies/strategic-extensions-methodology.md)
+- [`../methodologies/imf-indicator-mapping.md`](../methodologies/imf-indicator-mapping.md) (E)
+- [`../methodologies/worldbank-indicator-mapping.md`](../methodologies/worldbank-indicator-mapping.md) (S, E env, T innov)
+
+## ✅ Stage-C completeness signals
+
+- Line floor: 250 lines
+- All 6 dimensions populated with indicator + direction + confidence
+- ≥ 1 cross-dimensional cluster identified
+- Highest-leverage lever per cluster
+- IMF or WB indicator cited for E (with vintage)
+
+---
+
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/pestle-analysis.md` · Template v1.2 · Depth floor: 250 lines.

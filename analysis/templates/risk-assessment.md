@@ -257,8 +257,8 @@ graph TD
 
 **Document Control:**
 - **Template Path:** `/analysis/templates/risk-assessment.md`
-- **Version:** 2.1
+- **Version:** 2.2
 - **Advanced Features:** Cascading Risk Chain, Risk Interconnection Map, Freshness tiers, Escalation criteria, Risk Register Continuity
 - **Framework Reference:** [methodologies/political-risk-methodology.md](../methodologies/political-risk-methodology.md)
 - **Classification:** Public
-- **Next Review:** 2026-06-30
+- **Next Review:** 2026-07-31

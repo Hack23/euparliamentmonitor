@@ -198,4 +198,64 @@ Reliability Score = (
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/mcp-reliability-audit.md` · Template v1.0 · Depth floor: 385 lines.
+## 🛠️ Worked example — MCP reliability audit row
+
+| Tool | Calls | OK | Errors | p95 latency | Degradation handling |
+|---|:-:|:-:|:-:|:-:|---|
+| `get_voting_records` | 14 | 14 | 0 | 380 ms | None — fully healthy |
+| `analyze_coalition_dynamics` | 7 | 6 | 1 (timeout) | 4.2 s | Retry with smaller window succeeded |
+| `get_adopted_texts` | 5 | 4 | 1 (FRESHNESS_FALLBACK) | 1.1 s | augmented mode used; flagged in `manifest.dataFreshnessWarnings[]` |
+| `imf-fetch-data` | 9 | 9 | 0 | 720 ms | None |
+| `worldbank-mcp/raw-rest` | 4 | 3 | 1 (rate-limit 429) | 6.8 s | 60s back-off, succeeded on retry |
+| `get_speeches` | 12 | 11 | 1 (5xx upstream) | 920 ms | Used cached prior-run data; tagged "stale-acceptable" |
+
+**Aggregate health**: 91% success across 51 calls. Two non-fatal
+degradations (FRESHNESS_FALLBACK, prior-run cache) tagged in manifest
+and acknowledged in the article's data-source footer.
+
+**Pre-cache recommendations for next run**:
+1. Pre-warm `get_adopted_texts` for current week to reduce
+   FRESHNESS_FALLBACK frequency.
+2. Capture `analyze_coalition_dynamics` snapshots via smaller
+   per-week windows.
+
+## 🚫 Anti-patterns — mcp-reliability-audit failures
+
+| Anti-pattern | Why it fails | Correct approach |
+|---|---|---|
+| Total errors only, no per-tool breakdown | Cannot identify root cause | Per-tool table |
+| Counting cache hits as "OK" | Hides degradation | Tag "stale-acceptable" separately |
+| No degradation note in article | Stage-C signal lost | Article footer mentions degradation |
+| Latency reported only as mean | Tail behaviour invisible | p95 minimum, p50 + p99 ideal |
+| FRESHNESS_FALLBACK ignored | Data quality risk | Always log + flag |
+| Workaround narrative absent | No learning from incidents | Per-degradation: what was done |
+| Timeline ignored | Cannot attribute to upstream issue | Timestamp every tool call |
+
+## 🎯 Tool surface (this artifact's scope)
+
+Every MCP tool used in the run must appear in the audit table. Sources:
+
+- EP MCP (~80 tools surfaced)
+- IMF MCP (~6 tools)
+- WB MCP (~7 tools)
+
+Each cell carries: call count, OK count, error breakdown, latency p95,
+degradation handling.
+
+## 🔗 Controlling methodology cross-references
+
+- [`../methodologies/per-artifact-methodologies.md §mcp-reliability-audit`](../methodologies/per-artifact-methodologies.md)
+- [`workflow-audit.md`](workflow-audit.md) — broader workflow-level audit
+- [`data-download-manifest.md`](data-download-manifest.md) — companion artifact for raw-data manifest
+
+## ✅ Stage-C completeness signals
+
+- Line floor: 385 lines (this is one of the largest audit artifacts)
+- Per-tool row for every MCP tool called
+- Degradation note + handling per error
+- Pre-cache recommendations for next run
+- Confidence assessment present
+
+---
+
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/mcp-reliability-audit.md` · Template v1.2 · Depth floor: 385 lines.
