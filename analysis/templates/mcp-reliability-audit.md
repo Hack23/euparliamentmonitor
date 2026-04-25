@@ -120,7 +120,7 @@ flowchart LR
 
 **Bridge narrative:**
 
-`[REQUIRED: ≥100 words explaining the overall data-source strategy when EP MCP was degraded. What was the fallback order? (EP MCP → direct EP API → IMF SDMX REST (primary economic, Wave-3) → World Bank MCP (non-economic only) → prior-run cache → degraded analysis with LOW confidence marker). Which artifacts were affected? Where are gaps acknowledged?]`
+`[REQUIRED: ≥100 words explaining the overall data-source strategy when EP MCP was degraded. What was the fallback order? (EP MCP → direct EP API → IMF SDMX REST (primary economic, Wave-4) → World Bank MCP (non-economic only) → prior-run cache → degraded analysis with LOW confidence marker). Which artifacts were affected? Where are gaps acknowledged?]`
 
 ---
 

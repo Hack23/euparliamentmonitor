@@ -183,7 +183,7 @@ graph LR
 ```markdown
 ## Quantitative Benchmark
 
-### IMF / World Bank Indicator Comparison (IMF-primary, Wave-3)
+### IMF / World Bank Indicator Comparison (IMF-primary, Wave-4)
 
 {Use xychart or other Mermaid for time-series comparison}
 ```
@@ -249,7 +249,7 @@ xychart-beta
 3. [{US federal source}]({URL}) — **B2**
 
 ### Quantitative Data
-1. IMF WEO — indicator: {ID} (primary for any economic metric — Wave-3)
+1. IMF WEO — indicator: {ID} (primary for any economic metric — Wave-4)
 2. IMF Fiscal Monitor — indicator: {ID}
 3. Eurostat — indicator: {ID} (triangulation for Tier-1)
 4. World Bank WGI — indicator: {ID} (non-economic only: governance, social, demographics)

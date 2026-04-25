@@ -85,7 +85,7 @@
 | **Impact Timeline** | `[REQUIRED: IMMEDIATE / SHORT / MEDIUM / LONG]` |
 | **Most Affected Sectors** | `[REQUIRED: e.g. "Digital platforms, automotive, energy"]` |
 | **Economic Impact Type** | `[REQUIRED: COMPLIANCE COST / MARKET OPPORTUNITY / REGULATORY BURDEN / TAX CHANGE]` |
-| **Evidence Sources** | `[REQUIRED: EP MCP data + IMF indicators (primary for economic impact — Wave-3) + optional WB non-economic indicators]` |
+| **Evidence Sources** | `[REQUIRED: EP MCP data + IMF indicators (primary for economic impact — Wave-4) + optional WB non-economic indicators]` |
 | **Confidence Level** | `[REQUIRED: HIGH / MEDIUM / LOW]` |
 
 **Business Impact Narrative:**
@@ -328,7 +328,7 @@ flowchart TD
 | 🤝 Member States | `NGDP_RPCH`, `PCPIPCH`, `GGXWDG_NGDP` (debt) | WEO + FM | — | Eurozone Core vs Convergence |
 | 🌍 International | `TX_RPCH` (exports), `BFD_BP6_USD` (FDI), DOT bilateral | WEO + BOP + DOT | — | EU vs G7, EU vs BRICS |
 
-> **Note (Wave-3):** IMF is the required primary source for every economic citation in this section. Any projected number must include a forecast marker (`forecast`/`projection`/`projects`/`expects`) within 30 words, plus the vintage in prose (`IMF WEO April 2026`), plus `data-vintage="WEO-April-2026"` on the enclosing `<section>` element.
+> **Note (Wave-4):** IMF is the required primary source for every economic citation in this section. Any projected number must include a forecast marker (`forecast`/`projection`/`projects`/`expects`) within 30 words, plus the vintage in prose (`IMF WEO April 2026`), plus `data-vintage="WEO-April-2026"` on the enclosing `<section>` element.
 >
 > **WB fallback note:** Some WB indicators (e.g. GINI, Ease of Business) are not accepted as direct indicator keys by `get-social-data`/`get-health-data`/etc. Call `search-indicators` first to verify; use documented fallback mechanisms (e.g. legacy `get_indicator_for_country`) when needed.
 

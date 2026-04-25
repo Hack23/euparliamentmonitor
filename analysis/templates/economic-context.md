@@ -130,7 +130,7 @@ Cite specific indicators and explain political mechanism.]`
 
 | Source | Available? | Records Retrieved | Used in This Run? | Role |
 |--------|:----------:|:-----------------:|:------------------:|------|
-| IMF SDMX REST (primary economic) | `[✅/❌]` | `[#]` | `[✅/❌]` | **Primary** — Wave-3 mandatory for economic context |
+| IMF SDMX REST (primary economic) | `[✅/❌]` | `[#]` | `[✅/❌]` | **Primary** — Wave-4 mandatory for economic context |
 | World Bank MCP (non-economic only) | `[✅/❌]` | `[#]` | `[✅/❌]` | Additive — health/edu/social/env/demographics/defence/agri/innov/gov only |
 
 **Cross-source triangulation** (required for Tier-1 articles citing high-sensitivity indicators):

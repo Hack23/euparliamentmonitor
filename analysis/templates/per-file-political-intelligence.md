@@ -466,7 +466,7 @@ xychart-beta
     bar [0, 0, 0]
 ```
 
-### Which Indicators to Use (Wave-3 split)
+### Which Indicators to Use (Wave-4 split)
 
 | Policy Domain | Primary IMF Indicators (SDMX codes) | Non-Economic WB Indicators (if needed) | Comparison Group |
 |--------------|-------------------------------------|----------------------------------------|------------------|
