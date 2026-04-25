@@ -55,7 +55,7 @@ export interface PendingDocumentsStore {
   version: string;
   /** ISO timestamp of the last write */
   lastUpdatedAt: string;
-  /** Map from docId to the pending document record */
+  /** Map keyed by `docId` (e.g., `"TA-10-2026-0104"`) to the pending document record — O(1) lookup */
   documents: Record<string, PendingDocument>;
 }
 
