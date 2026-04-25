@@ -1,3 +1,14 @@
+---
+title: "Political Intelligence Synthesis — Easter Recess Final Weekend (Run 158)"
+description: "documentsAnalyzed: 0 live feeds, 264K chars precomputed stats, 11.6K chars coalition dynamics"
+date: 2026-04-11
+article_type: breaking
+slug: 2026-04-11-breaking-breaking-run158
+source_folder: analysis/daily/2026-04-11/breaking-run158
+generated_at: 2026-04-11T00:00:00.000Z
+language: en
+layout: article
+---
 # Breaking — 2026-04-11
 
 <!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->

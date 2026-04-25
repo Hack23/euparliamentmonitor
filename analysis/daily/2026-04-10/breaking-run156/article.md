@@ -1,3 +1,14 @@
+---
+title: "🧩 Political Intelligence Synthesis — Easter Recess Day 15 (Run 156)"
+description: "analysisPeriod: \"2026-04-10 18:17–18:45 UTC\""
+date: 2026-04-10
+article_type: breaking
+slug: 2026-04-10-breaking-breaking-run156
+source_folder: analysis/daily/2026-04-10/breaking-run156
+generated_at: 2026-04-10T00:00:00.000Z
+language: en
+layout: article
+---
 # Breaking — 2026-04-10
 
 <!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->

@@ -1,3 +1,14 @@
+---
+title: "root((Post-Easter<br/>Threat Landscape))"
+description: "root((Post-Easter<br/>Threat Landscape))"
+date: 2026-04-14
+article_type: breaking
+slug: 2026-04-14-breaking-breaking-run169
+source_folder: analysis/daily/2026-04-14/breaking-run169
+generated_at: 2026-04-14T00:00:00.000Z
+language: en
+layout: article
+---
 # Breaking — 2026-04-14
 
 <!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->

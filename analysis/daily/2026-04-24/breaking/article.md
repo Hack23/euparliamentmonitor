@@ -1,3 +1,14 @@
+---
+title: "Synthesis Summary — Breaking 2026-04-24"
+description: "Gate target: GREEN or ANALYSIS_ONLY fallback"
+date: 2026-04-24
+article_type: breaking
+slug: 2026-04-24-breaking
+source_folder: analysis/daily/2026-04-24/breaking
+generated_at: 2026-04-24T00:00:00.000Z
+language: en
+layout: article
+---
 # Breaking — 2026-04-24
 
 <!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
@@ -10,6 +21,18 @@
 > - **Gate result:** `GREEN`
 > - **Analysis tree:** [analysis/daily/2026-04-24/breaking](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-24/breaking)
 > - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/breaking/manifest.json)
+
+<h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
+
+Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
+
+| Reader need | What you'll get | Source artifact |
+|---|---|---|
+| [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
+| [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `intelligence/coalition-dynamics.md` |
+| [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `intelligence/stakeholder-map.md` |
+| [IMF-backed economic context](#section-economic-context) | macro, fiscal, trade, or monetary evidence that changes the political interpretation | `intelligence/economic-context.md` |
+| [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
 

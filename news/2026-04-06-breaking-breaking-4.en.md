@@ -1,3 +1,14 @@
+---
+title: "🔬 Synthesis Summary — Easter Monday Daily Intelligence Closure"
+description: "Date: 6 April 2026 (Easter Monday) | Recess Day: 11/18 | T-8 to Committee Week"
+date: 2026-04-06
+article_type: breaking
+slug: 2026-04-06-breaking-breaking-4
+source_folder: analysis/daily/2026-04-06/breaking-4
+generated_at: 2026-04-06T00:00:00.000Z
+language: en
+layout: article
+---
 # Breaking — 2026-04-06
 
 <!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->

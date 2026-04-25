@@ -1,3 +1,14 @@
+---
+title: "🧩 Political Intelligence Synthesis — Tariff T-0 Convergence and Post-Recess Pipeline"
+description: "subgraph \"EP Political Intelligence Dashboard 14 April 2026\""
+date: 2026-04-14
+article_type: breaking
+slug: 2026-04-14-breaking-breaking-run171
+source_folder: analysis/daily/2026-04-14/breaking-run171
+generated_at: 2026-04-14T00:00:00.000Z
+language: en
+layout: article
+---
 # Breaking — 2026-04-14
 
 <!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->

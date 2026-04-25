@@ -1,3 +1,14 @@
+---
+title: "EP API Reliability Assessment — 3 April 2026"
+description: "title: \"EP API Reliability Assessment — 2026-04-03\""
+date: 2026-04-03
+article_type: breaking
+slug: 2026-04-03-breaking-breaking-2
+source_folder: analysis/daily/2026-04-03/breaking-2
+generated_at: 2026-04-03T00:00:00.000Z
+language: en
+layout: article
+---
 # Breaking — 2026-04-03
 
 <!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->

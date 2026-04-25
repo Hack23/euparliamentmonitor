@@ -1,3 +1,14 @@
+---
+title: "Synthesis Summary — EP Breaking News Run 192"
+description: "Date: 2026-04-21 | Run: 192 | Mode: ANALYSIS_ONLY | Series Run: 14"
+date: 2026-04-21
+article_type: breaking
+slug: 2026-04-21-breaking
+source_folder: analysis/daily/2026-04-21/breaking-run192
+generated_at: 2026-04-21T00:00:00.000Z
+language: en
+layout: article
+---
 # Breaking — 2026-04-21
 
 <!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
@@ -10,6 +21,17 @@
 > - **Gate result:** `PENDING`
 > - **Analysis tree:** [analysis/daily/2026-04-21/breaking-run192](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-21/breaking-run192)
 > - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run192/manifest.json)
+
+<h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
+
+Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
+
+| Reader need | What you'll get | Source artifact |
+|---|---|---|
+| [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
+| [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `intelligence/stakeholder-map.md` |
+| [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
+| [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
 

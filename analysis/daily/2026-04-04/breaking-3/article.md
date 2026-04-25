@@ -1,3 +1,14 @@
+---
+title: "Breaking News Intelligence Brief — 4 April 2026 (Run 3: Enhanced Pre-Recess Analysis)"
+description: "title: \"Breaking News Intelligence Brief — 2026-04-04 (Run 3)\""
+date: 2026-04-04
+article_type: breaking
+slug: 2026-04-04-breaking-breaking-3
+source_folder: analysis/daily/2026-04-04/breaking-3
+generated_at: 2026-04-04T00:00:00.000Z
+language: en
+layout: article
+---
 # Breaking — 2026-04-04
 
 <!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->

@@ -1,3 +1,14 @@
+---
+title: "Synthesis Summary: Post-Easter Committee Restart"
+description: "title: \"Synthesis Summary: Week Ahead 10-17 April 2026\""
+date: 2026-04-10
+article_type: week-ahead
+slug: 2026-04-10-week-ahead
+source_folder: analysis/daily/2026-04-10/week-ahead-run12
+generated_at: 2026-04-10T00:00:00.000Z
+language: en
+layout: article
+---
 # Week Ahead — 2026-04-10
 
 <!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
@@ -10,6 +21,17 @@
 > - **Gate result:** `PENDING`
 > - **Analysis tree:** [analysis/daily/2026-04-10/week-ahead-run12](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-10/week-ahead-run12)
 > - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/manifest.json)
+
+<h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
+
+Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
+
+| Reader need | What you'll get | Source artifact |
+|---|---|---|
+| [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `classification/significance-classification.md` |
+| [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `existing/voting-patterns.md` |
+| [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `existing/stakeholder-impact.md` |
+| [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
 
 <h2 id="section-significance">Significance</h2>
 
