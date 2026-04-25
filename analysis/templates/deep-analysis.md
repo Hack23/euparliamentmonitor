@@ -174,4 +174,77 @@ Close by explaining how the analysis was built: which EP MCP endpoints succeeded
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/existing/deep-analysis.md` · Template v1.1 · Depth floor: per article-type minimum defined in [`reference-quality-thresholds.json`](../methodologies/reference-quality-thresholds.json) (authoritative — e.g. motions 400, month-in-review 300, week-in-review 200).
+## 🛠️ Worked Pass-1 → Pass-2 example
+
+### Pass-1 (filler)
+
+> *This week the EP discussed several files. There were votes. Some were
+> close. The Grand Coalition mostly held. There is some risk going
+> forward.*
+
+### Pass-2 (Economist-quality)
+
+> The week of 2026-04-21–25 saw three Tier-1 plenary votes. The Critical
+> Raw Materials Act `2024/0123(COD)` passed at first reading 412/189/68
+> on 2026-04-23 with EPP+S&D+Renew alignment intact (cohesion 91%, 92%,
+> 88% respectively); 47 EPP MEPs from DEU, FRA, NLD, ITA defected on the
+> "strategic supplier" amendment, foreshadowing trilogue softening
+> pressure. The AI-Act implementing regulation `2026/0142(COD)` cleared
+> IMCO with rapporteur margin 35-12-2; ITRE associated opinion adopted
+> 24-15. The fiscal-rules reform package `2025/0089(COD)` saw an unusual
+> ECR+PfE alignment (joint amendments tabled) reflecting member-state
+> Council positions; absent EPP discipline, the file's coalition
+> arithmetic narrows from 408 to 372 — within margin but uncomfortably
+> close. The week's pattern fits the broader 2026 trend of single-committee
+> consensus + plenary contestation, with Grand Coalition cohesion higher
+> than 2025 baseline (88% mean vs 85%) but with rising cross-coalition
+> issue clusters (rule-of-law, fiscal rules, energy security).
+
+**What changed**: every claim sourced (RCV margin, cohesion %), procedure
+codes attached, named MEPs/groups/committees, historical comparison
+(vs 2025 baseline), forward implication (trilogue softening), and
+analytic neutrality preserved.
+
+## 🚫 Anti-patterns — deep-analysis failures
+
+| Anti-pattern | Why it fails | Correct approach |
+|---|---|---|
+| "Several files were discussed" | Filler; uncountable | Name each procedure with code + RCV |
+| Cohesion stated without source | Unverifiable | Cite `analyze_coalition_dynamics` output |
+| One-week perspective only | No baseline | Compare vs 30/90/365-day baseline |
+| Partisan framing ("EPP cynically...") | Loses analytic credibility | Neutral language; let evidence speak |
+| Single perspective | Misses competing interpretations | Devil's-advocate paragraph required |
+| "Will likely pass" without margin | Coalition arithmetic shown | "passes 412/189/68; 360 threshold met" |
+| Aggregating across committees blindly | Committee dynamics differ | Per-committee paragraphs |
+| Implicit time horizon | Forecast unverifiable | Always anchor to plenary / trilogue date |
+| Procedure-code typos | Breaks reproducibility | Format `YYYY/NNNN(TYPE)` strictly |
+| Method note absent | Reader cannot verify rigour | Final paragraph: which MCP tools, what failed |
+
+## 🎯 EP MCP tool input map
+
+| Section | Primary tools |
+|---|---|
+| Procedure-by-procedure narrative | `track_legislation`, `get_procedures`, `get_procedure_events` |
+| Coalition arithmetic | `analyze_coalition_dynamics`, `compare_political_groups`, `get_voting_records` |
+| Committee scrutiny | `analyze_committee_activity`, `get_committee_documents` |
+| Historical baseline | `get_all_generated_stats`, prior-run artifacts |
+| MEP-level signals | `get_meps`, `get_speeches`, `get_parliamentary_questions` |
+| Pipeline state | `monitor_legislative_pipeline` |
+
+## 🔗 Controlling methodology cross-references
+
+- [`../methodologies/synthesis-methodology.md`](../methodologies/synthesis-methodology.md) — narrative construction
+- [`../methodologies/political-style-guide.md`](../methodologies/political-style-guide.md) — Economist tone
+- [`../methodologies/osint-tradecraft-standards.md`](../methodologies/osint-tradecraft-standards.md) — every claim graded
+
+## ✅ Stage-C completeness signals
+
+- Line floor: per-article-type from `reference-quality-thresholds.json`
+- ≥ 15 named procedures / RCVs / adopted texts inline
+- ≥ 3 Mermaid diagrams or structured tables
+- ≥ 2 historical comparisons
+- Method note + confidence statement present
+
+---
+
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/existing/deep-analysis.md` · Template v1.2 · Depth floor: per article-type minimum defined in [`reference-quality-thresholds.json`](../methodologies/reference-quality-thresholds.json) (authoritative — e.g. motions 400, month-in-review 300, week-in-review 200).

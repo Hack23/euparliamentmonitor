@@ -179,4 +179,72 @@ sentence the Stage-B agent can reuse safely.]`
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/economic-context.md` · Template v1.1 · Depth floor: 185 lines.
+## 🛠️ Worked Pass-1 → Pass-2 example
+
+### Pass-1 (thin)
+
+> *The EU economy grew. Inflation is high. Some member states have
+> high debt.*
+
+### Pass-2 (Economist-quality)
+
+> The euro area economy expanded by **1.3% in 2025** (IMF WEO Apr 2026,
+> Admiralty A2), accelerating to a projected **1.6% in 2026** with risks
+> tilted to the downside given trade-policy headwinds (🟡 moderate
+> confidence). HICP inflation moderated to **2.4% y/y** in March 2026
+> (IFS Mar 2026, A2), within the ECB's tolerance corridor but above the
+> 2% target. General-government gross debt remains elevated in IT (133%
+> GDP), GR (148%) and FR (113%) — three of these four exceed the
+> Stability and Growth Pact 60% reference value by ≥50 pp (FM Oct 2025,
+> A2). The fiscal gap, combined with ECB's policy-rate sequencing, frames
+> the policy stakes for the Critical Raw Materials Act (`COM(2025)0474`)
+> debate.
+
+**What changed**: vintages cited, Admiralty grades attached, specific
+country values, link to procedure, confidence labelled.
+
+## 🚫 Anti-patterns — economic-context failures
+
+| Anti-pattern | Why it fails | Correct approach |
+|---|---|---|
+| Single-year point with no trend | Loses context | 5-year actual + 3-year forecast |
+| "About 2%" / "around 1%" | Imprecision | Cite to 0.1 pp with vintage |
+| WB cited for GDP/inflation | Wave-4 source split | IMF for economic; WB for non-economic only |
+| `EUU` aggregate | Banned by WB MCP | Use IMF `EU` or `EA` |
+| Mixing actual + projection without label | Misleads | "1.3% (2025 actual)", "1.6% (2026 projection)" |
+| No Admiralty grade | Tradecraft fail | A2 default for IMF/Eurostat; B2 for staff estimates |
+| No bridge to article subject | Floating context | One sentence linking each indicator to a procedure or stakeholder |
+| Vintage older than freshness floor | Stale data | See `worldbank-indicator-mapping.md §8` floors |
+| No triangulation for Tier-1 | High-stakes claim unverified | IMF + Eurostat (or ECB SDW for monetary) |
+| Indicator without unit | Numerics ambiguous | "1.3% real GDP growth", "133% of GDP" |
+
+## 🎯 EP MCP tool inputs and complementary data sources
+
+| Source | Domain | Tool / dataflow |
+|---|---|---|
+| IMF MCP | Economic / fiscal / monetary | `imf-fetch-data` `WEO`, `FM`, `IFS`, `BOP`, `ER`, `PCPS` |
+| WB MCP (non-economic only) | Health, education, social, environment, defence | `worldbank-mcp/get-*-data`, `raw-rest` |
+| Eurostat (cross-source) | EU-27 official statistics | manual; cite as A2 |
+| ECB SDW (monetary triangulation) | Policy rate, M3, REER | manual; cite as A1 |
+| OECD (cross-source) | OECD members; well-being | manual; cite as A2 |
+| `analyze_committee_activity` | EP committee context (ECON, ITRE, ENVI) | EP MCP |
+
+## 🔗 Controlling methodology cross-references
+
+- [`../methodologies/imf-indicator-mapping.md`](../methodologies/imf-indicator-mapping.md) (mandatory for economic)
+- [`../methodologies/worldbank-indicator-mapping.md`](../methodologies/worldbank-indicator-mapping.md) (non-economic)
+- [`../methodologies/strategic-extensions-methodology.md`](../methodologies/strategic-extensions-methodology.md) §Economic Context
+- [`imf-vintage-audit.md`](imf-vintage-audit.md) (Tier-1 cross-source audit)
+
+## ✅ Stage-C completeness signals
+
+- Line floor: 185 lines
+- ≥ 1 IMF indicator with vintage cited (Wave-2 OR-gate)
+- For Tier-1 articles: ≥ 1 cross-source triangulation row in §7 with
+  reconciliation note when delta ≥ 0.2 pp
+- Confidence assessment present (🟢/🟡/🔴 per source)
+- All numerics carry units (%, pp, EUR bn, etc.)
+
+---
+
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/economic-context.md` · Template v1.2 · Depth floor: 185 lines.

@@ -177,4 +177,80 @@ For each tree, identify the earliest branch where intervention can prevent escal
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/threat-assessment/consequence-trees.md` · Template v2.1 · Depth floor: 150 lines · Mermaid diagrams: ≥4 (one tree per threat + convergence map) · Reader briefing: required.
+## 🛠️ Worked example — consequence tree on EPP whip-discipline failure
+
+```mermaid
+flowchart TD
+  R["Root: EPP whip fails on AI-Act industry amendment<br/>(47 defections, 3 pp cohesion drop)"]
+  R --> L1A["1st-order: Amendment passes"]
+  R --> L1B["1st-order: Rapporteur loses authority"]
+  R --> L1C["1st-order: Coalition partners signal concern"]
+
+  L1A --> L2A["2nd-order: Industry framing wins<br/>(scope narrowing in trilogue)"]
+  L1B --> L2B["2nd-order: Rapporteur replaced<br/>or shadow-rapporteur led"]
+  L1C --> L2C["2nd-order: S&D + Renew demand<br/>whip recommitment"]
+
+  L2A --> L3A["3rd-order: AI Act enforcement<br/>weakened in MS implementation"]
+  L2B --> L3B["3rd-order: Future EPP-led files<br/>face credibility deficit"]
+  L2C --> L3C["3rd-order: Coalition agreement<br/>renegotiation pressure"]
+
+  classDef root fill:#1565C0,stroke:#0D47A1,color:#fff;
+  classDef l1 fill:#FF9800,stroke:#E65100,color:#fff;
+  classDef l2 fill:#FFC107,stroke:#FF6F00,color:#000;
+  classDef l3 fill:#D32F2F,stroke:#B71C1C,color:#fff;
+  class R root
+  class L1A,L1B,L1C l1
+  class L2A,L2B,L2C l2
+  class L3A,L3B,L3C l3
+```
+
+**Convergence**: L3A and L3C both lead to weaker AI-governance regime in
+2027 if combined; this is the most-likely tail outcome (𝑃≈25%).
+
+**Counter-evidence**: L2C may strengthen rather than weaken coalition if
+S&D/Renew pressure produces a credible commitment from EPP leadership.
+This branch carries 𝑃≈30% in the probability-redistribution.
+
+**Validity window**: 4-6 weeks. Re-evaluate after the next IMCO vote
+or coalition coordination meeting.
+
+## 🚫 Anti-patterns — consequence-tree failures
+
+| Anti-pattern | Why it fails | Correct approach |
+|---|---|---|
+| Single-branch tree | Misses alternatives | ≥3 branches per level |
+| Tree without root event | Floating speculation | Anchor to a specific named event |
+| Leaves without probability | Cannot rank scenarios | Each leaf carries 𝑃 estimate |
+| Tree that converges to one outcome | Hidden determinism | Show convergence AND divergence paths |
+| Mermaid alone, no narrative | Visual without analysis | Each level: ≥1 paragraph of explanation |
+| 5+ levels deep | Loses tractability | Cap at 3 levels (1st, 2nd, 3rd order) |
+| No counter-evidence | Single-perspective failure | §Counter-evidence required |
+| Static tree, no validity window | Tree may stale | "Re-evaluate by date X" |
+
+## 🎯 EP MCP tool inputs
+
+| Tool | Used for |
+|---|---|
+| `track_legislation` | Procedure-anchored root events |
+| `analyze_coalition_dynamics` | Coalition-stress branches |
+| `monitor_legislative_pipeline` | Pipeline-impact branches |
+| `get_voting_records` | Discipline-failure root events |
+| `get_procedure_events` | Trilogue-collapse branches |
+
+## 🔗 Controlling methodology cross-references
+
+- [`../methodologies/political-threat-framework.md`](../methodologies/political-threat-framework.md) — threat → consequence chains
+- [`../methodologies/strategic-extensions-methodology.md §Scenarios`](../methodologies/strategic-extensions-methodology.md)
+- [`scenario-forecast.md`](scenario-forecast.md) — scenarios feed root events
+
+## ✅ Stage-C completeness signals
+
+- Line floor: 150 lines
+- ≥ 4 Mermaid trees (one per threat root + convergence map)
+- 1st / 2nd / 3rd order labelled per branch
+- Probability per leaf
+- Counter-evidence + validity window present
+
+---
+
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/threat-assessment/consequence-trees.md` · Template v2.2 · Depth floor: 150 lines · Mermaid diagrams: ≥4 (one tree per threat + convergence map) · Reader briefing: required.

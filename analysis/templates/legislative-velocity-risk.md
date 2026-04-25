@@ -173,4 +173,71 @@ Which committees are pulling the pipeline forward, and which are holding it back
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/risk-scoring/legislative-velocity-risk.md` · Template v2.1 · Depth floor: 130 lines · Mermaid diagrams: ≥2 (throughput timeline + bottleneck flowchart) · Reader briefing: required.
+## 🛠️ Worked example — velocity-risk on AI-Act implementing regulation
+
+| Procedure | Stage | Days in stage | Norm | Δ to norm | Risk |
+|---|---|:-:|:-:|:-:|:-:|
+| `2026/0142(COD)` AI Act IA reg | Committee scrutiny | 38 | 45 | -7 (faster) | 🟢 low |
+| `2024/0123(COD)` CRMA | Trilogue R2 | 92 | 60 | +32 (slower) | 🔴 high |
+| `2025/0017(COD)` Cyber Resilience | Council 1R | 14 | 30 | -16 (much faster) | 🟢 low |
+
+**Bottleneck flowchart**:
+
+```mermaid
+flowchart LR
+  A["Commission proposal"] --> B{"Committee lead?"}
+  B --> C["IMCO scrutiny<br/>median 45d"]
+  C --> D{"Trilogue?"}
+  D -- yes --> E["Trilogue R1 (median 60d)"]
+  E --> F{"Council position aligned?"}
+  F -- no --> G["Trilogue R2-R5<br/>median 90d each"]
+  F -- yes --> H["Plenary 1R"]
+  G --> H
+  H --> I["Adoption"]
+  classDef warn fill:#FF9800,stroke:#E65100,color:#fff;
+  classDef bad fill:#D32F2F,stroke:#B71C1C,color:#fff;
+  class G bad
+  class E warn
+```
+
+**Velocity verdict**: CRMA at +32d above norm in trilogue R2 indicates
+**substantive disagreement on legal base or scope** rather than drafting
+delay; risk score elevated to 🔴.
+
+## 🚫 Anti-patterns
+
+| Anti-pattern | Correct approach |
+|---|---|
+| Velocity stated without norm | Cite the EP-historic median for that stage |
+| "Slow" without days-in-stage figure | Cite specific days |
+| No bottleneck flowchart | At least one mermaid required |
+| Pipeline metrics for non-COD procedures | Distinct norms for CNS, APP, RSP |
+| Aggregating velocity across all procedures | Stage-specific norms only |
+
+## 🎯 EP MCP tool inputs
+
+| Tool | Used for |
+|---|---|
+| `monitor_legislative_pipeline` | Stage durations + bottleneck index |
+| `get_procedures` | Procedure code + current stage |
+| `track_legislation` | Per-procedure timeline |
+| `get_procedure_events` | Trilogue round count |
+| `analyze_committee_activity` | Committee-level throughput |
+
+## 🔗 Controlling methodology cross-references
+
+- [`../methodologies/per-artifact-methodologies.md §legislative-velocity-risk`](../methodologies/per-artifact-methodologies.md)
+- [`legislative-disruption.md`](legislative-disruption.md) — companion (unscheduled stoppages)
+- [`../methodologies/political-risk-methodology.md`](../methodologies/political-risk-methodology.md)
+
+## ✅ Stage-C completeness signals
+
+- Line floor: 130 lines
+- ≥ 2 Mermaid diagrams (timeline + bottleneck flowchart)
+- ≥ 5 named procedures with stage + days + norm + delta
+- Risk verdict (🟢/🟡/🔴) per procedure
+- Confidence assessment present
+
+---
+
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/risk-scoring/legislative-velocity-risk.md` · Template v2.2 · Depth floor: 130 lines · Mermaid diagrams: ≥2 (throughput timeline + bottleneck flowchart) · Reader briefing: required.

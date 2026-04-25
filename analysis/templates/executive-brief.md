@@ -166,6 +166,92 @@ high and forces a scenario-forecast update.*
 
 ---
 
+## 🛠️ Worked Pass-1 → Pass-2 expansion example
+
+The discipline of executive-brief authoring is **brutality**. Every word
+must earn its place. Below is a typical Pass-1 draft and its Pass-2
+rewrite for a hypothetical breaking-news article on the AI-Act
+implementing-regulation tabling.
+
+### Pass-1 (thin — ~28 words for the BLUF)
+
+> *The Commission tabled an implementing regulation for the AI Act.
+> EPP and S&D are likely to support it. There are some risks.*
+
+**Why it fails Pass-2 review**: no procedure code, no time horizon, no
+WEP band, no specific risk, "some risks" is filler.
+
+### Pass-2 (Economist-quality — ~85 words for BLUF + 5 Key Judgments)
+
+> **BLUF**: The Commission's 2026 AI-Act implementing regulation
+> (`COM(2026)0142`) is **likely** to be adopted by Q3 2026 in broadly the
+> proposed scope (🟢 high confidence), with the Grand Coalition arithmetic
+> intact and IMCO leading. The principal risk is industry-driven softening
+> during trilogue rather than EP rejection.
+>
+> **Key Judgments**:
+>
+> 1. **Procedure path**: ordinary legislative (`COD`); IMCO lead, ITRE
+>    associated. Plenary first reading targeted June 2026 plenary.
+>    **WEP**: likely (🟢 high confidence) (3 months).
+> 2. **Coalition arithmetic**: EPP+S&D+Renew = 408 seats vs 360 threshold.
+>    Defection of ≥10% from EPP would tighten margin but not flip outcome.
+>    **WEP**: likely sufficient (🟢) (3 months).
+> 3. **Industry pressure point**: foundation-models and SMEs concentrated
+>    in DEU, FRA, NLD; expect 2-3 industry letters during trilogue.
+>    **WEP**: very likely (🟢) (1-3 months).
+> 4. **Trilogue softening risk**: Council position weighting compute
+>    thresholds may force scope-narrowing. **WEP**: possible (🟡) (3-6
+>    months).
+> 5. **Litigation tail**: CJEU referral on legal base (`Art 114 TFEU`)
+>    plausible; would delay 6-9 months. **WEP**: possible (🟡) (12+ months).
+
+**What changed at Pass-2**: every claim got a procedure code, a WEP band,
+a confidence colour, and a horizon. Filler ("some risks") replaced with
+a named, gradeable risk.
+
+## 🚫 Anti-patterns — executive-brief failures
+
+| Anti-pattern | Why it fails | Correct approach |
+|---|---|---|
+| BLUF longer than 50 words | Defeats the purpose; readers want the headline | Compress to ≤ 40 words |
+| Key Judgment without WEP band | Treats forecast as fact | Add 🟢/🟡/🔴 + horizon |
+| Key Judgment without time horizon | Cannot be re-checked | "(3 months)" / "(by next plenary)" |
+| Listing more than 7 Key Judgments | Loses focus | Cap at 5 — promote the rest to other artifacts |
+| Repeating synthesis-summary content | Adds no marginal information | Executive brief = headline; synthesis = full narrative |
+| BLUF "It is unclear..." | Wastes the briefing slot | Take a position with low confidence rather than no position |
+| No sources cited | Stage-C tradecraft fail | Each KJ links to its evidence artifact |
+| Confidence higher than warranted | Overstates analysis | Apply §9 confidence-marker decision rule from osint-tradecraft-standards |
+
+## 🎯 EP MCP tool inputs
+
+| Tool | Used for |
+|---|---|
+| `get_procedures` | Procedure code + status for BLUF |
+| `analyze_coalition_dynamics` | Coalition-arithmetic Key Judgment |
+| `get_voting_records` | Coalition-discipline trend |
+| `track_legislation` | Timeline + signposts |
+| `analyze_committee_activity` | Lead-committee judgement |
+| `monitor_legislative_pipeline` | Bottleneck & schedule risk |
+
+## 🔗 Controlling methodology cross-references
+
+- [`../methodologies/ai-driven-analysis-guide.md`](../methodologies/ai-driven-analysis-guide.md) — Step 9 BLUF
+- [`../methodologies/synthesis-methodology.md`](../methodologies/synthesis-methodology.md) — Key Judgment construction
+- [`../methodologies/osint-tradecraft-standards.md §3 WEP, §9 confidence`](../methodologies/osint-tradecraft-standards.md)
+- [`../methodologies/political-style-guide.md`](../methodologies/political-style-guide.md) — Economist tone
+
+## ✅ Stage-C completeness signals
+
+- Line floor: 175 lines (per `reference-quality-thresholds.json`)
+- BLUF block present and ≤ 50 words
+- ≥ 5 Key Judgments, each with WEP band
+- ≥ 5 hyperlinks to source artifacts
+- "What I Got Wrong" section present (forces post-mortem habit)
+- "What Comes Next" with date-anchored decision points
+
+---
+
 **Document Control**
 - **Template path:** `/analysis/templates/executive-brief.md`
 - **Preferred artifact path:** `analysis/daily/{date}/{type}/executive-brief.md`
