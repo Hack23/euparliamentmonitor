@@ -113,7 +113,14 @@ export async function loadPendingDocuments(storePath) {
         const raw = await fs.readFile(filePath, 'utf-8');
         const parsed = JSON.parse(raw);
         if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
-            return parsed;
+            const obj = parsed;
+            // Validate required keys; merge defaults so a partially-written file never throws
+            const documents = obj['documents'] && typeof obj['documents'] === 'object' && !Array.isArray(obj['documents'])
+                ? obj['documents']
+                : {};
+            const version = typeof obj['version'] === 'string' ? obj['version'] : STORE_VERSION;
+            const lastUpdatedAt = typeof obj['lastUpdatedAt'] === 'string' ? obj['lastUpdatedAt'] : new Date().toISOString();
+            return { version, lastUpdatedAt, documents };
         }
         return emptyStore();
     }
@@ -245,6 +252,7 @@ export async function escalateExpiredDocuments(storePath, now = new Date()) {
  *
  * @param storePath - Path override
  * @param now - Reference time (defaults to `new Date()`)
+ * @returns Human-readable summary string for Stage B observability logging
  */
 export async function getPendingDocumentsSummary(storePath, now = new Date()) {
     const store = await loadPendingDocuments(storePath);

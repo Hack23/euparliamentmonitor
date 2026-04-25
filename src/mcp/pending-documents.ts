@@ -163,7 +163,16 @@ export async function loadPendingDocuments(storePath?: string): Promise<PendingD
     const raw = await fs.readFile(filePath, 'utf-8');
     const parsed: unknown = JSON.parse(raw);
     if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
-      return parsed as PendingDocumentsStore;
+      const obj = parsed as Record<string, unknown>;
+      // Validate required keys; merge defaults so a partially-written file never throws
+      const documents =
+        obj['documents'] && typeof obj['documents'] === 'object' && !Array.isArray(obj['documents'])
+          ? (obj['documents'] as Record<string, PendingDocument>)
+          : {};
+      const version = typeof obj['version'] === 'string' ? obj['version'] : STORE_VERSION;
+      const lastUpdatedAt =
+        typeof obj['lastUpdatedAt'] === 'string' ? obj['lastUpdatedAt'] : new Date().toISOString();
+      return { version, lastUpdatedAt, documents };
     }
     return emptyStore();
   } catch (err) {
@@ -319,6 +328,7 @@ export async function escalateExpiredDocuments(
  *
  * @param storePath - Path override
  * @param now - Reference time (defaults to `new Date()`)
+ * @returns Human-readable summary string for Stage B observability logging
  */
 export async function getPendingDocumentsSummary(
   storePath?: string,

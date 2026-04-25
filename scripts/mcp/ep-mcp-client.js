@@ -714,7 +714,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
             const failureEntry = this._failedTools.get('get_adopted_texts') ?? '';
             if (failureEntry.toLowerCase().includes(CONTENT_NOT_YET_AVAILABLE_SUBSTRING)) {
                 // Reclassify: content-availability lag, not a permanent retrieval error
-                this._failedTools.set('get_adopted_texts', `CONTENT_PENDING: ${docId} EP indexing lag (tracked in data/pending-documents.json)`);
+                this._failedTools.set('get_adopted_texts', `CONTENT_PENDING: ${docId} EP indexing lag (tracked in pending-documents sidecar)`);
                 // Persist to retry sidecar for exponential back-off scheduling
                 await recordPendingDocument(docId, this._pendingDocumentsStorePath).catch((err) => {
                     console.warn('⚠️ pending-documents: failed to record pending doc:', err.message);
@@ -724,6 +724,10 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
             // ── Secondary: empty-string sentinel (pre-v1.2.13 defence-in-depth) ──
             const payload = _parseResultPayload(result);
             if (_isEmptyStringSentinel(payload)) {
+                // Also persist to retry sidecar so sentinel-based lags get reprobed
+                await recordPendingDocument(docId, this._pendingDocumentsStorePath).catch((err) => {
+                    console.warn('⚠️ pending-documents: failed to record pending doc (sentinel):', err.message);
+                });
                 return this._recordToolFailure('get_adopted_texts', `CONTENT_PENDING: docId=${docId} returned empty-string sentinel (upstream #369)`, ADOPTED_TEXTS_FALLBACK);
             }
         }

@@ -2291,14 +2291,22 @@ describe('ep-mcp-client', () => {
     let client;
     /** @type {MockConsoleResult} */
     let consoleOutput;
+    /** @type {string} */
+    let tmpDir;
 
-    beforeEach(() => {
+    beforeEach(async () => {
+      const { createTempDir } = await import('../helpers/test-utils.js');
+      tmpDir = createTempDir();
       consoleOutput = mockConsole();
-      client = new EuropeanParliamentMCPClient();
+      client = new EuropeanParliamentMCPClient({
+        pendingDocumentsStorePath: path.join(tmpDir, 'pending-documents.json'),
+      });
     });
 
-    afterEach(() => {
+    afterEach(async () => {
+      const { cleanupTempDir } = await import('../helpers/test-utils.js');
       consoleOutput.restore();
+      cleanupTempDir(tmpDir);
     });
 
     it('should record CONTENT_PENDING failure when docId lookup returns all-empty-string sentinel', async () => {
@@ -2320,6 +2328,21 @@ describe('ep-mcp-client', () => {
       expect(failed.has('get_adopted_texts')).toBe(true);
       expect(failed.get('get_adopted_texts')).toMatch(/^UNKNOWN: CONTENT_PENDING/);
       expect(result.content[0].text).toBe('{"texts": []}');
+    });
+
+    it('should write the docId to the pending-documents sidecar on empty-string sentinel', async () => {
+      const { loadPendingDocuments } = await import('../../scripts/mcp/pending-documents.js');
+      const sentinelPayload = {
+        id: '', title: '', reference: '', type: '', dateAdopted: '', procedureReference: '', subjectMatter: '',
+      };
+      vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
+        content: [{ type: 'text', text: JSON.stringify(sentinelPayload) }],
+      });
+      await client.getAdoptedTexts({ docId: 'TA-10-2026-0099' });
+
+      const store = await loadPendingDocuments(path.join(tmpDir, 'pending-documents.json'));
+      expect(store.documents['TA-10-2026-0099']).toBeDefined();
+      expect(store.documents['TA-10-2026-0099'].status).toBe('PENDING');
     });
 
     it('should NOT record failure for a year-range list query (no docId)', async () => {

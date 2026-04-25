@@ -220,6 +220,21 @@ describe('pending-documents', () => {
       const store = await loadPendingDocuments(p);
       expect(store.documents).toEqual({});
     });
+
+    it('should return safe defaults when documents key is null', async () => {
+      const p = storePath(tmpDir);
+      fs.writeFileSync(p, JSON.stringify({ version: '1.0', lastUpdatedAt: '', documents: null }), 'utf-8');
+      const store = await loadPendingDocuments(p);
+      expect(store.documents).toEqual({});
+    });
+
+    it('should return safe defaults when the file contains an empty object {}', async () => {
+      const p = storePath(tmpDir);
+      fs.writeFileSync(p, '{}', 'utf-8');
+      const store = await loadPendingDocuments(p);
+      expect(store.documents).toEqual({});
+      expect(store.version).toBe(STORE_VERSION);
+    });
   });
 
   // ─── savePendingDocuments ──────────────────────────────────────────────────
