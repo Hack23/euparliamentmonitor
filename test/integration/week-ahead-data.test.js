@@ -36,7 +36,7 @@ describe('Week-Ahead Data Integration', () => {
         switch (toolName) {
           case 'get_plenary_sessions':
             return Promise.resolve({
-              content: [{ type: 'text', text: '{"sessions": [{"date": "2024-01-15", "title": "Plenary Session", "type": "Plenary", "description": "Full session"}]}' }],
+              content: [{ type: 'text', text: '{"data": [{"date": "2024-01-15", "title": "Plenary Session", "type": "Plenary", "description": "Full session"}], "total": 1}' }],
             });
           case 'get_committee_info':
             return Promise.resolve({
@@ -80,8 +80,8 @@ describe('Week-Ahead Data Integration', () => {
 
       // Verify data structure
       const plenaryData = JSON.parse(plenarySessions.value.content[0].text);
-      expect(plenaryData.sessions).toHaveLength(1);
-      expect(plenaryData.sessions[0].title).toBe('Plenary Session');
+      expect(plenaryData.data).toHaveLength(1);
+      expect(plenaryData.data[0].title).toBe('Plenary Session');
 
       const committeeData = JSON.parse(committeeInfo.value.content[0].text);
       expect(committeeData.committees).toHaveLength(1);
@@ -106,10 +106,8 @@ describe('Week-Ahead Data Integration', () => {
         switch (toolName) {
           case 'get_plenary_sessions':
             return Promise.resolve({
-              content: [{ type: 'text', text: '{"sessions": [{"date": "2024-01-15", "title": "Plenary Session", "type": "Plenary", "description": "Full session"}]}' }],
+              content: [{ type: 'text', text: '{"data": [{"date": "2024-01-15", "title": "Plenary Session", "type": "Plenary", "description": "Full session"}], "total": 1}' }],
             });
-          case 'get_committee_info':
-            return Promise.reject(new Error('Committee API unavailable'));
           case 'search_documents':
             return Promise.resolve({
               content: [{ type: 'text', text: '{"documents": [{"title": "Report", "type": "REPORT"}]}' }],
@@ -145,7 +143,7 @@ describe('Week-Ahead Data Integration', () => {
 
       // Verify successful data
       const plenaryData = JSON.parse(plenarySessions.value.content[0].text);
-      expect(plenaryData.sessions).toHaveLength(1);
+      expect(plenaryData.data).toHaveLength(1);
 
       // Verify fallback data for failed requests
       const committeeData = JSON.parse(committeeInfo.value.content[0].text);
@@ -162,7 +160,7 @@ describe('Week-Ahead Data Integration', () => {
         switch (toolName) {
           case 'get_plenary_sessions':
             return Promise.resolve({
-              content: [{ type: 'text', text: '{"sessions": [{"date": "2024-01-15", "title": "Session 1", "type": "Plenary", "description": "Desc 1"}, {"date": "2024-01-16", "title": "Session 2", "type": "Plenary", "description": "Desc 2"}]}' }],
+              content: [{ type: 'text', text: '{"data": [{"date": "2024-01-15", "title": "Session 1", "type": "Plenary", "description": "Desc 1"}, {"date": "2024-01-16", "title": "Session 2", "type": "Plenary", "description": "Desc 2"}], "total": 2}' }],
             });
           case 'get_committee_info':
             return Promise.resolve({
@@ -204,7 +202,7 @@ describe('Week-Ahead Data Integration', () => {
       const questionData = JSON.parse(questions.value.content[0].text);
 
       const totalItems =
-        plenaryData.sessions.length +
+        plenaryData.data.length +
         committeeData.committees.length +
         documentData.documents.length +
         pipelineData.procedures.length +
