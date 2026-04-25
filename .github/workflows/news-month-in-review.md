@@ -24,9 +24,11 @@ permissions:
 # Hard safety cap. Active-work budget is 22–27 min before the single
 # safe-outputs create_pull_request call (see safeoutputs TTL note in the
 # prompt body). The remaining minutes cover npm setup + git push.
-# Raised from 75 → 90 min (run #24931834590 was cancelled at ~24 min after
-# 38 LLM requests / 0 safe outputs — extra headroom prevents the safeoutputs
-# session TTL (~28–30 min) from expiring before Stage E).
+# Raised from 75 → 90 min after run #24931834590 was cancelled at ~24 min
+# (38 LLM requests / 0 safe outputs). This adds overall workflow headroom
+# for setup, analysis, rendering, and push steps; it does not extend the
+# safeoutputs session TTL, which still depends on when the first safeoutputs
+# call is made.
 timeout-minutes: 90
 
 features:
@@ -124,8 +126,10 @@ steps:
 engine:
   id: copilot
   model: claude-opus-4.7
-  # max-continuations: caps autopilot reruns; prevents runaway multi-run
-  # scenarios that waste premium requests (Copilot-only; max-turns is Claude-only).
+  # max-continuations: 1 tells gh-aw NOT to enable autopilot mode — when this
+  # equals 1 the compiler omits --autopilot from the Copilot CLI invocation so
+  # the agent runs exactly once with no restarts.  Within-session runaway
+  # protection is provided by tools.timeout (per-call cap) + timeout-minutes.
   max-continuations: 1
 ---
 # 📰 EU Parliament Month in Review — Unified Workflow

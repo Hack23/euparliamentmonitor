@@ -157,9 +157,9 @@ steps:
 engine:
   id: copilot
   model: claude-opus-4.7
-  # max-continuations: caps autopilot reruns; prevents runaway multi-run
-  # scenarios that waste premium requests (Copilot-only; max-turns is Claude-only).
-  # 3 continuations for translate (needs multiple passes for 14 languages).
+  # max-continuations: 3 enables autopilot mode (--autopilot --max-autopilot-continues 3
+  # in the compiled lock) so the agent can restart up to 3 times. Translate needs
+  # multiple passes to cover all 14 languages within the single job budget.
   max-continuations: 3
 ---
 # 🌐 EU Parliament News Article Translation Workflow

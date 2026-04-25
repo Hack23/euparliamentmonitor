@@ -121,8 +121,10 @@ steps:
 engine:
   id: copilot
   model: claude-opus-4.7
-  # max-continuations: caps autopilot reruns; prevents runaway multi-run
-  # scenarios that waste premium requests (Copilot-only; max-turns is Claude-only).
+  # max-continuations: 1 tells gh-aw NOT to enable autopilot mode — when this
+  # equals 1 the compiler omits --autopilot from the Copilot CLI invocation so
+  # the agent runs exactly once with no restarts.  Within-session runaway
+  # protection is provided by tools.timeout (per-call cap) + timeout-minutes.
   max-continuations: 1
 ---
 # 📰 EU Parliament Week in Review — Unified Workflow
