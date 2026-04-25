@@ -578,6 +578,47 @@ describe('ep-mcp-client', () => {
         expect(client.callTool).toHaveBeenCalledWith('monitor_legislative_pipeline', options);
       });
 
+      it('should pass no dates to the underlying tool when none supplied (opts-in to server default)', async () => {
+        // This test documents the *expected* contract for v1.2.14+ where omitting
+        // dateFrom/dateTo causes the server to return a rolling last-30-days
+        // period window.  The mock simulates that v1.2.14+ response.
+        //
+        // Under the currently installed v1.2.13 the server would instead return
+        // period: { from: "2024-01-01", to: "2024-12-31" } producing an empty
+        // pipeline; that is precisely why Stage-A prompts (01-data-collection.md
+        // rule 6, 07-mcp-reference.md §4) require explicit dates until v1.2.14+
+        // is confirmed installed.
+        const now = Date.now();
+        const today = new Date(now).toISOString().slice(0, 10);
+        const thirtyDaysAgo = new Date(now - 30 * 24 * 60 * 60 * 1000)
+          .toISOString()
+          .slice(0, 10);
+        // Mock simulates v1.2.14+ server response: last-30-days window
+        client.callTool.mockResolvedValue({
+          content: [
+            {
+              type: 'text',
+              text: JSON.stringify({
+                period: { from: thirtyDaysAgo, to: today },
+                pipeline: [],
+                summary: { totalProcedures: 0 },
+              }),
+            },
+          ],
+        });
+
+        const result = await client.monitorLegislativePipeline();
+
+        // The client wrapper must NOT inject any date arguments — the server
+        // is responsible for applying its own default window
+        expect(client.callTool).toHaveBeenCalledWith('monitor_legislative_pipeline', {});
+
+        // The response period must reflect the last-30-days window
+        const data = JSON.parse(result.content[0].text);
+        expect(data.period.to).toBe(today);
+        expect(data.period.from).toBe(thirtyDaysAgo);
+      });
+
       it('should handle missing legislative pipeline tool gracefully', async () => {
         client.callTool.mockRejectedValue(new Error('Tool not available'));
 
