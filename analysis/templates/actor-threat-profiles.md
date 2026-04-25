@@ -1,11 +1,11 @@
 <!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
 <!-- SPDX-License-Identifier: Apache-2.0 -->
 
-# 👤 Actor Threat Profiles Template — Diamond Model for Political Actors
+# 👤 Actor Threat Profiles Template — Diamond Model for EU Political Actors
 
-> **📌 Template Instructions:** Copy to `analysis/daily/{date}/{article-type}-run{N}/threat-assessment/actor-threat-profiles.md`. Per-threat-actor profile using Diamond Model (adversary/capability/infrastructure/victim) adapted for political actors. See [methodologies/per-artifact-methodologies.md §actor-threat-profiles](../methodologies/per-artifact-methodologies.md#actor-threat-profiles).
+> **📌 Template Instructions:** Copy to `analysis/daily/{date}/{article-type}-run{N}/threat-assessment/actor-threat-profiles.md`. Per‑actor profile applying the **Diamond Model** (adversary / capability / infrastructure / victim) adapted for political actors, plus capability×intent quadrant, escalation paths, and EU multi‑national exposure mapping. See [methodologies/per-artifact-methodologies.md §actor-threat-profiles](../methodologies/per-artifact-methodologies.md#actor-threat-profiles).
 
-> **🎯 Purpose:** Structured actor profiling identifying intent, capability, opportunity, and attack surface for named political threats.
+> **🎯 Purpose:** Structured actor profiling identifying **intent**, **capability**, **opportunity**, **attack surface**, and **member‑state cluster exposure** for named political threats — both extra‑institutional (foreign influence, illicit lobbying, disinformation) and intra‑institutional (norm erosion, procedural sabotage, capture). **Multi‑national extension over Riksdagsmonitor:** every actor is mapped against EU‑27 cluster surfaces so cross‑border campaigns become visible.
 
 ---
 
@@ -14,47 +14,174 @@
 | Field | Value |
 |-------|-------|
 | **Report ID** | `[REQUIRED: ATP-YYYY-MM-DD-runNN]` |
+| **Period** | `[REQUIRED: YYYY-MM-DD to YYYY-MM-DD]` |
 | **Actors Profiled** | `[REQUIRED: count ≥3]` |
+| **Confidence** | `[REQUIRED: 🟢 HIGH / 🟡 MEDIUM / 🔴 LOW]` |
+| **PIR Tags** | `[REQUIRED]` |
+| **Admiralty Source Floor** | `[REQUIRED: B2 across primary citations]` |
 
 ---
 
 ## 1️⃣ Actor Roster
 
-1. `[REQUIRED: named actor]`
-2-3. *(≥3 required)*
+| # | Actor | Type | Origin (state / org) | Cluster signal | Threat archetype |
+|:-:|-------|------|----------------------|:--------------:|------------------|
+| 1 | `[REQUIRED]` | `[State / Quasi-state / Political party / Industry lobby / NGO / Hostile media / Internal faction]` | `[REQUIRED]` | `[N / W / S / CE / external]` | `[Influence / Disruption / Capture / Coercion / Disinformation]` |
+| 2 | `[REQUIRED]` | `[…]` | `[REQUIRED]` | `[…]` | `[…]` |
+| 3 | `[REQUIRED]` | `[…]` | `[REQUIRED]` | `[…]` | `[…]` |
+
+*(≥3 actors, ≥2 distinct types.)*
 
 ---
 
-## 2️⃣ Per-Actor Diamond
+## 2️⃣ Capability × Intent Quadrant
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"quadrant1Fill":"#D32F2F","quadrant2Fill":"#FF9800","quadrant3Fill":"#1565C0","quadrant4Fill":"#FFC107","quadrantTitleFill":"#ffffff","quadrantPointFill":"#ffffff","quadrantPointTextFill":"#ffffff","quadrantXAxisTextFill":"#ffffff","quadrantYAxisTextFill":"#ffffff"},"quadrantChart":{"chartWidth":700,"chartHeight":700,"pointLabelFontSize":14,"titleFontSize":22,"quadrantLabelFontSize":18,"xAxisLabelFontSize":16,"yAxisLabelFontSize":16}}}%%
+quadrantChart
+    title Threat Actor — Capability × Intent
+    x-axis "Low intent" --> "High intent"
+    y-axis "Low capability" --> "High capability"
+    quadrant-1 "🔴 Active high-impact threat"
+    quadrant-2 "🟧 Capable but currently restrained"
+    quadrant-3 "🔵 Aspirational — watch list"
+    quadrant-4 "🟡 Latent — opportunistic"
+    "Actor 1": [0.85, 0.90]
+    "Actor 2": [0.30, 0.80]
+    "Actor 3": [0.55, 0.40]
+```
+
+**Reading:** Top‑right is where active newsroom focus belongs. Top‑left is the watch‑list (capable but not yet acting). Bottom‑right is rising‑intent actors who could acquire capability.
+
+---
+
+## 3️⃣ Per‑Actor Diamond Model
 
 ### Actor 1: `[REQUIRED: Name]`
 
-| Element | Description |
-|---------|-------------|
-| **Intent** | `[REQUIRED: ≥40 words]` |
-| **Capability** | `[REQUIRED: ≥40 words]` |
-| **Opportunity** | `[REQUIRED: ≥40 words]` |
-| **Attack Surface** | `[REQUIRED: ≥40 words — which EP institutions/procedures are vulnerable]` |
-
----
-
-## 3️⃣ Relationship Map
-
 ```mermaid
-%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","errorBkgColor":"#D32F2F","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
-graph LR
-    A1[Actor1] ---|capability| TARGET[EP Institution]
-    A2[Actor2] ---|capability| TARGET
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","tertiaryColor":"#FF9800","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
+flowchart TB
+    ADV[🎯 Adversary<br/>Actor 1] -->|uses| CAP[⚒️ Capability]
+    ADV -->|operates from| INFRA[🏗️ Infrastructure]
+    CAP -->|targets| VIC[🛡️ Victim]
+    INFRA -->|reaches| VIC
+
+    classDef adv fill:#D32F2F,stroke:#B71C1C,color:#ffffff;
+    classDef vic fill:#1565C0,stroke:#0A3F7F,color:#ffffff;
+    class ADV adv;
+    class VIC vic;
 ```
 
-`[REQUIRED: ≥60 words — how actors cooperate, compete, offset each other]`
+| Element | Description |
+|---------|-------------|
+| **Adversary (Intent)** | `[REQUIRED: ≥80 words — strategic objectives, public posture, signalling pattern, and observed past behaviour. Cite specific public actions or analyst reports.]` |
+| **Capability** | `[REQUIRED: ≥80 words — financial, organisational, technical, or rhetorical levers. Quantify where possible (e.g. "active in 8 EU‑27 member states" or "transparency-register spend €X").]` |
+| **Infrastructure (Opportunity)** | `[REQUIRED: ≥80 words — entry points: lobby groups, friendly MEPs, ad networks, intermediary NGOs, or procedural mechanisms (e.g. amendment flooding).]` |
+| **Victim (Attack Surface)** | `[REQUIRED: ≥80 words — which EP institutions / procedures / individual MEPs are exposed and why.]` |
+
+**Cluster exposure (which EU‑27 clusters most vulnerable to this actor):**
+
+| Cluster | Exposure | Mechanism |
+|---------|:--------:|-----------|
+| Northern | `[🟢/🟡/🔴]` | `[REQUIRED ≤30 words]` |
+| Western | `[🟢/🟡/🔴]` | `[REQUIRED]` |
+| Southern | `[🟢/🟡/🔴]` | `[REQUIRED]` |
+| Central‑Eastern | `[🟢/🟡/🔴]` | `[REQUIRED]` |
 
 ---
 
-## 4️⃣ Escalation Paths
-
-`[REQUIRED: ≥60 words — how each profile could escalate in severity]`
+### Actor 2: `[REQUIRED: Name]`
+*(Repeat full Diamond + cluster table)*
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/threat-assessment/actor-threat-profiles.md` · Template v1.0 · Depth floor: 30 lines.
+### Actor 3: `[REQUIRED: Name]`
+*(Repeat full Diamond + cluster table)*
+
+---
+
+## 4️⃣ Relationship & Co‑Operation Map
+
+How profiled actors interact — coordinate, compete, offset.
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","tertiaryColor":"#FF9800","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
+flowchart LR
+    A1[🔴 Actor 1] -.->|aligned| A2[🟧 Actor 2]
+    A1 -->|targets| TARGET[🛡️ EP procedure / institution]
+    A2 -->|targets| TARGET
+    A3[🟡 Actor 3] -->|opposes| TARGET
+
+    classDef red fill:#D32F2F,stroke:#B71C1C,color:#ffffff;
+    classDef orange fill:#FF9800,stroke:#E65100,color:#000000;
+    classDef yellow fill:#FFC107,stroke:#F57F17,color:#000000;
+    classDef target fill:#1565C0,stroke:#0A3F7F,color:#ffffff;
+    class A1 red;
+    class A2 orange;
+    class A3 yellow;
+    class TARGET target;
+```
+
+**Co‑operation narrative:** `[REQUIRED: ≥80 words on whether profiled actors converge on the same target, divide labour, or actively offset each other. Cite observable co‑signals.]`
+
+---
+
+## 5️⃣ Escalation Paths
+
+For each actor: how their threat profile could escalate one severity step in the next 4‑12 weeks.
+
+| Actor | Current severity | Next escalation step | Indicator threshold | Time horizon |
+|-------|:----------------:|----------------------|---------------------|:------------:|
+| Actor 1 | `[Low/Med/High]` | `[REQUIRED: ≥30 words]` | `[REQUIRED: observable]` | `[weeks]` |
+| Actor 2 | `[…]` | `[REQUIRED]` | `[REQUIRED]` | `[weeks]` |
+| Actor 3 | `[…]` | `[REQUIRED]` | `[REQUIRED]` | `[weeks]` |
+
+**Composite escalation narrative:** `[REQUIRED: ≥80 words — sequence in which escalations would compound, and the critical cross‑actor signal that would mark a regime shift.]`
+
+---
+
+## 6️⃣ Counter‑Posture & Detection
+
+For each top‑severity actor, how the EP / Commission / member states could detect and counter — without endorsing specific tactics.
+
+| Actor | Detection signal | Institutional counter‑lever | Reversibility |
+|-------|------------------|-----------------------------|:-------------:|
+| Actor 1 | `[REQUIRED]` | `[REQUIRED]` | `[Hard / Soft]` |
+| Actor 2 | `[REQUIRED]` | `[REQUIRED]` | `[…]` |
+| Actor 3 | `[REQUIRED]` | `[REQUIRED]` | `[…]` |
+
+---
+
+## 7️⃣ Reader Briefing — Plain Language
+
+> 📰 **Newsroom hook:** `[REQUIRED: one‑sentence summary.]`
+
+- **Who is the most active threat right now:** `[REQUIRED: ≥40 words]`
+- **What they want:** `[REQUIRED: ≥40 words]`
+- **What they could do next:** `[REQUIRED: ≥40 words]`
+- **What citizens should watch for:** `[REQUIRED: ≥40 words]`
+
+---
+
+## 8️⃣ Data Sources & Provenance
+
+**EP MCP tools used:** `get_meps`, `analyze_voting_patterns`, `get_mep_declarations`, `network_analysis`, `correlate_intelligence` *(REQUIRED: ≥3)*
+
+| Source | Type | Admiralty | Link |
+|--------|------|:---------:|------|
+| `[REQUIRED]` | `[Primary EP / Transparency register / Press / Analyst report]` | `[A1‑F6]` | `[URL]` |
+| `[REQUIRED]` | `[…]` | `[…]` | `[…]` |
+
+---
+
+## 9️⃣ Confidence & Caveats
+
+- **Overall confidence:** `[REQUIRED: 🟢/🟡/🔴]`
+- **Top uncertainty:** `[REQUIRED: ≥40 words]`
+- **Validity window:** `[REQUIRED: how long this profile remains accurate before next refresh.]`
+- **Ethical guard‑rail:** This template documents observable behaviour and public posture only; it MUST NOT speculate about non‑public motivations of named individuals beyond what cited sources support.
+
+---
+
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/threat-assessment/actor-threat-profiles.md` · Template v2.0 · Depth floor: 140 lines · Mermaid diagrams: ≥3 (quadrant + per‑actor diamond + relationship map) · Reader briefing: required.
