@@ -171,6 +171,8 @@ export {
   type GetCorporateBodiesFeedOptions,
   type GetControlledVocabulariesFeedOptions,
   type GetProcedureEventByIdOptions,
+  type FreshProcedureItem,
+  type GetFreshProceduresOptions,
 } from './mcp.js';
 
 export type {

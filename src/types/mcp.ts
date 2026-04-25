@@ -569,3 +569,70 @@ export interface GetProcedureEventByIdOptions {
   /** Event identifier (required) */
   eventId: string;
 }
+
+/**
+ * A single normalised procedure item returned by {@link EuropeanParliamentMCPClient.getFreshProcedures}.
+ * Fields mirror the EP `/procedures` JSON schema; all string fields may be empty when
+ * the EP API has not yet populated them (see upstream indexing-lag issue).
+ */
+export interface FreshProcedureItem {
+  /** Procedure identifier (e.g. `"2026-0042"`) */
+  id: string;
+  /** Human-readable title / reference string (e.g. `"2026/0042(COD)"`) */
+  title: string;
+  /** Procedure reference code */
+  reference: string;
+  /** Procedure type (COD, CNS, NLE, …) */
+  type: string;
+  /** Subject matter / policy area */
+  subjectMatter: string;
+  /** Current legislative stage */
+  stage: string;
+  /** Current status */
+  status: string;
+  /** ISO date the procedure was initiated (`YYYY-MM-DD` or empty) */
+  dateInitiated: string;
+  /** ISO date of the most recent activity (`YYYY-MM-DD` or empty) */
+  dateLastActivity: string;
+  /** Code of the responsible committee */
+  responsibleCommittee: string;
+  /** Rapporteur name */
+  rapporteur: string;
+  /** Associated document references */
+  documents: unknown[];
+}
+
+/**
+ * Options for {@link EuropeanParliamentMCPClient.getFreshProcedures}.
+ *
+ * Fresh-procedure discovery routes through `get_procedures(limit, offset=0)` and
+ * applies client-side sorting by `dateLastActivity` DESC (falling back to
+ * `dateInitiated`) because the EP `/procedures/feed` timeframe filter is
+ * currently returning historical-tail pagination (regression since 2026-04-19,
+ * reported to open-data-helpdesk@europarl.europa.eu).
+ */
+export interface GetFreshProceduresOptions {
+  /**
+   * How many procedures to fetch from the EP API in a single page
+   * (passed as `limit` to `get_procedures`). Default: 100.
+   */
+  limit?: number | undefined;
+  /**
+   * Look-back window in days for the `dateLastActivity >= today-N` filter.
+   * Procedures whose most-recent activity date (or initiation date when
+   * `dateLastActivity` is empty) falls before this window are excluded.
+   * Default: 30.
+   */
+  windowDays?: number | undefined;
+  /**
+   * Maximum number of procedures to return after sorting and filtering.
+   * When omitted all procedures that pass the window filter are returned.
+   */
+  topN?: number | undefined;
+  /**
+   * Override path for the procedure-seen-cache JSON file. Intended for test
+   * isolation only — leave unset in production to use the default
+   * `data/procedure-seen-cache.json` path.
+   */
+  seenCacheStorePath?: string | undefined;
+}
