@@ -39,10 +39,9 @@
 | ES | ESP | Spain |
 | SE | SWE | Sweden |
 
-The TypeScript map is `IMF_EU_COUNTRY_CODES` in
-[`src/utils/imf-data.ts`](../../src/utils/imf-data.ts). The codes match
-the ISO-3 standard and are identical to the World Bank map for the
-EU-27. Use `getIMFCountryCode('DE')` → `'DEU'` in code.
+The canonical ISO-3 → IMF country-code mapping for EU-27 is maintained
+in this document (single source of truth). The codes match the ISO-3
+standard and are identical to the World Bank map for the EU-27.
 
 ---
 
@@ -54,8 +53,9 @@ EU-27. Use `getIMFCountryCode('DE')` → `'DEU'` in code.
 | `EA` | Euro Area | Current membership; historical membership NOT backfilled |
 | `EA19` | Euro Area (19 members) | Legacy code; deprecated after Croatia joined |
 
-The `IMF_AGGREGATE_LABELS` constant in `src/utils/imf-data.ts` holds the
-labels used by the article/HTML templates.
+Labels (e.g. "European Union", "Euro Area") used in article prose and
+chart captions are defined in this document; the article agent copies
+them verbatim when constructing the `economic-context.md` artifact.
 
 ---
 
@@ -115,29 +115,26 @@ labels used by the article/HTML templates.
 
 ## 4. Codelist Drift vs World Bank
 
-IMF and World Bank generally share ISO-3 codes. Known drifts — kept in
-`IMF_COUNTRY_CODE_OVERRIDES` in `src/utils/imf-data.ts`:
+IMF and World Bank generally share ISO-3 codes. Known drifts:
 
 | ISO α-2 | IMF | World Bank | Notes |
 |:---:|:---:|:---:|---|
 | XK | `UVK` | `XKX` | Kosovo; IMF uses `UVK` on some legacy datasets. |
 
-Add entries here (and in the TypeScript map) as additional drifts are
-discovered.
+Add entries here as additional drifts are discovered — the agent reads
+this table directly at Stage A when resolving `REF_AREA` for any
+article covering Kosovo or other non-ISO-3-clean codes. The earlier
+`IMF_COUNTRY_CODE_OVERRIDES` TypeScript constant in
+`src/utils/imf-data.ts` was purged in the April-2026 aggregator-pipeline
+migration.
 
 ---
 
 ## 5. Usage Pattern
 
-```ts
-import { getIMFCountryCode, isIMFEUMemberState } from '../utils/imf-data.js';
-
-const code = getIMFCountryCode('DE'); // → 'DEU'
-const ok = isIMFEUMemberState('DE'); // → true
-```
-
-When calling `imf-fetch-data`, pass the ISO-3 code through the `country`
-filter:
+When calling the IMF SDMX 3.0 REST API via the native client
+(`src/mcp/imf-mcp-client.ts`), pass the ISO-3 code through the `country`
+filter on `fetchData()`:
 
 ```ts
 await client.fetchData({

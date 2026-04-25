@@ -14,7 +14,11 @@ const IMF_FALLBACK = {
  * longer talks to an MCP server, but the tool-name list is preserved so
  * it continues to serve as:
  *
- * 1. The content-validator fingerprint source (`IMF_STRONG_FINGERPRINTS`).
+ * 1. The Stage-C editorial fingerprint source for "IMF is cited" (see
+ *    `analysis/imf/indicator-catalog.md §6` — the earlier runtime
+ *    fingerprint table `IMF_STRONG_FINGERPRINTS` in
+ *    `src/utils/content-validator.ts` was purged in the April-2026
+ *    aggregator-pipeline migration).
  * 2. The workflow probe's heartbeat identifiers.
  * 3. A drift guard against method additions: if a new helper method lands
  *    here, `test/integration/mcp/imf-mcp.test.js` fails unless the list
@@ -375,8 +379,10 @@ export class IMFMCPClient {
      * Fetch a time-series slice from an IMF dataflow as SDMX-JSON.
      *
      * Virtual tool: `imf-fetch-data`. The response is already in SDMX-JSON
-     * format, so {@link parseSDMXJSON} (`src/utils/imf-data.ts`) can
-     * consume `response.content[0]?.text` directly without reshaping.
+     * format; callers read the series under `data.dataSets[0].series`
+     * using any standard SDMX-JSON reader. (The earlier helper
+     * `parseSDMXJSON` in `src/utils/imf-data.ts` was purged in the
+     * April-2026 aggregator-pipeline migration.)
      *
      * @param options - Fetch parameters.
      * @param options.databaseId - IMF dataflow ID (`"WEO"`, `"IFS"`, ...).

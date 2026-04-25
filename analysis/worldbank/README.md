@@ -4,16 +4,18 @@
 
 **📅 Last Updated:** 2026-04-22 | **🏷️ Classification:** Public
 
-> ### ⚡ Scope (Wave 2, April 2026)
+> ### ⚡ Scope (Wave-4, April 2026)
 >
 > **World Bank is the source for non-economic indicators only** — health,
 > education, social, environment, demographics, defence, agriculture,
 > innovation, governance. **Economic/monetary/fiscal context (GDP,
 > inflation, unemployment, FDI, trade, fiscal balance, debt, monetary,
 > exchange rates) is sourced from IMF** — see [`analysis/imf/`](../imf/).
-> Enforced prospectively by `articlePolicyHasEconomicContext` in
-> `src/utils/content-validator.ts` (OR-gate: IMF preferred; WB accepted
-> for backwards compatibility).
+> Enforced editorially at Stage-C review per
+> [`.github/prompts/04-article-generation.md`](../../.github/prompts/04-article-generation.md);
+> the legacy runtime gate `articlePolicyHasEconomicContext` in
+> `src/utils/content-validator.ts` was purged in the April-2026
+> aggregator-pipeline migration.
 
 ---
 
@@ -44,8 +46,14 @@
 
 > **⚠️ Country code guard**: `worldbank-mcp@1.0.1` rejects aggregate
 > codes (`EUU`, `EMU`, `ECS`, `OED`, `WLD`, `NAC`, `EAS`, `SSF`) and the
-> informal `UK` alias. Call `isMCPSupportedWBCountryCode(code)` from
-> `src/utils/world-bank-data.ts` before any MCP invocation.
+> informal `UK` alias. Agents must avoid these codes at Stage A. The
+> earlier runtime helper `isMCPSupportedWBCountryCode(code)` in
+> `src/utils/world-bank-data.ts` was purged in the April-2026
+> aggregator-pipeline migration; the allow-list is now an editorial
+> rule — use the ISO-3166 codes listed in
+> [`eu-country-mapping.md`](eu-country-mapping.md) and the comparison
+> groups in §2 below. For EU-aggregate economic context, use IMF
+> `EU`/`EA` aggregates (accepted by the IMF API).
 
 ### Total Indicator Coverage
 

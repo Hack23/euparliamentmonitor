@@ -68,7 +68,7 @@ graph TD
 | `ep-mcp` — `[tool]` | `[REQUIRED]` | `[...]` | `[...]` |
 | `ep-mcp` — `[tool]` | `[REQUIRED]` | `[...]` | `[...]` |
 | `world-bank-mcp` — `[indicator]` | Macro context | `[✅/⚠️/❌]` | `[🟢/🟡/🔴]` |
-| `imf-native` (REST) — `[series]` | `[REQUIRED: primary economic source under Wave-3 policy + per-type indicator-floor satisfaction per imf-indicator-mapping.md §8]` | `[✅/⚠️/❌]` | `[🟢/🟡/🔴]` |
+| `imf-native` (REST) — `[series]` | `[REQUIRED: primary economic source under Wave-4 policy + per-type indicator-floor satisfaction per imf-indicator-mapping.md §8]` | `[✅/⚠️/❌]` | `[🟢/🟡/🔴]` |
 | External (e.g. EUR-Lex, Commission press) | `[REQUIRED]` | `[✅/⚠️/❌]` | `[🟧 MEDIUM if external]` |
 
 ≥6 rows required. Always note when a feed returned HTML instead of JSON, or returned 0 results where a non-zero response was expected (0 results can itself be high-signal intelligence data).
@@ -206,7 +206,7 @@ Per [Hack23 AI_Policy.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Pol
 |---------|-----------------------|:---------:|
 | New EP plenary session in window | `intelligence/cross-session-intelligence.md`, `intelligence/coalition-dynamics.md` | Event-driven |
 | Roll-call data publishes (typical lag: 2–6 weeks) | `intelligence/voting-patterns.md`, `intelligence/coalition-dynamics.md` | Event-driven |
-| IMF (primary economic, Wave-3) / World Bank (non-economic) data vintage update | `intelligence/economic-context.md` | Monthly |
+| IMF (primary economic, Wave-4) / World Bank (non-economic) data vintage update | `intelligence/economic-context.md` | Monthly |
 | Commission proposal / trilogue conclusion | `intelligence/scenario-forecast.md`, `risk-scoring/legislative-velocity-risk.md` | Event-driven |
 | Quarterly reference-class review | All top-level artifacts | Quarterly |
 | `[REQUIRED: run-specific trigger]` | `[REQUIRED]` | `[REQUIRED]` |

@@ -25,12 +25,15 @@
  * `c-cf/imf-data-mcp` MCP server. That transport was replaced with a
  * native TypeScript HTTP client so the stack remains npm-pure and
  * pinned per ISMS §7. The `IMF_MCP_TOOLS` identifier list is retained
- * as a stable "virtual tool" surface for the content-validator
- * fingerprint and workflow probes.
+ * as a stable "virtual tool" surface for the Stage-C editorial
+ * fingerprint (see `analysis/imf/indicator-catalog.md §6`) and the
+ * workflow probe. The earlier companion module `src/utils/imf-data.ts`
+ * (parsers, indicator/country maps, HTML builders) was purged in the
+ * April-2026 aggregator-pipeline migration.
  *
  * @see {@link https://dataservices.imf.org/REST/SDMX_3.0 | IMF SDMX 3.0 REST API}
- * @see `analysis/methodologies/imf-indicator-mapping.md` for the committee →
- *   IMF indicator mapping enforced by the validator.
+ * @see {@link https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/imf-indicator-mapping.md | IMF Indicator Mapping methodology} for the committee →
+ *   IMF indicator mapping enforced at Stage-C editorial review.
  */
 
 import type { MCPClientOptions } from './mcp.js';
@@ -168,11 +171,17 @@ export interface IMFForecastPoint {
 /**
  * Curated set of IMF indicator keys used across the EU Parliament Monitor.
  *
- * These map onto specific IMF database + SDMX dimension codes — see
- * `IMF_POLICY_INDICATORS` in `src/utils/imf-data.ts` for the concrete
- * mapping. The key names are chosen to parallel the World Bank
- * `PolicyRelevantIndicators` keys where an equivalent series exists, so
- * article generators and templates can migrate incrementally.
+ * These map onto specific IMF database + SDMX dimension codes. The key
+ * names are chosen to parallel the World Bank `PolicyRelevantIndicators`
+ * keys where an equivalent series exists, so article generators and
+ * templates can migrate incrementally.
+ *
+ * The earlier runtime constant `IMF_POLICY_INDICATORS` in
+ * `src/utils/imf-data.ts` was purged in the April-2026
+ * aggregator-pipeline migration.
+ *
+ * @see {@link https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/imf/indicator-catalog.md#2-policy-domain--imf-indicator-mapping | IMF indicator catalog §2}
+ * @see {@link https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/imf-indicator-mapping.md | IMF per-committee indicator mapping}
  */
 export type IMFMacroIndicatorKey =
   // ── WEO (annual, with forecasts) ──
@@ -257,10 +266,11 @@ export interface IMFEconomicContext {
 /**
  * Canonical IMF "virtual tool" names used by the native TypeScript
  * client. These identifiers are preserved from the earlier MCP-backed
- * iteration so the content-validator fingerprint list and workflow
- * probes (`scripts/imf-mcp-probe.sh`) remain stable across the
- * transport swap. Each name maps to a semantic method on
- * {@link IMFMCPClient} rather than to a remote MCP tool call.
+ * iteration so the Stage-C editorial fingerprint list (see
+ * `analysis/imf/indicator-catalog.md §6`) and the workflow probe
+ * (`scripts/imf-mcp-probe.sh`) remain stable across the transport
+ * swap. Each name maps to a semantic method on {@link IMFMCPClient}
+ * rather than to a remote MCP tool call.
  */
 export type IMFMCPToolName =
   | 'imf-list-databases'

@@ -282,7 +282,7 @@ graph LR
 |-----------|-------|
 | **Purpose** | Master map between the 39 templates in [`analysis/templates/`](../templates/README.md) and the methodologies above; names the canonical run-relative path for every artifact |
 | **Used by** | [`02-analysis-protocol.md`](../../.github/prompts/02-analysis-protocol.md) (Stage B) and [`03-analysis-completeness-gate.md`](../../.github/prompts/03-analysis-completeness-gate.md) (Stage C) |
-| **Enforcement** | The validator `scripts/utils/validate-analysis-completeness.js` locks every artifact to the path in this file |
+| **Enforcement** | Editorial at Stage-C completeness review — every artifact path declared here is verified by the agentic-workflow reviewer before PR creation. The legacy runtime validator (`scripts/utils/validate-analysis-completeness.js`) was purged in the April-2026 aggregator-pipeline migration. |
 
 ### 🧪 Per-Artifact Methodologies — `per-artifact-methodologies.md`
 
@@ -297,24 +297,24 @@ graph LR
 | Attribute | Value |
 |-----------|-------|
 | **Purpose** | Machine-readable per-artifact line-floor and depth-floor thresholds |
-| **Consumed by** | `npm run validate-analysis` at Stage C (Completeness Gate) — failures block PR creation |
+| **Consumed by** | Stage-C editorial completeness review — the agentic-workflow reviewer reads this JSON to confirm every artifact meets its line/depth floor before creating the PR. The legacy runtime CLI (`npm run validate-analysis`, backed by `validate-analysis-completeness.js`) was purged in the April-2026 aggregator-pipeline migration. |
 | **Update cadence** | Bumped whenever `per-artifact-methodologies.md` tightens or loosens a floor; the two files must stay in lock-step |
 
-### 💱 IMF Indicator Mapping — `imf-indicator-mapping.md` (primary economic source — Wave-3)
+### 💱 IMF Indicator Mapping — `imf-indicator-mapping.md` (primary economic source — Wave-4)
 
 | Attribute | Value |
 |-----------|-------|
-| **Purpose** | Canonical mapping of IMF WEO / FM / IFS / BOP / ER / PCPS / GFSR / EREO / FSI / GFS / DOT indicator codes to EP analysis use cases — Wave-3 authoritative economic context for every policy-required article type |
+| **Purpose** | Canonical mapping of IMF WEO / FM / IFS / BOP / ER / PCPS / GFSR / EREO / FSI / GFS / DOT indicator codes to EP analysis use cases — Wave-4 authoritative economic context for every policy-required article type |
 | **Paired MCP** | IMF REST SDMX 3.0 client in `src/mcp/imf-mcp-client.ts` (virtual tools `imf-list-databases`, `imf-search-databases`, `imf-get-parameter-defs`, `imf-get-parameter-codes`, `imf-fetch-data`) |
 
-### 🌍 World Bank Indicator Mapping — `worldbank-indicator-mapping.md` (non-economic only — Wave-3)
+### 🌍 World Bank Indicator Mapping — `worldbank-indicator-mapping.md` (non-economic only — Wave-4)
 
 | Attribute | Value |
 |-----------|-------|
-| **Purpose** | Canonical mapping of World Bank WDI indicator codes — **non-economic domains only** under Wave-3: health, education, social, environment, demographics, defence, agriculture, innovation, governance. The legacy WB economic codes are retained for backward compatibility but MUST NOT be used in new articles; economic context → IMF |
+| **Purpose** | Canonical mapping of World Bank WDI indicator codes — **non-economic domains only** under Wave-4: health, education, social, environment, demographics, defence, agriculture, innovation, governance. The legacy WB economic codes are retained for backward compatibility but MUST NOT be used in new articles; economic context → IMF |
 | **Paired MCP** | World Bank MCP (`world-bank-*` tools) |
 
-> ✅ Together, `artifact-catalog.md` (**what**), `per-artifact-methodologies.md` (**how**), and `reference-quality-thresholds.json` (**how much**) form the Stage B / Stage C contract enforced by `validate-analysis-completeness`. The two indicator-mapping files provide the Stage A economic-context inputs that the Wave-3 gate in `articlePolicyHasEconomicContext` checks — IMF primary, WB additive for non-economic. The strict Wave-4 helper `articlePolicyHasIMFEconomicEvidence` is dark-launched behind the `WAVE3_IMF_STRICT` flag.
+> ✅ Together, `artifact-catalog.md` (**what**), `per-artifact-methodologies.md` (**how**), and `reference-quality-thresholds.json` (**how much**) form the Stage B / Stage C contract enforced editorially at Stage-C completeness review. The two indicator-mapping files provide the Stage A economic-context inputs that Wave-4 editorial policy requires — IMF primary for economic/fiscal/monetary/trade claims, WB additive for non-economic domains. The legacy runtime gates (`articlePolicyHasEconomicContext`, `articlePolicyHasIMFEconomicEvidence`, `WAVE3_IMF_STRICT` flag, and the surrounding `validate-analysis-completeness` CLI) were purged in the April-2026 aggregator-pipeline migration; enforcement moved to Stage-C editorial review.
 
 ---
 

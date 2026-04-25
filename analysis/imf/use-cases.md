@@ -3,13 +3,13 @@
 > When IMF data adds material value beyond World Bank for each EU
 > Parliament Monitor article type, ranked by expected editorial lift.
 
-**📅 Last Updated:** 2026-04-24 | **🏷️ Classification:** Public | **🌀 Wave:** 3
+**📅 Last Updated:** 2026-04-24 | **🏷️ Classification:** Public | **🌀 Wave:** 4
 
 ---
 
-## 1. Article-Type Quality Matrix (Wave-3 IMF-primary)
+## 1. Article-Type Quality Matrix (Wave-4 IMF-primary)
 
-Under Wave-3 policy, **IMF is the sole authoritative source for
+Under Wave-4 policy, **IMF is the sole authoritative source for
 economic context** for every article type below — World Bank is
 retained only for non-economic domains and is additive, not
 substitutable.
@@ -109,12 +109,14 @@ attribution + data currency dates" checklist item in
   using IMF macro context MUST still cite WB for the domain-specific
   indicator (e.g. life expectancy).
 - **Prefer actuals**: When both an actual and a forecast exist for the
-  same year, use the actual. `getMostRecentObservation` in
-  `src/utils/imf-data.ts` implements this rule.
+  same year, use the actual. The agent applies this rule when
+  constructing `intelligence/economic-context.md` (the `A` and `F`
+  `OBS_STATUS` codes in the raw SDMX-JSON payload make the distinction
+  explicit — see [`indicator-catalog.md §4`](indicator-catalog.md#4-observation-attributes)).
 
 ---
 
-## 5. Canonical Citation Pattern (Wave-3)
+## 5. Canonical Citation Pattern (Wave-4)
 
 ```
 <p>
@@ -129,9 +131,9 @@ attribution + data currency dates" checklist item in
 
 IMF is the primary citation for the fiscal claim; World Bank is
 additive for the non-economic health-expenditure framing. This
-pattern satisfies both the Wave-2 OR-gate and the Wave-3 strict
-helper (`articlePolicyHasIMFEconomicEvidence`) and makes the source
-provenance transparent to readers.
+pattern satisfies the Wave-4 editorial IMF-primary policy enforced at
+Stage C — see [`../methodologies/imf-indicator-mapping.md`](../methodologies/imf-indicator-mapping.md)
+for the per-committee mapping.
 
 ---
 
@@ -142,4 +144,4 @@ provenance transparent to readers.
 - [`release-calendar.md`](release-calendar.md) — vintage SLAs
 - [`forecast-accuracy-baseline.md`](forecast-accuracy-baseline.md) — optimism-bias bands
 - [`cross-source-triangulation.md`](cross-source-triangulation.md) — ECB/Eurostat/OECD cross-checks
-- [`../methodologies/imf-indicator-mapping.md`](../methodologies/imf-indicator-mapping.md) — validator wiring
+- [`../methodologies/imf-indicator-mapping.md`](../methodologies/imf-indicator-mapping.md) — per-committee indicator mapping

@@ -251,7 +251,7 @@ graph TB
 
 | Source | Artifacts Fed | Admiralty Grade |
 |--------|---------------|-----------------|
-| IMF WEO / FM / IFS (primary economic, Wave-3) | economic-context, pestle, scenario-forecast, implementation-feasibility | A2 |
+| IMF WEO / FM / IFS (primary economic, Wave-4) | economic-context, pestle, scenario-forecast, implementation-feasibility | A2 |
 | Eurostat (Tier-1 triangulation) | comparative-international, economic-context | A2 |
 | World Bank WGI (non-economic only) | comparative-international, pestle | B2 |
 ```

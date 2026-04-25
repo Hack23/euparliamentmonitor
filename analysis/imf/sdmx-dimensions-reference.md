@@ -6,10 +6,9 @@
 > **Purpose**: Canonical reference for the SDMX 3.0 dimensions that
 > appear across IMF dataflows, with codelist conventions, example
 > values, and notes on how each dimension is handled by the native
-> TypeScript client (`src/mcp/imf-mcp-client.ts`) and parser
-> (`src/utils/imf-data.ts`).
+> TypeScript client (`src/mcp/imf-mcp-client.ts`).
 
-**📅 Last Updated:** 2026-04-24 | **🏷️ Classification:** Public | **🌀 Wave:** 3
+**📅 Last Updated:** 2026-04-24 | **🏷️ Classification:** Public | **🌀 Wave:** 4
 
 > SDMX (Statistical Data and Metadata eXchange) is an ISO standard for
 > exchanging statistical data. The IMF REST surface is SDMX 3.0 (v2.1
@@ -141,21 +140,26 @@ expanded to the full year range.
 
 ---
 
-## 7. Validator-relevant dimensions
+## 7. Editorial dimensions (Stage-C review)
 
-The Wave-3 strict validator
-(`articlePolicyHasIMFEconomicEvidence`) requires that every IMF
-citation in a policy article carries:
+Wave-4 editorial review requires that every IMF citation in a
+policy-required article carries:
 
 1. `INDICATOR` code (word-bounded SDMX code from
-   `IMF_INDICATOR_CODES`).
+   [`indicator-catalog.md §2`](indicator-catalog.md#2-policy-domain--imf-indicator-mapping)).
 2. `REF_AREA` either as an ISO-3 country, `EU`/`EA`, or a named EU
    member state in prose.
-3. Vintage string when `OBS_STATUS` is `F` (forecast).
+3. Vintage string when `OBS_STATUS` is `F` (forecast) — e.g.
+   `IMF WEO April 2026` in prose **and** `data-vintage="WEO-April-2026"`
+   on the enclosing `<section class="economic-context imf-economic-context">`.
 4. `FREQ` is inferred from the cadence and is not gated.
 
 Missing `REF_AREA` context (e.g. "inflation is 3.2%" with no country
-or aggregate) fails the strict gate.
+or aggregate) fails Stage-C review. The legacy runtime helper
+(`articlePolicyHasIMFEconomicEvidence`) that enforced these rules
+lived in `src/utils/content-validator.ts` and was purged in the
+April-2026 aggregator-pipeline migration; enforcement is now editorial
+per [`.github/prompts/04-article-generation.md §5`](../../.github/prompts/04-article-generation.md).
 
 ---
 

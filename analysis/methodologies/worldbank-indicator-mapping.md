@@ -32,7 +32,7 @@ article generation code path entirely.
 | Innovation | R&D expenditure, high-tech exports, internet users, patents | raw-REST `GB.XPD.RSDV.GD.ZS`, `IT.NET.USER.ZS` |
 | Governance | Women in Parliament, gender parity, business environment, rule of law (WGI) | raw-REST `SG.*`, `IC.*`, `RL.*` |
 
-**Retired from WB (now IMF-primary under Wave-3)**: GDP, GDP_GROWTH,
+**Retired from WB (now IMF-primary under Wave-4)**: GDP, GDP_GROWTH,
 GDP_PER_CAPITA, GNI, GNI_PER_CAPITA, EXPORTS_GDP, FDI_NET, INFLATION,
 UNEMPLOYMENT — all redirected to `imf-fetch-data` with appropriate
 WEO/FM/IFS/BOP/ER/PCPS SDMX codes.
@@ -41,21 +41,31 @@ WEO/FM/IFS/BOP/ER/PCPS SDMX codes.
 measurable non-economic outcomes. Article types without a direct policy
 nexus (e.g. `breaking` for institutional news) remain opt-in.
 
-**Enforcement (Wave-3)**: `src/utils/validate-articles.ts` calls
-`articlePolicyHasEconomicContext` (the OR-gate — see
-[`src/utils/content-validator.ts`](../../src/utils/content-validator.ts))
-which accepts **either** WB or IMF evidence. Under Wave-3 editorial policy,
-IMF is the **required primary source** for economic claims; pre-Wave-2
-articles citing only WB indicators remain green but new articles MUST cite
-IMF for economic context. The strict Wave-4 helper
-`articlePolicyHasIMFEconomicEvidence` is dark-launched behind the
-`WAVE3_IMF_STRICT` flag.
+**Enforcement (Wave-4)**: Stage-C editorial review of the markdown
+artifacts enforces the IMF-primary policy: every economic / fiscal /
+monetary / trade / FDI / exchange-rate claim must cite IMF; World Bank
+is accepted only for non-economic domains (health, education, social,
+environment, demographics, defence, agriculture, innovation,
+governance). Pre-Wave-2 articles citing only WB indicators remain
+green but new articles MUST cite IMF for economic context.
+
+The earlier Wave-3 runtime gate (`articlePolicyHasEconomicContext`
+OR-gate + `articlePolicyHasIMFEconomicEvidence` strict helper, dark-
+launched behind `WAVE3_IMF_STRICT`) lived in
+`src/utils/content-validator.ts` and `src/utils/validate-articles.ts`;
+both were purged in the April-2026 aggregator-pipeline migration along
+with the World Bank counterparts (`hasWorldBankEvidence`,
+`articlePolicyHasWorldBank`, `WORLD_BANK_STRONG_FINGERPRINTS`,
+`WORLD_BANK_INDICATOR_CODES`).
 
 **Country-code guard**: `worldbank-mcp@1.0.1` rejects the aggregate codes
 `EUU`, `EMU`, `ECS`, `OED`, `WLD`, `NAC`, `EAS`, `SSF` and the informal `UK`
-alias. Call `isMCPSupportedWBCountryCode()` from
-`src/utils/world-bank-data.ts` before every MCP invocation. For EU-level
-economic context use IMF `EU`/`EA` aggregates (accepted by the IMF API).
+alias. Agents must avoid these codes when calling the WB MCP. For
+EU-level economic context use IMF `EU`/`EA` aggregates (accepted by the
+IMF API). The earlier `isMCPSupportedWBCountryCode()` helper in
+`src/utils/world-bank-data.ts` was purged in the April-2026 aggregator-
+pipeline migration; the country-code allow-list is now an editorial rule
+enforced at Stage A.
 
 ---
 
@@ -185,5 +195,5 @@ forbidden (violates CSP `script-src 'self'`).
 **Cross-references**:
 - `.github/prompts/SHARED_PROMPT_PATTERNS.md` (World Bank Integration section)
 - `.github/skills/ai-first-quality.md` (Quality Gates table)
-- `src/utils/validate-articles.ts` (checkWorldBankEvidence)
+- `.github/prompts/04-article-generation.md §5` (Stage-C economic-context review; the earlier `src/utils/validate-articles.ts` CLI `checkWorldBankEvidence` was purged in the April-2026 aggregator-pipeline migration)
 - `scripts/wb-mcp-probe.sh` (connectivity probe)

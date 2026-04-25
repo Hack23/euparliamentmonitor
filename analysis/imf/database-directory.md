@@ -10,7 +10,7 @@
 > — this file enumerates the **databases** (dataflows); the catalog
 > enumerates the **indicators** (SDMX codes) inside them.
 
-**📅 Last Updated:** 2026-04-24 | **🏷️ Classification:** Public | **🌀 Wave:** 3
+**📅 Last Updated:** 2026-04-25 | **🏷️ Classification:** Public | **🌀 Wave:** 4
 
 ---
 
@@ -142,13 +142,16 @@ fetching and is documented in
 
 The canonical list of "🟢 actively wired" databases is duplicated in:
 
-- `IMF_ACTIVELY_WIRED_DATABASES` in `src/utils/imf-data.ts` (TypeScript constant)
-- `IMF_POLICY_INDICATORS` (per-database indicator map) in the same file
+- This markdown table (source of truth for editors and agents).
+- The integration test
+  [`test/integration/mcp/imf-mcp.test.js`](../../test/integration/mcp/imf-mcp.test.js)
+  which exercises each 🟢 dataflow against the live SDMX 3.0 endpoint.
+- The indicator map in [`indicator-catalog.md`](indicator-catalog.md).
 
-An integration test in
-[`test/integration/mcp/imf-mcp.test.js`](../../test/integration/mcp/imf-mcp.test.js)
-fails if a 🟢 database listed here is missing from the TypeScript
-constants or vice-versa.
+> The earlier `IMF_ACTIVELY_WIRED_DATABASES` / `IMF_POLICY_INDICATORS`
+> TypeScript constants lived in `src/utils/imf-data.ts` and were purged
+> in the April-2026 aggregator-pipeline migration — the agent now reads
+> this document and the indicator catalogue directly at Stage A.
 
 ---
 

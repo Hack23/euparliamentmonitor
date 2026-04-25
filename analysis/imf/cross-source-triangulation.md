@@ -9,10 +9,10 @@
 > triangulation-required matrix keyed to the article's significance
 > tier and indicator class.
 
-**📅 Last Updated:** 2026-04-24 | **🏷️ Classification:** Public | **🌀 Wave:** 3
+**📅 Last Updated:** 2026-04-25 | **🏷️ Classification:** Public | **🌀 Wave:** 4
 
 > **Principle**: IMF is the *primary* economic-context source for EU
-> Parliament Monitor (Wave-3). Triangulation is additional rigour, not
+> Parliament Monitor (Wave-4). Triangulation is additional rigour, not
 > a replacement. The goal is to catch (a) rare IMF data-entry errors,
 > (b) vintage-drift between sources, and (c) methodological
 > differences that matter for the editorial claim.
@@ -144,7 +144,7 @@ policy):
 ## 7. Anti-patterns (DO NOT)
 
 - ❌ Cite Eurostat as primary and relegate IMF to a footnote — the
-  Wave-3 policy is IMF-primary for economic context.
+  Wave-4 policy is IMF-primary for economic context.
 - ❌ Hide a material delta — always surface in prose or footnote.
 - ❌ Pick the "prettier" number — document the actual delta and
   explain the methodology difference.
