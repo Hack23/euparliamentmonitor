@@ -399,7 +399,8 @@ export function renderAnalysisIndex(
 const READER_GUIDE_VALUES: Readonly<Record<string, { need: string; value: string }>> = {
   'section-executive-brief': {
     need: 'BLUF and editorial decisions',
-    value: 'fast answer to what happened, why it matters, who is accountable, and the next dated trigger',
+    value:
+      'fast answer to what happened, why it matters, who is accountable, and the next dated trigger',
   },
   'section-synthesis': {
     need: 'Integrated thesis',
