@@ -65,6 +65,7 @@ network:
     - defaults
 
 tools:
+  timeout: 300  # 5 min per-tool-call cap (bash, MCP, etc.) — guards against hung tool calls
   github:
     toolsets:
       - all
@@ -120,6 +121,11 @@ steps:
 engine:
   id: copilot
   model: claude-opus-4.7
+  # max-continuations: 1 tells gh-aw NOT to enable autopilot mode — when this
+  # equals 1 the compiler omits --autopilot from the Copilot CLI invocation so
+  # the agent runs exactly once with no restarts.  Within-session runaway
+  # protection is provided by tools.timeout (per-call cap) + timeout-minutes.
+  max-continuations: 1
 ---
 # 📰 EU Parliament Breaking News — Unified Workflow
 

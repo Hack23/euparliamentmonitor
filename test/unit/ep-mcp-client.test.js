@@ -401,8 +401,75 @@ describe('ep-mcp-client', () => {
         const result = await client.getPlenarySessions();
 
         expect(result).toEqual({
-          content: [{ type: 'text', text: '{"sessions": []}' }],
+          content: [{ type: 'text', text: '{"data": [], "total": 0}' }],
         });
+      });
+
+      it('should pass date filters through and return plenary sessions unchanged without local filtering', async () => {
+        // Include an intentionally out-of-window item (date before dateFrom) to ensure
+        // the client does NOT apply any local post-filtering to the tool response.
+        // The upstream EP-MCP-Server v1.2.14+ is responsible for date-filtering (Defect #5);
+        // this client must pass the response through unchanged.
+        const mockPayload = {
+          data: [
+            { date: '2026-03-28', location: 'Strasbourg', eventId: 'PLN-2026-03-28' },
+            { date: '2026-04-10', location: 'Brussels', eventId: 'PLN-2026-04-10' },
+            { date: '2026-04-22', location: 'Strasbourg', eventId: 'PLN-2026-04-22' },
+          ],
+          total: 3,
+        };
+        const mockToolResult = {
+          content: [{ type: 'text', text: JSON.stringify(mockPayload) }],
+        };
+        client.callTool.mockResolvedValue(mockToolResult);
+
+        const result = await client.getPlenarySessions({ dateFrom: '2026-04-01' });
+
+        // The client must pass dateFrom through to the MCP tool unchanged.
+        expect(client.callTool).toHaveBeenCalledWith('get_plenary_sessions', {
+          dateFrom: '2026-04-01',
+        });
+        // The response must be returned as-is — client must not filter out the out-of-window item.
+        expect(result).toEqual(mockToolResult);
+
+        const parsed = JSON.parse(result.content[0].text);
+        expect(parsed.data).toContainEqual({
+          date: '2026-03-28',
+          location: 'Strasbourg',
+          eventId: 'PLN-2026-03-28',
+        });
+      });
+
+      it('should return plenary session totals unchanged without fixing mismatched counts', async () => {
+        // Include an intentionally mismatched total to verify the client returns the
+        // MCP tool response as-is rather than repairing the payload locally.
+        const mockPayload = {
+          data: [
+            { date: '2026-04-05', location: 'Strasbourg', eventId: 'PLN-2026-04-05' },
+            { date: '2026-04-15', location: 'Brussels', eventId: 'PLN-2026-04-15' },
+          ],
+          total: 99,
+        };
+        const mockToolResult = {
+          content: [{ type: 'text', text: JSON.stringify(mockPayload) }],
+        };
+        client.callTool.mockResolvedValue(mockToolResult);
+
+        const result = await client.getPlenarySessions({
+          dateFrom: '2026-04-01',
+          dateTo: '2026-04-30',
+        });
+
+        expect(client.callTool).toHaveBeenCalledWith('get_plenary_sessions', {
+          dateFrom: '2026-04-01',
+          dateTo: '2026-04-30',
+        });
+        // The response must be returned as-is — client must not normalise total to data.length.
+        expect(result).toEqual(mockToolResult);
+
+        const parsed = JSON.parse(result.content[0].text);
+        expect(parsed.total).toBe(99);
+        expect(parsed.data).toHaveLength(2);
       });
 
       it('should search documents', async () => {
@@ -799,6 +866,42 @@ describe('ep-mcp-client', () => {
         expect(result).toEqual({
           content: [{ type: 'text', text: '{"coalitions": []}' }],
         });
+      });
+
+      // Stage-B alias smoke-test (MCP server v1.2.14+ canonicalises PPE → EPP server-side).
+      // Verifies that analyzeCoalitionDynamics forwards groupIds unchanged — no local remapping —
+      // and that a v1.2.14+ shaped response is returned correctly:
+      //   groupMetrics includes EPP with memberCount > 0, and PPE is absent from
+      //   coverage.unrecognizedGroups.
+      it('should pass PPE alias unchanged to server (v1.2.14+ canonicalization)', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: JSON.stringify({ groupIds: ['PPE'] }) }],
+        });
+
+        const options = { groupIds: ['PPE'] };
+        await client.analyzeCoalitionDynamics(options);
+
+        // PPE must be forwarded as-is — no client-side canonicalisation to 'EPP'.
+        expect(client.callTool).toHaveBeenCalledWith('analyze_coalition_dynamics', options);
+      });
+
+      it('should return EPP group with non-zero memberCount when MCP server resolves PPE alias (v1.2.14+)', async () => {
+        // Simulate the v1.2.14+ response where PPE is canonicalised to EPP server-side.
+        const v1214Response = {
+          groupMetrics: [{ groupId: 'EPP', memberCount: 188 }],
+          coverage: { unrecognizedGroups: [] },
+        };
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: JSON.stringify(v1214Response) }],
+        });
+
+        const result = await client.analyzeCoalitionDynamics({ groupIds: ['PPE'] });
+
+        const parsed = JSON.parse(result.content[0].text);
+        const epp = parsed.groupMetrics.find((g) => g.groupId === 'EPP');
+        expect(epp).toBeDefined();
+        expect(epp.memberCount).toBeGreaterThan(0);
+        expect(parsed.coverage.unrecognizedGroups).not.toContain('PPE');
       });
 
       it('should detect voting anomalies', async () => {
@@ -2332,14 +2435,22 @@ describe('ep-mcp-client', () => {
     let client;
     /** @type {MockConsoleResult} */
     let consoleOutput;
+    /** @type {string} */
+    let tmpDir;
 
-    beforeEach(() => {
+    beforeEach(async () => {
+      const { createTempDir } = await import('../helpers/test-utils.js');
+      tmpDir = createTempDir();
       consoleOutput = mockConsole();
-      client = new EuropeanParliamentMCPClient();
+      client = new EuropeanParliamentMCPClient({
+        pendingDocumentsStorePath: path.join(tmpDir, 'pending-documents.json'),
+      });
     });
 
-    afterEach(() => {
+    afterEach(async () => {
+      const { cleanupTempDir } = await import('../helpers/test-utils.js');
       consoleOutput.restore();
+      cleanupTempDir(tmpDir);
     });
 
     it('should record CONTENT_PENDING failure when docId lookup returns all-empty-string sentinel', async () => {
@@ -2361,6 +2472,21 @@ describe('ep-mcp-client', () => {
       expect(failed.has('get_adopted_texts')).toBe(true);
       expect(failed.get('get_adopted_texts')).toMatch(/^UNKNOWN: CONTENT_PENDING/);
       expect(result.content[0].text).toBe('{"texts": []}');
+    });
+
+    it('should write the docId to the pending-documents sidecar on empty-string sentinel', async () => {
+      const { loadPendingDocuments } = await import('../../scripts/mcp/pending-documents.js');
+      const sentinelPayload = {
+        id: '', title: '', reference: '', type: '', dateAdopted: '', procedureReference: '', subjectMatter: '',
+      };
+      vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
+        content: [{ type: 'text', text: JSON.stringify(sentinelPayload) }],
+      });
+      await client.getAdoptedTexts({ docId: 'TA-10-2026-0099' });
+
+      const store = await loadPendingDocuments(path.join(tmpDir, 'pending-documents.json'));
+      expect(store.documents['TA-10-2026-0099']).toBeDefined();
+      expect(store.documents['TA-10-2026-0099'].status).toBe('PENDING');
     });
 
     it('should NOT record failure for a year-range list query (no docId)', async () => {
@@ -2987,4 +3113,141 @@ describe('ep-mcp-client', () => {
       expect(body.procedures.map((p) => p.id)).toContain('2026-TODAY');
     });
   });
+
+  // ─── UPSTREAM_404 indexing-lag retry scheduling ──────────────────────────────
+
+  describe('getAdoptedTexts UPSTREAM_404 indexing-lag retry (Stage B)', () => {
+
+    /** @type {EuropeanParliamentMCPClient} */
+    let client;
+    /** @type {MockConsoleResult} */
+    let consoleOutput;
+    /** @type {string} */
+    let tmpDir;
+
+    beforeEach(async () => {
+      const { createTempDir } = await import('../helpers/test-utils.js');
+      tmpDir = createTempDir();
+      consoleOutput = mockConsole();
+      client = new EuropeanParliamentMCPClient({
+        pendingDocumentsStorePath: path.join(tmpDir, 'pending-documents.json'),
+      });
+    });
+
+    afterEach(async () => {
+      const { cleanupTempDir } = await import('../helpers/test-utils.js');
+      consoleOutput.restore();
+      cleanupTempDir(tmpDir);
+    });
+
+    it('should reclassify UPSTREAM_404 "document indexed but content not yet available" as CONTENT_PENDING', async () => {
+      vi.spyOn(client, 'callToolWithRetry').mockRejectedValueOnce(
+        new Error('UPSTREAM_404: document indexed but content not yet available')
+      );
+
+      const result = await client.getAdoptedTexts({ docId: 'TA-10-2026-0104' });
+
+      const failed = client.getFailedTools();
+      expect(failed.has('get_adopted_texts')).toBe(true);
+      // Should be CONTENT_PENDING, NOT NOT_FOUND
+      expect(failed.get('get_adopted_texts')).toMatch(/^CONTENT_PENDING:/);
+      expect(failed.get('get_adopted_texts')).toContain('TA-10-2026-0104');
+      expect(result.content[0].text).toBe('{"texts": []}');
+    });
+
+    it('should be case-insensitive when matching the indexing-lag message', async () => {
+      vi.spyOn(client, 'callToolWithRetry').mockRejectedValueOnce(
+        new Error('upstream_404: Document Indexed But Content Not Yet Available')
+      );
+
+      await client.getAdoptedTexts({ docId: 'TA-10-2026-0104' });
+
+      const failed = client.getFailedTools();
+      expect(failed.get('get_adopted_texts')).toMatch(/^CONTENT_PENDING:/);
+    });
+
+    it('should write the docId to the pending-documents sidecar', async () => {
+      const { loadPendingDocuments } = await import('../../scripts/mcp/pending-documents.js');
+
+      vi.spyOn(client, 'callToolWithRetry').mockRejectedValueOnce(
+        new Error('UPSTREAM_404: document indexed but content not yet available')
+      );
+
+      await client.getAdoptedTexts({ docId: 'TA-10-2026-0104' });
+
+      const store = await loadPendingDocuments(path.join(tmpDir, 'pending-documents.json'));
+      expect(store.documents['TA-10-2026-0104']).toBeDefined();
+      expect(store.documents['TA-10-2026-0104'].status).toBe('PENDING');
+      expect(store.documents['TA-10-2026-0104'].attempts).toBe(1);
+    });
+
+    it('should NOT reclassify a plain NOT_FOUND error as CONTENT_PENDING', async () => {
+      vi.spyOn(client, 'callToolWithRetry').mockRejectedValueOnce(
+        new Error('UPSTREAM_404: resource not found')
+      );
+
+      await client.getAdoptedTexts({ docId: 'TA-10-2026-0104' });
+
+      const failed = client.getFailedTools();
+      expect(failed.get('get_adopted_texts')).toMatch(/^NOT_FOUND:/);
+    });
+
+    it('should NOT apply indexing-lag detection to year-range list queries (no docId)', async () => {
+      vi.spyOn(client, 'callToolWithRetry').mockRejectedValueOnce(
+        new Error('UPSTREAM_404: document indexed but content not yet available')
+      );
+
+      await client.getAdoptedTexts({ year: 2026 });
+
+      // Without docId, the reclassification logic is bypassed
+      const failed = client.getFailedTools();
+      expect(failed.get('get_adopted_texts')).toMatch(/^NOT_FOUND:/);
+    });
+
+    it('should expose getDueAdoptedTextsForReprobe method', async () => {
+      const due = await client.getDueAdoptedTextsForReprobe();
+      expect(Array.isArray(due)).toBe(true);
+    });
+
+    it('should expose resolveAdoptedText method', async () => {
+      const { loadPendingDocuments, recordPendingDocument } = await import(
+        '../../scripts/mcp/pending-documents.js'
+      );
+      const sidecar = path.join(tmpDir, 'pending-documents.json');
+      await recordPendingDocument('TA-10-2026-0104', sidecar);
+      await client.resolveAdoptedText('TA-10-2026-0104');
+
+      const store = await loadPendingDocuments(sidecar);
+      expect(store.documents['TA-10-2026-0104'].status).toBe('RESOLVED');
+    });
+
+    it('should expose escalateStalePendingDocuments method', async () => {
+      const escalated = await client.escalateStalePendingDocuments();
+      expect(Array.isArray(escalated)).toBe(true);
+    });
+
+    it('should expose getPendingDocumentsSummary method', async () => {
+      const summary = await client.getPendingDocumentsSummary();
+      expect(typeof summary).toBe('string');
+      expect(summary).toMatch(/Pending Documents/);
+    });
+
+    it('should detect the message when delivered via isError:true response body', async () => {
+      vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
+        isError: true,
+        content: [
+          {
+            type: 'text',
+            text: 'UPSTREAM_404: document indexed but content not yet available',
+          },
+        ],
+      });
+
+      await client.getAdoptedTexts({ docId: 'TA-10-2026-0104' });
+
+      const failed = client.getFailedTools();
+      expect(failed.get('get_adopted_texts')).toMatch(/^CONTENT_PENDING:/);
+    });
+  });
 });
+

@@ -212,6 +212,19 @@ Artifacts marked below with **"Source grade × WEP discipline (tradecraft)"** ma
 
 **Quality signals.** At least one RCV ID cited; where EP voting feed has not yet published data, this is stated explicitly and group claims are marked LOW confidence.
 
+**Group-ID alias contract (MCP server v1.2.14+).** The EP Open Data Portal exposes several groups under native-language acronyms that differ from the canonical English short codes used throughout analysis artifacts. As of `european-parliament-mcp-server@1.2.14`, the server canonicalises these aliases internally — **do not add local remapping code** in the calling workflow or in `src/mcp/ep-mcp-client.ts`. Pass the alias as received; the tool resolves it to the canonical ID before returning results. **If the pinned server version is <1.2.14, the caller is responsible for translating aliases before calling the tool.** Key alias mappings handled upstream (v1.2.14+):
+
+| Native alias(es) | Canonical groupId |
+|---|---|
+| `PPE`, `PPE-DE`, `Groupe du Parti populaire européen…` | `EPP` |
+| `SOC`, `PSE`, `Groupe de l'Alliance progressiste…` | `S&D` |
+| `Verts-ALE`, `Groupe des Verts/Alliance libre européenne` | `Greens/EFA` |
+| `ALDE`, `RE` | `Renew` |
+| Native NI variants | `NI` |
+| `GUE/NGL` historical labels | `The Left` |
+
+If a future run finds `coverage.unrecognizedGroups` is non-empty, update the upstream alias table in `Hack23/European-Parliament-MCP-Server` (`src/tools/analyzeCoalitionDynamics.ts` — `POLITICAL_GROUP_ALIASES`) rather than adding a local workaround.
+
 ---
 
 ### cross-run-diff
