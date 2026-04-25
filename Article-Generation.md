@@ -36,7 +36,7 @@ The current production model is the **April 2026 aggregator-era pipeline**:
 - The canonical render command is `npm run generate-article -- --run <analysis-run-dir>`.
 - Batch regeneration uses `npm run generate-article:all`.
 
-> **Example note:** the problem statement mentions `analysis/daily/2026-04-24/interpellations/article.md`. The current repository has no `interpellations` run and no committed `analysis/**/article.md` files. The nearest current 2026-04-24 examples are `analysis/daily/2026-04-24/motions/`, `analysis/daily/2026-04-24/propositions/`, and `analysis/daily/2026-04-24/breaking/`. The aggregator writes the public Markdown source to `news/<slug>.en.md`, for example `news/2026-04-24-motions-runmotions-run-1777010709.en.md`.
+> **Example note:** current repository examples for 2026-04-24 are `analysis/daily/2026-04-24/motions/`, `analysis/daily/2026-04-24/propositions/`, and `analysis/daily/2026-04-24/breaking/`. The repository has no committed `analysis/**/article.md` files; the aggregator writes the public Markdown source to `news/<slug>.en.md`, for example `news/2026-04-24-motions-runmotions-run-1777010709.en.md`.
 
 ---
 
@@ -252,7 +252,7 @@ The aggregator maps artifact paths to rendered article sections via `src/aggrega
 | Tradecraft References | Auto-generated appendix linking methodology and template files. |
 | Analysis Index | Auto-generated appendix listing every included artifact and source path. |
 
-Because `aggregateAnalysisRun()` merges manifest-declared files with discovered Markdown, a file such as `analysis/daily/2026-04-24/interpellations/article.md` would only become part of output if the run directory exists, contains `manifest.json`, and the Markdown is discoverable. It would currently land under **Supplementary Intelligence** unless a canonical section claims it.
+Because `aggregateAnalysisRun()` merges manifest-declared files with discovered Markdown, any extra Markdown in a valid run directory can still be rendered. For current examples such as `analysis/daily/2026-04-24/motions/`, extra Markdown that is not claimed by a canonical section lands under **Supplementary Intelligence** unless `artifact-order.ts` claims it explicitly.
 
 ---
 
