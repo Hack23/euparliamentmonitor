@@ -160,4 +160,91 @@ quadrantChart
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/stakeholder-map.md` · Template v1.1 · Depth floor: 305 lines.
+## 🔟 EP MCP Tool Inputs
+
+| EP MCP tool | Used for which lens | Notes |
+|-------------|---------------------|-------|
+| `get_committee_info` | EP-Groups + Committees lens | Chair / vice-chair / rapporteur composition. |
+| `compare_political_groups` | EP-Groups lens | Seat-share + cohesion proxies per group. |
+| `analyze_country_delegation` | National-Parliaments lens | Per-country MEP cohesion vs national interest. |
+| `analyze_coalition_dynamics` | EP-Groups lens (alliance signals) | Two-window deltas. |
+| `track_legislation` | Council + Commission lens | Inter-institutional position deltas. |
+| `get_external_documents` | Council + Commission + Industry lens | Council positions, Commission proposals, industry submissions. |
+| `get_speeches` | Civil-Society + Citizens lens (proxy via MEP framings) | Topic-tag distribution. |
+| `get_parliamentary_questions` | Citizens lens (representative proxy) | Pending vs answered ratios. |
+| `get_meps` + `assess_mep_influence` | EP-Groups lens (named brokers) | Crosswalk to actor-mapping.md. |
+| `correlate_intelligence` | Composite alerts across lenses | ELEVATED_ATTENTION + COALITION_FRACTURE. |
+
+---
+
+## 1️⃣1️⃣ Worked Pass-1 → Pass-2 Example (CRA implementation review, 7-lens map)
+
+**❌ Pass-1 (thin, 22 words):**
+> "Many stakeholders involved in CRA. Council supportive, industry mixed, NGOs concerned. Citizens not very engaged. EP groups divided."
+
+**✅ Pass-2 (compliant, 110 words, sourced):**
+> Stakeholder landscape on CRA implementing acts (April 2026): Council (BE-PL Presidency) Supportive — 23-Apr general approach passed by 24/25 MS per `track_legislation` 2024/0099(COD) (RO abstained, A-2 source). Commission (DG-CNECT, Cmsr Virkkunen) Supportive — published implementation roadmap 2026-04-09 (A-1). EP groups split: EPP+Renew Supportive, S&D Neutral (data-protection reservations), Greens/EFA Opposed on telemetry-default, ECR+PfE Opposed on SME burden. National parliaments: 14 reasoned-opinion thresholds tested (none triggered yellow card). Civil society: 8 NGO joint letter Opposed (B-2). Industry: DigitalEurope + BusinessEurope Supportive, ETSI Neutral (B-2). Citizens proxy: 47 % awareness, 31 % support per `get_parliamentary_questions` constituency-question volume (3-month rolling).
+
+---
+
+## 1️⃣2️⃣ Worked 7-Lens Stakeholder Template
+
+| Lens | Stakeholder | Stance | Evidence | Confidence |
+|------|-------------|:------:|----------|:----------:|
+| **1. Council** | BE-PL Presidency + COREPER | Supportive | `track_legislation` 2024/0099(COD) general approach 23-Apr-2026, 24/25 MS | 🟢 HIGH (A-2) |
+| **2. Commission** | DG-CNECT, Cmsr Virkkunen | Supportive | Implementation roadmap published 2026-04-09 | 🟢 HIGH (A-1) |
+| **3. EP groups** | EPP (188) + Renew (84) | Supportive | `compare_political_groups` cohesion 91 %; rapporteur Voss + shadow Tudorache | 🟢 HIGH (A-2) |
+| **3. EP groups** | S&D (136) | Neutral | Group statement 2026-03-28 — data-protection reservations | 🟡 MEDIUM (B-2) |
+| **3. EP groups** | Greens/EFA (53) + The Left (46) | Opposed | Joint amendment package 2026-04-15 — telemetry-default red line | 🟢 HIGH (A-2) |
+| **3. EP groups** | ECR (78) + PfE (84) | Opposed | SME-burden floor amendments | 🟡 MEDIUM (B-2) |
+| **4. National parliaments** | 27 chambers | Neutral | 0 yellow-card triggers; 14 reasoned-opinion threshold tests | 🟢 HIGH (A-1) |
+| **5. Civil society** | EDRi + Access Now + 6 NGOs | Opposed | Joint letter 2026-04-02 (8 signatories) | 🟡 MEDIUM (B-2) |
+| **6. Industry** | DigitalEurope + BusinessEurope | Supportive | Position papers 2026-03-15 + 2026-03-22 | 🟡 MEDIUM (B-2) |
+| **6. Industry** | ETSI (standards body) | Neutral | Comment letter 2026-04-08 — implementation-detail concerns | 🟡 MEDIUM (B-3) |
+| **7. Citizens** | EU public (Eurobarometer proxy) | Mixed | 47 % awareness / 31 % support; `get_parliamentary_questions` volume +12 % | 🔴 LOW (C-3) |
+
+**Net stance map:** 4 Supportive · 3 Neutral · 4 Opposed · 1 Mixed → Coalition coalition-arithmetic still favours adoption (272 EPP+Renew + 136 S&D-passive ≥ floor majority) but Greens-led floor opposition is unified.
+
+---
+
+## 1️⃣3️⃣ Anti-patterns — REJECT on Pass-2 Review
+
+| # | Banned pattern | Why it fails |
+|:-:|---------------|--------------|
+| 1 | Stakeholder lens missing one of the 7 (Council / Commission / EP groups / NPs / civil society / industry / citizens) | 7-lens contract violated. |
+| 2 | Stance label without evidence column populated | Unsourced political claim. |
+| 3 | "EP groups" lens without naming groups individually | Aggregating 8 groups into one row hides splits. |
+| 4 | Civil-society lens with single NGO citation (no joint-letter / coalition aggregation) | Single NGO ≠ civil society. |
+| 5 | Citizens lens proxied solely from media polling without `get_parliamentary_questions` cross-check | Tradecraft demands EP-internal proxy. |
+| 6 | Confidence labels missing or all 🟢 HIGH | No critical-confidence calibration. |
+| 7 | Industry lens without naming ≥2 distinct trade associations | Industry ≠ one trade body. |
+
+---
+
+## 1️⃣4️⃣ Cross-References — Controlling Methodology
+
+- [`../methodologies/per-artifact-methodologies.md#stakeholder-map`](../methodologies/per-artifact-methodologies.md) — construction rules.
+- [`../methodologies/political-classification-guide.md`](../methodologies/political-classification-guide.md) — group + national-delegation taxonomy.
+- [`../methodologies/osint-tradecraft-standards.md`](../methodologies/osint-tradecraft-standards.md) — Admiralty grade per evidence cell.
+- [`./actor-mapping.md`](./actor-mapping.md) — individual-MEP view (sister artifact).
+- [`./coalition-dynamics.md`](./coalition-dynamics.md) — coalition-arithmetic view.
+- [`./forces-analysis.md`](./forces-analysis.md) — driving / restraining force view consumes stance column.
+
+---
+
+## 1️⃣5️⃣ Stage-C Completeness Signals
+
+`scripts/validate-analysis-completeness.js` checks for this artifact:
+
+| Check | Threshold | Source |
+|-------|-----------|--------|
+| Line floor | ≥305 lines | `reference-quality-thresholds.json` |
+| Required H2 substrings | "Stakeholder", "Lens", "Stance", "Confidence" | structural contract |
+| Mermaid block | ≥1 (radial / spider preferred for 7-lens visual) | visual contract |
+| Tradecraft markers | Admiralty grade per evidence; confidence label per row | `osint-tradecraft-standards.md` |
+| Source diversity | ≥5 EP MCP tools across the 7 lenses | per-artifact rule |
+| Lens coverage | All 7 lenses populated; ≥1 row per lens minimum | template logic |
+
+---
+
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/stakeholder-map.md` · Template v1.2 · Depth floor: 305 lines.
