@@ -9,8 +9,8 @@
   <em>🎯 Sensitivity · Domain Taxonomy · Urgency Matrix · Impact Assessment</em>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.1 | **📅 Last Updated:** 2026-04-06 (UTC)
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
+**📋 Document Owner:** CEO | **📄 Version:** 2.2 | **📅 Last Updated:** 2026-04-25 (UTC)
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-31
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
 ---
@@ -288,6 +288,145 @@ During confirmed recess periods, the urgency matrix is adjusted:
 | Classifying non-events as HIGH/CRITICAL | Inflates significance during quiet period | Apply standard 7-dimension scoring; recess events rarely score ≥ 50 |
 | Ignoring events because "Parliament is in recess" | Events still have political significance even without immediate EP response | Classify normally; note temporal context |
 | Using pre-recess urgency for post-recess planning | Urgency may change when Parliament reconvenes | Re-classify when session schedule is confirmed |
+
+## 🛠️ Worked Classification Walkthroughs
+
+The 7-dimension scoring rubric is best understood by walking through real
+EP classification scenarios. Each walkthrough scores all seven dimensions
+and arrives at a final classification band.
+
+### Walkthrough 1 — AI Act Implementing Regulation, ENVI tabling
+
+**Event**: Commission tables an implementing regulation for the AI Act
+with significant EU-27-wide compliance obligations.
+
+| Dimension | Score | Rationale |
+|---|:-:|---|
+| Institutional impact | 9 | EU-wide regulatory regime, all 27 MS bound |
+| Coalition implications | 7 | EPP-S&D-Renew likely; Greens/EFA conditional; PfE/ESN opposed |
+| Public-policy stakes | 9 | Cross-sectoral: health, finance, employment, consumer protection |
+| Legal-procedural complexity | 7 | Comitology + delegated acts + national implementation |
+| Time-sensitivity | 6 | 24-month implementation window; not immediate crisis |
+| Stakeholder mobilisation | 8 | Industry, civil society, MS regulators, third countries |
+| Geopolitical resonance | 8 | Brussels-effect on US, UK, JPN regulatory frameworks |
+
+**Total**: 54 / 70 → **Tier-1 SIGNIFICANT** classification.
+**Urgency**: 🟠 URGENT (tabling triggers 2-month response window).
+**Sensitivity**: SENSITIVE — coalition arithmetic public, internal whip
+positions are confidential.
+
+### Walkthrough 2 — MEP press statement on enlargement
+
+**Event**: Three EPP MEPs publish a joint open letter calling for
+accelerated UKR accession track.
+
+| Dimension | Score | Rationale |
+|---|:-:|---|
+| Institutional impact | 2 | No procedural standing; press only |
+| Coalition implications | 4 | EPP-internal signal but limited reach |
+| Public-policy stakes | 5 | Touches enlargement but no procedural follow-through |
+| Legal-procedural complexity | 1 | None — a statement, not a motion |
+| Time-sensitivity | 3 | Press cycle relevance only |
+| Stakeholder mobilisation | 3 | Civil society uptake limited |
+| Geopolitical resonance | 6 | Resonates with Russian / US framing |
+
+**Total**: 24 / 70 → **Tier-3 ROUTINE** classification (likely Tier-4 if
+no media uptake within 48h). **Urgency**: 🔵 ELEVATED.
+**Sensitivity**: PUBLIC.
+
+### Walkthrough 3 — Trilogue collapse on Critical Raw Materials Act
+
+**Event**: Council position diverges from EP mandate; trilogue suspended.
+
+| Dimension | Score | Rationale |
+|---|:-:|---|
+| Institutional impact | 8 | Negotiation breakdown affects Council-EP balance |
+| Coalition implications | 6 | EP rapporteur (S&D) under coalition pressure |
+| Public-policy stakes | 8 | Strategic-autonomy file, supply-chain stakes |
+| Legal-procedural complexity | 8 | Conciliation procedure may be triggered |
+| Time-sensitivity | 8 | Window before recess closes; presidency change ahead |
+| Stakeholder mobilisation | 7 | Industry lobbying intense; trade unions engaged |
+| Geopolitical resonance | 7 | China-EU rare-earths context |
+
+**Total**: 52 / 70 → **Tier-1 SIGNIFICANT**. **Urgency**: 🔴 CRITICAL —
+trilogue collapse with shrinking calendar window. **Sensitivity**:
+RESTRICTED (internal positions in conciliation are confidential).
+
+### Walkthrough 4 — Routine ENVI committee adoption
+
+**Event**: ENVI adopts amendments to a non-controversial revision of an
+existing directive (e.g. minor technical update to fluorinated-gas rules).
+
+| Dimension | Score | Rationale |
+|---|:-:|---|
+| Institutional impact | 3 | Procedural step, not the headline vote |
+| Coalition implications | 2 | Cross-coalition consensus expected |
+| Public-policy stakes | 3 | Technical update; limited downstream effects |
+| Legal-procedural complexity | 4 | Multiple amendments but no controversy |
+| Time-sensitivity | 2 | Standard schedule |
+| Stakeholder mobilisation | 2 | Sectoral interest only |
+| Geopolitical resonance | 1 | Negligible |
+
+**Total**: 17 / 70 → **Tier-4 BACKGROUND**. **Urgency**: ⚪ ROUTINE.
+**Sensitivity**: PUBLIC.
+
+## 📐 Border-line cases — when scoring straddles tiers
+
+Score totals near tier boundaries (47-50 between Tier-1 and Tier-2; 28-32
+between Tier-2 and Tier-3) are common. Use the **tie-break rule**:
+
+1. **If any dimension scores ≥ 8**, escalate one tier upward.
+2. **If three or more dimensions score ≥ 7**, escalate one tier upward.
+3. **If urgency is 🔴 CRITICAL**, classification is at minimum Tier-1
+   regardless of total.
+4. **If sensitivity is RESTRICTED**, classification is at minimum
+   Tier-2 regardless of total.
+
+These rules prevent under-classification of asymmetric events (one
+dimension dominates) and align with the political-significance rubric in
+[`political-style-guide.md §Significance Bands`](political-style-guide.md).
+
+## 🛂 Cross-border events — special handling
+
+Events originating outside EU institutions (third-country actions,
+geopolitical shifts, court rulings, ECB decisions) must still be classified
+when they impact EP work. The 7-dimension rubric applies, with these
+adjustments:
+
+| Event class | Dimension adjustments |
+|---|---|
+| Court of Justice ruling | "Legal-procedural complexity" anchored at +2 (binding effect); "Institutional impact" depends on which institution is bound |
+| ECB monetary decision | "Public-policy stakes" anchored at +1 (every member state's economy); "Coalition implications" usually 0 (ECB independence) |
+| Third-country act (e.g. US tariff) | "Geopolitical resonance" is the lead dimension; "Stakeholder mobilisation" varies with industry exposure |
+| Member-state election | Weight to "Coalition implications" if it changes EP party arithmetic (Eurosceptic / pro-EU shift) |
+| Treaty-change proposal | Always Tier-1 regardless of sub-scores; institutional-impact cap removed |
+
+## ⚠️ Urgent procedure (Rule 163) — auto-classification triggers
+
+EP Rule 163 ("urgent procedure") accelerates a file's calendar to a single
+plenary. When urgent procedure is invoked, classification jumps to:
+
+- **Urgency**: minimum 🟠 URGENT
+- **Tier**: minimum Tier-2
+- **Time-sensitivity dimension**: minimum 7
+
+If the file is also Article-7 / treaty-change / sanctions-related, the
+combined effect is Tier-1 / 🔴 CRITICAL automatically.
+
+## 🧪 Anti-patterns — classification errors to avoid
+
+| Anti-pattern | Why prohibited | Correct alternative |
+|---|---|---|
+| Scoring without naming the dimension | Stage-C cannot validate | Use the 7-dimension table; cite each cell |
+| Classifying without procedure code | No anchor for re-classification | Cite procedure code or event ID |
+| Inflating to Tier-1 for press-release events | Loses meaning of Tier-1 | Apply rubric strictly; press → Tier-3 |
+| Using "MEDIUM" / "HIGH" without tier number | Imprecise | Use Tier-1 to Tier-4 nomenclature |
+| Single-dimension classification | Ignores 6 other dimensions | All 7 dimensions must be scored |
+| Classifying recess events using session rubric | Recess-adjustment rules ignored | Apply §Recess-Period Urgency Adjustment |
+| Re-classifying mid-run | Breaks reproducibility | Lock classification at Pass-2; document drift in next run |
+| "Cannot classify yet" excuses | Stage-C blocker | Classify with low confidence; document confidence label |
+| Mixing significance and urgency | They are orthogonal | Score significance (1-70) AND urgency (4 bands) separately |
+| Ignoring sensitivity dimension | RESTRICTED facts leak | Always tag PUBLIC / SENSITIVE / RESTRICTED |
 
 ---
 

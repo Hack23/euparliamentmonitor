@@ -198,4 +198,81 @@ flowchart TD
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/scenario-forecast.md` · Template v1.0 · Depth floor: 280 lines.
+## 🛠️ Worked example — three-scenario forecast on Critical Raw Materials Act
+
+### Scenario A — Adoption Q4 2026 in original scope (40%)
+
+**Driver**: Council and EP align on "strategic raw material" definitions.
+**Indicators that confirm**: trilogue rounds <4; Council position
+unchanged from December 2025; rapporteur's report adopted by IMCO with
+≥80% margin.
+
+### Scenario B — Adoption Q1 2027 with softened scope (35%)
+
+**Driver**: industry mobilisation forces threshold raises during trilogue.
+**Indicators that confirm**: ≥3 industry letters during trilogue; 2-3
+amendments narrowing strategic-supplier definitions; Council adds
+implementation-cost rider.
+
+### Scenario C — Adoption delayed past 2027 (20%)
+
+**Driver**: HUN veto in Council on financing model OR CJEU referral on
+legal base. **Indicators that confirm**: HUN bilateral signals; legal
+challenge filed; rapporteur withdrawn or replaced; Commission tables
+revised proposal.
+
+### Scenario D — Adoption fails entirely (5%, residual)
+
+**Driver**: external geopolitical shock (China-EU rare-earths embargo
+freezes negotiations, or unrelated political crisis displaces agenda).
+Indicators: China rare-earths export controls escalate; major EU MS
+political crisis dominates Council agenda.
+
+**Probability sum**: 100%. Scenarios are exhaustive and mutually
+exclusive.
+
+## 🚫 Anti-patterns — scenario-forecast failures
+
+| Anti-pattern | Why it fails | Correct approach |
+|---|---|---|
+| Probabilities sum to ≠ 100% | Not a coherent forecast | Re-normalise; document residual |
+| Two scenarios that overlap | Not mutually exclusive | Distinguish on a single decisive variable |
+| Probabilities all equal (33/33/33) | "I don't know" disguised | Differentiate; if uniform, cite reasoning |
+| Scenario without driver | Cannot be tested | Each scenario has ≥1 named causal driver |
+| Scenario without indicator | Cannot be monitored | Each scenario has ≥3 falsifiable indicators |
+| Probabilities outside WEP grid | Non-standard | Use WEP bands: very likely (75-90%), likely (55-75%), possible (35-55%), unlikely (15-35%) |
+| Update without version-stamp | Loses audit trail | Date-stamp each forecast revision |
+| 5+ scenarios | Too granular for human interpretation | Cap at 3-4 main + 1 residual |
+| "Black swan" scenario in main 3 | Misclassification | Black swans → `wildcards-blackswans.md` |
+| Forecast without monitoring plan | Cannot be revised | §6 monitoring plan with dates and decision points |
+
+## 🎯 EP MCP tool inputs
+
+| Tool | Used for |
+|---|---|
+| `track_legislation` | Procedure status feeds Scenario A/B distinction |
+| `monitor_legislative_pipeline` | Bottleneck signals feed Scenario C |
+| `analyze_coalition_dynamics` | Coalition-arithmetic sensitivity |
+| `get_voting_records` | Discipline trend across time |
+| `get_plenary_sessions` | Calendar constraint |
+| `get_procedure_events` | Trilogue round count |
+
+## 🔗 Controlling methodology cross-references
+
+- [`../methodologies/strategic-extensions-methodology.md`](../methodologies/strategic-extensions-methodology.md) §Scenarios
+- [`../methodologies/osint-tradecraft-standards.md §3 WEP`](../methodologies/osint-tradecraft-standards.md)
+- [`forward-indicators.md`](forward-indicators.md) — companion artifact for tripwire signposts
+- [`wildcards-blackswans.md`](wildcards-blackswans.md) — for ≤5% probability tail risks
+
+## ✅ Stage-C completeness signals
+
+- Line floor: 280 lines
+- ≥ 3 main scenarios with WEP-band probabilities summing to 100%
+- Each scenario has ≥1 named driver and ≥3 monitorable indicators
+- §5 cross-scenario sensitivity (single pivot variable)
+- §6 monitoring plan with at least 3 dated decision points
+- Confidence label per scenario (🟢/🟡/🔴) with rationale
+
+---
+
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/scenario-forecast.md` · Template v1.2 · Depth floor: 280 lines.

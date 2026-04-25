@@ -236,8 +236,8 @@ quadrantChart
 
 **Document Control:**
 - **Template Path:** `/analysis/templates/swot-analysis.md`
-- **Version:** 2.1
+- **Version:** 2.2
 - **Advanced Features:** Cross-SWOT Interference, TOWS Strategic Matrix (expanded with diagram + priority ranking), 90-day Scenario Outlook
 - **Framework Reference:** [methodologies/political-swot-framework.md](../methodologies/political-swot-framework.md)
 - **Classification:** Public
-- **Next Review:** 2026-06-30
+- **Next Review:** 2026-07-31

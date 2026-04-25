@@ -11,13 +11,13 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-2.4-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--18-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-2.6-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--25-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.4 | **📅 Last Updated:** 2026-04-18 (UTC)
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
+**📋 Document Owner:** CEO | **📄 Version:** 2.6 | **📅 Last Updated:** 2026-04-25 (UTC)
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-31
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
 ---
@@ -178,6 +178,95 @@ The Economist style applied to EP coverage requires precise institutional vocabu
 
 ---
 
+## 🎙️ Reader-Engagement Standards (New in v2.6)
+
+A Stage-C-clean artifact is necessary but not sufficient. Artifacts must also be *enjoyable to read* — because every analysis artifact is **input** to a human-facing article that 14-language readers will skim on a phone over coffee. This section codifies the reader-engagement craft that turns a technically-correct artifact into one that downstream article generation can lift verbatim into prose.
+
+### The Three-Second Rule
+
+A reader scanning the artifact's first three seconds must extract: **(a) what happened**, **(b) why it matters**, and **(c) the headline number**. If the lede paragraph fails any of those three tests, rewrite it.
+
+| Element | Rule | Example |
+|---------|------|---------|
+| **Hook (sentence 1)** | Lead with the most surprising, specific, or counter-intuitive fact. Never start with “On 23 April 2026, the European Parliament …” | “For the first time since 2019, EPP has whipped its own ENVI members against a Commission-backed climate file — and the coalition arithmetic has shifted with it.” |
+| **Stake (sentence 2)** | Name the policy, the people, and the timeline. | “The revised Industrial Emissions Directive (2024/0123(COD)) now needs 41 floor votes the Grand Coalition no longer has, with trilogue scheduled for 12 May.” |
+| **Headline number (sentence 3)** | One quantified claim that anchors the rest of the artifact. Always cite an EP procedure or RCV. | “The ENVI margin collapsed from a 55-seat cushion in February to an 8-seat plurality on 23 April (RCV-2026-0412).” |
+
+### Scene-Setting Without Padding
+
+Good scene-setters earn their words; bad ones recite the calendar. The test: if the sentence could appear in any other artifact, cut it.
+
+| ❌ Padding | ✅ Earned scene-setter |
+|------------|----------------------|
+| “The European Parliament held a plenary session this week, during which several important issues were discussed.” | “Strasbourg’s plenary chamber rarely ends a Wednesday vote with stunned silence. On 23 April it did — the IED rapporteur lost her own report by a single vote.” |
+| “Many topics are on the agenda for the coming weeks.” | “The May part-session compresses three legislative crises — IED trilogue, defence-fund vote, EU–Mercosur ratification — into a 72-hour window the EPP whip’s office has already privately conceded it cannot fully manage.” |
+
+### Signposting Paragraphs (“Bridges”)
+
+When the artifact pivots between dimensions — e.g. from voting analysis to threat assessment — a single short paragraph (15–40 words) tells the reader **where they are going and why**. This is what makes a 400-line artifact feel like a 4-minute read.
+
+**Pattern:** *“The vote arithmetic explains the immediate decision; what follows explains why the same arithmetic now threatens the next three procedures on the same dossier.”*
+
+Place a bridge at every H2 / H3 boundary that crosses an analytical layer (classification → risk, risk → SWOT, SWOT → threat, threat → synthesis). Bridges may not exceed two sentences and must contain at least one signposting word: *what follows*, *the next section shows*, *the upshot is*, *the same logic applies to*, *the deeper question is*.
+
+### Jargon Restraint
+
+Use precise EP institutional vocabulary (see *EP-Specific Vocabulary Standards* above), but every Latinate or procedural term gets **one** plain-language gloss the first time it appears in an artifact. After that, the term carries on its own. This makes the artifact translate cleanly to all 14 languages without losing its bite.
+
+| Term | First-mention gloss (in-line, parenthetical) |
+|------|----------------------------------------------|
+| Spitzenkandidat | *(“lead candidate” — the political-group nominee for Commission President)* |
+| Trilogue | *(the closed-door three-way negotiation between Parliament, Council and Commission)* |
+| Rapporteur | *(the MEP charged with steering a file through committee)* |
+| Cordon sanitaire | *(the informal pact among centrist groups to deny the far right legislative posts)* |
+| Grand Coalition | *(EPP + S&D ± Renew — the centrist majority that has carried most legislation since 2019)* |
+
+### The “Why Now?” Test
+
+At least one paragraph in every artifact must answer: *what changed since the last comparable run*? If nothing changed, say so explicitly — silence on this question is the single most common cause of unread artifacts.
+
+**Pattern:** *“The coalition arithmetic was the same in March; what changed in April is […].”*
+
+or, when nothing changed: *“The coalition arithmetic is unchanged from the March run — a stability that is itself notable given the […].”*
+
+### Restraint on Adjectives
+
+Adjectives are the surest tell of weak analysis. The Economist averages roughly one adjective per ten words. Audit every artifact: if an adjective cannot be replaced by a quantified claim or struck without changing the meaning, strike it.
+
+| ❌ Adjective-heavy | ✅ Quantified |
+|-------------------|----------------|
+| “A significant blow to the Grand Coalition” | “The Grand Coalition lost three votes this week — its longest losing streak since November 2024.” |
+| “An unusually fragmented committee” | “ENVI cohesion fell to 0.42 — below the 0.55 floor at which committee-level deals historically collapse.” |
+| “A highly controversial proposal” | “The proposal drew 312 amendments at committee — the highest count since the 2021 Common Agricultural Policy reform.” |
+
+### Quotability
+
+Every artifact should produce **at least three sentences** that an article generator can quote verbatim and that read well in isolation. Test: copy any single sentence into a tweet. If it stands alone with a number, an actor, and a stake, it passes. If it requires two more sentences of context, rewrite it.
+
+### Editorial Anti-Patterns to Hunt in Pass 2
+
+During the mandatory Pass-2 read-back, hunt these patterns and rewrite where you find them:
+
+| Anti-pattern | Why it kills engagement | Fix |
+|--------------|--------------------------|-----|
+| Stacked passive verbs (“was considered”, “is being assessed”) | Hides the actor | Name the actor and use an active verb |
+| Empty signalling adverbs (“clearly”, “notably”, “importantly”) | Tells without showing | Cut the adverb; the evidence below it should carry the weight |
+| “It should be noted that…” | Filler before every secondary clause | Cut the phrase; start with the noun |
+| Lists of three abstract nouns (“transparency, accountability and effectiveness”) | Reads like a press release | Replace with one concrete behaviour the policy actually changes |
+| Closing paragraphs that summarise rather than land | Wastes the most-read paragraph | End with a sentence that names the next observable signal worth watching |
+
+### Worked Example — Lede Pass-1 → Pass-2
+
+**Pass 1 (mechanical):**
+> *On 23 April 2026, the ENVI committee voted on the Industrial Emissions Directive. Several amendments were considered. The result will have implications for the trilogue process.*
+
+**Pass 2 (publishable):**
+> *Strasbourg rarely produces a clean political shock. On Wednesday it did. The ENVI committee — a body that has carried every Commission climate proposal since 2019 — rejected its own rapporteur’s Industrial Emissions Directive compromise by a single vote (RCV-2026-0412, 22–23–2). The arithmetic alone is striking; the consequence is harder. The May trilogue (file 2024/0123(COD)) now opens without a parliamentary majority behind the Parliament’s lead negotiator — the first such structural gap on a Commission climate file since the 2019 IED-recast.*
+
+Notice what Pass 2 added: a hook, a named actor, an RCV, a comparable historical anchor, and an open thread that signposts the next artifact (`scenario-forecast.md`). That is what “fun to read” looks like in operational political-intelligence prose.
+
+---
+
 ## 🗞️ Recess and Data-Sparse Period Guidance (New in v2.1)
 
 The European Parliament has scheduled recess periods (Easter, summer, year-end) during which plenary sessions, committee meetings, and voting do not occur. During recess, EP MCP API feeds return reduced or empty datasets. This section defines how analysis depth and focus should adapt.
@@ -325,7 +414,7 @@ Every analysis artifact must include:
   <img src="https://hack23.com/icon-192.png" alt="Hack23 Logo" width="192" height="192">
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.0 | **📅 Analysis Date:** YYYY-MM-DD HH:MM UTC
+**📋 Document Owner:** CEO | **📄 Version:** X.Y | **📅 Analysis Date:** YYYY-MM-DD HH:MM UTC
 **🏢 Owner:** Hack23 AB | **🏷️ Classification:** [PUBLIC/SENSITIVE/RESTRICTED]
 ```
 
@@ -606,7 +695,7 @@ All analysis produced in English serves as the source for 13 additional language
 - **Path:** `/analysis/methodologies/political-style-guide.md`
 - **ISMS Reference:** [STYLE_GUIDE.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/STYLE_GUIDE.md)
 - **Classification:** Public
-- **Version:** 2.5 — Added §Estimative Language & Source Grading codifying ICD 203 BLUF/confidence format, Kent/WEP probability bands with mandatory time horizons, Admiralty source grading (A1–F6), and Pass-2 reviewer checklist. Cross-links `osint-tradecraft-standards.md` as the normative contract; this guide is the style contract.
-- **Version:** 2.4 — Added universal mermaid init block (mandatory for all `graph`/`flowchart`/`mindmap`/`pie`/`gantt`/`timeline`/`sequenceDiagram`/`stateDiagram`/`classDiagram`/`erDiagram`/`gitGraph`/`xychart-beta`/`C4Context`/`block-beta` diagrams) covering `pie1`–`pie12`, `git0`–`git3`, `cScale0`–`cScale7`, `noteBkgColor`, `errorBkgColor`, and xyChart `plotColorPalette` so every diagram inherits the canonical ISMS palette without per-diagram styling. Added node-icon authoring rule.
-- **Version:** 2.3 — Added classification-aligned Mermaid colour palette, mandatory `quadrantChart` init block (per ISMS STYLE_GUIDE.md stakeholder-mapping format), `classDef` snippet for graph/flowchart diagrams, and quadrant-icon labelling rules
-- **Next Review:** 2026-06-30
+- **Version:** 2.6 — Added §Estimative Language & Source Grading codifying ICD 203 BLUF/confidence format, Kent/WEP probability bands with mandatory time horizons, Admiralty source grading (A1–F6), and Pass-2 reviewer checklist. Added §Reader-Engagement Standards to strengthen narrative discipline, scannability, and reader retention expectations for political-intelligence outputs. Cross-links `osint-tradecraft-standards.md` as the normative contract; this guide is the style contract.
+- **Version:** 2.5 — Added universal mermaid init block (mandatory for all `graph`/`flowchart`/`mindmap`/`pie`/`gantt`/`timeline`/`sequenceDiagram`/`stateDiagram`/`classDiagram`/`erDiagram`/`gitGraph`/`xychart-beta`/`C4Context`/`block-beta` diagrams) covering `pie1`–`pie12`, `git0`–`git3`, `cScale0`–`cScale7`, `noteBkgColor`, `errorBkgColor`, and xyChart `plotColorPalette` so every diagram inherits the canonical ISMS palette without per-diagram styling. Added node-icon authoring rule.
+- **Version:** 2.4 — Added classification-aligned Mermaid colour palette, mandatory `quadrantChart` init block (per ISMS STYLE_GUIDE.md stakeholder-mapping format), `classDef` snippet for graph/flowchart diagrams, and quadrant-icon labelling rules
+- **Next Review:** 2026-07-31

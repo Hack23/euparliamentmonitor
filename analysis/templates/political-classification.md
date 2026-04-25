@@ -237,8 +237,8 @@ MCP Data Files:     [REQUIRED: paths to analysis/YYYY-MM-DD/{article-type-slug}/
 
 **Document Control:**
 - **Template Path:** `/analysis/templates/political-classification.md`
-- **Version:** 2.1
+- **Version:** 2.2
 - **Advanced Dimensions:** Political Temperature Index, Strategic Significance, Coalition Impact Vector, Recess-Period Classification Rules
 - **Framework Reference:** [methodologies/political-classification-guide.md](../methodologies/political-classification-guide.md)
 - **Classification:** Public
-- **Next Review:** 2026-06-30
+- **Next Review:** 2026-07-31
