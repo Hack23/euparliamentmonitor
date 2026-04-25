@@ -123,8 +123,24 @@ const response = await client.fetchData({
 });
 
 // 3. Parse the SDMX-JSON envelope returned by the IMF REST endpoint.
+//    The client returns an empty `text` string on the IMF_FALLBACK path
+//    (upstream errors / firewall blocks), so guard the JSON.parse call
+//    before reading the envelope — see `IMFMCPClient.fetchData` JSDoc.
 const text = response.content[0]?.text ?? '';
-const sdmx = JSON.parse(text);
+let sdmx = null;
+if (text) {
+  try {
+    sdmx = JSON.parse(text);
+  } catch (error) {
+    console.error('Failed to parse IMF SDMX-JSON response:', error);
+  }
+}
+if (!sdmx) {
+  // Fallback path — record the gap in `intelligence/mcp-reliability-audit.md`
+  // and either retry, switch databases, or skip the indicator. Do NOT
+  // fabricate observations.
+  return;
+}
 ```
 
 The IMF REST endpoint returns an SDMX-JSON envelope. Parse it with any
