@@ -171,4 +171,56 @@ pie title Significance Score Dimension Weights
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/classification/significance-classification.md` · Template v1.1 · Depth floor: 105 lines.
+## 🛠️ Worked classification table — items in a hypothetical week
+
+| Item | Procedure | Total / 70 | Tier | Urgency | Sensitivity | Rationale |
+|---|---|:-:|:-:|:-:|:-:|---|
+| AI Act IA reg tabling | 2026/0142(COD) | 54 | Tier-1 | 🟠 URGENT | SENSITIVE | Cross-sectoral, 24-month implementation |
+| CRMA trilogue collapse | 2024/0123(COD) | 52 | Tier-1 | 🔴 CRITICAL | RESTRICTED | Window before recess; Council misalignment |
+| Cyber Resilience Package committee adoption | 2025/0017(COD) | 38 | Tier-2 | 🔵 ELEVATED | PUBLIC | Committee step, calendar normal |
+| ENVI minor F-gas update | 2026/0089(COD) | 17 | Tier-4 | ⚪ ROUTINE | PUBLIC | Technical update, consensus expected |
+| MEP open letter on UKR | n/a | 24 | Tier-3 | 🔵 ELEVATED | PUBLIC | Press signal, no procedural standing |
+| Trilogue informal contact (Council) | 2025/0089(COD) | 33 | Tier-2 | 🟠 URGENT | SENSITIVE | Negotiating leverage |
+
+**Top-3 items**: 1, 2, 5 (significance × urgency); these are surfaced in
+the article body. Tier-3 and -4 items are summarised in a single
+paragraph or moved to background-context appendix.
+
+## 🚫 Anti-patterns — significance-classification failures
+
+| Anti-pattern | Why it fails | Correct approach |
+|---|---|---|
+| Total without 7-dimension breakdown | Cannot be challenged | All 7 dimensions scored separately |
+| Tier label without total | Tier is derivative | Cite total before tier |
+| Same tier for everything | Loses analytic value | Distinguish ≥3 tiers per run |
+| No historical comparison | Lacks calibration | Compare to 30-day median + all-time top-5 |
+| Sensitivity field skipped | Operational risk | Always tag PUBLIC / SENSITIVE / RESTRICTED |
+| Confidence not expressed | Tradecraft fail | 🟢/🟡/🔴 per item |
+
+## 🎯 EP MCP tool inputs
+
+| Tool | Used for |
+|---|---|
+| `get_adopted_texts` | Item enumeration |
+| `get_procedures` | Procedure code |
+| `get_voting_records` | Coalition-arithmetic dimension |
+| `get_all_generated_stats` | Historical 30-day median |
+| Prior-run manifests | All-time top-5 baseline |
+
+## 🔗 Controlling methodology cross-references
+
+- [`../methodologies/political-classification-guide.md`](../methodologies/political-classification-guide.md) — 7-dimension rubric
+- [`significance-scoring.md`](significance-scoring.md) — companion (procedure-level)
+- [`political-classification.md`](political-classification.md) — file-level classification
+
+## ✅ Stage-C completeness signals
+
+- Line floor: 105 lines
+- ≥ 5 items classified
+- 7-dimension scoring per item
+- Historical comparison present
+- Confidence label per item
+
+---
+
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/classification/significance-classification.md` · Template v1.2 · Depth floor: 105 lines.

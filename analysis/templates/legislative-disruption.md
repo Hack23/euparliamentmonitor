@@ -189,4 +189,93 @@ Which EU‑27 clusters are most exposed to disruption of these procedures?
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/threat-assessment/legislative-disruption.md` · Template v2.1 · Depth floor: 140 lines · Mermaid diagrams: ≥2 (attack tree + counter‑measure map) · Reader briefing: required · Technique catalogue: ≥6 entries.
+## 🛠️ Worked technique catalogue — six legislative-disruption techniques
+
+Every entry is paired with detection signals AND counter-levers (no
+attack playbooks).
+
+### Technique 1: Amendment flooding (RoP 169/170)
+
+**Mechanism**: tabling 200+ amendments to a single file to overwhelm
+committee scrutiny capacity. **Detection**: amendments-per-rapporteur
+ratio > historical 90th percentile. **Counter-lever**: rapporteur can
+group amendments by topic; chair can rule manifestly inadmissible.
+
+### Technique 2: Procedural delay via committee-of-jurisdiction dispute
+
+**Mechanism**: contesting which committee has lead jurisdiction (e.g.
+ENVI vs ITRE on energy files), invoking RoP 56. **Detection**: dispute
+filed within 14 days of file referral; cross-coordinator memos visible
+in `get_committee_documents`. **Counter-lever**: Conference of Committee
+Chairs arbitration; CoP president decision under RoP 56.
+
+### Technique 3: Trilogue position withdrawal mid-negotiation
+
+**Mechanism**: negotiator withdraws political mandate forcing restart.
+**Detection**: `get_procedure_events` shows "trilogue suspended" event
+without Council-side reason. **Counter-lever**: rapporteur can request
+political-group-leaders' meeting; deadline pressure via plenary
+calendar.
+
+### Technique 4: Roll-call request to expose specific MEP positions
+
+**Mechanism**: RoP 209 RCV request used not for transparency but to
+pressure individual MEPs whose constituency may dislike the position.
+**Detection**: RCV requests on otherwise-uncontested votes; high
+correlation with subsequent national-press campaigns. **Counter-lever**:
+group whips can pre-warn MEPs; secret-ballot motion under RoP 211.
+
+### Technique 5: Question-bombing (PQ flood)
+
+**Mechanism**: coordinated WPQ campaign generating Commission workload
+to delay legislative response. **Detection**: 30+ WPQs on one topic from
+same group within 30 days (`get_parliamentary_questions`).
+**Counter-lever**: Commission can group answers; rapporteur can table
+own-initiative report to consolidate scrutiny.
+
+### Technique 6: Ethics-complaint weaponisation
+
+**Mechanism**: filing EP advisory committee complaints against
+rapporteurs to delay file. **Detection**: pattern of complaints
+timed to trilogue rounds; complainants from groups opposed to the file.
+**Counter-lever**: independent ethics advisory committee review;
+transparency-register cross-checks.
+
+## 🚫 Anti-patterns — legislative-disruption failures
+
+| Anti-pattern | Why it fails | Correct approach |
+|---|---|---|
+| Listing technique without counter-lever | Becomes attack playbook | Each technique paired with mitigation |
+| Naming a specific actor as disruptor | Defamation risk | Discuss techniques, not individuals |
+| Speculating about motive | OSINT scope | Behavioural signal only |
+| Counting normal procedure as disruption | False positive | Disruption = abuse of legitimate procedure |
+| Citing RoP without rule number | Unverifiable | "RoP 169" specific |
+| No detection signal | Technique unmonitored | ≥1 measurable indicator per technique |
+| Mermaid attack tree with no defence side | One-sided | Counter-measure map mandatory |
+
+## 🎯 EP MCP tool inputs
+
+| Tool | Used for |
+|---|---|
+| `get_procedures` + `get_procedure_events` | Detect procedural anomalies |
+| `get_committee_documents` | Amendment-flood detection |
+| `get_voting_records` (RCV requests) | Roll-call weaponisation detection |
+| `get_parliamentary_questions` | Question-bombing detection |
+| `track_legislation` | Trilogue-status timeline |
+
+## 🔗 Controlling methodology cross-references
+
+- [`../methodologies/political-threat-framework.md`](../methodologies/political-threat-framework.md)
+- [European Parliament Rules of Procedure](https://www.europarl.europa.eu/doceo/document/RULES-9-2024-12-16-TOC_EN.html) (specific RoP citations)
+
+## ✅ Stage-C completeness signals
+
+- Line floor: 140 lines
+- ≥ 6 technique entries with detection + counter-lever each
+- ≥ 2 Mermaid diagrams (attack tree + counter-measure map)
+- Ethical guard-rail explicit
+- RoP rule numbers cited where relevant
+
+---
+
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/threat-assessment/legislative-disruption.md` · Template v2.2 · Depth floor: 140 lines · Mermaid diagrams: ≥2 (attack tree + counter‑measure map) · Reader briefing: required · Technique catalogue: ≥6 entries.

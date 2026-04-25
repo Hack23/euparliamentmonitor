@@ -199,4 +199,78 @@ graph TD
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/wildcards-blackswans.md` · Template v1.1 · Depth floor: 275 lines.
+## 🛠️ Worked wildcards — three named EP-domain wildcards
+
+### Wildcard A: CJEU annulment of AI-Act on legal-base grounds
+
+**Probability**: 4% (very unlikely). **Impact**: 9/10.
+**Plausibility narrative**: an AI-Act CJEU referral on `Art 114 TFEU`
+proportionality could in principle annul or substantially limit the AI
+Act. Historical base rate for Art 114 annulment of major regulations is
+≤ 5% per decade. **Tripwire indicators**: ≥2 referrals filed in 2026;
+Advocate-General opinion published; oral hearing scheduled. **Pre-mortem
+mitigation**: maintain Art 169 TFEU consumer-protection sub-base as
+fallback; Commission already prepared dual-base argument.
+
+### Wildcard B: Hungarian veto cascade across 4+ files
+
+**Probability**: 4% (very unlikely). **Impact**: 8/10.
+**Plausibility narrative**: HUN has used unanimity blocks individually in
+2024-25 but a cascade would require either a domestic political shift
+(elections) or a coordinated HUN-PfE EU-level strategy. **Tripwire
+indicators**: HUN bilateral meetings with non-EU actors increase; PfE
+coordination meetings escalate; HUN withdraws from cohesion-policy file.
+**Mitigation**: build parallel coalitions of the willing (enhanced
+cooperation under Art 20 TEU); use majority-voting files where possible.
+
+### Wildcard C: Major external shock displacing EP agenda for 2+ months
+
+**Probability**: 5% (unlikely). **Impact**: 7/10.
+**Plausibility narrative**: a black-swan external event (energy crisis,
+geopolitical conflict, pandemic) forces EP to reprioritise. Base rate
+~5%/year given recent 2020-2024 precedents. **Tripwire indicators**:
+ECB emergency convened; emergency Council called; rule-of-procedure 165
+urgent debate scheduled. **Mitigation**: business-continuity plan exists
+under RoP and Bureau decisions; calendar-recovery plans pre-positioned.
+
+## 🚫 Anti-patterns — wildcards-blackswans failures
+
+| Anti-pattern | Why it fails | Correct approach |
+|---|---|---|
+| Probability > 5% | Not a wildcard — it's a scenario | Move to `scenario-forecast.md` |
+| Impact < 7/10 | Not a black swan — it's a risk | Move to `risk-matrix.md` |
+| Wildcard with no plausibility narrative | Speculation | Each wildcard ≥ 100 words plausibility prose |
+| No tripwire indicators | Cannot be monitored | ≥3 monitorable indicators per wildcard |
+| Listing > 5 wildcards | Loses focus | Cap at 3-5 named wildcards |
+| Wildcard repeated across runs without re-evaluation | Stale artifact | Re-evaluate probability every run |
+| No mitigation hint | Wildcard unactionable | At least one pre-positioned mitigation |
+| "Catastrophic event" generic | Too vague | Wildcard must be specifically named |
+
+## 🎯 EP MCP tool inputs
+
+| Tool | Used for |
+|---|---|
+| `track_legislation` | File-level legal-base risk |
+| `get_procedures` | Procedure-level vulnerability |
+| `get_plenary_sessions` | Calendar-displacement risk |
+| External: CJEU docket, Council press | Wildcard surfacing |
+
+## 🔗 Controlling methodology cross-references
+
+- [`../methodologies/strategic-extensions-methodology.md §Wildcards & Black Swans`](../methodologies/strategic-extensions-methodology.md)
+- [`scenario-forecast.md`](scenario-forecast.md) — for higher-probability scenarios
+- [`risk-matrix.md`](risk-matrix.md) — for medium-impact risks
+
+## ✅ Stage-C completeness signals
+
+- Line floor: 275 lines
+- 3-5 named wildcards
+- Each: probability ≤ 5% AND impact ≥ 7/10
+- Each: plausibility narrative ≥ 100 words
+- Each: ≥3 tripwire indicators
+- Each: ≥1 mitigation lever
+- Confidence rationale notes that probability is low-confidence by definition
+
+---
+
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/wildcards-blackswans.md` · Template v1.2 · Depth floor: 275 lines.
