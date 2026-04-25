@@ -26,7 +26,7 @@ function run(runDir, extraArgs = []) {
   };
 }
 
-function makeArtifact(lines, opts = {}) {
+function makeArtifact(targetLines, opts = {}) {
   const headers = opts.h2 || ['Section A', 'Section B'];
   const body = [];
   body.push('# Title');
@@ -47,9 +47,17 @@ function makeArtifact(lines, opts = {}) {
   if (opts.wep) body.push('Almost Certain (WEP: 95%+).');
   if (opts.admiralty) body.push('| Source | A1 | EP plenary record |');
   if (opts.bluf) body.push('BLUF: thing happens.');
-  // pad to required line count
-  while (body.length < lines) body.push(`Filler line ${body.length}`);
-  return body.join('\n') + '\n';
+  // Pad to EXACTLY targetLines (each entry becomes one line in the joined
+  // string + trailing newline; the file's `lines` count equals body.length).
+  while (body.length < targetLines) body.push(`Filler line ${body.length}`);
+  // If we somehow over-shot (e.g. caller passed a tiny target), trim — but
+  // never below the structural minimum of 5 lines so the file remains a
+  // recognisable artifact.
+  while (body.length > targetLines && body.length > 5) body.pop();
+  // Join WITHOUT a trailing newline so the file's reported line count equals
+  // body.length exactly (validator uses `body.split('\n').length`, which would
+  // otherwise produce an extra empty trailing element).
+  return body.join('\n');
 }
 
 describe('scripts/validate-analysis-completeness.js', () => {
@@ -185,7 +193,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
       'utf8',
     );
     const result = runHere();
-    expect(result.stderr).toMatch(/short:50<200|short:51<200/);
+    expect(result.stderr).toMatch(/short:50<200/);
     expect(result.stdout).toMatch(/short=1/);
   });
 

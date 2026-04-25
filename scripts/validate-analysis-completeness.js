@@ -452,13 +452,17 @@ function summarize(results) {
       missing += 1;
       continue;
     }
+    // Count placeholders exactly once per artifact, regardless of how many
+    // issue strings reference them — the artifact owns the placeholders array.
+    placeholders += (r.placeholders?.length ?? 0);
     let counted = false;
     for (const issue of r.issues) {
       if (issue.startsWith('short:')) {
         short += 1;
         counted = true;
       } else if (issue.startsWith('placeholders:')) {
-        placeholders += r.placeholders.length;
+        // Already counted above; just mark that we accounted for this issue
+        // string so it doesn't fall through to `other`.
         counted = true;
       } else if (issue === 'mermaid:missing') {
         mermaidMissing += 1;
