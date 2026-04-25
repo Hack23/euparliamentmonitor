@@ -511,6 +511,40 @@ describe('ep-mcp-client', () => {
         expect(client.callTool).toHaveBeenCalledWith('monitor_legislative_pipeline', options);
       });
 
+      it('should pass no dates to the underlying tool when none supplied (opts-in to server default)', async () => {
+        // Verify Stage-A contract: calling without dateFrom/dateTo does NOT
+        // inject any date arguments into the MCP call. The server is responsible
+        // for applying the rolling last-30-days default (v1.2.14+).
+        // v1.2.13 still returns period: { from: "2024-01-01", to: "2024-12-31" }
+        // which is why Stage-A prompts must supply explicit dates for now.
+        const today = new Date().toISOString().slice(0, 10);
+        const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)
+          .toISOString()
+          .slice(0, 10);
+        client.callTool.mockResolvedValue({
+          content: [
+            {
+              type: 'text',
+              text: JSON.stringify({
+                period: { from: thirtyDaysAgo, to: today },
+                pipeline: [],
+                summary: { totalProcedures: 0 },
+              }),
+            },
+          ],
+        });
+
+        const result = await client.monitorLegislativePipeline();
+
+        // No date params injected by the client wrapper
+        expect(client.callTool).toHaveBeenCalledWith('monitor_legislative_pipeline', {});
+
+        // Response period matches the last-30-days window (v1.2.14+ server default)
+        const data = JSON.parse(result.content[0].text);
+        expect(data.period.to).toBe(today);
+        expect(data.period.from).toBe(thirtyDaysAgo);
+      });
+
       it('should handle missing legislative pipeline tool gracefully', async () => {
         client.callTool.mockRejectedValue(new Error('Tool not available'));
 

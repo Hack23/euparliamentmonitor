@@ -120,11 +120,22 @@ xychart-beta
 
 `[REQUIRED: note any changes in MCP endpoint behavior, data collection methodology, or calculation formulas between baseline period and current run that affect comparability.]`
 
+> **⚠️ `monitor_legislative_pipeline` period calibration (Defect #6):** Runs
+> produced before the v1.2.14+ MCP server upgrade (or any run where no
+> `dateFrom`/`dateTo` was passed to v1.2.13) reported
+> `period: { from: "2024-01-01", to: "2024-12-31" }` and
+> `summary.totalProcedures: 0`. Any legislative-velocity or pipeline-health
+> metric collected under the old default is **not comparable** to metrics from
+> runs that supplied explicit rolling-window dates. Flag affected runs in the
+> cohort table (§4) and exclude them from trajectory calculations until a
+> consistent 5-run baseline is re-established.
+
 ---
 
 ## 7️⃣ Data Sources
 
-**EP MCP tools used:** `get_all_generated_stats`, `monitor_legislative_pipeline`, `compare_political_groups`
+**EP MCP tools used:** `get_all_generated_stats`, `monitor_legislative_pipeline({ dateFrom: $LAST_MONTH, dateTo: $TODAY })`, `compare_political_groups`
+> **Note:** Pass explicit `dateFrom`/`dateTo` to `monitor_legislative_pipeline` — v1.2.13 defaults to calendar 2024 (empty pipeline). See §6️⃣ data-source consistency note.
 
 **Prior runs consulted:**
 

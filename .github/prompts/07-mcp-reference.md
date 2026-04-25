@@ -85,6 +85,20 @@ Timeframes: `"today"`, `"one-day"`, `"one-week"`, `"one-month"`, `"custom"`
 `sentiment_tracker`, `comparative_intelligence`, `generate_report`
 (MEP activity / committee performance / voting / legislation reports).
 
+> **⚠️ `monitor_legislative_pipeline` period default (Defect #6 — v1.2.13):**
+> When invoked **without** `dateFrom`/`dateTo`, v1.2.13 reports
+> `period: { from: "2024-01-01", to: "2024-12-31" }` and returns an empty
+> pipeline for virtually every call because calendar-2024 procedures are no
+> longer active. **Always supply explicit dates in Stage-A calls:**
+>
+> ```
+> monitor_legislative_pipeline({ dateFrom: $LAST_MONTH, dateTo: $TODAY, status: "ACTIVE", limit: 20 })
+> ```
+>
+> For `week-ahead` / `month-ahead` workflows that need a forward-looking window,
+> use the next-week or next-month date span instead. The v1.2.14+ upstream fix
+> defaults to a rolling last-30-days window but is not yet released on npm.
+
 ## 5 · Common Parameter Mistakes (v1.2.13)
 
 | ❌ Wrong | ✅ Correct |
@@ -101,6 +115,7 @@ Timeframes: `"today"`, `"one-day"`, `"one-week"`, `"one-month"`, `"custom"`
 | `get_speeches({ year })` | `get_speeches({ dateFrom, dateTo })` |
 | `get_committee_documents({ year })` | `get_committee_documents({ limit: 50 })` |
 | `get_external_documents({ year })` | `get_external_documents({ limit: 50 })` |
+| `monitor_legislative_pipeline({})` *(v1.2.13 omitting dates returns 2024 period, empty pipeline)* | `monitor_legislative_pipeline({ dateFrom: $LAST_MONTH, dateTo: $TODAY, status: "ACTIVE", limit: 20 })` |
 
 ## 6 · EP Reliability Matrix
 
