@@ -1,4 +1,14 @@
+<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+
 # IMF Indicator → Article Type Mapping
+
+**📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Last Updated:** 2026-04-25 (UTC)  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-31  
+**🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public  
+**🔗 Mirror file:** [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md) (non-economic domains — Wave-4 partition)  
+**📥 Feeds artifact:** [`economic-context.md`](../templates/economic-context.md) (Stage B.6, [`strategic-extensions-methodology.md`](strategic-extensions-methodology.md) §Economic Context)  
+**🛂 Wave-2 OR-gate:** A policy-required article passes the economic-context gate when **either** an IMF indicator from this mapping **or** a World Bank non-economic indicator (per the mirror file) is cited with vintage and Admiralty grade. IMF coverage of a fiscal/monetary/trade claim is the strongly preferred path; WB is the fallback when IMF coverage is absent for a given indicator/year.
 
 **Purpose**: Canonical reference that maps European Parliament Monitor
 article types to the most-relevant IMF indicators sourced from WEO,

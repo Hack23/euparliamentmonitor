@@ -8,19 +8,19 @@
 <h1 align="center">📋 EU Parliament Monitor — Analysis Templates</h1>
 
 <p align="center">
-  <strong>📊 39 Structured Intelligence Templates for AI-Driven Political Analysis</strong><br>
-  <em>🎯 14 Agentic-Workflow Templates (incl. 6 reusable framework templates) + 25 Per-Artifact Templates — covering every unique <code>.md</code> file produced under <code>analysis/daily/</code></em>
+  <strong>📊 51 Structured Intelligence Templates for AI-Driven Political Analysis</strong><br>
+  <em>🎯 8 split-family workflow-anchor templates (incl. 6 reusable framework templates) + 31 per-artifact templates + 12 extended deep-intelligence templates — covering every unique <code>.md</code> file produced under <code>analysis/daily/</code></em>
 </p>
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-3.1-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--06-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-3.2-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--25-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 3.1 | **📅 Last Updated:** 2026-04-06 (UTC)
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
+**📋 Document Owner:** CEO | **📄 Version:** 3.2 | **📅 Last Updated:** 2026-04-25 (UTC)
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-31
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
 ---
@@ -951,12 +951,12 @@ Each article type should produce unique analytical sections in its synthesis tha
 | **Document ID** | `TMPL-README-001` |
 | **Title** | Analysis Templates — Directory Documentation |
 | **Owner** | CEO |
-| **Version** | 3.1 |
+| **Version** | 3.2 |
 | **Classification** | Public |
 | **Created** | 2026-03-30 |
-| **Last Updated** | 2026-04-06 |
+| **Last Updated** | 2026-04-25 |
 | **Review Cycle** | Quarterly |
-| **Next Review** | 2026-06-30 |
+| **Next Review** | 2026-07-31 |
 | **Organisation** | Hack23 AB (Org.nr 5595347807) |
 | **Approved By** | CEO |
 
@@ -964,6 +964,7 @@ Each article type should produce unique analytical sections in its synthesis tha
 
 | Version | Date | Changes |
 |:-------:|------|---------|
+| **3.2** | 2026-04-25 | Coherent v3.2 release across `analysis/methodologies/` + `analysis/templates/`. Headline corrected from “39 templates” to “51 templates” (8 split-family + 31 per-artifact + 12 extended). Cross-references between every template and its controlling `### section` in `per-artifact-methodologies.md` verified bidirectional. Stage-C validator status corrected — `npm run validate-analysis` (`scripts/validate-analysis-completeness.js`) is the active completeness gate; only the duplicate `src/utils/validate-analysis-completeness.ts` was purged. Badge dates and Next-Review aligned with methodology release. No template line-floor was lowered. |
 | **3.1** | 2026-04-06 | Cross-session intelligence & quality gate enhancements across all 8 templates — see details below |
 | **3.0** | 2026-03-31 | Initial master README consolidating all 8 templates with ISMS alignment |
 

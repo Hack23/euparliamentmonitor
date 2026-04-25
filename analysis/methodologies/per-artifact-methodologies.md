@@ -14,13 +14,13 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.1-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--21-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.2-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--25-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Last Updated:** 2026-04-21 (UTC)
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
+**📋 Document Owner:** CEO | **📄 Version:** 1.2 | **📅 Last Updated:** 2026-04-25 (UTC)
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-31
 
 ---
 
@@ -935,5 +935,5 @@ When authoring a run from scratch, always use the canonical folder names; when r
 **Document Control:**
 - **Path:** `/analysis/methodologies/per-artifact-methodologies.md`
 - **Classification:** Public
-- **Version:** 1.2 — v1.2 (2026-04-23) adds `extended/` folder with 12 optional deep-intelligence artifacts (executive-brief, devils-advocate-analysis, historical-parallels, coalition-mathematics, forward-indicators, intelligence-assessment, implementation-feasibility, media-framing-analysis, comparative-international, cross-reference-map, data-download-manifest, voter-segmentation) from the riksdagsmonitor port. v1.1 added voting-patterns, workflow-audit, cross-session-intelligence, deep-analysis, session-baseline and documented the `existing/` legacy folder + `risk/` folder variant. v1.0 was initial per-artifact construction rules extracted from Run 184 reference benchmark.
-- **Next Review:** 2026-06-30
+- **Version:** 1.3 — v1.2 (2026-04-23) adds `extended/` folder with 12 optional deep-intelligence artifacts (executive-brief, devils-advocate-analysis, historical-parallels, coalition-mathematics, forward-indicators, intelligence-assessment, implementation-feasibility, media-framing-analysis, comparative-international, cross-reference-map, data-download-manifest, voter-segmentation) from the riksdagsmonitor port. v1.1 added voting-patterns, workflow-audit, cross-session-intelligence, deep-analysis, session-baseline and documented the `existing/` legacy folder + `risk/` folder variant. v1.0 was initial per-artifact construction rules extracted from Run 184 reference benchmark.
+- **Next Review:** 2026-07-31

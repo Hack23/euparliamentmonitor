@@ -146,4 +146,4 @@ No "TBD" rows in inventory: `[REQUIRED: ✅ none / ⚠️ count]`
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/analysis-index.md` · Template v1.0 · Depth floor: 160 lines.
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/analysis-index.md` · Template v1.1 · Depth floor: 160 lines.

@@ -132,4 +132,4 @@ Identify the **single most strategically concentrated session** of the period an
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/cross-session-intelligence.md` · Template v1.0 · Depth floor: 220 lines (motions quarterly-scope runs), 150 lines (week-in-review / month-in-review).
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/cross-session-intelligence.md` · Template v1.1 · Depth floor: 220 lines (motions quarterly-scope runs), 150 lines (week-in-review / month-in-review).

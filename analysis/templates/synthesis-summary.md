@@ -11,12 +11,12 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.3-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--10-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.4-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--25-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.3 | **📅 Last Updated:** 2026-04-10 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 1.4 | **📅 Last Updated:** 2026-04-25 (UTC)
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
 > **📌 Template Instructions:** This template synthesizes the outputs of all other analysis templates into a single intelligence summary. Copy to `analysis/daily/{date}/{article-type-slug}/` and save as `synthesis-summary.md`. This file is consumed by the news article generators to determine narrative direction.
@@ -479,10 +479,10 @@ flowchart LR
 
 **Document Control:**
 - **Template Path:** `/analysis/templates/synthesis-summary.md`
-- **Version:** 1.4
+- **Version:** 1.5
 - **What's New in 1.4:** Top-Findings table gains WEP Band + Admiralty Grade columns (per [`osint-tradecraft-standards.md`](../methodologies/osint-tradecraft-standards.md) §2 + §3.1). Every synthesis headline judgement must now express probability as a WEP band and cite the primary source with an Admiralty grade.
 - **What's New in 1.3:** Cross-Method Intelligence Correlation section with integrated intelligence nuggets, framework signal summary, convergence/contradiction assessment; Cross-Article-Type Intelligence / Rule 18 compliance section
 - **What's New in 1.2:** AI-Generated Article Metadata section (mandatory --title and --description for article generator)
 - **Consumed By:** All news article generator workflows
 - **Classification:** Public
-- **Next Review:** 2026-06-30
+- **Next Review:** 2026-07-31

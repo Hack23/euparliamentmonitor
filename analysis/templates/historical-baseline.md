@@ -150,4 +150,4 @@ xychart-beta
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/historical-baseline.md` · Template v1.0 · Depth floor: 190 lines.
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/historical-baseline.md` · Template v1.1 · Depth floor: 190 lines.

@@ -157,4 +157,4 @@ Who briefs whom, who leaks to whom, who has cross‑institutional access (Counci
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/classification/actor-mapping.md` · Template v2.0 · Depth floor: 130 lines · Mermaid diagrams: ≥2 · Reader briefing: required.
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/classification/actor-mapping.md` · Template v2.1 · Depth floor: 130 lines · Mermaid diagrams: ≥2 · Reader briefing: required.

@@ -189,4 +189,4 @@ Which EU‑27 clusters are most exposed to disruption of these procedures?
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/threat-assessment/legislative-disruption.md` · Template v2.0 · Depth floor: 140 lines · Mermaid diagrams: ≥2 (attack tree + counter‑measure map) · Reader briefing: required · Technique catalogue: ≥6 entries.
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/threat-assessment/legislative-disruption.md` · Template v2.1 · Depth floor: 140 lines · Mermaid diagrams: ≥2 (attack tree + counter‑measure map) · Reader briefing: required · Technique catalogue: ≥6 entries.

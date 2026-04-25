@@ -173,4 +173,4 @@ Which committees are pulling the pipeline forward, and which are holding it back
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/risk-scoring/legislative-velocity-risk.md` · Template v2.0 · Depth floor: 130 lines · Mermaid diagrams: ≥2 (throughput timeline + bottleneck flowchart) · Reader briefing: required.
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/risk-scoring/legislative-velocity-risk.md` · Template v2.1 · Depth floor: 130 lines · Mermaid diagrams: ≥2 (throughput timeline + bottleneck flowchart) · Reader briefing: required.

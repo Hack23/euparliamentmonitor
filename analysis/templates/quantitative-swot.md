@@ -124,4 +124,4 @@ quadrantChart
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/risk-scoring/quantitative-swot.md` · Template v1.0 · Depth floor: 140 lines.
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/risk-scoring/quantitative-swot.md` · Template v1.1 · Depth floor: 140 lines.

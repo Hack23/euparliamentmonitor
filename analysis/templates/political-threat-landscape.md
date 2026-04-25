@@ -139,4 +139,4 @@ graph TD
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/political-threat-landscape.md` · Template v1.0 · Depth floor: 90 lines.
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/political-threat-landscape.md` · Template v1.1 · Depth floor: 90 lines.

@@ -143,4 +143,4 @@ quadrantChart
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/risk-scoring/risk-matrix.md` · Template v1.0 · Depth floor: 150 lines.
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/risk-scoring/risk-matrix.md` · Template v1.1 · Depth floor: 150 lines.

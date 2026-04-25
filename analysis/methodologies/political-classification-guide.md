@@ -9,8 +9,8 @@
   <em>🎯 Sensitivity · Domain Taxonomy · Urgency Matrix · Impact Assessment</em>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.1 | **📅 Last Updated:** 2026-04-06 (UTC)
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
+**📋 Document Owner:** CEO | **📄 Version:** 2.2 | **📅 Last Updated:** 2026-04-25 (UTC)
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-31
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
 ---

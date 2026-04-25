@@ -162,4 +162,4 @@ For each group: cohesion, defection highlights, sample votes.
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/voting-patterns.md` · Template v1.0 · Depth floor: per article-type minimum defined in [`../methodologies/reference-quality-thresholds.json`](../methodologies/reference-quality-thresholds.json) (authoritative — e.g. breaking 150, week-in-review 150, month-in-review 180, motions 200).
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/voting-patterns.md` · Template v1.1 · Depth floor: per article-type minimum defined in [`../methodologies/reference-quality-thresholds.json`](../methodologies/reference-quality-thresholds.json) (authoritative — e.g. breaking 150, week-in-review 150, month-in-review 180, motions 200).

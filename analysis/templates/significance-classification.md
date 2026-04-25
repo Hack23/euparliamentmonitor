@@ -171,4 +171,4 @@ pie title Significance Score Dimension Weights
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/classification/significance-classification.md` · Template v1.0 · Depth floor: 105 lines.
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/classification/significance-classification.md` · Template v1.1 · Depth floor: 105 lines.

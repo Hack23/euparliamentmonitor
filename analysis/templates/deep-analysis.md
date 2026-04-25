@@ -174,4 +174,4 @@ Close by explaining how the analysis was built: which EP MCP endpoints succeeded
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/existing/deep-analysis.md` · Template v1.0 · Depth floor: per article-type minimum defined in [`reference-quality-thresholds.json`](../methodologies/reference-quality-thresholds.json) (authoritative — e.g. motions 400, month-in-review 300, week-in-review 200).
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/existing/deep-analysis.md` · Template v1.1 · Depth floor: per article-type minimum defined in [`reference-quality-thresholds.json`](../methodologies/reference-quality-thresholds.json) (authoritative — e.g. motions 400, month-in-review 300, week-in-review 200).

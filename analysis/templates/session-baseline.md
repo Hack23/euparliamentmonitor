@@ -149,4 +149,4 @@ gantt
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/{existing|intelligence}/session-baseline.md` · Template v1.0 · Depth floor: per article-type minimum defined in [`reference-quality-thresholds.json`](../methodologies/reference-quality-thresholds.json) (authoritative — e.g. motions 200, month-in-review 180).
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/{existing|intelligence}/session-baseline.md` · Template v1.1 · Depth floor: per article-type minimum defined in [`reference-quality-thresholds.json`](../methodologies/reference-quality-thresholds.json) (authoritative — e.g. motions 200, month-in-review 180).

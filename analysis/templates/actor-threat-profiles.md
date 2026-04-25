@@ -184,4 +184,4 @@ For each top‑severity actor, how the EP / Commission / member states could det
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/threat-assessment/actor-threat-profiles.md` · Template v2.0 · Depth floor: 140 lines · Mermaid diagrams: ≥3 (quadrant + per‑actor diamond + relationship map) · Reader briefing: required.
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/threat-assessment/actor-threat-profiles.md` · Template v2.1 · Depth floor: 140 lines · Mermaid diagrams: ≥3 (quadrant + per‑actor diamond + relationship map) · Reader briefing: required.

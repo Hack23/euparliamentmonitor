@@ -177,4 +177,4 @@ For each tree, identify the earliest branch where intervention can prevent escal
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/threat-assessment/consequence-trees.md` · Template v2.0 · Depth floor: 150 lines · Mermaid diagrams: ≥4 (one tree per threat + convergence map) · Reader briefing: required.
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/threat-assessment/consequence-trees.md` · Template v2.1 · Depth floor: 150 lines · Mermaid diagrams: ≥4 (one tree per threat + convergence map) · Reader briefing: required.

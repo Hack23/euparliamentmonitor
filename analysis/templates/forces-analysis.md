@@ -170,4 +170,4 @@ For each leverage point: what to push, who pushes it, when, and what indicates s
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/classification/forces-analysis.md` · Template v2.0 · Depth floor: 120 lines · Mermaid diagrams: ≥2 · Reader briefing: required.
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/classification/forces-analysis.md` · Template v2.1 · Depth floor: 120 lines · Mermaid diagrams: ≥2 · Reader briefing: required.

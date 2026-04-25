@@ -199,4 +199,4 @@ graph TD
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/wildcards-blackswans.md` · Template v1.0 · Depth floor: 275 lines.
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/wildcards-blackswans.md` · Template v1.1 · Depth floor: 275 lines.

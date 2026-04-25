@@ -369,9 +369,9 @@ After establishing the baseline, assess the percentile position of this score:
 
 **Document Control:**
 - **Template Path:** `/analysis/templates/significance-scoring.md`
-- **Version:** 2.2
+- **Version:** 2.3
 - **Advanced Features (v2.2):** Historical Significance Baseline Comparison (Section 5), domain-specific baseline anchors, significance percentile assessment, mandatory baseline narrative for scores ≥7.0
 - **Advanced Features (v2.1):** Composite Score Calculation, Publication Decision Thresholds, Publication Decision Tree (Mermaid), EP Calendar Awareness, Significance Trend Tracking
 - **Framework Reference:** [methodologies/ai-driven-analysis-guide.md](../methodologies/ai-driven-analysis-guide.md)
 - **Classification:** Public
-- **Next Review:** 2026-06-30
+- **Next Review:** 2026-07-31

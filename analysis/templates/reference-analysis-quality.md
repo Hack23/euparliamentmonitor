@@ -194,4 +194,4 @@ flowchart LR
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/reference-analysis-quality.md` · Template v1.0 · Depth floor: 190 lines.
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/reference-analysis-quality.md` · Template v1.1 · Depth floor: 190 lines.

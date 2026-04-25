@@ -9,8 +9,8 @@
   <em>🎯 MCP Sources · Confidence Levels · Aggregation · Temporal Decay</em>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.2 | **📅 Last Updated:** 2026-04-10 (UTC)
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
+**📋 Document Owner:** CEO | **📄 Version:** 2.3 | **📅 Last Updated:** 2026-04-25 (UTC)
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-31
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
 ---
@@ -437,5 +437,5 @@ quadrantChart
 - **Path:** `/analysis/methodologies/political-swot-framework.md`
 - **Adapted from:** [Riksdagsmonitor SWOT framework](https://github.com/Hack23/riksdagsmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - **Classification:** Public
-- **Version:** 2.2 — Bumped version to 2.2; Added Advanced Technique 0 (Mandatory Evidence Citation Format per SWOT Item), Advanced Technique 5 (Temporal SWOT — Current vs. 90-Day Projected)
-- **Next Review:** 2026-06-30
+- **Version:** 2.3 — Bumped version to 2.2; Added Advanced Technique 0 (Mandatory Evidence Citation Format per SWOT Item), Advanced Technique 5 (Temporal SWOT — Current vs. 90-Day Projected)
+- **Next Review:** 2026-07-31

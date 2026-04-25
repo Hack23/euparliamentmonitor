@@ -160,4 +160,4 @@ quadrantChart
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/stakeholder-map.md` · Template v1.0 · Depth floor: 305 lines.
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/stakeholder-map.md` · Template v1.1 · Depth floor: 305 lines.

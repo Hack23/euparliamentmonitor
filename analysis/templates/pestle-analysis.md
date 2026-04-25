@@ -193,4 +193,4 @@ mindmap
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/pestle-analysis.md` · Template v1.0 · Depth floor: 250 lines.
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/pestle-analysis.md` · Template v1.1 · Depth floor: 250 lines.

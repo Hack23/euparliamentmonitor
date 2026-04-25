@@ -11,13 +11,13 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-2.4-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--18-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-2.5-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--25-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.4 | **📅 Last Updated:** 2026-04-18 (UTC)
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
+**📋 Document Owner:** CEO | **📄 Version:** 2.5 | **📅 Last Updated:** 2026-04-25 (UTC)
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-31
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
 ---
@@ -325,7 +325,7 @@ Every analysis artifact must include:
   <img src="https://hack23.com/icon-192.png" alt="Hack23 Logo" width="192" height="192">
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.0 | **📅 Analysis Date:** YYYY-MM-DD HH:MM UTC
+**📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Analysis Date:** YYYY-MM-DD HH:MM UTC
 **🏢 Owner:** Hack23 AB | **🏷️ Classification:** [PUBLIC/SENSITIVE/RESTRICTED]
 ```
 
@@ -606,7 +606,7 @@ All analysis produced in English serves as the source for 13 additional language
 - **Path:** `/analysis/methodologies/political-style-guide.md`
 - **ISMS Reference:** [STYLE_GUIDE.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/STYLE_GUIDE.md)
 - **Classification:** Public
-- **Version:** 2.5 — Added §Estimative Language & Source Grading codifying ICD 203 BLUF/confidence format, Kent/WEP probability bands with mandatory time horizons, Admiralty source grading (A1–F6), and Pass-2 reviewer checklist. Cross-links `osint-tradecraft-standards.md` as the normative contract; this guide is the style contract.
-- **Version:** 2.4 — Added universal mermaid init block (mandatory for all `graph`/`flowchart`/`mindmap`/`pie`/`gantt`/`timeline`/`sequenceDiagram`/`stateDiagram`/`classDiagram`/`erDiagram`/`gitGraph`/`xychart-beta`/`C4Context`/`block-beta` diagrams) covering `pie1`–`pie12`, `git0`–`git3`, `cScale0`–`cScale7`, `noteBkgColor`, `errorBkgColor`, and xyChart `plotColorPalette` so every diagram inherits the canonical ISMS palette without per-diagram styling. Added node-icon authoring rule.
-- **Version:** 2.3 — Added classification-aligned Mermaid colour palette, mandatory `quadrantChart` init block (per ISMS STYLE_GUIDE.md stakeholder-mapping format), `classDef` snippet for graph/flowchart diagrams, and quadrant-icon labelling rules
-- **Next Review:** 2026-06-30
+- **Version:** 2.6 — Added §Estimative Language & Source Grading codifying ICD 203 BLUF/confidence format, Kent/WEP probability bands with mandatory time horizons, Admiralty source grading (A1–F6), and Pass-2 reviewer checklist. Cross-links `osint-tradecraft-standards.md` as the normative contract; this guide is the style contract.
+- **Version:** 2.5 — Added universal mermaid init block (mandatory for all `graph`/`flowchart`/`mindmap`/`pie`/`gantt`/`timeline`/`sequenceDiagram`/`stateDiagram`/`classDiagram`/`erDiagram`/`gitGraph`/`xychart-beta`/`C4Context`/`block-beta` diagrams) covering `pie1`–`pie12`, `git0`–`git3`, `cScale0`–`cScale7`, `noteBkgColor`, `errorBkgColor`, and xyChart `plotColorPalette` so every diagram inherits the canonical ISMS palette without per-diagram styling. Added node-icon authoring rule.
+- **Version:** 2.4 — Added classification-aligned Mermaid colour palette, mandatory `quadrantChart` init block (per ISMS STYLE_GUIDE.md stakeholder-mapping format), `classDef` snippet for graph/flowchart diagrams, and quadrant-icon labelling rules
+- **Next Review:** 2026-07-31

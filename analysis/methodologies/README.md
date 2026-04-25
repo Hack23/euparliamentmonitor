@@ -5,20 +5,20 @@
 <h1 align="center">📐 EU Parliament Monitor — Analysis Methodologies</h1>
 
 <p align="center">
-  <strong>📊 Seven Comprehensive Political Intelligence Frameworks for European Parliament Analysis</strong><br>
-  <em>🎯 Classification · Risk · Threat Landscape · SWOT · Style · AI Quality · OSINT / INTOP Tradecraft</em>
+  <strong>📊 Fourteen Interlocking Political Intelligence Methodologies for European Parliament Analysis</strong><br>
+  <em>🎯 Seven core frameworks (Classification · Risk · Threat · SWOT · Style · AI Quality · OSINT) + seven supporting methodologies (Synthesis · Strategic Extensions · Per-Document · Structural Metadata · Electoral Domain · IMF + World Bank Indicator Mappings) governing all 51 analysis templates</em>
 </p>
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-3.1-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--06-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-3.2-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--25-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 3.1 | **📅 Last Updated:** 2026-04-06 (UTC)
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
+**📋 Document Owner:** CEO | **📄 Version:** 3.2 | **📅 Last Updated:** 2026-04-25 (UTC)
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-31
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
 ---
@@ -280,9 +280,9 @@ graph LR
 
 | Attribute | Value |
 |-----------|-------|
-| **Purpose** | Master map between the 39 templates in [`analysis/templates/`](../templates/README.md) and the methodologies above; names the canonical run-relative path for every artifact |
+| **Purpose** | Master map between the 51 templates in [`analysis/templates/`](../templates/README.md) and the methodologies above; names the canonical run-relative path for every artifact |
 | **Used by** | [`02-analysis-protocol.md`](../../.github/prompts/02-analysis-protocol.md) (Stage B) and [`03-analysis-completeness-gate.md`](../../.github/prompts/03-analysis-completeness-gate.md) (Stage C) |
-| **Enforcement** | Editorial at Stage-C completeness review — every artifact path declared here is verified by the agentic-workflow reviewer before PR creation. The legacy runtime validator (`scripts/utils/validate-analysis-completeness.js`) was purged in the April-2026 aggregator-pipeline migration. |
+| **Enforcement** | Stage-C completeness gate — `npm run validate-analysis -- <runDir>` ([`scripts/validate-analysis-completeness.js`](../../scripts/validate-analysis-completeness.js)) reads this catalog plus `reference-quality-thresholds.json` and fails the agentic run with exit code 1 if any artifact is missing, below the line floor, lacks a mandatory Mermaid block, or shows placeholder leakage. The duplicate `src/utils/validate-analysis-completeness.ts` runtime layer was purged in the April-2026 aggregator-pipeline migration; the surviving CLI is the Stage-C source of truth. |
 
 ### 🧪 Per-Artifact Methodologies — `per-artifact-methodologies.md`
 
@@ -297,7 +297,7 @@ graph LR
 | Attribute | Value |
 |-----------|-------|
 | **Purpose** | Machine-readable per-artifact line-floor and depth-floor thresholds |
-| **Consumed by** | Stage-C editorial completeness review — the agentic-workflow reviewer reads this JSON to confirm every artifact meets its line/depth floor before creating the PR. The legacy runtime CLI (`npm run validate-analysis`, backed by `validate-analysis-completeness.js`) was purged in the April-2026 aggregator-pipeline migration. |
+| **Consumed by** | Stage-C completeness gate — `npm run validate-analysis -- <runDir>` ([`scripts/validate-analysis-completeness.js`](../../scripts/validate-analysis-completeness.js)) reads this JSON in machine mode to confirm every artifact meets its line/depth floor before the agentic-workflow reviewer creates the PR. Hermetic tests pass `--thresholds` to inject fixture floors. The duplicate `src/utils/validate-analysis-completeness.ts` runtime layer was purged in the April-2026 aggregator-pipeline migration. |
 | **Update cadence** | Bumped whenever `per-artifact-methodologies.md` tightens or loosens a floor; the two files must stay in lock-step |
 
 ### 💱 IMF Indicator Mapping — `imf-indicator-mapping.md` (primary economic source — Wave-4)
@@ -314,7 +314,7 @@ graph LR
 | **Purpose** | Canonical mapping of World Bank WDI indicator codes — **non-economic domains only** under Wave-4: health, education, social, environment, demographics, defence, agriculture, innovation, governance. The legacy WB economic codes are retained for backward compatibility but MUST NOT be used in new articles; economic context → IMF |
 | **Paired MCP** | World Bank MCP (`world-bank-*` tools) |
 
-> ✅ Together, `artifact-catalog.md` (**what**), `per-artifact-methodologies.md` (**how**), and `reference-quality-thresholds.json` (**how much**) form the Stage B / Stage C contract enforced editorially at Stage-C completeness review. The two indicator-mapping files provide the Stage A economic-context inputs that Wave-4 editorial policy requires — IMF primary for economic/fiscal/monetary/trade claims, WB additive for non-economic domains. The legacy runtime gates (`articlePolicyHasEconomicContext`, `articlePolicyHasIMFEconomicEvidence`, `WAVE3_IMF_STRICT` flag, and the surrounding `validate-analysis-completeness` CLI) were purged in the April-2026 aggregator-pipeline migration; enforcement moved to Stage-C editorial review.
+> ✅ Together, `artifact-catalog.md` (**what**), `per-artifact-methodologies.md` (**how**), and `reference-quality-thresholds.json` (**how much**) form the Stage B / Stage C contract enforced by the Stage-C validator (`npm run validate-analysis`) plus an editorial completeness review. The two indicator-mapping files provide the Stage A economic-context inputs that Wave-4 editorial policy requires — IMF primary for economic/fiscal/monetary/trade claims, WB additive for non-economic domains. The legacy article-side runtime gates (`articlePolicyHasEconomicContext`, `articlePolicyHasIMFEconomicEvidence`, `WAVE3_IMF_STRICT` flag) and the duplicate `src/utils/validate-analysis-completeness.ts` were purged in the April-2026 aggregator-pipeline migration; analysis-completeness enforcement now lives exclusively in the surviving CLI plus Stage-C editorial review.
 
 ---
 
@@ -968,6 +968,18 @@ flowchart TD
 
 ## 📝 Changelog
 
+### v3.2 (2026-04-25)
+
+| Document | Change | Rationale |
+|----------|--------|-----------|
+| `README.md` (v3.1→v3.2) | Headline corrected from “seven frameworks” to “fourteen interlocking methodologies”; the seven core frameworks are kept and the seven supporting methodologies (Synthesis · Strategic Extensions · Per-Document · Structural Metadata · Electoral Domain · IMF + WB Indicator Mappings) are now first-class in the index | Documentation drift — directory carries 18 docs; old headline understated the discipline |
+| `README.md` (v3.1→v3.2) | Template count updated 39 → 51 across catalog and template-pairing prose | Reconciliation with disk-truth: `analysis/templates/` carries 51 numbered templates plus the README |
+| `README.md` (v3.1→v3.2), `artifact-catalog.md`, `per-artifact-methodologies.md` | “Legacy validator was purged” language replaced with the correct two-layer fact: the duplicate `src/utils/validate-analysis-completeness.ts` was purged, but the surviving `scripts/validate-analysis-completeness.js` remains the Stage-C completeness gate (`npm run validate-analysis -- <runDir>`) | Drift fix — the surviving CLI is wired into `package.json` and is the truth-source per `test/unit/validate-analysis-completeness.test.js`; READMEs incorrectly described it as removed |
+| `templates/README.md` (v3.1→v3.2) | Cover line updated 39 → 51; v3.2 changelog entry added; badge dates and Next-Review aligned with methodology release | Same reconciliation as above |
+| `political-threat-framework.md` (v4.0→v4.1) | Date refresh + cross-link tightening to the five threat-assessment templates (`political-threat-landscape`, `actor-threat-profiles`, `consequence-trees`, `legislative-disruption`, `threat-analysis`); explicit “STRIDE rejected” statement preserved | Routine v3.2 release alignment |
+| `synthesis-methodology.md` (v1.0→v1.1), `strategic-extensions-methodology.md`, `per-document-methodology.md`, `structural-metadata-methodology.md`, `electoral-domain-methodology.md`, `osint-tradecraft-standards.md`, `political-classification-guide.md`, `political-risk-methodology.md`, `political-swot-framework.md`, `political-style-guide.md`, `imf-indicator-mapping.md`, `worldbank-indicator-mapping.md` | Metadata refreshed to v3.2 / 2026-04-25 / Next Review 2026-07-31; cross-references between methodologies tightened so each `### artifact section` in `per-artifact-methodologies.md` resolves both ways | Single coherent v3.2 release — every methodology stamped with the same effective date and review window |
+| `reference-quality-thresholds.json` | Floors held stable at v3.1 levels; no artifact line-floor was lowered; missing artifact rows added so the validator stops emitting `THRESHOLD_MISSING` warnings on rare extended artifacts | Avoids retroactively failing older runs while closing the catalog → thresholds gap |
+
 ### v3.1 (2026-04-06)
 
 | Document | Change | Rationale |
@@ -1005,8 +1017,8 @@ flowchart TD
 <div class="architecture-footer">
 
 **Document Status:** Living Document
-**Last Updated:** 2026-04-06
-**Next Review:** 2026-06-30
+**Last Updated:** 2026-04-25
+**Next Review:** 2026-07-31
 **Owner:** CEO
 
 This methodology documentation complies with

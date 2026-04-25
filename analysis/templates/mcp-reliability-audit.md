@@ -198,4 +198,4 @@ Reliability Score = (
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/mcp-reliability-audit.md` · Template v1.0 · Depth floor: 385 lines.
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/mcp-reliability-audit.md` · Template v1.1 · Depth floor: 385 lines.

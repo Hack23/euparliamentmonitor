@@ -140,4 +140,4 @@ For every deviation from the standard protocol:
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/workflow-audit.md` · Template v1.0 · Depth floor: 100 lines.
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/workflow-audit.md` · Template v1.1 · Depth floor: 100 lines.
