@@ -20,6 +20,12 @@ export interface MCPClientOptions {
   gatewayApiKey?: string | undefined;
   /** Human-readable server name used in operational log messages (default: 'European Parliament MCP Server') */
   serverLabel?: string | undefined;
+  /**
+   * Path to the pending-documents sidecar JSON file used for UPSTREAM_404
+   * indexing-lag retry scheduling.  Defaults to `<cwd>/data/pending-documents.json`.
+   * Override for test isolation or custom deployment layouts.
+   */
+  pendingDocumentsStorePath?: string | undefined;
 }
 
 /** MCP tool call result content item */
