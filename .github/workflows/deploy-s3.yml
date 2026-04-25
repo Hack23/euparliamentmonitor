@@ -94,9 +94,14 @@ jobs:
       - name: Generate derived files (indexes, metadata, sitemap, political-intelligence)
         run: |
           npm ci
+          # Vendor JS libraries (chart.js, d3, chartjs-plugin-annotation, mermaid)
+          # MUST run BEFORE node_modules is removed and BEFORE S3 sync — the
+          # static site loads every executable bundle from same-origin
+          # `js/vendor/` (CSP `script-src 'self'`, no external CDN).
+          npm run copy-vendor
           npm run prebuild
           rm -rf node_modules
-          echo "✅ Generated index files, articles-metadata.json, sitemap.xml, sitemap_*.html, and political-intelligence_*.html"
+          echo "✅ Generated index files, articles-metadata.json, sitemap.xml, sitemap_*.html, political-intelligence_*.html, and vendored JS bundles"
 
       - name: Normalise CSP in legacy news articles
         run: |
@@ -150,11 +155,21 @@ jobs:
             --no-guess-mime-type \
             "${EXCL[@]}"
 
-          # JS files - long cache, immutable (excludes root config files)
-          aws s3 sync "$SRC" "$BUCKET" --exclude '*' --include '*.js' \
+          # JS files - long cache, immutable (excludes root config files).
+          # Includes both `.js` and `.mjs` (mermaid ESM bundle ships as `.mjs`
+          # and is imported by `js/mermaid-init.js` as a same-origin module).
+          aws s3 sync "$SRC" "$BUCKET" --exclude '*' --include '*.js' --include '*.mjs' \
             --exclude '*.config.js' \
             --cache-control 'public, max-age=31536000, immutable' \
             --content-type 'text/javascript; charset=utf-8' \
+            --no-guess-mime-type \
+            "${EXCL[@]}"
+
+          # JS source maps - long cache, immutable (sidecar `.map` files for
+          # vendored mermaid chunks). Served as application/json.
+          aws s3 sync "$SRC" "$BUCKET" --exclude '*' --include '*.js.map' --include '*.mjs.map' \
+            --cache-control 'public, max-age=31536000, immutable' \
+            --content-type 'application/json; charset=utf-8' \
             --no-guess-mime-type \
             "${EXCL[@]}"
 
@@ -213,7 +228,8 @@ jobs:
           # and all source/config/tooling files.
           aws s3 sync "$SRC" "$BUCKET" \
             "${EXCL[@]}" \
-            --exclude '*.html' --exclude '*.css' --exclude '*.js' \
+            --exclude '*.html' --exclude '*.css' --exclude '*.js' --exclude '*.mjs' \
+            --exclude '*.map' \
             --exclude '*.webp' --exclude '*.png' --exclude '*.jpg' --exclude '*.jpeg' \
             --exclude '*.gif' --exclude '*.svg' --exclude '*.ico' \
             --exclude '*.woff' --exclude '*.woff2' --exclude '*.ttf' --exclude '*.eot' --exclude '*.otf' \

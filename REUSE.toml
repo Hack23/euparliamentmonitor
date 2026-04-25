@@ -104,3 +104,17 @@ path = "LICENSE"
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2024-2026 Hack23 AB"
 SPDX-License-Identifier = "Apache-2.0"
+
+# ----------------------------------------------------------------------------
+# Vendored third-party JS libraries (copied by `npm run copy-vendor` from
+# pinned npm packages). All are MIT/ISC; tracked here so REUSE lint passes
+# for the entire generated tree without per-file `.license` sidecars.
+# Per-entry-point sidecars are also written by scripts/copy-vendor.js for
+# transparency, but this annotation block is what makes REUSE lint succeed
+# across the deeply nested mermaid `chunks/` directory.
+# ----------------------------------------------------------------------------
+[[annotations]]
+path = ["js/vendor/mermaid/**", "js/vendor/mermaid/**/*.mjs", "js/vendor/mermaid/**/*.map"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2014-2026 Mermaid contributors"
+SPDX-License-Identifier = "MIT"

@@ -117,7 +117,13 @@ function usage(code = 2) {
 function parseArgs(argv) {
   const args = argv.slice(2);
   if (args.length === 0) usage(2);
-  const opts = { runDir: null, json: false, strict: false, minLines: DEFAULT_MIN_LINES };
+  const opts = {
+    runDir: null,
+    json: false,
+    strict: false,
+    minLines: DEFAULT_MIN_LINES,
+    thresholdsPath: null,
+  };
   for (let i = 0; i < args.length; i += 1) {
     const a = args[i];
     if (a === '--json') opts.json = true;
@@ -126,6 +132,10 @@ function parseArgs(argv) {
       const n = parseInt(args[i + 1], 10);
       if (!Number.isFinite(n) || n < 1) usage(2);
       opts.minLines = n;
+      i += 1;
+    } else if (a === '--thresholds') {
+      opts.thresholdsPath = args[i + 1];
+      if (!opts.thresholdsPath) usage(2);
       i += 1;
     } else if (a === '--help' || a === '-h') usage(0);
     else if (!opts.runDir) opts.runDir = a;
@@ -148,11 +158,10 @@ function safeReadJson(filePath) {
   }
 }
 
-function loadThresholds() {
-  const p = path.resolve(
-    ROOT,
-    'analysis/methodologies/reference-quality-thresholds.json',
-  );
+function loadThresholds(customPath) {
+  const p = customPath
+    ? path.resolve(ROOT, customPath)
+    : path.resolve(ROOT, 'analysis/methodologies/reference-quality-thresholds.json');
   if (!fs.existsSync(p)) return null;
   return readJson(p);
 }
@@ -495,7 +504,7 @@ function main() {
     );
   }
 
-  const thresholdsJson = loadThresholds();
+  const thresholdsJson = loadThresholds(opts.thresholdsPath);
   const rules = buildRules(thresholdsJson, articleType);
 
   const manifestArtifacts = flattenManifestArtifacts(manifest);
