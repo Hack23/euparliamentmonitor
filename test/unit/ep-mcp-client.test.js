@@ -401,8 +401,75 @@ describe('ep-mcp-client', () => {
         const result = await client.getPlenarySessions();
 
         expect(result).toEqual({
-          content: [{ type: 'text', text: '{"sessions": []}' }],
+          content: [{ type: 'text', text: '{"data": [], "total": 0}' }],
         });
+      });
+
+      it('should pass date filters through and return plenary sessions unchanged without local filtering', async () => {
+        // Include an intentionally out-of-window item (date before dateFrom) to ensure
+        // the client does NOT apply any local post-filtering to the tool response.
+        // The upstream EP-MCP-Server v1.2.14+ is responsible for date-filtering (Defect #5);
+        // this client must pass the response through unchanged.
+        const mockPayload = {
+          data: [
+            { date: '2026-03-28', location: 'Strasbourg', eventId: 'PLN-2026-03-28' },
+            { date: '2026-04-10', location: 'Brussels', eventId: 'PLN-2026-04-10' },
+            { date: '2026-04-22', location: 'Strasbourg', eventId: 'PLN-2026-04-22' },
+          ],
+          total: 3,
+        };
+        const mockToolResult = {
+          content: [{ type: 'text', text: JSON.stringify(mockPayload) }],
+        };
+        client.callTool.mockResolvedValue(mockToolResult);
+
+        const result = await client.getPlenarySessions({ dateFrom: '2026-04-01' });
+
+        // The client must pass dateFrom through to the MCP tool unchanged.
+        expect(client.callTool).toHaveBeenCalledWith('get_plenary_sessions', {
+          dateFrom: '2026-04-01',
+        });
+        // The response must be returned as-is — client must not filter out the out-of-window item.
+        expect(result).toEqual(mockToolResult);
+
+        const parsed = JSON.parse(result.content[0].text);
+        expect(parsed.data).toContainEqual({
+          date: '2026-03-28',
+          location: 'Strasbourg',
+          eventId: 'PLN-2026-03-28',
+        });
+      });
+
+      it('should return plenary session totals unchanged without fixing mismatched counts', async () => {
+        // Include an intentionally mismatched total to verify the client returns the
+        // MCP tool response as-is rather than repairing the payload locally.
+        const mockPayload = {
+          data: [
+            { date: '2026-04-05', location: 'Strasbourg', eventId: 'PLN-2026-04-05' },
+            { date: '2026-04-15', location: 'Brussels', eventId: 'PLN-2026-04-15' },
+          ],
+          total: 99,
+        };
+        const mockToolResult = {
+          content: [{ type: 'text', text: JSON.stringify(mockPayload) }],
+        };
+        client.callTool.mockResolvedValue(mockToolResult);
+
+        const result = await client.getPlenarySessions({
+          dateFrom: '2026-04-01',
+          dateTo: '2026-04-30',
+        });
+
+        expect(client.callTool).toHaveBeenCalledWith('get_plenary_sessions', {
+          dateFrom: '2026-04-01',
+          dateTo: '2026-04-30',
+        });
+        // The response must be returned as-is — client must not normalise total to data.length.
+        expect(result).toEqual(mockToolResult);
+
+        const parsed = JSON.parse(result.content[0].text);
+        expect(parsed.total).toBe(99);
+        expect(parsed.data).toHaveLength(2);
       });
 
       it('should search documents', async () => {
