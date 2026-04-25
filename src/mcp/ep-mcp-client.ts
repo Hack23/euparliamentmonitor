@@ -8,6 +8,7 @@
  */
 
 import { MCPConnection } from './mcp-connection.js';
+import { ProcedureSeenCache } from './procedure-seen-cache.js';
 import type {
   MCPClientOptions,
   MCPToolResult,
@@ -70,6 +71,7 @@ import type {
   GetCorporateBodiesFeedOptions,
   GetControlledVocabulariesFeedOptions,
   GetProcedureEventByIdOptions,
+  GetFreshProceduresOptions,
 } from '../types/index.js';
 
 /**
@@ -835,6 +837,79 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
    */
   async getProcedures(options: GetProceduresOptions = {}): Promise<MCPToolResult> {
     return this.safeCallTool('get_procedures', options, '{"procedures": []}');
+  }
+
+  /**
+   * Get fresh legislative procedures using client-side date filtering as a
+   * workaround for the broken EP `/procedures/feed` timeframe filter.
+   *
+   * **Background**: the EP Open Data Portal `/procedures/feed` endpoint stopped
+   * honouring the `timeframe` parameter on or around 2026-04-19 and began
+   * returning historical-tail pagination (oldest records first, all metadata
+   * empty). This regression is tracked as Defect #3 in
+   * `analysis/daily/2026-04-24/propositions/intelligence/mcp-reliability-audit.md`
+   * and has been reported to open-data-helpdesk@europarl.europa.eu.
+   *
+   * **Strategy**:
+   * 1. Call `get_procedures(limit=100, offset=0)` — the stable non-feed endpoint.
+   * 2. Sort results client-side by `dateLastActivity` DESC, falling back to
+   *    `dateInitiated` when `dateLastActivity` is empty.
+   * 3. Keep procedures where the effective date >= today minus `windowDays`
+   *    (default 30 days). Apply optional `topN` cap.
+   * 4. Persist `(procedureId, dateLastActivity)` pairs to the seen-cache so
+   *    subsequent runs can detect new/updated IDs without re-paginating.
+   *
+   * @param options - Discovery options (limit, windowDays, topN, seenCacheStorePath)
+   * @returns Sorted, filtered procedure list in `{"procedures": [...]}` envelope
+   */
+  async getFreshProcedures(options: GetFreshProceduresOptions = {}): Promise<MCPToolResult> {
+    const { limit = 100, windowDays = 30, topN, seenCacheStorePath } = options;
+
+    // Step 1 — fetch from stable (non-feed) endpoint
+    const raw = await this.getProcedures({ limit });
+    const payload = _parseResultPayload(raw);
+    const payloadProcedures = payload?.['procedures'];
+    const allProcedures: unknown[] = Array.isArray(payloadProcedures) ? payloadProcedures : [];
+
+    // Step 2 — sort client-side by dateLastActivity DESC (fall back to dateInitiated)
+    const todayMinus = new Date();
+    todayMinus.setUTCDate(todayMinus.getUTCDate() - windowDays);
+    const cutoff = todayMinus.toISOString().slice(0, 10); // YYYY-MM-DD
+
+    const normalised = allProcedures.filter(
+      (p): p is Record<string, unknown> =>
+        p !== null && typeof p === 'object' && !Array.isArray(p)
+    );
+
+    const withSortKey = normalised.map(p => {
+      const dla = typeof p['dateLastActivity'] === 'string' ? p['dateLastActivity'] : '';
+      const di = typeof p['dateInitiated'] === 'string' ? p['dateInitiated'] : '';
+      return { item: p, effectiveDate: dla.length > 0 ? dla : di };
+    });
+
+    withSortKey.sort((a, b) => b.effectiveDate.localeCompare(a.effectiveDate));
+
+    // Step 3 — filter to window
+    const inWindow = withSortKey
+      .filter(({ effectiveDate }) => effectiveDate >= cutoff)
+      .map(({ item }) => item);
+
+    const result = topN !== undefined ? inWindow.slice(0, topN) : inWindow;
+
+    // Step 4 — persist to seen-cache (new IDs and changed dateLastActivity)
+    const cache = new ProcedureSeenCache(seenCacheStorePath);
+    for (const p of result) {
+      const id = typeof p['id'] === 'string' ? p['id'] : '';
+      const dateLastActivity = typeof p['dateLastActivity'] === 'string' ? p['dateLastActivity'] : '';
+      if (id.length > 0) {
+        cache.upsert(id, dateLastActivity);
+      }
+    }
+    cache.save();
+
+    return {
+      content: [{ type: 'text', text: JSON.stringify({ procedures: result }) }],
+    };
   }
 
   /**
