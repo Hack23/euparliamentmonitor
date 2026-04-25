@@ -322,7 +322,204 @@ The analysis focuses on **public figures acting in their public capacity** and o
 
 ---
 
-## 🧪 Quick-Reference Checklist
+## 6️⃣ Worked SAT examples — applying tradecraft to real EP scenarios
+
+Theory is cheap; tradecraft is in the worked example. Below are five
+applied SAT walkthroughs covering the most common EP analytic mistakes.
+
+### 6.1 — Analysis of Competing Hypotheses (ACH) on a coalition vote
+
+**Question**: Why did 47 EPP MEPs defect on the AI-Act enforcement vote?
+
+**ACH matrix** (✓ = consistent with hypothesis, ✗ = inconsistent,
+N = neutral):
+
+| Evidence | H1: Industry pressure | H2: Whip failure | H3: Member-state instructions |
+|---|:-:|:-:|:-:|
+| 38 of 47 defectors come from 4 MS with strong AI startups | ✓ | N | ✓ |
+| Defection clusters in newer MEPs (≤ 2 yrs in EP) | N | ✓ | N |
+| EPP whip issued only 24h before vote | N | ✓ | N |
+| Defectors include 6 EPP-WG vice-coordinators | ✗ | ✓ | N |
+| Council position from same 4 MS aligned with defection | N | N | ✓ |
+
+**Most-supported**: H2 (whip failure) is least disconfirmed. H3 cannot be
+ruled out and warrants a forward indicator: monitor next coalition-test
+vote with same Council positions.
+
+**WEP**: "We assess with **moderate confidence** (🟡) that whip
+discipline failed; member-state instruction effect is **possible** but
+unconfirmed." (3-12 months horizon for follow-up.)
+
+### 6.2 — Indicators & Signposts on coalition fracture
+
+**Hypothesis**: The Grand Coalition (EPP+S&D+Renew, ~408 seats) is
+fracturing on rule-of-law issues with Hungary.
+
+**Indicator panel** (each with a tripwire threshold):
+
+| Indicator | Tripwire | Detection method |
+|---|---|---|
+| EPP-S&D agreement rate on rule-of-law roll calls | < 70% over 4-week window | `analyze_coalition_dynamics` |
+| Renew abstention rate on Article-7 motions | > 15% | `get_voting_records` topic filter |
+| Public letters from EPP-affiliated heads of state criticising the EP position | ≥ 2 in 30 days | OSINT scrape |
+| Renew + S&D joint motions WITHOUT EPP co-sign | ≥ 3 in 60 days | `get_procedures` filter |
+
+**WEP today** (2026-04-25): "**Possible** that Grand Coalition fractures
+on rule-of-law within 6 months (🟡 moderate confidence)." Indicators
+below threshold; revisit weekly.
+
+### 6.3 — Key Assumptions Check on enlargement timeline
+
+**Assumption being tested**: "UKR will close all 35 negotiating chapters
+by 2030."
+
+**Test**:
+
+| Assumption | Validity | Stress test |
+|---|---|---|
+| Russian war ends by 2027 | UNTESTED | Sensitivity: scenarios A,B,C |
+| HUN does not block again | LOW | HUN already blocked Dec 2024 |
+| 1 chapter / 2 months pace sustained | LOW | Historical EU-2007 base rate is 1 / 4-5 months |
+| Acquis-implementation cost ≤ €30bn | UNTESTED | EU MFF reservations |
+
+**Verdict**: Three of four foundation assumptions are LOW-validity. The
+2030 timeline is a **policy aspiration**, not a base-case forecast.
+Default WEP for any prose claiming "by 2030" is now ⛔ banned without
+explicit "if all four assumptions hold" qualifier.
+
+### 6.4 — Red-team check on a Commission proposal
+
+**Original analysis**: "The Commission's 2026 Cyber Resilience Package
+will pass with EPP+S&D support."
+
+**Red-team challenges**:
+
+1. **What if industry mobilises?** — 200+ trade associations co-sign a
+   critical letter; S&D rapporteur softens scope. Plausibility 35%.
+2. **What if a MS files a national-security carve-out?** — Article 4(2)
+   TEU invocation; legal-base challenge to RED Standards. Plausibility 20%.
+3. **What if a CJEU ruling changes the legal base mid-trilogue?** —
+   Procedural restart costs 6-9 months. Plausibility 10%.
+
+**Updated WEP**: "**Likely** to pass in the proposed form (🟢 high
+confidence) but **possible** (🟡) that scope is softened during trilogue."
+
+### 6.5 — Premortem on a forecast artifact
+
+**Forecast statement**: "The Critical Raw Materials Act will be adopted
+by Q4 2026."
+
+**Premortem (assume the forecast is wrong; explain why)**:
+
+1. Trilogue collapse over Council's "strategic supplier" definition.
+2. Hungarian veto in Council on financing model.
+3. Industry-led litigation delay.
+4. CJEU referral on legal base.
+5. Geopolitical shock (China-EU rare-earths embargo) freezes negotiations.
+
+**Mitigation**: forecast is now stated with WEP "**likely** by Q4 2026 in
+*either* the original or a softened scope (🟡 moderate confidence)" —
+allowing for negotiating-process variability while retaining a base case.
+
+## 7️⃣ Admiralty grading walkthroughs
+
+The Admiralty system pairs **source reliability** (A-F) with **information
+credibility** (1-6). Worked examples below.
+
+### 7.1 — EP roll-call vote tally
+
+- **Source**: `get_voting_records` MCP tool, EP Open Data Portal.
+- **Reliability**: A (completely reliable, official primary source).
+- **Credibility**: 1 (confirmed by other independent sources — published
+  minutes match). 
+- **Grade**: **A1**.
+
+### 7.2 — Press-leak about coalition negotiations
+
+- **Source**: Politico Europe, single named EU diplomat quoted.
+- **Reliability**: B (usually reliable — Politico is a respected outlet
+  but the diplomat's loyalty is unverified).
+- **Credibility**: 3 (possibly true — single source, no independent
+  confirmation).
+- **Grade**: **B3**. Use only with explicit hedging; cross-check before
+  citing in a Tier-1 article.
+
+### 7.3 — Industry trade-association letter
+
+- **Source**: trade-association website, signed by named industry CEOs.
+- **Reliability**: C (fairly reliable — known advocacy bias).
+- **Credibility**: 2 (probably true — verifiable signatures).
+- **Grade**: **C2**. Acceptable for stakeholder mapping; flag bias
+  explicitly.
+
+### 7.4 — Anonymous Twitter/X claim
+
+- **Source**: anonymous account.
+- **Reliability**: F (cannot be judged).
+- **Credibility**: 5 (improbable).
+- **Grade**: **F5**. **Do NOT cite** in any analytic conclusion. May be
+  recorded in `data-download-manifest.md` under "rejected sources"
+  for transparency.
+
+### 7.5 — IMF WEO release
+
+- **Source**: IMF WEO 2026-04 publication.
+- **Reliability**: A (official statistical publication).
+- **Credibility**: 2 for actuals (probably true — final until next
+  vintage); 3 for forecasts (possibly true — projection uncertainty).
+- **Grade**: **A2** for backward-looking data; **A3** for projections.
+
+### 7.6 — Wikipedia article
+
+- **Reliability**: D (not usually reliable — community-edited, no audit).
+- **Credibility**: variable.
+- **Grade**: **D-anything**. **Use only as a navigational aid**, never
+  as a citable source. Always trace to the underlying primary source
+  cited in Wikipedia and grade THAT source.
+
+## 8️⃣ Source deconfliction practice
+
+When two sources disagree on a fact, the deconfliction protocol is:
+
+1. **Identify the disagreement**: state both claims with their grades.
+2. **Examine independence**: are sources truly independent or does one
+   cite the other?
+3. **Apply hierarchy**: A grade beats B grade beats C grade. If both A,
+   prefer the source with structural neutrality (official statistic over
+   policy paper).
+4. **Triangulate**: pull a third independent source if possible.
+5. **Document**: record the deconfliction in `methodology-reflection.md`
+   under "Source disagreements resolved" with WEP confidence.
+
+**Worked example**: IMF reports EU real GDP growth 2025 at 1.4%; Eurostat
+reports 1.5% (both vintage Apr 2026).
+
+- IMF A2 vs Eurostat A2 (both reliable primary).
+- Independence: Eurostat is the IMF's underlying source for EU-27 data;
+  IMF rounds to nearest 0.1 with different methodology for the EA
+  aggregate.
+- **Resolution**: cite Eurostat for EU-27 specifically; cite IMF for EA
+  aggregates. Note the 0.1pp methodological gap in
+  `methodology-reflection.md`.
+
+## 9️⃣ Confidence-marker decision rule
+
+The 🟢 / 🟡 / 🔴 confidence label maps to source × evidence × consistency:
+
+| Source grade | Multiple sources? | Evidence consistency | Confidence |
+|---|---|---|---|
+| A1-A2 | yes | consistent | 🟢 high |
+| A1-A2 | no | n/a | 🟡 moderate |
+| A3-B2 | yes | consistent | 🟡 moderate |
+| A3-B2 | no | n/a | 🔴 low |
+| Any with significant disagreement | varies | inconsistent | 🔴 low |
+| C-D grade | even with multiple | n/a | 🔴 low |
+
+The rule is mechanical to keep marker assignment consistent across
+agents and runs. Stage-C cross-checks confidence markers against the
+source grades cited in the same paragraph.
+
+
 
 Before a run's PR is created, verify each line:
 

@@ -316,7 +316,106 @@ when the surrounding validator layer was removed.
 
 ---
 
-## 11. See also
+## 12. Worked vintage-selection scenarios
+
+The vintage decision is the most error-prone part of IMF integration.
+Below are six EP-domain scenarios showing how to pick the right vintage
+for the article date.
+
+### Scenario 12.1 — `weekly-review` published 2026-04-25
+
+**Required**: WEO `NGDP_RPCH` real GDP growth EU/EA, `PCPI_PCH` headline
+inflation, IFS `FPOLM_PA` ECB policy rate.
+
+**Latest IMF vintages on 2026-04-25**:
+
+| Series | Latest data | Latest forecast | Vintage tag |
+|---|---|---|---|
+| WEO 2026-04 | 2025 actual | 2026, 2027, 2028, 2029, 2030, 2031 | "WEO Apr 2026" |
+| FM 2025-10 | 2024 actual | 2025-2030 | "FM Oct 2025" |
+| IFS monthly | 2026-03 actual | n/a | "IFS Mar 2026" |
+| BOP quarterly | 2025-Q4 | n/a | "BOP 2025-Q4" |
+
+**Decision**: cite WEO Apr 2026 for growth/inflation forecasts; explicitly
+distinguish 2025 *actual* from 2026 *projection*. IFS Mar 2026 for the
+ECB policy rate sequence.
+
+### Scenario 12.2 — `month-ahead` for May 2026 plenary
+
+**Required**: forward-looking IMF projections to anchor the policy outlook.
+
+**Decision**: WEO Apr 2026 forecasts dominate. Use **fan-chart language**
+("IMF projects 1.4% real growth ± 0.4 pp"); do NOT present projections as
+hard numbers. Cite the WEO database release date in `manifest.dataVintage[]`.
+
+### Scenario 12.3 — `breaking` on ECON committee push for fiscal-rule reform
+
+**Required**: Member-state fiscal headroom; gross debt; primary balance.
+
+**Decision**: FM Oct 2025 vintages OK because Apr 2026 FM not yet
+published (next FM release is October). Mention this constraint in the
+data-source footer; cite both the IMF FM and Eurostat MIP scoreboard for
+triangulation per §9.
+
+### Scenario 12.4 — `committee-reports` on ECB independence
+
+**Required**: ECB policy-rate path, monetary aggregates, REER.
+
+**Decision**: IFS monthly is authoritative; WEO and FM lag. IFS Mar 2026
+vintage acceptable. Cross-check vs ECB SDW because IMF mirrors ECB with a
+1-week lag for euro-area policy-rate changes.
+
+### Scenario 12.5 — `propositions` on EU enlargement (UKR, MDA, GEO)
+
+**Required**: candidate-country macro context.
+
+**Decision**: WEO Apr 2026 covers all three. Note that UKR data has a
+`*` suffix in the WEO indicating staff estimates rather than national
+authorities — this counts as Admiralty B2 (usually reliable, fairly
+likely) rather than A2.
+
+### Scenario 12.6 — `propositions` on common defence financing
+
+**Required**: Defence expenditure + fiscal capacity per MS.
+
+**Decision**: For defence-as-percent-of-GDP use WB (`MS.MIL.XPND.GD.ZS`,
+SIPRI mirror) per Wave-4 split; for fiscal capacity use IMF FM
+`G_XWDG_G01_GDP_PT` (general government gross debt). Combined view in
+`economic-context.md` references both source files.
+
+## 13. Anti-patterns (Stage-C editorial blocks)
+
+| Anti-pattern | Why blocked | Correct approach |
+|---|---|---|
+| Citing IMF without vintage | Vintage is mandatory per §7 | "IMF WEO Apr 2026" |
+| Mixing actual + projection without tagging | Misleads reader | Use "actual" vs "projection" labels |
+| Citing WEO for monthly inflation | WEO is annual | Use IFS for monthly data |
+| Single-year point comparison | Loses context | Show 5-year trend or 3-year forecast horizon |
+| Stale FM data when newer publication exists | Outdated context | FM is semi-annual; check release calendar |
+| Ignoring confidence band on forecasts | Treats forecasts as facts | Add "± X pp" or fan-chart language |
+| `EUU` aggregate (WB code) used for IMF call | Incompatible code system | Use `EU` or `EA` IMF aggregates |
+| Missing Admiralty grade on IMF citation | Stage-C tradecraft fail | Default A2 for IMF-source EU-27, B2 for staff estimates |
+| Using deprecated WEO codes | Codes change between vintages | Use the SDMX 3.0 canonical codes (e.g. `NGDP_RPCH` not `NGDP_R`) |
+| Ratio computed inline without sourcing | Reproducibility fail | Cite numerator + denominator IMF series separately |
+
+## 14. MCP tool quick-reference
+
+| Tool | Purpose | Key parameter |
+|---|---|---|
+| `imf-mcp/imf-fetch-data` | Generic SDMX REST | `dataflow=WEO\|FM\|IFS\|BOP\|ER\|PCPS`, `key=` |
+| `imf-mcp/imf-list-dataflows` | Catalogue SDMX dataflows | n/a |
+| `imf-mcp/imf-data-availability` | Vintage check | `dataflow`, `country` |
+| `imf-mcp/imf-vintage` | Get current vintage label | `dataflow` |
+| `imf-mcp/imf-mcp-probe` | Stage A health check | n/a |
+| `worldbank-mcp/raw-rest` | Defence (SIPRI mirror), other non-economic | `indicator` |
+
+Each tool call **must** record the SDMX dataflow, indicator key, vintage
+year/release, country panel, and Admiralty grade in
+`manifest.dataSources[]`.
+
+---
+
+## 15. See also
 
 - [`../imf/README.md`](../imf/README.md) — directory overview
 - [`../imf/database-directory.md`](../imf/database-directory.md) — all ~155 SDMX dataflows

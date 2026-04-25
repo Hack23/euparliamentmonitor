@@ -272,7 +272,140 @@ An agent starting a run reads this catalog, then proceeds through the 10-step pr
 
 ---
 
-## 🔗 Related Documents
+## 🌳 Decision Tree — Is this artifact mandatory for my run?
+
+```mermaid
+flowchart TD
+  start["Start: agent picks article type"] --> q1{"Article type?"}
+  q1 -->|breaking| brk["Mandatory base + classification + intel triad<br/>= 11 mandatory artifacts"]
+  q1 -->|week/month-in-review| rev["Mandatory base + classification + intel<br/>+ velocity-risk + cross-run-diff = 13"]
+  q1 -->|week/month-ahead| ahd["Base + scenario-forecast<br/>+ wildcards-blackswans = 11"]
+  q1 -->|committee-reports| cmt["Base + per-file × N committees<br/>+ stakeholder-impact = 12+"]
+  q1 -->|motions / propositions| mot["Base + significance-scoring<br/>+ stakeholder-impact = 12"]
+
+  brk --> q2{"Significance ≥ Tier-1?"}
+  rev --> q2
+  ahd --> q2
+  cmt --> q2
+  mot --> q2
+
+  q2 -->|yes| ext["Add extended/ artifacts:<br/>executive-brief, intelligence-assessment,<br/>devils-advocate, forward-indicators"]
+  q2 -->|no| baseOnly["Base set only — Stage-C accepts"]
+
+  ext --> q3{"Cross-source delta ≥ 0.2 pp?"}
+  q3 -->|yes| tri["Add imf-vintage-audit + cross-source line"]
+  q3 -->|no| done["Run completes Stage-C"]
+  baseOnly --> done
+  tri --> done
+
+  classDef must fill:#1565C0,stroke:#0D47A1,color:#fff;
+  classDef opt fill:#FF9800,stroke:#E65100,color:#fff;
+  classDef ok fill:#2E7D32,stroke:#1B5E20,color:#fff;
+  class brk,rev,ahd,cmt,mot,baseOnly must
+  class ext,tri opt
+  class done ok
+```
+
+**Reading the tree**: every article type starts with the **base set** of 8
+mandatory artifacts (the four framework artifacts plus
+`methodology-reflection.md`, `analysis-index.md`, `data-download-manifest.md`,
+`workflow-audit.md`). Article-type-specific additions stack on top. Tier-1
+significance triggers the extended/ folder. Cross-source disagreement
+triggers vintage audit.
+
+## 📏 Depth-floor rationale
+
+The line floors in
+[`reference-quality-thresholds.json`](reference-quality-thresholds.json)
+are not arbitrary — each is derived from the minimum content needed to
+satisfy the artifact's purpose:
+
+| Artifact class | Floor | Why this number |
+|---|---|---|
+| Framework analytics (SWOT, risk, threat, classification) | 100-150 | 4-quadrant or 5×5 structure + 3+ items per cell + prose justification |
+| Intelligence assessments | 200-280 | ICD 203 requires named SAT + alt hypothesis + confidence + sourcing |
+| Per-file political intelligence | 300+ | 7-dimension scoring × N classified files × stakeholder impact |
+| Executive brief | 175 | BLUF + 5 Key Judgments × ~25 words each + What-Comes-Next |
+| Stakeholder impact | 350 | 7+ stakeholder lenses × evidence + confidence + scenarios |
+| Synthesis summary | 480 | Cross-cuts every other artifact's findings into one narrative |
+| Index / audit / manifest | 130-220 | Structured tables with fixed rows; deeper text adds noise |
+
+When a draft falls **below** the floor, it almost always means the agent
+skipped Pass-2 expansion. Pass-1 typically reaches ~50% of floor.
+
+## 🎯 Common confusions — which artifact gets what?
+
+| Confusion | Wrong artifact | Correct artifact |
+|---|---|---|
+| "Coalition cohesion %" | `coalition-mathematics.md` | `coalition-dynamics.md` (cohesion) vs `coalition-mathematics.md` (vote arithmetic) |
+| "List of bills moving this week" | `analysis-index.md` | `legislative-velocity-risk.md` (with risk scoring) |
+| "Why this matters" prose | `executive-brief.md` | `synthesis-summary.md` for the long-form; `executive-brief.md` is BLUF only |
+| Risk vs threat | `risk-matrix.md` | Risk = our exposure to event. Threat = adversary intent × capability. Use `risk-matrix.md` for risk, `threat-analysis.md` for threat |
+| MEP-level network claims | `actor-mapping.md` (description) | `actor-threat-profiles.md` (threat-relevant) — actor-mapping is descriptive; actor-threat-profiles is evaluative |
+| "Trend vs prior session" | Prose in synthesis | `cross-run-diff.md` (delta-only) and `cross-session-intelligence.md` (momentum) |
+| "What if X happens" | Article body | `scenario-forecast.md` (≥3 scenarios with WEP bands) |
+| "Tail risks / black swans" | `wildcards-blackswans.md` | `wildcards-blackswans.md` is for ≤5% probability, ≥7/10 impact only |
+| "Compare to non-EU peer" | `historical-baseline.md` | `comparative-international.md` (cross-jurisdiction comparator) |
+| Procedural-velocity figure | `legislative-disruption.md` | `legislative-velocity-risk.md` for velocity; disruption is for unscheduled stoppages |
+
+## 🧭 Article-type → artifact bundle (canonical bundles)
+
+These bundles compile into the fixed `manifest.files` list each workflow
+emits, independent of run-time content.
+
+### `breaking` (urgent single-event coverage)
+**Mandatory (11)**: synthesis, executive-brief (extended only when Tier-1),
+political-classification, risk-assessment, swot-analysis, threat-analysis,
+stakeholder-impact, methodology-reflection, analysis-index,
+data-download-manifest, workflow-audit, per-file-political-intelligence
+(focused on the breaking item).
+
+**Conditional**: `intelligence-assessment.md` if significance ≥ Tier-1;
+`forward-indicators.md` always for follow-up signposts.
+
+### `week-in-review` / `month-in-review`
+**Mandatory base + ** `cross-run-diff.md`, `cross-session-intelligence.md`,
+`legislative-velocity-risk.md`, `coalition-dynamics.md`, `voting-patterns.md`.
+
+### `week-ahead` / `month-ahead`
+**Mandatory base +** `scenario-forecast.md`, `wildcards-blackswans.md`,
+`forward-indicators.md`, `legislative-velocity-risk.md`.
+
+### `committee-reports`
+**Mandatory base +** one `per-file-political-intelligence.md` per committee
+covered, `stakeholder-impact.md` (multi-committee panel),
+`coalition-mathematics.md` (committee-margin arithmetic).
+
+### `motions` / `propositions`
+**Mandatory base +** `significance-scoring.md` (procedure-level),
+`stakeholder-impact.md`, `consequence-trees.md`, `political-capital-risk.md`,
+`implementation-feasibility.md`.
+
+## 🔀 Folder layout invariants
+
+The artifact folder structure is enforced by the aggregator
+(`src/aggregator/analysis-aggregator.ts::collectRunArtifacts`); deviating
+breaks the rendered article's section ordering:
+
+```
+analysis/daily/<YYYY-MM-DD>/<article-type>/run<NN>/
+├── intelligence/        → executive-brief, intelligence-assessment, devils-advocate, forward-indicators
+├── classification/      → political-classification, significance-scoring, significance-classification
+├── risk-scoring/        → risk-assessment, risk-matrix, swot-analysis, quantitative-swot, political-capital-risk, legislative-velocity-risk
+├── threat-assessment/   → threat-analysis, threat-model, political-threat-landscape, actor-threat-profiles
+├── stakeholders/        → stakeholder-impact, stakeholder-map, actor-mapping, voter-segmentation
+├── coalition/           → coalition-dynamics, coalition-mathematics, voting-patterns
+├── synthesis/           → synthesis-summary, methodology-reflection
+├── extended/            → optional Tier-1+ deep-intelligence artifacts
+├── index/               → analysis-index, cross-reference-map
+├── data/                → raw MCP responses (excluded from rendered article)
+└── audit/               → workflow-audit, mcp-reliability-audit, imf-vintage-audit, data-download-manifest
+```
+
+Mermaid is **mandatory** in `intelligence/`, `classification/`,
+`risk-scoring/`, and `threat-assessment/` per the Stage-C validator.
+
+
 
 - [`ai-driven-analysis-guide.md`](ai-driven-analysis-guide.md) — 10-step analysis protocol (authoritative)
 - [`per-artifact-methodologies.md`](per-artifact-methodologies.md) — one section per artifact type with construction rules

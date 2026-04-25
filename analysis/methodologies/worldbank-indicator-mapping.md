@@ -198,12 +198,230 @@ the standard pattern emitted by `src/templates/section-builders.ts`:
 See `js/chart-init.js` for the hydration logic. Inline Canvas API scripts are
 forbidden (violates CSP `script-src 'self'`).
 
+## 7. ISO 3166-1 alpha-3 country codes (allowlist)
+
+WB MCP only accepts **single-country** ISO 3166-1 alpha-3 codes. The 27 EU
+members plus the four canonical comparators below are the operational
+allowlist for EU Parliament Monitor:
+
+| Block | Codes |
+|---|---|
+| EU-27 | AUT, BEL, BGR, HRV, CYP, CZE, DNK, EST, FIN, FRA, DEU, GRC, HUN, IRL, ITA, LVA, LTU, LUX, MLT, NLD, POL, PRT, ROU, SVK, SVN, ESP, SWE |
+| Comparators | GBR (post-Brexit benchmark), USA (Atlantic peer), JPN (G7 peer), CHE (single-market neighbour) |
+| Enlargement | UKR, MDA, GEO, MNE, MKD, ALB, SRB, BIH, XKX, TUR (situational) |
+
+**Banned aggregates** (rejected by `worldbank-mcp@1.0.1`):
+`EUU` (European Union, all members), `EMU` (Euro area), `ECS` (Europe &
+Central Asia), `OED` (OECD members), `WLD` (World), `NAC` (North America),
+`EAS` (East Asia & Pacific), `SSF` (Sub-Saharan Africa). The informal
+2-letter alias `UK` is also rejected — use `GBR`.
+
+For EU-27 / EA-20 aggregates, use IMF (`imf-indicator-mapping.md §Country
+codes`) which accepts `EU` and `EA`.
+
+## 8. Vintage handling and freshness floors
+
+WB indicators have **multi-year publication lag** — the typical vintage on
+2026-04-25 for `EN.ATM.CO2E.PC` (CO₂ per capita) is 2022 data. Agents MUST:
+
+1. **Cite the vintage year** explicitly. Never imply "current" when the
+   data point is 3+ years old.
+2. **Refuse to use a series** older than these freshness floors (cite via
+   `manifest.dataVintage[]`):
+
+| Domain | Freshness floor | Example |
+|---|---|---|
+| Population & demographics | ≤ 3 years | `SP.POP.TOTL` 2023 OK in 2026 |
+| Health expenditure | ≤ 3 years | `SH.XPD.CHEX.GD.ZS` 2022 acceptable |
+| Education | ≤ 4 years | `SE.XPD.TOTL.GD.ZS` 2021 acceptable |
+| Environment (CO₂, energy) | ≤ 3 years | `EN.ATM.CO2E.PC` 2022 acceptable |
+| Innovation (R&D, internet) | ≤ 3 years | `IT.NET.USER.ZS` 2023 OK |
+| Defence | ≤ 2 years | `MS.MIL.XPND.GD.ZS` SIPRI mirror updated yearly |
+| Governance (WGI) | ≤ 2 years | WGI updated each September |
+
+3. When the floor is breached, escalate to the **fallback** (§9) — never
+   silently use stale data. Vintage breaches are caught in
+   `imf-vintage-audit.md` even though the artifact is named for IMF (it
+   audits both sources).
+
+## 9. Fallback hierarchy (when WB MCP unreachable or stale)
+
+```mermaid
+flowchart TD
+  A["Need non-economic context"] --> B{"WB MCP healthy?"}
+  B -- yes --> C{"Vintage within floor?"}
+  B -- no --> D["Use precomputed-stats (analysis/precomputed-stats/**)"]
+  C -- yes --> E["Cite WB indicator with vintage + Admiralty grade"]
+  C -- no --> F["Cross-source: Eurostat or OECD"]
+  D --> G["Mark wbMcpDegraded:true in manifest"]
+  F --> H["Cite alternative source with grade A-D"]
+  G --> I["Article footer: data-source note"]
+  H --> I
+  E --> J["Stage-C accepts"]
+
+  classDef ok fill:#2E7D32,stroke:#1B5E20,color:#fff;
+  classDef warn fill:#FF9800,stroke:#E65100,color:#fff;
+  classDef bad fill:#D32F2F,stroke:#B71C1C,color:#fff;
+  class E,J ok
+  class D,F,G,H,I warn
+```
+
+The **only** sources accepted as WB-stand-ins for non-economic data are
+Eurostat (Admiralty A2 for EU-27 series), OECD Health Statistics
+(Admiralty A2 for OECD members), and SIPRI (Admiralty A2 for defence).
+Wikipedia, NGO summaries, and press tables are NOT acceptable substitutes.
+
+## 10. Worked examples — six EP-domain selection scenarios
+
+### Scenario 10.1 — ENVI committee report on EU air-quality directive
+
+**Article type**: `committee-reports` · **Committee**: ENVI ·
+**Procedure**: 2022/0347(COD) Ambient Air Quality Directive recast.
+
+**Indicator selection**:
+
+| Indicator | Code | Vintage | Use |
+|---|---|---|---|
+| CO₂ per capita | `EN.ATM.CO2E.PC` | 2022 | Sets the policy stakes |
+| Renewable energy share | `EG.FEC.RNEW.ZS` | 2023 | Implementation feasibility |
+| Life expectancy | `SP.DYN.LE00.IN` | 2023 | Health-outcome rationale |
+| Health expenditure | `SH.XPD.CHEX.GD.ZS` | 2022 | Member-state burden |
+
+**Country panel**: DEU, FRA, ITA, ESP, POL (5 largest EU populations) +
+SWE, FIN (high-renewable peers) + comparator GBR.
+
+**Anti-pattern caught**: an earlier draft cited `GDP_GROWTH` for "economic
+impact of air-quality rules" — that's **economic** scope and must come
+from IMF (`NGDP_RPCH`), not WB.
+
+### Scenario 10.2 — DEVE motion on EU humanitarian aid budget
+
+**Article type**: `motions` · **Committee**: DEVE.
+
+**Indicators**: `MALNUTRITION` (`SN.ITK.DEFC.ZS`), `IMMUNIZATION`
+(`SH.IMM.MEAS`), `LIFE_EXPECTANCY` (`SP.DYN.LE00.IN`), comparator
+WGI Government Effectiveness (`GE.EST`).
+
+**Country panel**: 5 largest aid recipients in the motion's annex (e.g.
+NER, UKR, MDA, ETH, YEM). Note: country panel is selected from the
+*motion's text*, not from a generic top-N list.
+
+### Scenario 10.3 — propositions on AI Act enforcement
+
+**Article type**: `propositions` · **Procedure**: AI Act
+implementation regulation.
+
+**Indicators**: `IT.NET.USER.ZS` (internet-user share, EU-27 + USA + CHN
+proxy via `CHN`), `GB.XPD.RSDV.GD.ZS` (R&D % GDP — innovation capacity),
+WGI Rule of Law `RL.EST` (enforcement readiness).
+
+**Why not WB economic codes**: AI Act compliance cost is an **economic**
+claim → IMF `imf-fetch-data` `WEO/NGDP_R` etc.
+
+### Scenario 10.4 — week-ahead on enlargement (UKR, MDA, GEO)
+
+**Article type**: `week-ahead` · **Indicators**: WGI Voice & Accountability
+`VA.EST`, WGI Rule of Law `RL.EST`, Education expenditure `SE.XPD.TOTL.GD.ZS`,
+plus `IT.NET.USER.ZS` (digital-readiness).
+
+**Country panel**: UKR, MDA, GEO + comparators ROU, BGR (most-recent EU
+accession countries) + DEU, FRA (donor anchors).
+
+### Scenario 10.5 — FEMM report on gender pay gap directive
+
+**Article type**: `committee-reports` · **Committee**: FEMM.
+
+**Indicators**: `SCHOOL_ENROLLMENT` (`SE.PRM.ENRR`) — gender parity index
+preferred, `SP.DYN.LE00.IN` female only, `SG.GEN.PARL.ZS` (women in
+parliament), `SE.SEC.ENRR.FE.ZS` (female secondary enrolment).
+
+**Note**: economic gap data (employment, earnings) → IMF `LP` series.
+
+### Scenario 10.6 — SEDE subcommittee on European Defence Fund
+
+**Article type**: `committee-reports` · **Committee**: SEDE.
+
+**Indicators**: `MS.MIL.XPND.GD.ZS` (military expenditure % GDP, WB SIPRI
+mirror), `MS.MIL.TOTL.P1` (armed forces personnel), comparator `MS.MIL.XPND.CD`
+(absolute USD).
+
+**Country panel**: All 27 EU members (defence is a 27-state interest), with
+a sub-panel of the four largest spenders (DEU, FRA, ITA, POL) charted
+explicitly.
+
+## 11. Anti-patterns (Stage-C blocks)
+
+| Anti-pattern | Why blocked | Correct approach |
+|---|---|---|
+| `GDP_GROWTH` cited in any new article | Economic claim → IMF primary | Use `imf-fetch-data WEO NGDP_RPCH` |
+| `EUU` aggregate code | Rejected by WB MCP | Use IMF `EU` aggregate or 27-country panel |
+| Series with no vintage year | Stage-C placeholder leakage | "WB SP.DYN.LE00.IN (2023)" |
+| Single country, no comparator | Fails Economist-style rigour | Min 3-country panel + comparator |
+| `UK` (informal alias) | Rejected by WB MCP | `GBR` |
+| Static link to WB website | Volatile, breaks reproducibility | Cite indicator code; let MCP resolve |
+| Mixing economic + non-economic in one chart | Wave-4 source split | Two charts; economic→IMF, non-economic→WB |
+| Using `WLD` (World) for EU comparison | Diluted signal | EU-27 + 3-4 named comparators |
+| Citing 2018 data in 2026 article | Breaches freshness floor §8 | Escalate to fallback §9 |
+| WGI score without "Estimate" suffix | WGI has 4 columns: Estimate, StdErr, RankPct, Sources | Cite `RL.EST` not `RL` |
+
+## 12. MCP tool quick-reference (this artifact's surface)
+
+| Tool | When to call | Returns |
+|---|---|---|
+| `worldbank-mcp/get-economic-data` (deprecated for new articles) | Legacy macro context only | Time series for `GDP*`, `INFLATION`, `UNEMPLOYMENT` etc. |
+| `worldbank-mcp/get-social-data` | Demographics, health-adjacent context | `POPULATION`, `LIFE_EXPECTANCY`, `BIRTH_RATE`, `INTERNET_USERS` |
+| `worldbank-mcp/get-education-data` | CULT, EMPL, FEMM committees | `LITERACY_RATE`, `SCHOOL_ENROLLMENT`, `EDUCATION_EXPENDITURE` |
+| `worldbank-mcp/get-health-data` | ENVI, DEVE committees, public-health stories | `HEALTH_EXPENDITURE`, `PHYSICIANS`, `IMMUNIZATION`, `MALNUTRITION` |
+| `worldbank-mcp/raw-rest` (wrapper) | Environment, defence, governance, innovation | Any WB indicator code (e.g. `EN.ATM.CO2E.PC`, `MS.MIL.XPND.GD.ZS`, `RL.EST`) |
+| `worldbank-mcp/wb-mcp-probe` | Stage A health check | `WB_MCP_OK=true|false`, latency |
+
+Each tool call **must** record the indicator code, vintage year, country
+panel, and Admiralty grade in `manifest.dataSources[]`.
+
+## 13. Cross-checks against `economic-context.md` template
+
+When `economic-context.md` is rendered, the agent fills it from **both**
+sources:
+
+- §3 "Macro indicators" → IMF (`imf-indicator-mapping.md`)
+- §4 "Social / demographic context" → WB social
+- §5 "Sector-specific context" → WB domain (health / education / env /
+  defence / innovation / governance) per the committee mapping in §4 of
+  this file
+- §6 "Triangulation" → cross-source notes when WB and Eurostat disagree
+  by ≥2% relative or ≥0.2 percentage points
+
+## 14. Charting integration
+
+Two visualisation patterns are accepted:
+
+1. **Time-series line chart** — 5-10 years of one indicator across 3-7
+   countries. Default for trend stories. Y-axis labelled with WB indicator
+   short name + unit.
+2. **Latest-value bar chart** — single year, sortable, 27 EU members.
+   Default for "where does country X rank" stories. X-axis sorted
+   ascending; EU-27 average shown as horizontal reference line.
+
+Both render via `<canvas data-chart-config="...">` + `js/chart-init.js`.
+Inline `<script>` is forbidden (CSP). Colour palette: Hack23 7-colour
+(`#1565C0`, `#2E7D32`, `#FF9800`, `#D32F2F`, `#FFC107`, `#7B1FA2`, `#9E9E9E`).
+
 ---
 
 **Maintained by**: Hack23 AB
-**Version**: 1.0 (2026-04-17)
+**Version**: 1.2 (2026-04-25) — added §7 ISO country-code allowlist, §8
+vintage floors, §9 fallback hierarchy, §10 six worked EP-domain selection
+scenarios, §11 ten anti-patterns, §12 MCP tool quick-reference, §13
+`economic-context.md` cross-check, §14 charting integration. v1.1
+(2026-04-25 earlier): Wave-3/4 partition cleanup. v1.0 (2026-04-17):
+initial extraction.
+
 **Cross-references**:
 - `.github/prompts/SHARED_PROMPT_PATTERNS.md` (World Bank Integration section)
 - `.github/skills/ai-first-quality.md` (Quality Gates table)
 - `.github/prompts/04-article-generation.md §5` (Stage-C economic-context review; the earlier `src/utils/validate-articles.ts` CLI `checkWorldBankEvidence` was purged in the April-2026 aggregator-pipeline migration)
 - `scripts/wb-mcp-probe.sh` (connectivity probe)
+- `analysis/templates/economic-context.md` (target artifact)
+- `analysis/templates/imf-vintage-audit.md` (vintage audit covers WB too)
+- `analysis/methodologies/imf-indicator-mapping.md` (mirror file — economic scope)
+- `analysis/methodologies/osint-tradecraft-standards.md §2 Admiralty grading` (every WB citation needs a grade)
