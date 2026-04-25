@@ -17,11 +17,6 @@ static-site publication contract, also read
 [`Article-Generation.md`](../../Article-Generation.md). This prompt is the
 operational Stage-D checklist; `Article-Generation.md` is the durable reference.
 
-For the end-to-end article object, UI/UX export, `article.md` provenance, and
-static-site publication contract, also read
-[`Article-Generation.md`](../../Article-Generation.md). This prompt is the
-operational Stage-D checklist; `Article-Generation.md` is the durable reference.
-
 ## 1 · Precondition
 
 > **Do not start Stage D before Stage C exits 0.** If you are reading this

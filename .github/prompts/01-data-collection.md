@@ -109,9 +109,6 @@ Integration requirements:
 6. Bridge every economic indicator to a named EP file, committee, procedure,
    vote, or stakeholder pressure. A standalone macro paragraph with no EP
    political mechanism fails Stage C even when it cites IMF correctly.
-6. Bridge every economic indicator to a named EP file, committee, procedure,
-   vote, or stakeholder pressure. A standalone macro paragraph with no EP
-   political mechanism fails Stage C even when it cites IMF correctly.
 
 ## 5 · Data Verification Manifest
 
