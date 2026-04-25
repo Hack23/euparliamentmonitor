@@ -196,19 +196,19 @@ Article title, description, and SEO keywords are decided **after** Step 7, from 
 2. Write a title that names that item and its political impact. Aim for ≤70 characters, active voice, specific legislation / committee / actors, no raw dates.
 3. Write a meta description of 150–160 characters that explains political significance and names at least one stakeholder impact.
 4. Write SEO keywords derived from the actual content (committee names, legislation titles, political-group abbreviations, procedure codes).
-5. Pass them as CLI flags to the generator:
+5. Pass them as CLI flags to the article-generator (the post-purge canonical Stage-D entrypoint). Title and description flow through the run's `manifest.json` — the aggregator's [`resolveArticleMetadata` 5-tier ladder](../../src/aggregator/article-metadata.ts) prefers a manifest override before falling back to artifact H1 / aggregated MD / localized template:
 
 ```bash
 AI_TITLE="ECR Breaks Ranks on Digital Markets Act as Grand Coalition Splits"
 AI_DESCRIPTION="ECR defection on DMA enforcement reveals new cross-group dynamics; EPP-S&D cohesion drops to 61%, lowest reading in Q1 2026."
 
-npx tsx src/generators/news-enhanced.ts \
-  --types=${ARTICLE_TYPE_SLUG} \
-  --title="$AI_TITLE" \
-  --description="$AI_DESCRIPTION" \
-  --analysis \
-  --analysis-dir="$ANALYSIS_DIR"
+# Author the title/description into manifest.json before invoking the generator
+# (the AI agent writes the manifest as part of Step 7 and adjusts it here).
+# Then render the deterministic article HTML:
+npm run generate-article -- --run "$ANALYSIS_DIR"
 ```
+
+The legacy `npx tsx src/generators/news-enhanced.ts --types=… --title=… --description=…` invocation was **purged in the April-2026 aggregator-pipeline migration**; the `news-enhanced.ts` generator and its CLI no longer exist.
 
 **Product of Step 8:** an article HTML stub in `news/${TODAY}-${ARTICLE_TYPE_SLUG}-run${RUN_ID}-en.html` containing the AI-authored title, description, and the analytical prose the agent writes in the HTML body during generation.
 
@@ -220,9 +220,9 @@ One pass is never sufficient. Pass 2 is where reference quality is achieved.
 
 1. Read every file listed in `manifest.files.*` from top to bottom — not a sample.
 2. For each artifact, compare to the per-artifact quality signals in [`per-artifact-methodologies.md`](per-artifact-methodologies.md). Expand any section that is thin, missing citations, or lacks a confidence level.
-3. Expand any `[AI_ANALYSIS_REQUIRED]` markers the generator emitted in the article HTML — every marker gets replaced with substantive, evidence-based political intelligence (the exact AI_MARKER fields are enumerated in `src/utils/intelligence-analysis.ts`).
+3. Expand any `[AI_ANALYSIS_REQUIRED]` markers the agent emitted in any analysis artifact — every marker gets replaced with substantive, evidence-based political intelligence (see the `[AI_ANALYSIS_REQUIRED]` quality gate in [`.github/skills/ai-first-quality.md`](../../.github/skills/ai-first-quality.md)).
 4. Read the generated article HTML end-to-end. Every section must have ≥3 analytical paragraphs (not bullet lists), SWOT items with ≥80 words + severity badge, stakeholder perspectives with ≥150 words + evidence chain, a ≥200-word forward-outlook, and at least one Chart.js visualization with real data.
-5. Add Analysis Sources footer links from `manifest.files.*` via `renderAnalysisTransparencySection` in `src/templates/article-template.ts` (already applied by the template helper; confirm it rendered).
+5. Confirm the Analysis Sources footer was rendered by the aggregator. The post-purge pipeline emits the transparency footer from `manifest.files.*` via the [`src/aggregator/**` renderer](../../src/aggregator/article-html.ts); the legacy `renderAnalysisTransparencySection` helper in `src/templates/article-template.ts` was purged in the April-2026 aggregator-pipeline migration.
 6. Re-check color-coded Mermaid diagrams — every intelligence / classification / risk-scoring / threat-assessment artifact carries ≥1 diagram using the Hack23 colour palette from Step 2.
 7. Budget time: breaking / committee-reports / motions / propositions / week-ahead / month-ahead = ≥20 active minutes in Pass 1 + Pass 2 combined (≥12 Pass 1 + ≥8 Pass 2); week-in-review / month-in-review = ≥25 minutes (≥15 + ≥10); article-generator = 15 minutes × number of types. Finish the budget — there is always more depth to add.
 
@@ -232,26 +232,23 @@ One pass is never sufficient. Pass 2 is where reference quality is achieved.
 
 ## 🔟 Step 10 — Validate, Commit, Create PR
 
-The final gate is machine-enforced; pass it before the PR.
+The final gate is **editorial** at Stage-C completeness review; pass it before the PR.
 
-1. Run the pre-flight validator:
+1. Run the Stage-C editorial completeness review against [`reference-quality-thresholds.json`](reference-quality-thresholds.json):
 
-    ```bash
-    npm run validate-analysis -- \
-      --analysis-dir="${ANALYSIS_DIR}" \
-      --article-type="${ARTICLE_TYPE_SLUG}"
-    ```
+    - Read every artifact listed in `manifest.files.*` and confirm it meets its per-artifact line-count floor.
+    - Confirm every mandatory artifact for the run's article type (per [`artifact-catalog.md`](artifact-catalog.md)) is present in `manifest.files.*`.
+    - Reject any residual `[AI_ANALYSIS_REQUIRED]` or other placeholder markers; if found, return to Step 9 Pass 2 and fill them in.
 
-    The validator (`src/utils/validate-analysis-completeness.ts`) enforces the per-artifact line-count floors from [`reference-quality-thresholds.json`](reference-quality-thresholds.json), confirms every mandatory artifact is present in `manifest.files.*`, and rejects any residual placeholder markers. A non-zero exit returns you to Step 9 Pass 2.
+    The legacy runtime gate `npm run validate-analysis -- --analysis-dir=… --article-type=…` (backed by `src/utils/validate-analysis-completeness.ts`) was **purged in the April-2026 aggregator-pipeline migration**. Enforcement is now editorial — the agentic-workflow reviewer applies the same line-floor and presence checks at Stage-C before creating the PR.
 
-2. Run the article-HTML fallback-leak scan on every generated HTML file:
+2. Render the deterministic article HTML and visually scan it for fallback prose:
 
     ```bash
-    node scripts/utils/validate-analysis-completeness.js \
-      --article-html="news/${TODAY}-${ARTICLE_TYPE_SLUG}-*-en.html"
+    npm run generate-article -- --run "$ANALYSIS_DIR"
     ```
 
-    A non-zero exit means the article still carries fallback template prose; expand those sections in the HTML.
+    Open `news/${TODAY}-${ARTICLE_TYPE_SLUG}-run${RUN_ID}-en.html` and read it end-to-end; if any section still carries template fallback prose, expand it in the source artifact under `analysis/daily/<run>/**` and re-run `generate-article`. The legacy `node scripts/utils/validate-analysis-completeness.js --article-html=…` fallback-leak scan was purged in the same migration.
 
 3. Run the Stage-C editorial review of `intelligence/economic-context.md` for the IMF-primary rules (see [`.github/prompts/04-article-generation.md §5`](../../.github/prompts/04-article-generation.md) and [`imf-indicator-mapping.md §4`](imf-indicator-mapping.md#4-stage-c-editorial-fingerprints)): IMF product-name fingerprint present; per-article-type indicator floor met; `data-vintage="…"` and forecast markers in place on every projected number. A failure blocks PR creation — fix the artifact and re-review. The legacy runtime CLI `npx tsx src/utils/validate-articles.ts --quality --strict` was purged in the April-2026 aggregator-pipeline migration; enforcement moved to Stage-C editorial review.
 
@@ -300,7 +297,7 @@ These principles are the positive restatement of the v4.5 rule list. Workflow fi
 
 ## ⭐ Reference-Quality Depth
 
-**Section anchor for `src/utils/validate-analysis-completeness.ts` (`§Reference-Quality Depth`).**
+**Section anchor for the Stage-C editorial completeness review (`§Reference-Quality Depth`); the runtime helper `src/utils/validate-analysis-completeness.ts` that previously cross-referenced this anchor was purged in the April-2026 aggregator-pipeline migration.**
 
 Reference quality is measured, not subjective:
 

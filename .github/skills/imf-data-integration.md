@@ -90,12 +90,16 @@ All five identifiers are exported as `IMF_MCP_TOOLS` from
 // compiled to `scripts/mcp/imf-mcp-client.js` for Node consumers.
 // Pick the import form that matches your caller:
 //
-//   - From `src/**.ts`            →  import { getIMFMCPClient } from './mcp/imf-mcp-client.ts';
+//   - From `src/**.ts`            →  import { getIMFMCPClient } from './mcp/imf-mcp-client.js';
 //   - From `scripts/**.js`        →  import { getIMFMCPClient } from './mcp/imf-mcp-client.js';
 //   - From a repo-root tsx script →  import { getIMFMCPClient } from './src/mcp/imf-mcp-client.ts';
 //
-// The example below uses the in-`src/**` form.
-import { getIMFMCPClient } from './mcp/imf-mcp-client.ts';
+// The example below uses the in-`src/**` form. The `.js` extension is
+// required by the project's NodeNext ESM module resolution even though
+// the source file is `.ts` (TypeScript rewrites the extension at compile
+// time); reserve `.ts` extensions for ad-hoc `tsx` execution from the
+// repo root.
+import { getIMFMCPClient } from './mcp/imf-mcp-client.js';
 
 const client = await getIMFMCPClient();
 
