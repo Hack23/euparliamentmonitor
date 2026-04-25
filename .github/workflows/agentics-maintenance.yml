@@ -91,7 +91,7 @@ jobs:
       pull-requests: write
     steps:
       - name: Setup Scripts
-        uses: github/gh-aw-actions/setup@49157453228f9641824955e35cbeccbca74ee0fd # v0.71.0
+        uses: github/gh-aw-actions/setup@239aec45b78c8799417efdd5bc6d8cc036629ec1 # v0.71.1
         with:
           destination: ${{ runner.temp }}/gh-aw/actions
 
@@ -129,7 +129,7 @@ jobs:
       actions: write
     steps:
       - name: Setup Scripts
-        uses: github/gh-aw-actions/setup@49157453228f9641824955e35cbeccbca74ee0fd # v0.71.0
+        uses: github/gh-aw-actions/setup@239aec45b78c8799417efdd5bc6d8cc036629ec1 # v0.71.1
         with:
           destination: ${{ runner.temp }}/gh-aw/actions
 
@@ -158,7 +158,7 @@ jobs:
           persist-credentials: false
 
       - name: Setup Scripts
-        uses: github/gh-aw-actions/setup@49157453228f9641824955e35cbeccbca74ee0fd # v0.71.0
+        uses: github/gh-aw-actions/setup@239aec45b78c8799417efdd5bc6d8cc036629ec1 # v0.71.1
         with:
           destination: ${{ runner.temp }}/gh-aw/actions
 
@@ -173,7 +173,7 @@ jobs:
             await main();
 
       - name: Install gh-aw
-        uses: github/gh-aw-actions/setup-cli@49157453228f9641824955e35cbeccbca74ee0fd # v0.71.0
+        uses: github/gh-aw-actions/setup-cli@239aec45b78c8799417efdd5bc6d8cc036629ec1 # v0.71.1
         with:
           version: v0.71.0
 
@@ -215,7 +215,7 @@ jobs:
           persist-credentials: false
 
       - name: Setup Scripts
-        uses: github/gh-aw-actions/setup@49157453228f9641824955e35cbeccbca74ee0fd # v0.71.0
+        uses: github/gh-aw-actions/setup@239aec45b78c8799417efdd5bc6d8cc036629ec1 # v0.71.1
         with:
           destination: ${{ runner.temp }}/gh-aw/actions
 
@@ -259,7 +259,7 @@ jobs:
           persist-credentials: false
 
       - name: Setup Scripts
-        uses: github/gh-aw-actions/setup@49157453228f9641824955e35cbeccbca74ee0fd # v0.71.0
+        uses: github/gh-aw-actions/setup@239aec45b78c8799417efdd5bc6d8cc036629ec1 # v0.71.1
         with:
           destination: ${{ runner.temp }}/gh-aw/actions
 
@@ -274,7 +274,7 @@ jobs:
             await main();
 
       - name: Install gh-aw
-        uses: github/gh-aw-actions/setup-cli@49157453228f9641824955e35cbeccbca74ee0fd # v0.71.0
+        uses: github/gh-aw-actions/setup-cli@239aec45b78c8799417efdd5bc6d8cc036629ec1 # v0.71.1
         with:
           version: v0.71.0
 
@@ -305,7 +305,7 @@ jobs:
           persist-credentials: false
 
       - name: Setup Scripts
-        uses: github/gh-aw-actions/setup@49157453228f9641824955e35cbeccbca74ee0fd # v0.71.0
+        uses: github/gh-aw-actions/setup@239aec45b78c8799417efdd5bc6d8cc036629ec1 # v0.71.1
         with:
           destination: ${{ runner.temp }}/gh-aw/actions
 
@@ -320,7 +320,7 @@ jobs:
             await main();
 
       - name: Install gh-aw
-        uses: github/gh-aw-actions/setup-cli@49157453228f9641824955e35cbeccbca74ee0fd # v0.71.0
+        uses: github/gh-aw-actions/setup-cli@239aec45b78c8799417efdd5bc6d8cc036629ec1 # v0.71.1
         with:
           version: v0.71.0
 
@@ -402,7 +402,7 @@ jobs:
       issues: write
     steps:
       - name: Setup Scripts
-        uses: github/gh-aw-actions/setup@49157453228f9641824955e35cbeccbca74ee0fd # v0.71.0
+        uses: github/gh-aw-actions/setup@239aec45b78c8799417efdd5bc6d8cc036629ec1 # v0.71.1
         with:
           destination: ${{ runner.temp }}/gh-aw/actions
 
@@ -439,7 +439,7 @@ jobs:
           persist-credentials: false
 
       - name: Setup Scripts
-        uses: github/gh-aw-actions/setup@49157453228f9641824955e35cbeccbca74ee0fd # v0.71.0
+        uses: github/gh-aw-actions/setup@239aec45b78c8799417efdd5bc6d8cc036629ec1 # v0.71.1
         with:
           destination: ${{ runner.temp }}/gh-aw/actions
 
@@ -454,7 +454,7 @@ jobs:
             await main();
 
       - name: Install gh-aw
-        uses: github/gh-aw-actions/setup-cli@49157453228f9641824955e35cbeccbca74ee0fd # v0.71.0
+        uses: github/gh-aw-actions/setup-cli@239aec45b78c8799417efdd5bc6d8cc036629ec1 # v0.71.1
         with:
           version: v0.71.0
 
