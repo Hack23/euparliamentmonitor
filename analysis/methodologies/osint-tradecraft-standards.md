@@ -200,6 +200,25 @@ For tables, a dedicated **Source grade** column is preferred (see [`synthesis-su
 - Any claim supported only by grade-F sources **must** be excluded or framed as "unverified report" (never as a judgement).
 - Degraded MCP mode (see `mcp-reliability-audit`) automatically downgrades grade for all affected citations; the `reference-analysis-quality` artifact captures the run's aggregate grade distribution.
 
+### 2.6 Adopted-Texts Feed Freshness — Structured Warning Protocol
+
+The EP Open Data Portal's `get_adopted_texts_feed` endpoint sometimes returns a payload where all items are from a prior year (e.g. all TA-9-2024 / TA-10-2025 with no 2026 items). **Do not apply the heuristic "no current-year items ⇒ downgrade to C4"** — inspect the structured `dataQualityWarnings[]` field in the response payload instead.
+
+The `ep-mcp-client.ts` Stage-A wrapper populates two dedicated fields after parsing `dataQualityWarnings`:
+
+| Response field | Value | Meaning | Admiralty impact |
+|---|---|---|---|
+| `freshness` | `"augmented"` | Server detected a stale feed and pre-fetched `GET /adopted-texts?year={currentYear}` to supplement the items array. The augmented items are confirmable, EP-published, current-year documents. | **No downgrade** — source remains **A** (official EP record); credibility is **1–2** if items corroborate other evidence. |
+| `dataFreshnessWarnings` | `string[]` | Subset of `dataQualityWarnings` that starts with `FRESHNESS_FALLBACK`. Forward to `mcp-reliability-audit.md` §Warnings for transparency. | — |
+
+When `dataFreshnessWarnings` is present and `freshness === "augmented"`, grade citations as **A2** (single EP primary source, augmentation path confirmed by the server) — the same grade used for direct `get_adopted_texts?year=…` queries.
+
+**Escalation — `FRESHNESS_FALLBACK_FAILED`:** When `ep-mcp-client.ts` records `get_adopted_texts_feed` as failed with an `ANALYSIS_ONLY` prefix, the feed was stale *and* the current-year fallback also returned no items. In this case:
+
+- Mark the `get_adopted_texts_feed` evidence row in `mcp-reliability-audit.md` as **`❌ FAILED (ANALYSIS_ONLY)`**.
+- Do **not** cite any adopted-texts evidence — the run has no confirmable current-year corpus.
+- The Stage-C gate may still proceed if other primary data sources (speeches, questions, plenary sessions) provide sufficient evidence density.
+
 ---
 
 ## 3️⃣ Words of Estimative Probability (WEP / Kent Scale)
@@ -364,4 +383,4 @@ Before a run's PR is created, verify each line:
 
 ---
 
-**Document Control:** `/analysis/methodologies/osint-tradecraft-standards.md` · v1.1 · Applies to every workflow and every artifact under `analysis/daily/*/`. v1.1 (2026-04-23) — added cross-references to the new ported methodologies (synthesis, strategic-extensions) and the extended `intelligence-assessment`, `executive-brief`, `devils-advocate-analysis`, `forward-indicators` templates so ICD 203 / Admiralty / WEP contracts are explicit for those artifacts.
+**Document Control:** `/analysis/methodologies/osint-tradecraft-standards.md` · v1.2 · Applies to every workflow and every artifact under `analysis/daily/*/`. v1.1 (2026-04-23) — added cross-references to the new ported methodologies (synthesis, strategic-extensions) and the extended `intelligence-assessment`, `executive-brief`, `devils-advocate-analysis`, `forward-indicators` templates so ICD 203 / Admiralty / WEP contracts are explicit for those artifacts. v1.2 (2026-04-25) — added §2.6 Adopted-Texts Feed Freshness structured warning protocol: replaces the heuristic "no current-year items ⇒ C4 downgrade" with the structured `FRESHNESS_FALLBACK` / `FRESHNESS_FALLBACK_FAILED` signals emitted by `ep-mcp-client.ts`.
