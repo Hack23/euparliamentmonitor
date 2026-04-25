@@ -2820,84 +2820,118 @@ describe('ep-mcp-client', () => {
     });
 
     it('should sort procedures by dateLastActivity descending', async () => {
-      const procedures = [
-        { id: 'A', dateLastActivity: '2026-04-01', dateInitiated: '2026-03-01' },
-        { id: 'B', dateLastActivity: '2026-04-25', dateInitiated: '2026-03-15' },
-        { id: 'C', dateLastActivity: '2026-04-10', dateInitiated: '2026-03-10' },
-      ];
-      client.callTool.mockResolvedValue({
-        content: [{ type: 'text', text: JSON.stringify({ procedures }) }],
-      });
-      const result = await client.getFreshProcedures({ seenCacheStorePath: cachePath });
-      const body = JSON.parse(result.content[0].text);
-      expect(body.procedures.map((p) => p.id)).toEqual(['B', 'C', 'A']);
+      vi.useFakeTimers();
+      vi.setSystemTime(new Date('2026-04-25T00:00:00.000Z'));
+
+      try {
+        const procedures = [
+          { id: 'A', dateLastActivity: '2026-04-01', dateInitiated: '2026-03-01' },
+          { id: 'B', dateLastActivity: '2026-04-25', dateInitiated: '2026-03-15' },
+          { id: 'C', dateLastActivity: '2026-04-10', dateInitiated: '2026-03-10' },
+        ];
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: JSON.stringify({ procedures }) }],
+        });
+        const result = await client.getFreshProcedures({ seenCacheStorePath: cachePath });
+        const body = JSON.parse(result.content[0].text);
+        expect(body.procedures.map((p) => p.id)).toEqual(['B', 'C', 'A']);
+      } finally {
+        vi.useRealTimers();
+      }
     });
 
     it('should fall back to dateInitiated when dateLastActivity is empty', async () => {
-      const procedures = [
-        { id: 'A', dateLastActivity: '', dateInitiated: '2026-04-01' },
-        { id: 'B', dateLastActivity: '', dateInitiated: '2026-04-25' },
-      ];
-      client.callTool.mockResolvedValue({
-        content: [{ type: 'text', text: JSON.stringify({ procedures }) }],
-      });
-      const result = await client.getFreshProcedures({ seenCacheStorePath: cachePath });
-      const body = JSON.parse(result.content[0].text);
-      expect(body.procedures[0].id).toBe('B');
-      expect(body.procedures[1].id).toBe('A');
+      vi.useFakeTimers();
+      vi.setSystemTime(new Date('2026-04-25T00:00:00.000Z'));
+
+      try {
+        const procedures = [
+          { id: 'A', dateLastActivity: '', dateInitiated: '2026-04-01' },
+          { id: 'B', dateLastActivity: '', dateInitiated: '2026-04-25' },
+        ];
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: JSON.stringify({ procedures }) }],
+        });
+        const result = await client.getFreshProcedures({ seenCacheStorePath: cachePath });
+        const body = JSON.parse(result.content[0].text);
+        expect(body.procedures[0].id).toBe('B');
+        expect(body.procedures[1].id).toBe('A');
+      } finally {
+        vi.useRealTimers();
+      }
     });
 
     it('should exclude procedures older than the windowDays cutoff', async () => {
-      // Use a date clearly inside and outside a 30-day window from today (2026-04-25)
-      const procedures = [
-        { id: 'RECENT', dateLastActivity: '2026-04-20', dateInitiated: '2026-03-01' },
-        { id: 'OLD', dateLastActivity: '2026-01-01', dateInitiated: '2025-12-01' },
-      ];
-      client.callTool.mockResolvedValue({
-        content: [{ type: 'text', text: JSON.stringify({ procedures }) }],
-      });
-      const result = await client.getFreshProcedures({
-        windowDays: 30,
-        seenCacheStorePath: cachePath,
-      });
-      const body = JSON.parse(result.content[0].text);
-      expect(body.procedures.map((p) => p.id)).toContain('RECENT');
-      expect(body.procedures.map((p) => p.id)).not.toContain('OLD');
+      vi.useFakeTimers();
+      vi.setSystemTime(new Date('2026-04-25T00:00:00.000Z'));
+
+      try {
+        const procedures = [
+          { id: 'RECENT', dateLastActivity: '2026-04-20', dateInitiated: '2026-03-01' },
+          { id: 'OLD', dateLastActivity: '2026-01-01', dateInitiated: '2025-12-01' },
+        ];
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: JSON.stringify({ procedures }) }],
+        });
+        const result = await client.getFreshProcedures({
+          windowDays: 30,
+          seenCacheStorePath: cachePath,
+        });
+        const body = JSON.parse(result.content[0].text);
+        expect(body.procedures.map((p) => p.id)).toContain('RECENT');
+        expect(body.procedures.map((p) => p.id)).not.toContain('OLD');
+      } finally {
+        vi.useRealTimers();
+      }
     });
 
     it('should apply topN cap after sorting and filtering', async () => {
-      const procedures = [
-        { id: 'A', dateLastActivity: '2026-04-25', dateInitiated: '2026-03-01' },
-        { id: 'B', dateLastActivity: '2026-04-24', dateInitiated: '2026-03-01' },
-        { id: 'C', dateLastActivity: '2026-04-23', dateInitiated: '2026-03-01' },
-      ];
-      client.callTool.mockResolvedValue({
-        content: [{ type: 'text', text: JSON.stringify({ procedures }) }],
-      });
-      const result = await client.getFreshProcedures({
-        topN: 2,
-        seenCacheStorePath: cachePath,
-      });
-      const body = JSON.parse(result.content[0].text);
-      expect(body.procedures).toHaveLength(2);
-      expect(body.procedures[0].id).toBe('A');
-      expect(body.procedures[1].id).toBe('B');
+      vi.useFakeTimers();
+      vi.setSystemTime(new Date('2026-04-25T00:00:00.000Z'));
+
+      try {
+        const procedures = [
+          { id: 'A', dateLastActivity: '2026-04-25', dateInitiated: '2026-03-01' },
+          { id: 'B', dateLastActivity: '2026-04-24', dateInitiated: '2026-03-01' },
+          { id: 'C', dateLastActivity: '2026-04-23', dateInitiated: '2026-03-01' },
+        ];
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: JSON.stringify({ procedures }) }],
+        });
+        const result = await client.getFreshProcedures({
+          topN: 2,
+          seenCacheStorePath: cachePath,
+        });
+        const body = JSON.parse(result.content[0].text);
+        expect(body.procedures).toHaveLength(2);
+        expect(body.procedures[0].id).toBe('A');
+        expect(body.procedures[1].id).toBe('B');
+      } finally {
+        vi.useRealTimers();
+      }
     });
 
     it('should persist procedure IDs to the seen-cache file', async () => {
-      const procedures = [
-        { id: '2026-0001', dateLastActivity: '2026-04-25', dateInitiated: '2026-03-01' },
-      ];
-      client.callTool.mockResolvedValue({
-        content: [{ type: 'text', text: JSON.stringify({ procedures }) }],
-      });
-      await client.getFreshProcedures({ seenCacheStorePath: cachePath });
+      vi.useFakeTimers();
+      vi.setSystemTime(new Date('2026-04-25T00:00:00.000Z'));
 
-      const { existsSync, readFileSync } = await import('fs');
-      expect(existsSync(cachePath)).toBe(true);
-      const saved = JSON.parse(readFileSync(cachePath, 'utf-8'));
-      expect(saved.version).toBe(1);
-      expect(saved.entries['2026-0001'].dateLastActivity).toBe('2026-04-25');
+      try {
+        const procedures = [
+          { id: '2026-0001', dateLastActivity: '2026-04-25', dateInitiated: '2026-03-01' },
+        ];
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: JSON.stringify({ procedures }) }],
+        });
+        await client.getFreshProcedures({ seenCacheStorePath: cachePath });
+
+        const { existsSync, readFileSync } = await import('fs');
+        expect(existsSync(cachePath)).toBe(true);
+        const saved = JSON.parse(readFileSync(cachePath, 'utf-8'));
+        expect(saved.version).toBe(1);
+        expect(saved.entries['2026-0001'].dateLastActivity).toBe('2026-04-25');
+      } finally {
+        vi.useRealTimers();
+      }
     });
 
     it('should not write cache file when no procedures pass the window filter', async () => {

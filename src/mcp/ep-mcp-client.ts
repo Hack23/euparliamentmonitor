@@ -878,11 +878,10 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
     const cutoff = todayMinus.toISOString().slice(0, 10); // YYYY-MM-DD
 
     const normalised = allProcedures.filter(
-      (p): p is Record<string, unknown> =>
-        p !== null && typeof p === 'object' && !Array.isArray(p)
+      (p): p is Record<string, unknown> => p !== null && typeof p === 'object' && !Array.isArray(p)
     );
 
-    const withSortKey = normalised.map(p => {
+    const withSortKey = normalised.map((p) => {
       const dla = typeof p['dateLastActivity'] === 'string' ? p['dateLastActivity'] : '';
       const di = typeof p['dateInitiated'] === 'string' ? p['dateInitiated'] : '';
       return { item: p, effectiveDate: dla.length > 0 ? dla : di };
@@ -901,7 +900,8 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
     const cache = new ProcedureSeenCache(seenCacheStorePath);
     for (const p of result) {
       const id = typeof p['id'] === 'string' ? p['id'] : '';
-      const dateLastActivity = typeof p['dateLastActivity'] === 'string' ? p['dateLastActivity'] : '';
+      const dateLastActivity =
+        typeof p['dateLastActivity'] === 'string' ? p['dateLastActivity'] : '';
       if (id.length > 0) {
         cache.upsert(id, dateLastActivity);
       }

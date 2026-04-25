@@ -130,8 +130,8 @@ export class ProcedureSeenCache {
      */
     getNewOrUpdatedIds(items) {
         return items
-            .filter(item => this.entries.get(item.id)?.dateLastActivity !== item.dateLastActivity)
-            .map(item => item.id);
+            .filter((item) => this.entries.get(item.id)?.dateLastActivity !== item.dateLastActivity)
+            .map((item) => item.id);
     }
     /**
      * Persist the cache to disk. No-op when nothing has changed since the last

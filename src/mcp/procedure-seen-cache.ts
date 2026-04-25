@@ -157,10 +157,12 @@ export class ProcedureSeenCache {
    * @param items - Candidate procedures
    * @returns IDs of procedures that are new or have an updated activity date
    */
-  getNewOrUpdatedIds(items: ReadonlyArray<{ readonly id: string; readonly dateLastActivity: string }>): readonly string[] {
+  getNewOrUpdatedIds(
+    items: ReadonlyArray<{ readonly id: string; readonly dateLastActivity: string }>
+  ): readonly string[] {
     return items
-      .filter(item => this.entries.get(item.id)?.dateLastActivity !== item.dateLastActivity)
-      .map(item => item.id);
+      .filter((item) => this.entries.get(item.id)?.dateLastActivity !== item.dateLastActivity)
+      .map((item) => item.id);
   }
 
   /**

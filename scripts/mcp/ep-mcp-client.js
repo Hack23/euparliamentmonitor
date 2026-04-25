@@ -694,7 +694,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
         todayMinus.setUTCDate(todayMinus.getUTCDate() - windowDays);
         const cutoff = todayMinus.toISOString().slice(0, 10); // YYYY-MM-DD
         const normalised = allProcedures.filter((p) => p !== null && typeof p === 'object' && !Array.isArray(p));
-        const withSortKey = normalised.map(p => {
+        const withSortKey = normalised.map((p) => {
             const dla = typeof p['dateLastActivity'] === 'string' ? p['dateLastActivity'] : '';
             const di = typeof p['dateInitiated'] === 'string' ? p['dateInitiated'] : '';
             return { item: p, effectiveDate: dla.length > 0 ? dla : di };
