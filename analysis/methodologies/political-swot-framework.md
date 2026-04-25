@@ -437,5 +437,5 @@ quadrantChart
 - **Path:** `/analysis/methodologies/political-swot-framework.md`
 - **Adapted from:** [Riksdagsmonitor SWOT framework](https://github.com/Hack23/riksdagsmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - **Classification:** Public
-- **Version:** 2.3 — Bumped version to 2.2; Added Advanced Technique 0 (Mandatory Evidence Citation Format per SWOT Item), Advanced Technique 5 (Temporal SWOT — Current vs. 90-Day Projected)
+- **Version:** 2.3 — Bumped version to 2.3 (release alignment with v3.2 methodology suite). Carries forward Advanced Technique 0 (Mandatory Evidence Citation Format per SWOT Item) and Advanced Technique 5 (Temporal SWOT — Current vs. 90-Day Projected) from v2.2.
 - **Next Review:** 2026-07-31
