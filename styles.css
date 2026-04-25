@@ -6490,6 +6490,118 @@ html[data-theme='dark'] .d3-network-wrapper text {
 
 .article-body {
   min-width: 0; /* prevent grid-child overflow on long code blocks */
+  max-width: 960px;
+  padding: 28px;
+  background: var(--card-bg, #ffffff);
+  border: 1px solid var(--border, #d0d7de);
+  border-radius: 14px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+  overflow-wrap: anywhere;
+}
+
+.article-hero {
+  margin: 0 0 28px;
+  padding: 24px;
+  border: 1px solid rgba(0, 51, 153, 0.18);
+  border-radius: 14px;
+  background:
+    linear-gradient(135deg, rgba(0, 51, 153, 0.10), rgba(255, 204, 0, 0.10)),
+    var(--surface, #ffffff);
+}
+
+.article-kicker {
+  margin: 0 0 10px;
+  color: var(--primary, #003399);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.article-hero h1 {
+  margin: 0 0 12px;
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+.article-dek {
+  max-width: 72ch;
+  margin: 0 0 14px;
+  color: var(--text-muted, #57606a);
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  line-height: 1.55;
+}
+
+.article-meta,
+.article-source-md,
+.artifact-source {
+  color: var(--text-muted, #57606a);
+  font-size: 0.9rem;
+}
+
+.article-body h2 {
+  margin-top: 2.25rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--border, #d0d7de);
+  color: var(--primary, #003399);
+}
+
+.article-body h3 {
+  margin-top: 1.75rem;
+  color: var(--heading, #24292f);
+}
+
+.article-body p,
+.article-body li {
+  line-height: 1.72;
+}
+
+.article-body blockquote {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--primary, #003399);
+  border-radius: 8px;
+  background: rgba(0, 51, 153, 0.06);
+}
+
+.table-scroll {
+  margin: 1.25rem 0;
+  overflow-x: auto;
+  border: 1px solid var(--border, #d0d7de);
+  border-radius: 10px;
+}
+
+.table-scroll table {
+  margin: 0;
+  min-width: 720px;
+}
+
+.mermaid-figure {
+  margin: 1.75rem 0;
+  padding: 1rem;
+  overflow-x: auto;
+  border: 1px solid var(--border, #d0d7de);
+  border-radius: 12px;
+  background: var(--surface-muted, #f6f8fa);
+}
+
+.mermaid-figure svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+pre.mermaid {
+  white-space: pre;
+}
+
+pre.mermaid--error {
+  color: #fff;
+  background: #8b0000;
+  border-radius: 8px;
+  padding: 1rem;
 }
 
 /* Collapse to single column below wide-desktop breakpoint. */
@@ -6511,6 +6623,17 @@ html[data-theme='dark'] .d3-network-wrapper text {
 html[data-theme='dark'] .article-toc-container {
   background: rgba(255, 255, 255, 0.03);
   border-color: rgba(255, 255, 255, 0.12);
+}
+
+html[data-theme='dark'] .article-body,
+html[data-theme='dark'] .article-hero,
+html[data-theme='dark'] .mermaid-figure {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+html[data-theme='dark'] .article-body blockquote {
+  background: rgba(144, 202, 249, 0.08);
 }
 
 /* RTL alignment for the numbered TOC list. */

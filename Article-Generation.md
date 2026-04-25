@@ -252,7 +252,7 @@ The aggregator maps artifact paths to rendered article sections via `src/aggrega
 
 | Rendered article section | Primary artifact inputs |
 |---|---|
-| Executive Brief | `extended/executive-brief.md` |
+| Executive Brief | `executive-brief.md` (preferred) or `extended/executive-brief.md` fallback |
 | Synthesis Summary | `intelligence/synthesis-summary.md` |
 | Significance | `classification/significance-classification.md`, `intelligence/significance-scoring.md` |
 | Actors & Forces | `classification/actor-mapping.md`, `classification/forces-analysis.md`, `classification/impact-matrix.md` |

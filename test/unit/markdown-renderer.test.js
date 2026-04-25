@@ -10,6 +10,7 @@ import {
   buildMarkdownIt,
   renderMarkdown,
   slugify,
+  stripMarkdownFrontMatter,
 } from '../../scripts/aggregator/markdown-renderer.js';
 
 describe('slugify', () => {
@@ -36,6 +37,15 @@ describe('buildMarkdownIt', () => {
 });
 
 describe('renderMarkdown', () => {
+  it('strips Jekyll YAML front matter before rendering the body', () => {
+    const markdown = '---\ntitle: "Example"\nlayout: article\n---\n\n## Body\n\nText.';
+    const { html } = renderMarkdown(markdown);
+    expect(html).not.toContain('layout: article');
+    expect(html).toContain('<h2');
+    expect(html).toContain('Body');
+    expect(stripMarkdownFrontMatter(markdown)).toMatch(/^## Body/);
+  });
+
   it('renders headings with stable anchor ids', () => {
     const { html, toc } = renderMarkdown('# Title\n\n## Section One\n\n### Sub');
     expect(html).toContain('<h1>');

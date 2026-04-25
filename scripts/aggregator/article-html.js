@@ -181,7 +181,6 @@ ${hreflangLinks}
   <meta name="theme-color" content="#003399">
   <link rel="stylesheet" href="../styles.css">
   <script type="application/ld+json">${jsonLdString}</script>
-  <script type="module" src="../js/vendor/mermaid.esm.min.mjs" defer></script>
   <script type="module" src="../js/mermaid-init.js" defer></script>
 </head>
 <body>
@@ -208,6 +207,12 @@ ${hreflangLinks}
 
   <main id="main" class="site-main article-main">
 ${tocHtml}    <article class="article-body" lang="${safeLang}">
+      <header class="article-hero">
+        <p class="article-kicker">${escapeHTML(options.articleType.replace(/-/g, ' '))}</p>
+        <h1>${escapeHTML(options.title)}</h1>
+        <p class="article-dek">${escapeHTML(options.description)}</p>
+        <p class="article-meta"><time datetime="${options.date}">${options.date}</time> · EU Parliament Monitor</p>
+      </header>
       ${sourceMdLink}
       ${options.body}
     </article>

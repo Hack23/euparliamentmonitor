@@ -49,6 +49,14 @@ catalog. The validator enforces:
 10. `workflow-audit.md` and `methodology-reflection.md` are present as the
     final two artifacts of the run (see `ai-driven-analysis-guide.md` Step 10.5).
 
+### Mandatory reader layer — `executive-brief.md`
+
+Every GREEN article run MUST include root-level `${ANALYSIS_DIR}/executive-brief.md`.
+It is the first rendered artifact in `article.md` and must contain a BLUF, three
+decisions, 60-second read, top documents/procedures table, Mermaid risk snapshot,
+and top forward trigger. `extended/executive-brief.md` is accepted only as a
+legacy fallback when improving an older run; new runs write the root artifact.
+
 ### Optional — `extended/` artifacts (not required by default)
 
 Artifacts written to `${ANALYSIS_DIR}/extended/` are **not required** for a
@@ -60,7 +68,7 @@ have entries in
 the validator may enforce the corresponding checks (including per-artifact line
 floors).
 
-The 12 extended artifacts are: `executive-brief`, `devils-advocate-analysis`,
+The 11 extended artifacts are: `devils-advocate-analysis`,
 `historical-parallels`, `coalition-mathematics`, `forward-indicators`,
 `intelligence-assessment`, `implementation-feasibility`, `media-framing-analysis`,
 `comparative-international`, `cross-reference-map`, `data-download-manifest`,

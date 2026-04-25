@@ -208,6 +208,12 @@ rendered into the final HTML. The article's section-to-artifact mapping
 is therefore the same as the canonical artifact order — there is no
 separate "article structure" to maintain.
 
+The article begins with a generated **Reader Intelligence Guide** and then the
+root-level `executive-brief.md` (or legacy `extended/executive-brief.md`
+fallback). This mirrors the Riksdagsmonitor pattern: readers see BLUF,
+decisions, 60-second read, risk snapshot, and top forward trigger before the
+longer synthesis and audit appendices.
+
 | Article section (rendered) | Primary artifact(s) | Supporting artifact(s) |
 |---|---|---|
 | Lede / headline rationale | `intelligence/synthesis-summary.md` | `classification/significance-classification.md`, `classification/significance-scoring.md` |

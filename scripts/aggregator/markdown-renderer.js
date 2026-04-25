@@ -48,6 +48,22 @@ export function buildMarkdownIt() {
     return md;
 }
 /**
+ * Strip a leading YAML front matter block from a Markdown document. Generated
+ * `article.md` files are Jekyll-compatible, but the deterministic HTML
+ * renderer must render the body, not the metadata fence.
+ *
+ * @param markdown - Markdown with optional `---` front matter at byte 0
+ * @returns Markdown body with the front matter removed
+ */
+export function stripMarkdownFrontMatter(markdown) {
+    if (!markdown.startsWith('---\n'))
+        return markdown;
+    const end = markdown.indexOf('\n---\n', 4);
+    if (end === -1)
+        return markdown;
+    return markdown.slice(end + 5).replace(/^\n+/, '');
+}
+/**
  * Slugify a heading text into a stable URL fragment.
  *
  * @param text - Heading text (may contain unicode punctuation / marks)
@@ -122,7 +138,7 @@ export function renderMarkdown(markdown, options = {}) {
     const env = {};
     if (options.mermaidLabel)
         env.mermaidLabel = options.mermaidLabel;
-    const tokens = md.parse(markdown, env);
+    const tokens = md.parse(stripMarkdownFrontMatter(markdown), env);
     const toc = harvestToc(tokens);
     const html = md.renderer.render(tokens, md.options, env);
     const mermaidCount = countMermaidTokens(tokens);

@@ -13,6 +13,10 @@ import fs from 'fs';
 import path from 'path';
 import { ARTIFACT_SECTIONS, MANIFEST_SECTION_ID, MANIFEST_SECTION_TITLE, SUPPLEMENTARY_SECTION_ID, SUPPLEMENTARY_SECTION_TITLE, TRADECRAFT_SECTION_ID, TRADECRAFT_SECTION_TITLE, } from './artifact-order.js';
 import { cleanArtifact, githubBlobUrl } from './clean-artifact.js';
+/** Id of the generated reader guide section. */
+export const READER_GUIDE_SECTION_ID = 'reader-intelligence-guide';
+/** Display title of the generated reader guide section. */
+export const READER_GUIDE_SECTION_TITLE = 'Reader Intelligence Guide';
 /**
  * Extract every string entry from a single `files` value (which may be an
  * array of strings or a `path → description` object). Split out so
@@ -92,6 +96,11 @@ export function expandSectionArtifacts(section, available, consumed) {
         else if (available.has(entry) && !consumed.has(entry)) {
             out.push(entry);
             consumed.add(entry);
+            // `executive-brief.md` is the canonical Riksdagsmonitor-aligned path;
+            // `extended/executive-brief.md` remains a compatibility fallback. When
+            // both exist, render only the canonical root file.
+            if (section.id === 'executive-brief')
+                break;
         }
     }
     return out;
@@ -269,6 +278,74 @@ export function renderAnalysisIndex(included, manifestRelPath) {
         `Every artifact below was read by the aggregator and contributed to this article. The raw [manifest.json](${githubBlobUrl(manifestRelPath)}) carries the full machine-readable list, including gate-result history.`,
         '',
         '| Section | Artifact | Path |',
+        '|---|---|---|',
+        ...rows,
+        '',
+    ].join('\n');
+}
+/** Reader-guide copy for high-value intelligence sections. */
+const READER_GUIDE_VALUES = {
+    'section-executive-brief': {
+        need: 'BLUF and editorial decisions',
+        value: 'fast answer to what happened, why it matters, who is accountable, and the next dated trigger',
+    },
+    'section-synthesis': {
+        need: 'Integrated thesis',
+        value: 'the lead political reading that connects facts, actors, risks, and confidence',
+    },
+    'section-significance': {
+        need: 'Significance scoring',
+        value: 'why this story outranks or trails other same-day European Parliament signals',
+    },
+    'section-coalitions-voting': {
+        need: 'Coalitions and voting',
+        value: 'political group alignment, voting evidence, and coalition pressure points',
+    },
+    'section-stakeholder-map': {
+        need: 'Stakeholder impact',
+        value: 'who gains, who loses, and which institutions or citizens feel the policy effect',
+    },
+    'section-economic-context': {
+        need: 'IMF-backed economic context',
+        value: 'macro, fiscal, trade, or monetary evidence that changes the political interpretation',
+    },
+    'section-scenarios': {
+        need: 'Forward indicators',
+        value: 'dated watch items that let readers verify or falsify the assessment later',
+    },
+    'section-risk': {
+        need: 'Risk assessment',
+        value: 'policy, institutional, coalition, communications, and implementation risk register',
+    },
+};
+/**
+ * Render the generated reader-intelligence guide that appears before the
+ * artifact sections. It gives readers a Riksdagsmonitor-style navigation layer
+ * without requiring agents to hand-author another artifact.
+ *
+ * @param sections - Emitted section TOC entries, in document order
+ * @param included - Included artifacts, used to name each section's source
+ * @returns Markdown block containing the guide table
+ */
+export function renderReaderIntelligenceGuide(sections, included) {
+    const rows = sections
+        .map((section) => {
+        const copy = Object.getOwnPropertyDescriptor(READER_GUIDE_VALUES, section.id)?.value;
+        if (!copy)
+            return '';
+        const source = included.find((artifact) => artifact.sectionId === section.id)?.runRelPath;
+        const label = source ? `\`${source}\`` : section.title;
+        return `| [${copy.need}](#${section.id}) | ${copy.value} | ${label} |`;
+    })
+        .filter(Boolean);
+    if (rows.length === 0)
+        return '';
+    return [
+        `<h2 id="${READER_GUIDE_SECTION_ID}">${READER_GUIDE_SECTION_TITLE}</h2>`,
+        '',
+        'Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.',
+        '',
+        "| Reader need | What you'll get | Source artifact |",
         '|---|---|---|',
         ...rows,
         '',
@@ -455,14 +532,20 @@ export function aggregateAnalysisRun(options) {
     });
     const tradecraft = renderTradecraftAppendix(tradecraftFiles);
     const analysisIndex = renderAnalysisIndex(includedArtifacts, manifestRelPath);
+    const readerGuide = renderReaderIntelligenceGuide(emittedSections, includedArtifacts);
     // Both appendices emit their own <h2 id="…"> blocks — record them so the
     // article TOC mirrors the rendered document in document order.
+    if (readerGuide) {
+        emittedSections.unshift({ id: READER_GUIDE_SECTION_ID, title: READER_GUIDE_SECTION_TITLE });
+    }
     emittedSections.push({ id: TRADECRAFT_SECTION_ID, title: TRADECRAFT_SECTION_TITLE });
     emittedSections.push({ id: MANIFEST_SECTION_ID, title: MANIFEST_SECTION_TITLE });
     const markdown = [
         `# ${documentTitle}`,
         '',
         provenance,
+        '',
+        readerGuide,
         '',
         ...sectionMarkdown,
         '',
