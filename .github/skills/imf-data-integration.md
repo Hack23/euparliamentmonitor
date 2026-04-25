@@ -86,7 +86,11 @@ All five identifiers are exported as `IMF_MCP_TOOLS` from
 ## Typical Discovery → Fetch Flow
 
 ```ts
-import { getIMFMCPClient } from '../mcp/imf-mcp-client.js';
+// Repo-root-relative paths shown for clarity. From a TypeScript
+// caller at `src/**`, import via `./mcp/imf-mcp-client.ts`; from a
+// JavaScript caller at `scripts/**`, import via
+// `./mcp/imf-mcp-client.js`.
+import { getIMFMCPClient } from './src/mcp/imf-mcp-client.ts';
 
 const client = await getIMFMCPClient();
 

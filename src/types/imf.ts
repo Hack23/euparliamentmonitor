@@ -32,7 +32,7 @@
  * April-2026 aggregator-pipeline migration.
  *
  * @see {@link https://dataservices.imf.org/REST/SDMX_3.0 | IMF SDMX 3.0 REST API}
- * @see `analysis/methodologies/imf-indicator-mapping.md` for the committee →
+ * @see {@link https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/imf-indicator-mapping.md | IMF Indicator Mapping methodology} for the committee →
  *   IMF indicator mapping enforced at Stage-C editorial review.
  */
 

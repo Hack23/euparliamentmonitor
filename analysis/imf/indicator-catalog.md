@@ -5,7 +5,7 @@
 > `analysis/worldbank/indicator-catalog.md`; together they cover the full
 > economic/social/environmental surface required by policy article types.
 
-**📅 Last Updated:** 2026-04-24 | **🏷️ Classification:** Public | **🌀 Wave:** 3
+**📅 Last Updated:** 2026-04-25 | **🏷️ Classification:** Public | **🌀 Wave:** 4
 
 ---
 

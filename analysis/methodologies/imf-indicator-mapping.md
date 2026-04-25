@@ -97,7 +97,7 @@ database enumeration in
 
 ---
 
-## 2. Policy Article Types — IMF Primary Source (Wave-3)
+## 2. Policy Article Types — IMF Primary Source (Wave-4)
 
 | Article type | Primary IMF indicators | Database | Min IMF indicators | Stakeholders |
 |---|---|---|:---:|---|
@@ -122,7 +122,7 @@ purged in the April-2026 aggregator-pipeline migration.
 
 ---
 
-## 3. World Bank — non-economic domains only (Wave-3)
+## 3. World Bank — non-economic domains only (Wave-4)
 
 IMF does **not** cover these domains — the World Bank remains the
 authoritative source:
