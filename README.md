@@ -598,6 +598,36 @@ npm run serve
 # Open http://localhost:8080 in your browser
 ```
 
+#### Same-Origin JS Bundle (Mermaid + Chart.js + D3)
+
+The static site loads **every** executable bundle from same-origin
+`js/vendor/` under a strict `script-src 'self'` CSP — no external CDN. Vendored
+libraries are copied from `node_modules/` at build time:
+
+```bash
+npm run copy-vendor    # writes js/vendor/{chart.umd.min.js,d3.min.js,…,mermaid/}
+```
+
+The CI deploy workflow ([`deploy-s3.yml`](.github/workflows/deploy-s3.yml))
+runs `copy-vendor` before `aws s3 sync` and includes both `*.js` and `*.mjs`
+files (Mermaid 11 ships as code-split ESM under `js/vendor/mermaid/chunks/`).
+If you add a new diagram type to a template, no extra wiring is needed — the
+chunk loader is part of the vendored bundle.
+
+#### Stage-C Analysis Validator
+
+Before opening an article PR, validate the analysis run completeness:
+
+```bash
+npm run validate-analysis -- analysis/daily/<date>/<run-dir>
+```
+
+The validator enforces per-artifact line floors, mandatory Mermaid diagrams,
+Admiralty/WEP/SAT/BLUF tradecraft signals, required H2 sections, and
+placeholder leakage. RED output ⇒ Pass-3 the offending artifacts; never ship
+an article without a green gate. See
+[`.github/prompts/03-analysis-completeness-gate.md`](.github/prompts/03-analysis-completeness-gate.md).
+
 ## Project Structure
 
 ```
