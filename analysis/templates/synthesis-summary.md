@@ -26,6 +26,12 @@
 > **🔴 Deep Data Requirement (NEW):** A synthesis that cites political group positions (e.g., "ECR split on trade vote") without actual voting record data from `get_voting_records` or `get_meeting_decisions` MUST mark those claims as LOW confidence. The synthesis MUST include a "Data Sources Used" section listing every MCP tool called, items returned, and any failed endpoints with the direct fallback attempted.
 
 > **🔴 Cross-Run Consistency (NEW):** When citing political group seat counts, use EXACTLY the same numbers as other analysis files in the same run. Inconsistencies between breaking-run and committee-reports-run on the same day (e.g., EPP=185 vs EPP=188) undermine credibility. Use a single canonical source per run and record it.
+>
+> **🔴 SEO Metadata Requirement (NEW):** The synthesis metadata block is the
+> first fallback source for published article metadata when `manifest.title` and
+> `manifest.description` are absent. Its SEO title and description candidates
+> MUST be evidence-backed by this synthesis and `significance-scoring.md`; no
+> generic article-type/date titles are accepted.
 
 ---
 
@@ -39,6 +45,9 @@
 | **Analysis Period** | `[REQUIRED: e.g. "2026-03-30 00:00–18:00 UTC"]` |
 | **Produced By** | `[REQUIRED: workflow name, e.g. news-weekly-review]` |
 | **Overall Confidence** | `[REQUIRED: HIGH / MEDIUM / LOW]` |
+| **SEO Title Candidate** | `[REQUIRED: ≤70 chars, actor/procedure-led, no raw date]` |
+| **SEO Description Candidate** | `[REQUIRED: 150–160 chars, consequence-led, names stakeholder impact]` |
+| **Search Intent Terms** | `[REQUIRED: committee/procedure/policy/stakeholder terms supported by artifacts]` |
 
 ---
 

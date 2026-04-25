@@ -15,7 +15,8 @@ article drafting until Stage C (completeness gate) exits 0.
 - **Reference run:** `analysis/daily/2026-04-18/breaking-run184/` — 17 artifacts, 3600+ lines, 13 frameworks
 - **Methodology guides:** [`analysis/methodologies/`](../../analysis/methodologies/) (classification, threat, SWOT, risk, style, OSINT tradecraft, WB/IMF indicator mappings)
 - **Templates (39 total):** [`analysis/templates/`](../../analysis/templates/) — 6 framework + 14 agentic-workflow + 25 per-artifact templates, indexed in [`analysis/templates/README.md`](../../analysis/templates/README.md)
-- **Per-artifact line floors:** [`analysis/methodologies/reference-quality-thresholds.json`](../../analysis/methodologies/reference-quality-thresholds.json) (keyed by `articleType × relativePath`) — enforced by `npm run validate-analysis`
+- **Per-artifact line floors:** [`analysis/methodologies/reference-quality-thresholds.json`](../../analysis/methodologies/reference-quality-thresholds.json) (keyed by `articleType × relativePath`) — enforced by the Stage-C agent-side readback; there is no standalone runtime validator in the aggregator era.
+- **Article pipeline reference:** [`Article-Generation.md`](../../Article-Generation.md) — end-to-end contract for `article.md`, SEO metadata, UI/UX export, and static-site render outputs.
 
 ## 1b · Analysis Artifacts to Produce (39-template catalog)
 
@@ -108,14 +109,13 @@ reads this exact path from `HEAD` of `main` after the analysis PR merges.
 
 | Workflow family | Total | Pass 1 | Pass 2 | Stage C |
 |----------|:-------------:|:------:|:------:|:------:|
-| `news-<type>-analysis.md` — all article types | 30–40 min | 18 min | 12 min | 5 min |
-| Legacy monolithic `news-<type>.md` (pre-split) | 20 min | 12 min | 8 min | included |
-| Weekly / monthly review (legacy monolithic) | 25 min | 15 min | 10 min | included |
-| `news-article-generator.md` | 15 min per type | 9 min | 6 min | included |
+| Unified `news-<type>.md` — all article types | 20–27 min | ~60% | ~40% | 3–5 min |
+| Weekly / monthly review unified workflows | 25–35 min | ~60% | ~40% | 3–5 min |
+| Translation helper (`news-translate.md`) | No Stage B | N/A | N/A | N/A |
 
-The article workflow (`news-<type>-article.md`) does **not** run Stage B and
-therefore has no analysis time budget. Its entire budget (≤ 30 min active
-work) goes to Stage D (2 passes + validators + single PR call).
+Stage D is deterministic rendering, not a prose pass. Spend the active-work
+budget in Stage B/C so the artifacts already contain the article-quality
+analysis before the aggregator writes `${ANALYSIS_DIR}/article.md` and `news/**`.
 
 ## 4 · Mandatory 2-Pass Improvement (NON-NEGOTIABLE)
 
@@ -147,11 +147,12 @@ reference-quality:
 
 ## 6 · Per-Artifact Budget Enforcement (Rule 22)
 
-`npm run validate-analysis` applies per-artifact floors from
-[`reference-quality-thresholds.json`](../../analysis/methodologies/reference-quality-thresholds.json).
-When a file is SHORT, run a targeted Pass 2 on THAT file — do not pad, write
-substantive prose with evidence anchors. Line counting must match the
-validator's `text.split('\n').length` (not `wc -l`).
+Stage C applies per-artifact floors from
+[`reference-quality-thresholds.json`](../../analysis/methodologies/reference-quality-thresholds.json)
+during the agent-side readback. When a file is SHORT, run a targeted Pass 2 on
+THAT file — do not pad, write substantive prose with evidence anchors. Count
+lines the same way the thresholds are defined: `text.split('\n').length`, not a
+shell-only `wc -l` shortcut.
 
 ## 7 · Analytical Frameworks
 
@@ -189,11 +190,11 @@ Each perspective must state: (1) mechanism of impact, (2) EP-data evidence,
 - Now run the completeness gate:
   [`03-analysis-completeness-gate.md`](03-analysis-completeness-gate.md).
 
-After Stage C exits 0 in the `news-<type>-analysis.md` workflow: **ship a
-single analysis-only PR** (see
-[`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md) §3). The paired
-`news-<type>-article.md` workflow will run Stage D automatically when the
-analysis PR merges to `main`.
+After Stage C is green in a unified `news-<type>.md` workflow: proceed directly
+to Stage D, run `npm run generate-article -- --run "$ANALYSIS_DIR"`, read the
+generated `${ANALYSIS_DIR}/article.md` for obvious metadata/provenance issues,
+then ship the single combined PR (see
+[`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md) §3).
 
 ## 10 · Persistence & Session Reliability
 
@@ -204,4 +205,3 @@ analysis PR merges to `main`.
 - Rely on workflow-level MCP gateway keepalive (`sandbox.mcp.keepalive-interval`)
   plus the single end-of-run PR snapshot in
   [`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md).
-

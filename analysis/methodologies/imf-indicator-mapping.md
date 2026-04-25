@@ -105,13 +105,13 @@ database enumeration in
 | `committee-reports` (BUDG) | `GGXWDG_NGDP`, `GGXONLB_NGDP`, `GGSB_NPGDP` | FM + GFS | ≥ 3 | Member-state finance ministries, Commission |
 | `committee-reports` (AFET / SEDE) | `NGDPD`, `BCA_NGDPD`, DOT bilateral | WEO + DOT + EREO | ≥ 2 | Defence ministries, Council |
 | `committee-reports` (INTA) | `TX_RPCH`, `BFD_BP6_USD`, `EREER_IX` | WEO + BOP_AGG + DOT + ER | ≥ 3 | DG TRADE, member states |
-| `news-week-ahead` | `NGDP_RPCH`, `PCPIPCH` (forecasts) | WEO | ≥ 2 | Editors, MEPs |
-| `news-month-ahead` | `NGDP_RPCH`, `PCPIPCH`, `LUR`, `GGXWDG_NGDP` (forecasts) | WEO + FM | ≥ 2 | Editors, policy analysts |
-| `news-breaking` | `PCPIPCH`, `LUR` (latest actual / Q1-Q2 proxy) | IFS / CPI | ≥ 1 | Editors |
-| `news-weekly-review` | Period-over-period deltas for WEO + IFS | WEO + IFS + CPI | ≥ 1 | Analysts |
-| `news-monthly-review` | Period-over-period deltas + monthly PCPS/ER | WEO + IFS + PCPS + ER | ≥ 2 | Analysts |
-| `news-motions` | Macro backdrop for legislative risk-assessment SWOT | WEO | ≥ 1 | Analysts |
-| `news-propositions` | As motions | WEO | ≥ 1 | Analysts |
+| `week-ahead` | `NGDP_RPCH`, `PCPIPCH` (forecasts) | WEO | ≥ 2 | Editors, MEPs |
+| `month-ahead` | `NGDP_RPCH`, `PCPIPCH`, `LUR`, `GGXWDG_NGDP` (forecasts) | WEO + FM | ≥ 2 | Editors, policy analysts |
+| `breaking` | `PCPIPCH`, `LUR` (latest actual / Q1-Q2 proxy) | IFS / CPI | ≥ 1 | Editors |
+| `week-in-review` | Period-over-period deltas for WEO + IFS | WEO + IFS + CPI | ≥ 1 | Analysts |
+| `month-in-review` | Period-over-period deltas + monthly PCPS/ER | WEO + IFS + PCPS + ER | ≥ 2 | Analysts |
+| `motions` | Macro backdrop for legislative risk-assessment SWOT | WEO | ≥ 1 | Analysts |
+| `propositions` | As motions | WEO | ≥ 1 | Analysts |
 
 These per-type indicator floors are enforced at Stage-C completeness
 gate by editorial review of `analysis/daily/<run>/intelligence/economic-context.md`
@@ -157,8 +157,12 @@ cited" in an article is:
 | SDMX indicator codes | Section 1 of this document + [`../imf/indicator-catalog.md §2`](../imf/indicator-catalog.md#2-policy-domain--imf-indicator-mapping) |
 | World Bank equivalents (for non-economic domains) | [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md) |
 
-Stage-C confirms the article contains ≥ 1 IMF product name **and** ≥ 1
-SDMX indicator code matching the per-article-type floor in §2.
+Stage-C confirms `intelligence/economic-context.md` contains ≥ 1 IMF product
+name **and** enough distinct SDMX indicator codes to satisfy the
+per-article-type floor in §2 / §8. The same IMF-backed facts may inform
+`manifest.title` and `manifest.description`, but only when the artifact also
+contains the EP policy bridge described in `economic-context.md` and
+`Article-Generation.md`'s SEO metadata contract.
 
 > The earlier runtime helpers (`hasIMFEvidence`, `hasWorldBankEvidence`,
 > `articlePolicyHasWorldBank`, `articlePolicyHasEconomicContext`,

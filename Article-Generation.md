@@ -168,6 +168,46 @@ The prompt library under `.github/prompts/` defines the bounded contexts each wo
 
 The most important Stage-D rule is: **agents do not author article prose in Stage D**. They complete analysis in Stage B/C; Stage D only renders what is already committed in Markdown.
 
+### SEO metadata contract
+
+The public `<title>`, `<meta name="description">`, Open Graph / Twitter card
+fields, JSON-LD headline/description, news indexes, RSS, and sitemap metadata
+all inherit from the same resolved article metadata. Stage-B agents therefore
+set SEO quality before rendering:
+
+1. Prefer `manifest.title` and `manifest.description` when the synthesis has a
+   clear editorial highlight.
+2. Keep titles ≤70 characters, active, specific, and actor-led.
+3. Keep descriptions 150–160 characters, consequence-led, and distinct from the
+   lede.
+4. Put search-intent terms in human prose and headings: committee acronyms,
+   procedure titles, policy areas, institutions, and named stakeholders.
+5. Never publish date/type boilerplate such as "EU Parliament Breaking —
+   YYYY-MM-DD" unless no article is rendered.
+6. For economic stories, use IMF-backed wording only when
+   `intelligence/economic-context.md` contains IMF vintage, SDMX code, and policy
+   bridge evidence.
+
+### SEO metadata contract
+
+The public `<title>`, `<meta name="description">`, Open Graph / Twitter card
+fields, JSON-LD headline/description, news indexes, RSS, and sitemap metadata
+all inherit from the same resolved article metadata. Stage-B agents therefore
+set SEO quality before rendering:
+
+1. Prefer `manifest.title` and `manifest.description` when the synthesis has a
+   clear editorial highlight.
+2. Keep titles ≤70 characters, active, specific, and actor-led.
+3. Keep descriptions 150–160 characters, consequence-led, and distinct from the
+   lede.
+4. Put search-intent terms in human prose and headings: committee acronyms,
+   procedure titles, policy areas, institutions, and named stakeholders.
+5. Never publish date/type boilerplate such as "EU Parliament Breaking —
+   YYYY-MM-DD" unless no article is rendered.
+6. For economic stories, use IMF-backed wording only when
+   `intelligence/economic-context.md` contains IMF vintage, SDMX code, and policy
+   bridge evidence.
+
 ---
 
 ## 🧠 Methodologies That Shape the Article
