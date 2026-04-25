@@ -203,11 +203,13 @@ All tools respond in < 5 s; 10 s HTTP timeout per call.
 
 **⚠️ Country-code guard:** WB MCP rejects aggregate codes (`EUU`,
 `EMU`, `ECS`, `OED`, `WLD`, `NAC`, `EAS`, `SSF`) and the informal `UK`
-alias. Call `isMCPSupportedWBCountryCode()` from
-`src/utils/world-bank-data.ts` before every MCP invocation — see
+alias. Use only the ISO-3166 codes listed in
 [`analysis/worldbank/eu-country-mapping.md`](../../analysis/worldbank/eu-country-mapping.md).
-For EU-level economic context, use IMF `EU`/`EA` aggregates (§8
-above).
+The legacy runtime helper `isMCPSupportedWBCountryCode()` in
+`src/utils/world-bank-data.ts` was purged in the April-2026
+aggregator-pipeline migration; the allow-list is now an editorial
+rule enforced at Stage A. For EU-level economic context, use IMF
+`EU`/`EA` aggregates (§8 above).
 
 Max 3 data calls per 60-min workflow (search-indicators exempt).
 Failures are skipped, not retried.

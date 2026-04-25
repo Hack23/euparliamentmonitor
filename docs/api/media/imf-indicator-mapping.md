@@ -9,7 +9,7 @@ native TypeScript IMF SDMX 3.0 REST client in
 
 **Scope**: The **sole authoritative source** for all economic context —
 macro / fiscal / trade / monetary / exchange-rate / debt / FDI / banking
-— under the **Wave-3 policy (April 2026)**. Social / health / education /
+— under the **Wave-4 policy (April 2026)**. Social / health / education /
 environment / defence / agriculture / innovation / governance indicators
 remain on World Bank — see
 [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md).
@@ -24,18 +24,22 @@ Outlook, April 2026"` provenance line with no vintage patching, and (d)
 IMF is the only source that ships multi-year forecasts at EU-member-
 state granularity.
 
-**Enforcement (Wave-3, April 2026)**: The CLI validator
-(`src/utils/validate-articles.ts`) enforces
-`articlePolicyHasEconomicContext` as the primary gate (IMF-OR-WB), with
-`articlePolicyHasIMFEconomicEvidence` **dark-launched behind the
-`WAVE3_IMF_STRICT` feature flag** for data-driven promotion. When the
-flag flips (Wave-4, target ~2 weeks after 2026-04-24), the strict
-helper requires **IMF** specifically for policy-required types — WB-only
-articles will no longer satisfy the gate and MUST add at least one IMF
-citation. `articlePolicyHasWorldBank` is retained in test-only scope
-for legacy fixtures.
+**Enforcement (Wave-4, April 2026)**: IMF is the required primary
+source for every economic claim in policy-required articles. The legacy
+runtime validator gate (`articlePolicyHasEconomicContext` OR-gate +
+`articlePolicyHasIMFEconomicEvidence` strict helper, dark-launched
+behind the `WAVE3_IMF_STRICT` feature flag) lived in
+`src/utils/content-validator.ts` and the surrounding
+`src/utils/validate-articles.ts` CLI; both were **purged in the
+April-2026 aggregator-pipeline migration**. Enforcement is now editorial
+at Stage-C completeness review of the markdown analysis artifacts — see
+[`.github/prompts/04-article-generation.md §5`](../../.github/prompts/04-article-generation.md).
+The fingerprint surface (product names, tool identifiers, SDMX indicator
+codes) that the Wave-3 helpers consumed survives in
+[`../imf/indicator-catalog.md §6`](../imf/indicator-catalog.md#6-fingerprint-convention)
+as the editorial fingerprint list.
 
-**Wave-3 → Wave-4 migration**: see §10 Migration Plan.
+**Wave history**: see §10 Migration Plan.
 
 ---
 
@@ -93,7 +97,7 @@ database enumeration in
 
 ---
 
-## 2. Policy Article Types — IMF Primary Source (Wave-3)
+## 2. Policy Article Types — IMF Primary Source (Wave-4)
 
 | Article type | Primary IMF indicators | Database | Min IMF indicators | Stakeholders |
 |---|---|---|:---:|---|
@@ -109,13 +113,16 @@ database enumeration in
 | `news-motions` | Macro backdrop for legislative risk-assessment SWOT | WEO | ≥ 1 | Analysts |
 | `news-propositions` | As motions | WEO | ≥ 1 | Analysts |
 
-These per-type indicator floors are exposed programmatically as
-`IMF_PER_ARTICLE_INDICATOR_FLOORS` in `src/utils/imf-data.ts` and
-checked during Stage-C completeness gate when `WAVE3_IMF_STRICT=true`.
+These per-type indicator floors are enforced at Stage-C completeness
+gate by editorial review of `analysis/daily/<run>/intelligence/economic-context.md`
+— the agent counts distinct SDMX indicator codes cited against the
+article-type's floor. The legacy runtime constant
+`IMF_PER_ARTICLE_INDICATOR_FLOORS` in `src/utils/imf-data.ts` was
+purged in the April-2026 aggregator-pipeline migration.
 
 ---
 
-## 3. World Bank — non-economic domains only (Wave-3)
+## 3. World Bank — non-economic domains only (Wave-4)
 
 IMF does **not** cover these domains — the World Bank remains the
 authoritative source:
@@ -138,23 +145,29 @@ citation pattern.
 
 ---
 
-## 4. Validator Integration
+## 4. Stage-C Editorial Fingerprints
 
-Helpers in `src/utils/content-validator.ts`:
+The fingerprint surface that Stage-C reviewers use to confirm "IMF is
+cited" in an article is:
 
-| Helper | Returns true when… | Status |
-|---|---|---|
-| `hasWorldBankEvidence(text)` | Text cites "World Bank", a WB tool, or a WB indicator code with clean word boundaries. | ✅ retained |
-| `hasIMFEvidence(text)` | Text cites "IMF", "WEO", "Fiscal Monitor", an IMF MCP tool, or an IMF SDMX indicator code. | ✅ retained |
-| `articlePolicyHasWorldBank(html, type)` | Article type is policy-required and `hasWorldBankEvidence` returns true. | 🟡 Wave-3 test-only (retained for legacy fixtures) |
-| `articlePolicyHasEconomicContext(html, type)` | Policy-required and **either** WB or IMF evidence matches (OR-gate). | ✅ **primary enforced gate (Wave-2+3)** |
-| `articlePolicyHasIMFEconomicEvidence(html, type)` | Policy-required and **IMF** evidence matches (strict). | 🔴 **Wave-3 dark-launch behind `WAVE3_IMF_STRICT` flag**; will be promoted at Wave-4 |
+| Fingerprint class | Canonical source |
+|---|---|
+| IMF product names (`IMF`, `WEO`, `Fiscal Monitor`, `International Monetary Fund`, `data.imf.org`, `dataservices.imf.org`) | [`../imf/indicator-catalog.md §6`](../imf/indicator-catalog.md#6-fingerprint-convention) |
+| Virtual tool names (`imf-list-databases`, `imf-search-databases`, `imf-get-parameter-defs`, `imf-get-parameter-codes`, `imf-fetch-data`) | `IMF_MCP_TOOLS` in [`src/mcp/imf-mcp-client.ts`](../../src/mcp/imf-mcp-client.ts) (drift-guarded by `test/integration/mcp/imf-mcp.test.js`) |
+| SDMX indicator codes | Section 1 of this document + [`../imf/indicator-catalog.md §2`](../imf/indicator-catalog.md#2-policy-domain--imf-indicator-mapping) |
+| World Bank equivalents (for non-economic domains) | [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md) |
 
-Canonical fingerprint lists:
+Stage-C confirms the article contains ≥ 1 IMF product name **and** ≥ 1
+SDMX indicator code matching the per-article-type floor in §2.
 
-- `IMF_STRONG_FINGERPRINTS` — products (`IMF`, `WEO`, `Fiscal Monitor`, `International Monetary Fund`, `data.imf.org`) + five MCP tools
-- `IMF_INDICATOR_CODES` — SDMX codes from Section 1
-- `WORLD_BANK_STRONG_FINGERPRINTS`, `WORLD_BANK_INDICATOR_CODES` — see `worldbank-indicator-mapping.md`
+> The earlier runtime helpers (`hasIMFEvidence`, `hasWorldBankEvidence`,
+> `articlePolicyHasWorldBank`, `articlePolicyHasEconomicContext`,
+> `articlePolicyHasIMFEconomicEvidence`, plus the
+> `IMF_STRONG_FINGERPRINTS` / `IMF_INDICATOR_CODES` /
+> `WORLD_BANK_STRONG_FINGERPRINTS` / `WORLD_BANK_INDICATOR_CODES`
+> tables) lived in `src/utils/content-validator.ts` and were purged in
+> the April-2026 aggregator-pipeline migration. The Stage-C editorial
+> review replaces them in full.
 
 ---
 
@@ -162,39 +175,38 @@ Canonical fingerprint lists:
 
 Articles citing an IMF forecast MUST:
 
-1. **Forecast marker** (Wave-3 validator-enforced via regex): include
-   at least one of the following within 30 words of the number:
+1. **Forecast marker** (Stage-C editorial check): include at least one
+   of the following within 30 words of the number —
 
     ```regex
     /\b(forecast|forecasts|forecasted|projection|projections|projected|IMF\s+projects?|IMF\s+expects?|expected\s+to\s+(reach|rise|fall|grow|shrink|contract|expand))\b/i
     ```
 
-    This is enforced by `validateIMFForecastMarker()` in
-    `src/utils/imf-data.ts` and emits a diagnostic warning when the
-    strict flag is on.
+2. **Vintage citation**: cite the vintage inline (`WEO April 2026`,
+   `Fiscal Monitor April 2026`) **and** set
+   `data-vintage="WEO-April-2026"` on the enclosing
+   `<section class="economic-context imf-economic-context">` block,
+   if that wrapper is authored explicitly in
+   `intelligence/economic-context.md`; otherwise set it on the
+   artifact's top-level section element.
 
-2. **Vintage citation** (editorial): cite the vintage inline (`WEO
-   April 2026`, `Fiscal Monitor April 2026`). The
-   `data-vintage="WEO-April-2026"` HTML attribute on the
-   `economic-context` section is additionally mandatory and is
-   validated by `validateIMFVintageMetadata()`.
-
-3. **Optimism-bias acknowledgement** (editorial): for horizons ≥3
-   years, include one sentence sized per the MAE bands in
+3. **Optimism-bias acknowledgement**: for horizons ≥3 years, include
+   one sentence sized per the MAE bands in
    [`../imf/forecast-accuracy-baseline.md`](../imf/forecast-accuracy-baseline.md).
 
-Wave-2 extended the validator to enforce rule 1 with a regex check;
-Wave-3 promotes rule 2 to the HTML-attribute check; rule 3 remains
-editorial until Wave-4.
+All three rules are enforced at Stage-C completeness review of the
+markdown artifact. The legacy Wave-2 regex helper
+(`validateIMFForecastMarker`) and the Wave-3 metadata helper
+(`validateIMFVintageMetadata`) in `src/utils/imf-data.ts` were purged
+in the April-2026 aggregator-pipeline migration.
 
 ---
 
 ## 6. Country Code Conventions
 
 IMF uses ISO-3166-1 alpha-3 codes for every EU member state (same as
-World Bank). Call `getIMFCountryCode('DE')` → `'DEU'`. Aggregates:
-`EU` (27 members), `EA` (current Euro Area), `G7`, `G20`. See
-[`../imf/eu-country-mapping.md`](../imf/eu-country-mapping.md).
+World Bank). Aggregates: `EU` (27 members), `EA` (current Euro Area),
+`G7`, `G20`. See [`../imf/eu-country-mapping.md`](../imf/eu-country-mapping.md).
 
 **EA membership drift**: Croatia joined the Euro Area on 2023-01-01.
 WEO `EA` timeseries use the **current** membership throughout history
@@ -215,37 +227,40 @@ metadata for auditability:
 </section>
 ```
 
-The `buildIMFEconomicContextHTML()` utility in `src/utils/imf-data.ts`
-emits this attribute automatically when the context is built with a
-`vintage` argument. `validateIMFVintageMetadata(html)` asserts the
-presence of a Wave-3-compliant vintage string for any article
-matching the forecast marker regex.
+The aggregator (`src/aggregator/**`) strips YAML front-matter, so
+`data-vintage="…"` MUST be emitted in the Markdown body as explicit
+HTML on the rendered container in `intelligence/economic-context.md`
+(for example, the `<section>` shown above). Stage-C review confirms
+its presence for any article matching the forecast-marker regex in
+§5.
+
+> The earlier `buildIMFEconomicContextHTML()` utility and the
+> `validateIMFVintageMetadata(html)` check in `src/utils/imf-data.ts`
+> / `src/utils/content-validator.ts` were purged in the April-2026
+> aggregator-pipeline migration. The editorial requirement is unchanged.
 
 ---
 
 ## 8. Per-Article-Type Indicator Minimums
 
-Exported as `IMF_PER_ARTICLE_INDICATOR_FLOORS` in
-`src/utils/imf-data.ts`:
+The editorial floors applied at Stage-C completeness review:
 
-```ts
-export const IMF_PER_ARTICLE_INDICATOR_FLOORS: Readonly<Record<string, number>> = {
-  'committee-reports': 3,  // base floor; ECON/BUDG/INTA override higher
-  'week-ahead': 2,
-  'month-ahead': 2,
-  'weekly-review': 1,
-  'week-in-review': 1,
-  'monthly-review': 2,
-  'month-in-review': 2,
-  'breaking': 1,
-  'motions': 1,
-  'propositions': 1,
-};
-```
+| Article type | Floor | Committee overrides |
+|---|:---:|---|
+| `committee-reports` | 3 | ECON ≥ 4, BUDG ≥ 3, INTA ≥ 3, AFET/SEDE ≥ 2 |
+| `week-ahead` | 2 | — |
+| `month-ahead` | 2 | — |
+| `weekly-review` / `week-in-review` | 1 | — |
+| `monthly-review` / `month-in-review` | 2 | — |
+| `breaking` | 1 | — |
+| `motions` | 1 | — |
+| `propositions` | 1 | — |
 
 Committee-specific overrides (ECON ≥ 4, BUDG ≥ 3, INTA ≥ 3) are
 applied at Stage-C completeness gate based on the committee tag in
-the manifest.
+the manifest. The legacy runtime constant
+`IMF_PER_ARTICLE_INDICATOR_FLOORS` in `src/utils/imf-data.ts` was
+purged in the April-2026 aggregator-pipeline migration.
 
 ---
 
@@ -265,25 +280,25 @@ Log the triangulation outcome in
 
 ## 10. Migration Plan (Wave-2 → Wave-3 → Wave-4)
 
-| Wave | Status | Enforced gate | WB-for-economic policy |
-|:----:|--------|---------------|-----------------------|
-| 2 | ✅ shipped | `articlePolicyHasEconomicContext` (OR-gate) | Retained as secondary; WB economic indicators satisfy the gate |
-| 3 | ✅ **current** | Same OR-gate + diagnostic reports per-article IMF/WB split | IMF **primary** for economic; WB accepted but diagnostic flags when used | 
-| 4 | planned (~2 weeks of green Wave-3 diagnostics) | `articlePolicyHasIMFEconomicEvidence` (strict) | WB for economic: **rejected**; must add IMF citation |
-| 5 | planned | Same | `articlePolicyHasWorldBank` removed from production code paths; retained in test-only fixtures |
+| Wave | Status | Enforcement | WB-for-economic policy |
+|:----:|--------|-------------|-----------------------|
+| 2 | ✅ shipped | Runtime `articlePolicyHasEconomicContext` OR-gate | Retained as secondary; WB economic indicators satisfied the gate |
+| 3 | ✅ shipped | Same OR-gate + dark-launched `articlePolicyHasIMFEconomicEvidence` behind `WAVE3_IMF_STRICT` flag | IMF **primary** for economic; WB accepted but diagnostic flagged when used |
+| 4 | ✅ **current** | **Editorial** at Stage-C review over markdown artifacts; all runtime helpers purged in April-2026 aggregator-pipeline migration | IMF **required** for economic; WB for economic blocked at Stage C |
 
-**Wave-3 → Wave-4 promotion criteria**: two full weeks of daily
-scheduled news runs where the `articlePolicyHasIMFEconomicEvidence`
-diagnostic emits zero FAIL signals (i.e. every policy-required article
-already cites IMF) trigger the flag flip.
+**What changed at Wave-4**: the aggregator-pipeline migration removed
+`src/utils/validate-articles.ts`, `src/utils/content-validator.ts`,
+`src/utils/imf-data.ts`, and the wrapper generators. The `src/aggregator/**`
+pipeline renders `analysis/daily/<run>/**` markdown artifacts as-is, so
+there is no HTML-authoring hook left for runtime validation. The editorial
+rules survived — they are checked during Stage-C completeness review and
+blocked at PR-creation time by the agentic-workflow reviewer.
 
-**`articlePolicyHasWorldBank` deprecation timeline**:
-
-- Wave-3 (now): JSDoc `@deprecated`; retained for test fixtures and
-  diagnostic reporting.
-- Wave-4: removed from `validate-articles.ts` call path.
-- Wave-5: removed from `content-validator.ts` exported surface; tests
-  migrated to `hasWorldBankEvidence` directly.
+**Historical note (Wave-3 → Wave-4 transition)**: the Wave-3 dark-launch
+collected two weeks of diagnostic signals showing that every scheduled
+news run already cited IMF for policy-required articles. Wave-4 promoted
+the policy from dark-launched helper to editorial default in April-2026
+when the surrounding validator layer was removed.
 
 ---
 

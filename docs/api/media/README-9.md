@@ -656,7 +656,7 @@ Use this matrix to determine which templates apply to each EP data category. **P
 | **MEP declarations** | `declarations/` | ✅ | ⬜ | ✅ | ✅ | ⬜ | ⬜ | ⬜ |
 | **Plenary documents** | `plenary-documents/` | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **External documents** (Commission, Council) | `external-documents/` | ✅ | ⬜ | ✅ | ⬜ | ✅ | ⬜ | ⬜ |
-| **IMF data** (primary economic, Wave-3) | `imf/` | ✅ | ⬜ | ✅ | ⬜ | ✅ | ⬜ | ⬜ |
+| **IMF data** (primary economic, Wave-4) | `imf/` | ✅ | ⬜ | ✅ | ⬜ | ✅ | ⬜ | ⬜ |
 | **World Bank data** (non-economic only) | `world-bank/` | ✅ | ⬜ | ✅ | ⬜ | ✅ | ⬜ | ⬜ |
 
 > **Legend:** ✅ = Primary template for this data type | ⬜ = Optional / use if relevant

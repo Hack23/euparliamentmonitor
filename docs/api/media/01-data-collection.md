@@ -39,7 +39,7 @@ The canonical fallback map and parameter table live in
 [`07-mcp-reference.md`](07-mcp-reference.md). In one sentence: if a feed
 returns 404/timeout, try the corresponding direct endpoint before giving up.
 
-## 4 · Economic & Non-Economic Context — **IMF primary for economic, WB for non-economic only** (Wave-3 policy)
+## 4 · Economic & Non-Economic Context — **IMF primary for economic, WB for non-economic only** (Wave-4 policy)
 
 Required for articles covering trade, employment, digital/tech, health,
 environment/energy, agriculture, housing, migration, defence.
