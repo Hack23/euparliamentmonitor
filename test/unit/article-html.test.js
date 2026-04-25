@@ -178,6 +178,28 @@ describe('wrapArticleHtml', () => {
     const html = wrapArticleHtml(baseOptions);
     expect(html).not.toContain('class="footer-stats"');
   });
+
+  it('embeds isBasedOn in JSON-LD when source artifact URLs are provided', () => {
+    const html = wrapArticleHtml({
+      ...baseOptions,
+      isBasedOn: [
+        'https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/x/synthesis-summary.md',
+      ],
+    });
+    expect(html).toContain('"isBasedOn"');
+    expect(html).toContain('synthesis-summary.md');
+    expect(html).toContain('"CreativeWork"');
+  });
+
+  it('omits isBasedOn from JSON-LD when the option is absent', () => {
+    const html = wrapArticleHtml(baseOptions);
+    expect(html).not.toContain('"isBasedOn"');
+  });
+
+  it('omits isBasedOn from JSON-LD when an empty array is provided', () => {
+    const html = wrapArticleHtml({ ...baseOptions, isBasedOn: [] });
+    expect(html).not.toContain('"isBasedOn"');
+  });
 });
 
 describe('buildArticleToc', () => {

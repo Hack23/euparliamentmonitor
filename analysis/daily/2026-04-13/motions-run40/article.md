@@ -1,0 +1,780 @@
+# Motions — 2026-04-13
+
+<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
+
+> **Provenance**
+>
+> - **Article type:** `motions`
+> - **Run date:** 2026-04-13
+> - **Run id:** `40`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-13/motions-run40](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-13/motions-run40)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/motions-run40/manifest.json)
+
+<h2 id="section-significance">Significance</h2>
+
+### Significance Classification
+
+<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/motions-run40/classification/significance-classification.md" rel="noopener">View source: <code>classification/significance-classification.md</code></a></p>
+
+### Classification Context
+
+| Field | Value |
+|-------|-------|
+| **Data Status** | EP API OUTAGE — classification based on precomputed stats + 5 prior analysis runs |
+| **Live Feed Data** | None available (12+ consecutive MCP timeouts) |
+| **Classification Basis** | Prior motions analysis (Apr 10), today's cross-session intelligence |
+| **Confidence** | MEDIUM — no new feed data to validate |
+
+### Active Motions Items — Updated Classification (T-1 Tariff Deadline)
+
+#### Tier 1: CRITICAL Significance (Score 8.0+)
+
+| Rank | EP Reference | Title | Score | Status | Update from Run 39 |
+|:----:|-------------|-------|:-----:|--------|-------------------|
+| 1 | TA-10-2026-0096 | EU Countermeasures to US Tariffs | 9.2/10 | Adopted Mar 26 — implementation T-1 | Score RAISED from 8.4 to 9.2: deadline proximity now T-1 vs T-4 at time of Apr 10 scoring |
+
+**Scoring justification**: Maximum urgency (T-1 day). Parliament returns April 14 with zero buffer before April 15 implementation. Commission has operated 18 days without parliamentary oversight. First post-recess motions will define EU trade posture for remainder of 2026.
+
+#### Tier 2: HIGH Significance (Score 6.5-7.9)
+
+| Rank | EP Reference | Title | Score | Status | Notes |
+|:----:|-------------|-------|:-----:|--------|-------|
+| 2 | TA-10-2026-0092 | Banking Resolution SRMR3 | 7.1/10 | Adopted Mar 26 — Council trilogue | Unchanged — trilogue timeline not affected by recess |
+| 3 | TA-10-2026-0094 | Anti-Corruption Directive | 7.05/10 | Adopted Mar 26 — transposition | Unchanged — 24-month clock ticking regardless |
+| 4 | TA-10-2026-0095 | CSAM Regulation Extension | 6.8/10 | Adopted Mar 26 | Unchanged |
+| 5 | TA-10-2026-0058 | EU Talent Pool | 6.7/10 | Adopted earlier 2026 | Unchanged |
+| 6 | TA-10-2026-0090 | Banking Union BRRD3 | 6.5/10 | Adopted Mar 26 | Linked to SRMR3 trilogue |
+| 7 | TA-10-2026-0091 | Banking Union DGSD2 | 6.5/10 | Adopted Mar 26 | Linked to SRMR3 trilogue |
+
+#### Significance Scoring Framework
+
+The 7-dimension scoring model used:
+
+1. **Legislative impact** (weight 0.20): Scope of legal change, number of MS affected
+2. **Political salience** (weight 0.20): Media attention, public interest, group positioning
+3. **Urgency** (weight 0.15): Deadline proximity, time-sensitive elements
+4. **Coalition implications** (weight 0.15): Impact on group alliances, voting patterns
+5. **Economic impact** (weight 0.10): GDP effect, trade implications, budget consequences
+6. **Institutional significance** (weight 0.10): Precedent-setting, inter-institutional dynamics
+7. **Geopolitical relevance** (weight 0.10): External relations, strategic autonomy
+
+#### TA-10-2026-0096 Score Breakdown
+
+| Dimension | Score | Weight | Weighted | Justification |
+|-----------|:-----:|:------:|:--------:|---------------|
+| Legislative impact | 9/10 | 0.20 | 1.80 | EU-wide tariff countermeasures affecting all 27 MS trade policy |
+| Political salience | 10/10 | 0.20 | 2.00 | Dominant political issue, all groups positioning |
+| Urgency | 10/10 | 0.15 | 1.50 | T-1 day to implementation deadline |
+| Coalition implications | 9/10 | 0.15 | 1.35 | Three-pole stress test — EPP bridging role critical |
+| Economic impact | 9/10 | 0.10 | 0.90 | Direct trade flow consequences for EU economy |
+| Institutional significance | 8/10 | 0.10 | 0.80 | Parliament vs Commission oversight question |
+| Geopolitical relevance | 9/10 | 0.10 | 0.90 | US-EU trade relations defining moment |
+| **TOTAL** | | | **9.25/10** | Rounded to 9.2 |
+
+### Classification Decision Matrix
+
+| Classification | Count | Items |
+|---------------|:-----:|-------|
+| CRITICAL | 1 | US Tariff Countermeasures |
+| HIGH | 6 | Banking Union (3), Anti-Corruption, CSAM, EU Talent Pool |
+| MEDIUM | 0 | None tracked (live data unavailable for new items) |
+| LOW | 0 | None tracked |
+
+**Data gap**: Without live EP API feeds, no new motions or resolutions tabled since April 10 can be classified. Post-recess items from April 14 onward will need immediate classification upon API recovery.
+
+### Emerging Items for Post-Recess Classification
+
+Based on cross-session intelligence, these items are expected to appear in feeds after Parliament resumes:
+
+1. **Urgent motion(s) on tariff implementation** — Expected April 14-15, likely CRITICAL significance
+2. **Oral questions to Commission on Easter-period actions** — Expected April 14, likely HIGH significance
+3. **Committee rapporteur assignments for 13 COD procedures** — Expected week of April 14-18, MEDIUM significance
+4. **INTA report on trade policy consultation** — Expected April 14, HIGH significance
+5. **Banking Union trilogue mandate debate** — Expected late April, HIGH significance
+
+<h2 id="section-risk">Risk Assessment</h2>
+
+### Risk Matrix
+
+<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/motions-run40/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
+
+### Risk Assessment Context
+
+| Field | Value |
+|-------|-------|
+| **Assessment Basis** | Precomputed stats (85KB) + 5 prior analysis runs + cross-session intelligence |
+| **Risk Framework** | Likelihood x Impact (5x5 matrix) |
+| **Overall Risk Level** | CRITICAL (driven by T-1 tariff deadline proximity) |
+| **Confidence** | MEDIUM |
+| **Prior Assessment** | Run 39 scored overall HIGH; updated to CRITICAL due to T-1 proximity |
+
+### Risk Register
+
+#### R1: US Tariff Escalation (CRITICAL — Score 25/25)
+
+| Parameter | Value |
+|-----------|-------|
+| **Risk ID** | R1-TRADE-2026-0413-R40 |
+| **Likelihood** | 5/5 — April 15 deadline is T-1 (calendar-fixed) |
+| **Impact** | 5/5 — Direct economic and political consequences for all 27 MS |
+| **Score** | 25/25 (CRITICAL) |
+| **Trend** | Escalating (was 16/25 on Apr 11, 25/25 since Run 39) |
+| **Source** | TA-10-2026-0096 (adopted Mar 26) |
+
+**Analysis**: Parliament returns April 14 (Monday) with the tariff implementation deadline on April 15 (Tuesday). This creates a structurally unprecedented 24-hour window for parliamentary scrutiny of the most significant trade measure in EP10's term. The Commission has operated 18 days without parliamentary oversight during Easter recess.
+
+**Motions risk**: Urgent motions for resolution may be tabled under Rule 163 (urgent procedure). EPP faces a bridging dilemma: its competitiveness alliance with ECR (0.95 cohesion) may fracture if ECR demands weaker countermeasures while S&D/Greens push for stronger response. The three-pole system faces its first real stress test.
+
+#### R2: Banking Union Trilogue Stalemate (HIGH — Score 15/25)
+
+| Parameter | Value |
+|-----------|-------|
+| **Risk ID** | R2-FINANCE-2026-0413-R40 |
+| **Likelihood** | 3/5 — Council position still forming, German elections may change dynamics |
+| **Impact** | 5/5 — Failure would leave Banking Union incomplete, systemic risk |
+| **Score** | 15/25 (HIGH) |
+| **Trend** | Stable (unchanged from Apr 10) |
+| **Source** | TA-10-2026-0092 (SRMR3), TA-10-2026-0090 (BRRD3), TA-10-2026-0091 (DGSD2) |
+
+**Analysis**: The three Banking Union files adopted March 26 face a complex trilogue with divergent national positions on deposit guarantee mutualisation. German resistance to burden-sharing and French ambitions for deeper integration create a negotiation axis that cuts across political group lines.
+
+#### R3: Legislative Pipeline Congestion (ELEVATED — Score 12/25)
+
+| Parameter | Value |
+|-----------|-------|
+| **Risk ID** | R3-PIPELINE-2026-0413-R40 |
+| **Likelihood** | 4/5 — 13 COD procedures awaiting assignment is verifiable from precomputed stats |
+| **Impact** | 3/5 — Delay in legislation, not systemic failure |
+| **Score** | 12/25 (ELEVATED) |
+| **Trend** | Worsening (was 10/25 on Apr 10, tariff crisis will absorb bandwidth) |
+| **Source** | Precomputed stats — 935 procedures for 2026 (annualized) vs 684 in 2025 |
+
+**Analysis**: The record Q1 legislative pace (+46.2% vs 2025) created a backlog of 13 COD procedures needing rapporteur assignments. The tariff crisis will likely absorb INTA and ECON committee bandwidth in the first post-recess week, pushing these assignments further out. Risk of legislative traffic jam increases with each day of delay.
+
+#### R4: Coalition Fragmentation on Trade (HIGH — Score 15/25)
+
+| Parameter | Value |
+|-----------|-------|
+| **Risk ID** | R4-COALITION-2026-0413-R40 |
+| **Likelihood** | 3/5 — Three-pole system untested under genuine crisis |
+| **Impact** | 5/5 — Could reshape EP10 coalition dynamics for remainder of term |
+| **Score** | 15/25 (HIGH) |
+| **Trend** | Rising (from MODERATE 10/25 on Apr 10) |
+| **Source** | Cross-session intelligence, Apr 10 motions analysis |
+
+**Analysis**: The Renew-ECR competitiveness alliance (0.95 cohesion in Apr 10 analysis) has only been tested on consensus issues. The tariff debate will force a choice between free-trade principles (ECR) and strategic autonomy protectionism (S&D/Greens). EPP's bridging role between grand coalition and competitiveness poles is the critical variable. A coalition fracture would redefine the remainder of EP10.
+
+#### R5: Anti-Corruption Transposition Delay (MODERATE — Score 9/25)
+
+| Parameter | Value |
+|-----------|-------|
+| **Risk ID** | R5-CORRUPTION-2026-0413-R40 |
+| **Likelihood** | 3/5 — Historical precedent of MS implementation delays |
+| **Impact** | 3/5 — EU credibility risk, but 24-month window provides buffer |
+| **Score** | 9/25 (MODERATE) |
+| **Trend** | Stable |
+| **Source** | TA-10-2026-0094 |
+
+#### R6: EP API Data Infrastructure Gap (OPERATIONAL — Score 10/25)
+
+| Parameter | Value |
+|-----------|-------|
+| **Risk ID** | R6-INFRA-2026-0413-R40 |
+| **Likelihood** | 5/5 — Currently active outage |
+| **Impact** | 2/5 — Affects monitoring, not parliamentary operations |
+| **Score** | 10/25 (OPERATIONAL) |
+| **Trend** | Worsening (48+ hours of degradation) |
+| **Source** | This run diagnostic data |
+
+**Analysis**: The EP API outage prevents automated monitoring of parliamentary activity. While this does not affect Parliament's operations, it creates a transparency gap during a critical period. If the API does not recover by April 14, the first post-recess proceedings may go unmonitored.
+
+### Composite Risk Assessment
+
+| Category | Risk Score | Trend | Confidence |
+|----------|:---------:|:-----:|:----------:|
+| Trade Policy | 25/25 | Escalating | HIGH |
+| Financial Regulation | 15/25 | Stable | MEDIUM |
+| Legislative Pipeline | 12/25 | Worsening | MEDIUM |
+| Coalition Stability | 15/25 | Rising | MEDIUM |
+| Anti-Corruption | 9/25 | Stable | HIGH |
+| Data Infrastructure | 10/25 | Worsening | HIGH |
+| **COMPOSITE** | **14.3/25** | **Rising** | **MEDIUM** |
+
+**Overall assessment**: The composite risk score has risen from 13.17/25 (Apr 11 week-in-review) to 14.3/25, driven primarily by the T-1 tariff deadline proximity and increasing coalition fragmentation risk. The April 14-15 window represents the highest-risk period for EP10 since its inauguration.
+
+<h2 id="section-threat">Threat Landscape</h2>
+
+### Political Threat Landscape
+
+<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/motions-run40/threat-assessment/political-threat-landscape.md" rel="noopener">View source: <code>threat-assessment/political-threat-landscape.md</code></a></p>
+
+### Threat Assessment Context
+
+| Field | Value |
+|-------|-------|
+| **Assessment Date** | 2026-04-13 (Easter recess Day 18/18 — final day) |
+| **Threat Level** | CRITICAL (3.5/5) — trade deadline collision + data blackout |
+| **Framework** | Multi-framework analysis adapted for EU parliamentary democracy |
+| **Confidence** | MEDIUM (precomputed stats + 5 prior analysis runs) |
+| **Update from Run 39** | Threat level RAISED from HIGH (2.8/5) to CRITICAL (3.5/5) — T-1 proximity |
+
+### Threat Landscape Overview
+
+#### External Threats
+
+**T1: US Trade Escalation — Severity: CRITICAL**
+
+The April 15 tariff implementation deadline creates the most acute external threat to EP10 parliamentary proceedings. The Commission's countermeasures resolution (TA-10-2026-0096) authorized action, but the 18-day recess gap means Parliament has had no oversight of implementation preparations.
+
+Threat actor: US Administration
+- Capability: HIGH — unilateral trade policy authority
+- Intent: Uncertain — negotiation tactic vs structural protectionism
+- Impact on EP motions: Emergency resolutions, oral questions, potential censure motion
+- Confidence: MEDIUM
+
+**T2: Geopolitical Instability Spillover — Severity: HIGH**
+
+Multiple external pressures converge on post-recess Parliament: trade tensions, defence spending debates (Clean Industrial Deal), and Eastern Partnership dynamics. These create a compressed legislative agenda where multiple urgent items compete for limited plenary time.
+
+#### Institutional Threats
+
+**T3: Pipeline Obstruction — Severity: ELEVATED**
+
+The 13 pending COD procedures from Q1 2026 create institutional pressure on committee capacity. ECON and INTA committees face the highest burden, and the tariff crisis will absorb their bandwidth in the first post-recess week.
+
+Evidence: 935 procedures annualized for 2026 vs 684 in 2025 (+36.7%). Legislative output per session at 2.11 acts/session indicates high throughput but potential fragility under disruption.
+
+**T4: Commission-Parliament Oversight Gap — Severity: HIGH**
+
+The Commission has operated 18 days without parliamentary oversight during Easter recess. If tariff countermeasures are implemented before Parliament can debate, this creates a precedent for Commission unilateral action on trade policy. The Left and Greens/EFA are most likely to raise formal oversight concerns.
+
+**T5: Trilogue Deadlock on Banking Union — Severity: HIGH**
+
+Council-Parliament trilogue on SRMR3/BRRD3/DGSD2 faces structural disagreement on deposit guarantee mutualisation. German resistance and French ambitions create an axis that cuts across political group lines, potentially stalling the most significant financial legislation of EP10.
+
+#### Coalition Threats
+
+**T6: Three-Pole Fragmentation — Severity: ELEVATED**
+
+The three-pole system (grand coalition, competitiveness alliance, progressive bloc) has functioned on consensus issues. The tariff debate will force genuine choices:
+
+- Grand coalition pole (EPP+S&D): Measured response, diplomatic engagement
+- Competitiveness pole (Renew+ECR): Market-oriented, possibly divided on protectionism
+- Progressive pole (S&D+Greens+GUE): Strong countermeasures, social impact concerns
+
+The critical variable is EPP's position. As the bridge between poles, EPP's choice will determine which coalition forms on trade policy. If EPP sides with the competitiveness pole, S&D is isolated. If EPP sides with the grand coalition, ECR may defect.
+
+**T7: Grand Coalition Structural Weakness — Severity: MODERATE**
+
+EPP+S&D = 320 seats (44.5%), which is 5.5 percentage points below the majority threshold. This structural inability to form a traditional grand coalition means every significant vote requires at least one additional partner. On trade policy, the most likely third partner is Renew (76 seats), creating an EPP+S&D+Renew bloc of 396 seats (55%).
+
+However, if Renew sides with ECR on competitiveness grounds, the alternative EPP+ECR+Renew bloc has 340 seats (47.2%), still short of majority. This forces EPP to include either PfE (84 seats) — ideologically problematic — or seek a broader coalition.
+
+### Threat Actor Profiling
+
+#### External Actors
+
+| Actor | Vector | Capability | Intent | Confidence |
+|-------|--------|:----------:|:------:|:----------:|
+| US Administration | Tariff escalation | HIGH | Uncertain | MEDIUM |
+| Council of EU | Trilogue blocking | MEDIUM | Divergent MS positions | MEDIUM |
+| Commission | Oversight bypass | MEDIUM | Implementation urgency | HIGH |
+
+#### Internal Actors
+
+| Actor | Vector | Capability | Intent | Confidence |
+|-------|--------|:----------:|:------:|:----------:|
+| ECR | Competitiveness counter-motion | MEDIUM | Free-trade orthodoxy | MEDIUM |
+| The Left/Greens | Censure motion threat | LOW | Democratic oversight | HIGH |
+| PfE | Populist counter-narrative | LOW | Anti-establishment | HIGH |
+
+### Forward-Looking Threat Assessment
+
+#### April 14-18 Threat Calendar
+
+| Date | Event | Threat Level | Key Risk |
+|------|-------|:----------:|---------|
+| Apr 14 | Parliament resumes | HIGH | Compressed agenda, multiple urgent items |
+| Apr 15 | Tariff implementation deadline | CRITICAL | Commission action with/without parliamentary mandate |
+| Apr 14-18 | Committee restart | ELEVATED | Rapporteur assignments, INTA emergency session |
+| Late Apr | Banking trilogue launch | HIGH | Council-Parliament deadlock risk |
+
+#### Threat Mitigation Indicators to Monitor
+
+1. **Commission communication** before April 14 plenary on tariff preparedness
+2. **Conference of Presidents** agenda for April 14 — will reveal priority-setting
+3. **INTA committee** emergency meeting notice
+4. **Joint Motion for Resolution** tabling — indicates cross-party consensus forming
+5. **Individual motions** tabled by ECR or The Left — indicates coalition fracture
+
+### Composite Threat Assessment
+
+| Category | Threat Level | Trend | Confidence |
+|----------|:----------:|:-----:|:----------:|
+| External (Trade) | CRITICAL | Escalating | HIGH |
+| Institutional (Pipeline) | ELEVATED | Worsening | MEDIUM |
+| Institutional (Oversight) | HIGH | New this assessment | HIGH |
+| Coalition (Fragmentation) | ELEVATED | Rising | MEDIUM |
+| Coalition (Grand Coalition) | MODERATE | Stable | HIGH |
+| **COMPOSITE** | **HIGH-CRITICAL** | **Escalating** | **MEDIUM** |
+
+The composite threat level has risen from HIGH (Run 39) to HIGH-CRITICAL (Run 40), reflecting the T-1 tariff deadline proximity and the newly identified Commission oversight gap threat. The April 14-15 window represents the peak threat period for the current assessment cycle.
+
+<h2 id="section-documents">Document Analysis</h2>
+
+### Document Analysis Index
+
+<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/motions-run40/documents/document-analysis-index.md" rel="noopener">View source: <code>documents/document-analysis-index.md</code></a></p>
+
+### Index Context
+
+| Field | Value |
+|-------|-------|
+| **EP API Status** | OUTAGE — no new documents retrieved this run |
+| **Document Source** | Cross-reference from prior analysis runs (Apr 10 motions, Apr 13 breaking) |
+| **Documents Tracked** | 7 high-significance items from prior classification |
+
+### Active Document Tracking
+
+These documents were analyzed in prior runs and remain active for post-recess monitoring. No new documents could be retrieved due to EP API outage.
+
+#### Document: TA-10-2026-0096 — EU Countermeasures to US Tariffs
+
+| Field | Value |
+|-------|-------|
+| **Type** | Legislative Resolution |
+| **Adopted** | 2026-03-26 (March plenary) |
+| **Significance** | 9.2/10 CRITICAL |
+| **Status** | Implementation pending — T-1 to April 15 deadline |
+| **Prior Analysis** | Motions Apr 10 (SYN-2026-04-10-001), Breaking Apr 13 (Run 168), Propositions Apr 13 (Run 41) |
+| **Key Finding** | Commission countermeasures authorized; 18-day oversight gap during Easter recess |
+
+#### Document: TA-10-2026-0092 — Banking Resolution (SRMR3)
+
+| Field | Value |
+|-------|-------|
+| **Type** | Legislative Resolution |
+| **Adopted** | 2026-03-26 |
+| **Significance** | 7.1/10 HIGH |
+| **Status** | Council trilogue preparation |
+| **Prior Analysis** | Motions Apr 10 |
+| **Key Finding** | Linked with BRRD3 and DGSD2 for comprehensive Banking Union reform |
+
+#### Document: TA-10-2026-0094 — Anti-Corruption Directive
+
+| Field | Value |
+|-------|-------|
+| **Type** | Directive |
+| **Adopted** | 2026-03-26 |
+| **Significance** | 7.05/10 HIGH |
+| **Status** | 24-month transposition period started |
+| **Prior Analysis** | Motions Apr 10, Breaking Apr 13 (Run 168) |
+| **Key Finding** | First EU-wide anti-corruption directive requiring 27 MS criminal code amendments |
+
+#### Document: TA-10-2026-0095 — CSAM Regulation Extension
+
+| Field | Value |
+|-------|-------|
+| **Type** | Regulation |
+| **Adopted** | 2026-03-26 |
+| **Significance** | 6.8/10 MEDIUM-HIGH |
+| **Status** | Temporary measure — permanent regulation under discussion |
+| **Prior Analysis** | Motions Apr 10 |
+
+#### Document: TA-10-2026-0058 — EU Talent Pool
+
+| Field | Value |
+|-------|-------|
+| **Type** | Regulation |
+| **Adopted** | 2026 (earlier in year) |
+| **Significance** | 6.7/10 MEDIUM-HIGH |
+| **Status** | Implementation phase |
+| **Prior Analysis** | Motions Apr 10 |
+
+#### Document: TA-10-2026-0090 — Banking Union BRRD3
+
+| Field | Value |
+|-------|-------|
+| **Type** | Legislative Resolution |
+| **Adopted** | 2026-03-26 |
+| **Significance** | 6.5/10 MEDIUM-HIGH |
+| **Status** | Linked to SRMR3 trilogue |
+| **Prior Analysis** | Motions Apr 10 |
+
+#### Document: TA-10-2026-0091 — Banking Union DGSD2
+
+| Field | Value |
+|-------|-------|
+| **Type** | Legislative Resolution |
+| **Adopted** | 2026-03-26 |
+| **Significance** | 6.5/10 MEDIUM-HIGH |
+| **Status** | Linked to SRMR3 trilogue |
+| **Prior Analysis** | Motions Apr 10 |
+
+### Data Gap Assessment
+
+Without live EP API data, the following document types could not be checked for new items:
+
+- New motions for resolution tabled since April 10
+- Updated procedure statuses
+- New parliamentary questions related to motions topics
+- Committee documents (rapporteur assignments, reports)
+
+**Expected post-recess documents** (April 14+):
+1. Urgent motions on tariff implementation (Rule 163)
+2. Oral questions to Commission (Rule 136)
+3. Committee rapporteur assignment notices
+4. INTA emergency session documents
+5. Conference of Presidents agenda decisions
+
+<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+
+### Api Outage Diagnostic
+
+<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/motions-run40/existing/api-outage-diagnostic.md" rel="noopener">View source: <code>existing/api-outage-diagnostic.md</code></a></p>
+
+### Diagnostic Summary
+
+| Field | Value |
+|-------|-------|
+| **Run ID** | 40 |
+| **Timestamp** | 2026-04-13T21:19:00Z |
+| **Article Type** | motions |
+| **EP API Status** | UNREACHABLE (HTTP 000 — TCP connection timeout) |
+| **MCP Server** | v1.2.7 — unhealthy, 0/13 feeds operational |
+| **Precomputed Stats** | Available (85 KB, 23 years 2004-2026) |
+| **Prior Run Today** | Run 39 (analysis-only PR, same EP API outage) |
+
+### Health Gate Attempts (3/3 Failed)
+
+| Attempt | Tool | Parameters | Result | Timestamp |
+|:-------:|------|-----------|--------|-----------|
+| 1 | get_plenary_sessions | limit: 1, year: 2026 | TIMEOUT (90s) | 21:09:30Z |
+| 2 | get_plenary_sessions | limit: 1 | TIMEOUT (90s) | 21:11:08Z |
+| 3 | get_plenary_sessions | dateFrom, dateTo, limit: 1, year: 2026 | TIMEOUT (90s) | 21:12:42Z |
+
+### Feed Endpoint Failures (4/4 Timed Out)
+
+| Feed | Timeframe | Status | Timestamp |
+|------|-----------|--------|-----------|
+| get_adopted_texts_feed | one-week | TIMEOUT (90s) | 21:14:18Z |
+| get_parliamentary_questions_feed | one-week | TIMEOUT (90s) | 21:14:18Z |
+| get_procedures_feed | one-week | TIMEOUT (90s) | 21:14:18Z |
+| get_meps_feed | one-week | TIMEOUT (90s) | 21:14:18Z |
+
+### Supplementary Tool Failures (3 timeout + 1 null data)
+
+| Tool | Result | Error Category | Detail |
+|------|--------|---------------|--------|
+| detect_voting_anomalies | UPSTREAM_TIMEOUT | TIMEOUT | MEP endpoint timed out after 90s |
+| generate_political_landscape | TIMEOUT | TIMEOUT | 90s timeout |
+| get_adopted_texts (year=2026) | TIMEOUT | TIMEOUT | 90s timeout |
+| analyze_coalition_dynamics | NULL_DATA | PARTIAL | Returned structure but all metrics null — MEP pagination failed at offset 0 |
+
+### Network Diagnostic
+
+| Check | Result |
+|-------|--------|
+| DNS Resolution | data.europarl.europa.eu resolves to 34.251.207.80 |
+| Direct HTTP (curl, 30s timeout) | HTTP 000 — TCP connection timeout |
+| github.com HTTPS | Reachable |
+| api.github.com HTTPS | Reachable |
+| AWF Firewall | Not blocking — DNS resolution succeeds |
+
+### Root Cause Analysis
+
+**Primary cause**: European Parliament API (data.europarl.europa.eu) is experiencing a sustained multi-hour outage. DNS resolves correctly to 34.251.207.80, indicating the hostname is valid and AWF firewall is not interfering with DNS. However, TCP connections to port 443 time out after the configured timeout (30-90 seconds), indicating the EP API server is either down or not accepting connections.
+
+**Pattern**: This outage has persisted since at least April 11, with intermittent partial recovery windows. Run 168 (breaking, earlier today at ~18:44Z) successfully retrieved 51 adopted texts and 737 MEP records, indicating the API is intermittently responsive. The current outage at 21:19Z may represent an evening maintenance window or load-related degradation.
+
+**Context**:
+- Easter recess Day 18 of 18 (final day)
+- Parliament officially resumes April 14 (Monday)
+- 12th+ consecutive degraded/failed run across news workflows since April 11
+- Run 39 (motions, earlier today at ~18:10Z) experienced identical outage
+
+### Server Health Summary
+
+Server version 1.2.7, status unhealthy, uptime 94 seconds.
+Availability: 0/13 feeds operational, level Unavailable.
+
+### What Worked
+
+| Component | Status |
+|-----------|--------|
+| Precomputed stats (get_all_generated_stats) | 85 KB — full 2004-2026 data |
+| analyze_coalition_dynamics (partial) | Returned structure, all metrics null |
+| Cross-session intelligence | 5 prior analysis runs available |
+| MCP server startup | Server responds (v1.2.7) |
+
+### Recovery Outlook
+
+| Scenario | Probability | Timeframe |
+|----------|:-----------:|-----------|
+| API restores for April 14 return | 70% | 8-12 hours |
+| API remains intermittent through April 14 | 20% | 12-24 hours |
+| Extended outage into April 15+ | 10% | 24-48 hours |
+
+**Recommendation**: Schedule next motions workflow run for April 14 morning (06:00-08:00 UTC) to capture post-recess restart data. Parliament sitting at 17:00 CET (15:00 UTC) — schedule second run for 19:00 UTC to capture first day proceedings.
+
+### Synthesis Summary
+
+<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/motions-run40/existing/synthesis-summary.md" rel="noopener">View source: <code>existing/synthesis-summary.md</code></a></p>
+
+### Synthesis Context
+
+| Field | Value |
+|-------|-------|
+| **Synthesis ID** | SYN-2026-04-13-MOTIONS-RUN40 |
+| **Analysis Date** | 2026-04-13 (Easter Monday — Recess Day 18/18, final day) |
+| **Data Sources** | Precomputed stats (85KB, 2004-2026), 5 prior analysis runs |
+| **EP API Status** | OUTAGE — 12+ consecutive timeouts, 0/13 feeds operational |
+| **Overall Confidence** | MEDIUM |
+| **Article Generated** | No — EP API outage, no live feed data for feed-first article |
+
+### Intelligence Dashboard
+
+#### Cross-Session Run Map (April 13)
+
+Today's 5 runs form a comprehensive intelligence picture despite the API outage:
+
+- **Motions Run 39**: EP API outage diagnostic, initial significance classification, risk matrix (7 artifacts)
+- **Motions Run 40 (THIS RUN)**: Cross-session synthesis, updated scenarios, continuity index
+- **Propositions Run 41**: Tariff deadline focus, banking reform preparation
+- **Committee Reports Run 47**: INTA/ECON post-Easter committee analysis
+- **Breaking Run 168**: Partial API data (51 adopted texts, 737 MEPs), post-recess convergence analysis
+
+### Consolidated Intelligence from 5 Prior Runs
+
+#### 1. US Tariff Countermeasures — CRITICAL T-1 (April 15 deadline)
+
+| Parameter | Run 39 Value | Run 40 Update |
+|-----------|:------------|:-------------|
+| **Risk Score** | 25/25 CRITICAL | 25/25 CRITICAL (unchanged — maximum severity) |
+| **Deadline Proximity** | T-2 days | T-1 day (Parliament returns April 14, implementation April 15) |
+| **EP Reference** | TA-10-2026-0096 | Adopted March 26 — Commission implementing countermeasures |
+| **Coalition Position** | EPP bridging, ECR opposing, S&D/Greens demanding stronger response | Unchanged — first post-recess vote will be the test |
+| **Confidence** | HIGH | HIGH — deadline is calendar-fixed |
+
+**Cross-session insight**: Run 168 (breaking) identified this as the top risk with zero buffer between Parliament return and implementation deadline. Run 41 (propositions) confirmed the Commission has been operating without parliamentary oversight during recess. The 24-hour window between return and deadline is structurally unprecedented for a measure of this magnitude.
+
+#### 2. Banking Union Trilogue — HIGH Priority
+
+| Parameter | Value |
+|-----------|-------|
+| **Risk Score** | 15/25 HIGH |
+| **EP References** | TA-10-2026-0092 (SRMR3), TA-10-2026-0090 (BRRD3), TA-10-2026-0091 (DGSD2) |
+| **Status** | Adopted March 26 — Council trilogue preparation |
+| **Key Tension** | German/French resistance on deposit guarantee burden-sharing |
+| **Timeline** | Trilogue launch expected late April |
+| **Confidence** | MEDIUM |
+
+#### 3. Anti-Corruption Directive — HIGH Significance
+
+| Parameter | Value |
+|-----------|-------|
+| **Significance Score** | 7.05/10 |
+| **EP Reference** | TA-10-2026-0094 |
+| **Status** | Adopted March 26 — 24-month transposition begins |
+| **Scale** | First EU-wide anti-corruption directive — 27 MS criminal code amendments |
+| **Risk** | Implementation delay in MS with weaker anti-corruption institutions |
+| **Confidence** | HIGH |
+
+#### 4. Pipeline Congestion — ELEVATED Risk
+
+| Parameter | Value |
+|-----------|-------|
+| **Risk Score** | 12/25 ELEVATED |
+| **Detail** | 13 new COD procedures from 2026 await committee assignment |
+| **Bottleneck** | ECON and INTA committees capacity-constrained |
+| **Q1 2026 Pace** | 114 legislative acts annualized (vs 78 in 2025 = +46.2%) |
+| **Sustainability** | MEDIUM confidence — record pace may not survive post-recess disruption |
+
+#### 5. EP API Infrastructure — OPERATIONAL Risk
+
+| Parameter | Value |
+|-----------|-------|
+| **Outage Duration** | 48+ hours (since April 11) |
+| **Impact** | All automated news workflows degraded or analysis-only |
+| **Pattern** | Intermittent recovery — Run 168 retrieved data at 18:44Z, Run 40 failed at 21:19Z |
+| **Prognosis** | 70% recovery by April 14 morning (pre-sitting maintenance likely) |
+
+### EP10 Political Landscape Snapshot (Precomputed Stats)
+
+#### Seat Distribution (720 MEPs)
+
+| Group | Seats | Share |
+|-------|:-----:|:-----:|
+| EPP | 185 | 25.7% |
+| S&D | 135 | 18.8% |
+| PfE | 84 | 11.7% |
+| ECR | 79 | 11.0% |
+| Renew | 76 | 10.6% |
+| Greens/EFA | 53 | 7.4% |
+| GUE/NGL | 46 | 6.4% |
+| NI | 34 | 4.7% |
+| ESN | 28 | 3.9% |
+
+#### Structural Dynamics
+
+| Metric | Value | Implication |
+|--------|:-----:|-------------|
+| Fragmentation Index | 6.59 | Highest in EP history — coalition-building complex |
+| Minimum Winning Coalition | 3 groups | No two groups can form majority |
+| Grand Coalition (EPP+S&D) | 44.5% | NOT VIABLE — 5.5pp below majority threshold |
+| Right Bloc (EPP+ECR+PfE) | 52.3% | Structurally advantaged — but ideological spread wide |
+| Left Bloc (S&D+Greens+GUE) | 32.6% | Structural minority |
+| Renew-ECR Cohesion | 0.95 | Competitiveness alliance intact (Apr 10 analysis) |
+| HHI Concentration | 0.1517 | Moderate — no single group dominates |
+
+### Post-Recess Scenarios (April 14-15)
+
+#### Scenario A: Orderly Return with Tariff Debate (35% likely)
+
+Parliament sits as scheduled. INTA holds planned emergency session on tariff implementation. Commission reports on countermeasures readiness. Debate is structured, with motions for resolution tabled by major groups.
+
+**Motions implications**: Expect 3-5 motions for resolution on tariff response (one per major bloc). Joint Motion for Resolution possible if EPP and S&D align. Roll-call vote with clear coalition lines. New motions data available for next workflow run.
+
+**Coalition map**: EPP-S&D-Renew grand coalition on measured response vs ECR-PfE bloc demanding alternative approach.
+
+#### Scenario B: Chaotic Convergence — Trade Crisis Dominates (45% likely)
+
+Multiple urgent items compete for plenary time. Trade tariffs dominate, pushing banking trilogue preparation and other legislative work to committee sessions. The compressed timeline (return Monday, deadline Tuesday) creates procedural shortcuts.
+
+**Motions implications**: Possible urgent procedure under Rule 163 (urgent debate). Oral questions with debate to Commission (Rule 136). Multiple competing motions from political groups with incompatible positions. Coalition stress: EPP-ECR competitiveness alliance tested on trade protectionism vs free trade.
+
+**Risk**: Parliamentary fragmentation (effective parties 6.59) means no group can drive agenda alone. Expect cross-party negotiations to absorb most of Monday afternoon.
+
+#### Scenario C: Extended Disruption (20% likely)
+
+EP API remains degraded. Commission acts on tariffs without full parliamentary debate. Parliament plays catch-up with ex-post scrutiny motions.
+
+**Motions implications**: Delayed parliamentary response reduces democratic legitimacy of trade measures. Possible motion of censure from The Left/Greens if Commission bypasses Parliament. Data infrastructure gap prevents real-time monitoring.
+
+### Q1 2026 Performance Context
+
+| Metric | 2025 Full Year | 2026 Q1 (annualized) | Change |
+|--------|:-----------:|:------------------:|:------:|
+| Legislative Acts | 78 | 114 | +46.2% |
+| Roll-call Votes | 420 | 567 | +35.0% |
+| Plenary Sessions | 53 | 54 | +1.9% |
+| Adopted Texts | 347 | 104 (Q1 actual) | On pace |
+| Parliamentary Questions | 4,941 | 6,147 | +24.4% |
+| Resolutions | 135 | 180 | +33.3% |
+| Procedures | 684 | 935 | +36.7% |
+
+**Analysis**: The record Q1 pace (+46.2% legislative output) faces its first real sustainability test with the post-Easter restart. The tariff deadline convergence will consume significant parliamentary bandwidth, potentially slowing the legislative pipeline. The 13 pending COD procedures from Q1 need rapporteur assignments during the first committee weeks back.
+
+### Cross-Reference Index
+
+| Run | Synthesis ID | Key Contribution |
+|-----|-------------|-----------------|
+| Motions Run 39 (Apr 13) | SYN-2026-04-13-MOTIONS-RUN39 | EP API outage diagnostic, initial classification |
+| Breaking Run 168 (Apr 13) | SYN-2026-04-13-BREAKING-RUN168 | Partial API data (51 texts, 737 MEPs), post-recess convergence |
+| Propositions Run 41 (Apr 13) | N/A | Tariff deadline focus, banking reform preparation |
+| Committee Reports Run 47 (Apr 13) | N/A | INTA/ECON post-Easter committee analysis |
+| Motions (Apr 10) | SYN-2026-04-10-001 | Full article with 17 March 26 plenary documents |
+| Week-in-Review (Apr 11) | SYN-2026-04-11-008 | Easter recess week synthesis, composite risk 13.17/25 |
+
+### Article Recommendation for Next Run
+
+**When EP API recovers (expected April 14 morning)**:
+- **Priority feeds**: get_adopted_texts_feed(today), get_events_feed(today), get_voting_records(dateFrom: April 14)
+- **Headline direction**: Focus on tariff response vote outcomes and coalition alignment
+- **Cross-reference**: This synthesis (SYN-2026-04-13-MOTIONS-RUN40) for pre-recess intelligence baseline
+- **Risk**: First post-recess data may be sparse — motions filed Monday may not appear in feeds until Tuesday
+- **Backup angle**: If no new motions data, analyze committee reports from first post-recess meetings
+
+<h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
+
+This article is produced under the [Hack23 AB](https://hack23.com) intelligence tradecraft library. Every methodology and artifact template applied to this run is linked below.
+
+### Methodologies
+
+- [README](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/README.md)
+- [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
+- [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
+- [Imf Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/imf-indicator-mapping.md)
+- [Osint Tradecraft Standards](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/osint-tradecraft-standards.md)
+- [Per Artifact Methodologies](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/per-artifact-methodologies.md)
+- [Per Document Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/per-document-methodology.md)
+- [Political Classification Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-classification-guide.md)
+- [Political Risk Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-risk-methodology.md)
+- [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
+- [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
+- [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
+- [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
+- [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
+
+### Artifact templates
+
+- [README](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/README.md)
+- [Actor Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/actor-mapping.md)
+- [Actor Threat Profiles](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/actor-threat-profiles.md)
+- [Analysis Index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/analysis-index.md)
+- [Coalition Dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/coalition-dynamics.md)
+- [Coalition Mathematics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/coalition-mathematics.md)
+- [Comparative International](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/comparative-international.md)
+- [Consequence Trees](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/consequence-trees.md)
+- [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
+- [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
+- [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
+- [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
+- [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
+- [Economic Context](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/economic-context.md)
+- [Executive Brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/executive-brief.md)
+- [Forces Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/forces-analysis.md)
+- [Forward Indicators](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/forward-indicators.md)
+- [Historical Baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/historical-baseline.md)
+- [Historical Parallels](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/historical-parallels.md)
+- [Imf Vintage Audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/imf-vintage-audit.md)
+- [Impact Matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/impact-matrix.md)
+- [Implementation Feasibility](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/implementation-feasibility.md)
+- [Intelligence Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/intelligence-assessment.md)
+- [Legislative Disruption](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/legislative-disruption.md)
+- [Legislative Velocity Risk](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/legislative-velocity-risk.md)
+- [Mcp Reliability Audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/mcp-reliability-audit.md)
+- [Media Framing Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/media-framing-analysis.md)
+- [Methodology Reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/methodology-reflection.md)
+- [Per File Political Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/per-file-political-intelligence.md)
+- [Pestle Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/pestle-analysis.md)
+- [Political Capital Risk](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/political-capital-risk.md)
+- [Political Classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/political-classification.md)
+- [Political Threat Landscape](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/political-threat-landscape.md)
+- [Quantitative Swot](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/quantitative-swot.md)
+- [Reference Analysis Quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/reference-analysis-quality.md)
+- [Risk Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/risk-assessment.md)
+- [Risk Matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/risk-matrix.md)
+- [Scenario Forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/scenario-forecast.md)
+- [Session Baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/session-baseline.md)
+- [Significance Classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/significance-classification.md)
+- [Significance Scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/significance-scoring.md)
+- [Stakeholder Impact](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/stakeholder-impact.md)
+- [Stakeholder Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/stakeholder-map.md)
+- [Swot Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/swot-analysis.md)
+- [Synthesis Summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/synthesis-summary.md)
+- [Threat Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/threat-analysis.md)
+- [Threat Model](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/threat-model.md)
+- [Voter Segmentation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/voter-segmentation.md)
+- [Voting Patterns](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/voting-patterns.md)
+- [Wildcards Blackswans](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/wildcards-blackswans.md)
+- [Workflow Audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/workflow-audit.md)
+
+<h2 id="aggregator-analysis-index">Analysis Index</h2>
+
+Every artifact below was read by the aggregator and contributed to this article. The raw [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/motions-run40/manifest.json) carries the full machine-readable list, including gate-result history.
+
+| Section | Artifact | Path |
+|---|---|---|
+| section-significance | [significance-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/motions-run40/classification/significance-classification.md) | `classification/significance-classification.md` |
+| section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/motions-run40/risk-scoring/risk-matrix.md) | `risk-scoring/risk-matrix.md` |
+| section-threat | [political-threat-landscape](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/motions-run40/threat-assessment/political-threat-landscape.md) | `threat-assessment/political-threat-landscape.md` |
+| section-documents | [document-analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/motions-run40/documents/document-analysis-index.md) | `documents/document-analysis-index.md` |
+| section-supplementary-intelligence | [api-outage-diagnostic](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/motions-run40/existing/api-outage-diagnostic.md) | `existing/api-outage-diagnostic.md` |
+| section-supplementary-intelligence | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/motions-run40/existing/synthesis-summary.md) | `existing/synthesis-summary.md` |
+

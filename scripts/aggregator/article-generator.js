@@ -310,6 +310,7 @@ function writeLanguageVariant(lang, slug, aggregated, englishHtml, chromeOptions
         sourceMarkdownRelPath: chromeOptions.sourceMarkdownRelPath,
         toc: aggregated.sectionToc,
         articleCount: chromeOptions.articleCount,
+        isBasedOn: aggregated.includedArtifacts.map((a) => `https://github.com/Hack23/euparliamentmonitor/blob/main/${a.repoRelPath}`),
     });
     const filename = getArticleFilename(slug, lang);
     fs.writeFileSync(path.join(opts.outDir, filename), html, 'utf8');
@@ -396,18 +397,31 @@ export function generateArticle(opts, runSuffix, articleCountOverride) {
     const effectiveMetadata = opts.title || opts.description
         ? applyCliOverrides(resolvedMetadata, opts.title, opts.description)
         : resolvedMetadata;
-    // Write source Markdown under <outDir>/<slug>.en.md for transparency.
+    // Write article.md INTO the analysis run directory — canonical Markdown
+    // source that lives alongside the artifacts that produced it.
+    // This mirrors the riksdagsmonitor pattern where `article.md` is committed
+    // inside `analysis/daily/<date>/<type>/` so every run has a browsable,
+    // version-controlled Markdown source in its own directory.
+    const runArticleMdAbs = path.join(opts.runDir, 'article.md');
+    fs.writeFileSync(runArticleMdAbs, aggregated.markdown, 'utf8');
+    const runArticleMdRelPath = path
+        .relative(opts.repoRoot, runArticleMdAbs)
+        .split(path.sep)
+        .join('/');
+    // Also write source Markdown under <outDir>/<slug>.en.md for search
+    // indexing and backwards compatibility with existing news-index scripts.
     ensureDir(opts.outDir);
     const sourceMdFilename = `${slug}.en.md`;
     const sourceMdAbs = path.join(opts.outDir, sourceMdFilename);
     fs.writeFileSync(sourceMdAbs, aggregated.markdown, 'utf8');
-    const sourceMdRelPath = path.relative(opts.repoRoot, sourceMdAbs).split(path.sep).join('/');
     const written = [sourceMdFilename];
     if (!opts.markdownOnly) {
         const rendered = renderMarkdown(aggregated.markdown);
         const chromeOptions = {
             metadata: effectiveMetadata,
-            sourceMarkdownRelPath: sourceMdRelPath,
+            // Point the "View source Markdown" link at the canonical run-directory
+            // article.md so readers can trace the HTML back to the analysis tree.
+            sourceMarkdownRelPath: runArticleMdRelPath,
             articleCount: articleCountOverride ?? countPublishedArticles(opts.repoRoot),
         };
         for (const lang of opts.langs) {
@@ -415,7 +429,12 @@ export function generateArticle(opts, runSuffix, articleCountOverride) {
             written.push(filename);
         }
     }
-    return { sourceMarkdownRelPath: sourceMdRelPath, writtenFiles: written, aggregated };
+    return {
+        sourceMarkdownRelPath: runArticleMdRelPath,
+        runArticleMdRelPath,
+        writtenFiles: written,
+        aggregated,
+    };
 }
 /**
  * Walk `analysis/daily/` recursively and return every subdirectory that

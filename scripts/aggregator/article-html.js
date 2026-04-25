@@ -134,6 +134,11 @@ export function wrapArticleHtml(options) {
             name: 'EU Parliament Monitor',
             url: BASE_URL,
         },
+        ...(options.isBasedOn && options.isBasedOn.length > 0
+            ? {
+                isBasedOn: options.isBasedOn.map((url) => ({ '@type': 'CreativeWork', url })),
+            }
+            : {}),
     };
     const jsonLdString = JSON.stringify(jsonLd).replace(/</g, '\\u003c');
     const pageTitle = `${options.title} — ${siteTitle}`;

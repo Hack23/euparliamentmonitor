@@ -157,6 +157,33 @@ describe('generateArticle (end-to-end fixture)', () => {
 
   afterEach(() => {
     fs.rmSync(tmpOut, { recursive: true, force: true });
+    // Clean up the article.md written into the fixture run directory so the
+    // fixture remains pristine for subsequent test runs.
+    const runArticleMd = path.join(FIXTURE_RUN, 'article.md');
+    if (fs.existsSync(runArticleMd)) fs.unlinkSync(runArticleMd);
+  });
+
+  it('writes article.md to the run directory (riksdagsmonitor pattern)', () => {
+    const result = generateArticle({
+      runDir: FIXTURE_RUN,
+      repoRoot: FIXTURE_REPO,
+      outDir: tmpOut,
+      langs: ['en'],
+      all: false,
+      markdownOnly: false,
+    });
+
+    // article.md must be written directly into the analysis run directory
+    const runArticleMd = path.join(FIXTURE_RUN, 'article.md');
+    expect(fs.existsSync(runArticleMd)).toBe(true);
+    const md = fs.readFileSync(runArticleMd, 'utf8');
+    expect(md).toContain('**Provenance**');
+    expect(md).toContain('Executive Brief');
+
+    // sourceMarkdownRelPath should point to the run-dir article.md
+    expect(result.sourceMarkdownRelPath).toMatch(/analysis.*article\.md$/);
+    expect(result.runArticleMdRelPath).toMatch(/analysis.*article\.md$/);
+    expect(result.runArticleMdRelPath).toBe(result.sourceMarkdownRelPath);
   });
 
   it('writes source .md plus 14 HTML files and reports determinism', () => {
@@ -169,7 +196,7 @@ describe('generateArticle (end-to-end fixture)', () => {
       markdownOnly: false,
     });
 
-    // Source markdown written
+    // Source markdown written in news/ for backwards compatibility
     const mdPath = path.join(tmpOut, '2026-01-15-breaking.en.md');
     expect(fs.existsSync(mdPath)).toBe(true);
     const md = fs.readFileSync(mdPath, 'utf8');

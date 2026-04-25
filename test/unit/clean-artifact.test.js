@@ -14,6 +14,7 @@ import {
   githubBlobUrl,
   resolveLink,
   rewriteLinks,
+  stripArtifactMetadataPreamble,
   stripBanners,
   stripFrontMatter,
   stripSpdxTags,
@@ -302,5 +303,87 @@ describe('cleanArtifact end-to-end', () => {
     });
     expect(first.dedupedMermaidBlocks).toBe(0);
     expect(second.dedupedMermaidBlocks).toBe(1);
+  });
+
+  it('strips the metadata preamble and reflects it in strippedMetaLines', () => {
+    const md = [
+      '**Run:** breaking-run-123',
+      '**Window:** 2026-04-24 00:00Z — 05:49Z',
+      '**Methodology:** Four-scenario matrix',
+      '**Scope:** EP10 breaking window',
+      '---',
+      '',
+      '## Real section',
+      '',
+      'Prose content.',
+    ].join('\n');
+    const result = cleanArtifact(md, {
+      artifactRelPath: 'analysis/daily/2026-04-24/breaking/intelligence/x.md',
+    });
+    expect(result.strippedMetaLines).toBeGreaterThan(0);
+    expect(result.markdown).not.toContain('**Run:**');
+    expect(result.markdown).not.toContain('**Window:**');
+    expect(result.markdown).toContain('Prose content.');
+  });
+});
+
+describe('stripArtifactMetadataPreamble', () => {
+  it('strips a **Run:** / **Window:** block followed by a standalone ---', () => {
+    const md = [
+      '**Run:** breaking-run-123',
+      '**Window:** 2026-04-24 00:00Z — 05:49Z',
+      '**Methodology:** Four-scenario matrix',
+      '**Scope:** EP10 breaking window',
+      '---',
+      '',
+      '## Real content',
+    ].join('\n');
+    const { md: out, lines } = stripArtifactMetadataPreamble(md);
+    expect(out).toMatch(/^## Real content/);
+    expect(out).not.toContain('**Run:**');
+    expect(out).not.toContain('**Window:**');
+    expect(lines).toBeGreaterThan(0);
+  });
+
+  it('strips block with no trailing --- (stops at first non-metadata line)', () => {
+    const md = [
+      '**Run:** breaking-run-456',
+      '**Window:** 2026-04-25 00:00Z — 06:00Z',
+      '',
+      '## Real section',
+      '',
+      'Prose.',
+    ].join('\n');
+    const { md: out, lines } = stripArtifactMetadataPreamble(md);
+    expect(out).toMatch(/^## Real section/);
+    expect(out).not.toContain('**Run:**');
+    expect(lines).toBeGreaterThan(0);
+  });
+
+  it('leaves content-only documents untouched (no leading metadata)', () => {
+    const md = '## Section\n\nSome prose.\n';
+    const { md: out, lines } = stripArtifactMetadataPreamble(md);
+    expect(out).toBe(md);
+    expect(lines).toBe(0);
+  });
+
+  it('counts lines removed correctly', () => {
+    const md = [
+      '**Run:** run-001',         // line 0
+      '**Window:** 2026-01-01',  // line 1
+      '---',                      // line 2 (HR absorbed)
+      '',
+      '## Content',
+    ].join('\n');
+    const { lines } = stripArtifactMetadataPreamble(md);
+    // 3 consumed lines: Run, Window, ---
+    expect(lines).toBe(3);
+  });
+
+  it('returns { lines: 0 } for a document starting with a blank line then non-metadata', () => {
+    const md = '\n\n## Heading\n\nbody\n';
+    const { md: out, lines } = stripArtifactMetadataPreamble(md);
+    expect(out).toBe(md);
+    expect(lines).toBe(0);
   });
 });
