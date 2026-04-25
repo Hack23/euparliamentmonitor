@@ -134,8 +134,8 @@ xychart-beta
 
 ## 7️⃣ Data Sources
 
-**EP MCP tools used:** `get_all_generated_stats`, `monitor_legislative_pipeline({ dateFrom: $LAST_MONTH, dateTo: $TODAY })`, `compare_political_groups`
-> **Note:** Pass explicit `dateFrom`/`dateTo` to `monitor_legislative_pipeline` — v1.2.13 defaults to calendar 2024 (empty pipeline). See §6️⃣ data-source consistency note.
+**EP MCP tools used:** `get_all_generated_stats`, `monitor_legislative_pipeline({ dateFrom: "<YYYY-MM-DD 30 days ago>", dateTo: "<YYYY-MM-DD today>" })`, `compare_political_groups`
+> **Note:** Always pass explicit `dateFrom`/`dateTo` (computed in the workflow date-context block as `$LAST_MONTH`/`$TODAY`) to `monitor_legislative_pipeline` — v1.2.13 defaults to calendar 2024 (empty pipeline). See §6️⃣ data-source consistency note.
 
 **Prior runs consulted:**
 

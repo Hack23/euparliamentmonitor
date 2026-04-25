@@ -512,15 +512,20 @@ describe('ep-mcp-client', () => {
       });
 
       it('should pass no dates to the underlying tool when none supplied (opts-in to server default)', async () => {
-        // Verify Stage-A contract: calling without dateFrom/dateTo does NOT
-        // inject any date arguments into the MCP call. The server is responsible
-        // for applying the rolling last-30-days default (v1.2.14+).
-        // v1.2.13 still returns period: { from: "2024-01-01", to: "2024-12-31" }
-        // which is why Stage-A prompts must supply explicit dates for now.
+        // This test documents the *expected* contract for v1.2.14+ where omitting
+        // dateFrom/dateTo causes the server to return a rolling last-30-days
+        // period window.  The mock simulates that v1.2.14+ response.
+        //
+        // Under the currently installed v1.2.13 the server would instead return
+        // period: { from: "2024-01-01", to: "2024-12-31" } producing an empty
+        // pipeline; that is precisely why Stage-A prompts (01-data-collection.md
+        // rule 6, 07-mcp-reference.md §4) require explicit dates until v1.2.14+
+        // is confirmed installed.
         const today = new Date().toISOString().slice(0, 10);
         const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)
           .toISOString()
           .slice(0, 10);
+        // Mock simulates v1.2.14+ server response: last-30-days window
         client.callTool.mockResolvedValue({
           content: [
             {
@@ -536,10 +541,11 @@ describe('ep-mcp-client', () => {
 
         const result = await client.monitorLegislativePipeline();
 
-        // No date params injected by the client wrapper
+        // The client wrapper must NOT inject any date arguments — the server
+        // is responsible for applying its own default window
         expect(client.callTool).toHaveBeenCalledWith('monitor_legislative_pipeline', {});
 
-        // Response period matches the last-30-days window (v1.2.14+ server default)
+        // The response period must reflect the last-30-days window
         const data = JSON.parse(result.content[0].text);
         expect(data.period.to).toBe(today);
         expect(data.period.from).toBe(thirtyDaysAgo);
