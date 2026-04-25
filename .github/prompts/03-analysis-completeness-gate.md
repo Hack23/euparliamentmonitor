@@ -11,15 +11,32 @@ without a green gate.
 
 ## 1 · Invocation
 
-There is no standalone `npm run validate-analysis` command in the current
-aggregator-era repository. The agent performs the gate by reading every
-manifest-listed artifact and comparing it against the catalog, thresholds, and
-quality signals below. Emit one of these exact lines before Stage D:
+The repository now ships an authoritative validator at
+[`scripts/validate-analysis-completeness.js`](../../scripts/validate-analysis-completeness.js)
+exposed as `npm run validate-analysis -- <runDir>`. Stage C MUST shell out to
+this script before emitting the gate line — never hand-eyeball the catalog when
+a script can enforce it.
+
+```bash
+npm run validate-analysis -- analysis/daily/<date>/<article-type>-run<NN>
+```
+
+Exit codes:
+- `0` ⇒ GREEN. Echo the validator's final `STAGE_C_GATE: GREEN …` line verbatim
+  and proceed to Stage D.
+- `1` ⇒ RED. Echo the validator's final `STAGE_C_GATE: RED …` line, run Pass 3
+  on the artifacts the validator listed (mermaid:missing, short:N<floor,
+  admiralty:missing, etc.), and re-run the validator. On a second RED, produce
+  an **analysis-only PR** and skip article render — never ship an article
+  without a green gate.
+- `2` ⇒ tooling error (bad CLI args). Stop and ask for help.
+
+Use `--json` for machine-readable output if downstream automation needs it.
 
 ```text
-STAGE_C_GATE: GREEN articleType=<type> artifacts=<N> lines=<L> imf=<pass|not_required>
+STAGE_C_GATE: GREEN articleType=<type> artifacts=<N> lines=<L>
 STAGE_C_GATE: ANALYSIS_ONLY articleType=<type> reason="<why no article render>"
-STAGE_C_GATE: RED articleType=<type> missing=<N> short=<N> placeholders=<N>
+STAGE_C_GATE: RED articleType=<type> missing=<N> short=<N> placeholders=<N> mermaid_missing=<N> other=<N>
 ```
 
 ## 2 · What the Validator Enforces

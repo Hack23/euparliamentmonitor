@@ -102,6 +102,12 @@ Templates are **not** standalone outputs. They form a **composable intelligence 
 
 > **Critical Rule:** AI agents MUST follow these templates. Templates define structure and required sections — the AI fills them with genuine, evidence-based analysis. Templates must NEVER be copied verbatim with placeholder text.
 
+> 🛂 **Stage-C Enforcement (since v3.2):** Template usage is now machine-validated. Run `npm run validate-analysis -- analysis/daily/<date>/<runDir>` before opening the article PR — the script checks per-artifact line floors, mandatory Mermaid diagrams, Admiralty/WEP/SAT/BLUF tradecraft signals, required H2 sections, and placeholder leakage. RED ⇒ Pass-3 the offending artifacts; never ship an article without a green gate. See [`scripts/validate-analysis-completeness.js`](../../scripts/validate-analysis-completeness.js) and [`.github/prompts/03-analysis-completeness-gate.md`](../../.github/prompts/03-analysis-completeness-gate.md).
+
+> 🌍 **EU multi‑national extension over Riksdagsmonitor.** Where Riksdagsmonitor templates ([`Article-Generation.md`](https://github.com/Hack23/riksdagsmonitor/blob/main/Article-Generation.md), [`templates/README.md`](https://github.com/Hack23/riksdagsmonitor/blob/main/analysis/templates/README.md)) are sized for one parliament, EUPM templates carry mandatory EU‑27 member‑state cluster tags ({Northern, Western, Southern, Central‑Eastern}), explicit citizen‑segment translation blocks, and dual‑Mermaid pipelines (one institutional, one cross‑cluster). v2.0 templates (`impact-matrix`, `forces-analysis`, `actor-mapping`) demonstrate the pattern.
+
+> 🎨 **Mermaid is rendered same‑origin.** All diagrams ship via the vendored bundle `js/vendor/mermaid/mermaid.esm.min.mjs` (copied by `npm run copy-vendor`, deployed to S3/CloudFront as `text/javascript`). No external CDN — `script-src 'self'` is the contract. If your template uses a quadrant chart, use the **dedicated quadrant init block** ([`political-style-guide.md §Standard Mermaid init blocks`](../methodologies/political-style-guide.md)); for every other diagram type use the **universal init block**.
+
 ---
 
 ## 📐 Template Architecture

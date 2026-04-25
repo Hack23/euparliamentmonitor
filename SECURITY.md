@@ -130,13 +130,24 @@ EU Parliament Monitor aligns with:
 
 Current security posture (updated monthly):
 
-- **Zero** known vulnerabilities (npm audit clean)
+- **Zero** known vulnerabilities (npm audit clean) — *except 2 documented accepted-risk transitive devDep advisories: see "Accepted Risks" below*
 - **82%+** code coverage with security tests
 - **100%** dependency scanning coverage
 - **0** CodeQL critical/high findings
 - **OpenSSF Scorecard**: Target ≥7.0 (in progress)
 
 See [SECURITY_ARCHITECTURE.md - Security Metrics](SECURITY_ARCHITECTURE.md#-security-metrics) for detailed metrics.
+
+### Accepted Risks (Documented False Positives)
+
+The following advisories are detected by `npm audit` and explicitly allow-listed in `.github/workflows/test-and-report.yml` (Security Check job). They are accepted as residual risk because both are dev-only and do not reach end-user runtime:
+
+| GHSA | Package | Severity | Path | Justification |
+| --- | --- | --- | --- | --- |
+| `GHSA-2g4f-4pwh-qvx6` | `ajv` (via ESLint) | moderate (ReDoS) | devDep | ESLint does not invoke ajv with the `$data` option; only triggered on attacker-controlled JSON schemas, which we never feed it. Resolves with the ESLint 10 upgrade. |
+| `GHSA-w5hq-g745-h8pq` | `uuid <14.0.0` (via `mermaid`) | moderate (buffer bounds) | devDep | `mermaid` is a build-time-only dependency. The library is vendored to `js/vendor/mermaid/` and renders diagrams from analyst-authored markdown that goes through the Stage-C completeness gate; user input never reaches `uuid.v3/v5/v6` with an attacker-controlled `buf` argument. The site is fully static — no server-side `mermaid` execution. |
+
+If `npm audit` reports any GHSA outside this list, the Security Check job MUST fail. Allow-listing requires a pull request that updates this table and the workflow allow-list together.
 
 ## Security Resources
 

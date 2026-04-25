@@ -8,7 +8,7 @@
  * This module imports the vendored ESM bundle and upgrades those blocks after
  * DOMContentLoaded without inline script, external CDN calls, or relaxed CSP.
  */
-import mermaid from './vendor/mermaid.esm.min.mjs';
+import mermaid from './vendor/mermaid/mermaid.esm.min.mjs';
 
 const darkMode =
   document.documentElement.dataset.theme === 'dark' ||
