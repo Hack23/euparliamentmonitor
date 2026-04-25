@@ -2376,9 +2376,7 @@ describe('ep-mcp-client', () => {
 
     it('should forward FRESHNESS_FALLBACK warning into dataFreshnessWarnings and set freshness=augmented', async () => {
       const feedPayload = {
-        items: [
-          { id: 'TA-10-2026-0001', title: 'Resolution on X', dateAdopted: '2026-04-25' },
-        ],
+        items: [{ id: 'TA-10-2026-0001', title: 'Resolution on X', dateAdopted: '2026-04-25' }],
         timeframe: 'today',
         generatedAt: '2026-04-25T10:00:00Z',
         dataQualityWarnings: [
@@ -2489,6 +2487,55 @@ describe('ep-mcp-client', () => {
 
       expect(result).toEqual({ content: [{ type: 'text', text: '{"feed": []}' }] });
       expect(client.getFailedTools().has('get_adopted_texts_feed')).toBe(true);
+    });
+
+    it('should pick the FAILED warning specifically when FAILED and non-FAILED FRESHNESS_FALLBACK warnings co-exist', async () => {
+      const feedPayload = {
+        items: [],
+        dataQualityWarnings: [
+          'FRESHNESS_FALLBACK: augmented with 0 current-year items',
+          'FRESHNESS_FALLBACK_FAILED: GET /adopted-texts?year=2026 returned 0 items',
+        ],
+      };
+      vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
+        content: [{ type: 'text', text: JSON.stringify(feedPayload) }],
+      });
+
+      await client.getAdoptedTextsFeed();
+
+      const failed = client.getFailedTools();
+      expect(failed.has('get_adopted_texts_feed')).toBe(true);
+      // Must reference the FAILED warning specifically, not the non-FAILED one
+      expect(failed.get('get_adopted_texts_feed')).toMatch(/FRESHNESS_FALLBACK_FAILED/);
+      expect(failed.get('get_adopted_texts_feed')).not.toMatch(
+        /ANALYSIS_ONLY: FRESHNESS_FALLBACK: augmented/
+      );
+    });
+
+    it('should preserve isError and additional content items when augmenting freshness', async () => {
+      const feedPayload = {
+        items: [{ id: 'TA-10-2026-0001', dateAdopted: '2026-04-25' }],
+        dataQualityWarnings: ['FRESHNESS_FALLBACK: augmented with 1 current-year item'],
+      };
+      vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
+        content: [
+          { type: 'text', text: JSON.stringify(feedPayload) },
+          { type: 'resource', text: 'auxiliary-metadata' },
+        ],
+        isError: false,
+      });
+
+      const result = await client.getAdoptedTextsFeed();
+
+      // Original isError flag and second content item must survive
+      expect(result.isError).toBe(false);
+      expect(result.content).toHaveLength(2);
+      expect(result.content[1]).toEqual({ type: 'resource', text: 'auxiliary-metadata' });
+      // First content item: type preserved, text replaced with augmented payload
+      expect(result.content[0].type).toBe('text');
+      const parsed = JSON.parse(result.content[0].text);
+      expect(parsed.freshness).toBe('augmented');
+      expect(parsed.dataFreshnessWarnings).toHaveLength(1);
     });
   });
 

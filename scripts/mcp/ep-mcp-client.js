@@ -984,23 +984,34 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
         const warnings = Array.isArray(rawWarnings)
             ? rawWarnings.filter((w) => typeof w === 'string')
             : [];
-        const freshnessWarnings = warnings.filter(w => w.startsWith('FRESHNESS_FALLBACK'));
+        const freshnessWarnings = warnings.filter((w) => w.startsWith('FRESHNESS_FALLBACK'));
         if (freshnessWarnings.length === 0) {
             return result;
         }
         // FRESHNESS_FALLBACK_FAILED: feed broken AND fallback also empty — escalate.
-        if (freshnessWarnings.some(w => w.startsWith('FRESHNESS_FALLBACK_FAILED'))) {
-            return this._recordToolFailure('get_adopted_texts_feed', `ANALYSIS_ONLY: ${freshnessWarnings[0]?.slice(0, 200) ?? 'fallback failed, no current-year items'}`, EuropeanParliamentMCPClient.FEED_FALLBACK);
+        // Pick the first FAILED warning specifically so the recorded reason is
+        // accurate even when both FAILED and non-FAILED FRESHNESS_FALLBACK entries
+        // co-exist in the same response.
+        const failedWarning = freshnessWarnings.find((w) => w.startsWith('FRESHNESS_FALLBACK_FAILED'));
+        if (failedWarning !== undefined) {
+            return this._recordToolFailure('get_adopted_texts_feed', `ANALYSIS_ONLY: ${failedWarning.slice(0, 200)}`, EuropeanParliamentMCPClient.FEED_FALLBACK);
         }
         // FRESHNESS_FALLBACK (non-FAILED): server augmented with current-year items.
         // Keep the result but surface the freshness metadata so Stage-A consumers
         // can detect augmentation without re-parsing raw dataQualityWarnings.
+        // Preserve the full MCPToolResult shape (isError, additional content items,
+        // etc.) — only rewrite content[0].text with the augmented JSON.
         const augmented = {
             ...payload,
             freshness: 'augmented',
             dataFreshnessWarnings: freshnessWarnings,
         };
-        return { content: [{ type: 'text', text: JSON.stringify(augmented) }] };
+        const augmentedText = JSON.stringify(augmented);
+        const originalContent = result.content;
+        const updatedContent = Array.isArray(originalContent) && originalContent.length > 0
+            ? originalContent.map((item, index) => index === 0 ? { ...item, text: augmentedText } : item)
+            : [{ type: 'text', text: augmentedText }];
+        return { ...result, content: updatedContent };
     }
     /**
      * Get MEP declarations feed (most recent updates via EP API v2)
