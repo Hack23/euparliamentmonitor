@@ -110,7 +110,7 @@ The article is a deterministic view over this object.
 
 ### Source workflows
 
-The article-generating workflows are Markdown gh-aw workflows under `.github/workflows/` and are compiled to `.lock.yml` files. The current unified workflows are:
+The article-generating workflows are Markdown gh-aw workflows under `.github/workflows/` and are compiled to `.lock.yml` files. This table reflects the **current repository files**: one source workflow per article type plus the translation helper. Some older or external documentation may describe split analysis/article pairs; those paired workflow files are not present in the current tree.
 
 | Workflow | Article type slug | Purpose |
 |---|---|---|
@@ -377,7 +377,7 @@ The article title and description are resolved by `src/aggregator/article-metada
 4. First strong prose paragraph, with filters for banners, Mermaid directives, `Run:`, `Purpose:`, `BLUF`, etc.
 5. Localized article-type templates.
 
-**Best practice:** Stage-B agents should write concise editorial metadata into `manifest.json` whenever the run has a clear political highlight. Without manifest overrides, fallback metadata may be technically correct but less editorially attractive, as seen in some 2026-04-24 generated examples where a long WEP judgement becomes the `<title>`.
+**Best practice:** Stage-B agents should write concise editorial metadata into `manifest.json` whenever the run has a clear political highlight. Without manifest overrides, fallback metadata may be technically correct but less editorially attractive, as seen in some 2026-04-24 generated examples where a long WEP judgment becomes the `<title>`.
 
 ---
 
@@ -522,7 +522,7 @@ The TOC is derived from canonical H2 sections emitted by `analysis-aggregator.ts
 
 ### Deployment workflow
 
-The repository uses `.github/workflows/deploy-s3.yml` (not `s3-deploy.yml`). It deploys on `push` to `main` and `workflow_dispatch`.
+The repository uses `.github/workflows/deploy-s3.yml`. It deploys on `push` to `main` and `workflow_dispatch`.
 
 Key properties:
 
