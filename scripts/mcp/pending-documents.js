@@ -86,7 +86,11 @@ export function isExpiredPending(doc, now = new Date()) {
 export function defaultStorePath() {
     return path.resolve(process.cwd(), 'data', 'pending-documents.json');
 }
-/** Create an empty store with sensible defaults */
+/**
+ * Create an empty store with sensible defaults.
+ *
+ * @returns A fresh {@link PendingDocumentsStore} with no documents
+ */
 function emptyStore() {
     return {
         version: STORE_VERSION,
@@ -101,6 +105,7 @@ function emptyStore() {
  * so a corrupted sidecar never blocks the workflow.
  *
  * @param storePath - Path override (defaults to `data/pending-documents.json`)
+ * @returns The loaded {@link PendingDocumentsStore}, or an empty store on ENOENT/parse error
  */
 export async function loadPendingDocuments(storePath) {
     const filePath = storePath ?? defaultStorePath();
