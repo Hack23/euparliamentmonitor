@@ -19,7 +19,7 @@
   <a href="#"><img src="https://img.shields.io/badge/Render-Deterministic-2E7D32?style=for-the-badge" alt="Deterministic Render"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.0 | **📅 Last Updated:** 2026-04-25 (UTC)  
+**📋 Document Owner:** CEO | **📄 Version:** 1.0 | **📅 Last Updated:** 2026-04-25 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-25 | **🏷️ Classification:** Public
 
 ---
