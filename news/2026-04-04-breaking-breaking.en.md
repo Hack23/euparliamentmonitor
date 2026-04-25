@@ -1,3 +1,14 @@
+---
+title: "Coalition Dynamics Assessment — 4 April 2026"
+description: "title: \"Coalition Dynamics Assessment — 2026-04-04\""
+date: 2026-04-04
+article_type: breaking
+slug: 2026-04-04-breaking-breaking
+source_folder: analysis/daily/2026-04-04/breaking
+generated_at: 2026-04-04T00:00:00.000Z
+language: en
+layout: article
+---
 # Breaking — 2026-04-04
 
 <!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->

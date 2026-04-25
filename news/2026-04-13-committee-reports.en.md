@@ -1,3 +1,14 @@
+---
+title: "\"server\": { \"version\": \"1.2.4\", \"uptime_seconds\": 0, \"status\": \"unhealthy\" },"
+description: "\"server\": { \"version\": \"1.2.4\", \"uptime_seconds\": 0, \"status\": \"unhealthy\" },"
+date: 2026-04-13
+article_type: committee-reports
+slug: 2026-04-13-committee-reports
+source_folder: analysis/daily/2026-04-13/committee-reports-run44
+generated_at: 2026-04-13T00:00:00.000Z
+language: en
+layout: article
+---
 # Committee Reports — 2026-04-13
 
 <!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->

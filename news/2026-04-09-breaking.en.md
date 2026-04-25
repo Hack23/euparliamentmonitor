@@ -1,3 +1,14 @@
+---
+title: "🧩 Political Intelligence Synthesis — European Parliament"
+description: "🔍 Items Tracked: 30+ adopted texts | 0 events | 0 procedures | 737 MEP updates"
+date: 2026-04-09
+article_type: breaking
+slug: 2026-04-09-breaking
+source_folder: analysis/daily/2026-04-09/breaking
+generated_at: 2026-04-09T00:00:00.000Z
+language: en
+layout: article
+---
 # Breaking — 2026-04-09
 
 <!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->

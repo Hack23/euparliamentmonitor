@@ -1,3 +1,14 @@
+---
+title: "🔬 Synthesis Summary — Breaking News Intelligence Brief"
+description: "dataAvailability: Unavailable (Easter recess Day 15)"
+date: 2026-04-10
+article_type: breaking
+slug: 2026-04-10-breaking-breaking
+source_folder: analysis/daily/2026-04-10/breaking
+generated_at: 2026-04-10T00:00:00.000Z
+language: en
+layout: article
+---
 # Breaking — 2026-04-10
 
 <!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->

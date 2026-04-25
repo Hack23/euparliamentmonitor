@@ -1,3 +1,14 @@
+---
+title: "Legislative Pipeline Analysis — EP10 Q1 2026"
+description: "title: \"Legislative Pipeline Analysis — EP10 Q1 2026 — 2026-04-04\""
+date: 2026-04-04
+article_type: breaking
+slug: 2026-04-04-breaking-breaking-2
+source_folder: analysis/daily/2026-04-04/breaking-2
+generated_at: 2026-04-04T00:00:00.000Z
+language: en
+layout: article
+---
 # Breaking — 2026-04-04
 
 <!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->

@@ -1,3 +1,14 @@
+---
+title: "root((Democratic Threats<br/>15 Apr 2026))"
+description: "root((Democratic Threats<br/>15 Apr 2026))"
+date: 2026-04-15
+article_type: breaking
+slug: 2026-04-15-breaking-breaking-run175
+source_folder: analysis/daily/2026-04-15/breaking-run175
+generated_at: 2026-04-15T00:00:00.000Z
+language: en
+layout: article
+---
 # Breaking — 2026-04-15
 
 <!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->

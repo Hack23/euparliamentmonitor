@@ -1,3 +1,14 @@
+---
+title: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear…"
+description: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices."
+date: 2026-04-13
+article_type: breaking
+slug: 2026-04-13-breaking
+source_folder: analysis/daily/2026-04-13/breaking-run168
+generated_at: 2026-04-13T00:00:00.000Z
+language: en
+layout: article
+---
 # Breaking — 2026-04-13
 
 <!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
@@ -10,6 +21,15 @@
 > - **Gate result:** `PENDING`
 > - **Analysis tree:** [analysis/daily/2026-04-13/breaking-run168](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-13/breaking-run168)
 > - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/breaking-run168/manifest.json)
+
+<h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
+
+Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
+
+| Reader need | What you'll get | Source artifact |
+|---|---|---|
+| [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `classification/significance-classification.md` |
+| [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
 
 <h2 id="section-significance">Significance</h2>
 

@@ -124,7 +124,23 @@ Cite specific indicators and explain political mechanism.]`
 
 ---
 
-## 6️⃣ Data-Source Bridge
+## 6️⃣ SEO / Editorial Evidence Bridge
+
+| Search-intent term | Evidence source | Safe use in title/description? | Rationale |
+|--------------------|-----------------|:------------------------------:|-----------|
+| `[REQUIRED: committee acronym / policy file]` | `[REQUIRED: EP artifact + IMF code]` | `[✅/❌]` | `[REQUIRED: why this term accurately reflects the evidence]` |
+| `[REQUIRED: affected stakeholder]` | `[REQUIRED]` | `[✅/❌]` | `[REQUIRED]` |
+| `[OPTIONAL: procedure / vote reference]` | `[REQUIRED]` | `[✅/❌]` | `[REQUIRED]` |
+
+**Editorial bridge paragraph:** `[REQUIRED: 80–120 words naming the exact
+economic pressure that may appear in the article title or meta description. It
+must include one IMF vintage, one SDMX code, one EP policy topic, and one named
+stakeholder impact. Do not write marketing copy; write an evidence-backed source
+sentence the Stage-B agent can reuse safely.]`
+
+---
+
+## 7️⃣ Data-Source Bridge
 
 **Wave-4 IMF-primary status:**
 
@@ -149,7 +165,7 @@ Cite specific indicators and explain political mechanism.]`
 
 ---
 
-## 7️⃣ Confidence Assessment
+## 8️⃣ Confidence Assessment
 
 **Overall confidence:** `[REQUIRED: 🟢 HIGH / 🟡 MEDIUM / 🔴 LOW]`
 

@@ -1,3 +1,14 @@
+---
+title: "🔍 Breaking News Intelligence Brief — 2026-04-01"
+description: "📋 Analysis Owner: EU Parliament Monitor | 📅 Generated: 2026-04-01 (UTC)"
+date: 2026-04-01
+article_type: breaking
+slug: 2026-04-01-breaking
+source_folder: analysis/daily/2026-04-01/breaking
+generated_at: 2026-04-01T00:00:00.000Z
+language: en
+layout: article
+---
 # Breaking — 2026-04-01
 
 <!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->

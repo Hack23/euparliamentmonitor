@@ -1,3 +1,14 @@
+---
+title: "🧩 Political Intelligence Synthesis — Legislative Propositions (2026-04-10)"
+description: "- ECON faces Banking Union trilogue (3 files) + new 2026 COD procedures + ECB oversight"
+date: 2026-04-10
+article_type: propositions
+slug: 2026-04-10-propositions
+source_folder: analysis/daily/2026-04-10/propositions
+generated_at: 2026-04-10T00:00:00.000Z
+language: en
+layout: article
+---
 # Propositions — 2026-04-10
 
 <!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->

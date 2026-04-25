@@ -248,12 +248,17 @@ Artifacts marked below with **"Source grade × WEP discipline (tradecraft)"** ma
 4. Forward outlook — IMF WEO / Fiscal Monitor projection data (+5y). Apply optimism-bias caveat sized per [`../imf/forecast-accuracy-baseline.md`](../imf/forecast-accuracy-baseline.md) for horizons ≥3y.
 5. Analytical bridge — how the data should shape the period's political reading.
 6. Data-source bridge — IMF vintage authoritative; WB non-economic cross-refs declared additive.
+7. SEO/evidence bridge — one short paragraph naming the search-intent policy
+   terms (committee acronym, procedure title, affected stakeholder) that the
+   article title/description may safely reuse from this artifact. Do not write
+   separate marketing copy; write evidence-backed phrasing that can support
+   `manifest.title` / `manifest.description`.
 
 **Mandatory Mermaid.** One `xyChart` showing the headline IMF indicator over time, plus a `flowchart LR` mapping indicators to policy topics.
 
 **Depth floor (breaking):** 185 lines.
 
-**Quality signals.** Every IMF indicator cites its SDMX code + vintage; the enclosing HTML `<section>` carries `data-vintage="WEO-April-2026"`; every forecast number is within 30 words of a forecast marker (`forecast`/`projection`/`projects`/`expects`). Per-article-type IMF indicator floor (see [`imf-indicator-mapping.md §8`](imf-indicator-mapping.md)) is satisfied. For Tier-1 articles citing high-sensitivity indicators, the cross-source triangulation outcome is logged per [`../imf/cross-source-triangulation.md`](../imf/cross-source-triangulation.md).
+**Quality signals.** Every IMF indicator cites its SDMX code + vintage; the enclosing HTML `<section>` carries `data-vintage="WEO-April-2026"`; every forecast number is within 30 words of a forecast marker (`forecast`/`projection`/`projects`/`expects`). Per-article-type IMF indicator floor (see [`imf-indicator-mapping.md §8`](imf-indicator-mapping.md)) is satisfied. For Tier-1 articles citing high-sensitivity indicators, the cross-source triangulation outcome is logged per [`../imf/cross-source-triangulation.md`](../imf/cross-source-triangulation.md). The final bridge paragraph explicitly links the IMF signal to an EP political mechanism and gives safe SEO terms for title/description reuse.
 
 ---
 

@@ -12,14 +12,15 @@ News-generating workflows write ONLY to these directories:
 
 | Directory | Purpose | Which workflow family |
 |-----------|---------|------------------------|
-| `news/` | Article HTML files | `news-<type>-article.md` only |
-| `analysis/daily/` | Analysis artifacts (`.md`, `manifest.json`) | `news-<type>-analysis.md` (writes) + `news-<type>-article.md` (reads, optional top-up) |
+| `news/` | Article Markdown + HTML files rendered by the aggregator | unified `news-<type>.md` workflows during Stage D |
+| `analysis/daily/` | Analysis artifacts (`.md`, `manifest.json`) + canonical run-dir `article.md` | unified `news-<type>.md` workflows during Stages A–D |
 | `/tmp/gh-aw/repo-memory/default/memory/news-generation/` | Cross-run editorial memory | both |
 
-**Split-workflow scope guardrails:**
+**Unified-workflow scope guardrails:**
 
-- `news-<type>-analysis.md` MUST edit only `analysis/**`. It may not touch `news/**`.
-- `news-<type>-article.md` MUST edit only `news/**`, plus append-only updates to `analysis/daily/${DATE}/${TYPE}/manifest.json.history[]` and `analysis/daily/${DATE}/${TYPE}/data/` (Stage-A top-up).
+- Stages A–C MUST complete the `analysis/daily/${DATE}/${TYPE}/**` artifact set before any `news/**` file is rendered.
+- Stage D MUST use `npm run generate-article -- --run "$ANALYSIS_DIR"`; agents do not hand-author article HTML or bypass the aggregator.
+- The only `article.md` source is the aggregator-written `${ANALYSIS_DIR}/article.md`, which is excluded from future aggregation.
 
 ## 1b · Stable Same-Day Analysis Folder (canonical path)
 
@@ -95,22 +96,18 @@ dependencies, no standalone test-only edits.
 
 ## 8 · Stage Order (non-negotiable)
 
-Split-workflow families run the stages across **two** workflows, each of which
-calls `safeoutputs___create_pull_request` exactly once:
+Current article workflows are **unified**: one `news-<type>.md` workflow runs
+all stages and calls `safeoutputs___create_pull_request` exactly once:
 
 ```
-── Workflow 1: news-<type>-analysis.md (timeout-minutes: 45) ──
 Stage A · Data Collection → Stage B · Analysis (2 passes) →
-Stage C · Completeness Gate → Analysis PR (single)
-
-── Workflow 2: news-<type>-article.md (timeout-minutes: 45) ──
-(triggered by merged analysis PR)
-Optional Stage-A top-up → Stage D · Article (2 passes) → Validators → Article PR (single)
+Stage C · Completeness Gate → Stage D · Deterministic Article Render →
+Stage E · Single PR
 ```
 
-No article drafting before Stage C exits 0. No PR before every file is staged
-for that workflow. The article workflow reads the analysis folder from `HEAD`
-of `main` after the analysis PR merges.
+No article render before Stage C is green. No PR before every analysis artifact,
+`${ANALYSIS_DIR}/article.md`, and generated `news/**` output is present for the
+single workflow snapshot.
 
 ## 9 · ISMS Compliance (short)
 

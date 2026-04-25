@@ -1,3 +1,14 @@
+---
+title: "Anti-Corruption and Institutional Reform Intelligence"
+description: "title: \"Anti-Corruption and Institutional Reform Intelligence\""
+date: 2026-04-03
+article_type: breaking
+slug: 2026-04-03-breaking-breaking-3
+source_folder: analysis/daily/2026-04-03/breaking-3
+generated_at: 2026-04-03T00:00:00.000Z
+language: en
+layout: article
+---
 # Breaking — 2026-04-03
 
 <!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->

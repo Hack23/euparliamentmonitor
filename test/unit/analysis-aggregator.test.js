@@ -16,6 +16,7 @@ import {
   guessDateFromRunDir,
   latestGateResult,
   renderAnalysisIndex,
+  renderReaderIntelligenceGuide,
   renderProvenanceBlock,
   renderTradecraftAppendix,
 } from '../../scripts/aggregator/analysis-aggregator.js';
@@ -80,6 +81,16 @@ describe('expandSectionArtifacts', () => {
     expect(consumed.has('extended/executive-brief.md')).toBe(true);
   });
 
+  it('prefers root executive-brief.md over extended compatibility fallback', () => {
+    const section = ARTIFACT_SECTIONS[0];
+    const available = new Set(['executive-brief.md', 'extended/executive-brief.md']);
+    const consumed = new Set();
+    const result = expandSectionArtifacts(section, available, consumed);
+    expect(result).toEqual(['executive-brief.md']);
+    expect(consumed.has('executive-brief.md')).toBe(true);
+    expect(consumed.has('extended/executive-brief.md')).toBe(false);
+  });
+
   it('does not re-consume already-claimed artifacts', () => {
     const section = { id: 'x', title: 'X', artifacts: ['intelligence/'] };
     const available = new Set([
@@ -90,6 +101,27 @@ describe('expandSectionArtifacts', () => {
     const consumed = new Set(['intelligence/b.md']);
     const result = expandSectionArtifacts(section, available, consumed);
     expect(result).toEqual(['intelligence/a.md', 'intelligence/c.md']);
+  });
+});
+
+describe('renderReaderIntelligenceGuide', () => {
+  it('renders a Riksdagsmonitor-style navigation table for emitted sections', () => {
+    const out = renderReaderIntelligenceGuide(
+      [
+        { id: 'section-executive-brief', title: 'Executive Brief' },
+        { id: 'section-synthesis', title: 'Synthesis Summary' },
+      ],
+      [
+        {
+          runRelPath: 'executive-brief.md',
+          repoRelPath: 'analysis/daily/2026-01-15/breaking/executive-brief.md',
+          sectionId: 'section-executive-brief',
+        },
+      ]
+    );
+    expect(out).toContain('Reader Intelligence Guide');
+    expect(out).toContain('[BLUF and editorial decisions](#section-executive-brief)');
+    expect(out).toContain('`executive-brief.md`');
   });
 });
 
@@ -168,6 +200,7 @@ describe('aggregateAnalysisRun (fixture)', () => {
     // Provenance block at the top
     expect(result.markdown).toMatch(/^# /);
     expect(result.markdown).toContain('**Provenance**');
+    expect(result.markdown).toContain('Reader Intelligence Guide');
     expect(result.markdown).toContain('`breaking`');
     expect(result.markdown).toContain('`GREEN`');
 
@@ -228,6 +261,10 @@ describe('aggregateAnalysisRun (fixture)', () => {
     });
     const toc = result.sectionToc ?? [];
     expect(toc.length).toBeGreaterThan(0);
+    expect(toc[0]).toEqual({
+      id: 'reader-intelligence-guide',
+      title: 'Reader Intelligence Guide',
+    });
     // Every TOC entry must correspond to an <h2 id="…">Title</h2> in the output
     for (const entry of toc) {
       expect(typeof entry.id).toBe('string');

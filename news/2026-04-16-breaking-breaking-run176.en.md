@@ -1,3 +1,14 @@
+---
+title: "Applying the multi-framework democratic threat analysis per political-threat-framework.md, adapted for the EP10 inter-session context."
+description: "Applying the multi-framework democratic threat analysis per political-threat-framework.md, adapted for the EP10 inter-session context."
+date: 2026-04-16
+article_type: breaking
+slug: 2026-04-16-breaking-breaking-run176
+source_folder: analysis/daily/2026-04-16/breaking-run176
+generated_at: 2026-04-16T00:00:00.000Z
+language: en
+layout: article
+---
 # Breaking — 2026-04-16
 
 <!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->

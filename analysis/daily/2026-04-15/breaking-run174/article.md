@@ -1,3 +1,14 @@
+---
+title: "🧩 Political Intelligence Synthesis — Tariff T-0 Activation Day and Post-Recess Institutional Reset"
+description: "subgraph \"📊 EP Political Intelligence Dashboard — 15 April 2026 07:20 UTC\""
+date: 2026-04-15
+article_type: breaking
+slug: 2026-04-15-breaking-breaking-run174
+source_folder: analysis/daily/2026-04-15/breaking-run174
+generated_at: 2026-04-15T00:00:00.000Z
+language: en
+layout: article
+---
 # Breaking — 2026-04-15
 
 <!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->

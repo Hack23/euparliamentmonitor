@@ -1,3 +1,14 @@
+---
+title: "📊 Synthesis Summary — Easter Recess Day 8 / Run 187"
+description: "Easter recess continues. Parliament remains suspended until April 27. Run 187 — the ninth monitoring run in the Easter Recess series — generates one material intelligence increment: the confirmation of the EU-China WTO tariff rate quota agreement (TA-10-2026-0101) as a March 26 Sprint II output…"
+date: 2026-04-19
+article_type: breaking
+slug: 2026-04-19-breaking-187
+source_folder: analysis/daily/2026-04-19/breaking-run187
+generated_at: 2026-04-19T00:00:00.000Z
+language: en
+layout: article
+---
 # Breaking — 2026-04-19
 
 <!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
@@ -10,6 +21,16 @@
 > - **Gate result:** `PENDING`
 > - **Analysis tree:** [analysis/daily/2026-04-19/breaking-run187](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-19/breaking-run187)
 > - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/breaking-run187/manifest.json)
+
+<h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
+
+Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
+
+| Reader need | What you'll get | Source artifact |
+|---|---|---|
+| [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
+| [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `intelligence/significance-scoring.md` |
+| [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `intelligence/coalition-dynamics.md` |
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
 

@@ -1,3 +1,14 @@
+---
+title: "📋 Synthesis Summary — 2026-04-12 (Run 163)"
+description: "This analysis consolidates findings from Run 163's five analysis categories (classification, threat assessment, risk scoring, intelligence, documents) based on EP MCP precomputed statistics (264KB) and cross-run editorial memory spanning April 8-12 (12 prior workflow runs)."
+date: 2026-04-12
+article_type: breaking
+slug: 2026-04-12-breaking
+source_folder: analysis/daily/2026-04-12/breaking-run163
+generated_at: 2026-04-12T00:00:00.000Z
+language: en
+layout: article
+---
 # Breaking — 2026-04-12
 
 <!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
@@ -10,6 +21,16 @@
 > - **Gate result:** `PENDING`
 > - **Analysis tree:** [analysis/daily/2026-04-12/breaking-run163](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-12/breaking-run163)
 > - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-12/breaking-run163/manifest.json)
+
+<h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
+
+Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
+
+| Reader need | What you'll get | Source artifact |
+|---|---|---|
+| [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
+| [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `classification/significance-classification.md` |
+| [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
 

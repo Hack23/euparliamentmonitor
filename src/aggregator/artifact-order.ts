@@ -40,7 +40,7 @@ export const ARTIFACT_SECTIONS: readonly ArtifactSection[] = [
   {
     id: 'executive-brief',
     title: 'Executive Brief',
-    artifacts: ['extended/executive-brief.md'],
+    artifacts: ['executive-brief.md', 'extended/executive-brief.md'],
   },
   {
     id: 'synthesis',

@@ -90,9 +90,16 @@ describe('wrapArticleHtml', () => {
     expect(inlineScripts.length).toBeLessThanOrEqual(1);
   });
 
-  it('references mermaid from js/vendor/ (same-origin, CSP-safe)', () => {
+  it('references the same-origin Mermaid initializer (CSP-safe)', () => {
     const html = wrapArticleHtml(baseOptions);
-    expect(html).toContain('../js/vendor/mermaid.esm.min.mjs');
+    expect(html).toContain('../js/mermaid-init.js');
+  });
+
+  it('renders a reader-facing article hero before the artifact body', () => {
+    const html = wrapArticleHtml(baseOptions);
+    expect(html).toContain('class="article-hero"');
+    expect(html).toContain('class="article-dek"');
+    expect(html).toContain('Short description of the test article.');
   });
 
   it('sets dir="rtl" for Arabic and Hebrew', () => {

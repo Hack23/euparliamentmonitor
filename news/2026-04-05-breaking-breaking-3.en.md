@@ -1,3 +1,14 @@
+---
+title: "Mid-Recess Strategic Intelligence Brief — 12-Hour Longitudinal Synthesis"
+description: "analyst: EU Parliament Monitor Agentic Workflow"
+date: 2026-04-05
+article_type: breaking
+slug: 2026-04-05-breaking-breaking-3
+source_folder: analysis/daily/2026-04-05/breaking-3
+generated_at: 2026-04-05T00:00:00.000Z
+language: en
+layout: article
+---
 # Breaking — 2026-04-05
 
 <!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->

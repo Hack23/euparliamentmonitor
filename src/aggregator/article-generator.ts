@@ -365,6 +365,53 @@ export function extractDefaultDescription(markdown: string): string {
 }
 
 /**
+ * Escape a string for a conservative double-quoted YAML scalar.
+ *
+ * @param value - Raw metadata value
+ * @returns YAML-safe quoted string content (without surrounding quotes)
+ */
+function yamlEscape(value: string): string {
+  return value.replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\r?\n/g, ' ');
+}
+
+/**
+ * Build the Jekyll-compatible Markdown source committed as `article.md`.
+ * The renderer strips this front matter before HTML conversion, while the
+ * source file stays portable to Jekyll/GitHub Pages and aligned with the
+ * Riksdagsmonitor article contract.
+ *
+ * @param aggregated - Aggregated analysis body and run metadata
+ * @param metadata - English metadata resolved for SEO
+ * @param metadata.title - Resolved English article title
+ * @param metadata.description - Resolved English article description
+ * @param slug - Article slug used by generated news paths
+ * @param sourceFolder - Repo-relative analysis run directory
+ * @returns Markdown with YAML front matter followed by the aggregate body
+ */
+function buildJekyllArticleMarkdown(
+  aggregated: AggregatedRun,
+  metadata: { readonly title: string; readonly description: string },
+  slug: string,
+  sourceFolder: string
+): string {
+  const frontMatter = [
+    '---',
+    `title: "${yamlEscape(metadata.title)}"`,
+    `description: "${yamlEscape(metadata.description)}"`,
+    `date: ${aggregated.date}`,
+    `article_type: ${aggregated.articleType}`,
+    `slug: ${slug}`,
+    `source_folder: ${sourceFolder}`,
+    `generated_at: ${aggregated.date}T00:00:00.000Z`,
+    'language: en',
+    'layout: article',
+    '---',
+    '',
+  ].join('\n');
+  return `${frontMatter}${aggregated.markdown}`;
+}
+
+/**
  * Render a single language-variant article. Pulls from a pre-translated
  * `<slug>.<lang>.md` file when it exists, otherwise renders the English
  * aggregate. Extracted from {@link generateArticle} so the outer function
@@ -528,6 +575,13 @@ export function generateArticle(
     opts.title || opts.description
       ? applyCliOverrides(resolvedMetadata, opts.title, opts.description)
       : resolvedMetadata;
+  const runDirRelPath = path.relative(opts.repoRoot, opts.runDir).split(path.sep).join('/');
+  const sourceMarkdown = buildJekyllArticleMarkdown(
+    aggregated,
+    getMetadataEntry(effectiveMetadata, 'en'),
+    slug,
+    runDirRelPath
+  );
 
   // Write article.md INTO the analysis run directory — canonical Markdown
   // source that lives alongside the artifacts that produced it.
@@ -535,7 +589,7 @@ export function generateArticle(
   // inside `analysis/daily/<date>/<type>/` so every run has a browsable,
   // version-controlled Markdown source in its own directory.
   const runArticleMdAbs = path.join(opts.runDir, 'article.md');
-  fs.writeFileSync(runArticleMdAbs, aggregated.markdown, 'utf8');
+  fs.writeFileSync(runArticleMdAbs, sourceMarkdown, 'utf8');
   const runArticleMdRelPath = path
     .relative(opts.repoRoot, runArticleMdAbs)
     .split(path.sep)
@@ -546,11 +600,11 @@ export function generateArticle(
   ensureDir(opts.outDir);
   const sourceMdFilename = `${slug}.en.md`;
   const sourceMdAbs = path.join(opts.outDir, sourceMdFilename);
-  fs.writeFileSync(sourceMdAbs, aggregated.markdown, 'utf8');
+  fs.writeFileSync(sourceMdAbs, sourceMarkdown, 'utf8');
 
   const written: string[] = [sourceMdFilename];
   if (!opts.markdownOnly) {
-    const rendered = renderMarkdown(aggregated.markdown);
+    const rendered = renderMarkdown(sourceMarkdown);
     const chromeOptions = {
       metadata: effectiveMetadata,
       // Point the "View source Markdown" link at the canonical run-directory

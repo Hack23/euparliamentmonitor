@@ -138,13 +138,11 @@ prose pass.
 4. [`.github/prompts/07-mcp-reference.md`](../prompts/07-mcp-reference.md) — canonical tool tables
 5. [`.github/prompts/02-analysis-protocol.md`](../prompts/02-analysis-protocol.md) — Stage B (2 passes; §2 re-run merge rule; §3 time budgets)
 6. [`.github/prompts/03-analysis-completeness-gate.md`](../prompts/03-analysis-completeness-gate.md) — Stage C (blocking); §6b resuming a same-day folder
-7. [`.github/prompts/04-article-assembly.md`](../prompts/04-article-assembly.md) — Stage D (deterministic CLI; agents do not author prose) *(landed in PR 3)*
-8. [`.github/prompts/06-pr-and-safe-outputs.md`](../prompts/06-pr-and-safe-outputs.md) — **single-PR rule**, unified-workflow PR contract
-9. On error → [`.github/prompts/09-troubleshooting.md`](../prompts/09-troubleshooting.md)
-
-> **Until PR 3 lands**: `04-article-assembly.md` may not yet exist — the
-> Stage D bash block in this workflow is fully self-contained and does
-> not require that prompt to be present to run correctly.
+7. [`.github/prompts/04-article-generation.md`](../prompts/04-article-generation.md) — Stage D (deterministic CLI; metadata/SEO contract; agents do not author prose)
+8. [`.github/prompts/05-analysis-to-article-contract.md`](../prompts/05-analysis-to-article-contract.md) — artifact-to-article contract and read-before-render duties
+9. [`Article-Generation.md`](../../Article-Generation.md) — end-to-end article pipeline reference, UI/UX export contract, and `article.md` provenance
+10. [`.github/prompts/06-pr-and-safe-outputs.md`](../prompts/06-pr-and-safe-outputs.md) — **single-PR rule**, unified-workflow PR contract
+11. On error → [`.github/prompts/09-troubleshooting.md`](../prompts/09-troubleshooting.md)
 
 ## 🔖 Workflow Parameters
 
@@ -204,7 +202,7 @@ echo "WORKFLOW_START_EPOCH=$WORKFLOW_START_EPOCH" >> "$GITHUB_ENV"
 ```
 Stage A · Data Collection (≤ 5 min)
   → Stage B · Analysis (Pass 1 + Pass 2, ≥ 18 min)
-    → Stage C · Completeness Gate (validate-analysis) — BLOCKING
+    → Stage C · Completeness Gate (agent-side readback) — BLOCKING
       → Stage D · Article Render (npm run generate-article — deterministic, ≤ 2 min)
         → Stage E · Single PR (exactly once)
 ```
@@ -249,22 +247,19 @@ PREFLIGHT_ATTESTATION: read N/N artifacts from ${ANALYSIS_DIR} (LINES lines, FRA
 
 ### Stage C — Completeness Gate (Ref: 03) — **BLOCKING**
 
-```bash
-npm run validate-analysis -- \
-  --analysis-dir="${ANALYSIS_DIR}" \
-  --article-type="${ARTICLE_TYPE_SLUG}"
+Read every manifest-listed artifact and compare it with `reference-quality-thresholds.json`, the artifact catalog, and the IMF/SEO rules in prompts 01, 03, and 04. Emit exactly one gate line:
+
+```text
+STAGE_C_GATE: GREEN articleType=${ARTICLE_TYPE_SLUG} artifacts=<N> lines=<L> imf=<pass|not_required>
+STAGE_C_GATE: ANALYSIS_ONLY articleType=${ARTICLE_TYPE_SLUG} reason="<why no article render>"
+STAGE_C_GATE: RED articleType=${ARTICLE_TYPE_SLUG} missing=<N> short=<N> placeholders=<N>
 ```
 
-- **Exit 0** → set `GATE_RESULT=GREEN` and proceed to Stage D.
-- **Exit 1 (first)** → run Pass 3 on the named artifacts, re-run validator.
-- **Exit 1 (second)** → set `GATE_RESULT=ANALYSIS_ONLY` and proceed to
-  Stage D anyway. The deterministic renderer will emit a placeholder
-  article documenting the gap (rather than no article at all), and the
-  PR title will be marked accordingly.
+- **GREEN** → set `GATE_RESULT=GREEN` and proceed to Stage D.
+- **RED (first)** → run Pass 3 on the named artifacts, re-run Stage C.
+- **RED (second)** → set `GATE_RESULT=ANALYSIS_ONLY`, skip full article render, and ship analysis-only in the single PR.
 
-Never use `--warn-only`.
-
-### Stage D — Deterministic Article Render (Ref: 04-article-assembly)
+### Stage D — Deterministic Article Render (Refs: 04-article-generation + Article-Generation.md)
 
 **Agents do not write article prose.** Stage D is a deterministic CLI
 that aggregates the committed `analysis/**` artifacts into one canonical

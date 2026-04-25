@@ -177,7 +177,10 @@ describe('generateArticle (end-to-end fixture)', () => {
     const runArticleMd = path.join(FIXTURE_RUN, 'article.md');
     expect(fs.existsSync(runArticleMd)).toBe(true);
     const md = fs.readFileSync(runArticleMd, 'utf8');
+    expect(md.startsWith('---\n')).toBe(true);
+    expect(md).toContain('layout: article');
     expect(md).toContain('**Provenance**');
+    expect(md).toContain('Reader Intelligence Guide');
     expect(md).toContain('Executive Brief');
 
     // sourceMarkdownRelPath should point to the run-dir article.md
@@ -200,6 +203,8 @@ describe('generateArticle (end-to-end fixture)', () => {
     const mdPath = path.join(tmpOut, '2026-01-15-breaking.en.md');
     expect(fs.existsSync(mdPath)).toBe(true);
     const md = fs.readFileSync(mdPath, 'utf8');
+    expect(md.startsWith('---\n')).toBe(true);
+    expect(md).toContain('source_folder: test/fixtures/analysis/2026-01-15/breaking-run-test');
     expect(md).toContain('**Provenance**');
     expect(md).toContain('Executive Brief');
 

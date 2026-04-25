@@ -1,3 +1,14 @@
+---
+title: "Breaking News Intelligence Analysis — 2026-03-31"
+description: "No breaking news significance detected for 2026-03-31. The European Parliament is in an inter-sessional period between the Brussels mini-plenary of March 25-26 and the next scheduled session. The adopted texts feed returned 34 items updated in the portal today, but all adoption dates are from…"
+date: 2026-03-31
+article_type: breaking
+slug: 2026-03-31-breaking
+source_folder: analysis/daily/2026-03-31/breaking
+generated_at: 2026-03-31T00:00:00.000Z
+language: en
+layout: article
+---
 # Breaking — 2026-03-31
 
 <!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->

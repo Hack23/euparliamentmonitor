@@ -1,3 +1,14 @@
+---
+title: "🧩 Political Intelligence Synthesis — Q1 2026 Legislative Productivity Audit & Post-Recess Pressure Mapping"
+description: "pie title EP10 Political Group Seats (720 total)"
+date: 2026-04-14
+article_type: breaking
+slug: 2026-04-14-breaking-breaking-run172
+source_folder: analysis/daily/2026-04-14/breaking-run172
+generated_at: 2026-04-14T00:00:00.000Z
+language: en
+layout: article
+---
 # Breaking — 2026-04-14
 
 <!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
