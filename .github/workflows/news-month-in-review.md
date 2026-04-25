@@ -24,7 +24,10 @@ permissions:
 # Hard safety cap. Active-work budget is 22–27 min before the single
 # safe-outputs create_pull_request call (see safeoutputs TTL note in the
 # prompt body). The remaining minutes cover npm setup + git push.
-timeout-minutes: 75
+# Raised from 75 → 90 min (run #24931834590 was cancelled at ~24 min after
+# 38 LLM requests / 0 safe outputs — extra headroom prevents the safeoutputs
+# session TTL (~28–30 min) from expiring before Stage E).
+timeout-minutes: 90
 
 features:
   mcp-gateway: true
@@ -65,6 +68,7 @@ network:
     - defaults
 
 tools:
+  timeout: 300  # 5 min per-tool-call cap (bash, MCP, etc.) — guards against hung tool calls
   github:
     toolsets:
       - all
@@ -120,6 +124,9 @@ steps:
 engine:
   id: copilot
   model: claude-opus-4.7
+  # max-continuations: caps autopilot reruns; prevents runaway multi-run
+  # scenarios that waste premium requests (Copilot-only; max-turns is Claude-only).
+  max-continuations: 1
 ---
 # 📰 EU Parliament Month in Review — Unified Workflow
 
@@ -156,7 +163,7 @@ prose pass.
 | Stage B budget (2 passes) | ≥ 18 min |
 | Stage D budget | ≤ 2 min (deterministic) |
 | **Total active-work budget** | **22–27 min** before the single safe-outputs `create_pull_request` call |
-| Hard safety cap | 75-min `timeout-minutes` |
+| Hard safety cap | 90-min `timeout-minutes` |
 | PR rule | **Exactly one** `[news]` PR at end of run |
 
 > **⚠️ safeoutputs Session TTL**: The safeoutputs MCP HTTP session on

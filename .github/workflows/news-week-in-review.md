@@ -65,6 +65,7 @@ network:
     - defaults
 
 tools:
+  timeout: 300  # 5 min per-tool-call cap (bash, MCP, etc.) — guards against hung tool calls
   github:
     toolsets:
       - all
@@ -120,6 +121,9 @@ steps:
 engine:
   id: copilot
   model: claude-opus-4.7
+  # max-continuations: caps autopilot reruns; prevents runaway multi-run
+  # scenarios that waste premium requests (Copilot-only; max-turns is Claude-only).
+  max-continuations: 1
 ---
 # 📰 EU Parliament Week in Review — Unified Workflow
 
