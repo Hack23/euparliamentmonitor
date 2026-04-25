@@ -75,7 +75,7 @@ import type {
 
 /**
  * Canonical list of tools exposed by the European Parliament MCP gateway
- * (`european-parliament-mcp-server@1.2.13`). The news workflows, prompt
+ * (`european-parliament-mcp-server@1.2.14`). The news workflows, prompt
  * library (`.github/prompts/07-mcp-reference.md`), and the integration test
  * suite all reference this list so a regression that adds/removes a tool
  * fails a single drift guard
@@ -182,7 +182,7 @@ const SERVER_HEALTH_FALLBACK = '{"server": null, "feeds": []}';
 /**
  * Classify an error message into a diagnostic error category.
  *
- * Maps EP MCP Server v1.2.13 structured error codes and generic HTTP/network
+ * Maps EP MCP Server v1.2.14 structured error codes and generic HTTP/network
  * errors into one of six broad categories used for logging and retry decisions:
  *
  * Returned categories (priority order):
@@ -198,7 +198,7 @@ const SERVER_HEALTH_FALLBACK = '{"server": null, "feeds": []}';
  */
 function classifyToolError(message: string): string {
   const lowerMsg = message.toLowerCase();
-  // EP MCP Server v1.2.13 structured error codes (matched case-insensitively)
+  // EP MCP Server v1.2.14 structured error codes (matched case-insensitively)
   if (lowerMsg.includes('internal_error')) {
     return 'INTERNAL_ERROR';
   }
@@ -263,7 +263,7 @@ function _parseResultPayload(
  * covering the two shapes historically emitted by the EP MCP server.
  *
  * 1. **Uniform envelope** (all feeds as of
- *    `european-parliament-mcp-server@1.2.13`) —
+ *    `european-parliament-mcp-server@1.2.14`) —
  *    `{status:"unavailable", items:[], generatedAt:"..."}` established by
  *    Hack23/European-Parliament-MCP-Server#301 and extended to
  *    `get_events_feed`/`get_procedures_feed` by
