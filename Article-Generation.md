@@ -421,15 +421,17 @@ Analysis artifacts require color-coded Mermaid diagrams. The Markdown renderer c
 
 ### Chart.js
 
-`js/chart-init.js` hydrates canvases with `data-chart-config`:
+**Current article-shell status:** Chart.js hydration is currently **not enabled for generated article pages**. The present `src/aggregator/article-html.ts` shell loads Mermaid and the theme-toggle script, but does **not** load `js/vendor/chart.umd.min.js`, `js/vendor/chartjs-plugin-annotation.min.js`, or `js/chart-init.js`. As a result, article pages must rely on semantic fallback content unless the article wrapper is extended to include those assets in a future change.
+
+On pages that do opt into Chart.js hydration (for example the index and other non-article pages), `js/chart-init.js` hydrates canvases with `data-chart-config` and:
 
 - uses `js/vendor/chart.umd.min.js` and `js/vendor/chartjs-plugin-annotation.min.js`;
 - applies EU Parliament palette defaults;
 - adapts grid and tick colors to light/dark mode;
 - assigns dataset colors when omitted;
-- leaves semantic fallback content available when scripts fail.
+- preserves semantic fallback content for environments where scripts are unavailable or fail.
 
-Expected markup shape:
+Expected progressive-enhancement markup shape:
 
 ```html
 <canvas data-chart-config="{&quot;type&quot;:&quot;bar&quot;,&quot;data&quot;:{...}}"></canvas>
