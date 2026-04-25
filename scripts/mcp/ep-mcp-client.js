@@ -6,6 +6,7 @@
  * built on top of the generic {@link MCPConnection} transport.
  */
 import { MCPConnection } from './mcp-connection.js';
+import { recordPendingDocument, markDocumentResolved, getPendingDocumentsForReprobe, escalateExpiredDocuments, getPendingDocumentsSummary, } from './pending-documents.js';
 /**
  * Canonical list of tools exposed by the European Parliament MCP gateway
  * (`european-parliament-mcp-server@1.2.13`). The news workflows, prompt
@@ -101,6 +102,14 @@ const STATS_FALLBACK = '{"stats": null}';
 const PROCEDURE_EVENT_FALLBACK = '{"event": null}';
 /** Fallback payload for server health status */
 const SERVER_HEALTH_FALLBACK = '{"server": null, "feeds": []}';
+/** Fallback payload for adopted texts tools */
+const ADOPTED_TEXTS_FALLBACK = '{"texts": []}';
+/**
+ * Substring matched (case-insensitively) in error messages to identify the
+ * EP Open Data Portal indexing lag (5–15 days between identifier publication
+ * and content availability).  Must not be changed without updating tests.
+ */
+const CONTENT_NOT_YET_AVAILABLE_SUBSTRING = 'document indexed but content not yet available';
 /**
  * Classify an error message into a diagnostic error category.
  *
@@ -253,6 +262,15 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
     _failedTools = new Map();
     /** Tracks tools that have been called (attempted) in the current session */
     _calledTools = new Set();
+    /**
+     * Path to the pending-documents sidecar file.
+     * Undefined means "use the module-level default (`<cwd>/data/pending-documents.json`)".
+     */
+    _pendingDocumentsStorePath;
+    constructor(options = {}) {
+        super(options);
+        this._pendingDocumentsStorePath = options.pendingDocumentsStorePath;
+    }
     /**
      * Record a tool failure and log a warning.
      *
@@ -661,26 +679,97 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
     /**
      * Get adopted texts (legislative resolutions, positions, non-legislative resolutions)
      *
-     * When called with `options.docId` and the EP server returns a
-     * "CONTENT_PENDING sentinel" (every string field empty — upstream issue
-     * Hack23/European-Parliament-MCP-Server#369), this method records the tool as
-     * failed and returns the empty fallback so downstream consumers do not
-     * render blank title/reference/date fields.
+     * When called with `options.docId` this method detects two CONTENT_PENDING
+     * conditions and handles both:
+     *
+     * 1. **UPSTREAM_404 indexing lag** (primary, v1.2.13+): The EP MCP Server
+     *    throws `UPSTREAM_404: document indexed but content not yet available`
+     *    when the EP Open Data Portal has indexed a document identifier but the
+     *    content body has not yet been populated (typically 5–15-day lag).
+     *    The docId is recorded in `data/pending-documents.json` with exponential
+     *    back-off scheduling so subsequent runs can re-probe without over-reporting
+     *    the lag as a reliability defect.
+     *
+     * 2. **Empty-string sentinel** (secondary, pre-v1.2.13 defence-in-depth):
+     *    Every string field is `""` — upstream issue
+     *    Hack23/European-Parliament-MCP-Server#369.
+     *
+     * In both cases the method returns the empty `{"texts": []}` fallback so
+     * downstream consumers do not render blank title/reference/date fields.
      *
      * @param options - Filter options including optional docId or year
      * @returns Adopted texts data
      */
     async getAdoptedTexts(options = {}) {
-        const result = await this.safeCallTool('get_adopted_texts', options, '{"texts": []}');
-        // Only apply the sentinel guard to docId lookups — year-range list queries
-        // return `{texts: [...]}` which would never match the sentinel heuristic.
+        const result = await this.safeCallTool('get_adopted_texts', options, ADOPTED_TEXTS_FALLBACK);
+        // Only apply special handling to docId lookups — year-range list queries
+        // return `{texts: [...]}` which would never match the sentinel heuristics.
         if (typeof options.docId === 'string' && options.docId.trim().length > 0) {
+            const docId = options.docId.trim();
+            // ── Primary: UPSTREAM_404 "document indexed but content not yet available" ──
+            // The EP MCP Server v1.2.13+ translates the empty-payload sentinel into an
+            // explicit 404 with this message.  This is NOT a transport failure — it is
+            // the documented EP Open Data Portal indexing lag (5–15 days).  Do NOT
+            // classify it as a reliability defect; instead schedule a retry.
+            const failureEntry = this._failedTools.get('get_adopted_texts') ?? '';
+            if (failureEntry.toLowerCase().includes(CONTENT_NOT_YET_AVAILABLE_SUBSTRING)) {
+                // Reclassify: content-availability lag, not a permanent retrieval error
+                this._failedTools.set('get_adopted_texts', `CONTENT_PENDING: ${docId} EP indexing lag (tracked in data/pending-documents.json)`);
+                // Persist to retry sidecar for exponential back-off scheduling
+                await recordPendingDocument(docId, this._pendingDocumentsStorePath).catch((err) => {
+                    console.warn('⚠️ pending-documents: failed to record pending doc:', err.message);
+                });
+                return { content: [{ type: 'text', text: ADOPTED_TEXTS_FALLBACK }] };
+            }
+            // ── Secondary: empty-string sentinel (pre-v1.2.13 defence-in-depth) ──
             const payload = _parseResultPayload(result);
             if (_isEmptyStringSentinel(payload)) {
-                return this._recordToolFailure('get_adopted_texts', `CONTENT_PENDING: docId=${options.docId} returned empty-string sentinel (upstream #369)`, '{"texts": []}');
+                return this._recordToolFailure('get_adopted_texts', `CONTENT_PENDING: docId=${docId} returned empty-string sentinel (upstream #369)`, ADOPTED_TEXTS_FALLBACK);
             }
         }
         return result;
+    }
+    /**
+     * Return the docIds of pending adopted texts that are due for a re-probe
+     * according to their exponential back-off schedule.
+     *
+     * Call this at the start of each Stage B deep-fetch run to obtain the list
+     * of identifiers to re-probe.  For each returned docId, call
+     * {@link getAdoptedTexts} with `{ docId }`.  If the fetch succeeds (real
+     * content returned), call {@link resolveAdoptedText} to mark it resolved.
+     *
+     * @returns Array of docIds due for reprobe (may be empty)
+     */
+    async getDueAdoptedTextsForReprobe() {
+        return getPendingDocumentsForReprobe(this._pendingDocumentsStorePath);
+    }
+    /**
+     * Mark a previously-pending adopted text as resolved (content is now
+     * available and has been successfully retrieved).
+     *
+     * @param docId - Adopted-text identifier (e.g., "TA-10-2026-0104")
+     */
+    async resolveAdoptedText(docId) {
+        await markDocumentResolved(docId, this._pendingDocumentsStorePath);
+    }
+    /**
+     * Escalate PENDING adopted texts that have exceeded the 14-day maximum
+     * tracking age.  Escalated documents are excluded from future reprobes and
+     * should be handled by the wildcards-blackswans family.
+     *
+     * @returns Array of docIds that were escalated
+     */
+    async escalateStalePendingDocuments() {
+        return escalateExpiredDocuments(this._pendingDocumentsStorePath);
+    }
+    /**
+     * Return a human-readable summary of the pending-documents sidecar for
+     * Stage B observability logging.
+     *
+     * @returns Formatted summary string
+     */
+    async getPendingDocumentsSummary() {
+        return getPendingDocumentsSummary(this._pendingDocumentsStorePath);
     }
     /**
      * Get European Parliament events (hearings, conferences, seminars)
