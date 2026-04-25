@@ -132,4 +132,94 @@ Identify the **single most strategically concentrated session** of the period an
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/cross-session-intelligence.md` · Template v1.0 · Depth floor: 220 lines (motions quarterly-scope runs), 150 lines (week-in-review / month-in-review).
+## 8️⃣ EP MCP Tool Inputs
+
+| EP MCP tool | Used for which section | Notes |
+|-------------|------------------------|-------|
+| `get_plenary_sessions` | §1 Session continuity (sitting numbers, agenda carry-over) | Two-session sliding window. |
+| `get_voting_records` | §3 RCV continuity (same procedure across sessions) | Aggregate margins; flag if EP roll-call publication delay >4 weeks. |
+| `analyze_voting_patterns` | §4 Coalition-realignment dimension | Per-MEP loyalty scores when feed available. |
+| `analyze_coalition_dynamics` | §4 Coalition realignment momentum indicator | Compares two windows; surfaces fracture/repair signals. |
+| `monitor_legislative_pipeline` | §5 Legislative carry-over momentum | Stalled/active/completed deltas across sessions. |
+| `get_procedures` / `track_legislation` | §1 Procedure-thread continuity | COD/CNS/APP procedure codes traced session-to-session. |
+| `get_speeches` | §2 Thematic-continuity dimension | Topic-tag overlap between sessions. |
+| `get_adopted_texts` | §5 Delivery-rate continuity | Adopted-text count delta per session. |
+| `compare_political_groups` | §4 Group-position drift | Seat-share + cohesion proxy snapshot per session. |
+| `get_meeting_decisions` | §1 Procedural decision continuity | Bureau/Conference of Presidents decisions persisting across sessions. |
+
+---
+
+## 9️⃣ Worked Pass-1 → Pass-2 Example (Strasbourg I→II, October 2025)
+
+**❌ Pass-1 (thin, 22 words):**
+> "Topic continuity from Strasbourg I: AI Act discussed in both sessions. Coalition stable. No major shifts observed."
+
+**✅ Pass-2 (compliant, 110 words):**
+> Topic continuity Strasbourg-I (07-10 Oct 2025) → Strasbourg-II (21-24 Oct 2025) shows AI-Act enforcement carrying 6 of 8 anchor items via `get_speeches` topic-tag overlap (75 %). Intensity rose from 14 RCVs to 21 RCVs on AI-related amendments per `get_voting_records`. Coalition realignment: Grand-Coalition cohesion held at 91→92 % per `analyze_coalition_dynamics`, but PfE+ESN+ECR right-flank cohesion jumped 71→84 %, signalling early consolidation around the 2026 budget vote. Agenda-displacement: Ukraine-aid debate compressed from 90 min (S-I) to 35 min (S-II) per agenda time-allocation, displaced by AI-Office trilogue urgency motion. Net momentum: AI-policy thread = HIGH continuity + HIGH intensity (consolidation phase, weeks-out horizon).
+
+---
+
+## 🔟 Momentum-Indicator Rubric (4 dimensions, 2-session worked example)
+
+| Dimension | Definition | Score 1-5 | S-I → S-II worked observation |
+|-----------|------------|:---------:|-------------------------------|
+| **Thematic continuity** | % of anchor topics carried session-to-session via `get_speeches` topic-tag overlap | 4 | 6 of 8 AI-Act anchor items recur (75 %); CRA + AI-Act dominate both. |
+| **Intensity** | RCV count, speech minutes, amendment volume per topic-thread | 5 | 14 → 21 AI-related RCVs (+50 %); ENVI committee-document output +38 %. |
+| **Coalition realignment** | Δ cohesion between windows for each major bloc per `analyze_coalition_dynamics` | 3 | Grand-Coalition stable 91→92 %; right-flank PfE+ESN+ECR 71→84 % (+13 pp). |
+| **Agenda displacement** | Topics that lost plenary time-slots / urgency-procedure adoption rate | 4 | Ukraine-aid debate −55 min; 2 urgency motions adopted (vs 0 in S-I). |
+
+**Composite momentum:** (4+5+3+4)/4 = **4.0 / 5 — HIGH consolidation momentum on AI-policy thread**, MEDIUM realignment on right-flank, requires Pass-2 elevation to risk-matrix as Threat T1.
+
+---
+
+## 1️⃣1️⃣ Anti-patterns — REJECT on Pass-2 Review
+
+| # | Banned pattern | Why it fails |
+|:-:|---------------|--------------|
+| 1 | "Topic X recurs in both sessions" without `get_speeches` topic-tag overlap percentage | Continuity claim must be quantified, not asserted. |
+| 2 | Coalition-realignment statement without two-window `analyze_coalition_dynamics` snapshots | Requires Δ between windows; single-window data is baseline, not realignment. |
+| 3 | Comparing two arbitrary date ranges instead of two consecutive plenary sittings | Cross-session ≠ cross-month; must be plenary-to-plenary. |
+| 4 | Forward-outlook forecast with no triggering event identified (§7) | Forecast without trigger is unfalsifiable; reviewer rejects. |
+| 5 | "Continuity HIGH" verdict with no Admiralty-graded source on the underlying claim | Tradecraft contract violated. |
+| 6 | Agenda-displacement claim with no time-allocation citation (Conference of Presidents minutes) | Displacement must be measurable in plenary-minutes or RCV count. |
+
+---
+
+## 1️⃣2️⃣ Cross-References — Controlling Methodology
+
+- [`../methodologies/per-artifact-methodologies.md#cross-session-intelligence`](../methodologies/per-artifact-methodologies.md) — construction rules + 4-dimension rubric.
+- [`../methodologies/osint-tradecraft-standards.md`](../methodologies/osint-tradecraft-standards.md) — § Admiralty grading per session-claim, WEP band on every forward forecast.
+- [`../methodologies/synthesis-methodology.md`](../methodologies/synthesis-methodology.md) — §Cross-window synthesis rules.
+- [`../methodologies/political-risk-methodology.md`](../methodologies/political-risk-methodology.md) — momentum thresholds feed risk-matrix likelihood scoring.
+- [`./historical-baseline.md`](./historical-baseline.md) — sister artifact for 30/90/365-day windows (longer than session-to-session).
+- [`./voting-patterns.md`](./voting-patterns.md) — feeds the intensity dimension.
+
+---
+
+## 1️⃣3️⃣ Stage-C Completeness Signals
+
+`scripts/validate-analysis-completeness.js` checks for this artifact:
+
+| Check | Threshold | Source |
+|-------|-----------|--------|
+| Line floor | 220 (motions quarterly) / 150 (week-in-review, month-in-review) | `reference-quality-thresholds.json` |
+| Required H2 substrings | "Continuity", "Realignment", "Forward Outlook" | structural contract |
+| Mermaid block | ≥1 (timeline or sankey across two sessions) | template visual contract |
+| Tradecraft markers | WEP band on every forward forecast (§7); Admiralty grade per session-claim | `osint-tradecraft-standards.md` |
+| Source diversity | ≥2 EP MCP tools cited per dimension (≥8 total) | per-artifact rule |
+| Two-window discipline | All claims tagged by session (S-N / S-N+1) — no "recently" floating refs | Pass-2 gate |
+
+---
+
+## 1️⃣4️⃣ Worked Two-Session Continuity Forecast Table
+
+| Topic-thread | S-I observation | S-II observation | Continuity verdict | Forecast (S-III) | WEP |
+|--------------|-----------------|------------------|:------------------:|------------------|:---:|
+| AI-Office IA | 14 RCVs | 21 RCVs | HIGH | Plateau (+5 % RCV growth, peak hit) | likely 60-80 % / weeks |
+| Ukraine-aid | 90 min debate | 35 min debate | DECLINING | Further compression unless front-line escalation | even-chance 40-60 % / month |
+| CRA implementation | 6 amendments | 14 amendments | HIGH (rising) | Continued rise into Q1 2026 trilogue | likely 60-80 % / weeks |
+| Right-flank consolidation | 71 % cohesion | 84 % cohesion | HIGH (escalating) | 2026 budget vote = stress test | very likely 80-95 % / weeks |
+
+---
+
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/cross-session-intelligence.md` · Template v1.2 · Depth floor: 220 lines (motions quarterly-scope runs), 150 lines (week-in-review / month-in-review).

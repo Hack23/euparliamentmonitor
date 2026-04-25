@@ -18,6 +18,7 @@ import {
 import type {
   MCPClientOptions,
   MCPToolResult,
+  MCPContentItem,
   GetMEPsOptions,
   GetPlenarySessionsOptions,
   SearchDocumentsOptions,
@@ -1334,15 +1335,78 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
   /**
    * Get adopted texts feed (most recent updates via EP API v2)
    *
+   * Post-processes the response to honour upstream freshness-fallback warnings
+   * added by `Hack23/European-Parliament-MCP-Server` when the feed payload
+   * contains no items from the current calendar year:
+   *
+   * - `FRESHNESS_FALLBACK: …` in `dataQualityWarnings[]` indicates the server
+   *   augmented the response with `GET /adopted-texts?year={currentYear}`.
+   *   The result is kept (do NOT downgrade to C4 — the augmented items are
+   *   confirmable, current-year, EP-published documents) and two fields are
+   *   added to the payload:
+   *   - `freshness: "augmented"` — callers can detect the augmentation
+   *   - `dataFreshnessWarnings: string[]` — the subset of `dataQualityWarnings`
+   *     that starts with `FRESHNESS_FALLBACK`, forwarded for Stage-A consumers
+   *
+   * - `FRESHNESS_FALLBACK_FAILED: …` indicates the feed was stale AND the
+   *   fallback `GET /adopted-texts?year=…` also returned no items.  The tool
+   *   is recorded as failed (escalated to `ANALYSIS_ONLY`) so downstream
+   *   consumers do not treat an empty-year dataset as fresh evidence.
+   *
    * @param options - Pagination options
-   * @returns Adopted texts feed data
+   * @returns Adopted texts feed data, possibly with augmented freshness fields
    */
   async getAdoptedTextsFeed(options: GetAdoptedTextsFeedOptions = {}): Promise<MCPToolResult> {
-    return this.safeCallTool(
+    const result = await this.safeCallTool(
       'get_adopted_texts_feed',
       options,
       EuropeanParliamentMCPClient.FEED_FALLBACK
     );
+
+    const payload = _parseResultPayload(result);
+    const rawWarnings = payload?.['dataQualityWarnings'];
+    const warnings: string[] = Array.isArray(rawWarnings)
+      ? rawWarnings.filter((w): w is string => typeof w === 'string')
+      : [];
+
+    const freshnessWarnings = warnings.filter((w) => w.startsWith('FRESHNESS_FALLBACK'));
+
+    if (freshnessWarnings.length === 0) {
+      return result;
+    }
+
+    // FRESHNESS_FALLBACK_FAILED: feed broken AND fallback also empty — escalate.
+    // Pick the first FAILED warning specifically so the recorded reason is
+    // accurate even when both FAILED and non-FAILED FRESHNESS_FALLBACK entries
+    // co-exist in the same response.
+    const failedWarning = freshnessWarnings.find((w) => w.startsWith('FRESHNESS_FALLBACK_FAILED'));
+    if (failedWarning !== undefined) {
+      return this._recordToolFailure(
+        'get_adopted_texts_feed',
+        `ANALYSIS_ONLY: ${failedWarning.slice(0, 200)}`,
+        EuropeanParliamentMCPClient.FEED_FALLBACK
+      );
+    }
+
+    // FRESHNESS_FALLBACK (non-FAILED): server augmented with current-year items.
+    // Keep the result but surface the freshness metadata so Stage-A consumers
+    // can detect augmentation without re-parsing raw dataQualityWarnings.
+    // Preserve the full MCPToolResult shape (isError, additional content items,
+    // etc.) — only rewrite content[0].text with the augmented JSON.
+    const augmented: Record<string, unknown> = {
+      ...(payload as Record<string, unknown>),
+      freshness: 'augmented',
+      dataFreshnessWarnings: freshnessWarnings,
+    };
+    const augmentedText = JSON.stringify(augmented);
+    const originalContent = result.content;
+    const updatedContent: MCPContentItem[] =
+      Array.isArray(originalContent) && originalContent.length > 0
+        ? originalContent.map((item, index) =>
+            index === 0 ? { ...item, text: augmentedText } : item
+          )
+        : [{ type: 'text', text: augmentedText }];
+    return { ...result, content: updatedContent };
   }
 
   /**

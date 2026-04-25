@@ -355,9 +355,9 @@ xychart-beta
 
 **Document Control:**
 - **Template Path:** `/analysis/templates/stakeholder-impact.md`
-- **Version:** 2.2
+- **Version:** 2.3
 - **Advanced Features (v2.2):** Temporal Stakeholder Outlook (30/60/90-Day Horizon), Immediate vs. Structural Impact classification, temporal conflict patterns in Conflicting Impact Resolution matrix
 - **Advanced Features (v2.1):** Conflicting Impact Resolution matrix, Stakeholder Impact Mermaid diagram, EU Institutional Hierarchy Awareness, Cross-Committee Stakeholder Mapping
 - **Framework Reference:** [methodologies/political-style-guide.md](../methodologies/political-style-guide.md)
 - **Classification:** Public
-- **Next Review:** 2026-06-30
+- **Next Review:** 2026-07-31

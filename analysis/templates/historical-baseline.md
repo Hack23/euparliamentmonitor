@@ -150,4 +150,86 @@ xychart-beta
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/historical-baseline.md` · Template v1.0 · Depth floor: 190 lines.
+## 7️⃣ EP MCP Tool Inputs
+
+| EP MCP tool | Used for which window | Notes |
+|-------------|------------------------|-------|
+| `get_plenary_sessions` | 30 / 90 / 365-day session counts | Authoritative session-by-date list. |
+| `get_voting_records` | RCV totals per window | Filter by `dateFrom` / `dateTo`; aggregate margins. |
+| `get_adopted_texts` | Adopted-text counts per window | `year` filter for 365-day; `dateFrom/To` for 30/90. |
+| `get_procedures` | Active-procedure counts per window | No native date filter — filter post-fetch. |
+| `track_legislation` | Procedure-stage transitions | Stage-time deltas vs baseline. |
+| `analyze_coalition_dynamics` | Cohesion baseline per window | Two/three-window deltas. |
+| `compare_political_groups` | Seat-share baseline | Snapshot per window for term-comparison. |
+| `get_committee_documents` | Committee-output baseline | Per ENVI/AGRI/ECON/LIBE volume. |
+| `get_speeches` | Speech-volume baseline | Topic-tag distribution per window. |
+| `get_all_generated_stats` | EP6-EP10 historical rollup | Precomputed long-window stats; faster than recomputing. |
+
+---
+
+## 8️⃣ Worked Pass-1 → Pass-2 Example (April-2026 30/90/365-day baseline)
+
+**❌ Pass-1 (thin, 19 words):**
+> "Activity is up compared to last year. More votes happened. Coalition cohesion stable. No anomalies in the data."
+
+**✅ Pass-2 (compliant, 102 words, sourced):**
+> 30-day window (2026-03-19 → 2026-04-18): 4 plenary sittings, 84 RCVs, 39 adopted texts per `get_voting_records` + `get_adopted_texts`. 90-day window (2026-01-19 →): 11 sittings, 241 RCVs, 113 adopted texts. 365-day window: 41 sittings, 891 RCVs, 412 adopted texts. **Δ vs baseline:** 30-day RCV count is HIGHEST SINCE December 2024 (84 > prior peak 79); 90-day adopted-text count is RETURN TO BASELINE (113 vs 3-year average 110); 365-day count is FIRST OCCURRENCE of >400 adopted texts in any rolling year of the EP10 term per `get_all_generated_stats`. Trend: legislative output accelerating as Council pre-summer push begins.
+
+---
+
+## 9️⃣ Worked 30 / 90 / 365-Day Comparable Baseline Table
+
+| Metric | 30-day (current) | 30-day (3-y avg) | 90-day | 90-day (3-y avg) | 365-day | 365-day (3-y avg) | Label |
+|--------|:----------------:|:----------------:|:------:|:----------------:|:-------:|:-----------------:|-------|
+| Plenary sittings | 4 | 3.8 | 11 | 11.2 | 41 | 42.0 | → return-to-baseline |
+| RCVs adopted | 84 | 64 | 241 | 215 | 891 | 815 | ↑ HIGHEST SINCE 2024-12 (30-day) |
+| Adopted texts | 39 | 36 | 113 | 110 | 412 | 378 | 🆕 FIRST OCCURRENCE >400 (365-day) |
+| Active procedures (COD) | 167 | 152 | — | — | — | — | ↑ above baseline +10 % |
+| Grand-Coalition cohesion % | 91 | 89 | 90 | 88 | 87 | 86 | → return-to-baseline |
+| Right-flank PfE+ESN+ECR cohesion % | 84 | 71 | 79 | 70 | 73 | 67 | ↑ HIGHEST SINCE EP10 start (consolidation) |
+| Committee documents (ENVI) | 28 | 22 | 71 | 62 | 247 | 220 | ↑ above baseline +12 % |
+
+**Label rubric:** *first occurrence* (no prior comparable in EP10 term), *highest since* (top in named-window since YYYY-MM), *return to baseline* (Δ ≤±5 % from 3-y avg), *new low* (lowest in named-window since YYYY-MM).
+
+---
+
+## 🔟 Anti-patterns — REJECT on Pass-2 Review
+
+| # | Banned pattern | Why it fails |
+|:-:|---------------|--------------|
+| 1 | Comparing current 30-day to "last year" without explicit 3-y average baseline | "Last year" is single-point; baseline = average. |
+| 2 | "HIGHEST SINCE" claim without naming the prior peak (year-month) | Reviewer cannot verify. |
+| 3 | "FIRST OCCURRENCE" claim without consulting `get_all_generated_stats` term-rollup | Could be false (EP6-EP9 may show prior occurrence). |
+| 4 | 30-day window claim within 4 weeks of present without EP roll-call delay caveat | Tradecraft violation. |
+| 5 | Mixing calendar-year and rolling-year baselines in same table | Apples-to-oranges. |
+| 6 | "Trend continuation" forecast without naming the trigger that would break trajectory | Unfalsifiable. |
+
+---
+
+## 1️⃣1️⃣ Cross-References — Controlling Methodology
+
+- [`../methodologies/per-artifact-methodologies.md#historical-baseline`](../methodologies/per-artifact-methodologies.md) — construction rules.
+- [`../methodologies/synthesis-methodology.md`](../methodologies/synthesis-methodology.md) — § Window-comparison rules.
+- [`../methodologies/osint-tradecraft-standards.md`](../methodologies/osint-tradecraft-standards.md) — WEP band on trajectory forecasts; Admiralty grade per metric-source.
+- [`./session-baseline.md`](./session-baseline.md) — sister artifact for single-session window.
+- [`./cross-session-intelligence.md`](./cross-session-intelligence.md) — sister artifact for two-session window.
+- [`./scenario-forecast.md`](./scenario-forecast.md) — consumes "first occurrence" + "highest since" labels as scenario triggers.
+
+---
+
+## 1️⃣2️⃣ Stage-C Completeness Signals
+
+`scripts/validate-analysis-completeness.js` checks for this artifact:
+
+| Check | Threshold | Source |
+|-------|-----------|--------|
+| Line floor | ≥190 lines | `reference-quality-thresholds.json` |
+| Required H2 substrings | "30-day", "90-day", "365-day", "Trajectory" | structural contract |
+| Mermaid block | ≥1 (timeseries / xychart preferred) | visual contract |
+| Tradecraft markers | Per-metric label (first/highest/return/low); WEP on forecast | `osint-tradecraft-standards.md` |
+| Source diversity | ≥4 EP MCP tools (one MUST be `get_all_generated_stats` for 365-day claims) | per-artifact rule |
+| Window discipline | All 3 windows populated (30/90/365); 3-y averages cited | template logic |
+
+---
+
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/historical-baseline.md` · Template v1.2 · Depth floor: 190 lines.

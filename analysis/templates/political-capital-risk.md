@@ -213,4 +213,4 @@ How capital risk distributes across EU member‑state clusters — the dimension
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/risk-scoring/political-capital-risk.md` · Template v2.0 · Depth floor: 130 lines · Mermaid diagrams: ≥3 (quadrant + flow + timeline) · Reader briefing: required.
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/risk-scoring/political-capital-risk.md` · Template v2.1 · Depth floor: 130 lines · Mermaid diagrams: ≥3 (quadrant + flow + timeline) · Reader briefing: required.

@@ -157,4 +157,121 @@ Who briefs whom, who leaks to whom, who has cross‑institutional access (Counci
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/classification/actor-mapping.md` · Template v2.0 · Depth floor: 130 lines · Mermaid diagrams: ≥2 · Reader briefing: required.
+## 9️⃣ EP MCP Tool Inputs
+
+| EP MCP tool | Used for which section | Notes |
+|-------------|------------------------|-------|
+| `get_meps` / `get_current_meps` | §1 Actor Roster (named MEPs, group, country) | Filter by committee for rapporteur scan. |
+| `get_committee_info` | §1 Roster (chair, vice-chairs, coordinators) | `abbreviation` lookup for ENVI/AGRI/etc. |
+| `get_mep_details` | §2 Per-actor influence dossier | Personal data — GDPR-audited access. |
+| `assess_mep_influence` | §3 Influence centrality scores | 5-dimension weighted model. |
+| `network_analysis` | §3 Influence-edge inference | Committee co-membership network. |
+| `analyze_mep_attendance` / `track_mep_attendance` | §4 Activity proxy | Attendance % feeds influence weighting. |
+| `analyze_legislative_effectiveness` | §4 Output proxy | Reports authored, amendments adopted. |
+| `get_speeches` | §5 Information Flows (who frames the debate) | Speech volume + topic-tag distribution. |
+| `comparative_intelligence` | §6 Cross-actor comparisons | 2-10 MEP cross-reference. |
+
+---
+
+## 🔟 Worked Pass-1 → Pass-2 Example (AI-Office implementing-act actor map)
+
+**❌ Pass-1 (thin, 23 words):**
+> "Several MEPs are key on AI Act. The rapporteur is important. Some shadow-rapporteurs disagree. Committee chairs influence the timing."
+
+**✅ Pass-2 (compliant, 110 words, sourced):**
+> Rapporteur Dragoş Tudorache (Renew, RO, ITRE coordinator, influence score 81/100 per `assess_mep_influence`) holds drafting agenda. LIBE shadow Birgit Sippel (S&D, DE, civil-liberties spokesperson, score 74) anchors fundamental-rights amendments. EPP shadow Axel Voss (DE, JURI vice-chair, score 78) is the right-flank guardrail. ITRE chair Borys Budka (EPP, PL, score 69) controls calendar. ECR shadow Patryk Jaki (PL, score 62) — likely procedural-amendment vector per `network_analysis` (84 % committee co-membership with PfE). Greens/EFA shadow Sergey Lagodinsky (DE, score 67) bridges digital-rights NGOs. PfE position via Mathilde Androuët (FR, ID-PfE successor, score 41). Net: 6 named MEPs control >70 % of the floor-amendment outcome.
+
+---
+
+## 1️⃣1️⃣ Worked 12-Actor Roster Table (AI-Office implementing-act)
+
+| # | MEP | Group | Country | Committee role | Influence | Stance |
+|:-:|-----|-------|:-------:|----------------|:---------:|--------|
+| 1 | Dragoş Tudorache | Renew | RO | ITRE coordinator + Rapporteur | 81 | Lead — proportionate enforcement |
+| 2 | Birgit Sippel | S&D | DE | LIBE shadow | 74 | Strengthen fundamental-rights |
+| 3 | Axel Voss | EPP | DE | JURI vice-chair (EPP shadow) | 78 | Limit business burden |
+| 4 | Borys Budka | EPP | PL | ITRE chair | 69 | Schedule control |
+| 5 | Patryk Jaki | ECR | PL | LIBE shadow | 62 | Procedural amendments |
+| 6 | Sergey Lagodinsky | Greens/EFA | DE | LIBE shadow | 67 | NGO bridge |
+| 7 | Mathilde Androuët | PfE | FR | LIBE | 41 | Reject framework |
+| 8 | Marie-Agnes Strack-Zimmermann | Renew | DE | LIBE | 71 | Renew-internal dissident |
+| 9 | Brando Benifei | S&D | IT | IMCO + AI Act co-rapporteur (legacy) | 76 | Continuity from primary act |
+| 10 | Iratxe García Pérez | S&D | ES | S&D group leader | 88 | Whip-discipline anchor |
+| 11 | Manfred Weber | EPP | DE | EPP group leader | 92 | Coalition broker |
+| 12 | Bas Eickhout | Greens/EFA | NL | Greens/EFA co-leader | 79 | Floor-vote pivot |
+
+**Coverage signal:** ≥1 MEP from each major group (EPP, S&D, Renew, Greens/EFA, ECR, PfE) ✅; rapporteur + shadows + chair + coordinators all present ✅.
+
+---
+
+## 1️⃣2️⃣ Worked Influence-Edge Mermaid Diagram
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryBorderColor":"#1565C0","lineColor":"#9E9E9E","secondaryColor":"#2E7D32","tertiaryColor":"#FF9800"}}}%%
+flowchart LR
+    Tudorache((Tudorache<br/>Renew/RO<br/>RAPPORTEUR)):::lead
+    Weber((Weber<br/>EPP/DE)):::epp
+    Garcia((García<br/>S&D/ES)):::sd
+    Sippel((Sippel<br/>S&D/DE)):::sd
+    Voss((Voss<br/>EPP/DE)):::epp
+    Budka((Budka<br/>EPP/PL<br/>CHAIR)):::epp
+    Jaki((Jaki<br/>ECR/PL)):::ecr
+    Lagodinsky((Lagodinsky<br/>Greens/DE)):::greens
+    Tudorache -->|drafts| Sippel
+    Tudorache -->|negotiates| Voss
+    Weber -->|whips| Voss
+    Weber -->|whips| Budka
+    Garcia -->|whips| Sippel
+    Budka -->|schedules| Tudorache
+    Jaki -->|tactical-amends| Voss
+    Lagodinsky -->|coalition-bridge| Sippel
+    classDef lead fill:#1565C0,color:#ffffff,stroke:#1565C0
+    classDef epp fill:#2E7D32,color:#ffffff,stroke:#2E7D32
+    classDef sd fill:#D32F2F,color:#ffffff,stroke:#D32F2F
+    classDef ecr fill:#FF9800,color:#000000,stroke:#FF9800
+    classDef greens fill:#FFC107,color:#000000,stroke:#FFC107
+```
+
+---
+
+## 1️⃣3️⃣ Anti-patterns — REJECT on Pass-2 Review
+
+| # | Banned pattern | Why it fails |
+|:-:|---------------|--------------|
+| 1 | Roster <12 named MEPs OR missing rapporteur / shadows / chair | Coverage floor unmet. |
+| 2 | Influence score with no `assess_mep_influence` citation | Score is judgment-only; flag LOW. |
+| 3 | Roster missing ≥1 MEP from each major group (EPP/S&D/Renew/Greens/ECR/PfE) | Group-coverage floor unmet. |
+| 4 | Mermaid diagram with <6 edges or no group-colour classDef | Visual contract violated. |
+| 5 | Stance column reads "supportive" without amendment / speech / vote citation | Unsourced political claim. |
+| 6 | "Power broker" identification without `network_analysis` centrality score | Generic power-talk. |
+| 7 | Personal-data exposure beyond public-record (private contact / family info) | GDPR violation; access-logged. |
+
+---
+
+## 1️⃣4️⃣ Cross-References — Controlling Methodology
+
+- [`../methodologies/per-artifact-methodologies.md#actor-mapping`](../methodologies/per-artifact-methodologies.md) — construction rules.
+- [`../methodologies/political-classification-guide.md`](../methodologies/political-classification-guide.md) — group + role taxonomy.
+- [`../methodologies/osint-tradecraft-standards.md`](../methodologies/osint-tradecraft-standards.md) — Admiralty grade per influence claim.
+- [`./stakeholder-map.md`](./stakeholder-map.md) — institutional view; this artifact is individual-MEP view.
+- [`./coalition-dynamics.md`](./coalition-dynamics.md) — group-level aggregate view.
+- AI Policy + GDPR audit trail: `get_mep_details` access is logged per `analysis/methodologies/osint-tradecraft-standards.md §personal-data`.
+
+---
+
+## 1️⃣5️⃣ Stage-C Completeness Signals
+
+`scripts/validate-analysis-completeness.js` checks for this artifact:
+
+| Check | Threshold | Source |
+|-------|-----------|--------|
+| Line floor | ≥130 lines | `reference-quality-thresholds.json` |
+| Required H2 substrings | "Actor Roster", "Influence", "Alliance", "Power Brokers", "Information", "Reader Briefing" | `structuralRequirements.requiredSections` |
+| Mermaid block | ≥2 (roster + influence-edge flowchart) | `mermaidRequired` |
+| Tradecraft markers | Influence score per actor; Admiralty grade per stance claim | `osint-tradecraft-standards.md` |
+| Source diversity | ≥3 EP MCP tools (must include `get_meps` + `assess_mep_influence`) | `sourceDiversityRequired` |
+| Reader briefing | Required `For Citizens / Plain Language` block | `readerBlockRequired` |
+
+---
+
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/classification/actor-mapping.md` · Template v2.2 · Depth floor: 130 lines · Mermaid diagrams: ≥2 · Reader briefing: required.
