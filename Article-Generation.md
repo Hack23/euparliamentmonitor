@@ -299,7 +299,14 @@ npm run generate-article -- --run analysis/daily/2026-04-24/propositions --markd
 | Same run, English | `news/2026-04-24-propositions-en.html` |
 | Same run, Swedish | `news/2026-04-24-propositions-sv.html` |
 | Same run, Arabic | `news/2026-04-24-propositions-ar.html` with RTL direction from language constants. |
-| Batch collision with same date/type | Sanitized run suffix appended to slug. |
+| `manifest.json` with `articleType: motions-runmotions-run-1777010709` | `news/2026-04-24-motions-runmotions-run-1777010709.en.md` |
+| Batch collision during `--all` where two runs would otherwise produce the same slug | Sanitized extra suffix appended to the already-derived `YYYY-MM-DD-<manifest.articleType>` stem. |
+
+The generator builds the base slug from the manifest value as-is: `YYYY-MM-DD-<manifest.articleType>`. In other words, if `manifest.articleType` already contains a run-like suffix, that suffix will already appear in the output filename stem before any collision handling happens.
+
+The additional sanitized suffix is only a collision-avoidance step for batch generation (`--all`) when multiple runs would otherwise write the same output path.
+
+To keep filenames predictable, prefer keeping `manifest.articleType` to the canonical article-type set (for example `breaking`, `week-in-review`, `month-in-review`, `week-ahead`, `month-ahead`, `committee-reports`, `motions`, `propositions`) and place per-run uniqueness in `runId` instead.
 
 ---
 
