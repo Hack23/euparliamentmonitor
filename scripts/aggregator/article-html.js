@@ -10,11 +10,15 @@
  * consistent with the rest of the site.
  *
  * The output is a complete HTML5 document. No inline `<script>` is emitted
- * in the body. Mermaid is loaded from the vendored ESM bundle via
- * `<script type="module" src="js/vendor/mermaid.esm.min.mjs">` so CSP
- * stays `script-src 'self'`.
+ * in the body. Mermaid is loaded from the same-origin vendored ESM bundle
+ * (copied to `js/vendor/mermaid/` by `scripts/copy-vendor.js`) via
+ * `<script type="module" src="../js/mermaid-init.js?v=<MERMAID_VERSION>" defer>`
+ * so CSP stays `script-src 'self'`. The `?v=` query parameter is sourced
+ * from `devDependencies.mermaid` in `package.json` (a fixed pin like
+ * `11.14.0`); regenerating articles after a Mermaid bump invalidates
+ * browser and CloudFront caches automatically.
  */
-import { BASE_URL, createThemeToggleButton, THEME_TOGGLE_SCRIPT } from '../constants/config.js';
+import { BASE_URL, createThemeToggleButton, MERMAID_VERSION, THEME_TOGGLE_SCRIPT, } from '../constants/config.js';
 import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, SKIP_LINK_TEXTS, HEADER_SUBTITLE_LABELS, THEME_TOGGLE_LABELS, TOC_ARIA_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
 import { escapeHTML } from '../utils/file-utils.js';
 import { buildSiteFooter } from '../templates/section-builders.js';
@@ -181,7 +185,7 @@ ${hreflangLinks}
   <meta name="theme-color" content="#003399">
   <link rel="stylesheet" href="../styles.css">
   <script type="application/ld+json">${jsonLdString}</script>
-  <script type="module" src="../js/mermaid-init.js" defer></script>
+  <script type="module" src="../js/mermaid-init.js?v=${MERMAID_VERSION}" defer></script>
 </head>
 <body>
   <a href="#main" class="skip-link">${escapeHTML(skipLinkText)}</a>
