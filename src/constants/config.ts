@@ -86,6 +86,43 @@ export const APP_VERSION: string = (() => {
 })();
 
 /**
+ * Pinned Mermaid bundle version, read from `devDependencies.mermaid` in
+ * `package.json`. Used as a cache-busting query parameter on the
+ * `mermaid-init.js` script tag in generated article HTML so a Mermaid
+ * version bump in `package.json` automatically invalidates browser /
+ * CloudFront caches the next time articles are regenerated. Any leading
+ * semver range character (`^`, `~`, `>=`) is stripped — the contract for
+ * this repo is a fixed pin (e.g. `"mermaid": "11.14.0"`), but stripping
+ * keeps us robust if the pin is briefly relaxed during a dependency update.
+ */
+export const MERMAID_VERSION: string = (() => {
+  try {
+    const pkgPath = path.join(PROJECT_ROOT, 'package.json');
+    const parsed: unknown = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'));
+
+    if (
+      typeof parsed === 'object' &&
+      parsed !== null &&
+      'devDependencies' in parsed
+    ) {
+      const devDeps = (parsed as { devDependencies: unknown }).devDependencies;
+      if (typeof devDeps === 'object' && devDeps !== null && 'mermaid' in devDeps) {
+        const raw = (devDeps as { mermaid: unknown }).mermaid;
+        if (typeof raw === 'string' && raw.trim() !== '') {
+          return raw.replace(/^[\^~><=\s]+/, '').trim();
+        }
+      }
+    }
+
+    console.warn('Invalid or missing "devDependencies.mermaid" in package.json, falling back to 0.0.0');
+    return '0.0.0';
+  } catch (err) {
+    console.warn('Failed to read mermaid version from package.json:', err);
+    return '0.0.0';
+  }
+})();
+
+/**
  * Generate theme toggle HTML button markup with a localized aria-label.
  * Renders a moon (light→dark) and sun (dark→light) icon; CSS controls visibility.
  *

@@ -471,10 +471,13 @@ Analysis artifacts require color-coded Mermaid diagrams. The Markdown renderer c
 | Layer | Support |
 |---|---|
 | Artifact authoring | Methodologies require `flowchart`, `quadrantChart`, `mindmap`, `timeline`, `pie`, `xyChart`, or `graph` diagrams depending on artifact type. |
-| Renderer | `markdown-renderer.ts` emits `<figure class="mermaid-figure" role="img" aria-label="Mermaid diagram N">`. |
-| HTML shell | `article-html.ts` references `../js/vendor/mermaid.esm.min.mjs` and `../js/mermaid-init.js`. |
-| Vendor copy | `npm run copy-vendor` copies Mermaid ESM when available in `node_modules/mermaid/dist/`. |
-| Operational note | Ensure `js/mermaid-init.js` is present in published assets when relying on client-side Mermaid hydration; without it, diagrams remain readable as `<pre class="mermaid">` source. |
+| Renderer | `markdown-renderer.ts` emits `<figure class="mermaid-figure" role="img" aria-label="Mermaid diagram N">` wrapping a `<pre class="mermaid">…</pre>` block. |
+| HTML shell | `article-html.ts` injects `<script type="module" src="../js/mermaid-init.js?v=<MERMAID_VERSION>" defer>` in `<head>`. The `?v=` query parameter is sourced from `devDependencies.mermaid` in `package.json` and busts browser / CloudFront caches automatically when the version is bumped. |
+| Initializer | `js/mermaid-init.js` dynamically `import()`s `./vendor/mermaid/mermaid.esm.min.mjs` from the same origin (no external CDN), upgrades each `<pre class="mermaid">` to `<div class="mermaid">`, and runs Mermaid in `requestIdleCallback` so first paint stays fast. Errors are caught and the raw source remains readable as a fallback. |
+| Vendor copy | `npm run copy-vendor` copies the entry `mermaid.esm.min.mjs` plus the entire `chunks/mermaid.esm.min/` tree from `node_modules/mermaid/dist/` to `js/vendor/mermaid/` (≈80 chunks for full diagram-type coverage). |
+| Version pinning | `package.json` pins `"mermaid": "11.14.0"` (no semver range char). The `MERMAID_VERSION` constant in `src/constants/config.ts` strips any leading `^` / `~` defensively and feeds the cache-bust query. |
+| S3 deploy | `.github/workflows/deploy-s3.yml` runs `npm run copy-vendor` before sync so the vendored bundle ships under `s3://…/js/vendor/mermaid/…`, syncs `*.mjs` with `cache-control: max-age=31536000, immutable`, and patches the `?v=` query in **every** `news/*.html` (legacy + aggregator-generated) so historical articles also benefit from the cache-bust on the next deploy. |
+| Operational note | If `js/vendor/mermaid/` is absent, the dynamic `import()` fails silently — the raw `<pre class="mermaid">` source remains visible to readers and the rest of the page continues to work. |
 
 ### Chart.js
 

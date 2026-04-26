@@ -90,9 +90,9 @@ describe('wrapArticleHtml', () => {
     expect(inlineScripts.length).toBeLessThanOrEqual(1);
   });
 
-  it('references the same-origin Mermaid initializer (CSP-safe)', () => {
+  it('references the same-origin Mermaid initializer with a version cache-bust (CSP-safe)', () => {
     const html = wrapArticleHtml(baseOptions);
-    expect(html).toContain('../js/mermaid-init.js');
+    expect(html).toMatch(/\.\.\/js\/mermaid-init\.js\?v=\d+\.\d+\.\d+/);
   });
 
   it('renders a reader-facing article hero before the artifact body', () => {
