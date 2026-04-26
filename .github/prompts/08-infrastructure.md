@@ -30,11 +30,16 @@ runtimes:
   node:
     version: "25"             # Runner uses Node.js 25
 
+# Network allowlist — uses ecosystem identifiers where possible (per
+# upstream docs/reference/network.md §"Ecosystem Identifiers"):
+#   - `defaults` — basic infrastructure (certs, JSON schema, package mirrors)
+#   - `github`   — all GitHub domains (replaces explicit github.com/api.github.com)
+#   - `node`     — npm/npx (needed for MCP server boot via npx)
 network:
   allowed:
+    - defaults                # basic infrastructure
+    - github                  # GitHub domains (replaces github.com/api.github.com)
     - node                    # npm/npx installation
-    - github.com
-    - api.github.com
     - data.europarl.europa.eu
     - "*.europa.eu"
     - dataservices.imf.org    # IMF SDMX 3.0 REST — Wave-3 MANDATORY for policy-required article types
@@ -45,13 +50,35 @@ network:
     - www.riksdagsmonitor.com
     - euparliamentmonitor.com
     - www.euparliamentmonitor.com
-    - defaults                # GitHub Actions runtime
+
+# Sandbox — `keepalive-interval: 300` overrides the gateway default of
+# 1500s (25 min) so the MCP gateway pings every HTTP MCP backend every 5
+# minutes. This keeps EP/WB/memory/sequential-thinking sessions warm
+# during the 45-minute Stage B/C/D window. See upstream
+# `reference/mcp-gateway.md` §4.1.3.5 for the full keepalive contract.
+sandbox:
+  agent: awf
+  mcp:
+    port: 8080
+    keepalive-interval: 300
 
 tools:
+  timeout: 300                # per-tool-call cap (bash, MCP, github, edit, web-fetch)
+  startup-timeout: 90         # MCP server boot via npx package-pull
   github:
-    toolsets: [all]
+    toolsets: [all]           # all read toolsets EXCEPT `dependabot` (intentional)
   bash: true
+  edit:                       # explicit file-edit tool for analysis artifact authoring
+  web-fetch:                  # fallback fetch for EP/IMF/WB pages when MCP misses
   agentic-workflows: true
+  # Cache memory — restores partial Stage A/B work across runs so a failed
+  # safe-outputs PR call does not lose 20+ minutes of analysis. Compiler
+  # auto-injects restore + save steps using a workflow-scoped key; see
+  # upstream `reference/cache-memory.md`.
+  cache-memory:
+    key: news-<type>-${{ github.repository_owner }}
+    retention-days: 7
+    allowed-extensions: [".md", ".json", ".jsonl", ".txt", ".html"]
   repo-memory:
     branch-name: memory/news-generation
     allowed-extensions: [".md", ".json"]
