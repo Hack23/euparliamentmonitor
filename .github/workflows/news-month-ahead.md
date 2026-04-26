@@ -243,11 +243,11 @@ echo "WORKFLOW_START_EPOCH=$WORKFLOW_START_EPOCH" >> "$GITHUB_ENV"
 ## 🔁 Stage Order (absolute)
 
 ```
-Stage A · Data Collection (≤ 5 min)
-  → Stage B · Analysis (Pass 1 + Pass 2, ≥ 18 min)
-    → Stage C · Completeness Gate (agent-side readback) — BLOCKING
-      → Stage D · Article Render (npm run generate-article — deterministic, ≤ 2 min)
-        → Stage E · Single PR (exactly once)
+Stage A · Data Collection (≤ 4 min — minute 0–4)
+  → Stage B · Analysis (Pass 1 + Pass 2, 12–15 min HARD CEILING — minute 4–19)
+    → Stage C · Completeness Gate (agent-side readback, ≤ 3 min — minute 19–22) — BLOCKING; minute-22 elapsed-time tripwire forces ANALYSIS_ONLY
+      → Stage D · Article Render (npm run generate-article — deterministic, ≤ 2 min — minute 22–24)
+        → Stage E · Single PR (≤ 1–2 min — minute ≤ 25; exactly once)
 ```
 
 ### Stage A — Data Collection (Ref: 01, 07)
