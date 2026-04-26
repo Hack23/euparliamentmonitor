@@ -21,12 +21,29 @@ permissions:
   discussions: read
   security-events: read
 
-# Hard safety cap. Active-work budget is 22–27 min before the single
-# safe-outputs create_pull_request call (see safeoutputs TTL note in the
-# prompt body). The cap is sized for the ~28–30 min safeoutputs MCP session
-# TTL: agent must call create_pull_request by minute ≤ 28 (target ≤ 25),
-# leaving ~17 min of headroom for npm setup, render, and git push under the
-# 45-min cap.
+# Hard safety cap. Two distinct deadlines drive this workflow's schedule:
+#
+#   1. **Stage C exit deadline = minute 22 elapsed.** This is the latest
+#      point at which Stage C must hand off to Stage D (or skip Stage D and
+#      jump to Stage E). The minute-22 elapsed-time tripwire in the prompt
+#      body enforces this regardless of GREEN/RED — even a freshly-emitted
+#      GREEN gate at minute 22 must fall through to ANALYSIS_ONLY so Stage
+#      D + E still have reserved time before the PR-call deadline. Local
+#      stage ceilings (A ≤ 4, B 12–15, C ≤ 3) sum to 22 — the tripwire
+#      backstops any per-stage overrun.
+#
+#   2. **safe-outputs PR-call deadline = minute ≤ 25 (target ≤ 22).** This
+#      is the deadline for the single safe-outputs `create_pull_request`
+#      call. Stage D ≤ 2 min and Stage E ≤ 1–2 min must fit between the
+#      Stage C exit (≤ minute 22) and this deadline.
+#
+# Tightened from 22–27 min after run #24957585804 emitted no safe outputs
+# (agent succeeded but PR call never landed) — same root cause as
+# news-month-in-review run #24954208628 fixed in #1444. The 30-day
+# forward data window naturally produces more data than week-ahead, so
+# Stage A/B ceilings are tighter here than in the other unified
+# workflows. ~20 min of headroom remains for npm setup, render, and git
+# push under the 45-min cap.
 timeout-minutes: 45
 
 features:
@@ -161,22 +178,39 @@ prose pass.
 | Family | **Unified** (Stages A → B → C → D → E in one workflow) |
 | Data window | next 30 days |
 | Primary feeds | `get_plenary_sessions`, `get_events_feed`, `get_procedures_feed` with `timeframe: "one-month"`; mine forward statements from prior monthly runs. |
-| Stage A budget | ≤ 5 min |
-| Stage B budget (2 passes) | ≥ 18 min |
+| Stage A budget | **≤ 4 min** (tighter than other workflows — 30-day forward data window is larger) |
+| Stage B budget (2 passes) | **12–15 min — HARD CEILING** (do **not** exceed 15 min on Stage B even if Pass 2 still has shallow sections; force `GATE_RESULT=ANALYSIS_ONLY` instead) |
+| Stage C budget (gate + optional Pass 3) | ≤ 3 min |
 | Stage D budget | ≤ 2 min (deterministic) |
-| **Total active-work budget** | **22–27 min** before the single safe-outputs `create_pull_request` call |
+| Stage E budget (commit + single PR) | ≤ 1–2 min |
+| **Stage C exit tripwire** | **minute 22 elapsed** — the **decision threshold** for forcing `GATE_RESULT=ANALYSIS_ONLY` and (if late) skipping Stage D so the run can still reach the PR call. Stages A → C local ceilings (4 + 15 + 3) sum to 22; the tripwire backstops any per-stage overrun. **Note:** 22 min is *not* the sum of Stages A → E — D + E run *after* this tripwire, between minute 22 and the PR-call deadline. |
+| **Hard PR-call deadline** | **minute ≤ 25 elapsed** (target ≤ 22) — deadline for the single safe-outputs `create_pull_request` call. After this, the safeoutputs MCP HTTP session is at risk of being reaped. |
 | Hard safety cap | 45-min `timeout-minutes` |
 | PR rule | **Exactly one** `[news]` PR at end of run |
 
 > **⚠️ safeoutputs Session TTL**: The safeoutputs MCP HTTP session on
 > `localhost:3001` has been observed to fail after roughly **28–30
 > minutes** with no safeoutputs tool calls (agent activity on other
-> tools does **not** refresh it). The Stage A (≤ 5 min) + Stage B (≥ 18
-> min) + Stage C + Stage D (≤ 2 min) sequence below is sized to fit
-> the 22–27 min aim. As soon as Stage C is GREEN (or ANALYSIS_ONLY on
-> second-failure fallback), run Stage D (`npm run generate-article`)
-> and the wrap-up immediately, then call the single PR without delay.
-> See [`09-troubleshooting.md`](../prompts/09-troubleshooting.md) §5.
+> tools does **not** refresh it). Run #24957585804 emitted **zero** safe
+> outputs — the agent succeeded but the PR call never landed inside the
+> session window — same root cause as `news-month-in-review` run
+> #24954208628 fixed in #1444. The schedule has **two distinct deadlines**:
+>
+> - **Stage C exit by minute ≤ 22** (Stage A ≤ 4 + Stage B 12–15 + Stage
+>   C ≤ 3 = 22 min ceiling) — backstopped by the elapsed-time tripwire
+>   below.
+> - **Single PR call by minute ≤ 25** (Stage D ≤ 2 + Stage E ≤ 1–2 =
+>   ~3–4 min after the Stage C exit) — well below the ~28–30 min
+>   safeoutputs session TTL.
+>
+> As soon as Stage C exits (GREEN, RED-second-failure, or tripwire
+> ANALYSIS_ONLY), run Stage D (`npm run generate-article`) and Stage E
+> immediately and call the single PR without delay. **At minute 22,
+> the elapsed-time tripwire fires unconditionally — even a freshly
+> GREEN gate at minute 22 must fall through to ANALYSIS_ONLY so Stage
+> D + E retain the budget needed to land the PR call by minute ≤ 25.
+> Losing the article render is acceptable; losing the entire run to
+> TTL is not.** See [`09-troubleshooting.md`](../prompts/09-troubleshooting.md) §5.
 
 ## 🎯 Article-Type Specifics
 
@@ -267,6 +301,36 @@ STAGE_C_GATE: RED articleType=${ARTICLE_TYPE_SLUG} missing=<N> short=<N> placeho
 - **GREEN** → set `GATE_RESULT=GREEN` and proceed to Stage D.
 - **RED (first)** → run Pass 3 on the named artifacts, re-run Stage C.
 - **RED (second)** → set `GATE_RESULT=ANALYSIS_ONLY`, skip full article render, and ship analysis-only in the single PR.
+
+> **⏱️ Elapsed-Time Tripwire (month-ahead specific)**: At the top of
+> every Stage C iteration, compute the elapsed minutes (mirror the safe
+> two-step pattern from `news-translate.md` — no nested expansions):
+>
+> ```bash
+> NOW_EPOCH=$(date -u +%s)
+> ELAPSED_MIN=$(( (NOW_EPOCH - WORKFLOW_START_EPOCH) / 60 ))
+> ```
+>
+> **If `ELAPSED_MIN >= 22`, immediately set `GATE_RESULT=ANALYSIS_ONLY`
+> — even if Stage C has just emitted GREEN.** Minute 22 is the latest
+> safe Stage C exit because Stage D + E still need ~3–4 min of budget
+> before the PR-call deadline at minute ≤ 25; honoring a late GREEN
+> would push the PR call past the safeoutputs session TTL. Emit the
+> gate line as a single unbroken record (note the mandatory
+> `articleType=` field — required by the contract above and by
+> `scripts/validate-analysis-completeness.js`):
+>
+> ```text
+> STAGE_C_GATE: ANALYSIS_ONLY articleType=${ARTICLE_TYPE_SLUG} reason="elapsed-time tripwire at minute ${ELAPSED_MIN}; reserve remaining budget for Stage D+E PR-call deadline"
+> ```
+>
+> Then skip Pass 3 and **all** Stage D render attempts and proceed
+> straight to Stage E. The 30-day forward data window naturally pushes
+> Stage B long; do not chase or honor a late GREEN gate past the
+> deadline. Run #24957585804 emitted zero safe outputs because the run
+> never reached the PR call inside the safeoutputs session window —
+> shipping ANALYSIS_ONLY at minute 22 is strictly better than losing
+> the whole run to TTL.
 
 ### Stage D — Deterministic Article Render (Refs: 04-article-generation + Article-Generation.md)
 

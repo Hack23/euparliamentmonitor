@@ -109,16 +109,34 @@ reads this exact path from `HEAD` of `main` after the analysis PR merges.
 
 ## 3 · Minimum Analysis Time
 
-| Workflow family | Total active-work | Pass 1 | Pass 2 | Stage C |
-|----------|:-----------------:|:------:|:------:|:------:|
-| Unified `news-<type>.md` — every article type (incl. weekly / monthly review) | 22–27 min | ~60% | ~40% | 3–5 min |
-| Translation helper (`news-translate.md`) | No Stage B | N/A | N/A | N/A |
+| Workflow family | Stage C exit tripwire | PR-call deadline | Pass 1 | Pass 2 | Stage C |
+|----------|:--------------------:|:----------------:|:------:|:------:|:------:|
+| Unified `news-<type>.md` — 30-day window (`news-month-in-review`, `news-month-ahead`) | **minute 22** | **≤ minute 25** (target ≤ 22) | ~60% | ~40% | 3 min |
+| Unified `news-<type>.md` — today / 7-day window (every other article type) | **minute 25** | **≤ minute 28** (target ≤ 25) | ~60% | ~40% | 2 min |
+| Translation helper (`news-translate.md`) | No Stage B | N/A (multi-call flush, exempt from single-PR rule) | N/A | N/A | N/A |
 
-The 22–27 min total fits inside the 45-min workflow `timeout-minutes` cap with
-the Stage-A budget (≤ 5 min), the Stage-D deterministic render (≤ 2 min), and
-the single end-of-run `safeoutputs___create_pull_request` call (must land by
-minute ≤ 28 — the safeoutputs MCP HTTP session is reaped at ~28–30 min, see
-[`09-troubleshooting.md`](09-troubleshooting.md) §5a).
+The schedule is built around **two distinct deadlines** in every unified
+news workflow (see #1444 for the original rationale and the failure mode
+that motivated the explicit ceilings):
+
+1. **Stage C exit tripwire** — elapsed-time backstop that fires
+   regardless of GREEN/RED. The agent computes elapsed minutes at the
+   top of every Stage C iteration and forces `GATE_RESULT=ANALYSIS_ONLY`
+   when the threshold is reached, even if Stage C has just emitted
+   GREEN. This guarantees Stage D + E retain budget before the PR call.
+2. **safe-outputs `create_pull_request` deadline** — must land by the
+   stricter of (a) the per-workflow PR-call deadline above or (b) the
+   ~28–30 min observed safeoutputs MCP HTTP session TTL. Once the
+   session is reaped, the analysis branch exists locally but cannot be
+   pushed via safeoutputs and the run ships zero safe outputs.
+
+30-day workflows (`news-month-in-review`, `news-month-ahead`) use the
+tighter 22 / 25 split because their data window naturally pushes
+Stage B long. All other unified workflows use the 25 / 28 split — see
+[`09-troubleshooting.md`](09-troubleshooting.md) §5 for the underlying
+TTL and recovery rules. Stage A ≤ 5 min, Stage D ≤ 2 min (deterministic
+render), and Stage E ≤ 1–2 min are common to every article-generating
+workflow.
 
 Stage D is deterministic rendering, not a prose pass. Spend the active-work
 budget in Stage B/C so the artifacts already contain the article-quality
