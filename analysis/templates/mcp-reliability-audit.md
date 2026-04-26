@@ -9,9 +9,9 @@
 
 > **🚦 MANDATORY TRIAGE GATE — read before classifying any finding as a "defect".**
 >
-> The 2026-04-26 audits re-surfaced 9 EP/WB tool behaviours as defects when only 1 was a real server bug. Before adding any row to §3 "Upstream Issues", look up every degraded/failed tool in [`.github/prompts/07-mcp-reference.md` §11 — Audit-Recurring Items Triage Table](../../.github/prompts/07-mcp-reference.md). For each match:
+> The 2026-04-26 audits re-surfaced 9 EP/WB tool behaviours as defects when only 1 was a real server bug (item #1 in the triage table — `generate_political_landscape` 100-MEP sample). Before adding any row to §3 "Upstream Issues", look up every degraded/failed tool in [`.github/prompts/07-mcp-reference.md` §11 — Audit-Recurring Items Triage Table](/.github/prompts/07-mcp-reference.md). For each match:
 >
-> - 🔴 **REAL BUG** (real-bug rows): file/link the upstream `Hack23/European-Parliament-MCP-Server` issue. Items #1 and #2 in the triage table are **resolved in v1.2.15+** (PR [#405](https://github.com/Hack23/European-Parliament-MCP-Server/pull/405)) — note the gateway version and the resolution status; do NOT re-file.
+> - 🔴 **REAL BUG** (real-bug rows): file/link the upstream `Hack23/European-Parliament-MCP-Server` issue. Item #1 in the triage table is **resolved in v1.2.15+** (PR [#405](https://github.com/Hack23/European-Parliament-MCP-Server/pull/405)) — note the gateway version and the resolution status; do NOT re-file.
 > - 🟢 **LIMITATION** (documented EP/WB upstream limitation): set `Defect ID` to `"documented behaviour — see 07-mcp-reference.md §11 #N"`, record the listed mitigation, and **omit** the row from §3 "Upstream Issues" / "Issues needing creation".
 > - 🔵 **CALLING-PATTERN** (consumer-side fix available): same as 🟢, plus add a `Configuration adjustment` recommendation in §7 pointing to the corrected invocation.
 >

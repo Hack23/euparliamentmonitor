@@ -313,7 +313,7 @@ If a future run finds `coverage.unrecognizedGroups` is non-empty, update the ups
 
 **Depth floor (breaking):** 385 lines (this is the deepest breaking-run artifact — MCP reliability is a first-class product concern).
 
-**Quality signals.** Every degraded endpoint has a cited GitHub issue link OR a note that one should be filed; workarounds are reproducible from the text. **Triage-gate compliance:** every degraded/failed row has been looked up in [`.github/prompts/07-mcp-reference.md` §11 Audit-Recurring Triage Table](../../.github/prompts/07-mcp-reference.md); items matching a 🟢 LIMITATION or 🔵 CALLING-PATTERN row are recorded as `documented behaviour — see §11 #N` and **excluded** from "Issues needing creation"; only 🔴 real-bug findings (or new symptoms not in the table) are filed.
+**Quality signals.** Every degraded or failed endpoint has one of three explicit dispositions: a cited GitHub issue link, a triage-table citation recorded as `documented behaviour — see §11 #N`, or a clear note that it is a fileable new bug not yet linked; workarounds are reproducible from the text. **Triage-gate compliance:** every degraded/failed row has been looked up in [`.github/prompts/07-mcp-reference.md` §11 Audit-Recurring Triage Table](../../.github/prompts/07-mcp-reference.md); items matching a 🟢 LIMITATION or 🔵 CALLING-PATTERN row are recorded as `documented behaviour — see §11 #N` and **excluded** from "Issues needing creation"; only 🔴 real-bug findings (or new symptoms not in the table) are filed.
 
 ---
 
