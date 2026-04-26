@@ -37,7 +37,7 @@ permissions:
   discussions: read
   security-events: read
 
-timeout-minutes: 90
+timeout-minutes: 45
 
 features:
   mcp-gateway: true
@@ -115,7 +115,7 @@ safe-outputs:
     # (see prompt "🚫 NEVER CREATE A ZERO-TRANSLATION PR" section): there is
     # NO checkpoint/baseline call at minute ~2. The first safeoutputs call
     # is intentionally deferred until at least 3 real translations are
-    # complete and HTMLHint-clean (typically minute ~18–25). After that
+    # complete and HTMLHint-clean (typically minute ~12–18). After that
     # first flush, the workflow flushes again every additional 3 translated
     # files, plus a final call with the quality-scored title and body. For a
     # single article type this is ~5 calls (1 first flush after 3
@@ -174,7 +174,7 @@ You are the **Translation Agent**. Your ONLY job: take existing English articles
 >
 > This means interim `git commit` usage does **not** make changes disappear from safeoutputs by itself: committed-since-base changes are still included in the next successful snapshot. The real risk is waiting too long between successful calls, because the PR only contains whatever was captured by the **latest** successful snapshot. Note also that a subsequent `git reset` (e.g. `git reset --mixed`) can remove commits from future snapshots — so if you ever commit, always **flush first, reset second**.
 >
-> MCP gateway keepalive is enabled in frontmatter (`sandbox.mcp.keepalive-interval: 300`) to prevent idle session expiry during long runs. Combined with `safe-outputs.create-pull-request.max: 10` (the gh-aw schema maximum), you can safely do up to 10 flushes per run, and the session stays alive for the whole 90-minute budget even while you are translating.
+> MCP gateway keepalive is enabled in frontmatter (`sandbox.mcp.keepalive-interval: 300`) to prevent idle session expiry during long runs. Combined with `safe-outputs.create-pull-request.max: 10` (the gh-aw schema maximum), you can safely do up to 10 flushes per run, and the session stays alive for the whole 45-minute budget even while you are translating.
 
 ## 🚫 NEVER CREATE A ZERO-TRANSLATION PR (PRIMARY CONTRACT)
 
@@ -183,7 +183,7 @@ You are the **Translation Agent**. Your ONLY job: take existing English articles
 Mandatory ordering contract:
 
 1. **NEVER call `safeoutputs___create_pull_request` before at least one translated HTML file exists under `news/`**. An empty `summary.md` placeholder is NOT a translation and NOT enough. If the agent dies before producing any translations, no PR should be opened — that is the correct, resource-conserving outcome.
-2. **First productive flush (safeoutputs call #1)**: happens only after **≥3 non-English HTML files** in `news/` are fully translated and HTMLHint-clean. With the MCP keepalive this typically lands at minute 18–25. This is both the initial PR creation AND the first data checkpoint — one call, real value, no empty placeholder.
+2. **First productive flush (safeoutputs call #1)**: happens only after **≥3 non-English HTML files** in `news/` are fully translated and HTMLHint-clean. With the MCP keepalive this typically lands at minute 12–18. This is both the initial PR creation AND the first data checkpoint — one call, real value, no empty placeholder.
 3. **Subsequent flushes (calls #2 … #N)**: after every additional **3 completed translations** — flush at counts 6, 9, 12 for a single-article run. Each call snapshots new files into the same PR (same branch → same PR) and refreshes the session timer.
 4. **Final flush (call ≤ max:10)**: at end of Step 5 with the quality-scored title/body. This call carries at most 1–2 files not yet flushed plus the finalised summary.
 
@@ -216,9 +216,9 @@ Mandatory ordering contract:
 > `sandbox.mcp.keepalive-interval: 300`. Do **not** use
 > `safeoutputs___push_repo_memory` heartbeat patterns.
 
-**Mandatory policy (90-minute budget):**
+**Mandatory policy (45-minute budget):**
 - **Do NOT call `safeoutputs___create_pull_request` before at least 3 translated HTML files are on disk and lint-clean.** Placeholder baselines create empty PRs (PR #1346).
-- First productive flush = minute ~18–25 (after the first 3 translations). Subsequent flushes every 3 completed files. Final flush at end of Step 5 with the quality-scored title/body.
+- First productive flush = minute ~12–18 (after the first 3 translations). Subsequent flushes every 3 completed files. Final flush at end of Step 5 with the quality-scored title/body — must complete by minute ≤ 28 to stay inside the safeoutputs MCP session TTL (~28–30 min).
 - Budget: ~5 calls for a single-article 13-language run (flushes #1–#5: first at 3 files, then at 6/9/12, then final at 13) — well below the `safe-outputs.create-pull-request.max: 10` schema cap.
 - Do not introduce extra heartbeat-only tool calls between flushes. Keepalive is already configured.
 - If any `safeoutputs___create_pull_request` call returns `"session not found"`,
@@ -352,22 +352,23 @@ sv (Swedish), da (Danish), no (Norwegian), fi (Finnish), de (German), fr (French
 - Files failing these checks are **automatically REMOVED** from the PR and the agent is told to re-translate them
 - Per-language quality scores are included in the PR description and analysis summary
 
-## ⏱️ Time Budget (90 minutes)
+## ⏱️ Time Budget (45 minutes — hard cap; safeoutputs MCP TTL ~28–30 min)
 
 | Minutes | Action |
 |---------|--------|
-| 1–3 | Date Context + Discovery (Step 1) — NO safeoutputs call yet |
-| 3–8 | Generate article HTML files (Step 3) — NO safeoutputs call yet |
-| 8–22 | **First 3 translations** (Step 3b, files 1–3). Translate ALL sections, HTMLHint-clean each. NO safeoutputs call yet |
-| 22 | **FIRST PRODUCTIVE FLUSH** — `safeoutputs___create_pull_request` call #1. PR is created here, already containing 3 real translations. Never before this point. |
-| 22–75 | **AI TRANSLATION continues** (files 4–13). **Flush safeoutputs after every additional 3 files** — calls #2, #3, #4 at completion counts 6, 9, 12. |
-| 75–80 | Validate translations (Step 4) — reject untranslated copies |
-| 80–85 | **Write quality-scored summary** (Step 4c) — MANDATORY, no placeholders |
-| 85–90 | Final `safeoutputs___create_pull_request` with quality scores (call #5, Step 5) |
+| 1–2 | Date Context + Discovery (Step 1) — NO safeoutputs call yet |
+| 2–5 | Generate article HTML files (Step 3) — NO safeoutputs call yet |
+| 5–14 | **First 3 translations** (Step 3b, files 1–3). Translate ALL sections, HTMLHint-clean each. NO safeoutputs call yet |
+| 14 | **FIRST PRODUCTIVE FLUSH** — `safeoutputs___create_pull_request` call #1. PR is created here, already containing 3 real translations. Never before this point. |
+| 14–25 | **AI TRANSLATION continues** (files 4–N). **Flush safeoutputs after every additional 3 files** — calls #2, #3, #4 at completion counts 6, 9, 12. Each flush refreshes the safeoutputs session timer. |
+| 25–27 | Validate translations (Step 4) — reject untranslated copies |
+| 27–28 | **Write quality-scored summary** (Step 4c) — MANDATORY, no placeholders |
+| 28 | **Final `safeoutputs___create_pull_request`** with quality scores (Step 5). MUST land by minute ≤ 28 — past minute 30 the safeoutputs session is reaped and the PR call returns `session not found`. |
+| 28–45 | Buffer for retry, npm steps, git push and graceful exit |
 
-> **Per-run article-type scope**: Prefer ONE article type (13 language files) per run. A single article × 13 languages ≈ 45–60 min translation time and produces 4–5 flushes total (1 first-productive + 3 mid-run + 1 final). This keeps total calls ≤ the `safe-outputs.create-pull-request.max: 10` cap with comfortable headroom. If `article_types` input names multiple types, translate them sequentially. If inputs leave `article_types` empty, discovery (Step 1) should cap itself at 1 article type per run.
+> **Per-run article-type scope**: One article type per run only. A 45-minute budget covers ~9–13 of the 13 target languages depending on article length. If `article_types` input names multiple types, run them in separate workflow invocations rather than chaining them in a single run.
 
-> **TRANSLATION IS THE PRIORITY**: Spend 65+ minutes translating. Every file MUST have its title, h1, description, and body text fully translated — just changing the lang attribute is NOT a translation. Files that are untranslated copies of English will be automatically REJECTED in Step 4.
+> **TRANSLATION IS THE PRIORITY**: Spend ≥ 18 minutes translating (minute 5–25 of the 45-min cap). Every file MUST have its title, h1, description, and body text fully translated — just changing the lang attribute is NOT a translation. Files that are untranslated copies of English will be automatically REJECTED in Step 4.
 
 > **QUALITY SUMMARY IS MANDATORY**: Step 4c summary.md MUST contain per-language quality scores and a coverage matrix. Placeholders like "_(to be filled)_" are NEVER acceptable. If you run out of time, write what you have — but NEVER leave the template empty.
 
@@ -399,7 +400,7 @@ fi
 CURRENT_YEAR=$(date -u +%Y)
 DAY_OF_WEEK=$(date -u +%A)
 START_EPOCH=$(date +%s)
-TRANSLATION_DEADLINE_MIN=75
+TRANSLATION_DEADLINE_MIN=25
 RUN_ID="${GITHUB_RUN_NUMBER:-0}"
 ANALYSIS_DIR="analysis/daily/${ARTICLE_DATE}/translate-run${RUN_ID}"
 echo "Today:        $TODAY ($DAY_OF_WEEK)"
@@ -483,7 +484,7 @@ fi
 
 > **⛔ DO NOT call `safeoutputs___create_pull_request` in Steps 0–3.** The Date Context bash block and the target-language file generator produce `summary.md` and empty-HTML shells, not translations. Calling safeoutputs at this point would create a zero-translation PR — the exact failure mode of PR #1346. Empty-PR creation is PROHIBITED regardless of whether the call would "succeed".
 >
-> **✅ DO call `safeoutputs___create_pull_request` immediately after Step 3b translates files 1–3** to their target languages and they pass HTMLHint. This is call #1 — it both creates the PR and makes the first productive snapshot. It typically lands at minute 18–25.
+> **✅ DO call `safeoutputs___create_pull_request` immediately after Step 3b translates files 1–3** to their target languages and they pass HTMLHint. This is call #1 — it both creates the PR and makes the first productive snapshot. It typically lands at minute 12–18.
 
 When the first 3 translations are complete and lint-clean, call:
 
@@ -733,7 +734,7 @@ Use the TypeScript generator for today's articles. For backfill/improvement, cop
 ```bash
 # --- Re-initialize time tracking (env vars do NOT persist across bash blocks) ---
 START_EPOCH=$(date +%s)
-TRANSLATION_DEADLINE_MIN=75
+TRANSLATION_DEADLINE_MIN=25
 echo "⏱️ Translation start epoch: $START_EPOCH (deadline: ${TRANSLATION_DEADLINE_MIN} min)"
 
 # --- Restore discovery state from Step 1 ---
@@ -1037,7 +1038,7 @@ safeoutputs___create_pull_request({
 6. Also translate: `<title>`, `<meta name="description">`, `<meta name="keywords">`, `og:title`, `og:description`, JSON-LD fields
 7. **After finishing each file, run HTMLHint** to validate: `npx htmlhint <file>`. Fix ALL errors before starting the next file. Common issues: unclosed tags, duplicate IDs, missing alt attributes.
 8. **After every 3 completed + lint-clean files, call `safeoutputs___create_pull_request`** (see Periodic Flush block above) — this is NOT optional. Track your flush cadence explicitly: count completed files and call safeoutputs at counts 3, 6, 9, 12.
-9. **Check elapsed time after each file** — stop at 75 minutes and proceed to Step 5
+9. **Check elapsed time after each file** — stop at 25 minutes and proceed to Step 5
 
 > **⚠️ MANDATORY PER-FILE LINT**: After completing translation of EACH file, you MUST run `npx htmlhint news/DATE-TYPE-LANG.html` and fix any errors BEFORE moving to the next file. Do not defer validation until the end or rely on an end-of-run batch lint as a substitute for this per-file check — catch and fix errors immediately while the file context is fresh. A later batch validation in Step 4 is allowed, but only as an additional backstop. Zero HTMLHint errors per file is required.
 

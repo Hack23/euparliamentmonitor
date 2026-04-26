@@ -85,9 +85,10 @@ Per-artifact line floors live in [`reference-quality-thresholds.json`](../../ana
 ## Shared Stage Contract (inherited by every importing workflow)
 
 Every article-generating workflow is a single unified `news-<type>.md` that
-runs Stages A → B → C → D → E in one session (`timeout-minutes: 75`,
+runs Stages A → B → C → D → E in one session (`timeout-minutes: 45`,
 active-work budget 22–27 min before the single safe-outputs
-`create_pull_request` call):
+`create_pull_request` call — must land by minute ≤ 28 to stay inside the
+~28–30 min safeoutputs MCP session TTL):
 
 ```
 Stage A · Data Collection (≤ 10 min)
