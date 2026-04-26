@@ -28,6 +28,17 @@ import { cleanArtifact, githubBlobUrl } from './clean-artifact.js';
 /** Raw manifest shape as committed by the analysis pipeline. */
 export interface AnalysisManifest {
   readonly articleType: string;
+  /**
+   * Legacy plural variant emitted by some pre-aggregator-pipeline workflows.
+   * Used as a fallback when `articleType` is absent so historic runs with
+   * `articleTypes: ["<slug>"]` can still be aggregated.
+   */
+  readonly articleTypes?: readonly string[];
+  /**
+   * Legacy field emitted by older breaking-run manifests. Used as the last
+   * fallback when neither `articleType` nor `articleTypes` is present.
+   */
+  readonly runType?: string;
   readonly runId?: string;
   readonly date?: string;
   readonly analysisDir?: string;
@@ -615,6 +626,33 @@ function appendSection(
 }
 
 /**
+ * Resolve the article-type slug from a manifest, tolerating legacy schemas.
+ *
+ * Resolution order (highest precedence first):
+ *   1. `articleType` — canonical singular field
+ *   2. `articleTypes[0]` — pre-aggregator-pipeline plural array
+ *   3. `runType` — legacy field on older breaking-run manifests
+ *
+ * Falls back to `'unknown'` when none of the above is a non-empty string.
+ *
+ * @param manifest - Parsed manifest (any of the supported schemas)
+ * @returns Article-type slug usable as a filename component
+ */
+export function resolveArticleTypeFromManifest(manifest: AnalysisManifest): string {
+  if (typeof manifest.articleType === 'string' && manifest.articleType) {
+    return manifest.articleType;
+  }
+  const first = manifest.articleTypes?.[0];
+  if (typeof first === 'string' && first) {
+    return first;
+  }
+  if (typeof manifest.runType === 'string' && manifest.runType) {
+    return manifest.runType;
+  }
+  return 'unknown';
+}
+
+/**
  * Read, clean, and concatenate every artifact declared by the run's manifest
  * (with discovery fallback when manifest.files is missing), returning a
  * single aggregated Markdown document.
@@ -682,7 +720,7 @@ export function aggregateAnalysisRun(options: AggregateOptions): AggregatedRun {
   }
 
   const tradecraftFiles = options.tradecraftFiles ?? discoverTradecraftFiles(repoRoot);
-  const articleType = manifest.articleType ?? 'unknown';
+  const articleType = resolveArticleTypeFromManifest(manifest);
   const date = manifest.date ?? guessDateFromRunDir(runDirRelPath);
   const runId = manifest.runId ?? path.basename(runDir);
   const gateResult = latestGateResult(manifest);
