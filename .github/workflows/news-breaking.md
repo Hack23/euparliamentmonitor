@@ -130,6 +130,10 @@ tools:
     max-patch-size: 51200
 
 safe-outputs:
+  # Analysis artifacts can exceed the 1024 KB default patch limit; raise to
+  # 10 MB to match news-translate.md and prevent legitimate analysis-only
+  # patches from being rejected (see run 24961736954 for week-in-review).
+  max-patch-size: 10240
   allowed-domains:
     - github                         # ecosystem: github.com + api.github.com (least-privilege; PR creation only)
     - data.europarl.europa.eu
