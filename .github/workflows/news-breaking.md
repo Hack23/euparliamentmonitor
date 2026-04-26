@@ -129,6 +129,26 @@ engine:
 ---
 # 📰 EU Parliament Breaking News — Unified Workflow
 
+> **🚨 HARD TIMING CONSTRAINT — READ BEFORE ANYTHING ELSE**
+>
+> The safeoutputs MCP HTTP session (`localhost:3001`) expires after **~28–30
+> minutes** of no safeoutputs tool calls. Agent activity on other tools (EP
+> MCP, bash, `create`, `edit`) does **NOT** refresh it. You **MUST** call
+> the safeoutputs PR tool before the PR_DEADLINE_EPOCH printed in
+> the first bash block. **Aim for ≤ 22 min from agent start.**
+>
+> - Stage A CEILING: **≤ 4 min**
+> - Stage B CEILING: **≤ 14 min total** (Pass 1 ≤ 8 min; Pass 2 ≤ 6 min)
+> - Stage C CEILING: **≤ 2 min**
+> - Stage D CEILING: **≤ 2 min**
+> - **Total CEILING: ≤ 22 min from agent start to the single PR call**
+>
+> If you are past 14 min elapsed and have not started Stage C, **skip Stage B
+> Pass 2 entirely** and proceed directly to Stage C → Stage D → Stage E.
+> If you are past 20 min elapsed and have not started Stage E, **proceed
+> directly to Stage E with whatever analysis is complete** (ANALYSIS_ONLY).
+> See [`09-troubleshooting.md`](../prompts/09-troubleshooting.md) §5a.
+
 You are the **Analysis Agent** for EU Parliament Monitor. This workflow runs
 **Stages A → B → C → D → E** in a single agent session and ships **one PR**
 containing both the analysis artifacts and the rendered article(s) for
@@ -158,22 +178,21 @@ prose pass.
 | Family | **Unified** (Stages A → B → C → D → E in one workflow) |
 | Data window | today (last 12 h); fallback one-week |
 | Primary feeds | `get_adopted_texts_feed`, `get_events_feed`, `get_procedures_feed`, `get_meps_feed` with `timeframe: "today"`; fall back to `"one-week"` per endpoint if empty/error. |
-| Stage A budget | ≤ 5 min |
-| Stage B budget (2 passes) | ≥ 18 min |
+| Stage A budget | ≤ 4 min **ceiling** |
+| Stage B budget (2 passes) | ≤ 14 min **hard ceiling** (Pass 1 ≤ 8 min; Pass 2 ≤ 6 min — skip Pass 2 if elapsed > 14 min) |
+| Stage C budget | ≤ 2 min **ceiling** |
 | Stage D budget | ≤ 2 min (deterministic) |
-| **Total active-work budget** | **22–27 min** before the single safe-outputs `create_pull_request` call |
+| **Total wall-clock from agent start** | **≤ 22 min** to the single safe-outputs `create_pull_request` call |
 | Hard safety cap | 75-min `timeout-minutes` |
 | PR rule | **Exactly one** `[news]` PR at end of run |
 
-> **⚠️ safeoutputs Session TTL**: The safeoutputs MCP HTTP session on
-> `localhost:3001` has been observed to fail after roughly **28–30
-> minutes** with no safeoutputs tool calls (agent activity on other
-> tools does **not** refresh it). The Stage A (≤ 5 min) + Stage B (≥ 18
-> min) + Stage C + Stage D (≤ 2 min) sequence below is sized to fit
-> the 22–27 min aim. As soon as Stage C is GREEN (or ANALYSIS_ONLY on
-> second-failure fallback), run Stage D (`npm run generate-article`)
-> and the wrap-up immediately, then call the single PR without delay.
-> See [`09-troubleshooting.md`](../prompts/09-troubleshooting.md) §5.
+> **🚨 safeoutputs Session TTL — HARD LIMIT**: The safeoutputs MCP HTTP
+> session on `localhost:3001` expires after roughly **28–30 minutes** of no
+> safeoutputs tool calls. Agent activity on **any other tool does NOT refresh
+> it**. Your `PR_DEADLINE_EPOCH` is printed in the first bash block — **stop
+> analysis immediately and go to Stage E the moment you cross that deadline**.
+> `sandbox.mcp.keepalive-interval: 300` does NOT prevent session expiry.
+> See [`09-troubleshooting.md`](../prompts/09-troubleshooting.md) §5a.
 
 ## 🎯 Article-Type Specifics
 
@@ -193,11 +212,22 @@ RUN_ID="breaking-run$$-$RUN_EPOCH"
 # date share this dir and append to manifest.json.history[].
 ANALYSIS_DIR=$(scripts/resolve-analysis-dir.sh "$TODAY" breaking)
 WORKFLOW_START_EPOCH=$RUN_EPOCH
+# Hard deadline: safeoutputs session expires ~28-30 min after agent start.
+# Must call the safeoutputs PR tool BEFORE this epoch.
+PR_DEADLINE_EPOCH=$((RUN_EPOCH + 1320))  # 22 min from agent start
+PR_DEADLINE_ISO=$(date -u -d "@$PR_DEADLINE_EPOCH" +%Y-%m-%dT%H:%M:%SZ)
 echo "ARTICLE_TYPE_SLUG=breaking"                  >> "$GITHUB_ENV"
 echo "TODAY=$TODAY"                               >> "$GITHUB_ENV"
 echo "RUN_ID=$RUN_ID"                             >> "$GITHUB_ENV"
 echo "ANALYSIS_DIR=$ANALYSIS_DIR"                 >> "$GITHUB_ENV"
 echo "WORKFLOW_START_EPOCH=$WORKFLOW_START_EPOCH" >> "$GITHUB_ENV"
+echo "PR_DEADLINE_EPOCH=$PR_DEADLINE_EPOCH"       >> "$GITHUB_ENV"
+echo ""
+echo "=== CRITICAL DEADLINE ==="
+echo "Agent start : $(date -u -d "@$RUN_EPOCH" +%Y-%m-%dT%H:%M:%SZ)"
+echo "PR deadline : $PR_DEADLINE_ISO  (22 min from now)"
+echo "safeoutputs session expires ~28-30 min from start — DO NOT exceed PR deadline"
+echo "========================="
 ```
 
 > **⚠️ DATE GUARD**: When passing `dateFrom`/`dateTo` to any MCP tool,
@@ -207,22 +237,46 @@ echo "WORKFLOW_START_EPOCH=$WORKFLOW_START_EPOCH" >> "$GITHUB_ENV"
 ## 🔁 Stage Order (absolute)
 
 ```
-Stage A · Data Collection (≤ 5 min)
-  → Stage B · Analysis (Pass 1 + Pass 2, ≥ 18 min)
-    → Stage C · Completeness Gate (agent-side readback) — BLOCKING
+Stage A · Data Collection (≤ 4 min ceiling)
+  → Stage B · Analysis (Pass 1 ≤ 8 min + Pass 2 ≤ 6 min = ≤ 14 min ceiling)
+    → Stage C · Completeness Gate (≤ 2 min ceiling) — BLOCKING
       → Stage D · Article Render (npm run generate-article — deterministic, ≤ 2 min)
-        → Stage E · Single PR (exactly once)
+        → Stage E · Single PR (exactly once, immediately after Stage D)
 ```
+
+> **⏱️ Deadline check at each stage transition**:
+> ```bash
+> NOW=$(date -u +%s)
+> ELAPSED=$(( NOW - WORKFLOW_START_EPOCH ))
+> REMAINING=$(( PR_DEADLINE_EPOCH - NOW ))
+> echo "Elapsed=${ELAPSED}s  Remaining=${REMAINING}s  Deadline=${PR_DEADLINE_EPOCH}"
+> ```
+> - After Stage A: if ELAPSED > 480 (8 min), proceed with reduced Stage B scope.
+> - Before Stage B Pass 2: if REMAINING < 480 (8 min), **skip Pass 2 entirely**.
+> - Before Stage C: if REMAINING < 300 (5 min), accept ANALYSIS_ONLY immediately.
+> - Before Stage E: if REMAINING < 120 (2 min), **call Stage E NOW** regardless of Stage C result.
 
 ### Stage A — Data Collection (Ref: 01, 07)
 
 Run the canonical gateway block from `08-infrastructure.md` §4. Source
 `scripts/mcp-setup.sh`, then `scripts/wb-mcp-probe.sh` and
 `scripts/imf-mcp-probe.sh`. Collect EP feed data first; fall back to
-direct endpoints on failure. Deep-fetch up to 10 procedures / voting
-records / meeting decisions into `${ANALYSIS_DIR}/data/`. Target ≤ 5 min.
+direct endpoints on failure. Deep-fetch up to 5 procedures / voting
+records / meeting decisions into `${ANALYSIS_DIR}/data/`. **Ceiling: ≤ 4 min.**
 
 ### Stage B — Analysis (Ref: 02 §2 re-run merge rule)
+
+> **⏱️ Check deadline before starting Stage B**:
+> ```bash
+> NOW=$(date -u +%s)
+> ELAPSED=$(( NOW - WORKFLOW_START_EPOCH ))
+> REMAINING=$(( PR_DEADLINE_EPOCH - NOW ))
+> echo "Stage B start: elapsed=${ELAPSED}s remaining=${REMAINING}s"
+> ```
+> If ELAPSED > 480 (8 min), proceed with a **reduced** Stage B: write only the
+> mandatory breaking-news artifacts (executive-brief, coalition-dynamics,
+> mcp-reliability-audit, significance-classification, risk-matrix,
+> synthesis-summary). Do NOT spend time on optional templates.
 
 **If `${ANALYSIS_DIR}/manifest.json` already exists from a prior run today,
 do NOT rewrite it — apply the re-run merge rule from `02-analysis-protocol.md`
@@ -236,15 +290,22 @@ do NOT rewrite it — apply the re-run merge rule from `02-analysis-protocol.md`
 4. Append a new entry to `manifest.json.history[]` (written automatically
    by `runAnalysisStage` via `mergeManifestHistory`).
 
-**Pass 1 (~60% of analysis time):** Apply every methodology and template
-(`analysis/methodologies/` + `analysis/templates/`) to every downloaded
-data file. Write every mandatory artifact. Populate `manifest.json` with
-top-level `articleType: breaking` and every produced file under `files.*`.
+**Pass 1 (≤ 8 min ceiling):** Apply the breaking-news artifact set to every
+downloaded data file. Write every mandatory artifact. Populate `manifest.json`
+with top-level `articleType: breaking` and every produced file under `files.*`.
 
-**Pass 2 (~40% of analysis time):** Read every file you wrote, end to end.
-Expand shallow sections, add evidence citations, add 🟢/🟡/🔴 confidence
-labels, add cross-references. No `[AI_ANALYSIS_REQUIRED]` markers may
-remain.
+**Pass 2 (≤ 6 min ceiling — skip entirely if REMAINING < 480 s)**:
+
+> ```bash
+> NOW=$(date -u +%s)
+> REMAINING=$(( PR_DEADLINE_EPOCH - NOW ))
+> echo "Before Pass 2: remaining=${REMAINING}s"
+> ```
+> **If REMAINING < 480, skip Pass 2 and proceed directly to Stage C.**
+
+Otherwise, read every file you wrote. Expand shallow sections, add evidence
+citations, add 🟢/🟡/🔴 confidence labels, add cross-references. No
+`[AI_ANALYSIS_REQUIRED]` markers may remain.
 
 Emit before Stage C:
 
@@ -253,6 +314,15 @@ PREFLIGHT_ATTESTATION: read N/N artifacts from ${ANALYSIS_DIR} (LINES lines, FRA
 ```
 
 ### Stage C — Completeness Gate (Ref: 03) — **BLOCKING**
+
+> **⏱️ Check deadline before Stage C**:
+> ```bash
+> NOW=$(date -u +%s)
+> REMAINING=$(( PR_DEADLINE_EPOCH - NOW ))
+> echo "Stage C start: remaining=${REMAINING}s"
+> ```
+> **If REMAINING < 300 (5 min), emit `STAGE_C_GATE: ANALYSIS_ONLY` immediately
+> and skip full validation — proceed to Stage D then Stage E without delay.**
 
 Read every manifest-listed artifact and compare it with `reference-quality-thresholds.json`, the artifact catalog, and the IMF/SEO rules in prompts 01, 03, and 04. Emit exactly one gate line:
 
@@ -289,6 +359,17 @@ The renderer is bounded to ≤ 2 min on a typical run. If the gate result is
 the missing artifacts rather than a full prose article.
 
 ### Stage E — Single PR (Ref: 06)
+
+> **⏱️ Deadline check before Stage E**:
+> ```bash
+> NOW=$(date -u +%s)
+> ELAPSED=$(( NOW - WORKFLOW_START_EPOCH ))
+> REMAINING=$(( PR_DEADLINE_EPOCH - NOW ))
+> echo "Stage E: elapsed=${ELAPSED}s remaining=${REMAINING}s"
+> ```
+> If REMAINING < 0, the PR_DEADLINE has already passed — the safeoutputs
+> session may have expired. Attempt the call anyway (it may still succeed
+> within the 28-30 min TTL window). This is the last possible action.
 
 Emit to stdout immediately before the single PR call:
 
