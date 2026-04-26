@@ -1,5 +1,15 @@
 {
   "entries": {
+    "actions/cache/restore@v5.0.5": {
+      "repo": "actions/cache/restore",
+      "version": "v5.0.5",
+      "sha": "27d5ce7f107fe9357f9df03efb73ab90386fccae"
+    },
+    "actions/cache/save@v5.0.5": {
+      "repo": "actions/cache/save",
+      "version": "v5.0.5",
+      "sha": "27d5ce7f107fe9357f9df03efb73ab90386fccae"
+    },
     "actions/checkout@v6.0.2": {
       "repo": "actions/checkout",
       "version": "v6.0.2",

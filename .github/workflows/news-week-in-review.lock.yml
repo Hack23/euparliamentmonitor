@@ -1,5 +1,5 @@
 # gh-aw-metadata: {"schema_version":"v3","frontmatter_hash":"98a1b11b4b2d54cb64223446c4b6f265857a9dea8ae61be445776ebfbfbf73ed","compiler_version":"v0.69.3","agent_id":"copilot","agent_model":"claude-opus-4.7"}
-# gh-aw-manifest: {"version":1,"secrets":["COPILOT_GITHUB_TOKEN","GH_AW_CI_TRIGGER_TOKEN","GH_AW_GITHUB_MCP_SERVER_TOKEN","GH_AW_GITHUB_TOKEN","GITHUB_TOKEN"],"actions":[{"repo":"actions/cache/restore","sha":"27d5ce7f107fe9357f9df03efb73ab90386fccae","version":"v5.0.5"},{"repo":"actions/cache/save","sha":"27d5ce7f107fe9357f9df03efb73ab90386fccae","version":"v5.0.5"},{"repo":"actions/checkout","sha":"de0fac2e4500dabe0009e67214ff5f5447ce83dd","version":"v6.0.2"},{"repo":"actions/download-artifact","sha":"3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c","version":"v8.0.1"},{"repo":"actions/github-script","sha":"373c709c69115d41ff229c7e5df9f8788daa9553","version":"v9"},{"repo":"actions/setup-node","sha":"53b83947a5a98c8d113130e565377fae1a50d02f","version":"v6.3.0"},{"repo":"actions/upload-artifact","sha":"043fb46d1a93c77aae656e7c1c64a875d1fc6a0a","version":"v7.0.1"},{"repo":"github/gh-aw-actions/setup","sha":"006ffd856b868b71df342dbe0ba082a963249b31","version":"v0.69.3"}],"containers":[{"image":"alpine:latest"},{"image":"ghcr.io/github/gh-aw-firewall/agent:0.25.26"},{"image":"ghcr.io/github/gh-aw-firewall/api-proxy:0.25.26"},{"image":"ghcr.io/github/gh-aw-firewall/squid:0.25.26"},{"image":"ghcr.io/github/gh-aw-mcpg:v0.2.26"},{"image":"ghcr.io/github/github-mcp-server:v1.0.0"},{"image":"node:25-alpine"},{"image":"node:25-alpine"}]}
+# gh-aw-manifest: {"version":1,"secrets":["COPILOT_GITHUB_TOKEN","GH_AW_CI_TRIGGER_TOKEN","GH_AW_GITHUB_MCP_SERVER_TOKEN","GH_AW_GITHUB_TOKEN","GITHUB_TOKEN"],"actions":[{"repo":"actions/cache/restore","sha":"27d5ce7f107fe9357f9df03efb73ab90386fccae","version":"v5.0.5"},{"repo":"actions/cache/save","sha":"27d5ce7f107fe9357f9df03efb73ab90386fccae","version":"v5.0.5"},{"repo":"actions/checkout","sha":"de0fac2e4500dabe0009e67214ff5f5447ce83dd","version":"v6.0.2"},{"repo":"actions/download-artifact","sha":"3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c","version":"v8.0.1"},{"repo":"actions/github-script","sha":"373c709c69115d41ff229c7e5df9f8788daa9553","version":"v9"},{"repo":"actions/setup-node","sha":"53b83947a5a98c8d113130e565377fae1a50d02f","version":"v6.3.0"},{"repo":"actions/upload-artifact","sha":"043fb46d1a93c77aae656e7c1c64a875d1fc6a0a","version":"v7.0.1"},{"repo":"github/gh-aw-actions/setup","sha":"006ffd856b868b71df342dbe0ba082a963249b31","version":"v0.69.3"}],"containers":[{"image":"alpine:latest"},{"image":"ghcr.io/github/gh-aw-firewall/agent:0.25.26"},{"image":"ghcr.io/github/gh-aw-firewall/api-proxy:0.25.26"},{"image":"ghcr.io/github/gh-aw-firewall/squid:0.25.26"},{"image":"ghcr.io/github/gh-aw-mcpg:v0.2.26"},{"image":"ghcr.io/github/github-mcp-server:v1.0.0"},{"image":"node:25-alpine"},{"image":"node:lts-alpine"}]}
 #    ___                   _   _      
 #   / _ \                 | | (_)     
 #  | |_| | __ _  ___ _ __ | |_ _  ___ 
@@ -54,7 +54,7 @@
 #   - ghcr.io/github/gh-aw-mcpg:v0.2.26
 #   - ghcr.io/github/github-mcp-server:v1.0.0
 #   - node:25-alpine
-#   - node:25-alpine
+#   - node:lts-alpine
 
 name: "News: EU Parliament Week in Review — Unified"
 "on":
@@ -481,7 +481,7 @@ jobs:
             const determineAutomaticLockdown = require('${{ runner.temp }}/gh-aw/actions/determine_automatic_lockdown.cjs');
             await determineAutomaticLockdown(github, context, core);
       - name: Download container images
-        run: bash "${RUNNER_TEMP}/gh-aw/actions/download_docker_images.sh" alpine:latest ghcr.io/github/gh-aw-firewall/agent:0.25.26 ghcr.io/github/gh-aw-firewall/api-proxy:0.25.26 ghcr.io/github/gh-aw-firewall/squid:0.25.26 ghcr.io/github/gh-aw-mcpg:v0.2.26 ghcr.io/github/github-mcp-server:v1.0.0 node:25-alpine node:25-alpine
+        run: bash "${RUNNER_TEMP}/gh-aw/actions/download_docker_images.sh" alpine:latest ghcr.io/github/gh-aw-firewall/agent:0.25.26 ghcr.io/github/gh-aw-firewall/api-proxy:0.25.26 ghcr.io/github/gh-aw-firewall/squid:0.25.26 ghcr.io/github/gh-aw-mcpg:v0.2.26 ghcr.io/github/github-mcp-server:v1.0.0 node:25-alpine node:lts-alpine
       - name: Install gh-aw extension
         env:
           GH_TOKEN: ${{ secrets.GH_AW_GITHUB_MCP_SERVER_TOKEN || secrets.GH_AW_GITHUB_TOKEN || secrets.GITHUB_TOKEN }}
@@ -792,6 +792,9 @@ jobs:
                   "--timeout",
                   "120000"
                 ],
+                "tools": [
+                  "*"
+                ],
                 "env": {
                   "EP_REQUEST_TIMEOUT_MS": "120000"
                 },
@@ -827,6 +830,9 @@ jobs:
                   "-y",
                   "@modelcontextprotocol/server-memory"
                 ],
+                "tools": [
+                  "*"
+                ],
                 "guard-policies": {
                   "write-sink": {
                     "accept": [
@@ -857,6 +863,9 @@ jobs:
                   "-y",
                   "@modelcontextprotocol/server-sequential-thinking"
                 ],
+                "tools": [
+                  "*"
+                ],
                 "guard-policies": {
                   "write-sink": {
                     "accept": [
@@ -872,6 +881,9 @@ jobs:
                 "entrypointArgs": [
                   "-y",
                   "worldbank-mcp@1.0.1"
+                ],
+                "tools": [
+                  "*"
                 ],
                 "guard-policies": {
                   "write-sink": {
@@ -1091,7 +1103,7 @@ jobs:
             const allowedExtensions = [".md",".json",".jsonl",".txt",".html"];
             const result = validateMemoryFiles('/tmp/gh-aw/cache-memory', 'cache', allowedExtensions);
             if (!result.valid) {
-              core.setFailed(`File type validation failed: Found ${result.invalidFiles.length} file(s) with invalid extensions. Only .md, .json, .jsonl, .txt, .html are allowed.`);
+              core.setFailed(`File type validation failed: Found $${result.invalidFiles.length} file(s) with invalid extensions. Only .md, .json, .jsonl, .txt, .html are allowed.`);
             }
       - name: Upload cache-memory data as artifact
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
