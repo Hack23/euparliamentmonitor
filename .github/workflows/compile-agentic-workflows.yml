@@ -59,6 +59,9 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
 
+      - name: Patch PAT PR fallback into article lock files
+        run: node scripts/patch-gh-aw-pat-pr-fallback.js
+
       - name: Commit all generated files
         run: |
           # Add all files that gh-aw compile generates:

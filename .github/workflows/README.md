@@ -163,6 +163,21 @@ uniformly across all 9 article + translate workflows:
 | Safe-output PR resilience | `if-no-changes: warn`, `fallback-as-issue: true`, `auto-close-issue: false`, `excluded-files: ["**/*.lock", …]` | upstream `reference/safe-outputs-pull-requests.md` |
 | Safe-output egress allowlist | `safe-outputs.allowed-domains: [github, …data sources]` (least-privilege; **not** `default-safe-outputs`) | upstream `reference/safe-outputs.md` |
 
+**Host-side PAT fallback for expired safeoutputs sessions:** the 8 unified
+article lock files include a generated post-agent step named
+`Host-side PAT PR fallback`, injected by
+[`scripts/patch-gh-aw-pat-pr-fallback.js`](../../scripts/patch-gh-aw-pat-pr-fallback.js)
+after `gh aw compile --validate`. It runs
+[`scripts/gh-aw-pat-pr-fallback.sh`](../../scripts/gh-aw-pat-pr-fallback.sh)
+only when `/tmp/gh-aw/agent-stdio.log` contains `session not found` and no
+`create_pull_request` safeoutput item exists. The step uses
+`secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN` from
+[`copilot-setup-steps.yml`](copilot-setup-steps.yml), stages only
+`analysis/daily/**` and `news/**`, pushes the deterministic
+`news/<YYYY-MM-DD>-<type>` branch, and reuses any existing open PR for that
+branch before creating a new one. `news-translate.md` remains the only
+multi-call safeoutputs workflow and does not use this fallback.
+
 **Cache-memory restore semantics**: gh-aw v0.69.3 emits an
 `update_cache_memory` job gated by `if: needs.agent.result == 'success'`,
 which means cache-memory is **only persisted to Actions cache on a

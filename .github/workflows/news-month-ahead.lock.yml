@@ -955,6 +955,16 @@ jobs:
         if: always()
         continue-on-error: true
         run: node "${RUNNER_TEMP}/gh-aw/actions/detect_copilot_errors.cjs"
+      - name: Host-side PAT PR fallback
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
+          GH_AW_PAT_PR_FALLBACK_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
+          GH_AW_PAT_FALLBACK_SLUG: month-ahead
+          GH_AW_PAT_FALLBACK_WORKFLOW_NAME: "News: EU Parliament Month Ahead — Unified"
+          GH_AW_PAT_FALLBACK_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          GH_AW_SAFE_OUTPUTS: ${{ steps.set-runtime-paths.outputs.GH_AW_SAFE_OUTPUTS }}
+        run: bash scripts/gh-aw-pat-pr-fallback.sh
       - name: Configure Git credentials
         env:
           REPO_NAME: ${{ github.repository }}
