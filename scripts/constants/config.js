@@ -75,9 +75,7 @@ export const MERMAID_VERSION = (() => {
     try {
         const pkgPath = path.join(PROJECT_ROOT, 'package.json');
         const parsed = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'));
-        if (typeof parsed === 'object' &&
-            parsed !== null &&
-            'devDependencies' in parsed) {
+        if (typeof parsed === 'object' && parsed !== null && 'devDependencies' in parsed) {
             const devDeps = parsed.devDependencies;
             if (typeof devDeps === 'object' && devDeps !== null && 'mermaid' in devDeps) {
                 const raw = devDeps.mermaid;

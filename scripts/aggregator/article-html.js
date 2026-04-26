@@ -18,7 +18,7 @@
  * `11.14.0`); regenerating articles after a Mermaid bump invalidates
  * browser and CloudFront caches automatically.
  */
-import { BASE_URL, createThemeToggleButton, MERMAID_VERSION, THEME_TOGGLE_SCRIPT } from '../constants/config.js';
+import { BASE_URL, createThemeToggleButton, MERMAID_VERSION, THEME_TOGGLE_SCRIPT, } from '../constants/config.js';
 import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, SKIP_LINK_TEXTS, HEADER_SUBTITLE_LABELS, THEME_TOGGLE_LABELS, TOC_ARIA_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
 import { escapeHTML } from '../utils/file-utils.js';
 import { buildSiteFooter } from '../templates/section-builders.js';

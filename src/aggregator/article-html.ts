@@ -20,7 +20,12 @@
  * browser and CloudFront caches automatically.
  */
 
-import { BASE_URL, createThemeToggleButton, MERMAID_VERSION, THEME_TOGGLE_SCRIPT } from '../constants/config.js';
+import {
+  BASE_URL,
+  createThemeToggleButton,
+  MERMAID_VERSION,
+  THEME_TOGGLE_SCRIPT,
+} from '../constants/config.js';
 import {
   ALL_LANGUAGES,
   LANGUAGE_NAMES,

@@ -100,11 +100,7 @@ export const MERMAID_VERSION: string = (() => {
     const pkgPath = path.join(PROJECT_ROOT, 'package.json');
     const parsed: unknown = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'));
 
-    if (
-      typeof parsed === 'object' &&
-      parsed !== null &&
-      'devDependencies' in parsed
-    ) {
+    if (typeof parsed === 'object' && parsed !== null && 'devDependencies' in parsed) {
       const devDeps = (parsed as { devDependencies: unknown }).devDependencies;
       if (typeof devDeps === 'object' && devDeps !== null && 'mermaid' in devDeps) {
         const raw = (devDeps as { mermaid: unknown }).mermaid;
@@ -114,7 +110,9 @@ export const MERMAID_VERSION: string = (() => {
       }
     }
 
-    console.warn('Invalid or missing "devDependencies.mermaid" in package.json, falling back to 0.0.0');
+    console.warn(
+      'Invalid or missing "devDependencies.mermaid" in package.json, falling back to 0.0.0'
+    );
     return '0.0.0';
   } catch (err) {
     console.warn('Failed to read mermaid version from package.json:', err);
