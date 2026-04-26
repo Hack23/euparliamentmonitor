@@ -123,18 +123,21 @@ The **single source of truth** for what a run produces is [`analysis/methodologi
 
 | Folder | Count | Gated by completeness-gate? |
 |---|:---:|:---:|
+| `<run root>/executive-brief.md` | 1 | ✅ **mandatory** reader layer (every article type — line floor 180 in `reference-quality-thresholds.json`) |
 | `intelligence/` | 18 | ✅ core artifacts mandatory |
 | `classification/` | 4 | ✅ when classification applies |
 | `risk-scoring/` | 4 | ✅ when risk framework applies |
 | `threat-assessment/` | 5 | ✅ when threat framework applies |
 | `documents/` | 1 | ✅ when documents downloaded |
 | `existing/` (legacy) | 2 + mirrors | ⚪ legacy layout, accepted for back-compat |
-| `extended/` (optional) | 12 | ⚪ optional — adds depth for long-form / crisis / breaking runs; not gated |
+| `extended/` (optional) | 11 | ⚪ optional — adds depth for long-form / crisis / breaking runs; not gated |
 
-**Extended artifacts** (`executive-brief`, `devils-advocate-analysis`, `historical-parallels`, `coalition-mathematics`, `forward-indicators`, `intelligence-assessment`, `implementation-feasibility`, `media-framing-analysis`, `comparative-international`, `cross-reference-map`, `data-download-manifest`, `voter-segmentation`) are **recommended** for:
+**Extended artifacts** (`devils-advocate-analysis`, `historical-parallels`, `coalition-mathematics`, `forward-indicators`, `intelligence-assessment`, `implementation-feasibility`, `media-framing-analysis`, `comparative-international`, `cross-reference-map`, `data-download-manifest`, `voter-segmentation`) are **recommended** for:
 - long-form review workflows (`month-in-review`, `quarter-in-review`, `propositions`, `committee-reports`)
 - crisis / breaking deep runs where decision-maker briefings add value
 - any run where the agent has budget after core artifacts are complete
+
+`extended/executive-brief.md` is accepted only as a **legacy fallback** when improving an older run; new runs write the mandatory root-level `executive-brief.md` (see [`03-analysis-completeness-gate.md`](03-analysis-completeness-gate.md) § Mandatory reader layer).
 
 These were ported from Hack23/riksdagsmonitor on 2026-04-23 and follow the same 2-pass AI-First construction pattern as the mandatory artifacts.
 

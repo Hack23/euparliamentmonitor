@@ -18,7 +18,7 @@ this script before emitting the gate line — never hand-eyeball the catalog whe
 a script can enforce it.
 
 ```bash
-npm run validate-analysis -- analysis/daily/<date>/<article-type>-run<NN>
+npm run validate-analysis -- analysis/daily/<date>/<article-type>
 ```
 
 Exit codes:

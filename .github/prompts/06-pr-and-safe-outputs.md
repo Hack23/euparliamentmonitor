@@ -99,28 +99,59 @@ last resort.
 
 ## 6 · Safe-Outputs Frontmatter Contract
 
-Every article-generating workflow carries:
+Every article-generating workflow carries the following safe-outputs block.
+This mirrors the actual frontmatter shipped in `news-breaking.md` and the
+seven sibling `news-<type>.md` files; deviations cause silent runtime failures
+(`Base branch override is not allowed`, `Too many items of type
+'create_pull_request'`, etc.).
 
 ```yaml
 safe-outputs:
-  allowed-domains: [data.europarl.europa.eu, www.europarl.europa.eu, github.com,
-                    hack23.com, www.hack23.com, riksdagsmonitor.com, www.riksdagsmonitor.com,
-                    euparliamentmonitor.com, www.euparliamentmonitor.com]
+  allowed-domains:
+    - data.europarl.europa.eu
+    - www.europarl.europa.eu
+    - github.com
+    - hack23.com
+    - www.hack23.com
+    - riksdagsmonitor.com
+    - www.riksdagsmonitor.com
+    - euparliamentmonitor.com
+    - www.euparliamentmonitor.com
   create-pull-request:
     title-prefix: "[news] "
-    labels: [agentic-news, analysis-data]
+    labels: [agentic-news, analysis-data, "type:<slug>"]   # <slug> = breaking | committee-reports | …
     draft: false
     expires: 14d
     allowed-base-branches: ["main"]
-  add-comment:
+    max: 1                                                 # exactly one PR per run (lint-enforced)
+  dispatch-workflow:
+    workflows: [news-translate]                            # exactly one downstream dispatch
     max: 1
 ```
 
-For single-article workflows, `create-pull-request.max` defaults to 1 — leave
-it at the default. `news-article-generator.md` is the documented exception for
-multi-article generation and may set `safe-outputs.create-pull-request.max: 8`.
-Separately, `news-translate.md` sets `excluded-files` and uses the flush
-pattern; no other workflow does.
+Companion frontmatter (also required, documented in
+[`08-infrastructure.md`](08-infrastructure.md) §1):
+
+```yaml
+tools:
+  timeout: 300                                             # 5-min per-tool-call cap
+```
+
+Notes on the schema:
+
+- `create-pull-request.max` must be set to `1` explicitly. The gh-aw default
+  is `1`, but stating it in the workflow makes the single-PR rule visible to
+  reviewers and to `scripts/lint-prompts.js`.
+- `add-comment` is **not** part of the article-workflow contract — the
+  combined PR is the single output. Only `news-translate.md` declares it.
+- `dispatch-workflow` is exactly one `news-translate` dispatch per run; the
+  translation workflow is the sole downstream consumer.
+- The legacy `news-article-generator.md` multi-article helper was removed in
+  the April-2026 aggregator-pipeline migration (see
+  [`news-generation.agent.md`](../agents/news-generation.agent.md) § Shared
+  Stage Contract). There is no longer a documented multi-PR exception in this
+  family — `news-translate.md` remains the only multi-call workflow and uses
+  the flush pattern (`max: 10` + `excluded-files`) described in §7 below.
 
 ## 7 · Exception — `news-translate.md`
 

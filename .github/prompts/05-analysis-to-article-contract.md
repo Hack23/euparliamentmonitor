@@ -45,6 +45,7 @@ artifacts fails the Stage-C gate.
 
 1. Open [`analysis/methodologies/ai-driven-analysis-guide.md`](../../analysis/methodologies/ai-driven-analysis-guide.md) §§ 8–9 (synthesis + Pass 2) and [`analysis/methodologies/artifact-catalog.md`](../../analysis/methodologies/artifact-catalog.md) for the master artifact map.
 2. Produce every file under `files.*` in the run's `manifest.json`. At minimum the following are mandatory for every article type:
+   - `executive-brief.md` at the run root — mandatory reader layer (BLUF, three decisions, 60-second read, top documents/procedures table, Mermaid risk snapshot, top forward trigger; floor 180 lines per `reference-quality-thresholds.json`)
    - `intelligence/synthesis-summary.md` — composes the seven reference-quality artifacts
    - `intelligence/analysis-index.md` — read-me-first entry (Rule 19)
    - `intelligence/stakeholder-map.md` + `existing/stakeholder-impact.md`
@@ -53,6 +54,7 @@ artifacts fails the Stage-C gate.
    - `threat-assessment/political-threat-landscape.md`
    - `intelligence/scenario-forecast.md`, `pestle-analysis.md`, `threat-model.md`, `historical-baseline.md`, `economic-context.md`, `wildcards-blackswans.md`
    - `existing/deep-analysis.md` (where the article type requires it)
+   - `workflow-audit.md` and `methodology-reflection.md` at the run root — the **last two** artifacts of the run (`ai-driven-analysis-guide.md` Step 10.5)
 3. Populate every file under the canonical run subdirectories
    `intelligence/`, `classification/`, `risk-scoring/`, `threat-assessment/`,
    `existing/`, `documents/`. Older `motions-*` runs may additionally mirror
@@ -93,26 +95,34 @@ Shipping a run of a given type without the listed inputs is a Stage-C gate
 violation; the Stage-C review must stamp `RED` and the aggregator must not
 be invoked.
 
-## 5 · Stage-C Enforcement (agent-side)
+## 5 · Stage-C Enforcement
 
-There is no longer a Node-script validator. Stage-C enforcement is an
-agent-side Pass 2 review over the artifact set against:
+Stage C is enforced by the authoritative Node validator at
+[`scripts/validate-analysis-completeness.js`](../../scripts/validate-analysis-completeness.js),
+invoked as `npm run validate-analysis -- <runDir>` and fully documented in
+[`03-analysis-completeness-gate.md`](03-analysis-completeness-gate.md) §1.
+The validator runs against:
 
 - `analysis/methodologies/reference-quality-thresholds.json` (per-artifact
   minimum line floors)
 - `analysis/methodologies/artifact-catalog.md` (mandatory-artifact index)
 - the per-type matrix in §4 above
 
-Refusal criteria (any one fails the gate):
+Refusal criteria (any one fails the gate — exit 1, stamp `RED`):
 
 - any mandatory artifact under [§4](#4--per-article-type-required-artifacts) missing
 - any mandatory artifact below its depth floor in
-  `reference-quality-thresholds.json`
-- any `[AI_ANALYSIS_REQUIRED]` or other sentinel marker in a committed
-  artifact
+  `reference-quality-thresholds.json` (DEFAULT_MIN_LINES=30 fallback)
+- any `[AI_ANALYSIS_REQUIRED]` / `AI_ANALYSIS_PENDING` / `[TBD]` / `TODO:`
+  sentinel marker in a committed artifact
+- mandatory mermaid presence missing under `intelligence/`,
+  `classification/`, `risk-scoring/`, `threat-assessment/`
+- missing Admiralty / WEP / SAT / BLUF tradecraft signals or required H2
+  sections
 - `manifest.json` missing top-level `articleType` or `files`
 - `intelligence/economic-context.md` missing for a policy article
   (motions, propositions, committee-reports, month-ahead, month-in-review)
 
-See [`03-analysis-completeness-gate.md`](03-analysis-completeness-gate.md)
-for the full Stage-C protocol.
+A second RED after Pass 3 routes the workflow to an analysis-only PR (see
+[`03-analysis-completeness-gate.md`](03-analysis-completeness-gate.md) §4)
+and skips article render entirely.

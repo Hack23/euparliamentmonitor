@@ -26,8 +26,10 @@ operational Stage-D checklist; `Article-Generation.md` is the durable reference.
 In the current **unified** `news-<type>.md` workflow (Stages A → B → C → D → E
 in one session), Stage D runs inline after the Stage-C gate exits 0. The
 agent has just written the full artifact set under
-`${ANALYSIS_DIR}=analysis/daily/${DATE}/${TYPE}-run<NN>/` and the
-`manifest.json` has its latest `history[]` entry stamped `GREEN`.
+`${ANALYSIS_DIR}=analysis/daily/${DATE}/${TYPE}/` (canonical stable folder, no
+`-run<NN>` suffix — repeated runs reuse the same folder and append to
+`manifest.json.history[]` per `02 §2`) and the `manifest.json` has its latest
+`history[]` entry stamped `GREEN`.
 
 ## 2 · Generator Command
 
@@ -255,11 +257,14 @@ is the sole render step. It:
 - emits the final HTML via `src/aggregator/article-html.ts` with the shared
   site chrome and 14-language `<link rel="alternate" hreflang>` entries
 
-The legacy standalone validators (`scripts/utils/validate-analysis-completeness.js`
+The legacy in-aggregator validators (`scripts/utils/validate-analysis-completeness.js`
 and `src/utils/validate-articles.ts`) were removed in the April-2026
-aggregator-pipeline purge. Stage-C gating now runs agent-side during Pass 2
-review and at manifest-write time — see
-[`02-analysis-protocol.md`](02-analysis-protocol.md) §9.
+aggregator-pipeline purge. Stage-C gating is now performed by the standalone
+validator at [`scripts/validate-analysis-completeness.js`](../../scripts/validate-analysis-completeness.js)
+invoked as `npm run validate-analysis -- <runDir>` (see
+[`03-analysis-completeness-gate.md`](03-analysis-completeness-gate.md) §1)
+plus the agent-side Pass 2 readback, both running over the committed
+`analysis/daily/<run>/**/*.md` set before any Stage-D render.
 
 ## 9 · No-Publish Rule
 
