@@ -1,0 +1,53 @@
+{
+  "articleType": "month-ahead",
+  "date": "2026-04-26",
+  "status": "complete",
+  "version": "1.0.0",
+  "generatedAt": "2026-04-26T16:24:00Z",
+  "files": {
+    "executive-brief": ["executive-brief.md"],
+    "analysis-index": ["intelligence/analysis-index.md"],
+    "pestle-analysis": ["intelligence/pestle-analysis.md"],
+    "coalition-dynamics": ["intelligence/coalition-dynamics.md"],
+    "economic-context": ["intelligence/economic-context.md"],
+    "synthesis-summary": ["intelligence/synthesis-summary.md"],
+    "scenario-forecast": ["intelligence/scenario-forecast.md"],
+    "stakeholder-map": ["intelligence/stakeholder-map.md"],
+    "wildcards-blackswans": ["intelligence/wildcards-blackswans.md"],
+    "historical-baseline": ["intelligence/historical-baseline.md"],
+    "mcp-reliability-audit": ["intelligence/mcp-reliability-audit.md"],
+    "methodology-reflection": ["intelligence/methodology-reflection.md"],
+    "reference-analysis-quality": ["intelligence/reference-analysis-quality.md"],
+    "threat-model": ["intelligence/threat-model.md"],
+    "significance-classification": ["classification/significance-classification.md"],
+    "actor-mapping": ["classification/actor-mapping.md"],
+    "forces-analysis": ["classification/forces-analysis.md"],
+    "impact-matrix": ["classification/impact-matrix.md"],
+    "risk-matrix": ["risk-scoring/risk-matrix.md"],
+    "quantitative-swot": ["risk-scoring/quantitative-swot.md"],
+    "political-threat-landscape": ["threat-assessment/political-threat-landscape.md"]
+  },
+  "dataQuality": {
+    "overallConfidence": "MEDIUM",
+    "primaryLimitation": "EP API voting cohesion data unavailable; coalition analysis based on structural size proxies only",
+    "defectsDocumented": 8
+  },
+  "keyFindings": [
+    "EU-US tariff trilogue entered April 13; resolution before May 21 plenary probability 35-50%",
+    "EPP structural majority (52.3% right-wing bloc) remains politically constrained",
+    "Grand coalition (EPP+S&D+Renew) resilience at 55-65% probability for April-May 2026",
+    "EP10 legislative output at record pace: 114 acts in partial year (+46% vs EP9)",
+    "IMF WEO April 2026: EU GDP +1.3%, HICP +2.1%, unemployment 5.9%",
+    "Clean Industrial Deal nuclear energy taxonomy is primary coalition stress point"
+  ],
+  "history": [
+    {
+      "runId": "month-ahead-first-run",
+      "generatedAt": "2026-04-26T16:24:00Z",
+      "artifactsWritten": 21,
+      "stageACompleted": true,
+      "stageBCompleted": true,
+      "passCount": 2
+    }
+  ]
+}
