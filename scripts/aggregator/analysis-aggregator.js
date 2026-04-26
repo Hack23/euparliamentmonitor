@@ -472,6 +472,32 @@ function appendSection(runDir, runDirRelPath, sectionId, sectionTitle, paths, se
     sectionMarkdown.push('');
 }
 /**
+ * Resolve the article-type slug from a manifest, tolerating legacy schemas.
+ *
+ * Resolution order (highest precedence first):
+ *   1. `articleType` — canonical singular field
+ *   2. `articleTypes[0]` — pre-aggregator-pipeline plural array
+ *   3. `runType` — legacy field on older breaking-run manifests
+ *
+ * Falls back to `'unknown'` when none of the above is a non-empty string.
+ *
+ * @param manifest - Parsed manifest (any of the supported schemas)
+ * @returns Article-type slug usable as a filename component
+ */
+export function resolveArticleTypeFromManifest(manifest) {
+    if (typeof manifest.articleType === 'string' && manifest.articleType) {
+        return manifest.articleType;
+    }
+    const first = manifest.articleTypes?.[0];
+    if (typeof first === 'string' && first) {
+        return first;
+    }
+    if (typeof manifest.runType === 'string' && manifest.runType) {
+        return manifest.runType;
+    }
+    return 'unknown';
+}
+/**
  * Read, clean, and concatenate every artifact declared by the run's manifest
  * (with discovery fallback when manifest.files is missing), returning a
  * single aggregated Markdown document.
@@ -516,7 +542,7 @@ export function aggregateAnalysisRun(options) {
             consumed.add(p);
     }
     const tradecraftFiles = options.tradecraftFiles ?? discoverTradecraftFiles(repoRoot);
-    const articleType = manifest.articleType ?? 'unknown';
+    const articleType = resolveArticleTypeFromManifest(manifest);
     const date = manifest.date ?? guessDateFromRunDir(runDirRelPath);
     const runId = manifest.runId ?? path.basename(runDir);
     const gateResult = latestGateResult(manifest);

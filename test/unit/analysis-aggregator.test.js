@@ -19,6 +19,7 @@ import {
   renderReaderIntelligenceGuide,
   renderProvenanceBlock,
   renderTradecraftAppendix,
+  resolveArticleTypeFromManifest,
 } from '../../scripts/aggregator/analysis-aggregator.js';
 import { ARTIFACT_SECTIONS } from '../../scripts/aggregator/artifact-order.js';
 
@@ -357,5 +358,36 @@ describe('renderAnalysisIndex', () => {
     const out = renderAnalysisIndex(included, 'analysis/daily/2026-01-15/breaking/manifest.json');
     expect(out).toContain('executive-brief');
     expect(out).toContain('synthesis-summary');
+  });
+});
+
+describe('resolveArticleTypeFromManifest', () => {
+  it('uses canonical articleType when present', () => {
+    expect(resolveArticleTypeFromManifest({ articleType: 'breaking' })).toBe('breaking');
+  });
+
+  it('falls back to articleTypes[0] for legacy plural-array manifests', () => {
+    expect(
+      resolveArticleTypeFromManifest({ articleTypes: ['week-in-review'] })
+    ).toBe('week-in-review');
+  });
+
+  it('falls back to runType when neither articleType nor articleTypes is set', () => {
+    expect(resolveArticleTypeFromManifest({ runType: 'breaking' })).toBe('breaking');
+  });
+
+  it('prefers articleType over articleTypes and runType', () => {
+    expect(
+      resolveArticleTypeFromManifest({
+        articleType: 'breaking',
+        articleTypes: ['motions'],
+        runType: 'propositions',
+      })
+    ).toBe('breaking');
+  });
+
+  it('returns "unknown" when no schema field is populated', () => {
+    expect(resolveArticleTypeFromManifest({})).toBe('unknown');
+    expect(resolveArticleTypeFromManifest({ articleType: '' })).toBe('unknown');
   });
 });

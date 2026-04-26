@@ -19,7 +19,7 @@
 import fs from 'fs';
 import path from 'path';
 import { pathToFileURL } from 'url';
-import { aggregateAnalysisRun } from './analysis-aggregator.js';
+import { aggregateAnalysisRun, resolveArticleTypeFromManifest, } from './analysis-aggregator.js';
 import { resolveArticleMetadata, extractStrongProseLine, } from './article-metadata.js';
 import { renderMarkdown } from './markdown-renderer.js';
 import { wrapArticleHtml, getArticleFilename } from './article-html.js';
@@ -528,14 +528,21 @@ function readRunCandidate(runDir, manifestPath) {
     catch {
         return null;
     }
-    const articleType = typeof parsed.articleType === 'string' ? parsed.articleType : '';
+    // Resolve via the same precedence used by the aggregator (articleType →
+    // articleTypes[0] → runType) so legacy-schema manifests are picked up by
+    // batch mode rather than silently skipped.
+    const articleType = resolveArticleTypeFromManifest(parsed);
     if (!articleType || articleType === 'unknown')
         return null;
     const dateFromManifest = typeof parsed.date === 'string' ? parsed.date : '';
     const date = /^\d{4}-\d{2}-\d{2}$/.test(dateFromManifest)
         ? dateFromManifest
         : dateFromRunPath(runDir);
-    const runId = typeof parsed.runId === 'string' && parsed.runId ? parsed.runId : path.basename(runDir);
+    const runId = typeof parsed.runId === 'string' && parsed.runId
+        ? parsed.runId
+        : typeof parsed.runId === 'number'
+            ? String(parsed.runId)
+            : path.basename(runDir);
     return { runDir, articleType, date, runId };
 }
 /**
@@ -609,8 +616,9 @@ function readManifestMetadata(runDir) {
     try {
         const parsed = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
         const manifest = {};
-        if (typeof parsed.articleType === 'string') {
-            Object.assign(manifest, { articleType: parsed.articleType });
+        const resolvedType = resolveArticleTypeFromManifest(parsed);
+        if (resolvedType && resolvedType !== 'unknown') {
+            Object.assign(manifest, { articleType: resolvedType });
         }
         if (typeof parsed.date === 'string') {
             Object.assign(manifest, { date: parsed.date });
