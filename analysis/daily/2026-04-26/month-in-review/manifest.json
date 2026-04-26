@@ -1,0 +1,66 @@
+{
+  "articleType": "month-in-review",
+  "date": "2026-04-26",
+  "runId": "month-in-review-run-1777207349",
+  "runEpoch": 1777207349,
+  "generatedAt": "2026-04-26T00:00:00Z",
+  "artifactStats": {
+    "totalArtifacts": 27,
+    "totalLines": 3200,
+    "directories": ["intelligence", "classification", "threat-assessment", "risk-scoring", "documents"]
+  },
+  "files": {
+    "intelligence": [
+      "intelligence/analysis-index.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/threat-model.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/economic-context.md",
+      "intelligence/coalition-dynamics.md",
+      "intelligence/wildcards-blackswans.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/workflow-audit.md",
+      "intelligence/methodology-reflection.md"
+    ],
+    "classification": [
+      "classification/significance-classification.md",
+      "classification/actor-mapping.md",
+      "classification/forces-analysis.md",
+      "classification/impact-matrix.md"
+    ],
+    "threatAssessment": [
+      "threat-assessment/political-threat-landscape.md",
+      "threat-assessment/actor-threat-profiles.md",
+      "threat-assessment/consequence-trees.md",
+      "threat-assessment/legislative-disruption.md"
+    ],
+    "riskScoring": [
+      "risk-scoring/risk-matrix.md",
+      "risk-scoring/quantitative-swot.md",
+      "risk-scoring/political-capital-risk.md",
+      "risk-scoring/legislative-velocity-risk.md"
+    ],
+    "documents": [
+      "documents/document-analysis-index.md"
+    ],
+    "root": [
+      "executive-brief.md"
+    ]
+  },
+  "mandatoryArtifacts": {
+    "historicalBaseline": "intelligence/historical-baseline.md",
+    "executiveBrief": "executive-brief.md",
+    "methodologyReflection": "intelligence/methodology-reflection.md"
+  },
+  "history": [
+    {
+      "runId": "month-in-review-run-1777207349",
+      "runEpoch": 1777207349,
+      "artifactCount": 27,
+      "status": "complete"
+    }
+  ]
+}
