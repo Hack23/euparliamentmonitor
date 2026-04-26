@@ -61,7 +61,7 @@ inside the workflow `.md`.
 
 | Symptom | Root cause | Fix |
 |---------|-----------|-----|
-| `Streamable HTTP error: session not found` / `tool call failed: session not found` (HTTP 404 from `routed:safeoutputs`) on `safeoutputs___create_pull_request` at end-of-run | safeoutputs MCP HTTP session (`localhost:3001`) reaped after ~28–30 min of no safeoutputs calls, OR killed earlier by a banned keep-alive pattern. See [§5a](#5a--safeoutputs-session-not-found--extended-context) for evidence and levers. | You cannot recover mid-run. **Hard limit: total wall-clock from agent start to the single PR call < 28 minutes; aim ≤ 25 minutes.** Surface `SINGLE_PR_ATTESTATION` early. Do NOT add a keep-alive pattern. |
+| `Streamable HTTP error: session not found` / `tool call failed: session not found` (HTTP 404 from `routed:safeoutputs`) on `safeoutputs___create_pull_request` at end-of-run | safeoutputs MCP HTTP session (`localhost:3001`) reaped after ~28–30 min of no safeoutputs calls, OR killed earlier by a banned keep-alive pattern. See [§5a](#5a--safeoutputs-session-not-found--extended-context) for evidence and levers. | You cannot recover mid-run. **Hard limit: total wall-clock from agent start to the single PR call < 25 minutes; aim ≤ 22 minutes.** Surface `SINGLE_PR_ATTESTATION` early. Do NOT add a keep-alive pattern. |
 | `container awf-api-proxy is unhealthy` | Transient AWF sandbox infra flake | Re-run the workflow; not a config bug. |
 | `Expected ',' or '}' after property value in JSON` in Copilot `edit` | `old_str`/`new_str` > ~30 lines / ~5 KB | Regenerate via TS generator, split into ≤ 20-line edits. **Do NOT fall back to `cat > file << EOF` heredocs** — see next row. Prefer the native `create` / `Write` file tool (e.g. the Copilot CLI `Create <path>` action that successfully wrote artifacts in [run 24805100070](https://github.com/Hack23/euparliamentmonitor/actions/runs/24805100070)). |
 | `Command not executed. The 'kill' command must specify at least one numeric PID. Usage: kill <PID> or kill -9 <PID>` in response to a `cat > file << 'EOF'` heredoc | **Copilot CLI bash-safety filter false-positive** — the filter scans the entire heredoc body for dangerous-command tokens. Political-analysis content routinely contains the literal word *"kill"* (e.g. *"motion to kill the bill"*, *"amendment killed in committee"*), which matches the bare-`kill`-no-PID pattern and rejects the entire write. Observed in cancelled [run 24805100070](https://github.com/Hack23/euparliamentmonitor/actions/runs/24805100070#step:27:20) at Stage B. | **Never use `cat > file << 'EOF'` to write analysis artifacts or article prose.** Use the native `create` / `Write` file tool available in the Copilot CLI — it bypasses the bash filter entirely. `cat > file` is still safe for short, keyword-free files (e.g. copying one artifact to `existing/`, writing `manifest.json` via `jq`). |
@@ -95,9 +95,30 @@ context separated out to keep the table scannable:
   for ~29 min; final `create_pull_request` at `06:35:09` → HTTP 404 on every
   retry. `mcp-gateway.log` shows exactly **one** ping to `/mcp/safeoutputs`
   (at connect time).
-- `sandbox.mcp.keepalive-interval: 300` does **not** proxy periodic pings to
-  HTTP MCP backends — it only keeps the gateway↔client transport alive, not
-  the gateway↔backend session.
+- [Run 24963129839](https://github.com/Hack23/euparliamentmonitor/actions/runs/24963129839)
+  (news-week-in-review unified): Stage B suffered two context compactions;
+  the elapsed-time tripwire fired at minute 28 and forced
+  `GATE_RESULT=ANALYSIS_ONLY`; `SINGLE_PR_ATTESTATION` emitted at minute
+  28m43s; `create_pull_request` landed at minute 29m13s and failed with
+  `Error POSTing to endpoint: session not found` on every retry, plus a
+  follow-up `noop` that also returned `session not found`. The ≤28-min
+  hard ceiling that previously applied to 7-day workflows was clearly too
+  close to the failure window — this run motivated the move to a uniform
+  22 / ≤25 budget across all unified `news-<type>.md` workflows
+  (see [`02-analysis-protocol.md`](02-analysis-protocol.md) §3).
+- `sandbox.mcp.keepalive-interval: 300` does **not** refresh the
+  agent ↔ gateway safeoutputs session. Per upstream
+  [`reference/mcp-gateway.md` §4.1.3.5](https://github.github.com/gh-aw/reference/mcp-gateway/),
+  the keepalive knob pings **HTTP MCP backends** (gateway → backend
+  direction) — it does not touch the streamable-HTTP session that the
+  agent client holds with the gateway, which is the layer that emits
+  `session not found` (see `actions/setup/js/mcp_http_transport.cjs`
+  line ~264 in gh-aw v0.69.3 — the error fires on session-id mismatch,
+  not on idle timeout). Setting the interval *higher* (e.g. 45 min) is
+  strictly worse: it removes existing backend pings without adding any
+  protection at the failing layer. The only effective lever is to land
+  the PR call earlier than the observed 28–30 min TTL window — hence
+  the uniform 22 / ≤25 budget above.
 
 **Why you can't recover mid-run**
 
@@ -111,7 +132,7 @@ visible in the agent artifact).
 **Prevention levers (in order of impact)**
 
 1. Keep **total wall-clock** from agent start to the single PR call under
-   the **hard limit of 28 minutes**, and aim for **≤ 25 minutes**; that
+   the **hard limit of 25 minutes**, and aim for **≤ 22 minutes**; that
    target stays safely below the observed ~28–30 minute failure window.
    Treat the 30–40 minute budgets in the canonical shared prompts/skills as
    the general baseline, but for workflows that end with a single
