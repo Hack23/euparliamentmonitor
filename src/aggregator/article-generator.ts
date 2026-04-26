@@ -21,7 +21,12 @@
 import fs from 'fs';
 import path from 'path';
 import { pathToFileURL } from 'url';
-import { aggregateAnalysisRun, resolveArticleTypeFromManifest, type AggregatedRun, type AnalysisManifest } from './analysis-aggregator.js';
+import {
+  aggregateAnalysisRun,
+  resolveArticleTypeFromManifest,
+  type AggregatedRun,
+  type AnalysisManifest,
+} from './analysis-aggregator.js';
 import {
   resolveArticleMetadata,
   extractStrongProseLine,

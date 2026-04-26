@@ -19,7 +19,7 @@
 import fs from 'fs';
 import path from 'path';
 import { pathToFileURL } from 'url';
-import { aggregateAnalysisRun, resolveArticleTypeFromManifest } from './analysis-aggregator.js';
+import { aggregateAnalysisRun, resolveArticleTypeFromManifest, } from './analysis-aggregator.js';
 import { resolveArticleMetadata, extractStrongProseLine, } from './article-metadata.js';
 import { renderMarkdown } from './markdown-renderer.js';
 import { wrapArticleHtml, getArticleFilename } from './article-html.js';
