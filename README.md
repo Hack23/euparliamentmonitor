@@ -87,6 +87,10 @@ import {
 - 📊 **Article Quality** — Score and validate generated content with comprehensive quality metrics
 - 🌍 **Multilingual** — Full i18n support: EN, SV, DA, NO, FI, DE, FR, ES, NL, AR, HE, JA, KO, ZH
 
+**Explore the live platform** — [🌐 euparliamentmonitor.com](https://euparliamentmonitor.com) · [🧠 Political Intelligence Hub](https://euparliamentmonitor.com/political-intelligence.html) (methodology + artifact transparency, all 14 languages) · [🗺️ Site Map](https://euparliamentmonitor.com/sitemap.html) (every page, every language) · [📔 API Reference](https://euparliamentmonitor.com/docs/api/index.html)
+
+> 📦 **About this package** — `euparliamentmonitor` is the open-source TypeScript library powering [euparliamentmonitor.com](https://euparliamentmonitor.com), an automated **European Parliament transparency platform** that publishes daily AI-generated, *Economist-style* political-intelligence articles in 14 languages. The package bundles the **EU Parliament MCP client** (60+ open-data tools — plenary sessions, committee reports, voting records, parliamentary questions, adopted texts, procedures, MEPs, declarations), the **deterministic article aggregator** (analysis-artifact → Markdown → HTML, with 14-language hreflang and shared site chrome), the **political-intelligence analytics** (voting-anomaly detection, coalition dynamics, MEP influence scoring, OSINT correlation), and the **multi-language renderer** with WCAG 2.1 AA accessibility, structured data, and SEO-ready sitemap generation. Designed for civic-tech, data-journalism, OSINT, and democratic-transparency use cases. ISO 27001 / NIST CSF 2.0 / CIS Controls v8.1 / GDPR / NIS2 / EU CRA aligned.
+
 > Published with [npm provenance](https://docs.npmjs.com/generating-provenance-statements) for supply chain security. [SLSA Level 3](https://github.com/Hack23/euparliamentmonitor/attestations) build attestations included.
 
 ## 🎯 Status Badges
@@ -105,9 +109,37 @@ import {
 [![E2E Report](https://img.shields.io/badge/E2E-Report-purple?logo=playwright)](https://euparliamentmonitor.com/playwright-report/index.html)
 [![SLSA 3](https://img.shields.io/badge/SLSA-Level%203-brightgreen?logo=github)](https://github.com/Hack23/euparliamentmonitor/attestations)
 
+## 🌐 Live Site — Explore the Platform
+
+The published platform at **[euparliamentmonitor.com](https://euparliamentmonitor.com)** is the audience-facing companion to this npm package. Two hub pages give the fastest entry into the daily output and the underlying tradecraft:
+
+<table>
+  <tr>
+    <td width="120" align="center" valign="top">
+      <a href="https://euparliamentmonitor.com/political-intelligence.html"><img src="https://img.shields.io/badge/🧠-Political%20Intelligence-003399?style=for-the-badge&logoColor=FFCC00" alt="Political Intelligence Hub"/></a>
+    </td>
+    <td>
+      <strong><a href="https://euparliamentmonitor.com/political-intelligence.html">🧠 Political Intelligence Hub</a></strong><br>
+      Audit-ready transparency layer behind every published article. Indexes the <strong>10-step AI-driven analysis protocol</strong>, the <strong>39 artifact templates</strong>, the per-artifact <strong>methodologies</strong> (BLUF, Admiralty WEP source-grading, SAT, Heuer's ACH, OSINT tradecraft), and links every run-level artifact under <code>analysis/daily/&lt;date&gt;/&lt;slug&gt;/</code> directly to GitHub so readers can <em>verify the analysis behind the prose</em>. Available in all 14 supported languages.
+    </td>
+  </tr>
+  <tr>
+    <td width="120" align="center" valign="top">
+      <a href="https://euparliamentmonitor.com/sitemap.html"><img src="https://img.shields.io/badge/🗺️-Site%20Map-0A66C2?style=for-the-badge&logoColor=FFCC00" alt="Site Map"/></a>
+    </td>
+    <td>
+      <strong><a href="https://euparliamentmonitor.com/sitemap.html">🗺️ Site Map</a></strong><br>
+      Human-readable index of <strong>every page</strong> on the platform — landing pages, news articles, and technical documentation — across all <strong>14 languages</strong> (EN, SV, DA, NO, FI, DE, FR, ES, NL, AR, HE, JA, KO, ZH). Best starting point for SEO crawlers, audience navigation, and discovering the latest articles. Companion to the machine-readable <code>sitemap.xml</code> and per-language <code>sitemap_&lt;lang&gt;.html</code> variants.
+    </td>
+  </tr>
+</table>
+
 ## 📚 Documentation Hub
 
 **📖 Quick Links:**
+- [🌐 Live Site](https://euparliamentmonitor.com) - Public news platform (14 languages, daily AI-generated articles)
+- [🧠 Political Intelligence Hub](https://euparliamentmonitor.com/political-intelligence.html) - Methodology + artifact transparency layer
+- [🗺️ Site Map](https://euparliamentmonitor.com/sitemap.html) - All pages across all 14 languages
 - [📘 Architecture Documentation](SECURITY_ARCHITECTURE.md) - Complete security architecture with C4 diagrams
 - [📗 Security Flows](FLOWCHART.md) - Process flows with security controls
 - [📙 Data Model](DATA_MODEL.md) - Data structures and API integration
@@ -119,7 +151,7 @@ import {
 - [Agent Catalog](.github/agents/README.md) — custom Copilot agents (analysis producers / consumers / gh-aw infrastructure)
 - [Skills Library](.github/skills/README.md) — shared skills (security, compliance, intelligence, gh-aw)
 - [Prompt Library](.github/prompts/README.md) — 10-file bounded-context prompt set (`00`→`09`) + `npm run lint:prompts` drift-guard
-- [Workflows](.github/workflows/README.md) + [WORKFLOWS.md](WORKFLOWS.md) — 10 `news-*.md` agentic workflows + CI workflows
+- [Workflows](.github/workflows/README.md) + [WORKFLOWS.md](WORKFLOWS.md) — 9 `news-*.md` agentic workflows (8 unified `news-<type>.md` + `news-translate.md`) + CI workflows
 - [Analysis Chain](analysis/README.md) — 5-stage pipeline (Data → Analysis → Completeness Gate → Article → Single PR), methodologies, 39 templates, quality thresholds
 
 **🔒 ISMS Compliance:**
@@ -136,11 +168,12 @@ v1.2.13 for accessing real EU Parliament data via the Model Context Protocol.
 - **MCP Server Status**: ✅ Fully operational — 60+ EP data tools available
   (feeds, direct lookups, analytical tools, intelligence correlation)
 - **Agentic Workflows**: 9 unified gh-aw markdown workflows — 8 article types (`news-<type>.md`, Stages A → B → C → D → E in one session) + `news-translate.md` (14-language flush translation) — compiled with
-  `gh-aw v0.69.3` to `.lock.yml` for automated news generation with AI-driven political
+  `gh-aw v0.71.1` to `.lock.yml` for automated news generation with AI-driven political
   intelligence analysis. See [`.github/workflows/README.md`](.github/workflows/README.md).
 - **Analysis-Artifact-Driven Article Pipeline**: Agents author the full
-  Stage-B analysis-artifact set (`analysis/daily/<date>/<slug>-run<NN>/`, 39
-  structured templates per run) and commit it; the deterministic aggregator
+  Stage-B analysis-artifact set (`analysis/daily/<date>/<slug>/`, 39
+  structured templates per run; repeat same-day runs reuse the folder and
+  append to `manifest.json.history[]`) and commit it; the deterministic aggregator
   (`src/aggregator/**`, invoked via
   `npm run generate-article -- --run <analysis-run-dir>` or
   `npm run generate-article:all` for batch regen) then walks `manifest.json`,
