@@ -55,10 +55,12 @@ function patchLockFile(workflowId) {
   let lock = fs.readFileSync(lockPath, 'utf8');
   const marker = '      - name: Host-side PAT PR fallback\n';
   if (lock.includes(marker)) {
-    lock = lock.replace(
-      /      - name: Host-side PAT PR fallback\n(?:        .*\n)+?(?=      - name: Configure Git credentials\n)/u,
-      fallbackStep(workflowId)
-    );
+    const start = lock.indexOf(marker);
+    const nextStep = lock.indexOf('\n      - name: ', start + marker.length);
+    if (nextStep === -1) {
+      throw new Error(`Unable to find step boundary after existing fallback in ${lockPath}`);
+    }
+    lock = `${lock.slice(0, start)}${fallbackStep(workflowId)}${lock.slice(nextStep + 1)}`;
     fs.writeFileSync(lockPath, lock);
     return;
   }

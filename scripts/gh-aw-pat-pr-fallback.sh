@@ -8,6 +8,19 @@ log() {
   printf 'gh-aw-pat-pr-fallback: %s\n' "$*"
 }
 
+read_gate_result() {
+  manifest_path="$1"
+  node - "$manifest_path" <<'NODE_GATE_RESULT'
+const fs = require('fs');
+
+const manifest = JSON.parse(fs.readFileSync(process.argv[2], 'utf8'));
+const history = Array.isArray(manifest.history) ? manifest.history : [];
+const lastHistory = history.length > 0 ? history[history.length - 1] : {};
+
+console.log(lastHistory.gateResult || manifest.gateResult || 'UNKNOWN');
+NODE_GATE_RESULT
+}
+
 stdio_log="/tmp/gh-aw/agent-stdio.log"
 if [ -n "${GH_AW_PAT_FALLBACK_STDIO_LOG:-}" ]; then
   stdio_log="$GH_AW_PAT_FALLBACK_STDIO_LOG"
@@ -89,6 +102,15 @@ if [ -n "${GITHUB_SERVER_URL:-}" ]; then
   server_url="$GITHUB_SERVER_URL"
 fi
 
+case "$server_url" in
+  http://*|https://*)
+    ;;
+  *)
+    log "GITHUB_SERVER_URL must include http:// or https://; fallback skipped"
+    exit 0
+    ;;
+esac
+
 server_host="$server_url"
 server_host="${server_host#https://}"
 server_host="${server_host#http://}"
@@ -158,7 +180,9 @@ fi
 
 git checkout -B "$branch"
 git reset --mixed --quiet
-git add --pathspec-from-file="$eligible_changed"
+while IFS= read -r file; do
+  git add -- "$file"
+done < "$eligible_changed"
 
 if git diff --cached --quiet; then
   log "eligible changes produced an empty staged diff; fallback skipped"
@@ -170,13 +194,13 @@ git diff --cached --stat > "$stat_file"
 gate_result="UNKNOWN"
 manifest="$analysis_dir/manifest.json"
 if [ -f "$manifest" ]; then
-  gate_result=$(node -e "const fs=require('fs'); const m=JSON.parse(fs.readFileSync(process.argv[1],'utf8')); const h=Array.isArray(m.history)?m.history:[]; const last=h.length?h[h.length-1]:{}; console.log(last.gateResult || m.gateResult || 'UNKNOWN');" "$manifest" 2>/dev/null || printf 'UNKNOWN\n')
+  gate_result=$(read_gate_result "$manifest" 2>/dev/null || printf 'UNKNOWN\n')
 fi
 
 headline=""
 article_md="$analysis_dir/article.md"
 if [ -f "$article_md" ]; then
-  headline=$(sed -n 's/^# //p' "$article_md" | head -n 1)
+  headline=$(awk '/^# / { sub(/^# /, ""); print; exit }' "$article_md")
 fi
 
 if [ -z "$headline" ]; then
