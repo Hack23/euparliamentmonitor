@@ -42,8 +42,9 @@ Every piece of content MUST go through at least **2 complete passes**:
 ### Rule 2: No Early Completion
 
 - If the time budget says "20 minutes for analysis," you MUST work for the FULL 20 minutes.
-- Every article-generating workflow has a 45-minute budget — you MUST be actively working until the safe-outputs PR call (target minute ≤ 25, hard deadline minute ≤ 28). The remaining 17–20 min is reserved for Stage D render, validators, push, and the safeoutputs git format-patch snapshot.
-- Finishing early = rushed = low quality = VIOLATION.
+- Every article-generating workflow has a 45-minute workflow timeout, but the single safe-outputs PR call must still happen on time (target minute ≤ 25, hard deadline minute ≤ 28). Treat minute 0 through ≤ 28 as the full pre-PR execution window: all substantive AI work (Stage A data collection, Stage B 2-pass analysis), Stage C completeness gate, Stage D deterministic render (`npm run generate-article`, ≤ 2 min), validators, and push/snapshot preparation must all complete inside that window so the PR call lands before the safeoutputs MCP TTL expires.
+- The remaining workflow time after the PR call is operational slack for GitHub Actions/job overhead and completion, not extra drafting time and not a period in which required pre-PR steps can be deferred.
+- Finishing the pre-PR work early = rushed = low quality = VIOLATION.
 - If you finish Pass 2 early, do a **Pass 3** — there is ALWAYS more depth to add.
 
 ### Rule 3: Complete Read-Back
@@ -89,9 +90,9 @@ Every paragraph must pass this test:
 
 ## Time Budget Enforcement
 
-| Workflow Type | Total Budget | Min Active Work | Stage A (Data) | Stage B (Analysis, 2-pass) | Stage D (Article, 2-pass) |
-|---------------|--------------|-----------------|----------------|----------------------------|---------------------------|
-| **Unified `news-<type>.md`** (all 8 article workflows) | 45 min | Until PR call by minute ≤ 28 (target ≤ 25) | ≤ 5 min | ≥ 18 min (Pass 1 ~60% / Pass 2 ~40%) + Stage C completeness gate | ≥ 5 min — runs `npm run generate-article -- --run "${ANALYSIS_DIR}"` then ≥ 1 read-back / quality pass before the single Stage E PR call |
+| Workflow Type | Total Budget | Min Active Work | Stage A (Data) | Stage B (Analysis, 2-pass) | Stage D (Article render) |
+|---------------|--------------|-----------------|----------------|----------------------------|--------------------------|
+| **Unified `news-<type>.md`** (all 8 article workflows) | 45 min | Until PR call by minute ≤ 28 (target ≤ 25) | ≤ 5 min | ≥ 18 min (Pass 1 ~60% / Pass 2 ~40%) + Stage C completeness gate | ≤ 2 min — deterministic render via `npm run generate-article -- --run "${ANALYSIS_DIR}"` before the single Stage E PR call |
 | **`news-translate.md`** (multi-call flush) | 45 min | Until final flush ≤ 28 min | N/A — translation only | N/A | First productive flush at ~minute 14 (≥ 3 translated HTML files), periodic flushes every +3 files, final flush ≤ minute 28 |
 | **Analysis-only run** (newsworthiness gate fails inside a unified `news-<type>.md`) | 45 min | Until minute ≤ 28 (4-pass) | ≤ 5 min | Pass 1 + Pass 2 (≥ 18 min) **+ Pass 3 (cross-run diff, ≥ 4 min) + Pass 4 (forward monitoring, ≥ 4 min)** | N/A — no article rendered; PR contains analysis artifacts only |
 
