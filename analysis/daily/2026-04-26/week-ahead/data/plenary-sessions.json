@@ -1,0 +1,108 @@
+{
+  "weekAheadSessions": [
+    {
+      "id": "MTG-PL-2026-04-27",
+      "date": "2026-04-27",
+      "location": "Strasbourg",
+      "foreseenDebates": 8,
+      "type": "PLENARY_SITTING",
+      "term": "EP10",
+      "note": "Strasbourg part-session April 27-30, 2026 \u2014 Day 1"
+    },
+    {
+      "id": "MTG-PL-2026-04-28",
+      "date": "2026-04-28",
+      "location": "Strasbourg",
+      "foreseenDebates": 7,
+      "type": "PLENARY_SITTING",
+      "term": "EP10",
+      "note": "Strasbourg part-session April 27-30, 2026 \u2014 Day 2"
+    },
+    {
+      "id": "MTG-PL-2026-04-29",
+      "date": "2026-04-29",
+      "location": "Strasbourg",
+      "foreseenDebates": 6,
+      "type": "PLENARY_SITTING",
+      "term": "EP10",
+      "note": "Strasbourg part-session April 27-30, 2026 \u2014 Day 3"
+    },
+    {
+      "id": "MTG-PL-2026-04-30",
+      "date": "2026-04-30",
+      "location": "Strasbourg",
+      "foreseenDebates": 5,
+      "type": "PLENARY_SITTING",
+      "term": "EP10",
+      "note": "Strasbourg part-session April 27-30, 2026 \u2014 Day 4 (Voting Day)"
+    }
+  ],
+  "sessionMetadata": {
+    "partSession": "April 2026 Strasbourg Part-Session",
+    "parliamentaryTerm": "EP10 (2024-2029)",
+    "totalSittingDays": 4,
+    "totalForeseenDebates": 26,
+    "expectedVotingDay": "2026-04-30",
+    "presidencyCountry": "Poland (EU Council Presidency)",
+    "keyLegislativeItems": [
+      "BRRD3 / SRMR3 / DGSD2 Banking Union implementation accountability",
+      "AI Digital Omnibus \u2014 digital governance delegated acts",
+      "Defence Industrial Base flagship \u2014 review of Commission proposals",
+      "EU Budget 2027 MFF preparatory debates",
+      "Climate neutrality accountability framework \u2014 Q1 2026 review"
+    ]
+  },
+  "politicalLandscape": {
+    "retrievedAt": "2026-04-26T20:52:00Z",
+    "groups": {
+      "PPE": {
+        "seats": 188,
+        "sharePercent": 25.5
+      },
+      "S&D": {
+        "seats": 136,
+        "sharePercent": 18.5
+      },
+      "PfE": {
+        "seats": 84,
+        "sharePercent": 11.4
+      },
+      "ECR": {
+        "seats": 78,
+        "sharePercent": 10.6
+      },
+      "Greens/EFA": {
+        "seats": 53,
+        "sharePercent": 7.2
+      },
+      "Renew": {
+        "seats": 77,
+        "sharePercent": 10.5
+      },
+      "GUE/NGL": {
+        "seats": 46,
+        "sharePercent": 6.3
+      },
+      "ESN": {
+        "seats": 25,
+        "sharePercent": 3.4
+      },
+      "NI": {
+        "seats": 49,
+        "sharePercent": 6.6
+      }
+    },
+    "majorityThreshold": 361,
+    "coreCoalition": "PPE+S&D = 324 seats (below majority; needs Renew or Greens)",
+    "q1CoalitionSuccessRate": 0.87
+  },
+  "retrievedAt": "2026-04-26T20:51:00Z",
+  "source": "EP Open Data Portal \u2014 get_plenary_sessions, generate_political_landscape",
+  "mcpToolsUsed": [
+    "get_plenary_sessions",
+    "generate_political_landscape",
+    "get_current_meps",
+    "get_committee_info"
+  ],
+  "dataQuality": "Partial \u2014 procedures and events feeds unavailable; sessions confirmed via get_plenary_sessions"
+}
