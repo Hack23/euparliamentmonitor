@@ -161,13 +161,26 @@ uniformly across all 9 article + translate workflows:
 | GitHub toolset | `tools.github.toolsets: [all]` (excludes `dependabot`) | upstream `reference/github-tools.md` |
 | Network ecosystem identifiers | `defaults`, `github`, `node` + explicit data-source domains | upstream `reference/network.md` |
 | Safe-output PR resilience | `if-no-changes: warn`, `fallback-as-issue: true`, `auto-close-issue: false`, `excluded-files: ["**/*.lock", …]` | upstream `reference/safe-outputs-pull-requests.md` |
+| Safe-output egress allowlist | `safe-outputs.allowed-domains: [github, …data sources]` (least-privilege; **not** `default-safe-outputs`) | upstream `reference/safe-outputs.md` |
 
-**Cache-memory restore semantics**: when a run aborts before the
-`safeoutputs___create_pull_request` call lands a PR (e.g., session TTL,
-patch-size rejection, agent crash), the next run with the same
-`cache-memory.key` automatically restores `/tmp/gh-aw/cache-memory/` from
-the previous attempt. Stage A/B can detect prior partial work via
-`manifest.json.history[]` and skip already-collected EP feed data.
+**Cache-memory restore semantics**: gh-aw v0.69.3 emits an
+`update_cache_memory` job gated by `if: needs.agent.result == 'success'`,
+which means cache-memory is **only persisted to Actions cache on a
+successful agent run**. If the agent job fails outright (hard crash,
+skipped, cancelled), nothing is saved and the next run starts with an
+empty `/tmp/gh-aw/cache-memory/`. The recovery surface this PR enables
+is therefore narrower than "resume after any failure":
+- ✅ Agent step succeeds, but `safeoutputs___create_pull_request` is
+  blocked (org policy, patch-size rejection) → cache-memory **is**
+  saved, and `fallback-as-issue: true` opens a tracking issue. The
+  next run restores the prior partial work via `manifest.json.history[]`.
+- ❌ Agent step is killed mid-run (session TTL, container OOM, fatal
+  error) → cache-memory is **not** saved; the next run starts fresh.
+
+For Stage A/B partial work that survives a hard crash, rely on
+`repo-memory` (the `memory/news-generation` branch is committed
+incrementally during the run and persists independently of the
+`update_cache_memory` job's `success` gate).
 
 **Security**: Read-only permissions by default, MCP data only from official EU Parliament / World Bank / IMF sources. Firewall policy via [`gh-aw-firewall` skill](../skills/gh-aw-firewall.md).
 

@@ -131,7 +131,7 @@ tools:
 
 safe-outputs:
   allowed-domains:
-    - default-safe-outputs           # ecosystem: defaults + dev-tools + github + local
+    - github                         # ecosystem: github.com + api.github.com (least-privilege; PR creation only)
     - data.europarl.europa.eu
     - www.europarl.europa.eu
     - hack23.com

@@ -120,7 +120,7 @@ safe-outputs:
   # still protecting against runaway patches.
   max-patch-size: 10240
   allowed-domains:
-    - default-safe-outputs           # ecosystem: defaults + dev-tools + github + local
+    - github                         # ecosystem: github.com + api.github.com (least-privilege; PR creation only)
     - data.europarl.europa.eu
     - www.europarl.europa.eu
     - hack23.com
