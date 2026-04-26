@@ -153,6 +153,21 @@ Within a single run, take group seat counts from **one** source
 (`analyze_coalition_dynamics` OR `get_meps_feed`). Record the source in the
 manifest. Do not mix.
 
+**Canonical group-ID codes (consumer rule).** When invoking
+`analyze_coalition_dynamics`, `compare_political_groups`,
+`detect_voting_anomalies`, or `sentiment_tracker`, **always** pass the
+canonical English short codes —
+`["EPP","S&D","Renew","Greens/EFA","ECR","PfE","Left","NI"]`.
+Never pass the EP API native French/German variants
+(`PPE`, `Verts-ALE`, legacy `ID`) or full group names
+("Group of the European People's Party (Christian Democrats)") — on
+gateway `v1.2.13` these mismatches produce `memberCount: 0` and split
+groups; the upstream fix in
+[Hack23/European-Parliament-MCP-Server#405](https://github.com/Hack23/European-Parliament-MCP-Server/pull/405)
+(v1.2.15+) collapses native variants onto these canonical codes via
+`normalizePoliticalGroup()`. Triage table entry:
+[`07-mcp-reference.md` §11 row #2](07-mcp-reference.md).
+
 ## 8 · Prior-Run Forward-Looking Mining (week/month ahead + in-review)
 
 Before writing new analysis, mine forward-looking statements from:
