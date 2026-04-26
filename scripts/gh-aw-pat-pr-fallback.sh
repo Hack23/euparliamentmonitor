@@ -194,7 +194,7 @@ fi
 git checkout -B "$branch"
 git reset --mixed --quiet
 while IFS= read -r file; do
-  git add -- "$file"
+  git add -A -- "$file"
 done < "$eligible_changed"
 
 if git diff --cached --quiet; then
