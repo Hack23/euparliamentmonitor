@@ -70,10 +70,11 @@ attempt a second PR.
 
 ### 4a · Host-side PAT fallback for expired safeoutputs sessions
 
-The compiled 8 unified article lock files include a deterministic host-side
-fallback step after the agent execution and `Detect Copilot errors`. The
-fallback is **not** an agent tool call and does **not** expose credentials to
-the agent. It runs `scripts/gh-aw-pat-pr-fallback.sh` with
+The 8 unified article workflow sources define a deterministic custom
+`pat-pr-fallback` job that depends on the generated `agent` job. The fallback
+is **not** an agent tool call and does **not** expose credentials to the
+agent. It downloads the agent artifact and runs
+`scripts/gh-aw-pat-pr-fallback.sh` with
 `secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN` only when the normal
 safeoutputs path failed with `session not found` and no
 `create_pull_request` safeoutput item exists.

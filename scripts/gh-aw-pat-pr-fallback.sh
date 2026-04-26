@@ -133,6 +133,19 @@ disallowed_changed=$(mktemp)
 body_file=$(mktemp)
 stat_file=$(mktemp)
 
+if [ -z "$(git status --porcelain)" ]; then
+  for patch_file in /tmp/gh-aw/aw-*.patch; do
+    if [ ! -e "$patch_file" ]; then
+      continue
+    fi
+    log "applying agent patch artifact $patch_file"
+    if git apply --whitespace=nowarn "$patch_file"; then
+      break
+    fi
+    log "patch artifact did not apply cleanly: $patch_file"
+  done
+fi
+
 git diff --name-only > "$all_changed"
 git ls-files --others --exclude-standard >> "$all_changed"
 sort -u "$all_changed" -o "$all_changed"

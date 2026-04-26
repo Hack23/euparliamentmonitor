@@ -164,10 +164,11 @@ uniformly across all 9 article + translate workflows:
 | Safe-output egress allowlist | `safe-outputs.allowed-domains: [github, …data sources]` (least-privilege; **not** `default-safe-outputs`) | upstream `reference/safe-outputs.md` |
 
 **Host-side PAT fallback for expired safeoutputs sessions:** the 8 unified
-article lock files include a generated post-agent step named
-`Host-side PAT PR fallback`, injected by
-[`scripts/patch-gh-aw-pat-pr-fallback.js`](../../scripts/patch-gh-aw-pat-pr-fallback.js)
-after `gh aw compile --validate`. It runs
+article workflow sources define a custom `pat-pr-fallback` job named
+`Host-side PAT PR fallback` that depends on the generated `agent` job and
+downloads the agent artifact. `gh aw compile --validate` emits that source job
+into the generated lock files; do **not** patch `.lock.yml` files directly.
+The fallback job runs
 [`scripts/gh-aw-pat-pr-fallback.sh`](../../scripts/gh-aw-pat-pr-fallback.sh)
 only when `/tmp/gh-aw/agent-stdio.log` contains `session not found` and no
 `create_pull_request` safeoutput item exists. The step uses
