@@ -68,6 +68,23 @@ attempt a second PR.
 - More than one `safeoutputs___create_pull_request` reference in the same workflow
   file (exception: `news-translate.md`)
 
+### 4a · Host-side PAT fallback for expired safeoutputs sessions
+
+The 8 unified article workflow sources define a deterministic custom
+`pat-pr-fallback` job that depends on the generated `agent` job. The fallback
+is **not** an agent tool call and does **not** expose credentials to the
+agent. It downloads the agent artifact and runs
+`scripts/gh-aw-pat-pr-fallback.sh` with
+`secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN` only when the normal
+safeoutputs path failed with `session not found` and no
+`create_pull_request` safeoutput item exists.
+
+The fallback preserves the single-PR rule by pushing only the canonical
+`news/<YYYY-MM-DD>-<type>` branch, checking for an existing open PR for that
+branch, updating it when present, and creating one PR only when none exists.
+It stages only `analysis/daily/**` and `news/**` paths; protected paths and
+lock files remain unstaged.
+
 ## 5 · Noop Diagnostic (required content)
 
 `safeoutputs___noop` is called only when MCP is completely unreachable AND zero

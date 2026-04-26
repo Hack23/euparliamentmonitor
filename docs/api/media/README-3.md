@@ -144,6 +144,60 @@ Rationale and exceptions: [`06-pr-and-safe-outputs.md`](../prompts/06-pr-and-saf
 - References [`analysis/templates/README.md`](../../analysis/templates/README.md) for the 39-template artifact catalog
 - May apply minor TypeScript/script corrections (max 20 lines) to unblock generation
 
+#### Resilience & performance posture (April-2026 review)
+
+Every `news-*.md` workflow inherits the following hardened posture, applied
+uniformly across all 9 article + translate workflows:
+
+| Concern | Setting | Source-of-truth doc |
+|---|---|---|
+| Per-tool-call cap | `tools.timeout: 300` (5 min) | upstream `reference/tools.md` |
+| MCP server boot budget | `tools.startup-timeout: 90` | upstream `reference/tools.md` |
+| MCP gateway keepalive | `sandbox.mcp.keepalive-interval: 300` (overrides 1500 s default) | upstream `reference/mcp-gateway.md` §4.1.3.5 |
+| Cache memory (resume on failure) | `tools.cache-memory: { key: news-<type>-…, retention-days: 7 }` | upstream `reference/cache-memory.md` |
+| Repo memory (long-term) | `tools.repo-memory: memory/news-generation` | upstream `reference/repo-memory.md` |
+| Web fallback | `tools.web-fetch:` | upstream `reference/tools.md` |
+| Explicit edit tool | `tools.edit:` | upstream `reference/tools.md` |
+| GitHub toolset | `tools.github.toolsets: [all]` (excludes `dependabot`) | upstream `reference/github-tools.md` |
+| Network ecosystem identifiers | `defaults`, `github`, `node` + explicit data-source domains | upstream `reference/network.md` |
+| Safe-output PR resilience | `if-no-changes: warn`, `fallback-as-issue: true`, `auto-close-issue: false`, `excluded-files: ["**/*.lock", …]` | upstream `reference/safe-outputs-pull-requests.md` |
+| Safe-output egress allowlist | `safe-outputs.allowed-domains: [github, …data sources]` (least-privilege; **not** `default-safe-outputs`) | upstream `reference/safe-outputs.md` |
+
+**Host-side PAT fallback for expired safeoutputs sessions:** the 8 unified
+article workflow sources define a custom `pat-pr-fallback` job named
+`Host-side PAT PR fallback` that depends on the generated `agent` job and
+downloads the agent artifact. `gh aw compile --validate` emits that source job
+into the generated lock files; do **not** patch `.lock.yml` files directly.
+The fallback job runs
+[`scripts/gh-aw-pat-pr-fallback.sh`](../../scripts/gh-aw-pat-pr-fallback.sh)
+only when `/tmp/gh-aw/agent-stdio.log` contains `session not found` and no
+`create_pull_request` safeoutput item exists. The step uses
+`secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN` from
+[`copilot-setup-steps.yml`](copilot-setup-steps.yml), stages only
+`analysis/daily/**` and `news/**`, pushes the deterministic
+`news/<YYYY-MM-DD>-<type>` branch, and reuses any existing open PR for that
+branch before creating a new one. `news-translate.md` remains the only
+multi-call safeoutputs workflow and does not use this fallback.
+
+**Cache-memory restore semantics**: gh-aw v0.69.3 emits an
+`update_cache_memory` job gated by `if: needs.agent.result == 'success'`,
+which means cache-memory is **only persisted to Actions cache on a
+successful agent run**. If the agent job fails outright (hard crash,
+skipped, cancelled), nothing is saved and the next run starts with an
+empty `/tmp/gh-aw/cache-memory/`. The recovery surface this PR enables
+is therefore narrower than "resume after any failure":
+- ✅ Agent step succeeds, but `safeoutputs___create_pull_request` is
+  blocked (org policy, patch-size rejection) → cache-memory **is**
+  saved, and `fallback-as-issue: true` opens a tracking issue. The
+  next run restores the prior partial work via `manifest.json.history[]`.
+- ❌ Agent step is killed mid-run (session TTL, container OOM, fatal
+  error) → cache-memory is **not** saved; the next run starts fresh.
+
+For Stage A/B partial work that survives a hard crash, rely on
+`repo-memory` (the `memory/news-generation` branch is committed
+incrementally during the run and persists independently of the
+`update_cache_memory` job's `success` gate).
+
 **Security**: Read-only permissions by default, MCP data only from official EU Parliament / World Bank / IMF sources. Firewall policy via [`gh-aw-firewall` skill](../skills/gh-aw-firewall.md).
 
 ---
