@@ -42,8 +42,7 @@ Every piece of content MUST go through at least **2 complete passes**:
 ### Rule 2: No Early Completion
 
 - If the time budget says "20 minutes for analysis," you MUST work for the FULL 20 minutes.
-- If the workflow has a 45-minute budget (split-family analysis/article workflows), you MUST be actively working for ≥30 minutes.
-- If the workflow has a 60-minute budget (legacy monolithic workflows), you MUST be actively working for ≥45 minutes.
+- Every article-generating workflow has a 45-minute budget — you MUST be actively working until the safe-outputs PR call (target minute ≤ 25, hard deadline minute ≤ 28). The remaining 17–20 min is reserved for Stage D render, validators, push, and the safeoutputs git format-patch snapshot.
 - Finishing early = rushed = low quality = VIOLATION.
 - If you finish Pass 2 early, do a **Pass 3** — there is ALWAYS more depth to add.
 
@@ -86,21 +85,17 @@ Every paragraph must pass this test:
 - ❌ Never use placeholder text ("Analysis pending", "TBD", "See data")
 - ❌ Never produce bullet-list articles instead of prose
 - ❌ Never accept shallow one-sentence SWOT items or stakeholder perspectives
-- ❌ Never finish a 60-minute workflow in under 45 minutes
-- ❌ Never finish a 45-minute split-family workflow in under 30 minutes
+- ❌ Never finish a 45-minute unified workflow before the Stage E safe-outputs PR call (target minute ≤ 25, hard deadline minute ≤ 28)
 
 ## Time Budget Enforcement
 
-| Workflow Type | Total Budget | Min Active Work | Analysis Phase | Article Phase |
-|---------------|-------------|-----------------|------------------------|----------------------|
-| **Split family — analysis** (`news-<type>-analysis.md`) | 45 min | ≥30 min | ≥20 min (2-pass) + Stage C | N/A (paired article workflow) |
-| **Split family — article** (`news-<type>-article.md`) | 45 min | ≥30 min | N/A (reads committed analysis) + optional ≤5 min Stage-A top-up | ≥20 min (2-pass) + validators |
-| Single-topic news (legacy monolithic) | 60 min | ≥45 min | ≥20 min (2-pass) | ≥15 min (2-pass) |
-| Weekly/Monthly review (legacy monolithic) | 60 min | ≥45 min | ≥25 min (2-pass) | ≥15 min (2-pass) |
-| Multi-article generator | 120 min | ≥90 min | ≥15 min × types (2-pass) | ≥15 min × types (2-pass) |
-| **Analysis-only run** (no article) | 60 min (legacy) / 45 min (split) | **≥45 min** (legacy) / **≥30 min** (split) | ≥20 min Pass 1+2 **+ ≥5 min Pass 3 (cross-run diff) + ≥5 min Pass 4 (forward monitoring)** (4-pass) | N/A |
+| Workflow Type | Total Budget | Min Active Work | Stage A (Data) | Stage B (Analysis, 2-pass) | Stage D (Article, 2-pass) |
+|---------------|--------------|-----------------|----------------|----------------------------|---------------------------|
+| **Unified `news-<type>.md`** (all 8 article workflows) | 45 min | Until PR call by minute ≤ 28 (target ≤ 25) | ≤ 5 min | ≥ 18 min (Pass 1 ~60% / Pass 2 ~40%) + Stage C completeness gate | ≥ 5 min — runs `npm run generate-article -- --run "${ANALYSIS_DIR}"` then ≥ 1 read-back / quality pass before the single Stage E PR call |
+| **`news-translate.md`** (multi-call flush) | 45 min | Until final flush ≤ 28 min | N/A — translation only | N/A | First productive flush at ~minute 14 (≥ 3 translated HTML files), periodic flushes every +3 files, final flush ≤ minute 28 |
+| **Analysis-only run** (newsworthiness gate fails inside a unified `news-<type>.md`) | 45 min | Until minute ≤ 28 (4-pass) | ≤ 5 min | Pass 1 + Pass 2 (≥ 18 min) **+ Pass 3 (cross-run diff, ≥ 4 min) + Pass 4 (forward monitoring, ≥ 4 min)** | N/A — no article rendered; PR contains analysis artifacts only |
 
-> **Analysis-only runs MUST NOT short-circuit**. When the newsworthiness gate fails, the time saved by skipping article generation MUST be reinvested into Pass 3 (cross-run diff) and Pass 4 (forward monitoring extension). See § Mandatory Analysis-Only 4-Pass Protocol in this skill. Early exit before minute 45 is a VIOLATION. Reference incident: PR #1223 / run 24541203743 (19-minute agent run).
+> **Analysis-only runs MUST NOT short-circuit**. When the newsworthiness gate fails, the time saved by skipping article generation MUST be reinvested into Pass 3 (cross-run diff) and Pass 4 (forward monitoring extension). See § Mandatory Analysis-Only 4-Pass Protocol in this skill. Early exit before the safe-outputs PR call (minute ≤ 28) is a VIOLATION. Reference incident: PR #1223 / run 24541203743 (19-minute agent run).
 
 ## Mandatory Analysis-Only 4-Pass Protocol
 

@@ -412,23 +412,22 @@ steps:
 
 ## EU Parliament Monitor Workflows
 
-This project uses gh-aw for 18 automated news workflows in `.github/workflows/*.md`, organized as 8 split-pair article types plus a manual generator and a translator:
+This project uses gh-aw for **9 automated news workflows** in `.github/workflows/*.md`: 8 unified article workflows + 1 translation helper. Each unified workflow runs Stages A → E in a single 45-min session and produces exactly one PR containing both analysis artifacts and the rendered article HTML.
 
-**Split pairs** — each article type has a `news-<type>-analysis.md` (Stages A+B+C, ~45 min, scheduled) and a `news-<type>-article.md` (Stage D, ~45 min, triggered on merged analysis PR):
-- `news-breaking-analysis.md` / `news-breaking-article.md` — Breaking EP news
-- `news-weekly-review-analysis.md` / `news-weekly-review-article.md` — Weekly parliament review
-- `news-monthly-review-analysis.md` / `news-monthly-review-article.md` — Monthly parliament review
-- `news-week-ahead-analysis.md` / `news-week-ahead-article.md` — Week ahead preview
-- `news-month-ahead-analysis.md` / `news-month-ahead-article.md` — Month ahead preview
-- `news-committee-reports-analysis.md` / `news-committee-reports-article.md` — Committee activity reports
-- `news-motions-analysis.md` / `news-motions-article.md` — Parliamentary motions
-- `news-propositions-analysis.md` / `news-propositions-article.md` — Legislative propositions
+**Unified article workflows** (one per article type, all `timeout-minutes: 45`):
+- `news-breaking.md` — Breaking EP news (every 6 h)
+- `news-week-in-review.md` — Weekly parliament review (Sat 09:00 UTC)
+- `news-month-in-review.md` — Monthly parliament review (28th 10:00 UTC)
+- `news-week-ahead.md` — Week ahead preview (Fri 07:00 UTC)
+- `news-month-ahead.md` — Month ahead preview (1st 08:00 UTC)
+- `news-committee-reports.md` — Committee activity reports (weekdays 04:00 UTC)
+- `news-motions.md` — Parliamentary motions (weekdays 06:00 UTC)
+- `news-propositions.md` — Legislative propositions (weekdays 05:00 UTC)
 
-**Standalone**:
-- `news-article-generator.md` — Generic / on-demand article generator (manual)
-- `news-translate.md` — Multi-language translation (14 languages, manual flush)
+**Translation helper**:
+- `news-translate.md` — Multi-language translation (14 languages, manual `workflow_dispatch:` only, multi-call flush, exempt from single-PR rule)
 
-> The legacy monolithic `news-<type>.md` workflows (single-job Stages A+B+C+D) were removed in April 2026 because their >30-min runtime exceeded the safeoutputs MCP session TTL. See `git log --diff-filter=D -- .github/workflows/news-breaking.md` for history.
+> The earlier split-pair `news-<type>-analysis.md` + `news-<type>-article.md` layout and the manual `news-article-generator.md` helper were removed in the April-2026 aggregator-pipeline migration in favour of the unified single-PR pattern. See `.github/workflows/README.md` and `.github/agents/news-generation.agent.md` § "Shared Stage Contract".
 
 ## Gallery of Workflow Patterns
 
