@@ -52,6 +52,15 @@ sandbox:
   agent: awf
   mcp:
     port: 8080
+    # `keepalive-interval` (seconds) for HTTP MCP backends — see upstream
+    # reference/mcp-gateway.md §4.1.3.5. Gateway default is 1500 (25 min);
+    # we override to 300 so the gateway pings each backend (european-parliament,
+    # world-bank, memory, sequential-thinking) every 5 minutes. This keeps
+    # backend HTTP sessions warm during the 45-minute Stage B/C/D window
+    # without triggering EP-side rate limits. Setting to -1 would disable
+    # pings; 0/unset would silently default to 1500 — both unsafe for
+    # long-running news runs that can idle on MCP for 10+ minutes during
+    # Stage B Pass 2 prose review.
     keepalive-interval: 300
 
 imports:
@@ -66,11 +75,17 @@ runtimes:
   node:
     version: "25"
 
+# Network allowlist — uses ecosystem identifiers where possible (per
+# upstream docs/reference/network.md §"Ecosystem Identifiers"):
+#   - `defaults` — basic infrastructure (certs, JSON schema, package mirrors)
+#   - `github`   — all GitHub domains (replaces explicit github.com/api.github.com)
+#   - `node`     — npm/npx ecosystem (needed for MCP server boot via npx)
+# Plus EP/IMF/WB data sources and Hack23 publication targets as explicit domains.
 network:
   allowed:
+    - defaults
+    - github
     - node
-    - github.com
-    - api.github.com
     - data.europarl.europa.eu
     - dataservices.imf.org
     - api.worldbank.org
@@ -81,15 +96,32 @@ network:
     - www.riksdagsmonitor.com
     - euparliamentmonitor.com
     - www.euparliamentmonitor.com
-    - defaults
 
+# Tools — all available read/edit/web/memory tools the agent needs for a
+# resilient 45-min news-generation session. See upstream reference/tools.md
+# and reference/github-tools.md.
 tools:
-  timeout: 300  # 5 min per-tool-call cap (bash, MCP, etc.) — guards against hung tool calls
+  timeout: 300            # per-tool-call cap (bash, MCP, github, edit, web-fetch)
+  startup-timeout: 90     # MCP server boot (npx package install) — covers
+                          # european-parliament/world-bank/memory/sequential-thinking
   github:
+    # `all` enables every read toolset EXCEPT `dependabot` (per upstream
+    # docs — `dependabot` requires `vulnerability-alerts: read` which we
+    # do not grant; news workflows do not need supply-chain alerts).
     toolsets:
       - all
-  bash: true
-  agentic-workflows: true
+  bash: true              # AWF-sandboxed shell — required for Stage A/D scripts
+  edit:                   # explicit file-edit tool (analysis artifact authoring)
+  web-fetch:              # fallback fetch for EP/IMF/WB pages when MCP miss
+  agentic-workflows: true # workflow introspection (audit/log analysis)
+  # Cache memory — restores partial analysis & data fetched in prior runs
+  # so a failed safe-outputs PR call does not lose Stage A/B work. Per
+  # upstream reference/cache-memory.md, the compiler auto-injects restore
+  # and save steps using a workflow-scoped key.
+  cache-memory:
+    key: news-committee-reports-${{ github.repository_owner }}
+    retention-days: 7
+    allowed-extensions: [".md", ".json", ".jsonl", ".txt", ".html"]
   repo-memory:
     branch-name: memory/news-generation
     allowed-extensions: [".md", ".json"]
@@ -99,9 +131,9 @@ tools:
 
 safe-outputs:
   allowed-domains:
+    - github                         # ecosystem: github.com + api.github.com (least-privilege; PR creation only)
     - data.europarl.europa.eu
     - www.europarl.europa.eu
-    - github.com
     - hack23.com
     - www.hack23.com
     - riksdagsmonitor.com
@@ -115,6 +147,14 @@ safe-outputs:
     expires: 14d
     allowed-base-branches: ["main"]
     max: 1
+    # Resilience knobs (per upstream reference/safe-outputs-pull-requests.md):
+    if-no-changes: warn              # noop runs warn instead of erroring
+    fallback-as-issue: true          # if PR creation blocked, open issue link
+    auto-close-issue: false          # not issue-triggered — never auto-close
+    excluded-files:                  # never commit auto-generated artifacts
+      - "**/*.lock"
+      - "node_modules/**"
+      - ".github/workflows/*.lock.yml"
   dispatch-workflow:
     workflows: [news-translate]
     max: 1

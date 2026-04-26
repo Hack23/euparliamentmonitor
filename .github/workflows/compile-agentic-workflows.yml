@@ -78,12 +78,22 @@ jobs:
               original = lock_file.read_text(encoding="utf-8")
               normalized = original.replace("node:lts-alpine", "node:25-alpine")
               normalized = re.sub(r'(?m)^[ \t]*"tools":\s*\[\s*\n\s*"\*"\s*\n\s*\],?\s*\n', "", normalized)
+              # Fix gh-aw v0.69.3 cache-memory generator bug: the auto-injected
+              # validate-memory-files step uses `$${result.invalidFiles.length}`
+              # in a JS template literal, which renders as `$<n>` instead of
+              # `<n>` because the first `$` is literal and the second `${...}`
+              # interpolates. Strip the leading `$$` → `$` so the failure
+              # message is accurate. See PR #1450 review thread.
+              normalized = normalized.replace(
+                  "Found $${result.invalidFiles.length}",
+                  "Found ${result.invalidFiles.length}",
+              )
 
               if normalized != original:
                   lock_file.write_text(normalized, encoding="utf-8")
                   updated_files.append(str(lock_file))
 
-              if 'node:lts-alpine' in normalized or re.search(r'"tools":\s*\[', normalized):
+              if 'node:lts-alpine' in normalized or re.search(r'"tools":\s*\[', normalized) or "Found $${result.invalidFiles.length}" in normalized:
                   invalid_files.append(str(lock_file))
 
           if updated_files:
