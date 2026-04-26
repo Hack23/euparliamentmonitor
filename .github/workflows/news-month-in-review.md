@@ -24,12 +24,9 @@ permissions:
 # Hard safety cap. Active-work budget is 22–27 min before the single
 # safe-outputs create_pull_request call (see safeoutputs TTL note in the
 # prompt body). The remaining minutes cover npm setup + git push.
-# Raised from 75 → 90 min after run #24931834590 was cancelled at ~24 min
-# (38 LLM requests / 0 safe outputs). This adds overall workflow headroom
-# for setup, analysis, rendering, and push steps; it does not extend the
-# safeoutputs session TTL, which still depends on when the first safeoutputs
-# call is made.
-timeout-minutes: 90
+# Reduced from 90 → 60 min: GITHUB_TOKEN expires after 60 min; any git push
+# or safeoutputs call after minute 60 will fail with 401.
+timeout-minutes: 60
 
 features:
   mcp-gateway: true
@@ -167,7 +164,7 @@ prose pass.
 | Stage B budget (2 passes) | ≥ 18 min |
 | Stage D budget | ≤ 2 min (deterministic) |
 | **Total active-work budget** | **22–27 min** before the single safe-outputs `create_pull_request` call |
-| Hard safety cap | 90-min `timeout-minutes` |
+| Hard safety cap | 60-min `timeout-minutes` |
 | PR rule | **Exactly one** `[news]` PR at end of run |
 
 > **⚠️ safeoutputs Session TTL**: The safeoutputs MCP HTTP session on

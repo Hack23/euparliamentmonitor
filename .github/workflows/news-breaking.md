@@ -24,7 +24,7 @@ permissions:
 # Hard safety cap. Active-work budget is 22–27 min before the single
 # safe-outputs create_pull_request call (see safeoutputs TTL note in the
 # prompt body). The remaining minutes cover npm setup + git push.
-timeout-minutes: 75
+timeout-minutes: 60
 
 features:
   mcp-gateway: true
@@ -183,7 +183,7 @@ prose pass.
 | Stage C budget | ≤ 2 min **ceiling** |
 | Stage D budget | ≤ 2 min (deterministic) |
 | **Total wall-clock from agent start** | **≤ 22 min** to the single safe-outputs `create_pull_request` call |
-| Hard safety cap | 75-min `timeout-minutes` |
+| Hard safety cap | 60-min `timeout-minutes` |
 | PR rule | **Exactly one** `[news]` PR at end of run |
 
 > **🚨 safeoutputs Session TTL — HARD LIMIT**: The safeoutputs MCP HTTP
@@ -191,8 +191,7 @@ prose pass.
 > safeoutputs tool calls. Agent activity on **any other tool does NOT refresh
 > it**. Your `PR_DEADLINE_EPOCH` is printed in the first bash block — **stop
 > analysis immediately and go to Stage E the moment you cross that deadline**.
-> `sandbox.mcp.keepalive-interval: 300` does NOT prevent session expiry.
-> See [`09-troubleshooting.md`](../prompts/09-troubleshooting.md) §5a.
+> `sandbox.mcp.keepalive-interval: 300` keeps the gateway pinging every 5 min — session expiry is now prevented once `gh-aw-mcpg` ≥ the version shipping PR #3079. The PR_DEADLINE_EPOCH ceiling remains a belt-and-suspenders safeguard.
 
 ## 🎯 Article-Type Specifics
 
