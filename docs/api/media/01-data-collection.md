@@ -14,7 +14,7 @@ Stay within the 10-minute budget.
 [Stage A: Data Collection] → Stage B: Analysis → Stage C: Gate → Stage D: Article → PR
 ```
 
-Time budget: **≤ 10 minutes** of a 60-minute workflow.
+Time budget: **≤ 5 minutes** of a 45-minute workflow (the Stage-A line in every workflow's parameter table).
 
 ## 2 · What to Collect
 
@@ -106,6 +106,9 @@ Integration requirements:
    `buildDashboardSection()`.
 5. Every IMF citation carries the vintage string
    (`IMF WEO April 2026`, `IMF Fiscal Monitor April 2026`) in prose.
+6. Bridge every economic indicator to a named EP file, committee, procedure,
+   vote, or stakeholder pressure. A standalone macro paragraph with no EP
+   political mechanism fails Stage C even when it cites IMF correctly.
 
 ## 5 · Data Verification Manifest
 
@@ -136,6 +139,13 @@ Every `manifest.json` records what was successfully downloaded:
    seats) → cap probabilities at `0.70 × raw`.
 5. When you observe new MCP defects, author
    `intelligence/mcp-reliability-audit.md` alongside the analysis.
+6. **`monitor_legislative_pipeline` date default (Defect #6 — v1.2.13):**
+   Always supply `dateFrom: $LAST_MONTH` and `dateTo: $TODAY` explicitly.
+   v1.2.13 defaults the reported `period` to calendar 2024 when no dates
+   are given, returning an empty pipeline for all current procedures. For
+   forward-looking workflows (`week-ahead`, `month-ahead`) use the relevant
+   future date span. Do not rely on the no-dates default until v1.2.14+
+   is confirmed installed.
 
 ## 7 · Seat-Count Normalization
 

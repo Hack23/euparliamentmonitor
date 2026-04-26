@@ -12,6 +12,11 @@ and emits the final HTML via `src/aggregator/article-html.ts`. Then — and only
 then — call `safeoutputs___create_pull_request` exactly once (see
 [`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md)).
 
+For the end-to-end article object, UI/UX export, `article.md` provenance, and
+static-site publication contract, also read
+[`Article-Generation.md`](../../Article-Generation.md). This prompt is the
+operational Stage-D checklist; `Article-Generation.md` is the durable reference.
+
 ## 1 · Precondition
 
 > **Do not start Stage D before Stage C exits 0.** If you are reading this
@@ -21,8 +26,10 @@ then — call `safeoutputs___create_pull_request` exactly once (see
 In the current **unified** `news-<type>.md` workflow (Stages A → B → C → D → E
 in one session), Stage D runs inline after the Stage-C gate exits 0. The
 agent has just written the full artifact set under
-`${ANALYSIS_DIR}=analysis/daily/${DATE}/${TYPE}-run<NN>/` and the
-`manifest.json` has its latest `history[]` entry stamped `GREEN`.
+`${ANALYSIS_DIR}=analysis/daily/${DATE}/${TYPE}/` (canonical stable folder, no
+`-run<NN>` suffix — repeated runs reuse the same folder and append to
+`manifest.json.history[]` per `02 §2`) and the `manifest.json` has its latest
+`history[]` entry stamped `GREEN`.
 
 ## 2 · Generator Command
 
@@ -122,7 +129,7 @@ Every IMF citation MUST include, in the
 At least one Mermaid diagram or Chart.js canvas block AND one analytical
 paragraph (≥ 60 words) interpreting the data must be present in the artifact.
 
-## 6 · Title · Description · Keywords
+## 6 · SEO Title · Description · Search Intent
 
 The aggregator derives the article `<title>` / `<meta name="description">`
 through the 5-tier editorial-highlight resolver in
@@ -162,11 +169,17 @@ through the 5-tier editorial-highlight resolver in
 `manifest.description` **with the day's actual editorial highlight**
 whenever possible. Required qualities:
 
-- active voice, ≤ 70 chars, names actors
+- active voice, ≤ 70 chars, names the actor / institution / legislative file
 - never contains raw metrics, article-type labels, or date-centric
   formats like `EU Parliament Breaking — 2026-04-14`
 - never repeats the lede verbatim in the description — `description`
   must complement `title`, not echo it
+- description target: 150–160 characters, one policy consequence, one named
+  stakeholder impact, no markdown, no citation brackets, no unsupported
+  probability claim
+- search intent: ensure the title or first two headings contain the natural
+  language terms citizens would search for (committee acronym, procedure title,
+  policy area, and one named institution) without keyword stuffing
 - never leaks `Run:`, `Purpose:`, `BLUF`, or `Composition layer` prefixes
   (these are filtered out of fallback tiers, but a manual override with
   one of these prefixes would be used verbatim)
@@ -175,6 +188,20 @@ When you DO NOT write a manifest override, make sure the first heading
 of `intelligence/synthesis-summary.md` meets the same rules, because the
 Tier-2 fallback will promote it into the `<title>`.
 
+**SEO self-check before Stage D:**
+
+| Check | Pass condition |
+|---|---|
+| Specificity | Title names an EP actor, committee, procedure, vote, or policy file. |
+| Click value | Description explains why the development matters politically, not merely that it occurred. |
+| Evidence hygiene | Title/description only use facts already present in `synthesis-summary.md` or `significance-scoring.md`. |
+| IMF relevance | If the article has economic stakes, description alludes to the economic pressure only when `economic-context.md` cites IMF evidence. |
+| Locale safety | Non-English rendered pages may fall back to English title until translation flush; never put English-only boilerplate in manifest per-language fields. |
+
+The aggregator does not invent SEO copy. If the manifest and first synthesis H1
+are generic, the published `<title>`, Open Graph headline, Twitter card, JSON-LD
+headline, indexes, RSS, and sitemap-derived metadata will be generic too.
+
 ## 7 · Analysis-to-Article Artifact Map (authoritative)
 
 Every analysis artifact referenced in `manifest.files.*` is walked by the
@@ -182,6 +209,12 @@ aggregator in canonical order (`src/aggregator/artifact-order.ts`) and
 rendered into the final HTML. The article's section-to-artifact mapping
 is therefore the same as the canonical artifact order — there is no
 separate "article structure" to maintain.
+
+The article begins with a generated **Reader Intelligence Guide** and then the
+root-level `executive-brief.md` (or legacy `extended/executive-brief.md`
+fallback). This mirrors the Riksdagsmonitor pattern: readers see BLUF,
+decisions, 60-second read, risk snapshot, and top forward trigger before the
+longer synthesis and audit appendices.
 
 | Article section (rendered) | Primary artifact(s) | Supporting artifact(s) |
 |---|---|---|
@@ -224,11 +257,14 @@ is the sole render step. It:
 - emits the final HTML via `src/aggregator/article-html.ts` with the shared
   site chrome and 14-language `<link rel="alternate" hreflang>` entries
 
-The legacy standalone validators (`scripts/utils/validate-analysis-completeness.js`
+The legacy in-aggregator validators (`scripts/utils/validate-analysis-completeness.js`
 and `src/utils/validate-articles.ts`) were removed in the April-2026
-aggregator-pipeline purge. Stage-C gating now runs agent-side during Pass 2
-review and at manifest-write time — see
-[`02-analysis-protocol.md`](02-analysis-protocol.md) §9.
+aggregator-pipeline purge. Stage-C gating is now performed by the standalone
+validator at [`scripts/validate-analysis-completeness.js`](../../scripts/validate-analysis-completeness.js)
+invoked as `npm run validate-analysis -- <runDir>` (see
+[`03-analysis-completeness-gate.md`](03-analysis-completeness-gate.md) §1)
+plus the agent-side Pass 2 readback, both running over the committed
+`analysis/daily/<run>/**/*.md` set before any Stage-D render.
 
 ## 9 · No-Publish Rule
 

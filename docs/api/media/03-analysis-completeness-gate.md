@@ -3,23 +3,41 @@
 
 # 03 — Analysis Completeness Gate (Stage C)
 
-**Summary:** `validate-analysis-completeness` is the **blocking** gate between
-analysis and article. Zero exit ⇒ proceed to Stage D. Non-zero exit ⇒ run Pass 3
-on missing artifacts; retry once; on a second failure, produce an **analysis-only
-PR** and skip article drafting entirely. Never ship an article without a green
-gate.
+**Summary:** Stage C is the **blocking agent-side readback gate** between
+analysis and article render. GREEN ⇒ proceed to Stage D. RED ⇒ run Pass 3 on
+missing or shallow artifacts; retry once; on a second failure, produce an
+**analysis-only PR** and skip article rendering entirely. Never ship an article
+without a green gate.
 
 ## 1 · Invocation
 
+The repository now ships an authoritative validator at
+[`scripts/validate-analysis-completeness.js`](../../scripts/validate-analysis-completeness.js)
+exposed as `npm run validate-analysis -- <runDir>`. Stage C MUST shell out to
+this script before emitting the gate line — never hand-eyeball the catalog when
+a script can enforce it.
+
 ```bash
-npm run validate-analysis -- \
-  --analysis-dir="${ANALYSIS_DIR}" \
-  --article-type="${ARTICLE_TYPE_SLUG}"
-# 0 = green; 1 = failed (run Pass 3); 2 = usage error
+npm run validate-analysis -- analysis/daily/<date>/<article-type>
 ```
 
-Do **not** pass `--warn-only` — that flag downgrades failures to warnings and
-is disallowed in any workflow invocation.
+Exit codes:
+- `0` ⇒ GREEN. Echo the validator's final `STAGE_C_GATE: GREEN …` line verbatim
+  and proceed to Stage D.
+- `1` ⇒ RED. Echo the validator's final `STAGE_C_GATE: RED …` line, run Pass 3
+  on the artifacts the validator listed (mermaid:missing, short:N<floor,
+  admiralty:missing, etc.), and re-run the validator. On a second RED, produce
+  an **analysis-only PR** and skip article render — never ship an article
+  without a green gate.
+- `2` ⇒ tooling error (bad CLI args). Stop and ask for help.
+
+Use `--json` for machine-readable output if downstream automation needs it.
+
+```text
+STAGE_C_GATE: GREEN articleType=<type> artifacts=<N> lines=<L>
+STAGE_C_GATE: ANALYSIS_ONLY articleType=<type> reason="<why no article render>"
+STAGE_C_GATE: RED articleType=<type> missing=<N> short=<N> placeholders=<N> mermaid_missing=<N> other=<N>
+```
 
 ## 2 · What the Validator Enforces
 
@@ -48,6 +66,14 @@ catalog. The validator enforces:
 10. `workflow-audit.md` and `methodology-reflection.md` are present as the
     final two artifacts of the run (see `ai-driven-analysis-guide.md` Step 10.5).
 
+### Mandatory reader layer — `executive-brief.md`
+
+Every GREEN article run MUST include root-level `${ANALYSIS_DIR}/executive-brief.md`.
+It is the first rendered artifact in `article.md` and must contain a BLUF, three
+decisions, 60-second read, top documents/procedures table, Mermaid risk snapshot,
+and top forward trigger. `extended/executive-brief.md` is accepted only as a
+legacy fallback when improving an older run; new runs write the root artifact.
+
 ### Optional — `extended/` artifacts (not required by default)
 
 Artifacts written to `${ANALYSIS_DIR}/extended/` are **not required** for a
@@ -59,7 +85,7 @@ have entries in
 the validator may enforce the corresponding checks (including per-artifact line
 floors).
 
-The 12 extended artifacts are: `executive-brief`, `devils-advocate-analysis`,
+The 11 extended artifacts are: `devils-advocate-analysis`,
 `historical-parallels`, `coalition-mathematics`, `forward-indicators`,
 `intelligence-assessment`, `implementation-feasibility`, `media-framing-analysis`,
 `comparative-international`, `cross-reference-map`, `data-download-manifest`,
@@ -95,11 +121,11 @@ PREFLIGHT_ATTESTATION: read N/N artifacts from ${ANALYSIS_DIR} (LINES lines, FRA
 ```
 1. Run validator.
 2. If exit 0 → continue to Stage D.
-3. If exit 1:
-   a. Read the validator's SHORT/MISSING/PLACEHOLDER report.
+3. If RED:
+   a. Read the SHORT/MISSING/PLACEHOLDER report you just produced.
    b. Run Pass 3 targeting only the named artifacts.
-   c. Re-run the validator.
-4. If second exit is non-zero → produce an ANALYSIS-ONLY PR
+   c. Re-run the Stage-C readback.
+4. If the second Stage-C readback is still RED → produce an ANALYSIS-ONLY PR
    (see 06-pr-and-safe-outputs.md §3). Do NOT draft an article.
 ```
 
@@ -115,16 +141,12 @@ monitoring, and data-quality delta go into the same PR. See
 
 ## 6 · After a Green Gate
 
-**In a `news-<type>-analysis.md` workflow** (split family): Stage C green is
-the **hand-off to the paired article workflow**, not an inline Stage D.
-Proceed to ship a single analysis-only PR (see
-[`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md) §3). When that PR is
-merged to `main`, the `news-<type>-article.md` workflow will automatically
-run Stage D against the committed `analysis/daily/${DATE}/${TYPE}/` folder.
-
-**In a legacy monolithic workflow** (pre-split): next file to read is
-[`04-article-generation.md`](04-article-generation.md); article drafting
-begins inline.
+In the current unified `news-<type>.md` workflows, Stage C GREEN is the inline
+hand-off to Stage D. Next read
+[`04-article-generation.md`](04-article-generation.md) and
+[`Article-Generation.md`](../../Article-Generation.md), then invoke the
+deterministic aggregator. There is no paired article workflow and no AI-authored
+HTML prose pass.
 
 ## 6b · Resuming a Same-Day Folder (repeated analysis runs)
 

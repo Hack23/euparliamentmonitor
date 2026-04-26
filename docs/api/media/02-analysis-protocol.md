@@ -15,7 +15,8 @@ article drafting until Stage C (completeness gate) exits 0.
 - **Reference run:** `analysis/daily/2026-04-18/breaking-run184/` — 17 artifacts, 3600+ lines, 13 frameworks
 - **Methodology guides:** [`analysis/methodologies/`](../../analysis/methodologies/) (classification, threat, SWOT, risk, style, OSINT tradecraft, WB/IMF indicator mappings)
 - **Templates (39 total):** [`analysis/templates/`](../../analysis/templates/) — 6 framework + 14 agentic-workflow + 25 per-artifact templates, indexed in [`analysis/templates/README.md`](../../analysis/templates/README.md)
-- **Per-artifact line floors:** [`analysis/methodologies/reference-quality-thresholds.json`](../../analysis/methodologies/reference-quality-thresholds.json) (keyed by `articleType × relativePath`) — enforced by `npm run validate-analysis`
+- **Per-artifact line floors:** [`analysis/methodologies/reference-quality-thresholds.json`](../../analysis/methodologies/reference-quality-thresholds.json) (keyed by `articleType × relativePath`) — enforced by the Stage-C agent-side readback; there is no standalone runtime validator in the aggregator era.
+- **Article pipeline reference:** [`Article-Generation.md`](../../Article-Generation.md) — end-to-end contract for `article.md`, SEO metadata, UI/UX export, and static-site render outputs.
 
 ## 1b · Analysis Artifacts to Produce (39-template catalog)
 
@@ -27,7 +28,8 @@ Every run produces the per-run subset of these 39+ templates. The **article-type
 | **Threat assessment** (5) | `political-threat-landscape`, `actor-threat-profiles`, `consequence-trees`, `legislative-disruption`, `threat-analysis` | `political-threat-framework.md` (5-framework integrated), threat-modeling |
 | **Risk scoring** (5) | `risk-matrix`, `risk-assessment`, `quantitative-swot`, `political-capital-risk`, `legislative-velocity-risk` | `political-risk-methodology.md`, `political-swot-framework.md`, risk-assessment-frameworks |
 | **Intelligence** (reference-quality 7 + extended) | `pestle-analysis`, `stakeholder-map`, `scenario-forecast`, `threat-model`, `historical-baseline`, `economic-context`, `wildcards-blackswans`, `synthesis-summary`, `analysis-index`, `coalition-dynamics`, `mcp-reliability-audit`, `per-file-political-intelligence`, `reference-analysis-quality`, `imf-vintage-audit` (optional — Wave-3) | OSINT, political-science, intelligence-analysis-techniques, electoral-analysis, behavioral-analysis |
-| **Strategic extensions** (Family C) | `executive-brief`, `devils-advocate-analysis`, `historical-parallels`, `forward-indicators`, `intelligence-assessment`, `comparative-international` | `strategic-extensions-methodology.md`, ACH, ICF/ODNI standards |
+| **Executive reader layer** | `executive-brief.md` at run root (mandatory first article artifact; `extended/executive-brief.md` accepted only for legacy runs) | `synthesis-methodology.md`, ICD 203 BLUF, Riksdagsmonitor article pattern |
+| **Strategic extensions** (Family C) | `devils-advocate-analysis`, `historical-parallels`, `forward-indicators`, `intelligence-assessment`, `comparative-international` | `strategic-extensions-methodology.md`, ACH, ICF/ODNI standards |
 | **Domain-specific** (Family D) | `coalition-mathematics`, `implementation-feasibility`, `media-framing-analysis`, `voter-segmentation` | `electoral-domain-methodology.md`, coalition analysis, electoral forecasting |
 | **Provenance** (Family B) | `cross-reference-map`, `data-download-manifest` | `structural-metadata-methodology.md`, GDPR audit, citation provenance |
 | **Existing / cross-run** | `deep-analysis`, `stakeholder-impact`, `voting-patterns`, `cross-session-intelligence`, `cross-run-diff`, `session-baseline` | legislative-monitoring, behavioral-analysis |
@@ -43,6 +45,7 @@ Every analysis run writes to the **canonical stable same-day folder**:
 ```
 analysis/daily/{YYYY-MM-DD}/{article-type-slug}/
 ├── classification/    (significance-classification, actor-mapping, forces-analysis, impact-matrix)
+├── executive-brief.md (mandatory BLUF / 60-second read / top trigger)
 ├── threat-assessment/ (political-threat-landscape, actor-threat-profiling, consequence-trees, legislative-disruption)
 ├── risk-scoring/      (risk-matrix, quantitative-swot, political-capital-risk, legislative-velocity-risk, agent-risk-workflow)
 ├── intelligence/      (pestle-analysis, stakeholder-map, scenario-forecast, threat-model, historical-baseline, economic-context, wildcards-blackswans, synthesis-summary, analysis-index, coalition-dynamics, mcp-reliability-audit)
@@ -106,16 +109,20 @@ reads this exact path from `HEAD` of `main` after the analysis PR merges.
 
 ## 3 · Minimum Analysis Time
 
-| Workflow family | Total | Pass 1 | Pass 2 | Stage C |
-|----------|:-------------:|:------:|:------:|:------:|
-| `news-<type>-analysis.md` — all article types | 30–40 min | 18 min | 12 min | 5 min |
-| Legacy monolithic `news-<type>.md` (pre-split) | 20 min | 12 min | 8 min | included |
-| Weekly / monthly review (legacy monolithic) | 25 min | 15 min | 10 min | included |
-| `news-article-generator.md` | 15 min per type | 9 min | 6 min | included |
+| Workflow family | Total active-work | Pass 1 | Pass 2 | Stage C |
+|----------|:-----------------:|:------:|:------:|:------:|
+| Unified `news-<type>.md` — every article type (incl. weekly / monthly review) | 22–27 min | ~60% | ~40% | 3–5 min |
+| Translation helper (`news-translate.md`) | No Stage B | N/A | N/A | N/A |
 
-The article workflow (`news-<type>-article.md`) does **not** run Stage B and
-therefore has no analysis time budget. Its entire budget (≤ 30 min active
-work) goes to Stage D (2 passes + validators + single PR call).
+The 22–27 min total fits inside the 45-min workflow `timeout-minutes` cap with
+the Stage-A budget (≤ 5 min), the Stage-D deterministic render (≤ 2 min), and
+the single end-of-run `safeoutputs___create_pull_request` call (must land by
+minute ≤ 28 — the safeoutputs MCP HTTP session is reaped at ~28–30 min, see
+[`09-troubleshooting.md`](09-troubleshooting.md) §5a).
+
+Stage D is deterministic rendering, not a prose pass. Spend the active-work
+budget in Stage B/C so the artifacts already contain the article-quality
+analysis before the aggregator writes `${ANALYSIS_DIR}/article.md` and `news/**`.
 
 ## 4 · Mandatory 2-Pass Improvement (NON-NEGOTIABLE)
 
@@ -147,11 +154,12 @@ reference-quality:
 
 ## 6 · Per-Artifact Budget Enforcement (Rule 22)
 
-`npm run validate-analysis` applies per-artifact floors from
-[`reference-quality-thresholds.json`](../../analysis/methodologies/reference-quality-thresholds.json).
-When a file is SHORT, run a targeted Pass 2 on THAT file — do not pad, write
-substantive prose with evidence anchors. Line counting must match the
-validator's `text.split('\n').length` (not `wc -l`).
+Stage C applies per-artifact floors from
+[`reference-quality-thresholds.json`](../../analysis/methodologies/reference-quality-thresholds.json)
+during the agent-side readback. When a file is SHORT, run a targeted Pass 2 on
+THAT file — do not pad, write substantive prose with evidence anchors. Count
+lines the same way the thresholds are defined: `text.split('\n').length`, not a
+shell-only `wc -l` shortcut.
 
 ## 7 · Analytical Frameworks
 
@@ -189,11 +197,11 @@ Each perspective must state: (1) mechanism of impact, (2) EP-data evidence,
 - Now run the completeness gate:
   [`03-analysis-completeness-gate.md`](03-analysis-completeness-gate.md).
 
-After Stage C exits 0 in the `news-<type>-analysis.md` workflow: **ship a
-single analysis-only PR** (see
-[`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md) §3). The paired
-`news-<type>-article.md` workflow will run Stage D automatically when the
-analysis PR merges to `main`.
+After Stage C is green in a unified `news-<type>.md` workflow: proceed directly
+to Stage D, run `npm run generate-article -- --run "$ANALYSIS_DIR"`, read the
+generated `${ANALYSIS_DIR}/article.md` for obvious metadata/provenance issues,
+then ship the single combined PR (see
+[`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md) §3).
 
 ## 10 · Persistence & Session Reliability
 
@@ -204,4 +212,3 @@ analysis PR merges to `main`.
 - Rely on workflow-level MCP gateway keepalive (`sandbox.mcp.keepalive-interval`)
   plus the single end-of-run PR snapshot in
   [`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md).
-

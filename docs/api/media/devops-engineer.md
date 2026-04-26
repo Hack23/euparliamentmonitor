@@ -686,7 +686,7 @@ Configuration:
 
 ## GitHub Agentic Workflows (gh-aw)
 
-This repository uses **18 gh-aw markdown workflows** in `.github/workflows/*.md` for automated news generation (8 split-pair `news-<type>-analysis.md` + `news-<type>-article.md` workflows + `news-article-generator.md` + `news-translate.md`). These compile to `.lock.yml` files.
+This repository uses **9 gh-aw markdown workflows** in `.github/workflows/*.md` for automated news generation: 8 unified `news-<type>.md` workflows (`news-breaking`, `news-week-in-review`, `news-month-in-review`, `news-week-ahead`, `news-month-ahead`, `news-committee-reports`, `news-motions`, `news-propositions`) — each runs Stages A → E in a single 45-minute session and produces one PR — plus the `news-translate.md` 14-language helper (multi-call flush, exempt from single-PR rule). These compile to `.lock.yml` files. The earlier split-pair `news-<type>-analysis.md` + `news-<type>-article.md` layout and the manual `news-article-generator.md` helper were removed in the April-2026 aggregator-pipeline migration; see [`news-generation.agent.md`](news-generation.agent.md) §"Shared Stage Contract".
 
 ### Key gh-aw Commands
 
@@ -719,9 +719,9 @@ mcp-servers:
   european-parliament:
     container: "node:25-alpine"      # Docker container for MCP server
     entrypoint: "npx"
-    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.11", "--timeout", "90000"]
+    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.13", "--timeout", "120000"]
     env:
-      EP_REQUEST_TIMEOUT_MS: "90000"
+      EP_REQUEST_TIMEOUT_MS: "120000"
     # NOTE: Omit `allowed:` / `tools:` entirely — the gh-aw MCP gateway (awmg)
     # treats `"*"` as a literal tool name (exposing 0 tools). Omitting the field
     # is equivalent to "all tools".

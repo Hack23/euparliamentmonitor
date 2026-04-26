@@ -1,4 +1,14 @@
+<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+
 # IMF Indicator → Article Type Mapping
+
+**📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Last Updated:** 2026-04-25 (UTC)  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-31  
+**🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public  
+**🔗 Mirror file:** [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md) (non-economic domains — Wave-4 partition)  
+**📥 Feeds artifact:** [`economic-context.md`](../templates/economic-context.md) (Stage B.6, [`strategic-extensions-methodology.md`](strategic-extensions-methodology.md) §Economic Context)  
+**🛂 Wave-2 OR-gate:** A policy-required article passes the economic-context gate when **either** an IMF indicator from this mapping **or** a World Bank non-economic indicator (per the mirror file) is cited with vintage and Admiralty grade. IMF coverage of a fiscal/monetary/trade claim is the strongly preferred path; WB is the fallback when IMF coverage is absent for a given indicator/year.
 
 **Purpose**: Canonical reference that maps European Parliament Monitor
 article types to the most-relevant IMF indicators sourced from WEO,
@@ -105,13 +115,13 @@ database enumeration in
 | `committee-reports` (BUDG) | `GGXWDG_NGDP`, `GGXONLB_NGDP`, `GGSB_NPGDP` | FM + GFS | ≥ 3 | Member-state finance ministries, Commission |
 | `committee-reports` (AFET / SEDE) | `NGDPD`, `BCA_NGDPD`, DOT bilateral | WEO + DOT + EREO | ≥ 2 | Defence ministries, Council |
 | `committee-reports` (INTA) | `TX_RPCH`, `BFD_BP6_USD`, `EREER_IX` | WEO + BOP_AGG + DOT + ER | ≥ 3 | DG TRADE, member states |
-| `news-week-ahead` | `NGDP_RPCH`, `PCPIPCH` (forecasts) | WEO | ≥ 2 | Editors, MEPs |
-| `news-month-ahead` | `NGDP_RPCH`, `PCPIPCH`, `LUR`, `GGXWDG_NGDP` (forecasts) | WEO + FM | ≥ 2 | Editors, policy analysts |
-| `news-breaking` | `PCPIPCH`, `LUR` (latest actual / Q1-Q2 proxy) | IFS / CPI | ≥ 1 | Editors |
-| `news-weekly-review` | Period-over-period deltas for WEO + IFS | WEO + IFS + CPI | ≥ 1 | Analysts |
-| `news-monthly-review` | Period-over-period deltas + monthly PCPS/ER | WEO + IFS + PCPS + ER | ≥ 2 | Analysts |
-| `news-motions` | Macro backdrop for legislative risk-assessment SWOT | WEO | ≥ 1 | Analysts |
-| `news-propositions` | As motions | WEO | ≥ 1 | Analysts |
+| `week-ahead` | `NGDP_RPCH`, `PCPIPCH` (forecasts) | WEO | ≥ 2 | Editors, MEPs |
+| `month-ahead` | `NGDP_RPCH`, `PCPIPCH`, `LUR`, `GGXWDG_NGDP` (forecasts) | WEO + FM | ≥ 2 | Editors, policy analysts |
+| `breaking` | `PCPIPCH`, `LUR` (latest actual / Q1-Q2 proxy) | IFS / CPI | ≥ 1 | Editors |
+| `week-in-review` | Period-over-period deltas for WEO + IFS | WEO + IFS + CPI | ≥ 1 | Analysts |
+| `month-in-review` | Period-over-period deltas + monthly PCPS/ER | WEO + IFS + PCPS + ER | ≥ 2 | Analysts |
+| `motions` | Macro backdrop for legislative risk-assessment SWOT | WEO | ≥ 1 | Analysts |
+| `propositions` | As motions | WEO | ≥ 1 | Analysts |
 
 These per-type indicator floors are enforced at Stage-C completeness
 gate by editorial review of `analysis/daily/<run>/intelligence/economic-context.md`
@@ -157,8 +167,12 @@ cited" in an article is:
 | SDMX indicator codes | Section 1 of this document + [`../imf/indicator-catalog.md §2`](../imf/indicator-catalog.md#2-policy-domain--imf-indicator-mapping) |
 | World Bank equivalents (for non-economic domains) | [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md) |
 
-Stage-C confirms the article contains ≥ 1 IMF product name **and** ≥ 1
-SDMX indicator code matching the per-article-type floor in §2.
+Stage-C confirms `intelligence/economic-context.md` contains ≥ 1 IMF product
+name **and** enough distinct SDMX indicator codes to satisfy the
+per-article-type floor in §2 / §8. The same IMF-backed facts may inform
+`manifest.title` and `manifest.description`, but only when the artifact also
+contains the EP policy bridge described in `economic-context.md` and
+`Article-Generation.md`'s SEO metadata contract.
 
 > The earlier runtime helpers (`hasIMFEvidence`, `hasWorldBankEvidence`,
 > `articlePolicyHasWorldBank`, `articlePolicyHasEconomicContext`,
@@ -302,7 +316,106 @@ when the surrounding validator layer was removed.
 
 ---
 
-## 11. See also
+## 12. Worked vintage-selection scenarios
+
+The vintage decision is the most error-prone part of IMF integration.
+Below are six EP-domain scenarios showing how to pick the right vintage
+for the article date.
+
+### Scenario 12.1 — `weekly-review` published 2026-04-25
+
+**Required**: WEO `NGDP_RPCH` real GDP growth EU/EA, `PCPI_PCH` headline
+inflation, IFS `FPOLM_PA` ECB policy rate.
+
+**Latest IMF vintages on 2026-04-25**:
+
+| Series | Latest data | Latest forecast | Vintage tag |
+|---|---|---|---|
+| WEO 2026-04 | 2025 actual | 2026, 2027, 2028, 2029, 2030, 2031 | "WEO Apr 2026" |
+| FM 2025-10 | 2024 actual | 2025-2030 | "FM Oct 2025" |
+| IFS monthly | 2026-03 actual | n/a | "IFS Mar 2026" |
+| BOP quarterly | 2025-Q4 | n/a | "BOP 2025-Q4" |
+
+**Decision**: cite WEO Apr 2026 for growth/inflation forecasts; explicitly
+distinguish 2025 *actual* from 2026 *projection*. IFS Mar 2026 for the
+ECB policy rate sequence.
+
+### Scenario 12.2 — `month-ahead` for May 2026 plenary
+
+**Required**: forward-looking IMF projections to anchor the policy outlook.
+
+**Decision**: WEO Apr 2026 forecasts dominate. Use **fan-chart language**
+("IMF projects 1.4% real growth ± 0.4 pp"); do NOT present projections as
+hard numbers. Cite the WEO database release date in `manifest.dataVintage[]`.
+
+### Scenario 12.3 — `breaking` on ECON committee push for fiscal-rule reform
+
+**Required**: Member-state fiscal headroom; gross debt; primary balance.
+
+**Decision**: FM Oct 2025 vintages OK because Apr 2026 FM not yet
+published (next FM release is October). Mention this constraint in the
+data-source footer; cite both the IMF FM and Eurostat MIP scoreboard for
+triangulation per §9.
+
+### Scenario 12.4 — `committee-reports` on ECB independence
+
+**Required**: ECB policy-rate path, monetary aggregates, REER.
+
+**Decision**: IFS monthly is authoritative; WEO and FM lag. IFS Mar 2026
+vintage acceptable. Cross-check vs ECB SDW because IMF mirrors ECB with a
+1-week lag for euro-area policy-rate changes.
+
+### Scenario 12.5 — `propositions` on EU enlargement (UKR, MDA, GEO)
+
+**Required**: candidate-country macro context.
+
+**Decision**: WEO Apr 2026 covers all three. Note that UKR data has a
+`*` suffix in the WEO indicating staff estimates rather than national
+authorities — this counts as Admiralty B2 (usually reliable, fairly
+likely) rather than A2.
+
+### Scenario 12.6 — `propositions` on common defence financing
+
+**Required**: Defence expenditure + fiscal capacity per MS.
+
+**Decision**: For defence-as-percent-of-GDP use WB (`MS.MIL.XPND.GD.ZS`,
+SIPRI mirror) per Wave-4 split; for fiscal capacity use IMF FM
+`G_XWDG_G01_GDP_PT` (general government gross debt). Combined view in
+`economic-context.md` references both source files.
+
+## 13. Anti-patterns (Stage-C editorial blocks)
+
+| Anti-pattern | Why blocked | Correct approach |
+|---|---|---|
+| Citing IMF without vintage | Vintage is mandatory per §7 | "IMF WEO Apr 2026" |
+| Mixing actual + projection without tagging | Misleads reader | Use "actual" vs "projection" labels |
+| Citing WEO for monthly inflation | WEO is annual | Use IFS for monthly data |
+| Single-year point comparison | Loses context | Show 5-year trend or 3-year forecast horizon |
+| Stale FM data when newer publication exists | Outdated context | FM is semi-annual; check release calendar |
+| Ignoring confidence band on forecasts | Treats forecasts as facts | Add "± X pp" or fan-chart language |
+| `EUU` aggregate (WB code) used for IMF call | Incompatible code system | Use `EU` or `EA` IMF aggregates |
+| Missing Admiralty grade on IMF citation | Stage-C tradecraft fail | Default A2 for IMF-source EU-27, B2 for staff estimates |
+| Using deprecated WEO codes | Codes change between vintages | Use the SDMX 3.0 canonical codes (e.g. `NGDP_RPCH` not `NGDP_R`) |
+| Ratio computed inline without sourcing | Reproducibility fail | Cite numerator + denominator IMF series separately |
+
+## 14. MCP tool quick-reference
+
+| Tool | Purpose | Key parameter |
+|---|---|---|
+| `imf-mcp/imf-fetch-data` | Generic SDMX REST | `dataflow=WEO\|FM\|IFS\|BOP\|ER\|PCPS`, `key=` |
+| `imf-mcp/imf-list-dataflows` | Catalogue SDMX dataflows | n/a |
+| `imf-mcp/imf-data-availability` | Vintage check | `dataflow`, `country` |
+| `imf-mcp/imf-vintage` | Get current vintage label | `dataflow` |
+| `imf-mcp/imf-mcp-probe` | Stage A health check | n/a |
+| `worldbank-mcp/raw-rest` | Defence (SIPRI mirror), other non-economic | `indicator` |
+
+Each tool call **must** record the SDMX dataflow, indicator key, vintage
+year/release, country panel, and Admiralty grade in
+`manifest.dataSources[]`.
+
+---
+
+## 15. See also
 
 - [`../imf/README.md`](../imf/README.md) — directory overview
 - [`../imf/database-directory.md`](../imf/database-directory.md) — all ~155 SDMX dataflows

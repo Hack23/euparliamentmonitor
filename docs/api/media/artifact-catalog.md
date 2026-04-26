@@ -14,13 +14,13 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.0-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--21-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.3-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--25-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Last Updated:** 2026-04-23 (UTC)
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
+**📋 Document Owner:** CEO | **📄 Version:** 1.3 | **📅 Last Updated:** 2026-04-25 (UTC)
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-31
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
 ---
@@ -190,7 +190,7 @@ The quantification layer. Every qualitative finding in `intelligence/` must be a
 
 ## 🎭 `threat-assessment/` — 5 Artifacts
 
-Produced for runs that emphasise democratic-threat or integrity-threat angles (typically `motions`, `propositions`, and long-form reviews). For runs that consolidate threat content into `intelligence/threat-model.md`, this folder may be empty.
+Produced for runs that emphasise democratic-threat or integrity-threat angles (typically `motions`, `propositions`, and long-form reviews). For runs that consolidate threat content into `intelligence/threat-model.md`, this folder may be empty. The fifth artifact — `threat-analysis.md` — is the framework template's deployed instance for runs that need a per-actor / per-vector tabular view alongside the four landscape artifacts below.
 
 | Artifact | Purpose (1 line) | Methodology | Template | Min lines (breaking) | Mermaid type |
 |---|---|---|---|:---:|---|
@@ -198,6 +198,7 @@ Produced for runs that emphasise democratic-threat or integrity-threat angles (t
 | `threat-assessment/actor-threat-profiles.md` | Per-actor threat profile: intent, capability, opportunity, attack surface. | [per-artifact-methodologies.md §actor-threat-profiles](per-artifact-methodologies.md#actor-threat-profiles) + [political-threat-framework.md §Diamond](political-threat-framework.md) | [actor-threat-profiles.md](../templates/actor-threat-profiles.md) | *flat 30* | graph LR (actor × asset) |
 | `threat-assessment/consequence-trees.md` | Consequence tree per threat: action → first-order → second-order → democratic outcome. | [per-artifact-methodologies.md §consequence-trees](per-artifact-methodologies.md#consequence-trees) | [consequence-trees.md](../templates/consequence-trees.md) | *flat 30* | graph TD (tree) |
 | `threat-assessment/legislative-disruption.md` | How adversarial pressure could stall, redirect, or capture specific procedures. | [per-artifact-methodologies.md §legislative-disruption](per-artifact-methodologies.md#legislative-disruption) | [legislative-disruption.md](../templates/legislative-disruption.md) | *flat 30* | flowchart LR (procedure + disruptor) |
+| `threat-assessment/threat-analysis.md` | Tabular per-threat record (vector × likelihood × impact × mitigation) using the framework template; produced when the four landscape artifacts above need a structured roll-up. | [per-artifact-methodologies.md §threat-analysis](per-artifact-methodologies.md#threat-analysis) + [political-threat-framework.md](political-threat-framework.md) | [threat-analysis.md](../templates/threat-analysis.md) | *flat 30* | graph TD (vector × mitigation) |
 
 ---
 
@@ -229,13 +230,14 @@ Used by `motions`, `propositions`, and long-form quarter / month-in-review workf
 
 ---
 
-## 🧭 `extended/` — Optional Deep-Intelligence Artifacts (12 Artifacts)
+## 🧭 `extended/` — Optional Deep-Intelligence Artifacts (12 Artifacts + 1 Legacy Mirror)
 
 Optional artifacts introduced by the riksdagsmonitor port (2026-04-23). These artifacts are **not mandatory** for completeness-gate passing but are **strongly recommended** for long-form workflows (month-in-review, quarter-in-review, propositions, trilogue-endgame). An agent that produces any of these must register the artifact in `manifest.files.extended[]`. Back-compat note: these are additive — no existing workflow is required to produce them.
 
 | Artifact | Purpose (1 line) | Methodology | Template | Min lines (reco) | Mermaid type |
 |---|---|---|---|:---:|---|
-| `extended/executive-brief.md` | ≤90-second decision brief for senior readers (BLUF + key judgments + 3 actions). | [synthesis-methodology.md §executive-brief](synthesis-methodology.md) | [executive-brief.md](../templates/executive-brief.md) | 150 | flowchart LR (BLUF → judgments → actions) |
+| `executive-brief.md` | ≤90-second decision brief for senior readers (BLUF + key judgments + 3 actions). This is the first rendered article artifact. | [synthesis-methodology.md §executive-brief](synthesis-methodology.md) | [executive-brief.md](../templates/executive-brief.md) | 180 | flowchart LR (BLUF → judgments → actions) |
+| `extended/executive-brief.md` | Backwards-compatible legacy location for the same brief; use only when an older run already wrote it there. | [synthesis-methodology.md §executive-brief](synthesis-methodology.md) | [executive-brief.md](../templates/executive-brief.md) | 180 | flowchart LR (BLUF → judgments → actions) |
 | `extended/devils-advocate-analysis.md` | Adversarial challenge to the run's consensus view (ACH + Red Team). | [osint-tradecraft-standards.md §Red Team + ACH](osint-tradecraft-standards.md) | [devils-advocate-analysis.md](../templates/devils-advocate-analysis.md) | 240 | graph TD (hypothesis × evidence) |
 | `extended/historical-parallels.md` | ≥3 EU historical precedents with parallel mechanisms + divergence points. | [strategic-extensions-methodology.md §historical-parallels](strategic-extensions-methodology.md) | [historical-parallels.md](../templates/historical-parallels.md) | 230 | timeline |
 | `extended/coalition-mathematics.md` | Vote-math for the period's contested files — 361-seat threshold analysis. | [synthesis-methodology.md §coalition + 720-seat math](synthesis-methodology.md) | [coalition-mathematics.md](../templates/coalition-mathematics.md) | 280 | graph LR (group arithmetic) |
@@ -266,11 +268,144 @@ An agent starting a run reads this catalog, then proceeds through the 10-step pr
 2. [`ai-driven-analysis-guide.md`](ai-driven-analysis-guide.md) → know *how* to produce it.
 3. [`per-artifact-methodologies.md`](per-artifact-methodologies.md) → look up *per-artifact* construction rules as needed.
 4. The five framework methodologies ([SWOT](political-swot-framework.md), [Risk](political-risk-methodology.md), [Threat](political-threat-framework.md), [Classification](political-classification-guide.md), [Style](political-style-guide.md)) → apply the relevant framework when the protocol step calls for it.
-5. The 39 templates under [`../templates/`](../templates/README.md) — one per unique artifact, plus the six framework templates (political-classification, risk-assessment, swot-analysis, threat-analysis, stakeholder-impact, per-file-political-intelligence) → copy the shape into the artifact file and fill it with analysis.
+5. The 51 templates under [`../templates/`](../templates/README.md) — one per unique artifact, plus the six framework templates (political-classification, risk-assessment, swot-analysis, threat-analysis, stakeholder-impact, per-file-political-intelligence) → copy the shape into the artifact file and fill it with analysis.
 
 ---
 
-## 🔗 Related Documents
+## 🌳 Decision Tree — Is this artifact mandatory for my run?
+
+```mermaid
+flowchart TD
+  start["Start: agent picks article type"] --> q1{"Article type?"}
+  q1 -->|breaking| brk["Mandatory base + classification + intel triad<br/>= 11 mandatory artifacts"]
+  q1 -->|week/month-in-review| rev["Mandatory base + classification + intel<br/>+ velocity-risk + cross-run-diff = 13"]
+  q1 -->|week/month-ahead| ahd["Base + scenario-forecast<br/>+ wildcards-blackswans = 11"]
+  q1 -->|committee-reports| cmt["Base + per-file × N committees<br/>+ stakeholder-impact = 12+"]
+  q1 -->|motions / propositions| mot["Base + significance-scoring<br/>+ stakeholder-impact = 12"]
+
+  brk --> q2{"Significance ≥ Tier-1?"}
+  rev --> q2
+  ahd --> q2
+  cmt --> q2
+  mot --> q2
+
+  q2 -->|yes| ext["Add extended/ artifacts:<br/>executive-brief, intelligence-assessment,<br/>devils-advocate, forward-indicators"]
+  q2 -->|no| baseOnly["Base set only — Stage-C accepts"]
+
+  ext --> q3{"Cross-source delta ≥ 0.2 pp?"}
+  q3 -->|yes| tri["Add imf-vintage-audit + cross-source line"]
+  q3 -->|no| done["Run completes Stage-C"]
+  baseOnly --> done
+  tri --> done
+
+  classDef must fill:#1565C0,stroke:#0D47A1,color:#fff;
+  classDef opt fill:#FF9800,stroke:#E65100,color:#fff;
+  classDef ok fill:#2E7D32,stroke:#1B5E20,color:#fff;
+  class brk,rev,ahd,cmt,mot,baseOnly must
+  class ext,tri opt
+  class done ok
+```
+
+**Reading the tree**: every article type starts with the **base set** of 8
+mandatory artifacts (the four framework artifacts plus
+`methodology-reflection.md`, `analysis-index.md`, `data-download-manifest.md`,
+`workflow-audit.md`). Article-type-specific additions stack on top. Tier-1
+significance triggers the extended/ folder. Cross-source disagreement
+triggers vintage audit.
+
+## 📏 Depth-floor rationale
+
+The line floors in
+[`reference-quality-thresholds.json`](reference-quality-thresholds.json)
+are not arbitrary — each is derived from the minimum content needed to
+satisfy the artifact's purpose:
+
+| Artifact class | Floor | Why this number |
+|---|---|---|
+| Framework analytics (SWOT, risk, threat, classification) | 100-150 | 4-quadrant or 5×5 structure + 3+ items per cell + prose justification |
+| Intelligence assessments | 200-280 | ICD 203 requires named SAT + alt hypothesis + confidence + sourcing |
+| Per-file political intelligence | 300+ | 7-dimension scoring × N classified files × stakeholder impact |
+| Executive brief | 175 | BLUF + 5 Key Judgments × ~25 words each + What-Comes-Next |
+| Stakeholder impact | 350 | 7+ stakeholder lenses × evidence + confidence + scenarios |
+| Synthesis summary | 480 | Cross-cuts every other artifact's findings into one narrative |
+| Index / audit / manifest | 130-220 | Structured tables with fixed rows; deeper text adds noise |
+
+When a draft falls **below** the floor, it almost always means the agent
+skipped Pass-2 expansion. Pass-1 typically reaches ~50% of floor.
+
+## 🎯 Common confusions — which artifact gets what?
+
+| Confusion | Wrong artifact | Correct artifact |
+|---|---|---|
+| "Coalition cohesion %" | `coalition-mathematics.md` | `coalition-dynamics.md` (cohesion) vs `coalition-mathematics.md` (vote arithmetic) |
+| "List of bills moving this week" | `analysis-index.md` | `legislative-velocity-risk.md` (with risk scoring) |
+| "Why this matters" prose | `executive-brief.md` | `synthesis-summary.md` for the long-form; `executive-brief.md` is BLUF only |
+| Risk vs threat | `risk-matrix.md` | Risk = our exposure to event. Threat = adversary intent × capability. Use `risk-matrix.md` for risk, `threat-analysis.md` for threat |
+| MEP-level network claims | `actor-mapping.md` (description) | `actor-threat-profiles.md` (threat-relevant) — actor-mapping is descriptive; actor-threat-profiles is evaluative |
+| "Trend vs prior session" | Prose in synthesis | `cross-run-diff.md` (delta-only) and `cross-session-intelligence.md` (momentum) |
+| "What if X happens" | Article body | `scenario-forecast.md` (≥3 scenarios with WEP bands) |
+| "Tail risks / black swans" | `wildcards-blackswans.md` | `wildcards-blackswans.md` is for ≤5% probability, ≥7/10 impact only |
+| "Compare to non-EU peer" | `historical-baseline.md` | `comparative-international.md` (cross-jurisdiction comparator) |
+| Procedural-velocity figure | `legislative-disruption.md` | `legislative-velocity-risk.md` for velocity; disruption is for unscheduled stoppages |
+
+## 🧭 Article-type → artifact bundle (canonical bundles)
+
+These bundles compile into the fixed `manifest.files` list each workflow
+emits, independent of run-time content.
+
+### `breaking` (urgent single-event coverage)
+**Mandatory (11)**: synthesis, executive-brief (extended only when Tier-1),
+political-classification, risk-assessment, swot-analysis, threat-analysis,
+stakeholder-impact, methodology-reflection, analysis-index,
+data-download-manifest, workflow-audit, per-file-political-intelligence
+(focused on the breaking item).
+
+**Conditional**: `intelligence-assessment.md` if significance ≥ Tier-1;
+`forward-indicators.md` always for follow-up signposts.
+
+### `week-in-review` / `month-in-review`
+**Mandatory base + ** `cross-run-diff.md`, `cross-session-intelligence.md`,
+`legislative-velocity-risk.md`, `coalition-dynamics.md`, `voting-patterns.md`.
+
+### `week-ahead` / `month-ahead`
+**Mandatory base +** `scenario-forecast.md`, `wildcards-blackswans.md`,
+`forward-indicators.md`, `legislative-velocity-risk.md`.
+
+### `committee-reports`
+**Mandatory base +** one `per-file-political-intelligence.md` per committee
+covered, `stakeholder-impact.md` (multi-committee panel),
+`coalition-mathematics.md` (committee-margin arithmetic).
+
+### `motions` / `propositions`
+**Mandatory base +** `significance-scoring.md` (procedure-level),
+`stakeholder-impact.md`, `consequence-trees.md`, `political-capital-risk.md`,
+`implementation-feasibility.md`.
+
+## 🔀 Folder layout invariants
+
+The artifact folder structure is enforced by the aggregator
+(`src/aggregator/analysis-aggregator.ts::collectRunArtifacts`); deviating
+breaks the rendered article's section ordering:
+
+```
+analysis/daily/<YYYY-MM-DD>/<article-type>/run<NN>/
+├── intelligence/        → executive-brief, intelligence-assessment, devils-advocate, forward-indicators
+├── classification/      → political-classification, significance-scoring, significance-classification
+├── risk-scoring/        → risk-assessment, risk-matrix, swot-analysis, quantitative-swot, political-capital-risk, legislative-velocity-risk
+├── threat-assessment/   → threat-analysis, threat-model, political-threat-landscape, actor-threat-profiles
+├── stakeholders/        → stakeholder-impact, stakeholder-map, actor-mapping, voter-segmentation
+├── coalition/           → coalition-dynamics, coalition-mathematics, voting-patterns
+├── synthesis/           → synthesis-summary, methodology-reflection
+├── extended/            → optional Tier-1+ deep-intelligence artifacts
+├── index/               → analysis-index, cross-reference-map
+├── data/                → raw MCP responses (excluded from rendered article)
+└── audit/               → workflow-audit, mcp-reliability-audit, imf-vintage-audit, data-download-manifest
+```
+
+Mermaid is **mandatory** in `intelligence/`, `classification/`,
+`risk-scoring/`, and `threat-assessment/` per the Stage-C validator.
+
+
 
 - [`ai-driven-analysis-guide.md`](ai-driven-analysis-guide.md) — 10-step analysis protocol (authoritative)
 - [`per-artifact-methodologies.md`](per-artifact-methodologies.md) — one section per artifact type with construction rules
@@ -284,5 +419,5 @@ An agent starting a run reads this catalog, then proceeds through the 10-step pr
 **Document Control:**
 - **Path:** `/analysis/methodologies/artifact-catalog.md`
 - **Classification:** Public
-- **Version:** 1.1 — Added `extended/` folder (12 optional deep-intelligence artifacts) from riksdagsmonitor port (2026-04-23); v1.0 was initial extraction from Run 184 benchmark and 2026-04-20 / 2026-04-21 daily runs.
-- **Next Review:** 2026-06-30
+- **Version:** 1.3 — v1.3 (2026-04-25) reconciles per-group counts with disk: `threat-assessment/` row added for `threat-analysis.md` (now 5/5), `extended/` heading clarified to “12 Artifacts + 1 Legacy Mirror”, and the read-order line bumped from “39 templates” to “51 templates”. v1.1 added `extended/` folder (12 optional deep-intelligence artifacts) from riksdagsmonitor port (2026-04-23); v1.0 was initial extraction from Run 184 benchmark and 2026-04-20 / 2026-04-21 daily runs.
+- **Next Review:** 2026-07-31

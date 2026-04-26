@@ -8,19 +8,19 @@
 <h1 align="center">📋 EU Parliament Monitor — Analysis Templates</h1>
 
 <p align="center">
-  <strong>📊 39 Structured Intelligence Templates for AI-Driven Political Analysis</strong><br>
-  <em>🎯 14 Agentic-Workflow Templates (incl. 6 reusable framework templates) + 25 Per-Artifact Templates — covering every unique <code>.md</code> file produced under <code>analysis/daily/</code></em>
+  <strong>📊 51 Structured Intelligence Templates for AI-Driven Political Analysis</strong><br>
+  <em>🎯 14 master-catalog templates (incl. 6 reusable framework templates) + 25 per-artifact templates + 12 extended deep-intelligence templates — covering every unique <code>.md</code> file produced under <code>analysis/daily/</code></em>
 </p>
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-3.1-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--06-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-3.2-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--25-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 3.1 | **📅 Last Updated:** 2026-04-06 (UTC)
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-06-30
+**📋 Document Owner:** CEO | **📄 Version:** 3.2 | **📅 Last Updated:** 2026-04-25 (UTC)
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-31
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
 ---
@@ -89,7 +89,7 @@ These analysis templates implement structured intelligence production mandated b
 
 ## 🎯 Purpose
 
-This directory contains **39 analysis templates** that AI agents fill when analysing European Parliament data — **6 reusable framework templates** + **8 workflow-specific templates** + **25 per-artifact templates** covering every unique `.md` file produced under `analysis/daily/`. Each template enforces a specific analytical framework, requires evidence citations from EP MCP data, and produces structured intelligence that feeds into downstream article generation.
+This directory contains **51 analysis templates** that AI agents fill when analysing European Parliament data — split into **14 master-catalog templates** (the article-generating workflow set: 6 reusable framework templates that compose inside per-file analysis + 8 supporting workflow templates including voting-patterns, workflow-audit, cross-session-intelligence, deep-analysis, session-baseline, methodology-reflection, executive-brief, synthesis-summary), **25 per-artifact templates** (one for every mandatory `analysis/daily/<run>/…` artifact under `intelligence/`, `classification/`, `risk-scoring/`, `threat-assessment/`, plus the run-root `executive-brief.md`), and **12 optional `extended/` templates** for long-form review, crisis, and breaking-deep runs. Each template enforces a specific analytical framework, requires evidence citations from EP MCP data, and produces structured intelligence that feeds into downstream article generation.
 
 Templates are **not** standalone outputs. They form a **composable intelligence pipeline** — individual templates feed into the daily synthesis, which aggregates into weekly and monthly intelligence reports. The per-file analysis template is the most frequently used: every downloaded EP MCP data file receives a comprehensive analysis using this template.
 
@@ -101,6 +101,12 @@ Templates are **not** standalone outputs. They form a **composable intelligence 
 - 🎯 Every analysis must pass a **minimum 7.0/10 quality gate** before consumption by article generators
 
 > **Critical Rule:** AI agents MUST follow these templates. Templates define structure and required sections — the AI fills them with genuine, evidence-based analysis. Templates must NEVER be copied verbatim with placeholder text.
+
+> 🛂 **Stage-C Enforcement (since v3.2):** Template usage is now machine-validated. Run `npm run validate-analysis -- analysis/daily/<date>/<runDir>` before opening the article PR — the script checks per-artifact line floors, mandatory Mermaid diagrams, Admiralty/WEP/SAT/BLUF tradecraft signals, required H2 sections, and placeholder leakage. RED ⇒ Pass-3 the offending artifacts; never ship an article without a green gate. See [`scripts/validate-analysis-completeness.js`](../../scripts/validate-analysis-completeness.js) and [`.github/prompts/03-analysis-completeness-gate.md`](../../.github/prompts/03-analysis-completeness-gate.md).
+
+> 🌍 **EU multi‑national extension over Riksdagsmonitor.** Where Riksdagsmonitor templates ([`Article-Generation.md`](https://github.com/Hack23/riksdagsmonitor/blob/main/Article-Generation.md), [`templates/README.md`](https://github.com/Hack23/riksdagsmonitor/blob/main/analysis/templates/README.md)) are sized for one parliament, EUPM templates carry mandatory EU‑27 member‑state cluster tags ({Northern, Western, Southern, Central‑Eastern}), explicit citizen‑segment translation blocks, and dual‑Mermaid pipelines (one institutional, one cross‑cluster). v2.0 templates (`impact-matrix`, `forces-analysis`, `actor-mapping`) demonstrate the pattern.
+
+> 🎨 **Mermaid is rendered same‑origin.** All diagrams ship via the vendored bundle `js/vendor/mermaid/mermaid.esm.min.mjs` (copied by `npm run copy-vendor`, deployed to S3/CloudFront as `text/javascript`). No external CDN — `script-src 'self'` is the contract. If your template uses a quadrant chart, use the **dedicated quadrant init block** ([`political-style-guide.md §Standard Mermaid init blocks`](../methodologies/political-style-guide.md)); for every other diagram type use the **universal init block**.
 
 ---
 
@@ -158,7 +164,7 @@ The following diagram shows the end-to-end pipeline from EP MCP data download th
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
 flowchart TD
     A["📥 EP MCP Server<br/>Data Download"] --> B["📂 Store in<br/>analysis/YYYY-MM-DD/data/"]
-    B --> C{"📖 AI Agent Reads<br/>6 Methodology Docs"}
+    B --> C{"📖 AI Agent Reads<br/>Methodology Library<br/>(14 docs)"}
     C --> D["🔍 Per-File Analysis<br/>(per-file-political-intelligence.md)"]
     D --> E["🏷️ Classification<br/>(political-classification.md)"]
     D --> F["⚠️ Risk Assessment<br/>(risk-assessment.md)"]
@@ -290,9 +296,9 @@ graph LR
 | 13 | [📆 Session Baseline](session-baseline.md) | Structured calendar + adopted-texts roster for every plenary session in scope — the data-dense reference other artifacts cite | Run Context, Plenary Session Calendar (per session), Session Calendar Diagram, Period Totals, Adopted Texts Roster, Committee Activity Map, Procedure-Code Distribution, Historical Anchor, Data-Source Ledger | `get_plenary_sessions`, `get_adopted_texts`, `get_procedures`, `get_committee_info`, `track_mep_attendance` | Gantt calendar + adopted-texts tables + committee activity map | 🟡 MEDIUM |
 | 14 | [🪞 Methodology Reflection](methodology-reflection.md) | Continuous-improvement retrospective — pipeline, data provenance, SATs applied, AI-FIRST iteration log, strengths, limitations, lessons, biases, update plan. **Final** artifact of every run. | Pipeline Diagram, Data Sources & Provenance, SATs Applied (≥10), AI-FIRST Iteration Log (Pass 1 / 2 / optional 3), Strengths (≥5), Limitations (≥5), Lessons (≥5), Biases & Mitigations (≥6), Peer Review, Update Plan, References | None directly (reads completed run + workflow-audit + MCP log) | Colour-coded `graph TD` pipeline + data-provenance table + SATs table + biases table | 🔴 HIGH |
 
-### 🧩 Per-Artifact Templates (25 additional — one per unique methodology section)
+### 🧩 Per-Artifact Templates (25 — one per mandatory artifact under `analysis/daily/<run>/…`)
 
-Every artifact under `analysis/daily/*/` has a 1:1 template in `analysis/templates/`. These compact fill-in skeletons (60–200 lines each) mirror their section in [`per-artifact-methodologies.md`](../methodologies/per-artifact-methodologies.md):
+Every mandatory artifact under `analysis/daily/*/` has a 1:1 template in `analysis/templates/`. These compact fill-in skeletons (60–200 lines each) mirror their section in [`per-artifact-methodologies.md`](../methodologies/per-artifact-methodologies.md). The 12 optional templates in `extended/` are listed in the row below them — they are produced only after every mandatory artifact has passed Stage-C and are gated only when present in the run's `manifest.files.extended[]`.
 
 | Folder | Templates |
 |---|---|
@@ -300,7 +306,8 @@ Every artifact under `analysis/daily/*/` has a 1:1 template in `analysis/templat
 | `classification/` | [significance-classification](significance-classification.md) · [actor-mapping](actor-mapping.md) · [forces-analysis](forces-analysis.md) · [impact-matrix](impact-matrix.md) |
 | `risk-scoring/` | [risk-matrix](risk-matrix.md) · [quantitative-swot](quantitative-swot.md) · [political-capital-risk](political-capital-risk.md) · [legislative-velocity-risk](legislative-velocity-risk.md) |
 | `threat-assessment/` | [consequence-trees](consequence-trees.md) · [legislative-disruption](legislative-disruption.md) · [actor-threat-profiles](actor-threat-profiles.md) |
-| `extended/` *(optional — not gated by default)* | [executive-brief](executive-brief.md) · [devils-advocate-analysis](devils-advocate-analysis.md) · [historical-parallels](historical-parallels.md) · [coalition-mathematics](coalition-mathematics.md) · [forward-indicators](forward-indicators.md) · [intelligence-assessment](intelligence-assessment.md) · [implementation-feasibility](implementation-feasibility.md) · [media-framing-analysis](media-framing-analysis.md) · [comparative-international](comparative-international.md) · [cross-reference-map](cross-reference-map.md) · [data-download-manifest](data-download-manifest.md) · [voter-segmentation](voter-segmentation.md) |
+| run root *(required first article artifact)* | [executive-brief](executive-brief.md) — BLUF, three decisions, 60-second read, top trigger |
+| `extended/` *(optional — not gated by default)* | [devils-advocate-analysis](devils-advocate-analysis.md) · [historical-parallels](historical-parallels.md) · [coalition-mathematics](coalition-mathematics.md) · [forward-indicators](forward-indicators.md) · [intelligence-assessment](intelligence-assessment.md) · [implementation-feasibility](implementation-feasibility.md) · [media-framing-analysis](media-framing-analysis.md) · [comparative-international](comparative-international.md) · [cross-reference-map](cross-reference-map.md) · [data-download-manifest](data-download-manifest.md) · [voter-segmentation](voter-segmentation.md) |
 
 ### 🧱 Framework Templates (6 reusable)
 
@@ -944,12 +951,12 @@ Each article type should produce unique analytical sections in its synthesis tha
 | **Document ID** | `TMPL-README-001` |
 | **Title** | Analysis Templates — Directory Documentation |
 | **Owner** | CEO |
-| **Version** | 3.1 |
+| **Version** | 3.2 |
 | **Classification** | Public |
 | **Created** | 2026-03-30 |
-| **Last Updated** | 2026-04-06 |
+| **Last Updated** | 2026-04-25 |
 | **Review Cycle** | Quarterly |
-| **Next Review** | 2026-06-30 |
+| **Next Review** | 2026-07-31 |
 | **Organisation** | Hack23 AB (Org.nr 5595347807) |
 | **Approved By** | CEO |
 
@@ -957,6 +964,7 @@ Each article type should produce unique analytical sections in its synthesis tha
 
 | Version | Date | Changes |
 |:-------:|------|---------|
+| **3.2** | 2026-04-25 | Coherent v3.2 release across `analysis/methodologies/` + `analysis/templates/`. Headline corrected from “39 templates” to “51 templates” (8 split-family + 31 per-artifact + 12 extended). Cross-references between every template and its controlling `### section` in `per-artifact-methodologies.md` verified bidirectional. Stage-C validator status corrected — `npm run validate-analysis` (`scripts/validate-analysis-completeness.js`) is the active completeness gate; only the duplicate `src/utils/validate-analysis-completeness.ts` was purged. Badge dates and Next-Review aligned with methodology release. No template line-floor was lowered. |
 | **3.1** | 2026-04-06 | Cross-session intelligence & quality gate enhancements across all 8 templates — see details below |
 | **3.0** | 2026-03-31 | Initial master README consolidating all 8 templates with ISMS alignment |
 

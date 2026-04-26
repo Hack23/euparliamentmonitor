@@ -1,9 +1,10 @@
 {
   "version": "1.0.0",
-  "description": "Per-artifact minimum line-count floors used by src/utils/validate-analysis-completeness.ts to enforce Rule 22 (Per-Artifact Depth Floors) of analysis/methodologies/ai-driven-analysis-guide.md. Values are derived from the Run 184 reference benchmark (analysis/daily/2026-04-18/breaking-run184/) minus a 10% tolerance, rounded down to the nearest 5 lines. A file below its threshold MUST trigger Pass 2; it MUST NOT be shipped with a note. When an articleType × relativePath entry is absent the validator falls back to the CLI --min-lines flag (DEFAULT_MIN_LINES = 30). When a per-artifact entry is present the effective floor is max(perArtifact, --min-lines), so --min-lines can raise but never lower a configured floor.",
+  "description": "Per-artifact minimum line-count floors used by src/utils/validate-analysis-completeness.ts to enforce Rule 22 (Per-Artifact Depth Floors) of analysis/methodologies/ai-driven-analysis-guide.md. Values are derived from the Run 184 reference benchmark (analysis/daily/2026-04-18/breaking-run184/) minus a 10% tolerance, rounded down to the nearest 5 lines. A file below its threshold MUST trigger Pass 2; it MUST NOT be shipped with a note. When an articleType \u00d7 relativePath entry is absent the validator falls back to the CLI --min-lines flag (DEFAULT_MIN_LINES = 30). When a per-artifact entry is present the effective floor is max(perArtifact, --min-lines), so --min-lines can raise but never lower a configured floor.",
   "tradecraftQualitySignals": {
-    "note": "ADDITIVE quality signals — NOT enforced by the line-count validator. They represent content-quality expectations that Pass-2 reviewers must check manually. Every probabilistic artifact MUST also comply with osint-tradecraft-standards.md: (1) WEP band + time horizon on every headline judgement, (2) Admiralty grade on every external source, (3) confidence-in-evidence tracked separately from WEP probability, (4) >= 10 SATs applied per run (attested in methodology-reflection.md §12). Non-compliant artifacts trigger a Pass-2 rewrite even if the line-count floor is met.",
+    "note": "ADDITIVE quality signals \u2014 NOT enforced by the line-count validator. They represent content-quality expectations that Pass-2 reviewers must check manually. Every probabilistic artifact MUST also comply with osint-tradecraft-standards.md: (1) WEP band + time horizon on every headline judgement, (2) Admiralty grade on every external source, (3) confidence-in-evidence tracked separately from WEP probability, (4) >= 10 SATs applied per run (attested in methodology-reflection.md \u00a712). Non-compliant artifacts trigger a Pass-2 rewrite even if the line-count floor is met.",
     "wepBandRequired": [
+      "executive-brief.md",
       "intelligence/synthesis-summary.md",
       "intelligence/scenario-forecast.md",
       "intelligence/threat-model.md",
@@ -16,6 +17,7 @@
       "risk-scoring/risk-matrix.md"
     ],
     "admiraltyGradeRequired": [
+      "executive-brief.md",
       "intelligence/synthesis-summary.md",
       "intelligence/scenario-forecast.md",
       "intelligence/threat-model.md",
@@ -40,8 +42,107 @@
     "runId": "184",
     "date": "2026-04-18"
   },
+  "structuralRequirements": {
+    "note": "Structural contracts enforced by scripts/validate-analysis-completeness.js. mermaidRequired = artifacts that MUST contain at least one Mermaid block (in addition to the directory-based default for intelligence/, classification/, risk-scoring/, threat-assessment/). readerBlockRequired = artifacts that MUST contain a Reader Briefing / 'For Citizens' / 'Plain Language' section. sourceDiversityRequired = artifacts that MUST cite at least one EP MCP tool reference OR carry an evidence table (markdown table with a Source / Evidence / Reference header column, e.g. a 'Data Sources & Provenance' block); the validator accepts either signal. requiredSections = artifact -> array of H2 substrings that MUST appear (case-insensitive substring match). Added 2026-04 alongside template v2.0 enrichment of impact-matrix, forces-analysis, actor-mapping, political-capital-risk, actor-threat-profiles, legislative-disruption, legislative-velocity-risk, consequence-trees.",
+    "mermaidRequired": [
+      "classification/impact-matrix.md",
+      "classification/forces-analysis.md",
+      "classification/actor-mapping.md",
+      "risk-scoring/political-capital-risk.md",
+      "risk-scoring/legislative-velocity-risk.md",
+      "threat-assessment/actor-threat-profiles.md",
+      "threat-assessment/legislative-disruption.md",
+      "threat-assessment/consequence-trees.md"
+    ],
+    "readerBlockRequired": [
+      "classification/impact-matrix.md",
+      "classification/forces-analysis.md",
+      "classification/actor-mapping.md",
+      "risk-scoring/political-capital-risk.md",
+      "risk-scoring/legislative-velocity-risk.md",
+      "threat-assessment/actor-threat-profiles.md",
+      "threat-assessment/legislative-disruption.md",
+      "threat-assessment/consequence-trees.md"
+    ],
+    "sourceDiversityRequired": [
+      "classification/impact-matrix.md",
+      "classification/actor-mapping.md",
+      "risk-scoring/political-capital-risk.md",
+      "risk-scoring/legislative-velocity-risk.md",
+      "threat-assessment/actor-threat-profiles.md",
+      "threat-assessment/legislative-disruption.md",
+      "threat-assessment/consequence-trees.md"
+    ],
+    "requiredSections": {
+      "classification/impact-matrix.md": [
+        "Event List",
+        "Stakeholder",
+        "Impact Matrix",
+        "Heat",
+        "Cascade",
+        "Reader Briefing"
+      ],
+      "classification/forces-analysis.md": [
+        "Issue Frame",
+        "Driving Forces",
+        "Restraining Forces",
+        "Net Pressure",
+        "Intervention Points",
+        "Reader Briefing"
+      ],
+      "classification/actor-mapping.md": [
+        "Actor Roster",
+        "Influence",
+        "Alliance",
+        "Power Brokers",
+        "Information",
+        "Reader Briefing"
+      ],
+      "risk-scoring/political-capital-risk.md": [
+        "Capital Table",
+        "Capital Exposure",
+        "Capital Flow",
+        "Capital",
+        "Bets",
+        "Precedent",
+        "Reader Briefing"
+      ],
+      "risk-scoring/legislative-velocity-risk.md": [
+        "Pipeline Summary",
+        "Throughput",
+        "Stalled",
+        "Deadline",
+        "Bottleneck",
+        "Reader Briefing"
+      ],
+      "threat-assessment/actor-threat-profiles.md": [
+        "Actor Roster",
+        "Capability",
+        "Diamond",
+        "Relationship",
+        "Escalation",
+        "Reader Briefing"
+      ],
+      "threat-assessment/legislative-disruption.md": [
+        "Targeted",
+        "Attack Tree",
+        "Technique",
+        "Detection",
+        "Counter",
+        "Reader Briefing"
+      ],
+      "threat-assessment/consequence-trees.md": [
+        "Threat Roster",
+        "Consequence Tree",
+        "Convergence",
+        "Intervention",
+        "Reader Briefing"
+      ]
+    }
+  },
   "thresholds": {
     "breaking": {
+      "executive-brief.md": 180,
       "intelligence/analysis-index.md": 160,
       "intelligence/synthesis-summary.md": 205,
       "intelligence/coalition-dynamics.md": 135,
@@ -79,6 +180,7 @@
       "extended/data-download-manifest.md": 160
     },
     "week-in-review": {
+      "executive-brief.md": 180,
       "intelligence/analysis-index.md": 120,
       "intelligence/synthesis-summary.md": 180,
       "intelligence/historical-baseline.md": 150,
@@ -98,6 +200,7 @@
       "intelligence/methodology-reflection.md": 180
     },
     "month-in-review": {
+      "executive-brief.md": 180,
       "intelligence/analysis-index.md": 140,
       "intelligence/synthesis-summary.md": 220,
       "intelligence/historical-baseline.md": 180,
@@ -120,6 +223,7 @@
       "intelligence/methodology-reflection.md": 200
     },
     "week-ahead": {
+      "executive-brief.md": 180,
       "intelligence/analysis-index.md": 100,
       "intelligence/synthesis-summary.md": 160,
       "intelligence/historical-baseline.md": 120,
@@ -136,6 +240,7 @@
       "intelligence/methodology-reflection.md": 180
     },
     "month-ahead": {
+      "executive-brief.md": 180,
       "intelligence/analysis-index.md": 120,
       "intelligence/synthesis-summary.md": 180,
       "intelligence/historical-baseline.md": 140,
@@ -152,6 +257,7 @@
       "intelligence/methodology-reflection.md": 180
     },
     "committee-reports": {
+      "executive-brief.md": 180,
       "intelligence/analysis-index.md": 100,
       "intelligence/synthesis-summary.md": 160,
       "intelligence/historical-baseline.md": 120,
@@ -168,6 +274,7 @@
       "intelligence/methodology-reflection.md": 180
     },
     "motions": {
+      "executive-brief.md": 180,
       "intelligence/analysis-index.md": 100,
       "intelligence/synthesis-summary.md": 160,
       "intelligence/historical-baseline.md": 120,
@@ -190,6 +297,7 @@
       "intelligence/methodology-reflection.md": 200
     },
     "propositions": {
+      "executive-brief.md": 180,
       "intelligence/analysis-index.md": 100,
       "intelligence/synthesis-summary.md": 160,
       "intelligence/historical-baseline.md": 120,

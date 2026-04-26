@@ -17,9 +17,9 @@ gh-aw workflow. This replaces the 1,789-line `SHARED_PROMPT_PATTERNS.md` monolit
 | 00 | [`00-scope-and-ground-rules.md`](00-scope-and-ground-rules.md) | Workspace scope, forbidden/allowed edits, neutrality, one-PR rule |
 | 01 | [`01-data-collection.md`](01-data-collection.md) | EP MCP feeds + direct fallbacks, deep-fetch, IMF primary economic + WB non-economic |
 | 02 | [`02-analysis-protocol.md`](02-analysis-protocol.md) | Pipeline, methodologies/templates, mandatory 2-pass |
-| 03 | [`03-analysis-completeness-gate.md`](03-analysis-completeness-gate.md) | `validate-analysis-completeness` blocking gate |
-| 04 | [`04-article-generation.md`](04-article-generation.md) | Prose-first structure, depth floors, charts, keywords/title/description |
-| 05 | [`05-analysis-to-article-contract.md`](05-analysis-to-article-contract.md) | AI-First contract, AI_MARKER sentinels, per-type inputs |
+| 03 | [`03-analysis-completeness-gate.md`](03-analysis-completeness-gate.md) | Agent-side completeness gate over artifacts, IMF evidence, and metadata readiness |
+| 04 | [`04-article-generation.md`](04-article-generation.md) | Deterministic aggregator render, `article.md`, SEO title/description/keywords contract |
+| 05 | [`05-analysis-to-article-contract.md`](05-analysis-to-article-contract.md) | AI-first artifact contract and read-before-render duties |
 | 06 | [`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md) | **Single-PR rule**, analysis-only fallback, noop diagnostics |
 | 07 | [`07-mcp-reference.md`](07-mcp-reference.md) | EP / IMF (primary economic) / WB (non-economic) tool tables, parameter corrections, reliability matrix |
 | 08 | [`08-infrastructure.md`](08-infrastructure.md) | Required frontmatter, `mcp-setup.sh`, client env vars |
@@ -34,25 +34,26 @@ Every `news-*.md` except `news-translate.md` reads prompts in this order:
 3. **Stage A — Data Collection** → [`01-data-collection.md`](01-data-collection.md) + [`07-mcp-reference.md`](07-mcp-reference.md)
 4. **Stage B — Analysis (2 passes)** → [`02-analysis-protocol.md`](02-analysis-protocol.md)
 5. **Stage C — Completeness Gate** → [`03-analysis-completeness-gate.md`](03-analysis-completeness-gate.md)
-6. **Stage D — Article (2 passes) → PR** → [`04-article-generation.md`](04-article-generation.md) + [`05-analysis-to-article-contract.md`](05-analysis-to-article-contract.md) → [`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md)
+6. **Stage D — Deterministic article render → PR** → [`04-article-generation.md`](04-article-generation.md) + [`05-analysis-to-article-contract.md`](05-analysis-to-article-contract.md) + [`../../Article-Generation.md`](../../Article-Generation.md) → [`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md)
 7. **On error** → [`09-troubleshooting.md`](09-troubleshooting.md)
 
 ## Analysis Artifact Integration
 
-Every article-generating workflow produces deep political analysis **before** drafting prose. The chain is:
+Every article-generating workflow produces deep political analysis **before**
+rendering article output. The chain is:
 
 ```
 Stage A · Data Collection (01-data-collection.md + 07-mcp-reference.md)
-  → Stage B · Analysis Artifacts (02-analysis-protocol.md)
+      → Stage B · Analysis Artifacts (02-analysis-protocol.md)
         authoritative protocol: analysis/methodologies/ai-driven-analysis-guide.md (10 steps)
         master artifact map:    analysis/methodologies/artifact-catalog.md
         per-artifact rules:     analysis/methodologies/per-artifact-methodologies.md
         39 templates:           analysis/templates/  (14 agentic-workflow [incl. 6 reusable framework] + 25 per-artifact)
     → Stage C · Completeness Gate (03-analysis-completeness-gate.md)
           per-artifact floors:  analysis/methodologies/reference-quality-thresholds.json
-      → Stage D · Article (04-article-generation.md + 05-analysis-to-article-contract.md)
-            Read-Before-Write: agent MUST read every artifact in analysis/daily/<run>/ before drafting prose
-            artifact → section map: 04-article-generation.md § 7.1
+       → Stage D · Deterministic Article Render (04-article-generation.md + 05-analysis-to-article-contract.md + Article-Generation.md)
+             Read-Before-Render: agent MUST read every artifact in analysis/daily/<run>/ before invoking the aggregator
+             artifact → section map: 04-article-generation.md § 7.1 and Article-Generation.md § Templates and Artifact-to-Article Mapping
         → Stage E · Single PR (06-pr-and-safe-outputs.md) — one safeoutputs___create_pull_request call
 ```
 

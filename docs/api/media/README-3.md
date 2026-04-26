@@ -29,29 +29,34 @@ This directory contains GitHub Actions workflows for the EU Parliament Monitor p
 
 The project uses **agentic workflow markdown files** (`.md`) that are compiled to `.lock.yml` files via `gh aw compile --validate`. Each news workflow generates a specific type of EU Parliament article using the European Parliament MCP server as the primary data source, with optional World Bank MCP enrichment and native IMF REST-client enrichment for economic context. (The World Bank is mounted as an MCP server; IMF data is fetched via a native TypeScript REST client — there is no IMF MCP mount in the workflow frontmatter.)
 
-> **Split-workflow families (new canonical pattern):** each article type is
-> served by **two** short workflows that each finish inside the model session
-> budget. `news-<type>-analysis.md` (45-min timeout) produces a single
-> analysis-only PR; when that PR merges to `main`, `news-<type>-article.md`
-> (45-min timeout) runs Stage D and produces a single article PR. Analysis
-> artifacts live in the deterministic folder `analysis/daily/${DATE}/${TYPE}/`
-> with per-attempt history recorded in `manifest.json.history[]`. See
-> [`.github/prompts/02-analysis-protocol.md`](../prompts/02-analysis-protocol.md) §2.
+> **Unified single-PR architecture (canonical):** each article type is
+> served by a **single** unified workflow (`news-<type>.md`, 45-min timeout)
+> that runs Stages A → E in one session and produces exactly one PR
+> containing both the analysis artifacts and the rendered article HTML.
+> Analysis artifacts live in the deterministic folder
+> `analysis/daily/${DATE}/${TYPE}/` with per-attempt history recorded in
+> `manifest.json.history[]`. The earlier split-pair
+> `news-<type>-analysis.md` + `news-<type>-article.md` layout and the
+> manual `news-article-generator.md` helper were removed in the April-2026
+> aggregator-pipeline migration. See
+> [`.github/prompts/02-analysis-protocol.md`](../prompts/02-analysis-protocol.md) §2
+> and [`.github/agents/news-generation.agent.md`](../agents/news-generation.agent.md)
+> §"Shared Stage Contract".
 
 #### Unified workflows (8 article types)
 
 The repository contains **8 unified agentic workflows** for automated news article generation. Each workflow follows the 5-stage pipeline (Data → Analysis → Completeness Gate → Article → Single PR) and produces one PR per run containing both analysis artifacts and rendered article HTML.
 
-| Workflow (`.md`) | Article Type Slug | Schedule | Trigger |
+| Workflow (`.md`) | Article Type Slug | Schedule (UTC) | Trigger |
 |---|---|---|---|
-| [`news-breaking.md`](news-breaking.md) | `breaking` | Mon–Fri 08:00 UTC | Schedule + manual |
-| [`news-week-in-review.md`](news-week-in-review.md) | `week-in-review` | Weekly (Mon 03:00 UTC) | Schedule + manual |
-| [`news-month-in-review.md`](news-month-in-review.md) | `month-in-review` | Monthly (1st Mon 03:00 UTC) | Schedule + manual |
-| [`news-week-ahead.md`](news-week-ahead.md) | `week-ahead` | Weekly (Mon 02:00 UTC) | Schedule + manual |
-| [`news-month-ahead.md`](news-month-ahead.md) | `month-ahead` | Monthly (1st Mon 02:00 UTC) | Schedule + manual |
-| [`news-committee-reports.md`](news-committee-reports.md) | `committee-reports` | Mon–Fri 04:00 UTC | Schedule + manual |
-| [`news-motions.md`](news-motions.md) | `motions` | Mon–Fri 06:00 UTC | Schedule + manual |
-| [`news-propositions.md`](news-propositions.md) | `propositions` | Mon–Fri 05:00 UTC | Schedule + manual |
+| [`news-breaking.md`](news-breaking.md) | `breaking` | Every 6 hours (`0 */6 * * *`) | Schedule + manual |
+| [`news-week-in-review.md`](news-week-in-review.md) | `week-in-review` | Saturdays 09:00 (`0 9 * * 6`) | Schedule + manual |
+| [`news-month-in-review.md`](news-month-in-review.md) | `month-in-review` | 28th of each month 10:00 (`0 10 28 * *`) | Schedule + manual |
+| [`news-week-ahead.md`](news-week-ahead.md) | `week-ahead` | Fridays 07:00 (`0 7 * * 5`) | Schedule + manual |
+| [`news-month-ahead.md`](news-month-ahead.md) | `month-ahead` | 1st of each month 08:00 (`0 8 1 * *`) | Schedule + manual |
+| [`news-committee-reports.md`](news-committee-reports.md) | `committee-reports` | Weekdays 04:00 (`0 4 * * 1-5`) | Schedule + manual |
+| [`news-motions.md`](news-motions.md) | `motions` | Weekdays 06:00 (`0 6 * * 1-5`) | Schedule + manual |
+| [`news-propositions.md`](news-propositions.md) | `propositions` | Weekdays 05:00 (`0 5 * * 1-5`) | Schedule + manual |
 
 Each workflow renders articles using `npm run generate-article -- --run "${ANALYSIS_DIR}"` (aggregator-driven pipeline from `src/aggregator/**`).
 
@@ -59,7 +64,7 @@ Each workflow renders articles using `npm run generate-article -- --run "${ANALY
 
 | Workflow (`.md`) | Purpose | Trigger |
 |---|---|---|
-| [`news-translate.md`](news-translate.md) | 14-language translation with multi-call flush pattern (exempt from single-PR rule) | Workflow dispatch / PR hook |
+| [`news-translate.md`](news-translate.md) | 14-language translation with multi-call flush pattern (exempt from single-PR rule) | Manual (`workflow_dispatch`) only |
 
 #### Shared-import pattern
 
@@ -110,8 +115,7 @@ All article-generating workflows declare:
 ```yaml
 safe-outputs:
   create-pull-request:
-    max: 1                 # default for every news-*.md
-    # news-article-generator.md is the documented `max: 8` exception
+    max: 1                 # default for every news-*.md article workflow
     # news-translate.md uses `excluded-files:` + multi-call flush, exempt from single-PR rule
 ```
 
@@ -511,16 +515,15 @@ jobs:
 | Workflow | Push | PR | Schedule | Manual |
 |----------|------|----|---------:|-------:|
 | copilot-setup-steps | ✅ | ✅ | ❌ | ✅ |
-| news-article-generator | ❌ | ❌ | ❌ | ✅ |
-| news-breaking | ❌ | ❌ | ❌ | ✅ |
+| news-breaking | ❌ | ❌ | ✅ Every 6 h | ✅ |
 | news-committee-reports | ❌ | ❌ | ✅ Mon-Fri 04:00 | ✅ |
 | news-week-ahead | ❌ | ❌ | ✅ Fri 07:00 | ✅ |
-| news-weekly-review | ❌ | ❌ | ✅ Sat 09:00 | ✅ |
+| news-week-in-review | ❌ | ❌ | ✅ Sat 09:00 | ✅ |
 | news-month-ahead | ❌ | ❌ | ✅ 1st 08:00 | ✅ |
-| news-monthly-review | ❌ | ❌ | ✅ 28th 10:00 | ✅ |
+| news-month-in-review | ❌ | ❌ | ✅ 28th 10:00 | ✅ |
 | news-motions | ❌ | ❌ | ✅ Mon-Fri 06:00 | ✅ |
 | news-propositions | ❌ | ❌ | ✅ Mon-Fri 05:00 | ✅ |
-| news-translate | ❌ | ✅ | ❌ | ✅ |
+| news-translate | ❌ | ❌ | ❌ | ✅ |
 | labeler | ❌ | ✅ | ❌ | ❌ |
 | setup-labels | ❌ | ❌ | ❌ | ✅ |
 | release | ✅ Tags | ❌ | ❌ | ✅ |
