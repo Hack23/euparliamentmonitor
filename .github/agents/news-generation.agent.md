@@ -122,5 +122,5 @@ identical across every article-generating workflow and lives here.
   `node:25-alpine` and fails if it persists.
 - ✅ `EP_REQUEST_TIMEOUT_MS: "120000"` (120 s) on `european-parliament`
   handles slow feed endpoints.
-- Pinned versions: `european-parliament-mcp-server@1.2.11`,
+- Pinned versions: `european-parliament-mcp-server@1.2.13`,
   `worldbank-mcp@1.0.1`.
