@@ -119,12 +119,16 @@
   },
   "navigationLinks": {
     "🏠 Home": "https://euparliamentmonitor.com",
+    "🧠 Political Intelligence": "https://euparliamentmonitor.com/political-intelligence.html",
+    "🗺️ Sitemap": "https://euparliamentmonitor.com/sitemap.html",
     "📦 GitHub": "https://github.com/Hack23/euparliamentmonitor",
     "🛡️ ISMS": "https://github.com/Hack23/ISMS-PUBLIC",
     "🇪🇺 EP MCP Server": "https://github.com/Hack23/European-Parliament-MCP-Server",
     "📦 npm": "https://www.npmjs.com/package/euparliamentmonitor"
   },
   "sidebarLinks": {
+    "🧠 Political Intelligence Hub": "https://euparliamentmonitor.com/political-intelligence.html",
+    "🗺️ Site Map (all pages, 14 languages)": "https://euparliamentmonitor.com/sitemap.html",
     "🏛️ Architecture": "https://github.com/Hack23/euparliamentmonitor/blob/main/ARCHITECTURE.md",
     "🔒 Security Architecture": "https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY_ARCHITECTURE.md",
     "🛡️ Threat Model": "https://github.com/Hack23/euparliamentmonitor/blob/main/THREAT_MODEL.md",

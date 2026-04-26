@@ -109,11 +109,16 @@ reads this exact path from `HEAD` of `main` after the analysis PR merges.
 
 ## 3 · Minimum Analysis Time
 
-| Workflow family | Total | Pass 1 | Pass 2 | Stage C |
-|----------|:-------------:|:------:|:------:|:------:|
-| Unified `news-<type>.md` — all article types | 20–27 min | ~60% | ~40% | 3–5 min |
-| Weekly / monthly review unified workflows | 25–35 min | ~60% | ~40% | 3–5 min |
+| Workflow family | Total active-work | Pass 1 | Pass 2 | Stage C |
+|----------|:-----------------:|:------:|:------:|:------:|
+| Unified `news-<type>.md` — every article type (incl. weekly / monthly review) | 22–27 min | ~60% | ~40% | 3–5 min |
 | Translation helper (`news-translate.md`) | No Stage B | N/A | N/A | N/A |
+
+The 22–27 min total fits inside the 45-min workflow `timeout-minutes` cap with
+the Stage-A budget (≤ 5 min), the Stage-D deterministic render (≤ 2 min), and
+the single end-of-run `safeoutputs___create_pull_request` call (must land by
+minute ≤ 28 — the safeoutputs MCP HTTP session is reaped at ~28–30 min, see
+[`09-troubleshooting.md`](09-troubleshooting.md) §5a).
 
 Stage D is deterministic rendering, not a prose pass. Spend the active-work
 budget in Stage B/C so the artifacts already contain the article-quality

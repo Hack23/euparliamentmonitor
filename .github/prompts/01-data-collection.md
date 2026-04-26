@@ -14,7 +14,7 @@ Stay within the 10-minute budget.
 [Stage A: Data Collection] → Stage B: Analysis → Stage C: Gate → Stage D: Article → PR
 ```
 
-Time budget: **≤ 10 minutes** of a 60-minute workflow.
+Time budget: **≤ 5 minutes** of a 45-minute workflow (the Stage-A line in every workflow's parameter table).
 
 ## 2 · What to Collect
 

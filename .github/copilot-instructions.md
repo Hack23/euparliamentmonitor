@@ -18,7 +18,7 @@
 - **License**: Apache-2.0 | **Deployment**: AWS S3/CloudFront (primary) with GitHub Pages as fallback/runbook
 - **Data**: European Parliament MCP Server (`european-parliament-mcp-server@1.2.13`)
 - **Languages**: EN, SV, DA, NO, FI, DE, FR, ES, NL, AR, HE, JA, KO, ZH
-- **Agentic Workflows**: 18 gh-aw markdown workflows for automated news generation — 8 split-family pairs (`news-<type>-analysis.md` + `news-<type>-article.md`) plus 2 helpers (`news-article-generator.md`, `news-translate.md`)
+- **Agentic Workflows**: 9 gh-aw markdown workflows for automated news generation — 8 unified `news-<type>.md` workflows (run Stages A → E in one 45-min session, single PR) plus the `news-translate.md` 14-language helper (manual, multi-call flush, exempt from single-PR rule)
 - **Security**: ISO 27001, NIST CSF 2.0, CIS Controls v8.1, GDPR, NIS2, EU CRA
 
 ## 🤖 Available Agents
@@ -54,7 +54,7 @@ npm run build         # TypeScript compilation
 
 This project uses **gh-aw markdown workflows** in `.github/workflows/*.md` for automated news generation. These are compiled to `.lock.yml` files and run AI agents (Copilot/Claude/Codex) in sandboxed GitHub Actions with safe outputs.
 
-**Workflow files** (split-family pairs — 8 types × 2 stages + 2 helpers = 18 files): for each news type / canonical `ARTICLE_TYPE_SLUG` (`breaking`, `week-in-review`, `month-in-review`, `week-ahead`, `month-ahead`, `committee-reports`, `motions`, `propositions`) there is a paired `news-<type>-analysis.md` (45-min Stages A–C, produces analysis PR) and `news-<type>-article.md` (45-min Stage D, triggered on merged analysis PR, produces article PR). For the review families, workflow filenames still use the aliases `news-weekly-review-*` and `news-monthly-review-*`, but the canonical slugs used by scripts/workflows are `week-in-review` and `month-in-review`. Helper workflows: `news-article-generator.md` (manual multi-type backfill), `news-translate.md` (14-language translation). The pre-split monolithic `news-<type>.md` files have been removed — see [`.github/workflows/README.md`](./workflows/README.md#split-family-workflows-canonical-16-files--8-pairs).
+**Workflow files** (8 unified article workflows + 1 translation helper = 9 files): for each news type / canonical `ARTICLE_TYPE_SLUG` (`breaking`, `week-in-review`, `month-in-review`, `week-ahead`, `month-ahead`, `committee-reports`, `motions`, `propositions`) there is a single unified `news-<type>.md` (`timeout-minutes: 45`) that runs Stages A → E in one session and produces exactly one PR containing both analysis artifacts and the rendered article HTML. The PR call (`safeoutputs___create_pull_request`) must land by minute ≤ 28 to stay inside the safeoutputs MCP session TTL (~28–30 min). Helper workflow: `news-translate.md` (14-language translation, `workflow_dispatch:` only, exempt from single-PR rule). The earlier split-pair `news-<type>-analysis.md` + `news-<type>-article.md` layout and the manual `news-article-generator.md` helper were removed in the April-2026 aggregator-pipeline migration — see [`.github/workflows/README.md`](./workflows/README.md).
 
 **Key concepts**: Safe outputs (create-pull-request with constraints), AWF firewall (Squid proxy allowlist), 5-layer security model, JSONL artifacts, lock file compilation.
 
@@ -66,7 +66,7 @@ This project uses **gh-aw markdown workflows** in `.github/workflows/*.md` for a
 
 ## 📊 Analysis Artifacts (Deep Political Analysis)
 
-Every article-generating workflow produces a **39-template analysis artifact set** under `analysis/daily/<YYYY-MM-DD>/<article-type-slug>-run<NN>/` **before** drafting any prose. The chain is: **Data → Analysis Artifacts → Completeness Gate → Article → PR**.
+Every article-generating workflow produces a **39-template analysis artifact set** under `analysis/daily/<YYYY-MM-DD>/<article-type-slug>/` **before** drafting any prose. The chain is: **Data → Analysis Artifacts → Completeness Gate → Article → PR**.
 
 **Canonical references** (read by every agent on the news critical path):
 - [`analysis/methodologies/ai-driven-analysis-guide.md`](./../analysis/methodologies/ai-driven-analysis-guide.md) — the **10-step protocol** (Rules 1–22, Step 10.5 = `methodology-reflection.md` as final artifact)
@@ -75,7 +75,7 @@ Every article-generating workflow produces a **39-template analysis artifact set
 - [`analysis/templates/README.md`](./../analysis/templates/README.md) — index of the **39 templates** (6 framework + 14 agentic-workflow + 25 per-artifact)
 - [`analysis/methodologies/reference-quality-thresholds.json`](./../analysis/methodologies/reference-quality-thresholds.json) — per-artifact line floors enforced at Stage C by `npm run validate-analysis`
 
-**Read-Before-Write rule**: The article agent MUST read every artifact produced in Stage B **before** writing any prose. Article sections must cite specific `analysis/daily/<run>/…` files per the map in [`.github/prompts/04-article-generation.md`](./prompts/04-article-generation.md) § 7.1. An article that doesn't cite per-section artifacts fails Stage C and is blocked from PR creation.
+**Read-Before-Write rule**: The article agent MUST read every artifact produced in Stage B **before** writing any prose. Article sections must cite specific `analysis/daily/<date>/<slug>/…` files per the map in [`.github/prompts/04-article-generation.md`](./prompts/04-article-generation.md) § 7.1. An article that doesn't cite per-section artifacts fails Stage C and is blocked from PR creation.
 
 ## 🧠 AI-FIRST QUALITY PRINCIPLE (NON-NEGOTIABLE)
 
@@ -89,8 +89,8 @@ Every article-generating workflow produces a **39-template analysis artifact set
 - **One pass is NEVER sufficient.** Pass 2 is where quality is achieved.
 
 **Time Budget Enforcement**:
-- 60-minute workflows → ≥45 minutes active work (NEVER finish early)
-- 120-minute workflows → ≥90 minutes active work
+- 45-minute unified `news-<type>.md` workflows → active work continues until the safe-outputs PR call (target minute ≤ 25, hard deadline minute ≤ 28); do NOT exit early
+- `news-translate.md` (45 min, multi-call flush) → first productive flush at ~minute 14, periodic flushes every +3 translated files, final flush by minute ≤ 28
 - If you finish early, go back and improve. There is ALWAYS more depth to add.
 
 **Quality Gates**: ≥80 words/SWOT item, ≥150 words/stakeholder perspective, ≥60% prose ratio, ≥1 Chart.js visualization, zero `[AI_ANALYSIS_REQUIRED]` markers, World Bank **or** IMF economic context data for policy articles (Wave-2 OR-gate — see `.github/skills/imf-data-integration.md`).

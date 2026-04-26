@@ -23,8 +23,11 @@ permissions:
 
 # Hard safety cap. Active-work budget is 22–27 min before the single
 # safe-outputs create_pull_request call (see safeoutputs TTL note in the
-# prompt body). The remaining minutes cover npm setup + git push.
-timeout-minutes: 75
+# prompt body). The cap is sized for the ~28–30 min safeoutputs MCP session
+# TTL: agent must call create_pull_request by minute ≤ 28 (target ≤ 25),
+# leaving ~17 min of headroom for npm setup, render, and git push under the
+# 45-min cap.
+timeout-minutes: 45
 
 features:
   mcp-gateway: true
@@ -162,7 +165,7 @@ prose pass.
 | Stage B budget (2 passes) | ≥ 18 min |
 | Stage D budget | ≤ 2 min (deterministic) |
 | **Total active-work budget** | **22–27 min** before the single safe-outputs `create_pull_request` call |
-| Hard safety cap | 75-min `timeout-minutes` |
+| Hard safety cap | 45-min `timeout-minutes` |
 | PR rule | **Exactly one** `[news]` PR at end of run |
 
 > **⚠️ safeoutputs Session TTL**: The safeoutputs MCP HTTP session on

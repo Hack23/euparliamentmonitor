@@ -482,11 +482,13 @@ to every importing workflow. Paired with
 [`.github/workflows/shared/mcp/news-mcp-servers.md`](../workflows/shared/mcp/news-mcp-servers.md)
 (separate import that merges the `mcp-servers:` frontmatter block).
 
-**Importers**: `news-breaking`, `news-weekly-review`, `news-monthly-review`,
+**Importers**: `news-breaking`, `news-week-in-review`, `news-month-in-review`,
 `news-week-ahead`, `news-month-ahead`, `news-committee-reports`,
-`news-motions`, `news-propositions`, `news-article-generator`. Explicitly
-**not** imported by `news-translate` (multi-call flush pattern, exempt from
-single-PR rule).
+`news-motions`, `news-propositions` (the 8 unified article workflows).
+Explicitly **not** imported by `news-translate` (multi-call flush pattern,
+exempt from single-PR rule). The legacy split-pair `news-<type>-analysis.md`
++ `news-<type>-article.md` layout and the manual `news-article-generator.md`
+helper were removed in the April-2026 aggregator-pipeline migration.
 
 See [`.github/workflows/README.md`](../workflows/README.md) for the full
 shared-import pattern.
