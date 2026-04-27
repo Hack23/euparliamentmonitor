@@ -567,6 +567,52 @@ function main() {
   const offending = results.filter((r) => r.issues.length > 0);
   const warning = results.filter((r) => r.warnings.length > 0);
 
+  // ---------------------------------------------------------------------------
+  // Forward-statements registry check (week-ahead / month-ahead only).
+  // When data/forward-statements-open.json exists and is non-empty, the
+  // synthesis-summary MUST contain a "Carried-forward forward statements" section.
+  // ---------------------------------------------------------------------------
+  const FORWARD_STATEMENT_ARTICLE_TYPES = ['week-ahead', 'month-ahead'];
+  if (FORWARD_STATEMENT_ARTICLE_TYPES.includes(articleType)) {
+    const openJsonPath = path.join(runDir, 'data', 'forward-statements-open.json');
+    if (fs.existsSync(openJsonPath)) {
+      const openRaw = fs.readFileSync(openJsonPath, 'utf8').trim();
+      let hasOpenItems = false;
+      try {
+        const openItems = JSON.parse(openRaw);
+        hasOpenItems = Array.isArray(openItems) && openItems.length > 0;
+      } catch {
+        // Malformed JSON — treat as non-empty to force the check
+        hasOpenItems = openRaw.length > 0;
+      }
+      if (hasOpenItems) {
+        const synthPath = path.join(runDir, 'intelligence', 'synthesis-summary.md');
+        if (fs.existsSync(synthPath)) {
+          const synthContent = fs.readFileSync(synthPath, 'utf8');
+          const hasCarriedSection = /##[^#\n]*carried[- ]forward forward statements/i.test(synthContent);
+          if (!hasCarriedSection) {
+            process.stderr.write(
+              `RED  intelligence/synthesis-summary.md :: forward-registry:missing-carried-forward-section` +
+              ` (data/forward-statements-open.json is non-empty but synthesis-summary.md lacks the` +
+              ` "Carried-forward forward statements" section — see 04-article-generation.md §7.1)\n`,
+            );
+            summary.other += 1;
+            offending.push({
+              relativePath: 'intelligence/synthesis-summary.md',
+              issues: ['forward-registry:missing-carried-forward-section'],
+              warnings: [],
+              exists: true,
+              lines: countLines(synthContent),
+              minLines: 0,
+              mermaid: false,
+              placeholders: [],
+            });
+          }
+        }
+      }
+    }
+  }
+
   // Human-readable per-artifact report
   for (const r of offending) {
     process.stderr.write(

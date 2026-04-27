@@ -213,4 +213,108 @@ describe('scripts/validate-analysis-completeness.js', () => {
     expect(result.code).toBe(0);
     expect(result.stderr).toMatch(/orphan artifacts/);
   });
+
+  // -------------------------------------------------------------------------
+  // Forward-statements registry check (week-ahead / month-ahead)
+  // -------------------------------------------------------------------------
+
+  function writeWeekAheadManifest() {
+    fs.writeFileSync(
+      path.join(runDir, 'manifest.json'),
+      JSON.stringify({
+        articleType: 'week-ahead',
+        files: {
+          intelligence: ['intelligence/synthesis-summary.md'],
+        },
+      }),
+      'utf8',
+    );
+  }
+
+  it('passes GREEN for week-ahead when no forward-statements-open.json exists', () => {
+    writeWeekAheadManifest();
+    fs.writeFileSync(
+      path.join(runDir, 'intelligence/synthesis-summary.md'),
+      makeArtifact(250, { mermaid: true, wep: true, admiralty: true }),
+      'utf8',
+    );
+    const result = runHere();
+    expect(result.code).toBe(0);
+    expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
+  });
+
+  it('passes GREEN for week-ahead when forward-statements-open.json is empty array', () => {
+    writeWeekAheadManifest();
+    fs.mkdirSync(path.join(runDir, 'data'), { recursive: true });
+    fs.writeFileSync(path.join(runDir, 'data/forward-statements-open.json'), '[]', 'utf8');
+    fs.writeFileSync(
+      path.join(runDir, 'intelligence/synthesis-summary.md'),
+      makeArtifact(250, { mermaid: true, wep: true, admiralty: true }),
+      'utf8',
+    );
+    const result = runHere();
+    expect(result.code).toBe(0);
+    expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
+  });
+
+  it('returns RED for week-ahead when open items exist but synthesis lacks the carried-forward section', () => {
+    writeWeekAheadManifest();
+    fs.mkdirSync(path.join(runDir, 'data'), { recursive: true });
+    // Non-empty open items
+    fs.writeFileSync(
+      path.join(runDir, 'data/forward-statements-open.json'),
+      JSON.stringify([{ id: 'abc', topic: 'banking-union', status: 'open' }]),
+      'utf8',
+    );
+    // Synthesis without the required section
+    fs.writeFileSync(
+      path.join(runDir, 'intelligence/synthesis-summary.md'),
+      makeArtifact(250, { mermaid: true, wep: true, admiralty: true }),
+      'utf8',
+    );
+    const result = runHere();
+    expect(result.code).toBe(1);
+    expect(result.stdout).toMatch(/STAGE_C_GATE: RED/);
+    expect(result.stderr).toMatch(/forward-registry:missing-carried-forward-section/);
+  });
+
+  it('passes GREEN for week-ahead when open items exist and synthesis has the carried-forward section', () => {
+    writeWeekAheadManifest();
+    fs.mkdirSync(path.join(runDir, 'data'), { recursive: true });
+    fs.writeFileSync(
+      path.join(runDir, 'data/forward-statements-open.json'),
+      JSON.stringify([{ id: 'abc', topic: 'banking-union', status: 'open' }]),
+      'utf8',
+    );
+    // Synthesis WITH the required section
+    const synthBody = makeArtifact(250, { mermaid: true, wep: true, admiralty: true });
+    const synthWithSection = `${synthBody}\n\n## Carried-Forward Forward Statements\n\nNo open items resolved this run.\n`;
+    fs.writeFileSync(
+      path.join(runDir, 'intelligence/synthesis-summary.md'),
+      synthWithSection,
+      'utf8',
+    );
+    const result = runHere();
+    expect(result.code).toBe(0);
+    expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
+  });
+
+  it('does NOT apply forward-registry check to breaking article type', () => {
+    // breaking manifest — even with a non-empty open.json, no section needed
+    writeManifest();
+    fs.mkdirSync(path.join(runDir, 'data'), { recursive: true });
+    fs.writeFileSync(
+      path.join(runDir, 'data/forward-statements-open.json'),
+      JSON.stringify([{ id: 'abc', topic: 'defence', status: 'open' }]),
+      'utf8',
+    );
+    fs.writeFileSync(
+      path.join(runDir, 'intelligence/synthesis-summary.md'),
+      makeArtifact(250, { mermaid: true, wep: true, admiralty: true }),
+      'utf8',
+    );
+    const result = runHere();
+    expect(result.code).toBe(0);
+    expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
+  });
 });

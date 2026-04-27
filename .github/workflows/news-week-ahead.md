@@ -295,6 +295,9 @@ prose pass.
 
 - Mine prior-run forward statements (per `01-data-collection.md` §8) and carry ≥ 3 forward statements forward with status updates.
 - Include `intelligence/scenario-forecast.md` in the analysis set; render probability-labelled scenario cards.
+- **Seed synthesis from forward-statements registry** (per `01-data-collection.md` §8a): read open items from `analysis/forward-statements/` before Stage B.
+- **Multi-day foreseen activities fan-out** (per `01-data-collection.md` §8b): call `get_meeting_foreseen_activities` for each of the 4 session days, not just day 1.
+- **Monday urgency motion sweep** (per `01-data-collection.md` §8c): when running on a Monday, poll `get_adopted_texts_feed` + `get_procedures_feed` for Rule 132 urgency motions.
 
 ## 🗓️ Date Context + Stable Folder Resolution (MANDATORY — first bash block)
 
@@ -336,6 +339,43 @@ Run the canonical gateway block from `08-infrastructure.md` §4. Source
 `scripts/imf-mcp-probe.sh`. Collect EP feed data first; fall back to
 direct endpoints on failure. Deep-fetch up to 10 procedures / voting
 records / meeting decisions into `${ANALYSIS_DIR}/data/`. Target ≤ 4 min.
+
+**Forward-statements registry seed (mandatory):**
+
+```bash
+HORIZON_END=$(date -u -d '7 days' +%Y-%m-%d)
+node scripts/aggregator/forward-statements-registry.js read \
+  --status open \
+  --horizon-from "$TODAY" \
+  --horizon-to "$HORIZON_END" \
+  > "${ANALYSIS_DIR}/data/forward-statements-open.json"
+```
+
+**Multi-day foreseen activities fan-out (mandatory — call all 4 session days):**
+
+Determine the next plenary session start date (Monday of the next Strasbourg
+session week), then call `get_meeting_foreseen_activities` for each day:
+- Day 1: `sittingId: "MTG-PL-<session-monday>"`
+- Day 2: `sittingId: "MTG-PL-<session-tuesday>"`
+- Day 3: `sittingId: "MTG-PL-<session-wednesday>"`
+- Day 4: `sittingId: "MTG-PL-<session-thursday>"`
+
+Each call uses `limit: 20`. Save day-specific results to
+`${ANALYSIS_DIR}/data/foreseen-activities-<YYYY-MM-DD>.json`.
+
+**Monday urgency motion sweep (conditional — only when TODAY is a Monday):**
+
+```bash
+DOW=$(date -u -d "$TODAY" +%u)
+if [ "$DOW" = "1" ]; then
+  echo "Running urgency motion sweep for Monday $TODAY"
+fi
+```
+
+When running on Monday: call `get_adopted_texts_feed` with `timeframe: "today"`
+and `get_procedures_feed` with `timeframe: "today"` to capture Rule 132 urgency
+motions before confirming agenda-specific predictions. Save to
+`${ANALYSIS_DIR}/data/urgency-motions-${TODAY}.json`.
 
 ### Stage B — Analysis (Ref: 02 §2 re-run merge rule)
 
