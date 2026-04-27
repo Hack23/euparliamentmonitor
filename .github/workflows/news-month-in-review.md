@@ -337,6 +337,17 @@ Run the canonical gateway block from `08-infrastructure.md` §4. Source
 direct endpoints on failure. Deep-fetch up to 10 procedures / voting
 records / meeting decisions into `${ANALYSIS_DIR}/data/`. Target ≤ 5 min.
 
+```bash
+source scripts/mcp-setup.sh
+mkdir -p "${ANALYSIS_DIR}/data" "${ANALYSIS_DIR}/cache/imf"
+scripts/imf-mcp-probe.sh > "${ANALYSIS_DIR}/cache/imf/probe-summary.json" &
+IMF_PROBE_PID=$!
+source scripts/wb-mcp-probe.sh
+# Run EP MCP collection now while the IMF probe is still in the background.
+# Wait immediately before Stage B so cache/imf is available for provenance.
+wait "$IMF_PROBE_PID" || true
+```
+
 ### Stage B — Analysis (Ref: 02 §2 re-run merge rule)
 
 **If `${ANALYSIS_DIR}/manifest.json` already exists from a prior run today,

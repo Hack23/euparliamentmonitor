@@ -21,6 +21,7 @@ import {
   IMF_MCP_TOOLS,
   getIMFMCPClient,
   closeIMFMCPClient,
+  countIMFSDMXObservations,
 } from '../../scripts/mcp/imf-mcp-client.js';
 import { mockConsole } from '../helpers/test-utils.js';
 
@@ -64,6 +65,38 @@ describe('imf-mcp-client', () => {
   describe('IMFClient alias', () => {
     it('is the same class as IMFMCPClient (forward-looking alias)', () => {
       expect(IMFClient).toBe(IMFMCPClient);
+    });
+  });
+
+  describe('countIMFSDMXObservations', () => {
+    it('counts observations nested under SDMX series rows', () => {
+      const payload = {
+        data: {
+          dataSets: [
+            {
+              series: {
+                '0:0:0': { observations: { 0: [1.2], 1: [1.4] } },
+                '1:0:0': { observations: { 0: [0.8] } },
+              },
+            },
+          ],
+        },
+      };
+
+      expect(countIMFSDMXObservations(JSON.stringify(payload))).toBe(3);
+      expect(countIMFSDMXObservations(payload)).toBe(3);
+    });
+
+    it('counts flat dataset observations and returns zero for invalid JSON', () => {
+      expect(
+        countIMFSDMXObservations({
+          data: {
+            dataSets: [{ observations: { 0: [2.1], 1: [2.2] } }],
+          },
+        })
+      ).toBe(2);
+      expect(countIMFSDMXObservations('not-json')).toBe(0);
+      expect(countIMFSDMXObservations({ data: { dataSets: [] } })).toBe(0);
     });
   });
 

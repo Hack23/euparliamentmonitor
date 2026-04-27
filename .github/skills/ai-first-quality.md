@@ -66,7 +66,7 @@ After writing ANY content (analysis files, article sections, SWOT items, stakeho
 | Article sections | ≥3 analytical prose paragraphs (not bullet lists) |
 | Prose ratio | ≥60% paragraphs (not bullet lists) |
 | Chart.js visualizations | ≥1 per article with real EP data |
-| IMF economic data (primary, Wave-3) | Mandatory for every economic dimension in policy articles — SDMX code + vintage + forecast marker |
+| IMF economic data (primary, Wave-3) | Mandatory for every economic dimension in policy articles — SDMX code + vintage + forecast marker + `IMF Source: live` or `cache` backed by `analysis/daily/<date>/<slug>/cache/imf/*.json` |
 | World Bank data (non-economic only) | Optional/additive for health, education, social, environment, demographics, defence, agriculture, innovation, governance |
 
 ### Rule 5: The Economist Test
@@ -87,6 +87,9 @@ Every paragraph must pass this test:
 - ❌ Never produce bullet-list articles instead of prose
 - ❌ Never accept shallow one-sentence SWOT items or stakeholder perspectives
 - ❌ Never finish a 45-minute unified workflow before the Stage E safe-outputs PR call (target minute ≤ 25, hard deadline minute ≤ 28)
+- ❌ Never cite IMF figures from agent memory. `IMF Source: knowledge-only`
+  is an explicit failure marker and Stage C must block publication until a live
+  IMF probe or same-day cache backs the economic claim.
 
 ### Pass 2 Enforcement
 

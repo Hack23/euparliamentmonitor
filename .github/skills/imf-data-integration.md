@@ -214,7 +214,8 @@ Per-request timeout: 30 s (override with `IMF_API_TIMEOUT_MS`).
 
 ```bash
 source scripts/mcp-setup.sh
-source scripts/imf-mcp-probe.sh
+mkdir -p "${ANALYSIS_DIR}/cache/imf"
+source scripts/imf-mcp-probe.sh > "${ANALYSIS_DIR}/cache/imf/probe-summary.json"
 if [ "$IMF_MCP_OK" = "true" ]; then
   echo "IMF data available — prefer IMF for macro context"
 else
@@ -225,6 +226,34 @@ fi
 Max 2 HTTP calls, 30 s wall-clock ceiling. The probe keeps its historic
 filename and env-var names (`IMF_MCP_OK`, `IMF_MCP_PROBE_ERROR`) so
 existing workflow prompts do not need to change.
+
+### Live Probe Contract (Stage A)
+
+- **Endpoint:** `https://dataservices.imf.org/REST/SDMX_3.0` (override with
+  `IMF_API_BASE_URL` only for an approved mirror).
+- **Authentication:** none. IMF SDMX 3.0 is public HTTPS; do not send GitHub,
+  MCP gateway, or other bearer tokens to the IMF host.
+- **TLS / attribution:** use HTTPS only and attribute article claims as
+  `Source: IMF, World Economic Outlook, <vintage>`.
+- **Cache location:** `analysis/daily/<date>/<slug>/cache/imf/`. Same-day
+  reruns must read cache before making live calls.
+- **Failure semantics:** the probe always exits 0 and emits
+  `{"available": false, ...}` on timeout, firewall denial, HTTP error, or
+  empty canonical WEO data. Stage A continues, but Stage C must block any
+  economic-context artifact that relies on `knowledge-only` IMF figures.
+
+Canonical Stage-A query set (one dataflow probe + one WEO slice, so the live
+probe remains inside the ≤4 min Stage-A budget):
+
+| Purpose | IMF REST path | Coverage |
+|---------|---------------|----------|
+| Availability / dataflow drift | `/dataflow/IMF` | Confirms SDMX 3.0 service and WEO dataflow listing |
+| Macro WEO slice | `/data/WEO/EA+DEU+FRA+ITA.NGDP_RPCH+PCPIPCH+GGXCNL_NGDP.A?startPeriod=2025&endPeriod=2026&format=jsondata` | Eurozone aggregate (`EA`) plus DE/FR/IT for real GDP growth (`NGDP_RPCH`), inflation (`PCPIPCH`), and fiscal balance (`GGXCNL_NGDP`) |
+
+`economic-context.md` must set `IMF Source` to `live` when the current run
+created the cache files, `cache` when it reused same-day cache, or
+`knowledge-only` only as an explicit failure marker. `knowledge-only` fails the
+Stage-C validator and must not be published as sourced economic evidence.
 
 ---
 

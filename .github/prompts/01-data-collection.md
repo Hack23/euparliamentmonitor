@@ -93,15 +93,21 @@ economic context**:
   breaking / weekly-review / motions / propositions ≥ 1. Full table in
   [`analysis/methodologies/imf-indicator-mapping.md §8`](../../analysis/methodologies/imf-indicator-mapping.md).
 - Connectivity probes: `source scripts/wb-mcp-probe.sh` and
-  `source scripts/imf-mcp-probe.sh` after `scripts/mcp-setup.sh`.
+  `scripts/imf-mcp-probe.sh` after `scripts/mcp-setup.sh`. For
+  `week-in-review`, `month-in-review`, `week-ahead`, and `month-ahead`, start
+  the IMF probe in the background at the beginning of Stage A and cache its JSON
+  under `${ANALYSIS_DIR}/cache/imf/` while EP MCP calls continue. The probe
+  always exits 0; `{"available": false}` is a provenance signal, not a Stage-A
+  abort condition.
 - Editorial rule (Wave-3+): **IMF is the required primary source** for
   every economic claim; World Bank may be cited as corroborating
   evidence for non-economic indicators (health, education, social,
   environment, demographics, defence, agriculture, innovation,
-  governance). The legacy TypeScript validators that enforced this at
-  runtime were purged in April 2026 along with the rest of the
-  article-generation pipeline; enforcement is now agent-side during
-  Stage C completeness review.
+  governance). WB `Country not found` responses for EU-level aggregate codes
+  are expected fallback triggers: switch to IMF `EU`/`EA` aggregates for
+  economic framing and use WB only for member-state or non-economic data. Stage
+  C fails any `economic-context.md` that cites IMF figures from agent
+  knowledge without `cache/imf/*.json`.
 - Forecast labelling: every IMF projection prose MUST include
   "forecast"/"projection"/"projects"/"expects" within 30 words of the
   number (regex-enforced), AND the section MUST carry

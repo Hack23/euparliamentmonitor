@@ -12,6 +12,7 @@ const VALIDATOR = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
   '../../scripts/validate-analysis-completeness.js',
 );
+const ECONOMIC_CONTEXT_PADDING_LINES = 230;
 
 function run(runDir, extraArgs = []) {
   const result = spawnSync(
@@ -214,6 +215,139 @@ describe('scripts/validate-analysis-completeness.js', () => {
     expect(result.stderr).toMatch(/orphan artifacts/);
   });
 
+  function writeEconomicContextManifest() {
+    fs.writeFileSync(
+      path.join(runDir, 'manifest.json'),
+      JSON.stringify({
+        articleType: 'week-in-review',
+        files: {
+          intelligence: ['intelligence/economic-context.md'],
+        },
+      }),
+      'utf8',
+    );
+  }
+
+  function makeEconomicContext(imfSource) {
+    return [
+      '# Economic Context',
+      '',
+      '## Document Metadata',
+      '',
+      '| Field | Value |',
+      '|-------|-------|',
+      `| **IMF Source** | ${imfSource} |`,
+      '',
+      '## IMF Evidence',
+      '',
+      'IMF WEO April 2026 reports Germany at 1.1% real GDP growth, anchoring the policy reading.',
+      '',
+      '```mermaid',
+      'flowchart LR',
+      'IMF --> EP',
+      '```',
+      '',
+      ...Array.from(
+        { length: ECONOMIC_CONTEXT_PADDING_LINES },
+        (_, i) => `Filler line ${i}`,
+      ),
+    ].join('\n');
+  }
+
+  it('returns RED when economic-context cites IMF figures with knowledge-only provenance', () => {
+    writeEconomicContextManifest();
+    fs.writeFileSync(
+      path.join(runDir, 'intelligence/economic-context.md'),
+      makeEconomicContext('knowledge-only'),
+      'utf8',
+    );
+    const result = runHere();
+    expect(result.code).toBe(1);
+    expect(result.stderr).toMatch(/economic-context\.md.*imf-source:knowledge-only/);
+  });
+
+  it('returns RED when economic-context cites live IMF figures without an IMF cache file', () => {
+    writeEconomicContextManifest();
+    fs.writeFileSync(
+      path.join(runDir, 'intelligence/economic-context.md'),
+      makeEconomicContext('live'),
+      'utf8',
+    );
+    const result = runHere();
+    expect(result.code).toBe(1);
+    expect(result.stderr).toMatch(/economic-context\.md.*imf-cache:missing/);
+  });
+
+  it('passes GREEN when economic-context cites live IMF figures with cached probe JSON', () => {
+    writeEconomicContextManifest();
+    fs.writeFileSync(
+      path.join(runDir, 'intelligence/economic-context.md'),
+      makeEconomicContext('live'),
+      'utf8',
+    );
+    fs.mkdirSync(path.join(runDir, 'cache/imf'), { recursive: true });
+    fs.writeFileSync(
+      path.join(runDir, 'cache/imf/weo-ea-deu-fra-ita-gdp-inflation-fiscal.json'),
+      JSON.stringify({ data: { dataSets: [{ series: { '0:0:0': { observations: { 0: [1.1] } } } }] } }),
+      'utf8',
+    );
+    const result = runHere();
+    expect(result.code).toBe(0);
+    expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
+  });
+
+  it('returns RED when IMF Source field holds an unrecognised template placeholder', () => {
+    writeEconomicContextManifest();
+    fs.writeFileSync(
+      path.join(runDir, 'intelligence/economic-context.md'),
+      makeEconomicContext('<live | cache | knowledge-only>'),
+      'utf8',
+    );
+    const result = runHere();
+    expect(result.code).toBe(1);
+    expect(result.stderr).toMatch(/economic-context\.md.*imf-source:missing/);
+  });
+
+  it('returns RED when only a non-WEO json sits in cache/imf (failed probe summary)', () => {
+    writeEconomicContextManifest();
+    fs.writeFileSync(
+      path.join(runDir, 'intelligence/economic-context.md'),
+      makeEconomicContext('live'),
+      'utf8',
+    );
+    fs.mkdirSync(path.join(runDir, 'cache/imf'), { recursive: true });
+    fs.writeFileSync(
+      path.join(runDir, 'cache/imf/imf-probe-summary.json'),
+      JSON.stringify({ available: false, source: 'live', records: 0 }),
+      'utf8',
+    );
+    const result = runHere();
+    expect(result.code).toBe(1);
+    expect(result.stderr).toMatch(/economic-context\.md.*imf-cache:missing/);
+  });
+
+  it('returns RED when WEO file exists but probe summary reports available:false', () => {
+    writeEconomicContextManifest();
+    fs.writeFileSync(
+      path.join(runDir, 'intelligence/economic-context.md'),
+      makeEconomicContext('live'),
+      'utf8',
+    );
+    fs.mkdirSync(path.join(runDir, 'cache/imf'), { recursive: true });
+    fs.writeFileSync(
+      path.join(runDir, 'cache/imf/weo-ea-deu-fra-ita-gdp-inflation-fiscal.json'),
+      JSON.stringify({ data: { dataSets: [{ series: { '0:0:0': { observations: { 0: [1.1] } } } }] } }),
+      'utf8',
+    );
+    fs.writeFileSync(
+      path.join(runDir, 'cache/imf/imf-probe-summary.json'),
+      JSON.stringify({ available: false, source: 'live', records: 0 }),
+      'utf8',
+    );
+    const result = runHere();
+    expect(result.code).toBe(1);
+    expect(result.stderr).toMatch(/economic-context\.md.*imf-cache:missing/);
+  });
 
   describe('Pass 2 skipped heuristic', () => {
     it('warns when pass2 block is absent and an artifact sits exactly at its floor', () => {

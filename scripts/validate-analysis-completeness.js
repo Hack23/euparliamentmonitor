@@ -87,6 +87,15 @@ const SAT_LIST_RE = /(?:^|\n)\s*(?:[-*+]|\d+\.)\s+[^\n]+/g; // crude bullet matc
 const MCP_TOOL_RE =
   /\b(get_(?:procedures|adopted_texts|plenary_sessions|voting_records|meps|parliamentary_questions|speeches|committee_documents)|search_(?:documents|code|issues|repositories)|analyze_(?:voting_patterns|coalition_dynamics|country_delegation)|semantic_(?:issues_search|issue_similarity_search)|monitor_legislative_pipeline|track_legislation|track_mep_attendance|generate_political_landscape|early_warning_system|correlate_intelligence)\b/;
 
+const IMF_SOURCE_FIELD_RE =
+  /^\|\s*\*\*IMF Source\*\*\s*\|\s*`?([^`|\]]+?)`?\s*\|/im;
+
+// Keep the proximity window wide enough for one short citation clause
+// ("IMF WEO April 2026 reports Germany at 1.1%...") but narrow enough to
+// avoid treating a generic methodology paragraph as a numeric IMF claim.
+const IMF_FIGURE_CLAIM_RE =
+  /\bIMF\b[\s\S]{0,160}\b\d+(?:\.\d+)?\s*(?:%|pp|percentage points|GDP|EUR|USD|billion|trillion|million)/i;
+
 // Bypass placeholder scan only on template-instruction blocks themselves —
 // NOT on every artifact that happens to link to a methodology document.
 // Matching `methodology` here would suppress placeholder detection for any
@@ -256,6 +265,68 @@ function hasMcpToolReference(content) {
   return MCP_TOOL_RE.test(content);
 }
 
+function isEconomicContextArtifact(relativePath) {
+  return relativePath.replace(/\\/g, '/').endsWith('economic-context.md');
+}
+
+function parseImfSourceField(content) {
+  const match = content.match(IMF_SOURCE_FIELD_RE);
+  if (!match) return null;
+  const raw = match[1].trim().toLowerCase();
+  if (raw.startsWith('live')) return 'live';
+  if (raw.startsWith('cache')) return 'cache';
+  if (raw.startsWith('knowledge-only')) return 'knowledge-only';
+  // Unknown value (including untouched template placeholders like
+  // "<live | cache | knowledge-only>") must not bypass the provenance gate.
+  return null;
+}
+
+function claimsImfFigures(content) {
+  return IMF_FIGURE_CLAIM_RE.test(content);
+}
+
+// Stage C IMF evidence gate. The probe always writes a summary JSON even
+// when `available:false`, so a generic "any .json file" check is insufficient
+// — it would let a failed probe satisfy the gate. Require:
+//   1. At least one canonical WEO evidence file (`weo-*.json`) that is
+//      non-empty, AND
+//   2. If `imf-probe-summary.json` is present, it must report
+//      `available:true` (the probe writes `available:false` when the live
+//      fetch failed and no cache was hit).
+function hasImfCacheJson(runDir) {
+  const cacheDir = path.join(runDir, 'cache', 'imf');
+  let entries;
+  try {
+    entries = fs.readdirSync(cacheDir, { withFileTypes: true });
+  } catch {
+    return false;
+  }
+  const hasWeoEvidence = entries.some((entry) => {
+    if (
+      !entry.isFile() ||
+      !entry.name.startsWith('weo-') ||
+      !entry.name.endsWith('.json')
+    ) {
+      return false;
+    }
+    try {
+      return fs.statSync(path.join(cacheDir, entry.name)).size > 0;
+    } catch {
+      return false;
+    }
+  });
+  if (!hasWeoEvidence) return false;
+  const summaryPath = path.join(cacheDir, 'imf-probe-summary.json');
+  try {
+    const summary = JSON.parse(fs.readFileSync(summaryPath, 'utf8'));
+    if (summary && summary.available === false) return false;
+  } catch {
+    // No summary, unreadable, or malformed — fall back to the WEO evidence
+    // check above. The summary is best-effort additional confirmation.
+  }
+  return true;
+}
+
 function dirOfArtifact(relativePath) {
   const norm = relativePath.replace(/\\/g, '/');
   const idx = norm.indexOf('/');
@@ -394,6 +465,16 @@ function validateArtifact({
   ) {
     if (options.strict) result.issues.push('source-diversity:no-evidence-or-mcp-ref');
     else result.warnings.push('source-diversity:no-evidence-or-mcp-ref');
+  }
+  if (isEconomicContextArtifact(relativePath) && claimsImfFigures(content)) {
+    const imfSource = parseImfSourceField(content);
+    if (!imfSource) {
+      result.issues.push('imf-source:missing');
+    } else if (imfSource === 'knowledge-only') {
+      result.issues.push('imf-source:knowledge-only');
+    } else if ((imfSource === 'live' || imfSource === 'cache') && !hasImfCacheJson(runDir)) {
+      result.issues.push('imf-cache:missing');
+    }
   }
 
   return result;
