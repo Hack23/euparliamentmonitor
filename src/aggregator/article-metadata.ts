@@ -526,7 +526,13 @@ export function buildTemplateFallback(
     LanguageCode,
     LangTitleSubtitle
   >;
-  const weekRange = deriveWeekRange(date);
+  // week-in-review uses the D-36→D-8 reporting window (ADR-006) so that
+  // EP roll-call voting data — published 2–6 weeks after the sitting —
+  // is always available in the analysis window.
+  const weekRange =
+    articleType === 'week-in-review'
+      ? deriveReportingWindowForWeekInReview(date)
+      : deriveWeekRange(date);
   const monthLabel = deriveMonthLabel(date);
   const committeeLabel = committee && committee.trim().length > 0 ? committee : 'Main Committees';
 
@@ -598,6 +604,9 @@ function templateForType(
   }
 }
 
+/** Milliseconds in one UTC day — used by date-window derivation helpers. */
+const MS_PER_DAY = 86_400_000;
+
 /**
  * Parse an ISO date and return the `[start, end]` week range as ISO
  * strings. Week starts on Monday and ends on the following Sunday.
@@ -612,9 +621,34 @@ export function deriveWeekRange(date: string): { readonly start: string; readonl
   const day = parsed.getUTCDay();
   // Shift so Monday = 0, Sunday = 6.
   const shift = (day + 6) % 7;
-  const startMs = parsed.getTime() - shift * 86_400_000;
-  const endMs = startMs + 6 * 86_400_000;
+  const startMs = parsed.getTime() - shift * MS_PER_DAY;
+  const endMs = startMs + 6 * MS_PER_DAY;
   return { start: formatIsoDate(new Date(startMs)), end: formatIsoDate(new Date(endMs)) };
+}
+
+/**
+ * Return the D-36 → D-8 reporting window for the `week-in-review`
+ * article type. EP roll-call voting data is published with a 2–6 week
+ * lag, so using the most-recent 7 days structurally produces a
+ * vote-empty dataset. Shifting 8 days back and widening to 28 days
+ * (start = D-36, end = D-8) ensures the window always contains at
+ * least one full EP plenary week with published roll-call data
+ * (ADR-006). Direction is consistent with the workflow's
+ * `DATE_FROM` (start = D-36) → `DATE_TO` (end = D-8) variables.
+ *
+ * @param date - ISO article date string (`YYYY-MM-DD`) — typically TODAY
+ * @returns `{ start: D-36, end: D-8 }` both as `YYYY-MM-DD` ISO strings
+ */
+export function deriveReportingWindowForWeekInReview(date: string): {
+  readonly start: string;
+  readonly end: string;
+} {
+  const parsed = parseIsoDate(date);
+  if (!parsed) return { start: date, end: date };
+  return {
+    start: formatIsoDate(new Date(parsed.getTime() - 36 * MS_PER_DAY)),
+    end: formatIsoDate(new Date(parsed.getTime() - 8 * MS_PER_DAY)),
+  };
 }
 
 /**
