@@ -23,7 +23,7 @@
 
 ---
 
-> ### ⚠️ April-2026 Aggregator-Pipeline Migration
+> ### ✅ April-2026 Aggregator-Pipeline Migration — Complete
 >
 > The April-2026 release migrated from an AI-authored-HTML pipeline to a
 > **deterministic aggregator pipeline**. Article HTML is now rendered by
@@ -33,35 +33,31 @@
 > `src/utils/content-validator.ts` / `validate-articles.ts` /
 > `validate-analysis-completeness.ts` runtime validators.
 >
-> The canonical references below are correct for the current release:
+> **Canonical references for the current release:**
 >
-> - **Render entry point**: `src/aggregator/article-generator.ts`
+> - 🟢 **Render entry point**: `src/aggregator/article-generator.ts`
 >   (CLI: `npm run generate-article -- --run <analysis-run-dir>`)
-> - **Aggregator modules**: `artifact-order.ts`, `clean-artifact.ts`,
+> - 📦 **Aggregator modules**: `artifact-order.ts`, `clean-artifact.ts`,
 >   `analysis-aggregator.ts`, `markdown-renderer.ts`, `article-html.ts`,
 >   `article-metadata.ts` (5-tier editorial-highlight resolver for
 >   `<title>` / `<meta description>` — manifest override → first artefact
 >   H1 → aggregated H1 → first strong prose → localized template)
-> - **Agentic workflows**: 9 unified `news-<type>.md` files (Stages A → B
->   → C → D → E in one session) + `news-translate.md`; split-family
+> - 🤖 **Agentic workflows**: 8 unified `news-<type>.md` files (Stages A → B
+>   → C → D → E in one session) + `news-translate.md`; the split-family
 >   workflows (`news-<type>-analysis.md` + `news-<type>-article.md`) and
 >   the manual `news-article-generator.md` helper were deleted
-> - **Economic-context enforcement**: editorial at Stage-C agent-side
->   review over `intelligence/economic-context.md` — the Wave-2 OR-gate
+> - 💰 **Economic-context enforcement**: editorial Stage-C agent-side
+>   review over `intelligence/economic-context.md` (the Wave-2 OR-gate
 >   and Wave-3/Wave-4 strict runtime gates in
 >   `src/utils/content-validator.ts` were purged with the rest of the
 >   validator layer; enforcement moved to the Stage-C completeness review
 >   protocol in [`.github/prompts/03-analysis-completeness-gate.md`](.github/prompts/03-analysis-completeness-gate.md)
 >   and the depth floors in
->   [`analysis/methodologies/reference-quality-thresholds.json`](analysis/methodologies/reference-quality-thresholds.json)
+>   [`analysis/methodologies/reference-quality-thresholds.json`](analysis/methodologies/reference-quality-thresholds.json))
 >
-> The C4 diagrams in §§ "Container View" and "Component Design" below
-> still reference the pre-migration strategy/builder/content-validator
-> stack. They are scheduled for replacement in a follow-up PR that
-> rewrites those two sections against the 5-module aggregator. Until
-> then, use this banner, the Key Characteristics section, and
-> [`DATA_MODEL.md`](DATA_MODEL.md) as the authoritative description of
-> the current pipeline.
+> The C4 Container and Component diagrams in this document have been
+> rewritten against the post-migration aggregator stack — they no longer
+> reference deleted strategies/builders/`content-validator.ts`.
 
 This document serves as the primary entry point for the EU Parliament Monitor's
 architectural documentation. It provides a comprehensive view of the system's
@@ -307,97 +303,104 @@ graph TB
 
 ## 📦 C4 Model Level 2: Container Diagram
 
-**📦 Container Focus:** Shows the major containers (applications, data stores,
-microservices) that make up the system.
+**📦 Container Focus:** Major containers (applications, data stores, MCP clients) of the post-April-2026 aggregator pipeline.
 
-**🔄 Data Flow Focus:** Illustrates how data flows between containers during
-news generation.
+**🔄 Data Flow Focus:** How agentic workflows produce analysis artifacts and how the deterministic aggregator renders them into 14-language HTML.
 
 ```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#fff","lineColor":"#90CAF9","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
 C4Container
-    title EU Parliament Monitor - Container Diagram
+    title EU Parliament Monitor — Container Diagram (April-2026 aggregator pipeline)
 
-    Person(user, "User", "Reads multilingual EP news")
-    Person(contributor, "Contributor", "Maintains system")
+    Person(user, "Reader", "Reads multilingual EP news at euparliamentmonitor.com")
+    Person(contributor, "Contributor", "Maintains code, methodologies, translations")
+    Person(researcher, "Researcher / Journalist", "Audits analysis artifacts via the Political Intelligence Hub")
 
     Container_Boundary(epmonitor, "EU Parliament Monitor") {
-        Container(aw_orchestrator, "gh-aw Orchestrator", "Agentic Workflows (Claude Opus 4.7)", "10 agentic workflows (.md → .lock.yml via gh-aw v0.69.0): 9 content + 1 translate")
-        Container(pipeline, "Analysis Pipeline", "TypeScript", "5-stage pipeline: fetch → transform → analysis → generate → output (src/generators/pipeline/)")
-        Container(strategies, "Strategies (×8)", "TypeScript", "article, breaking-news, committee-reports, month-ahead, monthly-review, motions, propositions, week-ahead, weekly-review (src/generators/strategies/)")
-        Container(builders, "Section Builders", "TypeScript", "breaking, committee, propositions, prospective, shared, voting (src/generators/builders/)")
-        Container(templates, "Article Templates", "TypeScript", "HTML5 article template, section-builders, single-source-of-truth buildSiteFooter() (src/templates/)")
-        Container(ep_client, "EP MCP Client", "TypeScript", "Stdio JSON-RPC to european-parliament-mcp-server@1.2.15; sliding + fixed-window feed surfaces (src/mcp/ep-mcp-client.ts)")
-        Container(wb_client, "World Bank MCP Client", "TypeScript", "Optional worldbank-mcp@1.0.1 — WDI indicators (src/mcp/wb-mcp-client.ts)")
-        Container(imf_client, "IMF REST Client", "TypeScript", "Native fetch SDMX 3.0 — WEO+FM monthly forecasts (src/mcp/imf-mcp-client.ts)")
-        Container(validator, "Content Validator", "TypeScript", "articlePolicyHas* gates, fallback-leak scanner, validate-analysis-completeness (src/utils/content-validator.ts)")
-        Container(news_indexes, "News Indexes", "TypeScript", "Per-language index pages (src/generators/news-indexes.ts)")
-        Container(sitemap_generator, "Sitemap Generator", "TypeScript", "XML sitemap across 14 languages (src/generators/sitemap.ts)")
-        ContainerDb(static_files, "Static Files", "HTML/CSS/JS/JSON", "news/*.html (~1894 files), analysis/daily/YYYY-MM-DD/, articles-metadata.json, sitemap.xml, styles.css (133 KB)")
+        Container(aw_orchestrator, "gh-aw Orchestrator", "Agentic Workflows (Claude Opus 4.7)", "9 agentic workflows: 8 unified news-<type>.md + news-translate.md")
+        Container(prompt_lib, "Prompt Library", "10 bounded contexts", ".github/prompts/00-scope … 09-troubleshooting; lint:prompts drift-guard")
+        Container(methodology_lib, "Methodology Library", "Markdown methodologies + JSON thresholds", "17 methodologies + reference-quality-thresholds.json (analysis/methodologies/)")
+        Container(template_lib, "Template Library", "51 Markdown templates", "39 core + 12 extended (analysis/templates/)")
+        ContainerDb(analysis_runs, "Analysis Runs", "Markdown + JSON", "analysis/daily/YYYY-MM-DD/<type>/{manifest.json,intelligence/,classification/,risk-scoring/,threat-assessment/,documents/,extended/}")
+        Container(aggregator, "Aggregator (5 modules)", "TypeScript", "src/aggregator/**: artifact-order · clean-artifact · analysis-aggregator · markdown-renderer · article-html · article-metadata · article-generator (CLI)")
+        Container(ep_client, "EP MCP Client", "TypeScript", "Stdio JSON-RPC to european-parliament-mcp-server@1.2.15+; 60+ tools; getVotingRecordsWithFallback() to EP Open Data Portal (src/mcp/ep-mcp-client.ts)")
+        Container(wb_client, "World Bank MCP Client", "TypeScript", "WORLD_BANK_MCP_TOOLS — non-economic indicators only (src/mcp/wb-mcp-client.ts)")
+        Container(imf_client, "IMF REST Client", "TypeScript", "IMF_MCP_TOOLS — primary economic source: WEO/Fiscal Monitor/IFS/BOP/ER/PCPS (src/mcp/imf-mcp-client.ts)")
+        Container(stage_c_review, "Stage-C Review", "Editorial agent + thresholds", "Reads .github/prompts/03-analysis-completeness-gate.md + reference-quality-thresholds.json — replaces purged content-validator.ts")
+        Container(news_indexes, "News Indexes & Sitemap", "TypeScript", "Per-language index pages + sitemap.xml + sitemap_<lang>.html (src/generators/news-indexes.ts, sitemap.ts)")
+        ContainerDb(static_files, "Static Site Output", "HTML/CSS/JS/JSON", "news/<slug>-<lang>.html (14 langs) · news/<slug>.en.md · article.md per run · sitemap.xml · articles-metadata.json")
     }
 
     Container_Boundary(github_infra, "GitHub Infrastructure") {
-        Container(actions, "GitHub Actions", "CI/CD + gh-aw runtime", "10 agentic workflows + 14 standard workflows")
-        ContainerDb(repo, "Git Repository", "Version Control", "Source + generated content; articles-metadata.json")
+        Container(actions, "GitHub Actions", "CI/CD + gh-aw runtime", "9 news + ~15 standard workflows; SHA-pinned actions; OpenSSF Scorecard")
+        ContainerDb(repo, "Git Repository", "Version control", "Source + analysis runs + generated content; SLSA L3 provenance")
     }
 
     Container_Boundary(aws_infra, "AWS Infrastructure") {
-        Container(cf_s3, "CloudFront + S3", "CDN / Object Storage", "Primary hosting — HTTPS via ACM, deploy-s3.yml OIDC")
+        Container(cf_s3, "CloudFront + S3", "CDN / object storage", "Primary hosting · ACM HTTPS · OIDC GithubWorkFlowRole · cache: HTML 1h, immutable assets 1y")
     }
 
-    System_Ext(ep_mcp, "European Parliament MCP Server v1.2.13", "6 sliding-window + 7 fixed-window feed tools; {status:\"unavailable\", items:[]} envelope")
-    System_Ext(wb_mcp, "World Bank MCP Server v1.0.1", "WDI indicators (optional)")
+    System_Ext(ep_mcp, "European Parliament MCP Server v1.2.15+", "60+ tools — plenary, voting, motions, committee, MEPs, declarations, procedures, analytical (voting-anomaly, coalition, MEP-influence)")
+    System_Ext(ep_open_data, "EP Open Data Portal", "https://data.europarl.europa.eu — voting-records fallback (/api/v2/decision)")
+    System_Ext(wb_mcp, "World Bank Open Data MCP", "Non-economic WDI indicators (health, education, environment, governance)")
     System_Ext(imf_api, "IMF SDMX 3.0 REST", "https://dataservices.imf.org/REST/SDMX_3.0/")
-    System_Ext(copilot, "GitHub Copilot / Claude Opus 4.7", "AI agent authoring all narrative content under AI-First 2-pass regime")
+    System_Ext(copilot, "GitHub Copilot / Claude Opus 4.7", "Authors analysis Markdown under 2-pass AI-First Quality regime — never authors HTML")
 
-    Rel(user, cf_s3, "Reads news", "HTTPS")
-    Rel(contributor, repo, "Commits code", "Git/HTTPS")
-    Rel(actions, aw_orchestrator, "Triggers on schedule", "gh-aw engine")
-    Rel(aw_orchestrator, copilot, "Delegates authoring", "Copilot CLI")
-    Rel(aw_orchestrator, pipeline, "Invokes via npx tsx", "CLI")
-    Rel(pipeline, ep_client, "Fetch stage", "Function calls")
-    Rel(pipeline, wb_client, "Fetch stage (optional)", "Function calls")
-    Rel(pipeline, imf_client, "Fetch stage", "Function calls")
-    Rel(pipeline, strategies, "Generate stage", "Strategy dispatch")
-    Rel(strategies, builders, "Compose sections", "Function calls")
-    Rel(strategies, templates, "Render HTML", "Function calls")
-    Rel(pipeline, validator, "Output stage gate", "Function calls")
-    Rel(templates, static_files, "Write articles", "fs.writeFileSync")
-    Rel(news_indexes, static_files, "Generate indexes", "fs.writeFileSync")
-    Rel(sitemap_generator, static_files, "Create sitemap", "fs.writeFileSync")
+    Rel(user, cf_s3, "Reads HTML in 14 langs", "HTTPS")
+    Rel(researcher, repo, "Audits analysis/daily/", "Git/HTTPS")
+    Rel(contributor, repo, "Commits code + methodologies", "Git/HTTPS")
+    Rel(actions, aw_orchestrator, "Triggers on schedule / manual", "gh-aw engine")
+    Rel(aw_orchestrator, copilot, "Delegates analysis authoring", "Copilot CLI")
+    Rel(aw_orchestrator, prompt_lib, "Imports prompts", "Markdown")
+    Rel(aw_orchestrator, methodology_lib, "Reads methodologies", "Markdown")
+    Rel(aw_orchestrator, template_lib, "Fills templates", "Markdown")
+    Rel(aw_orchestrator, ep_client, "Stage A — fetch", "fn")
+    Rel(aw_orchestrator, wb_client, "Stage A — context (optional)", "fn")
+    Rel(aw_orchestrator, imf_client, "Stage A — economic context", "fn")
+    Rel(aw_orchestrator, analysis_runs, "Stage B — write artifacts", "fs.write")
+    Rel(aw_orchestrator, stage_c_review, "Stage C — completeness gate", "agent review")
+    Rel(stage_c_review, analysis_runs, "Reads + grades", "fn")
+    Rel(aw_orchestrator, aggregator, "Stage D — npm run generate-article", "CLI")
+    Rel(aggregator, analysis_runs, "Reads manifest.json + artifacts", "fs.read")
+    Rel(aggregator, static_files, "Writes 14 HTML + Markdown", "fs.write")
+    Rel(news_indexes, static_files, "Writes index pages", "fs.write")
     Rel(ep_client, ep_mcp, "stdio JSON-RPC", "MCP")
+    Rel(ep_client, ep_open_data, "Voting fallback", "HTTPS REST")
     Rel(wb_client, wb_mcp, "stdio JSON-RPC", "MCP")
-    Rel(imf_client, imf_api, "HTTPS/SDMX", "REST")
-    Rel(static_files, repo, "Committed by workflow", "Git")
+    Rel(imf_client, imf_api, "HTTPS / SDMX", "REST")
+    Rel(static_files, repo, "Stage E — single PR", "Git")
     Rel(actions, cf_s3, "Deploy via OIDC", "S3 sync + CloudFront invalidation")
 
     UpdateLayoutConfig($c4ShapeInRow="3", $c4BoundaryInRow="2")
 ```
 
-### Container Diagram - Key Elements
+### Container Diagram — Key Elements
 
-| Container                   | Technology         | Purpose                               | Data Flow                                        |
-| --------------------------- | ------------------ | ------------------------------------- | ------------------------------------------------ |
-| **News Generation Scripts** | Node.js/TypeScript | Core article generation logic         | Orchestrates MCP data fetch and LLM generation   |
-| **Index Page Generator**    | Node.js/TypeScript | Creates language-specific index pages | Aggregates article metadata into navigation      |
-| **Sitemap Generator**       | Node.js/TypeScript | SEO sitemap creation                  | Lists all pages for search engine crawling       |
-| **MCP Client**              | TypeScript         | EP data access                        | Communicates with MCP Server for structured data |
-| **Article Template Engine** | TypeScript         | HTML generation                       | Converts article data to semantic HTML5          |
-| **Static Files**            | HTML/CSS           | Generated output                      | Committed to repository, deployed to AWS S3 and served via CloudFront  |
-| **GitHub Actions**          | CI/CD              | Automation                            | Daily workflow execution, build, deploy to S3/CloudFront       |
-| **Amazon CloudFront + S3**  | CDN/Object Storage | Hosting                               | HTTPS delivery of static content globally                               |
-| **Git Repository**          | Version Control    | Source & Content                      | Stores code, generated articles, configuration   |
+| 🧱 Container | ⚙️ Technology | 🎯 Purpose | 🔄 Data flow |
+|---|---|---|---|
+| 🤖 **gh-aw Orchestrator** | Claude Opus 4.7 + gh-aw v0.69.0+ | Runs 9 agentic workflows; produces analysis artifacts | Triggers via cron / manual; commits one PR per run |
+| 📚 **Prompt / Methodology / Template libraries** | Markdown + JSON | Bounded-context prompts (10), methodologies (17), templates (51) | Read by every agentic workflow at start-of-session |
+| 🧠 **Analysis Runs** | Markdown + JSON | Per-run intelligence tree under `analysis/daily/<date>/<type>/` | Written by Stage B agents; consumed by Stage C and aggregator |
+| 🟢 **Aggregator (5 modules)** | TypeScript | Reads `manifest.json` and Markdown artifacts; renders 14-language HTML deterministically | `npm run generate-article -- --run <dir>` |
+| 🔌 **EP MCP Client** | TypeScript | 60+ EP tools + voting fallback to EP Open Data Portal `/api/v2/decision` | Stage A data collection |
+| 💰 **IMF / 🌱 World Bank Clients** | TypeScript | Economic context (IMF) + non-economic indicators (WB) | Stage A wave-2 context |
+| ⚖️ **Stage-C Review** | Editorial agent + JSON thresholds | Per-artifact line floors + tradecraft signals (Admiralty / WEP / ICD-203) | Replaces the purged `content-validator.ts` runtime gate |
+| 🌐 **News Indexes & Sitemap** | TypeScript | 14-language index pages, sitemap.xml, hreflang alternates | `npm run prebuild` |
+| 📦 **Static Site Output** | HTML / CSS / JS / JSON / Markdown | Public deliverable: news pages + `article.md` source per run | Committed to `main`, deployed to S3 |
+| 🚀 **GitHub Actions** | CI/CD + gh-aw | 9 news + ~15 standard workflows | Daily news + on-PR validation |
+| ☁️ **CloudFront + S3** | CDN / object storage | Primary hosting via OIDC `GithubWorkFlowRole` | HTTPS + immutable asset cache |
 
 ### Security Responsibilities per Container
 
-| Container | Security Responsibility | Implementation | Controls |
-|-----------|------------------------|----------------|----------|
-| **News Generation Scripts** | Basic input validation, data handling, error handling (schema validation and sanitization planned) | Parses EP data with `JSON.parse` and basic shape checks, performs minimal input validation, handles API errors gracefully; comprehensive schema validation and HTML sanitization planned | A.8.3, A.8.28 (ISO 27001) |
-| **Index Page Generator** | XSS risk awareness, metadata validation (systematic escaping planned) | Performs basic article metadata structure checks and relies on static content; comprehensive XSS hardening and systematic escaping of user-facing strings planned | A.8.23 (ISO 27001) |
-| **Sitemap Generator** | URL validation, XML escaping | Validates all URLs before inclusion, escapes XML special characters | A.8.3 (ISO 27001) |
-| **MCP Client** | Local MCP process communication, timeout handling, basic validation | Spawns a local MCP server process over stdio JSON-RPC, applies connection retry backoff, per-request timeouts, and basic JSON parsing/validation (no TLS or API authentication at this local layer) | A.8.24 (ISO 27001), CIS Control 16 |
-| **Article Template Engine** | HTML output generation, CSP-ready markup (systematic sanitization planned) | Generates semantic HTML5 and interpolates dynamic content; systematic HTML escaping/sanitization and CSP hardening planned for all dynamic content | A.8.23 (ISO 27001) |
-| **Static Files** | Integrity verification, no sensitive data | All files public, no secrets or PII, content integrity via Git | A.5.10 (ISO 27001) |
-| **GitHub Actions** | Secret management, least privilege, audit logging | GitHub Secrets for API keys, OIDC authentication, workflow audit logs | A.8.3, CIS Control 6 |
+| Container | Security responsibility | Implementation | Controls |
+|---|---|---|---|
+| 🤖 **gh-aw Orchestrator** | Sandboxed AWF runtime, Squid egress allowlist, capability-bounded safe outputs | Runs in GitHub-hosted ephemeral VMs; `safe-outputs.create-pull-request.max: 1`; `step-security/harden-runner` egress block | A.5.10, A.8.28 (ISO 27001), CIS 16 |
+| 🟢 **Aggregator** | Deterministic Markdown→HTML; explicit `markdown-it` plugin allowlist; `clean-artifact.ts` strips SPDX/banners; `script-src 'self'` CSP | No AI-authored HTML; vendored Mermaid/Chart.js/D3 under `js/vendor/` | A.8.23, A.8.28 (ISO 27001), OWASP A03 |
+| 🔌 **EP MCP Client** | Local stdio JSON-RPC; per-request timeout + retry backoff; envelope validation; voting-records three-state fallback | `safeCallTool()` + `callToolWithRetry()` wrappers in `ep-mcp-client.ts` | A.8.24 (ISO 27001), CIS 16 |
+| 🧠 **Analysis Artifacts** | Tradecraft grading (Admiralty A1–F6 + WEP) + provenance manifest | `manifest.json` cross-reference map; `methodology-reflection.md` audit | A.5.12 (ISO 27001) |
+| 📦 **Static Files** | Public-data only; integrity via Git + SLSA L3 attestation | All EP/IMF/WB content is public; SBOM, REUSE licence headers | A.5.10 (ISO 27001) |
+| 🚀 **GitHub Actions** | OIDC for AWS deploy; Secrets at job-scope; SHA-pinned third-party actions | `GithubWorkFlowRole` IAM with least privilege; `harden-runner` egress allowlist | A.8.3, CIS 6 |
+| ☁️ **CloudFront + S3** | HTTPS-only via ACM; bucket policy denies public ACLs; CloudFront cache-control by file class | Long-cache immutable assets, short-cache HTML | A.13.1, A.5.23 (ISO 27001) |
 | **Amazon CloudFront + S3** | HTTPS-only, CDN security, DDoS protection | Forces HTTPS redirect via ACM certificate, CloudFront with DDoS mitigation, HSTS headers (configured externally in CloudFront distribution) | A.8.24 (ISO 27001) |
 | **Git Repository** | Access control, branch protection, signed commits | RBAC with least privilege, protected main branch, optional signed commits | CIS Control 6, A.8.3 |
 
@@ -448,102 +451,96 @@ graph TB
 
 ---
 
-## 🧩 C4 Model Level 3: Component Diagram - News Generation
+## 🧩 C4 Model Level 3: Component Diagram — Aggregator Pipeline
 
-**🔧 Component Focus:** Detailed view of the news generation container's
-internal components.
+**🔧 Component Focus:** Internal components of the deterministic aggregator (`src/aggregator/**`) and supporting MCP / methodology modules.
 
-**🎯 Responsibility Focus:** Shows how different components collaborate to
-generate multilingual news articles.
+**🎯 Responsibility Focus:** How analysis Markdown artifacts produced by the agentic workflows become 14-language HTML deliverables.
 
 ```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#fff","lineColor":"#90CAF9","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
 C4Component
-    title EU Parliament Monitor - Generator & Pipeline Components
+    title EU Parliament Monitor — Aggregator Components (post-April-2026)
 
-    Container_Boundary(pipeline_c, "Analysis Pipeline (src/generators/pipeline/)") {
-        Component(fetch_stage, "fetch-stage.ts", "TypeScript", "Pulls EP MCP feeds (sliding + fixed window), IMF SDMX monthly, optional WB WDI")
-        Component(transform_stage, "transform-stage.ts", "TypeScript", "Normalises feed payloads, applies unavailable-envelope fallbacks")
-        Component(analysis_stage, "analysis-stage.ts", "TypeScript", "Runs classification, threat assessment, risk scoring, significance")
-        Component(generate_stage, "generate-stage.ts", "TypeScript", "Dispatches to strategy module based on article type")
-        Component(output_stage, "output-stage.ts", "TypeScript", "Writes HTML article + analysis manifest.json, runs validator gates")
+    Container_Boundary(aggregator_c, "Aggregator (src/aggregator/)") {
+        Component(article_generator, "article-generator.ts", "TypeScript CLI", "Entry point: npm run generate-article -- --run <dir>; walks manifest.json")
+        Component(artifact_order, "artifact-order.ts", "TypeScript", "ARTIFACT_SECTIONS — canonical 19-section order")
+        Component(clean_artifact, "clean-artifact.ts", "TypeScript", "Strips SPDX/banner/provenance front matter from each artifact before merge")
+        Component(analysis_aggregator, "analysis-aggregator.ts", "TypeScript", "aggregateAnalysisRun() — filters manifestFiles to .md only excluding data/runs/pass1; emits Provenance & Audit block at END")
+        Component(markdown_renderer, "markdown-renderer.ts", "TypeScript", "markdown-it + plugins (anchor, footnote, attrs, deflist); explicit allowlist; renderMarkdown()")
+        Component(article_html, "article-html.ts", "TypeScript", "HTML5 wrapper: stacked header, language switcher, TOC sidebar, JSON-LD NewsArticle, isBasedOn provenance, hreflang alternates, footer")
+        Component(article_metadata, "article-metadata.ts", "TypeScript", "5-tier editorial-highlight resolver for <title>/<meta description>: manifest override → first-artifact H1 → aggregated H1 → first strong prose → localized template")
     }
 
-    Container_Boundary(strategies_c, "Strategies (src/generators/strategies/)") {
-        Component(s_article, "article-strategy.ts", "TS", "Generic article composition")
-        Component(s_breaking, "breaking-news-strategy.ts", "TS", "6-hour cadence, TODAY-only feed items")
-        Component(s_committee, "committee-reports-strategy.ts", "TS", "Per-committee deep analysis")
-        Component(s_month_ahead, "month-ahead-strategy.ts", "TS", "Strategic monthly outlook")
-        Component(s_monthly_review, "monthly-review-strategy.ts", "TS", "Monthly retrospective + trend synthesis")
-        Component(s_motions, "motions-strategy.ts", "TS", "Per-resolution voting breakdown")
-        Component(s_propositions, "propositions-strategy.ts", "TS", "Legislative pipeline tracking")
-        Component(s_week_ahead, "week-ahead-strategy.ts", "TS", "Prospective weekly agenda")
-        Component(s_weekly_review, "weekly-review-strategy.ts", "TS", "Weekly retrospective")
+    Container_Boundary(mcp_c, "MCP & Data Clients (src/mcp/)") {
+        Component(ep_client, "ep-mcp-client.ts", "TypeScript", "60+ tools; safeCallTool + callToolWithRetry; recess-mode detection; slow-feed warnings")
+        Component(ep_open_data, "ep-open-data-client.ts", "TypeScript", "EPOpenDataClient + getVotingRecordsWithFallback() three-state fallback")
+        Component(wb_client, "wb-mcp-client.ts", "TypeScript", "WORLD_BANK_MCP_TOOLS — non-economic indicators")
+        Component(imf_client, "imf-mcp-client.ts", "TypeScript", "class IMFMCPClient + IMF_MCP_TOOLS; native fetch SDMX 3.0; primary economic source")
+        Component(mcp_health, "mcp-health.ts / mcp-retry.ts / mcp-connection.ts", "TypeScript", "Health probes, retry backoff, connection lifecycle")
     }
 
-    Container_Boundary(support_c, "Support Modules") {
-        Component(mcp_ep, "ep-mcp-client.ts", "TS", "EP MCP stdio client; FeedBaseOptions + FixedWindowFeedOptions (no canonical EP_MCP_TOOLS export yet)")
-        Component(mcp_wb, "wb-mcp-client.ts", "TS", "Exports WORLD_BANK_MCP_TOOLS canonical list")
-        Component(mcp_imf, "imf-mcp-client.ts", "TS", "class IMFMCPClient; exports IMF_MCP_TOOLS; env IMF_API_BASE_URL, IMF_API_TIMEOUT_MS")
-        Component(mcp_health, "mcp-health.ts / mcp-retry.ts / mcp-connection.ts", "TS", "Health probes, retry with backoff, connection lifecycle")
-        Component(templates_mod, "templates/section-builders.ts", "TS", "buildSiteFooter (14-language, single source of truth), stakeholder perspectives grid")
-        Component(validator_c, "utils/content-validator.ts", "TS", "articlePolicyHasWorldBank (legacy), articlePolicyHasEconomicContext (Wave-2 OR-gate), articlePolicyHasIMFEconomicEvidence (Wave-3 strict, dark-launched), isWave3IMFStrictEnabled, scanHtmlForFallbackLeaks")
-        Component(significance, "utils/significance-scoring.ts", "TS", "Publication priority score")
-        Component(classification, "utils/political-classification.ts + utils/political-threat-assessment.ts + utils/political-risk-assessment.ts", "TS", "Intelligence analysis family")
+    Container_Boundary(intel_c, "Intelligence Utilities (src/utils/, src/generators/)") {
+        Component(political_classification, "political-classification.ts", "TypeScript", "7-dimension EP event classification")
+        Component(political_threat, "political-threat-assessment.ts", "TypeScript", "5-framework political threat (Landscape 6D + Attack Trees + Kill Chain + Diamond + ICO)")
+        Component(political_risk, "political-risk-assessment.ts", "TypeScript", "5×5 Likelihood × Impact scoring")
+        Component(significance, "significance-scoring.ts", "TypeScript", "Publication priority score per artifact")
+        Component(quality_scorer, "article-quality-scorer.ts", "TypeScript", "Editorial quality signals")
+        Component(news_indexes, "news-indexes.ts + sitemap.ts", "TypeScript", "14-language indexes + sitemap.xml + per-language sitemap_<lang>.html")
     }
 
-    System_Ext(ep_mcp, "EP MCP Server v1.2.13", "6 sliding + 7 fixed-window feeds")
-    System_Ext(wb_mcp, "World Bank MCP v1.0.1", "WDI indicators")
-    System_Ext(imf_api, "IMF SDMX 3.0", "Monthly WEO/FM forecasts")
-    ContainerDb(output, "news/*.html + analysis/daily/YYYY-MM-DD/", "HTML + JSON artifacts")
+    Container_Boundary(scripts_c, "Workflow Scripts (scripts/aggregator/)") {
+        Component(prior_run_diff, "prior-run-diff.js", "Node.js", "Re-run merge helper; carry-forward vs rewrite classification; ENABLE_PRIOR_RUN_MERGE flag")
+        Component(forward_statements, "forward-statements-registry.js", "Node.js", "Forward-looking-statement JSONL registry; week/month-ahead seeding")
+        Component(checkpoint, "checkpoint-analysis-to-memory.sh", "Bash", "Pre-audited helper; replaces inline expansion-heavy bash in workflows (shell-safety)")
+    }
 
-    Rel(fetch_stage, mcp_ep, "ep feeds", "stdio JSON-RPC")
-    Rel(fetch_stage, mcp_wb, "wb indicators", "stdio JSON-RPC")
-    Rel(fetch_stage, mcp_imf, "imf SDMX", "HTTPS")
-    Rel(fetch_stage, transform_stage, "raw payloads", "fn")
-    Rel(transform_stage, analysis_stage, "normalised data", "fn")
-    Rel(analysis_stage, classification, "uses", "fn")
-    Rel(analysis_stage, significance, "uses", "fn")
-    Rel(analysis_stage, generate_stage, "analysis context", "fn")
-    Rel(generate_stage, strategies_c, "dispatch by type", "strategy pattern")
-    Rel(strategies_c, templates_mod, "compose sections", "fn")
-    Rel(generate_stage, output_stage, "rendered HTML", "fn")
-    Rel(output_stage, validator_c, "gate", "fn")
-    Rel(output_stage, output, "write", "fs.writeFileSync")
-    Rel(mcp_ep, mcp_health, "health probe", "fn")
+    System_Ext(ep_mcp, "EP MCP Server v1.2.15+", "60+ tools — plenary, voting, motions, committee, MEPs, declarations, procedures, analytical")
+    System_Ext(ep_portal, "EP Open Data Portal", "/api/v2/decision — voting fallback")
+    System_Ext(wb_mcp, "World Bank Open Data MCP", "Non-economic WDI")
+    System_Ext(imf_api, "IMF SDMX 3.0", "WEO / FM / IFS / BOP / ER / PCPS")
+    ContainerDb(analysis_dir, "analysis/daily/<date>/<type>/", "Markdown + JSON", "manifest.json + intelligence/ + classification/ + risk-scoring/ + threat-assessment/ + extended/")
+    ContainerDb(news_dir, "news/<slug>(-<lang>).{md,html}", "Markdown + HTML", "Per-language deliverables")
 
-    UpdateLayoutConfig($c4ShapeInRow="3", $c4BoundaryInRow="1")
+    Rel(article_generator, analysis_dir, "reads manifest.json", "fs.readFileSync")
+    Rel(article_generator, artifact_order, "uses ARTIFACT_SECTIONS", "import")
+    Rel(article_generator, clean_artifact, "cleans each artifact", "fn")
+    Rel(article_generator, analysis_aggregator, "aggregateAnalysisRun()", "fn")
+    Rel(analysis_aggregator, markdown_renderer, "renderMarkdown()", "fn")
+    Rel(markdown_renderer, article_html, "wraps in HTML5 chrome", "fn")
+    Rel(article_html, article_metadata, "5-tier metadata resolver", "fn")
+    Rel(article_html, news_dir, "writes 14 HTML + 1 .md", "fs.writeFileSync")
+    Rel(news_indexes, news_dir, "writes index pages + sitemaps", "fs.writeFileSync")
+
+    Rel(ep_client, ep_mcp, "stdio JSON-RPC", "MCP")
+    Rel(ep_open_data, ep_portal, "voting fallback", "HTTPS")
+    Rel(wb_client, wb_mcp, "stdio JSON-RPC", "MCP")
+    Rel(imf_client, imf_api, "HTTPS/SDMX", "REST")
+    Rel(ep_client, mcp_health, "health + retry", "fn")
+
+    Rel(prior_run_diff, analysis_dir, "carry-forward plan", "JSON")
+    Rel(forward_statements, analysis_dir, "JSONL registry seeding", "fs")
+
+    UpdateLayoutConfig($c4ShapeInRow="3", $c4BoundaryInRow="2")
 ```
 
-### Component Diagram - Key Elements
+### Component Diagram — Key Elements
 
-> **⚠️ Documentation transition note (April 2026):** The legacy per-article-type
-> strategy / builder / pipeline-stage pipeline (`src/generators/strategies/`,
-> `src/generators/builders/`, `src/generators/pipeline/`) was **purged**
-> in favour of an analysis-artifact-driven aggregator under
-> `src/aggregator/` (see `src/aggregator/article-generator.ts` CLI and
-> `src/aggregator/analysis-aggregator.ts` / `markdown-renderer.ts` /
-> `article-html.ts`). Some Mermaid diagrams and the component table below
-> still reference the retired modules; those entries are historical and
-> are being rewritten in a follow-up PR. The prose, source-of-truth
-> file paths, and `src/mcp/` + `src/utils/` + `src/templates/` rows
-> remain accurate.
-
-| Component                | Responsibility                   | Dependencies                     | File Location                             |
-| ------------------------ | -------------------------------- | -------------------------------- | ----------------------------------------- |
-| **Aggregator pipeline**  | Ordered: discover manifest → clean artifacts → aggregate (19-section order) → render Markdown → wrap HTML with TOC sidebar + shared chrome → write `<slug>.en.md` + 14 `<slug>-<lang>.html` | Markdown-it, markdown-it-anchor/footnote/attrs/deflist, shared site chrome | `src/aggregator/*.ts` (article-generator, analysis-aggregator, markdown-renderer, article-html, artifact-order, clean-artifact) |
-| **Analysis Artifacts**   | 39 templates per run (6 framework + 14 agentic-workflow + 25 per-artifact) committed to `analysis/daily/<date>/<type>/` with a `manifest.json` declaring `articleType` + `files` map | Methodology protocol (10 steps, Rules 1–22) | `analysis/methodologies/*.md`, `analysis/templates/**`    |
-| **EP MCP Client**        | Fetch EP feeds via stdio JSON-RPC; enforces `FeedBaseOptions` vs `FixedWindowFeedOptions` (no canonical `EP_MCP_TOOLS` export yet — gap tracked in CRA-ASSESSMENT §5ᵇ row 13) | `european-parliament-mcp-server@1.2.15` | `src/mcp/ep-mcp-client.ts`                |
-| **World Bank MCP Client**| Fetch WDI biannual indicators; `WORLD_BANK_MCP_TOOLS` | `worldbank-mcp@1.0.1` (optional) | `src/mcp/wb-mcp-client.ts`                |
-| **IMF MCP Client**       | Native TS fetch to IMF SDMX 3.0; `class IMFMCPClient`; `IMF_MCP_TOOLS` (NOT an MCP server) | `fetch` (Node 25+) | `src/mcp/imf-mcp-client.ts`               |
-| **MCP Health/Retry**     | Health probes, retry with exponential backoff, lifecycle | — | `src/mcp/mcp-health.ts`, `mcp-retry.ts`, `mcp-connection.ts` |
-| **Templates**            | HTML5 article shell, 14-language localised `buildSiteFooter()` (with optional `articleCount` for the `<p class="footer-stats">` line), stakeholder perspective grid, structured data (JSON-LD/Open Graph). Article chrome now rendered by `src/aggregator/article-html.ts` (stacked header + embedded language switcher + article TOC sidebar + shared footer) using the same primitives. | Types | `src/templates/section-builders.ts`, `src/aggregator/article-html.ts` |
-| **Content Validator**    | `articlePolicyHasWorldBank` (legacy), `articlePolicyHasEconomicContext` (Wave-2 OR-gate WB OR IMF — default), `articlePolicyHasIMFEconomicEvidence` (Wave-3 strict IMF-only — `WAVE3_IMF_STRICT` flag), `isWave3IMFStrictEnabled`, `scanHtmlForFallbackLeaks`, `FALLBACK_TEMPLATE_PATTERNS` | — | `src/utils/content-validator.ts`          |
-| **Analysis Completeness**| Pre-PR validator gate; invoked by gh-aw workflows as `node scripts/validate-analysis-completeness.js` | Types | `scripts/validate-analysis-completeness.js` |
-| **Prior-Run Diff**       | Re-run merge helper; classifies existing artifacts as at-floor (carry-forward) or below-floor (rewrite). Controlled by `ENABLE_PRIOR_RUN_MERGE=true`. Invoked at Stage A when `manifest.json.history[]` is non-empty. Emits `priorRunDiff` JSON plan consumed by Stage B and persisted to `runs/prior-run-diff.json`. | — | `scripts/aggregator/prior-run-diff.js` |
-| **Intelligence Utils**   | `political-classification`, `political-threat-assessment`, `political-risk-assessment`, `significance-scoring`, `article-quality-scorer` | Types | `src/utils/*.ts` |
-| **News Indexes**         | Per-language index pages                | Metadata, languages | `src/generators/news-indexes.ts` |
-| **Sitemap**              | XML sitemap across 14 languages       | Metadata, file-utils | `src/generators/sitemap.ts` |
-| **Constants**            | `ALL_LANGUAGES` (14), `LANGUAGE_PRESETS` (`all`, `eu-core`, `nordic`), article constants, committee indicator map, config | — | `src/constants/*.ts` |
+| 🧩 Component | 🎯 Responsibility | 🔗 Dependencies | 📂 File location |
+|---|---|---|---|
+| 🟢 **Aggregator pipeline** | Discover `manifest.json` → clean artifacts → aggregate (19-section canonical order, Provenance & Audit at end, `.md` only excluding `data/runs/pass1/`) → render Markdown → wrap HTML with TOC sidebar + shared chrome → write `<slug>.en.md` + 14 `<slug>-<lang>.html` | `markdown-it` + `markdown-it-anchor`/`-footnote`/`-attrs`/`-deflist` | `src/aggregator/{article-generator,analysis-aggregator,markdown-renderer,article-html,artifact-order,clean-artifact,article-metadata}.ts` |
+| 🧠 **Analysis artifacts** | 51 templates per run (39 core + 12 extended) under `analysis/daily/<date>/<type>/` with `manifest.json` declaring `articleType` + `files` map. 3-variant manifest schema (`articleType` / `articleTypes[]` / legacy `runType`) handled by `resolveArticleTypeFromManifest()` | 17 methodologies (10-step protocol, Rules 1–22) | `analysis/methodologies/*.md`, `analysis/templates/**`, `analysis/daily/**` |
+| 🔌 **EP MCP Client** | 60+ EP tools via stdio JSON-RPC; `safeCallTool()` + `callToolWithRetry()` wrappers; recess-mode detection ([1952,2100] year window); slow-feed warning downgrade for `get_events_feed` | `european-parliament-mcp-server@1.2.15+` (PR #405 normalises political-group codes) | `src/mcp/ep-mcp-client.ts` |
+| 🗳️ **EP Open Data fallback** | Three-state voting fallback: (a) MCP has data → use it · (b) MCP empty → query `/api/v2/decision` · (c) both empty → 🔴 unavailability marker via virtual tool name `ep-get-voting-records` | EP Open Data Portal | `src/mcp/ep-open-data-client.ts` (see `getVotingRecordsWithFallback()`) |
+| 💰 **IMF Client** | `class IMFMCPClient` + `IMF_MCP_TOOLS`; primary economic source per IMF Indicator Mapping; native Node 25 `fetch` SDMX 3.0; env `IMF_API_BASE_URL`, `IMF_API_TIMEOUT_MS` | None (REST) | `src/mcp/imf-mcp-client.ts` |
+| 🌱 **World Bank Client** | `WORLD_BANK_MCP_TOOLS`; non-economic WDI indicators only (health, education, environment, governance, innovation) | `worldbank-mcp` (optional) | `src/mcp/wb-mcp-client.ts` |
+| ⚖️ **Stage-C completeness gate** | Editorial agent-side review against `.github/prompts/03-analysis-completeness-gate.md` and `analysis/methodologies/reference-quality-thresholds.json` line floors. **Replaces the purged runtime `content-validator.ts`** | Methodology library + per-artifact thresholds | `.github/prompts/03-…`, `analysis/methodologies/reference-quality-thresholds.json` |
+| 🔁 **Prior-Run Diff** | Re-run merge helper; classifies existing artifacts as at-floor (carry-forward) or below-floor (rewrite); `ENABLE_PRIOR_RUN_MERGE=true` env flag; emits `priorRunDiff` JSON consumed by Stage B | — | `scripts/aggregator/prior-run-diff.js` |
+| 📜 **Forward-statements registry** | Canonical last-occurrence-per-id JSONL registry; week/month-ahead seeds `data/forward-statements-open.json`; Stage C enforces a "carried-forward forward statements" section when open items exist | JSONL registry | `scripts/aggregator/forward-statements-registry.js`, `analysis/forward-statements/` |
+| 🛡️ **Shell-safety helper** | Pre-audited bash helper for checkpoint-to-memory; replaces expansion-heavy inline workflow bash that the sandbox shell-safety filter would block | Bash | `scripts/checkpoint-analysis-to-memory.sh` |
+| 🧠 **Intelligence utilities** | `political-classification` (7D), `political-threat-assessment` (5-framework), `political-risk-assessment` (5×5 L×I), `significance-scoring`, `article-quality-scorer` | Types | `src/utils/*.ts` |
+| 🌐 **News Indexes & Sitemap** | Per-language news index pages, `sitemap.xml`, per-language `sitemap_<lang>.html`, hreflang alternates | Metadata, file-utils | `src/generators/news-indexes.ts`, `src/generators/sitemap.ts` |
+| 🔢 **Constants** | `ALL_LANGUAGES` (14), `LANGUAGE_PRESETS` (`all`, `eu-core`, `nordic`), article-type slugs, committee indicator map | — | `src/constants/*.ts` |
 
 ### Component Interaction Patterns
 
