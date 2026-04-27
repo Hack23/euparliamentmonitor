@@ -257,7 +257,7 @@ prose pass.
 | `ARTICLE_TYPE_SLUG` | `week-in-review` |
 | Family | **Unified** (Stages A → B → C → D → E in one workflow) |
 | Data window | **D-36 → D-8** (28-day window ending 8 days ago — captures published EP roll-call votes; see ADR-006) |
-| Primary feeds | `get_adopted_texts_feed`, `get_events_feed`, `get_procedures_feed` with explicit `dateFrom: "$DATE_FROM"` / `dateTo: "$DATE_TO"` (never `timeframe: "one-week"`). |
+| Primary feeds | `get_adopted_texts_feed`, `get_events_feed`, `get_procedures_feed` with `timeframe: "custom"` and `startDate: "$DATE_FROM"`; if `$DATE_TO` must be enforced, filter results client-side / in analysis (never `timeframe: "one-week"`). |
 | Stage A budget | ≤ 4 min |
 | Stage B budget (2 passes) | **12–15 min — HARD CEILING** (do **not** exceed 15 min on Stage B even if Pass 2 still has shallow sections; force `GATE_RESULT=ANALYSIS_ONLY` instead) |
 | Stage C budget (gate + optional Pass 3) | ≤ 3 min |
@@ -341,16 +341,23 @@ Stage A · Data Collection (≤ 4 min — minute 0–4)
 
 Run the canonical gateway block from `08-infrastructure.md` §4. Source
 `scripts/mcp-setup.sh`, then `scripts/wb-mcp-probe.sh` and
-`scripts/imf-mcp-probe.sh`. Collect EP feed data using the D-36→D-8
-window (`dateFrom: "$DATE_FROM"`, `dateTo: "$DATE_TO"`); fall back to
-direct endpoints on failure. Deep-fetch up to 10 procedures / voting
-records / meeting decisions into `${ANALYSIS_DIR}/data/`. Target ≤ 4 min.
+`scripts/imf-mcp-probe.sh`. For EP feed tools, collect the D-36→D-8
+window using `timeframe: "custom"` with `startDate: "$DATE_FROM"`,
+then drop any returned items after `"$DATE_TO"` to preserve the bounded
+reporting window. Use direct endpoints (e.g. `get_plenary_sessions`,
+`get_voting_records`, `get_speeches`) when exact `dateFrom`/`dateTo`
+filtering is required or if feed collection fails. Deep-fetch up to 10
+procedures / voting records / meeting decisions into
+`${ANALYSIS_DIR}/data/`. Target ≤ 4 min.
 
-**EP voting data note**: Use explicit `dateFrom`/`dateTo` parameters —
-never `timeframe: "one-week"`. The D-0→D-7 window is structurally
-vote-empty because EP roll-call data is published with a 2–6 week lag.
-The D-36→D-8 window (28 days, ending 8 days ago) consistently contains
-at least one full EP plenary week with published roll-call votes.
+**EP voting data note**: For feed tools, never use
+`timeframe: "one-week"`; use `timeframe: "custom"` +
+`startDate: "$DATE_FROM"` and trim items after `"$DATE_TO"`. For
+direct tools that support them, use explicit `dateFrom`/`dateTo`
+parameters. The D-0→D-7 window is structurally vote-empty because EP
+roll-call data is published with a 2–6 week lag. The D-36→D-8 window
+(28 days, ending 8 days ago) consistently contains at least one full EP
+plenary week with published roll-call votes.
 
 ### Stage B — Analysis (Ref: 02 §2 re-run merge rule)
 

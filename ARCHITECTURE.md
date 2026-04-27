@@ -1384,7 +1384,7 @@ We shift the `week-in-review` analysis window to **D-36 → D-8** (`start = D-36
 - ✅ **Positive**: Analysis depth improves without increasing Stage B budget.
 - ✅ **Positive**: Article subtitles accurately describe the reporting window in all 14 languages.
 - ⚠️ **Trade-off**: Articles cover events from 8–36 days ago rather than the most-recent 7 days; the workflow is less "breaking" but more analytically complete.
-- ⚠️ **Negative**: The `DATE_FROM` / `DATE_TO` variables replace `LAST_WEEK` in Stage A bash blocks; workflows using `LAST_WEEK` must be migrated (done in this ADR).
+- ⚠️ **Negative**: In this ADR, the `DATE_FROM` / `DATE_TO` variables replace `LAST_WEEK` in `week-in-review` Stage A bash blocks; other workflows still using `LAST_WEEK` require separate migration if their reporting windows are changed.
 
 **Implementation:**
 - `src/aggregator/article-metadata.ts`: New `deriveReportingWindowForWeekInReview()` export computes D-36/D-8 from the article date; `buildTemplateFallback` uses it for `week-in-review`.
