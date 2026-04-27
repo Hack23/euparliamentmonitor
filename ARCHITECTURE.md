@@ -1574,7 +1574,7 @@ Non-functional requirements define system qualities that are not directly relate
 - **[Future Architecture](FUTURE_ARCHITECTURE.md)** - Architectural evolution
   roadmap
 - **[Data Model](DATA_MODEL.md)** - Data structures and EP/IMF/WB contracts
-- **[Workflows](WORKFLOWS.md)** - All 18 gh-aw + 14 standard workflows, AI-First 2-pass enforcement
+- **[Workflows](WORKFLOWS.md)** - All 9 gh-aw + ~15 standard workflows, AI-First 2-pass enforcement
 - **[End-of-Life Strategy](End-of-Life-Strategy.md)** - Technology lifecycle & EOL planning
 - **[Flowcharts](FLOWCHART.md)** - Detailed process workflows
 - **[State Diagrams](STATEDIAGRAM.md)** - System state transitions

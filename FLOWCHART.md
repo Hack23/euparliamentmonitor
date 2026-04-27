@@ -125,29 +125,29 @@ flowchart TD
     EPAvail -->|✅ items| EconomicGate{"OR-gate: WB OR IMF?"}
     DegradeFetch --> EconomicGate
 
-    EconomicGate -->|Either OK| Transform["🔄 transform-stage\nNormalize + unify schemas"]
-    EconomicGate -->|Both fail + default gate| AbortEcon["❌ articlePolicyHasWorldBank fail\nAbort PR"]
+    EconomicGate -->|Either OK| Transform["🔄 Stage A: Normalise feeds\nUnavailable-envelope handling"]
+    EconomicGate -->|Both fail| AbortEcon["❌ Stage-C completeness fail\n(no economic context)\nAbort PR"]
 
-    Transform --> Analysis["🤖 analysis-stage\nAI-First 2-pass"]
+    Transform --> Analysis["🤖 Stage B: Analysis\nAI-First 2-pass"]
 
-    Analysis --> Pass1["📝 Pass 1 (~60% budget)\nInitial analysis"]
+    Analysis --> Pass1["📝 Pass 1 (~60% budget)\nInitial artifact authoring"]
     Pass1 --> Pass2["🔁 Pass 2 (~40% budget)\nRead-back + improve\n≥80w/SWOT, ≥150w/stakeholder,\n≥60% prose, ≥1 Chart.js"]
 
-    Pass2 --> Intel["📄 Emit intelligence files\nstakeholder-map.md\nimpact-matrix.md\nmcp-reliability-audit.md\nreference-analysis-quality.md"]
+    Pass2 --> Intel["📄 Emit Stage-B artifacts\nintelligence/ + classification/\n+ risk-scoring/ + threat-assessment/\n(see analysis/templates/)"]
 
-    Intel --> Generate["🏗️ generate-stage\nStrategy-specific builder\nbuildDefaultStakeholderPerspectives\n(AI_MARKER sentinels)"]
+    Intel --> Generate["🏗️ Stage D: Aggregator render\nsrc/aggregator/article-generator.ts\nDeterministic Markdown → 14-lang HTML"]
 
-    Generate --> Output["💾 output-stage\nHTML writes to news/\nChart.js + JSON-LD + SEO"]
+    Generate --> Output["💾 Stage D: write outputs\nnews/<slug>(-<lang>).{md,html}\n+ Chart.js + JSON-LD + hreflang"]
 
-    Output --> Validator["✅ validate-analysis-completeness.js\n--article-html=..."]
+    Output --> Validator["✅ Stage C: editorial completeness\nreview against 03-analysis-completeness-gate.md"]
 
-    Validator --> LeakScan{"scanHtmlForFallbackLeaks\nvs FALLBACK_TEMPLATE_PATTERNS"}
-    LeakScan -->|❌ Leak detected| AbortLeak["❌ Abort PR\nAI_ANALYSIS_REQUIRED / AI_MARKER present"]
+    Validator --> LeakScan{"Fallback-leak scan\n(agent-side, see prompts/03)"}
+    LeakScan -->|❌ Leak detected| AbortLeak["❌ Abort PR\n[AI_ANALYSIS_REQUIRED] markers present"]
 
-    LeakScan -->|✅ Clean| ThresholdCheck{"Reference thresholds\n(≥200/385, ≥140/190)"}
-    ThresholdCheck -->|❌ Below| AbortThresh["❌ Abort PR\nInsufficient references"]
+    LeakScan -->|✅ Clean| ThresholdCheck{"Per-artifact line floors\n(reference-quality-thresholds.json)"}
+    ThresholdCheck -->|❌ Below| AbortThresh["❌ Abort PR\nInsufficient depth"]
 
-    ThresholdCheck -->|✅ Pass| SafeOutput["📦 safe-outputs create-pull-request\nmax-patch-size: 1024 KB (default)"]
+    ThresholdCheck -->|✅ Pass| SafeOutput["📦 Stage E: safe-outputs create-pull-request\nmax-patch-size: 1024 KB (default)\n(news-translate.md: 10240 KB)"]
 
     SafeOutput --> PR["🔀 PR for human review"]
     PR --> Merge["✅ Merge to main"]

@@ -108,7 +108,7 @@ EU Parliament Monitor's CI/CD workflows implement security controls mandated by 
 
 ## 📋 Executive Summary
 
-EU Parliament Monitor employs a comprehensive suite of **24 GitHub Actions workflows** (14 standard + 10 agentic) for automated intelligence operations, quality assurance, security scanning, and release management. All workflows follow [Hack23 ISMS Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) standards.
+EU Parliament Monitor employs a comprehensive suite of **GitHub Actions workflows** (~15 standard + 9 agentic — 8 unified `news-<type>.md` + `news-translate.md`) for automated intelligence operations, quality assurance, security scanning, and release management. All workflows follow the [Hack23 ISMS Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) standards.
 
 ### Workflow Portfolio
 
@@ -297,7 +297,7 @@ graph TD
 | **Concurrency group** | `gh-aw-${{ github.workflow }}` |
 | **Node.js version** | 25 |
 | **EP MCP Server** | `european-parliament-mcp-server@1.2.15` (globally installed via `scripts/mcp-setup.sh`, MCP gateway `EP_MCP_GATEWAY_URL=http://host.docker.internal:80/mcp/european-parliament`) |
-| **Data sources** | European Parliament MCP Server (primary, 6 sliding-window + 7 fixed-window feeds), IMF REST SDMX 3.0 (native fetch in `src/mcp/imf-mcp-client.ts`, primary economic source under Wave-3 — WEO+FM+IFS+BOP+ER+PCPS+GFSR+EREO+FSI+GFS+DOT), World Bank MCP `1.0.1` (non-economic only under Wave-3 — WDI social/health/education/environment/governance). Active gate: `articlePolicyHasEconomicContext` (Wave-2 OR-gate, default) or `articlePolicyHasIMFEconomicEvidence` (Wave-3 strict, when `WAVE3_IMF_STRICT=true`) in `src/utils/content-validator.ts` |
+| **Data sources** | European Parliament MCP Server `v1.2.15+` (primary, 60+ tools — sliding + fixed-window feeds + analytical), IMF REST SDMX 3.0 (native fetch in `src/mcp/imf-mcp-client.ts`, **primary economic source** — WEO+FM+IFS+BOP+ER+PCPS+GFSR+EREO+FSI+GFS+DOT), World Bank Open Data MCP (non-economic only — WDI social/health/education/environment/governance). Economic-context enforcement is editorial at the Stage-C completeness review against [`.github/prompts/03-analysis-completeness-gate.md`](.github/prompts/03-analysis-completeness-gate.md) and the per-artifact line floors in [`analysis/methodologies/reference-quality-thresholds.json`](analysis/methodologies/reference-quality-thresholds.json) — the runtime `articlePolicyHas*` gates were purged in April-2026 |
 | **Analysis stage** | `--analysis` flag enables 18-method political intelligence pipeline before article generation |
 | **Analysis output** | `analysis/daily/{date}/` for cross-article artifacts (for example shared synthesis outputs), plus `analysis/daily/{date}/{article-type}/` for article-type-scoped classification, threat-assessment, risk-scoring, and data (EP feeds, World Bank, IMF, OSINT) artifacts committed to PR. Article-type scoping prevents merge conflicts between concurrent workflows. |
 
@@ -1194,7 +1194,7 @@ which asserts:
 - ≥60% prose ratio (non-HTML text content)
 - ≥1 Chart.js visualization embedded
 - **0** `[AI_ANALYSIS_REQUIRED]` sentinel markers remaining
-- Economic context present: **IMF** (Wave-3 primary; mandatory when `WAVE3_IMF_STRICT=true`) or **World Bank OR IMF** (Wave-2 OR-gate, default) via `articlePolicyHasEconomicContext` / `articlePolicyHasIMFEconomicEvidence` in `src/utils/content-validator.ts`
+- Economic context present: **IMF** (primary economic source, mandatory for policy articles per Stage-C review) and/or **World Bank** (non-economic context). Enforcement is editorial at the Stage-C completeness gate against [`.github/prompts/03-analysis-completeness-gate.md`](.github/prompts/03-analysis-completeness-gate.md)
 - `scanHtmlForFallbackLeaks()` returns empty — no `FALLBACK_TEMPLATE_PATTERNS` in output
 
 Reference thresholds (`analysis/methodologies/reference-quality-thresholds.json`):
@@ -1810,7 +1810,7 @@ The following tools integrate with the GitHub Security Dashboard via SARIF or na
 
 ## 🔬 Political Intelligence Operations Centre
 
-The 10 agentic news workflows collectively form a **European Parliament Political Intelligence Operations Centre** — a systematic, automated pipeline that transforms raw parliamentary data into multi-language political intelligence articles published daily.
+The 9 agentic news workflows collectively form a **European Parliament Political Intelligence Operations Centre** — a systematic, automated pipeline that transforms raw parliamentary data into multi-language political intelligence articles published daily.
 
 ### Intelligence Collection Cycle
 
@@ -1906,7 +1906,7 @@ mindmap
 
 ### Workflow Cadence — Weekly Intelligence Rhythm
 
-The 10 agentic workflows follow a carefully orchestrated schedule to ensure continuous intelligence coverage of the European Parliament.
+The 9 agentic workflows follow a carefully orchestrated schedule to ensure continuous intelligence coverage of the European Parliament.
 
 > **Note:** The Gantt chart below uses sample dates (week of 2026-01-05) to illustrate the recurring weekly cadence. Mermaid's gantt format requires concrete dates; the actual schedule repeats every week.
 

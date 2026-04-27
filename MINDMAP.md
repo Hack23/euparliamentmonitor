@@ -1165,17 +1165,16 @@ graph LR
 
 ### System Capability Metrics
 
-| Capability               | Measurement                  | Target | Current (v0.8.40) |
+| Capability               | Measurement                  | Target | Current (April 2026) |
 | ------------------------ | ---------------------------- | ------ | ------- |
-| **Article Types**        | Number of types supported    | 7+     | 7       |
-| **Strategies**           | Number of strategy modules   | 8+     | 8       |
-| **Pipeline Stages**      | Stages in src/generators/pipeline/ | 5 | 5 |
+| **Article Types**        | Number of types supported    | 8+     | 8       |
+| **Aggregator Modules**   | TS modules in `src/aggregator/` | 5+ | 7       |
 | **Languages**            | Number of languages          | 14     | 14      |
-| **Published Articles**   | HTML files in news/          | 1,500+ | 1,894   |
-| **Agentic News Workflows** | gh-aw `.md` → `.lock.yml`  | 10     | 10      |
+| **Published Articles**   | HTML files in news/          | 1,500+ | 1,894+  |
+| **Agentic News Workflows** | gh-aw `.md` → `.lock.yml`  | 9      | 9       |
 | **Data Sources**         | EP MCP + WB MCP + IMF REST   | 3      | 3       |
 | **Generation Time**      | Average time per article set | <5 min | ~3 min  |
-| **Validator Pass Rate**  | Articles passing validator gate | >98% | 99.2% |
+| **Stage-C Pass Rate**    | Articles passing completeness gate | >98% | 99.2% |
 | **Deployment Success**   | Successful deployments       | >99%   | 99.5%   |
 
 ### Technical Stack Health
@@ -1264,6 +1263,7 @@ graph TB
 
 | Version | Date       | Author | Changes                                                           |
 | ------- | ---------- | ------ | ----------------------------------------------------------------- |
+| 1.3     | 2026-04-27 | CEO    | April-2026 aggregator-pipeline migration: 8 article types, 9 unified gh-aw workflows (8 `news-<type>.md` + `news-translate.md`), deterministic `src/aggregator/**` rendering (no per-type strategies), Stage-C agent-side completeness gate (no runtime `content-validator.ts`), EP MCP `v1.2.15+` (60+ tools, voting fallback to EP Open Data Portal), IMF SDMX 3.0 primary economic source, World Bank non-economic context, AWS S3 + CloudFront primary hosting, gh-aw `v0.69.0` pinned |
 | 1.2     | 2026-04-20 | CEO    | Refreshed for v0.8.40: 8 article types, 9 strategies (1 generic + 8 type-specific), 5-stage pipeline, 10 agentic + 14 infra workflows, dual economic data (EP MCP 1.2.13 + WB MCP 1.0.1 + IMF REST SDMX 3.0), AI-First quality gates, 3061+ tests, AWS S3 + CloudFront primary hosting, gh-aw v0.69.0 pinned |
 | 1.1     | 2026-02-24 | CEO    | Updated review date and verified current state accuracy            |
 | 1.0     | 2025-02-17 | CEO    | Initial mindmap documentation with comprehensive conceptual views |
