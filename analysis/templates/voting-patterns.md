@@ -154,31 +154,49 @@ For each group: cohesion, defection highlights, sample votes.
 
 ---
 
-## 7️⃣ Confidence Ledger
+## 7️⃣ Voting Data Freshness
 
-- ✅ **Roll-call IDs present**: `[count cited in this file]`
-- ⚠️ **Aggregate vs. per-MEP**: `[REQUIRED: note where EP roll-call delay limits claims to LOW]`
-- 🔬 **Tools used**: `analyze_voting_patterns`, `analyze_coalition_dynamics`, `compare_political_groups`, `get_voting_records` (per session)
+> **Required field** — consumed by `mcp-reliability-audit.md` §"Data-source bridge" and by Stage-C completeness gate. Copy the value from `VotingRecordsFallbackResult.freshnessLabel` produced by `getVotingRecordsWithFallback()` in `src/mcp/ep-open-data-client.ts`.
+
+| Field | Value |
+|-------|-------|
+| **Data source** | `[REQUIRED: "mcp" / "ep-open-data-portal" / "unavailable"]` |
+| **Freshness label** | `[REQUIRED: 🟢 MCP (...→...) / 🟡 EP Open Data Portal fallback (...→...) / 🔴 voting data unavailable for window ...]` |
+| **EP MCP tool** | `get_voting_records` (`dateFrom` / `dateTo`) |
+| **Fallback used?** | `[yes — queried EP Open Data Portal /api/v2/decision / no — MCP data sufficient / n/a — both sources empty]` |
+| **Attribution** | `[REQUIRED when fallback active: "European Parliament Open Data Portal — https://data.europarl.europa.eu — CC BY 4.0"]` |
+| **Confidence adjustment** | `[REQUIRED: explain whether 🟡 or 🔴 widens WEP bands or degrades Admiralty grade per osint-tradecraft-standards.md §3]` |
+
+**When `source = "unavailable"`:** Do NOT substitute structural-proxy cohesion scores without an explicit `🔴 LOW-confidence` flag on every claim in §§2–4. Widen all WEP bands by ~10 pp. See `analysis/methodologies/osint-tradecraft-standards.md` §3.1 and `.github/prompts/07-mcp-reference.md` §11 item #6.
 
 ---
 
-## 8️⃣ EP MCP Tool Inputs
+## 8️⃣ Confidence Ledger
+
+- ✅ **Roll-call IDs present**: `[count cited in this file]`
+- ⚠️ **Aggregate vs. per-MEP**: `[REQUIRED: note where EP roll-call delay limits claims to LOW]`
+- 🔬 **Tools used**: `analyze_voting_patterns`, `analyze_coalition_dynamics`, `compare_political_groups`, `get_voting_records` (per session), `ep-get-voting-records` (fallback, if active)
+
+---
+
+## 9️⃣ EP MCP Tool Inputs
 
 | EP MCP tool | Used for which section | Notes |
 |-------------|------------------------|-------|
 | `get_voting_records` | §1 RCV-evidence column (every claim cites RCV ID) | Aggregate margins; flag LOW if <4 weeks. |
+| `ep-get-voting-records` *(fallback)* | §1 RCV-evidence column when MCP returns empty | EP Open Data Portal `/api/v2/decision`; activate via `getVotingRecordsWithFallback()`; CC BY 4.0 attribution required. |
 | `analyze_voting_patterns` | §2 Per-MEP behaviour rubric | When per-MEP feed available; aggregate otherwise. |
 | `analyze_coalition_dynamics` | §3 Group-cohesion proxy | Two-window deltas. |
 | `compare_political_groups` | §4 Seat-share normalisation | Confirms majority arithmetic. |
 | `track_legislation` | §5 Procedure context | COD/CNS/APP per RCV. |
 | `get_meeting_decisions` | §6 Adopted-decision ↔ RCV cross-check | Verifies passage. |
-| `get_adopted_texts` | §7 Outcome confirmation | Adopted-text reflects RCV result. |
-| `correlate_intelligence` | §8 Anomaly alerts | Defection / abstention spikes. |
-| `detect_voting_anomalies` | §8 Outlier RCVs | Configurable sensitivity threshold. |
+| `get_adopted_texts` | §8 Outcome confirmation | Adopted-text reflects RCV result. |
+| `correlate_intelligence` | §9 Anomaly alerts | Defection / abstention spikes. |
+| `detect_voting_anomalies` | §9 Outlier RCVs | Configurable sensitivity threshold. |
 
 ---
 
-## 9️⃣ Worked Pass-1 → Pass-2 Example (Strasbourg-I 2025 voting digest)
+## 🔟 Worked Pass-1 → Pass-2 Example (Strasbourg-I 2025 voting digest)
 
 **❌ Pass-1 (thin, 22 words):**
 > "Several important votes happened. AI Act passed. CRA implementation was approved. Coalitions held. Some defections noted but minor."
@@ -188,7 +206,7 @@ For each group: cohesion, defection highlights, sample votes.
 
 ---
 
-## 🔟 Worked Top-5 RCV Table
+## 1️⃣1️⃣ Worked Top-5 RCV Table
 
 | # | Procedure code + short title | Date | For | Against | Abstain | Margin | Anchor group split |
 |:-:|------------------------------|------|:---:|:-------:|:-------:|:------:|--------------------|
@@ -200,7 +218,7 @@ For each group: cohesion, defection highlights, sample votes.
 
 ---
 
-## 1️⃣1️⃣ Per-Group Behaviour Rubric (4 EP voting behaviours)
+## 1️⃣2️⃣ Per-Group Behaviour Rubric (4 EP voting behaviours)
 
 | Behaviour | Definition | Worked observation (Strasbourg-I 2025) | Score 1-5 |
 |-----------|------------|----------------------------------------|:---------:|
@@ -211,7 +229,7 @@ For each group: cohesion, defection highlights, sample votes.
 
 ---
 
-## 1️⃣2️⃣ Anti-patterns — REJECT on Pass-2 Review
+## 1️⃣3️⃣ Anti-patterns — REJECT on Pass-2 Review
 
 | # | Banned pattern | Why it fails |
 |:-:|---------------|--------------|
@@ -225,7 +243,7 @@ For each group: cohesion, defection highlights, sample votes.
 
 ---
 
-## 1️⃣3️⃣ Cross-References — Controlling Methodology
+## 1️⃣4️⃣ Cross-References — Controlling Methodology
 
 - [`../methodologies/per-artifact-methodologies.md#voting-patterns`](../methodologies/per-artifact-methodologies.md) — construction rules.
 - [`../methodologies/political-classification-guide.md`](../methodologies/political-classification-guide.md) — group taxonomy + procedure-code conventions.
@@ -236,7 +254,7 @@ For each group: cohesion, defection highlights, sample votes.
 
 ---
 
-## 1️⃣4️⃣ Stage-C Completeness Signals
+## 1️⃣5️⃣ Stage-C Completeness Signals
 
 `scripts/validate-analysis-completeness.js` checks for this artifact:
 
@@ -246,8 +264,9 @@ For each group: cohesion, defection highlights, sample votes.
 | Required H2 substrings | "Top RCVs" / "Roll-Call" / "Behaviour" / "Anomalies" | structural contract |
 | Mermaid block | ≥1 (xychart of For/Against/Abstain across top-5 preferred) | visual contract |
 | Tradecraft markers | Admiralty per RCV; LOW flag for <4-week-old votes; abstain column populated | `osint-tradecraft-standards.md` |
-| Source diversity | ≥3 EP MCP tools (must include `get_voting_records`) | per-artifact rule |
+| Source diversity | ≥3 EP MCP tools (must include `get_voting_records` or `ep-get-voting-records` fallback) | per-artifact rule |
 | Top-5 coverage | 5 distinct RCVs cited with procedure codes | template logic |
+| Voting data freshness | §7 "Voting Data Freshness" table present and `source` field populated | D-02 fallback compliance |
 
 ---
 
