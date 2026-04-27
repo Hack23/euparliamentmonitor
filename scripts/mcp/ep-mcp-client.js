@@ -10,7 +10,7 @@ import { ProcedureSeenCache } from './procedure-seen-cache.js';
 import { recordPendingDocument, markDocumentResolved, getPendingDocumentsForReprobe, escalateExpiredDocuments, getPendingDocumentsSummary, } from './pending-documents.js';
 /**
  * Canonical list of tools exposed by the European Parliament MCP gateway
- * (`european-parliament-mcp-server@1.2.14`). The news workflows, prompt
+ * (`european-parliament-mcp-server@1.2.15`). The news workflows, prompt
  * library (`.github/prompts/07-mcp-reference.md`), and the integration test
  * suite all reference this list so a regression that adds/removes a tool
  * fails a single drift guard
@@ -114,7 +114,7 @@ const CONTENT_NOT_YET_AVAILABLE_SUBSTRING = 'document indexed but content not ye
 /**
  * Classify an error message into a diagnostic error category.
  *
- * Maps EP MCP Server v1.2.14 structured error codes and generic HTTP/network
+ * Maps EP MCP Server v1.2.15 structured error codes and generic HTTP/network
  * errors into one of six broad categories used for logging and retry decisions:
  *
  * Returned categories (priority order):
@@ -130,7 +130,7 @@ const CONTENT_NOT_YET_AVAILABLE_SUBSTRING = 'document indexed but content not ye
  */
 function classifyToolError(message) {
     const lowerMsg = message.toLowerCase();
-    // EP MCP Server v1.2.14 structured error codes (matched case-insensitively)
+    // EP MCP Server v1.2.15 structured error codes (matched case-insensitively)
     if (lowerMsg.includes('internal_error')) {
         return 'INTERNAL_ERROR';
     }
@@ -189,7 +189,7 @@ function _parseResultPayload(result) {
  * covering the two shapes historically emitted by the EP MCP server.
  *
  * 1. **Uniform envelope** (all feeds as of
- *    `european-parliament-mcp-server@1.2.14`) —
+ *    `european-parliament-mcp-server@1.2.15`) —
  *    `{status:"unavailable", items:[], generatedAt:"..."}` established by
  *    Hack23/European-Parliament-MCP-Server#301 and extended to
  *    `get_events_feed`/`get_procedures_feed` by
@@ -449,21 +449,20 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      *
      * @remarks
      * This repository is currently documented/configured against
-     * `european-parliament-mcp-server@1.2.13`.
+     * `european-parliament-mcp-server@1.2.15`.
      *
-     * **Conditional upstream note (v1.2.14+ only):** If the configured EP-MCP server is upgraded
-     * to v1.2.14 or newer, the upstream server applies a client-side post-filter on
-     * `dateFrom`/`dateTo` before serialisation, because the EP Open Data Portal `/meetings`
-     * endpoint silently ignores its `date-from`/`date-to` query parameters (Defect #5).
-     * Under that newer upstream contract:
+     * **Upstream date-filter contract (v1.2.14+, active on the pinned v1.2.15 server):** the upstream server
+     * applies a server-side post-filter on `dateFrom`/`dateTo` before serialisation, because the
+     * EP Open Data Portal `/meetings` endpoint silently ignores its `date-from`/`date-to` query
+     * parameters (Defect #5). Under this contract:
      * - `data[]` contains only sessions within the requested window.
      * - `total` reflects the **filtered** count, not the raw upstream count.
      * - Per-window session counts are reproducible because the EP-side regression is masked by
      *   the upstream post-filter.
      *
-     * No local post-filter is applied here. When running against the pinned v1.2.13 baseline,
-     * callers should not assume the v1.2.14+ date-filter guarantees unless the server/runtime
-     * documentation has been updated accordingly.
+     * No local post-filter is applied here. The repository is pinned to v1.2.15, so the
+     * date-filter guarantees above apply; consumers running against an older server image
+     * (pre-v1.2.14) must not assume them.
      */
     async getPlenarySessions(options = {}) {
         return this.safeCallTool('get_plenary_sessions', options, '{"data": [], "total": 0}');

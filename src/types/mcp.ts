@@ -483,7 +483,7 @@ export type FeedTimeframe = 'today' | 'one-day' | 'one-week' | 'one-month' | 'cu
  * These feeds serve a server-defined window. Historically (pre-v1.2.13) they
  * rejected `timeframe`/`startDate` with `INVALID_PARAMS`
  * (Hack23/European-Parliament-MCP-Server#377); as of
- * `european-parliament-mcp-server@1.2.13` (PR #379) the server silently
+ * `european-parliament-mcp-server@1.2.15` (PR #379) the server silently
  * ignores those params on fixed-window tools. The client continues to omit
  * them so intent matches behaviour and so we remain compatible with any
  * older pinned server version in downstream environments.

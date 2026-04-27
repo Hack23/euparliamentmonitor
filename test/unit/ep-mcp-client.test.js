@@ -583,11 +583,12 @@ describe('ep-mcp-client', () => {
         // dateFrom/dateTo causes the server to return a rolling last-30-days
         // period window.  The mock simulates that v1.2.14+ response.
         //
-        // Under the currently installed v1.2.13 the server would instead return
+        // Under the historical pre-v1.2.14 server the response would instead be
         // period: { from: "2024-01-01", to: "2024-12-31" } producing an empty
-        // pipeline; that is precisely why Stage-A prompts (01-data-collection.md
-        // rule 6, 07-mcp-reference.md §4) require explicit dates until v1.2.14+
-        // is confirmed installed.
+        // pipeline; that is why Stage-A prompts (01-data-collection.md rule 6,
+        // 07-mcp-reference.md §4) require explicit dates. The gateway is now
+        // pinned to v1.2.15 (rolling-30-days default), but explicit dates remain
+        // the required calling pattern for reproducibility.
         const now = Date.now();
         const today = new Date(now).toISOString().slice(0, 10);
         const thirtyDaysAgo = new Date(now - 30 * 24 * 60 * 60 * 1000)
