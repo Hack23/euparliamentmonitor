@@ -133,10 +133,11 @@ discipline broke down.
 #### Prior-Run Merge Rule (re-run exemption)
 
 When a same-day re-run carries forward artifacts already at or above their
-floors, `rewriteCount` may legitimately be `0`. In that case the agent must
-write `pass2.rewriteCount: 0` **and** annotate in `manifest.json` why (e.g.
-`"pass2Note": "all artifacts above floor from prior run — no rewrites required"`).
-The validator will not warn when all artifacts are strictly above their floors.
+floors, `rewriteCount` may legitimately be `0`. In that case the agent should
+write `pass2.rewriteCount: 0` and, where helpful for operators, annotate in
+`manifest.json` why (e.g. `"pass2Note": "all artifacts above floor from prior
+run — no rewrites required"`). The validator does not require `pass2Note` and
+will not warn when all artifacts are strictly above their floors.
 
 ## Time Budget Enforcement
 

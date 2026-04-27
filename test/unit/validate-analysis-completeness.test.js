@@ -316,5 +316,55 @@ describe('scripts/validate-analysis-completeness.js', () => {
       expect(result.code).toBe(0);
       expect(result.stderr).not.toMatch(/pass2-skipped-heuristic/);
     });
+
+    it('treats malformed pass2.rewriteCount (non-numeric) as invalid schema and still triggers heuristic at-floor', () => {
+      const manifest = {
+        articleType: 'breaking',
+        files: {
+          intelligence: ['intelligence/synthesis-summary.md'],
+        },
+        pass2: {
+          startedAt: '2026-04-22T10:18:00Z',
+          endedAt: '2026-04-22T10:24:00Z',
+          rewriteCount: 'four', // typo / wrong type
+        },
+      };
+      fs.writeFileSync(path.join(runDir, 'manifest.json'), JSON.stringify(manifest), 'utf8');
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/synthesis-summary.md'),
+        makeArtifact(200, { mermaid: true, wep: true, admiralty: true }),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.code).toBe(0);
+      // Both the schema warning and the heuristic warning must fire
+      expect(result.stderr).toMatch(/manifest\.pass2 invalid schema/);
+      expect(result.stderr).toMatch(/pass2-skipped-heuristic/);
+      expect(result.stderr).toMatch(/pass2\.rewriteCount-invalid/);
+    });
+
+    it('treats missing rewriteCount field as invalid schema', () => {
+      const manifest = {
+        articleType: 'breaking',
+        files: {
+          intelligence: ['intelligence/synthesis-summary.md'],
+        },
+        pass2: {
+          startedAt: '2026-04-22T10:18:00Z',
+          endedAt: '2026-04-22T10:24:00Z',
+          // rewriteCount missing
+        },
+      };
+      fs.writeFileSync(path.join(runDir, 'manifest.json'), JSON.stringify(manifest), 'utf8');
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/synthesis-summary.md'),
+        makeArtifact(200, { mermaid: true, wep: true, admiralty: true }),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.code).toBe(0);
+      expect(result.stderr).toMatch(/manifest\.pass2 invalid schema/);
+      expect(result.stderr).toMatch(/pass2\.rewriteCount-invalid/);
+    });
   });
 });

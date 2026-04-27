@@ -139,17 +139,23 @@ agent when Stage B2 begins and ends):**
 
 ### Stage B Sub-stage Budget (Pass 1 / Pass 2 split)
 
-| Sub-stage | Label | Budget (relative to Stage A completion) |
-|-----------|-------|:----------------------------------------:|
-| **B1** | Pass 1 — Initial Analysis | ≤ 12 min from Stage A end (hard stop at elapsed minute 16) |
-| **B2** | Pass 2 — Read-back & Rewrite | remaining B budget after minute 16 (≥ 6 min) |
+**Timing convention:** Absolute **workflow elapsed minutes** are authoritative.
+Relative phrases such as "from Stage A end" are descriptive only and MUST NOT
+override the absolute tripwires above.
+
+| Sub-stage | Label | Budget / window |
+|-----------|-------|:---------------:|
+| **B1** | Pass 1 — Initial Analysis | From **Stage A completion** until the **absolute minute-16 tripwire**. If Stage A ends by minute 4, this yields **≤ 12 min** for B1. |
+| **B2** | Pass 2 — Read-back & Rewrite | Fixed absolute window: **minute 16 → minute 20** (**≥ 4 min**) before Stage C must run. |
+| **C** | Completeness Gate | Fixed absolute window: **minute 20 → minute 22** (**≤ 2 min**) before the Stage C exit tripwire. |
 
 **Hard tripwire at minute 16:** At the start of each B1 artifact-write loop
-iteration, the agent MUST check elapsed time. If elapsed ≥ 16 minutes, stop
-writing new Pass 1 artifacts and transition immediately to Pass 2 — even if
-Pass 1 is not complete. An incomplete artifact set with a genuine Pass 2
-rewrite is higher quality than a complete artifact set where "Pass 2" was
-only inline checks during Pass 1.
+iteration, the agent MUST check elapsed workflow time. If elapsed ≥ 16
+minutes, stop writing new Pass 1 artifacts and transition immediately to
+Pass 2. Pass 2 then occupies the minute-16 → minute-20 window, after which
+Stage C must run and exit by minute 22. An incomplete artifact set with a
+genuine Pass 2 rewrite is higher quality than a complete artifact set
+where "Pass 2" was only inline checks during Pass 1.
 
 **Pass 2 log in `manifest.json`:** When Pass 2 starts and ends, the agent
 MUST write a top-level `pass2` block to `manifest.json`:
@@ -182,7 +188,7 @@ and any artifact sits exactly at its floor line count.
 > after #1444 and #24957585804 — gives a 3–5 min margin below the
 > failure window and absorbs Stage B compaction overruns. The
 > per-stage ceilings in the 7-day workflows shrink to **A ≤ 4, B
-> 12–15 (B1 ≤ 8 / B2 ≥ 6), C ≤ 3 = 22 min** to match.
+> 12–15 (B1 minutes 4→16, B2 minutes 16→20), C ≤ 2 (minutes 20→22) = 22 min** to match.
 
 The schedule is built around **three distinct deadlines** in every unified
 news workflow (see #1444 for the original rationale and the failure mode

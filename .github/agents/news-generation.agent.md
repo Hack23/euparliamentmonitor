@@ -60,7 +60,7 @@ Read these files in order, once per run:
 2. [`.github/prompts/08-infrastructure.md`](../prompts/08-infrastructure.md) — frontmatter + MCP gateway setup
 3. [`.github/prompts/01-data-collection.md`](../prompts/01-data-collection.md) — Stage A
 4. [`.github/prompts/07-mcp-reference.md`](../prompts/07-mcp-reference.md) — canonical EP / World Bank / IMF tool tables
-5. [`.github/prompts/02-analysis-protocol.md`](../prompts/02-analysis-protocol.md) — Stage B (B1 Pass 1 ≤ 8 min / B2 Pass 2 ≥ 6 min, minute-16 tripwire)
+5. [`.github/prompts/02-analysis-protocol.md`](../prompts/02-analysis-protocol.md) — Stage B (B1 Pass 1 ≤ 12 min / B2 Pass 2 ≥ 4 min, minute-16 tripwire)
 6. [`.github/prompts/03-analysis-completeness-gate.md`](../prompts/03-analysis-completeness-gate.md) — Stage C (blocking)
 7. [`.github/prompts/04-article-generation.md`](../prompts/04-article-generation.md) — Stage D (2 passes)
 8. [`.github/prompts/05-analysis-to-article-contract.md`](../prompts/05-analysis-to-article-contract.md) — AI-First contract
@@ -94,9 +94,10 @@ active-work budget 22–27 min before the single safe-outputs
 Stage A · Data Collection (≤ 4 min)
   → Stage B1 · Analysis Artifacts — Pass 1 (minutes 4–16, ≤ 12 min)
       HARD TRIPWIRE at minute 16 → begin Pass 2 even if Pass 1 is incomplete
-    → Stage B2 · Pass 2 — Read-back & Rewrite (minutes 16–22, ≥ 6 min)
+    → Stage B2 · Pass 2 — Read-back & Rewrite (minutes 16–20, ≥ 4 min)
         log pass2.{startedAt, endedAt, rewriteCount} to manifest.json
-      → Stage C · Completeness Gate — BLOCKING (agent-side + npm run validate-analysis)
+      → Stage C · Completeness Gate — BLOCKING (minutes 20–22, ≤ 2 min;
+          agent-side + npm run validate-analysis)
           (Stage C warns if pass2.rewriteCount === 0 and any artifact is at its floor)
         → Stage D · Deterministic Article Render
             (npm run generate-article -- --run "${ANALYSIS_DIR}")

@@ -586,19 +586,36 @@ function main() {
 
   const green = offending.length === 0;
 
-  // Pass-2-skipped heuristic: warn when manifest.pass2.rewriteCount === 0
-  // (or pass2 block is missing) AND at least one artifact sits at exactly
-  // its line floor. This is the script-side enforcement of the B1/B2 split
-  // defined in `.github/prompts/02-analysis-protocol.md` §3.
+  // Pass-2-skipped heuristic: warn when manifest.pass2 is absent, malformed,
+  // or `rewriteCount === 0` AND at least one artifact sits at exactly its
+  // line floor. This is the script-side enforcement of the B1/B2 split
+  // defined in `.github/prompts/02-analysis-protocol.md` §3. A malformed
+  // pass2 block (non-numeric/non-finite rewriteCount) is treated like an
+  // absent block so the enforcement can't be bypassed by typos.
   const pass2 = manifest.pass2;
   const pass2Absent = pass2 == null;
-  const pass2ZeroRewrites = typeof pass2?.rewriteCount === 'number' && pass2.rewriteCount === 0;
-  if (pass2Absent || pass2ZeroRewrites) {
+  const pass2RewriteCount = pass2?.rewriteCount;
+  const pass2RewriteCountValid =
+    typeof pass2RewriteCount === 'number' && Number.isFinite(pass2RewriteCount);
+  const pass2Invalid = !pass2Absent && !pass2RewriteCountValid;
+  const pass2ZeroRewrites = pass2RewriteCountValid && pass2RewriteCount === 0;
+
+  if (pass2Invalid) {
+    process.stderr.write(
+      `WARN manifest.pass2 invalid schema: rewriteCount must be a finite number ` +
+        `(received ${JSON.stringify(pass2RewriteCount)})\n`,
+    );
+  }
+
+  if (pass2Absent || pass2Invalid || pass2ZeroRewrites) {
     const atFloor = results.filter(
       (r) => r.exists && r.lines > 0 && r.lines === r.minLines,
     );
     if (atFloor.length > 0) {
-      const label = pass2Absent ? 'pass2-block-missing' : 'pass2.rewriteCount=0';
+      let label;
+      if (pass2Absent) label = 'pass2-block-missing';
+      else if (pass2Invalid) label = 'pass2.rewriteCount-invalid';
+      else label = 'pass2.rewriteCount=0';
       process.stderr.write(
         `WARN pass2-skipped-heuristic: ${label} and ${atFloor.length} artifact(s) ` +
           `at exactly their line floor: ${atFloor.map((r) => r.relativePath).join(', ')}\n`,
