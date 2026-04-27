@@ -510,10 +510,12 @@ export async function getVotingRecordsWithFallback(
 
   // (b) MCP was empty — try the EP Open Data Portal fallback.
   const portalClient = new EPOpenDataClient(options);
-  const portalCallOptions: Pick<VotingRecordsFallbackOptions, 'dateFrom' | 'dateTo' | 'limit' | 'offset'> = { dateFrom, dateTo };
-  if (options.limit !== undefined) portalCallOptions.limit = options.limit;
-  if (options.offset !== undefined) portalCallOptions.offset = options.offset;
-  const portalResult = await portalClient.getVotingRecords(portalCallOptions);
+  const portalResult = await portalClient.getVotingRecords({
+    dateFrom,
+    dateTo,
+    ...(options.limit !== undefined ? { limit: options.limit } : {}),
+    ...(options.offset !== undefined ? { offset: options.offset } : {}),
+  });
 
   if (!EPOpenDataClient.isVotingDataEmpty(portalResult)) {
     return {
