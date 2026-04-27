@@ -9,6 +9,7 @@
  *
  *   1. Reading-progress bar width driven by scroll position.
  *   2. Theme (dark/light) toggle backed by localStorage ("ep-theme").
+ *   3. Mobile article table-of-contents compaction.
  *
  * Externalising these removes the need for per-article SHA-256 CSP
  * hashes — the article CSP can stay at `script-src 'self'`.
@@ -40,6 +41,16 @@
       },
       { passive: true }
     );
+  }
+
+  /* ── Mobile TOC compaction ───────────────────────────────────────── */
+
+  var narrowViewport =
+    window.matchMedia && window.matchMedia('(max-width: 600px)').matches;
+  if (narrowViewport) {
+    document.querySelectorAll('.article-toc-details[open]').forEach(function (toc) {
+      toc.removeAttribute('open');
+    });
   }
 
   /* ── Theme toggle ────────────────────────────────────────────────── */

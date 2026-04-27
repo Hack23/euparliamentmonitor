@@ -6525,6 +6525,7 @@ html[data-theme='dark'] .d3-network-wrapper text {
 
 .article-body {
   min-width: 0; /* prevent grid-child overflow on long code blocks */
+  width: 100%;
   max-width: 960px;
   padding: 28px;
   background: var(--card-bg, #ffffff);
@@ -6602,7 +6603,10 @@ html[data-theme='dark'] .d3-network-wrapper text {
 
 .table-scroll {
   margin: 1.25rem 0;
+  width: 100%;
+  max-width: 100%;
   overflow-x: auto;
+  contain: inline-size;
   border: 1px solid var(--border, #d0d7de);
   border-radius: 10px;
 }
@@ -6610,6 +6614,30 @@ html[data-theme='dark'] .d3-network-wrapper text {
 .table-scroll table {
   margin: 0;
   min-width: 720px;
+}
+
+.article-body > table,
+.article-body section > table,
+.outcome-matrix-table {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  contain: inline-size;
+}
+
+.article-body pre,
+.article-body code {
+  max-width: 100%;
+}
+
+.article-body pre {
+  overflow-x: auto;
+}
+
+.article-body pre code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
 }
 
 .mermaid-figure {
@@ -6651,6 +6679,44 @@ pre.mermaid--error {
   }
   .article-toc-details:not([open]) .article-toc-list {
     display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .article-toc-container {
+    padding: 12px 14px;
+    border-radius: 10px;
+  }
+
+  .article-toc-summary {
+    padding-bottom: 0;
+    border-bottom: 0;
+    font-size: 0.95rem;
+  }
+
+  .article-toc-details[open] .article-toc-summary {
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border, #d0d7de);
+  }
+
+  .article-body {
+    padding: 18px 14px;
+    border-radius: 10px;
+  }
+
+  .article-hero {
+    padding: 18px 14px;
+  }
+
+  .article-hero h1 {
+    font-size: clamp(1.65rem, 8vw, 2.35rem);
+    line-height: 1.08;
+    letter-spacing: -0.025em;
+  }
+
+  .article-dek {
+    font-size: 1rem;
   }
 }
 
