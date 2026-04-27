@@ -9,6 +9,7 @@
  * `european-parliament-mcp-server@1.2.11`. This test asserts:
  *
  *   1. `EP_MCP_TOOLS` is in sync with the actual `this.safeCallTool(...)`
+ *      and manual `this.callToolWithRetry(...)`
  *      invocations found in the TypeScript client source at
  *      `src/mcp/ep-mcp-client.ts` (so a method that wraps a new tool can
  *      never ship without updating the exported list).
@@ -32,18 +33,17 @@ const THIS_DIR = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(THIS_DIR, '..', '..', '..');
 
 /**
- * Extract every tool name passed as the first argument to
- * `this.safeCallTool(...)` in the EP MCP client TypeScript source
- * (`src/mcp/ep-mcp-client.ts`). Handles both the inline form
- * (`safeCallTool('name', options, FALLBACK)`) and the multi-line form
- * where the tool name is on the next line.
+ * Extract every tool name passed as the first argument to wrapper calls in the
+ * EP MCP client TypeScript source (`src/mcp/ep-mcp-client.ts`). Handles both
+ * `safeCallTool('name', ...)` and manually wrapped `callToolWithRetry('name', ...)`
+ * calls where a method needs bespoke post-processing/error handling.
  *
  * @param {string} source - Full file contents
  * @returns {Set<string>} unique tool names
  */
-function extractSafeCallToolNames(source) {
+function extractWrappedToolNames(source) {
   const names = new Set();
-  const re = /safeCallTool\s*\(\s*'([a-z_]+)'/g;
+  const re = /(?:safeCallTool|callToolWithRetry)\s*\(\s*'([a-z_]+)'/g;
   let match;
   while ((match = re.exec(source)) !== null) {
     names.add(match[1]);
@@ -62,7 +62,7 @@ describe('EP MCP tool surface (drift guard)', () => {
       path.join(REPO_ROOT, 'src', 'mcp', 'ep-mcp-client.ts'),
       'utf8'
     );
-    const wrapped = extractSafeCallToolNames(clientSource);
+    const wrapped = extractWrappedToolNames(clientSource);
 
     const exported = new Set(EP_MCP_TOOLS);
     const missingFromExport = [...wrapped].filter((t) => !exported.has(t)).sort();

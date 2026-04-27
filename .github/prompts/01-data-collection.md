@@ -180,6 +180,92 @@ Read each run's `intelligence/analysis-index.md`,
 `intelligence/synthesis-summary.md`, and `intelligence/scenario-forecast.md`.
 Your new run MUST reference ≥ 3 prior-run forward-looking statements.
 
+## 8a · Forward-Statements Registry Seed (week-ahead / month-ahead)
+
+For `week-ahead` and `month-ahead` workflows, Stage A **must** read the
+persistent forward-statements registry and seed the synthesis with any open
+items in scope:
+
+```bash
+TODAY=$(date -u +%Y-%m-%d)
+# week-ahead: 7-day horizon; month-ahead: 30-day horizon
+if [ "${ARTICLE_TYPE_SLUG}" = "week-ahead" ]; then
+  HORIZON_DAYS=7
+else
+  HORIZON_DAYS=30
+fi
+HORIZON_END=$(date -u -d "${HORIZON_DAYS} days" +%Y-%m-%d)
+node scripts/aggregator/forward-statements-registry.js read \
+  --status open \
+  --horizon-from "$TODAY" \
+  --horizon-to "$HORIZON_END" \
+  > "${ANALYSIS_DIR}/data/forward-statements-open.json"
+echo "FORWARD_STATEMENTS_OPEN=$(cat "${ANALYSIS_DIR}/data/forward-statements-open.json" | wc -c)" >> "$GITHUB_ENV"
+```
+
+After Stage B, for each open item in `data/forward-statements-open.json`:
+- If confirmed delivered: `node scripts/aggregator/forward-statements-registry.js update --id <id> --status implemented --evidence <ref>`
+- If superseded by new analysis: `node scripts/aggregator/forward-statements-registry.js update --id <id> --status superseded`
+- If carried forward unchanged: update `lastObservedDate` by re-running the registry update with `--status open`
+
+At the end of Stage B, append new forward statements produced by this run:
+
+```bash
+node scripts/aggregator/forward-statements-registry.js append --file /tmp/new-forward-statements.json
+```
+
+## 8b · Multi-Day Foreseen Activities Fan-Out (week-ahead / month-ahead)
+
+For `week-ahead` and `month-ahead` workflows, Stage A **must** call
+`get_meeting_foreseen_activities` for **every** session day in the coverage
+window — not just day 1. EP plenary sessions run Monday through Thursday in
+Strasbourg (4 days) and Wednesday/Thursday in Brussels mini-sessions (2 days).
+
+**Fan-out pattern (Strasbourg full session):**
+
+Call `get_meeting_foreseen_activities` for each sitting ID:
+- `sittingId: "MTG-PL-<YYYY-MM-DD>"` for Mon (day 1)
+- `sittingId: "MTG-PL-<YYYY-MM-DD+1>"` for Tue (day 2)
+- `sittingId: "MTG-PL-<YYYY-MM-DD+2>"` for Wed (day 3)
+- `sittingId: "MTG-PL-<YYYY-MM-DD+3>"` for Thu (day 4)
+
+Each call should use `limit: 20`. Collect all results and merge into
+`${ANALYSIS_DIR}/data/foreseen-activities-<YYYY-MM-DD>.json` per day.
+
+If any day's call returns 0 items or a 404, log the failure but continue with
+remaining days — partial coverage is better than no coverage.
+
+**Budget:** These are light calls (each typically < 2 s). Four calls fit
+comfortably within the ≤ 4 min Stage A budget.
+
+## 8c · Monday Urgency Motion Sweep
+
+When a `week-ahead` run executes on a **Monday** (the first day of an EP
+session week), Stage A **must** perform a brief urgency motion sweep
+*before* confirming any agenda-specific predictions:
+
+```bash
+TODAY=$(date -u +%Y-%m-%d)
+DOW=$(date -u -d "$TODAY" +%u)  # 1=Mon … 7=Sun
+if [ "$DOW" = "1" ]; then
+  # Monday urgency motion sweep — Rule 132 motions are filed Monday morning
+  echo "URGENCY_SWEEP=true" >> "$GITHUB_ENV"
+fi
+```
+
+When `URGENCY_SWEEP=true`, Stage A additionally:
+1. Calls `get_adopted_texts_feed` with `timeframe: "today"` to capture any
+   Rule 132 urgency motions adopted or tabled that morning.
+2. Calls `get_procedures_feed` with `timeframe: "today"` to detect newly
+   registered urgency procedures.
+3. Writes results to `${ANALYSIS_DIR}/data/urgency-motions-<TODAY>.json`.
+4. Logs a note in `manifest.json` under `dataVerification.urgencyMotionSweep`
+   with timestamp and item count.
+
+This 60-second sweep ensures the article's agenda predictions reflect the
+Monday morning Rule 132 filings and are not locked to Sunday's pre-session
+state.
+
 ## 9 · Hard Rules
 
 - ❌ Do not skip data collection because feeds are 404 — try direct endpoints.

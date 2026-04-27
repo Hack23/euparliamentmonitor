@@ -295,6 +295,8 @@ prose pass.
 
 - Economic context (**IMF primary** for macro/fiscal/monetary/trade — Wave-3 policy; WB only for non-economic) is mandatory — monthly articles always touch macro/policy.
 - Mine prior-run forward statements (per `01-data-collection.md` §8).
+- **Seed synthesis from forward-statements registry** (per `01-data-collection.md` §8a): read open items from `analysis/forward-statements/` before Stage B.
+- **Multi-day foreseen activities fan-out** (per `01-data-collection.md` §8b): for each plenary session in the next 30 days, call `get_meeting_foreseen_activities` for all session days (Mon–Thu for Strasbourg, Wed–Thu for Brussels mini-sessions).
 
 ## 🗓️ Date Context + Stable Folder Resolution (MANDATORY — first bash block)
 
@@ -336,6 +338,28 @@ Run the canonical gateway block from `08-infrastructure.md` §4. Source
 `scripts/imf-mcp-probe.sh`. Collect EP feed data first; fall back to
 direct endpoints on failure. Deep-fetch up to 10 procedures / voting
 records / meeting decisions into `${ANALYSIS_DIR}/data/`. Target ≤ 5 min.
+
+**Forward-statements registry seed (mandatory):**
+
+```bash
+HORIZON_END=$(date -u -d '30 days' +%Y-%m-%d)
+node scripts/aggregator/forward-statements-registry.js read \
+  --status open \
+  --horizon-from "$TODAY" \
+  --horizon-to "$HORIZON_END" \
+  > "${ANALYSIS_DIR}/data/forward-statements-open.json"
+```
+
+**Multi-day foreseen activities fan-out (mandatory — all plenary session days in the 30-day window):**
+
+For each upcoming plenary session in the next 30 days, identify the session
+start date (Monday for Strasbourg 4-day, Wednesday for Brussels 2-day mini)
+and call `get_meeting_foreseen_activities` for every day:
+- Full session: `MTG-PL-<Mon>`, `MTG-PL-<Tue>`, `MTG-PL-<Wed>`, `MTG-PL-<Thu>`
+- Mini-session: `MTG-PL-<Wed>`, `MTG-PL-<Thu>`
+
+Each call uses `limit: 20`. Save results per day to
+`${ANALYSIS_DIR}/data/foreseen-activities-<YYYY-MM-DD>.json`.
 
 ### Stage B — Analysis (Ref: 02 §2 re-run merge rule)
 
