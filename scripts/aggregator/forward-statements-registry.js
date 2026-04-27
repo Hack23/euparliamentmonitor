@@ -214,32 +214,46 @@ export function readEntries(opts) {
     .filter((f) => f.endsWith('.jsonl'))
     .sort();
 
-  const results = [];
+  /** @type {Map<string, Record<string, unknown>>} */
+  const entriesById = new Map();
   for (const shard of shards) {
     const content = fs.readFileSync(path.join(dir, shard), 'utf8');
     for (const line of content.split('\n')) {
       const entry = parseLine(line);
-      if (!entry) continue;
-      if (opts?.status && entry.status !== opts.status) continue;
+      if (!entry || typeof entry.id !== 'string' || entry.id.length === 0) continue;
+      entriesById.set(entry.id, entry);
+    }
+  }
 
-      let horizon;
-      if ((opts?.horizonFrom || opts?.horizonTo) && typeof entry.expectedHorizon === 'string') {
-        try {
-          // Normalise ISO week to YYYY-MM-DD (first day of week) for comparison.
-          horizon = normaliseHorizon(entry.expectedHorizon);
-        } catch (error) {
-          process.stderr.write(
-            `Skipping forward-statement entry with invalid expectedHorizon "${entry.expectedHorizon}" ` +
-            `in shard "${shard}": ${error instanceof Error ? error.message : String(error)}\n`,
-          );
-          continue;
-        }
+  const results = [];
+  const hasHorizonFilter = Boolean(opts?.horizonFrom || opts?.horizonTo);
+  for (const entry of entriesById.values()) {
+    if (opts?.status && entry.status !== opts.status) continue;
+
+    let horizon;
+    if (hasHorizonFilter) {
+      if (typeof entry.expectedHorizon !== 'string') {
+        process.stderr.write(
+          `Skipping forward-statement entry "${entry.id}" with missing expectedHorizon for horizon-filtered read\n`,
+        );
+        continue;
       }
 
-      if (opts?.horizonFrom && typeof horizon === 'string' && horizon < opts.horizonFrom) continue;
-      if (opts?.horizonTo && typeof horizon === 'string' && horizon > opts.horizonTo) continue;
-      results.push(entry);
+      try {
+        // Normalise ISO week to YYYY-MM-DD (first day of week) for comparison.
+        horizon = normaliseHorizon(entry.expectedHorizon);
+      } catch (error) {
+        process.stderr.write(
+          `Skipping forward-statement entry "${entry.id}" with invalid expectedHorizon ` +
+          `"${entry.expectedHorizon}": ${error instanceof Error ? error.message : String(error)}\n`,
+        );
+        continue;
+      }
     }
+
+    if (opts?.horizonFrom && typeof horizon === 'string' && horizon < opts.horizonFrom) continue;
+    if (opts?.horizonTo && typeof horizon === 'string' && horizon > opts.horizonTo) continue;
+    results.push(entry);
   }
   return results;
 }
@@ -427,7 +441,7 @@ export function cli(argv) {
     if (fileFlag !== -1 && rest[fileFlag + 1]) {
       rawJson = fs.readFileSync(rest[fileFlag + 1], 'utf8');
     } else {
-      rawJson = fs.readFileSync('/dev/stdin', 'utf8');
+      rawJson = fs.readFileSync(0, 'utf8');
     }
     const entries = JSON.parse(rawJson);
     const result = appendEntries(Array.isArray(entries) ? entries : [entries]);

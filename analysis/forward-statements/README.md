@@ -172,7 +172,10 @@ week), Stage A additionally calls:
 
 ```bash
 node scripts/aggregator/forward-statements-registry.js read \
-  --status open > "${ANALYSIS_DIR}/data/forward-statements-open.json"
+  --status open \
+  --horizon-from "$HORIZON_START" \
+  --horizon-to "$HORIZON_END" \
+  > "${ANALYSIS_DIR}/data/forward-statements-open.json"
 ```
 
 …and polls `get_adopted_texts_feed` + `get_procedures_feed` to detect any

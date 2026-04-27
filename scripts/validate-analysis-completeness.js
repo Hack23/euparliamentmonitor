@@ -473,6 +473,28 @@ function validateForwardStatementsRegistryCoverage(runDir, articleType) {
   };
 }
 
+function mergeForwardRegistryResult(results, forwardRegistryResult) {
+  if (!forwardRegistryResult) return;
+
+  const existingResultIndex = results.findIndex(
+    (result) => result.relativePath === forwardRegistryResult.relativePath,
+  );
+
+  if (existingResultIndex >= 0) {
+    const existingResult = results[existingResultIndex];
+    results[existingResultIndex] = {
+      ...existingResult,
+      issues: [...new Set([...(existingResult.issues || []), ...(forwardRegistryResult.issues || [])])],
+      warnings: [
+        ...new Set([...(existingResult.warnings || []), ...(forwardRegistryResult.warnings || [])]),
+      ],
+    };
+    return;
+  }
+
+  results.push(forwardRegistryResult);
+}
+
 function buildRules(thresholdsJson, articleType) {
   const empty = {
     perArtifactFloors: {},
@@ -607,7 +629,7 @@ function main() {
   );
 
   const forwardRegistryResult = validateForwardStatementsRegistryCoverage(runDir, articleType);
-  if (forwardRegistryResult) results.push(forwardRegistryResult);
+  mergeForwardRegistryResult(results, forwardRegistryResult);
 
   // Orphans are reported as warnings (not blocking) — they may be valid extras.
   const summary = summarize(results);

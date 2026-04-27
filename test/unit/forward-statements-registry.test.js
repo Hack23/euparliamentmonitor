@@ -5,6 +5,8 @@ import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { spawnSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 import {
   shardPath,
   parseLine,
@@ -18,6 +20,11 @@ import {
   generateSessionDayIds,
   isMondayRun,
 } from '../../scripts/aggregator/forward-statements-registry.js';
+
+const REGISTRY_SCRIPT = path.resolve(
+  path.dirname(fileURLToPath(import.meta.url)),
+  '../../scripts/aggregator/forward-statements-registry.js',
+);
 
 /** Minimal valid entry factory. */
 function makeEntry(overrides = {}) {
@@ -235,6 +242,21 @@ describe('forward-statements-registry', () => {
       expect(open[0].topic).toBe('banking-union');
     });
 
+    it('should apply status filters to canonical last-occurrence entries only', () => {
+      appendEntries([makeEntry({ id: 'tracked-item', status: 'open' })], tmpDir);
+      updateEntry({
+        id: 'tracked-item',
+        status: 'implemented',
+        date: '2026-05-10',
+        registryDir: tmpDir,
+      });
+
+      expect(readEntries({ status: 'open', registryDir: tmpDir })).toHaveLength(0);
+      const implemented = readEntries({ status: 'implemented', registryDir: tmpDir });
+      expect(implemented).toHaveLength(1);
+      expect(implemented[0].id).toBe('tracked-item');
+    });
+
     it('should filter by horizonFrom', () => {
       appendEntries(
         [
@@ -264,20 +286,22 @@ describe('forward-statements-registry', () => {
     it('should skip blank and malformed lines', () => {
       const shard = path.join(tmpDir, '2026-04.jsonl');
       fs.mkdirSync(tmpDir, { recursive: true });
-      fs.writeFileSync(shard, `${JSON.stringify(makeEntry())}\n\n{ bad json\n`, 'utf8');
+      fs.writeFileSync(shard, `${JSON.stringify(makeEntry({ id: 'valid' }))}\n\n{ bad json\n`, 'utf8');
       const all = readEntries({ registryDir: tmpDir });
       expect(all).toHaveLength(1);
     });
 
-    it('should skip entries with invalid horizons during filtered reads', () => {
+    it('should skip entries with missing or invalid horizons during filtered reads', () => {
       const shard = path.join(tmpDir, '2026-04.jsonl');
       fs.mkdirSync(tmpDir, { recursive: true });
       const invalid = makeEntry({ id: 'bad-week', expectedHorizon: '2026-W54' });
       const invalidDate = makeEntry({ id: 'bad-date', expectedHorizon: '2026-13-99' });
+      const missing = makeEntry({ id: 'missing-horizon' });
+      delete missing.expectedHorizon;
       const valid = makeEntry({ id: 'valid-week', topic: 'ai-act', expectedHorizon: '2026-W18' });
       fs.writeFileSync(
         shard,
-        `${JSON.stringify(invalid)}\n${JSON.stringify(invalidDate)}\n${JSON.stringify(valid)}\n`,
+        `${JSON.stringify(invalid)}\n${JSON.stringify(invalidDate)}\n${JSON.stringify(missing)}\n${JSON.stringify(valid)}\n`,
         'utf8',
       );
 
@@ -317,13 +341,10 @@ describe('forward-statements-registry', () => {
 
       updateEntry({ id, status: 'implemented', date: '2026-05-10', registryDir: tmpDir });
 
-      // readEntries returns ALL lines; last one for the id has status 'implemented'
       const all = readEntries({ registryDir: tmpDir });
-      const byId = new Map();
-      for (const e of all) {
-        if (typeof e.id === 'string') byId.set(e.id, e);
-      }
-      expect(byId.get(id).status).toBe('implemented');
+      expect(all).toHaveLength(1);
+      expect(all[0].id).toBe(id);
+      expect(all[0].status).toBe('implemented');
     });
 
     it('should return { updated: false } for an unknown id', () => {
@@ -348,13 +369,9 @@ describe('forward-statements-registry', () => {
 
       updateEntry({ id, status: 'open', evidence: 'TA-10-2026-0142', date: '2026-05-01', registryDir: tmpDir });
 
-      const all = readEntries({ registryDir: tmpDir });
-      const byId = new Map();
-      for (const e of all) {
-        if (typeof e.id === 'string') byId.set(e.id, e);
-      }
-      expect(byId.get(id).evidenceRefs).toContain('TA-10-2026-0142');
-      expect(byId.get(id).evidenceRefs).toContain('A-10-2026-0067');
+      const [updated] = readEntries({ registryDir: tmpDir });
+      expect(updated.evidenceRefs).toContain('TA-10-2026-0142');
+      expect(updated.evidenceRefs).toContain('A-10-2026-0067');
     });
 
     it('should deduplicate evidenceRefs when the same ref is added twice', () => {
@@ -364,13 +381,32 @@ describe('forward-statements-registry', () => {
       // Add the same ref a second time
       updateEntry({ id, status: 'open', evidence: 'A-10-2026-0067', date: '2026-05-01', registryDir: tmpDir });
 
-      const all = readEntries({ registryDir: tmpDir });
-      const byId = new Map();
-      for (const e of all) {
-        if (typeof e.id === 'string') byId.set(e.id, e);
-      }
-      const refs = byId.get(id).evidenceRefs;
+      const [updated] = readEntries({ registryDir: tmpDir });
+      const refs = updated.evidenceRefs;
       expect(refs.filter((r) => r === 'A-10-2026-0067')).toHaveLength(1);
+    });
+  });
+
+  // -------------------------------------------------------------------------
+  // CLI
+  // -------------------------------------------------------------------------
+  describe('cli', () => {
+    it('should append JSON entries from stdin via fd 0', () => {
+      const entry = makeEntry({ id: 'stdin-entry' });
+      const result = spawnSync(
+        process.execPath,
+        [REGISTRY_SCRIPT, 'append'],
+        {
+          cwd: tmpDir,
+          input: JSON.stringify([entry]),
+          encoding: 'utf8',
+        },
+      );
+
+      expect(result.status).toBe(0);
+      expect(result.stdout).toMatch(/"written": 1/);
+      const shard = path.join(tmpDir, 'analysis/forward-statements/2026-04.jsonl');
+      expect(fs.existsSync(shard)).toBe(true);
     });
   });
 

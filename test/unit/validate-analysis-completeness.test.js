@@ -314,6 +314,11 @@ describe('scripts/validate-analysis-completeness.js', () => {
     const occurrences = result.stderr.match(/forward-registry:missing-carried-forward-section/g) || [];
     expect(occurrences).toHaveLength(1);
     expect(result.stdout).toMatch(/"forward-registry:missing-carried-forward-section"/);
+    const json = JSON.parse(result.stdout.slice(result.stdout.indexOf('{')));
+    expect(json.artifacts).toBe(1);
+    expect(json.results).toHaveLength(1);
+    expect(json.results[0].relativePath).toBe('intelligence/synthesis-summary.md');
+    expect(json.results[0].issues).toContain('forward-registry:missing-carried-forward-section');
   });
 
   it('passes GREEN for week-ahead when open items exist and synthesis has the carried-forward section', () => {
