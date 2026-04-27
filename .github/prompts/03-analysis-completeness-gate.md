@@ -148,21 +148,34 @@ hand-off to Stage D. Next read
 deterministic aggregator. There is no paired article workflow and no AI-authored
 HTML prose pass.
 
-## 6b · Resuming a Same-Day Folder (repeated analysis runs)
+### 6b · Resuming a Same-Day Folder (repeated analysis runs)
 
 When the canonical folder `analysis/daily/${DATE}/${TYPE}/` already contains
 a `manifest.json` from a prior run today:
 
 1. **Do not** trigger a `-run<NN>` or `-2` suffix — the shared folder is the
    single source of truth.
-2. Load prior `manifest.json` and inspect every artifact's line count vs.
+2. If `ENABLE_PRIOR_RUN_MERGE=true` and Stage A produced a
+   `${ANALYSIS_DIR}/runs/prior-run-diff.json`, read it. Every artifact listed
+   in `carryForward[]` was validated at-floor by the prior-run diff helper and
+   may have been skipped during Stage B.
+3. The **validator still runs on all artifacts** — including carried-forward
+   ones. Stage C does not grant any exemptions: if a carried-forward artifact
+   now fails (e.g. because the floor was raised in
+   `reference-quality-thresholds.json` since the prior run), it surfaces as a
+   RED violation just like any freshly written artifact.
+4. When the validator lists a carried-forward artifact as `short:N<floor` and
+   the prior-run diff plan shows the floor was lower in the prior run, annotate
+   the Pass 3 target with `[FLOOR-RAISED: <oldFloor>→<newFloor>]` so the
+   reviewer understands why it regressed.
+5. Load prior `manifest.json` and inspect every artifact's line count vs.
    `reference-quality-thresholds.json` floors.
-3. Artifacts at/above floor: **carry forward** (do not rewrite) unless new
+6. Artifacts at/above floor: **carry forward** (do not rewrite) unless new
    Stage-A data materially changes their conclusions.
-4. Artifacts below floor or missing: write a stronger version (overwrite).
-5. Append a new entry to `manifest.json.history[]` with this run's `runId`,
+7. Artifacts below floor or missing: write a stronger version (overwrite).
+8. Append a new entry to `manifest.json.history[]` with this run's `runId`,
    timestamps, and `gateResult`.
-6. Run the validator as normal. GREEN → single analysis PR; the paired
+9. Run the validator as normal. GREEN → single analysis PR; the paired
    article workflow consumes whatever is at `HEAD` of `main` after merge.
 
 See `02-analysis-protocol.md` §2 for the full re-run merge rule.
