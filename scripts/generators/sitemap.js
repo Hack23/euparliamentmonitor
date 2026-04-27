@@ -17,21 +17,8 @@ import { ARTICLE_TYPE_LABELS, FOOTER_POLITICAL_INTELLIGENCE_LABELS, } from '../c
 import { ArticleCategory } from '../types/index.js';
 import { getPoliticalIntelligenceFilename, collectPoliticalIntelligenceData, generatePoliticalIntelligenceHTML, } from './political-intelligence.js';
 import { buildSiteFooter } from '../templates/section-builders.js';
-/**
- * Escape a string for safe use as XML text content or attribute value.
- * Replaces the five predefined XML entities (`&`, `<`, `>`, `"`, `'`).
- *
- * @param str - Raw string
- * @returns XML-safe string
- */
-function escapeXML(str) {
-    return str
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&apos;');
-}
+import { escapeXML } from './sitemap/xml-utils.js';
+import { generateRssFeed as _generateRssFeed } from './sitemap/rss.js';
 /** Absolute docs directory under project root */
 const DOCS_DIR = path.join(PROJECT_ROOT, 'docs');
 /**
@@ -931,35 +918,15 @@ ${articlesSection}
  * Generate RSS 2.0 XML feed with all news articles across all languages.
  * Articles are sorted newest-first. Each item includes the article language.
  *
+ * Thin shim — the canonical implementation now lives in
+ * `sitemap/rss.ts`. Preserved here so existing imports of
+ * `generateRssFeed` from `sitemap.js` keep resolving.
+ *
  * @param articleInfos - Article metadata sorted newest first
  * @returns Complete RSS 2.0 XML string
  */
 export function generateRssFeed(articleInfos) {
-    const buildDate = new Date().toUTCString();
-    const items = articleInfos
-        .map((item) => `    <item>
-      <title>${escapeXML(item.title)}</title>
-      <link>${escapeXML(item.link)}</link>
-      <description>${escapeXML(item.description)}</description>
-      <pubDate>${item.pubDate}</pubDate>
-      <guid isPermaLink="true">${escapeXML(item.link)}</guid>
-      <dc:language>${escapeXML(item.lang)}</dc:language>
-    </item>`)
-        .join('\n');
-    return `<?xml version="1.0" encoding="UTF-8"?>
-<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
-  <channel>
-    <title>EU Parliament Monitor</title>
-    <link>${BASE_URL}</link>
-    <description>European Parliament Intelligence Platform — monitoring political activity with systematic transparency.</description>
-    <language>en</language>
-    <lastBuildDate>${buildDate}</lastBuildDate>
-    <atom:link href="${BASE_URL}/rss.xml" rel="self" type="application/rss+xml"/>
-${items}
-  </channel>
-</rss>`;
+    return _generateRssFeed(articleInfos);
 }
 /**
  * Main execution - generates sitemap.xml, multi-language sitemap HTML pages, and rss.xml.

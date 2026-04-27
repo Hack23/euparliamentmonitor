@@ -42,28 +42,35 @@ import {
   getRunTypeInfo,
   getArtifactInfo,
 } from './political-intelligence-descriptions.js';
-
-/** GitHub repository slug used to build blob/tree links for analysis artifacts */
-const GITHUB_REPO = 'Hack23/euparliamentmonitor';
+import { blobUrl, treeUrl } from '../aggregator/infra/github-urls.js';
 
 /**
  * Build a GitHub blob URL (single file) on the main branch.
+ *
+ * Thin alias for the canonical `blobUrl` helper in
+ * `src/aggregator/infra/github-urls.ts`. Preserved here so existing call
+ * sites in this module read naturally without an import-renaming churn,
+ * and so any future test that wants to swap the implementation has a
+ * single seam to override.
  *
  * @param relPath - Path relative to the repository root
  * @returns Absolute GitHub blob URL
  */
 function githubBlobUrl(relPath: string): string {
-  return `https://github.com/${GITHUB_REPO}/blob/main/${relPath.replace(/\\/g, '/')}`;
+  return blobUrl(relPath);
 }
 
 /**
  * Build a GitHub tree URL (directory) on the main branch.
  *
+ * Thin alias for the canonical `treeUrl` helper in
+ * `src/aggregator/infra/github-urls.ts`.
+ *
  * @param relPath - Path relative to the repository root
  * @returns Absolute GitHub tree URL
  */
 function githubTreeUrl(relPath: string): string {
-  return `https://github.com/${GITHUB_REPO}/tree/main/${relPath.replace(/\\/g, '/')}`;
+  return treeUrl(relPath);
 }
 
 /**
