@@ -1,6 +1,6 @@
 ---
-title: "root((Democratic Threats<br/>15 Apr 2026))"
-description: "root((Democratic Threats<br/>15 Apr 2026))"
+title: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear…"
+description: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices."
 date: 2026-04-15
 article_type: breaking
 slug: 2026-04-15-breaking-175
@@ -22,167 +22,15 @@ layout: article
 > - **Analysis tree:** [analysis/daily/2026-04-15/breaking-run175](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-15/breaking-run175)
 > - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run175/manifest.json)
 
-<h2 id="section-threat">Threat Landscape</h2>
+<h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
-### Threat Analysis
+Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run175/threat-assessment/threat-analysis.md" rel="noopener">View source: <code>threat-assessment/threat-analysis.md</code></a></p>
+| Reader need | What you'll get | Source artifact |
+|---|---|---|
+| [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-assessment.md` |
 
-<p align="center">
-  <a href="#"><img src="https://img.shields.io/badge/articleType-breaking-red?style=for-the-badge" alt="Article Type"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Run-175-blue?style=for-the-badge" alt="Run"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Threat_Level-ELEVATED-orange?style=for-the-badge" alt="Threat Level"/></a>
-</p>
-
----
-
-### 📋 Assessment Context
-
-| Field | Value |
-|-------|-------|
-| **Assessment ID** | `THR-2026-04-15-175` |
-| **Analysis Date** | `2026-04-15 13:22 UTC` |
-| **Method** | Democratic threat profiling per threat-modeling framework |
-| **Overall Threat Level** | ELEVATED |
-| **Confidence** | 🟡 Medium |
-
----
-
-### 🎯 Threat Landscape Overview
-
-```mermaid
-%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
-mindmap
-  root((Democratic Threats<br/>15 Apr 2026))
-    Trade Escalation
-      US retaliation risk
-      WTO dispute probability
-      Market disruption signals
-      Consumer price impact
-    Oversight Vacuum
-      33-day session gap
-      No committee oversight
-      Policy activation without scrutiny
-      EP API degradation
-    Coalition Instability
-      ECR internal split
-      Grand coalition deficit
-      3-group minimum threshold
-      Right-bloc realignment
-    Transparency Deficit
-      EP API 67% degraded
-      4 feeds timing out
-      2 feeds returning 404
-      Citizens data access blocked
-```
-
----
-
-### 🔴 Threat Profiles
-
-#### T-001: Democratic Oversight Vacuum During Policy Activation
-
-| Attribute | Assessment |
-|-----------|------------|
-| **Threat Type** | Institutional — structural gap |
-| **Severity** | HIGH (4/5) |
-| **Likelihood** | CONFIRMED — already occurring |
-| **Actor** | Structural (no intentional actor) |
-| **Target** | Parliamentary scrutiny function |
-| **Duration** | 33 days (Mar 26 → Apr 27) — 12 remaining |
-
-**Analysis**: The tariff countermeasures regulation (TA-10-2026-0096) activates during the longest non-August session gap in EP10. This means:
-- No oral questions to the Commission on implementation
-- No committee hearings on economic impact
-- No plenary debate on trade policy direction
-- No amendment opportunity if implementation deviates from legislative intent
-
-**Impact on democratic process**: While procedurally legal (the regulation was properly adopted March 26), the timing creates a de facto oversight vacuum. The Commission and DG Trade operate without parliamentary scrutiny during the most sensitive phase — initial tariff collection and potential retaliatory escalation.
-
-**Mitigation pathway**: Conference of Presidents could schedule an extraordinary INTA committee meeting (virtual) before April 27 return. Precedent exists from COVID-19 emergency sessions in 2020.
-
-#### T-002: Trade War Escalation Without Parliamentary Mandate
-
-| Attribute | Assessment |
-|-----------|------------|
-| **Threat Type** | External — geopolitical escalation |
-| **Severity** | CRITICAL (5/5) |
-| **Likelihood** | MEDIUM (3/5) — depends on US response |
-| **Actor** | US Trade Representative, EU Commission (DG Trade) |
-| **Target** | EU trade policy framework, WTO rules-based order |
-| **Duration** | Potentially multi-year |
-
-**Analysis**: The tariff activation creates an escalation chain:
-1. **Day 0 (today)**: EU tariffs effective on US steel, aluminum, agriculture (~€7.5B)
-2. **Day 1-7**: Expected US assessment and response formulation
-3. **Day 7-30**: Potential US retaliatory tariffs (historical pattern: 14-21 day lag)
-4. **Day 30-90**: WTO dispute filing(s), bilateral negotiation attempts
-5. **Day 90+**: Potential tit-for-tat escalation cycle
-
-**Democratic threat**: If the US retaliates before April 27, the Commission would need to respond without fresh parliamentary guidance. The existing mandate covers initial tariffs but not an escalation cycle.
-
-#### T-003: Coalition Fragility Under External Pressure
-
-| Attribute | Assessment |
-|-----------|------------|
-| **Threat Type** | Internal — political cohesion |
-| **Severity** | MEDIUM-HIGH (3.5/5) |
-| **Likelihood** | MEDIUM (3/5) |
-| **Actor** | ECR dissidents, PfE opportunists |
-| **Target** | Centrist governing majority |
-| **Duration** | Ongoing through EP10 term |
-
-**Analysis**: The 22% ECR defection rate on the March 26 tariff vote reveals a structural fault line:
-- **Atlanticist wing** (17 MEPs): Opposes measures targeting US, prefers transatlantic trade framework
-- **Industrial protection wing** (62 MEPs): Supports European industrial sovereignty
-- If PfE (84 seats) allies with ECR Atlanticists on future trade votes, creates a blocking minority of 101+ seats
-
-**Cascade scenario**: Trade policy disagreement → ECR internal discipline vote → potential group split → reconfiguration of parliamentary arithmetic → impact on all pending COD files requiring majority.
-
-#### T-004: Transparency Infrastructure Degradation
-
-| Attribute | Assessment |
-|-----------|------------|
-| **Threat Type** | Technical — data access failure |
-| **Severity** | MEDIUM (3/5) |
-| **Likelihood** | CONFIRMED — already occurring |
-| **Actor** | EP IT infrastructure (systemic) |
-| **Target** | Public access to EP data, democratic monitoring |
-| **Duration** | Unknown — first documented run 175 |
-
-**Analysis**: EP API degradation pattern:
-- **Functional** (4/12): adopted_texts_feed, meps_feed, adopted_texts (direct), procedures (direct)
-- **404 errors** (2/12): events_feed, procedures_feed — possible intentional decommissioning
-- **Timeout** (4/12): documents_feed, plenary_documents_feed, committee_documents_feed, questions_feed — overload or maintenance
-- **Server self-reports**: "unhealthy" status
-
-**Democratic impact**: During a period requiring maximum transparency (tariff activation, recess oversight gap), the EP's own data infrastructure fails to deliver real-time information. Civil society monitors, journalists, and researchers cannot access current parliamentary data.
-
----
-
-### 📊 Threat Interaction Matrix
-
-| | T-001 Oversight Gap | T-002 Trade War | T-003 Coalition | T-004 Transparency |
-|---|---|---|---|---|
-| **T-001** | — | AMPLIFIES: No oversight during escalation | ENABLES: Gap prevents whip coordination | COMPOUNDED: Less data during less oversight |
-| **T-002** | EXPLOITS: Escalates during vacuum | — | TRIGGERS: Forces position-taking | MASKED: Degraded data hides signals |
-| **T-003** | WEAKENED BY: No group meetings | STRESSED BY: Trade policy divergence | — | HIDDEN: Cannot detect defection patterns |
-| **T-004** | WORSENS: Oversight cannot use data | OBSCURES: Cannot track implementation | CONCEALS: Coalition shifts invisible | — |
-
-**Key insight**: All four threats interact synergistically. The oversight gap (T-001) creates space for trade escalation (T-002), which stresses coalition unity (T-003), while transparency degradation (T-004) prevents monitoring of all three.
-
----
-
-### 🎯 Threat Level Summary
-
-| Overall Level | **ELEVATED** |
-|---------------|-------------|
-| Highest individual threat | T-002 Trade War — CRITICAL severity, MEDIUM likelihood |
-| Systemic concern | Four-threat interaction amplification |
-| Monitoring priority | US Trade Representative response within 48h |
-| Recommended actions | INTA virtual session, EP IT infrastructure investigation |
-
-<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+<h2 id="section-actors-forces">Actors & Forces</h2>
 
 ### Political Classification
 
@@ -424,6 +272,302 @@ xychart-beta
 **Verdict: Analysis-Only PR** with 6 analysis files.
 
 **Conditions for upgrading to article**: (1) US announces counter-tariffs, (2) Conference of Presidents convenes emergency session, (3) ECR or PfE formally breaks with EPP on trade stance, or (4) EP API reveals unexpected procedure/event updates.
+
+<h2 id="section-risk">Risk Assessment</h2>
+
+<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run175/risk-scoring/risk-assessment.md" rel="noopener">View source: <code>risk-scoring/risk-assessment.md</code></a></p>
+
+<p align="center">
+  <a href="#"><img src="https://img.shields.io/badge/articleType-breaking-red?style=for-the-badge" alt="Article Type"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Run-175-blue?style=for-the-badge" alt="Run"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Risk_Level-HIGH-orange?style=for-the-badge" alt="Risk Level"/></a>
+</p>
+
+---
+
+### 📋 Assessment Context
+
+| Field | Value |
+|-------|-------|
+| **Assessment ID** | `RSK-2026-04-15-175` |
+| **Analysis Date** | `2026-04-15 13:20 UTC` |
+| **Method** | 5×5 likelihood–impact risk matrix |
+| **Overall Risk** | 16.3/25 — HIGH |
+| **Prior Assessment** | Run 173: 15.8/25 (escalated +0.5 from T-0) |
+| **Confidence** | 🟡 Medium — limited by EP API degradation |
+
+---
+
+### 🔴 5×5 Risk Matrix
+
+```mermaid
+%%{init: {
+  "theme": "dark",
+  "themeVariables": {
+    "quadrant1Fill": "#1565C0",
+    "quadrant2Fill": "#2E7D32",
+    "quadrant3Fill": "#FF9800",
+    "quadrant4Fill": "#D32F2F",
+    "quadrantTitleFill": "#ffffff",
+    "quadrantPointFill": "#ffffff",
+    "quadrantPointTextFill": "#ffffff",
+    "quadrantXAxisTextFill": "#ffffff",
+    "quadrantYAxisTextFill": "#ffffff"
+  },
+  "quadrantChart": {
+    "chartWidth": 700,
+    "chartHeight": 700,
+    "pointLabelFontSize": 14,
+    "titleFontSize": 22,
+    "quadrantLabelFontSize": 18,
+    "xAxisLabelFontSize": 16,
+    "yAxisLabelFontSize": 16
+  }
+}}%%
+quadrantChart
+    title Political Risk Matrix — 15 April 2026
+    x-axis "Low Likelihood" --> "High Likelihood"
+    y-axis "Low Impact" --> "High Impact"
+    quadrant-1 Critical risks
+    quadrant-2 Strategic risks
+    quadrant-3 Operational risks
+    quadrant-4 Monitor
+    Trade Escalation: [0.65, 0.85]
+    Coalition Fracture: [0.45, 0.75]
+    Legislative Paralysis: [0.35, 0.60]
+    API Transparency Gap: [0.70, 0.40]
+    Banking Union Delay: [0.30, 0.55]
+```
+
+#### Risk Register
+
+| Risk ID | Risk | Likelihood (1-5) | Impact (1-5) | Score | Trend | Evidence |
+|---------|------|-------------------|--------------|-------|-------|----------|
+| R-001 | **Trade war escalation** | 4 | 5 | **20** | ⬆️ +2 | TA-10-2026-0096 activated, no US response at T-0+13h — silence is often precursor to retaliation |
+| R-002 | **EPP–ECR coalition fracture** | 3 | 5 | **15** | ➡️ stable | ECR cohesion 0.87 (vs EPP 0.82) — internal discipline holds but policy divergence on trade widening |
+| R-003 | **Legislative paralysis** | 3 | 4 | **12** | ⬆️ +1 | 33-day gap, 51 pending procedures, April 27 return requires immediate agenda prioritization |
+| R-004 | **Democratic transparency deficit** | 4 | 3 | **12** | ⬆️ new | 4/12 feeds operational, 4 timeouts, 2 404s — citizens cannot monitor EP during critical period |
+| R-005 | **Banking Union trilogue failure** | 2 | 4 | **8** | ➡️ stable | SRMR3/BRRD3/DGSD2 package on track but Council position unknown |
+| R-006 | **Grand coalition viability** | 3 | 4 | **12** | ➡️ stable | EPP+S&D = 320 seats, 41 short of majority — minimum 3-group coalition required |
+
+**Composite risk**: (20 + 15 + 12 + 12 + 8 + 12) / 6 = **13.2/25** weighted average; **16.3/25** peak-weighted (R-001 dominance)
+
+---
+
+### 🎯 Risk Trajectories
+
+#### R-001: Trade War Escalation (Score: 20/25 — CRITICAL)
+
+**Current state**: Tariff countermeasures (TA-10-2026-0096) activated at 00:00 UTC April 15. As of 13:19 UTC, no official US response. EU tariff schedule covers steel, aluminum, and agricultural products worth an estimated €7.5B annually.
+
+**Escalation indicators** (next 48 hours):
+- 🔴 **High probability**: US Trade Representative statement expected within 24-48h
+- 🟡 **Medium probability**: Retaliatory tariff announcement within 7 days (historical pattern)
+- 🟡 **Medium probability**: WTO dispute filing within 30 days
+- 🟢 **Low probability**: Emergency EP plenary session (no precedent during recess)
+
+**Mitigation**: Conference of Presidents April 23 agenda should include trade policy debate. INTA committee monitoring brief recommended.
+
+#### R-002: Coalition Fracture (Score: 15/25 — HIGH)
+
+**Current state**: ECR group (79 seats) caught between Atlanticist loyalty and European industrial protection. March 26 vote split: ECR voted 62/17 in favor of tariff regulation — 17 dissidents is significant (22% defection).
+
+**Structural vulnerability**: Fragmentation index 6.59 means any 2-group alliance shift changes majority mathematics. If ECR aligns with PfE (84) on trade protectionism, creates 163-seat right-populist bloc rivaling S&D+Greens+Left (234).
+
+**Leading indicators**:
+- ECR group chair statements on tariff activation
+- PfE position papers on industrial policy
+- EPP whip coordination on April 27 return agenda
+
+#### R-003: Legislative Paralysis (Score: 12/25 — MEDIUM-HIGH)
+
+**Current state**: 51 procedures in 2026 pipeline, 14 COD (codecision) requiring full EP engagement. 33-day gap means no committee work, no rapporteur meetings, no trialogue sessions since March 26. Estimated 47 trilogue sessions needed in remaining 2026 calendar.
+
+**Critical path**: April 27 return → committee reconstitution → rapporteur briefings → first trialogue availability May 5-9. Net legislative working days remaining in 2026: ~105 (accounting for recesses).
+
+---
+
+### 📉 Risk Heatmap Over Time
+
+| Risk | Run 173 (01:20) | Run 175 (13:19) | Delta | Driver |
+|------|-----------------|-----------------|-------|--------|
+| Trade escalation | 18 | **20** | +2 | T-0 activation, no US response |
+| Coalition fracture | 15 | 15 | 0 | Stable — no new signals |
+| Legislative paralysis | 11 | **12** | +1 | One day closer to April 27 return |
+| Transparency deficit | — | **12** | new | First documented in run 175 |
+| Banking Union delay | 8 | 8 | 0 | No new information |
+| Grand coalition | 12 | 12 | 0 | Arithmetic unchanged |
+
+---
+
+### 🎯 Monitoring Recommendations
+
+1. **Immediate (24h)**: Watch for US Trade Representative response to EU tariff activation
+2. **Short-term (48-72h)**: Track ECR group internal communications on trade stance
+3. **Medium-term (1 week)**: Monitor Conference of Presidents agenda setting for April 27
+4. **Ongoing**: Document EP API degradation pattern — potential systemic transparency issue
+
+<h2 id="section-threat">Threat Landscape</h2>
+
+### Threat Analysis
+
+<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run175/threat-assessment/threat-analysis.md" rel="noopener">View source: <code>threat-assessment/threat-analysis.md</code></a></p>
+
+<p align="center">
+  <a href="#"><img src="https://img.shields.io/badge/articleType-breaking-red?style=for-the-badge" alt="Article Type"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Run-175-blue?style=for-the-badge" alt="Run"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Threat_Level-ELEVATED-orange?style=for-the-badge" alt="Threat Level"/></a>
+</p>
+
+---
+
+### 📋 Assessment Context
+
+| Field | Value |
+|-------|-------|
+| **Assessment ID** | `THR-2026-04-15-175` |
+| **Analysis Date** | `2026-04-15 13:22 UTC` |
+| **Method** | Democratic threat profiling per threat-modeling framework |
+| **Overall Threat Level** | ELEVATED |
+| **Confidence** | 🟡 Medium |
+
+---
+
+### 🎯 Threat Landscape Overview
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
+mindmap
+  root((Democratic Threats<br/>15 Apr 2026))
+    Trade Escalation
+      US retaliation risk
+      WTO dispute probability
+      Market disruption signals
+      Consumer price impact
+    Oversight Vacuum
+      33-day session gap
+      No committee oversight
+      Policy activation without scrutiny
+      EP API degradation
+    Coalition Instability
+      ECR internal split
+      Grand coalition deficit
+      3-group minimum threshold
+      Right-bloc realignment
+    Transparency Deficit
+      EP API 67% degraded
+      4 feeds timing out
+      2 feeds returning 404
+      Citizens data access blocked
+```
+
+---
+
+### 🔴 Threat Profiles
+
+#### T-001: Democratic Oversight Vacuum During Policy Activation
+
+| Attribute | Assessment |
+|-----------|------------|
+| **Threat Type** | Institutional — structural gap |
+| **Severity** | HIGH (4/5) |
+| **Likelihood** | CONFIRMED — already occurring |
+| **Actor** | Structural (no intentional actor) |
+| **Target** | Parliamentary scrutiny function |
+| **Duration** | 33 days (Mar 26 → Apr 27) — 12 remaining |
+
+**Analysis**: The tariff countermeasures regulation (TA-10-2026-0096) activates during the longest non-August session gap in EP10. This means:
+- No oral questions to the Commission on implementation
+- No committee hearings on economic impact
+- No plenary debate on trade policy direction
+- No amendment opportunity if implementation deviates from legislative intent
+
+**Impact on democratic process**: While procedurally legal (the regulation was properly adopted March 26), the timing creates a de facto oversight vacuum. The Commission and DG Trade operate without parliamentary scrutiny during the most sensitive phase — initial tariff collection and potential retaliatory escalation.
+
+**Mitigation pathway**: Conference of Presidents could schedule an extraordinary INTA committee meeting (virtual) before April 27 return. Precedent exists from COVID-19 emergency sessions in 2020.
+
+#### T-002: Trade War Escalation Without Parliamentary Mandate
+
+| Attribute | Assessment |
+|-----------|------------|
+| **Threat Type** | External — geopolitical escalation |
+| **Severity** | CRITICAL (5/5) |
+| **Likelihood** | MEDIUM (3/5) — depends on US response |
+| **Actor** | US Trade Representative, EU Commission (DG Trade) |
+| **Target** | EU trade policy framework, WTO rules-based order |
+| **Duration** | Potentially multi-year |
+
+**Analysis**: The tariff activation creates an escalation chain:
+1. **Day 0 (today)**: EU tariffs effective on US steel, aluminum, agriculture (~€7.5B)
+2. **Day 1-7**: Expected US assessment and response formulation
+3. **Day 7-30**: Potential US retaliatory tariffs (historical pattern: 14-21 day lag)
+4. **Day 30-90**: WTO dispute filing(s), bilateral negotiation attempts
+5. **Day 90+**: Potential tit-for-tat escalation cycle
+
+**Democratic threat**: If the US retaliates before April 27, the Commission would need to respond without fresh parliamentary guidance. The existing mandate covers initial tariffs but not an escalation cycle.
+
+#### T-003: Coalition Fragility Under External Pressure
+
+| Attribute | Assessment |
+|-----------|------------|
+| **Threat Type** | Internal — political cohesion |
+| **Severity** | MEDIUM-HIGH (3.5/5) |
+| **Likelihood** | MEDIUM (3/5) |
+| **Actor** | ECR dissidents, PfE opportunists |
+| **Target** | Centrist governing majority |
+| **Duration** | Ongoing through EP10 term |
+
+**Analysis**: The 22% ECR defection rate on the March 26 tariff vote reveals a structural fault line:
+- **Atlanticist wing** (17 MEPs): Opposes measures targeting US, prefers transatlantic trade framework
+- **Industrial protection wing** (62 MEPs): Supports European industrial sovereignty
+- If PfE (84 seats) allies with ECR Atlanticists on future trade votes, creates a blocking minority of 101+ seats
+
+**Cascade scenario**: Trade policy disagreement → ECR internal discipline vote → potential group split → reconfiguration of parliamentary arithmetic → impact on all pending COD files requiring majority.
+
+#### T-004: Transparency Infrastructure Degradation
+
+| Attribute | Assessment |
+|-----------|------------|
+| **Threat Type** | Technical — data access failure |
+| **Severity** | MEDIUM (3/5) |
+| **Likelihood** | CONFIRMED — already occurring |
+| **Actor** | EP IT infrastructure (systemic) |
+| **Target** | Public access to EP data, democratic monitoring |
+| **Duration** | Unknown — first documented run 175 |
+
+**Analysis**: EP API degradation pattern:
+- **Functional** (4/12): adopted_texts_feed, meps_feed, adopted_texts (direct), procedures (direct)
+- **404 errors** (2/12): events_feed, procedures_feed — possible intentional decommissioning
+- **Timeout** (4/12): documents_feed, plenary_documents_feed, committee_documents_feed, questions_feed — overload or maintenance
+- **Server self-reports**: "unhealthy" status
+
+**Democratic impact**: During a period requiring maximum transparency (tariff activation, recess oversight gap), the EP's own data infrastructure fails to deliver real-time information. Civil society monitors, journalists, and researchers cannot access current parliamentary data.
+
+---
+
+### 📊 Threat Interaction Matrix
+
+| | T-001 Oversight Gap | T-002 Trade War | T-003 Coalition | T-004 Transparency |
+|---|---|---|---|---|
+| **T-001** | — | AMPLIFIES: No oversight during escalation | ENABLES: Gap prevents whip coordination | COMPOUNDED: Less data during less oversight |
+| **T-002** | EXPLOITS: Escalates during vacuum | — | TRIGGERS: Forces position-taking | MASKED: Degraded data hides signals |
+| **T-003** | WEAKENED BY: No group meetings | STRESSED BY: Trade policy divergence | — | HIDDEN: Cannot detect defection patterns |
+| **T-004** | WORSENS: Oversight cannot use data | OBSCURES: Cannot track implementation | CONCEALS: Coalition shifts invisible | — |
+
+**Key insight**: All four threats interact synergistically. The oversight gap (T-001) creates space for trade escalation (T-002), which stresses coalition unity (T-003), while transparency degradation (T-004) prevents monitoring of all three.
+
+---
+
+### 🎯 Threat Level Summary
+
+| Overall Level | **ELEVATED** |
+|---------------|-------------|
+| Highest individual threat | T-002 Trade War — CRITICAL severity, MEDIUM likelihood |
+| Systemic concern | Four-threat interaction amplification |
+| Monitoring priority | US Trade Representative response within 48h |
+| Recommended actions | INTA virtual session, EP IT infrastructure investigation |
+
+<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Swot Analysis
 
@@ -808,140 +952,6 @@ quadrantChart
 
 **Next critical windows**: April 16-17 (US trade response), April 27-30 (first post-recess plenary).
 
-### Risk Assessment
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run175/risk-scoring/risk-assessment.md" rel="noopener">View source: <code>risk-scoring/risk-assessment.md</code></a></p>
-
-<p align="center">
-  <a href="#"><img src="https://img.shields.io/badge/articleType-breaking-red?style=for-the-badge" alt="Article Type"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Run-175-blue?style=for-the-badge" alt="Run"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Risk_Level-HIGH-orange?style=for-the-badge" alt="Risk Level"/></a>
-</p>
-
----
-
-### 📋 Assessment Context
-
-| Field | Value |
-|-------|-------|
-| **Assessment ID** | `RSK-2026-04-15-175` |
-| **Analysis Date** | `2026-04-15 13:20 UTC` |
-| **Method** | 5×5 likelihood–impact risk matrix |
-| **Overall Risk** | 16.3/25 — HIGH |
-| **Prior Assessment** | Run 173: 15.8/25 (escalated +0.5 from T-0) |
-| **Confidence** | 🟡 Medium — limited by EP API degradation |
-
----
-
-### 🔴 5×5 Risk Matrix
-
-```mermaid
-%%{init: {
-  "theme": "dark",
-  "themeVariables": {
-    "quadrant1Fill": "#1565C0",
-    "quadrant2Fill": "#2E7D32",
-    "quadrant3Fill": "#FF9800",
-    "quadrant4Fill": "#D32F2F",
-    "quadrantTitleFill": "#ffffff",
-    "quadrantPointFill": "#ffffff",
-    "quadrantPointTextFill": "#ffffff",
-    "quadrantXAxisTextFill": "#ffffff",
-    "quadrantYAxisTextFill": "#ffffff"
-  },
-  "quadrantChart": {
-    "chartWidth": 700,
-    "chartHeight": 700,
-    "pointLabelFontSize": 14,
-    "titleFontSize": 22,
-    "quadrantLabelFontSize": 18,
-    "xAxisLabelFontSize": 16,
-    "yAxisLabelFontSize": 16
-  }
-}}%%
-quadrantChart
-    title Political Risk Matrix — 15 April 2026
-    x-axis "Low Likelihood" --> "High Likelihood"
-    y-axis "Low Impact" --> "High Impact"
-    quadrant-1 Critical risks
-    quadrant-2 Strategic risks
-    quadrant-3 Operational risks
-    quadrant-4 Monitor
-    Trade Escalation: [0.65, 0.85]
-    Coalition Fracture: [0.45, 0.75]
-    Legislative Paralysis: [0.35, 0.60]
-    API Transparency Gap: [0.70, 0.40]
-    Banking Union Delay: [0.30, 0.55]
-```
-
-#### Risk Register
-
-| Risk ID | Risk | Likelihood (1-5) | Impact (1-5) | Score | Trend | Evidence |
-|---------|------|-------------------|--------------|-------|-------|----------|
-| R-001 | **Trade war escalation** | 4 | 5 | **20** | ⬆️ +2 | TA-10-2026-0096 activated, no US response at T-0+13h — silence is often precursor to retaliation |
-| R-002 | **EPP–ECR coalition fracture** | 3 | 5 | **15** | ➡️ stable | ECR cohesion 0.87 (vs EPP 0.82) — internal discipline holds but policy divergence on trade widening |
-| R-003 | **Legislative paralysis** | 3 | 4 | **12** | ⬆️ +1 | 33-day gap, 51 pending procedures, April 27 return requires immediate agenda prioritization |
-| R-004 | **Democratic transparency deficit** | 4 | 3 | **12** | ⬆️ new | 4/12 feeds operational, 4 timeouts, 2 404s — citizens cannot monitor EP during critical period |
-| R-005 | **Banking Union trilogue failure** | 2 | 4 | **8** | ➡️ stable | SRMR3/BRRD3/DGSD2 package on track but Council position unknown |
-| R-006 | **Grand coalition viability** | 3 | 4 | **12** | ➡️ stable | EPP+S&D = 320 seats, 41 short of majority — minimum 3-group coalition required |
-
-**Composite risk**: (20 + 15 + 12 + 12 + 8 + 12) / 6 = **13.2/25** weighted average; **16.3/25** peak-weighted (R-001 dominance)
-
----
-
-### 🎯 Risk Trajectories
-
-#### R-001: Trade War Escalation (Score: 20/25 — CRITICAL)
-
-**Current state**: Tariff countermeasures (TA-10-2026-0096) activated at 00:00 UTC April 15. As of 13:19 UTC, no official US response. EU tariff schedule covers steel, aluminum, and agricultural products worth an estimated €7.5B annually.
-
-**Escalation indicators** (next 48 hours):
-- 🔴 **High probability**: US Trade Representative statement expected within 24-48h
-- 🟡 **Medium probability**: Retaliatory tariff announcement within 7 days (historical pattern)
-- 🟡 **Medium probability**: WTO dispute filing within 30 days
-- 🟢 **Low probability**: Emergency EP plenary session (no precedent during recess)
-
-**Mitigation**: Conference of Presidents April 23 agenda should include trade policy debate. INTA committee monitoring brief recommended.
-
-#### R-002: Coalition Fracture (Score: 15/25 — HIGH)
-
-**Current state**: ECR group (79 seats) caught between Atlanticist loyalty and European industrial protection. March 26 vote split: ECR voted 62/17 in favor of tariff regulation — 17 dissidents is significant (22% defection).
-
-**Structural vulnerability**: Fragmentation index 6.59 means any 2-group alliance shift changes majority mathematics. If ECR aligns with PfE (84) on trade protectionism, creates 163-seat right-populist bloc rivaling S&D+Greens+Left (234).
-
-**Leading indicators**:
-- ECR group chair statements on tariff activation
-- PfE position papers on industrial policy
-- EPP whip coordination on April 27 return agenda
-
-#### R-003: Legislative Paralysis (Score: 12/25 — MEDIUM-HIGH)
-
-**Current state**: 51 procedures in 2026 pipeline, 14 COD (codecision) requiring full EP engagement. 33-day gap means no committee work, no rapporteur meetings, no trialogue sessions since March 26. Estimated 47 trilogue sessions needed in remaining 2026 calendar.
-
-**Critical path**: April 27 return → committee reconstitution → rapporteur briefings → first trialogue availability May 5-9. Net legislative working days remaining in 2026: ~105 (accounting for recesses).
-
----
-
-### 📉 Risk Heatmap Over Time
-
-| Risk | Run 173 (01:20) | Run 175 (13:19) | Delta | Driver |
-|------|-----------------|-----------------|-------|--------|
-| Trade escalation | 18 | **20** | +2 | T-0 activation, no US response |
-| Coalition fracture | 15 | 15 | 0 | Stable — no new signals |
-| Legislative paralysis | 11 | **12** | +1 | One day closer to April 27 return |
-| Transparency deficit | — | **12** | new | First documented in run 175 |
-| Banking Union delay | 8 | 8 | 0 | No new information |
-| Grand coalition | 12 | 12 | 0 | Arithmetic unchanged |
-
----
-
-### 🎯 Monitoring Recommendations
-
-1. **Immediate (24h)**: Watch for US Trade Representative response to EU tariff activation
-2. **Short-term (48-72h)**: Track ECR group internal communications on trade stance
-3. **Medium-term (1 week)**: Monitor Conference of Presidents agenda setting for April 27
-4. **Ongoing**: Document EP API degradation pattern — potential systemic transparency issue
-
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 
 This article is produced under the [Hack23 AB](https://hack23.com) intelligence tradecraft library. Every methodology and artifact template applied to this run is linked below.
@@ -1027,10 +1037,10 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-actors-forces | [political-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run175/classification/political-classification.md) | `classification/political-classification.md` |
+| section-actors-forces | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run175/classification/significance-scoring.md) | `classification/significance-scoring.md` |
+| section-risk | [risk-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run175/risk-scoring/risk-assessment.md) | `risk-scoring/risk-assessment.md` |
 | section-threat | [threat-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run175/threat-assessment/threat-analysis.md) | `threat-assessment/threat-analysis.md` |
-| section-supplementary-intelligence | [political-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run175/classification/political-classification.md) | `classification/political-classification.md` |
-| section-supplementary-intelligence | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run175/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-supplementary-intelligence | [swot-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run175/existing/swot-analysis.md) | `existing/swot-analysis.md` |
 | section-supplementary-intelligence | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run175/existing/synthesis-summary.md) | `existing/synthesis-summary.md` |
-| section-supplementary-intelligence | [risk-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run175/risk-scoring/risk-assessment.md) | `risk-scoring/risk-assessment.md` |
 

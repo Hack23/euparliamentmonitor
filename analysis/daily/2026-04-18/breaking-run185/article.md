@@ -221,6 +221,41 @@ ELAPSED_MINUTES to be updated at PR creation time based on actual workflow runti
 
 *Run 185 — April 18, 2026 — Easter Recess Day 5 — Part of 7-run recess monitoring series (Runs 179-185) — Analysis-only PR — Next run: Run 186 scheduled April 21 (first weekday post-Easter, targeting Tier 2 recovery probe)*
 
+<h2 id="section-actors-forces">Actors & Forces</h2>
+
+### Significance Scoring
+
+<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run185/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
+
+### Newsworthiness Gate: FAIL
+
+**Decision**: No article generation. Analysis-only PR.
+
+**Criteria assessment**:
+| Criterion | Required | Found | Result |
+|-----------|---------|-------|--------|
+| Adopted texts published TODAY | ≥1 | 0 | ❌ |
+| Significant parliamentary events TODAY | ≥1 | 0 | ❌ |
+| Legislative procedures updated TODAY | ≥1 | 0 | ❌ |
+| Notable MEP changes TODAY | ≥1 | 0 | ❌ |
+| Parliament in session | Yes | No (Easter recess) | ❌ |
+
+**Context**: Parliament in Easter recess April 14–26, 2026. Saturday April 18 is Holy Saturday (Easter weekend). No parliamentary business is conducted. This is the expected and correct outcome.
+
+### Significance Inventory — Background Intelligence
+
+| Development | Significance | Justification |
+|------------|-------------|---------------|
+| API Tier 1 plateau confirmed (Run 185) | LOW (context only) | Stability confirmation; not newsworthy itself |
+| TA-10-2026-0099-0104 "staged" error code confirmed | LOW (monitoring) | Technical confirmation; not a breaking development |
+| Documents feed parameter error documented | LOW (technical) | API documentation correction |
+| MEP composition data (738 MEPs) | LOW (background) | No changes since Run 184 |
+| Risk vector 6 (coalition fragmentation) added | MEDIUM (analytical) | New risk dimension but not a breaking event |
+| Commission housing deadline: 8 days away | MEDIUM (monitoring) | Approaching deadline; not yet triggered |
+| April 28-30 plenary: 10 days away | MEDIUM (upcoming) | Significant forward coverage opportunity |
+
+**Analysis-only justification**: Per `ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted. The confirmation data, cross-run diff, and forward monitoring framework constitute genuine intelligence value worth preserving in a PR, even in the absence of breaking news.
+
 <h2 id="section-coalitions-voting">Coalitions & Voting</h2>
 
 ### Coalition Dynamics
@@ -973,39 +1008,6 @@ The most recent high-numbered 2026 texts (0090-0104) are present in this list, c
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
-### Significance Scoring
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run185/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
-
-### Newsworthiness Gate: FAIL
-
-**Decision**: No article generation. Analysis-only PR.
-
-**Criteria assessment**:
-| Criterion | Required | Found | Result |
-|-----------|---------|-------|--------|
-| Adopted texts published TODAY | ≥1 | 0 | ❌ |
-| Significant parliamentary events TODAY | ≥1 | 0 | ❌ |
-| Legislative procedures updated TODAY | ≥1 | 0 | ❌ |
-| Notable MEP changes TODAY | ≥1 | 0 | ❌ |
-| Parliament in session | Yes | No (Easter recess) | ❌ |
-
-**Context**: Parliament in Easter recess April 14–26, 2026. Saturday April 18 is Holy Saturday (Easter weekend). No parliamentary business is conducted. This is the expected and correct outcome.
-
-### Significance Inventory — Background Intelligence
-
-| Development | Significance | Justification |
-|------------|-------------|---------------|
-| API Tier 1 plateau confirmed (Run 185) | LOW (context only) | Stability confirmation; not newsworthy itself |
-| TA-10-2026-0099-0104 "staged" error code confirmed | LOW (monitoring) | Technical confirmation; not a breaking development |
-| Documents feed parameter error documented | LOW (technical) | API documentation correction |
-| MEP composition data (738 MEPs) | LOW (background) | No changes since Run 184 |
-| Risk vector 6 (coalition fragmentation) added | MEDIUM (analytical) | New risk dimension but not a breaking event |
-| Commission housing deadline: 8 days away | MEDIUM (monitoring) | Approaching deadline; not yet triggered |
-| April 28-30 plenary: 10 days away | MEDIUM (upcoming) | Significant forward coverage opportunity |
-
-**Analysis-only justification**: Per `ai-driven-analysis-guide.md` Rule 5, no workflow run should be wasted. The confirmation data, cross-run diff, and forward monitoring framework constitute genuine intelligence value worth preserving in a PR, even in the absence of breaking news.
-
 ### Analysis Index
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run185/intelligence/analysis-index.md" rel="noopener">View source: <code>intelligence/analysis-index.md</code></a></p>
@@ -1377,6 +1379,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 | Section | Artifact | Path |
 |---|---|---|
 | section-synthesis | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run185/intelligence/synthesis-summary.md) | `intelligence/synthesis-summary.md` |
+| section-actors-forces | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run185/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-coalitions-voting | [coalition-dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run185/intelligence/coalition-dynamics.md) | `intelligence/coalition-dynamics.md` |
 | section-stakeholder-map | [stakeholder-map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run185/intelligence/stakeholder-map.md) | `intelligence/stakeholder-map.md` |
 | section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run185/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
@@ -1387,7 +1390,6 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-scenarios | [wildcards-blackswans](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run185/intelligence/wildcards-blackswans.md) | `intelligence/wildcards-blackswans.md` |
 | section-continuity | [cross-run-diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run185/intelligence/cross-run-diff.md) | `intelligence/cross-run-diff.md` |
 | section-documents | [document-analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run185/documents/document-analysis-index.md) | `documents/document-analysis-index.md` |
-| section-supplementary-intelligence | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run185/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-supplementary-intelligence | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run185/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-supplementary-intelligence | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run185/risk/risk-matrix.md) | `risk/risk-matrix.md` |
 | section-supplementary-intelligence | [political-threat-landscape](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run185/threats/political-threat-landscape.md) | `threats/political-threat-landscape.md` |

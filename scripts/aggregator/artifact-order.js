@@ -24,6 +24,9 @@ export const ARTIFACT_SECTIONS = [
         title: 'Significance',
         artifacts: [
             'classification/significance-classification.md',
+            'classification/sensitivity-assessment.md',
+            'classification/priority-matrix.md',
+            'classification/issue-classification.md',
             'intelligence/significance-scoring.md',
         ],
     },
@@ -34,6 +37,11 @@ export const ARTIFACT_SECTIONS = [
             'classification/actor-mapping.md',
             'classification/forces-analysis.md',
             'classification/impact-matrix.md',
+            'classification/stakeholder-classification.md',
+            // Catch-all for any other classification/*.md not consumed above
+            // (keeps non-canonical artifact names out of the Supplementary bucket
+            // and inside their journalist-correct section).
+            'classification/',
         ],
     },
     {
@@ -68,6 +76,13 @@ export const ARTIFACT_SECTIONS = [
             'risk-scoring/quantitative-swot.md',
             'risk-scoring/political-capital-risk.md',
             'risk-scoring/legislative-velocity-risk.md',
+            'risk-scoring/political-risk.md',
+            'risk-scoring/legislative-risk.md',
+            'risk-scoring/economic-risk.md',
+            'risk-scoring/institutional-risk.md',
+            // Catch-all for any other risk-scoring/*.md (e.g. naming variants) so
+            // they render under Risk Assessment instead of Supplementary.
+            'risk-scoring/',
         ],
     },
     {
@@ -92,6 +107,8 @@ export const ARTIFACT_SECTIONS = [
             'existing/cross-session-intelligence.md',
             'intelligence/cross-session-intelligence.md',
             'existing/session-baseline.md',
+            'intelligence/session-baseline.md',
+            'existing/pipeline-health.md',
         ],
     },
     {
@@ -106,6 +123,7 @@ export const ARTIFACT_SECTIONS = [
             'documents/document-analysis-index.md',
             'documents/',
             'existing/per-file-political-intelligence.md',
+            'existing/committee-productivity.md',
         ],
     },
     {

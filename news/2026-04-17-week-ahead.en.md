@@ -225,7 +225,7 @@ ECR nationalist defection on STEP-II causes vote failure; emergency trade debate
 
 *Analysis generated: 2026-04-17 | Run ID: 14 | Degraded Mode: true (Easter recess — all EP API feeds unavailable) | Confidence: MEDIUM*
 
-<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+<h2 id="section-actors-forces">Actors & Forces</h2>
 
 ### Significance Scoring
 
@@ -330,5 +330,5 @@ Every artifact below was read by the aggregator and contributed to this article.
 | Section | Artifact | Path |
 |---|---|---|
 | section-synthesis | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/week-ahead-run14/intelligence/synthesis-summary.md) | `intelligence/synthesis-summary.md` |
-| section-supplementary-intelligence | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/week-ahead-run14/classification/significance-scoring.md) | `classification/significance-scoring.md` |
+| section-actors-forces | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/week-ahead-run14/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 

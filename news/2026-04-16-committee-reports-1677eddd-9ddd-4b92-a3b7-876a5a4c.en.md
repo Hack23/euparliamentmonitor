@@ -29,6 +29,72 @@ Use this guide to read the article as a political-intelligence product rather th
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `existing/stakeholder-impact.md` |
+| [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-assessment.md` |
+
+<h2 id="section-actors-forces">Actors & Forces</h2>
+
+### Political Classification
+
+<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run50/classification/political-classification.md" rel="noopener">View source: <code>classification/political-classification.md</code></a></p>
+
+### Classification Matrix
+
+| Document | Domain | Sensitivity | Urgency | Impact |
+|----------|--------|-------------|---------|--------|
+| EU Talent Pool | Migration/Employment | MEDIUM | HIGH | HIGH |
+| Copyright & Gen AI | Digital/IP | MEDIUM | MEDIUM | HIGH |
+| Housing Crisis | Social Policy | LOW | HIGH | HIGH |
+| Emission Credits | Environment/Transport | MEDIUM | HIGH | MEDIUM |
+| EU-Mercosur Safeguard | Trade | HIGH | HIGH | HIGH |
+| SRMR3 Banking | Economic/Financial | HIGH | CRITICAL | HIGH |
+| Anti-Corruption | Justice/Rule of Law | MEDIUM | HIGH | HIGH |
+| US Tariff Countermeasures | Trade/External | HIGH | CRITICAL | HIGH |
+
+### Domain Distribution
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
+pie title Committee Domain Distribution Q1 2026
+    "Economic/Financial" : 25
+    "Trade/External" : 20
+    "Social/Employment" : 18
+    "Environment/Climate" : 15
+    "Digital/Technology" : 12
+    "Justice/Rule of Law" : 10
+```
+
+### Political Sensitivity Assessment
+
+- **Most politically sensitive**: US tariff countermeasures — divided Parliament, ECR defection pattern
+- **Most cross-cutting**: EU Talent Pool — bridges migration and employment policy silos
+- **Highest lobbying intensity**: Copyright & AI — tech vs creative industries
+- **Strongest subsidiarity resistance**: Housing Crisis — national competence arguments from ECR, PfE
+
+### Significance Scoring
+
+<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run50/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
+
+### Executive Summary
+
+| Item | Score | Committee | Rationale |
+|------|-------|-----------|-----------|
+| EU Talent Pool (TA-10-2026-0058) | 8/10 | EMPL/LIBE | Cross-committee flagship, immigration reform meets skills shortage |
+| Copyright & Gen AI (TA-10-2026-0066) | 8/10 | JURI | Tech policy/creative industries battleground, AI Act intersection |
+| Housing Crisis Resolution (TA-10-2026-0064) | 7/10 | REGI/EMPL/ECON | Cross-committee, politically charged, subsidiarity test |
+| Heavy-Duty Vehicle Emissions (TA-10-2026-0084) | 7/10 | ENVI/TRAN | Green Deal implementation, 2025-2029 framework |
+| EU-Mercosur Safeguard (TA-10-2026-0030) | 7/10 | INTA/AGRI | Trade politics, Mercosur deal controversy |
+| ECB Vice-President (TA-10-2026-0060) | 6/10 | ECON | Institutional appointment, monetary policy continuity |
+| European Semester Employment (TA-10-2026-0076) | 6/10 | EMPL | Annual coordination, social priorities 2026 |
+| EU Enlargement Strategy (TA-10-2026-0077) | 7/10 | AFET | Geopolitical significance, Ukraine/Western Balkans |
+| Global Gateway (TA-10-2026-0104) | 6/10 | AFET/DEVE | Development strategy, China competition |
+
+### Scoring Methodology
+
+Items scored on: Political Impact (0-3), Legislative Complexity (0-2), Coalition Dynamics (0-2), Timeliness (0-3).
+Minimum publication threshold: 3 items scoring ≥7/10 → MET (4 items at 7+).
+
+### Key Finding
+March 2026 sessions produced unprecedented cross-committee legislation volume. The EU Talent Pool and Copyright/AI directives represent the most significant committee outputs, demonstrating EP10's "flexible majority" model in action across traditional committee boundaries.
 
 <h2 id="section-stakeholder-map">Stakeholder Map</h2>
 
@@ -84,6 +150,42 @@ Use this guide to read the article as a political-intelligence product rather th
 
 #### National Governments
 - **Impact**: Mixed (HIGH). Member states with acute crises (NL, DE, IE) welcome; others resist EU intervention
+
+<h2 id="section-risk">Risk Assessment</h2>
+
+<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run50/risk-scoring/risk-assessment.md" rel="noopener">View source: <code>risk-scoring/risk-assessment.md</code></a></p>
+
+### Risk Matrix (Likelihood × Impact, 5×5)
+
+| Risk | Likelihood | Impact | Score | Trend |
+|------|-----------|--------|-------|-------|
+| Post-recess pipeline overload | 4 | 3 | 12/25 | ↑ |
+| Tariff crisis diverts committee agenda | 3 | 4 | 12/25 | ↑ |
+| Coalition fragmentation on COD files | 3 | 3 | 9/25 | → |
+| Council delays on March 26 adoptions | 3 | 3 | 9/25 | → |
+| Committee assignment disputes | 2 | 3 | 6/25 | ↗ |
+| Rapporteur appointment delays | 2 | 2 | 4/25 | → |
+
+### Composite Risk Score: 11.2/25 (MODERATE)
+
+#### Key Risk Drivers
+1. **Pipeline pressure**: 50+ new 2026 procedures, 13 COD, largest post-recess backlog in EP10
+2. **Tariff uncertainty**: US response to TA-10-2026-0096 could trigger emergency INTA sessions
+3. **Fragmentation constraint**: Index 6.59 requires minimum 3-group coalitions for every file
+4. **Calendar compression**: April 27 restart → summer recess July creates narrow legislative window
+
+#### Mitigation Factors
+- Record Q1 productivity (+46%) shows committees can absorb high workload
+- March 26 Brussels session cleared major files (SRMR3, anti-corruption, tariffs)
+- Conference of Presidents has pre-recess scheduling framework ready
+
+### Forward Scenarios
+
+| Scenario | Probability | Description |
+|----------|-------------|-------------|
+| Smooth restart | 55% (Likely) | CoP distributes procedures efficiently, committees absorb workload |
+| Tariff diversion | 30% (Possible) | US tariff response dominates, new procedures stall in committee |
+| Coalition gridlock | 15% (Unlikely) | Fragmentation prevents majority on key files, legislative stall |
 
 <h2 id="section-threat">Threat Landscape</h2>
 
@@ -160,69 +262,6 @@ Primary concern: External trade shock diverting committee legislative capacity
 - Next session: April 27-30 Strasbourg (agenda not yet published)
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
-
-### Political Classification
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run50/classification/political-classification.md" rel="noopener">View source: <code>classification/political-classification.md</code></a></p>
-
-### Classification Matrix
-
-| Document | Domain | Sensitivity | Urgency | Impact |
-|----------|--------|-------------|---------|--------|
-| EU Talent Pool | Migration/Employment | MEDIUM | HIGH | HIGH |
-| Copyright & Gen AI | Digital/IP | MEDIUM | MEDIUM | HIGH |
-| Housing Crisis | Social Policy | LOW | HIGH | HIGH |
-| Emission Credits | Environment/Transport | MEDIUM | HIGH | MEDIUM |
-| EU-Mercosur Safeguard | Trade | HIGH | HIGH | HIGH |
-| SRMR3 Banking | Economic/Financial | HIGH | CRITICAL | HIGH |
-| Anti-Corruption | Justice/Rule of Law | MEDIUM | HIGH | HIGH |
-| US Tariff Countermeasures | Trade/External | HIGH | CRITICAL | HIGH |
-
-### Domain Distribution
-
-```mermaid
-%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
-pie title Committee Domain Distribution Q1 2026
-    "Economic/Financial" : 25
-    "Trade/External" : 20
-    "Social/Employment" : 18
-    "Environment/Climate" : 15
-    "Digital/Technology" : 12
-    "Justice/Rule of Law" : 10
-```
-
-### Political Sensitivity Assessment
-
-- **Most politically sensitive**: US tariff countermeasures — divided Parliament, ECR defection pattern
-- **Most cross-cutting**: EU Talent Pool — bridges migration and employment policy silos
-- **Highest lobbying intensity**: Copyright & AI — tech vs creative industries
-- **Strongest subsidiarity resistance**: Housing Crisis — national competence arguments from ECR, PfE
-
-### Significance Scoring
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run50/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
-
-### Executive Summary
-
-| Item | Score | Committee | Rationale |
-|------|-------|-----------|-----------|
-| EU Talent Pool (TA-10-2026-0058) | 8/10 | EMPL/LIBE | Cross-committee flagship, immigration reform meets skills shortage |
-| Copyright & Gen AI (TA-10-2026-0066) | 8/10 | JURI | Tech policy/creative industries battleground, AI Act intersection |
-| Housing Crisis Resolution (TA-10-2026-0064) | 7/10 | REGI/EMPL/ECON | Cross-committee, politically charged, subsidiarity test |
-| Heavy-Duty Vehicle Emissions (TA-10-2026-0084) | 7/10 | ENVI/TRAN | Green Deal implementation, 2025-2029 framework |
-| EU-Mercosur Safeguard (TA-10-2026-0030) | 7/10 | INTA/AGRI | Trade politics, Mercosur deal controversy |
-| ECB Vice-President (TA-10-2026-0060) | 6/10 | ECON | Institutional appointment, monetary policy continuity |
-| European Semester Employment (TA-10-2026-0076) | 6/10 | EMPL | Annual coordination, social priorities 2026 |
-| EU Enlargement Strategy (TA-10-2026-0077) | 7/10 | AFET | Geopolitical significance, Ukraine/Western Balkans |
-| Global Gateway (TA-10-2026-0104) | 6/10 | AFET/DEVE | Development strategy, China competition |
-
-### Scoring Methodology
-
-Items scored on: Political Impact (0-3), Legislative Complexity (0-2), Coalition Dynamics (0-2), Timeliness (0-3).
-Minimum publication threshold: 3 items scoring ≥7/10 → MET (4 items at 7+).
-
-### Key Finding
-March 2026 sessions produced unprecedented cross-committee legislation volume. The EU Talent Pool and Copyright/AI directives represent the most significant committee outputs, demonstrating EP10's "flexible majority" model in action across traditional committee boundaries.
 
 ### Swot Analysis
 
@@ -307,42 +346,6 @@ The most significant political development is the emergence of cross-committee l
 - ✅ Coalition dynamics: Fragmentation data and flexible majority analysis
 - ✅ Forward scenarios: 3 named scenarios with probability labels
 - ✅ Evidence chains: All claims cite specific EP MCP data sources
-
-### Risk Assessment
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run50/risk-scoring/risk-assessment.md" rel="noopener">View source: <code>risk-scoring/risk-assessment.md</code></a></p>
-
-### Risk Matrix (Likelihood × Impact, 5×5)
-
-| Risk | Likelihood | Impact | Score | Trend |
-|------|-----------|--------|-------|-------|
-| Post-recess pipeline overload | 4 | 3 | 12/25 | ↑ |
-| Tariff crisis diverts committee agenda | 3 | 4 | 12/25 | ↑ |
-| Coalition fragmentation on COD files | 3 | 3 | 9/25 | → |
-| Council delays on March 26 adoptions | 3 | 3 | 9/25 | → |
-| Committee assignment disputes | 2 | 3 | 6/25 | ↗ |
-| Rapporteur appointment delays | 2 | 2 | 4/25 | → |
-
-### Composite Risk Score: 11.2/25 (MODERATE)
-
-#### Key Risk Drivers
-1. **Pipeline pressure**: 50+ new 2026 procedures, 13 COD, largest post-recess backlog in EP10
-2. **Tariff uncertainty**: US response to TA-10-2026-0096 could trigger emergency INTA sessions
-3. **Fragmentation constraint**: Index 6.59 requires minimum 3-group coalitions for every file
-4. **Calendar compression**: April 27 restart → summer recess July creates narrow legislative window
-
-#### Mitigation Factors
-- Record Q1 productivity (+46%) shows committees can absorb high workload
-- March 26 Brussels session cleared major files (SRMR3, anti-corruption, tariffs)
-- Conference of Presidents has pre-recess scheduling framework ready
-
-### Forward Scenarios
-
-| Scenario | Probability | Description |
-|----------|-------------|-------------|
-| Smooth restart | 55% (Likely) | CoP distributes procedures efficiently, committees absorb workload |
-| Tariff diversion | 30% (Possible) | US tariff response dominates, new procedures stall in committee |
-| Coalition gridlock | 15% (Unlikely) | Fragmentation prevents majority on key files, legislative stall |
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 
@@ -429,12 +432,12 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-actors-forces | [political-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run50/classification/political-classification.md) | `classification/political-classification.md` |
+| section-actors-forces | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run50/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-stakeholder-map | [stakeholder-impact](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run50/existing/stakeholder-impact.md) | `existing/stakeholder-impact.md` |
+| section-risk | [risk-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run50/risk-scoring/risk-assessment.md) | `risk-scoring/risk-assessment.md` |
 | section-threat | [threat-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run50/threat-assessment/threat-analysis.md) | `threat-assessment/threat-analysis.md` |
 | section-documents | [document-analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run50/documents/document-analysis-index.md) | `documents/document-analysis-index.md` |
-| section-supplementary-intelligence | [political-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run50/classification/political-classification.md) | `classification/political-classification.md` |
-| section-supplementary-intelligence | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run50/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-supplementary-intelligence | [swot-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run50/existing/swot-analysis.md) | `existing/swot-analysis.md` |
 | section-supplementary-intelligence | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run50/existing/synthesis-summary.md) | `existing/synthesis-summary.md` |
-| section-supplementary-intelligence | [risk-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run50/risk-scoring/risk-assessment.md) | `risk-scoring/risk-assessment.md` |
 

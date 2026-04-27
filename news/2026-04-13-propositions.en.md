@@ -29,6 +29,225 @@ Use this guide to read the article as a political-intelligence product rather th
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `existing/stakeholder-impact.md` |
+| [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-assessment.md` |
+
+<h2 id="section-actors-forces">Actors & Forces</h2>
+
+### Political Classification
+
+<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/propositions-run41/classification/political-classification.md" rel="noopener">View source: <code>classification/political-classification.md</code></a></p>
+
+### 📋 Classification Context
+
+| Field | Value |
+|-------|-------|
+| **Classification ID** | `CLS-2026-04-13-RUN41` |
+| **Event Date** | 2026-03-26 (last plenary) / 2026-04-13 (analysis) |
+| **EP Calendar** | Easter Recess Day 18/18 — Parliament returns April 14 |
+| **Current EP Status** | RECESS |
+| **Override Applied** | No (recess standard rules) |
+
+### 🔬 Item-Level Classification
+
+#### 1. US Tariff Countermeasures (TA-10-2026-0096)
+
+| Dimension | Score | Level |
+|-----------|:-----:|-------|
+| Sensitivity | 🟡 SENSITIVE | Trade retaliatory measure with geopolitical implications |
+| Primary Domain | INTA (International Trade) | |
+| Secondary Domain | ECON (Economic Affairs) | |
+| Urgency | 🟠 URGENT | April 15 implementation deadline |
+| Impact Scope | 🌍 INTERNATIONAL | US-EU trade relations |
+| Public Interest | 75/100 | SENSITIVE — direct consumer price impact |
+| Democratic Integrity | 55/100 | MODERATE — fast-track procedure, limited scrutiny window |
+| Policy Urgency | 85/100 | IMMEDIATE — deadline-driven |
+| Economic Impact | 80/100 | MAJOR — tariff adjustments affect multiple sectors |
+| Governance Impact | 60/100 | SIGNIFICANT — trade defense competence exercise |
+| Political Capital | 65/100 | SIGNIFICANT — tests EU trade autonomy narrative |
+| Legislative Impact | 55/100 | REGULATION — direct applicability |
+| **Weighted Score** | **68.5** | **HIGH** |
+| **Coalition Impact** | Stabilising → | EPP+S&D+Renew united on trade defence |
+
+**Political Temperature Index**: 72/100 (HIGH)
+- Partisan Charge: 12/20 (ECR supports, Greens/EFA cautious on escalation)
+- Institutional Impact: 15/20 (Commission trade defense activation)
+- Media Amplification: 16/20 (tariff wars dominate news cycles)
+- Public Salience: 14/20 (consumer prices, industrial jobs)
+- Temporal Pressure: 15/20 (April 15 deadline imminent)
+
+#### 2. Banking Resolution Reform — SRMR3 (TA-10-2026-0092)
+
+| Dimension | Score | Level |
+|-----------|:-----:|-------|
+| Sensitivity | 🟢 PUBLIC | Technical financial regulation |
+| Primary Domain | ECON (Economic & Monetary Affairs) | |
+| Urgency | 🔵 ELEVATED | Trilogue phase pending |
+| Impact Scope | 🇪🇺 EU-WIDE | Banking Union completion |
+| Public Interest | 50/100 | STANDARD — indirect citizen impact |
+| Democratic Integrity | 45/100 | MODERATE — complex trilogue dynamics |
+| Policy Urgency | 60/100 | SHORT-TERM — Council position pending |
+| Economic Impact | 75/100 | MAJOR — €50bn+ resolution fund implications |
+| Governance Impact | 70/100 | SIGNIFICANT — Banking Union institutional architecture |
+| Political Capital | 55/100 | NOTABLE — tests German-led opposition to deposit mutualisation |
+| Legislative Impact | 70/100 | DIRECTIVE — transposition required |
+| **Weighted Score** | **60.0** | **HIGH** |
+| **Coalition Impact** | Opportunity ↗ | EPP-S&D cooperation on financial stability |
+
+#### 3. Anti-Corruption Directive (TA-10-2026-0094)
+
+| Dimension | Score | Level |
+|-----------|:-----:|-------|
+| Sensitivity | 🟡 SENSITIVE | Member state compliance implications |
+| Primary Domain | LIBE (Civil Liberties) | |
+| Secondary Domain | JURI (Legal Affairs) | |
+| Urgency | 🔵 ELEVATED | 24-month transposition clock started |
+| Impact Scope | 🇪🇺 EU-WIDE | Harmonized anti-corruption framework |
+| Public Interest | 70/100 | SENSITIVE — public integrity concerns |
+| Policy Urgency | 55/100 | MEDIUM-TERM — transposition period |
+| Economic Impact | 55/100 | MODERATE — compliance costs for MS |
+| Governance Impact | 65/100 | SIGNIFICANT — rule of law instrument |
+| Political Capital | 60/100 | SIGNIFICANT — rule of law politics |
+| Legislative Impact | 65/100 | DIRECTIVE — first EU-wide anti-corruption directive |
+| **Weighted Score** | **61.5** | **HIGH** |
+
+#### 4. EU Talent Pool (TA-10-2026-0058)
+
+| Dimension | Score | Level |
+|-----------|:-----:|-------|
+| Sensitivity | 🟢 PUBLIC | Labour market regulation |
+| Primary Domain | EMPL (Employment & Social Affairs) | |
+| Urgency | ⚪ ROUTINE | Implementation phase |
+| Impact Scope | 🇪🇺 EU-WIDE | Cross-border labour mobility |
+| Public Interest | 60/100 | Skills shortages highly relevant |
+| Economic Impact | 65/100 | MODERATE — labour market efficiency |
+| **Weighted Score** | **52.0** | **MEDIUM** |
+
+#### 5. Copyright & Generative AI (TA-10-2026-0066)
+
+| Dimension | Score | Level |
+|-----------|:-----:|-------|
+| Sensitivity | 🟡 SENSITIVE | Tech sector tensions |
+| Primary Domain | JURI (Legal Affairs) | |
+| Secondary Domain | ITRE (Industry) | |
+| Urgency | 🔵 ELEVATED | AI Act implementation overlap |
+| Impact Scope | 🌍 INTERNATIONAL | Global AI governance signal |
+| Public Interest | 75/100 | AI regulation highly salient |
+| Economic Impact | 70/100 | MAJOR — creative industries + tech sector |
+| **Weighted Score** | **58.5** | **HIGH** |
+
+### 📊 Classification Distribution
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
+pie title Classification Distribution (29 items)
+    "HIGH (≥50)" : 8
+    "MEDIUM (30-49)" : 14
+    "LOW (<30)" : 7
+```
+
+### 🎯 Recommended Actions
+
+| Item | Score | Action |
+|------|:-----:|--------|
+| US Tariff Countermeasures | 68.5 | 📰 **Priority Publish** — deadline urgency |
+| Anti-Corruption Directive | 61.5 | 📰 Publish — rule of law significance |
+| Banking Union SRMR3 | 60.0 | 📰 Publish — financial stability package |
+| Copyright & AI | 58.5 | 📰 Publish — tech regulation relevance |
+| EU Talent Pool | 52.0 | 📋 Monitor — implementation phase |
+
+### 🔗 Cross-Reference with Prior Coverage
+
+Per editorial context, April 10 propositions article covered "Trade and Banking Reform Contest for Committee Attention." Today's analysis advances this thread with:
+- **Updated urgency**: April 15 tariff deadline now 2 days away (was 5 days)
+- **New context**: Easter recess ends tomorrow — first committee meetings imminent
+- **Pipeline evolution**: 13 new 2026 COD procedures identified in pipeline (vs. general references before)
+
+### Significance Scoring
+
+<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/propositions-run41/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
+
+### 📋 Scoring Context
+
+| Field | Value |
+|-------|-------|
+| **Scoring ID** | `SIG-2026-04-13-RUN41` |
+| **Analysis Date** | 2026-04-13 |
+| **EP Calendar Status** | Easter Recess Day 18/18 (Final Day) |
+| **Parliament Returns** | 2026-04-14 |
+| **Calendar Adjustment** | Recess cap at 7.4 unless raw ≥9.0 |
+| **Data Sources** | EP API v2 adopted texts, procedures feed, prior run cross-reference |
+
+### 🎯 Methodology
+
+Composite = (Parliamentary × 0.25) + (Policy × 0.25) + (Public Interest × 0.20) + (Urgency × 0.15) + (Cross-Group × 0.15)
+
+**Recess adjustment applied**: Scores capped at 7.4 per EP Calendar Awareness rules, except items with raw ≥9.0.
+
+### 📊 Batch Scoring — March 26 Plenary Adopted Texts (Most Recent)
+
+| Event | EP Reference | Parl. | Policy | Public | Urgency | X-Group | **Raw** | **Adjusted** | Decision |
+|-------|-------------|:-----:|:------:|:------:|:-------:|:-------:|:-------:|:------------:|----------|
+| US Tariff Countermeasures — Customs duties adjustment | TA-10-2026-0096 | 8.5 | 8.0 | 7.5 | 8.0 | 7.5 | **7.95** | **7.40** | 📰 Publish |
+| Banking Resolution Reform (SRMR3) — Early intervention | TA-10-2026-0092 | 8.0 | 7.5 | 6.0 | 6.5 | 7.0 | **7.10** | **7.10** | 📰 Publish |
+| Anti-Corruption Directive — Combating corruption | TA-10-2026-0094 | 7.5 | 7.0 | 7.0 | 6.0 | 7.5 | **7.05** | **7.05** | 📰 Publish |
+| EU-China Tariff Quota Modifications | TA-10-2026-0101 | 7.0 | 7.0 | 5.5 | 7.0 | 6.0 | **6.48** | **6.48** | 📰 Publish |
+| CSAM Regulation Extension (Reg 2021/1232) | TA-10-2026-0095 | 7.5 | 6.5 | 7.0 | 6.0 | 6.5 | **6.80** | **6.80** | 📰 Publish |
+| Banking Resolution (BRRD3) | TA-10-2026-0091 | 7.5 | 7.0 | 5.5 | 6.0 | 6.5 | **6.58** | **6.58** | 📰 Publish |
+
+### 📊 Batch Scoring — March 10-12 Plenary Adopted Texts
+
+| Event | EP Reference | Parl. | Policy | Public | Urgency | X-Group | **Raw** | **Adjusted** | Decision |
+|-------|-------------|:-----:|:------:|:------:|:-------:|:-------:|:-------:|:------------:|----------|
+| EU Talent Pool Regulation | TA-10-2026-0058 | 7.5 | 7.0 | 6.5 | 5.5 | 6.5 | **6.70** | **6.70** | 📰 Publish |
+| Housing Crisis Resolution | TA-10-2026-0064 | 6.5 | 6.5 | 8.0 | 5.0 | 6.0 | **6.50** | **6.50** | 📰 Publish |
+| Copyright & Generative AI Report | TA-10-2026-0066 | 6.0 | 6.5 | 7.5 | 5.5 | 5.5 | **6.20** | **6.20** | 📰 Publish |
+| Package Travel Directive Recast | TA-10-2026-0085 | 6.0 | 5.5 | 6.0 | 4.5 | 5.0 | **5.48** | **5.48** | 📋 Hold |
+| Heavy-Duty Vehicle Emission Credits | TA-10-2026-0084 | 5.5 | 6.0 | 5.0 | 5.0 | 5.0 | **5.35** | **5.35** | 📋 Hold |
+| EU Enlargement Strategy | TA-10-2026-0077 | 7.0 | 6.0 | 5.5 | 5.0 | 6.5 | **6.10** | **6.10** | 📰 Publish |
+| Defence Single Market Barriers | TA-10-2026-0079 | 7.0 | 6.5 | 5.5 | 6.0 | 6.0 | **6.25** | **6.25** | 📰 Publish |
+| EU-Canada Cooperation | TA-10-2026-0078 | 6.5 | 5.5 | 5.0 | 6.5 | 5.5 | **5.80** | **5.80** | 📰 Publish |
+| Better Regulation Report | TA-10-2026-0063 | 5.5 | 5.0 | 4.0 | 4.0 | 4.5 | **4.70** | **4.70** | 📋 Hold |
+| WTO 14th Ministerial Conference | TA-10-2026-0086 | 6.0 | 6.0 | 4.5 | 5.5 | 5.5 | **5.55** | **5.55** | 📰 Publish |
+
+### 📊 Batch Scoring — 2026 COD Procedures in Pipeline
+
+| Procedure | Type | Stage | Parl. | Policy | Public | Urgency | X-Group | **Raw** | **Adjusted** | Decision |
+|-----------|------|-------|:-----:|:------:|:------:|:-------:|:-------:|:-------:|:------------:|----------|
+| 2026/0008(COD) | COD | Committee | 6.5 | 6.0 | 5.0 | 5.0 | 5.5 | **5.65** | **5.65** | 📰 Publish |
+| 2026/0010(COD) | COD | Committee | 6.5 | 6.0 | 5.0 | 5.0 | 5.5 | **5.65** | **5.65** | 📰 Publish |
+| 2026/0044(COD) | COD | Committee | 6.0 | 5.5 | 5.0 | 4.5 | 5.0 | **5.28** | **5.28** | 📋 Hold |
+| 2026/0059(COD) | COD | Committee | 6.5 | 6.0 | 5.5 | 5.0 | 5.5 | **5.75** | **5.75** | 📰 Publish |
+| 2026/0068(COD) | COD | Committee | 6.0 | 5.5 | 5.0 | 4.5 | 5.0 | **5.28** | **5.28** | 📋 Hold |
+| 2026/0074(COD) | COD | Committee | 6.5 | 6.0 | 5.5 | 5.0 | 5.5 | **5.75** | **5.75** | 📰 Publish |
+| 2026/0078(COD) | COD | Committee | 6.0 | 6.0 | 5.0 | 5.0 | 5.5 | **5.55** | **5.55** | 📰 Publish |
+| 2026/0084(COD) | COD | Committee | 6.0 | 5.5 | 5.0 | 4.5 | 5.0 | **5.28** | **5.28** | 📋 Hold |
+| 2026/0085(COD) | COD | Committee | 6.0 | 5.5 | 5.0 | 4.5 | 5.0 | **5.28** | **5.28** | 📋 Hold |
+
+### 📊 Publication Decision Summary
+
+| Decision | Count |
+|----------|:-----:|
+| 📰 Publish | 19 |
+| 📋 Hold | 10 |
+| 🗄️ Archive | 0 |
+
+### 🎯 Historical Baseline Comparison
+
+| Metric | Current | EP10 Average | Delta |
+|--------|---------|-------------|-------|
+| Top score (raw) | 7.95 | 7.2 | +0.75 ↑ |
+| Publish count | 19 | 12 | +7 ↑ |
+| Mean composite | 6.02 | 5.8 | +0.22 → |
+
+The elevated publish count reflects the convergence of trade policy urgency (US tariffs, EU-China modifications) with the Banking Union legislative package — three interconnected financial stability dossiers (SRMR3, BRRD3, DGSD2) reaching adoption simultaneously is unusual and historically significant.
+
+### 🔮 Top 3 Lead Story Candidates
+
+1. **US Tariff Countermeasures + EU-China Trade Modifications** (composite 7.40/6.48) — Trade policy dominates the pre-restart pipeline, with the April 15 implementation deadline creating time pressure
+2. **Banking Union Triple Package** (SRMR3 6.58 + BRRD3 6.58) — Three concurrent financial regulation adoptions entering Council phase
+3. **Anti-Corruption Directive** (composite 7.05) — EP9 carryover finally adopted, 24-month transposition clock started
+
+**Recommended lede**: Trade and banking reform convergence as Parliament prepares to return from Easter recess.
 
 <h2 id="section-stakeholder-map">Stakeholder Map</h2>
 
@@ -148,6 +367,145 @@ Use this guide to read the article as a political-intelligence product rather th
 ### 📰 Publish Recommendation
 
 **YES — HIGH**: Multiple high-impact legislative streams converge at the post-Easter restart. Trade, banking, and anti-corruption all have immediate stakeholder consequences. The combination of immediate tariff deadline pressure with longer-term institutional reform creates a compelling narrative arc.
+
+<h2 id="section-risk">Risk Assessment</h2>
+
+<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/propositions-run41/risk-scoring/risk-assessment.md" rel="noopener">View source: <code>risk-scoring/risk-assessment.md</code></a></p>
+
+### 📋 Risk Context
+
+| Field | Value |
+|-------|-------|
+| **Risk ID** | `RSK-2026-04-13-RUN41` |
+| **Analysis Date** | 2026-04-13 |
+| **Period** | Easter Recess → Post-Recess Restart (2026-04-14) |
+| **Political Context** | Final day of 18-day Easter recess. Parliament returns April 14 with compressed legislative calendar. US tariff deadline April 15. 13 COD procedures from 2026 in committee pipeline. Banking Union package entering trilogue. |
+| **Parliamentary Term** | EP10 (10th European Parliament) |
+| **Overall Risk Level** | 🟠 HIGH |
+
+### 📊 Risk Methodology
+
+Risk Score = Likelihood (1–5) × Impact (1–5)
+- 1–4: 🟢 Low | 5–9: 🟡 Medium | 10–14: 🟠 High | 15–25: 🔴 Critical
+
+### 🔴 Risk Inventory
+
+#### Risk 1: Trade Policy Escalation (RSK-TRADE-001)
+
+| Factor | Value |
+|--------|-------|
+| **Description** | US tariff countermeasures (TA-10-2026-0096) implementation deadline April 15 coincides with Parliament's return. INTA committee faces immediate pressure to convene emergency session. If EU retaliatory measures trigger further US escalation, Parliament's legislative calendar could be dominated by emergency trade legislation, crowding out other COD procedures. |
+| **Likelihood** | 4 (Likely) |
+| **Impact** | 4 (Major) |
+| **Risk Score** | **16** 🔴 Critical |
+| **Tier** | CRITICAL |
+| **Trajectory** | ↑ Accelerating (was 12 on April 10) |
+| **Mitigation** | INTA pre-positioning with graduated response framework. Commission empowered for autonomous trade defence measures. |
+
+**Evidence**: TA-10-2026-0096 adopted March 26 with broad cross-party support. EU-China tariff modifications (TA-10-2026-0101) show parallel trade friction. Prior analysis (April 10) identified this as top risk — now 2 days closer to deadline.
+
+#### Risk 2: Legislative Pipeline Congestion (RSK-PIPE-001)
+
+| Factor | Value |
+|--------|-------|
+| **Description** | 13 new COD procedures filed in 2026 (0008 through 0085), plus active 2025 carryovers. The 18-day recess created a legislative bottleneck — committees must process accumulated Commission proposals while handling the Banking Union trilogue and post-tariff emergency measures. Historical EP10 data shows committees average 45 days per report; current backlog suggests 60+ days risk. |
+| **Likelihood** | 4 (Likely) |
+| **Impact** | 3 (Moderate) |
+| **Risk Score** | **12** 🟠 High |
+| **Tier** | HIGH |
+| **Trajectory** | → Stable (structural, not event-driven) |
+| **Mitigation** | Committee coordinators typically prioritize files by political urgency. Rapporteur pre-work during recess possible. |
+
+**Evidence**: 2026 procedure list shows 13 COD procedures, 4 BUD, 6 NLE. March plenaries adopted 24 texts, indicating active output phase. Pipeline throughput will be tested post-restart.
+
+#### Risk 3: Banking Union Trilogue Deadlock (RSK-BANK-001)
+
+| Factor | Value |
+|--------|-------|
+| **Description** | The Banking Union triple package (SRMR3/TA-10-2026-0092, BRRD3/TA-10-2026-0091, DGSD2/TA-10-2026-0090) was adopted by Parliament on March 26. Council position formation is pending. Germany and Netherlands historically oppose deposit guarantee mutualisation (DGSD2). If Council fragments, trilogue could stall for months, blocking a cornerstone of Eurozone financial architecture. |
+| **Likelihood** | 3 (Possible) |
+| **Impact** | 4 (Major) |
+| **Risk Score** | **12** 🟠 High |
+| **Tier** | HIGH |
+| **Trajectory** | → Stable |
+| **Mitigation** | Polish Council presidency may seek compromise formula separating DGSD2 timeline from SRMR3/BRRD3 adoption. |
+
+**Evidence**: ECON committee report A-10-2026-0067 underpins SRMR3. Prior April 10 analysis identified Germany/Netherlands opposition as key blocking factor. Council General Approach pending.
+
+#### Risk 4: Anti-Corruption Directive Transposition Compliance (RSK-CORR-001)
+
+| Factor | Value |
+|--------|-------|
+| **Description** | First EU-wide anti-corruption directive (TA-10-2026-0094) adopted March 26 starts 24-month transposition clock. Several member states with weak anti-corruption track records (Hungary, Bulgaria, Romania per CPI rankings) may delay or dilute transposition, creating uneven implementation. |
+| **Likelihood** | 3 (Possible) |
+| **Impact** | 3 (Moderate) |
+| **Risk Score** | **9** 🟡 Medium |
+| **Tier** | MEDIUM |
+| **Trajectory** | → Stable (new risk, baseline established) |
+| **Mitigation** | Commission infringement procedures. LIBE committee monitoring mandate. |
+
+#### Risk 5: Geopolitical Calendar Compression (RSK-GEO-001)
+
+| Factor | Value |
+|--------|-------|
+| **Description** | WTO 14th Ministerial Conference (March 26-29, per TA-10-2026-0086 EP mandate adopted just before recess), US tariff deadline April 15, and EU-China tariff negotiations all converge in a 3-week window. Parliament lacks structured capacity to monitor all three simultaneously, risking inconsistent trade policy signals. |
+| **Likelihood** | 3 (Possible) |
+| **Impact** | 3 (Moderate) |
+| **Risk Score** | **9** 🟡 Medium |
+| **Tier** | MEDIUM |
+| **Trajectory** | ↑ Rising (calendar convergence) |
+
+### 📊 Cascading Risk Chain
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
+flowchart TD
+    A["🔴 US Tariff Deadline<br/>April 15<br/>L4×I4=16"] -->|escalation| B["🟠 INTA Emergency Session<br/>L4×I3=12"]
+    B -->|calendar crowding| C["🟠 Pipeline Congestion<br/>L4×I3=12"]
+    C -->|delayed reports| D["🟡 Banking Trilogue Slip<br/>L3×I4=12"]
+    A -->|retaliation spiral| E["🟡 EU-China Trade Tension<br/>L3×I3=9"]
+    D -->|investor uncertainty| F["🟡 Eurozone Stability<br/>L2×I4=8"]
+    
+    style A fill:#ff4444,color:#fff
+    style B fill:#ff8800,color:#fff
+    style C fill:#ff8800,color:#fff
+    style D fill:#ffcc00,color:#000
+    style E fill:#ffcc00,color:#000
+    style F fill:#ffcc00,color:#000
+```
+
+**Circuit breakers**: Commission autonomous trade defence (bypasses EP), Council presidency prioritization of Banking Union.
+
+### 📊 Risk Interconnection Map
+
+| Dimension | Score Range | Highest Risk | Trend |
+|-----------|:---------:|-------------|:-----:|
+| Trade Policy | 9–16 | US Tariff Escalation | ↑ |
+| Financial Regulation | 8–12 | Banking Union Trilogue | → |
+| Pipeline Management | 9–12 | Post-Recess Congestion | → |
+| Rule of Law | 6–9 | Anti-Corruption Transposition | → |
+| Geopolitical | 6–9 | Calendar Compression | ↑ |
+| Institutional | 4–6 | Committee Capacity | → |
+
+**System fragility assessment**: 2 categories at HIGH or above (Trade, Pipeline). System is under stress but not in fragile state (threshold: 3 categories ≥10). Trade escalation is the single most likely trigger for cascade.
+
+### 🔮 Forward Indicators & Scenario Outlook
+
+| Scenario | Probability | Trigger | Dimensions |
+|----------|:---------:|---------|-----------|
+| **Orderly Restart** — Committees absorb backlog, tariff deadline managed through Commission action | 50% | Commission trade defence announcement pre-April 15 | Trade ↓, Pipeline → |
+| **Trade-Dominated Calendar** — INTA emergency drives agenda, Banking Union delayed to Q3 | 35% | US counter-retaliation post-April 15 | Trade ↑↑, Pipeline ↑, Banking ↑ |
+| **Full Gridlock** — Multiple crises converge, key COD procedures stall | 15% | US escalation + Council Banking Union rejection | All dimensions ↑ |
+
+### 📊 Risk Summary
+
+| Rank | Risk | Score | Tier | Trajectory |
+|:----:|------|:-----:|------|:----------:|
+| 1 | Trade Policy Escalation | 16 | 🔴 Critical | ↑ |
+| 2 | Pipeline Congestion | 12 | 🟠 High | → |
+| 3 | Banking Trilogue Deadlock | 12 | 🟠 High | → |
+| 4 | Anti-Corruption Transposition | 9 | 🟡 Medium | → |
+| 5 | Geopolitical Calendar | 9 | 🟡 Medium | ↑ |
 
 <h2 id="section-threat">Threat Landscape</h2>
 
@@ -413,222 +771,6 @@ Multiple crises converge: US trade escalation, Council Banking Union rejection, 
 **Indicators**: Council votes against Banking Union General Approach. Multiple member states signal transposition delays. US imposes sector-specific tariffs targeting EU agriculture.
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
-
-### Political Classification
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/propositions-run41/classification/political-classification.md" rel="noopener">View source: <code>classification/political-classification.md</code></a></p>
-
-### 📋 Classification Context
-
-| Field | Value |
-|-------|-------|
-| **Classification ID** | `CLS-2026-04-13-RUN41` |
-| **Event Date** | 2026-03-26 (last plenary) / 2026-04-13 (analysis) |
-| **EP Calendar** | Easter Recess Day 18/18 — Parliament returns April 14 |
-| **Current EP Status** | RECESS |
-| **Override Applied** | No (recess standard rules) |
-
-### 🔬 Item-Level Classification
-
-#### 1. US Tariff Countermeasures (TA-10-2026-0096)
-
-| Dimension | Score | Level |
-|-----------|:-----:|-------|
-| Sensitivity | 🟡 SENSITIVE | Trade retaliatory measure with geopolitical implications |
-| Primary Domain | INTA (International Trade) | |
-| Secondary Domain | ECON (Economic Affairs) | |
-| Urgency | 🟠 URGENT | April 15 implementation deadline |
-| Impact Scope | 🌍 INTERNATIONAL | US-EU trade relations |
-| Public Interest | 75/100 | SENSITIVE — direct consumer price impact |
-| Democratic Integrity | 55/100 | MODERATE — fast-track procedure, limited scrutiny window |
-| Policy Urgency | 85/100 | IMMEDIATE — deadline-driven |
-| Economic Impact | 80/100 | MAJOR — tariff adjustments affect multiple sectors |
-| Governance Impact | 60/100 | SIGNIFICANT — trade defense competence exercise |
-| Political Capital | 65/100 | SIGNIFICANT — tests EU trade autonomy narrative |
-| Legislative Impact | 55/100 | REGULATION — direct applicability |
-| **Weighted Score** | **68.5** | **HIGH** |
-| **Coalition Impact** | Stabilising → | EPP+S&D+Renew united on trade defence |
-
-**Political Temperature Index**: 72/100 (HIGH)
-- Partisan Charge: 12/20 (ECR supports, Greens/EFA cautious on escalation)
-- Institutional Impact: 15/20 (Commission trade defense activation)
-- Media Amplification: 16/20 (tariff wars dominate news cycles)
-- Public Salience: 14/20 (consumer prices, industrial jobs)
-- Temporal Pressure: 15/20 (April 15 deadline imminent)
-
-#### 2. Banking Resolution Reform — SRMR3 (TA-10-2026-0092)
-
-| Dimension | Score | Level |
-|-----------|:-----:|-------|
-| Sensitivity | 🟢 PUBLIC | Technical financial regulation |
-| Primary Domain | ECON (Economic & Monetary Affairs) | |
-| Urgency | 🔵 ELEVATED | Trilogue phase pending |
-| Impact Scope | 🇪🇺 EU-WIDE | Banking Union completion |
-| Public Interest | 50/100 | STANDARD — indirect citizen impact |
-| Democratic Integrity | 45/100 | MODERATE — complex trilogue dynamics |
-| Policy Urgency | 60/100 | SHORT-TERM — Council position pending |
-| Economic Impact | 75/100 | MAJOR — €50bn+ resolution fund implications |
-| Governance Impact | 70/100 | SIGNIFICANT — Banking Union institutional architecture |
-| Political Capital | 55/100 | NOTABLE — tests German-led opposition to deposit mutualisation |
-| Legislative Impact | 70/100 | DIRECTIVE — transposition required |
-| **Weighted Score** | **60.0** | **HIGH** |
-| **Coalition Impact** | Opportunity ↗ | EPP-S&D cooperation on financial stability |
-
-#### 3. Anti-Corruption Directive (TA-10-2026-0094)
-
-| Dimension | Score | Level |
-|-----------|:-----:|-------|
-| Sensitivity | 🟡 SENSITIVE | Member state compliance implications |
-| Primary Domain | LIBE (Civil Liberties) | |
-| Secondary Domain | JURI (Legal Affairs) | |
-| Urgency | 🔵 ELEVATED | 24-month transposition clock started |
-| Impact Scope | 🇪🇺 EU-WIDE | Harmonized anti-corruption framework |
-| Public Interest | 70/100 | SENSITIVE — public integrity concerns |
-| Policy Urgency | 55/100 | MEDIUM-TERM — transposition period |
-| Economic Impact | 55/100 | MODERATE — compliance costs for MS |
-| Governance Impact | 65/100 | SIGNIFICANT — rule of law instrument |
-| Political Capital | 60/100 | SIGNIFICANT — rule of law politics |
-| Legislative Impact | 65/100 | DIRECTIVE — first EU-wide anti-corruption directive |
-| **Weighted Score** | **61.5** | **HIGH** |
-
-#### 4. EU Talent Pool (TA-10-2026-0058)
-
-| Dimension | Score | Level |
-|-----------|:-----:|-------|
-| Sensitivity | 🟢 PUBLIC | Labour market regulation |
-| Primary Domain | EMPL (Employment & Social Affairs) | |
-| Urgency | ⚪ ROUTINE | Implementation phase |
-| Impact Scope | 🇪🇺 EU-WIDE | Cross-border labour mobility |
-| Public Interest | 60/100 | Skills shortages highly relevant |
-| Economic Impact | 65/100 | MODERATE — labour market efficiency |
-| **Weighted Score** | **52.0** | **MEDIUM** |
-
-#### 5. Copyright & Generative AI (TA-10-2026-0066)
-
-| Dimension | Score | Level |
-|-----------|:-----:|-------|
-| Sensitivity | 🟡 SENSITIVE | Tech sector tensions |
-| Primary Domain | JURI (Legal Affairs) | |
-| Secondary Domain | ITRE (Industry) | |
-| Urgency | 🔵 ELEVATED | AI Act implementation overlap |
-| Impact Scope | 🌍 INTERNATIONAL | Global AI governance signal |
-| Public Interest | 75/100 | AI regulation highly salient |
-| Economic Impact | 70/100 | MAJOR — creative industries + tech sector |
-| **Weighted Score** | **58.5** | **HIGH** |
-
-### 📊 Classification Distribution
-
-```mermaid
-%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
-pie title Classification Distribution (29 items)
-    "HIGH (≥50)" : 8
-    "MEDIUM (30-49)" : 14
-    "LOW (<30)" : 7
-```
-
-### 🎯 Recommended Actions
-
-| Item | Score | Action |
-|------|:-----:|--------|
-| US Tariff Countermeasures | 68.5 | 📰 **Priority Publish** — deadline urgency |
-| Anti-Corruption Directive | 61.5 | 📰 Publish — rule of law significance |
-| Banking Union SRMR3 | 60.0 | 📰 Publish — financial stability package |
-| Copyright & AI | 58.5 | 📰 Publish — tech regulation relevance |
-| EU Talent Pool | 52.0 | 📋 Monitor — implementation phase |
-
-### 🔗 Cross-Reference with Prior Coverage
-
-Per editorial context, April 10 propositions article covered "Trade and Banking Reform Contest for Committee Attention." Today's analysis advances this thread with:
-- **Updated urgency**: April 15 tariff deadline now 2 days away (was 5 days)
-- **New context**: Easter recess ends tomorrow — first committee meetings imminent
-- **Pipeline evolution**: 13 new 2026 COD procedures identified in pipeline (vs. general references before)
-
-### Significance Scoring
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/propositions-run41/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
-
-### 📋 Scoring Context
-
-| Field | Value |
-|-------|-------|
-| **Scoring ID** | `SIG-2026-04-13-RUN41` |
-| **Analysis Date** | 2026-04-13 |
-| **EP Calendar Status** | Easter Recess Day 18/18 (Final Day) |
-| **Parliament Returns** | 2026-04-14 |
-| **Calendar Adjustment** | Recess cap at 7.4 unless raw ≥9.0 |
-| **Data Sources** | EP API v2 adopted texts, procedures feed, prior run cross-reference |
-
-### 🎯 Methodology
-
-Composite = (Parliamentary × 0.25) + (Policy × 0.25) + (Public Interest × 0.20) + (Urgency × 0.15) + (Cross-Group × 0.15)
-
-**Recess adjustment applied**: Scores capped at 7.4 per EP Calendar Awareness rules, except items with raw ≥9.0.
-
-### 📊 Batch Scoring — March 26 Plenary Adopted Texts (Most Recent)
-
-| Event | EP Reference | Parl. | Policy | Public | Urgency | X-Group | **Raw** | **Adjusted** | Decision |
-|-------|-------------|:-----:|:------:|:------:|:-------:|:-------:|:-------:|:------------:|----------|
-| US Tariff Countermeasures — Customs duties adjustment | TA-10-2026-0096 | 8.5 | 8.0 | 7.5 | 8.0 | 7.5 | **7.95** | **7.40** | 📰 Publish |
-| Banking Resolution Reform (SRMR3) — Early intervention | TA-10-2026-0092 | 8.0 | 7.5 | 6.0 | 6.5 | 7.0 | **7.10** | **7.10** | 📰 Publish |
-| Anti-Corruption Directive — Combating corruption | TA-10-2026-0094 | 7.5 | 7.0 | 7.0 | 6.0 | 7.5 | **7.05** | **7.05** | 📰 Publish |
-| EU-China Tariff Quota Modifications | TA-10-2026-0101 | 7.0 | 7.0 | 5.5 | 7.0 | 6.0 | **6.48** | **6.48** | 📰 Publish |
-| CSAM Regulation Extension (Reg 2021/1232) | TA-10-2026-0095 | 7.5 | 6.5 | 7.0 | 6.0 | 6.5 | **6.80** | **6.80** | 📰 Publish |
-| Banking Resolution (BRRD3) | TA-10-2026-0091 | 7.5 | 7.0 | 5.5 | 6.0 | 6.5 | **6.58** | **6.58** | 📰 Publish |
-
-### 📊 Batch Scoring — March 10-12 Plenary Adopted Texts
-
-| Event | EP Reference | Parl. | Policy | Public | Urgency | X-Group | **Raw** | **Adjusted** | Decision |
-|-------|-------------|:-----:|:------:|:------:|:-------:|:-------:|:-------:|:------------:|----------|
-| EU Talent Pool Regulation | TA-10-2026-0058 | 7.5 | 7.0 | 6.5 | 5.5 | 6.5 | **6.70** | **6.70** | 📰 Publish |
-| Housing Crisis Resolution | TA-10-2026-0064 | 6.5 | 6.5 | 8.0 | 5.0 | 6.0 | **6.50** | **6.50** | 📰 Publish |
-| Copyright & Generative AI Report | TA-10-2026-0066 | 6.0 | 6.5 | 7.5 | 5.5 | 5.5 | **6.20** | **6.20** | 📰 Publish |
-| Package Travel Directive Recast | TA-10-2026-0085 | 6.0 | 5.5 | 6.0 | 4.5 | 5.0 | **5.48** | **5.48** | 📋 Hold |
-| Heavy-Duty Vehicle Emission Credits | TA-10-2026-0084 | 5.5 | 6.0 | 5.0 | 5.0 | 5.0 | **5.35** | **5.35** | 📋 Hold |
-| EU Enlargement Strategy | TA-10-2026-0077 | 7.0 | 6.0 | 5.5 | 5.0 | 6.5 | **6.10** | **6.10** | 📰 Publish |
-| Defence Single Market Barriers | TA-10-2026-0079 | 7.0 | 6.5 | 5.5 | 6.0 | 6.0 | **6.25** | **6.25** | 📰 Publish |
-| EU-Canada Cooperation | TA-10-2026-0078 | 6.5 | 5.5 | 5.0 | 6.5 | 5.5 | **5.80** | **5.80** | 📰 Publish |
-| Better Regulation Report | TA-10-2026-0063 | 5.5 | 5.0 | 4.0 | 4.0 | 4.5 | **4.70** | **4.70** | 📋 Hold |
-| WTO 14th Ministerial Conference | TA-10-2026-0086 | 6.0 | 6.0 | 4.5 | 5.5 | 5.5 | **5.55** | **5.55** | 📰 Publish |
-
-### 📊 Batch Scoring — 2026 COD Procedures in Pipeline
-
-| Procedure | Type | Stage | Parl. | Policy | Public | Urgency | X-Group | **Raw** | **Adjusted** | Decision |
-|-----------|------|-------|:-----:|:------:|:------:|:-------:|:-------:|:-------:|:------------:|----------|
-| 2026/0008(COD) | COD | Committee | 6.5 | 6.0 | 5.0 | 5.0 | 5.5 | **5.65** | **5.65** | 📰 Publish |
-| 2026/0010(COD) | COD | Committee | 6.5 | 6.0 | 5.0 | 5.0 | 5.5 | **5.65** | **5.65** | 📰 Publish |
-| 2026/0044(COD) | COD | Committee | 6.0 | 5.5 | 5.0 | 4.5 | 5.0 | **5.28** | **5.28** | 📋 Hold |
-| 2026/0059(COD) | COD | Committee | 6.5 | 6.0 | 5.5 | 5.0 | 5.5 | **5.75** | **5.75** | 📰 Publish |
-| 2026/0068(COD) | COD | Committee | 6.0 | 5.5 | 5.0 | 4.5 | 5.0 | **5.28** | **5.28** | 📋 Hold |
-| 2026/0074(COD) | COD | Committee | 6.5 | 6.0 | 5.5 | 5.0 | 5.5 | **5.75** | **5.75** | 📰 Publish |
-| 2026/0078(COD) | COD | Committee | 6.0 | 6.0 | 5.0 | 5.0 | 5.5 | **5.55** | **5.55** | 📰 Publish |
-| 2026/0084(COD) | COD | Committee | 6.0 | 5.5 | 5.0 | 4.5 | 5.0 | **5.28** | **5.28** | 📋 Hold |
-| 2026/0085(COD) | COD | Committee | 6.0 | 5.5 | 5.0 | 4.5 | 5.0 | **5.28** | **5.28** | 📋 Hold |
-
-### 📊 Publication Decision Summary
-
-| Decision | Count |
-|----------|:-----:|
-| 📰 Publish | 19 |
-| 📋 Hold | 10 |
-| 🗄️ Archive | 0 |
-
-### 🎯 Historical Baseline Comparison
-
-| Metric | Current | EP10 Average | Delta |
-|--------|---------|-------------|-------|
-| Top score (raw) | 7.95 | 7.2 | +0.75 ↑ |
-| Publish count | 19 | 12 | +7 ↑ |
-| Mean composite | 6.02 | 5.8 | +0.22 → |
-
-The elevated publish count reflects the convergence of trade policy urgency (US tariffs, EU-China modifications) with the Banking Union legislative package — three interconnected financial stability dossiers (SRMR3, BRRD3, DGSD2) reaching adoption simultaneously is unusual and historically significant.
-
-### 🔮 Top 3 Lead Story Candidates
-
-1. **US Tariff Countermeasures + EU-China Trade Modifications** (composite 7.40/6.48) — Trade policy dominates the pre-restart pipeline, with the April 15 implementation deadline creating time pressure
-2. **Banking Union Triple Package** (SRMR3 6.58 + BRRD3 6.58) — Three concurrent financial regulation adoptions entering Council phase
-3. **Anti-Corruption Directive** (composite 7.05) — EP9 carryover finally adopted, 24-month transposition clock started
-
-**Recommended lede**: Trade and banking reform convergence as Parliament prepares to return from Easter recess.
 
 ### Swot Analysis
 
@@ -920,145 +1062,6 @@ flowchart LR
 | **Primary Keywords** | EU tariff countermeasures, SRMR3, Banking Union trilogue, Anti-Corruption Directive, COD procedures 2026, European Parliament Q2 |
 | **Justification** | Trade deadline urgency (7.40 adjusted significance) combined with Banking Union institutional complexity creates the strongest narrative arc for a legislative procedures article. The Anti-Corruption milestone and pipeline analysis provide depth. |
 
-### Risk Assessment
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/propositions-run41/risk-scoring/risk-assessment.md" rel="noopener">View source: <code>risk-scoring/risk-assessment.md</code></a></p>
-
-### 📋 Risk Context
-
-| Field | Value |
-|-------|-------|
-| **Risk ID** | `RSK-2026-04-13-RUN41` |
-| **Analysis Date** | 2026-04-13 |
-| **Period** | Easter Recess → Post-Recess Restart (2026-04-14) |
-| **Political Context** | Final day of 18-day Easter recess. Parliament returns April 14 with compressed legislative calendar. US tariff deadline April 15. 13 COD procedures from 2026 in committee pipeline. Banking Union package entering trilogue. |
-| **Parliamentary Term** | EP10 (10th European Parliament) |
-| **Overall Risk Level** | 🟠 HIGH |
-
-### 📊 Risk Methodology
-
-Risk Score = Likelihood (1–5) × Impact (1–5)
-- 1–4: 🟢 Low | 5–9: 🟡 Medium | 10–14: 🟠 High | 15–25: 🔴 Critical
-
-### 🔴 Risk Inventory
-
-#### Risk 1: Trade Policy Escalation (RSK-TRADE-001)
-
-| Factor | Value |
-|--------|-------|
-| **Description** | US tariff countermeasures (TA-10-2026-0096) implementation deadline April 15 coincides with Parliament's return. INTA committee faces immediate pressure to convene emergency session. If EU retaliatory measures trigger further US escalation, Parliament's legislative calendar could be dominated by emergency trade legislation, crowding out other COD procedures. |
-| **Likelihood** | 4 (Likely) |
-| **Impact** | 4 (Major) |
-| **Risk Score** | **16** 🔴 Critical |
-| **Tier** | CRITICAL |
-| **Trajectory** | ↑ Accelerating (was 12 on April 10) |
-| **Mitigation** | INTA pre-positioning with graduated response framework. Commission empowered for autonomous trade defence measures. |
-
-**Evidence**: TA-10-2026-0096 adopted March 26 with broad cross-party support. EU-China tariff modifications (TA-10-2026-0101) show parallel trade friction. Prior analysis (April 10) identified this as top risk — now 2 days closer to deadline.
-
-#### Risk 2: Legislative Pipeline Congestion (RSK-PIPE-001)
-
-| Factor | Value |
-|--------|-------|
-| **Description** | 13 new COD procedures filed in 2026 (0008 through 0085), plus active 2025 carryovers. The 18-day recess created a legislative bottleneck — committees must process accumulated Commission proposals while handling the Banking Union trilogue and post-tariff emergency measures. Historical EP10 data shows committees average 45 days per report; current backlog suggests 60+ days risk. |
-| **Likelihood** | 4 (Likely) |
-| **Impact** | 3 (Moderate) |
-| **Risk Score** | **12** 🟠 High |
-| **Tier** | HIGH |
-| **Trajectory** | → Stable (structural, not event-driven) |
-| **Mitigation** | Committee coordinators typically prioritize files by political urgency. Rapporteur pre-work during recess possible. |
-
-**Evidence**: 2026 procedure list shows 13 COD procedures, 4 BUD, 6 NLE. March plenaries adopted 24 texts, indicating active output phase. Pipeline throughput will be tested post-restart.
-
-#### Risk 3: Banking Union Trilogue Deadlock (RSK-BANK-001)
-
-| Factor | Value |
-|--------|-------|
-| **Description** | The Banking Union triple package (SRMR3/TA-10-2026-0092, BRRD3/TA-10-2026-0091, DGSD2/TA-10-2026-0090) was adopted by Parliament on March 26. Council position formation is pending. Germany and Netherlands historically oppose deposit guarantee mutualisation (DGSD2). If Council fragments, trilogue could stall for months, blocking a cornerstone of Eurozone financial architecture. |
-| **Likelihood** | 3 (Possible) |
-| **Impact** | 4 (Major) |
-| **Risk Score** | **12** 🟠 High |
-| **Tier** | HIGH |
-| **Trajectory** | → Stable |
-| **Mitigation** | Polish Council presidency may seek compromise formula separating DGSD2 timeline from SRMR3/BRRD3 adoption. |
-
-**Evidence**: ECON committee report A-10-2026-0067 underpins SRMR3. Prior April 10 analysis identified Germany/Netherlands opposition as key blocking factor. Council General Approach pending.
-
-#### Risk 4: Anti-Corruption Directive Transposition Compliance (RSK-CORR-001)
-
-| Factor | Value |
-|--------|-------|
-| **Description** | First EU-wide anti-corruption directive (TA-10-2026-0094) adopted March 26 starts 24-month transposition clock. Several member states with weak anti-corruption track records (Hungary, Bulgaria, Romania per CPI rankings) may delay or dilute transposition, creating uneven implementation. |
-| **Likelihood** | 3 (Possible) |
-| **Impact** | 3 (Moderate) |
-| **Risk Score** | **9** 🟡 Medium |
-| **Tier** | MEDIUM |
-| **Trajectory** | → Stable (new risk, baseline established) |
-| **Mitigation** | Commission infringement procedures. LIBE committee monitoring mandate. |
-
-#### Risk 5: Geopolitical Calendar Compression (RSK-GEO-001)
-
-| Factor | Value |
-|--------|-------|
-| **Description** | WTO 14th Ministerial Conference (March 26-29, per TA-10-2026-0086 EP mandate adopted just before recess), US tariff deadline April 15, and EU-China tariff negotiations all converge in a 3-week window. Parliament lacks structured capacity to monitor all three simultaneously, risking inconsistent trade policy signals. |
-| **Likelihood** | 3 (Possible) |
-| **Impact** | 3 (Moderate) |
-| **Risk Score** | **9** 🟡 Medium |
-| **Tier** | MEDIUM |
-| **Trajectory** | ↑ Rising (calendar convergence) |
-
-### 📊 Cascading Risk Chain
-
-```mermaid
-%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
-flowchart TD
-    A["🔴 US Tariff Deadline<br/>April 15<br/>L4×I4=16"] -->|escalation| B["🟠 INTA Emergency Session<br/>L4×I3=12"]
-    B -->|calendar crowding| C["🟠 Pipeline Congestion<br/>L4×I3=12"]
-    C -->|delayed reports| D["🟡 Banking Trilogue Slip<br/>L3×I4=12"]
-    A -->|retaliation spiral| E["🟡 EU-China Trade Tension<br/>L3×I3=9"]
-    D -->|investor uncertainty| F["🟡 Eurozone Stability<br/>L2×I4=8"]
-    
-    style A fill:#ff4444,color:#fff
-    style B fill:#ff8800,color:#fff
-    style C fill:#ff8800,color:#fff
-    style D fill:#ffcc00,color:#000
-    style E fill:#ffcc00,color:#000
-    style F fill:#ffcc00,color:#000
-```
-
-**Circuit breakers**: Commission autonomous trade defence (bypasses EP), Council presidency prioritization of Banking Union.
-
-### 📊 Risk Interconnection Map
-
-| Dimension | Score Range | Highest Risk | Trend |
-|-----------|:---------:|-------------|:-----:|
-| Trade Policy | 9–16 | US Tariff Escalation | ↑ |
-| Financial Regulation | 8–12 | Banking Union Trilogue | → |
-| Pipeline Management | 9–12 | Post-Recess Congestion | → |
-| Rule of Law | 6–9 | Anti-Corruption Transposition | → |
-| Geopolitical | 6–9 | Calendar Compression | ↑ |
-| Institutional | 4–6 | Committee Capacity | → |
-
-**System fragility assessment**: 2 categories at HIGH or above (Trade, Pipeline). System is under stress but not in fragile state (threshold: 3 categories ≥10). Trade escalation is the single most likely trigger for cascade.
-
-### 🔮 Forward Indicators & Scenario Outlook
-
-| Scenario | Probability | Trigger | Dimensions |
-|----------|:---------:|---------|-----------|
-| **Orderly Restart** — Committees absorb backlog, tariff deadline managed through Commission action | 50% | Commission trade defence announcement pre-April 15 | Trade ↓, Pipeline → |
-| **Trade-Dominated Calendar** — INTA emergency drives agenda, Banking Union delayed to Q3 | 35% | US counter-retaliation post-April 15 | Trade ↑↑, Pipeline ↑, Banking ↑ |
-| **Full Gridlock** — Multiple crises converge, key COD procedures stall | 15% | US escalation + Council Banking Union rejection | All dimensions ↑ |
-
-### 📊 Risk Summary
-
-| Rank | Risk | Score | Tier | Trajectory |
-|:----:|------|:-----:|------|:----------:|
-| 1 | Trade Policy Escalation | 16 | 🔴 Critical | ↑ |
-| 2 | Pipeline Congestion | 12 | 🟠 High | → |
-| 3 | Banking Trilogue Deadlock | 12 | 🟠 High | → |
-| 4 | Anti-Corruption Transposition | 9 | 🟡 Medium | → |
-| 5 | Geopolitical Calendar | 9 | 🟡 Medium | ↑ |
-
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 
 This article is produced under the [Hack23 AB](https://hack23.com) intelligence tradecraft library. Every methodology and artifact template applied to this run is linked below.
@@ -1144,12 +1147,12 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-actors-forces | [political-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/propositions-run41/classification/political-classification.md) | `classification/political-classification.md` |
+| section-actors-forces | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/propositions-run41/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-stakeholder-map | [stakeholder-impact](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/propositions-run41/existing/stakeholder-impact.md) | `existing/stakeholder-impact.md` |
+| section-risk | [risk-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/propositions-run41/risk-scoring/risk-assessment.md) | `risk-scoring/risk-assessment.md` |
 | section-threat | [threat-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/propositions-run41/threat-assessment/threat-analysis.md) | `threat-assessment/threat-analysis.md` |
 | section-deep-analysis | [deep-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/propositions-run41/existing/deep-analysis.md) | `existing/deep-analysis.md` |
-| section-supplementary-intelligence | [political-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/propositions-run41/classification/political-classification.md) | `classification/political-classification.md` |
-| section-supplementary-intelligence | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/propositions-run41/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-supplementary-intelligence | [swot-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/propositions-run41/existing/swot-analysis.md) | `existing/swot-analysis.md` |
 | section-supplementary-intelligence | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/propositions-run41/existing/synthesis-summary.md) | `existing/synthesis-summary.md` |
-| section-supplementary-intelligence | [risk-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/propositions-run41/risk-scoring/risk-assessment.md) | `risk-scoring/risk-assessment.md` |
 

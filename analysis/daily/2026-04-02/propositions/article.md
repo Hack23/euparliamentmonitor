@@ -129,6 +129,75 @@ pie title Impact Distribution by Dimension — 2026-04-02
 
 ### Date: 2026-04-02
 
+### Significance Assessment
+
+<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-02/propositions/classification/significance-assessment.md" rel="noopener">View source: <code>classification/significance-assessment.md</code></a></p>
+
+### Overall Significance: **ROUTINE**
+
+```mermaid
+%%{init: {
+  "theme": "dark",
+  "themeVariables": {
+    "quadrant1Fill": "#1565C0",
+    "quadrant2Fill": "#2E7D32",
+    "quadrant3Fill": "#FF9800",
+    "quadrant4Fill": "#D32F2F",
+    "quadrantTitleFill": "#ffffff",
+    "quadrantPointFill": "#ffffff",
+    "quadrantPointTextFill": "#ffffff",
+    "quadrantXAxisTextFill": "#ffffff",
+    "quadrantYAxisTextFill": "#ffffff"
+  },
+  "quadrantChart": {
+    "chartWidth": 700,
+    "chartHeight": 700,
+    "pointLabelFontSize": 14,
+    "titleFontSize": 22,
+    "quadrantLabelFontSize": 18,
+    "xAxisLabelFontSize": 16,
+    "yAxisLabelFontSize": 16
+  }
+}}%%
+quadrantChart
+    title Political Significance Assessment — 2026-04-02
+    x-axis Low Volume --> High Volume
+    y-axis Low Impact --> High Impact
+    quadrant-1 Critical Watch
+    quadrant-2 Strategic Priority
+    quadrant-3 Monitor
+    quadrant-4 Routine Track
+    Current Assessment: [0.25, 0.25]
+    Events Signal: [0.00, 0.60]
+    Documents Signal: [0.00, 0.55]
+    Procedures Signal: [0.00, 0.75]
+    Adopted Texts: [0.95, 0.85]
+```
+
+### 5-Signal Model Scores
+
+| Signal | Raw Data | Score |
+|--------|----------|-------|
+| Volume | 0 events, 0 documents | 0.0/5 |
+| Pipeline | 0 procedures | 0.0/5 |
+| Output | 114 adopted texts | 5.0/5 |
+| Anomalies | Pattern deviation detection | — |
+| Coalition | Group alignment analysis | — |
+
+### Data Summary
+
+| Metric | Value |
+|--------|-------|
+| Computed significance | ROUTINE |
+| Total data points | 114 |
+| Events | 0 |
+| Documents | 0 |
+| Procedures | 0 |
+| Adopted texts | 114 |
+| Date | 2026-04-02 |
+
+### Date: 2026-04-02
+
 <h2 id="section-coalitions-voting">Coalitions & Voting</h2>
 
 ### Voting Patterns
@@ -392,6 +461,43 @@ Risk assessment based on legislative processing speed for 0 procedures.
 - **High/Critical risks**: 0
 - **Date**: 2026-04-02
 
+### Agent Risk Workflow
+
+<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-02/propositions/risk-scoring/agent-risk-workflow.md" rel="noopener">View source: <code>risk-scoring/agent-risk-workflow.md</code></a></p>
+
+### Risk Heat Map
+
+| Impact ↓ / Likelihood → | Rare | Unlikely | Possible | Likely | Almost Certain |
+|--------------------------|------|----------|----------|--------|----------------|
+| **Severe** | 🟢 | 🟡 | 🟠 | 🟠 | 🔴 |
+| **Major** | 🟢 | 🟡 | 🟡 | 🟠 | 🔴 |
+| **Moderate** | 🟢 | 🟢 | 🟡 | 🟠 | 🟠 |
+| **Minor** | 🟢 | 🟢 | 🟢 | 🟡 | 🟡 |
+| **Negligible** | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 |
+
+### Identified Risks
+
+#### RISK-W00: Baseline political risk
+- **Likelihood**: rare (0.1) | **Impact**: minor (2) | **Score**: 0.2 (LOW) | **Confidence**: low
+- **Evidence**: Routine parliamentary activity
+- **Mitigating Factors**: Stable institutional framework
+
+### Risk Evaluation Matrix
+
+| Rank | Risk ID | Description | Score | Level | Confidence |
+|------|---------|-------------|-------|-------|------------|
+| 1 | RISK-W00 | Baseline political risk | 0.2 | LOW | low |
+
+### Risk Treatment Plan
+
+- Monitor legislative velocity indicators
+- Track coalition voting patterns
+
+### Recommendations
+
+- Monitor legislative velocity indicators
+- Track coalition voting patterns
+
 <h2 id="section-threat">Threat Landscape</h2>
 
 ### Actor Threat Profiles
@@ -602,75 +708,6 @@ Analysis of coalition stability patterns across multiple plenary sessions.
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
-### Significance Assessment
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-02/propositions/classification/significance-assessment.md" rel="noopener">View source: <code>classification/significance-assessment.md</code></a></p>
-
-### Overall Significance: **ROUTINE**
-
-```mermaid
-%%{init: {
-  "theme": "dark",
-  "themeVariables": {
-    "quadrant1Fill": "#1565C0",
-    "quadrant2Fill": "#2E7D32",
-    "quadrant3Fill": "#FF9800",
-    "quadrant4Fill": "#D32F2F",
-    "quadrantTitleFill": "#ffffff",
-    "quadrantPointFill": "#ffffff",
-    "quadrantPointTextFill": "#ffffff",
-    "quadrantXAxisTextFill": "#ffffff",
-    "quadrantYAxisTextFill": "#ffffff"
-  },
-  "quadrantChart": {
-    "chartWidth": 700,
-    "chartHeight": 700,
-    "pointLabelFontSize": 14,
-    "titleFontSize": 22,
-    "quadrantLabelFontSize": 18,
-    "xAxisLabelFontSize": 16,
-    "yAxisLabelFontSize": 16
-  }
-}}%%
-quadrantChart
-    title Political Significance Assessment — 2026-04-02
-    x-axis Low Volume --> High Volume
-    y-axis Low Impact --> High Impact
-    quadrant-1 Critical Watch
-    quadrant-2 Strategic Priority
-    quadrant-3 Monitor
-    quadrant-4 Routine Track
-    Current Assessment: [0.25, 0.25]
-    Events Signal: [0.00, 0.60]
-    Documents Signal: [0.00, 0.55]
-    Procedures Signal: [0.00, 0.75]
-    Adopted Texts: [0.95, 0.85]
-```
-
-### 5-Signal Model Scores
-
-| Signal | Raw Data | Score |
-|--------|----------|-------|
-| Volume | 0 events, 0 documents | 0.0/5 |
-| Pipeline | 0 procedures | 0.0/5 |
-| Output | 114 adopted texts | 5.0/5 |
-| Anomalies | Pattern deviation detection | — |
-| Coalition | Group alignment analysis | — |
-
-### Data Summary
-
-| Metric | Value |
-|--------|-------|
-| Computed significance | ROUTINE |
-| Total data points | 114 |
-| Events | 0 |
-| Documents | 0 |
-| Procedures | 0 |
-| Adopted texts | 114 |
-| Date | 2026-04-02 |
-
-### Date: 2026-04-02
-
 ### Coalition Analysis
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-02/propositions/existing/coalition-analysis.md" rel="noopener">View source: <code>existing/coalition-analysis.md</code></a></p>
@@ -725,43 +762,6 @@ Analysis of political group cohesion and coalition dynamics.
 | corporateBodies | 0 |
 
 ### Date: 2026-04-02
-
-### Agent Risk Workflow
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-02/propositions/risk-scoring/agent-risk-workflow.md" rel="noopener">View source: <code>risk-scoring/agent-risk-workflow.md</code></a></p>
-
-### Risk Heat Map
-
-| Impact ↓ / Likelihood → | Rare | Unlikely | Possible | Likely | Almost Certain |
-|--------------------------|------|----------|----------|--------|----------------|
-| **Severe** | 🟢 | 🟡 | 🟠 | 🟠 | 🔴 |
-| **Major** | 🟢 | 🟡 | 🟡 | 🟠 | 🔴 |
-| **Moderate** | 🟢 | 🟢 | 🟡 | 🟠 | 🟠 |
-| **Minor** | 🟢 | 🟢 | 🟢 | 🟡 | 🟡 |
-| **Negligible** | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 |
-
-### Identified Risks
-
-#### RISK-W00: Baseline political risk
-- **Likelihood**: rare (0.1) | **Impact**: minor (2) | **Score**: 0.2 (LOW) | **Confidence**: low
-- **Evidence**: Routine parliamentary activity
-- **Mitigating Factors**: Stable institutional framework
-
-### Risk Evaluation Matrix
-
-| Rank | Risk ID | Description | Score | Level | Confidence |
-|------|---------|-------------|-------|-------|------------|
-| 1 | RISK-W00 | Baseline political risk | 0.2 | LOW | low |
-
-### Risk Treatment Plan
-
-- Monitor legislative velocity indicators
-- Track coalition voting patterns
-
-### Recommendations
-
-- Monitor legislative velocity indicators
-- Track coalition voting patterns
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 
@@ -851,19 +851,19 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-actors-forces | [actor-mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-02/propositions/classification/actor-mapping.md) | `classification/actor-mapping.md` |
 | section-actors-forces | [forces-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-02/propositions/classification/forces-analysis.md) | `classification/forces-analysis.md` |
 | section-actors-forces | [impact-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-02/propositions/classification/impact-matrix.md) | `classification/impact-matrix.md` |
+| section-actors-forces | [significance-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-02/propositions/classification/significance-assessment.md) | `classification/significance-assessment.md` |
 | section-coalitions-voting | [voting-patterns](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-02/propositions/existing/voting-patterns.md) | `existing/voting-patterns.md` |
 | section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-02/propositions/risk-scoring/risk-matrix.md) | `risk-scoring/risk-matrix.md` |
 | section-risk | [quantitative-swot](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-02/propositions/risk-scoring/quantitative-swot.md) | `risk-scoring/quantitative-swot.md` |
 | section-risk | [political-capital-risk](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-02/propositions/risk-scoring/political-capital-risk.md) | `risk-scoring/political-capital-risk.md` |
 | section-risk | [legislative-velocity-risk](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-02/propositions/risk-scoring/legislative-velocity-risk.md) | `risk-scoring/legislative-velocity-risk.md` |
+| section-risk | [agent-risk-workflow](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-02/propositions/risk-scoring/agent-risk-workflow.md) | `risk-scoring/agent-risk-workflow.md` |
 | section-threat | [actor-threat-profiles](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-02/propositions/threat-assessment/actor-threat-profiles.md) | `threat-assessment/actor-threat-profiles.md` |
 | section-threat | [consequence-trees](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-02/propositions/threat-assessment/consequence-trees.md) | `threat-assessment/consequence-trees.md` |
 | section-threat | [legislative-disruption](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-02/propositions/threat-assessment/legislative-disruption.md) | `threat-assessment/legislative-disruption.md` |
 | section-threat | [political-threat-landscape](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-02/propositions/threat-assessment/political-threat-landscape.md) | `threat-assessment/political-threat-landscape.md` |
 | section-continuity | [cross-session-intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-02/propositions/existing/cross-session-intelligence.md) | `existing/cross-session-intelligence.md` |
 | section-deep-analysis | [deep-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-02/propositions/existing/deep-analysis.md) | `existing/deep-analysis.md` |
-| section-supplementary-intelligence | [significance-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-02/propositions/classification/significance-assessment.md) | `classification/significance-assessment.md` |
 | section-supplementary-intelligence | [coalition-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-02/propositions/existing/coalition-analysis.md) | `existing/coalition-analysis.md` |
 | section-supplementary-intelligence | [stakeholder-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-02/propositions/existing/stakeholder-analysis.md) | `existing/stakeholder-analysis.md` |
-| section-supplementary-intelligence | [agent-risk-workflow](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-02/propositions/risk-scoring/agent-risk-workflow.md) | `risk-scoring/agent-risk-workflow.md` |
 

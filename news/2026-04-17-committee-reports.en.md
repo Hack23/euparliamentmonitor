@@ -31,6 +31,58 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `existing/stakeholder-impact.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
 
+<h2 id="section-actors-forces">Actors & Forces</h2>
+
+### Significance Scoring
+
+<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/committee-reports-run53/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
+
+### Executive Summary
+
+The March 2026 Strasbourg sessions produced a multi-domain legislative sprint across five committee jurisdictions. This scoring identifies the highest-priority items for today's committee reports article, **deliberately differentiating** from prior runs (Run 52: Banking Union/tariffs; Run 180: Defence cluster).
+
+---
+
+### Top-Scored Items for Article Coverage
+
+| Rank | Text | Committee | Policy Domain | Score | Significance |
+|------|------|-----------|---------------|-------|--------------|
+| 1 | TA-10-2026-0058: EU Talent Pool | EMPL/IMMI | Labour/Migration | 8.5/10 | **HIGH** |
+| 2 | TA-10-2026-0066: Copyright + Generative AI | JURI/IMCO | Digital/IP | 8.3/10 | **HIGH** |
+| 3 | TA-10-2026-0084: Heavy-Duty Vehicle Emissions | ENVI/TRAN | Climate/Transport | 7.8/10 | **HIGH** |
+| 4 | TA-10-2026-0076: European Semester Employment 2026 | EMPL | Labour/Social | 7.5/10 | **HIGH** |
+| 5 | TA-10-2026-0050: Subcontracting Chains/Workers' Rights | EMPL | Labour | 7.2/10 | **MEDIUM-HIGH** |
+| 6 | TA-10-2026-0022: Digital Infrastructure/Sovereignty | ITRE/TELE | Digital | 7.0/10 | **MEDIUM-HIGH** |
+| 7 | TA-10-2026-0064: Housing Crisis Resolution | REGI | Social | 6.8/10 | **MEDIUM** |
+| 8 | TA-10-2026-0086: WTO MC14 Multilateral Negotiations | INTA | Trade | 6.5/10 | **MEDIUM** |
+| 9 | TA-10-2026-0101: EU-China Tariff Quotas | INTA | Trade/China | 6.3/10 | **MEDIUM** |
+| 10 | TA-10-2026-0104: Global Gateway Review | DEVE/INTA | External/Development | 6.0/10 | **MEDIUM** |
+
+---
+
+### Scoring Methodology
+
+**Criteria (1-10 scale each):**
+- **Political Salience**: Cross-group controversy, coalition fault lines
+- **Citizen Impact**: Direct effect on EU citizens' daily lives
+- **Institutional Significance**: Inter-institutional implications, precedent-setting
+- **Timeliness**: Relevance to current political calendar
+- **Coverage Differentiation**: Not already covered in runs 176-180
+
+---
+
+### ARTICLE ANGLE — Final Determination
+
+**Selected Angle**: The **EMPL-ITRE-ENVI Triple Thread** — Labour market reform, digital copyright governance, and clean transport compliance converge in EP's March sprint, revealing new coalition boundaries ahead of the post-Easter legislative calendar.
+
+**Primary Focus**: EMPL committee's Talent Pool + workers' rights agenda, JURI/ITRE copyright-AI nexus, ENVI/TRAN heavy-duty vehicle emissions
+
+**Headline candidate**: "Copyright, Talent Pool and Clean Trucks: EP Committees Complete March Sprint Before Easter Recess"
+
+**Revised headline**: "EP Advances Workers' Rights, AI Copyright and Clean Transport in Diverse March Sprint"
+
+🟢 **Confidence**: MEDIUM (data from adopted texts record is reliable; committee-level voting detail unavailable in degraded mode)
+
 <h2 id="section-stakeholder-map">Stakeholder Map</h2>
 
 ### Stakeholder Impact
@@ -405,56 +457,6 @@ The March sprint's achievements face a challenging political environment as Parl
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
-### Significance Scoring
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/committee-reports-run53/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
-
-### Executive Summary
-
-The March 2026 Strasbourg sessions produced a multi-domain legislative sprint across five committee jurisdictions. This scoring identifies the highest-priority items for today's committee reports article, **deliberately differentiating** from prior runs (Run 52: Banking Union/tariffs; Run 180: Defence cluster).
-
----
-
-### Top-Scored Items for Article Coverage
-
-| Rank | Text | Committee | Policy Domain | Score | Significance |
-|------|------|-----------|---------------|-------|--------------|
-| 1 | TA-10-2026-0058: EU Talent Pool | EMPL/IMMI | Labour/Migration | 8.5/10 | **HIGH** |
-| 2 | TA-10-2026-0066: Copyright + Generative AI | JURI/IMCO | Digital/IP | 8.3/10 | **HIGH** |
-| 3 | TA-10-2026-0084: Heavy-Duty Vehicle Emissions | ENVI/TRAN | Climate/Transport | 7.8/10 | **HIGH** |
-| 4 | TA-10-2026-0076: European Semester Employment 2026 | EMPL | Labour/Social | 7.5/10 | **HIGH** |
-| 5 | TA-10-2026-0050: Subcontracting Chains/Workers' Rights | EMPL | Labour | 7.2/10 | **MEDIUM-HIGH** |
-| 6 | TA-10-2026-0022: Digital Infrastructure/Sovereignty | ITRE/TELE | Digital | 7.0/10 | **MEDIUM-HIGH** |
-| 7 | TA-10-2026-0064: Housing Crisis Resolution | REGI | Social | 6.8/10 | **MEDIUM** |
-| 8 | TA-10-2026-0086: WTO MC14 Multilateral Negotiations | INTA | Trade | 6.5/10 | **MEDIUM** |
-| 9 | TA-10-2026-0101: EU-China Tariff Quotas | INTA | Trade/China | 6.3/10 | **MEDIUM** |
-| 10 | TA-10-2026-0104: Global Gateway Review | DEVE/INTA | External/Development | 6.0/10 | **MEDIUM** |
-
----
-
-### Scoring Methodology
-
-**Criteria (1-10 scale each):**
-- **Political Salience**: Cross-group controversy, coalition fault lines
-- **Citizen Impact**: Direct effect on EU citizens' daily lives
-- **Institutional Significance**: Inter-institutional implications, precedent-setting
-- **Timeliness**: Relevance to current political calendar
-- **Coverage Differentiation**: Not already covered in runs 176-180
-
----
-
-### ARTICLE ANGLE — Final Determination
-
-**Selected Angle**: The **EMPL-ITRE-ENVI Triple Thread** — Labour market reform, digital copyright governance, and clean transport compliance converge in EP's March sprint, revealing new coalition boundaries ahead of the post-Easter legislative calendar.
-
-**Primary Focus**: EMPL committee's Talent Pool + workers' rights agenda, JURI/ITRE copyright-AI nexus, ENVI/TRAN heavy-duty vehicle emissions
-
-**Headline candidate**: "Copyright, Talent Pool and Clean Trucks: EP Committees Complete March Sprint Before Easter Recess"
-
-**Revised headline**: "EP Advances Workers' Rights, AI Copyright and Clean Transport in Diverse March Sprint"
-
-🟢 **Confidence**: MEDIUM (data from adopted texts record is reliable; committee-level voting detail unavailable in degraded mode)
-
 ### Committee Power Analysis
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/committee-reports-run53/existing/committee-power-analysis.md" rel="noopener">View source: <code>existing/committee-power-analysis.md</code></a></p>
@@ -747,11 +749,11 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-actors-forces | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/committee-reports-run53/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-stakeholder-map | [stakeholder-impact](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/committee-reports-run53/existing/stakeholder-impact.md) | `existing/stakeholder-impact.md` |
 | section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/committee-reports-run53/risk-scoring/risk-matrix.md) | `risk-scoring/risk-matrix.md` |
 | section-threat | [formal-risk-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/committee-reports-run53/threat-assessment/formal-risk-assessment.md) | `threat-assessment/formal-risk-assessment.md` |
 | section-deep-analysis | [deep-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/committee-reports-run53/existing/deep-analysis.md) | `existing/deep-analysis.md` |
-| section-supplementary-intelligence | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/committee-reports-run53/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-supplementary-intelligence | [committee-power-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/committee-reports-run53/existing/committee-power-analysis.md) | `existing/committee-power-analysis.md` |
 | section-supplementary-intelligence | [swot-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/committee-reports-run53/existing/swot-analysis.md) | `existing/swot-analysis.md` |
 | section-supplementary-intelligence | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/committee-reports-run53/existing/synthesis-summary.md) | `existing/synthesis-summary.md` |

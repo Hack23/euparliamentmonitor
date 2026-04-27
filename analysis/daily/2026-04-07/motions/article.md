@@ -202,6 +202,57 @@ pie title Impact Distribution by Dimension — 2026-04-07
 
 ### Date: 2026-04-07
 
+### Significance Scoring
+
+<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/motions/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
+
+### Summary
+
+| Decision | Count |
+|----------|:-----:|
+| 📰 Publish | 0 |
+| 📋 Hold | 34 |
+| 🗄️ Skip | 0 |
+
+### Batch Scoring
+
+| Event | EP Reference | Parl. | Policy | Public | Urgency | Instit. | **Composite** | Decision |
+|-------|-------------|:-----:|:------:|:------:|:-------:|:-------:|:-------------:|----------|
+| Early intervention measures, conditions for resolution and funding of resolution action (SRMR3) | TA-10-2026-0092 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| Scope of deposit protection, use of deposit guarantee schemes funds, cross-border cooperation, and transparency (DGSD2) | TA-10-2026-0090 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| Combating corruption | TA-10-2026-0094 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| Adjustment of customs duties and opening of tariff quotas for the import of certain goods originating in the United States of America | TA-10-2026-0096 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| Non-application of customs duties on imports of certain goods | TA-10-2026-0097 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| Surface water and groundwater pollutants | TA-10-2026-0093 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| Global Gateway - past impacts and future orientation | TA-10-2026-0104 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| EU-China Agreement: modification of concessions on all the tariff rate quotas included in the EU Schedule CLXXV | TA-10-2026-0101 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| EU-Lebanon Agreement for scientific and technological cooperation setting, participation of Lebanon in the Partnership for Research and Innovation in the Mediterranean Area (PRIMA) | TA-10-2026-0100 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| United Nations Convention on the International Effects of Judicial Sales of Ships | TA-10-2026-0099 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| Mobilisation of the European Globalisation Adjustment Fund for Displaced Workers: application EGF/2025/005 AT/KTM - Austria | TA-10-2026-0103 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| Mobilisation of the European Globalisation Adjustment Fund for Displaced Workers: application EGF/2025/007 BE/Casa - Belgium | TA-10-2026-0102 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| Amending Regulation (EU) 2021/1232 as regards the extension of its period of application | TA-10-2026-0095 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| Request for the waiver of the immunity of Grzegorz Braun | TA-10-2026-0087 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| Request for the waiver of the immunity of Grzegorz Braun | TA-10-2026-0088 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| Request for the waiver of the immunity of Nikos Pappas | TA-10-2026-0089 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| Copyright and generative artificial intelligence - opportunities and challenges | TA-10-2026-0066 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| Housing crisis in the European Union with the aim of proposing solutions for decent, sustainable and affordable housing | TA-10-2026-0064 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| EU Talent Pool | TA-10-2026-0058 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| EU enlargement strategy | TA-10-2026-0077 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| Recommendation on enhanced EU-Canada cooperation in the current geopolitical context, including the threats to Canada's economic stability and sovereignty | TA-10-2026-0078 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| Tackling barriers to the single market for defence | TA-10-2026-0079 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| Flagship European defence projects of common interest | TA-10-2026-0080 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| Multilateral negotiations in view of the WTO's 14th Ministerial Conference in Yaounde, 26 to 29 March 2026 | TA-10-2026-0086 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| Package travel and linked travel arrangements: make the protection of travellers more effective and simplify certain aspects | TA-10-2026-0085 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| Case of Elene Khoshtaria and political prisoners under the Georgian Dream regime | TA-10-2026-0083 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| Harmonising certain aspects of insolvency law | TA-10-2026-0057 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| European Union regulatory fitness and subsidiarity and proportionality - report on Better Law-Making covering 2023 and 2024 | TA-10-2026-0063 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| Public access to documents - report 2022-2024 | TA-10-2026-0065 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| European Semester for economic policy coordination: employment and social priorities for 2026 | TA-10-2026-0076 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| Framework Agreement on relations between the European Parliament and the European Commission | TA-10-2026-0069 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| Council of Europe Framework Convention on Artificial Intelligence and Human Rights, Democracy and the Rule of Law | TA-10-2026-0071 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| Gender pay and pension gap in the EU | TA-10-2026-0074 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| Calculation of emission credits for heavy-duty vehicles for the reporting periods of the years 2025 to 2029 | TA-10-2026-0084 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+
 <h2 id="section-coalitions-voting">Coalitions & Voting</h2>
 
 ### Voting Patterns
@@ -533,6 +584,43 @@ Risk assessment based on legislative processing speed for 0 procedures.
 - **High/Critical risks**: 0
 - **Date**: 2026-04-07
 
+### Agent Risk Workflow
+
+<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/motions/risk-scoring/agent-risk-workflow.md" rel="noopener">View source: <code>risk-scoring/agent-risk-workflow.md</code></a></p>
+
+### Risk Heat Map
+
+| Impact ↓ / Likelihood → | Rare | Unlikely | Possible | Likely | Almost Certain |
+|--------------------------|------|----------|----------|--------|----------------|
+| **Severe** | 🟢 | 🟡 | 🟠 | 🟠 | 🔴 |
+| **Major** | 🟢 | 🟡 | 🟡 | 🟠 | 🔴 |
+| **Moderate** | 🟢 | 🟢 | 🟡 | 🟠 | 🟠 |
+| **Minor** | 🟢 | 🟢 | 🟢 | 🟡 | 🟡 |
+| **Negligible** | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 |
+
+### Identified Risks
+
+#### RISK-W00: Baseline political risk
+- **Likelihood**: rare (0.1) | **Impact**: minor (2) | **Score**: 0.2 (LOW) | **Confidence**: low
+- **Evidence**: Routine parliamentary activity
+- **Mitigating Factors**: Stable institutional framework
+
+### Risk Evaluation Matrix
+
+| Rank | Risk ID | Description | Score | Level | Confidence |
+|------|---------|-------------|-------|-------|------------|
+| 1 | RISK-W00 | Baseline political risk | 0.2 | LOW | low |
+
+### Risk Treatment Plan
+
+- Monitor legislative velocity indicators
+- Track coalition voting patterns
+
+### Recommendations
+
+- Monitor legislative velocity indicators
+- Track coalition voting patterns
+
 <h2 id="section-threat">Threat Landscape</h2>
 
 ### Actor Threat Profiling
@@ -773,57 +861,6 @@ graph TD
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
-### Significance Scoring
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/motions/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
-
-### Summary
-
-| Decision | Count |
-|----------|:-----:|
-| 📰 Publish | 0 |
-| 📋 Hold | 34 |
-| 🗄️ Skip | 0 |
-
-### Batch Scoring
-
-| Event | EP Reference | Parl. | Policy | Public | Urgency | Instit. | **Composite** | Decision |
-|-------|-------------|:-----:|:------:|:------:|:-------:|:-------:|:-------------:|----------|
-| Early intervention measures, conditions for resolution and funding of resolution action (SRMR3) | TA-10-2026-0092 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| Scope of deposit protection, use of deposit guarantee schemes funds, cross-border cooperation, and transparency (DGSD2) | TA-10-2026-0090 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| Combating corruption | TA-10-2026-0094 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| Adjustment of customs duties and opening of tariff quotas for the import of certain goods originating in the United States of America | TA-10-2026-0096 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| Non-application of customs duties on imports of certain goods | TA-10-2026-0097 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| Surface water and groundwater pollutants | TA-10-2026-0093 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| Global Gateway - past impacts and future orientation | TA-10-2026-0104 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| EU-China Agreement: modification of concessions on all the tariff rate quotas included in the EU Schedule CLXXV | TA-10-2026-0101 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| EU-Lebanon Agreement for scientific and technological cooperation setting, participation of Lebanon in the Partnership for Research and Innovation in the Mediterranean Area (PRIMA) | TA-10-2026-0100 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| United Nations Convention on the International Effects of Judicial Sales of Ships | TA-10-2026-0099 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| Mobilisation of the European Globalisation Adjustment Fund for Displaced Workers: application EGF/2025/005 AT/KTM - Austria | TA-10-2026-0103 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| Mobilisation of the European Globalisation Adjustment Fund for Displaced Workers: application EGF/2025/007 BE/Casa - Belgium | TA-10-2026-0102 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| Amending Regulation (EU) 2021/1232 as regards the extension of its period of application | TA-10-2026-0095 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| Request for the waiver of the immunity of Grzegorz Braun | TA-10-2026-0087 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| Request for the waiver of the immunity of Grzegorz Braun | TA-10-2026-0088 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| Request for the waiver of the immunity of Nikos Pappas | TA-10-2026-0089 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| Copyright and generative artificial intelligence - opportunities and challenges | TA-10-2026-0066 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| Housing crisis in the European Union with the aim of proposing solutions for decent, sustainable and affordable housing | TA-10-2026-0064 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| EU Talent Pool | TA-10-2026-0058 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| EU enlargement strategy | TA-10-2026-0077 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| Recommendation on enhanced EU-Canada cooperation in the current geopolitical context, including the threats to Canada's economic stability and sovereignty | TA-10-2026-0078 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| Tackling barriers to the single market for defence | TA-10-2026-0079 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| Flagship European defence projects of common interest | TA-10-2026-0080 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| Multilateral negotiations in view of the WTO's 14th Ministerial Conference in Yaounde, 26 to 29 March 2026 | TA-10-2026-0086 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| Package travel and linked travel arrangements: make the protection of travellers more effective and simplify certain aspects | TA-10-2026-0085 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| Case of Elene Khoshtaria and political prisoners under the Georgian Dream regime | TA-10-2026-0083 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| Harmonising certain aspects of insolvency law | TA-10-2026-0057 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| European Union regulatory fitness and subsidiarity and proportionality - report on Better Law-Making covering 2023 and 2024 | TA-10-2026-0063 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| Public access to documents - report 2022-2024 | TA-10-2026-0065 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| European Semester for economic policy coordination: employment and social priorities for 2026 | TA-10-2026-0076 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| Framework Agreement on relations between the European Parliament and the European Commission | TA-10-2026-0069 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| Council of Europe Framework Convention on Artificial Intelligence and Human Rights, Democracy and the Rule of Law | TA-10-2026-0071 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| Gender pay and pension gap in the EU | TA-10-2026-0074 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| Calculation of emission credits for heavy-duty vehicles for the reporting periods of the years 2025 to 2029 | TA-10-2026-0084 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-
 ### Coalition Dynamics
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/motions/existing/coalition-dynamics.md" rel="noopener">View source: <code>existing/coalition-dynamics.md</code></a></p>
@@ -911,43 +948,6 @@ graph TD
 - 6 critical-risk mention(s) detected — consider priority coverage.
 - Threat-heavy SWOT balance — narrative may benefit from opportunity framing.
 - 19 analysis files processed — consider multi-article output.
-
-### Agent Risk Workflow
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/motions/risk-scoring/agent-risk-workflow.md" rel="noopener">View source: <code>risk-scoring/agent-risk-workflow.md</code></a></p>
-
-### Risk Heat Map
-
-| Impact ↓ / Likelihood → | Rare | Unlikely | Possible | Likely | Almost Certain |
-|--------------------------|------|----------|----------|--------|----------------|
-| **Severe** | 🟢 | 🟡 | 🟠 | 🟠 | 🔴 |
-| **Major** | 🟢 | 🟡 | 🟡 | 🟠 | 🔴 |
-| **Moderate** | 🟢 | 🟢 | 🟡 | 🟠 | 🟠 |
-| **Minor** | 🟢 | 🟢 | 🟢 | 🟡 | 🟡 |
-| **Negligible** | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 |
-
-### Identified Risks
-
-#### RISK-W00: Baseline political risk
-- **Likelihood**: rare (0.1) | **Impact**: minor (2) | **Score**: 0.2 (LOW) | **Confidence**: low
-- **Evidence**: Routine parliamentary activity
-- **Mitigating Factors**: Stable institutional framework
-
-### Risk Evaluation Matrix
-
-| Rank | Risk ID | Description | Score | Level | Confidence |
-|------|---------|-------------|-------|-------|------------|
-| 1 | RISK-W00 | Baseline political risk | 0.2 | LOW | low |
-
-### Risk Treatment Plan
-
-- Monitor legislative velocity indicators
-- Track coalition voting patterns
-
-### Recommendations
-
-- Monitor legislative velocity indicators
-- Track coalition voting patterns
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 
@@ -1038,20 +1038,20 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-actors-forces | [actor-mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/motions/classification/actor-mapping.md) | `classification/actor-mapping.md` |
 | section-actors-forces | [forces-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/motions/classification/forces-analysis.md) | `classification/forces-analysis.md` |
 | section-actors-forces | [impact-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/motions/classification/impact-matrix.md) | `classification/impact-matrix.md` |
+| section-actors-forces | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/motions/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-coalitions-voting | [voting-patterns](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/motions/existing/voting-patterns.md) | `existing/voting-patterns.md` |
 | section-stakeholder-map | [stakeholder-impact](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/motions/existing/stakeholder-impact.md) | `existing/stakeholder-impact.md` |
 | section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/motions/risk-scoring/risk-matrix.md) | `risk-scoring/risk-matrix.md` |
 | section-risk | [quantitative-swot](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/motions/risk-scoring/quantitative-swot.md) | `risk-scoring/quantitative-swot.md` |
 | section-risk | [political-capital-risk](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/motions/risk-scoring/political-capital-risk.md) | `risk-scoring/political-capital-risk.md` |
 | section-risk | [legislative-velocity-risk](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/motions/risk-scoring/legislative-velocity-risk.md) | `risk-scoring/legislative-velocity-risk.md` |
+| section-risk | [agent-risk-workflow](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/motions/risk-scoring/agent-risk-workflow.md) | `risk-scoring/agent-risk-workflow.md` |
 | section-threat | [actor-threat-profiling](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/motions/threat-assessment/actor-threat-profiling.md) | `threat-assessment/actor-threat-profiling.md` |
 | section-threat | [consequence-trees](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/motions/threat-assessment/consequence-trees.md) | `threat-assessment/consequence-trees.md` |
 | section-threat | [legislative-disruption](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/motions/threat-assessment/legislative-disruption.md) | `threat-assessment/legislative-disruption.md` |
 | section-threat | [political-threat-landscape](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/motions/threat-assessment/political-threat-landscape.md) | `threat-assessment/political-threat-landscape.md` |
 | section-continuity | [cross-session-intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/motions/existing/cross-session-intelligence.md) | `existing/cross-session-intelligence.md` |
 | section-deep-analysis | [deep-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/motions/existing/deep-analysis.md) | `existing/deep-analysis.md` |
-| section-supplementary-intelligence | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/motions/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-supplementary-intelligence | [coalition-dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/motions/existing/coalition-dynamics.md) | `existing/coalition-dynamics.md` |
 | section-supplementary-intelligence | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/motions/existing/synthesis-summary.md) | `existing/synthesis-summary.md` |
-| section-supplementary-intelligence | [agent-risk-workflow](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/motions/risk-scoring/agent-risk-workflow.md) | `risk-scoring/agent-risk-workflow.md` |
 

@@ -1,6 +1,6 @@
 ---
-title: "Applying the multi-framework democratic threat analysis per political-threat-framework.md, adapted for the EP10 inter-session context."
-description: "Applying the multi-framework democratic threat analysis per political-threat-framework.md, adapted for the EP10 inter-session context."
+title: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear…"
+description: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices."
 date: 2026-04-16
 article_type: breaking
 slug: 2026-04-16-breaking-176
@@ -21,6 +21,424 @@ layout: article
 > - **Gate result:** `PENDING`
 > - **Analysis tree:** [analysis/daily/2026-04-16/breaking-run176](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-16/breaking-run176)
 > - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run176/manifest.json)
+
+<h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
+
+Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
+
+| Reader need | What you'll get | Source artifact |
+|---|---|---|
+| [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-assessment.md` |
+
+<h2 id="section-actors-forces">Actors & Forces</h2>
+
+### Political Classification
+
+<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run176/classification/political-classification.md" rel="noopener">View source: <code>classification/political-classification.md</code></a></p>
+
+### Classification Framework
+
+Using the 7-dimension political classification system per `political-classification-guide.md`:
+1. Institutional Dimension
+2. Policy Domain
+3. Political Alignment
+4. Procedural Stage
+5. Geopolitical Context
+6. Temporal Urgency
+7. Democratic Impact
+
+### Item Classifications
+
+#### TA-10-2026-0096 — US Tariff Countermeasures
+
+| Dimension | Classification | Evidence |
+|-----------|---------------|----------|
+| Institutional | **Inter-Institutional Tension** | Parliament adopted measure but Commission implements during parliamentary absence |
+| Policy Domain | **Trade / External Relations** | Customs duties adjustment — bilateral retaliation in trade dispute |
+| Political Alignment | **Cross-Party (with ECR dissent)** | Grand coalition adopted; ECR position on trade sovereignty creates fault line |
+| Procedural Stage | **IMPLEMENTATION** | Adopted 26 March, activated 15 April. Post-legislative phase. |
+| Geopolitical Context | **Transatlantic Crisis** | EU-US trade relations at lowest point since steel tariffs of 2018 |
+| Temporal Urgency | **CRITICAL** | T+1 day. 11-day gap until parliamentary oversight possible. |
+| Democratic Impact | **HIGH — Accountability Gap** | Parliament cannot exercise oversight during implementation's most critical phase |
+
+**Classification Summary**: This item represents a rare convergence of institutional, geopolitical, and democratic dimensions. The temporal urgency is amplified by the parliamentary calendar gap.
+
+#### TA-10-2026-0092 — Banking Reform SRMR3
+
+| Dimension | Classification | Evidence |
+|-----------|---------------|----------|
+| Institutional | **Council-Parliament Trilogue** | Requires inter-institutional negotiation for final text |
+| Policy Domain | **Financial Regulation / EMU** | Banking resolution framework — systemic stability |
+| Political Alignment | **Grand Coalition Core** | EPP + S&D alignment expected; Renew supportive |
+| Procedural Stage | **POST-ADOPTION TRILOGUE** | Parliament position adopted; Council common position pending |
+| Geopolitical Context | **Internal EU Integration** | Banking Union completion — EU deepening agenda |
+| Temporal Urgency | **HIGH** | Late April trilogue timing creates post-recess pressure |
+| Democratic Impact | **MEDIUM** | Normal legislative process; no accountability gap |
+
+#### TA-10-2026-0094 — Anti-Corruption Directive
+
+| Dimension | Classification | Evidence |
+|-----------|---------------|----------|
+| Institutional | **Legislative Completion** | Parliament position adopted; enters implementation |
+| Policy Domain | **Justice / Criminal Law** | Criminal law harmonization — EU competence expansion |
+| Political Alignment | **Broad Consensus** | Near-unanimous support; only ESN/partial PfE opposition |
+| Procedural Stage | **POST-ADOPTION** | Implementation phase begins |
+| Geopolitical Context | **Rule of Law Agenda** | Connected to Article 7 proceedings and conditionality mechanism |
+| Temporal Urgency | **MEDIUM** | Multi-year transposition timeline |
+| Democratic Impact | **HIGH — Positive** | Strengthens accountability and transparency |
+
+### Cross-Cutting Classification Patterns
+
+#### Pattern 1: Post-Adoption Implementation Phase
+All three CRITICAL/HIGH items (tariffs, SRMR3, anti-corruption) adopted during the pre-Easter March 26 plenary are now in implementation or trilogue phases. This creates an unusual concentration of post-legislative work during the inter-session period.
+
+#### Pattern 2: Trade Policy Dominance
+Trade-related items (tariff countermeasures, EU-Mercosur safeguard TA-10-2026-0030, WTO MC14 resolution TA-10-2026-0086) collectively represent the highest significance cluster. The trade policy domain is where the three-pole system faces its sternest test.
+
+#### Pattern 3: Institutional Modernization
+Multiple items address EU institutional capacity: electoral reform (TA-10-2026-0006), regulatory fitness (TA-10-2026-0063), public access to documents (TA-10-2026-0065). This suggests a parallel track of institutional reform alongside the crisis-driven policy agenda.
+
+#### Pattern 4: Security-Defence Convergence
+Defence single market (TA-10-2026-0079), drones/warfare (TA-10-2026-0020), EU-Canada cooperation (TA-10-2026-0078) reflect geopolitical securitization of the parliamentary agenda. Defence-related items have moved from peripheral to mainstream status in EP10.
+
+### Group Position Classification Matrix
+
+| Group | Trade | Banking | Anti-Corruption | Defence | Environment |
+|-------|-------|---------|----------------|---------|-------------|
+| EPP | 🟢 Supportive | 🟢 Leading | 🟢 Supportive | 🟢 Leading | 🟡 Cautious |
+| S&D | 🟢 Supportive | 🟢 Supportive | 🟢 Leading | 🟡 Selective | 🟢 Leading |
+| Renew | 🟢 Supportive | 🟢 Supportive | 🟢 Supportive | 🟢 Supportive | 🟡 Moderate |
+| Greens/EFA | 🟡 Conditional | 🟡 Cautious | 🟢 Supportive | 🔴 Opposed | 🟢 Leading |
+| ECR | 🔴 Partial dissent | 🟡 Selective | 🟡 Selective | 🟢 Supportive | 🔴 Opposed |
+| PfE | 🔴 Opposed | 🔴 Opposed | 🔴 Partial | 🟡 Mixed | 🔴 Opposed |
+| The Left | 🔴 Opposed | 🔴 Opposed | 🟢 Supportive | 🔴 Opposed | 🟢 Supportive |
+| ESN | 🔴 Opposed | 🔴 Opposed | 🔴 Opposed | 🟡 Mixed | 🔴 Opposed |
+
+**Confidence**: 🟡 Medium — Group positions inferred from structural composition and historical voting patterns. Individual roll-call data unavailable from EP API for this assessment period.
+
+---
+
+**Classification framework**: Per political-classification-guide.md
+**Data sources**: EP adopted texts, procedures, political landscape analysis
+
+### Significance Scoring
+
+<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run176/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
+
+### Scoring Methodology
+
+Each item is scored across 5 dimensions (1-5 each, max 25):
+- **Political Impact**: Effect on power dynamics, coalition stability, institutional relationships
+- **Policy Scope**: Breadth of policy areas affected and depth of regulatory change
+- **Citizen Impact**: Direct effect on EU citizens' daily lives, rights, and services
+- **Urgency**: Time sensitivity and immediacy of required action or response
+- **Precedent Value**: Whether this sets new institutional, legal, or political precedents
+
+### Scored Items
+
+#### 1. US Tariff Countermeasures — TA-10-2026-0096
+
+| Dimension | Score | Justification |
+|-----------|-------|---------------|
+| Political Impact | 5/5 | Tests three-pole system on most divisive trade policy question; ECR-Renew axis faces first real stress test |
+| Policy Scope | 5/5 | Cross-cutting: trade, agriculture, industry, foreign policy, transatlantic relations |
+| Citizen Impact | 5/5 | Consumer prices, agricultural exports, industrial employment directly affected |
+| Urgency | 5/5 | **Activated 15 April** — T+1. Parliament absent until April 27. Commission acting unilaterally. |
+| Precedent Value | 5/5 | First major EU retaliatory tariff measure under EP10. Sets precedent for Parliament's role in trade crisis response. |
+
+**TOTAL: 25/25 — CRITICAL** 🔴
+
+**Assessment**: The tariff countermeasures represent the single most consequential legislative action of EP10's first 18 months. The 11-day gap between activation and parliamentary oversight capacity creates a democratic accountability vacuum unprecedented in EU trade policy. 🟢 High confidence — based on confirmed activation date and procedural calendar.
+
+#### 2. Banking Reform SRMR3 — TA-10-2026-0092
+
+| Dimension | Score | Justification |
+|-----------|-------|---------------|
+| Political Impact | 4/5 | Banking Union completion requires grand coalition; tests EPP-S&D cooperation in fragmented Parliament |
+| Policy Scope | 4/5 | Financial regulation, resolution framework, deposit guarantee — systemic financial stability |
+| Citizen Impact | 3/5 | Indirect through banking stability, deposit protection, and financial services access |
+| Urgency | 4/5 | Trilogue with Council expected late April; timing coincides with post-recess legislative crunch |
+| Precedent Value | 3/5 | Completes Banking Union framework started in 2014; incremental rather than revolutionary |
+
+**TOTAL: 18/25 — HIGH** 🟡
+
+**Assessment**: SRMR3 represents the culmination of a decade-long Banking Union project. The trilogue timing creates political pressure for rapid agreement, testing whether the three-pole system can deliver on complex technical legislation. 🟡 Medium confidence — trilogue scheduling not confirmed.
+
+#### 3. Anti-Corruption Directive — TA-10-2026-0094
+
+| Dimension | Score | Justification |
+|-----------|-------|---------------|
+| Political Impact | 4/5 | Cross-party consensus on anti-corruption but implementation reveals national divergences |
+| Policy Scope | 3/5 | Criminal law harmonization — significant but focused scope |
+| Citizen Impact | 3/5 | Long-term institutional quality improvement; immediate effect limited |
+| Urgency | 3/5 | Implementation timeline begins but transposition deadline likely 2+ years |
+| Precedent Value | 4/5 | First comprehensive EU anti-corruption criminal law directive |
+
+**TOTAL: 17/25 — HIGH** 🟡
+
+**Assessment**: The directive represents a landmark in EU criminal law harmonization but faces implementation challenges across 27 national legal systems. The cross-party adoption (excepting ESN and partial PfE opposition) demonstrates that anti-corruption remains a rare consensus issue in the fragmented EP10. 🟡 Medium confidence — implementation trajectory uncertain.
+
+#### 4. EU Talent Pool — TA-10-2026-0058
+
+| Dimension | Score | Justification |
+|-----------|-------|---------------|
+| Political Impact | 3/5 | Immigration policy divides EPP internally; Renew-ECR axis positions differently from progressives |
+| Policy Scope | 3/5 | Labor market, immigration, digital platform — cross-cutting but focused |
+| Citizen Impact | 3/5 | Direct impact on labor mobility, skills matching, third-country worker rights |
+| Urgency | 2/5 | Adopted March 10; implementation phase — lower immediate urgency |
+| Precedent Value | 3/5 | Novel EU-level labor market instrument; precedent for digital immigration tools |
+
+**TOTAL: 14/25 — MEDIUM** 🟡
+
+#### 5. Copyright and Generative AI — TA-10-2026-0066
+
+| Dimension | Score | Justification |
+|-----------|-------|---------------|
+| Political Impact | 3/5 | Divides progressive-conservative axis; tech industry lobbying creates unusual alliances |
+| Policy Scope | 3/5 | IP law, technology regulation, creative industries — significant scope |
+| Citizen Impact | 3/5 | Affects creative workers, AI developers, platform users |
+| Urgency | 3/5 | AI regulation pace demands rapid policy response |
+| Precedent Value | 3/5 | Builds on AI Act; extends IP framework to generative AI |
+
+**TOTAL: 15/25 — MEDIUM** 🟡
+
+#### 6. Housing Crisis Resolution — TA-10-2026-0064
+
+| Dimension | Score | Justification |
+|-----------|-------|---------------|
+| Political Impact | 3/5 | High voter salience but limited EU competence; national implementation key |
+| Policy Scope | 2/5 | Non-binding resolution; political signal rather than legislative action |
+| Citizen Impact | 4/5 | Housing affordability is top voter concern across EU-27 |
+| Urgency | 3/5 | Ongoing crisis but resolution is aspirational |
+| Precedent Value | 2/5 | Follows previous housing resolutions; incremental |
+
+**TOTAL: 14/25 — MEDIUM** 🟡
+
+#### 7. Defence Single Market — TA-10-2026-0079
+
+| Dimension | Score | Justification |
+|-----------|-------|---------------|
+| Political Impact | 3/5 | Geopolitical consensus but national sovereignty tensions remain |
+| Policy Scope | 3/5 | Defence procurement, industrial base, cross-border cooperation |
+| Citizen Impact | 2/5 | Indirect through security and industrial employment |
+| Urgency | 3/5 | Geopolitical environment demands accelerated defence integration |
+| Precedent Value | 3/5 | Advances EU strategic autonomy agenda |
+
+**TOTAL: 14/25 — MEDIUM** 🟡
+
+### Aggregate Assessment
+
+| Priority | Count | Items |
+|----------|-------|-------|
+| 🔴 CRITICAL (21-25) | 1 | Tariff countermeasures |
+| 🟡 HIGH (16-20) | 2 | SRMR3, Anti-corruption |
+| 🟡 MEDIUM (11-15) | 4 | Talent Pool, Copyright/AI, Housing, Defence |
+| 🟢 LOW (1-10) | 0 | — |
+
+**Composite Risk Score**: 16.5/25 (weighted average of top 5 items)
+
+**Breaking News Gate**: ❌ FAIL — No items published or updated TODAY (16 April). Most recent items from 26 March plenary. Analysis-only PR warranted.
+
+---
+
+**Scoring methodology**: Per political-classification-guide.md 7-dimension framework adapted to 5 dimensions for breaking news scoring.
+**Data sources**: EP adopted texts feed, procedures endpoint, precomputed statistics.
+
+<h2 id="section-risk">Risk Assessment</h2>
+
+### Risk Assessment
+
+<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run176/risk-scoring/risk-assessment.md" rel="noopener">View source: <code>risk-scoring/risk-assessment.md</code></a></p>
+
+### Risk Matrix Methodology
+
+Using the Likelihood x Impact 5x5 matrix per `political-risk-methodology.md`:
+- **Likelihood**: 1 (Rare) to 5 (Almost Certain)
+- **Impact**: 1 (Negligible) to 5 (Catastrophic)
+- **Risk Score**: Likelihood x Impact (max 25)
+
+### Risk Register
+
+#### R1: Trade Escalation During Parliamentary Gap
+
+| Factor | Assessment |
+|--------|-----------|
+| **Risk Owner** | INTA Committee / Conference of Presidents |
+| **Description** | US retaliatory response to EU tariff countermeasures during 11-day parliamentary absence (15-27 April) |
+| **Likelihood** | 4/5 — Almost Certain. US trade policy pattern suggests rapid retaliation. 🟢 High confidence. |
+| **Impact** | 5/5 — Catastrophic. Unilateral Commission response without parliamentary oversight undermines democratic legitimacy of EU trade policy |
+| **Risk Score** | **20/25 — CRITICAL** 🔴 |
+| **Mitigation** | INTA emergency meeting; Conference of Presidents extraordinary session; written procedure for parliamentary position |
+| **Trend** | ↑ Rising — Each day of parliamentary absence increases the probability of Commission unilateral action |
+
+#### R2: Legislative Pipeline Bottleneck
+
+| Factor | Assessment |
+|--------|-----------|
+| **Risk Owner** | Conference of Presidents / Committee Chairs |
+| **Description** | 14 COD procedures awaiting rapporteur allocation compound with 37 plenary reports pending in committee |
+| **Likelihood** | 3/5 — Possible. Post-recess scheduling pressure creates allocation competition. |
+| **Impact** | 4/5 — Major. Delays in COD processing affect transposition deadlines and legislative credibility. |
+| **Risk Score** | **12/25 — HIGH** 🟡 |
+| **Mitigation** | Accelerated Conference of Presidents allocation session on April 27; paired rapporteur appointments |
+| **Trend** | ↗ Building — Backlog increases daily during inter-session period |
+
+#### R3: Coalition Fragmentation on Trade Policy
+
+| Factor | Assessment |
+|--------|-----------|
+| **Risk Owner** | Political Group Coordinators |
+| **Description** | Three-pole system fails to produce coherent parliamentary position on tariff response. EPP, S&D, and Renew-ECR axis adopt contradictory positions. |
+| **Likelihood** | 3/5 — Possible. Fragmentation index 4.04 at record high. Grand coalition at structural deficit (-38 seats). |
+| **Impact** | 4/5 — Major. Incoherent parliamentary position weakens EU negotiating stance; emboldens Commission autonomy. |
+| **Risk Score** | **12/25 — HIGH** 🟡 |
+| **Mitigation** | Political group coordinators pre-plenary consultations; ECR-Renew pre-alignment on trade dossiers |
+| **Trend** | → Stable — coalition dynamics unchanged but untested on trade |
+
+#### R4: Banking Union Trilogue Stall
+
+| Factor | Assessment |
+|--------|-----------|
+| **Risk Owner** | ECON Committee / Rapporteur |
+| **Description** | SRMR3 trilogue with Council fails to reach agreement before summer recess, delaying Banking Union completion. |
+| **Likelihood** | 2/5 — Unlikely. Strong institutional momentum and broad political support. |
+| **Impact** | 4/5 — Major. Financial stability implications; investor confidence affected. |
+| **Risk Score** | **8/25 — MEDIUM** 🟡 |
+| **Mitigation** | Accelerated trilogue calendar; ECON committee prioritization |
+| **Trend** | → Stable |
+
+#### R5: Democratic Legitimacy Erosion
+
+| Factor | Assessment |
+|--------|-----------|
+| **Risk Owner** | EP President / Bureau |
+| **Description** | Repeated pattern of Commission unilateral action during parliamentary recesses undermines Parliament's co-legislative role. Post-Easter gap follows pre-Easter gap on same tariff dossier. |
+| **Likelihood** | 3/5 — Possible. Structural pattern in EP10 calendar. |
+| **Impact** | 3/5 — Moderate. Long-term institutional credibility damage; short-term policy impact limited. |
+| **Risk Score** | **9/25 — MEDIUM** 🟡 |
+| **Mitigation** | Calendar reform; standing delegation authority for trade crisis response; emergency session provisions |
+| **Trend** | ↗ Building — Each recess-period crisis adds to pattern |
+
+### Aggregate Risk Dashboard
+
+| Risk Level | Count | Items |
+|------------|-------|-------|
+| 🔴 CRITICAL (20-25) | 1 | Trade escalation during parliamentary gap |
+| 🟡 HIGH (10-15) | 2 | Legislative pipeline bottleneck, Coalition fragmentation |
+| 🟡 MEDIUM (5-9) | 2 | Banking trilogue stall, Democratic legitimacy erosion |
+| 🟢 LOW (1-4) | 0 | — |
+
+**Composite Risk Score**: 12.2/25 (average of all scored risks)
+**Overall Risk Level**: 🟡 HIGH — driven by CRITICAL trade escalation risk
+
+### Risk Heatmap
+
+```
+Impact →     1-Negl  2-Minor  3-Moderate  4-Major  5-Catastrophic
+Likelihood
+5-Certain                                          R1(Trade)
+4-Likely                                 
+3-Possible                    R5(Dem)     R2(Pipe) R3(Coal)
+2-Unlikely                               R4(Bank)
+1-Rare
+```
+
+### Risk Trend Analysis
+
+Compared to prior runs:
+- **Run 175 (Apr 15)**: Composite risk 7.2/25 → Now 12.2/25 (**+69% increase**)
+- **Run 173 (Apr 15)**: Composite risk 16.5/25 → Now 12.2/25 (lower due to different methodology scope)
+- Key driver: Tariff activation has moved from anticipatory to realized risk, increasing both likelihood and impact scores
+
+---
+
+**Risk methodology**: Per political-risk-methodology.md (Likelihood x Impact 5x5 matrix)
+**Data sources**: EP adopted texts, procedures, coalition dynamics, precomputed statistics
+
+### Swot Analysis
+
+<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run176/risk-scoring/swot-analysis.md" rel="noopener">View source: <code>risk-scoring/swot-analysis.md</code></a></p>
+
+### Framework
+
+Evidence-based SWOT per `political-swot-framework.md`, applied to the European Parliament's strategic position during the post-Easter inter-session period.
+
+### SWOT Matrix
+
+#### 💪 Strengths
+
+| # | Strength | Evidence | Severity |
+|---|----------|----------|----------|
+| S1 | **Record Legislative Velocity** | 114 acts in Q1 2026 vs. 78 in all of 2025 (+46%). EP10 demonstrating capacity for rapid legislative output when mobilized. | 🟢 HIGH |
+| S2 | **Cross-Party Anti-Corruption Consensus** | TA-10-2026-0094 adopted with near-unanimous support. Demonstrates Parliament's ability to build broad coalitions on governance issues. | 🟢 HIGH |
+| S3 | **Renew-ECR Axis Stability** | 0.95 cohesion score — strongest cross-party alliance. Provides reliable legislative majority pathway when combined with either EPP or S&D. | 🟡 MEDIUM |
+| S4 | **Banking Union Momentum** | SRMR3 (TA-10-2026-0092) adopted with strong support. Decade-long Banking Union project nearing completion demonstrates institutional persistence. | 🟡 MEDIUM |
+| S5 | **Comprehensive Trade Response** | TA-10-2026-0096 adopted before Easter — Parliament positioned ahead of tariff activation deadline. Pre-emptive legislative action is rare for EP trade policy. | 🟢 HIGH |
+
+#### 😟 Weaknesses
+
+| # | Weakness | Evidence | Severity |
+|---|----------|----------|----------|
+| W1 | **Calendar Rigidity** | 11-day gap between tariff activation and plenary response. No emergency recall mechanism for trade policy. Structural vulnerability. | 🔴 CRITICAL |
+| W2 | **Grand Coalition Deficit** | EPP + S&D = ~323 seats, 38 short of majority. Traditional governing formation cannot function without third-party support. | 🟡 HIGH |
+| W3 | **Committee Capacity Strain** | 14 COD procedures awaiting rapporteur allocation; 51 A10 reports pending. Post-recess backlog at record levels. | 🟡 HIGH |
+| W4 | **Fragmentation Record** | 4.04 effective parties index — highest in EP10. More groups needed for every legislative decision. | 🟡 MEDIUM |
+| W5 | **Data Transparency Gaps** | EP API provides limited voting-level data. Coalition claims cannot be verified with individual roll-call records. Analytical confidence reduced. | 🟡 MEDIUM |
+
+#### 🌟 Opportunities
+
+| # | Opportunity | Context | Probability |
+|---|------------|---------|-------------|
+| O1 | **Post-Recess Institutional Reform** | Tariff oversight gap creates political momentum for calendar reform and emergency oversight mechanisms. Cross-party support likely. | 🟢 Likely |
+| O2 | **Three-Pole System Maturation** | First major crisis test could establish working procedures for three-pole coalition-building, creating a more resilient governance model. | 🟡 Possible |
+| O3 | **Legislative Pipeline Acceleration** | Record Q1 pace demonstrates institutional capacity. If sustained, EP10 could become the most productive parliamentary term in EU history. | 🟡 Possible |
+| O4 | **Transatlantic Negotiation Leadership** | Parliament's pre-emptive tariff legislation positions it as proactive partner for Commission in trade negotiations. Enhances co-legislative credibility. | 🟢 Likely |
+| O5 | **Digital and AI Regulatory Leadership** | Copyright/AI resolution (TA-10-2026-0066) and tech sovereignty (TA-10-2026-0022) position EU as global standard-setter. | 🟢 Likely |
+
+#### ⚡ Threats
+
+| # | Threat | Risk Score | Probability |
+|---|--------|-----------|-------------|
+| T1 | **Commission Unilateralism** | 20/25 | Trade decisions taken during parliamentary absence set precedent for executive autonomy. | 🟢 Likely |
+| T2 | **US Retaliation Escalation** | 18/25 | Countermeasures trigger additional US tariffs; economic damage before Parliament can adjust. | 🟡 Possible |
+| T3 | **Coalition Collapse on Trade** | 12/25 | Three-pole system produces contradictory positions, weakening EU negotiating stance. | 🟡 Possible |
+| T4 | **Legislative Quality Degradation** | 10/25 | Capacity overload leads to poorly drafted legislation requiring subsequent amendment. | 🔴 Unlikely |
+| T5 | **Voter Disengagement** | 8/25 | Parliament's absence during trade crisis reinforces eurosceptic narrative of institutional irrelevance. | 🟡 Possible |
+
+### Strategic Implications
+
+#### Immediate (0-11 days: April 16-27)
+- Commission sole actor on tariff implementation — Parliament in monitoring mode
+- Committee chairs and political group leaders in informal consultation via email/phone
+- INTA chair potentially calling emergency pre-plenary coordination meeting
+
+#### Short-Term (11-30 days: April 27 - May 16)
+- April 27-30 Strasbourg plenary: First post-recess session
+  - Trade policy debate and resolution expected
+  - COD rapporteur allocations at Conference of Presidents
+  - SRMR3 trilogue mandate potential
+- Committee meetings resume at full pace
+
+#### Medium-Term (1-3 months: May - July)
+- Test of three-pole system on tariff response amendment
+- SRMR3 trilogue expected conclusion
+- Anti-corruption directive implementation monitoring
+- EU-Mercosur Partnership Agreement Court of Justice opinion (TA-10-2026-0008)
+
+### SWOT Interaction Matrix
+
+| | S1 (Velocity) | S2 (Anti-Corruption) | S3 (Renew-ECR) | W1 (Calendar) | W2 (Grand Coalition) |
+|---|---|---|---|---|---|
+| **O1 (Reform)** | Velocity demonstrates need for process reform | Consensus model for reform | Swing axis could champion | Calendar gap is the trigger | Deficit highlights need |
+| **O2 (Three-Pole)** | Productivity possible via three-pole | Model for future consensus | Core of new model | Crisis forces adaptation | May replace grand coalition |
+| **T1 (Commission)** | Velocity undermined if Commission acts alone | Corruption risk in unilateral decisions | Axis may split on trade autonomy | Gap enables unilateralism | Deficit prevents rapid parliamentary response |
+| **T2 (Retaliation)** | Legislative output doesn't help in trade war | Not directly relevant | Axis untested on trade crisis | Calendar prevents response | Cannot form unified response |
+
+---
+
+**SWOT framework**: Per political-swot-framework.md
+**Data sources**: EP adopted texts (51 for 2026), procedures (51), coalition dynamics, political landscape
+**Confidence**: 🟡 Medium — structural analysis supported by data; voting-level evidence unavailable
 
 <h2 id="section-threat">Threat Landscape</h2>
 
@@ -298,218 +716,6 @@ This index consolidates per-document intelligence for the key legislative texts 
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
-### Political Classification
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run176/classification/political-classification.md" rel="noopener">View source: <code>classification/political-classification.md</code></a></p>
-
-### Classification Framework
-
-Using the 7-dimension political classification system per `political-classification-guide.md`:
-1. Institutional Dimension
-2. Policy Domain
-3. Political Alignment
-4. Procedural Stage
-5. Geopolitical Context
-6. Temporal Urgency
-7. Democratic Impact
-
-### Item Classifications
-
-#### TA-10-2026-0096 — US Tariff Countermeasures
-
-| Dimension | Classification | Evidence |
-|-----------|---------------|----------|
-| Institutional | **Inter-Institutional Tension** | Parliament adopted measure but Commission implements during parliamentary absence |
-| Policy Domain | **Trade / External Relations** | Customs duties adjustment — bilateral retaliation in trade dispute |
-| Political Alignment | **Cross-Party (with ECR dissent)** | Grand coalition adopted; ECR position on trade sovereignty creates fault line |
-| Procedural Stage | **IMPLEMENTATION** | Adopted 26 March, activated 15 April. Post-legislative phase. |
-| Geopolitical Context | **Transatlantic Crisis** | EU-US trade relations at lowest point since steel tariffs of 2018 |
-| Temporal Urgency | **CRITICAL** | T+1 day. 11-day gap until parliamentary oversight possible. |
-| Democratic Impact | **HIGH — Accountability Gap** | Parliament cannot exercise oversight during implementation's most critical phase |
-
-**Classification Summary**: This item represents a rare convergence of institutional, geopolitical, and democratic dimensions. The temporal urgency is amplified by the parliamentary calendar gap.
-
-#### TA-10-2026-0092 — Banking Reform SRMR3
-
-| Dimension | Classification | Evidence |
-|-----------|---------------|----------|
-| Institutional | **Council-Parliament Trilogue** | Requires inter-institutional negotiation for final text |
-| Policy Domain | **Financial Regulation / EMU** | Banking resolution framework — systemic stability |
-| Political Alignment | **Grand Coalition Core** | EPP + S&D alignment expected; Renew supportive |
-| Procedural Stage | **POST-ADOPTION TRILOGUE** | Parliament position adopted; Council common position pending |
-| Geopolitical Context | **Internal EU Integration** | Banking Union completion — EU deepening agenda |
-| Temporal Urgency | **HIGH** | Late April trilogue timing creates post-recess pressure |
-| Democratic Impact | **MEDIUM** | Normal legislative process; no accountability gap |
-
-#### TA-10-2026-0094 — Anti-Corruption Directive
-
-| Dimension | Classification | Evidence |
-|-----------|---------------|----------|
-| Institutional | **Legislative Completion** | Parliament position adopted; enters implementation |
-| Policy Domain | **Justice / Criminal Law** | Criminal law harmonization — EU competence expansion |
-| Political Alignment | **Broad Consensus** | Near-unanimous support; only ESN/partial PfE opposition |
-| Procedural Stage | **POST-ADOPTION** | Implementation phase begins |
-| Geopolitical Context | **Rule of Law Agenda** | Connected to Article 7 proceedings and conditionality mechanism |
-| Temporal Urgency | **MEDIUM** | Multi-year transposition timeline |
-| Democratic Impact | **HIGH — Positive** | Strengthens accountability and transparency |
-
-### Cross-Cutting Classification Patterns
-
-#### Pattern 1: Post-Adoption Implementation Phase
-All three CRITICAL/HIGH items (tariffs, SRMR3, anti-corruption) adopted during the pre-Easter March 26 plenary are now in implementation or trilogue phases. This creates an unusual concentration of post-legislative work during the inter-session period.
-
-#### Pattern 2: Trade Policy Dominance
-Trade-related items (tariff countermeasures, EU-Mercosur safeguard TA-10-2026-0030, WTO MC14 resolution TA-10-2026-0086) collectively represent the highest significance cluster. The trade policy domain is where the three-pole system faces its sternest test.
-
-#### Pattern 3: Institutional Modernization
-Multiple items address EU institutional capacity: electoral reform (TA-10-2026-0006), regulatory fitness (TA-10-2026-0063), public access to documents (TA-10-2026-0065). This suggests a parallel track of institutional reform alongside the crisis-driven policy agenda.
-
-#### Pattern 4: Security-Defence Convergence
-Defence single market (TA-10-2026-0079), drones/warfare (TA-10-2026-0020), EU-Canada cooperation (TA-10-2026-0078) reflect geopolitical securitization of the parliamentary agenda. Defence-related items have moved from peripheral to mainstream status in EP10.
-
-### Group Position Classification Matrix
-
-| Group | Trade | Banking | Anti-Corruption | Defence | Environment |
-|-------|-------|---------|----------------|---------|-------------|
-| EPP | 🟢 Supportive | 🟢 Leading | 🟢 Supportive | 🟢 Leading | 🟡 Cautious |
-| S&D | 🟢 Supportive | 🟢 Supportive | 🟢 Leading | 🟡 Selective | 🟢 Leading |
-| Renew | 🟢 Supportive | 🟢 Supportive | 🟢 Supportive | 🟢 Supportive | 🟡 Moderate |
-| Greens/EFA | 🟡 Conditional | 🟡 Cautious | 🟢 Supportive | 🔴 Opposed | 🟢 Leading |
-| ECR | 🔴 Partial dissent | 🟡 Selective | 🟡 Selective | 🟢 Supportive | 🔴 Opposed |
-| PfE | 🔴 Opposed | 🔴 Opposed | 🔴 Partial | 🟡 Mixed | 🔴 Opposed |
-| The Left | 🔴 Opposed | 🔴 Opposed | 🟢 Supportive | 🔴 Opposed | 🟢 Supportive |
-| ESN | 🔴 Opposed | 🔴 Opposed | 🔴 Opposed | 🟡 Mixed | 🔴 Opposed |
-
-**Confidence**: 🟡 Medium — Group positions inferred from structural composition and historical voting patterns. Individual roll-call data unavailable from EP API for this assessment period.
-
----
-
-**Classification framework**: Per political-classification-guide.md
-**Data sources**: EP adopted texts, procedures, political landscape analysis
-
-### Significance Scoring
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run176/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
-
-### Scoring Methodology
-
-Each item is scored across 5 dimensions (1-5 each, max 25):
-- **Political Impact**: Effect on power dynamics, coalition stability, institutional relationships
-- **Policy Scope**: Breadth of policy areas affected and depth of regulatory change
-- **Citizen Impact**: Direct effect on EU citizens' daily lives, rights, and services
-- **Urgency**: Time sensitivity and immediacy of required action or response
-- **Precedent Value**: Whether this sets new institutional, legal, or political precedents
-
-### Scored Items
-
-#### 1. US Tariff Countermeasures — TA-10-2026-0096
-
-| Dimension | Score | Justification |
-|-----------|-------|---------------|
-| Political Impact | 5/5 | Tests three-pole system on most divisive trade policy question; ECR-Renew axis faces first real stress test |
-| Policy Scope | 5/5 | Cross-cutting: trade, agriculture, industry, foreign policy, transatlantic relations |
-| Citizen Impact | 5/5 | Consumer prices, agricultural exports, industrial employment directly affected |
-| Urgency | 5/5 | **Activated 15 April** — T+1. Parliament absent until April 27. Commission acting unilaterally. |
-| Precedent Value | 5/5 | First major EU retaliatory tariff measure under EP10. Sets precedent for Parliament's role in trade crisis response. |
-
-**TOTAL: 25/25 — CRITICAL** 🔴
-
-**Assessment**: The tariff countermeasures represent the single most consequential legislative action of EP10's first 18 months. The 11-day gap between activation and parliamentary oversight capacity creates a democratic accountability vacuum unprecedented in EU trade policy. 🟢 High confidence — based on confirmed activation date and procedural calendar.
-
-#### 2. Banking Reform SRMR3 — TA-10-2026-0092
-
-| Dimension | Score | Justification |
-|-----------|-------|---------------|
-| Political Impact | 4/5 | Banking Union completion requires grand coalition; tests EPP-S&D cooperation in fragmented Parliament |
-| Policy Scope | 4/5 | Financial regulation, resolution framework, deposit guarantee — systemic financial stability |
-| Citizen Impact | 3/5 | Indirect through banking stability, deposit protection, and financial services access |
-| Urgency | 4/5 | Trilogue with Council expected late April; timing coincides with post-recess legislative crunch |
-| Precedent Value | 3/5 | Completes Banking Union framework started in 2014; incremental rather than revolutionary |
-
-**TOTAL: 18/25 — HIGH** 🟡
-
-**Assessment**: SRMR3 represents the culmination of a decade-long Banking Union project. The trilogue timing creates political pressure for rapid agreement, testing whether the three-pole system can deliver on complex technical legislation. 🟡 Medium confidence — trilogue scheduling not confirmed.
-
-#### 3. Anti-Corruption Directive — TA-10-2026-0094
-
-| Dimension | Score | Justification |
-|-----------|-------|---------------|
-| Political Impact | 4/5 | Cross-party consensus on anti-corruption but implementation reveals national divergences |
-| Policy Scope | 3/5 | Criminal law harmonization — significant but focused scope |
-| Citizen Impact | 3/5 | Long-term institutional quality improvement; immediate effect limited |
-| Urgency | 3/5 | Implementation timeline begins but transposition deadline likely 2+ years |
-| Precedent Value | 4/5 | First comprehensive EU anti-corruption criminal law directive |
-
-**TOTAL: 17/25 — HIGH** 🟡
-
-**Assessment**: The directive represents a landmark in EU criminal law harmonization but faces implementation challenges across 27 national legal systems. The cross-party adoption (excepting ESN and partial PfE opposition) demonstrates that anti-corruption remains a rare consensus issue in the fragmented EP10. 🟡 Medium confidence — implementation trajectory uncertain.
-
-#### 4. EU Talent Pool — TA-10-2026-0058
-
-| Dimension | Score | Justification |
-|-----------|-------|---------------|
-| Political Impact | 3/5 | Immigration policy divides EPP internally; Renew-ECR axis positions differently from progressives |
-| Policy Scope | 3/5 | Labor market, immigration, digital platform — cross-cutting but focused |
-| Citizen Impact | 3/5 | Direct impact on labor mobility, skills matching, third-country worker rights |
-| Urgency | 2/5 | Adopted March 10; implementation phase — lower immediate urgency |
-| Precedent Value | 3/5 | Novel EU-level labor market instrument; precedent for digital immigration tools |
-
-**TOTAL: 14/25 — MEDIUM** 🟡
-
-#### 5. Copyright and Generative AI — TA-10-2026-0066
-
-| Dimension | Score | Justification |
-|-----------|-------|---------------|
-| Political Impact | 3/5 | Divides progressive-conservative axis; tech industry lobbying creates unusual alliances |
-| Policy Scope | 3/5 | IP law, technology regulation, creative industries — significant scope |
-| Citizen Impact | 3/5 | Affects creative workers, AI developers, platform users |
-| Urgency | 3/5 | AI regulation pace demands rapid policy response |
-| Precedent Value | 3/5 | Builds on AI Act; extends IP framework to generative AI |
-
-**TOTAL: 15/25 — MEDIUM** 🟡
-
-#### 6. Housing Crisis Resolution — TA-10-2026-0064
-
-| Dimension | Score | Justification |
-|-----------|-------|---------------|
-| Political Impact | 3/5 | High voter salience but limited EU competence; national implementation key |
-| Policy Scope | 2/5 | Non-binding resolution; political signal rather than legislative action |
-| Citizen Impact | 4/5 | Housing affordability is top voter concern across EU-27 |
-| Urgency | 3/5 | Ongoing crisis but resolution is aspirational |
-| Precedent Value | 2/5 | Follows previous housing resolutions; incremental |
-
-**TOTAL: 14/25 — MEDIUM** 🟡
-
-#### 7. Defence Single Market — TA-10-2026-0079
-
-| Dimension | Score | Justification |
-|-----------|-------|---------------|
-| Political Impact | 3/5 | Geopolitical consensus but national sovereignty tensions remain |
-| Policy Scope | 3/5 | Defence procurement, industrial base, cross-border cooperation |
-| Citizen Impact | 2/5 | Indirect through security and industrial employment |
-| Urgency | 3/5 | Geopolitical environment demands accelerated defence integration |
-| Precedent Value | 3/5 | Advances EU strategic autonomy agenda |
-
-**TOTAL: 14/25 — MEDIUM** 🟡
-
-### Aggregate Assessment
-
-| Priority | Count | Items |
-|----------|-------|-------|
-| 🔴 CRITICAL (21-25) | 1 | Tariff countermeasures |
-| 🟡 HIGH (16-20) | 2 | SRMR3, Anti-corruption |
-| 🟡 MEDIUM (11-15) | 4 | Talent Pool, Copyright/AI, Housing, Defence |
-| 🟢 LOW (1-10) | 0 | — |
-
-**Composite Risk Score**: 16.5/25 (weighted average of top 5 items)
-
-**Breaking News Gate**: ❌ FAIL — No items published or updated TODAY (16 April). Most recent items from 26 March plenary. Analysis-only PR warranted.
-
----
-
-**Scoring methodology**: Per political-classification-guide.md 7-dimension framework adapted to 5 dimensions for breaking news scoring.
-**Data sources**: EP adopted texts feed, procedures endpoint, precomputed statistics.
-
 ### Synthesis Summary
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run176/existing/synthesis-summary.md" rel="noopener">View source: <code>existing/synthesis-summary.md</code></a></p>
@@ -681,200 +887,6 @@ The three-pole system represents the most significant structural shift in Europe
 **Methodology**: AI-driven analysis per ai-driven-analysis-guide.md
 **Next scheduled analysis**: 17 April 2026 (breaking-news workflow)
 
-### Risk Assessment
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run176/risk-scoring/risk-assessment.md" rel="noopener">View source: <code>risk-scoring/risk-assessment.md</code></a></p>
-
-### Risk Matrix Methodology
-
-Using the Likelihood x Impact 5x5 matrix per `political-risk-methodology.md`:
-- **Likelihood**: 1 (Rare) to 5 (Almost Certain)
-- **Impact**: 1 (Negligible) to 5 (Catastrophic)
-- **Risk Score**: Likelihood x Impact (max 25)
-
-### Risk Register
-
-#### R1: Trade Escalation During Parliamentary Gap
-
-| Factor | Assessment |
-|--------|-----------|
-| **Risk Owner** | INTA Committee / Conference of Presidents |
-| **Description** | US retaliatory response to EU tariff countermeasures during 11-day parliamentary absence (15-27 April) |
-| **Likelihood** | 4/5 — Almost Certain. US trade policy pattern suggests rapid retaliation. 🟢 High confidence. |
-| **Impact** | 5/5 — Catastrophic. Unilateral Commission response without parliamentary oversight undermines democratic legitimacy of EU trade policy |
-| **Risk Score** | **20/25 — CRITICAL** 🔴 |
-| **Mitigation** | INTA emergency meeting; Conference of Presidents extraordinary session; written procedure for parliamentary position |
-| **Trend** | ↑ Rising — Each day of parliamentary absence increases the probability of Commission unilateral action |
-
-#### R2: Legislative Pipeline Bottleneck
-
-| Factor | Assessment |
-|--------|-----------|
-| **Risk Owner** | Conference of Presidents / Committee Chairs |
-| **Description** | 14 COD procedures awaiting rapporteur allocation compound with 37 plenary reports pending in committee |
-| **Likelihood** | 3/5 — Possible. Post-recess scheduling pressure creates allocation competition. |
-| **Impact** | 4/5 — Major. Delays in COD processing affect transposition deadlines and legislative credibility. |
-| **Risk Score** | **12/25 — HIGH** 🟡 |
-| **Mitigation** | Accelerated Conference of Presidents allocation session on April 27; paired rapporteur appointments |
-| **Trend** | ↗ Building — Backlog increases daily during inter-session period |
-
-#### R3: Coalition Fragmentation on Trade Policy
-
-| Factor | Assessment |
-|--------|-----------|
-| **Risk Owner** | Political Group Coordinators |
-| **Description** | Three-pole system fails to produce coherent parliamentary position on tariff response. EPP, S&D, and Renew-ECR axis adopt contradictory positions. |
-| **Likelihood** | 3/5 — Possible. Fragmentation index 4.04 at record high. Grand coalition at structural deficit (-38 seats). |
-| **Impact** | 4/5 — Major. Incoherent parliamentary position weakens EU negotiating stance; emboldens Commission autonomy. |
-| **Risk Score** | **12/25 — HIGH** 🟡 |
-| **Mitigation** | Political group coordinators pre-plenary consultations; ECR-Renew pre-alignment on trade dossiers |
-| **Trend** | → Stable — coalition dynamics unchanged but untested on trade |
-
-#### R4: Banking Union Trilogue Stall
-
-| Factor | Assessment |
-|--------|-----------|
-| **Risk Owner** | ECON Committee / Rapporteur |
-| **Description** | SRMR3 trilogue with Council fails to reach agreement before summer recess, delaying Banking Union completion. |
-| **Likelihood** | 2/5 — Unlikely. Strong institutional momentum and broad political support. |
-| **Impact** | 4/5 — Major. Financial stability implications; investor confidence affected. |
-| **Risk Score** | **8/25 — MEDIUM** 🟡 |
-| **Mitigation** | Accelerated trilogue calendar; ECON committee prioritization |
-| **Trend** | → Stable |
-
-#### R5: Democratic Legitimacy Erosion
-
-| Factor | Assessment |
-|--------|-----------|
-| **Risk Owner** | EP President / Bureau |
-| **Description** | Repeated pattern of Commission unilateral action during parliamentary recesses undermines Parliament's co-legislative role. Post-Easter gap follows pre-Easter gap on same tariff dossier. |
-| **Likelihood** | 3/5 — Possible. Structural pattern in EP10 calendar. |
-| **Impact** | 3/5 — Moderate. Long-term institutional credibility damage; short-term policy impact limited. |
-| **Risk Score** | **9/25 — MEDIUM** 🟡 |
-| **Mitigation** | Calendar reform; standing delegation authority for trade crisis response; emergency session provisions |
-| **Trend** | ↗ Building — Each recess-period crisis adds to pattern |
-
-### Aggregate Risk Dashboard
-
-| Risk Level | Count | Items |
-|------------|-------|-------|
-| 🔴 CRITICAL (20-25) | 1 | Trade escalation during parliamentary gap |
-| 🟡 HIGH (10-15) | 2 | Legislative pipeline bottleneck, Coalition fragmentation |
-| 🟡 MEDIUM (5-9) | 2 | Banking trilogue stall, Democratic legitimacy erosion |
-| 🟢 LOW (1-4) | 0 | — |
-
-**Composite Risk Score**: 12.2/25 (average of all scored risks)
-**Overall Risk Level**: 🟡 HIGH — driven by CRITICAL trade escalation risk
-
-### Risk Heatmap
-
-```
-Impact →     1-Negl  2-Minor  3-Moderate  4-Major  5-Catastrophic
-Likelihood
-5-Certain                                          R1(Trade)
-4-Likely                                 
-3-Possible                    R5(Dem)     R2(Pipe) R3(Coal)
-2-Unlikely                               R4(Bank)
-1-Rare
-```
-
-### Risk Trend Analysis
-
-Compared to prior runs:
-- **Run 175 (Apr 15)**: Composite risk 7.2/25 → Now 12.2/25 (**+69% increase**)
-- **Run 173 (Apr 15)**: Composite risk 16.5/25 → Now 12.2/25 (lower due to different methodology scope)
-- Key driver: Tariff activation has moved from anticipatory to realized risk, increasing both likelihood and impact scores
-
----
-
-**Risk methodology**: Per political-risk-methodology.md (Likelihood x Impact 5x5 matrix)
-**Data sources**: EP adopted texts, procedures, coalition dynamics, precomputed statistics
-
-### Swot Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run176/risk-scoring/swot-analysis.md" rel="noopener">View source: <code>risk-scoring/swot-analysis.md</code></a></p>
-
-### Framework
-
-Evidence-based SWOT per `political-swot-framework.md`, applied to the European Parliament's strategic position during the post-Easter inter-session period.
-
-### SWOT Matrix
-
-#### 💪 Strengths
-
-| # | Strength | Evidence | Severity |
-|---|----------|----------|----------|
-| S1 | **Record Legislative Velocity** | 114 acts in Q1 2026 vs. 78 in all of 2025 (+46%). EP10 demonstrating capacity for rapid legislative output when mobilized. | 🟢 HIGH |
-| S2 | **Cross-Party Anti-Corruption Consensus** | TA-10-2026-0094 adopted with near-unanimous support. Demonstrates Parliament's ability to build broad coalitions on governance issues. | 🟢 HIGH |
-| S3 | **Renew-ECR Axis Stability** | 0.95 cohesion score — strongest cross-party alliance. Provides reliable legislative majority pathway when combined with either EPP or S&D. | 🟡 MEDIUM |
-| S4 | **Banking Union Momentum** | SRMR3 (TA-10-2026-0092) adopted with strong support. Decade-long Banking Union project nearing completion demonstrates institutional persistence. | 🟡 MEDIUM |
-| S5 | **Comprehensive Trade Response** | TA-10-2026-0096 adopted before Easter — Parliament positioned ahead of tariff activation deadline. Pre-emptive legislative action is rare for EP trade policy. | 🟢 HIGH |
-
-#### 😟 Weaknesses
-
-| # | Weakness | Evidence | Severity |
-|---|----------|----------|----------|
-| W1 | **Calendar Rigidity** | 11-day gap between tariff activation and plenary response. No emergency recall mechanism for trade policy. Structural vulnerability. | 🔴 CRITICAL |
-| W2 | **Grand Coalition Deficit** | EPP + S&D = ~323 seats, 38 short of majority. Traditional governing formation cannot function without third-party support. | 🟡 HIGH |
-| W3 | **Committee Capacity Strain** | 14 COD procedures awaiting rapporteur allocation; 51 A10 reports pending. Post-recess backlog at record levels. | 🟡 HIGH |
-| W4 | **Fragmentation Record** | 4.04 effective parties index — highest in EP10. More groups needed for every legislative decision. | 🟡 MEDIUM |
-| W5 | **Data Transparency Gaps** | EP API provides limited voting-level data. Coalition claims cannot be verified with individual roll-call records. Analytical confidence reduced. | 🟡 MEDIUM |
-
-#### 🌟 Opportunities
-
-| # | Opportunity | Context | Probability |
-|---|------------|---------|-------------|
-| O1 | **Post-Recess Institutional Reform** | Tariff oversight gap creates political momentum for calendar reform and emergency oversight mechanisms. Cross-party support likely. | 🟢 Likely |
-| O2 | **Three-Pole System Maturation** | First major crisis test could establish working procedures for three-pole coalition-building, creating a more resilient governance model. | 🟡 Possible |
-| O3 | **Legislative Pipeline Acceleration** | Record Q1 pace demonstrates institutional capacity. If sustained, EP10 could become the most productive parliamentary term in EU history. | 🟡 Possible |
-| O4 | **Transatlantic Negotiation Leadership** | Parliament's pre-emptive tariff legislation positions it as proactive partner for Commission in trade negotiations. Enhances co-legislative credibility. | 🟢 Likely |
-| O5 | **Digital and AI Regulatory Leadership** | Copyright/AI resolution (TA-10-2026-0066) and tech sovereignty (TA-10-2026-0022) position EU as global standard-setter. | 🟢 Likely |
-
-#### ⚡ Threats
-
-| # | Threat | Risk Score | Probability |
-|---|--------|-----------|-------------|
-| T1 | **Commission Unilateralism** | 20/25 | Trade decisions taken during parliamentary absence set precedent for executive autonomy. | 🟢 Likely |
-| T2 | **US Retaliation Escalation** | 18/25 | Countermeasures trigger additional US tariffs; economic damage before Parliament can adjust. | 🟡 Possible |
-| T3 | **Coalition Collapse on Trade** | 12/25 | Three-pole system produces contradictory positions, weakening EU negotiating stance. | 🟡 Possible |
-| T4 | **Legislative Quality Degradation** | 10/25 | Capacity overload leads to poorly drafted legislation requiring subsequent amendment. | 🔴 Unlikely |
-| T5 | **Voter Disengagement** | 8/25 | Parliament's absence during trade crisis reinforces eurosceptic narrative of institutional irrelevance. | 🟡 Possible |
-
-### Strategic Implications
-
-#### Immediate (0-11 days: April 16-27)
-- Commission sole actor on tariff implementation — Parliament in monitoring mode
-- Committee chairs and political group leaders in informal consultation via email/phone
-- INTA chair potentially calling emergency pre-plenary coordination meeting
-
-#### Short-Term (11-30 days: April 27 - May 16)
-- April 27-30 Strasbourg plenary: First post-recess session
-  - Trade policy debate and resolution expected
-  - COD rapporteur allocations at Conference of Presidents
-  - SRMR3 trilogue mandate potential
-- Committee meetings resume at full pace
-
-#### Medium-Term (1-3 months: May - July)
-- Test of three-pole system on tariff response amendment
-- SRMR3 trilogue expected conclusion
-- Anti-corruption directive implementation monitoring
-- EU-Mercosur Partnership Agreement Court of Justice opinion (TA-10-2026-0008)
-
-### SWOT Interaction Matrix
-
-| | S1 (Velocity) | S2 (Anti-Corruption) | S3 (Renew-ECR) | W1 (Calendar) | W2 (Grand Coalition) |
-|---|---|---|---|---|---|
-| **O1 (Reform)** | Velocity demonstrates need for process reform | Consensus model for reform | Swing axis could champion | Calendar gap is the trigger | Deficit highlights need |
-| **O2 (Three-Pole)** | Productivity possible via three-pole | Model for future consensus | Core of new model | Crisis forces adaptation | May replace grand coalition |
-| **T1 (Commission)** | Velocity undermined if Commission acts alone | Corruption risk in unilateral decisions | Axis may split on trade autonomy | Gap enables unilateralism | Deficit prevents rapid parliamentary response |
-| **T2 (Retaliation)** | Legislative output doesn't help in trade war | Not directly relevant | Axis untested on trade crisis | Calendar prevents response | Cannot form unified response |
-
----
-
-**SWOT framework**: Per political-swot-framework.md
-**Data sources**: EP adopted texts (51 for 2026), procedures (51), coalition dynamics, political landscape
-**Confidence**: 🟡 Medium — structural analysis supported by data; voting-level evidence unavailable
-
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 
 This article is produced under the [Hack23 AB](https://hack23.com) intelligence tradecraft library. Every methodology and artifact template applied to this run is linked below.
@@ -960,11 +972,11 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-actors-forces | [political-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run176/classification/political-classification.md) | `classification/political-classification.md` |
+| section-actors-forces | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run176/classification/significance-scoring.md) | `classification/significance-scoring.md` |
+| section-risk | [risk-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run176/risk-scoring/risk-assessment.md) | `risk-scoring/risk-assessment.md` |
+| section-risk | [swot-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run176/risk-scoring/swot-analysis.md) | `risk-scoring/swot-analysis.md` |
 | section-threat | [threat-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run176/threat-assessment/threat-analysis.md) | `threat-assessment/threat-analysis.md` |
 | section-documents | [document-analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run176/documents/document-analysis-index.md) | `documents/document-analysis-index.md` |
-| section-supplementary-intelligence | [political-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run176/classification/political-classification.md) | `classification/political-classification.md` |
-| section-supplementary-intelligence | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run176/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-supplementary-intelligence | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run176/existing/synthesis-summary.md) | `existing/synthesis-summary.md` |
-| section-supplementary-intelligence | [risk-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run176/risk-scoring/risk-assessment.md) | `risk-scoring/risk-assessment.md` |
-| section-supplementary-intelligence | [swot-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run176/risk-scoring/swot-analysis.md) | `risk-scoring/swot-analysis.md` |
 

@@ -29,6 +29,131 @@ Use this guide to read the article as a political-intelligence product rather th
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `existing/stakeholder-impact.md` |
+| [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-assessment.md` |
+
+<h2 id="section-actors-forces">Actors & Forces</h2>
+
+### Political Classification
+
+<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run52/classification/political-classification.md" rel="noopener">View source: <code>classification/political-classification.md</code></a></p>
+
+### 7-Dimension Classification Matrix
+
+#### 1. Policy Domain Distribution
+
+| Domain | Count | Key Files | Committee |
+|--------|-------|-----------|-----------|
+| Economic/Financial | 8 | Banking Union, ECB, European Semester | ECON, BUDG |
+| Justice/Home Affairs | 6 | Anti-corruption, immigration, child protection | LIBE, JURI |
+| Trade/External | 5 | Tariffs, Mercosur, EU-China, Global Gateway | INTA |
+| Environment/Climate | 4 | Water pollutants, emissions, detergents | ENVI, TRAN |
+| Social/Employment | 4 | Talent Pool, housing, EGF, anti-poverty | EMPL |
+| Digital/Innovation | 3 | AI Omnibus, copyright/AI, ERA Act | ITRE, JURI |
+| Security/Defence | 3 | Defence market, flagship projects, drones | AFET, SEDE |
+
+#### 2. Legislative Type Distribution (2026 Adopted Texts)
+
+| Type | Count | Significance |
+|------|-------|-------------|
+| Ordinary legislative (COD) | 13 | Core co-decision — requires committee rapporteur + trilogue |
+| Own-initiative (INI) | 10 | Committee agenda-setting — reflects political priorities |
+| Budget (BUD) | 4 | Financial allocation — BUDG committee lead |
+| Non-legislative (NLE) | 3 | International agreements, appointments |
+| Immunity (IMM) | 7 | JURI committee procedural — significant caseload |
+| Resolution (RSP) | 3 | Urgency resolutions — political signaling |
+
+#### 3. Committee Power Index (Q1 2026)
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
+pie title Committee Legislative Output (March 2026)
+    "ECON" : 8
+    "LIBE" : 6
+    "INTA" : 5
+    "ENVI" : 4
+    "EMPL" : 4
+    "ITRE" : 3
+    "AFET/SEDE" : 3
+    "JURI" : 3
+    "Other" : 12
+```
+
+#### 4. Political Alignment Patterns
+
+The March sessions revealed three distinct coalition configurations:
+
+1. **Grand Coalition Plus** (EPP+S&D+Renew): Banking Union, anti-corruption — traditional centrist consensus files
+2. **Right-Centre Alliance** (EPP+Renew+ECR): Tariff countermeasures, AI simplification — market-oriented files
+3. **Progressive Alliance** (S&D+Greens/EFA+The Left+Renew): Housing crisis, anti-poverty, worker protection — social agenda files
+
+🟡 **Medium confidence**: Coalition configurations inferred from subject matter alignment and prior voting patterns. Specific vote margins not available for all files.
+
+#### 5. Temporal Pattern
+
+| Session Date | Texts Adopted | Key Themes |
+|-------------|---------------|------------|
+| Jan 20-22 | 24 | Health, digital, foreign affairs |
+| Feb 10-12 | 20 | Immigration, anti-poverty, Ukraine |
+| Mar 10-12 | 18 | Talent Pool, copyright, defence |
+| Mar 26 | 18 | Banking Union, anti-corruption, tariffs |
+| **Q1 Total** | **104** | **Record output** |
+
+The March 26 session matched the March 10-12 output in a single day — unprecedented legislative density requiring intensive committee preparation during the preceding weeks.
+
+#### 6. Governance Gap Indicator
+
+🔴 **HIGH**: April 14-26 inter-session creates a 12-day window with no committee meetings. The tariff countermeasures (TA-0096) activated on April 15 during this gap, leaving the Commission as sole implementation authority. INTA committee cannot exercise oversight until April 27 at the earliest.
+
+#### 7. Forward Pipeline Pressure
+
+51 new 2026 procedures identified, including:
+- 13 COD (co-decision): Legislative workhorses requiring full committee treatment
+- 10 INI (own-initiative): Committee priority-setting exercises
+- 7 IMM (immunity): JURI caseload
+- 4 BUD (budget): Financial framework decisions
+- Remaining: NLE, RSP, RPS, INL
+
+Conference of Presidents must allocate these on April 27, the first day back. This is the largest single-day allocation in EP10.
+
+### Significance Scoring
+
+<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run52/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
+
+### Scoring Methodology
+
+Items scored on 5-point scale across 4 dimensions: Political Impact (PI), Legislative Novelty (LN), Citizen Relevance (CR), Institutional Significance (IS). Total = PI + LN + CR + IS (max 20).
+
+### Significance Rankings
+
+| Rank | Item | PI | LN | CR | IS | Total | Committee |
+|------|------|----|----|----|----|-------|-----------|
+| 1 | Banking Union Triple Package (TA-0090/0091/0092) | 5 | 5 | 4 | 5 | **19/20** | ECON |
+| 2 | EU Anti-Corruption Directive (TA-0094) | 5 | 5 | 5 | 4 | **19/20** | LIBE |
+| 3 | Tariff Countermeasures (TA-0096/0097) | 5 | 4 | 4 | 5 | **18/20** | INTA |
+| 4 | AI Digital Omnibus (TA-0098) | 4 | 4 | 4 | 5 | **17/20** | ITRE |
+| 5 | Water Pollutants Directive (TA-0093) | 4 | 3 | 5 | 4 | **16/20** | ENVI |
+| 6 | EU Talent Pool (TA-0058) | 4 | 4 | 4 | 3 | **15/20** | EMPL |
+| 7 | Housing Crisis Resolution (TA-0064) | 3 | 3 | 5 | 3 | **14/20** | EMPL |
+| 8 | Copyright & GenAI (TA-0066) | 4 | 4 | 3 | 3 | **14/20** | JURI/CULT |
+| 9 | Defence Single Market (TA-0079/0080) | 4 | 3 | 3 | 4 | **14/20** | AFET/SEDE |
+| 10 | Emission Credits HDVs (TA-0084) | 3 | 3 | 4 | 3 | **13/20** | ENVI/TRAN |
+
+### Analysis
+
+#### Tier 1 — Transformative (≥18/20)
+The Banking Union triple package and anti-corruption directive are epoch-defining committee outputs. Both represent multi-year legislative campaigns reaching culmination in a single plenary session. The tariff countermeasures achieved the fastest legislative response in EP history (19 days from proposal to adoption), reflecting committee capacity under crisis pressure.
+
+#### Tier 2 — High Significance (15-17/20)
+AI Digital Omnibus simplifies a complex regulatory framework, demonstrating ITRE committee's growing institutional power. Water pollutants directive advances Green Deal implementation with direct citizen health impact.
+
+#### Tier 3 — Notable (13-14/20)
+EU Talent Pool, housing crisis, copyright/AI, defence, and emission credits represent the breadth of committee activity. These files reflect the flexible majority model where different coalitions form per policy domain.
+
+### Publication Priority
+1. **Lead story**: Record March session output (18 texts from March 26 alone)
+2. **Analysis anchor**: Banking Union completion as committee power demonstration
+3. **Time-critical element**: Tariff governance gap (T+1)
+4. **Forward look**: 50+ procedures awaiting post-Easter allocation
 
 <h2 id="section-stakeholder-map">Stakeholder Map</h2>
 
@@ -88,6 +213,79 @@ The European Commission faces implementation pressure from the record legislativ
 ### Cross-Cutting Impact Assessment
 
 The most significant cross-cutting impact is the **governance gap during tariff activation**. This affects all stakeholders simultaneously: political groups cannot exercise oversight, civil society monitoring is suspended, industry faces uncertainty, national governments lack parliamentary legitimacy for responses, and citizens are excluded from democratic deliberation on a policy that directly affects prices and employment.
+
+<h2 id="section-risk">Risk Assessment</h2>
+
+<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run52/risk-scoring/risk-assessment.md" rel="noopener">View source: <code>risk-scoring/risk-assessment.md</code></a></p>
+
+### 5×5 Risk Matrix (Likelihood × Impact)
+
+| Risk | Likelihood | Impact | Score | Trend |
+|------|-----------|--------|-------|-------|
+| Tariff governance gap (INTA inactive) | 5 | 5 | **25/25** 🔴 | ↑ Rising |
+| Post-recess procedure bottleneck | 4 | 4 | **16/25** 🟡 | → Stable |
+| Banking Union trilogue delay | 3 | 5 | **15/25** 🟡 | ↗ Rising |
+| AI regulatory fragmentation | 3 | 4 | **12/25** 🟡 | → Stable |
+| EGF budget exhaustion | 3 | 3 | **9/25** 🟢 | ↗ Rising |
+| ECR coalition fracture on trade | 4 | 3 | **12/25** 🟡 | ↑ Rising |
+
+**Composite Risk Score: 14.8/25 (ELEVATED)**
+
+### Detailed Risk Profiles
+
+#### 1. Tariff Governance Gap — 25/25 CRITICAL
+
+**Description**: Tariff countermeasures (TA-10-2026-0096) activated April 15. INTA committee is in inter-session recess until April 27. The European Commission has sole implementation authority for 12 days with no parliamentary oversight.
+
+**Likelihood: 5/5** — This is not a risk, it is a current reality. The governance gap exists NOW.
+
+**Impact: 5/5** — Trade countermeasures affect EU-US trade worth €500+ billion annually. Without committee oversight, the Commission's response to any escalation is unaccountable to Parliament.
+
+**Mitigation**: None available during inter-session. Conference of Presidents could call emergency INTA session, but no mechanism for this during recess.
+
+**Scenarios**:
+- 🟢 Managed response (50%): No escalation during gap. INTA reconvenes April 27 and assumes normal oversight.
+- 🟡 Delayed escalation (35%): Trade partners announce retaliatory measures during gap. INTA convenes emergency session week of April 27.
+- 🔴 Crisis escalation (15%): Significant trade partner retaliation during gap requires Conference of Presidents to recall INTA from recess.
+
+#### 2. Post-Recess Procedure Bottleneck — 16/25 HIGH
+
+**Description**: 51 new 2026 procedures await committee allocation. 13 COD procedures require rapporteur appointments, shadow rapporteur selections, and timetable integration. This is the largest single-day allocation challenge in EP10.
+
+**Likelihood: 4/5** — The backlog is real and documented. Conference of Presidents meets April 27.
+
+**Impact: 4/5** — Delayed allocation cascades through the entire legislative calendar. Committees already running at record 2,363 meetings/year pace.
+
+**Mitigation**: Conference of Presidents could pre-allocate some files via written procedure during recess.
+
+#### 3. Banking Union Trilogue Delay — 15/25 HIGH
+
+**Description**: DGSD2, BRRD3, and SRMR3 move to trilogue with Council. ECR's abstention on SRMR3 signals potential Council-Parliament alignment difficulties. ECOFIN meeting expected late April.
+
+**Likelihood: 3/5** — ECR split documented. Council negotiating position not yet public.
+
+**Impact: 5/5** — Banking Union completion delayed beyond 12 years would be a major institutional failure. Financial stability implications.
+
+#### 4. ECR Coalition Fracture on Trade — 12/25 MEDIUM
+
+**Description**: ECR supported tariff countermeasures (TA-0096) but abstained on SRMR3. This reveals a structural tension: ECR members from export-dependent countries (Czech Republic, Poland) favor free trade, while sovereignty-focused members resist EU-level financial mechanisms.
+
+**Likelihood: 4/5** — Pattern confirmed across 3 consecutive analysis runs (April 13-16).
+
+**Impact: 3/5** — ECR fracture on trade could shift the Renew-ECR axis (0.95 cohesion) downward, requiring new coalition configurations for trade-related files.
+
+### Trend Analysis
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
+xychart-beta
+    title "Composite Risk Score Trajectory (April 13-16)"
+    x-axis ["Apr 13", "Apr 14", "Apr 15", "Apr 16"]
+    y-axis "Risk Score (0-25)" 0 --> 25
+    line [13.2, 14.1, 16.5, 14.8]
+```
+
+Risk peaked at 16.5 on April 15 (tariff activation day) and has moderated slightly as no immediate escalation has materialized. However, the governance gap risk remains CRITICAL until INTA reconvenes.
 
 <h2 id="section-threat">Threat Landscape</h2>
 
@@ -254,128 +452,6 @@ The flexibility to switch between these configurations is EP10's defining instit
 - Committee fatigue risk from sustained record pace
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
-
-### Political Classification
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run52/classification/political-classification.md" rel="noopener">View source: <code>classification/political-classification.md</code></a></p>
-
-### 7-Dimension Classification Matrix
-
-#### 1. Policy Domain Distribution
-
-| Domain | Count | Key Files | Committee |
-|--------|-------|-----------|-----------|
-| Economic/Financial | 8 | Banking Union, ECB, European Semester | ECON, BUDG |
-| Justice/Home Affairs | 6 | Anti-corruption, immigration, child protection | LIBE, JURI |
-| Trade/External | 5 | Tariffs, Mercosur, EU-China, Global Gateway | INTA |
-| Environment/Climate | 4 | Water pollutants, emissions, detergents | ENVI, TRAN |
-| Social/Employment | 4 | Talent Pool, housing, EGF, anti-poverty | EMPL |
-| Digital/Innovation | 3 | AI Omnibus, copyright/AI, ERA Act | ITRE, JURI |
-| Security/Defence | 3 | Defence market, flagship projects, drones | AFET, SEDE |
-
-#### 2. Legislative Type Distribution (2026 Adopted Texts)
-
-| Type | Count | Significance |
-|------|-------|-------------|
-| Ordinary legislative (COD) | 13 | Core co-decision — requires committee rapporteur + trilogue |
-| Own-initiative (INI) | 10 | Committee agenda-setting — reflects political priorities |
-| Budget (BUD) | 4 | Financial allocation — BUDG committee lead |
-| Non-legislative (NLE) | 3 | International agreements, appointments |
-| Immunity (IMM) | 7 | JURI committee procedural — significant caseload |
-| Resolution (RSP) | 3 | Urgency resolutions — political signaling |
-
-#### 3. Committee Power Index (Q1 2026)
-
-```mermaid
-%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
-pie title Committee Legislative Output (March 2026)
-    "ECON" : 8
-    "LIBE" : 6
-    "INTA" : 5
-    "ENVI" : 4
-    "EMPL" : 4
-    "ITRE" : 3
-    "AFET/SEDE" : 3
-    "JURI" : 3
-    "Other" : 12
-```
-
-#### 4. Political Alignment Patterns
-
-The March sessions revealed three distinct coalition configurations:
-
-1. **Grand Coalition Plus** (EPP+S&D+Renew): Banking Union, anti-corruption — traditional centrist consensus files
-2. **Right-Centre Alliance** (EPP+Renew+ECR): Tariff countermeasures, AI simplification — market-oriented files
-3. **Progressive Alliance** (S&D+Greens/EFA+The Left+Renew): Housing crisis, anti-poverty, worker protection — social agenda files
-
-🟡 **Medium confidence**: Coalition configurations inferred from subject matter alignment and prior voting patterns. Specific vote margins not available for all files.
-
-#### 5. Temporal Pattern
-
-| Session Date | Texts Adopted | Key Themes |
-|-------------|---------------|------------|
-| Jan 20-22 | 24 | Health, digital, foreign affairs |
-| Feb 10-12 | 20 | Immigration, anti-poverty, Ukraine |
-| Mar 10-12 | 18 | Talent Pool, copyright, defence |
-| Mar 26 | 18 | Banking Union, anti-corruption, tariffs |
-| **Q1 Total** | **104** | **Record output** |
-
-The March 26 session matched the March 10-12 output in a single day — unprecedented legislative density requiring intensive committee preparation during the preceding weeks.
-
-#### 6. Governance Gap Indicator
-
-🔴 **HIGH**: April 14-26 inter-session creates a 12-day window with no committee meetings. The tariff countermeasures (TA-0096) activated on April 15 during this gap, leaving the Commission as sole implementation authority. INTA committee cannot exercise oversight until April 27 at the earliest.
-
-#### 7. Forward Pipeline Pressure
-
-51 new 2026 procedures identified, including:
-- 13 COD (co-decision): Legislative workhorses requiring full committee treatment
-- 10 INI (own-initiative): Committee priority-setting exercises
-- 7 IMM (immunity): JURI caseload
-- 4 BUD (budget): Financial framework decisions
-- Remaining: NLE, RSP, RPS, INL
-
-Conference of Presidents must allocate these on April 27, the first day back. This is the largest single-day allocation in EP10.
-
-### Significance Scoring
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run52/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
-
-### Scoring Methodology
-
-Items scored on 5-point scale across 4 dimensions: Political Impact (PI), Legislative Novelty (LN), Citizen Relevance (CR), Institutional Significance (IS). Total = PI + LN + CR + IS (max 20).
-
-### Significance Rankings
-
-| Rank | Item | PI | LN | CR | IS | Total | Committee |
-|------|------|----|----|----|----|-------|-----------|
-| 1 | Banking Union Triple Package (TA-0090/0091/0092) | 5 | 5 | 4 | 5 | **19/20** | ECON |
-| 2 | EU Anti-Corruption Directive (TA-0094) | 5 | 5 | 5 | 4 | **19/20** | LIBE |
-| 3 | Tariff Countermeasures (TA-0096/0097) | 5 | 4 | 4 | 5 | **18/20** | INTA |
-| 4 | AI Digital Omnibus (TA-0098) | 4 | 4 | 4 | 5 | **17/20** | ITRE |
-| 5 | Water Pollutants Directive (TA-0093) | 4 | 3 | 5 | 4 | **16/20** | ENVI |
-| 6 | EU Talent Pool (TA-0058) | 4 | 4 | 4 | 3 | **15/20** | EMPL |
-| 7 | Housing Crisis Resolution (TA-0064) | 3 | 3 | 5 | 3 | **14/20** | EMPL |
-| 8 | Copyright & GenAI (TA-0066) | 4 | 4 | 3 | 3 | **14/20** | JURI/CULT |
-| 9 | Defence Single Market (TA-0079/0080) | 4 | 3 | 3 | 4 | **14/20** | AFET/SEDE |
-| 10 | Emission Credits HDVs (TA-0084) | 3 | 3 | 4 | 3 | **13/20** | ENVI/TRAN |
-
-### Analysis
-
-#### Tier 1 — Transformative (≥18/20)
-The Banking Union triple package and anti-corruption directive are epoch-defining committee outputs. Both represent multi-year legislative campaigns reaching culmination in a single plenary session. The tariff countermeasures achieved the fastest legislative response in EP history (19 days from proposal to adoption), reflecting committee capacity under crisis pressure.
-
-#### Tier 2 — High Significance (15-17/20)
-AI Digital Omnibus simplifies a complex regulatory framework, demonstrating ITRE committee's growing institutional power. Water pollutants directive advances Green Deal implementation with direct citizen health impact.
-
-#### Tier 3 — Notable (13-14/20)
-EU Talent Pool, housing crisis, copyright/AI, defence, and emission credits represent the breadth of committee activity. These files reflect the flexible majority model where different coalitions form per policy domain.
-
-### Publication Priority
-1. **Lead story**: Record March session output (18 texts from March 26 alone)
-2. **Analysis anchor**: Banking Union completion as committee power demonstration
-3. **Time-critical element**: Tariff governance gap (T+1)
-4. **Forward look**: 50+ procedures awaiting post-Easter allocation
 
 ### Swot Analysis
 
@@ -553,79 +629,6 @@ Key collaboration chains identified:
 - ✅ Risk scoring: 6 risks assessed on 5×5 matrix with trend indicators
 - ✅ SWOT: 3+ items per quadrant, ≥80 words each with confidence levels
 
-### Risk Assessment
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run52/risk-scoring/risk-assessment.md" rel="noopener">View source: <code>risk-scoring/risk-assessment.md</code></a></p>
-
-### 5×5 Risk Matrix (Likelihood × Impact)
-
-| Risk | Likelihood | Impact | Score | Trend |
-|------|-----------|--------|-------|-------|
-| Tariff governance gap (INTA inactive) | 5 | 5 | **25/25** 🔴 | ↑ Rising |
-| Post-recess procedure bottleneck | 4 | 4 | **16/25** 🟡 | → Stable |
-| Banking Union trilogue delay | 3 | 5 | **15/25** 🟡 | ↗ Rising |
-| AI regulatory fragmentation | 3 | 4 | **12/25** 🟡 | → Stable |
-| EGF budget exhaustion | 3 | 3 | **9/25** 🟢 | ↗ Rising |
-| ECR coalition fracture on trade | 4 | 3 | **12/25** 🟡 | ↑ Rising |
-
-**Composite Risk Score: 14.8/25 (ELEVATED)**
-
-### Detailed Risk Profiles
-
-#### 1. Tariff Governance Gap — 25/25 CRITICAL
-
-**Description**: Tariff countermeasures (TA-10-2026-0096) activated April 15. INTA committee is in inter-session recess until April 27. The European Commission has sole implementation authority for 12 days with no parliamentary oversight.
-
-**Likelihood: 5/5** — This is not a risk, it is a current reality. The governance gap exists NOW.
-
-**Impact: 5/5** — Trade countermeasures affect EU-US trade worth €500+ billion annually. Without committee oversight, the Commission's response to any escalation is unaccountable to Parliament.
-
-**Mitigation**: None available during inter-session. Conference of Presidents could call emergency INTA session, but no mechanism for this during recess.
-
-**Scenarios**:
-- 🟢 Managed response (50%): No escalation during gap. INTA reconvenes April 27 and assumes normal oversight.
-- 🟡 Delayed escalation (35%): Trade partners announce retaliatory measures during gap. INTA convenes emergency session week of April 27.
-- 🔴 Crisis escalation (15%): Significant trade partner retaliation during gap requires Conference of Presidents to recall INTA from recess.
-
-#### 2. Post-Recess Procedure Bottleneck — 16/25 HIGH
-
-**Description**: 51 new 2026 procedures await committee allocation. 13 COD procedures require rapporteur appointments, shadow rapporteur selections, and timetable integration. This is the largest single-day allocation challenge in EP10.
-
-**Likelihood: 4/5** — The backlog is real and documented. Conference of Presidents meets April 27.
-
-**Impact: 4/5** — Delayed allocation cascades through the entire legislative calendar. Committees already running at record 2,363 meetings/year pace.
-
-**Mitigation**: Conference of Presidents could pre-allocate some files via written procedure during recess.
-
-#### 3. Banking Union Trilogue Delay — 15/25 HIGH
-
-**Description**: DGSD2, BRRD3, and SRMR3 move to trilogue with Council. ECR's abstention on SRMR3 signals potential Council-Parliament alignment difficulties. ECOFIN meeting expected late April.
-
-**Likelihood: 3/5** — ECR split documented. Council negotiating position not yet public.
-
-**Impact: 5/5** — Banking Union completion delayed beyond 12 years would be a major institutional failure. Financial stability implications.
-
-#### 4. ECR Coalition Fracture on Trade — 12/25 MEDIUM
-
-**Description**: ECR supported tariff countermeasures (TA-0096) but abstained on SRMR3. This reveals a structural tension: ECR members from export-dependent countries (Czech Republic, Poland) favor free trade, while sovereignty-focused members resist EU-level financial mechanisms.
-
-**Likelihood: 4/5** — Pattern confirmed across 3 consecutive analysis runs (April 13-16).
-
-**Impact: 3/5** — ECR fracture on trade could shift the Renew-ECR axis (0.95 cohesion) downward, requiring new coalition configurations for trade-related files.
-
-### Trend Analysis
-
-```mermaid
-%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
-xychart-beta
-    title "Composite Risk Score Trajectory (April 13-16)"
-    x-axis ["Apr 13", "Apr 14", "Apr 15", "Apr 16"]
-    y-axis "Risk Score (0-25)" 0 --> 25
-    line [13.2, 14.1, 16.5, 14.8]
-```
-
-Risk peaked at 16.5 on April 15 (tariff activation day) and has moderated slightly as no immediate escalation has materialized. However, the governance gap risk remains CRITICAL until INTA reconvenes.
-
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 
 This article is produced under the [Hack23 AB](https://hack23.com) intelligence tradecraft library. Every methodology and artifact template applied to this run is linked below.
@@ -711,12 +714,12 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-actors-forces | [political-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run52/classification/political-classification.md) | `classification/political-classification.md` |
+| section-actors-forces | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run52/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-stakeholder-map | [stakeholder-impact](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run52/existing/stakeholder-impact.md) | `existing/stakeholder-impact.md` |
+| section-risk | [risk-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run52/risk-scoring/risk-assessment.md) | `risk-scoring/risk-assessment.md` |
 | section-threat | [threat-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run52/threat-assessment/threat-analysis.md) | `threat-assessment/threat-analysis.md` |
 | section-deep-analysis | [deep-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run52/existing/deep-analysis.md) | `existing/deep-analysis.md` |
-| section-supplementary-intelligence | [political-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run52/classification/political-classification.md) | `classification/political-classification.md` |
-| section-supplementary-intelligence | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run52/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-supplementary-intelligence | [swot-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run52/existing/swot-analysis.md) | `existing/swot-analysis.md` |
 | section-supplementary-intelligence | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run52/existing/synthesis-summary.md) | `existing/synthesis-summary.md` |
-| section-supplementary-intelligence | [risk-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run52/risk-scoring/risk-assessment.md) | `risk-scoring/risk-assessment.md` |
 

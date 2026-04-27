@@ -203,6 +203,38 @@ pie title Impact Distribution by Dimension — 2026-04-10
 
 ### Date: 2026-04-10
 
+### Significance Scoring
+
+<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
+
+### Summary
+
+| Decision | Count |
+|----------|:-----:|
+| 📰 Publish | 8 |
+| 📋 Hold | 7 |
+| 🗄️ Skip | 0 |
+
+### Batch Scoring
+
+| Event | EP Reference | Parl. | Policy | Public | Urgency | Instit. | **Composite** | Decision |
+|-------|-------------|:-----:|:------:|:------:|:-------:|:-------:|:-------------:|----------|
+| Committee week - Post-Easter restart | — | 4.0 | 6.0 | 5.0 | 5.0 | 4.0 | **4.85** | Hold |
+| INTA emergency session - US tariff countermeasures | — | 4.0 | 6.0 | 5.0 | 5.0 | 4.0 | **4.85** | Hold |
+| ECON committee meeting - Banking Union trilogue mandate | — | 4.0 | 6.0 | 5.0 | 5.0 | 4.0 | **4.85** | Hold |
+| Plenary session restart | — | 4.0 | 6.0 | 5.0 | 5.0 | 4.0 | **4.85** | Hold |
+| Single Resolution Mechanism Regulation (SRMR3) - Banking Union Package | — | 8.0 | 7.0 | 6.0 | 3.0 | 7.0 | **6.45** | Publish |
+| Bank Recovery and Resolution Directive (BRRD3) - Banking Union Package | — | 8.0 | 7.0 | 6.0 | 3.0 | 7.0 | **6.45** | Publish |
+| Anti-Corruption Directive - Establishing minimum rules on corruption offences and sanctions | — | 8.0 | 7.0 | 6.0 | 3.0 | 7.0 | **6.45** | Publish |
+| European Defence Industrial Strategy Implementation | — | 8.0 | 7.0 | 6.0 | 3.0 | 7.0 | **6.45** | Publish |
+| European Globalisation Adjustment Fund - Austria KTM | — | 6.0 | 5.0 | 4.0 | 3.0 | 5.0 | **4.75** | Hold |
+| Waiver of immunity - Daniel Freund MEP | — | 6.0 | 5.0 | 4.0 | 3.0 | 5.0 | **4.75** | Hold |
+| Mercosur bilateral safeguard clause regulation | — | 8.0 | 7.0 | 6.0 | 3.0 | 7.0 | **6.45** | Publish |
+| Digital sovereignty and cloud services framework | — | 7.0 | 6.0 | 5.0 | 3.0 | 6.0 | **5.60** | Publish |
+| Deposit Guarantee Schemes Directive (DGSD2) - Banking Union Package | — | 8.0 | 7.0 | 6.0 | 3.0 | 7.0 | **6.45** | Publish |
+| Clean Industrial Deal framework regulation | — | 8.0 | 7.0 | 6.0 | 3.0 | 7.0 | **6.45** | Publish |
+| AI Act delegated acts implementation timeline | — | 6.0 | 5.0 | 4.0 | 3.0 | 5.0 | **4.75** | Hold |
+
 <h2 id="section-coalitions-voting">Coalitions & Voting</h2>
 
 ### Voting Patterns
@@ -538,6 +570,43 @@ Risk assessment based on legislative processing speed for 4 procedures.
 - **Procedures analysed**: 4
 - **High/Critical risks**: 0
 - **Date**: 2026-04-10
+
+### Agent Risk Workflow
+
+<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/risk-scoring/agent-risk-workflow.md" rel="noopener">View source: <code>risk-scoring/agent-risk-workflow.md</code></a></p>
+
+### Risk Heat Map
+
+| Impact ↓ / Likelihood → | Rare | Unlikely | Possible | Likely | Almost Certain |
+|--------------------------|------|----------|----------|--------|----------------|
+| **Severe** | 🟢 | 🟡 | 🟠 | 🟠 | 🔴 |
+| **Major** | 🟢 | 🟡 | 🟡 | 🟠 | 🔴 |
+| **Moderate** | 🟢 | 🟢 | 🟡 | 🟠 | 🟠 |
+| **Minor** | 🟢 | 🟢 | 🟢 | 🟡 | 🟡 |
+| **Negligible** | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 |
+
+### Identified Risks
+
+#### RISK-W01: Legislative backlog risk
+- **Likelihood**: possible (0.5) | **Impact**: moderate (3) | **Score**: 1.5 (MEDIUM) | **Confidence**: medium
+- **Evidence**: 4 active procedures
+- **Mitigating Factors**: Committee oversight
+
+### Risk Evaluation Matrix
+
+| Rank | Risk ID | Description | Score | Level | Confidence |
+|------|---------|-------------|-------|-------|------------|
+| 1 | RISK-W01 | Legislative backlog risk | 1.5 | MEDIUM | medium |
+
+### Risk Treatment Plan
+
+- Monitor legislative velocity indicators
+- Track coalition voting patterns
+
+### Recommendations
+
+- Monitor legislative velocity indicators
+- Track coalition voting patterns
 
 <h2 id="section-threat">Threat Landscape</h2>
 
@@ -2384,38 +2453,6 @@ No description available
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
-### Significance Scoring
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
-
-### Summary
-
-| Decision | Count |
-|----------|:-----:|
-| 📰 Publish | 8 |
-| 📋 Hold | 7 |
-| 🗄️ Skip | 0 |
-
-### Batch Scoring
-
-| Event | EP Reference | Parl. | Policy | Public | Urgency | Instit. | **Composite** | Decision |
-|-------|-------------|:-----:|:------:|:------:|:-------:|:-------:|:-------------:|----------|
-| Committee week - Post-Easter restart | — | 4.0 | 6.0 | 5.0 | 5.0 | 4.0 | **4.85** | Hold |
-| INTA emergency session - US tariff countermeasures | — | 4.0 | 6.0 | 5.0 | 5.0 | 4.0 | **4.85** | Hold |
-| ECON committee meeting - Banking Union trilogue mandate | — | 4.0 | 6.0 | 5.0 | 5.0 | 4.0 | **4.85** | Hold |
-| Plenary session restart | — | 4.0 | 6.0 | 5.0 | 5.0 | 4.0 | **4.85** | Hold |
-| Single Resolution Mechanism Regulation (SRMR3) - Banking Union Package | — | 8.0 | 7.0 | 6.0 | 3.0 | 7.0 | **6.45** | Publish |
-| Bank Recovery and Resolution Directive (BRRD3) - Banking Union Package | — | 8.0 | 7.0 | 6.0 | 3.0 | 7.0 | **6.45** | Publish |
-| Anti-Corruption Directive - Establishing minimum rules on corruption offences and sanctions | — | 8.0 | 7.0 | 6.0 | 3.0 | 7.0 | **6.45** | Publish |
-| European Defence Industrial Strategy Implementation | — | 8.0 | 7.0 | 6.0 | 3.0 | 7.0 | **6.45** | Publish |
-| European Globalisation Adjustment Fund - Austria KTM | — | 6.0 | 5.0 | 4.0 | 3.0 | 5.0 | **4.75** | Hold |
-| Waiver of immunity - Daniel Freund MEP | — | 6.0 | 5.0 | 4.0 | 3.0 | 5.0 | **4.75** | Hold |
-| Mercosur bilateral safeguard clause regulation | — | 8.0 | 7.0 | 6.0 | 3.0 | 7.0 | **6.45** | Publish |
-| Digital sovereignty and cloud services framework | — | 7.0 | 6.0 | 5.0 | 3.0 | 6.0 | **5.60** | Publish |
-| Deposit Guarantee Schemes Directive (DGSD2) - Banking Union Package | — | 8.0 | 7.0 | 6.0 | 3.0 | 7.0 | **6.45** | Publish |
-| Clean Industrial Deal framework regulation | — | 8.0 | 7.0 | 6.0 | 3.0 | 7.0 | **6.45** | Publish |
-| AI Act delegated acts implementation timeline | — | 6.0 | 5.0 | 4.0 | 3.0 | 5.0 | **4.75** | Hold |
-
 ### Coalition Dynamics
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/existing/coalition-dynamics.md" rel="noopener">View source: <code>existing/coalition-dynamics.md</code></a></p>
@@ -2501,43 +2538,6 @@ No description available
 - 7 critical-risk mention(s) detected — consider priority coverage.
 - Threat-heavy SWOT balance — narrative may benefit from opportunity framing.
 - 19 analysis files processed — consider multi-article output.
-
-### Agent Risk Workflow
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/risk-scoring/agent-risk-workflow.md" rel="noopener">View source: <code>risk-scoring/agent-risk-workflow.md</code></a></p>
-
-### Risk Heat Map
-
-| Impact ↓ / Likelihood → | Rare | Unlikely | Possible | Likely | Almost Certain |
-|--------------------------|------|----------|----------|--------|----------------|
-| **Severe** | 🟢 | 🟡 | 🟠 | 🟠 | 🔴 |
-| **Major** | 🟢 | 🟡 | 🟡 | 🟠 | 🔴 |
-| **Moderate** | 🟢 | 🟢 | 🟡 | 🟠 | 🟠 |
-| **Minor** | 🟢 | 🟢 | 🟢 | 🟡 | 🟡 |
-| **Negligible** | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 |
-
-### Identified Risks
-
-#### RISK-W01: Legislative backlog risk
-- **Likelihood**: possible (0.5) | **Impact**: moderate (3) | **Score**: 1.5 (MEDIUM) | **Confidence**: medium
-- **Evidence**: 4 active procedures
-- **Mitigating Factors**: Committee oversight
-
-### Risk Evaluation Matrix
-
-| Rank | Risk ID | Description | Score | Level | Confidence |
-|------|---------|-------------|-------|-------|------------|
-| 1 | RISK-W01 | Legislative backlog risk | 1.5 | MEDIUM | medium |
-
-### Risk Treatment Plan
-
-- Monitor legislative velocity indicators
-- Track coalition voting patterns
-
-### Recommendations
-
-- Monitor legislative velocity indicators
-- Track coalition voting patterns
 
 ### Synthesis Summary
 
@@ -2831,12 +2831,14 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-actors-forces | [actor-mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/classification/actor-mapping.md) | `classification/actor-mapping.md` |
 | section-actors-forces | [forces-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/classification/forces-analysis.md) | `classification/forces-analysis.md` |
 | section-actors-forces | [impact-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/classification/impact-matrix.md) | `classification/impact-matrix.md` |
+| section-actors-forces | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-coalitions-voting | [voting-patterns](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/existing/voting-patterns.md) | `existing/voting-patterns.md` |
 | section-stakeholder-map | [stakeholder-impact](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/existing/stakeholder-impact.md) | `existing/stakeholder-impact.md` |
 | section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/risk-scoring/risk-matrix.md) | `risk-scoring/risk-matrix.md` |
 | section-risk | [quantitative-swot](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/risk-scoring/quantitative-swot.md) | `risk-scoring/quantitative-swot.md` |
 | section-risk | [political-capital-risk](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/risk-scoring/political-capital-risk.md) | `risk-scoring/political-capital-risk.md` |
 | section-risk | [legislative-velocity-risk](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/risk-scoring/legislative-velocity-risk.md) | `risk-scoring/legislative-velocity-risk.md` |
+| section-risk | [agent-risk-workflow](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/risk-scoring/agent-risk-workflow.md) | `risk-scoring/agent-risk-workflow.md` |
 | section-threat | [actor-threat-profiling](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/threat-assessment/actor-threat-profiling.md) | `threat-assessment/actor-threat-profiling.md` |
 | section-threat | [consequence-trees](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/threat-assessment/consequence-trees.md) | `threat-assessment/consequence-trees.md` |
 | section-threat | [legislative-disruption](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/threat-assessment/legislative-disruption.md) | `threat-assessment/legislative-disruption.md` |
@@ -2865,10 +2867,8 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-documents | [procedures-deposit-guarantee-schemes-directive-revision-dgsd-8nmxb3-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/documents/procedures-deposit-guarantee-schemes-directive-revision-dgsd-8nmxb3-analysis.md) | `documents/procedures-deposit-guarantee-schemes-directive-revision-dgsd-8nmxb3-analysis.md` |
 | section-documents | [procedures-eu-countermeasures-to-us-tariff-actions-trade-em-4f56gm-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/documents/procedures-eu-countermeasures-to-us-tariff-actions-trade-em-4f56gm-analysis.md) | `documents/procedures-eu-countermeasures-to-us-tariff-actions-trade-em-4f56gm-analysis.md` |
 | section-documents | [procedures-single-resolution-mechanism-regulation-recast-srm-iy50ec-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/documents/procedures-single-resolution-mechanism-regulation-recast-srm-iy50ec-analysis.md) | `documents/procedures-single-resolution-mechanism-regulation-recast-srm-iy50ec-analysis.md` |
-| section-supplementary-intelligence | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-supplementary-intelligence | [coalition-dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/existing/coalition-dynamics.md) | `existing/coalition-dynamics.md` |
 | section-supplementary-intelligence | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/existing/synthesis-summary.md) | `existing/synthesis-summary.md` |
-| section-supplementary-intelligence | [agent-risk-workflow](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/risk-scoring/agent-risk-workflow.md) | `risk-scoring/agent-risk-workflow.md` |
 | section-supplementary-intelligence | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/synthesis-summary.md) | `synthesis-summary.md` |
 | section-supplementary-intelligence | [weekly-intelligence-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/weekly-intelligence-brief.md) | `weekly-intelligence-brief.md` |
 

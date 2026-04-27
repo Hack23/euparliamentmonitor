@@ -30,9 +30,11 @@ Use this guide to read the article as a political-intelligence product rather th
 |---|---|---|
 | [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
+| [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `classification/sensitivity-assessment.md` |
 | [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `intelligence/coalition-dynamics.md` |
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `intelligence/stakeholder-map.md` |
 | [IMF-backed economic context](#section-economic-context) | macro, fiscal, trade, or monetary evidence that changes the political interpretation | `intelligence/economic-context.md` |
+| [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/political-risk.md` |
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
 
 <h2 id="section-executive-brief">Executive Brief</h2>
@@ -435,6 +437,155 @@ Commission and Council. This is a structural trend, not episodic.
 ---
 
 *Source: EP MCP tools (european-parliament-mcp-server@1.2.15), WB API, IMF WEO April 2026.*
+*Generated: 2026-04-27 | SPDX: Apache-2.0*
+
+<h2 id="section-significance">Significance</h2>
+
+### Sensitivity Assessment
+
+<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/classification/sensitivity-assessment.md" rel="noopener">View source: <code>classification/sensitivity-assessment.md</code></a></p>
+
+### Issue Sensitivity Classification
+
+| Issue | Sensitivity | Reason |
+|-------|------------|--------|
+| EU-US tariff retaliation mechanism | 🔴 HIGH | Bilateral trade relationship; US may react to EP vote messaging |
+| CID energy mix provisions | 🔴 HIGH | Deep EPP internal divisions; nationally sensitive for DE/PL/CZ |
+| Migration enforcement | 🔴 HIGH | Contested values; S&D/Greens vs. EPP/ECR/PfE fault line |
+| SRMR3 implementation | 🟡 MEDIUM | Technical but financially consequential |
+| ECB rate path | 🟡 MEDIUM | Monetary policy independence norm limits EP commentary |
+| EU enlargement | 🟡 MEDIUM | Geopolitically sensitive; Ukraine dimension |
+| AI Act enforcement | 🟡 MEDIUM | Industry lobbying; national interests in tech sovereignty |
+| CJEU-Mercosur | 🟢 LOW-MEDIUM | Legal process; EP cannot influence |
+
+---
+
+### Neutrality Assessment
+
+Per 00-scope-and-ground-rules.md: analysis must present all perspectives without editorial bias.
+This analysis:
+- Documents EPP, S&D, ECR, PfE, and Renew positions on contested files
+- Presents scenario outcomes without recommending which coalition combination is "better"
+- Uses structural/mathematical analysis of coalition viability (neutral) rather than normative framing
+- Cites IMF/WB data as external authority for economic claims
+
+**Neutrality compliance:** ✅ COMPLIANT
+
+---
+
+*Generated: 2026-04-27 | SPDX: Apache-2.0*
+
+### Priority Matrix
+
+<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/classification/priority-matrix.md" rel="noopener">View source: <code>classification/priority-matrix.md</code></a></p>
+
+### Priority Classification
+
+#### HIGH Priority (Urgent + Important)
+1. **CID coalition management** — Month's defining legislative battle; EPP fracture risk = R9
+2. **April 27–30 plenary votes** — Real coalition data point; defines subsequent 60-day dynamics
+3. **US tariff escalation monitoring** — Scenario 3 trigger; would override all other priorities
+
+#### MEDIUM Priority (Important, less urgent)
+4. **SRMR3 Council second reading** — Important structural reform; manageable risk
+5. **ECB Vice-President May hearing** — Accountability exercise; institutional opportunity
+6. **May 18–21 plenary preparation** — Legislative continuity
+
+#### LOW Priority (Monitor only)
+7. **Migration follow-up** — Non-binding context; no new legislative action expected
+8. **EU enlargement monitoring** — Background diplomatic process
+9. **CJEU-Mercosur** — External legal process, EP cannot influence
+
+---
+
+### Time-Critical Actions
+
+| Deadline | Action Required |
+|----------|---------------|
+| April 30, 2026 | Observe vote tallies from April 27–30 plenary |
+| May 10, 2026 | Monitor EPP Group CID amendment package circulation |
+| May 15, 2026 | Check for US tariff escalation announcements |
+| May 18–21, 2026 | May plenary — coalition discipline verification |
+
+---
+
+*Generated: 2026-04-27 | SPDX: Apache-2.0*
+
+### Issue Classification
+
+<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/classification/issue-classification.md" rel="noopener">View source: <code>classification/issue-classification.md</code></a></p>
+
+### Legislative Issues
+
+| Issue | Type | Priority | Coalition Alignment | Outcome Probability |
+|-------|------|----------|--------------------|--------------------|
+| Clean Industrial Deal (CID) | REGULATION | 🔴 HIGH | Grand coalition with EPP internal split | 55–65% pass |
+| EU-US Tariff Retaliation | DECISION | 🔴 HIGH | Broad coalition | 65–75% agreement by June |
+| SRMR3 Council second reading | REGULATION | 🟡 MEDIUM | Grand coalition | 70–80% clean passage |
+| ECB VP May hearing | OVERSIGHT | 🟡 MEDIUM | N/A (accountability) | N/A |
+| AI Act implementation review | OVERSIGHT | 🟡 MEDIUM | Grand coalition | Hearing proceeds |
+| Migration enforcement follow-up | RESOLUTION | 🟡 MEDIUM | EPP + ECR (contested) | Non-binding only |
+
+---
+
+### Institutional Issues
+
+| Issue | Type | Priority |
+|-------|------|----------|
+| Grand coalition discipline test | POLITICAL | 🔴 HIGH |
+| EP-Commission CID alignment | INSTITUTIONAL | 🟡 MEDIUM |
+| ECB accountability framework | INSTITUTIONAL | 🟡 MEDIUM |
+| EP electoral reform (EU Act) | CONSTITUTIONAL | 🟢 LOW |
+
+---
+
+### Geopolitical Issues
+
+| Issue | Type | Priority |
+|-------|------|----------|
+| US tariff escalation risk | TRADE | 🔴 HIGH |
+| Ukraine war EU response | SECURITY | 🟡 MEDIUM |
+| EU enlargement (Ukraine/Moldova) | STRATEGIC | 🟡 MEDIUM |
+| Mercosur CJEU proceedings | LEGAL/TRADE | 🟢 LOW-MEDIUM |
+
+---
+
+*Generated: 2026-04-27 | SPDX: Apache-2.0*
+
+<h2 id="section-actors-forces">Actors & Forces</h2>
+
+### Stakeholder Classification
+
+<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/classification/stakeholder-classification.md" rel="noopener">View source: <code>classification/stakeholder-classification.md</code></a></p>
+
+### Group Power Distribution
+
+| Group | Seats | Cluster | Coalition Role |
+|-------|-------|---------|---------------|
+| EPP | 185 | Centre-right | PIVOTAL — indispensable in all coalitions |
+| S&D | 135 | Centre-left | CORE — grand coalition anchor |
+| PfE | 85 | Far-right | EXTERNAL — outside coalition; veto signal |
+| ECR | 81 | National-conservative | SWING — available for right-leaning files |
+| Renew | 77 | Liberal | ENABLER — completes grand coalition |
+| Greens/EFA | 53 | Green/regionalist | PROGRESSIVE EXTENSION — available for green files |
+| Left | 46 | Far-left | OPPOSITION — selective S&D alignment |
+| NI | 30 | Non-attached | UNPREDICTABLE — varied by individual MEP |
+| ESN | 27 | Far-right | STRUCTURAL OPPOSITION |
+
+---
+
+### Commission Classification
+**Role:** Agenda-setter + trilogue negotiator
+**Alignment:** Grand coalition (EPP-S&D-Renew base)
+**Key risk:** Tariff trilogue negotiating mandate depends on EP coherence
+
+### ECB Classification
+**Role:** Monetary authority + democratic accountability subject
+**Alignment:** Independent; ECB VP hearing in May
+**Key risk:** Rate divergence with Fed creating euro appreciation pressure
+
+---
+
 *Generated: 2026-04-27 | SPDX: Apache-2.0*
 
 <h2 id="section-coalitions-voting">Coalitions & Voting</h2>
@@ -1294,6 +1445,169 @@ it is the core political economy tension that will determine the month's legisla
 ---
 
 *Source: World Bank API (GDP growth, inflation), IMF WEO April 2026 (EU aggregate projections — proxy from prior run and publicly available WEO data). EP MCP tools for institutional context.*
+*Generated: 2026-04-27 | SPDX: Apache-2.0*
+
+<h2 id="section-risk">Risk Assessment</h2>
+
+### Political Risk
+
+<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/risk-scoring/political-risk.md" rel="noopener">View source: <code>risk-scoring/political-risk.md</code></a></p>
+
+### Coalition Stability Risk
+
+**Grand coalition (EPP+S&D+Renew) stability:** 🟡 MEDIUM RISK
+- Buffer: 36 seats above threshold (397 vs. 361)
+- Stress point: CID social conditionality requirement (S&D red line)
+- EPP fracture probability: 25–30% on CID specifically
+- Grand coalition preservation probability overall: 70–75%
+
+### EPP Internal Risk
+
+**EPP group cohesion on CID:** 🔴 HIGH RISK
+- Eastern faction (PL+CZ+RO+SK) = ~60 EPP MEPs
+- These MEPs face direct national party pressure on energy mix provisions
+- EPP leadership must contain, not suppress, this faction
+- Containment probability: 60–70%
+
+### Right-Wing Numerical Majority Risk
+
+**Political right coalition materialisation:** 🟢 LOW-MEDIUM RISK
+- Arithmetic: EPP+ECR+PfE+ESN = ~378 seats (viable numerically)
+- Political: EPP-PfE coordination firewall prevents formalisation
+- Probability of right-wing coalition replacing grand coalition: <10%
+- Probability of coincidental right-wing votes on specific migration files: 25–35%
+
+### Summary Risk Matrix
+
+| Risk | Level | Short-term | Medium-term |
+|------|-------|-----------|------------|
+| Grand coalition collapse | 🟢 LOW | <5% | 10–15% |
+| EPP CID fracture | 🟡 MEDIUM | 25–30% | 35–40% |
+| Right-wing coincidence | 🟡 MEDIUM | 25–35% | 30–40% |
+| External shock override | 🟡 MEDIUM | 15–20% | 20–25% |
+
+---
+
+*Generated: 2026-04-27 | SPDX: Apache-2.0*
+
+### Legislative Risk
+
+<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/risk-scoring/legislative-risk.md" rel="noopener">View source: <code>risk-scoring/legislative-risk.md</code></a></p>
+
+### Legislative Risk Assessment
+
+#### Clean Industrial Deal (CID)
+**Risk Level:** 🔴 HIGH
+**Risk Type:** Coalition fracture + Committee passage failure
+**Likelihood:** 30–40% of file being delayed or failed in May
+**Impact:** Flagship Commission competitiveness programme delayed 3–6 months; EPP credibility damaged
+**Mitigation:** EPP Group leadership compromise package; Commission technical assistance
+
+#### SRMR3 Council Second Reading
+**Risk Level:** 🟡 MEDIUM
+**Risk Type:** Council blocking minority; trilogue reopen
+**Likelihood:** 25–30% of Council raising formal objections
+**Impact:** 6–9 month delay; banking union completeness gap
+**Mitigation:** ECB normative pressure on Germany/Austria; Commission DG FISMA support
+
+#### EU-US Tariff Mechanism
+**Risk Level:** 🟡 MEDIUM (escalates to HIGH if Scenario 3)
+**Risk Type:** Trilogue not concluded within window; US escalation overrides timeline
+**Likelihood:** 65–75% that trilogue is NOT concluded before May 21
+**Impact:** Commission negotiating credibility weakened; EU exporters face continued uncertainty
+**Mitigation:** Diplomatic channels; Commission mandate confirmation by EP
+
+---
+
+### Risk Aggregation
+
+| File | Delay Risk | Defeat Risk | Escalation Risk |
+|------|-----------|------------|----------------|
+| CID (committee) | 🟡 MEDIUM | 🟡 MEDIUM | 🟢 LOW |
+| SRMR3 (Council) | 🟡 MEDIUM | 🟢 LOW | 🟢 LOW |
+| EU-US Tariffs (trilogue) | 🟡 MEDIUM | 🟢 LOW | 🔴 HIGH (external) |
+
+---
+
+*Generated: 2026-04-27 | SPDX: Apache-2.0*
+
+### Economic Risk
+
+<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/risk-scoring/economic-risk.md" rel="noopener">View source: <code>risk-scoring/economic-risk.md</code></a></p>
+
+### Macroeconomic Risk Assessment
+
+#### Tariff Escalation Risk
+**Level:** 🟡 MEDIUM (🔴 HIGH if automotive/pharma included)
+- Current exposure: ~€35bn EU exports at risk
+- Scenario 3 escalation (automotive+pharma): ~€85bn additional
+- GDP impact: -0.3pp (current) to -0.7pp (full escalation)
+- Probability of automotive escalation in 30-day window: ~3–5%
+
+#### Germany Contraction Risk
+**Level:** 🟡 MEDIUM
+- Germany in 3rd consecutive year of near-zero growth
+- Q4 2026 Kurzarbeit cliff risk: unemployment spike if recession extends
+- Impact on EPP political calculus: direct pressure on CDU/CSU MEPs for CID relief provisions
+- EU GDP impact of Germany prolonged contraction: -0.2pp relative to baseline
+
+#### ECB Policy Divergence Risk
+**Level:** 🟡 MEDIUM
+- Fed-ECB rate differential: ~175bps (Fed 4.50%+ vs ECB ~2.75%)
+- Euro appreciation risk: €/$ 1.15–1.20 range
+- Export competitiveness impact: additional -2–4% on EU industrial exporters
+- Compound with tariffs: total competitive pressure on German industrial sector exceeds -6%
+
+### Summary Risk Table
+
+| Economic Risk | Probability | Impact | GDP Effect |
+|--------------|------------|--------|-----------|
+| Tariff current level | CERTAIN | -0.3pp | Baseline |
+| Tariff escalation (auto/pharma) | 3–5% | -0.7pp | Scenario 3 |
+| Germany extended contraction | 40% | -0.2pp additional | Structural drag |
+| ECB-Fed divergence amplification | 60% | -2–4% on exports | Compound risk |
+
+---
+
+*Source: IMF WEO April 2026, World Bank API.*
+*Generated: 2026-04-27 | SPDX: Apache-2.0*
+
+### Institutional Risk
+
+<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/risk-scoring/institutional-risk.md" rel="noopener">View source: <code>risk-scoring/institutional-risk.md</code></a></p>
+
+### Institutional Risk Assessment
+
+#### Coalition Mechanics Risk
+**Level:** 🟡 MEDIUM
+- Grand coalition architecture is functional but aging (Year 2 stress accumulation)
+- First major domestic competitiveness test (CID) creates precedent-setting dynamics
+- If CID fails, subsequent files will face lower coalition confidence
+
+#### EP-Commission Alignment Risk
+**Level:** 🟡 MEDIUM
+- Commission's CID ownership creates institutional stake in EP passing it
+- If EP amends CID substantially, Commission faces credibility question on its flagship programme
+- Risk: Commission accepts Council-friendly amendments, undermining EP's co-legislator authority
+
+#### EP Institutional Capacity Risk
+**Level:** 🟢 LOW
+- EP has handled complex multi-file sessions successfully in Year 1
+- President Metsola (EPP) exercises disciplined session management
+- Procedural obstruction from far right: manageable via standing orders
+
+#### ECB Independence / EP Oversight Balance Risk
+**Level:** 🟡 MEDIUM
+- New ECB VP hearing creates precedent for enhanced accountability
+- Risk: if hearings become politically charged (ECB forced to comment on CID/tariffs), damages ECB
+  independence narrative
+- Mitigation: structured hearing format limits scope; EP committee chairs manage agenda
+
+### Institutional Stability Score
+**Overall:** 🟡 75/100 (moderate stress; structurally sound)
+
+---
+
 *Generated: 2026-04-27 | SPDX: Apache-2.0*
 
 <h2 id="section-threat">Threat Landscape</h2>
@@ -2296,151 +2610,6 @@ This methodology reflection is the final artifact produced in the analysis stage
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
-### Issue Classification
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/classification/issue-classification.md" rel="noopener">View source: <code>classification/issue-classification.md</code></a></p>
-
-### Legislative Issues
-
-| Issue | Type | Priority | Coalition Alignment | Outcome Probability |
-|-------|------|----------|--------------------|--------------------|
-| Clean Industrial Deal (CID) | REGULATION | 🔴 HIGH | Grand coalition with EPP internal split | 55–65% pass |
-| EU-US Tariff Retaliation | DECISION | 🔴 HIGH | Broad coalition | 65–75% agreement by June |
-| SRMR3 Council second reading | REGULATION | 🟡 MEDIUM | Grand coalition | 70–80% clean passage |
-| ECB VP May hearing | OVERSIGHT | 🟡 MEDIUM | N/A (accountability) | N/A |
-| AI Act implementation review | OVERSIGHT | 🟡 MEDIUM | Grand coalition | Hearing proceeds |
-| Migration enforcement follow-up | RESOLUTION | 🟡 MEDIUM | EPP + ECR (contested) | Non-binding only |
-
----
-
-### Institutional Issues
-
-| Issue | Type | Priority |
-|-------|------|----------|
-| Grand coalition discipline test | POLITICAL | 🔴 HIGH |
-| EP-Commission CID alignment | INSTITUTIONAL | 🟡 MEDIUM |
-| ECB accountability framework | INSTITUTIONAL | 🟡 MEDIUM |
-| EP electoral reform (EU Act) | CONSTITUTIONAL | 🟢 LOW |
-
----
-
-### Geopolitical Issues
-
-| Issue | Type | Priority |
-|-------|------|----------|
-| US tariff escalation risk | TRADE | 🔴 HIGH |
-| Ukraine war EU response | SECURITY | 🟡 MEDIUM |
-| EU enlargement (Ukraine/Moldova) | STRATEGIC | 🟡 MEDIUM |
-| Mercosur CJEU proceedings | LEGAL/TRADE | 🟢 LOW-MEDIUM |
-
----
-
-*Generated: 2026-04-27 | SPDX: Apache-2.0*
-
-### Priority Matrix
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/classification/priority-matrix.md" rel="noopener">View source: <code>classification/priority-matrix.md</code></a></p>
-
-### Priority Classification
-
-#### HIGH Priority (Urgent + Important)
-1. **CID coalition management** — Month's defining legislative battle; EPP fracture risk = R9
-2. **April 27–30 plenary votes** — Real coalition data point; defines subsequent 60-day dynamics
-3. **US tariff escalation monitoring** — Scenario 3 trigger; would override all other priorities
-
-#### MEDIUM Priority (Important, less urgent)
-4. **SRMR3 Council second reading** — Important structural reform; manageable risk
-5. **ECB Vice-President May hearing** — Accountability exercise; institutional opportunity
-6. **May 18–21 plenary preparation** — Legislative continuity
-
-#### LOW Priority (Monitor only)
-7. **Migration follow-up** — Non-binding context; no new legislative action expected
-8. **EU enlargement monitoring** — Background diplomatic process
-9. **CJEU-Mercosur** — External legal process, EP cannot influence
-
----
-
-### Time-Critical Actions
-
-| Deadline | Action Required |
-|----------|---------------|
-| April 30, 2026 | Observe vote tallies from April 27–30 plenary |
-| May 10, 2026 | Monitor EPP Group CID amendment package circulation |
-| May 15, 2026 | Check for US tariff escalation announcements |
-| May 18–21, 2026 | May plenary — coalition discipline verification |
-
----
-
-*Generated: 2026-04-27 | SPDX: Apache-2.0*
-
-### Sensitivity Assessment
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/classification/sensitivity-assessment.md" rel="noopener">View source: <code>classification/sensitivity-assessment.md</code></a></p>
-
-### Issue Sensitivity Classification
-
-| Issue | Sensitivity | Reason |
-|-------|------------|--------|
-| EU-US tariff retaliation mechanism | 🔴 HIGH | Bilateral trade relationship; US may react to EP vote messaging |
-| CID energy mix provisions | 🔴 HIGH | Deep EPP internal divisions; nationally sensitive for DE/PL/CZ |
-| Migration enforcement | 🔴 HIGH | Contested values; S&D/Greens vs. EPP/ECR/PfE fault line |
-| SRMR3 implementation | 🟡 MEDIUM | Technical but financially consequential |
-| ECB rate path | 🟡 MEDIUM | Monetary policy independence norm limits EP commentary |
-| EU enlargement | 🟡 MEDIUM | Geopolitically sensitive; Ukraine dimension |
-| AI Act enforcement | 🟡 MEDIUM | Industry lobbying; national interests in tech sovereignty |
-| CJEU-Mercosur | 🟢 LOW-MEDIUM | Legal process; EP cannot influence |
-
----
-
-### Neutrality Assessment
-
-Per 00-scope-and-ground-rules.md: analysis must present all perspectives without editorial bias.
-This analysis:
-- Documents EPP, S&D, ECR, PfE, and Renew positions on contested files
-- Presents scenario outcomes without recommending which coalition combination is "better"
-- Uses structural/mathematical analysis of coalition viability (neutral) rather than normative framing
-- Cites IMF/WB data as external authority for economic claims
-
-**Neutrality compliance:** ✅ COMPLIANT
-
----
-
-*Generated: 2026-04-27 | SPDX: Apache-2.0*
-
-### Stakeholder Classification
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/classification/stakeholder-classification.md" rel="noopener">View source: <code>classification/stakeholder-classification.md</code></a></p>
-
-### Group Power Distribution
-
-| Group | Seats | Cluster | Coalition Role |
-|-------|-------|---------|---------------|
-| EPP | 185 | Centre-right | PIVOTAL — indispensable in all coalitions |
-| S&D | 135 | Centre-left | CORE — grand coalition anchor |
-| PfE | 85 | Far-right | EXTERNAL — outside coalition; veto signal |
-| ECR | 81 | National-conservative | SWING — available for right-leaning files |
-| Renew | 77 | Liberal | ENABLER — completes grand coalition |
-| Greens/EFA | 53 | Green/regionalist | PROGRESSIVE EXTENSION — available for green files |
-| Left | 46 | Far-left | OPPOSITION — selective S&D alignment |
-| NI | 30 | Non-attached | UNPREDICTABLE — varied by individual MEP |
-| ESN | 27 | Far-right | STRUCTURAL OPPOSITION |
-
----
-
-### Commission Classification
-**Role:** Agenda-setter + trilogue negotiator
-**Alignment:** Grand coalition (EPP-S&D-Renew base)
-**Key risk:** Tariff trilogue negotiating mandate depends on EP coherence
-
-### ECB Classification
-**Role:** Monetary authority + democratic accountability subject
-**Alignment:** Independent; ECB VP hearing in May
-**Key risk:** Rate divergence with Fed creating euro appreciation pressure
-
----
-
-*Generated: 2026-04-27 | SPDX: Apache-2.0*
-
 ### Analysis Index
 
 <p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/intelligence/analysis-index.md" rel="noopener">View source: <code>intelligence/analysis-index.md</code></a></p>
@@ -2525,167 +2694,6 @@ This run updates it with real-time April 27 session confirmation.
 1. *"Grand coalition stress test — April 27–30 plenary"* [ACTIVE VERIFICATION]
 2. *"EU-US tariff trilogue at inflection point (WEP: 55–70%)"* [ACTIVE]
 3. *"ECB VP hearing calibration signal (WEP: 75–85%)"* [ACTIVE]
-
----
-
-*Generated: 2026-04-27 | SPDX: Apache-2.0*
-
-### Economic Risk
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/risk-scoring/economic-risk.md" rel="noopener">View source: <code>risk-scoring/economic-risk.md</code></a></p>
-
-### Macroeconomic Risk Assessment
-
-#### Tariff Escalation Risk
-**Level:** 🟡 MEDIUM (🔴 HIGH if automotive/pharma included)
-- Current exposure: ~€35bn EU exports at risk
-- Scenario 3 escalation (automotive+pharma): ~€85bn additional
-- GDP impact: -0.3pp (current) to -0.7pp (full escalation)
-- Probability of automotive escalation in 30-day window: ~3–5%
-
-#### Germany Contraction Risk
-**Level:** 🟡 MEDIUM
-- Germany in 3rd consecutive year of near-zero growth
-- Q4 2026 Kurzarbeit cliff risk: unemployment spike if recession extends
-- Impact on EPP political calculus: direct pressure on CDU/CSU MEPs for CID relief provisions
-- EU GDP impact of Germany prolonged contraction: -0.2pp relative to baseline
-
-#### ECB Policy Divergence Risk
-**Level:** 🟡 MEDIUM
-- Fed-ECB rate differential: ~175bps (Fed 4.50%+ vs ECB ~2.75%)
-- Euro appreciation risk: €/$ 1.15–1.20 range
-- Export competitiveness impact: additional -2–4% on EU industrial exporters
-- Compound with tariffs: total competitive pressure on German industrial sector exceeds -6%
-
-### Summary Risk Table
-
-| Economic Risk | Probability | Impact | GDP Effect |
-|--------------|------------|--------|-----------|
-| Tariff current level | CERTAIN | -0.3pp | Baseline |
-| Tariff escalation (auto/pharma) | 3–5% | -0.7pp | Scenario 3 |
-| Germany extended contraction | 40% | -0.2pp additional | Structural drag |
-| ECB-Fed divergence amplification | 60% | -2–4% on exports | Compound risk |
-
----
-
-*Source: IMF WEO April 2026, World Bank API.*
-*Generated: 2026-04-27 | SPDX: Apache-2.0*
-
-### Institutional Risk
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/risk-scoring/institutional-risk.md" rel="noopener">View source: <code>risk-scoring/institutional-risk.md</code></a></p>
-
-### Institutional Risk Assessment
-
-#### Coalition Mechanics Risk
-**Level:** 🟡 MEDIUM
-- Grand coalition architecture is functional but aging (Year 2 stress accumulation)
-- First major domestic competitiveness test (CID) creates precedent-setting dynamics
-- If CID fails, subsequent files will face lower coalition confidence
-
-#### EP-Commission Alignment Risk
-**Level:** 🟡 MEDIUM
-- Commission's CID ownership creates institutional stake in EP passing it
-- If EP amends CID substantially, Commission faces credibility question on its flagship programme
-- Risk: Commission accepts Council-friendly amendments, undermining EP's co-legislator authority
-
-#### EP Institutional Capacity Risk
-**Level:** 🟢 LOW
-- EP has handled complex multi-file sessions successfully in Year 1
-- President Metsola (EPP) exercises disciplined session management
-- Procedural obstruction from far right: manageable via standing orders
-
-#### ECB Independence / EP Oversight Balance Risk
-**Level:** 🟡 MEDIUM
-- New ECB VP hearing creates precedent for enhanced accountability
-- Risk: if hearings become politically charged (ECB forced to comment on CID/tariffs), damages ECB
-  independence narrative
-- Mitigation: structured hearing format limits scope; EP committee chairs manage agenda
-
-### Institutional Stability Score
-**Overall:** 🟡 75/100 (moderate stress; structurally sound)
-
----
-
-*Generated: 2026-04-27 | SPDX: Apache-2.0*
-
-### Legislative Risk
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/risk-scoring/legislative-risk.md" rel="noopener">View source: <code>risk-scoring/legislative-risk.md</code></a></p>
-
-### Legislative Risk Assessment
-
-#### Clean Industrial Deal (CID)
-**Risk Level:** 🔴 HIGH
-**Risk Type:** Coalition fracture + Committee passage failure
-**Likelihood:** 30–40% of file being delayed or failed in May
-**Impact:** Flagship Commission competitiveness programme delayed 3–6 months; EPP credibility damaged
-**Mitigation:** EPP Group leadership compromise package; Commission technical assistance
-
-#### SRMR3 Council Second Reading
-**Risk Level:** 🟡 MEDIUM
-**Risk Type:** Council blocking minority; trilogue reopen
-**Likelihood:** 25–30% of Council raising formal objections
-**Impact:** 6–9 month delay; banking union completeness gap
-**Mitigation:** ECB normative pressure on Germany/Austria; Commission DG FISMA support
-
-#### EU-US Tariff Mechanism
-**Risk Level:** 🟡 MEDIUM (escalates to HIGH if Scenario 3)
-**Risk Type:** Trilogue not concluded within window; US escalation overrides timeline
-**Likelihood:** 65–75% that trilogue is NOT concluded before May 21
-**Impact:** Commission negotiating credibility weakened; EU exporters face continued uncertainty
-**Mitigation:** Diplomatic channels; Commission mandate confirmation by EP
-
----
-
-### Risk Aggregation
-
-| File | Delay Risk | Defeat Risk | Escalation Risk |
-|------|-----------|------------|----------------|
-| CID (committee) | 🟡 MEDIUM | 🟡 MEDIUM | 🟢 LOW |
-| SRMR3 (Council) | 🟡 MEDIUM | 🟢 LOW | 🟢 LOW |
-| EU-US Tariffs (trilogue) | 🟡 MEDIUM | 🟢 LOW | 🔴 HIGH (external) |
-
----
-
-*Generated: 2026-04-27 | SPDX: Apache-2.0*
-
-### Political Risk
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/risk-scoring/political-risk.md" rel="noopener">View source: <code>risk-scoring/political-risk.md</code></a></p>
-
-### Coalition Stability Risk
-
-**Grand coalition (EPP+S&D+Renew) stability:** 🟡 MEDIUM RISK
-- Buffer: 36 seats above threshold (397 vs. 361)
-- Stress point: CID social conditionality requirement (S&D red line)
-- EPP fracture probability: 25–30% on CID specifically
-- Grand coalition preservation probability overall: 70–75%
-
-### EPP Internal Risk
-
-**EPP group cohesion on CID:** 🔴 HIGH RISK
-- Eastern faction (PL+CZ+RO+SK) = ~60 EPP MEPs
-- These MEPs face direct national party pressure on energy mix provisions
-- EPP leadership must contain, not suppress, this faction
-- Containment probability: 60–70%
-
-### Right-Wing Numerical Majority Risk
-
-**Political right coalition materialisation:** 🟢 LOW-MEDIUM RISK
-- Arithmetic: EPP+ECR+PfE+ESN = ~378 seats (viable numerically)
-- Political: EPP-PfE coordination firewall prevents formalisation
-- Probability of right-wing coalition replacing grand coalition: <10%
-- Probability of coincidental right-wing votes on specific migration files: 25–35%
-
-### Summary Risk Matrix
-
-| Risk | Level | Short-term | Medium-term |
-|------|-------|-----------|------------|
-| Grand coalition collapse | 🟢 LOW | <5% | 10–15% |
-| EPP CID fracture | 🟡 MEDIUM | 25–30% | 35–40% |
-| Right-wing coincidence | 🟡 MEDIUM | 25–35% | 30–40% |
-| External shock override | 🟡 MEDIUM | 15–20% | 20–25% |
 
 ---
 
@@ -2778,11 +2786,19 @@ Every artifact below was read by the aggregator and contributed to this article.
 |---|---|---|
 | section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/executive-brief.md) | `executive-brief.md` |
 | section-synthesis | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/intelligence/synthesis-summary.md) | `intelligence/synthesis-summary.md` |
+| section-significance | [sensitivity-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/classification/sensitivity-assessment.md) | `classification/sensitivity-assessment.md` |
+| section-significance | [priority-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/classification/priority-matrix.md) | `classification/priority-matrix.md` |
+| section-significance | [issue-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/classification/issue-classification.md) | `classification/issue-classification.md` |
+| section-actors-forces | [stakeholder-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/classification/stakeholder-classification.md) | `classification/stakeholder-classification.md` |
 | section-coalitions-voting | [coalition-dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/intelligence/coalition-dynamics.md) | `intelligence/coalition-dynamics.md` |
 | section-stakeholder-map | [stakeholder-map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/intelligence/stakeholder-map.md) | `intelligence/stakeholder-map.md` |
 | section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
 | section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-economic-context | [economic-context](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/intelligence/economic-context.md) | `intelligence/economic-context.md` |
+| section-risk | [political-risk](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/risk-scoring/political-risk.md) | `risk-scoring/political-risk.md` |
+| section-risk | [legislative-risk](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/risk-scoring/legislative-risk.md) | `risk-scoring/legislative-risk.md` |
+| section-risk | [economic-risk](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/risk-scoring/economic-risk.md) | `risk-scoring/economic-risk.md` |
+| section-risk | [institutional-risk](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/risk-scoring/institutional-risk.md) | `risk-scoring/institutional-risk.md` |
 | section-threat | [threat-model](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/intelligence/threat-model.md) | `intelligence/threat-model.md` |
 | section-threat | [attack-trees](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/threat-assessment/attack-trees.md) | `threat-assessment/attack-trees.md` |
 | section-threat | [diamond-model](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/threat-assessment/diamond-model.md) | `threat-assessment/diamond-model.md` |
@@ -2794,13 +2810,5 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
 | section-quality-reflection | [reference-analysis-quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/intelligence/reference-analysis-quality.md) | `intelligence/reference-analysis-quality.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
-| section-supplementary-intelligence | [issue-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/classification/issue-classification.md) | `classification/issue-classification.md` |
-| section-supplementary-intelligence | [priority-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/classification/priority-matrix.md) | `classification/priority-matrix.md` |
-| section-supplementary-intelligence | [sensitivity-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/classification/sensitivity-assessment.md) | `classification/sensitivity-assessment.md` |
-| section-supplementary-intelligence | [stakeholder-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/classification/stakeholder-classification.md) | `classification/stakeholder-classification.md` |
 | section-supplementary-intelligence | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
-| section-supplementary-intelligence | [economic-risk](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/risk-scoring/economic-risk.md) | `risk-scoring/economic-risk.md` |
-| section-supplementary-intelligence | [institutional-risk](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/risk-scoring/institutional-risk.md) | `risk-scoring/institutional-risk.md` |
-| section-supplementary-intelligence | [legislative-risk](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/risk-scoring/legislative-risk.md) | `risk-scoring/legislative-risk.md` |
-| section-supplementary-intelligence | [political-risk](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/risk-scoring/political-risk.md) | `risk-scoring/political-risk.md` |
 
