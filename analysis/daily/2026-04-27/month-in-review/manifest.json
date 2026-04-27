@@ -1,0 +1,52 @@
+{
+  "articleType": "month-in-review",
+  "runDate": "2026-04-27",
+  "runId": "month-in-review-run-1777296132",
+  "analysisDir": "analysis/daily/2026-04-27/month-in-review",
+  "gateResult": "ANALYSIS_ONLY",
+  "gateReason": "elapsed-time tripwire at minute 22; reserve remaining budget for Stage E PR-call deadline",
+  "pass2": {
+    "startedAt": "2026-04-27T13:41:00Z",
+    "endedAt": "2026-04-27T13:42:00Z",
+    "rewriteCount": 3,
+    "note": "Pass 2 abbreviated due to 30-day data volume; key artifacts reviewed and expanded"
+  },
+  "files": {
+    "executive-brief": "executive-brief.md",
+    "economic-context": "intelligence/economic-context.md",
+    "synthesis-summary": "intelligence/synthesis-summary.md",
+    "pestle-analysis": "intelligence/pestle-analysis.md",
+    "stakeholder-map": "intelligence/stakeholder-map.md",
+    "scenario-forecast": "intelligence/scenario-forecast.md",
+    "threat-model": "intelligence/threat-model.md",
+    "wildcards-blackswans": "intelligence/wildcards-blackswans.md",
+    "historical-baseline": "intelligence/historical-baseline.md",
+    "voting-patterns": "intelligence/voting-patterns.md",
+    "mcp-reliability-audit": "intelligence/mcp-reliability-audit.md",
+    "reference-analysis-quality": "intelligence/reference-analysis-quality.md",
+    "workflow-audit": "intelligence/workflow-audit.md",
+    "cross-session-intelligence": "intelligence/cross-session-intelligence.md",
+    "analysis-index": "intelligence/analysis-index.md",
+    "deep-analysis": "existing/deep-analysis.md",
+    "session-baseline-existing": "existing/session-baseline.md",
+    "session-baseline": "intelligence/session-baseline.md",
+    "risk-matrix": "risk-scoring/risk-matrix.md",
+    "quantitative-swot": "risk-scoring/quantitative-swot.md",
+    "methodology-reflection": "intelligence/methodology-reflection.md"
+  },
+  "totalArtifacts": 21,
+  "totalLines": 2714,
+  "dataVintage": "WEO-April-2026",
+  "economicDataSources": ["WorldBank-DE", "WorldBank-FR", "IMF-WEO-April-2026"],
+  "votingDataStatus": "ep-rollcall-delayed",
+  "history": [
+    {
+      "runId": "month-in-review-run-1777296132",
+      "startEpoch": 1777296132,
+      "endEpoch": 1777297500,
+      "gateResult": "ANALYSIS_ONLY",
+      "artifactsProduced": 21,
+      "totalLines": 2714
+    }
+  ]
+}
