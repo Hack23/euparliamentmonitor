@@ -1,0 +1,69 @@
+{
+  "articleType": "committee-reports",
+  "runId": "committee-reports-run-1777275816",
+  "runDate": "2026-04-27",
+  "runEpoch": 1777275816,
+  "analysisDir": "analysis/daily/2026-04-27/committee-reports",
+  "dataWindow": {
+    "from": "2026-04-20",
+    "to": "2026-04-27"
+  },
+  "files": {
+    "data": [
+      "data/stage-a-summary.json"
+    ],
+    "executive": [
+      "executive-brief.md"
+    ],
+    "intelligence": [
+      "intelligence/analysis-index.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/threat-model.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/economic-context.md",
+      "intelligence/wildcards-blackswans.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/reference-analysis-quality.md",
+      "intelligence/methodology-reflection.md"
+    ],
+    "riskScoring": [
+      "risk-scoring/risk-matrix.md",
+      "risk-scoring/quantitative-swot.md"
+    ],
+    "existing": [
+      "existing/committee-productivity.md"
+    ]
+  },
+  "feedStatus": {
+    "get_committee_documents_feed": "UNAVAILABLE",
+    "get_events_feed": "UNAVAILABLE",
+    "get_procedures_feed": "RECESS_MODE",
+    "get_adopted_texts_feed": "OK_FRESHNESS_FALLBACK",
+    "get_committee_documents": "OK",
+    "get_adopted_texts": "OK",
+    "generate_political_landscape": "OK",
+    "analyze_coalition_dynamics": "OK"
+  },
+  "dataQuality": {
+    "adoptedTexts2026": 31,
+    "committeeDocuments": 51,
+    "mepCount": 719,
+    "politicalGroups": 9,
+    "imfDataAvailable": false,
+    "worldBankDataAvailable": false
+  },
+  "history": [
+    {
+      "runId": "committee-reports-run-1777275816",
+      "runDate": "2026-04-27",
+      "runEpoch": 1777275816,
+      "artifactsProduced": 15,
+      "stageACompleted": true,
+      "stageBCompleted": true,
+      "stageCResult": "PENDING"
+    }
+  ]
+}
