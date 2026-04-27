@@ -11,22 +11,9 @@ layout: article
 ---
 # Breaking — 2026-04-05
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-05
-> - **Run id:** `breaking-3`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-05/breaking-3](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-05/breaking-3)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-3/manifest.json)
-
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Intelligence Brief
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-3/intelligence-brief.md" rel="noopener">View source: <code>intelligence-brief.md</code></a></p>
 
 ### 12-Hour Longitudinal Validation Summary
 
@@ -232,8 +219,6 @@ PPE formalises operational cooperation with ECR on specific policy domains (migr
 
 ### Political Landscape Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-3/political-landscape-analysis.md" rel="noopener">View source: <code>political-landscape-analysis.md</code></a></p>
-
 ### Current Parliament Composition
 
 ```mermaid
@@ -431,8 +416,6 @@ quadrantChart
 *Analysis produced by EU Parliament Monitor Agentic Workflow. Methodology: political-style-guide.md v2.0, political-classification-guide.md v2.0. 4-pass refinement cycle completed. Sources: EP Open Data Portal, precomputed statistics (2004–2026), coalition dynamics tool, early warning system, political landscape tool.*
 
 ### Risk Assessment
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-3/risk-assessment.md" rel="noopener">View source: <code>risk-assessment.md</code></a></p>
 
 ### Executive Risk Summary
 
@@ -674,8 +657,6 @@ gantt
 
 ### Swot Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-3/swot-analysis.md" rel="noopener">View source: <code>swot-analysis.md</code></a></p>
-
 ### SWOT Evolution Tracking (28 March – 5 April)
 
 This mid-recess SWOT adds a longitudinal dimension: tracking how each SWOT entry has evolved since the recess began. All entries from prior runs are confirmed; no new entries added (no new data available during recess).
@@ -829,6 +810,15 @@ After 10 days and 7+ analysis runs, the following assessments have the highest c
 ---
 
 *Analysis produced by EU Parliament Monitor Agentic Workflow. Methodology: political-swot-framework.md v2.0 (Evidence-Based SWOT), political-style-guide.md v2.0, ai-driven-analysis-guide.md v4.0. 4-pass refinement cycle completed. All 6 methodology documents consulted.*
+
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-05
+> - **Run id:** `breaking-3`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-05/breaking-3](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-05/breaking-3)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-3/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

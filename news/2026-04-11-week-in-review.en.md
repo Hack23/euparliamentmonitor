@@ -11,17 +11,6 @@ layout: article
 ---
 # Week In Review — 2026-04-11
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `week-in-review`
-> - **Run date:** 2026-04-11
-> - **Run id:** `8`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-11/week-in-review-run8](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-11/week-in-review-run8)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/week-in-review-run8/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -29,199 +18,11 @@ Use this guide to read the article as a political-intelligence product rather th
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `existing/stakeholder-impact.md` |
+| [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-assessment.md` |
 
-<h2 id="section-stakeholder-map">Stakeholder Map</h2>
-
-### Stakeholder Impact
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/week-in-review-run8/existing/stakeholder-impact.md" rel="noopener">View source: <code>existing/stakeholder-impact.md</code></a></p>
-
-> **Assessment ID:** STA-2026-04-11-008
-> **Assessment Date:** 2026-04-11 10:55 UTC
-> **Policy/Event Subject:** Easter Recess Week and Upcoming Committee Restart
-> **Primary EP Reference:** TA-10-2026-0092, 0094, 0096; 2025/0261(COD); precomputed stats
-> **Stage of Process:** Inter-sessional monitoring to committee restart preparation
-> **Produced By:** news-weekly-review workflow (Run 8)
-> **Overall Impact Level:** HIGH (driven by tariff deadline and committee restart convergence)
-
----
-
-### Stakeholder Group Assessments
-
-#### Group 1: EU Citizens (Direct Impact)
-
-| Parameter | Value |
-|-----------|-------|
-| **Impact Level** | MEDIUM |
-| **Impact Timeline** | SHORT (1-6 months) |
-| **Affected Population** | All 450M EU residents (trade-dependent employment, consumer prices) |
-| **Impact Type** | FINANCIAL + SOCIAL |
-| **Evidence Sources** | 2025/0261(COD) tariff procedure; TA-10-2026-0096 anti-corruption |
-| **Confidence Level** | MEDIUM |
-
-**Citizen Impact Narrative:**
-EU citizens face potential price increases on US-origin goods if tariff countermeasures escalate. The April 15 deadline creates near-term uncertainty for trade-dependent industries. The Anti-Corruption Directive (TA-10-2026-0096) strengthens citizen protections but the 24-month transposition window delays benefits. Banking Union reforms improve financial stability but are technically complex and indirect in citizen impact.
-
-#### Group 2: Grand Coalition (EPP + S&D + Renew)
-
-| Parameter | Value |
-|-----------|-------|
-| **Impact Level** | HIGH |
-| **Impact Timeline** | IMMEDIATE |
-| **Primary Affected Groups** | EPP (internal split), Renew (convergence test) |
-| **Coalition Cohesion Effect** | STRAINS |
-| **Evidence Sources** | Precomputed stats: grandCoalitionSurplusDeficit -5.5% |
-| **Confidence Level** | MEDIUM |
-
-**Coalition Impact Narrative:**
-The tariff crisis is the first real policy test for the post-recess coalition. EPP faces division between its business wing (measured response) and competition policy wing (robust retaliation). Renew's 0.95 cohesion with ECR on competitiveness means the tariff vote could see Renew breaking from S&D, further straining the grand coalition.
-
-#### Group 3: Opposition Groups (ECR, PfE, ESN, The Left, Greens/EFA)
-
-| Parameter | Value |
-|-----------|-------|
-| **Impact Level** | HIGH |
-| **Impact Timeline** | IMMEDIATE |
-| **Primary Affected Groups** | ECR (gains influence), Greens/EFA (marginalised) |
-| **Electoral Positioning Effect** | POSITIVE (ECR/PfE), NEGATIVE (Greens/GUE/NGL) |
-| **Evidence Sources** | Precomputed stats: rightBlocShare 52.3%; Renew-ECR 0.95 |
-| **Confidence Level** | MEDIUM |
-
-**Opposition Impact Narrative:**
-ECR is the biggest beneficiary. The Renew-ECR convergence gives ECR legislative influence disproportionate to its 79 seats. If this alignment holds on trade, ECR effectively becomes a co-governing partner without formal coalition membership. Greens/EFA face marginalisation as economic policy shifts rightward.
-
-#### Group 4: Business and Industry
-
-| Parameter | Value |
-|-----------|-------|
-| **Impact Level** | HIGH |
-| **Impact Timeline** | IMMEDIATE to SHORT |
-| **Primary Affected Sectors** | Trade-dependent industries, banking, digital economy |
-| **Regulatory Effect** | UNCERTAINTY (tariff) + POSITIVE (Banking Union clarity) |
-| **Evidence Sources** | 2025/0261(COD); TA-10-2026-0092/0094 |
-| **Confidence Level** | MEDIUM |
-
-**Business Impact Narrative:**
-Industry faces dual reality: Banking Union reforms provide regulatory clarity for the financial sector, while tariff uncertainty creates planning challenges for trade-dependent businesses. The EPP business wing's positioning will be closely watched.
-
-#### Group 5: National Governments (Council)
-
-| Parameter | Value |
-|-----------|-------|
-| **Impact Level** | MEDIUM |
-| **Impact Timeline** | SHORT to MEDIUM |
-| **Primary Affected** | Trade-exposed (DE, NL, IE), defence-focused (PL, Baltics), eurozone 20 |
-| **Institutional Effect** | Parliament positioning affects trilogue dynamics |
-| **Evidence Sources** | SRMR3/BRRD3/DGSD2 trilogue; 2025/0261(COD) |
-| **Confidence Level** | LOW |
-
-**National Government Impact Narrative:**
-National governments watch Parliament's post-recess positioning to calibrate Council positions. Export-oriented economies favour dialogue on tariffs; industrial economies favour stronger countermeasures. Parliament's position influences where Council consensus lands.
-
-#### Group 6: EU Institutions (Commission, Council, ECB)
-
-| Parameter | Value |
-|-----------|-------|
-| **Impact Level** | MEDIUM |
-| **Impact Timeline** | IMMEDIATE to SHORT |
-| **Primary Affected** | Commission (tariff coordination), ECB (Banking Union) |
-| **Institutional Dynamic** | EP post-recess agenda sets inter-institutional tempo for Q2 |
-| **Evidence Sources** | Precomputed stats: legislativeOutputPerSession 2.11 |
-| **Confidence Level** | MEDIUM |
-
-**Institutional Impact Narrative:**
-The Commission's tariff response proposal depends on Parliament's willingness to fast-track the COD procedure. The ECB benefits from Banking Union progress. The Council faces pressure to match Parliament's record Q1 pace.
-
-<h2 id="section-threat">Threat Landscape</h2>
-
-### Threat Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/week-in-review-run8/threat-assessment/threat-analysis.md" rel="noopener">View source: <code>threat-assessment/threat-analysis.md</code></a></p>
-
-> **Threat Analysis ID:** THR-2026-04-11-008
-> **Analysis Date:** 2026-04-11 10:55 UTC
-> **Analysis Period:** 2026-04-04 to 2026-04-11 (Easter recess Week 3)
-> **Produced By:** news-weekly-review workflow (Run 8)
-> **Political Context:** Easter recess Day 16; three critical pressures converging on committee restart
-> **Overall Threat Level:** HIGH - Coalition Shifts and Policy Reversal dimensions elevated
-
----
-
-### Political Threat Landscape Assessment (6 Dimensions)
-
-#### Dimension 1: Coalition Shifts
-
-| Threat ID | Finding | Evidence | Severity (1-5) | Trend |
-|-----------|---------|---------|:--------------:|:-----:|
-| CS-001 | Renew-ECR convergence at 0.95 cohesion creates structural alignment bypassing S&D | Prior analysis runs; precomputed stats (Renew 10.6% + ECR 11% = 21.6% pivot bloc) | 4 | Rising |
-| CS-002 | Grand coalition surplus deficit at -5.5% makes ad-hoc majorities necessary | Precomputed stats: grandCoalitionSurplusDeficit = -5.5% | 3 | Stable |
-| CS-003 | Three-pole structure crystallising as permanent feature | Precomputed stats: right 52.3%, left 32.6%, centre 10.6% | 3 | Stable |
-
-**Dimension Assessment:** HIGH - Renew-ECR convergence is the most significant coalition shift since EP10 formation. If it survives the tariff vote test, it fundamentally alters the legislative calculus. Confidence: MEDIUM.
-
-#### Dimension 2: Transparency Deficit
-
-| Threat ID | Finding | Evidence | Severity (1-5) | Trend |
-|-----------|---------|---------|:--------------:|:-----:|
-| TD-001 | 18-day recess gap during US tariff escalation creates information vacuum | Recess dates 27 Mar - 13 Apr; tariff announcement during gap | 3 | Stable |
-| TD-002 | EP API total outage since April 10 prevents public monitoring | MCP server health: 0/13 feeds operational | 2 | Stable |
-
-**Dimension Assessment:** LOW-MODERATE - Transparency gap is temporary (recess-induced) rather than systemic. Confidence: HIGH.
-
-#### Dimension 3: Policy Reversal
-
-| Threat ID | Finding | Evidence | Severity (1-5) | Trend |
-|-----------|---------|---------|:--------------:|:-----:|
-| PR-001 | Risk of EPP reversing measured trade stance under ECR pressure | Prior analysis: EPP business wing vs competition hawks | 3 | Rising |
-| PR-002 | Clean Industrial Deal pace slowing as defence agenda absorbs bandwidth | Precomputed stats: Green Deal pace slowing noted | 2 | Rising |
-
-**Dimension Assessment:** MODERATE - No confirmed reversals this week (recess), but structural conditions building. Confidence: MEDIUM.
-
-#### Dimension 4: Institutional Pressure
-
-| Threat ID | Finding | Evidence | Severity (1-5) | Trend |
-|-----------|---------|---------|:--------------:|:-----:|
-| IP-001 | ECON-INTA dual bottleneck on priority-1 dossiers | Prior analysis: Banking Union (ECON) + tariff (INTA) simultaneous | 3 | Rising |
-| IP-002 | 13 COD procedures awaiting rapporteur assignment | Q1 record output created backlog | 2 | Rising |
-
-**Dimension Assessment:** MODERATE - High but manageable. Dual bottleneck is scheduling challenge, not structural failure. Confidence: MEDIUM.
-
-#### Dimension 5: Legislative Obstruction
-
-| Threat ID | Finding | Evidence | Severity (1-5) | Trend |
-|-----------|---------|---------|:--------------:|:-----:|
-| LO-001 | 18-day recess creates backlog risk for committee week | Recess duration + 13 pending COD procedures | 2 | Stable |
-| LO-002 | Tariff emergency could crowd out non-urgent legislative files | INTA emergency + April 15 deadline | 3 | Rising |
-
-**Dimension Assessment:** LOW-MODERATE - Temporary and procedural, not deliberate obstruction. Confidence: HIGH.
-
-#### Dimension 6: Democratic Erosion
-
-| Threat ID | Finding | Evidence | Severity (1-5) | Trend |
-|-----------|---------|---------|:--------------:|:-----:|
-| DE-001 | EP10 fragmentation (6.59 index, highest ever) makes coherent mandate difficult | Precomputed stats: fragmentationIndex 6.59, 8 groups + NI | 3 | Stable |
-| DE-002 | Parliamentary gap during geopolitical crisis reduces democratic accountability | Recess during tariff escalation | 2 | Stable |
-
-**Dimension Assessment:** LOW - Fragmentation is structural, not emerging. Recess gap temporary. Confidence: MEDIUM.
-
----
-
-### PESTLE Macro-Environmental Scan
-
-| Factor | Assessment | Key Signal | Direction |
-|--------|-----------|------------|:---------:|
-| **Political** | EPP building flexible majorities; ECR consolidating as third force | Three-pole crystallisation | Changing |
-| **Economic** | US tariff escalation; EU competitiveness debate intensifying | April 15 deadline; 2025/0261(COD) | Intensifying |
-| **Social** | Anti-corruption directive resonance; employment concerns | TA-10-2026-0096 transposition | Stable |
-| **Technological** | Digital sovereignty debates; AI regulation monitoring | EP10 priority agenda | Stable |
-| **Legal** | Banking Union framework restructuring | SRMR3/BRRD3/DGSD2 trilogue pending | Evolving |
-| **Environmental** | Green Deal pace slowing; defence agenda competing | EPP strategic reprioritisation | Declining priority |
-
-<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+<h2 id="section-actors-forces">Actors & Forces</h2>
 
 ### Significance Scoring
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/week-in-review-run8/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
 
 > **Score ID:** SIG-2026-04-11-008
 > **Scoring Date:** 2026-04-11 10:55 UTC
@@ -330,9 +131,273 @@ The weekly review should lead with the convergence of three pressures as Parliam
 
 **Recommended action:** Re-attempt weekly review generation when EP API feeds recover (expected April 12-13).
 
-### Api Outage Diagnostic
+<h2 id="section-stakeholder-map">Stakeholder Map</h2>
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/week-in-review-run8/existing/api-outage-diagnostic.md" rel="noopener">View source: <code>existing/api-outage-diagnostic.md</code></a></p>
+### Stakeholder Impact
+
+> **Assessment ID:** STA-2026-04-11-008
+> **Assessment Date:** 2026-04-11 10:55 UTC
+> **Policy/Event Subject:** Easter Recess Week and Upcoming Committee Restart
+> **Primary EP Reference:** TA-10-2026-0092, 0094, 0096; 2025/0261(COD); precomputed stats
+> **Stage of Process:** Inter-sessional monitoring to committee restart preparation
+> **Produced By:** news-weekly-review workflow (Run 8)
+> **Overall Impact Level:** HIGH (driven by tariff deadline and committee restart convergence)
+
+---
+
+### Stakeholder Group Assessments
+
+#### Group 1: EU Citizens (Direct Impact)
+
+| Parameter | Value |
+|-----------|-------|
+| **Impact Level** | MEDIUM |
+| **Impact Timeline** | SHORT (1-6 months) |
+| **Affected Population** | All 450M EU residents (trade-dependent employment, consumer prices) |
+| **Impact Type** | FINANCIAL + SOCIAL |
+| **Evidence Sources** | 2025/0261(COD) tariff procedure; TA-10-2026-0096 anti-corruption |
+| **Confidence Level** | MEDIUM |
+
+**Citizen Impact Narrative:**
+EU citizens face potential price increases on US-origin goods if tariff countermeasures escalate. The April 15 deadline creates near-term uncertainty for trade-dependent industries. The Anti-Corruption Directive (TA-10-2026-0096) strengthens citizen protections but the 24-month transposition window delays benefits. Banking Union reforms improve financial stability but are technically complex and indirect in citizen impact.
+
+#### Group 2: Grand Coalition (EPP + S&D + Renew)
+
+| Parameter | Value |
+|-----------|-------|
+| **Impact Level** | HIGH |
+| **Impact Timeline** | IMMEDIATE |
+| **Primary Affected Groups** | EPP (internal split), Renew (convergence test) |
+| **Coalition Cohesion Effect** | STRAINS |
+| **Evidence Sources** | Precomputed stats: grandCoalitionSurplusDeficit -5.5% |
+| **Confidence Level** | MEDIUM |
+
+**Coalition Impact Narrative:**
+The tariff crisis is the first real policy test for the post-recess coalition. EPP faces division between its business wing (measured response) and competition policy wing (robust retaliation). Renew's 0.95 cohesion with ECR on competitiveness means the tariff vote could see Renew breaking from S&D, further straining the grand coalition.
+
+#### Group 3: Opposition Groups (ECR, PfE, ESN, The Left, Greens/EFA)
+
+| Parameter | Value |
+|-----------|-------|
+| **Impact Level** | HIGH |
+| **Impact Timeline** | IMMEDIATE |
+| **Primary Affected Groups** | ECR (gains influence), Greens/EFA (marginalised) |
+| **Electoral Positioning Effect** | POSITIVE (ECR/PfE), NEGATIVE (Greens/GUE/NGL) |
+| **Evidence Sources** | Precomputed stats: rightBlocShare 52.3%; Renew-ECR 0.95 |
+| **Confidence Level** | MEDIUM |
+
+**Opposition Impact Narrative:**
+ECR is the biggest beneficiary. The Renew-ECR convergence gives ECR legislative influence disproportionate to its 79 seats. If this alignment holds on trade, ECR effectively becomes a co-governing partner without formal coalition membership. Greens/EFA face marginalisation as economic policy shifts rightward.
+
+#### Group 4: Business and Industry
+
+| Parameter | Value |
+|-----------|-------|
+| **Impact Level** | HIGH |
+| **Impact Timeline** | IMMEDIATE to SHORT |
+| **Primary Affected Sectors** | Trade-dependent industries, banking, digital economy |
+| **Regulatory Effect** | UNCERTAINTY (tariff) + POSITIVE (Banking Union clarity) |
+| **Evidence Sources** | 2025/0261(COD); TA-10-2026-0092/0094 |
+| **Confidence Level** | MEDIUM |
+
+**Business Impact Narrative:**
+Industry faces dual reality: Banking Union reforms provide regulatory clarity for the financial sector, while tariff uncertainty creates planning challenges for trade-dependent businesses. The EPP business wing's positioning will be closely watched.
+
+#### Group 5: National Governments (Council)
+
+| Parameter | Value |
+|-----------|-------|
+| **Impact Level** | MEDIUM |
+| **Impact Timeline** | SHORT to MEDIUM |
+| **Primary Affected** | Trade-exposed (DE, NL, IE), defence-focused (PL, Baltics), eurozone 20 |
+| **Institutional Effect** | Parliament positioning affects trilogue dynamics |
+| **Evidence Sources** | SRMR3/BRRD3/DGSD2 trilogue; 2025/0261(COD) |
+| **Confidence Level** | LOW |
+
+**National Government Impact Narrative:**
+National governments watch Parliament's post-recess positioning to calibrate Council positions. Export-oriented economies favour dialogue on tariffs; industrial economies favour stronger countermeasures. Parliament's position influences where Council consensus lands.
+
+#### Group 6: EU Institutions (Commission, Council, ECB)
+
+| Parameter | Value |
+|-----------|-------|
+| **Impact Level** | MEDIUM |
+| **Impact Timeline** | IMMEDIATE to SHORT |
+| **Primary Affected** | Commission (tariff coordination), ECB (Banking Union) |
+| **Institutional Dynamic** | EP post-recess agenda sets inter-institutional tempo for Q2 |
+| **Evidence Sources** | Precomputed stats: legislativeOutputPerSession 2.11 |
+| **Confidence Level** | MEDIUM |
+
+**Institutional Impact Narrative:**
+The Commission's tariff response proposal depends on Parliament's willingness to fast-track the COD procedure. The ECB benefits from Banking Union progress. The Council faces pressure to match Parliament's record Q1 pace.
+
+<h2 id="section-risk">Risk Assessment</h2>
+
+> **Risk Assessment ID:** RSK-2026-04-11-008
+> **Assessment Date:** 2026-04-11 10:55 UTC
+> **Assessment Period:** 2026-04-04 to 2026-04-11
+> **Produced By:** news-weekly-review workflow (Run 8)
+> **Political Context:** Easter recess Day 16; committee restart T-3; tariff deadline T-4; 13 COD procedures pending
+> **Parliamentary Term:** EP10 (2024-2029)
+> **Overall Risk Level:** HIGH (13.17/25 composite, rising trajectory)
+
+---
+
+### Risk Inventory
+
+Risk Score = Likelihood (1-5) x Impact (1-5).
+Risk Tiers: 1-4 = Low | 5-9 = Medium | 10-14 = High | 15-25 = Critical
+
+| Risk ID | Description | L (1-5) | I (1-5) | Score | Tier | Mitigation |
+|---------|-------------|:-------:|:-------:|:-----:|:----:|------------|
+| RSK-001 | US tariff crisis forces emergency INTA response | 4 | 4 | 16 | Critical | Emergency committee session April 14; fast-track COD 2025/0261 |
+| RSK-002 | Geopolitical standing erosion from trade escalation | 4 | 5 | 20 | Critical | Coordinate with Council/Commission; maintain united EU position |
+| RSK-003 | Legislative backlog overwhelms committee restart | 3 | 4 | 12 | High | Prioritise rapporteur assignments; coordinate chairs |
+| RSK-004 | ECON-INTA dual bottleneck delays Banking Union | 3 | 3 | 9 | Medium | Sequential scheduling; temporary staff reinforcement |
+| RSK-005 | EPP splits on tariff response scope | 3 | 3 | 9 | Medium | Internal group negotiation; compromise text pre-committee |
+| RSK-006 | Renew-ECR convergence fractures on first policy test | 2 | 3 | 6 | Medium | Pre-vote coordination; identify red lines |
+| RSK-007 | EP API extended outage prevents monitoring | 2 | 2 | 4 | Low | Precomputed stats as fallback; manual monitoring |
+
+---
+
+### Grand Coalition Stability Risk
+
+#### Current Coalition Assessment
+
+| Parameter | Value |
+|-----------|-------|
+| **Grand Coalition** | EPP (185) + S&D (135) + Renew (76) = 396 seats |
+| **Coalition Strength** | LOW - structurally insufficient |
+| **Majority Threshold** | 361 of 720 seats |
+| **Buffer** | +35 seats (9.7% above threshold, requires perfect discipline) |
+| **Key Risk Groups** | ECR (79) as swing right; Greens/EFA (53) as swing left |
+| **Next Major Vote** | April 14-17 committee restart (April 15 tariff deadline) |
+| **Grand Coalition Surplus/Deficit** | -5.5% (below comfortable working majority) |
+| **Minimum Winning Coalition** | 3 groups required |
+
+#### Coalition Risk Factors
+
+The grand coalition remains technically viable (396 > 361) but structurally weak. The -5.5% surplus deficit means any significant defection (>35 MEPs) breaks the majority. The Renew-ECR convergence on competitiveness (0.95 cohesion) suggests Renew is drifting toward EPP-ECR coalitions on trade/industry, potentially leaving S&D marginalised on economic policy. Confidence: MEDIUM.
+
+---
+
+### Geopolitical Standing Risk
+
+**Risk Score:** 20/25 (CRITICAL) = Likelihood 4 x Impact 5
+
+The US tariff escalation during Easter recess represents the highest single risk category. Evidence:
+- Procedure 2025/0261(COD) requires emergency INTA action
+- April 15 deadline is fixed and non-negotiable
+- EU response sets precedent for transatlantic trade relationship
+- Parliament was absent during initial tariff announcement (recess gap)
+- EPP internally split between measured response and robust retaliation
+
+**Mitigation:** INTA emergency committee session on April 14. Fast-track COD procedure. Pre-committee coordination between group coordinators.
+
+Confidence: MEDIUM - procedure reference confirmed; specific countermeasure scope inferred from prior analysis.
+
+---
+
+### Forward-Looking Risk Assessment
+
+#### Scenario 1: Tariff-Dominated Restart (Likely - 45%)
+Risk trajectory continues to 14-16/25 range as INTA emergency session absorbs committee bandwidth. Other legislative files deprioritised. Composite risk plateaus as action reduces uncertainty.
+
+#### Scenario 2: Efficient Multi-Track Processing (Possible - 30%)
+Committee chairs coordinate effectively; INTA handles tariff response while ECON progresses Banking Union. Risk drops to 10-12/25. Requires strong inter-committee coordination.
+
+#### Scenario 3: Coalition Fracture (Possible - 20%)
+EPP splits on tariff response; Renew-ECR bloc votes against EPP position. Risk spikes to 18-20/25. Grand coalition temporarily non-functional on trade policy.
+
+#### Scenario 4: Extended API Outage (Unlikely - 5%)
+EP API feeds remain down through committee week. Monitoring capacity degraded but not critical.
+
+<h2 id="section-threat">Threat Landscape</h2>
+
+### Threat Analysis
+
+> **Threat Analysis ID:** THR-2026-04-11-008
+> **Analysis Date:** 2026-04-11 10:55 UTC
+> **Analysis Period:** 2026-04-04 to 2026-04-11 (Easter recess Week 3)
+> **Produced By:** news-weekly-review workflow (Run 8)
+> **Political Context:** Easter recess Day 16; three critical pressures converging on committee restart
+> **Overall Threat Level:** HIGH - Coalition Shifts and Policy Reversal dimensions elevated
+
+---
+
+### Political Threat Landscape Assessment (6 Dimensions)
+
+#### Dimension 1: Coalition Shifts
+
+| Threat ID | Finding | Evidence | Severity (1-5) | Trend |
+|-----------|---------|---------|:--------------:|:-----:|
+| CS-001 | Renew-ECR convergence at 0.95 cohesion creates structural alignment bypassing S&D | Prior analysis runs; precomputed stats (Renew 10.6% + ECR 11% = 21.6% pivot bloc) | 4 | Rising |
+| CS-002 | Grand coalition surplus deficit at -5.5% makes ad-hoc majorities necessary | Precomputed stats: grandCoalitionSurplusDeficit = -5.5% | 3 | Stable |
+| CS-003 | Three-pole structure crystallising as permanent feature | Precomputed stats: right 52.3%, left 32.6%, centre 10.6% | 3 | Stable |
+
+**Dimension Assessment:** HIGH - Renew-ECR convergence is the most significant coalition shift since EP10 formation. If it survives the tariff vote test, it fundamentally alters the legislative calculus. Confidence: MEDIUM.
+
+#### Dimension 2: Transparency Deficit
+
+| Threat ID | Finding | Evidence | Severity (1-5) | Trend |
+|-----------|---------|---------|:--------------:|:-----:|
+| TD-001 | 18-day recess gap during US tariff escalation creates information vacuum | Recess dates 27 Mar - 13 Apr; tariff announcement during gap | 3 | Stable |
+| TD-002 | EP API total outage since April 10 prevents public monitoring | MCP server health: 0/13 feeds operational | 2 | Stable |
+
+**Dimension Assessment:** LOW-MODERATE - Transparency gap is temporary (recess-induced) rather than systemic. Confidence: HIGH.
+
+#### Dimension 3: Policy Reversal
+
+| Threat ID | Finding | Evidence | Severity (1-5) | Trend |
+|-----------|---------|---------|:--------------:|:-----:|
+| PR-001 | Risk of EPP reversing measured trade stance under ECR pressure | Prior analysis: EPP business wing vs competition hawks | 3 | Rising |
+| PR-002 | Clean Industrial Deal pace slowing as defence agenda absorbs bandwidth | Precomputed stats: Green Deal pace slowing noted | 2 | Rising |
+
+**Dimension Assessment:** MODERATE - No confirmed reversals this week (recess), but structural conditions building. Confidence: MEDIUM.
+
+#### Dimension 4: Institutional Pressure
+
+| Threat ID | Finding | Evidence | Severity (1-5) | Trend |
+|-----------|---------|---------|:--------------:|:-----:|
+| IP-001 | ECON-INTA dual bottleneck on priority-1 dossiers | Prior analysis: Banking Union (ECON) + tariff (INTA) simultaneous | 3 | Rising |
+| IP-002 | 13 COD procedures awaiting rapporteur assignment | Q1 record output created backlog | 2 | Rising |
+
+**Dimension Assessment:** MODERATE - High but manageable. Dual bottleneck is scheduling challenge, not structural failure. Confidence: MEDIUM.
+
+#### Dimension 5: Legislative Obstruction
+
+| Threat ID | Finding | Evidence | Severity (1-5) | Trend |
+|-----------|---------|---------|:--------------:|:-----:|
+| LO-001 | 18-day recess creates backlog risk for committee week | Recess duration + 13 pending COD procedures | 2 | Stable |
+| LO-002 | Tariff emergency could crowd out non-urgent legislative files | INTA emergency + April 15 deadline | 3 | Rising |
+
+**Dimension Assessment:** LOW-MODERATE - Temporary and procedural, not deliberate obstruction. Confidence: HIGH.
+
+#### Dimension 6: Democratic Erosion
+
+| Threat ID | Finding | Evidence | Severity (1-5) | Trend |
+|-----------|---------|---------|:--------------:|:-----:|
+| DE-001 | EP10 fragmentation (6.59 index, highest ever) makes coherent mandate difficult | Precomputed stats: fragmentationIndex 6.59, 8 groups + NI | 3 | Stable |
+| DE-002 | Parliamentary gap during geopolitical crisis reduces democratic accountability | Recess during tariff escalation | 2 | Stable |
+
+**Dimension Assessment:** LOW - Fragmentation is structural, not emerging. Recess gap temporary. Confidence: MEDIUM.
+
+---
+
+### PESTLE Macro-Environmental Scan
+
+| Factor | Assessment | Key Signal | Direction |
+|--------|-----------|------------|:---------:|
+| **Political** | EPP building flexible majorities; ECR consolidating as third force | Three-pole crystallisation | Changing |
+| **Economic** | US tariff escalation; EU competitiveness debate intensifying | April 15 deadline; 2025/0261(COD) | Intensifying |
+| **Social** | Anti-corruption directive resonance; employment concerns | TA-10-2026-0096 transposition | Stable |
+| **Technological** | Digital sovereignty debates; AI regulation monitoring | EP10 priority agenda | Stable |
+| **Legal** | Banking Union framework restructuring | SRMR3/BRRD3/DGSD2 trilogue pending | Evolving |
+| **Environmental** | Green Deal pace slowing; defence agenda competing | EPP strategic reprioritisation | Declining priority |
+
+<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+
+### Api Outage Diagnostic
 
 > **Diagnostic ID:** DIAG-2026-04-11-008
 > **Analysis Date:** 2026-04-11 10:50 UTC
@@ -415,8 +480,6 @@ This diagnostic was triggered because the week-in-review workflow could not obta
 
 ### Swot Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/week-in-review-run8/existing/swot-analysis.md" rel="noopener">View source: <code>existing/swot-analysis.md</code></a></p>
-
 > **SWOT ID:** SWT-2026-04-11-008
 > **Analysis Date:** 2026-04-11 10:55 UTC
 > **Analysis Scope:** EP10 Grand Coalition and Political Landscape
@@ -485,8 +548,6 @@ This diagnostic was triggered because the week-in-review workflow could not obta
 | Pre-vote group coordinator networks | WT | Ongoing | High |
 
 ### Synthesis Summary
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/week-in-review-run8/existing/synthesis-summary.md" rel="noopener">View source: <code>existing/synthesis-summary.md</code></a></p>
 
 > **Synthesis ID:** SYN-2026-04-11-008
 > **Analysis Date:** 2026-04-11 10:55 UTC
@@ -663,88 +724,14 @@ Confidence: MEDIUM - procedure reference confirmed; specific negotiating positio
 - Risk trajectory extrapolated from prior runs scoring - no independent validation available
 - EP references sourced from prior analysis runs, not fresh MCP queries
 
-### Risk Assessment
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/week-in-review-run8/risk-scoring/risk-assessment.md" rel="noopener">View source: <code>risk-scoring/risk-assessment.md</code></a></p>
-
-> **Risk Assessment ID:** RSK-2026-04-11-008
-> **Assessment Date:** 2026-04-11 10:55 UTC
-> **Assessment Period:** 2026-04-04 to 2026-04-11
-> **Produced By:** news-weekly-review workflow (Run 8)
-> **Political Context:** Easter recess Day 16; committee restart T-3; tariff deadline T-4; 13 COD procedures pending
-> **Parliamentary Term:** EP10 (2024-2029)
-> **Overall Risk Level:** HIGH (13.17/25 composite, rising trajectory)
-
----
-
-### Risk Inventory
-
-Risk Score = Likelihood (1-5) x Impact (1-5).
-Risk Tiers: 1-4 = Low | 5-9 = Medium | 10-14 = High | 15-25 = Critical
-
-| Risk ID | Description | L (1-5) | I (1-5) | Score | Tier | Mitigation |
-|---------|-------------|:-------:|:-------:|:-----:|:----:|------------|
-| RSK-001 | US tariff crisis forces emergency INTA response | 4 | 4 | 16 | Critical | Emergency committee session April 14; fast-track COD 2025/0261 |
-| RSK-002 | Geopolitical standing erosion from trade escalation | 4 | 5 | 20 | Critical | Coordinate with Council/Commission; maintain united EU position |
-| RSK-003 | Legislative backlog overwhelms committee restart | 3 | 4 | 12 | High | Prioritise rapporteur assignments; coordinate chairs |
-| RSK-004 | ECON-INTA dual bottleneck delays Banking Union | 3 | 3 | 9 | Medium | Sequential scheduling; temporary staff reinforcement |
-| RSK-005 | EPP splits on tariff response scope | 3 | 3 | 9 | Medium | Internal group negotiation; compromise text pre-committee |
-| RSK-006 | Renew-ECR convergence fractures on first policy test | 2 | 3 | 6 | Medium | Pre-vote coordination; identify red lines |
-| RSK-007 | EP API extended outage prevents monitoring | 2 | 2 | 4 | Low | Precomputed stats as fallback; manual monitoring |
-
----
-
-### Grand Coalition Stability Risk
-
-#### Current Coalition Assessment
-
-| Parameter | Value |
-|-----------|-------|
-| **Grand Coalition** | EPP (185) + S&D (135) + Renew (76) = 396 seats |
-| **Coalition Strength** | LOW - structurally insufficient |
-| **Majority Threshold** | 361 of 720 seats |
-| **Buffer** | +35 seats (9.7% above threshold, requires perfect discipline) |
-| **Key Risk Groups** | ECR (79) as swing right; Greens/EFA (53) as swing left |
-| **Next Major Vote** | April 14-17 committee restart (April 15 tariff deadline) |
-| **Grand Coalition Surplus/Deficit** | -5.5% (below comfortable working majority) |
-| **Minimum Winning Coalition** | 3 groups required |
-
-#### Coalition Risk Factors
-
-The grand coalition remains technically viable (396 > 361) but structurally weak. The -5.5% surplus deficit means any significant defection (>35 MEPs) breaks the majority. The Renew-ECR convergence on competitiveness (0.95 cohesion) suggests Renew is drifting toward EPP-ECR coalitions on trade/industry, potentially leaving S&D marginalised on economic policy. Confidence: MEDIUM.
-
----
-
-### Geopolitical Standing Risk
-
-**Risk Score:** 20/25 (CRITICAL) = Likelihood 4 x Impact 5
-
-The US tariff escalation during Easter recess represents the highest single risk category. Evidence:
-- Procedure 2025/0261(COD) requires emergency INTA action
-- April 15 deadline is fixed and non-negotiable
-- EU response sets precedent for transatlantic trade relationship
-- Parliament was absent during initial tariff announcement (recess gap)
-- EPP internally split between measured response and robust retaliation
-
-**Mitigation:** INTA emergency committee session on April 14. Fast-track COD procedure. Pre-committee coordination between group coordinators.
-
-Confidence: MEDIUM - procedure reference confirmed; specific countermeasure scope inferred from prior analysis.
-
----
-
-### Forward-Looking Risk Assessment
-
-#### Scenario 1: Tariff-Dominated Restart (Likely - 45%)
-Risk trajectory continues to 14-16/25 range as INTA emergency session absorbs committee bandwidth. Other legislative files deprioritised. Composite risk plateaus as action reduces uncertainty.
-
-#### Scenario 2: Efficient Multi-Track Processing (Possible - 30%)
-Committee chairs coordinate effectively; INTA handles tariff response while ECON progresses Banking Union. Risk drops to 10-12/25. Requires strong inter-committee coordination.
-
-#### Scenario 3: Coalition Fracture (Possible - 20%)
-EPP splits on tariff response; Renew-ECR bloc votes against EPP position. Risk spikes to 18-20/25. Grand coalition temporarily non-functional on trade policy.
-
-#### Scenario 4: Extended API Outage (Unlikely - 5%)
-EP API feeds remain down through committee week. Monitoring capacity degraded but not critical.
+> **Provenance & Audit**
+>
+> - **Article type:** `week-in-review`
+> - **Run date:** 2026-04-11
+> - **Run id:** `8`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-11/week-in-review-run8](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-11/week-in-review-run8)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/week-in-review-run8/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 
@@ -831,11 +818,11 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-actors-forces | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/week-in-review-run8/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-stakeholder-map | [stakeholder-impact](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/week-in-review-run8/existing/stakeholder-impact.md) | `existing/stakeholder-impact.md` |
+| section-risk | [risk-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/week-in-review-run8/risk-scoring/risk-assessment.md) | `risk-scoring/risk-assessment.md` |
 | section-threat | [threat-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/week-in-review-run8/threat-assessment/threat-analysis.md) | `threat-assessment/threat-analysis.md` |
-| section-supplementary-intelligence | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/week-in-review-run8/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-supplementary-intelligence | [api-outage-diagnostic](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/week-in-review-run8/existing/api-outage-diagnostic.md) | `existing/api-outage-diagnostic.md` |
 | section-supplementary-intelligence | [swot-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/week-in-review-run8/existing/swot-analysis.md) | `existing/swot-analysis.md` |
 | section-supplementary-intelligence | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/week-in-review-run8/existing/synthesis-summary.md) | `existing/synthesis-summary.md` |
-| section-supplementary-intelligence | [risk-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/week-in-review-run8/risk-scoring/risk-assessment.md) | `risk-scoring/risk-assessment.md` |
 

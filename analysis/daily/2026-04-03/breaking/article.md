@@ -11,22 +11,9 @@ layout: article
 ---
 # Breaking — 2026-04-03
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-03
-> - **Run id:** `breaking`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-03/breaking](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-03/breaking)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking/manifest.json)
-
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Coalition Dynamics Assessment
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking/coalition-dynamics-assessment.md" rel="noopener">View source: <code>coalition-dynamics-assessment.md</code></a></p>
 
 | Field | Value |
 |-------|-------|
@@ -300,8 +287,6 @@ S&D, Greens/EFA, The Left, and Renew overcome their cohesion gaps to form a unif
 
 ### Coalition Threat Assessment
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking/coalition-threat-assessment.md" rel="noopener">View source: <code>coalition-threat-assessment.md</code></a></p>
-
 | Field | Value |
 |-------|-------|
 | **Date** | Friday, 3 April 2026 |
@@ -557,8 +542,6 @@ graph LR
 - Precomputed statistics: EP10 group composition, fragmentation indices
 
 ### Intelligence Brief
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking/intelligence-brief.md" rel="noopener">View source: <code>intelligence-brief.md</code></a></p>
 
 | Field | Value |
 |-------|-------|
@@ -941,8 +924,6 @@ External geopolitical event (Georgia/Moldova deterioration, Iran nuclear escalat
 
 ### Political Landscape Assessment
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking/political-landscape-assessment.md" rel="noopener">View source: <code>political-landscape-assessment.md</code></a></p>
-
 ### Dashboard
 
 | Metric | Value | Trend | Confidence |
@@ -1147,8 +1128,6 @@ Based on legislative pipeline momentum from March:
 
 ### Recent Legislation Review
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking/recent-legislation-review.md" rel="noopener">View source: <code>recent-legislation-review.md</code></a></p>
-
 ### Overview
 
 This review covers 70+ adopted texts from EP10 Term, January to March 2026. The review provides classification, significance scoring, and domain distribution analysis for context in breaking news assessment.
@@ -1315,8 +1294,6 @@ Based on Q1 momentum, key files expected in Q2 2026:
 *Date: 2026-04-03 — Classification: PUBLIC — Confidence: HIGH*
 
 ### Risk Assessment
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking/risk-assessment.md" rel="noopener">View source: <code>risk-assessment.md</code></a></p>
 
 ### Risk Dashboard
 
@@ -1551,8 +1528,6 @@ graph LR
 
 ### Stakeholder Impact Assessment
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking/stakeholder-impact-assessment.md" rel="noopener">View source: <code>stakeholder-impact-assessment.md</code></a></p>
-
 | Field | Value |
 |-------|-------|
 | **Date** | Friday, 3 April 2026 |
@@ -1670,8 +1645,6 @@ This assessment evaluates the stakeholder impact of Q1 2026 most significant leg
 - Precomputed statistics: EP10 historical context
 
 ### Swot Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking/swot-analysis.md" rel="noopener">View source: <code>swot-analysis.md</code></a></p>
 
 | Field | Value |
 |-------|-------|
@@ -1943,6 +1916,15 @@ graph LR
 | Documents feed | get_documents_feed | 0 (404 error) | LOW |
 
 **Methodology:** This SWOT follows the Political SWOT Framework v2.0 evidence-based methodology. Every entry requires verifiable evidence from EP data sources. Confidence levels are assigned per the Evidence Hierarchy (HIGH = official EP document, MEDIUM = verified analytical output, LOW = single or unavailable source).
+
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-03
+> - **Run id:** `breaking`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-03/breaking](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-03/breaking)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

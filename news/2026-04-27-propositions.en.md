@@ -11,34 +11,7 @@ layout: article
 ---
 # Propositions — 2026-04-27
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `propositions`
-> - **Run date:** 2026-04-27
-> - **Run id:** `propositions-run-1777271418`
-> - **Gate result:** `pending`
-> - **Analysis tree:** [analysis/daily/2026-04-27/propositions](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-27/propositions)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/manifest.json)
-
-<h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
-
-Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
-
-| Reader need | What you'll get | Source artifact |
-|---|---|---|
-| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
-| [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
-| [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `classification/significance-classification.md` |
-| [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `intelligence/stakeholder-map.md` |
-| [IMF-backed economic context](#section-economic-context) | macro, fiscal, trade, or monetary evidence that changes the political interpretation | `intelligence/economic-context.md` |
-| [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
-| [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
-
 <h2 id="section-executive-brief">Executive Brief</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/executive-brief.md" rel="noopener">View source: <code>executive-brief.md</code></a></p>
 
 ### BLUF (Bottom Line Up Front)
 
@@ -130,9 +103,21 @@ quadrantChart
 
 *Analysis produced: 2026-04-27 | Run: propositions | Source: EP Open Data Portal via european-parliament-mcp-server@1.2.15*
 
-<h2 id="section-synthesis">Synthesis Summary</h2>
+<h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/intelligence/synthesis-summary.md" rel="noopener">View source: <code>intelligence/synthesis-summary.md</code></a></p>
+Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
+
+| Reader need | What you'll get | Source artifact |
+|---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
+| [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
+| [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `classification/significance-classification.md` |
+| [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `intelligence/stakeholder-map.md` |
+| [IMF-backed economic context](#section-economic-context) | macro, fiscal, trade, or monetary evidence that changes the political interpretation | `intelligence/economic-context.md` |
+| [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
+| [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
+
+<h2 id="section-synthesis">Synthesis Summary</h2>
 
 ### Strategic Narrative
 
@@ -208,8 +193,6 @@ The next 30–60 days will determine whether EP10's spring legislative wave sust
 
 ### Significance Classification
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/classification/significance-classification.md" rel="noopener">View source: <code>classification/significance-classification.md</code></a></p>
-
 ### Classification Framework
 
 Events and procedures are classified on two axes: Significance (strategic impact) and Immediacy (time-sensitivity of EP action required).
@@ -253,8 +236,6 @@ Events and procedures are classified on two axes: Significance (strategic impact
 <h2 id="section-actors-forces">Actors & Forces</h2>
 
 ### Actor Mapping
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/classification/actor-mapping.md" rel="noopener">View source: <code>classification/actor-mapping.md</code></a></p>
 
 ### Reader Briefing
 
@@ -359,8 +340,6 @@ EPP ✅ + S&D ✅ + ECR (partial) = ~370–401 votes depending on framing
 *Actor Mapping: 2026-04-27 | Framework: Network Analysis + Coalition Mathematics*
 
 ### Forces Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/classification/forces-analysis.md" rel="noopener">View source: <code>classification/forces-analysis.md</code></a></p>
 
 ### Reader Briefing
 
@@ -478,8 +457,6 @@ Several alternative routes bypass EP co-decision entirely:
 
 ### Impact Matrix
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/classification/impact-matrix.md" rel="noopener">View source: <code>classification/impact-matrix.md</code></a></p>
-
 ### Reader Briefing
 
 This impact matrix maps the key legislative events of April 2026 against their stakeholder impact and probability of policy outcome. It is intended for parliamentary researchers, MEP offices, and policy analysts who need a rapid visual assessment of where to focus attention. The most critical quadrant (high impact, high probability) should be monitored daily; the top-right quadrant (high impact, uncertain) warrants scenario planning; bottom-right items can be tracked weekly.
@@ -553,8 +530,6 @@ quadrantChart
 *Impact Matrix: 2026-04-27 | Framework: Event/Stakeholder Impact Analysis*
 
 <h2 id="section-stakeholder-map">Stakeholder Map</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/intelligence/stakeholder-map.md" rel="noopener">View source: <code>intelligence/stakeholder-map.md</code></a></p>
 
 ### Overview
 
@@ -685,8 +660,6 @@ LOW INTEREST
 
 ### Pestle Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/intelligence/pestle-analysis.md" rel="noopener">View source: <code>intelligence/pestle-analysis.md</code></a></p>
-
 ### Overview
 
 This PESTLE analysis covers the macrocontextual forces shaping the EU Parliament's April 2026 legislative propositions. Each dimension is assessed for its current intensity, trajectory, and direct impact on the primary legislative dossiers: SRMR3, Anti-Corruption Directive, US Tariff Counter-measures, Defence Industrial Strategy, Housing Resolution, and AI/Copyright framework.
@@ -808,8 +781,6 @@ The Trump administration's 2025 tariff announcements constitute the most signifi
 
 ### Historical Baseline
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/intelligence/historical-baseline.md" rel="noopener">View source: <code>intelligence/historical-baseline.md</code></a></p>
-
 ### Purpose
 
 This artifact establishes the historical context against which current EP10 legislative activity (April 2026) should be interpreted. It uses EP activity statistics from 2004–2026 as the comparative baseline, drawing on `get_all_generated_stats` data retrieved during Stage A.
@@ -892,8 +863,6 @@ EP10 spring 2026 is consistent with historical patterns. The simultaneous public
 *Historical Baseline compiled: 2026-04-27 | Data source: EP statistics API, procedure tracking*
 
 <h2 id="section-economic-context">Economic Context</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/intelligence/economic-context.md" rel="noopener">View source: <code>intelligence/economic-context.md</code></a></p>
 
 ### Purpose
 
@@ -987,8 +956,6 @@ The April 2026 EP propositions pipeline is best understood as a **legislative re
 <h2 id="section-risk">Risk Assessment</h2>
 
 ### Risk Matrix
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
 
 ### Overview
 
@@ -1100,8 +1067,6 @@ quadrantChart
 
 ### Quantitative Swot
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/risk-scoring/quantitative-swot.md" rel="noopener">View source: <code>risk-scoring/quantitative-swot.md</code></a></p>
-
 ### Overview
 
 This quantitative SWOT analysis evaluates the EP's legislative position on its April 2026 propositions pipeline. Each item is scored 1–10 for magnitude and weighted by confidence level. Scores are aggregated to produce a net strategic balance assessment.
@@ -1203,8 +1168,6 @@ If US tariffs escalate to full auto-sector coverage before the EP regulation is 
 
 ### Political Capital Risk
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/risk-scoring/political-capital-risk.md" rel="noopener">View source: <code>risk-scoring/political-capital-risk.md</code></a></p>
-
 ### Reader Briefing
 
 Political capital is the finite reservoir of goodwill, credibility, and coalition trust that political actors spend to pass legislation. This artifact assesses the political capital stakes for the key actors in EP10's April 2026 dossiers — where capital is being spent, accumulated, and at risk. For EPP Group under Weber, the spring 2026 period is the highest-stakes political capital moment of EP10's first half: success or failure on the anti-corruption directive and US tariff response will define his legislative legacy through 2027.
@@ -1302,8 +1265,6 @@ Weber's political capital crisis threshold: if **both** (a) Anti-Corruption Dire
 
 ### Legislative Velocity Risk
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/risk-scoring/legislative-velocity-risk.md" rel="noopener">View source: <code>risk-scoring/legislative-velocity-risk.md</code></a></p>
-
 ### Reader Briefing
 
 Legislative velocity risk is the risk that EP10's current exceptionally high legislative output pace (+46.2% vs. 2025) creates quality, oversight, or sustainability vulnerabilities. This artifact assesses whether the spring 2026 pace represents a healthy institutional acceleration or a potentially unsustainable sprint that could lead to legislative errors, inadequate scrutiny, or political backlash. The finding is that EP10 is operating at the upper edge of sustainable velocity — any additional shock (US tariff escalation, banking stress, geopolitical emergency) could push it into red-zone territory.
@@ -1395,8 +1356,6 @@ The regulation was initiated 2025 and reached trilogue Round 1 by April 2026 —
 <h2 id="section-threat">Threat Landscape</h2>
 
 ### Threat Model
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/intelligence/threat-model.md" rel="noopener">View source: <code>intelligence/threat-model.md</code></a></p>
 
 ### Overview
 
@@ -1517,8 +1476,6 @@ SRMR3's transposition requirements are technically complex. If 5+ member states 
 
 ### Actor Threat Profiles
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/threat-assessment/actor-threat-profiles.md" rel="noopener">View source: <code>threat-assessment/actor-threat-profiles.md</code></a></p>
-
 ### Reader Briefing
 
 This artifact profiles the specific actors who pose legislative or institutional threats to the EP's April 2026 propositions pipeline. Unlike the stakeholder map (which profiles all actors), this document focuses exclusively on actors with demonstrated or credible adversarial positions. For EP legislative strategists, the Hungarian government's posture on the Anti-Corruption Directive is the single most critical threat variable to monitor.
@@ -1611,8 +1568,6 @@ graph LR
 *Actor Threat Profiles: 2026-04-27 | Framework: MITRE ATT&CK (legislative adaptation)*
 
 ### Consequence Trees
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/threat-assessment/consequence-trees.md" rel="noopener">View source: <code>threat-assessment/consequence-trees.md</code></a></p>
 
 ### Reader Briefing
 
@@ -1707,8 +1662,6 @@ flowchart TD
 
 ### Legislative Disruption
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/threat-assessment/legislative-disruption.md" rel="noopener">View source: <code>threat-assessment/legislative-disruption.md</code></a></p>
-
 ### Reader Briefing
 
 This document assesses the mechanisms by which the EP's April 2026 legislative pipeline could be disrupted, delayed, or derailed. It is intended for EP legislative coordinators, political group advisors, and Commission liaison officers. The most critical disruption path runs through Hungary's Council blocking capacity on the Anti-Corruption Directive — this is the near-term focus. The US tariff regulation faces a different type of disruption: not blockage but inadequacy (regulation too slow or too weak to address escalating US measures).
@@ -1802,8 +1755,6 @@ flowchart TD
 
 ### Political Threat Landscape
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/threat-assessment/political-threat-landscape.md" rel="noopener">View source: <code>threat-assessment/political-threat-landscape.md</code></a></p>
-
 ### Overview
 
 The political threat landscape for EP10's April 2026 propositions pipeline is characterized by four structural tensions: (1) right-bloc seat dominance vs. centrist governing coalitions; (2) EU criminal law expansion vs. national sovereignty resistance; (3) trade defense urgency vs. free-trade ideology; (4) institutional ambition vs. bandwidth constraints.
@@ -1865,8 +1816,6 @@ The political threat landscape for EP10's April 2026 propositions pipeline is ch
 <h2 id="section-scenarios">Scenarios & Wildcards</h2>
 
 ### Scenario Forecast
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/intelligence/scenario-forecast.md" rel="noopener">View source: <code>intelligence/scenario-forecast.md</code></a></p>
 
 ### Methodology
 
@@ -1998,8 +1947,6 @@ These two uncertainties are largely independent and collectively generate four d
 
 ### Wildcards Blackswans
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/intelligence/wildcards-blackswans.md" rel="noopener">View source: <code>intelligence/wildcards-blackswans.md</code></a></p>
-
 ### Preamble
 
 Wildcards are low-probability events (5–15%) that would materially disrupt the legislative forecasts. Black swans are events below 5% probability but with transformative impact if they occur. This artifact identifies the signals to watch for each scenario.
@@ -2123,9 +2070,83 @@ Wildcards are low-probability events (5–15%) that would materially disrupt the
 
 *Wildcards & Black Swans: 2026-04-27 | Method: Low-probability impact analysis | Confidence: 🔴 Speculative*
 
-<h2 id="section-mcp-reliability">MCP Reliability Audit</h2>
+<h2 id="section-continuity">Cross-Run Continuity</h2>
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/intelligence/mcp-reliability-audit.md" rel="noopener">View source: <code>intelligence/mcp-reliability-audit.md</code></a></p>
+### Pipeline Health
+
+### Overview
+
+This artifact provides a health assessment of the EU Parliament's active legislative pipeline for the `propositions` article type, covering all procedures in active stages as of April 27, 2026.
+
+---
+
+### Pipeline Health Dashboard
+
+| Procedure | ID | Stage | Health | Days in Stage | ETA to Next Stage |
+|-----------|-----|-------|--------|---------------|------------------|
+| SRMR3 — Bank Resolution | 2023/0111(COD) | ✅ COMPLETED (OJ published) | 🟢 Healthy | N/A | Transposition 12–18 months |
+| Anti-Corruption Directive | 2023/0135(COD) | Council first reading | 🟡 At-risk (Hungary) | 30+ | Council general approach: 60–90 days |
+| US Tariff Counter-measures | 2025/0261(COD) | Trilogue (Round 1 done) | 🟡 Active — 3–4 rounds remaining | 14 days since R1 | Round 2: ~30 days |
+| Housing Crisis Resolution | TA-10-2026-0064 | ✅ ADOPTED (resolution) | 🟢 Complete | N/A | Possible directive Q3 2026 |
+| AI Convention Ratification | TA-10-2026-0071 | ✅ ADOPTED | 🟢 Complete | N/A | CoE ratification process |
+| Defence Flagship Projects | TA-10-2026-0080 | ✅ ADOPTED | 🟢 Complete | N/A | Commission implementation |
+| Defence Barriers | TA-10-2026-0079 | ✅ ADOPTED | 🟢 Complete | N/A | Commission proposal follow-up |
+| EU-Canada Defence | TA-10-2026-0078 | ✅ ADOPTED | 🟢 Complete | N/A | Implementation |
+| AI/Copyright | TA-10-2026-0066 | ✅ ADOPTED | 🟢 Complete | N/A | Implementation resolution |
+| European Semester 2026 | TA-10-2026-0076 | ✅ ADOPTED | 🟢 Complete | N/A | Spring package |
+
+---
+
+### Pipeline Flow Rate
+
+**In-flight procedures (active legislative stage):** 2
+- 2023/0135(COD) — Anti-Corruption (Council stage)
+- 2025/0261(COD) — US Tariffs (Trilogue)
+
+**Completed (last 30 days):** 8
+- SRMR3 OJ published (April 20)
+- 7 additional TA-10-2026 texts adopted in March 26 plenary
+
+**Blocked/at-risk:** 1
+- 2023/0135(COD) — Hungary emergency brake risk
+
+**Expected completions (next 90 days):** 1–2
+- US Tariff regulation: possible if trilogue accelerates
+- Anti-Corruption: possible if Polish Presidency delivers Council general approach
+
+---
+
+### Bottleneck Analysis
+
+**Primary Bottleneck:** Council first reading — Anti-Corruption Directive
+- **Root cause:** Hungary structural resistance to criminal law harmonization
+- **Estimated delay:** 60–180 days (depending on emergency brake invocation)
+- **Mitigation:** Commission parallel preparation of enhanced cooperation contingency
+
+**Secondary Bottleneck:** US Tariff Trilogue — delegation scope disagreement
+- **Root cause:** EP-Council institutional power dispute (Commission delegated authority)
+- **Estimated delay:** 60–90 days (3–4 additional rounds at ~3-week intervals)
+- **Mitigation:** Fast-track agreement possible if US escalation increases urgency
+
+---
+
+### Pipeline Score
+
+| Metric | Value | Health |
+|--------|-------|--------|
+| Completion rate (30-day) | 8/10 tracked (80%) | 🟢 HIGH |
+| Blocking procedures | 1/2 active (50%) | 🔴 CONCERNING |
+| Average trilogue duration (active) | ~12 months (both dossiers) | 🟡 MEDIUM |
+| Pipeline acceleration vs. EP10 baseline | +46.2% | 🟡 HIGH — capacity monitoring needed |
+| Quality flags (placeholder artifacts) | 0 | 🟢 CLEAN |
+
+**Overall Pipeline Health:** 🟡 MEDIUM — Strong output pace but active blocking risk on highest-profile dossier.
+
+---
+
+*Pipeline Health: 2026-04-27 | Propositions-specific artifact | Source: EP Open Data Portal*
+
+<h2 id="section-mcp-reliability">MCP Reliability Audit</h2>
 
 ### Overview
 
@@ -2320,9 +2341,116 @@ This audit documents the operational reliability of the EP MCP server tools used
 
 <h2 id="section-quality-reflection">Analytical Quality & Reflection</h2>
 
-### Reference Analysis Quality
+### Analysis Index
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/intelligence/reference-analysis-quality.md" rel="noopener">View source: <code>intelligence/reference-analysis-quality.md</code></a></p>
+### How to Read This Run
+
+This analysis covers the EU Parliament's active legislative propositions pipeline as of April 27, 2026. The primary focus is on **three intersecting legislative streams**: banking/financial regulation (SRMR3 publication), rule-of-law/anti-corruption (new directive adopted), and trade/economic defense (US tariff trilogue). Each artifact below provides a distinct analytical lens on these interconnected themes.
+
+**Reading order for intelligence consumers:**
+1. `executive-brief.md` — 60-second situational awareness
+2. `intelligence/synthesis-summary.md` — strategic narrative and judgments
+3. `intelligence/scenario-forecast.md` — probabilistic outcomes
+4. `intelligence/pestle-analysis.md` — contextual framework
+5. `intelligence/stakeholder-map.md` — who controls the outcomes
+6. `intelligence/threat-model.md` — legislative disruption risks
+7. `intelligence/economic-context.md` — financial/economic indicators
+8. `risk-scoring/risk-matrix.md` — risk prioritization
+
+---
+
+### Artifact Registry
+
+#### Mandatory Artifacts
+
+| Artifact | Path | Lines | Status | Confidence |
+|----------|------|-------|--------|-----------|
+| Executive Brief | `executive-brief.md` | 180+ | ✅ Complete | 🟡 Medium |
+| Analysis Index | `intelligence/analysis-index.md` | 100+ | ✅ This file | 🟢 High |
+| Synthesis Summary | `intelligence/synthesis-summary.md` | 160+ | ✅ Complete | 🟡 Medium |
+| Historical Baseline | `intelligence/historical-baseline.md` | 120+ | ✅ Complete | 🟡 Medium |
+| Economic Context | `intelligence/economic-context.md` | 120+ | ✅ Complete | 🟡 Medium |
+| PESTLE Analysis | `intelligence/pestle-analysis.md` | 180+ | ✅ Complete | 🟡 Medium |
+| Stakeholder Map | `intelligence/stakeholder-map.md` | 200+ | ✅ Complete | 🟡 Medium |
+| Scenario Forecast | `intelligence/scenario-forecast.md` | 180+ | ✅ Complete | 🟡 Medium |
+| Threat Model | `intelligence/threat-model.md` | 160+ | ✅ Complete | 🟡 Medium |
+| Wildcards & Black Swans | `intelligence/wildcards-blackswans.md` | 180+ | ✅ Complete | 🔴 Low |
+| MCP Reliability Audit | `intelligence/mcp-reliability-audit.md` | 200+ | ✅ Complete | 🟢 High |
+| Reference Analysis Quality | `intelligence/reference-analysis-quality.md` | 140+ | ✅ Complete | 🟢 High |
+| Risk Matrix | `risk-scoring/risk-matrix.md` | 100+ | ✅ Complete | 🟡 Medium |
+| Quantitative SWOT | `risk-scoring/quantitative-swot.md` | 100+ | ✅ Complete | 🟡 Medium |
+| Methodology Reflection | `intelligence/methodology-reflection.md` | 180+ | ✅ Complete | 🟢 High |
+
+#### Structural Artifacts
+
+| Artifact | Path | Status |
+|----------|------|--------|
+| Significance Classification | `classification/significance-classification.md` | ✅ Complete |
+| Impact Matrix | `classification/impact-matrix.md` | ✅ Complete |
+| Forces Analysis | `classification/forces-analysis.md` | ✅ Complete |
+| Actor Mapping | `classification/actor-mapping.md` | ✅ Complete |
+| Political Threat Landscape | `threat-assessment/political-threat-landscape.md` | ✅ Complete |
+| Actor Threat Profiles | `threat-assessment/actor-threat-profiles.md` | ✅ Complete |
+| Consequence Trees | `threat-assessment/consequence-trees.md` | ✅ Complete |
+| Legislative Disruption | `threat-assessment/legislative-disruption.md` | ✅ Complete |
+| Political Capital Risk | `risk-scoring/political-capital-risk.md` | ✅ Complete |
+| Legislative Velocity Risk | `risk-scoring/legislative-velocity-risk.md` | ✅ Complete |
+| Pipeline Health | `existing/pipeline-health.md` | ✅ Complete |
+| Workflow Audit | `intelligence/workflow-audit.md` | ✅ Complete |
+
+---
+
+### Key Judgments (Master Summary)
+
+**JDG-001** 🟡 WEP LIKELY (65–80%): The Anti-Corruption Directive will face significant Council resistance from at least 3–5 Member States, extending second reading negotiations into Q3–Q4 2026.
+
+**JDG-002** 🟢 WEP ALMOST CERTAINLY (>95%): SRMR3 transposition clock started April 20, 2026 (OJ publication). All 27 Member States must implement bank resolution reforms by the statutory deadline.
+
+**JDG-003** 🟡 WEP LIKELY (60–75%): The first US tariff counter-measure trilogue (April 13) will require at least 3–4 additional rounds before a final text is agreed, putting formal adoption at Q4 2026 at earliest.
+
+**JDG-004** 🟡 WEP ROUGHLY EVEN (45–55%): The EPP will seek to conclude at least one major legislation (Defence Industrial Projects or SAFE instrument) before the summer recess to consolidate its legislative record.
+
+**JDG-005** 🔴 WEP UNLIKELY (15–25%): An emergency plenary session specifically addressing US tariffs will be triggered before June, unless the trade dispute escalates dramatically.
+
+---
+
+### Data Quality Summary
+
+| Feed | Status | Items Returned | Quality Flag |
+|------|--------|----------------|-------------|
+| `get_procedures_feed` | 🔴 RECESS_MODE | Historical items only (1972–1987) | ⚠️ Known degraded-upstream pattern |
+| `get_external_documents_feed` | 🟢 OPERATIONAL | 6 items (ACT_FOLLOWUP) | ✅ Fresh (April 22, 2026) |
+| `get_committee_documents_feed` | 🔴 UNAVAILABLE | 0 items | ⚠️ EP API error in body |
+| `get_adopted_texts` | 🟢 OPERATIONAL | 71 items (2026) | ✅ Complete catalog |
+| `get_adopted_texts_feed` | 🟢 OPERATIONAL | 67 items with 2026 IDs | ✅ Operational |
+| `get_plenary_sessions` | 🟢 OPERATIONAL | 10 sessions (Jan–Feb 2026) | 🟡 Recent missing (EP API lag) |
+| `track_legislation` | 🟡 PARTIAL | 3 procedures tracked | 🟡 No amendments/votes |
+| `monitor_legislative_pipeline` | 🔴 EMPTY | 0 active procedures | ⚠️ Known enrichment gap |
+| `analyze_coalition_dynamics` | 🟡 PARTIAL | 8 groups, size-proxy only | 🟡 No vote-level cohesion |
+| `get_voting_records` | 🔴 UNAVAILABLE | 0 items (April 2026) | ⚠️ EP publication delay (4–6 weeks) |
+| `generate_political_landscape` | 🟢 OPERATIONAL | 9 groups, 719 MEPs | ✅ Current |
+| `get_all_generated_stats` | 🟢 OPERATIONAL | 2024–2026 data | ✅ High confidence |
+
+---
+
+### Run Parameters
+
+| Parameter | Value |
+|-----------|-------|
+| Run Date | 2026-04-27 |
+| Article Type | propositions |
+| Data Window | Last 7 days (2026-04-20 to 2026-04-27) |
+| ANALYSIS_DIR | analysis/daily/2026-04-27/propositions |
+| Total Procedures Tracked | 3 (SRMR3, Anti-Corruption, US Tariffs) |
+| Adopted Texts 2026 | 71 (through early April) |
+| Analytical Frameworks Applied | 10 (PESTLE, SWOT, Stakeholder Map, ACH, Scenario Planning, Risk Matrix, Threat Modeling, Coalition Analysis, OSINT, Historical Baseline) |
+| MCP Server | european-parliament-mcp-server@1.2.15 |
+
+---
+
+*Index compiled: 2026-04-27 | Analyst: Automated pipeline | Stage: B complete*
+
+### Reference Analysis Quality
 
 ### Purpose
 
@@ -2479,8 +2607,6 @@ This run's analysis artifacts meet the minimum quality standards for publication
 
 ### Workflow Audit
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/intelligence/workflow-audit.md" rel="noopener">View source: <code>intelligence/workflow-audit.md</code></a></p>
-
 ### Run Summary
 
 | Parameter | Value |
@@ -2564,8 +2690,6 @@ This run's analysis artifacts meet the minimum quality standards for publication
 *Workflow Audit: 2026-04-27 | Stage: B complete*
 
 ### Methodology Reflection
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/intelligence/methodology-reflection.md" rel="noopener">View source: <code>intelligence/methodology-reflection.md</code></a></p>
 
 ### Purpose
 
@@ -2685,194 +2809,14 @@ The analysis is based on confirmed procedure-level data for the three key dossie
 
 *Methodology Reflection: 2026-04-27 | Step 10.5 of AI-Driven Analysis Protocol | Stage B Final Artifact*
 
-<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
-
-### Pipeline Health
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/existing/pipeline-health.md" rel="noopener">View source: <code>existing/pipeline-health.md</code></a></p>
-
-### Overview
-
-This artifact provides a health assessment of the EU Parliament's active legislative pipeline for the `propositions` article type, covering all procedures in active stages as of April 27, 2026.
-
----
-
-### Pipeline Health Dashboard
-
-| Procedure | ID | Stage | Health | Days in Stage | ETA to Next Stage |
-|-----------|-----|-------|--------|---------------|------------------|
-| SRMR3 — Bank Resolution | 2023/0111(COD) | ✅ COMPLETED (OJ published) | 🟢 Healthy | N/A | Transposition 12–18 months |
-| Anti-Corruption Directive | 2023/0135(COD) | Council first reading | 🟡 At-risk (Hungary) | 30+ | Council general approach: 60–90 days |
-| US Tariff Counter-measures | 2025/0261(COD) | Trilogue (Round 1 done) | 🟡 Active — 3–4 rounds remaining | 14 days since R1 | Round 2: ~30 days |
-| Housing Crisis Resolution | TA-10-2026-0064 | ✅ ADOPTED (resolution) | 🟢 Complete | N/A | Possible directive Q3 2026 |
-| AI Convention Ratification | TA-10-2026-0071 | ✅ ADOPTED | 🟢 Complete | N/A | CoE ratification process |
-| Defence Flagship Projects | TA-10-2026-0080 | ✅ ADOPTED | 🟢 Complete | N/A | Commission implementation |
-| Defence Barriers | TA-10-2026-0079 | ✅ ADOPTED | 🟢 Complete | N/A | Commission proposal follow-up |
-| EU-Canada Defence | TA-10-2026-0078 | ✅ ADOPTED | 🟢 Complete | N/A | Implementation |
-| AI/Copyright | TA-10-2026-0066 | ✅ ADOPTED | 🟢 Complete | N/A | Implementation resolution |
-| European Semester 2026 | TA-10-2026-0076 | ✅ ADOPTED | 🟢 Complete | N/A | Spring package |
-
----
-
-### Pipeline Flow Rate
-
-**In-flight procedures (active legislative stage):** 2
-- 2023/0135(COD) — Anti-Corruption (Council stage)
-- 2025/0261(COD) — US Tariffs (Trilogue)
-
-**Completed (last 30 days):** 8
-- SRMR3 OJ published (April 20)
-- 7 additional TA-10-2026 texts adopted in March 26 plenary
-
-**Blocked/at-risk:** 1
-- 2023/0135(COD) — Hungary emergency brake risk
-
-**Expected completions (next 90 days):** 1–2
-- US Tariff regulation: possible if trilogue accelerates
-- Anti-Corruption: possible if Polish Presidency delivers Council general approach
-
----
-
-### Bottleneck Analysis
-
-**Primary Bottleneck:** Council first reading — Anti-Corruption Directive
-- **Root cause:** Hungary structural resistance to criminal law harmonization
-- **Estimated delay:** 60–180 days (depending on emergency brake invocation)
-- **Mitigation:** Commission parallel preparation of enhanced cooperation contingency
-
-**Secondary Bottleneck:** US Tariff Trilogue — delegation scope disagreement
-- **Root cause:** EP-Council institutional power dispute (Commission delegated authority)
-- **Estimated delay:** 60–90 days (3–4 additional rounds at ~3-week intervals)
-- **Mitigation:** Fast-track agreement possible if US escalation increases urgency
-
----
-
-### Pipeline Score
-
-| Metric | Value | Health |
-|--------|-------|--------|
-| Completion rate (30-day) | 8/10 tracked (80%) | 🟢 HIGH |
-| Blocking procedures | 1/2 active (50%) | 🔴 CONCERNING |
-| Average trilogue duration (active) | ~12 months (both dossiers) | 🟡 MEDIUM |
-| Pipeline acceleration vs. EP10 baseline | +46.2% | 🟡 HIGH — capacity monitoring needed |
-| Quality flags (placeholder artifacts) | 0 | 🟢 CLEAN |
-
-**Overall Pipeline Health:** 🟡 MEDIUM — Strong output pace but active blocking risk on highest-profile dossier.
-
----
-
-*Pipeline Health: 2026-04-27 | Propositions-specific artifact | Source: EP Open Data Portal*
-
-### Analysis Index
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/intelligence/analysis-index.md" rel="noopener">View source: <code>intelligence/analysis-index.md</code></a></p>
-
-### How to Read This Run
-
-This analysis covers the EU Parliament's active legislative propositions pipeline as of April 27, 2026. The primary focus is on **three intersecting legislative streams**: banking/financial regulation (SRMR3 publication), rule-of-law/anti-corruption (new directive adopted), and trade/economic defense (US tariff trilogue). Each artifact below provides a distinct analytical lens on these interconnected themes.
-
-**Reading order for intelligence consumers:**
-1. `executive-brief.md` — 60-second situational awareness
-2. `intelligence/synthesis-summary.md` — strategic narrative and judgments
-3. `intelligence/scenario-forecast.md` — probabilistic outcomes
-4. `intelligence/pestle-analysis.md` — contextual framework
-5. `intelligence/stakeholder-map.md` — who controls the outcomes
-6. `intelligence/threat-model.md` — legislative disruption risks
-7. `intelligence/economic-context.md` — financial/economic indicators
-8. `risk-scoring/risk-matrix.md` — risk prioritization
-
----
-
-### Artifact Registry
-
-#### Mandatory Artifacts
-
-| Artifact | Path | Lines | Status | Confidence |
-|----------|------|-------|--------|-----------|
-| Executive Brief | `executive-brief.md` | 180+ | ✅ Complete | 🟡 Medium |
-| Analysis Index | `intelligence/analysis-index.md` | 100+ | ✅ This file | 🟢 High |
-| Synthesis Summary | `intelligence/synthesis-summary.md` | 160+ | ✅ Complete | 🟡 Medium |
-| Historical Baseline | `intelligence/historical-baseline.md` | 120+ | ✅ Complete | 🟡 Medium |
-| Economic Context | `intelligence/economic-context.md` | 120+ | ✅ Complete | 🟡 Medium |
-| PESTLE Analysis | `intelligence/pestle-analysis.md` | 180+ | ✅ Complete | 🟡 Medium |
-| Stakeholder Map | `intelligence/stakeholder-map.md` | 200+ | ✅ Complete | 🟡 Medium |
-| Scenario Forecast | `intelligence/scenario-forecast.md` | 180+ | ✅ Complete | 🟡 Medium |
-| Threat Model | `intelligence/threat-model.md` | 160+ | ✅ Complete | 🟡 Medium |
-| Wildcards & Black Swans | `intelligence/wildcards-blackswans.md` | 180+ | ✅ Complete | 🔴 Low |
-| MCP Reliability Audit | `intelligence/mcp-reliability-audit.md` | 200+ | ✅ Complete | 🟢 High |
-| Reference Analysis Quality | `intelligence/reference-analysis-quality.md` | 140+ | ✅ Complete | 🟢 High |
-| Risk Matrix | `risk-scoring/risk-matrix.md` | 100+ | ✅ Complete | 🟡 Medium |
-| Quantitative SWOT | `risk-scoring/quantitative-swot.md` | 100+ | ✅ Complete | 🟡 Medium |
-| Methodology Reflection | `intelligence/methodology-reflection.md` | 180+ | ✅ Complete | 🟢 High |
-
-#### Structural Artifacts
-
-| Artifact | Path | Status |
-|----------|------|--------|
-| Significance Classification | `classification/significance-classification.md` | ✅ Complete |
-| Impact Matrix | `classification/impact-matrix.md` | ✅ Complete |
-| Forces Analysis | `classification/forces-analysis.md` | ✅ Complete |
-| Actor Mapping | `classification/actor-mapping.md` | ✅ Complete |
-| Political Threat Landscape | `threat-assessment/political-threat-landscape.md` | ✅ Complete |
-| Actor Threat Profiles | `threat-assessment/actor-threat-profiles.md` | ✅ Complete |
-| Consequence Trees | `threat-assessment/consequence-trees.md` | ✅ Complete |
-| Legislative Disruption | `threat-assessment/legislative-disruption.md` | ✅ Complete |
-| Political Capital Risk | `risk-scoring/political-capital-risk.md` | ✅ Complete |
-| Legislative Velocity Risk | `risk-scoring/legislative-velocity-risk.md` | ✅ Complete |
-| Pipeline Health | `existing/pipeline-health.md` | ✅ Complete |
-| Workflow Audit | `intelligence/workflow-audit.md` | ✅ Complete |
-
----
-
-### Key Judgments (Master Summary)
-
-**JDG-001** 🟡 WEP LIKELY (65–80%): The Anti-Corruption Directive will face significant Council resistance from at least 3–5 Member States, extending second reading negotiations into Q3–Q4 2026.
-
-**JDG-002** 🟢 WEP ALMOST CERTAINLY (>95%): SRMR3 transposition clock started April 20, 2026 (OJ publication). All 27 Member States must implement bank resolution reforms by the statutory deadline.
-
-**JDG-003** 🟡 WEP LIKELY (60–75%): The first US tariff counter-measure trilogue (April 13) will require at least 3–4 additional rounds before a final text is agreed, putting formal adoption at Q4 2026 at earliest.
-
-**JDG-004** 🟡 WEP ROUGHLY EVEN (45–55%): The EPP will seek to conclude at least one major legislation (Defence Industrial Projects or SAFE instrument) before the summer recess to consolidate its legislative record.
-
-**JDG-005** 🔴 WEP UNLIKELY (15–25%): An emergency plenary session specifically addressing US tariffs will be triggered before June, unless the trade dispute escalates dramatically.
-
----
-
-### Data Quality Summary
-
-| Feed | Status | Items Returned | Quality Flag |
-|------|--------|----------------|-------------|
-| `get_procedures_feed` | 🔴 RECESS_MODE | Historical items only (1972–1987) | ⚠️ Known degraded-upstream pattern |
-| `get_external_documents_feed` | 🟢 OPERATIONAL | 6 items (ACT_FOLLOWUP) | ✅ Fresh (April 22, 2026) |
-| `get_committee_documents_feed` | 🔴 UNAVAILABLE | 0 items | ⚠️ EP API error in body |
-| `get_adopted_texts` | 🟢 OPERATIONAL | 71 items (2026) | ✅ Complete catalog |
-| `get_adopted_texts_feed` | 🟢 OPERATIONAL | 67 items with 2026 IDs | ✅ Operational |
-| `get_plenary_sessions` | 🟢 OPERATIONAL | 10 sessions (Jan–Feb 2026) | 🟡 Recent missing (EP API lag) |
-| `track_legislation` | 🟡 PARTIAL | 3 procedures tracked | 🟡 No amendments/votes |
-| `monitor_legislative_pipeline` | 🔴 EMPTY | 0 active procedures | ⚠️ Known enrichment gap |
-| `analyze_coalition_dynamics` | 🟡 PARTIAL | 8 groups, size-proxy only | 🟡 No vote-level cohesion |
-| `get_voting_records` | 🔴 UNAVAILABLE | 0 items (April 2026) | ⚠️ EP publication delay (4–6 weeks) |
-| `generate_political_landscape` | 🟢 OPERATIONAL | 9 groups, 719 MEPs | ✅ Current |
-| `get_all_generated_stats` | 🟢 OPERATIONAL | 2024–2026 data | ✅ High confidence |
-
----
-
-### Run Parameters
-
-| Parameter | Value |
-|-----------|-------|
-| Run Date | 2026-04-27 |
-| Article Type | propositions |
-| Data Window | Last 7 days (2026-04-20 to 2026-04-27) |
-| ANALYSIS_DIR | analysis/daily/2026-04-27/propositions |
-| Total Procedures Tracked | 3 (SRMR3, Anti-Corruption, US Tariffs) |
-| Adopted Texts 2026 | 71 (through early April) |
-| Analytical Frameworks Applied | 10 (PESTLE, SWOT, Stakeholder Map, ACH, Scenario Planning, Risk Matrix, Threat Modeling, Coalition Analysis, OSINT, Historical Baseline) |
-| MCP Server | european-parliament-mcp-server@1.2.15 |
-
----
-
-*Index compiled: 2026-04-27 | Analyst: Automated pipeline | Stage: B complete*
+> **Provenance & Audit**
+>
+> - **Article type:** `propositions`
+> - **Run date:** 2026-04-27
+> - **Run id:** `propositions-run-1777271418`
+> - **Gate result:** `pending`
+> - **Analysis tree:** [analysis/daily/2026-04-27/propositions](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-27/propositions)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 
@@ -2980,10 +2924,10 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-threat | [political-threat-landscape](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/threat-assessment/political-threat-landscape.md) | `threat-assessment/political-threat-landscape.md` |
 | section-scenarios | [scenario-forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/intelligence/scenario-forecast.md) | `intelligence/scenario-forecast.md` |
 | section-scenarios | [wildcards-blackswans](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/intelligence/wildcards-blackswans.md) | `intelligence/wildcards-blackswans.md` |
+| section-continuity | [pipeline-health](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/existing/pipeline-health.md) | `existing/pipeline-health.md` |
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
+| section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-quality-reflection | [reference-analysis-quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/intelligence/reference-analysis-quality.md) | `intelligence/reference-analysis-quality.md` |
 | section-quality-reflection | [workflow-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/intelligence/workflow-audit.md) | `intelligence/workflow-audit.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
-| section-supplementary-intelligence | [pipeline-health](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/existing/pipeline-health.md) | `existing/pipeline-health.md` |
-| section-supplementary-intelligence | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/propositions/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 

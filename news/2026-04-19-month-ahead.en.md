@@ -11,17 +11,6 @@ layout: article
 ---
 # Month Ahead — 2026-04-19
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `month-ahead`
-> - **Run date:** 2026-04-19
-> - **Run id:** `month-ahead-run5`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-19/month-ahead-run5](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-19/month-ahead-run5)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-ahead-run5/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -36,8 +25,6 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-ahead-run5/intelligence/synthesis-summary.md" rel="noopener">View source: <code>intelligence/synthesis-summary.md</code></a></p>
 
 ### Executive Summary
 
@@ -139,8 +126,6 @@ Germany's unemployment paradox — structurally low at 3.4-3.7% despite two year
 
 ### Significance Scoring
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-ahead-run5/intelligence/significance-scoring.md" rel="noopener">View source: <code>intelligence/significance-scoring.md</code></a></p>
-
 ### Scoring Methodology
 Each item scored on three dimensions (1-5 each): Immediacy × Impact × Coverage_Gap = Significance Score (max 125)
 
@@ -207,11 +192,63 @@ Each item scored on three dimensions (1-5 each): Immediacy × Impact × Coverage
 - Germany unemployment: 3.7% (2025) — structurally low despite recession
 - **Implication:** Germany's recession makes BRRD3 burden-sharing toxic AND US tariff escalation existential for its auto sector. France's relative stability gives Macron government more flexibility on trade defence. This economic divergence will drive political group tensions within EPP.
 
+<h2 id="section-actors-forces">Actors & Forces</h2>
+
+### Political Classification
+
+### Key Adopted Texts Classification
+
+#### TA-10-2026-0092 — SRMR3 (Single Resolution Mechanism Regulation 3)
+- **Policy Domain:** Economic & Financial Affairs (ECOFIN / Banking Union)
+- **Procedure:** 2023-0111(COD) — Ordinary legislative procedure
+- **Subject Matter:** UEM (Economic and Monetary Union), PECO (Economic Policy)
+- **Political Salience:** VERY HIGH — completes the resolution side of Banking Union
+- **Coalition Position:** Grand Centre YES (EPP + S&D + Renew), ECR/PfE DIVIDED
+- **Companion Legislation:** BRRD3 (pending), DGSD2 (pending)
+- **Implementation Timeline:** Immediate upon OJ publication; BRRD3 required for full effect
+
+#### TA-10-2026-0094 — Anti-Corruption Directive
+- **Policy Domain:** Justice & Home Affairs / Rule of Law
+- **Procedure:** 2023-0135(COD) — Ordinary legislative procedure
+- **Subject Matter:** COJP (Criminal Justice Policy)
+- **Political Salience:** VERY HIGH — first binding EU anti-corruption standard
+- **Coalition Position:** Grand Centre YES, ECR AGAINST (sovereignty), PfE AGAINST (sovereignty), Left FOR (but wants stronger enforcement)
+- **Contested elements:** Mandatory national strategies, independent prosecution bodies, whistleblower protections
+- **Implementation Timeline:** 24 months for member state transposition; JURI monitoring from Q2 2026
+
+#### TA-10-2026-0096 — US Tariff Counter-Measures
+- **Policy Domain:** Trade / External Relations
+- **Procedure:** 2025-0261(COD) — Trade-specific procedure
+- **Subject Matter:** TDC (Trade/Customs), PCOM (Common Commercial Policy), EXT (External Relations)
+- **Political Salience:** VERY HIGH — direct response to Trump administration tariff threats
+- **Coalition Position:** S&D + Greens + Left STRONGLY FOR, Renew FOR, EPP CONDITIONALLY FOR (export-sector concerns), ECR/PfE AGAINST
+- **External trigger:** USTR Section 301 review window April 21-24
+- **Implementation:** Commission exercises authority based on parliamentary mandate
+
+#### TA-10-2026-0101 — EU-China WTO Tariff Rate Quota Agreement
+- **Policy Domain:** Trade / Asia-Pacific Relations
+- **Procedure:** 2023-0183 — International agreement consent
+- **Political Salience:** HIGH — confirms EU multi-track trade strategy (US counter + China normalisation same day)
+- **Coalition Position:** Grand Centre FOR, ECR CAUTIOUS (China hawk elements), PfE DIVIDED (pro-China faction vs nationalists)
+- **Strategic significance:** SRMR3 normalisation of WTO TRQs is technical but politically signals EU's independent trade diplomacy
+
+#### TA-10-2026-0104 — Global Gateway Future Orientation
+- **Policy Domain:** External Investment / EU Foreign Policy
+- **Procedure:** 2025-2073(INI) — Own-initiative resolution
+- **Subject Matter:** INV (Investment), COPT (Cooperation/Partnership)
+- **Political Salience:** HIGH — defines EP's position on EU's €300bn infrastructure investment vehicle
+- **Coalition Position:** EPP STRONG SUPPORTER, Renew FOR, S&D CONDITIONAL (conditionality demands), Greens CRITICAL (climate integration), Left OPPOSED (private profit framing)
+- **Context:** China BRI competition; US withdrawal from multilateral infrastructure; Western Balkans engagement
+
+### EP10 Term Legislative Trajectory
+- **2025 pace:** 53 sessions, 78 acts, 347 adopted texts — stable
+- **2026 pace (Q1+Q2):** 54 sessions already, 114 acts, 104 adopted texts — significantly accelerated
+- **Projection:** EP10 on course to exceed EP9 output by 15-20% if Q2-Q4 maintains pace
+- **Quality signal:** The March 26 sprint demonstrated ability to pass complex, contested legislation (SRMR3, Anti-Corruption) before recess — suggests legislative machine is operating efficiently
+
 <h2 id="section-coalitions-voting">Coalitions & Voting</h2>
 
 ### Coalition Dynamics
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-ahead-run5/intelligence/coalition-dynamics.md" rel="noopener">View source: <code>intelligence/coalition-dynamics.md</code></a></p>
 
 ![Confidence](https://img.shields.io/badge/Confidence-LOW_(data_gap)-red?style=flat-square)
 ![Data](https://img.shields.io/badge/Data-Structural_Only-orange?style=flat-square)
@@ -379,8 +416,6 @@ EPP `memberCount=0` defect is persistent across 9 consecutive runs. Escalation t
 **Confidence**: 🔴 LOW on vote-level cohesion (data defect); 🟡 MEDIUM on structural seat arithmetic; 🟢 HIGH on stakeholder position mapping from manifestos and prior votes.
 
 <h2 id="section-stakeholder-map">Stakeholder Map</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-ahead-run5/intelligence/stakeholder-map.md" rel="noopener">View source: <code>intelligence/stakeholder-map.md</code></a></p>
 
 ![Framework](https://img.shields.io/badge/Framework-Power_x_Interest-blue?style=flat-square)
 ![Stakeholders](https://img.shields.io/badge/Stakeholders-16-green?style=flat-square)
@@ -613,8 +648,6 @@ quadrantChart
 
 ### Pestle Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-ahead-run5/intelligence/pestle-analysis.md" rel="noopener">View source: <code>intelligence/pestle-analysis.md</code></a></p>
-
 ![Framework](https://img.shields.io/badge/Framework-PESTLE_6--Dimension-blue?style=flat-square)
 ![Confidence](https://img.shields.io/badge/Aggregate_Confidence-MEDIUM-yellow?style=flat-square)
 ![Scope](https://img.shields.io/badge/Scope-EP10_April--May_2026-green?style=flat-square)
@@ -798,8 +831,6 @@ See `intelligence/scenario-forecast.md` for probability-weighted scenario narrat
 
 ### Historical Baseline
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-ahead-run5/intelligence/historical-baseline.md" rel="noopener">View source: <code>intelligence/historical-baseline.md</code></a></p>
-
 ![Framework](https://img.shields.io/badge/Framework-Rule_17_Historical_Baselines-blue?style=flat-square)
 ![Baselines](https://img.shields.io/badge/Compared_Terms-EP8_EP9_EP10-green?style=flat-square)
 ![Confidence](https://img.shields.io/badge/Confidence-HIGH-brightgreen?style=flat-square)
@@ -966,8 +997,6 @@ graph LR
 
 <h2 id="section-economic-context">Economic Context</h2>
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-ahead-run5/intelligence/economic-context.md" rel="noopener">View source: <code>intelligence/economic-context.md</code></a></p>
-
 ![Framework](https://img.shields.io/badge/Framework-WB_Indicator_Mapping-blue?style=flat-square)
 ![Countries](https://img.shields.io/badge/Countries-DE_FR_PL_HU_IT-green?style=flat-square)
 ![Data](https://img.shields.io/badge/Source-World_Bank_Open_Data-brightgreen?style=flat-square)
@@ -1131,8 +1160,6 @@ USTR tariffs → Auto-sector production pause → Kurzarbeit expansion → Fisca
 <h2 id="section-threat">Threat Landscape</h2>
 
 ### Threat Model
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-ahead-run5/intelligence/threat-model.md" rel="noopener">View source: <code>intelligence/threat-model.md</code></a></p>
 
 ![Framework](https://img.shields.io/badge/Framework-Diamond_+_Attack_Trees_+_Kill_Chain-blue?style=flat-square)
 ![Threats](https://img.shields.io/badge/High_Severity_Threats-3-red?style=flat-square)
@@ -1362,8 +1389,6 @@ GOAL: Delay, dilute, or nullify Anti-Corruption Directive transposition
 <h2 id="section-scenarios">Scenarios & Wildcards</h2>
 
 ### Scenario Forecast
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-ahead-run5/intelligence/scenario-forecast.md" rel="noopener">View source: <code>intelligence/scenario-forecast.md</code></a></p>
 
 ![Framework](https://img.shields.io/badge/Framework-Shell_Scenario_Planning-blue?style=flat-square)
 ![Scenarios](https://img.shields.io/badge/Scenarios-4-green?style=flat-square)
@@ -1608,8 +1633,6 @@ flowchart TD
 
 ### Wildcards Blackswans
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-ahead-run5/intelligence/wildcards-blackswans.md" rel="noopener">View source: <code>intelligence/wildcards-blackswans.md</code></a></p>
-
 ![Framework](https://img.shields.io/badge/Framework-Taleb_+_Schwartz-blue?style=flat-square)
 ![Events](https://img.shields.io/badge/Wildcards_Tracked-10-yellow?style=flat-square)
 ![Confidence](https://img.shields.io/badge/Confidence-LOW_by_design-red?style=flat-square)
@@ -1813,8 +1836,6 @@ Historical Black Swans that would have landed in this category:
 
 ### Cross Run Diff
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-ahead-run5/intelligence/cross-run-diff.md" rel="noopener">View source: <code>intelligence/cross-run-diff.md</code></a></p>
-
 ![Date](https://img.shields.io/badge/Date-2026--04--19-blue?style=flat-square)
 ![Baseline](https://img.shields.io/badge/Baseline-month--ahead--run4_(2026--04--13)-grey?style=flat-square)
 ![Change](https://img.shields.io/badge/Analytical_Depth-6%E2%86%9217_artifacts-green?style=flat-square)
@@ -1944,8 +1965,6 @@ Historical Black Swans that would have landed in this category:
 <h2 id="section-documents">Document Analysis</h2>
 
 ### Document Analysis Index
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-ahead-run5/documents/document-analysis-index.md" rel="noopener">View source: <code>documents/document-analysis-index.md</code></a></p>
 
 ![Date](https://img.shields.io/badge/Date-2026--04--19-blue?style=flat-square)
 ![Documents](https://img.shields.io/badge/Documents-13-green?style=flat-square)
@@ -2097,8 +2116,6 @@ Historical Black Swans that would have landed in this category:
 
 <h2 id="section-mcp-reliability">MCP Reliability Audit</h2>
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-ahead-run5/intelligence/mcp-reliability-audit.md" rel="noopener">View source: <code>intelligence/mcp-reliability-audit.md</code></a></p>
-
 ![Scope](https://img.shields.io/badge/Scope-EP_MCP_Server_1.2.9-blue?style=flat-square)
 ![Empirical_Basis](https://img.shields.io/badge/Empirical_Basis-Runs_179--187_+_Run_5-green?style=flat-square)
 ![Confidence](https://img.shields.io/badge/Audit_Confidence-HIGH-brightgreen?style=flat-square)
@@ -2225,65 +2242,9 @@ Run 5 applies the following editorial mitigations to defect impacts:
 
 **Confidence**: 🟢 HIGH on defect enumeration (empirical, repeatable); HIGH on impact assessment (directly observable); MEDIUM on recovery projection (inherently forward-looking).
 
-<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
-
-### Political Classification
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-ahead-run5/classification/political-classification.md" rel="noopener">View source: <code>classification/political-classification.md</code></a></p>
-
-### Key Adopted Texts Classification
-
-#### TA-10-2026-0092 — SRMR3 (Single Resolution Mechanism Regulation 3)
-- **Policy Domain:** Economic & Financial Affairs (ECOFIN / Banking Union)
-- **Procedure:** 2023-0111(COD) — Ordinary legislative procedure
-- **Subject Matter:** UEM (Economic and Monetary Union), PECO (Economic Policy)
-- **Political Salience:** VERY HIGH — completes the resolution side of Banking Union
-- **Coalition Position:** Grand Centre YES (EPP + S&D + Renew), ECR/PfE DIVIDED
-- **Companion Legislation:** BRRD3 (pending), DGSD2 (pending)
-- **Implementation Timeline:** Immediate upon OJ publication; BRRD3 required for full effect
-
-#### TA-10-2026-0094 — Anti-Corruption Directive
-- **Policy Domain:** Justice & Home Affairs / Rule of Law
-- **Procedure:** 2023-0135(COD) — Ordinary legislative procedure
-- **Subject Matter:** COJP (Criminal Justice Policy)
-- **Political Salience:** VERY HIGH — first binding EU anti-corruption standard
-- **Coalition Position:** Grand Centre YES, ECR AGAINST (sovereignty), PfE AGAINST (sovereignty), Left FOR (but wants stronger enforcement)
-- **Contested elements:** Mandatory national strategies, independent prosecution bodies, whistleblower protections
-- **Implementation Timeline:** 24 months for member state transposition; JURI monitoring from Q2 2026
-
-#### TA-10-2026-0096 — US Tariff Counter-Measures
-- **Policy Domain:** Trade / External Relations
-- **Procedure:** 2025-0261(COD) — Trade-specific procedure
-- **Subject Matter:** TDC (Trade/Customs), PCOM (Common Commercial Policy), EXT (External Relations)
-- **Political Salience:** VERY HIGH — direct response to Trump administration tariff threats
-- **Coalition Position:** S&D + Greens + Left STRONGLY FOR, Renew FOR, EPP CONDITIONALLY FOR (export-sector concerns), ECR/PfE AGAINST
-- **External trigger:** USTR Section 301 review window April 21-24
-- **Implementation:** Commission exercises authority based on parliamentary mandate
-
-#### TA-10-2026-0101 — EU-China WTO Tariff Rate Quota Agreement
-- **Policy Domain:** Trade / Asia-Pacific Relations
-- **Procedure:** 2023-0183 — International agreement consent
-- **Political Salience:** HIGH — confirms EU multi-track trade strategy (US counter + China normalisation same day)
-- **Coalition Position:** Grand Centre FOR, ECR CAUTIOUS (China hawk elements), PfE DIVIDED (pro-China faction vs nationalists)
-- **Strategic significance:** SRMR3 normalisation of WTO TRQs is technical but politically signals EU's independent trade diplomacy
-
-#### TA-10-2026-0104 — Global Gateway Future Orientation
-- **Policy Domain:** External Investment / EU Foreign Policy
-- **Procedure:** 2025-2073(INI) — Own-initiative resolution
-- **Subject Matter:** INV (Investment), COPT (Cooperation/Partnership)
-- **Political Salience:** HIGH — defines EP's position on EU's €300bn infrastructure investment vehicle
-- **Coalition Position:** EPP STRONG SUPPORTER, Renew FOR, S&D CONDITIONAL (conditionality demands), Greens CRITICAL (climate integration), Left OPPOSED (private profit framing)
-- **Context:** China BRI competition; US withdrawal from multilateral infrastructure; Western Balkans engagement
-
-### EP10 Term Legislative Trajectory
-- **2025 pace:** 53 sessions, 78 acts, 347 adopted texts — stable
-- **2026 pace (Q1+Q2):** 54 sessions already, 114 acts, 104 adopted texts — significantly accelerated
-- **Projection:** EP10 on course to exceed EP9 output by 15-20% if Q2-Q4 maintains pace
-- **Quality signal:** The March 26 sprint demonstrated ability to pass complex, contested legislation (SRMR3, Anti-Corruption) before recess — suggests legislative machine is operating efficiently
+<h2 id="section-quality-reflection">Analytical Quality & Reflection</h2>
 
 ### Analysis Index
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-ahead-run5/intelligence/analysis-index.md" rel="noopener">View source: <code>intelligence/analysis-index.md</code></a></p>
 
 ### API Status
 - **Tier 1 (adopted texts, MEPs):** OPERATIONAL — 51 texts accessible for 2026 (through March 26)
@@ -2377,9 +2338,9 @@ Summary of triggers detailed in `intelligence/scenario-forecast.md` and `intelli
 - `analysis/methodologies/worldbank-indicator-mapping.md` v2.1
 - Editorial Context: Runs 179-187 (month-long recess monitoring series)
 
-### Quantitative Swot
+<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-ahead-run5/risk/quantitative-swot.md" rel="noopener">View source: <code>risk/quantitative-swot.md</code></a></p>
+### Quantitative Swot
 
 ![Date](https://img.shields.io/badge/Date-2026--04--19-blue?style=flat-square)
 ![Framework](https://img.shields.io/badge/Framework-3%2B3%2B3%2B3_Quantitative_SWOT-green?style=flat-square)
@@ -2517,8 +2478,6 @@ Probability estimate: 15% (Scenario D + partial Scenario B downside). Impact: If
 
 ### Risk Matrix
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-ahead-run5/risk/risk-matrix.md" rel="noopener">View source: <code>risk/risk-matrix.md</code></a></p>
-
 ### Assessment Framework: Likelihood × Impact (5×5)
 
 | Score | Likelihood Label | Impact Label |
@@ -2574,6 +2533,15 @@ Probability estimate: 15% (Scenario D + partial Scenario B downside). Impact: If
 ### Overall Risk Assessment
 **Composite Risk Score: 17.0/50 (running sum of top 5 scores, normalized)**
 **Risk Level: ELEVATED** — primarily driven by external factors (USTR, Bundesrat) rather than internal parliamentary dynamics. Grand Centre coalition resilience is the primary risk mitigant.
+
+> **Provenance & Audit**
+>
+> - **Article type:** `month-ahead`
+> - **Run date:** 2026-04-19
+> - **Run id:** `month-ahead-run5`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-19/month-ahead-run5](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-19/month-ahead-run5)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-ahead-run5/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 
@@ -2662,6 +2630,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 |---|---|---|
 | section-synthesis | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-ahead-run5/intelligence/synthesis-summary.md) | `intelligence/synthesis-summary.md` |
 | section-significance | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-ahead-run5/intelligence/significance-scoring.md) | `intelligence/significance-scoring.md` |
+| section-actors-forces | [political-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-ahead-run5/classification/political-classification.md) | `classification/political-classification.md` |
 | section-coalitions-voting | [coalition-dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-ahead-run5/intelligence/coalition-dynamics.md) | `intelligence/coalition-dynamics.md` |
 | section-stakeholder-map | [stakeholder-map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-ahead-run5/intelligence/stakeholder-map.md) | `intelligence/stakeholder-map.md` |
 | section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-ahead-run5/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
@@ -2673,8 +2642,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-continuity | [cross-run-diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-ahead-run5/intelligence/cross-run-diff.md) | `intelligence/cross-run-diff.md` |
 | section-documents | [document-analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-ahead-run5/documents/document-analysis-index.md) | `documents/document-analysis-index.md` |
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-ahead-run5/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
-| section-supplementary-intelligence | [political-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-ahead-run5/classification/political-classification.md) | `classification/political-classification.md` |
-| section-supplementary-intelligence | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-ahead-run5/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
+| section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-ahead-run5/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-supplementary-intelligence | [quantitative-swot](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-ahead-run5/risk/quantitative-swot.md) | `risk/quantitative-swot.md` |
 | section-supplementary-intelligence | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-ahead-run5/risk/risk-matrix.md) | `risk/risk-matrix.md` |
 

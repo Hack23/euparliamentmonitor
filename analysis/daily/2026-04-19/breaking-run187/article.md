@@ -11,17 +11,6 @@ layout: article
 ---
 # Breaking — 2026-04-19
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-19
-> - **Run id:** `187`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-19/breaking-run187](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-19/breaking-run187)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/breaking-run187/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -33,8 +22,6 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `intelligence/coalition-dynamics.md` |
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/breaking-run187/intelligence/synthesis-summary.md" rel="noopener">View source: <code>intelligence/synthesis-summary.md</code></a></p>
 
 ![Status](https://img.shields.io/badge/Parliament-Easter_Recess-orange?style=flat-square)
 ![Significance](https://img.shields.io/badge/Significance-14%2F50-red?style=flat-square)
@@ -146,8 +133,6 @@ The analysis phase has been productive: 7 major artifacts written covering signi
 
 ### Significance Scoring
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/breaking-run187/intelligence/significance-scoring.md" rel="noopener">View source: <code>intelligence/significance-scoring.md</code></a></p>
-
 ![Confidence](https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=flat-square)
 ![Status](https://img.shields.io/badge/Status-ANALYSIS_ONLY-orange?style=flat-square)
 ![Newsworthiness](https://img.shields.io/badge/Newsworthiness-FAIL-red?style=flat-square)
@@ -247,8 +232,6 @@ The single noteworthy intelligence increment from this run — the EU-China tari
 
 ### Coalition Dynamics
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/breaking-run187/intelligence/coalition-dynamics.md" rel="noopener">View source: <code>intelligence/coalition-dynamics.md</code></a></p>
-
 ### Parliamentary Composition (Run 187)
 
 | Group | Seats | % | Bloc | Trend |
@@ -325,8 +308,6 @@ The confirmation of TA-10-2026-0101 (EU-China TRQ modification) introduces a new
 <h2 id="section-continuity">Cross-Run Continuity</h2>
 
 ### Cross Run Diff
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/breaking-run187/intelligence/cross-run-diff.md" rel="noopener">View source: <code>intelligence/cross-run-diff.md</code></a></p>
 
 > **Note:** Both runs 186 and 187 occurred on 2026-04-19. Run 186 was logged as the final prior run in editorial context. This diff compares the accumulated intelligence from Run 187 against Run 186's findings to document incremental value.
 
@@ -423,8 +404,6 @@ No feed degradation detected vs run 186. API restoration continues.
 
 ### Document Analysis Index
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/breaking-run187/documents/document-analysis-index.md" rel="noopener">View source: <code>documents/document-analysis-index.md</code></a></p>
-
 ### NEW Documents Accessible in Run 187 (vs Run 186)
 
 Four documents became accessible for the first time in Run 187, revealing new intelligence about the March 26 Sprint II legislative output:
@@ -519,8 +498,6 @@ The trajectory shows accelerating restoration: +10, +5, +5, +6, +10 — suggesti
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Quantitative Swot
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/breaking-run187/risk/quantitative-swot.md" rel="noopener">View source: <code>risk/quantitative-swot.md</code></a></p>
 
 ![Framework](https://img.shields.io/badge/Framework-Political_SWOT_v2.2-blue?style=flat-square)
 ![Evidence](https://img.shields.io/badge/Evidence-EP_MCP_Data-green?style=flat-square)
@@ -713,8 +690,6 @@ BRRD3 is particularly sensitive because it introduces new loss-absorbing require
 
 ### Risk Matrix
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/breaking-run187/risk/risk-matrix.md" rel="noopener">View source: <code>risk/risk-matrix.md</code></a></p>
-
 ![Framework](https://img.shields.io/badge/Framework-5x5_Risk_Matrix-blue?style=flat-square)
 ![Confidence](https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=flat-square)
 
@@ -816,8 +791,6 @@ The Run 187 composite risk score of 16.5/50 continues the declining series (20 �
 The next significant risk score movement is expected on April 21-24 depending on USTR announcements.
 
 ### Political Threat Landscape
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/breaking-run187/threat/political-threat-landscape.md" rel="noopener">View source: <code>threat/political-threat-landscape.md</code></a></p>
 
 ### Threat Overview
 
@@ -925,6 +898,15 @@ graph TD
 All threat assessments in this analysis carry 🟡 MEDIUM confidence due to the limited data available during recess. The absence of events feed, procedures feed, and key legislative text content means threat indicators are based primarily on: (a) publicly confirmed legislative history from EP API, (b) USTR public record, (c) German federal institutional calendar, (d) editorial context from prior runs, and (e) structural analysis of EP constitutional powers.
 
 Confidence will improve significantly when: TA-10-2026-0092/0094/0096/0104 become accessible (April 22-24), Tier 2 feeds restore (April 21-23), and Parliament returns (April 27).
+
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-19
+> - **Run id:** `187`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-19/breaking-run187](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-19/breaking-run187)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/breaking-run187/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

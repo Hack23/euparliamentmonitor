@@ -11,17 +11,6 @@ layout: article
 ---
 # Breaking — 2026-04-21
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-21
-> - **Run id:** `3ff728a7-15fa-4d2d-af0e-73c3e1ffb70e`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-21/breaking-run193](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-21/breaking-run193)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run193/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -34,8 +23,6 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run193/intelligence/synthesis-summary.md" rel="noopener">View source: <code>intelligence/synthesis-summary.md</code></a></p>
 
 ![Mode](https://img.shields.io/badge/Mode-ARTICLE_GENERATED-green)
 ![Quality](https://img.shields.io/badge/Quality-Reference_Grade-brightgreen)
@@ -141,11 +128,80 @@ Analysis phase end: ~22 minutes (target: 35)
 Remaining for article generation: ~28 minutes
 Hard deadline: 50 minutes from start
 
+<h2 id="section-actors-forces">Actors & Forces</h2>
+
+### Significance Scoring
+
+![Score](https://img.shields.io/badge/Significance-22%2F50-orange)
+![Mode](https://img.shields.io/badge/Mode-ARTICLE_GENERATED-green)
+![Threshold](https://img.shields.io/badge/Threshold-20%2F50-blue)
+![Confidence](https://img.shields.io/badge/Confidence-MEDIUM-yellow)
+
+### Executive Summary
+
+**Run 193** marks the first significance score above the 20/50 article-generation threshold in 13 days, driven by three converging signals:
+
+1. **Phase 2 content restoration in progress**: The EP `get_adopted_texts_feed` (timeframe: "today") returned **25 adopted texts as actively updated/republished on April 21** — the first primary feed activity since the outage began April 11. This confirms Phase 2 is underway, even though individual content body access remains partial.
+
+2. **March 26 legislative session fully catalogued**: The `get_adopted_texts(year:2026)` endpoint now returns all **18 March 26 texts** (TA-10-2026-0087 through TA-10-2026-0104) with complete titles, revealing the full architecture of Parliament's most significant legislative session since the EP10 term began.
+
+3. **Pre-Strasbourg strategic context**: Parliament returns April 27 in 6 days. The March 26 texts represent the legislative foundation for the April plenary agenda, including: the triple trade architecture responding to the global tariff war, banking union reform completion, anti-corruption directive, and AI simplification.
+
+### Scoring Matrix
+
+| Dimension | Score | Evidence | Confidence |
+|-----------|:-----:|----------|:----------:|
+| Primary feed activity today | 5/10 | Adopted texts feed returned 25 items as updated today | 🟡 MEDIUM |
+| Legislative significance (March 26 session) | 8/10 | 18 texts, triple trade architecture, banking union, anti-corruption | 🟢 HIGH |
+| Phase 2 restoration signal | 4/10 | 25 texts in today's feed; bodies still 404 (partial Phase 2) | 🟡 MEDIUM |
+| Political intelligence value | 3/10 | Pre-Strasbourg context, USTR Day 2 null result | 🟡 MEDIUM |
+| Newsworthiness for citizens | 2/10 | Data access restoration is meta-story; actual events from March 26 | 🟡 MEDIUM |
+| **COMPOSITE** | **22/50** | Exceeds 20/50 threshold | 🟡 MEDIUM |
+
+### Primary Data Sources
+
+#### get_adopted_texts_feed (timeframe: "today") — ACTIVE
+- **Status**: OPERATIONAL — returned 25 items
+- **Items**: TA-10-2026-0008 through TA-10-2026-0034 (25 texts, non-sequential: includes gaps at 0013, 0018)
+- **Signal**: EP backend actively republishing/re-indexing adopted texts on April 21
+- **Interpretation**: Phase 2 content restoration has begun; backend batch-processing older texts first
+
+#### get_adopted_texts(year:2026) — FULL CATALOGUE
+- **Status**: OPERATIONAL — returned 100 items
+- **March 26 texts**: TA-0087 through TA-0104 all confirmed with complete titles
+- **Titles accessible**: YES — full legislative titles visible
+- **Content bodies**: STILL 404 for all March 26 texts (individual docId access fails)
+- **Gap in index**: TA-0013 and TA-0018 missing from today's feed but present in year catalogue
+
+#### Other feeds
+- Events feed: UNAVAILABLE (unchanged from Run 192)
+- Procedures feed: UNAVAILABLE (unchanged from Run 192)
+- Documents feed: UNAVAILABLE (unchanged from Run 192)
+- Parliamentary questions: UNAVAILABLE (unchanged from Run 192)
+
+### Cross-Run Delta (Run 192 → Run 193)
+
+| Metric | Run 192 | Run 193 | Delta |
+|--------|:-------:|:-------:|:-----:|
+| Significance score | 3.67/50 | 22/50 | ↑ +18.33 |
+| Adopted texts feed today | 0 items | 25 items | ↑ +25 |
+| March 26 content accessible | PARTIAL TITLES | FULL TITLES | ↑ Improved |
+| Phase 2 restoration | NOT triggered | IN PROGRESS | ↑ Major advance |
+| Article generation | NO | YES | ↑ Threshold crossed |
+
+### Newsworthiness Gate Assessment
+
+**GATE STATUS: PASS** (22/50 > 20/50 threshold)
+
+**Primary qualifying criterion**: `get_adopted_texts_feed` with `timeframe: "today"` returned 25 items as updated TODAY (April 21). Per workflow rules, items showing as published/updated in today's EP feed qualify as breaking news signals.
+
+**Editorial angle**: The restoration of EP feed activity after 13 days of outage is itself today's news. The content it reveals — the March 26, 2026 legislative session's triple trade architecture — provides the substantive political intelligence for article generation.
+
+**Caveat**: The items themselves have `dateAdopted: 2026-01-20 to 2026-03-26`, meaning they are not newly adopted today. The news hook is the RESTORATION OF DATA ACCESSIBILITY, which is a legitimate public information story given the 13-day gap and high policy significance of what was obscured.
+
 <h2 id="section-coalitions-voting">Coalitions & Voting</h2>
 
 ### Coalition Dynamics
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run193/intelligence/coalition-dynamics.md" rel="noopener">View source: <code>intelligence/coalition-dynamics.md</code></a></p>
 
 ### Grand Centre Architecture (EPP + S&D + Renew)
 
@@ -194,8 +250,6 @@ Using available group sizes (EPP corrected to 180):
 - ENP ≈ 6.1 (highly fragmented parliament; grand coalition essential for governance)
 
 <h2 id="section-stakeholder-map">Stakeholder Map</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run193/intelligence/stakeholder-map.md" rel="noopener">View source: <code>intelligence/stakeholder-map.md</code></a></p>
 
 ### Analytical Framework
 
@@ -280,8 +334,6 @@ Two March 26 texts directly affect China: TA-0096 (customs duty adjustment/TRQ o
 
 ### Threat Model
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run193/intelligence/threat-model.md" rel="noopener">View source: <code>intelligence/threat-model.md</code></a></p>
-
 ![Threat Level](https://img.shields.io/badge/Threat_Level-MEDIUM-orange)
 ![Stability](https://img.shields.io/badge/Stability-87%2F100-green)
 
@@ -329,8 +381,6 @@ Two March 26 texts directly affect China: TA-0096 (customs duty adjustment/TRQ o
 <h2 id="section-scenarios">Scenarios & Wildcards</h2>
 
 ### Scenario Forecast
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run193/intelligence/scenario-forecast.md" rel="noopener">View source: <code>intelligence/scenario-forecast.md</code></a></p>
 
 ### Base Date: April 21, 2026 | Horizon: April 21 - May 31, 2026
 
@@ -400,8 +450,6 @@ Two March 26 texts directly affect China: TA-0096 (customs duty adjustment/TRQ o
 
 ### Cross Run Diff
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run193/intelligence/cross-run-diff.md" rel="noopener">View source: <code>intelligence/cross-run-diff.md</code></a></p>
-
 ### Comparison: Run 193 (2026-04-21 ~07:20 UTC) vs Run 192 (2026-04-21 earlier today)
 
 #### ⬆️ New Intelligence (Run 193 only)
@@ -457,8 +505,6 @@ Run 193 is the "Emergence" run — documenting the moment Phase 2 restoration be
 <h2 id="section-documents">Document Analysis</h2>
 
 ### Document Analysis Index
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run193/documents/document-analysis-index.md" rel="noopener">View source: <code>documents/document-analysis-index.md</code></a></p>
 
 ### Confirmed Text Table (18 adopted texts, source: EP API year:2026)
 
@@ -537,8 +583,6 @@ Run 193 is the "Emergence" run — documenting the moment Phase 2 restoration be
 
 <h2 id="section-mcp-reliability">MCP Reliability Audit</h2>
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run193/intelligence/mcp-reliability-audit.md" rel="noopener">View source: <code>intelligence/mcp-reliability-audit.md</code></a></p>
-
 ### Summary: EP API Outage Status — Day 13
 
 **Outage start:** April 11, 2026 (confirmed from runs 179-192)
@@ -604,82 +648,9 @@ Total tool calls: ~18 (data collection) + analysis writes = comprehensive data c
 Unique feeds probed: 12
 Successful data returns: 7 primary tools
 
-<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
-
-### Significance Scoring
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run193/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
-
-![Score](https://img.shields.io/badge/Significance-22%2F50-orange)
-![Mode](https://img.shields.io/badge/Mode-ARTICLE_GENERATED-green)
-![Threshold](https://img.shields.io/badge/Threshold-20%2F50-blue)
-![Confidence](https://img.shields.io/badge/Confidence-MEDIUM-yellow)
-
-### Executive Summary
-
-**Run 193** marks the first significance score above the 20/50 article-generation threshold in 13 days, driven by three converging signals:
-
-1. **Phase 2 content restoration in progress**: The EP `get_adopted_texts_feed` (timeframe: "today") returned **25 adopted texts as actively updated/republished on April 21** — the first primary feed activity since the outage began April 11. This confirms Phase 2 is underway, even though individual content body access remains partial.
-
-2. **March 26 legislative session fully catalogued**: The `get_adopted_texts(year:2026)` endpoint now returns all **18 March 26 texts** (TA-10-2026-0087 through TA-10-2026-0104) with complete titles, revealing the full architecture of Parliament's most significant legislative session since the EP10 term began.
-
-3. **Pre-Strasbourg strategic context**: Parliament returns April 27 in 6 days. The March 26 texts represent the legislative foundation for the April plenary agenda, including: the triple trade architecture responding to the global tariff war, banking union reform completion, anti-corruption directive, and AI simplification.
-
-### Scoring Matrix
-
-| Dimension | Score | Evidence | Confidence |
-|-----------|:-----:|----------|:----------:|
-| Primary feed activity today | 5/10 | Adopted texts feed returned 25 items as updated today | 🟡 MEDIUM |
-| Legislative significance (March 26 session) | 8/10 | 18 texts, triple trade architecture, banking union, anti-corruption | 🟢 HIGH |
-| Phase 2 restoration signal | 4/10 | 25 texts in today's feed; bodies still 404 (partial Phase 2) | 🟡 MEDIUM |
-| Political intelligence value | 3/10 | Pre-Strasbourg context, USTR Day 2 null result | 🟡 MEDIUM |
-| Newsworthiness for citizens | 2/10 | Data access restoration is meta-story; actual events from March 26 | 🟡 MEDIUM |
-| **COMPOSITE** | **22/50** | Exceeds 20/50 threshold | 🟡 MEDIUM |
-
-### Primary Data Sources
-
-#### get_adopted_texts_feed (timeframe: "today") — ACTIVE
-- **Status**: OPERATIONAL — returned 25 items
-- **Items**: TA-10-2026-0008 through TA-10-2026-0034 (25 texts, non-sequential: includes gaps at 0013, 0018)
-- **Signal**: EP backend actively republishing/re-indexing adopted texts on April 21
-- **Interpretation**: Phase 2 content restoration has begun; backend batch-processing older texts first
-
-#### get_adopted_texts(year:2026) — FULL CATALOGUE
-- **Status**: OPERATIONAL — returned 100 items
-- **March 26 texts**: TA-0087 through TA-0104 all confirmed with complete titles
-- **Titles accessible**: YES — full legislative titles visible
-- **Content bodies**: STILL 404 for all March 26 texts (individual docId access fails)
-- **Gap in index**: TA-0013 and TA-0018 missing from today's feed but present in year catalogue
-
-#### Other feeds
-- Events feed: UNAVAILABLE (unchanged from Run 192)
-- Procedures feed: UNAVAILABLE (unchanged from Run 192)
-- Documents feed: UNAVAILABLE (unchanged from Run 192)
-- Parliamentary questions: UNAVAILABLE (unchanged from Run 192)
-
-### Cross-Run Delta (Run 192 → Run 193)
-
-| Metric | Run 192 | Run 193 | Delta |
-|--------|:-------:|:-------:|:-----:|
-| Significance score | 3.67/50 | 22/50 | ↑ +18.33 |
-| Adopted texts feed today | 0 items | 25 items | ↑ +25 |
-| March 26 content accessible | PARTIAL TITLES | FULL TITLES | ↑ Improved |
-| Phase 2 restoration | NOT triggered | IN PROGRESS | ↑ Major advance |
-| Article generation | NO | YES | ↑ Threshold crossed |
-
-### Newsworthiness Gate Assessment
-
-**GATE STATUS: PASS** (22/50 > 20/50 threshold)
-
-**Primary qualifying criterion**: `get_adopted_texts_feed` with `timeframe: "today"` returned 25 items as updated TODAY (April 21). Per workflow rules, items showing as published/updated in today's EP feed qualify as breaking news signals.
-
-**Editorial angle**: The restoration of EP feed activity after 13 days of outage is itself today's news. The content it reveals — the March 26, 2026 legislative session's triple trade architecture — provides the substantive political intelligence for article generation.
-
-**Caveat**: The items themselves have `dateAdopted: 2026-01-20 to 2026-03-26`, meaning they are not newly adopted today. The news hook is the RESTORATION OF DATA ACCESSIBILITY, which is a legitimate public information story given the 13-day gap and high policy significance of what was obscured.
+<h2 id="section-quality-reflection">Analytical Quality & Reflection</h2>
 
 ### Analysis Index
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run193/intelligence/analysis-index.md" rel="noopener">View source: <code>intelligence/analysis-index.md</code></a></p>
 
 ### Artifact Registry
 
@@ -723,9 +694,9 @@ Successful data returns: 7 primary tools
 - Expected filename: news/2026-04-21-breaking-run193-en.html
 - Languages: en,sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh
 
-### Quantitative Swot
+<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run193/risk/quantitative-swot.md" rel="noopener">View source: <code>risk/quantitative-swot.md</code></a></p>
+### Quantitative Swot
 
 ![Phase](https://img.shields.io/badge/Phase-Pre_Strasbourg_Return-blue)
 ![Confidence](https://img.shields.io/badge/Confidence-MEDIUM-yellow)
@@ -784,6 +755,15 @@ The most concrete current threat to Parliament's institutional credibility is th
 
 **T3: ECR-PPE Alliance Fracture Over Braun (LOW-MEDIUM confidence 🟡)**
 The two Braun immunity waivers open the prospect of further disciplinary proceedings against ECR's most extreme members. If Braun is convicted in Poland and expelled from Parliament, the ECR group loses 1-2 votes but potentially triggers a cascade: other Polish MEPs associated with Braun's faction may follow. More importantly, the ECR's strategy of combining eurosceptic mainstream members (Meloni-adjacent Italian MEPs, Bielan's Polish conservatives) with extreme-right fringe elements (Braun) becomes politically untenable if mainstream ECR MEPs face reputational spillover. This could accelerate the EPP's efforts to peel off moderate ECR members for a broader mainstream coalition. Evidence: TA-0087, TA-0088 dual waiver adoption; Braun's documented conduct record. Confidence: 🟡 MEDIUM. Significance: Group dynamics risk with long-term coalition implications.
+
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-21
+> - **Run id:** `3ff728a7-15fa-4d2d-af0e-73c3e1ffb70e`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-21/breaking-run193](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-21/breaking-run193)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run193/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 
@@ -871,6 +851,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 | Section | Artifact | Path |
 |---|---|---|
 | section-synthesis | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run193/intelligence/synthesis-summary.md) | `intelligence/synthesis-summary.md` |
+| section-actors-forces | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run193/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-coalitions-voting | [coalition-dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run193/intelligence/coalition-dynamics.md) | `intelligence/coalition-dynamics.md` |
 | section-stakeholder-map | [stakeholder-map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run193/intelligence/stakeholder-map.md) | `intelligence/stakeholder-map.md` |
 | section-threat | [threat-model](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run193/intelligence/threat-model.md) | `intelligence/threat-model.md` |
@@ -878,7 +859,6 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-continuity | [cross-run-diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run193/intelligence/cross-run-diff.md) | `intelligence/cross-run-diff.md` |
 | section-documents | [document-analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run193/documents/document-analysis-index.md) | `documents/document-analysis-index.md` |
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run193/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
-| section-supplementary-intelligence | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run193/classification/significance-scoring.md) | `classification/significance-scoring.md` |
-| section-supplementary-intelligence | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run193/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
+| section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run193/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-supplementary-intelligence | [quantitative-swot](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run193/risk/quantitative-swot.md) | `risk/quantitative-swot.md` |
 

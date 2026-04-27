@@ -11,32 +11,7 @@ layout: article
 ---
 # Motions — 2026-04-27
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `motions`
-> - **Run date:** 2026-04-27
-> - **Run id:** `motions-run-1777278029`
-> - **Gate result:** `ANALYSIS_ONLY`
-> - **Analysis tree:** [analysis/daily/2026-04-27/motions](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-27/motions)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/motions/manifest.json)
-
-<h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
-
-Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
-
-| Reader need | What you'll get | Source artifact |
-|---|---|---|
-| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
-| [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
-| [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `intelligence/stakeholder-map.md` |
-| [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
-| [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
-
 <h2 id="section-executive-brief">Executive Brief</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/motions/executive-brief.md" rel="noopener">View source: <code>executive-brief.md</code></a></p>
 
 ### Headline Assessment
 
@@ -118,9 +93,19 @@ Based on the April session agenda structure and recent legislative trajectory:
 
 *Data sources: European Parliament Open Data Portal (data.europarl.europa.eu) — MEP records, adopted texts, plenary sessions. Confidence: 🟡 Medium. Admiralty Grade: B2 (Usually reliable source, probably true).*
 
-<h2 id="section-synthesis">Synthesis Summary</h2>
+<h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/motions/intelligence/synthesis-summary.md" rel="noopener">View source: <code>intelligence/synthesis-summary.md</code></a></p>
+Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
+
+| Reader need | What you'll get | Source artifact |
+|---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
+| [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
+| [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `intelligence/stakeholder-map.md` |
+| [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
+| [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
+
+<h2 id="section-synthesis">Synthesis Summary</h2>
 
 ### BLUF (Bottom Line Up Front)
 
@@ -206,8 +191,6 @@ The April 2026 EP session will produce legislative output across all five major 
 <h2 id="section-actors-forces">Actors & Forces</h2>
 
 ### Actor Mapping
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/motions/classification/actor-mapping.md" rel="noopener">View source: <code>classification/actor-mapping.md</code></a></p>
 
 ### For Citizens: Who Shapes EP Decisions?
 
@@ -366,8 +349,6 @@ graph LR
 
 ### Forces Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/motions/classification/forces-analysis.md" rel="noopener">View source: <code>classification/forces-analysis.md</code></a></p>
-
 ### For Citizens: The Power Behind EP Decisions
 
 Understanding why the European Parliament votes the way it does requires mapping the forces that push and pull MEPs in different directions. These include not just political parties, but also national governments, industries, civil society, and geopolitical pressures. This analysis applies a structural forces framework to the April 2026 plenary.
@@ -505,8 +486,6 @@ The April 2026 plenary is structurally positioned as a **"momentum session"** �
 
 ### Impact Matrix
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/motions/classification/impact-matrix.md" rel="noopener">View source: <code>classification/impact-matrix.md</code></a></p>
-
 ### For Citizens: What This Means
 
 The European Parliament's April 2026 Strasbourg session votes on laws and resolutions that affect your everyday life — from how safe your savings are, to how Europe defends itself and who pays for it, to whether your digital rights are protected as AI becomes more prevalent. This matrix maps who wins, who loses, and how much over what timeframe.
@@ -639,8 +618,6 @@ graph TD
 <h2 id="section-stakeholder-map">Stakeholder Map</h2>
 
 ### Stakeholder Map
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/motions/intelligence/stakeholder-map.md" rel="noopener">View source: <code>intelligence/stakeholder-map.md</code></a></p>
 
 ### Stakeholder Ecosystem
 
@@ -794,8 +771,6 @@ The April 2026 EP motions affect six distinct stakeholder ecosystems simultaneou
 
 ### Stakeholder Impact
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/motions/existing/stakeholder-impact.md" rel="noopener">View source: <code>existing/stakeholder-impact.md</code></a></p>
-
 ### Overview
 
 This analysis maps the distributional impact of the April 2026 European Parliament motions across key stakeholder groups. The session consolidates momentum from the March 2026 plenary cluster—where 104 texts were adopted across banking union reform, AI simplification, trade responses, anti-corruption, and defence—and introduces new motions that carry direct material consequences for citizens, institutions, industries, and third countries.
@@ -924,8 +899,6 @@ flowchart TD
 
 ### Risk Matrix
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/motions/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
-
 ### Executive Risk Summary
 
 The April 2026 EP plenary session faces WEP Band III conditions: the legislative pipeline is full and the pro-EU coalition holds a structural majority, but three elevated risks—safeoutputs session TTL pressure on procedural calendars, ECR bloc fragmentation, and US tariff escalation—create material uncertainty around outcome margins and timeline.
@@ -1010,8 +983,6 @@ This risk matrix identifies the most material threats to this session's legislat
 *Confidence: 🟡 Medium. Based on structural composition, coalition history, procedural rules. No live roll-call data available for current session.*
 
 ### Political Capital Risk
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/motions/risk-scoring/political-capital-risk.md" rel="noopener">View source: <code>risk-scoring/political-capital-risk.md</code></a></p>
 
 ### Political Capital Overview
 
@@ -1105,8 +1076,6 @@ graph TD
 
 ### Legislative Velocity Risk
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/motions/risk-scoring/legislative-velocity-risk.md" rel="noopener">View source: <code>risk-scoring/legislative-velocity-risk.md</code></a></p>
-
 ### Velocity Risk Overview
 
 Legislative velocity risk measures whether the April 2026 plenary can process its full scheduled agenda within available time, and whether procedural or political obstacles will delay, dilute, or defer key motions.
@@ -1179,8 +1148,6 @@ Quorum (1/3 of MEPs = 240 seats) is rarely an issue in full Strasbourg plenary. 
 <h2 id="section-threat">Threat Landscape</h2>
 
 ### Political Threat Landscape
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/motions/intelligence/political-threat-landscape.md" rel="noopener">View source: <code>intelligence/political-threat-landscape.md</code></a></p>
 
 ### Overview
 
@@ -1266,8 +1233,6 @@ The ninth EP term (2024–2029) inherited a more fragmented parliament than EP8,
 
 ### Threat Model
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/motions/intelligence/threat-model.md" rel="noopener">View source: <code>intelligence/threat-model.md</code></a></p>
-
 ### Threat Model Summary
 
 The EP institutional threat environment for April 2026 motions is characterized by: (a) strong internal coalition resilience, (b) systematic external opposition from PfE/ESN/Hungary, and (c) elevated geopolitical threat amplification driving urgency. No existential threats to the EP's legislative capacity are identified.
@@ -1347,8 +1312,6 @@ The EP's legislative threat environment includes a secondary information domain:
 *Confidence: 🟡 Medium.*
 
 ### Actor Threat Profiles
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/motions/threat-assessment/actor-threat-profiles.md" rel="noopener">View source: <code>threat-assessment/actor-threat-profiles.md</code></a></p>
 
 ### Overview
 
@@ -1446,8 +1409,6 @@ graph TD
 
 ### Consequence Trees
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/motions/threat-assessment/consequence-trees.md" rel="noopener">View source: <code>threat-assessment/consequence-trees.md</code></a></p>
-
 ### Consequence Tree Overview
 
 Each major motion cluster generates first-order (immediate), second-order (near-term), and third-order (systemic) consequences. This document maps the cascading effects of adoption vs. rejection scenarios.
@@ -1536,8 +1497,6 @@ Conversely, a session marred by procedural disruptions, split votes, or one majo
 
 ### Legislative Disruption
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/motions/threat-assessment/legislative-disruption.md" rel="noopener">View source: <code>threat-assessment/legislative-disruption.md</code></a></p>
-
 ### Disruption Risk Overview
 
 Legislative disruption at the EP level occurs when procedural mechanisms, political crises, or external events interrupt the normal legislative flow. This document assesses disruption risks for the April 2026 plenary.
@@ -1615,8 +1574,6 @@ A further major US tariff escalation announcement during the week could trigger 
 <h2 id="section-scenarios">Scenarios & Wildcards</h2>
 
 ### Scenario Forecast
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/motions/intelligence/scenario-forecast.md" rel="noopener">View source: <code>intelligence/scenario-forecast.md</code></a></p>
 
 ### Forecasting Framework
 
@@ -1708,8 +1665,6 @@ pie title Scenario Probability Distribution
 **Overall confidence: 🟡 Medium.** Structural analysis with medium-confidence probabilistic estimates.
 
 ### Wildcards Blackswans
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/motions/intelligence/wildcards-blackswans.md" rel="noopener">View source: <code>intelligence/wildcards-blackswans.md</code></a></p>
 
 ### Overview
 
@@ -1816,8 +1771,6 @@ Wildcards and black swans are included in intelligence analysis not because they
 
 ### Cross Run Diff
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/motions/intelligence/cross-run-diff.md" rel="noopener">View source: <code>intelligence/cross-run-diff.md</code></a></p>
-
 ### Cross-Run Context
 
 This is the first run for `motions` on 2026-04-27. No prior same-date run exists to diff against. This document records the baseline analysis parameters for future cross-run comparison.
@@ -1888,8 +1841,6 @@ A future run on the same date should flag changes in:
 *This document is authoritative baseline for first run. Confidence: 🟢 High (first-run baseline by definition).*
 
 <h2 id="section-deep-analysis">Deep Analysis</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/motions/existing/deep-analysis.md" rel="noopener">View source: <code>existing/deep-analysis.md</code></a></p>
 
 The April 2026 Strasbourg plenary marks a pivot point in EP10's legislative trajectory. The chamber's fragmented arithmetic (9 groups, EPP-dominant but coalition-dependent) combined with a convergence of high-stakes dossiers—defence, trade, digital, Ukraine—creates conditions for both historic legislative achievement and procedural paralysis. The most likely outcome is selective coalition success: EPP-led grand coalition passes mainstream motions while urgency resolutions test group discipline on human rights.
 
@@ -2031,8 +1982,6 @@ The spring 2026 session builds on several key precedents:
 
 ### Methodology Reflection
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/motions/intelligence/methodology-reflection.md" rel="noopener">View source: <code>intelligence/methodology-reflection.md</code></a></p>
-
 ### Structured Analytic Technique (SAT) Documentation
 
 This artifact documents the analytical techniques applied, assumptions made, and limitations acknowledged in this run's analysis — per the 10-step protocol requirement (Step 10.5).
@@ -2157,78 +2106,14 @@ Structured three-scenario framework: best case (50%), base case (40%), worst cas
 
 *This artifact satisfies Step 10.5 of the 10-step analytical protocol.*
 
-<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
-
-### Stage A Summary.Json
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/motions/data/stage-a-summary.json" rel="noopener">View source: <code>data/stage-a-summary.json</code></a></p>
-
-{
-  "collectionDate": "2026-04-27",
-  "articleType": "motions",
-  "dataWindow": "2026-04-20 to 2026-04-27",
-  "politicalLandscape": {
-    "totalMEPs": 719,
-    "majorityThreshold": 361,
-    "groups": {
-      "EPP": 185,
-      "S&D": 135,
-      "PfE": 85,
-      "ECR": 81,
-      "Renew": 77,
-      "Greens/EFA": 53,
-      "The Left": 46,
-      "NI": 30,
-      "ESN": 27
-    },
-    "fragmentationIndex": "HIGH",
-    "majorityType": "MULTI_COALITION_REQUIRED"
-  },
-  "currentPlenarySession": {
-    "id": "MTG-PL-2026-04-27",
-    "location": "Strasbourg",
-    "dates": ["2026-04-27","2026-04-28","2026-04-29","2026-04-30"],
-    "foreseenActivities": {
-      "debates": 8,
-      "votes": 0
-    },
-    "status": "IN_PROGRESS"
-  },
-  "adoptedTexts2026": {
-    "total": 104,
-    "mostRecentBatch": "2026-03-26",
-    "keyTexts": [
-      {"id": "TA-10-2026-0094", "title": "Combating corruption", "date": "2026-03-26"},
-      {"id": "TA-10-2026-0092", "title": "Early intervention measures (SRMR3) - Banking Union", "date": "2026-03-26"},
-      {"id": "TA-10-2026-0098", "title": "Digital Omnibus on AI", "date": "2026-03-26"},
-      {"id": "TA-10-2026-0096", "title": "Adjustment of customs duties - US tariff response", "date": "2026-03-26"},
-      {"id": "TA-10-2026-0104", "title": "Global Gateway - past impacts and future orientation", "date": "2026-03-26"},
-      {"id": "TA-10-2026-0091", "title": "Early intervention measures (BRRD3)", "date": "2026-03-26"},
-      {"id": "TA-10-2026-0090", "title": "Deposit protection (DGSD2)", "date": "2026-03-26"},
-      {"id": "TA-10-2026-0088", "title": "Waiver of immunity - Grzegorz Braun", "date": "2026-03-26"},
-      {"id": "TA-10-2026-0086", "title": "WTO 14th Ministerial Conference - Yaoundé", "date": "2026-03-12"},
-      {"id": "TA-10-2026-0084", "title": "Emission credits for heavy-duty vehicles", "date": "2026-03-12"},
-      {"id": "TA-10-2026-0083", "title": "Political prisoners under Georgian Dream regime", "date": "2026-03-12"},
-      {"id": "TA-10-2026-0082", "title": "Arbitrary detention of Mohamed Bazoum in Niger", "date": "2026-03-12"},
-      {"id": "TA-10-2026-0081", "title": "Human trafficking for Russia's war in Ukraine", "date": "2026-03-12"},
-      {"id": "TA-10-2026-0079", "title": "Tackling barriers to the single market for defence", "date": "2026-03-11"},
-      {"id": "TA-10-2026-0080", "title": "Flagship European defence projects of common interest", "date": "2026-03-11"}
-    ]
-  },
-  "earlyWarning": {
-    "riskLevel": "MEDIUM",
-    "stabilityScore": 84,
-    "criticalWarnings": 0,
-    "highWarnings": 1,
-    "keyRiskFactor": "DOMINANT_GROUP_RISK"
-  },
-  "dataQuality": {
-    "votingRecords": "UNAVAILABLE (EP publishes with delay)",
-    "adoptedTextsDetail": "AVAILABLE (119 feed items, 104 year-filtered)",
-    "plenarySessionActivities": "PARTIAL (April 27 session started today, no decisions yet)",
-    "coalitionCohesionData": "UNAVAILABLE (per-MEP voting stats not in EP API)"
-  }
-}
+> **Provenance & Audit**
+>
+> - **Article type:** `motions`
+> - **Run date:** 2026-04-27
+> - **Run id:** `motions-run-1777278029`
+> - **Gate result:** `ANALYSIS_ONLY`
+> - **Analysis tree:** [analysis/daily/2026-04-27/motions](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-27/motions)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/motions/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 
@@ -2335,5 +2220,4 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-continuity | [cross-run-diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/motions/intelligence/cross-run-diff.md) | `intelligence/cross-run-diff.md` |
 | section-deep-analysis | [deep-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/motions/existing/deep-analysis.md) | `existing/deep-analysis.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/motions/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
-| section-supplementary-intelligence | [stage-a-summary.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/motions/data/stage-a-summary.json) | `data/stage-a-summary.json` |
 

@@ -11,17 +11,6 @@ layout: article
 ---
 # Motions — 2026-04-13
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `motions`
-> - **Run date:** 2026-04-13
-> - **Run id:** `b3749573-d54d-4d01-94be-4b53854132bc`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-13/motions-run41](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-13/motions-run41)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/motions-run41/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -34,8 +23,6 @@ Use this guide to read the article as a political-intelligence product rather th
 <h2 id="section-significance">Significance</h2>
 
 ### Significance Classification
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/motions-run41/classification/significance-classification.md" rel="noopener">View source: <code>classification/significance-classification.md</code></a></p>
 
 > **Analysis date**: 2026-04-13 | **Confidence**: HIGH | **Data source**: EP MCP adopted texts feed + plenary sessions
 
@@ -126,8 +113,6 @@ MEDIUM confidence: Temporal concentration of high-significance items suggests de
 
 ### Risk Matrix
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/motions-run41/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
-
 > **Analysis date**: 2026-04-13 | **Methodology**: Likelihood x Impact 5x5 matrix | **Confidence**: MEDIUM
 
 ### Risk Register
@@ -201,8 +186,6 @@ MEDIUM confidence: Temporal concentration of high-significance items suggests de
 <h2 id="section-threat">Threat Landscape</h2>
 
 ### Political Threat Landscape
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/motions-run41/threat-assessment/political-threat-landscape.md" rel="noopener">View source: <code>threat-assessment/political-threat-landscape.md</code></a></p>
 
 > **Analysis date**: 2026-04-13 | **Confidence**: MEDIUM | **Easter Recess Day 18/18 (final day)**
 
@@ -279,8 +262,6 @@ US tariff war expands beyond initial scope. Emergency plenary session called. Mu
 - Prior analysis: Cross-session synthesis from runs 38-40 (April 13)
 
 <h2 id="section-deep-analysis">Deep Analysis</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/motions-run41/existing/deep-analysis.md" rel="noopener">View source: <code>existing/deep-analysis.md</code></a></p>
 
 > **Analysis date**: 2026-04-13 | **Confidence**: MEDIUM | **Parliament status**: Easter recess Day 18/18 (final day)
 
@@ -378,8 +359,6 @@ This creates structural implementation pressure on member states with limited ad
 
 ### Document Analysis Index
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/motions-run41/documents/document-analysis-index.md" rel="noopener">View source: <code>documents/document-analysis-index.md</code></a></p>
-
 > **51 adopted texts** catalogued from 2026 EP MCP data. Analysis focus on March 26 pre-Easter plenary session.
 
 ### Featured Documents (March 26 Session)
@@ -453,8 +432,6 @@ This creates structural implementation pressure on member states with limited ad
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Coalition Dynamics
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/motions-run41/existing/coalition-dynamics.md" rel="noopener">View source: <code>existing/coalition-dynamics.md</code></a></p>
 
 > **Analysis date**: 2026-04-13 | **Confidence**: MEDIUM | **Source**: EP MCP coalition analysis + adopted texts
 
@@ -538,8 +515,6 @@ The EP10 chamber is the most fragmented in EU Parliament history. No single pair
 
 ### Synthesis Summary
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/motions-run41/existing/synthesis-summary.md" rel="noopener">View source: <code>existing/synthesis-summary.md</code></a></p>
-
 > **Run**: motions-run41 | **Date**: 2026-04-13 | **Parliament status**: Easter recess Day 18/18
 
 ### Key Findings
@@ -593,6 +568,15 @@ EP API availability improved between run 40 (21:19Z, total outage) and run 41 (2
 - EP MCP: adopted texts feed (21 items), adopted texts 2026 (51 items), plenary sessions (10), coalition dynamics, political landscape, precomputed stats
 - Prior runs: runs 38-40 on April 13, runs from April 9-12
 - Confidence: MEDIUM (MCP data available but vote-level granularity limited)
+
+> **Provenance & Audit**
+>
+> - **Article type:** `motions`
+> - **Run date:** 2026-04-13
+> - **Run id:** `b3749573-d54d-4d01-94be-4b53854132bc`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-13/motions-run41](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-13/motions-run41)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/motions-run41/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

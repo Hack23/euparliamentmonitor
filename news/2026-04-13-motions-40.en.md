@@ -11,17 +11,6 @@ layout: article
 ---
 # Motions — 2026-04-13
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `motions`
-> - **Run date:** 2026-04-13
-> - **Run id:** `40`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-13/motions-run40](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-13/motions-run40)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/motions-run40/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -34,8 +23,6 @@ Use this guide to read the article as a political-intelligence product rather th
 <h2 id="section-significance">Significance</h2>
 
 ### Significance Classification
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/motions-run40/classification/significance-classification.md" rel="noopener">View source: <code>classification/significance-classification.md</code></a></p>
 
 ### Classification Context
 
@@ -116,8 +103,6 @@ Based on cross-session intelligence, these items are expected to appear in feeds
 <h2 id="section-risk">Risk Assessment</h2>
 
 ### Risk Matrix
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/motions-run40/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
 
 ### Risk Assessment Context
 
@@ -226,8 +211,6 @@ Based on cross-session intelligence, these items are expected to appear in feeds
 <h2 id="section-threat">Threat Landscape</h2>
 
 ### Political Threat Landscape
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/motions-run40/threat-assessment/political-threat-landscape.md" rel="noopener">View source: <code>threat-assessment/political-threat-landscape.md</code></a></p>
 
 ### Threat Assessment Context
 
@@ -345,8 +328,6 @@ The composite threat level has risen from HIGH (Run 39) to HIGH-CRITICAL (Run 40
 
 ### Document Analysis Index
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/motions-run40/documents/document-analysis-index.md" rel="noopener">View source: <code>documents/document-analysis-index.md</code></a></p>
-
 ### Index Context
 
 | Field | Value |
@@ -452,8 +433,6 @@ Without live EP API data, the following document types could not be checked for 
 
 ### Api Outage Diagnostic
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/motions-run40/existing/api-outage-diagnostic.md" rel="noopener">View source: <code>existing/api-outage-diagnostic.md</code></a></p>
-
 ### Diagnostic Summary
 
 | Field | Value |
@@ -539,8 +518,6 @@ Availability: 0/13 feeds operational, level Unavailable.
 **Recommendation**: Schedule next motions workflow run for April 14 morning (06:00-08:00 UTC) to capture post-recess restart data. Parliament sitting at 17:00 CET (15:00 UTC) — schedule second run for 19:00 UTC to capture first day proceedings.
 
 ### Synthesis Summary
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/motions-run40/existing/synthesis-summary.md" rel="noopener">View source: <code>existing/synthesis-summary.md</code></a></p>
 
 ### Synthesis Context
 
@@ -705,6 +682,15 @@ EP API remains degraded. Commission acts on tariffs without full parliamentary d
 - **Cross-reference**: This synthesis (SYN-2026-04-13-MOTIONS-RUN40) for pre-recess intelligence baseline
 - **Risk**: First post-recess data may be sparse — motions filed Monday may not appear in feeds until Tuesday
 - **Backup angle**: If no new motions data, analyze committee reports from first post-recess meetings
+
+> **Provenance & Audit**
+>
+> - **Article type:** `motions`
+> - **Run date:** 2026-04-13
+> - **Run id:** `40`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-13/motions-run40](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-13/motions-run40)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/motions-run40/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

@@ -11,22 +11,9 @@ layout: article
 ---
 # Breaking — 2026-04-01
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-01
-> - **Run id:** `breaking`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-01/breaking](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-01/breaking)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/breaking/manifest.json)
-
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Breaking Intelligence Brief.Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/breaking/breaking-intelligence-brief.analysis.md" rel="noopener">View source: <code>breaking-intelligence-brief.analysis.md</code></a></p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Date-2026--04--01-blue?style=for-the-badge" alt="Date"/>
@@ -701,8 +688,6 @@ Cross-referencing the feed data with the adopted texts detail endpoint (year: 20
 
 ### Political Landscape.Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/breaking/political-landscape.analysis.md" rel="noopener">View source: <code>political-landscape.analysis.md</code></a></p>
-
 <p align="center">
   <img src="https://img.shields.io/badge/Date-2026--04--01-blue?style=for-the-badge" alt="Date"/>
   <img src="https://img.shields.io/badge/Analysis-Political_Landscape-purple?style=for-the-badge" alt="Analysis Type"/>
@@ -1028,6 +1013,15 @@ pie title EP10 Political Bloc Distribution (720 MEPs)
 *Precomputed statistics: `get_all_generated_stats` (coverage: 2004-2026, refresh: 2026-03-03)*
 *Part of: `analysis/2026-04-01/breaking/` analysis package*
 *Pass 1: 2026-04-01 00:25 UTC | Pass 2: 2026-04-01 06:33 UTC*
+
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-01
+> - **Run id:** `breaking`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-01/breaking](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-01/breaking)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/breaking/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

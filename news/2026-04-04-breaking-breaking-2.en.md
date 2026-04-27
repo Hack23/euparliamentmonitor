@@ -11,22 +11,9 @@ layout: article
 ---
 # Breaking — 2026-04-04
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-04
-> - **Run id:** `breaking-2`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-04/breaking-2](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-04/breaking-2)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking-2/manifest.json)
-
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Coalition Dynamics Assessment
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking-2/coalition-dynamics-assessment.md" rel="noopener">View source: <code>coalition-dynamics-assessment.md</code></a></p>
 
 | Field | Value |
 |-------|-------|
@@ -130,8 +117,6 @@ The tool identifies **Renew-ECR** as the "dominant coalition" with 0.95 cohesion
 *Coalition analysis per CIA Coalition Analysis methodology. Critical data limitation: cohesion scores are size-ratio proxies, not voting behavior measures. Updated 4 April 2026.*
 
 ### Intelligence Brief
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking-2/intelligence-brief.md" rel="noopener">View source: <code>intelligence-brief.md</code></a></p>
 
 | Field | Value |
 |-------|-------|
@@ -368,8 +353,6 @@ This analysis applied the following frameworks per the methodology library:
 
 ### Legislative Pipeline Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking-2/legislative-pipeline-analysis.md" rel="noopener">View source: <code>legislative-pipeline-analysis.md</code></a></p>
-
 | Field | Value |
 |-------|-------|
 | **Date** | 4 April 2026 |
@@ -493,8 +476,6 @@ graph LR
 
 ### Political Landscape Assessment
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking-2/political-landscape-assessment.md" rel="noopener">View source: <code>political-landscape-assessment.md</code></a></p>
-
 | Field | Value |
 |-------|-------|
 | **Date** | 4 April 2026 |
@@ -608,8 +589,6 @@ timeline
 *Political landscape assessment per Classification Guide v2.0. Data from EP Open Data Portal political landscape tool and precomputed statistics. Updated 4 April 2026.*
 
 ### Risk Assessment
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking-2/risk-assessment.md" rel="noopener">View source: <code>risk-assessment.md</code></a></p>
 
 | Field | Value |
 |-------|-------|
@@ -771,8 +750,6 @@ graph TD
 
 ### Stakeholder Impact Assessment
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking-2/stakeholder-impact-assessment.md" rel="noopener">View source: <code>stakeholder-impact-assessment.md</code></a></p>
-
 | Field | Value |
 |-------|-------|
 | **Date** | 4 April 2026 |
@@ -922,8 +899,6 @@ graph TD
 
 ### Swot Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking-2/swot-analysis.md" rel="noopener">View source: <code>swot-analysis.md</code></a></p>
-
 | Field | Value |
 |-------|-------|
 | **Date** | 4 April 2026 |
@@ -1054,8 +1029,6 @@ graph LR
 
 ### Threat Assessment
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking-2/threat-assessment.md" rel="noopener">View source: <code>threat-assessment.md</code></a></p>
-
 | Field | Value |
 |-------|-------|
 | **Date** | 4 April 2026 |
@@ -1182,6 +1155,15 @@ graph TD
 ---
 
 *Threat assessment per Political Threat Framework v3.0. Purpose-built political intelligence frameworks only — no software-centric models applied. Updated 4 April 2026.*
+
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-04
+> - **Run id:** `breaking-2`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-04/breaking-2](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-04/breaking-2)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking-2/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

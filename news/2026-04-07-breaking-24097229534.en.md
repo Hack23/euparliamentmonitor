@@ -11,17 +11,6 @@ layout: article
 ---
 # Breaking — 2026-04-07
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-07
-> - **Run id:** `24097229534`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-07/breaking-2](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-07/breaking-2)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking-2/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -35,8 +24,6 @@ Use this guide to read the article as a political-intelligence product rather th
 <h2 id="section-significance">Significance</h2>
 
 ### Significance Classification
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking-2/classification/significance-classification.md" rel="noopener">View source: <code>classification/significance-classification.md</code></a></p>
 
 **📅 Classification Date:** 2026-04-07 18:22 UTC | **📊 Confidence:** MEDIUM | **🏷️ Run:** breaking-2
 
@@ -152,8 +139,6 @@ pie title Significance Distribution — Evening Classification
 <h2 id="section-stakeholder-map">Stakeholder Map</h2>
 
 ### Stakeholder Impact
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking-2/existing/stakeholder-impact.md" rel="noopener">View source: <code>existing/stakeholder-impact.md</code></a></p>
 
 **📅 Analysis Date:** 2026-04-07 18:34 UTC | **📊 Confidence:** MEDIUM | **📍 Run:** breaking-2
 
@@ -369,8 +354,6 @@ National governments experience the EP recess as a standard legislative pause. C
 
 ### Risk Matrix
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking-2/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
-
 **📅 Analysis Date:** 2026-04-07 18:32 UTC | **📊 Confidence:** MEDIUM | **📍 Run:** breaking-2
 
 > **Framework:** 5×5 Likelihood × Impact matrix per `analysis/methodologies/political-risk-methodology.md`. Bayesian updating from morning run.
@@ -556,8 +539,6 @@ graph LR
 
 ### Quantitative Swot
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking-2/risk-scoring/quantitative-swot.md" rel="noopener">View source: <code>risk-scoring/quantitative-swot.md</code></a></p>
-
 **📅 Analysis Date:** 2026-04-07 18:28 UTC | **📊 Confidence:** MEDIUM | **📍 Run:** breaking-2
 
 > **Framework:** Political SWOT with quantitative scoring per `analysis/methodologies/political-swot-framework.md`. Cross-SWOT interference mapped, TOWS matrix applied, and scenario generation from quadrant interactions.
@@ -723,8 +704,6 @@ graph TD
 <h2 id="section-threat">Threat Landscape</h2>
 
 ### Political Threat Landscape
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking-2/threat-assessment/political-threat-landscape.md" rel="noopener">View source: <code>threat-assessment/political-threat-landscape.md</code></a></p>
 
 **📅 Analysis Date:** 2026-04-07 18:30 UTC | **📊 Confidence:** MEDIUM | **📍 Run:** breaking-2
 
@@ -965,8 +944,6 @@ quadrantChart
 - Editorial memory: ongoing story tracking for tariffs, banking union, anti-corruption
 
 <h2 id="section-deep-analysis">Deep Analysis</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking-2/existing/deep-analysis.md" rel="noopener">View source: <code>existing/deep-analysis.md</code></a></p>
 
 **📅 Analysis Date:** 2026-04-07 18:25 UTC | **📊 Confidence:** MEDIUM | **📍 Run:** breaking-2 (evening delta)
 
@@ -1222,8 +1199,6 @@ If the EP Open Data Portal API does not recover by April 14:
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Synthesis Summary
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking-2/synthesis-summary.md" rel="noopener">View source: <code>synthesis-summary.md</code></a></p>
 
 **📅 Analysis Date:** 2026-04-07 18:20 UTC | **📊 Confidence:** MEDIUM | **🔴 Breaking News:** NONE | **📍 Recess Day:** 12/18
 
@@ -1602,6 +1577,15 @@ graph TD
 3. **Post-Easter preparation** — T-6 days to committee week; pre-position monitoring for ECON (SRMR3/DGSD2), LIBE (anti-corruption), INTA (tariffs)
 4. **Cross-run intelligence** — Today's 4 workflow runs (breaking ×2, committee-reports, propositions, motions) provide comprehensive recess-period coverage; avoid repetition in future runs
 5. **Next priority** — April 14 committee week intelligence brief; prepare templates for ECON, LIBE, INTA committee coverage
+
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-07
+> - **Run id:** `24097229534`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-07/breaking-2](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-07/breaking-2)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking-2/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

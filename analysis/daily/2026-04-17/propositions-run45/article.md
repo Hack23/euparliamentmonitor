@@ -11,17 +11,6 @@ layout: article
 ---
 # Propositions — 2026-04-17
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `propositions`
-> - **Run date:** 2026-04-17
-> - **Run id:** `ecb889c2-f7ce-4177-85e4-3b9d13c7989b`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-17/propositions-run45](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-17/propositions-run45)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/propositions-run45/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -30,11 +19,64 @@ Use this guide to read the article as a political-intelligence product rather th
 |---|---|---|
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
 
+<h2 id="section-actors-forces">Actors & Forces</h2>
+
+### Significance Scoring
+
+#### EU Parliament Propositions Analysis | EP10 Year 3 — Peak Velocity Sprint
+
+![Confidence](https://img.shields.io/badge/Confidence-MEDIUM-yellow) ![Status](https://img.shields.io/badge/Status-Easter_Recess-orange) ![EP_API](https://img.shields.io/badge/EP_API-Degraded_Mode-red)
+
+### Executive Summary
+
+| Metric | Value | Assessment |
+|--------|-------|------------|
+| 2026 Legislative Acts (YTD) | 114 | ↑↑ +58% vs full-year 2025 (78) |
+| 2026 Adopted Texts (YTD) | 104 | On track for 521 predicted (2027) |
+| 2026 Roll-Call Votes | 567 | Highest pace in EP10 term |
+| March 25-27 Session Output | 14 items | Multi-package record per session |
+| Current Status | Easter Recess | April 14-26, 2026 |
+| Next Plenary | April 27-30 | Strasbourg |
+
+### Significance Matrix (5×5 Likelihood × Impact)
+
+| Dossier | Procedure | Date Adopted | Likelihood (L) | Impact (I) | Score | Rating |
+|---------|-----------|-------------|----------------|------------|-------|--------|
+| Banking Union (DGSD2/BRRD3/SRMR3) | 2023/0115+0112+0111 | 2026-03-26 | 4 | 5 | **20/25** | 🔴 HIGH |
+| Anti-Corruption Directive | 2023/0135(COD) | 2026-03-26 | 4 | 4 | **16/25** | 🔴 HIGH |
+| US Tariff Countermeasures | 2025/0261(COD) | 2026-03-26 | 5 | 4 | **20/25** | 🔴 HIGH |
+| Water Pollutants Directive | 2022/0344(COD) | 2026-03-26 | 4 | 4 | **16/25** | 🔴 HIGH |
+| EU Talent Pool | 2023/0404(COD) | 2026-03-10 | 4 | 3 | **12/25** | 🟡 MEDIUM |
+| Climate Neutrality Framework | 2025/0524(COD) | 2026-02-10 | 4 | 4 | **16/25** | 🔴 HIGH |
+| Package Travel Directive | 2023/0435(COD) | 2026-03-12 | 5 | 2 | **10/25** | 🟡 MEDIUM |
+| Air Passenger Rights | 2013/0072(COD) | 2026-01-21 | 5 | 2 | **10/25** | 🟡 MEDIUM* |
+| Critical Medicines Framework | 2025/0102(COD) | 2026-01-20 | 4 | 4 | **16/25** | 🔴 HIGH |
+| Insolvency Law Harmonisation | 2022/0408(COD) | 2026-03-10 | 4 | 3 | **12/25** | 🟡 MEDIUM |
+
+*Air Passenger Rights: technically medium impact on single sector, but historically significant as a 13-year procedural landmark
+
+### Top Story Selection (post-analysis)
+
+**Primary story**: Banking Union triple-package + Anti-Corruption Directive as co-equal headlines
+**Secondary**: US tariff countermeasures (trade defense)
+**Context**: EP10 year 3 peak velocity (114 acts YTD, +58% vs 2025)
+**Forward outlook**: April 27-30 post-Easter plenary agenda
+
+### Confidence Assessment
+- TA document references: 🟢 HIGH (official EP adopted texts database, verified)
+- Coalition voting dynamics: 🟡 MEDIUM (EP API voting records unavailable; inferred from political patterns)
+- Post-Easter agenda: 🟡 MEDIUM (based on known dossier calendars; plenary agenda not yet published)
+- Trade escalation scenarios: 🔴 LOW (geopolitical uncertainty, April 2026)
+
+### Data Sources
+- European Parliament adopted texts API, 2026 (TA-10-2026-0001 through TA-10-2026-0104)
+- EP precomputed statistics (yearlyStats 2024-2026)
+- Coalition dynamics MCP tool (group sizes: S&D 135, Renew 77, ECR 81, The Left 46, NI 30)
+- World Bank GDP data: Germany -0.5% (2024), France +1.2% (2024)
+
 <h2 id="section-risk">Risk Assessment</h2>
 
 ### Risk Matrix
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/propositions-run45/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
 
 ### Scenario Analysis (Probability × Impact)
 
@@ -61,8 +103,6 @@ Rising market volatility exposes weaknesses in systemic banks before BRRD3 takes
 | EP API data gap limiting pipeline tracking | High (current) | Low | Fallback to direct endpoint queries |
 
 <h2 id="section-deep-analysis">Deep Analysis</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/propositions-run45/existing/deep-analysis.md" rel="noopener">View source: <code>existing/deep-analysis.md</code></a></p>
 
 ### 1. Banking Union Completion: 14 Years in the Making
 
@@ -152,64 +192,7 @@ The S&D coalition claim on EU Talent Pool is genuine: the directive's wage parit
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
-### Significance Scoring
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/propositions-run45/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
-
-#### EU Parliament Propositions Analysis | EP10 Year 3 — Peak Velocity Sprint
-
-![Confidence](https://img.shields.io/badge/Confidence-MEDIUM-yellow) ![Status](https://img.shields.io/badge/Status-Easter_Recess-orange) ![EP_API](https://img.shields.io/badge/EP_API-Degraded_Mode-red)
-
-### Executive Summary
-
-| Metric | Value | Assessment |
-|--------|-------|------------|
-| 2026 Legislative Acts (YTD) | 114 | ↑↑ +58% vs full-year 2025 (78) |
-| 2026 Adopted Texts (YTD) | 104 | On track for 521 predicted (2027) |
-| 2026 Roll-Call Votes | 567 | Highest pace in EP10 term |
-| March 25-27 Session Output | 14 items | Multi-package record per session |
-| Current Status | Easter Recess | April 14-26, 2026 |
-| Next Plenary | April 27-30 | Strasbourg |
-
-### Significance Matrix (5×5 Likelihood × Impact)
-
-| Dossier | Procedure | Date Adopted | Likelihood (L) | Impact (I) | Score | Rating |
-|---------|-----------|-------------|----------------|------------|-------|--------|
-| Banking Union (DGSD2/BRRD3/SRMR3) | 2023/0115+0112+0111 | 2026-03-26 | 4 | 5 | **20/25** | 🔴 HIGH |
-| Anti-Corruption Directive | 2023/0135(COD) | 2026-03-26 | 4 | 4 | **16/25** | 🔴 HIGH |
-| US Tariff Countermeasures | 2025/0261(COD) | 2026-03-26 | 5 | 4 | **20/25** | 🔴 HIGH |
-| Water Pollutants Directive | 2022/0344(COD) | 2026-03-26 | 4 | 4 | **16/25** | 🔴 HIGH |
-| EU Talent Pool | 2023/0404(COD) | 2026-03-10 | 4 | 3 | **12/25** | 🟡 MEDIUM |
-| Climate Neutrality Framework | 2025/0524(COD) | 2026-02-10 | 4 | 4 | **16/25** | 🔴 HIGH |
-| Package Travel Directive | 2023/0435(COD) | 2026-03-12 | 5 | 2 | **10/25** | 🟡 MEDIUM |
-| Air Passenger Rights | 2013/0072(COD) | 2026-01-21 | 5 | 2 | **10/25** | 🟡 MEDIUM* |
-| Critical Medicines Framework | 2025/0102(COD) | 2026-01-20 | 4 | 4 | **16/25** | 🔴 HIGH |
-| Insolvency Law Harmonisation | 2022/0408(COD) | 2026-03-10 | 4 | 3 | **12/25** | 🟡 MEDIUM |
-
-*Air Passenger Rights: technically medium impact on single sector, but historically significant as a 13-year procedural landmark
-
-### Top Story Selection (post-analysis)
-
-**Primary story**: Banking Union triple-package + Anti-Corruption Directive as co-equal headlines
-**Secondary**: US tariff countermeasures (trade defense)
-**Context**: EP10 year 3 peak velocity (114 acts YTD, +58% vs 2025)
-**Forward outlook**: April 27-30 post-Easter plenary agenda
-
-### Confidence Assessment
-- TA document references: 🟢 HIGH (official EP adopted texts database, verified)
-- Coalition voting dynamics: 🟡 MEDIUM (EP API voting records unavailable; inferred from political patterns)
-- Post-Easter agenda: 🟡 MEDIUM (based on known dossier calendars; plenary agenda not yet published)
-- Trade escalation scenarios: 🔴 LOW (geopolitical uncertainty, April 2026)
-
-### Data Sources
-- European Parliament adopted texts API, 2026 (TA-10-2026-0001 through TA-10-2026-0104)
-- EP precomputed statistics (yearlyStats 2024-2026)
-- Coalition dynamics MCP tool (group sizes: S&D 135, Renew 77, ECR 81, The Left 46, NI 30)
-- World Bank GDP data: Germany -0.5% (2024), France +1.2% (2024)
-
 ### Synthesis Summary
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/propositions-run45/existing/synthesis-summary.md" rel="noopener">View source: <code>existing/synthesis-summary.md</code></a></p>
 
 ### Cross-Dossier Intelligence
 
@@ -243,6 +226,15 @@ The March 2026 Strasbourg session was remarkable not for the volume of legislati
 **Headline**: "Banking Union Breakthrough and Anti-Corruption Landmark Cap Parliament's Most Ambitious Pre-Easter Sprint"
 **Meta description**: "European Parliament's March 25-27 Strasbourg plenary adopted landmark Banking Union reforms (DGSD2, BRRD3, SRMR3), Anti-Corruption Directive (2023/0135), and US tariff countermeasures, as EP10 posts record 114 legislative acts for 2026 ahead of April 27-30 post-recess return to Strasbourg."
 **Key keywords**: DGSD2, BRRD3, SRMR3, Anti-Corruption Directive, 2023/0135, EU Talent Pool, 2023/0404, EMPL, ECON, TA-10-2026-0094, TA-10-2026-0092, TA-10-2026-0096, EPP, S&D, Renew, ECR, Banking Union, Strasbourg session, Easter recess 2026
+
+> **Provenance & Audit**
+>
+> - **Article type:** `propositions`
+> - **Run date:** 2026-04-17
+> - **Run id:** `ecb889c2-f7ce-4177-85e4-3b9d13c7989b`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-17/propositions-run45](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-17/propositions-run45)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/propositions-run45/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 
@@ -329,8 +321,8 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-actors-forces | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/propositions-run45/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/propositions-run45/risk-scoring/risk-matrix.md) | `risk-scoring/risk-matrix.md` |
 | section-deep-analysis | [deep-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/propositions-run45/existing/deep-analysis.md) | `existing/deep-analysis.md` |
-| section-supplementary-intelligence | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/propositions-run45/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-supplementary-intelligence | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/propositions-run45/existing/synthesis-summary.md) | `existing/synthesis-summary.md` |
 

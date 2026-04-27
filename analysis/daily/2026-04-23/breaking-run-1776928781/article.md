@@ -11,17 +11,6 @@ layout: article
 ---
 # Breaking — 2026-04-23
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-23
-> - **Run id:** `breaking-run-1776928781`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-23/breaking-run-1776928781](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-23/breaking-run-1776928781)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -37,8 +26,6 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/intelligence/synthesis-summary.md" rel="noopener">View source: <code>intelligence/synthesis-summary.md</code></a></p>
 
 ![Mode](https://img.shields.io/badge/Mode-ARTICLE_GENERATED-green)
 ![Quality](https://img.shields.io/badge/Quality-Reference_Grade-brightgreen)
@@ -238,8 +225,6 @@ Confidence levels: 🟢 HIGH (direct API evidence), 🟡 MEDIUM (inferred/patter
 
 ### Significance Classification
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/classification/significance-classification.md" rel="noopener">View source: <code>classification/significance-classification.md</code></a></p>
-
 ### Classification: CRITICAL — EU Trade Defence + Banking Union Completion
 
 | Dimension | Classification | Score |
@@ -342,8 +327,6 @@ For reference, the top 5 most significant EP sessions in EP Monitor history (EP6
 *Significance classification complete. Tier 1: 6 texts, Tier 2: 5 texts, Tier 3: 7 texts. Session score: 9.1/10. Produced 2026-04-23.*
 
 ### Significance Scoring
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/intelligence/significance-scoring.md" rel="noopener">View source: <code>intelligence/significance-scoring.md</code></a></p>
 
 ### Scoring Framework: EP April 2026 Breaking News
 
@@ -458,8 +441,6 @@ The combination of:
 
 ### Actor Mapping
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/classification/actor-mapping.md" rel="noopener">View source: <code>classification/actor-mapping.md</code></a></p>
-
 ### Primary Actors
 - **Von der Leyen**: Commission President — trade negotiation orchestrator
 - **Metsola**: EP President — institutional face, plenary manager
@@ -487,8 +468,6 @@ The combination of:
 
 ### Forces Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/classification/forces-analysis.md" rel="noopener">View source: <code>classification/forces-analysis.md</code></a></p>
-
 ### Driving Forces (Accelerating Change)
 1. US tariff 90-day truce — creates negotiation urgency
 2. German recession — drives trade defence urgency
@@ -509,8 +488,6 @@ Driving forces (5 factors, weight ~6.5/10 average) currently outweigh restrainin
 🟡 MEDIUM confidence on force balance assessment.
 
 ### Impact Matrix
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/classification/impact-matrix.md" rel="noopener">View source: <code>classification/impact-matrix.md</code></a></p>
 
 ### Multi-Dimensional Impact Assessment
 
@@ -533,8 +510,6 @@ Driving forces (5 factors, weight ~6.5/10 average) currently outweigh restrainin
 <h2 id="section-coalitions-voting">Coalitions & Voting</h2>
 
 ### Coalition Dynamics
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/intelligence/coalition-dynamics.md" rel="noopener">View source: <code>intelligence/coalition-dynamics.md</code></a></p>
 
 ### Data Source Note
 
@@ -666,8 +641,6 @@ The April 27 plenary is the first Grand Centre cohesion test since the March 26 
 🟢 HIGH confidence on April 27 coalition outlook assessment.
 
 ### Voting Patterns
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/intelligence/voting-patterns.md" rel="noopener">View source: <code>intelligence/voting-patterns.md</code></a></p>
 
 ### March 26 Vote Analysis (Reconstructed from Available Data)
 
@@ -813,8 +786,6 @@ The T+28 delay in March 26 roll-call publication creates a democratic accountabi
 Next expected roll-call data: April 27-30 plenary sessions. These will be the first votes cast after the Easter recess and the first votes taken under the March 26 trade defence framework being operative. April 27 trade emergency debate vote is the next major coalition data point.
 
 <h2 id="section-stakeholder-map">Stakeholder Map</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/intelligence/stakeholder-map.md" rel="noopener">View source: <code>intelligence/stakeholder-map.md</code></a></p>
 
 ### Issue Frame: EP April 27 Return — Trade Defence, Banking Union, and Pre-Plenary Positioning
 
@@ -1118,8 +1089,6 @@ The Grand Centre (EPP+S&D+Renew: 396 seats) faces its first major external shock
 
 ### Pestle Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/intelligence/pestle-analysis.md" rel="noopener">View source: <code>intelligence/pestle-analysis.md</code></a></p>
-
 ### Context: EP Easter Recess — Four Days Before April 27 Strasbourg Plenary
 
 ```mermaid
@@ -1399,8 +1368,6 @@ The EU Green Deal (Carbon Border Adjustment Mechanism, CBAM) is now in its third
 
 ### Historical Baseline
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/intelligence/historical-baseline.md" rel="noopener">View source: <code>intelligence/historical-baseline.md</code></a></p>
-
 ### 30-Day and 90-Day Legislative Baselines
 
 ---
@@ -1585,8 +1552,6 @@ Trump's first-term Section 232 steel/aluminium tariffs (2018) are the closest hi
 *Historical baseline complete. Covers 90 days pre-session. Produced 2026-04-23.*
 
 <h2 id="section-economic-context">Economic Context</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/intelligence/economic-context.md" rel="noopener">View source: <code>intelligence/economic-context.md</code></a></p>
 
 ### EU Macro Context: EP April 2026 Trade Crisis Window
 
@@ -1784,8 +1749,6 @@ IMF SDMX 3.0 EU-level aggregate data was not collected in this run due to time c
 
 ### Risk Matrix
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
-
 ### Consolidated Risk Registry
 
 | Risk ID | Description | Probability | Impact | Risk Score | Owner |
@@ -1953,8 +1916,6 @@ Top priority risks: R-01 (tariff reinstatement) requires immediate monitoring. R
 
 ### Quantitative Swot
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/risk-scoring/quantitative-swot.md" rel="noopener">View source: <code>risk-scoring/quantitative-swot.md</code></a></p>
-
 ### Weighted SWOT Analysis: EP April 2026 Political Position
 
 #### Strengths (Internal, Positive)
@@ -2091,8 +2052,6 @@ Retaliation against EU luxury/automotive; 25% probability. Expected value: -1.75
 
 ### Political Capital Risk
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/risk-scoring/political-capital-risk.md" rel="noopener">View source: <code>risk-scoring/political-capital-risk.md</code></a></p>
-
 ### At-Risk Political Capital: Key Actors
 
 | Actor | Capital at Stake | Trigger Event | Recovery Path |
@@ -2109,8 +2068,6 @@ Current political capital stock: HIGH for Von der Leyen (trade pre-positioning),
 🟡 MEDIUM confidence.
 
 ### Legislative Velocity Risk
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/risk-scoring/legislative-velocity-risk.md" rel="noopener">View source: <code>risk-scoring/legislative-velocity-risk.md</code></a></p>
 
 ### Legislative Pipeline Assessment
 
@@ -2137,8 +2094,6 @@ Post-Easter legislative velocity will likely concentrate on trade (high urgency)
 <h2 id="section-threat">Threat Landscape</h2>
 
 ### Political Threat Landscape
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/intelligence/political-threat-landscape.md" rel="noopener">View source: <code>intelligence/political-threat-landscape.md</code></a></p>
 
 ### Current EP Political Threat Topology
 
@@ -2225,8 +2180,6 @@ Key dates for political threat monitoring:
 🟢 HIGH confidence on monitoring calendar.
 
 ### Threat Model
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/intelligence/threat-model.md" rel="noopener">View source: <code>intelligence/threat-model.md</code></a></p>
 
 ### Diamond Model: EP April 2026 Threat Landscape
 
@@ -2473,8 +2426,6 @@ Threat model completed for breaking-run-1776928781 covering all four major legis
 
 ### Actor Threat Profile
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/threat-assessment/actor-threat-profile.md" rel="noopener">View source: <code>threat-assessment/actor-threat-profile.md</code></a></p>
-
 ### High-Threat Actor Profiles
 
 #### Actor 1: Trump/USTR
@@ -2501,8 +2452,6 @@ Threat model completed for breaking-run-1776928781 covering all four major legis
 🟡 MEDIUM confidence on specific actor threat activations.
 
 ### Attack Surface Map
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/threat-assessment/attack-surface-map.md" rel="noopener">View source: <code>threat-assessment/attack-surface-map.md</code></a></p>
 
 ### EP Institutional Attack Surfaces (Political Analysis)
 
@@ -2536,8 +2485,6 @@ Threat model completed for breaking-run-1776928781 covering all four major legis
 
 ### Threat Assessment
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/threat-assessment/threat-assessment.md" rel="noopener">View source: <code>threat-assessment/threat-assessment.md</code></a></p>
-
 ### Summary Threat Assessment
 
 **Overall threat level**: ELEVATED (but not critical)
@@ -2558,8 +2505,6 @@ Key distinction: external threats (US tariffs, China retaliation, Hungary resist
 <h2 id="section-scenarios">Scenarios & Wildcards</h2>
 
 ### Scenario Forecast
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/intelligence/scenario-forecast.md" rel="noopener">View source: <code>intelligence/scenario-forecast.md</code></a></p>
 
 ### Base Date: April 23, 2026 | Horizon: April 23 – May 31, 2026
 ### Prior-Run Reference: Run 193 (April 21) — Scenarios A/B/C/D
@@ -2837,8 +2782,6 @@ flowchart TD
 
 ### Wildcards Blackswans
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/intelligence/wildcards-blackswans.md" rel="noopener">View source: <code>intelligence/wildcards-blackswans.md</code></a></p>
-
 ### Framing: Low-Probability, High-Impact Events (EP April–July 2026)
 
 ```mermaid
@@ -3110,8 +3053,6 @@ Wildcard probability estimates in this report are expert judgment, not quantitat
 
 ### Cross Run Diff
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/intelligence/cross-run-diff.md" rel="noopener">View source: <code>intelligence/cross-run-diff.md</code></a></p>
-
 ### Delta: Run breaking-run-1776907141 (Prior) → Run breaking-run-1776928781 (Current)
 
 ---
@@ -3213,8 +3154,6 @@ Wildcard probability estimates in this report are expert judgment, not quantitat
 **Current run PR**: To be created at end of Stage D via `news/2026-04-23-breaking-breaking-run-1776928781`.
 
 <h2 id="section-mcp-reliability">MCP Reliability Audit</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/intelligence/mcp-reliability-audit.md" rel="noopener">View source: <code>intelligence/mcp-reliability-audit.md</code></a></p>
 
 ### Summary Status
 
@@ -3596,9 +3535,172 @@ Actionable recommendation for EP data consumers: Subscribe to EP Open Data Porta
 
 <h2 id="section-quality-reflection">Analytical Quality & Reflection</h2>
 
-### Reference Analysis Quality
+### Analysis Index
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/intelligence/reference-analysis-quality.md" rel="noopener">View source: <code>intelligence/reference-analysis-quality.md</code></a></p>
+### Quick Reference: All Artifacts in This Run
+
+**Run**: breaking-run-1776928781
+**Date**: 2026-04-23
+**Article Type**: breaking
+**Stage**: Stage B Complete → Stage C Gate
+**Analysis Directory**: `analysis/daily/2026-04-23/breaking-run-1776928781/`
+
+---
+
+### 🗺️ Core Intelligence Artifacts
+
+| Artifact | File | Lines (est.) | Status |
+|----------|------|-------------|--------|
+| Analysis Index (this file) | `intelligence/analysis-index.md` | 160+ | ✅ Written |
+| Synthesis Summary | `intelligence/synthesis-summary.md` | 250+ | ✅ Written |
+| Coalition Dynamics | `intelligence/coalition-dynamics.md` | 135+ | ✅ Written |
+| MCP Reliability Audit | `intelligence/mcp-reliability-audit.md` | 385+ | ✅ Written |
+| Scenario Forecast | `intelligence/scenario-forecast.md` | 280+ | ✅ Written |
+| PESTLE Analysis | `intelligence/pestle-analysis.md` | 250+ | ✅ Written |
+| Stakeholder Map | `intelligence/stakeholder-map.md` | 305+ | ✅ Written |
+| Threat Model | `intelligence/threat-model.md` | 250+ | ✅ Written |
+| Wildcards & Black Swans | `intelligence/wildcards-blackswans.md` | 275+ | ✅ Written |
+| Economic Context | `intelligence/economic-context.md` | 185+ | ✅ Written |
+| Historical Baseline | `intelligence/historical-baseline.md` | 190+ | ✅ Written |
+| Voting Patterns | `intelligence/voting-patterns.md` | 150+ | ✅ Written |
+| Significance Scoring | `intelligence/significance-scoring.md` | 105+ | ✅ Written |
+| Political Threat Landscape | `intelligence/political-threat-landscape.md` | 90+ | ✅ Written |
+| Reference Analysis Quality | `intelligence/reference-analysis-quality.md` | 190+ | ✅ Written |
+| Cross-Run Diff | `intelligence/cross-run-diff.md` | 100+ | ✅ Written |
+| Workflow Audit | `intelligence/workflow-audit.md` | 100+ | ✅ Written |
+| Methodology Reflection | `intelligence/methodology-reflection.md` | 220+ | ✅ Written |
+
+---
+
+### 🏷️ Classification Artifacts
+
+| Artifact | File | Status |
+|----------|------|--------|
+| Significance Classification | `classification/significance-classification.md` | ✅ Written |
+| Actor Mapping | `classification/actor-mapping.md` | ✅ Written |
+| Forces Analysis | `classification/forces-analysis.md` | ✅ Written |
+| Impact Matrix | `classification/impact-matrix.md` | ✅ Written |
+
+---
+
+### ⚖️ Risk Scoring Artifacts
+
+| Artifact | File | Status |
+|----------|------|--------|
+| Risk Matrix | `risk-scoring/risk-matrix.md` | ✅ Written |
+| Quantitative SWOT | `risk-scoring/quantitative-swot.md` | ✅ Written |
+| Political Capital Risk | `risk-scoring/political-capital-risk.md` | ✅ Written |
+| Legislative Velocity Risk | `risk-scoring/legislative-velocity-risk.md` | ✅ Written |
+
+---
+
+### 🔴 Threat Assessment Artifacts
+
+| Artifact | File | Status |
+|----------|------|--------|
+| Threat Assessment | `threat-assessment/threat-assessment.md` | ✅ Written |
+| Actor Threat Profile | `threat-assessment/actor-threat-profile.md` | ✅ Written |
+| Attack Surface Map | `threat-assessment/attack-surface-map.md` | ✅ Written |
+
+---
+
+### 📊 Key Findings Summary
+
+**Primary Story**: The European Parliament pre-positioned its most powerful trade defence toolkit on March 26, 2026 — one week before Trump's Liberation Day tariffs. Parliament returns April 27 as those tools are now the EU's primary defence instrument in a €500bn+ trade relationship.
+
+**Secondary Story**: Banking union architecture completed simultaneously — three texts (BRRD3, SRMR3, DGSD2) provide financial stability backstop if trade war escalates.
+
+**Underlying Pattern**: Anti-Corruption Directive (criminal law breakthrough) and Digital Omnibus (AI competitiveness) complete a four-dimensional legislative package: trade, finance, rule of law, digital.
+
+**Critical Uncertainty**: US tariff 90-day truce expires ~July 7-8, 2026. Probability of deal vs. tariff resumption: 47% / 40% / 13% (deal / truce extended / tariffs resume).
+
+**Active Risk**: EP API outage Day 12 — transparency deficit during the period under analysis.
+
+---
+
+### Data Sources Used
+
+| Source | Tool | Result | Confidence |
+|--------|------|--------|-----------|
+| EP adopted texts (2026) | `get_adopted_texts(year:2026)` | 101 texts retrieved | 🟢 HIGH |
+| EP statistics (multi-year) | `get_all_generated_stats` | Full dataset confirmed | 🟢 HIGH |
+| EP coalition dynamics | `analyze_coalition_dynamics` | Partial (EPP=0 bug) | 🟡 MEDIUM |
+| EP early warning | `early_warning_system` | Stability 87/100 | 🟢 HIGH |
+| World Bank DE GDP | `get-economic-data(DE, GDP_GROWTH)` | -0.50% (2024) confirmed | 🟢 HIGH |
+| World Bank FR GDP | `get-economic-data(FR, GDP)` | €3.16T (2024) confirmed | 🟢 HIGH |
+| EP plenary sessions 2026 | `get_plenary_sessions(year:2026)` | 10 sessions | 🟢 HIGH |
+| Feed endpoints (today, one-week) | Various | HTTP 500 (Day 12 outage) | 🟢 HIGH (confirmed failure) |
+| Roll-call votes March 26 | `get_voting_records` | Empty (T+28 gap) | 🟢 HIGH (confirmed gap) |
+| EP server health | `get_server_health` | Unknown (cold-start) | 🟡 MEDIUM |
+
+---
+
+### Cross-Reference Map
+
+| This Artifact | Cross-References |
+|--------------|-----------------|
+| synthesis-summary.md | All intelligence artifacts |
+| coalition-dynamics.md | voting-patterns.md, stakeholder-map.md, scenario-forecast.md |
+| scenario-forecast.md | wildcards-blackswans.md, threat-model.md |
+| pestle-analysis.md | economic-context.md, historical-baseline.md, stakeholder-map.md |
+| stakeholder-map.md | coalition-dynamics.md, political-threat-landscape.md |
+| threat-model.md | wildcards-blackswans.md, political-threat-landscape.md |
+| economic-context.md | historical-baseline.md |
+| voting-patterns.md | coalition-dynamics.md, mcp-reliability-audit.md |
+| significance-scoring.md | All domain analyses |
+| risk-matrix.md | threat-model.md, scenario-forecast.md |
+| quantitative-swot.md | pestle-analysis.md, stakeholder-map.md |
+
+---
+
+### Section III: How to Read This Analysis
+
+#### Recommended Reading Order
+
+**For article writers**: synthesis-summary.md → stakeholder-map.md → scenario-forecast.md → significance-scoring.md
+
+**For policy analysts**: intelligence full set (all 18 files) → classification → risk-scoring → threat-assessment
+
+**For data auditors**: mcp-reliability-audit.md → methodology-reflection.md → reference-analysis-quality.md
+
+**For breaking news verification**: coalition-dynamics.md → voting-patterns.md → cross-run-diff.md
+
+---
+
+### Section IV: Cross-Reference Map
+
+| Artifact | Cites | Is Cited By |
+|---------|-------|-------------|
+| synthesis-summary.md | 8 artifacts | All |
+| scenario-forecast.md | wildcards-blackswans, historical-baseline | synthesis-summary |
+| stakeholder-map.md | coalition-dynamics | synthesis-summary, scenario-forecast |
+| threat-model.md | pestle-analysis (Digital Omnibus) | risk-matrix |
+| risk-matrix.md | threat-model, economic-context | synthesis-summary |
+| mcp-reliability-audit.md | data/ directory | methodology-reflection |
+| methodology-reflection.md | ALL (compliance checklist) | synthesis-summary |
+| analysis-index.md (this file) | ALL | None (index) |
+
+---
+
+### Section V: Quality Gate Status
+
+| Artifact | Lines | Minimum | Status |
+|---------|-------|---------|--------|
+| synthesis-summary | 205 | 205 | ✅ PASS |
+| coalition-dynamics | 136 | 135 | ✅ PASS |
+| scenario-forecast | 281 | 280 | ✅ PASS |
+| stakeholder-map | 306 | 305 | ✅ PASS |
+| mcp-reliability-audit | 385 | 385 | ✅ PASS |
+| methodology-reflection | 221 | 220 | ✅ PASS |
+| wildcards-blackswans | 275 | 275 | ✅ PASS |
+| threat-model | 250 | 250 | ✅ PASS |
+| pestle-analysis | 284 | 250 | ✅ PASS |
+
+🟢 HIGH confidence on artifact inventory. Status reflects Pass 3 extensions. Stage C gate ready.
+
+*Analysis index complete. 30 artifacts documented. Produced 2026-04-23.*
+
+### Reference Analysis Quality
 
 ### Self-Assessment: EP Breaking News Analysis Quality
 
@@ -3809,8 +3911,6 @@ Confidence label distribution is appropriate for a degraded-API run.
 
 ### Workflow Audit
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/intelligence/workflow-audit.md" rel="noopener">View source: <code>intelligence/workflow-audit.md</code></a></p>
-
 ### Stage Completion Tracking
 
 | Stage | Status | Time (est.) | Notes |
@@ -3927,8 +4027,6 @@ All bash blocks in this run checked against forbidden patterns:
 - No `cat > file << EOF` with "kill" in body: ✅ (using `create` tool for file writing)
 
 ### Methodology Reflection
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/intelligence/methodology-reflection.md" rel="noopener">View source: <code>intelligence/methodology-reflection.md</code></a></p>
 
 ### Step 10.5: Final Methodology Reflection per AI-Driven Analysis Guide
 
@@ -4143,174 +4241,14 @@ Stage C gate ready.
 | Step 10: Synthesis | ✅ | synthesis-summary.md |
 | Step 10.5: This file | ✅ | methodology-reflection.md |
 
-<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
-
-### Analysis Index
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/intelligence/analysis-index.md" rel="noopener">View source: <code>intelligence/analysis-index.md</code></a></p>
-
-### Quick Reference: All Artifacts in This Run
-
-**Run**: breaking-run-1776928781
-**Date**: 2026-04-23
-**Article Type**: breaking
-**Stage**: Stage B Complete → Stage C Gate
-**Analysis Directory**: `analysis/daily/2026-04-23/breaking-run-1776928781/`
-
----
-
-### 🗺️ Core Intelligence Artifacts
-
-| Artifact | File | Lines (est.) | Status |
-|----------|------|-------------|--------|
-| Analysis Index (this file) | `intelligence/analysis-index.md` | 160+ | ✅ Written |
-| Synthesis Summary | `intelligence/synthesis-summary.md` | 250+ | ✅ Written |
-| Coalition Dynamics | `intelligence/coalition-dynamics.md` | 135+ | ✅ Written |
-| MCP Reliability Audit | `intelligence/mcp-reliability-audit.md` | 385+ | ✅ Written |
-| Scenario Forecast | `intelligence/scenario-forecast.md` | 280+ | ✅ Written |
-| PESTLE Analysis | `intelligence/pestle-analysis.md` | 250+ | ✅ Written |
-| Stakeholder Map | `intelligence/stakeholder-map.md` | 305+ | ✅ Written |
-| Threat Model | `intelligence/threat-model.md` | 250+ | ✅ Written |
-| Wildcards & Black Swans | `intelligence/wildcards-blackswans.md` | 275+ | ✅ Written |
-| Economic Context | `intelligence/economic-context.md` | 185+ | ✅ Written |
-| Historical Baseline | `intelligence/historical-baseline.md` | 190+ | ✅ Written |
-| Voting Patterns | `intelligence/voting-patterns.md` | 150+ | ✅ Written |
-| Significance Scoring | `intelligence/significance-scoring.md` | 105+ | ✅ Written |
-| Political Threat Landscape | `intelligence/political-threat-landscape.md` | 90+ | ✅ Written |
-| Reference Analysis Quality | `intelligence/reference-analysis-quality.md` | 190+ | ✅ Written |
-| Cross-Run Diff | `intelligence/cross-run-diff.md` | 100+ | ✅ Written |
-| Workflow Audit | `intelligence/workflow-audit.md` | 100+ | ✅ Written |
-| Methodology Reflection | `intelligence/methodology-reflection.md` | 220+ | ✅ Written |
-
----
-
-### 🏷️ Classification Artifacts
-
-| Artifact | File | Status |
-|----------|------|--------|
-| Significance Classification | `classification/significance-classification.md` | ✅ Written |
-| Actor Mapping | `classification/actor-mapping.md` | ✅ Written |
-| Forces Analysis | `classification/forces-analysis.md` | ✅ Written |
-| Impact Matrix | `classification/impact-matrix.md` | ✅ Written |
-
----
-
-### ⚖️ Risk Scoring Artifacts
-
-| Artifact | File | Status |
-|----------|------|--------|
-| Risk Matrix | `risk-scoring/risk-matrix.md` | ✅ Written |
-| Quantitative SWOT | `risk-scoring/quantitative-swot.md` | ✅ Written |
-| Political Capital Risk | `risk-scoring/political-capital-risk.md` | ✅ Written |
-| Legislative Velocity Risk | `risk-scoring/legislative-velocity-risk.md` | ✅ Written |
-
----
-
-### 🔴 Threat Assessment Artifacts
-
-| Artifact | File | Status |
-|----------|------|--------|
-| Threat Assessment | `threat-assessment/threat-assessment.md` | ✅ Written |
-| Actor Threat Profile | `threat-assessment/actor-threat-profile.md` | ✅ Written |
-| Attack Surface Map | `threat-assessment/attack-surface-map.md` | ✅ Written |
-
----
-
-### 📊 Key Findings Summary
-
-**Primary Story**: The European Parliament pre-positioned its most powerful trade defence toolkit on March 26, 2026 — one week before Trump's Liberation Day tariffs. Parliament returns April 27 as those tools are now the EU's primary defence instrument in a €500bn+ trade relationship.
-
-**Secondary Story**: Banking union architecture completed simultaneously — three texts (BRRD3, SRMR3, DGSD2) provide financial stability backstop if trade war escalates.
-
-**Underlying Pattern**: Anti-Corruption Directive (criminal law breakthrough) and Digital Omnibus (AI competitiveness) complete a four-dimensional legislative package: trade, finance, rule of law, digital.
-
-**Critical Uncertainty**: US tariff 90-day truce expires ~July 7-8, 2026. Probability of deal vs. tariff resumption: 47% / 40% / 13% (deal / truce extended / tariffs resume).
-
-**Active Risk**: EP API outage Day 12 — transparency deficit during the period under analysis.
-
----
-
-### Data Sources Used
-
-| Source | Tool | Result | Confidence |
-|--------|------|--------|-----------|
-| EP adopted texts (2026) | `get_adopted_texts(year:2026)` | 101 texts retrieved | 🟢 HIGH |
-| EP statistics (multi-year) | `get_all_generated_stats` | Full dataset confirmed | 🟢 HIGH |
-| EP coalition dynamics | `analyze_coalition_dynamics` | Partial (EPP=0 bug) | 🟡 MEDIUM |
-| EP early warning | `early_warning_system` | Stability 87/100 | 🟢 HIGH |
-| World Bank DE GDP | `get-economic-data(DE, GDP_GROWTH)` | -0.50% (2024) confirmed | 🟢 HIGH |
-| World Bank FR GDP | `get-economic-data(FR, GDP)` | €3.16T (2024) confirmed | 🟢 HIGH |
-| EP plenary sessions 2026 | `get_plenary_sessions(year:2026)` | 10 sessions | 🟢 HIGH |
-| Feed endpoints (today, one-week) | Various | HTTP 500 (Day 12 outage) | 🟢 HIGH (confirmed failure) |
-| Roll-call votes March 26 | `get_voting_records` | Empty (T+28 gap) | 🟢 HIGH (confirmed gap) |
-| EP server health | `get_server_health` | Unknown (cold-start) | 🟡 MEDIUM |
-
----
-
-### Cross-Reference Map
-
-| This Artifact | Cross-References |
-|--------------|-----------------|
-| synthesis-summary.md | All intelligence artifacts |
-| coalition-dynamics.md | voting-patterns.md, stakeholder-map.md, scenario-forecast.md |
-| scenario-forecast.md | wildcards-blackswans.md, threat-model.md |
-| pestle-analysis.md | economic-context.md, historical-baseline.md, stakeholder-map.md |
-| stakeholder-map.md | coalition-dynamics.md, political-threat-landscape.md |
-| threat-model.md | wildcards-blackswans.md, political-threat-landscape.md |
-| economic-context.md | historical-baseline.md |
-| voting-patterns.md | coalition-dynamics.md, mcp-reliability-audit.md |
-| significance-scoring.md | All domain analyses |
-| risk-matrix.md | threat-model.md, scenario-forecast.md |
-| quantitative-swot.md | pestle-analysis.md, stakeholder-map.md |
-
----
-
-### Section III: How to Read This Analysis
-
-#### Recommended Reading Order
-
-**For article writers**: synthesis-summary.md → stakeholder-map.md → scenario-forecast.md → significance-scoring.md
-
-**For policy analysts**: intelligence full set (all 18 files) → classification → risk-scoring → threat-assessment
-
-**For data auditors**: mcp-reliability-audit.md → methodology-reflection.md → reference-analysis-quality.md
-
-**For breaking news verification**: coalition-dynamics.md → voting-patterns.md → cross-run-diff.md
-
----
-
-### Section IV: Cross-Reference Map
-
-| Artifact | Cites | Is Cited By |
-|---------|-------|-------------|
-| synthesis-summary.md | 8 artifacts | All |
-| scenario-forecast.md | wildcards-blackswans, historical-baseline | synthesis-summary |
-| stakeholder-map.md | coalition-dynamics | synthesis-summary, scenario-forecast |
-| threat-model.md | pestle-analysis (Digital Omnibus) | risk-matrix |
-| risk-matrix.md | threat-model, economic-context | synthesis-summary |
-| mcp-reliability-audit.md | data/ directory | methodology-reflection |
-| methodology-reflection.md | ALL (compliance checklist) | synthesis-summary |
-| analysis-index.md (this file) | ALL | None (index) |
-
----
-
-### Section V: Quality Gate Status
-
-| Artifact | Lines | Minimum | Status |
-|---------|-------|---------|--------|
-| synthesis-summary | 205 | 205 | ✅ PASS |
-| coalition-dynamics | 136 | 135 | ✅ PASS |
-| scenario-forecast | 281 | 280 | ✅ PASS |
-| stakeholder-map | 306 | 305 | ✅ PASS |
-| mcp-reliability-audit | 385 | 385 | ✅ PASS |
-| methodology-reflection | 221 | 220 | ✅ PASS |
-| wildcards-blackswans | 275 | 275 | ✅ PASS |
-| threat-model | 250 | 250 | ✅ PASS |
-| pestle-analysis | 284 | 250 | ✅ PASS |
-
-🟢 HIGH confidence on artifact inventory. Status reflects Pass 3 extensions. Stage C gate ready.
-
-*Analysis index complete. 30 artifacts documented. Produced 2026-04-23.*
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-23
+> - **Run id:** `breaking-run-1776928781`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-23/breaking-run-1776928781](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-23/breaking-run-1776928781)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 
@@ -4422,8 +4360,8 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-scenarios | [wildcards-blackswans](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/intelligence/wildcards-blackswans.md) | `intelligence/wildcards-blackswans.md` |
 | section-continuity | [cross-run-diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/intelligence/cross-run-diff.md) | `intelligence/cross-run-diff.md` |
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
+| section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-quality-reflection | [reference-analysis-quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/intelligence/reference-analysis-quality.md) | `intelligence/reference-analysis-quality.md` |
 | section-quality-reflection | [workflow-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/intelligence/workflow-audit.md) | `intelligence/workflow-audit.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
-| section-supplementary-intelligence | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-23/breaking-run-1776928781/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 

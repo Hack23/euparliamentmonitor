@@ -11,17 +11,6 @@ layout: article
 ---
 # Propositions — 2026-04-10
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `propositions`
-> - **Run date:** 2026-04-10
-> - **Run id:** `b09ab207-720b-4834-9df1-c8e93e955959`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-10/propositions-2](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-10/propositions-2)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -36,8 +25,6 @@ Use this guide to read the article as a political-intelligence product rather th
 <h2 id="section-significance">Significance</h2>
 
 ### Significance Classification
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/classification/significance-classification.md" rel="noopener">View source: <code>classification/significance-classification.md</code></a></p>
 
 ### Overall Significance: **ROUTINE**
 
@@ -108,8 +95,6 @@ quadrantChart
 
 ### Actor Mapping
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/classification/actor-mapping.md" rel="noopener">View source: <code>classification/actor-mapping.md</code></a></p>
-
 ### Actors Identified: 0
 
 ```mermaid
@@ -133,8 +118,6 @@ pie title Actor Type Distribution — 2026-04-10
 ### Date: 2026-04-10
 
 ### Forces Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/classification/forces-analysis.md" rel="noopener">View source: <code>classification/forces-analysis.md</code></a></p>
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
@@ -168,8 +151,6 @@ pie title Political Force Distribution — 2026-04-10
 
 ### Impact Matrix
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/classification/impact-matrix.md" rel="noopener">View source: <code>classification/impact-matrix.md</code></a></p>
-
 ### Overall Significance: **ROUTINE**
 
 ```mermaid
@@ -202,11 +183,44 @@ pie title Impact Distribution by Dimension — 2026-04-10
 
 ### Date: 2026-04-10
 
+### Significance Scoring
+
+### Summary
+
+| Decision | Count |
+|----------|:-----:|
+| 📰 Publish | 6 |
+| 📋 Hold | 14 |
+| 🗄️ Skip | 0 |
+
+### Batch Scoring
+
+| Event | EP Reference | Parl. | Policy | Public | Urgency | Instit. | **Composite** | Decision |
+|-------|-------------|:-----:|:------:|:------:|:-------:|:-------:|:-------------:|----------|
+| Adjustment of customs duties and opening of tariff quotas for the import of certain goods originating in the United States | TA-10-2026-0096 | 8.0 | 7.0 | 6.0 | 5.0 | 7.0 | **6.75** | Publish |
+| Combating corruption | TA-10-2026-0094 | 6.0 | 5.0 | 4.0 | 5.0 | 5.0 | **5.05** | Hold |
+| Early intervention measures, conditions for resolution and funding of resolution action (SRMR3) | TA-10-2026-0092 | 7.0 | 6.0 | 5.0 | 5.0 | 6.0 | **5.90** | Publish |
+| Early intervention measures, conditions for resolution and funding of resolution action (BRRD3) | TA-10-2026-0091 | 7.0 | 6.0 | 5.0 | 5.0 | 6.0 | **5.90** | Publish |
+| Scope of deposit protection, use of deposit guarantee schemes funds, cross-border cooperation, and transparency (DGSD2) | TA-10-2026-0090 | 6.0 | 5.0 | 4.0 | 5.0 | 5.0 | **5.05** | Hold |
+| Surface water and groundwater pollutants | TA-10-2026-0093 | 6.0 | 5.0 | 4.0 | 5.0 | 5.0 | **5.05** | Hold |
+| Non-application of customs duties on imports of certain goods | TA-10-2026-0097 | 6.0 | 5.0 | 4.0 | 5.0 | 5.0 | **5.05** | Hold |
+| Global Gateway - past impacts and future orientation | TA-10-2026-0104 | 6.0 | 5.0 | 4.0 | 5.0 | 5.0 | **5.05** | Hold |
+| Mobilisation of the European Globalisation Adjustment Fund: EGF/2025/007 BE/Casa - Belgium | TA-10-2026-0102 | 6.0 | 5.0 | 4.0 | 5.0 | 5.0 | **5.05** | Hold |
+| Mobilisation of the European Globalisation Adjustment Fund: EGF/2025/005 AT/KTM - Austria | TA-10-2026-0103 | 6.0 | 5.0 | 4.0 | 5.0 | 5.0 | **5.05** | Hold |
+| Amending Regulation (EU) 2021/1232 as regards the extension of its period of application | TA-10-2026-0095 | 8.0 | 7.0 | 6.0 | 5.0 | 7.0 | **6.75** | Publish |
+| EU-China Agreement: modification of concessions on all the tariff rate quotas | TA-10-2026-0101 | 8.0 | 7.0 | 6.0 | 5.0 | 7.0 | **6.75** | Publish |
+| EU-Lebanon Agreement for scientific and technological cooperation | TA-10-2026-0100 | 7.0 | 6.0 | 5.0 | 5.0 | 6.0 | **5.90** | Publish |
+| United Nations Convention on the International Effects of Judicial Sales of Ships | TA-10-2026-0099 | 6.0 | 5.0 | 4.0 | 5.0 | 5.0 | **5.05** | Hold |
+| Request for the waiver of the immunity of Grzegorz Braun | TA-10-2026-0087 | 6.0 | 5.0 | 4.0 | 5.0 | 5.0 | **5.05** | Hold |
+| Request for the waiver of the immunity of Grzegorz Braun | TA-10-2026-0088 | 6.0 | 5.0 | 4.0 | 5.0 | 5.0 | **5.05** | Hold |
+| Request for the waiver of the immunity of Nikos Pappas | TA-10-2026-0089 | 6.0 | 5.0 | 4.0 | 5.0 | 5.0 | **5.05** | Hold |
+| Package travel and linked travel arrangements: make the protection of travellers more effective | TA-10-2026-0085 | 6.0 | 5.0 | 4.0 | 5.0 | 5.0 | **5.05** | Hold |
+| Multilateral negotiations in view of the WTO 14th Ministerial Conference | TA-10-2026-0086 | 6.0 | 5.0 | 4.0 | 5.0 | 5.0 | **5.05** | Hold |
+| Calculation of emission credits for heavy-duty vehicles | TA-10-2026-0084 | 6.0 | 5.0 | 4.0 | 5.0 | 5.0 | **5.05** | Hold |
+
 <h2 id="section-coalitions-voting">Coalitions & Voting</h2>
 
 ### Voting Patterns
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/existing/voting-patterns.md" rel="noopener">View source: <code>existing/voting-patterns.md</code></a></p>
 
 ### Detected Trends (Script-Generated Context)
 | Trend ID | Direction | Confidence | Data Points |
@@ -238,8 +252,6 @@ pie title Impact Distribution by Dimension — 2026-04-10
 <h2 id="section-stakeholder-map">Stakeholder Map</h2>
 
 ### Stakeholder Impact
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/existing/stakeholder-impact.md" rel="noopener">View source: <code>existing/stakeholder-impact.md</code></a></p>
 
 ### Data Available for Stakeholder Assessment (Script-Generated Context)
 | Stakeholder Group | Primary Data Sources | Data Points |
@@ -290,8 +302,6 @@ pie title Impact Distribution by Dimension — 2026-04-10
 <h2 id="section-risk">Risk Assessment</h2>
 
 ### Risk Matrix
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
 
 ### Overview
 
@@ -367,8 +377,6 @@ quadrantChart
 ### Date: 2026-04-10
 
 ### Quantitative Swot
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/risk-scoring/quantitative-swot.md" rel="noopener">View source: <code>risk-scoring/quantitative-swot.md</code></a></p>
 
 ### Executive Summary
 
@@ -509,8 +517,6 @@ quadrantChart
 
 ### Political Capital Risk
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/risk-scoring/political-capital-risk.md" rel="noopener">View source: <code>risk-scoring/political-capital-risk.md</code></a></p>
-
 ### Data Inventory for Capital Risk Assessment
 | Data Source | Count | Relevance |
 |-------------|-------|-----------|
@@ -522,8 +528,6 @@ quadrantChart
 ### Date: 2026-04-10
 
 ### Legislative Velocity Risk
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/risk-scoring/legislative-velocity-risk.md" rel="noopener">View source: <code>risk-scoring/legislative-velocity-risk.md</code></a></p>
 
 ### Overview
 Risk assessment based on legislative processing speed for 13 procedures.
@@ -547,11 +551,44 @@ Risk assessment based on legislative processing speed for 13 procedures.
 - **High/Critical risks**: 0
 - **Date**: 2026-04-10
 
+### Agent Risk Workflow
+
+### Risk Heat Map
+
+| Impact ↓ / Likelihood → | Rare | Unlikely | Possible | Likely | Almost Certain |
+|--------------------------|------|----------|----------|--------|----------------|
+| **Severe** | 🟢 | 🟡 | 🟠 | 🟠 | 🔴 |
+| **Major** | 🟢 | 🟡 | 🟡 | 🟠 | 🔴 |
+| **Moderate** | 🟢 | 🟢 | 🟡 | 🟠 | 🟠 |
+| **Minor** | 🟢 | 🟢 | 🟢 | 🟡 | 🟡 |
+| **Negligible** | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 |
+
+### Identified Risks
+
+#### RISK-W01: Legislative backlog risk
+- **Likelihood**: possible (0.5) | **Impact**: moderate (3) | **Score**: 1.5 (MEDIUM) | **Confidence**: medium
+- **Evidence**: 13 active procedures
+- **Mitigating Factors**: Committee oversight
+
+### Risk Evaluation Matrix
+
+| Rank | Risk ID | Description | Score | Level | Confidence |
+|------|---------|-------------|-------|-------|------------|
+| 1 | RISK-W01 | Legislative backlog risk | 1.5 | MEDIUM | medium |
+
+### Risk Treatment Plan
+
+- Monitor legislative velocity indicators
+- Track coalition voting patterns
+
+### Recommendations
+
+- Monitor legislative velocity indicators
+- Track coalition voting patterns
+
 <h2 id="section-threat">Threat Landscape</h2>
 
 ### Actor Threat Profiling
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/threat-assessment/actor-threat-profiling.md" rel="noopener">View source: <code>threat-assessment/actor-threat-profiling.md</code></a></p>
 
 ### Overview
 Individual threat profiles for 0 political actors.
@@ -564,8 +601,6 @@ Individual threat profiles for 0 political actors.
 ### Date: 2026-04-10
 
 ### Consequence Trees
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/threat-assessment/consequence-trees.md" rel="noopener">View source: <code>threat-assessment/consequence-trees.md</code></a></p>
 
 ### Overview
 Structured analysis of action-consequence chains for 5 legislative procedures.
@@ -609,8 +644,6 @@ Structured analysis of action-consequence chains for 5 legislative procedures.
 
 ### Legislative Disruption
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/threat-assessment/legislative-disruption.md" rel="noopener">View source: <code>threat-assessment/legislative-disruption.md</code></a></p>
-
 ### Overview
 Identification of factors disrupting the normal legislative process.
 
@@ -626,8 +659,6 @@ Identification of factors disrupting the normal legislative process.
 ### Date: 2026-04-10
 
 ### Political Threat Landscape
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/threat-assessment/political-threat-landscape.md" rel="noopener">View source: <code>threat-assessment/political-threat-landscape.md</code></a></p>
 
 ### Political Threat Landscape Analysis
 
@@ -787,8 +818,6 @@ graph TD
 
 ### Cross Session Intelligence
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/existing/cross-session-intelligence.md" rel="noopener">View source: <code>existing/cross-session-intelligence.md</code></a></p>
-
 ### Computed Stability Metrics (Script-Generated Context)
 - **Overall Stability**: 0.0%
 - **Forecast**: volatile
@@ -815,8 +844,6 @@ graph TD
 ### Date: 2026-04-10
 
 <h2 id="section-deep-analysis">Deep Analysis</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/existing/deep-analysis.md" rel="noopener">View source: <code>existing/deep-analysis.md</code></a></p>
 
 ### Pipeline Data Context
 
@@ -906,8 +933,6 @@ graph TD
 
 ### Document Analysis Index
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/document-analysis-index.md" rel="noopener">View source: <code>documents/document-analysis-index.md</code></a></p>
-
 ### Executive Summary
 
 Full per-document political intelligence analysis for 33 unique documents
@@ -990,8 +1015,6 @@ All 33 documents have been stored in their entirety:
 
 ### Adoptedtexts Ta 10 2026 0084 Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/adoptedtexts-ta-10-2026-0084-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ta-10-2026-0084-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -1059,8 +1082,6 @@ No description available
 ### Analysis Date: 2026-04-10
 
 ### Adoptedtexts Ta 10 2026 0085 Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/adoptedtexts-ta-10-2026-0085-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ta-10-2026-0085-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -1130,8 +1151,6 @@ No description available
 
 ### Adoptedtexts Ta 10 2026 0086 Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/adoptedtexts-ta-10-2026-0086-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ta-10-2026-0086-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -1199,8 +1218,6 @@ No description available
 ### Analysis Date: 2026-04-10
 
 ### Adoptedtexts Ta 10 2026 0087 Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/adoptedtexts-ta-10-2026-0087-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ta-10-2026-0087-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -1270,8 +1287,6 @@ No description available
 
 ### Adoptedtexts Ta 10 2026 0088 Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/adoptedtexts-ta-10-2026-0088-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ta-10-2026-0088-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -1339,8 +1354,6 @@ No description available
 ### Analysis Date: 2026-04-10
 
 ### Adoptedtexts Ta 10 2026 0089 Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/adoptedtexts-ta-10-2026-0089-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ta-10-2026-0089-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -1410,8 +1423,6 @@ No description available
 
 ### Adoptedtexts Ta 10 2026 0090 Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/adoptedtexts-ta-10-2026-0090-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ta-10-2026-0090-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -1479,8 +1490,6 @@ No description available
 ### Analysis Date: 2026-04-10
 
 ### Adoptedtexts Ta 10 2026 0091 Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/adoptedtexts-ta-10-2026-0091-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ta-10-2026-0091-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -1550,8 +1559,6 @@ No description available
 
 ### Adoptedtexts Ta 10 2026 0092 Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/adoptedtexts-ta-10-2026-0092-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ta-10-2026-0092-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -1619,8 +1626,6 @@ No description available
 ### Analysis Date: 2026-04-10
 
 ### Adoptedtexts Ta 10 2026 0093 Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/adoptedtexts-ta-10-2026-0093-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ta-10-2026-0093-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -1690,8 +1695,6 @@ No description available
 
 ### Adoptedtexts Ta 10 2026 0094 Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/adoptedtexts-ta-10-2026-0094-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ta-10-2026-0094-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -1759,8 +1762,6 @@ No description available
 ### Analysis Date: 2026-04-10
 
 ### Adoptedtexts Ta 10 2026 0095 Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/adoptedtexts-ta-10-2026-0095-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ta-10-2026-0095-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -1830,8 +1831,6 @@ No description available
 
 ### Adoptedtexts Ta 10 2026 0096 Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/adoptedtexts-ta-10-2026-0096-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ta-10-2026-0096-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -1899,8 +1898,6 @@ No description available
 ### Analysis Date: 2026-04-10
 
 ### Adoptedtexts Ta 10 2026 0097 Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/adoptedtexts-ta-10-2026-0097-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ta-10-2026-0097-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -1970,8 +1967,6 @@ No description available
 
 ### Adoptedtexts Ta 10 2026 0099 Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/adoptedtexts-ta-10-2026-0099-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ta-10-2026-0099-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -2039,8 +2034,6 @@ No description available
 ### Analysis Date: 2026-04-10
 
 ### Adoptedtexts Ta 10 2026 0100 Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/adoptedtexts-ta-10-2026-0100-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ta-10-2026-0100-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -2110,8 +2103,6 @@ No description available
 
 ### Adoptedtexts Ta 10 2026 0101 Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/adoptedtexts-ta-10-2026-0101-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ta-10-2026-0101-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -2179,8 +2170,6 @@ No description available
 ### Analysis Date: 2026-04-10
 
 ### Adoptedtexts Ta 10 2026 0102 Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/adoptedtexts-ta-10-2026-0102-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ta-10-2026-0102-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -2250,8 +2239,6 @@ No description available
 
 ### Adoptedtexts Ta 10 2026 0103 Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/adoptedtexts-ta-10-2026-0103-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ta-10-2026-0103-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -2319,8 +2306,6 @@ No description available
 ### Analysis Date: 2026-04-10
 
 ### Adoptedtexts Ta 10 2026 0104 Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/adoptedtexts-ta-10-2026-0104-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ta-10-2026-0104-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -2390,8 +2375,6 @@ No description available
 
 ### Procedures 2026 0008 Cod Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/procedures-2026-0008-cod-analysis.md" rel="noopener">View source: <code>documents/procedures-2026-0008-cod-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -2459,8 +2442,6 @@ No description available
 ### Analysis Date: 2026-04-10
 
 ### Procedures 2026 0010 Cod Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/procedures-2026-0010-cod-analysis.md" rel="noopener">View source: <code>documents/procedures-2026-0010-cod-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -2530,8 +2511,6 @@ No description available
 
 ### Procedures 2026 0011 Cod Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/procedures-2026-0011-cod-analysis.md" rel="noopener">View source: <code>documents/procedures-2026-0011-cod-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -2599,8 +2578,6 @@ No description available
 ### Analysis Date: 2026-04-10
 
 ### Procedures 2026 0012 Cod Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/procedures-2026-0012-cod-analysis.md" rel="noopener">View source: <code>documents/procedures-2026-0012-cod-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -2670,8 +2647,6 @@ No description available
 
 ### Procedures 2026 0013 Cod Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/procedures-2026-0013-cod-analysis.md" rel="noopener">View source: <code>documents/procedures-2026-0013-cod-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -2739,8 +2714,6 @@ No description available
 ### Analysis Date: 2026-04-10
 
 ### Procedures 2026 0044 Cod Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/procedures-2026-0044-cod-analysis.md" rel="noopener">View source: <code>documents/procedures-2026-0044-cod-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -2810,8 +2783,6 @@ No description available
 
 ### Procedures 2026 0045 Cod Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/procedures-2026-0045-cod-analysis.md" rel="noopener">View source: <code>documents/procedures-2026-0045-cod-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -2879,8 +2850,6 @@ No description available
 ### Analysis Date: 2026-04-10
 
 ### Procedures 2026 0059 Cod Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/procedures-2026-0059-cod-analysis.md" rel="noopener">View source: <code>documents/procedures-2026-0059-cod-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -2950,8 +2919,6 @@ No description available
 
 ### Procedures 2026 0068 Cod Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/procedures-2026-0068-cod-analysis.md" rel="noopener">View source: <code>documents/procedures-2026-0068-cod-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -3019,8 +2986,6 @@ No description available
 ### Analysis Date: 2026-04-10
 
 ### Procedures 2026 0074 Cod Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/procedures-2026-0074-cod-analysis.md" rel="noopener">View source: <code>documents/procedures-2026-0074-cod-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -3090,8 +3055,6 @@ No description available
 
 ### Procedures 2026 0078 Cod Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/procedures-2026-0078-cod-analysis.md" rel="noopener">View source: <code>documents/procedures-2026-0078-cod-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -3159,8 +3122,6 @@ No description available
 ### Analysis Date: 2026-04-10
 
 ### Procedures 2026 0084 Cod Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/procedures-2026-0084-cod-analysis.md" rel="noopener">View source: <code>documents/procedures-2026-0084-cod-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -3230,8 +3191,6 @@ No description available
 
 ### Procedures 2026 0085 Cod Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/procedures-2026-0085-cod-analysis.md" rel="noopener">View source: <code>documents/procedures-2026-0085-cod-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -3300,46 +3259,7 @@ No description available
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
-### Significance Scoring
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
-
-### Summary
-
-| Decision | Count |
-|----------|:-----:|
-| 📰 Publish | 6 |
-| 📋 Hold | 14 |
-| 🗄️ Skip | 0 |
-
-### Batch Scoring
-
-| Event | EP Reference | Parl. | Policy | Public | Urgency | Instit. | **Composite** | Decision |
-|-------|-------------|:-----:|:------:|:------:|:-------:|:-------:|:-------------:|----------|
-| Adjustment of customs duties and opening of tariff quotas for the import of certain goods originating in the United States | TA-10-2026-0096 | 8.0 | 7.0 | 6.0 | 5.0 | 7.0 | **6.75** | Publish |
-| Combating corruption | TA-10-2026-0094 | 6.0 | 5.0 | 4.0 | 5.0 | 5.0 | **5.05** | Hold |
-| Early intervention measures, conditions for resolution and funding of resolution action (SRMR3) | TA-10-2026-0092 | 7.0 | 6.0 | 5.0 | 5.0 | 6.0 | **5.90** | Publish |
-| Early intervention measures, conditions for resolution and funding of resolution action (BRRD3) | TA-10-2026-0091 | 7.0 | 6.0 | 5.0 | 5.0 | 6.0 | **5.90** | Publish |
-| Scope of deposit protection, use of deposit guarantee schemes funds, cross-border cooperation, and transparency (DGSD2) | TA-10-2026-0090 | 6.0 | 5.0 | 4.0 | 5.0 | 5.0 | **5.05** | Hold |
-| Surface water and groundwater pollutants | TA-10-2026-0093 | 6.0 | 5.0 | 4.0 | 5.0 | 5.0 | **5.05** | Hold |
-| Non-application of customs duties on imports of certain goods | TA-10-2026-0097 | 6.0 | 5.0 | 4.0 | 5.0 | 5.0 | **5.05** | Hold |
-| Global Gateway - past impacts and future orientation | TA-10-2026-0104 | 6.0 | 5.0 | 4.0 | 5.0 | 5.0 | **5.05** | Hold |
-| Mobilisation of the European Globalisation Adjustment Fund: EGF/2025/007 BE/Casa - Belgium | TA-10-2026-0102 | 6.0 | 5.0 | 4.0 | 5.0 | 5.0 | **5.05** | Hold |
-| Mobilisation of the European Globalisation Adjustment Fund: EGF/2025/005 AT/KTM - Austria | TA-10-2026-0103 | 6.0 | 5.0 | 4.0 | 5.0 | 5.0 | **5.05** | Hold |
-| Amending Regulation (EU) 2021/1232 as regards the extension of its period of application | TA-10-2026-0095 | 8.0 | 7.0 | 6.0 | 5.0 | 7.0 | **6.75** | Publish |
-| EU-China Agreement: modification of concessions on all the tariff rate quotas | TA-10-2026-0101 | 8.0 | 7.0 | 6.0 | 5.0 | 7.0 | **6.75** | Publish |
-| EU-Lebanon Agreement for scientific and technological cooperation | TA-10-2026-0100 | 7.0 | 6.0 | 5.0 | 5.0 | 6.0 | **5.90** | Publish |
-| United Nations Convention on the International Effects of Judicial Sales of Ships | TA-10-2026-0099 | 6.0 | 5.0 | 4.0 | 5.0 | 5.0 | **5.05** | Hold |
-| Request for the waiver of the immunity of Grzegorz Braun | TA-10-2026-0087 | 6.0 | 5.0 | 4.0 | 5.0 | 5.0 | **5.05** | Hold |
-| Request for the waiver of the immunity of Grzegorz Braun | TA-10-2026-0088 | 6.0 | 5.0 | 4.0 | 5.0 | 5.0 | **5.05** | Hold |
-| Request for the waiver of the immunity of Nikos Pappas | TA-10-2026-0089 | 6.0 | 5.0 | 4.0 | 5.0 | 5.0 | **5.05** | Hold |
-| Package travel and linked travel arrangements: make the protection of travellers more effective | TA-10-2026-0085 | 6.0 | 5.0 | 4.0 | 5.0 | 5.0 | **5.05** | Hold |
-| Multilateral negotiations in view of the WTO 14th Ministerial Conference | TA-10-2026-0086 | 6.0 | 5.0 | 4.0 | 5.0 | 5.0 | **5.05** | Hold |
-| Calculation of emission credits for heavy-duty vehicles | TA-10-2026-0084 | 6.0 | 5.0 | 4.0 | 5.0 | 5.0 | **5.05** | Hold |
-
 ### Coalition Dynamics
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/existing/coalition-dynamics.md" rel="noopener">View source: <code>existing/coalition-dynamics.md</code></a></p>
 
 ### Computed Metrics (Script-Generated Context)
 - **Overall Stability**: 0.0%
@@ -3368,8 +3288,6 @@ No description available
 ### Date: 2026-04-10
 
 ### Synthesis Summary
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/existing/synthesis-summary.md" rel="noopener">View source: <code>existing/synthesis-summary.md</code></a></p>
 
 ### 📋 Synthesis Context
 
@@ -3423,42 +3341,14 @@ No description available
 - Threat-heavy SWOT balance — narrative may benefit from opportunity framing.
 - 19 analysis files processed — consider multi-article output.
 
-### Agent Risk Workflow
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/risk-scoring/agent-risk-workflow.md" rel="noopener">View source: <code>risk-scoring/agent-risk-workflow.md</code></a></p>
-
-### Risk Heat Map
-
-| Impact ↓ / Likelihood → | Rare | Unlikely | Possible | Likely | Almost Certain |
-|--------------------------|------|----------|----------|--------|----------------|
-| **Severe** | 🟢 | 🟡 | 🟠 | 🟠 | 🔴 |
-| **Major** | 🟢 | 🟡 | 🟡 | 🟠 | 🔴 |
-| **Moderate** | 🟢 | 🟢 | 🟡 | 🟠 | 🟠 |
-| **Minor** | 🟢 | 🟢 | 🟢 | 🟡 | 🟡 |
-| **Negligible** | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 |
-
-### Identified Risks
-
-#### RISK-W01: Legislative backlog risk
-- **Likelihood**: possible (0.5) | **Impact**: moderate (3) | **Score**: 1.5 (MEDIUM) | **Confidence**: medium
-- **Evidence**: 13 active procedures
-- **Mitigating Factors**: Committee oversight
-
-### Risk Evaluation Matrix
-
-| Rank | Risk ID | Description | Score | Level | Confidence |
-|------|---------|-------------|-------|-------|------------|
-| 1 | RISK-W01 | Legislative backlog risk | 1.5 | MEDIUM | medium |
-
-### Risk Treatment Plan
-
-- Monitor legislative velocity indicators
-- Track coalition voting patterns
-
-### Recommendations
-
-- Monitor legislative velocity indicators
-- Track coalition voting patterns
+> **Provenance & Audit**
+>
+> - **Article type:** `propositions`
+> - **Run date:** 2026-04-10
+> - **Run id:** `b09ab207-720b-4834-9df1-c8e93e955959`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-10/propositions-2](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-10/propositions-2)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 
@@ -3549,12 +3439,14 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-actors-forces | [actor-mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/classification/actor-mapping.md) | `classification/actor-mapping.md` |
 | section-actors-forces | [forces-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/classification/forces-analysis.md) | `classification/forces-analysis.md` |
 | section-actors-forces | [impact-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/classification/impact-matrix.md) | `classification/impact-matrix.md` |
+| section-actors-forces | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-coalitions-voting | [voting-patterns](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/existing/voting-patterns.md) | `existing/voting-patterns.md` |
 | section-stakeholder-map | [stakeholder-impact](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/existing/stakeholder-impact.md) | `existing/stakeholder-impact.md` |
 | section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/risk-scoring/risk-matrix.md) | `risk-scoring/risk-matrix.md` |
 | section-risk | [quantitative-swot](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/risk-scoring/quantitative-swot.md) | `risk-scoring/quantitative-swot.md` |
 | section-risk | [political-capital-risk](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/risk-scoring/political-capital-risk.md) | `risk-scoring/political-capital-risk.md` |
 | section-risk | [legislative-velocity-risk](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/risk-scoring/legislative-velocity-risk.md) | `risk-scoring/legislative-velocity-risk.md` |
+| section-risk | [agent-risk-workflow](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/risk-scoring/agent-risk-workflow.md) | `risk-scoring/agent-risk-workflow.md` |
 | section-threat | [actor-threat-profiling](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/threat-assessment/actor-threat-profiling.md) | `threat-assessment/actor-threat-profiling.md` |
 | section-threat | [consequence-trees](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/threat-assessment/consequence-trees.md) | `threat-assessment/consequence-trees.md` |
 | section-threat | [legislative-disruption](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/threat-assessment/legislative-disruption.md) | `threat-assessment/legislative-disruption.md` |
@@ -3595,8 +3487,6 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-documents | [procedures-2026-0078-cod-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/procedures-2026-0078-cod-analysis.md) | `documents/procedures-2026-0078-cod-analysis.md` |
 | section-documents | [procedures-2026-0084-cod-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/procedures-2026-0084-cod-analysis.md) | `documents/procedures-2026-0084-cod-analysis.md` |
 | section-documents | [procedures-2026-0085-cod-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/documents/procedures-2026-0085-cod-analysis.md) | `documents/procedures-2026-0085-cod-analysis.md` |
-| section-supplementary-intelligence | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-supplementary-intelligence | [coalition-dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/existing/coalition-dynamics.md) | `existing/coalition-dynamics.md` |
 | section-supplementary-intelligence | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/existing/synthesis-summary.md) | `existing/synthesis-summary.md` |
-| section-supplementary-intelligence | [agent-risk-workflow](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/risk-scoring/agent-risk-workflow.md) | `risk-scoring/agent-risk-workflow.md` |
 

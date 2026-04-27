@@ -11,17 +11,6 @@ layout: article
 ---
 # Month In Review — 2026-04-19
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `month-in-review`
-> - **Run date:** 2026-04-19
-> - **Run id:** `b391cced-d8f0-4d03-9c19-ec9478557ec6`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-19/month-in-review-run5](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-19/month-in-review-run5)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -36,8 +25,6 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/intelligence/synthesis-summary.md" rel="noopener">View source: <code>intelligence/synthesis-summary.md</code></a></p>
 
 ### Executive Synthesis
 
@@ -133,8 +120,6 @@ The April 19 synthesis is a mid-transition snapshot; re-baseline after April 30.
 <h2 id="section-significance">Significance</h2>
 
 ### Significance Scoring
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/intelligence/significance-scoring.md" rel="noopener">View source: <code>intelligence/significance-scoring.md</code></a></p>
 
 ### articleType: month-in-review | runId: 5 | date: 2026-04-19
 **Framework**: Multi-Dimensional Significance Matrix (Legal Scope × Affected Population × Economic Stakes × Implementation Complexity × Political Salience = Composite)
@@ -247,11 +232,136 @@ The Nikos Pappas immunity waiver scores lowest because it affects one individual
 - Trade text urgency confirmed by `analysis/daily/2026-04-17/breaking-run179/intelligence/synthesis-summary.md` (trade countermeasure activation T+1 on April 15)
 - AI simplification political dynamics from `analysis/daily/2026-04-12/breaking-run163/intelligence/synthesis-summary.md`
 
+<h2 id="section-actors-forces">Actors & Forces</h2>
+
+### Political Classification
+
+### articleType: month-in-review | runId: 5 | date: 2026-04-19
+**Framework**: Multi-Axis Political Classification per `political-classification-guide.md`
+**Confidence**: 🟡 MEDIUM (6 of 18 texts have content pending; classification based on metadata and analogous legislation)
+
+---
+
+### Classification Methodology
+
+Each adopted text is classified across seven standardised axes derived from the Political Classification Guide:
+
+1. **Policy Domain**: Primary policy area (Economic, Justice, Trade, Digital, Environment, Institutional, External)
+2. **Ideological Lean**: Left–Centre–Right positioning of the text's policy direction
+3. **Integration Depth**: Minimal (coordination) | Shared (common rules) | Federal (supranational enforcement)
+4. **Regulatory Direction**: Regulatory (new rules) | Deregulatory (reduced burden) | Procedural (process reform)
+5. **Winner Groups**: Political groups and stakeholders who benefit
+6. **Loser Groups**: Political groups and stakeholders who bear costs
+7. **Treaty Basis**: Primary legal base (TFEU article)
+
+---
+
+### Full Classification Table
+
+| Text ID | Subject | Policy Domain | Ideological Lean | Integration Depth | Reg. Direction | Winner Groups | Loser Groups | Treaty Basis |
+|---------|---------|:-------------:|:----------------:|:-----------------:|:--------------:|:-------------:|:------------:|:------------:|
+| TA-10-2026-0087 | Braun Immunity (1) | Institutional | Neutral | Minimal | Procedural | Rule-of-law bloc | Far-right | Art. 9 Protocol 7 |
+| TA-10-2026-0088 | Braun Immunity (2) | Institutional | Neutral | Minimal | Procedural | Rule-of-law bloc | Far-right | Art. 9 Protocol 7 |
+| TA-10-2026-0089 | Pappas Immunity | Institutional | Neutral | Minimal | Procedural | Greek judiciary | NI faction | Art. 9 Protocol 7 |
+| TA-10-2026-0090 | DGSD2 | Economic/Financial | Centre | Federal | Regulatory | Depositors, ECB | Under-capitalised banks | Art. 114 TFEU |
+| TA-10-2026-0091 | BRRD3 | Economic/Financial | Centre-right | Federal | Regulatory | Banking system, ECB, SRB | Bondholders (bail-in), weak banks | Art. 114 TFEU |
+| TA-10-2026-0092 | SRMR3 | Economic/Financial | Centre | Federal | Regulatory | SRB, systemically important banks | National resolution authorities | Art. 114 TFEU |
+| TA-10-2026-0093 | Water Pollutants | Environmental | Centre-left | Shared | Regulatory | Citizens (health), ENV NGOs | Chemical industry, agriculture | Art. 192 TFEU |
+| TA-10-2026-0094 | Anti-Corruption | Justice/Home Affairs | Centre-left | Federal | Regulatory | EPPO, TI, citizens | Corrupt networks, Hungary/Romania govts | Art. 83(2) TFEU |
+| TA-10-2026-0095 | CSAM Extension | Justice/Digital | Centre (contested) | Shared | Regulatory | Child protection NGOs, law enforcement | Tech platforms, digital rights orgs | Art. 114 TFEU |
+| TA-10-2026-0096 | Trade Safeguard Simplification | Trade | Centre-right | Shared | Deregulatory | EU exporters, Commission | Third-country dumpers | Art. 207 TFEU |
+| TA-10-2026-0097 | US Tariff Exemptions | Trade | Centre-right | Shared | Deregulatory | EU importers, auto/pharma sector | US tariff-imposing industries | Art. 207 TFEU |
+| TA-10-2026-0098 | AI Governance Simplification | Digital | Right-of-centre | Shared | Deregulatory | AI companies, BusinessEurope | Civil society (rights erosion risk) | Art. 114 TFEU |
+| TA-10-2026-0099 | (Content pending) | Unknown* | Unknown* | Unknown* | Unknown* | Unknown* | Unknown* | Unknown* |
+| TA-10-2026-0100 | (Content pending) | Unknown* | Unknown* | Unknown* | Unknown* | Unknown* | Unknown* | Unknown* |
+| TA-10-2026-0101 | EU-China TRQ | Trade/External | Centre | Shared | Deregulatory | EU agricultural importers, China | EU domestic producers (wine, dairy) | Art. 207 TFEU |
+| TA-10-2026-0102 | (Content pending) | Unknown* | Unknown* | Unknown* | Unknown* | Unknown* | Unknown* | Unknown* |
+| TA-10-2026-0103 | (Content pending) | Unknown* | Unknown* | Unknown* | Unknown* | Unknown* | Unknown* | Unknown* |
+| TA-10-2026-0104 | Global Gateway Review | External Relations | Centre-left | Shared | Procedural | Commission (DG INTPA), developing countries | None directly | Art. 209 TFEU |
+
+*Six texts with pending content cannot be classified. Provisional estimates available upon Tier 3 API restoration.*
+
+---
+
+### Domain Distribution Analysis
+
+The March 26 session's policy domain distribution reveals EP10's priorities at mid-term:
+
+| Policy Domain | Count | % of 18 | Key Characteristic |
+|:-------------:|:-----:|:-------:|:-------------------|
+| Economic/Financial | 3 | 17% | Banking Union completion — structural reform |
+| Trade | 3 | 17% | Dual-track trade autonomy (US + China) |
+| Justice/Home Affairs | 2 | 11% | Anti-corruption + CSAM — rights-based legislation |
+| Institutional | 3 | 17% | Immunity waivers — rule-of-law enforcement |
+| Digital | 1 | 6% | AI simplification — competitiveness pivot |
+| Environmental | 1 | 6% | Water quality — incremental progress |
+| External Relations | 1 | 6% | Global Gateway — soft power diplomacy |
+| Unknown (pending) | 4 | 22% | Content unavailable |
+
+**Analytical observation**: The March 26 session was deliberately balanced across policy domains. No single domain dominates, reflecting the coalition management strategy of offering each political group "their" policy area within the package. This cross-domain balance is unusual for EP mini-plenaries, which typically concentrate on 1-2 domains.
+
+---
+
+### Integration Depth Assessment
+
+| Integration Level | Count | % | Interpretation |
+|:-----------------:|:-----:|:-:|:---------------|
+| Federal (supranational enforcement) | 4 | 33% | Banking Union + Anti-Corruption: strongest EU competence extension |
+| Shared (common rules, national implementation) | 5 | 42% | Trade, digital, environment: harmonisation without centralisation |
+| Minimal (coordination only) | 3 | 25% | Immunity waivers: procedural, no competence shift |
+
+**Key finding**: One-third of the classified March 26 texts advance EU integration to "federal" depth — the most integrationist outcome in a single session during EP10. The Banking Union triple and Anti-Corruption Directive collectively represent the EU taking on binding enforcement powers that were previously national competences. This is constitutionally significant: Article 83(2) TFEU criminal law harmonisation (Anti-Corruption) and Article 114 financial stability harmonisation (Banking Union) are the two most politically charged EU treaty bases.
+
+---
+
+### Regulatory Direction Pattern
+
+| Direction | Count | % | Political Signal |
+|:---------:|:-----:|:-:|:----------------|
+| Regulatory (new rules/standards) | 6 | 50% | EP10 is still primarily a regulatory legislature |
+| Deregulatory (burden reduction) | 4 | 33% | Competitiveness pivot gaining traction |
+| Procedural (process reform) | 2 | 17% | Immunity waivers, Global Gateway review |
+
+**Political interpretation**: The 50/33 regulatory-to-deregulatory ratio represents a significant shift from EP9 (where the ratio was approximately 75/15/10). The inclusion of four deregulatory texts in a single session reflects the Draghi Report's influence on EP10 legislative priorities — the "competitiveness" agenda is now producing tangible legislative output rather than merely influencing rhetoric. EPP and Renew Europe are the primary political drivers of the deregulatory texts (AI simplification, trade procedural streamlining), while S&D and Greens anchor the regulatory side (anti-corruption, water quality, CSAM).
+
+---
+
+### Winner-Loser Matrix
+
+#### Consistent Winners (3+ texts benefiting)
+- **European Commission**: 5 texts expand Commission competences or flexibility (trade, banking, Global Gateway)
+- **EPP-aligned business community**: 4 texts reduce compliance (AI, trade) or stabilise markets (banking)
+- **EU citizens (structural protection)**: 4 texts enhance rights or safety (anti-corruption, deposit guarantee, water, CSAM)
+
+#### Consistent Losers (3+ texts imposing costs)
+- **Under-regulated national actors**: 3 texts reduce national discretion (banking, anti-corruption, water)
+- **Far-right/populist bloc**: 3 texts directly challenge their interests (immunity waivers, anti-corruption)
+- **Tech platforms (mixed)**: AI simplification benefits, CSAM extension burdens — net neutral with regulatory uncertainty
+
+---
+
+### EP10 Legislative Trajectory
+
+The March 26 session marks the 114th through approximately 131st legislative acts of EP10 (2024-present). The classification pattern shows an acceleration in "federal-depth" legislation compared to EP10's first year (July 2024 – March 2025), where most legislation was "shared" depth. This deepening reflects the mid-term window: with 2.5 years remaining before the 2029 elections, EP10 is using its stable coalition to advance constitutionally significant texts that would be politically difficult in the pre-election period (2028-2029).
+
+Cross-reference: `analysis/daily/2026-04-19/month-ahead-run5/classification/political-classification.md` classifies the same legislative package from a forward-looking perspective (implementation challenges), while this file classifies from a retrospective adoption perspective.
+
+---
+
+### Confidence Assessment
+
+| Classification Axis | Confidence | Notes |
+|:------------------:|:----------:|:------|
+| Policy Domain | 🟢 HIGH | Domain assignment clear from text titles |
+| Ideological Lean | 🟡 MEDIUM | Some texts are genuinely cross-ideological |
+| Integration Depth | 🟢 HIGH | Treaty basis clearly determines depth |
+| Regulatory Direction | 🟢 HIGH | Text objectives well-documented |
+| Winner/Loser Groups | 🟡 MEDIUM | Stakeholder impact partially inferred |
+| Treaty Basis | 🟡 MEDIUM | Some texts may have multiple legal bases |
+
 <h2 id="section-coalitions-voting">Coalitions & Voting</h2>
 
 ### Coalition Dynamics
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/intelligence/coalition-dynamics.md" rel="noopener">View source: <code>intelligence/coalition-dynamics.md</code></a></p>
 
 ### articleType: month-in-review | runId: 5 | date: 2026-04-19
 **Framework**: Coalition Pair Analysis + Seat Arithmetic + Cohesion Scoring
@@ -446,8 +556,6 @@ Patriots for Europe's near-universal opposition serves electoral communication p
 
 <h2 id="section-stakeholder-map">Stakeholder Map</h2>
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/intelligence/stakeholder-map.md" rel="noopener">View source: <code>intelligence/stakeholder-map.md</code></a></p>
-
 ### Mendelow Grid Analysis
 
 #### High Power / High Interest
@@ -543,8 +651,6 @@ Stakeholder positions will re-settle after April 27–30 Strasbourg; refresh mid
 
 ### Pestle Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/intelligence/pestle-analysis.md" rel="noopener">View source: <code>intelligence/pestle-analysis.md</code></a></p>
-
 ### Political Factors
 
 **Coalition Arithmetic**: EP10's five-party working majority (EPP 185 + S&D 135 + Renew Europe 77 + Greens/EFA 53 + Left 46 = 496/720 seats) provides structural stability but requires issue-specific management. The March 26 package used pre-recess urgency to align divergent group priorities — EPP's banking stability focus, S&D's anti-corruption leadership, Renew Europe's AI simplification demand, Greens/EFA's child protection mandate.
@@ -638,8 +744,6 @@ Second, the Political-Economic-Legal triple dominates the intelligence picture f
 Third, the next PESTLE refresh should incorporate post-recess evidence and specifically update the Political dimension with April 27–30 plenary data points.
 
 ### Historical Baseline
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/intelligence/historical-baseline.md" rel="noopener">View source: <code>intelligence/historical-baseline.md</code></a></p>
 
 ### Legislative Productivity Baseline (EP6–EP10)
 
@@ -757,8 +861,6 @@ Additional data point: the pre-election year cohesion erosion historical pattern
 
 <h2 id="section-economic-context">Economic Context</h2>
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/intelligence/economic-context.md" rel="noopener">View source: <code>intelligence/economic-context.md</code></a></p>
-
 ### World Bank Economic Data Integration
 
 #### Germany (Key Affected Economy)
@@ -868,8 +970,6 @@ Third, the trade-countermeasure overlay creates a dynamic economic environment w
 
 ### Threat Model
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/intelligence/threat-model.md" rel="noopener">View source: <code>intelligence/threat-model.md</code></a></p>
-
 ### Threat Taxonomy
 
 #### Tier 1 — Systemic Threats (High Impact, Possible)
@@ -975,8 +1075,6 @@ Three composite threat-model observations close this artifact. First, the enforc
 
 ### Scenario Forecast
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/intelligence/scenario-forecast.md" rel="noopener">View source: <code>intelligence/scenario-forecast.md</code></a></p>
-
 ### Baseline Scenario: Continued Legislative Sprint (Probability: Likely ~65%)
 
 **Conditions**: Coalition arithmetic holds. EPP and S&D continue transactional cooperation. Renew Europe and Greens/EFA provide issue-specific support. No major external shock.
@@ -1069,8 +1167,6 @@ Sensitivity analysis on the Base Case probability (0.55) shows the estimate is m
 Scenario probabilities carry a 11-day shelf life; re-forecast after April 30 plenary.
 
 ### Wildcards Blackswans
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/intelligence/wildcards-blackswans.md" rel="noopener">View source: <code>intelligence/wildcards-blackswans.md</code></a></p>
 
 ### Schwartz Scenario Planning — Extreme Tails
 
@@ -1168,8 +1264,6 @@ Third, monitoring infrastructure for wildcards is weaker than for base-case scen
 <h2 id="section-continuity">Cross-Run Continuity</h2>
 
 ### Cross Run Diff
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/intelligence/cross-run-diff.md" rel="noopener">View source: <code>intelligence/cross-run-diff.md</code></a></p>
 
 ### articleType: month-in-review | runId: 5 | date: 2026-04-19
 **Framework**: Hypothesis Evolution Tracking + Forecast Validation + Artifact Coverage Delta
@@ -1307,8 +1401,6 @@ This cross-run differential analysis carries 🟢 HIGH confidence because it is 
 
 ### Document Analysis Index
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/documents/document-analysis-index.md" rel="noopener">View source: <code>documents/document-analysis-index.md</code></a></p>
-
 ### articleType: month-in-review | runId: 5 | date: 2026-04-19
 **Framework**: Per-Text Document Intelligence Register
 **Confidence**: 🟡 MEDIUM (6 of 18 texts have content pending; metadata confirmed for all 18)
@@ -1440,8 +1532,6 @@ Known rapporteurs for this session:
 | Vote tallies | 🔴 LOW | Roll-call data not yet published (expected May 2026) |
 
 <h2 id="section-mcp-reliability">MCP Reliability Audit</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/intelligence/mcp-reliability-audit.md" rel="noopener">View source: <code>intelligence/mcp-reliability-audit.md</code></a></p>
 
 ### articleType: month-in-review | runId: 5 | date: 2026-04-19
 **Framework**: Data Source Validation + Confidence Adjustment + Gap Analysis
@@ -1614,138 +1704,9 @@ Based on the data source audit above, the following confidence adjustments were 
 - Previous audits: `analysis/daily/2026-04-18/breaking-run185/intelligence/mcp-reliability-audit.md` (confirms degraded state unchanged over 24h)
 - World Bank stability confirmed across all daily runs April 1-19 (zero failures documented)
 
-<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
-
-### Political Classification
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/classification/political-classification.md" rel="noopener">View source: <code>classification/political-classification.md</code></a></p>
-
-### articleType: month-in-review | runId: 5 | date: 2026-04-19
-**Framework**: Multi-Axis Political Classification per `political-classification-guide.md`
-**Confidence**: 🟡 MEDIUM (6 of 18 texts have content pending; classification based on metadata and analogous legislation)
-
----
-
-### Classification Methodology
-
-Each adopted text is classified across seven standardised axes derived from the Political Classification Guide:
-
-1. **Policy Domain**: Primary policy area (Economic, Justice, Trade, Digital, Environment, Institutional, External)
-2. **Ideological Lean**: Left–Centre–Right positioning of the text's policy direction
-3. **Integration Depth**: Minimal (coordination) | Shared (common rules) | Federal (supranational enforcement)
-4. **Regulatory Direction**: Regulatory (new rules) | Deregulatory (reduced burden) | Procedural (process reform)
-5. **Winner Groups**: Political groups and stakeholders who benefit
-6. **Loser Groups**: Political groups and stakeholders who bear costs
-7. **Treaty Basis**: Primary legal base (TFEU article)
-
----
-
-### Full Classification Table
-
-| Text ID | Subject | Policy Domain | Ideological Lean | Integration Depth | Reg. Direction | Winner Groups | Loser Groups | Treaty Basis |
-|---------|---------|:-------------:|:----------------:|:-----------------:|:--------------:|:-------------:|:------------:|:------------:|
-| TA-10-2026-0087 | Braun Immunity (1) | Institutional | Neutral | Minimal | Procedural | Rule-of-law bloc | Far-right | Art. 9 Protocol 7 |
-| TA-10-2026-0088 | Braun Immunity (2) | Institutional | Neutral | Minimal | Procedural | Rule-of-law bloc | Far-right | Art. 9 Protocol 7 |
-| TA-10-2026-0089 | Pappas Immunity | Institutional | Neutral | Minimal | Procedural | Greek judiciary | NI faction | Art. 9 Protocol 7 |
-| TA-10-2026-0090 | DGSD2 | Economic/Financial | Centre | Federal | Regulatory | Depositors, ECB | Under-capitalised banks | Art. 114 TFEU |
-| TA-10-2026-0091 | BRRD3 | Economic/Financial | Centre-right | Federal | Regulatory | Banking system, ECB, SRB | Bondholders (bail-in), weak banks | Art. 114 TFEU |
-| TA-10-2026-0092 | SRMR3 | Economic/Financial | Centre | Federal | Regulatory | SRB, systemically important banks | National resolution authorities | Art. 114 TFEU |
-| TA-10-2026-0093 | Water Pollutants | Environmental | Centre-left | Shared | Regulatory | Citizens (health), ENV NGOs | Chemical industry, agriculture | Art. 192 TFEU |
-| TA-10-2026-0094 | Anti-Corruption | Justice/Home Affairs | Centre-left | Federal | Regulatory | EPPO, TI, citizens | Corrupt networks, Hungary/Romania govts | Art. 83(2) TFEU |
-| TA-10-2026-0095 | CSAM Extension | Justice/Digital | Centre (contested) | Shared | Regulatory | Child protection NGOs, law enforcement | Tech platforms, digital rights orgs | Art. 114 TFEU |
-| TA-10-2026-0096 | Trade Safeguard Simplification | Trade | Centre-right | Shared | Deregulatory | EU exporters, Commission | Third-country dumpers | Art. 207 TFEU |
-| TA-10-2026-0097 | US Tariff Exemptions | Trade | Centre-right | Shared | Deregulatory | EU importers, auto/pharma sector | US tariff-imposing industries | Art. 207 TFEU |
-| TA-10-2026-0098 | AI Governance Simplification | Digital | Right-of-centre | Shared | Deregulatory | AI companies, BusinessEurope | Civil society (rights erosion risk) | Art. 114 TFEU |
-| TA-10-2026-0099 | (Content pending) | Unknown* | Unknown* | Unknown* | Unknown* | Unknown* | Unknown* | Unknown* |
-| TA-10-2026-0100 | (Content pending) | Unknown* | Unknown* | Unknown* | Unknown* | Unknown* | Unknown* | Unknown* |
-| TA-10-2026-0101 | EU-China TRQ | Trade/External | Centre | Shared | Deregulatory | EU agricultural importers, China | EU domestic producers (wine, dairy) | Art. 207 TFEU |
-| TA-10-2026-0102 | (Content pending) | Unknown* | Unknown* | Unknown* | Unknown* | Unknown* | Unknown* | Unknown* |
-| TA-10-2026-0103 | (Content pending) | Unknown* | Unknown* | Unknown* | Unknown* | Unknown* | Unknown* | Unknown* |
-| TA-10-2026-0104 | Global Gateway Review | External Relations | Centre-left | Shared | Procedural | Commission (DG INTPA), developing countries | None directly | Art. 209 TFEU |
-
-*Six texts with pending content cannot be classified. Provisional estimates available upon Tier 3 API restoration.*
-
----
-
-### Domain Distribution Analysis
-
-The March 26 session's policy domain distribution reveals EP10's priorities at mid-term:
-
-| Policy Domain | Count | % of 18 | Key Characteristic |
-|:-------------:|:-----:|:-------:|:-------------------|
-| Economic/Financial | 3 | 17% | Banking Union completion — structural reform |
-| Trade | 3 | 17% | Dual-track trade autonomy (US + China) |
-| Justice/Home Affairs | 2 | 11% | Anti-corruption + CSAM — rights-based legislation |
-| Institutional | 3 | 17% | Immunity waivers — rule-of-law enforcement |
-| Digital | 1 | 6% | AI simplification — competitiveness pivot |
-| Environmental | 1 | 6% | Water quality — incremental progress |
-| External Relations | 1 | 6% | Global Gateway — soft power diplomacy |
-| Unknown (pending) | 4 | 22% | Content unavailable |
-
-**Analytical observation**: The March 26 session was deliberately balanced across policy domains. No single domain dominates, reflecting the coalition management strategy of offering each political group "their" policy area within the package. This cross-domain balance is unusual for EP mini-plenaries, which typically concentrate on 1-2 domains.
-
----
-
-### Integration Depth Assessment
-
-| Integration Level | Count | % | Interpretation |
-|:-----------------:|:-----:|:-:|:---------------|
-| Federal (supranational enforcement) | 4 | 33% | Banking Union + Anti-Corruption: strongest EU competence extension |
-| Shared (common rules, national implementation) | 5 | 42% | Trade, digital, environment: harmonisation without centralisation |
-| Minimal (coordination only) | 3 | 25% | Immunity waivers: procedural, no competence shift |
-
-**Key finding**: One-third of the classified March 26 texts advance EU integration to "federal" depth — the most integrationist outcome in a single session during EP10. The Banking Union triple and Anti-Corruption Directive collectively represent the EU taking on binding enforcement powers that were previously national competences. This is constitutionally significant: Article 83(2) TFEU criminal law harmonisation (Anti-Corruption) and Article 114 financial stability harmonisation (Banking Union) are the two most politically charged EU treaty bases.
-
----
-
-### Regulatory Direction Pattern
-
-| Direction | Count | % | Political Signal |
-|:---------:|:-----:|:-:|:----------------|
-| Regulatory (new rules/standards) | 6 | 50% | EP10 is still primarily a regulatory legislature |
-| Deregulatory (burden reduction) | 4 | 33% | Competitiveness pivot gaining traction |
-| Procedural (process reform) | 2 | 17% | Immunity waivers, Global Gateway review |
-
-**Political interpretation**: The 50/33 regulatory-to-deregulatory ratio represents a significant shift from EP9 (where the ratio was approximately 75/15/10). The inclusion of four deregulatory texts in a single session reflects the Draghi Report's influence on EP10 legislative priorities — the "competitiveness" agenda is now producing tangible legislative output rather than merely influencing rhetoric. EPP and Renew Europe are the primary political drivers of the deregulatory texts (AI simplification, trade procedural streamlining), while S&D and Greens anchor the regulatory side (anti-corruption, water quality, CSAM).
-
----
-
-### Winner-Loser Matrix
-
-#### Consistent Winners (3+ texts benefiting)
-- **European Commission**: 5 texts expand Commission competences or flexibility (trade, banking, Global Gateway)
-- **EPP-aligned business community**: 4 texts reduce compliance (AI, trade) or stabilise markets (banking)
-- **EU citizens (structural protection)**: 4 texts enhance rights or safety (anti-corruption, deposit guarantee, water, CSAM)
-
-#### Consistent Losers (3+ texts imposing costs)
-- **Under-regulated national actors**: 3 texts reduce national discretion (banking, anti-corruption, water)
-- **Far-right/populist bloc**: 3 texts directly challenge their interests (immunity waivers, anti-corruption)
-- **Tech platforms (mixed)**: AI simplification benefits, CSAM extension burdens — net neutral with regulatory uncertainty
-
----
-
-### EP10 Legislative Trajectory
-
-The March 26 session marks the 114th through approximately 131st legislative acts of EP10 (2024-present). The classification pattern shows an acceleration in "federal-depth" legislation compared to EP10's first year (July 2024 – March 2025), where most legislation was "shared" depth. This deepening reflects the mid-term window: with 2.5 years remaining before the 2029 elections, EP10 is using its stable coalition to advance constitutionally significant texts that would be politically difficult in the pre-election period (2028-2029).
-
-Cross-reference: `analysis/daily/2026-04-19/month-ahead-run5/classification/political-classification.md` classifies the same legislative package from a forward-looking perspective (implementation challenges), while this file classifies from a retrospective adoption perspective.
-
----
-
-### Confidence Assessment
-
-| Classification Axis | Confidence | Notes |
-|:------------------:|:----------:|:------|
-| Policy Domain | 🟢 HIGH | Domain assignment clear from text titles |
-| Ideological Lean | 🟡 MEDIUM | Some texts are genuinely cross-ideological |
-| Integration Depth | 🟢 HIGH | Treaty basis clearly determines depth |
-| Regulatory Direction | 🟢 HIGH | Text objectives well-documented |
-| Winner/Loser Groups | 🟡 MEDIUM | Stakeholder impact partially inferred |
-| Treaty Basis | 🟡 MEDIUM | Some texts may have multiple legal bases |
+<h2 id="section-quality-reflection">Analytical Quality & Reflection</h2>
 
 ### Analysis Index
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/intelligence/analysis-index.md" rel="noopener">View source: <code>intelligence/analysis-index.md</code></a></p>
 
 ### April 2026 — Run 5 (2026-04-19)
 
@@ -1842,9 +1803,9 @@ The month-in-review artifacts integrate intelligence from the following upstream
 
 Three data-quality observations govern consumption of this run. First, the EP API operated in degraded mode throughout the period with seven documented defects (detailed in `intelligence/mcp-reliability-audit.md`); vote-tally precision should be read as ±2 MEPs and cohesion scores as ±0.03. Second, the April 14–26 Easter recess produced a legitimate data sparsity window — absence of activity during these dates is a feature of the parliamentary calendar, not a data-loss event. Third, Commission-side activity (including the April 15 trade countermeasure activation) is captured from Commission press releases rather than EP API streams; consumers requiring audit-grade traceability should confirm Commission artifacts against `https://ec.europa.eu/commission/presscorner` for the April 15 dateline.
 
-### Cross Daily Synthesis
+<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/intelligence/cross-daily-synthesis.md" rel="noopener">View source: <code>intelligence/cross-daily-synthesis.md</code></a></p>
+### Cross Daily Synthesis
 
 ### articleType: month-in-review | runId: 5 | date: 2026-04-19
 **Framework**: Chronological Event Synthesis from Daily Analysis Artifacts
@@ -2030,8 +1991,6 @@ This pattern — the "sprint-before-recess" model — has been identified as str
 This cross-daily synthesis carries 🟢 HIGH confidence because it reconstructs events from documented internal analysis artifacts. The main uncertainty is in Phase 1 (committee stage), where some dates are inferred from standard EP procedural timelines rather than direct observation. Phase 4-5 events are confirmed by multiple independent daily analysis runs.
 
 ### Deep Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/intelligence/deep-analysis.md" rel="noopener">View source: <code>intelligence/deep-analysis.md</code></a></p>
 
 ### articleType: month-in-review | runId: 5 | date: 2026-04-19
 **Confidence**: 🟢 HIGH | **Analyst**: AI News Agent | **Methodology**: Multi-framework political intelligence
@@ -2242,8 +2201,6 @@ Additional closing observation: the deep-analysis layer at 191+ lines in this ru
 
 ### Quantitative Swot
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/risk/quantitative-swot.md" rel="noopener">View source: <code>risk/quantitative-swot.md</code></a></p>
-
 ### articleType: month-in-review | runId: 5 | date: 2026-04-19
 **Framework**: Evidence-Based SWOT with Likelihood × Impact × Time-Horizon Scoring
 **Confidence**: 🟡 MEDIUM (forward-looking assessments carry inherent uncertainty)
@@ -2400,8 +2357,6 @@ quadrantChart
 
 ### Risk Matrix
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/risk/risk-matrix.md" rel="noopener">View source: <code>risk/risk-matrix.md</code></a></p>
-
 ### articleType: month-in-review | runId: 5 | date: 2026-04-19
 **Framework**: Likelihood × Impact 5×5 Matrix | CIA-style Confidence Ratings
 
@@ -2495,8 +2450,6 @@ Second, the elevation is concentrated in the external-context dimensions (econom
 Third, the next risk-matrix refresh should occur immediately after the April 27–30 Strasbourg plenary to re-baseline the composite with post-recess evidence.
 
 ### Stakeholder Impact
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/synthesis/stakeholder-impact.md" rel="noopener">View source: <code>synthesis/stakeholder-impact.md</code></a></p>
 
 ### articleType: month-in-review | runId: 5 | date: 2026-04-19
 **Framework**: 6-Lens Political Intelligence Stakeholder Model
@@ -2634,8 +2587,6 @@ Third, the stakeholder map should be refreshed after April 27–30 Strasbourg pl
 
 ### Swot Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/synthesis/swot-analysis.md" rel="noopener">View source: <code>synthesis/swot-analysis.md</code></a></p>
-
 ### articleType: month-in-review | runId: 5 | date: 2026-04-19
 **Framework**: Evidence-Based SWOT with CIA-Style Confidence Ratings
 
@@ -2742,8 +2693,6 @@ Third, the next SWOT refresh should occur after the April 27–30 Strasbourg ple
 
 ### Synthesis Summary
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/synthesis/synthesis-summary.md" rel="noopener">View source: <code>synthesis/synthesis-summary.md</code></a></p>
-
 ### articleType: month-in-review | runId: 5 | date: 2026-04-19
 **Synthesis of all analysis artifacts**
 
@@ -2834,6 +2783,15 @@ Three confidence observations. First, confidence is highest where claims are anc
 
 The April 19 synthesis vantage point sits five days into Easter recess and eight days before the post-recess plenary. This transitional moment carries specific interpretive constraints: ongoing Commission action (April 15 trade countermeasures) is unchecked by parliamentary response, national-capital political signals dominate over EP-level signals, and the synthesis is therefore a snapshot of an in-motion system rather than a stable-state description. Consumers should re-baseline this synthesis after the April 27–30 Strasbourg plenary re-establishes EP-level signal flow.
 
+> **Provenance & Audit**
+>
+> - **Article type:** `month-in-review`
+> - **Run date:** 2026-04-19
+> - **Run id:** `b391cced-d8f0-4d03-9c19-ec9478557ec6`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-19/month-in-review-run5](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-19/month-in-review-run5)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/manifest.json)
+
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 
 This article is produced under the [Hack23 AB](https://hack23.com) intelligence tradecraft library. Every methodology and artifact template applied to this run is linked below.
@@ -2921,6 +2879,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 |---|---|---|
 | section-synthesis | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/intelligence/synthesis-summary.md) | `intelligence/synthesis-summary.md` |
 | section-significance | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/intelligence/significance-scoring.md) | `intelligence/significance-scoring.md` |
+| section-actors-forces | [political-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/classification/political-classification.md) | `classification/political-classification.md` |
 | section-coalitions-voting | [coalition-dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/intelligence/coalition-dynamics.md) | `intelligence/coalition-dynamics.md` |
 | section-stakeholder-map | [stakeholder-map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/intelligence/stakeholder-map.md) | `intelligence/stakeholder-map.md` |
 | section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
@@ -2932,8 +2891,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-continuity | [cross-run-diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/intelligence/cross-run-diff.md) | `intelligence/cross-run-diff.md` |
 | section-documents | [document-analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/documents/document-analysis-index.md) | `documents/document-analysis-index.md` |
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
-| section-supplementary-intelligence | [political-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/classification/political-classification.md) | `classification/political-classification.md` |
-| section-supplementary-intelligence | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
+| section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-supplementary-intelligence | [cross-daily-synthesis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/intelligence/cross-daily-synthesis.md) | `intelligence/cross-daily-synthesis.md` |
 | section-supplementary-intelligence | [deep-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/intelligence/deep-analysis.md) | `intelligence/deep-analysis.md` |
 | section-supplementary-intelligence | [quantitative-swot](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/risk/quantitative-swot.md) | `risk/quantitative-swot.md` |

@@ -11,17 +11,6 @@ layout: article
 ---
 # Motions Runmotions Run 1777010709 — 2026-04-24
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `motions-runmotions-run-1777010709`
-> - **Run date:** 2026-04-24
-> - **Run id:** `394ceb8d-0788-4530-b2ef-4489a56475b4`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-24/motions](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-24/motions)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/motions/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -34,8 +23,6 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/motions/intelligence/synthesis-summary.md" rel="noopener">View source: <code>intelligence/synthesis-summary.md</code></a></p>
 
 + meeting decisions for MTG-PL-2026-03-26, -03-25, -03-12). Admiralty
 grade of source feed: **A-2** (official, usually reliable). Per-MEP
@@ -216,8 +203,6 @@ historical base rates only.
   (the current reference-benchmark run).
 
 <h2 id="section-stakeholder-map">Stakeholder Map</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/motions/intelligence/stakeholder-map.md" rel="noopener">View source: <code>intelligence/stakeholder-map.md</code></a></p>
 
 adopted-texts sample, public committee pages. Where the EP API does
 not expose per-motion rapporteur, the stakeholder-map uses
@@ -424,8 +409,6 @@ quantitative and narrative treatment. Cross-reference mandatory.
 <h2 id="section-pestle-context">PESTLE & Context</h2>
 
 ### Pestle Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/motions/intelligence/pestle-analysis.md" rel="noopener">View source: <code>intelligence/pestle-analysis.md</code></a></p>
 
 Legal, Environmental) applied at the cluster level with per-motion
 call-outs. **Data basis**: `data/adopted-texts-sample.json`,
@@ -664,8 +647,6 @@ implementation reports.
 
 ### Historical Baseline
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/motions/intelligence/historical-baseline.md" rel="noopener">View source: <code>intelligence/historical-baseline.md</code></a></p>
-
 historical clusters to derive base rates for scenario forecasts and
 risk ratings. **Data basis**: EP9 (2019-2024) reference clusters
 plus EP10 2024-2026 continuity.
@@ -811,8 +792,6 @@ the historical record:
   local analysis corpus.
 
 <h2 id="section-economic-context">Economic Context</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/motions/intelligence/economic-context.md" rel="noopener">View source: <code>intelligence/economic-context.md</code></a></p>
 
 during this run (see `mcp-reliability-audit.md` when produced). All
 macroeconomic figures below are drawn from the most recent public
@@ -965,8 +944,6 @@ The 2026-03 cluster is coherent as a response to:
 <h2 id="section-threat">Threat Landscape</h2>
 
 ### Threat Model
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/motions/intelligence/threat-model.md" rel="noopener">View source: <code>intelligence/threat-model.md</code></a></p>
 
 motion cluster is treated as a "process asset" whose confidentiality,
 integrity, and availability are subject to adversarial pressure from
@@ -1136,8 +1113,6 @@ treatment register; this threat model is the analytical source.
 <h2 id="section-scenarios">Scenarios & Wildcards</h2>
 
 ### Scenario Forecast
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/motions/intelligence/scenario-forecast.md" rel="noopener">View source: <code>intelligence/scenario-forecast.md</code></a></p>
 
 T+18 months (2027-10). Every scenario headline uses a WEP band and
 explicit time horizon per `osint-tradecraft-standards.md`.
@@ -1317,8 +1292,6 @@ probability-weighted outcome over T+12 is:
   `intelligence/methodology-reflection.md` §12.
 
 ### Wildcards Blackswans
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/motions/intelligence/wildcards-blackswans.md" rel="noopener">View source: <code>intelligence/wildcards-blackswans.md</code></a></p>
 
 * **Wildcard** — low-probability, high-impact event with a plausible
   generative mechanism anchored in current conditions; WEP ≤ 25%.
@@ -1528,11 +1501,9 @@ execution if the trigger fires. Fuller contingency planning sits in
   ensure that the post-event analytical response is not built from
   scratch.
 
-<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+<h2 id="section-quality-reflection">Analytical Quality & Reflection</h2>
 
 ### Analysis Index
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/motions/intelligence/analysis-index.md" rel="noopener">View source: <code>intelligence/analysis-index.md</code></a></p>
 
 (Stage D runs in paired `news-motions-article.md` on merge).
 
@@ -1668,6 +1639,15 @@ and flags every instance.
 * Track EP roll-call publication for the 2026-03-26 window; expected
   data freshness ~2026-05-20.
 
+> **Provenance & Audit**
+>
+> - **Article type:** `motions-runmotions-run-1777010709`
+> - **Run date:** 2026-04-24
+> - **Run id:** `394ceb8d-0788-4530-b2ef-4489a56475b4`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-24/motions](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-24/motions)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/motions/manifest.json)
+
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 
 This article is produced under the [Hack23 AB](https://hack23.com) intelligence tradecraft library. Every methodology and artifact template applied to this run is linked below.
@@ -1761,5 +1741,5 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-threat | [threat-model](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/motions/intelligence/threat-model.md) | `intelligence/threat-model.md` |
 | section-scenarios | [scenario-forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/motions/intelligence/scenario-forecast.md) | `intelligence/scenario-forecast.md` |
 | section-scenarios | [wildcards-blackswans](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/motions/intelligence/wildcards-blackswans.md) | `intelligence/wildcards-blackswans.md` |
-| section-supplementary-intelligence | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/motions/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
+| section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/motions/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 

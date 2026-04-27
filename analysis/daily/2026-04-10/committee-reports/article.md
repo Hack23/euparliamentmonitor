@@ -11,17 +11,6 @@ layout: article
 ---
 # Committee Reports — 2026-04-10
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `committee-reports`
-> - **Run date:** 2026-04-10
-> - **Run id:** `committee-reports-2026-04-10`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-10/committee-reports](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-10/committee-reports)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/committee-reports/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -30,12 +19,11 @@ Use this guide to read the article as a political-intelligence product rather th
 |---|---|---|
 | [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `classification/significance-classification.md` |
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `existing/stakeholder-impact.md` |
+| [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/political-risk-matrix.md` |
 
 <h2 id="section-significance">Significance</h2>
 
 ### Significance Classification
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/committee-reports/classification/significance-classification.md" rel="noopener">View source: <code>classification/significance-classification.md</code></a></p>
 
 ### Overall Significance: **STRATEGIC PRIORITY**
 
@@ -101,8 +89,6 @@ quadrantChart
 
 ### Stakeholder Impact
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/committee-reports/existing/stakeholder-impact.md" rel="noopener">View source: <code>existing/stakeholder-impact.md</code></a></p>
-
 ### EP Political Groups
 
 #### EPP (188 seats)
@@ -149,11 +135,76 @@ Depositor protection expansion under DGSD2 directly benefits EU savers. Anti-cor
 **Impact:** Positive | **Severity:** High
 The Single Resolution Board gains enhanced powers under SRMR3. The European Commission receives a strengthened anti-corruption enforcement mandate. ECB oversight is reinforced through the annual report scrutiny and VP appointment process. The EP itself demonstrates institutional effectiveness with 104 texts in Q1, above historical averages. Framework Agreement renewal (TA-10-2026-0069) redefines EP-Commission relations.
 
+<h2 id="section-risk">Risk Assessment</h2>
+
+### Political Risk Matrix
+
+### Risk Dashboard
+
+| Risk ID | Risk | Category | Likelihood (1-5) | Impact (1-5) | Score | Tier | Trend |
+|---------|------|----------|:-:|:-:|:-:|------|:-----:|
+| CR-001 | US tariff escalation | Trade | 4 | 4 | 16 | CRITICAL | Rising |
+| CR-002 | Post-Easter backlog | Institutional | 4 | 3 | 12 | HIGH | Stable |
+| CR-003 | Anti-corruption transposition failure | Justice | 3 | 3 | 9 | MEDIUM | New |
+| CR-004 | Banking Union trilogue delay | Economic | 2 | 4 | 8 | MEDIUM | Stable |
+| CR-005 | Green Deal legislative backslide | Environmental | 3 | 3 | 9 | MEDIUM | Rising |
+| CR-006 | Coalition model disruption | Political | 3 | 3 | 9 | MEDIUM | Rising |
+| CR-007 | Defence spending fragmentation | Security | 3 | 2 | 6 | MEDIUM | Stable |
+
+### Composite Risk Score: 10.85/25 (MEDIUM, approaching HIGH)
+
+### Risk Heatmap
+
+```mermaid
+%%{init: {
+  "theme": "dark",
+  "themeVariables": {
+    "quadrant1Fill": "#1565C0",
+    "quadrant2Fill": "#2E7D32",
+    "quadrant3Fill": "#FF9800",
+    "quadrant4Fill": "#D32F2F",
+    "quadrantTitleFill": "#ffffff",
+    "quadrantPointFill": "#ffffff",
+    "quadrantPointTextFill": "#ffffff",
+    "quadrantXAxisTextFill": "#ffffff",
+    "quadrantYAxisTextFill": "#ffffff"
+  },
+  "quadrantChart": {
+    "chartWidth": 700,
+    "chartHeight": 700,
+    "pointLabelFontSize": 14,
+    "titleFontSize": 22,
+    "quadrantLabelFontSize": 18,
+    "xAxisLabelFontSize": 16,
+    "yAxisLabelFontSize": 16
+  }
+}}%%
+quadrantChart
+    title Committee Risk Landscape Q1 2026
+    x-axis Low Likelihood --> High Likelihood
+    y-axis Low Impact --> High Impact
+    quadrant-1 Critical Watch
+    quadrant-2 Strategic Priority
+    quadrant-3 Monitor
+    quadrant-4 Routine Track
+    US Tariff Escalation: [0.80, 0.80]
+    Post-Easter Backlog: [0.80, 0.60]
+    Anti-Corruption Transposition: [0.60, 0.60]
+    Banking Union Trilogue: [0.40, 0.80]
+    Green Deal Backslide: [0.60, 0.60]
+    Coalition Disruption: [0.60, 0.60]
+    Defence Fragmentation: [0.60, 0.40]
+```
+
+### Source Attribution
+- Risk scores derived from EP MCP data analysis (104 adopted texts, 13 feed items)
+- Precomputed stats (generated 2026-04-08): fragmentation 6.59, majority threshold 361
+- Prior analysis: 2026-04-09 committee-reports risk-scoring (5 methods)
+- Composite risk trajectory: 9.55 to 10.85 over April 8-10 assessment window
+
 <h2 id="section-threat">Threat Landscape</h2>
 
 ### Political Threat Landscape
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/committee-reports/threat-assessment/political-threat-landscape.md" rel="noopener">View source: <code>threat-assessment/political-threat-landscape.md</code></a></p>
 
 ### Threat Overview
 
@@ -184,8 +235,6 @@ With 30+ texts plus 13 new COD procedures awaiting committee consideration, the 
 - Precomputed stats show legislative productivity trend is INCREASING
 
 <h2 id="section-deep-analysis">Deep Analysis</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/committee-reports/existing/deep-analysis.md" rel="noopener">View source: <code>existing/deep-analysis.md</code></a></p>
 
 ### Executive Summary
 
@@ -376,74 +425,14 @@ Renew-ECR competitiveness coalition solidifies, challenging EPP-S&D grand coalit
 - Prior analysis: analysis/daily/2026-04-09/committee-reports/ (19 files processed)
 - Precomputed stats: EP10 fragmentation index 6.59, majority threshold 361 seats
 
-<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
-
-### Political Risk Matrix
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/committee-reports/risk-scoring/political-risk-matrix.md" rel="noopener">View source: <code>risk-scoring/political-risk-matrix.md</code></a></p>
-
-### Risk Dashboard
-
-| Risk ID | Risk | Category | Likelihood (1-5) | Impact (1-5) | Score | Tier | Trend |
-|---------|------|----------|:-:|:-:|:-:|------|:-----:|
-| CR-001 | US tariff escalation | Trade | 4 | 4 | 16 | CRITICAL | Rising |
-| CR-002 | Post-Easter backlog | Institutional | 4 | 3 | 12 | HIGH | Stable |
-| CR-003 | Anti-corruption transposition failure | Justice | 3 | 3 | 9 | MEDIUM | New |
-| CR-004 | Banking Union trilogue delay | Economic | 2 | 4 | 8 | MEDIUM | Stable |
-| CR-005 | Green Deal legislative backslide | Environmental | 3 | 3 | 9 | MEDIUM | Rising |
-| CR-006 | Coalition model disruption | Political | 3 | 3 | 9 | MEDIUM | Rising |
-| CR-007 | Defence spending fragmentation | Security | 3 | 2 | 6 | MEDIUM | Stable |
-
-### Composite Risk Score: 10.85/25 (MEDIUM, approaching HIGH)
-
-### Risk Heatmap
-
-```mermaid
-%%{init: {
-  "theme": "dark",
-  "themeVariables": {
-    "quadrant1Fill": "#1565C0",
-    "quadrant2Fill": "#2E7D32",
-    "quadrant3Fill": "#FF9800",
-    "quadrant4Fill": "#D32F2F",
-    "quadrantTitleFill": "#ffffff",
-    "quadrantPointFill": "#ffffff",
-    "quadrantPointTextFill": "#ffffff",
-    "quadrantXAxisTextFill": "#ffffff",
-    "quadrantYAxisTextFill": "#ffffff"
-  },
-  "quadrantChart": {
-    "chartWidth": 700,
-    "chartHeight": 700,
-    "pointLabelFontSize": 14,
-    "titleFontSize": 22,
-    "quadrantLabelFontSize": 18,
-    "xAxisLabelFontSize": 16,
-    "yAxisLabelFontSize": 16
-  }
-}}%%
-quadrantChart
-    title Committee Risk Landscape Q1 2026
-    x-axis Low Likelihood --> High Likelihood
-    y-axis Low Impact --> High Impact
-    quadrant-1 Critical Watch
-    quadrant-2 Strategic Priority
-    quadrant-3 Monitor
-    quadrant-4 Routine Track
-    US Tariff Escalation: [0.80, 0.80]
-    Post-Easter Backlog: [0.80, 0.60]
-    Anti-Corruption Transposition: [0.60, 0.60]
-    Banking Union Trilogue: [0.40, 0.80]
-    Green Deal Backslide: [0.60, 0.60]
-    Coalition Disruption: [0.60, 0.60]
-    Defence Fragmentation: [0.60, 0.40]
-```
-
-### Source Attribution
-- Risk scores derived from EP MCP data analysis (104 adopted texts, 13 feed items)
-- Precomputed stats (generated 2026-04-08): fragmentation 6.59, majority threshold 361
-- Prior analysis: 2026-04-09 committee-reports risk-scoring (5 methods)
-- Composite risk trajectory: 9.55 to 10.85 over April 8-10 assessment window
+> **Provenance & Audit**
+>
+> - **Article type:** `committee-reports`
+> - **Run date:** 2026-04-10
+> - **Run id:** `committee-reports-2026-04-10`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-10/committee-reports](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-10/committee-reports)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/committee-reports/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 
@@ -532,7 +521,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 |---|---|---|
 | section-significance | [significance-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/committee-reports/classification/significance-classification.md) | `classification/significance-classification.md` |
 | section-stakeholder-map | [stakeholder-impact](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/committee-reports/existing/stakeholder-impact.md) | `existing/stakeholder-impact.md` |
+| section-risk | [political-risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/committee-reports/risk-scoring/political-risk-matrix.md) | `risk-scoring/political-risk-matrix.md` |
 | section-threat | [political-threat-landscape](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/committee-reports/threat-assessment/political-threat-landscape.md) | `threat-assessment/political-threat-landscape.md` |
 | section-deep-analysis | [deep-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/committee-reports/existing/deep-analysis.md) | `existing/deep-analysis.md` |
-| section-supplementary-intelligence | [political-risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/committee-reports/risk-scoring/political-risk-matrix.md) | `risk-scoring/political-risk-matrix.md` |
 

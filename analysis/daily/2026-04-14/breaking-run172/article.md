@@ -11,22 +11,9 @@ layout: article
 ---
 # Breaking — 2026-04-14
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-14
-> - **Run id:** `172`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-14/breaking-run172](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-14/breaking-run172)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run172/manifest.json)
-
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Political Classification
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run172/political-classification.md" rel="noopener">View source: <code>political-classification.md</code></a></p>
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=for-the-badge" alt="Confidence"/></a>
@@ -174,8 +161,6 @@ flowchart LR
 - Political classification framework per political-classification-guide.md
 
 ### Risk Assessment
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run172/risk-assessment.md" rel="noopener">View source: <code>risk-assessment.md</code></a></p>
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=for-the-badge" alt="Confidence"/></a>
@@ -345,8 +330,6 @@ Enlargement strategy (TA-10-2026-0077) adopted March 11 with EP support, but acc
 
 ### Significance Scoring
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run172/significance-scoring.md" rel="noopener">View source: <code>significance-scoring.md</code></a></p>
-
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=for-the-badge" alt="Confidence"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Article_Type-Breaking-red?style=for-the-badge" alt="Article Type"/></a>
@@ -437,8 +420,6 @@ Each text is scored on a 1-10 scale integrating:
 - Prior analysis: Run 171 significance-scoring.md
 
 ### Swot Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run172/swot-analysis.md" rel="noopener">View source: <code>swot-analysis.md</code></a></p>
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=for-the-badge" alt="Confidence"/></a>
@@ -619,8 +600,6 @@ quadrantChart
 - Prior analysis: Run 171 swot-analysis.md
 
 ### Synthesis Summary
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run172/synthesis-summary.md" rel="noopener">View source: <code>synthesis-summary.md</code></a></p>
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=for-the-badge" alt="Confidence"/></a>
@@ -805,8 +784,6 @@ US responds aggressively to April 15 tariff activation. Emergency plenary debate
 
 ### Threat Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run172/threat-analysis.md" rel="noopener">View source: <code>threat-analysis.md</code></a></p>
-
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=for-the-badge" alt="Confidence"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Threat_Level-ELEVATED-orange?style=for-the-badge" alt="Threat Level"/></a>
@@ -986,6 +963,15 @@ The overall threat level is ELEVATED, driven primarily by the imminent US trade 
 - Threat analysis framework per political-threat-framework.md
 - Prior analysis: Run 171 threat-analysis.md (tariff-focused)
 - Editorial context: article-log.json (prior coverage tracking)
+
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-14
+> - **Run id:** `172`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-14/breaking-run172](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-14/breaking-run172)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run172/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

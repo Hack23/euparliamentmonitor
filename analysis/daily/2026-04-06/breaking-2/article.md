@@ -11,22 +11,9 @@ layout: article
 ---
 # Breaking — 2026-04-06
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-06
-> - **Run id:** `breaking-2`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-06/breaking-2](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-06/breaking-2)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/manifest.json)
-
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Actor Mapping
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/actor-mapping.md" rel="noopener">View source: <code>actor-mapping.md</code></a></p>
 
 ### Actor Landscape Overview
 
@@ -236,8 +223,6 @@ This count has been stable since at least 5 April, confirming no Easter recess r
 
 ### Coalition Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/coalition-analysis.md" rel="noopener">View source: <code>coalition-analysis.md</code></a></p>
-
 ### Coalition Architecture Dashboard
 
 | Coalition Formula | Seats | Share | Viable? | Pre-Recess Usage | Post-Recess Likelihood |
@@ -387,8 +372,6 @@ Based on 17+ monitoring runs since 28 March 2026 (Easter recess start):
 *Sources: European Parliament Open Data Portal — precomputed statistics (HHI 2004–2026), political landscape (8 groups, 100-MEP sample extrapolated), early warning (stability 84/100), MEPs feed (737 entries). Coalition formulae verified against 720-seat total. Pre-recess coalition behaviour cross-referenced with propositions analysis (6 April 2026, 05:47 UTC). Longitudinal tracking based on article-log.json (17+ entries since 28 March).*
 
 ### Cross Session Intelligence
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/cross-session-intelligence.md" rel="noopener">View source: <code>cross-session-intelligence.md</code></a></p>
 
 ### Executive Intelligence Summary
 
@@ -555,8 +538,6 @@ The absolute stability during Easter recess confirms that MEP roster management 
 *Sources: European Parliament Open Data Portal — 21+ monitoring runs (28 March – 6 April 2026), article-log.json (editorial memory), editorial-context.md (cross-run context). API failure mode analysis based on HTTP response codes and error messages across all runs. Bayesian probability updates use pre-recess voting evidence from propositions analysis. All confidence levels calibrated against evidence quality hierarchy.*
 
 ### Deep Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/deep-analysis.md" rel="noopener">View source: <code>deep-analysis.md</code></a></p>
 
 ### I. Situation Overview
 
@@ -759,8 +740,6 @@ The ECB rate decision on 17 April falls on the final day of committee week. If t
 
 ### Forces Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/forces-analysis.md" rel="noopener">View source: <code>forces-analysis.md</code></a></p>
-
 ### Executive Summary
 
 | Force Category | Direction | Strength | Stability | Confidence |
@@ -938,8 +917,6 @@ S&D-Greens-Renew-Left alliance forms effective opposition. Forces S&D to offer P
 
 ### Impact Matrix
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/impact-matrix.md" rel="noopener">View source: <code>impact-matrix.md</code></a></p>
-
 ### Executive Summary
 
 | Dimension | Current Impact | Post-Recess Projection | Trend | Confidence |
@@ -1105,8 +1082,6 @@ graph TD
 *Sources: European Parliament Open Data Portal (adopted texts feed, MEPs feed, precomputed statistics 2024–2026), EP MCP early warning system (stability score 84/100, 3 warnings), political landscape analysis (8 groups, 720 MEPs). Cross-referenced with breaking (00:33 UTC), committee-reports (05:03 UTC), and propositions (05:47 UTC) analyses from 6 April 2026.*
 
 ### Stakeholder Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/stakeholder-analysis.md" rel="noopener">View source: <code>stakeholder-analysis.md</code></a></p>
 
 ### Executive Summary
 
@@ -1298,8 +1273,6 @@ quadrantChart
 
 ### Synthesis Summary
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/synthesis-summary.md" rel="noopener">View source: <code>synthesis-summary.md</code></a></p>
-
 ### Breaking News Evaluation
 
 #### Decision: NO BREAKING NEWS
@@ -1399,6 +1372,15 @@ Per ai-driven-analysis-guide.md Rule 5: "No workflow run should be wasted." This
 ---
 
 *Sources: All data sourced from European Parliament Open Data Portal via EP MCP Server tools. Analysis produced by AI-driven political intelligence pipeline following methodologies defined in analysis/methodologies/. Cross-referenced with 3 prior runs on 6 April 2026 and 17+ runs since 28 March 2026 (Easter recess start). This synthesis consolidates findings across impact-matrix, actor-mapping, forces-analysis, stakeholder-analysis, coalition-analysis, cross-session-intelligence, and deep-analysis methods.*
+
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-06
+> - **Run id:** `breaking-2`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-06/breaking-2](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-06/breaking-2)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

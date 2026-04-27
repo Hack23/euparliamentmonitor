@@ -11,17 +11,6 @@ layout: article
 ---
 # Propositions — 2026-04-07
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `propositions`
-> - **Run date:** 2026-04-07
-> - **Run id:** `bfe5dfd5-1e6f-407e-badd-a25960c70b61`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-07/propositions](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-07/propositions)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -36,8 +25,6 @@ Use this guide to read the article as a political-intelligence product rather th
 <h2 id="section-significance">Significance</h2>
 
 ### Significance Classification
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/classification/significance-classification.md" rel="noopener">View source: <code>classification/significance-classification.md</code></a></p>
 
 ### Overall Significance: **ROUTINE**
 
@@ -108,8 +95,6 @@ quadrantChart
 
 ### Actor Mapping
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/classification/actor-mapping.md" rel="noopener">View source: <code>classification/actor-mapping.md</code></a></p>
-
 ### Actors Identified: 0
 
 ```mermaid
@@ -133,8 +118,6 @@ pie title Actor Type Distribution — 2026-04-07
 ### Date: 2026-04-07
 
 ### Forces Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/classification/forces-analysis.md" rel="noopener">View source: <code>classification/forces-analysis.md</code></a></p>
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
@@ -168,8 +151,6 @@ pie title Political Force Distribution — 2026-04-07
 
 ### Impact Matrix
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/classification/impact-matrix.md" rel="noopener">View source: <code>classification/impact-matrix.md</code></a></p>
-
 ### Overall Significance: **ROUTINE**
 
 ```mermaid
@@ -202,11 +183,106 @@ pie title Impact Distribution by Dimension — 2026-04-07
 
 ### Date: 2026-04-07
 
+### Significance Scoring
+
+### Summary
+
+| Decision | Count |
+|----------|:-----:|
+| 📰 Publish | 0 |
+| 📋 Hold | 82 |
+| 🗄️ Skip | 0 |
+
+### Batch Scoring
+
+| Event | EP Reference | Parl. | Policy | Public | Urgency | Instit. | **Composite** | Decision |
+|-------|-------------|:-----:|:------:|:------:|:-------:|:-------:|:-------------:|----------|
+| T10-0279/2025 | eli/dl/doc/TA-10-2025-0279 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0280/2025 | eli/dl/doc/TA-10-2025-0280 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0281/2025 | eli/dl/doc/TA-10-2025-0281 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0282/2025 | eli/dl/doc/TA-10-2025-0282 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0283/2025 | eli/dl/doc/TA-10-2025-0283 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0284/2025 | eli/dl/doc/TA-10-2025-0284 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0285/2025 | eli/dl/doc/TA-10-2025-0285 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0286/2025 | eli/dl/doc/TA-10-2025-0286 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0287/2025 | eli/dl/doc/TA-10-2025-0287 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0288/2025 | eli/dl/doc/TA-10-2025-0288 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0289/2025 | eli/dl/doc/TA-10-2025-0289 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0290/2025 | eli/dl/doc/TA-10-2025-0290 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0291/2025 | eli/dl/doc/TA-10-2025-0291 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0292/2025 | eli/dl/doc/TA-10-2025-0292 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0293/2025 | eli/dl/doc/TA-10-2025-0293 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0294/2025 | eli/dl/doc/TA-10-2025-0294 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0295/2025 | eli/dl/doc/TA-10-2025-0295 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0296/2025 | eli/dl/doc/TA-10-2025-0296 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0297/2025 | eli/dl/doc/TA-10-2025-0297 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0298/2025 | eli/dl/doc/TA-10-2025-0298 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0299/2025 | eli/dl/doc/TA-10-2025-0299 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0300/2025 | eli/dl/doc/TA-10-2025-0300 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0301/2025 | eli/dl/doc/TA-10-2025-0301 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0302/2025 | eli/dl/doc/TA-10-2025-0302 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0303/2025 | eli/dl/doc/TA-10-2025-0303 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0304/2025 | eli/dl/doc/TA-10-2025-0304 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0305/2025 | eli/dl/doc/TA-10-2025-0305 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0306/2025 | eli/dl/doc/TA-10-2025-0306 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0307/2025 | eli/dl/doc/TA-10-2025-0307 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0308/2025 | eli/dl/doc/TA-10-2025-0308 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0309/2025 | eli/dl/doc/TA-10-2025-0309 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0310/2025 | eli/dl/doc/TA-10-2025-0310 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0311/2025 | eli/dl/doc/TA-10-2025-0311 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0312/2025 | eli/dl/doc/TA-10-2025-0312 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0313/2025 | eli/dl/doc/TA-10-2025-0313 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0314/2025 | eli/dl/doc/TA-10-2025-0314 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0035/2026 | eli/dl/doc/TA-10-2026-0035 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0036/2026 | eli/dl/doc/TA-10-2026-0036 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0037/2026 | eli/dl/doc/TA-10-2026-0037 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0038/2026 | eli/dl/doc/TA-10-2026-0038 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0039/2026 | eli/dl/doc/TA-10-2026-0039 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0040/2026 | eli/dl/doc/TA-10-2026-0040 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0041/2026 | eli/dl/doc/TA-10-2026-0041 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0042/2026 | eli/dl/doc/TA-10-2026-0042 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0043/2026 | eli/dl/doc/TA-10-2026-0043 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0044/2026 | eli/dl/doc/TA-10-2026-0044 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0045/2026 | eli/dl/doc/TA-10-2026-0045 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0046/2026 | eli/dl/doc/TA-10-2026-0046 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0047/2026 | eli/dl/doc/TA-10-2026-0047 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0048/2026 | eli/dl/doc/TA-10-2026-0048 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0049/2026 | eli/dl/doc/TA-10-2026-0049 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0050/2026 | eli/dl/doc/TA-10-2026-0050 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0051/2026 | eli/dl/doc/TA-10-2026-0051 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0052/2026 | eli/dl/doc/TA-10-2026-0052 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0053/2026 | eli/dl/doc/TA-10-2026-0053 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0054/2026 | eli/dl/doc/TA-10-2026-0054 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0055/2026 | eli/dl/doc/TA-10-2026-0055 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0056/2026 | eli/dl/doc/TA-10-2026-0056 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0087/2026 | eli/dl/doc/TA-10-2026-0087 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0088/2026 | eli/dl/doc/TA-10-2026-0088 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0089/2026 | eli/dl/doc/TA-10-2026-0089 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0090/2026 | eli/dl/doc/TA-10-2026-0090 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0091/2026 | eli/dl/doc/TA-10-2026-0091 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0092/2026 | eli/dl/doc/TA-10-2026-0092 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0093/2026 | eli/dl/doc/TA-10-2026-0093 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0095/2026 | eli/dl/doc/TA-10-2026-0095 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0096/2026 | eli/dl/doc/TA-10-2026-0096 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0097/2026 | eli/dl/doc/TA-10-2026-0097 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0098/2026 | eli/dl/doc/TA-10-2026-0098 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0099/2026 | eli/dl/doc/TA-10-2026-0099 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0100/2026 | eli/dl/doc/TA-10-2026-0100 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0101/2026 | eli/dl/doc/TA-10-2026-0101 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0102/2026 | eli/dl/doc/TA-10-2026-0102 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0103/2026 | eli/dl/doc/TA-10-2026-0103 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T10-0104/2026 | eli/dl/doc/TA-10-2026-0104 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T9-0177/2024 | eli/dl/doc/TA-9-2024-0177 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T9-0178/2024 | eli/dl/doc/TA-9-2024-0178 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T9-0179/2024 | eli/dl/doc/TA-9-2024-0179 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T9-0181/2024 | eli/dl/doc/TA-9-2024-0181 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T9-0183/2024 | eli/dl/doc/TA-9-2024-0183 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T9-0185/2024 | eli/dl/doc/TA-9-2024-0185 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+| T9-0186/2024 | eli/dl/doc/TA-9-2024-0186 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
+
 <h2 id="section-coalitions-voting">Coalitions & Voting</h2>
 
 ### Voting Patterns
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/existing/voting-patterns.md" rel="noopener">View source: <code>existing/voting-patterns.md</code></a></p>
 
 ### Detected Trends (Script-Generated Context)
 | Trend ID | Direction | Confidence | Data Points |
@@ -239,8 +315,6 @@ pie title Impact Distribution by Dimension — 2026-04-07
 <h2 id="section-stakeholder-map">Stakeholder Map</h2>
 
 ### Stakeholder Impact
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/existing/stakeholder-impact.md" rel="noopener">View source: <code>existing/stakeholder-impact.md</code></a></p>
 
 ### Data Available for Stakeholder Assessment (Script-Generated Context)
 | Stakeholder Group | Primary Data Sources | Data Points |
@@ -292,8 +366,6 @@ pie title Impact Distribution by Dimension — 2026-04-07
 <h2 id="section-risk">Risk Assessment</h2>
 
 ### Risk Matrix
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
 
 ### Overview
 
@@ -362,8 +434,6 @@ quadrantChart
 ### Date: 2026-04-07
 
 ### Quantitative Swot
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/risk-scoring/quantitative-swot.md" rel="noopener">View source: <code>risk-scoring/quantitative-swot.md</code></a></p>
 
 ### Executive Summary
 
@@ -504,8 +574,6 @@ quadrantChart
 
 ### Political Capital Risk
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/risk-scoring/political-capital-risk.md" rel="noopener">View source: <code>risk-scoring/political-capital-risk.md</code></a></p>
-
 ### Data Inventory for Capital Risk Assessment
 | Data Source | Count | Relevance |
 |-------------|-------|-----------|
@@ -517,8 +585,6 @@ quadrantChart
 ### Date: 2026-04-07
 
 ### Legislative Velocity Risk
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/risk-scoring/legislative-velocity-risk.md" rel="noopener">View source: <code>risk-scoring/legislative-velocity-risk.md</code></a></p>
 
 ### Overview
 Risk assessment based on legislative processing speed for 0 procedures.
@@ -533,11 +599,44 @@ Risk assessment based on legislative processing speed for 0 procedures.
 - **High/Critical risks**: 0
 - **Date**: 2026-04-07
 
+### Agent Risk Workflow
+
+### Risk Heat Map
+
+| Impact ↓ / Likelihood → | Rare | Unlikely | Possible | Likely | Almost Certain |
+|--------------------------|------|----------|----------|--------|----------------|
+| **Severe** | 🟢 | 🟡 | 🟠 | 🟠 | 🔴 |
+| **Major** | 🟢 | 🟡 | 🟡 | 🟠 | 🔴 |
+| **Moderate** | 🟢 | 🟢 | 🟡 | 🟠 | 🟠 |
+| **Minor** | 🟢 | 🟢 | 🟢 | 🟡 | 🟡 |
+| **Negligible** | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 |
+
+### Identified Risks
+
+#### RISK-W00: Baseline political risk
+- **Likelihood**: rare (0.1) | **Impact**: minor (2) | **Score**: 0.2 (LOW) | **Confidence**: low
+- **Evidence**: Routine parliamentary activity
+- **Mitigating Factors**: Stable institutional framework
+
+### Risk Evaluation Matrix
+
+| Rank | Risk ID | Description | Score | Level | Confidence |
+|------|---------|-------------|-------|-------|------------|
+| 1 | RISK-W00 | Baseline political risk | 0.2 | LOW | low |
+
+### Risk Treatment Plan
+
+- Monitor legislative velocity indicators
+- Track coalition voting patterns
+
+### Recommendations
+
+- Monitor legislative velocity indicators
+- Track coalition voting patterns
+
 <h2 id="section-threat">Threat Landscape</h2>
 
 ### Actor Threat Profiling
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/threat-assessment/actor-threat-profiling.md" rel="noopener">View source: <code>threat-assessment/actor-threat-profiling.md</code></a></p>
 
 ### Overview
 Individual threat profiles for 0 political actors.
@@ -551,8 +650,6 @@ Individual threat profiles for 0 political actors.
 
 ### Consequence Trees
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/threat-assessment/consequence-trees.md" rel="noopener">View source: <code>threat-assessment/consequence-trees.md</code></a></p>
-
 ### Overview
 Structured analysis of action-consequence chains for 0 legislative procedures.
 
@@ -561,8 +658,6 @@ Structured analysis of action-consequence chains for 0 legislative procedures.
 ### Date: 2026-04-07
 
 ### Legislative Disruption
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/threat-assessment/legislative-disruption.md" rel="noopener">View source: <code>threat-assessment/legislative-disruption.md</code></a></p>
 
 ### Overview
 Identification of factors disrupting the normal legislative process.
@@ -575,8 +670,6 @@ Identification of factors disrupting the normal legislative process.
 ### Date: 2026-04-07
 
 ### Political Threat Landscape
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/threat-assessment/political-threat-landscape.md" rel="noopener">View source: <code>threat-assessment/political-threat-landscape.md</code></a></p>
 
 ### Political Threat Landscape Analysis
 
@@ -698,8 +791,6 @@ graph TD
 
 ### Cross Session Intelligence
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/existing/cross-session-intelligence.md" rel="noopener">View source: <code>existing/cross-session-intelligence.md</code></a></p>
-
 ### Computed Stability Metrics (Script-Generated Context)
 - **Overall Stability**: 0.0%
 - **Forecast**: volatile
@@ -727,8 +818,6 @@ graph TD
 ### Date: 2026-04-07
 
 <h2 id="section-deep-analysis">Deep Analysis</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/existing/deep-analysis.md" rel="noopener">View source: <code>existing/deep-analysis.md</code></a></p>
 
 ### Raw Data Inventory (Script-Generated Context for AI)
 | Data Source | Count |
@@ -773,108 +862,7 @@ graph TD
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
-### Significance Scoring
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
-
-### Summary
-
-| Decision | Count |
-|----------|:-----:|
-| 📰 Publish | 0 |
-| 📋 Hold | 82 |
-| 🗄️ Skip | 0 |
-
-### Batch Scoring
-
-| Event | EP Reference | Parl. | Policy | Public | Urgency | Instit. | **Composite** | Decision |
-|-------|-------------|:-----:|:------:|:------:|:-------:|:-------:|:-------------:|----------|
-| T10-0279/2025 | eli/dl/doc/TA-10-2025-0279 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0280/2025 | eli/dl/doc/TA-10-2025-0280 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0281/2025 | eli/dl/doc/TA-10-2025-0281 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0282/2025 | eli/dl/doc/TA-10-2025-0282 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0283/2025 | eli/dl/doc/TA-10-2025-0283 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0284/2025 | eli/dl/doc/TA-10-2025-0284 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0285/2025 | eli/dl/doc/TA-10-2025-0285 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0286/2025 | eli/dl/doc/TA-10-2025-0286 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0287/2025 | eli/dl/doc/TA-10-2025-0287 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0288/2025 | eli/dl/doc/TA-10-2025-0288 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0289/2025 | eli/dl/doc/TA-10-2025-0289 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0290/2025 | eli/dl/doc/TA-10-2025-0290 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0291/2025 | eli/dl/doc/TA-10-2025-0291 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0292/2025 | eli/dl/doc/TA-10-2025-0292 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0293/2025 | eli/dl/doc/TA-10-2025-0293 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0294/2025 | eli/dl/doc/TA-10-2025-0294 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0295/2025 | eli/dl/doc/TA-10-2025-0295 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0296/2025 | eli/dl/doc/TA-10-2025-0296 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0297/2025 | eli/dl/doc/TA-10-2025-0297 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0298/2025 | eli/dl/doc/TA-10-2025-0298 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0299/2025 | eli/dl/doc/TA-10-2025-0299 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0300/2025 | eli/dl/doc/TA-10-2025-0300 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0301/2025 | eli/dl/doc/TA-10-2025-0301 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0302/2025 | eli/dl/doc/TA-10-2025-0302 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0303/2025 | eli/dl/doc/TA-10-2025-0303 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0304/2025 | eli/dl/doc/TA-10-2025-0304 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0305/2025 | eli/dl/doc/TA-10-2025-0305 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0306/2025 | eli/dl/doc/TA-10-2025-0306 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0307/2025 | eli/dl/doc/TA-10-2025-0307 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0308/2025 | eli/dl/doc/TA-10-2025-0308 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0309/2025 | eli/dl/doc/TA-10-2025-0309 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0310/2025 | eli/dl/doc/TA-10-2025-0310 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0311/2025 | eli/dl/doc/TA-10-2025-0311 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0312/2025 | eli/dl/doc/TA-10-2025-0312 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0313/2025 | eli/dl/doc/TA-10-2025-0313 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0314/2025 | eli/dl/doc/TA-10-2025-0314 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0035/2026 | eli/dl/doc/TA-10-2026-0035 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0036/2026 | eli/dl/doc/TA-10-2026-0036 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0037/2026 | eli/dl/doc/TA-10-2026-0037 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0038/2026 | eli/dl/doc/TA-10-2026-0038 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0039/2026 | eli/dl/doc/TA-10-2026-0039 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0040/2026 | eli/dl/doc/TA-10-2026-0040 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0041/2026 | eli/dl/doc/TA-10-2026-0041 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0042/2026 | eli/dl/doc/TA-10-2026-0042 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0043/2026 | eli/dl/doc/TA-10-2026-0043 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0044/2026 | eli/dl/doc/TA-10-2026-0044 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0045/2026 | eli/dl/doc/TA-10-2026-0045 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0046/2026 | eli/dl/doc/TA-10-2026-0046 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0047/2026 | eli/dl/doc/TA-10-2026-0047 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0048/2026 | eli/dl/doc/TA-10-2026-0048 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0049/2026 | eli/dl/doc/TA-10-2026-0049 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0050/2026 | eli/dl/doc/TA-10-2026-0050 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0051/2026 | eli/dl/doc/TA-10-2026-0051 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0052/2026 | eli/dl/doc/TA-10-2026-0052 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0053/2026 | eli/dl/doc/TA-10-2026-0053 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0054/2026 | eli/dl/doc/TA-10-2026-0054 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0055/2026 | eli/dl/doc/TA-10-2026-0055 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0056/2026 | eli/dl/doc/TA-10-2026-0056 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0087/2026 | eli/dl/doc/TA-10-2026-0087 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0088/2026 | eli/dl/doc/TA-10-2026-0088 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0089/2026 | eli/dl/doc/TA-10-2026-0089 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0090/2026 | eli/dl/doc/TA-10-2026-0090 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0091/2026 | eli/dl/doc/TA-10-2026-0091 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0092/2026 | eli/dl/doc/TA-10-2026-0092 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0093/2026 | eli/dl/doc/TA-10-2026-0093 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0095/2026 | eli/dl/doc/TA-10-2026-0095 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0096/2026 | eli/dl/doc/TA-10-2026-0096 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0097/2026 | eli/dl/doc/TA-10-2026-0097 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0098/2026 | eli/dl/doc/TA-10-2026-0098 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0099/2026 | eli/dl/doc/TA-10-2026-0099 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0100/2026 | eli/dl/doc/TA-10-2026-0100 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0101/2026 | eli/dl/doc/TA-10-2026-0101 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0102/2026 | eli/dl/doc/TA-10-2026-0102 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0103/2026 | eli/dl/doc/TA-10-2026-0103 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T10-0104/2026 | eli/dl/doc/TA-10-2026-0104 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T9-0177/2024 | eli/dl/doc/TA-9-2024-0177 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T9-0178/2024 | eli/dl/doc/TA-9-2024-0178 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T9-0179/2024 | eli/dl/doc/TA-9-2024-0179 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T9-0181/2024 | eli/dl/doc/TA-9-2024-0181 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T9-0183/2024 | eli/dl/doc/TA-9-2024-0183 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T9-0185/2024 | eli/dl/doc/TA-9-2024-0185 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-| T9-0186/2024 | eli/dl/doc/TA-9-2024-0186 | 7.0 | 6.0 | 5.0 | 4.0 | 6.0 | **5.75** | Hold |
-
 ### Coalition Dynamics
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/existing/coalition-dynamics.md" rel="noopener">View source: <code>existing/coalition-dynamics.md</code></a></p>
 
 ### Computed Metrics (Script-Generated Context)
 - **Overall Stability**: 0.0%
@@ -905,8 +893,6 @@ graph TD
 ### Date: 2026-04-07
 
 ### Synthesis Summary
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/existing/synthesis-summary.md" rel="noopener">View source: <code>existing/synthesis-summary.md</code></a></p>
 
 ### 📋 Synthesis Context
 
@@ -960,42 +946,14 @@ graph TD
 - Threat-heavy SWOT balance — narrative may benefit from opportunity framing.
 - 19 analysis files processed — consider multi-article output.
 
-### Agent Risk Workflow
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/risk-scoring/agent-risk-workflow.md" rel="noopener">View source: <code>risk-scoring/agent-risk-workflow.md</code></a></p>
-
-### Risk Heat Map
-
-| Impact ↓ / Likelihood → | Rare | Unlikely | Possible | Likely | Almost Certain |
-|--------------------------|------|----------|----------|--------|----------------|
-| **Severe** | 🟢 | 🟡 | 🟠 | 🟠 | 🔴 |
-| **Major** | 🟢 | 🟡 | 🟡 | 🟠 | 🔴 |
-| **Moderate** | 🟢 | 🟢 | 🟡 | 🟠 | 🟠 |
-| **Minor** | 🟢 | 🟢 | 🟢 | 🟡 | 🟡 |
-| **Negligible** | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 |
-
-### Identified Risks
-
-#### RISK-W00: Baseline political risk
-- **Likelihood**: rare (0.1) | **Impact**: minor (2) | **Score**: 0.2 (LOW) | **Confidence**: low
-- **Evidence**: Routine parliamentary activity
-- **Mitigating Factors**: Stable institutional framework
-
-### Risk Evaluation Matrix
-
-| Rank | Risk ID | Description | Score | Level | Confidence |
-|------|---------|-------------|-------|-------|------------|
-| 1 | RISK-W00 | Baseline political risk | 0.2 | LOW | low |
-
-### Risk Treatment Plan
-
-- Monitor legislative velocity indicators
-- Track coalition voting patterns
-
-### Recommendations
-
-- Monitor legislative velocity indicators
-- Track coalition voting patterns
+> **Provenance & Audit**
+>
+> - **Article type:** `propositions`
+> - **Run date:** 2026-04-07
+> - **Run id:** `bfe5dfd5-1e6f-407e-badd-a25960c70b61`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-07/propositions](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-07/propositions)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 
@@ -1086,20 +1044,20 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-actors-forces | [actor-mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/classification/actor-mapping.md) | `classification/actor-mapping.md` |
 | section-actors-forces | [forces-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/classification/forces-analysis.md) | `classification/forces-analysis.md` |
 | section-actors-forces | [impact-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/classification/impact-matrix.md) | `classification/impact-matrix.md` |
+| section-actors-forces | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-coalitions-voting | [voting-patterns](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/existing/voting-patterns.md) | `existing/voting-patterns.md` |
 | section-stakeholder-map | [stakeholder-impact](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/existing/stakeholder-impact.md) | `existing/stakeholder-impact.md` |
 | section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/risk-scoring/risk-matrix.md) | `risk-scoring/risk-matrix.md` |
 | section-risk | [quantitative-swot](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/risk-scoring/quantitative-swot.md) | `risk-scoring/quantitative-swot.md` |
 | section-risk | [political-capital-risk](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/risk-scoring/political-capital-risk.md) | `risk-scoring/political-capital-risk.md` |
 | section-risk | [legislative-velocity-risk](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/risk-scoring/legislative-velocity-risk.md) | `risk-scoring/legislative-velocity-risk.md` |
+| section-risk | [agent-risk-workflow](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/risk-scoring/agent-risk-workflow.md) | `risk-scoring/agent-risk-workflow.md` |
 | section-threat | [actor-threat-profiling](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/threat-assessment/actor-threat-profiling.md) | `threat-assessment/actor-threat-profiling.md` |
 | section-threat | [consequence-trees](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/threat-assessment/consequence-trees.md) | `threat-assessment/consequence-trees.md` |
 | section-threat | [legislative-disruption](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/threat-assessment/legislative-disruption.md) | `threat-assessment/legislative-disruption.md` |
 | section-threat | [political-threat-landscape](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/threat-assessment/political-threat-landscape.md) | `threat-assessment/political-threat-landscape.md` |
 | section-continuity | [cross-session-intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/existing/cross-session-intelligence.md) | `existing/cross-session-intelligence.md` |
 | section-deep-analysis | [deep-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/existing/deep-analysis.md) | `existing/deep-analysis.md` |
-| section-supplementary-intelligence | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-supplementary-intelligence | [coalition-dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/existing/coalition-dynamics.md) | `existing/coalition-dynamics.md` |
 | section-supplementary-intelligence | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/existing/synthesis-summary.md) | `existing/synthesis-summary.md` |
-| section-supplementary-intelligence | [agent-risk-workflow](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/propositions/risk-scoring/agent-risk-workflow.md) | `risk-scoring/agent-risk-workflow.md` |
 

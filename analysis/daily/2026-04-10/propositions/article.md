@@ -11,20 +11,75 @@ layout: article
 ---
 # Propositions — 2026-04-10
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
+<h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
-> **Provenance**
->
-> - **Article type:** `propositions`
-> - **Run date:** 2026-04-10
-> - **Run id:** `PROP-2026-04-10-001`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-10/propositions](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-10/propositions)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/manifest.json)
+Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
+
+| Reader need | What you'll get | Source artifact |
+|---|---|---|
+| [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/political-risk-matrix.md` |
+
+<h2 id="section-actors-forces">Actors & Forces</h2>
+
+### Significance Scoring
+
+### Scoring Methodology
+
+Each item scored on 10-point scale across 7 dimensions: Political Impact (20%), Policy Scope (15%), Coalition Dynamics (15%), Citizen Impact (15%), Institutional Significance (10%), Urgency (15%), Media Salience (10%).
+
+### 📊 Full Scoring Matrix
+
+| Rank | Item | ID | Pol. | Policy | Coal. | Citizen | Inst. | Urgency | Media | **Total** |
+|:----:|------|-----|:----:|:------:|:-----:|:-------:|:-----:|:-------:|:-----:|:---------:|
+| 1 | US Tariff Countermeasures | TA-10-2026-0096 | 9 | 8 | 7 | 8 | 8 | 10 | 9 | **8.4** |
+| 2 | Anti-Corruption Directive | TA-10-2026-0094 | 9 | 9 | 8 | 8 | 8 | 7 | 8 | **8.2** |
+| 3 | SRMR3 Banking Union | TA-10-2026-0092 | 8 | 9 | 7 | 7 | 9 | 7 | 6 | **7.8** |
+| 4 | 13 New COD Procedures | 2026/0008-0085 | 7 | 8 | 8 | 6 | 7 | 7 | 5 | **7.0** |
+| 5 | Water Pollutants | TA-10-2026-0093 | 6 | 8 | 5 | 8 | 6 | 6 | 7 | **6.8** |
+| 6 | Non-Application Customs | TA-10-2026-0097 | 7 | 6 | 6 | 7 | 6 | 8 | 5 | **6.5** |
+| 7 | BRRD3 Banking | TA-10-2026-0091 | 7 | 8 | 7 | 6 | 8 | 6 | 5 | **7.5** |
+| 8 | DGSD2 Deposits | TA-10-2026-0090 | 7 | 8 | 7 | 7 | 8 | 6 | 5 | **7.5** |
+| 9 | Global Gateway | TA-10-2026-0104 | 6 | 7 | 5 | 5 | 7 | 5 | 6 | **6.0** |
+| 10 | Package Travel | TA-10-2026-0085 | 4 | 6 | 4 | 8 | 5 | 5 | 6 | **5.4** |
+
+### 📰 Editorial Decision (Based on Scoring)
+
+**Primary story:** Post-Easter committee restart (T-4) — 13 COD procedures await assignment while trade and banking implementation dominate committee agendas.
+
+**Headline direction:** Focus on the competition for committee attention between trade emergency, banking trilogue, and new legislation pipeline.
+
+**Differentiation from April 9:** Yesterday focused on the pipeline count (13 new laws). Today focuses on committee WORKLOAD DISTRIBUTION and which proposals risk being deprioritised in the post-recess rush.
+
+<h2 id="section-risk">Risk Assessment</h2>
+
+### Political Risk Matrix
+
+### Risk Matrix (Likelihood × Impact = Score)
+
+| Risk | Category | Likelihood | Impact | Score | Tier |
+|------|----------|:----------:|:------:|:-----:|:----:|
+| US trade escalation diverts INTA resources | geopolitical-standing | 4 (Likely) | 3 (Moderate) | **12** | 🟠 HIGH |
+| ECON committee bottleneck delays banking trilogue | policy-implementation | 3 (Possible) | 4 (Major) | **12** | 🟠 HIGH |
+| Anti-corruption transposition resistance (CE states) | policy-implementation | 3 (Possible) | 3 (Moderate) | **9** | 🟡 MEDIUM |
+| Renew-ECR convergence marginalises S&D on economic files | grand-coalition-stability | 3 (Possible) | 3 (Moderate) | **9** | 🟡 MEDIUM |
+| New COD rapporteur assignments delayed by group disputes | policy-implementation | 2 (Unlikely) | 3 (Moderate) | **6** | 🟡 MEDIUM |
+| Defence spending pressure redirects legislative agenda | economic-governance | 2 (Unlikely) | 4 (Major) | **8** | 🟡 MEDIUM |
+| PfE/ESN procedural obstructionism on sovereignty files | institutional-integrity | 2 (Unlikely) | 2 (Minor) | **4** | 🟢 LOW |
+
+### Composite Risk Assessment
+
+- **Average risk score:** 8.6/25
+- **Highest single risk:** 12/25 (trade escalation + ECON bottleneck — tied)
+- **Risk trajectory:** ↑ RISING (from 8.1 on April 9) — closer to committee restart increases implementation urgency
+- **Overall risk level:** 🟡 MEDIUM-HIGH
+
+### Risk Interconnection Map
+
+Trade escalation (12/25) → INTA resource diversion → delays new COD procedures → committee bottleneck (12/25) → Banking Union trilogue slippage → economic governance risk cascade.
+
+The two highest-risk items are directly connected: trade emergency capacity in INTA reduces available EP legislative bandwidth, compounding ECON's workload on banking files.
 
 <h2 id="section-threat">Threat Landscape</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/threat-assessment/threat-landscape.md" rel="noopener">View source: <code>threat-assessment/threat-landscape.md</code></a></p>
 
 ### Threat Landscape Dimensions (T-4 Assessment)
 
@@ -76,40 +131,7 @@ Overall threat trajectory: **STABLE** (no escalation since April 9, but T-4 prox
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
-### Significance Scoring
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
-
-### Scoring Methodology
-
-Each item scored on 10-point scale across 7 dimensions: Political Impact (20%), Policy Scope (15%), Coalition Dynamics (15%), Citizen Impact (15%), Institutional Significance (10%), Urgency (15%), Media Salience (10%).
-
-### 📊 Full Scoring Matrix
-
-| Rank | Item | ID | Pol. | Policy | Coal. | Citizen | Inst. | Urgency | Media | **Total** |
-|:----:|------|-----|:----:|:------:|:-----:|:-------:|:-----:|:-------:|:-----:|:---------:|
-| 1 | US Tariff Countermeasures | TA-10-2026-0096 | 9 | 8 | 7 | 8 | 8 | 10 | 9 | **8.4** |
-| 2 | Anti-Corruption Directive | TA-10-2026-0094 | 9 | 9 | 8 | 8 | 8 | 7 | 8 | **8.2** |
-| 3 | SRMR3 Banking Union | TA-10-2026-0092 | 8 | 9 | 7 | 7 | 9 | 7 | 6 | **7.8** |
-| 4 | 13 New COD Procedures | 2026/0008-0085 | 7 | 8 | 8 | 6 | 7 | 7 | 5 | **7.0** |
-| 5 | Water Pollutants | TA-10-2026-0093 | 6 | 8 | 5 | 8 | 6 | 6 | 7 | **6.8** |
-| 6 | Non-Application Customs | TA-10-2026-0097 | 7 | 6 | 6 | 7 | 6 | 8 | 5 | **6.5** |
-| 7 | BRRD3 Banking | TA-10-2026-0091 | 7 | 8 | 7 | 6 | 8 | 6 | 5 | **7.5** |
-| 8 | DGSD2 Deposits | TA-10-2026-0090 | 7 | 8 | 7 | 7 | 8 | 6 | 5 | **7.5** |
-| 9 | Global Gateway | TA-10-2026-0104 | 6 | 7 | 5 | 5 | 7 | 5 | 6 | **6.0** |
-| 10 | Package Travel | TA-10-2026-0085 | 4 | 6 | 4 | 8 | 5 | 5 | 6 | **5.4** |
-
-### 📰 Editorial Decision (Based on Scoring)
-
-**Primary story:** Post-Easter committee restart (T-4) — 13 COD procedures await assignment while trade and banking implementation dominate committee agendas.
-
-**Headline direction:** Focus on the competition for committee attention between trade emergency, banking trilogue, and new legislation pipeline.
-
-**Differentiation from April 9:** Yesterday focused on the pipeline count (13 new laws). Today focuses on committee WORKLOAD DISTRIBUTION and which proposals risk being deprioritised in the post-recess rush.
-
 ### Deep Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/intelligence/deep-analysis.md" rel="noopener">View source: <code>intelligence/deep-analysis.md</code></a></p>
 
 ### 📋 Analysis Context
 
@@ -283,38 +305,7 @@ Political group coordination fails. Renew-ECR convergence creates permanent S&D 
 #### Scenario D: Defence Pivot (Probability: POSSIBLE — 10%)
 External security developments force EP to prioritise defence legislation. SEDE gains unprecedented power. Economic files deprioritised. Result: Rapid defence framework advancement, economic reform delayed.
 
-### Political Risk Matrix
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/risk-scoring/political-risk-matrix.md" rel="noopener">View source: <code>risk-scoring/political-risk-matrix.md</code></a></p>
-
-### Risk Matrix (Likelihood × Impact = Score)
-
-| Risk | Category | Likelihood | Impact | Score | Tier |
-|------|----------|:----------:|:------:|:-----:|:----:|
-| US trade escalation diverts INTA resources | geopolitical-standing | 4 (Likely) | 3 (Moderate) | **12** | 🟠 HIGH |
-| ECON committee bottleneck delays banking trilogue | policy-implementation | 3 (Possible) | 4 (Major) | **12** | 🟠 HIGH |
-| Anti-corruption transposition resistance (CE states) | policy-implementation | 3 (Possible) | 3 (Moderate) | **9** | 🟡 MEDIUM |
-| Renew-ECR convergence marginalises S&D on economic files | grand-coalition-stability | 3 (Possible) | 3 (Moderate) | **9** | 🟡 MEDIUM |
-| New COD rapporteur assignments delayed by group disputes | policy-implementation | 2 (Unlikely) | 3 (Moderate) | **6** | 🟡 MEDIUM |
-| Defence spending pressure redirects legislative agenda | economic-governance | 2 (Unlikely) | 4 (Major) | **8** | 🟡 MEDIUM |
-| PfE/ESN procedural obstructionism on sovereignty files | institutional-integrity | 2 (Unlikely) | 2 (Minor) | **4** | 🟢 LOW |
-
-### Composite Risk Assessment
-
-- **Average risk score:** 8.6/25
-- **Highest single risk:** 12/25 (trade escalation + ECON bottleneck — tied)
-- **Risk trajectory:** ↑ RISING (from 8.1 on April 9) — closer to committee restart increases implementation urgency
-- **Overall risk level:** 🟡 MEDIUM-HIGH
-
-### Risk Interconnection Map
-
-Trade escalation (12/25) → INTA resource diversion → delays new COD procedures → committee bottleneck (12/25) → Banking Union trilogue slippage → economic governance risk cascade.
-
-The two highest-risk items are directly connected: trade emergency capacity in INTA reduces available EP legislative bandwidth, compounding ECON's workload on banking files.
-
 ### Synthesis Summary
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/synthesis-summary.md" rel="noopener">View source: <code>synthesis-summary.md</code></a></p>
 
 ### 📋 Synthesis Context
 
@@ -373,6 +364,15 @@ The two highest-risk items are directly connected: trade emergency capacity in I
 - April 8: Banking/anti-corruption implementation outlook
 - April 9: 13 new COD procedures pipeline count
 - **April 10: Committee WORKLOAD DISTRIBUTION — which proposals risk deprioritisation in the T-4 restart rush**
+
+> **Provenance & Audit**
+>
+> - **Article type:** `propositions`
+> - **Run date:** 2026-04-10
+> - **Run id:** `PROP-2026-04-10-001`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-10/propositions](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-10/propositions)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 
@@ -459,9 +459,9 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-actors-forces | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/classification/significance-scoring.md) | `classification/significance-scoring.md` |
+| section-risk | [political-risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/risk-scoring/political-risk-matrix.md) | `risk-scoring/political-risk-matrix.md` |
 | section-threat | [threat-landscape](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/threat-assessment/threat-landscape.md) | `threat-assessment/threat-landscape.md` |
-| section-supplementary-intelligence | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-supplementary-intelligence | [deep-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/intelligence/deep-analysis.md) | `intelligence/deep-analysis.md` |
-| section-supplementary-intelligence | [political-risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/risk-scoring/political-risk-matrix.md) | `risk-scoring/political-risk-matrix.md` |
 | section-supplementary-intelligence | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/synthesis-summary.md) | `synthesis-summary.md` |
 

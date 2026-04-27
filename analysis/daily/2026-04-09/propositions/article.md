@@ -11,17 +11,6 @@ layout: article
 ---
 # Propositions — 2026-04-09
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `propositions`
-> - **Run date:** 2026-04-09
-> - **Run id:** `PROP-2026-04-09-001`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-09/propositions](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-09/propositions)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -36,8 +25,6 @@ Use this guide to read the article as a political-intelligence product rather th
 <h2 id="section-significance">Significance</h2>
 
 ### Significance Classification
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/classification/significance-classification.md" rel="noopener">View source: <code>classification/significance-classification.md</code></a></p>
 
 ### Overall Significance: **ROUTINE**
 
@@ -108,8 +95,6 @@ quadrantChart
 
 ### Actor Mapping
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/classification/actor-mapping.md" rel="noopener">View source: <code>classification/actor-mapping.md</code></a></p>
-
 ### Actors Identified: 0
 
 ```mermaid
@@ -133,8 +118,6 @@ pie title Actor Type Distribution — 2026-04-09
 ### Date: 2026-04-09
 
 ### Forces Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/classification/forces-analysis.md" rel="noopener">View source: <code>classification/forces-analysis.md</code></a></p>
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
@@ -168,8 +151,6 @@ pie title Political Force Distribution — 2026-04-09
 
 ### Impact Matrix
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/classification/impact-matrix.md" rel="noopener">View source: <code>classification/impact-matrix.md</code></a></p>
-
 ### Overall Significance: **ROUTINE**
 
 ```mermaid
@@ -202,11 +183,94 @@ pie title Impact Distribution by Dimension — 2026-04-09
 
 ### Date: 2026-04-09
 
+### Significance Scoring
+
+### 📋 Scoring Context
+
+| Field | Value |
+|-------|-------|
+| **Score ID** | SIG-2026-04-09-PROP |
+| **Analysis Date** | 2026-04-09 05:45 UTC |
+| **Documents Scored** | 18 (13 COD procedures + 5 key adopted texts) |
+| **Scored By** | news-propositions |
+| **Overall Confidence** | 🟢 HIGH |
+
+### 📊 Top-Scored Items
+
+#### 1. US Tariff Countermeasures — TA-10-2026-0096 / 2025/0261(COD)
+
+| Dimension | Score | Rationale |
+|-----------|:-----:|-----------|
+| Parliamentary Significance | 9/10 | Final adoption on March 26 — full EP plenary vote, grants Commission counter-tariff authority |
+| Policy Impact | 9/10 | EU-wide trade policy affecting all 27 member states and international trade partners |
+| Public Interest | 8/10 | US-EU trade tensions are front-page news; direct consumer price impact expected |
+| Urgency | 8/10 | Implementation timeline activated post-adoption; Council response needed within weeks |
+| Cross-Group Relevance | 7/10 | Broad support from EPP/S&D/Renew but ECR dissent on scope of Commission authority |
+
+**Composite Score: 8.4/10** — 🔴 BREAKING significance
+
+#### 2. Anti-Corruption Directive — TA-10-2026-0094 / 2023/0135(COD)
+
+| Dimension | Score | Rationale |
+|-----------|:-----:|-----------|
+| Parliamentary Significance | 9/10 | Major COD procedure completed — landmark EU anti-corruption framework adopted |
+| Policy Impact | 8/10 | Affects all 27 member states; criminal law harmonisation; 24-month transposition |
+| Public Interest | 8/10 | High salience — corruption is top citizen concern per Eurobarometer surveys |
+| Urgency | 6/10 | Transposition deadline is 2028; medium-term national implementation window |
+| Cross-Group Relevance | 8/10 | Cross-party support including EPP, S&D, Renew, Greens/EFA |
+
+**Composite Score: 7.9/10** — 🟡 PRIORITY significance
+
+#### 3. Banking Union Triple Package — TA-10-2026-0090/0091/0092
+
+| Dimension | Score | Rationale |
+|-----------|:-----:|-----------|
+| Parliamentary Significance | 8/10 | Three interlinked COD procedures adopted simultaneously — DGSD2, BRRD3, SRMR3 |
+| Policy Impact | 9/10 | Structural financial sector reform; affects all eurozone banks and deposit guarantees |
+| Public Interest | 6/10 | Technical banking regulation — moderate public salience but high systemic importance |
+| Urgency | 7/10 | ECB/SRB implementation guidance expected within 6 months post-adoption |
+| Cross-Group Relevance | 7/10 | ECON committee broad consensus, minor ECR/PfE concerns about regulatory burden |
+
+**Composite Score: 7.5/10** — 🟡 PRIORITY significance
+
+#### 4. Thirteen New COD Procedures (2026/0008–0085) — Pipeline Entry
+
+| Dimension | Score | Rationale |
+|-----------|:-----:|-----------|
+| Parliamentary Significance | 7/10 | 13 ordinary legislative procedures entering committee phase — significant pipeline volume |
+| Policy Impact | 7/10 | Broad scope covering Commission's 2026 legislative programme across multiple policy domains |
+| Public Interest | 5/10 | Early stage proposals — low public visibility until committee reports are published |
+| Urgency | 6/10 | Committee week April 14-17 is the first action window post-Easter recess |
+| Cross-Group Relevance | 8/10 | Multiple political groups will compete for rapporteur assignments on high-profile dossiers |
+
+**Composite Score: 6.6/10** — 🟢 PUBLISH significance
+
+#### 5. Surface Water and Groundwater Pollutants — TA-10-2026-0093 / 2022/0344(COD)
+
+| Dimension | Score | Rationale |
+|-----------|:-----:|-----------|
+| Parliamentary Significance | 7/10 | Long-running dossier (filed 2022) finally adopted on March 26 — ENVI committee lead |
+| Policy Impact | 8/10 | Environmental legislation affecting all EU water bodies; PFAS substance regulation |
+| Public Interest | 7/10 | Environmental/health salience; PFAS contamination is a growing public concern |
+| Urgency | 5/10 | Multi-year implementation timeline with member state discretion on monitoring |
+| Cross-Group Relevance | 6/10 | Greens/EFA and S&D strong support; EPP/ECR concerns about industry compliance burden |
+
+**Composite Score: 6.6/10** — 🟢 PUBLISH significance
+
+### 🎯 Editorial Decision Matrix
+
+| Priority Tier | Count | Items |
+|--------------|:-----:|-------|
+| 🔴 Breaking (8.0+) | 1 | US tariff countermeasures |
+| 🟡 Priority (7.0–7.9) | 2 | Anti-corruption directive, Banking Union package |
+| 🟢 Publish (5.0–6.9) | 8 | New COD procedures, water pollutants, insolvency, talent pool, package travel |
+| ⚪ Monitor (below 5.0) | 7 | Immunity waivers, GMO decisions, EU appointments |
+
+**Article focus:** Post-recess pipeline analysis with Q1 2026 legislative output assessment. Lead with the 13 new COD procedures entering committee phase, contextualised by Q1's record 100 adopted texts and the major adopted legislation from the March 26 pre-recess sprint.
+
 <h2 id="section-coalitions-voting">Coalitions & Voting</h2>
 
 ### Voting Patterns
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/existing/voting-patterns.md" rel="noopener">View source: <code>existing/voting-patterns.md</code></a></p>
 
 ### Detected Trends (Script-Generated Context)
 | Trend ID | Direction | Confidence | Data Points |
@@ -238,8 +302,6 @@ pie title Impact Distribution by Dimension — 2026-04-09
 <h2 id="section-stakeholder-map">Stakeholder Map</h2>
 
 ### Stakeholder Impact
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/existing/stakeholder-impact.md" rel="noopener">View source: <code>existing/stakeholder-impact.md</code></a></p>
 
 ### Data Available for Stakeholder Assessment (Script-Generated Context)
 | Stakeholder Group | Primary Data Sources | Data Points |
@@ -290,8 +352,6 @@ pie title Impact Distribution by Dimension — 2026-04-09
 <h2 id="section-risk">Risk Assessment</h2>
 
 ### Risk Matrix
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
 
 ### Overview
 
@@ -360,8 +420,6 @@ quadrantChart
 ### Date: 2026-04-09
 
 ### Quantitative Swot
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/risk-scoring/quantitative-swot.md" rel="noopener">View source: <code>risk-scoring/quantitative-swot.md</code></a></p>
 
 ### Executive Summary
 
@@ -502,8 +560,6 @@ quadrantChart
 
 ### Political Capital Risk
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/risk-scoring/political-capital-risk.md" rel="noopener">View source: <code>risk-scoring/political-capital-risk.md</code></a></p>
-
 ### Data Inventory for Capital Risk Assessment
 | Data Source | Count | Relevance |
 |-------------|-------|-----------|
@@ -515,8 +571,6 @@ quadrantChart
 ### Date: 2026-04-09
 
 ### Legislative Velocity Risk
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/risk-scoring/legislative-velocity-risk.md" rel="noopener">View source: <code>risk-scoring/legislative-velocity-risk.md</code></a></p>
 
 ### Overview
 Risk assessment based on legislative processing speed for 0 procedures.
@@ -531,11 +585,146 @@ Risk assessment based on legislative processing speed for 0 procedures.
 - **High/Critical risks**: 0
 - **Date**: 2026-04-09
 
+### Agent Risk Workflow
+
+### Risk Heat Map
+
+| Impact ↓ / Likelihood → | Rare | Unlikely | Possible | Likely | Almost Certain |
+|--------------------------|------|----------|----------|--------|----------------|
+| **Severe** | 🟢 | 🟡 | 🟠 | 🟠 | 🔴 |
+| **Major** | 🟢 | 🟡 | 🟡 | 🟠 | 🔴 |
+| **Moderate** | 🟢 | 🟢 | 🟡 | 🟠 | 🟠 |
+| **Minor** | 🟢 | 🟢 | 🟢 | 🟡 | 🟡 |
+| **Negligible** | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 |
+
+### Identified Risks
+
+#### RISK-W00: Baseline political risk
+- **Likelihood**: rare (0.1) | **Impact**: minor (2) | **Score**: 0.2 (LOW) | **Confidence**: low
+- **Evidence**: Routine parliamentary activity
+- **Mitigating Factors**: Stable institutional framework
+
+### Risk Evaluation Matrix
+
+| Rank | Risk ID | Description | Score | Level | Confidence |
+|------|---------|-------------|-------|-------|------------|
+| 1 | RISK-W00 | Baseline political risk | 0.2 | LOW | low |
+
+### Risk Treatment Plan
+
+- Monitor legislative velocity indicators
+- Track coalition voting patterns
+
+### Recommendations
+
+- Monitor legislative velocity indicators
+- Track coalition voting patterns
+
+### Political Risk Matrix
+
+### 📋 Assessment Context
+
+| Field | Value |
+|-------|-------|
+| **Risk ID** | RSK-2026-04-09-PROP |
+| **Analysis Date** | 2026-04-09 05:46 UTC |
+| **Assessment Period** | Q1 2026 + Post-Recess Outlook |
+| **Confidence** | 🟢 HIGH |
+
+### 🎯 Risk Register
+
+#### R1: Committee Bottleneck Risk — HIGH
+
+| Factor | Assessment |
+|--------|-----------|
+| **Description** | 13 new COD procedures entering committee simultaneously with existing backlog |
+| **Likelihood** | HIGH (8/10) — committee coordination week April 14-17 is first opportunity |
+| **Impact** | MEDIUM (6/10) — delays to rapporteur assignment slow pipeline progression |
+| **Risk Score** | 48/100 — HIGH |
+| **Affected Entities** | All 13 COD procedures (2026/0008–0085), responsible committees TBD |
+| **Mitigation** | Committee coordinators' efficiency; Conference of Presidents scheduling authority |
+| **Trend** | ↑ Rising — recess backlog adds pressure |
+
+#### R2: Trade Policy Escalation Risk — CRITICAL
+
+| Factor | Assessment |
+|--------|-----------|
+| **Description** | US tariff countermeasures (TA-10-2026-0096) may trigger retaliatory cycle |
+| **Likelihood** | HIGH (8/10) — US administration has signalled further tariff increases |
+| **Impact** | CRITICAL (9/10) — affects EU-US trade worth EUR 1.2 trillion annually |
+| **Risk Score** | 72/100 — CRITICAL |
+| **Affected Entities** | INTA committee, Commission DG Trade, all export-dependent member states |
+| **Mitigation** | Bilateral negotiation tracks; WTO dispute mechanisms activated |
+| **Trend** | ↑ Rising — geopolitical tensions increasing |
+
+#### R3: Coalition Fragmentation Risk — MEDIUM
+
+| Factor | Assessment |
+|--------|-----------|
+| **Description** | Renew-ECR convergence (0.95 cohesion) may disrupt traditional EPP-S&D-Renew legislative coalitions |
+| **Likelihood** | MEDIUM (5/10) — convergence observed on economic/trade policy only |
+| **Impact** | HIGH (7/10) — could reshape voting alignments on 2026 COD legislation |
+| **Risk Score** | 35/100 — MEDIUM |
+| **Affected Entities** | All political groups; affects passage dynamics for pending COD procedures |
+| **Mitigation** | EPP flexibility in building ad-hoc majorities; issue-based coalitions |
+| **Trend** | → Stable — structural fragmentation (6.59 index) is persistent |
+
+#### R4: Transposition Compliance Risk — MEDIUM
+
+| Factor | Assessment |
+|--------|-----------|
+| **Description** | Multiple Q1 adopted texts face 24-month national transposition deadlines |
+| **Likelihood** | HIGH (7/10) — historical non-compliance rates for complex directives exceed 30% |
+| **Impact** | MEDIUM (5/10) — infringement proceedings are slow but create political friction |
+| **Risk Score** | 35/100 — MEDIUM |
+| **Affected Entities** | Anti-corruption directive (2023/0135), Banking Union package, water pollutants directive |
+| **Mitigation** | Commission transposition guidance; peer review mechanisms |
+| **Trend** | → Stable — structural EU governance challenge |
+
+#### R5: Post-Recess Legislative Momentum Risk — LOW
+
+| Factor | Assessment |
+|--------|-----------|
+| **Description** | Easter recess (March 27 – April 13) may dampen legislative momentum from Q1 sprint |
+| **Likelihood** | LOW (3/10) — EP institutional memory and committee preparation continue during recess |
+| **Impact** | LOW (3/10) — temporary pause; committee week April 14-17 restores cadence |
+| **Risk Score** | 9/100 — LOW |
+| **Affected Entities** | All committees; committee coordinators and group whips |
+| **Mitigation** | Pre-scheduled committee week agenda; established political group coordination |
+| **Trend** | ↓ Decreasing — recess ending April 13 |
+
+### 📊 Risk Heatmap Summary
+
+| Risk Level | Count | Key Items |
+|-----------|:-----:|-----------|
+| 🔴 CRITICAL | 1 | Trade policy escalation (R2) |
+| 🟠 HIGH | 1 | Committee bottleneck (R1) |
+| 🟡 MEDIUM | 2 | Coalition fragmentation (R3), Transposition compliance (R4) |
+| 🟢 LOW | 1 | Post-recess momentum (R5) |
+
+### 🔮 Forward-Looking Scenarios
+
+#### Scenario A: Smooth Pipeline Restart (Probability: Likely)
+- Committees resume April 14, rapporteur assignments proceed orderly
+- Banking Union implementation on track
+- Trade tensions managed through diplomatic channels
+- **Confidence:** 🟢 HIGH
+
+#### Scenario B: Bottleneck Cascade (Probability: Possible)
+- Committee overload delays rapporteur assignments for 2026 COD batch
+- US trade escalation forces emergency INTA sessions
+- Renew-ECR bloc challenges EPP leadership on economic files
+- **Confidence:** 🟡 MEDIUM
+
+#### Scenario C: Political Realignment (Probability: Unlikely)
+- Renew-ECR convergence becomes permanent voting alliance
+- EPP forced to seek Left/Greens support on social legislation
+- Fundamental restructuring of legislative coalition dynamics
+- **Confidence:** 🔴 LOW
+
 <h2 id="section-threat">Threat Landscape</h2>
 
 ### Actor Threat Profiling
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/threat-assessment/actor-threat-profiling.md" rel="noopener">View source: <code>threat-assessment/actor-threat-profiling.md</code></a></p>
 
 ### Overview
 Individual threat profiles for 0 political actors.
@@ -549,8 +738,6 @@ Individual threat profiles for 0 political actors.
 
 ### Consequence Trees
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/threat-assessment/consequence-trees.md" rel="noopener">View source: <code>threat-assessment/consequence-trees.md</code></a></p>
-
 ### Overview
 Structured analysis of action-consequence chains for 0 legislative procedures.
 
@@ -559,8 +746,6 @@ Structured analysis of action-consequence chains for 0 legislative procedures.
 ### Date: 2026-04-09
 
 ### Legislative Disruption
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/threat-assessment/legislative-disruption.md" rel="noopener">View source: <code>threat-assessment/legislative-disruption.md</code></a></p>
 
 ### Overview
 Identification of factors disrupting the normal legislative process.
@@ -573,8 +758,6 @@ Identification of factors disrupting the normal legislative process.
 ### Date: 2026-04-09
 
 ### Political Threat Landscape
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/threat-assessment/political-threat-landscape.md" rel="noopener">View source: <code>threat-assessment/political-threat-landscape.md</code></a></p>
 
 ### 📋 Assessment Context
 
@@ -683,8 +866,6 @@ Identification of factors disrupting the normal legislative process.
 
 ### Cross Session Intelligence
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/existing/cross-session-intelligence.md" rel="noopener">View source: <code>existing/cross-session-intelligence.md</code></a></p>
-
 ### Computed Stability Metrics (Script-Generated Context)
 - **Overall Stability**: 0.0%
 - **Forecast**: volatile
@@ -711,8 +892,6 @@ Identification of factors disrupting the normal legislative process.
 ### Date: 2026-04-09
 
 <h2 id="section-deep-analysis">Deep Analysis</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/existing/deep-analysis.md" rel="noopener">View source: <code>existing/deep-analysis.md</code></a></p>
 
 ### Pipeline Data Context
 
@@ -780,8 +959,6 @@ Identification of factors disrupting the normal legislative process.
 
 ### Document Analysis Index
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/documents/document-analysis-index.md" rel="noopener">View source: <code>documents/document-analysis-index.md</code></a></p>
-
 ### Executive Summary
 
 Full per-document political intelligence analysis for 15 unique documents
@@ -845,8 +1022,6 @@ All 15 documents have been stored in their entirety:
 ### Date: 2026-04-09
 
 ### Adoptedtexts Eli Dl Doc Ta 10 2025 0185 Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/documents/adoptedtexts-eli-dl-doc-ta-10-2025-0185-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-eli-dl-doc-ta-10-2025-0185-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -916,8 +1091,6 @@ No description available
 
 ### Adoptedtexts Eli Dl Doc Ta 10 2025 0313 Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/documents/adoptedtexts-eli-dl-doc-ta-10-2025-0313-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-eli-dl-doc-ta-10-2025-0313-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -985,8 +1158,6 @@ No description available
 ### Analysis Date: 2026-04-09
 
 ### Adoptedtexts Eli Dl Doc Ta 10 2026 0016 Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/documents/adoptedtexts-eli-dl-doc-ta-10-2026-0016-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-eli-dl-doc-ta-10-2026-0016-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -1056,8 +1227,6 @@ No description available
 
 ### Adoptedtexts Eli Dl Doc Ta 10 2026 0017 Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/documents/adoptedtexts-eli-dl-doc-ta-10-2026-0017-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-eli-dl-doc-ta-10-2026-0017-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -1125,8 +1294,6 @@ No description available
 ### Analysis Date: 2026-04-09
 
 ### Adoptedtexts Eli Dl Doc Ta 10 2026 0018 Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/documents/adoptedtexts-eli-dl-doc-ta-10-2026-0018-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-eli-dl-doc-ta-10-2026-0018-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -1196,8 +1363,6 @@ No description available
 
 ### Adoptedtexts Eli Dl Doc Ta 10 2026 0019 Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/documents/adoptedtexts-eli-dl-doc-ta-10-2026-0019-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-eli-dl-doc-ta-10-2026-0019-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -1265,8 +1430,6 @@ No description available
 ### Analysis Date: 2026-04-09
 
 ### Adoptedtexts Eli Dl Doc Ta 10 2026 0020 Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/documents/adoptedtexts-eli-dl-doc-ta-10-2026-0020-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-eli-dl-doc-ta-10-2026-0020-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -1336,8 +1499,6 @@ No description available
 
 ### Adoptedtexts Eli Dl Doc Ta 10 2026 0021 Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/documents/adoptedtexts-eli-dl-doc-ta-10-2026-0021-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-eli-dl-doc-ta-10-2026-0021-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -1405,8 +1566,6 @@ No description available
 ### Analysis Date: 2026-04-09
 
 ### Adoptedtexts Eli Dl Doc Ta 10 2026 0022 Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/documents/adoptedtexts-eli-dl-doc-ta-10-2026-0022-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-eli-dl-doc-ta-10-2026-0022-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -1476,8 +1635,6 @@ No description available
 
 ### Adoptedtexts Eli Dl Doc Ta 10 2026 0023 Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/documents/adoptedtexts-eli-dl-doc-ta-10-2026-0023-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-eli-dl-doc-ta-10-2026-0023-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -1545,8 +1702,6 @@ No description available
 ### Analysis Date: 2026-04-09
 
 ### Adoptedtexts Eli Dl Doc Ta 10 2026 0024 Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/documents/adoptedtexts-eli-dl-doc-ta-10-2026-0024-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-eli-dl-doc-ta-10-2026-0024-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -1616,8 +1771,6 @@ No description available
 
 ### Adoptedtexts Eli Dl Doc Ta 10 2026 0030 Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/documents/adoptedtexts-eli-dl-doc-ta-10-2026-0030-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-eli-dl-doc-ta-10-2026-0030-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -1685,8 +1838,6 @@ No description available
 ### Analysis Date: 2026-04-09
 
 ### Externaldocuments Eli Dl Doc Sp 2026 03 26 Ta 10 2025 0185 Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/documents/externaldocuments-eli-dl-doc-sp-2026-03-26-ta-10-2025-0185-analysis.md" rel="noopener">View source: <code>documents/externaldocuments-eli-dl-doc-sp-2026-03-26-ta-10-2025-0185-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -1756,8 +1907,6 @@ No description available
 
 ### Externaldocuments Eli Dl Doc Sp 2026 03 26 Ta 10 2025 0313 Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/documents/externaldocuments-eli-dl-doc-sp-2026-03-26-ta-10-2025-0313-analysis.md" rel="noopener">View source: <code>documents/externaldocuments-eli-dl-doc-sp-2026-03-26-ta-10-2025-0313-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -1825,8 +1974,6 @@ No description available
 ### Analysis Date: 2026-04-09
 
 ### Externaldocuments Eli Dl Doc Sp 2026 03 26 Ta 10 2026 0030 Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/documents/externaldocuments-eli-dl-doc-sp-2026-03-26-ta-10-2026-0030-analysis.md" rel="noopener">View source: <code>documents/externaldocuments-eli-dl-doc-sp-2026-03-26-ta-10-2026-0030-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -1896,96 +2043,7 @@ No description available
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
-### Significance Scoring
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
-
-### 📋 Scoring Context
-
-| Field | Value |
-|-------|-------|
-| **Score ID** | SIG-2026-04-09-PROP |
-| **Analysis Date** | 2026-04-09 05:45 UTC |
-| **Documents Scored** | 18 (13 COD procedures + 5 key adopted texts) |
-| **Scored By** | news-propositions |
-| **Overall Confidence** | 🟢 HIGH |
-
-### 📊 Top-Scored Items
-
-#### 1. US Tariff Countermeasures — TA-10-2026-0096 / 2025/0261(COD)
-
-| Dimension | Score | Rationale |
-|-----------|:-----:|-----------|
-| Parliamentary Significance | 9/10 | Final adoption on March 26 — full EP plenary vote, grants Commission counter-tariff authority |
-| Policy Impact | 9/10 | EU-wide trade policy affecting all 27 member states and international trade partners |
-| Public Interest | 8/10 | US-EU trade tensions are front-page news; direct consumer price impact expected |
-| Urgency | 8/10 | Implementation timeline activated post-adoption; Council response needed within weeks |
-| Cross-Group Relevance | 7/10 | Broad support from EPP/S&D/Renew but ECR dissent on scope of Commission authority |
-
-**Composite Score: 8.4/10** — 🔴 BREAKING significance
-
-#### 2. Anti-Corruption Directive — TA-10-2026-0094 / 2023/0135(COD)
-
-| Dimension | Score | Rationale |
-|-----------|:-----:|-----------|
-| Parliamentary Significance | 9/10 | Major COD procedure completed — landmark EU anti-corruption framework adopted |
-| Policy Impact | 8/10 | Affects all 27 member states; criminal law harmonisation; 24-month transposition |
-| Public Interest | 8/10 | High salience — corruption is top citizen concern per Eurobarometer surveys |
-| Urgency | 6/10 | Transposition deadline is 2028; medium-term national implementation window |
-| Cross-Group Relevance | 8/10 | Cross-party support including EPP, S&D, Renew, Greens/EFA |
-
-**Composite Score: 7.9/10** — 🟡 PRIORITY significance
-
-#### 3. Banking Union Triple Package — TA-10-2026-0090/0091/0092
-
-| Dimension | Score | Rationale |
-|-----------|:-----:|-----------|
-| Parliamentary Significance | 8/10 | Three interlinked COD procedures adopted simultaneously — DGSD2, BRRD3, SRMR3 |
-| Policy Impact | 9/10 | Structural financial sector reform; affects all eurozone banks and deposit guarantees |
-| Public Interest | 6/10 | Technical banking regulation — moderate public salience but high systemic importance |
-| Urgency | 7/10 | ECB/SRB implementation guidance expected within 6 months post-adoption |
-| Cross-Group Relevance | 7/10 | ECON committee broad consensus, minor ECR/PfE concerns about regulatory burden |
-
-**Composite Score: 7.5/10** — 🟡 PRIORITY significance
-
-#### 4. Thirteen New COD Procedures (2026/0008–0085) — Pipeline Entry
-
-| Dimension | Score | Rationale |
-|-----------|:-----:|-----------|
-| Parliamentary Significance | 7/10 | 13 ordinary legislative procedures entering committee phase — significant pipeline volume |
-| Policy Impact | 7/10 | Broad scope covering Commission's 2026 legislative programme across multiple policy domains |
-| Public Interest | 5/10 | Early stage proposals — low public visibility until committee reports are published |
-| Urgency | 6/10 | Committee week April 14-17 is the first action window post-Easter recess |
-| Cross-Group Relevance | 8/10 | Multiple political groups will compete for rapporteur assignments on high-profile dossiers |
-
-**Composite Score: 6.6/10** — 🟢 PUBLISH significance
-
-#### 5. Surface Water and Groundwater Pollutants — TA-10-2026-0093 / 2022/0344(COD)
-
-| Dimension | Score | Rationale |
-|-----------|:-----:|-----------|
-| Parliamentary Significance | 7/10 | Long-running dossier (filed 2022) finally adopted on March 26 — ENVI committee lead |
-| Policy Impact | 8/10 | Environmental legislation affecting all EU water bodies; PFAS substance regulation |
-| Public Interest | 7/10 | Environmental/health salience; PFAS contamination is a growing public concern |
-| Urgency | 5/10 | Multi-year implementation timeline with member state discretion on monitoring |
-| Cross-Group Relevance | 6/10 | Greens/EFA and S&D strong support; EPP/ECR concerns about industry compliance burden |
-
-**Composite Score: 6.6/10** — 🟢 PUBLISH significance
-
-### 🎯 Editorial Decision Matrix
-
-| Priority Tier | Count | Items |
-|--------------|:-----:|-------|
-| 🔴 Breaking (8.0+) | 1 | US tariff countermeasures |
-| 🟡 Priority (7.0–7.9) | 2 | Anti-corruption directive, Banking Union package |
-| 🟢 Publish (5.0–6.9) | 8 | New COD procedures, water pollutants, insolvency, talent pool, package travel |
-| ⚪ Monitor (below 5.0) | 7 | Immunity waivers, GMO decisions, EU appointments |
-
-**Article focus:** Post-recess pipeline analysis with Q1 2026 legislative output assessment. Lead with the 13 new COD procedures entering committee phase, contextualised by Q1's record 100 adopted texts and the major adopted legislation from the March 26 pre-recess sprint.
-
 ### Coalition Dynamics
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/existing/coalition-dynamics.md" rel="noopener">View source: <code>existing/coalition-dynamics.md</code></a></p>
 
 ### Computed Metrics (Script-Generated Context)
 - **Overall Stability**: 0.0%
@@ -2014,8 +2072,6 @@ No description available
 ### Date: 2026-04-09
 
 ### Synthesis Summary
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/existing/synthesis-summary.md" rel="noopener">View source: <code>existing/synthesis-summary.md</code></a></p>
 
 ### 📋 Synthesis Context
 
@@ -2070,8 +2126,6 @@ No description available
 - 19 analysis files processed — consider multi-article output.
 
 ### Deep Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/intelligence/deep-analysis.md" rel="noopener">View source: <code>intelligence/deep-analysis.md</code></a></p>
 
 ### 📋 Analysis Context
 
@@ -2215,150 +2269,7 @@ The first plenary session of the spring session will likely include:
 4. **Commission implementation guidance** for Q1 adopted texts — timeline for delegated acts
 5. **Council positions** on Banking Union and anti-corruption — trilogue scheduling
 
-### Agent Risk Workflow
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/risk-scoring/agent-risk-workflow.md" rel="noopener">View source: <code>risk-scoring/agent-risk-workflow.md</code></a></p>
-
-### Risk Heat Map
-
-| Impact ↓ / Likelihood → | Rare | Unlikely | Possible | Likely | Almost Certain |
-|--------------------------|------|----------|----------|--------|----------------|
-| **Severe** | 🟢 | 🟡 | 🟠 | 🟠 | 🔴 |
-| **Major** | 🟢 | 🟡 | 🟡 | 🟠 | 🔴 |
-| **Moderate** | 🟢 | 🟢 | 🟡 | 🟠 | 🟠 |
-| **Minor** | 🟢 | 🟢 | 🟢 | 🟡 | 🟡 |
-| **Negligible** | 🟢 | 🟢 | 🟢 | 🟢 | 🟢 |
-
-### Identified Risks
-
-#### RISK-W00: Baseline political risk
-- **Likelihood**: rare (0.1) | **Impact**: minor (2) | **Score**: 0.2 (LOW) | **Confidence**: low
-- **Evidence**: Routine parliamentary activity
-- **Mitigating Factors**: Stable institutional framework
-
-### Risk Evaluation Matrix
-
-| Rank | Risk ID | Description | Score | Level | Confidence |
-|------|---------|-------------|-------|-------|------------|
-| 1 | RISK-W00 | Baseline political risk | 0.2 | LOW | low |
-
-### Risk Treatment Plan
-
-- Monitor legislative velocity indicators
-- Track coalition voting patterns
-
-### Recommendations
-
-- Monitor legislative velocity indicators
-- Track coalition voting patterns
-
-### Political Risk Matrix
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/risk-scoring/political-risk-matrix.md" rel="noopener">View source: <code>risk-scoring/political-risk-matrix.md</code></a></p>
-
-### 📋 Assessment Context
-
-| Field | Value |
-|-------|-------|
-| **Risk ID** | RSK-2026-04-09-PROP |
-| **Analysis Date** | 2026-04-09 05:46 UTC |
-| **Assessment Period** | Q1 2026 + Post-Recess Outlook |
-| **Confidence** | 🟢 HIGH |
-
-### 🎯 Risk Register
-
-#### R1: Committee Bottleneck Risk — HIGH
-
-| Factor | Assessment |
-|--------|-----------|
-| **Description** | 13 new COD procedures entering committee simultaneously with existing backlog |
-| **Likelihood** | HIGH (8/10) — committee coordination week April 14-17 is first opportunity |
-| **Impact** | MEDIUM (6/10) — delays to rapporteur assignment slow pipeline progression |
-| **Risk Score** | 48/100 — HIGH |
-| **Affected Entities** | All 13 COD procedures (2026/0008–0085), responsible committees TBD |
-| **Mitigation** | Committee coordinators' efficiency; Conference of Presidents scheduling authority |
-| **Trend** | ↑ Rising — recess backlog adds pressure |
-
-#### R2: Trade Policy Escalation Risk — CRITICAL
-
-| Factor | Assessment |
-|--------|-----------|
-| **Description** | US tariff countermeasures (TA-10-2026-0096) may trigger retaliatory cycle |
-| **Likelihood** | HIGH (8/10) — US administration has signalled further tariff increases |
-| **Impact** | CRITICAL (9/10) — affects EU-US trade worth EUR 1.2 trillion annually |
-| **Risk Score** | 72/100 — CRITICAL |
-| **Affected Entities** | INTA committee, Commission DG Trade, all export-dependent member states |
-| **Mitigation** | Bilateral negotiation tracks; WTO dispute mechanisms activated |
-| **Trend** | ↑ Rising — geopolitical tensions increasing |
-
-#### R3: Coalition Fragmentation Risk — MEDIUM
-
-| Factor | Assessment |
-|--------|-----------|
-| **Description** | Renew-ECR convergence (0.95 cohesion) may disrupt traditional EPP-S&D-Renew legislative coalitions |
-| **Likelihood** | MEDIUM (5/10) — convergence observed on economic/trade policy only |
-| **Impact** | HIGH (7/10) — could reshape voting alignments on 2026 COD legislation |
-| **Risk Score** | 35/100 — MEDIUM |
-| **Affected Entities** | All political groups; affects passage dynamics for pending COD procedures |
-| **Mitigation** | EPP flexibility in building ad-hoc majorities; issue-based coalitions |
-| **Trend** | → Stable — structural fragmentation (6.59 index) is persistent |
-
-#### R4: Transposition Compliance Risk — MEDIUM
-
-| Factor | Assessment |
-|--------|-----------|
-| **Description** | Multiple Q1 adopted texts face 24-month national transposition deadlines |
-| **Likelihood** | HIGH (7/10) — historical non-compliance rates for complex directives exceed 30% |
-| **Impact** | MEDIUM (5/10) — infringement proceedings are slow but create political friction |
-| **Risk Score** | 35/100 — MEDIUM |
-| **Affected Entities** | Anti-corruption directive (2023/0135), Banking Union package, water pollutants directive |
-| **Mitigation** | Commission transposition guidance; peer review mechanisms |
-| **Trend** | → Stable — structural EU governance challenge |
-
-#### R5: Post-Recess Legislative Momentum Risk — LOW
-
-| Factor | Assessment |
-|--------|-----------|
-| **Description** | Easter recess (March 27 – April 13) may dampen legislative momentum from Q1 sprint |
-| **Likelihood** | LOW (3/10) — EP institutional memory and committee preparation continue during recess |
-| **Impact** | LOW (3/10) — temporary pause; committee week April 14-17 restores cadence |
-| **Risk Score** | 9/100 — LOW |
-| **Affected Entities** | All committees; committee coordinators and group whips |
-| **Mitigation** | Pre-scheduled committee week agenda; established political group coordination |
-| **Trend** | ↓ Decreasing — recess ending April 13 |
-
-### 📊 Risk Heatmap Summary
-
-| Risk Level | Count | Key Items |
-|-----------|:-----:|-----------|
-| 🔴 CRITICAL | 1 | Trade policy escalation (R2) |
-| 🟠 HIGH | 1 | Committee bottleneck (R1) |
-| 🟡 MEDIUM | 2 | Coalition fragmentation (R3), Transposition compliance (R4) |
-| 🟢 LOW | 1 | Post-recess momentum (R5) |
-
-### 🔮 Forward-Looking Scenarios
-
-#### Scenario A: Smooth Pipeline Restart (Probability: Likely)
-- Committees resume April 14, rapporteur assignments proceed orderly
-- Banking Union implementation on track
-- Trade tensions managed through diplomatic channels
-- **Confidence:** 🟢 HIGH
-
-#### Scenario B: Bottleneck Cascade (Probability: Possible)
-- Committee overload delays rapporteur assignments for 2026 COD batch
-- US trade escalation forces emergency INTA sessions
-- Renew-ECR bloc challenges EPP leadership on economic files
-- **Confidence:** 🟡 MEDIUM
-
-#### Scenario C: Political Realignment (Probability: Unlikely)
-- Renew-ECR convergence becomes permanent voting alliance
-- EPP forced to seek Left/Greens support on social legislation
-- Fundamental restructuring of legislative coalition dynamics
-- **Confidence:** 🔴 LOW
-
 ### Synthesis Summary
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/synthesis-summary.md" rel="noopener">View source: <code>synthesis-summary.md</code></a></p>
 
 ### 📋 Synthesis Context
 
@@ -2415,6 +2326,15 @@ The first plenary session of the spring session will likely include:
 **Lead angle:** Post-Easter pipeline outlook — 13 new COD proposals await committee action after Q1's record output
 **Differentiation from Apr 8 article:** Yesterday focused on implementation outlook for banking/anti-corruption. Today focuses FORWARD on new pipeline entries and post-recess committee dynamics.
 **Headline direction:** "Thirteen New Laws Await Post-Easter Committee Action After Record Q1 Legislative Sprint"
+
+> **Provenance & Audit**
+>
+> - **Article type:** `propositions`
+> - **Run date:** 2026-04-09
+> - **Run id:** `PROP-2026-04-09-001`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-09/propositions](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-09/propositions)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 
@@ -2505,12 +2425,15 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-actors-forces | [actor-mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/classification/actor-mapping.md) | `classification/actor-mapping.md` |
 | section-actors-forces | [forces-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/classification/forces-analysis.md) | `classification/forces-analysis.md` |
 | section-actors-forces | [impact-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/classification/impact-matrix.md) | `classification/impact-matrix.md` |
+| section-actors-forces | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-coalitions-voting | [voting-patterns](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/existing/voting-patterns.md) | `existing/voting-patterns.md` |
 | section-stakeholder-map | [stakeholder-impact](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/existing/stakeholder-impact.md) | `existing/stakeholder-impact.md` |
 | section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/risk-scoring/risk-matrix.md) | `risk-scoring/risk-matrix.md` |
 | section-risk | [quantitative-swot](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/risk-scoring/quantitative-swot.md) | `risk-scoring/quantitative-swot.md` |
 | section-risk | [political-capital-risk](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/risk-scoring/political-capital-risk.md) | `risk-scoring/political-capital-risk.md` |
 | section-risk | [legislative-velocity-risk](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/risk-scoring/legislative-velocity-risk.md) | `risk-scoring/legislative-velocity-risk.md` |
+| section-risk | [agent-risk-workflow](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/risk-scoring/agent-risk-workflow.md) | `risk-scoring/agent-risk-workflow.md` |
+| section-risk | [political-risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/risk-scoring/political-risk-matrix.md) | `risk-scoring/political-risk-matrix.md` |
 | section-threat | [actor-threat-profiling](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/threat-assessment/actor-threat-profiling.md) | `threat-assessment/actor-threat-profiling.md` |
 | section-threat | [consequence-trees](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/threat-assessment/consequence-trees.md) | `threat-assessment/consequence-trees.md` |
 | section-threat | [legislative-disruption](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/threat-assessment/legislative-disruption.md) | `threat-assessment/legislative-disruption.md` |
@@ -2533,11 +2456,8 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-documents | [externaldocuments-eli-dl-doc-sp-2026-03-26-ta-10-2025-0185-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/documents/externaldocuments-eli-dl-doc-sp-2026-03-26-ta-10-2025-0185-analysis.md) | `documents/externaldocuments-eli-dl-doc-sp-2026-03-26-ta-10-2025-0185-analysis.md` |
 | section-documents | [externaldocuments-eli-dl-doc-sp-2026-03-26-ta-10-2025-0313-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/documents/externaldocuments-eli-dl-doc-sp-2026-03-26-ta-10-2025-0313-analysis.md) | `documents/externaldocuments-eli-dl-doc-sp-2026-03-26-ta-10-2025-0313-analysis.md` |
 | section-documents | [externaldocuments-eli-dl-doc-sp-2026-03-26-ta-10-2026-0030-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/documents/externaldocuments-eli-dl-doc-sp-2026-03-26-ta-10-2026-0030-analysis.md) | `documents/externaldocuments-eli-dl-doc-sp-2026-03-26-ta-10-2026-0030-analysis.md` |
-| section-supplementary-intelligence | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-supplementary-intelligence | [coalition-dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/existing/coalition-dynamics.md) | `existing/coalition-dynamics.md` |
 | section-supplementary-intelligence | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/existing/synthesis-summary.md) | `existing/synthesis-summary.md` |
 | section-supplementary-intelligence | [deep-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/intelligence/deep-analysis.md) | `intelligence/deep-analysis.md` |
-| section-supplementary-intelligence | [agent-risk-workflow](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/risk-scoring/agent-risk-workflow.md) | `risk-scoring/agent-risk-workflow.md` |
-| section-supplementary-intelligence | [political-risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/risk-scoring/political-risk-matrix.md) | `risk-scoring/political-risk-matrix.md` |
 | section-supplementary-intelligence | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/synthesis-summary.md) | `synthesis-summary.md` |
 

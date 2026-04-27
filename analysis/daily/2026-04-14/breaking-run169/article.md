@@ -1,6 +1,6 @@
 ---
-title: "root((Post-Easter<br/>Threat Landscape))"
-description: "root((Post-Easter<br/>Threat Landscape))"
+title: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear…"
+description: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices."
 date: 2026-04-14
 article_type: breaking
 slug: 2026-04-14-breaking-169
@@ -11,22 +11,443 @@ layout: article
 ---
 # Breaking — 2026-04-14
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
+<h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-14
-> - **Run id:** `169`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-14/breaking-run169](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-14/breaking-run169)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run169/manifest.json)
+Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
+
+| Reader need | What you'll get | Source artifact |
+|---|---|---|
+| [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-assessment.md` |
+
+<h2 id="section-actors-forces">Actors & Forces</h2>
+
+### Political Classification
+
+![Classification](https://img.shields.io/badge/Classification-PUBLIC-green?style=for-the-badge)
+![Items Classified](https://img.shields.io/badge/Items-8_Key_Texts-blue?style=for-the-badge)
+
+---
+
+### 📋 Classification Context
+
+| Field | Value |
+|-------|-------|
+| **Classification ID** | CLS-2026-04-14-169 |
+| **Date** | 2026-04-14 00:25 UTC |
+| **Methodology** | 7-dimension political classification |
+| **Items Classified** | 8 key adopted texts (from 51 total 2026 texts) |
+
+---
+
+### 📊 Classification Dashboard
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
+pie title Adopted Texts by Policy Domain (2026)
+    "Trade & External Relations" : 8
+    "Financial Regulation" : 6
+    "Justice & Rule of Law" : 5
+    "Foreign & Security Policy" : 7
+    "Social Policy & Employment" : 4
+    "Digital & Technology" : 3
+    "Environment & Agriculture" : 3
+    "Budget & Governance" : 7
+    "Human Rights" : 5
+    "Institutional" : 3
+```
+
+---
+
+### 📋 Key Text Classifications
+
+#### TA-10-2026-0096: US Tariff Countermeasures
+
+| Dimension | Classification | Score | Confidence |
+|-----------|---------------|-------|------------|
+| **Policy Domain** | Trade & External Relations | — | 🟢 High |
+| **Political Sensitivity** | 🔴 RESTRICTED | 9/10 | 🟢 High |
+| **Coalition Impact** | 🔴 HIGH | Cross-cutting: PPE supports, ECR divided | 🟡 Medium |
+| **Legislative Stage** | ✅ Adopted (26 March 2026) | Implementation pending | 🟢 High |
+| **External Impact** | 🔴 CRITICAL | €15-20bn bilateral trade; US-EU relations | 🟡 Medium |
+| **Urgency** | 🔴 IMMEDIATE | Implementation deadline April 15 | 🟢 High |
+| **Historical Precedent** | UNPRECEDENTED | First EP-authorized US countermeasures in EP10 | 🟢 High |
+
+**Classification narrative:** This is the most politically consequential adopted text of the EP10 term to date. The tariff countermeasures represent a fundamental shift in EU trade policy posture — from reactive complaint to proactive retaliation. The cross-cutting political dynamics (PPE trade defence hawks vs ECR Atlantic alliance moderates vs S&D worker protection advocates) create a unique three-way coalition stress test. 🟢 High confidence.
+
+#### TA-10-2026-0092: SRMR3 Banking Reform
+
+| Dimension | Classification | Score | Confidence |
+|-----------|---------------|-------|------------|
+| **Policy Domain** | Financial Regulation | — | 🟢 High |
+| **Political Sensitivity** | 🟡 SENSITIVE | 7/10 | 🟢 High |
+| **Coalition Impact** | 🟡 MODERATE | PPE-S&D-Renew aligned; ECR skeptical | 🟡 Medium |
+| **Legislative Stage** | ✅ EP Position Adopted → Trilogue | — | 🟢 High |
+| **External Impact** | 🟡 MODERATE | Banking sector stability; ECB role | 🟡 Medium |
+| **Urgency** | 🟠 HIGH | Trilogue window late April | 🟡 Medium |
+| **Historical Precedent** | CONTINUATION | Banking Union project since 2012 | 🟢 High |
+
+#### TA-10-2026-0094: Anti-Corruption Directive
+
+| Dimension | Classification | Score | Confidence |
+|-----------|---------------|-------|------------|
+| **Policy Domain** | Justice & Rule of Law | — | 🟢 High |
+| **Political Sensitivity** | 🟡 SENSITIVE | 7/10 | 🟢 High |
+| **Coalition Impact** | 🟡 MODERATE | Broad support; ECR resistance on enforcement | 🟡 Medium |
+| **Legislative Stage** | ✅ EP Position Adopted → Final Endorsement | — | 🟢 High |
+| **External Impact** | 🟡 MODERATE | EU credibility; Transparency International support | 🟢 High |
+| **Urgency** | 🟡 MEDIUM | Late April plenary window | 🟡 Medium |
+| **Historical Precedent** | LANDMARK | First comprehensive EU anti-corruption framework | 🟢 High |
+
+#### TA-10-2026-0066: Copyright & Generative AI
+
+| Dimension | Classification | Score | Confidence |
+|-----------|---------------|-------|------------|
+| **Policy Domain** | Digital & Technology | — | 🟢 High |
+| **Political Sensitivity** | 🟡 SENSITIVE | 6/10 | 🟡 Medium |
+| **Coalition Impact** | 🟢 LOW | Broadly consensual | 🟡 Medium |
+| **Urgency** | 🟢 LOW | Adopted March 10 — implementation phase | 🟢 High |
+
+#### TA-10-2026-0079: Defence Single Market
+
+| Dimension | Classification | Score | Confidence |
+|-----------|---------------|-------|------------|
+| **Policy Domain** | Foreign & Security Policy | — | 🟢 High |
+| **Political Sensitivity** | 🟡 SENSITIVE | 6/10 | 🟡 Medium |
+| **Coalition Impact** | 🟡 MODERATE | PPE-ECR aligned; Greens/Left skeptical | 🟡 Medium |
+| **Urgency** | 🟡 MEDIUM | Adopted March 11 — awaiting Council | 🟡 Medium |
+
+#### TA-10-2026-0077: EU Enlargement Strategy
+
+| Dimension | Classification | Score | Confidence |
+|-----------|---------------|-------|------------|
+| **Policy Domain** | External Relations | — | 🟢 High |
+| **Political Sensitivity** | 🟡 SENSITIVE | 6/10 | 🟢 High |
+| **Coalition Impact** | 🟡 MODERATE | PPE-S&D supportive; ECR cautious on timeline | 🟡 Medium |
+| **Urgency** | 🟡 MEDIUM | Strategic direction document — long-term | 🟢 High |
+
+#### TA-10-2026-0064: Housing Crisis Resolution
+
+| Dimension | Classification | Score | Confidence |
+|-----------|---------------|-------|------------|
+| **Policy Domain** | Social Policy | — | 🟢 High |
+| **Political Sensitivity** | 🟢 PUBLIC | 6/10 | 🟢 High |
+| **Coalition Impact** | 🟢 LOW | Near-universal concern | 🟢 High |
+| **Urgency** | 🟡 MEDIUM | Resolution — implementation depends on Commission | 🟡 Medium |
+
+#### TA-10-2026-0078: EU-Canada Enhanced Cooperation
+
+| Dimension | Classification | Score | Confidence |
+|-----------|---------------|-------|------------|
+| **Policy Domain** | External Relations | — | 🟢 High |
+| **Political Sensitivity** | 🟡 SENSITIVE | 5/10 | 🟡 Medium |
+| **Coalition Impact** | 🟢 LOW | Broadly supportive in context of US tensions | 🟡 Medium |
+| **Urgency** | 🟡 MEDIUM | Geopolitical context — Canada sovereignty threats | 🟡 Medium |
+
+---
+
+### 📊 Procedure Type Distribution (2026)
+
+| Type | Count | Description | Key Items |
+|------|-------|-------------|-----------|
+| **COD** (Ordinary legislative) | 13 | Co-decision procedures | SRMR3, tariffs, anti-corruption |
+| **INI** (Own-initiative) | 15+ | Parliament reports | Housing, enlargement, AI copyright |
+| **BUD** (Budget) | 5 | Budget procedures | Globalisation fund mobilisations |
+| **NLE** (Non-legislative consent) | 5 | International agreements | Ecuador-Europol, ship sales convention |
+| **IMM** (Immunity) | 8+ | MEP immunity procedures | Grzegorz Braun immunity waiver |
+
+---
+
+### 📚 Sources
+
+- European Parliament Open Data Portal — 51 adopted texts for 2026
+- 51 legislative procedures tracked (year=2026)
+- Political classification guide methodology (7 dimensions)
+
+### Significance Scoring
+
+![Status](https://img.shields.io/badge/Breaking_News-NO_TODAY--DATED_EVENTS-grey?style=for-the-badge)
+![Composite Score](https://img.shields.io/badge/Composite-17.6%2F25-orange?style=for-the-badge)
+
+---
+
+### 📋 Scoring Context
+
+| Field | Value |
+|-------|-------|
+| **Scoring ID** | SIG-2026-04-14-169 |
+| **Evaluation Date** | 2026-04-14 00:25 UTC |
+| **Evaluator** | Breaking news workflow (Run 169) |
+| **Data Sources** | 51 adopted texts, 51 procedures, 737 MEPs, coalition dynamics, precomputed stats |
+
+---
+
+### 📈 Individual Item Significance Scores
+
+#### Key Adopted Texts (March 26, 2026 — Most Recent Session)
+
+| Item | Reference | Score | Category | Urgency | Confidence |
+|------|-----------|-------|----------|---------|------------|
+| **US Tariff Countermeasures** | TA-10-2026-0096 | **9.5/10** | ⚡ Breaking-worthy | 🔴 CRITICAL (T-1) | 🟢 High |
+| **SRMR3 Banking Reform** | TA-10-2026-0092 | **7.8/10** | 📰 Priority | 🟠 HIGH | 🟢 High |
+| **Anti-Corruption Directive** | TA-10-2026-0094 | **7.2/10** | 📰 Priority | 🟡 MEDIUM | 🟢 High |
+| **EU-Mercosur Safeguard Clause** | TA-10-2026-0030 | **6.5/10** | 📰 Standard | 🟡 MEDIUM | 🟡 Medium |
+| **EU Enlargement Strategy** | TA-10-2026-0077 | **6.2/10** | 📰 Standard | 🟡 MEDIUM | 🟢 High |
+| **Housing Crisis Resolution** | TA-10-2026-0064 | **6.0/10** | 📰 Standard | 🟡 MEDIUM | 🟢 High |
+| **Copyright & Generative AI** | TA-10-2026-0066 | **5.8/10** | 📋 Monitor | 🟢 LOW | 🟡 Medium |
+| **Defence Single Market** | TA-10-2026-0079 | **5.5/10** | 📋 Monitor | 🟡 MEDIUM | 🟡 Medium |
+
+#### Today-Dated Events
+
+| Source | Items Found | Breaking Potential |
+|--------|------------|-------------------|
+| Adopted texts (today) | 0 | — |
+| Events (today) | 0 (feed 404) | — |
+| Procedures (today) | 0 (feed 404) | — |
+| MEP changes (today) | 0 | — |
+
+---
+
+### 🔍 Breaking News Gate Decision
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
+graph TD
+    A["Evaluate Today's Data"] --> B{Any items<br/>dated April 14?}
+    B -->|YES| C["Score significance<br/>≥7.0 = Breaking"]
+    B -->|NO| D["Analysis-Only PR"]
+    D --> E["Write all analysis<br/>artifacts to ANALYSIS_DIR"]
+    E --> F["Create PR with<br/>analysis only"]
+    
+    style A fill:#003399,color:#fff
+    style B fill:#ffc107,color:#000
+    style D fill:#fd7e14,color:#fff
+    style F fill:#28a745,color:#fff
+```
+
+**DECISION: ANALYSIS-ONLY PR** — No items published or updated on April 14, 2026. Parliament's first post-recess plenary expected April 15-17.
+
+---
+
+### 📊 Composite Risk Score Breakdown
+
+| Risk Category | Score | Weight | Weighted | Trend |
+|--------------|-------|--------|----------|-------|
+| **Trade Policy** (tariff T-1) | 25/25 | 30% | 7.5 | ↑↑ CRITICAL |
+| **Legislative Pipeline** (13 COD pending) | 17/25 | 20% | 3.4 | ↑ Rising |
+| **Banking Reform** (SRMR3 trilogue) | 18/25 | 20% | 3.6 | → Stable |
+| **Anti-Corruption** (final phase) | 16/25 | 15% | 2.4 | → Stable |
+| **Coalition Stability** (fragmentation 6.59) | 12/25 | 15% | 1.8 | ↗ Slight increase |
+| **COMPOSITE** | — | 100% | **18.7/25** | **↑ ELEVATED** |
+
+---
+
+### 📅 Cross-Session Continuity
+
+| Prior Run | Date | Key Finding | Status Today |
+|-----------|------|-------------|--------------|
+| Run 168 | Apr 13 | Tariff T-2 CRITICAL, 51 adopted texts collected | ✅ Confirmed T-1 |
+| Run 163 | Apr 12 | Easter recess intelligence, EP API blocked | ✅ API partially restored |
+| Run 159-162 | Apr 11-12 | Multiple noop — MCP unavailable | ✅ MCP operational today |
+| Run 3 (breaking) | Apr 9 | Coalition sentiment analysis, no events | ✅ Consistent pattern |
+
+**Continuity Assessment:** The tariff deadline story has been tracked across 5+ consecutive runs. Today's T-1 position represents the culmination of this tracking. The absence of today-dated events is expected — Parliament's first plenary is tomorrow (April 15). 🟢 High confidence in this assessment.
+
+---
+
+### 📚 Source Attribution
+
+All scores derived from:
+- EP Open Data Portal adopted texts (51 items, year=2026)
+- EP Open Data Portal procedures (51 items, year=2026)
+- EP MCP precomputed statistics (85KB, generated 2026-04-08)
+- Coalition dynamics analysis (8 political groups)
+- Cross-session intelligence from runs 159-168
+
+<h2 id="section-risk">Risk Assessment</h2>
+
+![Risk Level](https://img.shields.io/badge/Overall_Risk-ELEVATED_18.7%2F25-orange?style=for-the-badge)
+![Confidence](https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=for-the-badge)
+
+---
+
+### 📋 Assessment Context
+
+| Field | Value |
+|-------|-------|
+| **Assessment ID** | RSK-2026-04-14-169 |
+| **Date** | 2026-04-14 00:25 UTC |
+| **Period** | April 14–30, 2026 (post-Easter restart window) |
+| **Methodology** | Likelihood × Impact 5×5 matrix |
+| **Confidence** | 🟡 MEDIUM — EP API feeds partially degraded |
+
+---
+
+### 📊 Risk Matrix (5×5 Likelihood × Impact)
+
+```mermaid
+%%{init: {
+  "theme": "dark",
+  "themeVariables": {
+    "quadrant1Fill": "#1565C0",
+    "quadrant2Fill": "#2E7D32",
+    "quadrant3Fill": "#FF9800",
+    "quadrant4Fill": "#D32F2F",
+    "quadrantTitleFill": "#ffffff",
+    "quadrantPointFill": "#ffffff",
+    "quadrantPointTextFill": "#ffffff",
+    "quadrantXAxisTextFill": "#ffffff",
+    "quadrantYAxisTextFill": "#ffffff"
+  },
+  "quadrantChart": {
+    "chartWidth": 700,
+    "chartHeight": 700,
+    "pointLabelFontSize": 14,
+    "titleFontSize": 22,
+    "quadrantLabelFontSize": 18,
+    "xAxisLabelFontSize": 16,
+    "yAxisLabelFontSize": 16
+  }
+}}%%
+quadrantChart
+    title Political Risk Matrix — Post-Easter April 2026
+    x-axis "Low Likelihood" --> "High Likelihood"
+    y-axis "Low Impact" --> "High Impact"
+    quadrant-1 "CRITICAL RISKS"
+    quadrant-2 "MONITOR"
+    quadrant-3 "LOW PRIORITY"
+    quadrant-4 "MANAGE"
+    "Tariff Implementation": [0.95, 0.95]
+    "SRMR3 Trilogue Stall": [0.40, 0.75]
+    "Anti-Corruption Delay": [0.30, 0.60]
+    "Coalition Fragmentation": [0.55, 0.65]
+    "COD Backlog Gridlock": [0.45, 0.55]
+    "ECR Split Acceleration": [0.35, 0.50]
+    "US Retaliation Escalation": [0.50, 0.90]
+```
+
+---
+
+### 📋 Risk Register
+
+#### RSK-001: Tariff Implementation Disruption
+
+| Attribute | Value |
+|-----------|-------|
+| **Risk ID** | RSK-001 |
+| **Category** | Trade Policy |
+| **Likelihood** | 5/5 (CERTAIN) — Implementation date April 15, already adopted |
+| **Impact** | 5/5 (CATASTROPHIC) — €15-20bn bilateral trade affected |
+| **Risk Score** | **25/25 — CRITICAL** |
+| **Trend** | ↑↑ Escalating (was 20/25 on April 9, now 25/25 at T-1) |
+| **Reference** | TA-10-2026-0096, Procedure 2025/0261(COD) |
+| **Mitigation** | Commission implementing acts; Council coordination; potential US negotiation |
+| **Owner** | INTA Committee, European Commission DG Trade |
+| **Confidence** | 🟢 High — adopted text confirmed, deadline immutable |
+
+**Evidence chain:** TA-10-2026-0096 adopted 26 March 2026 → April 15 implementation trigger → Commission DG Trade preparing implementing regulations → No indication of delay from Council or Commission public statements.
+
+#### RSK-002: SRMR3 Trilogue Stall
+
+| Attribute | Value |
+|-----------|-------|
+| **Risk ID** | RSK-002 |
+| **Category** | Financial Regulation |
+| **Likelihood** | 3/5 (POSSIBLE) — Council positions not fully aligned |
+| **Impact** | 4/5 (MAJOR) — Banking Union completion delayed |
+| **Risk Score** | **18/25 — HIGH** |
+| **Trend** | → Stable |
+| **Reference** | TA-10-2026-0092, Procedure 2023/0111(COD) |
+| **Mitigation** | ECON committee leading negotiations; ECB institutional support |
+| **Confidence** | 🟡 Medium — trilogue timing estimated, not confirmed |
+
+#### RSK-003: Legislative Pipeline Congestion
+
+| Attribute | Value |
+|-----------|-------|
+| **Risk ID** | RSK-003 |
+| **Category** | Institutional Capacity |
+| **Likelihood** | 3/5 (POSSIBLE) — 13 COD procedures pending assignment |
+| **Impact** | 3/5 (MODERATE) — Delays cascade across committees |
+| **Risk Score** | **17/25 — HIGH** |
+| **Trend** | ↑ Rising — record 114 acts already adopted, pipeline growing |
+| **Reference** | 2026 procedure registry (51 procedures tracked) |
+| **Confidence** | 🟢 High — procedure counts verified from EP data |
+
+#### RSK-004: Anti-Corruption Directive Amendment Overload
+
+| Attribute | Value |
+|-----------|-------|
+| **Risk ID** | RSK-004 |
+| **Category** | Rule of Law |
+| **Likelihood** | 2/5 (UNLIKELY) — Broad cross-party support established |
+| **Impact** | 4/5 (MAJOR) — EU anti-corruption credibility at stake |
+| **Risk Score** | **16/25 — MEDIUM-HIGH** |
+| **Reference** | TA-10-2026-0094, Procedure 2023/0135(COD) |
+| **Confidence** | 🟡 Medium — ECR resistance level uncertain |
+
+#### RSK-005: Coalition Fragmentation Cascade
+
+| Attribute | Value |
+|-----------|-------|
+| **Risk ID** | RSK-005 |
+| **Category** | Political Stability |
+| **Likelihood** | 3/5 (POSSIBLE) — Fragmentation index at record 6.59 |
+| **Impact** | 3/5 (MODERATE) — Working majority harder to assemble |
+| **Risk Score** | **12/25 — MEDIUM** |
+| **Trend** | ↗ Slight increase — ECR defections continue |
+| **Reference** | Coalition dynamics analysis, fragmentation index |
+| **Confidence** | 🟡 Medium — defection rate extrapolated from Q1 data |
+
+#### RSK-006: US Retaliation Escalation
+
+| Attribute | Value |
+|-----------|-------|
+| **Risk ID** | RSK-006 |
+| **Category** | External Trade |
+| **Likelihood** | 3/5 (POSSIBLE) — Depends on US Trade Representative response |
+| **Impact** | 5/5 (CATASTROPHIC) — Full trade war scenario |
+| **Risk Score** | **20/25 — HIGH** |
+| **Trend** | ↑ Escalating — countdown to April 15 |
+| **Reference** | TA-10-2026-0096 trigger |
+| **Confidence** | 🔴 Low — US response unpredictable |
+
+---
+
+### 📊 Risk Trend Tracking (Cross-Session)
+
+| Risk | Apr 9 | Apr 11 | Apr 12 | Apr 13 | Apr 14 | Direction |
+|------|-------|--------|--------|--------|--------|-----------|
+| RSK-001 Tariff | 20/25 | — | — | 23/25 | **25/25** | ↑↑ |
+| RSK-002 SRMR3 | 18/25 | — | — | 18/25 | **18/25** | → |
+| RSK-003 Pipeline | 15/25 | — | — | 16/25 | **17/25** | ↑ |
+| RSK-004 Anti-Corruption | 16/25 | — | — | 16/25 | **16/25** | → |
+| RSK-005 Coalition | 11/25 | — | — | 12/25 | **12/25** | → |
+| RSK-006 US Retaliation | 15/25 | — | — | 18/25 | **20/25** | ↑ |
+| **COMPOSITE** | 13.2 | — | — | 14.3 | **18.7** | **↑↑ ELEVATED** |
+
+---
+
+### 🔮 Risk Outlook — Next 7 Days
+
+| Scenario | Probability | Key Risks Activated |
+|----------|-------------|---------------------|
+| **Managed Restart** | 55% (LIKELY) | RSK-001 proceeds as planned; RSK-003 managed through committee scheduling |
+| **Trade Escalation** | 30% (POSSIBLE) | RSK-001 triggers RSK-006; emergency sessions consume bandwidth |
+| **Institutional Stress** | 15% (UNLIKELY) | RSK-005 cascade; multiple risks compound simultaneously |
+
+---
+
+### 📚 Sources
+
+- EP Adopted Texts: TA-10-2026-0092, TA-10-2026-0094, TA-10-2026-0096 (adopted 26 March 2026)
+- EP Procedures: 51 procedures tracked for 2026
+- Coalition dynamics: CIA methodology, 8 political groups
+- Precomputed statistics: 2004-2026 dataset (generated 2026-04-08)
+- Cross-session intelligence: Runs 159-168 (April 9-13)
 
 <h2 id="section-threat">Threat Landscape</h2>
 
 ### Political Threat Landscape
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run169/threat-assessment/political-threat-landscape.md" rel="noopener">View source: <code>threat-assessment/political-threat-landscape.md</code></a></p>
 
 ![Threat Level](https://img.shields.io/badge/Threat_Level-MODERATE-yellow?style=for-the-badge)
 ![Confidence](https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=for-the-badge)
@@ -176,8 +597,6 @@ graph TD
 
 ### Document Analysis Index
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run169/documents/document-analysis-index.md" rel="noopener">View source: <code>documents/document-analysis-index.md</code></a></p>
-
 ![Documents](https://img.shields.io/badge/Documents_Analyzed-51_Adopted_Texts-blue?style=for-the-badge)
 ![Focus](https://img.shields.io/badge/Focus-March_26_Session-orange?style=for-the-badge)
 
@@ -322,255 +741,7 @@ gantt
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
-### Political Classification
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run169/classification/political-classification.md" rel="noopener">View source: <code>classification/political-classification.md</code></a></p>
-
-![Classification](https://img.shields.io/badge/Classification-PUBLIC-green?style=for-the-badge)
-![Items Classified](https://img.shields.io/badge/Items-8_Key_Texts-blue?style=for-the-badge)
-
----
-
-### 📋 Classification Context
-
-| Field | Value |
-|-------|-------|
-| **Classification ID** | CLS-2026-04-14-169 |
-| **Date** | 2026-04-14 00:25 UTC |
-| **Methodology** | 7-dimension political classification |
-| **Items Classified** | 8 key adopted texts (from 51 total 2026 texts) |
-
----
-
-### 📊 Classification Dashboard
-
-```mermaid
-%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
-pie title Adopted Texts by Policy Domain (2026)
-    "Trade & External Relations" : 8
-    "Financial Regulation" : 6
-    "Justice & Rule of Law" : 5
-    "Foreign & Security Policy" : 7
-    "Social Policy & Employment" : 4
-    "Digital & Technology" : 3
-    "Environment & Agriculture" : 3
-    "Budget & Governance" : 7
-    "Human Rights" : 5
-    "Institutional" : 3
-```
-
----
-
-### 📋 Key Text Classifications
-
-#### TA-10-2026-0096: US Tariff Countermeasures
-
-| Dimension | Classification | Score | Confidence |
-|-----------|---------------|-------|------------|
-| **Policy Domain** | Trade & External Relations | — | 🟢 High |
-| **Political Sensitivity** | 🔴 RESTRICTED | 9/10 | 🟢 High |
-| **Coalition Impact** | 🔴 HIGH | Cross-cutting: PPE supports, ECR divided | 🟡 Medium |
-| **Legislative Stage** | ✅ Adopted (26 March 2026) | Implementation pending | 🟢 High |
-| **External Impact** | 🔴 CRITICAL | €15-20bn bilateral trade; US-EU relations | 🟡 Medium |
-| **Urgency** | 🔴 IMMEDIATE | Implementation deadline April 15 | 🟢 High |
-| **Historical Precedent** | UNPRECEDENTED | First EP-authorized US countermeasures in EP10 | 🟢 High |
-
-**Classification narrative:** This is the most politically consequential adopted text of the EP10 term to date. The tariff countermeasures represent a fundamental shift in EU trade policy posture — from reactive complaint to proactive retaliation. The cross-cutting political dynamics (PPE trade defence hawks vs ECR Atlantic alliance moderates vs S&D worker protection advocates) create a unique three-way coalition stress test. 🟢 High confidence.
-
-#### TA-10-2026-0092: SRMR3 Banking Reform
-
-| Dimension | Classification | Score | Confidence |
-|-----------|---------------|-------|------------|
-| **Policy Domain** | Financial Regulation | — | 🟢 High |
-| **Political Sensitivity** | 🟡 SENSITIVE | 7/10 | 🟢 High |
-| **Coalition Impact** | 🟡 MODERATE | PPE-S&D-Renew aligned; ECR skeptical | 🟡 Medium |
-| **Legislative Stage** | ✅ EP Position Adopted → Trilogue | — | 🟢 High |
-| **External Impact** | 🟡 MODERATE | Banking sector stability; ECB role | 🟡 Medium |
-| **Urgency** | 🟠 HIGH | Trilogue window late April | 🟡 Medium |
-| **Historical Precedent** | CONTINUATION | Banking Union project since 2012 | 🟢 High |
-
-#### TA-10-2026-0094: Anti-Corruption Directive
-
-| Dimension | Classification | Score | Confidence |
-|-----------|---------------|-------|------------|
-| **Policy Domain** | Justice & Rule of Law | — | 🟢 High |
-| **Political Sensitivity** | 🟡 SENSITIVE | 7/10 | 🟢 High |
-| **Coalition Impact** | 🟡 MODERATE | Broad support; ECR resistance on enforcement | 🟡 Medium |
-| **Legislative Stage** | ✅ EP Position Adopted → Final Endorsement | — | 🟢 High |
-| **External Impact** | 🟡 MODERATE | EU credibility; Transparency International support | 🟢 High |
-| **Urgency** | 🟡 MEDIUM | Late April plenary window | 🟡 Medium |
-| **Historical Precedent** | LANDMARK | First comprehensive EU anti-corruption framework | 🟢 High |
-
-#### TA-10-2026-0066: Copyright & Generative AI
-
-| Dimension | Classification | Score | Confidence |
-|-----------|---------------|-------|------------|
-| **Policy Domain** | Digital & Technology | — | 🟢 High |
-| **Political Sensitivity** | 🟡 SENSITIVE | 6/10 | 🟡 Medium |
-| **Coalition Impact** | 🟢 LOW | Broadly consensual | 🟡 Medium |
-| **Urgency** | 🟢 LOW | Adopted March 10 — implementation phase | 🟢 High |
-
-#### TA-10-2026-0079: Defence Single Market
-
-| Dimension | Classification | Score | Confidence |
-|-----------|---------------|-------|------------|
-| **Policy Domain** | Foreign & Security Policy | — | 🟢 High |
-| **Political Sensitivity** | 🟡 SENSITIVE | 6/10 | 🟡 Medium |
-| **Coalition Impact** | 🟡 MODERATE | PPE-ECR aligned; Greens/Left skeptical | 🟡 Medium |
-| **Urgency** | 🟡 MEDIUM | Adopted March 11 — awaiting Council | 🟡 Medium |
-
-#### TA-10-2026-0077: EU Enlargement Strategy
-
-| Dimension | Classification | Score | Confidence |
-|-----------|---------------|-------|------------|
-| **Policy Domain** | External Relations | — | 🟢 High |
-| **Political Sensitivity** | 🟡 SENSITIVE | 6/10 | 🟢 High |
-| **Coalition Impact** | 🟡 MODERATE | PPE-S&D supportive; ECR cautious on timeline | 🟡 Medium |
-| **Urgency** | 🟡 MEDIUM | Strategic direction document — long-term | 🟢 High |
-
-#### TA-10-2026-0064: Housing Crisis Resolution
-
-| Dimension | Classification | Score | Confidence |
-|-----------|---------------|-------|------------|
-| **Policy Domain** | Social Policy | — | 🟢 High |
-| **Political Sensitivity** | 🟢 PUBLIC | 6/10 | 🟢 High |
-| **Coalition Impact** | 🟢 LOW | Near-universal concern | 🟢 High |
-| **Urgency** | 🟡 MEDIUM | Resolution — implementation depends on Commission | 🟡 Medium |
-
-#### TA-10-2026-0078: EU-Canada Enhanced Cooperation
-
-| Dimension | Classification | Score | Confidence |
-|-----------|---------------|-------|------------|
-| **Policy Domain** | External Relations | — | 🟢 High |
-| **Political Sensitivity** | 🟡 SENSITIVE | 5/10 | 🟡 Medium |
-| **Coalition Impact** | 🟢 LOW | Broadly supportive in context of US tensions | 🟡 Medium |
-| **Urgency** | 🟡 MEDIUM | Geopolitical context — Canada sovereignty threats | 🟡 Medium |
-
----
-
-### 📊 Procedure Type Distribution (2026)
-
-| Type | Count | Description | Key Items |
-|------|-------|-------------|-----------|
-| **COD** (Ordinary legislative) | 13 | Co-decision procedures | SRMR3, tariffs, anti-corruption |
-| **INI** (Own-initiative) | 15+ | Parliament reports | Housing, enlargement, AI copyright |
-| **BUD** (Budget) | 5 | Budget procedures | Globalisation fund mobilisations |
-| **NLE** (Non-legislative consent) | 5 | International agreements | Ecuador-Europol, ship sales convention |
-| **IMM** (Immunity) | 8+ | MEP immunity procedures | Grzegorz Braun immunity waiver |
-
----
-
-### 📚 Sources
-
-- European Parliament Open Data Portal — 51 adopted texts for 2026
-- 51 legislative procedures tracked (year=2026)
-- Political classification guide methodology (7 dimensions)
-
-### Significance Scoring
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run169/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
-
-![Status](https://img.shields.io/badge/Breaking_News-NO_TODAY--DATED_EVENTS-grey?style=for-the-badge)
-![Composite Score](https://img.shields.io/badge/Composite-17.6%2F25-orange?style=for-the-badge)
-
----
-
-### 📋 Scoring Context
-
-| Field | Value |
-|-------|-------|
-| **Scoring ID** | SIG-2026-04-14-169 |
-| **Evaluation Date** | 2026-04-14 00:25 UTC |
-| **Evaluator** | Breaking news workflow (Run 169) |
-| **Data Sources** | 51 adopted texts, 51 procedures, 737 MEPs, coalition dynamics, precomputed stats |
-
----
-
-### 📈 Individual Item Significance Scores
-
-#### Key Adopted Texts (March 26, 2026 — Most Recent Session)
-
-| Item | Reference | Score | Category | Urgency | Confidence |
-|------|-----------|-------|----------|---------|------------|
-| **US Tariff Countermeasures** | TA-10-2026-0096 | **9.5/10** | ⚡ Breaking-worthy | 🔴 CRITICAL (T-1) | 🟢 High |
-| **SRMR3 Banking Reform** | TA-10-2026-0092 | **7.8/10** | 📰 Priority | 🟠 HIGH | 🟢 High |
-| **Anti-Corruption Directive** | TA-10-2026-0094 | **7.2/10** | 📰 Priority | 🟡 MEDIUM | 🟢 High |
-| **EU-Mercosur Safeguard Clause** | TA-10-2026-0030 | **6.5/10** | 📰 Standard | 🟡 MEDIUM | 🟡 Medium |
-| **EU Enlargement Strategy** | TA-10-2026-0077 | **6.2/10** | 📰 Standard | 🟡 MEDIUM | 🟢 High |
-| **Housing Crisis Resolution** | TA-10-2026-0064 | **6.0/10** | 📰 Standard | 🟡 MEDIUM | 🟢 High |
-| **Copyright & Generative AI** | TA-10-2026-0066 | **5.8/10** | 📋 Monitor | 🟢 LOW | 🟡 Medium |
-| **Defence Single Market** | TA-10-2026-0079 | **5.5/10** | 📋 Monitor | 🟡 MEDIUM | 🟡 Medium |
-
-#### Today-Dated Events
-
-| Source | Items Found | Breaking Potential |
-|--------|------------|-------------------|
-| Adopted texts (today) | 0 | — |
-| Events (today) | 0 (feed 404) | — |
-| Procedures (today) | 0 (feed 404) | — |
-| MEP changes (today) | 0 | — |
-
----
-
-### 🔍 Breaking News Gate Decision
-
-```mermaid
-%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
-graph TD
-    A["Evaluate Today's Data"] --> B{Any items<br/>dated April 14?}
-    B -->|YES| C["Score significance<br/>≥7.0 = Breaking"]
-    B -->|NO| D["Analysis-Only PR"]
-    D --> E["Write all analysis<br/>artifacts to ANALYSIS_DIR"]
-    E --> F["Create PR with<br/>analysis only"]
-    
-    style A fill:#003399,color:#fff
-    style B fill:#ffc107,color:#000
-    style D fill:#fd7e14,color:#fff
-    style F fill:#28a745,color:#fff
-```
-
-**DECISION: ANALYSIS-ONLY PR** — No items published or updated on April 14, 2026. Parliament's first post-recess plenary expected April 15-17.
-
----
-
-### 📊 Composite Risk Score Breakdown
-
-| Risk Category | Score | Weight | Weighted | Trend |
-|--------------|-------|--------|----------|-------|
-| **Trade Policy** (tariff T-1) | 25/25 | 30% | 7.5 | ↑↑ CRITICAL |
-| **Legislative Pipeline** (13 COD pending) | 17/25 | 20% | 3.4 | ↑ Rising |
-| **Banking Reform** (SRMR3 trilogue) | 18/25 | 20% | 3.6 | → Stable |
-| **Anti-Corruption** (final phase) | 16/25 | 15% | 2.4 | → Stable |
-| **Coalition Stability** (fragmentation 6.59) | 12/25 | 15% | 1.8 | ↗ Slight increase |
-| **COMPOSITE** | — | 100% | **18.7/25** | **↑ ELEVATED** |
-
----
-
-### 📅 Cross-Session Continuity
-
-| Prior Run | Date | Key Finding | Status Today |
-|-----------|------|-------------|--------------|
-| Run 168 | Apr 13 | Tariff T-2 CRITICAL, 51 adopted texts collected | ✅ Confirmed T-1 |
-| Run 163 | Apr 12 | Easter recess intelligence, EP API blocked | ✅ API partially restored |
-| Run 159-162 | Apr 11-12 | Multiple noop — MCP unavailable | ✅ MCP operational today |
-| Run 3 (breaking) | Apr 9 | Coalition sentiment analysis, no events | ✅ Consistent pattern |
-
-**Continuity Assessment:** The tariff deadline story has been tracked across 5+ consecutive runs. Today's T-1 position represents the culmination of this tracking. The absence of today-dated events is expected — Parliament's first plenary is tomorrow (April 15). 🟢 High confidence in this assessment.
-
----
-
-### 📚 Source Attribution
-
-All scores derived from:
-- EP Open Data Portal adopted texts (51 items, year=2026)
-- EP Open Data Portal procedures (51 items, year=2026)
-- EP MCP precomputed statistics (85KB, generated 2026-04-08)
-- Coalition dynamics analysis (8 political groups)
-- Cross-session intelligence from runs 159-168
-
 ### Synthesis Summary
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run169/existing/synthesis-summary.md" rel="noopener">View source: <code>existing/synthesis-summary.md</code></a></p>
 
 ![Confidence](https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=for-the-badge)
 ![Risk Level](https://img.shields.io/badge/Composite_Risk-17.6%2F25_ELEVATED-orange?style=for-the-badge)
@@ -801,189 +972,14 @@ Fragmentation prevents working majorities on key dossiers. SRMR3 trilogue stalls
 - Coalition Analysis: CIA methodology applied to current MEP composition data
 - Prior Run Intelligence: Run 168 (2026-04-13), Run 163 (2026-04-12), cross-session continuity
 
-### Risk Assessment
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run169/risk-scoring/risk-assessment.md" rel="noopener">View source: <code>risk-scoring/risk-assessment.md</code></a></p>
-
-![Risk Level](https://img.shields.io/badge/Overall_Risk-ELEVATED_18.7%2F25-orange?style=for-the-badge)
-![Confidence](https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=for-the-badge)
-
----
-
-### 📋 Assessment Context
-
-| Field | Value |
-|-------|-------|
-| **Assessment ID** | RSK-2026-04-14-169 |
-| **Date** | 2026-04-14 00:25 UTC |
-| **Period** | April 14–30, 2026 (post-Easter restart window) |
-| **Methodology** | Likelihood × Impact 5×5 matrix |
-| **Confidence** | 🟡 MEDIUM — EP API feeds partially degraded |
-
----
-
-### 📊 Risk Matrix (5×5 Likelihood × Impact)
-
-```mermaid
-%%{init: {
-  "theme": "dark",
-  "themeVariables": {
-    "quadrant1Fill": "#1565C0",
-    "quadrant2Fill": "#2E7D32",
-    "quadrant3Fill": "#FF9800",
-    "quadrant4Fill": "#D32F2F",
-    "quadrantTitleFill": "#ffffff",
-    "quadrantPointFill": "#ffffff",
-    "quadrantPointTextFill": "#ffffff",
-    "quadrantXAxisTextFill": "#ffffff",
-    "quadrantYAxisTextFill": "#ffffff"
-  },
-  "quadrantChart": {
-    "chartWidth": 700,
-    "chartHeight": 700,
-    "pointLabelFontSize": 14,
-    "titleFontSize": 22,
-    "quadrantLabelFontSize": 18,
-    "xAxisLabelFontSize": 16,
-    "yAxisLabelFontSize": 16
-  }
-}}%%
-quadrantChart
-    title Political Risk Matrix — Post-Easter April 2026
-    x-axis "Low Likelihood" --> "High Likelihood"
-    y-axis "Low Impact" --> "High Impact"
-    quadrant-1 "CRITICAL RISKS"
-    quadrant-2 "MONITOR"
-    quadrant-3 "LOW PRIORITY"
-    quadrant-4 "MANAGE"
-    "Tariff Implementation": [0.95, 0.95]
-    "SRMR3 Trilogue Stall": [0.40, 0.75]
-    "Anti-Corruption Delay": [0.30, 0.60]
-    "Coalition Fragmentation": [0.55, 0.65]
-    "COD Backlog Gridlock": [0.45, 0.55]
-    "ECR Split Acceleration": [0.35, 0.50]
-    "US Retaliation Escalation": [0.50, 0.90]
-```
-
----
-
-### 📋 Risk Register
-
-#### RSK-001: Tariff Implementation Disruption
-
-| Attribute | Value |
-|-----------|-------|
-| **Risk ID** | RSK-001 |
-| **Category** | Trade Policy |
-| **Likelihood** | 5/5 (CERTAIN) — Implementation date April 15, already adopted |
-| **Impact** | 5/5 (CATASTROPHIC) — €15-20bn bilateral trade affected |
-| **Risk Score** | **25/25 — CRITICAL** |
-| **Trend** | ↑↑ Escalating (was 20/25 on April 9, now 25/25 at T-1) |
-| **Reference** | TA-10-2026-0096, Procedure 2025/0261(COD) |
-| **Mitigation** | Commission implementing acts; Council coordination; potential US negotiation |
-| **Owner** | INTA Committee, European Commission DG Trade |
-| **Confidence** | 🟢 High — adopted text confirmed, deadline immutable |
-
-**Evidence chain:** TA-10-2026-0096 adopted 26 March 2026 → April 15 implementation trigger → Commission DG Trade preparing implementing regulations → No indication of delay from Council or Commission public statements.
-
-#### RSK-002: SRMR3 Trilogue Stall
-
-| Attribute | Value |
-|-----------|-------|
-| **Risk ID** | RSK-002 |
-| **Category** | Financial Regulation |
-| **Likelihood** | 3/5 (POSSIBLE) — Council positions not fully aligned |
-| **Impact** | 4/5 (MAJOR) — Banking Union completion delayed |
-| **Risk Score** | **18/25 — HIGH** |
-| **Trend** | → Stable |
-| **Reference** | TA-10-2026-0092, Procedure 2023/0111(COD) |
-| **Mitigation** | ECON committee leading negotiations; ECB institutional support |
-| **Confidence** | 🟡 Medium — trilogue timing estimated, not confirmed |
-
-#### RSK-003: Legislative Pipeline Congestion
-
-| Attribute | Value |
-|-----------|-------|
-| **Risk ID** | RSK-003 |
-| **Category** | Institutional Capacity |
-| **Likelihood** | 3/5 (POSSIBLE) — 13 COD procedures pending assignment |
-| **Impact** | 3/5 (MODERATE) — Delays cascade across committees |
-| **Risk Score** | **17/25 — HIGH** |
-| **Trend** | ↑ Rising — record 114 acts already adopted, pipeline growing |
-| **Reference** | 2026 procedure registry (51 procedures tracked) |
-| **Confidence** | 🟢 High — procedure counts verified from EP data |
-
-#### RSK-004: Anti-Corruption Directive Amendment Overload
-
-| Attribute | Value |
-|-----------|-------|
-| **Risk ID** | RSK-004 |
-| **Category** | Rule of Law |
-| **Likelihood** | 2/5 (UNLIKELY) — Broad cross-party support established |
-| **Impact** | 4/5 (MAJOR) — EU anti-corruption credibility at stake |
-| **Risk Score** | **16/25 — MEDIUM-HIGH** |
-| **Reference** | TA-10-2026-0094, Procedure 2023/0135(COD) |
-| **Confidence** | 🟡 Medium — ECR resistance level uncertain |
-
-#### RSK-005: Coalition Fragmentation Cascade
-
-| Attribute | Value |
-|-----------|-------|
-| **Risk ID** | RSK-005 |
-| **Category** | Political Stability |
-| **Likelihood** | 3/5 (POSSIBLE) — Fragmentation index at record 6.59 |
-| **Impact** | 3/5 (MODERATE) — Working majority harder to assemble |
-| **Risk Score** | **12/25 — MEDIUM** |
-| **Trend** | ↗ Slight increase — ECR defections continue |
-| **Reference** | Coalition dynamics analysis, fragmentation index |
-| **Confidence** | 🟡 Medium — defection rate extrapolated from Q1 data |
-
-#### RSK-006: US Retaliation Escalation
-
-| Attribute | Value |
-|-----------|-------|
-| **Risk ID** | RSK-006 |
-| **Category** | External Trade |
-| **Likelihood** | 3/5 (POSSIBLE) — Depends on US Trade Representative response |
-| **Impact** | 5/5 (CATASTROPHIC) — Full trade war scenario |
-| **Risk Score** | **20/25 — HIGH** |
-| **Trend** | ↑ Escalating — countdown to April 15 |
-| **Reference** | TA-10-2026-0096 trigger |
-| **Confidence** | 🔴 Low — US response unpredictable |
-
----
-
-### 📊 Risk Trend Tracking (Cross-Session)
-
-| Risk | Apr 9 | Apr 11 | Apr 12 | Apr 13 | Apr 14 | Direction |
-|------|-------|--------|--------|--------|--------|-----------|
-| RSK-001 Tariff | 20/25 | — | — | 23/25 | **25/25** | ↑↑ |
-| RSK-002 SRMR3 | 18/25 | — | — | 18/25 | **18/25** | → |
-| RSK-003 Pipeline | 15/25 | — | — | 16/25 | **17/25** | ↑ |
-| RSK-004 Anti-Corruption | 16/25 | — | — | 16/25 | **16/25** | → |
-| RSK-005 Coalition | 11/25 | — | — | 12/25 | **12/25** | → |
-| RSK-006 US Retaliation | 15/25 | — | — | 18/25 | **20/25** | ↑ |
-| **COMPOSITE** | 13.2 | — | — | 14.3 | **18.7** | **↑↑ ELEVATED** |
-
----
-
-### 🔮 Risk Outlook — Next 7 Days
-
-| Scenario | Probability | Key Risks Activated |
-|----------|-------------|---------------------|
-| **Managed Restart** | 55% (LIKELY) | RSK-001 proceeds as planned; RSK-003 managed through committee scheduling |
-| **Trade Escalation** | 30% (POSSIBLE) | RSK-001 triggers RSK-006; emergency sessions consume bandwidth |
-| **Institutional Stress** | 15% (UNLIKELY) | RSK-005 cascade; multiple risks compound simultaneously |
-
----
-
-### 📚 Sources
-
-- EP Adopted Texts: TA-10-2026-0092, TA-10-2026-0094, TA-10-2026-0096 (adopted 26 March 2026)
-- EP Procedures: 51 procedures tracked for 2026
-- Coalition dynamics: CIA methodology, 8 political groups
-- Precomputed statistics: 2004-2026 dataset (generated 2026-04-08)
-- Cross-session intelligence: Runs 159-168 (April 9-13)
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-14
+> - **Run id:** `169`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-14/breaking-run169](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-14/breaking-run169)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run169/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 
@@ -1070,10 +1066,10 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-actors-forces | [political-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run169/classification/political-classification.md) | `classification/political-classification.md` |
+| section-actors-forces | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run169/classification/significance-scoring.md) | `classification/significance-scoring.md` |
+| section-risk | [risk-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run169/risk-scoring/risk-assessment.md) | `risk-scoring/risk-assessment.md` |
 | section-threat | [political-threat-landscape](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run169/threat-assessment/political-threat-landscape.md) | `threat-assessment/political-threat-landscape.md` |
 | section-documents | [document-analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run169/documents/document-analysis-index.md) | `documents/document-analysis-index.md` |
-| section-supplementary-intelligence | [political-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run169/classification/political-classification.md) | `classification/political-classification.md` |
-| section-supplementary-intelligence | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run169/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-supplementary-intelligence | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run169/existing/synthesis-summary.md) | `existing/synthesis-summary.md` |
-| section-supplementary-intelligence | [risk-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run169/risk-scoring/risk-assessment.md) | `risk-scoring/risk-assessment.md` |
 

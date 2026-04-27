@@ -136,7 +136,7 @@ describe('renderProvenanceBlock', () => {
       runDirRelPath: 'analysis/daily/2026-01-15/breaking-run-test',
       manifestRelPath: 'analysis/daily/2026-01-15/breaking-run-test/manifest.json',
     });
-    expect(out).toContain('**Provenance**');
+    expect(out).toContain('**Provenance & Audit**');
     expect(out).toContain('`breaking`');
     expect(out).toContain('2026-01-15');
     expect(out).toContain('`GREEN`');
@@ -198,12 +198,18 @@ describe('aggregateAnalysisRun (fixture)', () => {
       'test/fixtures/analysis/2026-01-15/breaking-run-test'
     );
 
-    // Provenance block at the top
+    // Provenance block (now placed at the END as audit appendix; references
+    // are consolidated at the bottom for journalistic readability).
     expect(result.markdown).toMatch(/^# /);
-    expect(result.markdown).toContain('**Provenance**');
+    expect(result.markdown).toContain('**Provenance & Audit**');
     expect(result.markdown).toContain('Reader Intelligence Guide');
     expect(result.markdown).toContain('`breaking`');
     expect(result.markdown).toContain('`GREEN`');
+
+    // Provenance must appear AFTER the body sections (i.e. at the end).
+    const provenancePos = result.markdown.indexOf('**Provenance & Audit**');
+    const synthHeadPos = result.markdown.indexOf('Synthesis Summary');
+    expect(provenancePos).toBeGreaterThan(synthHeadPos);
 
     // Executive brief appears before synthesis summary
     const execPos = result.markdown.indexOf('Executive Brief');
@@ -263,6 +269,10 @@ describe('aggregateAnalysisRun (fixture)', () => {
     const toc = result.sectionToc ?? [];
     expect(toc.length).toBeGreaterThan(0);
     expect(toc[0]).toEqual({
+      id: 'section-executive-brief',
+      title: 'Executive Brief',
+    });
+    expect(toc[1]).toEqual({
       id: 'reader-intelligence-guide',
       title: 'Reader Intelligence Guide',
     });

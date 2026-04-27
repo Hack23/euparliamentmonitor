@@ -11,17 +11,6 @@ layout: article
 ---
 # Breaking — 2026-04-13
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-13
-> - **Run id:** `168`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-13/breaking-run168](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-13/breaking-run168)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/breaking-run168/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -34,8 +23,6 @@ Use this guide to read the article as a political-intelligence product rather th
 <h2 id="section-significance">Significance</h2>
 
 ### Significance Classification
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/breaking-run168/classification/significance-classification.md" rel="noopener">View source: <code>classification/significance-classification.md</code></a></p>
 
 ### 📋 Classification Context
 
@@ -197,11 +184,110 @@ The final pre-Easter plenary on March 26 adopted these key texts:
 | Prior synthesis | SYN-2026-04-10-PROPOSITIONS | 2026-04-10 |
 | EP API server health | Unhealthy, 0/13 feeds operational | Checked 2026-04-13T18:28Z |
 
+<h2 id="section-actors-forces">Actors & Forces</h2>
+
+### Significance Scoring
+
+### 📋 Scoring Context
+
+| Field | Value |
+|-------|-------|
+| **Scoring ID** | SCORE-2026-04-13-BREAKING-RUN168 |
+| **Analysis Date** | 2026-04-13 (Easter Monday — final recess day) |
+| **Items Scored** | 15 key adopted texts from 2026 |
+| **Methodology** | Multi-factor significance scoring per political-classification-guide.md |
+
+### 🎯 Priority Ranking — Top 10 Legislative Items
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
+xychart-beta
+    title "Significance Scores — Top 10 EP Items (2026)"
+    x-axis ["TA-0096 Tariffs", "TA-0094 Corruption", "TA-0092 SRMR3", "TA-0079 Defence", "TA-0078 Canada", "TA-0077 Enlargement", "TA-0066 Copyright AI", "TA-0064 Housing", "TA-0058 Talent Pool", "TA-0050 Workers"]
+    y-axis "Significance Score" 0 --> 10
+    bar [9.5, 8.0, 7.5, 7.2, 7.0, 6.8, 6.5, 6.2, 5.8, 5.5]
+```
+
+#### Detailed Scoring Matrix
+
+| Rank | Reference | Title (Short) | Legislative | Political | Economic | Citizen | Geopolitical | Composite | Confidence |
+|------|-----------|---------------|-------------|-----------|----------|---------|-------------|-----------|------------|
+| 1 | TA-10-2026-0096 | US Tariff Countermeasures | 9 | 8 | 10 | 7 | 10 | **9.5** | 🟢 High |
+| 2 | TA-10-2026-0094 | Anti-Corruption Directive | 9 | 7 | 6 | 8 | 5 | **8.0** | 🟡 Med |
+| 3 | TA-10-2026-0092 | Banking Union SRMR3 | 8 | 6 | 9 | 5 | 4 | **7.5** | 🟡 Med |
+| 4 | TA-10-2026-0079 | Defence Single Market | 7 | 7 | 6 | 4 | 9 | **7.2** | 🟡 Med |
+| 5 | TA-10-2026-0078 | EU-Canada Cooperation | 6 | 6 | 7 | 4 | 9 | **7.0** | 🟡 Med |
+| 6 | TA-10-2026-0077 | EU Enlargement Strategy | 7 | 7 | 5 | 5 | 8 | **6.8** | 🟡 Med |
+| 7 | TA-10-2026-0066 | Copyright & AI | 8 | 5 | 7 | 6 | 3 | **6.5** | 🟡 Med |
+| 8 | TA-10-2026-0064 | Housing Crisis | 7 | 6 | 5 | 9 | 2 | **6.2** | 🟡 Med |
+| 9 | TA-10-2026-0058 | EU Talent Pool | 7 | 4 | 6 | 7 | 3 | **5.8** | 🟢 High |
+| 10 | TA-10-2026-0050 | Workers' Rights | 6 | 5 | 5 | 8 | 2 | **5.5** | 🟡 Med |
+
+### 📊 Scoring Methodology Applied
+
+Each item scored across 5 weighted dimensions:
+
+| Dimension | Weight | Description |
+|-----------|--------|-------------|
+| Legislative Impact | 25% | Binding nature, scope, novelty of legal instrument |
+| Political Dynamics | 20% | Coalition implications, group positioning, procedural significance |
+| Economic Impact | 25% | Market effects, regulatory burden, fiscal implications |
+| Citizen Impact | 15% | Direct effect on daily life, rights, services |
+| Geopolitical | 15% | External relations, strategic positioning, sovereignty implications |
+
+### 🔍 Score Justification — Top 3
+
+#### 1. US Tariff Countermeasures (9.5/10) — TA-10-2026-0096
+
+**Why highest score**: This is the only item with an imminent implementation deadline (April 15, T-2 days). It combines:
+- **Legislative**: Binding regulation directly adjusting customs duties — immediate legal effect across EU customs union
+- **Economic**: Direct trade disruption with the EU's largest trading partner; sector-specific tariff quotas create winners and losers across EU industry
+- **Geopolitical**: Parliament's most assertive trade defence action in EP10; sets precedent for future retaliatory measures
+- **Political**: Cross-party support masked underlying Renew-ECR tension on implementation scope; EPP pragmatists vs ECR free-traders vs S&D protectionists created unusual voting dynamics
+
+**Timeline pressure**: Parliament resumes April 14, tariffs activate April 15. Zero buffer time means any implementation complications become immediate political crises.
+
+#### 2. Anti-Corruption Directive (8.0/10) — TA-10-2026-0094
+
+**Why second**: Landmark criminal law harmonization across 27 member states. The directive:
+- Creates minimum standards for corruption offences (both public and private sector)
+- Requires national criminal code amendments in all member states
+- Extends EPPO competence to harmonized corruption cases
+- S&D flagship policy achievement — strengthens their coalition negotiating position
+
+**Political significance**: The anti-corruption vote demonstrated a broad centrist coalition (EPP + S&D + Renew + Greens) vs a right-wing opposition (ECR + PfE + ESN), reinforcing the traditional pro-European majority pattern.
+
+#### 3. Banking Union SRMR3 (7.5/10) — TA-10-2026-0092
+
+**Why third**: Structural reform of the Single Resolution Mechanism:
+- Strengthens early intervention triggers for failing banks
+- Clarifies resolution funding conditions — who pays when a bank fails
+- Part of the Banking Union completion package (with BRRD3, DGSD2)
+- ECON committee's most significant legislative output of EP10 so far
+
+**Risk factor**: Council trilogue will test the EP position. Germany and France historically resist deeper resolution burden-sharing. The ECB Vice-President appointment (TA-10-2026-0060) adds institutional complexity.
+
+### 📈 Scoring Distribution
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
+pie title Score Distribution — 51 Adopted Texts (2026)
+    "Critical (8-10)" : 3
+    "High (6-8)" : 12
+    "Medium (4-6)" : 21
+    "Low (2-4)" : 11
+    "Routine (0-2)" : 4
+```
+
+### 🔗 Cross-Reference
+
+- Classification: CLASS-2026-04-13-BREAKING-RUN168
+- Prior scoring: SCORE-2026-04-10-PROPOSITIONS (confirmed TA-10-2026-0096 at 8.4/10 — upgraded to 9.5 due to T-2 deadline proximity)
+- Risk assessment: RISK-2026-04-13-BREAKING-RUN168
+
 <h2 id="section-risk">Risk Assessment</h2>
 
 ### Risk Matrix
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/breaking-run168/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
 
 ### 📋 Assessment Context
 
@@ -372,8 +458,6 @@ The risks above are interconnected:
 | Prior synthesis | SYN-2026-04-13-MOTIONS-RUN39 | 2026-04-13 |
 
 ### Quantitative Swot
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/breaking-run168/risk-scoring/quantitative-swot.md" rel="noopener">View source: <code>risk-scoring/quantitative-swot.md</code></a></p>
 
 ### 📋 SWOT Context
 
@@ -551,8 +635,6 @@ quadrantChart
 
 ### Political Threat Landscape
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/breaking-run168/threat-assessment/political-threat-landscape.md" rel="noopener">View source: <code>threat-assessment/political-threat-landscape.md</code></a></p>
-
 ### 📋 Threat Assessment Context
 
 | Field | Value |
@@ -695,8 +777,6 @@ flowchart TB
 <h2 id="section-documents">Document Analysis</h2>
 
 ### Document Analysis Index
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/breaking-run168/documents/document-analysis-index.md" rel="noopener">View source: <code>documents/document-analysis-index.md</code></a></p>
 
 ### 📋 Index Context
 
@@ -876,110 +956,7 @@ All document references verified against EP API `get_adopted_texts(year=2026)` �
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
-### Significance Scoring
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/breaking-run168/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
-
-### 📋 Scoring Context
-
-| Field | Value |
-|-------|-------|
-| **Scoring ID** | SCORE-2026-04-13-BREAKING-RUN168 |
-| **Analysis Date** | 2026-04-13 (Easter Monday — final recess day) |
-| **Items Scored** | 15 key adopted texts from 2026 |
-| **Methodology** | Multi-factor significance scoring per political-classification-guide.md |
-
-### 🎯 Priority Ranking — Top 10 Legislative Items
-
-```mermaid
-%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
-xychart-beta
-    title "Significance Scores — Top 10 EP Items (2026)"
-    x-axis ["TA-0096 Tariffs", "TA-0094 Corruption", "TA-0092 SRMR3", "TA-0079 Defence", "TA-0078 Canada", "TA-0077 Enlargement", "TA-0066 Copyright AI", "TA-0064 Housing", "TA-0058 Talent Pool", "TA-0050 Workers"]
-    y-axis "Significance Score" 0 --> 10
-    bar [9.5, 8.0, 7.5, 7.2, 7.0, 6.8, 6.5, 6.2, 5.8, 5.5]
-```
-
-#### Detailed Scoring Matrix
-
-| Rank | Reference | Title (Short) | Legislative | Political | Economic | Citizen | Geopolitical | Composite | Confidence |
-|------|-----------|---------------|-------------|-----------|----------|---------|-------------|-----------|------------|
-| 1 | TA-10-2026-0096 | US Tariff Countermeasures | 9 | 8 | 10 | 7 | 10 | **9.5** | 🟢 High |
-| 2 | TA-10-2026-0094 | Anti-Corruption Directive | 9 | 7 | 6 | 8 | 5 | **8.0** | 🟡 Med |
-| 3 | TA-10-2026-0092 | Banking Union SRMR3 | 8 | 6 | 9 | 5 | 4 | **7.5** | 🟡 Med |
-| 4 | TA-10-2026-0079 | Defence Single Market | 7 | 7 | 6 | 4 | 9 | **7.2** | 🟡 Med |
-| 5 | TA-10-2026-0078 | EU-Canada Cooperation | 6 | 6 | 7 | 4 | 9 | **7.0** | 🟡 Med |
-| 6 | TA-10-2026-0077 | EU Enlargement Strategy | 7 | 7 | 5 | 5 | 8 | **6.8** | 🟡 Med |
-| 7 | TA-10-2026-0066 | Copyright & AI | 8 | 5 | 7 | 6 | 3 | **6.5** | 🟡 Med |
-| 8 | TA-10-2026-0064 | Housing Crisis | 7 | 6 | 5 | 9 | 2 | **6.2** | 🟡 Med |
-| 9 | TA-10-2026-0058 | EU Talent Pool | 7 | 4 | 6 | 7 | 3 | **5.8** | 🟢 High |
-| 10 | TA-10-2026-0050 | Workers' Rights | 6 | 5 | 5 | 8 | 2 | **5.5** | 🟡 Med |
-
-### 📊 Scoring Methodology Applied
-
-Each item scored across 5 weighted dimensions:
-
-| Dimension | Weight | Description |
-|-----------|--------|-------------|
-| Legislative Impact | 25% | Binding nature, scope, novelty of legal instrument |
-| Political Dynamics | 20% | Coalition implications, group positioning, procedural significance |
-| Economic Impact | 25% | Market effects, regulatory burden, fiscal implications |
-| Citizen Impact | 15% | Direct effect on daily life, rights, services |
-| Geopolitical | 15% | External relations, strategic positioning, sovereignty implications |
-
-### 🔍 Score Justification — Top 3
-
-#### 1. US Tariff Countermeasures (9.5/10) — TA-10-2026-0096
-
-**Why highest score**: This is the only item with an imminent implementation deadline (April 15, T-2 days). It combines:
-- **Legislative**: Binding regulation directly adjusting customs duties — immediate legal effect across EU customs union
-- **Economic**: Direct trade disruption with the EU's largest trading partner; sector-specific tariff quotas create winners and losers across EU industry
-- **Geopolitical**: Parliament's most assertive trade defence action in EP10; sets precedent for future retaliatory measures
-- **Political**: Cross-party support masked underlying Renew-ECR tension on implementation scope; EPP pragmatists vs ECR free-traders vs S&D protectionists created unusual voting dynamics
-
-**Timeline pressure**: Parliament resumes April 14, tariffs activate April 15. Zero buffer time means any implementation complications become immediate political crises.
-
-#### 2. Anti-Corruption Directive (8.0/10) — TA-10-2026-0094
-
-**Why second**: Landmark criminal law harmonization across 27 member states. The directive:
-- Creates minimum standards for corruption offences (both public and private sector)
-- Requires national criminal code amendments in all member states
-- Extends EPPO competence to harmonized corruption cases
-- S&D flagship policy achievement — strengthens their coalition negotiating position
-
-**Political significance**: The anti-corruption vote demonstrated a broad centrist coalition (EPP + S&D + Renew + Greens) vs a right-wing opposition (ECR + PfE + ESN), reinforcing the traditional pro-European majority pattern.
-
-#### 3. Banking Union SRMR3 (7.5/10) — TA-10-2026-0092
-
-**Why third**: Structural reform of the Single Resolution Mechanism:
-- Strengthens early intervention triggers for failing banks
-- Clarifies resolution funding conditions — who pays when a bank fails
-- Part of the Banking Union completion package (with BRRD3, DGSD2)
-- ECON committee's most significant legislative output of EP10 so far
-
-**Risk factor**: Council trilogue will test the EP position. Germany and France historically resist deeper resolution burden-sharing. The ECB Vice-President appointment (TA-10-2026-0060) adds institutional complexity.
-
-### 📈 Scoring Distribution
-
-```mermaid
-%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
-pie title Score Distribution — 51 Adopted Texts (2026)
-    "Critical (8-10)" : 3
-    "High (6-8)" : 12
-    "Medium (4-6)" : 21
-    "Low (2-4)" : 11
-    "Routine (0-2)" : 4
-```
-
-### 🔗 Cross-Reference
-
-- Classification: CLASS-2026-04-13-BREAKING-RUN168
-- Prior scoring: SCORE-2026-04-10-PROPOSITIONS (confirmed TA-10-2026-0096 at 8.4/10 — upgraded to 9.5 due to T-2 deadline proximity)
-- Risk assessment: RISK-2026-04-13-BREAKING-RUN168
-
 ### Synthesis Summary
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/breaking-run168/existing/synthesis-summary.md" rel="noopener">View source: <code>existing/synthesis-summary.md</code></a></p>
 
 ### 📋 Synthesis Context
 
@@ -1144,6 +1121,15 @@ Post-recess committee restart reveals capacity constraints. INTA and ECON face o
 
 **Feed success rate**: 5/12 endpoints (42%) — DEGRADED MODE. Direct endpoints (adopted texts, MEPs) work; feed endpoints (/feed path) all timeout. This is consistent with EP API degradation pattern observed since April 11 (Easter recess period).
 
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-13
+> - **Run id:** `168`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-13/breaking-run168](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-13/breaking-run168)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/breaking-run168/manifest.json)
+
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 
 This article is produced under the [Hack23 AB](https://hack23.com) intelligence tradecraft library. Every methodology and artifact template applied to this run is linked below.
@@ -1230,10 +1216,10 @@ Every artifact below was read by the aggregator and contributed to this article.
 | Section | Artifact | Path |
 |---|---|---|
 | section-significance | [significance-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/breaking-run168/classification/significance-classification.md) | `classification/significance-classification.md` |
+| section-actors-forces | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/breaking-run168/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/breaking-run168/risk-scoring/risk-matrix.md) | `risk-scoring/risk-matrix.md` |
 | section-risk | [quantitative-swot](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/breaking-run168/risk-scoring/quantitative-swot.md) | `risk-scoring/quantitative-swot.md` |
 | section-threat | [political-threat-landscape](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/breaking-run168/threat-assessment/political-threat-landscape.md) | `threat-assessment/political-threat-landscape.md` |
 | section-documents | [document-analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/breaking-run168/documents/document-analysis-index.md) | `documents/document-analysis-index.md` |
-| section-supplementary-intelligence | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/breaking-run168/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-supplementary-intelligence | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/breaking-run168/existing/synthesis-summary.md) | `existing/synthesis-summary.md` |
 

@@ -11,22 +11,9 @@ layout: article
 ---
 # Breaking — 2026-04-03
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-03
-> - **Run id:** `breaking-3`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-03/breaking-3](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-03/breaking-3)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking-3/manifest.json)
-
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Anti Corruption Reform Intelligence
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking-3/anti-corruption-reform-intelligence.md" rel="noopener">View source: <code>anti-corruption-reform-intelligence.md</code></a></p>
 
 | Field | Value |
 |-------|-------|
@@ -220,8 +207,6 @@ This analysis applies the **EP Document Analysis Framework** (5-dimension analys
 
 ### Intelligence Brief
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking-3/intelligence-brief.md" rel="noopener">View source: <code>intelligence-brief.md</code></a></p>
-
 | Field | Value |
 |-------|-------|
 | **Date** | Friday, 3 April 2026 |
@@ -339,8 +324,6 @@ Run 3 applied six analytical frameworks not used in prior runs: PESTLE (applied 
 All analysis is grounded in adopted legislative texts with verified EP procedure references. Forward-looking assessments are inherently speculative and marked with appropriate confidence levels. Coalition assessments are based on group composition and policy positions, not roll-call voting data (unavailable from EP API).
 
 ### Strategic Recess Assessment
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking-3/strategic-recess-assessment.md" rel="noopener">View source: <code>strategic-recess-assessment.md</code></a></p>
 
 | Field | Value |
 |-------|-------|
@@ -611,8 +594,6 @@ This assessment builds upon and extends the following analysis artifacts from ea
 This assessment applies **Calendar Context Analysis** (recess period intelligence patterns), **Political Threat Landscape** (risk identification and heat mapping), **Forward-Looking Intelligence** (scenario development for April plenary), and the **EP Document Analysis Framework** (legislative velocity and productivity metrics). All adopted text references verified against EP Open Data Portal. Forward-looking assessments are inherently speculative and marked with confidence levels.
 
 ### Trade Policy Deep Dive
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking-3/trade-policy-deep-dive.md" rel="noopener">View source: <code>trade-policy-deep-dive.md</code></a></p>
 
 | Field | Value |
 |-------|-------|
@@ -911,6 +892,15 @@ This analysis applies the **Political Threat Framework** (attack trees for escal
 - WTO MC14 outcomes at Yaoundé (26-29 March) not yet available in EP data feeds — forward-looking assessment based on EP preparatory text only
 
 **Cross-reference:** See `analysis/2026-04-03/breaking/recent-legislation-review.md` for full Q1 2026 legislation catalogue, `analysis/2026-04-03/breaking/stakeholder-impact-assessment.md` for comprehensive stakeholder analysis, and `analysis/2026-04-03/breaking/coalition-dynamics-assessment.md` for coalition pair analysis.
+
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-03
+> - **Run id:** `breaking-3`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-03/breaking-3](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-03/breaking-3)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking-3/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 
