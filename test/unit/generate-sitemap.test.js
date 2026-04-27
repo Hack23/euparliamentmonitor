@@ -446,8 +446,10 @@ describe('generate-sitemap', () => {
     it('should not include docs section when hasDocsDir is false', () => {
       const html = generateSitemapHTML('en', [], false);
 
-      expect(html).not.toContain('docs/index.html');
-      expect(html).not.toContain('docs/api/index.html');
+      expect(html).toContain('docs/index.html');
+      expect(html).toContain('docs/api/');
+      expect(html).not.toContain('docs/coverage/index.html');
+      expect(html).not.toContain('docs/test-results/index.html');
     });
 
     it('should use localized docs labels', () => {

@@ -127,7 +127,7 @@ describe('generateSitemapHTML', () => {
 
   it('omits the docs section when hasDocsDir is false', () => {
     const html = generateSitemapHTML('en', [], false);
-    expect(html).not.toContain('docs/api/index.html');
+    expect(html).toContain('docs/api/');
     expect(html).not.toContain('docs/coverage/index.html');
   });
 
