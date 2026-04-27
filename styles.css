@@ -319,7 +319,55 @@ html[data-theme='light'] .theme-toggle__icon--dark {
 .site-header__actions {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
   flex: 0 0 auto;
+  flex-wrap: wrap;
+  max-width: min(100%, 720px);
+}
+
+.site-header__cta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 6px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 0.74rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transition:
+    background var(--transition),
+    border-color var(--transition),
+    color var(--transition),
+    transform var(--transition);
+}
+
+.site-header__cta:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.38);
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.site-header__cta:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.site-header__cta--sponsor {
+  background: linear-gradient(135deg, #db2777, #be123c);
+  border-color: rgba(255, 255, 255, 0.32);
+}
+
+.site-header__cta--security {
+  background: rgba(230, 184, 0, 0.18);
+  border-color: rgba(230, 184, 0, 0.48);
 }
 
 /* Language switcher — inline in header, single row */
@@ -950,6 +998,36 @@ html[data-theme='light'] .theme-toggle__icon--dark {
   text-decoration: underline;
 }
 
+.footer-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 12px;
+}
+
+.footer-badges a {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition:
+    background var(--transition),
+    transform var(--transition);
+}
+
+.footer-badges a:hover {
+  background: rgba(255, 255, 255, 0.16);
+  transform: translateY(-1px);
+}
+
+.footer-badges img {
+  display: block;
+  height: 20px;
+  width: auto;
+}
+
 .footer-stats {
   display: inline-flex;
   align-items: center;
@@ -1398,6 +1476,18 @@ html[data-theme='light'] .theme-toggle__icon--dark {
 
   .site-header__brand {
     flex: 1;
+  }
+
+  .site-header__actions {
+    flex: 1 1 100%;
+    justify-content: flex-start;
+    order: 1;
+  }
+
+  .site-header__cta {
+    min-height: 30px;
+    padding: 5px 8px;
+    font-size: 0.68rem;
   }
 
   .site-header__langs {

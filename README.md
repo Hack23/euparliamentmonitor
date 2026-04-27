@@ -87,7 +87,7 @@ import {
 - 📊 **Article Quality** — Score and validate generated content with comprehensive quality metrics
 - 🌍 **Multilingual** — Full i18n support: EN, SV, DA, NO, FI, DE, FR, ES, NL, AR, HE, JA, KO, ZH
 
-**Explore the live platform** — [🌐 euparliamentmonitor.com](https://euparliamentmonitor.com) · [🧠 Political Intelligence Hub](https://euparliamentmonitor.com/political-intelligence.html) (methodology + artifact transparency, all 14 languages) · [🗺️ Site Map](https://euparliamentmonitor.com/sitemap.html) (every page, every language) · [📔 API Reference](https://euparliamentmonitor.com/docs/api/index.html)
+**Explore the live platform** — [🌐 euparliamentmonitor.com](https://euparliamentmonitor.com) · [🧠 Political Intelligence Hub](https://euparliamentmonitor.com/political-intelligence.html) (methodology + artifact transparency, all 14 languages) · [📊 Analysis & Reports](https://euparliamentmonitor.com/docs/) · [🗺️ Site Map](https://euparliamentmonitor.com/sitemap.html) (every page, every language) · [📔 API Reference](https://euparliamentmonitor.com/docs/api/)
 
 > 📦 **About this package** — `euparliamentmonitor` is the open-source TypeScript library powering [euparliamentmonitor.com](https://euparliamentmonitor.com), an automated **European Parliament transparency platform** that publishes daily AI-generated, *Economist-style* political-intelligence articles in 14 languages. The package bundles the **EU Parliament MCP client** (60+ open-data tools — plenary sessions, committee reports, voting records, parliamentary questions, adopted texts, procedures, MEPs, declarations), the **deterministic article aggregator** (analysis-artifact → Markdown → HTML, with 14-language hreflang and shared site chrome), the **political-intelligence analytics** (voting-anomaly detection, coalition dynamics, MEP influence scoring, OSINT correlation), and the **multi-language renderer** with WCAG 2.1 AA accessibility, structured data, and SEO-ready sitemap generation. Designed for civic-tech, data-journalism, OSINT, and democratic-transparency use cases. ISO 27001 / NIST CSF 2.0 / CIS Controls v8.1 / GDPR / NIS2 / EU CRA aligned.
 
@@ -104,7 +104,7 @@ import {
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge)](https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor)
 
 ### Documentation & Reports
-[![API Docs](https://img.shields.io/badge/API-Documentation-blue?logo=javascript)](https://euparliamentmonitor.com/docs/api/index.html)
+[![API Docs](https://img.shields.io/badge/API-Documentation-blue?logo=javascript)](https://euparliamentmonitor.com/docs/api/)
 [![Coverage](https://img.shields.io/badge/Coverage-82%25-green?logo=vitest)](https://euparliamentmonitor.com/docs/coverage/index.html)
 [![E2E Report](https://img.shields.io/badge/E2E-Report-purple?logo=playwright)](https://euparliamentmonitor.com/playwright-report/index.html)
 [![SLSA 3](https://img.shields.io/badge/SLSA-Level%203-brightgreen?logo=github)](https://github.com/Hack23/euparliamentmonitor/attestations)
@@ -144,7 +144,7 @@ The published platform at **[euparliamentmonitor.com](https://euparliamentmonito
 - [📗 Security Flows](FLOWCHART.md) - Process flows with security controls
 - [📙 Data Model](DATA_MODEL.md) - Data structures and API integration
 - [📕 Release Process](docs/RELEASE_PROCESS.md) - How to create releases
-- [📔 API Documentation](https://euparliamentmonitor.com/docs/api/index.html) - TypeDoc-generated API reference
+- [📔 API Documentation](https://euparliamentmonitor.com/docs/api/) - TypeDoc-generated API reference
 - [📓 Test Coverage](https://euparliamentmonitor.com/docs/coverage/index.html) - Interactive coverage report
 
 **🤖 Agentic Pipeline:**

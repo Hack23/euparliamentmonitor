@@ -243,8 +243,8 @@ ${items}
         <h2><span aria-hidden="true">📚</span> ${escapeHTML(sections.docs)}</h2>
         <p class="section-description">${escapeHTML(copy.docsDescription)}</p>
         <ul class="sitemap-list">
-          <li><a href="docs/index.html">${escapeHTML(docsLabels.docsHome)}</a></li>
-          <li><a href="docs/api/index.html">${escapeHTML(docsLabels.api)}</a></li>
+          <li><a href="docs/">${escapeHTML(docsLabels.docsHome)}</a></li>
+          <li><a href="docs/api/">${escapeHTML(docsLabels.api)}</a></li>
           <li><a href="docs/coverage/index.html">${escapeHTML(docsLabels.coverage)}</a></li>
           <li><a href="docs/test-results/index.html">${escapeHTML(docsLabels.testResults)}</a></li>
         </ul>
