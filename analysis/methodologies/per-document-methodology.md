@@ -309,19 +309,17 @@ The `document-analysis-index.md` file provides a navigable summary:
 | `get_voting_records` | Roll-call vote details | When vote analysis is scope |
 | `get_speeches` | Plenary debate transcripts | When debate analysis is scope |
 
-> **⚠️ EP API date-filter note (v1.2.14+, Defect #5) — upgrade-dependent contract:**
+> **⚠️ EP API date-filter note (v1.2.14+, Defect #5) — upstream contract active:**
 >
-> **This is an upgrade-dependent contract:** the guidance below applies **only once** the repo's
-> MCP reference/dependency is upgraded to `european-parliament-mcp-server` v1.2.14 or later.
-> While the repo remains pinned to v1.2.13 elsewhere, Stage-B consumers must **not** assume this
-> post-filter behavior is present.
+> This is an upstream contract that is **active on the pinned `v1.2.15` server**. Stage-B
+> consumers may rely on the post-filter behavior described below.
 >
 > Background: The EP Open Data Portal `/meetings` endpoint silently ignores its `date-from` /
-> `date-to` query parameters. From `european-parliament-mcp-server` v1.2.14 onward, the MCP
-> server applies a **client-side post-filter** on `dateFrom` / `dateTo` before serialising
-> `get_plenary_sessions` responses.
+> `date-to` query parameters. From `european-parliament-mcp-server` v1.2.14 onward (and
+> on the pinned v1.2.15 server), the MCP server applies a **server-side post-filter** on
+> `dateFrom` / `dateTo` before serialising `get_plenary_sessions` responses.
 >
-> Consequences for Stage-B analysis *after the v1.2.14+ upgrade*:
+> Consequences for Stage-B analysis on v1.2.14+ servers:
 > - **`total` is the *filtered* count**, not the raw upstream count. Do not treat `total` as
 >   representative of overall EP plenary activity when a date window is specified.
 > - **Per-window session counts are reproducible.** The EP-side regression is masked by the

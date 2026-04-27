@@ -3,7 +3,7 @@ mcp-servers:
   european-parliament:
     container: "node:25-alpine"
     entrypoint: "npx"
-    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.13", "--timeout", "120000"]
+    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.15", "--timeout", "120000"]
     env:
       EP_REQUEST_TIMEOUT_MS: "120000"
   world-bank:
@@ -33,7 +33,7 @@ It mounts the four MCP servers every article-generating workflow needs:
 
 | Server | Version | Purpose |
 |---|---|---|
-| `european-parliament` | `european-parliament-mcp-server@1.2.13` | 62 EP tools (see `.github/prompts/07-mcp-reference.md`) |
+| `european-parliament` | `european-parliament-mcp-server@1.2.15` | 62 EP tools (see `.github/prompts/07-mcp-reference.md`) |
 | `world-bank` | `worldbank-mcp@1.0.1` | Economic context indicators |
 | `memory` | `@modelcontextprotocol/server-memory` | Run-scoped scratch memory |
 | `sequential-thinking` | `@modelcontextprotocol/server-sequential-thinking` | Structured reasoning tool |

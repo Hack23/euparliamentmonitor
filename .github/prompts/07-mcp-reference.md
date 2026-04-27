@@ -7,7 +7,7 @@
 parameter corrections, reliability matrix, and timeout strategy. Workflows
 **link** here; they never copy these tables.
 
-**Server:** `european-parliament-mcp-server@1.2.13`
+**Server:** `european-parliament-mcp-server@1.2.15`
 
 ## 1 · EP Feed Endpoints
 
@@ -97,8 +97,9 @@ Timeframes: `"today"`, `"one-day"`, `"one-week"`, `"one-month"`, `"custom"`
 >
 > For `week-ahead` / `month-ahead` workflows that need a forward-looking window,
 > use the next-week or next-month date span instead. The v1.2.14+ upstream fix
-> defaults to a rolling last-30-days window but is not yet installed or
-> confirmed in this repo's MCP gateway configuration.
+> defaults to a rolling last-30-days window and is installed (gateway is
+> pinned to `v1.2.15`); explicit dates remain the required Stage-A pattern
+> for deterministic reproducibility.
 
 ## 5 · Common Parameter Mistakes (v1.2.13)
 
@@ -257,10 +258,10 @@ Failures are skipped, not retried.
 
 | # | Symptom | Tool(s) | Category | Disposition / Calling-pattern fix |
 |---|---------|---------|:--------:|-----------------------------------|
-| 1 | `generate_political_landscape` returns `totalMEPs: 100` (sampling artifact); seat shares approximate | `generate_political_landscape` | 🔴 REAL BUG | **Fixed upstream in [Hack23/European-Parliament-MCP-Server#405](https://github.com/Hack23/European-Parliament-MCP-Server/pull/405)** — full ~720-MEP roster via `fetchAllCurrentMEPs()`, ships in **v1.2.15+**. Until the gateway is upgraded from `v1.2.13`, cross-reference seat shares with `get_all_generated_stats({ category:"political_groups" })` and treat percentages from `generate_political_landscape` as ±2 pp. Do NOT re-file. |
+| 1 | `generate_political_landscape` returns `totalMEPs: 100` (sampling artifact); seat shares approximate | `generate_political_landscape` | 🔴 REAL BUG | **Fixed upstream in [Hack23/European-Parliament-MCP-Server#405](https://github.com/Hack23/European-Parliament-MCP-Server/pull/405)** — full ~720-MEP roster via `fetchAllCurrentMEPs()`, ships in **v1.2.15+** (gateway is pinned to `v1.2.15`). Cross-reference seat shares with `get_all_generated_stats({ category:"political_groups" })` for full-roster validation; the historical ±2 pp drift no longer applies. Do NOT re-file. |
 | 2 | `analyze_coalition_dynamics` reports `EPP memberCount: 0`; group appears as `"PPE"` (French) elsewhere; same group split across `EPP`/`PPE`/`Verts-ALE`/`Greens/EFA`/legacy `ID`/`PfE` | `analyze_coalition_dynamics`, `compare_political_groups`, `generate_political_landscape` | 🔵 CALLING-PATTERN | **Treat as a calling-pattern issue for triage purposes.** Always pass canonical English short codes — `["EPP","S&D","Renew","Greens/EFA","ECR","PfE","Left","NI"]`. Never pass `"PPE"`, `"Verts-ALE"`, `"ID"`, or full group names. **Historical note:** alias normalization was also fixed upstream in [#405](https://github.com/Hack23/European-Parliament-MCP-Server/pull/405) via `normalizePoliticalGroup()` in `aggregateByGroup` (collapses `PPE → EPP`, `Verts-ALE → Greens/EFA`, legacy `ID → PfE`), shipping in **v1.2.15+**. Do NOT re-file. |
 | 3 | `analyze_coalition_dynamics` returns `cohesionRate: null`, `defectionRate: null`, `sharedVotes: null` — only `sizeSimilarityScore` populated | `analyze_coalition_dynamics`, `compare_political_groups` | 🟢 LIMITATION | **Documented EP API limitation** — per-MEP roll-call data is not exposed by the EP Open Data Portal. Tool returns size-ratio proxy only. Already in tool schema description. Stage-A guard: emit `coalition_dynamics.cohesion=null` data-quality warning per [`01-data-collection.md` §6 rule 1](01-data-collection.md). Do NOT classify as a defect; classify as `"documented limitation — size-similarity proxy used"`. |
-| 4 | `monitor_legislative_pipeline` returns empty pipeline | `monitor_legislative_pipeline` | 🔵 CALLING-PATTERN | **v1.2.13 default-period bug + consumer fix.** When invoked **without** `dateFrom`/`dateTo` v1.2.13 reports `period: 2024-01-01..2024-12-31` (empty for current procedures). **Always pass explicit dates:** `monitor_legislative_pipeline({ dateFrom: $LAST_MONTH, dateTo: $TODAY, status: "ACTIVE", limit: 20 })`. Forward-looking workflows use the next-week/next-month window. v1.2.14+ defaults to rolling-30-days but is NOT yet installed (gateway is `v1.2.13`). Already documented in §4 above + [`01-data-collection.md` §6 rule 6](01-data-collection.md). |
+| 4 | `monitor_legislative_pipeline` returns empty pipeline | `monitor_legislative_pipeline` | 🔵 CALLING-PATTERN | **Historical v1.2.13 default-period bug + consumer fix.** Pre-v1.2.14, when invoked **without** `dateFrom`/`dateTo`, the server reported `period: 2024-01-01..2024-12-31` (empty for current procedures). **Always pass explicit dates:** `monitor_legislative_pipeline({ dateFrom: $LAST_MONTH, dateTo: $TODAY, status: "ACTIVE", limit: 20 })`. Forward-looking workflows use the next-week/next-month window. v1.2.14+ defaults to rolling-30-days; gateway is pinned to `v1.2.15`, but explicit dates remain the required calling pattern for reproducibility. Already documented in §4 above + [`01-data-collection.md` §6 rule 6](01-data-collection.md). |
 | 5 | `get_procedures` / `get_procedures_feed` return 1972–1990 historical procedures with no current-year content | `get_procedures`, `get_procedures_feed` | 🟢 LIMITATION | **Documented EP API behaviour** — these endpoints serve the historical archive in ID order, not chronological. The feed has no server-side date filter. **Mitigation:** use `get_adopted_texts({ year: $YEAR, limit: 100 })` for current legislative output and `track_legislation({ procedureId: "YYYY/NNNN(COD)" })` for individual procedures by known ID. Already in §7 reliability matrix. Do NOT file. |
 | 6 | `get_voting_records` returns empty for last 1–2 months; `get_speeches` returns empty for last 1–2 months | `get_voting_records`, `get_speeches` | 🟢 LIMITATION | **Documented EP publication delay** — roll-call data publishes 4–6 weeks late, plenary speeches similarly. Already in tool schema description ("expected EP API behavior, not an error"). **Mitigation:** broaden `dateFrom` to D-60 minimum; use `get_adopted_texts` metadata for vote outcomes; use `get_plenary_documents` as proxy for debate content. Do NOT file. |
 | 7 | `get_meeting_foreseen_activities` returns rows with empty `title` strings for future sessions | `get_meeting_foreseen_activities` | 🟢 LIMITATION | **Documented EP API behaviour** — OJQ agenda documents return 404 until publication date for future sessions; activity type and metadata available but titles are populated post-session. **Mitigation:** treat as "scheduled count only" data; use plenary calendar + topic context for forward-looking agenda framing. Do NOT file. |
@@ -273,4 +274,4 @@ Failures are skipped, not retried.
 2. For every row marked degraded/failed, look it up in this table.
 3. If the row matches a 🟢 LIMITATION or 🔵 CALLING-PATTERN entry, set `Defect ID` to `"documented behaviour — see 07-mcp-reference.md §11 #N"` and skip the "Issues needing creation" subsection for that finding.
 4. Only 🔴 REAL BUG findings (or new symptoms not in this table) appear in §3 "Upstream Issues" with a fileable bug profile.
-5. Re-classify obsolete findings: item #1 is **resolved upstream in v1.2.15+** — once the gateway upgrade lands it should disappear from audits entirely. Item #2's alias-fragmentation symptom is similarly suppressed in v1.2.15+ but the canonical-short-code consumer rule remains the primary triage answer at every gateway version.
+5. Re-classify obsolete findings: item #1 is **resolved upstream in v1.2.15+** — the gateway is now pinned to v1.2.15, so it should no longer surface in audits. Item #2's alias-fragmentation symptom is similarly suppressed in v1.2.15+ but the canonical-short-code consumer rule remains the primary triage answer at every gateway version.

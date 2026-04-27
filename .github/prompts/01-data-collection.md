@@ -144,8 +144,9 @@ Every `manifest.json` records what was successfully downloaded:
    v1.2.13 defaults the reported `period` to calendar 2024 when no dates
    are given, returning an empty pipeline for all current procedures. For
    forward-looking workflows (`week-ahead`, `month-ahead`) use the relevant
-   future date span. Do not rely on the no-dates default until v1.2.14+
-   is confirmed installed.
+   future date span. As of v1.2.15 the server defaults to a rolling
+   last-30-days window when no dates are supplied, but explicit dates
+   remain the required calling pattern for reproducibility.
 
 ## 7 · Seat-Count Normalization
 
@@ -161,8 +162,8 @@ canonical English short codes —
 Never pass the EP API native French/German variants
 (`PPE`, `Verts-ALE`, legacy `ID`) or full group names
 ("Group of the European People's Party (Christian Democrats)") — on
-gateway `v1.2.13` these mismatches produce `memberCount: 0` and split
-groups; the upstream fix in
+gateways prior to `v1.2.15` these mismatches produced `memberCount: 0`
+and split groups; the upstream fix in
 [Hack23/European-Parliament-MCP-Server#405](https://github.com/Hack23/European-Parliament-MCP-Server/pull/405)
 (v1.2.15+) collapses native variants onto these canonical codes via
 `normalizePoliticalGroup()`. Triage table entry:
