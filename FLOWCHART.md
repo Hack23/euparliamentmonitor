@@ -106,7 +106,7 @@ This document aligns with Hack23's Information Security Management System (ISMS)
 
 ## 🔐 News Generation Security Flow
 
-The end-to-end agentic news generation flow for v0.8.40 spans gh-aw runtime, 5-stage pipeline, AI-First 2-pass analysis, validator gate, and safe-output PR creation. The 10 news workflows (`news-breaking`, `news-weekly-review`, `news-monthly-review`, `news-week-ahead`, `news-month-ahead`, `news-committee-reports`, `news-motions`, `news-propositions`, `news-article-generator`, `news-translate`) all share this spine.
+The end-to-end agentic news generation flow spans gh-aw runtime, Stage A→E protocol, AI-First 2-pass analysis, Stage-C completeness gate, and safe-output PR creation. The **9 news workflows** — 8 article-generating (`news-breaking`, `news-week-in-review`, `news-month-in-review`, `news-week-ahead`, `news-month-ahead`, `news-committee-reports`, `news-motions`, `news-propositions`) + the manual `news-translate` helper — all share this spine.
 
 ```mermaid
 flowchart TD
@@ -178,14 +178,14 @@ flowchart TD
 
 > **Note — gh-aw compile is out-of-band:** The `.lock.yml` artifacts executed above are pre-compiled and committed to the repository. Compilation (`gh aw compile --validate` pinned to `GH_AW_VERSION: v0.69.0`) runs in the **separate `.github/workflows/compile-agentic-workflows.yml` workflow** (manual `workflow_dispatch` only) and is **not** part of any scheduled news-generation run. Scheduled news workflows invoke only the already-committed lock files; agent-authored `.md` edits require a dedicated compile PR before they take effect.
 
-**Workflow & Pipeline References:**
-- Agentic `.md` sources: [`.github/workflows/news-*.md`](.github/workflows/)
-- Compiled lock files: `.github/workflows/news-*.lock.yml`
-- Pipeline stages: [`src/generators/pipeline/`](src/generators/pipeline/)
-- Strategies: [`src/generators/strategies/`](src/generators/strategies/)
-- Validator: [`scripts/utils/validate-analysis-completeness.js`](scripts/utils/validate-analysis-completeness.js)
-- Quality thresholds: [`analysis/methodologies/reference-quality-thresholds.json`](analysis/methodologies/reference-quality-thresholds.json)
-- Content validator: [`src/utils/content-validator.ts`](src/utils/content-validator.ts)
+**Workflow & Aggregator References:**
+- 🤖 Agentic `.md` sources: [`.github/workflows/news-*.md`](.github/workflows/)
+- 🔒 Compiled lock files: `.github/workflows/news-*.lock.yml`
+- 🟢 Aggregator entry point: [`src/aggregator/article-generator.ts`](src/aggregator/article-generator.ts)
+- 📦 Aggregator modules: [`src/aggregator/{analysis-aggregator,artifact-order,clean-artifact,markdown-renderer,article-html,article-metadata}.ts`](src/aggregator/)
+- 🧠 Methodology library: [`analysis/methodologies/`](analysis/methodologies/) (17 methodologies)
+- 📐 Quality thresholds: [`analysis/methodologies/reference-quality-thresholds.json`](analysis/methodologies/reference-quality-thresholds.json)
+- ⚖️ Stage-C completeness gate: [`.github/prompts/03-analysis-completeness-gate.md`](.github/prompts/03-analysis-completeness-gate.md)
 
 ---
 

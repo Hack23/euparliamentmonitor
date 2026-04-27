@@ -434,16 +434,15 @@ mindmap
           SHA-pinned Actions
         CI/CD
           GitHub Actions
-          10 agentic news workflows
+          9 agentic news workflows
             news-breaking
-            news-weekly-review
-            news-monthly-review
+            news-week-in-review
+            news-month-in-review
             news-week-ahead
             news-month-ahead
             news-committee-reports
             news-motions
             news-propositions
-            news-article-generator
             news-translate
           14 infra workflows
             compile-agentic-workflows

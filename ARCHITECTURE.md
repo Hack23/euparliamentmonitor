@@ -153,11 +153,11 @@ Evidence of ISMS compliance is maintained through:
 
 ## 🎯 System Overview
 
-EU Parliament Monitor is a **TypeScript-first static site generator and political intelligence platform** that creates multi-language news articles about European Parliament activities. Content is produced by a fleet of **10 agentic GitHub Workflows** (gh-aw) that drive AI agents (Claude Opus 4.7 via GitHub Copilot) through a 5-stage analysis pipeline, consuming structured data from **three data surfaces**:
+EU Parliament Monitor is a **TypeScript-first static site generator and political intelligence platform** that creates multi-language news articles about European Parliament activities. Content is produced by a fleet of **9 agentic GitHub Workflows** (gh-aw — 8 unified `news-<type>.md` + `news-translate.md`) that drive AI agents (Claude Opus 4.7 via GitHub Copilot) through the Stage A→E protocol, consuming structured data from **three data surfaces**:
 
-- **European Parliament MCP Server** `v1.2.13` (primary — plenary, MEPs, votes, committees, procedures, adopted texts, 6 sliding-window + 7 fixed-window feeds)
-- **World Bank MCP** `v1.0.1` (optional, biannual — WDI macro/social/environment/health indicators)
-- **IMF REST (SDMX 3.0)** (native TypeScript fetch client — monthly WEO+FM fiscal forecasts)
+- **[European Parliament MCP Server](https://github.com/Hack23/European-Parliament-MCP-Server)** `v1.2.15+` (primary — 60+ tools including plenary, MEPs, votes, committees, procedures, adopted texts, sliding-window + fixed-window feeds, analytical tools, and a three-state voting fallback to the EP Open Data Portal)
+- **World Bank Open Data MCP** (non-economic only — WDI social/health/education/environment/governance indicators)
+- **IMF REST (SDMX 3.0)** native TypeScript fetch client — primary economic source: WEO + Fiscal Monitor + IFS + BOP + ER + PCPS + GFSR + EREO + FSI + GFS + DOT
 
 TypeScript code handles data acquisition, analysis orchestration, HTML structure, and validation; AI agents author all narrative content under a strict two-pass AI-First Quality regime.
 
@@ -645,28 +645,26 @@ C4Deployment
 | **EP MCP Server**         | Local Node process       | EP data access                    | Spawned locally via stdio JSON-RPC     |
 | **LLM Service**           | External API             | Content generation                | API key authentication                 |
 
-### Article Types & Strategies
+### Article Types & Workflows
 
-8 production article types are driven by 9 strategy modules (strategies 1:1 with types, plus `article-strategy.ts` which is a generic fallback used by the on-demand generator — not an additional production content type):
+8 production article types are driven by 8 unified `news-<type>.md` workflows (Stage A→E in one ~45-min session, single PR per run). Article HTML is rendered deterministically by `src/aggregator/article-generator.ts` from committed Stage-B analysis artifacts — there are no per-type strategy modules in the post-April-2026 pipeline.
 
-| Article Type        | Strategy Module                      | gh-aw Workflow Pair (analysis + article)                                       | Cadence (analysis schedule)   |
-|---------------------|--------------------------------------|--------------------------------------------------------------------------------|-------------------------------|
-| `breaking`          | `breaking-news-strategy.ts`          | `news-breaking-analysis.md` + `news-breaking-article.md`                       | Every 6 hours                 |
-| `week-ahead`        | `week-ahead-strategy.ts`             | `news-week-ahead-analysis.md` + `news-week-ahead-article.md`                   | Fri 07:00 UTC                 |
-| `week-in-review`    | `weekly-review-strategy.ts`          | `news-weekly-review-analysis.md` + `news-weekly-review-article.md`             | Sat 09:00 UTC                 |
-| `month-ahead`       | `month-ahead-strategy.ts`            | `news-month-ahead-analysis.md` + `news-month-ahead-article.md`                 | 1st of month 08:00 UTC        |
-| `month-in-review`   | `monthly-review-strategy.ts`         | `news-monthly-review-analysis.md` + `news-monthly-review-article.md`           | 28th of month 10:00 UTC       |
-| `committee-reports` | `committee-reports-strategy.ts`      | `news-committee-reports-analysis.md` + `news-committee-reports-article.md`     | Mon–Fri 04:00 UTC             |
-| `motions`           | `motions-strategy.ts`                | `news-motions-analysis.md` + `news-motions-article.md`                         | Mon–Fri 06:00 UTC             |
-| `propositions`      | `propositions-strategy.ts`           | `news-propositions-analysis.md` + `news-propositions-article.md`               | Mon–Fri 05:00 UTC             |
+| 🏷️ Article Type     | 🤖 gh-aw Workflow                | 📅 Cadence                    |
+|---------------------|----------------------------------|-------------------------------|
+| 🚨 `breaking`        | `news-breaking.md`               | Every 6 hours                 |
+| 🔮 `week-ahead`      | `news-week-ahead.md`             | Fri 07:00 UTC                 |
+| 📋 `week-in-review`  | `news-week-in-review.md`         | Sat 09:00 UTC                 |
+| 📊 `month-ahead`     | `news-month-ahead.md`            | 1st of month 08:00 UTC        |
+| 📈 `month-in-review` | `news-month-in-review.md`        | 28th of month 10:00 UTC       |
+| 🏛️ `committee-reports` | `news-committee-reports.md`    | Mon–Fri 04:00 UTC             |
+| 🗳️ `motions`         | `news-motions.md`                | Mon–Fri 06:00 UTC             |
+| ⚖️ `propositions`    | `news-propositions.md`           | Mon–Fri 05:00 UTC             |
 
-Each pair runs as: `news-<type>-analysis.md` (Stages A+B+C, ~45 min, scheduled cadence above) → on analysis-PR merge → `news-<type>-article.md` (Stage D, ~45 min, `pull_request:closed` trigger gated on `agentic-analysis` + `type:<slug>` labels).
-
-Plus: `article-strategy.ts` (generic, used by manual `news-article-generator.md`) and `news-translate.md` (14-language translation fan-out).
+Plus: `news-translate.md` (14-language translation helper, manual dispatch only).
 
 ### Agentic Workflows (gh-aw)
 
-All 18 news workflows are **markdown source files compiled to YAML** (`.md` → `.lock.yml`) via the GitHub Agentic Workflows CLI (`gh aw compile --validate`) with pinned `GH_AW_VERSION: v0.69.0` in `.github/workflows/compile-agentic-workflows.yml`. See [WORKFLOWS.md](WORKFLOWS.md) for the full surface. (`.md` → `.lock.yml`) via the GitHub Agentic Workflows CLI (`gh aw compile --validate`) with pinned `GH_AW_VERSION: v0.69.0` in `.github/workflows/compile-agentic-workflows.yml`. See [WORKFLOWS.md](WORKFLOWS.md) for the full surface.
+All 9 news workflows are **markdown source files compiled to YAML** (`.md` → `.lock.yml`) via the GitHub Agentic Workflows CLI (`gh aw compile --validate`) with pinned `GH_AW_VERSION: v0.69.0` in `.github/workflows/compile-agentic-workflows.yml`. See [WORKFLOWS.md](WORKFLOWS.md) for the full surface.
 
 **5-layer security model**:
 1. **AWF Squid firewall allowlist** — egress HTTP allowlist per workflow
@@ -677,9 +675,9 @@ All 18 news workflows are **markdown source files compiled to YAML** (`.md` → 
 
 **MCP gateway** (containerised): `EP_MCP_GATEWAY_URL=http://host.docker.internal:80/mcp/european-parliament`, provisioned by `scripts/mcp-setup.sh`.
 
-**Validator gates** (before PR creation):
-- `scripts/utils/validate-analysis-completeness.js --article-html=...` — rejects articles with missing SWOT, stakeholder perspectives, economic context, or `[AI_ANALYSIS_REQUIRED]` markers
-- `scanHtmlForFallbackLeaks()` in `content-validator.ts` — matches against `FALLBACK_TEMPLATE_PATTERNS`
+**Validator gates** (Stage-C completeness review, agent-side — replaces purged runtime validators):
+- [`.github/prompts/03-analysis-completeness-gate.md`](.github/prompts/03-analysis-completeness-gate.md) — protocol that the editorial agent runs
+- [`analysis/methodologies/reference-quality-thresholds.json`](analysis/methodologies/reference-quality-thresholds.json) — per-artifact line floors
 - Dynamic file resolution pattern (must not hallucinate file names): `ls -t "news/${TODAY}-${TYPE}"*"-en.html" | head -1`
 
 ---
@@ -799,24 +797,17 @@ src/                                   → scripts/                          (ts
 ├── templates/                         → templates/
 │   ├── article-template.ts            HTML5 article shell (SEO, JSON-LD, Open Graph)
 │   └── section-builders.ts            buildSiteFooter (single source of truth, 14-lang), stakeholder grid
-├── generators/
-│   ├── pipeline/                      → generators/pipeline/   5 stages (fetch/transform/analysis/generate/output)
-│   ├── strategies/                    → generators/strategies/ 8 strategy modules
-│   ├── builders/                      → generators/builders/   6 section builders + index
-│   ├── analysis-builders.ts           Analysis section composition
-│   ├── breaking-content.ts            Breaking-news content
-│   ├── committee-helpers.ts           Committee utilities
-│   ├── dashboard-content.ts           Dashboard charts (Chart.js)
-│   ├── deep-analysis-content.ts       Deep analysis composition
-│   ├── mindmap-content.ts             Mermaid mindmap embedding
-│   ├── motions-content.ts             Motions composition
-│   ├── news-enhanced.ts               Legacy entry (delegates to pipeline)
+├── aggregator/                        → aggregator/  ⭐ April-2026 deterministic article renderer
+│   ├── article-generator.ts           Entry point CLI (`npm run generate-article`)
+│   ├── analysis-aggregator.ts         aggregateAnalysisRun() — manifest discovery, .md filter, Provenance & Audit at END
+│   ├── artifact-order.ts              ARTIFACT_SECTIONS — canonical 19-section order
+│   ├── clean-artifact.ts              Strips SPDX/banner/provenance front matter
+│   ├── markdown-renderer.ts           markdown-it + plugin allowlist (anchor, footnote, attrs, deflist)
+│   ├── article-html.ts                HTML5 wrapper: header, language switcher, TOC sidebar, JSON-LD, hreflang
+│   └── article-metadata.ts            5-tier editorial-highlight resolver for <title> / <meta description>
+├── generators/                        → generators/  (post-aggregator-migration: only indexes & sitemap remain)
 │   ├── news-indexes.ts                Per-language index pages
-│   ├── propositions-content.ts        Propositions composition
-│   ├── sitemap.ts                     XML sitemap generator
-│   ├── swot-content.ts                SWOT section composition
-│   ├── synthesis-summary.ts           Cross-article synthesis
-│   └── week-ahead-content.ts          Week-ahead composition
+│   └── sitemap.ts                     XML sitemap generator + per-language sitemap_<lang>.html
 ├── types/                             → types/
 │   ├── analysis.ts, common.ts, generation.ts, imf.ts, intelligence.ts, mcp.ts,
 │   │   parliament.ts, political-classification.ts, political-risk.ts,
@@ -824,15 +815,13 @@ src/                                   → scripts/                          (ts
 │   │   visualization.ts, world-bank.ts, index.ts
 └── utils/                             → utils/
     ├── article-category.ts, article-quality-scorer.ts, content-metadata.ts,
-    ├── content-validator.ts (articlePolicyHas* gates, fallback-leak scanner),
-    ├── copy-test-reports.ts, file-utils.ts, fix-articles.ts,
-    ├── generate-docs-index.ts, html-sanitize.ts, imf-data.ts,
+    ├── file-utils.ts, html-sanitize.ts, imf-data.ts,
     ├── intelligence-analysis.ts, intelligence-index.ts, metadata-utils.ts,
     ├── news-metadata.ts, political-classification.ts,
     ├── political-risk-assessment.ts, political-threat-assessment.ts,
-    ├── retrofit-analysis-links.ts, significance-scoring.ts,
-    ├── validate-analysis-completeness.ts (pre-PR gate for agentic workflows),
-    ├── validate-articles.ts, validate-ep-api.ts, world-bank-data.ts
+    ├── significance-scoring.ts, world-bank-data.ts
+    (content-validator.ts, validate-articles.ts, validate-analysis-completeness.ts
+     PURGED in April-2026 — replaced by Stage-C agent-side review)
 ```
 
 **Key build / generation commands:**

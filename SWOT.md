@@ -93,15 +93,16 @@ planning and resource allocation.
 - **Timeline**: Current state as of v0.8.40 (2026-04-20)
 - **Scope**: Technical, operational, strategic, and compliance dimensions
 
-### Current State Snapshot (v0.8.40)
+### Current State Snapshot (April 2026)
 
-- **1894 HTML articles** in **14 languages** (en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh)
+- **1894+ HTML articles** in **14 languages** (en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh)
 - **8 article types**: breaking, week-ahead, week-in-review, month-ahead, month-in-review, committee-reports, motions, propositions
-- **9 generation strategies** (1 generic `article-strategy` + 8 type-specific); **18 gh-aw workflows** (`.github/workflows/*.md` → `.lock.yml` — 8 split-pair `news-<type>-analysis.md` + `news-<type>-article.md` + `news-article-generator.md` + `news-translate.md`)
+- **9 unified gh-aw workflows** (`.github/workflows/news-*.md` → `.lock.yml`): 8 unified `news-<type>.md` (Stage A→E in one ~45-min session, single PR) + `news-translate.md` (manual 14-language helper)
+- **Aggregator pipeline**: deterministic Markdown→HTML rendering via `src/aggregator/**` (5 modules) — no per-type strategies, no AI-authored HTML, no runtime content-validator
 - **3061+ automated tests** across **52 test files** (Vitest 4.1.4 + Playwright 1.59.1 + @axe-core/playwright 4.11.2)
 - **Stack**: Node 25, TypeScript 6.0.3 strict mode, ESM-only, Apache-2.0 license
-- **Dual economic context**: `european-parliament-mcp-server@1.2.15` (primary EP data) + `worldbank-mcp@1.0.1` + IMF SDMX 3.0 REST (Wave-2 OR-gate for `articlePolicyHasEconomicContext`)
-- **Delivery**: AWS S3 + CloudFront (OIDC-based, no long-lived secrets) primary; GitHub Pages fallback
+- **Data sources**: `european-parliament-mcp-server@1.2.15+` (60+ tools, primary EP data) + `worldbank-mcp` (non-economic context) + IMF SDMX 3.0 REST (primary economic source)
+- **Delivery**: AWS S3 + CloudFront (OIDC-based, no long-lived secrets) primary; GitHub Pages fallback runbook
 - **Supply chain**: npm provenance + SLSA L3 + OpenSSF Scorecard + OpenSSF Best Practices badge #12068
 
 ### Key Findings Summary

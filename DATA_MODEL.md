@@ -27,7 +27,7 @@
 This document defines the data structures and relationships used in the EU
 Parliament Monitor platform for news generation, storage, and delivery.
 
-> ### ⚠️ April-2026 Aggregator-Pipeline Migration
+> ### ✅ April-2026 Aggregator-Pipeline Migration — Complete
 >
 > The article data flow has shifted from *AI authors HTML* to *AI authors
 > markdown artifacts, aggregator renders HTML deterministically*. The
@@ -43,14 +43,18 @@ Parliament Monitor platform for news generation, storage, and delivery.
 > - `news/<YYYY-MM-DD>-<slug>-run<NN>-<lang>.html` — 14 language variants
 >   emitted by the aggregator + translation flush.
 >
-> The following sections still document the pre-migration entity model
-> (article HTML as the authoritative artifact, strategy-per-type render).
-> The `src/utils/content-validator.ts` gates documented in § Dual
-> Economic Context Gate and the `src/generators/strategies/` mapping
-> documented in § Article Type Definitions were **removed** in April
-> 2026. A follow-up PR rewrites those sections against the aggregator
-> data model. Until then, read them in conjunction with this banner and
-> with [`ARCHITECTURE.md`](ARCHITECTURE.md) § Key Characteristics.
+> Two legacy sections in this document — **§ Article Type Definitions**
+> and **§ Dual Economic Context Gate** — are kept as **historical
+> reference** for the pre-migration `src/generators/strategies/` mapping
+> and the pre-migration `src/utils/content-validator.ts` gates. Both
+> module trees were **purged** in April 2026; equivalent enforcement
+> moved to the Stage-C completeness review at agent level (see
+> [`.github/prompts/03-analysis-completeness-gate.md`](.github/prompts/03-analysis-completeness-gate.md)
+> and the depth floors in
+> [`analysis/methodologies/reference-quality-thresholds.json`](analysis/methodologies/reference-quality-thresholds.json)).
+> Read those sections together with this banner and with
+> [`ARCHITECTURE.md`](ARCHITECTURE.md) § C4 Container / Component
+> diagrams — both have been rewritten against the aggregator stack.
 
 ## 🗂️ Manifest Schema (authoritative, aggregator era)
 
@@ -407,20 +411,20 @@ erDiagram
 
 **File Location**: `src/types/index.ts` (`ArticleCategory` enum + `ARTICLE_TYPES` catalogue in `src/constants/language-articles.ts`)
 
-EU Parliament Monitor ships **8 production article types** driven by **9 strategy modules** (`src/generators/strategies/` — 1 generic `article-strategy` + 8 type-specific strategies):
+EU Parliament Monitor ships **8 production article types**, each driven by a single unified `news-<type>.md` agentic workflow (Stages A→E in one ~45-min session). HTML is rendered deterministically by `src/aggregator/article-generator.ts` from committed Stage-B analysis artifacts — there are no per-type strategy modules in the post-April-2026 pipeline.
 
-| Code | Perspective | Strategy Module | Source gh-aw Workflow Pair (analysis schedule) |
-|------|-------------|-----------------|------------------------------------------------|
-| `breaking` | real-time | `breaking-news-strategy.ts` | `news-breaking-analysis.md` + `news-breaking-article.md` (every 6h) |
-| `week-ahead` | prospective | `week-ahead-strategy.ts` | `news-week-ahead-analysis.md` + `news-week-ahead-article.md` (Fri 07:00) |
-| `week-in-review` | retrospective | `weekly-review-strategy.ts` | `news-weekly-review-analysis.md` + `news-weekly-review-article.md` (Sat 09:00) |
-| `month-ahead` | prospective | `month-ahead-strategy.ts` | `news-month-ahead-analysis.md` + `news-month-ahead-article.md` (1st 08:00) |
-| `month-in-review` | retrospective | `monthly-review-strategy.ts` | `news-monthly-review-analysis.md` + `news-monthly-review-article.md` (28th 10:00) |
-| `committee-reports` | analytical | `committee-reports-strategy.ts` | `news-committee-reports-analysis.md` + `news-committee-reports-article.md` (Mon–Fri 04:00) |
-| `motions` | analytical | `motions-strategy.ts` | `news-motions-analysis.md` + `news-motions-article.md` (Mon–Fri 06:00) |
-| `propositions` | analytical | `propositions-strategy.ts` | `news-propositions-analysis.md` + `news-propositions-article.md` (Mon–Fri 05:00) |
+| 🏷️ Code | 👁️ Perspective | 🤖 gh-aw Workflow | 📅 Cadence |
+|---------|----------------|-------------------|------------|
+| 🚨 `breaking` | real-time | `news-breaking.md` | every 6h |
+| 🔮 `week-ahead` | prospective | `news-week-ahead.md` | Fri 07:00 UTC |
+| 📋 `week-in-review` | retrospective | `news-week-in-review.md` | Sat 09:00 UTC |
+| 📊 `month-ahead` | prospective | `news-month-ahead.md` | 1st 08:00 UTC |
+| 📈 `month-in-review` | retrospective | `news-month-in-review.md` | 28th 10:00 UTC |
+| 🏛️ `committee-reports` | analytical | `news-committee-reports.md` | Mon–Fri 04:00 UTC |
+| 🗳️ `motions` | analytical | `news-motions.md` | Mon–Fri 06:00 UTC |
+| ⚖️ `propositions` | analytical | `news-propositions.md` | Mon–Fri 05:00 UTC |
 
-Plus the generic `article-strategy.ts` used by manual `news-article-generator.md` dispatches, and `news-translate.md` for EN → 13-language fan-out.
+Plus `news-translate.md` for EN → 13-language translation fan-out (manual dispatch only, exempt from the single-PR rule).
 
 ```jsonc
 {
@@ -583,7 +587,7 @@ export type MCPResponse<T> =
   | MCPUnavailableEnvelope<T>;
 ```
 
-> **Breaking-change note**: Prior to v1.2.13, fixed-window feeds silently accepted (and ignored) `timeframe`/`startDate`. As of v1.2.13 those parameters are rejected at the schema level. The `FALLBACK_TEMPLATE_PATTERNS` detector scans article HTML for fragments like `"unavailable"` leaking into prose — any detection blocks PR creation via `scanHtmlForFallbackLeaks()` in `src/utils/content-validator.ts`.
+> **Breaking-change note**: Prior to v1.2.13, fixed-window feeds silently accepted (and ignored) `timeframe`/`startDate`. As of v1.2.13+ those parameters are rejected at the schema level. The Stage-C completeness gate scans article output for fallback-leak fragments (e.g. `"unavailable"` leaking into prose) — any detection blocks PR creation via the editorial-agent review against [`.github/prompts/03-analysis-completeness-gate.md`](.github/prompts/03-analysis-completeness-gate.md). The historical `scanHtmlForFallbackLeaks()` runtime gate in `src/utils/content-validator.ts` was **purged** in April 2026 along with the rest of the runtime validator layer.
 
 ### Canonical MCP Tool Lists
 
@@ -591,31 +595,28 @@ Every MCP client exports a canonical tool list asserted by an integration contra
 
 | Client | Canonical list | Contract test |
 |--------|----------------|---------------|
-| `src/mcp/ep-mcp-client.ts` | *(no `EP_MCP_TOOLS` export yet — gap)* | `test/integration/mcp-integration.test.js` |
+| `src/mcp/ep-mcp-client.ts` | *(no `EP_MCP_TOOLS` export yet — gap; drift-guard via `safeCallTool()` + `callToolWithRetry()` count in `test/integration/mcp/ep-mcp.test.js`)* | `test/integration/mcp/ep-mcp.test.js` |
 | `src/mcp/imf-mcp-client.ts` (class `IMFMCPClient`) | `IMF_MCP_TOOLS` | `test/integration/mcp/imf-mcp.test.js` |
 | `src/mcp/wb-mcp-client.ts` | `WORLD_BANK_MCP_TOOLS` | `test/integration/mcp/worldbank-mcp.test.js` |
 
-`IMFMCPClient` is a **native TypeScript fetch client against IMF SDMX 3.0** — NOT an MCP server. Env configuration: `IMF_API_BASE_URL` (defaults to `https://dataservices.imf.org/REST/SDMX_3.0/`), `IMF_API_TIMEOUT_MS`. Provides monthly World Economic Outlook (WEO) and Fiscal Monitor (FM) forecasts up to five years ahead.
+`IMFMCPClient` is a **native TypeScript fetch client against IMF SDMX 3.0** — NOT an MCP server. Env configuration: `IMF_API_BASE_URL` (defaults to `https://dataservices.imf.org/REST/SDMX_3.0/`), `IMF_API_TIMEOUT_MS`. Provides primary economic data: WEO + Fiscal Monitor + IFS + BOP + ER + PCPS + GFSR + EREO + FSI + GFS + DOT.
 
-### Dual Economic Context Gate (Wave-2 OR-gate + Wave-3 strict gate)
+### Dual Economic Context Gate — Historical (purged April 2026)
 
-`src/utils/content-validator.ts` exports three content-policy gates used by the validator:
-
-```typescript
-// Original single-source gate (kept for backward compatibility, legacy soft check)
-export function articlePolicyHasWorldBank(articleHtml: string, articleType: string): boolean;
-
-// Wave-2 OR-gate (default): accepts World Bank OR IMF evidence
-export function articlePolicyHasEconomicContext(articleHtml: string, articleType: string): boolean;
-
-// Wave-3 strict gate (dark-launched): IMF evidence only — World Bank does not satisfy
-export function articlePolicyHasIMFEconomicEvidence(articleHtml: string, articleType: string): boolean;
-
-// Flag parser — controls which gate is enforced at Stage-C
-export function isWave3IMFStrictEnabled(env?: Record<string, string | undefined>): boolean;
-```
-
-Policy articles (motions, propositions, committee-reports, month-ahead, month-in-review) MUST pass the active gate. Under default settings the OR-gate applies (Wave-2 back-compat). When `WAVE3_IMF_STRICT=true` is set in the environment, `validate-articles.ts` switches to `articlePolicyHasIMFEconomicEvidence` — World Bank citations alone no longer satisfy the gate. The strict gate is intended for opt-in dark-launch runs and dashboard telemetry; Wave-4 will flip the default. Breaking news and week-ahead have lighter economic-context requirements — configured per strategy in `src/generators/strategies/`.
+> ⚠️ **Historical reference only.** The runtime `src/utils/content-validator.ts`
+> module that exposed `articlePolicyHasWorldBank` (legacy), `articlePolicyHasEconomicContext`
+> (Wave-2 OR-gate), `articlePolicyHasIMFEconomicEvidence` (Wave-3 strict), and
+> `isWave3IMFStrictEnabled` was **purged** in April 2026 alongside the rest of
+> the runtime validator layer. Equivalent enforcement now lives in:
+>
+> - **Stage-C completeness review protocol** — [`.github/prompts/03-analysis-completeness-gate.md`](.github/prompts/03-analysis-completeness-gate.md)
+> - **Per-artifact line floors** — [`analysis/methodologies/reference-quality-thresholds.json`](analysis/methodologies/reference-quality-thresholds.json)
+> - **Skill spec** — [`.github/skills/imf-data-integration.md`](.github/skills/imf-data-integration.md)
+>
+> Policy articles (motions, propositions, committee-reports, month-ahead,
+> month-in-review) still MUST cite IMF and/or World Bank evidence per the
+> Wave-3/Wave-4 IMF-required-for-policy rule, but enforcement is editorial
+> (agent-side review) rather than a runtime TypeScript gate.
 
 ### Reference Quality Thresholds
 
