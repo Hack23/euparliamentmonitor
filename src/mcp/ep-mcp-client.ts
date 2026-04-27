@@ -404,7 +404,7 @@ function extractProcedureItemYear(obj: Record<string, unknown>): number {
  *
  * Date extraction order per item: `dateInitiated`, then `dateLastActivity`, then
  * `reference` (first four characters). The first valid 4-digit year found in the
- * range `[1900, 2100]` is used.
+ * range `[1952, 2100]` is used.
  *
  * Returns `false` when the payload is `undefined`, contains no items, or any item
  * yields a year later than the threshold (the feed has current data).

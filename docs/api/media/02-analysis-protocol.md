@@ -75,6 +75,29 @@ reads this exact path from `HEAD` of `main` after the analysis PR merges.
 }
 ```
 
+**`manifest.json.pass2` — Pass 2 phase audit log (top-level, written by the
+agent when Stage B2 begins and ends):**
+
+```json
+{
+  "pass2": {
+    "startedAt": "2026-04-22T10:18:00Z",
+    "endedAt":   "2026-04-22T10:24:00Z",
+    "rewriteCount": 4
+  }
+}
+```
+
+- `startedAt`: ISO-8601 timestamp when the agent began Pass 2 (the
+  minute-16 tripwire fires or Pass 1 finishes early, whichever comes
+  first).
+- `endedAt`: ISO-8601 timestamp when Pass 2 ended (before Stage C).
+- `rewriteCount`: number of artifacts whose content was changed during
+  Pass 2 (not merely re-read). A `rewriteCount` of `0` is valid **only**
+  when all artifacts were already above their line floors from a prior
+  same-day run. The Stage-C validator warns when `rewriteCount === 0`
+  and any artifact sits at exactly its floor.
+
 **Re-run merge rule (§1 of the plan):**
 
 1. Load existing `manifest.json` — if present, treat the folder as a resume
@@ -109,10 +132,54 @@ reads this exact path from `HEAD` of `main` after the analysis PR merges.
 
 ## 3 · Minimum Analysis Time
 
-| Workflow family | Stage C exit tripwire | PR-call deadline | Pass 1 | Pass 2 | Stage C |
-|----------|:--------------------:|:----------------:|:------:|:------:|:------:|
-| Every unified `news-<type>.md` (all article types — today, 7-day, and 30-day windows) | **minute 22** | **≤ minute 25** (target ≤ 22) | ~60% | ~40% | 3 min |
-| Translation helper (`news-translate.md`) | No Stage B | N/A (multi-call flush, exempt from single-PR rule) | N/A | N/A | N/A |
+| Workflow family | Stage B1→B2 tripwire | Stage C exit tripwire | PR-call deadline |
+|----------|:------------------------------------:|:--------------------:|:----------------:|
+| Every unified `news-<type>.md` (all article types — today, 7-day, and 30-day windows) | **minute 16** — stop Pass 1, begin Pass 2 even if Pass 1 is incomplete; degraded artifacts > skipped Pass 2 | **minute 22** | **≤ minute 25** (target ≤ 22) |
+| Translation helper (`news-translate.md`) | No Stage B | N/A (multi-call flush, exempt from single-PR rule) | N/A |
+
+### Stage B Sub-stage Budget (Pass 1 / Pass 2 split)
+
+**Timing convention:** Absolute **workflow elapsed minutes** are authoritative.
+Relative phrases such as "from Stage A end" are descriptive only and MUST NOT
+override the absolute tripwires above.
+
+| Sub-stage | Label | Budget / window |
+|-----------|-------|:---------------:|
+| **B1** | Pass 1 — Initial Analysis | From **Stage A completion** until the **absolute minute-16 tripwire**. If Stage A ends by minute 4, this yields **≤ 12 min** for B1. |
+| **B2** | Pass 2 — Read-back & Rewrite | Fixed absolute window: **minute 16 → minute 20** (**≥ 4 min**) before Stage C must run. |
+| **C** | Completeness Gate | Fixed absolute window: **minute 20 → minute 22** (**≤ 2 min**) before the Stage C exit tripwire. |
+
+**Hard tripwire at minute 16:** At the start of each B1 artifact-write loop
+iteration, the agent MUST check elapsed workflow time. If elapsed ≥ 16
+minutes, stop writing new Pass 1 artifacts and transition immediately to
+Pass 2. Pass 2 then occupies the minute-16 → minute-20 window, after which
+Stage C must run and exit by minute 22. An incomplete artifact set with a
+genuine Pass 2 rewrite is higher quality than a complete artifact set
+where "Pass 2" was only inline checks during Pass 1.
+
+**Pass 2 log in `manifest.json`:** When Pass 2 starts and ends, the agent
+MUST write a top-level `pass2` block to `manifest.json`:
+
+```json
+{
+  "pass2": {
+    "startedAt": "2026-04-22T10:18:00Z",
+    "endedAt":   "2026-04-22T10:24:00Z",
+    "rewriteCount": 4
+  }
+}
+```
+
+`rewriteCount` is the number of artifacts rewritten (content changed, not
+merely re-read) and MUST be a non-negative integer. `startedAt` and
+`endedAt` MUST be non-empty ISO-8601 strings. A `rewriteCount` of `0` is
+valid only when every artifact was already above its
+`reference-quality-thresholds.json` floor coming into Pass 2 (e.g. a re-run
+that carries forward prior-run content). The Stage-C validator emits a
+`WARN pass2-skipped-heuristic` when `rewriteCount === 0` (or the `pass2`
+block is missing/malformed) and any artifact sits exactly at its floor line
+count; malformed schema additionally produces a `WARN manifest.pass2
+invalid schema` line listing each invalid field.
 
 > **Why one budget for all unified workflows?** The previous 7-day-window
 > 25 / ≤28 split sat on the edge of the observed 28–30 min safeoutputs
@@ -125,18 +192,21 @@ reads this exact path from `HEAD` of `main` after the analysis PR merges.
 > after #1444 and #24957585804 — gives a 3–5 min margin below the
 > failure window and absorbs Stage B compaction overruns. The
 > per-stage ceilings in the 7-day workflows shrink to **A ≤ 4, B
-> 12–15, C ≤ 3 = 22 min** to match.
+> 12–15 (B1 minutes 4→16, B2 minutes 16→20), C ≤ 2 (minutes 20→22) = 22 min** to match.
 
-The schedule is built around **two distinct deadlines** in every unified
+The schedule is built around **three distinct deadlines** in every unified
 news workflow (see #1444 for the original rationale and the failure mode
 that motivated the explicit ceilings):
 
-1. **Stage C exit tripwire** — elapsed-time backstop that fires
+1. **Stage B1 → B2 tripwire (minute 16)** — regardless of Pass 1
+   completeness, Pass 2 begins at minute 16. The agent logs
+   `pass2.startedAt` to `manifest.json` at this point.
+2. **Stage C exit tripwire** — elapsed-time backstop that fires
    regardless of GREEN/RED. The agent computes elapsed minutes at the
    top of every Stage C iteration and forces `GATE_RESULT=ANALYSIS_ONLY`
    when the threshold is reached, even if Stage C has just emitted
    GREEN. This guarantees Stage D + E retain budget before the PR call.
-2. **safe-outputs `create_pull_request` deadline** — must land by the
+3. **safe-outputs `create_pull_request` deadline** — must land by the
    stricter of (a) the per-workflow PR-call deadline above or (b) the
    ~28–30 min observed safeoutputs MCP HTTP session TTL. Once the
    session is reaped, the analysis branch exists locally but cannot be
@@ -222,7 +292,12 @@ Each perspective must state: (1) mechanism of impact, (2) EP-data evidence,
 - `manifest.json` carries top-level `articleType`.
 - For shared-folder re-runs: `manifest.json.history[]` has an entry for this
   run (started, not yet finished).
-- Pass 2 verification complete.
+- `manifest.json` carries a top-level `pass2` block with `startedAt`,
+  `endedAt`, and `rewriteCount` (see §3 for schema). Omitting this block
+  triggers a `WARN pass2-skipped-heuristic` at Stage C when any artifact
+  sits exactly at its line floor.
+- Pass 2 verification complete (read every artifact end-to-end, rewrote
+  shallow sections).
 - Now run the completeness gate:
   [`03-analysis-completeness-gate.md`](03-analysis-completeness-gate.md).
 
