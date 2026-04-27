@@ -133,8 +133,8 @@ describe('generateSitemapHTML', () => {
 
   it('renders the docs section when hasDocsDir is true', () => {
     const html = generateSitemapHTML('en', [], true);
-    expect(html).toContain('docs/index.html');
-    expect(html).toContain('docs/api/index.html');
+    expect(html).toContain('docs/');
+    expect(html).toContain('docs/api/');
     expect(html).toContain('docs/coverage/index.html');
     expect(html).toContain('docs/test-results/index.html');
   });

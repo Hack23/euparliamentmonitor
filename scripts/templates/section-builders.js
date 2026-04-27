@@ -281,6 +281,9 @@ export function buildSiteHeader(options) {
         </span>
       </a>
       <div class="site-header__actions">
+        <a class="site-header__cta site-header__cta--sponsor" href="https://github.com/sponsors/Hack23">💖 Sponsor Hack23</a>
+        <a class="site-header__cta" href="https://www.hack23.com">Become a sponsor</a>
+        <a class="site-header__cta site-header__cta--security" href="https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY.md">🔐 Commitment to Transparency and Security</a>
         ${createThemeToggleButton(themeToggleLabel)}
       </div>
       <nav class="site-header__langs" role="navigation" aria-label="Language selection">
@@ -339,6 +342,8 @@ export function buildSiteFooter(options) {
     const homeHref = `${pathPrefix}${lang === 'en' ? 'index.html' : `index-${lang}.html`}`;
     const sitemapHref = `${pathPrefix}${lang === 'en' ? 'sitemap.html' : `sitemap_${lang}.html`}`;
     const politicalIntelligenceHref = `${pathPrefix}${lang === 'en' ? 'political-intelligence.html' : `political-intelligence_${lang}.html`}`;
+    const apiDocsHref = `${pathPrefix}docs/api/`;
+    const analysisDocsHref = `${pathPrefix}docs/`;
     const articlesLine = typeof articleCount === 'number'
         ? `\n        <p class="footer-stats">${escapeHTML(getLocalizedString(FOOTER_ARTICLES_AVAILABLE_LABELS, lang).replace('{count}', String(articleCount)))}</p>`
         : '';
@@ -355,11 +360,14 @@ export function buildSiteFooter(options) {
         <ul>
           <li><a href="${homeHref}">${homeLabel}</a></li>
           <li><a href="${homeHref}#main">News</a></li>
+          <li><a href="${analysisDocsHref}">📊 Analysis & Reports</a></li>
           <li><a href="${pathPrefix}docs/index.html">Dashboard</a></li>
           <li><a href="${politicalIntelligenceHref}">🧠 ${politicalIntelligenceLabel}</a></li>
           <li><a href="${sitemapHref}">🗺️ ${sitemapLabel}</a></li>
-          <li><a href="${pathPrefix}docs/api/">📚 API Documentation (TypeDoc)</a></li>
+          <li><a href="${apiDocsHref}">📚 API Documentation (TypeDoc)</a></li>
           <li><a href="${pathPrefix}rss.xml">${rssLabel}</a></li>
+          <li><a href="https://hack23.com/euparliamentmonitor.html">EU Parliament Monitor by Hack23</a></li>
+          <li><a href="https://hack23.com/euparliamentmonitor-features.html">EU Parliament Monitor Features</a></li>
           <li><a href="https://hack23.com/cia-features.html">CIA Platform</a></li>
           <li><a href="https://www.riksdagen.se/">Sveriges Riksdag</a></li>
           <li><a href="https://github.com/Hack23/euparliamentmonitor">${githubLabel}</a></li>
@@ -370,11 +378,23 @@ export function buildSiteFooter(options) {
       </div>
       <div class="footer-section">
         <h3>${builtByHeading}</h3>
+        <div class="footer-badges" aria-label="Project trust badges">
+          <a href="https://www.npmjs.com/package/euparliamentmonitor"><img src="https://img.shields.io/npm/v/euparliamentmonitor.svg" alt="npm package version"></a>
+          <a href="https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor"><img src="https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge" alt="OpenSSF Scorecard"></a>
+          <a href="https://www.bestpractices.dev/projects/12068"><img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices"></a>
+          <a href="https://github.com/Hack23/euparliamentmonitor/attestations"><img src="https://slsa.dev/images/gh-badge-level3.svg" alt="SLSA Level 3"></a>
+        </div>
         <ul>
           <li><a href="https://hack23.com">Hack23.com</a></li>
+          <li><a href="https://github.com/sponsors/Hack23">Sponsor Hack23 on GitHub</a></li>
           <li><a href="https://www.linkedin.com/company/hack23">${linkedinLabel}</a></li>
           <li><a href="https://github.com/Hack23/ISMS-PUBLIC">Public ISMS</a></li>
           <li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md">${securityLabel}</a></li>
+          <li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md">Secure Development Policy</a></li>
+          <li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md">Open Source Policy</a></li>
+          <li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Policy.md">AI Policy</a></li>
+          <li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Access_Control_Policy.md">Access Control Policy</a></li>
+          <li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md">Cryptography Policy</a></li>
           <li><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY.md">Security Policy</a></li>
           <li><a href="https://hack23.com/privacy.html">Privacy Policy</a></li>
           <li><a href="mailto:james@hack23.com">Contact Us / ${contactLabel}</a></li>

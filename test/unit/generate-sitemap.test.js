@@ -77,8 +77,8 @@ describe('generate-sitemap', () => {
     it('should include docs files when provided', () => {
       const sitemap = generateMockSitemap([], ['docs/index.html', 'docs/api/index.html']);
 
-      expect(sitemap).toContain('<loc>https://euparliamentmonitor.com/docs/index.html</loc>');
-      expect(sitemap).toContain('<loc>https://euparliamentmonitor.com/docs/api/index.html</loc>');
+      expect(sitemap).toContain('<loc>https://euparliamentmonitor.com/docs/</loc>');
+      expect(sitemap).toContain('<loc>https://euparliamentmonitor.com/docs/api/</loc>');
     });
   });
 
@@ -129,7 +129,7 @@ describe('generate-sitemap', () => {
     it('should set priority 0.3 for docs files', () => {
       const sitemap = generateMockSitemap([], ['docs/index.html']);
 
-      const docsUrlBlock = sitemap.match(/<url>[\s\S]*?docs\/index\.html[\s\S]*?<\/url>/);
+      const docsUrlBlock = sitemap.match(/<url>[\s\S]*?docs\/<\/loc>[\s\S]*?<\/url>/);
       expect(docsUrlBlock).toBeTruthy();
       expect(docsUrlBlock[0]).toContain('<priority>0.3</priority>');
     });
@@ -137,7 +137,7 @@ describe('generate-sitemap', () => {
     it('should set weekly changefreq for docs files', () => {
       const sitemap = generateMockSitemap([], ['docs/index.html']);
 
-      const docsUrlBlock = sitemap.match(/<url>[\s\S]*?docs\/index\.html[\s\S]*?<\/url>/);
+      const docsUrlBlock = sitemap.match(/<url>[\s\S]*?docs\/<\/loc>[\s\S]*?<\/url>/);
       expect(docsUrlBlock).toBeTruthy();
       expect(docsUrlBlock[0]).toContain('<changefreq>weekly</changefreq>');
     });
@@ -437,8 +437,8 @@ describe('generate-sitemap', () => {
       const html = generateSitemapHTML('en', [], true);
 
       expect(html).toContain('Documentation');
-      expect(html).toContain('docs/index.html');
-      expect(html).toContain('docs/api/index.html');
+      expect(html).toContain('docs/');
+      expect(html).toContain('docs/api/');
       expect(html).toContain('docs/coverage/index.html');
       expect(html).toContain('docs/test-results/index.html');
     });
@@ -446,7 +446,7 @@ describe('generate-sitemap', () => {
     it('should not include docs section when hasDocsDir is false', () => {
       const html = generateSitemapHTML('en', [], false);
 
-      expect(html).toContain('docs/index.html');
+      expect(html).toContain('docs/');
       expect(html).toContain('docs/api/');
       expect(html).not.toContain('docs/coverage/index.html');
       expect(html).not.toContain('docs/test-results/index.html');
@@ -552,14 +552,14 @@ describe('generate-sitemap', () => {
     it('should include docs files in generated XML', () => {
       const xml = generateSitemap([], ['docs/index.html', 'docs/api/index.html']);
 
-      expect(xml).toContain('docs/index.html');
-      expect(xml).toContain('docs/api/index.html');
+      expect(xml).toContain('docs/');
+      expect(xml).toContain('docs/api/');
     });
 
     it('should set weekly changefreq for docs URLs', () => {
       const xml = generateSitemap([], ['docs/index.html']);
-      const docsBlock = xml.match(/<url>[\s\S]*?docs\/index\.html[\s\S]*?<\/url>/);
-      
+      const docsBlock = xml.match(/<url>[\s\S]*?docs\/<\/loc>[\s\S]*?<\/url>/);
+
       expect(docsBlock).toBeTruthy();
       expect(docsBlock[0]).toContain('<changefreq>weekly</changefreq>');
     });
@@ -708,9 +708,9 @@ describe('generate-sitemap', () => {
       const docsFiles = ['docs/index.html', 'docs/api/index.html', 'docs/coverage/index.html'];
       const xml = generateSitemap([], docsFiles);
 
-      for (const doc of docsFiles) {
-        expect(xml).toContain(`<loc>https://euparliamentmonitor.com/${doc}</loc>`);
-      }
+      expect(xml).toContain('<loc>https://euparliamentmonitor.com/docs/</loc>');
+      expect(xml).toContain('<loc>https://euparliamentmonitor.com/docs/api/</loc>');
+      expect(xml).toContain('<loc>https://euparliamentmonitor.com/docs/coverage/index.html</loc>');
     });
 
     it('should have exactly 14 index pages, 14 sitemap pages, 14 political-intelligence pages, 1 rss.xml with no articles', () => {
@@ -813,7 +813,7 @@ describe('generate-sitemap', () => {
 
     it('should NOT emit alternates for docs files', () => {
       const xml = generateSitemap([], ['docs/index.html']);
-      const block = xml.split('<url>').find((p) => p.includes('docs/index.html<'));
+      const block = xml.split('<url>').find((p) => p.includes('docs/</loc>'));
       expect(block).toBeTruthy();
       expect(block).not.toContain('<xhtml:link');
     });
@@ -1030,8 +1030,14 @@ function generateMockSitemap(articles, docsFiles = []) {
 
   // Docs files
   for (const docFile of docsFiles) {
+    let locPath = docFile;
+    if (docFile === 'docs/index.html') {
+      locPath = 'docs/';
+    } else if (docFile === 'docs/api/index.html') {
+      locPath = 'docs/api/';
+    }
     urls.push({
-      loc: `${BASE_URL}/${docFile}`,
+      loc: `${BASE_URL}/${locPath}`,
       lastmod: today,
       changefreq: 'weekly',
       priority: '0.3',
