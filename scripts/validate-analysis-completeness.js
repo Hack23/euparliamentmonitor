@@ -429,6 +429,50 @@ function hasSourceDiversityEvidence(content) {
   return hasEvidenceTableRow(content) || hasMcpToolReference(content);
 }
 
+function hasOpenForwardStatementItems(runDir) {
+  const openJsonPath = path.join(runDir, 'data', 'forward-statements-open.json');
+  if (!fs.existsSync(openJsonPath)) return false;
+
+  const openRaw = fs.readFileSync(openJsonPath, 'utf8').trim();
+  if (!openRaw) return false;
+
+  try {
+    const openItems = JSON.parse(openRaw);
+    if (Array.isArray(openItems)) return openItems.length > 0;
+    // Valid JSON but unexpected shape — treat any non-empty file as open data
+    // so the carried-forward section check cannot be silently bypassed.
+    return true;
+  } catch {
+    // Malformed JSON — treat as non-empty to force the check.
+    return true;
+  }
+}
+
+function validateForwardStatementsRegistryCoverage(runDir, articleType) {
+  const forwardStatementArticleTypes = ['week-ahead', 'month-ahead'];
+  if (!forwardStatementArticleTypes.includes(articleType)) return null;
+  if (!hasOpenForwardStatementItems(runDir)) return null;
+
+  const relativePath = 'intelligence/synthesis-summary.md';
+  const synthPath = path.join(runDir, relativePath);
+  if (!fs.existsSync(synthPath)) return null;
+
+  const synthContent = fs.readFileSync(synthPath, 'utf8');
+  const hasCarriedSection = /##[^#\n]*carried[-\s]forward\s+forward\s+statements/i.test(synthContent);
+  if (hasCarriedSection) return null;
+
+  return {
+    relativePath,
+    exists: true,
+    lines: countLines(synthContent),
+    minLines: 0,
+    issues: ['forward-registry:missing-carried-forward-section'],
+    warnings: [],
+    mermaid: hasMermaid(synthContent),
+    placeholders: [],
+  };
+}
+
 function buildRules(thresholdsJson, articleType) {
   const empty = {
     perArtifactFloors: {},
@@ -562,56 +606,13 @@ function main() {
     validateArtifact({ runDir, relativePath, rules, options: opts }),
   );
 
+  const forwardRegistryResult = validateForwardStatementsRegistryCoverage(runDir, articleType);
+  if (forwardRegistryResult) results.push(forwardRegistryResult);
+
   // Orphans are reported as warnings (not blocking) — they may be valid extras.
   const summary = summarize(results);
   const offending = results.filter((r) => r.issues.length > 0);
   const warning = results.filter((r) => r.warnings.length > 0);
-
-  // ---------------------------------------------------------------------------
-  // Forward-statements registry check (week-ahead / month-ahead only).
-  // When data/forward-statements-open.json exists and is non-empty, the
-  // synthesis-summary MUST contain a "Carried-forward forward statements" section.
-  // ---------------------------------------------------------------------------
-  const FORWARD_STATEMENT_ARTICLE_TYPES = ['week-ahead', 'month-ahead'];
-  if (FORWARD_STATEMENT_ARTICLE_TYPES.includes(articleType)) {
-    const openJsonPath = path.join(runDir, 'data', 'forward-statements-open.json');
-    if (fs.existsSync(openJsonPath)) {
-      const openRaw = fs.readFileSync(openJsonPath, 'utf8').trim();
-      let hasOpenItems = false;
-      try {
-        const openItems = JSON.parse(openRaw);
-        hasOpenItems = Array.isArray(openItems) && openItems.length > 0;
-      } catch {
-        // Malformed JSON — treat as non-empty to force the check
-        hasOpenItems = openRaw.length > 0;
-      }
-      if (hasOpenItems) {
-        const synthPath = path.join(runDir, 'intelligence', 'synthesis-summary.md');
-        if (fs.existsSync(synthPath)) {
-          const synthContent = fs.readFileSync(synthPath, 'utf8');
-          const hasCarriedSection = /##[^#\n]*carried[-\s]forward\s+forward\s+statements/i.test(synthContent);
-          if (!hasCarriedSection) {
-            process.stderr.write(
-              `RED  intelligence/synthesis-summary.md :: forward-registry:missing-carried-forward-section` +
-              ` (data/forward-statements-open.json is non-empty but synthesis-summary.md lacks the` +
-              ` "Carried-forward forward statements" section — see 04-article-generation.md §7.1)\n`,
-            );
-            summary.other += 1;
-            offending.push({
-              relativePath: 'intelligence/synthesis-summary.md',
-              issues: ['forward-registry:missing-carried-forward-section'],
-              warnings: [],
-              exists: true,
-              lines: countLines(synthContent),
-              minLines: 0,
-              mermaid: false,
-              placeholders: [],
-            });
-          }
-        }
-      }
-    }
-  }
 
   // Human-readable per-artifact report
   for (const r of offending) {

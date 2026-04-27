@@ -278,6 +278,44 @@ describe('scripts/validate-analysis-completeness.js', () => {
     expect(result.stderr).toMatch(/forward-registry:missing-carried-forward-section/);
   });
 
+  it('returns RED for week-ahead when forward-statements-open.json is non-array JSON', () => {
+    writeWeekAheadManifest();
+    fs.mkdirSync(path.join(runDir, 'data'), { recursive: true });
+    // Valid JSON but unexpected shape should not bypass the section gate.
+    fs.writeFileSync(
+      path.join(runDir, 'data/forward-statements-open.json'),
+      JSON.stringify({ id: 'abc', topic: 'banking-union', status: 'open' }),
+      'utf8',
+    );
+    fs.writeFileSync(
+      path.join(runDir, 'intelligence/synthesis-summary.md'),
+      makeArtifact(250, { mermaid: true, wep: true, admiralty: true }),
+      'utf8',
+    );
+    const result = runHere();
+    expect(result.code).toBe(1);
+    expect(result.stderr).toMatch(/forward-registry:missing-carried-forward-section/);
+  });
+
+  it('reports forward-registry failures once and includes them in --json results', () => {
+    writeWeekAheadManifest();
+    fs.mkdirSync(path.join(runDir, 'data'), { recursive: true });
+    fs.writeFileSync(
+      path.join(runDir, 'data/forward-statements-open.json'),
+      JSON.stringify([{ id: 'abc', topic: 'banking-union', status: 'open' }]),
+      'utf8',
+    );
+    fs.writeFileSync(
+      path.join(runDir, 'intelligence/synthesis-summary.md'),
+      makeArtifact(250, { mermaid: true, wep: true, admiralty: true }),
+      'utf8',
+    );
+    const result = runHere(['--json']);
+    const occurrences = result.stderr.match(/forward-registry:missing-carried-forward-section/g) || [];
+    expect(occurrences).toHaveLength(1);
+    expect(result.stdout).toMatch(/"forward-registry:missing-carried-forward-section"/);
+  });
+
   it('passes GREEN for week-ahead when open items exist and synthesis has the carried-forward section', () => {
     writeWeekAheadManifest();
     fs.mkdirSync(path.join(runDir, 'data'), { recursive: true });

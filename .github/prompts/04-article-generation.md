@@ -245,9 +245,11 @@ exist in `data/forward-statements-open.json`:
    first surfacing open forward statements.
 
 2. **"Carried-forward forward statements" section (mandatory when non-empty):**
-   `intelligence/synthesis-summary.md` must contain a section with this exact
-   heading when `data/forward-statements-open.json` is non-empty. Omission
-   causes Stage C to emit RED.
+   `intelligence/synthesis-summary.md` must contain a section whose heading
+   contains `Carried-forward forward statements` when
+   `data/forward-statements-open.json` is non-empty. The canonical template
+   heading is `## 🔁 Carried-Forward Forward Statements (week-ahead /
+   month-ahead only)`. Omission causes Stage C to emit RED.
 
 3. **Per-item status update:** For each open item, assign an explicit status
    (`✅ IMPLEMENTED`, `🔄 SUPERSEDED`, `⏳ OPEN (carried)`, or

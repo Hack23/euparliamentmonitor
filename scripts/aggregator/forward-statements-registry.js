@@ -27,8 +27,8 @@
  *   analysis/forward-statements/README.md         (schema + lifecycle docs — static)
  *
  * The monthly sharding keeps individual files small (typical plenary generates
- * ~5–10 statements per week). All read operations scan every extant JSONL shard
- * unless a dateFrom filter is provided.
+ * ~5–10 statements per week). Read operations scan every extant JSONL shard,
+ * with optional result filtering by status, horizonFrom, and horizonTo.
  *
  * Invocation:
  *   node scripts/aggregator/forward-statements-registry.js --help
@@ -90,6 +90,37 @@ export function newId() {
 }
 
 /**
+ * Return true only when a string is a valid calendar date in YYYY-MM-DD form.
+ *
+ * @param {unknown} value - Candidate date value
+ * @returns {boolean} True for valid calendar dates
+ */
+export function isValidDateString(value) {
+  if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+  const [year, month, day] = value.split('-').map(Number);
+  const parsed = new Date(Date.UTC(year, month - 1, day));
+  return (
+    parsed.getUTCFullYear() === year &&
+    parsed.getUTCMonth() === month - 1 &&
+    parsed.getUTCDate() === day
+  );
+}
+
+/**
+ * Return true only when a string is a valid ISO week reference (`YYYY-Www`).
+ *
+ * @param {unknown} value - Candidate ISO week value
+ * @returns {boolean} True for ISO week 1–53
+ */
+export function isValidIsoWeekString(value) {
+  if (typeof value !== 'string') return false;
+  const match = /^(\d{4})-W(\d{2})$/.exec(value);
+  if (!match) return false;
+  const week = Number(match[2]);
+  return week >= 1 && week <= 53;
+}
+
+/**
  * Validate a candidate forward-statement entry object, returning a list of
  * validation error strings. An empty array means the entry is valid.
  *
@@ -106,16 +137,15 @@ export function validateEntry(entry) {
   if (typeof e.topic !== 'string' || !e.topic.trim()) errors.push('topic is required');
   if (typeof e.originatingRunId !== 'string' || !e.originatingRunId.trim())
     errors.push('originatingRunId is required');
-  if (typeof e.originatingDate !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(e.originatingDate))
+  if (!isValidDateString(e.originatingDate))
     errors.push('originatingDate must be YYYY-MM-DD');
   if (typeof e.statement !== 'string' || !e.statement.trim())
     errors.push('statement is required');
   if (
     typeof e.expectedHorizon !== 'string' ||
-    (!/^\d{4}-\d{2}-\d{2}$/.test(e.expectedHorizon) &&
-      !/^\d{4}-W\d{2}$/.test(e.expectedHorizon))
+    (!isValidDateString(e.expectedHorizon) && !isValidIsoWeekString(e.expectedHorizon))
   )
-    errors.push('expectedHorizon must be YYYY-MM-DD or YYYY-Www');
+    errors.push('expectedHorizon must be a valid YYYY-MM-DD date or ISO week YYYY-Www');
   if (!VALID_STATUSES.includes(/** @type {never} */ (e.status)))
     errors.push(`status must be one of: ${VALID_STATUSES.join(', ')}`);
   if (!Array.isArray(e.evidenceRefs)) errors.push('evidenceRefs must be an array');
@@ -191,15 +221,23 @@ export function readEntries(opts) {
       const entry = parseLine(line);
       if (!entry) continue;
       if (opts?.status && entry.status !== opts.status) continue;
-      if (opts?.horizonFrom && typeof entry.expectedHorizon === 'string') {
-        // Normalise ISO week to YYYY-MM-DD (first day of week) for comparison
-        const horizon = normaliseHorizon(entry.expectedHorizon);
-        if (horizon < opts.horizonFrom) continue;
+
+      let horizon;
+      if ((opts?.horizonFrom || opts?.horizonTo) && typeof entry.expectedHorizon === 'string') {
+        try {
+          // Normalise ISO week to YYYY-MM-DD (first day of week) for comparison.
+          horizon = normaliseHorizon(entry.expectedHorizon);
+        } catch (error) {
+          process.stderr.write(
+            `Skipping forward-statement entry with invalid expectedHorizon "${entry.expectedHorizon}" ` +
+            `in shard "${shard}": ${error instanceof Error ? error.message : String(error)}\n`,
+          );
+          continue;
+        }
       }
-      if (opts?.horizonTo && typeof entry.expectedHorizon === 'string') {
-        const horizon = normaliseHorizon(entry.expectedHorizon);
-        if (horizon > opts.horizonTo) continue;
-      }
+
+      if (opts?.horizonFrom && typeof horizon === 'string' && horizon < opts.horizonFrom) continue;
+      if (opts?.horizonTo && typeof horizon === 'string' && horizon > opts.horizonTo) continue;
       results.push(entry);
     }
   }
@@ -322,15 +360,23 @@ export function isMondayRun(dateStr) {
 
 /**
  * Normalise an ISO week string (`YYYY-Www`) to its Monday date as `YYYY-MM-DD`
- * for lexicographic horizon comparisons. Plain dates pass through unchanged.
+ * for lexicographic horizon comparisons. Valid `YYYY-MM-DD` dates pass through
+ * unchanged.
  *
  * @param {string} horizon - expectedHorizon value
  * @returns {string} YYYY-MM-DD date string
- * @throws {Error} When an ISO week number is outside the valid range (1–53)
+ * @throws {Error} When the horizon is not a valid `YYYY-MM-DD` date or ISO week
  */
 export function normaliseHorizon(horizon) {
+  if (isValidDateString(horizon)) return horizon;
+  if (/^\d{4}-\d{2}-\d{2}$/.test(horizon)) {
+    throw new Error(`Invalid calendar date in expectedHorizon: "${horizon}"`);
+  }
+
   const isoWeek = /^(\d{4})-W(\d{2})$/.exec(horizon);
-  if (!isoWeek) return horizon; // already YYYY-MM-DD
+  if (!isoWeek) {
+    throw new Error(`expectedHorizon must be YYYY-MM-DD or YYYY-Www: "${horizon}"`);
+  }
   const year = Number(isoWeek[1]);
   const week = Number(isoWeek[2]);
   if (week < 1 || week > 53) {

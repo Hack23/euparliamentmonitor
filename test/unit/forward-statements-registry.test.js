@@ -111,8 +111,20 @@ describe('forward-statements-registry', () => {
       expect(errs.some((e) => e.includes('originatingDate'))).toBe(true);
     });
 
+    it('should error when originatingDate is an impossible calendar date', () => {
+      const errs = validateEntry(makeEntry({ originatingDate: '2026-13-99' }));
+      expect(errs.some((e) => e.includes('originatingDate'))).toBe(true);
+    });
+
     it('should accept YYYY-Www for expectedHorizon', () => {
       expect(validateEntry(makeEntry({ expectedHorizon: '2026-W18' }))).toHaveLength(0);
+    });
+
+    it('should reject out-of-range ISO weeks and impossible horizon dates', () => {
+      const weekErrs = validateEntry(makeEntry({ expectedHorizon: '2026-W54' }));
+      const dateErrs = validateEntry(makeEntry({ expectedHorizon: '2026-02-31' }));
+      expect(weekErrs.some((e) => e.includes('expectedHorizon'))).toBe(true);
+      expect(dateErrs.some((e) => e.includes('expectedHorizon'))).toBe(true);
     });
 
     it('should error when status is not in the allowed enum', () => {
@@ -256,6 +268,24 @@ describe('forward-statements-registry', () => {
       const all = readEntries({ registryDir: tmpDir });
       expect(all).toHaveLength(1);
     });
+
+    it('should skip entries with invalid horizons during filtered reads', () => {
+      const shard = path.join(tmpDir, '2026-04.jsonl');
+      fs.mkdirSync(tmpDir, { recursive: true });
+      const invalid = makeEntry({ id: 'bad-week', expectedHorizon: '2026-W54' });
+      const invalidDate = makeEntry({ id: 'bad-date', expectedHorizon: '2026-13-99' });
+      const valid = makeEntry({ id: 'valid-week', topic: 'ai-act', expectedHorizon: '2026-W18' });
+      fs.writeFileSync(
+        shard,
+        `${JSON.stringify(invalid)}\n${JSON.stringify(invalidDate)}\n${JSON.stringify(valid)}\n`,
+        'utf8',
+      );
+
+      expect(() => readEntries({ horizonFrom: '2026-04-01', registryDir: tmpDir })).not.toThrow();
+      const entries = readEntries({ horizonFrom: '2026-04-01', registryDir: tmpDir });
+      expect(entries).toHaveLength(1);
+      expect(entries[0].id).toBe('valid-week');
+    });
   });
 
   // -------------------------------------------------------------------------
@@ -393,6 +423,11 @@ describe('forward-statements-registry', () => {
     it('should throw for an out-of-range ISO week number', () => {
       expect(() => normaliseHorizon('2026-W00')).toThrow(/Invalid ISO week/);
       expect(() => normaliseHorizon('2026-W54')).toThrow(/Invalid ISO week/);
+    });
+
+    it('should throw for invalid calendar dates and malformed horizons', () => {
+      expect(() => normaliseHorizon('2026-13-99')).toThrow(/Invalid calendar date/);
+      expect(() => normaliseHorizon('soon')).toThrow(/expectedHorizon must be/);
     });
   });
 
