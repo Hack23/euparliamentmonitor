@@ -167,12 +167,12 @@ describe('wrapArticleHtml', () => {
     }
   });
 
-  it('uses the larger 72×48 header-logo asset in the header (matches index chrome)', () => {
+  it('uses the larger 96×64 header-logo asset in the header (matches index chrome)', () => {
     const html = wrapArticleHtml(baseOptions);
     expect(html).toContain('../images/header-logo.webp');
     expect(html).toContain('../images/header-logo.png');
     expect(html).toContain('site-header__logo--header');
-    expect(html).toContain('width="72" height="48"');
+    expect(html).toContain('width="96" height="64"');
   });
 
   it('surfaces the footer-stats line when articleCount is provided', () => {
