@@ -84,66 +84,21 @@ export function getPoliticalIntelligenceFilename(lang: string): string {
 }
 
 /** Metadata for a single methodology / template Markdown file */
-export interface PIDocument {
-  /** Path relative to the repo root (e.g. "analysis/methodologies/foo.md") */
-  relPath: string;
-  /** Filename stem without extension */
-  stem: string;
-  /** Human-readable title extracted from the first H1 heading or derived from the stem */
-  title: string;
-  /** Short summary (first non-empty paragraph, truncated to ~220 chars) */
-  description: string;
-  /** Emoji/icon that represents this document in the UI */
-  icon: string;
-}
+export type {
+  PIDocument,
+  PIDailyDateGroup,
+  PIDailyRun,
+  PIDailyArtifact,
+  PIPageData,
+} from './political-intelligence/types.js';
 
-/** A grouped set of daily analysis runs for one date */
-export interface PIDailyDateGroup {
-  /** ISO date (YYYY-MM-DD) */
-  date: string;
-  /** Runs produced on that date, sorted alphabetically */
-  runs: PIDailyRun[];
-}
-
-/** A single daily analysis run directory */
-export interface PIDailyRun {
-  /** Run slug (e.g. "breaking-run190", "motions-run46") */
-  slug: string;
-  /** Number of Markdown artifacts inside the run directory (recursive) */
-  artifactCount: number;
-  /** Path relative to the repo root of the run directory */
-  relPath: string;
-  /** Emoji/icon derived from the run slug */
-  icon: string;
-  /** Individual Markdown artifacts inside the run, sorted by path */
-  artifacts: PIDailyArtifact[];
-}
-
-/** A single Markdown artifact file inside a daily run directory */
-export interface PIDailyArtifact {
-  /** Path relative to the repo root (e.g. "analysis/daily/2026-04-22/breaking-run1/intelligence/swot.md") */
-  relPath: string;
-  /** Path relative to the run directory (e.g. "intelligence/swot.md") */
-  shortPath: string;
-}
-
-/** Input payload used by {@link generatePoliticalIntelligenceHTML} */
-export interface PIPageData {
-  /** Methodology files from `analysis/methodologies/` */
-  methodologies: PIDocument[];
-  /** Template files from `analysis/templates/` */
-  templates: PIDocument[];
-  /**
-   * Reference & data-source documentation bundling `analysis/reference/`,
-   * `analysis/imf/`, and `analysis/worldbank/` — ISMS adaptations, chart
-   * integration guides, indicator catalogs, EU country mappings, and use
-   * cases. Ensures every authored analysis artifact surfaces on the
-   * political-intelligence index.
-   */
-  referenceDocs: PIDocument[];
-  /** Daily analysis runs grouped by date, newest date first */
-  dailyGroups: PIDailyDateGroup[];
-}
+import type {
+  PIDocument,
+  PIDailyDateGroup,
+  PIDailyRun,
+  PIDailyArtifact,
+  PIPageData,
+} from './political-intelligence/types.js';
 
 /** Localized copy strings for the political-intelligence page */
 interface PICopy {
@@ -741,196 +696,20 @@ function getPICopy(lang: string): PICopy {
  * of lowercase substring hints to a single emoji; the first hint that matches
  * the stem wins. Kept as data so complexity stays low.
  */
-const DOCUMENT_ICON_RULES: readonly [readonly string[], string][] = [
-  [['readme'], '📘'],
-  [['swot'], '🧭'],
-  [['pestle'], '🌍'],
-  [['stride'], '🛡️'],
-  [['threat'], '⚠️'],
-  [['risk'], '📊'],
-  [['coalition'], '🤝'],
-  [['stakeholder'], '👥'],
-  [['actor'], '👤'],
-  [['impact'], '💥'],
-  [['scenario', 'forecast', 'outlook', 'wildcard', 'blackswan'], '🔮'],
-  [['economic', 'imf', 'worldbank', 'fiscal', 'monetary'], '💶'],
-  [['trade', 'tariff'], '🛳️'],
-  [['timeline', 'historical', 'parallel'], '🕰️'],
-  [['methodology', 'guide', 'style'], '🧭'],
-  [['classification'], '🏷️'],
-  [['intelligence-brief', 'brief'], '🗞️'],
-  [['intelligence'], '🔍'],
-  [['network'], '🕸️'],
-  [['velocity'], '⚡'],
-  [['productivity', 'pipeline', 'workflow-audit', 'workflow'], '🔧'],
-  [['legislative', 'legislation'], '⚖️'],
-  [['motion'], '🗳️'],
-  [['proposition', 'proposal'], '📜'],
-  [['committee'], '🏛️'],
-  [['vote', 'voting'], '🗳️'],
-  [['plenary', 'session', 'meeting'], '🏟️'],
-  [['procedure'], '📂'],
-  [['event', 'schedule', 'agenda'], '📅'],
-  [['mep', 'parliamentarian'], '🧑‍💼'],
-  [['consequence'], '🌿'],
-  [['disruption'], '🌀'],
-  [['reflection'], '🪞'],
-  [['reliability', 'audit', 'quality'], '✅'],
-  [['attack-surface', 'attack'], '🛡️'],
-  [['diagnostic', 'outage'], '🚑'],
-  [['forces', 'influence'], '⚔️'],
-  [['osint', 'tradecraft'], '🕵️'],
-  [['catalog', 'index'], '📚'],
-  [['capital'], '💼'],
-  [['synthesis', 'cross-daily', 'summary'], '🧩'],
-  [['cross-session', 'cross-run'], '🔁'],
-  [['sentiment'], '💬'],
-  [['baseline', 'precomputed'], '📐'],
-  [['significance'], '🎯'],
-  [['devil', 'advocate'], '😈'],
-  [['media', 'framing'], '📺'],
-  [['reform', 'anti-corruption'], '🧹'],
-  [['recess'], '🌴'],
-  [['per-file', 'per-artifact'], '🗂️'],
-  [['adopted'], '📜'],
-  [['document'], '📄'],
-  [['artifact'], '📋'],
-];
+// ─── Icon picking and Markdown parsing utilities ────────────────────
+// These now live in the bounded sub-modules `./political-intelligence/icons.ts`
+// and `./political-intelligence/markdown.ts`. Re-exported here so existing
+// import sites (`./political-intelligence.js`) keep resolving.
+export {
+  pickDocumentIcon,
+  pickRunIcon,
+} from './political-intelligence/icons.js';
+export {
+  parseMarkdownMeta,
+} from './political-intelligence/markdown.js';
 
-/**
- * Heuristically pick an icon for an analysis document/slug. The icons are
- * chosen to visually differentiate the most common artifact types without
- * depending on a heavy icon library.
- *
- * @param stem - File/directory name stem (will be lowercased internally)
- * @returns A single emoji character
- */
-export function pickDocumentIcon(stem: string): string {
-  const s = stem.toLowerCase();
-  for (const [hints, icon] of DOCUMENT_ICON_RULES) {
-    if (hints.some((h) => s.includes(h))) {
-      return icon;
-    }
-  }
-  return '📄';
-}
-
-/** Ordered slug-prefix → icon rules for daily runs. */
-const RUN_ICON_RULES: readonly [readonly string[], string][] = [
-  [['breaking'], '🚨'],
-  [['week-ahead', 'month-ahead', 'year-ahead'], '🔭'],
-  [['week-in-review', 'weekly-review'], '📅'],
-  [['month-in-review', 'monthly-review'], '🗓️'],
-  [['year-in-review'], '📜'],
-  [['motions'], '🗳️'],
-  [['propositions'], '⚖️'],
-  [['committee-reports', 'committee'], '🏛️'],
-  [['translate'], '🌐'],
-  [['deep'], '🔬'],
-];
-
-/**
- * Pick an icon for a daily run based on its slug prefix.
- *
- * @param slug - Run slug such as `breaking-run190` or `motions-run46`
- * @returns A single emoji character
- */
-export function pickRunIcon(slug: string): string {
-  const s = slug.toLowerCase();
-  for (const [prefixes, icon] of RUN_ICON_RULES) {
-    if (prefixes.some((p) => s.startsWith(p))) {
-      return icon;
-    }
-  }
-  return '📂';
-}
-
-/**
- * Strip a leading emoji token (and trailing whitespace) from a heading line,
- * repeatedly, so headings like `🚀 ⚠️ Risk Scoring` become `Risk Scoring`.
- *
- * The implementation peels the string character-by-character via
- * `String.prototype[Symbol.iterator]` to correctly handle astral-plane
- * pictographics, VS-16 (`\uFE0F`), and ZWJ sequences — without the nested
- * quantifier patterns that would trigger `security/detect-unsafe-regex`.
- *
- * @param text - Heading text (without the leading `# `)
- * @returns Trimmed text with any leading emoji tokens removed
- */
-function stripLeadingEmoji(text: string): string {
-  const isPictographic = /\p{Extended_Pictographic}/u;
-  const isModifier = /[\uFE0F\u200D]/u;
-  const chars = [...text]; // iterates by Unicode code point
-  let i = 0;
-  for (const ch of chars) {
-    if (isPictographic.test(ch) || isModifier.test(ch) || /\s/.test(ch)) {
-      i++;
-      continue;
-    }
-    break;
-  }
-  return chars.slice(i).join('').trim();
-}
-
-/**
- * Extract the first `# H1` heading from a list of lines.
- *
- * @param lines - Markdown source split on newlines
- * @param fallback - Value returned when no H1 is found
- * @returns Extracted heading text or the fallback
- */
-function extractH1Title(lines: string[], fallback: string): string {
-  for (const line of lines) {
-    const h1 = /^#\s+(.+?)\s*$/.exec(line);
-    if (h1?.[1]) {
-      return stripLeadingEmoji(h1[1]);
-    }
-  }
-  return fallback;
-}
-
-/**
- * Extract a title and short description from the top of a Markdown file.
- * Uses the first H1 (`# …`) line as title (falling back to a humanized stem).
- *
- * The `description` field is intentionally left **empty**: for the
- * political-intelligence index we use a curated per-file, per-language
- * description table ({@link getCuratedDescription}) instead of scraping the
- * first paragraph of each Markdown file. Scraping proved fragile — it leaked
- * document-metadata headers (`📋 Document Owner: CEO | 📄 Version…`) and
- * template separators (`---`) into the rendered cards. Leaving it empty here
- * forces the renderer to go through the curated table.
- *
- * @param fullPath - Absolute path to a Markdown file
- * @param stem - Filename stem used as title fallback
- * @returns `{ title, description }` — description is always `''`
- */
-export function parseMarkdownMeta(
-  fullPath: string,
-  stem: string
-): { title: string; description: string } {
-  const fallbackTitle = humanize(stem);
-  let content: string;
-  try {
-    content = fs.readFileSync(fullPath, 'utf-8');
-  } catch {
-    return { title: fallbackTitle, description: '' };
-  }
-  const lines = content.split(/\r?\n/);
-  const title = extractH1Title(lines, fallbackTitle);
-  return { title, description: '' };
-}
-
-/**
- * Humanize a filename stem (e.g. `per-artifact-methodologies` →
- * `Per Artifact Methodologies`).
- *
- * @param stem - Filename stem to humanize
- * @returns Title-cased stem with dashes/underscores replaced by spaces
- */
-function humanize(stem: string): string {
-  return stem.replace(/[-_]+/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
-}
+import { pickDocumentIcon, pickRunIcon } from './political-intelligence/icons.js';
+import { parseMarkdownMeta } from './political-intelligence/markdown.js';
 
 /**
  * Scan the repository for all methodology and template Markdown files and
