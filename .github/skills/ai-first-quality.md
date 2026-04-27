@@ -123,12 +123,16 @@ Pass 2. A zero count is only valid when every artifact was already above its
 `scripts/validate-analysis-completeness.js` emits a `WARN
 pass2-skipped-heuristic` when:
 
-- `manifest.json` has no `pass2` block **or** `pass2.rewriteCount === 0`, **AND**
+- `manifest.json` has no `pass2` block, `pass2.rewriteCount === 0`, **or**
+  the `pass2` block is malformed (non-integer / negative / missing
+  `rewriteCount`, or missing/non-string `startedAt`/`endedAt`), **AND**
 - At least one artifact sits at exactly its per-artifact line floor.
 
-The heuristic does not block Stage C (it is a `WARN`, not a `RED`), but it
-is surfaced in the gate output so operators can identify runs where Pass 2
-discipline broke down.
+A malformed `pass2` block also emits a separate `WARN manifest.pass2 invalid
+schema` line listing each invalid field. The heuristic does not block Stage
+C (it is a `WARN`, not a `RED`), but it is surfaced in the gate output so
+operators can identify runs where Pass 2 discipline broke down or where the
+Pass 2 audit-log data is invalid.
 
 #### Prior-Run Merge Rule (re-run exemption)
 

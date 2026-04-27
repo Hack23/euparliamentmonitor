@@ -429,6 +429,74 @@ function hasSourceDiversityEvidence(content) {
   return hasEvidenceTableRow(content) || hasMcpToolReference(content);
 }
 
+function hasOpenForwardStatementItems(runDir) {
+  const openJsonPath = path.join(runDir, 'data', 'forward-statements-open.json');
+  if (!fs.existsSync(openJsonPath)) return false;
+
+  const openRaw = fs.readFileSync(openJsonPath, 'utf8').trim();
+  if (!openRaw) return false;
+
+  try {
+    const openItems = JSON.parse(openRaw);
+    if (Array.isArray(openItems)) return openItems.length > 0;
+    // Valid JSON but unexpected shape — treat any non-empty file as open data
+    // so the carried-forward section check cannot be silently bypassed.
+    return true;
+  } catch {
+    // Malformed JSON — treat as non-empty to force the check.
+    return true;
+  }
+}
+
+function validateForwardStatementsRegistryCoverage(runDir, articleType) {
+  const forwardStatementArticleTypes = ['week-ahead', 'month-ahead'];
+  if (!forwardStatementArticleTypes.includes(articleType)) return null;
+  if (!hasOpenForwardStatementItems(runDir)) return null;
+
+  const relativePath = 'intelligence/synthesis-summary.md';
+  const synthPath = path.join(runDir, relativePath);
+  if (!fs.existsSync(synthPath)) return null;
+
+  const synthContent = fs.readFileSync(synthPath, 'utf8');
+  const hasCarriedSection = /##[^#\n]*carried[-\s]forward\s+forward\s+statements/i.test(synthContent);
+  if (hasCarriedSection) return null;
+
+  return {
+    relativePath,
+    exists: true,
+    lines: countLines(synthContent),
+    minLines: 0,
+    issues: ['forward-registry:missing-carried-forward-section'],
+    warnings: [],
+    mermaid: hasMermaid(synthContent),
+    placeholders: [],
+  };
+}
+
+function mergeUnique(left, right) {
+  return [...new Set([...(left || []), ...(right || [])])];
+}
+
+function mergeForwardRegistryResult(results, forwardRegistryResult) {
+  if (!forwardRegistryResult) return;
+
+  const existingResultIndex = results.findIndex(
+    (result) => result.relativePath === forwardRegistryResult.relativePath,
+  );
+
+  if (existingResultIndex >= 0) {
+    const existingResult = results[existingResultIndex];
+    results[existingResultIndex] = {
+      ...existingResult,
+      issues: mergeUnique(existingResult.issues, forwardRegistryResult.issues),
+      warnings: mergeUnique(existingResult.warnings, forwardRegistryResult.warnings),
+    };
+    return;
+  }
+
+  results.push(forwardRegistryResult);
+}
+
 function buildRules(thresholdsJson, articleType) {
   const empty = {
     perArtifactFloors: {},
@@ -562,6 +630,9 @@ function main() {
     validateArtifact({ runDir, relativePath, rules, options: opts }),
   );
 
+  const forwardRegistryResult = validateForwardStatementsRegistryCoverage(runDir, articleType);
+  mergeForwardRegistryResult(results, forwardRegistryResult);
+
   // Orphans are reported as warnings (not blocking) — they may be valid extras.
   const summary = summarize(results);
   const offending = results.filter((r) => r.issues.length > 0);
@@ -590,20 +661,48 @@ function main() {
   // or `rewriteCount === 0` AND at least one artifact sits at exactly its
   // line floor. This is the script-side enforcement of the B1/B2 split
   // defined in `.github/prompts/02-analysis-protocol.md` §3. A malformed
-  // pass2 block (non-numeric/non-finite rewriteCount) is treated like an
-  // absent block so the enforcement can't be bypassed by typos.
+  // pass2 block (non-numeric, non-finite, negative, non-integer
+  // rewriteCount, or missing/non-string startedAt/endedAt timestamps) is
+  // treated like an absent block so the enforcement can't be bypassed by
+  // typos or malformed values.
   const pass2 = manifest.pass2;
   const pass2Absent = pass2 == null;
   const pass2RewriteCount = pass2?.rewriteCount;
   const pass2RewriteCountValid =
-    typeof pass2RewriteCount === 'number' && Number.isFinite(pass2RewriteCount);
-  const pass2Invalid = !pass2Absent && !pass2RewriteCountValid;
-  const pass2ZeroRewrites = pass2RewriteCountValid && pass2RewriteCount === 0;
+    typeof pass2RewriteCount === 'number' &&
+    Number.isFinite(pass2RewriteCount) &&
+    Number.isInteger(pass2RewriteCount) &&
+    pass2RewriteCount >= 0;
+  const pass2StartedAtValid =
+    typeof pass2?.startedAt === 'string' && pass2.startedAt.length > 0;
+  const pass2EndedAtValid =
+    typeof pass2?.endedAt === 'string' && pass2.endedAt.length > 0;
+  const pass2SchemaValid =
+    pass2RewriteCountValid && pass2StartedAtValid && pass2EndedAtValid;
+  const pass2Invalid = !pass2Absent && !pass2SchemaValid;
+  const pass2ZeroRewrites = pass2SchemaValid && pass2RewriteCount === 0;
 
   if (pass2Invalid) {
+    const reasons = [];
+    if (!pass2RewriteCountValid) {
+      reasons.push(
+        `rewriteCount must be a non-negative integer (received ${JSON.stringify(
+          pass2RewriteCount,
+        )})`,
+      );
+    }
+    if (!pass2StartedAtValid) {
+      reasons.push(
+        `startedAt must be a non-empty string (received ${JSON.stringify(pass2?.startedAt)})`,
+      );
+    }
+    if (!pass2EndedAtValid) {
+      reasons.push(
+        `endedAt must be a non-empty string (received ${JSON.stringify(pass2?.endedAt)})`,
+      );
+    }
     process.stderr.write(
-      `WARN manifest.pass2 invalid schema: rewriteCount must be a finite number ` +
-        `(received ${JSON.stringify(pass2RewriteCount)})\n`,
+      `WARN manifest.pass2 invalid schema: ${reasons.join('; ')}\n`,
     );
   }
 
@@ -614,7 +713,7 @@ function main() {
     if (atFloor.length > 0) {
       let label;
       if (pass2Absent) label = 'pass2-block-missing';
-      else if (pass2Invalid) label = 'pass2.rewriteCount-invalid';
+      else if (pass2Invalid) label = 'pass2-schema-invalid';
       else label = 'pass2.rewriteCount=0';
       process.stderr.write(
         `WARN pass2-skipped-heuristic: ${label} and ${atFloor.length} artifact(s) ` +

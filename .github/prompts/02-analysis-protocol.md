@@ -171,11 +171,15 @@ MUST write a top-level `pass2` block to `manifest.json`:
 ```
 
 `rewriteCount` is the number of artifacts rewritten (content changed, not
-merely re-read). A `rewriteCount` of `0` is valid only when every artifact
-was already above its `reference-quality-thresholds.json` floor coming into
-Pass 2 (e.g. a re-run that carries forward prior-run content). The Stage-C
-validator emits a `WARN pass2-skipped-heuristic` when `rewriteCount === 0`
-and any artifact sits exactly at its floor line count.
+merely re-read) and MUST be a non-negative integer. `startedAt` and
+`endedAt` MUST be non-empty ISO-8601 strings. A `rewriteCount` of `0` is
+valid only when every artifact was already above its
+`reference-quality-thresholds.json` floor coming into Pass 2 (e.g. a re-run
+that carries forward prior-run content). The Stage-C validator emits a
+`WARN pass2-skipped-heuristic` when `rewriteCount === 0` (or the `pass2`
+block is missing/malformed) and any artifact sits exactly at its floor line
+count; malformed schema additionally produces a `WARN manifest.pass2
+invalid schema` line listing each invalid field.
 
 > **Why one budget for all unified workflows?** The previous 7-day-window
 > 25 / ≤28 split sat on the edge of the observed 28–30 min safeoutputs

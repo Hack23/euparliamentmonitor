@@ -591,9 +591,7 @@ describe('ep-mcp-client', () => {
         // the required calling pattern for reproducibility.
         const now = Date.now();
         const today = new Date(now).toISOString().slice(0, 10);
-        const thirtyDaysAgo = new Date(now - 30 * 24 * 60 * 60 * 1000)
-          .toISOString()
-          .slice(0, 10);
+        const thirtyDaysAgo = new Date(now - 30 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
         // Mock simulates v1.2.14+ server response: last-30-days window
         client.callTool.mockResolvedValue({
           content: [
@@ -2431,6 +2429,418 @@ describe('ep-mcp-client', () => {
     });
   });
 
+  describe('getEventsFeed timeout downgrade (slow-feed warning, §11 row #8)', () => {
+    /** @type {EPMCPClient} */
+    let client;
+    /** @type {MockConsoleResult} */
+    let consoleOutput;
+
+    beforeEach(() => {
+      consoleOutput = mockConsole();
+      client = new EuropeanParliamentMCPClient();
+    });
+
+    afterEach(() => {
+      consoleOutput.restore();
+    });
+
+    it('should downgrade a timeout to a slow-feed warning (not recorded in failedTools)', async () => {
+      vi.spyOn(client, 'callToolWithRetry').mockRejectedValueOnce(
+        new Error('Request timeout after 120000ms')
+      );
+      await client.getEventsFeed();
+
+      // Must NOT appear in failedTools
+      expect(client.getFailedTools().has('get_events_feed')).toBe(false);
+      // Must appear in slowFeedWarnings
+      const slow = client.getSlowFeedWarnings();
+      expect(slow.has('get_events_feed')).toBe(true);
+      expect(slow.get('get_events_feed')).toMatch(/^SLOW_FEED:/);
+    });
+
+    it('should return a fallback result with slowFeedWarning:true on timeout', async () => {
+      vi.spyOn(client, 'callToolWithRetry').mockRejectedValueOnce(
+        new Error('Request timeout after 120000ms')
+      );
+      const result = await client.getEventsFeed();
+      const parsed = JSON.parse(result.content[0].text);
+      expect(parsed.feed).toEqual([]);
+      expect(parsed.slowFeedWarning).toBe(true);
+    });
+
+    it('should NOT downgrade a 404 error — it still goes to failedTools', async () => {
+      vi.spyOn(client, 'callToolWithRetry').mockRejectedValueOnce(
+        new Error('Gateway error 404: Not Found')
+      );
+      await client.getEventsFeed();
+
+      expect(client.getFailedTools().has('get_events_feed')).toBe(true);
+      expect(client.getSlowFeedWarnings().has('get_events_feed')).toBe(false);
+    });
+
+    it('should NOT downgrade a 5xx error — it still goes to failedTools', async () => {
+      vi.spyOn(client, 'callToolWithRetry').mockRejectedValueOnce(
+        new Error('Gateway error 503: Service Unavailable')
+      );
+      await client.getEventsFeed();
+
+      expect(client.getFailedTools().has('get_events_feed')).toBe(true);
+      expect(client.getSlowFeedWarnings().has('get_events_feed')).toBe(false);
+    });
+
+    it('should show 🟡 in getFeedHealthSummary for a slow-feed timeout', async () => {
+      vi.spyOn(client, 'callToolWithRetry').mockRejectedValueOnce(
+        new Error('Request timeout after 120000ms')
+      );
+      await client.getEventsFeed();
+
+      const summary = client.getFeedHealthSummary();
+      expect(summary).toContain('🟡 get_events_feed: SLOW_FEED:');
+      // Should NOT count as a failure or operational — summary still shows correct counts
+      expect(summary).not.toContain('❌ get_events_feed');
+    });
+
+    it('should emit a 🟡 console warning on timeout', async () => {
+      vi.spyOn(client, 'callToolWithRetry').mockRejectedValueOnce(
+        new Error('Request timeout after 120000ms')
+      );
+      await client.getEventsFeed();
+
+      const warnMessages = consoleOutput.warnings.filter((m) => m.includes('🟡'));
+      expect(warnMessages.length).toBeGreaterThan(0);
+      expect(warnMessages[0]).toContain('slow-feed warning');
+    });
+
+    it('should return the returned map copy independent of internal state', async () => {
+      const copy = client.getSlowFeedWarnings();
+      expect(copy instanceof Map).toBe(true);
+      // Mutating the copy should not affect internal state
+      /** @type {Map<string,string>} */ (copy).set('fake_tool', 'FAKE');
+      expect(client.getSlowFeedWarnings().has('fake_tool')).toBe(false);
+    });
+
+    it('getToolErrorSummary should still report other feed errors but not the slow timeout', async () => {
+      const spy = vi.spyOn(client, 'callToolWithRetry');
+      // events_feed times out — should be slow warning, not counted in tool errors
+      spy.mockRejectedValueOnce(new Error('Request timeout'));
+      await client.getEventsFeed();
+      // procedures_feed 404 — counted in tool errors
+      spy.mockRejectedValueOnce(new Error('Gateway error 404: Not Found'));
+      await client.getProceduresFeed();
+
+      const summary = client.getToolErrorSummary();
+      // 1 out of 2 invoked tools rejected (events_feed timeout is excluded)
+      expect(summary).toContain('1 of 2 invoked tools rejected');
+      expect(summary).toContain('get_procedures_feed');
+      expect(summary).not.toContain('get_events_feed');
+    });
+
+    it('should NOT downgrade a 504 "Gateway Timeout" — classified as SERVER_ERROR', async () => {
+      vi.spyOn(client, 'callToolWithRetry').mockRejectedValueOnce(
+        new Error('Gateway error 504: Gateway Timeout')
+      );
+      await client.getEventsFeed();
+
+      // 504 must stay in failedTools (SERVER_ERROR), NOT downgraded to slow-feed
+      expect(client.getFailedTools().has('get_events_feed')).toBe(true);
+      expect(client.getFailedTools().get('get_events_feed')).toMatch(/^SERVER_ERROR:/);
+      expect(client.getSlowFeedWarnings().has('get_events_feed')).toBe(false);
+    });
+
+    it('should clear a prior slow-feed warning when a subsequent call succeeds', async () => {
+      const spy = vi.spyOn(client, 'callToolWithRetry');
+      // First call times out → slow-feed warning
+      spy.mockRejectedValueOnce(new Error('Request timeout after 120000ms'));
+      await client.getEventsFeed();
+      expect(client.getSlowFeedWarnings().has('get_events_feed')).toBe(true);
+
+      // Second call succeeds — warning must be cleared
+      spy.mockResolvedValueOnce({ content: [{ type: 'text', text: '{"feed": []}' }] });
+      await client.getEventsFeed();
+      expect(client.getSlowFeedWarnings().has('get_events_feed')).toBe(false);
+      expect(client.getFailedTools().has('get_events_feed')).toBe(false);
+    });
+
+    it('should clear a prior failure entry when a subsequent timeout downgrades to slow-feed', async () => {
+      const spy = vi.spyOn(client, 'callToolWithRetry');
+      // First call: 404 failure
+      spy.mockRejectedValueOnce(new Error('Gateway error 404: Not Found'));
+      await client.getEventsFeed();
+      expect(client.getFailedTools().has('get_events_feed')).toBe(true);
+
+      // Second call: timeout → slow-feed warning. Must clear the prior failure entry.
+      spy.mockRejectedValueOnce(new Error('Request timeout after 120000ms'));
+      await client.getEventsFeed();
+      expect(client.getFailedTools().has('get_events_feed')).toBe(false);
+      expect(client.getSlowFeedWarnings().has('get_events_feed')).toBe(true);
+    });
+
+    it('should clear a prior slow-feed warning when a subsequent non-timeout failure occurs', async () => {
+      const spy = vi.spyOn(client, 'callToolWithRetry');
+      // First call: timeout → slow-feed warning
+      spy.mockRejectedValueOnce(new Error('Request timeout after 120000ms'));
+      await client.getEventsFeed();
+      expect(client.getSlowFeedWarnings().has('get_events_feed')).toBe(true);
+
+      // Second call: 404 failure. Must clear the prior slow-feed warning.
+      spy.mockRejectedValueOnce(new Error('Gateway error 404: Not Found'));
+      await client.getEventsFeed();
+      expect(client.getSlowFeedWarnings().has('get_events_feed')).toBe(false);
+      expect(client.getFailedTools().has('get_events_feed')).toBe(true);
+    });
+  });
+
+  describe('getProceduresFeed recess-mode detection (§11 row #5)', () => {
+    /** @type {EPMCPClient} */
+    let client;
+    /** @type {MockConsoleResult} */
+    let consoleOutput;
+
+    beforeEach(() => {
+      consoleOutput = mockConsole();
+      client = new EuropeanParliamentMCPClient();
+    });
+
+    afterEach(() => {
+      consoleOutput.restore();
+    });
+
+    it('should add recessMode:true when all items are pre-1995 (historical archive)', async () => {
+      const historicalPayload = {
+        items: [
+          {
+            id: 'proc-001',
+            reference: '1972/0001(SYN)',
+            dateInitiated: '1972-03-15',
+            dateLastActivity: '1974-06-01',
+          },
+          {
+            id: 'proc-002',
+            reference: '1985/0042(COD)',
+            dateInitiated: '1985-01-10',
+            dateLastActivity: '1987-11-20',
+          },
+          {
+            id: 'proc-003',
+            reference: '1990/0100(SYN)',
+            dateInitiated: '1990-06-01',
+            dateLastActivity: '1991-04-15',
+          },
+        ],
+      };
+      vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
+        content: [{ type: 'text', text: JSON.stringify(historicalPayload) }],
+      });
+      const result = await client.getProceduresFeed();
+
+      const parsed = JSON.parse(result.content[0].text);
+      expect(parsed.recessMode).toBe(true);
+      expect(Array.isArray(parsed.dataQualityWarnings)).toBe(true);
+      expect(parsed.dataQualityWarnings.some((w) => w.startsWith('RECESS_MODE:'))).toBe(true);
+    });
+
+    it('should emit a 🟡 console warning on recess mode', async () => {
+      const historicalPayload = {
+        items: [
+          {
+            id: 'proc-001',
+            reference: '1972/0001(SYN)',
+            dateInitiated: '1972-03-15',
+            dateLastActivity: '1974-06-01',
+          },
+        ],
+      };
+      vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
+        content: [{ type: 'text', text: JSON.stringify(historicalPayload) }],
+      });
+      await client.getProceduresFeed();
+
+      const warnMessages = consoleOutput.warnings.filter((m) => m.includes('🟡'));
+      expect(warnMessages.length).toBeGreaterThan(0);
+      expect(warnMessages[0]).toContain('recess mode');
+    });
+
+    it('should NOT set recessMode when items contain current-year procedures', async () => {
+      const currentPayload = {
+        items: [
+          {
+            id: 'proc-new',
+            reference: '2026/0001(COD)',
+            dateInitiated: '2026-01-15',
+            dateLastActivity: '2026-04-01',
+          },
+          {
+            id: 'proc-old',
+            reference: '1990/0100(SYN)',
+            dateInitiated: '1990-06-01',
+            dateLastActivity: '1991-04-15',
+          },
+        ],
+      };
+      vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
+        content: [{ type: 'text', text: JSON.stringify(currentPayload) }],
+      });
+      const result = await client.getProceduresFeed();
+
+      const parsed = JSON.parse(result.content[0].text);
+      expect(parsed.recessMode).toBeUndefined();
+    });
+
+    it('should NOT set recessMode on an empty items array', async () => {
+      vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
+        content: [{ type: 'text', text: '{"items":[]}' }],
+      });
+      const result = await client.getProceduresFeed();
+      const parsed = JSON.parse(result.content[0].text);
+      expect(parsed.recessMode).toBeUndefined();
+    });
+
+    it('should NOT record get_procedures_feed as failed when recess mode is detected', async () => {
+      const historicalPayload = {
+        items: [
+          {
+            id: 'proc-001',
+            reference: '1985/0042(COD)',
+            dateInitiated: '1985-01-10',
+            dateLastActivity: '1987-11-20',
+          },
+        ],
+      };
+      vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
+        content: [{ type: 'text', text: JSON.stringify(historicalPayload) }],
+      });
+      await client.getProceduresFeed();
+
+      expect(client.getFailedTools().has('get_procedures_feed')).toBe(false);
+    });
+
+    it('should also detect recess mode via procedures[] shape', async () => {
+      const proceduresShapePayload = {
+        procedures: [
+          { id: 'proc-001', dateInitiated: '1980-04-01', dateLastActivity: '1982-09-10' },
+          { id: 'proc-002', dateInitiated: '1975-01-01', dateLastActivity: '1977-06-30' },
+        ],
+      };
+      vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
+        content: [{ type: 'text', text: JSON.stringify(proceduresShapePayload) }],
+      });
+      const result = await client.getProceduresFeed();
+
+      const parsed = JSON.parse(result.content[0].text);
+      expect(parsed.recessMode).toBe(true);
+    });
+
+    it('should preserve existing dataQualityWarnings when appending RECESS_MODE', async () => {
+      const historicalPayload = {
+        items: [
+          {
+            id: 'proc-001',
+            reference: '1990/0001(SYN)',
+            dateInitiated: '1990-01-01',
+            dateLastActivity: '1991-01-01',
+          },
+        ],
+        dataQualityWarnings: ['STALENESS_WARNING: existing warning'],
+      };
+      vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
+        content: [{ type: 'text', text: JSON.stringify(historicalPayload) }],
+      });
+      const result = await client.getProceduresFeed();
+
+      const parsed = JSON.parse(result.content[0].text);
+      expect(parsed.dataQualityWarnings).toHaveLength(2);
+      expect(parsed.dataQualityWarnings[0]).toBe('STALENESS_WARNING: existing warning');
+      expect(parsed.dataQualityWarnings[1]).toMatch(/^RECESS_MODE:/);
+    });
+  });
+
+  describe('detectProceduresFeedRecessMode helper function', () => {
+    let detectProceduresFeedRecessMode;
+
+    beforeEach(async () => {
+      ({ detectProceduresFeedRecessMode } = await import('../../scripts/mcp/ep-mcp-client.js'));
+    });
+
+    it('should return false for undefined payload', () => {
+      expect(detectProceduresFeedRecessMode(undefined)).toBe(false);
+    });
+
+    it('should return false for empty items array', () => {
+      expect(detectProceduresFeedRecessMode({ items: [] })).toBe(false);
+    });
+
+    it('should return true for all-pre-1995 items (via dateInitiated)', () => {
+      expect(
+        detectProceduresFeedRecessMode({
+          items: [
+            { dateInitiated: '1972-03-15' },
+            { dateInitiated: '1985-01-10' },
+            { dateInitiated: '1990-06-01' },
+          ],
+        })
+      ).toBe(true);
+    });
+
+    it('should return true for items using reference field (1990/0001 pattern)', () => {
+      expect(
+        detectProceduresFeedRecessMode({
+          items: [{ reference: '1990/0001(SYN)' }],
+        })
+      ).toBe(true);
+    });
+
+    it('should return false when any item has a post-1995 year', () => {
+      expect(
+        detectProceduresFeedRecessMode({
+          items: [
+            { dateInitiated: '1972-03-15' },
+            { dateInitiated: '2024-01-01' }, // current year
+          ],
+        })
+      ).toBe(false);
+    });
+
+    it('should return false when all items lack date fields', () => {
+      expect(
+        detectProceduresFeedRecessMode({
+          items: [{ id: 'no-date' }, { title: 'no date here' }],
+        })
+      ).toBe(false);
+    });
+
+    it('should handle procedures[] shape', () => {
+      expect(
+        detectProceduresFeedRecessMode({
+          procedures: [{ dateInitiated: '1980-01-01', dateLastActivity: '1982-01-01' }],
+        })
+      ).toBe(true);
+    });
+
+    it('should use dateLastActivity as fallback when dateInitiated is absent', () => {
+      expect(
+        detectProceduresFeedRecessMode({
+          items: [{ dateLastActivity: '1990-06-01' }],
+        })
+      ).toBe(true);
+    });
+
+    it('should return false for borderline 1996 year (just above threshold)', () => {
+      expect(
+        detectProceduresFeedRecessMode({
+          items: [{ dateInitiated: '1996-01-01' }],
+        })
+      ).toBe(false);
+    });
+
+    it('should return true for borderline 1995 year (exactly at threshold)', () => {
+      expect(
+        detectProceduresFeedRecessMode({
+          items: [{ dateInitiated: '1995-12-31' }],
+        })
+      ).toBe(true);
+    });
+  });
+
   describe('getAdoptedTexts empty-string sentinel (upstream #369)', () => {
     /** @type {EPMCPClient} */
     let client;
@@ -2478,7 +2888,13 @@ describe('ep-mcp-client', () => {
     it('should write the docId to the pending-documents sidecar on empty-string sentinel', async () => {
       const { loadPendingDocuments } = await import('../../scripts/mcp/pending-documents.js');
       const sentinelPayload = {
-        id: '', title: '', reference: '', type: '', dateAdopted: '', procedureReference: '', subjectMatter: '',
+        id: '',
+        title: '',
+        reference: '',
+        type: '',
+        dateAdopted: '',
+        procedureReference: '',
+        subjectMatter: '',
       };
       vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
         content: [{ type: 'text', text: JSON.stringify(sentinelPayload) }],
@@ -3062,9 +3478,7 @@ describe('ep-mcp-client', () => {
     });
 
     it('should not write cache file when no procedures pass the window filter', async () => {
-      const procedures = [
-        { id: '1972-0001', dateLastActivity: '', dateInitiated: '1972-01-01' },
-      ];
+      const procedures = [{ id: '1972-0001', dateLastActivity: '', dateInitiated: '1972-01-01' }];
       client.callTool.mockResolvedValue({
         content: [{ type: 'text', text: JSON.stringify({ procedures }) }],
       });
@@ -3074,9 +3488,7 @@ describe('ep-mcp-client', () => {
     });
 
     it('should skip procedures with empty id when writing to cache', async () => {
-      const procedures = [
-        { id: '', dateLastActivity: '2026-04-25', dateInitiated: '2026-03-01' },
-      ];
+      const procedures = [{ id: '', dateLastActivity: '2026-04-25', dateInitiated: '2026-03-01' }];
       client.callTool.mockResolvedValue({
         content: [{ type: 'text', text: JSON.stringify({ procedures }) }],
       });
@@ -3118,7 +3530,6 @@ describe('ep-mcp-client', () => {
   // ─── UPSTREAM_404 indexing-lag retry scheduling ──────────────────────────────
 
   describe('getAdoptedTexts UPSTREAM_404 indexing-lag retry (Stage B)', () => {
-
     /** @type {EuropeanParliamentMCPClient} */
     let client;
     /** @type {MockConsoleResult} */
@@ -3211,9 +3622,8 @@ describe('ep-mcp-client', () => {
     });
 
     it('should expose resolveAdoptedText method', async () => {
-      const { loadPendingDocuments, recordPendingDocument } = await import(
-        '../../scripts/mcp/pending-documents.js'
-      );
+      const { loadPendingDocuments, recordPendingDocument } =
+        await import('../../scripts/mcp/pending-documents.js');
       const sidecar = path.join(tmpDir, 'pending-documents.json');
       await recordPendingDocument('TA-10-2026-0104', sidecar);
       await client.resolveAdoptedText('TA-10-2026-0104');
@@ -3251,4 +3661,3 @@ describe('ep-mcp-client', () => {
     });
   });
 });
-

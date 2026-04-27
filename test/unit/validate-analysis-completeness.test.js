@@ -214,6 +214,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
     expect(result.stderr).toMatch(/orphan artifacts/);
   });
 
+
   describe('Pass 2 skipped heuristic', () => {
     it('warns when pass2 block is absent and an artifact sits exactly at its floor', () => {
       // Artifact at exactly the 200-line floor (minLines for synthesis-summary.md)
@@ -340,7 +341,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
       // Both the schema warning and the heuristic warning must fire
       expect(result.stderr).toMatch(/manifest\.pass2 invalid schema/);
       expect(result.stderr).toMatch(/pass2-skipped-heuristic/);
-      expect(result.stderr).toMatch(/pass2\.rewriteCount-invalid/);
+      expect(result.stderr).toMatch(/pass2-schema-invalid/);
     });
 
     it('treats missing rewriteCount field as invalid schema', () => {
@@ -364,7 +365,247 @@ describe('scripts/validate-analysis-completeness.js', () => {
       const result = runHere();
       expect(result.code).toBe(0);
       expect(result.stderr).toMatch(/manifest\.pass2 invalid schema/);
-      expect(result.stderr).toMatch(/pass2\.rewriteCount-invalid/);
+      expect(result.stderr).toMatch(/pass2-schema-invalid/);
     });
+
+    it('treats negative rewriteCount as invalid schema', () => {
+      const manifest = {
+        articleType: 'breaking',
+        files: { intelligence: ['intelligence/synthesis-summary.md'] },
+        pass2: {
+          startedAt: '2026-04-22T10:18:00Z',
+          endedAt: '2026-04-22T10:24:00Z',
+          rewriteCount: -1,
+        },
+      };
+      fs.writeFileSync(path.join(runDir, 'manifest.json'), JSON.stringify(manifest), 'utf8');
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/synthesis-summary.md'),
+        makeArtifact(200, { mermaid: true, wep: true, admiralty: true }),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.code).toBe(0);
+      expect(result.stderr).toMatch(/non-negative integer/);
+      expect(result.stderr).toMatch(/pass2-schema-invalid/);
+    });
+
+    it('treats non-integer rewriteCount as invalid schema', () => {
+      const manifest = {
+        articleType: 'breaking',
+        files: { intelligence: ['intelligence/synthesis-summary.md'] },
+        pass2: {
+          startedAt: '2026-04-22T10:18:00Z',
+          endedAt: '2026-04-22T10:24:00Z',
+          rewriteCount: 0.5,
+        },
+      };
+      fs.writeFileSync(path.join(runDir, 'manifest.json'), JSON.stringify(manifest), 'utf8');
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/synthesis-summary.md'),
+        makeArtifact(200, { mermaid: true, wep: true, admiralty: true }),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.code).toBe(0);
+      expect(result.stderr).toMatch(/non-negative integer/);
+      expect(result.stderr).toMatch(/pass2-schema-invalid/);
+    });
+
+    it('treats missing startedAt as invalid schema', () => {
+      const manifest = {
+        articleType: 'breaking',
+        files: { intelligence: ['intelligence/synthesis-summary.md'] },
+        pass2: {
+          // startedAt missing
+          endedAt: '2026-04-22T10:24:00Z',
+          rewriteCount: 2,
+        },
+      };
+      fs.writeFileSync(path.join(runDir, 'manifest.json'), JSON.stringify(manifest), 'utf8');
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/synthesis-summary.md'),
+        makeArtifact(200, { mermaid: true, wep: true, admiralty: true }),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.code).toBe(0);
+      expect(result.stderr).toMatch(/startedAt must be a non-empty string/);
+      expect(result.stderr).toMatch(/pass2-schema-invalid/);
+    });
+
+    it('treats missing endedAt as invalid schema', () => {
+      const manifest = {
+        articleType: 'breaking',
+        files: { intelligence: ['intelligence/synthesis-summary.md'] },
+        pass2: {
+          startedAt: '2026-04-22T10:18:00Z',
+          // endedAt missing
+          rewriteCount: 2,
+        },
+      };
+      fs.writeFileSync(path.join(runDir, 'manifest.json'), JSON.stringify(manifest), 'utf8');
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/synthesis-summary.md'),
+        makeArtifact(200, { mermaid: true, wep: true, admiralty: true }),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.code).toBe(0);
+      expect(result.stderr).toMatch(/endedAt must be a non-empty string/);
+      expect(result.stderr).toMatch(/pass2-schema-invalid/);
+    });
+  });
+
+  // ----- forward-registry tests merged from main -----
+  // -------------------------------------------------------------------------
+  // Forward-statements registry check (week-ahead / month-ahead)
+  // -------------------------------------------------------------------------
+
+  function writeWeekAheadManifest() {
+    fs.writeFileSync(
+      path.join(runDir, 'manifest.json'),
+      JSON.stringify({
+        articleType: 'week-ahead',
+        files: {
+          intelligence: ['intelligence/synthesis-summary.md'],
+        },
+      }),
+      'utf8',
+    );
+  }
+
+  it('passes GREEN for week-ahead when no forward-statements-open.json exists', () => {
+    writeWeekAheadManifest();
+    fs.writeFileSync(
+      path.join(runDir, 'intelligence/synthesis-summary.md'),
+      makeArtifact(250, { mermaid: true, wep: true, admiralty: true }),
+      'utf8',
+    );
+    const result = runHere();
+    expect(result.code).toBe(0);
+    expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
+  });
+
+  it('passes GREEN for week-ahead when forward-statements-open.json is empty array', () => {
+    writeWeekAheadManifest();
+    fs.mkdirSync(path.join(runDir, 'data'), { recursive: true });
+    fs.writeFileSync(path.join(runDir, 'data/forward-statements-open.json'), '[]', 'utf8');
+    fs.writeFileSync(
+      path.join(runDir, 'intelligence/synthesis-summary.md'),
+      makeArtifact(250, { mermaid: true, wep: true, admiralty: true }),
+      'utf8',
+    );
+    const result = runHere();
+    expect(result.code).toBe(0);
+    expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
+  });
+
+  it('returns RED for week-ahead when open items exist but synthesis lacks the carried-forward section', () => {
+    writeWeekAheadManifest();
+    fs.mkdirSync(path.join(runDir, 'data'), { recursive: true });
+    // Non-empty open items
+    fs.writeFileSync(
+      path.join(runDir, 'data/forward-statements-open.json'),
+      JSON.stringify([{ id: 'abc', topic: 'banking-union', status: 'open' }]),
+      'utf8',
+    );
+    // Synthesis without the required section
+    fs.writeFileSync(
+      path.join(runDir, 'intelligence/synthesis-summary.md'),
+      makeArtifact(250, { mermaid: true, wep: true, admiralty: true }),
+      'utf8',
+    );
+    const result = runHere();
+    expect(result.code).toBe(1);
+    expect(result.stdout).toMatch(/STAGE_C_GATE: RED/);
+    expect(result.stderr).toMatch(/forward-registry:missing-carried-forward-section/);
+  });
+
+  it('returns RED for week-ahead when forward-statements-open.json is non-array JSON', () => {
+    writeWeekAheadManifest();
+    fs.mkdirSync(path.join(runDir, 'data'), { recursive: true });
+    // Valid JSON but unexpected shape should not bypass the section gate.
+    fs.writeFileSync(
+      path.join(runDir, 'data/forward-statements-open.json'),
+      JSON.stringify({ id: 'abc', topic: 'banking-union', status: 'open' }),
+      'utf8',
+    );
+    fs.writeFileSync(
+      path.join(runDir, 'intelligence/synthesis-summary.md'),
+      makeArtifact(250, { mermaid: true, wep: true, admiralty: true }),
+      'utf8',
+    );
+    const result = runHere();
+    expect(result.code).toBe(1);
+    expect(result.stderr).toMatch(/forward-registry:missing-carried-forward-section/);
+  });
+
+  it('reports forward-registry failures once and includes them in --json results', () => {
+    writeWeekAheadManifest();
+    fs.mkdirSync(path.join(runDir, 'data'), { recursive: true });
+    fs.writeFileSync(
+      path.join(runDir, 'data/forward-statements-open.json'),
+      JSON.stringify([{ id: 'abc', topic: 'banking-union', status: 'open' }]),
+      'utf8',
+    );
+    fs.writeFileSync(
+      path.join(runDir, 'intelligence/synthesis-summary.md'),
+      makeArtifact(250, { mermaid: true, wep: true, admiralty: true }),
+      'utf8',
+    );
+    const result = runHere(['--json']);
+    const occurrences = result.stderr.match(/forward-registry:missing-carried-forward-section/g) || [];
+    expect(occurrences).toHaveLength(1);
+    expect(result.stdout).toMatch(/"forward-registry:missing-carried-forward-section"/);
+    const jsonLines = result.stdout.split('\n');
+    const jsonStart = jsonLines.findIndex((line) => line.trim() === '{');
+    expect(jsonStart).toBeGreaterThanOrEqual(0);
+    const json = JSON.parse(jsonLines.slice(jsonStart).join('\n'));
+    expect(json.artifacts).toBe(1);
+    expect(json.results).toHaveLength(1);
+    expect(json.results[0].relativePath).toBe('intelligence/synthesis-summary.md');
+    expect(json.results[0].issues).toContain('forward-registry:missing-carried-forward-section');
+  });
+
+  it('passes GREEN for week-ahead when open items exist and synthesis has the carried-forward section', () => {
+    writeWeekAheadManifest();
+    fs.mkdirSync(path.join(runDir, 'data'), { recursive: true });
+    fs.writeFileSync(
+      path.join(runDir, 'data/forward-statements-open.json'),
+      JSON.stringify([{ id: 'abc', topic: 'banking-union', status: 'open' }]),
+      'utf8',
+    );
+    // Synthesis WITH the required section
+    const synthBody = makeArtifact(250, { mermaid: true, wep: true, admiralty: true });
+    const synthWithSection = `${synthBody}\n\n## Carried-Forward Forward Statements\n\nNo open items resolved this run.\n`;
+    fs.writeFileSync(
+      path.join(runDir, 'intelligence/synthesis-summary.md'),
+      synthWithSection,
+      'utf8',
+    );
+    const result = runHere();
+    expect(result.code).toBe(0);
+    expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
+  });
+
+  it('does NOT apply forward-registry check to breaking article type', () => {
+    // breaking manifest — even with a non-empty open.json, no section needed
+    writeManifest();
+    fs.mkdirSync(path.join(runDir, 'data'), { recursive: true });
+    fs.writeFileSync(
+      path.join(runDir, 'data/forward-statements-open.json'),
+      JSON.stringify([{ id: 'abc', topic: 'defence', status: 'open' }]),
+      'utf8',
+    );
+    fs.writeFileSync(
+      path.join(runDir, 'intelligence/synthesis-summary.md'),
+      makeArtifact(250, { mermaid: true, wep: true, admiralty: true }),
+      'utf8',
+    );
+    const result = runHere();
+    expect(result.code).toBe(0);
+    expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
+
   });
 });

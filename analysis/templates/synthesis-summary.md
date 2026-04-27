@@ -326,6 +326,46 @@ upgrading coalition stability confidence from MEDIUM to HIGH.
 
 ---
 
+## 🔁 Carried-Forward Forward Statements (week-ahead / month-ahead only)
+
+> **AI Instructions:** This section is **MANDATORY** for `week-ahead` and `month-ahead`
+> synthesis summaries when `data/forward-statements-open.json` exists and is non-empty in
+> the run directory. Stage C will block with a RED gate if this section is absent when open
+> items exist. For `breaking`, `committee-reports`, `motions`, and `propositions` workflows,
+> this section is optional (include when relevant open items overlap with the article topic).
+>
+> **Source:** Read `data/forward-statements-open.json` (populated by Stage A from the
+> registry at `analysis/forward-statements/`) and surface every open item here with its
+> current observed status.
+>
+> **Update rule:** For each carried item, assign one of:
+> - `✅ IMPLEMENTED` — confirmed delivered; update registry with `--status implemented --evidence <ref>`
+> - `🔄 SUPERSEDED` — replaced by a newer statement; update registry with `--status superseded`
+> - `⏳ OPEN (carried)` — no new evidence this run; registry `lastObservedDate` updated
+> - `🔴 ABANDONED` — horizon passed without evidence; update registry with `--status abandoned`
+
+### Forward-Statements Status Table
+
+| # | Topic | Statement (abbreviated) | Originating Run | Expected Horizon | Status | Evidence |
+|---|-------|--------------------------|:--------------:|:----------------:|:------:|----------|
+| 1 | `[REQUIRED if open items exist: topic slug]` | `[REQUIRED: ≤80 chars]` | `[originating run date]` | `[YYYY-MM-DD]` | `[✅/🔄/⏳/🔴]` | `[EP doc ref or "none yet"]` |
+| 2 | `[next open item]` | `[statement excerpt]` | `[date]` | `[horizon]` | `[status]` | `[ref]` |
+
+> **If no open items exist** (registry empty or all items beyond this run's horizon), write:
+> `No open forward statements within this run's horizon window.`
+
+### Accountability Narrative
+
+`[REQUIRED when open items exist: 2–4 sentences explaining how this run confirms, refutes, or carries
+forward each open statement. Reference specific EP decisions, procedures, or plenary outcomes that
+constitute evidence. E.g., "The Banking Union implementation statement (originating 2026-04-27) is
+carried forward as OPEN — SRMR3/BRRD3/DGSD2 trilogue has not concluded as of this run; next
+expected evidence point is the May 2026 trilogue round. The AI Act delegated acts statement is
+marked IMPLEMENTED following the Commission's adoption of the first batch of delegated acts
+(C(2026)2891) on 2026-05-06, confirmed by TA-10-2026-0142."]`
+
+---
+
 ## 🔮 Forward Indicators
 
 | # | Indicator | Timeline | Source | Watch Priority |
