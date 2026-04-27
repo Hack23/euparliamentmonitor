@@ -473,6 +473,10 @@ function validateForwardStatementsRegistryCoverage(runDir, articleType) {
   };
 }
 
+function mergeUnique(left, right) {
+  return [...new Set([...(left || []), ...(right || [])])];
+}
+
 function mergeForwardRegistryResult(results, forwardRegistryResult) {
   if (!forwardRegistryResult) return;
 
@@ -484,10 +488,8 @@ function mergeForwardRegistryResult(results, forwardRegistryResult) {
     const existingResult = results[existingResultIndex];
     results[existingResultIndex] = {
       ...existingResult,
-      issues: [...new Set([...(existingResult.issues || []), ...(forwardRegistryResult.issues || [])])],
-      warnings: [
-        ...new Set([...(existingResult.warnings || []), ...(forwardRegistryResult.warnings || [])]),
-      ],
+      issues: mergeUnique(existingResult.issues, forwardRegistryResult.issues),
+      warnings: mergeUnique(existingResult.warnings, forwardRegistryResult.warnings),
     };
     return;
   }

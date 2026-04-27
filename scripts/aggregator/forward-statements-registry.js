@@ -220,7 +220,13 @@ export function readEntries(opts) {
     const content = fs.readFileSync(path.join(dir, shard), 'utf8');
     for (const line of content.split('\n')) {
       const entry = parseLine(line);
-      if (!entry || typeof entry.id !== 'string' || entry.id.length === 0) continue;
+      if (!entry) continue;
+      if (typeof entry.id !== 'string' || entry.id.length === 0) {
+        process.stderr.write(
+          `Skipping forward-statement entry with missing id in shard "${shard}"\n`,
+        );
+        continue;
+      }
       entriesById.set(entry.id, entry);
     }
   }

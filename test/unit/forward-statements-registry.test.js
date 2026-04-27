@@ -250,6 +250,11 @@ describe('forward-statements-registry', () => {
         date: '2026-05-10',
         registryDir: tmpDir,
       });
+      const rawRows = ['2026-04.jsonl', '2026-05.jsonl']
+        .map((file) => path.join(tmpDir, file))
+        .filter((file) => fs.existsSync(file))
+        .flatMap((file) => fs.readFileSync(file, 'utf8').trim().split('\n'));
+      expect(rawRows.filter((line) => JSON.parse(line).id === 'tracked-item')).toHaveLength(2);
 
       expect(readEntries({ status: 'open', registryDir: tmpDir })).toHaveLength(0);
       const implemented = readEntries({ status: 'implemented', registryDir: tmpDir });
@@ -405,7 +410,10 @@ describe('forward-statements-registry', () => {
 
       expect(result.status).toBe(0);
       expect(result.stdout).toMatch(/"written": 1/);
-      const shard = path.join(tmpDir, 'analysis/forward-statements/2026-04.jsonl');
+      const shard = shardPath(
+        entry.originatingDate,
+        path.join(tmpDir, 'analysis/forward-statements'),
+      );
       expect(fs.existsSync(shard)).toBe(true);
     });
   });

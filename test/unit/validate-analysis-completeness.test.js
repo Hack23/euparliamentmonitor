@@ -314,7 +314,10 @@ describe('scripts/validate-analysis-completeness.js', () => {
     const occurrences = result.stderr.match(/forward-registry:missing-carried-forward-section/g) || [];
     expect(occurrences).toHaveLength(1);
     expect(result.stdout).toMatch(/"forward-registry:missing-carried-forward-section"/);
-    const json = JSON.parse(result.stdout.slice(result.stdout.indexOf('{')));
+    const jsonLines = result.stdout.split('\n');
+    const jsonStart = jsonLines.findIndex((line) => line.trim() === '{');
+    expect(jsonStart).toBeGreaterThanOrEqual(0);
+    const json = JSON.parse(jsonLines.slice(jsonStart).join('\n'));
     expect(json.artifacts).toBe(1);
     expect(json.results).toHaveLength(1);
     expect(json.results[0].relativePath).toBe('intelligence/synthesis-summary.md');
