@@ -700,7 +700,28 @@ export function aggregateAnalysisRun(options: AggregateOptions): AggregatedRun {
   const seenMermaid = new Set<string>();
   const runDirRelPath = path.relative(repoRoot, runDir).split(path.sep).join('/');
 
-  for (const section of ARTIFACT_SECTIONS) {
+  // Render the Executive Brief section first into a dedicated buffer so it
+  // can be placed BEFORE the Reader Intelligence Guide — analysts and
+  // journalists need the BLUF up front; the TOC-style guide then orients
+  // the reader for the deeper sections that follow.
+  const execBriefMarkdown: string[] = [];
+  const [execBriefSection, ...remainingSections] = ARTIFACT_SECTIONS;
+  if (execBriefSection) {
+    const paths = expandSectionArtifacts(execBriefSection, new Set(available), consumed);
+    appendSection(
+      runDir,
+      runDirRelPath,
+      execBriefSection.id,
+      execBriefSection.title,
+      paths,
+      seenMermaid,
+      execBriefMarkdown,
+      includedArtifacts,
+      emittedSections
+    );
+  }
+
+  for (const section of remainingSections) {
     const paths = expandSectionArtifacts(section, new Set(available), consumed);
     appendSection(
       runDir,
@@ -752,16 +773,26 @@ export function aggregateAnalysisRun(options: AggregateOptions): AggregatedRun {
   const analysisIndex = renderAnalysisIndex(includedArtifacts, manifestRelPath);
   const readerGuide = renderReaderIntelligenceGuide(emittedSections, includedArtifacts);
 
-  // Both appendices emit their own <h2 id="…"> blocks — record them so the
-  // article TOC mirrors the rendered document in document order.
+  // TOC ordering reflects the rendered document:
+  // Executive Brief (already first in emittedSections via appendSection) →
+  // Reader Intelligence Guide (inserted at position 1, after Exec Brief) →
+  // remaining sections → audit appendices.
   if (readerGuide) {
-    emittedSections.unshift({ id: READER_GUIDE_SECTION_ID, title: READER_GUIDE_SECTION_TITLE });
+    const insertIdx = emittedSections.length > 0 && emittedSections[0]?.id === namespacedSectionId(execBriefSection?.id ?? '')
+      ? 1
+      : 0;
+    emittedSections.splice(insertIdx, 0, {
+      id: READER_GUIDE_SECTION_ID,
+      title: READER_GUIDE_SECTION_TITLE,
+    });
   }
   emittedSections.push({ id: TRADECRAFT_SECTION_ID, title: TRADECRAFT_SECTION_TITLE });
   emittedSections.push({ id: MANIFEST_SECTION_ID, title: MANIFEST_SECTION_TITLE });
 
   const markdown = [
     `# ${documentTitle}`,
+    '',
+    ...execBriefMarkdown,
     '',
     readerGuide,
     '',

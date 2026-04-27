@@ -11,18 +11,6 @@ layout: article
 ---
 # Breaking — 2026-04-27
 
-<h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
-
-Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
-
-| Reader need | What you'll get | Source artifact |
-|---|---|---|
-| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
-| [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
-| [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `intelligence/coalition-dynamics.md` |
-| [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
-| [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
-
 <h2 id="section-executive-brief">Executive Brief</h2>
 
 ### Situation Summary
@@ -76,6 +64,18 @@ The European Parliament convenes its April 2026 Strasbourg plenary session (Apri
 All adopted text data from European Parliament Open Data Portal (data.europarl.europa.eu/api/v2). Plenary session confirmed via EP scheduling API (MTG-PL-2026-04-27 through MTG-PL-2026-04-30). Political composition from full MEP roster (719 MEPs, April 2026). Voting records for April 2026 unavailable — EP publishes roll-call data with approximately 2–4 week delay (known system characteristic, confirmed in EP MCP reference §11).
 
 **IMF Economic Context**: April 2026 WEO projections (vintage WEO-April-2026) indicate EU zone economic growth headwinds from trade policy uncertainty. US tariff escalation adds approximately 0.3–0.5% downside risk to EU GDP growth projections for 2026 according to IMF modelling (IMF WEO April 2026 baseline). Euro area fragility is a key determinant of EP legislative urgency on the SRMR3 banking reform package.
+
+<h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
+
+Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
+
+| Reader need | What you'll get | Source artifact |
+|---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
+| [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
+| [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `intelligence/coalition-dynamics.md` |
+| [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
+| [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
 

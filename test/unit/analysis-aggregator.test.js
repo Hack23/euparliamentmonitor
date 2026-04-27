@@ -269,6 +269,10 @@ describe('aggregateAnalysisRun (fixture)', () => {
     const toc = result.sectionToc ?? [];
     expect(toc.length).toBeGreaterThan(0);
     expect(toc[0]).toEqual({
+      id: 'section-executive-brief',
+      title: 'Executive Brief',
+    });
+    expect(toc[1]).toEqual({
       id: 'reader-intelligence-guide',
       title: 'Reader Intelligence Guide',
     });
