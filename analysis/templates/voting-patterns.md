@@ -190,13 +190,13 @@ For each group: cohesion, defection highlights, sample votes.
 | `compare_political_groups` | §4 Seat-share normalisation | Confirms majority arithmetic. |
 | `track_legislation` | §5 Procedure context | COD/CNS/APP per RCV. |
 | `get_meeting_decisions` | §6 Adopted-decision ↔ RCV cross-check | Verifies passage. |
-| `get_adopted_texts` | §7 Outcome confirmation | Adopted-text reflects RCV result. |
-| `correlate_intelligence` | §8 Anomaly alerts | Defection / abstention spikes. |
-| `detect_voting_anomalies` | §8 Outlier RCVs | Configurable sensitivity threshold. |
+| `get_adopted_texts` | §8 Outcome confirmation | Adopted-text reflects RCV result. |
+| `correlate_intelligence` | §9 Anomaly alerts | Defection / abstention spikes. |
+| `detect_voting_anomalies` | §9 Outlier RCVs | Configurable sensitivity threshold. |
 
 ---
 
-## 9️⃣ Worked Pass-1 → Pass-2 Example (Strasbourg-I 2025 voting digest)
+## 🔟 Worked Pass-1 → Pass-2 Example (Strasbourg-I 2025 voting digest)
 
 **❌ Pass-1 (thin, 22 words):**
 > "Several important votes happened. AI Act passed. CRA implementation was approved. Coalitions held. Some defections noted but minor."
@@ -206,7 +206,7 @@ For each group: cohesion, defection highlights, sample votes.
 
 ---
 
-## 🔟 Worked Top-5 RCV Table
+## 1️⃣1️⃣ Worked Top-5 RCV Table
 
 | # | Procedure code + short title | Date | For | Against | Abstain | Margin | Anchor group split |
 |:-:|------------------------------|------|:---:|:-------:|:-------:|:------:|--------------------|
@@ -218,7 +218,7 @@ For each group: cohesion, defection highlights, sample votes.
 
 ---
 
-## 1️⃣1️⃣ Per-Group Behaviour Rubric (4 EP voting behaviours)
+## 1️⃣2️⃣ Per-Group Behaviour Rubric (4 EP voting behaviours)
 
 | Behaviour | Definition | Worked observation (Strasbourg-I 2025) | Score 1-5 |
 |-----------|------------|----------------------------------------|:---------:|
@@ -229,7 +229,7 @@ For each group: cohesion, defection highlights, sample votes.
 
 ---
 
-## 1️⃣2️⃣ Anti-patterns — REJECT on Pass-2 Review
+## 1️⃣3️⃣ Anti-patterns — REJECT on Pass-2 Review
 
 | # | Banned pattern | Why it fails |
 |:-:|---------------|--------------|
@@ -243,7 +243,7 @@ For each group: cohesion, defection highlights, sample votes.
 
 ---
 
-## 1️⃣3️⃣ Cross-References — Controlling Methodology
+## 1️⃣4️⃣ Cross-References — Controlling Methodology
 
 - [`../methodologies/per-artifact-methodologies.md#voting-patterns`](../methodologies/per-artifact-methodologies.md) — construction rules.
 - [`../methodologies/political-classification-guide.md`](../methodologies/political-classification-guide.md) — group taxonomy + procedure-code conventions.
@@ -254,7 +254,7 @@ For each group: cohesion, defection highlights, sample votes.
 
 ---
 
-## 1️⃣4️⃣ Stage-C Completeness Signals
+## 1️⃣5️⃣ Stage-C Completeness Signals
 
 `scripts/validate-analysis-completeness.js` checks for this artifact:
 

@@ -139,8 +139,19 @@ flowchart LR
 **Calculation methodology:**
 
 ```
+Adjusted Success Rate = (
+  Successful calls — excluding 🔵/🟢-classified triage items
+) / (
+  Total calls — excluding 🔵/🟢-classified triage items
+              — excluding 🟡 SLOW_FEED_WARNING (get_events_feed timeout)
+)
+```
+
+> **Denominator exclusion rule (mandatory):** Items classified as 🟢 LIMITATION or 🔵 CALLING-PATTERN in `.github/prompts/07-mcp-reference.md` §11 are **excluded from both numerator and denominator** when computing success rate. They represent documented EP/WB API behaviour — including them would systematically penalise runs for expected EP behaviour (e.g., OJQ 404 for forward sessions, `get_events_feed` slow-feed timeouts during heavy load, `get_procedures_feed` recess-mode archive returns). Only 🔴 REAL BUG rows and symptoms not in the triage table count against the score.
+
+```
 Reliability Score = (
-  (Successful calls / Total calls) × 50 +
+  (Adjusted success rate) × 50 +
   max(0, min(1, 1 - (Avg latency / 30s))) × 25 +
   (Data freshness score) × 25
 )
@@ -152,10 +163,12 @@ Reliability Score = (
 
 | Component | Weight | Raw Score | Weighted Score |
 |-----------|:------:|:---------:|:--------------:|
-| Success rate | 50% | `[REQUIRED: %]` | `[REQUIRED: #/50]` |
+| Adjusted success rate¹ | 50% | `[REQUIRED: %]` | `[REQUIRED: #/50]` |
 | Latency | 25% | `[REQUIRED: normalized 0-1]` | `[REQUIRED: #/25]` |
 | Data freshness | 25% | `[REQUIRED: 1.0=same-day, 0.5=week-old, 0.0=month-old]` | `[REQUIRED: #/25]` |
 | **Total** | **100%** | — | **`[REQUIRED: #/100]`** |
+
+> ¹ **Adjusted success rate** = exclude from both numerator and denominator: (a) 🟢/🔵 triage-table matches — `documented behaviour — see 07-mcp-reference.md §11 #N`; (b) `get_events_feed` 🟡 SLOW_FEED_WARNING rows (timeout downgraded to warning by MCP client — not a reliability failure). Keep the count in a separate `🟡 Slow-feed warnings` row for transparency.
 
 **Reliability breakdown by category:**
 

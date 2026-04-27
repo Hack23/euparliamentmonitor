@@ -273,7 +273,9 @@ describe('ep-open-data-client', () => {
     it('returns empty-votes fallback on HTTP error', async () => {
       const fetchImpl = vi
         .fn()
-        .mockResolvedValue(mockFetchResponse('bad gateway', { status: 502, statusText: 'Bad Gateway' }));
+        .mockResolvedValue(
+          mockFetchResponse('bad gateway', { status: 502, statusText: 'Bad Gateway' })
+        );
       const client = new EPOpenDataClient({ dateFrom: '', dateTo: '', fetchImpl });
       const result = await client.getVotingRecords({
         dateFrom: '2026-04-01',
@@ -408,9 +410,7 @@ describe('ep-open-data-client', () => {
 
     it('(b) falls back to EP Open Data Portal when MCP returns empty', async () => {
       const mcpResult = buildMCPVotesResult([]);
-      const fetchImpl = vi
-        .fn()
-        .mockResolvedValue(mockFetchResponse(SAMPLE_DECISION_RESPONSE));
+      const fetchImpl = vi.fn().mockResolvedValue(mockFetchResponse(SAMPLE_DECISION_RESPONSE));
       const { result, source, freshnessLabel } = await getVotingRecordsWithFallback(mcpResult, {
         dateFrom: '2026-04-01',
         dateTo: '2026-04-26',
@@ -427,9 +427,7 @@ describe('ep-open-data-client', () => {
 
     it('(c) emits 🔴 unavailability marker when both MCP and portal are empty', async () => {
       const mcpResult = buildMCPVotesResult([]);
-      const fetchImpl = vi
-        .fn()
-        .mockResolvedValue(mockFetchResponse(EMPTY_DECISIONS_RESPONSE));
+      const fetchImpl = vi.fn().mockResolvedValue(mockFetchResponse(EMPTY_DECISIONS_RESPONSE));
       const { result, source, freshnessLabel } = await getVotingRecordsWithFallback(mcpResult, {
         dateFrom: '2026-04-01',
         dateTo: '2026-04-26',
@@ -458,9 +456,7 @@ describe('ep-open-data-client', () => {
 
     it('propagates limit option to the portal query string', async () => {
       const mcpResult = buildMCPVotesResult([]);
-      const fetchImpl = vi
-        .fn()
-        .mockResolvedValue(mockFetchResponse(SAMPLE_DECISION_RESPONSE));
+      const fetchImpl = vi.fn().mockResolvedValue(mockFetchResponse(SAMPLE_DECISION_RESPONSE));
       await getVotingRecordsWithFallback(mcpResult, {
         dateFrom: '2026-04-01',
         dateTo: '2026-04-26',
@@ -469,6 +465,32 @@ describe('ep-open-data-client', () => {
       });
       const calledUrl = fetchImpl.mock.calls[0][0];
       expect(calledUrl).toContain('limit=25');
+    });
+
+    it('throws when dateFrom is missing (avoids misleading freshness label)', async () => {
+      const mcpResult = buildMCPVotesResult([{ identifier: 'A9-0001', for: 400 }]);
+      await expect(
+        getVotingRecordsWithFallback(mcpResult, { dateFrom: '', dateTo: '2026-04-26' })
+      ).rejects.toThrow(/dateFrom is required/);
+    });
+
+    it('throws when dateTo is missing (avoids misleading freshness label)', async () => {
+      const mcpResult = buildMCPVotesResult([{ identifier: 'A9-0001', for: 400 }]);
+      await expect(
+        getVotingRecordsWithFallback(mcpResult, { dateFrom: '2026-04-01', dateTo: '   ' })
+      ).rejects.toThrow(/dateTo is required/);
+    });
+
+    it('throws a configuration error when EP_OPEN_DATA_BASE_URL is malformed (vs. swallowing as unavailable)', async () => {
+      const mcpResult = buildMCPVotesResult([]);
+      await expect(
+        getVotingRecordsWithFallback(mcpResult, {
+          dateFrom: '2026-04-01',
+          dateTo: '2026-04-26',
+          apiBaseUrl: 'not a url',
+          fetchImpl: vi.fn(),
+        })
+      ).rejects.toThrow(/Invalid EP Open Data Portal configuration/);
     });
   });
 

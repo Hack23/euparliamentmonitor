@@ -10,18 +10,24 @@ const DEFAULT_EP_OPEN_DATA_TIMEOUT_MS = 30_000;
  * Appended to every fallback response.
  */
 const EP_OPEN_DATA_ATTRIBUTION = 'European Parliament Open Data Portal — https://data.europarl.europa.eu — CC BY 4.0';
-/** Fallback empty-votes payload returned when both MCP and the portal are empty. */
+/**
+ * Generic empty-votes fallback payload returned when the portal call cannot
+ * produce usable voting data, including invalid input, missing dates, empty
+ * portal responses, and HTTP/network/parse/timeout failures.
+ */
 const EMPTY_VOTES_FALLBACK = {
     content: [{ type: 'text', text: '{"votes":[]}' }],
 };
 // ─── Virtual tool list ────────────────────────────────────────────────────────
+/** Canonical tool name for EP voting records (kept DRY for tools list and warnings). */
+const EP_GET_VOTING_RECORDS_TOOL = 'ep-get-voting-records';
 /**
  * Virtual tool names exposed by this client. The list is used as a drift
  * guard in `test/unit/ep-open-data-client.test.js` and in the Stage-C
  * editorial fingerprint for `voting-patterns.md` (the article must cite
  * at least one of these when the fallback is active).
  */
-export const EP_OPEN_DATA_TOOLS = ['ep-get-voting-records'];
+export const EP_OPEN_DATA_TOOLS = [EP_GET_VOTING_RECORDS_TOOL];
 // ─── Utilities ────────────────────────────────────────────────────────────────
 /**
  * Unwrap a multilingual JSON-LD label to a plain string.
@@ -164,7 +170,7 @@ export class EPOpenDataClient {
     /**
      * Fetch roll-call voting records from the EP Open Data Portal.
      *
-     * Virtual tool: `ep-get-voting-records`.
+     * Virtual tool: `ep-get-voting-records` (see {@link EP_GET_VOTING_RECORDS_TOOL}).
      *
      * Queries `/decision?date-of-vote-start=<dateFrom>&date-of-vote-end=<dateTo>`
      * and normalises the JSON-LD response to a `{ votes: VoteEntry[] }`
@@ -182,7 +188,7 @@ export class EPOpenDataClient {
     async getVotingRecords(options) {
         const { dateFrom, dateTo } = options;
         if (!dateFrom || !dateTo) {
-            console.warn('ep-get-voting-records: dateFrom and dateTo are required');
+            console.warn(`${EP_GET_VOTING_RECORDS_TOOL}: dateFrom and dateTo are required`);
             return EMPTY_VOTES_FALLBACK;
         }
         try {
@@ -212,7 +218,7 @@ export class EPOpenDataClient {
         }
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);
-            console.warn('ep-get-voting-records not available:', message);
+            console.warn(`${EP_GET_VOTING_RECORDS_TOOL} not available:`, message);
             return EMPTY_VOTES_FALLBACK;
         }
     }
@@ -335,8 +341,12 @@ export const EPOpenDataPortalClient = EPOpenDataClient;
  * ```
  *
  * @param mcpResult - Result of `get_voting_records` from the EP MCP server.
- * @param options   - Fallback options; `dateFrom` and `dateTo` are required.
+ * @param options   - Fallback options; `dateFrom` and `dateTo` are required
+ *   non-empty YYYY-MM-DD strings.
  * @returns Fallback result with source tag and human-readable freshness label.
+ * @throws When `dateFrom` or `dateTo` is missing/blank, or when the EP Open
+ *   Data Portal base URL is malformed (configuration error — distinct from
+ *   the 🔴 `unavailable` data-empty path).
  *
  * @example
  * ```ts
@@ -349,6 +359,14 @@ export const EPOpenDataPortalClient = EPOpenDataClient;
  */
 export async function getVotingRecordsWithFallback(mcpResult, options) {
     const { dateFrom, dateTo } = options;
+    // Fail fast on missing/blank dates so we don't emit misleading freshness
+    // labels like "🟢 MCP ( → )" or empty-window 🔴 markers downstream.
+    if (typeof dateFrom !== 'string' || dateFrom.trim() === '') {
+        throw new Error('getVotingRecordsWithFallback: dateFrom is required (non-empty YYYY-MM-DD)');
+    }
+    if (typeof dateTo !== 'string' || dateTo.trim() === '') {
+        throw new Error('getVotingRecordsWithFallback: dateTo is required (non-empty YYYY-MM-DD)');
+    }
     // (a) MCP returned real data — use it.
     if (!EPOpenDataClient.isVotingDataEmpty(mcpResult)) {
         return {
@@ -359,25 +377,39 @@ export async function getVotingRecordsWithFallback(mcpResult, options) {
     }
     // (b) MCP was empty — try the EP Open Data Portal fallback.
     const portalClient = new EPOpenDataClient(options);
-    const portalResult = await portalClient.getVotingRecords({
-        dateFrom,
-        dateTo,
-        ...(options.limit !== undefined ? { limit: options.limit } : {}),
-        ...(options.offset !== undefined ? { offset: options.offset } : {}),
-    });
-    if (!EPOpenDataClient.isVotingDataEmpty(portalResult)) {
+    // Validate base URL up front so misconfiguration surfaces as a hard error
+    // rather than being swallowed into the 🔴 "unavailable" path (which is
+    // reserved for genuine "both sources empty" outcomes).
+    try {
+        await portalClient.connect();
+    }
+    catch (error) {
+        throw new Error('Invalid EP Open Data Portal configuration: unable to validate EP_OPEN_DATA_BASE_URL', { cause: error });
+    }
+    try {
+        const portalResult = await portalClient.getVotingRecords({
+            dateFrom,
+            dateTo,
+            ...(options.limit !== undefined ? { limit: options.limit } : {}),
+            ...(options.offset !== undefined ? { offset: options.offset } : {}),
+        });
+        if (!EPOpenDataClient.isVotingDataEmpty(portalResult)) {
+            return {
+                result: portalResult,
+                source: 'ep-open-data-portal',
+                freshnessLabel: `🟡 EP Open Data Portal fallback (${dateFrom} → ${dateTo}) — attribution: ${EP_OPEN_DATA_ATTRIBUTION}`,
+            };
+        }
+        // (c) Both empty — emit the 🔴 unavailability marker.
         return {
-            result: portalResult,
-            source: 'ep-open-data-portal',
-            freshnessLabel: `🟡 EP Open Data Portal fallback (${dateFrom} → ${dateTo}) — attribution: ${EP_OPEN_DATA_ATTRIBUTION}`,
+            result: EPOpenDataClient.buildVotingUnavailableMarker(dateFrom, dateTo),
+            source: 'unavailable',
+            freshnessLabel: `🔴 voting data unavailable for window ${dateFrom} → ${dateTo}`,
         };
     }
-    // (c) Both empty — emit the 🔴 unavailability marker.
-    return {
-        result: EPOpenDataClient.buildVotingUnavailableMarker(dateFrom, dateTo),
-        source: 'unavailable',
-        freshnessLabel: `🔴 voting data unavailable for window ${dateFrom} → ${dateTo}`,
-    };
+    finally {
+        portalClient.disconnect();
+    }
 }
 // ─── Singleton lifecycle ──────────────────────────────────────────────────────
 /** Singleton instance, created lazily by {@link getEPOpenDataClient}. */
