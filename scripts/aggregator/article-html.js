@@ -21,7 +21,7 @@
 import { BASE_URL, MERMAID_VERSION } from '../constants/config.js';
 import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, SKIP_LINK_TEXTS, TOC_ARIA_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
 import { escapeHTML } from '../utils/file-utils.js';
-import { buildSiteFooter, buildSiteHeader } from '../templates/section-builders.js';
+import { buildSiteFooter, buildSiteHeader, buildPageBanner } from '../templates/section-builders.js';
 /**
  * Build the canonical filename for an article in a given language. English
  * uses the bare stem (`2026-01-15-breaking-en.html`); other languages share
@@ -197,6 +197,8 @@ ${hreflangLinks}
   <a href="#main" class="skip-link">${escapeHTML(skipLinkText)}</a>
 
   ${header}
+
+  ${buildPageBanner('../')}
 
   <main id="main" class="site-main article-main">
 ${tocHtml}    <article class="article-body" lang="${safeLang}">

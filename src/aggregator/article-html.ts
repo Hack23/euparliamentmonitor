@@ -33,7 +33,7 @@ import {
 } from '../constants/languages.js';
 import type { LanguageCode } from '../types/index.js';
 import { escapeHTML } from '../utils/file-utils.js';
-import { buildSiteFooter, buildSiteHeader } from '../templates/section-builders.js';
+import { buildSiteFooter, buildSiteHeader, buildPageBanner } from '../templates/section-builders.js';
 
 /** One entry in the article-level TOC sidebar (mirrors `TocSection`). */
 export interface ArticleTocEntry {
@@ -275,6 +275,8 @@ ${hreflangLinks}
   <a href="#main" class="skip-link">${escapeHTML(skipLinkText)}</a>
 
   ${header}
+
+  ${buildPageBanner('../')}
 
   <main id="main" class="site-main article-main">
 ${tocHtml}    <article class="article-body" lang="${safeLang}">

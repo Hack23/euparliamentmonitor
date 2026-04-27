@@ -24,7 +24,7 @@ import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, PAGE_DESCRI
 import { escapeHTML } from '../../utils/file-utils.js';
 import { detectCategory } from '../../utils/article-category.js';
 import { ARTICLE_TYPE_LABELS, FOOTER_POLITICAL_INTELLIGENCE_LABELS, } from '../../constants/language-ui.js';
-import { buildSiteFooter, buildSiteHeader } from '../../templates/section-builders.js';
+import { buildSiteFooter, buildSiteHeader, buildPageBanner } from '../../templates/section-builders.js';
 import { getPoliticalIntelligenceFilename } from '../political-intelligence.js';
 import { SITEMAP_TITLES, SITEMAP_SECTIONS, DOCS_LABELS, CATEGORY_ORDER, DEFAULT_SITEMAP_TITLE, getSitemapCopy, } from './copy.js';
 /**
@@ -251,6 +251,8 @@ ${hreflangLinks}
   <a href="#main" class="skip-link">${escapeHTML(skipLinkText)}</a>
 
   ${header}
+
+  ${buildPageBanner('')}
 
   <main id="main" class="site-main">
     <section class="sitemap-hero" aria-labelledby="sitemap-heading">

@@ -39,7 +39,7 @@ import {
   FOOTER_POLITICAL_INTELLIGENCE_LABELS,
 } from '../../constants/language-ui.js';
 import type { ArticleCategory, LanguageCode } from '../../types/index.js';
-import { buildSiteFooter, buildSiteHeader } from '../../templates/section-builders.js';
+import { buildSiteFooter, buildSiteHeader, buildPageBanner } from '../../templates/section-builders.js';
 import { getPoliticalIntelligenceFilename } from '../political-intelligence.js';
 import {
   SITEMAP_TITLES,
@@ -324,6 +324,8 @@ ${hreflangLinks}
   <a href="#main" class="skip-link">${escapeHTML(skipLinkText)}</a>
 
   ${header}
+
+  ${buildPageBanner('')}
 
   <main id="main" class="site-main">
     <section class="sitemap-hero" aria-labelledby="sitemap-heading">

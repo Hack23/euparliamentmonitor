@@ -283,13 +283,16 @@ html[data-theme='light'] .theme-toggle__icon--dark {
     0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-.site-header__logo--header {
-  width: 64px;
-  height: 44px;
-  border-radius: 0;
-  object-fit: contain;
-  background: transparent;
-  box-shadow: none;
+.site-header__logo--banner {
+  width: 240px;
+  height: 80px;
+  border-radius: 4px;
+  object-fit: cover;
+  object-position: center;
+  flex-shrink: 0;
+  box-shadow:
+    0 0 0 2px rgba(255, 255, 255, 0.2),
+    0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .site-header__brand-text {
@@ -477,9 +480,28 @@ html[data-theme='light'] .theme-toggle__icon--dark {
 .hero__banner-img {
   display: block;
   width: 100%;
-  height: clamp(180px, 32vw, 420px);
-  object-fit: contain;
-  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  height: clamp(180px, 32vw, 360px);
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ─── Page Banner (non-index pages) ─────────────────────────────── */
+.page-banner {
+  display: block;
+  width: 100vw;
+  max-width: none;
+  margin-inline: calc(50% - 50vw);
+  overflow: hidden;
+  border-bottom: 3px solid var(--secondary);
+  line-height: 0;
+}
+
+.page-banner__img {
+  display: block;
+  width: 100%;
+  height: clamp(120px, 26vw, 320px);
+  object-fit: cover;
+  object-position: center;
 }
 
 .hero__content {
@@ -1528,7 +1550,11 @@ html[data-theme='light'] .theme-toggle__icon--dark {
   }
 
   .hero__banner-img {
-    min-height: 200px;
+    min-height: 160px;
+  }
+
+  .page-banner__img {
+    min-height: 100px;
   }
 
   .site-main {
@@ -1667,6 +1693,11 @@ html[data-theme='light'] .theme-toggle__icon--dark {
 
   .language-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .site-header__logo--banner {
+    width: 160px;
+    height: 54px;
   }
 }
 

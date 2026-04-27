@@ -272,8 +272,8 @@ export function buildSiteHeader(options) {
     <div class="site-header__inner site-header__inner--stacked">
       <a href="${escapeHTML(homeHref)}" class="site-header__brand" aria-label="${safeTitle}">
         <picture class="site-header__logo-picture">
-          <source srcset="${pathPrefix}images/header-logo.webp" type="image/webp">
-          <img class="site-header__logo site-header__logo--header" src="${pathPrefix}images/header-logo.png" alt="" width="96" height="64" aria-hidden="true">
+          <source srcset="${pathPrefix}images/banner.webp" type="image/webp">
+          <img class="site-header__logo site-header__logo--banner" src="${pathPrefix}images/banner.jpg" alt="${safeTitle}" width="240" height="80" loading="eager">
         </picture>
         <span class="site-header__brand-text">
           <span class="site-header__title">${safeTitle}</span>
@@ -291,6 +291,24 @@ export function buildSiteHeader(options) {
       </nav>
     </div>
   </header>`;
+}
+/**
+ * Build the full-width page banner shown below the sticky site header on every page.
+ *
+ * The banner image (`banner.webp` / `banner.jpg`) is 1200×400. CSS renders it with
+ * `object-fit: cover; object-position: center` so the middle 80% of the image is
+ * always visible and the uninteresting top/bottom 10% may be cropped.
+ *
+ * @param pathPrefix - Asset path prefix: `''` for root pages, `'../'` for `news/` pages.
+ * @returns HTML string for the `.page-banner` element.
+ */
+export function buildPageBanner(pathPrefix) {
+    return `<div class="page-banner" role="img" aria-label="EU Parliament Monitor">
+    <picture>
+      <source srcset="${pathPrefix}images/banner.webp" type="image/webp">
+      <img class="page-banner__img" src="${pathPrefix}images/banner.jpg" alt="" aria-hidden="true" width="1200" height="400" loading="eager">
+    </picture>
+  </div>`;
 }
 /**
  * Build the language grid links used inside the footer Languages section.
