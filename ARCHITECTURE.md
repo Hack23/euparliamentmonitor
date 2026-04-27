@@ -1353,6 +1353,48 @@ We will use **TypeScript (strict mode)** as the primary development language, co
 
 ---
 
+### ADR-006: Week-in-Review Analysis Window — D-36 → D-8
+
+**Status:** Accepted  
+**Date:** 2026-04-27  
+**Decision Makers:** CEO, Development Team
+
+**Context:**
+- The EP publishes roll-call voting records with a 2–6 week lag after each plenary sitting.
+- The previous `week-in-review` data window was D-0 → D-7 (the most-recent 7 days).
+- A D-0→D-7 window structurally **never** contains published voting data, making the article vote-blind in every run regardless of content quality — a permanently-empty input.
+- `analysis/daily/2026-04-26/week-in-review/intelligence/methodology-reflection.md` §3.1 recommended shifting to a D-36 → D-8 window to systematically capture voting data.
+
+**Decision:**
+We shift the `week-in-review` analysis window to **D-36 → D-8** (`start = D-36`, `end = D-8` — a 28-day window ending 8 days ago, relative to the run date). This direction matches the workflow's `DATE_FROM` (start = D-36) → `DATE_TO` (end = D-8) variables. It is a 4-week look-back that consistently captures at least one full EP plenary week with published roll-call votes.
+
+**Rationale:**
+1. **Data depth over recency**: A vote-populated analysis is more valuable than a vote-empty analysis that is 7 days more recent. Readers of the week-in-review expect vote coverage.
+2. **Systematic**: The window is deterministic and reproducible — it always yields voting data regardless of EP publication lag variance (2–6 weeks).
+3. **Complementary to fallback**: This window shift works alongside any future EP Open Data Portal fallback for historical roll-calls; the two are not mutually exclusive.
+4. **Article framing updated**: The `WEEKLY_REVIEW_TITLES` subtitles (all 14 languages) now read "last full reporting week" instead of "past week" to accurately describe the shifted window to readers.
+5. **SEO metadata**: The title date range already shows the exact `dateFrom`–`dateTo` window, so canonical URLs remain accurate without additional changes.
+
+**Alternatives Considered:**
+- **Keep D-0→D-7 + add EP Open Data Portal fallback query for historical roll-calls**: Complementary approach; can be combined with this shift but does not solve the structural vote-empty problem without the window shift.
+- **D-8→D-14 (7-day window, offset by 8 days)**: Narrower window; may miss vote publication for sittings right at the 8-day boundary given the 2–6 week lag variance. Rejected in favour of the wider 28-day window.
+
+**Consequences:**
+- ✅ **Positive**: Every `week-in-review` run now reliably contains roll-call voting data.
+- ✅ **Positive**: Analysis depth improves without increasing Stage B budget.
+- ✅ **Positive**: Article subtitles accurately describe the reporting window in all 14 languages.
+- ⚠️ **Trade-off**: Articles cover events from 8–36 days ago rather than the most-recent 7 days; the workflow is less "breaking" but more analytically complete.
+- ⚠️ **Negative**: In this ADR, the `DATE_FROM` / `DATE_TO` variables replace `LAST_WEEK` in `week-in-review` Stage A bash blocks; other workflows still using `LAST_WEEK` require separate migration if their reporting windows are changed.
+
+**Implementation:**
+- `src/aggregator/article-metadata.ts`: New `deriveReportingWindowForWeekInReview()` export computes D-36/D-8 from the article date; `buildTemplateFallback` uses it for `week-in-review`.
+- `.github/workflows/news-week-in-review.md`: Stage A sets `DATE_FROM` (D-36) and `DATE_TO` (D-8); all MCP tool calls use these variables; `LAST_WEEK` removed.
+- `src/constants/language-articles.ts`: `WEEKLY_REVIEW_TITLES` subtitles updated (14 languages).
+
+**Compliance:** Aligns with Hack23 AI Policy (unambiguous date semantics in published articles), GDPR (accurate published metadata).
+
+---
+
 ## 🎯 Non-Functional Requirements (NFR)
 
 Non-functional requirements define system qualities that are not directly related to specific features but are critical to overall system success.

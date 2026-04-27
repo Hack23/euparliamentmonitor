@@ -704,6 +704,72 @@ function main() {
   }
 
   const green = offending.length === 0;
+
+  // Pass-2-skipped heuristic: warn when manifest.pass2 is absent, malformed,
+  // or `rewriteCount === 0` AND at least one artifact sits at exactly its
+  // line floor. This is the script-side enforcement of the B1/B2 split
+  // defined in `.github/prompts/02-analysis-protocol.md` §3. A malformed
+  // pass2 block (non-numeric, non-finite, negative, non-integer
+  // rewriteCount, or missing/non-string startedAt/endedAt timestamps) is
+  // treated like an absent block so the enforcement can't be bypassed by
+  // typos or malformed values.
+  const pass2 = manifest.pass2;
+  const pass2Absent = pass2 == null;
+  const pass2RewriteCount = pass2?.rewriteCount;
+  const pass2RewriteCountValid =
+    typeof pass2RewriteCount === 'number' &&
+    Number.isFinite(pass2RewriteCount) &&
+    Number.isInteger(pass2RewriteCount) &&
+    pass2RewriteCount >= 0;
+  const pass2StartedAtValid =
+    typeof pass2?.startedAt === 'string' && pass2.startedAt.length > 0;
+  const pass2EndedAtValid =
+    typeof pass2?.endedAt === 'string' && pass2.endedAt.length > 0;
+  const pass2SchemaValid =
+    pass2RewriteCountValid && pass2StartedAtValid && pass2EndedAtValid;
+  const pass2Invalid = !pass2Absent && !pass2SchemaValid;
+  const pass2ZeroRewrites = pass2SchemaValid && pass2RewriteCount === 0;
+
+  if (pass2Invalid) {
+    const reasons = [];
+    if (!pass2RewriteCountValid) {
+      reasons.push(
+        `rewriteCount must be a non-negative integer (received ${JSON.stringify(
+          pass2RewriteCount,
+        )})`,
+      );
+    }
+    if (!pass2StartedAtValid) {
+      reasons.push(
+        `startedAt must be a non-empty string (received ${JSON.stringify(pass2?.startedAt)})`,
+      );
+    }
+    if (!pass2EndedAtValid) {
+      reasons.push(
+        `endedAt must be a non-empty string (received ${JSON.stringify(pass2?.endedAt)})`,
+      );
+    }
+    process.stderr.write(
+      `WARN manifest.pass2 invalid schema: ${reasons.join('; ')}\n`,
+    );
+  }
+
+  if (pass2Absent || pass2Invalid || pass2ZeroRewrites) {
+    const atFloor = results.filter(
+      (r) => r.exists && r.lines > 0 && r.lines === r.minLines,
+    );
+    if (atFloor.length > 0) {
+      let label;
+      if (pass2Absent) label = 'pass2-block-missing';
+      else if (pass2Invalid) label = 'pass2-schema-invalid';
+      else label = 'pass2.rewriteCount=0';
+      process.stderr.write(
+        `WARN pass2-skipped-heuristic: ${label} and ${atFloor.length} artifact(s) ` +
+          `at exactly their line floor: ${atFloor.map((r) => r.relativePath).join(', ')}\n`,
+      );
+    }
+  }
+
   const gateLine = green
     ? `STAGE_C_GATE: GREEN articleType=${articleType} artifacts=${results.length} lines=${summary.totalLines}`
     : `STAGE_C_GATE: RED articleType=${articleType} missing=${summary.missing} short=${summary.short} placeholders=${summary.placeholders} mermaid_missing=${summary.mermaidMissing} other=${summary.other}`;
