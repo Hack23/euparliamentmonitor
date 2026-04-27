@@ -16,6 +16,7 @@
 | **Report ID** | `[REQUIRED: EC-YYYY-MM-DD-runNN]` |
 | **Analysis Period** | `[REQUIRED: YYYY-MM-DD to YYYY-MM-DD]` |
 | **Primary Data Source** | `IMF (vintage: [REQUIRED: e.g. WEO-April-2026])` |
+| **IMF Source** | `[REQUIRED: live | cache | knowledge-only]` |
 | **Secondary (non-economic)** | `[REQUIRED: World Bank or "None"]` |
 | **IMF Indicators Cited** | `[REQUIRED: count — must meet article-type floor from imf-indicator-mapping.md §8]` |
 | **Forecast Horizon** | `[REQUIRED: current / t+1 / t+3 / t+5 — sizes the optimism-bias caveat per forecast-accuracy-baseline.md]` |
@@ -157,7 +158,7 @@ sentence the Stage-B agent can reuse safely.]`
 
 **Bridge narrative:**
 
-`[REQUIRED: explain the IMF source selection (vintage + database). If WB non-economic data is included, explain which non-economic domain and why. If triangulation was performed, cite the outcome. If neither source was available, explain fallback (prior-run cache, Eurostat, manual sourcing).]`
+`[REQUIRED: explain the IMF source selection (vintage + database) and whether the run used live IMF REST or same-day cache/imf JSON. "knowledge-only" is allowed only as an explicit failure marker and fails Stage C. If WB non-economic data is included, explain which non-economic domain and why. Treat WB EU-aggregate "Country not found" responses as the expected trigger to use IMF EU/EA aggregates, not as a data defect. If triangulation was performed, cite the outcome. If neither source was available, explain fallback (prior-run cache, Eurostat, manual sourcing).]`
 
 **Indicator mapping references:**
 - `[REQUIRED: cite imf-indicator-mapping.md §2 per-type floor satisfaction]`
@@ -216,6 +217,7 @@ country values, link to procedure, confidence labelled.
 | No bridge to article subject | Floating context | One sentence linking each indicator to a procedure or stakeholder |
 | Vintage older than freshness floor | Stale data | See `worldbank-indicator-mapping.md §8` floors |
 | No triangulation for Tier-1 | High-stakes claim unverified | IMF + Eurostat (or ECB SDW for monetary) |
+| `IMF Source: knowledge-only` | Unverified agent memory | Run `scripts/imf-mcp-probe.sh` and cite `cache/imf/*.json` (`live` or `cache`) |
 | Indicator without unit | Numerics ambiguous | "1.3% real GDP growth", "133% of GDP" |
 
 ## 🎯 EP MCP tool inputs and complementary data sources

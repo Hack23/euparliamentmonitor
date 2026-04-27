@@ -153,6 +153,21 @@ interface SDMXDataStructureResponse {
   };
 }
 
+interface SDMXObservationSeries {
+  observations?: Record<string, unknown>;
+}
+
+interface SDMXObservationDataSet {
+  observations?: Record<string, unknown>;
+  series?: Record<string, SDMXObservationSeries>;
+}
+
+interface SDMXObservationPayload {
+  data?: {
+    dataSets?: SDMXObservationDataSet[];
+  };
+}
+
 // ─── Utilities ───────────────────────────────────────────────────────────────
 
 /**
@@ -191,6 +206,47 @@ function wrapAsMCPResult(payload: unknown): MCPToolResult {
 }
 
 /**
+ * Count observations in an IMF SDMX-JSON data payload.
+ *
+ * The IMF API can return observations either directly on a dataset or nested
+ * under `data.dataSets[].series[*].observations`. The Stage-A probe uses this
+ * parser to distinguish a reachable endpoint from an empty WEO slice without
+ * interpreting the economic values themselves.
+ *
+ * @param payload - Raw JSON string or already-parsed SDMX-JSON payload.
+ * @returns Number of observation cells found; `0` for invalid or empty input.
+ */
+export function countIMFSDMXObservations(payload: string | unknown): number {
+  let parsed: unknown = payload;
+  if (typeof payload === 'string') {
+    if (!payload.trim()) return 0;
+    try {
+      parsed = JSON.parse(payload);
+    } catch {
+      return 0;
+    }
+  }
+
+  const dataSets = (parsed as SDMXObservationPayload | null)?.data?.dataSets;
+  if (!Array.isArray(dataSets)) return 0;
+
+  return dataSets.reduce((total, dataSet) => {
+    let count = 0;
+    if (dataSet.observations && typeof dataSet.observations === 'object') {
+      count += Object.keys(dataSet.observations).length;
+    }
+    if (dataSet.series && typeof dataSet.series === 'object') {
+      for (const row of Object.values(dataSet.series)) {
+        if (row?.observations && typeof row.observations === 'object') {
+          count += Object.keys(row.observations).length;
+        }
+      }
+    }
+    return total + count;
+  }, 0);
+}
+
+/**
  * Simple value-encoder for SDMX URL dimension components. SDMX uses `+`
  * to join alternative codes inside a single dimension slot and `.` as
  * the dimension separator, so the value must be URI-encoded first to
@@ -224,7 +280,7 @@ function buildSDMXKey(
 ): string {
   return dimensions
     .map((dim) => {
-      const codes = filters[dim];
+      const codes = Object.entries(filters).find(([key]) => key === dim)?.[1];
       return Array.isArray(codes) ? encodeSDMXDimension(codes) : '';
     })
     .join('.');

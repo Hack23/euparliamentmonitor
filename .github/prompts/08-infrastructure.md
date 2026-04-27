@@ -168,6 +168,17 @@ export USE_EP_MCP=true
 # Stage D article rendering uses: npm run generate-article -- --run "${ANALYSIS_DIR}"
 ```
 
+Macro-context workflows start the IMF live probe immediately after this setup
+and before EP MCP fan-out:
+
+```bash
+mkdir -p "${ANALYSIS_DIR}/cache/imf"
+scripts/imf-mcp-probe.sh > "${ANALYSIS_DIR}/cache/imf/probe-summary.json" &
+IMF_PROBE_PID=$!
+# Run EP MCP collection here, then:
+wait "$IMF_PROBE_PID" || true
+```
+
 `${ARTICLE_TYPE_SLUG}`, `${ANALYSIS_DIR}`, and `${TODAY}` are set by the
 workflow's own Date Context Establishment block (see each `news-*.md` §Date
 Context). Title/description are AI-generated per

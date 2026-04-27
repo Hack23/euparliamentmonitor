@@ -87,6 +87,12 @@ const SAT_LIST_RE = /(?:^|\n)\s*(?:[-*+]|\d+\.)\s+[^\n]+/g; // crude bullet matc
 const MCP_TOOL_RE =
   /\b(get_(?:procedures|adopted_texts|plenary_sessions|voting_records|meps|parliamentary_questions|speeches|committee_documents)|search_(?:documents|code|issues|repositories)|analyze_(?:voting_patterns|coalition_dynamics|country_delegation)|semantic_(?:issues_search|issue_similarity_search)|monitor_legislative_pipeline|track_legislation|track_mep_attendance|generate_political_landscape|early_warning_system|correlate_intelligence)\b/;
 
+const IMF_SOURCE_FIELD_RE =
+  /^\|\s*\*\*IMF Source\*\*\s*\|\s*`?([^`|\]]+?)`?\s*\|/im;
+
+const IMF_FIGURE_CLAIM_RE =
+  /\bIMF\b[\s\S]{0,160}\b\d+(?:\.\d+)?\s*(?:%|pp|percentage points|GDP|EUR|USD|billion|trillion|million)/i;
+
 // Bypass placeholder scan only on template-instruction blocks themselves —
 // NOT on every artifact that happens to link to a methodology document.
 // Matching `methodology` here would suppress placeholder detection for any
@@ -256,6 +262,35 @@ function hasMcpToolReference(content) {
   return MCP_TOOL_RE.test(content);
 }
 
+function isEconomicContextArtifact(relativePath) {
+  return relativePath.replace(/\\/g, '/').endsWith('economic-context.md');
+}
+
+function parseImfSourceField(content) {
+  const match = content.match(IMF_SOURCE_FIELD_RE);
+  if (!match) return null;
+  const raw = match[1].trim().toLowerCase();
+  if (raw.startsWith('live')) return 'live';
+  if (raw.startsWith('cache')) return 'cache';
+  if (raw.startsWith('knowledge-only')) return 'knowledge-only';
+  return raw;
+}
+
+function claimsImfFigures(content) {
+  return IMF_FIGURE_CLAIM_RE.test(content);
+}
+
+function hasImfCacheJson(runDir) {
+  const cacheDir = path.join(runDir, 'cache', 'imf');
+  try {
+    return fs
+      .readdirSync(cacheDir, { withFileTypes: true })
+      .some((entry) => entry.isFile() && entry.name.endsWith('.json'));
+  } catch {
+    return false;
+  }
+}
+
 function dirOfArtifact(relativePath) {
   const norm = relativePath.replace(/\\/g, '/');
   const idx = norm.indexOf('/');
@@ -394,6 +429,16 @@ function validateArtifact({
   ) {
     if (options.strict) result.issues.push('source-diversity:no-evidence-or-mcp-ref');
     else result.warnings.push('source-diversity:no-evidence-or-mcp-ref');
+  }
+  if (isEconomicContextArtifact(relativePath) && claimsImfFigures(content)) {
+    const imfSource = parseImfSourceField(content);
+    if (!imfSource) {
+      result.issues.push('imf-source:missing');
+    } else if (imfSource === 'knowledge-only') {
+      result.issues.push('imf-source:knowledge-only');
+    } else if ((imfSource === 'live' || imfSource === 'cache') && !hasImfCacheJson(runDir)) {
+      result.issues.push('imf-cache:missing');
+    }
   }
 
   return result;
