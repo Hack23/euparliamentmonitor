@@ -1498,7 +1498,7 @@ already secured)
 - ✅ TLS 1.2+/1.3 on all outbound HTTPS to WB and IMF
 - ✅ Local EP MCP via Docker bridge (trust boundary is Docker bridge, not public internet)
 - ✅ Tool-list drift tests: `IMF_MCP_TOOLS` and `WORLD_BANK_MCP_TOOLS` asserted in `test/integration/mcp/*`
-- ✅ WB-or-IMF OR-gate via `articlePolicyHasEconomicContext` — if one source fails, the other satisfies the policy
+- ✅ Stage-C completeness review enforces IMF-or-WB economic-context citation per [`.github/prompts/03-analysis-completeness-gate.md`](.github/prompts/03-analysis-completeness-gate.md) — if one source fails, the other satisfies the editorial policy
 - ✅ `{status:"unavailable"}` envelope handling degrades gracefully when a source is unreachable
 - ✅ `src/utils/html-sanitize.ts` sanitizes every MCP string before rendering
 
@@ -1639,7 +1639,7 @@ already secured)
 | **Risk Score**      | Low-Medium (4/25)                                                  |
 | **Priority**        | P3                                                                 |
 
-**Description:** An upstream breaking change to gh-aw renders the compiled `.lock.yml` artifacts unexecutable (e.g., schema change, runtime-import signature change, executor removal), halting the 10 agentic workflows until recompile + manual bump.
+**Description:** An upstream breaking change to gh-aw renders the compiled `.lock.yml` artifacts unexecutable (e.g., schema change, runtime-import signature change, executor removal), halting the 9 agentic workflows until recompile + manual bump.
 
 **Existing Controls:**
 

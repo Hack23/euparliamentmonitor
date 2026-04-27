@@ -1,3 +1,6 @@
+<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+
 <p align="center">
   <img src="https://hack23.com/icon-192.png" alt="Hack23 Logo" width="192" height="192">
 </p>
@@ -5,457 +8,222 @@
 <h1 align="center">🏛️ EU Parliament Monitor</h1>
 
 <p align="center">
-  <strong>European Parliament Intelligence Platform</strong><br>
-  <em>Monitor political activity with systematic transparency</em>
+  <strong>European Parliament Political Intelligence Platform</strong><br>
+  <em>🧠 Political intelligence · 🔍 Radical transparency · 🗳️ Democratic accountability · 🤖 AI-generated news in 14 languages</em>
+</p>
+
+<p align="center">
+  <a href="https://euparliamentmonitor.com"><img src="https://img.shields.io/badge/🌐_Live_Site-euparliamentmonitor.com-003399?style=for-the-badge&logoColor=FFCC00" alt="Live Site"/></a>
+  <a href="https://euparliamentmonitor.com/political-intelligence.html"><img src="https://img.shields.io/badge/🧠_Political_Intelligence-Hub-7B1FA2?style=for-the-badge" alt="Political Intelligence Hub"/></a>
+  <a href="https://euparliamentmonitor.com/sitemap.html"><img src="https://img.shields.io/badge/🗺️_Site_Map-14_languages-0A66C2?style=for-the-badge" alt="Site Map"/></a>
 </p>
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.0-555?style=for-the-badge" alt="Version"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-success?style=for-the-badge" alt="Classification"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Review-Annual-orange?style=for-the-badge" alt="Review Cycle"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Pipeline-Aggregator_Era-2E7D32?style=for-the-badge" alt="Aggregator Era"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
-
-<table>
-  <tr>
-    <td width="120" align="center">
-      <img src="https://img.shields.io/badge/EU-Parliament-003399?style=for-the-badge&logo=european-union&logoColor=FFCC00" width="80" alt="EU Parliament Monitor"/>
-      <div>
-        <a href="https://github.com/Hack23/euparliamentmonitor">
-          <img src="https://img.shields.io/github/v/release/Hack23/euparliamentmonitor" alt="Release">
-        </a>
-      </div>
-      <div>
-        <a href="https://www.npmjs.com/package/euparliamentmonitor">
-          <img src="https://img.shields.io/npm/v/euparliamentmonitor.svg" alt="npm version">
-        </a>
-      </div>      
-    </td>
-    <td>
-      <p><strong>European Parliament Intelligence Platform</strong> — an automated multi-language news platform that monitors EU Parliament activities with 14-language support, covering plenary sessions, committee reports, propositions, and breaking news.</p>
-      <div>
-        <a href="https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor">
-          <img src="https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge" alt="OpenSSF Scorecard">
-        </a>
-        <a href="https://www.bestpractices.dev/projects/12068">
-          <img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices">
-        </a>
-        <a href="https://github.com/Hack23/euparliamentmonitor/attestations">
-          <img src="https://slsa.dev/images/gh-badge-level3.svg" alt="SLSA 3">
-        </a>
-        <a href="https://github.com/Hack23/euparliamentmonitor/license">
-          <img src="https://img.shields.io/github/license/Hack23/euparliamentmonitor" alt="License">
-        </a>
-      </div>
-      <div>
-        <a href="https://github.com/Hack23/euparliamentmonitor"><strong>📂 Repository</strong></a> •
-        <a href="https://hack23.com/euparliamentmonitor-features.html"><strong>✨ Features</strong></a> •
-        <a href="https://hack23.com/euparliamentmonitor-docs.html"><strong>📚 Documentation</strong></a>
-      </div>
-    </td>
-  </tr>
-</table>
 
 [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge)](https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor)
 [![OpenSSF Best Practices](https://www.bestpractices.dev/projects/12068/badge)](https://www.bestpractices.dev/projects/12068)
 [![SLSA 3](https://slsa.dev/images/gh-badge-level3.svg)](https://github.com/Hack23/euparliamentmonitor/attestations)
-[![News Generation](https://github.com/Hack23/euparliamentmonitor/actions/workflows/news-generation.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/news-generation.yml)
-[![Test and Report](https://github.com/Hack23/euparliamentmonitor/actions/workflows/test-and-report.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/test-and-report.yml)
 [![License](https://img.shields.io/github/license/Hack23/euparliamentmonitor)](https://github.com/Hack23/euparliamentmonitor/blob/main/LICENSE)
 [![ISMS](https://img.shields.io/badge/Hack23-ISMS-blue)](https://github.com/Hack23/ISMS-PUBLIC)
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/Hack23/euparliamentmonitor)
 
-## 📦 Quick Start
-
-```bash
-npm install euparliamentmonitor
-```
-
-```typescript
-import {
-  EuropeanParliamentMCPClient,
-  generateArticleHTML,
-  scoreArticleQuality,
-  ALL_LANGUAGES,
-} from 'euparliamentmonitor';
-```
-
-**Key capabilities:**
-- 🏛️ **EU Parliament MCP Client** — Connect to European Parliament open data via Model Context Protocol
-- 📰 **News Generation** — Generate multi-language articles (14 languages) from parliamentary data
-- 🔍 **Political Intelligence** — Voting anomaly detection, coalition analysis, threat assessment
-- 📊 **Article Quality** — Score and validate generated content with comprehensive quality metrics
-- 🌍 **Multilingual** — Full i18n support: EN, SV, DA, NO, FI, DE, FR, ES, NL, AR, HE, JA, KO, ZH
-
-**Explore the live platform** — [🌐 euparliamentmonitor.com](https://euparliamentmonitor.com) · [🧠 Political Intelligence Hub](https://euparliamentmonitor.com/political-intelligence.html) (methodology + artifact transparency, all 14 languages) · [🗺️ Site Map](https://euparliamentmonitor.com/sitemap.html) (every page, every language) · [📔 API Reference](https://euparliamentmonitor.com/docs/api/index.html)
-
-> 📦 **About this package** — `euparliamentmonitor` is the open-source TypeScript library powering [euparliamentmonitor.com](https://euparliamentmonitor.com), an automated **European Parliament transparency platform** that publishes daily AI-generated, *Economist-style* political-intelligence articles in 14 languages. The package bundles the **EU Parliament MCP client** (60+ open-data tools — plenary sessions, committee reports, voting records, parliamentary questions, adopted texts, procedures, MEPs, declarations), the **deterministic article aggregator** (analysis-artifact → Markdown → HTML, with 14-language hreflang and shared site chrome), the **political-intelligence analytics** (voting-anomaly detection, coalition dynamics, MEP influence scoring, OSINT correlation), and the **multi-language renderer** with WCAG 2.1 AA accessibility, structured data, and SEO-ready sitemap generation. Designed for civic-tech, data-journalism, OSINT, and democratic-transparency use cases. ISO 27001 / NIST CSF 2.0 / CIS Controls v8.1 / GDPR / NIS2 / EU CRA aligned.
-
-> Published with [npm provenance](https://docs.npmjs.com/generating-provenance-statements) for supply chain security. [SLSA Level 3](https://github.com/Hack23/euparliamentmonitor/attestations) build attestations included.
-
-## 🎯 Status Badges
-
-### Workflow Status
-[![News Generation](https://github.com/Hack23/euparliamentmonitor/actions/workflows/news-generation.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/news-generation.yml)
+[![News Generation](https://github.com/Hack23/euparliamentmonitor/actions/workflows/compile-agentic-workflows.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/compile-agentic-workflows.yml)
 [![CodeQL](https://github.com/Hack23/euparliamentmonitor/actions/workflows/codeql.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/codeql.yml)
 [![Test and Report](https://github.com/Hack23/euparliamentmonitor/actions/workflows/test-and-report.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/test-and-report.yml)
-[![Release](https://github.com/Hack23/euparliamentmonitor/actions/workflows/release.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/release.yml)
 [![E2E Tests](https://github.com/Hack23/euparliamentmonitor/actions/workflows/e2e.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/e2e.yml)
-[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge)](https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor)
+[![Release](https://github.com/Hack23/euparliamentmonitor/actions/workflows/release.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/release.yml)
 
-### Documentation & Reports
-[![API Docs](https://img.shields.io/badge/API-Documentation-blue?logo=javascript)](https://euparliamentmonitor.com/docs/api/index.html)
-[![Coverage](https://img.shields.io/badge/Coverage-82%25-green?logo=vitest)](https://euparliamentmonitor.com/docs/coverage/index.html)
-[![E2E Report](https://img.shields.io/badge/E2E-Report-purple?logo=playwright)](https://euparliamentmonitor.com/playwright-report/index.html)
-[![SLSA 3](https://img.shields.io/badge/SLSA-Level%203-brightgreen?logo=github)](https://github.com/Hack23/euparliamentmonitor/attestations)
+---
 
-## 🌐 Live Site — Explore the Platform
+## 🎯 Why This Exists
 
-The published platform at **[euparliamentmonitor.com](https://euparliamentmonitor.com)** is the audience-facing companion to this npm package. Two hub pages give the fastest entry into the daily output and the underlying tradecraft:
+The European Parliament adopts laws that affect **450 million citizens** across 27 member states. Yet most of what happens in Brussels and Strasbourg — committee dossiers, rapporteur appointments, coalition trade-offs, amendment battles, urgency files, trilogue dynamics — remains effectively invisible to the public. Press coverage is sparse, fragmented across national outlets, and rarely connects the procedural dots.
+
+**EU Parliament Monitor turns the EP's own open data into auditable political intelligence — and publishes it as readable news in 14 languages, every day, fully sourced.**
+
+This repository is the open-source platform behind **[euparliamentmonitor.com](https://euparliamentmonitor.com)**: an AI-driven newsroom that monitors plenary sessions, committee work, motions, propositions, and forward-calendar events; produces *Economist-style* analytical articles backed by 51 structured analysis artifacts per run; and exposes **every** methodology, template, and analysis tree publicly so any reader, journalist, researcher, or NGO can verify the analysis behind the prose.
+
+| Pillar | What it means in this project |
+|---|---|
+| 🧠 **Political Intelligence** | Structured analytic techniques (ACH, SWOT/TOWS, PESTLE, scenario forecasting, devil's-advocate), Admiralty source grading, Words of Estimative Probability (WEP) bands, ICD-203 standards, and a 6-dimension political-threat framework — applied daily to live EP data. |
+| 🔍 **Radical Transparency** | Every article links back to the analysis run it was rendered from. Every artifact links to its methodology. Every methodology is published. No black box. |
+| 🗳️ **Democratic Accountability** | Public-data only. GDPR-clean. No personal profiling. Multi-language so a Finnish farmer, a Greek student, and a Polish journalist all get the same intelligence in their own language. |
+| 🤖 **AI-Generated News** | 8 unified gh-aw agentic workflows + 1 translation workflow run autonomously, produce structured analysis, render deterministic HTML, and open publication-ready pull requests for human review. |
+
+---
+
+## 🌐 Explore the Live Platform
+
+The published site is the audience-facing companion to this npm/TypeScript package. **Two hub pages give the fastest entry point** — bookmark them:
 
 <table>
   <tr>
-    <td width="120" align="center" valign="top">
-      <a href="https://euparliamentmonitor.com/political-intelligence.html"><img src="https://img.shields.io/badge/🧠-Political%20Intelligence-003399?style=for-the-badge&logoColor=FFCC00" alt="Political Intelligence Hub"/></a>
+    <td width="140" align="center" valign="top">
+      <a href="https://euparliamentmonitor.com/index.html"><img src="https://img.shields.io/badge/🌐-Live_Site-003399?style=for-the-badge&logoColor=FFCC00" alt="Live Site"/></a>
     </td>
     <td>
-      <strong><a href="https://euparliamentmonitor.com/political-intelligence.html">🧠 Political Intelligence Hub</a></strong><br>
-      Audit-ready transparency layer behind every published article. Indexes the <strong>10-step AI-driven analysis protocol</strong>, the <strong>39 artifact templates</strong>, the per-artifact <strong>methodologies</strong> (BLUF, Admiralty WEP source-grading, SAT, Heuer's ACH, OSINT tradecraft), and links every run-level artifact under <code>analysis/daily/&lt;date&gt;/&lt;slug&gt;/</code> directly to GitHub so readers can <em>verify the analysis behind the prose</em>. Available in all 14 supported languages.
+      <strong><a href="https://euparliamentmonitor.com/index.html">🌐 Live News Site — euparliamentmonitor.com</a></strong><br>
+      Daily-updated front page with the latest <em>Breaking News</em>, <em>Week / Month Ahead</em>, <em>Week / Month in Review</em>, <em>Committee Reports</em>, <em>Plenary Votes &amp; Resolutions</em>, and <em>Legislative Procedures</em> articles. Every article is generated by an AI agent from live European Parliament MCP data, peer-reviewed against a 51-artifact analytical baseline, and published in <strong>14 languages</strong> (EN, SV, DA, NO, FI, DE, FR, ES, NL, AR, HE, JA, KO, ZH) with WCAG 2.1 AA accessibility, RTL support for Arabic and Hebrew, and JSON-LD <code>NewsArticle</code> structured data linking back to every source artifact.
     </td>
   </tr>
   <tr>
-    <td width="120" align="center" valign="top">
-      <a href="https://euparliamentmonitor.com/sitemap.html"><img src="https://img.shields.io/badge/🗺️-Site%20Map-0A66C2?style=for-the-badge&logoColor=FFCC00" alt="Site Map"/></a>
+    <td width="140" align="center" valign="top">
+      <a href="https://euparliamentmonitor.com/political-intelligence.html"><img src="https://img.shields.io/badge/🧠-Political_Intelligence-7B1FA2?style=for-the-badge&logoColor=FFCC00" alt="Political Intelligence Hub"/></a>
     </td>
     <td>
-      <strong><a href="https://euparliamentmonitor.com/sitemap.html">🗺️ Site Map</a></strong><br>
-      Human-readable index of <strong>every page</strong> on the platform — landing pages, news articles, and technical documentation — across all <strong>14 languages</strong> (EN, SV, DA, NO, FI, DE, FR, ES, NL, AR, HE, JA, KO, ZH). Best starting point for SEO crawlers, audience navigation, and discovering the latest articles. Companion to the machine-readable <code>sitemap.xml</code> and per-language <code>sitemap_&lt;lang&gt;.html</code> variants.
+      <strong><a href="https://euparliamentmonitor.com/political-intelligence.html">🧠 Political Intelligence Hub</a></strong><br>
+      The audit-ready transparency layer behind every published article. A single, fully-linked index into <strong>17 methodologies</strong>, <strong>52 analysis templates</strong>, <strong>19 tradecraft references</strong>, and over <strong>170 daily analysis runs</strong> producing <strong>1,700+ structured artifacts</strong> — including the <em>10-step AI-driven analysis protocol</em>, OSINT tradecraft standards (Admiralty / WEP / SAT / ACH), the political-threat framework, the political SWOT framework, and the per-artifact construction rules. Every link opens directly on GitHub so readers can <em>verify the analysis behind the prose</em>. Available in all 14 supported languages.
+    </td>
+  </tr>
+  <tr>
+    <td width="140" align="center" valign="top">
+      <a href="https://euparliamentmonitor.com/sitemap.html"><img src="https://img.shields.io/badge/🗺️-Site_Map-0A66C2?style=for-the-badge&logoColor=FFCC00" alt="Site Map"/></a>
+    </td>
+    <td>
+      <strong><a href="https://euparliamentmonitor.com/sitemap.html">🗺️ Human-Readable Site Map</a></strong><br>
+      Index of <strong>every page</strong> on the platform — landing pages, news articles, and technical documentation — across all 14 languages. Best entry point for SEO crawlers, audience navigation, and discovering historical articles. Companion to the machine-readable <code>sitemap.xml</code> and per-language <code>sitemap_&lt;lang&gt;.html</code> variants.
+    </td>
+  </tr>
+  <tr>
+    <td width="140" align="center" valign="top">
+      <a href="https://euparliamentmonitor.com/docs/api/index.html"><img src="https://img.shields.io/badge/📔-API_Reference-2E7D32?style=for-the-badge" alt="API Reference"/></a>
+    </td>
+    <td>
+      <strong><a href="https://euparliamentmonitor.com/docs/api/index.html">📔 TypeDoc API Reference</a></strong><br>
+      TypeDoc-generated reference for every public symbol in the <code>euparliamentmonitor</code> npm package — the EP MCP client (60+ tools), the deterministic article aggregator, the 5-tier metadata resolver, and the multi-language renderer. Companion <a href="https://euparliamentmonitor.com/docs/coverage/index.html">📓 Test Coverage</a> and <a href="https://euparliamentmonitor.com/playwright-report/index.html">🎭 E2E Report</a> dashboards are linked from the same documentation hub.
     </td>
   </tr>
 </table>
 
-## 📚 Documentation Hub
+---
 
-**📖 Quick Links:**
-- [🌐 Live Site](https://euparliamentmonitor.com) - Public news platform (14 languages, daily AI-generated articles)
-- [🧠 Political Intelligence Hub](https://euparliamentmonitor.com/political-intelligence.html) - Methodology + artifact transparency layer
-- [🗺️ Site Map](https://euparliamentmonitor.com/sitemap.html) - All pages across all 14 languages
-- [📘 Architecture Documentation](SECURITY_ARCHITECTURE.md) - Complete security architecture with C4 diagrams
-- [📗 Security Flows](FLOWCHART.md) - Process flows with security controls
-- [📙 Data Model](DATA_MODEL.md) - Data structures and API integration
-- [📕 Release Process](docs/RELEASE_PROCESS.md) - How to create releases
-- [📔 API Documentation](https://euparliamentmonitor.com/docs/api/index.html) - TypeDoc-generated API reference
-- [📓 Test Coverage](https://euparliamentmonitor.com/docs/coverage/index.html) - Interactive coverage report
+## 🧠 The Political Intelligence Pipeline
 
-**🤖 Agentic Pipeline:**
-- [Agent Catalog](.github/agents/README.md) — custom Copilot agents (analysis producers / consumers / gh-aw infrastructure)
-- [Skills Library](.github/skills/README.md) — shared skills (security, compliance, intelligence, gh-aw)
-- [Prompt Library](.github/prompts/README.md) — 10-file bounded-context prompt set (`00`→`09`) + `npm run lint:prompts` drift-guard
-- [Workflows](.github/workflows/README.md) + [WORKFLOWS.md](WORKFLOWS.md) — 9 `news-*.md` agentic workflows (8 unified `news-<type>.md` + `news-translate.md`) + CI workflows
-- [Analysis Chain](analysis/README.md) — 5-stage pipeline (Data → Analysis → Completeness Gate → Article → Single PR), methodologies, 39 templates, quality thresholds
+Every article published on euparliamentmonitor.com is the deterministic render of an **analysis run** — a directory under `analysis/daily/<YYYY-MM-DD>/<article-type>/` containing structured Markdown artifacts (drawn from a **51-template catalog**: 39 core mandatory + 12 extended optional) plus raw EP MCP / IMF / World Bank data payloads. The pipeline is split into five well-defined stages:
 
-**🔒 ISMS Compliance:**
-- [🛡️ Hack23 ISMS Framework](https://github.com/Hack23/ISMS-PUBLIC) - Information Security Management System
-- [🔐 Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) - Development standards
-- [📋 Classification Framework](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) - CIA triad classification
-
-## Current Status
-
-**MCP Server Integration**: The project uses the
-[European-Parliament-MCP-Server](https://github.com/Hack23/European-Parliament-MCP-Server)
-v1.2.15 for accessing real EU Parliament data via the Model Context Protocol.
-
-- **MCP Server Status**: ✅ Fully operational — 60+ EP data tools available
-  (feeds, direct lookups, analytical tools, intelligence correlation)
-- **Agentic Workflows**: 9 unified gh-aw markdown workflows — 8 article types (`news-<type>.md`, Stages A → B → C → D → E in one session) + `news-translate.md` (14-language flush translation) — compiled with
-  `gh-aw v0.69.3` (pin in `.github/workflows/compile-agentic-workflows.yml`) to `.lock.yml` for automated news generation with AI-driven political
-  intelligence analysis. See [`.github/workflows/README.md`](.github/workflows/README.md).
-- **Analysis-Artifact-Driven Article Pipeline**: Agents author the full
-  Stage-B analysis-artifact set (`analysis/daily/<date>/<slug>/`, 39
-  structured templates per run; repeat same-day runs reuse the folder and
-  append to `manifest.json.history[]`) and commit it; the deterministic aggregator
-  (`src/aggregator/**`, invoked via
-  `npm run generate-article -- --run <analysis-run-dir>` or
-  `npm run generate-article:all` for batch regen) then walks `manifest.json`,
-  cleans each artifact, and emits the final Markdown source + HTML with the
-  shared site chrome (stacked header + embedded 14-language switcher + TOC
-  sidebar + footer stats) and 14-language `<link rel="alternate" hreflang>`
-  entries. There is no AI-authored HTML step; article quality is guaranteed
-  editorially at the Stage-C completeness review over the artifact markdown.
-  See [`analysis/README.md`](analysis/README.md) and
-  [`analysis/methodologies/ai-driven-analysis-guide.md`](analysis/methodologies/ai-driven-analysis-guide.md).
-- **Fallback Mode**: News generation can work with reduced data when EP API
-  endpoints are temporarily unavailable
-- **Environment Variable**: Set `USE_EP_MCP=false` to disable MCP client
-  connection attempts
-
-EU Parliament Monitor is an automated news generation platform that monitors
-European Parliament activities and generates multi-language news articles
-covering:
-
-- **Week Ahead**: Preview of upcoming parliamentary events and committee
-  meetings
-- **Committee Reports**: Analysis of committee activities and decisions
-- **Propositions**: Government and parliamentary legislative proposals
-- **Motions**: Parliamentary motions and resolutions
-- **Breaking News**: Rapid-response coverage of significant developments
-
-## Features
-
-- 📰 **Automated News Generation**: Generate news articles about EU Parliament
-  activities
-- 🌍 **Multi-Language Support**: 14 languages including English, Swedish, German,
-  French, Spanish, Arabic, Japanese, and more
-- 📅 **Week Ahead Coverage**: Preview upcoming parliamentary events
-- 🤖 **GitHub Actions Integration**: Automated daily news generation
-- 📊 **SEO Optimized**: Proper metadata, structured data, and sitemap generation
-- ✅ **Code Quality**: ESLint, Prettier, and automated quality gates
-- 🌐 **IMF-grade Economic Context**: IMF-primary citations are the
-  editorial standard for every policy article — see
-  [`analysis/imf/README.md`](analysis/imf/README.md) and
-  [`analysis/methodologies/imf-indicator-mapping.md`](analysis/methodologies/imf-indicator-mapping.md).
-  World Bank is retained only for non-economic indicators (health,
-  education, social, environment, demographics, defence, agriculture,
-  innovation, governance).
-
-## 🔒 Security Architecture
-
-EU Parliament Monitor implements **security-by-design** with comprehensive
-security controls and ISMS compliance.
-
-### Security Documentation
-
-- 📋 **[Security Architecture](SECURITY_ARCHITECTURE.md)** - Complete security
-  implementation overview with C4 diagrams, threat model, and compliance mapping
-- 🚀 **[Future Security Architecture](FUTURE_SECURITY_ARCHITECTURE.md)** -
-  Security enhancement roadmap (2026-2027)
-- 📊 **[Data Model](DATA_MODEL.md)** - Data structures and European Parliament
-  API integration
-- 📈 **[Security Flowcharts](FLOWCHART.md)** - Detailed process flows with
-  security controls
-
-### Security Posture
-
-**Project Classification** (per
-[ISMS Classification Framework](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) and
-[Open Source Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md)):
-
-- **Confidentiality**: Public (Level 1) - European Parliament open data
-- **Integrity**: Medium (Level 2) - News accuracy critical for democratic
-  transparency
-- **Availability**: Medium (Level 2) - Daily updates expected, 24h RTO acceptable
-- **RTO**: 24 hours | **RPO**: 1 day (daily generation schedule)
-- **Business Impact**: Low financial, Medium operational, Medium reputational
-- **Strategic Value**: Democratic transparency, open civic technology leadership
-
-**Key Security Controls**:
-
-- ✅ **Minimal Attack Surface**: Static site, no databases, no server-side
-  execution
-- ✅ **Automated Security**: CodeQL SAST, Dependabot SCA, npm audit
-- ✅ **Supply Chain Security**: SHA-pinned GitHub Actions, SBOM generation
-- ✅ **Input Validation**: Multi-layer XSS prevention, HTML sanitization
-- ✅ **Infrastructure Security**: GitHub-hosted ephemeral runners, HTTPS
-  enforcement
-- ✅ **Compliance**: ISO 27001, GDPR, NIS2, EU CRA aligned
-
-**Security Metrics**:
-
-- Zero known vulnerabilities (npm audit clean)
-- 82%+ code coverage with security tests
-- 100% dependency scanning coverage
-- 0 CodeQL critical/high findings
-
-### ISMS Alignment
-
-This project follows
-[Hack23 ISMS Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md):
-
-- ✅ Security architecture documentation (C4 models with Mermaid)
-- ✅ Threat modeling (STRIDE analysis)
-- ✅ Security testing (SAST, SCA, unit tests)
-- ✅ Compliance mapping (ISO 27001, GDPR, NIS2)
-
-## 🤝 Community & Governance
-
-EU Parliament Monitor is an open source project with transparent governance and community standards.
-
-### Open Source Standards
-
-- **[Contributing Guide](CONTRIBUTING.md)** - Development workflow, code standards, and contribution guidelines
-- **[Code of Conduct](CODE_OF_CONDUCT.md)** - Community standards based on Contributor Covenant 2.1
-- **[Security Policy](SECURITY.md)** - Vulnerability disclosure and security practices
-- **[Authors & Contributors](AUTHORS.md)** - Recognition of project contributors
-- **[License](LICENSE)** - Apache License 2.0 full text
-
-### Community Channels
-
-- **GitHub Issues**: Bug reports and feature requests
-- **GitHub Discussions**: Questions and community discussion
-- **Security**: [security@hack23.com](mailto:security@hack23.com) for vulnerability reports
-- **Conduct**: [conduct@hack23.com](mailto:conduct@hack23.com) for Code of Conduct issues
-
-### Governance Compliance
-
-This project adheres to:
-- ✅ **OpenSSF Best Practices**: Following CII Best Practices criteria
-- ✅ **ISMS Compliance**: Aligned with Hack23 ISMS policies
-- ✅ **Transparent Development**: Public repository, open discussions
-- ✅ **Security First**: Comprehensive security disclosure policy
-
-## Code Quality & Testing
-
-EU Parliament Monitor maintains high code quality standards with comprehensive
-testing:
-
-### Code Quality
-
-- **ESLint**: Comprehensive linting with security, complexity, and documentation
-  checks
-- **Prettier**: Consistent code formatting across all JavaScript files
-- **Pre-commit Hooks**: Automatic linting and formatting before every commit
-- **CI/CD Quality Gates**: Automated checks on every pull request
-- **TypeDoc/JSDoc**: Complete documentation for all functions
-
-**Code Standards**: See [docs/CODE_STANDARDS.md](docs/CODE_STANDARDS.md) for
-detailed coding guidelines.
-
-### Testing Infrastructure
-
-Comprehensive test suite with **Vitest** and **Playwright** covering all
-functionality:
-
-#### Unit & Integration Tests (Vitest)
-
-- **Unit Tests**: Article generation, MCP client, index/sitemap generation
-- **Integration Tests**: Full workflows, MCP integration, multi-language support
-- **Coverage**: ≥80% line coverage, ≥75% branch coverage
-- **Test Count**: 169+ tests covering critical paths
-
-```bash
-# Run unit & integration tests
-npm test
-
-# Run with coverage
-npm run test:coverage
-
-# Run tests in watch mode
-npm run test:watch
-
-# Run with UI (browser interface)
-npm run test:ui
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#fff","lineColor":"#90CAF9","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
+flowchart LR
+    A["🔵 Stage A<br/>EP MCP data collection<br/><i>60+ tools, IMF, World Bank</i>"] --> B["🟣 Stage B<br/>AI political intelligence<br/><i>51 artifacts · 2-pass review</i>"]
+    B --> C["🟡 Stage C<br/>Completeness gate<br/><i>line floors · WEP · Admiralty</i>"]
+    C --> D["🟢 Stage D<br/>Deterministic aggregator<br/><i>npm run generate-article</i>"]
+    D --> E["🔷 Markdown source<br/>news/*.en.md"]
+    D --> F["🟢 14-language HTML<br/>news/*-{lang}.html"]
+    F --> G["🟠 SEO indexes<br/>sitemap · RSS · JSON-LD"]
+    G --> H["🟢 S3 + CloudFront<br/>euparliamentmonitor.com"]
+    style A fill:#1565C0,color:#fff
+    style B fill:#7B1FA2,color:#fff
+    style C fill:#FFC107,color:#000
+    style D fill:#2E7D32,color:#fff
+    style E fill:#0288D1,color:#fff
+    style F fill:#2E7D32,color:#fff
+    style G fill:#FF9800,color:#000
+    style H fill:#2E7D32,color:#fff
 ```
 
-#### End-to-End Tests (Playwright)
+**Critical architectural property:** AI agents author *analysis artifacts in Markdown* — never HTML. TypeScript code under `src/aggregator/**` deterministically renders the committed artifacts into HTML. There is no AI-authored HTML step and no template-prose leakage. This is what makes the public output reproducible, auditable, and resistant to hallucination.
 
-- **E2E Tests**: Complete user experience validation
-- **Cross-Browser**: Chromium, Firefox, WebKit
-- **Mobile Support**: Mobile Chrome, Mobile Safari
-- **Accessibility**: WCAG 2.1 AA compliance with axe-core
-- **Responsive Design**: Multiple viewport sizes
-- **Test Count**: 60+ E2E tests covering user journeys
+📖 **Full pipeline reference:** [Article-Generation.md](Article-Generation.md) · [analysis/README.md](analysis/README.md) · [analysis/methodologies/ai-driven-analysis-guide.md](analysis/methodologies/ai-driven-analysis-guide.md)
 
-```bash
-# Run E2E tests
-npm run test:e2e
+### 📚 The Methodology Library — published, versioned, auditable
 
-# Run with UI (interactive)
-npm run test:e2e:ui
+| Methodology | Purpose |
+|---|---|
+| 🎯 **[AI-Driven Analysis Guide](analysis/methodologies/ai-driven-analysis-guide.md)** | The canonical 10-step protocol every agentic run follows (Rules 1–22 + Step 10.5 methodology reflection). |
+| 🗂️ **[Artifact Catalog](analysis/methodologies/artifact-catalog.md)** | Master map: every artifact → methodology + template + depth floor + Mermaid diagram type. |
+| 🔬 **[Per-Artifact Methodologies](analysis/methodologies/per-artifact-methodologies.md)** | 34 sections — one per artifact type — with construction rules and quality signals. |
+| 🕵️ **[OSINT Tradecraft Standards](analysis/methodologies/osint-tradecraft-standards.md)** | ICD-203 standards · Admiralty source grades · Kent / WEP probability bands · SAT catalog · OSINT ethics. |
+| 🏷️ **[Political Classification Guide](analysis/methodologies/political-classification-guide.md)** | 7-dimension EP event classification (actors, stances, urgency, policy domain, risk surface). |
+| ⚖️ **[Political Risk Methodology](analysis/methodologies/political-risk-methodology.md)** | Quantitative 5×5 Likelihood × Impact scoring adapted from the Hack23 ISMS. |
+| 🧮 **[Political SWOT Framework](analysis/methodologies/political-swot-framework.md)** | Evidence-based SWOT/TOWS with ≥80-word depth floor per quadrant item. |
+| 🛡️ **[Political Threat Framework](analysis/methodologies/political-threat-framework.md)** | 5-framework integrated model: 6D Threat Landscape + Attack Trees + Kill Chain + Diamond + ICO Profiling. STRIDE explicitly rejected for political analysis. |
+| 🔗 **[Synthesis Methodology](analysis/methodologies/synthesis-methodology.md)** | Stage B.7 significance scoring → synthesis summary → stakeholder perspectives → coalition dynamics → executive brief. |
+| 🌍 **[Strategic Extensions](analysis/methodologies/strategic-extensions-methodology.md)** | Scenario forecasts, ACH (Heuer), wildcards & black swans, comparative international, intelligence assessment. |
+| 🗳️ **[Electoral Domain Methodology](analysis/methodologies/electoral-domain-methodology.md)** | EP10/EP11 electoral context, coalition mathematics (361-seat threshold), voter segmentation. |
+| 📐 **[Per-Document Methodology](analysis/methodologies/per-document-methodology.md)** | Atomic evidence-layer methodology for individual EP documents. |
+| 🧾 **[Structural Metadata Methodology](analysis/methodologies/structural-metadata-methodology.md)** | Provenance, `manifest.json`, cross-reference maps, GDPR Article 30 compliance. |
+| ✍️ **[Political Style Guide](analysis/methodologies/political-style-guide.md)** | The Economist-inspired tone, balance, attribution rules, multi-language considerations. |
+| 💰 **[IMF Indicator Mapping](analysis/methodologies/imf-indicator-mapping.md)** | IMF WEO/Fiscal Monitor/IFS/BOP/ER/PCPS → EP article-type primary economic source. |
+| 🌱 **[World Bank Indicator Mapping](analysis/methodologies/worldbank-indicator-mapping.md)** | Non-economic World Bank Open Data indicators (health, education, environment, governance, innovation). |
+| 📏 **[Reference Quality Thresholds](analysis/methodologies/reference-quality-thresholds.json)** | Per-artifact line-count floors enforced at the Stage-C completeness gate. |
 
-# Run in headed mode (see browser)
-npm run test:e2e:headed
+> 🔍 **Browse all 17 methodologies, 52 templates, 19 tradecraft references, and 1,700+ artifacts produced across 170+ daily analysis runs** on the [Political Intelligence Hub](https://euparliamentmonitor.com/political-intelligence.html).
 
-# View test report
-npm run test:e2e:report
-```
+---
 
-**Testing Documentation**:
+## 📰 Live News Streams
 
-- [test/README.md](test/README.md) - Unit & integration tests
-- [e2e/README.md](e2e/README.md) - E2E testing guide
+**Eight unified gh-aw article workflows** plus a **14-language translation helper** run on precision schedules, autonomously generating *Economist-style* political intelligence and opening publication-ready pull requests. Every workflow follows the same Stage A → E contract documented in [Article-Generation.md](Article-Generation.md).
 
-## Custom Agents
+| Workflow | Article Type | Focus |
+|----------|--------------|-------|
+| 🚨 **[news-breaking.md](.github/workflows/news-breaking.md)** | `breaking` | Rapid-response coverage of significant EP developments. |
+| 📋 **[news-week-ahead.md](.github/workflows/news-week-ahead.md)** | `week-ahead` | Forward calendar, committee agenda, urgency-file outlook. |
+| 🔭 **[news-month-ahead.md](.github/workflows/news-month-ahead.md)** | `month-ahead` | 30-day strategic horizon and risk forecast. |
+| 📊 **[news-week-in-review.md](.github/workflows/news-week-in-review.md)** | `week-in-review` | Past-week retrospective intelligence (D-8 → D-36 reporting window). |
+| 📈 **[news-month-in-review.md](.github/workflows/news-month-in-review.md)** | `month-in-review` | Monthly retrospective with cross-run continuity analysis. |
+| 🏛️ **[news-committee-reports.md](.github/workflows/news-committee-reports.md)** | `committee-reports` | Committee activity, rapporteur work, legislative-production analysis. |
+| ⚖️ **[news-motions.md](.github/workflows/news-motions.md)** | `motions` | Plenary motions, resolutions, urgency files, political signals. |
+| 📜 **[news-propositions.md](.github/workflows/news-propositions.md)** | `propositions` | Legislative proposals and pipeline analysis. |
+| 🌍 **[news-translate.md](.github/workflows/news-translate.md)** | translation helper | 14-language flush translation (manual dispatch only). |
 
-EU Parliament Monitor includes **8 specialized GitHub Copilot custom agents** to
-streamline development:
+Each unified workflow runs Stages A–E **in a single 45-minute session** and produces exactly one PR containing both the analysis artifacts and the rendered HTML. The earlier split-pair `news-<type>-analysis.md` + `news-<type>-article.md` layout was retired in the April-2026 aggregator migration. See **[.github/workflows/README.md](.github/workflows/README.md)** for compile / lock-file / safe-output mechanics, and **[WORKFLOWS.md](WORKFLOWS.md)** for the full CI/CD catalog.
 
-- 🤖 **[product-task-agent](.github/agents/product-task-agent.md)** - Product
-  specialist for issue creation and coordination
-- 📰 **[news-journalist](.github/agents/news-journalist.md)** - The
-  Economist-style European Parliament reporting
-- 🎨 **[frontend-specialist](.github/agents/frontend-specialist.md)** -
-  HTML5/CSS3/WCAG 2.1 AA UI/UX expert
-- 🔄
-  **[data-pipeline-specialist](.github/agents/data-pipeline-specialist.md)** -
-  European Parliament MCP integration expert
-- ⚙️ **[devops-engineer](.github/agents/devops-engineer.md)** - CI/CD and GitHub
-  Actions automation
-- 🔒 **[security-architect](.github/agents/security-architect.md)** - ISMS,
-  GDPR, NIS2 compliance expert
-- 📚 **[documentation-architect](.github/agents/documentation-architect.md)** -
-  C4 models and architecture docs
-- ✅ **[quality-engineer](.github/agents/quality-engineer.md)** - Testing,
-  validation, and accessibility
+> 📚 **Prompt Library (`.github/prompts/`)** — 10 bounded-context prompt files (`00-scope-and-ground-rules.md` → `09-troubleshooting.md`) shared across every workflow. The `npm run lint:prompts` drift-guard fails CI on banned patterns (`checkpoint pr`, `keep-alive`, `heartbeat`, `progressive safe output`, `push_repo_memory`).
 
-**Usage Example**:
+---
 
-```bash
-# Use product-task-agent to analyze repository and create improvement issues
-@product-task-agent analyze the multi-language support and create issues for any gaps
+## 🤖 Agent Catalog
 
-# Use news-journalist to generate content
-@news-journalist create a week-ahead article for the upcoming plenary session
+EU Parliament Monitor uses a layered agent model: a small set of **product-domain agents** owns the news pipeline, while **infrastructure agents** maintain workflows, contributions, and CI hygiene.
 
-# Use frontend-specialist for UI improvements
-@frontend-specialist make the language switcher fully keyboard accessible
-```
+### Product-domain agents (own the news critical path)
 
-**Learn More**: See [Custom Agents Documentation](.github/agents/README.md) for
-detailed agent capabilities, usage patterns, and examples.
+| Agent | Role |
+|---|---|
+| 🕵️ **[intelligence-operative](.github/agents/intelligence-operative.md)** | Senior political intelligence analyst — applies ACH, SWOT, PESTLE, OSINT tradecraft, threat framework. Owns Stage-B analysis artifacts. |
+| 📰 **[news-journalist](.github/agents/news-journalist.md)** | The Economist-style EP reporting in 14 languages. Authors editorial prose only when analysis artifacts are signed off. |
+| 🔄 **[data-pipeline-specialist](.github/agents/data-pipeline-specialist.md)** | EP MCP integration (60+ tools), data quality, voting-records fallback to EP Open Data Portal. |
+| 🎨 **[frontend-specialist](.github/agents/frontend-specialist.md)** | HTML5/CSS3, WCAG 2.1 AA accessibility, multi-language UI, RTL support. |
+| ✅ **[quality-engineer](.github/agents/quality-engineer.md)** | Vitest + Playwright, HTML validation, accessibility testing, performance benchmarking. |
+| ⚙️ **[devops-engineer](.github/agents/devops-engineer.md)** | gh-aw workflow compilation, GitHub Actions, S3/CloudFront deploy, MCP gateway. |
+| 📚 **[documentation-architect](.github/agents/documentation-architect.md)** | C4 models, Mermaid diagrams, ARCHITECTURE.md, ADRs. |
+| 🛡️ **security-architect** *(see [SECURITY.md](SECURITY.md))* | ISMS, GDPR, NIS2, EU CRA compliance — reviews data classification of intelligence products. |
+| 📋 **[product-task-agent](.github/agents/product-task-agent.md)** | Issue creation, ISMS tracking, capability-roadmap coordination. |
+| 📣 **[marketing-specialist](.github/agents/marketing-specialist.md)** | Privacy-first multi-language engagement, GDPR-compliant outreach. |
+| 💼 **[business-development-specialist](.github/agents/business-development-specialist.md)** | Strategic planning, civic-tech partnerships, sustainable transparency models. |
 
-## Languages Supported
+### Infrastructure agents (maintain workflows and CI hygiene)
 
-- **Nordic**: English (en), Swedish (sv), Danish (da), Norwegian (no), Finnish (fi)
-- **EU Core**: German (de), French (fr), Spanish (es), Dutch (nl)
-- **Middle East**: Arabic (ar), Hebrew (he)
-- **East Asia**: Japanese (ja), Korean (ko), Chinese (zh)
+`agentic-workflows.agent.md`, `news-generation.agent.md`, `ci-cleaner.agent.md`, `contribution-checker.agent.md`, `create-safe-output-type.agent.md`, `custom-engine-implementation.agent.md`, `grumpy-reviewer.agent.md`, `interactive-agent-designer.agent.md`, `technical-doc-writer.agent.md`, `w3c-specification-writer.agent.md`. See [.github/agents/README.md](.github/agents/README.md).
 
-## Requirements
+---
 
-- **Node.js**: Version 25 or higher
-- **npm**: Version 10 or higher (comes with Node.js 25)
-- **Git**: For cloning the repository
-
-You can verify your Node.js version with:
-```bash
-node --version  # Should be v25.x.x or higher
-npm --version   # Should be 10.x.x or higher
-```
-
-## Installation
-
-### As an npm Package
+## 📦 Quick Start (npm package)
 
 ```bash
 npm install euparliamentmonitor
 ```
 
-### TypeScript / ES Module Usage
-
 ```typescript
 import {
-  // MCP Client for EU Parliament data
+  // EP MCP client (60+ open-data tools)
   EuropeanParliamentMCPClient,
   getEPMCPClient,
-  // Intelligence index (cross-article relationships)
-  buildIndexFromEntries,
-  findRelatedArticles,
-  generateCrossReferences,
-  // Article generation (aggregator pipeline)
+  // Article generation (deterministic aggregator pipeline)
   generateArticle,
   aggregateAnalysisRun,
   renderMarkdown,
-  // Multi-language support (14 languages)
+  // Cross-article intelligence index
+  buildIndexFromEntries,
+  findRelatedArticles,
+  generateCrossReferences,
+  // Multi-language support (14 languages, RTL aware)
   ALL_LANGUAGES,
   LANGUAGE_NAMES,
 } from 'euparliamentmonitor';
@@ -465,737 +233,204 @@ import { EuropeanParliamentMCPClient } from 'euparliamentmonitor/mcp/ep-mcp-clie
 import type { ArticleCategory, LanguageCode } from 'euparliamentmonitor/types';
 ```
 
-### From Source (Development)
+**Bundled capabilities:**
+
+- 🏛️ **EU Parliament MCP Client** — 60+ tools covering plenary sessions, committee reports, voting records, parliamentary questions, adopted texts, procedures, MEPs, and declarations, with built-in fallback to the EP Open Data Portal `/api/v2/decision` endpoint when MCP returns empty voting payloads.
+- 📰 **Deterministic Article Aggregator** — walks `manifest.json`, cleans each artifact, renders Markdown source + 14 HTML variants with full SEO chrome, JSON-LD `NewsArticle`, hreflang alternates, and `isBasedOn` provenance lists.
+- 🔍 **Political Intelligence Analytics** — voting-anomaly detection, coalition dynamics, MEP influence scoring, OSINT correlation (5-framework threat model).
+- 🌍 **14-Language Renderer** — EN, SV, DA, NO, FI, DE, FR, ES, NL, AR (RTL), HE (RTL), JA, KO, ZH — with WCAG 2.1 AA accessibility and shared site chrome.
+
+> 📦 **Provenance:** Published with [npm provenance](https://docs.npmjs.com/generating-provenance-statements) and [SLSA Level 3](https://github.com/Hack23/euparliamentmonitor/attestations) build attestations.
+
+---
+
+## 🔌 Data Sources
+
+**Primary — European Parliament MCP Server** ([Hack23/European-Parliament-MCP-Server](https://github.com/Hack23/European-Parliament-MCP-Server) v1.2.15+, fully operational):
+
+- 🗳️ Plenary sessions, voting records, roll-call votes
+- 📜 Adopted texts, motions, resolutions, urgency files
+- 🏛️ Committee meetings, reports, opinions, hearings
+- 👥 MEPs (active, incoming, outgoing, homonym), declarations of financial interests
+- ❓ Parliamentary questions (written/oral)
+- 📂 Procedures, plenary documents, external documents, controlled vocabularies
+- 📊 Analytical tools: voting patterns, coalition dynamics, MEP influence, network analysis, sentiment tracker, early warning system, intelligence correlation
+
+**Secondary — public economic & social context:**
+
+- 💰 **IMF** (primary economic source per the [IMF Indicator Mapping](analysis/methodologies/imf-indicator-mapping.md)) — World Economic Outlook (WEO), Fiscal Monitor, International Financial Statistics (IFS), Balance of Payments (BOP), Exchange Rates, and Primary Commodity Price System (PCPS).
+- 🌱 **World Bank Open Data** (non-economic only) — health, education, environment, demographics, governance, innovation.
+
+**Boundary:** Only **public** EP/IMF/World Bank data is used. No personal MEP profiling beyond public parliamentary roles. GDPR-clean by design.
+
+---
+
+## 🔒 Security & ISMS Compliance
+
+EU Parliament Monitor implements **security-by-design** under the [Hack23 ISMS](https://github.com/Hack23/ISMS-PUBLIC) framework.
+
+### Project classification
+
+| Dimension | Level |
+|---|---|
+| Confidentiality | Public (Level 1) — European Parliament open data only |
+| Integrity | Medium (Level 2) — accuracy critical for democratic transparency |
+| Availability | Medium (Level 2) — daily updates, 24h RTO |
+| Strategic value | Democratic transparency, open civic-tech leadership |
+
+### Compliance frameworks
+
+| Framework | Scope | Evidence |
+|---|---|---|
+| **ISO 27001:2022** | Information security management | [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md) — A.5.10, A.5.12, A.5.23, A.8.11, A.8.28 |
+| **NIST CSF 2.0** | Identify · Protect · Detect · Respond · Recover | Compliance matrix in SECURITY_ARCHITECTURE.md |
+| **CIS Controls v8.1** | Operational security best practices | CodeQL, Dependabot, npm audit, SBOM |
+| **GDPR** | Data minimization, purpose limitation | Public-data-only boundary, no profiling |
+| **NIS2** | Article 20, 21 cybersecurity risk management | [THREAT_MODEL.md](THREAT_MODEL.md) (STRIDE for software-security context) |
+| **EU Cyber Resilience Act** | SBOM, vulnerability disclosure, Annex I/V | [CRA-ASSESSMENT.md](CRA-ASSESSMENT.md), SLSA provenance, [SECURITY.md](SECURITY.md) |
+
+### Key security controls
+
+- ✅ **Minimal attack surface** — static site, no databases, no server-side execution
+- ✅ **Same-origin JS bundle** — all executable assets under `js/vendor/`, strict `script-src 'self'` CSP, no external CDN
+- ✅ **Automated security** — CodeQL SAST, Dependabot SCA, npm audit, OpenSSF Scorecard
+- ✅ **Supply chain** — SHA-pinned GitHub Actions, SBOM (SPDX), SLSA Level 3 attestations
+- ✅ **Input validation** — multi-layer XSS prevention, HTML sanitization, markdown-it with explicit plugin allowlist
+- ✅ **Infrastructure** — GitHub-hosted ephemeral runners, S3/CloudFront via OIDC `GithubWorkFlowRole`, HTTPS enforcement, `step-security/harden-runner` egress block
+
+📋 **Full security architecture:** [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md) · [SECURITY.md](SECURITY.md) · [THREAT_MODEL.md](THREAT_MODEL.md) · [CLASSIFICATION.md](CLASSIFICATION.md)
+
+---
+
+## 🛠️ Local Development
+
+### Requirements
+
+- **Node.js** 25 or higher
+- **npm** 10 or higher (ships with Node.js 25)
+- **Git**
+
+### From source
 
 ```bash
-# Clone the repository
 git clone https://github.com/Hack23/euparliamentmonitor.git
 cd euparliamentmonitor
-
-# Install dependencies
 npm install
 ```
 
-### Optional: European Parliament MCP Server
-
-For real EU Parliament data integration, install the MCP server:
+### Build, lint, test, render
 
 ```bash
-# Clone the MCP server repository
+npm run build              # TypeScript compilation
+npm run lint               # ESLint (TypeScript in src/)
+npm run lint:prompts       # gh-aw prompt drift-guard
+npm run htmlhint           # HTML validation
+npm run test               # Vitest unit + integration (169+ tests)
+npm run test:coverage      # Coverage report (≥80% line, ≥75% branch)
+npm run test:e2e           # Playwright cross-browser E2E
+npm run validate-analysis  # Stage-C completeness gate
+npm run generate-article -- --run analysis/daily/2026-04-24/breaking
+npm run generate-article:all                # batch regen every committed run
+npm run generate-news-indexes               # 14-language news index pages
+npm run generate-sitemap                    # sitemap.xml + 14 sitemap_<lang>.html
+npm run docs:generate                       # TypeDoc API docs + index
+npm run serve                               # local static-site preview at :8080
+```
+
+### Optional: live MCP integration
+
+By default the workflows run with `USE_EP_MCP=true`. To experiment locally with the [European Parliament MCP Server](https://github.com/Hack23/European-Parliament-MCP-Server):
+
+```bash
 git clone https://github.com/Hack23/European-Parliament-MCP-Server.git
-cd European-Parliament-MCP-Server
-
-# Install dependencies and build
-npm install
-npm run build
-
-# The server will be available at dist/index.js
-# You can install it globally or reference the path
+cd European-Parliament-MCP-Server && npm install && npm run build
+export EP_MCP_SERVER_PATH="$(pwd)/dist/index.js"
+# or use the gateway helper:
+source scripts/mcp-setup.sh
 ```
 
-Configure the MCP server path in environment variables:
+Set `USE_EP_MCP=false` to disable MCP and fall back to placeholder/test data.
 
-```bash
-export EP_MCP_SERVER_PATH="/path/to/European-Parliament-MCP-Server/dist/index.js"
-```
+---
 
-**Note**: The MCP server is currently in development. News generation works
-without it using placeholder content.
+## 📚 Documentation Hub
 
-## Usage
+| Topic | Document |
+|---|---|
+| 🌐 **Live site** | [euparliamentmonitor.com](https://euparliamentmonitor.com) · [Political Intelligence Hub](https://euparliamentmonitor.com/political-intelligence.html) · [Site Map](https://euparliamentmonitor.com/sitemap.html) |
+| 🏛️ **Architecture** | [ARCHITECTURE.md](ARCHITECTURE.md) · [FUTURE_ARCHITECTURE.md](FUTURE_ARCHITECTURE.md) · [DATA_MODEL.md](DATA_MODEL.md) · [FLOWCHART.md](FLOWCHART.md) · [STATEDIAGRAM.md](STATEDIAGRAM.md) · [MINDMAP.md](MINDMAP.md) |
+| 📰 **Article generation** | [Article-Generation.md](Article-Generation.md) — end-to-end pipeline reference |
+| 🧠 **Analysis chain** | [analysis/README.md](analysis/README.md) · [analysis/methodologies/](analysis/methodologies/) · [analysis/templates/README.md](analysis/templates/README.md) |
+| 🤖 **Agentic pipeline** | [.github/agents/README.md](.github/agents/README.md) · [.github/skills/README.md](.github/skills/README.md) · [.github/prompts/README.md](.github/prompts/README.md) · [.github/workflows/README.md](.github/workflows/README.md) · [WORKFLOWS.md](WORKFLOWS.md) |
+| 🛡️ **Security & compliance** | [SECURITY.md](SECURITY.md) · [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md) · [THREAT_MODEL.md](THREAT_MODEL.md) · [CLASSIFICATION.md](CLASSIFICATION.md) · [CRA-ASSESSMENT.md](CRA-ASSESSMENT.md) |
+| 💼 **Business** | [SWOT.md](SWOT.md) · [BCPPlan.md](BCPPlan.md) · [FinancialSecurityPlan.md](FinancialSecurityPlan.md) · [End-of-Life-Strategy.md](End-of-Life-Strategy.md) |
+| 🧪 **Testing** | [UnitTestPlan.md](UnitTestPlan.md) · [E2ETestPlan.md](E2ETestPlan.md) · [test/README.md](test/README.md) · [e2e/README.md](e2e/README.md) |
+| 🚀 **Release process** | [docs/RELEASE_PROCESS.md](docs/RELEASE_PROCESS.md) · [SLSA Attestations](https://github.com/Hack23/euparliamentmonitor/attestations) |
+| 📔 **Generated docs** | [API Reference](https://euparliamentmonitor.com/docs/api/index.html) · [Coverage](https://euparliamentmonitor.com/docs/coverage/index.html) · [E2E Report](https://euparliamentmonitor.com/playwright-report/index.html) |
 
-### Generate News Articles
+---
 
-Agentic workflows generate articles automatically. For manual article generation from an analysis run:
+## 🚀 Future: AI Evolution Roadmap (2026–2037)
 
-```bash
-# Render one article from a specific analysis run directory
-npm run generate-article -- --run analysis/daily/2025-01-01/breaking
+> *"We're not just keeping up with AI — we're building the editorial infrastructure for the era when machines understand parliamentary procedure better than most MEPs."*
 
-# Regenerate EVERY committed analysis run in one pass (skips runs whose
-# manifest.json has no valid articleType; collision-suffixes same-date /
-# same-type runs with a sanitised runId)
-npm run generate-article:all
-
-# Only regenerate runs from a given date onward
-npm run generate-article -- --all --since 2026-04-01
-```
-
-Each invocation writes:
-
-- `news/<slug>.en.md` — aggregated Markdown (provenance block + 19-section
-  ordered artifact set + Tradecraft References appendix + Analysis Index appendix)
-- `news/<slug>-<lang>.html` — 14 language variants, each wrapped in the
-  shared site chrome (stacked header with embedded language switcher,
-  article-level Table of Contents sidebar, shared footer with live
-  article-count stats)
-
-The aggregator lives under `src/aggregator/` — see the
-[aggregator pipeline](ARCHITECTURE.md#aggregator-pipeline) section of the
-architecture doc for the full data flow.
-
-#### Editorial-highlight metadata resolver
-
-The `<title>` / `<meta description>` / Open Graph / Twitter / JSON-LD
-`NewsArticle` fields for every article are resolved by
-`src/aggregator/article-metadata.ts` through a 5-tier priority ladder:
-
-1. **Manifest override** — the Stage-B agent writes one of these keys in
-   `manifest.json` when it has an editorial headline:
-
-   ```jsonc
-   {
-     "articleType": "breaking",
-     // String form — applied to all 14 language variants (recommended
-     // when only an English headline is available):
-     "title": "Banking Union Breakthrough and Anti-Corruption Landmark",
-     "description": "The plenary closes a six-year debate and triggers immediate criticism from two national delegations about implementation timelines.",
-     // OR per-language form when translations already exist:
-     "title": { "en": "…", "sv": "…", "de": "…" },
-     "description": { "en": "…", "sv": "…" }
-   }
-   ```
-
-2. **First artefact H1** — the aggregator walks the manifest's ordered
-   artefact list (`intelligence/synthesis-summary.md`,
-   `executive-summary.md`, `breaking-news-analysis.md`, …) and promotes
-   the first non-generic `# …` heading.
-3. **Aggregated-markdown H1** — any non-generic top-level heading in the
-   rendered Markdown.
-4. **First strong prose paragraph** — with a tightened leak filter that
-   blocks mermaid `%%{init}` blocks, `title …` directives, emoji-banner
-   metadata, and `Analysis Date:` / `Classification:` / `Run:` / `Window:`
-   / `Purpose:` / `BLUF (ICD-203):` style rows.
-5. **Localized template** — `*_TITLES(date)` from
-   `src/constants/language-articles.ts` — last resort when no editorial
-   content exists at all.
-
-Downstream generators (`news-indexes.ts`, `sitemap.ts`, political-intelligence
-cards, RSS) call `extractArticleMeta()` in `src/utils/file-utils.ts`, which
-reads the `<head><title>` value (with the ` — EU Parliament Monitor`
-suffix stripped) as the primary title, so the resolver's output
-propagates everywhere without separate code changes in each generator.
-
-#### Backport SEO metadata into existing articles
-
-`scripts/backport-article-seo.js` rewrites `<title>`, the meta
-description, Open Graph, Twitter, and JSON-LD `headline`/`description`
-for every already-rendered `news/*-<lang>.html` file by extracting the
-first editorial H1 and first strong prose paragraph from the article
-body itself. The rewrite is idempotent — re-running over a backported
-file is a byte-identical no-op — and the article body is never
-modified.
-
-```bash
-# Preview the change-set (dry-run is the default; prints a per-article-
-# type summary and up to 12 sample before/after diffs):
-node scripts/backport-article-seo.js
-
-# Write changes:
-node scripts/backport-article-seo.js --apply
-
-# Scope to a subset of article types:
-node scripts/backport-article-seo.js --apply --only breaking,motions
-
-# Use a non-default news directory:
-node scripts/backport-article-seo.js --apply --dir news
-```
-
-After backporting, regenerate the downstream surfaces that depend on
-article metadata:
-
-```bash
-node scripts/generators/news-indexes.js   # 14 language index pages
-node scripts/generators/sitemap.js        # 14 sitemap HTMLs + sitemap.xml + rss.xml
-```
-
-### Generate Indexes and Sitemap
-
-```bash
-# Generate per-run news index pages (consumed by the aggregator's
-# transparency footer and political-intelligence.html)
-npm run generate-news-indexes
-
-# Generate sitemap.xml, sitemap_<lang>.html, and political-intelligence_<lang>.html
-# (14 language-specific sitemap pages + 14 language-specific Political Intelligence
-#  pages that index every methodology, template, and daily analysis run)
-npm run generate-sitemap
-```
-
-### Local Development
-
-```bash
-# Serve the site locally
-npm run serve
-
-# Open http://localhost:8080 in your browser
-```
-
-#### Same-Origin JS Bundle (Mermaid + Chart.js + D3)
-
-The static site loads **every** executable bundle from same-origin
-`js/vendor/` under a strict `script-src 'self'` CSP — no external CDN. Vendored
-libraries are copied from `node_modules/` at build time:
-
-```bash
-npm run copy-vendor    # writes js/vendor/{chart.umd.min.js,d3.min.js,…,mermaid/}
-```
-
-The CI deploy workflow ([`deploy-s3.yml`](.github/workflows/deploy-s3.yml))
-runs `copy-vendor` before `aws s3 sync` and includes both `*.js` and `*.mjs`
-files (Mermaid 11 ships as code-split ESM under `js/vendor/mermaid/chunks/`).
-If you add a new diagram type to a template, no extra wiring is needed — the
-chunk loader is part of the vendored bundle.
-
-#### Stage-C Analysis Validator
-
-Before opening an article PR, validate the analysis run completeness:
-
-```bash
-npm run validate-analysis -- analysis/daily/<date>/<run-dir>
-```
-
-The validator enforces per-artifact line floors, mandatory Mermaid diagrams,
-Admiralty/WEP/SAT/BLUF tradecraft signals, required H2 sections, and
-placeholder leakage. RED output ⇒ Pass-3 the offending artifacts; never ship
-an article without a green gate. See
-[`.github/prompts/03-analysis-completeness-gate.md`](.github/prompts/03-analysis-completeness-gate.md).
-
-## Project Structure
-
-```
-euparliamentmonitor/
-├── .github/
-│   ├── agents/                      # Custom GitHub Copilot agents
-│   ├── workflows/                   # CI/CD workflow configurations
-│   └── release-drafter.yml          # Release notes configuration
-├── src/                             # TypeScript source (compiles to scripts/)
-│   ├── constants/                   # Language data, configuration
-│   ├── generators/                  # News, index, sitemap generators
-│   ├── mcp/                         # European Parliament MCP client
-│   ├── templates/                   # HTML article templates
-│   ├── types/                       # Shared TypeScript interfaces
-│   └── utils/                       # File utilities, metadata
-├── scripts/                         # Compiled JavaScript output
-│   ├── constants/                   # Compiled constants
-│   ├── generators/                  # Compiled generators
-│   ├── mcp/                         # Compiled MCP client
-│   ├── templates/                   # Compiled templates
-│   ├── types/                       # Compiled type definitions
-│   └── utils/                       # Compiled utilities
-├── news/                            # Generated news articles
-│   └── metadata/                    # Generation metadata
-├── test/                            # Vitest unit & integration tests
-├── e2e/                             # Playwright E2E tests
-├── docs/                            # Generated documentation
-├── styles.css                       # Article styling
-├── index-{lang}.html                # Language-specific index pages
-├── typedoc.json                     # TypeDoc configuration
-├── tsconfig.json                    # TypeScript configuration
-├── sitemap.xml                      # SEO sitemap with hreflang alternates
-├── sitemap.html                     # Human-readable sitemap (English)
-├── sitemap_{lang}.html              # Per-language human-readable sitemaps
-├── political-intelligence.html      # Index of every methodology + template + daily analysis run
-├── political-intelligence_{lang}.html # Localized political-intelligence pages
-└── package.json                     # Project dependencies
-```
-
-## CI/CD & Automation
-
-### GitHub Actions Workflows
-
-The repository includes comprehensive GitHub Actions workflows for automation
-and quality assurance:
-
-#### 📰 News Generation
-
-- **Schedule**: Runs daily at 06:00 UTC
-- **Manual Trigger**: Can be triggered manually with custom parameters
-- **Automatic Commit**: Commits and pushes generated articles automatically
-- **Workflow**: `.github/workflows/news-generation.yml`
-
-**Workflow Inputs:**
-
-- `article_types`: Comma-separated list of article types (default: `week-ahead`)
-- `languages`: Languages to generate (`en`, `eu-core`, `all`, or custom list)
-- `force_generation`: Force generation even if recent articles exist
-
-#### 🏷️ PR Labeling
-
-- **Automatic**: Labels PRs based on file changes
-- **Configuration**: `.github/labeler.yml`
-- **Workflow**: `.github/workflows/labeler.yml`
-- **Setup**: Run `.github/workflows/setup-labels.yml` once to create all labels
-
-#### 📦 Release Management
-
-- **Automated Release Notes**: Via Release Drafter
-- **Semantic Versioning**: Based on PR labels
-- **SBOM & Attestations**: Security compliance with artifact attestations
-- **Workflow**: `.github/workflows/release.yml`
-- **Configuration**: `.github/release-drafter.yml`
-
-#### 🔒 Security Scanning
-
-- **CodeQL**: Automated security analysis on push, PR, and weekly schedule
-- **OpenSSF Scorecard**: Supply chain security assessment (weekly, on branch protection changes)
-- **Dependabot**: Weekly dependency updates for npm and GitHub Actions
-- **Dependency Review**: Vulnerability scanning on pull requests
-- **Vulnerability Scanning**: Automated npm audit in PR validation
-- **Workflows**: `.github/workflows/codeql.yml`, `.github/workflows/scorecards.yml`, `.github/dependabot.yml`, `.github/workflows/dependency-review.yml`
-
-#### 🏆 Compliance & Quality
-
-- **REUSE Compliance**: License header verification (FSFE REUSE specification)
-- **SonarCloud Analysis**: Automatic server-side code quality, security vulnerabilities, and technical debt tracking
-- **SLSA Provenance**: Level 3 build attestations with SBOM generation on releases
-- **Workflows**: `.github/workflows/reuse.yml`, `.github/workflows/release.yml`
-
-#### ✅ Test & Validation
-
-- **HTML Validation**: Automated htmlhint checks
-- **Functional Tests**: News generation, index, and sitemap validation
-- **Security Checks**: npm audit for vulnerabilities
-- **Workflow**: `.github/workflows/test-and-report.yml`
-
-**📊 Evidence:** See [Workflow Status Badges](#-status-badges) at top of README.
-### Workflow Status Badges
-
-**Core Workflows:**
-
-[![News Generation](https://github.com/Hack23/euparliamentmonitor/actions/workflows/news-generation.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/news-generation.yml)
-[![Test and Report](https://github.com/Hack23/euparliamentmonitor/actions/workflows/test-and-report.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/test-and-report.yml)
-[![E2E Tests](https://github.com/Hack23/euparliamentmonitor/actions/workflows/e2e.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/e2e.yml)
-
-**Security Workflows:**
-
-[![CodeQL](https://github.com/Hack23/euparliamentmonitor/actions/workflows/codeql.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/codeql.yml)
-[![OpenSSF Scorecard](https://github.com/Hack23/euparliamentmonitor/actions/workflows/scorecards.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/scorecards.yml)
-[![Dependency Review](https://github.com/Hack23/euparliamentmonitor/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/dependency-review.yml)
-
-**Compliance Workflows:**
-
-[![REUSE Compliance](https://github.com/Hack23/euparliamentmonitor/actions/workflows/reuse.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/reuse.yml)
-[![SLSA Provenance](https://github.com/Hack23/euparliamentmonitor/actions/workflows/release.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/release.yml)
-
-### Manual Release Process
-
-To create a new release:
-
-1. Go to **Actions** → **Release** workflow
-2. Click **Run workflow**
-3. Enter version (e.g., `v1.0.0`)
-4. Select if pre-release
-5. The workflow will:
-   - Run validation and tests (169 unit tests, E2E tests)
-   - Generate API documentation (TypeDoc)
-   - Generate test coverage reports (Vitest HTML)
-   - Generate E2E test reports (Playwright)
-   - Create documentation index
-   - Commit documentation to main branch
-   - Generate SBOM and attestations (SLSA Level 3)
-   - Create GitHub release with artifacts
-   - Update release notes automatically
-
-**🔒 ISMS Evidence:**
-- [Release Workflow](.github/workflows/release.yml) - Complete automation
-- [SLSA Attestations](https://github.com/Hack23/euparliamentmonitor/attestations) - Build provenance
-- [Release Process Guide](docs/RELEASE_PROCESS.md) - Step-by-step documentation
-
-### Documentation as Code
-
-Every release automatically generates comprehensive documentation:
-
-| Documentation | Description | Link |
-|--------------|-------------|------|
-| **API Documentation** | TypeDoc-generated API reference from TypeScript source | [View Docs](https://hack23.github.io/euparliamentmonitor/docs/api/) |
-| **Test Coverage** | Interactive Vitest coverage reports (82%+) | [View Coverage](https://hack23.github.io/euparliamentmonitor/docs/coverage/) |
-| **E2E Test Reports** | Playwright test results with screenshots | [View Report](https://hack23.github.io/euparliamentmonitor/playwright-report/) |
-| **Documentation Index** | Beautiful hub linking all reports | [View Index](https://hack23.github.io/euparliamentmonitor/docs/) |
-
-**📋 How It Works:**
-1. Release workflow runs all tests
-2. Generates API docs with TypeDoc
-3. Copies coverage reports to `docs/`
-4. Creates documentation index page
-5. Commits everything to `main` branch
-6. Documentation is version-controlled and traceable
-
-**🎯 Run Locally:**
-```bash
-npm run docs:generate  # Generate all documentation
-npm run docs:api       # Generate API docs only
-npm run docs:index     # Generate index page
-```
-
-**🔒 ISMS Compliance:**
-- Documentation-as-code follows [Hack23 ISMS Secure Development Policy §3.2](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md#32-architecture-documentation)
-- All releases include complete documentation evidence
-- Documentation committed to repository for full auditability
-
-### Setting Up Labels
-
-First-time setup requires running the label creation workflow:
-
-1. Go to **Actions** → **Setup Repository Labels**
-2. Click **Run workflow**
-3. Wait for completion
-4. Labels will be automatically applied to future PRs
-
-## Configuration
-
-### Language Presets
-
-- `en` - English only
-- `eu-core` - English, German, French, Spanish, Dutch
-- `nordic` - English, Swedish, Danish, Norwegian, Finnish
-- `all` - All 14 supported languages
-
-### Article Types
-
-- `week-ahead` - Preview of upcoming parliamentary events
-- `committee-reports` - Committee activity analysis (coming soon)
-- `propositions` - Legislative proposals analysis (coming soon)
-- `motions` - Parliamentary motions analysis (coming soon)
-- `breaking` - Breaking news coverage (coming soon)
-
-## Contributing
-
-We welcome contributions from developers, journalists, translators, and security researchers!
-
-### How to Contribute
-
-Please read our comprehensive [Contributing Guide](CONTRIBUTING.md) for:
-- Development workflow and setup instructions
-- Code quality requirements and testing standards
-- Pull request process and review guidelines
-- Security best practices and ISMS compliance
-- Multi-language contribution guidelines
-
-### Code of Conduct
-
-This project adheres to the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [conduct@hack23.com](mailto:conduct@hack23.com).
-
-### Security
-
-If you discover a security vulnerability, please follow our [Security Policy](SECURITY.md) for responsible disclosure. **Do not** report security issues through public GitHub issues.
-
-### Contributors
-
-See [AUTHORS.md](AUTHORS.md) for a list of contributors who have helped make this project possible.
-Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines on:
-
-- Code quality requirements (ESLint, Prettier, JSDoc)
-- Testing requirements (80% line coverage, 75% branch coverage)
-- Security requirements (input validation, XSS prevention, dependency scanning)
-- Commit message format (conventional commits)
-- Pull request process
-
-**Security-Critical Contributions**: All security-related changes must align with [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md) and [Hack23 ISMS Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md).
-
-## Security Policy
-
-For security vulnerability reporting and disclosure process, please see [SECURITY.md](SECURITY.md).
-
-**Responsible Disclosure**:
-- Report vulnerabilities privately via GitHub Security Advisories
-- 48-hour acknowledgment, 7-day validation, 30-day remediation for critical issues
-- Public recognition for security researchers (unless anonymity requested)
-
-## Badge Maintenance
-
-### Maintaining Security Badge Status
-
-EU Parliament Monitor maintains security excellence through continuous compliance with OpenSSF best practices:
-
-#### OpenSSF Scorecard (Target: ≥7.0)
-
-**Current Optimizations**:
-- ✅ Branch protection on `main` branch
-- ✅ Required code review for pull requests
-- ✅ SHA-pinned GitHub Actions
-- ✅ CodeQL SAST enabled
-- ✅ Dependabot alerts enabled
-- ✅ SECURITY.md present
-- ✅ No dangerous workflow patterns
-
-**Monitoring**: View current score at [OpenSSF Scorecard Dashboard](https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor)
-
-#### CII Best Practices (Target: Passing → Silver → Gold)
-
-**Requirements Met**:
-- ✅ Public version control (GitHub)
-- ✅ Public issue tracker (GitHub Issues)
-- ✅ LICENSE file (Apache-2.0)
-- ✅ CONTRIBUTING.md with clear guidelines
-- ✅ CODE_OF_CONDUCT.md
-- ✅ SECURITY.md with vulnerability reporting
-- ✅ Documentation in README
-- ✅ Automated testing (Vitest + Playwright, ≥80% coverage)
-- ✅ Static analysis (CodeQL, ESLint)
-- ✅ Dependency scanning (Dependabot, npm audit)
-
-**Registration**: Complete questionnaire at [CII Best Practices](https://bestpractices.coreinfrastructure.org/)
-
-#### SLSA Level 3 (Status: ✅ Implemented)
-
-**Provenance Generation**:
-- ✅ Automated on releases via `.github/workflows/release.yml`
-- ✅ Build attestations using `actions/attest-build-provenance@v2`
-- ✅ SBOM generation using SPDX format
-- ✅ Artifacts uploaded to GitHub Releases
-
-**Verification**: View attestations at `https://github.com/Hack23/euparliamentmonitor/attestations/`
-
-#### FOSSA License Compliance
-
-**Setup Required**:
-1. Sign up at [FOSSA](https://fossa.com/)
-2. Connect GitHub repository
-3. Configure license policy (Apache-2.0 compatible only)
-
-**Badge**: Updates automatically after scan completion
-
-#### REUSE Compliance (Status: ✅ Implemented)
-
-**Compliance Verification**:
-- ✅ `.reuse/dep5` covers all files without headers
-- ✅ Apache-2.0 license applied to all project files
-- ✅ Copyright notices: "2024-2026 Hack23 AB"
-
-**Workflow**: Runs on push, pull requests, and weekly via `.github/workflows/reuse.yml`
-
-### ISMS Policy References
-
-This project adheres to [Hack23 ISMS](https://github.com/Hack23/ISMS-PUBLIC) policies:
-
-| Policy | Relevance | Implementation |
-|--------|-----------|----------------|
-| [**Open Source Policy**](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md) | Security badge requirements, governance artifacts | All badges, docs, REUSE compliance |
-| [**CRA Conformity Assessment Process**](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CRA_Conformity_Assessment_Process.md) | EU Cyber Resilience Act compliance | [CRA-ASSESSMENT.md](CRA-ASSESSMENT.md) |
-| [**Secure Development Policy**](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | Development security standards | SECURITY_ARCHITECTURE.md, SAST/SCA/DAST |
-| [**Threat Modeling Policy**](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md) | Threat analysis requirements | STRIDE analysis in THREAT_MODEL.md |
-| [**Vulnerability Management**](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md) | Remediation SLAs | SECURITY.md disclosure timeline |
-| [**Classification Framework**](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) | Data classification | Public/Medium/Medium (L1/L2/L2) |
-| [**Incident Response Plan**](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Incident_Response_Plan.md) | Security incident procedures | Linked in SECURITY.md |
-
-### Compliance Frameworks
-
-EU Parliament Monitor aligns with multiple compliance frameworks:
-
-| Framework | Controls | Evidence |
-|-----------|----------|----------|
-| **ISO 27001** | A.12.6.1 (Vulnerability Management), A.14.2.8 (Security Testing) | CodeQL, Dependabot, npm audit |
-| **NIST CSF 2.0** | Identify, Protect, Detect, Respond, Recover | SECURITY_ARCHITECTURE.md compliance matrix |
-| **CIS Controls v8.1** | 18.3 (Remediate Vulnerabilities), 2.7 (Allowlisting) | Automated scanning, SBOM |
-| **GDPR** | Data Protection by Design | European Parliament open data (public) |
-| **NIS2** | Article 20, 21 (Cybersecurity Risk Management) | Threat model, security controls |
-| **EU Cyber Resilience Act** | SBOM, Vulnerability Disclosure, Annex I/V | [CRA-ASSESSMENT.md](CRA-ASSESSMENT.md), SLSA provenance, SECURITY.md |
-
-## 🤖 AI-Disrupted News Generation & Agentic Intelligence
-
-> *"While traditional newsrooms debate whether AI will replace journalists,
-> EU Parliament Monitor quietly deployed 8 autonomous AI agents that generate
-> investigative political intelligence in 14 languages before most reporters
-> have finished their morning coffee. The future of parliamentary journalism
-> didn't send a memo — it opened a pull request."*
-
-The EU Parliament Monitor doesn't just report on European Parliament activity — it **autonomously generates deep political intelligence** at machine speed, with editorial quality that would make legacy news desks nervous. Every article is researched, written, localized, and prepared for publication by AI agents that operate by default on live European Parliament data via the [MCP Server](https://github.com/Hack23/European-Parliament-MCP-Server) (46 tools, real-time data), with transparent fallback to placeholder/test data when live access is unavailable as described above. The agents automatically generate content and open publication-ready pull requests; publication to the site occurs when a human reviews and merges those PRs.
-
-### 📰 Agentic News Generation Architecture
-
-**8 autonomous news workflows** run on precision schedules, each powered by a dedicated GitHub Copilot agentic workflow that fetches live EP data (with documented fallback behavior), generates Economist-style analysis, and opens publication-ready pull requests across all 14 languages:
-
-```mermaid
-graph LR
-    subgraph "📅 Daily Cycle (Mon-Fri)"
-        CR["🏛️ Committee Reports<br/>04:00 UTC"]
-        PR["📜 Propositions<br/>05:00 UTC"]
-        MO["⚖️ Motions<br/>06:00 UTC"]
-    end
-
-    subgraph "📆 Weekly Cycle"
-        WA["📋 Week Ahead<br/>Fri 07:00 UTC"]
-        WR["📊 Weekly Review<br/>Sat 09:00 UTC"]
-    end
-
-    subgraph "📅 Monthly Cycle"
-        MA["🔭 Month Ahead<br/>1st 08:00 UTC"]
-        MR["📈 Monthly Review<br/>28th 10:00 UTC"]
-    end
-
-    subgraph "🎛️ On-Demand"
-        AG["🚀 Article Generator<br/>Manual Dispatch"]
-    end
-
-    MCP["🔌 EP MCP Server<br/>46 Tools · Live Data"]
-
-    MCP --> CR & PR & MO & WA & WR & MA & MR & AG
-
-    style CR fill:#1a5276,color:#fff
-    style PR fill:#1a5276,color:#fff
-    style MO fill:#1a5276,color:#fff
-    style WA fill:#117a65,color:#fff
-    style WR fill:#117a65,color:#fff
-    style MA fill:#7d3c98,color:#fff
-    style MR fill:#7d3c98,color:#fff
-    style AG fill:#b9770e,color:#fff
-    style MCP fill:#c0392b,color:#fff
-```
-
-| Workflow | Schedule | Focus | Output |
-|----------|----------|-------|--------|
-| 🏛️ **Committee Reports** | Mon–Fri 04:00 UTC | Committee decisions & activities | 14 language articles |
-| 📜 **Propositions** | Mon–Fri 05:00 UTC | Legislative proposals analysis | 14 language articles |
-| ⚖️ **Motions** | Mon–Fri 06:00 UTC | Motions & resolutions analysis | 14 language articles |
-| 📋 **Week Ahead** | Fridays 07:00 UTC | Upcoming parliamentary preview | 14 language articles |
-| 📊 **Weekly Review** | Saturdays 09:00 UTC | Past week retrospective | 14 language articles |
-| 🔭 **Month Ahead** | 1st of month 08:00 UTC | Strategic monthly outlook | 14 language articles |
-| 📈 **Monthly Review** | 28th of month 10:00 UTC | Monthly retrospective analysis | 14 language articles |
-| 🚀 **Article Generator** | Manual dispatch | Multi-type article generation | Configurable |
-
-### 🧠 The Intelligence Stack
-
-The platform combines **8 core news-pipeline AI agents** (from a catalog of 22+ specialized agents), **39+ TypeScript source modules**, **21 CI/CD workflows**, and **46 MCP data tools** into a fully autonomous political intelligence pipeline:
-
-```mermaid
-graph TB
-    subgraph "🤖 8 Core News Pipeline Agents"
-        A1["📰 News Journalist<br/><i>Economist-style reporting</i>"]
-        A2["🔄 Data Pipeline<br/><i>MCP integration</i>"]
-        A3["🎨 Frontend<br/><i>WCAG 2.1 AA</i>"]
-        A4["✅ Quality Engineer<br/><i>Testing & validation</i>"]
-        A5["🔒 Security Architect<br/><i>ISMS compliance</i>"]
-        A6["📚 Documentation<br/><i>C4 & architecture</i>"]
-        A7["⚙️ DevOps Engineer<br/><i>CI/CD automation</i>"]
-        A8["📋 Product Task<br/><i>Issue management</i>"]
-    end
-
-    subgraph "⚙️ 21 CI/CD Workflows"
-        W1["8 News Generation"]
-        W2["5 Security & Compliance"]
-        W3["2 Testing"]
-        W4["2 Release & Deploy"]
-        W5["4 Automation & Infra"]
-    end
-
-    subgraph "📊 Data Layer"
-        MCP["🔌 EP MCP Server<br/>46 Tools"]
-        TS["📦 39+ TypeScript Modules"]
-        L14["🌍 14 Languages"]
-    end
-
-    A1 --> W1
-    A2 --> MCP
-    A7 --> W2 & W3 & W4
-    W1 --> TS --> L14
-
-    style A1 fill:#2e86c1,color:#fff
-    style A2 fill:#2e86c1,color:#fff
-    style A3 fill:#2e86c1,color:#fff
-    style A4 fill:#2e86c1,color:#fff
-    style A5 fill:#2e86c1,color:#fff
-    style A6 fill:#2e86c1,color:#fff
-    style A7 fill:#2e86c1,color:#fff
-    style A8 fill:#2e86c1,color:#fff
-    style W1 fill:#1a5276,color:#fff
-    style W2 fill:#7d3c98,color:#fff
-    style W3 fill:#117a65,color:#fff
-    style W4 fill:#b9770e,color:#fff
-    style MCP fill:#c0392b,color:#fff
-    style TS fill:#1c2833,color:#fff
-    style L14 fill:#117a65,color:#fff
-```
-
-### 🚀 Future Advance: AI Evolution Roadmap (2026–2037)
-
-> *"We're not just keeping up with AI — we're building the editorial infrastructure
-> for the era when machines understand parliamentary procedure better than most MEPs."*
-
-The platform evolves through six phases from agentic news generation to AGI-enhanced transformative democracy. Full details in **[Future Mindmap](FUTURE_MINDMAP.md)** and **[Future Workflows](FUTURE_WORKFLOWS.md)**.
+Six-phase roadmap from current agentic news generation to AGI-enhanced transformative democracy, with human oversight maintained at every level.
 
 ```mermaid
 timeline
     title EU Parliament Monitor — AI Evolution Roadmap
     section Phase 1 (2026)
-        Agentic News : 8 autonomous workflows
+        Agentic News : 8 unified workflows
                      : 14-language generation
-                     : MCP data integration
-                     : Economist-style analysis
+                     : Deterministic aggregator
+                     : 51-artifact analysis catalog
     section Phase 2 (2027)
         Predictive Analytics : Voting outcome prediction
                              : Legislative impact forecasting
                              : Cross-party coalition detection
-                             : Automated trend analysis
     section Phase 3 (2028–2029)
         Multi-Modal Intelligence : Video plenary analysis
                                  : Real-time debate tracking
                                  : Infographic auto-generation
-                                 : Autonomous content pipelines
     section Phase 4 (2030–2031)
         Near-Expert Analysis : 50+ parliament coverage
                              : Expert-level policy briefs
                              : Predictive governance models
-                             : Universal language support
     section Phase 5 (2032–2033)
         Global Coverage : 100+ parliaments
                         : Pre-AGI capabilities
-                        : Real-time policy impact
                         : Cross-jurisdiction analysis
     section Phase 6 (2034–2037)
         AGI Era : Transformative democracy
                : 195 national legislatures
-               : Policy prediction before proposal
                : Human oversight maintained
 ```
 
-### 🤖 Phase 6: AGI Era & Transformative Democracy (2034–2037)
+📘 **[FUTURE_MINDMAP.md](FUTURE_MINDMAP.md)** — capability evolution & system vision · 📗 **[FUTURE_WORKFLOWS.md](FUTURE_WORKFLOWS.md)** — CI/CD evolution & automation roadmap
 
-When AGI or near-AGI systems become available, the platform architecture is designed to scale responsibly:
+---
 
-| Capability | Description |
-|-----------|-------------|
-| 🤖 **Autonomous Analysis** | AGI-powered real-time political intelligence across all 195 national legislatures |
-| 🌐 **Universal Language Support** | Every UN language supported natively — no translation pipeline, native generation |
-| 📊 **Predictive Governance** | Policy impact prediction *before* legislation is proposed — anticipatory intelligence |
-| ⚖️ **Ethical AI Governance** | Human oversight maintained regardless of AI capability level — democratic safeguards hardcoded |
-| 🛡️ **Democratic Safeguards** | Platform architecture prevents weaponization or manipulation — transparency by design |
+## 🤝 Community & Contributing
 
-### 📈 AI Model Evolution Strategy
+EU Parliament Monitor welcomes contributions from **developers, journalists, translators, political scientists, OSINT analysts, accessibility experts, and security researchers**.
 
-**Assumptions:** Major AI model upgrades annually, competitors (OpenAI, Google, Meta, EU sovereign AI) evaluated at each release. Architecture accommodates potential paradigm shifts (quantum AI, neuromorphic computing).
+| Resource | Purpose |
+|---|---|
+| **[CONTRIBUTING.md](CONTRIBUTING.md)** | Development workflow, code standards, contribution guidelines |
+| **[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)** | Contributor Covenant 2.1 community standards |
+| **[SECURITY.md](SECURITY.md)** | Vulnerability disclosure (48h ack · 7d validation · 30d remediation for criticals) |
+| **[AUTHORS.md](AUTHORS.md)** | Recognition of project contributors |
+| **[LICENSE](LICENSE)** | Apache License 2.0 |
 
-Projected workflow counts below include all CI/CD workflow definitions, agentic workflow sources, and planned variants across the platform. The 2026 baseline (~44) builds on the current 21 deployed `.yml` workflows + 8 agentic `.md` sources (29 today) plus planned security, localization, and data-pipeline additions.
+**Channels:** GitHub Issues (bug reports / features) · GitHub Discussions (Q&A) · [security@hack23.com](mailto:security@hack23.com) (vulnerabilities) · [conduct@hack23.com](mailto:conduct@hack23.com) (Code of Conduct)
 
-| Year | Projected Workflow Definitions | AI Model | Key Capability |
-|------|-------------------------------|----------|----------------|
-| **2026** | 44–50 | Opus 4.7–4.9 | 🟢 Agentic news generation |
-| **2027** | 50–55 | Opus 5.x | 🔵 Predictive analytics |
-| **2028** | 55–65 | Opus 6.x | 🟣 Multi-modal content |
-| **2029** | 65–75 | Opus 7.x | 🟠 Autonomous pipeline |
-| **2030** | 75–85 | Opus 8.x | 🔴 Near-expert analysis |
-| **2031–2033** | 85–100 | Opus 9–10.x / Pre-AGI | ⚪ Global coverage |
-| **2034–2037** | 100–120+ | AGI / Post-AGI | ⭐ Transformative platform |
+**Governance compliance:** ✅ OpenSSF Best Practices · ✅ Hack23 ISMS aligned · ✅ Public repository with transparent decision-making · ✅ REUSE-compliant license headers · ✅ Conventional commits
 
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#1a5276', 'primaryTextColor': '#fff', 'lineColor': '#2e86c1', 'secondaryColor': '#117a65'}}}%%
-xychart-beta
-    title "Projected Workflow Definitions & Variants (2026–2037)"
-    x-axis ["2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037"]
-    y-axis "Workflow definitions & variants" 0 --> 130
-    bar [44, 53, 60, 70, 80, 88, 94, 100, 105, 110, 115, 120]
-    line [44, 53, 60, 70, 80, 88, 94, 100, 105, 110, 115, 120]
+---
+
+## 📝 License
+
 ```
-
-### 📚 Detailed Roadmap Documentation
-
-| Document | Focus | Coverage |
-|----------|-------|----------|
-| 📘 **[Future Mindmap](FUTURE_MINDMAP.md)** | Capability evolution & system vision | 2026–2037 AI/ML roadmap, multi-parliament expansion, API ecosystem |
-| 📗 **[Future Workflows](FUTURE_WORKFLOWS.md)** | CI/CD evolution & automation roadmap | Security hardening, performance optimization, AGI-ready pipelines |
-
-## License
-
 Copyright 2024-2026 Hack23 AB
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -1203,20 +438,14 @@ you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
     http://www.apache.org/licenses/LICENSE-2.0
+```
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+See [LICENSE](LICENSE) for the full text.
 
-See [LICENSE](LICENSE) file for full details.
+---
 
-## Credits
+## 🙏 Credits
 
-This project is based on the news generation implementation from
-[Hack23/riksdagsmonitor](https://github.com/Hack23/riksdagsmonitor).
+The news-generation foundation builds on the [Hack23/riksdagsmonitor](https://github.com/Hack23/riksdagsmonitor) Swedish Parliament monitor. Sister projects in the Hack23 transparency portfolio: [European-Parliament-MCP-Server](https://github.com/Hack23/European-Parliament-MCP-Server) (EP data MCP) · [cia](https://github.com/Hack23/cia) (Swedish Parliament intelligence, Java/Spring) · [ISMS-PUBLIC](https://github.com/Hack23/ISMS-PUBLIC) (security policies).
 
-## Author
-
-Hack23 AB - Intelligence Operations Team
+**Maintained by:** Hack23 AB — Intelligence Operations Team
