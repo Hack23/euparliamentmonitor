@@ -20,7 +20,7 @@
  * browser and CloudFront caches automatically.
  */
 
-import { BASE_URL, MERMAID_VERSION, THEME_TOGGLE_SCRIPT } from '../constants/config.js';
+import { BASE_URL, MERMAID_VERSION } from '../constants/config.js';
 import {
   ALL_LANGUAGES,
   LANGUAGE_NAMES,
@@ -269,6 +269,7 @@ ${hreflangLinks}
   <link rel="stylesheet" href="../styles.css">
   <script type="application/ld+json">${jsonLdString}</script>
   <script type="module" src="../js/mermaid-init.js?v=${MERMAID_VERSION}" defer></script>
+  <script src="../js/article-runtime.js" defer></script>
 </head>
 <body>
   <a href="#main" class="skip-link">${escapeHTML(skipLinkText)}</a>
@@ -288,7 +289,7 @@ ${tocHtml}    <article class="article-body" lang="${safeLang}">
     </article>
   </main>
 
-  ${buildSiteFooter({ lang: safeLang, pathPrefix: '../', ...(typeof options.articleCount === 'number' ? { articleCount: options.articleCount } : {}) })}${THEME_TOGGLE_SCRIPT}
+  ${buildSiteFooter({ lang: safeLang, pathPrefix: '../', ...(typeof options.articleCount === 'number' ? { articleCount: options.articleCount } : {}) })}
 </body>
 </html>`;
 }

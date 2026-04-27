@@ -52,19 +52,20 @@
   <link rel="stylesheet" href="../styles.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Siste Nytt: Betydelige Parlamentariske Hendelser — 2026-04-09","description":"Etterretningsanalyse av avstemningsavvik, koalisjonsendringer og viktige MEP-aktiviteter","datePublished":"2026-04-09","inLanguage":"no","url":"https://euparliamentmonitor.com/news/2026-04-09-breaking-no.html","author":{"@type":"Organization","name":"Hack23 AB","url":"https://hack23.com"},"publisher":{"@type":"Organization","name":"Hack23 AB","url":"https://hack23.com"},"articleSection":"breaking","isPartOf":{"@type":"WebSite","name":"EU Parliament Monitor","url":"https://euparliamentmonitor.com"},"isBasedOn":[{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/coalition-sentiment-analysis.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/political-classification.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/post-recess-preparedness.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/risk-assessment.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/significance-scoring.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/stakeholder-impact.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/swot-analysis.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/synthesis-summary.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/threat-analysis.md"}]}</script>
   <script type="module" src="../js/mermaid-init.js?v=11.14.0" defer></script>
+  <script src="../js/article-runtime.js" defer></script>
 </head>
 <body>
   <a href="#main" class="skip-link">Hopp til hovedinnhold</a>
 
   <header class="site-header" role="banner">
     <div class="site-header__inner site-header__inner--stacked">
-      <a href="../index-no.html" class="site-header__brand" aria-label="EU Parliament Monitor">
+      <a href="../index-no.html" class="site-header__brand" aria-label="EU-parlamentsmonitor">
         <picture class="site-header__logo-picture">
           <source srcset="../images/header-logo.webp" type="image/webp">
           <img class="site-header__logo site-header__logo--header" src="../images/header-logo.png" alt="" width="96" height="64" aria-hidden="true">
         </picture>
         <span class="site-header__brand-text">
-          <span class="site-header__title">EU Parliament Monitor</span>
+          <span class="site-header__title">EU-parlamentsmonitor</span>
           <span class="site-header__subtitle">Europeisk parlamentarisk etterretning</span>
         </span>
       </a>
@@ -5855,6 +5856,7 @@ graph LR
       <div class="footer-section">
         <h3>Om EU Parliament Monitor</h3>
         <p>Europeisk parlamentarisk etterretningsplattform — overvåker politisk aktivitet med systematisk åpenhet. Drevet av Europaparlamentets åpne data.</p>
+        <p class="footer-stats">116 artikler tilgjengelige</p>
         <p class="footer-company-summary">Swedish cybersecurity consultancy specializing in political transparency and open-source intelligence.</p>
       </div>
       <div class="footer-section">
@@ -5912,28 +5914,5 @@ graph LR
       <p class="footer-disclaimer"><span aria-hidden="true">⚠️</span> Denne plattformen forbedres løpende. <a href="https://github.com/Hack23/euparliamentmonitor/issues">rapporter problemer på GitHub</a>.</p>
     </div>
   </footer>
-  <script>
-  (function(){
-    var docEl=document.documentElement;
-    var t=localStorage.getItem('ep-theme');
-    var storedTheme=t==='light'?'light':t==='dark'?'dark':null;
-    if(storedTheme){
-      docEl.setAttribute('data-theme',storedTheme);
-    }else if(t){
-      localStorage.removeItem('ep-theme');
-    }
-    var btn=document.querySelector('.theme-toggle');
-    if(!btn)return;
-    btn.addEventListener('click',function(){
-      var cur=docEl.getAttribute('data-theme');
-      if(!cur){
-        cur=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';
-      }
-      var next=cur==='dark'?'light':'dark';
-      docEl.setAttribute('data-theme',next);
-      localStorage.setItem('ep-theme',next);
-    });
-  })();
-  </script>
 </body>
 </html>

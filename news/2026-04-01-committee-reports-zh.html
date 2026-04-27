@@ -52,19 +52,20 @@
   <link rel="stylesheet" href="../styles.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"EU议会委员会活动报告: Main Committees","description":"最近立法成果、效能指标和关键委员会活动分析","datePublished":"2026-04-01","inLanguage":"zh","url":"https://euparliamentmonitor.com/news/2026-04-01-committee-reports-zh.html","author":{"@type":"Organization","name":"Hack23 AB","url":"https://hack23.com"},"publisher":{"@type":"Organization","name":"Hack23 AB","url":"https://hack23.com"},"articleSection":"committee-reports","isPartOf":{"@type":"WebSite","name":"EU Parliament Monitor","url":"https://euparliamentmonitor.com"},"isBasedOn":[{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/committee-reports/classification/actor-mapping.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/committee-reports/classification/forces-analysis.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/committee-reports/classification/impact-matrix.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/committee-reports/classification/significance-assessment.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/committee-reports/existing/voting-patterns.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/committee-reports/risk-scoring/risk-matrix.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/committee-reports/risk-scoring/quantitative-swot.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/committee-reports/risk-scoring/political-capital-risk.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/committee-reports/risk-scoring/legislative-velocity-risk.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/committee-reports/risk-scoring/agent-risk-workflow.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/committee-reports/threat-assessment/actor-threat-profiles.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/committee-reports/threat-assessment/consequence-trees.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/committee-reports/threat-assessment/legislative-disruption.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/committee-reports/threat-assessment/political-threat-landscape.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/committee-reports/existing/cross-session-intelligence.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/committee-reports/existing/deep-analysis.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/committee-reports/existing/coalition-analysis.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-01/committee-reports/existing/stakeholder-analysis.md"}]}</script>
   <script type="module" src="../js/mermaid-init.js?v=11.14.0" defer></script>
+  <script src="../js/article-runtime.js" defer></script>
 </head>
 <body>
   <a href="#main" class="skip-link">跳至主要内容</a>
 
   <header class="site-header" role="banner">
     <div class="site-header__inner site-header__inner--stacked">
-      <a href="../index-zh.html" class="site-header__brand" aria-label="EU Parliament Monitor">
+      <a href="../index-zh.html" class="site-header__brand" aria-label="EU议会监测">
         <picture class="site-header__logo-picture">
           <source srcset="../images/header-logo.webp" type="image/webp">
           <img class="site-header__logo site-header__logo--header" src="../images/header-logo.png" alt="" width="96" height="64" aria-hidden="true">
         </picture>
         <span class="site-header__brand-text">
-          <span class="site-header__title">EU Parliament Monitor</span>
+          <span class="site-header__title">EU议会监测</span>
           <span class="site-header__subtitle">欧洲议会情报</span>
         </span>
       </a>
@@ -1628,6 +1629,7 @@ graph TD
       <div class="footer-section">
         <h3>关于 EU Parliament Monitor</h3>
         <p>欧洲议会情报平台 — 以系统性透明度监测政治活动。由欧洲议会开放数据驱动。</p>
+        <p class="footer-stats">116篇文章可用</p>
         <p class="footer-company-summary">Swedish cybersecurity consultancy specializing in political transparency and open-source intelligence.</p>
       </div>
       <div class="footer-section">
@@ -1685,28 +1687,5 @@ graph TD
       <p class="footer-disclaimer"><span aria-hidden="true">⚠️</span> 此平台正在持续改进中。 <a href="https://github.com/Hack23/euparliamentmonitor/issues">在GitHub上报告问题</a>.</p>
     </div>
   </footer>
-  <script>
-  (function(){
-    var docEl=document.documentElement;
-    var t=localStorage.getItem('ep-theme');
-    var storedTheme=t==='light'?'light':t==='dark'?'dark':null;
-    if(storedTheme){
-      docEl.setAttribute('data-theme',storedTheme);
-    }else if(t){
-      localStorage.removeItem('ep-theme');
-    }
-    var btn=document.querySelector('.theme-toggle');
-    if(!btn)return;
-    btn.addEventListener('click',function(){
-      var cur=docEl.getAttribute('data-theme');
-      if(!cur){
-        cur=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';
-      }
-      var next=cur==='dark'?'light':'dark';
-      docEl.setAttribute('data-theme',next);
-      localStorage.setItem('ep-theme',next);
-    });
-  })();
-  </script>
 </body>
 </html>

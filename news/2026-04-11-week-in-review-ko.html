@@ -52,19 +52,20 @@
   <link rel="stylesheet" href="../styles.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"주간 리뷰: 2026-03-06 ~ 2026-04-03","description":"유럽 의회 최근 완전한 보고 주간 분석 — 투표, 위원회 결정 및 입법 발전","datePublished":"2026-04-11","inLanguage":"ko","url":"https://euparliamentmonitor.com/news/2026-04-11-week-in-review-ko.html","author":{"@type":"Organization","name":"Hack23 AB","url":"https://hack23.com"},"publisher":{"@type":"Organization","name":"Hack23 AB","url":"https://hack23.com"},"articleSection":"week-in-review","isPartOf":{"@type":"WebSite","name":"EU Parliament Monitor","url":"https://euparliamentmonitor.com"},"isBasedOn":[{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/week-in-review-run8/classification/significance-scoring.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/week-in-review-run8/existing/stakeholder-impact.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/week-in-review-run8/risk-scoring/risk-assessment.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/week-in-review-run8/threat-assessment/threat-analysis.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/week-in-review-run8/existing/api-outage-diagnostic.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/week-in-review-run8/existing/swot-analysis.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/week-in-review-run8/existing/synthesis-summary.md"}]}</script>
   <script type="module" src="../js/mermaid-init.js?v=11.14.0" defer></script>
+  <script src="../js/article-runtime.js" defer></script>
 </head>
 <body>
   <a href="#main" class="skip-link">본문으로 건너뛰기</a>
 
   <header class="site-header" role="banner">
     <div class="site-header__inner site-header__inner--stacked">
-      <a href="../index-ko.html" class="site-header__brand" aria-label="EU Parliament Monitor">
+      <a href="../index-ko.html" class="site-header__brand" aria-label="EU 의회 모니터">
         <picture class="site-header__logo-picture">
           <source srcset="../images/header-logo.webp" type="image/webp">
           <img class="site-header__logo site-header__logo--header" src="../images/header-logo.png" alt="" width="96" height="64" aria-hidden="true">
         </picture>
         <span class="site-header__brand-text">
-          <span class="site-header__title">EU Parliament Monitor</span>
+          <span class="site-header__title">EU 의회 모니터</span>
           <span class="site-header__subtitle">유럽 의회 인텔리전스</span>
         </span>
       </a>
@@ -1980,6 +1981,7 @@ Risk Tiers: 1-4 = Low | 5-9 = Medium | 10-14 = High | 15-25 = Critical</p>
       <div class="footer-section">
         <h3>EU Parliament Monitor 소개</h3>
         <p>유럽 의회 인텔리전스 플랫폼 — 체계적인 투명성으로 정치 활동을 모니터링. 유럽 의회 공개 데이터를 기반으로 함.</p>
+        <p class="footer-stats">116개 기사 이용 가능</p>
         <p class="footer-company-summary">Swedish cybersecurity consultancy specializing in political transparency and open-source intelligence.</p>
       </div>
       <div class="footer-section">
@@ -2037,28 +2039,5 @@ Risk Tiers: 1-4 = Low | 5-9 = Medium | 10-14 = High | 15-25 = Critical</p>
       <p class="footer-disclaimer"><span aria-hidden="true">⚠️</span> 이 플랫폼은 지속적으로 개선되고 있습니다. <a href="https://github.com/Hack23/euparliamentmonitor/issues">GitHub에서 문제 보고</a>.</p>
     </div>
   </footer>
-  <script>
-  (function(){
-    var docEl=document.documentElement;
-    var t=localStorage.getItem('ep-theme');
-    var storedTheme=t==='light'?'light':t==='dark'?'dark':null;
-    if(storedTheme){
-      docEl.setAttribute('data-theme',storedTheme);
-    }else if(t){
-      localStorage.removeItem('ep-theme');
-    }
-    var btn=document.querySelector('.theme-toggle');
-    if(!btn)return;
-    btn.addEventListener('click',function(){
-      var cur=docEl.getAttribute('data-theme');
-      if(!cur){
-        cur=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';
-      }
-      var next=cur==='dark'?'light':'dark';
-      docEl.setAttribute('data-theme',next);
-      localStorage.setItem('ep-theme',next);
-    });
-  })();
-  </script>
 </body>
 </html>

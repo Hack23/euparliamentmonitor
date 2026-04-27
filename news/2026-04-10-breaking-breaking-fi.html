@@ -52,19 +52,20 @@
   <link rel="stylesheet" href="../styles.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Uusimmat Uutiset: Merkittäviä Parlamentaarisia Kehityksiä — 2026-04-10","description":"Tiedusteluanalyysi äänestyspoikkeamista, koalitiomuutoksista ja keskeisistä MEP-toimista","datePublished":"2026-04-10","inLanguage":"fi","url":"https://euparliamentmonitor.com/news/2026-04-10-breaking-breaking-fi.html","author":{"@type":"Organization","name":"Hack23 AB","url":"https://hack23.com"},"publisher":{"@type":"Organization","name":"Hack23 AB","url":"https://hack23.com"},"articleSection":"breaking","isPartOf":{"@type":"WebSite","name":"EU Parliament Monitor","url":"https://euparliamentmonitor.com"},"isBasedOn":[{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/political-classification.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/political-risk-assessment.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/pre-restart-intelligence-brief.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/risk-assessment.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/significance-scoring.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/stakeholder-impact.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/swot-analysis.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/synthesis-summary.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/threat-analysis.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/threat-landscape.md"}]}</script>
   <script type="module" src="../js/mermaid-init.js?v=11.14.0" defer></script>
+  <script src="../js/article-runtime.js" defer></script>
 </head>
 <body>
   <a href="#main" class="skip-link">Siirry pääsisältöön</a>
 
   <header class="site-header" role="banner">
     <div class="site-header__inner site-header__inner--stacked">
-      <a href="../index-fi.html" class="site-header__brand" aria-label="EU Parliament Monitor">
+      <a href="../index-fi.html" class="site-header__brand" aria-label="EU-parlamentin seuranta">
         <picture class="site-header__logo-picture">
           <source srcset="../images/header-logo.webp" type="image/webp">
           <img class="site-header__logo site-header__logo--header" src="../images/header-logo.png" alt="" width="96" height="64" aria-hidden="true">
         </picture>
         <span class="site-header__brand-text">
-          <span class="site-header__title">EU Parliament Monitor</span>
+          <span class="site-header__title">EU-parlamentin seuranta</span>
           <span class="site-header__subtitle">Euroopan parlamentin tiedustelutoiminta</span>
         </span>
       </a>
@@ -3501,6 +3502,7 @@ pie title Threat Dimension Scores (10 April 2026)
       <div class="footer-section">
         <h3>Tietoa EU Parliament Monitorista</h3>
         <p>Euroopan parlamentin tiedustelualusta — seuraa poliittista toimintaa järjestelmällisellä avoimuudella. Perustuu Euroopan parlamentin avoimeen dataan.</p>
+        <p class="footer-stats">116 artikkelia saatavilla</p>
         <p class="footer-company-summary">Swedish cybersecurity consultancy specializing in political transparency and open-source intelligence.</p>
       </div>
       <div class="footer-section">
@@ -3558,28 +3560,5 @@ pie title Threat Dimension Scores (10 April 2026)
       <p class="footer-disclaimer"><span aria-hidden="true">⚠️</span> Tätä alustaa kehitetään jatkuvasti. <a href="https://github.com/Hack23/euparliamentmonitor/issues">ilmoita ongelmista GitHubissa</a>.</p>
     </div>
   </footer>
-  <script>
-  (function(){
-    var docEl=document.documentElement;
-    var t=localStorage.getItem('ep-theme');
-    var storedTheme=t==='light'?'light':t==='dark'?'dark':null;
-    if(storedTheme){
-      docEl.setAttribute('data-theme',storedTheme);
-    }else if(t){
-      localStorage.removeItem('ep-theme');
-    }
-    var btn=document.querySelector('.theme-toggle');
-    if(!btn)return;
-    btn.addEventListener('click',function(){
-      var cur=docEl.getAttribute('data-theme');
-      if(!cur){
-        cur=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';
-      }
-      var next=cur==='dark'?'light':'dark';
-      docEl.setAttribute('data-theme',next);
-      localStorage.setItem('ep-theme',next);
-    });
-  })();
-  </script>
 </body>
 </html>

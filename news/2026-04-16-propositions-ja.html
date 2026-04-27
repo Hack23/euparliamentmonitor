@@ -52,19 +52,20 @@
   <link rel="stylesheet" href="../styles.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"立法手続: EU議会モニター","description":"欧州議会における最近の立法提案、手続き追跡、パイプライン状況","datePublished":"2026-04-16","inLanguage":"ja","url":"https://euparliamentmonitor.com/news/2026-04-16-propositions-ja.html","author":{"@type":"Organization","name":"Hack23 AB","url":"https://hack23.com"},"publisher":{"@type":"Organization","name":"Hack23 AB","url":"https://hack23.com"},"articleSection":"propositions","isPartOf":{"@type":"WebSite","name":"EU Parliament Monitor","url":"https://euparliamentmonitor.com"},"isBasedOn":[{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/propositions-run44/classification/political-classification.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/propositions-run44/classification/significance-scoring.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/propositions-run44/risk-scoring/risk-assessment.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/propositions-run44/threat-assessment/threat-analysis.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/propositions-run44/existing/swot-analysis.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/propositions-run44/existing/synthesis-summary.md"}]}</script>
   <script type="module" src="../js/mermaid-init.js?v=11.14.0" defer></script>
+  <script src="../js/article-runtime.js" defer></script>
 </head>
 <body>
   <a href="#main" class="skip-link">メインコンテンツへスキップ</a>
 
   <header class="site-header" role="banner">
     <div class="site-header__inner site-header__inner--stacked">
-      <a href="../index-ja.html" class="site-header__brand" aria-label="EU Parliament Monitor">
+      <a href="../index-ja.html" class="site-header__brand" aria-label="EU議会モニター">
         <picture class="site-header__logo-picture">
           <source srcset="../images/header-logo.webp" type="image/webp">
           <img class="site-header__logo site-header__logo--header" src="../images/header-logo.png" alt="" width="96" height="64" aria-hidden="true">
         </picture>
         <span class="site-header__brand-text">
-          <span class="site-header__title">EU Parliament Monitor</span>
+          <span class="site-header__title">EU議会モニター</span>
           <span class="site-header__subtitle">欧州議会情報</span>
         </span>
       </a>
@@ -565,6 +566,7 @@ Composite Risk: 10.6/25 (MEDIUM)</p>
       <div class="footer-section">
         <h3>EU Parliament Monitorについて</h3>
         <p>欧州議会情報プラットフォーム — 組織的な透明性で政治活動を監視。欧州議会のオープンデータによる。</p>
+        <p class="footer-stats">116件の記事が利用可能</p>
         <p class="footer-company-summary">Swedish cybersecurity consultancy specializing in political transparency and open-source intelligence.</p>
       </div>
       <div class="footer-section">
@@ -622,28 +624,5 @@ Composite Risk: 10.6/25 (MEDIUM)</p>
       <p class="footer-disclaimer"><span aria-hidden="true">⚠️</span> このプラットフォームは継続的に改善されています。 <a href="https://github.com/Hack23/euparliamentmonitor/issues">GitHubで問題を報告する</a>.</p>
     </div>
   </footer>
-  <script>
-  (function(){
-    var docEl=document.documentElement;
-    var t=localStorage.getItem('ep-theme');
-    var storedTheme=t==='light'?'light':t==='dark'?'dark':null;
-    if(storedTheme){
-      docEl.setAttribute('data-theme',storedTheme);
-    }else if(t){
-      localStorage.removeItem('ep-theme');
-    }
-    var btn=document.querySelector('.theme-toggle');
-    if(!btn)return;
-    btn.addEventListener('click',function(){
-      var cur=docEl.getAttribute('data-theme');
-      if(!cur){
-        cur=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';
-      }
-      var next=cur==='dark'?'light':'dark';
-      docEl.setAttribute('data-theme',next);
-      localStorage.setItem('ep-theme',next);
-    });
-  })();
-  </script>
 </body>
 </html>

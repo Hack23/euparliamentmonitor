@@ -184,9 +184,21 @@ export function renderMarkdown(markdown: string, options: RenderOptions = {}): R
   if (options.mermaidLabel) env.mermaidLabel = options.mermaidLabel;
   const tokens = md.parse(stripMarkdownFrontMatter(markdown), env);
   const toc = harvestToc(tokens);
-  const html = md.renderer.render(tokens, md.options, env);
+  const html = escapeUppercasePlaceholders(md.renderer.render(tokens, md.options, env));
   const mermaidCount = countMermaidTokens(tokens);
   return { html, toc, mermaidCount };
+}
+
+/**
+ * Escape non-HTML placeholder markers like `<N>` that appear in analysis prose.
+ * Lower-case tags are intentionally left untouched because artifacts may embed
+ * trusted HTML wrappers such as `<div>` and `<section>`.
+ *
+ * @param html - Rendered HTML fragment
+ * @returns HTML fragment with uppercase placeholder pseudo-tags escaped
+ */
+function escapeUppercasePlaceholders(html: string): string {
+  return html.replace(/<([A-Z][A-Z0-9_-]*)>/g, '&lt;$1&gt;');
 }
 
 /**

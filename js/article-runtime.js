@@ -10,6 +10,7 @@
  *   1. Reading-progress bar width driven by scroll position.
  *   2. Theme (dark/light) toggle backed by localStorage ("ep-theme").
  *   3. Mobile article table-of-contents compaction.
+ *   4. Semantic article color coding based on existing text markers.
  *
  * Externalising these removes the need for per-article SHA-256 CSP
  * hashes — the article CSP can stay at `script-src 'self'`.
@@ -32,8 +33,7 @@
             var h = document.documentElement;
             var scrollTop = h.scrollTop || document.body.scrollTop;
             var scrollHeight = h.scrollHeight - h.clientHeight;
-            bar.style.width =
-              scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 + '%' : '0%';
+            bar.style.width = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 + '%' : '0%';
             ticking = false;
           });
           ticking = true;
@@ -45,11 +45,54 @@
 
   /* ── Mobile TOC compaction ───────────────────────────────────────── */
 
-  var narrowViewport =
-    window.matchMedia && window.matchMedia('(max-width: 600px)').matches;
+  var narrowViewport = window.matchMedia && window.matchMedia('(max-width: 600px)').matches;
   if (narrowViewport) {
     document.querySelectorAll('.article-toc-details[open]').forEach(function (toc) {
       toc.removeAttribute('open');
+    });
+  }
+
+  /* ── Semantic article color coding ───────────────────────────────── */
+
+  var article = document.querySelector('.article-body, .article-content');
+  if (article) {
+    var toneRules = [
+      {
+        className: 'intel-tone-critical',
+        pattern: /🔴|critical|severe|acute|blocked|crisis|threat|high risk|very high/i,
+      },
+      {
+        className: 'intel-tone-high',
+        pattern: /🟠|high|winner|opportunity|accelerat|breakthrough|adopted/i,
+      },
+      {
+        className: 'intel-tone-medium',
+        pattern: /🟡|medium|moderate|watch|monitor|uncertain|mixed|neutral/i,
+      },
+      {
+        className: 'intel-tone-low',
+        pattern: /🟢|low|stable|resilien|mitigat|on track|confidence/i,
+      },
+      {
+        className: 'intel-tone-source',
+        pattern: /source|evidence|admiralty|confidence|methodolog|provenance|audit/i,
+      },
+    ];
+    var toneTargets = article.querySelectorAll('p, li, td, th, blockquote, strong');
+    toneTargets.forEach(function (node) {
+      if (node.closest('.article-hero')) {
+        return;
+      }
+      var text = node.textContent || '';
+      for (var i = 0; i < toneRules.length; i++) {
+        if (toneRules[i].pattern.test(text)) {
+          node.classList.add(toneRules[i].className);
+          break;
+        }
+      }
+    });
+    article.querySelectorAll('table').forEach(function (table) {
+      table.classList.add('article-intel-table');
     });
   }
 

@@ -52,19 +52,20 @@
   <link rel="stylesheet" href="../styles.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Rapport d'activité des commissions du Parlement européen: Main Committees","description":"Analyse de la production législative récente, des indicateurs d'efficacité et des activités clés des commissions","datePublished":"2026-04-27","inLanguage":"fr","url":"https://euparliamentmonitor.com/news/2026-04-27-committee-reports-fr.html","author":{"@type":"Organization","name":"Hack23 AB","url":"https://hack23.com"},"publisher":{"@type":"Organization","name":"Hack23 AB","url":"https://hack23.com"},"articleSection":"committee-reports","isPartOf":{"@type":"WebSite","name":"EU Parliament Monitor","url":"https://euparliamentmonitor.com"},"isBasedOn":[{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/executive-brief.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/synthesis-summary.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/stakeholder-map.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/pestle-analysis.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/historical-baseline.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/economic-context.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/risk-scoring/risk-matrix.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/risk-scoring/quantitative-swot.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/threat-model.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/scenario-forecast.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/wildcards-blackswans.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/existing/committee-productivity.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/mcp-reliability-audit.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/analysis-index.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/reference-analysis-quality.md"},{"@type":"CreativeWork","url":"https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/methodology-reflection.md"}]}</script>
   <script type="module" src="../js/mermaid-init.js?v=11.14.0" defer></script>
+  <script src="../js/article-runtime.js" defer></script>
 </head>
 <body>
   <a href="#main" class="skip-link">Aller au contenu principal</a>
 
   <header class="site-header" role="banner">
     <div class="site-header__inner site-header__inner--stacked">
-      <a href="../index-fr.html" class="site-header__brand" aria-label="EU Parliament Monitor">
+      <a href="../index-fr.html" class="site-header__brand" aria-label="Moniteur du Parlement UE">
         <picture class="site-header__logo-picture">
           <source srcset="../images/header-logo.webp" type="image/webp">
           <img class="site-header__logo site-header__logo--header" src="../images/header-logo.png" alt="" width="96" height="64" aria-hidden="true">
         </picture>
         <span class="site-header__brand-text">
-          <span class="site-header__title">EU Parliament Monitor</span>
+          <span class="site-header__title">Moniteur du Parlement UE</span>
           <span class="site-header__subtitle">Renseignements du Parlement européen</span>
         </span>
       </a>
@@ -3318,6 +3319,7 @@ AFCO's work on Electoral Act reform (TA-10-2026-0006) and the Lithuania broadcas
       <div class="footer-section">
         <h3>À propos du EU Parliament Monitor</h3>
         <p>Plateforme de renseignements du Parlement européen — surveillance de l&#39;activité politique avec une transparence systématique. Alimentée par les données ouvertes du Parlement européen.</p>
+        <p class="footer-stats">116 articles disponibles</p>
         <p class="footer-company-summary">Swedish cybersecurity consultancy specializing in political transparency and open-source intelligence.</p>
       </div>
       <div class="footer-section">
@@ -3375,28 +3377,5 @@ AFCO's work on Electoral Act reform (TA-10-2026-0006) and the Lithuania broadcas
       <p class="footer-disclaimer"><span aria-hidden="true">⚠️</span> Cette plateforme fait l&#39;objet d&#39;améliorations continues. <a href="https://github.com/Hack23/euparliamentmonitor/issues">signaler des problèmes sur GitHub</a>.</p>
     </div>
   </footer>
-  <script>
-  (function(){
-    var docEl=document.documentElement;
-    var t=localStorage.getItem('ep-theme');
-    var storedTheme=t==='light'?'light':t==='dark'?'dark':null;
-    if(storedTheme){
-      docEl.setAttribute('data-theme',storedTheme);
-    }else if(t){
-      localStorage.removeItem('ep-theme');
-    }
-    var btn=document.querySelector('.theme-toggle');
-    if(!btn)return;
-    btn.addEventListener('click',function(){
-      var cur=docEl.getAttribute('data-theme');
-      if(!cur){
-        cur=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';
-      }
-      var next=cur==='dark'?'light':'dark';
-      docEl.setAttribute('data-theme',next);
-      localStorage.setItem('ep-theme',next);
-    });
-  })();
-  </script>
 </body>
 </html>

@@ -102,4 +102,11 @@ describe('renderMarkdown', () => {
     expect(html).toContain('class="footnote-ref"');
     expect(html).toContain('Source: EP.');
   });
+
+  it('escapes uppercase placeholder pseudo-tags while preserving trusted HTML wrappers', () => {
+    const md = '<section class="analysis-panel">Run <N> Validation Against Remediation</section>';
+    const { html } = renderMarkdown(md);
+    expect(html).toContain('<section class="analysis-panel">');
+    expect(html).toContain('Run &lt;N&gt; Validation Against Remediation');
+  });
 });
