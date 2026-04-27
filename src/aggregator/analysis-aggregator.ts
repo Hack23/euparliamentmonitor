@@ -519,11 +519,7 @@ function renderArtifactFragment(
   // are consolidated in the end-of-document Analysis Index appendix so the
   // body reads as a journalistic / political-intelligence narrative rather
   // than as a per-paragraph artifact dump.
-  const lines = [
-    ...headerLines,
-    '',
-    cleaned.markdown,
-  ];
+  const lines = [...headerLines, '', cleaned.markdown];
   const included: IncludedArtifact = {
     runRelPath: runRel,
     repoRelPath: repoRel,
@@ -778,9 +774,11 @@ export function aggregateAnalysisRun(options: AggregateOptions): AggregatedRun {
   // Reader Intelligence Guide (inserted at position 1, after Exec Brief) →
   // remaining sections → audit appendices.
   if (readerGuide) {
-    const insertIdx = emittedSections.length > 0 && emittedSections[0]?.id === namespacedSectionId(execBriefSection?.id ?? '')
-      ? 1
-      : 0;
+    const insertIdx =
+      emittedSections.length > 0 &&
+      emittedSections[0]?.id === namespacedSectionId(execBriefSection?.id ?? '')
+        ? 1
+        : 0;
     emittedSections.splice(insertIdx, 0, {
       id: READER_GUIDE_SECTION_ID,
       title: READER_GUIDE_SECTION_TITLE,
