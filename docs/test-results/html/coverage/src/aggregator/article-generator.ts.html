@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">70.61% </span>
+                <span class="strong">70.73% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>173/245</span>
+                <span class='fraction'>174/246</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">61.98% </span>
+                <span class="strong">62.42% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>106/171</span>
+                <span class='fraction'>108/173</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">72.68% </span>
+                <span class="strong">72.8% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>165/227</span>
+                <span class='fraction'>166/228</span>
             </div>
         
             
@@ -1001,7 +1001,25 @@
 <a name='L936'></a><a href='#L936'>936</a>
 <a name='L937'></a><a href='#L937'>937</a>
 <a name='L938'></a><a href='#L938'>938</a>
-<a name='L939'></a><a href='#L939'>939</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L939'></a><a href='#L939'>939</a>
+<a name='L940'></a><a href='#L940'>940</a>
+<a name='L941'></a><a href='#L941'>941</a>
+<a name='L942'></a><a href='#L942'>942</a>
+<a name='L943'></a><a href='#L943'>943</a>
+<a name='L944'></a><a href='#L944'>944</a>
+<a name='L945'></a><a href='#L945'>945</a>
+<a name='L946'></a><a href='#L946'>946</a>
+<a name='L947'></a><a href='#L947'>947</a>
+<a name='L948'></a><a href='#L948'>948</a>
+<a name='L949'></a><a href='#L949'>949</a>
+<a name='L950'></a><a href='#L950'>950</a>
+<a name='L951'></a><a href='#L951'>951</a>
+<a name='L952'></a><a href='#L952'>952</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1676,7 +1694,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">334x</span>
+<span class="cline-any cline-yes">549x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1696,14 +1714,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">562x</span>
 <span class="cline-any cline-yes">562x</span>
-<span class="cline-any cline-yes">345x</span>
+<span class="cline-any cline-yes">560x</span>
 <span class="cline-any cline-yes">562x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">562x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">562x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1777,6 +1802,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-yes">10x</span>
@@ -1962,7 +1988,12 @@
 import fs from 'fs';
 import path from 'path';
 import { pathToFileURL } from 'url';
-import { aggregateAnalysisRun, type AggregatedRun } from './analysis-aggregator.js';
+import {
+  aggregateAnalysisRun,
+  resolveArticleTypeFromManifest,
+  type AggregatedRun,
+  type AnalysisManifest,
+} from './analysis-aggregator.js';
 import {
   resolveArticleMetadata,
   extractStrongProseLine,
@@ -2634,14 +2665,21 @@ function readRunCandidate(runDir: string, manifestPath: string): DiscoveredRun |
   } catch {
 <span class="cstat-no" title="statement not covered" >    return null;</span>
   }
-  const articleType = typeof parsed.articleType === 'string' ? parsed.articleType : '';
+  // Resolve via the same precedence used by the aggregator (articleType →
+  // articleTypes[0] → runType) so legacy-schema manifests are picked up by
+  // batch mode rather than silently skipped.
+  const articleType = resolveArticleTypeFromManifest(parsed as unknown as AnalysisManifest);
   if (!articleType || articleType === 'unknown') return null;
   const dateFromManifest = typeof parsed.date === 'string' ? parsed.date : '';
   const date = /^\d{4}-\d{2}-\d{2}$/.test(dateFromManifest)
     ? dateFromManifest
     : dateFromRunPath(runDir);
   const runId =
-    typeof parsed.runId === 'string' &amp;&amp; parsed.runId ? parsed.runId : path.basename(runDir);
+    typeof parsed.runId === 'string' &amp;&amp; parsed.runId
+      ? parsed.runId
+      : typeof parsed.runId === 'number'
+        ? String(parsed.runId)
+        : path.basename(runDir);
   return { runDir, articleType, date, runId };
 }
 &nbsp;
@@ -2720,8 +2758,9 @@ function readManifestMetadata(runDir: string): MetadataManifest {
   try {
     const parsed = JSON.parse(fs.readFileSync(manifestPath, 'utf8')) as Record&lt;string, unknown&gt;;
     const manifest: MetadataManifest = {};
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (typeof parsed.articleType === 'string') {
-      Object.assign(manifest, { articleType: parsed.articleType });
+    const resolvedType = resolveArticleTypeFromManifest(parsed as unknown as AnalysisManifest);
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (resolvedType &amp;&amp; resolvedType !== 'unknown') {
+      Object.assign(manifest, { articleType: resolvedType });
     }
     <span class="missing-if-branch" title="else path not taken" >E</span>if (typeof parsed.date === 'string') {
       Object.assign(manifest, { date: parsed.date });
@@ -2884,7 +2923,7 @@ const isMain = (() =&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-26T21:24:43.170Z
+                at 2026-04-27T00:10:37.511Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

@@ -144,14 +144,30 @@ Every `manifest.json` records what was successfully downloaded:
    v1.2.13 defaults the reported `period` to calendar 2024 when no dates
    are given, returning an empty pipeline for all current procedures. For
    forward-looking workflows (`week-ahead`, `month-ahead`) use the relevant
-   future date span. Do not rely on the no-dates default until v1.2.14+
-   is confirmed installed.
+   future date span. As of v1.2.15 the server defaults to a rolling
+   last-30-days window when no dates are supplied, but explicit dates
+   remain the required calling pattern for reproducibility.
 
 ## 7 · Seat-Count Normalization
 
 Within a single run, take group seat counts from **one** source
 (`analyze_coalition_dynamics` OR `get_meps_feed`). Record the source in the
 manifest. Do not mix.
+
+**Canonical group-ID codes (consumer rule).** When invoking
+`analyze_coalition_dynamics`, `compare_political_groups`,
+`detect_voting_anomalies`, or `sentiment_tracker`, **always** pass the
+canonical English short codes —
+`["EPP","S&D","Renew","Greens/EFA","ECR","PfE","Left","NI"]`.
+Never pass the EP API native French/German variants
+(`PPE`, `Verts-ALE`, legacy `ID`) or full group names
+("Group of the European People's Party (Christian Democrats)") — on
+gateways prior to `v1.2.15` these mismatches produced `memberCount: 0`
+and split groups; the upstream fix in
+[Hack23/European-Parliament-MCP-Server#405](https://github.com/Hack23/European-Parliament-MCP-Server/pull/405)
+(v1.2.15+) collapses native variants onto these canonical codes via
+`normalizePoliticalGroup()`. Triage table entry:
+[`07-mcp-reference.md` §11 row #2](07-mcp-reference.md).
 
 ## 8 · Prior-Run Forward-Looking Mining (week/month ahead + in-review)
 
