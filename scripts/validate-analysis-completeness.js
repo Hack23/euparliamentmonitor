@@ -585,6 +585,27 @@ function main() {
   }
 
   const green = offending.length === 0;
+
+  // Pass-2-skipped heuristic: warn when manifest.pass2.rewriteCount === 0
+  // (or pass2 block is missing) AND at least one artifact sits at exactly
+  // its line floor. This is the script-side enforcement of the B1/B2 split
+  // defined in `.github/prompts/02-analysis-protocol.md` §3.
+  const pass2 = manifest.pass2;
+  const pass2Absent = pass2 == null;
+  const pass2ZeroRewrites = typeof pass2?.rewriteCount === 'number' && pass2.rewriteCount === 0;
+  if (pass2Absent || pass2ZeroRewrites) {
+    const atFloor = results.filter(
+      (r) => r.exists && r.lines > 0 && r.lines === r.minLines,
+    );
+    if (atFloor.length > 0) {
+      const label = pass2Absent ? 'pass2-block-missing' : 'pass2.rewriteCount=0';
+      process.stderr.write(
+        `WARN pass2-skipped-heuristic: ${label} and ${atFloor.length} artifact(s) ` +
+          `at exactly their line floor: ${atFloor.map((r) => r.relativePath).join(', ')}\n`,
+      );
+    }
+  }
+
   const gateLine = green
     ? `STAGE_C_GATE: GREEN articleType=${articleType} artifacts=${results.length} lines=${summary.totalLines}`
     : `STAGE_C_GATE: RED articleType=${articleType} missing=${summary.missing} short=${summary.short} placeholders=${summary.placeholders} mermaid_missing=${summary.mermaidMissing} other=${summary.other}`;

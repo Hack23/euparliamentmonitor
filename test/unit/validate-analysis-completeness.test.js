@@ -213,4 +213,108 @@ describe('scripts/validate-analysis-completeness.js', () => {
     expect(result.code).toBe(0);
     expect(result.stderr).toMatch(/orphan artifacts/);
   });
+
+  describe('Pass 2 skipped heuristic', () => {
+    it('warns when pass2 block is absent and an artifact sits exactly at its floor', () => {
+      // Artifact at exactly the 200-line floor (minLines for synthesis-summary.md)
+      writeManifest();
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/synthesis-summary.md'),
+        makeArtifact(200, { mermaid: true, wep: true, admiralty: true }),
+        'utf8',
+      );
+      const result = runHere();
+      // Gate should still be GREEN (line count meets floor exactly)
+      expect(result.code).toBe(0);
+      expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
+      // But the heuristic warning must appear
+      expect(result.stderr).toMatch(/pass2-skipped-heuristic/);
+      expect(result.stderr).toMatch(/pass2-block-missing/);
+    });
+
+    it('warns when pass2.rewriteCount === 0 and an artifact is exactly at its floor', () => {
+      const manifest = {
+        articleType: 'breaking',
+        files: {
+          intelligence: ['intelligence/synthesis-summary.md'],
+        },
+        pass2: {
+          startedAt: '2026-04-22T10:18:00Z',
+          endedAt: '2026-04-22T10:24:00Z',
+          rewriteCount: 0,
+        },
+      };
+      fs.writeFileSync(path.join(runDir, 'manifest.json'), JSON.stringify(manifest), 'utf8');
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/synthesis-summary.md'),
+        makeArtifact(200, { mermaid: true, wep: true, admiralty: true }),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.code).toBe(0);
+      expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
+      expect(result.stderr).toMatch(/pass2-skipped-heuristic/);
+      expect(result.stderr).toMatch(/pass2\.rewriteCount=0/);
+    });
+
+    it('does NOT warn when pass2.rewriteCount === 0 but artifact is strictly above its floor', () => {
+      const manifest = {
+        articleType: 'breaking',
+        files: {
+          intelligence: ['intelligence/synthesis-summary.md'],
+        },
+        pass2: {
+          startedAt: '2026-04-22T10:18:00Z',
+          endedAt: '2026-04-22T10:24:00Z',
+          rewriteCount: 0,
+        },
+      };
+      fs.writeFileSync(path.join(runDir, 'manifest.json'), JSON.stringify(manifest), 'utf8');
+      // 250 lines > 200-line floor — no heuristic trigger
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/synthesis-summary.md'),
+        makeArtifact(250, { mermaid: true, wep: true, admiralty: true }),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.code).toBe(0);
+      expect(result.stderr).not.toMatch(/pass2-skipped-heuristic/);
+    });
+
+    it('does NOT warn when pass2.rewriteCount > 0 even if artifact is at its floor', () => {
+      const manifest = {
+        articleType: 'breaking',
+        files: {
+          intelligence: ['intelligence/synthesis-summary.md'],
+        },
+        pass2: {
+          startedAt: '2026-04-22T10:18:00Z',
+          endedAt: '2026-04-22T10:24:00Z',
+          rewriteCount: 3,
+        },
+      };
+      fs.writeFileSync(path.join(runDir, 'manifest.json'), JSON.stringify(manifest), 'utf8');
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/synthesis-summary.md'),
+        makeArtifact(200, { mermaid: true, wep: true, admiralty: true }),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.code).toBe(0);
+      expect(result.stderr).not.toMatch(/pass2-skipped-heuristic/);
+    });
+
+    it('does NOT warn when pass2 block is absent but artifact is strictly above its floor', () => {
+      writeManifest();
+      // 300 lines > 200-line floor — heuristic should not fire
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/synthesis-summary.md'),
+        makeArtifact(300, { mermaid: true, wep: true, admiralty: true }),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.code).toBe(0);
+      expect(result.stderr).not.toMatch(/pass2-skipped-heuristic/);
+    });
+  });
 });
