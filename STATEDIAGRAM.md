@@ -358,10 +358,12 @@ stateDiagram-v2
         - Committee Reports
         - Motions
         - Propositions
-        Driven by 9 strategy modules in
-        src/generators/strategies/
-        (1 generic article-strategy +
-         8 type-specific strategies)
+        Each driven by a unified
+        news-<type>.md gh-aw workflow
+        (Stages A→E in one session,
+         deterministic HTML rendered
+         from Stage-B artifacts by
+         src/aggregator/article-generator.ts)
     end note
 
     note right of ContentGeneration
@@ -975,9 +977,9 @@ stateDiagram-v2
 
 ---
 
-## 🔁 Pipeline-Stage State Machine
+## 🔁 Aggregator State Machine
 
-The 5-stage pipeline in `src/generators/pipeline/` is the canonical execution spine invoked by every strategy in `src/generators/strategies/`. Each stage has explicit entry/exit states and retry semantics.
+The deterministic aggregator in `src/aggregator/` is the canonical post-April-2026 execution spine invoked by every unified `news-<type>.md` agentic workflow at Stage D. Each module has explicit entry/exit states.
 
 ```mermaid
 stateDiagram-v2

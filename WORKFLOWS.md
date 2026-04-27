@@ -108,7 +108,7 @@ EU Parliament Monitor's CI/CD workflows implement security controls mandated by 
 
 ## 📋 Executive Summary
 
-EU Parliament Monitor employs a comprehensive suite of **24 GitHub Actions workflows** (14 standard + 10 agentic) for automated intelligence operations, quality assurance, security scanning, and release management. All workflows follow [Hack23 ISMS Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) standards.
+EU Parliament Monitor employs a comprehensive suite of **GitHub Actions workflows** (~15 standard + 9 agentic — 8 unified `news-<type>.md` + `news-translate.md`) for automated intelligence operations, quality assurance, security scanning, and release management. All workflows follow the [Hack23 ISMS Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) standards.
 
 ### Workflow Portfolio
 
@@ -222,42 +222,29 @@ flowchart TB
 
 ### 1. Agentic News Workflows (×10)
 
-**🎯 Purpose:** AI-powered generation of multi-language news articles about European Parliament activities using GitHub Copilot with the `claude-opus-4.7` model  
-**📁 Architecture:** 10 markdown source files (9 content-generation + 1 translation) compiled to 10 `.lock.yml` files via `gh aw compile` (GitHub Agentic Workflows CLI)  
+**🎯 Purpose:** AI-powered generation of multi-language news articles about European Parliament activities using GitHub Copilot with the `claude-opus-4.7` model
+**📁 Architecture:** 9 markdown source files (8 unified `news-<type>.md` + 1 `news-translate.md` helper) compiled to 9 `.lock.yml` files via `gh aw compile` (GitHub Agentic Workflows CLI)
 **🌐 Languages:** 14 (en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh)
 
-#### Agentic Workflow Schedule Matrix
+#### Agentic Workflow Schedule Matrix (April-2026 unified workflows)
 
-| Workflow | File | Schedule | Timeout |
-|----------|------|----------|---------|
-| **EU Parliament Week Ahead — Analysis** | `news-week-ahead-analysis.lock.yml` | Friday 07:00 UTC | 45 min |
-| **EU Parliament Week Ahead — Article** | `news-week-ahead-article.lock.yml` | On merged analysis PR | 45 min |
-| **EU Parliament Weekly Review — Analysis** | `news-weekly-review-analysis.lock.yml` | Saturday 09:00 UTC | 45 min |
-| **EU Parliament Weekly Review — Article** | `news-weekly-review-article.lock.yml` | On merged analysis PR | 45 min |
-| **EU Parliament Plenary Votes & Resolutions — Analysis** | `news-motions-analysis.lock.yml` | Weekdays (Mon–Fri) 06:00 UTC | 45 min |
-| **EU Parliament Plenary Votes & Resolutions — Article** | `news-motions-article.lock.yml` | On merged analysis PR | 45 min |
-| **EU Parliament Legislative Procedures — Analysis** | `news-propositions-analysis.lock.yml` | Weekdays (Mon–Fri) 05:00 UTC | 45 min |
-| **EU Parliament Legislative Procedures — Article** | `news-propositions-article.lock.yml` | On merged analysis PR | 45 min |
-| **EU Parliament Committee Activity — Analysis** | `news-committee-reports-analysis.lock.yml` | Weekdays (Mon–Fri) 04:00 UTC | 45 min |
-| **EU Parliament Committee Activity — Article** | `news-committee-reports-article.lock.yml` | On merged analysis PR | 45 min |
-| **EU Parliament Month Ahead — Analysis** | `news-month-ahead-analysis.lock.yml` | 1st of month 08:00 UTC | 45 min |
-| **EU Parliament Month Ahead — Article** | `news-month-ahead-article.lock.yml` | On merged analysis PR | 45 min |
-| **EU Parliament Monthly Review — Analysis** | `news-monthly-review-analysis.lock.yml` | 28th of month 10:00 UTC | 45 min |
-| **EU Parliament Monthly Review — Article** | `news-monthly-review-article.lock.yml` | On merged analysis PR | 45 min |
-| **EU Parliament Breaking News — Analysis** | `news-breaking-analysis.lock.yml` | Every 6 hours (`0 */6 * * *`) | 45 min |
-| **EU Parliament Breaking News — Article** | `news-breaking-article.lock.yml` | On merged analysis PR | 45 min |
-| **EU Parliament Article Generator** | `news-article-generator.lock.yml` | Manual dispatch only | 120 min |
-| **Translate Articles** | `news-translate.lock.yml` | Weekdays 09:00/12:00/15:00 UTC; Sat 15:00; 1st & 28th 15:00 | 60 min |
+| 🤖 Workflow | 📄 File | 📅 Schedule | ⏱️ Timeout |
+|---|---|---|---|
+| 🔮 **EU Parliament Week Ahead** | `news-week-ahead.lock.yml` | Friday 07:00 UTC | 45 min |
+| 📋 **EU Parliament Week in Review** | `news-week-in-review.lock.yml` | Saturday 09:00 UTC | 45 min |
+| 🗳️ **EU Parliament Plenary Votes & Resolutions** | `news-motions.lock.yml` | Weekdays (Mon–Fri) 06:00 UTC | 45 min |
+| ⚖️ **EU Parliament Legislative Procedures** | `news-propositions.lock.yml` | Weekdays (Mon–Fri) 05:00 UTC | 45 min |
+| 🏛️ **EU Parliament Committee Activity** | `news-committee-reports.lock.yml` | Weekdays (Mon–Fri) 04:00 UTC | 45 min |
+| 📊 **EU Parliament Month Ahead** | `news-month-ahead.lock.yml` | 1st of month 08:00 UTC | 45 min |
+| 📈 **EU Parliament Month in Review** | `news-month-in-review.lock.yml` | 28th of month 10:00 UTC | 45 min |
+| 🚨 **EU Parliament Breaking News** | `news-breaking.lock.yml` | Every 6 hours (`0 */6 * * *`) | 45 min |
+| 🌐 **Translate Articles** | `news-translate.lock.yml` | Weekdays 09:00/12:00/15:00 UTC; Sat 15:00; 1st & 28th 15:00 | 45 min |
 
-> Each article type is served by a **split pair** of workflows: `news-<type>-analysis.md`
-> produces a single analysis-only PR (Stages A+B+C, 45-min timeout). When that PR
-> merges to `main`, `news-<type>-article.md` runs Stage D and produces a single
-> article PR (45-min timeout). The legacy monolithic `news-<type>.md` workflows
-> are `disabled_manually` and retained only for rollback during the rollout.
+> Each `news-<type>.md` workflow runs **Stages A → B → C → D → E in one 45-minute session** and produces **exactly one PR** containing both analysis artifacts and rendered article HTML. The earlier split-pair `news-<type>-analysis.md` + `news-<type>-article.md` layout and the manual `news-article-generator.md` helper were **deleted** in the April-2026 aggregator-pipeline migration. The `news-translate.md` helper (manual dispatch only) is the sole exemption from the single-PR rule.
 
 #### Agentic Workflow Architecture
 
-All 10 agentic workflows share a common architecture (9 content-generation workflows produce English articles; the `news-translate` workflow then generates the remaining 13 languages):
+All 9 agentic workflows share a common architecture (8 unified `news-<type>.md` produce English articles in single 45-min sessions; the manual `news-translate` helper then generates the remaining 13 languages):
 
 ```mermaid
 graph TD
@@ -268,7 +255,7 @@ graph TD
     D --> F[📥 Checkout Repository]
     F --> G[⚙️ Setup Node.js 25]
     G --> H[📦 Install Dependencies]
-    H --> I[🔗 Install EP MCP Server v1.2.13]
+    H --> I[🔗 Install EP MCP Server v1.2.15+]
     I --> J1[🔬 Analysis Stage<br/>Political Intelligence Pipeline<br/>--analysis flag]
     J1 --> J1a[📊 Classification: significance, impact-matrix, actors, forces]
     J1 --> J1b[🛡️ Threat Assessment: Political Threat Landscape,<br/>actor-threats, disruption]
@@ -310,7 +297,7 @@ graph TD
 | **Concurrency group** | `gh-aw-${{ github.workflow }}` |
 | **Node.js version** | 25 |
 | **EP MCP Server** | `european-parliament-mcp-server@1.2.15` (globally installed via `scripts/mcp-setup.sh`, MCP gateway `EP_MCP_GATEWAY_URL=http://host.docker.internal:80/mcp/european-parliament`) |
-| **Data sources** | European Parliament MCP Server (primary, 6 sliding-window + 7 fixed-window feeds), IMF REST SDMX 3.0 (native fetch in `src/mcp/imf-mcp-client.ts`, primary economic source under Wave-3 — WEO+FM+IFS+BOP+ER+PCPS+GFSR+EREO+FSI+GFS+DOT), World Bank MCP `1.0.1` (non-economic only under Wave-3 — WDI social/health/education/environment/governance). Active gate: `articlePolicyHasEconomicContext` (Wave-2 OR-gate, default) or `articlePolicyHasIMFEconomicEvidence` (Wave-3 strict, when `WAVE3_IMF_STRICT=true`) in `src/utils/content-validator.ts` |
+| **Data sources** | European Parliament MCP Server `v1.2.15+` (primary, 60+ tools — sliding + fixed-window feeds + analytical), IMF REST SDMX 3.0 (native fetch in `src/mcp/imf-mcp-client.ts`, **primary economic source** — WEO+FM+IFS+BOP+ER+PCPS+GFSR+EREO+FSI+GFS+DOT), World Bank Open Data MCP (non-economic only — WDI social/health/education/environment/governance). Economic-context enforcement is editorial at the Stage-C completeness review against [`.github/prompts/03-analysis-completeness-gate.md`](.github/prompts/03-analysis-completeness-gate.md) and the per-artifact line floors in [`analysis/methodologies/reference-quality-thresholds.json`](analysis/methodologies/reference-quality-thresholds.json) — the runtime `articlePolicyHas*` gates were purged in April-2026 |
 | **Analysis stage** | `--analysis` flag enables 18-method political intelligence pipeline before article generation |
 | **Analysis output** | `analysis/daily/{date}/` for cross-article artifacts (for example shared synthesis outputs), plus `analysis/daily/{date}/{article-type}/` for article-type-scoped classification, threat-assessment, risk-scoring, and data (EP feeds, World Bank, IMF, OSINT) artifacts committed to PR. Article-type scoping prevents merge conflicts between concurrent workflows. |
 
@@ -326,7 +313,7 @@ with the ten-file prompt library in [`.github/prompts/`](.github/prompts/README.
 | **B** | Analysis (**2-pass mandatory**) | [`02-analysis-protocol.md`](.github/prompts/02-analysis-protocol.md) → `analysis/methodologies/ai-driven-analysis-guide.md` (10 steps, Rules 1–22) | classification / threat / risk / synthesis artifacts under the same run dir |
 | **C** | Completeness gate | [`03-analysis-completeness-gate.md`](.github/prompts/03-analysis-completeness-gate.md) → `npm run validate-analysis` vs `analysis/methodologies/reference-quality-thresholds.json` | **blocks** PR if any floor is missed |
 | **D** | Article (**2-pass mandatory**) | [`04-article-generation.md`](.github/prompts/04-article-generation.md) + [`05-analysis-to-article-contract.md`](.github/prompts/05-analysis-to-article-contract.md) with Read-Before-Write against every artifact from Stage B | `news/<date>-<type>-<lang>.html` |
-| **E** | Single PR | [`06-pr-and-safe-outputs.md`](.github/prompts/06-pr-and-safe-outputs.md) → one `safeoutputs___create_pull_request` call at end of run | GitHub PR (max 1 per run; `news-article-generator` is the documented `max: 8` exception) |
+| **E** | Single PR | [`06-pr-and-safe-outputs.md`](.github/prompts/06-pr-and-safe-outputs.md) → one `safeoutputs___create_pull_request` call at end of run | GitHub PR (max 1 per run; `news-translate.md` is the sole exemption — multi-call flush for 14-language fan-out) |
 
 Stage D's Read-Before-Write rule requires the agent to consult every artifact
 produced in Stage B before drafting prose; the artifact → article-section
@@ -370,8 +357,6 @@ safe-outputs:
 
 Documented exceptions:
 
-- **`news-article-generator.md`** sets `max: 8` (manual backfill runner that
-  may produce up to eight per-type PRs in one dispatch).
 - **`news-translate.md`** uses `excluded-files:` and a multi-call flush
   pattern with `max-patch-size`; it is **exempt from the single-PR rule** and
   is the only workflow that calls `safeoutputs___create_pull_request` more
@@ -507,17 +492,18 @@ graph TD
 
 | Workflow Pair (analysis + article) | Article Type | Analysis Schedule | Focus |
 |------------------------------------|--------------|-------------------|-------|
-| `news-committee-reports-analysis.md` + `news-committee-reports-article.md` | Committee reports | Mon–Fri 04:00 UTC | Committee activity analysis |
-| `news-propositions-analysis.md` + `news-propositions-article.md` | Legislative procedures | Mon–Fri 05:00 UTC | Legislative pipeline tracking |
-| `news-motions-analysis.md` + `news-motions-article.md` | Plenary votes | Mon–Fri 06:00 UTC | Voting patterns & resolutions |
-| `news-week-ahead-analysis.md` + `news-week-ahead-article.md` | Week ahead | Fri 07:00 UTC | Upcoming parliamentary agenda |
-| `news-month-ahead-analysis.md` + `news-month-ahead-article.md` | Month ahead | 1st of month 08:00 UTC | Monthly strategic outlook |
-| `news-weekly-review-analysis.md` + `news-weekly-review-article.md` | Weekly review | Sat 09:00 UTC | Week in review |
-| `news-monthly-review-analysis.md` + `news-monthly-review-article.md` | Monthly review | 28th of month 10:00 UTC | Monthly retrospective |
-| `news-breaking-analysis.md` + `news-breaking-article.md` | Breaking news | Every 6 hours | Real-time EP feed events |
-| `news-article-generator.md` | Multi-type | Manual dispatch | On-demand article generation |
+| 🤖 Workflow | 🏷️ Type | 📅 Schedule | 🎯 Purpose |
+|---|---|---|---|
+| `news-committee-reports.md` | committee-reports | Mon–Fri 04:00 UTC | Committee activity analysis |
+| `news-propositions.md` | propositions | Mon–Fri 05:00 UTC | Legislative pipeline tracking |
+| `news-motions.md` | motions | Mon–Fri 06:00 UTC | Voting patterns & resolutions |
+| `news-week-ahead.md` | week-ahead | Fri 07:00 UTC | Upcoming parliamentary agenda |
+| `news-month-ahead.md` | month-ahead | 1st of month 08:00 UTC | Monthly strategic outlook |
+| `news-week-in-review.md` | week-in-review | Sat 09:00 UTC | Week in review |
+| `news-month-in-review.md` | month-in-review | 28th of month 10:00 UTC | Monthly retrospective |
+| `news-breaking.md` | breaking | Every 6 hours | Real-time EP feed events |
 
-> Each split-pair runs `news-<type>-analysis.md` (Stages A+B+C, ~45 min) on the schedule above; on analysis-PR merge, `news-<type>-article.md` (Stage D, ~45 min) is triggered via `pull_request:closed` gated on `agentic-analysis` + `type:<slug>` labels. The legacy single-job `news-<type>.md` workflows were removed in April 2026 because their >30-min runtime exceeded the safeoutputs MCP session TTL.
+> Each `news-<type>.md` runs the full Stage A→E protocol in one ~45-minute session and produces exactly one PR with both analysis artifacts and the rendered article HTML. The earlier split-pair `news-<type>-analysis.md` + `news-<type>-article.md` layout and the manual `news-article-generator.md` helper were **deleted** in the April-2026 aggregator-pipeline migration (the prior legacy single-job `news-<type>.md` were briefly replaced by split pairs in 2025 because those exceeded the safeoutputs MCP TTL — the unified workflows now stay within the TTL by deferring the PR call to minute ≤ 28).
 
 #### Translation Workflow
 
@@ -544,7 +530,7 @@ graph TD
 
 #### Enhanced Analysis Features (v2)
 
-The following 8 scheduled article-generation split-pair workflow families have been upgraded with mandatory analytical enhancements: `news-week-ahead-{analysis,article}.md`, `news-month-ahead-{analysis,article}.md`, `news-breaking-{analysis,article}.md`, `news-committee-reports-{analysis,article}.md`, `news-propositions-{analysis,article}.md`, `news-motions-{analysis,article}.md`, `news-weekly-review-{analysis,article}.md`, `news-monthly-review-{analysis,article}.md`. The on-demand `news-article-generator.md` workflow is not included in this upgrade as it dispatches to the above workflows. The `news-translate.md` workflow has complementary analysis-fidelity requirements for preserving these elements in translation.
+The following 8 unified article-generation workflows include mandatory analytical enhancements: `news-week-ahead.md`, `news-month-ahead.md`, `news-breaking.md`, `news-committee-reports.md`, `news-propositions.md`, `news-motions.md`, `news-week-in-review.md`, `news-month-in-review.md`. The `news-translate.md` workflow has complementary analysis-fidelity requirements for preserving these elements in translation.
 
 ##### 🎭 Multi-Stakeholder Perspective Requirements
 
@@ -1208,7 +1194,7 @@ which asserts:
 - ≥60% prose ratio (non-HTML text content)
 - ≥1 Chart.js visualization embedded
 - **0** `[AI_ANALYSIS_REQUIRED]` sentinel markers remaining
-- Economic context present: **IMF** (Wave-3 primary; mandatory when `WAVE3_IMF_STRICT=true`) or **World Bank OR IMF** (Wave-2 OR-gate, default) via `articlePolicyHasEconomicContext` / `articlePolicyHasIMFEconomicEvidence` in `src/utils/content-validator.ts`
+- Economic context present: **IMF** (primary economic source, mandatory for policy articles per Stage-C review) and/or **World Bank** (non-economic context). Enforcement is editorial at the Stage-C completeness gate against [`.github/prompts/03-analysis-completeness-gate.md`](.github/prompts/03-analysis-completeness-gate.md)
 - `scanHtmlForFallbackLeaks()` returns empty — no `FALLBACK_TEMPLATE_PATTERNS` in output
 
 Reference thresholds (`analysis/methodologies/reference-quality-thresholds.json`):
@@ -1824,7 +1810,7 @@ The following tools integrate with the GitHub Security Dashboard via SARIF or na
 
 ## 🔬 Political Intelligence Operations Centre
 
-The 10 agentic news workflows collectively form a **European Parliament Political Intelligence Operations Centre** — a systematic, automated pipeline that transforms raw parliamentary data into multi-language political intelligence articles published daily.
+The 9 agentic news workflows collectively form a **European Parliament Political Intelligence Operations Centre** — a systematic, automated pipeline that transforms raw parliamentary data into multi-language political intelligence articles published daily.
 
 ### Intelligence Collection Cycle
 
@@ -1832,7 +1818,7 @@ The following diagram shows the complete intelligence cycle from EP data collect
 
 ```mermaid
 flowchart TD
-    subgraph Collection["📡 COLLECTION<br/>(EP MCP Server v1.2.13)"]
+    subgraph Collection["📡 COLLECTION<br/>(EP MCP Server v1.2.15+)"]
         direction TB
         C1["🗳️ Votes &<br/>Adopted Texts"]
         C2["📜 Legislative<br/>Procedures"]
@@ -1920,7 +1906,7 @@ mindmap
 
 ### Workflow Cadence — Weekly Intelligence Rhythm
 
-The 10 agentic workflows follow a carefully orchestrated schedule to ensure continuous intelligence coverage of the European Parliament.
+The 9 agentic workflows follow a carefully orchestrated schedule to ensure continuous intelligence coverage of the European Parliament.
 
 > **Note:** The Gantt chart below uses sample dates (week of 2026-01-05) to illustrate the recurring weekly cadence. Mermaid's gantt format requires concrete dates; the actual schedule repeats every week.
 
@@ -1960,7 +1946,7 @@ flowchart LR
     end
 
     subgraph "🔌 MCP Layer"
-        MCP["EP MCP Server<br/>v1.2.13<br/>(120s timeout;<br/>6 sliding + 7 fixed-window feeds)"]
+        MCP["EP MCP Server<br/>v1.2.15+<br/>(120s timeout;<br/>60+ tools, sliding + fixed-window feeds)"]
     end
 
     subgraph "🤖 Agent Layer"

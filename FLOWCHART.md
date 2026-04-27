@@ -106,7 +106,7 @@ This document aligns with Hack23's Information Security Management System (ISMS)
 
 ## 🔐 News Generation Security Flow
 
-The end-to-end agentic news generation flow for v0.8.40 spans gh-aw runtime, 5-stage pipeline, AI-First 2-pass analysis, validator gate, and safe-output PR creation. The 10 news workflows (`news-breaking`, `news-weekly-review`, `news-monthly-review`, `news-week-ahead`, `news-month-ahead`, `news-committee-reports`, `news-motions`, `news-propositions`, `news-article-generator`, `news-translate`) all share this spine.
+The end-to-end agentic news generation flow spans gh-aw runtime, Stage A→E protocol, AI-First 2-pass analysis, Stage-C completeness gate, and safe-output PR creation. The **9 news workflows** — 8 article-generating (`news-breaking`, `news-week-in-review`, `news-month-in-review`, `news-week-ahead`, `news-month-ahead`, `news-committee-reports`, `news-motions`, `news-propositions`) + the manual `news-translate` helper — all share this spine.
 
 ```mermaid
 flowchart TD
@@ -125,29 +125,29 @@ flowchart TD
     EPAvail -->|✅ items| EconomicGate{"OR-gate: WB OR IMF?"}
     DegradeFetch --> EconomicGate
 
-    EconomicGate -->|Either OK| Transform["🔄 transform-stage\nNormalize + unify schemas"]
-    EconomicGate -->|Both fail + default gate| AbortEcon["❌ articlePolicyHasWorldBank fail\nAbort PR"]
+    EconomicGate -->|Either OK| Transform["🔄 Stage A: Normalise feeds\nUnavailable-envelope handling"]
+    EconomicGate -->|Both fail| AbortEcon["❌ Stage-C completeness fail\n(no economic context)\nAbort PR"]
 
-    Transform --> Analysis["🤖 analysis-stage\nAI-First 2-pass"]
+    Transform --> Analysis["🤖 Stage B: Analysis\nAI-First 2-pass"]
 
-    Analysis --> Pass1["📝 Pass 1 (~60% budget)\nInitial analysis"]
+    Analysis --> Pass1["📝 Pass 1 (~60% budget)\nInitial artifact authoring"]
     Pass1 --> Pass2["🔁 Pass 2 (~40% budget)\nRead-back + improve\n≥80w/SWOT, ≥150w/stakeholder,\n≥60% prose, ≥1 Chart.js"]
 
-    Pass2 --> Intel["📄 Emit intelligence files\nstakeholder-map.md\nimpact-matrix.md\nmcp-reliability-audit.md\nreference-analysis-quality.md"]
+    Pass2 --> Intel["📄 Emit Stage-B artifacts\nintelligence/ + classification/\n+ risk-scoring/ + threat-assessment/\n(see analysis/templates/)"]
 
-    Intel --> Generate["🏗️ generate-stage\nStrategy-specific builder\nbuildDefaultStakeholderPerspectives\n(AI_MARKER sentinels)"]
+    Intel --> Generate["🏗️ Stage D: Aggregator render\nsrc/aggregator/article-generator.ts\nDeterministic Markdown → 14-lang HTML"]
 
-    Generate --> Output["💾 output-stage\nHTML writes to news/\nChart.js + JSON-LD + SEO"]
+    Generate --> Output["💾 Stage D: write outputs\nnews/<slug>(-<lang>).{md,html}\n+ Chart.js + JSON-LD + hreflang"]
 
-    Output --> Validator["✅ validate-analysis-completeness.js\n--article-html=..."]
+    Output --> Validator["✅ Stage C: editorial completeness\nreview against 03-analysis-completeness-gate.md"]
 
-    Validator --> LeakScan{"scanHtmlForFallbackLeaks\nvs FALLBACK_TEMPLATE_PATTERNS"}
-    LeakScan -->|❌ Leak detected| AbortLeak["❌ Abort PR\nAI_ANALYSIS_REQUIRED / AI_MARKER present"]
+    Validator --> LeakScan{"Fallback-leak scan\n(agent-side, see prompts/03)"}
+    LeakScan -->|❌ Leak detected| AbortLeak["❌ Abort PR\n[AI_ANALYSIS_REQUIRED] markers present"]
 
-    LeakScan -->|✅ Clean| ThresholdCheck{"Reference thresholds\n(≥200/385, ≥140/190)"}
-    ThresholdCheck -->|❌ Below| AbortThresh["❌ Abort PR\nInsufficient references"]
+    LeakScan -->|✅ Clean| ThresholdCheck{"Per-artifact line floors\n(reference-quality-thresholds.json)"}
+    ThresholdCheck -->|❌ Below| AbortThresh["❌ Abort PR\nInsufficient depth"]
 
-    ThresholdCheck -->|✅ Pass| SafeOutput["📦 safe-outputs create-pull-request\nmax-patch-size: 1024 KB (default)"]
+    ThresholdCheck -->|✅ Pass| SafeOutput["📦 Stage E: safe-outputs create-pull-request\nmax-patch-size: 1024 KB (default)\n(news-translate.md: 10240 KB)"]
 
     SafeOutput --> PR["🔀 PR for human review"]
     PR --> Merge["✅ Merge to main"]
@@ -178,14 +178,14 @@ flowchart TD
 
 > **Note — gh-aw compile is out-of-band:** The `.lock.yml` artifacts executed above are pre-compiled and committed to the repository. Compilation (`gh aw compile --validate` pinned to `GH_AW_VERSION: v0.69.0`) runs in the **separate `.github/workflows/compile-agentic-workflows.yml` workflow** (manual `workflow_dispatch` only) and is **not** part of any scheduled news-generation run. Scheduled news workflows invoke only the already-committed lock files; agent-authored `.md` edits require a dedicated compile PR before they take effect.
 
-**Workflow & Pipeline References:**
-- Agentic `.md` sources: [`.github/workflows/news-*.md`](.github/workflows/)
-- Compiled lock files: `.github/workflows/news-*.lock.yml`
-- Pipeline stages: [`src/generators/pipeline/`](src/generators/pipeline/)
-- Strategies: [`src/generators/strategies/`](src/generators/strategies/)
-- Validator: [`scripts/utils/validate-analysis-completeness.js`](scripts/utils/validate-analysis-completeness.js)
-- Quality thresholds: [`analysis/methodologies/reference-quality-thresholds.json`](analysis/methodologies/reference-quality-thresholds.json)
-- Content validator: [`src/utils/content-validator.ts`](src/utils/content-validator.ts)
+**Workflow & Aggregator References:**
+- 🤖 Agentic `.md` sources: [`.github/workflows/news-*.md`](.github/workflows/)
+- 🔒 Compiled lock files: `.github/workflows/news-*.lock.yml`
+- 🟢 Aggregator entry point: [`src/aggregator/article-generator.ts`](src/aggregator/article-generator.ts)
+- 📦 Aggregator modules: [`src/aggregator/{analysis-aggregator,artifact-order,clean-artifact,markdown-renderer,article-html,article-metadata}.ts`](src/aggregator/)
+- 🧠 Methodology library: [`analysis/methodologies/`](analysis/methodologies/) (17 methodologies)
+- 📐 Quality thresholds: [`analysis/methodologies/reference-quality-thresholds.json`](analysis/methodologies/reference-quality-thresholds.json)
+- ⚖️ Stage-C completeness gate: [`.github/prompts/03-analysis-completeness-gate.md`](.github/prompts/03-analysis-completeness-gate.md)
 
 ---
 
