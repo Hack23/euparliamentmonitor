@@ -311,7 +311,7 @@ if [ -n "$SOURCES" ]; then
     VALIDATOR_ARGS="$VALIDATOR_ARGS --article-html=$S"
   done
   # shellcheck disable=SC2086
-  node scripts/utils/validate-analysis-completeness.js $VALIDATOR_ARGS > "$DIAG" 2>&1 || true
+  node scripts/validate-analysis-completeness.js $VALIDATOR_ARGS > "$DIAG" 2>&1 || true
   echo "ℹ️ Leak diagnostic written to $DIAG — translator MUST repair leaks per-section while translating; translation of ALL sources still proceeds."
 fi
 true  # Non-blocking: continue to Step 1 no matter what.
