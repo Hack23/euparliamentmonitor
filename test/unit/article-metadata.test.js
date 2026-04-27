@@ -14,6 +14,7 @@ import path from 'path';
 import {
   buildTemplateFallback,
   deriveMonthLabel,
+  deriveReportingWindowForWeekInReview,
   deriveWeekRange,
   extractArtifactHighlight,
   extractFirstH1,
@@ -268,6 +269,44 @@ describe('deriveWeekRange / deriveMonthLabel', () => {
   });
 });
 
+describe('deriveReportingWindowForWeekInReview — D-36 → D-8 window (ADR-006)', () => {
+  const MS_PER_DAY = 86_400_000;
+
+  it('returns start=D-36 and end=D-8 for a known date', () => {
+    // 2026-04-26 - 36 days = 2026-03-21; 2026-04-26 - 8 days = 2026-04-18
+    const result = deriveReportingWindowForWeekInReview('2026-04-26');
+    expect(result).toEqual({ start: '2026-03-21', end: '2026-04-18' });
+  });
+
+  it('end is always 28 days after start', () => {
+    const result = deriveReportingWindowForWeekInReview('2026-01-15');
+    const startMs = new Date(`${result.start}T00:00:00Z`).getTime();
+    const endMs = new Date(`${result.end}T00:00:00Z`).getTime();
+    expect((endMs - startMs) / MS_PER_DAY).toBe(28);
+  });
+
+  it('end date is exactly 8 days before the supplied article date', () => {
+    const articleDate = '2026-04-26';
+    const { end } = deriveReportingWindowForWeekInReview(articleDate);
+    const articleMs = new Date(`${articleDate}T00:00:00Z`).getTime();
+    const endMs = new Date(`${end}T00:00:00Z`).getTime();
+    expect((articleMs - endMs) / MS_PER_DAY).toBe(8);
+  });
+
+  it('returns the raw date for both start and end when parsing fails', () => {
+    expect(deriveReportingWindowForWeekInReview('not-a-date')).toEqual({
+      start: 'not-a-date',
+      end: 'not-a-date',
+    });
+  });
+
+  it('window end is strictly earlier than the article date (vote-lag safety)', () => {
+    // Verifies the D-8 offset ensures no structurally vote-empty window
+    const result = deriveReportingWindowForWeekInReview('2026-04-26');
+    expect(result.end < '2026-04-26').toBe(true);
+  });
+});
+
 describe('buildTemplateFallback — 14 langs × 8 types = last-resort coverage', () => {
   const types = [
     'breaking',
@@ -312,6 +351,32 @@ describe('buildTemplateFallback — 14 langs × 8 types = last-resort coverage',
     const map = buildTemplateFallback('custom-type-x', '2026-04-20');
     const en = Object.getOwnPropertyDescriptor(map, 'en')?.value;
     expect(en.title).toContain('Custom Type X');
+  });
+
+  it('week-in-review title uses D-36→D-8 reporting window, not the calendar week', () => {
+    // Article date 2026-04-26 → D-36 = 2026-03-21, D-8 = 2026-04-18
+    // Calendar week of 2026-04-26 would be 2026-04-20 → 2026-04-26 (Mon–Sun)
+    const map = buildTemplateFallback('week-in-review', '2026-04-26');
+    const en = Object.getOwnPropertyDescriptor(map, 'en')?.value;
+    expect(en.title).toContain('2026-03-21');
+    expect(en.title).toContain('2026-04-18');
+    // Must NOT show the calendar-week Monday
+    expect(en.title).not.toContain('2026-04-20');
+  });
+
+  it('week-in-review English subtitle references last full reporting week', () => {
+    const map = buildTemplateFallback('week-in-review', '2026-04-26');
+    const en = Object.getOwnPropertyDescriptor(map, 'en')?.value;
+    expect(en.subtitle).toMatch(/last full reporting week/i);
+  });
+
+  it('week-ahead title still uses the calendar week (not the reporting window)', () => {
+    // Verifies week-ahead is unaffected by the week-in-review change
+    const map = buildTemplateFallback('week-ahead', '2026-04-26');
+    const en = Object.getOwnPropertyDescriptor(map, 'en')?.value;
+    // Calendar week of 2026-04-26 (Sunday) is Mon 2026-04-20 → Sun 2026-04-26
+    expect(en.title).toContain('2026-04-20');
+    expect(en.title).toContain('2026-04-26');
   });
 });
 

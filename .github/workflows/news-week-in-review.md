@@ -256,8 +256,8 @@ prose pass.
 |-----------|-------|
 | `ARTICLE_TYPE_SLUG` | `week-in-review` |
 | Family | **Unified** (Stages A → B → C → D → E in one workflow) |
-| Data window | last 7 days |
-| Primary feeds | `get_adopted_texts_feed`, `get_events_feed`, `get_procedures_feed` with `timeframe: "one-week"`. |
+| Data window | **D-8 → D-36** (28-day window ending 8 days ago — captures published EP roll-call votes; see ADR-006) |
+| Primary feeds | `get_adopted_texts_feed`, `get_events_feed`, `get_procedures_feed` with explicit `dateFrom: "$DATE_FROM"` / `dateTo: "$DATE_TO"` (never `timeframe: "one-week"`). |
 | Stage A budget | ≤ 4 min |
 | Stage B budget (2 passes) | **12–15 min — HARD CEILING** (do **not** exceed 15 min on Stage B even if Pass 2 still has shallow sections; force `GATE_RESULT=ANALYSIS_ONLY` instead) |
 | Stage C budget (gate + optional Pass 3) | ≤ 3 min |
@@ -299,7 +299,12 @@ prose pass.
 
 ```bash
 TODAY=$(date -u +%Y-%m-%d)
-LAST_WEEK=$(date -u -d '7 days ago' +%Y-%m-%d)
+# D-8 → D-36 reporting window (ADR-006): EP roll-call votes are published
+# 2–6 weeks after the sitting; a D-0→D-7 window is structurally vote-empty.
+# Shifting 8 days back and widening to 28 days ensures the window always
+# contains at least one full EP plenary week with published voting data.
+DATE_TO=$(date -u -d '8 days ago' +%Y-%m-%d)
+DATE_FROM=$(date -u -d '36 days ago' +%Y-%m-%d)
 LAST_MONTH=$(date -u -d '30 days ago' +%Y-%m-%d)
 RUN_EPOCH=$(date -u +%s)
 RUN_ID="week-in-review-run$$-$RUN_EPOCH"
@@ -309,14 +314,18 @@ ANALYSIS_DIR=$(scripts/resolve-analysis-dir.sh "$TODAY" week-in-review)
 WORKFLOW_START_EPOCH=$RUN_EPOCH
 echo "ARTICLE_TYPE_SLUG=week-in-review"                  >> "$GITHUB_ENV"
 echo "TODAY=$TODAY"                               >> "$GITHUB_ENV"
+echo "DATE_FROM=$DATE_FROM"                       >> "$GITHUB_ENV"
+echo "DATE_TO=$DATE_TO"                           >> "$GITHUB_ENV"
 echo "RUN_ID=$RUN_ID"                             >> "$GITHUB_ENV"
 echo "ANALYSIS_DIR=$ANALYSIS_DIR"                 >> "$GITHUB_ENV"
 echo "WORKFLOW_START_EPOCH=$WORKFLOW_START_EPOCH" >> "$GITHUB_ENV"
 ```
 
 > **⚠️ DATE GUARD**: When passing `dateFrom`/`dateTo` to any MCP tool,
-> always derive dates from `$TODAY` / `$LAST_WEEK` / `$LAST_MONTH`. Never
-> hard-code a year.
+> always derive dates from `$DATE_FROM` / `$DATE_TO` (the D-36/D-8
+> reporting window). Never hard-code a year. Do **not** use
+> `timeframe: "one-week"` — it returns the most-recent 7 days which
+> are structurally vote-empty (EP voting data lag = 2–6 weeks).
 
 ## 🔁 Stage Order (absolute)
 
@@ -332,9 +341,16 @@ Stage A · Data Collection (≤ 4 min — minute 0–4)
 
 Run the canonical gateway block from `08-infrastructure.md` §4. Source
 `scripts/mcp-setup.sh`, then `scripts/wb-mcp-probe.sh` and
-`scripts/imf-mcp-probe.sh`. Collect EP feed data first; fall back to
+`scripts/imf-mcp-probe.sh`. Collect EP feed data using the D-8→D-36
+window (`dateFrom: "$DATE_FROM"`, `dateTo: "$DATE_TO"`); fall back to
 direct endpoints on failure. Deep-fetch up to 10 procedures / voting
 records / meeting decisions into `${ANALYSIS_DIR}/data/`. Target ≤ 4 min.
+
+**EP voting data note**: Use explicit `dateFrom`/`dateTo` parameters —
+never `timeframe: "one-week"`. The D-0→D-7 window is structurally
+vote-empty because EP roll-call data is published with a 2–6 week lag.
+The D-36→D-8 window (28 days, ending 8 days ago) consistently contains
+at least one full EP plenary week with published roll-call votes.
 
 ### Stage B — Analysis (Ref: 02 §2 re-run merge rule)
 
