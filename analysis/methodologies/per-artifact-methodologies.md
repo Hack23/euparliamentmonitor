@@ -411,7 +411,7 @@ If a future run finds `coverage.unrecognizedGroups` is non-empty, update the ups
 
 **Depth floor (breaking):** 150 lines (weekly / other: 120 lines).
 
-**Quality signals.** ≥5 RCV IDs cited; every cohesion % has a vote-count backing; aggregate-only claims explicitly flagged LOW confidence where EP roll-call data has not yet published.
+**Quality signals.** ≥5 RCV IDs cited; every cohesion % has a vote-count backing; aggregate-only claims explicitly flagged LOW confidence where EP roll-call data has not yet published. §"Voting Data Freshness" table present with `source` field populated (`mcp` / `ep-open-data-portal` / `unavailable`); when source is `ep-open-data-portal` the CC BY 4.0 attribution string is present and WEP bands widened +5 pp; when source is `unavailable` all coalition claims carry explicit LOW-confidence flag and WEP bands widened +10 pp per `osint-tradecraft-standards.md` §3.1. The D-02 fallback path (`getVotingRecordsWithFallback()` in `src/mcp/ep-open-data-client.ts`) is invoked whenever `get_voting_records` returns an empty votes array — **structural-proxy cohesion scores may never be used as a silent substitute for real voting data**.
 
 ---
 
