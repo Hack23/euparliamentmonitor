@@ -102,14 +102,33 @@ agent when Stage B2 begins and ends):**
 
 1. Load existing `manifest.json` — if present, treat the folder as a resume
    candidate, not a conflict.
-2. Run Stage-B Pass 1 + Pass 2 producing every mandatory artifact.
-3. For each artifact already at or above its
-   `reference-quality-thresholds.json` floor, **carry forward** the existing
-   content unless Stage A produced new substantive data that changes its
-   conclusions.
-4. For artifacts below threshold, write a stronger version (overwriting the
+2. **If `manifest.json.history[]` is non-empty AND the workflow env has set
+   `ENABLE_PRIOR_RUN_MERGE=true`**, run the prior-run diff helper to classify
+   artifacts before starting Stage B:
+   ```bash
+   npm run prior-run-diff -- "${ANALYSIS_DIR}"
+   ```
+   If the env flag is unset, **skip this helper** and continue with a normal
+   Stage-B rewrite of all mandatory artifacts (the helper would no-op anyway,
+   returning `enabled: false`). The helper emits a JSON `priorRunDiff` plan:
+   - `carryForward[]` — artifacts already at/above floor (lines ≥ floor,
+     mermaid present if required, no placeholders): **skip writing these**
+     in Stage B unless new Stage-A data materially changes their conclusions.
+   - `rewrite[]` — artifacts below floor or missing: **write a stronger version**.
+   Persist the plan to `${ANALYSIS_DIR}/runs/prior-run-diff.json` for Stage C.
+3. Run Stage-B Pass 1 + Pass 2 producing every mandatory artifact, **respecting
+   the carry-forward list**: log a `[CARRY-FORWARD: <relativePath>]` line for
+   each skipped artifact so the Stage-C reviewer can see the attribution.
+4. For artifacts in `rewrite[]`, write a stronger version (overwriting the
    prior file).
 5. Run Stage C — if GREEN, append a history entry with `gateResult: "GREEN"`.
+   Stage C validates every artifact (including carried-forward ones) via
+   `npm run validate-analysis`.
+
+> **Env flag for safe rollout:** `ENABLE_PRIOR_RUN_MERGE` defaults to disabled.
+> Set it to `true` in the workflow's env block once the first A/B pair confirms
+> Stage B time drops. The helper is a no-op (returns `enabled: false`) when the
+> flag is unset.
 
 > **Canonical paths:** `synthesis-summary.md` lives under `intelligence/` (the
 > canonical location, as enforced by `reference-quality-thresholds.json`).

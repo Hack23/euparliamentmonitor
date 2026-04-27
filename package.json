@@ -62,6 +62,7 @@
     "build:check-tests": "tsc --project tsconfig.test.json --noEmit",
     "copy-vendor": "node scripts/copy-vendor.js",
     "validate-analysis": "node scripts/validate-analysis-completeness.js",
+    "prior-run-diff": "node scripts/aggregator/prior-run-diff.js",
     "generate-article": "node scripts/aggregator/article-generator.js",
     "generate-article:all": "node scripts/aggregator/article-generator.js --all",
     "generate-news-indexes": "node scripts/generators/news-indexes.js",

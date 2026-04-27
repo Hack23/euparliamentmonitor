@@ -32,6 +32,26 @@ Each section is self-contained and describes a single analysis artifact. Use it 
 2. Each section gives you: **Purpose · EP MCP inputs · Required sections · Mandatory Mermaid · Depth floor · Quality signals**.
 3. Apply the rules, write Pass 1, then read the whole file back and do Pass 2 (see [`ai-driven-analysis-guide.md` §Step 9](ai-driven-analysis-guide.md)).
 
+### ♻️ Re-Run Carry-Forward Semantics
+
+When a same-day analysis folder already has a `manifest.json.history[]` entry from
+a prior run, the **prior-run diff helper** (`scripts/aggregator/prior-run-diff.js`,
+controlled by `ENABLE_PRIOR_RUN_MERGE=true`) classifies each artifact as:
+
+- **`carryForward`** — artifact exists on disk, meets its line floor, has no
+  placeholder markers, and (where required) contains a Mermaid block. Stage B
+  **skips writing it** and logs `[CARRY-FORWARD: <relativePath>]`.
+  `manifest.json.artifactSources["<relativePath>"]` is set to
+  `"carry-forward-from:<priorRunId>"`.
+- **`rewrite`** — artifact is missing, below floor, contains placeholders, or
+  lacks a required Mermaid block. Stage B **rewrites it** with a stronger version.
+
+**Stage C always validates all artifacts**, including those carried forward. If the
+floor in `reference-quality-thresholds.json` was raised since the prior run, a
+carried-forward artifact may now be `short:N<floor` — Stage C will flag it and
+Stage B must produce a rewrite (Pass 3). The diff helper never grants a permanent
+exemption.
+
 **Shared Hack23 Mermaid theme block** — prepend this to every diagram:
 
 ```
