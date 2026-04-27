@@ -1,0 +1,52 @@
+{
+  "collectionDate": "2026-04-27",
+  "dataWindow": "2026-04-20 to 2026-04-27",
+  "adoptedTexts2026Count": 31,
+  "committeeDocumentsCount": 51,
+  "feedsStatus": {
+    "committeeDocumentsFeed": "UNAVAILABLE - EP API error",
+    "eventsFeed": "UNAVAILABLE - EP API error",
+    "proceduresFeed": "HISTORICAL_DATA (pre-2000s)",
+    "adoptedTextsFeed": "OK - 119 items"
+  },
+  "politicalLandscape": {
+    "totalMEPs": 719,
+    "groups": 9,
+    "majorityThreshold": 361,
+    "fragmentation": "HIGH",
+    "EPP": 185,
+    "SD": 135,
+    "PfE": 85,
+    "ECR": 81,
+    "Renew": 77,
+    "GreensEFA": 53,
+    "Left": 46,
+    "NI": 30,
+    "ESN": 27
+  },
+  "keyAdoptedTexts2026": [
+    {"id": "TA-10-2026-0004", "title": "Safeguarding financial stability amid economic uncertainties", "date": "2026-01-20", "committee": "ECON"},
+    {"id": "TA-10-2026-0006", "title": "Reform of European Electoral Act - hurdles to ratification", "date": "2026-01-20", "committee": "AFCO"},
+    {"id": "TA-10-2026-0008", "title": "Request for CJEU opinion: EU-Mercosur compatibility with Treaties", "date": "2026-01-21", "committee": "AFET/INTA"},
+    {"id": "TA-10-2026-0010", "title": "Enhanced cooperation on Loan for Ukraine", "date": "2026-01-21", "committee": "BUDG"},
+    {"id": "TA-10-2026-0024", "title": "Attempted takeover of Lithuania public broadcaster - democracy threat", "date": "2026-01-22", "committee": "CULT/LIBE"},
+    {"id": "TA-10-2026-0026", "title": "Application of safe third country concept", "date": "2026-02-10", "committee": "LIBE"},
+    {"id": "TA-10-2026-0029", "title": "Amending Measuring Instruments Directive", "date": "2026-02-10", "committee": "ITRE"},
+    {"id": "TA-10-2026-0030", "title": "EU-Mercosur bilateral safeguard clause - agricultural products", "date": "2026-02-10", "committee": "INTA/AGRI"},
+    {"id": "TA-10-2026-0033", "title": "Appointment of ECB Supervisory Board Vice-Chair", "date": "2026-02-10", "committee": "ECON"},
+    {"id": "TA-10-2026-0034", "title": "ECB Annual Report 2025", "date": "2026-02-10", "committee": "ECON"},
+    {"id": "TA-10-2026-0050", "title": "Addressing subcontracting chains - workers rights", "date": "2026-02-12", "committee": "EMPL"},
+    {"id": "TA-10-2026-0060", "title": "Appointment of ECB Vice-President", "date": "2026-03-10", "committee": "ECON"},
+    {"id": "TA-10-2026-0063", "title": "EU regulatory fitness - Better Law-Making 2023-2024", "date": "2026-03-10", "committee": "AFCO/JURI"},
+    {"id": "TA-10-2026-0064", "title": "Housing crisis in EU - solutions for decent housing", "date": "2026-03-10", "committee": "SOCI/REGI"},
+    {"id": "TA-10-2026-0066", "title": "Copyright and generative AI - opportunities and challenges", "date": "2026-03-10", "committee": "JURI/ITRE"},
+    {"id": "TA-10-2026-0084", "title": "Emission credits for heavy-duty vehicles 2025-2029", "date": "2026-03-12", "committee": "ENVI/TRAN"},
+    {"id": "TA-10-2026-0094", "title": "Combating corruption", "date": "2026-03-26", "committee": "LIBE/JURI"},
+    {"id": "TA-10-2026-0096", "title": "Adjustment of customs duties - US tariff quotas", "date": "2026-03-26", "committee": "INTA"}
+  ],
+  "committeeActivityMetrics": {
+    "ENVI": {"workloadIntensity": "HIGH", "productivityScore": 100, "policyImpactRating": "HIGH"},
+    "ITRE": {"workloadIntensity": "HIGH", "productivityScore": 100, "policyImpactRating": "HIGH"},
+    "ECON": {"workloadIntensity": "HIGH", "productivityScore": 100, "policyImpactRating": "HIGH"}
+  }
+}
