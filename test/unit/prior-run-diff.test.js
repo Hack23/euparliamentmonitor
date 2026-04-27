@@ -334,6 +334,42 @@ describe('scripts/aggregator/prior-run-diff.js', () => {
       expect(cfPaths).toContain('intelligence/synthesis-summary.md');
     });
 
+    it('does not treat arbitrary object keys (e.g. language codes) as artifact paths', () => {
+      const nestedManifest = {
+        articleType: 'week-in-review',
+        files: {
+          translations: {
+            // language-code keys must NOT be added as artifact paths
+            en: 'news/2026-04-26-en.html',
+            sv: 'news/2026-04-26-sv.html',
+          },
+          metadata: {
+            // metadata keys without a `path` must NOT be added
+            generatedAt: '2026-04-26T00:00:00Z',
+            wordCount: 1234,
+          },
+        },
+        history: [{ runId: 'lang-run-1', gateResult: 'GREEN', filesWritten: [] }],
+      };
+      fs.writeFileSync(path.join(runDir, 'manifest.json'), JSON.stringify(nestedManifest), 'utf8');
+
+      const plan = buildPriorRunDiff(runDir, THRESHOLDS, true);
+      const allPaths = [
+        ...plan.carryForward.map((e) => e.relativePath),
+        ...plan.rewrite.map((e) => e.relativePath),
+      ];
+      // Nested string values ARE collected (recursive)
+      expect(allPaths).toContain('news/2026-04-26-en.html');
+      expect(allPaths).toContain('news/2026-04-26-sv.html');
+      // But the object keys themselves are NOT added as paths
+      expect(allPaths).not.toContain('en');
+      expect(allPaths).not.toContain('sv');
+      expect(allPaths).not.toContain('translations');
+      expect(allPaths).not.toContain('metadata');
+      expect(allPaths).not.toContain('generatedAt');
+      expect(allPaths).not.toContain('wordCount');
+    });
+
     it('snapshot: plan shape is stable', () => {
       writeManifest({
         history: [{ runId: 'snap-run-1', gateResult: 'GREEN', filesWritten: [] }],

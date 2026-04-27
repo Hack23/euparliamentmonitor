@@ -237,7 +237,8 @@ export function buildPriorRunDiff(runDir, thresholdsJson, enabled) {
   const perArtifactFloors = thresholdsJson?.thresholds?.[articleType] ?? {};
   const mermaidRequiredList = thresholdsJson?.structuralRequirements?.mermaidRequired ?? [];
 
-  // Union of threshold keys + manifest files — same logic as the validator.
+  // Build the candidate artifact path set from threshold keys and
+  // manifest-declared files used by this prior-run diff helper.
   const allRelPaths = collectArtifactPaths(manifest, perArtifactFloors);
 
   const carryForward = [];
@@ -283,24 +284,44 @@ export function buildPriorRunDiff(runDir, thresholdsJson, enabled) {
  */
 function collectArtifactPaths(manifest, perArtifactFloors) {
   const set = new Set(Object.keys(perArtifactFloors));
+
+  /**
+   * Recursively collect artifact paths from nested manifest file entries.
+   * Only string values and `{ path: string }` objects are treated as paths;
+   * arbitrary object keys (e.g. language codes like `en`/`sv`) are NOT added.
+   *
+   * @param {unknown} value - Manifest file entry or nested value.
+   */
+  function addArtifactPaths(value) {
+    if (typeof value === 'string') {
+      set.add(value);
+      return;
+    }
+
+    if (Array.isArray(value)) {
+      for (const entry of value) addArtifactPaths(entry);
+      return;
+    }
+
+    if (!value || typeof value !== 'object') {
+      return;
+    }
+
+    if (typeof value.path === 'string') {
+      set.add(value.path);
+    }
+
+    for (const [key, nestedValue] of Object.entries(value)) {
+      if (key !== 'path') {
+        addArtifactPaths(nestedValue);
+      }
+    }
+  }
+
   const files = manifest?.files;
   if (files && typeof files === 'object') {
     for (const value of Object.values(files)) {
-      if (typeof value === 'string') {
-        // e.g. `"executiveBrief": "executive-brief.md"`
-        set.add(value);
-      } else if (Array.isArray(value)) {
-        for (const entry of value) {
-          if (typeof entry === 'string') set.add(entry);
-          else if (entry && typeof entry.path === 'string') set.add(entry.path);
-        }
-      } else if (value && typeof value === 'object') {
-        if (typeof value.path === 'string') {
-          set.add(value.path);
-        } else {
-          for (const k of Object.keys(value)) set.add(k);
-        }
-      }
+      addArtifactPaths(value);
     }
   }
   return Array.from(set).sort();
@@ -326,6 +347,11 @@ function main() {
 }
 
 // Guard: only run as CLI, not when imported as a module by tests.
-if (process.argv[1] === fileURLToPath(import.meta.url)) {
+// Compare resolved/real paths so `npm run` (which may pass a relative argv[1])
+// still triggers `main()`.
+const currentModulePath = fileURLToPath(import.meta.url);
+const invokedScriptPath = process.argv[1] ? path.resolve(process.argv[1]) : null;
+
+if (invokedScriptPath === currentModulePath) {
   main();
 }
