@@ -264,7 +264,7 @@ const PROCEDURES_RECESS_YEAR_THRESHOLD = 1995;
  * Minimum plausible year for EP procedure dates.
  * The European Parliament was established in 1952; anything earlier is malformed.
  */
-const MIN_VALID_PROCEDURE_YEAR = 1900;
+const MIN_VALID_PROCEDURE_YEAR = 1952;
 /**
  * Maximum plausible year for EP procedure dates.
  * Used as an upper sanity bound to reject obviously malformed 4-digit strings.
@@ -284,7 +284,9 @@ function extractProcedureItemYear(obj) {
         if (typeof field !== 'string' || field.length < 4)
             continue;
         const year = Number(field.slice(0, 4));
-        if (!Number.isNaN(year) && year >= MIN_VALID_PROCEDURE_YEAR && year <= MAX_VALID_PROCEDURE_YEAR) {
+        if (!Number.isNaN(year) &&
+            year >= MIN_VALID_PROCEDURE_YEAR &&
+            year <= MAX_VALID_PROCEDURE_YEAR) {
             return year;
         }
     }
@@ -1264,26 +1266,35 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
             const result = await this.callToolWithRetry('get_events_feed', options);
             // Inspect for structured error responses (isError flag) from the EP MCP server
             if (result.isError === true) {
+                this._slowFeedWarnings.delete('get_events_feed');
                 return this._recordToolFailure('get_events_feed', result.content?.[0]?.text ?? '', EuropeanParliamentMCPClient.FEED_FALLBACK);
             }
             // Detect unavailable-feed envelope (uniform {status:"unavailable"} or legacy 404)
             if (isFeedUnavailable(result)) {
+                this._slowFeedWarnings.delete('get_events_feed');
                 return this._recordToolFailure('get_events_feed', `UPSTREAM_404: ${result.content?.[0]?.text?.slice(0, 200) ?? 'feed unavailable'}`, EuropeanParliamentMCPClient.FEED_FALLBACK);
             }
+            // Success — clear any prior failure or slow-feed warning so health summary stays accurate
             this._failedTools.delete('get_events_feed');
+            this._slowFeedWarnings.delete('get_events_feed');
             return result;
         }
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);
-            // Downgrade TIMEOUT errors to slow-feed warnings — not counted against success rate.
+            // Downgrade genuine TIMEOUT errors to slow-feed warnings — not counted against success rate.
             // The events feed latency is 30–120 s+; timeouts are expected during EP API load
             // and classified as 🟢 LIMITATION per 07-mcp-reference.md §11 row #8.
-            if (message.toLowerCase().includes('timeout')) {
+            // Use classifyToolError so 504 "Gateway Timeout" stays in SERVER_ERROR, not slow-feed.
+            if (classifyToolError(message) === 'TIMEOUT') {
                 const warningMsg = `SLOW_FEED: ${message.slice(0, 200)}`;
+                // Clear any prior failure entry so health summary doesn't show ❌ alongside 🟡
+                this._failedTools.delete('get_events_feed');
                 this._slowFeedWarnings.set('get_events_feed', warningMsg);
                 console.warn('🟡 get_events_feed slow-feed warning [SLOW_FEED]:', message.slice(0, 200));
                 return { content: [{ type: 'text', text: '{"feed":[],"slowFeedWarning":true}' }] };
             }
+            // Non-timeout failure: clear any stale slow-feed warning so health summary reflects reality
+            this._slowFeedWarnings.delete('get_events_feed');
             return this._recordToolFailure('get_events_feed', message, EuropeanParliamentMCPClient.FEED_FALLBACK);
         }
     }

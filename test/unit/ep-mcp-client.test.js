@@ -591,9 +591,7 @@ describe('ep-mcp-client', () => {
         // the required calling pattern for reproducibility.
         const now = Date.now();
         const today = new Date(now).toISOString().slice(0, 10);
-        const thirtyDaysAgo = new Date(now - 30 * 24 * 60 * 60 * 1000)
-          .toISOString()
-          .slice(0, 10);
+        const thirtyDaysAgo = new Date(now - 30 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
         // Mock simulates v1.2.14+ server response: last-30-days window
         client.callTool.mockResolvedValue({
           content: [
@@ -2536,6 +2534,60 @@ describe('ep-mcp-client', () => {
       expect(summary).toContain('get_procedures_feed');
       expect(summary).not.toContain('get_events_feed');
     });
+
+    it('should NOT downgrade a 504 "Gateway Timeout" — classified as SERVER_ERROR', async () => {
+      vi.spyOn(client, 'callToolWithRetry').mockRejectedValueOnce(
+        new Error('Gateway error 504: Gateway Timeout')
+      );
+      await client.getEventsFeed();
+
+      // 504 must stay in failedTools (SERVER_ERROR), NOT downgraded to slow-feed
+      expect(client.getFailedTools().has('get_events_feed')).toBe(true);
+      expect(client.getFailedTools().get('get_events_feed')).toMatch(/^SERVER_ERROR:/);
+      expect(client.getSlowFeedWarnings().has('get_events_feed')).toBe(false);
+    });
+
+    it('should clear a prior slow-feed warning when a subsequent call succeeds', async () => {
+      const spy = vi.spyOn(client, 'callToolWithRetry');
+      // First call times out → slow-feed warning
+      spy.mockRejectedValueOnce(new Error('Request timeout after 120000ms'));
+      await client.getEventsFeed();
+      expect(client.getSlowFeedWarnings().has('get_events_feed')).toBe(true);
+
+      // Second call succeeds — warning must be cleared
+      spy.mockResolvedValueOnce({ content: [{ type: 'text', text: '{"feed": []}' }] });
+      await client.getEventsFeed();
+      expect(client.getSlowFeedWarnings().has('get_events_feed')).toBe(false);
+      expect(client.getFailedTools().has('get_events_feed')).toBe(false);
+    });
+
+    it('should clear a prior failure entry when a subsequent timeout downgrades to slow-feed', async () => {
+      const spy = vi.spyOn(client, 'callToolWithRetry');
+      // First call: 404 failure
+      spy.mockRejectedValueOnce(new Error('Gateway error 404: Not Found'));
+      await client.getEventsFeed();
+      expect(client.getFailedTools().has('get_events_feed')).toBe(true);
+
+      // Second call: timeout → slow-feed warning. Must clear the prior failure entry.
+      spy.mockRejectedValueOnce(new Error('Request timeout after 120000ms'));
+      await client.getEventsFeed();
+      expect(client.getFailedTools().has('get_events_feed')).toBe(false);
+      expect(client.getSlowFeedWarnings().has('get_events_feed')).toBe(true);
+    });
+
+    it('should clear a prior slow-feed warning when a subsequent non-timeout failure occurs', async () => {
+      const spy = vi.spyOn(client, 'callToolWithRetry');
+      // First call: timeout → slow-feed warning
+      spy.mockRejectedValueOnce(new Error('Request timeout after 120000ms'));
+      await client.getEventsFeed();
+      expect(client.getSlowFeedWarnings().has('get_events_feed')).toBe(true);
+
+      // Second call: 404 failure. Must clear the prior slow-feed warning.
+      spy.mockRejectedValueOnce(new Error('Gateway error 404: Not Found'));
+      await client.getEventsFeed();
+      expect(client.getSlowFeedWarnings().has('get_events_feed')).toBe(false);
+      expect(client.getFailedTools().has('get_events_feed')).toBe(true);
+    });
   });
 
   describe('getProceduresFeed recess-mode detection (§11 row #5)', () => {
@@ -2556,9 +2608,24 @@ describe('ep-mcp-client', () => {
     it('should add recessMode:true when all items are pre-1995 (historical archive)', async () => {
       const historicalPayload = {
         items: [
-          { id: 'proc-001', reference: '1972/0001(SYN)', dateInitiated: '1972-03-15', dateLastActivity: '1974-06-01' },
-          { id: 'proc-002', reference: '1985/0042(COD)', dateInitiated: '1985-01-10', dateLastActivity: '1987-11-20' },
-          { id: 'proc-003', reference: '1990/0100(SYN)', dateInitiated: '1990-06-01', dateLastActivity: '1991-04-15' },
+          {
+            id: 'proc-001',
+            reference: '1972/0001(SYN)',
+            dateInitiated: '1972-03-15',
+            dateLastActivity: '1974-06-01',
+          },
+          {
+            id: 'proc-002',
+            reference: '1985/0042(COD)',
+            dateInitiated: '1985-01-10',
+            dateLastActivity: '1987-11-20',
+          },
+          {
+            id: 'proc-003',
+            reference: '1990/0100(SYN)',
+            dateInitiated: '1990-06-01',
+            dateLastActivity: '1991-04-15',
+          },
         ],
       };
       vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
@@ -2575,7 +2642,12 @@ describe('ep-mcp-client', () => {
     it('should emit a 🟡 console warning on recess mode', async () => {
       const historicalPayload = {
         items: [
-          { id: 'proc-001', reference: '1972/0001(SYN)', dateInitiated: '1972-03-15', dateLastActivity: '1974-06-01' },
+          {
+            id: 'proc-001',
+            reference: '1972/0001(SYN)',
+            dateInitiated: '1972-03-15',
+            dateLastActivity: '1974-06-01',
+          },
         ],
       };
       vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
@@ -2591,8 +2663,18 @@ describe('ep-mcp-client', () => {
     it('should NOT set recessMode when items contain current-year procedures', async () => {
       const currentPayload = {
         items: [
-          { id: 'proc-new', reference: '2026/0001(COD)', dateInitiated: '2026-01-15', dateLastActivity: '2026-04-01' },
-          { id: 'proc-old', reference: '1990/0100(SYN)', dateInitiated: '1990-06-01', dateLastActivity: '1991-04-15' },
+          {
+            id: 'proc-new',
+            reference: '2026/0001(COD)',
+            dateInitiated: '2026-01-15',
+            dateLastActivity: '2026-04-01',
+          },
+          {
+            id: 'proc-old',
+            reference: '1990/0100(SYN)',
+            dateInitiated: '1990-06-01',
+            dateLastActivity: '1991-04-15',
+          },
         ],
       };
       vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
@@ -2616,7 +2698,12 @@ describe('ep-mcp-client', () => {
     it('should NOT record get_procedures_feed as failed when recess mode is detected', async () => {
       const historicalPayload = {
         items: [
-          { id: 'proc-001', reference: '1985/0042(COD)', dateInitiated: '1985-01-10', dateLastActivity: '1987-11-20' },
+          {
+            id: 'proc-001',
+            reference: '1985/0042(COD)',
+            dateInitiated: '1985-01-10',
+            dateLastActivity: '1987-11-20',
+          },
         ],
       };
       vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
@@ -2646,7 +2733,12 @@ describe('ep-mcp-client', () => {
     it('should preserve existing dataQualityWarnings when appending RECESS_MODE', async () => {
       const historicalPayload = {
         items: [
-          { id: 'proc-001', reference: '1990/0001(SYN)', dateInitiated: '1990-01-01', dateLastActivity: '1991-01-01' },
+          {
+            id: 'proc-001',
+            reference: '1990/0001(SYN)',
+            dateInitiated: '1990-01-01',
+            dateLastActivity: '1991-01-01',
+          },
         ],
         dataQualityWarnings: ['STALENESS_WARNING: existing warning'],
       };
@@ -2719,9 +2811,7 @@ describe('ep-mcp-client', () => {
     it('should handle procedures[] shape', () => {
       expect(
         detectProceduresFeedRecessMode({
-          procedures: [
-            { dateInitiated: '1980-01-01', dateLastActivity: '1982-01-01' },
-          ],
+          procedures: [{ dateInitiated: '1980-01-01', dateLastActivity: '1982-01-01' }],
         })
       ).toBe(true);
     });
@@ -2798,7 +2888,13 @@ describe('ep-mcp-client', () => {
     it('should write the docId to the pending-documents sidecar on empty-string sentinel', async () => {
       const { loadPendingDocuments } = await import('../../scripts/mcp/pending-documents.js');
       const sentinelPayload = {
-        id: '', title: '', reference: '', type: '', dateAdopted: '', procedureReference: '', subjectMatter: '',
+        id: '',
+        title: '',
+        reference: '',
+        type: '',
+        dateAdopted: '',
+        procedureReference: '',
+        subjectMatter: '',
       };
       vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
         content: [{ type: 'text', text: JSON.stringify(sentinelPayload) }],
@@ -3382,9 +3478,7 @@ describe('ep-mcp-client', () => {
     });
 
     it('should not write cache file when no procedures pass the window filter', async () => {
-      const procedures = [
-        { id: '1972-0001', dateLastActivity: '', dateInitiated: '1972-01-01' },
-      ];
+      const procedures = [{ id: '1972-0001', dateLastActivity: '', dateInitiated: '1972-01-01' }];
       client.callTool.mockResolvedValue({
         content: [{ type: 'text', text: JSON.stringify({ procedures }) }],
       });
@@ -3394,9 +3488,7 @@ describe('ep-mcp-client', () => {
     });
 
     it('should skip procedures with empty id when writing to cache', async () => {
-      const procedures = [
-        { id: '', dateLastActivity: '2026-04-25', dateInitiated: '2026-03-01' },
-      ];
+      const procedures = [{ id: '', dateLastActivity: '2026-04-25', dateInitiated: '2026-03-01' }];
       client.callTool.mockResolvedValue({
         content: [{ type: 'text', text: JSON.stringify({ procedures }) }],
       });
@@ -3438,7 +3530,6 @@ describe('ep-mcp-client', () => {
   // ─── UPSTREAM_404 indexing-lag retry scheduling ──────────────────────────────
 
   describe('getAdoptedTexts UPSTREAM_404 indexing-lag retry (Stage B)', () => {
-
     /** @type {EuropeanParliamentMCPClient} */
     let client;
     /** @type {MockConsoleResult} */
@@ -3531,9 +3622,8 @@ describe('ep-mcp-client', () => {
     });
 
     it('should expose resolveAdoptedText method', async () => {
-      const { loadPendingDocuments, recordPendingDocument } = await import(
-        '../../scripts/mcp/pending-documents.js'
-      );
+      const { loadPendingDocuments, recordPendingDocument } =
+        await import('../../scripts/mcp/pending-documents.js');
       const sidecar = path.join(tmpDir, 'pending-documents.json');
       await recordPendingDocument('TA-10-2026-0104', sidecar);
       await client.resolveAdoptedText('TA-10-2026-0104');
@@ -3571,4 +3661,3 @@ describe('ep-mcp-client', () => {
     });
   });
 });
-
