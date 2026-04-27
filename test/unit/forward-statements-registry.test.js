@@ -15,6 +15,8 @@ import {
   updateEntry,
   buildSummary,
   normaliseHorizon,
+  generateSessionDayIds,
+  isMondayRun,
 } from '../../scripts/aggregator/forward-statements-registry.js';
 
 /** Minimal valid entry factory. */
@@ -324,6 +326,22 @@ describe('forward-statements-registry', () => {
       expect(byId.get(id).evidenceRefs).toContain('TA-10-2026-0142');
       expect(byId.get(id).evidenceRefs).toContain('A-10-2026-0067');
     });
+
+    it('should deduplicate evidenceRefs when the same ref is added twice', () => {
+      appendEntries([makeEntry({ evidenceRefs: ['A-10-2026-0067'] })], tmpDir);
+      const id = /** @type {string} */ (readEntries({ registryDir: tmpDir })[0].id);
+
+      // Add the same ref a second time
+      updateEntry({ id, status: 'open', evidence: 'A-10-2026-0067', date: '2026-05-01', registryDir: tmpDir });
+
+      const all = readEntries({ registryDir: tmpDir });
+      const byId = new Map();
+      for (const e of all) {
+        if (typeof e.id === 'string') byId.set(e.id, e);
+      }
+      const refs = byId.get(id).evidenceRefs;
+      expect(refs.filter((r) => r === 'A-10-2026-0067')).toHaveLength(1);
+    });
   });
 
   // -------------------------------------------------------------------------
@@ -371,6 +389,11 @@ describe('forward-statements-registry', () => {
       const result = normaliseHorizon('2026-W01');
       expect(result).toMatch(/^\d{4}-\d{2}-\d{2}$/);
     });
+
+    it('should throw for an out-of-range ISO week number', () => {
+      expect(() => normaliseHorizon('2026-W00')).toThrow(/Invalid ISO week/);
+      expect(() => normaliseHorizon('2026-W54')).toThrow(/Invalid ISO week/);
+    });
   });
 
   // -------------------------------------------------------------------------
@@ -378,8 +401,6 @@ describe('forward-statements-registry', () => {
   // -------------------------------------------------------------------------
   describe('multi-day foreseen activities fan-out', () => {
     it('should generate session day IDs for a 4-day plenary week', () => {
-      // Simulate the fan-out logic: given a session start date (Monday),
-      // generate sitting IDs for Mon–Thu.
       const startDate = '2026-04-28'; // Monday of the April 2026 Strasbourg session
       const days = generateSessionDayIds(startDate, 4);
       expect(days).toHaveLength(4);
@@ -403,42 +424,3 @@ describe('forward-statements-registry', () => {
     });
   });
 });
-
-// ---------------------------------------------------------------------------
-// Inline test helpers (not exported — test-only logic for multi-day fan-out)
-// ---------------------------------------------------------------------------
-
-/**
- * Generate an array of EP plenary sitting IDs for consecutive session days.
- * The format is `MTG-PL-YYYY-MM-DD` — the canonical sitting ID pattern used
- * by the EP MCP `get_meeting_foreseen_activities` endpoint.
- *
- * @param {string} startDateStr - YYYY-MM-DD date of the first session day
- * @param {number} numDays - Number of consecutive session days (typically 4 for Strasbourg, 2 for Brussels mini)
- * @returns {string[]} Array of sitting IDs
- */
-function generateSessionDayIds(startDateStr, numDays) {
-  const ids = [];
-  const [year, month, day] = startDateStr.split('-').map(Number);
-  const startMs = Date.UTC(year, month - 1, day);
-  for (let i = 0; i < numDays; i++) {
-    const ms = startMs + i * 24 * 60 * 60 * 1000;
-    const d = new Date(ms);
-    const y = d.getUTCFullYear();
-    const m = String(d.getUTCMonth() + 1).padStart(2, '0');
-    const dd = String(d.getUTCDate()).padStart(2, '0');
-    ids.push(`MTG-PL-${y}-${m}-${dd}`);
-  }
-  return ids;
-}
-
-/**
- * Return `true` when the given date string falls on a Monday (UTC).
- *
- * @param {string} dateStr - YYYY-MM-DD
- * @returns {boolean}
- */
-function isMondayRun(dateStr) {
-  const [y, m, d] = dateStr.split('-').map(Number);
-  return new Date(Date.UTC(y, m - 1, d)).getUTCDay() === 1;
-}

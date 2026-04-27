@@ -589,7 +589,7 @@ function main() {
         const synthPath = path.join(runDir, 'intelligence', 'synthesis-summary.md');
         if (fs.existsSync(synthPath)) {
           const synthContent = fs.readFileSync(synthPath, 'utf8');
-          const hasCarriedSection = /##[^#\n]*carried[- ]forward forward statements/i.test(synthContent);
+          const hasCarriedSection = /##[^#\n]*carried[-\s]forward\s+forward\s+statements/i.test(synthContent);
           if (!hasCarriedSection) {
             process.stderr.write(
               `RED  intelligence/synthesis-summary.md :: forward-registry:missing-carried-forward-section` +

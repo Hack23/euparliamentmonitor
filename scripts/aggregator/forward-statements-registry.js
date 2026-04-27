@@ -241,17 +241,15 @@ export function updateEntry(opts) {
   }
 
   const today = opts.date ?? new Date().toISOString().slice(0, 10);
+  const existingRefs = Array.isArray(existing.evidenceRefs) ? existing.evidenceRefs : [];
+  const updatedRefs = opts.evidence
+    ? Array.from(new Set([...existingRefs, opts.evidence]))
+    : [...existingRefs];
   const updated = {
     ...existing,
     status: opts.status,
     lastObservedDate: today,
-    evidenceRefs: Array.isArray(existing.evidenceRefs)
-      ? opts.evidence
-        ? [...existing.evidenceRefs, opts.evidence]
-        : [...existing.evidenceRefs]
-      : opts.evidence
-        ? [opts.evidence]
-        : [],
+    evidenceRefs: updatedRefs,
   };
 
   fs.mkdirSync(dir, { recursive: true });
@@ -282,6 +280,42 @@ export function buildSummary(registryDir) {
   return lines.join('\n');
 }
 
+/**
+ * Generate an array of EP plenary sitting IDs for consecutive session days.
+ * The format is `MTG-PL-YYYY-MM-DD` — the canonical sitting ID pattern used
+ * by the EP MCP `get_meeting_foreseen_activities` endpoint.
+ *
+ * @param {string} startDateStr - YYYY-MM-DD date of the first session day
+ * @param {number} numDays - Number of consecutive session days (typically 4 for Strasbourg, 2 for Brussels mini)
+ * @returns {string[]} Array of sitting IDs
+ */
+export function generateSessionDayIds(startDateStr, numDays) {
+  const [year, month, day] = startDateStr.split('-').map(Number);
+  const startMs = Date.UTC(year, month - 1, day);
+  const ids = [];
+  for (let i = 0; i < numDays; i++) {
+    const ms = startMs + i * 24 * 60 * 60 * 1000;
+    const d = new Date(ms);
+    const y = d.getUTCFullYear();
+    const m = String(d.getUTCMonth() + 1).padStart(2, '0');
+    const dd = String(d.getUTCDate()).padStart(2, '0');
+    ids.push(`MTG-PL-${y}-${m}-${dd}`);
+  }
+  return ids;
+}
+
+/**
+ * Return `true` when the given date string falls on a Monday (UTC).
+ * Used to determine whether the Monday urgency motion sweep should run.
+ *
+ * @param {string} dateStr - YYYY-MM-DD
+ * @returns {boolean}
+ */
+export function isMondayRun(dateStr) {
+  const [y, m, d] = dateStr.split('-').map(Number);
+  return new Date(Date.UTC(y, m - 1, d)).getUTCDay() === 1;
+}
+
 // ---------------------------------------------------------------------------
 // Internal helpers
 // ---------------------------------------------------------------------------
@@ -292,18 +326,21 @@ export function buildSummary(registryDir) {
  *
  * @param {string} horizon - expectedHorizon value
  * @returns {string} YYYY-MM-DD date string
+ * @throws {Error} When an ISO week number is outside the valid range (1–53)
  */
 export function normaliseHorizon(horizon) {
   const isoWeek = /^(\d{4})-W(\d{2})$/.exec(horizon);
   if (!isoWeek) return horizon; // already YYYY-MM-DD
   const year = Number(isoWeek[1]);
   const week = Number(isoWeek[2]);
+  if (week < 1 || week > 53) {
+    throw new Error(`Invalid ISO week number: ${week} in "${horizon}" (must be 1–53)`);
+  }
   // ISO week 1 starts on the Monday of the week containing Jan 4.
   const jan4 = new Date(Date.UTC(year, 0, 4));
-  const day1OfW1 = new Date(jan4);
-  day1OfW1.setUTCDate(jan4.getUTCDate() - ((jan4.getUTCDay() + 6) % 7));
-  const monday = new Date(day1OfW1);
-  monday.setUTCDate(day1OfW1.getUTCDate() + (week - 1) * 7);
+  const monday = new Date(jan4);
+  // Move back to the Monday of the Jan-4 week, then forward by (week - 1) weeks.
+  monday.setUTCDate(jan4.getUTCDate() - ((jan4.getUTCDay() + 6) % 7) + (week - 1) * 7);
   return monday.toISOString().slice(0, 10);
 }
 
