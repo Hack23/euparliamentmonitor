@@ -1352,7 +1352,7 @@ We will use **TypeScript (strict mode)** as the primary development language, co
 
 ---
 
-### ADR-006: Week-in-Review Analysis Window — D-8 → D-36
+### ADR-006: Week-in-Review Analysis Window — D-36 → D-8
 
 **Status:** Accepted  
 **Date:** 2026-04-27  
@@ -1362,10 +1362,10 @@ We will use **TypeScript (strict mode)** as the primary development language, co
 - The EP publishes roll-call voting records with a 2–6 week lag after each plenary sitting.
 - The previous `week-in-review` data window was D-0 → D-7 (the most-recent 7 days).
 - A D-0→D-7 window structurally **never** contains published voting data, making the article vote-blind in every run regardless of content quality — a permanently-empty input.
-- `analysis/daily/2026-04-26/week-in-review/intelligence/methodology-reflection.md` §3.1 recommended shifting to D-8→D-36 to systematically capture voting data.
+- `analysis/daily/2026-04-26/week-in-review/intelligence/methodology-reflection.md` §3.1 recommended shifting to a D-36 → D-8 window to systematically capture voting data.
 
 **Decision:**
-We shift the `week-in-review` analysis window to **D-8 → D-36** (a 28-day window ending 8 days ago, relative to the run date). This is a 4-week look-back that consistently captures at least one full EP plenary week with published roll-call votes.
+We shift the `week-in-review` analysis window to **D-36 → D-8** (`start = D-36`, `end = D-8` — a 28-day window ending 8 days ago, relative to the run date). This direction matches the workflow's `DATE_FROM` (start = D-36) → `DATE_TO` (end = D-8) variables. It is a 4-week look-back that consistently captures at least one full EP plenary week with published roll-call votes.
 
 **Rationale:**
 1. **Data depth over recency**: A vote-populated analysis is more valuable than a vote-empty analysis that is 7 days more recent. Readers of the week-in-review expect vote coverage.

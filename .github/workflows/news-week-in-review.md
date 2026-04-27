@@ -256,7 +256,7 @@ prose pass.
 |-----------|-------|
 | `ARTICLE_TYPE_SLUG` | `week-in-review` |
 | Family | **Unified** (Stages A → B → C → D → E in one workflow) |
-| Data window | **D-8 → D-36** (28-day window ending 8 days ago — captures published EP roll-call votes; see ADR-006) |
+| Data window | **D-36 → D-8** (28-day window ending 8 days ago — captures published EP roll-call votes; see ADR-006) |
 | Primary feeds | `get_adopted_texts_feed`, `get_events_feed`, `get_procedures_feed` with explicit `dateFrom: "$DATE_FROM"` / `dateTo: "$DATE_TO"` (never `timeframe: "one-week"`). |
 | Stage A budget | ≤ 4 min |
 | Stage B budget (2 passes) | **12–15 min — HARD CEILING** (do **not** exceed 15 min on Stage B even if Pass 2 still has shallow sections; force `GATE_RESULT=ANALYSIS_ONLY` instead) |
@@ -299,7 +299,7 @@ prose pass.
 
 ```bash
 TODAY=$(date -u +%Y-%m-%d)
-# D-8 → D-36 reporting window (ADR-006): EP roll-call votes are published
+# D-36 → D-8 reporting window (ADR-006): EP roll-call votes are published
 # 2–6 weeks after the sitting; a D-0→D-7 window is structurally vote-empty.
 # Shifting 8 days back and widening to 28 days ensures the window always
 # contains at least one full EP plenary week with published voting data.
@@ -341,7 +341,7 @@ Stage A · Data Collection (≤ 4 min — minute 0–4)
 
 Run the canonical gateway block from `08-infrastructure.md` §4. Source
 `scripts/mcp-setup.sh`, then `scripts/wb-mcp-probe.sh` and
-`scripts/imf-mcp-probe.sh`. Collect EP feed data using the D-8→D-36
+`scripts/imf-mcp-probe.sh`. Collect EP feed data using the D-36→D-8
 window (`dateFrom: "$DATE_FROM"`, `dateTo: "$DATE_TO"`); fall back to
 direct endpoints on failure. Deep-fetch up to 10 procedures / voting
 records / meeting decisions into `${ANALYSIS_DIR}/data/`. Target ≤ 4 min.
