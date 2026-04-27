@@ -161,7 +161,7 @@ export function generateIndexHTML(
   const skipLinkText = getLocalizedString(SKIP_LINK_TEXTS, lang);
   const dir = getTextDirection(lang);
   const selfHref = getIndexFilename(lang);
-  const heroTitle = title.split(' - ')[0];
+  const heroTitle = title.split(' - ')[0] ?? 'EU Parliament Monitor';
   const filterLabels = getLocalizedString(FILTER_LABELS, lang) as { all: string; search: string };
   const categoryLabels = getLocalizedString(ARTICLE_TYPE_LABELS, lang) as ArticleCategoryLabels;
 

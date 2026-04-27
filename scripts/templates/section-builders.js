@@ -7,8 +7,8 @@
  * timeline sections, comparison tables, and key figures bars.
  */
 import { escapeHTML } from '../utils/file-utils.js';
-import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, getLocalizedString, TOC_ARIA_LABELS, TIMELINE_HEADINGS, COMPARISON_BEFORE_LABELS, COMPARISON_AFTER_LABELS, KEY_FIGURES_HEADINGS, FOOTER_ABOUT_HEADING_LABELS, FOOTER_ABOUT_TEXT_LABELS, FOOTER_QUICK_LINKS_LABELS, FOOTER_BUILT_BY_LABELS, FOOTER_LANGUAGES_LABELS, FOOTER_HOME_LABELS, FOOTER_SITEMAP_LABELS, FOOTER_RSS_LABELS, FOOTER_GITHUB_REPO_LABELS, FOOTER_LICENSE_LABELS, FOOTER_EUROPARL_LABELS, FOOTER_LINKEDIN_LABELS, FOOTER_SECURITY_POLICY_LABELS, FOOTER_CONTACT_LABELS, FOOTER_DISCLAIMER_LABELS, FOOTER_REPORT_ISSUES_LABELS, FOOTER_ARTICLES_AVAILABLE_LABELS, FOOTER_POLITICAL_INTELLIGENCE_LABELS, } from '../constants/languages.js';
-import { APP_VERSION } from '../constants/config.js';
+import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, getLocalizedString, TOC_ARIA_LABELS, TIMELINE_HEADINGS, COMPARISON_BEFORE_LABELS, COMPARISON_AFTER_LABELS, KEY_FIGURES_HEADINGS, FOOTER_ABOUT_HEADING_LABELS, FOOTER_ABOUT_TEXT_LABELS, FOOTER_QUICK_LINKS_LABELS, FOOTER_BUILT_BY_LABELS, FOOTER_LANGUAGES_LABELS, FOOTER_HOME_LABELS, FOOTER_SITEMAP_LABELS, FOOTER_RSS_LABELS, FOOTER_GITHUB_REPO_LABELS, FOOTER_LICENSE_LABELS, FOOTER_EUROPARL_LABELS, FOOTER_LINKEDIN_LABELS, FOOTER_SECURITY_POLICY_LABELS, FOOTER_CONTACT_LABELS, FOOTER_DISCLAIMER_LABELS, FOOTER_REPORT_ISSUES_LABELS, FOOTER_ARTICLES_AVAILABLE_LABELS, FOOTER_POLITICAL_INTELLIGENCE_LABELS, HEADER_SUBTITLE_LABELS, THEME_TOGGLE_LABELS, } from '../constants/languages.js';
+import { APP_VERSION, createThemeToggleButton } from '../constants/config.js';
 import { stripScriptBlocks, stripHtmlTags } from '../utils/html-sanitize.js';
 /**
  * Count occurrences of a regex pattern in a string.
@@ -258,6 +258,38 @@ export function buildKeyFiguresBar(figures, lang) {
 </section>`;
 }
 /**
+ * Build the shared responsive site header used by every generated page family.
+ *
+ * @param options - {@link SiteHeaderOptions} controlling language, assets, and language links.
+ * @returns HTML string for `<header class="site-header">…</header>`.
+ */
+export function buildSiteHeader(options) {
+    const { lang, pathPrefix, homeHref, siteTitle, languageSwitcherHtml } = options;
+    const headerSubtitle = escapeHTML(getLocalizedString(HEADER_SUBTITLE_LABELS, lang));
+    const themeToggleLabel = escapeHTML(getLocalizedString(THEME_TOGGLE_LABELS, lang));
+    const safeTitle = escapeHTML(siteTitle);
+    return `<header class="site-header" role="banner">
+    <div class="site-header__inner site-header__inner--stacked">
+      <a href="${escapeHTML(homeHref)}" class="site-header__brand" aria-label="${safeTitle}">
+        <picture class="site-header__logo-picture">
+          <source srcset="${pathPrefix}images/header-logo.webp" type="image/webp">
+          <img class="site-header__logo site-header__logo--header" src="${pathPrefix}images/header-logo.png" alt="" width="96" height="64" aria-hidden="true">
+        </picture>
+        <span class="site-header__brand-text">
+          <span class="site-header__title">${safeTitle}</span>
+          <span class="site-header__subtitle">${headerSubtitle}</span>
+        </span>
+      </a>
+      <div class="site-header__actions">
+        ${createThemeToggleButton(themeToggleLabel)}
+      </div>
+      <nav class="site-header__langs" role="navigation" aria-label="Language selection">
+        ${languageSwitcherHtml}
+      </nav>
+    </div>
+  </header>`;
+}
+/**
  * Build the language grid links used inside the footer Languages section.
  *
  * @param currentLang - The currently active language code.
@@ -270,7 +302,8 @@ function buildFooterLangGrid(currentLang, pathPrefix) {
         const safeName = escapeHTML(getLocalizedString(LANGUAGE_NAMES, code));
         const href = code === 'en' ? `${pathPrefix}index.html` : `${pathPrefix}index-${code}.html`;
         const active = code === currentLang ? ' class="active"' : '';
-        return `<a href="${escapeHTML(href)}"${active} hreflang="${code}">${flag} ${safeName}</a>`;
+        const current = code === currentLang ? ' aria-current="page"' : '';
+        return `<a href="${escapeHTML(href)}"${active} hreflang="${code}" lang="${code}" title="${safeName}" aria-label="${safeName}"${current}>${flag} ${code.toUpperCase()}</a>`;
     }).join('\n            ');
 }
 /**
@@ -303,6 +336,9 @@ export function buildSiteFooter(options) {
     const contactLabel = escapeHTML(getLocalizedString(FOOTER_CONTACT_LABELS, lang));
     const disclaimerText = escapeHTML(getLocalizedString(FOOTER_DISCLAIMER_LABELS, lang));
     const reportIssuesLabel = escapeHTML(getLocalizedString(FOOTER_REPORT_ISSUES_LABELS, lang));
+    const homeHref = `${pathPrefix}${lang === 'en' ? 'index.html' : `index-${lang}.html`}`;
+    const sitemapHref = `${pathPrefix}${lang === 'en' ? 'sitemap.html' : `sitemap_${lang}.html`}`;
+    const politicalIntelligenceHref = `${pathPrefix}${lang === 'en' ? 'political-intelligence.html' : `political-intelligence_${lang}.html`}`;
     const articlesLine = typeof articleCount === 'number'
         ? `\n        <p class="footer-stats">${escapeHTML(getLocalizedString(FOOTER_ARTICLES_AVAILABLE_LABELS, lang).replace('{count}', String(articleCount)))}</p>`
         : '';
@@ -312,15 +348,22 @@ export function buildSiteFooter(options) {
       <div class="footer-section">
         <h3>${aboutHeading}</h3>
         <p>${aboutText}</p>${articlesLine}
+        <p class="footer-company-summary">Swedish cybersecurity consultancy specializing in political transparency and open-source intelligence.</p>
       </div>
       <div class="footer-section">
         <h3>${quickLinksHeading}</h3>
         <ul>
-          <li><a href="${pathPrefix}${lang === 'en' ? 'index.html' : `index-${lang}.html`}">${homeLabel}</a></li>
-          <li><a href="${pathPrefix}${lang === 'en' ? 'sitemap.html' : `sitemap_${lang}.html`}">${sitemapLabel}</a></li>
-          <li><a href="${pathPrefix}${lang === 'en' ? 'political-intelligence.html' : `political-intelligence_${lang}.html`}">${politicalIntelligenceLabel}</a></li>
+          <li><a href="${homeHref}">${homeLabel}</a></li>
+          <li><a href="${homeHref}#main">News</a></li>
+          <li><a href="${pathPrefix}docs/index.html">Dashboard</a></li>
+          <li><a href="${politicalIntelligenceHref}">🧠 ${politicalIntelligenceLabel}</a></li>
+          <li><a href="${sitemapHref}">🗺️ ${sitemapLabel}</a></li>
+          <li><a href="${pathPrefix}docs/api/">📚 API Documentation (TypeDoc)</a></li>
           <li><a href="${pathPrefix}rss.xml">${rssLabel}</a></li>
+          <li><a href="https://hack23.com/cia-features.html">CIA Platform</a></li>
+          <li><a href="https://www.riksdagen.se/">Sveriges Riksdag</a></li>
           <li><a href="https://github.com/Hack23/euparliamentmonitor">${githubLabel}</a></li>
+          <li><a href="https://github.com/Hack23/euparliamentmonitor/issues">${reportIssuesLabel}</a></li>
           <li><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/LICENSE">${licenseLabel}</a></li>
           <li><a href="https://www.europarl.europa.eu/">${europarlLabel}</a></li>
         </ul>
@@ -328,10 +371,13 @@ export function buildSiteFooter(options) {
       <div class="footer-section">
         <h3>${builtByHeading}</h3>
         <ul>
-          <li><a href="https://hack23.com">hack23.com</a></li>
+          <li><a href="https://hack23.com">Hack23.com</a></li>
           <li><a href="https://www.linkedin.com/company/hack23">${linkedinLabel}</a></li>
-          <li><a href="https://github.com/Hack23/ISMS-PUBLIC">${securityLabel}</a></li>
-          <li><a href="mailto:james@hack23.com">${contactLabel}</a></li>
+          <li><a href="https://github.com/Hack23/ISMS-PUBLIC">Public ISMS</a></li>
+          <li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md">${securityLabel}</a></li>
+          <li><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY.md">Security Policy</a></li>
+          <li><a href="https://hack23.com/privacy.html">Privacy Policy</a></li>
+          <li><a href="mailto:james@hack23.com">Contact Us / ${contactLabel}</a></li>
         </ul>
       </div>
       <div class="footer-section">

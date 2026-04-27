@@ -58,17 +58,19 @@
 
   <header class="site-header" role="banner">
     <div class="site-header__inner site-header__inner--stacked">
-      <a href="../index-nl.html" class="site-header__brand" aria-label="EU Parlementsmonitor">
+      <a href="../index-nl.html" class="site-header__brand" aria-label="EU Parliament Monitor">
         <picture class="site-header__logo-picture">
           <source srcset="../images/header-logo.webp" type="image/webp">
-          <img class="site-header__logo site-header__logo--header" src="../images/header-logo.png" alt="" width="72" height="48" aria-hidden="true">
+          <img class="site-header__logo site-header__logo--header" src="../images/header-logo.png" alt="" width="96" height="64" aria-hidden="true">
         </picture>
-        <span>
-          <span class="site-header__title">EU Parlementsmonitor</span>
+        <span class="site-header__brand-text">
+          <span class="site-header__title">EU Parliament Monitor</span>
           <span class="site-header__subtitle">Europees Parlementaire Inlichtingendienst</span>
         </span>
       </a>
-      <button type="button" class="theme-toggle" aria-label="Wissel donker/licht thema"><span class="theme-toggle__icon--light" aria-hidden="true">🌙</span><span class="theme-toggle__icon--dark" aria-hidden="true">☀️</span></button>
+      <div class="site-header__actions">
+        <button type="button" class="theme-toggle" aria-label="Wissel donker/licht thema"><span class="theme-toggle__icon--light" aria-hidden="true">🌙</span><span class="theme-toggle__icon--dark" aria-hidden="true">☀️</span></button>
+      </div>
       <nav class="site-header__langs" role="navigation" aria-label="Language selection">
         <a href="2026-04-14-breaking-171-en.html" class="lang-link" hreflang="en" lang="en" title="English" aria-label="English">🇬🇧 EN</a>
         <a href="2026-04-14-breaking-171-sv.html" class="lang-link" hreflang="sv" lang="sv" title="Svenska" aria-label="Svenska">🇸🇪 SV</a>
@@ -2681,16 +2683,22 @@ graph TD
       <div class="footer-section">
         <h3>Over EU Parliament Monitor</h3>
         <p>Europees parlementair inlichtingenplatform — monitoring van politieke activiteit met systematische transparantie. Aangedreven door open data van het Europees Parlement.</p>
-        <p class="footer-stats">116 artikelen beschikbaar</p>
+        <p class="footer-company-summary">Swedish cybersecurity consultancy specializing in political transparency and open-source intelligence.</p>
       </div>
       <div class="footer-section">
         <h3>Snelle links</h3>
         <ul>
           <li><a href="../index-nl.html">Startpagina</a></li>
-          <li><a href="../sitemap_nl.html">Sitemap</a></li>
-          <li><a href="../political-intelligence_nl.html">Politieke intelligentie</a></li>
+          <li><a href="../index-nl.html#main">News</a></li>
+          <li><a href="../docs/index.html">Dashboard</a></li>
+          <li><a href="../political-intelligence_nl.html">🧠 Politieke intelligentie</a></li>
+          <li><a href="../sitemap_nl.html">🗺️ Sitemap</a></li>
+          <li><a href="../docs/api/">📚 API Documentation (TypeDoc)</a></li>
           <li><a href="../rss.xml">RSS-feed</a></li>
+          <li><a href="https://hack23.com/cia-features.html">CIA Platform</a></li>
+          <li><a href="https://www.riksdagen.se/">Sveriges Riksdag</a></li>
           <li><a href="https://github.com/Hack23/euparliamentmonitor">GitHub-repository</a></li>
+          <li><a href="https://github.com/Hack23/euparliamentmonitor/issues">problemen melden op GitHub</a></li>
           <li><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/LICENSE">Apache-2.0-licentie</a></li>
           <li><a href="https://www.europarl.europa.eu/">Europees Parlement</a></li>
         </ul>
@@ -2698,29 +2706,32 @@ graph TD
       <div class="footer-section">
         <h3>Gebouwd door Hack23 AB</h3>
         <ul>
-          <li><a href="https://hack23.com">hack23.com</a></li>
+          <li><a href="https://hack23.com">Hack23.com</a></li>
           <li><a href="https://www.linkedin.com/company/hack23">LinkedIn</a></li>
-          <li><a href="https://github.com/Hack23/ISMS-PUBLIC">Beveiligings- &amp; privacybeleid</a></li>
-          <li><a href="mailto:james@hack23.com">Contact</a></li>
+          <li><a href="https://github.com/Hack23/ISMS-PUBLIC">Public ISMS</a></li>
+          <li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md">Beveiligings- &amp; privacybeleid</a></li>
+          <li><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY.md">Security Policy</a></li>
+          <li><a href="https://hack23.com/privacy.html">Privacy Policy</a></li>
+          <li><a href="mailto:james@hack23.com">Contact Us / Contact</a></li>
         </ul>
       </div>
       <div class="footer-section">
         <h3>Talen</h3>
         <div class="language-grid">
-          <a href="../index.html" hreflang="en">🇬🇧 English</a>
-            <a href="../index-sv.html" hreflang="sv">🇸🇪 Svenska</a>
-            <a href="../index-da.html" hreflang="da">🇩🇰 Dansk</a>
-            <a href="../index-no.html" hreflang="no">🇳🇴 Norsk</a>
-            <a href="../index-fi.html" hreflang="fi">🇫🇮 Suomi</a>
-            <a href="../index-de.html" hreflang="de">🇩🇪 Deutsch</a>
-            <a href="../index-fr.html" hreflang="fr">🇫🇷 Français</a>
-            <a href="../index-es.html" hreflang="es">🇪🇸 Español</a>
-            <a href="../index-nl.html" class="active" hreflang="nl">🇳🇱 Nederlands</a>
-            <a href="../index-ar.html" hreflang="ar">🇸🇦 العربية</a>
-            <a href="../index-he.html" hreflang="he">🇮🇱 עברית</a>
-            <a href="../index-ja.html" hreflang="ja">🇯🇵 日本語</a>
-            <a href="../index-ko.html" hreflang="ko">🇰🇷 한국어</a>
-            <a href="../index-zh.html" hreflang="zh">🇨🇳 中文</a>
+          <a href="../index.html" hreflang="en" lang="en" title="English" aria-label="English">🇬🇧 EN</a>
+            <a href="../index-sv.html" hreflang="sv" lang="sv" title="Svenska" aria-label="Svenska">🇸🇪 SV</a>
+            <a href="../index-da.html" hreflang="da" lang="da" title="Dansk" aria-label="Dansk">🇩🇰 DA</a>
+            <a href="../index-no.html" hreflang="no" lang="no" title="Norsk" aria-label="Norsk">🇳🇴 NO</a>
+            <a href="../index-fi.html" hreflang="fi" lang="fi" title="Suomi" aria-label="Suomi">🇫🇮 FI</a>
+            <a href="../index-de.html" hreflang="de" lang="de" title="Deutsch" aria-label="Deutsch">🇩🇪 DE</a>
+            <a href="../index-fr.html" hreflang="fr" lang="fr" title="Français" aria-label="Français">🇫🇷 FR</a>
+            <a href="../index-es.html" hreflang="es" lang="es" title="Español" aria-label="Español">🇪🇸 ES</a>
+            <a href="../index-nl.html" class="active" hreflang="nl" lang="nl" title="Nederlands" aria-label="Nederlands" aria-current="page">🇳🇱 NL</a>
+            <a href="../index-ar.html" hreflang="ar" lang="ar" title="العربية" aria-label="العربية">🇸🇦 AR</a>
+            <a href="../index-he.html" hreflang="he" lang="he" title="עברית" aria-label="עברית">🇮🇱 HE</a>
+            <a href="../index-ja.html" hreflang="ja" lang="ja" title="日本語" aria-label="日本語">🇯🇵 JA</a>
+            <a href="../index-ko.html" hreflang="ko" lang="ko" title="한국어" aria-label="한국어">🇰🇷 KO</a>
+            <a href="../index-zh.html" hreflang="zh" lang="zh" title="中文" aria-label="中文">🇨🇳 ZH</a>
         </div>
       </div>
     </div>
