@@ -21,7 +21,7 @@
  * golden snapshots taken from `npm run prebuild`).
  */
 
-import { BASE_URL, createThemeToggleButton, THEME_TOGGLE_SCRIPT } from '../../constants/config.js';
+import { BASE_URL, THEME_TOGGLE_SCRIPT } from '../../constants/config.js';
 import {
   ALL_LANGUAGES,
   LANGUAGE_NAMES,
@@ -29,8 +29,6 @@ import {
   PAGE_TITLES,
   PAGE_DESCRIPTIONS,
   SKIP_LINK_TEXTS,
-  HEADER_SUBTITLE_LABELS,
-  THEME_TOGGLE_LABELS,
   getLocalizedString,
   getTextDirection,
 } from '../../constants/languages.js';
@@ -41,7 +39,7 @@ import {
   FOOTER_POLITICAL_INTELLIGENCE_LABELS,
 } from '../../constants/language-ui.js';
 import type { ArticleCategory, LanguageCode } from '../../types/index.js';
-import { buildSiteFooter } from '../../templates/section-builders.js';
+import { buildSiteFooter, buildSiteHeader } from '../../templates/section-builders.js';
 import { getPoliticalIntelligenceFilename } from '../political-intelligence.js';
 import {
   SITEMAP_TITLES,
@@ -110,7 +108,7 @@ function buildSitemapLangSwitcher(currentLang: string): string {
     const active = code === currentLang ? ' active' : '';
     const ariaCurrent = code === currentLang ? ' aria-current="page"' : '';
     const href = getSitemapFilename(code);
-    return `<a href="${href}" class="lang-link${active}" hreflang="${code}" title="${escapeHTML(name)}"${ariaCurrent}>${flag} ${code.toUpperCase()}</a>`;
+    return `<a href="${href}" class="lang-link${active}" hreflang="${code}" lang="${code}" title="${escapeHTML(name)}" aria-label="${escapeHTML(name)}"${ariaCurrent}>${flag} ${code.toUpperCase()}</a>`;
   }).join('\n        ');
 }
 
@@ -163,10 +161,15 @@ export function generateSitemapHTML(
   };
   const copy = getSitemapCopy(lang);
   const heroTitle = getLocalizedString(PAGE_TITLES, lang).split(' - ')[0] ?? '';
-  const headerSubtitle = escapeHTML(getLocalizedString(HEADER_SUBTITLE_LABELS, lang));
-  const themeToggleLabel = escapeHTML(getLocalizedString(THEME_TOGGLE_LABELS, lang));
   const typeLabels = getLocalizedString(ARTICLE_TYPE_LABELS, lang);
   const canonicalUrl = `${BASE_URL}/${getSitemapFilename(lang)}`;
+  const header = buildSiteHeader({
+    lang: lang as LanguageCode,
+    pathPrefix: '',
+    homeHref: getIndexFilename(lang),
+    siteTitle: heroTitle,
+    languageSwitcherHtml: buildSitemapLangSwitcher(lang),
+  });
 
   // ─── <head> hreflang alternates for all sitemap language variants ───
   const hreflangLinks = [
@@ -320,25 +323,7 @@ ${hreflangLinks}
 <body>
   <a href="#main" class="skip-link">${escapeHTML(skipLinkText)}</a>
 
-  <header class="site-header" role="banner">
-    <div class="site-header__inner">
-      <a href="${getIndexFilename(lang)}" class="site-header__brand" aria-label="${escapeHTML(heroTitle)}">
-        <picture class="site-header__logo-picture">
-          <source srcset="images/favicon-96x96.webp" type="image/webp">
-          <img class="site-header__logo" src="images/favicon-96x96.png" alt="" width="36" height="36" aria-hidden="true">
-        </picture>
-        <span>
-          <span class="site-header__title">${escapeHTML(heroTitle)}</span>
-          <span class="site-header__subtitle">${headerSubtitle}</span>
-        </span>
-      </a>
-      ${createThemeToggleButton(themeToggleLabel)}
-    </div>
-  </header>
-
-  <nav class="language-switcher" role="navigation" aria-label="Language selection">
-    ${buildSitemapLangSwitcher(lang)}
-  </nav>
+  ${header}
 
   <main id="main" class="site-main">
     <section class="sitemap-hero" aria-labelledby="sitemap-heading">

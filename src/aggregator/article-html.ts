@@ -22,7 +22,6 @@
 
 import {
   BASE_URL,
-  createThemeToggleButton,
   MERMAID_VERSION,
   THEME_TOGGLE_SCRIPT,
 } from '../constants/config.js';
@@ -32,15 +31,13 @@ import {
   LANGUAGE_FLAGS,
   PAGE_TITLES,
   SKIP_LINK_TEXTS,
-  HEADER_SUBTITLE_LABELS,
-  THEME_TOGGLE_LABELS,
   TOC_ARIA_LABELS,
   getLocalizedString,
   getTextDirection,
 } from '../constants/languages.js';
 import type { LanguageCode } from '../types/index.js';
 import { escapeHTML } from '../utils/file-utils.js';
-import { buildSiteFooter } from '../templates/section-builders.js';
+import { buildSiteFooter, buildSiteHeader } from '../templates/section-builders.js';
 
 /** One entry in the article-level TOC sidebar (mirrors `TocSection`). */
 export interface ArticleTocEntry {
@@ -194,8 +191,6 @@ export function wrapArticleHtml(options: WrapArticleOptions): string {
   const siteTitle =
     getLocalizedString(PAGE_TITLES, safeLang).split(' - ')[0] ?? 'EU Parliament Monitor';
   const skipLinkText = getLocalizedString(SKIP_LINK_TEXTS, safeLang);
-  const headerSubtitle = escapeHTML(getLocalizedString(HEADER_SUBTITLE_LABELS, safeLang));
-  const themeToggleLabel = escapeHTML(getLocalizedString(THEME_TOGGLE_LABELS, safeLang));
   const canonicalUrl = `${BASE_URL}/news/${getArticleFilename(options.articleSlug, safeLang)}`;
   const indexHref = safeLang === 'en' ? '../index.html' : `../index-${safeLang}.html`;
   const hreflangLinks = buildArticleHreflangLinks(options.articleSlug);
@@ -230,6 +225,13 @@ export function wrapArticleHtml(options: WrapArticleOptions): string {
   const jsonLdString = JSON.stringify(jsonLd).replace(/</g, '\\u003c');
 
   const pageTitle = `${options.title} — ${siteTitle}`;
+  const header = buildSiteHeader({
+    lang: safeLang,
+    pathPrefix: '../',
+    homeHref: indexHref,
+    siteTitle,
+    languageSwitcherHtml: langSwitcher,
+  });
 
   return `<!DOCTYPE html>
 <html lang="${safeLang}" dir="${dir}">
@@ -275,24 +277,7 @@ ${hreflangLinks}
 <body>
   <a href="#main" class="skip-link">${escapeHTML(skipLinkText)}</a>
 
-  <header class="site-header" role="banner">
-    <div class="site-header__inner site-header__inner--stacked">
-      <a href="${indexHref}" class="site-header__brand" aria-label="${escapeHTML(siteTitle)}">
-        <picture class="site-header__logo-picture">
-          <source srcset="../images/header-logo.webp" type="image/webp">
-          <img class="site-header__logo site-header__logo--header" src="../images/header-logo.png" alt="" width="72" height="48" aria-hidden="true">
-        </picture>
-        <span>
-          <span class="site-header__title">${escapeHTML(siteTitle)}</span>
-          <span class="site-header__subtitle">${headerSubtitle}</span>
-        </span>
-      </a>
-      ${createThemeToggleButton(themeToggleLabel)}
-      <nav class="site-header__langs" role="navigation" aria-label="Language selection">
-        ${langSwitcher}
-      </nav>
-    </div>
-  </header>
+  ${header}
 
   <main id="main" class="site-main article-main">
 ${tocHtml}    <article class="article-body" lang="${safeLang}">
