@@ -146,6 +146,61 @@ write `pass2.rewriteCount: 0` and, where helpful for operators, annotate in
 run — no rewrites required"`). The validator does not require `pass2Note` and
 will not warn when all artifacts are strictly above their floors.
 
+### Pass 2 Enforcement
+
+Pass 2 is enforced at three levels so it cannot silently degenerate into "inline checks during Pass 1":
+
+#### 1 · Minute-16 Hard Tripwire (workflow level)
+
+At **minute 16** of every `news-<type>.md` run, the agent MUST stop writing
+new Pass 1 artifacts and begin Pass 2 — even if Pass 1 is not complete.
+The rationale: an incomplete artifact set with genuine rewrite depth is more
+valuable than a full artifact set where Pass 2 was skipped.
+
+#### 2 · `manifest.json.pass2` Audit Log (agent level)
+
+When Pass 2 starts and ends, the agent writes a `pass2` block to
+`manifest.json`:
+
+```json
+{
+  "pass2": {
+    "startedAt": "2026-04-22T10:18:00Z",
+    "endedAt":   "2026-04-22T10:24:00Z",
+    "rewriteCount": 4
+  }
+}
+```
+
+`rewriteCount` is the number of artifacts whose content was changed during
+Pass 2. A zero count is only valid when every artifact was already above its
+`reference-quality-thresholds.json` floor from a prior same-day run.
+
+#### 3 · Stage C Validator Heuristic (script level)
+
+`scripts/validate-analysis-completeness.js` emits a `WARN
+pass2-skipped-heuristic` when:
+
+- `manifest.json` has no `pass2` block, `pass2.rewriteCount === 0`, **or**
+  the `pass2` block is malformed (non-integer / negative / missing
+  `rewriteCount`, or missing/non-string `startedAt`/`endedAt`), **AND**
+- At least one artifact sits at exactly its per-artifact line floor.
+
+A malformed `pass2` block also emits a separate `WARN manifest.pass2 invalid
+schema` line listing each invalid field. The heuristic does not block Stage
+C (it is a `WARN`, not a `RED`), but it is surfaced in the gate output so
+operators can identify runs where Pass 2 discipline broke down or where the
+Pass 2 audit-log data is invalid.
+
+#### Prior-Run Merge Rule (re-run exemption)
+
+When a same-day re-run carries forward artifacts already at or above their
+floors, `rewriteCount` may legitimately be `0`. In that case the agent should
+write `pass2.rewriteCount: 0` and, where helpful for operators, annotate in
+`manifest.json` why (e.g. `"pass2Note": "all artifacts above floor from prior
+run — no rewrites required"`). The validator does not require `pass2Note` and
+will not warn when all artifacts are strictly above their floors.
+
 ## Time Budget Enforcement
 
 | Workflow Type | Total Budget | Min Active Work | Stage A (Data) | Stage B (Analysis, 2-pass) | Stage D (Article render) |
