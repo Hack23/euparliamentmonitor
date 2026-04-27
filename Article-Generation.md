@@ -279,19 +279,37 @@ Because `aggregateAnalysisRun()` merges manifest-declared files with discovered 
 
 ## 🧱 TypeScript Code Used for Generation
 
-| File | Responsibility |
+The aggregator package is split into seven bounded contexts under `src/aggregator/`. Each context has a narrow public surface (`index.ts`) and is independently unit-tested. Existing files (`article-generator.ts`, `analysis-aggregator.ts`, …) keep exporting the legacy names as thin re-export shims so every workflow, test, and external import keeps resolving — the `npm run generate-article` CLI shape is byte-identical.
+
+| File / Module | Responsibility |
 |---|---|
-| `src/aggregator/article-generator.ts` | CLI entry point; parses flags; runs aggregation; resolves metadata; writes `article.md` to the run directory AND `news/<slug>.en.md`; renders 14 HTML variants; passes `isBasedOn` source artifact URLs to the HTML chrome. |
-| `src/aggregator/analysis-aggregator.ts` | Reads run directory and `manifest.json`; flattens manifest files; discovers additional Markdown (excluding `article.md`, translated variants, `README.md`, and `pass1/`); orders sections; adds provenance, tradecraft, and analysis-index appendices. Exports `guessDateFromRunDir` for testability. |
+| `src/aggregator/article-generator.ts` | CLI entry point; parses flags; runs aggregation; resolves metadata; writes `article.md` to the run directory AND `news/<slug>.en.md`; renders 14 HTML variants; passes `isBasedOn` source artifact URLs to the HTML chrome. Re-exports `buildArticleSlug`, `sanitizeRunSuffix`, `discoverAnalysisRuns`, `groupRunsForCollision`, `DiscoveredRun` from `slug/` and `runs/` for back-compat. |
+| `src/aggregator/analysis-aggregator.ts` | Reads run directory and `manifest.json`; flattens manifest files; discovers additional Markdown (excluding `article.md`, translated variants, `README.md`, and `pass1/`); orders sections; adds provenance, tradecraft, and analysis-index appendices. Re-exports `AnalysisManifest`, `flattenManifestFiles`, `latestGateResult`, `resolveArticleTypeFromManifest` from `manifest/` for back-compat. Exports `guessDateFromRunDir` for testability. |
 | `src/aggregator/artifact-order.ts` | Defines the canonical section order and artifact path claims. |
-| `src/aggregator/clean-artifact.ts` | Strips front matter, banners, H1s, SPDX tags, artifact-metadata preambles (`**Run:**`, `**Window:**`, etc.), demotes headings, rewrites links, deduplicates Mermaid bodies. |
+| `src/aggregator/clean-artifact.ts` | Strips front matter, banners, H1s, SPDX tags, artifact-metadata preambles (`**Run:**`, `**Window:**`, etc.), demotes headings, rewrites links, deduplicates Mermaid bodies. Re-exports `githubBlobUrl`/`githubRawUrl` from `infra/` for back-compat. |
 | `src/aggregator/markdown-renderer.ts` | Configures `markdown-it`, headings, footnotes, attrs, definition lists, table wrappers, and Mermaid fence rendering. |
 | `src/aggregator/article-html.ts` | Wraps rendered body in full HTML5 document, metadata, JSON-LD (with `isBasedOn` provenance list), hreflang links, header, language switcher, TOC, footer, theme toggle. |
 | `src/aggregator/article-metadata.ts` | Resolves title and description through the 5-tier editorial-highlight ladder. |
+| `src/aggregator/infra/github-urls.ts` | **Single source of truth** for the `Hack23/euparliamentmonitor` repo slug and helpers (`blobUrl`, `rawUrl`, `treeUrl`). Eliminates the previous duplication between `clean-artifact.ts` and `article-generator.ts`. |
+| `src/aggregator/manifest/{types,reader,resolver,index}.ts` | Canonical `Manifest` schema covering all three historic schema variants (`articleType`, plural `articleTypes[]`, very-legacy `runType`). Exports `readManifest`, `parseManifest`, `resolveArticleType`, `resolveDate`, `resolveRunId`, `latestGateResult`, `flattenManifestFiles`, `UNKNOWN_ARTICLE_TYPE`. |
+| `src/aggregator/runs/{discover,grouping,index}.ts` | Filesystem walk of `analysis/daily/<date>/` plus `(date, articleType)` collision grouping. Exports `discoverAnalysisRuns`, `readRunCandidate`, `dateFromPath`, `groupRunsForCollision`, `collisionKey`, `DiscoveredRun`. |
+| `src/aggregator/slug/{slug,index}.ts` | Pure naming functions: `buildArticleSlug`, `sanitizeRunSuffix`, `RUN_SUFFIX_MAX_LENGTH`, `DEFAULT_RUN_SUFFIX`. No I/O, no globals — referentially transparent. |
+| `src/aggregator/cli/{parse,index}.ts` | Non-exiting CLI parser `parseCliArgsSafe` returning a `{kind:'options'\|'help'\|'error'}` discriminated union, plus shared `HELP_TEXT`. Lets unit tests cover `--help` and every error branch without spying on `process.exit`. |
 | `src/mcp/ep-mcp-client.ts` | TypeScript wrappers for 60+ European Parliament MCP tools, with fallback payloads and error classification. |
 | `scripts/mcp-setup.sh` | Sourceable gateway configuration for EP MCP, World Bank MCP, and IMF REST base URL. |
 | `scripts/generators/news-indexes.js` | Generates news indexes and article metadata during `npm run prebuild`. |
 | `scripts/generators/sitemap.js` | Generates sitemap and related metadata during prebuild/deploy. |
+
+### Test coverage for the new modules
+
+| Test file | Scope |
+|---|---|
+| `test/unit/infra-github-urls.test.js` | 13 tests — repo slug constants, `blobUrl`/`rawUrl`/`treeUrl` builders, POSIX normalisation, byte-equality with legacy shims. |
+| `test/unit/manifest.test.js` | 30 tests — all 3 schema variants, malformed JSON, missing file, file-flattener edge cases, gate-result history walk. |
+| `test/unit/runs.test.js` | 19 tests — discovery walk, legacy schema tolerance, malformed-JSON skip, sort order, no-descend-into-nested-manifest, collision grouping, insertion-order preservation. |
+| `test/unit/slug.test.js` | 21 tests — pure naming functions plus a filename-safety round-trip property check. |
+| `test/unit/cli-parse.test.js` | 21 tests — every flag form (`--flag value`, `--flag=value`, aliases like `--analysis-dir`/`--language`/`--output`), `--help` short-circuit (no `process.exit` spy required), every error branch. |
+| `test/unit/aggregator-determinism.test.js` | 3 tests — byte-equality of every output file across two consecutive runs in English-only, all-14-languages, and `--markdown-only` modes. **This is the safety net that protects the byte-output contract.** |
 
 ### CLI contract
 

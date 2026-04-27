@@ -24,42 +24,41 @@ import {
   type ArtifactSection,
 } from './artifact-order.js';
 import { cleanArtifact, githubBlobUrl } from './clean-artifact.js';
+import { treeUrl } from './infra/github-urls.js';
+import {
+  flattenManifestFiles as _flattenManifestFiles,
+  latestGateResult as _latestGateResult,
+  resolveArticleType as _resolveArticleType,
+  resolveRunId as _resolveRunId,
+  type Manifest,
+  type ManifestFiles as _ManifestFiles,
+  type ManifestHistoryEntry as _ManifestHistoryEntry,
+} from './manifest/index.js';
 
-/** Raw manifest shape as committed by the analysis pipeline. */
-export interface AnalysisManifest {
-  readonly articleType: string;
-  /**
-   * Legacy plural variant emitted by some pre-aggregator-pipeline workflows.
-   * Used as a fallback when `articleType` is absent so historic runs with
-   * `articleTypes: ["<slug>"]` can still be aggregated.
-   */
-  readonly articleTypes?: readonly string[];
-  /**
-   * Legacy field emitted by older breaking-run manifests. Used as the last
-   * fallback when neither `articleType` nor `articleTypes` is present.
-   */
-  readonly runType?: string;
-  readonly runId?: string;
-  readonly date?: string;
-  readonly analysisDir?: string;
-  readonly files?: ManifestFiles;
-  readonly history?: readonly ManifestHistoryEntry[];
-}
+/**
+ * Raw manifest shape as committed by the analysis pipeline.
+ *
+ * @deprecated Use {@link Manifest} from `aggregator/manifest/index.js`.
+ *   This alias is preserved for back-compat with the existing test suite
+ *   and external curators that import `AnalysisManifest` from this module.
+ */
+export type AnalysisManifest = Manifest;
 
-/** `manifest.files` can be nested category → paths or flat path → description. */
-export type ManifestFiles = Record<string, readonly string[] | Record<string, string>>;
+/**
+ * `manifest.files` can be nested category → paths or flat path → description.
+ *
+ * @deprecated Use {@link _ManifestFiles} (`ManifestFiles`) from
+ *   `aggregator/manifest/index.js`.
+ */
+export type ManifestFiles = _ManifestFiles;
 
-/** One entry in `manifest.history[]`; only fields we read are typed. */
-export interface ManifestHistoryEntry {
-  readonly stage?: string;
-  readonly completedAt?: string;
-  readonly startedAt?: string;
-  readonly finishedAt?: string;
-  readonly runId?: string;
-  readonly gateResult?: string;
-  readonly summary?: string;
-  readonly filesWritten?: readonly string[];
-}
+/**
+ * One entry in `manifest.history[]`; only fields we read are typed.
+ *
+ * @deprecated Use {@link _ManifestHistoryEntry} (`ManifestHistoryEntry`) from
+ *   `aggregator/manifest/index.js`.
+ */
+export type ManifestHistoryEntry = _ManifestHistoryEntry;
 
 /** Result of {@link aggregateAnalysisRun}. */
 export interface AggregatedRun {
@@ -125,55 +124,31 @@ export interface AggregateOptions {
 }
 
 /**
- * Extract every string entry from a single `files` value (which may be an
- * array of strings or a `path → description` object). Split out so
- * {@link flattenManifestFiles} stays under the cognitive-complexity budget.
- *
- * @param value - One value from `Object.values(files)`
- * @returns Strings contained within, or `[]` when the shape is unknown
- */
-function extractFileEntries(value: unknown): string[] {
-  if (Array.isArray(value)) {
-    return value.filter((e): e is string => typeof e === 'string');
-  }
-  if (value && typeof value === 'object') {
-    return Object.keys(value as Record<string, unknown>);
-  }
-  return [];
-}
-
-/**
  * Normalise `manifest.files` into a flat list of `runRelPath` strings.
+ *
+ * Thin re-export of {@link _flattenManifestFiles} from
+ * `aggregator/manifest/index.js`; preserved here so external callers
+ * (`backport-article-seo`, curator scripts) keep resolving.
  *
  * @param files - Manifest `files` section (nested or flat)
  * @returns De-duplicated list of run-relative artifact paths
  */
 export function flattenManifestFiles(files: ManifestFiles | undefined): string[] {
-  if (!files) return [];
-  const out: string[] = [];
-  for (const value of Object.values(files)) {
-    out.push(...extractFileEntries(value));
-  }
-  return out;
+  return _flattenManifestFiles(files);
 }
 
 /**
  * Pick the latest non-PENDING gateResult from `manifest.history[]`, falling
- * back to `PENDING` if none is recorded. Mirrors the behaviour of
- * {@link readLatestResolvedGateResult} in `src/utils/file-utils.ts` but
- * operates on an in-memory manifest.
+ * back to `PENDING` if none is recorded.
+ *
+ * Thin re-export of {@link _latestGateResult} from
+ * `aggregator/manifest/index.js`.
  *
  * @param manifest - Parsed manifest object
  * @returns The latest non-PENDING gate result, or `"PENDING"` when none found
  */
 export function latestGateResult(manifest: AnalysisManifest): string {
-  const history = manifest.history ?? [];
-  for (let i = history.length - 1; i >= 0; i--) {
-    const entry = history[i];
-    const gr = entry?.gateResult;
-    if (gr && gr !== 'PENDING') return gr;
-  }
-  return 'PENDING';
+  return _latestGateResult(manifest);
 }
 
 /**
@@ -324,7 +299,7 @@ export function renderProvenanceBlock(params: {
   manifestRelPath: string;
 }): string {
   const manifestUrl = githubBlobUrl(params.manifestRelPath);
-  const treeUrl = `https://github.com/Hack23/euparliamentmonitor/tree/main/${params.runDirRelPath}`;
+  const treeHref = treeUrl(params.runDirRelPath);
   return [
     '> **Provenance & Audit**',
     '>',
@@ -332,7 +307,7 @@ export function renderProvenanceBlock(params: {
     `> - **Run date:** ${params.date}`,
     `> - **Run id:** \`${params.runId}\``,
     `> - **Gate result:** \`${params.gateResult}\``,
-    `> - **Analysis tree:** [${params.runDirRelPath}](${treeUrl})`,
+    `> - **Analysis tree:** [${params.runDirRelPath}](${treeHref})`,
     `> - **Manifest:** [manifest.json](${manifestUrl})`,
     '',
   ].join('\n');
@@ -626,28 +601,15 @@ function appendSection(
 /**
  * Resolve the article-type slug from a manifest, tolerating legacy schemas.
  *
- * Resolution order (highest precedence first):
- *   1. `articleType` — canonical singular field
- *   2. `articleTypes[0]` — pre-aggregator-pipeline plural array
- *   3. `runType` — legacy field on older breaking-run manifests
- *
- * Falls back to `'unknown'` when none of the above is a non-empty string.
+ * Thin re-export of {@link _resolveArticleType} from
+ * `aggregator/manifest/index.js`. Resolution order: `articleType` →
+ * `articleTypes[0]` → `runType` → `'unknown'`.
  *
  * @param manifest - Parsed manifest (any of the supported schemas)
  * @returns Article-type slug usable as a filename component
  */
 export function resolveArticleTypeFromManifest(manifest: AnalysisManifest): string {
-  if (typeof manifest.articleType === 'string' && manifest.articleType) {
-    return manifest.articleType;
-  }
-  const first = manifest.articleTypes?.[0];
-  if (typeof first === 'string' && first) {
-    return first;
-  }
-  if (typeof manifest.runType === 'string' && manifest.runType) {
-    return manifest.runType;
-  }
-  return 'unknown';
+  return _resolveArticleType(manifest);
 }
 
 /**
@@ -752,7 +714,7 @@ export function aggregateAnalysisRun(options: AggregateOptions): AggregatedRun {
   const tradecraftFiles = options.tradecraftFiles ?? discoverTradecraftFiles(repoRoot);
   const articleType = resolveArticleTypeFromManifest(manifest);
   const date = manifest.date ?? guessDateFromRunDir(runDirRelPath);
-  const runId = manifest.runId ?? path.basename(runDir);
+  const runId = _resolveRunId(manifest, path.basename(runDir));
   const gateResult = latestGateResult(manifest);
   const manifestRelPath = `${runDirRelPath}/manifest.json`;
 

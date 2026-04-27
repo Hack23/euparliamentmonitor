@@ -24,6 +24,9 @@ import { resolveArticleMetadata, extractStrongProseLine, } from './article-metad
 import { renderMarkdown } from './markdown-renderer.js';
 import { wrapArticleHtml, getArticleFilename } from './article-html.js';
 import { ALL_LANGUAGES } from '../constants/language-core.js';
+import { blobUrl } from './infra/github-urls.js';
+import { buildArticleSlug as _buildArticleSlug, sanitizeRunSuffix as _sanitizeRunSuffix, } from './slug/index.js';
+import { discoverAnalysisRuns as _discoverAnalysisRuns, groupRunsForCollision as _groupRunsForCollision, } from './runs/index.js';
 /**
  * Fold one parsed {@link FlagResult} into the accumulator. Split out so
  * {@link parseCliArgs} stays under the cognitive-complexity budget.
@@ -197,27 +200,29 @@ function printHelp() {
 /**
  * Build the article slug `YYYY-MM-DD-<article-type>[-<runSuffix>]`.
  *
+ * Thin re-export of the canonical implementation in
+ * `aggregator/slug/index.js` preserved here for back-compat with the
+ * existing test suite.
+ *
  * @param date - ISO date string (`YYYY-MM-DD`)
  * @param articleType - Article-type slug (e.g. `breaking`)
- * @param runSuffix - Optional collision-suffix (e.g. `run191`) appended when
- *        multiple runs share the same (date, articleType) pair
+ * @param runSuffix - Optional collision-suffix (e.g. `run191`)
  * @returns Combined slug used as the file-stem for every language variant
  */
 export function buildArticleSlug(date, articleType, runSuffix) {
-    const base = `${date}-${articleType}`;
-    return runSuffix ? `${base}-${runSuffix}` : base;
+    return _buildArticleSlug(date, articleType, runSuffix);
 }
 /**
  * Turn an arbitrary run-id string into a short, filename-safe suffix.
- * Keeps ASCII word/dash characters only and caps the length at 32 to avoid
- * filesystem-path-length surprises.
+ *
+ * Thin re-export of the canonical implementation in
+ * `aggregator/slug/index.js`.
  *
  * @param runId - Raw run identifier from the manifest (or directory name)
  * @returns Sanitised suffix usable in a filename
  */
 export function sanitizeRunSuffix(runId) {
-    const cleaned = runId.replace(/[^\w.-]+/g, '-').replace(/^-+|-+$/g, '');
-    return cleaned.slice(0, 32) || 'run';
+    return _sanitizeRunSuffix(runId);
 }
 /**
  * Return `true` when a line should be skipped when hunting for the default
@@ -350,7 +355,7 @@ function writeLanguageVariant(lang, slug, aggregated, englishHtml, chromeOptions
         sourceMarkdownRelPath: chromeOptions.sourceMarkdownRelPath,
         toc: aggregated.sectionToc,
         articleCount: chromeOptions.articleCount,
-        isBasedOn: aggregated.includedArtifacts.map((a) => `https://github.com/Hack23/euparliamentmonitor/blob/main/${a.repoRelPath}`),
+        isBasedOn: aggregated.includedArtifacts.map((a) => blobUrl(a.repoRelPath)),
     });
     const filename = getArticleFilename(slug, lang);
     fs.writeFileSync(path.join(opts.outDir, filename), html, 'utf8');
@@ -481,97 +486,28 @@ export function generateArticle(opts, runSuffix, articleCountOverride) {
 /**
  * Walk `analysis/daily/` recursively and return every subdirectory that
  * contains a `manifest.json` with a non-empty, non-`unknown` `articleType`.
- * Runs missing a manifest or carrying a default `articleType` are skipped
- * so batch runs don't emit garbage articles like
- * `2026-04-13-unknown-en.html`.
+ *
+ * Thin re-export of {@link _discoverAnalysisRuns} from
+ * `aggregator/runs/index.js`.
  *
  * @param repoRoot - Absolute repository root
  * @returns Sorted list of discovered runs (oldest date first, then lexical)
  */
 export function discoverAnalysisRuns(repoRoot) {
-    const root = path.join(repoRoot, 'analysis', 'daily');
-    if (!fs.existsSync(root))
-        return [];
-    const results = [];
-    const walk = (dir) => {
-        const entries = fs.readdirSync(dir, { withFileTypes: true });
-        // If this dir has a manifest, consider it a run and do not descend.
-        const manifestPath = path.join(dir, 'manifest.json');
-        if (fs.existsSync(manifestPath)) {
-            const run = readRunCandidate(dir, manifestPath);
-            if (run)
-                results.push(run);
-            return;
-        }
-        for (const entry of entries) {
-            if (entry.isDirectory())
-                walk(path.join(dir, entry.name));
-        }
-    };
-    walk(root);
-    results.sort((a, b) => a.date === b.date ? a.runDir.localeCompare(b.runDir) : a.date.localeCompare(b.date));
-    return results;
-}
-/**
- * Read and validate the manifest for a candidate run directory.
- *
- * @param runDir - Absolute path of the candidate directory
- * @param manifestPath - Absolute path of its `manifest.json`
- * @returns {@link DiscoveredRun} when the manifest declares a valid
- *          article type, `null` otherwise (silently skipped by `--all`)
- */
-function readRunCandidate(runDir, manifestPath) {
-    let parsed;
-    try {
-        parsed = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
-    }
-    catch {
-        return null;
-    }
-    // Resolve via the same precedence used by the aggregator (articleType →
-    // articleTypes[0] → runType) so legacy-schema manifests are picked up by
-    // batch mode rather than silently skipped.
-    const articleType = resolveArticleTypeFromManifest(parsed);
-    if (!articleType || articleType === 'unknown')
-        return null;
-    const dateFromManifest = typeof parsed.date === 'string' ? parsed.date : '';
-    const date = /^\d{4}-\d{2}-\d{2}$/.test(dateFromManifest)
-        ? dateFromManifest
-        : dateFromRunPath(runDir);
-    const runId = typeof parsed.runId === 'string' && parsed.runId
-        ? parsed.runId
-        : typeof parsed.runId === 'number'
-            ? String(parsed.runId)
-            : path.basename(runDir);
-    return { runDir, articleType, date, runId };
-}
-/**
- * Pull the `YYYY-MM-DD` date from a run-dir path segment. Falls back to the
- * epoch date when no ISO date is embedded.
- *
- * @param runDir - Absolute run directory path
- * @returns ISO date string
- */
-function dateFromRunPath(runDir) {
-    const match = /(\d{4}-\d{2}-\d{2})/.exec(runDir);
-    return match ? (match[1] ?? '1970-01-01') : '1970-01-01';
+    return _discoverAnalysisRuns(repoRoot);
 }
 /**
  * Group discovered runs by `(date, articleType)` so callers can decide
  * whether a collision-suffix is needed when writing articles.
  *
+ * Thin re-export of {@link _groupRunsForCollision} from
+ * `aggregator/runs/index.js`.
+ *
  * @param runs - Discovered runs
  * @returns Map from `"<date>|<articleType>"` to the runs in that group
  */
 export function groupRunsForCollision(runs) {
-    const groups = new Map();
-    for (const run of runs) {
-        const key = `${run.date}|${run.articleType}`;
-        const bucket = groups.get(key) ?? [];
-        bucket.push(run);
-        groups.set(key, bucket);
-    }
-    return groups;
+    return _groupRunsForCollision(runs);
 }
 /**
  * Batch-generate articles for every discovered run. Runs that share a
