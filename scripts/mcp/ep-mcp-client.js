@@ -255,6 +255,83 @@ function _isEmptyStringSentinel(payload) {
     return totalStringFields >= 3 && totalStringFields === emptyStringFields;
 }
 /**
+ * Year threshold for detecting historical-only (recess-mode) procedures feed responses.
+ * Any response where ALL dated items are from this year or earlier is considered recess mode.
+ * See `.github/prompts/07-mcp-reference.md` §11 row #5.
+ */
+const PROCEDURES_RECESS_YEAR_THRESHOLD = 1995;
+/**
+ * Minimum plausible year for EP procedure dates.
+ * The European Parliament was established in 1952; anything earlier is malformed.
+ */
+const MIN_VALID_PROCEDURE_YEAR = 1952;
+/**
+ * Maximum plausible year for EP procedure dates.
+ * Used as an upper sanity bound to reject obviously malformed 4-digit strings.
+ */
+const MAX_VALID_PROCEDURE_YEAR = 2100;
+/**
+ * Extract the first valid 4-digit year from an EP procedure item.
+ * Checks `dateInitiated`, then `dateLastActivity`, then the first 4 characters
+ * of `reference` (e.g. `"1972/0001(SYN)"`), returning `NaN` when none found.
+ *
+ * @param obj - Procedure item as a plain record
+ * @returns 4-digit year number, or `NaN` if no valid year field exists
+ */
+function extractProcedureItemYear(obj) {
+    const dateFields = [obj['dateInitiated'], obj['dateLastActivity'], obj['reference']];
+    for (const field of dateFields) {
+        if (typeof field !== 'string' || field.length < 4)
+            continue;
+        const year = Number(field.slice(0, 4));
+        if (!Number.isNaN(year) &&
+            year >= MIN_VALID_PROCEDURE_YEAR &&
+            year <= MAX_VALID_PROCEDURE_YEAR) {
+            return year;
+        }
+    }
+    return NaN;
+}
+/**
+ * Detect whether a procedures feed response is in "recess mode" — i.e., all items
+ * have dates from {@link PROCEDURES_RECESS_YEAR_THRESHOLD} or earlier (historical archive).
+ *
+ * During parliamentary recesses the EP procedures/feed endpoint may return historical
+ * archive data in ID order rather than current procedures. This function detects that
+ * condition so callers can emit a `🟡 procedures-feed: recess mode` audit row instead
+ * of treating the response as usable current data.
+ *
+ * Date extraction order per item: `dateInitiated`, then `dateLastActivity`, then
+ * `reference` (first four characters). The first valid 4-digit year found in the
+ * range `[1900, 2100]` is used.
+ *
+ * Returns `false` when the payload is `undefined`, contains no items, or any item
+ * yields a year later than the threshold (the feed has current data).
+ *
+ * @param payload - Parsed procedures feed payload
+ * @returns `true` when all dated items are from {@link PROCEDURES_RECESS_YEAR_THRESHOLD} or earlier
+ */
+export function detectProceduresFeedRecessMode(payload) {
+    if (!payload)
+        return false;
+    // Collect items from feed shape (`items[]`) or direct-endpoint shape (`procedures[]`)
+    const rawItems = payload['items'] ?? payload['procedures'];
+    const items = Array.isArray(rawItems) ? rawItems : [];
+    if (items.length === 0)
+        return false;
+    const years = [];
+    for (const item of items) {
+        if (!item || typeof item !== 'object')
+            continue;
+        const year = extractProcedureItemYear(item);
+        if (!Number.isNaN(year)) {
+            years.push(year);
+        }
+    }
+    // Recess mode: items exist but every dated item is from the historical-archive window
+    return years.length > 0 && years.every((y) => y <= PROCEDURES_RECESS_YEAR_THRESHOLD);
+}
+/**
  * MCP Client for European Parliament data access.
  * Extends {@link MCPConnection} with EP-specific tool wrapper methods.
  */
@@ -263,6 +340,12 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
     _failedTools = new Map();
     /** Tracks tools that have been called (attempted) in the current session */
     _calledTools = new Set();
+    /**
+     * Tracks tools that experienced a timeout but the failure was downgraded to a warning.
+     * Unlike `_failedTools`, entries here are NOT counted against the reliability score.
+     * Currently used by {@link getEventsFeed} whose documented latency is 30–120 s+.
+     */
+    _slowFeedWarnings = new Map();
     /**
      * Path to the pending-documents sidecar file.
      * Undefined means "use the module-level default (`<cwd>/data/pending-documents.json`)".
@@ -350,6 +433,17 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
         return new Map(this._failedTools);
     }
     /**
+     * Get tools that experienced a timeout but the failure was downgraded to a warning.
+     * Unlike {@link getFailedTools}, entries here are **not** counted against the
+     * reliability score — they represent expected-slow tools whose timeouts are
+     * classified as 🟢 LIMITATION (see `.github/prompts/07-mcp-reference.md` §11 row #8).
+     *
+     * @returns Map of tool name to `"SLOW_FEED: <message>"` warning description
+     */
+    getSlowFeedWarnings() {
+        return new Map(this._slowFeedWarnings);
+    }
+    /**
      * Get a human-readable feed health summary for diagnostics.
      *
      * @returns Formatted summary of feed availability
@@ -375,8 +469,13 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
         let unchecked = 0;
         for (const tool of feedTools) {
             const error = this._failedTools.get(tool);
+            const slowWarning = this._slowFeedWarnings.get(tool);
             if (error) {
                 lines.push(`  ❌ ${tool}: ${error}`);
+            }
+            else if (slowWarning) {
+                // Slow-feed warning: timeout was downgraded — not counted as a failure or success
+                lines.push(`  🟡 ${tool}: ${slowWarning}`);
             }
             else if (this._calledTools.has(tool)) {
                 lines.push(`  ✅ ${tool}`);
@@ -1146,20 +1245,107 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
     /**
      * Get events feed (most recent updates via EP API v2)
      *
+     * Implements special timeout-downgrade handling: when the call throws a timeout
+     * error, the failure is recorded in {@link _slowFeedWarnings} (not
+     * {@link _failedTools}) so it does **not** reduce the session reliability score.
+     * The events feed is documented as significantly slower than other feeds
+     * (30–120 s+); timeouts during heavy EP API load are expected behaviour, classified
+     * as 🟢 LIMITATION in `.github/prompts/07-mcp-reference.md` §11 row #8.
+     *
+     * A fallback result with `slowFeedWarning: true` is returned so Stage A consumers
+     * can detect the condition and fall back to `get_plenary_sessions({ year })`.
+     *
+     * Non-timeout errors (404, 5xx, rate-limit, etc.) are still recorded as failures.
+     *
      * @param options - Pagination options
-     * @returns Events feed data
+     * @returns Events feed data, or `{ "feed": [], "slowFeedWarning": true }` on timeout
      */
     async getEventsFeed(options = {}) {
-        return this.safeCallTool('get_events_feed', options, EuropeanParliamentMCPClient.FEED_FALLBACK);
+        this._calledTools.add('get_events_feed');
+        try {
+            const result = await this.callToolWithRetry('get_events_feed', options);
+            // Inspect for structured error responses (isError flag) from the EP MCP server
+            if (result.isError === true) {
+                this._slowFeedWarnings.delete('get_events_feed');
+                return this._recordToolFailure('get_events_feed', result.content?.[0]?.text ?? '', EuropeanParliamentMCPClient.FEED_FALLBACK);
+            }
+            // Detect unavailable-feed envelope (uniform {status:"unavailable"} or legacy 404)
+            if (isFeedUnavailable(result)) {
+                this._slowFeedWarnings.delete('get_events_feed');
+                return this._recordToolFailure('get_events_feed', `UPSTREAM_404: ${result.content?.[0]?.text?.slice(0, 200) ?? 'feed unavailable'}`, EuropeanParliamentMCPClient.FEED_FALLBACK);
+            }
+            // Success — clear any prior failure or slow-feed warning so health summary stays accurate
+            this._failedTools.delete('get_events_feed');
+            this._slowFeedWarnings.delete('get_events_feed');
+            return result;
+        }
+        catch (error) {
+            const message = error instanceof Error ? error.message : String(error);
+            // Downgrade genuine TIMEOUT errors to slow-feed warnings — not counted against success rate.
+            // The events feed latency is 30–120 s+; timeouts are expected during EP API load
+            // and classified as 🟢 LIMITATION per 07-mcp-reference.md §11 row #8.
+            // Use classifyToolError so 504 "Gateway Timeout" stays in SERVER_ERROR, not slow-feed.
+            if (classifyToolError(message) === 'TIMEOUT') {
+                const warningMsg = `SLOW_FEED: ${message.slice(0, 200)}`;
+                // Clear any prior failure entry so health summary doesn't show ❌ alongside 🟡
+                this._failedTools.delete('get_events_feed');
+                this._slowFeedWarnings.set('get_events_feed', warningMsg);
+                console.warn('🟡 get_events_feed slow-feed warning [SLOW_FEED]:', message.slice(0, 200));
+                return { content: [{ type: 'text', text: '{"feed":[],"slowFeedWarning":true}' }] };
+            }
+            // Non-timeout failure: clear any stale slow-feed warning so health summary reflects reality
+            this._slowFeedWarnings.delete('get_events_feed');
+            return this._recordToolFailure('get_events_feed', message, EuropeanParliamentMCPClient.FEED_FALLBACK);
+        }
     }
     /**
      * Get procedures feed (most recent updates via EP API v2)
      *
+     * Post-processes the response to detect "recess mode" — when the EP procedures
+     * feed returns historical archive data (all items dated ≤ 1995) instead of
+     * current procedures. This happens during parliamentary recesses when the EP API
+     * serves its historical archive in ID order.
+     *
+     * When recess mode is detected:
+     * - `recessMode: true` is added to the payload
+     * - A `RECESS_MODE: …` entry is appended to `dataQualityWarnings[]`
+     * - A `🟡 procedures-feed: recess mode` console warning is emitted
+     *
+     * The tool is **not** recorded as failed — this is documented EP API behaviour
+     * classified as 🟢 LIMITATION in `.github/prompts/07-mcp-reference.md` §11 row #5.
+     * Downstream Stage A consumers should fall back to
+     * `get_adopted_texts({ year: $YEAR })` or `track_legislation({ procedureId })`.
+     *
      * @param options - Pagination options
-     * @returns Procedures feed data
+     * @returns Procedures feed data, possibly with `recessMode: true` added to the payload
      */
     async getProceduresFeed(options = {}) {
-        return this.safeCallTool('get_procedures_feed', options, EuropeanParliamentMCPClient.FEED_FALLBACK);
+        const result = await this.safeCallTool('get_procedures_feed', options, EuropeanParliamentMCPClient.FEED_FALLBACK);
+        // Recess-mode detection: if all dated items are from ≤1995, the feed returned
+        // historical archive data instead of current procedures (EP API recess behaviour).
+        // See .github/prompts/07-mcp-reference.md §11 row #5.
+        const payload = _parseResultPayload(result);
+        if (detectProceduresFeedRecessMode(payload)) {
+            console.warn('🟡 procedures-feed: recess mode — response contains only historical procedures (≤1995); use get_adopted_texts({ year: $YEAR }) or track_legislation({ procedureId }) instead');
+            const existingWarnings = Array.isArray(payload?.['dataQualityWarnings'])
+                ? payload['dataQualityWarnings']
+                : [];
+            const augmented = {
+                ...payload,
+                recessMode: true,
+                dataQualityWarnings: [
+                    ...existingWarnings,
+                    'RECESS_MODE: procedures-feed returned historical archive (all items ≤1995) — likely parliamentary recess; fallback: get_adopted_texts({ year: $YEAR }) or track_legislation({ procedureId })',
+                ],
+            };
+            const augmentedText = JSON.stringify(augmented);
+            const originalContent = result.content;
+            const updatedContent = Array.isArray(originalContent) && originalContent.length > 0
+                ? originalContent.map((item, index) => index === 0 ? { ...item, text: augmentedText } : item)
+                : [{ type: 'text', text: augmentedText }];
+            return { ...result, content: updatedContent };
+        }
+        return result;
     }
     /**
      * Get adopted texts feed (most recent updates via EP API v2)
