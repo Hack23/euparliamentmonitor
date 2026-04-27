@@ -261,6 +261,36 @@ function _isEmptyStringSentinel(payload) {
  */
 const PROCEDURES_RECESS_YEAR_THRESHOLD = 1995;
 /**
+ * Minimum plausible year for EP procedure dates.
+ * The European Parliament was established in 1952; anything earlier is malformed.
+ */
+const MIN_VALID_PROCEDURE_YEAR = 1900;
+/**
+ * Maximum plausible year for EP procedure dates.
+ * Used as an upper sanity bound to reject obviously malformed 4-digit strings.
+ */
+const MAX_VALID_PROCEDURE_YEAR = 2100;
+/**
+ * Extract the first valid 4-digit year from an EP procedure item.
+ * Checks `dateInitiated`, then `dateLastActivity`, then the first 4 characters
+ * of `reference` (e.g. `"1972/0001(SYN)"`), returning `NaN` when none found.
+ *
+ * @param obj - Procedure item as a plain record
+ * @returns 4-digit year number, or `NaN` if no valid year field exists
+ */
+function extractProcedureItemYear(obj) {
+    const dateFields = [obj['dateInitiated'], obj['dateLastActivity'], obj['reference']];
+    for (const field of dateFields) {
+        if (typeof field !== 'string' || field.length < 4)
+            continue;
+        const year = Number(field.slice(0, 4));
+        if (!Number.isNaN(year) && year >= MIN_VALID_PROCEDURE_YEAR && year <= MAX_VALID_PROCEDURE_YEAR) {
+            return year;
+        }
+    }
+    return NaN;
+}
+/**
  * Detect whether a procedures feed response is in "recess mode" — i.e., all items
  * have dates from {@link PROCEDURES_RECESS_YEAR_THRESHOLD} or earlier (historical archive).
  *
@@ -291,18 +321,9 @@ export function detectProceduresFeedRecessMode(payload) {
     for (const item of items) {
         if (!item || typeof item !== 'object')
             continue;
-        const obj = item;
-        // Try dateInitiated first, then dateLastActivity, then reference (procedure ID prefix)
-        const dateFields = [obj['dateInitiated'], obj['dateLastActivity'], obj['reference']];
-        for (const field of dateFields) {
-            if (typeof field !== 'string' || field.length < 4)
-                continue;
-            const yearStr = field.slice(0, 4);
-            const year = Number(yearStr);
-            if (!Number.isNaN(year) && year >= 1900 && year <= 2100) {
-                years.push(year);
-                break; // use the first valid date field found
-            }
+        const year = extractProcedureItemYear(item);
+        if (!Number.isNaN(year)) {
+            years.push(year);
         }
     }
     // Recess mode: items exist but every dated item is from the historical-archive window
